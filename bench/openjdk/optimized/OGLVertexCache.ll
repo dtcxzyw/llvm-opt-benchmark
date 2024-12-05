@@ -35,7 +35,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLVertexCache_InitVertexCache(ptr noca
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %5, %4 ], [ %2, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i8, ptr %9, align 8
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %11, label %22
@@ -45,11 +45,11 @@ define hidden zeroext range(i8 0, 2) i8 @OGLVertexCache_InitVertexCache(ptr noca
   tail call void %12(i32 noundef 2, i32 noundef 5126, i32 noundef 20, ptr noundef nonnull %8) #6
   %13 = load ptr, ptr @j2d_glColorPointer, align 8
   %14 = load ptr, ptr @vertexCache, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void %13(i32 noundef 4, i32 noundef 5121, i32 noundef 20, ptr noundef nonnull %15) #6
   %16 = load ptr, ptr @j2d_glVertexPointer, align 8
   %17 = load ptr, ptr @vertexCache, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   tail call void %16(i32 noundef 2, i32 noundef 5126, i32 noundef 20, ptr noundef nonnull %18) #6
   %19 = load ptr, ptr @j2d_glEnableClientState, align 8
   tail call void %19(i32 noundef 32888) #6
@@ -86,13 +86,13 @@ define hidden void @OGLVertexCache_FlushVertexCache() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLVertexCache_RestoreColorState(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   tail call void @OGLPaints_SetColor(ptr noundef nonnull %0, i32 noundef %7) #6
   br label %8
@@ -118,7 +118,7 @@ define hidden void @OGLVertexCache_EnableMaskCache(ptr nocapture noundef %0) loc
 
 8:                                                ; preds = %5, %1
   %9 = phi ptr [ %6, %5 ], [ %3, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
   %.not.i = icmp eq i8 %11, 0
   br i1 %.not.i, label %12, label %23
@@ -128,11 +128,11 @@ define hidden void @OGLVertexCache_EnableMaskCache(ptr nocapture noundef %0) loc
   tail call void %13(i32 noundef 2, i32 noundef 5126, i32 noundef 20, ptr noundef nonnull %9) #6
   %14 = load ptr, ptr @j2d_glColorPointer, align 8
   %15 = load ptr, ptr @vertexCache, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void %14(i32 noundef 4, i32 noundef 5121, i32 noundef 20, ptr noundef nonnull %16) #6
   %17 = load ptr, ptr @j2d_glVertexPointer, align 8
   %18 = load ptr, ptr @vertexCache, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   tail call void %17(i32 noundef 2, i32 noundef 5126, i32 noundef 20, ptr noundef nonnull %19) #6
   %20 = load ptr, ptr @j2d_glEnableClientState, align 8
   tail call void %20(i32 noundef 32888) #6
@@ -164,7 +164,7 @@ define hidden void @OGLVertexCache_EnableMaskCache(ptr nocapture noundef %0) loc
   %31 = load ptr, ptr @j2d_glBindTexture, align 8
   %32 = load i32, ptr @maskCacheTexID, align 4
   call void %31(i32 noundef 3553, i32 noundef %32) #6
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %34 = load i32, ptr %33, align 4
   %.not3 = icmp eq i32 %34, 8448
   br i1 %.not3, label %37, label %35
@@ -197,13 +197,13 @@ define hidden void @OGLVertexCache_DisableMaskCache(ptr noundef %0) local_unname
 
 OGLVertexCache_FlushVertexCache.exit:             ; preds = %1, %4
   store i32 0, ptr @vertexCacheIndex, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %OGLVertexCache_RestoreColorState.exit
 
 9:                                                ; preds = %OGLVertexCache_FlushVertexCache.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   tail call void @OGLPaints_SetColor(ptr noundef nonnull %0, i32 noundef %11) #6
   br label %OGLVertexCache_RestoreColorState.exit
@@ -293,27 +293,27 @@ OGLVertexCache_FlushVertexCache.exit:             ; preds = %14, %16
   %49 = sext i32 %37 to i64
   %50 = getelementptr inbounds %struct._J2DVertex, ptr %48, i64 %49
   store float %.0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store float %.085, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %53 = load i8, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i8 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 29
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr inbounds i8, ptr %50, i64 9
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 9
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 30
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %59 = load i8, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %50, i64 10
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 10
   store i8 %59, ptr %60, align 2
-  %61 = getelementptr inbounds i8, ptr %0, i64 31
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %50, i64 11
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 11
   store i8 %62, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %50, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store float %44, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %50, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store float %45, ptr %65, align 4
   %66 = sext i32 %37 to i64
   %67 = getelementptr %struct._J2DVertex, ptr %48, i64 %66
@@ -403,27 +403,27 @@ OGLVertexCache_FlushVertexCache.exit:             ; preds = %9
   %16 = sext i32 %14 to i64
   %17 = getelementptr inbounds %struct._J2DVertex, ptr %15, i64 %16
   store float %1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float %2, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = load i8, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 29
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %17, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 9
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 30
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %26 = load i8, ptr %25, align 2
-  %27 = getelementptr inbounds i8, ptr %17, i64 10
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 10
   store i8 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 31
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %17, i64 11
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 11
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %17, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store float %5, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %17, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store float %6, ptr %32, align 4
   %33 = sext i32 %14 to i64
   %34 = getelementptr %struct._J2DVertex, ptr %15, i64 %33

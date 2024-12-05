@@ -1754,7 +1754,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i84:                  ; preds = %401, %399
   %408 = load ptr, ptr %4, align 8, !noalias !91
   %409 = lshr i32 %403, 6
   %410 = zext nneg i32 %409 to i64
-  %411 = getelementptr inbounds i64, ptr %408, i64 %410
+  %411 = getelementptr inbounds nuw i64, ptr %408, i64 %410
   %.in.i.i.i.i.i = select i1 %407, ptr %4, ptr %411
   %412 = load i64, ptr %.in.i.i.i.i.i, align 8
   %413 = and i64 %406, %412
@@ -1780,7 +1780,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i84:                  ; preds = %401, %399
   %425 = load ptr, ptr %22, align 8, !alias.scope !91
   %426 = lshr i32 %416, 6
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds i64, ptr %425, i64 %427
+  %428 = getelementptr inbounds nuw i64, ptr %425, i64 %427
   %429 = load i64, ptr %428, align 8
   %430 = or i64 %429, %419
   store i64 %430, ptr %428, align 8
@@ -1816,7 +1816,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i85:                  ; preds = %438, %436
   %446 = load ptr, ptr %5, align 8, !noalias !94
   %447 = lshr i32 %441, 6
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds i64, ptr %446, i64 %448
+  %449 = getelementptr inbounds nuw i64, ptr %446, i64 %448
   %.in.i.i.i.i.i86 = select i1 %445, ptr %5, ptr %449
   %450 = load i64, ptr %.in.i.i.i.i.i86, align 8
   %451 = and i64 %444, %450
@@ -1842,7 +1842,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i85:                  ; preds = %438, %436
   %463 = load ptr, ptr %23, align 8, !alias.scope !94
   %464 = lshr i32 %454, 6
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr inbounds i64, ptr %463, i64 %465
+  %466 = getelementptr inbounds nuw i64, ptr %463, i64 %465
   %467 = load i64, ptr %466, align 8
   %468 = or i64 %467, %457
   store i64 %468, ptr %466, align 8
@@ -1957,7 +1957,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i96:                  ; preds = %511, %509
   %518 = load ptr, ptr %4, align 8, !noalias !97
   %519 = lshr i32 %513, 6
   %520 = zext nneg i32 %519 to i64
-  %521 = getelementptr inbounds i64, ptr %518, i64 %520
+  %521 = getelementptr inbounds nuw i64, ptr %518, i64 %520
   %.in.i.i.i.i.i97 = select i1 %517, ptr %4, ptr %521
   %522 = load i64, ptr %.in.i.i.i.i.i97, align 8
   %523 = and i64 %516, %522
@@ -1983,7 +1983,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i96:                  ; preds = %511, %509
   %535 = load ptr, ptr %28, align 8, !alias.scope !97
   %536 = lshr i32 %526, 6
   %537 = zext nneg i32 %536 to i64
-  %538 = getelementptr inbounds i64, ptr %535, i64 %537
+  %538 = getelementptr inbounds nuw i64, ptr %535, i64 %537
   %539 = load i64, ptr %538, align 8
   %540 = or i64 %539, %529
   store i64 %540, ptr %538, align 8
@@ -2071,7 +2071,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i104:                 ; preds = %570, %568
   %578 = load ptr, ptr %5, align 8, !noalias !100
   %579 = lshr i32 %573, 6
   %580 = zext nneg i32 %579 to i64
-  %581 = getelementptr inbounds i64, ptr %578, i64 %580
+  %581 = getelementptr inbounds nuw i64, ptr %578, i64 %580
   %.in.i.i.i.i.i105 = select i1 %577, ptr %5, ptr %581
   %582 = load i64, ptr %.in.i.i.i.i.i105, align 8
   %583 = and i64 %576, %582
@@ -2097,7 +2097,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i104:                 ; preds = %570, %568
   %595 = load ptr, ptr %32, align 8, !alias.scope !100
   %596 = lshr i32 %586, 6
   %597 = zext nneg i32 %596 to i64
-  %598 = getelementptr inbounds i64, ptr %595, i64 %597
+  %598 = getelementptr inbounds nuw i64, ptr %595, i64 %597
   %599 = load i64, ptr %598, align 8
   %600 = or i64 %599, %589
   store i64 %600, ptr %598, align 8
@@ -2153,7 +2153,7 @@ _ZN4llvm5APIntD2Ev.exit95:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %623 = load ptr, ptr %19, align 8
   %624 = lshr i32 %618, 6
   %625 = zext nneg i32 %624 to i64
-  %626 = getelementptr inbounds i64, ptr %623, i64 %625
+  %626 = getelementptr inbounds nuw i64, ptr %623, i64 %625
   %.in.i.i.i.i = select i1 %622, ptr %19, ptr %626
   %627 = load i64, ptr %.in.i.i.i.i, align 8
   %628 = and i64 %621, %627
@@ -2251,7 +2251,7 @@ _ZN4llvm5APInt7setBitsEjj.exit117:                ; preds = %634, %_ZN4llvm5APIn
   %680 = load ptr, ptr %0, align 8
   %681 = lshr i32 %671, 6
   %682 = zext nneg i32 %681 to i64
-  %683 = getelementptr inbounds i64, ptr %680, i64 %682
+  %683 = getelementptr inbounds nuw i64, ptr %680, i64 %682
   %684 = load i64, ptr %683, align 8
   %685 = or i64 %684, %674
   store i64 %685, ptr %683, align 8
@@ -2265,7 +2265,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %679, %676, %_ZN4llv
   %690 = icmp ult i32 %615, 65
   %691 = lshr i32 %686, 6
   %692 = zext nneg i32 %691 to i64
-  %693 = getelementptr inbounds i64, ptr %616, i64 %692
+  %693 = getelementptr inbounds nuw i64, ptr %616, i64 %692
   %.in.i.i.i = select i1 %690, ptr %20, ptr %693
   %694 = load i64, ptr %.in.i.i.i, align 8
   %695 = and i64 %689, %694
@@ -2357,7 +2357,7 @@ _ZN4llvm5APInt7setBitsEjj.exit124:                ; preds = %_ZN4llvm5APIntD2Ev.
   %741 = load ptr, ptr %39, align 8
   %742 = lshr i32 %732, 6
   %743 = zext nneg i32 %742 to i64
-  %744 = getelementptr inbounds i64, ptr %741, i64 %743
+  %744 = getelementptr inbounds nuw i64, ptr %741, i64 %743
   %745 = load i64, ptr %744, align 8
   %746 = or i64 %745, %735
   store i64 %746, ptr %744, align 8
@@ -2452,7 +2452,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %_ZN4llvm5APIntD2Ev.
   %792 = lshr i64 %791, 6
   %793 = add nuw nsw i64 %792, 4294967295
   %794 = and i64 %793, 4294967295
-  %795 = getelementptr inbounds i64, ptr %789, i64 %794
+  %795 = getelementptr inbounds nuw i64, ptr %789, i64 %794
   %796 = load i64, ptr %795, align 8
   %797 = and i64 %796, %780
   store i64 %797, ptr %795, align 8
@@ -2560,7 +2560,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %8, %10
   %18 = load ptr, ptr %1, align 8
   %19 = lshr i32 %13, 6
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i64, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
   %.in.i.i.i.i = select i1 %17, ptr %1, ptr %21
   %22 = load i64, ptr %.in.i.i.i.i, align 8
   %23 = and i64 %16, %22
@@ -2586,7 +2586,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %8, %10
   %35 = load ptr, ptr %0, align 8
   %36 = lshr i32 %26, 6
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds i64, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %29
   store i64 %40, ptr %38, align 8
@@ -2655,7 +2655,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %18, %_ZN4llvm5APInt
   %30 = load ptr, ptr %22, align 8
   %31 = lshr i32 %25, 6
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
   %.in.i.i.i.i = select i1 %29, ptr %22, ptr %33
   %34 = load i64, ptr %.in.i.i.i.i, align 8
   %35 = and i64 %28, %34
@@ -2680,7 +2680,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %18, %_ZN4llvm5APInt
 46:                                               ; preds = %37
   %47 = lshr i32 %38, 6
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %36, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %36, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %42
   store i64 %51, ptr %49, align 8
@@ -4129,7 +4129,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
   %23 = icmp ult i32 %.pre.fr, 65
   %24 = lshr i32 %9, 6
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %.pre2, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %.pre2, i64 %25
   %spec.select = select i1 %23, ptr %15, ptr %26
   br label %27
 
@@ -4157,7 +4157,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i64, ptr %40, i64 %28
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %28
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %30
   store i64 %43, ptr %41, align 8
@@ -4177,7 +4177,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
 
 51:                                               ; preds = %44
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i64, ptr %52, i64 %28
+  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %28
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %45
   store i64 %55, ptr %53, align 8
@@ -4187,7 +4187,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %36, %39, %48, %51
   %56 = load i32, ptr %7, align 8
   %57 = icmp ult i32 %56, 65
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %28
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %28
   %.in.i.i9 = select i1 %57, ptr %1, ptr %59
   %60 = load i64, ptr %.in.i.i9, align 8
   %61 = and i64 %60, %30
@@ -4207,7 +4207,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %36, %39, %48, %51
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds i64, ptr %69, i64 %28
+  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %28
   %71 = load i64, ptr %70, align 8
   %72 = or i64 %71, %30
   store i64 %72, ptr %70, align 8
@@ -4227,7 +4227,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %36, %39, %48, %51
 
 80:                                               ; preds = %73
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %28
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %28
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, %74
   store i64 %84, ptr %82, align 8
@@ -4466,7 +4466,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
   %24 = icmp ult i32 %.pre2.fr, 65
   %25 = lshr i32 %9, 6
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %.pre3, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %.pre3, i64 %26
   %spec.select = select i1 %24, ptr %1, ptr %27
   br label %28
 
@@ -4494,7 +4494,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %29
+  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %29
   %43 = load i64, ptr %42, align 8
   %44 = or i64 %43, %31
   store i64 %44, ptr %42, align 8
@@ -4514,7 +4514,7 @@ _ZN4llvm5APIntC2ERKS0_.exit8:                     ; preds = %_ZN4llvm5APIntC2ERK
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds i64, ptr %53, i64 %29
+  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %29
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, %46
   store i64 %56, ptr %54, align 8
@@ -4524,7 +4524,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %37, %40, %49, %52
   %57 = load i32, ptr %12, align 8
   %58 = icmp ult i32 %57, 65
   %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds i64, ptr %59, i64 %29
+  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %29
   %.in.i.i9 = select i1 %58, ptr %10, ptr %60
   %61 = load i64, ptr %.in.i.i9, align 8
   %62 = and i64 %61, %31
@@ -4544,7 +4544,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %37, %40, %49, %52
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds i64, ptr %70, i64 %29
+  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %29
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %31
   store i64 %73, ptr %71, align 8
@@ -4564,7 +4564,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %37, %40, %49, %52
 
 81:                                               ; preds = %74
   %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds i64, ptr %82, i64 %29
+  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %29
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, %75
   store i64 %85, ptr %83, align 8
@@ -4959,7 +4959,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %18, %16
   %26 = load ptr, ptr %1, align 8, !noalias !190
   %27 = lshr i32 %21, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i64, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
   %.in.i.i.i.i.i = select i1 %25, ptr %1, ptr %29
   %30 = load i64, ptr %.in.i.i.i.i.i, align 8
   %31 = and i64 %24, %30
@@ -4985,7 +4985,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %18, %16
   %43 = load ptr, ptr %4, align 8, !alias.scope !190
   %44 = lshr i32 %34, 6
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = or i64 %47, %37
   store i64 %48, ptr %46, align 8
@@ -5060,7 +5060,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i15:                  ; preds = %73, %71
   %81 = load ptr, ptr %2, align 8, !noalias !193
   %82 = lshr i32 %76, 6
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds i64, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw i64, ptr %81, i64 %83
   %.in.i.i.i.i.i16 = select i1 %80, ptr %2, ptr %84
   %85 = load i64, ptr %.in.i.i.i.i.i16, align 8
   %86 = and i64 %79, %85
@@ -5086,7 +5086,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i15:                  ; preds = %73, %71
   %98 = load ptr, ptr %6, align 8, !alias.scope !193
   %99 = lshr i32 %89, 6
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds i64, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %98, i64 %100
   %102 = load i64, ptr %101, align 8
   %103 = or i64 %102, %92
   store i64 %103, ptr %101, align 8
@@ -5135,7 +5135,7 @@ _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %121 = load i32, ptr %19, align 8
   %122 = add i32 %121, -1
   store ptr %1, ptr %8, align 8
-  %123 = getelementptr inbounds i8, ptr %8, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %123, align 8
   %124 = and i32 %122, 63
   %125 = zext nneg i32 %124 to i64
@@ -5147,13 +5147,13 @@ _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 130:                                              ; preds = %120, %_ZN4llvm5APInt9setBitValEjb.exit22
   %.0.idx28 = phi i64 [ 0, %120 ], [ %.0.add, %_ZN4llvm5APInt9setBitValEjb.exit22 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %8, i64 %.0.idx28
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.0.idx28
   %131 = load ptr, ptr %.0.ptr, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i32, ptr %132, align 8
   %134 = icmp ult i32 %133, 65
   %135 = load ptr, ptr %131, align 8
-  %136 = getelementptr inbounds i64, ptr %135, i64 %128
+  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %128
   %.in.i.i = select i1 %134, ptr %131, ptr %136
   %137 = load i64, ptr %.in.i.i, align 8
   %138 = and i64 %137, %126
@@ -5163,7 +5163,7 @@ _ZN4llvm5APIntD2Ev.exit20:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %141 = load i32, ptr %140, align 8
   %142 = icmp ult i32 %141, 65
   %143 = load ptr, ptr %139, align 8
-  %144 = getelementptr inbounds i64, ptr %143, i64 %128
+  %144 = getelementptr inbounds nuw i64, ptr %143, i64 %128
   %.in.i.i21 = select i1 %142, ptr %139, ptr %144
   %145 = load i64, ptr %.in.i.i21, align 8
   %146 = and i64 %145, %126
@@ -5215,7 +5215,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %149, %151, %155, %1
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %139, align 8
-  %168 = getelementptr inbounds i64, ptr %167, i64 %128
+  %168 = getelementptr inbounds nuw i64, ptr %167, i64 %128
   %169 = load i64, ptr %168, align 8
   %170 = or i64 %169, %126
   store i64 %170, ptr %168, align 8
@@ -5232,7 +5232,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %149, %151, %155, %1
 
 175:                                              ; preds = %171
   %176 = load ptr, ptr %139, align 8
-  %177 = getelementptr inbounds i64, ptr %176, i64 %128
+  %177 = getelementptr inbounds nuw i64, ptr %176, i64 %128
   %178 = load i64, ptr %177, align 8
   %179 = and i64 %178, %129
   store i64 %179, ptr %177, align 8
@@ -5494,7 +5494,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %62, %72, %75, %79
   %92 = load ptr, ptr %0, align 8
   %93 = lshr i32 %83, 6
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i64, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %92, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = or i64 %96, %86
   store i64 %97, ptr %95, align 8
@@ -5789,7 +5789,7 @@ _ZNK4llvm9KnownBits9isAllOnesEv.exit.thread:      ; preds = %_ZN4llvm5APInt10set
   %232 = load ptr, ptr %22, align 8
   %233 = lshr i32 %223, 6
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds i64, ptr %232, i64 %234
+  %235 = getelementptr inbounds nuw i64, ptr %232, i64 %234
   %236 = load i64, ptr %235, align 8
   %237 = or i64 %236, %226
   store i64 %237, ptr %235, align 8
@@ -5808,7 +5808,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %231, %228, %214, %_
   %245 = load ptr, ptr %1, align 8
   %246 = lshr i32 %240, 6
   %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds i64, ptr %245, i64 %247
+  %248 = getelementptr inbounds nuw i64, ptr %245, i64 %247
   %.in.i.i.i.i = select i1 %244, ptr %1, ptr %248
   %249 = load i64, ptr %.in.i.i.i.i, align 8
   %250 = and i64 %243, %249
@@ -5834,7 +5834,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %231, %228, %214, %_
   %262 = load ptr, ptr %0, align 8
   %263 = lshr i32 %253, 6
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds i64, ptr %262, i64 %264
+  %265 = getelementptr inbounds nuw i64, ptr %262, i64 %264
   %266 = load i64, ptr %265, align 8
   %267 = or i64 %266, %256
   store i64 %267, ptr %265, align 8
@@ -5850,7 +5850,7 @@ _ZN4llvm9KnownBits15makeNonNegativeEv.exit56:     ; preds = %261, %258, %238
   %274 = load ptr, ptr %208, align 8
   %275 = lshr i32 %269, 6
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds i64, ptr %274, i64 %276
+  %277 = getelementptr inbounds nuw i64, ptr %274, i64 %276
   %.in.i.i.i.i57 = select i1 %273, ptr %208, ptr %277
   %278 = load i64, ptr %.in.i.i.i.i57, align 8
   %279 = and i64 %272, %278
@@ -5876,7 +5876,7 @@ _ZN4llvm9KnownBits15makeNonNegativeEv.exit56:     ; preds = %261, %258, %238
   %291 = load ptr, ptr %22, align 8
   %292 = lshr i32 %282, 6
   %293 = zext nneg i32 %292 to i64
-  %294 = getelementptr inbounds i64, ptr %291, i64 %293
+  %294 = getelementptr inbounds nuw i64, ptr %291, i64 %293
   %295 = load i64, ptr %294, align 8
   %296 = or i64 %295, %285
   store i64 %296, ptr %294, align 8
@@ -5966,7 +5966,7 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %339 = lshr i64 %338, 6
   %340 = add nuw nsw i64 %339, 4294967295
   %341 = and i64 %340, 4294967295
-  %342 = getelementptr inbounds i64, ptr %336, i64 %341
+  %342 = getelementptr inbounds nuw i64, ptr %336, i64 %341
   %343 = load i64, ptr %342, align 8
   %344 = and i64 %343, %327
   store i64 %344, ptr %342, align 8
@@ -6022,7 +6022,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit:                ; preds = %329, %335
   %373 = lshr i64 %372, 6
   %374 = add nuw nsw i64 %373, 4294967295
   %375 = and i64 %374, 4294967295
-  %376 = getelementptr inbounds i64, ptr %370, i64 %375
+  %376 = getelementptr inbounds nuw i64, ptr %370, i64 %375
   %377 = load i64, ptr %376, align 8
   %378 = and i64 %377, %361
   store i64 %378, ptr %376, align 8
@@ -6150,7 +6150,7 @@ _ZN4llvm5APIntD2Ev.exit9.i:                       ; preds = %414, %411, %_ZN4llv
   %432 = load ptr, ptr %17, align 8, !alias.scope !206
   %433 = lshr i32 %423, 6
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds i64, ptr %432, i64 %434
+  %435 = getelementptr inbounds nuw i64, ptr %432, i64 %434
   %436 = load i64, ptr %435, align 8
   %437 = or i64 %436, %426
   store i64 %437, ptr %435, align 8
@@ -6177,7 +6177,7 @@ _ZN4llvm5APIntD2Ev.exit9.i:                       ; preds = %414, %411, %_ZN4llv
 449:                                              ; preds = %441
   %450 = lshr i32 %442, 6
   %451 = zext nneg i32 %450 to i64
-  %452 = getelementptr inbounds i64, ptr %417, i64 %451
+  %452 = getelementptr inbounds nuw i64, ptr %417, i64 %451
   %453 = load i64, ptr %452, align 8
   %454 = or i64 %453, %445
   store i64 %454, ptr %452, align 8
@@ -6369,7 +6369,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %._crit_edge
   %538 = lshr i64 %537, 6
   %539 = add nuw nsw i64 %538, 4294967295
   %540 = and i64 %539, 4294967295
-  %541 = getelementptr inbounds i64, ptr %535, i64 %540
+  %541 = getelementptr inbounds nuw i64, ptr %535, i64 %540
   %542 = load i64, ptr %541, align 8
   %543 = and i64 %542, %526
   store i64 %543, ptr %541, align 8
@@ -6712,7 +6712,7 @@ _ZNK4llvm9KnownBits21countMaxTrailingZerosEv.exit: ; preds = %108, %112
   %144 = lshr i64 %143, 6
   %145 = add nuw nsw i64 %144, 4294967295
   %146 = and i64 %145, 4294967295
-  %147 = getelementptr inbounds i64, ptr %141, i64 %146
+  %147 = getelementptr inbounds nuw i64, ptr %141, i64 %146
   %148 = load i64, ptr %147, align 8
   %149 = and i64 %148, %132
   store i64 %149, ptr %147, align 8
@@ -6825,7 +6825,7 @@ _ZN4llvm5APIntD2Ev.exit36:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %202 = lshr i64 %201, 6
   %203 = add nuw nsw i64 %202, 4294967295
   %204 = and i64 %203, 4294967295
-  %205 = getelementptr inbounds i64, ptr %199, i64 %204
+  %205 = getelementptr inbounds nuw i64, ptr %199, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = and i64 %206, %190
   store i64 %207, ptr %205, align 8
@@ -6881,7 +6881,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit:                ; preds = %192, %198
   %236 = lshr i64 %235, 6
   %237 = add nuw nsw i64 %236, 4294967295
   %238 = and i64 %237, 4294967295
-  %239 = getelementptr inbounds i64, ptr %233, i64 %238
+  %239 = getelementptr inbounds nuw i64, ptr %233, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = and i64 %240, %224
   store i64 %241, ptr %239, align 8
@@ -7199,7 +7199,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %._crit_edge
   %382 = lshr i64 %381, 6
   %383 = add nuw nsw i64 %382, 4294967295
   %384 = and i64 %383, 4294967295
-  %385 = getelementptr inbounds i64, ptr %379, i64 %384
+  %385 = getelementptr inbounds nuw i64, ptr %379, i64 %384
   %386 = load i64, ptr %385, align 8
   %387 = and i64 %386, %370
   store i64 %387, ptr %385, align 8
@@ -7415,7 +7415,7 @@ _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %47
   %88 = lshr i64 %87, 6
   %89 = add nuw nsw i64 %88, 4294967295
   %90 = and i64 %89, 4294967295
-  %91 = getelementptr inbounds i64, ptr %85, i64 %90
+  %91 = getelementptr inbounds nuw i64, ptr %85, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, %76
   store i64 %93, ptr %91, align 8
@@ -7591,7 +7591,7 @@ _ZNK4llvm9KnownBits21countMaxTrailingZerosEv.exit: ; preds = %137, %141
   %173 = lshr i64 %172, 6
   %174 = add nuw nsw i64 %173, 4294967295
   %175 = and i64 %174, 4294967295
-  %176 = getelementptr inbounds i64, ptr %170, i64 %175
+  %176 = getelementptr inbounds nuw i64, ptr %170, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = and i64 %177, %161
   store i64 %178, ptr %176, align 8
@@ -7704,7 +7704,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %231 = lshr i64 %230, 6
   %232 = add nuw nsw i64 %231, 4294967295
   %233 = and i64 %232, 4294967295
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds nuw i64, ptr %228, i64 %233
   %235 = load i64, ptr %234, align 8
   %236 = and i64 %235, %219
   store i64 %236, ptr %234, align 8
@@ -7760,7 +7760,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit:                ; preds = %221, %227
   %265 = lshr i64 %264, 6
   %266 = add nuw nsw i64 %265, 4294967295
   %267 = and i64 %266, 4294967295
-  %268 = getelementptr inbounds i64, ptr %262, i64 %267
+  %268 = getelementptr inbounds nuw i64, ptr %262, i64 %267
   %269 = load i64, ptr %268, align 8
   %270 = and i64 %269, %253
   store i64 %270, ptr %268, align 8
@@ -8065,7 +8065,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %._crit_edge
   %408 = lshr i64 %407, 6
   %409 = add nuw nsw i64 %408, 4294967295
   %410 = and i64 %409, 4294967295
-  %411 = getelementptr inbounds i64, ptr %405, i64 %410
+  %411 = getelementptr inbounds nuw i64, ptr %405, i64 %410
   %412 = load i64, ptr %411, align 8
   %413 = and i64 %412, %396
   store i64 %413, ptr %411, align 8
@@ -8523,7 +8523,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %14, %12
   %22 = load ptr, ptr %1, align 8, !noalias !259
   %23 = lshr i32 %17, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
   %.in.i.i.i.i.i = select i1 %21, ptr %1, ptr %25
   %26 = load i64, ptr %.in.i.i.i.i.i, align 8
   %27 = and i64 %20, %26
@@ -8549,7 +8549,7 @@ _ZNK4llvm9KnownBits17getSignedMinValueEv.exit.thread: ; preds = %28
   %38 = load ptr, ptr %4, align 8, !alias.scope !259
   %39 = lshr i32 %29, 6
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i64, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw i64, ptr %38, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %32
   store i64 %43, ptr %41, align 8
@@ -8621,7 +8621,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %67, %65
   %75 = load ptr, ptr %0, align 8, !noalias !262
   %76 = lshr i32 %70, 6
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i64, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %75, i64 %77
   %.in.i.i.i.i.i6 = select i1 %74, ptr %0, ptr %78
   %79 = load i64, ptr %.in.i.i.i.i.i6, align 8
   %80 = and i64 %73, %79
@@ -8647,7 +8647,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i5:                   ; preds = %67, %65
   %92 = load ptr, ptr %5, align 8, !alias.scope !262
   %93 = lshr i32 %83, 6
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i64, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %92, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = or i64 %96, %86
   store i64 %97, ptr %95, align 8
@@ -8736,7 +8736,7 @@ define dso_local void @_ZNK4llvm9KnownBits3absEb(ptr dead_on_unwind noalias writ
   %15 = load ptr, ptr %1, align 8
   %16 = lshr i32 %10, 6
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %.in.i.i.i.i = select i1 %14, ptr %1, ptr %18
   %19 = load i64, ptr %.in.i.i.i.i, align 8
   %20 = and i64 %13, %19
@@ -8805,7 +8805,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %38, %39
   %48 = load ptr, ptr %40, align 8
   %49 = lshr i32 %43, 6
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i64, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %48, i64 %50
   %.in.i.i.i.i10 = select i1 %47, ptr %40, ptr %51
   %52 = load i64, ptr %.in.i.i.i.i10, align 8
   %53 = and i64 %46, %52
@@ -8908,7 +8908,7 @@ _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit: ; preds = %82, %.thread
   %96 = load ptr, ptr %63, align 8
   %97 = lshr i32 %.0.i.i, 6
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds i64, ptr %96, i64 %98
+  %99 = getelementptr inbounds nuw i64, ptr %96, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = or i64 %100, %89
   store i64 %101, ptr %99, align 8
@@ -9101,7 +9101,7 @@ _ZNK4llvm9KnownBits18countMaxPopulationEv.exit:   ; preds = %170, %174
   %187 = load ptr, ptr %63, align 8
   %188 = lshr i32 %178, 6
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds i64, ptr %187, i64 %189
+  %190 = getelementptr inbounds nuw i64, ptr %187, i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = and i64 %191, %182
   store i64 %192, ptr %190, align 8
@@ -9127,7 +9127,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit:              ; preds = %183, %186
   %203 = load ptr, ptr %4, align 8
   %204 = lshr i32 %194, 6
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds i64, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw i64, ptr %203, i64 %205
   %207 = load i64, ptr %206, align 8
   %208 = or i64 %207, %197
   store i64 %208, ptr %206, align 8
@@ -9382,7 +9382,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %_ZNK4llvm9KnownBits
   %323 = load ptr, ptr %36, align 8
   %324 = lshr i32 %.0.i.i28, 6
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds i64, ptr %323, i64 %325
+  %326 = getelementptr inbounds nuw i64, ptr %323, i64 %325
   %327 = load i64, ptr %326, align 8
   %328 = or i64 %327, %316
   store i64 %328, ptr %326, align 8
@@ -9421,7 +9421,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %329
   %347 = load ptr, ptr %40, align 8
   %348 = lshr i32 %343, 6
   %349 = zext nneg i32 %348 to i64
-  %350 = getelementptr inbounds i64, ptr %347, i64 %349
+  %350 = getelementptr inbounds nuw i64, ptr %347, i64 %349
   %351 = load i64, ptr %350, align 8
   %352 = and i64 %351, %346
   %.not.i = icmp eq i64 %352, 0
@@ -9452,7 +9452,7 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread:  ; preds = %342, %337, %_ZNK4ll
   %366 = load ptr, ptr %36, align 8
   %367 = lshr i32 %356, 6
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds i64, ptr %366, i64 %368
+  %369 = getelementptr inbounds nuw i64, ptr %366, i64 %368
   %370 = load i64, ptr %369, align 8
   %371 = and i64 %370, %360
   store i64 %371, ptr %369, align 8
@@ -9477,7 +9477,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit34:            ; preds = %362, %365
   %382 = load ptr, ptr %0, align 8
   %383 = lshr i32 %373, 6
   %384 = zext nneg i32 %383 to i64
-  %385 = getelementptr inbounds i64, ptr %382, i64 %384
+  %385 = getelementptr inbounds nuw i64, ptr %382, i64 %384
   %386 = load i64, ptr %385, align 8
   %387 = or i64 %386, %376
   store i64 %387, ptr %385, align 8
@@ -9662,7 +9662,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %48 = load ptr, ptr %3, align 8
   %49 = lshr i32 %41, 6
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i64, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %48, i64 %50
   %.in.i.i.i = select i1 %47, ptr %3, ptr %51
   %52 = load i64, ptr %.in.i.i.i, align 8
   %53 = and i64 %52, %44
@@ -9675,7 +9675,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %56, 65
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %50
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %50
   %.in.i.i3.i = select i1 %57, ptr %54, ptr %59
   %60 = load i64, ptr %.in.i.i3.i, align 8
   %61 = and i64 %60, %44
@@ -9687,7 +9687,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %63, 65
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %50
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %50
   %.in.i.i.i47 = select i1 %64, ptr %4, ptr %66
   %67 = load i64, ptr %.in.i.i.i47, align 8
   %68 = and i64 %67, %44
@@ -9700,7 +9700,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %71 = load i32, ptr %70, align 8
   %72 = icmp ult i32 %71, 65
   %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr inbounds i64, ptr %73, i64 %50
+  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %50
   %.in.i.i3.i49 = select i1 %72, ptr %69, ptr %74
   %75 = load i64, ptr %.in.i.i3.i49, align 8
   %76 = and i64 %75, %44
@@ -9710,7 +9710,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
 "_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread", %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50"
   %77 = icmp ult i32 %39, 65
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i64, ptr %78, i64 %50
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %50
   %.in.i.i.i51 = select i1 %77, ptr %0, ptr %79
   %80 = load i64, ptr %.in.i.i.i51, align 8
   %81 = and i64 %80, %44
@@ -9723,7 +9723,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %84 = load i32, ptr %83, align 8
   %85 = icmp ult i32 %84, 65
   %86 = load ptr, ptr %82, align 8
-  %87 = getelementptr inbounds i64, ptr %86, i64 %50
+  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %50
   %.in.i.i3.i53 = select i1 %85, ptr %82, ptr %87
   %88 = load i64, ptr %.in.i.i3.i53, align 8
   %89 = and i64 %88, %44
@@ -9737,7 +9737,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %93 = shl nuw i64 1, %92
   %94 = lshr i32 %90, 6
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds i64, ptr %48, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %48, i64 %95
   %.in.i.i.i.i = select i1 %47, ptr %3, ptr %96
   %97 = load i64, ptr %.in.i.i.i.i, align 8
   %98 = and i64 %97, %93
@@ -9748,7 +9748,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
   %103 = shl nuw i64 1, %102
   %104 = lshr i32 %100, 6
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds i64, ptr %65, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %65, i64 %105
   %.in.i.i.i.i55 = select i1 %64, ptr %4, ptr %106
   %107 = load i64, ptr %.in.i.i.i.i55, align 8
   %108 = and i64 %107, %103
@@ -10236,7 +10236,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %.pre-phi296 = phi i64 [ %.pre295, %._crit_edge ], [ %93, %.thread219 ]
   %.sroa.7.0223 = phi i8 [ 0, %._crit_edge ], [ 1, %.thread219 ]
   %.sroa.0187.0222 = phi i1 [ undef, %._crit_edge ], [ %narrow249, %.thread219 ]
-  %309 = getelementptr inbounds i64, ptr %48, i64 %.pre-phi300
+  %309 = getelementptr inbounds nuw i64, ptr %48, i64 %.pre-phi300
   %.in.i.i.i.i107 = select i1 %47, ptr %3, ptr %309
   %310 = load i64, ptr %.in.i.i.i.i107, align 8
   %311 = and i64 %.pre-phi296, %310
@@ -10254,7 +10254,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %320 = load ptr, ptr %4, align 8
   %321 = lshr i32 %315, 6
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds i64, ptr %320, i64 %322
+  %323 = getelementptr inbounds nuw i64, ptr %320, i64 %322
   %.in.i.i.i.i108 = select i1 %319, ptr %4, ptr %323
   %324 = load i64, ptr %.in.i.i.i.i108, align 8
   %325 = and i64 %318, %324
@@ -10283,7 +10283,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %340 = load ptr, ptr %327, align 8
   %341 = lshr i32 %330, 6
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds i64, ptr %340, i64 %342
+  %343 = getelementptr inbounds nuw i64, ptr %340, i64 %342
   %344 = load i64, ptr %343, align 8
   %345 = and i64 %344, %334
   store i64 %345, ptr %343, align 8
@@ -10311,7 +10311,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit:              ; preds = %336, %339
   %352 = load ptr, ptr %0, align 8
   %353 = lshr i32 %.pre-phi, 6
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds i64, ptr %352, i64 %354
+  %355 = getelementptr inbounds nuw i64, ptr %352, i64 %354
   %356 = load i64, ptr %355, align 8
   %357 = or i64 %356, %.pre-phi272
   store i64 %357, ptr %355, align 8
@@ -10329,7 +10329,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %351, %348, %312, %3
   %366 = load ptr, ptr %358, align 8
   %367 = lshr i32 %361, 6
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds i64, ptr %366, i64 %368
+  %369 = getelementptr inbounds nuw i64, ptr %366, i64 %368
   %.in.i.i.i.i109 = select i1 %365, ptr %358, ptr %369
   %370 = load i64, ptr %.in.i.i.i.i109, align 8
   %371 = and i64 %364, %370
@@ -10348,7 +10348,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %351, %348, %312, %3
   %381 = load ptr, ptr %373, align 8
   %382 = lshr i32 %376, 6
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds i64, ptr %381, i64 %383
+  %384 = getelementptr inbounds nuw i64, ptr %381, i64 %383
   %.in.i.i.i.i110 = select i1 %380, ptr %373, ptr %384
   %385 = load i64, ptr %.in.i.i.i.i110, align 8
   %386 = and i64 %379, %385
@@ -10376,7 +10376,7 @@ _ZN4llvm5APInt10setSignBitEv.exit:                ; preds = %351, %348, %312, %3
   %400 = load ptr, ptr %388, align 8
   %401 = lshr i32 %391, 6
   %402 = zext nneg i32 %401 to i64
-  %403 = getelementptr inbounds i64, ptr %400, i64 %402
+  %403 = getelementptr inbounds nuw i64, ptr %400, i64 %402
   %404 = load i64, ptr %403, align 8
   %405 = or i64 %404, %394
   store i64 %405, ptr %403, align 8
@@ -10402,7 +10402,7 @@ _ZN4llvm5APInt10setSignBitEv.exit111:             ; preds = %396, %399
   %417 = load ptr, ptr %0, align 8
   %418 = lshr i32 %407, 6
   %419 = zext nneg i32 %418 to i64
-  %420 = getelementptr inbounds i64, ptr %417, i64 %419
+  %420 = getelementptr inbounds nuw i64, ptr %417, i64 %419
   %421 = load i64, ptr %420, align 8
   %422 = and i64 %421, %411
   store i64 %422, ptr %420, align 8
@@ -10422,7 +10422,7 @@ _ZN4llvm5APInt10setSignBitEv.exit111:             ; preds = %396, %399
   %432 = load ptr, ptr %424, align 8
   %433 = lshr i32 %427, 6
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds i64, ptr %432, i64 %434
+  %435 = getelementptr inbounds nuw i64, ptr %432, i64 %434
   %.in.i.i.i.i113 = select i1 %431, ptr %424, ptr %435
   %436 = load i64, ptr %.in.i.i.i.i113, align 8
   %437 = and i64 %430, %436
@@ -10440,7 +10440,7 @@ _ZN4llvm5APInt10setSignBitEv.exit111:             ; preds = %396, %399
   %446 = load ptr, ptr %4, align 8
   %447 = lshr i32 %441, 6
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds i64, ptr %446, i64 %448
+  %449 = getelementptr inbounds nuw i64, ptr %446, i64 %448
   %.in.i.i.i.i114 = select i1 %445, ptr %4, ptr %449
   %450 = load i64, ptr %.in.i.i.i.i114, align 8
   %451 = and i64 %444, %450
@@ -10468,7 +10468,7 @@ _ZN4llvm5APInt10setSignBitEv.exit111:             ; preds = %396, %399
   %465 = load ptr, ptr %453, align 8
   %466 = lshr i32 %456, 6
   %467 = zext nneg i32 %466 to i64
-  %468 = getelementptr inbounds i64, ptr %465, i64 %467
+  %468 = getelementptr inbounds nuw i64, ptr %465, i64 %467
   %469 = load i64, ptr %468, align 8
   %470 = or i64 %469, %459
   store i64 %470, ptr %468, align 8
@@ -10497,7 +10497,7 @@ _ZN4llvm5APInt10setSignBitEv.exit115:             ; preds = %461, %464
   %478 = load ptr, ptr %0, align 8
   %479 = lshr i32 %.pre-phi282, 6
   %480 = zext nneg i32 %479 to i64
-  %481 = getelementptr inbounds i64, ptr %478, i64 %480
+  %481 = getelementptr inbounds nuw i64, ptr %478, i64 %480
   %482 = load i64, ptr %481, align 8
   %483 = and i64 %482, %472
   store i64 %483, ptr %481, align 8
@@ -10510,7 +10510,7 @@ _ZN4llvm5APInt10setSignBitEv.exit115:             ; preds = %461, %464
   %488 = shl nuw i64 1, %487
   %489 = lshr i32 %485, 6
   %490 = zext nneg i32 %489 to i64
-  %491 = getelementptr inbounds i64, ptr %48, i64 %490
+  %491 = getelementptr inbounds nuw i64, ptr %48, i64 %490
   %.in.i.i.i.i117 = select i1 %47, ptr %3, ptr %491
   %492 = load i64, ptr %.in.i.i.i.i117, align 8
   %493 = and i64 %488, %492
@@ -10529,7 +10529,7 @@ _ZN4llvm5APInt10setSignBitEv.exit115:             ; preds = %461, %464
   %503 = load ptr, ptr %495, align 8
   %504 = lshr i32 %498, 6
   %505 = zext nneg i32 %504 to i64
-  %506 = getelementptr inbounds i64, ptr %503, i64 %505
+  %506 = getelementptr inbounds nuw i64, ptr %503, i64 %505
   %.in.i.i.i.i118 = select i1 %502, ptr %495, ptr %506
   %507 = load i64, ptr %.in.i.i.i.i118, align 8
   %508 = and i64 %501, %507
@@ -10558,7 +10558,7 @@ _ZN4llvm5APInt10setSignBitEv.exit115:             ; preds = %461, %464
   %523 = load ptr, ptr %510, align 8
   %524 = lshr i32 %513, 6
   %525 = zext nneg i32 %524 to i64
-  %526 = getelementptr inbounds i64, ptr %523, i64 %525
+  %526 = getelementptr inbounds nuw i64, ptr %523, i64 %525
   %527 = load i64, ptr %526, align 8
   %528 = and i64 %527, %517
   store i64 %528, ptr %526, align 8
@@ -10586,7 +10586,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit119:           ; preds = %519, %522
   %535 = load ptr, ptr %0, align 8
   %536 = lshr i32 %.pre-phi274, 6
   %537 = zext nneg i32 %536 to i64
-  %538 = getelementptr inbounds i64, ptr %535, i64 %537
+  %538 = getelementptr inbounds nuw i64, ptr %535, i64 %537
   %539 = load i64, ptr %538, align 8
   %540 = or i64 %539, %.pre-phi280
   store i64 %540, ptr %538, align 8
@@ -11000,7 +11000,7 @@ _ZN4llvm5APInt12clearSignBitEv.exit112:           ; preds = %719, %716, %_ZN4llv
   %733 = load ptr, ptr %725, align 8
   %734 = lshr i32 %728, 6
   %735 = zext nneg i32 %734 to i64
-  %736 = getelementptr inbounds i64, ptr %733, i64 %735
+  %736 = getelementptr inbounds nuw i64, ptr %733, i64 %735
   %.in.i.i.i.i142 = select i1 %732, ptr %725, ptr %736
   %737 = load i64, ptr %.in.i.i.i.i142, align 8
   %738 = and i64 %731, %737
@@ -11045,7 +11045,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i143._crit_edge:       ; preds = %_ZN4llvm5APIntC2Ejm
   %756 = load ptr, ptr %34, align 8, !alias.scope !317
   %757 = lshr i32 %747, 6
   %758 = zext nneg i32 %757 to i64
-  %759 = getelementptr inbounds i64, ptr %756, i64 %758
+  %759 = getelementptr inbounds nuw i64, ptr %756, i64 %758
   %760 = load i64, ptr %759, align 8
   %761 = or i64 %760, %750
   store i64 %761, ptr %759, align 8
@@ -11093,7 +11093,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10get
   %783 = load ptr, ptr %34, align 8, !alias.scope !320
   %784 = lshr i32 %773, 6
   %785 = zext nneg i32 %784 to i64
-  %786 = getelementptr inbounds i64, ptr %783, i64 %785
+  %786 = getelementptr inbounds nuw i64, ptr %783, i64 %785
   %787 = load i64, ptr %786, align 8
   %788 = and i64 %787, %777
   store i64 %788, ptr %786, align 8
@@ -13200,7 +13200,7 @@ define dso_local void @_ZN4llvm9KnownBits4sdivERKS0_S2_b(ptr dead_on_unwind noal
   %30 = load ptr, ptr %1, align 8
   %31 = lshr i32 %25, 6
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i64, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %32
   %.in.i.i.i.i = select i1 %29, ptr %1, ptr %33
   %34 = load i64, ptr %.in.i.i.i.i, align 8
   %35 = and i64 %28, %34
@@ -13218,7 +13218,7 @@ define dso_local void @_ZN4llvm9KnownBits4sdivERKS0_S2_b(ptr dead_on_unwind noal
   %44 = load ptr, ptr %2, align 8
   %45 = lshr i32 %39, 6
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds i64, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %46
   %.in.i.i.i.i49 = select i1 %43, ptr %2, ptr %47
   %48 = load i64, ptr %.in.i.i.i.i49, align 8
   %49 = and i64 %42, %48
@@ -13344,7 +13344,7 @@ _ZNK4llvm9KnownBits6isZeroEv.exit.thread:         ; preds = %69, %_ZN4llvm9Known
   %111 = lshr i64 %110, 6
   %112 = add nuw nsw i64 %111, 4294967295
   %113 = and i64 %112, 4294967295
-  %114 = getelementptr inbounds i64, ptr %108, i64 %113
+  %114 = getelementptr inbounds nuw i64, ptr %108, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %115, %99
   store i64 %116, ptr %114, align 8
@@ -13382,7 +13382,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %107, %101
   %135 = load ptr, ptr %127, align 8
   %136 = lshr i32 %130, 6
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds i64, ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw i64, ptr %135, i64 %137
   %.in.i.i.i.i52 = select i1 %134, ptr %127, ptr %138
   %139 = load i64, ptr %.in.i.i.i.i52, align 8
   %140 = and i64 %133, %139
@@ -13401,7 +13401,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %107, %101
   %150 = load ptr, ptr %142, align 8
   %151 = lshr i32 %145, 6
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds i64, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw i64, ptr %150, i64 %152
   %.in.i.i.i.i53 = select i1 %149, ptr %142, ptr %153
   %154 = load i64, ptr %.in.i.i.i.i53, align 8
   %155 = and i64 %148, %154
@@ -13438,7 +13438,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %162, %160
   %169 = load ptr, ptr %1, align 8, !noalias !378
   %170 = lshr i32 %164, 6
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds i64, ptr %169, i64 %171
+  %172 = getelementptr inbounds nuw i64, ptr %169, i64 %171
   %.in.i.i.i.i.i = select i1 %168, ptr %1, ptr %172
   %173 = load i64, ptr %.in.i.i.i.i.i, align 8
   %174 = and i64 %167, %173
@@ -13463,7 +13463,7 @@ _ZNK4llvm9KnownBits17getSignedMinValueEv.exit.thread: ; preds = %175
   %184 = load ptr, ptr %7, align 8, !alias.scope !378
   %185 = lshr i32 %176, 6
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds i64, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw i64, ptr %184, i64 %186
   %188 = load i64, ptr %187, align 8
   %189 = or i64 %188, %179
   store i64 %189, ptr %187, align 8
@@ -13492,7 +13492,7 @@ _ZNK4llvm9KnownBits17getSignedMinValueEv.exit:    ; preds = %_ZN4llvm5APIntC2ERK
   %204 = load ptr, ptr %7, align 8
   %205 = lshr i32 %200, 6
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds i64, ptr %204, i64 %206
+  %207 = getelementptr inbounds nuw i64, ptr %204, i64 %206
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %208, %203
   %.not.i = icmp eq i64 %209, 0
@@ -13604,7 +13604,7 @@ _ZN4llvm5APIntD2Ev.exit55:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %260 = load ptr, ptr %2, align 8
   %261 = lshr i32 %256, 6
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds i64, ptr %260, i64 %262
+  %263 = getelementptr inbounds nuw i64, ptr %260, i64 %262
   %.in.i.i.i.i58 = select i1 %74, ptr %2, ptr %263
   %264 = load i64, ptr %.in.i.i.i.i58, align 8
   %265 = and i64 %264, %259
@@ -13776,7 +13776,7 @@ _ZN4llvm5APIntD2Ev.exit66:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %340 = load ptr, ptr %1, align 8
   %341 = lshr i32 %336, 6
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds i64, ptr %340, i64 %342
+  %343 = getelementptr inbounds nuw i64, ptr %340, i64 %342
   %.in.i.i.i.i68 = select i1 %60, ptr %1, ptr %343
   %344 = load i64, ptr %.in.i.i.i.i68, align 8
   %345 = and i64 %344, %339
@@ -13807,7 +13807,7 @@ _ZNK4llvm9KnownBits18isStrictlyPositiveEv.exit:   ; preds = %346
   %360 = load ptr, ptr %352, align 8
   %361 = lshr i32 %355, 6
   %362 = zext nneg i32 %361 to i64
-  %363 = getelementptr inbounds i64, ptr %360, i64 %362
+  %363 = getelementptr inbounds nuw i64, ptr %360, i64 %362
   %.in.i.i.i.i71 = select i1 %359, ptr %352, ptr %363
   %364 = load i64, ptr %.in.i.i.i.i71, align 8
   %365 = and i64 %358, %364
@@ -13957,7 +13957,7 @@ _ZN4llvm5APIntD2Ev.exit56:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %429 = load ptr, ptr %5, align 8
   %430 = lshr i32 %424, 6
   %431 = zext nneg i32 %430 to i64
-  %432 = getelementptr inbounds i64, ptr %429, i64 %431
+  %432 = getelementptr inbounds nuw i64, ptr %429, i64 %431
   %.in.i.i.i.i80 = select i1 %428, ptr %5, ptr %432
   %433 = load i64, ptr %.in.i.i.i.i80, align 8
   %434 = and i64 %427, %433
@@ -14310,7 +14310,7 @@ _ZNK4llvm9KnownBits6isZeroEv.exit.thread:         ; preds = %31, %_ZN4llvm9Known
   %73 = lshr i64 %72, 6
   %74 = add nuw nsw i64 %73, 4294967295
   %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds i64, ptr %70, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %77, %61
   store i64 %78, ptr %76, align 8
@@ -14675,7 +14675,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %2
   %27 = load ptr, ptr %0, align 8
   %28 = lshr i32 %17, 6
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, %21
   store i64 %32, ptr %30, align 8
@@ -14914,7 +14914,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %78, %89, %92, %96
   %110 = load ptr, ptr %99, align 8
   %111 = lshr i32 %57, 6
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i64, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr %110, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = or i64 %114, %102
   store i64 %115, ptr %113, align 8
@@ -14975,7 +14975,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %78, %89, %92, %96
   %148 = lshr i64 %147, 6
   %149 = add nuw nsw i64 %148, 4294967295
   %150 = and i64 %149, 4294967295
-  %151 = getelementptr inbounds i64, ptr %145, i64 %150
+  %151 = getelementptr inbounds nuw i64, ptr %145, i64 %150
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, %136
   store i64 %153, ptr %151, align 8
@@ -15064,7 +15064,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %_ZN4llvm5APInt6setB
   %199 = lshr i64 %198, 6
   %200 = add nuw nsw i64 %199, 4294967295
   %201 = and i64 %200, 4294967295
-  %202 = getelementptr inbounds i64, ptr %196, i64 %201
+  %202 = getelementptr inbounds nuw i64, ptr %196, i64 %201
   %203 = load i64, ptr %202, align 8
   %204 = and i64 %203, %187
   store i64 %204, ptr %202, align 8
@@ -15724,7 +15724,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %38, %36
   %52 = load ptr, ptr %1, align 8
   %53 = lshr i32 %47, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i64, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %54
   %.in.i.i.i.i = select i1 %51, ptr %1, ptr %55
   %56 = load i64, ptr %.in.i.i.i.i, align 8
   %57 = and i64 %50, %56
@@ -15859,7 +15859,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %107, %104, %_ZN4llv
   %116 = load ptr, ptr %108, align 8
   %117 = lshr i32 %111, 6
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds i64, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %116, i64 %118
   %.in.i.i.i.i15 = select i1 %115, ptr %108, ptr %119
   %120 = load i64, ptr %.in.i.i.i.i15, align 8
   %121 = and i64 %114, %120
@@ -16600,7 +16600,7 @@ _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit: ; preds = %47, %52
   %66 = load ptr, ptr %20, align 8
   %67 = lshr i32 %.0.i.i, 6
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds i64, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw i64, ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = or i64 %70, %59
   store i64 %71, ptr %69, align 8
@@ -16763,7 +16763,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
   %17 = load ptr, ptr %0, align 8
   %18 = lshr i32 %11, 6
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %.in.i.i = select i1 %16, ptr %0, ptr %20
   %21 = load i64, ptr %.in.i.i, align 8
   %22 = and i64 %21, %14
@@ -16771,7 +16771,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
   %23 = load i32, ptr %6, align 8
   %24 = icmp ult i32 %23, 65
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i64, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %19
   %.in.i.i19 = select i1 %24, ptr %5, ptr %26
   %27 = load i64, ptr %.in.i.i19, align 8
   %28 = and i64 %27, %14
@@ -16794,7 +16794,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
 36:                                               ; preds = %33
   store i8 33, ptr %30, align 1
   %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %38, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -16808,7 +16808,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
 42:                                               ; preds = %39
   store i8 48, ptr %30, align 1
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %44, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -16825,7 +16825,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
 49:                                               ; preds = %46
   store i8 49, ptr %30, align 1
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %51, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -16839,7 +16839,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
 55:                                               ; preds = %52
   store i8 63, ptr %30, align 1
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -16871,7 +16871,7 @@ define dso_local void @_ZNK4llvm9KnownBits4dumpEv(ptr nocapture noundef nonnull 
 11:                                               ; preds = %1
   store i8 10, ptr %7, align 1
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

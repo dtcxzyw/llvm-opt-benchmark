@@ -20,7 +20,7 @@ define dso_local i64 @ginarrayextract(ptr nocapture noundef readonly %0) local_u
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
@@ -30,7 +30,7 @@ define dso_local i64 @ginarrayextract(ptr nocapture noundef readonly %0) local_u
   %15 = getelementptr i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %11, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
   call void @get_typlenbyvalalign(i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %20 = load i32, ptr %18, align 4
@@ -63,7 +63,7 @@ define dso_local i64 @ginarrayextract_2args(ptr nocapture noundef readonly %0) l
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 30
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %9 = load i16, ptr %8, align 2
   %10 = icmp slt i16 %9, 3
   br i1 %10, label %11, label %14
@@ -82,7 +82,7 @@ define dso_local i64 @ginarrayextract_2args(ptr nocapture noundef readonly %0) l
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum_copy(ptr noundef %17) #5
@@ -92,7 +92,7 @@ define dso_local i64 @ginarrayextract_2args(ptr nocapture noundef readonly %0) l
   %22 = getelementptr i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
   call void @get_typlenbyvalalign(i32 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %27 = load i32, ptr %25, align 4
@@ -132,7 +132,7 @@ define dso_local i64 @ginqueryarrayextract(ptr nocapture noundef readonly %0) lo
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
@@ -147,7 +147,7 @@ define dso_local i64 @ginqueryarrayextract(ptr nocapture noundef readonly %0) lo
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr i8, ptr %0, i64 128
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %24 = load i32, ptr %23, align 4
   call void @get_typlenbyvalalign(i32 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %25 = load i32, ptr %23, align 4
@@ -201,7 +201,7 @@ define dso_local i64 @ginqueryarrayextract(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -318,7 +318,7 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48

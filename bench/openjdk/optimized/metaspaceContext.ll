@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace16MetaspaceContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -25,14 +25,14 @@ define hidden void @_ZN9metaspace16MetaspaceContextD2Ev(ptr nocapture noundef no
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(56) %8) #2
   br label %14
@@ -49,9 +49,9 @@ define hidden noundef ptr @_ZN9metaspace16MetaspaceContext25create_expandable_co
   tail call void @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef %0, ptr noundef nonnull %3) #2
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 24, i32 noundef 0) #2
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %7, align 8
   ret ptr %5
 }
@@ -68,9 +68,9 @@ define hidden noundef ptr @_ZN9metaspace16MetaspaceContext28create_nonexpandable
   tail call void @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull align 8 dereferenceable(376) %5, ptr noundef %0, ptr noundef nonnull %4) #2
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 24, i32 noundef 0) #2
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %8, align 8
   ret ptr %6
 }
@@ -86,9 +86,9 @@ define hidden void @_ZN9metaspace16MetaspaceContext30initialize_class_space_cont
   tail call void @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef nonnull @.str, ptr noundef nonnull %3) #2
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 24, i32 noundef 0) #2
   store ptr @.str, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %7, align 8
   store ptr %5, ptr @_ZN9metaspace16MetaspaceContext20_class_space_contextE, align 8
   ret void
@@ -105,9 +105,9 @@ define hidden void @_ZN9metaspace16MetaspaceContext33initialize_nonclass_space_c
   tail call void @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull align 8 dereferenceable(376) %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #2
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 24, i32 noundef 0) #2
   store ptr @.str.4, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %6, align 8
   store ptr %4, ptr @_ZN9metaspace16MetaspaceContext23_nonclass_space_contextE, align 8
   ret void
@@ -115,10 +115,10 @@ define hidden void @_ZN9metaspace16MetaspaceContext33initialize_nonclass_space_c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace16MetaspaceContext8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %1) #2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %6, ptr noundef %1) #2
   ret void

@@ -35,7 +35,7 @@ define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef read
   %8 = tail call ptr @__errno_location() #8
   store i32 0, ptr %8, align 4
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @fwrite(ptr noundef %2, i64 noundef %9, i64 noundef 1, ptr noundef %11)
   %.not = icmp eq i64 %12, 1
@@ -51,7 +51,7 @@ define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef read
   br label %17
 
 17:                                               ; preds = %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %19) #9
   tail call void @exit(i32 noundef 1) #10
@@ -63,27 +63,27 @@ define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_plain_writer_finalize(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fclose(ptr noundef %7)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %11) #9
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
 12:                                               ; preds = %5, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %13, align 8
   store i8 0, ptr %2, align 8
   ret void
@@ -91,7 +91,7 @@ define internal void @bbstreamer_plain_writer_finalize(ptr nocapture noundef %0)
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_plain_writer_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #9
   tail call void @pfree(ptr noundef %0) #9
@@ -108,8 +108,8 @@ define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef %9, ptr noundef %1) #9
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
@@ -126,13 +126,13 @@ define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %
   br label %18
 
 18:                                               ; preds = %17, %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 1044
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1044
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %58
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 1032
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr @pg_dir_create_mode, align 4
   %26 = tail call i32 @mkdir(ptr noundef nonnull %7, i32 noundef %25) #9
@@ -202,14 +202,14 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
   unreachable
 
 58:                                               ; preds = %18
-  %59 = getelementptr inbounds i8, ptr %1, i64 1045
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1045
   %60 = load i8, ptr %59, align 1
   %61 = trunc i8 %60 to i1
   br i1 %61, label %62, label %71
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %1, i64 1046
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 1046
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not38 = icmp eq ptr %65, null
   br i1 %.not38, label %68, label %66
@@ -230,7 +230,7 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
   unreachable
 
 71:                                               ; preds = %58
-  %72 = getelementptr inbounds i8, ptr %1, i64 1032
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %73 = load i32, ptr %72, align 8
   %74 = tail call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull @.str)
   %75 = icmp eq ptr %74, null
@@ -252,12 +252,12 @@ should_allow_existing_directory.exit.thread.i:    ; preds = %should_allow_existi
   unreachable
 
 create_file_for_extract.exit:                     ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 1088
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %74, ptr %80, align 8
   br label %extract_directory.exit
 
 extract_directory.exit:                           ; preds = %68, %should_allow_existing_directory.exit.thread.i, %create_file_for_extract.exit
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8
   %.not39 = icmp eq ptr %82, null
   br i1 %.not39, label %108, label %83
@@ -267,7 +267,7 @@ extract_directory.exit:                           ; preds = %68, %should_allow_e
   br label %108
 
 84:                                               ; preds = %5
-  %85 = getelementptr inbounds i8, ptr %0, i64 1088
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %108, label %88
@@ -295,13 +295,13 @@ extract_directory.exit:                           ; preds = %68, %should_allow_e
   br label %99
 
 99:                                               ; preds = %95, %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %100) #9
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
 101:                                              ; preds = %5
-  %102 = getelementptr inbounds i8, ptr %0, i64 1088
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %108, label %105
@@ -327,7 +327,7 @@ define internal void @bbstreamer_extractor_finalize(ptr nocapture readnone %0) #
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_extractor_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #9
   tail call void @pfree(ptr noundef %0) #9
@@ -339,9 +339,9 @@ define dso_local noundef ptr @bbstreamer_plain_writer_new(ptr noundef %0, ptr no
   %3 = tail call ptr @palloc0(i64 noundef 64) #9
   store ptr @bbstreamer_plain_writer_ops, ptr %3, align 8
   %4 = tail call ptr @pstrdup(ptr noundef %0) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %1, ptr %6, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %14
@@ -358,7 +358,7 @@ define dso_local noundef ptr @bbstreamer_plain_writer_new(ptr noundef %0, ptr no
   unreachable
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 1, ptr %13, align 8
   br label %14
 
@@ -383,11 +383,11 @@ define dso_local noundef ptr @bbstreamer_extractor_new(ptr noundef %0, ptr nound
   %4 = tail call ptr @palloc0(i64 noundef 1096) #9
   store ptr @bbstreamer_extractor_ops, ptr %4, align 8
   %5 = tail call ptr @pstrdup(ptr noundef %0) #9
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %2, ptr %8, align 8
   ret ptr %4
 }

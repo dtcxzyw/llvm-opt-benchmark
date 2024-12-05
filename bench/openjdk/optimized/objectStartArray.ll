@@ -84,9 +84,9 @@ define hidden void @_ZN16ObjectStartArray10initializeE9MemRegion(ptr noundef non
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %16, %21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %5) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %1 to i64
   %26 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
@@ -94,7 +94,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %16, %21
   %28 = lshr i64 %25, %27
   %29 = sub i64 0, %28
   %30 = getelementptr inbounds i8, ptr %24, i64 %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %30, ptr %31, align 8
   ret void
 }
@@ -115,10 +115,10 @@ define hidden void @_ZN16ObjectStartArray18set_covered_regionE9MemRegion(ptr nou
   %9 = add i64 %8, %7
   %10 = sub i64 0, %7
   %11 = and i64 %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %14 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -164,7 +164,7 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
   %8 = add i64 %7, %5
   %9 = xor i64 %7, -1
   %10 = and i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %14 = zext nneg i32 %13 to i64
@@ -195,7 +195,7 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
   br i1 %exitcond.not, label %.loopexit, label %28
 
 28:                                               ; preds = %27
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = shl nuw nsw i64 %indvars.iv.next, 2
   %30 = shl nuw nsw i64 1, %29

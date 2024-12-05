@@ -40,9 +40,9 @@ newBlock.exit:                                    ; preds = %1
   %10 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 32)
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds %struct.cell, ptr %10, i64 %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %13, align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @_grid, i64 8), align 8
   ret ptr @_grid
@@ -55,7 +55,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @adjustGrid(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %14
@@ -63,7 +63,7 @@ define void @adjustGrid(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_
 6:                                                ; preds = %2
   %7 = shl nsw i32 %4, 1
   %. = tail call i32 @llvm.smax.i32(i32 %1, i32 %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -128,16 +128,16 @@ define void @clearGrid(ptr nocapture noundef initializes((16, 24), (40, 48)) %0)
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr %3(ptr noundef nonnull %2, ptr noundef null, i32 noundef 64) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8
   ret void
 }
@@ -146,14 +146,14 @@ define void @clearGrid(ptr nocapture noundef initializes((16, 24), (40, 48)) %0)
 define void @delGrid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @dtclose(ptr noundef %2) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not5.i = icmp eq ptr %5, null
   br i1 %.not5.i, label %freeBlock.exit, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %1, %tailrecurse.i
   %.tr6.i = phi ptr [ %7, %tailrecurse.i ], [ %5, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.tr6.i, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.tr6.i, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %.tr6.i, align 8
   tail call void @free(ptr noundef %8) #12
@@ -162,7 +162,7 @@ tailrecurse.i:                                    ; preds = %1, %tailrecurse.i
   br i1 %.not.i, label %freeBlock.exit, label %tailrecurse.i
 
 freeBlock.exit:                                   ; preds = %tailrecurse.i, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #12
   ret void
@@ -174,19 +174,19 @@ declare i32 @dtclose(ptr noundef) local_unnamed_addr #2
 define void @addGrid(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.cell, align 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr %8(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 1) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %12, align 8
   store ptr %3, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %15, align 8
   store ptr %13, ptr %10, align 8
   %16 = load i8, ptr @Verbose, align 1
@@ -221,7 +221,7 @@ declare i32 @dtwalk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 define ptr @findGrid(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cell, align 8
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %5, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
@@ -236,7 +236,7 @@ define i32 @gLength(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
 2:                                                ; preds = %2, %1
   %.04 = phi i32 [ 0, %1 ], [ %3, %2 ]
   %.pn = phi ptr [ %0, %1 ], [ %.0, %2 ]
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   %3 = add nuw nsw i32 %.04, 1
@@ -249,15 +249,15 @@ define i32 @gLength(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef ptr @newCell(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_grid, i64 16), align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %getCell.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %28
@@ -283,9 +283,9 @@ newBlock.exit.i:                                  ; preds = %13
   %24 = tail call fastcc ptr @gv_calloc(i64 noundef %23, i64 noundef 32)
   store ptr %24, ptr %15, align 8
   %25 = getelementptr inbounds %struct.cell, ptr %24, i64 %23
-  %26 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %24, ptr %27, align 8
   store ptr %15, ptr %10, align 8
   br label %28
@@ -294,23 +294,23 @@ newBlock.exit.i:                                  ; preds = %13
   %29 = phi ptr [ %15, %newBlock.exit.i ], [ %11, %9 ]
   store ptr %29, ptr getelementptr inbounds (i8, ptr @_grid, i64 16), align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %30, ptr %31, align 8
   br label %getCell.exit
 
 getCell.exit:                                     ; preds = %2, %28
   %32 = phi ptr [ %30, %28 ], [ %5, %2 ]
   %.0.i = phi ptr [ %29, %28 ], [ %3, %2 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %34, ptr %33, align 8
   %35 = load i32, ptr %0, align 8
   store i32 %35, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %32, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %39, align 8
   ret ptr %32
 }
@@ -327,9 +327,9 @@ define internal range(i32 -1, 2) i32 @ijcmpf(ptr nocapture readnone %0, ptr noca
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %12, %14
   br i1 %15, label %18, label %16

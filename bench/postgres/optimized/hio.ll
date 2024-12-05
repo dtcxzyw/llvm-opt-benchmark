@@ -40,7 +40,7 @@ define dso_local void @RelationPutHeapTuple(ptr nocapture noundef readnone %0, i
 
 BufferGetPage.exit:                               ; preds = %6, %12
   %.0.i.i = phi ptr [ %11, %6 ], [ %17, %12 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
   %21 = zext i32 %20 to i64
@@ -56,20 +56,20 @@ BufferGetPage.exit:                               ; preds = %6, %12
   unreachable
 
 27:                                               ; preds = %BufferGetPage.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %29 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #7
   %30 = lshr i32 %29, 16
   %31 = trunc nuw i32 %30 to i16
   store i16 %31, ptr %28, align 2
   %32 = trunc i32 %29 to i16
-  %33 = getelementptr inbounds i8, ptr %2, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %32, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %22, ptr %34, align 2
   br i1 %3, label %44, label %35
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %37 = zext i16 %22 to i64
   %38 = add nsw i64 %37, -1
   %39 = getelementptr [0 x %struct.ItemIdData], ptr %36, i64 0, i64 %38
@@ -77,7 +77,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %40 = and i32 %.val, 32767
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr i8, ptr %.0.i.i, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %43, ptr noundef nonnull align 4 dereferenceable(6) %28, i64 6, i1 false)
   br label %44
 
@@ -121,13 +121,13 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   unreachable
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %22 = load ptr, ptr %21, align 8
   %.not176 = icmp eq ptr %22, null
   br i1 %.not176, label %30, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 13
   %27 = sub i32 819200, %26
@@ -154,7 +154,7 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   br i1 %.not178, label %43, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = load i32, ptr %39, align 8
   %.not179 = icmp eq i32 %40, 0
   br i1 %.not179, label %43, label %41
@@ -164,13 +164,13 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   br label %49
 
 43:                                               ; preds = %38, %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not180 = icmp eq ptr %45, null
   br i1 %.not180, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %47, align 8
   br label %49
 
@@ -202,18 +202,18 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   %62 = shl nuw nsw i64 %61, 13
   %63 = xor i32 %2, -1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %66 = and i32 %3, 4
   %.not183 = icmp eq i32 %66, 0
-  %67 = getelementptr inbounds i8, ptr %4, i64 12
-  %68 = getelementptr inbounds i8, ptr %4, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %69 = icmp ne ptr %4, null
   %brmerge.i = or i1 %69, %.not
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
-  %72 = getelementptr inbounds i8, ptr %11, i64 8
-  %73 = getelementptr inbounds i8, ptr %11, i64 16
-  %74 = getelementptr inbounds i8, ptr %4, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br label %75
 
 75:                                               ; preds = %341, %58
@@ -479,16 +479,16 @@ BufferGetPage.exit205:                            ; preds = %183, %189
   br i1 %.not184, label %208, label %200
 
 200:                                              ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %0, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
   br i1 %203, label %204, label %RelationGetSmgr.exit
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds i8, ptr %0, i64 28
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %206 = load i32, ptr %205, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %207 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %206) #7
   store ptr %207, ptr %201, align 8
@@ -653,9 +653,9 @@ BufferGetPage.exit.i:                             ; preds = %260, %254
 268:                                              ; preds = %BufferGetPage.exit.i
   %269 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %269)
-  %270 = getelementptr inbounds i8, ptr %0, i64 56
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 4
   %273 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %248, ptr noundef nonnull %272) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.RelationAddBlocks) #7
   unreachable
@@ -856,16 +856,16 @@ BufferGetPage.exit209:                            ; preds = %308, %314
   unreachable
 
 345:                                              ; preds = %334
-  %346 = getelementptr inbounds i8, ptr %0, i64 16
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %347 = load ptr, ptr %346, align 8
   %348 = icmp eq ptr %347, null
   br i1 %348, label %349, label %RelationGetSmgr.exit
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %0, i64 28
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %351 = load i32, ptr %350, align 4
   %.sroa.0.0.copyload.i210 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i211 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i211 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i212 = load i32, ptr %.sroa.2.0..sroa_idx.i211, align 8
   %352 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i210, i32 %.sroa.2.0.copyload.i212, i32 noundef %351) #7
   store ptr %352, ptr %346, align 8
@@ -877,7 +877,7 @@ RelationGetSmgr.exit:                             ; preds = %349, %345, %204, %2
   %.sink266 = phi ptr [ %.pre.i, %204 ], [ %202, %200 ], [ %.pre.i213, %349 ], [ %347, %345 ]
   %.lcssa263.sink = phi i32 [ %.4239, %204 ], [ %.4239, %200 ], [ %307, %349 ], [ %307, %345 ]
   %.0 = phi i32 [ %.0157, %204 ], [ %.0157, %200 ], [ %249, %349 ], [ %249, %345 ]
-  %353 = getelementptr inbounds i8, ptr %.sink266, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %.sink266, i64 16
   store i32 %.lcssa263.sink, ptr %353, align 8
   ret i32 %.0
 }

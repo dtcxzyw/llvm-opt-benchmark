@@ -13,8 +13,8 @@ define range(i32 -255, 256) i32 @strcmp(ptr nocapture noundef readonly %0, ptr n
   %4 = load i8, ptr %.0, align 1
   %5 = load i8, ptr %.03, align 1
   %.not = icmp ne i8 %4, %5
-  %6 = getelementptr inbounds i8, ptr %.03, i64 1
-  %7 = getelementptr inbounds i8, ptr %.0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.03, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %8 = icmp eq i8 %4, 0
   %or.cond = or i1 %8, %.not
   br i1 %or.cond, label %9, label %3

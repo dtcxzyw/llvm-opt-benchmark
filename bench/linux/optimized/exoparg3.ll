@@ -11,8 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
-  %4 = getelementptr inbounds i8, ptr %0, i64 10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2
   switch i16 %5, label %34 [
     i16 23346, label %6
@@ -35,23 +35,23 @@ define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0)
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   store i32 %18, ptr %12, align 8
   %19 = getelementptr i8, ptr %0, i64 880
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %23, ptr %24, align 4
   %25 = getelementptr i8, ptr %0, i64 888
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %29, ptr %30, align 8
   br label %31
 
@@ -90,15 +90,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 872
-  %5 = getelementptr inbounds i8, ptr %0, i64 10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 158
   br i1 %7, label %8, label %60
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 144, i32 noundef 128, i32 noundef %12) #6
@@ -108,10 +108,10 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 15:                                               ; preds = %8
   %16 = getelementptr i8, ptr %0, i64 880
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp ult i64 %19, %23
@@ -120,7 +120,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 25:                                               ; preds = %15
   %26 = getelementptr i8, ptr %0, i64 888
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %19
   %31 = icmp ugt i64 %30, %23
@@ -130,7 +130,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 
 34:                                               ; preds = %25, %15
   %35 = phi i64 [ 0, %15 ], [ %33, %25 ]
-  %36 = getelementptr inbounds i8, ptr %20, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %37 = load i8, ptr %36, align 1
   switch i8 %37, label %.thread11 [
     i8 2, label %38
@@ -171,7 +171,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 55:                                               ; preds = %48, %38
   %.ph = phi ptr [ %44, %38 ], [ %53, %48 ]
   %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.ph, ptr align 1 %59, i64 %35, i1 false)
@@ -184,12 +184,12 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 
 62:                                               ; preds = %55, %46
   %63 = phi ptr [ %.ph, %55 ], [ null, %46 ]
-  %64 = getelementptr inbounds i8, ptr %13, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %63, ptr %64, align 8
   %65 = trunc i64 %35 to i32
-  %66 = getelementptr inbounds i8, ptr %13, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %68 = load i8, ptr %67, align 4
   %69 = or i8 %68, 4
   store i8 %69, ptr %67, align 4
@@ -200,7 +200,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
   br i1 %73, label %74, label %.thread11
 
 74:                                               ; preds = %62
-  %75 = getelementptr inbounds i8, ptr %0, i64 1056
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %81, label %.thread11
@@ -209,7 +209,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
   %78 = phi i32 [ 0, %74 ], [ %72, %62 ], [ 12291, %34 ], [ 4, %48 ], [ 4, %38 ], [ 4, %8 ], [ 12289, %60 ]
   %79 = phi ptr [ %13, %74 ], [ %13, %62 ], [ %13, %34 ], [ %13, %48 ], [ %13, %38 ], [ null, %8 ], [ null, %60 ]
   call void @acpi_ut_remove_reference(ptr noundef %79) #6
-  %80 = getelementptr inbounds i8, ptr %0, i64 1056
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr null, ptr %80, align 8
   br label %82
 

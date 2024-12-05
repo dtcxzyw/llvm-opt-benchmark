@@ -22,8 +22,8 @@ define hidden ptr @hb_shape_list_shapers() local_unnamed_addr #0 {
 3:                                                ; preds = %.lr.ph.i.i
   %4 = tail call noundef ptr @_Z15_hb_shapers_getv()
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = cmpxchg weak ptr @_ZL18static_shaper_list, i64 0, i64 %7 acq_rel monotonic, align 8
@@ -56,14 +56,14 @@ _ZNK16hb_lazy_loader_tIPKc28hb_shaper_list_lazy_loader_tvLj0ES1_E11get_unconstEv
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %47, label %8
 
 8:                                                ; preds = %5
   tail call void @_ZN11hb_buffer_t5enterEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 32
   %.not38 = icmp eq i32 %11, 0
@@ -76,22 +76,22 @@ define hidden i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 14:                                               ; preds = %12, %8
   %.035 = phi ptr [ %13, %12 ], [ null, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i32, ptr %20, align 8
   %22 = tail call ptr @hb_shape_plan_create_cached2(ptr noundef %16, ptr noundef nonnull %17, ptr noundef %2, i32 noundef %3, ptr noundef %19, i32 noundef %21, ptr noundef %4)
   %23 = tail call i32 @hb_shape_plan_execute(ptr noundef %22, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3)
-  %24 = getelementptr inbounds i8, ptr %1, i64 188
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 1
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %1, i64 81
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 81
   store i8 1, ptr %28, align 1
   br label %29
 
@@ -105,19 +105,19 @@ define hidden i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not40, label %45, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 81
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %45, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.035, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %.035, i64 80
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %45

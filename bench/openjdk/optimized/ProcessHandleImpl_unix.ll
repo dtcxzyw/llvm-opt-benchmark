@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   store ptr %6, ptr @ProcessHandleImpl_Info_commandID, align 8
@@ -42,7 +42,7 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #11
   store ptr %12, ptr @ProcessHandleImpl_Info_commandLineID, align 8
@@ -51,7 +51,7 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #11
   store ptr %18, ptr @ProcessHandleImpl_Info_argumentsID, align 8
@@ -60,7 +60,7 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, 
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #11
   store ptr %24, ptr @ProcessHandleImpl_Info_totalTimeID, align 8
@@ -69,7 +69,7 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6) #11
   store ptr %30, ptr @ProcessHandleImpl_Info_startTimeID, align 8
@@ -78,7 +78,7 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_initIDs(ptr noundef %0, 
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1) #11
   store ptr %36, ptr @ProcessHandleImpl_Info_userID, align 8
@@ -161,20 +161,20 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr nocapture n
   ], !llvm.loop !8
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = load i32, ptr %35, align 8
   br label %.loopexit
 
 37:                                               ; preds = %30
   %38 = and i32 %32, -2
   %or.cond = icmp eq i32 %38, 2
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %40 = load i32, ptr %39, align 8
   br i1 %or.cond, label %41, label %.loopexit
 
@@ -287,13 +287,13 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_info0(ptr noundef %0, pt
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 880
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 880
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @ProcessHandleImpl_Info_totalTimeID, align 8
   %14 = load i64, ptr %4, align 8
   call void %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13, i64 noundef %14) #11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1824
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1824
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i8 %17(ptr noundef nonnull %0) #11
   %.not = icmp eq i8 %18, 0
@@ -301,13 +301,13 @@ define void @Java_java_lang_ProcessHandleImpl_00024Info_info0(ptr noundef %0, pt
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 880
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 880
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @ProcessHandleImpl_Info_startTimeID, align 8
   %24 = load i64, ptr %5, align 8
   call void %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23, i64 noundef %24) #11
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1824
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1824
   %27 = load ptr, ptr %26, align 8
   %28 = call zeroext i8 %27(ptr noundef nonnull %0) #11
   %.not16 = icmp eq i8 %28, 0
@@ -363,12 +363,12 @@ declare i32 @getppid() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 832
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 832
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @ProcessHandleImpl_Info_commandID, align 8
   tail call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %11, ptr noundef %5) #11
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0) #11
   %.not = icmp eq i8 %15, 0
@@ -385,7 +385,7 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1376
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1376
   %24 = load ptr, ptr %23, align 8
   %25 = add nsw i32 %2, -1
   %26 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef %25, ptr noundef nonnull %19, ptr noundef null) #11
@@ -405,8 +405,8 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
   %.055 = phi ptr [ %32, %28 ], [ %3, %.preheader ]
   %.04654 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
   %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.055) #13
-  %31 = add i64 %30, 1
-  %32 = getelementptr inbounds i8, ptr %.055, i64 %31
+  %31 = getelementptr i8, ptr %.055, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 1
   %33 = icmp ugt ptr %32, %4
   br i1 %33, label %.loopexit, label %34
 
@@ -422,11 +422,11 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1392
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1392
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef %.04654, ptr noundef nonnull %38) #11
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1824
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1824
   %46 = load ptr, ptr %45, align 8
   %47 = tail call zeroext i8 %46(ptr noundef nonnull %0) #11
   %.not53 = icmp eq i8 %47, 0
@@ -434,12 +434,12 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 832
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 832
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr @ProcessHandleImpl_Info_argumentsID, align 8
   tail call void %50(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %51, ptr noundef nonnull %26) #11
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1824
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %0) #11
   %56 = icmp eq i8 %55, 0
@@ -458,12 +458,12 @@ define hidden void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 nounde
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 832
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 832
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @ProcessHandleImpl_Info_commandLineID, align 8
   tail call void %65(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %66, ptr noundef nonnull %60) #11
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1824
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1824
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i8 %69(ptr noundef nonnull %0) #11
   br label %.loopexit
@@ -537,7 +537,7 @@ define hidden void @unix_getUserInfo(ptr noundef %0, ptr noundef %1, i32 noundef
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 832
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @ProcessHandleImpl_Info_userID, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, ptr noundef nonnull %26) #11
@@ -563,11 +563,11 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   %7 = alloca i64, align 8
   %8 = trunc i64 %1 to i32
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1368
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef %2) #11
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %0) #11
   %.not = icmp eq i8 %16, 0
@@ -579,11 +579,11 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 18:                                               ; preds = %17
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1368
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1368
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1824
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1824
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i8 %25(ptr noundef nonnull %0) #11
   %.not99 = icmp eq i8 %26, 0
@@ -603,11 +603,11 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1368
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1824
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1824
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i8 %37(ptr noundef nonnull %0) #11
   %.not102 = icmp eq i8 %38, 0
@@ -632,7 +632,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1504
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1504
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #11
   %50 = icmp eq ptr %49, null
@@ -643,7 +643,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1504
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1504
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #11
   %57 = icmp eq ptr %56, null
@@ -656,7 +656,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1504
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1504
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef null) #11
   %64 = icmp eq ptr %63, null
@@ -680,7 +680,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 67:                                               ; preds = %86
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %68 = getelementptr inbounds i8, ptr %87, i64 19
+  %68 = getelementptr inbounds nuw i8, ptr %87, i64 19
   %69 = call i32 @atoi(ptr nocapture noundef nonnull %68) #13
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %86, label %71, !llvm.loop !11
@@ -700,13 +700,13 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 77:                                               ; preds = %75
   %78 = zext nneg i32 %69 to i64
   %79 = zext nneg i32 %.1.ph.us.ph to i64
-  %80 = getelementptr inbounds i64, ptr %49, i64 %79
+  %80 = getelementptr inbounds nuw i64, ptr %49, i64 %79
   store i64 %78, ptr %80, align 8
   br i1 %.not105, label %84, label %81
 
 81:                                               ; preds = %77
   %82 = zext nneg i32 %72 to i64
-  %83 = getelementptr inbounds i64, ptr %.182.fr, i64 %79
+  %83 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %79
   store i64 %82, ptr %83, align 8
   br label %84
 
@@ -732,7 +732,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 88:                                               ; preds = %106
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %107, i64 19
+  %89 = getelementptr inbounds nuw i8, ptr %107, i64 19
   %90 = call i32 @atoi(ptr nocapture noundef nonnull %89) #13
   %91 = icmp slt i32 %90, 1
   br i1 %91, label %106, label %92, !llvm.loop !11
@@ -752,10 +752,10 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %90 to i64
   %100 = zext nneg i32 %.1.ph.us136.ph to i64
-  %101 = getelementptr inbounds i64, ptr %49, i64 %100
+  %101 = getelementptr inbounds nuw i64, ptr %49, i64 %100
   store i64 %99, ptr %101, align 8
   %102 = load i64, ptr %7, align 8
-  %103 = getelementptr inbounds i64, ptr %.180.fr, i64 %100
+  %103 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %100
   store i64 %102, ptr %103, align 8
   br label %104
 
@@ -785,7 +785,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 109:                                              ; preds = %128
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %110 = getelementptr inbounds i8, ptr %129, i64 19
+  %110 = getelementptr inbounds nuw i8, ptr %129, i64 19
   %111 = call i32 @atoi(ptr nocapture noundef nonnull %110) #13
   %112 = icmp slt i32 %111, 1
   br i1 %112, label %128, label %113, !llvm.loop !11
@@ -802,13 +802,13 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 118:                                              ; preds = %116
   %119 = zext nneg i32 %111 to i64
   %120 = zext nneg i32 %.1.ph.us144.ph to i64
-  %121 = getelementptr inbounds i64, ptr %49, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %49, i64 %120
   store i64 %119, ptr %121, align 8
   %122 = zext nneg i32 %114 to i64
-  %123 = getelementptr inbounds i64, ptr %.182.fr, i64 %120
+  %123 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %120
   store i64 %122, ptr %123, align 8
   %124 = load i64, ptr %7, align 8
-  %125 = getelementptr inbounds i64, ptr %.180.fr, i64 %120
+  %125 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %120
   store i64 %124, ptr %125, align 8
   br label %126
 
@@ -836,7 +836,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 132:                                              ; preds = %130
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %133 = getelementptr inbounds i8, ptr %131, i64 19
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 19
   %134 = call i32 @atoi(ptr nocapture noundef nonnull %133) #13
   %135 = icmp slt i32 %134, 1
   br i1 %135, label %130, label %136, !llvm.loop !11
@@ -855,12 +855,12 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 142:                                              ; preds = %140
   %143 = zext nneg i32 %134 to i64
   %144 = zext nneg i32 %.1.ph.ph to i64
-  %145 = getelementptr inbounds i64, ptr %49, i64 %144
+  %145 = getelementptr inbounds nuw i64, ptr %49, i64 %144
   store i64 %143, ptr %145, align 8
-  %146 = getelementptr inbounds i64, ptr %.182.fr, i64 %144
+  %146 = getelementptr inbounds nuw i64, ptr %.182.fr, i64 %144
   store i64 %108, ptr %146, align 8
   %147 = load i64, ptr %7, align 8
-  %148 = getelementptr inbounds i64, ptr %.180.fr, i64 %144
+  %148 = getelementptr inbounds nuw i64, ptr %.180.fr, i64 %144
   store i64 %147, ptr %148, align 8
   br label %149
 
@@ -873,7 +873,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   %.079115 = phi ptr [ null, %59 ], [ null, %52 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %128 ], [ %.180.fr, %130 ]
   %.081113 = phi ptr [ %.182.fr, %59 ], [ null, %52 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %128 ], [ %.182.fr, %130 ]
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1568
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1568
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 0) #11
   %.not108 = icmp eq ptr %.081113, null
@@ -881,7 +881,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 154:                                              ; preds = %.thread
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 1568
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1568
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.081113, i32 noundef 0) #11
   br label %158
@@ -892,7 +892,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 1568
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1568
   %162 = load ptr, ptr %161, align 8
   call void %162(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.079115, i32 noundef 0) #11
   br label %.thread130

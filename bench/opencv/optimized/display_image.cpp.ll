@@ -118,12 +118,12 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %33 unwind label %50
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %7, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %35, align 4
   store i32 16842752, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %36, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %37 unwind label %52
@@ -144,12 +144,12 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %42 unwind label %55
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %10, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %10, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %44, align 4
   store i32 16842752, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %10, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %4, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %46 = invoke noundef zeroext i1 @_ZN2cv7imwriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)

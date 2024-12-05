@@ -171,12 +171,12 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %7 = load i32, ptr @ett_bthid, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.83) #2
   %11 = load ptr, ptr %9, align 8
   tail call void @col_clear(ptr noundef %11, i32 noundef 25) #2
-  %12 = getelementptr inbounds i8, ptr %1, i64 348
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %13 = load i32, ptr %12, align 4
   %14 = load ptr, ptr %9, align 8
   %switch.selectcmp = icmp eq i32 %13, 1

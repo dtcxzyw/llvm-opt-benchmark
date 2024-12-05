@@ -40,7 +40,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_syntaxerror_range(ptr nocapture noundef %tok, ptr noundef %format, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef nonnull %vargs) unnamed_addr #0 {
 entry:
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   %0 = load i32, ptr %done, align 8
   %cmp = icmp eq i32 %0, 17
   br i1 %cmp, label %return, label %if.end
@@ -51,9 +51,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %Py_XDECREF.exit, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %line_start = getelementptr inbounds i8, ptr %tok, i64 2768
+  %line_start = getelementptr inbounds nuw i8, ptr %tok, i64 2768
   %1 = load ptr, ptr %line_start, align 8
-  %cur = getelementptr inbounds i8, ptr %tok, i64 8
+  %cur = getelementptr inbounds nuw i8, ptr %tok, i64 8
   %2 = load ptr, ptr %cur, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -109,9 +109,9 @@ if.end28:                                         ; preds = %if.end.i41, %if.the
 
 if.end31:                                         ; preds = %if.end11, %if.end28
   %errtext.031 = phi ptr [ %call27, %if.end28 ], [ %call4, %if.end11 ]
-  %filename = getelementptr inbounds i8, ptr %tok, i64 2336
+  %filename = getelementptr inbounds nuw i8, ptr %tok, i64 2336
   %9 = load ptr, ptr %filename, align 8
-  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
+  %lineno = getelementptr inbounds nuw i8, ptr %tok, i64 512
   %10 = load i32, ptr %lineno, align 8
   %call33 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, ptr noundef nonnull %call, ptr noundef %9, i32 noundef %10, i32 noundef %col_offset.addr.0, ptr noundef nonnull %errtext.031, i32 noundef %10, i32 noundef %spec.select) #9
   %tobool34.not = icmp eq ptr %call33, null
@@ -172,11 +172,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef initializes((8, 16), (64, 68)) %tok) local_unnamed_addr #1 {
 entry:
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 18, ptr %done, align 8
-  %inp = getelementptr inbounds i8, ptr %tok, i64 16
+  %inp = getelementptr inbounds nuw i8, ptr %tok, i64 16
   %0 = load ptr, ptr %inp, align 8
-  %cur = getelementptr inbounds i8, ptr %tok, i64 8
+  %cur = getelementptr inbounds nuw i8, ptr %tok, i64 8
   store ptr %0, ptr %cur, align 8
   ret i32 64
 }
@@ -184,15 +184,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @_PyTokenizer_error_ret(ptr nocapture noundef initializes((8, 24), (48, 68), (2748, 2752)) %tok) local_unnamed_addr #0 {
 entry:
-  %decoding_erred = getelementptr inbounds i8, ptr %tok, i64 2748
+  %decoding_erred = getelementptr inbounds nuw i8, ptr %tok, i64 2748
   store i32 1, ptr %decoding_erred, align 4
-  %fp = getelementptr inbounds i8, ptr %tok, i64 72
+  %fp = getelementptr inbounds nuw i8, ptr %tok, i64 72
   %0 = load ptr, ptr %fp, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %entry
-  %readline = getelementptr inbounds i8, ptr %tok, i64 2800
+  %readline = getelementptr inbounds nuw i8, ptr %tok, i64 2800
   %1 = load ptr, ptr %readline, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
@@ -207,8 +207,8 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %lor.lhs.false
-  %end = getelementptr inbounds i8, ptr %tok, i64 48
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %end = getelementptr inbounds nuw i8, ptr %tok, i64 48
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tok, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end, i8 0, i64 16, i1 false)
   store i32 22, ptr %done, align 8
@@ -220,7 +220,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 65) i32 @_PyTokenizer_warn_invalid_escape_sequence(ptr nocapture noundef %tok, i32 noundef %first_invalid_escape_char) local_unnamed_addr #0 {
 entry:
-  %report_warnings = getelementptr inbounds i8, ptr %tok, i64 2848
+  %report_warnings = getelementptr inbounds nuw i8, ptr %tok, i64 2848
   %0 = load i32, ptr %report_warnings, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -234,9 +234,9 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %1 = load ptr, ptr @PyExc_SyntaxWarning, align 8
-  %filename = getelementptr inbounds i8, ptr %tok, i64 2336
+  %filename = getelementptr inbounds nuw i8, ptr %tok, i64 2336
   %2 = load ptr, ptr %filename, align 8
-  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
+  %lineno = getelementptr inbounds nuw i8, ptr %tok, i64 512
   %3 = load i32, ptr %lineno, align 8
   %call5 = tail call i32 @PyErr_WarnExplicitObject(ptr noundef %1, ptr noundef nonnull %call, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef null) #9
   %cmp6 = icmp slt i32 %call5, 0
@@ -299,7 +299,7 @@ declare void @PyErr_Clear() local_unnamed_addr #2
 define hidden range(i32 -1, 1) i32 @_PyTokenizer_parser_warn(ptr nocapture noundef %tok, ptr noundef %category, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
-  %report_warnings = getelementptr inbounds i8, ptr %tok, i64 2848
+  %report_warnings = getelementptr inbounds nuw i8, ptr %tok, i64 2848
   %0 = load i32, ptr %report_warnings, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -312,9 +312,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %Py_XDECREF.exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %filename = getelementptr inbounds i8, ptr %tok, i64 2336
+  %filename = getelementptr inbounds nuw i8, ptr %tok, i64 2336
   %1 = load ptr, ptr %filename, align 8
-  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
+  %lineno = getelementptr inbounds nuw i8, ptr %tok, i64 512
   %2 = load i32, ptr %lineno, align 8
   %call6 = call i32 @PyErr_WarnExplicitObject(ptr noundef %category, ptr noundef nonnull %call, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef null) #9
   %cmp = icmp slt i32 %call6, 0
@@ -363,7 +363,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 17, ptr %done, align 8
   br label %return
 
@@ -383,7 +383,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 15, ptr %done, align 8
   br label %return
 
@@ -469,7 +469,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not.us, label %for.end, label %for.body.us, !llvm.loop !5
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds i8, ptr %tok, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 15, ptr %done, align 8
   br label %return
 
@@ -549,7 +549,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr nocapture noundef readonly %get_char, ptr nocapture noundef readonly %unget_char, ptr nocapture noundef readnone %set_readline, ptr noundef %tok) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 %get_char(ptr noundef %tok) #9
-  %decoding_state = getelementptr inbounds i8, ptr %tok, i64 2744
+  %decoding_state = getelementptr inbounds nuw i8, ptr %tok, i64 2744
   store i32 1, ptr %decoding_state, align 8
   switch i32 %call, label %if.else10 [
     i32 -1, label %return
@@ -582,7 +582,7 @@ if.else10:                                        ; preds = %entry
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
+  %encoding = getelementptr inbounds nuw i8, ptr %tok, i64 2752
   %0 = load ptr, ptr %encoding, align 8
   %cmp13.not = icmp eq ptr %0, null
   br i1 %cmp13.not, label %if.end16, label %if.then14
@@ -597,7 +597,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
-  %done.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %done.i = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 15, ptr %done.i, align 8
   br label %_PyTokenizer_new_string.exit
 
@@ -621,13 +621,13 @@ return:                                           ; preds = %_PyTokenizer_new_st
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %line, i64 noundef %size, ptr noundef %tok, ptr nocapture noundef readonly %set_readline) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [13 x i8], align 1
-  %cont_line = getelementptr inbounds i8, ptr %tok, i64 2760
+  %cont_line = getelementptr inbounds nuw i8, ptr %tok, i64 2760
   %0 = load i32, ptr %cont_line, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %decoding_state = getelementptr inbounds i8, ptr %tok, i64 2744
+  %decoding_state = getelementptr inbounds nuw i8, ptr %tok, i64 2744
   store i32 2, ptr %decoding_state, align 8
   br label %return
 
@@ -724,7 +724,7 @@ if.then69.i:                                      ; preds = %while.end.i
   br i1 %tobool.not.i.i, label %_PyTokenizer_new_string.exit.thread.i, label %if.end73.i
 
 _PyTokenizer_new_string.exit.thread.i:            ; preds = %if.then69.i
-  %done.i.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %done.i.i = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 15, ptr %done.i.i, align 8
   br label %return
 
@@ -818,7 +818,7 @@ if.then77.i:                                      ; preds = %get_normal_name.exi
   br i1 %tobool.not.i44.i, label %_PyTokenizer_new_string.exit49.thread.i, label %_PyTokenizer_new_string.exit49.i
 
 _PyTokenizer_new_string.exit49.thread.i:          ; preds = %if.then77.i
-  %done.i48.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %done.i48.i = getelementptr inbounds nuw i8, ptr %tok, i64 64
   store i32 15, ptr %done.i48.i, align 8
   br label %return
 
@@ -851,7 +851,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
   ]
 
 if.then32:                                        ; preds = %for.body
-  %decoding_state33 = getelementptr inbounds i8, ptr %tok, i64 2744
+  %decoding_state33 = getelementptr inbounds nuw i8, ptr %tok, i64 2744
   store i32 2, ptr %decoding_state33, align 8
   br label %return
 
@@ -862,9 +862,9 @@ for.inc:                                          ; preds = %for.body, %for.body
 
 if.end35:                                         ; preds = %get_normal_name.exit.i, %_PyTokenizer_new_string.exit49.i
   %cs.0.ph.ph = phi ptr [ %call.i43.i, %_PyTokenizer_new_string.exit49.i ], [ %call.i.i, %get_normal_name.exit.i ]
-  %decoding_state36 = getelementptr inbounds i8, ptr %tok, i64 2744
+  %decoding_state36 = getelementptr inbounds nuw i8, ptr %tok, i64 2744
   store i32 2, ptr %decoding_state36, align 8
-  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
+  %encoding = getelementptr inbounds nuw i8, ptr %tok, i64 2752
   %9 = load ptr, ptr %encoding, align 8
   %cmp37 = icmp eq ptr %9, null
   br i1 %cmp37, label %if.then39, label %if.else
@@ -896,15 +896,15 @@ if.else:                                          ; preds = %if.end35
   br i1 %cmp53.not, label %if.end58, label %if.then55
 
 if.then55:                                        ; preds = %if.else
-  %decoding_erred.i = getelementptr inbounds i8, ptr %tok, i64 2748
+  %decoding_erred.i = getelementptr inbounds nuw i8, ptr %tok, i64 2748
   store i32 1, ptr %decoding_erred.i, align 4
-  %fp.i = getelementptr inbounds i8, ptr %tok, i64 72
+  %fp.i = getelementptr inbounds nuw i8, ptr %tok, i64 72
   %11 = load ptr, ptr %fp.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %land.lhs.true.i
 
 lor.lhs.false.i:                                  ; preds = %if.then55
-  %readline.i = getelementptr inbounds i8, ptr %tok, i64 2800
+  %readline.i = getelementptr inbounds nuw i8, ptr %tok, i64 2800
   %12 = load ptr, ptr %readline.i, align 8
   %cmp1.not.i = icmp eq ptr %12, null
   br i1 %cmp1.not.i, label %_PyTokenizer_error_ret.exit, label %land.lhs.true.i
@@ -919,8 +919,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_PyTokenizer_error_ret.exit
 
 _PyTokenizer_error_ret.exit:                      ; preds = %lor.lhs.false.i, %land.lhs.true.i, %if.then.i
-  %end.i = getelementptr inbounds i8, ptr %tok, i64 48
-  %done.i = getelementptr inbounds i8, ptr %tok, i64 64
+  %end.i = getelementptr inbounds nuw i8, ptr %tok, i64 48
+  %done.i = getelementptr inbounds nuw i8, ptr %tok, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tok, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end.i, i8 0, i64 16, i1 false)
   store i32 22, ptr %done.i, align 8
@@ -1036,9 +1036,9 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
 if.then3:                                         ; preds = %if.then5.i, %if.else34.i, %land.lhs.true.i, %land.lhs.true26.i, %cond.false.i, %cond.true.i, %for.body.i
   %conv13 = zext i8 %1 to i32
   %10 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %filename = getelementptr inbounds i8, ptr %tok, i64 2336
+  %filename = getelementptr inbounds nuw i8, ptr %tok, i64 2336
   %11 = load ptr, ptr %filename, align 8
-  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
+  %lineno = getelementptr inbounds nuw i8, ptr %tok, i64 512
   %12 = load i32, ptr %lineno, align 8
   %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.5, i32 noundef %conv13, ptr noundef %11, i32 noundef %12) #9
   br label %return

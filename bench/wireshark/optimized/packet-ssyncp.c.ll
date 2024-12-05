@@ -134,9 +134,9 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %13, label %201, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 50
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 50
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8
   %.not = icmp eq i16 %19, 0
@@ -160,11 +160,11 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %30 = tail call noalias ptr @wmem_alloc(ptr noundef %29, i64 noundef 40) #4
   %31 = load i32, ptr @proto_ssyncp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %31, ptr noundef %30) #4
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %32, align 8
   %33 = getelementptr i8, ptr %30, i64 20
   store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 0, ptr %34, align 4
   %35 = getelementptr i8, ptr %30, i64 32
   store i32 0, ptr %35, align 4
@@ -174,7 +174,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1 = phi ptr [ %27, %24 ], [ %30, %28 ]
   %37 = tail call ptr @wmem_file_scope() #4
   %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 24) #4
-  %39 = getelementptr inbounds i8, ptr %.1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %40 = getelementptr [2 x i32], ptr %39, i64 0, i64 %11
   %41 = load i32, ptr %40, align 4
   %.not147 = icmp eq i32 %41, 0
@@ -190,12 +190,12 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %45 = getelementptr [2 x i64], ptr %.1, i64 0, i64 %11
   %46 = load i64, ptr %45, align 8
   %47 = sub i64 %12, %46
-  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %47, ptr %48, align 8
   br label %49
 
 49:                                               ; preds = %44, %43
-  %50 = getelementptr inbounds i8, ptr %38, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %50, align 8
   %51 = tail call ptr @wmem_file_scope() #4
   %52 = load i32, ptr @proto_ssyncp, align 4
@@ -207,7 +207,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
 54:                                               ; preds = %49, %20
   %.0137 = phi ptr [ null, %20 ], [ %.1, %49 ]
   %.0136 = phi ptr [ %23, %20 ], [ %38, %49 ]
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void @col_set_str(ptr noundef %56, i32 noundef 34, ptr noundef nonnull @.str.41) #4
   %57 = load ptr, ptr %55, align 8
@@ -232,20 +232,20 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 71:                                               ; preds = %54
   %72 = load i32, ptr @hf_ssyncp_seq_delta, align 4
-  %73 = getelementptr inbounds i8, ptr %.0136, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0136, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = tail call ptr @proto_tree_add_int64(ptr noundef %63, i32 noundef %72, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %74) #4
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %78 = load ptr, ptr %77, align 8
   %.not5.i = icmp eq ptr %78, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %78, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 28
   %81 = load i32, ptr %80, align 4
   %82 = or i32 %81, 2
   store i32 %82, ptr %80, align 4
@@ -280,7 +280,7 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
 
 93:                                               ; preds = %87
   store i32 0, ptr %6, align 4
-  %94 = getelementptr inbounds i8, ptr %6, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %95 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %94, i32 noundef 0, i64 noundef 8) #4
   %96 = load ptr, ptr %5, align 8
   %97 = call i32 @gcry_cipher_setiv(ptr noundef %96, ptr noundef nonnull %6, i64 noundef 12) #4
@@ -297,7 +297,7 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
 101:                                              ; preds = %93
   %102 = call i32 @tvb_captured_length(ptr noundef %0) #4
   %103 = add i32 %102, -24
-  %104 = getelementptr inbounds i8, ptr %1, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = zext i32 %103 to i64
   %107 = call ptr @tvb_memdup(ptr noundef %105, ptr noundef %0, i32 noundef 8, i64 noundef %106) #4
@@ -348,16 +348,16 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %127 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %107, i32 noundef %103, i32 noundef %103) #4
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %127, ptr noundef nonnull @.str.56) #4
   %128 = load ptr, ptr %15, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 50
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 50
   %130 = load i16, ptr %129, align 2
   %131 = and i16 %130, 8
   %.not158 = icmp eq i16 %131, 0
   br i1 %.not158, label %132, label %159
 
 132:                                              ; preds = %126
-  %133 = getelementptr inbounds i8, ptr %1, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %136 = load i32, ptr %135, align 8
   %137 = sdiv i32 %136, 1000000
   %138 = trunc i64 %134 to i32
@@ -367,10 +367,10 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %142 = call zeroext i16 @tvb_get_guint16(ptr noundef %127, i32 noundef 2, i32 noundef 0) #4
   %143 = trunc i32 %140 to i16
   %144 = sub i16 %141, %143
-  %145 = getelementptr inbounds i8, ptr %.0137, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %.0137, i64 24
   %146 = getelementptr [2 x i16], ptr %145, i64 0, i64 %11
   store i16 %144, ptr %146, align 2
-  %147 = getelementptr inbounds i8, ptr %.0137, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %.0137, i64 28
   %148 = getelementptr [2 x i32], ptr %147, i64 0, i64 %11
   store i32 1, ptr %148, align 4
   %.not159 = icmp eq i16 %142, -1
@@ -388,9 +388,9 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %155 = load i16, ptr %154, align 2
   %.neg = sub i16 %143, %142
   %156 = add i16 %.neg, %155
-  %157 = getelementptr inbounds i8, ptr %.0136, i64 20
+  %157 = getelementptr inbounds nuw i8, ptr %.0136, i64 20
   store i16 %156, ptr %157, align 4
-  %158 = getelementptr inbounds i8, ptr %.0136, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %.0136, i64 16
   store i32 1, ptr %158, align 8
   br label %159
 
@@ -401,7 +401,7 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %163 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %127, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %164 = load i32, ptr @hf_ssyncp_timestamp_reply, align 4
   %165 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %164, ptr noundef %127, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %166 = getelementptr inbounds i8, ptr %.0136, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.0136, i64 16
   %167 = load i32, ptr %166, align 8
   %.not161 = icmp eq i32 %167, 0
   br i1 %.not161, label %proto_item_set_generated.exit166, label %168
@@ -410,7 +410,7 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %169 = load i32, ptr @hf_ssyncp_rtt_to_server, align 4
   %170 = load i32, ptr @hf_ssyncp_rtt_to_client, align 4
   %171 = select i1 %.not148, i32 %170, i32 %169
-  %172 = getelementptr inbounds i8, ptr %.0136, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %.0136, i64 20
   %173 = load i16, ptr %172, align 4
   %174 = sext i16 %173 to i32
   %175 = call ptr @proto_tree_add_int(ptr noundef %161, i32 noundef %171, ptr noundef %127, i32 noundef 2, i32 noundef 2, i32 noundef %174) #4
@@ -418,13 +418,13 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   br i1 %.not.i164, label %proto_item_set_generated.exit166, label %176
 
 176:                                              ; preds = %168
-  %177 = getelementptr inbounds i8, ptr %175, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %178 = load ptr, ptr %177, align 8
   %.not5.i165 = icmp eq ptr %178, null
   br i1 %.not5.i165, label %proto_item_set_generated.exit166, label %179
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %178, i64 28
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 28
   %181 = load i32, ptr %180, align 4
   %182 = or i32 %181, 2
   store i32 %182, ptr %180, align 4
@@ -518,7 +518,7 @@ define hidden void @proto_reg_handoff_ssyncp() #0 {
 
 13:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %1, ptr noundef nonnull align 1 dereferenceable(22) %10, i64 22, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %14, ptr noundef nonnull align 1 dereferenceable(3) @.str.49, i64 3, i1 false)
   %15 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %1, ptr noundef nonnull %2) #4
   %16 = icmp eq ptr %15, null

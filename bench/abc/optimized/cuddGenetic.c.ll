@@ -23,7 +23,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %8 = sub nsw i32 %2, %1
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr @numvars, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 552
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   %13 = mul nsw i32 %9, 3
@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 624
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %22, align 8
   br label %484
 
@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %28, label %35, label %.preheader
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 624
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %30, align 8
   tail call void @free(ptr noundef nonnull %19) #8
   store ptr null, ptr @storedd, align 8
@@ -74,13 +74,13 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %0, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %42
 
 35:                                               ; preds = %.preheader152.preheader
-  %36 = getelementptr inbounds i8, ptr %0, i64 624
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %36, align 8
   %37 = load ptr, ptr @storedd, align 8
   %.not128 = icmp eq ptr %37, null
@@ -107,16 +107,16 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   %44 = getelementptr i32, ptr %43, i64 %indvars.iv
   %45 = getelementptr i32, ptr %44, i64 %34
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   store i32 %46, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %42, %.preheader
-  %48 = getelementptr inbounds i8, ptr %0, i64 228
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 304
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %51 = load i32, ptr %50, align 8
   %52 = sub i32 %49, %51
   %53 = sext i32 %31 to i64
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %70, label %.lr.ph185, label %._crit_edge186
 
 .lr.ph185:                                        ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 328
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %72 = load ptr, ptr @storedd, align 8
   %factor = shl nuw i32 %69, 1
   %invariant.op = or disjoint i32 %factor, 1
@@ -198,7 +198,7 @@ define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %88, label %.preheader25.lr.ph.i, label %make_random.exit
 
 .preheader25.lr.ph.i:                             ; preds = %.preheader26.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 328
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %._crit_edge.i, %.preheader25.lr.ph.i
@@ -268,7 +268,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
   br i1 %125, label %.lr.ph190, label %find_best.exit
 
 126:                                              ; preds = %._crit_edge186
-  %127 = getelementptr inbounds i8, ptr %0, i64 624
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %127, align 8
   %128 = load ptr, ptr @storedd, align 8
   %.not98 = icmp eq ptr %128, null
@@ -380,7 +380,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
 
 177:                                              ; preds = %158
   %178 = load ptr, ptr @repeat, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %indvars.iv243
+  %179 = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv243
   %180 = load i32, ptr %179, align 4
   %181 = add nsw i32 %180, 1
   store i32 %181, ptr %179, align 4
@@ -395,7 +395,7 @@ make_random.exit:                                 ; preds = %._crit_edge.i, %.pr
 
 find_best.exit:                                   ; preds = %182, %make_random.exit
   %.lcssa173266 = phi i32 [ %124, %make_random.exit ], [ %183, %182 ]
-  %186 = getelementptr inbounds i8, ptr %0, i64 556
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %192
@@ -413,7 +413,7 @@ find_best.exit:                                   ; preds = %182, %make_random.e
   br i1 %193, label %.lr.ph209, label %._crit_edge210
 
 .lr.ph209:                                        ; preds = %192
-  %194 = getelementptr inbounds i8, ptr %0, i64 136
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %195
 
 195:                                              ; preds = %.lr.ph209, %._crit_edge206
@@ -490,7 +490,7 @@ find_best.exit:                                   ; preds = %182, %make_random.e
 
 .lr.ph34.i.i:                                     ; preds = %240, %.lr.ph34.preheader.i.i
   %indvars.iv46.i.i = phi i64 [ 0, %.lr.ph34.preheader.i.i ], [ %indvars.iv.next47.i.i, %240 ]
-  %237 = getelementptr inbounds double, ptr %208, i64 %indvars.iv46.i.i
+  %237 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv46.i.i
   %238 = load double, ptr %237, align 8
   %239 = fcmp ugt double %234, %238
   br i1 %239, label %240, label %._crit_edge35.loopexit.split.loop.exit.i.i
@@ -528,7 +528,7 @@ find_best.exit:                                   ; preds = %182, %make_random.e
 
 .lr.ph40.i.i:                                     ; preds = %255, %.lr.ph40.preheader.i.i
   %indvars.iv51.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next52.i.i, %255 ]
-  %252 = getelementptr inbounds double, ptr %208, i64 %indvars.iv51.i.i
+  %252 = getelementptr inbounds nuw double, ptr %208, i64 %indvars.iv51.i.i
   %253 = load double, ptr %252, align 8
   %254 = fcmp ugt double %249, %253
   br i1 %254, label %255, label %._crit_edge41.loopexit.split.loop.exit60.i.i
@@ -684,7 +684,7 @@ PMX.exit.thread.sink.split:                       ; preds = %202, %PMX.exit.thre
   br label %PMX.exit.thread
 
 PMX.exit.thread:                                  ; preds = %195, %PMX.exit.thread.sink.split
-  %335 = getelementptr inbounds i8, ptr %0, i64 624
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %335, align 8
   %336 = load ptr, ptr @storedd, align 8
   %.not104 = icmp eq ptr %336, null
@@ -748,7 +748,7 @@ PMX.exit.thread:                                  ; preds = %195, %PMX.exit.thre
 354:                                              ; preds = %354, %352
   %indvars.iv15.i = phi i32 [ %indvars.iv.next16.i, %354 ], [ 1, %352 ]
   %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i135, %354 ], [ 0, %352 ]
-  %355 = getelementptr inbounds i32, ptr %353, i64 %indvars.iv.i134
+  %355 = getelementptr inbounds nuw i32, ptr %353, i64 %indvars.iv.i134
   %356 = load i32, ptr %355, align 4
   %357 = icmp sgt i32 %356, 1
   %indvars.iv.next.i135 = add nuw nsw i64 %indvars.iv.i134, 1
@@ -787,7 +787,7 @@ PMX.exit.thread:                                  ; preds = %195, %PMX.exit.thre
   br i1 %.not.i141, label %378, label %373
 
 373:                                              ; preds = %365
-  %374 = getelementptr inbounds i32, ptr %353, i64 %indvars.iv17.i
+  %374 = getelementptr inbounds nuw i32, ptr %353, i64 %indvars.iv17.i
   %375 = load i32, ptr %374, align 4
   %376 = icmp slt i32 %375, 2
   %377 = trunc nsw i64 %indvars.iv17.i to i32
@@ -1064,9 +1064,9 @@ define internal range(i32 0, 2) i32 @array_compare(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %5, label %._crit_edge
@@ -1090,7 +1090,7 @@ define internal range(i32 0, -2147483648) i32 @array_hash(ptr nocapture noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.011 = phi i32 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
   %5 = mul nsw i32 %.011, 997
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1151,9 +1151,9 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 312
-  %36 = getelementptr inbounds i8, ptr %0, i64 228
-  %37 = getelementptr inbounds i8, ptr %0, i64 304
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %42
 
 38:                                               ; preds = %.loopexit
@@ -1217,7 +1217,7 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
   br label %._crit_edge43
 
 .lr.ph42:                                         ; preds = %.preheader
-  %68 = getelementptr inbounds i8, ptr %0, i64 328
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %69 = add nuw nsw i32 %66, 1
   %70 = mul nsw i32 %69, %1
   %71 = sext i32 %2 to i64
@@ -1240,9 +1240,9 @@ define internal fastcc range(i32 0, 2) i32 @build_dd(ptr noundef %0, i32 noundef
 
 ._crit_edge43:                                    ; preds = %73, %.preheader.._crit_edge43_crit_edge
   %.pre-phi47 = phi i32 [ %.pre46, %.preheader.._crit_edge43_crit_edge ], [ %70, %73 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 228
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 304
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %81 = load i32, ptr %80, align 8
   %82 = sub i32 %79, %81
   %83 = add nsw i32 %.pre-phi47, %66

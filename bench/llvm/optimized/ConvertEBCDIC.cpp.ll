@@ -13,7 +13,7 @@ define dso_local { i32, ptr } @_ZN4llvm15ConverterEBCDIC15convertToEBCDICENS_9St
   br i1 %5, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread: ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %6, i64 noundef %1, i64 noundef 1) #3
   br label %.lr.ph
 
@@ -22,14 +22,14 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
   %.030 = phi ptr [ %0, %.lr.ph ], [ %.1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
   %.01929 = phi i64 [ %1, %.lr.ph ], [ %.120, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
   %9 = add i64 %.01929, -1
-  %10 = getelementptr inbounds i8, ptr %.030, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %11 = load i8, ptr %.030, align 1
   %12 = icmp slt i8 %11, 0
   br i1 %12, label %13, label %29
@@ -61,7 +61,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3
   br label %43
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.030, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %26 = shl i8 %11, 6
   %27 = or i8 %21, %26
   %28 = add i64 %.01929, -2
@@ -72,7 +72,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3
   %.018 = phi i8 [ %27, %24 ], [ %11, %8 ]
   %.1 = phi ptr [ %25, %24 ], [ %10, %8 ]
   %30 = zext i8 %.018 to i64
-  %31 = getelementptr inbounds i8, ptr @_ZL17ISO88591ToIBM1047, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr @_ZL17ISO88591ToIBM1047, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %34 = add i64 %33, 1
@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm15ConverterEBCDIC13convertToUTF8ENS_9StringRefERN
   br i1 %5, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread: ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %6, i64 noundef %1, i64 noundef 1) #3
   br label %.lr.ph
 
@@ -123,17 +123,17 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit15
   %.in = phi i64 [ %1, %.lr.ph ], [ %9, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit15 ]
   %.01217 = phi ptr [ %0, %.lr.ph ], [ %10, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit15 ]
   %9 = add i64 %.in, -1
-  %10 = getelementptr inbounds i8, ptr %.01217, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01217, i64 1
   %11 = load i8, ptr %.01217, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr @_ZL17IBM1047ToISO88591, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZL17IBM1047ToISO88591, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp slt i8 %14, 0
   br i1 %15, label %16, label %29

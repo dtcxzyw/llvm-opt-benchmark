@@ -40,7 +40,7 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %argument = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %1 = load ptr, ptr %argument, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error_message.i)
   %cmp.i = icmp eq ptr %1, null
@@ -68,7 +68,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %import_pic_from.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds i8, ptr %call3.i, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 16
   %call8.i = call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %data.i, ptr noundef nonnull %error_message.i) #6
   %tobool.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i, label %if.then9.i, label %import_pic_from.exit
@@ -119,7 +119,7 @@ do.body:                                          ; preds = %while.cond12, %do.c
   br i1 %cmp19, label %if.then20, label %do.cond
 
 if.then20:                                        ; preds = %do.body
-  %data = getelementptr inbounds i8, ptr %call17, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call17, i64 16
   %8 = load i32, ptr %data, align 8
   switch i32 %8, label %do.cond [
     i32 1, label %if.then23
@@ -150,8 +150,8 @@ do.cond:                                          ; preds = %do.cond.sink.split,
   br i1 %tobool38.not, label %sw.epilog, label %do.body, !llvm.loop !8
 
 sw.bb40:                                          ; preds = %if.end
-  %argument41 = getelementptr inbounds i8, ptr %operation, i64 8
-  %block_number_link = getelementptr inbounds i8, ptr %operation, i64 16
+  %argument41 = getelementptr inbounds nuw i8, ptr %operation, i64 8
+  %block_number_link = getelementptr inbounds nuw i8, ptr %operation, i64 16
   %9 = load ptr, ptr %block_number_link, align 8
   %tobool42.not = icmp eq ptr %9, null
   br i1 %tobool42.not, label %cond.end, label %land.lhs.true
@@ -162,7 +162,7 @@ land.lhs.true:                                    ; preds = %sw.bb40
   br i1 %cmp43.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
-  %entries = getelementptr inbounds i8, ptr %9, i64 8
+  %entries = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %entries, align 8
   %12 = load i32, ptr %11, align 4
   br label %cond.end
@@ -205,7 +205,7 @@ if.else64:                                        ; preds = %if.then60
 
 if.else67:                                        ; preds = %do.end58
   %17 = load ptr, ptr %argument41, align 8
-  %data_length.i = getelementptr inbounds i8, ptr %picture.1, i64 56
+  %data_length.i = getelementptr inbounds nuw i8, ptr %picture.1, i64 56
   %18 = load i32, ptr %data_length.i, align 8
   %cmp.i35 = icmp eq ptr %17, null
   br i1 %cmp.i35, label %if.then.i41, label %lor.lhs.false.i36
@@ -223,7 +223,7 @@ if.then.i41:                                      ; preds = %lor.lhs.false.i36, 
   br label %sw.epilog
 
 if.end.tail.i:                                    ; preds = %lor.lhs.false.i36
-  %20 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %if.then5.i39, label %if.else.i
@@ -250,7 +250,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.end8.i
-  %data16.i = getelementptr inbounds i8, ptr %picture.1, i64 64
+  %data16.i = getelementptr inbounds nuw i8, ptr %picture.1, i64 64
   %25 = load ptr, ptr %data16.i, align 8
   %conv.i = zext i32 %18 to i64
   %call17.i = tail call i64 @fwrite(ptr noundef %25, i64 noundef 1, i64 noundef %conv.i, ptr noundef nonnull %f.0.i)

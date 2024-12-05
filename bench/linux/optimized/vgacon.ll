@@ -116,7 +116,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 15
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %10 [
     i8 35, label %7
@@ -135,20 +135,20 @@ define internal ptr @vgacon_startup() #1 align 16 {
   br label %132
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 14
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp eq i8 %12, 0
   br i1 %14, label %7, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %7, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %22 [
     i8 13, label %7
@@ -169,7 +169,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   store i64 720896, ptr @vga_vram_base, align 8
   store i16 948, ptr @vga_video_port_reg, align 2
   store i16 949, ptr @vga_video_port_val, align 2
-  %26 = getelementptr inbounds i8, ptr %1, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %27 = load i16, ptr %26, align 1
   %28 = and i16 %27, 255
   %29 = icmp eq i16 %28, 16
@@ -194,7 +194,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   store i64 753664, ptr @vga_vram_base, align 8
   store i16 980, ptr @vga_video_port_reg, align 2
   store i16 981, ptr @vga_video_port_val, align 2
-  %36 = getelementptr inbounds i8, ptr %1, i64 10
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %37 = load i16, ptr %36, align 1
   %38 = and i16 %37, 255
   %39 = icmp eq i16 %38, 16
@@ -341,7 +341,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   %119 = xor i1 %118, true
   %120 = zext i1 %119 to i8
   store i8 %120, ptr @vga_hardscroll_enabled, align 1
-  %121 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %122 = load i16, ptr %121, align 1
   %123 = zext i16 %122 to i32
   store i32 %123, ptr @vga_default_font_height, align 4
@@ -353,7 +353,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
 
 126:                                              ; preds = %._crit_edge, %117
   %127 = phi i32 [ %.pre2, %._crit_edge ], [ %125, %117 ]
-  %128 = getelementptr inbounds i8, ptr %.pre, i64 7
+  %128 = getelementptr inbounds nuw i8, ptr %.pre, i64 7
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 3
@@ -369,29 +369,29 @@ define internal ptr @vgacon_startup() #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vgacon_init(ptr noundef initializes((432, 440), (532, 536)) %0, i32 noundef %1) #1 align 16 {
   %3 = load i1, ptr @vga_can_do_color, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load i16, ptr %4, align 8
   %6 = select i1 %3, i16 2048, i16 0
   %7 = and i16 %5, -2049
   %8 = or disjoint i16 %7, %6
   store i16 %8, ptr %4, align 8
   %9 = load i32, ptr @vga_scan_lines, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 432
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i32 %9, ptr %10, align 8
   %11 = load i32, ptr @vga_video_font_height, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 436
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 436
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 532
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 532
   store i32 %11, ptr %13, align 4
   %14 = icmp eq i32 %1, 0
   %15 = load i32, ptr @vga_video_num_columns, align 4
   br i1 %14, label %20, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 420
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 420
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr @vga_video_num_lines, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 424
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 %18, ptr %19, align 8
   br label %23
 
@@ -401,19 +401,19 @@ define internal void @vgacon_init(ptr noundef initializes((432, 440), (532, 536)
   br label %23
 
 23:                                               ; preds = %20, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 504
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i16 30464, ptr %24, align 8
   %25 = load i8, ptr @vga_512_chars, align 1, !range !13, !noundef !14
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 520
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i16 2048, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %27, %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 808
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %31, @vgacon_uni_pagedir
@@ -445,7 +445,7 @@ define internal void @vgacon_init(ptr noundef initializes((432, 440), (532, 536)
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @vga_si, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 1
   %51 = and i8 %50, 1
   %52 = xor i8 %51, 1
@@ -464,7 +464,7 @@ define internal void @vgacon_deinit(ptr noundef %0) #1 align 16 {
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @vga_vram_base, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %4, ptr %5, align 8
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %7 = load i16, ptr @vga_video_port_reg, align 2
@@ -486,8 +486,8 @@ define internal void @vgacon_deinit(ptr noundef %0) #1 align 16 {
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 800
-  %16 = getelementptr inbounds i8, ptr %0, i64 808
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr %15, ptr %16, align 8
   %17 = tail call i32 @con_set_default_unimap(ptr noundef %0) #13
   ret void
@@ -510,15 +510,15 @@ define internal void @vgacon_putcs(ptr nocapture readnone %0, ptr nocapture read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 492
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %95
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 440
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 456
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %29, label %12
@@ -547,7 +547,7 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   br label %29
 
 29:                                               ; preds = %12, %6
-  %30 = getelementptr inbounds i8, ptr %0, i64 436
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %31 = load i32, ptr %30, align 4
   switch i32 %1, label %95 [
     i32 2, label %32
@@ -556,7 +556,7 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   ]
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 512
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %34 = load i64, ptr %33, align 8
   %35 = load i64, ptr @vga_vram_base, align 8
   %36 = sub i64 %34, %35
@@ -585,7 +585,7 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   br label %95
 
 50:                                               ; preds = %29, %29
-  %51 = getelementptr inbounds i8, ptr %0, i64 512
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %52 = load i64, ptr %51, align 8
   %53 = load i64, ptr @vga_vram_base, align 8
   %54 = sub i64 %52, %53
@@ -601,7 +601,7 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   %63 = load i16, ptr @vga_video_port_reg, align 2
   tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %59, i16 %63) #13, !srcloc !15
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %57) #13
-  %64 = getelementptr inbounds i8, ptr %0, i64 500
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 15
   switch i32 %66, label %94 [
@@ -673,7 +673,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   br i1 %6, label %7, label %106
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 424
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %2
   br i1 %10, label %11, label %106
@@ -683,7 +683,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   br i1 %12, label %106, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 492
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %106
@@ -698,16 +698,16 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 
 23:                                               ; preds = %17
   tail call fastcc void @vgacon_restore_screen(ptr noundef %0)
-  %24 = getelementptr inbounds i8, ptr %0, i64 440
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 428
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %27 = load i32, ptr %26, align 4
   %28 = mul i32 %27, %4
   %29 = icmp eq i32 %3, 0
   br i1 %29, label %30, label %63
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 448
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %32 = load i64, ptr %31, align 8
   %33 = zext i32 %28 to i64
   %34 = add i64 %32, %33
@@ -720,7 +720,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   %39 = inttoptr i64 %38 to ptr
   %40 = add i64 %25, %33
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %0, i64 488
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %43 = load i32, ptr %42, align 8
   %44 = sub i32 %43, %28
   %45 = zext i32 %44 to i64
@@ -738,13 +738,13 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 51:                                               ; preds = %49, %37
   %.sink = phi i64 [ %50, %49 ], [ %46, %37 ]
   store i64 %.sink, ptr %24, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 488
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   %55 = sub i64 %.sink, %33
   %56 = add i64 %55, %54
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %0, i64 552
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %59 = load i16, ptr %58, align 8
   %60 = lshr i32 %28, 1
   %61 = zext nneg i32 %60 to i64
@@ -760,7 +760,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 
 68:                                               ; preds = %63
   %69 = load i64, ptr @vga_vram_end, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 488
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = add i64 %69, %64
@@ -778,7 +778,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   br label %84
 
 83:                                               ; preds = %63
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 488
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 488
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.pre6 = zext i32 %.pre to i64
   br label %84
@@ -788,10 +788,10 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   %.sink5 = phi i64 [ %65, %83 ], [ %82, %68 ]
   store i64 %.sink5, ptr %24, align 8
   %85 = add i64 %.sink5, %.pre-phi
-  %86 = getelementptr inbounds i8, ptr %0, i64 448
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 %85, ptr %86, align 8
   %87 = inttoptr i64 %.sink5 to ptr
-  %88 = getelementptr inbounds i8, ptr %0, i64 552
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %89 = load i16, ptr %88, align 8
   %90 = lshr i32 %28, 1
   %91 = zext nneg i32 %90 to i64
@@ -800,16 +800,16 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 
 93:                                               ; preds = %84, %51
   %94 = load i64, ptr %24, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 488
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %96 = load i32, ptr %95, align 8
   %97 = zext i32 %96 to i64
   %98 = add i64 %94, %97
-  %99 = getelementptr inbounds i8, ptr %0, i64 448
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 456
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %94, ptr %100, align 8
   tail call fastcc void @vga_set_mem_top(i64 %94)
-  %101 = getelementptr inbounds i8, ptr %0, i64 512
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %102 = load i64, ptr %101, align 8
   %103 = sub i64 %102, %25
   %104 = load i64, ptr %24, align 8
@@ -824,14 +824,14 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 420
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 436
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @vga_si, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = load i32, ptr @vga_default_font_height, align 4
@@ -845,12 +845,12 @@ define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1
 16:                                               ; preds = %1
   %17 = mul i32 %7, %5
   %18 = shl i32 %3, 3
-  %19 = getelementptr inbounds i8, ptr %0, i64 440
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 480
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 488
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %25 = load i32, ptr %24, align 8
   %26 = load i32, ptr @vga_vram_size, align 4
   %27 = tail call i32 @llvm.umin.i32(i32 %25, i32 %26)
@@ -871,7 +871,7 @@ define internal noundef i32 @vgacon_switch(ptr nocapture noundef readonly %0) #1
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr @vga_si, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 7
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 7
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = icmp ugt i32 %35, %42
@@ -1047,7 +1047,7 @@ define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr nocapture noundef 
   %101 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %100) #13, !srcloc !7
   %102 = extractvalue { i64, i64, i64, i64, i64 } %101, 4
   tail call void @llvm.write_register.i64(metadata !0, i64 %102)
-  %103 = getelementptr inbounds i8, ptr %0, i64 720
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %104
 
 104:                                              ; preds = %104, %99
@@ -1160,9 +1160,9 @@ vga_set_palette.exit:                             ; preds = %104
 
 170:                                              ; preds = %168, %165
   %171 = load i64, ptr @vga_vram_base, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 456
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %171, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 440
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 %171, ptr %173, align 8
   %174 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %175 = load i16, ptr @vga_video_port_reg, align 2
@@ -1176,7 +1176,7 @@ vga_set_palette.exit:                             ; preds = %104
 177:                                              ; preds = %170, %168, %163
   %178 = load i64, ptr @vga_vram_base, align 8
   %179 = inttoptr i64 %178 to ptr
-  %180 = getelementptr inbounds i8, ptr %0, i64 488
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %181 = load i32, ptr %180, align 8
   %182 = lshr i32 %181, 1
   %183 = zext nneg i32 %182 to i64
@@ -1461,7 +1461,7 @@ vga_set_palette.exit:                             ; preds = %104
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load i8, ptr @vga_video_type, align 1
   %8 = icmp ult i8 %7, 32
@@ -1473,7 +1473,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture nou
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp ugt i32 %14, 32
   %16 = icmp ne i32 %2, 32
@@ -1487,7 +1487,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture nou
   ]
 
 19:                                               ; preds = %18, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq i32 %6, 512
   %23 = tail call fastcc i32 @vgacon_do_font_op(ptr noundef %21, i32 noundef 1, i1 noundef zeroext %22)
@@ -1521,16 +1521,16 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_get(ptr nocapture nou
 
 8:                                                ; preds = %3
   store i32 8, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 532
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %10, ptr %11, align 4
   %12 = load i8, ptr @vga_512_chars, align 1, !range !13, !noundef !14
   %13 = icmp eq i8 %12, 0
   %14 = select i1 %13, i32 256, i32 512
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
@@ -1560,12 +1560,12 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_resize(ptr noundef %0, i32
 11:                                               ; preds = %9
   %12 = trunc i32 %1 to i8
   %13 = load ptr, ptr @vga_si, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 7
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 7
   store i8 %12, ptr %14, align 1
   %15 = trunc i32 %2 to i8
-  %16 = getelementptr inbounds i8, ptr %13, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 14
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 436
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr @vga_default_font_height, align 4
   br label %43
@@ -1577,19 +1577,19 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_resize(ptr noundef %0, i32
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @vga_si, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 7
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = icmp ugt i32 %1, %26
   br i1 %27, label %43, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %23, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 14
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = load i32, ptr @vga_default_font_height, align 4
   %33 = mul i32 %32, %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 436
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %35 = load i32, ptr %34, align 4
   %36 = udiv i32 %33, %35
   %37 = icmp ult i32 %36, %2
@@ -1632,7 +1632,7 @@ define internal void @vgacon_set_palette(ptr noundef %0, ptr nocapture noundef r
   %11 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %10) #13, !srcloc !7
   %12 = extractvalue { i64, i64, i64, i64, i64 } %11, 4
   tail call void @llvm.write_register.i64(metadata !0, i64 %12)
-  %13 = getelementptr inbounds i8, ptr %0, i64 720
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %14
 
 14:                                               ; preds = %14, %9
@@ -1687,7 +1687,7 @@ define internal void @vgacon_scrolldelta(ptr noundef %0, i32 noundef %1) #1 alig
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr @vga_vram_size, align 4
   tail call void @vc_scrolldelta_helper(ptr noundef %0, i32 noundef %1, i32 noundef %3, ptr noundef %5, i32 noundef %6) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr @vga_vram_base, align 8
   %10 = sub i64 %8, %9
@@ -1722,9 +1722,9 @@ define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr nocapture nou
 
 8:                                                ; preds = %6, %3
   %9 = load i64, ptr @vga_vram_base, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 456
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 440
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 %9, ptr %11, align 8
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %13 = load i16, ptr @vga_video_port_reg, align 2
@@ -1750,12 +1750,12 @@ define internal void @vgacon_save_screen(ptr nocapture noundef %0) #3 align 16 {
   %4 = load ptr, ptr @vga_si, align 8
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 %10, ptr %11, align 4
   br label %12
 
@@ -1764,12 +1764,12 @@ define internal void @vgacon_save_screen(ptr nocapture noundef %0) #3 align 16 {
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 440
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %0, i64 488
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %21 = load i32, ptr %20, align 8
   %22 = load i32, ptr @vga_vram_size, align 4
   %23 = tail call i32 @llvm.umin.i32(i32 %21, i32 %22)
@@ -1791,7 +1791,7 @@ define internal zeroext i8 @vgacon_build_attr(ptr nocapture noundef readonly %0,
 
 10:                                               ; preds = %9
   %11 = and i8 %1, -16
-  %12 = getelementptr inbounds i8, ptr %0, i64 496
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = load i8, ptr %12, align 8
   %14 = or i8 %13, %11
   br label %28
@@ -1801,7 +1801,7 @@ define internal zeroext i8 @vgacon_build_attr(ptr nocapture noundef readonly %0,
 
 16:                                               ; preds = %15
   %17 = and i8 %1, -16
-  %18 = getelementptr inbounds i8, ptr %0, i64 495
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 495
   %19 = load i8, ptr %18, align 1
   %20 = or i8 %19, %17
   br label %28
@@ -1812,7 +1812,7 @@ define internal zeroext i8 @vgacon_build_attr(ptr nocapture noundef readonly %0,
 
 23:                                               ; preds = %21
   %24 = and i8 %1, -16
-  %25 = getelementptr inbounds i8, ptr %0, i64 497
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 497
   %26 = load i8, ptr %25, align 1
   %27 = or i8 %26, %24
   br label %28
@@ -1970,9 +1970,9 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @vgacon_restore_screen(ptr noundef %0) unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 440
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %3, %5
   br i1 %6, label %24, label %7
@@ -2098,7 +2098,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @vgacon_doresize(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 436
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %7 = shl i32 %1, 3
@@ -2438,13 +2438,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   br i1 %86, label %93, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %85, i64 472
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 472
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, @vga_con
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %85, i64 520
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 520
   store i16 0, ptr %92, align 8
   tail call void @clear_buffer_attributes(ptr noundef nonnull %85) #13
   store i16 %76, ptr %92, align 8
@@ -2553,7 +2553,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
   br i1 %64, label %79, label %65
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %63, i64 472
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 472
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, @vga_con
   br i1 %68, label %69, label %79
@@ -2566,15 +2566,15 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
   store i32 0, ptr @cursor_size_lastfrom, align 4
   store i32 0, ptr @cursor_size_lastto, align 4
   %72 = load ptr, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %63, i32 noundef 1) #13
   br label %75
 
 75:                                               ; preds = %71, %69
-  %76 = getelementptr inbounds i8, ptr %63, i64 436
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 436
   store i32 %0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %63, i64 532
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 532
   store i32 %0, ptr %77, align 4
   %78 = tail call i32 @vc_resize(ptr noundef nonnull %63, i32 noundef 0, i32 noundef %2) #13
   br label %79

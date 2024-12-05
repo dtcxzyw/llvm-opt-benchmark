@@ -66,7 +66,7 @@ define hidden void @_ZN31VM_ParallelCollectForAllocationC2Embj(ptr noundef nonnu
   %5 = zext i1 %2 to i8
   tail call void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i32 noundef %3, i32 noundef 13) #4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV31VM_ParallelCollectForAllocation, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %5, ptr %6, align 8
   ret void
 }
@@ -76,18 +76,18 @@ declare void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN31VM_ParallelCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %4) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = tail call noundef ptr @_ZN20ParallelScavengeHeap25satisfy_failed_allocationEmb(ptr noundef nonnull align 8 dereferenceable(264) %2, i64 noundef %8, i1 noundef zeroext %11) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -103,7 +103,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %15
   br i1 %19, label %20, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
 20:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %21, align 8
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
@@ -120,19 +120,19 @@ define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr nocapture
   %6 = icmp ne i32 %3, 8
   %7 = and i1 %5, %6
   %8 = zext i1 %7 to i8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %15, align 4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_ParallelGCCollect, i64 16), ptr %0, align 8
   ret void
@@ -141,12 +141,12 @@ define hidden void @_ZN20VM_ParallelGCCollectC2EjjN7GCCause5CauseE(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20VM_ParallelGCCollect4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %4) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   tail call void @_ZN20ParallelScavengeHeap24try_collect_at_safepointEb(ptr noundef nonnull align 8 dereferenceable(264) %2, i1 noundef zeroext %9) #4
@@ -185,11 +185,11 @@ declare void @_ZNK12VM_Operation14print_on_errorEP12outputStream(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

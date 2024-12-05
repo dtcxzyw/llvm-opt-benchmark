@@ -86,8 +86,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_AcquireWriteE
   %indvars.iv = phi i64 [ %indvars.iv.next.mux, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit ], [ 0, %._crit_edge ]
   %.089 = phi i1 [ %.mux, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit ], [ true, %._crit_edge ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %13, i64 %indvars.iv
-  %15 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex23_StagedAcquireWriteStepENS0_24_StagedAcquireWriteStateE.exit [
     i32 0, label %17
@@ -137,7 +137,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_ReleaseWriteE
 
 4:                                                ; preds = %1, %4
   %.0.idx5 = phi i64 [ 0, %1 ], [ %.0.add, %4 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %3, i64 %.0.idx5
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx5
   %5 = atomicrmw and ptr %.0.ptr, i32 -2 seq_cst, align 4
   %.0.add = add nuw nsw i64 %.0.idx5, 64
   %.not = icmp eq i64 %.0.add, 1024

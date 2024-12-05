@@ -27,17 +27,17 @@ define dso_local noundef ptr @snd_seq_timer_new() local_unnamed_addr #0 align 16
   br i1 %3, label %39, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 0, ptr %5, align 8
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #10
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 96, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 500000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 5208333, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = udiv i64 %12, 5208333
   %14 = trunc i64 %13 to i32
@@ -49,40 +49,40 @@ define dso_local noundef ptr @snd_seq_timer_new() local_unnamed_addr #0 align 16
   %18 = load i8, ptr %2, align 8
   %19 = and i8 %18, -2
   store i8 %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 0, ptr %20, align 4
   %21 = load i32, ptr @seq_default_timer_class, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %21, ptr %22, align 8
   %23 = load i32, ptr @seq_default_timer_sclass, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %23, ptr %24, align 4
   %25 = load i32, ptr @seq_default_timer_card, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %25, ptr %26, align 8
   %27 = load i32, ptr @seq_default_timer_device, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr @seq_default_timer_subdevice, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %29, ptr %30, align 8
   %31 = load i32, ptr @seq_default_timer_resolution, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %2, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 108
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 65536, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 65536, ptr %35, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #10
-  %36 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #10
-  %37 = getelementptr inbounds i8, ptr %2, i64 12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #10
+  %36 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #10
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %38, align 8
   store i32 0, ptr %10, align 8
   store i64 0, ptr %11, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %36) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %36) #10
   br label %39
 
 39:                                               ; preds = %4, %0
@@ -94,16 +94,16 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_seq_timer_defaults(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 96, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 500000, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 5208333, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = udiv i64 %9, 5208333
   %11 = trunc i64 %10 to i32
@@ -115,48 +115,48 @@ define dso_local void @snd_seq_timer_defaults(ptr noundef %0) local_unnamed_addr
   %15 = load i8, ptr %0, align 8
   %16 = and i8 %15, -2
   store i8 %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %17, align 4
   %18 = load i32, ptr @seq_default_timer_class, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %18, ptr %19, align 8
   %20 = load i32, ptr @seq_default_timer_sclass, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %20, ptr %21, align 4
   %22 = load i32, ptr @seq_default_timer_card, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %22, ptr %23, align 8
   %24 = load i32, ptr @seq_default_timer_device, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %24, ptr %25, align 4
   %26 = load i32, ptr @seq_default_timer_subdevice, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %26, ptr %27, align 8
   %28 = load i32, ptr @seq_default_timer_resolution, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 108
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 65536, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 65536, ptr %32, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_seq_timer_reset(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret void
 }
 
@@ -174,9 +174,9 @@ define dso_local void @snd_seq_timer_delete(ptr nocapture noundef %0) local_unna
   %5 = load i8, ptr %2, align 8
   %6 = and i8 %5, -2
   store i8 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 128
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #10
-  %9 = getelementptr inbounds i8, ptr %2, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #10
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
@@ -194,17 +194,17 @@ define dso_local void @snd_seq_timer_delete(ptr nocapture noundef %0) local_unna
   br label %19
 
 19:                                               ; preds = %16, %12, %4
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #10
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #10
-  %21 = getelementptr inbounds i8, ptr %2, i64 12
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #10
+  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #10
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %24, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %20) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %20) #10
   tail call void @kfree(ptr noundef nonnull %2) #10
   br label %25
 
@@ -214,9 +214,9 @@ define dso_local void @snd_seq_timer_delete(ptr nocapture noundef %0) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -235,7 +235,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_stop(ptr noundef %
 
 14:                                               ; preds = %11, %7, %1
   %15 = phi i32 [ 0, %11 ], [ -22, %1 ], [ 0, %7 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret i32 %15
 }
 
@@ -253,9 +253,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noun
   br i1 %5, label %42, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %41, label %12
@@ -267,14 +267,14 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noun
 
 14:                                               ; preds = %12
   %15 = mul nuw nsw i32 %1, 1000
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = udiv i32 %15, %17
   %19 = zext nneg i32 %18 to i64
   br label %31
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = urem i32 %1, %22
   %24 = mul i32 %23, 1000
@@ -288,11 +288,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noun
 
 31:                                               ; preds = %20, %14
   %.sink = phi i64 [ %19, %14 ], [ %30, %20 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.sink, i64 1)
   store i64 %spec.select, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = udiv i64 %35, %spec.select
   %37 = trunc i64 %36 to i32
@@ -304,7 +304,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noun
   br label %41
 
 41:                                               ; preds = %31, %6
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #10
   br label %42
 
 42:                                               ; preds = %41, %2
@@ -324,27 +324,27 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr 
   br i1 %8, label %56, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
-  %11 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %10) #10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %11 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #10
   %12 = load i8, ptr %0, align 8
   %13 = and i8 %12, 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %19, label %54
 
 19:                                               ; preds = %15, %9
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %1
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %2
   store i32 %2, ptr %24, align 8
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr 
 
 27:                                               ; preds = %19
   store i32 %1, ptr %20, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %28, align 8
   br label %29
 
@@ -379,11 +379,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr 
 
 44:                                               ; preds = %35, %31
   %.sink = phi i64 [ %34, %31 ], [ %43, %35 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.sink, i64 1)
   store i64 %spec.select, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i64, ptr %47, align 8
   %49 = udiv i64 %48, %spec.select
   %50 = trunc i64 %49 to i32
@@ -396,7 +396,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr 
 
 54:                                               ; preds = %44, %23, %15
   %55 = phi i32 [ -16, %15 ], [ 0, %44 ], [ 0, %23 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %10, i64 noundef %11) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %11) #10
   br label %56
 
 56:                                               ; preds = %54, %5, %3
@@ -410,13 +410,13 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_position_tick(
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %8, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #10
   br label %9
 
 9:                                                ; preds = %4, %2
@@ -448,15 +448,15 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_position_time(
 16:                                               ; preds = %9, %7
   %17 = phi i32 [ %13, %9 ], [ %5, %7 ]
   %18 = phi i32 [ %15, %9 ], [ %3, %7 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #10
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %19) #10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = zext i32 %17 to i64
   %23 = shl nuw i64 %22, 32
   %24 = zext i32 %18 to i64
   %25 = or disjoint i64 %23, %24
   store i64 %25, ptr %21, align 4
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %19, i64 noundef %20) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %19, i64 noundef %20) #10
   br label %26
 
 26:                                               ; preds = %16, %2
@@ -472,11 +472,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_skew(ptr nound
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %8) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %10, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %9) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #10
   br label %11
 
 11:                                               ; preds = %7, %3
@@ -489,13 +489,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.snd_timer_id, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %58, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %58
@@ -504,19 +504,19 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %12 = load i32, ptr %0, align 8
   %13 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %12) #10
-  %14 = getelementptr inbounds i8, ptr %5, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %58
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %5, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 2, ptr %22, align 4
   br label %23
 
@@ -526,16 +526,16 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %
   br i1 %25, label %58, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr @snd_seq_timer_interrupt, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store ptr %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = or i32 %30, 8
   store i32 %31, ptr %29, align 8
   %32 = load i32, ptr %0, align 8
-  %33 = call i32 @snd_timer_open(ptr noundef nonnull %24, ptr noundef %18, i32 noundef %32) #10
+  %33 = call i32 @snd_timer_open(ptr noundef nonnull %24, ptr noundef nonnull %18, i32 noundef %32) #10
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %.thread6
 
@@ -547,21 +547,21 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %5, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %35, %37
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %42, align 4
   store i32 1, ptr %3, align 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %45, align 4
   %46 = load i32, ptr %0, align 8
   %47 = call i32 @snd_timer_open(ptr noundef nonnull %24, ptr noundef nonnull %3, i32 noundef %46) #10
@@ -575,19 +575,19 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %
   br label %56
 
 .thread6:                                         ; preds = %26, %41
-  %51 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @_raw_spin_lock_irq(ptr noundef %51) #10
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %51) #10
   %52 = load ptr, ptr %8, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %.thread6
   store ptr %24, ptr %8, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %51) #10
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %51) #10
   br label %58
 
 55:                                               ; preds = %.thread6
-  call void @_raw_spin_unlock_irq(ptr noundef %51) #10
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %51) #10
   call void @snd_timer_close(ptr noundef nonnull %24) #10
   br label %56
 
@@ -613,34 +613,34 @@ declare dso_local ptr @snd_timer_instance_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @snd_seq_timer_interrupt(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %65, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %65, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 128
-  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #10
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %12) #10
   %14 = load i8, ptr %9, align 8
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %13) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %13) #10
   br label %65
 
 18:                                               ; preds = %11
   %19 = mul i64 %2, %1
-  %20 = getelementptr inbounds i8, ptr %9, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %21, %23
   br i1 %24, label %33, label %25
@@ -657,7 +657,7 @@ define internal void @snd_seq_timer_interrupt(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %25, %18
   %34 = phi i64 [ %32, %25 ], [ %19, %18 ]
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %36 = load i32, ptr %35, align 4
   %37 = trunc i64 %34 to i32
   %38 = add i32 %36, %37
@@ -666,7 +666,7 @@ define internal void @snd_seq_timer_interrupt(ptr nocapture noundef readonly %0,
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %9, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %38, -1000000000
   %44 = udiv i32 %43, 1000000000
@@ -679,14 +679,14 @@ define internal void @snd_seq_timer_interrupt(ptr nocapture noundef readonly %0,
   br label %49
 
 49:                                               ; preds = %40, %33
-  %50 = getelementptr inbounds i8, ptr %9, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %63, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %9, i64 24
-  %55 = getelementptr inbounds i8, ptr %9, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %34
   %58 = udiv i64 %57, %51
@@ -699,9 +699,9 @@ define internal void @snd_seq_timer_interrupt(ptr nocapture noundef readonly %0,
   br label %63
 
 63:                                               ; preds = %53, %49
-  %64 = getelementptr inbounds i8, ptr %9, i64 112
-  tail call void @ktime_get_ts64(ptr noundef %64) #10
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %13) #10
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  tail call void @ktime_get_ts64(ptr noundef nonnull %64) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %13) #10
   tail call void @snd_seq_check_queue(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #10
   br label %65
 
@@ -723,18 +723,18 @@ declare dso_local void @snd_timer_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 128
-  tail call void @_raw_spin_lock_irq(ptr noundef %6) #10
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %6) #10
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %6) #10
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %6) #10
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
@@ -750,9 +750,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_close(ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %54, label %7
@@ -772,20 +772,20 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_start(ptr noundef 
 
 14:                                               ; preds = %11, %7
   %15 = phi ptr [ %.pre, %11 ], [ %5, %7 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %19, align 8
   %20 = load ptr, ptr %15, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %54, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %30, label %26
@@ -800,9 +800,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_start(ptr noundef 
 
 30:                                               ; preds = %28, %26, %22
   %31 = phi i64 [ %29, %28 ], [ 1000, %22 ], [ 10, %26 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 208
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 208
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 4
   %36 = icmp eq i32 %35, 0
@@ -835,21 +835,21 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_start(ptr noundef 
   %51 = load i8, ptr %0, align 8
   %52 = or i8 %51, 1
   store i8 %52, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @ktime_get_ts64(ptr noundef %53) #10
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @ktime_get_ts64(ptr noundef nonnull %53) #10
   br label %54
 
 54:                                               ; preds = %45, %14, %1
   %55 = phi i32 [ 0, %45 ], [ -22, %1 ], [ -22, %14 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %55, label %7
@@ -866,20 +866,20 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr nound
   br i1 %13, label %14, label %47
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %18, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %55, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %29, label %25
@@ -894,9 +894,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr nound
 
 29:                                               ; preds = %27, %25, %21
   %30 = phi i64 [ %28, %27 ], [ 1000, %21 ], [ 10, %25 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 208
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 208
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 4
   %35 = icmp eq i32 %34, 0
@@ -924,19 +924,19 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr nound
 
 47:                                               ; preds = %44, %11
   %48 = phi ptr [ %.pre, %44 ], [ %5, %11 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = load i32, ptr %49, align 8
   %51 = tail call i32 @snd_timer_start(ptr noundef %48, i32 noundef %50) #10
   %52 = load i8, ptr %0, align 8
   %53 = or i8 %52, 1
   store i8 %53, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @ktime_get_ts64(ptr noundef %54) #10
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @ktime_get_ts64(ptr noundef nonnull %54) #10
   br label %55
 
 55:                                               ; preds = %47, %14, %7, %1
   %56 = phi i32 [ 0, %47 ], [ -22, %1 ], [ -16, %7 ], [ -22, %14 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret i32 %56
 }
 
@@ -944,9 +944,9 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr nound
 define dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i64, ptr %7, align 4
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %8, 32
@@ -963,12 +963,12 @@ define dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef %0, i1 noundef zero
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !5
   call void @ktime_get_ts64(ptr noundef nonnull %4) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i64, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i64, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
@@ -976,7 +976,7 @@ define dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef %0, i1 noundef zero
   %25 = sub i64 %20, %23
   call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %24, i64 noundef %25) #10
   %26 = load i64, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i64, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %29 = trunc i64 %28 to i32
@@ -1004,7 +1004,7 @@ define dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef %0, i1 noundef zero
 44:                                               ; preds = %41, %12, %2
   %45 = phi i32 [ %11, %12 ], [ %42, %41 ], [ %11, %2 ]
   %46 = phi i32 [ %9, %12 ], [ %43, %41 ], [ %9, %2 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #10
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #10
   %47 = zext i32 %45 to i64
   %48 = shl nuw i64 %47, 32
   %49 = zext i32 %46 to i64
@@ -1017,11 +1017,11 @@ declare dso_local void @ktime_get_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_seq_timer_get_cur_tick(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #10
   ret i32 %5
 }
 
@@ -1036,15 +1036,15 @@ define dso_local void @snd_seq_info_timer_read(ptr nocapture noundef readnone %0
   br i1 %6, label %36, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 152
-  tail call void @mutex_lock(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %5, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  tail call void @mutex_lock(ptr noundef nonnull %8) #10
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %34, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %34, label %16
@@ -1053,10 +1053,10 @@ define dso_local void @snd_seq_info_timer_read(ptr nocapture noundef readnone %0
   %17 = load ptr, ptr %1, align 8
   %18 = load i32, ptr %5, align 8
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef %18, ptr noundef %20) #10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef %18, ptr noundef nonnull %20) #10
   %21 = tail call i64 @snd_timer_resolution(ptr noundef nonnull %14) #10
-  %22 = getelementptr inbounds i8, ptr %10, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = mul i64 %21, %24
@@ -1065,17 +1065,17 @@ define dso_local void @snd_seq_info_timer_read(ptr nocapture noundef readnone %0
   %28 = urem i64 %25, 1000000000
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %26, ptr noundef nonnull @.str.3, i64 noundef %27, i64 noundef %28) #10
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 108
   %33 = load i32, ptr %32, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %29, ptr noundef nonnull @.str.4, i32 noundef %31, i32 noundef %33) #10
   br label %34
 
 34:                                               ; preds = %16, %12, %7
-  tail call void @mutex_unlock(ptr noundef %8) #10
-  %35 = getelementptr inbounds i8, ptr %5, i64 184
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #10, !srcloc !6
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #10
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %35, ptr nonnull elementtype(i32) %35) #10, !srcloc !6
   br label %36
 
 36:                                               ; preds = %34, %3

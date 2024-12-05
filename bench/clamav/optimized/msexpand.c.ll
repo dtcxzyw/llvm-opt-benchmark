@@ -11,9 +11,9 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [2048 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %6, i64 noundef 0, i64 noundef 14, i32 noundef 0) #4
   %.not = icmp eq ptr %9, null
@@ -25,13 +25,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not194, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 1
   %.not195 = icmp eq i32 %14, 858255496
   br i1 %.not195, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i16, ptr %16, align 1
   %.not196 = icmp eq i16 %17, 65
   br i1 %.not196, label %19, label %18
@@ -41,7 +41,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   br label %.loopexit227
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %9, i64 10
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %21 = load i32, ptr %20, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %21) #4
   %22 = zext i32 %21 to i64
@@ -51,7 +51,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
 
 24:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %3, i8 0, i64 4096, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %26
 
 .loopexit278:                                     ; preds = %87, %72, %45, %.loopexit
@@ -101,7 +101,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %.1135 = phi i32 [ %spec.select, %34 ], [ %.0134, %26 ]
   %.1 = phi i64 [ %35, %34 ], [ %.0126, %26 ]
   %37 = zext i32 %.1149 to i64
-  %38 = getelementptr inbounds i8, ptr %.1163, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.1163, i64 %37
   %39 = load i8, ptr %38, align 1
   %.2150247 = add i32 %.1149, 1
   %40 = zext i8 %39 to i32
@@ -166,13 +166,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %.2144 = phi i32 [ %.1143251, %53 ], [ 0, %58 ]
   %.2130 = phi i32 [ %.1129253, %53 ], [ %59, %58 ]
   %61 = zext i32 %.4152 to i64
-  %62 = getelementptr inbounds i8, ptr %.4166, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %.4166, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i32 %.1159250 to i64
-  %65 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %64
   store i8 %63, ptr %65, align 1
   %66 = zext i32 %.2144 to i64
-  %67 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [2048 x i8], ptr %4, i64 0, i64 %66
   store i8 %63, ptr %67, align 1
   %68 = add i32 %.2144, 1
   %69 = add i32 %.1159250, 1
@@ -206,7 +206,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %.6140 = phi i32 [ %spec.select218, %78 ], [ %.2136252, %71 ]
   %.6 = phi i64 [ %79, %78 ], [ %.2255, %71 ]
   %81 = zext i32 %.6154 to i64
-  %82 = getelementptr inbounds i8, ptr %.6168, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %.6168, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = add i32 %.6154, 1
@@ -237,7 +237,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %.7141 = phi i32 [ %spec.select219, %93 ], [ %.6140, %80 ]
   %.7 = phi i64 [ %94, %93 ], [ %.6, %80 ]
   %96 = zext i32 %.7155 to i64
-  %97 = getelementptr inbounds i8, ptr %.7169, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.7169, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 4
@@ -271,13 +271,13 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %.5147 = phi i32 [ %.4146245, %104 ], [ 0, %110 ]
   %.5133 = phi i32 [ %.4132246, %104 ], [ %111, %110 ]
   %113 = zext nneg i32 %.0157244 to i64
-  %114 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i32 %.3161243 to i64
-  %117 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %116
   store i8 %115, ptr %117, align 1
   %118 = zext i32 %.5147 to i64
-  %119 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [2048 x i8], ptr %4, i64 0, i64 %118
   store i8 %115, ptr %119, align 1
   %120 = add i32 %.5147, 1
   %121 = add nuw nsw i32 %.0157244, 1

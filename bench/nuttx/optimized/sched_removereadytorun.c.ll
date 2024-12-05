@@ -11,18 +11,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 16
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 8
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 16
   %13 = load ptr, ptr %6, align 16
   %14 = ptrtoint ptr %13 to i64
@@ -35,7 +35,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
 
 18:                                               ; preds = %16, %10
   %19 = phi ptr [ %15, %10 ], [ %17, %16 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %.thread
@@ -55,7 +55,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 16
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 3, ptr %29, align 16
   %.pr.pre = load ptr, ptr %20, align 8
   %30 = load ptr, ptr %0, align 8
@@ -79,7 +79,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr nocapture noundef %0, i1 nounde
   %38 = phi ptr [ %35, %33 ], [ null, %31 ]
   %.not30 = icmp eq ptr %37, null
   %. = select i1 %.not30, ptr %19, ptr %37
-  %39 = getelementptr inbounds i8, ptr %., i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %., i64 8
   store ptr %38, ptr %39, align 8
   store i8 0, ptr %3, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

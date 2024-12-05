@@ -29,7 +29,7 @@ define internal noundef zeroext i8 @value(ptr noundef %0, ptr noundef %1) #0 {
 6:                                                ; preds = %2
   tail call void @createLocalRefSpace(ptr noundef %3, i32 noundef 1) #2
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
   %.not17 = icmp eq i32 %10, 0
@@ -42,11 +42,11 @@ define internal noundef zeroext i8 @value(ptr noundef %0, ptr noundef %1) #0 {
 
 12:                                               ; preds = %6, %11
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1352
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1352
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %3, ptr noundef %4, ptr noundef null) #2
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %3) #2
   %.not18 = icmp eq i8 %20, 0
@@ -55,7 +55,7 @@ define internal noundef zeroext i8 @value(ptr noundef %0, ptr noundef %1) #0 {
 21:                                               ; preds = %12
   %22 = tail call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %16) #2
   %23 = load ptr, ptr @gdata, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 528
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 528
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 2
   %.not19 = icmp eq i32 %26, 0
@@ -68,14 +68,14 @@ define internal noundef zeroext i8 @value(ptr noundef %0, ptr noundef %1) #0 {
 
 28:                                               ; preds = %21, %27
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1360
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1360
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %16) #2
   br label %32
 
 32:                                               ; preds = %28, %12
   %33 = load ptr, ptr @gdata, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 528
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 2
   %.not20 = icmp eq i32 %36, 0
@@ -88,7 +88,7 @@ define internal noundef zeroext i8 @value(ptr noundef %0, ptr noundef %1) #0 {
 
 38:                                               ; preds = %32, %37
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %3, ptr noundef null) #2
   br label %43

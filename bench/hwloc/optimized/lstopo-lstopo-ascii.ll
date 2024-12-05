@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_ascii_output, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #14
   %.not = icmp eq ptr %6, null
@@ -41,13 +41,13 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %256
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 932
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 932
   store i32 10, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 936
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i32 10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 940
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 940
   store i32 10, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 1592
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %18, 1
   store i64 %19, ptr %17, align 8
@@ -67,9 +67,9 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @cur_term, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2384
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2384
   %31 = load ptr, ptr %30, align 8
   %.not84 = icmp eq ptr %31, null
   br i1 %.not84, label %34, label %32
@@ -77,19 +77,19 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 32:                                               ; preds = %26
   %33 = tail call i32 @tputs(ptr noundef nonnull %31, i32 noundef 1, ptr noundef nonnull @myputchar) #14
   %.pre = load ptr, ptr @cur_term, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre142 = load ptr, ptr %.phi.trans.insert, align 8
   br label %34
 
 34:                                               ; preds = %32, %26
   %35 = phi ptr [ %.pre142, %32 ], [ %29, %26 ]
   %36 = phi ptr [ %.pre, %32 ], [ %27, %26 ]
-  %37 = getelementptr inbounds i8, ptr %35, i64 2400
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 2400
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr @initp, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %42 = load i16, ptr %41, align 2
   %43 = icmp sgt i16 %42, 16
   %44 = icmp ne ptr %38, null
@@ -97,14 +97,14 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br i1 %or.cond, label %45, label %48
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %35, i64 2408
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 2408
   %47 = load ptr, ptr %46, align 8
   %.not85 = icmp eq ptr %47, null
   br i1 %.not85, label %48, label %62
 
 48:                                               ; preds = %45, %34
   store ptr null, ptr @initp, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 26
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 26
   %50 = load i16, ptr %49, align 2
   %51 = icmp sgt i16 %50, 16
   br i1 %51, label %52, label %62
@@ -114,15 +114,15 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %54 = add nsw i32 %53, -1
   store i32 %54, ptr @ascii_color_index, align 4
   store i1 true, ptr @ascii_color_index_step, align 4
-  %55 = getelementptr inbounds i8, ptr %36, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 27
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 27
   %58 = load i8, ptr %57, align 1
   %.not86 = icmp eq i8 %58, 0
   br i1 %.not86, label %62, label %59
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %35, i64 2392
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 2392
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr @initc, align 8
   br label %62
@@ -145,25 +145,25 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 67:                                               ; preds = %24, %66, %22, %13
   %.077.shrunk = phi i1 [ true, %66 ], [ false, %24 ], [ false, %22 ], [ false, %13 ]
   store ptr %0, ptr %3, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1584
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %3, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 1600
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @ascii_draw_methods, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1608
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %70, align 8
   call void @output_draw(ptr noundef nonnull %0) #14
-  %71 = getelementptr inbounds i8, ptr %0, i64 1612
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %72 = load i32, ptr %71, align 4
   %73 = shl i32 %72, 1
   %74 = add i32 %73, 2
   %75 = udiv i32 %74, 10
-  %76 = getelementptr inbounds i8, ptr %3, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 1616
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, 1
   %80 = udiv i32 %79, 10
-  %81 = getelementptr inbounds i8, ptr %3, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %80, ptr %81, align 8
   store i32 1, ptr %70, align 8
   call void @declare_colors(ptr noundef nonnull %0) #14
@@ -171,7 +171,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %82 = shl nuw i32 %80, 3
   %83 = zext i32 %82 to i64
   %84 = call noalias ptr @malloc(i64 noundef %83) #17
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %84, ptr %85, align 8
   %.not112 = icmp ult i32 %79, 10
   br i1 %.not112, label %._crit_edge99, label %.lr.ph98
@@ -195,27 +195,27 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %indvars.iv117 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next118, %._crit_edge.us ]
   %87 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #18
   %88 = load ptr, ptr %85, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv117
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv117
   store ptr %87, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %.lr.ph.us, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %90 ]
   %91 = load ptr, ptr %85, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv117
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv117
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct.cell, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.cell, ptr %93, i64 %indvars.iv
   store i32 32, ptr %94, align 8
   %95 = load ptr, ptr @default_color, align 8
   %96 = load ptr, ptr %85, align 8
-  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv117
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv117
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.cell, ptr %98, i64 %indvars.iv, i32 1
+  %99 = getelementptr inbounds nuw %struct.cell, ptr %98, i64 %indvars.iv, i32 1
   store ptr %95, ptr %99, align 8
   %100 = load ptr, ptr %85, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv117
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv117
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct.cell, ptr %102, i64 %indvars.iv, i32 2
+  %103 = getelementptr inbounds nuw %struct.cell, ptr %102, i64 %indvars.iv, i32 2
   store ptr %95, ptr %103, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -230,7 +230,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %indvars.iv122 = phi i64 [ 0, %.lr.ph98.split.preheader ], [ %indvars.iv.next123, %.lr.ph98.split ]
   %104 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 24) #18
   %105 = load ptr, ptr %85, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv122
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv122
   store ptr %104, ptr %106, align 8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
@@ -241,7 +241,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %108 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(6) @.str.2) #19
   %.not88 = icmp eq i32 %108, 0
   %109 = zext i1 %.not88 to i32
-  %110 = getelementptr inbounds i8, ptr %3, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %109, ptr %110, align 8
   call void @output_draw(ptr noundef %0) #14
   %111 = load i32, ptr %81, align 8
@@ -263,9 +263,9 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %.174.lcssa.us = phi ptr [ %.073105.us, %.preheader94.us ], [ %.275.us.us, %set_color.exit.us.us ]
   %.171.lcssa.us = phi ptr [ %.070106.us, %.preheader94.us ], [ %.272.us.us, %set_color.exit.us.us ]
   %115 = load ptr, ptr @cur_term, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 2376
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2376
   %119 = load ptr, ptr %118, align 8
   %.not90.us = icmp eq ptr %119, null
   br i1 %.not90.us, label %122, label %120
@@ -289,12 +289,12 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %.171101.us.us = phi ptr [ %.272.us.us, %set_color.exit.us.us ], [ %.070106.us, %.preheader94.us ]
   %.174100.us.us = phi ptr [ %.275.us.us, %set_color.exit.us.us ], [ %.073105.us, %.preheader94.us ]
   %127 = load ptr, ptr %85, align 8
-  %128 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv136
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv136
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %struct.cell, ptr %129, i64 %indvars.iv133
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %130 = getelementptr inbounds nuw %struct.cell, ptr %129, i64 %indvars.iv133
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %134 = load ptr, ptr %133, align 8
   %.not91.us.us = icmp eq ptr %132, %.171101.us.us
   %.not92.us.us = icmp eq ptr %134, %.174100.us.us
@@ -313,18 +313,18 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %141 = load i32, ptr %134, align 8
   %142 = icmp sgt i32 %141, 223
   %143 = zext i1 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %134, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = icmp sgt i32 %145, 223
   %147 = zext i1 %146 to i32
-  %148 = getelementptr inbounds i8, ptr %134, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %149 = load i32, ptr %148, align 8
   %150 = icmp sgt i32 %149, 223
   %151 = zext i1 %150 to i32
   %152 = load ptr, ptr @cur_term, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 2880
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 2880
   %156 = load ptr, ptr %155, align 8
   %.not.i.us.us = icmp eq ptr %156, null
   br i1 %.not.i.us.us, label %162, label %157
@@ -351,13 +351,13 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %154, i64 312
+  %172 = getelementptr inbounds nuw i8, ptr %154, i64 312
   %173 = load ptr, ptr %172, align 8
   %.not7.i.i.us.us = icmp eq ptr %173, null
   br i1 %.not7.i.i.us.us, label %set_textcolor.exit.i.us.us, label %.sink.split.i.i.us.us
 
 174:                                              ; preds = %167
-  %175 = getelementptr inbounds i8, ptr %154, i64 216
+  %175 = getelementptr inbounds nuw i8, ptr %154, i64 216
   %176 = load ptr, ptr %175, align 8
   %.not.i.i.us.us = icmp eq ptr %176, null
   br i1 %.not.i.i.us.us, label %set_textcolor.exit.i.us.us, label %.sink.split.i.i.us.us
@@ -369,9 +369,9 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %set_textcolor.exit.i.us.us
 
 178:                                              ; preds = %135
-  %179 = getelementptr inbounds i8, ptr %132, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %180 = load i32, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %134, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %182 = load i32, ptr %181, align 8
   br label %set_textcolor.exit.i.us.us
 
@@ -379,9 +379,9 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   %.024.i.us.us = phi i32 [ %180, %178 ], [ 7, %174 ], [ 0, %171 ], [ %.0.ph.i.i.us.us, %.sink.split.i.i.us.us ]
   %.0.i.us.us = phi i32 [ %182, %178 ], [ %.1.i.us.us, %174 ], [ %.1.i.us.us, %171 ], [ %.1.i.us.us, %.sink.split.i.i.us.us ]
   %183 = load ptr, ptr @cur_term, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 2872
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 2872
   %187 = load ptr, ptr %186, align 8
   %.not33.i.us.us = icmp eq ptr %187, null
   br i1 %.not33.i.us.us, label %199, label %188
@@ -397,16 +397,16 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
 
 192:                                              ; preds = %190, %188
   %193 = load ptr, ptr @cur_term, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 2880
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 2880
   %197 = load ptr, ptr %196, align 8
   %198 = call ptr (ptr, ...) @tparm(ptr noundef %197, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not40.i.us.us = icmp eq ptr %198, null
   br i1 %.not40.i.us.us, label %set_color.exit.us.us, label %.sink.split.i.us.us
 
 199:                                              ; preds = %set_textcolor.exit.i.us.us
-  %200 = getelementptr inbounds i8, ptr %185, i64 2416
+  %200 = getelementptr inbounds nuw i8, ptr %185, i64 2416
   %201 = load ptr, ptr %200, align 8
   %.not34.i.us.us = icmp eq ptr %201, null
   br i1 %.not34.i.us.us, label %213, label %202
@@ -422,16 +422,16 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
 
 206:                                              ; preds = %204, %202
   %207 = load ptr, ptr @cur_term, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 2424
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 2424
   %211 = load ptr, ptr %210, align 8
   %212 = call ptr (ptr, ...) @tparm(ptr noundef %211, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not38.i.us.us = icmp eq ptr %212, null
   br i1 %.not38.i.us.us, label %set_color.exit.us.us, label %.sink.split.i.us.us
 
 213:                                              ; preds = %199
-  %214 = getelementptr inbounds i8, ptr %185, i64 2408
+  %214 = getelementptr inbounds nuw i8, ptr %185, i64 2408
   %215 = load ptr, ptr %214, align 8
   %.not35.i.us.us = icmp eq ptr %215, null
   br i1 %.not35.i.us.us, label %set_color.exit.us.us, label %216
@@ -450,9 +450,9 @@ set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us
   %.275.us.us = phi ptr [ %.174100.us.us, %.lr.ph.us108 ], [ %134, %192 ], [ %134, %206 ], [ %134, %213 ], [ %134, %216 ], [ %134, %.sink.split.i.us.us ]
   %.272.us.us = phi ptr [ %.171101.us.us, %.lr.ph.us108 ], [ %132, %192 ], [ %132, %206 ], [ %132, %213 ], [ %132, %216 ], [ %132, %.sink.split.i.us.us ]
   %219 = load ptr, ptr %85, align 8
-  %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv136
+  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv136
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds %struct.cell, ptr %221, i64 %indvars.iv133
+  %222 = getelementptr inbounds nuw %struct.cell, ptr %221, i64 %indvars.iv133
   %223 = load i32, ptr %222, align 8
   %224 = call i32 @putwc(i32 noundef %223, ptr noundef nonnull %6) #14
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
@@ -475,9 +475,9 @@ set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us
 set_color.exit:                                   ; preds = %.preheader94, %set_color.exit
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %set_color.exit ], [ 0, %.preheader94 ]
   %232 = load ptr, ptr %85, align 8
-  %233 = getelementptr inbounds ptr, ptr %232, i64 %indvars.iv130
+  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv130
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %struct.cell, ptr %234, i64 %indvars.iv127
+  %235 = getelementptr inbounds nuw %struct.cell, ptr %234, i64 %indvars.iv127
   %236 = load i32, ptr %235, align 8
   %237 = call i32 @putwc(i32 noundef %236, ptr noundef nonnull %6) #14
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
@@ -497,7 +497,7 @@ set_color.exit:                                   ; preds = %.preheader94, %set_
 .lr.ph111:                                        ; preds = %.preheader, %.lr.ph111
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.lr.ph111 ], [ 0, %.preheader ]
   %245 = load ptr, ptr %85, align 8
-  %246 = getelementptr inbounds ptr, ptr %245, i64 %indvars.iv139
+  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv139
   %247 = load ptr, ptr %246, align 8
   call void @free(ptr noundef %247) #14
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
@@ -587,12 +587,12 @@ declare void @destroy_colors(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr noundef initializes((16, 20)) %1) #0 {
   %3 = load i32, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr @ascii_color_index, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %8, ptr %9, align 8
   %.b = load i1, ptr @ascii_color_index_step, align 4
   %10 = select i1 %.b, i32 -1, i32 1
@@ -649,7 +649,7 @@ define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @ascii_box(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture readnone %7, i32 %8) #10 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 1584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8
   %12 = shl i32 %3, 1
   %13 = udiv i32 %12, 10
@@ -689,9 +689,9 @@ define internal void @ascii_box(ptr nocapture noundef readonly %0, ptr noundef %
 .preheader.lr.ph:                                 ; preds = %.preheader64
   %.16369 = add nuw nsw i32 %13, 1
   %27 = icmp ult i32 %.16369, %19
-  %28 = getelementptr inbounds i8, ptr %11, i64 20
-  %29 = getelementptr inbounds i8, ptr %11, i64 24
-  %30 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %27, label %.preheader.lr.ph.split.us, label %._crit_edge
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
@@ -788,7 +788,7 @@ put.exit.us78:                                    ; preds = %47, %45, %43
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, i32 %7) #10 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 1584
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %10 = load ptr, ptr %9, align 8
   %11 = shl i32 %2, 1
   %12 = udiv i32 %11, 10
@@ -847,7 +847,7 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, i32 %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 1584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8
   %12 = udiv i32 %5, 10
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
@@ -862,9 +862,9 @@ define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef 
 .lr.ph:                                           ; preds = %9
   %19 = shl i32 %4, 1
   %20 = udiv i32 %19, 10
-  %21 = getelementptr inbounds i8, ptr %11, i64 20
-  %22 = getelementptr inbounds i8, ptr %11, i64 24
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = zext nneg i32 %12 to i64
   %.not21.i = icmp eq ptr %1, null
   br i1 %.not21.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -885,7 +885,7 @@ define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef 
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %24
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %24
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %.01619.us to i64
   %35 = getelementptr inbounds %struct.cell, ptr %33, i64 %34
@@ -893,7 +893,7 @@ define internal void @ascii_text(ptr nocapture noundef readonly %0, ptr noundef 
   br label %put.exit.us
 
 put.exit.us:                                      ; preds = %30, %28, %.lr.ph.split.us
-  %36 = getelementptr inbounds i8, ptr %.020.us, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.020.us, i64 4
   %37 = load i32, ptr %36, align 4
   %.not.us = icmp eq i32 %37, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
@@ -914,20 +914,20 @@ put.exit.us:                                      ; preds = %30, %28, %.lr.ph.sp
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %23, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %24
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %24
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %.01619 to i64
   %48 = getelementptr inbounds %struct.cell, ptr %46, i64 %47
   store i32 %38, ptr %48, align 8
   %49 = load ptr, ptr %23, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %24
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %24
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds %struct.cell, ptr %51, i64 %47, i32 1
   store ptr %1, ptr %52, align 8
   br label %put.exit
 
 put.exit:                                         ; preds = %43, %.lr.ph.split, %41
-  %53 = getelementptr inbounds i8, ptr %.020, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %54 = load i32, ptr %53, align 4
   %.not = icmp eq i32 %54, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
@@ -949,19 +949,19 @@ declare ptr @tparm(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 13) %3, i32 noundef range(i32 0, 9) %4, ptr noundef %5) unnamed_addr #12 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %1, %8
   br i1 %.not, label %9, label %put.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not17 = icmp slt i32 %2, %11
   br i1 %.not17, label %12, label %put.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %2 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15

@@ -1016,7 +1016,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.072 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %12 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = add i64 %.072, %14
@@ -1572,7 +1572,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05371 = phi i64 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %13 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = mul i64 %.068, %15

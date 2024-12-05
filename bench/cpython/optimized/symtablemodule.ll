@@ -222,7 +222,7 @@ Py_XDECREF.exit21.i:                              ; preds = %if.then1.i.i20.i, %
   br i1 %cmp16.i, label %_symtable_symtable_impl.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %Py_XDECREF.exit21.i
-  %st_top.i = getelementptr inbounds i8, ptr %call15.i, i64 16
+  %st_top.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 16
   %20 = load ptr, ptr %st_top.i, align 8
   %21 = load i32, ptr %20, align 8
   %add.i.i.i = add i32 %21, 1

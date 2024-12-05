@@ -73,7 +73,7 @@ define noundef nonnull ptr @get_compress_algorithm_name(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.validate_compress_specification, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.validate_compress_specification, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -88,9 +88,9 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store i32 %0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %8, align 8
   switch i32 %0, label %17 [
     i32 0, label %9
@@ -100,7 +100,7 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   ]
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %10, align 8
   br label %17
 
@@ -115,7 +115,7 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   br label %17
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %16, align 8
   br label %17
 
@@ -136,14 +136,14 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %21, ptr %27, align 8
   br label %.loopexit
 
 28:                                               ; preds = %23, %19
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
-  %30 = getelementptr inbounds i8, ptr %2, i64 12
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %32
 
 32:                                               ; preds = %135, %28
@@ -423,7 +423,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @validate_compress_specification(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.thread39
@@ -443,7 +443,7 @@ define ptr @validate_compress_specification(ptr nocapture noundef readonly %0) l
   br label %13
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %.not28 = icmp eq i32 %10, 0
   br i1 %.not28, label %13, label %11
@@ -455,7 +455,7 @@ define ptr @validate_compress_specification(ptr nocapture noundef readonly %0) l
 13:                                               ; preds = %8, %7, %6, %4
   %.021 = phi i32 [ 1, %4 ], [ 1, %8 ], [ 12, %7 ], [ 9, %6 ]
   %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %7 ], [ -1, %6 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   %17 = icmp sle i32 %15, %.021
@@ -470,7 +470,7 @@ define ptr @validate_compress_specification(ptr nocapture noundef readonly %0) l
 
 switch.lookup:                                    ; preds = %18
   %20 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.validate_compress_specification, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.validate_compress_specification, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_compress_algorithm_name.exit
 
@@ -480,7 +480,7 @@ get_compress_algorithm_name.exit:                 ; preds = %18, %switch.lookup
   br label %.thread39
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %.not30 = icmp eq i32 %25, 0
@@ -521,7 +521,7 @@ get_compress_algorithm_name.exit35:               ; preds = %26, %27, %28, %29
 
 switch.lookup46:                                  ; preds = %33
   %35 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds [3 x ptr], ptr @switch.table.validate_compress_specification.1, i64 0, i64 %35
+  %switch.gep47 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_compress_specification.1, i64 0, i64 %35
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %get_compress_algorithm_name.exit37
 

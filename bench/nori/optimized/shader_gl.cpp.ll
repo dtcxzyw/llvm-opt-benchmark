@@ -109,31 +109,31 @@ define hidden void @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_s
   %23 = alloca %"class.std::allocator", align 1
   %24 = alloca %"class.std::__cxx11::basic_string", align 8
   %25 = alloca %"class.std::allocator", align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %26, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6ShaderE, i64 16), ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %29 unwind label %65
 
 29:                                               ; preds = %6
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %5, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 116
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %37, i8 0, i64 9, i1 false)
   %39 = invoke fastcc noundef i32 @_ZN7nanoguiL17compile_gl_shaderEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(i32 noundef 35633, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -434,25 +434,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEixEOS5_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #15
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 -1, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i64 1, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store i64 0, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %123, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 48
   store i64 1, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %123, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 40
   store i64 1, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 8, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %123, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i32 6, ptr %130, align 4
   invoke void @glGenVertexArrays(i32 noundef 1, ptr noundef nonnull %38)
           to label %131 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 131:                                              ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEixEOS5_.exit
-  %132 = getelementptr inbounds i8, ptr %0, i64 124
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %133 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3, i64 noundef 0) #15
   %134 = icmp ne i64 %133, -1
   %135 = zext i1 %134 to i8
@@ -718,7 +718,7 @@ declare i32 @glGetAttribLocation(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeEENK3$_0clENS0_10BufferTypeESA_ij"(ptr %.0.val, i32 noundef range(i32 1, 8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %.0.val, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
   %6 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -735,7 +735,7 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 12:                                               ; preds = %4
   %13 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.2) #15
@@ -754,27 +754,27 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 20:                                               ; preds = %12
   %21 = tail call noundef nonnull align 8 dereferenceable(65) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   br label %23
 
 23:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds [3 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [3 x i64], ptr %22, i64 0, i64 %indvars.iv
   store i64 1, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %25, label %23, !llvm.loop !8
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %0, ptr %28, align 8
   switch i32 %3, label %72 [
     i32 5126, label %29
@@ -800,130 +800,130 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
   ]
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %21, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %30, align 4
   store i64 0, ptr %26, align 8
   br label %77
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %21, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %32, align 4
   store i64 2, ptr %22, align 8
   br label %77
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %21, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %34, align 4
   store i64 3, ptr %22, align 8
   br label %77
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %21, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %36, align 4
   store i64 4, ptr %22, align 8
   br label %77
 
 37:                                               ; preds = %25
-  %38 = getelementptr inbounds i8, ptr %21, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 5, ptr %38, align 4
   store i64 0, ptr %26, align 8
   br label %77
 
 39:                                               ; preds = %25
-  %40 = getelementptr inbounds i8, ptr %21, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 5, ptr %40, align 4
   store i64 2, ptr %22, align 8
   br label %77
 
 41:                                               ; preds = %25
-  %42 = getelementptr inbounds i8, ptr %21, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 5, ptr %42, align 4
   store i64 3, ptr %22, align 8
   br label %77
 
 43:                                               ; preds = %25
-  %44 = getelementptr inbounds i8, ptr %21, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 5, ptr %44, align 4
   store i64 4, ptr %22, align 8
   br label %77
 
 45:                                               ; preds = %25
-  %46 = getelementptr inbounds i8, ptr %21, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 6, ptr %46, align 4
   store i64 0, ptr %26, align 8
   br label %77
 
 47:                                               ; preds = %25
-  %48 = getelementptr inbounds i8, ptr %21, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 6, ptr %48, align 4
   store i64 2, ptr %22, align 8
   br label %77
 
 49:                                               ; preds = %25
-  %50 = getelementptr inbounds i8, ptr %21, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 6, ptr %50, align 4
   store i64 3, ptr %22, align 8
   br label %77
 
 51:                                               ; preds = %25
-  %52 = getelementptr inbounds i8, ptr %21, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 6, ptr %52, align 4
   store i64 4, ptr %22, align 8
   br label %77
 
 53:                                               ; preds = %25
-  %54 = getelementptr inbounds i8, ptr %21, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 12, ptr %54, align 4
   store i64 0, ptr %26, align 8
   br label %77
 
 55:                                               ; preds = %25
-  %56 = getelementptr inbounds i8, ptr %21, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 12, ptr %56, align 4
   store i64 2, ptr %22, align 8
   br label %77
 
 57:                                               ; preds = %25
-  %58 = getelementptr inbounds i8, ptr %21, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 12, ptr %58, align 4
   store i64 3, ptr %22, align 8
   br label %77
 
 59:                                               ; preds = %25
-  %60 = getelementptr inbounds i8, ptr %21, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 12, ptr %60, align 4
   store i64 4, ptr %22, align 8
   br label %77
 
 61:                                               ; preds = %25
-  %62 = getelementptr inbounds i8, ptr %21, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %21, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 2, ptr %63, align 8
   store i64 2, ptr %22, align 8
   store i64 2, ptr %26, align 8
   br label %77
 
 64:                                               ; preds = %25
-  %65 = getelementptr inbounds i8, ptr %21, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %21, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 3, ptr %66, align 8
   store i64 3, ptr %22, align 8
   store i64 2, ptr %26, align 8
   br label %77
 
 67:                                               ; preds = %25
-  %68 = getelementptr inbounds i8, ptr %21, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 10, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %21, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 4, ptr %69, align 8
   store i64 4, ptr %22, align 8
   store i64 2, ptr %26, align 8
   br label %77
 
 70:                                               ; preds = %25
-  %71 = getelementptr inbounds i8, ptr %21, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 0, ptr %71, align 4
   store i64 0, ptr %26, align 8
   store i32 5, ptr %28, align 8
@@ -941,13 +941,13 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
 75:                                               ; preds = %72
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 77:                                               ; preds = %70, %67, %64, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29
   %.not8 = phi i1 [ true, %70 ], [ false, %67 ], [ false, %64 ], [ false, %61 ], [ false, %59 ], [ false, %57 ], [ false, %55 ], [ true, %53 ], [ false, %51 ], [ false, %49 ], [ false, %47 ], [ true, %45 ], [ false, %43 ], [ false, %41 ], [ false, %39 ], [ true, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ true, %29 ]
   %78 = phi i64 [ 0, %70 ], [ 2, %67 ], [ 2, %64 ], [ 2, %61 ], [ 1, %59 ], [ 1, %57 ], [ 1, %55 ], [ 0, %53 ], [ 1, %51 ], [ 1, %49 ], [ 1, %47 ], [ 0, %45 ], [ 1, %43 ], [ 1, %41 ], [ 1, %39 ], [ 0, %37 ], [ 1, %35 ], [ 1, %33 ], [ 1, %31 ], [ 0, %29 ]
   %79 = icmp eq i32 %0, 1
-  br i1 %79, label %80, label %87
+  br i1 %79, label %80, label %86
 
 80:                                               ; preds = %77
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -955,28 +955,23 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
 .lr.ph:                                           ; preds = %80, %.lr.ph
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %.lr.ph ], [ %78, %80 ]
   %indvars.iv.next6 = add nsw i64 %indvars.iv5, -1
-  %81 = getelementptr inbounds [3 x i64], ptr %22, i64 0, i64 %indvars.iv.next6
+  %81 = getelementptr inbounds nuw [3 x i64], ptr %22, i64 0, i64 %indvars.iv.next6
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds [3 x i64], ptr %22, i64 0, i64 %indvars.iv5
+  %83 = getelementptr inbounds nuw [3 x i64], ptr %22, i64 0, i64 %indvars.iv5
   store i64 %82, ptr %83, align 8
   %84 = icmp samesign ugt i64 %indvars.iv5, 1
-  br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i64, ptr %26, align 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %80
-  %85 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %78, %80 ]
+._crit_edge:                                      ; preds = %.lr.ph, %80
   store i64 0, ptr %22, align 8
-  %86 = add i64 %85, 1
-  store i64 %86, ptr %26, align 8
-  br label %87
+  %85 = add nuw nsw i64 %78, 1
+  store i64 %85, ptr %26, align 8
+  br label %86
 
-87:                                               ; preds = %._crit_edge, %77
+86:                                               ; preds = %._crit_edge, %77
   ret void
 
-88:                                               ; preds = %75, %18, %10
+87:                                               ; preds = %75, %18, %10
   %.sink = phi ptr [ %73, %75 ], [ %16, %18 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %19, %18 ], [ %11, %10 ]
   tail call void @__cxa_free_exception(ptr %.sink) #15
@@ -1030,7 +1025,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i = icmp eq ptr %3, null
   br i1 %.not5.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
@@ -1038,7 +1033,7 @@ define linkonce_odr hidden void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringI
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #15
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i) #17
   %.not.i.i.i = icmp eq ptr %4, null
@@ -1046,13 +1041,13 @@ define linkonce_odr hidden void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringI
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.lr.ph.i.i.i, %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = shl i64 %8, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit, label %13
 
@@ -1070,19 +1065,19 @@ declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6ShaderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   invoke void @glDeleteProgram(i32 noundef %3)
           to label %4 unwind label %21
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @glDeleteVertexArrays(i32 noundef 1, ptr noundef nonnull %5)
           to label %6 unwind label %21
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not5.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -1090,7 +1085,7 @@ define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferen
 .lr.ph.i.i.i.i:                                   ; preds = %6, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %9, %6 ]
   %10 = load ptr, ptr %.06.i.i.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %11) #15
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #17
   %.not.i.i.i.i = icmp eq ptr %10, null
@@ -1098,13 +1093,13 @@ define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferen
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %14, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %15, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, label %19
 
@@ -1113,7 +1108,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %19
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #15
   tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
   ret void
@@ -1165,7 +1160,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca i32, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %31
@@ -1209,14 +1204,14 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 
 31:                                               ; preds = %6
   %32 = tail call noundef nonnull align 8 dereferenceable(65) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
   %.not = icmp ne i64 %3, %34
-  %35 = getelementptr inbounds i8, ptr %32, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp ne i32 %2, %36
   %38 = select i1 %.not, i1 true, i1 %37
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp ne i32 %40, 7
   %42 = zext i1 %41 to i64
@@ -1224,7 +1219,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %32, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -1245,14 +1240,14 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br i1 %.083.lcssa, label %53, label %99
 
 53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %9, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %9, i8 0, i64 20, i1 false)
-  %55 = getelementptr inbounds i8, ptr %9, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %55, i8 0, i64 33, i1 false)
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %40, ptr %56, align 8
   store i64 %3, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %58
 
 58:                                               ; preds = %53, %63
@@ -1261,20 +1256,20 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i64, ptr %4, i64 %.081137
+  %61 = getelementptr inbounds nuw i64, ptr %4, i64 %.081137
   %62 = load i64, ptr %61, align 8
   br label %63
 
 63:                                               ; preds = %58, %60
   %64 = phi i64 [ %62, %60 ], [ 1, %58 ]
-  %65 = getelementptr inbounds [3 x i64], ptr %57, i64 0, i64 %.081137
+  %65 = getelementptr inbounds nuw [3 x i64], ptr %57, i64 0, i64 %.081137
   store i64 %64, ptr %65, align 8
   %66 = add nuw nsw i64 %.081137, 1
   %exitcond140.not = icmp eq i64 %66, 3
   br i1 %exitcond140.not, label %67, label %58, !llvm.loop !12
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %9, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %2, ptr %68, align 4
   %69 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -1390,7 +1385,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 
 99:                                               ; preds = %._crit_edge
   %100 = tail call noundef i64 @_ZN7nanogui9type_sizeENS_12VariableTypeE(i32 noundef %2)
-  %101 = getelementptr inbounds i8, ptr %32, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %102
 
 102:                                              ; preds = %99, %107
@@ -1400,13 +1395,13 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i64, ptr %4, i64 %.071136
+  %105 = getelementptr inbounds nuw i64, ptr %4, i64 %.071136
   %106 = load i64, ptr %105, align 8
   br label %107
 
 107:                                              ; preds = %102, %104
   %108 = phi i64 [ %106, %104 ], [ 1, %102 ]
-  %109 = getelementptr inbounds [3 x i64], ptr %101, i64 0, i64 %.071136
+  %109 = getelementptr inbounds nuw [3 x i64], ptr %101, i64 0, i64 %.071136
   store i64 %108, ptr %109, align 8
   %110 = mul i64 %108, %.072135
   %111 = add nuw nsw i64 %.071136, 1
@@ -1424,7 +1419,7 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
   br i1 %.not101, label %.thread131, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %32, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %119 = load i64, ptr %118, align 8
   %.not102 = icmp eq i64 %119, %110
   br i1 %.not102, label %122, label %120
@@ -1476,9 +1471,9 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 138:                                              ; preds = %133, %122
   store i32 %2, ptr %35, align 4
   store i64 %3, ptr %33, align 8
-  %139 = getelementptr inbounds i8, ptr %32, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store i64 %110, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %32, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store i8 1, ptr %140, align 8
   ret void
 
@@ -1549,7 +1544,7 @@ define hidden void @_ZN7nanogui6Shader11set_textureERKNSt7__cxx1112basic_stringI
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %21
@@ -1593,7 +1588,7 @@ define hidden void @_ZN7nanogui6Shader11set_textureERKNSt7__cxx1112basic_stringI
 
 21:                                               ; preds = %3
   %22 = tail call noundef nonnull align 8 dereferenceable(65) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   switch i32 %24, label %25 [
     i32 2, label %35
@@ -1638,12 +1633,12 @@ define hidden void @_ZN7nanogui6Shader11set_textureERKNSt7__cxx1112basic_stringI
   br i1 %.0, label %.sink.split, label %41
 
 35:                                               ; preds = %21, %21
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   %39 = inttoptr i64 %38 to ptr
   store ptr %39, ptr %22, align 8
-  %40 = getelementptr inbounds i8, ptr %22, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i8 1, ptr %40, align 8
   ret void
 
@@ -1689,26 +1684,26 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %"class.std::__cxx11::basic_string", align 8
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %29 = load i32, ptr %28, align 4
   tail call void @glUseProgram(i32 noundef %29)
-  %30 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load i32, ptr %30, align 8
   tail call void @glBindVertexArray(i32 noundef %31)
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0239.0283 = load ptr, ptr %32, align 8
   %.not269284 = icmp eq ptr %.sroa.0239.0283, null
   br i1 %.not269284, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %34
 
 34:                                               ; preds = %.lr.ph, %374
   %.sroa.0239.0286 = phi ptr [ %.sroa.0239.0283, %.lr.ph ], [ %.sroa.0239.0, %374 ]
   %.0131285 = phi i32 [ 0, %.lr.ph ], [ %.1132, %374 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 8
-  %36 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 40
   %37 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.2) #15
   %38 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %38, null
@@ -1728,10 +1723,10 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
 46:                                               ; preds = %34
   %47 = ptrtoint ptr %38 to i64
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 104
   %50 = load i8, ptr %49, align 8
   %51 = trunc i8 %50 to i1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %51, label %._crit_edge303, label %52
 
@@ -1756,10 +1751,10 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
 
 54:                                               ; preds = %._crit_edge303
   tail call void @glBindBuffer(i32 noundef 34962, i32 noundef %48)
-  %55 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %56 = load i32, ptr %55, align 8
   tail call void @glEnableVertexAttribArray(i32 noundef %56)
-  %57 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 52
   %58 = load i32, ptr %57, align 4
   %switch.tableidx = add i32 %58, -1
   %59 = icmp ult i32 %switch.tableidx, 10
@@ -1787,13 +1782,13 @@ switch.hole_check:                                ; preds = %54
   br i1 %switch.lobit, label %switch.lookup, label %60
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %65 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 64
   %66 = load i64, ptr %65, align 8
   %.not210 = icmp eq i64 %66, 2
   br i1 %.not210, label %103, label %67
 
 67:                                               ; preds = %switch.lookup
-  %68 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 64
   %69 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %70 unwind label %.thread
@@ -1916,10 +1911,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 103:                                              ; preds = %switch.lookup
   %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7nanogui6Shader5beginEv, i64 0, i64 %104
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7nanogui6Shader5beginEv, i64 0, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   %105 = load i32, ptr %55, align 8
-  %106 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 80
   %107 = load i64, ptr %106, align 8
   %108 = trunc i64 %107 to i32
   tail call void @glVertexAttribPointer(i32 noundef %105, i32 noundef %108, i32 noundef %switch.load, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null)
@@ -1937,7 +1932,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %109
-  %117 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %118 = load i32, ptr %117, align 8
   tail call void @glUniform1i(i32 noundef %118, i32 noundef %.0131285)
   br label %119
@@ -1947,13 +1942,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.critedge
 
 121:                                              ; preds = %._crit_edge303
-  %122 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 64
   %123 = load i64, ptr %122, align 8
   %124 = icmp ugt i64 %123, 2
   br i1 %124, label %125, label %161
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 64
   %127 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %128 unwind label %.thread248
@@ -2075,7 +2070,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %385
 
 161:                                              ; preds = %121
-  %162 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 52
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 52
   %163 = load i32, ptr %162, align 4
   switch i32 %163, label %316 [
     i32 10, label %164
@@ -2086,7 +2081,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 164:                                              ; preds = %161
   %.not195 = icmp eq i64 %123, 2
-  %165 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 72
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 72
   %166 = load i64, ptr %165, align 8
   br i1 %.not195, label %196, label %167
 
@@ -2099,47 +2094,47 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 168:                                              ; preds = %167
-  %169 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %170 = load i32, ptr %169, align 8
   %171 = load float, ptr %38, align 4
   tail call void @glUniform1f(i32 noundef %170, float noundef %171)
   br label %.critedge
 
 172:                                              ; preds = %167
-  %173 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %174 = load i32, ptr %173, align 8
   %175 = load float, ptr %38, align 4
-  %176 = getelementptr inbounds i8, ptr %38, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %177 = load float, ptr %176, align 4
   tail call void @glUniform2f(i32 noundef %174, float noundef %175, float noundef %177)
   br label %.critedge
 
 178:                                              ; preds = %167
-  %179 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %180 = load i32, ptr %179, align 8
   %181 = load float, ptr %38, align 4
-  %182 = getelementptr inbounds i8, ptr %38, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %183 = load float, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %38, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %185 = load float, ptr %184, align 4
   tail call void @glUniform3f(i32 noundef %180, float noundef %181, float noundef %183, float noundef %185)
   br label %.critedge
 
 186:                                              ; preds = %167
-  %187 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %188 = load i32, ptr %187, align 8
   %189 = load float, ptr %38, align 4
-  %190 = getelementptr inbounds i8, ptr %38, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %191 = load float, ptr %190, align 4
-  %192 = getelementptr inbounds i8, ptr %38, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %193 = load float, ptr %192, align 4
-  %194 = getelementptr inbounds i8, ptr %38, i64 12
+  %194 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %195 = load float, ptr %194, align 4
   tail call void @glUniform4f(i32 noundef %188, float noundef %189, float noundef %191, float noundef %193, float noundef %195)
   br label %.critedge
 
 196:                                              ; preds = %164
-  %197 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 80
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 80
   %198 = load i64, ptr %197, align 8
   %199 = icmp eq i64 %166, %198
   br i1 %199, label %200, label %316
@@ -2152,19 +2147,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 201:                                              ; preds = %200
-  %202 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %203 = load i32, ptr %202, align 8
   tail call void @glUniformMatrix2fv(i32 noundef %203, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %38)
   br label %.critedge
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %206 = load i32, ptr %205, align 8
   tail call void @glUniformMatrix3fv(i32 noundef %206, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %38)
   br label %.critedge
 
 207:                                              ; preds = %200
-  %208 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %209 = load i32, ptr %208, align 8
   tail call void @glUniformMatrix4fv(i32 noundef %209, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %38)
   br label %.critedge
@@ -2174,7 +2169,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not194, label %316, label %211
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 72
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 72
   %213 = load i64, ptr %212, align 8
   switch i64 %213, label %316 [
     i64 1, label %214
@@ -2184,41 +2179,41 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %216 = load i32, ptr %215, align 8
   %217 = load i32, ptr %38, align 4
   tail call void @glUniform1i(i32 noundef %216, i32 noundef %217)
   br label %.critedge
 
 218:                                              ; preds = %211
-  %219 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %219 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %220 = load i32, ptr %219, align 8
   %221 = load i32, ptr %38, align 4
-  %222 = getelementptr inbounds i8, ptr %38, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %223 = load i32, ptr %222, align 4
   tail call void @glUniform2i(i32 noundef %220, i32 noundef %221, i32 noundef %223)
   br label %.critedge
 
 224:                                              ; preds = %211
-  %225 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %225 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %226 = load i32, ptr %225, align 8
   %227 = load i32, ptr %38, align 4
-  %228 = getelementptr inbounds i8, ptr %38, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %229 = load i32, ptr %228, align 4
-  %230 = getelementptr inbounds i8, ptr %38, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %231 = load i32, ptr %230, align 4
   tail call void @glUniform3i(i32 noundef %226, i32 noundef %227, i32 noundef %229, i32 noundef %231)
   br label %.critedge
 
 232:                                              ; preds = %211
-  %233 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %234 = load i32, ptr %233, align 8
   %235 = load i32, ptr %38, align 4
-  %236 = getelementptr inbounds i8, ptr %38, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %237 = load i32, ptr %236, align 4
-  %238 = getelementptr inbounds i8, ptr %38, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %38, i64 12
+  %240 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %241 = load i32, ptr %240, align 4
   tail call void @glUniform4i(i32 noundef %234, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241)
   br label %.critedge
@@ -2228,7 +2223,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not193, label %316, label %243
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 72
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 72
   %245 = load i64, ptr %244, align 8
   switch i64 %245, label %316 [
     i64 1, label %246
@@ -2238,41 +2233,41 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %248 = load i32, ptr %247, align 8
   %249 = load i32, ptr %38, align 4
   tail call void @glUniform1ui(i32 noundef %248, i32 noundef %249)
   br label %.critedge
 
 250:                                              ; preds = %243
-  %251 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %252 = load i32, ptr %251, align 8
   %253 = load i32, ptr %38, align 4
-  %254 = getelementptr inbounds i8, ptr %38, i64 4
+  %254 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %255 = load i32, ptr %254, align 4
   tail call void @glUniform2ui(i32 noundef %252, i32 noundef %253, i32 noundef %255)
   br label %.critedge
 
 256:                                              ; preds = %243
-  %257 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %258 = load i32, ptr %257, align 8
   %259 = load i32, ptr %38, align 4
-  %260 = getelementptr inbounds i8, ptr %38, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %261 = load i32, ptr %260, align 4
-  %262 = getelementptr inbounds i8, ptr %38, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %263 = load i32, ptr %262, align 4
   tail call void @glUniform3ui(i32 noundef %258, i32 noundef %259, i32 noundef %261, i32 noundef %263)
   br label %.critedge
 
 264:                                              ; preds = %243
-  %265 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %265 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %266 = load i32, ptr %265, align 8
   %267 = load i32, ptr %38, align 4
-  %268 = getelementptr inbounds i8, ptr %38, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %269 = load i32, ptr %268, align 4
-  %270 = getelementptr inbounds i8, ptr %38, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %271 = load i32, ptr %270, align 4
-  %272 = getelementptr inbounds i8, ptr %38, i64 12
+  %272 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %273 = load i32, ptr %272, align 4
   tail call void @glUniform4ui(i32 noundef %266, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %273)
   br label %.critedge
@@ -2282,7 +2277,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not192, label %316, label %275
 
 275:                                              ; preds = %274
-  %276 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 72
+  %276 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 72
   %277 = load i64, ptr %276, align 8
   switch i64 %277, label %316 [
     i64 1, label %278
@@ -2292,7 +2287,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %279 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %280 = load i32, ptr %279, align 8
   %281 = load i8, ptr %38, align 1
   %282 = zext i8 %281 to i32
@@ -2300,42 +2295,42 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.critedge
 
 283:                                              ; preds = %275
-  %284 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %285 = load i32, ptr %284, align 8
   %286 = load i8, ptr %38, align 1
   %287 = zext i8 %286 to i32
-  %288 = getelementptr inbounds i8, ptr %38, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   tail call void @glUniform2i(i32 noundef %285, i32 noundef %287, i32 noundef %290)
   br label %.critedge
 
 291:                                              ; preds = %275
-  %292 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %293 = load i32, ptr %292, align 8
   %294 = load i8, ptr %38, align 1
   %295 = zext i8 %294 to i32
-  %296 = getelementptr inbounds i8, ptr %38, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %297 = load i8, ptr %296, align 1
   %298 = zext i8 %297 to i32
-  %299 = getelementptr inbounds i8, ptr %38, i64 2
+  %299 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %300 = load i8, ptr %299, align 1
   %301 = zext i8 %300 to i32
   tail call void @glUniform3i(i32 noundef %293, i32 noundef %295, i32 noundef %298, i32 noundef %301)
   br label %.critedge
 
 302:                                              ; preds = %275
-  %303 = getelementptr inbounds i8, ptr %.sroa.0239.0286, i64 56
+  %303 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 56
   %304 = load i32, ptr %303, align 8
   %305 = load i8, ptr %38, align 1
   %306 = zext i8 %305 to i32
-  %307 = getelementptr inbounds i8, ptr %38, i64 1
+  %307 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
-  %310 = getelementptr inbounds i8, ptr %38, i64 2
+  %310 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %311 = load i8, ptr %310, align 1
   %312 = zext i8 %311 to i32
-  %313 = getelementptr inbounds i8, ptr %38, i64 3
+  %313 = getelementptr inbounds nuw i8, ptr %38, i64 3
   %314 = load i8, ptr %313, align 1
   %315 = zext i8 %314 to i32
   tail call void @glUniform4i(i32 noundef %304, i32 noundef %306, i32 noundef %309, i32 noundef %312, i32 noundef %315)
@@ -2561,7 +2556,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not269, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %374, %1
-  %375 = getelementptr inbounds i8, ptr %0, i64 112
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %376 = load i32, ptr %375, align 8
   %377 = icmp eq i32 %376, 1
   br i1 %377, label %378, label %379
@@ -2572,7 +2567,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %379
 
 379:                                              ; preds = %378, %._crit_edge
-  %380 = getelementptr inbounds i8, ptr %0, i64 124
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %381 = load i8, ptr %380, align 4
   %382 = trunc i8 %381 to i1
   br i1 %382, label %383, label %384
@@ -2687,16 +2682,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %31 = shl nuw nsw i64 %30, 1
   %32 = udiv i64 %.020.i, 100
   %33 = or disjoint i64 %31, 1
-  %34 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i32 %.01819.i to i64
-  %37 = getelementptr inbounds i8, ptr %24, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 %36
   store i8 %35, ptr %37, align 1
-  %38 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
   %39 = load i8, ptr %38, align 2
   %40 = add i32 %.01819.i, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %24, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 %41
   store i8 %39, ptr %42, align 1
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i64 %.020.i, 9999
@@ -2710,11 +2705,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 46:                                               ; preds = %._crit_edge.i
   %47 = shl nuw nsw i64 %.0.lcssa.i, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %24, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
+  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
   %53 = load i8, ptr %52, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2791,7 +2786,7 @@ declare void @glBlendFunc(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui6Shader3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %6
@@ -2801,7 +2796,7 @@ define hidden void @_ZN7nanogui6Shader3endEv(ptr nocapture noundef nonnull reado
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 124
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
@@ -2840,7 +2835,7 @@ define hidden void @_ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb(ptr n
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN7nanogui6Shader10draw_arrayENS0_13PrimitiveTypeEmmb, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br i1 %4, label %16, label %13
 
@@ -3010,20 +3005,20 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.not = icmp ugt i64 %4, 20
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.06.012 = load ptr, ptr %6, align 8
   %.not1113 = icmp eq ptr %.sroa.06.012, null
   br i1 %.not1113, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread10
   %.sroa.06.014 = phi ptr [ %.sroa.06.0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread10 ], [ %.sroa.06.012, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.sroa.06.014, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.06.014, i64 8
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #15
   %10 = icmp eq i64 %8, %9
@@ -3060,7 +3055,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = urem i64 %20, %25
   %27 = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %20)
@@ -3094,8 +3089,8 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_st
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 112
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %11
 
@@ -3103,7 +3098,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_st
   %12 = phi i64 [ %.pre, %8 ], [ %29, %26 ]
   %.013 = phi ptr [ %7, %8 ], [ %.0, %26 ]
   %.0 = phi ptr [ %9, %8 ], [ %25, %26 ]
-  %13 = getelementptr inbounds i8, ptr %.0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %14 = icmp eq i64 %3, %12
   br i1 %14, label %15, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread
 
@@ -3132,7 +3127,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 26:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread
   %27 = load i64, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %29 = load i64, ptr %28, align 8
   %30 = urem i64 %29, %27
   %.not17 = icmp eq i64 %30, %1
@@ -3162,7 +3157,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(65) ptr @_ZNS
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = urem i64 %6, %11
   %13 = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6)
@@ -3178,7 +3173,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
   store ptr %0, ptr %3, align 8
   %15 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #19
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESU_IJEEEEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit unwind label %17
 
@@ -3212,8 +3207,8 @@ common.resume:                                    ; preds = %21, %30
   unreachable
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESU_IJEEEEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit: ; preds = %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 72, i1 false)
   store ptr %15, ptr %27, align 8
   %29 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %12, i64 noundef %6, ptr noundef nonnull %15, i64 noundef 1)
@@ -3227,18 +3222,18 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESU_IJEEEEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit
   %.pn23 = phi ptr [ %14, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit ], [ %29, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESU_IJEEEEEPNSD_16_Hashtable_allocISaINSD_10_Hash_nodeISB_Lb1EEEEEEDpOT_.exit ]
-  %.0 = getelementptr inbounds i8, ptr %.pn23, i64 40
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn23, i64 40
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
@@ -3285,7 +3280,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 31:                                               ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
-  %32 = getelementptr inbounds i8, ptr %3, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
@@ -3303,7 +3298,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSD_10_Hash_nodeISB_Lb1EEE.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %3, align 8
   store ptr %3, ptr %42, align 8
@@ -3314,7 +3309,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 45:                                               ; preds = %41
   %46 = load ptr, ptr %0, align 8
   %47 = load i64, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
   %51 = getelementptr inbounds ptr, ptr %46, i64 %50
@@ -3336,13 +3331,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #15
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %6
@@ -3372,7 +3367,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %5, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -3400,7 +3395,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferEELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7nanogui6Shader6BufferEELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr null, ptr %12, align 8
   %.not29 = icmp eq ptr %13, null
@@ -3410,7 +3405,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.031 = phi ptr [ %14, %28 ], [ %13, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %28 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
-  %15 = getelementptr inbounds i8, ptr %.031, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %.031, i64 112
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
   %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
@@ -3446,7 +3441,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %32
 
@@ -3455,7 +3450,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %32
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %33, align 8
   store ptr %.0.i, ptr %0, align 8
   ret void
@@ -3477,7 +3472,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(65) ptr @_ZNS
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = urem i64 %6, %11
   %13 = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6)
@@ -3491,12 +3486,12 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 
 _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread: ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7nanogui6Shader6BufferEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit
   store ptr %0, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #19
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
   store ptr %16, ptr %15, align 8
   %19 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %12, i64 noundef %6, ptr noundef nonnull %16, i64 noundef 1)
@@ -3510,7 +3505,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit
   %.pn23 = phi ptr [ %14, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit ], [ %19, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7nanogui6Shader6BufferEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit.thread ]
-  %.0 = getelementptr inbounds i8, ptr %.pn23, i64 40
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn23, i64 40
   ret ptr %.0
 }
 

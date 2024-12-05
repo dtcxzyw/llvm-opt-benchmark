@@ -127,7 +127,7 @@ if.then:                                          ; preds = %entry
   br label %glib_autoptr_cleanup_GSocketConnection.exit
 
 if.end:                                           ; preds = %entry
-  %add_client_cancellable = getelementptr inbounds i8, ptr %0, i64 104
+  %add_client_cancellable = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %add_client_cancellable, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -143,7 +143,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
 
 if.then7:                                         ; preds = %if.end4
   %2 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %2, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @__func__.dbus_display_add_client, ptr noundef nonnull @.str.2, ptr noundef %3) #5
   %call8 = call i32 @close(i32 noundef %csock) #5
@@ -153,12 +153,12 @@ cleanup:                                          ; preds = %if.end4
   %call10 = call ptr @g_socket_connection_factory_create_connection(ptr noundef nonnull %call5) #5
   %call11 = call ptr @g_cancellable_new() #5
   %4 = load ptr, ptr @dbus_display, align 8
-  %add_client_cancellable12 = getelementptr inbounds i8, ptr %4, i64 104
+  %add_client_cancellable12 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %call11, ptr %add_client_cancellable12, align 8
   %call13 = tail call i64 @g_io_stream_get_type() #6
   %call14 = call ptr @g_type_check_instance_cast(ptr noundef %call10, i64 noundef %call13) #5
   %5 = load ptr, ptr @dbus_display, align 8
-  %add_client_cancellable15 = getelementptr inbounds i8, ptr %5, i64 104
+  %add_client_cancellable15 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %6 = load ptr, ptr %add_client_cancellable15, align 8
   call void @g_dbus_connection_new(ptr noundef %call14, ptr noundef %call, i32 noundef 18, ptr noundef null, ptr noundef %6, ptr noundef nonnull @dbus_display_add_client_ready, ptr noundef null) #5
   call void @g_free(ptr noundef %call) #5
@@ -222,7 +222,7 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr @dbus_display, align 8
-  %add_client_cancellable = getelementptr inbounds i8, ptr %0, i64 104
+  %add_client_cancellable = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %add_client_cancellable, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -239,11 +239,11 @@ do.end:                                           ; preds = %if.then, %entry
 
 if.then2:                                         ; preds = %do.end
   %2 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %2, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %message, align 8
   %call3 = call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.3, ptr noundef %3) #5
   %4 = load ptr, ptr @dbus_display, align 8
-  %server = getelementptr inbounds i8, ptr %4, i64 80
+  %server = getelementptr inbounds nuw i8, ptr %4, i64 80
   %5 = load ptr, ptr %server, align 8
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %5, ptr noundef null) #5
   call void @g_dbus_connection_start_message_processing(ptr noundef null) #5
@@ -251,7 +251,7 @@ if.then2:                                         ; preds = %do.end
 
 if.then.i.i.critedge:                             ; preds = %do.end
   %6 = load ptr, ptr @dbus_display, align 8
-  %server.c = getelementptr inbounds i8, ptr %6, i64 80
+  %server.c = getelementptr inbounds nuw i8, ptr %6, i64 80
   %7 = load ptr, ptr %server.c, align 8
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %7, ptr noundef nonnull %call) #5
   call void @g_dbus_connection_start_message_processing(ptr noundef nonnull %call) #5
@@ -290,13 +290,13 @@ define internal void @dbus_display_init(ptr noundef %o) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %call1 = tail call ptr @qemu_dbus_display1_vm_skeleton_new() #5
-  %iface = getelementptr inbounds i8, ptr %call.i, i64 88
+  %iface = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr %call1, ptr %iface, align 8
   %call2 = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @g_object_unref) #5
-  %consoles = getelementptr inbounds i8, ptr %call.i, i64 96
+  %consoles = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %call2, ptr %consoles, align 8
   %call3 = tail call ptr @g_dbus_object_manager_server_new(ptr noundef nonnull @.str.7) #5
-  %server = getelementptr inbounds i8, ptr %call.i, i64 80
+  %server = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store ptr %call3, ptr %server, align 8
   %call4 = tail call ptr @g_dbus_object_skeleton_new(ptr noundef nonnull @.str.8) #5
   %0 = load ptr, ptr %iface, align 8
@@ -322,7 +322,7 @@ glib_autoptr_cleanup_GDBusObjectSkeleton.exit:    ; preds = %entry, %if.then.i.i
 define internal void @dbus_display_finalize(ptr noundef %o) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %notifier = getelementptr inbounds i8, ptr %call.i, i64 216
+  %notifier = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   %0 = load ptr, ptr %notifier, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -332,9 +332,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %clipboard_peer = getelementptr inbounds i8, ptr %call.i, i64 112
+  %clipboard_peer = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   tail call void @qemu_clipboard_peer_unregister(ptr noundef nonnull %clipboard_peer) #5
-  %clipboard = getelementptr inbounds i8, ptr %call.i, i64 152
+  %clipboard = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %clipboard, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %do.body5, label %if.then3
@@ -345,7 +345,7 @@ if.then3:                                         ; preds = %if.end
   br label %do.body5
 
 do.body5:                                         ; preds = %if.then3, %if.end
-  %server = getelementptr inbounds i8, ptr %call.i, i64 80
+  %server = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %2 = load ptr, ptr %server, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %do.body13, label %if.then10
@@ -356,7 +356,7 @@ if.then10:                                        ; preds = %do.body5
   br label %do.body13
 
 do.body13:                                        ; preds = %if.then10, %do.body5
-  %consoles = getelementptr inbounds i8, ptr %call.i, i64 96
+  %consoles = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %3 = load ptr, ptr %consoles, align 8
   %tobool17.not = icmp eq ptr %3, null
   br i1 %tobool17.not, label %do.end20, label %if.then18
@@ -367,7 +367,7 @@ if.then18:                                        ; preds = %do.body13
   br label %do.end20
 
 do.end20:                                         ; preds = %do.body13, %if.then18
-  %add_client_cancellable = getelementptr inbounds i8, ptr %call.i, i64 104
+  %add_client_cancellable = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   %4 = load ptr, ptr %add_client_cancellable, align 8
   %tobool21.not = icmp eq ptr %4, null
   br i1 %tobool21.not, label %do.body34, label %do.body25
@@ -384,7 +384,7 @@ if.then31:                                        ; preds = %do.body25
   br label %do.body34
 
 do.body34:                                        ; preds = %do.end20, %if.then31, %do.body25
-  %bus = getelementptr inbounds i8, ptr %call.i, i64 72
+  %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %5 = load ptr, ptr %bus, align 8
   %tobool38.not = icmp eq ptr %5, null
   br i1 %tobool38.not, label %do.body42, label %if.then39
@@ -395,7 +395,7 @@ if.then39:                                        ; preds = %do.body34
   br label %do.body42
 
 do.body42:                                        ; preds = %if.then39, %do.body34
-  %iface = getelementptr inbounds i8, ptr %call.i, i64 88
+  %iface = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %6 = load ptr, ptr %iface, align 8
   %tobool46.not = icmp eq ptr %6, null
   br i1 %tobool46.not, label %do.end49, label %if.then47
@@ -406,10 +406,10 @@ if.then47:                                        ; preds = %do.body42
   br label %do.end49
 
 do.end49:                                         ; preds = %do.body42, %if.then47
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %7 = load ptr, ptr %dbus_addr, align 8
   tail call void @g_free(ptr noundef %7) #5
-  %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
+  %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %8 = load ptr, ptr %audiodev, align 8
   tail call void @g_free(ptr noundef %8) #5
   store ptr null, ptr @dbus_display, align 8
@@ -420,7 +420,7 @@ do.end49:                                         ; preds = %do.body42, %if.then
 define internal void @dbus_display_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
-  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @dbus_display_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.10, ptr noundef nonnull @get_dbus_p2p, ptr noundef nonnull @set_dbus_p2p) #5
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @get_dbus_addr, ptr noundef nonnull @set_dbus_addr) #5
@@ -473,7 +473,7 @@ if.then:                                          ; preds = %entry
   br label %glib_autoptr_cleanup_GArray.exit
 
 if.end:                                           ; preds = %entry
-  %p2p = getelementptr inbounds i8, ptr %call.i, i64 44
+  %p2p = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   %0 = load i8, ptr %p2p, align 4
   %tobool3 = trunc i8 %0 to i1
   br i1 %tobool3, label %if.then4, label %if.else
@@ -483,7 +483,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %dbus_addr, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.else11, label %land.lhs.true
@@ -495,13 +495,13 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then8:                                         ; preds = %land.lhs.true
   %call10 = call ptr @g_dbus_connection_new_for_address_sync(ptr noundef nonnull %1, i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #5
-  %bus = getelementptr inbounds i8, ptr %call.i, i64 72
+  %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store ptr %call10, ptr %bus, align 8
   br label %if.end15
 
 if.else11:                                        ; preds = %land.lhs.true, %if.else
   %call12 = call ptr @g_bus_get_sync(i32 noundef 2, ptr noundef null, ptr noundef nonnull %err) #5
-  %bus13 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %bus13 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store ptr %call12, ptr %bus13, align 8
   br label %if.end15
 
@@ -511,13 +511,13 @@ if.end15:                                         ; preds = %if.then8, %if.else1
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %message = getelementptr inbounds i8, ptr %3, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 218, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.18, ptr noundef %4) #5
   br label %glib_autoptr_cleanup_GArray.exit
 
 if.end18:                                         ; preds = %if.end15
-  %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
+  %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %5 = load ptr, ptr %audiodev, align 8
   %tobool19.not = icmp eq ptr %5, null
   br i1 %tobool19.not, label %if.end38, label %land.lhs.true20
@@ -546,9 +546,9 @@ if.then32:                                        ; preds = %if.end29
 
 if.end34:                                         ; preds = %if.end29
   %10 = load ptr, ptr %call26, align 8
-  %set_dbus_server = getelementptr inbounds i8, ptr %10, i64 32
+  %set_dbus_server = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %set_dbus_server, align 8
-  %server = getelementptr inbounds i8, ptr %call.i, i64 80
+  %server = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %12 = load ptr, ptr %server, align 8
   %13 = load i8, ptr %p2p, align 4
   %tobool37 = trunc i8 %13 to i1
@@ -563,10 +563,10 @@ if.end38:                                         ; preds = %if.end34, %land.lhs
   br i1 %tobool41.not35, label %for.end, label %if.end43.lr.ph
 
 if.end43.lr.ph:                                   ; preds = %if.end38
-  %gl_mode.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  %glctx.i = getelementptr inbounds i8, ptr %call.i, i64 64
-  %consoles.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %server.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %gl_mode.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
+  %glctx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %consoles.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %server.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.lr.ph, %dbus_display_add_console.exit
@@ -611,24 +611,24 @@ dbus_display_add_console.exit:                    ; preds = %if.end.i, %land.lhs
 for.end:                                          ; preds = %dbus_display_add_console.exit, %if.end38
   %call48 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.21) #5
   %19 = load ptr, ptr %call39, align 8
-  %len = getelementptr inbounds i8, ptr %call39, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %call39, i64 8
   %20 = load i32, ptr %len, align 8
   %conv49 = zext i32 %20 to i64
   %mul = shl nuw nsw i64 %conv49, 2
   %call50 = call ptr @g_variant_new_from_data(ptr noundef %call48, ptr noundef %19, i64 noundef %mul, i32 noundef 1, ptr noundef nonnull @g_array_unref, ptr noundef nonnull %call39) #5
-  %iface = getelementptr inbounds i8, ptr %call.i, i64 88
+  %iface = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %21 = load ptr, ptr %iface, align 8
   %22 = load ptr, ptr @qemu_name, align 8
   %tobool52.not = icmp eq ptr %22, null
   %..str.23 = select i1 %tobool52.not, ptr @.str.23, ptr %22
   call void (ptr, ptr, ...) @g_object_set(ptr noundef %21, ptr noundef nonnull @.str.22, ptr noundef nonnull %..str.23, ptr noundef nonnull @.str.24, ptr noundef %call1, ptr noundef nonnull @.str.25, ptr noundef %call50, ptr noundef null) #5
-  %bus53 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %bus53 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %23 = load ptr, ptr %bus53, align 8
   %tobool54.not = icmp eq ptr %23, null
   br i1 %tobool54.not, label %glib_autoptr_cleanup_GArray.exit, label %if.then55
 
 if.then55:                                        ; preds = %for.end
-  %server56 = getelementptr inbounds i8, ptr %call.i, i64 80
+  %server56 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %24 = load ptr, ptr %server56, align 8
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %24, ptr noundef nonnull %23) #5
   %25 = load ptr, ptr %bus53, align 8
@@ -655,7 +655,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @get_dbus_p2p(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %p2p = getelementptr inbounds i8, ptr %call.i, i64 44
+  %p2p = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   %0 = load i8, ptr %p2p, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -666,7 +666,7 @@ define internal void @set_dbus_p2p(ptr noundef %o, i1 noundef zeroext %p2p, ptr 
 entry:
   %frombool = zext i1 %p2p to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %p2p1 = getelementptr inbounds i8, ptr %call.i, i64 44
+  %p2p1 = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   store i8 %frombool, ptr %p2p1, align 4
   ret void
 }
@@ -677,7 +677,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dbus_addr, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -687,7 +687,7 @@ entry:
 define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dbus_addr, align 8
   tail call void @g_free(ptr noundef %0) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #5
@@ -699,7 +699,7 @@ entry:
 define internal noalias ptr @get_audiodev(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
+  %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %audiodev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -709,7 +709,7 @@ entry:
 define internal void @set_audiodev(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
+  %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %audiodev, align 8
   tail call void @g_free(ptr noundef %0) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #5
@@ -723,7 +723,7 @@ declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @get_gl_mode(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %gl_mode = getelementptr inbounds i8, ptr %call.i, i64 40
+  %gl_mode = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load i32, ptr %gl_mode, align 8
   ret i32 %0
 }
@@ -732,7 +732,7 @@ entry:
 define internal void @set_gl_mode(ptr noundef %o, i32 noundef %val, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
-  %gl_mode = getelementptr inbounds i8, ptr %call.i, i64 40
+  %gl_mode = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i32 %val, ptr %gl_mode, align 8
   ret void
 }
@@ -786,13 +786,13 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @early_dbus_init(ptr nocapture noundef readonly %opts) #0 {
 entry:
-  %has_gl = getelementptr inbounds i8, ptr %opts, i64 10
+  %has_gl = getelementptr inbounds nuw i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cond.true, label %if.end
 
 cond.true:                                        ; preds = %entry
-  %gl = getelementptr inbounds i8, ptr %opts, i64 12
+  %gl = getelementptr inbounds nuw i8, ptr %opts, i64 12
   %1 = load i32, ptr %gl, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %if.end, label %if.then
@@ -809,25 +809,25 @@ if.end:                                           ; preds = %entry, %if.then, %c
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @dbus_init(ptr nocapture readnone %ds, ptr nocapture noundef readonly %opts) #0 {
 entry:
-  %has_gl = getelementptr inbounds i8, ptr %opts, i64 10
+  %has_gl = getelementptr inbounds nuw i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %gl = getelementptr inbounds i8, ptr %opts, i64 12
+  %gl = getelementptr inbounds nuw i8, ptr %opts, i64 12
   %1 = load i32, ptr %gl, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %1, %cond.true ], [ 0, %entry ]
-  %addr = getelementptr inbounds i8, ptr %opts, i64 24
+  %addr = getelementptr inbounds nuw i8, ptr %opts, i64 24
   %2 = load ptr, ptr %addr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
-  %p2p = getelementptr inbounds i8, ptr %opts, i64 33
+  %p2p = getelementptr inbounds nuw i8, ptr %opts, i64 33
   %3 = load i8, ptr %p2p, align 1
   %tobool3 = trunc i8 %3 to i1
   br i1 %tobool3, label %if.then, label %if.end
@@ -843,12 +843,12 @@ if.end:                                           ; preds = %land.lhs.true, %con
   %4 = load ptr, ptr %addr, align 8
   %tobool6.not = icmp eq ptr %4, null
   %..str.16 = select i1 %tobool6.not, ptr @.str.16, ptr %4
-  %audiodev = getelementptr inbounds i8, ptr %opts, i64 40
+  %audiodev = getelementptr inbounds nuw i8, ptr %opts, i64 40
   %5 = load ptr, ptr %audiodev, align 8
   %tobool12.not = icmp eq ptr %5, null
   %cond16 = select i1 %tobool12.not, ptr @.str.16, ptr %5
   %call17 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @DisplayGLMode_lookup, i32 noundef %cond) #5
-  %p2p19 = getelementptr inbounds i8, ptr %opts, i64 33
+  %p2p19 = getelementptr inbounds nuw i8, ptr %opts, i64 33
   %6 = load i8, ptr %p2p19, align 1
   %tobool20 = trunc i8 %6 to i1
   %cond.i = select i1 %tobool20, ptr @.str.39, ptr @.str.40
@@ -865,9 +865,9 @@ define internal void @dbus_vc_class_init(ptr noundef %oc, ptr nocapture readnone
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @__func__.DBUS_VC_CLASS) #5
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #5
-  %parse = getelementptr inbounds i8, ptr %call.i3, i64 104
+  %parse = getelementptr inbounds nuw i8, ptr %call.i3, i64 104
   %0 = load ptr, ptr %parse, align 8
-  %parent_parse = getelementptr inbounds i8, ptr %call.i, i64 240
+  %parent_parse = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   store ptr %0, ptr %parent_parse, align 8
   store ptr @dbus_vc_parse, ptr %parse, align 8
   ret void
@@ -900,7 +900,7 @@ if.end10:                                         ; preds = %if.else, %if.then
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end10, %entry
-  %parent_parse = getelementptr inbounds i8, ptr %call.i, i64 240
+  %parent_parse = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %0 = load ptr, ptr %parent_parse, align 8
   tail call void %0(ptr noundef %opts, ptr noundef %backend, ptr noundef %errp) #5
   br label %return

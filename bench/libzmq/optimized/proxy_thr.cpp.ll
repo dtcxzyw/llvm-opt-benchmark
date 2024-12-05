@@ -71,7 +71,7 @@ define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr nocapture noun
 entry:
   %0 = load ptr, ptr %cfg, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %0, i32 noundef 3)
-  %control_endpoint = getelementptr inbounds i8, ptr %cfg, i64 80
+  %control_endpoint = getelementptr inbounds nuw i8, ptr %cfg, i64 80
   %1 = load ptr, ptr %control_endpoint, align 8
   %call1 = tail call i32 @zmq_connect(ptr noundef %call, ptr noundef %1)
   %call2 = tail call i32 @zmq_send(ptr noundef %call, ptr noundef nonnull @.str.4, i64 noundef 9, i32 noundef 0)
@@ -102,12 +102,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #10
   %conv = sext i32 %call1 to i64
   store i64 %conv, ptr @_ZL12message_size, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #10
   %conv4 = sext i32 %call3 to i64
@@ -118,69 +118,69 @@ if.end:                                           ; preds = %entry
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv7)
   %call9 = tail call ptr @zmq_ctx_new()
   %call10 = tail call i32 @zmq_ctx_set(ptr noundef %call9, i32 noundef 1, i32 noundef 4)
-  %cfg_global.sroa.8.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 32
+  %cfg_global.sroa.8.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_pub2.sroa_idx, i8 0, i64 16, i1 false)
-  %cfg_global.sroa.9.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 56
+  %cfg_global.sroa.9.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_pub2.sroa_idx, i8 0, i64 24, i1 false)
   store ptr %call9, ptr %cfg_proxy, align 8
-  %cfg_global.sroa.6.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 8
+  %cfg_global.sroa.6.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 8
   store i64 0, ptr %cfg_global.sroa.6.0.cfg_proxy.sroa_idx, align 8
-  %cfg_global.sroa.69.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 16
+  %cfg_global.sroa.69.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 16
   store ptr @.str.8, ptr %cfg_global.sroa.69.0.cfg_proxy.sroa_idx, align 8
-  %cfg_global.sroa.7.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 24
+  %cfg_global.sroa.7.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 24
   store ptr @.str.9, ptr %cfg_global.sroa.7.0.cfg_proxy.sroa_idx, align 8
-  %cfg_global.sroa.8.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 32
+  %cfg_global.sroa.8.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_proxy.sroa_idx, i8 0, i64 16, i1 false)
-  %cfg_global.sroa.816.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 48
+  %cfg_global.sroa.816.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 48
   store ptr @.str.10, ptr %cfg_global.sroa.816.0.cfg_proxy.sroa_idx, align 8
-  %cfg_global.sroa.9.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 56
+  %cfg_global.sroa.9.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_proxy.sroa_idx, i8 0, i64 24, i1 false)
-  %cfg_global.sroa.920.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 80
+  %cfg_global.sroa.920.0.cfg_proxy.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_proxy, i64 80
   store ptr @.str.11, ptr %cfg_global.sroa.920.0.cfg_proxy.sroa_idx, align 8
   %call16 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL17proxy_thread_mainPv, ptr noundef nonnull %cfg_proxy)
   store ptr %call9, ptr %cfg_sub1, align 8
-  %cfg_global.sroa.6.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 8
+  %cfg_global.sroa.6.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 8
   store i64 0, ptr %cfg_global.sroa.6.0.cfg_sub1.sroa_idx, align 8
-  %cfg_global.sroa.69.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 16
+  %cfg_global.sroa.69.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 16
   store ptr @.str.8, ptr %cfg_global.sroa.69.0.cfg_sub1.sroa_idx, align 8
-  %cfg_global.sroa.7.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 24
+  %cfg_global.sroa.7.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 24
   store ptr @.str.9, ptr %cfg_global.sroa.7.0.cfg_sub1.sroa_idx, align 8
-  %cfg_global.sroa.8.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 32
+  %cfg_global.sroa.8.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_sub1.sroa_idx, i8 0, i64 16, i1 false)
-  %cfg_global.sroa.816.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 48
+  %cfg_global.sroa.816.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 48
   store ptr @.str.10, ptr %cfg_global.sroa.816.0.cfg_sub1.sroa_idx, align 8
-  %cfg_global.sroa.9.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 56
+  %cfg_global.sroa.9.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_sub1.sroa_idx, i8 0, i64 24, i1 false)
-  %cfg_global.sroa.920.0.cfg_sub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_sub1, i64 80
+  %cfg_global.sroa.920.0.cfg_sub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_sub1, i64 80
   store ptr @.str.11, ptr %cfg_global.sroa.920.0.cfg_sub1.sroa_idx, align 8
   %call17 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL22subscriber_thread_mainPv, ptr noundef nonnull %cfg_sub1)
   %call18 = call ptr @zmq_stopwatch_start()
   store ptr %call9, ptr %cfg_pub1, align 8
-  %cfg_global.sroa.6.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 8
+  %cfg_global.sroa.6.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 8
   store i64 0, ptr %cfg_global.sroa.6.0.cfg_pub1.sroa_idx, align 8
-  %cfg_global.sroa.69.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 16
+  %cfg_global.sroa.69.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 16
   store ptr @.str.8, ptr %cfg_global.sroa.69.0.cfg_pub1.sroa_idx, align 8
-  %cfg_global.sroa.7.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 24
+  %cfg_global.sroa.7.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 24
   store ptr @.str.9, ptr %cfg_global.sroa.7.0.cfg_pub1.sroa_idx, align 8
-  %cfg_global.sroa.8.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 32
+  %cfg_global.sroa.8.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_pub1.sroa_idx, i8 0, i64 16, i1 false)
-  %cfg_global.sroa.816.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 48
+  %cfg_global.sroa.816.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 48
   store ptr @.str.10, ptr %cfg_global.sroa.816.0.cfg_pub1.sroa_idx, align 8
-  %cfg_global.sroa.9.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 56
+  %cfg_global.sroa.9.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_pub1.sroa_idx, i8 0, i64 24, i1 false)
-  %cfg_global.sroa.920.0.cfg_pub1.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub1, i64 80
+  %cfg_global.sroa.920.0.cfg_pub1.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub1, i64 80
   store ptr @.str.11, ptr %cfg_global.sroa.920.0.cfg_pub1.sroa_idx, align 8
   %call20 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL21publisher_thread_mainPv, ptr noundef nonnull %cfg_pub1)
   store ptr %call9, ptr %cfg_pub2, align 8
-  %cfg_global.sroa.6.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 8
+  %cfg_global.sroa.6.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 8
   store i64 1, ptr %cfg_global.sroa.6.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.69.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 16
+  %cfg_global.sroa.69.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 16
   store ptr @.str.8, ptr %cfg_global.sroa.69.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.7.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 24
+  %cfg_global.sroa.7.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 24
   store ptr @.str.9, ptr %cfg_global.sroa.7.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.816.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 48
+  %cfg_global.sroa.816.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 48
   store ptr @.str.10, ptr %cfg_global.sroa.816.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.920.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 80
+  %cfg_global.sroa.920.0.cfg_pub2.sroa_idx = getelementptr inbounds nuw i8, ptr %cfg_pub2, i64 80
   store ptr @.str.11, ptr %cfg_global.sroa.920.0.cfg_pub2.sroa_idx, align 8
   %call22 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL21publisher_thread_mainPv, ptr noundef nonnull %cfg_pub2)
   call void @zmq_threadclose(ptr noundef %call17)
@@ -236,12 +236,12 @@ entry:
   %0 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %0, i32 noundef 10)
   tail call fastcc void @_ZL7set_hwmPv(ptr noundef %call)
-  %frontend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 16
+  %frontend_endpoint = getelementptr inbounds nuw i8, ptr %pvoid, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %frontend_endpoint, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %frontend_endpoint, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %for.inc, label %if.then
@@ -261,12 +261,12 @@ for.end:                                          ; preds = %for.inc
   store i32 1, ptr %optval, align 4
   %call5 = call i32 @zmq_setsockopt(ptr noundef %call4, i32 noundef 69, ptr noundef nonnull %optval, i64 noundef 4)
   call fastcc void @_ZL7set_hwmPv(ptr noundef %call4)
-  %backend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 48
+  %backend_endpoint = getelementptr inbounds nuw i8, ptr %pvoid, i64 48
   br label %for.body12
 
 for.body12:                                       ; preds = %for.end, %for.inc22
   %indvars.iv25 = phi i64 [ 0, %for.end ], [ %indvars.iv.next26, %for.inc22 ]
-  %arrayidx15 = getelementptr inbounds [4 x ptr], ptr %backend_endpoint, i64 0, i64 %indvars.iv25
+  %arrayidx15 = getelementptr inbounds nuw [4 x ptr], ptr %backend_endpoint, i64 0, i64 %indvars.iv25
   %3 = load ptr, ptr %arrayidx15, align 8
   %cmp16.not = icmp eq ptr %3, null
   br i1 %cmp16.not, label %for.inc22, label %if.then17
@@ -283,7 +283,7 @@ for.inc22:                                        ; preds = %for.body12, %if.the
 for.end24:                                        ; preds = %for.inc22
   %4 = load ptr, ptr %pvoid, align 8
   %call26 = call ptr @zmq_socket(ptr noundef %4, i32 noundef 4)
-  %control_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 80
+  %control_endpoint = getelementptr inbounds nuw i8, ptr %pvoid, i64 80
   %5 = load ptr, ptr %control_endpoint, align 8
   %call27 = call i32 @zmq_bind(ptr noundef %call26, ptr noundef %5)
   %call30 = call i32 @zmq_proxy_steerable(ptr noundef %call, ptr noundef %call4, ptr noundef null, ptr noundef %call26)
@@ -297,7 +297,7 @@ for.end24:                                        ; preds = %for.inc22
 define internal void @_ZL22subscriber_thread_mainPv(ptr nocapture noundef readonly %pvoid) #0 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
-  %thread_idx = getelementptr inbounds i8, ptr %pvoid, i64 8
+  %thread_idx = getelementptr inbounds nuw i8, ptr %pvoid, i64 8
   %0 = load i32, ptr %thread_idx, align 8
   %1 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %1, i32 noundef 2)
@@ -315,7 +315,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %entry
-  %backend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 48
+  %backend_endpoint = getelementptr inbounds nuw i8, ptr %pvoid, i64 48
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %backend_endpoint, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
@@ -375,7 +375,7 @@ entry:
   %buffer = alloca [32 x i8], align 16
   %msg_orig = alloca %struct.zmq_msg_t, align 8
   %msg = alloca %struct.zmq_msg_t, align 8
-  %thread_idx = getelementptr inbounds i8, ptr %pvoid, i64 8
+  %thread_idx = getelementptr inbounds nuw i8, ptr %pvoid, i64 8
   %0 = load i32, ptr %thread_idx, align 8
   %1 = load ptr, ptr %pvoid, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %1, i32 noundef 9)
@@ -408,7 +408,7 @@ if.then.i13:                                      ; preds = %_Z40test_assert_suc
   unreachable
 
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit18: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit
-  %frontend_endpoint = getelementptr inbounds i8, ptr %pvoid, i64 16
+  %frontend_endpoint = getelementptr inbounds nuw i8, ptr %pvoid, i64 16
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %frontend_endpoint, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8

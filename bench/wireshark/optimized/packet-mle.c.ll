@@ -565,38 +565,38 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %21, label %885, label %22
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 152) #8
-  %28 = getelementptr inbounds i8, ptr %24, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %29, ptr %30, align 4
   %31 = icmp eq i32 %29, 3
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %24, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 %34, ptr %35, align 8
   br label %40
 
 36:                                               ; preds = %22
-  %37 = getelementptr inbounds i8, ptr %24, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %38 = load i16, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store i16 %38, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %36, %32
-  %41 = getelementptr inbounds i8, ptr %24, i64 66
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 66
   %42 = load i16, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %27, i64 66
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 66
   store i16 %42, ptr %43, align 2
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef nonnull @.str.233) #8
   %46 = load ptr, ptr %44, align 8
@@ -615,13 +615,13 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.418, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
   store i32 1, ptr %8, align 4
   %55 = icmp eq i8 %52, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %27, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 96
   br i1 %55, label %58, label %.thread798
 
 .thread798:                                       ; preds = %40
-  %56 = getelementptr inbounds i8, ptr %27, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %57, align 8
   br label %87
 
@@ -631,22 +631,22 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %59 = load i32, ptr %8, align 4
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %60 = icmp eq i32 %.pre, 0
-  %61 = getelementptr inbounds i8, ptr %10, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %27, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 96
   br i1 %60, label %87, label %63
 
 63:                                               ; preds = %58
   %64 = add i32 %59, -1
-  %65 = getelementptr inbounds i8, ptr %10, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %12, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %10, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i32 %64, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %10, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %9, ptr %69, align 8
   store ptr null, ptr %10, align 8
   %70 = call ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %59, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %27, ptr noundef nonnull %10, ptr noundef nonnull @ieee802154_set_mle_key, ptr noundef nonnull @dissect_mle_decrypt) #8
@@ -672,13 +672,13 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8
   %.not5.i = icmp eq ptr %82, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %85, 2
   store i32 %86, ptr %84, align 4
@@ -786,12 +786,12 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   br i1 %.not683775, label %.sink.split838, label %.lr.ph776
 
 .lr.ph776:                                        ; preds = %.thread
-  %131 = getelementptr inbounds i8, ptr %15, i64 8
-  %132 = getelementptr inbounds i8, ptr %24, i64 8
-  %133 = getelementptr inbounds i8, ptr %24, i64 64
-  %134 = getelementptr inbounds i8, ptr %24, i64 72
-  %135 = getelementptr inbounds i8, ptr %1, i64 80
-  %136 = getelementptr inbounds i8, ptr %24, i64 88
+  %131 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %136 = getelementptr inbounds nuw i8, ptr %24, i64 88
   br label %137
 
 137:                                              ; preds = %.lr.ph776, %.loopexit731
@@ -2355,7 +2355,7 @@ declare ptr @decrypt_ieee802154_payload(ptr noundef, i32 noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @ieee802154_set_mle_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr @mle_key_hash_handlers, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call ptr @wmem_tree_lookup32(ptr noundef %5, i32 noundef %7) #8
   %.not = icmp eq ptr %8, null
@@ -2366,16 +2366,16 @@ define internal i32 @ieee802154_set_mle_key(ptr noundef %0, ptr noundef %1, ptr 
   br label %20
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i8, ptr %12, align 8
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %14
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   br label %20
 
@@ -2389,13 +2389,13 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [256 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %3, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 3
   %16 = shl nuw nsw i32 2, %15
@@ -2406,7 +2406,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 3, ptr %23, align 4
   br label %121
@@ -2440,15 +2440,15 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
 
 37:                                               ; preds = %30, %33, %28
   %.not106 = phi i1 [ false, %33 ], [ true, %30 ], [ true, %28 ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 3
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %3, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %13, align 8
   %47 = trunc i32 %46 to i8
@@ -2461,13 +2461,13 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond, label %55, label %68
 
 52:                                               ; preds = %37
-  %53 = getelementptr inbounds i8, ptr %4, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %54 = load ptr, ptr %53, align 8
   store i32 4, ptr %54, align 4
   br label %121
 
 55:                                               ; preds = %41
-  %56 = getelementptr inbounds i8, ptr %2, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = sext i32 %.096 to i64
   %59 = call ptr @tvb_memdup(ptr noundef %57, ptr noundef %0, i32 noundef %1, i64 noundef %58) #8
@@ -2478,7 +2478,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not108, label %63, label %66
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %4, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %65 = load ptr, ptr %64, align 8
   store i32 6, ptr %65, align 4
   br label %121
@@ -2500,7 +2500,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not107, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %4, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %75 = load ptr, ptr %74, align 8
   store i32 6, ptr %75, align 4
   br label %121
@@ -2511,13 +2511,13 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
 
 78:                                               ; preds = %76, %66
   %.095 = phi ptr [ %67, %66 ], [ %77, %76 ]
-  %79 = getelementptr inbounds i8, ptr %4, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %80 = load ptr, ptr %79, align 8
   store i32 0, ptr %80, align 4
   br i1 %.not106, label %119, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %2, i64 212
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 16
   br i1 %84, label %86, label %85
@@ -2527,7 +2527,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %2, i64 236
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 16
   br i1 %89, label %91, label %90
@@ -2537,17 +2537,17 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %2, i64 216
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %93 = load ptr, ptr %92, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %93, i64 16, i1 false)
-  %94 = getelementptr inbounds i8, ptr %8, i64 16
-  %95 = getelementptr inbounds i8, ptr %2, i64 240
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %96 = load ptr, ptr %95, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %94, ptr noundef nonnull align 1 dereferenceable(16) %96, i64 16, i1 false)
-  %97 = getelementptr inbounds i8, ptr %8, i64 32
-  %98 = getelementptr inbounds i8, ptr %4, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %4, i64 36
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
   %103 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %97, i32 noundef %99, i64 noundef %102) #8
@@ -2576,7 +2576,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not112, label %119, label %.sink.split
 
 .sink.split:                                      ; preds = %114, %91
-  %117 = getelementptr inbounds i8, ptr %4, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %118 = load ptr, ptr %117, align 8
   store i32 7, ptr %118, align 4
   br label %119

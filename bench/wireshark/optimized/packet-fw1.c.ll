@@ -90,11 +90,11 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.ethertype_data_s, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %7, ptr noundef nonnull @.str.25) #5
   tail call void @wmem_strbuf_append(ptr noundef %8, ptr noundef nonnull @dissect_fw1.fw1_header) #5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.26) #5
   %11 = load ptr, ptr %9, align 8
@@ -250,14 +250,14 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %89 = load i32, ptr @hf_fw1_type, align 4
   %90 = zext i16 %88 to i32
   %91 = tail call ptr @proto_tree_add_uint(ptr noundef %.078, i32 noundef %89, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %90) #5
-  %92 = getelementptr inbounds i8, ptr %5, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 14, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %5, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.078, ptr %93, align 8
   %94 = load i32, ptr @hf_fw1_trailer, align 4
-  %95 = getelementptr inbounds i8, ptr %5, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %5, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %96, align 4
   %97 = load ptr, ptr @ethertype_handle, align 8
   %98 = call i32 @call_dissector_with_data(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #5

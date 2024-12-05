@@ -133,9 +133,9 @@ define linkonce_odr hidden void @_ZN4nori7Mirror_C2Ev(ptr noundef nonnull align 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %10, align 8
   store ptr @_ZN4nori13Mirror_createERKNS_12PropertyListE, ptr %4, align 8
   store ptr @_ZNSt17_Function_handlerIFPN4nori10NoriObjectERKNS0_12PropertyListEEPFPNS0_6MirrorES5_EE9_M_invokeERKSt9_Any_dataS5_, ptr %9, align 8
@@ -257,7 +257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4nori6Mirror6sampleERNS_15BSDFQueryRecordERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias writable sret(%"struct.nori::Color3f") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull align 1 %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load float, ptr %5, align 4
   %7 = fcmp ugt float %6, 0.000000e+00
   br i1 %7, label %8, label %19
@@ -265,27 +265,27 @@ define linkonce_odr hidden void @_ZNK4nori6Mirror6sampleERNS_15BSDFQueryRecordER
 8:                                                ; preds = %4
   %9 = load float, ptr %2, align 4
   %10 = fneg float %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fneg float %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %10, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float %13, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float %6, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 2, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store float 1.000000e+00, ptr %18, align 4
   br label %19
 
 19:                                               ; preds = %4, %8
   %.sink8 = phi float [ 1.000000e+00, %8 ], [ 0.000000e+00, %4 ]
   store float %.sink8, ptr %0, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %.sink8, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sink8, ptr %21, align 4
   ret void
 }
@@ -293,9 +293,9 @@ define linkonce_odr hidden void @_ZNK4nori6Mirror6sampleERNS_15BSDFQueryRecordER
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4nori6Mirror4evalERKNS_15BSDFQueryRecordE(ptr dead_on_unwind noalias writable sret(%"struct.nori::Color3f") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 {
   store float 0.000000e+00, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %5, align 4
   ret void
 }

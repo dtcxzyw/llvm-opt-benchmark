@@ -240,7 +240,7 @@ define void @_xiso8601timecat(ptr noundef %0, i1 noundef zeroext %1) #0 {
   br i1 %1, label %23, label %28
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = sdiv i64 %25, 1000
   %27 = trunc i64 %26 to i32
@@ -303,18 +303,18 @@ define void @_xrfc5424timecat(ptr noundef %0, i1 noundef zeroext %1) #0 {
   br label %29
 
 29:                                               ; preds = %26, %23
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %4, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %34 = load i8, ptr %33, align 1
   store i8 %34, ptr %30, align 1
   store i8 58, ptr %33, align 1
   br i1 %1, label %35, label %40
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = sdiv i64 %37, 1000
   %39 = trunc i64 %38 to i32
@@ -416,7 +416,7 @@ define void @_xstrfmtcatat(ptr noundef %0, ptr nocapture noundef %1, ptr nocaptu
 
 .sink.split:                                      ; preds = %10, %20
   %.sink26 = phi ptr [ %26, %20 ], [ %7, %10 ]
-  %27 = getelementptr inbounds i8, ptr %.sink26, i64 %6
+  %27 = getelementptr inbounds nuw i8, ptr %.sink26, i64 %6
   store ptr %27, ptr %1, align 8
   br label %28
 
@@ -436,7 +436,7 @@ define void @_xmemcat(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %9 = sub i64 %8, %7
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %9, i64 4095)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %1, i64 %spec.store.select, i1 false)
-  %10 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %spec.store.select
+  %10 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %spec.store.select
   store i8 0, ptr %10, align 1
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
   %12 = trunc i64 %11 to i32
@@ -547,7 +547,7 @@ define ptr @xstrndup(ptr noundef readonly %0, i64 noundef %1) #0 {
 define ptr @xbasename(ptr noundef readonly %0) #1 {
   %2 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #21
   %.not = icmp eq ptr %2, null
-  %3 = getelementptr inbounds i8, ptr %2, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %4 = select i1 %.not, ptr %0, ptr %3
   ret ptr %4
 }
@@ -744,7 +744,7 @@ define noundef zeroext i1 @xstring_is_whitespace(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
@@ -778,7 +778,7 @@ define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %3 = phi i8 [ %9, %.lr.ph ], [ %2, %.preheader ]
   %.01521 = phi i1 [ %spec.select, %.lr.ph ], [ false, %.preheader ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = sext i8 %3 to i32
   %6 = tail call i32 @tolower(i32 noundef %5) #21
   %.not19 = icmp ne i32 %6, %5
@@ -786,7 +786,7 @@ define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %9 = load i8, ptr %8, align 1
   %.not18 = icmp eq i8 %9, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -950,11 +950,11 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
 
 12:                                               ; preds = %.preheader.us, %26
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %26 ]
-  %13 = getelementptr inbounds i8, ptr %.029.us, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %.029.us, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = tail call i32 @tolower(i32 noundef %15) #21
-  %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
   %20 = tail call i32 @tolower(i32 noundef %19) #21
@@ -967,7 +967,7 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %._crit_edge.us
-  %24 = getelementptr inbounds i8, ptr %.029.us, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.029.us, i64 1
   %25 = add nuw nsw i32 %.02228.us, 1
   %exitcond41.not = icmp eq i32 %25, %7
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.us, !llvm.loop !9
@@ -1108,11 +1108,11 @@ define void @_xrfc3339timecat(ptr noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %25, %22
-  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %30, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %3, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %33 = load i8, ptr %32, align 1
   store i8 %33, ptr %29, align 1
   store i8 58, ptr %32, align 1
@@ -1217,7 +1217,7 @@ define void @xstrtrim(ptr noundef %0) local_unnamed_addr #17 {
   br i1 %.not31, label %.critedge, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %.040, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.040, i64 1
   %.pr = load i8, ptr %13, align 1
   %.not30 = icmp eq i8 %.pr, 0
   br i1 %.not30, label %14, label %6, !llvm.loop !11
@@ -1230,7 +1230,7 @@ define void @xstrtrim(ptr noundef %0) local_unnamed_addr #17 {
   %.1 = phi ptr [ %16, %.critedge ], [ %.040, %6 ]
   %15 = load i8, ptr %.1, align 1
   %.not33 = icmp eq i8 %15, 0
-  %16 = getelementptr inbounds i8, ptr %.1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br i1 %.not33, label %.preheader, label %.critedge, !llvm.loop !12
 
 .preheader:                                       ; preds = %.critedge
@@ -1305,7 +1305,7 @@ define ptr @xstring_bytes2hex(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.preheader.split.us ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv16
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %9)
@@ -1324,7 +1324,7 @@ define ptr @xstring_bytes2hex(ptr nocapture noundef readonly %0, i32 noundef %1,
   br label %12
 
 12:                                               ; preds = %11, %.preheader.split
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %15)
@@ -1359,10 +1359,10 @@ define ptr @xstring_bytes2printable(ptr nocapture noundef readonly %0, i32 nound
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 12
   %or.cond = icmp ne i16 %16, 0

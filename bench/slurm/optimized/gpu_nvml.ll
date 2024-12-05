@@ -487,7 +487,7 @@ gpu_p_get_device_count.exit.i:                    ; preds = %72, %70
   br i1 %.not112.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %35, i64 36
+  %89 = getelementptr inbounds nuw i8, ptr %35, i64 36
   br label %90
 
 90:                                               ; preds = %102, %.lr.ph.i
@@ -516,7 +516,7 @@ _nvml_get_handle.exit.i:                          ; preds = %90
 
 _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   %100 = call ptr @slurm_xstrdup(ptr noundef nonnull %89) #12
-  %101 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.i
   store ptr %100, ptr %101, align 8
   br label %102
 
@@ -537,7 +537,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   %109 = call ptr @slurm_bit_alloc(i64 noundef 32768) #12
   store ptr %109, ptr %30, align 8
   %110 = load ptr, ptr @conf, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4232
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4232
   %112 = load i16, ptr %111, align 8
   %.not113.i = icmp eq i16 %112, 0
   br i1 %.not113.i, label %.loopexit.i, label %.lr.ph95.i
@@ -545,15 +545,15 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
 .lr.ph95.i:                                       ; preds = %108, %.lr.ph95.i
   %indvars.iv126.i = phi i64 [ %indvars.iv.next127.i, %.lr.ph95.i ], [ 0, %108 ]
   %113 = phi ptr [ %119, %.lr.ph95.i ], [ %110, %108 ]
-  %114 = getelementptr inbounds i8, ptr %113, i64 4240
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4240
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i16, ptr %115, i64 %indvars.iv126.i
+  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv126.i
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i64
   call void @slurm_bit_set(ptr noundef %109, i64 noundef %118) #12
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
   %119 = load ptr, ptr @conf, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 4232
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4232
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next127.i, %122
@@ -566,28 +566,28 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   br i1 %.not114.i, label %._crit_edge107.i, label %.lr.ph106.i
 
 .lr.ph106.i:                                      ; preds = %.loopexit.i
-  %126 = getelementptr inbounds i8, ptr %45, i64 8
-  %127 = getelementptr inbounds i8, ptr %45, i64 16
-  %128 = getelementptr inbounds i8, ptr %45, i64 24
-  %129 = getelementptr inbounds i8, ptr %45, i64 32
-  %130 = getelementptr inbounds i8, ptr %45, i64 40
-  %131 = getelementptr inbounds i8, ptr %45, i64 48
-  %132 = getelementptr inbounds i8, ptr %45, i64 56
-  %133 = getelementptr inbounds i8, ptr %45, i64 64
-  %134 = getelementptr inbounds i8, ptr %45, i64 72
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
-  %136 = getelementptr inbounds i8, ptr %25, i64 36
-  %137 = getelementptr inbounds i8, ptr %35, i64 16
-  %138 = getelementptr inbounds i8, ptr %35, i64 20
-  %139 = getelementptr inbounds i8, ptr %35, i64 24
-  %140 = getelementptr inbounds i8, ptr %35, i64 36
-  %141 = getelementptr inbounds i8, ptr %49, i64 16
-  %142 = getelementptr inbounds i8, ptr %24, i64 28
-  %143 = getelementptr inbounds i8, ptr %24, i64 24
-  %144 = getelementptr inbounds i8, ptr %24, i64 32
-  %145 = getelementptr inbounds i8, ptr %49, i64 24
-  %146 = getelementptr inbounds i8, ptr %49, i64 8
-  %147 = getelementptr inbounds i8, ptr %9, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %133 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  %137 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %141 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %143 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %148 = icmp ne ptr %87, null
   br label %149
 
@@ -808,7 +808,7 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %223, %221
 
 .lr.ph.i.i.i:                                     ; preds = %_nvml_get_nvlink_remote_pcie.exit.i.i, %232
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %232 ], [ 0, %_nvml_get_nvlink_remote_pcie.exit.i.i ]
-  %228 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i.i.i
+  %228 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.i.i.i
   %229 = load ptr, ptr %228, align 8
   %230 = call i32 @slurm_xstrcmp(ptr noundef nonnull %226, ptr noundef %229) #12
   %231 = icmp eq i32 %230, 0
@@ -856,7 +856,7 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %232, %234, %_get_in
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.loopexit.i.i ]
   %.02737.i.i = phi ptr [ @.str.66, %.lr.ph.i.i ], [ @.str.7, %.loopexit.i.i ]
-  %243 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv.i.i
+  %243 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.i.i
   %244 = load i32, ptr %243, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %28, ptr noundef nonnull @.str.65, ptr noundef nonnull %.02737.i.i, i32 noundef %244) #12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1270,7 +1270,7 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %386, %383
   br i1 %.not23.i.i, label %394, label %392
 
 392:                                              ; preds = %390
-  %393 = getelementptr inbounds i8, ptr %391, i64 3
+  %393 = getelementptr inbounds nuw i8, ptr %391, i64 3
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %141, ptr noundef nonnull @.str.72, ptr noundef nonnull %393) #12
   br label %409
 
@@ -1573,7 +1573,7 @@ _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %498, %_nvml_print_g
   %501 = add i32 %500, -1
   %502 = lshr i32 %501, 1
   %503 = zext nneg i32 %502 to i64
-  %504 = getelementptr inbounds [512 x i32], ptr %9, i64 0, i64 %503
+  %504 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %503
   %505 = load i32, ptr %504, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %505, i32 noundef %502) #12
   %506 = load i32, ptr %504, align 4
@@ -1593,7 +1593,7 @@ _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %508, %_nvml_print_g
   %510 = load i32, ptr %8, align 4
   %511 = add i32 %510, -2
   %512 = zext i32 %511 to i64
-  %513 = getelementptr inbounds [512 x i32], ptr %9, i64 0, i64 %512
+  %513 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %512
   %514 = load i32, ptr %513, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %514, i32 noundef %511) #12
   %515 = load i32, ptr %513, align 4
@@ -1612,7 +1612,7 @@ _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %517, %_nvml_print_g
   %519 = load i32, ptr %8, align 4
   %520 = add i32 %519, -1
   %521 = zext i32 %520 to i64
-  %522 = getelementptr inbounds [512 x i32], ptr %9, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %521
   %523 = load i32, ptr %522, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %523, i32 noundef %520) #12
   %524 = load i32, ptr %522, align 4
@@ -1632,7 +1632,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %526, %_nvml_print_g
 
 .lr.ph.i78.i:                                     ; preds = %.preheader.i.i, %_nvml_print_gfx_freqs.exit42.i.i
   %indvars.iv.i79.i = phi i64 [ %indvars.iv.next.i80.i, %_nvml_print_gfx_freqs.exit42.i.i ], [ 0, %.preheader.i.i ]
-  %528 = getelementptr inbounds [512 x i32], ptr %9, i64 0, i64 %indvars.iv.i79.i
+  %528 = getelementptr inbounds nuw [512 x i32], ptr %9, i64 0, i64 %indvars.iv.i79.i
   %529 = load i32, ptr %528, align 4
   %530 = trunc nuw i64 %indvars.iv.i79.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %529, i32 noundef %530) #12
@@ -1703,7 +1703,7 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
 
 .lr.ph110.i:                                      ; preds = %548, %.lr.ph110.i
   %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %.lr.ph110.i ], [ 0, %548 ]
-  %550 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv129.i
+  %550 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv129.i
   call void @slurm_xfree(ptr noundef %550) #12
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %551 = load i32, ptr %31, align 4
@@ -1783,7 +1783,7 @@ define void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not, label %185, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %24) #12
   store ptr %25, ptr %18, align 8
   %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 59) #14
@@ -2214,7 +2214,7 @@ define internal fastcc void @_nvml_init() unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
   %5 = load ptr, ptr @conf, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4384
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4384
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
@@ -2545,7 +2545,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit.preheader
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 88
   br i1 %36, label %37, label %47
@@ -2580,7 +2580,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.loopexit.preheader ]
-  %50 = getelementptr inbounds [512 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [512 x i64], ptr %2, i64 0, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 4294967295
   %53 = icmp eq i64 %52, 4294967295
@@ -2649,13 +2649,13 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
 .preheader31:                                     ; preds = %2, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 511, %2 ]
   %.02737 = phi i32 [ %.2, %21 ], [ 32767, %2 ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv43
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv43
   br label %7
 
 7:                                                ; preds = %.preheader31, %.loopexit
   %indvars.iv40 = phi i64 [ 7, %.preheader31 ], [ %indvars.iv.next41, %.loopexit ]
   %.135 = phi i32 [ %.02737, %.preheader31 ], [ %.2, %.loopexit ]
-  %8 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv40
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp eq i8 %9, 0
@@ -2856,13 +2856,13 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
 
 55:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
-  %56 = getelementptr inbounds %struct.nvmlProcessInfo_st, ptr %39, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw %struct.nvmlProcessInfo_st, ptr %39, i64 %indvars.iv.i.i
   %57 = load i32, ptr %56, align 8
   %.not32.i.i = icmp eq i32 %57, %0
   br i1 %.not32.i.i, label %58, label %54
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = load i32, ptr @gpumem_pos, align 4
   %62 = sext i32 %61 to i64
@@ -2975,13 +2975,13 @@ _get_nvml_process_info.exit.i:                    ; preds = %53, %32
 
 106:                                              ; preds = %105, %.lr.ph.i13.i
   %indvars.iv.i15.i = phi i64 [ 0, %.lr.ph.i13.i ], [ %indvars.iv.next.i17.i, %105 ]
-  %107 = getelementptr inbounds %struct.nvmlProcessInfo_st, ptr %90, i64 %indvars.iv.i15.i
+  %107 = getelementptr inbounds nuw %struct.nvmlProcessInfo_st, ptr %90, i64 %indvars.iv.i15.i
   %108 = load i32, ptr %107, align 8
   %.not32.i16.i = icmp eq i32 %108, %0
   br i1 %.not32.i16.i, label %109, label %105
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = load i32, ptr @gpumem_pos, align 4
   %113 = sext i32 %112 to i64
@@ -3120,19 +3120,19 @@ _get_gpumem.exit:                                 ; preds = %132, %_get_nvml_pro
 
 174:                                              ; preds = %173, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %173 ]
-  %175 = getelementptr inbounds %struct.nvmlProcessUtilizationSample_st, ptr %172, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw %struct.nvmlProcessUtilizationSample_st, ptr %172, i64 %indvars.iv.i
   %176 = load i32, ptr %175, align 8
   %.not27.i = icmp eq i32 %176, %0
   br i1 %.not27.i, label %177, label %173
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %175, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %179 = load i64, ptr %178, align 8
   %180 = load i32, ptr @gpuutil_pos, align 4
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds %struct.acct_gather_data, ptr %1, i64 %181
   store i64 %179, ptr %182, align 8
-  %183 = getelementptr inbounds %struct.nvmlProcessUtilizationSample_st, ptr %172, i64 %indvars.iv.i, i32 2
+  %183 = getelementptr inbounds nuw %struct.nvmlProcessUtilizationSample_st, ptr %172, i64 %indvars.iv.i, i32 2
   %184 = load i32, ptr %183, align 8
   %185 = zext i32 %184 to i64
   %186 = getelementptr inbounds %struct.acct_gather_data, ptr %1, i64 %181, i32 3
@@ -3353,7 +3353,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr nocapture nou
   %26 = load i32, ptr %2, align 4
   %27 = add i32 %23, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not13 = icmp ugt i32 %26, %30
   br i1 %.not13, label %33, label %31
@@ -3416,7 +3416,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr nocapture nou
   %27 = load i32, ptr %3, align 4
   %28 = add i32 %24, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %3, i64 %29
   %31 = load i32, ptr %30, align 4
   %.not15 = icmp ugt i32 %27, %31
   br i1 %.not15, label %34, label %32

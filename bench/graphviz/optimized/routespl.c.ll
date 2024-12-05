@@ -48,14 +48,14 @@ define noalias noundef ptr @simpleSplineRoute(double %0, double %1, double %2, d
   %12 = alloca [2 x %struct.pointf_s], align 16
   %13 = alloca [2 x %struct.pointf_s], align 16
   store ptr %4, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %5, ptr %14, align 8
   store double %0, ptr %12, align 16
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %2, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double %3, ptr %17, align 8
   %18 = call i32 @Pshortestpath(ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #21
   %19 = icmp slt i32 %18, 0
@@ -67,7 +67,7 @@ define noalias noundef ptr @simpleSplineRoute(double %0, double %1, double %2, d
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = load i32, ptr %23, align 8
   call void @make_polyline(ptr %22, i32 %24, ptr noundef nonnull %11) #21
   br label %46
@@ -87,15 +87,15 @@ define noalias noundef ptr @simpleSplineRoute(double %0, double %1, double %2, d
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds %struct.Pedge_t, ptr %28, i64 %indvars.iv
-  %35 = getelementptr inbounds %struct.pointf_s, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.Pedge_t, ptr %28, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.pointf_s, ptr %31, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = icmp eq i64 %indvars.iv.next, %32
   %38 = and i64 %indvars.iv.next, 4294967295
   %39 = select i1 %37, i64 0, i64 %38
-  %40 = getelementptr inbounds %struct.pointf_s, ptr %31, i64 %39
+  %40 = getelementptr inbounds nuw %struct.pointf_s, ptr %31, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %32
   br i1 %exitcond.not, label %._crit_edge, label %33
@@ -103,7 +103,7 @@ define noalias noundef ptr @simpleSplineRoute(double %0, double %1, double %2, d
 ._crit_edge:                                      ; preds = %33, %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = call i32 @Proutespline(ptr noundef %28, i32 noundef %29, ptr %41, i32 %43, ptr noundef nonnull %13, ptr noundef nonnull %11) #21
   %45 = icmp slt i32 %44, 0
@@ -111,7 +111,7 @@ define noalias noundef ptr @simpleSplineRoute(double %0, double %1, double %2, d
   br i1 %45, label %58, label %46
 
 46:                                               ; preds = %._crit_edge, %21
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
   %50 = call noalias ptr @calloc(i64 noundef %49, i64 noundef 16) #22
@@ -267,27 +267,27 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   %10 = load i32, ptr @nedges, align 4
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @nedges, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = load i32, ptr @nboxes, align 4
   %15 = add nsw i32 %14, %13
   store i32 %15, ptr @nboxes, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.0325364 = load ptr, ptr %16, align 8
   %.not365 = icmp eq ptr %.0325364, null
   br i1 %.not365, label %.critedge347, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %20, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %20, i64 160
   %.0325 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0325, null
   br i1 %.not, label %.critedge347, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %17
   %.0325366 = phi ptr [ %.0325, %17 ], [ %.0325364, %3 ]
-  %19 = getelementptr inbounds i8, ptr %.0325366, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.0325366, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %22 = load i8, ptr %21, align 8
   %.not338 = icmp eq i8 %22, 0
   br i1 %.not338, label %.critedge, label %17
@@ -297,7 +297,7 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   br label %checkpath.exit
 
 .critedge:                                        ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = icmp sgt i32 %13, 0
   br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -309,10 +309,10 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %46 ]
   %.0212245.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1213.i, %46 ]
-  %27 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv.i
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %27 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load double, ptr %30, align 8
   %32 = fsub double %29, %31
   %33 = tail call double @llvm.fabs.f64(double %32)
@@ -320,7 +320,7 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   br i1 %34, label %46, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load double, ptr %27, align 8
   %38 = load double, ptr %36, align 8
   %39 = fsub double %37, %38
@@ -344,15 +344,15 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
 ._crit_edge.i:                                    ; preds = %46, %.critedge
   %.0212.lcssa.i = phi i32 [ 0, %.critedge ], [ %.1213.i, %46 ]
   %47 = load double, ptr %25, align 8
-  %48 = getelementptr inbounds i8, ptr %25, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %49 = load double, ptr %48, align 8
   %50 = fcmp ogt double %47, %49
   br i1 %50, label %59, label %51
 
 51:                                               ; preds = %._crit_edge.i
-  %52 = getelementptr inbounds i8, ptr %25, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %25, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %55 = load double, ptr %54, align 8
   %56 = fcmp ogt double %53, %55
   br i1 %56, label %59, label %.preheader.i
@@ -377,20 +377,20 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   %63 = phi double [ %47, %.lr.ph253.preheader.i ], [ %216, %overlap.exit239.thread.i ]
   %64 = phi double [ %49, %.lr.ph253.preheader.i ], [ %217, %overlap.exit239.thread.i ]
   %indvars.iv259.i = phi i64 [ 0, %.lr.ph253.preheader.i ], [ %indvars.iv.next260.i, %overlap.exit239.thread.i ]
-  %65 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv259.i
+  %65 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv259.i
   %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
   %indvars.i = trunc i64 %indvars.iv.next260.i to i32
-  %66 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv.next260.i
+  %66 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv.next260.i
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = load double, ptr %68, align 8
   %70 = fcmp ogt double %67, %69
   br i1 %70, label %77, label %71
 
 71:                                               ; preds = %.lr.ph253.i
-  %72 = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %66, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %75 = load double, ptr %74, align 8
   %76 = fcmp ogt double %73, %75
   br i1 %76, label %77, label %79
@@ -401,15 +401,15 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef 
   br label %checkpath.exit
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %65, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %81 = fcmp olt double %64, %67
   %82 = zext i1 %81 to i32
   %83 = fcmp ogt double %63, %69
   %84 = zext i1 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %65, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %86 = fcmp olt double %62, %73
   %87 = zext i1 %86 to i32
-  %88 = getelementptr inbounds i8, ptr %65, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %89 = fcmp ogt double %61, %75
   %90 = zext i1 %89 to i32
   %91 = add nuw nsw i32 %84, %82
@@ -714,7 +714,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br i1 %223, label %232, label %224
 
 224:                                              ; preds = %221
-  %225 = getelementptr inbounds i8, ptr %0, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %226 = load double, ptr %225, align 8
   %227 = load double, ptr %52, align 8
   %228 = fcmp olt double %226, %227
@@ -746,7 +746,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %241 = load double, ptr %48, align 8
   %242 = tail call double @llvm.minnum.f64(double %240, double %241)
   store double %242, ptr %0, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %244 = load double, ptr %243, align 8
   %245 = load double, ptr %52, align 8
   %246 = tail call double @llvm.maxnum.f64(double %244, double %245)
@@ -757,7 +757,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br label %249
 
 249:                                              ; preds = %237, %229
-  %250 = getelementptr inbounds i8, ptr %0, i64 48
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %251 = load double, ptr %250, align 8
   %252 = sext i32 %57 to i64
   %253 = getelementptr inbounds %struct.boxf, ptr %25, i64 %252
@@ -766,21 +766,21 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br i1 %255, label %270, label %256
 
 256:                                              ; preds = %249
-  %257 = getelementptr inbounds i8, ptr %253, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %258 = load double, ptr %257, align 8
   %259 = fcmp ogt double %251, %258
   br i1 %259, label %270, label %260
 
 260:                                              ; preds = %256
-  %261 = getelementptr inbounds i8, ptr %0, i64 56
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %262 = load double, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %253, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %264 = load double, ptr %263, align 8
   %265 = fcmp olt double %262, %264
   br i1 %265, label %270, label %266
 
 266:                                              ; preds = %260
-  %267 = getelementptr inbounds i8, ptr %253, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %268 = load double, ptr %267, align 8
   %269 = fcmp ogt double %262, %268
   br i1 %269, label %270, label %290
@@ -803,17 +803,17 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %277 = phi double [ %.pre266.i, %272 ], [ %251, %270 ]
   %278 = tail call double @llvm.maxnum.f64(double %277, double %276)
   store double %278, ptr %250, align 8
-  %279 = getelementptr inbounds i8, ptr %253, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %280 = load double, ptr %279, align 8
   %281 = tail call double @llvm.minnum.f64(double %278, double %280)
   store double %281, ptr %250, align 8
-  %282 = getelementptr inbounds i8, ptr %0, i64 56
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %283 = load double, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %253, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %285 = load double, ptr %284, align 8
   %286 = tail call double @llvm.maxnum.f64(double %283, double %285)
   store double %286, ptr %282, align 8
-  %287 = getelementptr inbounds i8, ptr %253, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %288 = load double, ptr %287, align 8
   %289 = tail call double @llvm.minnum.f64(double %286, double %288)
   store double %289, ptr %282, align 8
@@ -828,7 +828,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 295:                                              ; preds = %290
   %296 = load double, ptr %52, align 8
-  %297 = getelementptr inbounds i8, ptr %25, i64 40
+  %297 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %298 = load double, ptr %297, align 8
   %299 = fcmp ogt double %296, %298
   br i1 %299, label %.lr.ph368.preheader, label %.loopexit357
@@ -839,10 +839,10 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph368:                                        ; preds = %.lr.ph368.preheader, %.lr.ph368
   %indvars.iv = phi i64 [ 0, %.lr.ph368.preheader ], [ %indvars.iv.next, %.lr.ph368 ]
-  %300 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv
-  %301 = getelementptr inbounds i8, ptr %300, i64 24
+  %300 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %302 = load double, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %300, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %304 = load double, ptr %303, align 8
   %305 = fneg double %304
   store double %305, ptr %301, align 8
@@ -857,21 +857,21 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %307 = load i32, ptr %.0325366, align 8
   %308 = and i32 %307, 3
   %309 = icmp eq i32 %308, 3
-  %310 = getelementptr inbounds i8, ptr %.0325366, i64 64
+  %310 = getelementptr inbounds nuw i8, ptr %.0325366, i64 64
   %311 = select i1 %309, ptr %.0325366, ptr %310
-  %312 = getelementptr inbounds i8, ptr %311, i64 56
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 56
   %313 = load ptr, ptr %312, align 8
   %314 = icmp eq i32 %308, 2
   %315 = getelementptr inbounds i8, ptr %.0325366, i64 -64
   %316 = select i1 %314, ptr %.0325366, ptr %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 56
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
   %318 = load ptr, ptr %317, align 8
   %.not340 = icmp eq ptr %313, %318
   br i1 %.not340, label %470, label %.preheader355
 
 .preheader355:                                    ; preds = %.loopexit357
   %invariant.gep = getelementptr i8, ptr %25, i64 -24
-  %invariant.gep369 = getelementptr inbounds i8, ptr %25, i64 40
+  %invariant.gep369 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %319 = add i32 %13, -1
   br i1 %26, label %.lr.ph373, label %._crit_edge382
 
@@ -887,7 +887,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br i1 %.not345, label %328, label %322
 
 322:                                              ; preds = %321
-  %323 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv413, i32 0, i32 1
+  %323 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv413, i32 0, i32 1
   %324 = load double, ptr %323, align 8
   %gep = getelementptr %struct.boxf, ptr %invariant.gep, i64 %indvars.iv413
   %325 = load double, ptr %gep, align 8
@@ -901,9 +901,9 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br i1 %329, label %330, label %336
 
 330:                                              ; preds = %328
-  %gep370 = getelementptr inbounds %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv413
+  %gep370 = getelementptr inbounds nuw %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv413
   %331 = load double, ptr %gep370, align 8
-  %332 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv413, i32 0, i32 1
+  %332 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv413, i32 0, i32 1
   %333 = load double, ptr %332, align 8
   %334 = fcmp ogt double %331, %333
   %335 = select i1 %334, i32 1, i32 -1
@@ -918,7 +918,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %338 = icmp eq i32 %.0316, -1
   %339 = icmp eq i32 %.0315, 1
   %or.cond = select i1 %338, i1 true, i1 %339
-  %340 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv413
+  %340 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv413
   br i1 %or.cond, label %341, label %351
 
 341:                                              ; preds = %337
@@ -926,30 +926,30 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %343 = sext i32 %.0326372 to i64
   %344 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %343
   store double %342, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %340, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %346 = load double, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %344, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store double %346, ptr %347, align 8
   %348 = load double, ptr %340, align 8
   %349 = getelementptr i8, ptr %344, i64 16
   store double %348, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %340, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %340, i64 8
   br label %.sink.split
 
 351:                                              ; preds = %337
-  %352 = getelementptr inbounds i8, ptr %340, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %353 = load double, ptr %352, align 8
   %354 = sext i32 %.0326372 to i64
   %355 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %354
   store double %353, ptr %355, align 8
-  %356 = getelementptr inbounds i8, ptr %340, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %357 = load double, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %355, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store double %357, ptr %358, align 8
   %359 = load double, ptr %352, align 8
   %360 = getelementptr i8, ptr %355, i64 16
   store double %359, ptr %360, align 8
-  %361 = getelementptr inbounds i8, ptr %340, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %340, i64 24
   br label %.sink.split
 
 362:                                              ; preds = %336
@@ -959,19 +959,19 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   ]
 
 363:                                              ; preds = %362
-  %364 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv413
+  %364 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv413
   %365 = load double, ptr %364, align 8
   %366 = sext i32 %.0326372 to i64
   %367 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %366
   store double %365, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %364, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %369 = load double, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %367, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store double %369, ptr %370, align 8
   %371 = load double, ptr %364, align 8
   %372 = getelementptr i8, ptr %367, i64 16
   store double %371, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %364, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %364, i64 8
   br label %.sink.split
 
 374:                                              ; preds = %362
@@ -1006,9 +1006,9 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br i1 %381, label %382, label %388
 
 382:                                              ; preds = %.lr.ph381
-  %383 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418, i32 0, i32 1
+  %383 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv418, i32 0, i32 1
   %384 = load double, ptr %383, align 8
-  %gep375 = getelementptr inbounds %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv418
+  %gep375 = getelementptr inbounds nuw %struct.boxf, ptr %invariant.gep369, i64 %indvars.iv418
   %385 = load double, ptr %gep375, align 8
   %386 = fcmp ogt double %384, %385
   %387 = select i1 %386, i32 -1, i32 1
@@ -1022,7 +1022,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 389:                                              ; preds = %388
   %gep377 = getelementptr %struct.boxf, ptr %invariant.gep, i64 %indvars.iv418
   %390 = load double, ptr %gep377, align 8
-  %391 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418, i32 0, i32 1
+  %391 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv418, i32 0, i32 1
   %392 = load double, ptr %391, align 8
   %393 = fcmp ogt double %390, %392
   %394 = select i1 %393, i32 1, i32 -1
@@ -1037,7 +1037,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %397 = icmp eq i32 %.1317, -1
   %398 = icmp eq i32 %.1, 1
   %or.cond5 = select i1 %397, i1 true, i1 %398
-  %399 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418
+  %399 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv418
   br i1 %or.cond5, label %400, label %413
 
 400:                                              ; preds = %396
@@ -1045,14 +1045,14 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %402 = sext i32 %.2379 to i64
   %403 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %402
   store double %401, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %399, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %405 = load double, ptr %404, align 8
-  %406 = getelementptr inbounds i8, ptr %403, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store double %405, ptr %406, align 8
   %407 = load double, ptr %399, align 8
   %408 = getelementptr i8, ptr %403, i64 16
   store double %407, ptr %408, align 8
-  %409 = getelementptr inbounds i8, ptr %399, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %410 = load double, ptr %409, align 8
   %411 = add nsw i32 %.2379, 2
   %412 = getelementptr i8, ptr %403, i64 24
@@ -1060,19 +1060,19 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br label %468
 
 413:                                              ; preds = %396
-  %414 = getelementptr inbounds i8, ptr %399, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %399, i64 16
   %415 = load double, ptr %414, align 8
   %416 = sext i32 %.2379 to i64
   %417 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %416
   store double %415, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %399, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %419 = load double, ptr %418, align 8
-  %420 = getelementptr inbounds i8, ptr %417, i64 8
+  %420 = getelementptr inbounds nuw i8, ptr %417, i64 8
   store double %419, ptr %420, align 8
   %421 = load double, ptr %414, align 8
   %422 = getelementptr i8, ptr %417, i64 16
   store double %421, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %399, i64 24
+  %423 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %424 = load double, ptr %423, align 8
   %425 = add nsw i32 %.2379, 2
   %426 = getelementptr i8, ptr %417, i64 24
@@ -1086,20 +1086,20 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   ]
 
 428:                                              ; preds = %427
-  %429 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418
-  %430 = getelementptr inbounds i8, ptr %429, i64 16
+  %429 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv418
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %431 = load double, ptr %430, align 8
   %432 = sext i32 %.2379 to i64
   %433 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %432
   store double %431, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %429, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %435 = load double, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %433, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store double %435, ptr %436, align 8
   %437 = load double, ptr %430, align 8
   %438 = getelementptr i8, ptr %433, i64 16
   store double %437, ptr %438, align 8
-  %439 = getelementptr inbounds i8, ptr %429, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %429, i64 24
   %440 = load double, ptr %439, align 8
   %441 = add nsw i32 %.2379, 2
   %442 = getelementptr i8, ptr %433, i64 24
@@ -1112,20 +1112,20 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br label %checkpath.exit
 
 445:                                              ; preds = %427
-  %446 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv418
-  %447 = getelementptr inbounds i8, ptr %446, i64 16
+  %446 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv418
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %448 = load double, ptr %447, align 8
   %449 = sext i32 %.2379 to i64
   %450 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %449
   store double %448, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %446, i64 8
+  %451 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %452 = load double, ptr %451, align 8
-  %453 = getelementptr inbounds i8, ptr %450, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
   store double %452, ptr %453, align 8
   %454 = load double, ptr %447, align 8
   %455 = getelementptr i8, ptr %450, i64 16
   store double %454, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %446, i64 24
+  %456 = getelementptr inbounds nuw i8, ptr %446, i64 24
   %457 = load double, ptr %456, align 8
   %458 = getelementptr i8, ptr %450, i64 24
   store double %457, ptr %458, align 8
@@ -1156,7 +1156,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %472 = and i32 %471, 3
   %473 = icmp eq i32 %472, 2
   %474 = select i1 %473, ptr %.0325366, ptr %315
-  %475 = getelementptr inbounds i8, ptr %474, i64 56
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 56
   %476 = load ptr, ptr %475, align 8
   %477 = tail call ptr @agnameof(ptr noundef %476) #21
   %478 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %477) #21
@@ -1183,10 +1183,10 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %.lr.ph385
   %indvars.iv421 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvars.iv.next422, %.lr.ph385 ]
-  %480 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv421
-  %481 = getelementptr inbounds i8, ptr %480, i64 24
+  %480 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv421
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 24
   %482 = load double, ptr %481, align 8
-  %483 = getelementptr inbounds i8, ptr %480, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %480, i64 8
   %484 = load double, ptr %483, align 8
   %485 = fneg double %484
   store double %485, ptr %481, align 8
@@ -1198,7 +1198,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph387:                                        ; preds = %.lr.ph387.preheader, %.lr.ph387
   %indvars.iv426 = phi i64 [ 0, %.lr.ph387.preheader ], [ %indvars.iv.next427, %.lr.ph387 ]
-  %487 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %indvars.iv426, i32 1
+  %487 = getelementptr inbounds nuw %struct.pointf_s, ptr %293, i64 %indvars.iv426, i32 1
   %488 = load double, ptr %487, align 8
   %489 = fneg double %488
   store double %489, ptr %487, align 8
@@ -1215,9 +1215,9 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph390:                                        ; preds = %.lr.ph390.preheader, %.lr.ph390
   %indvars.iv431 = phi i64 [ 0, %.lr.ph390.preheader ], [ %indvars.iv.next432, %.lr.ph390 ]
-  %490 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv431
+  %490 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv431
   store double 0x41DFFFFFFFC00000, ptr %490, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 16
   store double 0xC1E0000000000000, ptr %491, align 8
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
@@ -1225,20 +1225,20 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 ._crit_edge391:                                   ; preds = %.lr.ph390, %.loopexit353
   store ptr %293, ptr %4, align 8
-  %492 = getelementptr inbounds i8, ptr %4, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.2.lcssa, ptr %492, align 8
   %493 = load double, ptr %0, align 8
   store double %493, ptr %7, align 16
-  %494 = getelementptr inbounds i8, ptr %0, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %495 = load double, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %7, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %495, ptr %496, align 8
   %497 = load double, ptr %250, align 8
-  %498 = getelementptr inbounds i8, ptr %7, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %497, ptr %498, align 16
-  %499 = getelementptr inbounds i8, ptr %0, i64 56
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %500 = load double, ptr %499, align 8
-  %501 = getelementptr inbounds i8, ptr %7, i64 24
+  %501 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %500, ptr %501, align 8
   %502 = call i32 @Pshortestpath(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %5) #21
   %503 = icmp slt i32 %502, 0
@@ -1255,7 +1255,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 507:                                              ; preds = %506
   %508 = load ptr, ptr %5, align 8
-  %509 = getelementptr inbounds i8, ptr %5, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %510 = load i32, ptr %509, align 8
   call void @make_polyline(ptr %508, i32 %510, ptr noundef nonnull %6) #21
   br label %561
@@ -1274,27 +1274,27 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph394:                                        ; preds = %.lr.ph394.preheader, %.lr.ph394
   %indvars.iv436 = phi i64 [ 0, %.lr.ph394.preheader ], [ %indvars.iv.next437, %.lr.ph394 ]
-  %518 = getelementptr inbounds %struct.Pedge_t, ptr %514, i64 %indvars.iv436
-  %519 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %indvars.iv436
+  %518 = getelementptr inbounds nuw %struct.Pedge_t, ptr %514, i64 %indvars.iv436
+  %519 = getelementptr inbounds nuw %struct.pointf_s, ptr %293, i64 %indvars.iv436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %518, ptr noundef nonnull align 8 dereferenceable(16) %519, i64 16, i1 false)
-  %520 = getelementptr inbounds i8, ptr %518, i64 16
+  %520 = getelementptr inbounds nuw i8, ptr %518, i64 16
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %521 = icmp eq i64 %indvars.iv.next437, %517
   %522 = and i64 %indvars.iv.next437, 4294967295
   %523 = select i1 %521, i64 0, i64 %522
-  %524 = getelementptr inbounds %struct.pointf_s, ptr %293, i64 %523
+  %524 = getelementptr inbounds nuw %struct.pointf_s, ptr %293, i64 %523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %524, i64 16, i1 false)
   %exitcond440.not = icmp eq i64 %indvars.iv.next437, %517
   br i1 %exitcond440.not, label %._crit_edge395, label %.lr.ph394
 
 ._crit_edge395:                                   ; preds = %.lr.ph394, %511
-  %525 = getelementptr inbounds i8, ptr %0, i64 33
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %526 = load i8, ptr %525, align 1
   %527 = trunc i8 %526 to i1
   br i1 %527, label %528, label %534
 
 528:                                              ; preds = %._crit_edge395
-  %529 = getelementptr inbounds i8, ptr %0, i64 16
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %530 = load double, ptr %529, align 8
   %531 = call double @cos(double noundef %530) #21
   store double %531, ptr %8, align 16
@@ -1308,19 +1308,19 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 535:                                              ; preds = %534, %528
   %.sink = phi double [ %533, %528 ], [ 0.000000e+00, %534 ]
-  %536 = getelementptr inbounds i8, ptr %8, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %.sink, ptr %536, align 8
-  %537 = getelementptr inbounds i8, ptr %0, i64 81
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %538 = load i8, ptr %537, align 1
   %539 = trunc i8 %538 to i1
   br i1 %539, label %540, label %549
 
 540:                                              ; preds = %535
-  %541 = getelementptr inbounds i8, ptr %0, i64 64
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %542 = load double, ptr %541, align 8
   %543 = call double @cos(double noundef %542) #21
   %544 = fneg double %543
-  %545 = getelementptr inbounds i8, ptr %8, i64 16
+  %545 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %544, ptr %545, align 16
   %546 = load double, ptr %541, align 8
   %547 = call double @sin(double noundef %546) #21
@@ -1328,17 +1328,17 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br label %551
 
 549:                                              ; preds = %535
-  %550 = getelementptr inbounds i8, ptr %8, i64 16
+  %550 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double 0.000000e+00, ptr %550, align 16
   br label %551
 
 551:                                              ; preds = %549, %540
   %.sink449 = phi double [ %548, %540 ], [ 0.000000e+00, %549 ]
-  %552 = getelementptr inbounds i8, ptr %8, i64 24
+  %552 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %.sink449, ptr %552, align 8
   %553 = load i32, ptr %492, align 8
   %554 = load ptr, ptr %5, align 8
-  %555 = getelementptr inbounds i8, ptr %5, i64 8
+  %555 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %556 = load i32, ptr %555, align 8
   %557 = call i32 @Proutespline(ptr noundef %514, i32 noundef %553, ptr %554, i32 %556, ptr noundef nonnull %8, ptr noundef nonnull %6) #21
   %558 = icmp slt i32 %557, 0
@@ -1351,7 +1351,7 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   br label %checkpath.exit
 
 561:                                              ; preds = %551, %507
-  %562 = getelementptr inbounds i8, ptr %6, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %563 = load i32, ptr %562, align 8
   %564 = sext i32 %563 to i64
   %565 = call noalias ptr @calloc(i64 noundef %564, i64 noundef 16) #22
@@ -1387,13 +1387,13 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
 
 .lr.ph400:                                        ; preds = %573, %585
   %indvars.iv444 = phi i64 [ %indvars.iv.next445, %585 ], [ 0, %573 ]
-  %575 = getelementptr inbounds %struct.boxf, ptr %25, i64 %indvars.iv444
+  %575 = getelementptr inbounds nuw %struct.boxf, ptr %25, i64 %indvars.iv444
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %575, ptr noundef nonnull dereferenceable(8) @routesplines_.INITIAL_LLX, i64 8)
   %576 = icmp eq i32 %bcmp, 0
   br i1 %576, label %580, label %577
 
 577:                                              ; preds = %.lr.ph400
-  %578 = getelementptr inbounds i8, ptr %575, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %575, i64 16
   %bcmp342 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %578, ptr noundef nonnull dereferenceable(8) @routesplines_.INITIAL_URX, i64 8)
   %579 = icmp eq i32 %bcmp342, 0
   br i1 %579, label %580, label %585
@@ -1429,23 +1429,23 @@ overlap.exit239.thread.i:                         ; preds = %213, %212, %210, %2
   %593 = and i32 %592, 3
   %594 = icmp eq i32 %593, 3
   %595 = select i1 %594, ptr %.0325366, ptr %310
-  %596 = getelementptr inbounds i8, ptr %595, i64 56
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 56
   %597 = load ptr, ptr %596, align 8
   %598 = call ptr @agnameof(ptr noundef %597) #21
   %599 = load i32, ptr %.0325366, align 8
   %600 = and i32 %599, 3
   %601 = icmp eq i32 %600, 2
   %602 = select i1 %601, ptr %.0325366, ptr %315
-  %603 = getelementptr inbounds i8, ptr %602, i64 56
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 56
   %604 = load ptr, ptr %603, align 8
   %605 = call ptr @agnameof(ptr noundef %604) #21
   %606 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %598, ptr noundef %605) #21
   %607 = load ptr, ptr %5, align 8
-  %608 = getelementptr inbounds i8, ptr %5, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %609 = load i32, ptr %608, align 8
   call void @make_polyline(ptr %607, i32 %609, ptr noundef nonnull %9) #21
   %610 = load ptr, ptr %9, align 8
-  %611 = getelementptr inbounds i8, ptr %9, i64 8
+  %611 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %612 = load i32, ptr %611, align 8
   call fastcc void @limitBoxes(ptr noundef nonnull %25, i32 noundef %13, ptr noundef %610, i32 noundef %612, i32 noundef 10)
   br label %613
@@ -1474,9 +1474,9 @@ define void @makeStraightEdge(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 5:                                                ; preds = %5, %4
   %.020 = phi i64 [ 1, %4 ], [ %10, %5 ]
   %.019 = phi ptr [ %1, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.019, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.019, %9
   %.not22 = icmp eq ptr %9, null
@@ -1494,9 +1494,9 @@ define void @makeStraightEdge(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %.123 = phi ptr [ %16, %.lr.ph ], [ %1, %.critedge ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.024
   store ptr %.123, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.123, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.123, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 232
   %16 = load ptr, ptr %15, align 8
   %17 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %17, %.020
@@ -1522,49 +1522,49 @@ define void @makeStraightEdges(ptr noundef %0, ptr nocapture noundef readonly %1
   %14 = and i32 %13, 3
   %15 = icmp eq i32 %14, 3
   %.idx = select i1 %15, i64 0, i64 64
-  %16 = getelementptr inbounds i8, ptr %12, i64 %.idx
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq i32 %14, 2
   %20 = getelementptr inbounds i8, ptr %12, i64 -64
   %21 = select i1 %19, ptr %12, ptr %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
-  %28 = getelementptr inbounds i8, ptr %12, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load double, ptr %27, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %33 = load double, ptr %32, align 8
   %34 = load double, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %36 = load double, ptr %35, align 8
   %37 = fadd double %31, %34
   %38 = fadd double %33, %36
   store double %37, ptr %7, align 16
-  %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %38, ptr %.sroa.251.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %7, i64 32
-  %40 = getelementptr inbounds i8, ptr %7, i64 48
-  %41 = getelementptr inbounds i8, ptr %23, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
-  %44 = getelementptr inbounds i8, ptr %29, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %45 = load double, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %47 = load double, ptr %46, align 8
   %48 = load double, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %29, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %50 = load double, ptr %49, align 8
   %51 = fadd double %45, %48
   %52 = fadd double %47, %50
   store double %51, ptr %40, align 16
-  %.sroa.249.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
+  %.sroa.249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   store double %52, ptr %.sroa.249.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %39, ptr noundef nonnull align 16 dereferenceable(16) %40, i64 16, i1 false)
   %53 = icmp eq i32 %2, 1
@@ -1657,7 +1657,7 @@ cycles_append.exit.i.i:                           ; preds = %73, %gv_alloc.exit.
   br i1 %.not.i.i.i.i.i, label %nodes_delete.exit.i.i.i.i, label %87
 
 87:                                               ; preds = %.lr.ph.i.i.i.i
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 0, ptr %88, align 8, !noalias !4
   %89 = load ptr, ptr %86, align 8, !noalias !4
   tail call void @free(ptr noundef %89) #21, !noalias !4
@@ -1673,7 +1673,7 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %.sroa.0.0.lcssa35.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ null, %58 ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
   tail call void @free(ptr noundef %.sroa.0.0.lcssa35.i.i) #21, !noalias !4
   %.val19.i = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val20.i = load i64, ptr %91, align 8
   %invariant.gep.i.i = getelementptr i8, ptr %12, i64 56
   %.not.i22.i = icmp eq i64 %.val20.i, 0
@@ -1704,7 +1704,7 @@ find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i
   %102 = and i32 %101, 3
   %103 = icmp eq i32 %102, 3
   %.idx.i.i.i = select i1 %103, i64 0, i64 64
-  %gep.i.i = getelementptr inbounds i8, ptr %invariant.gep.i.i, i64 %.idx.i.i.i
+  %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.idx.i.i.i
   %104 = load ptr, ptr %gep.i.i, align 8
   %105 = icmp eq i32 %102, 2
   %.idx22.i.i.i = select i1 %105, i64 0, i64 -64
@@ -1760,7 +1760,7 @@ find_shortest_cycle_with_edge.exit.i:             ; preds = %cycle_contains_edge
   br i1 %.not.i.i.i27.i, label %nodes_delete.exit.i.i.i, label %121
 
 121:                                              ; preds = %.lr.ph.i.i26.i
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 0, ptr %122, align 8
   %123 = load ptr, ptr %120, align 8
   tail call void @free(ptr noundef %123) #21
@@ -1776,15 +1776,15 @@ cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i
   tail call void @free(ptr noundef %.val19.i) #21
   %125 = getelementptr i8, ptr %0, i64 16
   %.val21.i = load ptr, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %.val21.i, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 32
   %127 = load double, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %.val21.i, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 48
   %129 = load double, ptr %128, align 8
   %130 = fadd double %127, %129
   %131 = fmul double %130, 5.000000e-01
-  %132 = getelementptr inbounds i8, ptr %.val21.i, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 40
   %133 = load double, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %.val21.i, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 56
   %135 = load double, ptr %134, align 8
   %136 = fadd double %133, %135
   %137 = fmul double %136, 5.000000e-01
@@ -1803,12 +1803,12 @@ cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i
   %.sroa.0.039.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %145, %138 ]
   %139 = getelementptr inbounds ptr, ptr %.val18.i, i64 %.042.i
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %144 = load double, ptr %143, align 8
   %145 = fadd double %.sroa.0.039.i, %144
-  %146 = getelementptr inbounds i8, ptr %142, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %147 = load double, ptr %146, align 8
   %148 = fadd double %.sroa.6.040.i, %147
   %149 = fadd double %.01641.i, 1.000000e+00
@@ -1824,7 +1824,7 @@ cycles_free.exit.i:                               ; preds = %nodes_delete.exit.i
   br i1 %.not.i.i.i31.i, label %nodes_delete.exit.i.i32.i, label %153
 
 153:                                              ; preds = %.lr.ph.i.i29.i
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i64 0, ptr %154, align 8
   %155 = load ptr, ptr %152, align 8
   tail call void @free(ptr noundef %155) #21
@@ -1875,9 +1875,9 @@ get_cycle_centroid.exit:                          ; preds = %cycles_free.exit.i,
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %176, double %166)
   store double %179, ptr %39, align 16
   store double %179, ptr %24, align 16
-  %183 = getelementptr inbounds i8, ptr %7, i64 40
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %182, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %7, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %182, ptr %184, align 8
   br label %bend.exit
 
@@ -1886,7 +1886,7 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %186 = and i32 %185, 3
   %187 = icmp eq i32 %186, 2
   %188 = select i1 %187, ptr %12, ptr %20
-  %189 = getelementptr inbounds i8, ptr %188, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 56
   %190 = load ptr, ptr %189, align 8
   call void @clip_and_install(ptr noundef nonnull %12, ptr noundef %190, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %4) #21
   call void @addEdgeLabels(ptr noundef nonnull %12) #21
@@ -1908,11 +1908,11 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
 198:                                              ; preds = %191
   %199 = fsub double %51, %37
   %200 = tail call double @hypot(double noundef %193, double noundef %199) #21
-  %201 = getelementptr inbounds i8, ptr %0, i64 120
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 360
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 360
   %206 = load i32, ptr %205, align 8
   %207 = add nsw i32 %2, -1
   %208 = mul nsw i32 %206, %207
@@ -1925,12 +1925,12 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %214 = fmul double %199, %210
   %215 = fdiv double %214, %200
   %216 = fadd double %38, %215
-  %217 = getelementptr inbounds i8, ptr %7, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %216, ptr %217, align 8
   %218 = fadd double %51, %212
   store double %218, ptr %39, align 16
   %219 = fadd double %215, %52
-  %220 = getelementptr inbounds i8, ptr %7, i64 40
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %219, ptr %220, align 8
   %221 = sub nsw i32 0, %206
   %222 = sitofp i32 %221 to double
@@ -1948,28 +1948,28 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
 
 .lr.ph:                                           ; preds = %227
   %229 = icmp eq i32 %3, 6
-  %230 = getelementptr inbounds i8, ptr %9, i64 16
-  %231 = getelementptr inbounds i8, ptr %8, i64 16
-  %232 = getelementptr inbounds i8, ptr %9, i64 32
-  %233 = getelementptr inbounds i8, ptr %8, i64 32
-  %234 = getelementptr inbounds i8, ptr %9, i64 48
-  %235 = getelementptr inbounds i8, ptr %8, i64 48
-  %236 = getelementptr inbounds i8, ptr %10, i64 8
-  %237 = getelementptr inbounds i8, ptr %7, i64 24
-  %238 = getelementptr inbounds i8, ptr %7, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %236 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %239
 
 239:                                              ; preds = %.lr.ph, %271
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %271 ]
-  %240 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 8
   %242 = load i32, ptr %241, align 8
   %243 = and i32 %242, 3
   %244 = icmp eq i32 %243, 2
   %245 = getelementptr inbounds i8, ptr %241, i64 -64
   %246 = select i1 %244, ptr %241, ptr %245
-  %247 = getelementptr inbounds i8, ptr %246, i64 56
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 56
   %248 = load ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, %23
   br i1 %249, label %.preheader.preheader, label %.preheader94
@@ -1981,8 +1981,8 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
 .preheader94:                                     ; preds = %239, %.preheader94
   %.086102 = phi i64 [ %253, %.preheader94 ], [ 0, %239 ]
   %250 = sub nuw nsw i64 3, %.086102
-  %251 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %250
-  %252 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086102
+  %251 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %8, i64 0, i64 %250
+  %252 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %251, ptr noundef nonnull align 16 dereferenceable(16) %252, i64 16, i1 false)
   %253 = add nuw nsw i64 %.086102, 1
   %exitcond.not = icmp eq i64 %253, 4
@@ -2001,7 +2001,7 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %256 = and i32 %255, 3
   %257 = icmp eq i32 %256, 2
   %258 = select i1 %257, ptr %241, ptr %245
-  %259 = getelementptr inbounds i8, ptr %258, i64 56
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 56
   %260 = load ptr, ptr %259, align 8
   %261 = load ptr, ptr %10, align 8
   %262 = load i32, ptr %236, align 8
@@ -2014,7 +2014,7 @@ bend.exit:                                        ; preds = %171, %get_cycle_cen
   %266 = and i32 %265, 3
   %267 = icmp eq i32 %266, 2
   %268 = select i1 %267, ptr %241, ptr %245
-  %269 = getelementptr inbounds i8, ptr %268, i64 56
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 56
   %270 = load ptr, ptr %269, align 8
   call void @clip_and_install(ptr noundef nonnull %241, ptr noundef %270, ptr noundef nonnull %8, i64 noundef 4, ptr noundef %4) #21
   br label %271
@@ -2094,14 +2094,14 @@ define internal fastcc void @limitBoxes(ptr nocapture noundef %0, i32 noundef %1
 .preheader:                                       ; preds = %.preheader.preheader, %..loopexit_crit_edge
   %indvars.iv92 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next93, %..loopexit_crit_edge ]
   %indvars.iv90 = phi i64 [ 3, %.preheader.preheader ], [ %indvars.iv.next91, %..loopexit_crit_edge ]
-  %12 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %indvars.iv92
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.33.16..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sroa.48.32..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
-  %15 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %indvars.iv90
-  %.sroa.55.48..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %indvars.iv92
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.33.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.48.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %15 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %indvars.iv90
+  %.sroa.55.48..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %16
 
 16:                                               ; preds = %.preheader, %._crit_edge
@@ -2144,16 +2144,16 @@ define internal fastcc void @limitBoxes(ptr nocapture noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %16, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %16 ]
-  %43 = getelementptr inbounds %struct.boxf, ptr %0, i64 %indvars.iv
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %43 = getelementptr inbounds nuw %struct.boxf, ptr %0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %46 = load double, ptr %45, align 8
   %47 = fadd double %46, 1.000000e-04
   %48 = fcmp ugt double %42, %47
   br i1 %48, label %59, label %49
 
 49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds i8, ptr %43, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load double, ptr %50, align 8
   %52 = fadd double %51, -1.000000e-04
   %53 = fcmp ult double %42, %52
@@ -2188,7 +2188,7 @@ declare double @llvm.fabs.f64(double) #7
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @printpath(ptr nocapture noundef readonly %0) unnamed_addr #12 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %4) #23
   %6 = load i32, ptr %3, align 8
@@ -2196,20 +2196,20 @@ define internal fastcc void @printpath(ptr nocapture noundef readonly %0) unname
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct.boxf, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.boxf, ptr %11, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %19 = load double, ptr %18, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.16, i32 noundef %20, double noundef %13, double noundef %15, double noundef %17, double noundef %19) #23
@@ -2222,23 +2222,23 @@ define internal fastcc void @printpath(ptr nocapture noundef readonly %0) unname
 ._crit_edge:                                      ; preds = %9, %1
   %25 = load ptr, ptr @stderr, align 8
   %26 = load double, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 33
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
   %34 = select i1 %33, ptr @.str.18, ptr @.str.19
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.17, double noundef %26, double noundef %28, double noundef %30, ptr noundef nonnull %34) #23
   %36 = load ptr, ptr @stderr, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 81
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %44 = load i8, ptr %43, align 1
   %45 = trunc i8 %44 to i1
   %46 = select i1 %45, ptr @.str.18, ptr @.str.19
@@ -2259,9 +2259,9 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cycles_append(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i
@@ -2317,7 +2317,7 @@ define internal fastcc void @cycles_append(ptr nocapture noundef nonnull %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %.loopexit30, label %.lr.ph.i
@@ -2405,7 +2405,7 @@ nodes_contains.exit.i:                            ; preds = %28
   unreachable
 
 gv_alloc.exit:                                    ; preds = %.loopexit
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i64, ptr %39, align 8, !noalias !7
   %41 = tail call fastcc ptr @gv_calloc(i64 noundef %40, i64 noundef 8), !noalias !7
   %42 = load i64, ptr %6, align 8, !noalias !7
@@ -2414,15 +2414,15 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   %45 = shl i64 %42, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %44, i64 %45, i1 false), !noalias !7
   store ptr %41, ptr %34, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %42, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %43, ptr %.sroa.3.0..sroa_idx, align 8
   tail call fastcc void @cycles_append(ptr noundef %4, ptr noundef nonnull %34)
   br label %is_cycle_unique.exit
 
 .loopexit30:                                      ; preds = %9, %5
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %7, %47
   br i1 %48, label %49, label %._crit_edge.i.i
@@ -2483,7 +2483,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i, %5
   %74 = icmp eq i32 %73, 2
   %.idx = select i1 %74, i64 0, i64 -64
   %75 = getelementptr inbounds i8, ptr %.032, i64 %.idx
-  %76 = getelementptr inbounds i8, ptr %75, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load ptr, ptr %76, align 8
   tail call fastcc void @dfs(ptr noundef %0, ptr noundef %77, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %78 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.032) #21

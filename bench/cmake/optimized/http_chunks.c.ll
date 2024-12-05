@@ -24,15 +24,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_httpchunk_init(ptr nocapture noundef readnone %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @Curl_dyn_init(ptr noundef nonnull %7, i64 noundef 4096) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 66
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %9 = zext i1 %2 to i8
   %10 = load i8, ptr %8, align 2
   %11 = and i8 %10, -2
@@ -45,15 +45,15 @@ declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_httpchunk_reset(ptr nocapture noundef readnone %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @Curl_dyn_reset(ptr noundef nonnull %7) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 66
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %9 = zext i1 %2 to i8
   %10 = load i8, ptr %8, align 2
   %11 = and i8 %10, -2
@@ -66,7 +66,7 @@ declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_httpchunk_free(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @Curl_dyn_free(ptr noundef nonnull %3) #3
   ret void
 }
@@ -75,7 +75,7 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @Curl_httpchunk_is_done(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 8
   ret i1 %5
@@ -91,7 +91,7 @@ define dso_local i32 @Curl_httpchunk_read(ptr noundef %0, ptr noundef %1, ptr no
 define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store i64 0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %11 [
     i32 8, label %.loopexit
@@ -102,14 +102,14 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 2642
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %13 = load i64, ptr %12, align 2
   %14 = and i64 %13, 34359738368
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %27, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 66
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %17 = load i8, ptr %16, align 2
   %18 = and i8 %17, 1
   %.not168 = icmp eq i8 %18, 0
@@ -134,7 +134,7 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %24
   store i32 9, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 6, ptr %26, align 4
   br label %.loopexit
 
@@ -143,12 +143,12 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
   br i1 %.not171218, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not178 = icmp eq ptr %2, null
-  %29 = getelementptr inbounds i8, ptr %1, i64 66
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
-  %31 = getelementptr inbounds i8, ptr %1, i64 12
-  %32 = getelementptr inbounds i8, ptr %1, i64 49
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 66
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 49
   br label %33
 
 33:                                               ; preds = %.lr.ph, %154
@@ -206,9 +206,9 @@ switch.early.test:                                ; preds = %35
   %43 = add nuw nsw i8 %39, 1
   store i8 %43, ptr %30, align 8
   %44 = zext nneg i8 %39 to i64
-  %45 = getelementptr inbounds [17 x i8], ptr %32, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [17 x i8], ptr %32, i64 0, i64 %44
   store i8 %.fr223, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %.0149220, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0149220, i64 1
   %47 = add i64 %.0152219, -1
   br label %154
 
@@ -226,7 +226,7 @@ switch.early.test:                                ; preds = %35
 
 53:                                               ; preds = %48
   %54 = zext i8 %49 to i64
-  %55 = getelementptr inbounds [17 x i8], ptr %32, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [17 x i8], ptr %32, i64 0, i64 %54
   store i8 0, ptr %55, align 1
   %56 = call i32 @curlx_strtoofft(ptr noundef nonnull %32, ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull %1) #3
   %.not185 = icmp eq i32 %56, 0
@@ -255,7 +255,7 @@ switch.early.test:                                ; preds = %35
   br label %64
 
 64:                                               ; preds = %.sink.split, %59
-  %65 = getelementptr inbounds i8, ptr %.0149220, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.0149220, i64 1
   %66 = add i64 %.0152219, -1
   br label %154
 
@@ -344,7 +344,7 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 103:                                              ; preds = %94, %96
-  %104 = getelementptr inbounds i8, ptr %.0149220, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0149220, i64 1
   %105 = add i64 %.0152219, -1
   br label %154
 
@@ -421,7 +421,7 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 132:                                              ; preds = %129, %125
-  %133 = getelementptr inbounds i8, ptr %.0149220, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.0149220, i64 1
   %134 = add i64 %.0152219, -1
   br label %154
 
@@ -432,7 +432,7 @@ switch.early.test:                                ; preds = %35
 
 138:                                              ; preds = %135
   store i32 7, ptr %8, align 8
-  %139 = getelementptr inbounds i8, ptr %.0149220, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.0149220, i64 1
   %140 = add i64 %.0152219, -1
   br label %154
 
@@ -457,7 +457,7 @@ switch.early.test:                                ; preds = %35
   %147 = sext i1 %146 to i64
   %.2154 = add i64 %.0152219, %147
   %.2151.idx = zext i1 %146 to i64
-  %.2151 = getelementptr inbounds i8, ptr %.0149220, i64 %.2151.idx
+  %.2151 = getelementptr inbounds nuw i8, ptr %.0149220, i64 %.2151.idx
   store i32 4, ptr %8, align 8
   br label %154
 
@@ -493,19 +493,19 @@ switch.early.test:                                ; preds = %35
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cw_chunked_init(ptr nocapture noundef %0, ptr noundef initializes((32, 40), (72, 73)) %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 403
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 403
   %4 = load i16, ptr %3, align 1
   %5 = or i16 %4, 128
   store i16 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @Curl_dyn_init(ptr noundef nonnull %9, i64 noundef 4096) #3
-  %10 = getelementptr inbounds i8, ptr %1, i64 90
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, -2
   store i8 %12, ptr %10, align 2
@@ -520,22 +520,22 @@ define internal i32 @cw_chunked_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, i64 noundef %4) #3
   br label %50
 
 12:                                               ; preds = %5
   store i64 0, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %15, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6)
   %.not34 = icmp eq i32 %16, 0
   br i1 %.not34, label %26, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %Curl_chunked_strerror.exit [
     i32 6, label %20
@@ -573,13 +573,13 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
 26:                                               ; preds = %12
   %27 = load i64, ptr %6, align 8
   %28 = sub i64 %4, %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 8
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 403
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 403
   %34 = load i16, ptr %33, align 1
   %35 = or i16 %34, 4
   store i16 %35, ptr %33, align 1
@@ -589,7 +589,7 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
   br i1 %or.cond, label %38, label %50
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 2642
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %40 = load i64, ptr %39, align 2
   %41 = and i64 %40, 268435456
   %.not37 = icmp eq i64 %41, 0
@@ -605,7 +605,7 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
   br i1 %.not35, label %50, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 403
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 403
   %47 = load i16, ptr %46, align 1
   %48 = and i16 %47, 4096
   %.not36 = icmp eq i16 %48, 0
@@ -622,7 +622,7 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @cw_chunked_close(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @Curl_dyn_free(ptr noundef nonnull %3) #3
   ret void
 }

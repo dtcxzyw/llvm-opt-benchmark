@@ -57,7 +57,7 @@ define hidden void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noc
   %22 = load i8, ptr %21, align 1
   %23 = trunc i32 %3 to i8
   %24 = xor i8 %22, %23
-  %25 = getelementptr inbounds i8, ptr %10, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %24, ptr %25, align 1
   %26 = or i32 %5, %3
   %.not55 = icmp eq i32 %26, 0
@@ -197,10 +197,10 @@ build_b0.exit:                                    ; preds = %12, %13
   call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %16, i1 false)
   %17 = lshr i32 %5, 8
   %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %9, i64 14
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 14
   store i8 %18, ptr %19, align 2
   %20 = trunc i32 %5 to i8
-  %21 = getelementptr inbounds i8, ptr %9, i64 15
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 15
   store i8 %20, ptr %21, align 1
   call void @knx_ccm_calc_cbc_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %9)
   ret void
@@ -264,7 +264,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   br i1 %.not4963, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %11, i64 15
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 15
   br label %48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -391,7 +391,7 @@ build_ctr0.exit:                                  ; preds = %11, %12
   %14 = getelementptr i8, ptr %8, i64 %.pre-phi.i.i
   %15 = sub nuw nsw i64 16, %.pre-phi.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %8, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 14
   store i8 -1, ptr %16, align 2
   %17 = call ptr @knx_ccm_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext 16, ptr noundef nonnull %8, i8 noundef zeroext 16)
   ret ptr %17
@@ -422,7 +422,7 @@ build_ctr0.exit:                                  ; preds = %10, %11
   %14 = getelementptr i8, ptr %7, i64 %.pre-phi.i.i
   %15 = sub nuw nsw i64 16, %.pre-phi.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %7, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 14
   store i8 -1, ptr %16, align 2
   %17 = sext i32 %13 to i64
   %18 = getelementptr i8, ptr %2, i64 %17
@@ -529,7 +529,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   ]
 
 .tail:                                            ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %2, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %.tail.thread
@@ -558,13 +558,13 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 
 .preheader177.lr.ph:                              ; preds = %50
   %52 = load ptr, ptr @g_ascii_table, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 4
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not25.i = icmp eq ptr %49, null
-  %57 = getelementptr inbounds i8, ptr %6, i64 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.preheader177
 
 .preheader177:                                    ; preds = %.preheader177.lr.ph, %.loopexit178
@@ -807,13 +807,13 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 
 .lr.ph.i159:                                      ; preds = %157, %167
   %161 = phi ptr [ %168, %167 ], [ %160, %157 ]
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %162, ptr noundef nonnull readonly dereferenceable(4) %10, i64 4)
   %163 = icmp eq i32 %bcmp.i, 0
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %.lr.ph.i159
-  %165 = getelementptr inbounds i8, ptr %161, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %bcmp28.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %165, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %166 = icmp eq i32 %bcmp28.i, 0
   br i1 %166, label %add_mca_key.exit, label %167
@@ -858,9 +858,9 @@ fprintf_hex.exit.i:                               ; preds = %175
 
 185:                                              ; preds = %182
   store ptr null, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 %65, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %184, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %187, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
   store ptr %184, ptr %.0.lcssa.i, align 8
   %188 = trunc i32 %65 to i8
@@ -999,13 +999,13 @@ read_ia.exit.i:                                   ; preds = %243, %238, %236, %2
 
 .lr.ph.i161:                                      ; preds = %read_ia.exit.i, %262
   %254 = phi ptr [ %263, %262 ], [ %253, %read_ia.exit.i ]
-  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load i16, ptr %255, align 8
   %257 = icmp eq i16 %256, %.1103
   br i1 %257, label %258, label %262
 
 258:                                              ; preds = %.lr.ph.i161
-  %259 = getelementptr inbounds i8, ptr %254, i64 10
+  %259 = getelementptr inbounds nuw i8, ptr %254, i64 10
   %260 = load i16, ptr %259, align 2
   %261 = icmp eq i16 %260, %252
   br i1 %261, label %add_ga_sender.exit, label %262
@@ -1036,9 +1036,9 @@ read_ia.exit.i:                                   ; preds = %243, %238, %236, %2
 
 274:                                              ; preds = %271
   store ptr null, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %273, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i16 %.1103, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %273, i64 10
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 10
   store i16 %252, ptr %276, align 2
   store ptr %273, ptr %.0.lcssa.i164, align 8
   br label %add_ga_sender.exit
@@ -1211,13 +1211,13 @@ define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef nonn
 
 .lr.ph:                                           ; preds = %9, %20
   %13 = phi ptr [ %21, %20 ], [ %12, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, %0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %13, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %18, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %19 = icmp eq i32 %bcmp, 0
   br i1 %19, label %.loopexit, label %20
@@ -1264,9 +1264,9 @@ fprintf_hex.exit:                                 ; preds = %29
 
 39:                                               ; preds = %36
   store ptr null, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i16 %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %41, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   store ptr %38, ptr %.0.lcssa, align 8
   br label %.loopexit
@@ -1298,13 +1298,13 @@ define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef nonn
 
 .lr.ph:                                           ; preds = %9, %20
   %13 = phi ptr [ %21, %20 ], [ %12, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, %0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %13, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %18, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %19 = icmp eq i32 %bcmp, 0
   br i1 %19, label %.loopexit, label %20
@@ -1351,9 +1351,9 @@ fprintf_hex.exit:                                 ; preds = %29
 
 39:                                               ; preds = %36
   store ptr null, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i16 %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %41, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   store ptr %38, ptr %.0.lcssa, align 8
   br label %.loopexit
@@ -1376,13 +1376,13 @@ define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef nonn
 
 .lr.ph:                                           ; preds = %3, %17
   %9 = phi ptr [ %18, %17 ], [ %8, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = icmp eq i16 %11, %0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %7
   br i1 %16, label %.loopexit, label %17
@@ -1414,9 +1414,9 @@ define internal fastcc void @add_ia_seq(i16 noundef zeroext %0, ptr noundef nonn
 
 29:                                               ; preds = %26
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i16 %0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %7, ptr %31, align 8
   store ptr %28, ptr %.0.lcssa, align 8
   br label %.loopexit

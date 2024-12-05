@@ -41,11 +41,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %9 = sext i32 %.012 to i64
   %10 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = add nsw i64 %14, %6
-  %16 = getelementptr inbounds i8, ptr %11, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %.not.i = icmp slt i64 %15, %18
@@ -54,7 +54,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 19:                                               ; preds = %7
   store i32 0, ptr %12, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
   %.pre = load i32, ptr @_ZN12PeriodicTask10_num_tasksE, align 4
@@ -94,9 +94,9 @@ define hidden noundef i32 @_ZN12PeriodicTask12time_to_waitEv() local_unnamed_add
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN12PeriodicTask6_tasksE, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sub nsw i32 %6, %8
   %10 = icmp sgt i32 %1, 1
@@ -109,11 +109,11 @@ define hidden noundef i32 @_ZN12PeriodicTask12time_to_waitEv() local_unnamed_add
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.068 = phi i32 [ %9, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %11 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = sub nsw i32 %14, %16
   %18 = tail call noundef i32 @llvm.smin.i32(i32 %.068, i32 %17)
@@ -129,9 +129,9 @@ define hidden noundef i32 @_ZN12PeriodicTask12time_to_waitEv() local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN12PeriodicTaskC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12PeriodicTask, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = trunc i64 %1 to i32
   store i32 %5, ptr %4, align 4
   ret void
@@ -159,7 +159,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i: ; preds 
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
-  %7 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, %0
   br i1 %.not.i, label %.critedge.loopexit.i, label %9
@@ -192,9 +192,9 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i: ; preds 
 .lr.ph16.i:                                       ; preds = %.lr.ph16.i, %.lr.ph16.preheader.i
   %indvars.iv19.i = phi i64 [ %15, %.lr.ph16.preheader.i ], [ %indvars.iv.next20.i, %.lr.ph16.i ]
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %16 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.next20.i
+  %16 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.next20.i
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv19.i
+  %18 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv19.i
   store ptr %17, ptr %18, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.i, label %.lr.ph16.i, !llvm.loop !10
@@ -231,7 +231,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, %0
   br i1 %.not, label %.critedge.loopexit, label %9
@@ -263,9 +263,9 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
   %indvars.iv19 = phi i64 [ %15, %.lr.ph16.preheader ], [ %indvars.iv.next20, %.lr.ph16 ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %16 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.next20
+  %16 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv.next20
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv19
+  %18 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %indvars.iv19
   store ptr %17, ptr %18, align 8
   %19 = trunc nuw i64 %indvars.iv.next20 to i32
   %20 = icmp sgt i32 %13, %19

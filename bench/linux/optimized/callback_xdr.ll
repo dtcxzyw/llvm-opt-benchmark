@@ -51,11 +51,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @nfs_callback_dispatch(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %0) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 11312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11312
   %7 = load ptr, ptr %6, align 8
   store i32 %5, ptr %7, align 4
   ret i32 1
@@ -75,18 +75,18 @@ define internal noundef zeroext i1 @nfs4_encode_void(ptr nocapture readnone %0, 
 define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.cb_process_state, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  %7 = getelementptr inbounds i8, ptr %5, i64 488
-  %8 = getelementptr inbounds i8, ptr %0, i64 11392
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %9 = select i1 %6, ptr %8, ptr %7
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 496
-  %12 = tail call ptr @xdr_inline_decode(ptr noundef %11, i64 noundef 4) #11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %12 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %11, i64 noundef 4) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread28, label %14, !prof !6
 
@@ -98,7 +98,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 17:                                               ; preds = %14
   %18 = tail call i32 @llvm.bswap.i32(i32 %15)
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr @xdr_inline_decode(ptr noundef %11, i64 noundef %19) #11
+  %20 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %11, i64 noundef %19) #11
   %21 = icmp eq ptr %20, null
   %22 = icmp ugt i32 %18, 512
   %or.cond = or i1 %22, %21
@@ -107,7 +107,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 .thread20:                                        ; preds = %17, %14
   %23 = phi i32 [ 0, %14 ], [ %18, %17 ]
   %24 = phi ptr [ null, %14 ], [ %20, %17 ]
-  %25 = tail call ptr @xdr_inline_decode(ptr noundef %11, i64 noundef 12) #11
+  %25 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %11, i64 noundef 12) #11
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread28, label %27, !prof !6
 
@@ -134,7 +134,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %40 = load i32, ptr %37, align 4
   %41 = load ptr, ptr %4, align 8
   %42 = icmp eq ptr %41, null
-  %43 = getelementptr inbounds i8, ptr %41, i64 488
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 488
   %44 = select i1 %42, ptr %8, ptr %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @nfs4_find_client_ident(ptr noundef %45, i32 noundef %39) #11
@@ -143,7 +143,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %47, label %48, label %71
 
 48:                                               ; preds = %.thread29
-  %49 = getelementptr inbounds i8, ptr %0, i64 11256
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 11256
   %50 = load i32, ptr %49, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_nfs_cb_no_clp, i64 8), i32 2) #11
           to label %189 [label %51], !srcloc !8
@@ -165,7 +165,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @__SCT__tp_func_nfs_cb_no_clp(ptr noundef %62, i32 noundef %50, i32 noundef %39) #11
   br label %64
@@ -191,7 +191,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %74, label %75, label %.thread
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 11256
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 11256
   %77 = load i32, ptr %76, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_nfs_cb_badprinc, i64 8), i32 2) #11
           to label %98 [label %78], !srcloc !8
@@ -213,7 +213,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = tail call i32 @__SCT__tp_func_nfs_cb_badprinc(ptr noundef %89, i32 noundef %77, i32 noundef %39) #11
   br label %91
@@ -241,10 +241,10 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %.ph2253 = phi i32 [ %72, %71 ], [ 0, %31 ], [ 0, %34 ]
   %99 = phi ptr [ %46, %71 ], [ null, %31 ], [ null, %34 ]
   %100 = phi i32 [ 0, %71 ], [ %29, %31 ], [ %29, %34 ]
-  %101 = getelementptr inbounds i8, ptr %2, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 576
-  %103 = tail call ptr @xdr_reserve_space(ptr noundef %102, i64 noundef 4) #11
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %103 = tail call ptr @xdr_reserve_space(ptr noundef nonnull %102, i64 noundef 4) #11
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread30, label %105, !prof !6
 
@@ -253,13 +253,13 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %106 = and i32 %narrow, 2044
   %narrow43 = add nuw nsw i32 %106, 4
   %107 = zext nneg i32 %narrow43 to i64
-  %108 = tail call ptr @xdr_reserve_space(ptr noundef %102, i64 noundef %107) #11
+  %108 = tail call ptr @xdr_reserve_space(ptr noundef nonnull %102, i64 noundef %107) #11
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.thread30, label %110, !prof !6
 
 110:                                              ; preds = %105
   %111 = tail call ptr @xdr_encode_opaque(ptr noundef nonnull %108, ptr noundef %24, i32 noundef %23) #11
-  %112 = tail call ptr @xdr_reserve_space(ptr noundef %102, i64 noundef 4) #11
+  %112 = tail call ptr @xdr_reserve_space(ptr noundef nonnull %102, i64 noundef 4) #11
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.thread30, label %114, !prof !6
 
@@ -269,10 +269,10 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %116, label %117, label %.thread42
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %2, i64 28
-  %119 = getelementptr inbounds i8, ptr %0, i64 592
-  %120 = getelementptr inbounds i8, ptr %0, i64 11296
-  %121 = getelementptr inbounds i8, ptr %0, i64 11304
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 11296
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   br label %124
 
 .thread30:                                        ; preds = %110, %105, %.thread
@@ -285,7 +285,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 
 124:                                              ; preds = %177, %117
   %125 = phi i32 [ 0, %117 ], [ %179, %177 ]
-  %126 = call ptr @xdr_inline_decode(ptr noundef %11, i64 noundef 4) #11
+  %126 = call ptr @xdr_inline_decode(ptr noundef nonnull %11, i64 noundef 4) #11
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.thread42, label %128, !prof !6
 
@@ -320,10 +320,10 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br i1 %149, label %150, label %.thread36
 
 150:                                              ; preds = %141
-  %151 = getelementptr inbounds i8, ptr %137, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %120, align 8
-  %154 = call i32 %152(ptr noundef %0, ptr noundef %11, ptr noundef %153) #11
+  %154 = call i32 %152(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %153) #11
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %.thread36, !prof !15
 
@@ -338,7 +338,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %161 = phi ptr [ %137, %156 ], [ %137, %150 ], [ %137, %141 ], [ %137, %138 ], [ @callback_ops, %133 ], [ @callback_ops, %128 ]
   %162 = phi i32 [ %130, %156 ], [ %130, %150 ], [ %130, %141 ], [ %130, %138 ], [ 10044, %133 ], [ %130, %128 ]
   %163 = phi i32 [ %160, %156 ], [ %154, %150 ], [ 572981248, %141 ], [ %139, %138 ], [ 1009188864, %133 ], [ 623312896, %128 ]
-  %164 = call ptr @xdr_reserve_space(ptr noundef %102, i64 noundef 8) #11
+  %164 = call ptr @xdr_reserve_space(ptr noundef nonnull %102, i64 noundef 8) #11
   %165 = icmp eq ptr %164, null
   br i1 %165, label %.thread42, label %166, !prof !6
 
@@ -347,7 +347,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   %168 = getelementptr i8, ptr %164, i64 4
   store i32 %167, ptr %164, align 4
   store i32 %163, ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %161, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %170 = load ptr, ptr %169, align 8
   %171 = icmp ne ptr %170, null
   %172 = icmp eq i32 %163, 0
@@ -356,7 +356,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
 
 174:                                              ; preds = %166
   %175 = load ptr, ptr %121, align 8
-  %176 = call i32 %170(ptr noundef %0, ptr noundef %102, ptr noundef %175) #11
+  %176 = call i32 %170(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %175) #11
   br label %177
 
 177:                                              ; preds = %174, %166
@@ -394,7 +394,7 @@ define internal noundef range(i32 0, 83886081) i32 @nfs4_callback_compound(ptr n
   br label %194
 
 194:                                              ; preds = %192, %189
-  %195 = getelementptr inbounds i8, ptr %0, i64 11328
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 11328
   store i32 16777216, ptr %195, align 8
   br label %.thread28
 
@@ -480,14 +480,14 @@ define internal noundef range(i32 0, 572981249) i32 @decode_getattr_args(ptr noc
   br i1 %15, label %.thread, label %16, !prof !6
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = load i16, ptr %2, align 2
   %19 = zext i16 %18 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %17, ptr nonnull align 4 %14, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %17, ptr nonnull align 4 %14, i64 %19, i1 false)
   %20 = getelementptr [128 x i8], ptr %17, i64 0, i64 %19
   %21 = sub nsw i64 128, %19
   tail call void @llvm.memset.p0.i64(ptr align 1 %20, i8 0, i64 %21, i1 false)
-  %22 = getelementptr inbounds i8, ptr %2, i64 132
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %23 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #11
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25, !prof !6
@@ -536,7 +536,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
   br i1 %5, label %6, label %.thread, !prof !15
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 12) #11
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10, !prof !6
@@ -564,7 +564,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
   br i1 %23, label %.thread, label %24, !prof !6
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = load i32, ptr %7, align 4
   %28 = and i32 %27, 8
@@ -584,7 +584,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
 
 35:                                               ; preds = %33, %24
   %36 = phi i32 [ %.pre, %33 ], [ %27, %24 ]
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = and i32 %36, 16
   %40 = icmp eq i32 %39, 0
@@ -601,7 +601,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
   br label %46
 
 46:                                               ; preds = %44, %35
-  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = getelementptr i8, ptr %2, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 1048576
@@ -618,7 +618,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
   %57 = tail call i64 @llvm.bswap.i64(i64 %56)
   store i64 %57, ptr %53, align 1
   %58 = getelementptr i8, ptr %53, i64 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = trunc i64 %60 to i32
   %62 = tail call i32 @llvm.bswap.i32(i32 %61)
@@ -628,7 +628,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
 
 63:                                               ; preds = %46, %55
   %64 = phi i32 [ %49, %46 ], [ %.pre12, %55 ]
-  %65 = getelementptr inbounds i8, ptr %2, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %66 = and i32 %64, 2097152
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %79, label %68
@@ -643,7 +643,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
   %73 = tail call i64 @llvm.bswap.i64(i64 %72)
   store i64 %73, ptr %69, align 1
   %74 = getelementptr i8, ptr %69, i64 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %76 = load i64, ptr %75, align 8
   %77 = trunc i64 %76 to i32
   %78 = tail call i32 @llvm.bswap.i32(i32 %77)
@@ -672,15 +672,15 @@ declare dso_local i32 @nfs4_callback_recall(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((148, 152)) %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 148
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 4, ptr %4, align 4
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 16) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7, !prof !6
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 132
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 132
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   %9 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #11
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11, !prof !6
@@ -688,7 +688,7 @@ define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr noca
 11:                                               ; preds = %7
   %12 = load i32, ptr %9, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %2, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %13, ptr %14, align 4
   %15 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #11
   %16 = icmp eq ptr %15, null
@@ -710,10 +710,10 @@ define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr noca
   br i1 %26, label %.thread, label %27, !prof !6
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %29 = load i16, ptr %2, align 2
   %30 = zext i16 %29 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr nonnull align 4 %25, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %28, ptr nonnull align 4 %25, i64 %30, i1 false)
   %31 = getelementptr [128 x i8], ptr %28, i64 0, i64 %30
   %32 = sub nsw i64 128, %30
   tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)

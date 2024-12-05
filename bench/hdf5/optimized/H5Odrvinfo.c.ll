@@ -50,7 +50,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %25, label %21
@@ -90,10 +90,10 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
   br label %89
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %26, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %44 = load i64, ptr %19, align 1
   store i64 %44, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 9
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %46 = icmp ugt ptr %45, %.ptr62
   br i1 %46, label %51, label %47
 
@@ -113,14 +113,14 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
 55:                                               ; preds = %47
   %56 = load i8, ptr %45, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %26, i64 264
-  %59 = getelementptr inbounds i8, ptr %5, i64 10
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 264
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 8
   %63 = or disjoint i64 %62, %57
   store i64 %63, ptr %58, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 11
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %65 = icmp eq i64 %63, 0
   br i1 %65, label %66, label %70
 
@@ -132,7 +132,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
 
 70:                                               ; preds = %55
   %71 = tail call noalias ptr @malloc(i64 noundef %63) #11
-  %72 = getelementptr inbounds i8, ptr %26, i64 272
+  %72 = getelementptr inbounds nuw i8, ptr %26, i64 272
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
   br i1 %73, label %74, label %78
@@ -177,23 +177,23 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5O__drvinfo_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 11)) %3, ptr nocapture noundef readonly %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 9
-  %10 = getelementptr inbounds i8, ptr %4, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i8
   store i8 %12, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 10
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %14 = load i64, ptr %10, align 8
   %15 = lshr i64 %14, 8
   %16 = trunc i64 %15 to i8
   store i8 %16, ptr %13, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 11
-  %18 = getelementptr inbounds i8, ptr %4, i64 272
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %19, i64 %20, i1 false)
@@ -219,10 +219,10 @@ define internal noundef ptr @H5O__drvinfo_copy(ptr nocapture noundef readonly %0
 10:                                               ; preds = %3, %2
   %.016 = phi ptr [ %1, %2 ], [ %4, %3 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %.016, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %12 = load i64, ptr %11, align 8
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #11
-  %14 = getelementptr inbounds i8, ptr %.016, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %.016, i64 272
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
   br i1 %15, label %16, label %23
@@ -242,7 +242,7 @@ define internal noundef ptr @H5O__drvinfo_copy(ptr nocapture noundef readonly %0
   br label %27
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %25, i64 %26, i1 false)
@@ -255,7 +255,7 @@ define internal noundef ptr @H5O__drvinfo_copy(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5O__drvinfo_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture noundef readonly %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 11
   ret i64 %6
@@ -263,7 +263,7 @@ define internal i64 @H5O__drvinfo_size(ptr nocapture readnone %0, i1 zeroext %1,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__drvinfo_reset(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @H5MM_xfree(ptr noundef %3) #9
   store ptr %4, ptr %2, align 8
@@ -272,9 +272,9 @@ define internal noundef i32 @H5O__drvinfo_reset(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5O__drvinfo_debug(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.10, i32 noundef %4, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %3, ptr noundef nonnull @.str.10, i32 noundef %4, ptr noundef nonnull @.str.13, i64 noundef %9) #9
   ret i32 0

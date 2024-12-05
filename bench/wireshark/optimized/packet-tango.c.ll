@@ -1179,13 +1179,13 @@ declare void @register_giop_user_module(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_tango(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
   %8 = tail call i32 @is_big_endian(ptr noundef %4) #4
-  %9 = getelementptr inbounds i8, ptr %4, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %10 = load i8, ptr %9, align 1
   %11 = icmp ne i8 %10, 1
   br i1 %11, label %82, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %.thread
@@ -1336,7 +1336,7 @@ decode_Tango_NamedDevError_st.exit.i.i:           ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %11, label %93, label %90
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %93
@@ -1348,13 +1348,13 @@ decode_Tango_NamedDevError_st.exit.i.i:           ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %.not.i.i1006, label %process_RequestOperation.exit, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %98 = load ptr, ptr %97, align 8
   %.not5.i.i = icmp eq ptr %98, null
   br i1 %.not5.i.i, label %process_RequestOperation.exit, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %98, i64 28
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, 2
   store i32 %102, ptr %100, align 4
@@ -1391,7 +1391,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 114:                                              ; preds = %start_dissecting.exit
-  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %116 = load i32, ptr %115, align 8
   switch i32 %116, label %118 [
     i32 0, label %117
@@ -1429,7 +1429,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %11, label %134, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %133 = load ptr, ptr %132, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %134
@@ -1441,13 +1441,13 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %.not.i.i1009, label %process_RequestOperation.exit1011, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %136, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not5.i.i1010 = icmp eq ptr %139, null
   br i1 %.not5.i.i1010, label %process_RequestOperation.exit1011, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, 2
   store i32 %143, ptr %141, align 4
@@ -1495,7 +1495,7 @@ start_dissecting.exit1014:                        ; preds = %process_RequestOper
   br i1 %exitcond7.not.i, label %decode_user_exception.exit, label %.lr.ph4.i, !llvm.loop !8
 
 161:                                              ; preds = %start_dissecting.exit1014
-  %162 = getelementptr inbounds i8, ptr %4, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %163 = load i32, ptr %162, align 8
   switch i32 %163, label %171 [
     i32 0, label %164
@@ -1545,7 +1545,7 @@ start_dissecting.exit1014:                        ; preds = %process_RequestOper
   br i1 %11, label %187, label %184
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %1, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = load ptr, ptr %185, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %186, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %187
@@ -1557,13 +1557,13 @@ start_dissecting.exit1014:                        ; preds = %process_RequestOper
   br i1 %.not.i.i1016, label %process_RequestOperation.exit1018, label %190
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %189, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %192 = load ptr, ptr %191, align 8
   %.not5.i.i1017 = icmp eq ptr %192, null
   br i1 %.not5.i.i1017, label %process_RequestOperation.exit1018, label %193
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %192, i64 28
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 28
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, 2
   store i32 %196, ptr %194, align 4
@@ -1610,7 +1610,7 @@ start_dissecting.exit1021:                        ; preds = %process_RequestOper
   br i1 %exitcond.not.i1024, label %decode_user_exception.exit, label %.lr.ph.i1023, !llvm.loop !10
 
 213:                                              ; preds = %start_dissecting.exit1021
-  %214 = getelementptr inbounds i8, ptr %4, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %215 = load i32, ptr %214, align 8
   %switch.i = icmp ult i32 %215, 2
   br i1 %switch.i, label %decode_user_exception.exit, label %216
@@ -1642,7 +1642,7 @@ start_dissecting.exit1021:                        ; preds = %process_RequestOper
   br i1 %11, label %232, label %229
 
 229:                                              ; preds = %228
-  %230 = getelementptr inbounds i8, ptr %1, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %231 = load ptr, ptr %230, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %232
@@ -1654,13 +1654,13 @@ start_dissecting.exit1021:                        ; preds = %process_RequestOper
   br i1 %.not.i.i1025, label %process_RequestOperation.exit1027, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %234, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %237 = load ptr, ptr %236, align 8
   %.not5.i.i1026 = icmp eq ptr %237, null
   br i1 %.not5.i.i1026, label %process_RequestOperation.exit1027, label %238
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %237, i64 28
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 28
   %240 = load i32, ptr %239, align 4
   %241 = or i32 %240, 2
   store i32 %241, ptr %239, align 4
@@ -1708,7 +1708,7 @@ start_dissecting.exit1030:                        ; preds = %process_RequestOper
   br i1 %exitcond7.not.i1038, label %decode_user_exception.exit, label %.lr.ph4.i1036, !llvm.loop !11
 
 259:                                              ; preds = %start_dissecting.exit1030
-  %260 = getelementptr inbounds i8, ptr %4, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %261 = load i32, ptr %260, align 8
   switch i32 %261, label %269 [
     i32 0, label %262
@@ -1758,7 +1758,7 @@ start_dissecting.exit1030:                        ; preds = %process_RequestOper
   br i1 %11, label %285, label %282
 
 282:                                              ; preds = %281
-  %283 = getelementptr inbounds i8, ptr %1, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %284 = load ptr, ptr %283, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %284, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %285
@@ -1770,13 +1770,13 @@ start_dissecting.exit1030:                        ; preds = %process_RequestOper
   br i1 %.not.i.i1039, label %process_RequestOperation.exit1041, label %288
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds i8, ptr %287, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %290 = load ptr, ptr %289, align 8
   %.not5.i.i1040 = icmp eq ptr %290, null
   br i1 %.not5.i.i1040, label %process_RequestOperation.exit1041, label %291
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds i8, ptr %290, i64 28
+  %292 = getelementptr inbounds nuw i8, ptr %290, i64 28
   %293 = load i32, ptr %292, align 4
   %294 = or i32 %293, 2
   store i32 %294, ptr %292, align 4
@@ -1823,7 +1823,7 @@ start_dissecting.exit1044:                        ; preds = %process_RequestOper
   br i1 %exitcond.not.i1049, label %decode_user_exception.exit, label %.lr.ph.i1047, !llvm.loop !13
 
 311:                                              ; preds = %start_dissecting.exit1044
-  %312 = getelementptr inbounds i8, ptr %4, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %313 = load i32, ptr %312, align 8
   %switch.i1045 = icmp ult i32 %313, 2
   br i1 %switch.i1045, label %decode_user_exception.exit, label %314
@@ -1855,7 +1855,7 @@ start_dissecting.exit1044:                        ; preds = %process_RequestOper
   br i1 %11, label %330, label %327
 
 327:                                              ; preds = %326
-  %328 = getelementptr inbounds i8, ptr %1, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %329 = load ptr, ptr %328, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %329, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %5) #4
   br label %330
@@ -1867,13 +1867,13 @@ start_dissecting.exit1044:                        ; preds = %process_RequestOper
   br i1 %.not.i.i1050, label %process_RequestOperation.exit1052, label %333
 
 333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %332, i64 32
+  %334 = getelementptr inbounds nuw i8, ptr %332, i64 32
   %335 = load ptr, ptr %334, align 8
   %.not5.i.i1051 = icmp eq ptr %335, null
   br i1 %.not5.i.i1051, label %process_RequestOperation.exit1052, label %336
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds i8, ptr %335, i64 28
+  %337 = getelementptr inbounds nuw i8, ptr %335, i64 28
   %338 = load i32, ptr %337, align 4
   %339 = or i32 %338, 2
   store i32 %339, ptr %337, align 4
@@ -1903,7 +1903,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   ]
 
 349:                                              ; preds = %start_dissecting.exit1055
-  %350 = getelementptr inbounds i8, ptr %4, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %351 = load i32, ptr %350, align 8
   %switch.i1056 = icmp ult i32 %351, 2
   br i1 %switch.i1056, label %decode_user_exception.exit, label %352
@@ -2674,7 +2674,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %11, label %decode_user_exception.exit, label %735
 
 735:                                              ; preds = %734
-  %736 = getelementptr inbounds i8, ptr %4, i64 16
+  %736 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %737 = load i32, ptr %736, align 8
   %738 = icmp eq i32 %737, 0
   br i1 %738, label %739, label %.thread1059
@@ -2694,7 +2694,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %brmerge, label %.thread1059, label %.thread1061
 
 .thread1061:                                      ; preds = %743
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %746 = icmp eq i32 %.pre, 0
   br i1 %746, label %747, label %.thread1059
@@ -2716,7 +2716,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %11, label %decode_user_exception.exit, label %754
 
 754:                                              ; preds = %753
-  %755 = getelementptr inbounds i8, ptr %4, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %756 = load i32, ptr %755, align 8
   %757 = icmp eq i32 %756, 0
   br i1 %757, label %758, label %.thread1063
@@ -2735,7 +2735,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %brmerge1070, label %.thread1063, label %.thread1065
 
 .thread1065:                                      ; preds = %761
-  %.phi.trans.insert1088 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert1088 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre1089 = load i32, ptr %.phi.trans.insert1088, align 8
   %764 = icmp eq i32 %.pre1089, 0
   br i1 %764, label %765, label %.thread1063
@@ -2755,7 +2755,7 @@ start_dissecting.exit1055:                        ; preds = %process_RequestOper
   br i1 %brmerge1073, label %decode_user_exception.exit, label %771
 
 771:                                              ; preds = %.thread1063
-  %772 = getelementptr inbounds i8, ptr %4, i64 16
+  %772 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %773 = load i32, ptr %772, align 8
   %774 = icmp eq i32 %773, 0
   br i1 %774, label %775, label %decode_user_exception.exit
@@ -2786,7 +2786,7 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.752, ptr noundef %3) #4
   br label %9
@@ -2798,13 +2798,13 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
@@ -2836,7 +2836,7 @@ define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
     i8 0, label %10
@@ -2852,7 +2852,7 @@ define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr n
   br label %.loopexit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %27 [
     i32 0, label %19
@@ -2891,7 +2891,7 @@ define internal fastcc void @decode_Tango_Device_black_box(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
     i8 0, label %28
@@ -2899,7 +2899,7 @@ define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr nounde
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %23 [
     i32 0, label %13
@@ -2937,7 +2937,7 @@ define internal fastcc void @decode_Tango_Device_info(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %.loopexit
@@ -2945,7 +2945,7 @@ define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -2983,7 +2983,7 @@ define internal fastcc void @decode_Tango_Device_command_list_query(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
     i8 0, label %10
@@ -2996,7 +2996,7 @@ define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, p
   br label %21
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %16 [
     i32 0, label %15
@@ -3022,7 +3022,7 @@ define internal fastcc void @decode_Tango_Device_command_query(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_command_inout_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
     i8 0, label %10
@@ -3041,7 +3041,7 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_2(ptr noundef %
   br label %26
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %21 [
     i32 0, label %20
@@ -3067,7 +3067,7 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_2(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -3100,7 +3100,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef
   br label %.loopexit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %33 [
     i32 0, label %26
@@ -3138,7 +3138,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attributes_2(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %79 [
     i8 0, label %10
@@ -3163,7 +3163,7 @@ define internal fastcc void @decode_Tango_Device_2_get_attribute_config_2(ptr no
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %77 [
     i32 0, label %21
@@ -3271,7 +3271,7 @@ decode_Tango_AttributeConfig_2_st.exit:           ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %.loopexit
@@ -3279,7 +3279,7 @@ define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noun
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -3317,7 +3317,7 @@ define internal fastcc void @decode_Tango_Device_2_command_list_query_2(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
     i8 0, label %10
@@ -3330,7 +3330,7 @@ define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %
   br label %21
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %16 [
     i32 0, label %15
@@ -3356,7 +3356,7 @@ define internal fastcc void @decode_Tango_Device_2_command_query_2(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_command_inout_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %64 [
     i8 0, label %10
@@ -3374,7 +3374,7 @@ define internal fastcc void @decode_Tango_Device_2_command_inout_history_2(ptr n
   br label %.loopexit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %62 [
     i32 0, label %20
@@ -3459,7 +3459,7 @@ decode_Tango_DevCmdHistory_st.exit:               ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %49 [
     i8 0, label %10
@@ -3477,7 +3477,7 @@ define internal fastcc void @decode_Tango_Device_2_read_attribute_history_2(ptr 
   br label %.loopexit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %47 [
     i32 0, label %20
@@ -3547,7 +3547,7 @@ decode_Tango_DevAttrHistory_st.exit:              ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_read_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -3580,7 +3580,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attributes_3(ptr noundef
   br label %.loopexit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %33 [
     i32 0, label %26
@@ -3618,7 +3618,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attributes_3(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_write_attributes_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -3642,7 +3642,7 @@ define internal fastcc void @decode_Tango_Device_3_write_attributes_3(ptr nounde
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %.loopexit, label %20
@@ -3662,7 +3662,7 @@ define internal fastcc void @decode_Tango_Device_3_write_attributes_3(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -3680,7 +3680,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr 
   br label %.loopexit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %33 [
     i32 0, label %20
@@ -3724,7 +3724,7 @@ define internal fastcc void @decode_Tango_Device_3_read_attribute_history_3(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
     i8 0, label %29
@@ -3732,7 +3732,7 @@ define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr no
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %24 [
     i32 0, label %13
@@ -3772,7 +3772,7 @@ define internal fastcc void @decode_Tango_Device_3_info_3(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
     i8 0, label %10
@@ -3797,7 +3797,7 @@ define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr no
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !30
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %28 [
     i32 0, label %21
@@ -3835,7 +3835,7 @@ define internal fastcc void @decode_Tango_Device_3_get_attribute_config_3(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -3859,7 +3859,7 @@ define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %.loopexit, label %20
@@ -3879,7 +3879,7 @@ define internal fastcc void @decode_Tango_Device_3_set_attribute_config_3(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %173 [
     i8 0, label %10
@@ -3897,7 +3897,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attribute_history_4(ptr 
   br label %decode_Tango_DevAttrHistory_4_st.exit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %171 [
     i32 0, label %20
@@ -4166,7 +4166,7 @@ decode_Tango_DevAttrHistory_4_st.exit:            ; preds = %.lr.ph35.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_command_inout_history_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %118 [
     i8 0, label %10
@@ -4184,7 +4184,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_history_4(ptr n
   br label %121
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %116 [
     i32 0, label %20
@@ -4364,7 +4364,7 @@ decode_Tango_DevCmdHistory_4_st.exit:             ; preds = %.lr.ph19.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
     i8 0, label %10
@@ -4384,7 +4384,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %
   br label %26
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %21 [
     i32 0, label %20
@@ -4410,7 +4410,7 @@ define internal fastcc void @decode_Tango_Device_4_command_inout_4(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -4444,7 +4444,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef
   br label %.loopexit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %33 [
     i32 0, label %26
@@ -4482,7 +4482,7 @@ define internal fastcc void @decode_Tango_Device_4_read_attributes_4(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -4510,7 +4510,7 @@ define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr nounde
   br label %25
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %25, label %20
@@ -4530,7 +4530,7 @@ define internal fastcc void @decode_Tango_Device_4_write_attributes_4(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -4558,7 +4558,7 @@ define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr no
   br label %25
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %25, label %20
@@ -4578,7 +4578,7 @@ define internal fastcc void @decode_Tango_Device_4_set_attribute_config_4(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
     i8 0, label %10
@@ -4606,7 +4606,7 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr n
   br label %.loopexit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %27 [
     i32 0, label %20
@@ -4644,7 +4644,7 @@ define internal fastcc void @decode_Tango_Device_4_write_read_attributes_4(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
     i8 0, label %10
@@ -4669,7 +4669,7 @@ define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr no
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !55
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %28 [
     i32 0, label %21
@@ -4707,7 +4707,7 @@ define internal fastcc void @decode_Tango_Device_5_get_attribute_config_5(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -4735,7 +4735,7 @@ define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr no
   br label %25
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %25, label %20
@@ -4755,7 +4755,7 @@ define internal fastcc void @decode_Tango_Device_5_set_attribute_config_5(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -4789,7 +4789,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef
   br label %.loopexit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %33 [
     i32 0, label %26
@@ -4827,7 +4827,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attributes_5(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %36 [
     i8 0, label %10
@@ -4872,7 +4872,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr n
   br label %.loopexit
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %34 [
     i32 0, label %27
@@ -4910,7 +4910,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_attributes_5(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %183 [
     i8 0, label %10
@@ -4928,7 +4928,7 @@ define internal fastcc void @decode_Tango_Device_5_read_attribute_history_5(ptr 
   br label %decode_Tango_DevAttrHistory_5_st.exit
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %181 [
     i32 0, label %20
@@ -5207,7 +5207,7 @@ decode_Tango_DevAttrHistory_5_st.exit:            ; preds = %.lr.ph35.i, %._crit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
     i8 0, label %10
@@ -5232,7 +5232,7 @@ define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !73
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %28 [
     i32 0, label %21
@@ -5270,7 +5270,7 @@ define internal fastcc void @decode_Tango_Device_5_get_pipe_config_5(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -5298,7 +5298,7 @@ define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef
   br label %25
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   %switch = icmp ult i32 %19, 2
   br i1 %switch, label %25, label %20
@@ -5318,7 +5318,7 @@ define internal fastcc void @decode_Tango_Device_5_set_pipe_config_5(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
     i8 0, label %10
@@ -5332,7 +5332,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, p
   br label %21
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %16 [
     i32 0, label %15
@@ -5358,7 +5358,7 @@ define internal fastcc void @decode_Tango_Device_5_read_pipe_5(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %10
@@ -5371,7 +5371,7 @@ define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, 
   br label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %switch = icmp ult i32 %13, 2
   br i1 %switch, label %19, label %14
@@ -5391,7 +5391,7 @@ define internal fastcc void @decode_Tango_Device_5_write_pipe_5(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
     i8 0, label %10
@@ -5404,7 +5404,7 @@ define internal fastcc void @decode_Tango_Device_5_write_read_pipe_5(ptr noundef
   br label %20
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %15 [
     i32 0, label %14
@@ -6186,7 +6186,7 @@ define internal fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr no
   br i1 %or.cond, label %95, label %.loopexit
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %1, i64 408
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
   call void @get_CDR_octet_seq(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef %88) #4
   %98 = load ptr, ptr %96, align 8
@@ -6316,7 +6316,7 @@ define internal fastcc void @decode_Tango_AttrValUnion_un(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %169
   %175 = icmp ne ptr %2, null
-  %176 = getelementptr inbounds i8, ptr %1, i64 408
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %177
 
 177:                                              ; preds = %.lr.ph, %decode_Tango_DevEncoded_st.exit

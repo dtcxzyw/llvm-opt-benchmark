@@ -81,7 +81,7 @@ define dso_local { ptr, i64 } @_ZNK5clang6tblgen13HasProperties7getNameEv(ptr no
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, 1
@@ -137,10 +137,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %2, align 8, !alias.scope !4
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1, ptr %6, align 8, !alias.scope !4
@@ -194,7 +194,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %22 = load i8, ptr %21, align 1, !noalias !9
   %23 = icmp eq i8 %22, 1
   %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !9
-  %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.36.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !9
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
@@ -203,17 +203,17 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %25 = load i8, ptr %24, align 1, !noalias !9
   %26 = icmp eq i8 %25, 1
   %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !9
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !9
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.3.0.i = select i1 %26, i64 %.sroa.3.0.copyload.i, i64 undef
   store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !9
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !9
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.014.i, ptr %28, align 8, !alias.scope !9
@@ -233,7 +233,7 @@ define dso_local { ptr, i64 } @_ZNK5clang6tblgen8DeclNode5getIdEv(ptr nocapture 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, 1
@@ -246,7 +246,7 @@ define dso_local { ptr, i64 } @_ZNK5clang6tblgen8TypeNode12getClassNameEv(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, 1
@@ -265,7 +265,7 @@ define dso_local { ptr, i64 } @_ZNK5clang6tblgen8TypeNode5getIdEv(ptr nocapture 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i = icmp ult i64 %.sroa.2.0.copyload.i.i.i, 4
   br i1 %.not.i.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread14.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
@@ -313,7 +313,7 @@ define dso_local { ptr, i64 } @_ZNK5clang6tblgen8StmtNode12getClassNameEv(ptr no
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.fca.0.insert.i.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.copyload.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, 1
@@ -328,10 +328,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %2, align 8, !alias.scope !12
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !12
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.3, ptr %6, align 8, !alias.scope !12
@@ -378,7 +378,7 @@ define dso_local void @_ZNK5clang6tblgen12PropertyType20emitCXXValueTypeNameEbRN
 24:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %17, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   store ptr %26, ptr %16, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -441,7 +441,7 @@ _ZNK5clang6tblgen12PropertyType19getArrayElementTypeEv.exit: ; preds = %45
 60:                                               ; preds = %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %53, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 15
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 15
   store ptr %62, ptr %52, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit13
 
@@ -459,7 +459,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %58, %60
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit13
   store i8 62, ptr %64, align 1
   %69 = load ptr, ptr %52, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store ptr %70, ptr %52, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -493,7 +493,7 @@ _ZNK5clang6tblgen12PropertyType22getOptionalElementTypeEv.exit: ; preds = %_ZNK5
 86:                                               ; preds = %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %79, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   %87 = load ptr, ptr %78, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 14
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 14
   store ptr %88, ptr %78, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit20
 
@@ -511,7 +511,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %84, %86
 94:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20
   store i8 62, ptr %90, align 1
   %95 = load ptr, ptr %78, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store ptr %96, ptr %78, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -565,7 +565,7 @@ define dso_local void @_ZN5clang6tblgen25visitASTNodeHierarchyImplERN4llvm12Reco
   store i64 %2, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4llvm6RecordESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIvESaISE_EE10_M_find_trINS9_9StringRefEvEESt23_Rb_tree_const_iteratorISE_ERKT_(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.thread.i, label %_ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i
 
@@ -599,15 +599,15 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i: ; preds = %5
 
 35:                                               ; preds = %_ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %10, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr %1, i64 %2) #15
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %11, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %36, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 0, ptr %40, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -662,7 +662,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i: ; preds = %5
 
 61:                                               ; preds = %50, %48
   %.sroa.019.1.i = phi ptr [ %.sroa.019.035.i, %48 ], [ %46, %50 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.016.034.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.016.034.i, i64 8
   %.not28.i = icmp eq ptr %62, %43
   br i1 %.not28.i, label %._crit_edge.i, label %45
 
@@ -784,7 +784,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i, %2
   br i1 %.not.i, label %18, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread26
@@ -799,7 +799,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %18
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %12, align 8, !noalias !20
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8, !noalias !20
   call void %23(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(10) %12) #15
   %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
@@ -825,7 +825,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit24:              ; preds = %26
   br i1 %27, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread26
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread26:       ; preds = %16, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread29, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit24
-  %28 = getelementptr inbounds i8, ptr %.01835, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.01835, i64 24
   %.not.not = icmp eq ptr %28, %8
   br i1 %.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
@@ -851,15 +851,15 @@ declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL21visitASTNodeRecursiveN5clang6tblgen7ASTNodeES1_RKSt8multimapIS1_S1_St4lessIS1_ESaISt4pairIKS1_S1_EEEN4llvm12function_refIFvS1_S1_EEE(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
   tail call void %3(i64 noundef %4, ptr %0, ptr %1) #15
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not10.i.i.i = icmp eq ptr %7, null
   br i1 %.not10.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.2.0.copyload.i.i5.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %11
@@ -870,7 +870,7 @@ define internal fastcc void @_ZL21visitASTNodeRecursiveN5clang6tblgen7ASTNodeES1
   %12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %.sroa.01.0.copyload.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i)
   %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
@@ -909,7 +909,7 @@ _ZNKSt4lessIN5clang6tblgen7ASTNodeEEclERKS2_S5_.exit.i.i.i: ; preds = %_ZN4llvm9
   %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i13, i64 32
   %.sroa.0.0.copyload.i.i.i.i15 = load ptr, ptr %22, align 8
   %23 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i15, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i16 = getelementptr inbounds i8, ptr %23, i64 32
+  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.sroa.2.0.copyload.i.i5.i.i.i.i.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i16, align 8
   %.sroa.speculated.i.i.i.i.i.i.i18 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i.i.i.i17, i64 %.sroa.2.0.copyload.i.i5.i.i.i.i.i)
   %24 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i18, 0
@@ -961,14 +961,14 @@ _ZNKSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN4llvm6RecordESt14default_deleteISA_EEESt10_Select1stISE_ESt4lessIvESaISE_EE10_M_find_trINS9_9StringRefEvEESt23_Rb_tree_const_iteratorISE_ERKT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0810.i = load ptr, ptr %3, align 8
   %.not11.i = icmp eq ptr %.0810.i, null
   br i1 %.not11.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %5
 
 5:                                                ; preds = %14, %.lr.ph.i
@@ -1053,8 +1053,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ES
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.078.i = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %.078.i, null
   br i1 %.not9.i, label %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_Auto_nodeD2Ev.exit, label %.lr.ph.i
@@ -1062,7 +1062,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ES
 .lr.ph.i:                                         ; preds = %2
   %11 = inttoptr i64 %5 to ptr
   %12 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %14
@@ -1072,7 +1072,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ES
   %15 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 32
   %.sroa.0.0.copyload.i.i = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.2.0..sroa_idx.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.2.0.copyload.i.i5.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i)
   %17 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -1131,7 +1131,7 @@ _ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4less
   %.0.lcssa.i12 = phi ptr [ %.0710.i, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ %.0710.i, %29 ], [ %.0710.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ %10, %2 ]
   %31 = phi i1 [ true, %_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE23_M_get_insert_equal_posERS4_.exit ], [ %.inv.i.i.i.i.i.i, %29 ], [ %30, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i ], [ true, %2 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %31, ptr noundef nonnull %3, ptr noundef nonnull %.0.lcssa.i12, ptr noundef nonnull align 8 dereferenceable(32) %10) #15
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %32, align 8

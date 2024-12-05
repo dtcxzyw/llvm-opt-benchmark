@@ -20,26 +20,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z5crossRK3vecILi3EES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fneg double %11
   %13 = fmul double %9, %12
   %14 = tail call double @llvm.fmuladd.f64(double %5, double %7, double %13)
   store double %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load double, ptr %2, align 8
   %17 = load double, ptr %1, align 8
   %18 = fneg double %7
   %19 = fmul double %17, %18
   %20 = tail call double @llvm.fmuladd.f64(double %9, double %16, double %19)
   store double %20, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = fneg double %16
   %23 = fmul double %5, %22
   %24 = tail call double @llvm.fmuladd.f64(double %17, double %11, double %23)

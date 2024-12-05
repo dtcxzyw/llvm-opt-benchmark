@@ -48,16 +48,16 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 15:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 56, i1 false)
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %18, i8 0, i64 648, i1 false)
   %19 = call ptr @jpeg_std_error(ptr noundef nonnull %8) #18
   store volatile ptr %19, ptr %7, align 8
   store ptr @my_error_exit, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %21 = call i32 @_setjmp(ptr noundef nonnull %20) #19
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %.loopexit
@@ -69,17 +69,17 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 22:                                               ; preds = %15
   call void @jpeg_CreateDecompress(ptr noundef nonnull %7, i32 noundef 80, i64 noundef 656) #18
-  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store volatile ptr %11, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @ContextInit, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr @ContextFill, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr @ContextSkip, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @jpeg_resync_to_restart, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr @ContextTerm, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %.not40 = icmp eq ptr %4, null
@@ -92,20 +92,20 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 30:                                               ; preds = %29, %22
   %31 = call i32 @jpeg_read_header(ptr noundef nonnull %7, i32 noundef 1) #18
-  %32 = getelementptr inbounds i8, ptr %7, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store volatile i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 100
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 100
   store volatile i32 1, ptr %33, align 4
   %34 = call i32 @jpeg_start_decompress(ptr noundef nonnull %7) #18
-  %35 = getelementptr inbounds i8, ptr %7, i64 148
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 148
   %36 = load volatile i32, ptr %35, align 4
   %.not41 = icmp eq i32 %36, 3
   br i1 %.not41, label %37, label %.loopexit
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %7, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %39 = load volatile i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 140
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %41 = load volatile i32, ptr %40, align 4
   %42 = load volatile i32, ptr %38, align 8
   %43 = zext i32 %42 to i64
@@ -133,7 +133,7 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 
 56:                                               ; preds = %52
   %.0..0..0..0.4 = load volatile ptr, ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 168
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store ptr %.0..0..0..0.4, ptr %10, align 8
   %58 = load volatile i32, ptr %57, align 8
   %59 = load volatile i32, ptr %40, align 4
@@ -172,9 +172,9 @@ define hidden i32 @ReadJPEG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 
 73:                                               ; preds = %68, %._crit_edge
   %74 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %7) #18
   call void @jpeg_destroy_decompress(ptr noundef nonnull %7) #18
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %39, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %41, ptr %76, align 4
   %.0..0..0..0.5 = load volatile ptr, ptr %9, align 8
   %77 = call i32 @WebPPictureImportRGB(ptr noundef %2, ptr noundef %.0..0..0..0.5, i32 noundef %47) #18
@@ -208,12 +208,12 @@ declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 15, i64 1, ptr %5) #21
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %0) #18
   switch i32 %4, label %13 [
@@ -227,7 +227,7 @@ define internal void @my_error_exit(ptr noundef %0) #3 {
   br label %13
 
 13:                                               ; preds = %1, %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #22
   unreachable
 }
@@ -255,10 +255,10 @@ declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [255 x %struct.ICCPSegment], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 6120, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6120) %3, i8 0, i64 6120, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 400
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %.071103.i = load ptr, ptr %5, align 8
   %.not104.i = icmp eq ptr %.071103.i, null
   br i1 %.not104.i, label %.loopexit36.sink.split, label %.lr.ph.i
@@ -269,30 +269,30 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %.066107.i = phi i32 [ %.167.i, %51 ], [ 0, %2 ]
   %.068106.i = phi i32 [ %.270.i, %51 ], [ 0, %2 ]
   %.072105.i = phi i64 [ %.173.i, %51 ], [ 0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.071109.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.071109.i, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, -30
   br i1 %8, label %9, label %51
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.071109.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.071109.i, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i32 %11, 14
   br i1 %13, label %14, label %51
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.071109.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.071109.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %16, ptr noundef nonnull dereferenceable(12) @StoreICCP.kICCPSignature, i64 12)
   %.not80.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not80.i, label %17, label %51
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %16, i64 13
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = add nsw i64 %12, -14
@@ -323,7 +323,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 37:                                               ; preds = %33, %31
   %.1.i = phi i32 [ %.065108.i, %33 ], [ %23, %31 ]
   %38 = zext i8 %19 to i64
-  %39 = getelementptr inbounds %struct.ICCPSegment, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw %struct.ICCPSegment, ptr %3, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
   %41 = load i64, ptr %40, align 8
   %.not82.i = icmp eq i64 %41, 0
@@ -336,7 +336,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %39, i64 -24
-  %47 = getelementptr inbounds i8, ptr %16, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 14
   store ptr %47, ptr %46, align 8
   store i64 %24, ptr %40, align 8
   %48 = getelementptr inbounds i8, ptr %39, i64 -8
@@ -386,7 +386,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   br i1 %64, label %.loopexit36.sink.split, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.173.i, ptr %66, align 8
   %67 = icmp sgt i32 %.270.i, 0
   br i1 %67, label %.lr.ph116.i, label %.loopexit38
@@ -396,9 +396,9 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %.0114.i = phi i64 [ %75, %.lr.ph116.i ], [ 0, %65 ]
   %68 = load ptr, ptr %4, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %.0114.i
-  %70 = getelementptr inbounds [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [255 x %struct.ICCPSegment], ptr %3, i64 0, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i64, ptr %72, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %71, i64 %73, i1 false)
   %74 = load i64, ptr %72, align 8
@@ -420,9 +420,9 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 
 .preheader:                                       ; preds = %.loopexit38, %.loopexit
   %.02553 = phi ptr [ %.025, %.loopexit ], [ %.02551.pr, %.loopexit38 ]
-  %76 = getelementptr inbounds i8, ptr %.02553, i64 8
-  %77 = getelementptr inbounds i8, ptr %.02553, i64 16
-  %78 = getelementptr inbounds i8, ptr %.02553, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.02553, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.02553, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.02553, i64 24
   br label %79
 
 79:                                               ; preds = %.preheader, %108
@@ -437,21 +437,21 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 85:                                               ; preds = %79
   %86 = load i32, ptr %77, align 8
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %81, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %89 = load i64, ptr %88, align 16
   %90 = icmp ult i64 %89, %87
   br i1 %90, label %91, label %108
 
 91:                                               ; preds = %85
   %92 = load ptr, ptr %78, align 8
-  %93 = getelementptr inbounds i8, ptr %81, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %94 = load ptr, ptr %93, align 8
   %bcmp = call i32 @bcmp(ptr %92, ptr %94, i64 %89)
   %.not32 = icmp eq i32 %bcmp, 0
   br i1 %.not32, label %95, label %108
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %81, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %1, i64 %97
   %99 = load ptr, ptr %98, align 8
@@ -472,7 +472,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 
 108:                                              ; preds = %79, %85, %91, %101, %105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = getelementptr inbounds [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv.next
+  %109 = getelementptr inbounds nuw [3 x %struct.anon], ptr @ExtractMetadataFromJPEG.kJPEGMetadataMap, i64 0, i64 %indvars.iv.next
   %110 = load i32, ptr %109, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.loopexit, label %79, !llvm.loop !10
@@ -502,14 +502,14 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @ContextInit(ptr nocapture noundef readonly %0) #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %7, ptr %8, align 8
   ret void
 }
@@ -517,7 +517,7 @@ define internal void @ContextInit(ptr nocapture noundef readonly %0) #9 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ContextFill(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 37, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -527,9 +527,9 @@ define internal noundef i32 @ContextFill(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @ContextSkip(ptr nocapture noundef readonly %0, i64 noundef %1) #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %6)
   %7 = sub i64 %6, %spec.select
@@ -556,9 +556,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @CompareICCPSegments(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sub nsw i32 %4, %6
   ret i32 %7

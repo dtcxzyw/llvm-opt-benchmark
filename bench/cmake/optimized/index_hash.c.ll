@@ -16,15 +16,15 @@ define dso_local noundef ptr @lzma_index_hash_init(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %4, %2
   %.020 = phi ptr [ %5, %4 ], [ %0, %2 ]
   store i32 0, ptr %.020, align 8
-  %8 = getelementptr inbounds i8, ptr %.020, i64 8
-  %9 = getelementptr inbounds i8, ptr %.020, i64 144
-  %10 = getelementptr inbounds i8, ptr %.020, i64 288
-  %11 = getelementptr inbounds i8, ptr %.020, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.020, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %.020, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %.020, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   tail call void @lzma_check_init(ptr noundef nonnull %11, i32 noundef 10) #9
-  %12 = getelementptr inbounds i8, ptr %.020, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %.020, i64 176
   tail call void @lzma_check_init(ptr noundef nonnull %12, i32 noundef 10) #9
   br label %13
 
@@ -47,9 +47,9 @@ declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local range(i64 0, -3) i64 @lzma_index_hash_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 @lzma_vli_size(i64 noundef %3) #10
   %7 = add i32 %6, 1
@@ -73,14 +73,14 @@ define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i6
   br i1 %or.cond5, label %50, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %12 = add nuw nsw i64 %1, 3
   %13 = and i64 %12, 9223372036854775804
   %14 = load i64, ptr %11, align 8
   %15 = add i64 %14, %13
   store i64 %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %2
   store i64 %18, ptr %16, align 8
@@ -88,18 +88,18 @@ define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i6
   %20 = tail call i32 @lzma_vli_size(i64 noundef %2) #10
   %21 = add i32 %20, %19
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %22
   store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
   store i64 %1, ptr %4, align 16
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @lzma_check_update(ptr noundef nonnull %30, i32 noundef 10, ptr noundef nonnull %4, i64 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %31 = load i64, ptr %11, align 8
@@ -143,20 +143,20 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %0, i64 280
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %21
 
 21:                                               ; preds = %.lr.ph, %131
@@ -318,7 +318,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not99, label %103, label %.loopexit
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @lzma_check_finish(ptr noundef nonnull %104, i32 noundef 10) #9
   call void @lzma_check_finish(ptr noundef nonnull %15, i32 noundef 10) #9
   %105 = call i32 @lzma_check_size(i32 noundef 10) #11
@@ -331,7 +331,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   %108 = getelementptr inbounds i8, ptr %1, i64 %6
   %109 = load i64, ptr %2, align 8
   %110 = sub i64 %109, %6
-  %111 = getelementptr inbounds i8, ptr %0, i64 312
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %112 = load i32, ptr %111, align 8
   %113 = call i32 @lzma_crc32(ptr noundef %108, i64 noundef %110, i32 noundef %112) #10
   store i32 %113, ptr %111, align 8
@@ -339,7 +339,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br label %.loopexit110
 
 .loopexit110:                                     ; preds = %21, %107
-  %114 = getelementptr inbounds i8, ptr %0, i64 312
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %115
 
 115:                                              ; preds = %127, %.loopexit110
@@ -383,7 +383,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   %.pre118 = load i64, ptr %2, align 8
   %134 = getelementptr inbounds i8, ptr %1, i64 %6
   %135 = sub i64 %.pre118, %6
-  %136 = getelementptr inbounds i8, ptr %0, i64 312
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %137 = load i32, ptr %136, align 8
   %138 = call i32 @lzma_crc32(ptr noundef %134, i64 noundef %135, i32 noundef %137) #10
   store i32 %138, ptr %136, align 8

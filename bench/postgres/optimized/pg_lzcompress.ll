@@ -21,7 +21,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i8 0, ptr %5, align 1
   %8 = icmp eq ptr %3, null
   %spec.store.select = select i1 %8, ptr @strategy_default_data, ptr %3
-  %9 = getelementptr inbounds i8, ptr %spec.store.select, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %.loopexit227, label %12
@@ -32,7 +32,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %14, label %.loopexit227, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %spec.store.select, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %1, %17
   br i1 %18, label %.loopexit227, label %19
@@ -40,11 +40,11 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
 19:                                               ; preds = %15
   %20 = tail call i32 @llvm.umax.i32(i32 %10, i32 17)
   %.0166 = tail call i32 @llvm.umin.i32(i32 %20, i32 273)
-  %21 = getelementptr inbounds i8, ptr %spec.store.select, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 20
   %22 = load i32, ptr %21, align 4
   %spec.store.select2 = tail call i32 @llvm.smin.i32(i32 %22, i32 100)
   %.0165 = tail call i32 @llvm.smax.i32(i32 %spec.store.select2, i32 0)
-  %23 = getelementptr inbounds i8, ptr %spec.store.select, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %24, 0
   %spec.store.select3 = tail call i32 @llvm.smin.i32(i32 %24, i32 99)
@@ -91,7 +91,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph249:                                        ; preds = %40
   %46 = sext i32 %.0160211 to i64
-  %47 = getelementptr inbounds i8, ptr %spec.store.select, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 12
   %48 = ptrtoint ptr %7 to i64
   %49 = trunc i64 %48 to i32
   br label %50
@@ -159,7 +159,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %86 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %85
   %87 = trunc i64 %58 to i32
   %88 = sub i32 %49, %87
-  %89 = getelementptr inbounds i8, ptr %86, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = sub i64 %58, %91
@@ -236,7 +236,7 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %119 = mul i32 %.07316.us.i233, %.0165
   %.neg.us.i = sdiv i32 %119, -100
   %120 = add i32 %.neg.us.i, %.07316.us.i233
-  %121 = getelementptr inbounds i8, ptr %118, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %122 to i64
   %124 = sub i64 %58, %123
@@ -342,7 +342,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   br i1 %184, label %185, label %204
 
 185:                                              ; preds = %177
-  %186 = getelementptr inbounds i8, ptr %183, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
   %189 = load ptr, ptr %183, align 16
@@ -353,7 +353,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %192 = sub i64 %191, ptrtoint (ptr @hist_entries to i64)
   %193 = lshr exact i64 %192, 5
   %194 = trunc i64 %193 to i16
-  %195 = getelementptr inbounds i8, ptr %183, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %196 = load i32, ptr %195, align 16
   %197 = sext i32 %196 to i64
   %198 = getelementptr [8192 x i16], ptr @hist_start, i64 0, i64 %197
@@ -370,7 +370,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
 
 201:                                              ; preds = %200
   %202 = load ptr, ptr %186, align 8
-  %203 = getelementptr inbounds i8, ptr %189, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store ptr %202, ptr %203, align 8
   br label %204
 
@@ -379,11 +379,11 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %206 = sext i16 %205 to i64
   %207 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %206
   store ptr %207, ptr %183, align 16
-  %208 = getelementptr inbounds i8, ptr %183, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store ptr null, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %183, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store i32 %179, ptr %209, align 16
-  %210 = getelementptr inbounds i8, ptr %183, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %183, i64 24
   store ptr %.1152238, ptr %210, align 8
   %211 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %206, i32 1
   store ptr %183, ptr %211, align 8
@@ -446,7 +446,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   br i1 %246, label %247, label %266
 
 247:                                              ; preds = %239
-  %248 = getelementptr inbounds i8, ptr %245, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, null
   %251 = load ptr, ptr %245, align 16
@@ -457,7 +457,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %254 = sub i64 %253, ptrtoint (ptr @hist_entries to i64)
   %255 = lshr exact i64 %254, 5
   %256 = trunc i64 %255 to i16
-  %257 = getelementptr inbounds i8, ptr %245, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %258 = load i32, ptr %257, align 16
   %259 = sext i32 %258 to i64
   %260 = getelementptr [8192 x i16], ptr @hist_start, i64 0, i64 %259
@@ -474,7 +474,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
 
 263:                                              ; preds = %262
   %264 = load ptr, ptr %248, align 8
-  %265 = getelementptr inbounds i8, ptr %251, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr %264, ptr %265, align 8
   br label %266
 
@@ -483,11 +483,11 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %268 = sext i16 %267 to i64
   %269 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %268
   store ptr %269, ptr %245, align 16
-  %270 = getelementptr inbounds i8, ptr %245, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store ptr null, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %245, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store i32 %241, ptr %271, align 16
-  %272 = getelementptr inbounds i8, ptr %245, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %245, i64 24
   store ptr %.0151245, ptr %272, align 8
   %273 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %268, i32 1
   store ptr %245, ptr %273, align 8

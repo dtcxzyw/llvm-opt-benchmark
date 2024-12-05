@@ -32,19 +32,19 @@ entry:
 define void @_ZN6icu_7512DateTimeRuleC2EiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %month, ptr %fMonth, align 8
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %dayOfMonth, ptr %fDayOfMonth, align 4
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %fDayOfWeek, align 8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %fWeekInMonth, align 4
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %millisInDay, ptr %fMillisInDay, align 8
-  %fDateRuleType = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %fDateRuleType, align 4
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %timeType, ptr %fTimeRuleType, align 8
   ret void
 }
@@ -53,19 +53,19 @@ entry:
 define void @_ZN6icu_7512DateTimeRuleC2EiiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %weekInMonth, i32 noundef %dayOfWeek, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %month, ptr %fMonth, align 8
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %fDayOfMonth, align 4
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %dayOfWeek, ptr %fDayOfWeek, align 8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %weekInMonth, ptr %fWeekInMonth, align 4
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %millisInDay, ptr %fMillisInDay, align 8
-  %fDateRuleType = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 1, ptr %fDateRuleType, align 4
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %timeType, ptr %fTimeRuleType, align 8
   ret void
 }
@@ -74,21 +74,21 @@ entry:
 define void @_ZN6icu_7512DateTimeRuleC2EiiiaiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i8 noundef signext %after, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %month, ptr %fMonth, align 8
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %dayOfMonth, ptr %fDayOfMonth, align 4
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %dayOfWeek, ptr %fDayOfWeek, align 8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %fWeekInMonth, align 4
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %millisInDay, ptr %fMillisInDay, align 8
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %timeType, ptr %fTimeRuleType, align 8
   %tobool.not = icmp eq i8 %after, 0
   %spec.select = select i1 %tobool.not, i32 3, i32 2
-  %0 = getelementptr inbounds i8, ptr %this, i64 28
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %spec.select, ptr %0, align 4
   ret void
 }
@@ -97,32 +97,32 @@ entry:
 define void @_ZN6icu_7512DateTimeRuleC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %source) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
-  %fMonth2 = getelementptr inbounds i8, ptr %source, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fMonth2 = getelementptr inbounds nuw i8, ptr %source, i64 8
   %0 = load i32, ptr %fMonth2, align 8
   store i32 %0, ptr %fMonth, align 8
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
-  %fDayOfMonth3 = getelementptr inbounds i8, ptr %source, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %fDayOfMonth3 = getelementptr inbounds nuw i8, ptr %source, i64 12
   %1 = load i32, ptr %fDayOfMonth3, align 4
   store i32 %1, ptr %fDayOfMonth, align 4
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
-  %fDayOfWeek4 = getelementptr inbounds i8, ptr %source, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %fDayOfWeek4 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %2 = load i32, ptr %fDayOfWeek4, align 8
   store i32 %2, ptr %fDayOfWeek, align 8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
-  %fWeekInMonth5 = getelementptr inbounds i8, ptr %source, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %fWeekInMonth5 = getelementptr inbounds nuw i8, ptr %source, i64 20
   %3 = load i32, ptr %fWeekInMonth5, align 4
   store i32 %3, ptr %fWeekInMonth, align 4
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
-  %fMillisInDay6 = getelementptr inbounds i8, ptr %source, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %fMillisInDay6 = getelementptr inbounds nuw i8, ptr %source, i64 24
   %4 = load i32, ptr %fMillisInDay6, align 8
   store i32 %4, ptr %fMillisInDay, align 8
-  %fDateRuleType = getelementptr inbounds i8, ptr %this, i64 28
-  %fDateRuleType7 = getelementptr inbounds i8, ptr %source, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %fDateRuleType7 = getelementptr inbounds nuw i8, ptr %source, i64 28
   %5 = load i32, ptr %fDateRuleType7, align 4
   store i32 %5, ptr %fDateRuleType, align 4
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
-  %fTimeRuleType8 = getelementptr inbounds i8, ptr %source, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %fTimeRuleType8 = getelementptr inbounds nuw i8, ptr %source, i64 32
   %6 = load i32, ptr %fTimeRuleType8, align 8
   store i32 %6, ptr %fTimeRuleType, align 8
   ret void
@@ -182,33 +182,33 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fMonth = getelementptr inbounds i8, ptr %right, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %right, i64 8
   %0 = load i32, ptr %fMonth, align 8
-  %fMonth2 = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %0, ptr %fMonth2, align 8
-  %fDayOfMonth = getelementptr inbounds i8, ptr %right, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %right, i64 12
   %1 = load i32, ptr %fDayOfMonth, align 4
-  %fDayOfMonth3 = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth3 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %1, ptr %fDayOfMonth3, align 4
-  %fDayOfWeek = getelementptr inbounds i8, ptr %right, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %right, i64 16
   %2 = load i32, ptr %fDayOfWeek, align 8
-  %fDayOfWeek4 = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %2, ptr %fDayOfWeek4, align 8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %right, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %right, i64 20
   %3 = load i32, ptr %fWeekInMonth, align 4
-  %fWeekInMonth5 = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth5 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %3, ptr %fWeekInMonth5, align 4
-  %fMillisInDay = getelementptr inbounds i8, ptr %right, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %right, i64 24
   %4 = load i32, ptr %fMillisInDay, align 8
-  %fMillisInDay6 = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %4, ptr %fMillisInDay6, align 8
-  %fDateRuleType = getelementptr inbounds i8, ptr %right, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %right, i64 28
   %5 = load i32, ptr %fDateRuleType, align 4
-  %fDateRuleType7 = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType7 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %5, ptr %fDateRuleType7, align 4
-  %fTimeRuleType = getelementptr inbounds i8, ptr %right, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %right, i64 32
   %6 = load i32, ptr %fTimeRuleType, align 8
-  %fTimeRuleType8 = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %6, ptr %fTimeRuleType8, align 8
   br label %if.end
 
@@ -229,9 +229,9 @@ typeid.end:                                       ; preds = %entry
   %vtable2 = load ptr, ptr %that, align 8
   %2 = getelementptr inbounds i8, ptr %vtable2, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i = getelementptr inbounds i8, ptr %1, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i, align 8
-  %__name2.i = getelementptr inbounds i8, ptr %3, i64 8
+  %__name2.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i, align 8
   %cmp.i = icmp eq ptr %4, %5
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
@@ -245,63 +245,63 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   %7 = load i8, ptr %5, align 1
   %cmp.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i = zext i1 %cmp.i.i to i64
-  %cond.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i
+  %cond.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %cond.idx.i.i
   %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i) #9
   %cmp7.i = icmp eq i32 %call6.i, 0
   br i1 %cmp7.i, label %land.lhs.true, label %lor.end
 
 land.lhs.true:                                    ; preds = %typeid.end, %_ZNKSt9type_infoeqERKS_.exit
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %fMonth, align 8
-  %fMonth3 = getelementptr inbounds i8, ptr %that, i64 8
+  %fMonth3 = getelementptr inbounds nuw i8, ptr %that, i64 8
   %9 = load i32, ptr %fMonth3, align 8
   %cmp4 = icmp eq i32 %8, %9
   br i1 %cmp4, label %land.lhs.true5, label %lor.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
   %10 = load i32, ptr %fDayOfMonth, align 4
-  %fDayOfMonth6 = getelementptr inbounds i8, ptr %that, i64 12
+  %fDayOfMonth6 = getelementptr inbounds nuw i8, ptr %that, i64 12
   %11 = load i32, ptr %fDayOfMonth6, align 4
   %cmp7 = icmp eq i32 %10, %11
   br i1 %cmp7, label %land.lhs.true8, label %lor.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load i32, ptr %fDayOfWeek, align 8
-  %fDayOfWeek9 = getelementptr inbounds i8, ptr %that, i64 16
+  %fDayOfWeek9 = getelementptr inbounds nuw i8, ptr %that, i64 16
   %13 = load i32, ptr %fDayOfWeek9, align 8
   %cmp10 = icmp eq i32 %12, %13
   br i1 %cmp10, label %land.lhs.true11, label %lor.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
   %14 = load i32, ptr %fWeekInMonth, align 4
-  %fWeekInMonth12 = getelementptr inbounds i8, ptr %that, i64 20
+  %fWeekInMonth12 = getelementptr inbounds nuw i8, ptr %that, i64 20
   %15 = load i32, ptr %fWeekInMonth12, align 4
   %cmp13 = icmp eq i32 %14, %15
   br i1 %cmp13, label %land.lhs.true14, label %lor.end
 
 land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
   %16 = load i32, ptr %fMillisInDay, align 8
-  %fMillisInDay15 = getelementptr inbounds i8, ptr %that, i64 24
+  %fMillisInDay15 = getelementptr inbounds nuw i8, ptr %that, i64 24
   %17 = load i32, ptr %fMillisInDay15, align 8
   %cmp16 = icmp eq i32 %16, %17
   br i1 %cmp16, label %land.lhs.true17, label %lor.end
 
 land.lhs.true17:                                  ; preds = %land.lhs.true14
-  %fDateRuleType = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %this, i64 28
   %18 = load i32, ptr %fDateRuleType, align 4
-  %fDateRuleType18 = getelementptr inbounds i8, ptr %that, i64 28
+  %fDateRuleType18 = getelementptr inbounds nuw i8, ptr %that, i64 28
   %19 = load i32, ptr %fDateRuleType18, align 4
   %cmp19 = icmp eq i32 %18, %19
   br i1 %cmp19, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %land.lhs.true17
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
   %20 = load i32, ptr %fTimeRuleType, align 8
-  %fTimeRuleType20 = getelementptr inbounds i8, ptr %that, i64 32
+  %fTimeRuleType20 = getelementptr inbounds nuw i8, ptr %that, i64 32
   %21 = load i32, ptr %fTimeRuleType20, align 8
   %cmp21 = icmp eq i32 %20, %21
   br label %lor.end
@@ -324,9 +324,9 @@ typeid.end.i:                                     ; preds = %entry
   %vtable2.i = load ptr, ptr %that, align 8
   %2 = getelementptr inbounds i8, ptr %vtable2.i, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %__name.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %__name.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %__name.i.i, align 8
-  %__name2.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %__name2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %__name2.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %land.lhs.true.i, label %if.end.i.i
@@ -340,63 +340,63 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %if.end.i.i
   %7 = load i8, ptr %5, align 1
   %cmp.i.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i.i = zext i1 %cmp.i.i.i to i64
-  %cond.i.i.i = getelementptr inbounds i8, ptr %5, i64 %cond.idx.i.i.i
+  %cond.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %cond.idx.i.i.i
   %call6.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %cond.i.i.i) #9
   %cmp7.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %land.lhs.true.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true.i:                                  ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %typeid.end.i
-  %fMonth.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %fMonth.i, align 8
-  %fMonth3.i = getelementptr inbounds i8, ptr %that, i64 8
+  %fMonth3.i = getelementptr inbounds nuw i8, ptr %that, i64 8
   %9 = load i32, ptr %fMonth3.i, align 8
   %cmp4.i = icmp eq i32 %8, %9
   br i1 %cmp4.i, label %land.lhs.true5.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %fDayOfMonth.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %10 = load i32, ptr %fDayOfMonth.i, align 4
-  %fDayOfMonth6.i = getelementptr inbounds i8, ptr %that, i64 12
+  %fDayOfMonth6.i = getelementptr inbounds nuw i8, ptr %that, i64 12
   %11 = load i32, ptr %fDayOfMonth6.i, align 4
   %cmp7.i = icmp eq i32 %10, %11
   br i1 %cmp7.i, label %land.lhs.true8.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
-  %fDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load i32, ptr %fDayOfWeek.i, align 8
-  %fDayOfWeek9.i = getelementptr inbounds i8, ptr %that, i64 16
+  %fDayOfWeek9.i = getelementptr inbounds nuw i8, ptr %that, i64 16
   %13 = load i32, ptr %fDayOfWeek9.i, align 8
   %cmp10.i = icmp eq i32 %12, %13
   br i1 %cmp10.i, label %land.lhs.true11.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true8.i
-  %fWeekInMonth.i = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %14 = load i32, ptr %fWeekInMonth.i, align 4
-  %fWeekInMonth12.i = getelementptr inbounds i8, ptr %that, i64 20
+  %fWeekInMonth12.i = getelementptr inbounds nuw i8, ptr %that, i64 20
   %15 = load i32, ptr %fWeekInMonth12.i, align 4
   %cmp13.i = icmp eq i32 %14, %15
   br i1 %cmp13.i, label %land.lhs.true14.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
-  %fMillisInDay.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %16 = load i32, ptr %fMillisInDay.i, align 8
-  %fMillisInDay15.i = getelementptr inbounds i8, ptr %that, i64 24
+  %fMillisInDay15.i = getelementptr inbounds nuw i8, ptr %that, i64 24
   %17 = load i32, ptr %fMillisInDay15.i, align 8
   %cmp16.i = icmp eq i32 %16, %17
   br i1 %cmp16.i, label %land.lhs.true17.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.lhs.true17.i:                                ; preds = %land.lhs.true14.i
-  %fDateRuleType.i = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %18 = load i32, ptr %fDateRuleType.i, align 4
-  %fDateRuleType18.i = getelementptr inbounds i8, ptr %that, i64 28
+  %fDateRuleType18.i = getelementptr inbounds nuw i8, ptr %that, i64 28
   %19 = load i32, ptr %fDateRuleType18.i, align 4
   %cmp19.i = icmp eq i32 %18, %19
   br i1 %cmp19.i, label %land.rhs.i, label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true17.i
-  %fTimeRuleType.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %20 = load i32, ptr %fTimeRuleType.i, align 8
-  %fTimeRuleType20.i = getelementptr inbounds i8, ptr %that, i64 32
+  %fTimeRuleType20.i = getelementptr inbounds nuw i8, ptr %that, i64 32
   %21 = load i32, ptr %fTimeRuleType20.i, align 8
   %cmp21.i = icmp ne i32 %20, %21
   br label %_ZNK6icu_7512DateTimeRuleeqERKS0_.exit
@@ -409,7 +409,7 @@ _ZNK6icu_7512DateTimeRuleeqERKS0_.exit:           ; preds = %entry, %if.end.i.i,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule15getDateRuleTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fDateRuleType = getelementptr inbounds i8, ptr %this, i64 28
+  %fDateRuleType = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %fDateRuleType, align 4
   ret i32 %0
 }
@@ -417,7 +417,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule15getTimeRuleTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 32
+  %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %fTimeRuleType, align 8
   ret i32 %0
 }
@@ -425,7 +425,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule12getRuleMonthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fMonth = getelementptr inbounds i8, ptr %this, i64 8
+  %fMonth = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fMonth, align 8
   ret i32 %0
 }
@@ -433,7 +433,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule17getRuleDayOfMonthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fDayOfMonth = getelementptr inbounds i8, ptr %this, i64 12
+  %fDayOfMonth = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %fDayOfMonth, align 4
   ret i32 %0
 }
@@ -441,7 +441,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule16getRuleDayOfWeekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fDayOfWeek = getelementptr inbounds i8, ptr %this, i64 16
+  %fDayOfWeek = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %fDayOfWeek, align 8
   ret i32 %0
 }
@@ -449,7 +449,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule18getRuleWeekInMonthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fWeekInMonth = getelementptr inbounds i8, ptr %this, i64 20
+  %fWeekInMonth = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %fWeekInMonth, align 4
   ret i32 %0
 }
@@ -457,7 +457,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7512DateTimeRule18getRuleMillisInDayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fMillisInDay = getelementptr inbounds i8, ptr %this, i64 24
+  %fMillisInDay = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %fMillisInDay, align 8
   ret i32 %0
 }

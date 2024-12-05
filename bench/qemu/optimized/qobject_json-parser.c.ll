@@ -59,20 +59,20 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @json_token(i32 noundef %type, i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %tokstr) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %tokstr, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %tokstr, i64 8
   %0 = load i64, ptr %len, align 8
   %add1 = add i64 %0, 13
   %call = tail call noalias ptr @g_malloc(i64 noundef %add1) #13
   store i32 %type, ptr %call, align 4
-  %str = getelementptr inbounds i8, ptr %call, i64 12
+  %str = getelementptr inbounds nuw i8, ptr %call, i64 12
   %1 = load ptr, ptr %tokstr, align 8
   %2 = load i64, ptr %len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %str, ptr align 1 %1, i64 %2, i1 false)
   %arrayidx = getelementptr [0 x i8], ptr %str, i64 0, i64 %2
   store i8 0, ptr %arrayidx, align 1
-  %x7 = getelementptr inbounds i8, ptr %call, i64 4
+  %x7 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %x, ptr %x7, align 4
-  %y8 = getelementptr inbounds i8, ptr %call, i64 8
+  %y8 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %y, ptr %y8, align 4
   ret ptr %call
 }
@@ -87,11 +87,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local ptr @json_parser_parse(ptr noundef %tokens, ptr noundef %ap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ctxt = alloca %struct.JSONParserContext, align 8
-  %current = getelementptr inbounds i8, ptr %ctxt, i64 8
-  %buf = getelementptr inbounds i8, ptr %ctxt, i64 16
+  %current = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %ctxt, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctxt, i8 0, i64 16, i1 false)
   store ptr %tokens, ptr %buf, align 8
-  %ap1 = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap1 = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   store ptr %ap, ptr %ap1, align 8
   %call = call fastcc ptr @parse_value(ptr noundef %ctxt)
   %0 = load ptr, ptr %ctxt, align 8
@@ -167,7 +167,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %current.i88 = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i88 = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %current.i88, align 8
   tail call void @g_free(ptr noundef %2) #14
   %3 = load ptr, ptr %0, align 8
@@ -247,7 +247,7 @@ out.i:                                            ; preds = %if.end22.i, %out.i.
   br i1 %tobool.not.i79, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %out.i
-  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %11 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %11, 0
   br i1 %tobool1.not.i, label %if.else.i82, label %land.lhs.true.i80
@@ -267,7 +267,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i80
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %current.i108 = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i108 = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %12 = load ptr, ptr %current.i108, align 8
   tail call void @g_free(ptr noundef %12) #14
   %13 = load ptr, ptr %0, align 8
@@ -346,7 +346,7 @@ out.i38:                                          ; preds = %if.end26.i34, %if.e
   br i1 %tobool.not.i91, label %return, label %lor.lhs.false.i92
 
 lor.lhs.false.i92:                                ; preds = %out.i38
-  %refcnt.i93 = getelementptr inbounds i8, ptr %call1.i17, i64 8
+  %refcnt.i93 = getelementptr inbounds nuw i8, ptr %call1.i17, i64 8
   %21 = load i64, ptr %refcnt.i93, align 8
   %tobool1.not.i94 = icmp eq i64 %21, 0
   br i1 %tobool1.not.i94, label %if.else.i99, label %land.lhs.true.i95
@@ -366,7 +366,7 @@ if.then5.i98:                                     ; preds = %land.lhs.true.i95
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %current.i.i = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %22 = load ptr, ptr %current.i.i, align 8
   tail call void @g_free(ptr noundef %22) #14
   %23 = load ptr, ptr %0, align 8
@@ -385,13 +385,13 @@ if.else.i51:                                      ; preds = %land.lhs.true.i49, 
   unreachable
 
 if.end.i52:                                       ; preds = %land.lhs.true.i49
-  %str.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %str.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %25 = load i8, ptr %str.i, align 1
   %.not.i = icmp eq i8 %25, 37
   br i1 %.not.i, label %sub_1.i, label %if.else58.i
 
 sub_1.i:                                          ; preds = %if.end.i52
-  %26 = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 13
   %27 = load i8, ptr %26, align 1
   switch i8 %27, label %if.else58.i [
     i8 112, label %if.end.tail.i
@@ -400,20 +400,20 @@ sub_1.i:                                          ; preds = %if.end.i52
   ]
 
 if.end.tail.i:                                    ; preds = %sub_1.i
-  %28 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %28 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %if.then3.i, label %if.else58.i
 
 if.then3.i:                                       ; preds = %if.end.tail.i
-  %ap.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %31 = load ptr, ptr %ap.i, align 8
   %gp_offset.i = load i32, ptr %31, align 8
   %fits_in_gp.i = icmp ult i32 %gp_offset.i, 41
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
 
 vaarg.in_reg.i:                                   ; preds = %if.then3.i
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %reg_save_area.i = load ptr, ptr %32, align 8
   %33 = zext nneg i32 %gp_offset.i to i64
   %34 = getelementptr i8, ptr %reg_save_area.i, i64 %33
@@ -422,7 +422,7 @@ vaarg.in_reg.i:                                   ; preds = %if.then3.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %if.then3.i
-  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %31, i64 8
+  %overflow_arg_area_p.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %overflow_arg_area.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
@@ -434,20 +434,20 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   br label %return
 
 if.else5.tail.i:                                  ; preds = %sub_1.i
-  %37 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %37 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %if.then10.i, label %if.else58.i
 
 if.then10.i:                                      ; preds = %if.else5.tail.i
-  %ap11.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap11.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %40 = load ptr, ptr %ap11.i, align 8
   %gp_offset14.i = load i32, ptr %40, align 8
   %fits_in_gp15.i = icmp ult i32 %gp_offset14.i, 41
   br i1 %fits_in_gp15.i, label %vaarg.in_reg16.i, label %vaarg.in_mem18.i
 
 vaarg.in_reg16.i:                                 ; preds = %if.then10.i
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %reg_save_area17.i = load ptr, ptr %41, align 8
   %42 = zext nneg i32 %gp_offset14.i to i64
   %43 = getelementptr i8, ptr %reg_save_area17.i, i64 %42
@@ -456,7 +456,7 @@ vaarg.in_reg16.i:                                 ; preds = %if.then10.i
   br label %vaarg.end22.i
 
 vaarg.in_mem18.i:                                 ; preds = %if.then10.i
-  %overflow_arg_area_p19.i = getelementptr inbounds i8, ptr %40, i64 8
+  %overflow_arg_area_p19.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %overflow_arg_area20.i = load ptr, ptr %overflow_arg_area_p19.i, align 8
   %overflow_arg_area.next21.i = getelementptr i8, ptr %overflow_arg_area20.i, i64 8
   store ptr %overflow_arg_area.next21.i, ptr %overflow_arg_area_p19.i, align 8
@@ -470,20 +470,20 @@ vaarg.end22.i:                                    ; preds = %vaarg.in_mem18.i, %
   br label %return
 
 if.else28.tail.i:                                 ; preds = %sub_1.i
-  %46 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %46 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %if.then33.i, label %if.else58.i
 
 if.then33.i:                                      ; preds = %if.else28.tail.i
-  %ap34.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap34.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %49 = load ptr, ptr %ap34.i, align 8
   %gp_offset37.i = load i32, ptr %49, align 8
   %fits_in_gp38.i = icmp ult i32 %gp_offset37.i, 41
   br i1 %fits_in_gp38.i, label %vaarg.in_reg39.i, label %vaarg.in_mem41.i
 
 vaarg.in_reg39.i:                                 ; preds = %if.then33.i
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %reg_save_area40.i = load ptr, ptr %50, align 8
   %51 = zext nneg i32 %gp_offset37.i to i64
   %52 = getelementptr i8, ptr %reg_save_area40.i, i64 %51
@@ -492,7 +492,7 @@ vaarg.in_reg39.i:                                 ; preds = %if.then33.i
   br label %vaarg.end45.i
 
 vaarg.in_mem41.i:                                 ; preds = %if.then33.i
-  %overflow_arg_area_p42.i = getelementptr inbounds i8, ptr %49, i64 8
+  %overflow_arg_area_p42.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   %overflow_arg_area43.i = load ptr, ptr %overflow_arg_area_p42.i, align 8
   %overflow_arg_area.next44.i = getelementptr i8, ptr %overflow_arg_area43.i, i64 8
   store ptr %overflow_arg_area.next44.i, ptr %overflow_arg_area_p42.i, align 8
@@ -511,14 +511,14 @@ if.else58.i:                                      ; preds = %sub_1.i, %if.end.ta
   br i1 %tobool62.not.i, label %if.then63.i, label %if.else88.i
 
 if.then63.i:                                      ; preds = %if.else58.i
-  %ap64.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap64.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %55 = load ptr, ptr %ap64.i, align 8
   %gp_offset67.i = load i32, ptr %55, align 8
   %fits_in_gp68.i = icmp ult i32 %gp_offset67.i, 41
   br i1 %fits_in_gp68.i, label %vaarg.in_reg69.i, label %vaarg.in_mem71.i
 
 vaarg.in_reg69.i:                                 ; preds = %if.then63.i
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %reg_save_area70.i = load ptr, ptr %56, align 8
   %57 = zext nneg i32 %gp_offset67.i to i64
   %58 = getelementptr i8, ptr %reg_save_area70.i, i64 %57
@@ -527,7 +527,7 @@ vaarg.in_reg69.i:                                 ; preds = %if.then63.i
   br label %vaarg.end75.i
 
 vaarg.in_mem71.i:                                 ; preds = %if.then63.i
-  %overflow_arg_area_p72.i = getelementptr inbounds i8, ptr %55, i64 8
+  %overflow_arg_area_p72.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %overflow_arg_area73.i = load ptr, ptr %overflow_arg_area_p72.i, align 8
   %overflow_arg_area.next74.i = getelementptr i8, ptr %overflow_arg_area73.i, i64 8
   store ptr %overflow_arg_area.next74.i, ptr %overflow_arg_area_p72.i, align 8
@@ -545,14 +545,14 @@ if.else88.i:                                      ; preds = %if.else58.i
   br i1 %tobool92.not.i, label %if.then93.i, label %sub_056.i
 
 if.then93.i:                                      ; preds = %if.else88.i
-  %ap94.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap94.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %61 = load ptr, ptr %ap94.i, align 8
   %gp_offset97.i = load i32, ptr %61, align 8
   %fits_in_gp98.i = icmp ult i32 %gp_offset97.i, 41
   br i1 %fits_in_gp98.i, label %vaarg.in_reg99.i, label %vaarg.in_mem101.i
 
 vaarg.in_reg99.i:                                 ; preds = %if.then93.i
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %reg_save_area100.i = load ptr, ptr %62, align 8
   %63 = zext nneg i32 %gp_offset97.i to i64
   %64 = getelementptr i8, ptr %reg_save_area100.i, i64 %63
@@ -561,7 +561,7 @@ vaarg.in_reg99.i:                                 ; preds = %if.then93.i
   br label %vaarg.end105.i
 
 vaarg.in_mem101.i:                                ; preds = %if.then93.i
-  %overflow_arg_area_p102.i = getelementptr inbounds i8, ptr %61, i64 8
+  %overflow_arg_area_p102.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %overflow_arg_area103.i = load ptr, ptr %overflow_arg_area_p102.i, align 8
   %overflow_arg_area.next104.i = getelementptr i8, ptr %overflow_arg_area103.i, i64 8
   store ptr %overflow_arg_area.next104.i, ptr %overflow_arg_area_p102.i, align 8
@@ -577,26 +577,26 @@ sub_056.i:                                        ; preds = %if.else88.i
   br i1 %.not.i, label %sub_157.i, label %if.else179.i
 
 sub_157.i:                                        ; preds = %sub_056.i
-  %67 = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  %67 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 13
   %68 = load i8, ptr %67, align 1
   %.not74.i = icmp eq i8 %68, 117
   br i1 %.not74.i, label %if.else148.tail.i, label %if.else179.i
 
 if.else148.tail.i:                                ; preds = %sub_157.i
-  %69 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %69 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %if.then153.i, label %if.else179.i
 
 if.then153.i:                                     ; preds = %if.else148.tail.i
-  %ap154.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap154.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %72 = load ptr, ptr %ap154.i, align 8
   %gp_offset157.i = load i32, ptr %72, align 8
   %fits_in_gp158.i = icmp ult i32 %gp_offset157.i, 41
   br i1 %fits_in_gp158.i, label %vaarg.in_reg159.i, label %vaarg.in_mem161.i
 
 vaarg.in_reg159.i:                                ; preds = %if.then153.i
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %reg_save_area160.i = load ptr, ptr %73, align 8
   %74 = zext nneg i32 %gp_offset157.i to i64
   %75 = getelementptr i8, ptr %reg_save_area160.i, i64 %74
@@ -605,7 +605,7 @@ vaarg.in_reg159.i:                                ; preds = %if.then153.i
   br label %vaarg.end165.i
 
 vaarg.in_mem161.i:                                ; preds = %if.then153.i
-  %overflow_arg_area_p162.i = getelementptr inbounds i8, ptr %72, i64 8
+  %overflow_arg_area_p162.i = getelementptr inbounds nuw i8, ptr %72, i64 8
   %overflow_arg_area163.i = load ptr, ptr %overflow_arg_area_p162.i, align 8
   %overflow_arg_area.next164.i = getelementptr i8, ptr %overflow_arg_area163.i, i64 8
   store ptr %overflow_arg_area.next164.i, ptr %overflow_arg_area_p162.i, align 8
@@ -624,14 +624,14 @@ if.else179.i:                                     ; preds = %if.else148.tail.i, 
   br i1 %tobool183.not.i, label %if.then184.i, label %if.else209.i
 
 if.then184.i:                                     ; preds = %if.else179.i
-  %ap185.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap185.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %78 = load ptr, ptr %ap185.i, align 8
   %gp_offset188.i = load i32, ptr %78, align 8
   %fits_in_gp189.i = icmp ult i32 %gp_offset188.i, 41
   br i1 %fits_in_gp189.i, label %vaarg.in_reg190.i, label %vaarg.in_mem192.i
 
 vaarg.in_reg190.i:                                ; preds = %if.then184.i
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %reg_save_area191.i = load ptr, ptr %79, align 8
   %80 = zext nneg i32 %gp_offset188.i to i64
   %81 = getelementptr i8, ptr %reg_save_area191.i, i64 %80
@@ -640,7 +640,7 @@ vaarg.in_reg190.i:                                ; preds = %if.then184.i
   br label %vaarg.end196.i
 
 vaarg.in_mem192.i:                                ; preds = %if.then184.i
-  %overflow_arg_area_p193.i = getelementptr inbounds i8, ptr %78, i64 8
+  %overflow_arg_area_p193.i = getelementptr inbounds nuw i8, ptr %78, i64 8
   %overflow_arg_area194.i = load ptr, ptr %overflow_arg_area_p193.i, align 8
   %overflow_arg_area.next195.i = getelementptr i8, ptr %overflow_arg_area194.i, i64 8
   store ptr %overflow_arg_area.next195.i, ptr %overflow_arg_area_p193.i, align 8
@@ -658,14 +658,14 @@ if.else209.i:                                     ; preds = %if.else179.i
   br i1 %tobool213.not.i, label %if.then214.i, label %sub_060.i
 
 if.then214.i:                                     ; preds = %if.else209.i
-  %ap215.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap215.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %84 = load ptr, ptr %ap215.i, align 8
   %gp_offset218.i = load i32, ptr %84, align 8
   %fits_in_gp219.i = icmp ult i32 %gp_offset218.i, 41
   br i1 %fits_in_gp219.i, label %vaarg.in_reg220.i, label %vaarg.in_mem222.i
 
 vaarg.in_reg220.i:                                ; preds = %if.then214.i
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %reg_save_area221.i = load ptr, ptr %85, align 8
   %86 = zext nneg i32 %gp_offset218.i to i64
   %87 = getelementptr i8, ptr %reg_save_area221.i, i64 %86
@@ -674,7 +674,7 @@ vaarg.in_reg220.i:                                ; preds = %if.then214.i
   br label %vaarg.end226.i
 
 vaarg.in_mem222.i:                                ; preds = %if.then214.i
-  %overflow_arg_area_p223.i = getelementptr inbounds i8, ptr %84, i64 8
+  %overflow_arg_area_p223.i = getelementptr inbounds nuw i8, ptr %84, i64 8
   %overflow_arg_area224.i = load ptr, ptr %overflow_arg_area_p223.i, align 8
   %overflow_arg_area.next225.i = getelementptr i8, ptr %overflow_arg_area224.i, i64 8
   store ptr %overflow_arg_area.next225.i, ptr %overflow_arg_area_p223.i, align 8
@@ -690,7 +690,7 @@ sub_060.i:                                        ; preds = %if.else209.i
   br i1 %.not.i, label %sub_161.i, label %if.end337.i
 
 sub_161.i:                                        ; preds = %sub_060.i
-  %90 = getelementptr inbounds i8, ptr %call.i.i, i64 13
+  %90 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 13
   %91 = load i8, ptr %90, align 1
   switch i8 %91, label %if.end337.i [
     i8 115, label %if.else269.tail.i
@@ -698,20 +698,20 @@ sub_161.i:                                        ; preds = %sub_060.i
   ]
 
 if.else269.tail.i:                                ; preds = %sub_161.i
-  %92 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %92 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %if.then274.i, label %if.end337.i
 
 if.then274.i:                                     ; preds = %if.else269.tail.i
-  %ap275.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap275.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %95 = load ptr, ptr %ap275.i, align 8
   %gp_offset278.i = load i32, ptr %95, align 8
   %fits_in_gp279.i = icmp ult i32 %gp_offset278.i, 41
   br i1 %fits_in_gp279.i, label %vaarg.in_reg280.i, label %vaarg.in_mem282.i
 
 vaarg.in_reg280.i:                                ; preds = %if.then274.i
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %reg_save_area281.i = load ptr, ptr %96, align 8
   %97 = zext nneg i32 %gp_offset278.i to i64
   %98 = getelementptr i8, ptr %reg_save_area281.i, i64 %97
@@ -720,7 +720,7 @@ vaarg.in_reg280.i:                                ; preds = %if.then274.i
   br label %vaarg.end286.i
 
 vaarg.in_mem282.i:                                ; preds = %if.then274.i
-  %overflow_arg_area_p283.i = getelementptr inbounds i8, ptr %95, i64 8
+  %overflow_arg_area_p283.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   %overflow_arg_area284.i = load ptr, ptr %overflow_arg_area_p283.i, align 8
   %overflow_arg_area.next285.i = getelementptr i8, ptr %overflow_arg_area284.i, i64 8
   store ptr %overflow_arg_area.next285.i, ptr %overflow_arg_area_p283.i, align 8
@@ -733,21 +733,21 @@ vaarg.end286.i:                                   ; preds = %vaarg.in_mem282.i, 
   br label %return
 
 if.else299.tail.i:                                ; preds = %sub_161.i
-  %101 = getelementptr inbounds i8, ptr %call.i.i, i64 14
+  %101 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 14
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 0
   br i1 %103, label %if.then304.i, label %if.end337.i
 
 if.then304.i:                                     ; preds = %if.else299.tail.i
-  %ap305.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %ap305.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
   %104 = load ptr, ptr %ap305.i, align 8
-  %fp_offset_p.i = getelementptr inbounds i8, ptr %104, i64 4
+  %fp_offset_p.i = getelementptr inbounds nuw i8, ptr %104, i64 4
   %fp_offset.i = load i32, ptr %fp_offset_p.i, align 4
   %fits_in_fp.i = icmp ult i32 %fp_offset.i, 161
   br i1 %fits_in_fp.i, label %vaarg.in_reg307.i, label %vaarg.in_mem309.i
 
 vaarg.in_reg307.i:                                ; preds = %if.then304.i
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %reg_save_area308.i = load ptr, ptr %105, align 8
   %106 = zext nneg i32 %fp_offset.i to i64
   %107 = getelementptr i8, ptr %reg_save_area308.i, i64 %106
@@ -756,7 +756,7 @@ vaarg.in_reg307.i:                                ; preds = %if.then304.i
   br label %vaarg.end313.i
 
 vaarg.in_mem309.i:                                ; preds = %if.then304.i
-  %overflow_arg_area_p310.i = getelementptr inbounds i8, ptr %104, i64 8
+  %overflow_arg_area_p310.i = getelementptr inbounds nuw i8, ptr %104, i64 8
   %overflow_arg_area311.i = load ptr, ptr %overflow_arg_area_p310.i, align 8
   %overflow_arg_area.next312.i = getelementptr i8, ptr %overflow_arg_area311.i, i64 8
   store ptr %overflow_arg_area.next312.i, ptr %overflow_arg_area_p310.i, align 8
@@ -775,7 +775,7 @@ if.end337.i:                                      ; preds = %sub_161.i, %if.else
 sw.bb6:                                           ; preds = %if.end, %if.end, %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uvalue.i)
-  %current.i.i54 = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i.i54 = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %110 = load ptr, ptr %current.i.i54, align 8
   tail call void @g_free(ptr noundef %110) #14
   %111 = load ptr, ptr %0, align 8
@@ -799,7 +799,7 @@ if.end.i58:                                       ; preds = %sw.bb6
 sw.bb.i:                                          ; preds = %if.end.i58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %utf8_buf.i.i)
-  %str.i.i = getelementptr inbounds i8, ptr %call.i.i56, i64 12
+  %str.i.i = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 12
   %113 = load i8, ptr %str.i.i, align 1
   switch i8 %113, label %if.else.i.i [
     i8 34, label %if.end.i.i
@@ -818,9 +818,9 @@ if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i
   br i1 %cmp8.not171.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
-  %ap.i.i = getelementptr inbounds i8, ptr %ctxt, i64 24
-  %len.i118.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 8
-  %allocated_len.i120.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 16
+  %ap.i.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 24
+  %len.i118.i.i = getelementptr inbounds nuw i8, ptr %call.i18.i, i64 8
+  %allocated_len.i120.i.i = getelementptr inbounds nuw i8, ptr %call.i18.i, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog99.i.i, %while.body.lr.ph.i.i
@@ -1266,7 +1266,7 @@ parse_string.exit.i:                              ; preds = %out.i.i, %while.end
   br label %parse_literal.exit
 
 sw.bb4.i:                                         ; preds = %if.end.i58
-  %str.i60 = getelementptr inbounds i8, ptr %call.i.i56, i64 12
+  %str.i60 = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 12
   %call5.i = call i32 @qemu_strtoi64(ptr noundef nonnull %str.i60, ptr noundef null, i32 noundef 10, ptr noundef nonnull %value.i) #14
   switch i32 %call5.i, label %if.else21.i [
     i32 0, label %if.then7.i
@@ -1304,7 +1304,7 @@ if.else47.i:                                      ; preds = %if.then26.i
   unreachable
 
 sw.bb50.i:                                        ; preds = %if.then26.i, %if.end22.i61, %if.end.i58
-  %str51.i = getelementptr inbounds i8, ptr %call.i.i56, i64 12
+  %str51.i = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 12
   %call53.i = call double @strtod(ptr nocapture noundef nonnull %str51.i, ptr noundef null) #14
   %call54.i = call ptr @qnum_from_double(double noundef %call53.i) #14
   br label %parse_literal.exit
@@ -1320,7 +1320,7 @@ parse_literal.exit:                               ; preds = %parse_string.exit.i
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %current.i.i64 = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i.i64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %186 = load ptr, ptr %current.i.i64, align 8
   tail call void @g_free(ptr noundef %186) #14
   %187 = load ptr, ptr %0, align 8
@@ -1339,7 +1339,7 @@ if.else.i70:                                      ; preds = %land.lhs.true.i68, 
   unreachable
 
 if.end.i71:                                       ; preds = %land.lhs.true.i68
-  %str.i72 = getelementptr inbounds i8, ptr %call.i.i66, i64 12
+  %str.i72 = getelementptr inbounds nuw i8, ptr %call.i.i66, i64 12
   %call1.i73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str.i72, ptr noundef nonnull dereferenceable(5) @.str.38) #16
   %tobool2.not.i = icmp eq i32 %call1.i73, 0
   br i1 %tobool2.not.i, label %if.then3.i78, label %if.else7.i
@@ -1391,10 +1391,10 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @parser_context_pop_token(ptr nocapture noundef nonnull %ctxt) unnamed_addr #0 {
 entry:
-  %current = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %0 = load ptr, ptr %current, align 8
   tail call void @g_free(ptr noundef %0) #14
-  %buf = getelementptr inbounds i8, ptr %ctxt, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %ctxt, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = tail call ptr @g_queue_pop_head(ptr noundef %1) #14
   store ptr %call, ptr %current, align 8
@@ -1469,7 +1469,7 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %if.end4, label %lor.lhs.false.i30
 
 if.end4:                                          ; preds = %qobject_type.exit.i
-  %current.i = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %current.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %current.i, align 8
   tail call void @g_free(ptr noundef %2) #14
   %3 = load ptr, ptr %0, align 8
@@ -1497,7 +1497,7 @@ if.end15:                                         ; preds = %if.end11
 lor.lhs.false.i:                                  ; preds = %if.end15
   %call21 = tail call ptr @qstring_get_str(ptr noundef nonnull %call1) #14
   tail call void @qdict_put_obj(ptr noundef %dict, ptr noundef %call21, ptr noundef nonnull %call12) #14
-  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %5, 0
   br i1 %tobool1.not.i, label %if.else.i28, label %land.lhs.true.i26
@@ -1519,7 +1519,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i26
 lor.lhs.false.i30:                                ; preds = %qobject_type.exit.i, %if.end15, %if.end11, %if.end8, %if.end4
   %.str.10.sink = phi ptr [ @.str.2, %if.end4 ], [ @.str.8, %if.end8 ], [ @.str.9, %if.end11 ], [ @.str.10, %if.end15 ], [ @.str.7, %qobject_type.exit.i ]
   tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull %.str.10.sink)
-  %refcnt.i31 = getelementptr inbounds i8, ptr %call1, i64 8
+  %refcnt.i31 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %6 = load i64, ptr %refcnt.i31, align 8
   %tobool1.not.i32 = icmp eq i64 %6, 0
   br i1 %tobool1.not.i32, label %if.else.i37, label %land.lhs.true.i33

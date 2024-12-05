@@ -24,14 +24,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @clock() #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %.not = icmp eq i32 %2, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %41
@@ -47,7 +47,7 @@ define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef 
 
 13:                                               ; preds = %10, %9
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %0, align 8
   %18 = tail call ptr @Rpo_Factorize(ptr noundef %16, i32 noundef %17, i32 noundef %1, i32 noundef %2) #10
@@ -58,16 +58,16 @@ define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1, ptr noundef %24)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2)
   br label %25
 
 25:                                               ; preds = %20, %19
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %29, label %28
@@ -88,9 +88,9 @@ define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef 
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = getelementptr inbounds i8, ptr %18, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %Lit_Free.exit, label %37
@@ -240,9 +240,9 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %16 = add nsw i32 %9, -6
   %17 = shl nuw nsw i32 1, %16
   %18 = select i1 %15, i32 1, i32 %17
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %11, ptr %20, align 8
   %21 = zext nneg i32 %18 to i64
   %22 = shl nuw nsw i64 %21, 3
@@ -250,7 +250,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %24 = sext i32 %11 to i64
   %25 = mul i64 %23, %24
   %26 = call noalias ptr @malloc(i64 noundef %25) #12
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds ptr, ptr %26, i64 %24
   store ptr %28, ptr %26, align 8
@@ -271,7 +271,7 @@ define void @Abc_TruthRpoTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %34 = getelementptr ptr, ptr %26, i64 %indvars.iv.i.i
-  %35 = getelementptr inbounds i64, ptr %store_forwarded, i64 %21
+  %35 = getelementptr inbounds nuw i64, ptr %store_forwarded, i64 %21
   store ptr %35, ptr %34, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -303,28 +303,28 @@ Abc_TruthStoreAlloc.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %47 = phi ptr [ %84, %82 ], [ %36, %.lr.ph.i29.preheader.i ]
   %.01418.i.us.i = phi i64 [ %indvars.iv.next.i31.us.i, %82 ], [ 0, %.lr.ph.i29.preheader.i ]
   %indvars.iv.next23.i.us.i = add nuw nsw i64 %indvars.iv22.i.us.i, 1
-  %48 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv22.i.us.i
+  %48 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv22.i.us.i
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq i8 %46, 48
   br i1 %50, label %51, label %.lr.ph.preheader.i.i.us.i
 
 51:                                               ; preds = %.lr.ph.i29.us.i
-  %52 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 120
   %spec.select.idx.i.i.us.i = select i1 %54, i64 2, i64 0
-  %spec.select.i.i.us.i = getelementptr inbounds i8, ptr %47, i64 %spec.select.idx.i.i.us.i
+  %spec.select.i.i.us.i = getelementptr inbounds nuw i8, ptr %47, i64 %spec.select.idx.i.i.us.i
   br label %.lr.ph.preheader.i.i.us.i
 
 .lr.ph.preheader.i.i.us.i:                        ; preds = %51, %.lr.ph.i29.us.i
   %.0.i.i.us.i = phi ptr [ %47, %.lr.ph.i29.us.i ], [ %spec.select.i.i.us.i, %51 ]
+  %55 = getelementptr i8, ptr %.0.i.i.us.i, i64 %45
   br label %.lr.ph.i.i.us.i
 
 .lr.ph.i.i.us.i:                                  ; preds = %Abc_TruthReadHexDigit.exit.i.i.us.i, %.lr.ph.preheader.i.i.us.i
   %indvars.iv.i.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i.i.us.i ], [ %indvars.iv.next.i.i.us.i, %Abc_TruthReadHexDigit.exit.i.i.us.i ]
-  %55 = xor i64 %indvars.iv.i.i.us.i, -1
-  %56 = add nsw i64 %55, %45
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.us.i, i64 %56
+  %56 = xor i64 %indvars.iv.i.i.us.i, -1
+  %57 = getelementptr i8, ptr %55, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %58 to i32
   %60 = add i8 %58, -48
@@ -359,7 +359,7 @@ Abc_TruthReadHexDigit.exit.i.i.us.i:              ; preds = %68, %66, %63
   %73 = shl i64 %70, %72
   %74 = lshr i64 %indvars.iv.i.i.us.i, 4
   %75 = and i64 %74, 268435455
-  %76 = getelementptr inbounds i64, ptr %49, i64 %75
+  %76 = getelementptr inbounds nuw i64, ptr %49, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = or i64 %73, %77
   store i64 %78, ptr %76, align 8
@@ -448,14 +448,14 @@ Abc_TruthReadHex.exit.i.loopexit.us.i:            ; preds = %Abc_TruthReadHexDig
   %109 = add nsw i32 %1, -6
   %110 = shl nuw i32 1, %109
   %111 = select i1 %108, i32 1, i32 %110
-  %112 = getelementptr inbounds i8, ptr %107, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %107, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 %100, ptr %113, align 8
   %114 = sext i32 %100 to i64
   %115 = shl nsw i64 %114, 3
   %116 = tail call noalias ptr @malloc(i64 noundef %115) #12
-  %117 = getelementptr inbounds i8, ptr %107, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr %116, ptr %117, align 8
   store ptr %106, ptr %116, align 8
   %118 = icmp sgt i32 %100, 1
@@ -493,7 +493,7 @@ Abc_TtStoreLoad.exit:                             ; preds = %120, %8, %Abc_Truth
   %.sink = phi i32 [ %3, %.split9 ], [ 0, %Abc_TtStoreLoad.exit ]
   call void @Abc_TruthRpoPerform(ptr noundef %.0.i, i32 noundef %2, i32 noundef %.sink)
   %124 = icmp sgt i32 %1, -1
-  %125 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %126 = load ptr, ptr %125, align 8
   br i1 %124, label %127, label %131
 

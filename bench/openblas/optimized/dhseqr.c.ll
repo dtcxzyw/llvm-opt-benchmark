@@ -173,9 +173,9 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds double, ptr %26, i64 %105
   %107 = load double, ptr %106, align 8, !tbaa !7
-  %108 = getelementptr inbounds double, ptr %27, i64 %102
+  %108 = getelementptr inbounds nuw double, ptr %27, i64 %102
   store double %107, ptr %108, align 8, !tbaa !7
-  %109 = getelementptr inbounds double, ptr %28, i64 %102
+  %109 = getelementptr inbounds nuw double, ptr %28, i64 %102
   store double 0.000000e+00, ptr %109, align 8, !tbaa !7
   %110 = add nuw nsw i64 %102, 1
   %111 = icmp eq i64 %110, %100
@@ -266,7 +266,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %157 = load ptr, ptr %.sroa.phi, align 8, !tbaa !13
   %158 = load i8, ptr %157, align 1, !tbaa !15
   store i8 %158, ptr %152, align 1, !tbaa !15
-  %159 = getelementptr inbounds i8, ptr %152, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %150

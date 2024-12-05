@@ -21,17 +21,17 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %6, label %.preheader, label %76
 
 .preheader:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 26
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %18
 
 18:                                               ; preds = %.preheader, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread5"
@@ -155,7 +155,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %18
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit": ; preds = %58
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.12.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -164,26 +164,26 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %switch, label %89, label %92
 
 76:                                               ; preds = %2
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %79 = load i64, ptr %78, align 8, !noundef !4
   %80 = icmp eq i64 %79, -1
-  %81 = getelementptr inbounds i8, ptr %1, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %82 = load ptr, ptr %81, align 8, !nonnull !4, !align !9, !noundef !4
-  %83 = getelementptr inbounds i8, ptr %1, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %84 = load i64, ptr %83, align 8, !noundef !4
-  %85 = getelementptr inbounds i8, ptr %1, i64 88
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %86 = load ptr, ptr %85, align 8, !nonnull !4, !align !9, !noundef !4
-  %87 = getelementptr inbounds i8, ptr %1, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %88 = load i64, ptr %87, align 8, !noundef !4
   br i1 %80, label %95, label %94
 
 89:                                               ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit", %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread9"
   %.sroa.8.114 = phi i64 [ %31, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread9" ], [ %.sroa.8.0.copyload, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit" ]
   %.sroa.12.113 = phi i64 [ %31, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread9" ], [ %.sroa.12.0.copyload, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit" ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.8.114, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.12.113, ptr %91, align 8
   store i64 1, ptr %0, align 8
   br label %93

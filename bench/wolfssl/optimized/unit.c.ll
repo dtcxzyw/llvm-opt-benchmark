@@ -80,20 +80,20 @@ ChangeToWolfRoot.exit:                            ; preds = %for.body.i
 while.body:                                       ; preds = %ChangeToWolfRoot.exit, %if.end63
   %argv.addr.041 = phi ptr [ %arrayidx, %if.end63 ], [ %argv, %ChangeToWolfRoot.exit ]
   %argc.addr.040 = phi i32 [ %dec, %if.end63 ], [ %argc, %ChangeToWolfRoot.exit ]
-  %arrayidx = getelementptr inbounds i8, ptr %argv.addr.041, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv.addr.041, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i8, ptr %1, align 1
   %cmp4.not = icmp eq i8 %2, 45
   br i1 %cmp4.not, label %sub_1, label %while.end
 
 sub_1:                                            ; preds = %while.body
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %.not45 = icmp eq i8 %4, 63
   br i1 %.not45, label %if.end.tail, label %lor.lhs.false
 
 if.end.tail:                                      ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %if.then14, label %lor.lhs.false
@@ -135,7 +135,7 @@ if.else26:                                        ; preds = %if.else20
   br i1 %cmp29, label %if.end63, label %if.else32
 
 if.else32:                                        ; preds = %if.else26
-  %arrayidx34 = getelementptr inbounds i8, ptr %1, i64 1
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %arrayidx34, align 1
   %9 = add i8 %8, -48
   %or.cond21 = icmp ult i8 %9, 10

@@ -280,52 +280,52 @@ define hidden void @_ZN12CompilerToVM4Data10initializeEP8JVMCIEnv(ptr nocapture 
   store i32 160, ptr @_ZN12CompilerToVM4Data26Klass_vtable_length_offsetE, align 4
   store i32 1, ptr @_ZN12CompilerToVM4Data26Method_extra_stack_entriesE, align 4
   %2 = load ptr, ptr @_ZN13SharedRuntime13_ic_miss_blobE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   store ptr %6, ptr @_ZN12CompilerToVM4Data26SharedRuntime_ic_miss_stubE, align 8
   %7 = load ptr, ptr @_ZN13SharedRuntime18_wrong_method_blobE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   store ptr %11, ptr @_ZN12CompilerToVM4Data38SharedRuntime_handle_wrong_method_stubE, align 8
   %12 = load ptr, ptr @_ZN13SharedRuntime11_deopt_blobE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %12, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   store ptr %20, ptr @_ZN12CompilerToVM4Data31SharedRuntime_deopt_blob_unpackE, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %16, i64 %23
   store ptr %24, ptr @_ZN12CompilerToVM4Data53SharedRuntime_deopt_blob_unpack_with_exception_in_tlsE, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %16, i64 %27
   store ptr %28, ptr @_ZN12CompilerToVM4Data38SharedRuntime_deopt_blob_uncommon_trapE, align 8
   %29 = load ptr, ptr @_ZN13SharedRuntime33_polling_page_return_handler_blobE, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   store ptr %33, ptr @_ZN12CompilerToVM4Data41SharedRuntime_polling_page_return_handlerE, align 8
   %34 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %1
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(12) %36) #7
   store i32 %41, ptr @_ZN12CompilerToVM4Data34thread_disarmed_guard_value_offsetE, align 4
@@ -420,7 +420,7 @@ define hidden void @_ZN12CompilerToVM4Data10initializeEP8JVMCIEnv(ptr nocapture 
   store i32 1, ptr @_ZN12CompilerToVM4Data27data_section_item_alignmentE, align 4
   store ptr @_ZN11JvmtiExport27_should_notify_object_allocE, ptr @_ZN12CompilerToVM4Data27_should_notify_object_allocE, align 8
   %85 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, 2
   %.not20 = icmp eq i64 %88, 0
@@ -982,7 +982,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %450 = extractvalue { ptr, i8 } %445, 1
   %.sroa.3.0.i18183 = select i1 %.not.i18182, i8 %450, i8 0
   store ptr %.sroa.0.0.i18184, ptr %2, align 8
-  %.sroa.210487.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.210487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.3.0.i18183, ptr %.sroa.210487.0..sroa_idx, align 8
   %451 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 1) #7
   %452 = zext i1 %451 to i8
@@ -1018,7 +1018,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %472 = extractvalue { ptr, i8 } %469, 1
   %473 = extractvalue { ptr, i8 } %469, 0
   store ptr %473, ptr %3, align 8
-  %.sroa.210462.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.210462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %472, ptr %.sroa.210462.0..sroa_idx, align 8
   %474 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 2) #7
   %475 = zext i1 %474 to i8
@@ -1054,7 +1054,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %495 = extractvalue { ptr, i8 } %492, 1
   %496 = extractvalue { ptr, i8 } %492, 0
   store ptr %496, ptr %4, align 8
-  %.sroa.210437.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.210437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %495, ptr %.sroa.210437.0..sroa_idx, align 8
   %497 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 3) #7
   %498 = zext i1 %497 to i8
@@ -1090,7 +1090,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %518 = extractvalue { ptr, i8 } %515, 1
   %519 = extractvalue { ptr, i8 } %515, 0
   store ptr %519, ptr %5, align 8
-  %.sroa.210412.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.210412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %518, ptr %.sroa.210412.0..sroa_idx, align 8
   %520 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 4) #7
   %521 = zext i1 %520 to i8
@@ -1126,7 +1126,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %541 = extractvalue { ptr, i8 } %538, 1
   %542 = extractvalue { ptr, i8 } %538, 0
   store ptr %542, ptr %6, align 8
-  %.sroa.210387.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.210387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %541, ptr %.sroa.210387.0..sroa_idx, align 8
   %543 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 5) #7
   %544 = zext i1 %543 to i8
@@ -1171,7 +1171,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %570 = extractvalue { ptr, i8 } %567, 1
   %571 = extractvalue { ptr, i8 } %567, 0
   store ptr %571, ptr %7, align 8
-  %.sroa.210362.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.210362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %570, ptr %.sroa.210362.0..sroa_idx, align 8
   %572 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 6) #7
   %573 = zext i1 %572 to i8
@@ -1207,7 +1207,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %593 = extractvalue { ptr, i8 } %590, 1
   %594 = extractvalue { ptr, i8 } %590, 0
   store ptr %594, ptr %8, align 8
-  %.sroa.210337.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.210337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %593, ptr %.sroa.210337.0..sroa_idx, align 8
   %595 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 7) #7
   %596 = zext i1 %595 to i8
@@ -1243,7 +1243,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %616 = extractvalue { ptr, i8 } %613, 1
   %617 = extractvalue { ptr, i8 } %613, 0
   store ptr %617, ptr %9, align 8
-  %.sroa.210312.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.210312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %616, ptr %.sroa.210312.0..sroa_idx, align 8
   %618 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 8) #7
   %619 = zext i1 %618 to i8
@@ -1279,7 +1279,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %639 = extractvalue { ptr, i8 } %636, 1
   %640 = extractvalue { ptr, i8 } %636, 0
   store ptr %640, ptr %10, align 8
-  %.sroa.210287.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.210287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %639, ptr %.sroa.210287.0..sroa_idx, align 8
   %641 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 9) #7
   %642 = zext i1 %641 to i8
@@ -1315,7 +1315,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %662 = extractvalue { ptr, i8 } %659, 1
   %663 = extractvalue { ptr, i8 } %659, 0
   store ptr %663, ptr %11, align 8
-  %.sroa.210262.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.210262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %662, ptr %.sroa.210262.0..sroa_idx, align 8
   %664 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 10) #7
   %665 = zext i1 %664 to i8
@@ -1351,7 +1351,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %685 = extractvalue { ptr, i8 } %682, 1
   %686 = extractvalue { ptr, i8 } %682, 0
   store ptr %686, ptr %12, align 8
-  %.sroa.210237.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.210237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 %685, ptr %.sroa.210237.0..sroa_idx, align 8
   %687 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 11) #7
   %688 = zext i1 %687 to i8
@@ -1387,7 +1387,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %708 = extractvalue { ptr, i8 } %705, 1
   %709 = extractvalue { ptr, i8 } %705, 0
   store ptr %709, ptr %13, align 8
-  %.sroa.210212.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.210212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 %708, ptr %.sroa.210212.0..sroa_idx, align 8
   %710 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 12) #7
   %711 = zext i1 %710 to i8
@@ -1423,7 +1423,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %731 = extractvalue { ptr, i8 } %728, 1
   %732 = extractvalue { ptr, i8 } %728, 0
   store ptr %732, ptr %14, align 8
-  %.sroa.210187.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.210187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 %731, ptr %.sroa.210187.0..sroa_idx, align 8
   %733 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 13) #7
   %734 = zext i1 %733 to i8
@@ -1459,7 +1459,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %754 = extractvalue { ptr, i8 } %751, 1
   %755 = extractvalue { ptr, i8 } %751, 0
   store ptr %755, ptr %15, align 8
-  %.sroa.210162.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.210162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %754, ptr %.sroa.210162.0..sroa_idx, align 8
   %756 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 14) #7
   %757 = zext i1 %756 to i8
@@ -1495,7 +1495,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %777 = extractvalue { ptr, i8 } %774, 1
   %778 = extractvalue { ptr, i8 } %774, 0
   store ptr %778, ptr %16, align 8
-  %.sroa.210137.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.210137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 %777, ptr %.sroa.210137.0..sroa_idx, align 8
   %779 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 15) #7
   %780 = zext i1 %779 to i8
@@ -1531,7 +1531,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %800 = extractvalue { ptr, i8 } %797, 1
   %801 = extractvalue { ptr, i8 } %797, 0
   store ptr %801, ptr %17, align 8
-  %.sroa.210112.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.210112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %800, ptr %.sroa.210112.0..sroa_idx, align 8
   %802 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 16) #7
   %803 = zext i1 %802 to i8
@@ -1567,7 +1567,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %823 = extractvalue { ptr, i8 } %820, 1
   %824 = extractvalue { ptr, i8 } %820, 0
   store ptr %824, ptr %18, align 8
-  %.sroa.210087.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.210087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %823, ptr %.sroa.210087.0..sroa_idx, align 8
   %825 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 17) #7
   %826 = zext i1 %825 to i8
@@ -1603,7 +1603,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %846 = extractvalue { ptr, i8 } %843, 1
   %847 = extractvalue { ptr, i8 } %843, 0
   store ptr %847, ptr %19, align 8
-  %.sroa.210062.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.210062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 %846, ptr %.sroa.210062.0..sroa_idx, align 8
   %848 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 18) #7
   %849 = zext i1 %848 to i8
@@ -1639,7 +1639,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %869 = extractvalue { ptr, i8 } %866, 1
   %870 = extractvalue { ptr, i8 } %866, 0
   store ptr %870, ptr %20, align 8
-  %.sroa.210037.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.210037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %869, ptr %.sroa.210037.0..sroa_idx, align 8
   %871 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 19) #7
   %872 = zext i1 %871 to i8
@@ -1675,7 +1675,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %892 = extractvalue { ptr, i8 } %889, 1
   %893 = extractvalue { ptr, i8 } %889, 0
   store ptr %893, ptr %21, align 8
-  %.sroa.210012.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.210012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 %892, ptr %.sroa.210012.0..sroa_idx, align 8
   %894 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 20) #7
   %895 = zext i1 %894 to i8
@@ -1711,7 +1711,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %915 = extractvalue { ptr, i8 } %912, 1
   %916 = extractvalue { ptr, i8 } %912, 0
   store ptr %916, ptr %22, align 8
-  %.sroa.29987.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.29987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 %915, ptr %.sroa.29987.0..sroa_idx, align 8
   %917 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 21) #7
   %918 = zext i1 %917 to i8
@@ -1747,7 +1747,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %938 = extractvalue { ptr, i8 } %935, 1
   %939 = extractvalue { ptr, i8 } %935, 0
   store ptr %939, ptr %23, align 8
-  %.sroa.29962.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.29962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 %938, ptr %.sroa.29962.0..sroa_idx, align 8
   %940 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 22) #7
   %941 = zext i1 %940 to i8
@@ -1783,7 +1783,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %961 = extractvalue { ptr, i8 } %958, 1
   %962 = extractvalue { ptr, i8 } %958, 0
   store ptr %962, ptr %24, align 8
-  %.sroa.29937.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.29937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 %961, ptr %.sroa.29937.0..sroa_idx, align 8
   %963 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 23) #7
   %964 = zext i1 %963 to i8
@@ -1819,7 +1819,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %984 = extractvalue { ptr, i8 } %981, 1
   %985 = extractvalue { ptr, i8 } %981, 0
   store ptr %985, ptr %25, align 8
-  %.sroa.29912.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.29912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i8 %984, ptr %.sroa.29912.0..sroa_idx, align 8
   %986 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 24) #7
   %987 = zext i1 %986 to i8
@@ -1855,7 +1855,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1007 = extractvalue { ptr, i8 } %1004, 1
   %1008 = extractvalue { ptr, i8 } %1004, 0
   store ptr %1008, ptr %26, align 8
-  %.sroa.29887.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.29887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 %1007, ptr %.sroa.29887.0..sroa_idx, align 8
   %1009 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 25) #7
   %1010 = zext i1 %1009 to i8
@@ -1891,7 +1891,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1030 = extractvalue { ptr, i8 } %1027, 1
   %1031 = extractvalue { ptr, i8 } %1027, 0
   store ptr %1031, ptr %27, align 8
-  %.sroa.29862.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa.29862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i8 %1030, ptr %.sroa.29862.0..sroa_idx, align 8
   %1032 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 26) #7
   %1033 = zext i1 %1032 to i8
@@ -1927,7 +1927,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1053 = extractvalue { ptr, i8 } %1050, 1
   %1054 = extractvalue { ptr, i8 } %1050, 0
   store ptr %1054, ptr %28, align 8
-  %.sroa.29837.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.29837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 %1053, ptr %.sroa.29837.0..sroa_idx, align 8
   %1055 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 27) #7
   %1056 = zext i1 %1055 to i8
@@ -1963,7 +1963,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1076 = extractvalue { ptr, i8 } %1073, 1
   %1077 = extractvalue { ptr, i8 } %1073, 0
   store ptr %1077, ptr %29, align 8
-  %.sroa.29812.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.29812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 %1076, ptr %.sroa.29812.0..sroa_idx, align 8
   %1078 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 28) #7
   %1079 = zext i1 %1078 to i8
@@ -1999,7 +1999,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1099 = extractvalue { ptr, i8 } %1096, 1
   %1100 = extractvalue { ptr, i8 } %1096, 0
   store ptr %1100, ptr %30, align 8
-  %.sroa.29787.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.29787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 %1099, ptr %.sroa.29787.0..sroa_idx, align 8
   %1101 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 29) #7
   %1102 = zext i1 %1101 to i8
@@ -2035,7 +2035,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1122 = extractvalue { ptr, i8 } %1119, 1
   %1123 = extractvalue { ptr, i8 } %1119, 0
   store ptr %1123, ptr %31, align 8
-  %.sroa.29762.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.29762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 %1122, ptr %.sroa.29762.0..sroa_idx, align 8
   %1124 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 30) #7
   %1125 = zext i1 %1124 to i8
@@ -2071,7 +2071,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1145 = extractvalue { ptr, i8 } %1142, 1
   %1146 = extractvalue { ptr, i8 } %1142, 0
   store ptr %1146, ptr %32, align 8
-  %.sroa.29737.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.29737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i8 %1145, ptr %.sroa.29737.0..sroa_idx, align 8
   %1147 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 31) #7
   %1148 = zext i1 %1147 to i8
@@ -2107,7 +2107,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1168 = extractvalue { ptr, i8 } %1165, 1
   %1169 = extractvalue { ptr, i8 } %1165, 0
   store ptr %1169, ptr %33, align 8
-  %.sroa.29712.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.29712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 %1168, ptr %.sroa.29712.0..sroa_idx, align 8
   %1170 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 32) #7
   %1171 = zext i1 %1170 to i8
@@ -2143,7 +2143,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1191 = extractvalue { ptr, i8 } %1188, 1
   %1192 = extractvalue { ptr, i8 } %1188, 0
   store ptr %1192, ptr %34, align 8
-  %.sroa.29687.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.29687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 %1191, ptr %.sroa.29687.0..sroa_idx, align 8
   %1193 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 33) #7
   %1194 = zext i1 %1193 to i8
@@ -2179,7 +2179,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1214 = extractvalue { ptr, i8 } %1211, 1
   %1215 = extractvalue { ptr, i8 } %1211, 0
   store ptr %1215, ptr %35, align 8
-  %.sroa.29662.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.29662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i8 %1214, ptr %.sroa.29662.0..sroa_idx, align 8
   %1216 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 34) #7
   %1217 = zext i1 %1216 to i8
@@ -2215,7 +2215,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1237 = extractvalue { ptr, i8 } %1234, 1
   %1238 = extractvalue { ptr, i8 } %1234, 0
   store ptr %1238, ptr %36, align 8
-  %.sroa.29637.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
+  %.sroa.29637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 %1237, ptr %.sroa.29637.0..sroa_idx, align 8
   %1239 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 35) #7
   %1240 = zext i1 %1239 to i8
@@ -2251,7 +2251,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1260 = extractvalue { ptr, i8 } %1257, 1
   %1261 = extractvalue { ptr, i8 } %1257, 0
   store ptr %1261, ptr %37, align 8
-  %.sroa.29612.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.29612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %1260, ptr %.sroa.29612.0..sroa_idx, align 8
   %1262 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 36) #7
   %1263 = zext i1 %1262 to i8
@@ -2287,7 +2287,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1283 = extractvalue { ptr, i8 } %1280, 1
   %1284 = extractvalue { ptr, i8 } %1280, 0
   store ptr %1284, ptr %38, align 8
-  %.sroa.29587.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.29587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 %1283, ptr %.sroa.29587.0..sroa_idx, align 8
   %1285 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 37) #7
   %1286 = zext i1 %1285 to i8
@@ -2323,7 +2323,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1306 = extractvalue { ptr, i8 } %1303, 1
   %1307 = extractvalue { ptr, i8 } %1303, 0
   store ptr %1307, ptr %39, align 8
-  %.sroa.29562.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.29562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 %1306, ptr %.sroa.29562.0..sroa_idx, align 8
   %1308 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 38) #7
   %1309 = zext i1 %1308 to i8
@@ -2359,7 +2359,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1329 = extractvalue { ptr, i8 } %1326, 1
   %1330 = extractvalue { ptr, i8 } %1326, 0
   store ptr %1330, ptr %40, align 8
-  %.sroa.29537.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.29537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i8 %1329, ptr %.sroa.29537.0..sroa_idx, align 8
   %1331 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 39) #7
   %1332 = zext i1 %1331 to i8
@@ -2395,7 +2395,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1352 = extractvalue { ptr, i8 } %1349, 1
   %1353 = extractvalue { ptr, i8 } %1349, 0
   store ptr %1353, ptr %41, align 8
-  %.sroa.29512.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 8
+  %.sroa.29512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 %1352, ptr %.sroa.29512.0..sroa_idx, align 8
   %1354 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 40) #7
   %1355 = zext i1 %1354 to i8
@@ -2431,7 +2431,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1375 = extractvalue { ptr, i8 } %1372, 1
   %1376 = extractvalue { ptr, i8 } %1372, 0
   store ptr %1376, ptr %42, align 8
-  %.sroa.29487.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
+  %.sroa.29487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i8 %1375, ptr %.sroa.29487.0..sroa_idx, align 8
   %1377 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 41) #7
   %1378 = zext i1 %1377 to i8
@@ -2467,7 +2467,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1398 = extractvalue { ptr, i8 } %1395, 1
   %1399 = extractvalue { ptr, i8 } %1395, 0
   store ptr %1399, ptr %43, align 8
-  %.sroa.29462.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.29462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i8 %1398, ptr %.sroa.29462.0..sroa_idx, align 8
   %1400 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 42) #7
   %1401 = zext i1 %1400 to i8
@@ -2503,7 +2503,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1421 = extractvalue { ptr, i8 } %1418, 1
   %1422 = extractvalue { ptr, i8 } %1418, 0
   store ptr %1422, ptr %44, align 8
-  %.sroa.29437.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
+  %.sroa.29437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 %1421, ptr %.sroa.29437.0..sroa_idx, align 8
   %1423 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 43) #7
   %1424 = zext i1 %1423 to i8
@@ -2539,7 +2539,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1444 = extractvalue { ptr, i8 } %1441, 1
   %1445 = extractvalue { ptr, i8 } %1441, 0
   store ptr %1445, ptr %45, align 8
-  %.sroa.29412.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
+  %.sroa.29412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i8 %1444, ptr %.sroa.29412.0..sroa_idx, align 8
   %1446 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 44) #7
   %1447 = zext i1 %1446 to i8
@@ -2575,7 +2575,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1467 = extractvalue { ptr, i8 } %1464, 1
   %1468 = extractvalue { ptr, i8 } %1464, 0
   store ptr %1468, ptr %46, align 8
-  %.sroa.29387.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.29387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 %1467, ptr %.sroa.29387.0..sroa_idx, align 8
   %1469 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 45) #7
   %1470 = zext i1 %1469 to i8
@@ -2611,7 +2611,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1490 = extractvalue { ptr, i8 } %1487, 1
   %1491 = extractvalue { ptr, i8 } %1487, 0
   store ptr %1491, ptr %47, align 8
-  %.sroa.29362.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 8
+  %.sroa.29362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i8 %1490, ptr %.sroa.29362.0..sroa_idx, align 8
   %1492 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 46) #7
   %1493 = zext i1 %1492 to i8
@@ -2647,7 +2647,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1513 = extractvalue { ptr, i8 } %1510, 1
   %1514 = extractvalue { ptr, i8 } %1510, 0
   store ptr %1514, ptr %48, align 8
-  %.sroa.29337.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.29337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i8 %1513, ptr %.sroa.29337.0..sroa_idx, align 8
   %1515 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 47) #7
   %1516 = zext i1 %1515 to i8
@@ -2683,7 +2683,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1536 = extractvalue { ptr, i8 } %1533, 1
   %1537 = extractvalue { ptr, i8 } %1533, 0
   store ptr %1537, ptr %49, align 8
-  %.sroa.29312.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.29312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 %1536, ptr %.sroa.29312.0..sroa_idx, align 8
   %1538 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 48) #7
   %1539 = zext i1 %1538 to i8
@@ -2719,7 +2719,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1559 = extractvalue { ptr, i8 } %1556, 1
   %1560 = extractvalue { ptr, i8 } %1556, 0
   store ptr %1560, ptr %50, align 8
-  %.sroa.29287.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
+  %.sroa.29287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i8 %1559, ptr %.sroa.29287.0..sroa_idx, align 8
   %1561 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 49) #7
   %1562 = zext i1 %1561 to i8
@@ -2764,7 +2764,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1588 = extractvalue { ptr, i8 } %1585, 1
   %1589 = extractvalue { ptr, i8 } %1585, 0
   store ptr %1589, ptr %51, align 8
-  %.sroa.29262.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 8
+  %.sroa.29262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i8 %1588, ptr %.sroa.29262.0..sroa_idx, align 8
   %1590 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 50) #7
   %1591 = zext i1 %1590 to i8
@@ -2800,7 +2800,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1611 = extractvalue { ptr, i8 } %1608, 1
   %1612 = extractvalue { ptr, i8 } %1608, 0
   store ptr %1612, ptr %52, align 8
-  %.sroa.29237.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 8
+  %.sroa.29237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 %1611, ptr %.sroa.29237.0..sroa_idx, align 8
   %1613 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 51) #7
   %1614 = zext i1 %1613 to i8
@@ -2836,7 +2836,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1634 = extractvalue { ptr, i8 } %1631, 1
   %1635 = extractvalue { ptr, i8 } %1631, 0
   store ptr %1635, ptr %53, align 8
-  %.sroa.29212.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 8
+  %.sroa.29212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i8 %1634, ptr %.sroa.29212.0..sroa_idx, align 8
   %1636 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 52) #7
   %1637 = zext i1 %1636 to i8
@@ -2872,7 +2872,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1657 = extractvalue { ptr, i8 } %1654, 1
   %1658 = extractvalue { ptr, i8 } %1654, 0
   store ptr %1658, ptr %54, align 8
-  %.sroa.29187.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  %.sroa.29187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i8 %1657, ptr %.sroa.29187.0..sroa_idx, align 8
   %1659 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 53) #7
   %1660 = zext i1 %1659 to i8
@@ -2908,7 +2908,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1680 = extractvalue { ptr, i8 } %1677, 1
   %1681 = extractvalue { ptr, i8 } %1677, 0
   store ptr %1681, ptr %55, align 8
-  %.sroa.29162.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
+  %.sroa.29162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 %1680, ptr %.sroa.29162.0..sroa_idx, align 8
   %1682 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 54) #7
   %1683 = zext i1 %1682 to i8
@@ -2944,7 +2944,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1703 = extractvalue { ptr, i8 } %1700, 1
   %1704 = extractvalue { ptr, i8 } %1700, 0
   store ptr %1704, ptr %56, align 8
-  %.sroa.29137.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
+  %.sroa.29137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i8 %1703, ptr %.sroa.29137.0..sroa_idx, align 8
   %1705 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 55) #7
   %1706 = zext i1 %1705 to i8
@@ -2980,7 +2980,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1726 = extractvalue { ptr, i8 } %1723, 1
   %1727 = extractvalue { ptr, i8 } %1723, 0
   store ptr %1727, ptr %57, align 8
-  %.sroa.29112.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 8
+  %.sroa.29112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i8 %1726, ptr %.sroa.29112.0..sroa_idx, align 8
   %1728 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 56) #7
   %1729 = zext i1 %1728 to i8
@@ -3025,7 +3025,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1755 = extractvalue { ptr, i8 } %1752, 1
   %1756 = extractvalue { ptr, i8 } %1752, 0
   store ptr %1756, ptr %58, align 8
-  %.sroa.29087.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.29087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 %1755, ptr %.sroa.29087.0..sroa_idx, align 8
   %1757 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 57) #7
   %1758 = zext i1 %1757 to i8
@@ -3061,7 +3061,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1778 = extractvalue { ptr, i8 } %1775, 1
   %1779 = extractvalue { ptr, i8 } %1775, 0
   store ptr %1779, ptr %59, align 8
-  %.sroa.29062.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.29062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i8 %1778, ptr %.sroa.29062.0..sroa_idx, align 8
   %1780 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 58) #7
   %1781 = zext i1 %1780 to i8
@@ -3106,7 +3106,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1807 = extractvalue { ptr, i8 } %1804, 1
   %1808 = extractvalue { ptr, i8 } %1804, 0
   store ptr %1808, ptr %60, align 8
-  %.sroa.29037.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 8
+  %.sroa.29037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i8 %1807, ptr %.sroa.29037.0..sroa_idx, align 8
   %1809 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 59) #7
   %1810 = zext i1 %1809 to i8
@@ -3142,7 +3142,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1830 = extractvalue { ptr, i8 } %1827, 1
   %1831 = extractvalue { ptr, i8 } %1827, 0
   store ptr %1831, ptr %61, align 8
-  %.sroa.29012.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 8
+  %.sroa.29012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i8 %1830, ptr %.sroa.29012.0..sroa_idx, align 8
   %1832 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 60) #7
   %1833 = zext i1 %1832 to i8
@@ -3187,7 +3187,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1859 = extractvalue { ptr, i8 } %1856, 1
   %1860 = extractvalue { ptr, i8 } %1856, 0
   store ptr %1860, ptr %62, align 8
-  %.sroa.28987.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 8
+  %.sroa.28987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i8 %1859, ptr %.sroa.28987.0..sroa_idx, align 8
   %1861 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 61) #7
   %1862 = zext i1 %1861 to i8
@@ -3223,7 +3223,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1882 = extractvalue { ptr, i8 } %1879, 1
   %1883 = extractvalue { ptr, i8 } %1879, 0
   store ptr %1883, ptr %63, align 8
-  %.sroa.28962.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 8
+  %.sroa.28962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 %1882, ptr %.sroa.28962.0..sroa_idx, align 8
   %1884 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 62) #7
   %1885 = zext i1 %1884 to i8
@@ -3259,7 +3259,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1905 = extractvalue { ptr, i8 } %1902, 1
   %1906 = extractvalue { ptr, i8 } %1902, 0
   store ptr %1906, ptr %64, align 8
-  %.sroa.28937.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 8
+  %.sroa.28937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i8 %1905, ptr %.sroa.28937.0..sroa_idx, align 8
   %1907 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 63) #7
   %1908 = zext i1 %1907 to i8
@@ -3304,7 +3304,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1934 = extractvalue { ptr, i8 } %1931, 1
   %1935 = extractvalue { ptr, i8 } %1931, 0
   store ptr %1935, ptr %65, align 8
-  %.sroa.28912.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
+  %.sroa.28912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i8 %1934, ptr %.sroa.28912.0..sroa_idx, align 8
   %1936 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 64) #7
   %1937 = zext i1 %1936 to i8
@@ -3340,7 +3340,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1957 = extractvalue { ptr, i8 } %1954, 1
   %1958 = extractvalue { ptr, i8 } %1954, 0
   store ptr %1958, ptr %66, align 8
-  %.sroa.28887.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 8
+  %.sroa.28887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i8 %1957, ptr %.sroa.28887.0..sroa_idx, align 8
   %1959 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 65) #7
   %1960 = zext i1 %1959 to i8
@@ -3376,7 +3376,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1980 = extractvalue { ptr, i8 } %1977, 1
   %1981 = extractvalue { ptr, i8 } %1977, 0
   store ptr %1981, ptr %67, align 8
-  %.sroa.28862.0..sroa_idx = getelementptr inbounds i8, ptr %67, i64 8
+  %.sroa.28862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i8 %1980, ptr %.sroa.28862.0..sroa_idx, align 8
   %1982 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 66) #7
   %1983 = zext i1 %1982 to i8
@@ -3421,7 +3421,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2009 = extractvalue { ptr, i8 } %2006, 1
   %2010 = extractvalue { ptr, i8 } %2006, 0
   store ptr %2010, ptr %68, align 8
-  %.sroa.28837.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 8
+  %.sroa.28837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i8 %2009, ptr %.sroa.28837.0..sroa_idx, align 8
   %2011 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 67) #7
   %2012 = zext i1 %2011 to i8
@@ -3457,7 +3457,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2032 = extractvalue { ptr, i8 } %2029, 1
   %2033 = extractvalue { ptr, i8 } %2029, 0
   store ptr %2033, ptr %69, align 8
-  %.sroa.28812.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 8
+  %.sroa.28812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i8 %2032, ptr %.sroa.28812.0..sroa_idx, align 8
   %2034 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 68) #7
   %2035 = zext i1 %2034 to i8
@@ -3502,7 +3502,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2061 = extractvalue { ptr, i8 } %2058, 1
   %2062 = extractvalue { ptr, i8 } %2058, 0
   store ptr %2062, ptr %70, align 8
-  %.sroa.28787.0..sroa_idx = getelementptr inbounds i8, ptr %70, i64 8
+  %.sroa.28787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i8 %2061, ptr %.sroa.28787.0..sroa_idx, align 8
   %2063 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 69) #7
   %2064 = zext i1 %2063 to i8
@@ -3547,7 +3547,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2090 = extractvalue { ptr, i8 } %2087, 1
   %2091 = extractvalue { ptr, i8 } %2087, 0
   store ptr %2091, ptr %71, align 8
-  %.sroa.28762.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 8
+  %.sroa.28762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i8 %2090, ptr %.sroa.28762.0..sroa_idx, align 8
   %2092 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 70) #7
   %2093 = zext i1 %2092 to i8
@@ -3592,7 +3592,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2119 = extractvalue { ptr, i8 } %2116, 1
   %2120 = extractvalue { ptr, i8 } %2116, 0
   store ptr %2120, ptr %72, align 8
-  %.sroa.28737.0..sroa_idx = getelementptr inbounds i8, ptr %72, i64 8
+  %.sroa.28737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 %2119, ptr %.sroa.28737.0..sroa_idx, align 8
   %2121 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 71) #7
   %2122 = zext i1 %2121 to i8
@@ -3628,7 +3628,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2142 = extractvalue { ptr, i8 } %2139, 1
   %2143 = extractvalue { ptr, i8 } %2139, 0
   store ptr %2143, ptr %73, align 8
-  %.sroa.28712.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 8
+  %.sroa.28712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i8 %2142, ptr %.sroa.28712.0..sroa_idx, align 8
   %2144 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 72) #7
   %2145 = zext i1 %2144 to i8
@@ -3673,7 +3673,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2171 = extractvalue { ptr, i8 } %2168, 1
   %2172 = extractvalue { ptr, i8 } %2168, 0
   store ptr %2172, ptr %74, align 8
-  %.sroa.28687.0..sroa_idx = getelementptr inbounds i8, ptr %74, i64 8
+  %.sroa.28687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i8 %2171, ptr %.sroa.28687.0..sroa_idx, align 8
   %2173 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 73) #7
   %2174 = zext i1 %2173 to i8
@@ -3709,7 +3709,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2194 = extractvalue { ptr, i8 } %2191, 1
   %2195 = extractvalue { ptr, i8 } %2191, 0
   store ptr %2195, ptr %75, align 8
-  %.sroa.28662.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 8
+  %.sroa.28662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i8 %2194, ptr %.sroa.28662.0..sroa_idx, align 8
   %2196 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 74) #7
   %2197 = zext i1 %2196 to i8
@@ -3754,7 +3754,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2223 = extractvalue { ptr, i8 } %2220, 1
   %2224 = extractvalue { ptr, i8 } %2220, 0
   store ptr %2224, ptr %76, align 8
-  %.sroa.28637.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 8
+  %.sroa.28637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i8 %2223, ptr %.sroa.28637.0..sroa_idx, align 8
   %2225 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 75) #7
   %2226 = zext i1 %2225 to i8
@@ -3799,7 +3799,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2252 = extractvalue { ptr, i8 } %2249, 1
   %2253 = extractvalue { ptr, i8 } %2249, 0
   store ptr %2253, ptr %77, align 8
-  %.sroa.28612.0..sroa_idx = getelementptr inbounds i8, ptr %77, i64 8
+  %.sroa.28612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i8 %2252, ptr %.sroa.28612.0..sroa_idx, align 8
   %2254 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 76) #7
   %2255 = zext i1 %2254 to i8
@@ -3844,7 +3844,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2281 = extractvalue { ptr, i8 } %2278, 1
   %2282 = extractvalue { ptr, i8 } %2278, 0
   store ptr %2282, ptr %78, align 8
-  %.sroa.28587.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
+  %.sroa.28587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i8 %2281, ptr %.sroa.28587.0..sroa_idx, align 8
   %2283 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 77) #7
   %2284 = zext i1 %2283 to i8
@@ -3889,7 +3889,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2310 = extractvalue { ptr, i8 } %2307, 1
   %2311 = extractvalue { ptr, i8 } %2307, 0
   store ptr %2311, ptr %79, align 8
-  %.sroa.28562.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 8
+  %.sroa.28562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i8 %2310, ptr %.sroa.28562.0..sroa_idx, align 8
   %2312 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 78) #7
   %2313 = zext i1 %2312 to i8
@@ -3934,7 +3934,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2339 = extractvalue { ptr, i8 } %2336, 1
   %2340 = extractvalue { ptr, i8 } %2336, 0
   store ptr %2340, ptr %80, align 8
-  %.sroa.28537.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 8
+  %.sroa.28537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i8 %2339, ptr %.sroa.28537.0..sroa_idx, align 8
   %2341 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 79) #7
   %2342 = zext i1 %2341 to i8
@@ -3979,7 +3979,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2368 = extractvalue { ptr, i8 } %2365, 1
   %2369 = extractvalue { ptr, i8 } %2365, 0
   store ptr %2369, ptr %81, align 8
-  %.sroa.28512.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 8
+  %.sroa.28512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i8 %2368, ptr %.sroa.28512.0..sroa_idx, align 8
   %2370 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 80) #7
   %2371 = zext i1 %2370 to i8
@@ -4024,7 +4024,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2397 = extractvalue { ptr, i8 } %2394, 1
   %2398 = extractvalue { ptr, i8 } %2394, 0
   store ptr %2398, ptr %82, align 8
-  %.sroa.28487.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 8
+  %.sroa.28487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i8 %2397, ptr %.sroa.28487.0..sroa_idx, align 8
   %2399 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 81) #7
   %2400 = zext i1 %2399 to i8
@@ -4069,7 +4069,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2426 = extractvalue { ptr, i8 } %2423, 1
   %2427 = extractvalue { ptr, i8 } %2423, 0
   store ptr %2427, ptr %83, align 8
-  %.sroa.28462.0..sroa_idx = getelementptr inbounds i8, ptr %83, i64 8
+  %.sroa.28462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i8 %2426, ptr %.sroa.28462.0..sroa_idx, align 8
   %2428 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 82) #7
   %2429 = zext i1 %2428 to i8
@@ -4114,7 +4114,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2455 = extractvalue { ptr, i8 } %2452, 1
   %2456 = extractvalue { ptr, i8 } %2452, 0
   store ptr %2456, ptr %84, align 8
-  %.sroa.28437.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 8
+  %.sroa.28437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i8 %2455, ptr %.sroa.28437.0..sroa_idx, align 8
   %2457 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 83) #7
   %2458 = zext i1 %2457 to i8
@@ -4159,7 +4159,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2484 = extractvalue { ptr, i8 } %2481, 1
   %2485 = extractvalue { ptr, i8 } %2481, 0
   store ptr %2485, ptr %85, align 8
-  %.sroa.28412.0..sroa_idx = getelementptr inbounds i8, ptr %85, i64 8
+  %.sroa.28412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i8 %2484, ptr %.sroa.28412.0..sroa_idx, align 8
   %2486 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 84) #7
   %2487 = zext i1 %2486 to i8
@@ -4204,7 +4204,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2513 = extractvalue { ptr, i8 } %2510, 1
   %2514 = extractvalue { ptr, i8 } %2510, 0
   store ptr %2514, ptr %86, align 8
-  %.sroa.28387.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
+  %.sroa.28387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i8 %2513, ptr %.sroa.28387.0..sroa_idx, align 8
   %2515 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 85) #7
   %2516 = zext i1 %2515 to i8
@@ -4249,7 +4249,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2542 = extractvalue { ptr, i8 } %2539, 1
   %2543 = extractvalue { ptr, i8 } %2539, 0
   store ptr %2543, ptr %87, align 8
-  %.sroa.28362.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 8
+  %.sroa.28362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i8 %2542, ptr %.sroa.28362.0..sroa_idx, align 8
   %2544 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 86) #7
   %2545 = zext i1 %2544 to i8
@@ -4294,7 +4294,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2571 = extractvalue { ptr, i8 } %2568, 1
   %2572 = extractvalue { ptr, i8 } %2568, 0
   store ptr %2572, ptr %88, align 8
-  %.sroa.28337.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
+  %.sroa.28337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 %2571, ptr %.sroa.28337.0..sroa_idx, align 8
   %2573 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 87) #7
   %2574 = zext i1 %2573 to i8
@@ -4339,7 +4339,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2600 = extractvalue { ptr, i8 } %2597, 1
   %2601 = extractvalue { ptr, i8 } %2597, 0
   store ptr %2601, ptr %89, align 8
-  %.sroa.28312.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 8
+  %.sroa.28312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i8 %2600, ptr %.sroa.28312.0..sroa_idx, align 8
   %2602 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 88) #7
   %2603 = zext i1 %2602 to i8
@@ -4384,7 +4384,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2629 = extractvalue { ptr, i8 } %2626, 1
   %2630 = extractvalue { ptr, i8 } %2626, 0
   store ptr %2630, ptr %90, align 8
-  %.sroa.28287.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 8
+  %.sroa.28287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i8 %2629, ptr %.sroa.28287.0..sroa_idx, align 8
   %2631 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 89) #7
   %2632 = zext i1 %2631 to i8
@@ -4429,7 +4429,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2658 = extractvalue { ptr, i8 } %2655, 1
   %2659 = extractvalue { ptr, i8 } %2655, 0
   store ptr %2659, ptr %91, align 8
-  %.sroa.28262.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 8
+  %.sroa.28262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i8 %2658, ptr %.sroa.28262.0..sroa_idx, align 8
   %2660 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 90) #7
   %2661 = zext i1 %2660 to i8
@@ -4474,7 +4474,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2687 = extractvalue { ptr, i8 } %2684, 1
   %2688 = extractvalue { ptr, i8 } %2684, 0
   store ptr %2688, ptr %92, align 8
-  %.sroa.28237.0..sroa_idx = getelementptr inbounds i8, ptr %92, i64 8
+  %.sroa.28237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i8 %2687, ptr %.sroa.28237.0..sroa_idx, align 8
   %2689 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 91) #7
   %2690 = zext i1 %2689 to i8
@@ -4510,7 +4510,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2710 = extractvalue { ptr, i8 } %2707, 1
   %2711 = extractvalue { ptr, i8 } %2707, 0
   store ptr %2711, ptr %93, align 8
-  %.sroa.28212.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 8
+  %.sroa.28212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i8 %2710, ptr %.sroa.28212.0..sroa_idx, align 8
   %2712 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 92) #7
   %2713 = zext i1 %2712 to i8
@@ -4546,7 +4546,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2733 = extractvalue { ptr, i8 } %2730, 1
   %2734 = extractvalue { ptr, i8 } %2730, 0
   store ptr %2734, ptr %94, align 8
-  %.sroa.28187.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 8
+  %.sroa.28187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i8 %2733, ptr %.sroa.28187.0..sroa_idx, align 8
   %2735 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 93) #7
   %2736 = zext i1 %2735 to i8
@@ -4591,7 +4591,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2762 = extractvalue { ptr, i8 } %2759, 1
   %2763 = extractvalue { ptr, i8 } %2759, 0
   store ptr %2763, ptr %95, align 8
-  %.sroa.28162.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 8
+  %.sroa.28162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i8 %2762, ptr %.sroa.28162.0..sroa_idx, align 8
   %2764 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 94) #7
   %2765 = zext i1 %2764 to i8
@@ -4627,7 +4627,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2785 = extractvalue { ptr, i8 } %2782, 1
   %2786 = extractvalue { ptr, i8 } %2782, 0
   store ptr %2786, ptr %96, align 8
-  %.sroa.28137.0..sroa_idx = getelementptr inbounds i8, ptr %96, i64 8
+  %.sroa.28137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i8 %2785, ptr %.sroa.28137.0..sroa_idx, align 8
   %2787 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 95) #7
   %2788 = zext i1 %2787 to i8
@@ -4663,7 +4663,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2808 = extractvalue { ptr, i8 } %2805, 1
   %2809 = extractvalue { ptr, i8 } %2805, 0
   store ptr %2809, ptr %97, align 8
-  %.sroa.28112.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 8
+  %.sroa.28112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i8 %2808, ptr %.sroa.28112.0..sroa_idx, align 8
   %2810 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 96) #7
   %2811 = zext i1 %2810 to i8
@@ -4699,7 +4699,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2831 = extractvalue { ptr, i8 } %2828, 1
   %2832 = extractvalue { ptr, i8 } %2828, 0
   store ptr %2832, ptr %98, align 8
-  %.sroa.28087.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 8
+  %.sroa.28087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 %2831, ptr %.sroa.28087.0..sroa_idx, align 8
   %2833 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 97) #7
   %2834 = zext i1 %2833 to i8
@@ -4744,7 +4744,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2860 = extractvalue { ptr, i8 } %2857, 1
   %2861 = extractvalue { ptr, i8 } %2857, 0
   store ptr %2861, ptr %99, align 8
-  %.sroa.28062.0..sroa_idx = getelementptr inbounds i8, ptr %99, i64 8
+  %.sroa.28062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i8 %2860, ptr %.sroa.28062.0..sroa_idx, align 8
   %2862 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 98) #7
   %2863 = zext i1 %2862 to i8
@@ -4789,7 +4789,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2889 = extractvalue { ptr, i8 } %2886, 1
   %2890 = extractvalue { ptr, i8 } %2886, 0
   store ptr %2890, ptr %100, align 8
-  %.sroa.28037.0..sroa_idx = getelementptr inbounds i8, ptr %100, i64 8
+  %.sroa.28037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i8 %2889, ptr %.sroa.28037.0..sroa_idx, align 8
   %2891 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 99) #7
   %2892 = zext i1 %2891 to i8
@@ -4825,7 +4825,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2912 = extractvalue { ptr, i8 } %2909, 1
   %2913 = extractvalue { ptr, i8 } %2909, 0
   store ptr %2913, ptr %101, align 8
-  %.sroa.28012.0..sroa_idx = getelementptr inbounds i8, ptr %101, i64 8
+  %.sroa.28012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i8 %2912, ptr %.sroa.28012.0..sroa_idx, align 8
   %2914 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 100) #7
   %2915 = zext i1 %2914 to i8
@@ -4861,7 +4861,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2935 = extractvalue { ptr, i8 } %2932, 1
   %2936 = extractvalue { ptr, i8 } %2932, 0
   store ptr %2936, ptr %102, align 8
-  %.sroa.27987.0..sroa_idx = getelementptr inbounds i8, ptr %102, i64 8
+  %.sroa.27987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i8 %2935, ptr %.sroa.27987.0..sroa_idx, align 8
   %2937 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 101) #7
   %2938 = zext i1 %2937 to i8
@@ -4897,7 +4897,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2958 = extractvalue { ptr, i8 } %2955, 1
   %2959 = extractvalue { ptr, i8 } %2955, 0
   store ptr %2959, ptr %103, align 8
-  %.sroa.27962.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 8
+  %.sroa.27962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i8 %2958, ptr %.sroa.27962.0..sroa_idx, align 8
   %2960 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 102) #7
   %2961 = zext i1 %2960 to i8
@@ -4933,7 +4933,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2981 = extractvalue { ptr, i8 } %2978, 1
   %2982 = extractvalue { ptr, i8 } %2978, 0
   store ptr %2982, ptr %104, align 8
-  %.sroa.27937.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 8
+  %.sroa.27937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i8 %2981, ptr %.sroa.27937.0..sroa_idx, align 8
   %2983 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 103) #7
   %2984 = zext i1 %2983 to i8
@@ -4969,7 +4969,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3004 = extractvalue { ptr, i8 } %3001, 1
   %3005 = extractvalue { ptr, i8 } %3001, 0
   store ptr %3005, ptr %105, align 8
-  %.sroa.27912.0..sroa_idx = getelementptr inbounds i8, ptr %105, i64 8
+  %.sroa.27912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i8 %3004, ptr %.sroa.27912.0..sroa_idx, align 8
   %3006 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 104) #7
   %3007 = zext i1 %3006 to i8
@@ -5014,7 +5014,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3033 = extractvalue { ptr, i8 } %3030, 1
   %3034 = extractvalue { ptr, i8 } %3030, 0
   store ptr %3034, ptr %106, align 8
-  %.sroa.27887.0..sroa_idx = getelementptr inbounds i8, ptr %106, i64 8
+  %.sroa.27887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i8 %3033, ptr %.sroa.27887.0..sroa_idx, align 8
   %3035 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 105) #7
   %3036 = zext i1 %3035 to i8
@@ -5050,7 +5050,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3056 = extractvalue { ptr, i8 } %3053, 1
   %3057 = extractvalue { ptr, i8 } %3053, 0
   store ptr %3057, ptr %107, align 8
-  %.sroa.27862.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 8
+  %.sroa.27862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i8 %3056, ptr %.sroa.27862.0..sroa_idx, align 8
   %3058 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 106) #7
   %3059 = zext i1 %3058 to i8
@@ -5086,7 +5086,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3079 = extractvalue { ptr, i8 } %3076, 1
   %3080 = extractvalue { ptr, i8 } %3076, 0
   store ptr %3080, ptr %108, align 8
-  %.sroa.27837.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 8
+  %.sroa.27837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i8 %3079, ptr %.sroa.27837.0..sroa_idx, align 8
   %3081 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 107) #7
   %3082 = zext i1 %3081 to i8
@@ -5122,7 +5122,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3102 = extractvalue { ptr, i8 } %3099, 1
   %3103 = extractvalue { ptr, i8 } %3099, 0
   store ptr %3103, ptr %109, align 8
-  %.sroa.27812.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 8
+  %.sroa.27812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i8 %3102, ptr %.sroa.27812.0..sroa_idx, align 8
   %3104 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 108) #7
   %3105 = zext i1 %3104 to i8
@@ -5158,7 +5158,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3125 = extractvalue { ptr, i8 } %3122, 1
   %3126 = extractvalue { ptr, i8 } %3122, 0
   store ptr %3126, ptr %110, align 8
-  %.sroa.27787.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 8
+  %.sroa.27787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i8 %3125, ptr %.sroa.27787.0..sroa_idx, align 8
   %3127 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 109) #7
   %3128 = zext i1 %3127 to i8
@@ -5194,7 +5194,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3148 = extractvalue { ptr, i8 } %3145, 1
   %3149 = extractvalue { ptr, i8 } %3145, 0
   store ptr %3149, ptr %111, align 8
-  %.sroa.27762.0..sroa_idx = getelementptr inbounds i8, ptr %111, i64 8
+  %.sroa.27762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i8 %3148, ptr %.sroa.27762.0..sroa_idx, align 8
   %3150 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 110) #7
   %3151 = zext i1 %3150 to i8
@@ -5230,7 +5230,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3171 = extractvalue { ptr, i8 } %3168, 1
   %3172 = extractvalue { ptr, i8 } %3168, 0
   store ptr %3172, ptr %112, align 8
-  %.sroa.27737.0..sroa_idx = getelementptr inbounds i8, ptr %112, i64 8
+  %.sroa.27737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i8 %3171, ptr %.sroa.27737.0..sroa_idx, align 8
   %3173 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 111) #7
   %3174 = zext i1 %3173 to i8
@@ -5266,7 +5266,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3194 = extractvalue { ptr, i8 } %3191, 1
   %3195 = extractvalue { ptr, i8 } %3191, 0
   store ptr %3195, ptr %113, align 8
-  %.sroa.27712.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 8
+  %.sroa.27712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i8 %3194, ptr %.sroa.27712.0..sroa_idx, align 8
   %3196 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 112) #7
   %3197 = zext i1 %3196 to i8
@@ -5302,7 +5302,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3217 = extractvalue { ptr, i8 } %3214, 1
   %3218 = extractvalue { ptr, i8 } %3214, 0
   store ptr %3218, ptr %114, align 8
-  %.sroa.27687.0..sroa_idx = getelementptr inbounds i8, ptr %114, i64 8
+  %.sroa.27687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i8 %3217, ptr %.sroa.27687.0..sroa_idx, align 8
   %3219 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 113) #7
   %3220 = zext i1 %3219 to i8
@@ -5347,7 +5347,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3246 = extractvalue { ptr, i8 } %3243, 1
   %3247 = extractvalue { ptr, i8 } %3243, 0
   store ptr %3247, ptr %115, align 8
-  %.sroa.27662.0..sroa_idx = getelementptr inbounds i8, ptr %115, i64 8
+  %.sroa.27662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i8 %3246, ptr %.sroa.27662.0..sroa_idx, align 8
   %3248 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 114) #7
   %3249 = zext i1 %3248 to i8
@@ -5392,7 +5392,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3275 = extractvalue { ptr, i8 } %3272, 1
   %3276 = extractvalue { ptr, i8 } %3272, 0
   store ptr %3276, ptr %116, align 8
-  %.sroa.27637.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 8
+  %.sroa.27637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i8 %3275, ptr %.sroa.27637.0..sroa_idx, align 8
   %3277 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 115) #7
   %3278 = zext i1 %3277 to i8
@@ -5437,7 +5437,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3304 = extractvalue { ptr, i8 } %3301, 1
   %3305 = extractvalue { ptr, i8 } %3301, 0
   store ptr %3305, ptr %117, align 8
-  %.sroa.27612.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 8
+  %.sroa.27612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i8 %3304, ptr %.sroa.27612.0..sroa_idx, align 8
   %3306 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 116) #7
   %3307 = zext i1 %3306 to i8
@@ -5482,7 +5482,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3333 = extractvalue { ptr, i8 } %3330, 1
   %3334 = extractvalue { ptr, i8 } %3330, 0
   store ptr %3334, ptr %118, align 8
-  %.sroa.27587.0..sroa_idx = getelementptr inbounds i8, ptr %118, i64 8
+  %.sroa.27587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i8 %3333, ptr %.sroa.27587.0..sroa_idx, align 8
   %3335 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 117) #7
   %3336 = zext i1 %3335 to i8
@@ -5527,7 +5527,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3362 = extractvalue { ptr, i8 } %3359, 1
   %3363 = extractvalue { ptr, i8 } %3359, 0
   store ptr %3363, ptr %119, align 8
-  %.sroa.27562.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 8
+  %.sroa.27562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i8 %3362, ptr %.sroa.27562.0..sroa_idx, align 8
   %3364 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 118) #7
   %3365 = zext i1 %3364 to i8
@@ -5563,7 +5563,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3385 = extractvalue { ptr, i8 } %3382, 1
   %3386 = extractvalue { ptr, i8 } %3382, 0
   store ptr %3386, ptr %120, align 8
-  %.sroa.27537.0..sroa_idx = getelementptr inbounds i8, ptr %120, i64 8
+  %.sroa.27537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i8 %3385, ptr %.sroa.27537.0..sroa_idx, align 8
   %3387 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 119) #7
   %3388 = zext i1 %3387 to i8
@@ -5608,7 +5608,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3414 = extractvalue { ptr, i8 } %3411, 1
   %3415 = extractvalue { ptr, i8 } %3411, 0
   store ptr %3415, ptr %121, align 8
-  %.sroa.27512.0..sroa_idx = getelementptr inbounds i8, ptr %121, i64 8
+  %.sroa.27512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i8 %3414, ptr %.sroa.27512.0..sroa_idx, align 8
   %3416 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 120) #7
   %3417 = zext i1 %3416 to i8
@@ -5653,7 +5653,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3443 = extractvalue { ptr, i8 } %3440, 1
   %3444 = extractvalue { ptr, i8 } %3440, 0
   store ptr %3444, ptr %122, align 8
-  %.sroa.27487.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 8
+  %.sroa.27487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i8 %3443, ptr %.sroa.27487.0..sroa_idx, align 8
   %3445 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 121) #7
   %3446 = zext i1 %3445 to i8
@@ -5689,7 +5689,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3466 = extractvalue { ptr, i8 } %3463, 1
   %3467 = extractvalue { ptr, i8 } %3463, 0
   store ptr %3467, ptr %123, align 8
-  %.sroa.27462.0..sroa_idx = getelementptr inbounds i8, ptr %123, i64 8
+  %.sroa.27462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i8 %3466, ptr %.sroa.27462.0..sroa_idx, align 8
   %3468 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 122) #7
   %3469 = zext i1 %3468 to i8
@@ -5734,7 +5734,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3495 = extractvalue { ptr, i8 } %3492, 1
   %3496 = extractvalue { ptr, i8 } %3492, 0
   store ptr %3496, ptr %124, align 8
-  %.sroa.27437.0..sroa_idx = getelementptr inbounds i8, ptr %124, i64 8
+  %.sroa.27437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i8 %3495, ptr %.sroa.27437.0..sroa_idx, align 8
   %3497 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 123) #7
   %3498 = zext i1 %3497 to i8
@@ -5770,7 +5770,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3518 = extractvalue { ptr, i8 } %3515, 1
   %3519 = extractvalue { ptr, i8 } %3515, 0
   store ptr %3519, ptr %125, align 8
-  %.sroa.27412.0..sroa_idx = getelementptr inbounds i8, ptr %125, i64 8
+  %.sroa.27412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i8 %3518, ptr %.sroa.27412.0..sroa_idx, align 8
   %3520 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 124) #7
   %3521 = zext i1 %3520 to i8
@@ -5806,7 +5806,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3541 = extractvalue { ptr, i8 } %3538, 1
   %3542 = extractvalue { ptr, i8 } %3538, 0
   store ptr %3542, ptr %126, align 8
-  %.sroa.27387.0..sroa_idx = getelementptr inbounds i8, ptr %126, i64 8
+  %.sroa.27387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 %3541, ptr %.sroa.27387.0..sroa_idx, align 8
   %3543 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 125) #7
   %3544 = zext i1 %3543 to i8
@@ -5851,7 +5851,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3570 = extractvalue { ptr, i8 } %3567, 1
   %3571 = extractvalue { ptr, i8 } %3567, 0
   store ptr %3571, ptr %127, align 8
-  %.sroa.27362.0..sroa_idx = getelementptr inbounds i8, ptr %127, i64 8
+  %.sroa.27362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i8 %3570, ptr %.sroa.27362.0..sroa_idx, align 8
   %3572 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 126) #7
   %3573 = zext i1 %3572 to i8
@@ -5896,7 +5896,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3599 = extractvalue { ptr, i8 } %3596, 1
   %3600 = extractvalue { ptr, i8 } %3596, 0
   store ptr %3600, ptr %128, align 8
-  %.sroa.27337.0..sroa_idx = getelementptr inbounds i8, ptr %128, i64 8
+  %.sroa.27337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i8 %3599, ptr %.sroa.27337.0..sroa_idx, align 8
   %3601 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 127) #7
   %3602 = zext i1 %3601 to i8
@@ -5932,7 +5932,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3622 = extractvalue { ptr, i8 } %3619, 1
   %3623 = extractvalue { ptr, i8 } %3619, 0
   store ptr %3623, ptr %129, align 8
-  %.sroa.27312.0..sroa_idx = getelementptr inbounds i8, ptr %129, i64 8
+  %.sroa.27312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i8 %3622, ptr %.sroa.27312.0..sroa_idx, align 8
   %3624 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 128) #7
   %3625 = zext i1 %3624 to i8
@@ -5977,7 +5977,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3651 = extractvalue { ptr, i8 } %3648, 1
   %3652 = extractvalue { ptr, i8 } %3648, 0
   store ptr %3652, ptr %130, align 8
-  %.sroa.27287.0..sroa_idx = getelementptr inbounds i8, ptr %130, i64 8
+  %.sroa.27287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i8 %3651, ptr %.sroa.27287.0..sroa_idx, align 8
   %3653 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 129) #7
   %3654 = zext i1 %3653 to i8
@@ -6013,7 +6013,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3674 = extractvalue { ptr, i8 } %3671, 1
   %3675 = extractvalue { ptr, i8 } %3671, 0
   store ptr %3675, ptr %131, align 8
-  %.sroa.27262.0..sroa_idx = getelementptr inbounds i8, ptr %131, i64 8
+  %.sroa.27262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i8 %3674, ptr %.sroa.27262.0..sroa_idx, align 8
   %3676 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 130) #7
   %3677 = zext i1 %3676 to i8
@@ -6058,7 +6058,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3703 = extractvalue { ptr, i8 } %3700, 1
   %3704 = extractvalue { ptr, i8 } %3700, 0
   store ptr %3704, ptr %132, align 8
-  %.sroa.27237.0..sroa_idx = getelementptr inbounds i8, ptr %132, i64 8
+  %.sroa.27237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i8 %3703, ptr %.sroa.27237.0..sroa_idx, align 8
   %3705 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 131) #7
   %3706 = zext i1 %3705 to i8
@@ -6094,7 +6094,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3726 = extractvalue { ptr, i8 } %3723, 1
   %3727 = extractvalue { ptr, i8 } %3723, 0
   store ptr %3727, ptr %133, align 8
-  %.sroa.27212.0..sroa_idx = getelementptr inbounds i8, ptr %133, i64 8
+  %.sroa.27212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i8 %3726, ptr %.sroa.27212.0..sroa_idx, align 8
   %3728 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 132) #7
   %3729 = zext i1 %3728 to i8
@@ -6130,7 +6130,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3749 = extractvalue { ptr, i8 } %3746, 1
   %3750 = extractvalue { ptr, i8 } %3746, 0
   store ptr %3750, ptr %134, align 8
-  %.sroa.27187.0..sroa_idx = getelementptr inbounds i8, ptr %134, i64 8
+  %.sroa.27187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i8 %3749, ptr %.sroa.27187.0..sroa_idx, align 8
   %3751 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 133) #7
   %3752 = zext i1 %3751 to i8
@@ -6166,7 +6166,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3772 = extractvalue { ptr, i8 } %3769, 1
   %3773 = extractvalue { ptr, i8 } %3769, 0
   store ptr %3773, ptr %135, align 8
-  %.sroa.27162.0..sroa_idx = getelementptr inbounds i8, ptr %135, i64 8
+  %.sroa.27162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i8 %3772, ptr %.sroa.27162.0..sroa_idx, align 8
   %3774 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 134) #7
   %3775 = zext i1 %3774 to i8
@@ -6211,7 +6211,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3801 = extractvalue { ptr, i8 } %3798, 1
   %3802 = extractvalue { ptr, i8 } %3798, 0
   store ptr %3802, ptr %136, align 8
-  %.sroa.27137.0..sroa_idx = getelementptr inbounds i8, ptr %136, i64 8
+  %.sroa.27137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i8 %3801, ptr %.sroa.27137.0..sroa_idx, align 8
   %3803 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 135) #7
   %3804 = zext i1 %3803 to i8
@@ -6256,7 +6256,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3830 = extractvalue { ptr, i8 } %3827, 1
   %3831 = extractvalue { ptr, i8 } %3827, 0
   store ptr %3831, ptr %137, align 8
-  %.sroa.27112.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 8
+  %.sroa.27112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i8 %3830, ptr %.sroa.27112.0..sroa_idx, align 8
   %3832 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 136) #7
   %3833 = zext i1 %3832 to i8
@@ -6301,7 +6301,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3859 = extractvalue { ptr, i8 } %3856, 1
   %3860 = extractvalue { ptr, i8 } %3856, 0
   store ptr %3860, ptr %138, align 8
-  %.sroa.27087.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 8
+  %.sroa.27087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i8 %3859, ptr %.sroa.27087.0..sroa_idx, align 8
   %3861 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 137) #7
   %3862 = zext i1 %3861 to i8
@@ -6346,7 +6346,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3888 = extractvalue { ptr, i8 } %3885, 1
   %3889 = extractvalue { ptr, i8 } %3885, 0
   store ptr %3889, ptr %139, align 8
-  %.sroa.27062.0..sroa_idx = getelementptr inbounds i8, ptr %139, i64 8
+  %.sroa.27062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 %3888, ptr %.sroa.27062.0..sroa_idx, align 8
   %3890 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 138) #7
   %3891 = zext i1 %3890 to i8
@@ -6391,7 +6391,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3917 = extractvalue { ptr, i8 } %3914, 1
   %3918 = extractvalue { ptr, i8 } %3914, 0
   store ptr %3918, ptr %140, align 8
-  %.sroa.27037.0..sroa_idx = getelementptr inbounds i8, ptr %140, i64 8
+  %.sroa.27037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i8 %3917, ptr %.sroa.27037.0..sroa_idx, align 8
   %3919 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 139) #7
   %3920 = zext i1 %3919 to i8
@@ -6436,7 +6436,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3946 = extractvalue { ptr, i8 } %3943, 1
   %3947 = extractvalue { ptr, i8 } %3943, 0
   store ptr %3947, ptr %141, align 8
-  %.sroa.27012.0..sroa_idx = getelementptr inbounds i8, ptr %141, i64 8
+  %.sroa.27012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i8 %3946, ptr %.sroa.27012.0..sroa_idx, align 8
   %3948 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 140) #7
   %3949 = zext i1 %3948 to i8
@@ -6472,7 +6472,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3969 = extractvalue { ptr, i8 } %3966, 1
   %3970 = extractvalue { ptr, i8 } %3966, 0
   store ptr %3970, ptr %142, align 8
-  %.sroa.26987.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 8
+  %.sroa.26987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i8 %3969, ptr %.sroa.26987.0..sroa_idx, align 8
   %3971 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 141) #7
   %3972 = zext i1 %3971 to i8
@@ -6517,7 +6517,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3998 = extractvalue { ptr, i8 } %3995, 1
   %3999 = extractvalue { ptr, i8 } %3995, 0
   store ptr %3999, ptr %143, align 8
-  %.sroa.26962.0..sroa_idx = getelementptr inbounds i8, ptr %143, i64 8
+  %.sroa.26962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i8 %3998, ptr %.sroa.26962.0..sroa_idx, align 8
   %4000 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 142) #7
   %4001 = zext i1 %4000 to i8
@@ -6562,7 +6562,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4027 = extractvalue { ptr, i8 } %4024, 1
   %4028 = extractvalue { ptr, i8 } %4024, 0
   store ptr %4028, ptr %144, align 8
-  %.sroa.26937.0..sroa_idx = getelementptr inbounds i8, ptr %144, i64 8
+  %.sroa.26937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i8 %4027, ptr %.sroa.26937.0..sroa_idx, align 8
   %4029 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 143) #7
   %4030 = zext i1 %4029 to i8
@@ -6598,7 +6598,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4050 = extractvalue { ptr, i8 } %4047, 1
   %4051 = extractvalue { ptr, i8 } %4047, 0
   store ptr %4051, ptr %145, align 8
-  %.sroa.26912.0..sroa_idx = getelementptr inbounds i8, ptr %145, i64 8
+  %.sroa.26912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i8 %4050, ptr %.sroa.26912.0..sroa_idx, align 8
   %4052 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 144) #7
   %4053 = zext i1 %4052 to i8
@@ -6634,7 +6634,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4073 = extractvalue { ptr, i8 } %4070, 1
   %4074 = extractvalue { ptr, i8 } %4070, 0
   store ptr %4074, ptr %146, align 8
-  %.sroa.26887.0..sroa_idx = getelementptr inbounds i8, ptr %146, i64 8
+  %.sroa.26887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i8 %4073, ptr %.sroa.26887.0..sroa_idx, align 8
   %4075 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 145) #7
   %4076 = zext i1 %4075 to i8
@@ -6679,7 +6679,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4102 = extractvalue { ptr, i8 } %4099, 1
   %4103 = extractvalue { ptr, i8 } %4099, 0
   store ptr %4103, ptr %147, align 8
-  %.sroa.26862.0..sroa_idx = getelementptr inbounds i8, ptr %147, i64 8
+  %.sroa.26862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i8 %4102, ptr %.sroa.26862.0..sroa_idx, align 8
   %4104 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 146) #7
   %4105 = zext i1 %4104 to i8
@@ -6715,7 +6715,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4125 = extractvalue { ptr, i8 } %4122, 1
   %4126 = extractvalue { ptr, i8 } %4122, 0
   store ptr %4126, ptr %148, align 8
-  %.sroa.26837.0..sroa_idx = getelementptr inbounds i8, ptr %148, i64 8
+  %.sroa.26837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i8 %4125, ptr %.sroa.26837.0..sroa_idx, align 8
   %4127 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 147) #7
   %4128 = zext i1 %4127 to i8
@@ -6760,7 +6760,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4154 = extractvalue { ptr, i8 } %4151, 1
   %4155 = extractvalue { ptr, i8 } %4151, 0
   store ptr %4155, ptr %149, align 8
-  %.sroa.26812.0..sroa_idx = getelementptr inbounds i8, ptr %149, i64 8
+  %.sroa.26812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i8 %4154, ptr %.sroa.26812.0..sroa_idx, align 8
   %4156 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 148) #7
   %4157 = zext i1 %4156 to i8
@@ -6796,7 +6796,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4177 = extractvalue { ptr, i8 } %4174, 1
   %4178 = extractvalue { ptr, i8 } %4174, 0
   store ptr %4178, ptr %150, align 8
-  %.sroa.26787.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 8
+  %.sroa.26787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i8 %4177, ptr %.sroa.26787.0..sroa_idx, align 8
   %4179 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 149) #7
   %4180 = zext i1 %4179 to i8
@@ -6832,7 +6832,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4200 = extractvalue { ptr, i8 } %4197, 1
   %4201 = extractvalue { ptr, i8 } %4197, 0
   store ptr %4201, ptr %151, align 8
-  %.sroa.26762.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 8
+  %.sroa.26762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i8 %4200, ptr %.sroa.26762.0..sroa_idx, align 8
   %4202 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 150) #7
   %4203 = zext i1 %4202 to i8
@@ -6868,7 +6868,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4223 = extractvalue { ptr, i8 } %4220, 1
   %4224 = extractvalue { ptr, i8 } %4220, 0
   store ptr %4224, ptr %152, align 8
-  %.sroa.26737.0..sroa_idx = getelementptr inbounds i8, ptr %152, i64 8
+  %.sroa.26737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i8 %4223, ptr %.sroa.26737.0..sroa_idx, align 8
   %4225 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 151) #7
   %4226 = zext i1 %4225 to i8
@@ -6913,7 +6913,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4252 = extractvalue { ptr, i8 } %4249, 1
   %4253 = extractvalue { ptr, i8 } %4249, 0
   store ptr %4253, ptr %153, align 8
-  %.sroa.26712.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 8
+  %.sroa.26712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i8 %4252, ptr %.sroa.26712.0..sroa_idx, align 8
   %4254 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 152) #7
   %4255 = zext i1 %4254 to i8
@@ -6949,7 +6949,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4275 = extractvalue { ptr, i8 } %4272, 1
   %4276 = extractvalue { ptr, i8 } %4272, 0
   store ptr %4276, ptr %154, align 8
-  %.sroa.26687.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 8
+  %.sroa.26687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i8 %4275, ptr %.sroa.26687.0..sroa_idx, align 8
   %4277 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 153) #7
   %4278 = zext i1 %4277 to i8
@@ -6994,7 +6994,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4304 = extractvalue { ptr, i8 } %4301, 1
   %4305 = extractvalue { ptr, i8 } %4301, 0
   store ptr %4305, ptr %155, align 8
-  %.sroa.26662.0..sroa_idx = getelementptr inbounds i8, ptr %155, i64 8
+  %.sroa.26662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i8 %4304, ptr %.sroa.26662.0..sroa_idx, align 8
   %4306 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 154) #7
   %4307 = zext i1 %4306 to i8
@@ -7039,7 +7039,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4333 = extractvalue { ptr, i8 } %4330, 1
   %4334 = extractvalue { ptr, i8 } %4330, 0
   store ptr %4334, ptr %156, align 8
-  %.sroa.26637.0..sroa_idx = getelementptr inbounds i8, ptr %156, i64 8
+  %.sroa.26637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i8 %4333, ptr %.sroa.26637.0..sroa_idx, align 8
   %4335 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 155) #7
   %4336 = zext i1 %4335 to i8
@@ -7084,7 +7084,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4362 = extractvalue { ptr, i8 } %4359, 1
   %4363 = extractvalue { ptr, i8 } %4359, 0
   store ptr %4363, ptr %157, align 8
-  %.sroa.26612.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
+  %.sroa.26612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i8 %4362, ptr %.sroa.26612.0..sroa_idx, align 8
   %4364 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 156) #7
   %4365 = zext i1 %4364 to i8
@@ -7120,7 +7120,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4385 = extractvalue { ptr, i8 } %4382, 1
   %4386 = extractvalue { ptr, i8 } %4382, 0
   store ptr %4386, ptr %158, align 8
-  %.sroa.26587.0..sroa_idx = getelementptr inbounds i8, ptr %158, i64 8
+  %.sroa.26587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i8 %4385, ptr %.sroa.26587.0..sroa_idx, align 8
   %4387 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 157) #7
   %4388 = zext i1 %4387 to i8
@@ -7165,7 +7165,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4414 = extractvalue { ptr, i8 } %4411, 1
   %4415 = extractvalue { ptr, i8 } %4411, 0
   store ptr %4415, ptr %159, align 8
-  %.sroa.26562.0..sroa_idx = getelementptr inbounds i8, ptr %159, i64 8
+  %.sroa.26562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i8 %4414, ptr %.sroa.26562.0..sroa_idx, align 8
   %4416 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 158) #7
   %4417 = zext i1 %4416 to i8
@@ -7201,7 +7201,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4437 = extractvalue { ptr, i8 } %4434, 1
   %4438 = extractvalue { ptr, i8 } %4434, 0
   store ptr %4438, ptr %160, align 8
-  %.sroa.26537.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 8
+  %.sroa.26537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i8 %4437, ptr %.sroa.26537.0..sroa_idx, align 8
   %4439 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 159) #7
   %4440 = zext i1 %4439 to i8
@@ -7237,7 +7237,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4460 = extractvalue { ptr, i8 } %4457, 1
   %4461 = extractvalue { ptr, i8 } %4457, 0
   store ptr %4461, ptr %161, align 8
-  %.sroa.26512.0..sroa_idx = getelementptr inbounds i8, ptr %161, i64 8
+  %.sroa.26512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i8 %4460, ptr %.sroa.26512.0..sroa_idx, align 8
   %4462 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 160) #7
   %4463 = zext i1 %4462 to i8
@@ -7273,7 +7273,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4483 = extractvalue { ptr, i8 } %4480, 1
   %4484 = extractvalue { ptr, i8 } %4480, 0
   store ptr %4484, ptr %162, align 8
-  %.sroa.26487.0..sroa_idx = getelementptr inbounds i8, ptr %162, i64 8
+  %.sroa.26487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i8 %4483, ptr %.sroa.26487.0..sroa_idx, align 8
   %4485 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 161) #7
   %4486 = zext i1 %4485 to i8
@@ -7309,7 +7309,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4506 = extractvalue { ptr, i8 } %4503, 1
   %4507 = extractvalue { ptr, i8 } %4503, 0
   store ptr %4507, ptr %163, align 8
-  %.sroa.26462.0..sroa_idx = getelementptr inbounds i8, ptr %163, i64 8
+  %.sroa.26462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i8 %4506, ptr %.sroa.26462.0..sroa_idx, align 8
   %4508 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 162) #7
   %4509 = zext i1 %4508 to i8
@@ -7345,7 +7345,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4529 = extractvalue { ptr, i8 } %4526, 1
   %4530 = extractvalue { ptr, i8 } %4526, 0
   store ptr %4530, ptr %164, align 8
-  %.sroa.26437.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 8
+  %.sroa.26437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i8 %4529, ptr %.sroa.26437.0..sroa_idx, align 8
   %4531 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 163) #7
   %4532 = zext i1 %4531 to i8
@@ -7381,7 +7381,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4552 = extractvalue { ptr, i8 } %4549, 1
   %4553 = extractvalue { ptr, i8 } %4549, 0
   store ptr %4553, ptr %165, align 8
-  %.sroa.26412.0..sroa_idx = getelementptr inbounds i8, ptr %165, i64 8
+  %.sroa.26412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i8 %4552, ptr %.sroa.26412.0..sroa_idx, align 8
   %4554 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 164) #7
   %4555 = zext i1 %4554 to i8
@@ -7426,7 +7426,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4581 = extractvalue { ptr, i8 } %4578, 1
   %4582 = extractvalue { ptr, i8 } %4578, 0
   store ptr %4582, ptr %166, align 8
-  %.sroa.26387.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 8
+  %.sroa.26387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i8 %4581, ptr %.sroa.26387.0..sroa_idx, align 8
   %4583 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 165) #7
   %4584 = zext i1 %4583 to i8
@@ -7471,7 +7471,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4610 = extractvalue { ptr, i8 } %4607, 1
   %4611 = extractvalue { ptr, i8 } %4607, 0
   store ptr %4611, ptr %167, align 8
-  %.sroa.26362.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 8
+  %.sroa.26362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i8 %4610, ptr %.sroa.26362.0..sroa_idx, align 8
   %4612 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 166) #7
   %4613 = zext i1 %4612 to i8
@@ -7507,7 +7507,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4633 = extractvalue { ptr, i8 } %4630, 1
   %4634 = extractvalue { ptr, i8 } %4630, 0
   store ptr %4634, ptr %168, align 8
-  %.sroa.26337.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
+  %.sroa.26337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i8 %4633, ptr %.sroa.26337.0..sroa_idx, align 8
   %4635 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 167) #7
   %4636 = zext i1 %4635 to i8
@@ -7552,7 +7552,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4662 = extractvalue { ptr, i8 } %4659, 1
   %4663 = extractvalue { ptr, i8 } %4659, 0
   store ptr %4663, ptr %169, align 8
-  %.sroa.26312.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 8
+  %.sroa.26312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i8 %4662, ptr %.sroa.26312.0..sroa_idx, align 8
   %4664 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 168) #7
   %4665 = zext i1 %4664 to i8
@@ -7597,7 +7597,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4691 = extractvalue { ptr, i8 } %4688, 1
   %4692 = extractvalue { ptr, i8 } %4688, 0
   store ptr %4692, ptr %170, align 8
-  %.sroa.26287.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 8
+  %.sroa.26287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i8 %4691, ptr %.sroa.26287.0..sroa_idx, align 8
   %4693 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 169) #7
   %4694 = zext i1 %4693 to i8
@@ -7633,7 +7633,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4714 = extractvalue { ptr, i8 } %4711, 1
   %4715 = extractvalue { ptr, i8 } %4711, 0
   store ptr %4715, ptr %171, align 8
-  %.sroa.26262.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 8
+  %.sroa.26262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i8 %4714, ptr %.sroa.26262.0..sroa_idx, align 8
   %4716 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 170) #7
   %4717 = zext i1 %4716 to i8
@@ -7678,7 +7678,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4743 = extractvalue { ptr, i8 } %4740, 1
   %4744 = extractvalue { ptr, i8 } %4740, 0
   store ptr %4744, ptr %172, align 8
-  %.sroa.26237.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 8
+  %.sroa.26237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i8 %4743, ptr %.sroa.26237.0..sroa_idx, align 8
   %4745 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 171) #7
   %4746 = zext i1 %4745 to i8
@@ -7714,7 +7714,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4766 = extractvalue { ptr, i8 } %4763, 1
   %4767 = extractvalue { ptr, i8 } %4763, 0
   store ptr %4767, ptr %173, align 8
-  %.sroa.26212.0..sroa_idx = getelementptr inbounds i8, ptr %173, i64 8
+  %.sroa.26212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i8 %4766, ptr %.sroa.26212.0..sroa_idx, align 8
   %4768 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 172) #7
   %4769 = zext i1 %4768 to i8
@@ -7759,7 +7759,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4795 = extractvalue { ptr, i8 } %4792, 1
   %4796 = extractvalue { ptr, i8 } %4792, 0
   store ptr %4796, ptr %174, align 8
-  %.sroa.26187.0..sroa_idx = getelementptr inbounds i8, ptr %174, i64 8
+  %.sroa.26187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i8 %4795, ptr %.sroa.26187.0..sroa_idx, align 8
   %4797 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 173) #7
   %4798 = zext i1 %4797 to i8
@@ -7795,7 +7795,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4818 = extractvalue { ptr, i8 } %4815, 1
   %4819 = extractvalue { ptr, i8 } %4815, 0
   store ptr %4819, ptr %175, align 8
-  %.sroa.26162.0..sroa_idx = getelementptr inbounds i8, ptr %175, i64 8
+  %.sroa.26162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i8 %4818, ptr %.sroa.26162.0..sroa_idx, align 8
   %4820 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 174) #7
   %4821 = zext i1 %4820 to i8
@@ -7840,7 +7840,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4847 = extractvalue { ptr, i8 } %4844, 1
   %4848 = extractvalue { ptr, i8 } %4844, 0
   store ptr %4848, ptr %176, align 8
-  %.sroa.26137.0..sroa_idx = getelementptr inbounds i8, ptr %176, i64 8
+  %.sroa.26137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i8 %4847, ptr %.sroa.26137.0..sroa_idx, align 8
   %4849 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 175) #7
   %4850 = zext i1 %4849 to i8
@@ -7885,7 +7885,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4876 = extractvalue { ptr, i8 } %4873, 1
   %4877 = extractvalue { ptr, i8 } %4873, 0
   store ptr %4877, ptr %177, align 8
-  %.sroa.26112.0..sroa_idx = getelementptr inbounds i8, ptr %177, i64 8
+  %.sroa.26112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i8 %4876, ptr %.sroa.26112.0..sroa_idx, align 8
   %4878 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 176) #7
   %4879 = zext i1 %4878 to i8
@@ -7930,7 +7930,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4905 = extractvalue { ptr, i8 } %4902, 1
   %4906 = extractvalue { ptr, i8 } %4902, 0
   store ptr %4906, ptr %178, align 8
-  %.sroa.26087.0..sroa_idx = getelementptr inbounds i8, ptr %178, i64 8
+  %.sroa.26087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i8 %4905, ptr %.sroa.26087.0..sroa_idx, align 8
   %4907 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 177) #7
   %4908 = zext i1 %4907 to i8
@@ -7975,7 +7975,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4934 = extractvalue { ptr, i8 } %4931, 1
   %4935 = extractvalue { ptr, i8 } %4931, 0
   store ptr %4935, ptr %179, align 8
-  %.sroa.26062.0..sroa_idx = getelementptr inbounds i8, ptr %179, i64 8
+  %.sroa.26062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i8 %4934, ptr %.sroa.26062.0..sroa_idx, align 8
   %4936 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 178) #7
   %4937 = zext i1 %4936 to i8
@@ -8020,7 +8020,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4963 = extractvalue { ptr, i8 } %4960, 1
   %4964 = extractvalue { ptr, i8 } %4960, 0
   store ptr %4964, ptr %180, align 8
-  %.sroa.26037.0..sroa_idx = getelementptr inbounds i8, ptr %180, i64 8
+  %.sroa.26037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i8 %4963, ptr %.sroa.26037.0..sroa_idx, align 8
   %4965 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 179) #7
   %4966 = zext i1 %4965 to i8
@@ -8065,7 +8065,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4992 = extractvalue { ptr, i8 } %4989, 1
   %4993 = extractvalue { ptr, i8 } %4989, 0
   store ptr %4993, ptr %181, align 8
-  %.sroa.26012.0..sroa_idx = getelementptr inbounds i8, ptr %181, i64 8
+  %.sroa.26012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i8 %4992, ptr %.sroa.26012.0..sroa_idx, align 8
   %4994 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 180) #7
   %4995 = zext i1 %4994 to i8
@@ -8110,7 +8110,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5021 = extractvalue { ptr, i8 } %5018, 1
   %5022 = extractvalue { ptr, i8 } %5018, 0
   store ptr %5022, ptr %182, align 8
-  %.sroa.25987.0..sroa_idx = getelementptr inbounds i8, ptr %182, i64 8
+  %.sroa.25987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i8 %5021, ptr %.sroa.25987.0..sroa_idx, align 8
   %5023 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 181) #7
   %5024 = zext i1 %5023 to i8
@@ -8155,7 +8155,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5050 = extractvalue { ptr, i8 } %5047, 1
   %5051 = extractvalue { ptr, i8 } %5047, 0
   store ptr %5051, ptr %183, align 8
-  %.sroa.25962.0..sroa_idx = getelementptr inbounds i8, ptr %183, i64 8
+  %.sroa.25962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 %5050, ptr %.sroa.25962.0..sroa_idx, align 8
   %5052 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 182) #7
   %5053 = zext i1 %5052 to i8
@@ -8200,7 +8200,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5079 = extractvalue { ptr, i8 } %5076, 1
   %5080 = extractvalue { ptr, i8 } %5076, 0
   store ptr %5080, ptr %184, align 8
-  %.sroa.25937.0..sroa_idx = getelementptr inbounds i8, ptr %184, i64 8
+  %.sroa.25937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i8 %5079, ptr %.sroa.25937.0..sroa_idx, align 8
   %5081 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 183) #7
   %5082 = zext i1 %5081 to i8
@@ -8245,7 +8245,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5108 = extractvalue { ptr, i8 } %5105, 1
   %5109 = extractvalue { ptr, i8 } %5105, 0
   store ptr %5109, ptr %185, align 8
-  %.sroa.25912.0..sroa_idx = getelementptr inbounds i8, ptr %185, i64 8
+  %.sroa.25912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i8 %5108, ptr %.sroa.25912.0..sroa_idx, align 8
   %5110 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 184) #7
   %5111 = zext i1 %5110 to i8
@@ -8290,7 +8290,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5137 = extractvalue { ptr, i8 } %5134, 1
   %5138 = extractvalue { ptr, i8 } %5134, 0
   store ptr %5138, ptr %186, align 8
-  %.sroa.25887.0..sroa_idx = getelementptr inbounds i8, ptr %186, i64 8
+  %.sroa.25887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i8 %5137, ptr %.sroa.25887.0..sroa_idx, align 8
   %5139 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 185) #7
   %5140 = zext i1 %5139 to i8
@@ -8335,7 +8335,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5166 = extractvalue { ptr, i8 } %5163, 1
   %5167 = extractvalue { ptr, i8 } %5163, 0
   store ptr %5167, ptr %187, align 8
-  %.sroa.25862.0..sroa_idx = getelementptr inbounds i8, ptr %187, i64 8
+  %.sroa.25862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i8 %5166, ptr %.sroa.25862.0..sroa_idx, align 8
   %5168 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 186) #7
   %5169 = zext i1 %5168 to i8
@@ -8380,7 +8380,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5195 = extractvalue { ptr, i8 } %5192, 1
   %5196 = extractvalue { ptr, i8 } %5192, 0
   store ptr %5196, ptr %188, align 8
-  %.sroa.25837.0..sroa_idx = getelementptr inbounds i8, ptr %188, i64 8
+  %.sroa.25837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i8 %5195, ptr %.sroa.25837.0..sroa_idx, align 8
   %5197 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 187) #7
   %5198 = zext i1 %5197 to i8
@@ -8425,7 +8425,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5224 = extractvalue { ptr, i8 } %5221, 1
   %5225 = extractvalue { ptr, i8 } %5221, 0
   store ptr %5225, ptr %189, align 8
-  %.sroa.25812.0..sroa_idx = getelementptr inbounds i8, ptr %189, i64 8
+  %.sroa.25812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i8 %5224, ptr %.sroa.25812.0..sroa_idx, align 8
   %5226 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 188) #7
   %5227 = zext i1 %5226 to i8
@@ -8470,7 +8470,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5253 = extractvalue { ptr, i8 } %5250, 1
   %5254 = extractvalue { ptr, i8 } %5250, 0
   store ptr %5254, ptr %190, align 8
-  %.sroa.25787.0..sroa_idx = getelementptr inbounds i8, ptr %190, i64 8
+  %.sroa.25787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i8 %5253, ptr %.sroa.25787.0..sroa_idx, align 8
   %5255 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 189) #7
   %5256 = zext i1 %5255 to i8
@@ -8515,7 +8515,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5282 = extractvalue { ptr, i8 } %5279, 1
   %5283 = extractvalue { ptr, i8 } %5279, 0
   store ptr %5283, ptr %191, align 8
-  %.sroa.25762.0..sroa_idx = getelementptr inbounds i8, ptr %191, i64 8
+  %.sroa.25762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i8 %5282, ptr %.sroa.25762.0..sroa_idx, align 8
   %5284 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 190) #7
   %5285 = zext i1 %5284 to i8
@@ -8551,7 +8551,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5305 = extractvalue { ptr, i8 } %5302, 1
   %5306 = extractvalue { ptr, i8 } %5302, 0
   store ptr %5306, ptr %192, align 8
-  %.sroa.25737.0..sroa_idx = getelementptr inbounds i8, ptr %192, i64 8
+  %.sroa.25737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 8
   store i8 %5305, ptr %.sroa.25737.0..sroa_idx, align 8
   %5307 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 191) #7
   %5308 = zext i1 %5307 to i8
@@ -8587,7 +8587,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5328 = extractvalue { ptr, i8 } %5325, 1
   %5329 = extractvalue { ptr, i8 } %5325, 0
   store ptr %5329, ptr %193, align 8
-  %.sroa.25712.0..sroa_idx = getelementptr inbounds i8, ptr %193, i64 8
+  %.sroa.25712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i8 %5328, ptr %.sroa.25712.0..sroa_idx, align 8
   %5330 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 192) #7
   %5331 = zext i1 %5330 to i8
@@ -8632,7 +8632,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5357 = extractvalue { ptr, i8 } %5354, 1
   %5358 = extractvalue { ptr, i8 } %5354, 0
   store ptr %5358, ptr %194, align 8
-  %.sroa.25687.0..sroa_idx = getelementptr inbounds i8, ptr %194, i64 8
+  %.sroa.25687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i8 %5357, ptr %.sroa.25687.0..sroa_idx, align 8
   %5359 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 193) #7
   %5360 = zext i1 %5359 to i8
@@ -8668,7 +8668,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5380 = extractvalue { ptr, i8 } %5377, 1
   %5381 = extractvalue { ptr, i8 } %5377, 0
   store ptr %5381, ptr %195, align 8
-  %.sroa.25662.0..sroa_idx = getelementptr inbounds i8, ptr %195, i64 8
+  %.sroa.25662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i8 %5380, ptr %.sroa.25662.0..sroa_idx, align 8
   %5382 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 194) #7
   %5383 = zext i1 %5382 to i8
@@ -8713,7 +8713,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5409 = extractvalue { ptr, i8 } %5406, 1
   %5410 = extractvalue { ptr, i8 } %5406, 0
   store ptr %5410, ptr %196, align 8
-  %.sroa.25637.0..sroa_idx = getelementptr inbounds i8, ptr %196, i64 8
+  %.sroa.25637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i8 %5409, ptr %.sroa.25637.0..sroa_idx, align 8
   %5411 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 195) #7
   %5412 = zext i1 %5411 to i8
@@ -8749,7 +8749,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5432 = extractvalue { ptr, i8 } %5429, 1
   %5433 = extractvalue { ptr, i8 } %5429, 0
   store ptr %5433, ptr %197, align 8
-  %.sroa.25612.0..sroa_idx = getelementptr inbounds i8, ptr %197, i64 8
+  %.sroa.25612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i8 %5432, ptr %.sroa.25612.0..sroa_idx, align 8
   %5434 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 196) #7
   %5435 = zext i1 %5434 to i8
@@ -8794,7 +8794,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5461 = extractvalue { ptr, i8 } %5458, 1
   %5462 = extractvalue { ptr, i8 } %5458, 0
   store ptr %5462, ptr %198, align 8
-  %.sroa.25587.0..sroa_idx = getelementptr inbounds i8, ptr %198, i64 8
+  %.sroa.25587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i8 %5461, ptr %.sroa.25587.0..sroa_idx, align 8
   %5463 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 197) #7
   %5464 = zext i1 %5463 to i8
@@ -8830,7 +8830,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5484 = extractvalue { ptr, i8 } %5481, 1
   %5485 = extractvalue { ptr, i8 } %5481, 0
   store ptr %5485, ptr %199, align 8
-  %.sroa.25562.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 8
+  %.sroa.25562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i8 %5484, ptr %.sroa.25562.0..sroa_idx, align 8
   %5486 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 198) #7
   %5487 = zext i1 %5486 to i8
@@ -8866,7 +8866,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5507 = extractvalue { ptr, i8 } %5504, 1
   %5508 = extractvalue { ptr, i8 } %5504, 0
   store ptr %5508, ptr %200, align 8
-  %.sroa.25537.0..sroa_idx = getelementptr inbounds i8, ptr %200, i64 8
+  %.sroa.25537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i8 %5507, ptr %.sroa.25537.0..sroa_idx, align 8
   %5509 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 199) #7
   %5510 = zext i1 %5509 to i8
@@ -8911,7 +8911,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5536 = extractvalue { ptr, i8 } %5533, 1
   %5537 = extractvalue { ptr, i8 } %5533, 0
   store ptr %5537, ptr %201, align 8
-  %.sroa.25512.0..sroa_idx = getelementptr inbounds i8, ptr %201, i64 8
+  %.sroa.25512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i8 %5536, ptr %.sroa.25512.0..sroa_idx, align 8
   %5538 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 200) #7
   %5539 = zext i1 %5538 to i8
@@ -8947,7 +8947,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5559 = extractvalue { ptr, i8 } %5556, 1
   %5560 = extractvalue { ptr, i8 } %5556, 0
   store ptr %5560, ptr %202, align 8
-  %.sroa.25487.0..sroa_idx = getelementptr inbounds i8, ptr %202, i64 8
+  %.sroa.25487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i8 %5559, ptr %.sroa.25487.0..sroa_idx, align 8
   %5561 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 201) #7
   %5562 = zext i1 %5561 to i8
@@ -8983,7 +8983,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5582 = extractvalue { ptr, i8 } %5579, 1
   %5583 = extractvalue { ptr, i8 } %5579, 0
   store ptr %5583, ptr %203, align 8
-  %.sroa.25462.0..sroa_idx = getelementptr inbounds i8, ptr %203, i64 8
+  %.sroa.25462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 8
   store i8 %5582, ptr %.sroa.25462.0..sroa_idx, align 8
   %5584 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 202) #7
   %5585 = zext i1 %5584 to i8
@@ -9019,7 +9019,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5605 = extractvalue { ptr, i8 } %5602, 1
   %5606 = extractvalue { ptr, i8 } %5602, 0
   store ptr %5606, ptr %204, align 8
-  %.sroa.25437.0..sroa_idx = getelementptr inbounds i8, ptr %204, i64 8
+  %.sroa.25437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i8 %5605, ptr %.sroa.25437.0..sroa_idx, align 8
   %5607 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 203) #7
   %5608 = zext i1 %5607 to i8
@@ -9055,7 +9055,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5628 = extractvalue { ptr, i8 } %5625, 1
   %5629 = extractvalue { ptr, i8 } %5625, 0
   store ptr %5629, ptr %205, align 8
-  %.sroa.25412.0..sroa_idx = getelementptr inbounds i8, ptr %205, i64 8
+  %.sroa.25412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i8 %5628, ptr %.sroa.25412.0..sroa_idx, align 8
   %5630 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 204) #7
   %5631 = zext i1 %5630 to i8
@@ -9091,7 +9091,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5651 = extractvalue { ptr, i8 } %5648, 1
   %5652 = extractvalue { ptr, i8 } %5648, 0
   store ptr %5652, ptr %206, align 8
-  %.sroa.25387.0..sroa_idx = getelementptr inbounds i8, ptr %206, i64 8
+  %.sroa.25387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i8 %5651, ptr %.sroa.25387.0..sroa_idx, align 8
   %5653 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 205) #7
   %5654 = zext i1 %5653 to i8
@@ -9136,7 +9136,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5680 = extractvalue { ptr, i8 } %5677, 1
   %5681 = extractvalue { ptr, i8 } %5677, 0
   store ptr %5681, ptr %207, align 8
-  %.sroa.25362.0..sroa_idx = getelementptr inbounds i8, ptr %207, i64 8
+  %.sroa.25362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 8
   store i8 %5680, ptr %.sroa.25362.0..sroa_idx, align 8
   %5682 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 206) #7
   %5683 = zext i1 %5682 to i8
@@ -9172,7 +9172,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5703 = extractvalue { ptr, i8 } %5700, 1
   %5704 = extractvalue { ptr, i8 } %5700, 0
   store ptr %5704, ptr %208, align 8
-  %.sroa.25337.0..sroa_idx = getelementptr inbounds i8, ptr %208, i64 8
+  %.sroa.25337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i8 %5703, ptr %.sroa.25337.0..sroa_idx, align 8
   %5705 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 207) #7
   %5706 = zext i1 %5705 to i8
@@ -9208,7 +9208,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5726 = extractvalue { ptr, i8 } %5723, 1
   %5727 = extractvalue { ptr, i8 } %5723, 0
   store ptr %5727, ptr %209, align 8
-  %.sroa.25312.0..sroa_idx = getelementptr inbounds i8, ptr %209, i64 8
+  %.sroa.25312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i8 %5726, ptr %.sroa.25312.0..sroa_idx, align 8
   %5728 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 208) #7
   %5729 = zext i1 %5728 to i8
@@ -9244,7 +9244,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5749 = extractvalue { ptr, i8 } %5746, 1
   %5750 = extractvalue { ptr, i8 } %5746, 0
   store ptr %5750, ptr %210, align 8
-  %.sroa.25287.0..sroa_idx = getelementptr inbounds i8, ptr %210, i64 8
+  %.sroa.25287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
   store i8 %5749, ptr %.sroa.25287.0..sroa_idx, align 8
   %5751 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 209) #7
   %5752 = zext i1 %5751 to i8
@@ -9280,7 +9280,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5772 = extractvalue { ptr, i8 } %5769, 1
   %5773 = extractvalue { ptr, i8 } %5769, 0
   store ptr %5773, ptr %211, align 8
-  %.sroa.25262.0..sroa_idx = getelementptr inbounds i8, ptr %211, i64 8
+  %.sroa.25262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i8 %5772, ptr %.sroa.25262.0..sroa_idx, align 8
   %5774 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 210) #7
   %5775 = zext i1 %5774 to i8
@@ -9316,7 +9316,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5795 = extractvalue { ptr, i8 } %5792, 1
   %5796 = extractvalue { ptr, i8 } %5792, 0
   store ptr %5796, ptr %212, align 8
-  %.sroa.25237.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 8
+  %.sroa.25237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i8 %5795, ptr %.sroa.25237.0..sroa_idx, align 8
   %5797 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 211) #7
   %5798 = zext i1 %5797 to i8
@@ -9352,7 +9352,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5818 = extractvalue { ptr, i8 } %5815, 1
   %5819 = extractvalue { ptr, i8 } %5815, 0
   store ptr %5819, ptr %213, align 8
-  %.sroa.25212.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 8
+  %.sroa.25212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i8 %5818, ptr %.sroa.25212.0..sroa_idx, align 8
   %5820 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 212) #7
   %5821 = zext i1 %5820 to i8
@@ -9388,7 +9388,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5841 = extractvalue { ptr, i8 } %5838, 1
   %5842 = extractvalue { ptr, i8 } %5838, 0
   store ptr %5842, ptr %214, align 8
-  %.sroa.25187.0..sroa_idx = getelementptr inbounds i8, ptr %214, i64 8
+  %.sroa.25187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i8 %5841, ptr %.sroa.25187.0..sroa_idx, align 8
   %5843 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 213) #7
   %5844 = zext i1 %5843 to i8
@@ -9424,7 +9424,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5864 = extractvalue { ptr, i8 } %5861, 1
   %5865 = extractvalue { ptr, i8 } %5861, 0
   store ptr %5865, ptr %215, align 8
-  %.sroa.25162.0..sroa_idx = getelementptr inbounds i8, ptr %215, i64 8
+  %.sroa.25162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i8 %5864, ptr %.sroa.25162.0..sroa_idx, align 8
   %5866 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 214) #7
   %5867 = zext i1 %5866 to i8
@@ -9460,7 +9460,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5887 = extractvalue { ptr, i8 } %5884, 1
   %5888 = extractvalue { ptr, i8 } %5884, 0
   store ptr %5888, ptr %216, align 8
-  %.sroa.25137.0..sroa_idx = getelementptr inbounds i8, ptr %216, i64 8
+  %.sroa.25137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i8 %5887, ptr %.sroa.25137.0..sroa_idx, align 8
   %5889 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 215) #7
   %5890 = zext i1 %5889 to i8
@@ -9496,7 +9496,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5910 = extractvalue { ptr, i8 } %5907, 1
   %5911 = extractvalue { ptr, i8 } %5907, 0
   store ptr %5911, ptr %217, align 8
-  %.sroa.25112.0..sroa_idx = getelementptr inbounds i8, ptr %217, i64 8
+  %.sroa.25112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %217, i64 8
   store i8 %5910, ptr %.sroa.25112.0..sroa_idx, align 8
   %5912 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 216) #7
   %5913 = zext i1 %5912 to i8
@@ -9541,7 +9541,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5939 = extractvalue { ptr, i8 } %5936, 1
   %5940 = extractvalue { ptr, i8 } %5936, 0
   store ptr %5940, ptr %218, align 8
-  %.sroa.25087.0..sroa_idx = getelementptr inbounds i8, ptr %218, i64 8
+  %.sroa.25087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i8 %5939, ptr %.sroa.25087.0..sroa_idx, align 8
   %5941 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 217) #7
   %5942 = zext i1 %5941 to i8
@@ -9577,7 +9577,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5962 = extractvalue { ptr, i8 } %5959, 1
   %5963 = extractvalue { ptr, i8 } %5959, 0
   store ptr %5963, ptr %219, align 8
-  %.sroa.25062.0..sroa_idx = getelementptr inbounds i8, ptr %219, i64 8
+  %.sroa.25062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i8 %5962, ptr %.sroa.25062.0..sroa_idx, align 8
   %5964 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 218) #7
   %5965 = zext i1 %5964 to i8
@@ -9622,7 +9622,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5991 = extractvalue { ptr, i8 } %5988, 1
   %5992 = extractvalue { ptr, i8 } %5988, 0
   store ptr %5992, ptr %220, align 8
-  %.sroa.25037.0..sroa_idx = getelementptr inbounds i8, ptr %220, i64 8
+  %.sroa.25037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i8 %5991, ptr %.sroa.25037.0..sroa_idx, align 8
   %5993 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 219) #7
   %5994 = zext i1 %5993 to i8
@@ -9667,7 +9667,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6020 = extractvalue { ptr, i8 } %6017, 1
   %6021 = extractvalue { ptr, i8 } %6017, 0
   store ptr %6021, ptr %221, align 8
-  %.sroa.25012.0..sroa_idx = getelementptr inbounds i8, ptr %221, i64 8
+  %.sroa.25012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i8 %6020, ptr %.sroa.25012.0..sroa_idx, align 8
   %6022 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 220) #7
   %6023 = zext i1 %6022 to i8
@@ -9712,7 +9712,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6049 = extractvalue { ptr, i8 } %6046, 1
   %6050 = extractvalue { ptr, i8 } %6046, 0
   store ptr %6050, ptr %222, align 8
-  %.sroa.24987.0..sroa_idx = getelementptr inbounds i8, ptr %222, i64 8
+  %.sroa.24987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i8 %6049, ptr %.sroa.24987.0..sroa_idx, align 8
   %6051 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 221) #7
   %6052 = zext i1 %6051 to i8
@@ -9748,7 +9748,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6072 = extractvalue { ptr, i8 } %6069, 1
   %6073 = extractvalue { ptr, i8 } %6069, 0
   store ptr %6073, ptr %223, align 8
-  %.sroa.24962.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 8
+  %.sroa.24962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i8 %6072, ptr %.sroa.24962.0..sroa_idx, align 8
   %6074 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 222) #7
   %6075 = zext i1 %6074 to i8
@@ -9784,7 +9784,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6095 = extractvalue { ptr, i8 } %6092, 1
   %6096 = extractvalue { ptr, i8 } %6092, 0
   store ptr %6096, ptr %224, align 8
-  %.sroa.24937.0..sroa_idx = getelementptr inbounds i8, ptr %224, i64 8
+  %.sroa.24937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i8 %6095, ptr %.sroa.24937.0..sroa_idx, align 8
   %6097 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 223) #7
   %6098 = zext i1 %6097 to i8
@@ -9820,7 +9820,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6118 = extractvalue { ptr, i8 } %6115, 1
   %6119 = extractvalue { ptr, i8 } %6115, 0
   store ptr %6119, ptr %225, align 8
-  %.sroa.24912.0..sroa_idx = getelementptr inbounds i8, ptr %225, i64 8
+  %.sroa.24912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i8 %6118, ptr %.sroa.24912.0..sroa_idx, align 8
   %6120 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 224) #7
   %6121 = zext i1 %6120 to i8
@@ -9856,7 +9856,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6141 = extractvalue { ptr, i8 } %6138, 1
   %6142 = extractvalue { ptr, i8 } %6138, 0
   store ptr %6142, ptr %226, align 8
-  %.sroa.24887.0..sroa_idx = getelementptr inbounds i8, ptr %226, i64 8
+  %.sroa.24887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i8 %6141, ptr %.sroa.24887.0..sroa_idx, align 8
   %6143 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 225) #7
   %6144 = zext i1 %6143 to i8
@@ -9892,7 +9892,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6164 = extractvalue { ptr, i8 } %6161, 1
   %6165 = extractvalue { ptr, i8 } %6161, 0
   store ptr %6165, ptr %227, align 8
-  %.sroa.24862.0..sroa_idx = getelementptr inbounds i8, ptr %227, i64 8
+  %.sroa.24862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i8 %6164, ptr %.sroa.24862.0..sroa_idx, align 8
   %6166 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 226) #7
   %6167 = zext i1 %6166 to i8
@@ -9928,7 +9928,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6187 = extractvalue { ptr, i8 } %6184, 1
   %6188 = extractvalue { ptr, i8 } %6184, 0
   store ptr %6188, ptr %228, align 8
-  %.sroa.24837.0..sroa_idx = getelementptr inbounds i8, ptr %228, i64 8
+  %.sroa.24837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i8 %6187, ptr %.sroa.24837.0..sroa_idx, align 8
   %6189 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 227) #7
   %6190 = zext i1 %6189 to i8
@@ -9964,7 +9964,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6210 = extractvalue { ptr, i8 } %6207, 1
   %6211 = extractvalue { ptr, i8 } %6207, 0
   store ptr %6211, ptr %229, align 8
-  %.sroa.24812.0..sroa_idx = getelementptr inbounds i8, ptr %229, i64 8
+  %.sroa.24812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i8 %6210, ptr %.sroa.24812.0..sroa_idx, align 8
   %6212 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 228) #7
   %6213 = zext i1 %6212 to i8
@@ -10000,7 +10000,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6233 = extractvalue { ptr, i8 } %6230, 1
   %6234 = extractvalue { ptr, i8 } %6230, 0
   store ptr %6234, ptr %230, align 8
-  %.sroa.24787.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 8
+  %.sroa.24787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i8 %6233, ptr %.sroa.24787.0..sroa_idx, align 8
   %6235 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 229) #7
   %6236 = zext i1 %6235 to i8
@@ -10036,7 +10036,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6256 = extractvalue { ptr, i8 } %6253, 1
   %6257 = extractvalue { ptr, i8 } %6253, 0
   store ptr %6257, ptr %231, align 8
-  %.sroa.24762.0..sroa_idx = getelementptr inbounds i8, ptr %231, i64 8
+  %.sroa.24762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i8 %6256, ptr %.sroa.24762.0..sroa_idx, align 8
   %6258 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 230) #7
   %6259 = zext i1 %6258 to i8
@@ -10072,7 +10072,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6279 = extractvalue { ptr, i8 } %6276, 1
   %6280 = extractvalue { ptr, i8 } %6276, 0
   store ptr %6280, ptr %232, align 8
-  %.sroa.24737.0..sroa_idx = getelementptr inbounds i8, ptr %232, i64 8
+  %.sroa.24737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i8 %6279, ptr %.sroa.24737.0..sroa_idx, align 8
   %6281 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 231) #7
   %6282 = zext i1 %6281 to i8
@@ -10108,7 +10108,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6302 = extractvalue { ptr, i8 } %6299, 1
   %6303 = extractvalue { ptr, i8 } %6299, 0
   store ptr %6303, ptr %233, align 8
-  %.sroa.24712.0..sroa_idx = getelementptr inbounds i8, ptr %233, i64 8
+  %.sroa.24712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 8
   store i8 %6302, ptr %.sroa.24712.0..sroa_idx, align 8
   %6304 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 232) #7
   %6305 = zext i1 %6304 to i8
@@ -10144,7 +10144,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6325 = extractvalue { ptr, i8 } %6322, 1
   %6326 = extractvalue { ptr, i8 } %6322, 0
   store ptr %6326, ptr %234, align 8
-  %.sroa.24687.0..sroa_idx = getelementptr inbounds i8, ptr %234, i64 8
+  %.sroa.24687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %234, i64 8
   store i8 %6325, ptr %.sroa.24687.0..sroa_idx, align 8
   %6327 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 233) #7
   %6328 = zext i1 %6327 to i8
@@ -10180,7 +10180,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6348 = extractvalue { ptr, i8 } %6345, 1
   %6349 = extractvalue { ptr, i8 } %6345, 0
   store ptr %6349, ptr %235, align 8
-  %.sroa.24662.0..sroa_idx = getelementptr inbounds i8, ptr %235, i64 8
+  %.sroa.24662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
   store i8 %6348, ptr %.sroa.24662.0..sroa_idx, align 8
   %6350 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 234) #7
   %6351 = zext i1 %6350 to i8
@@ -10216,7 +10216,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6371 = extractvalue { ptr, i8 } %6368, 1
   %6372 = extractvalue { ptr, i8 } %6368, 0
   store ptr %6372, ptr %236, align 8
-  %.sroa.24637.0..sroa_idx = getelementptr inbounds i8, ptr %236, i64 8
+  %.sroa.24637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i8 %6371, ptr %.sroa.24637.0..sroa_idx, align 8
   %6373 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 235) #7
   %6374 = zext i1 %6373 to i8
@@ -10252,7 +10252,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6394 = extractvalue { ptr, i8 } %6391, 1
   %6395 = extractvalue { ptr, i8 } %6391, 0
   store ptr %6395, ptr %237, align 8
-  %.sroa.24612.0..sroa_idx = getelementptr inbounds i8, ptr %237, i64 8
+  %.sroa.24612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i8 %6394, ptr %.sroa.24612.0..sroa_idx, align 8
   %6396 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 236) #7
   %6397 = zext i1 %6396 to i8
@@ -10288,7 +10288,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6417 = extractvalue { ptr, i8 } %6414, 1
   %6418 = extractvalue { ptr, i8 } %6414, 0
   store ptr %6418, ptr %238, align 8
-  %.sroa.24587.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 8
+  %.sroa.24587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i8 %6417, ptr %.sroa.24587.0..sroa_idx, align 8
   %6419 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 237) #7
   %6420 = zext i1 %6419 to i8
@@ -10324,7 +10324,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6440 = extractvalue { ptr, i8 } %6437, 1
   %6441 = extractvalue { ptr, i8 } %6437, 0
   store ptr %6441, ptr %239, align 8
-  %.sroa.24562.0..sroa_idx = getelementptr inbounds i8, ptr %239, i64 8
+  %.sroa.24562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i8 %6440, ptr %.sroa.24562.0..sroa_idx, align 8
   %6442 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 238) #7
   %6443 = zext i1 %6442 to i8
@@ -10360,7 +10360,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6463 = extractvalue { ptr, i8 } %6460, 1
   %6464 = extractvalue { ptr, i8 } %6460, 0
   store ptr %6464, ptr %240, align 8
-  %.sroa.24537.0..sroa_idx = getelementptr inbounds i8, ptr %240, i64 8
+  %.sroa.24537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %240, i64 8
   store i8 %6463, ptr %.sroa.24537.0..sroa_idx, align 8
   %6465 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 239) #7
   %6466 = zext i1 %6465 to i8
@@ -10396,7 +10396,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6486 = extractvalue { ptr, i8 } %6483, 1
   %6487 = extractvalue { ptr, i8 } %6483, 0
   store ptr %6487, ptr %241, align 8
-  %.sroa.24512.0..sroa_idx = getelementptr inbounds i8, ptr %241, i64 8
+  %.sroa.24512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i8 %6486, ptr %.sroa.24512.0..sroa_idx, align 8
   %6488 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 240) #7
   %6489 = zext i1 %6488 to i8
@@ -10432,7 +10432,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6509 = extractvalue { ptr, i8 } %6506, 1
   %6510 = extractvalue { ptr, i8 } %6506, 0
   store ptr %6510, ptr %242, align 8
-  %.sroa.24487.0..sroa_idx = getelementptr inbounds i8, ptr %242, i64 8
+  %.sroa.24487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 8
   store i8 %6509, ptr %.sroa.24487.0..sroa_idx, align 8
   %6511 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 241) #7
   %6512 = zext i1 %6511 to i8
@@ -10468,7 +10468,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6532 = extractvalue { ptr, i8 } %6529, 1
   %6533 = extractvalue { ptr, i8 } %6529, 0
   store ptr %6533, ptr %243, align 8
-  %.sroa.24462.0..sroa_idx = getelementptr inbounds i8, ptr %243, i64 8
+  %.sroa.24462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i8 %6532, ptr %.sroa.24462.0..sroa_idx, align 8
   %6534 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 242) #7
   %6535 = zext i1 %6534 to i8
@@ -10504,7 +10504,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6555 = extractvalue { ptr, i8 } %6552, 1
   %6556 = extractvalue { ptr, i8 } %6552, 0
   store ptr %6556, ptr %244, align 8
-  %.sroa.24437.0..sroa_idx = getelementptr inbounds i8, ptr %244, i64 8
+  %.sroa.24437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 8
   store i8 %6555, ptr %.sroa.24437.0..sroa_idx, align 8
   %6557 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 243) #7
   %6558 = zext i1 %6557 to i8
@@ -10540,7 +10540,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6578 = extractvalue { ptr, i8 } %6575, 1
   %6579 = extractvalue { ptr, i8 } %6575, 0
   store ptr %6579, ptr %245, align 8
-  %.sroa.24412.0..sroa_idx = getelementptr inbounds i8, ptr %245, i64 8
+  %.sroa.24412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i8 %6578, ptr %.sroa.24412.0..sroa_idx, align 8
   %6580 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 244) #7
   %6581 = zext i1 %6580 to i8
@@ -10576,7 +10576,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6601 = extractvalue { ptr, i8 } %6598, 1
   %6602 = extractvalue { ptr, i8 } %6598, 0
   store ptr %6602, ptr %246, align 8
-  %.sroa.24387.0..sroa_idx = getelementptr inbounds i8, ptr %246, i64 8
+  %.sroa.24387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i8 %6601, ptr %.sroa.24387.0..sroa_idx, align 8
   %6603 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 245) #7
   %6604 = zext i1 %6603 to i8
@@ -10612,7 +10612,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6624 = extractvalue { ptr, i8 } %6621, 1
   %6625 = extractvalue { ptr, i8 } %6621, 0
   store ptr %6625, ptr %247, align 8
-  %.sroa.24362.0..sroa_idx = getelementptr inbounds i8, ptr %247, i64 8
+  %.sroa.24362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i8 %6624, ptr %.sroa.24362.0..sroa_idx, align 8
   %6626 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 246) #7
   %6627 = zext i1 %6626 to i8
@@ -10648,7 +10648,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6647 = extractvalue { ptr, i8 } %6644, 1
   %6648 = extractvalue { ptr, i8 } %6644, 0
   store ptr %6648, ptr %248, align 8
-  %.sroa.24337.0..sroa_idx = getelementptr inbounds i8, ptr %248, i64 8
+  %.sroa.24337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 8
   store i8 %6647, ptr %.sroa.24337.0..sroa_idx, align 8
   %6649 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 247) #7
   %6650 = zext i1 %6649 to i8
@@ -10684,7 +10684,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6670 = extractvalue { ptr, i8 } %6667, 1
   %6671 = extractvalue { ptr, i8 } %6667, 0
   store ptr %6671, ptr %249, align 8
-  %.sroa.24312.0..sroa_idx = getelementptr inbounds i8, ptr %249, i64 8
+  %.sroa.24312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i8 %6670, ptr %.sroa.24312.0..sroa_idx, align 8
   %6672 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 248) #7
   %6673 = zext i1 %6672 to i8
@@ -10720,7 +10720,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6693 = extractvalue { ptr, i8 } %6690, 1
   %6694 = extractvalue { ptr, i8 } %6690, 0
   store ptr %6694, ptr %250, align 8
-  %.sroa.24287.0..sroa_idx = getelementptr inbounds i8, ptr %250, i64 8
+  %.sroa.24287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i8 %6693, ptr %.sroa.24287.0..sroa_idx, align 8
   %6695 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 249) #7
   %6696 = zext i1 %6695 to i8
@@ -10756,7 +10756,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6716 = extractvalue { ptr, i8 } %6713, 1
   %6717 = extractvalue { ptr, i8 } %6713, 0
   store ptr %6717, ptr %251, align 8
-  %.sroa.24262.0..sroa_idx = getelementptr inbounds i8, ptr %251, i64 8
+  %.sroa.24262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i8 %6716, ptr %.sroa.24262.0..sroa_idx, align 8
   %6718 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 250) #7
   %6719 = zext i1 %6718 to i8
@@ -10792,7 +10792,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6739 = extractvalue { ptr, i8 } %6736, 1
   %6740 = extractvalue { ptr, i8 } %6736, 0
   store ptr %6740, ptr %252, align 8
-  %.sroa.24237.0..sroa_idx = getelementptr inbounds i8, ptr %252, i64 8
+  %.sroa.24237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 8
   store i8 %6739, ptr %.sroa.24237.0..sroa_idx, align 8
   %6741 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 251) #7
   %6742 = zext i1 %6741 to i8
@@ -10828,7 +10828,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6762 = extractvalue { ptr, i8 } %6759, 1
   %6763 = extractvalue { ptr, i8 } %6759, 0
   store ptr %6763, ptr %253, align 8
-  %.sroa.24212.0..sroa_idx = getelementptr inbounds i8, ptr %253, i64 8
+  %.sroa.24212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i8 %6762, ptr %.sroa.24212.0..sroa_idx, align 8
   %6764 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 252) #7
   %6765 = zext i1 %6764 to i8
@@ -10864,7 +10864,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6785 = extractvalue { ptr, i8 } %6782, 1
   %6786 = extractvalue { ptr, i8 } %6782, 0
   store ptr %6786, ptr %254, align 8
-  %.sroa.24187.0..sroa_idx = getelementptr inbounds i8, ptr %254, i64 8
+  %.sroa.24187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i8 %6785, ptr %.sroa.24187.0..sroa_idx, align 8
   %6787 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 253) #7
   %6788 = zext i1 %6787 to i8
@@ -10900,7 +10900,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6808 = extractvalue { ptr, i8 } %6805, 1
   %6809 = extractvalue { ptr, i8 } %6805, 0
   store ptr %6809, ptr %255, align 8
-  %.sroa.24162.0..sroa_idx = getelementptr inbounds i8, ptr %255, i64 8
+  %.sroa.24162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i8 %6808, ptr %.sroa.24162.0..sroa_idx, align 8
   %6810 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 254) #7
   %6811 = zext i1 %6810 to i8
@@ -10936,7 +10936,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6831 = extractvalue { ptr, i8 } %6828, 1
   %6832 = extractvalue { ptr, i8 } %6828, 0
   store ptr %6832, ptr %256, align 8
-  %.sroa.24137.0..sroa_idx = getelementptr inbounds i8, ptr %256, i64 8
+  %.sroa.24137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i8 %6831, ptr %.sroa.24137.0..sroa_idx, align 8
   %6833 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 255) #7
   %6834 = zext i1 %6833 to i8
@@ -10972,7 +10972,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6854 = extractvalue { ptr, i8 } %6851, 1
   %6855 = extractvalue { ptr, i8 } %6851, 0
   store ptr %6855, ptr %257, align 8
-  %.sroa.24112.0..sroa_idx = getelementptr inbounds i8, ptr %257, i64 8
+  %.sroa.24112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i8 %6854, ptr %.sroa.24112.0..sroa_idx, align 8
   %6856 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 256) #7
   %6857 = zext i1 %6856 to i8
@@ -11008,7 +11008,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6877 = extractvalue { ptr, i8 } %6874, 1
   %6878 = extractvalue { ptr, i8 } %6874, 0
   store ptr %6878, ptr %258, align 8
-  %.sroa.24087.0..sroa_idx = getelementptr inbounds i8, ptr %258, i64 8
+  %.sroa.24087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i8 %6877, ptr %.sroa.24087.0..sroa_idx, align 8
   %6879 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 257) #7
   %6880 = zext i1 %6879 to i8
@@ -11044,7 +11044,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6900 = extractvalue { ptr, i8 } %6897, 1
   %6901 = extractvalue { ptr, i8 } %6897, 0
   store ptr %6901, ptr %259, align 8
-  %.sroa.24062.0..sroa_idx = getelementptr inbounds i8, ptr %259, i64 8
+  %.sroa.24062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i8 %6900, ptr %.sroa.24062.0..sroa_idx, align 8
   %6902 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 258) #7
   %6903 = zext i1 %6902 to i8
@@ -11080,7 +11080,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6923 = extractvalue { ptr, i8 } %6920, 1
   %6924 = extractvalue { ptr, i8 } %6920, 0
   store ptr %6924, ptr %260, align 8
-  %.sroa.24037.0..sroa_idx = getelementptr inbounds i8, ptr %260, i64 8
+  %.sroa.24037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i8 %6923, ptr %.sroa.24037.0..sroa_idx, align 8
   %6925 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 259) #7
   %6926 = zext i1 %6925 to i8
@@ -11116,7 +11116,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6946 = extractvalue { ptr, i8 } %6943, 1
   %6947 = extractvalue { ptr, i8 } %6943, 0
   store ptr %6947, ptr %261, align 8
-  %.sroa.24012.0..sroa_idx = getelementptr inbounds i8, ptr %261, i64 8
+  %.sroa.24012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i8 %6946, ptr %.sroa.24012.0..sroa_idx, align 8
   %6948 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 260) #7
   %6949 = zext i1 %6948 to i8
@@ -11152,7 +11152,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6969 = extractvalue { ptr, i8 } %6966, 1
   %6970 = extractvalue { ptr, i8 } %6966, 0
   store ptr %6970, ptr %262, align 8
-  %.sroa.23987.0..sroa_idx = getelementptr inbounds i8, ptr %262, i64 8
+  %.sroa.23987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 8
   store i8 %6969, ptr %.sroa.23987.0..sroa_idx, align 8
   %6971 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 261) #7
   %6972 = zext i1 %6971 to i8
@@ -11188,7 +11188,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6992 = extractvalue { ptr, i8 } %6989, 1
   %6993 = extractvalue { ptr, i8 } %6989, 0
   store ptr %6993, ptr %263, align 8
-  %.sroa.23962.0..sroa_idx = getelementptr inbounds i8, ptr %263, i64 8
+  %.sroa.23962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i8 %6992, ptr %.sroa.23962.0..sroa_idx, align 8
   %6994 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 262) #7
   %6995 = zext i1 %6994 to i8
@@ -11224,7 +11224,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7015 = extractvalue { ptr, i8 } %7012, 1
   %7016 = extractvalue { ptr, i8 } %7012, 0
   store ptr %7016, ptr %264, align 8
-  %.sroa.23937.0..sroa_idx = getelementptr inbounds i8, ptr %264, i64 8
+  %.sroa.23937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %264, i64 8
   store i8 %7015, ptr %.sroa.23937.0..sroa_idx, align 8
   %7017 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 263) #7
   %7018 = zext i1 %7017 to i8
@@ -11260,7 +11260,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7038 = extractvalue { ptr, i8 } %7035, 1
   %7039 = extractvalue { ptr, i8 } %7035, 0
   store ptr %7039, ptr %265, align 8
-  %.sroa.23912.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 8
+  %.sroa.23912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i8 %7038, ptr %.sroa.23912.0..sroa_idx, align 8
   %7040 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 264) #7
   %7041 = zext i1 %7040 to i8
@@ -11296,7 +11296,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7061 = extractvalue { ptr, i8 } %7058, 1
   %7062 = extractvalue { ptr, i8 } %7058, 0
   store ptr %7062, ptr %266, align 8
-  %.sroa.23887.0..sroa_idx = getelementptr inbounds i8, ptr %266, i64 8
+  %.sroa.23887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 8
   store i8 %7061, ptr %.sroa.23887.0..sroa_idx, align 8
   %7063 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 265) #7
   %7064 = zext i1 %7063 to i8
@@ -11332,7 +11332,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7084 = extractvalue { ptr, i8 } %7081, 1
   %7085 = extractvalue { ptr, i8 } %7081, 0
   store ptr %7085, ptr %267, align 8
-  %.sroa.23862.0..sroa_idx = getelementptr inbounds i8, ptr %267, i64 8
+  %.sroa.23862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i8 %7084, ptr %.sroa.23862.0..sroa_idx, align 8
   %7086 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 266) #7
   %7087 = zext i1 %7086 to i8
@@ -11368,7 +11368,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7107 = extractvalue { ptr, i8 } %7104, 1
   %7108 = extractvalue { ptr, i8 } %7104, 0
   store ptr %7108, ptr %268, align 8
-  %.sroa.23837.0..sroa_idx = getelementptr inbounds i8, ptr %268, i64 8
+  %.sroa.23837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %268, i64 8
   store i8 %7107, ptr %.sroa.23837.0..sroa_idx, align 8
   %7109 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 267) #7
   %7110 = zext i1 %7109 to i8
@@ -11404,7 +11404,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7130 = extractvalue { ptr, i8 } %7127, 1
   %7131 = extractvalue { ptr, i8 } %7127, 0
   store ptr %7131, ptr %269, align 8
-  %.sroa.23812.0..sroa_idx = getelementptr inbounds i8, ptr %269, i64 8
+  %.sroa.23812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %269, i64 8
   store i8 %7130, ptr %.sroa.23812.0..sroa_idx, align 8
   %7132 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 268) #7
   %7133 = zext i1 %7132 to i8
@@ -11440,7 +11440,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7153 = extractvalue { ptr, i8 } %7150, 1
   %7154 = extractvalue { ptr, i8 } %7150, 0
   store ptr %7154, ptr %270, align 8
-  %.sroa.23787.0..sroa_idx = getelementptr inbounds i8, ptr %270, i64 8
+  %.sroa.23787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %270, i64 8
   store i8 %7153, ptr %.sroa.23787.0..sroa_idx, align 8
   %7155 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 269) #7
   %7156 = zext i1 %7155 to i8
@@ -11476,7 +11476,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7176 = extractvalue { ptr, i8 } %7173, 1
   %7177 = extractvalue { ptr, i8 } %7173, 0
   store ptr %7177, ptr %271, align 8
-  %.sroa.23762.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 8
+  %.sroa.23762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i8 %7176, ptr %.sroa.23762.0..sroa_idx, align 8
   %7178 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 270) #7
   %7179 = zext i1 %7178 to i8
@@ -11512,7 +11512,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7199 = extractvalue { ptr, i8 } %7196, 1
   %7200 = extractvalue { ptr, i8 } %7196, 0
   store ptr %7200, ptr %272, align 8
-  %.sroa.23737.0..sroa_idx = getelementptr inbounds i8, ptr %272, i64 8
+  %.sroa.23737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i8 %7199, ptr %.sroa.23737.0..sroa_idx, align 8
   %7201 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 271) #7
   %7202 = zext i1 %7201 to i8
@@ -11548,7 +11548,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7222 = extractvalue { ptr, i8 } %7219, 1
   %7223 = extractvalue { ptr, i8 } %7219, 0
   store ptr %7223, ptr %273, align 8
-  %.sroa.23712.0..sroa_idx = getelementptr inbounds i8, ptr %273, i64 8
+  %.sroa.23712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i8 %7222, ptr %.sroa.23712.0..sroa_idx, align 8
   %7224 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 272) #7
   %7225 = zext i1 %7224 to i8
@@ -11584,7 +11584,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7245 = extractvalue { ptr, i8 } %7242, 1
   %7246 = extractvalue { ptr, i8 } %7242, 0
   store ptr %7246, ptr %274, align 8
-  %.sroa.23687.0..sroa_idx = getelementptr inbounds i8, ptr %274, i64 8
+  %.sroa.23687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i8 %7245, ptr %.sroa.23687.0..sroa_idx, align 8
   %7247 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 273) #7
   %7248 = zext i1 %7247 to i8
@@ -11620,7 +11620,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7268 = extractvalue { ptr, i8 } %7265, 1
   %7269 = extractvalue { ptr, i8 } %7265, 0
   store ptr %7269, ptr %275, align 8
-  %.sroa.23662.0..sroa_idx = getelementptr inbounds i8, ptr %275, i64 8
+  %.sroa.23662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i8 %7268, ptr %.sroa.23662.0..sroa_idx, align 8
   %7270 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 274) #7
   %7271 = zext i1 %7270 to i8
@@ -11656,7 +11656,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7291 = extractvalue { ptr, i8 } %7288, 1
   %7292 = extractvalue { ptr, i8 } %7288, 0
   store ptr %7292, ptr %276, align 8
-  %.sroa.23637.0..sroa_idx = getelementptr inbounds i8, ptr %276, i64 8
+  %.sroa.23637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i8 %7291, ptr %.sroa.23637.0..sroa_idx, align 8
   %7293 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 275) #7
   %7294 = zext i1 %7293 to i8
@@ -11692,7 +11692,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7314 = extractvalue { ptr, i8 } %7311, 1
   %7315 = extractvalue { ptr, i8 } %7311, 0
   store ptr %7315, ptr %277, align 8
-  %.sroa.23612.0..sroa_idx = getelementptr inbounds i8, ptr %277, i64 8
+  %.sroa.23612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 8
   store i8 %7314, ptr %.sroa.23612.0..sroa_idx, align 8
   %7316 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 276) #7
   %7317 = zext i1 %7316 to i8
@@ -11728,7 +11728,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7337 = extractvalue { ptr, i8 } %7334, 1
   %7338 = extractvalue { ptr, i8 } %7334, 0
   store ptr %7338, ptr %278, align 8
-  %.sroa.23587.0..sroa_idx = getelementptr inbounds i8, ptr %278, i64 8
+  %.sroa.23587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i8 %7337, ptr %.sroa.23587.0..sroa_idx, align 8
   %7339 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 277) #7
   %7340 = zext i1 %7339 to i8
@@ -11764,7 +11764,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7360 = extractvalue { ptr, i8 } %7357, 1
   %7361 = extractvalue { ptr, i8 } %7357, 0
   store ptr %7361, ptr %279, align 8
-  %.sroa.23562.0..sroa_idx = getelementptr inbounds i8, ptr %279, i64 8
+  %.sroa.23562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %279, i64 8
   store i8 %7360, ptr %.sroa.23562.0..sroa_idx, align 8
   %7362 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 278) #7
   %7363 = zext i1 %7362 to i8
@@ -11800,7 +11800,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7383 = extractvalue { ptr, i8 } %7380, 1
   %7384 = extractvalue { ptr, i8 } %7380, 0
   store ptr %7384, ptr %280, align 8
-  %.sroa.23537.0..sroa_idx = getelementptr inbounds i8, ptr %280, i64 8
+  %.sroa.23537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i8 %7383, ptr %.sroa.23537.0..sroa_idx, align 8
   %7385 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 279) #7
   %7386 = zext i1 %7385 to i8
@@ -11836,7 +11836,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7406 = extractvalue { ptr, i8 } %7403, 1
   %7407 = extractvalue { ptr, i8 } %7403, 0
   store ptr %7407, ptr %281, align 8
-  %.sroa.23512.0..sroa_idx = getelementptr inbounds i8, ptr %281, i64 8
+  %.sroa.23512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 8
   store i8 %7406, ptr %.sroa.23512.0..sroa_idx, align 8
   %7408 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 280) #7
   %7409 = zext i1 %7408 to i8
@@ -11872,7 +11872,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7429 = extractvalue { ptr, i8 } %7426, 1
   %7430 = extractvalue { ptr, i8 } %7426, 0
   store ptr %7430, ptr %282, align 8
-  %.sroa.23487.0..sroa_idx = getelementptr inbounds i8, ptr %282, i64 8
+  %.sroa.23487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i8 %7429, ptr %.sroa.23487.0..sroa_idx, align 8
   %7431 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 281) #7
   %7432 = zext i1 %7431 to i8
@@ -11908,7 +11908,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7452 = extractvalue { ptr, i8 } %7449, 1
   %7453 = extractvalue { ptr, i8 } %7449, 0
   store ptr %7453, ptr %283, align 8
-  %.sroa.23462.0..sroa_idx = getelementptr inbounds i8, ptr %283, i64 8
+  %.sroa.23462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i8 %7452, ptr %.sroa.23462.0..sroa_idx, align 8
   %7454 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 282) #7
   %7455 = zext i1 %7454 to i8
@@ -11944,7 +11944,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7475 = extractvalue { ptr, i8 } %7472, 1
   %7476 = extractvalue { ptr, i8 } %7472, 0
   store ptr %7476, ptr %284, align 8
-  %.sroa.23437.0..sroa_idx = getelementptr inbounds i8, ptr %284, i64 8
+  %.sroa.23437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %284, i64 8
   store i8 %7475, ptr %.sroa.23437.0..sroa_idx, align 8
   %7477 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 283) #7
   %7478 = zext i1 %7477 to i8
@@ -11980,7 +11980,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7498 = extractvalue { ptr, i8 } %7495, 1
   %7499 = extractvalue { ptr, i8 } %7495, 0
   store ptr %7499, ptr %285, align 8
-  %.sroa.23412.0..sroa_idx = getelementptr inbounds i8, ptr %285, i64 8
+  %.sroa.23412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i8 %7498, ptr %.sroa.23412.0..sroa_idx, align 8
   %7500 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 284) #7
   %7501 = zext i1 %7500 to i8
@@ -12016,7 +12016,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7521 = extractvalue { ptr, i8 } %7518, 1
   %7522 = extractvalue { ptr, i8 } %7518, 0
   store ptr %7522, ptr %286, align 8
-  %.sroa.23387.0..sroa_idx = getelementptr inbounds i8, ptr %286, i64 8
+  %.sroa.23387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %286, i64 8
   store i8 %7521, ptr %.sroa.23387.0..sroa_idx, align 8
   %7523 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 285) #7
   %7524 = zext i1 %7523 to i8
@@ -12052,7 +12052,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7544 = extractvalue { ptr, i8 } %7541, 1
   %7545 = extractvalue { ptr, i8 } %7541, 0
   store ptr %7545, ptr %287, align 8
-  %.sroa.23362.0..sroa_idx = getelementptr inbounds i8, ptr %287, i64 8
+  %.sroa.23362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %287, i64 8
   store i8 %7544, ptr %.sroa.23362.0..sroa_idx, align 8
   %7546 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 286) #7
   %7547 = zext i1 %7546 to i8
@@ -12088,7 +12088,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7567 = extractvalue { ptr, i8 } %7564, 1
   %7568 = extractvalue { ptr, i8 } %7564, 0
   store ptr %7568, ptr %288, align 8
-  %.sroa.23337.0..sroa_idx = getelementptr inbounds i8, ptr %288, i64 8
+  %.sroa.23337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i8 %7567, ptr %.sroa.23337.0..sroa_idx, align 8
   %7569 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 287) #7
   %7570 = zext i1 %7569 to i8
@@ -12124,7 +12124,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7590 = extractvalue { ptr, i8 } %7587, 1
   %7591 = extractvalue { ptr, i8 } %7587, 0
   store ptr %7591, ptr %289, align 8
-  %.sroa.23312.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 8
+  %.sroa.23312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i8 %7590, ptr %.sroa.23312.0..sroa_idx, align 8
   %7592 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 288) #7
   %7593 = zext i1 %7592 to i8
@@ -12160,7 +12160,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7613 = extractvalue { ptr, i8 } %7610, 1
   %7614 = extractvalue { ptr, i8 } %7610, 0
   store ptr %7614, ptr %290, align 8
-  %.sroa.23287.0..sroa_idx = getelementptr inbounds i8, ptr %290, i64 8
+  %.sroa.23287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %290, i64 8
   store i8 %7613, ptr %.sroa.23287.0..sroa_idx, align 8
   %7615 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 289) #7
   %7616 = zext i1 %7615 to i8
@@ -12196,7 +12196,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7636 = extractvalue { ptr, i8 } %7633, 1
   %7637 = extractvalue { ptr, i8 } %7633, 0
   store ptr %7637, ptr %291, align 8
-  %.sroa.23262.0..sroa_idx = getelementptr inbounds i8, ptr %291, i64 8
+  %.sroa.23262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i8 %7636, ptr %.sroa.23262.0..sroa_idx, align 8
   %7638 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 290) #7
   %7639 = zext i1 %7638 to i8
@@ -12232,7 +12232,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7659 = extractvalue { ptr, i8 } %7656, 1
   %7660 = extractvalue { ptr, i8 } %7656, 0
   store ptr %7660, ptr %292, align 8
-  %.sroa.23237.0..sroa_idx = getelementptr inbounds i8, ptr %292, i64 8
+  %.sroa.23237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %292, i64 8
   store i8 %7659, ptr %.sroa.23237.0..sroa_idx, align 8
   %7661 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 291) #7
   %7662 = zext i1 %7661 to i8
@@ -12268,7 +12268,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7682 = extractvalue { ptr, i8 } %7679, 1
   %7683 = extractvalue { ptr, i8 } %7679, 0
   store ptr %7683, ptr %293, align 8
-  %.sroa.23212.0..sroa_idx = getelementptr inbounds i8, ptr %293, i64 8
+  %.sroa.23212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %293, i64 8
   store i8 %7682, ptr %.sroa.23212.0..sroa_idx, align 8
   %7684 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 292) #7
   %7685 = zext i1 %7684 to i8
@@ -12304,7 +12304,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7705 = extractvalue { ptr, i8 } %7702, 1
   %7706 = extractvalue { ptr, i8 } %7702, 0
   store ptr %7706, ptr %294, align 8
-  %.sroa.23187.0..sroa_idx = getelementptr inbounds i8, ptr %294, i64 8
+  %.sroa.23187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %294, i64 8
   store i8 %7705, ptr %.sroa.23187.0..sroa_idx, align 8
   %7707 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 293) #7
   %7708 = zext i1 %7707 to i8
@@ -12340,7 +12340,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7728 = extractvalue { ptr, i8 } %7725, 1
   %7729 = extractvalue { ptr, i8 } %7725, 0
   store ptr %7729, ptr %295, align 8
-  %.sroa.23162.0..sroa_idx = getelementptr inbounds i8, ptr %295, i64 8
+  %.sroa.23162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i8 %7728, ptr %.sroa.23162.0..sroa_idx, align 8
   %7730 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 294) #7
   %7731 = zext i1 %7730 to i8
@@ -12376,7 +12376,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7751 = extractvalue { ptr, i8 } %7748, 1
   %7752 = extractvalue { ptr, i8 } %7748, 0
   store ptr %7752, ptr %296, align 8
-  %.sroa.23137.0..sroa_idx = getelementptr inbounds i8, ptr %296, i64 8
+  %.sroa.23137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i8 %7751, ptr %.sroa.23137.0..sroa_idx, align 8
   %7753 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 295) #7
   %7754 = zext i1 %7753 to i8
@@ -12412,7 +12412,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7774 = extractvalue { ptr, i8 } %7771, 1
   %7775 = extractvalue { ptr, i8 } %7771, 0
   store ptr %7775, ptr %297, align 8
-  %.sroa.23112.0..sroa_idx = getelementptr inbounds i8, ptr %297, i64 8
+  %.sroa.23112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %297, i64 8
   store i8 %7774, ptr %.sroa.23112.0..sroa_idx, align 8
   %7776 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 296) #7
   %7777 = zext i1 %7776 to i8
@@ -12448,7 +12448,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7797 = extractvalue { ptr, i8 } %7794, 1
   %7798 = extractvalue { ptr, i8 } %7794, 0
   store ptr %7798, ptr %298, align 8
-  %.sroa.23087.0..sroa_idx = getelementptr inbounds i8, ptr %298, i64 8
+  %.sroa.23087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i8 %7797, ptr %.sroa.23087.0..sroa_idx, align 8
   %7799 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 297) #7
   %7800 = zext i1 %7799 to i8
@@ -12484,7 +12484,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7820 = extractvalue { ptr, i8 } %7817, 1
   %7821 = extractvalue { ptr, i8 } %7817, 0
   store ptr %7821, ptr %299, align 8
-  %.sroa.23062.0..sroa_idx = getelementptr inbounds i8, ptr %299, i64 8
+  %.sroa.23062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %299, i64 8
   store i8 %7820, ptr %.sroa.23062.0..sroa_idx, align 8
   %7822 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 298) #7
   %7823 = zext i1 %7822 to i8
@@ -12520,7 +12520,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7843 = extractvalue { ptr, i8 } %7840, 1
   %7844 = extractvalue { ptr, i8 } %7840, 0
   store ptr %7844, ptr %300, align 8
-  %.sroa.23037.0..sroa_idx = getelementptr inbounds i8, ptr %300, i64 8
+  %.sroa.23037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i8 %7843, ptr %.sroa.23037.0..sroa_idx, align 8
   %7845 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 299) #7
   %7846 = zext i1 %7845 to i8
@@ -12556,7 +12556,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7866 = extractvalue { ptr, i8 } %7863, 1
   %7867 = extractvalue { ptr, i8 } %7863, 0
   store ptr %7867, ptr %301, align 8
-  %.sroa.23012.0..sroa_idx = getelementptr inbounds i8, ptr %301, i64 8
+  %.sroa.23012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 8
   store i8 %7866, ptr %.sroa.23012.0..sroa_idx, align 8
   %7868 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 300) #7
   %7869 = zext i1 %7868 to i8
@@ -12592,7 +12592,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7889 = extractvalue { ptr, i8 } %7886, 1
   %7890 = extractvalue { ptr, i8 } %7886, 0
   store ptr %7890, ptr %302, align 8
-  %.sroa.22987.0..sroa_idx = getelementptr inbounds i8, ptr %302, i64 8
+  %.sroa.22987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i8 %7889, ptr %.sroa.22987.0..sroa_idx, align 8
   %7891 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 301) #7
   %7892 = zext i1 %7891 to i8
@@ -12628,7 +12628,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7912 = extractvalue { ptr, i8 } %7909, 1
   %7913 = extractvalue { ptr, i8 } %7909, 0
   store ptr %7913, ptr %303, align 8
-  %.sroa.22962.0..sroa_idx = getelementptr inbounds i8, ptr %303, i64 8
+  %.sroa.22962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %303, i64 8
   store i8 %7912, ptr %.sroa.22962.0..sroa_idx, align 8
   %7914 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 302) #7
   %7915 = zext i1 %7914 to i8
@@ -12664,7 +12664,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7935 = extractvalue { ptr, i8 } %7932, 1
   %7936 = extractvalue { ptr, i8 } %7932, 0
   store ptr %7936, ptr %304, align 8
-  %.sroa.22937.0..sroa_idx = getelementptr inbounds i8, ptr %304, i64 8
+  %.sroa.22937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 8
   store i8 %7935, ptr %.sroa.22937.0..sroa_idx, align 8
   %7937 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 303) #7
   %7938 = zext i1 %7937 to i8
@@ -12700,7 +12700,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7958 = extractvalue { ptr, i8 } %7955, 1
   %7959 = extractvalue { ptr, i8 } %7955, 0
   store ptr %7959, ptr %305, align 8
-  %.sroa.22912.0..sroa_idx = getelementptr inbounds i8, ptr %305, i64 8
+  %.sroa.22912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i8 %7958, ptr %.sroa.22912.0..sroa_idx, align 8
   %7960 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 304) #7
   %7961 = zext i1 %7960 to i8
@@ -12736,7 +12736,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7981 = extractvalue { ptr, i8 } %7978, 1
   %7982 = extractvalue { ptr, i8 } %7978, 0
   store ptr %7982, ptr %306, align 8
-  %.sroa.22887.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 8
+  %.sroa.22887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i8 %7981, ptr %.sroa.22887.0..sroa_idx, align 8
   %7983 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 305) #7
   %7984 = zext i1 %7983 to i8
@@ -12772,7 +12772,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8004 = extractvalue { ptr, i8 } %8001, 1
   %8005 = extractvalue { ptr, i8 } %8001, 0
   store ptr %8005, ptr %307, align 8
-  %.sroa.22862.0..sroa_idx = getelementptr inbounds i8, ptr %307, i64 8
+  %.sroa.22862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 8
   store i8 %8004, ptr %.sroa.22862.0..sroa_idx, align 8
   %8006 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 306) #7
   %8007 = zext i1 %8006 to i8
@@ -12808,7 +12808,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8027 = extractvalue { ptr, i8 } %8024, 1
   %8028 = extractvalue { ptr, i8 } %8024, 0
   store ptr %8028, ptr %308, align 8
-  %.sroa.22837.0..sroa_idx = getelementptr inbounds i8, ptr %308, i64 8
+  %.sroa.22837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i8 %8027, ptr %.sroa.22837.0..sroa_idx, align 8
   %8029 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 307) #7
   %8030 = zext i1 %8029 to i8
@@ -12844,7 +12844,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8050 = extractvalue { ptr, i8 } %8047, 1
   %8051 = extractvalue { ptr, i8 } %8047, 0
   store ptr %8051, ptr %309, align 8
-  %.sroa.22812.0..sroa_idx = getelementptr inbounds i8, ptr %309, i64 8
+  %.sroa.22812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i8 %8050, ptr %.sroa.22812.0..sroa_idx, align 8
   %8052 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 308) #7
   %8053 = zext i1 %8052 to i8
@@ -12880,7 +12880,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8073 = extractvalue { ptr, i8 } %8070, 1
   %8074 = extractvalue { ptr, i8 } %8070, 0
   store ptr %8074, ptr %310, align 8
-  %.sroa.22787.0..sroa_idx = getelementptr inbounds i8, ptr %310, i64 8
+  %.sroa.22787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %310, i64 8
   store i8 %8073, ptr %.sroa.22787.0..sroa_idx, align 8
   %8075 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 309) #7
   %8076 = zext i1 %8075 to i8
@@ -12916,7 +12916,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8096 = extractvalue { ptr, i8 } %8093, 1
   %8097 = extractvalue { ptr, i8 } %8093, 0
   store ptr %8097, ptr %311, align 8
-  %.sroa.22762.0..sroa_idx = getelementptr inbounds i8, ptr %311, i64 8
+  %.sroa.22762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %311, i64 8
   store i8 %8096, ptr %.sroa.22762.0..sroa_idx, align 8
   %8098 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 310) #7
   %8099 = zext i1 %8098 to i8
@@ -12952,7 +12952,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8119 = extractvalue { ptr, i8 } %8116, 1
   %8120 = extractvalue { ptr, i8 } %8116, 0
   store ptr %8120, ptr %312, align 8
-  %.sroa.22737.0..sroa_idx = getelementptr inbounds i8, ptr %312, i64 8
+  %.sroa.22737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %312, i64 8
   store i8 %8119, ptr %.sroa.22737.0..sroa_idx, align 8
   %8121 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 311) #7
   %8122 = zext i1 %8121 to i8
@@ -12988,7 +12988,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8142 = extractvalue { ptr, i8 } %8139, 1
   %8143 = extractvalue { ptr, i8 } %8139, 0
   store ptr %8143, ptr %313, align 8
-  %.sroa.22712.0..sroa_idx = getelementptr inbounds i8, ptr %313, i64 8
+  %.sroa.22712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i8 %8142, ptr %.sroa.22712.0..sroa_idx, align 8
   %8144 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 312) #7
   %8145 = zext i1 %8144 to i8
@@ -13024,7 +13024,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8165 = extractvalue { ptr, i8 } %8162, 1
   %8166 = extractvalue { ptr, i8 } %8162, 0
   store ptr %8166, ptr %314, align 8
-  %.sroa.22687.0..sroa_idx = getelementptr inbounds i8, ptr %314, i64 8
+  %.sroa.22687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i8 %8165, ptr %.sroa.22687.0..sroa_idx, align 8
   %8167 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 313) #7
   %8168 = zext i1 %8167 to i8
@@ -13060,7 +13060,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8188 = extractvalue { ptr, i8 } %8185, 1
   %8189 = extractvalue { ptr, i8 } %8185, 0
   store ptr %8189, ptr %315, align 8
-  %.sroa.22662.0..sroa_idx = getelementptr inbounds i8, ptr %315, i64 8
+  %.sroa.22662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i8 %8188, ptr %.sroa.22662.0..sroa_idx, align 8
   %8190 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 314) #7
   %8191 = zext i1 %8190 to i8
@@ -13096,7 +13096,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8211 = extractvalue { ptr, i8 } %8208, 1
   %8212 = extractvalue { ptr, i8 } %8208, 0
   store ptr %8212, ptr %316, align 8
-  %.sroa.22637.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 8
+  %.sroa.22637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 8
   store i8 %8211, ptr %.sroa.22637.0..sroa_idx, align 8
   %8213 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 315) #7
   %8214 = zext i1 %8213 to i8
@@ -13132,7 +13132,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8234 = extractvalue { ptr, i8 } %8231, 1
   %8235 = extractvalue { ptr, i8 } %8231, 0
   store ptr %8235, ptr %317, align 8
-  %.sroa.22612.0..sroa_idx = getelementptr inbounds i8, ptr %317, i64 8
+  %.sroa.22612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %317, i64 8
   store i8 %8234, ptr %.sroa.22612.0..sroa_idx, align 8
   %8236 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 316) #7
   %8237 = zext i1 %8236 to i8
@@ -13168,7 +13168,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8257 = extractvalue { ptr, i8 } %8254, 1
   %8258 = extractvalue { ptr, i8 } %8254, 0
   store ptr %8258, ptr %318, align 8
-  %.sroa.22587.0..sroa_idx = getelementptr inbounds i8, ptr %318, i64 8
+  %.sroa.22587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %318, i64 8
   store i8 %8257, ptr %.sroa.22587.0..sroa_idx, align 8
   %8259 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 317) #7
   %8260 = zext i1 %8259 to i8
@@ -13204,7 +13204,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8280 = extractvalue { ptr, i8 } %8277, 1
   %8281 = extractvalue { ptr, i8 } %8277, 0
   store ptr %8281, ptr %319, align 8
-  %.sroa.22562.0..sroa_idx = getelementptr inbounds i8, ptr %319, i64 8
+  %.sroa.22562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %319, i64 8
   store i8 %8280, ptr %.sroa.22562.0..sroa_idx, align 8
   %8282 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 318) #7
   %8283 = zext i1 %8282 to i8
@@ -13240,7 +13240,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8303 = extractvalue { ptr, i8 } %8300, 1
   %8304 = extractvalue { ptr, i8 } %8300, 0
   store ptr %8304, ptr %320, align 8
-  %.sroa.22537.0..sroa_idx = getelementptr inbounds i8, ptr %320, i64 8
+  %.sroa.22537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i8 %8303, ptr %.sroa.22537.0..sroa_idx, align 8
   %8305 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 319) #7
   %8306 = zext i1 %8305 to i8
@@ -13276,7 +13276,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8326 = extractvalue { ptr, i8 } %8323, 1
   %8327 = extractvalue { ptr, i8 } %8323, 0
   store ptr %8327, ptr %321, align 8
-  %.sroa.22512.0..sroa_idx = getelementptr inbounds i8, ptr %321, i64 8
+  %.sroa.22512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i8 %8326, ptr %.sroa.22512.0..sroa_idx, align 8
   %8328 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 320) #7
   %8329 = zext i1 %8328 to i8
@@ -13312,7 +13312,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8349 = extractvalue { ptr, i8 } %8346, 1
   %8350 = extractvalue { ptr, i8 } %8346, 0
   store ptr %8350, ptr %322, align 8
-  %.sroa.22487.0..sroa_idx = getelementptr inbounds i8, ptr %322, i64 8
+  %.sroa.22487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %322, i64 8
   store i8 %8349, ptr %.sroa.22487.0..sroa_idx, align 8
   %8351 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 321) #7
   %8352 = zext i1 %8351 to i8
@@ -13348,7 +13348,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8372 = extractvalue { ptr, i8 } %8369, 1
   %8373 = extractvalue { ptr, i8 } %8369, 0
   store ptr %8373, ptr %323, align 8
-  %.sroa.22462.0..sroa_idx = getelementptr inbounds i8, ptr %323, i64 8
+  %.sroa.22462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i8 %8372, ptr %.sroa.22462.0..sroa_idx, align 8
   %8374 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 322) #7
   %8375 = zext i1 %8374 to i8
@@ -13384,7 +13384,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8395 = extractvalue { ptr, i8 } %8392, 1
   %8396 = extractvalue { ptr, i8 } %8392, 0
   store ptr %8396, ptr %324, align 8
-  %.sroa.22437.0..sroa_idx = getelementptr inbounds i8, ptr %324, i64 8
+  %.sroa.22437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i8 %8395, ptr %.sroa.22437.0..sroa_idx, align 8
   %8397 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 323) #7
   %8398 = zext i1 %8397 to i8
@@ -13420,7 +13420,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8418 = extractvalue { ptr, i8 } %8415, 1
   %8419 = extractvalue { ptr, i8 } %8415, 0
   store ptr %8419, ptr %325, align 8
-  %.sroa.22412.0..sroa_idx = getelementptr inbounds i8, ptr %325, i64 8
+  %.sroa.22412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %325, i64 8
   store i8 %8418, ptr %.sroa.22412.0..sroa_idx, align 8
   %8420 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 324) #7
   %8421 = zext i1 %8420 to i8
@@ -13456,7 +13456,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8441 = extractvalue { ptr, i8 } %8438, 1
   %8442 = extractvalue { ptr, i8 } %8438, 0
   store ptr %8442, ptr %326, align 8
-  %.sroa.22387.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 8
+  %.sroa.22387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 8
   store i8 %8441, ptr %.sroa.22387.0..sroa_idx, align 8
   %8443 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 325) #7
   %8444 = zext i1 %8443 to i8
@@ -13492,7 +13492,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8464 = extractvalue { ptr, i8 } %8461, 1
   %8465 = extractvalue { ptr, i8 } %8461, 0
   store ptr %8465, ptr %327, align 8
-  %.sroa.22362.0..sroa_idx = getelementptr inbounds i8, ptr %327, i64 8
+  %.sroa.22362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %327, i64 8
   store i8 %8464, ptr %.sroa.22362.0..sroa_idx, align 8
   %8466 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 326) #7
   %8467 = zext i1 %8466 to i8
@@ -13528,7 +13528,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8487 = extractvalue { ptr, i8 } %8484, 1
   %8488 = extractvalue { ptr, i8 } %8484, 0
   store ptr %8488, ptr %328, align 8
-  %.sroa.22337.0..sroa_idx = getelementptr inbounds i8, ptr %328, i64 8
+  %.sroa.22337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i8 %8487, ptr %.sroa.22337.0..sroa_idx, align 8
   %8489 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 327) #7
   %8490 = zext i1 %8489 to i8
@@ -13564,7 +13564,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8510 = extractvalue { ptr, i8 } %8507, 1
   %8511 = extractvalue { ptr, i8 } %8507, 0
   store ptr %8511, ptr %329, align 8
-  %.sroa.22312.0..sroa_idx = getelementptr inbounds i8, ptr %329, i64 8
+  %.sroa.22312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i8 %8510, ptr %.sroa.22312.0..sroa_idx, align 8
   %8512 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 328) #7
   %8513 = zext i1 %8512 to i8
@@ -13600,7 +13600,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8533 = extractvalue { ptr, i8 } %8530, 1
   %8534 = extractvalue { ptr, i8 } %8530, 0
   store ptr %8534, ptr %330, align 8
-  %.sroa.22287.0..sroa_idx = getelementptr inbounds i8, ptr %330, i64 8
+  %.sroa.22287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i8 %8533, ptr %.sroa.22287.0..sroa_idx, align 8
   %8535 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 329) #7
   %8536 = zext i1 %8535 to i8
@@ -13636,7 +13636,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8556 = extractvalue { ptr, i8 } %8553, 1
   %8557 = extractvalue { ptr, i8 } %8553, 0
   store ptr %8557, ptr %331, align 8
-  %.sroa.22262.0..sroa_idx = getelementptr inbounds i8, ptr %331, i64 8
+  %.sroa.22262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %331, i64 8
   store i8 %8556, ptr %.sroa.22262.0..sroa_idx, align 8
   %8558 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 330) #7
   %8559 = zext i1 %8558 to i8
@@ -13672,7 +13672,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8579 = extractvalue { ptr, i8 } %8576, 1
   %8580 = extractvalue { ptr, i8 } %8576, 0
   store ptr %8580, ptr %332, align 8
-  %.sroa.22237.0..sroa_idx = getelementptr inbounds i8, ptr %332, i64 8
+  %.sroa.22237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 8
   store i8 %8579, ptr %.sroa.22237.0..sroa_idx, align 8
   %8581 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 331) #7
   %8582 = zext i1 %8581 to i8
@@ -13708,7 +13708,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8602 = extractvalue { ptr, i8 } %8599, 1
   %8603 = extractvalue { ptr, i8 } %8599, 0
   store ptr %8603, ptr %333, align 8
-  %.sroa.22212.0..sroa_idx = getelementptr inbounds i8, ptr %333, i64 8
+  %.sroa.22212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i8 %8602, ptr %.sroa.22212.0..sroa_idx, align 8
   %8604 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 332) #7
   %8605 = zext i1 %8604 to i8
@@ -13744,7 +13744,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8625 = extractvalue { ptr, i8 } %8622, 1
   %8626 = extractvalue { ptr, i8 } %8622, 0
   store ptr %8626, ptr %334, align 8
-  %.sroa.22187.0..sroa_idx = getelementptr inbounds i8, ptr %334, i64 8
+  %.sroa.22187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %334, i64 8
   store i8 %8625, ptr %.sroa.22187.0..sroa_idx, align 8
   %8627 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 333) #7
   %8628 = zext i1 %8627 to i8
@@ -13780,7 +13780,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8648 = extractvalue { ptr, i8 } %8645, 1
   %8649 = extractvalue { ptr, i8 } %8645, 0
   store ptr %8649, ptr %335, align 8
-  %.sroa.22162.0..sroa_idx = getelementptr inbounds i8, ptr %335, i64 8
+  %.sroa.22162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %335, i64 8
   store i8 %8648, ptr %.sroa.22162.0..sroa_idx, align 8
   %8650 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 334) #7
   %8651 = zext i1 %8650 to i8
@@ -13816,7 +13816,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8671 = extractvalue { ptr, i8 } %8668, 1
   %8672 = extractvalue { ptr, i8 } %8668, 0
   store ptr %8672, ptr %336, align 8
-  %.sroa.22137.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 8
+  %.sroa.22137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i8 %8671, ptr %.sroa.22137.0..sroa_idx, align 8
   %8673 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 335) #7
   %8674 = zext i1 %8673 to i8
@@ -13852,7 +13852,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8694 = extractvalue { ptr, i8 } %8691, 1
   %8695 = extractvalue { ptr, i8 } %8691, 0
   store ptr %8695, ptr %337, align 8
-  %.sroa.22112.0..sroa_idx = getelementptr inbounds i8, ptr %337, i64 8
+  %.sroa.22112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %337, i64 8
   store i8 %8694, ptr %.sroa.22112.0..sroa_idx, align 8
   %8696 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 336) #7
   %8697 = zext i1 %8696 to i8
@@ -13888,7 +13888,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8717 = extractvalue { ptr, i8 } %8714, 1
   %8718 = extractvalue { ptr, i8 } %8714, 0
   store ptr %8718, ptr %338, align 8
-  %.sroa.22087.0..sroa_idx = getelementptr inbounds i8, ptr %338, i64 8
+  %.sroa.22087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i8 %8717, ptr %.sroa.22087.0..sroa_idx, align 8
   %8719 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 337) #7
   %8720 = zext i1 %8719 to i8
@@ -13924,7 +13924,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8740 = extractvalue { ptr, i8 } %8737, 1
   %8741 = extractvalue { ptr, i8 } %8737, 0
   store ptr %8741, ptr %339, align 8
-  %.sroa.22062.0..sroa_idx = getelementptr inbounds i8, ptr %339, i64 8
+  %.sroa.22062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %339, i64 8
   store i8 %8740, ptr %.sroa.22062.0..sroa_idx, align 8
   %8742 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 338) #7
   %8743 = zext i1 %8742 to i8
@@ -13960,7 +13960,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8763 = extractvalue { ptr, i8 } %8760, 1
   %8764 = extractvalue { ptr, i8 } %8760, 0
   store ptr %8764, ptr %340, align 8
-  %.sroa.22037.0..sroa_idx = getelementptr inbounds i8, ptr %340, i64 8
+  %.sroa.22037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %340, i64 8
   store i8 %8763, ptr %.sroa.22037.0..sroa_idx, align 8
   %8765 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 339) #7
   %8766 = zext i1 %8765 to i8
@@ -13996,7 +13996,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8786 = extractvalue { ptr, i8 } %8783, 1
   %8787 = extractvalue { ptr, i8 } %8783, 0
   store ptr %8787, ptr %341, align 8
-  %.sroa.22012.0..sroa_idx = getelementptr inbounds i8, ptr %341, i64 8
+  %.sroa.22012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i8 %8786, ptr %.sroa.22012.0..sroa_idx, align 8
   %8788 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 340) #7
   %8789 = zext i1 %8788 to i8
@@ -14032,7 +14032,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8809 = extractvalue { ptr, i8 } %8806, 1
   %8810 = extractvalue { ptr, i8 } %8806, 0
   store ptr %8810, ptr %342, align 8
-  %.sroa.21987.0..sroa_idx = getelementptr inbounds i8, ptr %342, i64 8
+  %.sroa.21987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %342, i64 8
   store i8 %8809, ptr %.sroa.21987.0..sroa_idx, align 8
   %8811 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 341) #7
   %8812 = zext i1 %8811 to i8
@@ -14068,7 +14068,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8832 = extractvalue { ptr, i8 } %8829, 1
   %8833 = extractvalue { ptr, i8 } %8829, 0
   store ptr %8833, ptr %343, align 8
-  %.sroa.21962.0..sroa_idx = getelementptr inbounds i8, ptr %343, i64 8
+  %.sroa.21962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %343, i64 8
   store i8 %8832, ptr %.sroa.21962.0..sroa_idx, align 8
   %8834 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 342) #7
   %8835 = zext i1 %8834 to i8
@@ -14104,7 +14104,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8855 = extractvalue { ptr, i8 } %8852, 1
   %8856 = extractvalue { ptr, i8 } %8852, 0
   store ptr %8856, ptr %344, align 8
-  %.sroa.21937.0..sroa_idx = getelementptr inbounds i8, ptr %344, i64 8
+  %.sroa.21937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i8 %8855, ptr %.sroa.21937.0..sroa_idx, align 8
   %8857 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 343) #7
   %8858 = zext i1 %8857 to i8
@@ -14140,7 +14140,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8878 = extractvalue { ptr, i8 } %8875, 1
   %8879 = extractvalue { ptr, i8 } %8875, 0
   store ptr %8879, ptr %345, align 8
-  %.sroa.21912.0..sroa_idx = getelementptr inbounds i8, ptr %345, i64 8
+  %.sroa.21912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i8 %8878, ptr %.sroa.21912.0..sroa_idx, align 8
   %8880 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 344) #7
   %8881 = zext i1 %8880 to i8
@@ -14176,7 +14176,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8901 = extractvalue { ptr, i8 } %8898, 1
   %8902 = extractvalue { ptr, i8 } %8898, 0
   store ptr %8902, ptr %346, align 8
-  %.sroa.21887.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 8
+  %.sroa.21887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i8 %8901, ptr %.sroa.21887.0..sroa_idx, align 8
   %8903 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 345) #7
   %8904 = zext i1 %8903 to i8
@@ -14212,7 +14212,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8924 = extractvalue { ptr, i8 } %8921, 1
   %8925 = extractvalue { ptr, i8 } %8921, 0
   store ptr %8925, ptr %347, align 8
-  %.sroa.21862.0..sroa_idx = getelementptr inbounds i8, ptr %347, i64 8
+  %.sroa.21862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i8 %8924, ptr %.sroa.21862.0..sroa_idx, align 8
   %8926 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 346) #7
   %8927 = zext i1 %8926 to i8
@@ -14248,7 +14248,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8947 = extractvalue { ptr, i8 } %8944, 1
   %8948 = extractvalue { ptr, i8 } %8944, 0
   store ptr %8948, ptr %348, align 8
-  %.sroa.21837.0..sroa_idx = getelementptr inbounds i8, ptr %348, i64 8
+  %.sroa.21837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 8
   store i8 %8947, ptr %.sroa.21837.0..sroa_idx, align 8
   %8949 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 347) #7
   %8950 = zext i1 %8949 to i8
@@ -14284,7 +14284,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8970 = extractvalue { ptr, i8 } %8967, 1
   %8971 = extractvalue { ptr, i8 } %8967, 0
   store ptr %8971, ptr %349, align 8
-  %.sroa.21812.0..sroa_idx = getelementptr inbounds i8, ptr %349, i64 8
+  %.sroa.21812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i8 %8970, ptr %.sroa.21812.0..sroa_idx, align 8
   %8972 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 348) #7
   %8973 = zext i1 %8972 to i8
@@ -14320,7 +14320,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8993 = extractvalue { ptr, i8 } %8990, 1
   %8994 = extractvalue { ptr, i8 } %8990, 0
   store ptr %8994, ptr %350, align 8
-  %.sroa.21787.0..sroa_idx = getelementptr inbounds i8, ptr %350, i64 8
+  %.sroa.21787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %350, i64 8
   store i8 %8993, ptr %.sroa.21787.0..sroa_idx, align 8
   %8995 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 349) #7
   %8996 = zext i1 %8995 to i8
@@ -14365,7 +14365,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9022 = extractvalue { ptr, i8 } %9019, 1
   %9023 = extractvalue { ptr, i8 } %9019, 0
   store ptr %9023, ptr %351, align 8
-  %.sroa.21762.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 8
+  %.sroa.21762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i8 %9022, ptr %.sroa.21762.0..sroa_idx, align 8
   %9024 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 350) #7
   %9025 = zext i1 %9024 to i8
@@ -14401,7 +14401,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9045 = extractvalue { ptr, i8 } %9042, 1
   %9046 = extractvalue { ptr, i8 } %9042, 0
   store ptr %9046, ptr %352, align 8
-  %.sroa.21737.0..sroa_idx = getelementptr inbounds i8, ptr %352, i64 8
+  %.sroa.21737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %352, i64 8
   store i8 %9045, ptr %.sroa.21737.0..sroa_idx, align 8
   %9047 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 351) #7
   %9048 = zext i1 %9047 to i8
@@ -14437,7 +14437,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9068 = extractvalue { ptr, i8 } %9065, 1
   %9069 = extractvalue { ptr, i8 } %9065, 0
   store ptr %9069, ptr %353, align 8
-  %.sroa.21712.0..sroa_idx = getelementptr inbounds i8, ptr %353, i64 8
+  %.sroa.21712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %353, i64 8
   store i8 %9068, ptr %.sroa.21712.0..sroa_idx, align 8
   %9070 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 352) #7
   %9071 = zext i1 %9070 to i8
@@ -14473,7 +14473,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9091 = extractvalue { ptr, i8 } %9088, 1
   %9092 = extractvalue { ptr, i8 } %9088, 0
   store ptr %9092, ptr %354, align 8
-  %.sroa.21687.0..sroa_idx = getelementptr inbounds i8, ptr %354, i64 8
+  %.sroa.21687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 8
   store i8 %9091, ptr %.sroa.21687.0..sroa_idx, align 8
   %9093 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 353) #7
   %9094 = zext i1 %9093 to i8
@@ -14509,7 +14509,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9114 = extractvalue { ptr, i8 } %9111, 1
   %9115 = extractvalue { ptr, i8 } %9111, 0
   store ptr %9115, ptr %355, align 8
-  %.sroa.21662.0..sroa_idx = getelementptr inbounds i8, ptr %355, i64 8
+  %.sroa.21662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i8 %9114, ptr %.sroa.21662.0..sroa_idx, align 8
   %9116 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 354) #7
   %9117 = zext i1 %9116 to i8
@@ -14545,7 +14545,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9137 = extractvalue { ptr, i8 } %9134, 1
   %9138 = extractvalue { ptr, i8 } %9134, 0
   store ptr %9138, ptr %356, align 8
-  %.sroa.21637.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 8
+  %.sroa.21637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i8 %9137, ptr %.sroa.21637.0..sroa_idx, align 8
   %9139 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 355) #7
   %9140 = zext i1 %9139 to i8
@@ -14581,7 +14581,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9160 = extractvalue { ptr, i8 } %9157, 1
   %9161 = extractvalue { ptr, i8 } %9157, 0
   store ptr %9161, ptr %357, align 8
-  %.sroa.21612.0..sroa_idx = getelementptr inbounds i8, ptr %357, i64 8
+  %.sroa.21612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i8 %9160, ptr %.sroa.21612.0..sroa_idx, align 8
   %9162 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 356) #7
   %9163 = zext i1 %9162 to i8
@@ -14617,7 +14617,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9183 = extractvalue { ptr, i8 } %9180, 1
   %9184 = extractvalue { ptr, i8 } %9180, 0
   store ptr %9184, ptr %358, align 8
-  %.sroa.21587.0..sroa_idx = getelementptr inbounds i8, ptr %358, i64 8
+  %.sroa.21587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %358, i64 8
   store i8 %9183, ptr %.sroa.21587.0..sroa_idx, align 8
   %9185 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 357) #7
   %9186 = zext i1 %9185 to i8
@@ -14653,7 +14653,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9206 = extractvalue { ptr, i8 } %9203, 1
   %9207 = extractvalue { ptr, i8 } %9203, 0
   store ptr %9207, ptr %359, align 8
-  %.sroa.21562.0..sroa_idx = getelementptr inbounds i8, ptr %359, i64 8
+  %.sroa.21562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i8 %9206, ptr %.sroa.21562.0..sroa_idx, align 8
   %9208 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 358) #7
   %9209 = zext i1 %9208 to i8
@@ -14689,7 +14689,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9229 = extractvalue { ptr, i8 } %9226, 1
   %9230 = extractvalue { ptr, i8 } %9226, 0
   store ptr %9230, ptr %360, align 8
-  %.sroa.21537.0..sroa_idx = getelementptr inbounds i8, ptr %360, i64 8
+  %.sroa.21537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %360, i64 8
   store i8 %9229, ptr %.sroa.21537.0..sroa_idx, align 8
   %9231 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 359) #7
   %9232 = zext i1 %9231 to i8
@@ -14725,7 +14725,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9252 = extractvalue { ptr, i8 } %9249, 1
   %9253 = extractvalue { ptr, i8 } %9249, 0
   store ptr %9253, ptr %361, align 8
-  %.sroa.21512.0..sroa_idx = getelementptr inbounds i8, ptr %361, i64 8
+  %.sroa.21512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %361, i64 8
   store i8 %9252, ptr %.sroa.21512.0..sroa_idx, align 8
   %9254 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 360) #7
   %9255 = zext i1 %9254 to i8
@@ -14761,7 +14761,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9275 = extractvalue { ptr, i8 } %9272, 1
   %9276 = extractvalue { ptr, i8 } %9272, 0
   store ptr %9276, ptr %362, align 8
-  %.sroa.21487.0..sroa_idx = getelementptr inbounds i8, ptr %362, i64 8
+  %.sroa.21487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 8
   store i8 %9275, ptr %.sroa.21487.0..sroa_idx, align 8
   %9277 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 361) #7
   %9278 = zext i1 %9277 to i8
@@ -14797,7 +14797,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9298 = extractvalue { ptr, i8 } %9295, 1
   %9299 = extractvalue { ptr, i8 } %9295, 0
   store ptr %9299, ptr %363, align 8
-  %.sroa.21462.0..sroa_idx = getelementptr inbounds i8, ptr %363, i64 8
+  %.sroa.21462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i8 %9298, ptr %.sroa.21462.0..sroa_idx, align 8
   %9300 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 362) #7
   %9301 = zext i1 %9300 to i8
@@ -14833,7 +14833,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9321 = extractvalue { ptr, i8 } %9318, 1
   %9322 = extractvalue { ptr, i8 } %9318, 0
   store ptr %9322, ptr %364, align 8
-  %.sroa.21437.0..sroa_idx = getelementptr inbounds i8, ptr %364, i64 8
+  %.sroa.21437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %364, i64 8
   store i8 %9321, ptr %.sroa.21437.0..sroa_idx, align 8
   %9323 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 363) #7
   %9324 = zext i1 %9323 to i8
@@ -14869,7 +14869,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9344 = extractvalue { ptr, i8 } %9341, 1
   %9345 = extractvalue { ptr, i8 } %9341, 0
   store ptr %9345, ptr %365, align 8
-  %.sroa.21412.0..sroa_idx = getelementptr inbounds i8, ptr %365, i64 8
+  %.sroa.21412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i8 %9344, ptr %.sroa.21412.0..sroa_idx, align 8
   %9346 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 364) #7
   %9347 = zext i1 %9346 to i8
@@ -14905,7 +14905,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9367 = extractvalue { ptr, i8 } %9364, 1
   %9368 = extractvalue { ptr, i8 } %9364, 0
   store ptr %9368, ptr %366, align 8
-  %.sroa.21387.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 8
+  %.sroa.21387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 8
   store i8 %9367, ptr %.sroa.21387.0..sroa_idx, align 8
   %9369 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 365) #7
   %9370 = zext i1 %9369 to i8
@@ -14941,7 +14941,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9390 = extractvalue { ptr, i8 } %9387, 1
   %9391 = extractvalue { ptr, i8 } %9387, 0
   store ptr %9391, ptr %367, align 8
-  %.sroa.21362.0..sroa_idx = getelementptr inbounds i8, ptr %367, i64 8
+  %.sroa.21362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %367, i64 8
   store i8 %9390, ptr %.sroa.21362.0..sroa_idx, align 8
   %9392 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 366) #7
   %9393 = zext i1 %9392 to i8
@@ -14977,7 +14977,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9413 = extractvalue { ptr, i8 } %9410, 1
   %9414 = extractvalue { ptr, i8 } %9410, 0
   store ptr %9414, ptr %368, align 8
-  %.sroa.21337.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 8
+  %.sroa.21337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %368, i64 8
   store i8 %9413, ptr %.sroa.21337.0..sroa_idx, align 8
   %9415 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 367) #7
   %9416 = zext i1 %9415 to i8
@@ -15013,7 +15013,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9436 = extractvalue { ptr, i8 } %9433, 1
   %9437 = extractvalue { ptr, i8 } %9433, 0
   store ptr %9437, ptr %369, align 8
-  %.sroa.21312.0..sroa_idx = getelementptr inbounds i8, ptr %369, i64 8
+  %.sroa.21312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %369, i64 8
   store i8 %9436, ptr %.sroa.21312.0..sroa_idx, align 8
   %9438 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 368) #7
   %9439 = zext i1 %9438 to i8
@@ -15049,7 +15049,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9459 = extractvalue { ptr, i8 } %9456, 1
   %9460 = extractvalue { ptr, i8 } %9456, 0
   store ptr %9460, ptr %370, align 8
-  %.sroa.21287.0..sroa_idx = getelementptr inbounds i8, ptr %370, i64 8
+  %.sroa.21287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %370, i64 8
   store i8 %9459, ptr %.sroa.21287.0..sroa_idx, align 8
   %9461 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 369) #7
   %9462 = zext i1 %9461 to i8
@@ -15085,7 +15085,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9482 = extractvalue { ptr, i8 } %9479, 1
   %9483 = extractvalue { ptr, i8 } %9479, 0
   store ptr %9483, ptr %371, align 8
-  %.sroa.21262.0..sroa_idx = getelementptr inbounds i8, ptr %371, i64 8
+  %.sroa.21262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %371, i64 8
   store i8 %9482, ptr %.sroa.21262.0..sroa_idx, align 8
   %9484 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 370) #7
   %9485 = zext i1 %9484 to i8
@@ -15121,7 +15121,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9505 = extractvalue { ptr, i8 } %9502, 1
   %9506 = extractvalue { ptr, i8 } %9502, 0
   store ptr %9506, ptr %372, align 8
-  %.sroa.21237.0..sroa_idx = getelementptr inbounds i8, ptr %372, i64 8
+  %.sroa.21237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i8 %9505, ptr %.sroa.21237.0..sroa_idx, align 8
   %9507 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 371) #7
   %9508 = zext i1 %9507 to i8
@@ -15157,7 +15157,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9528 = extractvalue { ptr, i8 } %9525, 1
   %9529 = extractvalue { ptr, i8 } %9525, 0
   store ptr %9529, ptr %373, align 8
-  %.sroa.21212.0..sroa_idx = getelementptr inbounds i8, ptr %373, i64 8
+  %.sroa.21212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i8 %9528, ptr %.sroa.21212.0..sroa_idx, align 8
   %9530 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 372) #7
   %9531 = zext i1 %9530 to i8
@@ -15193,7 +15193,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9551 = extractvalue { ptr, i8 } %9548, 1
   %9552 = extractvalue { ptr, i8 } %9548, 0
   store ptr %9552, ptr %374, align 8
-  %.sroa.21187.0..sroa_idx = getelementptr inbounds i8, ptr %374, i64 8
+  %.sroa.21187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i8 %9551, ptr %.sroa.21187.0..sroa_idx, align 8
   %9553 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 373) #7
   %9554 = zext i1 %9553 to i8
@@ -15229,7 +15229,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9574 = extractvalue { ptr, i8 } %9571, 1
   %9575 = extractvalue { ptr, i8 } %9571, 0
   store ptr %9575, ptr %375, align 8
-  %.sroa.21162.0..sroa_idx = getelementptr inbounds i8, ptr %375, i64 8
+  %.sroa.21162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %375, i64 8
   store i8 %9574, ptr %.sroa.21162.0..sroa_idx, align 8
   %9576 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 374) #7
   %9577 = zext i1 %9576 to i8
@@ -15265,7 +15265,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9597 = extractvalue { ptr, i8 } %9594, 1
   %9598 = extractvalue { ptr, i8 } %9594, 0
   store ptr %9598, ptr %376, align 8
-  %.sroa.21137.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 8
+  %.sroa.21137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 8
   store i8 %9597, ptr %.sroa.21137.0..sroa_idx, align 8
   %9599 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 375) #7
   %9600 = zext i1 %9599 to i8
@@ -15310,7 +15310,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9626 = extractvalue { ptr, i8 } %9623, 1
   %9627 = extractvalue { ptr, i8 } %9623, 0
   store ptr %9627, ptr %377, align 8
-  %.sroa.21112.0..sroa_idx = getelementptr inbounds i8, ptr %377, i64 8
+  %.sroa.21112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i8 %9626, ptr %.sroa.21112.0..sroa_idx, align 8
   %9628 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 376) #7
   %9629 = zext i1 %9628 to i8
@@ -15346,7 +15346,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9649 = extractvalue { ptr, i8 } %9646, 1
   %9650 = extractvalue { ptr, i8 } %9646, 0
   store ptr %9650, ptr %378, align 8
-  %.sroa.21087.0..sroa_idx = getelementptr inbounds i8, ptr %378, i64 8
+  %.sroa.21087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %378, i64 8
   store i8 %9649, ptr %.sroa.21087.0..sroa_idx, align 8
   %9651 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 377) #7
   %9652 = zext i1 %9651 to i8
@@ -15391,7 +15391,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9678 = extractvalue { ptr, i8 } %9675, 1
   %9679 = extractvalue { ptr, i8 } %9675, 0
   store ptr %9679, ptr %379, align 8
-  %.sroa.21062.0..sroa_idx = getelementptr inbounds i8, ptr %379, i64 8
+  %.sroa.21062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i8 %9678, ptr %.sroa.21062.0..sroa_idx, align 8
   %9680 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 378) #7
   %9681 = zext i1 %9680 to i8
@@ -15427,7 +15427,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9701 = extractvalue { ptr, i8 } %9698, 1
   %9702 = extractvalue { ptr, i8 } %9698, 0
   store ptr %9702, ptr %380, align 8
-  %.sroa.21037.0..sroa_idx = getelementptr inbounds i8, ptr %380, i64 8
+  %.sroa.21037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %380, i64 8
   store i8 %9701, ptr %.sroa.21037.0..sroa_idx, align 8
   %9703 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 379) #7
   %9704 = zext i1 %9703 to i8
@@ -15463,7 +15463,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9724 = extractvalue { ptr, i8 } %9721, 1
   %9725 = extractvalue { ptr, i8 } %9721, 0
   store ptr %9725, ptr %381, align 8
-  %.sroa.21012.0..sroa_idx = getelementptr inbounds i8, ptr %381, i64 8
+  %.sroa.21012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i8 %9724, ptr %.sroa.21012.0..sroa_idx, align 8
   %9726 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 380) #7
   %9727 = zext i1 %9726 to i8
@@ -15499,7 +15499,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9747 = extractvalue { ptr, i8 } %9744, 1
   %9748 = extractvalue { ptr, i8 } %9744, 0
   store ptr %9748, ptr %382, align 8
-  %.sroa.2987.0..sroa_idx = getelementptr inbounds i8, ptr %382, i64 8
+  %.sroa.2987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %382, i64 8
   store i8 %9747, ptr %.sroa.2987.0..sroa_idx, align 8
   %9749 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 381) #7
   %9750 = zext i1 %9749 to i8
@@ -15535,7 +15535,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9770 = extractvalue { ptr, i8 } %9767, 1
   %9771 = extractvalue { ptr, i8 } %9767, 0
   store ptr %9771, ptr %383, align 8
-  %.sroa.2962.0..sroa_idx = getelementptr inbounds i8, ptr %383, i64 8
+  %.sroa.2962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i8 %9770, ptr %.sroa.2962.0..sroa_idx, align 8
   %9772 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 382) #7
   %9773 = zext i1 %9772 to i8
@@ -15571,7 +15571,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9793 = extractvalue { ptr, i8 } %9790, 1
   %9794 = extractvalue { ptr, i8 } %9790, 0
   store ptr %9794, ptr %384, align 8
-  %.sroa.2937.0..sroa_idx = getelementptr inbounds i8, ptr %384, i64 8
+  %.sroa.2937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %384, i64 8
   store i8 %9793, ptr %.sroa.2937.0..sroa_idx, align 8
   %9795 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 383) #7
   %9796 = zext i1 %9795 to i8
@@ -15607,7 +15607,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9816 = extractvalue { ptr, i8 } %9813, 1
   %9817 = extractvalue { ptr, i8 } %9813, 0
   store ptr %9817, ptr %385, align 8
-  %.sroa.2912.0..sroa_idx = getelementptr inbounds i8, ptr %385, i64 8
+  %.sroa.2912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i8 %9816, ptr %.sroa.2912.0..sroa_idx, align 8
   %9818 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 384) #7
   %9819 = zext i1 %9818 to i8
@@ -15652,7 +15652,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9845 = extractvalue { ptr, i8 } %9842, 1
   %9846 = extractvalue { ptr, i8 } %9842, 0
   store ptr %9846, ptr %386, align 8
-  %.sroa.2887.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 8
+  %.sroa.2887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i8 %9845, ptr %.sroa.2887.0..sroa_idx, align 8
   %9847 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 385) #7
   %9848 = zext i1 %9847 to i8
@@ -15688,7 +15688,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9868 = extractvalue { ptr, i8 } %9865, 1
   %9869 = extractvalue { ptr, i8 } %9865, 0
   store ptr %9869, ptr %387, align 8
-  %.sroa.2862.0..sroa_idx = getelementptr inbounds i8, ptr %387, i64 8
+  %.sroa.2862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i8 %9868, ptr %.sroa.2862.0..sroa_idx, align 8
   %9870 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 386) #7
   %9871 = zext i1 %9870 to i8
@@ -15724,7 +15724,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9891 = extractvalue { ptr, i8 } %9888, 1
   %9892 = extractvalue { ptr, i8 } %9888, 0
   store ptr %9892, ptr %388, align 8
-  %.sroa.2837.0..sroa_idx = getelementptr inbounds i8, ptr %388, i64 8
+  %.sroa.2837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %388, i64 8
   store i8 %9891, ptr %.sroa.2837.0..sroa_idx, align 8
   %9893 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 387) #7
   %9894 = zext i1 %9893 to i8
@@ -15760,7 +15760,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9914 = extractvalue { ptr, i8 } %9911, 1
   %9915 = extractvalue { ptr, i8 } %9911, 0
   store ptr %9915, ptr %389, align 8
-  %.sroa.2812.0..sroa_idx = getelementptr inbounds i8, ptr %389, i64 8
+  %.sroa.2812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i8 %9914, ptr %.sroa.2812.0..sroa_idx, align 8
   %9916 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 388) #7
   %9917 = zext i1 %9916 to i8
@@ -15796,7 +15796,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9937 = extractvalue { ptr, i8 } %9934, 1
   %9938 = extractvalue { ptr, i8 } %9934, 0
   store ptr %9938, ptr %390, align 8
-  %.sroa.2787.0..sroa_idx = getelementptr inbounds i8, ptr %390, i64 8
+  %.sroa.2787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %390, i64 8
   store i8 %9937, ptr %.sroa.2787.0..sroa_idx, align 8
   %9939 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 389) #7
   %9940 = zext i1 %9939 to i8
@@ -15832,7 +15832,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9960 = extractvalue { ptr, i8 } %9957, 1
   %9961 = extractvalue { ptr, i8 } %9957, 0
   store ptr %9961, ptr %391, align 8
-  %.sroa.2762.0..sroa_idx = getelementptr inbounds i8, ptr %391, i64 8
+  %.sroa.2762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %391, i64 8
   store i8 %9960, ptr %.sroa.2762.0..sroa_idx, align 8
   %9962 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 390) #7
   %9963 = zext i1 %9962 to i8
@@ -15868,7 +15868,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9983 = extractvalue { ptr, i8 } %9980, 1
   %9984 = extractvalue { ptr, i8 } %9980, 0
   store ptr %9984, ptr %392, align 8
-  %.sroa.2737.0..sroa_idx = getelementptr inbounds i8, ptr %392, i64 8
+  %.sroa.2737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i8 %9983, ptr %.sroa.2737.0..sroa_idx, align 8
   %9985 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 391) #7
   %9986 = zext i1 %9985 to i8
@@ -15913,7 +15913,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10012 = extractvalue { ptr, i8 } %10009, 1
   %10013 = extractvalue { ptr, i8 } %10009, 0
   store ptr %10013, ptr %393, align 8
-  %.sroa.2712.0..sroa_idx = getelementptr inbounds i8, ptr %393, i64 8
+  %.sroa.2712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %393, i64 8
   store i8 %10012, ptr %.sroa.2712.0..sroa_idx, align 8
   %10014 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 392) #7
   %10015 = zext i1 %10014 to i8
@@ -15958,7 +15958,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10041 = extractvalue { ptr, i8 } %10038, 1
   %10042 = extractvalue { ptr, i8 } %10038, 0
   store ptr %10042, ptr %394, align 8
-  %.sroa.2687.0..sroa_idx = getelementptr inbounds i8, ptr %394, i64 8
+  %.sroa.2687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %394, i64 8
   store i8 %10041, ptr %.sroa.2687.0..sroa_idx, align 8
   %10043 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 393) #7
   %10044 = zext i1 %10043 to i8
@@ -16003,7 +16003,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10070 = extractvalue { ptr, i8 } %10067, 1
   %10071 = extractvalue { ptr, i8 } %10067, 0
   store ptr %10071, ptr %395, align 8
-  %.sroa.2662.0..sroa_idx = getelementptr inbounds i8, ptr %395, i64 8
+  %.sroa.2662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i8 %10070, ptr %.sroa.2662.0..sroa_idx, align 8
   %10072 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 394) #7
   %10073 = zext i1 %10072 to i8
@@ -16048,7 +16048,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10099 = extractvalue { ptr, i8 } %10096, 1
   %10100 = extractvalue { ptr, i8 } %10096, 0
   store ptr %10100, ptr %396, align 8
-  %.sroa.2637.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 8
+  %.sroa.2637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 8
   store i8 %10099, ptr %.sroa.2637.0..sroa_idx, align 8
   %10101 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 395) #7
   %10102 = zext i1 %10101 to i8
@@ -16093,7 +16093,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10128 = extractvalue { ptr, i8 } %10125, 1
   %10129 = extractvalue { ptr, i8 } %10125, 0
   store ptr %10129, ptr %397, align 8
-  %.sroa.2612.0..sroa_idx = getelementptr inbounds i8, ptr %397, i64 8
+  %.sroa.2612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %397, i64 8
   store i8 %10128, ptr %.sroa.2612.0..sroa_idx, align 8
   %10130 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 396) #7
   %10131 = zext i1 %10130 to i8
@@ -16129,7 +16129,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10151 = extractvalue { ptr, i8 } %10148, 1
   %10152 = extractvalue { ptr, i8 } %10148, 0
   store ptr %10152, ptr %398, align 8
-  %.sroa.2587.0..sroa_idx = getelementptr inbounds i8, ptr %398, i64 8
+  %.sroa.2587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %398, i64 8
   store i8 %10151, ptr %.sroa.2587.0..sroa_idx, align 8
   %10153 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 397) #7
   %10154 = zext i1 %10153 to i8
@@ -16165,7 +16165,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10174 = extractvalue { ptr, i8 } %10171, 1
   %10175 = extractvalue { ptr, i8 } %10171, 0
   store ptr %10175, ptr %399, align 8
-  %.sroa.2562.0..sroa_idx = getelementptr inbounds i8, ptr %399, i64 8
+  %.sroa.2562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %399, i64 8
   store i8 %10174, ptr %.sroa.2562.0..sroa_idx, align 8
   %10176 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 398) #7
   %10177 = zext i1 %10176 to i8
@@ -16201,7 +16201,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10197 = extractvalue { ptr, i8 } %10194, 1
   %10198 = extractvalue { ptr, i8 } %10194, 0
   store ptr %10198, ptr %400, align 8
-  %.sroa.2537.0..sroa_idx = getelementptr inbounds i8, ptr %400, i64 8
+  %.sroa.2537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i8 %10197, ptr %.sroa.2537.0..sroa_idx, align 8
   %10199 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 399) #7
   %10200 = zext i1 %10199 to i8
@@ -16237,7 +16237,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10220 = extractvalue { ptr, i8 } %10217, 1
   %10221 = extractvalue { ptr, i8 } %10217, 0
   store ptr %10221, ptr %401, align 8
-  %.sroa.2512.0..sroa_idx = getelementptr inbounds i8, ptr %401, i64 8
+  %.sroa.2512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %401, i64 8
   store i8 %10220, ptr %.sroa.2512.0..sroa_idx, align 8
   %10222 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 400) #7
   %10223 = zext i1 %10222 to i8
@@ -16273,7 +16273,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10243 = extractvalue { ptr, i8 } %10240, 1
   %10244 = extractvalue { ptr, i8 } %10240, 0
   store ptr %10244, ptr %402, align 8
-  %.sroa.2487.0..sroa_idx = getelementptr inbounds i8, ptr %402, i64 8
+  %.sroa.2487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %402, i64 8
   store i8 %10243, ptr %.sroa.2487.0..sroa_idx, align 8
   %10245 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 401) #7
   %10246 = zext i1 %10245 to i8
@@ -16309,7 +16309,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10266 = extractvalue { ptr, i8 } %10263, 1
   %10267 = extractvalue { ptr, i8 } %10263, 0
   store ptr %10267, ptr %403, align 8
-  %.sroa.2462.0..sroa_idx = getelementptr inbounds i8, ptr %403, i64 8
+  %.sroa.2462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i8 %10266, ptr %.sroa.2462.0..sroa_idx, align 8
   %10268 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 402) #7
   %10269 = zext i1 %10268 to i8
@@ -16345,7 +16345,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10289 = extractvalue { ptr, i8 } %10286, 1
   %10290 = extractvalue { ptr, i8 } %10286, 0
   store ptr %10290, ptr %404, align 8
-  %.sroa.2437.0..sroa_idx = getelementptr inbounds i8, ptr %404, i64 8
+  %.sroa.2437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %404, i64 8
   store i8 %10289, ptr %.sroa.2437.0..sroa_idx, align 8
   %10291 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 403) #7
   %10292 = zext i1 %10291 to i8
@@ -16390,7 +16390,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10318 = extractvalue { ptr, i8 } %10315, 1
   %10319 = extractvalue { ptr, i8 } %10315, 0
   store ptr %10319, ptr %405, align 8
-  %.sroa.2412.0..sroa_idx = getelementptr inbounds i8, ptr %405, i64 8
+  %.sroa.2412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %405, i64 8
   store i8 %10318, ptr %.sroa.2412.0..sroa_idx, align 8
   %10320 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 404) #7
   %10321 = zext i1 %10320 to i8
@@ -16435,7 +16435,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10347 = extractvalue { ptr, i8 } %10344, 1
   %10348 = extractvalue { ptr, i8 } %10344, 0
   store ptr %10348, ptr %406, align 8
-  %.sroa.2387.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 8
+  %.sroa.2387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 8
   store i8 %10347, ptr %.sroa.2387.0..sroa_idx, align 8
   %10349 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 405) #7
   %10350 = zext i1 %10349 to i8
@@ -16480,7 +16480,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10376 = extractvalue { ptr, i8 } %10373, 1
   %10377 = extractvalue { ptr, i8 } %10373, 0
   store ptr %10377, ptr %407, align 8
-  %.sroa.2362.0..sroa_idx = getelementptr inbounds i8, ptr %407, i64 8
+  %.sroa.2362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %407, i64 8
   store i8 %10376, ptr %.sroa.2362.0..sroa_idx, align 8
   %10378 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 406) #7
   %10379 = zext i1 %10378 to i8
@@ -16525,7 +16525,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10405 = extractvalue { ptr, i8 } %10402, 1
   %10406 = extractvalue { ptr, i8 } %10402, 0
   store ptr %10406, ptr %408, align 8
-  %.sroa.2337.0..sroa_idx = getelementptr inbounds i8, ptr %408, i64 8
+  %.sroa.2337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i8 %10405, ptr %.sroa.2337.0..sroa_idx, align 8
   %10407 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 407) #7
   %10408 = zext i1 %10407 to i8
@@ -16570,7 +16570,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10434 = extractvalue { ptr, i8 } %10431, 1
   %10435 = extractvalue { ptr, i8 } %10431, 0
   store ptr %10435, ptr %409, align 8
-  %.sroa.2312.0..sroa_idx = getelementptr inbounds i8, ptr %409, i64 8
+  %.sroa.2312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %409, i64 8
   store i8 %10434, ptr %.sroa.2312.0..sroa_idx, align 8
   %10436 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 408) #7
   %10437 = zext i1 %10436 to i8
@@ -16615,7 +16615,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10463 = extractvalue { ptr, i8 } %10460, 1
   %10464 = extractvalue { ptr, i8 } %10460, 0
   store ptr %10464, ptr %410, align 8
-  %.sroa.2287.0..sroa_idx = getelementptr inbounds i8, ptr %410, i64 8
+  %.sroa.2287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i8 %10463, ptr %.sroa.2287.0..sroa_idx, align 8
   %10465 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 409) #7
   %10466 = zext i1 %10465 to i8
@@ -16660,7 +16660,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10492 = extractvalue { ptr, i8 } %10489, 1
   %10493 = extractvalue { ptr, i8 } %10489, 0
   store ptr %10493, ptr %411, align 8
-  %.sroa.2262.0..sroa_idx = getelementptr inbounds i8, ptr %411, i64 8
+  %.sroa.2262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 8
   store i8 %10492, ptr %.sroa.2262.0..sroa_idx, align 8
   %10494 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 410) #7
   %10495 = zext i1 %10494 to i8
@@ -16705,7 +16705,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10521 = extractvalue { ptr, i8 } %10518, 1
   %10522 = extractvalue { ptr, i8 } %10518, 0
   store ptr %10522, ptr %412, align 8
-  %.sroa.2237.0..sroa_idx = getelementptr inbounds i8, ptr %412, i64 8
+  %.sroa.2237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i8 %10521, ptr %.sroa.2237.0..sroa_idx, align 8
   %10523 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 411) #7
   %10524 = zext i1 %10523 to i8
@@ -16750,7 +16750,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10550 = extractvalue { ptr, i8 } %10547, 1
   %10551 = extractvalue { ptr, i8 } %10547, 0
   store ptr %10551, ptr %413, align 8
-  %.sroa.2212.0..sroa_idx = getelementptr inbounds i8, ptr %413, i64 8
+  %.sroa.2212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %413, i64 8
   store i8 %10550, ptr %.sroa.2212.0..sroa_idx, align 8
   %10552 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 412) #7
   %10553 = zext i1 %10552 to i8
@@ -16795,7 +16795,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10579 = extractvalue { ptr, i8 } %10576, 1
   %10580 = extractvalue { ptr, i8 } %10576, 0
   store ptr %10580, ptr %414, align 8
-  %.sroa.2187.0..sroa_idx = getelementptr inbounds i8, ptr %414, i64 8
+  %.sroa.2187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i8 %10579, ptr %.sroa.2187.0..sroa_idx, align 8
   %10581 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 413) #7
   %10582 = zext i1 %10581 to i8
@@ -16840,7 +16840,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10608 = extractvalue { ptr, i8 } %10605, 1
   %10609 = extractvalue { ptr, i8 } %10605, 0
   store ptr %10609, ptr %415, align 8
-  %.sroa.2162.0..sroa_idx = getelementptr inbounds i8, ptr %415, i64 8
+  %.sroa.2162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %415, i64 8
   store i8 %10608, ptr %.sroa.2162.0..sroa_idx, align 8
   %10610 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 414) #7
   %10611 = zext i1 %10610 to i8
@@ -16885,7 +16885,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10637 = extractvalue { ptr, i8 } %10634, 1
   %10638 = extractvalue { ptr, i8 } %10634, 0
   store ptr %10638, ptr %416, align 8
-  %.sroa.2137.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 8
+  %.sroa.2137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i8 %10637, ptr %.sroa.2137.0..sroa_idx, align 8
   %10639 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 415) #7
   %10640 = zext i1 %10639 to i8
@@ -16930,7 +16930,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10666 = extractvalue { ptr, i8 } %10663, 1
   %10667 = extractvalue { ptr, i8 } %10663, 0
   store ptr %10667, ptr %417, align 8
-  %.sroa.2112.0..sroa_idx = getelementptr inbounds i8, ptr %417, i64 8
+  %.sroa.2112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %417, i64 8
   store i8 %10666, ptr %.sroa.2112.0..sroa_idx, align 8
   %10668 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 416) #7
   %10669 = zext i1 %10668 to i8
@@ -16975,7 +16975,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10695 = extractvalue { ptr, i8 } %10692, 1
   %10696 = extractvalue { ptr, i8 } %10692, 0
   store ptr %10696, ptr %418, align 8
-  %.sroa.287.0..sroa_idx = getelementptr inbounds i8, ptr %418, i64 8
+  %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %418, i64 8
   store i8 %10695, ptr %.sroa.287.0..sroa_idx, align 8
   %10697 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 417) #7
   %10698 = zext i1 %10697 to i8
@@ -17020,7 +17020,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10724 = extractvalue { ptr, i8 } %10721, 1
   %10725 = extractvalue { ptr, i8 } %10721, 0
   store ptr %10725, ptr %419, align 8
-  %.sroa.262.0..sroa_idx = getelementptr inbounds i8, ptr %419, i64 8
+  %.sroa.262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %419, i64 8
   store i8 %10724, ptr %.sroa.262.0..sroa_idx, align 8
   %10726 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 418) #7
   %10727 = zext i1 %10726 to i8
@@ -17065,7 +17065,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10753 = extractvalue { ptr, i8 } %10750, 1
   %10754 = extractvalue { ptr, i8 } %10750, 0
   store ptr %10754, ptr %420, align 8
-  %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %420, i64 8
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %420, i64 8
   store i8 %10753, ptr %.sroa.237.0..sroa_idx, align 8
   %10755 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 419) #7
   %10756 = zext i1 %10755 to i8
@@ -17110,7 +17110,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10782 = extractvalue { ptr, i8 } %10779, 1
   %10783 = extractvalue { ptr, i8 } %10779, 0
   store ptr %10783, ptr %421, align 8
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %421, i64 8
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i8 %10782, ptr %.sroa.213.0..sroa_idx, align 8
   %10784 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 420) #7
   %10785 = zext i1 %10784 to i8
@@ -17676,23 +17676,23 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br i1 %477, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader3595
-  %478 = getelementptr inbounds i8, ptr %6, i64 8
-  %479 = getelementptr inbounds i8, ptr %8, i64 8
-  %480 = getelementptr inbounds i8, ptr %6, i64 16
-  %481 = getelementptr inbounds i8, ptr %9, i64 8
-  %482 = getelementptr inbounds i8, ptr %6, i64 24
-  %483 = getelementptr inbounds i8, ptr %6, i64 40
-  %484 = getelementptr inbounds i8, ptr %15, i64 8
-  %485 = getelementptr inbounds i8, ptr %13, i64 8
-  %486 = getelementptr inbounds i8, ptr %11, i64 8
-  %487 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %481 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %482 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %483 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %484 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %485 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %wide.trip.count = zext nneg i32 %472 to i64
   br label %488
 
 488:                                              ; preds = %.lr.ph, %623
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %623 ]
-  %489 = getelementptr inbounds [0 x %struct.VMStructEntry], ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 0, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw [0 x %struct.VMStructEntry], ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %489, i64 48, i1 false)
   %490 = load ptr, ptr %6, align 8
   %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %490) #8
@@ -17733,7 +17733,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 512:                                              ; preds = %501
   %.sroa.03445.0.copyload3446 = load ptr, ptr %502, align 8
-  %.sroa.43447.0..sroa_idx3448 = getelementptr inbounds i8, ptr %502, i64 8
+  %.sroa.43447.0..sroa_idx3448 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %.sroa.43447.0.copyload3449 = load i8, ptr %.sroa.43447.0..sroa_idx3448, align 8
   br label %513
 
@@ -17768,7 +17768,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 526:                                              ; preds = %515
   %.sroa.03440.0.copyload3441 = load ptr, ptr %516, align 8
-  %.sroa.43442.0..sroa_idx3443 = getelementptr inbounds i8, ptr %516, i64 8
+  %.sroa.43442.0..sroa_idx3443 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %.sroa.43442.0.copyload3444 = load i8, ptr %.sroa.43442.0..sroa_idx3443, align 8
   br label %527
 
@@ -17842,7 +17842,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 563:                                              ; preds = %550
   %.sroa.03419.0.copyload3422 = load ptr, ptr %554, align 8
-  %.sroa.9.0..sroa_idx3430 = getelementptr inbounds i8, ptr %554, i64 8
+  %.sroa.9.0..sroa_idx3430 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %.sroa.9.0.copyload3431 = load i8, ptr %.sroa.9.0..sroa_idx3430, align 8
   br label %617
 
@@ -17877,7 +17877,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 579:                                              ; preds = %567
   %.sroa.03419.0.copyload3424 = load ptr, ptr %570, align 8
-  %.sroa.9.0..sroa_idx3434 = getelementptr inbounds i8, ptr %570, i64 8
+  %.sroa.9.0..sroa_idx3434 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %.sroa.9.0.copyload3435 = load i8, ptr %.sroa.9.0..sroa_idx3434, align 8
   br label %617
 
@@ -17941,7 +17941,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 614:                                              ; preds = %601
   %.sroa.03419.0.copyload3426 = load ptr, ptr %605, align 8
-  %.sroa.9.0..sroa_idx3438 = getelementptr inbounds i8, ptr %605, i64 8
+  %.sroa.9.0..sroa_idx3438 = getelementptr inbounds nuw i8, ptr %605, i64 8
   %.sroa.9.0.copyload3439 = load i8, ptr %.sroa.9.0..sroa_idx3438, align 8
   br label %617
 
@@ -17989,9 +17989,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br i1 %635, label %.lr.ph3601, label %.preheader3591
 
 .lr.ph3601:                                       ; preds = %.preheader3593
-  %636 = getelementptr inbounds i8, ptr %18, i64 8
-  %637 = getelementptr inbounds i8, ptr %17, i64 8
-  %638 = getelementptr inbounds i8, ptr %20, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %638 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %wide.trip.count3618 = zext nneg i32 %627 to i64
   br label %643
 
@@ -18001,16 +18001,16 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br i1 %639, label %.lr.ph3604, label %._crit_edge3605
 
 .lr.ph3604:                                       ; preds = %.preheader3591
-  %640 = getelementptr inbounds i8, ptr %22, i64 8
-  %641 = getelementptr inbounds i8, ptr %21, i64 8
-  %642 = getelementptr inbounds i8, ptr %24, i64 8
+  %640 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %641 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %642 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %wide.trip.count3623 = zext nneg i32 %628 to i64
   br label %674
 
 643:                                              ; preds = %.lr.ph3601, %671
   %indvars.iv3615 = phi i64 [ 0, %.lr.ph3601 ], [ %indvars.iv.next3616, %671 ]
   %.020783600 = phi i32 [ 0, %.lr.ph3601 ], [ %673, %671 ]
-  %644 = getelementptr inbounds [0 x %struct.VMIntConstantEntry], ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 0, i64 %indvars.iv3615
+  %644 = getelementptr inbounds nuw [0 x %struct.VMIntConstantEntry], ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 0, i64 %indvars.iv3615
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %644, i64 16, i1 false)
   %645 = load ptr, ptr %17, align 8
   %.not2424 = icmp eq ptr %645, null
@@ -18040,7 +18040,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 657:                                              ; preds = %646
   %.sroa.03414.0.copyload3415 = load ptr, ptr %647, align 8
-  %.sroa.43416.0..sroa_idx3417 = getelementptr inbounds i8, ptr %647, i64 8
+  %.sroa.43416.0..sroa_idx3417 = getelementptr inbounds nuw i8, ptr %647, i64 8
   %.sroa.43416.0.copyload3418 = load i8, ptr %.sroa.43416.0..sroa_idx3417, align 8
   br label %658
 
@@ -18070,7 +18070,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %671
 
 670:                                              ; preds = %658
-  %.sroa.43411.0..sroa_idx3412 = getelementptr inbounds i8, ptr %661, i64 8
+  %.sroa.43411.0..sroa_idx3412 = getelementptr inbounds nuw i8, ptr %661, i64 8
   %.sroa.43411.0.copyload3413 = load i8, ptr %.sroa.43411.0..sroa_idx3412, align 8
   br label %671
 
@@ -18089,7 +18089,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 674:                                              ; preds = %.lr.ph3604, %701
   %indvars.iv3620 = phi i64 [ 0, %.lr.ph3604 ], [ %indvars.iv.next3621, %701 ]
   %.13603 = phi i32 [ %.02078.lcssa, %.lr.ph3604 ], [ %703, %701 ]
-  %675 = getelementptr inbounds [0 x %struct.VMLongConstantEntry], ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 0, i64 %indvars.iv3620
+  %675 = getelementptr inbounds nuw [0 x %struct.VMLongConstantEntry], ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 0, i64 %indvars.iv3620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %675, i64 16, i1 false)
   %676 = load ptr, ptr %21, align 8
   %.not2421 = icmp eq ptr %676, null
@@ -18119,7 +18119,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 688:                                              ; preds = %677
   %.sroa.03404.0.copyload3405 = load ptr, ptr %678, align 8
-  %.sroa.43406.0..sroa_idx3407 = getelementptr inbounds i8, ptr %678, i64 8
+  %.sroa.43406.0..sroa_idx3407 = getelementptr inbounds nuw i8, ptr %678, i64 8
   %.sroa.43406.0.copyload3408 = load i8, ptr %.sroa.43406.0..sroa_idx3407, align 8
   br label %689
 
@@ -18148,7 +18148,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %701
 
 700:                                              ; preds = %689
-  %.sroa.43401.0..sroa_idx3402 = getelementptr inbounds i8, ptr %691, i64 8
+  %.sroa.43401.0..sroa_idx3402 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %.sroa.43401.0.copyload3403 = load i8, ptr %.sroa.43401.0..sroa_idx3402, align 8
   br label %701
 
@@ -18179,15 +18179,15 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br i1 %710, label %.lr.ph3607, label %._crit_edge3608
 
 .lr.ph3607:                                       ; preds = %.preheader
-  %711 = getelementptr inbounds i8, ptr %26, i64 8
-  %712 = getelementptr inbounds i8, ptr %25, i64 8
-  %713 = getelementptr inbounds i8, ptr %28, i64 8
+  %711 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %712 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %713 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %wide.trip.count3628 = zext nneg i32 %704 to i64
   br label %714
 
 714:                                              ; preds = %.lr.ph3607, %742
   %indvars.iv3625 = phi i64 [ 0, %.lr.ph3607 ], [ %indvars.iv.next3626, %742 ]
-  %715 = getelementptr inbounds [0 x %struct.VMAddressEntry], ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 0, i64 %indvars.iv3625
+  %715 = getelementptr inbounds nuw [0 x %struct.VMAddressEntry], ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 0, i64 %indvars.iv3625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %715, i64 16, i1 false)
   %716 = load ptr, ptr %25, align 8
   %.not2418 = icmp eq ptr %716, null
@@ -18217,7 +18217,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
 
 728:                                              ; preds = %717
   %.sroa.03394.0.copyload3395 = load ptr, ptr %718, align 8
-  %.sroa.43396.0..sroa_idx3397 = getelementptr inbounds i8, ptr %718, i64 8
+  %.sroa.43396.0..sroa_idx3397 = getelementptr inbounds nuw i8, ptr %718, i64 8
   %.sroa.43396.0.copyload3398 = load i8, ptr %.sroa.43396.0..sroa_idx3397, align 8
   br label %729
 
@@ -18247,7 +18247,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %742
 
 741:                                              ; preds = %729
-  %.sroa.43391.0..sroa_idx3392 = getelementptr inbounds i8, ptr %732, i64 8
+  %.sroa.43391.0..sroa_idx3392 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %.sroa.43391.0.copyload3393 = load i8, ptr %.sroa.43391.0..sroa_idx3392, align 8
   br label %742
 
@@ -18283,7 +18283,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %755 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #7
   %756 = extractvalue { ptr, i8 } %755, 0
   store ptr %756, ptr %30, align 8
-  %757 = getelementptr inbounds i8, ptr %30, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %758 = extractvalue { ptr, i8 } %755, 1
   store i8 %758, ptr %757, align 8
   %759 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18297,7 +18297,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %763
 
 762:                                              ; preds = %751
-  %.sroa.42981.0..sroa_idx2982 = getelementptr inbounds i8, ptr %752, i64 8
+  %.sroa.42981.0..sroa_idx2982 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %.sroa.42981.0.copyload2983 = load i8, ptr %.sroa.42981.0..sroa_idx2982, align 8
   br label %763
 
@@ -18314,7 +18314,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %767 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %768 = extractvalue { ptr, i8 } %767, 0
   store ptr %768, ptr %33, align 8
-  %769 = getelementptr inbounds i8, ptr %33, i64 8
+  %769 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %770 = extractvalue { ptr, i8 } %767, 1
   store i8 %770, ptr %769, align 8
   %771 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18328,7 +18328,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %775
 
 774:                                              ; preds = %763
-  %.sroa.42976.0..sroa_idx2977 = getelementptr inbounds i8, ptr %764, i64 8
+  %.sroa.42976.0..sroa_idx2977 = getelementptr inbounds nuw i8, ptr %764, i64 8
   %.sroa.42976.0.copyload2978 = load i8, ptr %.sroa.42976.0..sroa_idx2977, align 8
   br label %775
 
@@ -18347,7 +18347,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %781 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %35, ptr noundef nonnull %1) #7
   %782 = extractvalue { ptr, i8 } %781, 0
   store ptr %782, ptr %36, align 8
-  %783 = getelementptr inbounds i8, ptr %36, i64 8
+  %783 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %784 = extractvalue { ptr, i8 } %781, 1
   store i8 %784, ptr %783, align 8
   %785 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18360,7 +18360,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %789
 
 788:                                              ; preds = %775
-  %.sroa.130.0..sroa_idx3223 = getelementptr inbounds i8, ptr %778, i64 8
+  %.sroa.130.0..sroa_idx3223 = getelementptr inbounds nuw i8, ptr %778, i64 8
   %.sroa.130.0.copyload3224 = load i8, ptr %.sroa.130.0..sroa_idx3223, align 8
   br label %789
 
@@ -18369,9 +18369,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.in = phi ptr [ %36, %786 ], [ %778, %788 ]
   %.sroa.02984.0 = load ptr, ptr %.sroa.02984.0.in, align 8
   store ptr %.sroa.02984.0, ptr %37, align 8
-  %.sroa.130.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %.sroa.130.0, ptr %.sroa.130.0..sroa_idx, align 8
-  %.sroa.131.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 9
+  %.sroa.131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %790 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02979.0, i8 %.sroa.42981.0, ptr %.sroa.02974.0, i8 %.sroa.42976.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %37, ptr noundef nonnull %1) #7
   %791 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18391,7 +18391,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %798 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #7
   %799 = extractvalue { ptr, i8 } %798, 0
   store ptr %799, ptr %39, align 8
-  %800 = getelementptr inbounds i8, ptr %39, i64 8
+  %800 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %801 = extractvalue { ptr, i8 } %798, 1
   store i8 %801, ptr %800, align 8
   %802 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18405,7 +18405,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %806
 
 805:                                              ; preds = %792
-  %.sroa.42971.0..sroa_idx2972 = getelementptr inbounds i8, ptr %795, i64 8
+  %.sroa.42971.0..sroa_idx2972 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %.sroa.42971.0.copyload2973 = load i8, ptr %.sroa.42971.0..sroa_idx2972, align 8
   br label %806
 
@@ -18422,7 +18422,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %810 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %811 = extractvalue { ptr, i8 } %810, 0
   store ptr %811, ptr %42, align 8
-  %812 = getelementptr inbounds i8, ptr %42, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %813 = extractvalue { ptr, i8 } %810, 1
   store i8 %813, ptr %812, align 8
   %814 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18436,7 +18436,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %818
 
 817:                                              ; preds = %806
-  %.sroa.42966.0..sroa_idx2967 = getelementptr inbounds i8, ptr %807, i64 8
+  %.sroa.42966.0..sroa_idx2967 = getelementptr inbounds nuw i8, ptr %807, i64 8
   %.sroa.42966.0.copyload2968 = load i8, ptr %.sroa.42966.0..sroa_idx2967, align 8
   br label %818
 
@@ -18455,7 +18455,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %824 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %44, ptr noundef nonnull %1) #7
   %825 = extractvalue { ptr, i8 } %824, 0
   store ptr %825, ptr %45, align 8
-  %826 = getelementptr inbounds i8, ptr %45, i64 8
+  %826 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %827 = extractvalue { ptr, i8 } %824, 1
   store i8 %827, ptr %826, align 8
   %828 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18468,7 +18468,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %832
 
 831:                                              ; preds = %818
-  %.sroa.130.0..sroa_idx3227 = getelementptr inbounds i8, ptr %821, i64 8
+  %.sroa.130.0..sroa_idx3227 = getelementptr inbounds nuw i8, ptr %821, i64 8
   %.sroa.130.0.copyload3228 = load i8, ptr %.sroa.130.0..sroa_idx3227, align 8
   br label %832
 
@@ -18477,9 +18477,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.1.in = phi ptr [ %45, %829 ], [ %821, %831 ]
   %.sroa.02984.1 = load ptr, ptr %.sroa.02984.1.in, align 8
   store ptr %.sroa.02984.1, ptr %46, align 8
-  %.sroa.130.0..sroa_idx3113 = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.130.0..sroa_idx3113 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 %.sroa.130.1, ptr %.sroa.130.0..sroa_idx3113, align 8
-  %.sroa.131.0..sroa_idx3335 = getelementptr inbounds i8, ptr %46, i64 9
+  %.sroa.131.0..sroa_idx3335 = getelementptr inbounds nuw i8, ptr %46, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3335, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %833 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02969.0, i8 %.sroa.42971.0, ptr %.sroa.02964.0, i8 %.sroa.42966.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %46, ptr noundef nonnull %1) #7
   %834 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18499,7 +18499,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %841 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #7
   %842 = extractvalue { ptr, i8 } %841, 0
   store ptr %842, ptr %48, align 8
-  %843 = getelementptr inbounds i8, ptr %48, i64 8
+  %843 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %844 = extractvalue { ptr, i8 } %841, 1
   store i8 %844, ptr %843, align 8
   %845 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18513,7 +18513,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %849
 
 848:                                              ; preds = %835
-  %.sroa.42961.0..sroa_idx2962 = getelementptr inbounds i8, ptr %838, i64 8
+  %.sroa.42961.0..sroa_idx2962 = getelementptr inbounds nuw i8, ptr %838, i64 8
   %.sroa.42961.0.copyload2963 = load i8, ptr %.sroa.42961.0..sroa_idx2962, align 8
   br label %849
 
@@ -18530,7 +18530,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %853 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %854 = extractvalue { ptr, i8 } %853, 0
   store ptr %854, ptr %51, align 8
-  %855 = getelementptr inbounds i8, ptr %51, i64 8
+  %855 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %856 = extractvalue { ptr, i8 } %853, 1
   store i8 %856, ptr %855, align 8
   %857 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18544,7 +18544,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %861
 
 860:                                              ; preds = %849
-  %.sroa.42956.0..sroa_idx2957 = getelementptr inbounds i8, ptr %850, i64 8
+  %.sroa.42956.0..sroa_idx2957 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %.sroa.42956.0.copyload2958 = load i8, ptr %.sroa.42956.0..sroa_idx2957, align 8
   br label %861
 
@@ -18562,7 +18562,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %866 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %53, ptr noundef nonnull %1) #7
   %867 = extractvalue { ptr, i8 } %866, 0
   store ptr %867, ptr %54, align 8
-  %868 = getelementptr inbounds i8, ptr %54, i64 8
+  %868 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %869 = extractvalue { ptr, i8 } %866, 1
   store i8 %869, ptr %868, align 8
   %870 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18575,7 +18575,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %874
 
 873:                                              ; preds = %861
-  %.sroa.130.0..sroa_idx3231 = getelementptr inbounds i8, ptr %863, i64 8
+  %.sroa.130.0..sroa_idx3231 = getelementptr inbounds nuw i8, ptr %863, i64 8
   %.sroa.130.0.copyload3232 = load i8, ptr %.sroa.130.0..sroa_idx3231, align 8
   br label %874
 
@@ -18584,9 +18584,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.2.in = phi ptr [ %54, %871 ], [ %863, %873 ]
   %.sroa.02984.2 = load ptr, ptr %.sroa.02984.2.in, align 8
   store ptr %.sroa.02984.2, ptr %55, align 8
-  %.sroa.130.0..sroa_idx3115 = getelementptr inbounds i8, ptr %55, i64 8
+  %.sroa.130.0..sroa_idx3115 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 %.sroa.130.2, ptr %.sroa.130.0..sroa_idx3115, align 8
-  %.sroa.131.0..sroa_idx3336 = getelementptr inbounds i8, ptr %55, i64 9
+  %.sroa.131.0..sroa_idx3336 = getelementptr inbounds nuw i8, ptr %55, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3336, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %875 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02959.0, i8 %.sroa.42961.0, ptr %.sroa.02954.0, i8 %.sroa.42956.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %55, ptr noundef nonnull %1) #7
   %876 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18606,7 +18606,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %883 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %1) #7
   %884 = extractvalue { ptr, i8 } %883, 0
   store ptr %884, ptr %57, align 8
-  %885 = getelementptr inbounds i8, ptr %57, i64 8
+  %885 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %886 = extractvalue { ptr, i8 } %883, 1
   store i8 %886, ptr %885, align 8
   %887 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18620,7 +18620,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %891
 
 890:                                              ; preds = %877
-  %.sroa.42951.0..sroa_idx2952 = getelementptr inbounds i8, ptr %880, i64 8
+  %.sroa.42951.0..sroa_idx2952 = getelementptr inbounds nuw i8, ptr %880, i64 8
   %.sroa.42951.0.copyload2953 = load i8, ptr %.sroa.42951.0..sroa_idx2952, align 8
   br label %891
 
@@ -18637,7 +18637,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %895 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %896 = extractvalue { ptr, i8 } %895, 0
   store ptr %896, ptr %60, align 8
-  %897 = getelementptr inbounds i8, ptr %60, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %898 = extractvalue { ptr, i8 } %895, 1
   store i8 %898, ptr %897, align 8
   %899 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18651,7 +18651,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %903
 
 902:                                              ; preds = %891
-  %.sroa.42946.0..sroa_idx2947 = getelementptr inbounds i8, ptr %892, i64 8
+  %.sroa.42946.0..sroa_idx2947 = getelementptr inbounds nuw i8, ptr %892, i64 8
   %.sroa.42946.0.copyload2948 = load i8, ptr %.sroa.42946.0..sroa_idx2947, align 8
   br label %903
 
@@ -18670,7 +18670,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %909 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %62, ptr noundef nonnull %1) #7
   %910 = extractvalue { ptr, i8 } %909, 0
   store ptr %910, ptr %63, align 8
-  %911 = getelementptr inbounds i8, ptr %63, i64 8
+  %911 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %912 = extractvalue { ptr, i8 } %909, 1
   store i8 %912, ptr %911, align 8
   %913 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18683,7 +18683,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %917
 
 916:                                              ; preds = %903
-  %.sroa.130.0..sroa_idx3235 = getelementptr inbounds i8, ptr %906, i64 8
+  %.sroa.130.0..sroa_idx3235 = getelementptr inbounds nuw i8, ptr %906, i64 8
   %.sroa.130.0.copyload3236 = load i8, ptr %.sroa.130.0..sroa_idx3235, align 8
   br label %917
 
@@ -18692,9 +18692,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.3.in = phi ptr [ %63, %914 ], [ %906, %916 ]
   %.sroa.02984.3 = load ptr, ptr %.sroa.02984.3.in, align 8
   store ptr %.sroa.02984.3, ptr %64, align 8
-  %.sroa.130.0..sroa_idx3117 = getelementptr inbounds i8, ptr %64, i64 8
+  %.sroa.130.0..sroa_idx3117 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i8 %.sroa.130.3, ptr %.sroa.130.0..sroa_idx3117, align 8
-  %.sroa.131.0..sroa_idx3337 = getelementptr inbounds i8, ptr %64, i64 9
+  %.sroa.131.0..sroa_idx3337 = getelementptr inbounds nuw i8, ptr %64, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3337, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %918 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02949.0, i8 %.sroa.42951.0, ptr %.sroa.02944.0, i8 %.sroa.42946.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %64, ptr noundef nonnull %1) #7
   %919 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18714,7 +18714,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %926 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #7
   %927 = extractvalue { ptr, i8 } %926, 0
   store ptr %927, ptr %66, align 8
-  %928 = getelementptr inbounds i8, ptr %66, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %929 = extractvalue { ptr, i8 } %926, 1
   store i8 %929, ptr %928, align 8
   %930 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18728,7 +18728,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %934
 
 933:                                              ; preds = %920
-  %.sroa.42941.0..sroa_idx2942 = getelementptr inbounds i8, ptr %923, i64 8
+  %.sroa.42941.0..sroa_idx2942 = getelementptr inbounds nuw i8, ptr %923, i64 8
   %.sroa.42941.0.copyload2943 = load i8, ptr %.sroa.42941.0..sroa_idx2942, align 8
   br label %934
 
@@ -18745,7 +18745,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %938 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %939 = extractvalue { ptr, i8 } %938, 0
   store ptr %939, ptr %69, align 8
-  %940 = getelementptr inbounds i8, ptr %69, i64 8
+  %940 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %941 = extractvalue { ptr, i8 } %938, 1
   store i8 %941, ptr %940, align 8
   %942 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18759,7 +18759,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %946
 
 945:                                              ; preds = %934
-  %.sroa.42936.0..sroa_idx2937 = getelementptr inbounds i8, ptr %935, i64 8
+  %.sroa.42936.0..sroa_idx2937 = getelementptr inbounds nuw i8, ptr %935, i64 8
   %.sroa.42936.0.copyload2938 = load i8, ptr %.sroa.42936.0..sroa_idx2937, align 8
   br label %946
 
@@ -18778,7 +18778,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %952 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %71, ptr noundef nonnull %1) #7
   %953 = extractvalue { ptr, i8 } %952, 0
   store ptr %953, ptr %72, align 8
-  %954 = getelementptr inbounds i8, ptr %72, i64 8
+  %954 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %955 = extractvalue { ptr, i8 } %952, 1
   store i8 %955, ptr %954, align 8
   %956 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18791,7 +18791,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %960
 
 959:                                              ; preds = %946
-  %.sroa.130.0..sroa_idx3239 = getelementptr inbounds i8, ptr %949, i64 8
+  %.sroa.130.0..sroa_idx3239 = getelementptr inbounds nuw i8, ptr %949, i64 8
   %.sroa.130.0.copyload3240 = load i8, ptr %.sroa.130.0..sroa_idx3239, align 8
   br label %960
 
@@ -18800,9 +18800,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.4.in = phi ptr [ %72, %957 ], [ %949, %959 ]
   %.sroa.02984.4 = load ptr, ptr %.sroa.02984.4.in, align 8
   store ptr %.sroa.02984.4, ptr %73, align 8
-  %.sroa.130.0..sroa_idx3119 = getelementptr inbounds i8, ptr %73, i64 8
+  %.sroa.130.0..sroa_idx3119 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i8 %.sroa.130.4, ptr %.sroa.130.0..sroa_idx3119, align 8
-  %.sroa.131.0..sroa_idx3338 = getelementptr inbounds i8, ptr %73, i64 9
+  %.sroa.131.0..sroa_idx3338 = getelementptr inbounds nuw i8, ptr %73, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3338, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %961 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02939.0, i8 %.sroa.42941.0, ptr %.sroa.02934.0, i8 %.sroa.42936.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %73, ptr noundef nonnull %1) #7
   %962 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18822,7 +18822,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %969 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %1) #7
   %970 = extractvalue { ptr, i8 } %969, 0
   store ptr %970, ptr %75, align 8
-  %971 = getelementptr inbounds i8, ptr %75, i64 8
+  %971 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %972 = extractvalue { ptr, i8 } %969, 1
   store i8 %972, ptr %971, align 8
   %973 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18836,7 +18836,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %977
 
 976:                                              ; preds = %963
-  %.sroa.42931.0..sroa_idx2932 = getelementptr inbounds i8, ptr %966, i64 8
+  %.sroa.42931.0..sroa_idx2932 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %.sroa.42931.0.copyload2933 = load i8, ptr %.sroa.42931.0..sroa_idx2932, align 8
   br label %977
 
@@ -18853,7 +18853,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %981 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %982 = extractvalue { ptr, i8 } %981, 0
   store ptr %982, ptr %78, align 8
-  %983 = getelementptr inbounds i8, ptr %78, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %984 = extractvalue { ptr, i8 } %981, 1
   store i8 %984, ptr %983, align 8
   %985 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18867,7 +18867,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %989
 
 988:                                              ; preds = %977
-  %.sroa.42926.0..sroa_idx2927 = getelementptr inbounds i8, ptr %978, i64 8
+  %.sroa.42926.0..sroa_idx2927 = getelementptr inbounds nuw i8, ptr %978, i64 8
   %.sroa.42926.0.copyload2928 = load i8, ptr %.sroa.42926.0..sroa_idx2927, align 8
   br label %989
 
@@ -18886,7 +18886,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %995 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %80, ptr noundef nonnull %1) #7
   %996 = extractvalue { ptr, i8 } %995, 0
   store ptr %996, ptr %81, align 8
-  %997 = getelementptr inbounds i8, ptr %81, i64 8
+  %997 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %998 = extractvalue { ptr, i8 } %995, 1
   store i8 %998, ptr %997, align 8
   %999 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18899,7 +18899,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1003
 
 1002:                                             ; preds = %989
-  %.sroa.130.0..sroa_idx3243 = getelementptr inbounds i8, ptr %992, i64 8
+  %.sroa.130.0..sroa_idx3243 = getelementptr inbounds nuw i8, ptr %992, i64 8
   %.sroa.130.0.copyload3244 = load i8, ptr %.sroa.130.0..sroa_idx3243, align 8
   br label %1003
 
@@ -18908,9 +18908,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.5.in = phi ptr [ %81, %1000 ], [ %992, %1002 ]
   %.sroa.02984.5 = load ptr, ptr %.sroa.02984.5.in, align 8
   store ptr %.sroa.02984.5, ptr %82, align 8
-  %.sroa.130.0..sroa_idx3121 = getelementptr inbounds i8, ptr %82, i64 8
+  %.sroa.130.0..sroa_idx3121 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i8 %.sroa.130.5, ptr %.sroa.130.0..sroa_idx3121, align 8
-  %.sroa.131.0..sroa_idx3339 = getelementptr inbounds i8, ptr %82, i64 9
+  %.sroa.131.0..sroa_idx3339 = getelementptr inbounds nuw i8, ptr %82, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3339, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1004 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02929.0, i8 %.sroa.42931.0, ptr %.sroa.02924.0, i8 %.sroa.42926.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %82, ptr noundef nonnull %1) #7
   %1005 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18930,7 +18930,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1012 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %1) #7
   %1013 = extractvalue { ptr, i8 } %1012, 0
   store ptr %1013, ptr %84, align 8
-  %1014 = getelementptr inbounds i8, ptr %84, i64 8
+  %1014 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %1015 = extractvalue { ptr, i8 } %1012, 1
   store i8 %1015, ptr %1014, align 8
   %1016 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18944,7 +18944,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1020
 
 1019:                                             ; preds = %1006
-  %.sroa.42921.0..sroa_idx2922 = getelementptr inbounds i8, ptr %1009, i64 8
+  %.sroa.42921.0..sroa_idx2922 = getelementptr inbounds nuw i8, ptr %1009, i64 8
   %.sroa.42921.0.copyload2923 = load i8, ptr %.sroa.42921.0..sroa_idx2922, align 8
   br label %1020
 
@@ -18961,7 +18961,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1024 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1025 = extractvalue { ptr, i8 } %1024, 0
   store ptr %1025, ptr %87, align 8
-  %1026 = getelementptr inbounds i8, ptr %87, i64 8
+  %1026 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %1027 = extractvalue { ptr, i8 } %1024, 1
   store i8 %1027, ptr %1026, align 8
   %1028 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -18975,7 +18975,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1032
 
 1031:                                             ; preds = %1020
-  %.sroa.42916.0..sroa_idx2917 = getelementptr inbounds i8, ptr %1021, i64 8
+  %.sroa.42916.0..sroa_idx2917 = getelementptr inbounds nuw i8, ptr %1021, i64 8
   %.sroa.42916.0.copyload2918 = load i8, ptr %.sroa.42916.0..sroa_idx2917, align 8
   br label %1032
 
@@ -18992,7 +18992,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1036 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %89, ptr noundef nonnull %1) #7
   %1037 = extractvalue { ptr, i8 } %1036, 0
   store ptr %1037, ptr %90, align 8
-  %1038 = getelementptr inbounds i8, ptr %90, i64 8
+  %1038 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %1039 = extractvalue { ptr, i8 } %1036, 1
   store i8 %1039, ptr %1038, align 8
   %1040 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19005,7 +19005,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1044
 
 1043:                                             ; preds = %1032
-  %.sroa.130.0..sroa_idx3247 = getelementptr inbounds i8, ptr %1033, i64 8
+  %.sroa.130.0..sroa_idx3247 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   %.sroa.130.0.copyload3248 = load i8, ptr %.sroa.130.0..sroa_idx3247, align 8
   br label %1044
 
@@ -19014,9 +19014,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.6.in = phi ptr [ %90, %1041 ], [ %1033, %1043 ]
   %.sroa.02984.6 = load ptr, ptr %.sroa.02984.6.in, align 8
   store ptr %.sroa.02984.6, ptr %91, align 8
-  %.sroa.130.0..sroa_idx3123 = getelementptr inbounds i8, ptr %91, i64 8
+  %.sroa.130.0..sroa_idx3123 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i8 %.sroa.130.6, ptr %.sroa.130.0..sroa_idx3123, align 8
-  %.sroa.131.0..sroa_idx3340 = getelementptr inbounds i8, ptr %91, i64 9
+  %.sroa.131.0..sroa_idx3340 = getelementptr inbounds nuw i8, ptr %91, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3340, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1045 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02919.0, i8 %.sroa.42921.0, ptr %.sroa.02914.0, i8 %.sroa.42916.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %91, ptr noundef nonnull %1) #7
   %1046 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19036,7 +19036,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1053 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #7
   %1054 = extractvalue { ptr, i8 } %1053, 0
   store ptr %1054, ptr %93, align 8
-  %1055 = getelementptr inbounds i8, ptr %93, i64 8
+  %1055 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %1056 = extractvalue { ptr, i8 } %1053, 1
   store i8 %1056, ptr %1055, align 8
   %1057 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19050,7 +19050,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1061
 
 1060:                                             ; preds = %1047
-  %.sroa.42911.0..sroa_idx2912 = getelementptr inbounds i8, ptr %1050, i64 8
+  %.sroa.42911.0..sroa_idx2912 = getelementptr inbounds nuw i8, ptr %1050, i64 8
   %.sroa.42911.0.copyload2913 = load i8, ptr %.sroa.42911.0..sroa_idx2912, align 8
   br label %1061
 
@@ -19067,7 +19067,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1065 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1066 = extractvalue { ptr, i8 } %1065, 0
   store ptr %1066, ptr %96, align 8
-  %1067 = getelementptr inbounds i8, ptr %96, i64 8
+  %1067 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %1068 = extractvalue { ptr, i8 } %1065, 1
   store i8 %1068, ptr %1067, align 8
   %1069 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19081,7 +19081,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1073
 
 1072:                                             ; preds = %1061
-  %.sroa.42906.0..sroa_idx2907 = getelementptr inbounds i8, ptr %1062, i64 8
+  %.sroa.42906.0..sroa_idx2907 = getelementptr inbounds nuw i8, ptr %1062, i64 8
   %.sroa.42906.0.copyload2908 = load i8, ptr %.sroa.42906.0..sroa_idx2907, align 8
   br label %1073
 
@@ -19094,9 +19094,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3053.sroa.speculated = select i1 %1075, ptr %455, ptr %460
   %.sroa.130.0.copyload3249.sroa.speculated = select i1 %1075, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3053.sroa.speculated, ptr %98, align 8
-  %.sroa.130.0..sroa_idx3125 = getelementptr inbounds i8, ptr %98, i64 8
+  %.sroa.130.0..sroa_idx3125 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 %.sroa.130.0.copyload3249.sroa.speculated, ptr %.sroa.130.0..sroa_idx3125, align 8
-  %.sroa.131.0..sroa_idx3341 = getelementptr inbounds i8, ptr %98, i64 9
+  %.sroa.131.0..sroa_idx3341 = getelementptr inbounds nuw i8, ptr %98, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3341, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1076 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02909.0, i8 %.sroa.42911.0, ptr %.sroa.02904.0, i8 %.sroa.42906.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %98, ptr noundef nonnull %1) #7
   %1077 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19116,7 +19116,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1084 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.26, ptr noundef nonnull %1) #7
   %1085 = extractvalue { ptr, i8 } %1084, 0
   store ptr %1085, ptr %100, align 8
-  %1086 = getelementptr inbounds i8, ptr %100, i64 8
+  %1086 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %1087 = extractvalue { ptr, i8 } %1084, 1
   store i8 %1087, ptr %1086, align 8
   %1088 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19130,7 +19130,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1092
 
 1091:                                             ; preds = %1078
-  %.sroa.42901.0..sroa_idx2902 = getelementptr inbounds i8, ptr %1081, i64 8
+  %.sroa.42901.0..sroa_idx2902 = getelementptr inbounds nuw i8, ptr %1081, i64 8
   %.sroa.42901.0.copyload2903 = load i8, ptr %.sroa.42901.0..sroa_idx2902, align 8
   br label %1092
 
@@ -19147,7 +19147,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1096 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1097 = extractvalue { ptr, i8 } %1096, 0
   store ptr %1097, ptr %103, align 8
-  %1098 = getelementptr inbounds i8, ptr %103, i64 8
+  %1098 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %1099 = extractvalue { ptr, i8 } %1096, 1
   store i8 %1099, ptr %1098, align 8
   %1100 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19161,7 +19161,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1104
 
 1103:                                             ; preds = %1092
-  %.sroa.42896.0..sroa_idx2897 = getelementptr inbounds i8, ptr %1093, i64 8
+  %.sroa.42896.0..sroa_idx2897 = getelementptr inbounds nuw i8, ptr %1093, i64 8
   %.sroa.42896.0.copyload2898 = load i8, ptr %.sroa.42896.0..sroa_idx2897, align 8
   br label %1104
 
@@ -19174,9 +19174,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3054.sroa.speculated = select i1 %1106, ptr %455, ptr %460
   %.sroa.130.0.copyload3250.sroa.speculated = select i1 %1106, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3054.sroa.speculated, ptr %105, align 8
-  %.sroa.130.0..sroa_idx3127 = getelementptr inbounds i8, ptr %105, i64 8
+  %.sroa.130.0..sroa_idx3127 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i8 %.sroa.130.0.copyload3250.sroa.speculated, ptr %.sroa.130.0..sroa_idx3127, align 8
-  %.sroa.131.0..sroa_idx3342 = getelementptr inbounds i8, ptr %105, i64 9
+  %.sroa.131.0..sroa_idx3342 = getelementptr inbounds nuw i8, ptr %105, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3342, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1107 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02899.0, i8 %.sroa.42901.0, ptr %.sroa.02894.0, i8 %.sroa.42896.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %105, ptr noundef nonnull %1) #7
   %1108 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19196,7 +19196,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1115 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #7
   %1116 = extractvalue { ptr, i8 } %1115, 0
   store ptr %1116, ptr %107, align 8
-  %1117 = getelementptr inbounds i8, ptr %107, i64 8
+  %1117 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %1118 = extractvalue { ptr, i8 } %1115, 1
   store i8 %1118, ptr %1117, align 8
   %1119 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19210,7 +19210,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1123
 
 1122:                                             ; preds = %1109
-  %.sroa.42891.0..sroa_idx2892 = getelementptr inbounds i8, ptr %1112, i64 8
+  %.sroa.42891.0..sroa_idx2892 = getelementptr inbounds nuw i8, ptr %1112, i64 8
   %.sroa.42891.0.copyload2893 = load i8, ptr %.sroa.42891.0..sroa_idx2892, align 8
   br label %1123
 
@@ -19227,7 +19227,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1127 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1128 = extractvalue { ptr, i8 } %1127, 0
   store ptr %1128, ptr %110, align 8
-  %1129 = getelementptr inbounds i8, ptr %110, i64 8
+  %1129 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %1130 = extractvalue { ptr, i8 } %1127, 1
   store i8 %1130, ptr %1129, align 8
   %1131 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19241,7 +19241,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1135
 
 1134:                                             ; preds = %1123
-  %.sroa.42886.0..sroa_idx2887 = getelementptr inbounds i8, ptr %1124, i64 8
+  %.sroa.42886.0..sroa_idx2887 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   %.sroa.42886.0.copyload2888 = load i8, ptr %.sroa.42886.0..sroa_idx2887, align 8
   br label %1135
 
@@ -19250,9 +19250,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02884.0.in = phi ptr [ %110, %1132 ], [ %1124, %1134 ]
   %.sroa.02884.0 = load ptr, ptr %.sroa.02884.0.in, align 8
   store ptr %460, ptr %112, align 8
-  %.sroa.130.0..sroa_idx3129 = getelementptr inbounds i8, ptr %112, i64 8
+  %.sroa.130.0..sroa_idx3129 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3129, align 8
-  %.sroa.131.0..sroa_idx3343 = getelementptr inbounds i8, ptr %112, i64 9
+  %.sroa.131.0..sroa_idx3343 = getelementptr inbounds nuw i8, ptr %112, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3343, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1136 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02889.0, i8 %.sroa.42891.0, ptr %.sroa.02884.0, i8 %.sroa.42886.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %112, ptr noundef nonnull %1) #7
   %1137 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19272,7 +19272,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1144 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %1) #7
   %1145 = extractvalue { ptr, i8 } %1144, 0
   store ptr %1145, ptr %114, align 8
-  %1146 = getelementptr inbounds i8, ptr %114, i64 8
+  %1146 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %1147 = extractvalue { ptr, i8 } %1144, 1
   store i8 %1147, ptr %1146, align 8
   %1148 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19286,7 +19286,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1152
 
 1151:                                             ; preds = %1138
-  %.sroa.42881.0..sroa_idx2882 = getelementptr inbounds i8, ptr %1141, i64 8
+  %.sroa.42881.0..sroa_idx2882 = getelementptr inbounds nuw i8, ptr %1141, i64 8
   %.sroa.42881.0.copyload2883 = load i8, ptr %.sroa.42881.0..sroa_idx2882, align 8
   br label %1152
 
@@ -19303,7 +19303,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1156 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %1) #7
   %1157 = extractvalue { ptr, i8 } %1156, 0
   store ptr %1157, ptr %117, align 8
-  %1158 = getelementptr inbounds i8, ptr %117, i64 8
+  %1158 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %1159 = extractvalue { ptr, i8 } %1156, 1
   store i8 %1159, ptr %1158, align 8
   %1160 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19317,7 +19317,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1164
 
 1163:                                             ; preds = %1152
-  %.sroa.42876.0..sroa_idx2877 = getelementptr inbounds i8, ptr %1153, i64 8
+  %.sroa.42876.0..sroa_idx2877 = getelementptr inbounds nuw i8, ptr %1153, i64 8
   %.sroa.42876.0.copyload2878 = load i8, ptr %.sroa.42876.0..sroa_idx2877, align 8
   br label %1164
 
@@ -19335,7 +19335,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1169 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %119, ptr noundef nonnull %1) #7
   %1170 = extractvalue { ptr, i8 } %1169, 0
   store ptr %1170, ptr %120, align 8
-  %1171 = getelementptr inbounds i8, ptr %120, i64 8
+  %1171 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %1172 = extractvalue { ptr, i8 } %1169, 1
   store i8 %1172, ptr %1171, align 8
   %1173 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19348,7 +19348,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1177
 
 1176:                                             ; preds = %1164
-  %.sroa.130.0..sroa_idx3255 = getelementptr inbounds i8, ptr %1166, i64 8
+  %.sroa.130.0..sroa_idx3255 = getelementptr inbounds nuw i8, ptr %1166, i64 8
   %.sroa.130.0.copyload3256 = load i8, ptr %.sroa.130.0..sroa_idx3255, align 8
   br label %1177
 
@@ -19357,9 +19357,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.7.in = phi ptr [ %120, %1174 ], [ %1166, %1176 ]
   %.sroa.02984.7 = load ptr, ptr %.sroa.02984.7.in, align 8
   store ptr %.sroa.02984.7, ptr %121, align 8
-  %.sroa.130.0..sroa_idx3131 = getelementptr inbounds i8, ptr %121, i64 8
+  %.sroa.130.0..sroa_idx3131 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i8 %.sroa.130.7, ptr %.sroa.130.0..sroa_idx3131, align 8
-  %.sroa.131.0..sroa_idx3344 = getelementptr inbounds i8, ptr %121, i64 9
+  %.sroa.131.0..sroa_idx3344 = getelementptr inbounds nuw i8, ptr %121, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3344, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1178 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02879.0, i8 %.sroa.42881.0, ptr %.sroa.02874.0, i8 %.sroa.42876.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %121, ptr noundef nonnull %1) #7
   %1179 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19379,7 +19379,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1186 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.30, ptr noundef nonnull %1) #7
   %1187 = extractvalue { ptr, i8 } %1186, 0
   store ptr %1187, ptr %123, align 8
-  %1188 = getelementptr inbounds i8, ptr %123, i64 8
+  %1188 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %1189 = extractvalue { ptr, i8 } %1186, 1
   store i8 %1189, ptr %1188, align 8
   %1190 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19393,7 +19393,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1194
 
 1193:                                             ; preds = %1180
-  %.sroa.42871.0..sroa_idx2872 = getelementptr inbounds i8, ptr %1183, i64 8
+  %.sroa.42871.0..sroa_idx2872 = getelementptr inbounds nuw i8, ptr %1183, i64 8
   %.sroa.42871.0.copyload2873 = load i8, ptr %.sroa.42871.0..sroa_idx2872, align 8
   br label %1194
 
@@ -19410,7 +19410,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1198 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1199 = extractvalue { ptr, i8 } %1198, 0
   store ptr %1199, ptr %126, align 8
-  %1200 = getelementptr inbounds i8, ptr %126, i64 8
+  %1200 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %1201 = extractvalue { ptr, i8 } %1198, 1
   store i8 %1201, ptr %1200, align 8
   %1202 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19424,7 +19424,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1206
 
 1205:                                             ; preds = %1194
-  %.sroa.42866.0..sroa_idx2867 = getelementptr inbounds i8, ptr %1195, i64 8
+  %.sroa.42866.0..sroa_idx2867 = getelementptr inbounds nuw i8, ptr %1195, i64 8
   %.sroa.42866.0.copyload2868 = load i8, ptr %.sroa.42866.0..sroa_idx2867, align 8
   br label %1206
 
@@ -19442,7 +19442,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1211 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %128, ptr noundef nonnull %1) #7
   %1212 = extractvalue { ptr, i8 } %1211, 0
   store ptr %1212, ptr %129, align 8
-  %1213 = getelementptr inbounds i8, ptr %129, i64 8
+  %1213 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %1214 = extractvalue { ptr, i8 } %1211, 1
   store i8 %1214, ptr %1213, align 8
   %1215 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19455,7 +19455,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1219
 
 1218:                                             ; preds = %1206
-  %.sroa.130.0..sroa_idx3259 = getelementptr inbounds i8, ptr %1208, i64 8
+  %.sroa.130.0..sroa_idx3259 = getelementptr inbounds nuw i8, ptr %1208, i64 8
   %.sroa.130.0.copyload3260 = load i8, ptr %.sroa.130.0..sroa_idx3259, align 8
   br label %1219
 
@@ -19464,9 +19464,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.8.in = phi ptr [ %129, %1216 ], [ %1208, %1218 ]
   %.sroa.02984.8 = load ptr, ptr %.sroa.02984.8.in, align 8
   store ptr %.sroa.02984.8, ptr %130, align 8
-  %.sroa.130.0..sroa_idx3133 = getelementptr inbounds i8, ptr %130, i64 8
+  %.sroa.130.0..sroa_idx3133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i8 %.sroa.130.8, ptr %.sroa.130.0..sroa_idx3133, align 8
-  %.sroa.131.0..sroa_idx3345 = getelementptr inbounds i8, ptr %130, i64 9
+  %.sroa.131.0..sroa_idx3345 = getelementptr inbounds nuw i8, ptr %130, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3345, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02869.0, i8 %.sroa.42871.0, ptr %.sroa.02864.0, i8 %.sroa.42866.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %130, ptr noundef nonnull %1) #7
   %1221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19486,7 +19486,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1228 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.31, ptr noundef nonnull %1) #7
   %1229 = extractvalue { ptr, i8 } %1228, 0
   store ptr %1229, ptr %132, align 8
-  %1230 = getelementptr inbounds i8, ptr %132, i64 8
+  %1230 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %1231 = extractvalue { ptr, i8 } %1228, 1
   store i8 %1231, ptr %1230, align 8
   %1232 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19500,7 +19500,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1236
 
 1235:                                             ; preds = %1222
-  %.sroa.42861.0..sroa_idx2862 = getelementptr inbounds i8, ptr %1225, i64 8
+  %.sroa.42861.0..sroa_idx2862 = getelementptr inbounds nuw i8, ptr %1225, i64 8
   %.sroa.42861.0.copyload2863 = load i8, ptr %.sroa.42861.0..sroa_idx2862, align 8
   br label %1236
 
@@ -19517,7 +19517,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1240 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %1241 = extractvalue { ptr, i8 } %1240, 0
   store ptr %1241, ptr %135, align 8
-  %1242 = getelementptr inbounds i8, ptr %135, i64 8
+  %1242 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %1243 = extractvalue { ptr, i8 } %1240, 1
   store i8 %1243, ptr %1242, align 8
   %1244 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19531,7 +19531,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1248
 
 1247:                                             ; preds = %1236
-  %.sroa.42856.0..sroa_idx2857 = getelementptr inbounds i8, ptr %1237, i64 8
+  %.sroa.42856.0..sroa_idx2857 = getelementptr inbounds nuw i8, ptr %1237, i64 8
   %.sroa.42856.0.copyload2858 = load i8, ptr %.sroa.42856.0..sroa_idx2857, align 8
   br label %1248
 
@@ -19550,7 +19550,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1254 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %137, ptr noundef nonnull %1) #7
   %1255 = extractvalue { ptr, i8 } %1254, 0
   store ptr %1255, ptr %138, align 8
-  %1256 = getelementptr inbounds i8, ptr %138, i64 8
+  %1256 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %1257 = extractvalue { ptr, i8 } %1254, 1
   store i8 %1257, ptr %1256, align 8
   %1258 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19563,7 +19563,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1262
 
 1261:                                             ; preds = %1248
-  %.sroa.130.0..sroa_idx3263 = getelementptr inbounds i8, ptr %1251, i64 8
+  %.sroa.130.0..sroa_idx3263 = getelementptr inbounds nuw i8, ptr %1251, i64 8
   %.sroa.130.0.copyload3264 = load i8, ptr %.sroa.130.0..sroa_idx3263, align 8
   br label %1262
 
@@ -19572,9 +19572,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.9.in = phi ptr [ %138, %1259 ], [ %1251, %1261 ]
   %.sroa.02984.9 = load ptr, ptr %.sroa.02984.9.in, align 8
   store ptr %.sroa.02984.9, ptr %139, align 8
-  %.sroa.130.0..sroa_idx3135 = getelementptr inbounds i8, ptr %139, i64 8
+  %.sroa.130.0..sroa_idx3135 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 %.sroa.130.9, ptr %.sroa.130.0..sroa_idx3135, align 8
-  %.sroa.131.0..sroa_idx3346 = getelementptr inbounds i8, ptr %139, i64 9
+  %.sroa.131.0..sroa_idx3346 = getelementptr inbounds nuw i8, ptr %139, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3346, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1263 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02859.0, i8 %.sroa.42861.0, ptr %.sroa.02854.0, i8 %.sroa.42856.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %139, ptr noundef nonnull %1) #7
   %1264 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19594,7 +19594,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1271 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.32, ptr noundef nonnull %1) #7
   %1272 = extractvalue { ptr, i8 } %1271, 0
   store ptr %1272, ptr %141, align 8
-  %1273 = getelementptr inbounds i8, ptr %141, i64 8
+  %1273 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %1274 = extractvalue { ptr, i8 } %1271, 1
   store i8 %1274, ptr %1273, align 8
   %1275 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19608,7 +19608,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1279
 
 1278:                                             ; preds = %1265
-  %.sroa.42851.0..sroa_idx2852 = getelementptr inbounds i8, ptr %1268, i64 8
+  %.sroa.42851.0..sroa_idx2852 = getelementptr inbounds nuw i8, ptr %1268, i64 8
   %.sroa.42851.0.copyload2853 = load i8, ptr %.sroa.42851.0..sroa_idx2852, align 8
   br label %1279
 
@@ -19625,7 +19625,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1283 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1284 = extractvalue { ptr, i8 } %1283, 0
   store ptr %1284, ptr %144, align 8
-  %1285 = getelementptr inbounds i8, ptr %144, i64 8
+  %1285 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %1286 = extractvalue { ptr, i8 } %1283, 1
   store i8 %1286, ptr %1285, align 8
   %1287 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19639,7 +19639,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1291
 
 1290:                                             ; preds = %1279
-  %.sroa.42846.0..sroa_idx2847 = getelementptr inbounds i8, ptr %1280, i64 8
+  %.sroa.42846.0..sroa_idx2847 = getelementptr inbounds nuw i8, ptr %1280, i64 8
   %.sroa.42846.0.copyload2848 = load i8, ptr %.sroa.42846.0..sroa_idx2847, align 8
   br label %1291
 
@@ -19652,9 +19652,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3062.sroa.speculated = select i1 %1293, ptr %455, ptr %460
   %.sroa.130.0.copyload3265.sroa.speculated = select i1 %1293, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3062.sroa.speculated, ptr %146, align 8
-  %.sroa.130.0..sroa_idx3137 = getelementptr inbounds i8, ptr %146, i64 8
+  %.sroa.130.0..sroa_idx3137 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i8 %.sroa.130.0.copyload3265.sroa.speculated, ptr %.sroa.130.0..sroa_idx3137, align 8
-  %.sroa.131.0..sroa_idx3347 = getelementptr inbounds i8, ptr %146, i64 9
+  %.sroa.131.0..sroa_idx3347 = getelementptr inbounds nuw i8, ptr %146, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3347, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1294 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02849.0, i8 %.sroa.42851.0, ptr %.sroa.02844.0, i8 %.sroa.42846.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %146, ptr noundef nonnull %1) #7
   %1295 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19674,7 +19674,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1302 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.33, ptr noundef nonnull %1) #7
   %1303 = extractvalue { ptr, i8 } %1302, 0
   store ptr %1303, ptr %148, align 8
-  %1304 = getelementptr inbounds i8, ptr %148, i64 8
+  %1304 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %1305 = extractvalue { ptr, i8 } %1302, 1
   store i8 %1305, ptr %1304, align 8
   %1306 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19688,7 +19688,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1310
 
 1309:                                             ; preds = %1296
-  %.sroa.42841.0..sroa_idx2842 = getelementptr inbounds i8, ptr %1299, i64 8
+  %.sroa.42841.0..sroa_idx2842 = getelementptr inbounds nuw i8, ptr %1299, i64 8
   %.sroa.42841.0.copyload2843 = load i8, ptr %.sroa.42841.0..sroa_idx2842, align 8
   br label %1310
 
@@ -19705,7 +19705,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1314 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1315 = extractvalue { ptr, i8 } %1314, 0
   store ptr %1315, ptr %151, align 8
-  %1316 = getelementptr inbounds i8, ptr %151, i64 8
+  %1316 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %1317 = extractvalue { ptr, i8 } %1314, 1
   store i8 %1317, ptr %1316, align 8
   %1318 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19719,7 +19719,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1322
 
 1321:                                             ; preds = %1310
-  %.sroa.42836.0..sroa_idx2837 = getelementptr inbounds i8, ptr %1311, i64 8
+  %.sroa.42836.0..sroa_idx2837 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   %.sroa.42836.0.copyload2838 = load i8, ptr %.sroa.42836.0..sroa_idx2837, align 8
   br label %1322
 
@@ -19732,9 +19732,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3063.sroa.speculated = select i1 %1324, ptr %455, ptr %460
   %.sroa.130.0.copyload3266.sroa.speculated = select i1 %1324, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3063.sroa.speculated, ptr %153, align 8
-  %.sroa.130.0..sroa_idx3139 = getelementptr inbounds i8, ptr %153, i64 8
+  %.sroa.130.0..sroa_idx3139 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i8 %.sroa.130.0.copyload3266.sroa.speculated, ptr %.sroa.130.0..sroa_idx3139, align 8
-  %.sroa.131.0..sroa_idx3348 = getelementptr inbounds i8, ptr %153, i64 9
+  %.sroa.131.0..sroa_idx3348 = getelementptr inbounds nuw i8, ptr %153, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3348, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1325 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02839.0, i8 %.sroa.42841.0, ptr %.sroa.02834.0, i8 %.sroa.42836.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %153, ptr noundef nonnull %1) #7
   %1326 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19754,7 +19754,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1333 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.34, ptr noundef nonnull %1) #7
   %1334 = extractvalue { ptr, i8 } %1333, 0
   store ptr %1334, ptr %155, align 8
-  %1335 = getelementptr inbounds i8, ptr %155, i64 8
+  %1335 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %1336 = extractvalue { ptr, i8 } %1333, 1
   store i8 %1336, ptr %1335, align 8
   %1337 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19768,7 +19768,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1341
 
 1340:                                             ; preds = %1327
-  %.sroa.42831.0..sroa_idx2832 = getelementptr inbounds i8, ptr %1330, i64 8
+  %.sroa.42831.0..sroa_idx2832 = getelementptr inbounds nuw i8, ptr %1330, i64 8
   %.sroa.42831.0.copyload2833 = load i8, ptr %.sroa.42831.0..sroa_idx2832, align 8
   br label %1341
 
@@ -19785,7 +19785,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1345 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1346 = extractvalue { ptr, i8 } %1345, 0
   store ptr %1346, ptr %158, align 8
-  %1347 = getelementptr inbounds i8, ptr %158, i64 8
+  %1347 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %1348 = extractvalue { ptr, i8 } %1345, 1
   store i8 %1348, ptr %1347, align 8
   %1349 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19799,7 +19799,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1353
 
 1352:                                             ; preds = %1341
-  %.sroa.42826.0..sroa_idx2827 = getelementptr inbounds i8, ptr %1342, i64 8
+  %.sroa.42826.0..sroa_idx2827 = getelementptr inbounds nuw i8, ptr %1342, i64 8
   %.sroa.42826.0.copyload2828 = load i8, ptr %.sroa.42826.0..sroa_idx2827, align 8
   br label %1353
 
@@ -19812,9 +19812,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3064.sroa.speculated = select i1 %1355, ptr %455, ptr %460
   %.sroa.130.0.copyload3267.sroa.speculated = select i1 %1355, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3064.sroa.speculated, ptr %160, align 8
-  %.sroa.130.0..sroa_idx3141 = getelementptr inbounds i8, ptr %160, i64 8
+  %.sroa.130.0..sroa_idx3141 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i8 %.sroa.130.0.copyload3267.sroa.speculated, ptr %.sroa.130.0..sroa_idx3141, align 8
-  %.sroa.131.0..sroa_idx3349 = getelementptr inbounds i8, ptr %160, i64 9
+  %.sroa.131.0..sroa_idx3349 = getelementptr inbounds nuw i8, ptr %160, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3349, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1356 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02829.0, i8 %.sroa.42831.0, ptr %.sroa.02824.0, i8 %.sroa.42826.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %160, ptr noundef nonnull %1) #7
   %1357 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19834,7 +19834,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1364 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %1) #7
   %1365 = extractvalue { ptr, i8 } %1364, 0
   store ptr %1365, ptr %162, align 8
-  %1366 = getelementptr inbounds i8, ptr %162, i64 8
+  %1366 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %1367 = extractvalue { ptr, i8 } %1364, 1
   store i8 %1367, ptr %1366, align 8
   %1368 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19848,7 +19848,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1372
 
 1371:                                             ; preds = %1358
-  %.sroa.42821.0..sroa_idx2822 = getelementptr inbounds i8, ptr %1361, i64 8
+  %.sroa.42821.0..sroa_idx2822 = getelementptr inbounds nuw i8, ptr %1361, i64 8
   %.sroa.42821.0.copyload2823 = load i8, ptr %.sroa.42821.0..sroa_idx2822, align 8
   br label %1372
 
@@ -19865,7 +19865,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1376 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1377 = extractvalue { ptr, i8 } %1376, 0
   store ptr %1377, ptr %165, align 8
-  %1378 = getelementptr inbounds i8, ptr %165, i64 8
+  %1378 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %1379 = extractvalue { ptr, i8 } %1376, 1
   store i8 %1379, ptr %1378, align 8
   %1380 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19879,7 +19879,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1384
 
 1383:                                             ; preds = %1372
-  %.sroa.42816.0..sroa_idx2817 = getelementptr inbounds i8, ptr %1373, i64 8
+  %.sroa.42816.0..sroa_idx2817 = getelementptr inbounds nuw i8, ptr %1373, i64 8
   %.sroa.42816.0.copyload2818 = load i8, ptr %.sroa.42816.0..sroa_idx2817, align 8
   br label %1384
 
@@ -19892,9 +19892,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3065.sroa.speculated = select i1 %1386, ptr %455, ptr %460
   %.sroa.130.0.copyload3268.sroa.speculated = select i1 %1386, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3065.sroa.speculated, ptr %167, align 8
-  %.sroa.130.0..sroa_idx3143 = getelementptr inbounds i8, ptr %167, i64 8
+  %.sroa.130.0..sroa_idx3143 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i8 %.sroa.130.0.copyload3268.sroa.speculated, ptr %.sroa.130.0..sroa_idx3143, align 8
-  %.sroa.131.0..sroa_idx3350 = getelementptr inbounds i8, ptr %167, i64 9
+  %.sroa.131.0..sroa_idx3350 = getelementptr inbounds nuw i8, ptr %167, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3350, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1387 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02819.0, i8 %.sroa.42821.0, ptr %.sroa.02814.0, i8 %.sroa.42816.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %167, ptr noundef nonnull %1) #7
   %1388 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19914,7 +19914,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1395 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.36, ptr noundef nonnull %1) #7
   %1396 = extractvalue { ptr, i8 } %1395, 0
   store ptr %1396, ptr %169, align 8
-  %1397 = getelementptr inbounds i8, ptr %169, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %1398 = extractvalue { ptr, i8 } %1395, 1
   store i8 %1398, ptr %1397, align 8
   %1399 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19928,7 +19928,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1403
 
 1402:                                             ; preds = %1389
-  %.sroa.42811.0..sroa_idx2812 = getelementptr inbounds i8, ptr %1392, i64 8
+  %.sroa.42811.0..sroa_idx2812 = getelementptr inbounds nuw i8, ptr %1392, i64 8
   %.sroa.42811.0.copyload2813 = load i8, ptr %.sroa.42811.0..sroa_idx2812, align 8
   br label %1403
 
@@ -19945,7 +19945,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1407 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1408 = extractvalue { ptr, i8 } %1407, 0
   store ptr %1408, ptr %172, align 8
-  %1409 = getelementptr inbounds i8, ptr %172, i64 8
+  %1409 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %1410 = extractvalue { ptr, i8 } %1407, 1
   store i8 %1410, ptr %1409, align 8
   %1411 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19959,7 +19959,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1415
 
 1414:                                             ; preds = %1403
-  %.sroa.42806.0..sroa_idx2807 = getelementptr inbounds i8, ptr %1404, i64 8
+  %.sroa.42806.0..sroa_idx2807 = getelementptr inbounds nuw i8, ptr %1404, i64 8
   %.sroa.42806.0.copyload2808 = load i8, ptr %.sroa.42806.0..sroa_idx2807, align 8
   br label %1415
 
@@ -19972,9 +19972,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3066.sroa.speculated = select i1 %1417, ptr %455, ptr %460
   %.sroa.130.0.copyload3269.sroa.speculated = select i1 %1417, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3066.sroa.speculated, ptr %174, align 8
-  %.sroa.130.0..sroa_idx3145 = getelementptr inbounds i8, ptr %174, i64 8
+  %.sroa.130.0..sroa_idx3145 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i8 %.sroa.130.0.copyload3269.sroa.speculated, ptr %.sroa.130.0..sroa_idx3145, align 8
-  %.sroa.131.0..sroa_idx3351 = getelementptr inbounds i8, ptr %174, i64 9
+  %.sroa.131.0..sroa_idx3351 = getelementptr inbounds nuw i8, ptr %174, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3351, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1418 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02809.0, i8 %.sroa.42811.0, ptr %.sroa.02804.0, i8 %.sroa.42806.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %174, ptr noundef nonnull %1) #7
   %1419 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -19994,7 +19994,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1426 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.37, ptr noundef nonnull %1) #7
   %1427 = extractvalue { ptr, i8 } %1426, 0
   store ptr %1427, ptr %176, align 8
-  %1428 = getelementptr inbounds i8, ptr %176, i64 8
+  %1428 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %1429 = extractvalue { ptr, i8 } %1426, 1
   store i8 %1429, ptr %1428, align 8
   %1430 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20008,7 +20008,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1434
 
 1433:                                             ; preds = %1420
-  %.sroa.42801.0..sroa_idx2802 = getelementptr inbounds i8, ptr %1423, i64 8
+  %.sroa.42801.0..sroa_idx2802 = getelementptr inbounds nuw i8, ptr %1423, i64 8
   %.sroa.42801.0.copyload2803 = load i8, ptr %.sroa.42801.0..sroa_idx2802, align 8
   br label %1434
 
@@ -20025,7 +20025,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1438 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1439 = extractvalue { ptr, i8 } %1438, 0
   store ptr %1439, ptr %179, align 8
-  %1440 = getelementptr inbounds i8, ptr %179, i64 8
+  %1440 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %1441 = extractvalue { ptr, i8 } %1438, 1
   store i8 %1441, ptr %1440, align 8
   %1442 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20039,7 +20039,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1446
 
 1445:                                             ; preds = %1434
-  %.sroa.42796.0..sroa_idx2797 = getelementptr inbounds i8, ptr %1435, i64 8
+  %.sroa.42796.0..sroa_idx2797 = getelementptr inbounds nuw i8, ptr %1435, i64 8
   %.sroa.42796.0.copyload2798 = load i8, ptr %.sroa.42796.0..sroa_idx2797, align 8
   br label %1446
 
@@ -20056,7 +20056,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1450 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %181, ptr noundef nonnull %1) #7
   %1451 = extractvalue { ptr, i8 } %1450, 0
   store ptr %1451, ptr %182, align 8
-  %1452 = getelementptr inbounds i8, ptr %182, i64 8
+  %1452 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %1453 = extractvalue { ptr, i8 } %1450, 1
   store i8 %1453, ptr %1452, align 8
   %1454 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20069,7 +20069,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1458
 
 1457:                                             ; preds = %1446
-  %.sroa.130.0..sroa_idx3272 = getelementptr inbounds i8, ptr %1447, i64 8
+  %.sroa.130.0..sroa_idx3272 = getelementptr inbounds nuw i8, ptr %1447, i64 8
   %.sroa.130.0.copyload3273 = load i8, ptr %.sroa.130.0..sroa_idx3272, align 8
   br label %1458
 
@@ -20078,9 +20078,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.10.in = phi ptr [ %182, %1455 ], [ %1447, %1457 ]
   %.sroa.02984.10 = load ptr, ptr %.sroa.02984.10.in, align 8
   store ptr %.sroa.02984.10, ptr %183, align 8
-  %.sroa.130.0..sroa_idx3147 = getelementptr inbounds i8, ptr %183, i64 8
+  %.sroa.130.0..sroa_idx3147 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 %.sroa.130.10, ptr %.sroa.130.0..sroa_idx3147, align 8
-  %.sroa.131.0..sroa_idx3352 = getelementptr inbounds i8, ptr %183, i64 9
+  %.sroa.131.0..sroa_idx3352 = getelementptr inbounds nuw i8, ptr %183, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3352, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1459 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02799.0, i8 %.sroa.42801.0, ptr %.sroa.02794.0, i8 %.sroa.42796.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %183, ptr noundef nonnull %1) #7
   %1460 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20100,7 +20100,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1467 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.38, ptr noundef nonnull %1) #7
   %1468 = extractvalue { ptr, i8 } %1467, 0
   store ptr %1468, ptr %185, align 8
-  %1469 = getelementptr inbounds i8, ptr %185, i64 8
+  %1469 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %1470 = extractvalue { ptr, i8 } %1467, 1
   store i8 %1470, ptr %1469, align 8
   %1471 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20114,7 +20114,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1475
 
 1474:                                             ; preds = %1461
-  %.sroa.42791.0..sroa_idx2792 = getelementptr inbounds i8, ptr %1464, i64 8
+  %.sroa.42791.0..sroa_idx2792 = getelementptr inbounds nuw i8, ptr %1464, i64 8
   %.sroa.42791.0.copyload2793 = load i8, ptr %.sroa.42791.0..sroa_idx2792, align 8
   br label %1475
 
@@ -20131,7 +20131,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1479 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1480 = extractvalue { ptr, i8 } %1479, 0
   store ptr %1480, ptr %188, align 8
-  %1481 = getelementptr inbounds i8, ptr %188, i64 8
+  %1481 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %1482 = extractvalue { ptr, i8 } %1479, 1
   store i8 %1482, ptr %1481, align 8
   %1483 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20145,7 +20145,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1487
 
 1486:                                             ; preds = %1475
-  %.sroa.42786.0..sroa_idx2787 = getelementptr inbounds i8, ptr %1476, i64 8
+  %.sroa.42786.0..sroa_idx2787 = getelementptr inbounds nuw i8, ptr %1476, i64 8
   %.sroa.42786.0.copyload2788 = load i8, ptr %.sroa.42786.0..sroa_idx2787, align 8
   br label %1487
 
@@ -20158,9 +20158,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3069.sroa.speculated = select i1 %1489, ptr %455, ptr %460
   %.sroa.130.0.copyload3274.sroa.speculated = select i1 %1489, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3069.sroa.speculated, ptr %190, align 8
-  %.sroa.130.0..sroa_idx3149 = getelementptr inbounds i8, ptr %190, i64 8
+  %.sroa.130.0..sroa_idx3149 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i8 %.sroa.130.0.copyload3274.sroa.speculated, ptr %.sroa.130.0..sroa_idx3149, align 8
-  %.sroa.131.0..sroa_idx3353 = getelementptr inbounds i8, ptr %190, i64 9
+  %.sroa.131.0..sroa_idx3353 = getelementptr inbounds nuw i8, ptr %190, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3353, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1490 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02789.0, i8 %.sroa.42791.0, ptr %.sroa.02784.0, i8 %.sroa.42786.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %190, ptr noundef nonnull %1) #7
   %1491 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20180,7 +20180,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1498 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.39, ptr noundef nonnull %1) #7
   %1499 = extractvalue { ptr, i8 } %1498, 0
   store ptr %1499, ptr %192, align 8
-  %1500 = getelementptr inbounds i8, ptr %192, i64 8
+  %1500 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %1501 = extractvalue { ptr, i8 } %1498, 1
   store i8 %1501, ptr %1500, align 8
   %1502 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20194,7 +20194,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1506
 
 1505:                                             ; preds = %1492
-  %.sroa.42781.0..sroa_idx2782 = getelementptr inbounds i8, ptr %1495, i64 8
+  %.sroa.42781.0..sroa_idx2782 = getelementptr inbounds nuw i8, ptr %1495, i64 8
   %.sroa.42781.0.copyload2783 = load i8, ptr %.sroa.42781.0..sroa_idx2782, align 8
   br label %1506
 
@@ -20211,7 +20211,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1510 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1511 = extractvalue { ptr, i8 } %1510, 0
   store ptr %1511, ptr %195, align 8
-  %1512 = getelementptr inbounds i8, ptr %195, i64 8
+  %1512 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %1513 = extractvalue { ptr, i8 } %1510, 1
   store i8 %1513, ptr %1512, align 8
   %1514 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20225,7 +20225,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1518
 
 1517:                                             ; preds = %1506
-  %.sroa.42776.0..sroa_idx2777 = getelementptr inbounds i8, ptr %1507, i64 8
+  %.sroa.42776.0..sroa_idx2777 = getelementptr inbounds nuw i8, ptr %1507, i64 8
   %.sroa.42776.0.copyload2778 = load i8, ptr %.sroa.42776.0..sroa_idx2777, align 8
   br label %1518
 
@@ -20243,7 +20243,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1523 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %197, ptr noundef nonnull %1) #7
   %1524 = extractvalue { ptr, i8 } %1523, 0
   store ptr %1524, ptr %198, align 8
-  %1525 = getelementptr inbounds i8, ptr %198, i64 8
+  %1525 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %1526 = extractvalue { ptr, i8 } %1523, 1
   store i8 %1526, ptr %1525, align 8
   %1527 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20256,7 +20256,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1531
 
 1530:                                             ; preds = %1518
-  %.sroa.130.0..sroa_idx3277 = getelementptr inbounds i8, ptr %1520, i64 8
+  %.sroa.130.0..sroa_idx3277 = getelementptr inbounds nuw i8, ptr %1520, i64 8
   %.sroa.130.0.copyload3278 = load i8, ptr %.sroa.130.0..sroa_idx3277, align 8
   br label %1531
 
@@ -20265,9 +20265,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.11.in = phi ptr [ %198, %1528 ], [ %1520, %1530 ]
   %.sroa.02984.11 = load ptr, ptr %.sroa.02984.11.in, align 8
   store ptr %.sroa.02984.11, ptr %199, align 8
-  %.sroa.130.0..sroa_idx3151 = getelementptr inbounds i8, ptr %199, i64 8
+  %.sroa.130.0..sroa_idx3151 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i8 %.sroa.130.11, ptr %.sroa.130.0..sroa_idx3151, align 8
-  %.sroa.131.0..sroa_idx3354 = getelementptr inbounds i8, ptr %199, i64 9
+  %.sroa.131.0..sroa_idx3354 = getelementptr inbounds nuw i8, ptr %199, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3354, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1532 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02779.0, i8 %.sroa.42781.0, ptr %.sroa.02774.0, i8 %.sroa.42776.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %199, ptr noundef nonnull %1) #7
   %1533 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20287,7 +20287,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1540 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.40, ptr noundef nonnull %1) #7
   %1541 = extractvalue { ptr, i8 } %1540, 0
   store ptr %1541, ptr %201, align 8
-  %1542 = getelementptr inbounds i8, ptr %201, i64 8
+  %1542 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %1543 = extractvalue { ptr, i8 } %1540, 1
   store i8 %1543, ptr %1542, align 8
   %1544 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20301,7 +20301,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1548
 
 1547:                                             ; preds = %1534
-  %.sroa.42771.0..sroa_idx2772 = getelementptr inbounds i8, ptr %1537, i64 8
+  %.sroa.42771.0..sroa_idx2772 = getelementptr inbounds nuw i8, ptr %1537, i64 8
   %.sroa.42771.0.copyload2773 = load i8, ptr %.sroa.42771.0..sroa_idx2772, align 8
   br label %1548
 
@@ -20318,7 +20318,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1552 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1553 = extractvalue { ptr, i8 } %1552, 0
   store ptr %1553, ptr %204, align 8
-  %1554 = getelementptr inbounds i8, ptr %204, i64 8
+  %1554 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %1555 = extractvalue { ptr, i8 } %1552, 1
   store i8 %1555, ptr %1554, align 8
   %1556 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20332,7 +20332,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1560
 
 1559:                                             ; preds = %1548
-  %.sroa.42766.0..sroa_idx2767 = getelementptr inbounds i8, ptr %1549, i64 8
+  %.sroa.42766.0..sroa_idx2767 = getelementptr inbounds nuw i8, ptr %1549, i64 8
   %.sroa.42766.0.copyload2768 = load i8, ptr %.sroa.42766.0..sroa_idx2767, align 8
   br label %1560
 
@@ -20345,9 +20345,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3072.sroa.speculated = select i1 %1562, ptr %455, ptr %460
   %.sroa.130.0.copyload3279.sroa.speculated = select i1 %1562, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3072.sroa.speculated, ptr %206, align 8
-  %.sroa.130.0..sroa_idx3153 = getelementptr inbounds i8, ptr %206, i64 8
+  %.sroa.130.0..sroa_idx3153 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i8 %.sroa.130.0.copyload3279.sroa.speculated, ptr %.sroa.130.0..sroa_idx3153, align 8
-  %.sroa.131.0..sroa_idx3355 = getelementptr inbounds i8, ptr %206, i64 9
+  %.sroa.131.0..sroa_idx3355 = getelementptr inbounds nuw i8, ptr %206, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3355, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1563 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02769.0, i8 %.sroa.42771.0, ptr %.sroa.02764.0, i8 %.sroa.42766.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %206, ptr noundef nonnull %1) #7
   %1564 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20367,7 +20367,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1571 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.41, ptr noundef nonnull %1) #7
   %1572 = extractvalue { ptr, i8 } %1571, 0
   store ptr %1572, ptr %208, align 8
-  %1573 = getelementptr inbounds i8, ptr %208, i64 8
+  %1573 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %1574 = extractvalue { ptr, i8 } %1571, 1
   store i8 %1574, ptr %1573, align 8
   %1575 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20381,7 +20381,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1579
 
 1578:                                             ; preds = %1565
-  %.sroa.42761.0..sroa_idx2762 = getelementptr inbounds i8, ptr %1568, i64 8
+  %.sroa.42761.0..sroa_idx2762 = getelementptr inbounds nuw i8, ptr %1568, i64 8
   %.sroa.42761.0.copyload2763 = load i8, ptr %.sroa.42761.0..sroa_idx2762, align 8
   br label %1579
 
@@ -20398,7 +20398,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1583 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %1584 = extractvalue { ptr, i8 } %1583, 0
   store ptr %1584, ptr %211, align 8
-  %1585 = getelementptr inbounds i8, ptr %211, i64 8
+  %1585 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %1586 = extractvalue { ptr, i8 } %1583, 1
   store i8 %1586, ptr %1585, align 8
   %1587 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20412,7 +20412,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1591
 
 1590:                                             ; preds = %1579
-  %.sroa.42756.0..sroa_idx2757 = getelementptr inbounds i8, ptr %1580, i64 8
+  %.sroa.42756.0..sroa_idx2757 = getelementptr inbounds nuw i8, ptr %1580, i64 8
   %.sroa.42756.0.copyload2758 = load i8, ptr %.sroa.42756.0..sroa_idx2757, align 8
   br label %1591
 
@@ -20431,7 +20431,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1597 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %213, ptr noundef nonnull %1) #7
   %1598 = extractvalue { ptr, i8 } %1597, 0
   store ptr %1598, ptr %214, align 8
-  %1599 = getelementptr inbounds i8, ptr %214, i64 8
+  %1599 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %1600 = extractvalue { ptr, i8 } %1597, 1
   store i8 %1600, ptr %1599, align 8
   %1601 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20444,7 +20444,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1605
 
 1604:                                             ; preds = %1591
-  %.sroa.130.0..sroa_idx3282 = getelementptr inbounds i8, ptr %1594, i64 8
+  %.sroa.130.0..sroa_idx3282 = getelementptr inbounds nuw i8, ptr %1594, i64 8
   %.sroa.130.0.copyload3283 = load i8, ptr %.sroa.130.0..sroa_idx3282, align 8
   br label %1605
 
@@ -20453,9 +20453,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.12.in = phi ptr [ %214, %1602 ], [ %1594, %1604 ]
   %.sroa.02984.12 = load ptr, ptr %.sroa.02984.12.in, align 8
   store ptr %.sroa.02984.12, ptr %215, align 8
-  %.sroa.130.0..sroa_idx3155 = getelementptr inbounds i8, ptr %215, i64 8
+  %.sroa.130.0..sroa_idx3155 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i8 %.sroa.130.12, ptr %.sroa.130.0..sroa_idx3155, align 8
-  %.sroa.131.0..sroa_idx3356 = getelementptr inbounds i8, ptr %215, i64 9
+  %.sroa.131.0..sroa_idx3356 = getelementptr inbounds nuw i8, ptr %215, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3356, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1606 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02759.0, i8 %.sroa.42761.0, ptr %.sroa.02754.0, i8 %.sroa.42756.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %215, ptr noundef nonnull %1) #7
   %1607 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20475,7 +20475,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1614 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.42, ptr noundef nonnull %1) #7
   %1615 = extractvalue { ptr, i8 } %1614, 0
   store ptr %1615, ptr %217, align 8
-  %1616 = getelementptr inbounds i8, ptr %217, i64 8
+  %1616 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %1617 = extractvalue { ptr, i8 } %1614, 1
   store i8 %1617, ptr %1616, align 8
   %1618 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20489,7 +20489,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1622
 
 1621:                                             ; preds = %1608
-  %.sroa.42751.0..sroa_idx2752 = getelementptr inbounds i8, ptr %1611, i64 8
+  %.sroa.42751.0..sroa_idx2752 = getelementptr inbounds nuw i8, ptr %1611, i64 8
   %.sroa.42751.0.copyload2753 = load i8, ptr %.sroa.42751.0..sroa_idx2752, align 8
   br label %1622
 
@@ -20506,7 +20506,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1626 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1627 = extractvalue { ptr, i8 } %1626, 0
   store ptr %1627, ptr %220, align 8
-  %1628 = getelementptr inbounds i8, ptr %220, i64 8
+  %1628 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %1629 = extractvalue { ptr, i8 } %1626, 1
   store i8 %1629, ptr %1628, align 8
   %1630 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20520,7 +20520,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1634
 
 1633:                                             ; preds = %1622
-  %.sroa.42746.0..sroa_idx2747 = getelementptr inbounds i8, ptr %1623, i64 8
+  %.sroa.42746.0..sroa_idx2747 = getelementptr inbounds nuw i8, ptr %1623, i64 8
   %.sroa.42746.0.copyload2748 = load i8, ptr %.sroa.42746.0..sroa_idx2747, align 8
   br label %1634
 
@@ -20533,9 +20533,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3075.sroa.speculated = select i1 %1636, ptr %455, ptr %460
   %.sroa.130.0.copyload3284.sroa.speculated = select i1 %1636, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3075.sroa.speculated, ptr %222, align 8
-  %.sroa.130.0..sroa_idx3157 = getelementptr inbounds i8, ptr %222, i64 8
+  %.sroa.130.0..sroa_idx3157 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i8 %.sroa.130.0.copyload3284.sroa.speculated, ptr %.sroa.130.0..sroa_idx3157, align 8
-  %.sroa.131.0..sroa_idx3357 = getelementptr inbounds i8, ptr %222, i64 9
+  %.sroa.131.0..sroa_idx3357 = getelementptr inbounds nuw i8, ptr %222, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3357, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1637 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02749.0, i8 %.sroa.42751.0, ptr %.sroa.02744.0, i8 %.sroa.42746.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %222, ptr noundef nonnull %1) #7
   %1638 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20555,7 +20555,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1645 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %1) #7
   %1646 = extractvalue { ptr, i8 } %1645, 0
   store ptr %1646, ptr %224, align 8
-  %1647 = getelementptr inbounds i8, ptr %224, i64 8
+  %1647 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %1648 = extractvalue { ptr, i8 } %1645, 1
   store i8 %1648, ptr %1647, align 8
   %1649 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20569,7 +20569,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1653
 
 1652:                                             ; preds = %1639
-  %.sroa.42741.0..sroa_idx2742 = getelementptr inbounds i8, ptr %1642, i64 8
+  %.sroa.42741.0..sroa_idx2742 = getelementptr inbounds nuw i8, ptr %1642, i64 8
   %.sroa.42741.0.copyload2743 = load i8, ptr %.sroa.42741.0..sroa_idx2742, align 8
   br label %1653
 
@@ -20586,7 +20586,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1657 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1658 = extractvalue { ptr, i8 } %1657, 0
   store ptr %1658, ptr %227, align 8
-  %1659 = getelementptr inbounds i8, ptr %227, i64 8
+  %1659 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %1660 = extractvalue { ptr, i8 } %1657, 1
   store i8 %1660, ptr %1659, align 8
   %1661 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20600,7 +20600,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1665
 
 1664:                                             ; preds = %1653
-  %.sroa.42736.0..sroa_idx2737 = getelementptr inbounds i8, ptr %1654, i64 8
+  %.sroa.42736.0..sroa_idx2737 = getelementptr inbounds nuw i8, ptr %1654, i64 8
   %.sroa.42736.0.copyload2738 = load i8, ptr %.sroa.42736.0..sroa_idx2737, align 8
   br label %1665
 
@@ -20613,9 +20613,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3076.sroa.speculated = select i1 %1667, ptr %455, ptr %460
   %.sroa.130.0.copyload3285.sroa.speculated = select i1 %1667, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3076.sroa.speculated, ptr %229, align 8
-  %.sroa.130.0..sroa_idx3159 = getelementptr inbounds i8, ptr %229, i64 8
+  %.sroa.130.0..sroa_idx3159 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i8 %.sroa.130.0.copyload3285.sroa.speculated, ptr %.sroa.130.0..sroa_idx3159, align 8
-  %.sroa.131.0..sroa_idx3358 = getelementptr inbounds i8, ptr %229, i64 9
+  %.sroa.131.0..sroa_idx3358 = getelementptr inbounds nuw i8, ptr %229, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3358, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1668 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02739.0, i8 %.sroa.42741.0, ptr %.sroa.02734.0, i8 %.sroa.42736.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %229, ptr noundef nonnull %1) #7
   %1669 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20635,7 +20635,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1676 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %1) #7
   %1677 = extractvalue { ptr, i8 } %1676, 0
   store ptr %1677, ptr %231, align 8
-  %1678 = getelementptr inbounds i8, ptr %231, i64 8
+  %1678 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %1679 = extractvalue { ptr, i8 } %1676, 1
   store i8 %1679, ptr %1678, align 8
   %1680 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20649,7 +20649,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1684
 
 1683:                                             ; preds = %1670
-  %.sroa.42731.0..sroa_idx2732 = getelementptr inbounds i8, ptr %1673, i64 8
+  %.sroa.42731.0..sroa_idx2732 = getelementptr inbounds nuw i8, ptr %1673, i64 8
   %.sroa.42731.0.copyload2733 = load i8, ptr %.sroa.42731.0..sroa_idx2732, align 8
   br label %1684
 
@@ -20666,7 +20666,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1688 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1689 = extractvalue { ptr, i8 } %1688, 0
   store ptr %1689, ptr %234, align 8
-  %1690 = getelementptr inbounds i8, ptr %234, i64 8
+  %1690 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %1691 = extractvalue { ptr, i8 } %1688, 1
   store i8 %1691, ptr %1690, align 8
   %1692 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20680,7 +20680,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1696
 
 1695:                                             ; preds = %1684
-  %.sroa.42726.0..sroa_idx2727 = getelementptr inbounds i8, ptr %1685, i64 8
+  %.sroa.42726.0..sroa_idx2727 = getelementptr inbounds nuw i8, ptr %1685, i64 8
   %.sroa.42726.0.copyload2728 = load i8, ptr %.sroa.42726.0..sroa_idx2727, align 8
   br label %1696
 
@@ -20693,9 +20693,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3077.sroa.speculated = select i1 %1698, ptr %455, ptr %460
   %.sroa.130.0.copyload3286.sroa.speculated = select i1 %1698, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3077.sroa.speculated, ptr %236, align 8
-  %.sroa.130.0..sroa_idx3161 = getelementptr inbounds i8, ptr %236, i64 8
+  %.sroa.130.0..sroa_idx3161 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i8 %.sroa.130.0.copyload3286.sroa.speculated, ptr %.sroa.130.0..sroa_idx3161, align 8
-  %.sroa.131.0..sroa_idx3359 = getelementptr inbounds i8, ptr %236, i64 9
+  %.sroa.131.0..sroa_idx3359 = getelementptr inbounds nuw i8, ptr %236, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3359, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1699 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02729.0, i8 %.sroa.42731.0, ptr %.sroa.02724.0, i8 %.sroa.42726.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %236, ptr noundef nonnull %1) #7
   %1700 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20715,7 +20715,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1707 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.45, ptr noundef nonnull %1) #7
   %1708 = extractvalue { ptr, i8 } %1707, 0
   store ptr %1708, ptr %238, align 8
-  %1709 = getelementptr inbounds i8, ptr %238, i64 8
+  %1709 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %1710 = extractvalue { ptr, i8 } %1707, 1
   store i8 %1710, ptr %1709, align 8
   %1711 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20729,7 +20729,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1715
 
 1714:                                             ; preds = %1701
-  %.sroa.42721.0..sroa_idx2722 = getelementptr inbounds i8, ptr %1704, i64 8
+  %.sroa.42721.0..sroa_idx2722 = getelementptr inbounds nuw i8, ptr %1704, i64 8
   %.sroa.42721.0.copyload2723 = load i8, ptr %.sroa.42721.0..sroa_idx2722, align 8
   br label %1715
 
@@ -20746,7 +20746,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1719 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1720 = extractvalue { ptr, i8 } %1719, 0
   store ptr %1720, ptr %241, align 8
-  %1721 = getelementptr inbounds i8, ptr %241, i64 8
+  %1721 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %1722 = extractvalue { ptr, i8 } %1719, 1
   store i8 %1722, ptr %1721, align 8
   %1723 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20760,7 +20760,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1727
 
 1726:                                             ; preds = %1715
-  %.sroa.42716.0..sroa_idx2717 = getelementptr inbounds i8, ptr %1716, i64 8
+  %.sroa.42716.0..sroa_idx2717 = getelementptr inbounds nuw i8, ptr %1716, i64 8
   %.sroa.42716.0.copyload2718 = load i8, ptr %.sroa.42716.0..sroa_idx2717, align 8
   br label %1727
 
@@ -20778,7 +20778,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1732 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %243, ptr noundef nonnull %1) #7
   %1733 = extractvalue { ptr, i8 } %1732, 0
   store ptr %1733, ptr %244, align 8
-  %1734 = getelementptr inbounds i8, ptr %244, i64 8
+  %1734 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %1735 = extractvalue { ptr, i8 } %1732, 1
   store i8 %1735, ptr %1734, align 8
   %1736 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20791,7 +20791,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1740
 
 1739:                                             ; preds = %1727
-  %.sroa.130.0..sroa_idx3289 = getelementptr inbounds i8, ptr %1729, i64 8
+  %.sroa.130.0..sroa_idx3289 = getelementptr inbounds nuw i8, ptr %1729, i64 8
   %.sroa.130.0.copyload3290 = load i8, ptr %.sroa.130.0..sroa_idx3289, align 8
   br label %1740
 
@@ -20800,9 +20800,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.13.in = phi ptr [ %244, %1737 ], [ %1729, %1739 ]
   %.sroa.02984.13 = load ptr, ptr %.sroa.02984.13.in, align 8
   store ptr %.sroa.02984.13, ptr %245, align 8
-  %.sroa.130.0..sroa_idx3163 = getelementptr inbounds i8, ptr %245, i64 8
+  %.sroa.130.0..sroa_idx3163 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i8 %.sroa.130.13, ptr %.sroa.130.0..sroa_idx3163, align 8
-  %.sroa.131.0..sroa_idx3360 = getelementptr inbounds i8, ptr %245, i64 9
+  %.sroa.131.0..sroa_idx3360 = getelementptr inbounds nuw i8, ptr %245, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3360, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1741 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02719.0, i8 %.sroa.42721.0, ptr %.sroa.02714.0, i8 %.sroa.42716.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %245, ptr noundef nonnull %1) #7
   %1742 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20822,7 +20822,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1749 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %1) #7
   %1750 = extractvalue { ptr, i8 } %1749, 0
   store ptr %1750, ptr %247, align 8
-  %1751 = getelementptr inbounds i8, ptr %247, i64 8
+  %1751 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %1752 = extractvalue { ptr, i8 } %1749, 1
   store i8 %1752, ptr %1751, align 8
   %1753 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20836,7 +20836,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1757
 
 1756:                                             ; preds = %1743
-  %.sroa.42711.0..sroa_idx2712 = getelementptr inbounds i8, ptr %1746, i64 8
+  %.sroa.42711.0..sroa_idx2712 = getelementptr inbounds nuw i8, ptr %1746, i64 8
   %.sroa.42711.0.copyload2713 = load i8, ptr %.sroa.42711.0..sroa_idx2712, align 8
   br label %1757
 
@@ -20853,7 +20853,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1761 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1762 = extractvalue { ptr, i8 } %1761, 0
   store ptr %1762, ptr %250, align 8
-  %1763 = getelementptr inbounds i8, ptr %250, i64 8
+  %1763 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %1764 = extractvalue { ptr, i8 } %1761, 1
   store i8 %1764, ptr %1763, align 8
   %1765 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20867,7 +20867,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1769
 
 1768:                                             ; preds = %1757
-  %.sroa.42706.0..sroa_idx2707 = getelementptr inbounds i8, ptr %1758, i64 8
+  %.sroa.42706.0..sroa_idx2707 = getelementptr inbounds nuw i8, ptr %1758, i64 8
   %.sroa.42706.0.copyload2708 = load i8, ptr %.sroa.42706.0..sroa_idx2707, align 8
   br label %1769
 
@@ -20885,7 +20885,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1774 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %252, ptr noundef nonnull %1) #7
   %1775 = extractvalue { ptr, i8 } %1774, 0
   store ptr %1775, ptr %253, align 8
-  %1776 = getelementptr inbounds i8, ptr %253, i64 8
+  %1776 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %1777 = extractvalue { ptr, i8 } %1774, 1
   store i8 %1777, ptr %1776, align 8
   %1778 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20898,7 +20898,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1782
 
 1781:                                             ; preds = %1769
-  %.sroa.130.0..sroa_idx3293 = getelementptr inbounds i8, ptr %1771, i64 8
+  %.sroa.130.0..sroa_idx3293 = getelementptr inbounds nuw i8, ptr %1771, i64 8
   %.sroa.130.0.copyload3294 = load i8, ptr %.sroa.130.0..sroa_idx3293, align 8
   br label %1782
 
@@ -20907,9 +20907,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.14.in = phi ptr [ %253, %1779 ], [ %1771, %1781 ]
   %.sroa.02984.14 = load ptr, ptr %.sroa.02984.14.in, align 8
   store ptr %.sroa.02984.14, ptr %254, align 8
-  %.sroa.130.0..sroa_idx3165 = getelementptr inbounds i8, ptr %254, i64 8
+  %.sroa.130.0..sroa_idx3165 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i8 %.sroa.130.14, ptr %.sroa.130.0..sroa_idx3165, align 8
-  %.sroa.131.0..sroa_idx3361 = getelementptr inbounds i8, ptr %254, i64 9
+  %.sroa.131.0..sroa_idx3361 = getelementptr inbounds nuw i8, ptr %254, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3361, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1783 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02709.0, i8 %.sroa.42711.0, ptr %.sroa.02704.0, i8 %.sroa.42706.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %254, ptr noundef nonnull %1) #7
   %1784 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20929,7 +20929,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1791 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %1) #7
   %1792 = extractvalue { ptr, i8 } %1791, 0
   store ptr %1792, ptr %256, align 8
-  %1793 = getelementptr inbounds i8, ptr %256, i64 8
+  %1793 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %1794 = extractvalue { ptr, i8 } %1791, 1
   store i8 %1794, ptr %1793, align 8
   %1795 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20943,7 +20943,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1799
 
 1798:                                             ; preds = %1785
-  %.sroa.42701.0..sroa_idx2702 = getelementptr inbounds i8, ptr %1788, i64 8
+  %.sroa.42701.0..sroa_idx2702 = getelementptr inbounds nuw i8, ptr %1788, i64 8
   %.sroa.42701.0.copyload2703 = load i8, ptr %.sroa.42701.0..sroa_idx2702, align 8
   br label %1799
 
@@ -20960,7 +20960,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1803 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %1) #7
   %1804 = extractvalue { ptr, i8 } %1803, 0
   store ptr %1804, ptr %259, align 8
-  %1805 = getelementptr inbounds i8, ptr %259, i64 8
+  %1805 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %1806 = extractvalue { ptr, i8 } %1803, 1
   store i8 %1806, ptr %1805, align 8
   %1807 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -20974,7 +20974,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1811
 
 1810:                                             ; preds = %1799
-  %.sroa.42696.0..sroa_idx2697 = getelementptr inbounds i8, ptr %1800, i64 8
+  %.sroa.42696.0..sroa_idx2697 = getelementptr inbounds nuw i8, ptr %1800, i64 8
   %.sroa.42696.0.copyload2698 = load i8, ptr %.sroa.42696.0..sroa_idx2697, align 8
   br label %1811
 
@@ -20992,7 +20992,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1816 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %261, ptr noundef nonnull %1) #7
   %1817 = extractvalue { ptr, i8 } %1816, 0
   store ptr %1817, ptr %262, align 8
-  %1818 = getelementptr inbounds i8, ptr %262, i64 8
+  %1818 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %1819 = extractvalue { ptr, i8 } %1816, 1
   store i8 %1819, ptr %1818, align 8
   %1820 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21005,7 +21005,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1824
 
 1823:                                             ; preds = %1811
-  %.sroa.130.0..sroa_idx3297 = getelementptr inbounds i8, ptr %1813, i64 8
+  %.sroa.130.0..sroa_idx3297 = getelementptr inbounds nuw i8, ptr %1813, i64 8
   %.sroa.130.0.copyload3298 = load i8, ptr %.sroa.130.0..sroa_idx3297, align 8
   br label %1824
 
@@ -21014,9 +21014,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.15.in = phi ptr [ %262, %1821 ], [ %1813, %1823 ]
   %.sroa.02984.15 = load ptr, ptr %.sroa.02984.15.in, align 8
   store ptr %.sroa.02984.15, ptr %263, align 8
-  %.sroa.130.0..sroa_idx3167 = getelementptr inbounds i8, ptr %263, i64 8
+  %.sroa.130.0..sroa_idx3167 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i8 %.sroa.130.15, ptr %.sroa.130.0..sroa_idx3167, align 8
-  %.sroa.131.0..sroa_idx3362 = getelementptr inbounds i8, ptr %263, i64 9
+  %.sroa.131.0..sroa_idx3362 = getelementptr inbounds nuw i8, ptr %263, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3362, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1825 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02699.0, i8 %.sroa.42701.0, ptr %.sroa.02694.0, i8 %.sroa.42696.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %263, ptr noundef nonnull %1) #7
   %1826 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21036,7 +21036,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1833 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.48, ptr noundef nonnull %1) #7
   %1834 = extractvalue { ptr, i8 } %1833, 0
   store ptr %1834, ptr %265, align 8
-  %1835 = getelementptr inbounds i8, ptr %265, i64 8
+  %1835 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %1836 = extractvalue { ptr, i8 } %1833, 1
   store i8 %1836, ptr %1835, align 8
   %1837 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21050,7 +21050,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1841
 
 1840:                                             ; preds = %1827
-  %.sroa.42691.0..sroa_idx2692 = getelementptr inbounds i8, ptr %1830, i64 8
+  %.sroa.42691.0..sroa_idx2692 = getelementptr inbounds nuw i8, ptr %1830, i64 8
   %.sroa.42691.0.copyload2693 = load i8, ptr %.sroa.42691.0..sroa_idx2692, align 8
   br label %1841
 
@@ -21067,7 +21067,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1845 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %1) #7
   %1846 = extractvalue { ptr, i8 } %1845, 0
   store ptr %1846, ptr %268, align 8
-  %1847 = getelementptr inbounds i8, ptr %268, i64 8
+  %1847 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %1848 = extractvalue { ptr, i8 } %1845, 1
   store i8 %1848, ptr %1847, align 8
   %1849 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21081,7 +21081,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1853
 
 1852:                                             ; preds = %1841
-  %.sroa.42686.0..sroa_idx2687 = getelementptr inbounds i8, ptr %1842, i64 8
+  %.sroa.42686.0..sroa_idx2687 = getelementptr inbounds nuw i8, ptr %1842, i64 8
   %.sroa.42686.0.copyload2688 = load i8, ptr %.sroa.42686.0..sroa_idx2687, align 8
   br label %1853
 
@@ -21099,7 +21099,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1858 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %270, ptr noundef nonnull %1) #7
   %1859 = extractvalue { ptr, i8 } %1858, 0
   store ptr %1859, ptr %271, align 8
-  %1860 = getelementptr inbounds i8, ptr %271, i64 8
+  %1860 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %1861 = extractvalue { ptr, i8 } %1858, 1
   store i8 %1861, ptr %1860, align 8
   %1862 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21112,7 +21112,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1866
 
 1865:                                             ; preds = %1853
-  %.sroa.130.0..sroa_idx3301 = getelementptr inbounds i8, ptr %1855, i64 8
+  %.sroa.130.0..sroa_idx3301 = getelementptr inbounds nuw i8, ptr %1855, i64 8
   %.sroa.130.0.copyload3302 = load i8, ptr %.sroa.130.0..sroa_idx3301, align 8
   br label %1866
 
@@ -21121,9 +21121,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.16.in = phi ptr [ %271, %1863 ], [ %1855, %1865 ]
   %.sroa.02984.16 = load ptr, ptr %.sroa.02984.16.in, align 8
   store ptr %.sroa.02984.16, ptr %272, align 8
-  %.sroa.130.0..sroa_idx3169 = getelementptr inbounds i8, ptr %272, i64 8
+  %.sroa.130.0..sroa_idx3169 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i8 %.sroa.130.16, ptr %.sroa.130.0..sroa_idx3169, align 8
-  %.sroa.131.0..sroa_idx3363 = getelementptr inbounds i8, ptr %272, i64 9
+  %.sroa.131.0..sroa_idx3363 = getelementptr inbounds nuw i8, ptr %272, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3363, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1867 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02689.0, i8 %.sroa.42691.0, ptr %.sroa.02684.0, i8 %.sroa.42686.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %272, ptr noundef nonnull %1) #7
   %1868 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21143,7 +21143,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1875 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.49, ptr noundef nonnull %1) #7
   %1876 = extractvalue { ptr, i8 } %1875, 0
   store ptr %1876, ptr %274, align 8
-  %1877 = getelementptr inbounds i8, ptr %274, i64 8
+  %1877 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %1878 = extractvalue { ptr, i8 } %1875, 1
   store i8 %1878, ptr %1877, align 8
   %1879 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21157,7 +21157,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1883
 
 1882:                                             ; preds = %1869
-  %.sroa.42681.0..sroa_idx2682 = getelementptr inbounds i8, ptr %1872, i64 8
+  %.sroa.42681.0..sroa_idx2682 = getelementptr inbounds nuw i8, ptr %1872, i64 8
   %.sroa.42681.0.copyload2683 = load i8, ptr %.sroa.42681.0..sroa_idx2682, align 8
   br label %1883
 
@@ -21174,7 +21174,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1887 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1888 = extractvalue { ptr, i8 } %1887, 0
   store ptr %1888, ptr %277, align 8
-  %1889 = getelementptr inbounds i8, ptr %277, i64 8
+  %1889 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %1890 = extractvalue { ptr, i8 } %1887, 1
   store i8 %1890, ptr %1889, align 8
   %1891 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21188,7 +21188,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1895
 
 1894:                                             ; preds = %1883
-  %.sroa.42676.0..sroa_idx2677 = getelementptr inbounds i8, ptr %1884, i64 8
+  %.sroa.42676.0..sroa_idx2677 = getelementptr inbounds nuw i8, ptr %1884, i64 8
   %.sroa.42676.0.copyload2678 = load i8, ptr %.sroa.42676.0..sroa_idx2677, align 8
   br label %1895
 
@@ -21201,9 +21201,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3086.sroa.speculated = select i1 %1897, ptr %455, ptr %460
   %.sroa.130.0.copyload3303.sroa.speculated = select i1 %1897, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3086.sroa.speculated, ptr %279, align 8
-  %.sroa.130.0..sroa_idx3171 = getelementptr inbounds i8, ptr %279, i64 8
+  %.sroa.130.0..sroa_idx3171 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store i8 %.sroa.130.0.copyload3303.sroa.speculated, ptr %.sroa.130.0..sroa_idx3171, align 8
-  %.sroa.131.0..sroa_idx3364 = getelementptr inbounds i8, ptr %279, i64 9
+  %.sroa.131.0..sroa_idx3364 = getelementptr inbounds nuw i8, ptr %279, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3364, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1898 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02679.0, i8 %.sroa.42681.0, ptr %.sroa.02674.0, i8 %.sroa.42676.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %279, ptr noundef nonnull %1) #7
   %1899 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21223,7 +21223,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1906 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.50, ptr noundef nonnull %1) #7
   %1907 = extractvalue { ptr, i8 } %1906, 0
   store ptr %1907, ptr %281, align 8
-  %1908 = getelementptr inbounds i8, ptr %281, i64 8
+  %1908 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %1909 = extractvalue { ptr, i8 } %1906, 1
   store i8 %1909, ptr %1908, align 8
   %1910 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21237,7 +21237,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1914
 
 1913:                                             ; preds = %1900
-  %.sroa.42671.0..sroa_idx2672 = getelementptr inbounds i8, ptr %1903, i64 8
+  %.sroa.42671.0..sroa_idx2672 = getelementptr inbounds nuw i8, ptr %1903, i64 8
   %.sroa.42671.0.copyload2673 = load i8, ptr %.sroa.42671.0..sroa_idx2672, align 8
   br label %1914
 
@@ -21254,7 +21254,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1918 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %1919 = extractvalue { ptr, i8 } %1918, 0
   store ptr %1919, ptr %284, align 8
-  %1920 = getelementptr inbounds i8, ptr %284, i64 8
+  %1920 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %1921 = extractvalue { ptr, i8 } %1918, 1
   store i8 %1921, ptr %1920, align 8
   %1922 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21268,7 +21268,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1926
 
 1925:                                             ; preds = %1914
-  %.sroa.42666.0..sroa_idx2667 = getelementptr inbounds i8, ptr %1915, i64 8
+  %.sroa.42666.0..sroa_idx2667 = getelementptr inbounds nuw i8, ptr %1915, i64 8
   %.sroa.42666.0.copyload2668 = load i8, ptr %.sroa.42666.0..sroa_idx2667, align 8
   br label %1926
 
@@ -21287,7 +21287,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1932 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %286, ptr noundef nonnull %1) #7
   %1933 = extractvalue { ptr, i8 } %1932, 0
   store ptr %1933, ptr %287, align 8
-  %1934 = getelementptr inbounds i8, ptr %287, i64 8
+  %1934 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %1935 = extractvalue { ptr, i8 } %1932, 1
   store i8 %1935, ptr %1934, align 8
   %1936 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21300,7 +21300,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1940
 
 1939:                                             ; preds = %1926
-  %.sroa.130.0..sroa_idx3306 = getelementptr inbounds i8, ptr %1929, i64 8
+  %.sroa.130.0..sroa_idx3306 = getelementptr inbounds nuw i8, ptr %1929, i64 8
   %.sroa.130.0.copyload3307 = load i8, ptr %.sroa.130.0..sroa_idx3306, align 8
   br label %1940
 
@@ -21309,9 +21309,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.17.in = phi ptr [ %287, %1937 ], [ %1929, %1939 ]
   %.sroa.02984.17 = load ptr, ptr %.sroa.02984.17.in, align 8
   store ptr %.sroa.02984.17, ptr %288, align 8
-  %.sroa.130.0..sroa_idx3173 = getelementptr inbounds i8, ptr %288, i64 8
+  %.sroa.130.0..sroa_idx3173 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i8 %.sroa.130.17, ptr %.sroa.130.0..sroa_idx3173, align 8
-  %.sroa.131.0..sroa_idx3365 = getelementptr inbounds i8, ptr %288, i64 9
+  %.sroa.131.0..sroa_idx3365 = getelementptr inbounds nuw i8, ptr %288, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3365, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1941 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02669.0, i8 %.sroa.42671.0, ptr %.sroa.02664.0, i8 %.sroa.42666.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %288, ptr noundef nonnull %1) #7
   %1942 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21331,7 +21331,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1949 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %1) #7
   %1950 = extractvalue { ptr, i8 } %1949, 0
   store ptr %1950, ptr %290, align 8
-  %1951 = getelementptr inbounds i8, ptr %290, i64 8
+  %1951 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %1952 = extractvalue { ptr, i8 } %1949, 1
   store i8 %1952, ptr %1951, align 8
   %1953 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21345,7 +21345,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1957
 
 1956:                                             ; preds = %1943
-  %.sroa.42661.0..sroa_idx2662 = getelementptr inbounds i8, ptr %1946, i64 8
+  %.sroa.42661.0..sroa_idx2662 = getelementptr inbounds nuw i8, ptr %1946, i64 8
   %.sroa.42661.0.copyload2663 = load i8, ptr %.sroa.42661.0..sroa_idx2662, align 8
   br label %1957
 
@@ -21362,7 +21362,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1961 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1962 = extractvalue { ptr, i8 } %1961, 0
   store ptr %1962, ptr %293, align 8
-  %1963 = getelementptr inbounds i8, ptr %293, i64 8
+  %1963 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %1964 = extractvalue { ptr, i8 } %1961, 1
   store i8 %1964, ptr %1963, align 8
   %1965 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21376,7 +21376,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1969
 
 1968:                                             ; preds = %1957
-  %.sroa.42656.0..sroa_idx2657 = getelementptr inbounds i8, ptr %1958, i64 8
+  %.sroa.42656.0..sroa_idx2657 = getelementptr inbounds nuw i8, ptr %1958, i64 8
   %.sroa.42656.0.copyload2658 = load i8, ptr %.sroa.42656.0..sroa_idx2657, align 8
   br label %1969
 
@@ -21389,9 +21389,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3089.sroa.speculated = select i1 %1971, ptr %455, ptr %460
   %.sroa.130.0.copyload3308.sroa.speculated = select i1 %1971, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3089.sroa.speculated, ptr %295, align 8
-  %.sroa.130.0..sroa_idx3175 = getelementptr inbounds i8, ptr %295, i64 8
+  %.sroa.130.0..sroa_idx3175 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i8 %.sroa.130.0.copyload3308.sroa.speculated, ptr %.sroa.130.0..sroa_idx3175, align 8
-  %.sroa.131.0..sroa_idx3366 = getelementptr inbounds i8, ptr %295, i64 9
+  %.sroa.131.0..sroa_idx3366 = getelementptr inbounds nuw i8, ptr %295, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3366, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1972 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02659.0, i8 %.sroa.42661.0, ptr %.sroa.02654.0, i8 %.sroa.42656.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %295, ptr noundef nonnull %1) #7
   %1973 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21411,7 +21411,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1980 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %1) #7
   %1981 = extractvalue { ptr, i8 } %1980, 0
   store ptr %1981, ptr %297, align 8
-  %1982 = getelementptr inbounds i8, ptr %297, i64 8
+  %1982 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %1983 = extractvalue { ptr, i8 } %1980, 1
   store i8 %1983, ptr %1982, align 8
   %1984 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21425,7 +21425,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %1988
 
 1987:                                             ; preds = %1974
-  %.sroa.42651.0..sroa_idx2652 = getelementptr inbounds i8, ptr %1977, i64 8
+  %.sroa.42651.0..sroa_idx2652 = getelementptr inbounds nuw i8, ptr %1977, i64 8
   %.sroa.42651.0.copyload2653 = load i8, ptr %.sroa.42651.0..sroa_idx2652, align 8
   br label %1988
 
@@ -21442,7 +21442,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %1992 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %1993 = extractvalue { ptr, i8 } %1992, 0
   store ptr %1993, ptr %300, align 8
-  %1994 = getelementptr inbounds i8, ptr %300, i64 8
+  %1994 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %1995 = extractvalue { ptr, i8 } %1992, 1
   store i8 %1995, ptr %1994, align 8
   %1996 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21456,7 +21456,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2000
 
 1999:                                             ; preds = %1988
-  %.sroa.42646.0..sroa_idx2647 = getelementptr inbounds i8, ptr %1989, i64 8
+  %.sroa.42646.0..sroa_idx2647 = getelementptr inbounds nuw i8, ptr %1989, i64 8
   %.sroa.42646.0.copyload2648 = load i8, ptr %.sroa.42646.0..sroa_idx2647, align 8
   br label %2000
 
@@ -21469,9 +21469,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3090.sroa.speculated = select i1 %2002, ptr %455, ptr %460
   %.sroa.130.0.copyload3309.sroa.speculated = select i1 %2002, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3090.sroa.speculated, ptr %302, align 8
-  %.sroa.130.0..sroa_idx3177 = getelementptr inbounds i8, ptr %302, i64 8
+  %.sroa.130.0..sroa_idx3177 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i8 %.sroa.130.0.copyload3309.sroa.speculated, ptr %.sroa.130.0..sroa_idx3177, align 8
-  %.sroa.131.0..sroa_idx3367 = getelementptr inbounds i8, ptr %302, i64 9
+  %.sroa.131.0..sroa_idx3367 = getelementptr inbounds nuw i8, ptr %302, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3367, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2003 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02649.0, i8 %.sroa.42651.0, ptr %.sroa.02644.0, i8 %.sroa.42646.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %302, ptr noundef nonnull %1) #7
   %2004 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21491,7 +21491,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2011 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %1) #7
   %2012 = extractvalue { ptr, i8 } %2011, 0
   store ptr %2012, ptr %304, align 8
-  %2013 = getelementptr inbounds i8, ptr %304, i64 8
+  %2013 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %2014 = extractvalue { ptr, i8 } %2011, 1
   store i8 %2014, ptr %2013, align 8
   %2015 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21505,7 +21505,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2019
 
 2018:                                             ; preds = %2005
-  %.sroa.42641.0..sroa_idx2642 = getelementptr inbounds i8, ptr %2008, i64 8
+  %.sroa.42641.0..sroa_idx2642 = getelementptr inbounds nuw i8, ptr %2008, i64 8
   %.sroa.42641.0.copyload2643 = load i8, ptr %.sroa.42641.0..sroa_idx2642, align 8
   br label %2019
 
@@ -21522,7 +21522,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2023 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2024 = extractvalue { ptr, i8 } %2023, 0
   store ptr %2024, ptr %307, align 8
-  %2025 = getelementptr inbounds i8, ptr %307, i64 8
+  %2025 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %2026 = extractvalue { ptr, i8 } %2023, 1
   store i8 %2026, ptr %2025, align 8
   %2027 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21536,7 +21536,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2031
 
 2030:                                             ; preds = %2019
-  %.sroa.42636.0..sroa_idx2637 = getelementptr inbounds i8, ptr %2020, i64 8
+  %.sroa.42636.0..sroa_idx2637 = getelementptr inbounds nuw i8, ptr %2020, i64 8
   %.sroa.42636.0.copyload2638 = load i8, ptr %.sroa.42636.0..sroa_idx2637, align 8
   br label %2031
 
@@ -21549,9 +21549,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3091.sroa.speculated = select i1 %2033, ptr %455, ptr %460
   %.sroa.130.0.copyload3310.sroa.speculated = select i1 %2033, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3091.sroa.speculated, ptr %309, align 8
-  %.sroa.130.0..sroa_idx3179 = getelementptr inbounds i8, ptr %309, i64 8
+  %.sroa.130.0..sroa_idx3179 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i8 %.sroa.130.0.copyload3310.sroa.speculated, ptr %.sroa.130.0..sroa_idx3179, align 8
-  %.sroa.131.0..sroa_idx3368 = getelementptr inbounds i8, ptr %309, i64 9
+  %.sroa.131.0..sroa_idx3368 = getelementptr inbounds nuw i8, ptr %309, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3368, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2034 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02639.0, i8 %.sroa.42641.0, ptr %.sroa.02634.0, i8 %.sroa.42636.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %309, ptr noundef nonnull %1) #7
   %2035 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21571,7 +21571,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2042 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.54, ptr noundef nonnull %1) #7
   %2043 = extractvalue { ptr, i8 } %2042, 0
   store ptr %2043, ptr %311, align 8
-  %2044 = getelementptr inbounds i8, ptr %311, i64 8
+  %2044 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %2045 = extractvalue { ptr, i8 } %2042, 1
   store i8 %2045, ptr %2044, align 8
   %2046 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21585,7 +21585,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2050
 
 2049:                                             ; preds = %2036
-  %.sroa.42631.0..sroa_idx2632 = getelementptr inbounds i8, ptr %2039, i64 8
+  %.sroa.42631.0..sroa_idx2632 = getelementptr inbounds nuw i8, ptr %2039, i64 8
   %.sroa.42631.0.copyload2633 = load i8, ptr %.sroa.42631.0..sroa_idx2632, align 8
   br label %2050
 
@@ -21602,7 +21602,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2054 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2055 = extractvalue { ptr, i8 } %2054, 0
   store ptr %2055, ptr %314, align 8
-  %2056 = getelementptr inbounds i8, ptr %314, i64 8
+  %2056 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %2057 = extractvalue { ptr, i8 } %2054, 1
   store i8 %2057, ptr %2056, align 8
   %2058 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21616,7 +21616,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2062
 
 2061:                                             ; preds = %2050
-  %.sroa.42626.0..sroa_idx2627 = getelementptr inbounds i8, ptr %2051, i64 8
+  %.sroa.42626.0..sroa_idx2627 = getelementptr inbounds nuw i8, ptr %2051, i64 8
   %.sroa.42626.0.copyload2628 = load i8, ptr %.sroa.42626.0..sroa_idx2627, align 8
   br label %2062
 
@@ -21629,9 +21629,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3092.sroa.speculated = select i1 %2064, ptr %455, ptr %460
   %.sroa.130.0.copyload3311.sroa.speculated = select i1 %2064, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3092.sroa.speculated, ptr %316, align 8
-  %.sroa.130.0..sroa_idx3181 = getelementptr inbounds i8, ptr %316, i64 8
+  %.sroa.130.0..sroa_idx3181 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store i8 %.sroa.130.0.copyload3311.sroa.speculated, ptr %.sroa.130.0..sroa_idx3181, align 8
-  %.sroa.131.0..sroa_idx3369 = getelementptr inbounds i8, ptr %316, i64 9
+  %.sroa.131.0..sroa_idx3369 = getelementptr inbounds nuw i8, ptr %316, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3369, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2065 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02629.0, i8 %.sroa.42631.0, ptr %.sroa.02624.0, i8 %.sroa.42626.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %316, ptr noundef nonnull %1) #7
   %2066 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21651,7 +21651,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2073 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.55, ptr noundef nonnull %1) #7
   %2074 = extractvalue { ptr, i8 } %2073, 0
   store ptr %2074, ptr %318, align 8
-  %2075 = getelementptr inbounds i8, ptr %318, i64 8
+  %2075 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %2076 = extractvalue { ptr, i8 } %2073, 1
   store i8 %2076, ptr %2075, align 8
   %2077 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21665,7 +21665,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2081
 
 2080:                                             ; preds = %2067
-  %.sroa.42621.0..sroa_idx2622 = getelementptr inbounds i8, ptr %2070, i64 8
+  %.sroa.42621.0..sroa_idx2622 = getelementptr inbounds nuw i8, ptr %2070, i64 8
   %.sroa.42621.0.copyload2623 = load i8, ptr %.sroa.42621.0..sroa_idx2622, align 8
   br label %2081
 
@@ -21682,7 +21682,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2085 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2086 = extractvalue { ptr, i8 } %2085, 0
   store ptr %2086, ptr %321, align 8
-  %2087 = getelementptr inbounds i8, ptr %321, i64 8
+  %2087 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %2088 = extractvalue { ptr, i8 } %2085, 1
   store i8 %2088, ptr %2087, align 8
   %2089 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21696,7 +21696,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2093
 
 2092:                                             ; preds = %2081
-  %.sroa.42616.0..sroa_idx2617 = getelementptr inbounds i8, ptr %2082, i64 8
+  %.sroa.42616.0..sroa_idx2617 = getelementptr inbounds nuw i8, ptr %2082, i64 8
   %.sroa.42616.0.copyload2618 = load i8, ptr %.sroa.42616.0..sroa_idx2617, align 8
   br label %2093
 
@@ -21709,9 +21709,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3093.sroa.speculated = select i1 %2095, ptr %455, ptr %460
   %.sroa.130.0.copyload3312.sroa.speculated = select i1 %2095, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3093.sroa.speculated, ptr %323, align 8
-  %.sroa.130.0..sroa_idx3183 = getelementptr inbounds i8, ptr %323, i64 8
+  %.sroa.130.0..sroa_idx3183 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i8 %.sroa.130.0.copyload3312.sroa.speculated, ptr %.sroa.130.0..sroa_idx3183, align 8
-  %.sroa.131.0..sroa_idx3370 = getelementptr inbounds i8, ptr %323, i64 9
+  %.sroa.131.0..sroa_idx3370 = getelementptr inbounds nuw i8, ptr %323, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3370, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2096 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02619.0, i8 %.sroa.42621.0, ptr %.sroa.02614.0, i8 %.sroa.42616.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %323, ptr noundef nonnull %1) #7
   %2097 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21731,7 +21731,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2104 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.56, ptr noundef nonnull %1) #7
   %2105 = extractvalue { ptr, i8 } %2104, 0
   store ptr %2105, ptr %325, align 8
-  %2106 = getelementptr inbounds i8, ptr %325, i64 8
+  %2106 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %2107 = extractvalue { ptr, i8 } %2104, 1
   store i8 %2107, ptr %2106, align 8
   %2108 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21745,7 +21745,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2112
 
 2111:                                             ; preds = %2098
-  %.sroa.42611.0..sroa_idx2612 = getelementptr inbounds i8, ptr %2101, i64 8
+  %.sroa.42611.0..sroa_idx2612 = getelementptr inbounds nuw i8, ptr %2101, i64 8
   %.sroa.42611.0.copyload2613 = load i8, ptr %.sroa.42611.0..sroa_idx2612, align 8
   br label %2112
 
@@ -21762,7 +21762,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2116 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2117 = extractvalue { ptr, i8 } %2116, 0
   store ptr %2117, ptr %328, align 8
-  %2118 = getelementptr inbounds i8, ptr %328, i64 8
+  %2118 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %2119 = extractvalue { ptr, i8 } %2116, 1
   store i8 %2119, ptr %2118, align 8
   %2120 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21776,7 +21776,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2124
 
 2123:                                             ; preds = %2112
-  %.sroa.42606.0..sroa_idx2607 = getelementptr inbounds i8, ptr %2113, i64 8
+  %.sroa.42606.0..sroa_idx2607 = getelementptr inbounds nuw i8, ptr %2113, i64 8
   %.sroa.42606.0.copyload2608 = load i8, ptr %.sroa.42606.0..sroa_idx2607, align 8
   br label %2124
 
@@ -21789,9 +21789,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3094.sroa.speculated = select i1 %2126, ptr %455, ptr %460
   %.sroa.130.0.copyload3313.sroa.speculated = select i1 %2126, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3094.sroa.speculated, ptr %330, align 8
-  %.sroa.130.0..sroa_idx3185 = getelementptr inbounds i8, ptr %330, i64 8
+  %.sroa.130.0..sroa_idx3185 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i8 %.sroa.130.0.copyload3313.sroa.speculated, ptr %.sroa.130.0..sroa_idx3185, align 8
-  %.sroa.131.0..sroa_idx3371 = getelementptr inbounds i8, ptr %330, i64 9
+  %.sroa.131.0..sroa_idx3371 = getelementptr inbounds nuw i8, ptr %330, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3371, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2127 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02609.0, i8 %.sroa.42611.0, ptr %.sroa.02604.0, i8 %.sroa.42606.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %330, ptr noundef nonnull %1) #7
   %2128 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21811,7 +21811,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2135 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.57, ptr noundef nonnull %1) #7
   %2136 = extractvalue { ptr, i8 } %2135, 0
   store ptr %2136, ptr %332, align 8
-  %2137 = getelementptr inbounds i8, ptr %332, i64 8
+  %2137 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %2138 = extractvalue { ptr, i8 } %2135, 1
   store i8 %2138, ptr %2137, align 8
   %2139 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21825,7 +21825,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2143
 
 2142:                                             ; preds = %2129
-  %.sroa.42601.0..sroa_idx2602 = getelementptr inbounds i8, ptr %2132, i64 8
+  %.sroa.42601.0..sroa_idx2602 = getelementptr inbounds nuw i8, ptr %2132, i64 8
   %.sroa.42601.0.copyload2603 = load i8, ptr %.sroa.42601.0..sroa_idx2602, align 8
   br label %2143
 
@@ -21842,7 +21842,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2147 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2148 = extractvalue { ptr, i8 } %2147, 0
   store ptr %2148, ptr %335, align 8
-  %2149 = getelementptr inbounds i8, ptr %335, i64 8
+  %2149 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %2150 = extractvalue { ptr, i8 } %2147, 1
   store i8 %2150, ptr %2149, align 8
   %2151 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21856,7 +21856,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2155
 
 2154:                                             ; preds = %2143
-  %.sroa.42596.0..sroa_idx2597 = getelementptr inbounds i8, ptr %2144, i64 8
+  %.sroa.42596.0..sroa_idx2597 = getelementptr inbounds nuw i8, ptr %2144, i64 8
   %.sroa.42596.0.copyload2598 = load i8, ptr %.sroa.42596.0..sroa_idx2597, align 8
   br label %2155
 
@@ -21869,9 +21869,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3095.sroa.speculated = select i1 %2157, ptr %455, ptr %460
   %.sroa.130.0.copyload3314.sroa.speculated = select i1 %2157, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3095.sroa.speculated, ptr %337, align 8
-  %.sroa.130.0..sroa_idx3187 = getelementptr inbounds i8, ptr %337, i64 8
+  %.sroa.130.0..sroa_idx3187 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store i8 %.sroa.130.0.copyload3314.sroa.speculated, ptr %.sroa.130.0..sroa_idx3187, align 8
-  %.sroa.131.0..sroa_idx3372 = getelementptr inbounds i8, ptr %337, i64 9
+  %.sroa.131.0..sroa_idx3372 = getelementptr inbounds nuw i8, ptr %337, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3372, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2158 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02599.0, i8 %.sroa.42601.0, ptr %.sroa.02594.0, i8 %.sroa.42596.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %337, ptr noundef nonnull %1) #7
   %2159 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21891,7 +21891,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2166 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.58, ptr noundef nonnull %1) #7
   %2167 = extractvalue { ptr, i8 } %2166, 0
   store ptr %2167, ptr %339, align 8
-  %2168 = getelementptr inbounds i8, ptr %339, i64 8
+  %2168 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %2169 = extractvalue { ptr, i8 } %2166, 1
   store i8 %2169, ptr %2168, align 8
   %2170 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21905,7 +21905,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2174
 
 2173:                                             ; preds = %2160
-  %.sroa.42591.0..sroa_idx2592 = getelementptr inbounds i8, ptr %2163, i64 8
+  %.sroa.42591.0..sroa_idx2592 = getelementptr inbounds nuw i8, ptr %2163, i64 8
   %.sroa.42591.0.copyload2593 = load i8, ptr %.sroa.42591.0..sroa_idx2592, align 8
   br label %2174
 
@@ -21922,7 +21922,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2178 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2179 = extractvalue { ptr, i8 } %2178, 0
   store ptr %2179, ptr %342, align 8
-  %2180 = getelementptr inbounds i8, ptr %342, i64 8
+  %2180 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %2181 = extractvalue { ptr, i8 } %2178, 1
   store i8 %2181, ptr %2180, align 8
   %2182 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21936,7 +21936,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2186
 
 2185:                                             ; preds = %2174
-  %.sroa.42586.0..sroa_idx2587 = getelementptr inbounds i8, ptr %2175, i64 8
+  %.sroa.42586.0..sroa_idx2587 = getelementptr inbounds nuw i8, ptr %2175, i64 8
   %.sroa.42586.0.copyload2588 = load i8, ptr %.sroa.42586.0..sroa_idx2587, align 8
   br label %2186
 
@@ -21949,9 +21949,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3096.sroa.speculated = select i1 %2188, ptr %455, ptr %460
   %.sroa.130.0.copyload3315.sroa.speculated = select i1 %2188, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3096.sroa.speculated, ptr %344, align 8
-  %.sroa.130.0..sroa_idx3189 = getelementptr inbounds i8, ptr %344, i64 8
+  %.sroa.130.0..sroa_idx3189 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i8 %.sroa.130.0.copyload3315.sroa.speculated, ptr %.sroa.130.0..sroa_idx3189, align 8
-  %.sroa.131.0..sroa_idx3373 = getelementptr inbounds i8, ptr %344, i64 9
+  %.sroa.131.0..sroa_idx3373 = getelementptr inbounds nuw i8, ptr %344, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3373, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2189 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02589.0, i8 %.sroa.42591.0, ptr %.sroa.02584.0, i8 %.sroa.42586.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %344, ptr noundef nonnull %1) #7
   %2190 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21971,7 +21971,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2197 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.59, ptr noundef nonnull %1) #7
   %2198 = extractvalue { ptr, i8 } %2197, 0
   store ptr %2198, ptr %346, align 8
-  %2199 = getelementptr inbounds i8, ptr %346, i64 8
+  %2199 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %2200 = extractvalue { ptr, i8 } %2197, 1
   store i8 %2200, ptr %2199, align 8
   %2201 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -21985,7 +21985,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2205
 
 2204:                                             ; preds = %2191
-  %.sroa.42581.0..sroa_idx2582 = getelementptr inbounds i8, ptr %2194, i64 8
+  %.sroa.42581.0..sroa_idx2582 = getelementptr inbounds nuw i8, ptr %2194, i64 8
   %.sroa.42581.0.copyload2583 = load i8, ptr %.sroa.42581.0..sroa_idx2582, align 8
   br label %2205
 
@@ -22002,7 +22002,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2209 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2210 = extractvalue { ptr, i8 } %2209, 0
   store ptr %2210, ptr %349, align 8
-  %2211 = getelementptr inbounds i8, ptr %349, i64 8
+  %2211 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %2212 = extractvalue { ptr, i8 } %2209, 1
   store i8 %2212, ptr %2211, align 8
   %2213 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22016,7 +22016,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2217
 
 2216:                                             ; preds = %2205
-  %.sroa.42576.0..sroa_idx2577 = getelementptr inbounds i8, ptr %2206, i64 8
+  %.sroa.42576.0..sroa_idx2577 = getelementptr inbounds nuw i8, ptr %2206, i64 8
   %.sroa.42576.0.copyload2578 = load i8, ptr %.sroa.42576.0..sroa_idx2577, align 8
   br label %2217
 
@@ -22029,9 +22029,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3097.sroa.speculated = select i1 %2219, ptr %455, ptr %460
   %.sroa.130.0.copyload3316.sroa.speculated = select i1 %2219, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3097.sroa.speculated, ptr %351, align 8
-  %.sroa.130.0..sroa_idx3191 = getelementptr inbounds i8, ptr %351, i64 8
+  %.sroa.130.0..sroa_idx3191 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i8 %.sroa.130.0.copyload3316.sroa.speculated, ptr %.sroa.130.0..sroa_idx3191, align 8
-  %.sroa.131.0..sroa_idx3374 = getelementptr inbounds i8, ptr %351, i64 9
+  %.sroa.131.0..sroa_idx3374 = getelementptr inbounds nuw i8, ptr %351, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3374, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02579.0, i8 %.sroa.42581.0, ptr %.sroa.02574.0, i8 %.sroa.42576.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %351, ptr noundef nonnull %1) #7
   %2221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22051,7 +22051,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2228 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.60, ptr noundef nonnull %1) #7
   %2229 = extractvalue { ptr, i8 } %2228, 0
   store ptr %2229, ptr %353, align 8
-  %2230 = getelementptr inbounds i8, ptr %353, i64 8
+  %2230 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %2231 = extractvalue { ptr, i8 } %2228, 1
   store i8 %2231, ptr %2230, align 8
   %2232 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22065,7 +22065,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2236
 
 2235:                                             ; preds = %2222
-  %.sroa.42571.0..sroa_idx2572 = getelementptr inbounds i8, ptr %2225, i64 8
+  %.sroa.42571.0..sroa_idx2572 = getelementptr inbounds nuw i8, ptr %2225, i64 8
   %.sroa.42571.0.copyload2573 = load i8, ptr %.sroa.42571.0..sroa_idx2572, align 8
   br label %2236
 
@@ -22082,7 +22082,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2240 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2241 = extractvalue { ptr, i8 } %2240, 0
   store ptr %2241, ptr %356, align 8
-  %2242 = getelementptr inbounds i8, ptr %356, i64 8
+  %2242 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %2243 = extractvalue { ptr, i8 } %2240, 1
   store i8 %2243, ptr %2242, align 8
   %2244 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22096,7 +22096,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2248
 
 2247:                                             ; preds = %2236
-  %.sroa.42566.0..sroa_idx2567 = getelementptr inbounds i8, ptr %2237, i64 8
+  %.sroa.42566.0..sroa_idx2567 = getelementptr inbounds nuw i8, ptr %2237, i64 8
   %.sroa.42566.0.copyload2568 = load i8, ptr %.sroa.42566.0..sroa_idx2567, align 8
   br label %2248
 
@@ -22109,9 +22109,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3098.sroa.speculated = select i1 %2250, ptr %455, ptr %460
   %.sroa.130.0.copyload3317.sroa.speculated = select i1 %2250, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3098.sroa.speculated, ptr %358, align 8
-  %.sroa.130.0..sroa_idx3193 = getelementptr inbounds i8, ptr %358, i64 8
+  %.sroa.130.0..sroa_idx3193 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store i8 %.sroa.130.0.copyload3317.sroa.speculated, ptr %.sroa.130.0..sroa_idx3193, align 8
-  %.sroa.131.0..sroa_idx3375 = getelementptr inbounds i8, ptr %358, i64 9
+  %.sroa.131.0..sroa_idx3375 = getelementptr inbounds nuw i8, ptr %358, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3375, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2251 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02569.0, i8 %.sroa.42571.0, ptr %.sroa.02564.0, i8 %.sroa.42566.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %358, ptr noundef nonnull %1) #7
   %2252 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22131,7 +22131,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2259 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.61, ptr noundef nonnull %1) #7
   %2260 = extractvalue { ptr, i8 } %2259, 0
   store ptr %2260, ptr %360, align 8
-  %2261 = getelementptr inbounds i8, ptr %360, i64 8
+  %2261 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %2262 = extractvalue { ptr, i8 } %2259, 1
   store i8 %2262, ptr %2261, align 8
   %2263 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22145,7 +22145,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2267
 
 2266:                                             ; preds = %2253
-  %.sroa.42561.0..sroa_idx2562 = getelementptr inbounds i8, ptr %2256, i64 8
+  %.sroa.42561.0..sroa_idx2562 = getelementptr inbounds nuw i8, ptr %2256, i64 8
   %.sroa.42561.0.copyload2563 = load i8, ptr %.sroa.42561.0..sroa_idx2562, align 8
   br label %2267
 
@@ -22162,7 +22162,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2271 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2272 = extractvalue { ptr, i8 } %2271, 0
   store ptr %2272, ptr %363, align 8
-  %2273 = getelementptr inbounds i8, ptr %363, i64 8
+  %2273 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %2274 = extractvalue { ptr, i8 } %2271, 1
   store i8 %2274, ptr %2273, align 8
   %2275 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22176,7 +22176,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2279
 
 2278:                                             ; preds = %2267
-  %.sroa.42556.0..sroa_idx2557 = getelementptr inbounds i8, ptr %2268, i64 8
+  %.sroa.42556.0..sroa_idx2557 = getelementptr inbounds nuw i8, ptr %2268, i64 8
   %.sroa.42556.0.copyload2558 = load i8, ptr %.sroa.42556.0..sroa_idx2557, align 8
   br label %2279
 
@@ -22189,9 +22189,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3099.sroa.speculated = select i1 %2281, ptr %455, ptr %460
   %.sroa.130.0.copyload3318.sroa.speculated = select i1 %2281, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3099.sroa.speculated, ptr %365, align 8
-  %.sroa.130.0..sroa_idx3195 = getelementptr inbounds i8, ptr %365, i64 8
+  %.sroa.130.0..sroa_idx3195 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i8 %.sroa.130.0.copyload3318.sroa.speculated, ptr %.sroa.130.0..sroa_idx3195, align 8
-  %.sroa.131.0..sroa_idx3376 = getelementptr inbounds i8, ptr %365, i64 9
+  %.sroa.131.0..sroa_idx3376 = getelementptr inbounds nuw i8, ptr %365, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3376, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2282 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02559.0, i8 %.sroa.42561.0, ptr %.sroa.02554.0, i8 %.sroa.42556.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %365, ptr noundef nonnull %1) #7
   %2283 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22211,7 +22211,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2290 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.62, ptr noundef nonnull %1) #7
   %2291 = extractvalue { ptr, i8 } %2290, 0
   store ptr %2291, ptr %367, align 8
-  %2292 = getelementptr inbounds i8, ptr %367, i64 8
+  %2292 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %2293 = extractvalue { ptr, i8 } %2290, 1
   store i8 %2293, ptr %2292, align 8
   %2294 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22225,7 +22225,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2298
 
 2297:                                             ; preds = %2284
-  %.sroa.42551.0..sroa_idx2552 = getelementptr inbounds i8, ptr %2287, i64 8
+  %.sroa.42551.0..sroa_idx2552 = getelementptr inbounds nuw i8, ptr %2287, i64 8
   %.sroa.42551.0.copyload2553 = load i8, ptr %.sroa.42551.0..sroa_idx2552, align 8
   br label %2298
 
@@ -22242,7 +22242,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2302 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2303 = extractvalue { ptr, i8 } %2302, 0
   store ptr %2303, ptr %370, align 8
-  %2304 = getelementptr inbounds i8, ptr %370, i64 8
+  %2304 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %2305 = extractvalue { ptr, i8 } %2302, 1
   store i8 %2305, ptr %2304, align 8
   %2306 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22256,7 +22256,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2310
 
 2309:                                             ; preds = %2298
-  %.sroa.42546.0..sroa_idx2547 = getelementptr inbounds i8, ptr %2299, i64 8
+  %.sroa.42546.0..sroa_idx2547 = getelementptr inbounds nuw i8, ptr %2299, i64 8
   %.sroa.42546.0.copyload2548 = load i8, ptr %.sroa.42546.0..sroa_idx2547, align 8
   br label %2310
 
@@ -22269,9 +22269,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3100.sroa.speculated = select i1 %2312, ptr %455, ptr %460
   %.sroa.130.0.copyload3319.sroa.speculated = select i1 %2312, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3100.sroa.speculated, ptr %372, align 8
-  %.sroa.130.0..sroa_idx3197 = getelementptr inbounds i8, ptr %372, i64 8
+  %.sroa.130.0..sroa_idx3197 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i8 %.sroa.130.0.copyload3319.sroa.speculated, ptr %.sroa.130.0..sroa_idx3197, align 8
-  %.sroa.131.0..sroa_idx3377 = getelementptr inbounds i8, ptr %372, i64 9
+  %.sroa.131.0..sroa_idx3377 = getelementptr inbounds nuw i8, ptr %372, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3377, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2313 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02549.0, i8 %.sroa.42551.0, ptr %.sroa.02544.0, i8 %.sroa.42546.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %372, ptr noundef nonnull %1) #7
   %2314 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22291,7 +22291,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2321 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #7
   %2322 = extractvalue { ptr, i8 } %2321, 0
   store ptr %2322, ptr %374, align 8
-  %2323 = getelementptr inbounds i8, ptr %374, i64 8
+  %2323 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %2324 = extractvalue { ptr, i8 } %2321, 1
   store i8 %2324, ptr %2323, align 8
   %2325 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22305,7 +22305,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2329
 
 2328:                                             ; preds = %2315
-  %.sroa.42541.0..sroa_idx2542 = getelementptr inbounds i8, ptr %2318, i64 8
+  %.sroa.42541.0..sroa_idx2542 = getelementptr inbounds nuw i8, ptr %2318, i64 8
   %.sroa.42541.0.copyload2543 = load i8, ptr %.sroa.42541.0..sroa_idx2542, align 8
   br label %2329
 
@@ -22322,7 +22322,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2333 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2334 = extractvalue { ptr, i8 } %2333, 0
   store ptr %2334, ptr %377, align 8
-  %2335 = getelementptr inbounds i8, ptr %377, i64 8
+  %2335 = getelementptr inbounds nuw i8, ptr %377, i64 8
   %2336 = extractvalue { ptr, i8 } %2333, 1
   store i8 %2336, ptr %2335, align 8
   %2337 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22336,7 +22336,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2341
 
 2340:                                             ; preds = %2329
-  %.sroa.42536.0..sroa_idx2537 = getelementptr inbounds i8, ptr %2330, i64 8
+  %.sroa.42536.0..sroa_idx2537 = getelementptr inbounds nuw i8, ptr %2330, i64 8
   %.sroa.42536.0.copyload2538 = load i8, ptr %.sroa.42536.0..sroa_idx2537, align 8
   br label %2341
 
@@ -22349,9 +22349,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3101.sroa.speculated = select i1 %2343, ptr %455, ptr %460
   %.sroa.130.0.copyload3320.sroa.speculated = select i1 %2343, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3101.sroa.speculated, ptr %379, align 8
-  %.sroa.130.0..sroa_idx3199 = getelementptr inbounds i8, ptr %379, i64 8
+  %.sroa.130.0..sroa_idx3199 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i8 %.sroa.130.0.copyload3320.sroa.speculated, ptr %.sroa.130.0..sroa_idx3199, align 8
-  %.sroa.131.0..sroa_idx3378 = getelementptr inbounds i8, ptr %379, i64 9
+  %.sroa.131.0..sroa_idx3378 = getelementptr inbounds nuw i8, ptr %379, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3378, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2344 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02539.0, i8 %.sroa.42541.0, ptr %.sroa.02534.0, i8 %.sroa.42536.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %379, ptr noundef nonnull %1) #7
   %2345 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22371,7 +22371,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2352 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.64, ptr noundef nonnull %1) #7
   %2353 = extractvalue { ptr, i8 } %2352, 0
   store ptr %2353, ptr %381, align 8
-  %2354 = getelementptr inbounds i8, ptr %381, i64 8
+  %2354 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %2355 = extractvalue { ptr, i8 } %2352, 1
   store i8 %2355, ptr %2354, align 8
   %2356 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22385,7 +22385,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2360
 
 2359:                                             ; preds = %2346
-  %.sroa.42531.0..sroa_idx2532 = getelementptr inbounds i8, ptr %2349, i64 8
+  %.sroa.42531.0..sroa_idx2532 = getelementptr inbounds nuw i8, ptr %2349, i64 8
   %.sroa.42531.0.copyload2533 = load i8, ptr %.sroa.42531.0..sroa_idx2532, align 8
   br label %2360
 
@@ -22402,7 +22402,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2364 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2365 = extractvalue { ptr, i8 } %2364, 0
   store ptr %2365, ptr %384, align 8
-  %2366 = getelementptr inbounds i8, ptr %384, i64 8
+  %2366 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %2367 = extractvalue { ptr, i8 } %2364, 1
   store i8 %2367, ptr %2366, align 8
   %2368 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22416,7 +22416,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2372
 
 2371:                                             ; preds = %2360
-  %.sroa.42526.0..sroa_idx2527 = getelementptr inbounds i8, ptr %2361, i64 8
+  %.sroa.42526.0..sroa_idx2527 = getelementptr inbounds nuw i8, ptr %2361, i64 8
   %.sroa.42526.0.copyload2528 = load i8, ptr %.sroa.42526.0..sroa_idx2527, align 8
   br label %2372
 
@@ -22429,9 +22429,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3102.sroa.speculated = select i1 %2374, ptr %455, ptr %460
   %.sroa.130.0.copyload3321.sroa.speculated = select i1 %2374, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3102.sroa.speculated, ptr %386, align 8
-  %.sroa.130.0..sroa_idx3201 = getelementptr inbounds i8, ptr %386, i64 8
+  %.sroa.130.0..sroa_idx3201 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i8 %.sroa.130.0.copyload3321.sroa.speculated, ptr %.sroa.130.0..sroa_idx3201, align 8
-  %.sroa.131.0..sroa_idx3379 = getelementptr inbounds i8, ptr %386, i64 9
+  %.sroa.131.0..sroa_idx3379 = getelementptr inbounds nuw i8, ptr %386, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3379, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2375 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02529.0, i8 %.sroa.42531.0, ptr %.sroa.02524.0, i8 %.sroa.42526.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %386, ptr noundef nonnull %1) #7
   %2376 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22451,7 +22451,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2383 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.65, ptr noundef nonnull %1) #7
   %2384 = extractvalue { ptr, i8 } %2383, 0
   store ptr %2384, ptr %388, align 8
-  %2385 = getelementptr inbounds i8, ptr %388, i64 8
+  %2385 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %2386 = extractvalue { ptr, i8 } %2383, 1
   store i8 %2386, ptr %2385, align 8
   %2387 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22465,7 +22465,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2391
 
 2390:                                             ; preds = %2377
-  %.sroa.42521.0..sroa_idx2522 = getelementptr inbounds i8, ptr %2380, i64 8
+  %.sroa.42521.0..sroa_idx2522 = getelementptr inbounds nuw i8, ptr %2380, i64 8
   %.sroa.42521.0.copyload2523 = load i8, ptr %.sroa.42521.0..sroa_idx2522, align 8
   br label %2391
 
@@ -22482,7 +22482,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2395 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2396 = extractvalue { ptr, i8 } %2395, 0
   store ptr %2396, ptr %391, align 8
-  %2397 = getelementptr inbounds i8, ptr %391, i64 8
+  %2397 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %2398 = extractvalue { ptr, i8 } %2395, 1
   store i8 %2398, ptr %2397, align 8
   %2399 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22496,7 +22496,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2403
 
 2402:                                             ; preds = %2391
-  %.sroa.42516.0..sroa_idx2517 = getelementptr inbounds i8, ptr %2392, i64 8
+  %.sroa.42516.0..sroa_idx2517 = getelementptr inbounds nuw i8, ptr %2392, i64 8
   %.sroa.42516.0.copyload2518 = load i8, ptr %.sroa.42516.0..sroa_idx2517, align 8
   br label %2403
 
@@ -22509,9 +22509,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3103.sroa.speculated = select i1 %2405, ptr %455, ptr %460
   %.sroa.130.0.copyload3322.sroa.speculated = select i1 %2405, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3103.sroa.speculated, ptr %393, align 8
-  %.sroa.130.0..sroa_idx3203 = getelementptr inbounds i8, ptr %393, i64 8
+  %.sroa.130.0..sroa_idx3203 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store i8 %.sroa.130.0.copyload3322.sroa.speculated, ptr %.sroa.130.0..sroa_idx3203, align 8
-  %.sroa.131.0..sroa_idx3380 = getelementptr inbounds i8, ptr %393, i64 9
+  %.sroa.131.0..sroa_idx3380 = getelementptr inbounds nuw i8, ptr %393, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3380, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2406 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02519.0, i8 %.sroa.42521.0, ptr %.sroa.02514.0, i8 %.sroa.42516.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %393, ptr noundef nonnull %1) #7
   %2407 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22531,7 +22531,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2414 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.66, ptr noundef nonnull %1) #7
   %2415 = extractvalue { ptr, i8 } %2414, 0
   store ptr %2415, ptr %395, align 8
-  %2416 = getelementptr inbounds i8, ptr %395, i64 8
+  %2416 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %2417 = extractvalue { ptr, i8 } %2414, 1
   store i8 %2417, ptr %2416, align 8
   %2418 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22545,7 +22545,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2422
 
 2421:                                             ; preds = %2408
-  %.sroa.42511.0..sroa_idx2512 = getelementptr inbounds i8, ptr %2411, i64 8
+  %.sroa.42511.0..sroa_idx2512 = getelementptr inbounds nuw i8, ptr %2411, i64 8
   %.sroa.42511.0.copyload2513 = load i8, ptr %.sroa.42511.0..sroa_idx2512, align 8
   br label %2422
 
@@ -22562,7 +22562,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2426 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2427 = extractvalue { ptr, i8 } %2426, 0
   store ptr %2427, ptr %398, align 8
-  %2428 = getelementptr inbounds i8, ptr %398, i64 8
+  %2428 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %2429 = extractvalue { ptr, i8 } %2426, 1
   store i8 %2429, ptr %2428, align 8
   %2430 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22576,7 +22576,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2434
 
 2433:                                             ; preds = %2422
-  %.sroa.42506.0..sroa_idx2507 = getelementptr inbounds i8, ptr %2423, i64 8
+  %.sroa.42506.0..sroa_idx2507 = getelementptr inbounds nuw i8, ptr %2423, i64 8
   %.sroa.42506.0.copyload2508 = load i8, ptr %.sroa.42506.0..sroa_idx2507, align 8
   br label %2434
 
@@ -22589,9 +22589,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3104.sroa.speculated = select i1 %2436, ptr %455, ptr %460
   %.sroa.130.0.copyload3323.sroa.speculated = select i1 %2436, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3104.sroa.speculated, ptr %400, align 8
-  %.sroa.130.0..sroa_idx3205 = getelementptr inbounds i8, ptr %400, i64 8
+  %.sroa.130.0..sroa_idx3205 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i8 %.sroa.130.0.copyload3323.sroa.speculated, ptr %.sroa.130.0..sroa_idx3205, align 8
-  %.sroa.131.0..sroa_idx3381 = getelementptr inbounds i8, ptr %400, i64 9
+  %.sroa.131.0..sroa_idx3381 = getelementptr inbounds nuw i8, ptr %400, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3381, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2437 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02509.0, i8 %.sroa.42511.0, ptr %.sroa.02504.0, i8 %.sroa.42506.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %400, ptr noundef nonnull %1) #7
   %2438 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22611,7 +22611,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2445 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.67, ptr noundef nonnull %1) #7
   %2446 = extractvalue { ptr, i8 } %2445, 0
   store ptr %2446, ptr %402, align 8
-  %2447 = getelementptr inbounds i8, ptr %402, i64 8
+  %2447 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %2448 = extractvalue { ptr, i8 } %2445, 1
   store i8 %2448, ptr %2447, align 8
   %2449 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22625,7 +22625,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2453
 
 2452:                                             ; preds = %2439
-  %.sroa.42501.0..sroa_idx2502 = getelementptr inbounds i8, ptr %2442, i64 8
+  %.sroa.42501.0..sroa_idx2502 = getelementptr inbounds nuw i8, ptr %2442, i64 8
   %.sroa.42501.0.copyload2503 = load i8, ptr %.sroa.42501.0..sroa_idx2502, align 8
   br label %2453
 
@@ -22642,7 +22642,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2457 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2458 = extractvalue { ptr, i8 } %2457, 0
   store ptr %2458, ptr %405, align 8
-  %2459 = getelementptr inbounds i8, ptr %405, i64 8
+  %2459 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %2460 = extractvalue { ptr, i8 } %2457, 1
   store i8 %2460, ptr %2459, align 8
   %2461 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22656,7 +22656,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2465
 
 2464:                                             ; preds = %2453
-  %.sroa.42496.0..sroa_idx2497 = getelementptr inbounds i8, ptr %2454, i64 8
+  %.sroa.42496.0..sroa_idx2497 = getelementptr inbounds nuw i8, ptr %2454, i64 8
   %.sroa.42496.0.copyload2498 = load i8, ptr %.sroa.42496.0..sroa_idx2497, align 8
   br label %2465
 
@@ -22669,9 +22669,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3105.sroa.speculated = select i1 %2467, ptr %455, ptr %460
   %.sroa.130.0.copyload3324.sroa.speculated = select i1 %2467, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3105.sroa.speculated, ptr %407, align 8
-  %.sroa.130.0..sroa_idx3207 = getelementptr inbounds i8, ptr %407, i64 8
+  %.sroa.130.0..sroa_idx3207 = getelementptr inbounds nuw i8, ptr %407, i64 8
   store i8 %.sroa.130.0.copyload3324.sroa.speculated, ptr %.sroa.130.0..sroa_idx3207, align 8
-  %.sroa.131.0..sroa_idx3382 = getelementptr inbounds i8, ptr %407, i64 9
+  %.sroa.131.0..sroa_idx3382 = getelementptr inbounds nuw i8, ptr %407, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3382, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2468 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02499.0, i8 %.sroa.42501.0, ptr %.sroa.02494.0, i8 %.sroa.42496.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %407, ptr noundef nonnull %1) #7
   %2469 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22691,7 +22691,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2476 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.68, ptr noundef nonnull %1) #7
   %2477 = extractvalue { ptr, i8 } %2476, 0
   store ptr %2477, ptr %409, align 8
-  %2478 = getelementptr inbounds i8, ptr %409, i64 8
+  %2478 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %2479 = extractvalue { ptr, i8 } %2476, 1
   store i8 %2479, ptr %2478, align 8
   %2480 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22705,7 +22705,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2484
 
 2483:                                             ; preds = %2470
-  %.sroa.42491.0..sroa_idx2492 = getelementptr inbounds i8, ptr %2473, i64 8
+  %.sroa.42491.0..sroa_idx2492 = getelementptr inbounds nuw i8, ptr %2473, i64 8
   %.sroa.42491.0.copyload2493 = load i8, ptr %.sroa.42491.0..sroa_idx2492, align 8
   br label %2484
 
@@ -22722,7 +22722,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2488 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2489 = extractvalue { ptr, i8 } %2488, 0
   store ptr %2489, ptr %412, align 8
-  %2490 = getelementptr inbounds i8, ptr %412, i64 8
+  %2490 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %2491 = extractvalue { ptr, i8 } %2488, 1
   store i8 %2491, ptr %2490, align 8
   %2492 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22736,7 +22736,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2496
 
 2495:                                             ; preds = %2484
-  %.sroa.42486.0..sroa_idx2487 = getelementptr inbounds i8, ptr %2485, i64 8
+  %.sroa.42486.0..sroa_idx2487 = getelementptr inbounds nuw i8, ptr %2485, i64 8
   %.sroa.42486.0.copyload2488 = load i8, ptr %.sroa.42486.0..sroa_idx2487, align 8
   br label %2496
 
@@ -22749,9 +22749,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3106.sroa.speculated = select i1 %2498, ptr %455, ptr %460
   %.sroa.130.0.copyload3325.sroa.speculated = select i1 %2498, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3106.sroa.speculated, ptr %414, align 8
-  %.sroa.130.0..sroa_idx3209 = getelementptr inbounds i8, ptr %414, i64 8
+  %.sroa.130.0..sroa_idx3209 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i8 %.sroa.130.0.copyload3325.sroa.speculated, ptr %.sroa.130.0..sroa_idx3209, align 8
-  %.sroa.131.0..sroa_idx3383 = getelementptr inbounds i8, ptr %414, i64 9
+  %.sroa.131.0..sroa_idx3383 = getelementptr inbounds nuw i8, ptr %414, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3383, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2499 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02489.0, i8 %.sroa.42491.0, ptr %.sroa.02484.0, i8 %.sroa.42486.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %414, ptr noundef nonnull %1) #7
   %2500 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22771,7 +22771,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2507 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.69, ptr noundef nonnull %1) #7
   %2508 = extractvalue { ptr, i8 } %2507, 0
   store ptr %2508, ptr %416, align 8
-  %2509 = getelementptr inbounds i8, ptr %416, i64 8
+  %2509 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %2510 = extractvalue { ptr, i8 } %2507, 1
   store i8 %2510, ptr %2509, align 8
   %2511 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22785,7 +22785,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2515
 
 2514:                                             ; preds = %2501
-  %.sroa.42481.0..sroa_idx2482 = getelementptr inbounds i8, ptr %2504, i64 8
+  %.sroa.42481.0..sroa_idx2482 = getelementptr inbounds nuw i8, ptr %2504, i64 8
   %.sroa.42481.0.copyload2483 = load i8, ptr %.sroa.42481.0..sroa_idx2482, align 8
   br label %2515
 
@@ -22802,7 +22802,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2519 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2520 = extractvalue { ptr, i8 } %2519, 0
   store ptr %2520, ptr %419, align 8
-  %2521 = getelementptr inbounds i8, ptr %419, i64 8
+  %2521 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %2522 = extractvalue { ptr, i8 } %2519, 1
   store i8 %2522, ptr %2521, align 8
   %2523 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22816,7 +22816,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2527
 
 2526:                                             ; preds = %2515
-  %.sroa.42476.0..sroa_idx2477 = getelementptr inbounds i8, ptr %2516, i64 8
+  %.sroa.42476.0..sroa_idx2477 = getelementptr inbounds nuw i8, ptr %2516, i64 8
   %.sroa.42476.0.copyload2478 = load i8, ptr %.sroa.42476.0..sroa_idx2477, align 8
   br label %2527
 
@@ -22829,9 +22829,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3107.sroa.speculated = select i1 %2529, ptr %455, ptr %460
   %.sroa.130.0.copyload3326.sroa.speculated = select i1 %2529, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3107.sroa.speculated, ptr %421, align 8
-  %.sroa.130.0..sroa_idx3211 = getelementptr inbounds i8, ptr %421, i64 8
+  %.sroa.130.0..sroa_idx3211 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i8 %.sroa.130.0.copyload3326.sroa.speculated, ptr %.sroa.130.0..sroa_idx3211, align 8
-  %.sroa.131.0..sroa_idx3384 = getelementptr inbounds i8, ptr %421, i64 9
+  %.sroa.131.0..sroa_idx3384 = getelementptr inbounds nuw i8, ptr %421, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3384, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2530 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02479.0, i8 %.sroa.42481.0, ptr %.sroa.02474.0, i8 %.sroa.42476.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %421, ptr noundef nonnull %1) #7
   %2531 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22851,7 +22851,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2538 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %1) #7
   %2539 = extractvalue { ptr, i8 } %2538, 0
   store ptr %2539, ptr %423, align 8
-  %2540 = getelementptr inbounds i8, ptr %423, i64 8
+  %2540 = getelementptr inbounds nuw i8, ptr %423, i64 8
   %2541 = extractvalue { ptr, i8 } %2538, 1
   store i8 %2541, ptr %2540, align 8
   %2542 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22865,7 +22865,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2546
 
 2545:                                             ; preds = %2532
-  %.sroa.42471.0..sroa_idx2472 = getelementptr inbounds i8, ptr %2535, i64 8
+  %.sroa.42471.0..sroa_idx2472 = getelementptr inbounds nuw i8, ptr %2535, i64 8
   %.sroa.42471.0.copyload2473 = load i8, ptr %.sroa.42471.0..sroa_idx2472, align 8
   br label %2546
 
@@ -22882,7 +22882,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2550 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #7
   %2551 = extractvalue { ptr, i8 } %2550, 0
   store ptr %2551, ptr %426, align 8
-  %2552 = getelementptr inbounds i8, ptr %426, i64 8
+  %2552 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %2553 = extractvalue { ptr, i8 } %2550, 1
   store i8 %2553, ptr %2552, align 8
   %2554 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22896,7 +22896,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2558
 
 2557:                                             ; preds = %2546
-  %.sroa.42466.0..sroa_idx2467 = getelementptr inbounds i8, ptr %2547, i64 8
+  %.sroa.42466.0..sroa_idx2467 = getelementptr inbounds nuw i8, ptr %2547, i64 8
   %.sroa.42466.0.copyload2468 = load i8, ptr %.sroa.42466.0..sroa_idx2467, align 8
   br label %2558
 
@@ -22915,7 +22915,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2564 = call { ptr, i8 } @_ZN8JVMCIEnv10create_boxE9BasicTypeP6jvaluePS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 11, ptr noundef nonnull %428, ptr noundef nonnull %1) #7
   %2565 = extractvalue { ptr, i8 } %2564, 0
   store ptr %2565, ptr %429, align 8
-  %2566 = getelementptr inbounds i8, ptr %429, i64 8
+  %2566 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %2567 = extractvalue { ptr, i8 } %2564, 1
   store i8 %2567, ptr %2566, align 8
   %2568 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22928,7 +22928,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2572
 
 2571:                                             ; preds = %2558
-  %.sroa.130.0..sroa_idx3329 = getelementptr inbounds i8, ptr %2561, i64 8
+  %.sroa.130.0..sroa_idx3329 = getelementptr inbounds nuw i8, ptr %2561, i64 8
   %.sroa.130.0.copyload3330 = load i8, ptr %.sroa.130.0..sroa_idx3329, align 8
   br label %2572
 
@@ -22937,9 +22937,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.18.in = phi ptr [ %429, %2569 ], [ %2561, %2571 ]
   %.sroa.02984.18 = load ptr, ptr %.sroa.02984.18.in, align 8
   store ptr %.sroa.02984.18, ptr %430, align 8
-  %.sroa.130.0..sroa_idx3213 = getelementptr inbounds i8, ptr %430, i64 8
+  %.sroa.130.0..sroa_idx3213 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i8 %.sroa.130.18, ptr %.sroa.130.0..sroa_idx3213, align 8
-  %.sroa.131.0..sroa_idx3385 = getelementptr inbounds i8, ptr %430, i64 9
+  %.sroa.131.0..sroa_idx3385 = getelementptr inbounds nuw i8, ptr %430, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3385, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2573 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02469.0, i8 %.sroa.42471.0, ptr %.sroa.02464.0, i8 %.sroa.42466.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %430, ptr noundef nonnull %1) #7
   %2574 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22959,7 +22959,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2581 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.71, ptr noundef nonnull %1) #7
   %2582 = extractvalue { ptr, i8 } %2581, 0
   store ptr %2582, ptr %432, align 8
-  %2583 = getelementptr inbounds i8, ptr %432, i64 8
+  %2583 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %2584 = extractvalue { ptr, i8 } %2581, 1
   store i8 %2584, ptr %2583, align 8
   %2585 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -22973,7 +22973,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2589
 
 2588:                                             ; preds = %2575
-  %.sroa.42461.0..sroa_idx2462 = getelementptr inbounds i8, ptr %2578, i64 8
+  %.sroa.42461.0..sroa_idx2462 = getelementptr inbounds nuw i8, ptr %2578, i64 8
   %.sroa.42461.0.copyload2463 = load i8, ptr %.sroa.42461.0..sroa_idx2462, align 8
   br label %2589
 
@@ -22990,7 +22990,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2593 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2594 = extractvalue { ptr, i8 } %2593, 0
   store ptr %2594, ptr %435, align 8
-  %2595 = getelementptr inbounds i8, ptr %435, i64 8
+  %2595 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %2596 = extractvalue { ptr, i8 } %2593, 1
   store i8 %2596, ptr %2595, align 8
   %2597 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23004,7 +23004,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2601
 
 2600:                                             ; preds = %2589
-  %.sroa.42456.0..sroa_idx2457 = getelementptr inbounds i8, ptr %2590, i64 8
+  %.sroa.42456.0..sroa_idx2457 = getelementptr inbounds nuw i8, ptr %2590, i64 8
   %.sroa.42456.0.copyload2458 = load i8, ptr %.sroa.42456.0..sroa_idx2457, align 8
   br label %2601
 
@@ -23017,9 +23017,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3110.sroa.speculated = select i1 %2603, ptr %455, ptr %460
   %.sroa.130.0.copyload3331.sroa.speculated = select i1 %2603, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3110.sroa.speculated, ptr %437, align 8
-  %.sroa.130.0..sroa_idx3215 = getelementptr inbounds i8, ptr %437, i64 8
+  %.sroa.130.0..sroa_idx3215 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store i8 %.sroa.130.0.copyload3331.sroa.speculated, ptr %.sroa.130.0..sroa_idx3215, align 8
-  %.sroa.131.0..sroa_idx3386 = getelementptr inbounds i8, ptr %437, i64 9
+  %.sroa.131.0..sroa_idx3386 = getelementptr inbounds nuw i8, ptr %437, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3386, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2604 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02459.0, i8 %.sroa.42461.0, ptr %.sroa.02454.0, i8 %.sroa.42456.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %437, ptr noundef nonnull %1) #7
   %2605 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23039,7 +23039,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2612 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.72, ptr noundef nonnull %1) #7
   %2613 = extractvalue { ptr, i8 } %2612, 0
   store ptr %2613, ptr %439, align 8
-  %2614 = getelementptr inbounds i8, ptr %439, i64 8
+  %2614 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %2615 = extractvalue { ptr, i8 } %2612, 1
   store i8 %2615, ptr %2614, align 8
   %2616 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23053,7 +23053,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2620
 
 2619:                                             ; preds = %2606
-  %.sroa.42451.0..sroa_idx2452 = getelementptr inbounds i8, ptr %2609, i64 8
+  %.sroa.42451.0..sroa_idx2452 = getelementptr inbounds nuw i8, ptr %2609, i64 8
   %.sroa.42451.0.copyload2453 = load i8, ptr %.sroa.42451.0..sroa_idx2452, align 8
   br label %2620
 
@@ -23070,7 +23070,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2624 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2625 = extractvalue { ptr, i8 } %2624, 0
   store ptr %2625, ptr %442, align 8
-  %2626 = getelementptr inbounds i8, ptr %442, i64 8
+  %2626 = getelementptr inbounds nuw i8, ptr %442, i64 8
   %2627 = extractvalue { ptr, i8 } %2624, 1
   store i8 %2627, ptr %2626, align 8
   %2628 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23084,7 +23084,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2632
 
 2631:                                             ; preds = %2620
-  %.sroa.42446.0..sroa_idx2447 = getelementptr inbounds i8, ptr %2621, i64 8
+  %.sroa.42446.0..sroa_idx2447 = getelementptr inbounds nuw i8, ptr %2621, i64 8
   %.sroa.42446.0.copyload2448 = load i8, ptr %.sroa.42446.0..sroa_idx2447, align 8
   br label %2632
 
@@ -23097,9 +23097,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.02984.0.copyload3111.sroa.speculated = select i1 %2634, ptr %455, ptr %460
   %.sroa.130.0.copyload3332.sroa.speculated = select i1 %2634, i8 %456, i8 %461
   store ptr %.sroa.02984.0.copyload3111.sroa.speculated, ptr %444, align 8
-  %.sroa.130.0..sroa_idx3217 = getelementptr inbounds i8, ptr %444, i64 8
+  %.sroa.130.0..sroa_idx3217 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store i8 %.sroa.130.0.copyload3332.sroa.speculated, ptr %.sroa.130.0..sroa_idx3217, align 8
-  %.sroa.131.0..sroa_idx3387 = getelementptr inbounds i8, ptr %444, i64 9
+  %.sroa.131.0..sroa_idx3387 = getelementptr inbounds nuw i8, ptr %444, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3387, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2635 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02449.0, i8 %.sroa.42451.0, ptr %.sroa.02444.0, i8 %.sroa.42446.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %444, ptr noundef nonnull %1) #7
   %2636 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23119,7 +23119,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2643 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.73, ptr noundef nonnull %1) #7
   %2644 = extractvalue { ptr, i8 } %2643, 0
   store ptr %2644, ptr %446, align 8
-  %2645 = getelementptr inbounds i8, ptr %446, i64 8
+  %2645 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %2646 = extractvalue { ptr, i8 } %2643, 1
   store i8 %2646, ptr %2645, align 8
   %2647 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23133,7 +23133,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2651
 
 2650:                                             ; preds = %2637
-  %.sroa.42441.0..sroa_idx2442 = getelementptr inbounds i8, ptr %2640, i64 8
+  %.sroa.42441.0..sroa_idx2442 = getelementptr inbounds nuw i8, ptr %2640, i64 8
   %.sroa.42441.0.copyload2443 = load i8, ptr %.sroa.42441.0..sroa_idx2442, align 8
   br label %2651
 
@@ -23150,7 +23150,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %2655 = call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #7
   %2656 = extractvalue { ptr, i8 } %2655, 0
   store ptr %2656, ptr %449, align 8
-  %2657 = getelementptr inbounds i8, ptr %449, i64 8
+  %2657 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %2658 = extractvalue { ptr, i8 } %2655, 1
   store i8 %2658, ptr %2657, align 8
   %2659 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23164,7 +23164,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   br label %2663
 
 2662:                                             ; preds = %2651
-  %.sroa.4.0..sroa_idx2437 = getelementptr inbounds i8, ptr %2652, i64 8
+  %.sroa.4.0..sroa_idx2437 = getelementptr inbounds nuw i8, ptr %2652, i64 8
   %.sroa.4.0.copyload2438 = load i8, ptr %.sroa.4.0..sroa_idx2437, align 8
   br label %2663
 
@@ -23173,9 +23173,9 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr nocaptu
   %.sroa.0.0.in = phi ptr [ %449, %2660 ], [ %2652, %2662 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
   store ptr %460, ptr %451, align 8
-  %.sroa.130.0..sroa_idx3219 = getelementptr inbounds i8, ptr %451, i64 8
+  %.sroa.130.0..sroa_idx3219 = getelementptr inbounds nuw i8, ptr %451, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3219, align 8
-  %.sroa.131.0..sroa_idx3388 = getelementptr inbounds i8, ptr %451, i64 9
+  %.sroa.131.0..sroa_idx3388 = getelementptr inbounds nuw i8, ptr %451, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3388, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2664 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02439.0, i8 %.sroa.42441.0, ptr %.sroa.0.0, i8 %.sroa.4.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %451, ptr noundef nonnull %1) #7
   %2665 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
@@ -23247,7 +23247,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %6 = sext i8 %5 to i32
   %7 = mul i32 %.058.i, 31
   %8 = add i32 %7, %6
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !11
@@ -23256,7 +23256,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
   %.05.lcssa.i = phi i32 [ 0, %2 ], [ %8, %.lr.ph.i ]
   %11 = and i32 %.05.lcssa.i, 255
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not11.i.i = icmp eq ptr %14, null
   br i1 %.not11.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i
@@ -23268,14 +23268,14 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %.lr.ph.i.i
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %15, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i, !llvm.loop !12
@@ -23283,7 +23283,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %18, %23, %_ZN12CompilerToVM12cstring_hashERKPKc.exit
   %26 = phi ptr [ null, %_ZN12CompilerToVM12cstring_hashERKPKc.exit ], [ %15, %18 ], [ null, %23 ]
   %.not = icmp eq ptr %26, null
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.0 = select i1 %.not, ptr null, ptr %27
   ret ptr %.0
 }
@@ -23304,7 +23304,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %7 = sext i8 %6 to i32
   %8 = mul i32 %.058.i, 31
   %9 = add i32 %8, %7
-  %10 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %11 = load i8, ptr %10, align 1
   %.not.i = icmp eq i8 %11, 0
   br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !11
@@ -23313,7 +23313,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %3
   %.05.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
   %12 = and i32 %.05.lcssa.i, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not11.i = icmp eq ptr %15, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread, label %.lr.ph.i12
@@ -23325,40 +23325,40 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %3
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %.lr.ph.i12
-  %19 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %23
 
 23:                                               ; preds = %18, %.lr.ph.i12
-  %24 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i13 = icmp eq ptr %25, null
   br i1 %.not.i13, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %.lr.ph.i12, !llvm.loop !12
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %.pr, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 8 dereferenceable(9) %2, i64 9, i1 false)
   br label %36
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit: ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, %_ZN12CompilerToVM12cstring_hashERKPKc.exit
   %.0.lcssa.i16 = phi ptr [ %14, %_ZN12CompilerToVM12cstring_hashERKPKc.exit ], [ %27, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit ]
   %28 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #7
   store i32 %.05.lcssa.i, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %1, align 8
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %32, align 8
   store ptr %28, ptr %.0.lcssa.i16, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 2048
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %34 = load i32, ptr %33, align 8
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 8
@@ -23380,7 +23380,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %6 = xor i32 %5, %4
   %7 = and i32 %6, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not11.i.i = icmp eq ptr %10, null
   br i1 %.not11.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %.lr.ph.i.i
@@ -23392,13 +23392,13 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %3, %16
   br i1 %17, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %18
 
 18:                                               ; preds = %14, %.lr.ph.i.i
-  %19 = getelementptr inbounds i8, ptr %11, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %.lr.ph.i.i, !llvm.loop !13
@@ -23406,7 +23406,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit: ; preds = %14, %18, %2
   %21 = phi ptr [ null, %2 ], [ %11, %14 ], [ null, %18 ]
   %.not = icmp eq ptr %21, null
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0 = select i1 %.not, ptr null, ptr %22
   ret ptr %.0
 }
@@ -23419,7 +23419,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %7 = xor i32 %6, %5
   %8 = and i32 %7, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %11, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread, label %.lr.ph.i
@@ -23431,39 +23431,39 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %4, %16
   br i1 %17, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %18
 
 18:                                               ; preds = %14, %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit: ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %.pr, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %21, ptr noundef nonnull align 8 dereferenceable(9) %2, i64 9, i1 false)
   br label %31
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit: ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit, %3
   %.0.lcssa.i14 = phi ptr [ %10, %3 ], [ %22, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit ]
   %23 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #7
   store i32 %7, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %1, align 8
   store i64 %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %27 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %27, align 8
   store ptr %23, ptr %.0.lcssa.i14, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 2048
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %29 = load i32, ptr %28, align 8
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 8

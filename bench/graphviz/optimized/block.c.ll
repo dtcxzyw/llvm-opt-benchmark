@@ -25,7 +25,7 @@ define noalias noundef ptr @mkBlock(ptr noundef %0) local_unnamed_addr #1 {
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %7, align 8
   ret ptr %2
 }
@@ -36,7 +36,7 @@ define void @freeBlock(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @freeNodelist(ptr noundef %4) #14
   tail call void @free(ptr noundef nonnull %0) #14
@@ -53,7 +53,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @blockSize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @agnnodes(ptr noundef %3) #14
   ret i32 %4
@@ -63,15 +63,15 @@ declare i32 @agnnodes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @appendBlock(ptr nocapture noundef %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
   br label %9
 
@@ -90,7 +90,7 @@ define void @insertBlock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
   %.not = icmp eq ptr %3, null
   %. = select i1 %.not, ptr %0, ptr %1
   %.11 = select i1 %.not, ptr %1, ptr %3
-  %4 = getelementptr inbounds i8, ptr %., i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %., i64 8
   store ptr %.11, ptr %4, align 8
   store ptr %1, ptr %0, align 8
   ret void

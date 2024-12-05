@@ -37,34 +37,34 @@ define void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session_
 entry:
   %frombool = zext i1 %delayed_start_ to i8
   tail call void @_ZN3zmq5own_tC2EPNS_11io_thread_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1444) %this, ptr noundef %io_thread_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
-  %0 = getelementptr inbounds i8, ptr %this, i64 1448
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1448
   invoke void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %io_thread_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %0, align 8
-  %_addr = getelementptr inbounds i8, ptr %this, i64 1464
+  %_addr = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store ptr %addr_, ptr %_addr, align 8
-  %_s = getelementptr inbounds i8, ptr %this, i64 1472
+  %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
   store i32 -1, ptr %_s, align 8
-  %_handle = getelementptr inbounds i8, ptr %this, i64 1480
+  %_handle = getelementptr inbounds nuw i8, ptr %this, i64 1480
   store ptr null, ptr %_handle, align 8
-  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
+  %_endpoint = getelementptr inbounds nuw i8, ptr %this, i64 1488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_endpoint) #16
   %call = invoke noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %session_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %_socket = getelementptr inbounds i8, ptr %this, i64 1520
+  %_socket = getelementptr inbounds nuw i8, ptr %this, i64 1520
   store ptr %call, ptr %_socket, align 8
-  %_delayed_start = getelementptr inbounds i8, ptr %this, i64 1528
+  %_delayed_start = getelementptr inbounds nuw i8, ptr %this, i64 1528
   store i8 %frombool, ptr %_delayed_start, align 8
-  %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
+  %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   store i8 0, ptr %_reconnect_timer_started, align 1
-  %_current_reconnect_ivl = getelementptr inbounds i8, ptr %this, i64 1532
+  %_current_reconnect_ivl = getelementptr inbounds nuw i8, ptr %this, i64 1532
   store i32 -1, ptr %_current_reconnect_ivl, align 4
-  %_session = getelementptr inbounds i8, ptr %this, i64 1536
+  %_session = getelementptr inbounds nuw i8, ptr %this, i64 1536
   store ptr %session_, ptr %_session, align 8
   %1 = load ptr, ptr %_addr, align 8
   %tobool6.not = icmp eq ptr %1, null
@@ -142,9 +142,9 @@ declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444
 define void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) initializes((0, 8), (1448, 1456)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %add.ptr, align 8
-  %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
+  %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   %0 = load i8, ptr %_reconnect_timer_started, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %do.body6
@@ -158,7 +158,7 @@ if.then:                                          ; preds = %entry
           to label %do.body6 unwind label %terminate.lpad
 
 do.body6:                                         ; preds = %entry, %if.then
-  %_handle = getelementptr inbounds i8, ptr %this, i64 1480
+  %_handle = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %3 = load ptr, ptr %_handle, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %do.body19, label %if.then10
@@ -172,7 +172,7 @@ if.then10:                                        ; preds = %do.body6
           to label %do.body19 unwind label %terminate.lpad
 
 do.body19:                                        ; preds = %do.body6, %if.then10
-  %_s = getelementptr inbounds i8, ptr %this, i64 1472
+  %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
   %6 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %6, -1
   br i1 %cmp.not, label %do.end29, label %if.then21
@@ -186,7 +186,7 @@ if.then21:                                        ; preds = %do.body19
           to label %do.end29 unwind label %terminate.lpad
 
 do.end29:                                         ; preds = %if.then21, %do.body19
-  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
+  %_endpoint = getelementptr inbounds nuw i8, ptr %this, i64 1488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_endpoint) #16
   tail call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #16
   tail call void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444) %this) #16
@@ -240,7 +240,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq23stream_connecter_base_t12process_plugEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) unnamed_addr #0 align 2 {
 entry:
-  %_delayed_start = getelementptr inbounds i8, ptr %this, i64 1528
+  %_delayed_start = getelementptr inbounds nuw i8, ptr %this, i64 1528
   %0 = load i8, ptr %_delayed_start, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -251,7 +251,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(1544) %this)
   br label %if.end
@@ -264,16 +264,16 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %reconnect_ivl = getelementptr inbounds i8, ptr %this, i64 352
+  %reconnect_ivl = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load i32, ptr %reconnect_ivl, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %reconnect_ivl_max.i = getelementptr inbounds i8, ptr %this, i64 356
+  %reconnect_ivl_max.i = getelementptr inbounds nuw i8, ptr %this, i64 356
   %1 = load i32, ptr %reconnect_ivl_max.i, align 4
   %cmp.i = icmp sgt i32 %1, 0
-  %_current_reconnect_ivl.i = getelementptr inbounds i8, ptr %this, i64 1532
+  %_current_reconnect_ivl.i = getelementptr inbounds nuw i8, ptr %this, i64 1532
   %2 = load i32, ptr %_current_reconnect_ivl.i, align 4
   %cmp2.i = icmp eq i32 %2, -1
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
@@ -307,27 +307,27 @@ if.end30.i:                                       ; preds = %if.then26.i, %if.el
 
 _ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit: ; preds = %if.then.i, %if.end30.i
   %retval.0.i = phi i32 [ %.candidate_interval.0.i, %if.then.i ], [ %spec.select4.i, %if.end30.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   tail call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i32 noundef %retval.0.i, i32 noundef 1)
-  %_socket = getelementptr inbounds i8, ptr %this, i64 1520
+  %_socket = getelementptr inbounds nuw i8, ptr %this, i64 1520
   %5 = load ptr, ptr %_socket, align 8
-  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
+  %_endpoint = getelementptr inbounds nuw i8, ptr %this, i64 1488
   call void @_ZN3zmq38make_unconnected_connect_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
   invoke void @_ZN3zmq13socket_base_t21event_connect_retriedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %5, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp, i32 noundef %retval.0.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
-  %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %remote.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #16
-  %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
+  %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   store i8 1, ptr %_reconnect_timer_started, align 1
   br label %if.end
 
 lpad:                                             ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  %remote.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %remote.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i2) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #16
   resume { ptr, i32 } %6
@@ -339,31 +339,31 @@ if.end:                                           ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq23stream_connecter_base_t12process_termEi(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %linger_) unnamed_addr #0 align 2 {
 entry:
-  %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
+  %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   %0 = load i8, ptr %_reconnect_timer_started, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   tail call void @_ZN3zmq11io_object_t12cancel_timerEi(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i32 noundef 1)
   store i8 0, ptr %_reconnect_timer_started, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_handle = getelementptr inbounds i8, ptr %this, i64 1480
+  %_handle = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %1 = load ptr, ptr %_handle, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 1448
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull %1)
   store ptr null, ptr %_handle, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end
-  %_s = getelementptr inbounds i8, ptr %this, i64 1472
+  %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
   %2 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end7, label %if.then6
@@ -382,8 +382,8 @@ declare void @_ZN3zmq11io_object_t12cancel_timerEi(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq23stream_connecter_base_t9rm_handleEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
-  %_handle = getelementptr inbounds i8, ptr %this, i64 1480
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
+  %_handle = getelementptr inbounds nuw i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_handle, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef %0)
   store ptr null, ptr %_handle, align 8
@@ -394,7 +394,7 @@ entry:
 define void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %_s = getelementptr inbounds i8, ptr %this, i64 1472
+  %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
   %0 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -416,16 +416,16 @@ if.then4:                                         ; preds = %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.then, %if.then4
-  %_socket = getelementptr inbounds i8, ptr %this, i64 1520
+  %_socket = getelementptr inbounds nuw i8, ptr %this, i64 1520
   %4 = load ptr, ptr %_socket, align 8
-  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
+  %_endpoint = getelementptr inbounds nuw i8, ptr %this, i64 1488
   call void @_ZN3zmq38make_unconnected_connect_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
   %5 = load i32, ptr %_s, align 8
   invoke void @_ZN3zmq13socket_base_t12event_closedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %4, ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp, i32 noundef %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.end
-  %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %remote.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #16
   store i32 -1, ptr %_s, align 8
@@ -434,7 +434,7 @@ invoke.cont:                                      ; preds = %do.end
 lpad:                                             ; preds = %do.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  %remote.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %remote.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i2) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #16
   resume { ptr, i32 } %6
@@ -448,16 +448,16 @@ declare void @_ZN3zmq5own_t12process_termEi(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %reconnect_ivl_max = getelementptr inbounds i8, ptr %this, i64 356
+  %reconnect_ivl_max = getelementptr inbounds nuw i8, ptr %this, i64 356
   %0 = load i32, ptr %reconnect_ivl_max, align 4
   %cmp = icmp sgt i32 %0, 0
-  %_current_reconnect_ivl = getelementptr inbounds i8, ptr %this, i64 1532
+  %_current_reconnect_ivl = getelementptr inbounds nuw i8, ptr %this, i64 1532
   %1 = load i32, ptr %_current_reconnect_ivl, align 4
   %cmp2 = icmp eq i32 %1, -1
   br i1 %cmp, label %if.then, label %if.else23
 
 if.then:                                          ; preds = %entry
-  %reconnect_ivl = getelementptr inbounds i8, ptr %this, i64 352
+  %reconnect_ivl = getelementptr inbounds nuw i8, ptr %this, i64 352
   %2 = load i32, ptr %reconnect_ivl, align 8
   %cmp6 = icmp sgt i32 %1, 1073741823
   %mul = shl nsw i32 %1, 1
@@ -471,14 +471,14 @@ if.else23:                                        ; preds = %entry
   br i1 %cmp2, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.else23
-  %reconnect_ivl28 = getelementptr inbounds i8, ptr %this, i64 352
+  %reconnect_ivl28 = getelementptr inbounds nuw i8, ptr %this, i64 352
   %3 = load i32, ptr %reconnect_ivl28, align 8
   store i32 %3, ptr %_current_reconnect_ivl, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then26, %if.else23
   %call31 = tail call noundef i32 @_ZN3zmq15generate_randomEv()
-  %reconnect_ivl33 = getelementptr inbounds i8, ptr %this, i64 352
+  %reconnect_ivl33 = getelementptr inbounds nuw i8, ptr %this, i64 352
   %4 = load i32, ptr %reconnect_ivl33, align 8
   %rem = urem i32 %call31, %4
   %5 = load i32, ptr %_current_reconnect_ivl, align 4
@@ -516,9 +516,9 @@ declare void @_ZN3zmq13socket_base_t12event_closedERKNS_19endpoint_uri_pair_tEi(
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq23stream_connecter_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1544) %this) unnamed_addr #0 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
   ret void
@@ -528,7 +528,7 @@ entry:
 define void @_ZThn1448_N3zmq23stream_connecter_base_t8in_eventEv(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   ret void
@@ -538,9 +538,9 @@ entry:
 define void @_ZN3zmq23stream_connecter_base_t13create_engineEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(32) %local_address_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %endpoint_pair = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
+  %_endpoint = getelementptr inbounds nuw i8, ptr %this, i64 1488
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair, ptr noundef nonnull align 8 dereferenceable(32) %local_address_)
-  %remote3.i = getelementptr inbounds i8, ptr %endpoint_pair, i64 32
+  %remote3.i = getelementptr inbounds nuw i8, ptr %endpoint_pair, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %remote3.i, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
           to label %_ZN3zmq19endpoint_uri_pair_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_15endpoint_type_tE.exit unwind label %lpad.i
 
@@ -555,10 +555,10 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN3zmq19endpoint_uri_pair_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_15endpoint_type_tE.exit: ; preds = %entry
-  %local_type4.i = getelementptr inbounds i8, ptr %endpoint_pair, i64 64
+  %local_type4.i = getelementptr inbounds nuw i8, ptr %endpoint_pair, i64 64
   store i32 2, ptr %local_type4.i, align 8
-  %options = getelementptr inbounds i8, ptr %this, i64 24
-  %raw_socket = getelementptr inbounds i8, ptr %this, i64 395
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %raw_socket = getelementptr inbounds nuw i8, ptr %this, i64 395
   %1 = load i8, ptr %raw_socket, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -573,7 +573,7 @@ new.notnull:                                      ; preds = %if.then
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %new.notnull
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 16
   br label %do.end
 
 lpad:                                             ; preds = %new.notnull
@@ -592,7 +592,7 @@ new.notnull5:                                     ; preds = %if.else
           to label %new.cont14 unwind label %lpad9
 
 new.cont14:                                       ; preds = %new.notnull5
-  %add.ptr16 = getelementptr inbounds i8, ptr %call3, i64 16
+  %add.ptr16 = getelementptr inbounds nuw i8, ptr %call3, i64 16
   br label %do.end
 
 lpad9:                                            ; preds = %new.notnull5
@@ -616,7 +616,7 @@ lpad21:                                           ; preds = %invoke.cont29, %inv
 
 do.end:                                           ; preds = %new.cont14, %new.cont, %if.then20
   %engine.010 = phi ptr [ null, %if.then20 ], [ %add.ptr, %new.cont ], [ %add.ptr16, %new.cont14 ]
-  %_session = getelementptr inbounds i8, ptr %this, i64 1536
+  %_session = getelementptr inbounds nuw i8, ptr %this, i64 1536
   %7 = load ptr, ptr %_session, align 8
   invoke void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %7, ptr noundef %engine.010, i1 noundef zeroext true)
           to label %invoke.cont28 unwind label %lpad21
@@ -626,7 +626,7 @@ invoke.cont28:                                    ; preds = %do.end
           to label %invoke.cont29 unwind label %lpad21
 
 invoke.cont29:                                    ; preds = %invoke.cont28
-  %_socket = getelementptr inbounds i8, ptr %this, i64 1520
+  %_socket = getelementptr inbounds nuw i8, ptr %this, i64 1520
   %8 = load ptr, ptr %_socket, align 8
   invoke void @_ZN3zmq13socket_base_t15event_connectedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %8, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair, i32 noundef %fd_)
           to label %invoke.cont30 unwind label %lpad21
@@ -673,10 +673,10 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
+  %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   store i8 0, ptr %_reconnect_timer_started, align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(1544) %this)
   ret void
@@ -698,10 +698,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZN3zmq23stream_connecter_base_t11timer_eventEi.exit: ; preds = %entry, %if.then.i
   %2 = getelementptr inbounds i8, ptr %this, i64 -1448
-  %_reconnect_timer_started.i = getelementptr inbounds i8, ptr %this, i64 81
+  %_reconnect_timer_started.i = getelementptr inbounds nuw i8, ptr %this, i64 81
   store i8 0, ptr %_reconnect_timer_started.i, align 1
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 216
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 216
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(1544) %2)
   ret void

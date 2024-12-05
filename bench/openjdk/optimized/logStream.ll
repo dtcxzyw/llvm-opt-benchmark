@@ -69,11 +69,11 @@ $_ZTV17LogStreamImplBase = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17LogStreamImplBase10LineBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %4, align 8
   store i8 0, ptr %0, align 8
   ret void
@@ -81,7 +81,7 @@ define hidden void @_ZN17LogStreamImplBase10LineBufferC2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17LogStreamImplBase10LineBufferD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, %0
   br i1 %.not, label %5, label %4
@@ -98,7 +98,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %4, %1
   br i1 %.not, label %5, label %36
@@ -114,14 +114,14 @@ define hidden noundef zeroext i1 @_ZN17LogStreamImplBase10LineBuffer14try_ensure
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %7
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %20, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %17, 99
   %19 = select i1 %18, ptr @.str.4, ptr @.str.5
@@ -135,20 +135,20 @@ define hidden noundef zeroext i1 @_ZN17LogStreamImplBase10LineBuffer14try_ensure
   br i1 %22, label %36, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load i64, ptr %24, align 8
   %.not17 = icmp eq i64 %25, 0
   br i1 %.not17, label %30, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = add i64 %25, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %28, i64 %29, i1 false)
   br label %30
 
 30:                                               ; preds = %26, %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8
   %.not18 = icmp eq ptr %32, %0
   br i1 %.not18, label %34, label %33
@@ -184,11 +184,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ult i64 %9, %7
   br i1 %.not.i, label %10, label %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9
@@ -204,12 +204,12 @@ define hidden void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef n
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not19.i = icmp eq ptr %17, null
   br i1 %.not19.i, label %23, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ugt i64 %5, 99
   %22 = select i1 %21, ptr @.str.4, ptr @.str.5
@@ -233,14 +233,14 @@ define hidden void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef n
   br i1 %.not17.i, label %32, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = add i64 %27, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %30, i64 %31, i1 false)
   br label %32
 
 32:                                               ; preds = %28, %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   %.not18.i = icmp eq ptr %34, %0
   br i1 %.not18.i, label %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit, label %35
@@ -267,7 +267,7 @@ _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread: ; preds = %._Z
 _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9: ; preds = %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit, %3, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread
   %41 = phi i64 [ %36, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %5, %3 ], [ %.pre13, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
   %.0 = phi i64 [ %39, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread ], [ %2, %3 ], [ %2, %_ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %1, i64 %.0, i1 false)
@@ -285,9 +285,9 @@ _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9: ; preds = %_Z
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN17LogStreamImplBase10LineBuffer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
   ret void
@@ -296,18 +296,18 @@ define hidden void @_ZN17LogStreamImplBase10LineBuffer5resetEv(ptr nocapture nou
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleEC2ES0_(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %1, ptr %2) unnamed_addr #1 comdat($_ZN13LogStreamImplI15LogTargetHandleEC5ES0_) align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext false) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %7, align 8
   store i8 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %8, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %.sroa.21.0..sroa_idx, align 8
   ret void
 }
@@ -315,15 +315,15 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleEC2ES0_(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat($_ZN13LogStreamImplI15LogTargetHandleED5Ev) align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.6, ptr noundef %9)
   store i64 0, ptr %3, align 8
@@ -333,7 +333,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr nound
 
 11:                                               ; preds = %6, %1
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, %2
   br i1 %.not.i.i, label %_ZN17LogStreamImplBaseD2Ev.exit, label %14
@@ -350,12 +350,12 @@ _ZN17LogStreamImplBaseD2Ev.exit:                  ; preds = %11, %14
 define linkonce_odr hidden void @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -378,13 +378,13 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleED0Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN13LogStreamImplI15LogTargetHandleE10is_enabledEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   ret i1 %10
@@ -403,20 +403,20 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleE5writeEPKcm(pt
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull %1, i64 noundef %5)
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.6, ptr noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %14, align 8
   %15 = load ptr, ptr %12, align 8
   store i8 0, ptr %15, align 1
   br label %18
 
 16:                                               ; preds = %4, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef %1, i64 noundef %2)
   br label %18
 
@@ -430,18 +430,18 @@ declare noundef zeroext i1 @_ZN12outputStream15update_positionEPKcm(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleEC2ES0_(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %1, ptr %2) unnamed_addr #1 comdat($_ZN13LogStreamImplI16LogMessageHandleEC5ES0_) align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext false) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %7, align 8
   store i8 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %8, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %.sroa.21.0..sroa_idx, align 8
   ret void
 }
@@ -449,15 +449,15 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleEC2ES0_(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat($_ZN13LogStreamImplI16LogMessageHandleED5Ev) align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN16LogMessageHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.6, ptr noundef %9)
   store i64 0, ptr %3, align 8
@@ -467,7 +467,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleED2Ev(ptr noun
 
 11:                                               ; preds = %6, %1
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, %2
   br i1 %.not.i.i, label %_ZN17LogStreamImplBaseD2Ev.exit, label %14
@@ -484,14 +484,14 @@ _ZN17LogStreamImplBaseD2Ev.exit:                  ; preds = %11, %14
 define linkonce_odr hidden void @_ZN16LogMessageHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x ptr], ptr %9, i64 0, i64 %10
   %12 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %16, label %13
@@ -516,15 +516,15 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleED0Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN13LogStreamImplI16LogMessageHandleE10is_enabledEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds [6 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
   ret i1 %12
@@ -543,20 +543,20 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleE5writeEPKcm(p
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull %1, i64 noundef %5)
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN16LogMessageHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.6, ptr noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %14, align 8
   %15 = load ptr, ptr %12, align 8
   store i8 0, ptr %15, align 1
   br label %18
 
 16:                                               ; preds = %4, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBuffer6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef %1, i64 noundef %2)
   br label %18
 
@@ -604,8 +604,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, %2
   br i1 %.not.i, label %_ZN17LogStreamImplBase10LineBufferD2Ev.exit, label %5

@@ -229,11 +229,11 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN20ParallelScavengeHeap10initializ
   %6 = load i64, ptr @HeapAlignment, align 8
   call void @_ZN8Universe12reserve_heapEmm(ptr dead_on_unwind nonnull writable sret(%class.ReservedHeapSpace) align 8 %2, i64 noundef %5, i64 noundef %6) #15
   %.sroa.031.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.432.0.copyload = load i64, ptr %.sroa.432.0..sroa_idx, align 8
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit, label %8
 
@@ -245,7 +245,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN20ParallelScavengeHeap10initializ
 _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit: ; preds = %1, %8
   call void @_ZN13CollectedHeap26initialize_reserved_regionERK17ReservedHeapSpace(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(49) %2) #15
   %10 = load i64, ptr @MaxOldSize, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8, !noalias !6
   call void @_ZN13ReservedSpace10first_partEmm(ptr dead_on_unwind nonnull writable sret(%class.ReservedSpace) align 8 %3, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 noundef %10, i64 noundef %12) #15
   %13 = load i64, ptr @MaxOldSize, align 8
@@ -257,7 +257,7 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   %18 = extractvalue { ptr, i64 } %16, 1
   call void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereferenceable(92) %15, ptr %17, i64 %18) #15
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11PSCardTable, i64 16), ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store volatile i32 0, ptr %19, align 8
   %20 = load ptr, ptr %3, align 8
   %21 = load ptr, ptr %4, align 8
@@ -266,7 +266,7 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   call void @_ZN19CardTableBarrierSetC1EP9CardTable(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull %15) #15
   call void @_ZN19CardTableBarrierSet10initializeEv(ptr noundef nonnull align 8 dereferenceable(80) %22) #15
   call void @_ZN10BarrierSet15set_barrier_setEPS_(ptr noundef nonnull %22) #15
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @_ZN13WorkerThreads18initialize_workersEv(ptr noundef nonnull align 8 dereferenceable(120) %23) #15
   %24 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 5, i32 noundef 0) #15
   %25 = load i64, ptr @NewSize, align 8
@@ -284,21 +284,21 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   %33 = uitofp i64 %32 to double
   %34 = fdiv double %33, 1.000000e+03
   %35 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %39 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = and i64 %44, -8
-  %46 = getelementptr inbounds i8, ptr %28, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %49 to i64
   %53 = ptrtoint ptr %51 to i64
@@ -307,11 +307,11 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   %56 = call noundef i64 @llvm.umin.i64(i64 %45, i64 %55)
   %57 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 312, i8 noundef zeroext 5, i32 noundef 0) #15
   %58 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %62 to i64
   %66 = ptrtoint ptr %64 to i64
@@ -344,16 +344,16 @@ declare void @_ZN8Universe12reserve_heapEmm(ptr dead_on_unwind writable sret(%cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, i64 noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2) local_unnamed_addr #0 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr @MinHeapSize, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   tail call void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef nonnull @.str.23, i64 noundef %8, i64 noundef %1, ptr noundef %9, i64 noundef %11, i64 noundef %7) #15
   br label %12
@@ -397,28 +397,28 @@ declare void @_ZN18ParallelInitLogger5printEv() local_unnamed_addr #1
 define hidden void @_ZN20ParallelScavengeHeap25initialize_serviceabilityEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((104, 144)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 224, i8 noundef zeroext 9, i32 noundef 0) #15
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN20EdenMutableSpacePoolC1EP10PSYoungGenP12MutableSpacePKcb(ptr noundef nonnull align 8 dereferenceable(224) %2, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull @.str.5, i1 noundef zeroext false) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %2, ptr %6, align 8
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 216, i8 noundef zeroext 9, i32 noundef 0) #15
   %8 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   tail call void @_ZN24SurvivorMutableSpacePoolC1EP10PSYoungGenPKcb(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef %8, ptr noundef nonnull @.str.6, i1 noundef zeroext false) #15
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %7, ptr %9, align 8
   %10 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 216, i8 noundef zeroext 9, i32 noundef 0) #15
   %11 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   tail call void @_ZN16PSGenerationPoolC1EP8PSOldGenPKcb(ptr noundef nonnull align 8 dereferenceable(216) %10, ptr noundef %11, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %10, ptr %12, align 8
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191) %13, ptr noundef nonnull @.str.8) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %13, ptr %14, align 8
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 9, i32 noundef 0) #15
   tail call void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191) %15, ptr noundef nonnull @.str.9) #15
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr %6, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %15, ptr noundef %17) #15
@@ -518,12 +518,12 @@ define hidden void @_ZN20ParallelScavengeHeap15update_countersEv(ptr noundef non
 
 9:                                                ; preds = %7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 352
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull %2) #15
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #15
@@ -554,12 +554,12 @@ define hidden void @_ZN20ParallelScavengeHeap39update_parallel_worker_threads_cp
 
 7:                                                ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 352
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull %2) #15
   call void @_ZN25ThreadTotalCPUTimeClosureD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #15
@@ -575,11 +575,11 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap8capacityEv(ptr nocapture n
   %2 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %3 = tail call noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -596,10 +596,10 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap4usedEv(ptr nocapture nonnu
   %2 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %3 = tail call noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
   %11 = shl i64 %10, 3
@@ -612,17 +612,17 @@ declare noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap16is_maximal_no_gcEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %12 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -635,7 +635,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap16is_maximal_no_gcEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %2 = load i8, ptr @UseAdaptiveSizePolicy, align 1
   %3 = trunc i8 %2 to i1
@@ -644,11 +644,11 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
   %6 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr @MinSurvivorRatio, align 8
   %10 = udiv i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %10, %12
   %14 = sub i64 0, %12
@@ -658,11 +658,11 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = ptrtoint ptr %24 to i64
@@ -675,7 +675,7 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
   %30 = shl i64 %.sroa.2.0.copyload.i, 3
   %.0 = sub i64 %30, %.pn
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(264) %0) #15
   %35 = tail call noundef i64 @llvm.umax.i64(i64 %.0, i64 %34)
@@ -685,12 +685,12 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap12max_capacityEv(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nocapture nonnull readnone align 8 %0, ptr noundef readnone %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp uge ptr %1, %7
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ult ptr %1, %9
   %11 = select i1 %.not.i.i, i1 %10, i1 false
@@ -698,12 +698,12 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nocap
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not.i.i2 = icmp uge ptr %1, %17
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ult ptr %1, %19
   %21 = select i1 %.not.i.i2, i1 %20, i1 false
@@ -717,9 +717,9 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap5is_inEPKv(ptr nocap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
@@ -729,12 +729,12 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i.i2 = icmp uge ptr %1, %13
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ult ptr %1, %15
   %17 = select i1 %.not.i.i2, i1 %16, i1 false
@@ -748,7 +748,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersEP17stackChunkOopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef readnone %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
   %.not = icmp ult ptr %1, %.sroa.0.0.copyload.i.i
   ret i1 %.not
@@ -765,20 +765,20 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr
   %5 = alloca %class.VM_ParallelCollectForAllocation, align 8
   store i8 0, ptr %3, align 1
   %6 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %1) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.lr.ph.lr.ph, label %.loopexit
 
 .lr.ph.lr.ph:                                     ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %16 = getelementptr inbounds i8, ptr %5, i64 25
-  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
@@ -801,10 +801,10 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %18, %20
   %21 = load i32, ptr %14, align 8
   %22 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %1) #15
   %.not = icmp eq ptr %28, null
@@ -836,7 +836,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %36
 
 41:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
   %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1308
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1308
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %48, label %_ZN13MutexUnlockerD2Ev.exit
@@ -900,9 +900,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load i8, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 33
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %68 = load i8, ptr %67, align 1
   %brmerge.demorgan60 = and i8 %68, %66
   %brmerge.demorgan = trunc i8 %brmerge.demorgan60 to i1
@@ -911,9 +911,9 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
 69:                                               ; preds = %63
   store i8 1, ptr %3, align 1
   %70 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store i8 0, ptr %71, align 4
-  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not61 = icmp eq ptr %72, null
   br i1 %.not61, label %74, label %73
 
@@ -922,7 +922,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %74
 
 74:                                               ; preds = %69, %73
-  %75 = getelementptr inbounds i8, ptr %5, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %76 = load ptr, ptr %75, align 8
   %.not45 = icmp eq ptr %76, null
   br i1 %.not45, label %.thread, label %77
@@ -932,7 +932,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %.thread
 
 78:                                               ; preds = %63
-  %79 = getelementptr inbounds i8, ptr %5, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %80 = load ptr, ptr %79, align 8
   br label %.thread
 
@@ -959,7 +959,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br i1 %88, label %89, label %.lr.ph.backedge
 
 89:                                               ; preds = %85
-  %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not58 = icmp eq ptr %90, null
   br i1 %.not58, label %92, label %91
 
@@ -968,7 +968,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %92
 
 92:                                               ; preds = %89, %91
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not59 = icmp eq ptr %93, null
   br i1 %.not59, label %.lr.ph.backedge, label %94
 
@@ -990,11 +990,11 @@ default.unreachable98:                            ; preds = %_ZN11MutexLockerD2E
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap20mem_allocate_old_genEm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -1015,13 +1015,13 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %15
 
 20:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %2
   %21 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   br label %23
 
 23:                                               ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, %20
   %24 = load ptr, ptr %22, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(56) %24, i64 noundef %1) #15
   %.not.i.i.i = icmp eq ptr %28, null
@@ -1041,7 +1041,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %15
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %21, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull %28, ptr noundef nonnull %30) #15
   br label %43
 
@@ -1052,7 +1052,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i:   ; preds = %23
 43:                                               ; preds = %40, %29
   %44 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
   %45 = shl i64 %1, 3
-  %46 = getelementptr inbounds i8, ptr %44, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %47 = load ptr, ptr %46, align 8
   %48 = uitofp i64 %45 to float
   tail call void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(32) %47, float noundef %48) #15
@@ -1095,13 +1095,13 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap27allocate_old_gen_and_recordEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   br label %5
 
 5:                                                ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, %2
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %1) #15
   %.not.i.i = icmp eq ptr %10, null
@@ -1121,7 +1121,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap27allocate_old_gen_and_recor
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %10, ptr noundef nonnull %12) #15
   br label %25
 
@@ -1132,7 +1132,7 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i:     ; preds = %5
 25:                                               ; preds = %11, %22
   %26 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
   %27 = shl i64 %1, 3
-  %28 = getelementptr inbounds i8, ptr %26, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %29 = load ptr, ptr %28, align 8
   %30 = uitofp i64 %27 to float
   tail call void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(32) %29, float noundef %30) #15
@@ -1162,10 +1162,10 @@ declare noundef zeroext i1 @_ZN17PSParallelCompact6invokeEb(i1 noundef zeroext) 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %1) #15
   %11 = icmp ne ptr %10, null
@@ -1174,13 +1174,13 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEm
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   br label %15
 
 15:                                               ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, %12
   %16 = load ptr, ptr %14, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(56) %16, i64 noundef %1) #15
   %.not.i.i = icmp eq ptr %20, null
@@ -1200,7 +1200,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEm
   br i1 %31, label %32, label %_ZN8PSOldGen8allocateEm.exit
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %13, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull %20, ptr noundef nonnull %22) #15
   br label %_ZN8PSOldGen8allocateEm.exit
 
@@ -1227,10 +1227,10 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
 
 9:                                                ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
   %10 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %1) #15
   %17 = icmp ne ptr %16, null
@@ -1239,13 +1239,13 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
   br label %21
 
 21:                                               ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, %18
   %22 = load ptr, ptr %20, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %1) #15
   %.not.i.i.i = icmp eq ptr %26, null
@@ -1265,7 +1265,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
   br i1 %37, label %38, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %19, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef nonnull %26, ptr noundef nonnull %28) #15
   br label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
@@ -1277,7 +1277,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %3, %_ZN8GCLocker2
   br i1 %2, label %.thread, label %45
 
 .thread:                                          ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 17
   %44 = icmp eq i32 %42, 9
@@ -1286,18 +1286,18 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %3, %_ZN8GCLocker2
 
 45:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
   %46 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %50 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = lshr i64 %55, 4
   %.not36 = icmp ult i64 %1, %56
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 17
   %60 = icmp eq i32 %58, 9
@@ -1316,10 +1316,10 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %3, %_ZN8GCLocker2
 
 _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
   %65 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 120
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(56) %67, i64 noundef %1) #15
   %72 = icmp ne ptr %71, null
@@ -1328,13 +1328,13 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
 
 73:                                               ; preds = %_ZN20ParallelScavengeHeap20collect_at_safepointEb.exit
   %74 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   br label %76
 
 76:                                               ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i21, %73
   %77 = load ptr, ptr %75, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(56) %77, i64 noundef %1) #15
   %.not.i.i.i19 = icmp eq ptr %81, null
@@ -1354,7 +1354,7 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
   br i1 %92, label %93, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
 93:                                               ; preds = %82
-  %94 = getelementptr inbounds i8, ptr %74, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %74, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull %81, ptr noundef nonnull %83) #15
   br label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
@@ -1372,10 +1372,10 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
   %97 = tail call noundef zeroext i1 @_ZN17PSParallelCompact6invokeEb(i1 noundef zeroext true) #15
   store i64 %96, ptr @HeapMaximumCompactionInterval, align 8
   %98 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 120
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 120
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(56) %100, i64 noundef %1) #15
   %105 = icmp ne ptr %104, null
@@ -1384,13 +1384,13 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
 
 106:                                              ; preds = %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33
   %107 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 88
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
   br label %109
 
 109:                                              ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26, %106
   %110 = load ptr, ptr %108, align 8
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 120
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(56) %110, i64 noundef %1) #15
   %.not.i.i.i24 = icmp eq ptr %114, null
@@ -1410,7 +1410,7 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
   br i1 %125, label %126, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
 126:                                              ; preds = %115
-  %127 = getelementptr inbounds i8, ptr %107, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %107, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %127, ptr noundef nonnull %114, ptr noundef nonnull %116) #15
   br label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit
 
@@ -1425,7 +1425,7 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN8PSOl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap20collect_at_safepointEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 17
   %6 = icmp eq i32 %4, 9
@@ -1448,10 +1448,10 @@ define hidden void @_ZN20ParallelScavengeHeap20collect_at_safepointEb(ptr nocapt
 define hidden void @_ZN20ParallelScavengeHeap18ensure_parsabilityEb(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   tail call void @_ZN13CollectedHeap18ensure_parsabilityEb(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext %1) #15
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
   ret void
@@ -1462,10 +1462,10 @@ declare void @_ZN13CollectedHeap18ensure_parsabilityEb(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK20ParallelScavengeHeap13tlab_capacityEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1) #15
   ret i64 %9
@@ -1474,10 +1474,10 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap13tlab_capacityEP6Thread(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK20ParallelScavengeHeap9tlab_usedEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1) #15
   ret i64 %9
@@ -1486,10 +1486,10 @@ define hidden noundef i64 @_ZNK20ParallelScavengeHeap9tlab_usedEP6Thread(ptr noc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK20ParallelScavengeHeap21unsafe_max_tlab_allocEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1) #15
   ret i64 %9
@@ -1542,17 +1542,17 @@ define hidden void @_ZN20ParallelScavengeHeap7collectEN7GCCause5CauseE(ptr nocap
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %9
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   br label %_ZN11MutexLockerD2Ev.exit
 
 9:                                                ; preds = %2
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %13 = load i32, ptr %12, align 4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #15
   br label %_ZN11MutexLockerD2Ev.exit
@@ -1637,7 +1637,7 @@ define hidden void @_ZN20ParallelScavengeHeap24try_collect_at_safepointEb(ptr no
   br i1 %3, label %_ZN20ParallelScavengeHeap20collect_at_safepointEb.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 17
   %8 = icmp eq i32 %6, 9
@@ -1658,7 +1658,7 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %11, %9, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN20ParallelScavengeHeap24must_clear_all_soft_refsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 17
   %5 = icmp eq i32 %3, 9
@@ -1673,7 +1673,7 @@ define hidden void @_ZN20ParallelScavengeHeap14object_iterateEP13ObjectClosure(p
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   tail call void @_ZN10PSYoungGen14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef %1) #15
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %1) #15
   ret void
@@ -1694,7 +1694,7 @@ define hidden void @_ZN20ParallelScavengeHeap23object_iterate_parallelEP13Object
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %1) #15
   %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
@@ -1713,11 +1713,11 @@ select.unfold:                                    ; preds = %11, %3
 
 20:                                               ; preds = %select.unfold
   %21 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef %1) #15
   %24 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef %1) #15
   %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
@@ -1755,10 +1755,10 @@ declare void @_ZN8PSOldGen20object_iterate_blockEP13ObjectClosurem(ptr noundef n
 define hidden noundef ptr @_ZN20ParallelScavengeHeap24parallel_object_iteratorEj(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 5, i32 noundef 0) #15
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32PSScavengeParallelObjectIterator, i64 16), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
   ret ptr %3
 }
@@ -1766,9 +1766,9 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24parallel_object_iteratorEj
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
@@ -1793,19 +1793,19 @@ define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nocap
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i4 = icmp uge ptr %1, %20
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ult ptr %1, %22
   %24 = select i1 %.not.i.i4, i1 %23, i1 false
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %27 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef %1)
   br label %28
 
@@ -1821,7 +1821,7 @@ declare void @_Z20report_unimplementedPKci(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
@@ -1864,7 +1864,7 @@ _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; 
   %.0 = phi ptr [ %29, %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit ], [ %86, %_ZN7oopDesc4sizeEv.exit ]
   %31 = load i8, ptr @UseCompressedClassPointers, align 1
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %.0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br i1 %32, label %34, label %44
 
 34:                                               ; preds = %30
@@ -1885,7 +1885,7 @@ _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; 
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   %.0.i.i = phi ptr [ %43, %34 ], [ %45, %44 ]
-  %46 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %59
@@ -1902,7 +1902,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %.0.i.i, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 256
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 256
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #15
   br label %_ZN7oopDesc4sizeEv.exit
@@ -1913,7 +1913,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
 
 61:                                               ; preds = %59
   %62 = select i1 %32, i64 12, i64 16
-  %63 = getelementptr inbounds i8, ptr %.0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = and i32 %47, 63
@@ -1935,7 +1935,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
 
 81:                                               ; preds = %59
   %82 = load ptr, ptr %.0.i.i, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 256
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 256
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #15
   br label %_ZN7oopDesc4sizeEv.exit
@@ -1953,9 +1953,9 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
   %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
@@ -1980,19 +1980,19 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i4.i = icmp uge ptr %1, %20
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ult ptr %1, %22
   %24 = select i1 %.not.i.i4.i, i1 %23, i1 false
   br i1 %24, label %25, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %27 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef %1)
   br label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit
 
@@ -2005,7 +2005,7 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %8, %11, %15, %25
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap18prepare_for_verifyEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext false) #15
   ret void
@@ -2015,119 +2015,119 @@ define hidden void @_ZN20ParallelScavengeHeap18prepare_for_verifyEv(ptr noundef 
 define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PSHeapSummary) align 8 initializes((0, 184)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.VirtualSpaceSummary, align 8
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds ptr, ptr %10, i64 %16
-  %18 = getelementptr inbounds i8, ptr %4, i64 88
+  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(56) %19) #15
   %24 = shl i64 %23, 3
   %25 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %26, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %32 = getelementptr inbounds i8, ptr %25, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(56) %33) #15
   %42 = shl i64 %41, 3
   %43 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(56) %45) #15
   %54 = shl i64 %53, 3
   %55 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(56) %57) #15
   %66 = shl i64 %65, 3
   %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 296
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 296
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr dead_on_unwind nonnull writable sret(%class.VirtualSpaceSummary) align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %1) #15
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef i64 %72(ptr noundef nonnull align 8 dereferenceable(264) %1) #15
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %73, ptr %75, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %10, ptr %76, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %.sroa.5.0..sroa_idx, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %10, ptr %77, align 8
-  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %8, ptr %.sroa.474.0..sroa_idx, align 8
-  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %24, ptr %.sroa.575.0..sroa_idx, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 88
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %.sroa.0.0.copyload.i, ptr %78, align 8
-  %.sroa.477.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %30, ptr %.sroa.477.0..sroa_idx, align 8
-  %.sroa.578.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %31, ptr %.sroa.578.0..sroa_idx, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %35, ptr %79, align 8
-  %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
+  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %37, ptr %.sroa.480.0..sroa_idx, align 8
-  %.sroa.581.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
+  %.sroa.581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %42, ptr %.sroa.581.0..sroa_idx, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %47, ptr %80, align 8
-  %.sroa.483.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %49, ptr %.sroa.483.0..sroa_idx, align 8
-  %.sroa.584.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %54, ptr %.sroa.584.0..sroa_idx, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 160
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %59, ptr %81, align 8
-  %.sroa.486.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
+  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %61, ptr %.sroa.486.0..sroa_idx, align 8
-  %.sroa.587.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %66, ptr %.sroa.587.0..sroa_idx, align 8
   ret void
 }
@@ -2142,7 +2142,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14print_locationEP12
 define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI20ParallelScavengeHeapE14print_locationEP12outputStreamPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef %1) #15
   br i1 %7, label %8, label %13
@@ -2162,9 +2162,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI20Paral
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
   %16 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
@@ -2174,12 +2174,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI20Paral
 
 _ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit: ; preds = %13
   %19 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not.i.i2.i = icmp uge ptr %1, %23
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ult ptr %1, %25
   %27 = select i1 %.not.i.i2.i, i1 %26, i1 false
@@ -2268,7 +2268,7 @@ declare void @_ZN17PSParallelCompact14print_on_errorEP12outputStream(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK20ParallelScavengeHeap13gc_threads_doEP13ThreadClosure(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   tail call void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef %1) #15
   ret void
 }
@@ -2287,20 +2287,20 @@ define hidden void @_ZNK20ParallelScavengeHeap18print_tracing_infoEv(ptr nocaptu
   br i1 %6, label %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
 
 _ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i:   ; preds = %4
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit, label %8
 
 8:                                                ; preds = %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i
   %9 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(312) %9) #15
   br label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
 
 _ZN24AdaptiveSizePolicyOutput5printEv.exit:       ; preds = %1, %4, %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, %8
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %17, label %15
 
@@ -2310,7 +2310,7 @@ _ZN24AdaptiveSizePolicyOutput5printEv.exit:       ; preds = %1, %4, %_ZN24Adapti
   br label %17
 
 17:                                               ; preds = %_ZN24AdaptiveSizePolicyOutput5printEv.exit, %15
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not1 = icmp eq ptr %18, null
   br i1 %.not1, label %21, label %19
 
@@ -2337,71 +2337,71 @@ declare noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK20ParallelScavengeHeap17get_pre_gc_valuesEv(ptr dead_on_unwind noalias writable sret(%class.PreGenGCValues) align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %9 = tail call noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   %10 = tail call noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
   %15 = shl i64 %14, 3
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
   %23 = and i64 %22, -8
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   %28 = shl i64 %27, 3
-  %29 = getelementptr inbounds i8, ptr %7, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %30 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = and i64 %35, -8
-  %37 = getelementptr inbounds i8, ptr %8, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(56) %38) #15
   %43 = shl i64 %42, 3
   %44 = load ptr, ptr %37, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %46 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = and i64 %51, -8
   store i64 %9, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %15, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %23, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %28, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %36, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %43, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %52, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %60) #15
   ret void
 }
@@ -2409,60 +2409,60 @@ define hidden void @_ZNK20ParallelScavengeHeap17get_pre_gc_valuesEv(ptr dead_on_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK20ParallelScavengeHeap17print_heap_changeERK14PreGenGCValues(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %60, label %10
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %1, align 8
   %12 = lshr i64 %11, 10
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 10
   %16 = tail call noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   %17 = lshr i64 %16, 10
   %18 = tail call noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #15
   %19 = lshr i64 %18, 10
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 10
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 10
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
   %30 = lshr i64 %29, 7
   %31 = and i64 %30, 18014398509481983
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = lshr i64 %38, 10
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 10
-  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 10
   %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   %50 = lshr i64 %49, 7
   %51 = and i64 %50, 18014398509481983
-  %52 = getelementptr inbounds i8, ptr %7, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %53 to i64
   %57 = ptrtoint ptr %55 to i64
@@ -2472,29 +2472,29 @@ define hidden void @_ZNK20ParallelScavengeHeap17print_heap_changeERK14PreGenGCVa
   br label %60
 
 60:                                               ; preds = %2, %10
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not21 = icmp eq ptr %61, null
   br i1 %.not21, label %86, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %64 = load i64, ptr %63, align 8
   %65 = lshr i64 %64, 10
-  %66 = getelementptr inbounds i8, ptr %1, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load i64, ptr %66, align 8
   %68 = lshr i64 %67, 10
-  %69 = getelementptr inbounds i8, ptr %8, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef i64 %73(ptr noundef nonnull align 8 dereferenceable(56) %70) #15
   %75 = lshr i64 %74, 7
   %76 = and i64 %75, 18014398509481983
   %77 = load ptr, ptr %69, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %79 to i64
   %83 = ptrtoint ptr %81 to i64
@@ -2504,7 +2504,7 @@ define hidden void @_ZNK20ParallelScavengeHeap17print_heap_changeERK14PreGenGCVa
   br label %86
 
 86:                                               ; preds = %60, %62
-  %87 = getelementptr inbounds i8, ptr %1, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCombinedStats(ptr noundef nonnull align 8 dereferenceable(72) %87) #15
   ret void
 }
@@ -2522,13 +2522,13 @@ declare void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCombinedS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap6verifyE12VerifyOption(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i32 %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not1 = icmp eq ptr %6, null
   br i1 %.not1, label %8, label %7
 
@@ -2539,7 +2539,7 @@ define hidden void @_ZN20ParallelScavengeHeap6verifyE12VerifyOption(ptr nocaptur
 8:                                                ; preds = %5, %7
   %9 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   tail call void @_ZN8PSOldGen6verifyEv(ptr noundef nonnull align 8 dereferenceable(128) %9) #15
-  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not2 = icmp eq ptr %10, null
   br i1 %.not2, label %12, label %11
 
@@ -2550,7 +2550,7 @@ define hidden void @_ZN20ParallelScavengeHeap6verifyE12VerifyOption(ptr nocaptur
 12:                                               ; preds = %8, %11
   %13 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   tail call void @_ZN10PSYoungGen6verifyEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #15
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not3 = icmp eq ptr %14, null
   br i1 %.not3, label %16, label %15
 
@@ -2560,7 +2560,7 @@ define hidden void @_ZN20ParallelScavengeHeap6verifyE12VerifyOption(ptr nocaptur
 
 16:                                               ; preds = %12, %15
   %17 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN11PSCardTable31verify_all_young_refs_impreciseEv(ptr noundef nonnull align 8 dereferenceable(92) %19) #15
   br label %20
@@ -2585,7 +2585,7 @@ declare void @_ZN10PSYoungGen6verifyEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap10card_tableEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -2602,119 +2602,119 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %7 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8, !noalias !18
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !18
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8, !noalias !18
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !noalias !18
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8, !noalias !18
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
   %19 = lshr i64 %18, 3
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %19
-  %21 = getelementptr inbounds i8, ptr %7, i64 88
+  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %22 = load ptr, ptr %21, align 8, !noalias !18
   %23 = load ptr, ptr %22, align 8, !noalias !18
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8, !noalias !18
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(56) %22) #15, !noalias !18
   %27 = shl i64 %26, 3
   %28 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8, !noalias !18
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %29, align 8, !noalias !18
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !18
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = load ptr, ptr %30, align 8, !noalias !18
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !noalias !18
   %34 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
-  %35 = getelementptr inbounds i8, ptr %28, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %36 = load ptr, ptr %35, align 8, !noalias !18
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !noalias !18
-  %39 = getelementptr inbounds i8, ptr %36, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %40 = load ptr, ptr %39, align 8, !noalias !18
   %41 = load ptr, ptr %36, align 8, !noalias !18
-  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8, !noalias !18
   %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(56) %36) #15, !noalias !18
   %45 = shl i64 %44, 3
   %46 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8, !noalias !18
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8, !noalias !18
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !noalias !18
-  %51 = getelementptr inbounds i8, ptr %48, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %52 = load ptr, ptr %51, align 8, !noalias !18
   %53 = load ptr, ptr %48, align 8, !noalias !18
-  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load ptr, ptr %54, align 8, !noalias !18
   %56 = tail call noundef i64 %55(ptr noundef nonnull align 8 dereferenceable(56) %48) #15, !noalias !18
   %57 = shl i64 %56, 3
   %58 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8, !noalias !18
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8, !noalias !18
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8, !noalias !18
-  %63 = getelementptr inbounds i8, ptr %60, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %64 = load ptr, ptr %63, align 8, !noalias !18
   %65 = load ptr, ptr %60, align 8, !noalias !18
-  %66 = getelementptr inbounds i8, ptr %65, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %67 = load ptr, ptr %66, align 8, !noalias !18
   %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(56) %60) #15, !noalias !18
   %69 = shl i64 %68, 3
   %70 = load ptr, ptr %0, align 8, !noalias !18
-  %71 = getelementptr inbounds i8, ptr %70, i64 296
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 296
   %72 = load ptr, ptr %71, align 8, !noalias !18
   call void %72(ptr dead_on_unwind nonnull writable sret(%class.VirtualSpaceSummary) align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %0) #15, !noalias !18
   %73 = load ptr, ptr %0, align 8, !noalias !18
-  %74 = getelementptr inbounds i8, ptr %73, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load ptr, ptr %74, align 8, !noalias !18
   %76 = call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(264) %0) #15, !noalias !18
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %78 = getelementptr inbounds i8, ptr %5, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %76, ptr %78, align 8, !alias.scope !18
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %5, align 8, !alias.scope !18
-  %79 = getelementptr inbounds i8, ptr %5, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %13, ptr %79, align 8, !alias.scope !18
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %11, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %20, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !18
-  %80 = getelementptr inbounds i8, ptr %5, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %13, ptr %80, align 8, !alias.scope !18
-  %.sroa.474.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 72
+  %.sroa.474.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %11, ptr %.sroa.474.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.575.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 80
+  %.sroa.575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %27, ptr %.sroa.575.0..sroa_idx.i, align 8, !alias.scope !18
-  %81 = getelementptr inbounds i8, ptr %5, i64 88
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %.sroa.0.0.copyload.i.i, ptr %81, align 8, !alias.scope !18
-  %.sroa.477.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 96
+  %.sroa.477.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %33, ptr %.sroa.477.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.578.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 104
+  %.sroa.578.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %34, ptr %.sroa.578.0..sroa_idx.i, align 8, !alias.scope !18
-  %82 = getelementptr inbounds i8, ptr %5, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr %38, ptr %82, align 8, !alias.scope !18
-  %.sroa.480.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 120
+  %.sroa.480.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr %40, ptr %.sroa.480.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.581.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 128
+  %.sroa.581.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i64 %45, ptr %.sroa.581.0..sroa_idx.i, align 8, !alias.scope !18
-  %83 = getelementptr inbounds i8, ptr %5, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store ptr %50, ptr %83, align 8, !alias.scope !18
-  %.sroa.483.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 144
+  %.sroa.483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr %52, ptr %.sroa.483.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.584.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 152
+  %.sroa.584.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i64 %57, ptr %.sroa.584.0..sroa_idx.i, align 8, !alias.scope !18
-  %84 = getelementptr inbounds i8, ptr %5, i64 160
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store ptr %62, ptr %84, align 8, !alias.scope !18
-  %.sroa.486.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 168
+  %.sroa.486.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %64, ptr %.sroa.486.0..sroa_idx.i, align 8, !alias.scope !18
-  %.sroa.587.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 176
+  %.sroa.587.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i64 %69, ptr %.sroa.587.0..sroa_idx.i, align 8, !alias.scope !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZNK8GCTracer22report_gc_heap_summaryEN6GCWhen4TypeERK13GCHeapSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5) #15
@@ -2756,13 +2756,13 @@ declare void @_ZN8PSOldGen6resizeEm(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap29allocate_loaded_archive_spaceEm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   br label %5
 
 5:                                                ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, %2
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %1) #15
   %.not.i.i = icmp eq ptr %10, null
@@ -2782,7 +2782,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap29allocate_loaded_archive_sp
   br i1 %21, label %22, label %_ZN8PSOldGen8allocateEm.exit
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %10, ptr noundef nonnull %12) #15
   br label %_ZN8PSOldGen8allocateEm.exit
 
@@ -2831,20 +2831,20 @@ declare void @_ZN19ScavengableNMethods14verify_nmethodEP7nmethod(ptr noundef) lo
 define hidden void @_ZN20ParallelScavengeHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit5:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.pre = load ptr, ptr %6, align 8
   store ptr %.pre, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.pre6 = load ptr, ptr %.phi.trans.insert, align 8
   store i32 2, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.pre6, ptr %7, align 8
   ret void
 }
@@ -2853,31 +2853,31 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 define hidden void @_ZN20ParallelScavengeHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.3) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 3, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.pre = load ptr, ptr %6, align 8
   store ptr %.pre, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.pre10 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.pre10, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 136
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
   store i32 3, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.pre11, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap10pin_objectEP10JavaThreadP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 1308
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %11, label %7
@@ -2902,7 +2902,7 @@ _ZN8GCLocker13lock_criticalEP10JavaThread.exit:   ; preds = %10, %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap12unpin_objectEP10JavaThreadP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 1308
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %11
@@ -2975,7 +2975,7 @@ declare void @_ZNK13CollectedHeap5printEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK13CollectedHeap17print_extended_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) #15
   ret void
@@ -2985,7 +2985,7 @@ declare noundef zeroext i1 @_ZNK13CollectedHeap34supports_concurrent_gc_breakpoi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN20ParallelScavengeHeap17safepoint_workersEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
 
@@ -3196,7 +3196,7 @@ declare void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN15PSIsScavengable11do_object_bEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8
   %5 = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
   ret i1 %5
@@ -3233,7 +3233,7 @@ define linkonce_odr hidden void @_ZN32PSScavengeParallelObjectIteratorD0Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN32PSScavengeParallelObjectIterator14object_iterateEP13ObjectClosurej(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN20ParallelScavengeHeap23object_iterate_parallelEP13ObjectClosureP16HeapBlockClaimer(ptr nonnull align 8 poison, ptr noundef %1, ptr noundef nonnull %4)
   ret void
 }
@@ -3243,7 +3243,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK13PSHeapSummary6acceptEP20GCHeapSummaryVisitor(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0) #15
   ret void
@@ -3274,9 +3274,9 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI20ParallelScav
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %0, %.sroa.0.0.copyload.i.i.i
   %6 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
@@ -3301,28 +3301,28 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI20ParallelScav
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i4.i = icmp uge ptr %0, %21
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ult ptr %0, %23
   %25 = select i1 %.not.i.i4.i, i1 %24, i1 false
   br i1 %25, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
 _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %27 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef %0)
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread, label %28
 
 28:                                               ; preds = %_ZNK20ParallelScavengeHeap11block_startEPKv.exit
   %29 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.not.i.i.i.i = icmp uge ptr %27, %.sroa.0.0.copyload.i.i.i.i
   %31 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i
@@ -3347,19 +3347,19 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
 
 41:                                               ; preds = %28
   %42 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i4.i.i = icmp uge ptr %27, %46
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ult ptr %27, %48
   %50 = select i1 %.not.i.i4.i.i, i1 %49, i1 false
   br i1 %50, label %51, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %53 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull %27)
   br label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
 

@@ -180,13 +180,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_client_transport_id(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 1
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 424
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #11
   %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #12
@@ -196,7 +196,7 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_client_transport_id(ptr 
 
 12:                                               ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %2, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 432
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %2, ptr %13, align 8
   br label %14
 
@@ -216,11 +216,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ssl_conf_dtls_cookies(ptr nocapture noundef writeonly initializes((136, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %3, ptr %7, align 8
   ret void
 }
@@ -242,7 +242,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   %16 = alloca ptr, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4322, ptr noundef nonnull @.str.1, i32 noundef %18) #11
   %19 = load i32, ptr %17, align 8
@@ -273,13 +273,13 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 21:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 923, ptr noundef nonnull @.str.4) #11
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
-  %26 = getelementptr inbounds i8, ptr %0, i64 394
-  %27 = getelementptr inbounds i8, ptr %0, i64 264
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 394
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %29
 
 29:                                               ; preds = %75, %21
@@ -320,20 +320,20 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 968, ptr noundef nonnull @.str.9, i32 noundef %51) #11
-  %52 = getelementptr inbounds i8, ptr %36, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %36, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 971, ptr noundef nonnull @.str.10, i32 noundef %54, i32 noundef %57) #11
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 9
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 9
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 1
   br i1 %61, label %62, label %.loopexit549.i
@@ -350,7 +350,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %.not474.i, label %68, label %71
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %70 = load i8, ptr %69, align 1
   %.not475.i = icmp eq i8 %70, 0
   br i1 %.not475.i, label %72, label %71
@@ -360,7 +360,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %66, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) %73, i64 6, i1 false)
   %74 = tail call i32 @mbedtls_ssl_dtls_replay_check(ptr noundef nonnull %0) #11
   %.not476.i = icmp eq i32 %74, 0
@@ -381,7 +381,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
   %80 = shl nuw nsw i64 %79, 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i64
   %84 = or disjoint i64 %80, %83
@@ -390,7 +390,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %.not477.i, label %89, label %86
 
 86:                                               ; preds = %.loopexit549.i
-  %87 = getelementptr inbounds i8, ptr %0, i64 288
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %88 = load i64, ptr %87, align 8
   br label %106
 
@@ -419,7 +419,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 9
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 9
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 1
   br i1 %102, label %103, label %105
@@ -435,12 +435,12 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 106:                                              ; preds = %105, %103, %86
   %.0428.i = phi i64 [ %88, %86 ], [ %84, %103 ], [ %84, %105 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 216
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %108 = load ptr, ptr %107, align 8
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 1042, ptr noundef nonnull @.str.12, ptr noundef %108, i64 noundef %.0428.i) #11
-  %109 = getelementptr inbounds i8, ptr %0, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull %0, ptr noundef %108, i64 noundef %.0428.i) #11
   %.val524.i = load ptr, ptr %0, align 8
@@ -468,16 +468,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %108, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %108, i64 1
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = shl nuw nsw i32 %125, 16
-  %127 = getelementptr inbounds i8, ptr %108, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 8
   %131 = or disjoint i32 %130, %126
-  %132 = getelementptr inbounds i8, ptr %108, i64 3
+  %132 = getelementptr inbounds nuw i8, ptr %108, i64 3
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
@@ -515,11 +515,11 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %149 = load i32, ptr %22, align 4
   %150 = icmp eq i32 %149, 1
   %151 = load ptr, ptr %107, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   %155 = shl nuw nsw i32 %154, 8
-  %156 = getelementptr inbounds i8, ptr %151, i64 5
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 5
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %159 = or disjoint i32 %155, %158
@@ -527,7 +527,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %150, label %161, label %167
 
 161:                                              ; preds = %148
-  %162 = getelementptr inbounds i8, ptr %160, i64 1024
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 1024
   %163 = load i32, ptr %162, align 8
   %.not482.i = icmp eq i32 %159, %163
   br i1 %.not482.i, label %165, label %164
@@ -542,52 +542,52 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %172
 
 167:                                              ; preds = %148
-  %168 = getelementptr inbounds i8, ptr %160, i64 1020
+  %168 = getelementptr inbounds nuw i8, ptr %160, i64 1020
   store i32 %159, ptr %168, align 4
   %169 = add nuw nsw i32 %159, 1
   %170 = load ptr, ptr %109, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 1024
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1024
   store i32 %169, ptr %171, align 8
   br label %172
 
 172:                                              ; preds = %167, %165
   %173 = load ptr, ptr %107, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 6
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 6
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i32
   %177 = shl nuw nsw i32 %176, 16
-  %178 = getelementptr inbounds i8, ptr %173, i64 7
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 7
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
   %181 = shl nuw nsw i32 %180, 8
   %182 = or disjoint i32 %181, %177
-  %183 = getelementptr inbounds i8, ptr %173, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = or disjoint i32 %182, %185
-  %187 = getelementptr inbounds i8, ptr %173, i64 9
+  %187 = getelementptr inbounds nuw i8, ptr %173, i64 9
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
   %190 = shl nuw nsw i32 %189, 16
-  %191 = getelementptr inbounds i8, ptr %173, i64 10
+  %191 = getelementptr inbounds nuw i8, ptr %173, i64 10
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = shl nuw nsw i32 %193, 8
   %195 = or disjoint i32 %194, %190
-  %196 = getelementptr inbounds i8, ptr %173, i64 11
+  %196 = getelementptr inbounds nuw i8, ptr %173, i64 11
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
   %199 = or disjoint i32 %195, %198
-  %200 = getelementptr inbounds i8, ptr %173, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %173, i64 1
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = shl nuw nsw i32 %202, 16
-  %204 = getelementptr inbounds i8, ptr %173, i64 2
+  %204 = getelementptr inbounds nuw i8, ptr %173, i64 2
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   %207 = shl nuw nsw i32 %206, 8
   %208 = or disjoint i32 %207, %203
-  %209 = getelementptr inbounds i8, ptr %173, i64 3
+  %209 = getelementptr inbounds nuw i8, ptr %173, i64 3
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i32
   %212 = or disjoint i32 %208, %211
@@ -611,7 +611,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 216:                                              ; preds = %._crit_edge617.i, %147
   %.val527.val.i = phi i64 [ %214, %._crit_edge617.i ], [ 4, %147 ]
-  %217 = getelementptr inbounds i8, ptr %108, i64 %.val527.val.i
+  %217 = getelementptr inbounds nuw i8, ptr %108, i64 %.val527.val.i
   %218 = sub nsw i64 %.0428.i, %.val527.val.i
   %219 = icmp ult i64 %218, 38
   br i1 %219, label %220, label %221
@@ -623,16 +623,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 221:                                              ; preds = %216
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1179, ptr noundef nonnull @.str.20, ptr noundef nonnull %217, i64 noundef 2) #11
   %222 = load ptr, ptr %0, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 9
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 9
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i32
   %226 = tail call zeroext i16 @mbedtls_ssl_read_version(ptr noundef nonnull %217, i32 noundef %225) #11
   %227 = zext i16 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %0, i64 20
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %227, ptr %228, align 4
-  %229 = getelementptr inbounds i8, ptr %0, i64 104
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   store i32 %227, ptr %231, align 4
   %232 = load i32, ptr %228, align 4
   %.not485.i = icmp eq i32 %232, 771
@@ -644,12 +644,12 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 235:                                              ; preds = %221
-  %236 = getelementptr inbounds i8, ptr %217, i64 2
+  %236 = getelementptr inbounds nuw i8, ptr %217, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1195, ptr noundef nonnull @.str.22, ptr noundef nonnull %236, i64 noundef 32) #11
   %237 = load ptr, ptr %109, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 1496
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 1496
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull align 1 dereferenceable(32) %236, i64 32, i1 false)
-  %239 = getelementptr inbounds i8, ptr %217, i64 34
+  %239 = getelementptr inbounds nuw i8, ptr %217, i64 34
   %240 = load i8, ptr %239, align 1
   %241 = zext i8 %240 to i64
   %242 = icmp ugt i8 %240, 32
@@ -664,28 +664,28 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 247:                                              ; preds = %235
-  %248 = getelementptr inbounds i8, ptr %217, i64 35
+  %248 = getelementptr inbounds nuw i8, ptr %217, i64 35
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1213, ptr noundef nonnull @.str.23, ptr noundef nonnull %248, i64 noundef %241) #11
   %249 = load ptr, ptr %229, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 24
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
   store i64 %241, ptr %250, align 8
   %251 = load ptr, ptr %229, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %252, i8 0, i64 32, i1 false)
   %253 = load ptr, ptr %229, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 32
-  %255 = getelementptr inbounds i8, ptr %253, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %256 = load i64, ptr %255, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %254, ptr nonnull align 1 %248, i64 %256, i1 false)
   %257 = load ptr, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 9
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 9
   %259 = load i8, ptr %258, align 1
   %260 = icmp eq i8 %259, 1
   br i1 %260, label %261, label %296
 
 261:                                              ; preds = %247
-  %262 = getelementptr inbounds i8, ptr %217, i64 %241
-  %263 = getelementptr inbounds i8, ptr %262, i64 35
+  %262 = getelementptr inbounds nuw i8, ptr %217, i64 %241
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 35
   %264 = load i8, ptr %263, align 1
   %265 = zext i8 %264 to i64
   %266 = add nuw nsw i64 %243, %265
@@ -699,10 +699,10 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 271:                                              ; preds = %261
-  %272 = getelementptr inbounds i8, ptr %262, i64 36
+  %272 = getelementptr inbounds nuw i8, ptr %262, i64 36
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1239, ptr noundef nonnull @.str.24, ptr noundef nonnull %272, i64 noundef %265) #11
   %273 = load ptr, ptr %0, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 144
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 144
   %275 = load ptr, ptr %274, align 8
   %.not486.i = icmp eq ptr %275, null
   br i1 %.not486.i, label %293, label %276
@@ -713,11 +713,11 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %278, label %279, label %293
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %273, i64 152
+  %280 = getelementptr inbounds nuw i8, ptr %273, i64 152
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %0, i64 424
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %0, i64 432
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %285 = load i64, ptr %284, align 8
   %286 = tail call i32 %275(ptr noundef %281, ptr noundef nonnull %272, i64 noundef %265, ptr noundef %283, i64 noundef %285) #11
   %.not488.i = icmp eq i32 %286, 0
@@ -726,14 +726,14 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 287:                                              ; preds = %279
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1252, ptr noundef nonnull @.str.25) #11
   %288 = load ptr, ptr %109, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 1016
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 1016
   store i8 1, ptr %289, align 8
   br label %298
 
 290:                                              ; preds = %279
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1257, ptr noundef nonnull @.str.26) #11
   %291 = load ptr, ptr %109, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 1016
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1016
   store i8 0, ptr %292, align 8
   br label %298
 
@@ -781,7 +781,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 314:                                              ; preds = %308
-  %315 = getelementptr inbounds i8, ptr %299, i64 2
+  %315 = getelementptr inbounds nuw i8, ptr %299, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1298, ptr noundef nonnull @.str.28, ptr noundef nonnull %315, i64 noundef %306) #11
   %316 = getelementptr inbounds i8, ptr %217, i64 %310
   %317 = load i8, ptr %316, align 1
@@ -799,20 +799,20 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 323:                                              ; preds = %314
-  %324 = getelementptr inbounds i8, ptr %316, i64 1
+  %324 = getelementptr inbounds nuw i8, ptr %316, i64 1
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1318, ptr noundef nonnull @.str.29, ptr noundef nonnull %324, i64 noundef %318) #11
   %325 = load ptr, ptr %229, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 20
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 20
   store i32 0, ptr %326, align 4
   %327 = load ptr, ptr %0, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 9
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 9
   %329 = load i8, ptr %328, align 1
   %330 = icmp eq i8 %329, 1
   br i1 %330, label %331, label %334
 
 331:                                              ; preds = %323
   %332 = load ptr, ptr %229, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 20
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 20
   store i32 0, ptr %333, align 4
   br label %334
 
@@ -823,7 +823,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 .thread.i:                                        ; preds = %334
   %337 = getelementptr inbounds i8, ptr %217, i64 %335
-  %338 = getelementptr inbounds i8, ptr %337, i64 2
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1355, ptr noundef nonnull @.str.30, ptr noundef nonnull %338, i64 noundef 0) #11
   br label %._crit_edge.thread.i
 
@@ -856,7 +856,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 356:                                              ; preds = %344
-  %357 = getelementptr inbounds i8, ptr %345, i64 2
+  %357 = getelementptr inbounds nuw i8, ptr %345, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1355, ptr noundef nonnull @.str.30, ptr noundef nonnull %357, i64 noundef %352) #11
   %.not493580.i = icmp eq i64 %352, 0
   br i1 %.not493580.i, label %._crit_edge.thread.i, label %.lr.ph.outer.i
@@ -884,15 +884,15 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %363 = load i8, ptr %.0434583.i, align 1
   %364 = zext i8 %363 to i32
   %365 = shl nuw nsw i32 %364, 8
-  %366 = getelementptr inbounds i8, ptr %.0434583.i, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 1
   %367 = load i8, ptr %366, align 1
   %368 = zext i8 %367 to i32
   %369 = or disjoint i32 %365, %368
-  %370 = getelementptr inbounds i8, ptr %.0434583.i, i64 2
+  %370 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 2
   %371 = load i8, ptr %370, align 1
   %372 = zext i8 %371 to i32
   %373 = shl nuw nsw i32 %372, 8
-  %374 = getelementptr inbounds i8, ptr %.0434583.i, i64 3
+  %374 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 3
   %375 = load i8, ptr %374, align 1
   %376 = zext i8 %375 to i32
   %377 = or disjoint i32 %373, %376
@@ -923,16 +923,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 384:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1381, ptr noundef nonnull @.str.31) #11
-  %385 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %385 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %386 = zext nneg i32 %377 to i64
-  %387 = getelementptr inbounds i8, ptr %385, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr %385, i64 %386
   %388 = tail call i32 @mbedtls_ssl_parse_server_name_ext(ptr noundef nonnull %0, ptr noundef nonnull %385, ptr noundef nonnull %387) #11
   %.not516.i = icmp eq i32 %388, 0
   br i1 %.not516.i, label %429, label %ssl_parse_client_hello.exit
 
 389:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1390, ptr noundef nonnull @.str.32) #11
-  %390 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %390 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %391 = zext nneg i32 %377 to i64
   %392 = tail call fastcc i32 @ssl_parse_renegotiation_info(ptr noundef nonnull %0, ptr noundef nonnull %390, i64 noundef %391)
   %.not515.i = icmp eq i32 %392, 0
@@ -940,16 +940,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 393:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1402, ptr noundef nonnull @.str.33) #11
-  %394 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %395 = zext nneg i32 %377 to i64
-  %396 = getelementptr inbounds i8, ptr %394, i64 %395
+  %396 = getelementptr inbounds nuw i8, ptr %394, i64 %395
   %397 = tail call i32 @mbedtls_ssl_parse_sig_alg_ext(ptr noundef nonnull %0, ptr noundef nonnull %394, ptr noundef nonnull %396) #11
   %.not514.i = icmp eq i32 %397, 0
   br i1 %.not514.i, label %.thread629.i, label %ssl_parse_client_hello.exit
 
 398:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1415, ptr noundef nonnull @.str.34) #11
-  %399 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %399 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %400 = zext nneg i32 %377 to i64
   %401 = tail call fastcc i32 @ssl_parse_supported_groups_ext(ptr noundef nonnull %0, ptr noundef nonnull %399, i64 noundef %400)
   %.not513.i = icmp eq i32 %401, 0
@@ -958,11 +958,11 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 402:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1423, ptr noundef nonnull @.str.35) #11
   %403 = load ptr, ptr %109, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 1
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 1
   %405 = load i8, ptr %404, align 1
   %406 = or i8 %405, 1
   store i8 %406, ptr %404, align 1
-  %407 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %408 = zext nneg i32 %377 to i64
   %409 = tail call fastcc i32 @ssl_parse_supported_point_formats(ptr noundef nonnull %0, ptr noundef nonnull %407, i64 noundef %408)
   %.not512.i = icmp eq i32 %409, 0
@@ -970,7 +970,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 410:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1445, ptr noundef nonnull @.str.36) #11
-  %411 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %412 = zext nneg i32 %377 to i64
   %413 = tail call fastcc i32 @ssl_parse_max_fragment_length_ext(ptr noundef nonnull %0, ptr noundef nonnull %411, i64 noundef %412)
   %.not511.i = icmp eq i32 %413, 0
@@ -992,16 +992,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 420:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1485, ptr noundef nonnull @.str.39) #11
-  %421 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %421 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %422 = zext nneg i32 %377 to i64
   tail call fastcc void @ssl_parse_session_ticket_ext(ptr noundef nonnull %0, ptr noundef nonnull %421, i64 noundef %422)
   br label %429
 
 423:                                              ; preds = %383
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1495, ptr noundef nonnull @.str.40) #11
-  %424 = getelementptr inbounds i8, ptr %.0434583.i, i64 4
+  %424 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 4
   %425 = zext nneg i32 %377 to i64
-  %426 = getelementptr inbounds i8, ptr %424, i64 %425
+  %426 = getelementptr inbounds nuw i8, ptr %424, i64 %425
   %427 = tail call i32 @mbedtls_ssl_parse_alpn_ext(ptr noundef nonnull %0, ptr noundef nonnull %424, ptr noundef nonnull %426) #11
   %.not508.i = icmp eq i32 %427, 0
   br i1 %.not508.i, label %429, label %ssl_parse_client_hello.exit
@@ -1013,13 +1013,13 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 429:                                              ; preds = %428, %423, %420, %417, %414, %410, %402, %398, %389, %384
   %.1438.i = phi i32 [ %.0437581.i, %428 ], [ %.0437581.i, %423 ], [ %.0437581.i, %420 ], [ %.0437581.i, %417 ], [ %.0437581.i, %414 ], [ %.0437581.i, %410 ], [ %.0437581.i, %402 ], [ %.0437581.i, %398 ], [ 1, %389 ], [ %.0437581.i, %384 ]
   %430 = sub i64 %.1430584.i, %379
-  %431 = getelementptr inbounds i8, ptr %.0434583.i, i64 %379
+  %431 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 %379
   %.not493.i = icmp eq i64 %430, 0
   br i1 %.not493.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 .thread629.i:                                     ; preds = %393
   %432 = sub i64 %.1430584.i, %379
-  %433 = getelementptr inbounds i8, ptr %.0434583.i, i64 %379
+  %433 = getelementptr inbounds nuw i8, ptr %.0434583.i, i64 %379
   %.not493632.i = icmp eq i64 %432, 0
   br i1 %.not493632.i, label %._crit_edge.thread635.i, label %.lr.ph.outer.i, !llvm.loop !4
 
@@ -1029,7 +1029,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %356, %.thread.i
   %.0437.lcssa628.i = phi i32 [ %.1438.i, %._crit_edge.i ], [ 0, %356 ], [ 0, %.thread.i ]
   %434 = load ptr, ptr %109, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 64
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %435, ptr noundef nonnull align 2 dereferenceable(6) @__const.ssl_parse_client_hello.default_sig_algs, i64 6, i1 false)
   br label %._crit_edge.thread635.i
 
@@ -1045,7 +1045,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %438, label %439, label %449
 
 439:                                              ; preds = %436
-  %440 = getelementptr inbounds i8, ptr %.0431586.i, i64 1
+  %440 = getelementptr inbounds nuw i8, ptr %.0431586.i, i64 1
   %441 = load i8, ptr %440, align 1
   %442 = icmp eq i8 %441, -1
   br i1 %442, label %443, label %449
@@ -1062,25 +1062,25 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 .thread643.i:                                     ; preds = %443
-  %448 = getelementptr inbounds i8, ptr %0, i64 440
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 1, ptr %448, align 8
   br label %..thread537_crit_edge.i
 
 449:                                              ; preds = %439, %436
   %450 = add nuw nsw i64 %.0421587.i, 2
-  %451 = getelementptr inbounds i8, ptr %.0431586.i, i64 2
+  %451 = getelementptr inbounds nuw i8, ptr %.0431586.i, i64 2
   %452 = icmp samesign ult i64 %450, %306
   br i1 %452, label %436, label %.loopexit547.i, !llvm.loop !6
 
 .loopexit547.i:                                   ; preds = %449
-  %.phi.trans.insert620.i = getelementptr inbounds i8, ptr %0, i64 440
+  %.phi.trans.insert620.i = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.pre.i = load i32, ptr %.phi.trans.insert620.i, align 8
   %.not495.i = icmp eq i32 %.pre.i, 1
   br i1 %.not495.i, label %459, label %453
 
 453:                                              ; preds = %.loopexit547.i
   %454 = load ptr, ptr %0, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 11
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 11
   %456 = load i8, ptr %455, align 1
   %457 = icmp eq i8 %456, 2
   br i1 %457, label %458, label %459
@@ -1113,7 +1113,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %465, label %466, label %.thread537.i
 
 466:                                              ; preds = %464
-  %467 = getelementptr inbounds i8, ptr %.pre622.i, i64 11
+  %467 = getelementptr inbounds nuw i8, ptr %.pre622.i, i64 11
   %468 = load i8, ptr %467, align 1
   %469 = icmp eq i8 %468, 0
   br i1 %469, label %470, label %471
@@ -1136,7 +1136,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 .thread537.i:                                     ; preds = %471, %464, %..thread537_crit_edge.i
   %475 = phi ptr [ %.pre621.i, %..thread537_crit_edge.i ], [ %.pre622.i, %464 ], [ %.pre622.i, %471 ]
-  %476 = getelementptr inbounds i8, ptr %475, i64 376
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 376
   %477 = load ptr, ptr %476, align 8
   %.not496.i = icmp eq ptr %477, null
   br i1 %.not496.i, label %481, label %478
@@ -1152,16 +1152,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 481:                                              ; preds = %478, %.thread537.i
   %482 = load ptr, ptr %109, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 2624
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 2624
   store ptr null, ptr %483, align 8
   %484 = load ptr, ptr %109, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 2632
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 2632
   store i64 0, ptr %485, align 8
   %486 = load ptr, ptr %0, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
   %488 = load ptr, ptr %487, align 8
   store ptr null, ptr %16, align 8
-  %489 = getelementptr inbounds i8, ptr %486, i64 19
+  %489 = getelementptr inbounds nuw i8, ptr %486, i64 19
   %490 = load i8, ptr %489, align 1
   %491 = icmp eq i8 %490, 1
   %492 = load i32, ptr %488, align 4
@@ -1175,7 +1175,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %493, label %.loopexit541.thread.i, label %.preheader.i
 
 .preheaderthread-pre-split.i:                     ; preds = %._crit_edge599.i
-  %494 = getelementptr inbounds i8, ptr %.1432601.i, i64 2
+  %494 = getelementptr inbounds nuw i8, ptr %.1432601.i, i64 2
   %.pr.i = load i32, ptr %488, align 4
   br label %.preheader.i
 
@@ -1188,7 +1188,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %.not503595.i, label %._crit_edge599.i, label %.lr.ph598.i
 
 .lr.ph598.i:                                      ; preds = %.preheader.i
-  %496 = getelementptr inbounds i8, ptr %.1432601.i, i64 1
+  %496 = getelementptr inbounds nuw i8, ptr %.1432601.i, i64 1
   br label %497
 
 497:                                              ; preds = %509, %.lr.ph598.i
@@ -1241,7 +1241,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %517 = load i8, ptr %.2433588.i, align 1
   %518 = zext i8 %517 to i32
   %519 = shl nuw nsw i32 %518, 8
-  %520 = getelementptr inbounds i8, ptr %.2433588.i, i64 1
+  %520 = getelementptr inbounds nuw i8, ptr %.2433588.i, i64 1
   %521 = load i8, ptr %520, align 1
   %522 = zext i8 %521 to i32
   %523 = or disjoint i32 %519, %522
@@ -1262,7 +1262,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 529:                                              ; preds = %527, %516
   %.6.i = phi i32 [ %.5590.i, %516 ], [ 1, %527 ]
   %530 = add nuw nsw i64 %.1426589.i, 2
-  %531 = getelementptr inbounds i8, ptr %.2433588.i, i64 2
+  %531 = getelementptr inbounds nuw i8, ptr %.2433588.i, i64 2
   %532 = icmp samesign ult i64 %530, %306
   br i1 %532, label %516, label %533, !llvm.loop !10
 
@@ -1291,22 +1291,22 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 .loopexit539.i:                                   ; preds = %527, %507
   %540 = phi ptr [ %508, %507 ], [ %528, %527 ]
   %.2423.i = phi i64 [ %.1422596.i, %507 ], [ %.3424592.i, %527 ]
-  %541 = getelementptr inbounds i8, ptr %540, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %542 = load ptr, ptr %541, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1692, ptr noundef nonnull @.str.51, ptr noundef %542) #11
   %543 = getelementptr inbounds i32, ptr %488, i64 %.2423.i
   %544 = load i32, ptr %543, align 4
   %545 = load ptr, ptr %229, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 16
   store i32 %544, ptr %546, align 8
   %547 = load ptr, ptr %109, align 8
-  %548 = getelementptr inbounds i8, ptr %547, i64 24
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 24
   store ptr %540, ptr %548, align 8
   %549 = load i32, ptr %17, align 8
   %550 = add nsw i32 %549, 1
   store i32 %550, ptr %17, align 8
   %551 = load ptr, ptr %0, align 8
-  %552 = getelementptr inbounds i8, ptr %551, i64 9
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 9
   %553 = load i8, ptr %552, align 1
   %554 = icmp eq i8 %553, 1
   br i1 %554, label %555, label %556
@@ -1344,15 +1344,15 @@ ssl_parse_client_hello.exit:                      ; preds = %393, %384, %389, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2213, ptr noundef nonnull @.str.78) #11
   %565 = load ptr, ptr %0, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 9
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 9
   %567 = load i8, ptr %566, align 1
   %568 = icmp eq i8 %567, 1
   br i1 %568, label %569, label %628
 
 569:                                              ; preds = %564
-  %570 = getelementptr inbounds i8, ptr %0, i64 112
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %571 = load ptr, ptr %570, align 8
-  %572 = getelementptr inbounds i8, ptr %571, i64 1016
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 1016
   %573 = load i8, ptr %572, align 8
   %.not.i28 = icmp eq i8 %573, 0
   br i1 %.not.i28, label %628, label %574
@@ -1361,21 +1361,21 @@ ssl_parse_client_hello.exit:                      ; preds = %393, %384, %389, %3
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2219, ptr noundef nonnull @.str.79) #11
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2220, ptr noundef nonnull @.str.80) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %575 = getelementptr inbounds i8, ptr %0, i64 360
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 4
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2091, ptr noundef nonnull @.str.94) #11
   %578 = load ptr, ptr %0, align 8
-  %579 = getelementptr inbounds i8, ptr %578, i64 9
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 9
   %580 = load i8, ptr %579, align 1
   %581 = zext i8 %580 to i32
-  %582 = getelementptr inbounds i8, ptr %0, i64 20
+  %582 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %583 = load i32, ptr %582, align 4
   tail call void @mbedtls_ssl_write_version(ptr noundef nonnull %577, i32 noundef %581, i32 noundef %583) #11
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2103, ptr noundef nonnull @.str.95, ptr noundef nonnull %577, i64 noundef 2) #11
-  %584 = getelementptr inbounds i8, ptr %576, i64 6
+  %584 = getelementptr inbounds nuw i8, ptr %576, i64 6
   %585 = load ptr, ptr %0, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 136
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 136
   %587 = load ptr, ptr %586, align 8
   %588 = icmp eq ptr %587, null
   br i1 %588, label %589, label %590
@@ -1385,16 +1385,16 @@ ssl_parse_client_hello.exit:                      ; preds = %393, %384, %389, %3
   br label %ssl_write_hello_verify_request.exit.i
 
 590:                                              ; preds = %574
-  %591 = getelementptr inbounds i8, ptr %576, i64 7
+  %591 = getelementptr inbounds nuw i8, ptr %576, i64 7
   store ptr %591, ptr %14, align 8
-  %592 = getelementptr inbounds i8, ptr %585, i64 152
+  %592 = getelementptr inbounds nuw i8, ptr %585, i64 152
   %593 = load ptr, ptr %592, align 8
-  %594 = getelementptr inbounds i8, ptr %0, i64 320
+  %594 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %595 = load ptr, ptr %594, align 8
-  %596 = getelementptr inbounds i8, ptr %595, i64 16717
-  %597 = getelementptr inbounds i8, ptr %0, i64 424
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 16717
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %0, i64 432
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %600 = load i64, ptr %599, align 8
   %601 = call i32 %587(ptr noundef %593, ptr noundef nonnull %14, ptr noundef nonnull %596, ptr noundef %598, i64 noundef %600) #11
   %.not.i.i = icmp eq i32 %601, 0
@@ -1418,9 +1418,9 @@ ssl_parse_client_hello.exit:                      ; preds = %393, %384, %389, %3
   %612 = ptrtoint ptr %610 to i64
   %613 = ptrtoint ptr %611 to i64
   %614 = sub i64 %612, %613
-  %615 = getelementptr inbounds i8, ptr %0, i64 376
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %614, ptr %615, align 8
-  %616 = getelementptr inbounds i8, ptr %0, i64 368
+  %616 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %616, align 8
   store i8 3, ptr %611, align 1
   store i32 18, ptr %17, align 8
@@ -1434,7 +1434,7 @@ ssl_parse_client_hello.exit:                      ; preds = %393, %384, %389, %3
 
 619:                                              ; preds = %603
   %620 = load ptr, ptr %0, align 8
-  %621 = getelementptr inbounds i8, ptr %620, i64 9
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 9
   %622 = load i8, ptr %621, align 1
   %623 = icmp eq i8 %622, 1
   br i1 %623, label %624, label %627
@@ -1458,7 +1458,7 @@ ssl_write_hello_verify_request.exit.i:            ; preds = %627, %626, %618, %6
   br label %ssl_write_server_hello.exit
 
 628:                                              ; preds = %569, %564
-  %629 = getelementptr inbounds i8, ptr %565, i64 48
+  %629 = getelementptr inbounds nuw i8, ptr %565, i64 48
   %630 = load ptr, ptr %629, align 8
   %631 = icmp eq ptr %630, null
   br i1 %631, label %632, label %633
@@ -1468,17 +1468,17 @@ ssl_write_hello_verify_request.exit.i:            ; preds = %627, %626, %618, %6
   br label %ssl_write_server_hello.exit
 
 633:                                              ; preds = %628
-  %634 = getelementptr inbounds i8, ptr %0, i64 360
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds i8, ptr %635, i64 4
+  %636 = getelementptr inbounds nuw i8, ptr %635, i64 4
   %637 = zext i8 %567 to i32
-  %638 = getelementptr inbounds i8, ptr %0, i64 20
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %639 = load i32, ptr %638, align 4
   tail call void @mbedtls_ssl_write_version(ptr noundef nonnull %636, i32 noundef %637, i32 noundef %639) #11
-  %640 = getelementptr inbounds i8, ptr %635, i64 6
+  %640 = getelementptr inbounds nuw i8, ptr %635, i64 6
   %641 = load i8, ptr %636, align 1
   %642 = zext i8 %641 to i32
-  %643 = getelementptr inbounds i8, ptr %635, i64 5
+  %643 = getelementptr inbounds nuw i8, ptr %635, i64 5
   %644 = load i8, ptr %643, align 1
   %645 = zext i8 %644 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2246, ptr noundef nonnull @.str.82, i32 noundef %642, i32 noundef %645) #11
@@ -1488,35 +1488,35 @@ ssl_write_hello_verify_request.exit.i:            ; preds = %627, %626, %618, %6
   store i8 %648, ptr %640, align 1
   %649 = lshr i64 %646, 16
   %650 = trunc i64 %649 to i8
-  %651 = getelementptr inbounds i8, ptr %635, i64 7
+  %651 = getelementptr inbounds nuw i8, ptr %635, i64 7
   store i8 %650, ptr %651, align 1
   %652 = lshr i64 %646, 8
   %653 = trunc i64 %652 to i8
-  %654 = getelementptr inbounds i8, ptr %635, i64 8
+  %654 = getelementptr inbounds nuw i8, ptr %635, i64 8
   store i8 %653, ptr %654, align 1
   %655 = trunc i64 %646 to i8
-  %656 = getelementptr inbounds i8, ptr %635, i64 9
+  %656 = getelementptr inbounds nuw i8, ptr %635, i64 9
   store i8 %655, ptr %656, align 1
-  %657 = getelementptr inbounds i8, ptr %635, i64 10
+  %657 = getelementptr inbounds nuw i8, ptr %635, i64 10
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2254, ptr noundef nonnull @.str.83, i64 noundef %646) #11
   %658 = load ptr, ptr %0, align 8
-  %659 = getelementptr inbounds i8, ptr %658, i64 48
+  %659 = getelementptr inbounds nuw i8, ptr %658, i64 48
   %660 = load ptr, ptr %659, align 8
-  %661 = getelementptr inbounds i8, ptr %658, i64 56
+  %661 = getelementptr inbounds nuw i8, ptr %658, i64 56
   %662 = load ptr, ptr %661, align 8
   %663 = tail call i32 %660(ptr noundef %662, ptr noundef nonnull %657, i64 noundef 28) #11
   %.not141.i = icmp eq i32 %663, 0
   br i1 %.not141.i, label %664, label %ssl_write_server_hello.exit
 
 664:                                              ; preds = %633
-  %665 = getelementptr inbounds i8, ptr %635, i64 38
-  %666 = getelementptr inbounds i8, ptr %0, i64 112
+  %665 = getelementptr inbounds nuw i8, ptr %635, i64 38
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %667 = load ptr, ptr %666, align 8
-  %668 = getelementptr inbounds i8, ptr %667, i64 1528
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 1528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %668, ptr noundef nonnull align 1 dereferenceable(32) %640, i64 32, i1 false)
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2269, ptr noundef nonnull @.str.84, ptr noundef nonnull %640, i64 noundef 32) #11
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13)
-  %669 = getelementptr inbounds i8, ptr %0, i64 104
+  %669 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %670 = load ptr, ptr %669, align 8
   %671 = load ptr, ptr %666, align 8
   %672 = load i8, ptr %671, align 8
@@ -1524,20 +1524,20 @@ ssl_write_hello_verify_request.exit.i:            ; preds = %627, %626, %618, %6
   br i1 %673, label %ssl_handle_id_based_session_resumption.exit.i, label %674
 
 674:                                              ; preds = %664
-  %675 = getelementptr inbounds i8, ptr %670, i64 24
+  %675 = getelementptr inbounds nuw i8, ptr %670, i64 24
   %676 = load i64, ptr %675, align 8
   %677 = icmp eq i64 %676, 0
   br i1 %677, label %ssl_handle_id_based_session_resumption.exit.i, label %678
 
 678:                                              ; preds = %674
   %679 = load ptr, ptr %0, align 8
-  %680 = getelementptr inbounds i8, ptr %679, i64 64
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 64
   %681 = load ptr, ptr %680, align 8
   %682 = icmp eq ptr %681, null
   br i1 %682, label %ssl_handle_id_based_session_resumption.exit.i, label %683
 
 683:                                              ; preds = %678
-  %684 = getelementptr inbounds i8, ptr %0, i64 12
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %685 = load i32, ptr %684, align 4
   %.not.i150.i = icmp eq i32 %685, 0
   br i1 %.not.i150.i, label %686, label %ssl_handle_id_based_session_resumption.exit.i
@@ -1545,28 +1545,28 @@ ssl_write_hello_verify_request.exit.i:            ; preds = %627, %626, %618, %6
 686:                                              ; preds = %683
   call void @mbedtls_ssl_session_init(ptr noundef nonnull %13) #11
   %687 = load ptr, ptr %0, align 8
-  %688 = getelementptr inbounds i8, ptr %687, i64 64
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 64
   %689 = load ptr, ptr %688, align 8
-  %690 = getelementptr inbounds i8, ptr %687, i64 80
+  %690 = getelementptr inbounds nuw i8, ptr %687, i64 80
   %691 = load ptr, ptr %690, align 8
-  %692 = getelementptr inbounds i8, ptr %670, i64 32
+  %692 = getelementptr inbounds nuw i8, ptr %670, i64 32
   %693 = load i64, ptr %675, align 8
   %694 = call i32 %689(ptr noundef %691, ptr noundef nonnull %692, i64 noundef %693, ptr noundef nonnull %13) #11
   %.not15.i.i = icmp eq i32 %694, 0
   br i1 %.not15.i.i, label %695, label %707
 
 695:                                              ; preds = %686
-  %696 = getelementptr inbounds i8, ptr %670, i64 16
+  %696 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %697 = load i32, ptr %696, align 8
-  %698 = getelementptr inbounds i8, ptr %13, i64 16
+  %698 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %699 = load i32, ptr %698, align 8
   %.not16.i.i = icmp eq i32 %697, %699
   br i1 %.not16.i.i, label %700, label %707
 
 700:                                              ; preds = %695
-  %701 = getelementptr inbounds i8, ptr %670, i64 20
+  %701 = getelementptr inbounds nuw i8, ptr %670, i64 20
   %702 = load i32, ptr %701, align 4
-  %703 = getelementptr inbounds i8, ptr %13, i64 20
+  %703 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %704 = load i32, ptr %703, align 4
   %.not17.i.i = icmp eq i32 %702, %704
   br i1 %.not17.i.i, label %705, label %707
@@ -1598,39 +1598,39 @@ ssl_handle_id_based_session_resumption.exit.i:    ; preds = %707, %683, %678, %6
   store i32 %713, ptr %17, align 8
   %714 = call i64 @time(ptr noundef null) #11
   %715 = load ptr, ptr %669, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
   store i64 %714, ptr %716, align 8
   %717 = load ptr, ptr %666, align 8
-  %718 = getelementptr inbounds i8, ptr %717, i64 4
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 4
   %719 = load i8, ptr %718, align 4
   %.not143.i = icmp eq i8 %719, 0
   %720 = load ptr, ptr %669, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 24
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 24
   br i1 %.not143.i, label %725, label %722
 
 722:                                              ; preds = %711
   store i64 0, ptr %721, align 8
   %723 = load ptr, ptr %669, align 8
-  %724 = getelementptr inbounds i8, ptr %723, i64 32
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %724, i8 0, i64 32, i1 false)
   br label %740
 
 725:                                              ; preds = %711
   store i64 32, ptr %721, align 8
   %726 = load ptr, ptr %0, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 48
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 48
   %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds i8, ptr %726, i64 56
+  %729 = getelementptr inbounds nuw i8, ptr %726, i64 56
   %730 = load ptr, ptr %729, align 8
   %731 = load ptr, ptr %669, align 8
-  %732 = getelementptr inbounds i8, ptr %731, i64 32
+  %732 = getelementptr inbounds nuw i8, ptr %731, i64 32
   %733 = call i32 %728(ptr noundef %730, ptr noundef nonnull %732, i64 noundef 32) #11
   %.not144.i = icmp eq i32 %733, 0
   br i1 %.not144.i, label %740, label %ssl_write_server_hello.exit
 
 734:                                              ; preds = %ssl_handle_id_based_session_resumption.exit.i
   %735 = load ptr, ptr %669, align 8
-  %736 = getelementptr inbounds i8, ptr %735, i64 24
+  %736 = getelementptr inbounds nuw i8, ptr %735, i64 24
   %737 = load i64, ptr %736, align 8
   store i32 12, ptr %17, align 8
   %738 = call i32 @mbedtls_ssl_derive_keys(ptr noundef nonnull %0) #11
@@ -1644,18 +1644,18 @@ ssl_handle_id_based_session_resumption.exit.i:    ; preds = %707, %683, %678, %6
 740:                                              ; preds = %734, %725, %722
   %.0134.i = phi i64 [ 0, %722 ], [ 32, %725 ], [ %737, %734 ]
   %741 = load ptr, ptr %669, align 8
-  %742 = getelementptr inbounds i8, ptr %741, i64 24
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 24
   %743 = load i64, ptr %742, align 8
   %744 = trunc i64 %743 to i8
-  %745 = getelementptr inbounds i8, ptr %635, i64 39
+  %745 = getelementptr inbounds nuw i8, ptr %635, i64 39
   store i8 %744, ptr %665, align 1
   %746 = load ptr, ptr %669, align 8
-  %747 = getelementptr inbounds i8, ptr %746, i64 32
-  %748 = getelementptr inbounds i8, ptr %746, i64 24
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 32
+  %748 = getelementptr inbounds nuw i8, ptr %746, i64 24
   %749 = load i64, ptr %748, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %745, ptr nonnull align 8 %747, i64 %749, i1 false)
   %750 = load ptr, ptr %669, align 8
-  %751 = getelementptr inbounds i8, ptr %750, i64 24
+  %751 = getelementptr inbounds nuw i8, ptr %750, i64 24
   %752 = load i64, ptr %751, align 8
   %753 = getelementptr inbounds i8, ptr %745, i64 %752
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2327, ptr noundef nonnull @.str.86, i64 noundef %.0134.i) #11
@@ -1666,35 +1666,35 @@ ssl_handle_id_based_session_resumption.exit.i:    ; preds = %707, %683, %678, %6
   %756 = select i1 %.not145.i, ptr @.str.90, ptr @.str.89
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2330, ptr noundef nonnull @.str.88, ptr noundef nonnull %756) #11
   %757 = load ptr, ptr %669, align 8
-  %758 = getelementptr inbounds i8, ptr %757, i64 16
+  %758 = getelementptr inbounds nuw i8, ptr %757, i64 16
   %759 = load i32, ptr %758, align 8
   %760 = lshr i32 %759, 8
   %761 = trunc i32 %760 to i8
   store i8 %761, ptr %753, align 1
   %762 = load ptr, ptr %669, align 8
-  %763 = getelementptr inbounds i8, ptr %762, i64 16
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 16
   %764 = load i32, ptr %763, align 8
   %765 = trunc i32 %764 to i8
-  %766 = getelementptr inbounds i8, ptr %753, i64 1
+  %766 = getelementptr inbounds nuw i8, ptr %753, i64 1
   store i8 %765, ptr %766, align 1
-  %767 = getelementptr inbounds i8, ptr %753, i64 2
+  %767 = getelementptr inbounds nuw i8, ptr %753, i64 2
   %768 = load ptr, ptr %669, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 20
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 20
   %770 = load i32, ptr %769, align 4
   %771 = trunc i32 %770 to i8
-  %772 = getelementptr inbounds i8, ptr %753, i64 3
+  %772 = getelementptr inbounds nuw i8, ptr %753, i64 3
   store i8 %771, ptr %767, align 1
   %773 = load ptr, ptr %669, align 8
-  %774 = getelementptr inbounds i8, ptr %773, i64 16
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 16
   %775 = load i32, ptr %774, align 8
   %776 = call ptr @mbedtls_ssl_get_ciphersuite_name(i32 noundef %775) #11
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2337, ptr noundef nonnull @.str.91, ptr noundef %776) #11
   %777 = load ptr, ptr %669, align 8
-  %778 = getelementptr inbounds i8, ptr %777, i64 20
+  %778 = getelementptr inbounds nuw i8, ptr %777, i64 20
   %779 = load i32, ptr %778, align 4
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2339, ptr noundef nonnull @.str.92, i32 noundef %779) #11
-  %780 = getelementptr inbounds i8, ptr %753, i64 5
-  %781 = getelementptr inbounds i8, ptr %0, i64 440
+  %780 = getelementptr inbounds nuw i8, ptr %753, i64 5
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %782 = load i32, ptr %781, align 8
   %.not.i151.i = icmp eq i32 %782, 1
   br i1 %.not.i151.i, label %783, label %ssl_write_renegotiation_ext.exit.i
@@ -1702,44 +1702,44 @@ ssl_handle_id_based_session_resumption.exit.i:    ; preds = %707, %683, %678, %6
 783:                                              ; preds = %740
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1884, ptr noundef nonnull @.str.103) #11
   store i8 -1, ptr %780, align 1
-  %784 = getelementptr inbounds i8, ptr %753, i64 6
+  %784 = getelementptr inbounds nuw i8, ptr %753, i64 6
   store i8 1, ptr %784, align 1
-  %785 = getelementptr inbounds i8, ptr %753, i64 7
-  %786 = getelementptr inbounds i8, ptr %0, i64 12
+  %785 = getelementptr inbounds nuw i8, ptr %753, i64 7
+  %786 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %787 = load i32, ptr %786, align 4
   %.not29.i.i = icmp eq i32 %787, 0
-  %788 = getelementptr inbounds i8, ptr %753, i64 8
+  %788 = getelementptr inbounds nuw i8, ptr %753, i64 8
   store i8 0, ptr %785, align 1
   br i1 %.not29.i.i, label %805, label %789
 
 789:                                              ; preds = %783
-  %790 = getelementptr inbounds i8, ptr %0, i64 448
+  %790 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %791 = load i64, ptr %790, align 8
   %.tr.i.i = trunc i64 %791 to i8
   %792 = shl i8 %.tr.i.i, 1
   %793 = or disjoint i8 %792, 1
-  %794 = getelementptr inbounds i8, ptr %753, i64 9
+  %794 = getelementptr inbounds nuw i8, ptr %753, i64 9
   store i8 %793, ptr %788, align 1
   %795 = load i64, ptr %790, align 8
   %.tr30.i.i = trunc i64 %795 to i8
   %796 = shl i8 %.tr30.i.i, 1
-  %797 = getelementptr inbounds i8, ptr %753, i64 10
+  %797 = getelementptr inbounds nuw i8, ptr %753, i64 10
   store i8 %796, ptr %794, align 1
-  %798 = getelementptr inbounds i8, ptr %0, i64 468
+  %798 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %799 = load i64, ptr %790, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %797, ptr nonnull align 4 %798, i64 %799, i1 false)
   %800 = load i64, ptr %790, align 8
   %801 = getelementptr inbounds i8, ptr %797, i64 %800
-  %802 = getelementptr inbounds i8, ptr %0, i64 456
+  %802 = getelementptr inbounds nuw i8, ptr %0, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %801, ptr nonnull align 8 %802, i64 %800, i1 false)
   %803 = load i64, ptr %790, align 8
   %804 = getelementptr inbounds i8, ptr %801, i64 %803
   br label %808
 
 805:                                              ; preds = %783
-  %806 = getelementptr inbounds i8, ptr %753, i64 9
+  %806 = getelementptr inbounds nuw i8, ptr %753, i64 9
   store i8 1, ptr %788, align 1
-  %807 = getelementptr inbounds i8, ptr %753, i64 10
+  %807 = getelementptr inbounds nuw i8, ptr %753, i64 10
   store i8 0, ptr %806, align 1
   br label %808
 
@@ -1761,12 +1761,12 @@ ssl_write_renegotiation_ext.exit.i:               ; preds = %808, %740
   %816 = getelementptr inbounds i8, ptr %780, i64 %storemerge.i.i
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1925, ptr noundef nonnull @.str.104) #11
   store i8 0, ptr %816, align 1
-  %817 = getelementptr inbounds i8, ptr %816, i64 1
+  %817 = getelementptr inbounds nuw i8, ptr %816, i64 1
   store i8 1, ptr %817, align 1
-  %818 = getelementptr inbounds i8, ptr %816, i64 2
-  %819 = getelementptr inbounds i8, ptr %816, i64 3
+  %818 = getelementptr inbounds nuw i8, ptr %816, i64 2
+  %819 = getelementptr inbounds nuw i8, ptr %816, i64 3
   store i8 0, ptr %818, align 1
-  %820 = getelementptr inbounds i8, ptr %816, i64 4
+  %820 = getelementptr inbounds nuw i8, ptr %816, i64 4
   store i8 1, ptr %819, align 1
   %821 = load ptr, ptr %669, align 8
   %822 = load i8, ptr %821, align 8
@@ -1780,12 +1780,12 @@ ssl_write_max_fragment_length_ext.exit.i:         ; preds = %815, %ssl_write_ren
   store i64 %storemerge.i153.i, ptr %15, align 8
   %824 = add i64 %storemerge.i153.i, %storemerge.i.i
   %825 = getelementptr inbounds i8, ptr %780, i64 %824
-  %826 = getelementptr inbounds i8, ptr %823, i64 16
+  %826 = getelementptr inbounds nuw i8, ptr %823, i64 16
   %827 = load i32, ptr %826, align 8
   %828 = call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %827) #11
   %829 = icmp eq ptr %828, null
   %830 = load ptr, ptr %669, align 8
-  %831 = getelementptr inbounds i8, ptr %830, i64 148
+  %831 = getelementptr inbounds nuw i8, ptr %830, i64 148
   br i1 %829, label %832, label %833
 
 832:                                              ; preds = %ssl_write_max_fragment_length_ext.exit.i
@@ -1800,13 +1800,13 @@ ssl_write_max_fragment_length_ext.exit.i:         ; preds = %815, %ssl_write_ren
 
 836:                                              ; preds = %833
   %837 = load ptr, ptr %669, align 8
-  %838 = getelementptr inbounds i8, ptr %837, i64 148
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 148
   store i32 0, ptr %838, align 4
   br label %839
 
 839:                                              ; preds = %836, %833, %832
   %840 = load ptr, ptr %669, align 8
-  %841 = getelementptr inbounds i8, ptr %840, i64 148
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 148
   %842 = load i32, ptr %841, align 4
   %843 = icmp eq i32 %842, 0
   br i1 %843, label %ssl_write_encrypt_then_mac_ext.exit.i, label %844
@@ -1814,10 +1814,10 @@ ssl_write_max_fragment_length_ext.exit.i:         ; preds = %815, %ssl_write_ren
 844:                                              ; preds = %839
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1809, ptr noundef nonnull @.str.105) #11
   store i8 0, ptr %825, align 1
-  %845 = getelementptr inbounds i8, ptr %825, i64 1
+  %845 = getelementptr inbounds nuw i8, ptr %825, i64 1
   store i8 22, ptr %845, align 1
-  %846 = getelementptr inbounds i8, ptr %825, i64 2
-  %847 = getelementptr inbounds i8, ptr %825, i64 3
+  %846 = getelementptr inbounds nuw i8, ptr %825, i64 2
+  %847 = getelementptr inbounds nuw i8, ptr %825, i64 3
   store i8 0, ptr %846, align 1
   store i8 0, ptr %847, align 1
   br label %ssl_write_encrypt_then_mac_ext.exit.i
@@ -1826,7 +1826,7 @@ ssl_write_encrypt_then_mac_ext.exit.i:            ; preds = %844, %839
   %storemerge.i155.i = phi i64 [ 4, %844 ], [ 0, %839 ]
   %848 = add i64 %storemerge.i155.i, %824
   %849 = load ptr, ptr %666, align 8
-  %850 = getelementptr inbounds i8, ptr %849, i64 12
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 12
   %851 = load i8, ptr %850, align 4
   %852 = icmp eq i8 %851, 0
   br i1 %852, label %ssl_write_extended_ms_ext.exit.i, label %853
@@ -1835,10 +1835,10 @@ ssl_write_encrypt_then_mac_ext.exit.i:            ; preds = %844, %839
   %854 = getelementptr inbounds i8, ptr %780, i64 %848
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1835, ptr noundef nonnull @.str.106) #11
   store i8 0, ptr %854, align 1
-  %855 = getelementptr inbounds i8, ptr %854, i64 1
+  %855 = getelementptr inbounds nuw i8, ptr %854, i64 1
   store i8 23, ptr %855, align 1
-  %856 = getelementptr inbounds i8, ptr %854, i64 2
-  %857 = getelementptr inbounds i8, ptr %854, i64 3
+  %856 = getelementptr inbounds nuw i8, ptr %854, i64 2
+  %857 = getelementptr inbounds nuw i8, ptr %854, i64 3
   store i8 0, ptr %856, align 1
   store i8 0, ptr %857, align 1
   %.pre160.i = load ptr, ptr %666, align 8
@@ -1848,7 +1848,7 @@ ssl_write_extended_ms_ext.exit.i:                 ; preds = %853, %ssl_write_enc
   %858 = phi ptr [ %.pre160.i, %853 ], [ %849, %ssl_write_encrypt_then_mac_ext.exit.i ]
   %storemerge.i156.i = phi i64 [ 4, %853 ], [ 0, %ssl_write_encrypt_then_mac_ext.exit.i ]
   %859 = add i64 %storemerge.i156.i, %848
-  %860 = getelementptr inbounds i8, ptr %858, i64 4
+  %860 = getelementptr inbounds nuw i8, ptr %858, i64 4
   %861 = load i8, ptr %860, align 4
   %862 = icmp eq i8 %861, 0
   br i1 %862, label %ssl_write_session_ticket_ext.exit.i, label %863
@@ -1857,10 +1857,10 @@ ssl_write_extended_ms_ext.exit.i:                 ; preds = %853, %ssl_write_enc
   %864 = getelementptr inbounds i8, ptr %780, i64 %859
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1860, ptr noundef nonnull @.str.107) #11
   store i8 0, ptr %864, align 1
-  %865 = getelementptr inbounds i8, ptr %864, i64 1
+  %865 = getelementptr inbounds nuw i8, ptr %864, i64 1
   store i8 35, ptr %865, align 1
-  %866 = getelementptr inbounds i8, ptr %864, i64 2
-  %867 = getelementptr inbounds i8, ptr %864, i64 3
+  %866 = getelementptr inbounds nuw i8, ptr %864, i64 2
+  %867 = getelementptr inbounds nuw i8, ptr %864, i64 3
   store i8 0, ptr %866, align 1
   store i8 0, ptr %867, align 1
   br label %ssl_write_session_ticket_ext.exit.i
@@ -1870,7 +1870,7 @@ ssl_write_session_ticket_ext.exit.i:              ; preds = %863, %ssl_write_ext
   store i64 %storemerge.i157.i, ptr %15, align 8
   %868 = add i64 %storemerge.i157.i, %859
   %869 = load ptr, ptr %669, align 8
-  %870 = getelementptr inbounds i8, ptr %869, i64 16
+  %870 = getelementptr inbounds nuw i8, ptr %869, i64 16
   %871 = load i32, ptr %870, align 8
   %872 = call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %871) #11
   %.not146.i = icmp eq ptr %872, null
@@ -1883,7 +1883,7 @@ ssl_write_session_ticket_ext.exit.i:              ; preds = %863, %ssl_write_ext
 
 875:                                              ; preds = %873
   %876 = load ptr, ptr %666, align 8
-  %877 = getelementptr inbounds i8, ptr %876, i64 1
+  %877 = getelementptr inbounds nuw i8, ptr %876, i64 1
   %878 = load i8, ptr %877, align 1
   %879 = and i8 %878, 1
   %880 = icmp eq i8 %879, 0
@@ -1893,14 +1893,14 @@ ssl_write_session_ticket_ext.exit.i:              ; preds = %863, %ssl_write_ext
   %882 = getelementptr inbounds i8, ptr %780, i64 %868
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1955, ptr noundef nonnull @.str.108) #11
   store i8 0, ptr %882, align 1
-  %883 = getelementptr inbounds i8, ptr %882, i64 1
+  %883 = getelementptr inbounds nuw i8, ptr %882, i64 1
   store i8 11, ptr %883, align 1
-  %884 = getelementptr inbounds i8, ptr %882, i64 2
-  %885 = getelementptr inbounds i8, ptr %882, i64 3
+  %884 = getelementptr inbounds nuw i8, ptr %882, i64 2
+  %885 = getelementptr inbounds nuw i8, ptr %882, i64 3
   store i8 0, ptr %884, align 1
-  %886 = getelementptr inbounds i8, ptr %882, i64 4
+  %886 = getelementptr inbounds nuw i8, ptr %882, i64 4
   store i8 2, ptr %885, align 1
-  %887 = getelementptr inbounds i8, ptr %882, i64 5
+  %887 = getelementptr inbounds nuw i8, ptr %882, i64 5
   store i8 1, ptr %886, align 1
   store i8 0, ptr %887, align 1
   br label %ssl_write_supported_point_formats_ext.exit.i
@@ -1913,7 +1913,7 @@ ssl_write_supported_point_formats_ext.exit.i:     ; preds = %881, %875
 
 889:                                              ; preds = %ssl_write_supported_point_formats_ext.exit.i, %873, %ssl_write_session_ticket_ext.exit.i
   %.0133.i = phi i64 [ %888, %ssl_write_supported_point_formats_ext.exit.i ], [ %868, %873 ], [ %868, %ssl_write_session_ticket_ext.exit.i ]
-  %890 = getelementptr inbounds i8, ptr %635, i64 16380
+  %890 = getelementptr inbounds nuw i8, ptr %635, i64 16380
   %891 = getelementptr inbounds i8, ptr %780, i64 %.0133.i
   %892 = call i32 @mbedtls_ssl_write_alpn_ext(ptr noundef nonnull %0, ptr noundef nonnull %891, ptr noundef nonnull %890, ptr noundef nonnull %15) #11
   %.not148.i = icmp eq i32 %892, 0
@@ -1931,7 +1931,7 @@ ssl_write_supported_point_formats_ext.exit.i:     ; preds = %881, %875
   %898 = trunc i64 %897 to i8
   store i8 %898, ptr %772, align 1
   %899 = trunc i64 %895 to i8
-  %900 = getelementptr inbounds i8, ptr %753, i64 4
+  %900 = getelementptr inbounds nuw i8, ptr %753, i64 4
   store i8 %899, ptr %900, align 1
   %901 = getelementptr i8, ptr %772, i64 %895
   %902 = getelementptr i8, ptr %901, i64 2
@@ -1942,9 +1942,9 @@ ssl_write_supported_point_formats_ext.exit.i:     ; preds = %881, %875
   %904 = ptrtoint ptr %.0132.i to i64
   %905 = ptrtoint ptr %635 to i64
   %906 = sub i64 %904, %905
-  %907 = getelementptr inbounds i8, ptr %0, i64 376
+  %907 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %906, ptr %907, align 8
-  %908 = getelementptr inbounds i8, ptr %0, i64 368
+  %908 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %908, align 8
   %909 = load ptr, ptr %634, align 8
   store i8 2, ptr %909, align 1
@@ -1964,9 +1964,9 @@ ssl_write_server_hello.exit:                      ; preds = %ssl_write_hello_ver
 913:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 0, ptr %12, align 8
-  %914 = getelementptr inbounds i8, ptr %0, i64 112
+  %914 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %915 = load ptr, ptr %914, align 8
-  %916 = getelementptr inbounds i8, ptr %915, i64 24
+  %916 = getelementptr inbounds nuw i8, ptr %915, i64 24
   %917 = load ptr, ptr %916, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3208, ptr noundef nonnull @.str.109) #11
   %918 = getelementptr i8, ptr %917, i64 18
@@ -1989,21 +1989,21 @@ mbedtls_ssl_ciphersuite_no_pfs.exit.i:            ; preds = %913, %913, %913, %9
   br i1 %.not.i.i.i, label %924, label %921
 
 921:                                              ; preds = %919
-  %922 = getelementptr inbounds i8, ptr %920, i64 840
+  %922 = getelementptr inbounds nuw i8, ptr %920, i64 840
   %923 = load ptr, ptr %922, align 8
   %.not8.i.i.i = icmp eq ptr %923, null
   br i1 %.not8.i.i.i, label %924, label %mbedtls_ssl_own_key.exit.i.i
 
 924:                                              ; preds = %921, %919
   %925 = load ptr, ptr %0, align 8
-  %926 = getelementptr inbounds i8, ptr %925, i64 192
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 192
   %927 = load ptr, ptr %926, align 8
   %928 = icmp eq ptr %927, null
   br i1 %928, label %mbedtls_ssl_own_key.exit.thread.i.i, label %mbedtls_ssl_own_key.exit.i.i
 
 mbedtls_ssl_own_key.exit.i.i:                     ; preds = %924, %921
   %.010.i.i.i = phi ptr [ %927, %924 ], [ %923, %921 ]
-  %929 = getelementptr inbounds i8, ptr %.010.i.i.i, i64 8
+  %929 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
   %930 = load ptr, ptr %929, align 8
   %931 = icmp eq ptr %930, null
   br i1 %931, label %mbedtls_ssl_own_key.exit.thread.i.i, label %932
@@ -2023,32 +2023,32 @@ mbedtls_ssl_own_key.exit.thread.i.i:              ; preds = %mbedtls_ssl_own_key
 
 935:                                              ; preds = %932
   %936 = load ptr, ptr %914, align 8
-  %937 = getelementptr inbounds i8, ptr %936, i64 360
+  %937 = getelementptr inbounds nuw i8, ptr %936, i64 360
   %.not.i13.i.i = icmp eq ptr %936, null
   br i1 %.not.i13.i.i, label %941, label %938
 
 938:                                              ; preds = %935
-  %939 = getelementptr inbounds i8, ptr %936, i64 840
+  %939 = getelementptr inbounds nuw i8, ptr %936, i64 840
   %940 = load ptr, ptr %939, align 8
   %.not8.i14.i.i = icmp eq ptr %940, null
   br i1 %.not8.i14.i.i, label %941, label %.thread.i15.i.i
 
 941:                                              ; preds = %938, %935
   %942 = load ptr, ptr %0, align 8
-  %943 = getelementptr inbounds i8, ptr %942, i64 192
+  %943 = getelementptr inbounds nuw i8, ptr %942, i64 192
   %944 = load ptr, ptr %943, align 8, !nonnull !12, !noundef !12
   br label %.thread.i15.i.i
 
 .thread.i15.i.i:                                  ; preds = %941, %938
   %.010.i16.i.i = phi ptr [ %944, %941 ], [ %940, %938 ]
-  %945 = getelementptr inbounds i8, ptr %.010.i16.i.i, i64 8
+  %945 = getelementptr inbounds nuw i8, ptr %.010.i16.i.i, i64 8
   %946 = load ptr, ptr %945, align 8
   %947 = load ptr, ptr %946, align 8
-  %948 = getelementptr inbounds i8, ptr %946, i64 8
+  %948 = getelementptr inbounds nuw i8, ptr %946, i64 8
   %949 = load ptr, ptr %948, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %947, ptr %11, align 8
-  %950 = getelementptr inbounds i8, ptr %11, i64 8
+  %950 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %949, ptr %950, align 8
   %951 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %11) #11
   %.off.i.i.i = add i32 %951, -2
@@ -2082,17 +2082,17 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   %959 = load ptr, ptr %914, align 8
-  %960 = getelementptr inbounds i8, ptr %959, i64 24
+  %960 = getelementptr inbounds nuw i8, ptr %959, i64 24
   %961 = load ptr, ptr %960, align 8
-  %962 = getelementptr inbounds i8, ptr %0, i64 360
+  %962 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds i8, ptr %0, i64 320
+  %964 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %965 = load ptr, ptr %964, align 8
   %966 = ptrtoint ptr %963 to i64
   %967 = ptrtoint ptr %965 to i64
-  %968 = getelementptr inbounds i8, ptr %0, i64 376
+  %968 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 4, ptr %968, align 8
-  %969 = getelementptr inbounds i8, ptr %961, i64 18
+  %969 = getelementptr inbounds nuw i8, ptr %961, i64 18
   %970 = load i8, ptr %969, align 2
   switch i8 %970, label %977 [
     i8 6, label %971
@@ -2101,7 +2101,7 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
 
 971:                                              ; preds = %958, %958
   store i64 5, ptr %968, align 8
-  %972 = getelementptr inbounds i8, ptr %963, i64 4
+  %972 = getelementptr inbounds nuw i8, ptr %963, i64 4
   store i8 0, ptr %972, align 1
   %973 = load ptr, ptr %962, align 8
   %974 = load i64, ptr %968, align 8
@@ -2122,14 +2122,14 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
 979:                                              ; preds = %977
   store i64 0, ptr %7, align 8
   %980 = load ptr, ptr %0, align 8
-  %981 = getelementptr inbounds i8, ptr %980, i64 248
-  %982 = getelementptr inbounds i8, ptr %980, i64 264
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 248
+  %982 = getelementptr inbounds nuw i8, ptr %980, i64 264
   %983 = load ptr, ptr %982, align 8
   %984 = icmp eq ptr %983, null
   br i1 %984, label %989, label %985
 
 985:                                              ; preds = %979
-  %986 = getelementptr inbounds i8, ptr %980, i64 288
+  %986 = getelementptr inbounds nuw i8, ptr %980, i64 288
   %987 = load ptr, ptr %986, align 8
   %988 = icmp eq ptr %987, null
   br i1 %988, label %989, label %990
@@ -2139,9 +2139,9 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
   br label %ssl_prepare_server_key_exchange.exit.thread.i
 
 990:                                              ; preds = %985
-  %991 = getelementptr inbounds i8, ptr %980, i64 272
+  %991 = getelementptr inbounds nuw i8, ptr %980, i64 272
   %992 = load ptr, ptr %914, align 8
-  %993 = getelementptr inbounds i8, ptr %992, i64 120
+  %993 = getelementptr inbounds nuw i8, ptr %992, i64 120
   %994 = tail call i32 @mbedtls_dhm_set_group(ptr noundef nonnull %993, ptr noundef nonnull %981, ptr noundef nonnull %991) #11
   %.not135.i.i = icmp eq i32 %994, 0
   br i1 %.not135.i.i, label %996, label %995
@@ -2152,16 +2152,16 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
 
 996:                                              ; preds = %990
   %997 = load ptr, ptr %914, align 8
-  %998 = getelementptr inbounds i8, ptr %997, i64 120
+  %998 = getelementptr inbounds nuw i8, ptr %997, i64 120
   %999 = tail call i64 @mbedtls_dhm_get_len(ptr noundef nonnull %998) #11
   %1000 = trunc i64 %999 to i32
   %1001 = load ptr, ptr %962, align 8
   %1002 = load i64, ptr %968, align 8
   %1003 = getelementptr inbounds i8, ptr %1001, i64 %1002
   %1004 = load ptr, ptr %0, align 8
-  %1005 = getelementptr inbounds i8, ptr %1004, i64 48
+  %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 48
   %1006 = load ptr, ptr %1005, align 8
-  %1007 = getelementptr inbounds i8, ptr %1004, i64 56
+  %1007 = getelementptr inbounds nuw i8, ptr %1004, i64 56
   %1008 = load ptr, ptr %1007, align 8
   %1009 = call i32 @mbedtls_dhm_make_params(ptr noundef nonnull %998, i32 noundef %1000, ptr noundef %1003, ptr noundef nonnull %7, ptr noundef %1006, ptr noundef %1008) #11
   %.not136.i.i = icmp eq i32 %1009, 0
@@ -2179,16 +2179,16 @@ ssl_get_ecdh_params_from_cert.exit.i:             ; preds = %.thread.i15.i.i, %m
   %1016 = add i64 %1015, %1013
   store i64 %1016, ptr %968, align 8
   %1017 = load ptr, ptr %914, align 8
-  %1018 = getelementptr inbounds i8, ptr %1017, i64 168
+  %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 168
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2892, ptr noundef nonnull @.str.121, ptr noundef nonnull %1018) #11
   %1019 = load ptr, ptr %914, align 8
-  %1020 = getelementptr inbounds i8, ptr %1019, i64 120
+  %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 120
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2893, ptr noundef nonnull @.str.122, ptr noundef nonnull %1020) #11
   %1021 = load ptr, ptr %914, align 8
-  %1022 = getelementptr inbounds i8, ptr %1021, i64 144
+  %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 144
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2894, ptr noundef nonnull @.str.123, ptr noundef nonnull %1022) #11
   %1023 = load ptr, ptr %914, align 8
-  %1024 = getelementptr inbounds i8, ptr %1023, i64 192
+  %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 192
   call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2895, ptr noundef nonnull @.str.124, ptr noundef nonnull %1024) #11
   %.val145.pre.i.i = load i8, ptr %969, align 2
   br label %1025
@@ -2208,7 +2208,7 @@ mbedtls_ssl_ciphersuite_uses_ecdhe.exit.i.i:      ; preds = %1025, %1025, %1025
   br i1 %.not.i.i44.i, label %mbedtls_ssl_get_groups.exit.i.i, label %1027
 
 1027:                                             ; preds = %mbedtls_ssl_ciphersuite_uses_ecdhe.exit.i.i
-  %1028 = getelementptr inbounds i8, ptr %1026, i64 104
+  %1028 = getelementptr inbounds nuw i8, ptr %1026, i64 104
   %1029 = load ptr, ptr %1028, align 8
   %.not7.i.i.i = icmp eq ptr %1029, null
   br i1 %.not7.i.i.i, label %mbedtls_ssl_get_groups.exit.i.i, label %mbedtls_ssl_get_groups.exit.thread.i.i
@@ -2219,7 +2219,7 @@ mbedtls_ssl_get_groups.exit.thread.i.i:           ; preds = %1027
 
 mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_ciphersuite_uses_ecdhe.exit.i.i
   %1030 = load ptr, ptr %0, align 8
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 240
+  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 240
   %1032 = load ptr, ptr %1031, align 8
   store i64 0, ptr %8, align 8
   %1033 = icmp eq ptr %1032, null
@@ -2232,7 +2232,7 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_
   br i1 %.not138167.i.i, label %._crit_edge170.i.i, label %.lr.ph169.i.i
 
 .lr.ph169.i.i:                                    ; preds = %.preheader.i.i
-  %1035 = getelementptr inbounds i8, ptr %1026, i64 816
+  %1035 = getelementptr inbounds nuw i8, ptr %1026, i64 816
   %1036 = load ptr, ptr %1035, align 8
   %1037 = load ptr, ptr %1036, align 8
   %.not139165.i.i = icmp eq ptr %1037, null
@@ -2246,19 +2246,19 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_
 1039:                                             ; preds = %1044, %.lr.ph.i.i
   %1040 = phi ptr [ %1037, %.lr.ph.i.i ], [ %1046, %1044 ]
   %.1121166.i.i = phi ptr [ %1036, %.lr.ph.i.i ], [ %1045, %1044 ]
-  %1041 = getelementptr inbounds i8, ptr %1040, i64 4
+  %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 4
   %1042 = load i16, ptr %1041, align 4
   %1043 = icmp eq i16 %1042, %1038
   br i1 %1043, label %.thread.i.i, label %1044
 
 1044:                                             ; preds = %1039
-  %1045 = getelementptr inbounds i8, ptr %.1121166.i.i, i64 8
+  %1045 = getelementptr inbounds nuw i8, ptr %.1121166.i.i, i64 8
   %1046 = load ptr, ptr %1045, align 8
   %.not139.i.i = icmp eq ptr %1046, null
   br i1 %.not139.i.i, label %._crit_edge.i.i, label %1039, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %1044
-  %1047 = getelementptr inbounds i8, ptr %.0122168.i.i, i64 2
+  %1047 = getelementptr inbounds nuw i8, ptr %.0122168.i.i, i64 2
   %1048 = load i16, ptr %1047, align 2
   %.not138.i.i = icmp eq i16 %1048, 0
   br i1 %.not138.i.i, label %._crit_edge170.i.i, label %.lr.ph.i.i, !llvm.loop !14
@@ -2273,11 +2273,11 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_
   br label %ssl_prepare_server_key_exchange.exit.thread.i
 
 1050:                                             ; preds = %.thread.i.i
-  %1051 = getelementptr inbounds i8, ptr %.pr.i.pre.i, i64 8
+  %1051 = getelementptr inbounds nuw i8, ptr %.pr.i.pre.i, i64 8
   %1052 = load ptr, ptr %1051, align 8
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2933, ptr noundef nonnull @.str.126, ptr noundef %1052) #11
   %1053 = load ptr, ptr %914, align 8
-  %1054 = getelementptr inbounds i8, ptr %1053, i64 360
+  %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 360
   %1055 = load ptr, ptr %.1121166.i.i, align 8
   %1056 = load i32, ptr %1055, align 8
   %1057 = call i32 @mbedtls_ecdh_setup(ptr noundef nonnull %1054, i32 noundef %1056) #11
@@ -2290,15 +2290,15 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_
 
 1059:                                             ; preds = %1050
   %1060 = load ptr, ptr %914, align 8
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 360
+  %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 360
   %1062 = load ptr, ptr %962, align 8
   %1063 = load i64, ptr %968, align 8
   %1064 = getelementptr inbounds i8, ptr %1062, i64 %1063
   %1065 = sub i64 16384, %1063
   %1066 = load ptr, ptr %0, align 8
-  %1067 = getelementptr inbounds i8, ptr %1066, i64 48
+  %1067 = getelementptr inbounds nuw i8, ptr %1066, i64 48
   %1068 = load ptr, ptr %1067, align 8
-  %1069 = getelementptr inbounds i8, ptr %1066, i64 56
+  %1069 = getelementptr inbounds nuw i8, ptr %1066, i64 56
   %1070 = load ptr, ptr %1069, align 8
   %1071 = call i32 @mbedtls_ecdh_make_params(ptr noundef nonnull %1061, ptr noundef nonnull %8, ptr noundef %1064, i64 noundef %1065, ptr noundef %1068, ptr noundef %1070) #11
   %.not141.i.i = icmp eq i32 %1071, 0
@@ -2310,7 +2310,7 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %1027, %mbedtls_ssl_
 
 1073:                                             ; preds = %1059
   %1074 = load ptr, ptr %914, align 8
-  %1075 = getelementptr inbounds i8, ptr %1074, i64 360
+  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 360
   call void @mbedtls_debug_printf_ecdh(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 3038, ptr noundef nonnull %1075, i32 noundef 0) #11
   %1076 = load ptr, ptr %962, align 8
   %1077 = load i64, ptr %968, align 8
@@ -2394,26 +2394,26 @@ ssl_prepare_server_key_exchange.exit.thread58.thread.i: ; preds = %mbedtls_ssl_c
   br i1 %.not.i148.i.i, label %1119, label %1116
 
 1116:                                             ; preds = %1103
-  %1117 = getelementptr inbounds i8, ptr %1115, i64 840
+  %1117 = getelementptr inbounds nuw i8, ptr %1115, i64 840
   %1118 = load ptr, ptr %1117, align 8
   %.not8.i.i47.i = icmp eq ptr %1118, null
   br i1 %.not8.i.i47.i, label %1119, label %mbedtls_ssl_own_key.exit.thread158.i.i
 
 1119:                                             ; preds = %1116, %1103
   %1120 = load ptr, ptr %0, align 8
-  %1121 = getelementptr inbounds i8, ptr %1120, i64 192
+  %1121 = getelementptr inbounds nuw i8, ptr %1120, i64 192
   %1122 = load ptr, ptr %1121, align 8
   %1123 = icmp eq ptr %1122, null
   br i1 %1123, label %mbedtls_ssl_own_key.exit.thread.i48.i, label %mbedtls_ssl_own_key.exit.i49.i
 
 mbedtls_ssl_own_key.exit.i49.i:                   ; preds = %1119
-  %1124 = getelementptr inbounds i8, ptr %1122, i64 8
+  %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 8
   %1125 = load ptr, ptr %1124, align 8
   %1126 = icmp eq ptr %1125, null
   br i1 %1126, label %mbedtls_ssl_own_key.exit.thread.i48.i, label %1130
 
 mbedtls_ssl_own_key.exit.thread158.i.i:           ; preds = %1116
-  %1127 = getelementptr inbounds i8, ptr %1118, i64 8
+  %1127 = getelementptr inbounds nuw i8, ptr %1118, i64 8
   %1128 = load ptr, ptr %1127, align 8
   %1129 = icmp eq ptr %1128, null
   br i1 %1129, label %mbedtls_ssl_own_key.exit.thread.i48.i, label %.thread160.thread.i.i
@@ -2430,11 +2430,11 @@ mbedtls_ssl_own_key.exit.thread.i48.i:            ; preds = %mbedtls_ssl_own_key
   br i1 %.not.i148.i.i, label %mbedtls_ssl_own_key.exit153.i.i, label %.thread160.i.i
 
 .thread160.i.i:                                   ; preds = %1130
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %1115, i64 840
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1115, i64 840
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.not8.i150.i.i = icmp eq ptr %.pre.i.i, null
   %spec.select.i = select i1 %.not8.i150.i.i, ptr %1122, ptr %.pre.i.i
-  %.phi.trans.insert.i32 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %.phi.trans.insert.i32 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %.pre.i33 = load ptr, ptr %.phi.trans.insert.i32, align 8
   br label %mbedtls_ssl_own_key.exit153.i.i
 
@@ -2445,13 +2445,13 @@ mbedtls_ssl_own_key.exit153.i.i:                  ; preds = %.thread160.i.i, %11
   %1133 = load ptr, ptr %962, align 8
   %1134 = load i64, ptr %968, align 8
   %1135 = getelementptr inbounds i8, ptr %1133, i64 %1134
-  %1136 = getelementptr inbounds i8, ptr %1135, i64 2
+  %1136 = getelementptr inbounds nuw i8, ptr %1135, i64 2
   %1137 = add i64 %967, 16715
   %1138 = add i64 %1134, %966
   %1139 = sub i64 %1137, %1138
-  %1140 = getelementptr inbounds i8, ptr %.pre180.i.i, i64 48
+  %1140 = getelementptr inbounds nuw i8, ptr %.pre180.i.i, i64 48
   %1141 = load ptr, ptr %1140, align 8
-  %1142 = getelementptr inbounds i8, ptr %.pre180.i.i, i64 56
+  %1142 = getelementptr inbounds nuw i8, ptr %.pre180.i.i, i64 56
   %1143 = load ptr, ptr %1142, align 8
   %1144 = call i32 @mbedtls_pk_sign(ptr noundef %1131, i32 noundef %1093, ptr noundef nonnull %10, i64 noundef %1132, ptr noundef nonnull %1136, i64 noundef %1139, ptr noundef nonnull %12, ptr noundef %1141, ptr noundef %1143) #11
   %.not144.i.i = icmp eq i32 %1144, 0
@@ -2530,7 +2530,7 @@ ssl_prepare_server_key_exchange.exit.i:           ; preds = %1145, %1097, %1072,
 
 1167:                                             ; preds = %.sink.split.i, %ssl_prepare_server_key_exchange.exit.thread58.i
   %1168 = phi ptr [ %.pre69.i, %ssl_prepare_server_key_exchange.exit.thread58.i ], [ %.pre6973.i, %.sink.split.i ]
-  %1169 = getelementptr inbounds i8, ptr %0, i64 368
+  %1169 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %1169, align 8
   store i8 12, ptr %1168, align 1
   %1170 = load i32, ptr %17, align 8
@@ -2554,26 +2554,26 @@ ssl_write_server_key_exchange.exit:               ; preds = %955, %ssl_get_ecdh_
   br label %ssl_write_certificate_request.exit
 
 1175:                                             ; preds = %1
-  %1176 = getelementptr inbounds i8, ptr %0, i64 112
+  %1176 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1177 = load ptr, ptr %1176, align 8
-  %1178 = getelementptr inbounds i8, ptr %1177, i64 24
+  %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 24
   %1179 = load ptr, ptr %1178, align 8
-  %1180 = getelementptr inbounds i8, ptr %0, i64 360
+  %1180 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1181 = load ptr, ptr %1180, align 8
-  %1182 = getelementptr inbounds i8, ptr %1181, i64 16384
+  %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 16384
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2455, ptr noundef nonnull @.str.133) #11
   %1183 = load i32, ptr %17, align 8
   %1184 = add nsw i32 %1183, 1
   store i32 %1184, ptr %17, align 8
   %1185 = load ptr, ptr %1176, align 8
-  %1186 = getelementptr inbounds i8, ptr %1185, i64 2
+  %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 2
   %1187 = load i8, ptr %1186, align 2
   %.not.i34 = icmp eq i8 %1187, 3
   br i1 %.not.i34, label %1188, label %1192
 
 1188:                                             ; preds = %1175
   %1189 = load ptr, ptr %0, align 8
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 10
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 10
   %1191 = load i8, ptr %1190, align 2
   br label %1192
 
@@ -2600,32 +2600,32 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.thread.i: ; preds = %mbedtls_ssl_c
 
 1195:                                             ; preds = %mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i
   %1196 = load ptr, ptr %1180, align 8
-  %1197 = getelementptr inbounds i8, ptr %1196, i64 4
-  %1198 = getelementptr inbounds i8, ptr %1196, i64 5
+  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 4
+  %1198 = getelementptr inbounds nuw i8, ptr %1196, i64 5
   store i8 1, ptr %1198, align 1
-  %1199 = getelementptr inbounds i8, ptr %1196, i64 6
+  %1199 = getelementptr inbounds nuw i8, ptr %1196, i64 6
   store i8 64, ptr %1199, align 1
   store i8 2, ptr %1197, align 1
-  %1200 = getelementptr inbounds i8, ptr %1196, i64 7
+  %1200 = getelementptr inbounds nuw i8, ptr %1196, i64 7
   %1201 = load ptr, ptr %1176, align 8
   %.not.i.i36 = icmp eq ptr %1201, null
   br i1 %.not.i.i36, label %mbedtls_ssl_get_sig_algs.exit.i, label %1202
 
 1202:                                             ; preds = %1195
-  %1203 = getelementptr inbounds i8, ptr %1201, i64 15
+  %1203 = getelementptr inbounds nuw i8, ptr %1201, i64 15
   %1204 = load i8, ptr %1203, align 1
   %1205 = icmp eq i8 %1204, 1
   br i1 %1205, label %1206, label %mbedtls_ssl_get_sig_algs.exit.i
 
 1206:                                             ; preds = %1202
-  %1207 = getelementptr inbounds i8, ptr %1201, i64 112
+  %1207 = getelementptr inbounds nuw i8, ptr %1201, i64 112
   %1208 = load ptr, ptr %1207, align 8
   %.not8.i.i = icmp eq ptr %1208, null
   br i1 %.not8.i.i, label %mbedtls_ssl_get_sig_algs.exit.i, label %.preheader.i37
 
 mbedtls_ssl_get_sig_algs.exit.i:                  ; preds = %1206, %1202, %1195
   %1209 = load ptr, ptr %0, align 8
-  %1210 = getelementptr inbounds i8, ptr %1209, i64 224
+  %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 224
   %1211 = load ptr, ptr %1210, align 8
   %1212 = icmp eq ptr %1211, null
   br i1 %1212, label %ssl_write_certificate_request.exit, label %.preheader.i37
@@ -2680,7 +2680,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.i:          ; preds = %1220
 
 mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_sig_alg_is_supported.exit.i, %1220, %1215
   %.1103.i = phi i64 [ %.0102129.i, %1215 ], [ %1231, %1226 ], [ %.0102129.i, %mbedtls_ssl_sig_alg_is_supported.exit.i ], [ %.0102129.i, %1220 ]
-  %1232 = getelementptr inbounds i8, ptr %.095130.i, i64 2
+  %1232 = getelementptr inbounds nuw i8, ptr %.095130.i, i64 2
   %1233 = load i16, ptr %1232, align 2
   %.not111.i = icmp eq i16 %1233, 0
   br i1 %.not111.i, label %._crit_edge.i39, label %1215, !llvm.loop !15
@@ -2691,37 +2691,37 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   %1235 = trunc i64 %1234 to i8
   store i8 %1235, ptr %1200, align 1
   %1236 = trunc i64 %.0102.lcssa.i to i8
-  %1237 = getelementptr inbounds i8, ptr %1196, i64 8
+  %1237 = getelementptr inbounds nuw i8, ptr %1196, i64 8
   store i8 %1236, ptr %1237, align 1
   %1238 = getelementptr i8, ptr %1200, i64 %.0102.lcssa.i
   %1239 = getelementptr i8, ptr %1238, i64 4
   %1240 = load ptr, ptr %0, align 8
-  %1241 = getelementptr inbounds i8, ptr %1240, i64 18
+  %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 18
   %1242 = load i8, ptr %1241, align 2
   %1243 = icmp eq i8 %1242, 1
   br i1 %1243, label %1244, label %.critedge.i40
 
 1244:                                             ; preds = %._crit_edge.i39
   %1245 = load ptr, ptr %1176, align 8
-  %1246 = getelementptr inbounds i8, ptr %1245, i64 2640
+  %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 2640
   %1247 = load ptr, ptr %1246, align 8
   %.not112.i = icmp eq ptr %1247, null
   br i1 %.not112.i, label %1248, label %.lr.ph136.i
 
 1248:                                             ; preds = %1244
-  %1249 = getelementptr inbounds i8, ptr %1240, i64 384
+  %1249 = getelementptr inbounds nuw i8, ptr %1240, i64 384
   %1250 = load ptr, ptr %1249, align 8
   %.not113.i = icmp eq ptr %1250, null
   br i1 %.not113.i, label %1251, label %.lr.ph136.i
 
 1251:                                             ; preds = %1248
-  %1252 = getelementptr inbounds i8, ptr %1245, i64 856
+  %1252 = getelementptr inbounds nuw i8, ptr %1245, i64 856
   %1253 = load ptr, ptr %1252, align 8
   %.not114.i = icmp eq ptr %1253, null
   br i1 %.not114.i, label %1254, label %.lr.ph136.i
 
 1254:                                             ; preds = %1251
-  %1255 = getelementptr inbounds i8, ptr %1240, i64 200
+  %1255 = getelementptr inbounds nuw i8, ptr %1240, i64 200
   %1256 = load ptr, ptr %1255, align 8
   %.not115131.i = icmp eq ptr %1256, null
   br i1 %.not115131.i, label %.critedge.i40, label %.lr.ph136.i
@@ -2735,13 +2735,13 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   %.1134.i = phi ptr [ %.097148.i, %.lr.ph136.i ], [ %1285, %1273 ]
   %.199133.i = phi ptr [ %1239, %.lr.ph136.i ], [ %1281, %1273 ]
   %.1101132.i = phi i16 [ 0, %.lr.ph136.i ], [ %1283, %1273 ]
-  %1259 = getelementptr inbounds i8, ptr %.1134.i, i64 56
+  %1259 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 56
   %1260 = load i32, ptr %1259, align 8
   %.not116.i = icmp eq i32 %1260, 0
   br i1 %.not116.i, label %.critedge.i40, label %1261
 
 1261:                                             ; preds = %1258
-  %1262 = getelementptr inbounds i8, ptr %.1134.i, i64 144
+  %1262 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 144
   %1263 = load i64, ptr %1262, align 8
   %1264 = trunc i64 %1263 to i16
   %1265 = icmp ult ptr %1182, %.199133.i
@@ -2764,17 +2764,17 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   %1275 = trunc i64 %1274 to i8
   store i8 %1275, ptr %.199133.i, align 1
   %1276 = trunc i64 %1263 to i8
-  %1277 = getelementptr inbounds i8, ptr %.199133.i, i64 1
+  %1277 = getelementptr inbounds nuw i8, ptr %.199133.i, i64 1
   store i8 %1276, ptr %1277, align 1
-  %1278 = getelementptr inbounds i8, ptr %.199133.i, i64 2
-  %1279 = getelementptr inbounds i8, ptr %.1134.i, i64 152
+  %1278 = getelementptr inbounds nuw i8, ptr %.199133.i, i64 2
+  %1279 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 152
   %1280 = load ptr, ptr %1279, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1278, ptr align 1 %1280, i64 %1269, i1 false)
-  %1281 = getelementptr inbounds i8, ptr %1278, i64 %1269
+  %1281 = getelementptr inbounds nuw i8, ptr %1278, i64 %1269
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2591, ptr noundef nonnull @.str.136, ptr noundef nonnull %1278, i64 noundef %1269) #11
   %1282 = add i16 %.1101132.i, 2
   %1283 = add i16 %1282, %1264
-  %1284 = getelementptr inbounds i8, ptr %.1134.i, i64 608
+  %1284 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 608
   %1285 = load ptr, ptr %1284, align 8
   %.not115.i = icmp eq ptr %1285, null
   br i1 %.not115.i, label %.critedge.i40, label %1258, !llvm.loop !16
@@ -2785,9 +2785,9 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   %1286 = ptrtoint ptr %.098.i to i64
   %1287 = ptrtoint ptr %1196 to i64
   %1288 = sub i64 %1286, %1287
-  %1289 = getelementptr inbounds i8, ptr %0, i64 376
+  %1289 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %1288, ptr %1289, align 8
-  %1290 = getelementptr inbounds i8, ptr %0, i64 368
+  %1290 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %1290, align 8
   %1291 = load ptr, ptr %1180, align 8
   store i8 13, ptr %1291, align 1
@@ -2808,18 +2808,18 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1302:                                             ; preds = %1
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3306, ptr noundef nonnull @.str.138) #11
-  %1303 = getelementptr inbounds i8, ptr %0, i64 376
+  %1303 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 4, ptr %1303, align 8
-  %1304 = getelementptr inbounds i8, ptr %0, i64 368
+  %1304 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %1304, align 8
-  %1305 = getelementptr inbounds i8, ptr %0, i64 360
+  %1305 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1306 = load ptr, ptr %1305, align 8
   store i8 14, ptr %1306, align 1
   %1307 = load i32, ptr %17, align 8
   %1308 = add nsw i32 %1307, 1
   store i32 %1308, ptr %17, align 8
   %1309 = load ptr, ptr %0, align 8
-  %1310 = getelementptr inbounds i8, ptr %1309, i64 9
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 9
   %1311 = load i8, ptr %1310, align 1
   %1312 = icmp eq i8 %1311, 1
   br i1 %1312, label %1313, label %1314
@@ -2839,7 +2839,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1317:                                             ; preds = %1314
   %1318 = load ptr, ptr %0, align 8
-  %1319 = getelementptr inbounds i8, ptr %1318, i64 9
+  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 9
   %1320 = load i8, ptr %1319, align 1
   %1321 = icmp eq i8 %1320, 1
   br i1 %1321, label %1322, label %1325
@@ -2863,9 +2863,9 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1328:                                             ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %1329 = getelementptr inbounds i8, ptr %0, i64 112
+  %1329 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1330 = load ptr, ptr %1329, align 8
-  %1331 = getelementptr inbounds i8, ptr %1330, i64 24
+  %1331 = getelementptr inbounds nuw i8, ptr %1330, i64 24
   %1332 = load ptr, ptr %1331, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3648, ptr noundef nonnull @.str.140) #11
   %1333 = tail call i32 @mbedtls_ssl_read_record(ptr noundef nonnull %0, i32 noundef 1) #11
@@ -2877,19 +2877,19 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   br label %ssl_parse_client_key_exchange.exit
 
 1335:                                             ; preds = %1328
-  %1336 = getelementptr inbounds i8, ptr %0, i64 216
+  %1336 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %1337 = load ptr, ptr %1336, align 8
   %.val.i48 = load ptr, ptr %0, align 8
   %1338 = getelementptr i8, ptr %.val.i48, i64 9
   %.val.val.i49 = load i8, ptr %1338, align 1
   %1339 = icmp eq i8 %.val.val.i49, 1
   %..i.i50 = select i1 %1339, i64 12, i64 4
-  %1340 = getelementptr inbounds i8, ptr %1337, i64 %..i.i50
+  %1340 = getelementptr inbounds nuw i8, ptr %1337, i64 %..i.i50
   store ptr %1340, ptr %6, align 8
-  %1341 = getelementptr inbounds i8, ptr %0, i64 288
+  %1341 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %1342 = load i64, ptr %1341, align 8
   %1343 = getelementptr inbounds i8, ptr %1337, i64 %1342
-  %1344 = getelementptr inbounds i8, ptr %0, i64 232
+  %1344 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1345 = load i32, ptr %1344, align 8
   %.not146.i51 = icmp eq i32 %1345, 22
   br i1 %.not146.i51, label %1347, label %1346
@@ -2908,7 +2908,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
   br label %ssl_parse_client_key_exchange.exit
 
 1350:                                             ; preds = %1347
-  %1351 = getelementptr inbounds i8, ptr %1332, i64 18
+  %1351 = getelementptr inbounds nuw i8, ptr %1332, i64 18
   %1352 = load i8, ptr %1351, align 2
   switch i8 %1352, label %1455 [
     i8 2, label %1353
@@ -2943,13 +2943,13 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1359:                                             ; preds = %1356
   %1360 = load ptr, ptr %1329, align 8
-  %1361 = getelementptr inbounds i8, ptr %1360, i64 120
-  %1362 = getelementptr inbounds i8, ptr %1360, i64 1560
-  %1363 = getelementptr inbounds i8, ptr %1360, i64 16
+  %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 120
+  %1362 = getelementptr inbounds nuw i8, ptr %1360, i64 1560
+  %1363 = getelementptr inbounds nuw i8, ptr %1360, i64 16
   %1364 = load ptr, ptr %0, align 8
-  %1365 = getelementptr inbounds i8, ptr %1364, i64 48
+  %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 48
   %1366 = load ptr, ptr %1365, align 8
-  %1367 = getelementptr inbounds i8, ptr %1364, i64 56
+  %1367 = getelementptr inbounds nuw i8, ptr %1364, i64 56
   %1368 = load ptr, ptr %1367, align 8
   %1369 = tail call i32 @mbedtls_dhm_calc_secret(ptr noundef nonnull %1361, ptr noundef nonnull %1362, i64 noundef 1060, ptr noundef nonnull %1363, ptr noundef %1366, ptr noundef %1368) #11
   %.not166.i = icmp eq i32 %1369, 0
@@ -2961,13 +2961,13 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1371:                                             ; preds = %1359
   %1372 = load ptr, ptr %1329, align 8
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 240
+  %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 240
   tail call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 3710, ptr noundef nonnull @.str.146, ptr noundef nonnull %1373) #11
   br label %1456
 
 1374:                                             ; preds = %1350, %1350, %1350, %1350
   %1375 = load ptr, ptr %1329, align 8
-  %1376 = getelementptr inbounds i8, ptr %1375, i64 360
+  %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 360
   %gepdiff.i = sub nsw i64 %1342, %..i.i50
   %1377 = tail call i32 @mbedtls_ecdh_read_public(ptr noundef nonnull %1376, ptr noundef nonnull %1340, i64 noundef %gepdiff.i) #11
   %.not162.i = icmp eq i32 %1377, 0
@@ -2979,16 +2979,16 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1379:                                             ; preds = %1374
   %1380 = load ptr, ptr %1329, align 8
-  %1381 = getelementptr inbounds i8, ptr %1380, i64 360
+  %1381 = getelementptr inbounds nuw i8, ptr %1380, i64 360
   tail call void @mbedtls_debug_printf_ecdh(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 3787, ptr noundef nonnull %1381, i32 noundef 1) #11
   %1382 = load ptr, ptr %1329, align 8
-  %1383 = getelementptr inbounds i8, ptr %1382, i64 360
-  %1384 = getelementptr inbounds i8, ptr %1382, i64 16
-  %1385 = getelementptr inbounds i8, ptr %1382, i64 1560
+  %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 360
+  %1384 = getelementptr inbounds nuw i8, ptr %1382, i64 16
+  %1385 = getelementptr inbounds nuw i8, ptr %1382, i64 1560
   %1386 = load ptr, ptr %0, align 8
-  %1387 = getelementptr inbounds i8, ptr %1386, i64 48
+  %1387 = getelementptr inbounds nuw i8, ptr %1386, i64 48
   %1388 = load ptr, ptr %1387, align 8
-  %1389 = getelementptr inbounds i8, ptr %1386, i64 56
+  %1389 = getelementptr inbounds nuw i8, ptr %1386, i64 56
   %1390 = load ptr, ptr %1389, align 8
   %1391 = tail call i32 @mbedtls_ecdh_calc_secret(ptr noundef nonnull %1383, ptr noundef nonnull %1384, ptr noundef nonnull %1385, i64 noundef 1024, ptr noundef %1388, ptr noundef %1390) #11
   %.not163.i = icmp eq i32 %1391, 0
@@ -3000,7 +3000,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1393:                                             ; preds = %1379
   %1394 = load ptr, ptr %1329, align 8
-  %1395 = getelementptr inbounds i8, ptr %1394, i64 360
+  %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 360
   tail call void @mbedtls_debug_printf_ecdh(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 3800, ptr noundef nonnull %1395, i32 noundef 2) #11
   br label %1456
 
@@ -3112,7 +3112,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1436:                                             ; preds = %1433
   %1437 = load ptr, ptr %1329, align 8
-  %1438 = getelementptr inbounds i8, ptr %1437, i64 360
+  %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 360
   %1439 = load ptr, ptr %6, align 8
   %1440 = ptrtoint ptr %1343 to i64
   %1441 = ptrtoint ptr %1439 to i64
@@ -3127,7 +3127,7 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %1226, %mbedtls_ssl_
 
 1445:                                             ; preds = %1436
   %1446 = load ptr, ptr %1329, align 8
-  %1447 = getelementptr inbounds i8, ptr %1446, i64 360
+  %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 360
   tail call void @mbedtls_debug_printf_ecdh(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 4013, ptr noundef nonnull %1447, i32 noundef 1) #11
   %1448 = load i8, ptr %1351, align 2
   %1449 = zext i8 %1448 to i32
@@ -3176,9 +3176,9 @@ ssl_parse_client_key_exchange.exit:               ; preds = %1334, %1346, %1349,
 1462:                                             ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %1463 = getelementptr inbounds i8, ptr %0, i64 112
+  %1463 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1464 = load ptr, ptr %1463, align 8
-  %1465 = getelementptr inbounds i8, ptr %1464, i64 24
+  %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 24
   %1466 = load ptr, ptr %1465, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4110, ptr noundef nonnull @.str.159) #11
   %1467 = getelementptr i8, ptr %1466, i64 18
@@ -3200,9 +3200,9 @@ ssl_parse_client_key_exchange.exit:               ; preds = %1334, %1346, %1349,
   br label %ssl_parse_certificate_verify.exit
 
 mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462, %1462, %1462, %1462
-  %1471 = getelementptr inbounds i8, ptr %0, i64 104
+  %1471 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1472 = load ptr, ptr %1471, align 8
-  %1473 = getelementptr inbounds i8, ptr %1472, i64 112
+  %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 112
   %1474 = load ptr, ptr %1473, align 8
   %1475 = icmp eq ptr %1474, null
   br i1 %1475, label %1476, label %1479
@@ -3227,13 +3227,13 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
   %1483 = load i32, ptr %17, align 8
   %1484 = add nsw i32 %1483, 1
   store i32 %1484, ptr %17, align 8
-  %1485 = getelementptr inbounds i8, ptr %0, i64 232
+  %1485 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1486 = load i32, ptr %1485, align 8
   %.not76.i = icmp eq i32 %1486, 22
   br i1 %.not76.i, label %1487, label %1491
 
 1487:                                             ; preds = %1482
-  %1488 = getelementptr inbounds i8, ptr %0, i64 216
+  %1488 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %1489 = load ptr, ptr %1488, align 8
   %1490 = load i8, ptr %1489, align 1
   %.not77.i = icmp eq i8 %1490, 15
@@ -3250,15 +3250,15 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
   %1494 = icmp eq i8 %.val.val.i58, 1
   %..i.i59 = select i1 %1494, i64 12, i64 4
   %1495 = load ptr, ptr %1471, align 8
-  %1496 = getelementptr inbounds i8, ptr %1495, i64 112
+  %1496 = getelementptr inbounds nuw i8, ptr %1495, i64 112
   %1497 = load ptr, ptr %1496, align 8
   %1498 = icmp eq ptr %1497, null
   br i1 %1498, label %ssl_parse_certificate_verify.exit, label %1499
 
 1499:                                             ; preds = %1492
-  %1500 = getelementptr inbounds i8, ptr %1497, i64 360
+  %1500 = getelementptr inbounds nuw i8, ptr %1497, i64 360
   %1501 = or disjoint i64 %..i.i59, 2
-  %1502 = getelementptr inbounds i8, ptr %0, i64 288
+  %1502 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %1503 = load i64, ptr %1502, align 8
   %1504 = icmp ugt i64 %1501, %1503
   br i1 %1504, label %1505, label %1506
@@ -3268,7 +3268,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
   br label %ssl_parse_certificate_verify.exit
 
 1506:                                             ; preds = %1499
-  %1507 = getelementptr inbounds i8, ptr %1489, i64 %..i.i59
+  %1507 = getelementptr inbounds nuw i8, ptr %1489, i64 %..i.i59
   %1508 = load i8, ptr %1507, align 1
   %1509 = tail call i32 @mbedtls_ssl_md_alg_from_hash(i8 noundef zeroext %1508) #11
   %1510 = icmp eq i32 %1509, 0
@@ -3276,7 +3276,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
 
 1511:                                             ; preds = %1506
   %1512 = load ptr, ptr %1488, align 8
-  %1513 = getelementptr inbounds i8, ptr %1512, i64 %..i.i59
+  %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 %..i.i59
   %1514 = load i8, ptr %1513, align 1
   %1515 = zext i8 %1514 to i32
   %1516 = tail call i32 @mbedtls_ssl_set_calc_verify_md(ptr noundef nonnull %0, i32 noundef %1515) #11
@@ -3290,10 +3290,10 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
 1518:                                             ; preds = %1511
   %1519 = icmp eq i32 %1509, 2
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %1519, i64 16, i64 0
-  %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %1520 = load ptr, ptr %1488, align 8
-  %1521 = getelementptr inbounds i8, ptr %1520, i64 %..i.i59
-  %1522 = getelementptr inbounds i8, ptr %1521, i64 1
+  %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 %..i.i59
+  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 1
   %1523 = load i8, ptr %1522, align 1
   %1524 = tail call i32 @mbedtls_ssl_pk_alg_from_sig(i8 noundef zeroext %1523) #11
   %1525 = icmp eq i32 %1524, 0
@@ -3324,12 +3324,12 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
 
 1535:                                             ; preds = %1530
   %1536 = load ptr, ptr %1488, align 8
-  %1537 = getelementptr inbounds i8, ptr %1536, i64 %..i.i59
-  %1538 = getelementptr inbounds i8, ptr %1537, i64 2
+  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 %..i.i59
+  %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 2
   %1539 = load i8, ptr %1538, align 1
   %1540 = zext i8 %1539 to i64
   %1541 = shl nuw nsw i64 %1540, 8
-  %1542 = getelementptr inbounds i8, ptr %1537, i64 3
+  %1542 = getelementptr inbounds nuw i8, ptr %1537, i64 3
   %1543 = load i8, ptr %1542, align 1
   %1544 = zext i8 %1543 to i64
   %1545 = or disjoint i64 %1541, %1544
@@ -3343,11 +3343,11 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1462, %1462, %1462
 
 1548:                                             ; preds = %1535
   %1549 = load ptr, ptr %1463, align 8
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 40
+  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 40
   %1551 = load ptr, ptr %1550, align 8
   call void %1551(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %1552 = load ptr, ptr %1488, align 8
-  %1553 = getelementptr inbounds i8, ptr %1552, i64 %1531
+  %1553 = getelementptr inbounds nuw i8, ptr %1552, i64 %1531
   %1554 = call i32 @mbedtls_pk_verify(ptr noundef nonnull %1500, i32 noundef %1509, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 noundef 0, ptr noundef nonnull %1553, i64 noundef %1545) #11
   %.not81.i = icmp eq i32 %1554, 0
   br i1 %.not81.i, label %1556, label %1555
@@ -3376,9 +3376,9 @@ ssl_parse_certificate_verify.exit:                ; preds = %1468, %1476, %1481,
   br label %ssl_write_certificate_request.exit
 
 1561:                                             ; preds = %1
-  %1562 = getelementptr inbounds i8, ptr %0, i64 112
+  %1562 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1563 = load ptr, ptr %1562, align 8
-  %1564 = getelementptr inbounds i8, ptr %1563, i64 4
+  %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 4
   %1565 = load i8, ptr %1564, align 4
   %.not = icmp eq i8 %1565, 0
   br i1 %.not, label %1614, label %1566
@@ -3387,21 +3387,21 @@ ssl_parse_certificate_verify.exit:                ; preds = %1468, %1476, %1481,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 4267, ptr noundef nonnull @.str.166) #11
-  %1567 = getelementptr inbounds i8, ptr %0, i64 368
+  %1567 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 22, ptr %1567, align 8
-  %1568 = getelementptr inbounds i8, ptr %0, i64 360
+  %1568 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1569 = load ptr, ptr %1568, align 8
   store i8 4, ptr %1569, align 1
   %1570 = load ptr, ptr %0, align 8
-  %1571 = getelementptr inbounds i8, ptr %1570, i64 160
+  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 160
   %1572 = load ptr, ptr %1571, align 8
-  %1573 = getelementptr inbounds i8, ptr %1570, i64 176
+  %1573 = getelementptr inbounds nuw i8, ptr %1570, i64 176
   %1574 = load ptr, ptr %1573, align 8
-  %1575 = getelementptr inbounds i8, ptr %0, i64 104
+  %1575 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1576 = load ptr, ptr %1575, align 8
   %1577 = load ptr, ptr %1568, align 8
-  %1578 = getelementptr inbounds i8, ptr %1577, i64 10
-  %1579 = getelementptr inbounds i8, ptr %1577, i64 16384
+  %1578 = getelementptr inbounds nuw i8, ptr %1577, i64 10
+  %1579 = getelementptr inbounds nuw i8, ptr %1577, i64 16384
   %1580 = call i32 %1572(ptr noundef %1574, ptr noundef %1576, ptr noundef nonnull %1578, ptr noundef nonnull %1579, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %.not.i60 = icmp eq i32 %1580, 0
   br i1 %.not.i60, label %1582, label %1581
@@ -3416,37 +3416,37 @@ ssl_parse_certificate_verify.exit:                ; preds = %1468, %1476, %1481,
   %1584 = lshr i32 %1583, 24
   %1585 = trunc nuw i32 %1584 to i8
   %1586 = load ptr, ptr %1568, align 8
-  %1587 = getelementptr inbounds i8, ptr %1586, i64 4
+  %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 4
   store i8 %1585, ptr %1587, align 1
   %1588 = lshr i32 %1583, 16
   %1589 = trunc i32 %1588 to i8
   %1590 = load ptr, ptr %1568, align 8
-  %1591 = getelementptr inbounds i8, ptr %1590, i64 5
+  %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 5
   store i8 %1589, ptr %1591, align 1
   %1592 = lshr i32 %1583, 8
   %1593 = trunc i32 %1592 to i8
   %1594 = load ptr, ptr %1568, align 8
-  %1595 = getelementptr inbounds i8, ptr %1594, i64 6
+  %1595 = getelementptr inbounds nuw i8, ptr %1594, i64 6
   store i8 %1593, ptr %1595, align 1
   %1596 = trunc i32 %1583 to i8
   %1597 = load ptr, ptr %1568, align 8
-  %1598 = getelementptr inbounds i8, ptr %1597, i64 7
+  %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 7
   store i8 %1596, ptr %1598, align 1
   %1599 = load i64, ptr %2, align 8
   %1600 = lshr i64 %1599, 8
   %1601 = trunc i64 %1600 to i8
   %1602 = load ptr, ptr %1568, align 8
-  %1603 = getelementptr inbounds i8, ptr %1602, i64 8
+  %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 8
   store i8 %1601, ptr %1603, align 1
   %1604 = trunc i64 %1599 to i8
   %1605 = load ptr, ptr %1568, align 8
-  %1606 = getelementptr inbounds i8, ptr %1605, i64 9
+  %1606 = getelementptr inbounds nuw i8, ptr %1605, i64 9
   store i8 %1604, ptr %1606, align 1
   %1607 = add i64 %1599, 10
-  %1608 = getelementptr inbounds i8, ptr %0, i64 376
+  %1608 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %1607, ptr %1608, align 8
   %1609 = load ptr, ptr %1562, align 8
-  %1610 = getelementptr inbounds i8, ptr %1609, i64 4
+  %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 4
   store i8 0, ptr %1610, align 4
   %1611 = call i32 @mbedtls_ssl_write_handshake_msg_ext(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1) #11
   %.not25.i = icmp eq i32 %1611, 0
@@ -3510,7 +3510,7 @@ declare void @mbedtls_ssl_handshake_wrapup(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ssl_conf_preference_order(ptr nocapture noundef writeonly initializes((19, 20)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = trunc i32 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 19
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 %3, ptr %4, align 1
   ret void
 }
@@ -3536,13 +3536,13 @@ declare i32 @mbedtls_ssl_parse_server_name_ext(ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 65536) %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   %.not18 = icmp eq i64 %2, %9
@@ -3555,8 +3555,8 @@ define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(pt
   br i1 %.not19, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 468
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %16 = tail call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %14, ptr noundef nonnull %15, i64 noundef %8) #11
   %.not20 = icmp eq i32 %16, 0
   br i1 %.not20, label %26, label %17
@@ -3581,7 +3581,7 @@ define internal fastcc range(i32 -28160, 1) i32 @ssl_parse_renegotiation_info(pt
   br label %26
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 440
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 1, ptr %25, align 8
   br label %26
 
@@ -3601,7 +3601,7 @@ define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i64
   %8 = shl nuw nsw i64 %7, 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   %12 = or disjoint i64 %8, %11
@@ -3613,9 +3613,9 @@ define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(
   br i1 %or.cond, label %15, label %.loopexit.sink.split.sink.split
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 816
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 816
   %19 = load ptr, ptr %18, align 8
   %.not39 = icmp eq ptr %19, null
   br i1 %.not39, label %20, label %.loopexit.sink.split.sink.split
@@ -3638,11 +3638,11 @@ define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(
   %.pn44 = phi ptr [ %.03146, %37 ], [ %1, %25 ]
   %.03243 = phi i64 [ %.133, %37 ], [ %spec.store.select, %25 ]
   %.03442 = phi i64 [ %38, %37 ], [ %12, %25 ]
-  %.03146 = getelementptr inbounds i8, ptr %.pn44, i64 2
+  %.03146 = getelementptr inbounds nuw i8, ptr %.pn44, i64 2
   %26 = load i8, ptr %.03146, align 1
   %27 = zext i8 %26 to i16
   %28 = shl nuw i16 %27, 8
-  %29 = getelementptr inbounds i8, ptr %.pn44, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pn44, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i16
   %32 = or disjoint i16 %28, %31
@@ -3651,7 +3651,7 @@ define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(
   br i1 %.not40, label %37, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.045, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   store ptr %33, ptr %.045, align 8
   %36 = add nsw i64 %.03243, -1
   br label %37
@@ -3712,15 +3712,15 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_supported_point_forma
 .lr.ph:                                           ; preds = %.preheader, %11
   %.pn.pn = phi ptr [ %.025, %11 ], [ %1, %.preheader ]
   %.01624 = phi i64 [ %12, %11 ], [ %7, %.preheader ]
-  %.025 = getelementptr inbounds i8, ptr %.pn.pn, i64 1
+  %.025 = getelementptr inbounds nuw i8, ptr %.pn.pn, i64 1
   %13 = load i8, ptr %.025, align 1
   %switch = icmp ult i8 %13, 2
   br i1 %switch, label %14, label %11
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 360
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 360
   store i8 %13, ptr %17, align 8
   %18 = load i8, ptr %.025, align 1
   %19 = zext i8 %18 to i32
@@ -3748,7 +3748,7 @@ define internal fastcc range(i32 -26112, 1) i32 @ssl_parse_max_fragment_length_e
   br label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
   store i8 %5, ptr %11, align 8
   br label %12
@@ -3770,15 +3770,15 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_encrypt_then_mac_ext(
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 13
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 148
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 148
   store i32 1, ptr %13, align 4
   br label %14
 
@@ -3799,15 +3799,15 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_extended_ms_ext(ptr n
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 1, ptr %13, align 4
   br label %14
 
@@ -3821,28 +3821,28 @@ define internal fastcc void @ssl_parse_session_ticket_ext(ptr noundef %0, ptr no
   %4 = alloca %struct.mbedtls_ssl_session, align 8
   call void @mbedtls_ssl_session_init(ptr noundef nonnull %4) #11
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %45, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i8 1, ptr %16, align 4
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 486, ptr noundef nonnull @.str.58, i64 noundef %2) #11
   %17 = icmp eq i64 %2, 0
   br i1 %17, label %45, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %22, label %21
@@ -3853,9 +3853,9 @@ define internal fastcc void @ssl_parse_session_ticket_ext(ptr noundef %0, ptr no
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %25(ptr noundef %27, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #11
   %.not26 = icmp eq i32 %28, 0
@@ -3881,14 +3881,14 @@ define internal fastcc void @ssl_parse_session_ticket_ext(ptr noundef %0, ptr no
   br label %45
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
-  %40 = getelementptr inbounds i8, ptr %35, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %37, i1 false)
   call void @mbedtls_ssl_session_free(ptr noundef %35) #11
   %41 = load ptr, ptr %34, align 8
@@ -3898,7 +3898,7 @@ define internal fastcc void @ssl_parse_session_ticket_ext(ptr noundef %0, ptr no
   %42 = load ptr, ptr %14, align 8
   store i8 1, ptr %42, align 8
   %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i8 0, ptr %44, align 4
   br label %45
 
@@ -3921,19 +3921,19 @@ define internal fastcc range(i32 -27648, 1) i32 @ssl_ciphersuite_match(ptr nound
   br label %129
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 818, ptr noundef nonnull @.str.65, i32 noundef %1, ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, %14
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %6, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %22 = icmp ugt i32 %16, %21
@@ -3949,9 +3949,9 @@ define internal fastcc range(i32 -27648, 1) i32 @ssl_ciphersuite_match(ptr nound
   br i1 %.not, label %36, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %35, label %32
@@ -3972,31 +3972,31 @@ define internal fastcc range(i32 -27648, 1) i32 @ssl_ciphersuite_match(ptr nound
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %42, label %ssl_conf_has_psk_or_cb.exit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %39, i64 320
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 320
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %56, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %39, i64 312
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 312
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %39, i64 296
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 296
   %52 = load ptr, ptr %51, align 8
   %.not5.i = icmp eq ptr %52, null
   br i1 %.not5.i, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %39, i64 304
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 304
   %55 = load i64, ptr %54, align 8
   %.not6.i = icmp eq i64 %55, 0
   br i1 %.not6.i, label %56, label %ssl_conf_has_psk_or_cb.exit
@@ -4009,16 +4009,16 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %57 = tail call i32 @mbedtls_ssl_get_ciphersuite_sig_pk_alg(ptr noundef nonnull %6) #11
   %.fr46.i = freeze i32 %57
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 848
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 848
   %61 = load ptr, ptr %60, align 8
   %.not.i36 = icmp eq ptr %61, null
   br i1 %.not.i36, label %62, label %66
 
 62:                                               ; preds = %ssl_conf_has_psk_or_cb.exit
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 192
   %65 = load ptr, ptr %64, align 8
   br label %66
 
@@ -4034,7 +4034,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
 
 .preheader.i:                                     ; preds = %68
   %70 = icmp eq i32 %.fr46.i, 4
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %70, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %98
@@ -4043,7 +4043,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   %72 = load ptr, ptr %.02943.us.i, align 8
   call void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 735, ptr noundef nonnull @.str.73, ptr noundef %72) #11
   %73 = load ptr, ptr %.02943.us.i, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 360
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 360
   %75 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %74, i32 noundef 4) #11
   %.not33.us.i = icmp eq i32 %75, 0
   br i1 %.not33.us.i, label %97, label %76
@@ -4060,9 +4060,9 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %.02943.us.i, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 360
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 360
   %83 = load ptr, ptr %58, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 816
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 816
   %85 = load ptr, ptr %84, align 8
   %.val.us.i = load ptr, ptr %82, align 8
   %86 = getelementptr i8, ptr %81, i64 368
@@ -4086,7 +4086,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br i1 %93, label %ssl_check_key_curve.exit.i, label %94
 
 94:                                               ; preds = %.lr.ph.i.us.i
-  %95 = getelementptr inbounds i8, ptr %.062.i.us.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.062.i.us.i, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not.i.us.i = icmp eq ptr %96, null
   br i1 %.not.i.us.i, label %.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !19
@@ -4100,7 +4100,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br label %98
 
 98:                                               ; preds = %97, %.loopexit.us.i, %79
-  %99 = getelementptr inbounds i8, ptr %.02943.us.i, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.02943.us.i, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not32.us.i = icmp eq ptr %100, null
   br i1 %.not32.us.i, label %.loopexit, label %.preheader.split.us.i, !llvm.loop !20
@@ -4115,7 +4115,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   %102 = load ptr, ptr %.02943.i, align 8
   call void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 735, ptr noundef nonnull @.str.73, ptr noundef %102) #11
   %103 = load ptr, ptr %.02943.i, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 360
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 360
   %105 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %104, i32 noundef %.fr46.i) #11
   %.not33.i = icmp eq i32 %105, 0
   br i1 %.not33.i, label %106, label %107
@@ -4135,7 +4135,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br label %111
 
 111:                                              ; preds = %110, %106
-  %112 = getelementptr inbounds i8, ptr %.02943.i, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.02943.i, i64 16
   %113 = load ptr, ptr %112, align 8
   %.not32.i = icmp eq ptr %113, null
   br i1 %.not32.i, label %.loopexit, label %.preheader.split.i, !llvm.loop !20
@@ -4143,10 +4143,10 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
 ssl_check_key_curve.exit.i:                       ; preds = %107, %.lr.ph.i.us.i
   %.02942.i = phi ptr [ %.02943.us.i, %.lr.ph.i.us.i ], [ %.02943.i, %107 ]
   %114 = load ptr, ptr %58, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 840
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 840
   store ptr %.02942.i, ptr %115, align 8
   %116 = load ptr, ptr %58, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 840
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 840
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
   call void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 788, ptr noundef nonnull @.str.77, ptr noundef %119) #11
@@ -4267,7 +4267,7 @@ declare i32 @mbedtls_ssl_read_record(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #5 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %6 = icmp ugt ptr %5, %2
   br i1 %6, label %7, label %8
 
@@ -4279,12 +4279,12 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr 
   %9 = load i8, ptr %4, align 1
   %10 = zext i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
   %15 = or disjoint i64 %11, %14
   store ptr %5, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %17 = icmp ugt ptr %16, %2
   br i1 %17, label %18, label %19
 
@@ -4293,9 +4293,9 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr 
   br label %30
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = tail call i32 @mbedtls_dhm_read_public(ptr noundef nonnull %22, ptr noundef nonnull %5, i64 noundef %15) #11
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %25, label %24
@@ -4306,10 +4306,10 @@ define internal fastcc range(i32 -29440, 1) i32 @ssl_parse_client_dh_public(ptr 
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 %15
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %15
   store ptr %27, ptr %1, align 8
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 216
   tail call void @mbedtls_debug_print_mpi(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 3374, ptr noundef nonnull @.str.155, ptr noundef nonnull %29) #11
   br label %30
 
@@ -4327,31 +4327,31 @@ declare i32 @mbedtls_ecdh_calc_secret(ptr noundef, ptr noundef, ptr noundef, i64
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -30208, 1) i32 @ssl_parse_client_psk_identity(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %ssl_conf_has_psk_or_cb.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %17 = load ptr, ptr %16, align 8
   %.not5.i = icmp eq ptr %17, null
   br i1 %.not5.i, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %20 = load i64, ptr %19, align 8
   %.not6.i = icmp eq i64 %20, 0
   br i1 %.not6.i, label %21, label %ssl_conf_has_psk_or_cb.exit
@@ -4376,11 +4376,11 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %18, %3
   %29 = load i8, ptr %22, align 1
   %30 = zext i8 %29 to i16
   %31 = shl nuw i16 %30, 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i16
   %35 = or disjoint i16 %31, %34
-  %36 = getelementptr inbounds i8, ptr %22, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 2
   store ptr %36, ptr %1, align 8
   %37 = icmp eq i16 %35, 0
   br i1 %37, label %43, label %38
@@ -4398,26 +4398,26 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %18, %3
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %52, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %45, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 %47(ptr noundef %50, ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %39) #11
   %.not37.not = icmp eq i32 %51, 0
   br i1 %.not37.not, label %.critedge39, label %.critedge
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %45, i64 320
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 320
   %54 = load i64, ptr %53, align 8
   %.not35 = icmp eq i64 %54, %39
   br i1 %.not35, label %55, label %.critedge
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %45, i64 312
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 312
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @mbedtls_ct_memcmp(ptr noundef %57, ptr noundef nonnull %36, i64 noundef %39) #11
   %.not36 = icmp eq i32 %58, 0
@@ -4431,7 +4431,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %18, %3
 
 .critedge39:                                      ; preds = %55, %48
   %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %39
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %39
   store ptr %62, ptr %1, align 8
   br label %63
 
@@ -4448,11 +4448,11 @@ define internal fastcc i32 @ssl_parse_encrypted_pms(ptr noundef %0, ptr noundef 
   %6 = alloca [48 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1560
-  %12 = getelementptr inbounds i8, ptr %11, i64 %3
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1560
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %3
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 -1, ptr %13, align 1
   store i8 -1, ptr %7, align 16
   store i64 0, ptr %8, align 8
@@ -4460,21 +4460,21 @@ define internal fastcc i32 @ssl_parse_encrypted_pms(ptr noundef %0, ptr noundef 
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %10, i64 840
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 840
   %16 = load ptr, ptr %15, align 8
   %.not8.i.i = icmp eq ptr %16, null
   br i1 %.not8.i.i, label %17, label %.thread.i.i
 
 17:                                               ; preds = %14, %4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %mbedtls_ssl_own_key.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %17, %14
   %.010.i.i = phi ptr [ %20, %17 ], [ %16, %14 ]
-  %22 = getelementptr inbounds i8, ptr %.010.i.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %mbedtls_ssl_own_key.exit.i
 
@@ -4483,25 +4483,25 @@ mbedtls_ssl_own_key.exit.i:                       ; preds = %.thread.i.i, %17
   br i1 %.not.i.i, label %28, label %25
 
 25:                                               ; preds = %mbedtls_ssl_own_key.exit.i
-  %26 = getelementptr inbounds i8, ptr %10, i64 840
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 840
   %27 = load ptr, ptr %26, align 8
   %.not8.i31.i = icmp eq ptr %27, null
   br i1 %.not8.i31.i, label %28, label %.thread.i32.i
 
 28:                                               ; preds = %25, %mbedtls_ssl_own_key.exit.i
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %31 = load ptr, ptr %30, align 8, !nonnull !12, !noundef !12
   br label %.thread.i32.i
 
 .thread.i32.i:                                    ; preds = %28, %25
   %.010.i33.i = phi ptr [ %31, %28 ], [ %27, %25 ]
   %32 = load ptr, ptr %.010.i33.i, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 360
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 360
   %34 = tail call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %33) #11
   %35 = add i64 %34, 7
   %36 = lshr i64 %35, 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %38 = icmp ugt ptr %37, %2
   br i1 %38, label %39, label %40
 
@@ -4517,7 +4517,7 @@ mbedtls_ssl_own_key.exit.i:                       ; preds = %.thread.i.i, %17
   br i1 %.not.i, label %44, label %48
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = trunc i64 %36 to i8
   %.not27.i = icmp eq i8 %46, %47
@@ -4528,7 +4528,7 @@ mbedtls_ssl_own_key.exit.i:                       ; preds = %.thread.i.i, %17
   br label %ssl_decrypt_encrypted_pms.exit
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %37, i64 %36
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 %36
   %.not28.i = icmp eq ptr %50, %2
   br i1 %.not28.i, label %52, label %51
 
@@ -4547,9 +4547,9 @@ mbedtls_ssl_own_key.exit.i:                       ; preds = %.thread.i.i, %17
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @mbedtls_pk_decrypt(ptr noundef %24, ptr noundef nonnull %37, i64 noundef %36, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 48, ptr noundef %58, ptr noundef %60) #11
   br label %ssl_decrypt_encrypted_pms.exit
@@ -4557,12 +4557,12 @@ mbedtls_ssl_own_key.exit.i:                       ; preds = %.thread.i.i, %17
 ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, %55
   %.0.i = phi i32 [ -29440, %39 ], [ -29440, %48 ], [ -29440, %51 ], [ %61, %55 ], [ -30208, %54 ]
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 9
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   call void @mbedtls_ssl_write_version(ptr noundef nonnull %5, i32 noundef %65, i32 noundef %69) #11
   %70 = load i64, ptr %8, align 8
@@ -4575,16 +4575,16 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, 
   %77 = zext i8 %76 to i32
   %78 = or i32 %73, %77
   %79 = load i8, ptr %13, align 1
-  %80 = getelementptr inbounds i8, ptr %5, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = xor i8 %81, %79
   %83 = zext i8 %82 to i32
   %84 = or i32 %78, %83
   %85 = call i32 @mbedtls_ct_uint_mask(i32 noundef %84) #11
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 56
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 %88(ptr noundef %90, ptr noundef nonnull %6, i64 noundef 48) #11
   %.not = icmp eq i32 %91, 0
@@ -4592,10 +4592,10 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, 
 
 92:                                               ; preds = %ssl_decrypt_encrypted_pms.exit
   %93 = load ptr, ptr %9, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 48, ptr %94, align 8
   %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i64, ptr %96, align 8
   %.not33 = icmp eq i64 %97, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph
@@ -4620,7 +4620,7 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, 
   store i8 %109, ptr %110, align 1
   %111 = add nuw i64 %.02932, 1
   %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 8
   %115 = icmp ult i64 %111, %114
   br i1 %115, label %99, label %.loopexit, !llvm.loop !21

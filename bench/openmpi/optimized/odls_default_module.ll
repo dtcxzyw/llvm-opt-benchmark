@@ -81,7 +81,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %39
@@ -110,15 +110,15 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
 
 21:                                               ; preds = %20
   %22 = call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #16
-  %23 = getelementptr inbounds i8, ptr %16, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr @prte_odls_launch_local_t_class, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 56
-  %26 = getelementptr inbounds i8, ptr %16, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_odls_launch_local_t_class, i64 40), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_launch_local_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i = icmp eq ptr %28, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -127,17 +127,17 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   %29 = phi ptr [ %31, %.lr.ph.i.i ], [ %28, %21 ]
   %.07.i.i = phi ptr [ %30, %.lr.ph.i.i ], [ %27, %21 ]
   call void %29(ptr noundef nonnull %16) #16
-  %30 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %21
-  %32 = getelementptr inbounds i8, ptr %16, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 128
   call void @PMIx_Load_nspace(ptr noundef nonnull %32, ptr noundef nonnull %2) #16
-  %33 = getelementptr inbounds i8, ptr %16, i64 384
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 384
   store ptr @odls_default_fork_local_proc, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @prte_event_base, align 8
   %37 = call i32 @prte_event_assign(ptr noundef %35, ptr noundef %36, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @prte_odls_base_default_launch_local, ptr noundef %16) #16
@@ -197,7 +197,7 @@ define internal i32 @prte_odls_default_restart_proc(ptr noundef %0) #1 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %13
@@ -237,7 +237,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %12, i32 2
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %28
@@ -256,7 +256,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22, i32 2
+  %23 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22, i32 2
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %26, label %28
@@ -298,7 +298,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %5 = alloca [512 x i8], align 16
   %6 = alloca %struct.timeval, align 8
   %7 = alloca [2 x i32], align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @pipe(ptr noundef nonnull %7) #16
   %11 = icmp slt i32 %10, 0
@@ -311,9 +311,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not17, label %250, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %9, i64 428
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 428
   store i32 53, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 432
   store i32 -70, ptr %16, align 8
   br label %250
 
@@ -323,7 +323,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %9, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 408
   store i32 %18, ptr %20, align 8
   br label %21
 
@@ -337,9 +337,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not, label %250, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %9, i64 428
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 428
   store i32 53, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %9, i64 432
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 432
   store i32 -71, ptr %27, align 8
   br label %250
 
@@ -350,13 +350,13 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 30:                                               ; preds = %28
   %31 = load i32, ptr %7, align 4
   %32 = call i32 @close(i32 noundef %31) #16
-  %33 = getelementptr inbounds i8, ptr %7, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %34 = load i32, ptr %33, align 4
   call fastcc void @do_child(ptr noundef nonnull %0, i32 noundef %34) #19
   unreachable
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %7, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = call i32 @close(i32 noundef %37) #16
   %39 = load i32, ptr %7, align 4
@@ -365,22 +365,22 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %40 = getelementptr inbounds i8, ptr %0, i64 312
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %41 = load i8, ptr %40, align 4
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 316
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @close(i32 noundef %45) #16
   br label %47
 
 47:                                               ; preds = %43, %35
-  %48 = getelementptr inbounds i8, ptr %0, i64 328
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @close(i32 noundef %49) #16
-  %51 = getelementptr inbounds i8, ptr %0, i64 336
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %52 = load i32, ptr %51, align 4
   %53 = call i32 @close(i32 noundef %52) #16
   %54 = load ptr, ptr %8, align 8
@@ -388,21 +388,21 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not.i, label %.preheader.i, label %58
 
 .preheader.i:                                     ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %3, i64 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 12
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %143
 
 58:                                               ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %0, i64 280
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 784
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 784
   %62 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %61, i16 noundef zeroext 262, ptr noundef null, i16 noundef zeroext 1) #16
   br i1 %62, label %63, label %135
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 408
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 408
   %66 = load i32, ptr %65, align 8
   %67 = call i32 @waitpid(i32 noundef %66, ptr noundef nonnull %2, i32 noundef 2) #16
   %68 = icmp eq i32 %67, -1
@@ -410,10 +410,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 428
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 428
   store i32 53, ptr %71, align 4
   %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 472
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 472
   %74 = load i16, ptr %73, align 8
   %75 = and i16 %74, -2
   store i16 %75, ptr %73, align 8
@@ -428,7 +428,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 408
   %84 = load i32, ptr %83, align 8
   %85 = call i32 @kill(i32 noundef %84, i32 noundef 19) #16
   %86 = icmp eq i32 %85, -1
@@ -436,10 +436,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 428
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 428
   store i32 53, ptr %89, align 4
   %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 472
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 472
   %92 = load i16, ptr %91, align 8
   %93 = and i16 %92, -2
   store i16 %93, ptr %91, align 8
@@ -450,7 +450,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %96 = tail call ptr @__errno_location() #18
   store i32 0, ptr %96, align 4
   %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 408
   %99 = load i32, ptr %98, align 8
   %100 = call i64 (i32, ...) @ptrace(i32 noundef 17, i32 noundef %99, i32 noundef 0, i32 noundef 19) #16
   %101 = load i32, ptr %96, align 4
@@ -459,10 +459,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not105.i, label %110, label %103
 
 103:                                              ; preds = %95
-  %104 = getelementptr inbounds i8, ptr %102, i64 428
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 428
   store i32 53, ptr %104, align 4
   %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 472
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 472
   %107 = load i16, ptr %106, align 8
   %108 = and i16 %107, -2
   store i16 %108, ptr %106, align 8
@@ -470,7 +470,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br label %do_parent.exit
 
 110:                                              ; preds = %95
-  %111 = getelementptr inbounds i8, ptr %102, i64 144
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 144
   %112 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %133
@@ -479,7 +479,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   %115 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #16
   %116 = load i64, ptr %6, align 8
   %117 = sitofp i64 %116 to double
-  %118 = getelementptr inbounds i8, ptr %6, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %119 = load i64, ptr %118, align 8
   %120 = sitofp i64 %119 to double
   %121 = fdiv double %120, 1.000000e+06
@@ -490,7 +490,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 124:                                              ; preds = %114
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %125, i32 2
+  %126 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %125, i32 2
   %127 = load i32, ptr %126, align 4
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %129, label %133
@@ -509,10 +509,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 135:                                              ; preds = %133, %77, %58
   %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 428
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 428
   store i32 4, ptr %137, align 4
   %138 = load ptr, ptr %8, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 472
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 472
   %140 = load i16, ptr %139, align 8
   %141 = or i16 %140, 1
   store i16 %141, ptr %139, align 8
@@ -539,7 +539,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not103.i, label %151, label %149
 
 149:                                              ; preds = %.loopexit.i
-  %150 = getelementptr inbounds i8, ptr %148, i64 428
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 428
   store i32 0, ptr %150, align 4
   br label %151
 
@@ -554,7 +554,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 .sink.split.i:                                    ; preds = %153
   %155 = load i8, ptr %3, align 4
-  %156 = getelementptr inbounds i8, ptr %154, i64 472
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 472
   %157 = load i16, ptr %156, align 8
   %158 = and i16 %157, -2
   %159 = and i8 %155, 1
@@ -576,9 +576,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 166:                                              ; preds = %164
   %167 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 288
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 136
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 136
   %171 = load ptr, ptr %170, align 8
   %172 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %167, ptr noundef %171, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 517) #16
   %173 = load ptr, ptr %8, align 8
@@ -586,7 +586,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not101.i, label %176, label %174
 
 174:                                              ; preds = %166
-  %175 = getelementptr inbounds i8, ptr %173, i64 428
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 428
   store i32 0, ptr %175, align 4
   br label %176
 
@@ -613,9 +613,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 288
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 136
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 136
   %192 = load ptr, ptr %191, align 8
   %193 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %188, ptr noundef %192, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 531) #16
   %194 = load ptr, ptr %8, align 8
@@ -623,7 +623,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not100.i, label %197, label %195
 
 195:                                              ; preds = %187
-  %196 = getelementptr inbounds i8, ptr %194, i64 428
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 428
   store i32 0, ptr %196, align 4
   br label %197
 
@@ -652,9 +652,9 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 211:                                              ; preds = %206
   %212 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 288
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 136
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 136
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %212, ptr noundef %216, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 545) #16
   %218 = load ptr, ptr %8, align 8
@@ -662,7 +662,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not99.i, label %221, label %219
 
 219:                                              ; preds = %211
-  %220 = getelementptr inbounds i8, ptr %218, i64 428
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 428
   store i32 0, ptr %220, align 4
   br label %221
 
@@ -692,10 +692,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not98.i, label %238, label %232
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %231, i64 428
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 428
   store i32 53, ptr %233, align 4
   %234 = load ptr, ptr %8, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 472
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 472
   %236 = load i16, ptr %235, align 8
   %237 = and i16 %236, -2
   store i16 %237, ptr %235, align 8
@@ -711,10 +711,10 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br i1 %.not104.i, label %248, label %242
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %241, i64 428
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 428
   store i32 4, ptr %243, align 4
   %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 472
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 472
   %246 = load i16, ptr %245, align 8
   %247 = or i16 %246, 1
   store i16 %247, ptr %245, align 8
@@ -786,20 +786,20 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 17:                                               ; preds = %2, %15
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %22 = load ptr, ptr %21, align 8
   tail call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %1, i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %18, ptr noundef %22) #19
   unreachable
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %25 = load ptr, ptr %24, align 8
   %.not55 = icmp eq ptr %25, null
-  %26 = getelementptr inbounds i8, ptr %0, i64 280
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 780
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 780
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 32
   %.not56 = icmp eq i16 %30, 0
@@ -809,8 +809,8 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %.not56, label %44, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 308
-  %34 = getelementptr inbounds i8, ptr %0, i64 272
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %35 = tail call i32 @prte_iof_base_setup_child(ptr noundef nonnull %33, ptr noundef nonnull %34) #16
   switch i32 %35, label %36 [
     i32 0, label %44
@@ -824,9 +824,9 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 38:                                               ; preds = %32, %36
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %43 = load ptr, ptr %42, align 8
   tail call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %1, i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %39, ptr noundef %43) #19
   unreachable
@@ -859,7 +859,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 .loopexit:                                        ; preds = %51, %46, %44
   tail call void @pmix_close_open_file_descriptors(i32 noundef %1) #16
-  %54 = getelementptr inbounds i8, ptr %0, i64 264
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %65
@@ -867,68 +867,68 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 57:                                               ; preds = %.loopexit
   %58 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   store ptr %58, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 288
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 136
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 136
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noalias ptr @strdup(ptr noundef %62) #16
   store ptr %63, ptr %58, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr null, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %57, %.loopexit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = call i32 @sigemptyset(ptr noundef nonnull %67) #16
   %69 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %8, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = call i32 @sigemptyset(ptr noundef nonnull %71) #16
   %73 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %7, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 136
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %76 = call i32 @sigemptyset(ptr noundef nonnull %75) #16
   %77 = call i32 @sigaction(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %80 = call i32 @sigemptyset(ptr noundef nonnull %79) #16
   %81 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %5, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 136
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = call i32 @sigemptyset(ptr noundef nonnull %83) #16
   %85 = call i32 @sigaction(i32 noundef 17, ptr noundef nonnull %4, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %86 = getelementptr inbounds i8, ptr %3, i64 136
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %88 = call i32 @sigemptyset(ptr noundef nonnull %87) #16
   %89 = call i32 @sigaction(i32 noundef 5, ptr noundef nonnull %3, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   %90 = call i32 @sigprocmask(i32 noundef 0, ptr noundef null, ptr noundef nonnull %9) #16
   %91 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %9, ptr noundef null) #16
-  %92 = getelementptr inbounds i8, ptr %0, i64 256
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %93 = load ptr, ptr %92, align 8
   %.not60 = icmp eq ptr %93, null
   br i1 %.not60, label %106, label %94
@@ -946,7 +946,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %100, label %104, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %99, i64 416
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 416
   %103 = load i32, ptr %102, align 8
   br label %104
 
@@ -956,9 +956,9 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   unreachable
 
 106:                                              ; preds = %94, %65
-  %107 = getelementptr inbounds i8, ptr %0, i64 280
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 784
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 784
   %110 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %109, i16 noundef zeroext 262, ptr noundef null, i16 noundef zeroext 1) #16
   br i1 %110, label %111, label %125
 
@@ -978,7 +978,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %119, label %123, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %118, i64 416
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 416
   %122 = load i32, ptr %121, align 8
   br label %123
 
@@ -988,10 +988,10 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   unreachable
 
 125:                                              ; preds = %111, %106
-  %126 = getelementptr inbounds i8, ptr %0, i64 248
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %54, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 272
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %130 = load ptr, ptr %129, align 8
   %131 = call i32 @execve(ptr noundef %127, ptr noundef %128, ptr noundef %130) #16
   %132 = call ptr @getcwd(ptr noundef nonnull %10, i64 noundef 4096) #16
@@ -1001,9 +1001,9 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
   br i1 %135, label %136, label %148
 
 136:                                              ; preds = %125
-  %137 = getelementptr inbounds i8, ptr %0, i64 288
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 136
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 136
   %140 = load ptr, ptr %139, align 8
   %141 = call i32 @stat(ptr noundef %140, ptr noundef nonnull %11) #16
   %142 = icmp eq i32 %141, 0
@@ -1015,7 +1015,7 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 143:                                              ; preds = %136
   %144 = load ptr, ptr %137, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 136
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 136
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.12, ptr noundef %146) #16
   %.pre66 = load ptr, ptr %12, align 8
@@ -1031,9 +1031,9 @@ define internal fastcc void @do_child(ptr noundef %0, i32 noundef %1) unnamed_ad
 152:                                              ; preds = %148, %143
   %153 = phi ptr [ %151, %148 ], [ %.pre66, %143 ]
   %154 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 288
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 136
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 136
   %158 = load ptr, ptr %157, align 8
   call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %1, i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.13, ptr noundef %154, ptr noundef nonnull %10, ptr noundef %158, ptr noundef %153) #19
   unreachable
@@ -1049,7 +1049,7 @@ define internal void @send_error_show_help(i32 noundef %0, i32 %1, ptr noundef %
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca %struct.prte_odls_pipe_err_msg_t, align 4
   store i8 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
   call fastcc void @write_help_msg(i32 noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
@@ -1108,7 +1108,7 @@ define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull 
   %9 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #16
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %11, ptr %12, align 4
   %13 = icmp sgt i32 %11, 511
   br i1 %13, label %14, label %16
@@ -1121,7 +1121,7 @@ define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull 
 16:                                               ; preds = %8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
   %20 = icmp sgt i32 %18, 511
   br i1 %20, label %21, label %23
@@ -1134,7 +1134,7 @@ define internal fastcc void @write_help_msg(i32 noundef %0, ptr noundef nonnull 
 23:                                               ; preds = %16
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %25, ptr %26, align 4
   %27 = tail call i32 @pmix_fd_write(i32 noundef %0, i32 noundef 20, ptr noundef nonnull %1) #16
   %.not = icmp eq i32 %27, 0
@@ -1230,7 +1230,7 @@ define internal range(i32 -17, 1) i32 @send_signal(i32 noundef %0, i32 noundef %
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %15

@@ -24,11 +24,11 @@ define ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #2
   store i64 0, ptr %5, align 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 204
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i16 5039, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %5, ptr %8, align 8
   %9 = load ptr, ptr @working_cluster_rec, align 8
   %10 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9) #2
@@ -36,7 +36,7 @@ define ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %13 = load i16, ptr %12, align 4
   switch i16 %13, label %24 [
     i16 8001, label %14
@@ -44,7 +44,7 @@ define ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   ]
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %.not13 = icmp eq i32 %17, 0
@@ -55,7 +55,7 @@ define ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %.sink.split
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %4, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8

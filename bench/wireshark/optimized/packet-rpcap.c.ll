@@ -510,7 +510,7 @@ define internal i32 @dissect_rpcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.192) #6
   %13 = load ptr, ptr %11, align 8
@@ -565,7 +565,7 @@ define internal i32 @dissect_rpcap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 40:                                               ; preds = %.thread
   %41 = load i32, ptr @hf_error, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %17, i32 noundef %41, ptr noundef %0, i32 noundef 8, i32 noundef %33, i32 noundef 0, ptr noundef %43, ptr noundef nonnull %10) #6
   %45 = load ptr, ptr %10, align 8
@@ -615,7 +615,7 @@ dissect_rpcap_error.exit:                         ; preds = %.thread, %40
   br i1 %.not.i, label %94, label %79
 
 79:                                               ; preds = %53
-  %80 = getelementptr inbounds i8, ptr %1, i64 408
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = and i32 %64, 1
   %.not52.i = icmp eq i32 %82, 0
@@ -686,7 +686,7 @@ dissect_rpcap_startcap_request.exit:              ; preds = %79, %94
 116:                                              ; preds = %99
   %117 = load i32, ptr @hf_auth_username, align 4
   %118 = zext i16 %109 to i32
-  %119 = getelementptr inbounds i8, ptr %1, i64 408
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %120 = load ptr, ptr %119, align 8
   %121 = call ptr @proto_tree_add_item_ret_string(ptr noundef %103, i32 noundef %117, ptr noundef %0, i32 noundef 16, i32 noundef %118, i32 noundef 0, ptr noundef %120, ptr noundef nonnull %8) #6
   %122 = add nuw nsw i32 %118, 16
@@ -772,7 +772,7 @@ dissect_rpcap_auth_reply.exit:                    ; preds = %147, %149
   br i1 %.not.i97, label %dissect_rpcap_findalldevs_reply.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %1, i64 408
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %168
 
 166:                                              ; preds = %dissect_rpcap_findalldevs_if.exit.i
@@ -1004,7 +1004,7 @@ define internal range(i32 0, 2) i32 @dissect_rpcap_heur_tcp(ptr noundef %0, ptr 
   br i1 %.not10, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr @rpcap_tcp_handle, align 8
   tail call void @conversation_set_dissector_from_frame_number(ptr noundef nonnull %7, i32 noundef %10, ptr noundef %11) #6
@@ -1200,10 +1200,10 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
 35:                                               ; preds = %29
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_rpcap_packet.catch_spec, i64 noundef 1) #6
-  %36 = getelementptr inbounds i8, ptr %9, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %37 = call i32 @_setjmp(ptr noundef nonnull %36) #7
   %.not = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not, ptr null, ptr %38
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -1247,35 +1247,35 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
 
 53:                                               ; preds = %52
   %.0..0..0..0.10 = load volatile ptr, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %55 = load volatile i64, ptr %54, align 8
   %56 = icmp eq i64 %55, 1
   br i1 %56, label %73, label %57
 
 57:                                               ; preds = %53
   %.0..0..0..0.11 = load volatile ptr, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %59 = load volatile i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 4
   br i1 %60, label %73, label %61
 
 61:                                               ; preds = %57
   %.0..0..0..0.12 = load volatile ptr, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %63 = load volatile i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 3
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %61
   %.0..0..0..0.13 = load volatile ptr, ptr %6, align 8
-  %66 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %67 = load volatile i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 2
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %65
   %.0..0..0..0.14 = load volatile ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %71 = load volatile i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 7
   br i1 %72, label %73, label %79
@@ -1285,10 +1285,10 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
   %74 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %74, ptr %7, align 4
   %.0..0..0..0.15 = load volatile ptr, ptr %6, align 8
-  %75 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %76 = load volatile i64, ptr %75, align 8
   %.0..0..0..0.16 = load volatile ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 16
   %78 = load volatile ptr, ptr %77, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %76, ptr noundef %78) #6
   br label %79
@@ -1310,7 +1310,7 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
   unreachable
 
 83:                                               ; preds = %81, %79
-  %84 = getelementptr inbounds i8, ptr %9, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %85 = load volatile ptr, ptr %84, align 8
   call void @except_free(ptr noundef %85) #6
   %86 = call ptr @except_pop() #6
@@ -1318,7 +1318,7 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
   br i1 %.b, label %96, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8
   call void (ptr, i32, ptr, ...) @col_prepend_fence_fstr(ptr noundef %89, i32 noundef 34, ptr noundef nonnull @.str.307) #6
   %90 = load ptr, ptr %88, align 8

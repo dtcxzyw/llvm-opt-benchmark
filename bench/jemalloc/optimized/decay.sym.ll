@@ -12,26 +12,26 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @decay_reinit(ptr noundef %decay, ptr noundef %cur_time, i64 noundef %decay_ms) local_unnamed_addr #0 {
 entry:
-  %time_ms = getelementptr inbounds i8, ptr %decay, i64 120
+  %time_ms = getelementptr inbounds nuw i8, ptr %decay, i64 120
   store atomic i64 %decay_ms, ptr %time_ms monotonic, align 8
   %cmp = icmp sgt i64 %decay_ms, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %interval = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval = getelementptr inbounds nuw i8, ptr %decay, i64 128
   %mul = mul i64 %decay_ms, 1000000
   tail call void @nstime_init(ptr noundef nonnull %interval, i64 noundef %mul) #8
   tail call void @nstime_idivide(ptr noundef nonnull %interval, i64 noundef 200) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %epoch = getelementptr inbounds i8, ptr %decay, i64 136
+  %epoch = getelementptr inbounds nuw i8, ptr %decay, i64 136
   tail call void @nstime_copy(ptr noundef nonnull %epoch, ptr noundef %cur_time) #8
   %0 = ptrtoint ptr %decay to i64
-  %jitter_state = getelementptr inbounds i8, ptr %decay, i64 144
+  %jitter_state = getelementptr inbounds nuw i8, ptr %decay, i64 144
   store i64 %0, ptr %jitter_state, align 8
   tail call fastcc void @decay_deadline_init(ptr noundef nonnull %decay)
-  %nunpurged = getelementptr inbounds i8, ptr %decay, i64 168
+  %nunpurged = getelementptr inbounds nuw i8, ptr %decay, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %nunpurged, i8 0, i64 1608, i1 false)
   ret void
 }
@@ -46,18 +46,18 @@ declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @decay_deadline_init(ptr noundef %decay) unnamed_addr #0 {
 entry:
   %jitter = alloca %struct.nstime_t, align 8
-  %deadline = getelementptr inbounds i8, ptr %decay, i64 152
-  %epoch = getelementptr inbounds i8, ptr %decay, i64 136
+  %deadline = getelementptr inbounds nuw i8, ptr %decay, i64 152
+  %epoch = getelementptr inbounds nuw i8, ptr %decay, i64 136
   tail call void @nstime_copy(ptr noundef nonnull %deadline, ptr noundef nonnull %epoch) #8
-  %interval = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval = getelementptr inbounds nuw i8, ptr %decay, i64 128
   tail call void @nstime_add(ptr noundef nonnull %deadline, ptr noundef nonnull %interval) #8
-  %time_ms.i = getelementptr inbounds i8, ptr %decay, i64 120
+  %time_ms.i = getelementptr inbounds nuw i8, ptr %decay, i64 120
   %0 = load atomic i64, ptr %time_ms.i monotonic, align 8
   %cmp = icmp sgt i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %jitter_state = getelementptr inbounds i8, ptr %decay, i64 144
+  %jitter_state = getelementptr inbounds nuw i8, ptr %decay, i64 144
   %call3 = tail call i64 @nstime_ns(ptr noundef nonnull %interval) #8
   switch i64 %call3, label %if.end.i14 [
     i64 1, label %prng_range_u64.exit
@@ -112,28 +112,28 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %purging = getelementptr inbounds i8, ptr %decay, i64 112
+  %purging = getelementptr inbounds nuw i8, ptr %decay, i64 112
   store i8 0, ptr %purging, align 8
-  %time_ms.i = getelementptr inbounds i8, ptr %decay, i64 120
+  %time_ms.i = getelementptr inbounds nuw i8, ptr %decay, i64 120
   store atomic i64 %decay_ms, ptr %time_ms.i monotonic, align 8
   %cmp.i = icmp sgt i64 %decay_ms, 0
   br i1 %cmp.i, label %if.then.i, label %decay_reinit.exit
 
 if.then.i:                                        ; preds = %if.end
-  %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval.i = getelementptr inbounds nuw i8, ptr %decay, i64 128
   %mul.i = mul i64 %decay_ms, 1000000
   tail call void @nstime_init(ptr noundef nonnull %interval.i, i64 noundef %mul.i) #8
   tail call void @nstime_idivide(ptr noundef nonnull %interval.i, i64 noundef 200) #8
   br label %decay_reinit.exit
 
 decay_reinit.exit:                                ; preds = %if.end, %if.then.i
-  %epoch.i = getelementptr inbounds i8, ptr %decay, i64 136
+  %epoch.i = getelementptr inbounds nuw i8, ptr %decay, i64 136
   tail call void @nstime_copy(ptr noundef nonnull %epoch.i, ptr noundef %cur_time) #8
   %0 = ptrtoint ptr %decay to i64
-  %jitter_state.i = getelementptr inbounds i8, ptr %decay, i64 144
+  %jitter_state.i = getelementptr inbounds nuw i8, ptr %decay, i64 144
   store i64 %0, ptr %jitter_state.i, align 8
   tail call fastcc void @decay_deadline_init(ptr noundef nonnull %decay)
-  %nunpurged.i = getelementptr inbounds i8, ptr %decay, i64 168
+  %nunpurged.i = getelementptr inbounds nuw i8, ptr %decay, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %nunpurged.i, i8 0, i64 1608, i1 false)
   br label %return
 
@@ -154,7 +154,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i64 @decay_npages_purge_in(ptr noundef %decay, ptr noundef %time, i64 noundef %npages_new) local_unnamed_addr #0 {
 entry:
-  %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval.i = getelementptr inbounds nuw i8, ptr %decay, i64 128
   %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #8
   %call1 = tail call i64 @nstime_ns(ptr noundef %time) #8
   %div = udiv i64 %call1, %call.i
@@ -163,7 +163,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %sub = sub nuw nsw i64 199, %div
-  %arrayidx = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8
   %sub4 = sub i64 16777216, %0
   %mul = mul i64 %sub4, %npages_new
@@ -186,7 +186,7 @@ entry:
   br i1 %call.i, label %decay_maybe_update_time.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %epoch.i = getelementptr inbounds i8, ptr %decay, i64 136
+  %epoch.i = getelementptr inbounds nuw i8, ptr %decay, i64 136
   %call1.i = tail call i32 @nstime_compare(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #8
   %cmp.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp.i, label %if.then.i, label %decay_maybe_update_time.exit
@@ -197,23 +197,23 @@ if.then.i:                                        ; preds = %land.rhs.i
   br label %decay_maybe_update_time.exit
 
 decay_maybe_update_time.exit:                     ; preds = %entry, %land.rhs.i, %if.then.i
-  %deadline.i = getelementptr inbounds i8, ptr %decay, i64 152
+  %deadline.i = getelementptr inbounds nuw i8, ptr %decay, i64 152
   %call.i18 = tail call i32 @nstime_compare(ptr noundef nonnull %deadline.i, ptr noundef %new_time) #8
   %cmp.i19 = icmp slt i32 %call.i18, 1
   br i1 %cmp.i19, label %if.end, label %return
 
 if.end:                                           ; preds = %decay_maybe_update_time.exit
   call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef %new_time) #8
-  %epoch = getelementptr inbounds i8, ptr %decay, i64 136
+  %epoch = getelementptr inbounds nuw i8, ptr %decay, i64 136
   call void @nstime_subtract(ptr noundef nonnull %delta, ptr noundef nonnull %epoch) #8
-  %interval = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval = getelementptr inbounds nuw i8, ptr %decay, i64 128
   %call1 = call i64 @nstime_divide(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #8
   call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #8
   call void @nstime_imultiply(ptr noundef nonnull %delta, i64 noundef %call1) #8
   call void @nstime_add(ptr noundef nonnull %epoch, ptr noundef nonnull %delta) #8
   call fastcc void @decay_deadline_init(ptr noundef %decay)
   %cmp.i20 = icmp ugt i64 %call1, 199
-  %backlog.i = getelementptr inbounds i8, ptr %decay, i64 176
+  %backlog.i = getelementptr inbounds nuw i8, ptr %decay, i64 176
   br i1 %cmp.i20, label %if.then.i21, label %if.else.i
 
 if.then.i21:                                      ; preds = %if.end
@@ -221,7 +221,7 @@ if.then.i21:                                      ; preds = %if.end
   br label %decay_backlog_update.exit
 
 if.else.i:                                        ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %call1
+  %arrayidx.i = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %call1
   %sub.i = sub nuw nsw i64 200, %call1
   %mul.i = shl nuw nsw i64 %sub.i, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %backlog.i, ptr nonnull align 8 %arrayidx.i, i64 %mul.i, i1 false)
@@ -229,26 +229,26 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp4.i, label %if.then5.i, label %decay_backlog_update.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %arrayidx8.i = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %sub.i
+  %arrayidx8.i = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %sub.i
   %sub9.i = shl nuw nsw i64 %call1, 3
   %mul10.i = add nsw i64 %sub9.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %arrayidx8.i, i8 0, i64 %mul10.i, i1 false)
   br label %decay_backlog_update.exit
 
 decay_backlog_update.exit:                        ; preds = %if.then.i21, %if.else.i, %if.then5.i
-  %nunpurged.i = getelementptr inbounds i8, ptr %decay, i64 168
+  %nunpurged.i = getelementptr inbounds nuw i8, ptr %decay, i64 168
   %1 = load i64, ptr %nunpurged.i, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %npages_current, i64 %1)
-  %arrayidx16.i = getelementptr inbounds i8, ptr %decay, i64 1768
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %decay, i64 1768
   store i64 %spec.select.i, ptr %arrayidx16.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %decay_backlog_update.exit
   %indvars.iv.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.06.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %add.i, %for.body.i ]
-  %arrayidx.i23 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i23 = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %indvars.iv.i
   %2 = load i64, ptr %arrayidx.i23, align 8
-  %arrayidx2.i = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %indvars.iv.i
   %3 = load i64, ptr %arrayidx2.i, align 8
   %mul.i24 = mul i64 %3, %2
   %add.i = add i64 %mul.i24, %sum.06.i
@@ -258,7 +258,7 @@ for.body.i:                                       ; preds = %for.body.i, %decay_
 
 decay_backlog_npages_limit.exit:                  ; preds = %for.body.i
   %shr.i = lshr i64 %add.i, 24
-  %npages_limit = getelementptr inbounds i8, ptr %decay, i64 160
+  %npages_limit = getelementptr inbounds nuw i8, ptr %decay, i64 160
   store i64 %shr.i, ptr %npages_limit, align 8
   %call4.npages_current = call i64 @llvm.umax.i64(i64 %shr.i, i64 %npages_current)
   store i64 %call4.npages_current, ptr %nunpurged.i, align 8
@@ -279,24 +279,24 @@ declare void @nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i64 @decay_ns_until_purge(ptr noundef %decay, i64 noundef %npages_current, i64 noundef %npages_threshold) local_unnamed_addr #0 {
 entry:
-  %time_ms.i.i = getelementptr inbounds i8, ptr %decay, i64 120
+  %time_ms.i.i = getelementptr inbounds nuw i8, ptr %decay, i64 120
   %0 = load atomic i64, ptr %time_ms.i.i monotonic, align 8
   %cmp.i = icmp sgt i64 %0, 0
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
+  %interval.i = getelementptr inbounds nuw i8, ptr %decay, i64 128
   %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #8
   %cmp = icmp eq i64 %npages_current, 0
   br i1 %cmp, label %for.cond.preheader, label %if.end10
 
 for.cond.preheader:                               ; preds = %if.end
-  %backlog = getelementptr inbounds i8, ptr %decay, i64 176
+  %backlog = getelementptr inbounds nuw i8, ptr %decay, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [200 x i64], ptr %backlog, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [200 x i64], ptr %backlog, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %for.inc, label %if.end10
@@ -315,15 +315,15 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %backlog.i = getelementptr inbounds i8, ptr %decay, i64 176
+  %backlog.i = getelementptr inbounds nuw i8, ptr %decay, i64 176
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end13
   %sum.015.i = phi i64 [ 0, %if.end13 ], [ %add.i, %for.body.i ]
   %i.014.i = phi i64 [ 0, %if.end13 ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i
   %2 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx1.i = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i
+  %arrayidx1.i = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i
   %3 = load i64, ptr %arrayidx1.i, align 8
   %mul.i = mul i64 %3, %2
   %add.i = add i64 %mul.i, %sum.015.i
@@ -334,9 +334,9 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 for.body4.i:                                      ; preds = %for.body.i, %for.body4.i
   %sum.119.i = phi i64 [ %add11.i, %for.body4.i ], [ %add.i, %for.body.i ]
   %i.118.i = phi i64 [ %inc13.i, %for.body4.i ], [ 2, %for.body.i ]
-  %arrayidx6.i = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.118.i
+  %arrayidx6.i = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.118.i
   %4 = load i64, ptr %arrayidx6.i, align 8
-  %arrayidx7.i = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.118.i
+  %arrayidx7.i = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.118.i
   %5 = load i64, ptr %arrayidx7.i, align 8
   %sub.i = add nsw i64 %i.118.i, -2
   %arrayidx8.i = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %sub.i
@@ -360,9 +360,9 @@ if.then16:                                        ; preds = %decay_npurge_after_
 for.body.i34:                                     ; preds = %decay_npurge_after_interval.exit, %for.body.i34
   %sum.015.i35 = phi i64 [ %add.i40, %for.body.i34 ], [ 0, %decay_npurge_after_interval.exit ]
   %i.014.i36 = phi i64 [ %inc.i41, %for.body.i34 ], [ 0, %decay_npurge_after_interval.exit ]
-  %arrayidx.i37 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i36
+  %arrayidx.i37 = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i36
   %7 = load i64, ptr %arrayidx.i37, align 8
-  %arrayidx1.i38 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i36
+  %arrayidx1.i38 = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i36
   %8 = load i64, ptr %arrayidx1.i38, align 8
   %mul.i39 = mul i64 %8, %7
   %add.i40 = add i64 %mul.i39, %sum.015.i35
@@ -400,9 +400,9 @@ for.cond2.preheader.i56:                          ; preds = %for.body.i47
 for.body.i47:                                     ; preds = %while.body, %for.body.i47
   %sum.015.i48 = phi i64 [ %add.i53, %for.body.i47 ], [ 0, %while.body ]
   %i.014.i49 = phi i64 [ %inc.i54, %for.body.i47 ], [ 0, %while.body ]
-  %arrayidx.i50 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i49
+  %arrayidx.i50 = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.014.i49
   %9 = load i64, ptr %arrayidx.i50, align 8
-  %arrayidx1.i51 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i49
+  %arrayidx1.i51 = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.014.i49
   %10 = load i64, ptr %arrayidx1.i51, align 8
   %mul.i52 = mul i64 %10, %9
   %add.i53 = add i64 %mul.i52, %sum.015.i48
@@ -413,9 +413,9 @@ for.body.i47:                                     ; preds = %while.body, %for.bo
 for.body4.i59:                                    ; preds = %for.cond2.preheader.i56, %for.body4.i59
   %sum.119.i60 = phi i64 [ %add11.i68, %for.body4.i59 ], [ %add.i53, %for.cond2.preheader.i56 ]
   %i.118.i61 = phi i64 [ %inc13.i69, %for.body4.i59 ], [ %div32, %for.cond2.preheader.i56 ]
-  %arrayidx6.i62 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.118.i61
+  %arrayidx6.i62 = getelementptr inbounds nuw [200 x i64], ptr %backlog.i, i64 0, i64 %i.118.i61
   %11 = load i64, ptr %arrayidx6.i62, align 8
-  %arrayidx7.i63 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.118.i61
+  %arrayidx7.i63 = getelementptr inbounds nuw [200 x i64], ptr @h_steps, i64 0, i64 %i.118.i61
   %12 = load i64, ptr %arrayidx7.i63, align 8
   %sub.i64 = sub nuw nsw i64 %i.118.i61, %div32
   %arrayidx8.i65 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %sub.i64

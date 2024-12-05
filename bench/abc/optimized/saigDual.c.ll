@@ -29,8 +29,8 @@ define ptr @Saig_ManDupDual(ptr nocapture noundef readonly %0, ptr noundef reado
 
 Vec_PtrStart.exit:                                ; preds = %8, %16
   %.val156 = phi ptr [ %19, %16 ], [ null, %8 ]
-  %20 = getelementptr inbounds i8, ptr %14, i64 4
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.val156, ptr %21, align 8
   store i32 %13, ptr %20, align 4
   %22 = sext i32 %13 to i64
@@ -63,9 +63,9 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %.val156, align 8
   %.val162 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %.val156, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.val156, i64 8
   store ptr %.val162, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val271 = load i32, ptr %42, align 4
@@ -97,7 +97,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
   %53 = phi ptr [ %41, %.lr.ph ], [ %102, %85 ]
   %54 = getelementptr i8, ptr %53, i64 8
   %.val163 = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds ptr, ptr %.val163, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %.val163, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = icmp slt i64 %indvars.iv, %47
   br i1 %57, label %58, label %61
@@ -181,7 +181,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
   %indvars.iv292 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next293, %.critedge ]
   %108 = getelementptr i8, ptr %107, i64 8
   %.val164 = load ptr, ptr %108, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val164, i64 %indvars.iv292
+  %109 = getelementptr inbounds nuw ptr, ptr %.val164, i64 %indvars.iv292
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.critedge, label %112
@@ -205,7 +205,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrStart.exit, 
 119:                                              ; preds = %117
   %120 = and i64 %.pre304, -2
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 36
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 36
   %123 = load i32, ptr %122, align 4
   %124 = shl nsw i32 %123, 1
   %125 = sext i32 %124 to i64
@@ -242,7 +242,7 @@ Saig_ObjDualFanin.exit:                           ; preds = %Aig_ObjFaninId0.exi
 136:                                              ; preds = %Saig_ObjDualFanin.exit
   %137 = and i64 %.pre305, -2
   %138 = inttoptr i64 %137 to ptr
-  %139 = getelementptr inbounds i8, ptr %138, i64 36
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 36
   %140 = load i32, ptr %139, align 4
   %141 = shl nsw i32 %140, 1
   %142 = sext i32 %141 to i64
@@ -311,7 +311,7 @@ Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.exi
   br i1 %170, label %.lr.ph279, label %.critedge4
 
 .lr.ph279:                                        ; preds = %.preheader269
-  %171 = getelementptr inbounds i8, ptr %0, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %172 = getelementptr i8, ptr %0, i64 112
   %.not143 = icmp eq i32 %6, 0
   %.not144 = icmp eq i32 %7, 0
@@ -324,7 +324,7 @@ Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.exi
   br i1 %174, label %.lr.ph283, label %.critedge4
 
 .lr.ph283:                                        ; preds = %.preheader
-  %175 = getelementptr inbounds i8, ptr %0, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not138 = icmp eq i32 %6, 0
   %.not139 = icmp eq i32 %7, 0
   br label %223
@@ -357,7 +357,7 @@ Aig_ObjFaninId0.exit38.i195:                      ; preds = %176
   %186 = ptrtoint ptr %.val.i192 to i64
   %187 = and i64 %186, -2
   %188 = inttoptr i64 %187 to ptr
-  %189 = getelementptr inbounds i8, ptr %188, i64 36
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 36
   %190 = load i32, ptr %189, align 4
   %.val29.i194 = load ptr, ptr %21, align 8
   %191 = shl nsw i32 %190, 1
@@ -421,7 +421,7 @@ Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.exi
   %224 = load ptr, ptr %175, align 8
   %225 = getelementptr i8, ptr %224, i64 8
   %.val166 = load ptr, ptr %225, align 8
-  %226 = getelementptr inbounds ptr, ptr %.val166, i64 %indvars.iv295
+  %226 = getelementptr inbounds nuw ptr, ptr %.val166, i64 %indvars.iv295
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr i8, ptr %227, i64 8
   %.val.i207 = load ptr, ptr %228, align 8
@@ -440,7 +440,7 @@ Aig_ObjFaninId0.exit38.i210:                      ; preds = %223
   %231 = ptrtoint ptr %.val.i207 to i64
   %232 = and i64 %231, -2
   %233 = inttoptr i64 %232 to ptr
-  %234 = getelementptr inbounds i8, ptr %233, i64 36
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 36
   %235 = load i32, ptr %234, align 4
   %.val29.i209 = load ptr, ptr %21, align 8
   %236 = shl nsw i32 %235, 1
@@ -512,7 +512,7 @@ Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exi
   br i1 %274, label %.lr.ph287, label %.critedge8
 
 .lr.ph287:                                        ; preds = %.critedge4
-  %275 = getelementptr inbounds i8, ptr %0, i64 24
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %276 = getelementptr i8, ptr %0, i64 112
   %.not140 = icmp eq ptr %1, null
   %277 = getelementptr i8, ptr %1, i64 8
@@ -548,7 +548,7 @@ Aig_ObjFaninId0.exit38.i225:                      ; preds = %279
   %290 = ptrtoint ptr %.val.i222 to i64
   %291 = and i64 %290, -2
   %292 = inttoptr i64 %291 to ptr
-  %293 = getelementptr inbounds i8, ptr %292, i64 36
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 36
   %294 = load i32, ptr %293, align 4
   %.val29.i224 = load ptr, ptr %21, align 8
   %295 = shl nsw i32 %294, 1
@@ -576,7 +576,7 @@ Saig_ObjDualFanin.exit236:                        ; preds = %Aig_ObjFaninId0.exi
 
 307:                                              ; preds = %Saig_ObjDualFanin.exit236
   %.val171 = load ptr, ptr %277, align 8
-  %308 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv298
+  %308 = getelementptr inbounds nuw i32, ptr %.val171, i64 %indvars.iv298
   %309 = load i32, ptr %308, align 4
   %.not142 = icmp eq i32 %309, 0
   %310 = ptrtoint ptr %.4266 to i64
@@ -647,7 +647,7 @@ define void @Saig_ManBlockPo(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %6, label %.lr.ph38, label %.critedge
 
 .lr.ph38:                                         ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -666,7 +666,7 @@ define void @Saig_ManBlockPo(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr i8, ptr %13, i64 8
   %.val29 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val29, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   %.val32 = load ptr, ptr %17, align 8

@@ -46,7 +46,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next31.i, %.lr.ph.i ]
   %.02225.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30.i
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
   %11 = sext i32 %.02225.i to i64
   %12 = getelementptr inbounds i32, ptr %0, i64 %11
   %13 = tail call i32 %2(ptr noundef nonnull %10, ptr noundef %12) #15
@@ -59,7 +59,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv33.i
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv33.i
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %spec.select.i to i64
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
@@ -73,7 +73,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 20:                                               ; preds = %3
   %21 = lshr i32 %1, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %4, align 4
   br label %25
@@ -160,7 +160,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.02124.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %indvars.iv29.i
+  %7 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv29.i
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %.02124.i to i64
   %10 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %9
@@ -174,7 +174,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %14 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
+  %14 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %spec.select.i to i64
   %17 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %16
@@ -190,7 +190,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
   %19 = lshr i32 %.tr3847, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %.tr46, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %.tr46, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %23
 
@@ -260,7 +260,7 @@ define noalias noundef ptr @Gia_SortGetTest(i32 noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = tail call i32 @rand() #15
-  %7 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -305,7 +305,7 @@ Abc_Clock.exit:
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %Abc_Clock.exit
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %10 = call i32 @rand() #15
-  %11 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   store i32 %10, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100000000
@@ -320,7 +320,7 @@ Gia_SortGetTest.exit:                             ; preds = %.lr.ph.i
 14:                                               ; preds = %Gia_SortGetTest.exit
   %15 = load i64, ptr %5, align 8
   %.neg50 = mul i64 %15, -1000000
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
   %.neg = sdiv i64 %17, -1000
   %.neg51 = add i64 %.neg, %.neg50
@@ -339,7 +339,7 @@ Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exi
 20:                                               ; preds = %Abc_Clock.exit29
   %21 = load i64, ptr %4, align 8
   %22 = mul nsw i64 %21, 1000000
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = sdiv i64 %24, 1000
   %26 = add nsw i64 %25, %22
@@ -360,7 +360,7 @@ Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exi
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %27
   %indvars.iv.i33 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
   %32 = call i32 @rand() #15
-  %33 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i33
+  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i33
   store i32 %32, ptr %33, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 100000000
@@ -375,7 +375,7 @@ Gia_SortGetTest.exit36:                           ; preds = %.lr.ph.i32
 36:                                               ; preds = %Gia_SortGetTest.exit36
   %37 = load i64, ptr %3, align 8
   %.neg53 = mul i64 %37, -1000000
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8
   %.neg52 = sdiv i64 %39, -1000
   %.neg54 = add i64 %.neg52, %.neg53
@@ -394,7 +394,7 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
 42:                                               ; preds = %Abc_Clock.exit38
   %43 = load i64, ptr %2, align 8
   %44 = mul nsw i64 %43, 1000000
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = sdiv i64 %46, 1000
   %48 = add nsw i64 %47, %44
@@ -415,7 +415,7 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %49
   %indvars.iv.i42 = phi i64 [ 0, %49 ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
   %54 = call i32 @rand() #15
-  %55 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.i42
+  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i42
   store i32 %54, ptr %55, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 100000000
@@ -430,7 +430,7 @@ Gia_SortGetTest.exit45:                           ; preds = %.lr.ph.i41
 58:                                               ; preds = %Gia_SortGetTest.exit45
   %59 = load i64, ptr %1, align 8
   %.neg56 = mul i64 %59, -1000000
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load i64, ptr %60, align 8
   %.neg55 = sdiv i64 %61, -1000
   %.neg57 = add i64 %.neg55, %.neg56
@@ -449,7 +449,7 @@ Abc_Clock.exit47:                                 ; preds = %Gia_SortGetTest.exi
 64:                                               ; preds = %Abc_Clock.exit47
   %65 = load i64, ptr %0, align 8
   %66 = mul nsw i64 %65, 1000000
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = sdiv i64 %68, 1000
   %70 = add nsw i64 %69, %66
@@ -560,7 +560,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next39.i, %.lr.ph.i ]
   %.033.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %8 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw float, ptr %.tr.lcssa, i64 %indvars.iv38.i
   %9 = load float, ptr %8, align 4
   %10 = sext i32 %.033.i to i64
   %11 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %10
@@ -574,14 +574,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
-  %15 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %indvars.iv41.i
+  %15 = getelementptr inbounds nuw float, ptr %.tr.lcssa, i64 %indvars.iv41.i
   %16 = load float, ptr %15, align 4
   %17 = sext i32 %.1.i to i64
   %18 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %17
   %19 = load float, ptr %18, align 4
   store float %19, ptr %15, align 4
   store float %16, ptr %18, align 4
-  %20 = getelementptr inbounds i32, ptr %.tr51.lcssa, i64 %indvars.iv41.i
+  %20 = getelementptr inbounds nuw i32, ptr %.tr51.lcssa, i64 %indvars.iv41.i
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i32, ptr %.tr51.lcssa, i64 %17
   %23 = load i32, ptr %22, align 4
@@ -597,7 +597,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.tr62 = phi ptr [ %34, %tailrecurse ], [ %0, %3 ]
   %24 = lshr i32 %.tr5264, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds float, ptr %.tr62, i64 %25
+  %26 = getelementptr inbounds nuw float, ptr %.tr62, i64 %25
   %27 = load float, ptr %26, align 4
   br label %28
 
@@ -676,7 +676,7 @@ define noundef ptr @Gia_SortFloats(ptr nocapture noundef %0, ptr noundef %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

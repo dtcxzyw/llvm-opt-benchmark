@@ -14,9 +14,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22NativeCallStackPrinterC2EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 12, i8 noundef zeroext 0, i64 noundef 131072) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2348) %3, i8 0, i64 2348, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 2400
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -26,18 +26,18 @@ declare void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(2408) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 2392
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 2400
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   br label %11
 
 11:                                               ; preds = %2, %60
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %60 ]
-  %12 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %65, label %15
@@ -49,7 +49,7 @@ define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStac
   %19 = xor i32 %18, %17
   %20 = urem i32 %19, 293
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %23, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i, label %.lr.ph.i.i
@@ -61,19 +61,19 @@ define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStac
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %13, %29
   br i1 %30, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE13put_if_absentERKS1_Pb.exit, label %31
 
 31:                                               ; preds = %27, %.lr.ph.i.i
-  %32 = getelementptr inbounds i8, ptr %24, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit: ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %24, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, %15
@@ -84,14 +84,14 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6
 
 37:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i
   store i32 %19, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %13, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %41
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE13put_if_absentERKS1_Pb.exit: ; preds = %27
-  %40 = getelementptr inbounds i8, ptr %24, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %60
 
 41:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i, %37
@@ -100,7 +100,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %5, align 8
   %44 = load ptr, ptr %.0.lcssa.i11.i, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 4096) #6
   call void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, ptr noundef nonnull %13) #6
   %46 = load i64, ptr %6, align 8

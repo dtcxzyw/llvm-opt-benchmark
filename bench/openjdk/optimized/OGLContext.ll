@@ -112,7 +112,7 @@ define hidden ptr @OGLContext_SetSurfaces(ptr noundef %0, i64 noundef %1, i64 no
   br label %63
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %16 [
     i32 3, label %12
@@ -142,14 +142,14 @@ define hidden ptr @OGLContext_SetSurfaces(ptr noundef %0, i64 noundef %1, i64 no
   br label %63
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 92
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr @j2d_glViewport, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %29 = load i32, ptr %28, align 8
   tail call void %25(i32 noundef %27, i32 noundef %29, i32 noundef %22, i32 noundef %24) #8
   %30 = load ptr, ptr @j2d_glMatrixMode, align 8
@@ -161,20 +161,20 @@ define hidden ptr @OGLContext_SetSurfaces(ptr noundef %0, i64 noundef %1, i64 no
   %34 = sitofp i32 %24 to double
   tail call void %32(double noundef 0.000000e+00, double noundef %33, double noundef %34, double noundef 0.000000e+00, double noundef -1.000000e+00, double noundef 1.000000e+00) #8
   %35 = load ptr, ptr @j2d_glReadBuffer, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 76
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %37 = load i32, ptr %36, align 4
   tail call void %35(i32 noundef %37) #8
   %38 = load ptr, ptr @j2d_glDrawBuffer, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 76
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %40 = load i32, ptr %39, align 4
   tail call void %38(i32 noundef %40) #8
   %41 = load ptr, ptr @j2d_glColorMask, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %43 = load i8, ptr %42, align 8
   %.not.i = icmp eq i8 %43, 0
   %44 = zext i1 %.not.i to i8
   tail call void %41(i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext 1, i8 noundef zeroext %44) #8
-  %45 = getelementptr inbounds i8, ptr %5, i64 81
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 81
   %46 = load i8, ptr %45, align 1
   %.not23 = icmp eq i8 %46, 0
   br i1 %.not23, label %63, label %47
@@ -271,12 +271,12 @@ define hidden void @OGLContext_SetRectClip(ptr noundef readnone %0, ptr noundef 
   %15 = load ptr, ptr @j2d_glEnable, align 8
   tail call void %15(i32 noundef 3089) #8
   %16 = load ptr, ptr @j2d_glScissor, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %spec.select22, %3
   %25 = sub i32 %21, %24
@@ -333,7 +333,7 @@ define hidden void @OGLContext_EndShapeClip(ptr noundef readnone %0, ptr noundef
   %6 = load ptr, ptr @j2d_glPopMatrix, align 8
   tail call void %6() #8
   %7 = load ptr, ptr @j2d_glColorMask, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i8, ptr %8, align 8
   %.not = icmp eq i8 %9, 0
   %10 = zext i1 %.not to i8
@@ -366,7 +366,7 @@ define hidden void @OGLContext_ResetComposite(ptr noundef %0) local_unnamed_addr
 
 3:                                                ; preds = %1
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -2) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %9 [
     i32 1, label %.sink.split
@@ -386,7 +386,7 @@ define hidden void @OGLContext_ResetComposite(ptr noundef %0) local_unnamed_addr
 
 9:                                                ; preds = %.sink.split, %3
   store i32 0, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 1.000000e+00, ptr %10, align 8
   br label %11
 
@@ -401,7 +401,7 @@ define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1,
 
 6:                                                ; preds = %4
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -2) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %13
@@ -435,14 +435,14 @@ define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1,
   %22 = load ptr, ptr @j2d_glBlendFunc, align 8
   %23 = getelementptr inbounds [13 x %struct.OGLBlendRule], ptr @StdBlendRules, i64 0, i64 %20
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
   tail call void %22(i32 noundef %24, i32 noundef %26) #8
   br label %27
 
 27:                                               ; preds = %19, %17
   store i32 1, ptr %7, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %2, ptr %28, align 8
   br label %29
 
@@ -457,7 +457,7 @@ define hidden void @OGLContext_SetXorComposite(ptr noundef %0, i32 noundef %1) l
 
 4:                                                ; preds = %2
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -2) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %10
@@ -477,9 +477,9 @@ define hidden void @OGLContext_SetXorComposite(ptr noundef %0, i32 noundef %1) l
   %14 = load ptr, ptr @j2d_glAlphaFunc, align 8
   tail call void %14(i32 noundef 517, float noundef 0.000000e+00) #8
   store i32 2, ptr %5, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 1.000000e+00, ptr %16, align 8
   br label %17
 
@@ -511,7 +511,7 @@ define hidden void @OGLContext_SetTransform(ptr noundef %0, double noundef %1, d
 
 9:                                                ; preds = %7
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -2) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -519,9 +519,9 @@ define hidden void @OGLContext_SetTransform(ptr noundef %0, double noundef %1, d
 13:                                               ; preds = %9
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
   store ptr %calloc, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   store double 1.000000e+00, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
   store double 1.000000e+00, ptr %15, align 8
   br label %16
 
@@ -529,19 +529,19 @@ define hidden void @OGLContext_SetTransform(ptr noundef %0, double noundef %1, d
   %17 = phi ptr [ %calloc, %13 ], [ %11, %9 ]
   store double %1, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double %2, ptr %19, align 8
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store double %3, ptr %21, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store double %4, ptr %23, align 8
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store double %5, ptr %25, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store double %6, ptr %27, align 8
   %28 = load ptr, ptr @j2d_glMatrixMode, align 8
   tail call void %28(i32 noundef 5888) #8
@@ -618,14 +618,14 @@ define hidden i32 @OGLContext_CreateBlitTexture(i32 noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i8 @OGLContext_InitBlitTileTexture(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @OGLContext_CreateBlitTexture(i32 noundef 32856, i32 noundef 6408, i32 noundef 128, i32 noundef 128)
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %3, align 8
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLContext_DestroyContextResources(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -635,7 +635,7 @@ define hidden void @OGLContext_DestroyContextResources(ptr noundef %0) local_unn
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %.not4 = icmp eq i32 %7, 0
   br i1 %.not4, label %10, label %8
@@ -683,8 +683,8 @@ define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr nou
   br i1 %14, label %._crit_edge, label %15
 
 15:                                               ; preds = %12, %9
-  %16 = add i64 %10, 1
-  %17 = getelementptr inbounds i8, ptr %.01822, i64 %16
+  %16 = getelementptr i8, ptr %.01822, i64 %10
+  %17 = getelementptr i8, ptr %16, i64 1
   %.not = icmp ult ptr %17, %7
   br i1 %.not, label %9, label %._crit_edge, !llvm.loop !6
 
@@ -944,13 +944,13 @@ sub_0:                                            ; preds = %95
   br i1 %.not64, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %97 = getelementptr inbounds i8, ptr %9, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %98 = load i8, ptr %97, align 1
   %.not65 = icmp eq i8 %98, 84
   br i1 %.not65, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %99 = getelementptr inbounds i8, ptr %9, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 73
   br i1 %101, label %107, label %.tail.thread
@@ -995,7 +995,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsVersionSupported(ptr nound
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp ugt i8 %9, 49
   br i1 %10, label %14, label %11

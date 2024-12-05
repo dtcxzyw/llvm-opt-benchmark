@@ -290,7 +290,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %idxprom.i = zext nneg i32 %div to i64
-  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   br label %getname.exit
 
@@ -301,7 +301,7 @@ getname.exit:                                     ; preds = %entry, %if.then.i
 
 if.then.i23:                                      ; preds = %getname.exit
   %idxprom.i24 = zext nneg i32 %rem to i64
-  %arrayidx.i25 = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i24
+  %arrayidx.i25 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i24
   %1 = load ptr, ptr %arrayidx.i25, align 8
   br label %getname.exit26
 
@@ -312,7 +312,7 @@ getname.exit26:                                   ; preds = %getname.exit, %if.t
 
 if.then.i29:                                      ; preds = %getname.exit26
   %idxprom.i30 = zext nneg i32 %rem2 to i64
-  %arrayidx.i31 = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i30
+  %arrayidx.i31 = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i30
   %2 = load ptr, ptr %arrayidx.i31, align 8
   br label %getname.exit32
 
@@ -452,7 +452,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %idxprom.i.i = zext nneg i32 %div.i to i64
-  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 8
   br label %getname.exit.i
 
@@ -463,7 +463,7 @@ getname.exit.i:                                   ; preds = %if.then.i.i, %entry
 
 if.then.i25.i:                                    ; preds = %getname.exit.i
   %idxprom.i26.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i27.i = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i26.i
+  %arrayidx.i27.i = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i26.i
   %1 = load ptr, ptr %arrayidx.i27.i, align 8
   br label %getname.exit28.i
 
@@ -474,7 +474,7 @@ getname.exit28.i:                                 ; preds = %if.then.i25.i, %get
 
 if.then.i31.i:                                    ; preds = %getname.exit28.i
   %idxprom.i32.i = zext nneg i32 %rem2.i to i64
-  %arrayidx.i33.i = getelementptr inbounds [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i32.i
+  %arrayidx.i33.i = getelementptr inbounds nuw [3 x ptr], ptr @__const.getname.name, i64 0, i64 %idxprom.i32.i
   %2 = load ptr, ptr %arrayidx.i33.i, align 8
   br label %getname.exit34.i
 
@@ -1394,7 +1394,7 @@ entry:
   store ptr null, ptr %pkey.i, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds i8, ptr %params.i, i64 40
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   %0 = load ptr, ptr @libctx, align 8

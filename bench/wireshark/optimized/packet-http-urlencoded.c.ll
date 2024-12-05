@@ -57,7 +57,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -72,7 +72,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   br i1 %12, label %.thread74, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not67 = icmp eq ptr %15, null
   br i1 %.not67, label %.thread74, label %16
@@ -89,7 +89,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
 
 20:                                               ; preds = %9, %16
   %.059 = phi ptr [ %8, %9 ], [ %15, %16 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %.059) #3
   %23 = load i32, ptr @proto_urlencoded, align 4
@@ -106,7 +106,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %32
 
 32:                                               ; preds = %.lr.ph, %61

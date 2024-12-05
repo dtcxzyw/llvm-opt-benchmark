@@ -58,12 +58,12 @@ define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0,
   br i1 %.not10, label %16, label %22
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i32, ptr %17, align 1
   store i32 %18, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %20 = load i32, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
   br label %22
 
@@ -147,34 +147,34 @@ define hidden range(i32 -146, 1) i32 @psa_its_set(i64 noundef %0, i32 noundef %1
 8:                                                ; preds = %4
   store i64 23455095580611408, ptr %6, align 8
   %9 = trunc i32 %1 to i8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %9, ptr %10, align 8
   %11 = lshr i32 %1, 8
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %6, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %12, ptr %13, align 1
   %14 = lshr i32 %1, 16
   %15 = trunc i32 %14 to i8
-  %16 = getelementptr inbounds i8, ptr %6, i64 10
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 %15, ptr %16, align 2
   %17 = lshr i32 %1, 24
   %18 = trunc nuw i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %6, i64 11
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 11
   store i8 %18, ptr %19, align 1
   %20 = trunc i32 %3 to i8
-  %21 = getelementptr inbounds i8, ptr %6, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %20, ptr %21, align 4
   %22 = lshr i32 %3, 8
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %6, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 13
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %3, 16
   %26 = trunc i32 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %6, i64 14
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 14
   store i8 %26, ptr %27, align 2
   %28 = lshr i32 %3, 24
   %29 = trunc nuw i32 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %6, i64 15
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 15
   store i8 %29, ptr %30, align 1
   %31 = lshr i64 %0, 32
   %32 = trunc nuw i64 %31 to i32

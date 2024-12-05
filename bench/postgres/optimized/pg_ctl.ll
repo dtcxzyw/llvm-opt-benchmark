@@ -251,13 +251,13 @@ sub_0:                                            ; preds = %13
   br i1 %.not61, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %15, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %20 = load i8, ptr %19, align 1
   %.not62 = icmp eq i8 %20, 63
   br i1 %.not62, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %21 = getelementptr inbounds i8, ptr %15, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %.thread65
@@ -283,13 +283,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %30, label %36, label %sub_158
 
 sub_158:                                          ; preds = %.tail.thread, %.thread65
-  %31 = getelementptr inbounds i8, ptr %15, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %32 = load i8, ptr %31, align 1
   %.not64 = icmp eq i8 %32, 86
   br i1 %.not64, label %.tail56, label %.tail56.thread
 
 .tail56:                                          ; preds = %sub_158
-  %33 = getelementptr inbounds i8, ptr %15, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %.tail56.thread
@@ -373,7 +373,7 @@ sub_158:                                          ; preds = %.tail.thread, %.thr
   br i1 %.not.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %60, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %set_mode.exit, label %.thread.i
@@ -393,7 +393,7 @@ sub_08.i:                                         ; preds = %.tail.thread.i
   br i1 %.not15.i, label %.tail7.i, label %.tail7.thread.i
 
 .tail7.i:                                         ; preds = %sub_08.i
-  %69 = getelementptr inbounds i8, ptr %60, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %set_mode.exit, label %.thread18.i
@@ -418,7 +418,7 @@ sub_012.i:                                        ; preds = %.tail7.thread.i
   br i1 %.not16.i, label %.tail11.i, label %.tail11.thread.i
 
 .tail11.i:                                        ; preds = %sub_012.i
-  %78 = getelementptr inbounds i8, ptr %60, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %set_mode.exit, label %.tail11.thread.i
@@ -1355,7 +1355,7 @@ read_post_opts.exit:                              ; preds = %11, %14, %free_read
 54:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %55 = call i32 @getrlimit(i32 noundef 4, ptr noundef nonnull %3) #17
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i64, ptr %56, align 8
   switch i64 %57, label %60 [
     i64 0, label %58
@@ -1970,7 +1970,7 @@ define internal fastcc void @do_promote() unnamed_addr #4 {
   unreachable
 
 get_control_dbstate.exit:                         ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load i32, ptr %19, align 8
   call void @pfree(ptr noundef %14) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -2087,7 +2087,7 @@ print_msg.exit:                                   ; preds = %54, %55
   unreachable
 
 get_control_dbstate.exit.i:                       ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %69, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %75 = load i32, ptr %74, align 8
   call void @pfree(ptr noundef %69) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
@@ -2465,7 +2465,7 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
   br label %63
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %18

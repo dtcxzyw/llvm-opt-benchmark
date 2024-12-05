@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %2, %4
   br i1 %5, label %78, label %6
@@ -34,7 +34,7 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %10, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %11, align 4
   br label %12
 
@@ -43,19 +43,19 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
   %.03756 = phi i32 [ 0, %.lr.ph ], [ %.1, %12 ]
   %.03855 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %12 ]
   %.04454 = phi ptr [ %0, %.lr.ph ], [ %22, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.04454, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.04454, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not51 = icmp ne ptr %15, null
   %16 = zext i1 %.not51 to i32
   %spec.select = add nuw nsw i32 %.03855, %16
-  %17 = getelementptr inbounds i8, ptr %.04454, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.04454, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not52 = icmp ne ptr %18, null
   %19 = zext i1 %.not52 to i32
   %.1 = add nuw nsw i32 %.03756, %19
   %20 = add nuw nsw i32 %13, 1
   store i32 %20, ptr %11, align 4
-  %21 = getelementptr inbounds i8, ptr %.04454, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.04454, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !4
@@ -66,7 +66,7 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 3
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #10
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %.lr.ph63.preheader
@@ -78,9 +78,9 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
 
 .lr.ph63.preheader:                               ; preds = %._crit_edge
   %31 = zext nneg i32 %spec.select to i64
-  %32 = getelementptr inbounds ptr, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %33, ptr %34, align 8
   store ptr null, ptr %32, align 8
   br label %.lr.ph63
@@ -90,7 +90,7 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
   %.04060 = phi ptr [ %.141, %44 ], [ %33, %.lr.ph63.preheader ]
   %.04259 = phi ptr [ %.143, %44 ], [ %32, %.lr.ph63.preheader ]
   %.14558 = phi ptr [ %46, %44 ], [ %0, %.lr.ph63.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.14558, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.14558, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not49 = icmp eq ptr %36, null
   br i1 %.not49, label %39, label %37
@@ -102,19 +102,19 @@ define void @pmix_class_initialize(ptr nocapture noundef %0) local_unnamed_addr 
 
 39:                                               ; preds = %37, %.lr.ph63
   %.143 = phi ptr [ %38, %37 ], [ %.04259, %.lr.ph63 ]
-  %40 = getelementptr inbounds i8, ptr %.14558, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.14558, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not50 = icmp eq ptr %41, null
   br i1 %.not50, label %44, label %42
 
 42:                                               ; preds = %39
   store ptr %41, ptr %.04060, align 8
-  %43 = getelementptr inbounds i8, ptr %.04060, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.04060, i64 8
   br label %44
 
 44:                                               ; preds = %42, %39
   %.141 = phi ptr [ %43, %42 ], [ %.04060, %39 ]
-  %45 = getelementptr inbounds i8, ptr %.14558, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.14558, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = add nuw nsw i32 %.061, 1
   %48 = load i32, ptr %11, align 4
@@ -228,7 +228,7 @@ define noundef i32 @pmix_class_finalize() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %10, label %9

@@ -21,7 +21,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @acpi_evaluate_dsm(ptr noundef %6, ptr noundef nonnull @apple_prp_guid, i64 noundef 1, i64 noundef 0, ptr noundef null) #6
   %8 = icmp eq ptr %7, null
@@ -37,13 +37,13 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br label %.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %179, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 3
@@ -71,7 +71,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br label %.thread
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %26, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 1
   %36 = icmp ult i32 %34, 2
@@ -83,7 +83,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br i1 %39, label %179, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %26, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = zext nneg i32 %35 to i64
   br label %43
 
@@ -107,7 +107,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
 
 57:                                               ; preds = %53
   tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %38, i64 %44) #6, !srcloc !7
-  %58 = getelementptr inbounds i8, ptr %48, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %45, 1
   %61 = add i32 %60, %59
@@ -118,13 +118,13 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   ]
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %50, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, %61
   br label %72
 
 67:                                               ; preds = %57
-  %68 = getelementptr inbounds i8, ptr %50, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %61, 1
   %71 = add i32 %70, %69
@@ -164,10 +164,10 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
 92:                                               ; preds = %84
   %93 = zext i32 %86 to i64
   store i32 4, ptr %90, align 8
-  %94 = getelementptr inbounds i8, ptr %90, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %77, ptr %94, align 4
   %95 = getelementptr i8, ptr %90, i64 24
-  %96 = getelementptr inbounds i8, ptr %90, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %95, ptr %96, align 8
   %97 = getelementptr %union.acpi_object, ptr %90, i64 %93
   %98 = add i32 %77, 1
@@ -196,20 +196,20 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   %116 = zext i32 %115 to i64
   %117 = getelementptr %union.acpi_object, ptr %90, i64 %116
   store i32 4, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i32 2, ptr %118, align 4
   %119 = zext i32 %114 to i64
   %120 = getelementptr %union.acpi_object, ptr %90, i64 %119
-  %121 = getelementptr inbounds i8, ptr %117, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %120, ptr %121, align 8
   store i32 2, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %109, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %120, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %120, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %105, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %109, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %122, align 4
   %129 = zext i32 %128 to i64
@@ -228,20 +228,20 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   ]
 
 137:                                              ; preds = %.lr.ph
-  %138 = getelementptr inbounds i8, ptr %112, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %136, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %139, ptr %140, align 8
   br label %166
 
 141:                                              ; preds = %.lr.ph
-  %142 = getelementptr inbounds i8, ptr %112, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %136, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 %143, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %136, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %133, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %112, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = load i32, ptr %142, align 4
   %149 = zext i32 %148 to i64
@@ -253,13 +253,13 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br label %166
 
 154:                                              ; preds = %.lr.ph
-  %155 = getelementptr inbounds i8, ptr %112, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds i8, ptr %136, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 %156, ptr %157, align 4
-  %158 = getelementptr inbounds i8, ptr %136, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %133, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %112, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = load i32, ptr %155, align 4
   %162 = zext i32 %161 to i64
@@ -291,9 +291,9 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   br label %176
 
 176:                                              ; preds = %175, %._crit_edge
-  %177 = getelementptr inbounds i8, ptr %0, i64 528
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %90, ptr %177, align 8
-  %178 = tail call ptr @acpi_data_add_props(ptr noundef %177, ptr noundef nonnull @apple_prp_guid, ptr noundef nonnull %90) #6
+  %178 = tail call ptr @acpi_data_add_props(ptr noundef nonnull %177, ptr noundef nonnull @apple_prp_guid, ptr noundef nonnull %90) #6
   br label %179
 
 179:                                              ; preds = %176, %84, %82, %37, %32, %22, %13

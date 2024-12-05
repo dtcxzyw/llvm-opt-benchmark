@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %5, align 8
   %6 = tail call i64 @H5FD_get_eof(ptr noundef %1, i32 noundef 3) #5
   %7 = add i64 %3, %2
@@ -98,7 +98,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef in
 40:                                               ; preds = %34
   %41 = add i64 %3, -4
   %42 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %14, i64 noundef %41) #5
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8
   %.not41 = icmp eq i32 %44, %42
   br i1 %.not41, label %49, label %45
@@ -110,7 +110,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef in
   br label %66
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8
   %.not42 = icmp eq i64 %51, 0
   br i1 %.not42, label %60, label %52
@@ -177,7 +177,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br label %95
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i8, ptr %10, align 1
   %.not103 = icmp eq i8 %11, 1
   br i1 %.not103, label %16, label %12
@@ -189,10 +189,10 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br label %95
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 1
   store i64 %18, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %20
 
 20:                                               ; preds = %16, %20
@@ -209,8 +209,8 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %exitcond.not, label %27, label %20
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %35
@@ -232,7 +232,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br label %95
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.lr.ph
@@ -267,7 +267,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
 57:                                               ; preds = %50
   %58 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %48, i64 %.087116
   store i64 %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.1115, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.1115, i64 8
   %60 = load i64, ptr %59, align 1
   store i64 %60, ptr %3, align 8
   br label %61
@@ -286,13 +286,13 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %exitcond122.not, label %68, label %61
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %58, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %66, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.1115, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.1115, i64 16
   %.sroa.0.0.copyload = load i32, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %58, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 %.sroa.0.0.copyload, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %.1115, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %.1115, i64 20
   %73 = add nuw i64 %.087116, 1
   %74 = icmp ult i64 %73, %25
   br i1 %74, label %.lr.ph, label %.loopexit
@@ -305,11 +305,11 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   %78 = tail call i32 @H5_checksum_fletcher32(ptr noundef %0, i64 noundef %77) #5
   %.sroa.0.0.copyload95 = load i16, ptr %.090, align 1
   %79 = zext i16 %.sroa.0.0.copyload95 to i32
-  %.sroa.7.0..090.sroa_idx = getelementptr inbounds i8, ptr %.090, i64 2
+  %.sroa.7.0..090.sroa_idx = getelementptr inbounds nuw i8, ptr %.090, i64 2
   %.sroa.7.0.copyload98 = load i8, ptr %.sroa.7.0..090.sroa_idx, align 1
-  %.sroa.9.0..090.sroa_idx = getelementptr inbounds i8, ptr %.090, i64 3
+  %.sroa.9.0..090.sroa_idx = getelementptr inbounds nuw i8, ptr %.090, i64 3
   %.sroa.9.0.copyload100 = load i8, ptr %.sroa.9.0..090.sroa_idx, align 1
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = zext i8 %.sroa.7.0.copyload98 to i32
   %82 = shl nuw nsw i32 %81, 16
   %83 = or disjoint i32 %82, %79
@@ -327,7 +327,7 @@ define i64 @H5FD__onion_history_decode(ptr noundef %0, ptr nocapture noundef %1)
   br label %95
 
 91:                                               ; preds = %.loopexit
-  %92 = getelementptr inbounds i8, ptr %.090, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.090, i64 4
   %93 = ptrtoint ptr %92 to i64
   %94 = sub i64 %93, %76
   br label %95
@@ -348,7 +348,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 define i64 @H5FD__onion_write_history(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, 20
   %9 = add i64 %8, 20
@@ -410,16 +410,16 @@ define i64 @H5FD__onion_write_history(ptr nocapture noundef readonly %0, ptr nou
 define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8
   store i32 1397249871, ptr %1, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   br label %12
 
@@ -428,7 +428,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   %.097103 = phi i64 [ 0, %3 ], [ %15, %12 ]
   %.0100102 = phi ptr [ %9, %3 ], [ %14, %12 ]
   %13 = trunc i64 %.096104 to i8
-  %14 = getelementptr inbounds i8, ptr %.0100102, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0100102, i64 1
   store i8 %13, ptr %.0100102, align 1
   %15 = add nuw nsw i64 %.097103, 1
   %16 = lshr i64 %.096104, 8
@@ -436,13 +436,13 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   br i1 %exitcond.not, label %17, label %12
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %39
@@ -451,7 +451,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %22, i64 %.099111
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8
   br label %27
 
@@ -460,7 +460,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   %.091106 = phi i64 [ 0, %21 ], [ %30, %27 ]
   %.093105 = phi i64 [ %24, %21 ], [ %31, %27 ]
   %28 = trunc i64 %.093105 to i8
-  %29 = getelementptr inbounds i8, ptr %.089107, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.089107, i64 1
   store i8 %28, ptr %.089107, align 1
   %30 = add nuw nsw i64 %.091106, 1
   %31 = lshr i64 %.093105, 8
@@ -468,7 +468,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   br i1 %exitcond114.not, label %32, label %27
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.195112, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.195112, i64 8
   br label %34
 
 34:                                               ; preds = %32, %34
@@ -476,7 +476,7 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   %.086109 = phi i64 [ 0, %32 ], [ %37, %34 ]
   %.088108 = phi i64 [ %26, %32 ], [ %38, %34 ]
   %35 = trunc i64 %.088108 to i8
-  %36 = getelementptr inbounds i8, ptr %.0110, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0110, i64 1
   store i8 %35, ptr %.0110, align 1
   %37 = add nuw nsw i64 %.086109, 1
   %38 = lshr i64 %.088108, 8
@@ -484,27 +484,27 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   br i1 %exitcond115.not, label %39, label %34
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %.195112, i64 16
-  %41 = getelementptr inbounds i8, ptr %23, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.195112, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = trunc i32 %42 to i8
   store i8 %43, ptr %40, align 1
-  %44 = getelementptr inbounds i8, ptr %.195112, i64 17
+  %44 = getelementptr inbounds nuw i8, ptr %.195112, i64 17
   %45 = load i32, ptr %41, align 8
   %46 = lshr i32 %45, 8
   %47 = trunc i32 %46 to i8
   store i8 %47, ptr %44, align 1
-  %48 = getelementptr inbounds i8, ptr %.195112, i64 18
+  %48 = getelementptr inbounds nuw i8, ptr %.195112, i64 18
   %49 = load i32, ptr %41, align 8
   %50 = lshr i32 %49, 16
   %51 = trunc i32 %50 to i8
   store i8 %51, ptr %48, align 1
-  %52 = getelementptr inbounds i8, ptr %.195112, i64 19
+  %52 = getelementptr inbounds nuw i8, ptr %.195112, i64 19
   %53 = load i32, ptr %41, align 8
   %54 = lshr i32 %53, 24
   %55 = trunc nuw i32 %54 to i8
   store i8 %55, ptr %52, align 1
-  %56 = getelementptr inbounds i8, ptr %.195112, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.195112, i64 20
   %57 = add nuw i64 %.099111, 1
   %58 = load i64, ptr %10, align 8
   %59 = icmp ult i64 %57, %58
@@ -519,22 +519,22 @@ define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr no
   store i32 %63, ptr %2, align 4
   %64 = trunc i32 %63 to i8
   store i8 %64, ptr %.094, align 1
-  %65 = getelementptr inbounds i8, ptr %.094, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.094, i64 1
   %66 = load i32, ptr %2, align 4
   %67 = lshr i32 %66, 8
   %68 = trunc i32 %67 to i8
   store i8 %68, ptr %65, align 1
-  %69 = getelementptr inbounds i8, ptr %.094, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.094, i64 2
   %70 = load i32, ptr %2, align 4
   %71 = lshr i32 %70, 16
   %72 = trunc i32 %71 to i8
   store i8 %72, ptr %69, align 1
-  %73 = getelementptr inbounds i8, ptr %.094, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %.094, i64 3
   %74 = load i32, ptr %2, align 4
   %75 = lshr i32 %74, 24
   %76 = trunc nuw i32 %75 to i8
   store i8 %76, ptr %73, align 1
-  %77 = getelementptr inbounds i8, ptr %.094, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.094, i64 4
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %78, %61
   ret i64 %79

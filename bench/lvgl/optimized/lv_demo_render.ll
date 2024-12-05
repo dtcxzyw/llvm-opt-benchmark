@@ -984,25 +984,25 @@ define internal fastcc noundef ptr @fill_obj_create(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
   %5 = tail call i24 @lv_color_hex3(i32 noundef 0) #6
   store i24 %5, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %7 = tail call i24 @lv_color_hex3(i32 noundef 4095) #6
   store i24 %7, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %9 = tail call i24 @lv_color_hex3(i32 noundef 3840) #6
   store i24 %9, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %11 = tail call i24 @lv_color_hex3(i32 noundef 240) #6
   store i24 %11, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = tail call i24 @lv_color_hex3(i32 noundef 15) #6
   store i24 %13, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 15
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %15 = tail call i24 @lv_color_hex3(i32 noundef 4080) #6
   store i24 %15, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %4, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %17 = tail call i24 @lv_color_hex3(i32 noundef 255) #6
   store i24 %17, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %4, i64 21
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %19 = tail call i24 @lv_color_hex3(i32 noundef 3855) #6
   store i24 %19, ptr %18, align 1
   %20 = tail call ptr @lv_obj_create(ptr noundef %0) #6
@@ -1011,7 +1011,7 @@ define internal fastcc noundef ptr @fill_obj_create(ptr noundef %0, i32 noundef 
   tail call void @lv_obj_set_style_opa(ptr noundef %20, i8 noundef zeroext %21, i32 noundef 0) #6
   tail call void @lv_obj_set_style_bg_opa(ptr noundef %20, i8 noundef zeroext -1, i32 noundef 0) #6
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds [8 x %struct.lv_color_t], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [8 x %struct.lv_color_t], ptr %4, i64 0, i64 %22
   %.0.copyload = load i24, ptr %23, align 1
   tail call void @lv_obj_set_style_bg_color(ptr noundef %20, i24 %.0.copyload, i32 noundef 0) #6
   tail call void @lv_obj_set_size(ptr noundef %20, i32 noundef 55, i32 noundef 30) #6
@@ -1203,7 +1203,7 @@ define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw [8 x [2 x float]], ptr @arc_core_cb.angles, i64 0, i64 %indvars.iv
   %11 = load float, ptr %10, align 8, !tbaa !58
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4, !tbaa !58
   %14 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %14) #6
@@ -1276,29 +1276,29 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %18 = sitofp i32 %17 to float
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store float %18, ptr %19, align 4, !tbaa !65
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !28
   %22 = add i32 %8, %21
   %23 = sitofp i32 %22 to float
-  %24 = getelementptr inbounds i8, ptr %2, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store float %23, ptr %24, align 8, !tbaa !63
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !30
   %27 = add i32 %16, %26
   %28 = sitofp i32 %27 to float
-  %29 = getelementptr inbounds i8, ptr %2, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store float %28, ptr %29, align 4, !tbaa !65
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i32, ptr %30, align 4, !tbaa !28
   %32 = add i32 %8, %31
   %33 = sitofp i32 %32 to float
-  %34 = getelementptr inbounds i8, ptr %2, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store float %33, ptr %34, align 8, !tbaa !63
-  %35 = getelementptr inbounds i8, ptr %5, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !30
   %37 = add i32 %16, %36
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds i8, ptr %2, i64 84
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store float %38, ptr %39, align 4, !tbaa !65
   %40 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 95) #6
   %41 = ptrtoint ptr %40 to i64
@@ -1332,7 +1332,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %65 = trunc nuw i32 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 55
   store i8 %65, ptr %66, align 1, !tbaa !68
-  %67 = getelementptr inbounds i8, ptr %2, i64 57
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 57
   %68 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 35) #6
   %69 = ptrtoint ptr %68 to i64
   %.sroa.0.0.extract.trunc.i22 = trunc i64 %69 to i24
@@ -1340,7 +1340,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %70 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 34) #6
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i8
-  %73 = getelementptr inbounds i8, ptr %2, i64 61
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 61
   store i8 %72, ptr %73, align 1, !tbaa !66
   %74 = call ptr @lv_obj_get_style_prop(ptr noundef %4, i32 noundef 0, i8 noundef zeroext 37) #6
   %75 = ptrtoint ptr %74 to i64
@@ -1349,7 +1349,7 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %78 = mul nuw nsw i32 %77, %62
   %79 = lshr i32 %78, 8
   %80 = trunc nuw i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %2, i64 60
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i8 %80, ptr %81, align 4, !tbaa !68
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 62
   store i8 2, ptr %82, align 2, !tbaa !69

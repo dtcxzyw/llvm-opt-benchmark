@@ -52,7 +52,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br i1 %2, label %.thread7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1064
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.thread7, label %7
@@ -63,7 +63,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br i1 %9, label %10, label %.thread7
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 1072
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -78,14 +78,14 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 
 21:                                               ; preds = %63, %18
   %22 = phi i64 [ 0, %18 ], [ %64, %63 ]
   %23 = getelementptr [10 x %struct.cpuidle_state], ptr %19, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4
   %27 = icmp eq i32 %26, 0
@@ -98,7 +98,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br label %31
 
 31:                                               ; preds = %28, %21
-  %32 = getelementptr inbounds i8, ptr %23, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %39, label %35
@@ -106,12 +106,12 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
 35:                                               ; preds = %31
   %36 = zext i32 %33 to i64
   %37 = mul nuw nsw i64 %36, 1000
-  %38 = getelementptr inbounds i8, ptr %23, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i64 %37, ptr %38, align 8
   br label %47
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %23, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %41 = load i64, ptr %40, align 8
   %42 = icmp slt i64 %41, 0
   br i1 %42, label %43, label %44
@@ -127,7 +127,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br label %47
 
 47:                                               ; preds = %44, %43, %35
-  %48 = getelementptr inbounds i8, ptr %23, i64 68
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %55, label %51
@@ -135,12 +135,12 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
 51:                                               ; preds = %47
   %52 = zext i32 %49 to i64
   %53 = mul nuw nsw i64 %52, 1000
-  %54 = getelementptr inbounds i8, ptr %23, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i64 %53, ptr %54, align 8
   br label %63
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %23, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %57 = load i64, ptr %56, align 8
   %58 = icmp slt i64 %57, 0
   br i1 %58, label %59, label %60
@@ -169,7 +169,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
 
 70:                                               ; preds = %.loopexit
   store ptr %0, ptr @cpuidle_curr_driver, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i8, ptr %71, align 8
   %73 = and i8 %72, 1
   %74 = icmp eq i8 %73, 0
@@ -192,7 +192,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
   br i1 %79, label %80, label %105
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 1080
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %105, label %84
@@ -303,7 +303,7 @@ define dso_local void @cpuidle_unregister_driver(ptr noundef %0) #0 align 16 {
 10:                                               ; preds = %7, %1
   %11 = icmp eq ptr %3, %0
   tail call void @_raw_spin_lock(ptr noundef nonnull @cpuidle_driver_lock) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 1
   %15 = icmp eq i8 %14, 0
@@ -312,7 +312,7 @@ define dso_local void @cpuidle_unregister_driver(ptr noundef %0) #0 align 16 {
 16:                                               ; preds = %10
   %17 = and i8 %13, -2
   store i8 %17, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1072
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %19 = load ptr, ptr %18, align 8
   tail call void @on_each_cpu_cond_mask(ptr noundef null, ptr noundef nonnull @cpuidle_setup_broadcast_timer, ptr noundef null, i1 noundef zeroext true, ptr noundef %19) #6
   br label %20
@@ -371,7 +371,7 @@ define dso_local ptr @cpuidle_get_cpu_driver(ptr noundef readonly %0) #4 align 1
 define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @cpuidle_lock) #6
   tail call void @_raw_spin_lock(ptr noundef nonnull @cpuidle_driver_lock) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 1072
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = sext i32 %1 to i64
@@ -406,7 +406,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %24, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %27, i64 0, i64 %7
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, 2
@@ -454,7 +454,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i
   br i1 %57, label %63, label %58
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %56, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %60 = getelementptr [10 x %struct.cpuidle_state_usage], ptr %59, i64 0, i64 %7
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, -3

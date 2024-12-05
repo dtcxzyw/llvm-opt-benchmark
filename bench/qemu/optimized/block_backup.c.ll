@@ -57,7 +57,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sync_mode = getelementptr inbounds i8, ptr %job, i64 552
+  %sync_mode = getelementptr inbounds nuw i8, ptr %job, i64 552
   %0 = load i32, ptr %sync_mode, align 8
   %cmp1.not = icmp eq i32 %0, 2
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -67,10 +67,10 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %bcs = getelementptr inbounds i8, ptr %job, i64 616
+  %bcs = getelementptr inbounds nuw i8, ptr %job, i64 616
   %1 = load ptr, ptr %bcs, align 8
   %call4 = tail call ptr @block_copy_dirty_bitmap(ptr noundef %1) #5
-  %len = getelementptr inbounds i8, ptr %job, i64 568
+  %len = getelementptr inbounds nuw i8, ptr %job, i64 568
   %2 = load i64, ptr %len, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %call4, i64 noundef 0, i64 noundef %2) #5
   br label %return
@@ -185,7 +185,7 @@ if.end34:                                         ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.end34
   tail call void @bdrv_graph_rdunlock_main_loop() #5
-  %max_workers = getelementptr inbounds i8, ptr %perf, i64 8
+  %max_workers = getelementptr inbounds nuw i8, ptr %perf, i64 8
   %0 = load i64, ptr %max_workers, align 8
   %1 = add i64 %0, -2147483648
   %or.cond82 = icmp ult i64 %1, -2147483647
@@ -196,7 +196,7 @@ if.then42:                                        ; preds = %if.end37
   br label %return
 
 if.end43:                                         ; preds = %if.end37
-  %max_chunk = getelementptr inbounds i8, ptr %perf, i64 24
+  %max_chunk = getelementptr inbounds nuw i8, ptr %perf, i64 24
   %2 = load i64, ptr %max_chunk, align 8
   %cmp44 = icmp slt i64 %2, 0
   br i1 %cmp44, label %if.then45, label %if.end46
@@ -282,37 +282,37 @@ if.end94:                                         ; preds = %if.end84
   br i1 %tobool96.not, label %error, label %if.end98
 
 if.end98:                                         ; preds = %if.end94
-  %cbw99 = getelementptr inbounds i8, ptr %call95, i64 520
+  %cbw99 = getelementptr inbounds nuw i8, ptr %call95, i64 520
   store ptr %call81, ptr %cbw99, align 8
-  %source_bs = getelementptr inbounds i8, ptr %call95, i64 528
+  %source_bs = getelementptr inbounds nuw i8, ptr %call95, i64 528
   store ptr %bs, ptr %source_bs, align 8
-  %target_bs = getelementptr inbounds i8, ptr %call95, i64 536
+  %target_bs = getelementptr inbounds nuw i8, ptr %call95, i64 536
   store ptr %target, ptr %target_bs, align 8
-  %on_source_error100 = getelementptr inbounds i8, ptr %call95, i64 560
+  %on_source_error100 = getelementptr inbounds nuw i8, ptr %call95, i64 560
   store i32 %on_source_error, ptr %on_source_error100, align 8
-  %on_target_error101 = getelementptr inbounds i8, ptr %call95, i64 564
+  %on_target_error101 = getelementptr inbounds nuw i8, ptr %call95, i64 564
   store i32 %on_target_error, ptr %on_target_error101, align 4
-  %sync_mode102 = getelementptr inbounds i8, ptr %call95, i64 552
+  %sync_mode102 = getelementptr inbounds nuw i8, ptr %call95, i64 552
   store i32 %sync_mode, ptr %sync_mode102, align 8
-  %sync_bitmap103 = getelementptr inbounds i8, ptr %call95, i64 544
+  %sync_bitmap103 = getelementptr inbounds nuw i8, ptr %call95, i64 544
   store ptr %sync_bitmap, ptr %sync_bitmap103, align 8
-  %bitmap_mode104 = getelementptr inbounds i8, ptr %call95, i64 556
+  %bitmap_mode104 = getelementptr inbounds nuw i8, ptr %call95, i64 556
   store i32 %bitmap_mode, ptr %bitmap_mode104, align 4
   %7 = load ptr, ptr %bcs, align 8
-  %bcs105 = getelementptr inbounds i8, ptr %call95, i64 616
+  %bcs105 = getelementptr inbounds nuw i8, ptr %call95, i64 616
   store ptr %7, ptr %bcs105, align 8
-  %cluster_size106 = getelementptr inbounds i8, ptr %call95, i64 576
+  %cluster_size106 = getelementptr inbounds nuw i8, ptr %call95, i64 576
   store i64 %call85, ptr %cluster_size106, align 8
-  %len107 = getelementptr inbounds i8, ptr %call95, i64 568
+  %len107 = getelementptr inbounds nuw i8, ptr %call95, i64 568
   store i64 %call60, ptr %len107, align 8
-  %perf108 = getelementptr inbounds i8, ptr %call95, i64 584
+  %perf108 = getelementptr inbounds nuw i8, ptr %call95, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %perf108, ptr noundef nonnull align 8 dereferenceable(32) %perf, i64 32, i1 false)
-  %use_copy_range = getelementptr inbounds i8, ptr %perf, i64 1
+  %use_copy_range = getelementptr inbounds nuw i8, ptr %perf, i64 1
   %8 = load i8, ptr %use_copy_range, align 1
   %tobool109 = trunc i8 %8 to i1
   call void @block_copy_set_copy_opts(ptr noundef %7, i1 noundef zeroext %tobool109, i1 noundef zeroext %compress) #5
   %9 = load ptr, ptr %bcs, align 8
-  %progress = getelementptr inbounds i8, ptr %call95, i64 48
+  %progress = getelementptr inbounds nuw i8, ptr %call95, i64 48
   call void @block_copy_set_progress_meter(ptr noundef %9, ptr noundef nonnull %progress) #5
   %10 = load ptr, ptr %bcs, align 8
   call void @block_copy_set_speed(ptr noundef %10, i64 noundef %speed) #5
@@ -399,10 +399,10 @@ declare void @bdrv_cbw_drop(ptr noundef) local_unnamed_addr #1
 define internal i32 @backup_run(ptr noundef %job, ptr nocapture readnone %errp) #0 {
 entry:
   %count = alloca i64, align 8
-  %bcs.i = getelementptr inbounds i8, ptr %job, i64 616
+  %bcs.i = getelementptr inbounds nuw i8, ptr %job, i64 616
   %0 = load ptr, ptr %bcs.i, align 8
   %call.i = tail call ptr @block_copy_dirty_bitmap(ptr noundef %0) #5
-  %sync_mode.i = getelementptr inbounds i8, ptr %job, i64 552
+  %sync_mode.i = getelementptr inbounds nuw i8, ptr %job, i64 552
   %1 = load i32, ptr %sync_mode.i, align 8
   switch i32 %1, label %backup_init_bcs_bitmap.exit [
     i32 4, label %if.then.i
@@ -411,7 +411,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @bdrv_clear_dirty_bitmap(ptr noundef %call.i, ptr noundef null) #5
-  %sync_bitmap.i = getelementptr inbounds i8, ptr %job, i64 544
+  %sync_bitmap.i = getelementptr inbounds nuw i8, ptr %job, i64 544
   %2 = load ptr, ptr %sync_bitmap.i, align 8
   tail call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %call.i, ptr noundef %2, ptr noundef null, i1 noundef zeroext true) #5
   br label %backup_init_bcs_bitmap.exit
@@ -429,7 +429,7 @@ backup_init_bcs_bitmap.exit:                      ; preds = %entry, %if.then.i, 
   br i1 %cmp, label %for.cond.preheader, label %if.end12
 
 for.cond.preheader:                               ; preds = %backup_init_bcs_bitmap.exit
-  %len = getelementptr inbounds i8, ptr %job, i64 568
+  %len = getelementptr inbounds nuw i8, ptr %job, i64 568
   %5 = load i64, ptr %len, align 8
   %cmp116.not = icmp eq i64 %5, 0
   br i1 %cmp116.not, label %for.end, label %for.body
@@ -492,7 +492,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_pause(ptr nocapture noundef %job) #0 {
 entry:
-  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
+  %bg_bcs_call = getelementptr inbounds nuw i8, ptr %job, i64 632
   %0 = load ptr, ptr %bg_bcs_call, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -504,7 +504,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %bg_bcs_call, align 8
   tail call void @block_copy_call_cancel(ptr noundef %1) #5
-  %wait = getelementptr inbounds i8, ptr %job, i64 624
+  %wait = getelementptr inbounds nuw i8, ptr %job, i64 624
   store i8 1, ptr %wait, align 8
   tail call void @qemu_coroutine_yield() #5
   br label %if.end
@@ -518,13 +518,13 @@ declare void @block_job_user_resume(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_commit(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %sync_bitmap = getelementptr inbounds i8, ptr %job, i64 544
+  %sync_bitmap = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 556
+  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %job, i64 556
   %.pre.i = load i32, ptr %bitmap_mode2.phi.trans.insert.i, align 4
   %1 = icmp eq i32 %.pre.i, 1
   br i1 %1, label %if.else.i, label %if.then.i
@@ -553,13 +553,13 @@ if.end:                                           ; preds = %if.end.i, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_abort(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %sync_bitmap = getelementptr inbounds i8, ptr %job, i64 544
+  %sync_bitmap = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %sync_bitmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds i8, ptr %job, i64 556
+  %bitmap_mode2.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %job, i64 556
   %.pre.i = load i32, ptr %bitmap_mode2.phi.trans.insert.i, align 4
   %cmp1.i = icmp eq i32 %.pre.i, 2
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
@@ -587,7 +587,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %cmp12.i, label %if.then13.i, label %if.end
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %bcs.i = getelementptr inbounds i8, ptr %job, i64 616
+  %bcs.i = getelementptr inbounds nuw i8, ptr %job, i64 616
   %2 = load ptr, ptr %bcs.i, align 8
   %call14.i = tail call ptr @block_copy_dirty_bitmap(ptr noundef %2) #5
   tail call void @bdrv_dirty_bitmap_merge_internal(ptr noundef nonnull %bm.0.i, ptr noundef %call14.i, ptr noundef null, i1 noundef zeroext true) #5
@@ -601,7 +601,7 @@ if.end:                                           ; preds = %if.then13.i, %if.en
 define internal void @backup_clean(ptr noundef %job) #0 {
 entry:
   tail call void @block_job_remove_all_bdrv(ptr noundef %job) #5
-  %cbw = getelementptr inbounds i8, ptr %job, i64 520
+  %cbw = getelementptr inbounds nuw i8, ptr %job, i64 520
   %0 = load ptr, ptr %cbw, align 8
   tail call void @bdrv_cbw_drop(ptr noundef %0) #5
   ret void
@@ -610,7 +610,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @backup_cancel(ptr nocapture noundef readonly %job, i1 zeroext %force) #0 {
 entry:
-  %target_bs = getelementptr inbounds i8, ptr %job, i64 536
+  %target_bs = getelementptr inbounds nuw i8, ptr %job, i64 536
   %0 = load ptr, ptr %target_bs, align 8
   tail call void @bdrv_cancel_in_flight(ptr noundef %0) #5
   ret i1 true
@@ -621,14 +621,14 @@ declare void @block_job_free(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_set_speed(ptr nocapture noundef readonly %job, i64 noundef %speed) #0 {
 entry:
-  %bcs = getelementptr inbounds i8, ptr %job, i64 616
+  %bcs = getelementptr inbounds nuw i8, ptr %job, i64 616
   %0 = load ptr, ptr %bcs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @block_copy_set_speed(ptr noundef nonnull %0, i64 noundef %speed) #5
-  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
+  %bg_bcs_call = getelementptr inbounds nuw i8, ptr %job, i64 632
   %1 = load ptr, ptr %bg_bcs_call, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -659,14 +659,14 @@ declare void @job_yield(ptr noundef) #1
 define internal i32 @backup_loop(ptr noundef %job) #0 {
 entry:
   %error_is_read = alloca i8, align 1
-  %bcs = getelementptr inbounds i8, ptr %job, i64 616
-  %len = getelementptr inbounds i8, ptr %job, i64 568
-  %cluster_size = getelementptr inbounds i8, ptr %job, i64 576
-  %max_workers = getelementptr inbounds i8, ptr %job, i64 592
-  %max_chunk = getelementptr inbounds i8, ptr %job, i64 608
-  %bg_bcs_call = getelementptr inbounds i8, ptr %job, i64 632
-  %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 564
-  %on_source_error.i = getelementptr inbounds i8, ptr %job, i64 560
+  %bcs = getelementptr inbounds nuw i8, ptr %job, i64 616
+  %len = getelementptr inbounds nuw i8, ptr %job, i64 568
+  %cluster_size = getelementptr inbounds nuw i8, ptr %job, i64 576
+  %max_workers = getelementptr inbounds nuw i8, ptr %job, i64 592
+  %max_chunk = getelementptr inbounds nuw i8, ptr %job, i64 608
+  %bg_bcs_call = getelementptr inbounds nuw i8, ptr %job, i64 632
+  %on_target_error.i = getelementptr inbounds nuw i8, ptr %job, i64 564
+  %on_source_error.i = getelementptr inbounds nuw i8, ptr %job, i64 560
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -709,7 +709,7 @@ if.else:                                          ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   call void @block_copy_call_cancel(ptr noundef %call) #5
-  %wait = getelementptr inbounds i8, ptr %job, i64 624
+  %wait = getelementptr inbounds nuw i8, ptr %job, i64 624
   store i8 1, ptr %wait, align 8
   call void @qemu_coroutine_yield() #5
   %call16 = call zeroext i1 @block_copy_call_finished(ptr noundef %call) #5
@@ -795,14 +795,14 @@ declare ptr @block_copy_async(ptr noundef, i64 noundef, i64 noundef, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @backup_block_copy_callback(ptr noundef %opaque) #0 {
 entry:
-  %wait = getelementptr inbounds i8, ptr %opaque, i64 624
+  %wait = getelementptr inbounds nuw i8, ptr %opaque, i64 624
   %0 = load i8, ptr %wait, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %wait, align 8
-  %co = getelementptr inbounds i8, ptr %opaque, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %1) #5
   br label %if.end

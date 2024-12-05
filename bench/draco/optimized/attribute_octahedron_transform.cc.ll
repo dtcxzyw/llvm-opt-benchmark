@@ -42,7 +42,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform17InitFromAttributeERKNS_14PointAttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -53,10 +53,10 @@ define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform17InitFromAttr
   br i1 %.not7, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %.0.copyload.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0.copyload.i, ptr %10, align 8
   br label %11
 
@@ -68,8 +68,8 @@ define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform17InitFromAttr
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5draco28AttributeOctahedronTransform28CopyToAttributeTransformDataEPNS_22AttributeTransformDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef initializes((0, 4)) %1) unnamed_addr #4 align 2 {
   store i32 2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -88,7 +88,7 @@ define void @_ZNK5draco28AttributeOctahedronTransform28CopyToAttributeTransformD
 
 _ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit: ; preds = %2, %13
   %14 = phi ptr [ %.pre.i.i, %13 ], [ %6, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %14, i64 %10
   %17 = load i32, ptr %15, align 8
   store i32 %17, ptr %16, align 1
@@ -97,7 +97,7 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit: ; preds =
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform18TransformAttributeERKNS_14PointAttributeERKSt6vectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEESaIS7_EEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3) unnamed_addr #4 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %6 = load i32, ptr %5, align 8
   %7 = tail call noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePortableAttributeERKNS_14PointAttributeERKSt6vectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEESaIS7_EEiPS1_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %6, ptr noundef nonnull %3)
   ret i1 %7
@@ -111,22 +111,22 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, -2
   %or.cond.i = icmp ult i32 %19, 29
   br i1 %or.cond.i, label %20, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %18, ptr %7, align 4
   %notmask.i = shl nsw i32 -1, %18
   %25 = xor i32 %notmask.i, -1
@@ -139,16 +139,16 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   %29 = lshr i32 %26, 1
   store i32 %29, ptr %21, align 4
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %30, %32
   br i1 %33, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %34 = getelementptr inbounds i8, ptr %1, i64 100
-  %35 = getelementptr inbounds i8, ptr %1, i64 72
-  %36 = getelementptr inbounds i8, ptr %1, i64 48
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %42
 
 .preheader:                                       ; preds = %20
@@ -156,10 +156,10 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   br i1 %.not41, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %1, i64 100
-  %39 = getelementptr inbounds i8, ptr %1, i64 72
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %wide.trip.count = zext i32 %3 to i64
   br label %75
 
@@ -168,7 +168,7 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   %43 = phi ptr [ %30, %.lr.ph ], [ %69, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %44 = phi i64 [ 0, %.lr.ph ], [ %67, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
   %.02736 = phi i32 [ 0, %.lr.ph ], [ %66, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %45 = getelementptr inbounds %"class.draco::IndexType.33", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %43, i64 %44
   %.sroa.04.0.copyload = load i32, ptr %45, align 4
   %46 = load i8, ptr %34, align 4
   %47 = trunc i8 %46 to i1
@@ -177,7 +177,7 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
 48:                                               ; preds = %42
   %49 = zext i32 %.sroa.04.0.copyload to i64
   %50 = load ptr, ptr %35, align 8
-  %51 = getelementptr inbounds %"class.draco::IndexType", ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %50, i64 %49
   %52 = load i32, ptr %51, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -195,11 +195,11 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   call void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %61 = load i32, ptr %8, align 4
   %62 = or disjoint i64 %indvars.iv, 1
-  %63 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   store i32 %61, ptr %63, align 4
   %64 = load i32, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %65 = getelementptr inbounds i32, ptr %16, i64 %62
+  %65 = getelementptr inbounds nuw i32, ptr %16, i64 %62
   store i32 %64, ptr %65, align 4
   %66 = add i32 %.02736, 1
   %67 = zext i32 %66 to i64
@@ -222,7 +222,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %39, align 8
-  %81 = getelementptr inbounds %"class.draco::IndexType", ptr %80, i64 %indvars.iv46
+  %81 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %80, i64 %indvars.iv46
   %82 = load i32, ptr %81, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit30
 
@@ -240,11 +240,11 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   call void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedOctahedralCoordsIfEEvPKT_PiS5_(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %91 = load i32, ptr %10, align 4
   %92 = or disjoint i64 %indvars.iv44, 1
-  %93 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv44
+  %93 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv44
   store i32 %91, ptr %93, align 4
   %94 = load i32, ptr %11, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 2
-  %95 = getelementptr inbounds i32, ptr %16, i64 %92
+  %95 = getelementptr inbounds nuw i32, ptr %16, i64 %92
   store i32 %94, ptr %95, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
@@ -256,21 +256,21 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %_ZNK5draco1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform25InverseTransformAttributeERKNS_14PointAttributeEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr nocapture noundef readonly %2) unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 9
   br i1 %.not, label %6, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i8, ptr %9, align 8
   %.not19 = icmp eq i8 %10, 3
   br i1 %.not19, label %11, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, -2
   %or.cond.i = icmp ult i32 %14, 29
@@ -287,12 +287,12 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
 .lr.ph.preheader:                                 ; preds = %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr i8, ptr %19, i64 %21
   %23 = load ptr, ptr %2, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr i8, ptr %24, i64 %26
   br label %.lr.ph
@@ -301,9 +301,9 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
   %.01627 = phi ptr [ %30, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %22, %.lr.ph.preheader ]
   %.01726 = phi i32 [ %61, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ 0, %.lr.ph.preheader ]
   %.01825 = phi ptr [ %60, %_ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit ], [ %27, %.lr.ph.preheader ]
-  %28 = getelementptr inbounds i8, ptr %.01627, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01627, i64 4
   %29 = load i32, ptr %.01627, align 4
-  %30 = getelementptr inbounds i8, ptr %.01627, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.01627, i64 8
   %31 = load i32, ptr %28, align 4
   %32 = sitofp i32 %29 to float
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %17, float -1.000000e+00)
@@ -343,11 +343,11 @@ _ZNK5draco17OctahedronToolBox37QuantizedOctahedralCoordsToUnitVectorEiiPf.exit: 
   %.sink35.i.i = phi float [ %58, %55 ], [ 0.000000e+00, %.lr.ph ]
   %.sink.i.i = phi float [ %59, %55 ], [ 0.000000e+00, %.lr.ph ]
   store float %.sink36.i.i, ptr %.01825, align 1
-  %.sroa.223.0..018.sroa_idx = getelementptr inbounds i8, ptr %.01825, i64 4
+  %.sroa.223.0..018.sroa_idx = getelementptr inbounds nuw i8, ptr %.01825, i64 4
   store float %.sink35.i.i, ptr %.sroa.223.0..018.sroa_idx, align 1
-  %.sroa.3.0..018.sroa_idx = getelementptr inbounds i8, ptr %.01825, i64 8
+  %.sroa.3.0..018.sroa_idx = getelementptr inbounds nuw i8, ptr %.01825, i64 8
   store float %.sink.i.i, ptr %.sroa.3.0..018.sroa_idx, align 1
-  %60 = getelementptr inbounds i8, ptr %.01825, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.01825, i64 12
   %61 = add nuw i32 %.01726, 1
   %exitcond.not = icmp eq i32 %61, %8
   br i1 %exitcond.not, label %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit.thread, label %.lr.ph, !llvm.loop !7
@@ -362,7 +362,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco28AttributeOctahedronTransform13SetParametersEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
@@ -370,7 +370,7 @@ define void @_ZN5draco28AttributeOctahedronTransform13SetParametersEi(ptr nocapt
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform16EncodeParametersEPNS_13EncoderBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, -1
   br i1 %6, label %7, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
@@ -378,15 +378,15 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform16EncodeParam
 7:                                                ; preds = %2
   %8 = trunc i32 %5 to i8
   store i8 %8, ptr %3, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = icmp slt i64 %10, 1
   br i1 %11, label %12, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %14 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -401,9 +401,9 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %12, %7, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform16DecodeParametersERKNS_14PointAttributeEPNS_13DecoderBufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   %9 = icmp sge i64 %5, %8
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZN5draco28AttributeOctahedronTransform16DecodeParame
   %13 = load i8, ptr %12, align 1
   store i64 %8, ptr %6, align 8
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %14, ptr %15, align 8
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
@@ -428,12 +428,12 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   %5 = load float, ptr %1, align 4
   %6 = fpext float %5 to double
   %7 = tail call noundef double @llvm.fabs.f64(double %6)
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
   %11 = tail call noundef double @llvm.fabs.f64(double %10)
   %12 = fadd double %7, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load float, ptr %13, align 4
   %.fr = freeze float %14
   %15 = fpext float %.fr to double
@@ -454,7 +454,7 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   %.sroa.3.0 = phi double [ %22, %19 ], [ 0.000000e+00, %4 ]
   %.sroa.0.0 = phi double [ %21, %19 ], [ 1.000000e+00, %4 ]
   %.sroa.6.0 = phi i1 [ %24, %19 ], [ false, %4 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
   %29 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0, double %28, double 5.000000e-01)
@@ -482,13 +482,13 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
 44:                                               ; preds = %25
   %45 = add nsw i32 %.sroa.3.021, %27
   %46 = add nsw i32 %spec.select, %27
-  %.phi.trans.insert.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i.pre = load i32, ptr %.phi.trans.insert.i.i.phi.trans.insert, align 4
   br label %55
 
 47:                                               ; preds = %25
   %48 = icmp slt i32 %.sroa.3.021, 0
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = sub nsw i32 %50, %.sroa.7.0
   %.1.i = select i1 %48, i32 %.sroa.7.0, i32 %51
@@ -616,9 +616,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -668,8 +668,8 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %.0910.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
   %32 = load i8, ptr %.0910.i.i.i.i.i, align 1
   store i8 %32, ptr %.0811.i.i.i.i.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
-  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
   %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !8
@@ -687,8 +687,8 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %.0910.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
   %41 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
   store i8 %41, ptr %.0811.i.i.i.i.i.i.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
-  %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !8
@@ -723,8 +723,8 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %.0910.i.i.i.i.i61 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
   %53 = load i8, ptr %.0910.i.i.i.i.i61, align 1
   store i8 %53, ptr %.0811.i.i.i.i.i60, align 1
-  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
-  %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i61, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i59, -1
   %57 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !8
@@ -800,7 +800,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %83, %85
   store ptr %71, ptr %0, align 8
   store ptr %84, ptr %11, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 %68
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 %68
   store ptr %86, ptr %9, align 8
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 

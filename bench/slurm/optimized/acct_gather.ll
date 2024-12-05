@@ -138,7 +138,7 @@ define i32 @acct_gather_conf_init() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %45, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %45 ]
   %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds %struct.conf_file_options, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.conf_file_options, ptr %53, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef %54) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 4
@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @acct_gather_options_buf, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %2, align 4
   br label %.lr.ph.split.us
@@ -291,7 +291,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   %.us-phi = phi i64 [ %12, %.lr.ph.split.us ], [ %19, %18 ]
   %.us-phi55 = phi i32 [ %13, %.lr.ph.split.us ], [ %20, %18 ]
   %25 = and i64 %.us-phi, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.031.ph64, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.031.ph64, i64 %25
   %27 = sub nsw i32 %.030.ph66, %.us-phi55
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %.outer45._crit_edge
@@ -314,7 +314,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
 
 .lr.ph68.preheader:                               ; preds = %.outer45._crit_edge
   %34 = load ptr, ptr @acct_gather_options_buf, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.lr.ph68.split.us
 
@@ -357,7 +357,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   %.us-phi72 = phi i64 [ %38, %.lr.ph68.split.us ], [ %45, %44 ]
   %.us-phi73 = phi i32 [ %39, %.lr.ph68.split.us ], [ %46, %44 ]
   %51 = and i64 %.us-phi72, 2147483647
-  %52 = getelementptr inbounds i8, ptr %.032.ph85, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.032.ph85, i64 %51
   %53 = sub nsw i32 %.033.ph83, %.us-phi73
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %.outer._crit_edge
@@ -516,7 +516,7 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   %.us-phi72 = phi i64 [ %5, %.lr.ph96.preheader.preheader ], [ %5, %.lr.ph112.preheader ], [ %21, %.lr.ph96.preheader ], [ %13, %.lr.ph112 ]
   %.us-phi73 = phi i32 [ %6, %.lr.ph96.preheader.preheader ], [ %6, %.lr.ph112.preheader ], [ %22, %.lr.ph96.preheader ], [ %14, %.lr.ph112 ]
   %33 = and i64 %.us-phi72, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.039.ph114, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.039.ph114, i64 %33
   %35 = sub nsw i32 %.038.ph116, %.us-phi73
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.outer49._crit_edge
@@ -541,7 +541,7 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   br i1 %43, label %.lr.ph118.preheader, label %.outer._crit_edge
 
 .lr.ph118.preheader:                              ; preds = %.outer49._crit_edge
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
   br label %.lr.ph118
 
@@ -643,7 +643,7 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   %.us-phi125 = phi i64 [ %48, %.lr.ph150.preheader.preheader ], [ %48, %.lr.ph166.preheader ], [ %64, %.lr.ph150.preheader ], [ %56, %.lr.ph166 ]
   %.us-phi126 = phi i32 [ %49, %.lr.ph150.preheader.preheader ], [ %49, %.lr.ph166.preheader ], [ %65, %.lr.ph150.preheader ], [ %57, %.lr.ph166 ]
   %76 = and i64 %.us-phi125, 2147483647
-  %77 = getelementptr inbounds i8, ptr %.036.ph171, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %.036.ph171, i64 %76
   %78 = sub nsw i32 %.037.ph169, %.us-phi126
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %.outer._crit_edge
@@ -818,7 +818,7 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not25, label %49, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 7
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %13 = call i64 @strtol(ptr noundef nonnull %12, ptr noundef nonnull %7, i32 noundef 10) #9
@@ -847,7 +847,7 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not24, label %49, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %25, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %28 = call i64 @strtol(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 10) #9
@@ -864,7 +864,7 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not23, label %49, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %33, i64 11
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %36 = call i64 @strtol(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef 10) #9
@@ -881,7 +881,7 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not22, label %49, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %44 = call i64 @strtol(ptr noundef nonnull %43, ptr noundef nonnull %3, i32 noundef 10) #9
@@ -936,7 +936,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   br i1 %.not24.i, label %.sink.split, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 5
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %22 = call i64 @strtol(ptr noundef nonnull %21, ptr noundef nonnull %5, i32 noundef 10) #9
@@ -981,7 +981,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   br i1 %.not24.i14, label %acct_gather_parse_freq.exit16.thread, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %39, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %42 = call i64 @strtol(ptr noundef nonnull %41, ptr noundef nonnull %3, i32 noundef 10) #9

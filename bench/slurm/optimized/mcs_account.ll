@@ -38,13 +38,13 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @slurm_xfree(ptr noundef nonnull %3) #4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %6) #4
   %.not14 = icmp eq i32 %7, 0
@@ -56,19 +56,19 @@ define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1)
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
   %.not12 = icmp eq ptr %13, null
   br i1 %.not12, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 464
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 464
   %16 = load i8, ptr %15, align 8
   %.not13 = icmp eq i8 %16, 3
   br i1 %.not13, label %17, label %20
 
 17:                                               ; preds = %14, %11, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %17
@@ -95,9 +95,9 @@ declare i32 @slurm_mcs_get_enforced() local_unnamed_addr #1
 define range(i32 -1, 1) i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurmdb_assoc_rec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %4, i8 0, i64 336, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store i32 %0, ptr %6, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7

@@ -36,25 +36,25 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not, label %106, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not132 = icmp eq ptr %8, null
   br i1 %.not132, label %106, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
   %.not133 = icmp eq i32 %14, 0
   br i1 %.not133, label %15, label %106
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %8, i64 1136
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 1136
   %17 = load ptr, ptr %16, align 8
   %.not134 = icmp eq ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br i1 %.not134, label %23, label %19
 
 19:                                               ; preds = %15
@@ -73,30 +73,30 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
 
 27:                                               ; preds = %19, %23
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1128
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1128
   %30 = load ptr, ptr %29, align 8
   %.not135 = icmp eq ptr %30, null
   br i1 %.not135, label %36, label %31
 
 31:                                               ; preds = %27
   %32 = tail call i64 %30(ptr noundef nonnull %4) #13
-  %33 = getelementptr inbounds i8, ptr %4, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %.not159 = icmp ult i64 %32, %35
   br i1 %.not159, label %49, label %.thread
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %40 = load i32, ptr %39, align 4
   %.not160 = icmp ult i32 %38, %40
   br i1 %.not160, label %49, label %.thread
 
 .thread:                                          ; preds = %19, %23, %31, %36
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1112
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1112
   %43 = load ptr, ptr %42, align 8
   %.not136 = icmp eq ptr %43, null
   br i1 %.not136, label %45, label %44
@@ -106,7 +106,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br label %49
 
 45:                                               ; preds = %.thread
-  %46 = getelementptr inbounds i8, ptr %41, i64 1120
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 1120
   %47 = load ptr, ptr %46, align 8
   %.not137 = icmp eq ptr %47, null
   br i1 %.not137, label %106, label %48
@@ -116,7 +116,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br label %106
 
 49:                                               ; preds = %31, %44, %36
-  %50 = getelementptr inbounds i8, ptr %4, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %50) #13
   %.not138 = icmp eq i32 %51, 0
   br i1 %.not138, label %54, label %52
@@ -132,7 +132,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not139, label %56, label %98
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %4, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %58 = load ptr, ptr %57, align 8
   %.not140 = icmp eq ptr %58, null
   %59 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
@@ -148,9 +148,9 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not142, label %102, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %59, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store ptr %58, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store ptr %59, ptr %64, align 8
   store ptr %59, ptr %57, align 8
   br label %65
@@ -195,12 +195,12 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   store ptr %73, ptr %59, align 8
   %76 = getelementptr i8, ptr %73, i64 8
   store ptr null, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %59, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %59, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %78 = trunc i64 %2 to i32
-  %79 = getelementptr inbounds i8, ptr %59, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 8
@@ -213,7 +213,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not151, label %98, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %59, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %87 = load ptr, ptr %86, align 8
   %.not152 = icmp eq ptr %87, null
   br i1 %.not152, label %88, label %98
@@ -226,13 +226,13 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
 
 90:                                               ; preds = %88
   %91 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 24) #14
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %91, ptr %92, align 8
   %.not154 = icmp eq ptr %91, null
   br i1 %.not154, label %97, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = mul i64 %84, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr align 8 %95, i64 %96, i1 false)
@@ -246,7 +246,7 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
 
 98:                                               ; preds = %75, %83, %85, %93, %97, %88, %54
   %.0115 = phi ptr [ %55, %54 ], [ %59, %85 ], [ %59, %93 ], [ %59, %97 ], [ %59, %88 ], [ %59, %83 ], [ %59, %75 ]
-  %99 = getelementptr inbounds i8, ptr %.0115, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %.0115, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -272,7 +272,7 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %25, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #13
   %.not32 = icmp eq i32 %4, 0
   br i1 %.not32, label %7, label %5
@@ -283,7 +283,7 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
   br label %25
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02641 = load ptr, ptr %8, align 8
   %.not3342 = icmp eq ptr %.02641, null
   br i1 %.not3342, label %._crit_edge47, label %.lr.ph46
@@ -325,7 +325,7 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.lr.ph46, %._crit_edge
   %.2 = phi i64 [ %19, %._crit_edge ], [ %9, %.lr.ph46 ]
-  %21 = getelementptr inbounds i8, ptr %.02644, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.02644, i64 48
   %.026 = load ptr, ptr %21, align 8
   %.not33 = icmp eq ptr %.026, null
   br i1 %.not33, label %._crit_edge47, label %.lr.ph46
@@ -352,7 +352,7 @@ define range(i64 0, 4294967296) i64 @clamav_stats_get_num(ptr noundef readonly %
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   br label %6
@@ -372,32 +372,32 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.03563 = load ptr, ptr %6, align 8
   %.not64 = icmp eq ptr %.03563, null
   br i1 %.not64, label %.loopexit, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %5
   %.not43 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not43, label %.lr.ph68.split.us, label %.lr.ph68.split
 
 .lr.ph68.split.us:                                ; preds = %.lr.ph68, %.critedge.us
   %.03565.us = phi ptr [ %.035.us, %.critedge.us ], [ %.03563, %.lr.ph68 ]
-  %8 = getelementptr inbounds i8, ptr %.03565.us, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.03565.us, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %.not41.us = icmp eq i64 %3, %10
   br i1 %.not41.us, label %11, label %.critedge.us
 
 11:                                               ; preds = %.lr.ph68.split.us
-  %12 = getelementptr inbounds i8, ptr %.03565.us, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.03565.us, i64 8
   %bcmp.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %12, ptr noundef nonnull dereferenceable(16) %2, i64 16)
   %.not42.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not42.us, label %.loopexit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %11, %.lr.ph68.split.us
-  %13 = getelementptr inbounds i8, ptr %.03565.us, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.03565.us, i64 48
   %.035.us = load ptr, ptr %13, align 8
   %.not.us = icmp eq ptr %.035.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph68.split.us
@@ -408,14 +408,14 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %
 
 .lr.ph68.split.split.us:                          ; preds = %.lr.ph68.split, %.critedge.us78
   %.03565.us74 = phi ptr [ %.035.us79, %.critedge.us78 ], [ %.03563, %.lr.ph68.split ]
-  %14 = getelementptr inbounds i8, ptr %.03565.us74, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.03565.us74, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %.not41.us75 = icmp eq i64 %3, %16
   br i1 %.not41.us75, label %17, label %.critedge.us78
 
 17:                                               ; preds = %.lr.ph68.split.split.us
-  %18 = getelementptr inbounds i8, ptr %.03565.us74, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.03565.us74, i64 8
   %bcmp.us76 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %18, ptr noundef nonnull dereferenceable(16) %2, i64 16)
   %.not42.us77 = icmp eq i32 %bcmp.us76, 0
   br i1 %.not42.us77, label %.critedge52.us, label %.critedge.us78
@@ -441,27 +441,27 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %
   br i1 %.not50.us, label %.loopexit, label %21
 
 .critedge.us78:                                   ; preds = %21, %.critedge52.us, %17, %.lr.ph68.split.split.us
-  %27 = getelementptr inbounds i8, ptr %.03565.us74, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.03565.us74, i64 48
   %.035.us79 = load ptr, ptr %27, align 8
   %.not.us80 = icmp eq ptr %.035.us79, null
   br i1 %.not.us80, label %.loopexit, label %.lr.ph68.split.split.us
 
 .lr.ph68.split.split:                             ; preds = %.lr.ph68.split, %.critedge
   %.03565 = phi ptr [ %.035, %.critedge ], [ %.03563, %.lr.ph68.split ]
-  %28 = getelementptr inbounds i8, ptr %.03565, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.03565, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %.not41 = icmp eq i64 %3, %30
   br i1 %.not41, label %31, label %.critedge
 
 31:                                               ; preds = %.lr.ph68.split.split
-  %32 = getelementptr inbounds i8, ptr %.03565, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.03565, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %32, ptr noundef nonnull dereferenceable(16) %2, i64 16)
   %.not42 = icmp eq i32 %bcmp, 0
   br i1 %.not42, label %33, label %.critedge
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.03565, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.03565, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not45 = icmp eq ptr %35, null
   br i1 %.not45, label %.critedge52, label %36
@@ -478,17 +478,17 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %
 
 .lr.ph:                                           ; preds = %.preheader
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
 43:                                               ; preds = %.lr.ph, %52
   %.03457 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
   %44 = getelementptr inbounds %struct.cli_section_hash, ptr %40, i64 %.03457
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds %struct.cli_section_hash, ptr %42, i64 %.03457
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %46, %49
   br i1 %50, label %51, label %52
@@ -529,7 +529,7 @@ define internal fastcc ptr @find_sample(ptr nocapture noundef nonnull readonly %
   br i1 %.not50, label %.loopexit, label %56
 
 .critedge:                                        ; preds = %56, %.critedge52, %36, %._crit_edge, %31, %.lr.ph68.split.split
-  %62 = getelementptr inbounds i8, ptr %.03565, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.03565, i64 48
   %.035 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %.035, null
   br i1 %.not, label %.loopexit, label %.lr.ph68.split.split
@@ -565,7 +565,7 @@ define void @clamav_stats_flush(ptr noundef readnone %0, ptr noundef %1) local_u
   br i1 %or.cond, label %5, label %38
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -576,14 +576,14 @@ define void @clamav_stats_flush(ptr noundef readnone %0, ptr noundef %1) local_u
   br label %38
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not2528 = icmp eq ptr %12, null
   br i1 %.not2528, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %free_sample.exit
   %.029 = phi ptr [ %14, %free_sample.exit ], [ %12, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.029, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.029, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %.029, align 8
   %.not.i = icmp eq ptr %15, null
@@ -611,7 +611,7 @@ define void @clamav_stats_flush(ptr noundef readnone %0, ptr noundef %1) local_u
   br label %22
 
 22:                                               ; preds = %._crit_edge.i, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.029, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.029, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not14.i = icmp eq ptr %24, null
   br i1 %.not14.i, label %free_sample.exit, label %25
@@ -622,7 +622,7 @@ define void @clamav_stats_flush(ptr noundef readnone %0, ptr noundef %1) local_u
   br i1 %.not15.i, label %free_sample.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #13
   %30 = load ptr, ptr %23, align 8
@@ -636,7 +636,7 @@ free_sample.exit:                                 ; preds = %22, %25, %27
 
 ._crit_edge:                                      ; preds = %free_sample.exit, %10
   store ptr null, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %31, align 8
   %32 = load ptr, ptr %1, align 8
   %.not26 = icmp eq ptr %32, null
@@ -689,7 +689,7 @@ define void @free_sample(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %._crit_edge, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not14 = icmp eq ptr %11, null
   br i1 %.not14, label %18, label %12
@@ -700,7 +700,7 @@ define void @free_sample(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #13
   %17 = load ptr, ptr %10, align 8
@@ -721,22 +721,22 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %6, label %67
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %67
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 1144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %14 = load ptr, ptr %13, align 8
   %.not43 = icmp eq ptr %14, null
   br i1 %.not43, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 1120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %17 = load ptr, ptr %16, align 8
   %.not44 = icmp eq ptr %17, null
   br i1 %.not44, label %67, label %18
@@ -747,7 +747,7 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #13
   %.not45 = icmp eq i32 %21, 0
   br i1 %.not45, label %30, label %22
@@ -755,13 +755,13 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
 22:                                               ; preds = %19
   %23 = tail call ptr @strerror(i32 noundef %21) #13
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.6, i32 noundef %21, ptr noundef %23) #13
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not51 = icmp eq ptr %25, null
   br i1 %.not51, label %67, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %25, i64 1120
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1120
   %28 = load ptr, ptr %27, align 8
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %67, label %29
@@ -772,9 +772,9 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
 
 30:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %32, align 8
   %33 = call ptr @export_stats_to_json(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
   %34 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #13
@@ -787,14 +787,14 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
   br label %37
 
 37:                                               ; preds = %35, %30
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not4753 = icmp eq ptr %39, null
   br i1 %.not4753, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %free_sample.exit
   %.054 = phi ptr [ %41, %free_sample.exit ], [ %39, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.054, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %.054, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %.054, align 8
   %.not.i = icmp eq ptr %42, null
@@ -822,7 +822,7 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
   br label %49
 
 49:                                               ; preds = %._crit_edge.i, %.lr.ph
-  %50 = getelementptr inbounds i8, ptr %.054, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.054, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not14.i = icmp eq ptr %51, null
   br i1 %.not14.i, label %free_sample.exit, label %52
@@ -833,7 +833,7 @@ define void @clamav_stats_submit(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not15.i, label %free_sample.exit, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load ptr, ptr %55, align 8
   call void @free(ptr noundef %56) #13
   %57 = load ptr, ptr %50, align 8
@@ -850,7 +850,7 @@ free_sample.exit:                                 ; preds = %49, %52, %54
   br i1 %.not48, label %61, label %58
 
 58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %3, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %60 = load i32, ptr %59, align 4
   call void @submit_post(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %33, i32 noundef %60) #13
   call void @free(ptr noundef nonnull %33) #13
@@ -891,20 +891,20 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
   br i1 %.not, label %67, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
   %.not30 = icmp eq i32 %7, 0
   br i1 %.not30, label %.preheader, label %10
 
 .preheader:                                       ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.03563.i47 = load ptr, ptr %8, align 8
   %.not64.i48 = icmp eq ptr %.03563.i47, null
   br i1 %.not64.i48, label %find_sample.exit.thread, label %.lr.ph68.i.lr.ph
 
 .lr.ph68.i.lr.ph:                                 ; preds = %.preheader
   %.not43.i = icmp eq ptr %0, null
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.lr.ph68.i
 
 10:                                               ; preds = %5
@@ -918,34 +918,34 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
 
 .lr.ph68.split.us.i:                              ; preds = %.lr.ph68.i, %.critedge.us.i
   %.03565.us.i = phi ptr [ %.035.us.i, %.critedge.us.i ], [ %.03563.i49, %.lr.ph68.i ]
-  %12 = getelementptr inbounds i8, ptr %.03565.us.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %.not41.us.i = icmp eq i64 %2, %14
   br i1 %.not41.us.i, label %15, label %.critedge.us.i
 
 15:                                               ; preds = %.lr.ph68.split.us.i
-  %16 = getelementptr inbounds i8, ptr %.03565.us.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 8
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not42.us.i, label %find_sample.exit.thread38, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %15, %.lr.ph68.split.us.i
-  %17 = getelementptr inbounds i8, ptr %.03565.us.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 48
   %.035.us.i = load ptr, ptr %17, align 8
   %.not.us.i = icmp eq ptr %.035.us.i, null
   br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph68.split.us.i
 
 .lr.ph68.split.split.us.i:                        ; preds = %.lr.ph68.i, %.critedge.us78.i
   %.03565.us74.i = phi ptr [ %.035.us79.i, %.critedge.us78.i ], [ %.03563.i49, %.lr.ph68.i ]
-  %18 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %.not41.us75.i = icmp eq i64 %2, %20
   br i1 %.not41.us75.i, label %21, label %.critedge.us78.i
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i
-  %22 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 8
   %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us77.i = icmp eq i32 %bcmp.us76.i, 0
   br i1 %.not42.us77.i, label %.critedge52.us.i, label %.critedge.us78.i
@@ -971,33 +971,33 @@ define void @clamav_stats_remove_sample(ptr noundef readonly %0, ptr nocapture n
   br i1 %.not50.us.i, label %find_sample.exit.thread38, label %25
 
 .critedge.us78.i:                                 ; preds = %25, %.critedge52.us.i, %21, %.lr.ph68.split.split.us.i
-  %31 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 48
   %.035.us79.i = load ptr, ptr %31, align 8
   %.not.us80.i = icmp eq ptr %.035.us79.i, null
   br i1 %.not.us80.i, label %find_sample.exit.thread, label %.lr.ph68.split.split.us.i
 
 find_sample.exit.thread38:                        ; preds = %15, %.lr.ph62.us.i
   %.03556.i41 = phi ptr [ %.03565.us74.i, %.lr.ph62.us.i ], [ %.03565.us.i, %15 ]
-  %32 = getelementptr inbounds i8, ptr %.03556.i41, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.03556.i41, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq ptr %33, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03556.i41, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.03556.i41, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not33, label %find_sample.exit.thread38._crit_edge, label %34
 
 34:                                               ; preds = %find_sample.exit.thread38
-  %35 = getelementptr inbounds i8, ptr %33, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %.pre, ptr %35, align 8
   br label %find_sample.exit.thread38._crit_edge
 
 find_sample.exit.thread38._crit_edge:             ; preds = %find_sample.exit.thread38, %34
-  %36 = getelementptr inbounds i8, ptr %.03556.i41, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.03556.i41, i64 48
   %.not34 = icmp eq ptr %.pre, null
   br i1 %.not34, label %40, label %37
 
 37:                                               ; preds = %find_sample.exit.thread38._crit_edge
   %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   store ptr %38, ptr %39, align 8
   br label %40
 
@@ -1038,7 +1038,7 @@ find_sample.exit.thread38._crit_edge:             ; preds = %find_sample.exit.th
   br label %53
 
 53:                                               ; preds = %._crit_edge.i, %45
-  %54 = getelementptr inbounds i8, ptr %.03556.i41, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.03556.i41, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not14.i = icmp eq ptr %55, null
   br i1 %.not14.i, label %free_sample.exit, label %56
@@ -1049,7 +1049,7 @@ find_sample.exit.thread38._crit_edge:             ; preds = %find_sample.exit.th
   br i1 %.not15.i, label %free_sample.exit, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %55, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %60 = load ptr, ptr %59, align 8
   tail call void @free(ptr noundef %60) #13
   %61 = load ptr, ptr %54, align 8
@@ -1085,7 +1085,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not, label %47, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #13
   %.not31 = icmp eq i32 %7, 0
   br i1 %.not31, label %10, label %8
@@ -1096,7 +1096,7 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   br label %47
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.03563.i = load ptr, ptr %11, align 8
   %.not64.i = icmp eq ptr %.03563.i, null
   br i1 %.not64.i, label %find_sample.exit.thread, label %.lr.ph68.i
@@ -1107,34 +1107,34 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
 
 .lr.ph68.split.us.i:                              ; preds = %.lr.ph68.i, %.critedge.us.i
   %.03565.us.i = phi ptr [ %.035.us.i, %.critedge.us.i ], [ %.03563.i, %.lr.ph68.i ]
-  %12 = getelementptr inbounds i8, ptr %.03565.us.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %.not41.us.i = icmp eq i64 %2, %14
   br i1 %.not41.us.i, label %15, label %.critedge.us.i
 
 15:                                               ; preds = %.lr.ph68.split.us.i
-  %16 = getelementptr inbounds i8, ptr %.03565.us.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 8
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not42.us.i, label %find_sample.exit.thread37, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %15, %.lr.ph68.split.us.i
-  %17 = getelementptr inbounds i8, ptr %.03565.us.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.03565.us.i, i64 48
   %.035.us.i = load ptr, ptr %17, align 8
   %.not.us.i = icmp eq ptr %.035.us.i, null
   br i1 %.not.us.i, label %find_sample.exit.thread, label %.lr.ph68.split.us.i
 
 .lr.ph68.split.split.us.i:                        ; preds = %.lr.ph68.i, %.critedge.us78.i
   %.03565.us74.i = phi ptr [ %.035.us79.i, %.critedge.us78.i ], [ %.03563.i, %.lr.ph68.i ]
-  %18 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %.not41.us75.i = icmp eq i64 %2, %20
   br i1 %.not41.us75.i, label %21, label %.critedge.us78.i
 
 21:                                               ; preds = %.lr.ph68.split.split.us.i
-  %22 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 8
   %bcmp.us76.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull readonly dereferenceable(16) %1, i64 16)
   %.not42.us77.i = icmp eq i32 %bcmp.us76.i, 0
   br i1 %.not42.us77.i, label %.critedge52.us.i, label %.critedge.us78.i
@@ -1160,22 +1160,22 @@ define void @clamav_stats_decrement_count(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not50.us.i, label %find_sample.exit.thread37, label %25
 
 .critedge.us78.i:                                 ; preds = %25, %.critedge52.us.i, %21, %.lr.ph68.split.split.us.i
-  %31 = getelementptr inbounds i8, ptr %.03565.us74.i, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.03565.us74.i, i64 48
   %.035.us79.i = load ptr, ptr %31, align 8
   %.not.us80.i = icmp eq ptr %.035.us79.i, null
   br i1 %.not.us80.i, label %find_sample.exit.thread, label %.lr.ph68.split.split.us.i
 
 find_sample.exit.thread37:                        ; preds = %.lr.ph62.us.i, %15
   %.03556.i40 = phi ptr [ %.03565.us.i, %15 ], [ %.03565.us74.i, %.lr.ph62.us.i ]
-  %32 = getelementptr inbounds i8, ptr %.03556.i40, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %.03556.i40, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %find_sample.exit.thread37
-  %36 = getelementptr inbounds i8, ptr %3, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1096
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %39 = load ptr, ptr %38, align 8
   %.not33 = icmp eq ptr %39, null
   br i1 %.not33, label %41, label %40
@@ -1229,72 +1229,72 @@ declare ptr @internal_get_host_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_submit(ptr nocapture noundef writeonly initializes((1112, 1120)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_stats_set_cbdata(ptr nocapture noundef writeonly initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1080
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_add_sample(ptr nocapture noundef writeonly initializes((1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_remove_sample(ptr nocapture noundef writeonly initializes((1096, 1104)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1096
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_decrement_count(ptr nocapture noundef writeonly initializes((1104, 1112)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_flush(ptr nocapture noundef writeonly initializes((1120, 1128)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_get_num(ptr nocapture noundef writeonly initializes((1128, 1136)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_get_size(ptr nocapture noundef writeonly initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_set_clcb_stats_get_hostid(ptr nocapture noundef writeonly initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cl_engine_stats_enable(ptr nocapture noundef writeonly initializes((1088, 1096), (1112, 1120)) %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1088
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr @clamav_stats_add_sample, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr @clamav_stats_submit, ptr %3, align 8
   ret void
 }

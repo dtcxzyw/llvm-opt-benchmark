@@ -36,15 +36,15 @@ define dso_local range(i32 0, 2) i32 @serial_client_scan(ptr noundef %0, i32 nou
   %7 = alloca %struct.cli_ftw_cbdata, align 8
   %8 = alloca %struct.client_serial_data, align 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %10, align 4
   %11 = load i32, ptr @printinfected, align 4
   %12 = xor i32 %11, 1
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %1, ptr %14, align 4
   store ptr %8, ptr %7, align 8
   %.not = icmp eq i32 %4, 0
@@ -119,7 +119,7 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0,
   br i1 %.not34, label %18, label %66
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %7, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -134,7 +134,7 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0,
 
 22:                                               ; preds = %18
   %23 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef %.028) #11
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -142,7 +142,7 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0,
 
 27:                                               ; preds = %18
   %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6) #11
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -154,14 +154,14 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0,
 
 34:                                               ; preds = %18
   %35 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef %.028) #11
-  %36 = getelementptr inbounds i8, ptr %7, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 4
   br label %66
 
 39:                                               ; preds = %18
-  %40 = getelementptr inbounds i8, ptr %7, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 1
   br i1 %42, label %66, label %43
@@ -174,17 +174,17 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr nocapture readnone %0,
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %7, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
   br label %66
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %7, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %7, i64 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = load ptr, ptr @clamdopts, align 8
   %57 = call i32 @dsresult(i32 noundef %45, i32 noundef %53, ptr noundef %.0, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef %56) #11
   %58 = call i32 @close(i32 noundef %45) #11
@@ -238,7 +238,7 @@ define dso_local range(i32 0, 2) i32 @parallel_client_scan(ptr noundef %0, i32 n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %10, ptr noundef nonnull align 1 dereferenceable(5) @__const.parallel_client_scan.zEND, i64 5, i1 false)
   %11 = load ptr, ptr @clamdopts, align 8
   %12 = tail call i32 @dconnect(ptr noundef %11) #11
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %12, ptr %13, align 8
   %14 = icmp slt i32 %12, 0
   br i1 %14, label %62, label %15
@@ -254,19 +254,19 @@ define dso_local range(i32 0, 2) i32 @parallel_client_scan(ptr noundef %0, i32 n
 
 19:                                               ; preds = %15
   store i32 0, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr @printinfected, align 4
   %26 = xor i32 %25, 1
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %26, ptr %27, align 8
   store ptr %8, ptr %7, align 8
   %.not14 = icmp eq i32 %4, 0
@@ -385,7 +385,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   br i1 %.not60, label %20, label %.loopexit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %9, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -399,12 +399,12 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   ]
 
 .preheader:                                       ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %.backedge
 
 25:                                               ; preds = %20
   %26 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef %.0) #11
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -412,7 +412,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
 
 30:                                               ; preds = %20
   %31 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6) #11
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 8
@@ -424,7 +424,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
 
 37:                                               ; preds = %20
   %38 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef %.0) #11
-  %39 = getelementptr inbounds i8, ptr %9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 8
@@ -492,7 +492,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   br i1 %.not62, label %.backedge.backedge, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %9, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %82 = load i32, ptr %81, align 4
   switch i32 %82, label %.thread69 [
     i32 3, label %87
@@ -500,9 +500,9 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   ]
 
 .thread69:                                        ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %9, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %9, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 8
@@ -524,9 +524,9 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %9, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %9, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %96, align 8
@@ -549,16 +549,16 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   br label %.loopexit
 
 .thread73:                                        ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %9, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %108 = load i32, ptr %107, align 4
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 4
   store i32 %109, ptr %101, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %.0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %9, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %101, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %112, ptr %113, align 8
   store ptr %101, ptr %111, align 8
   br label %115
@@ -582,13 +582,13 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.RCVLN, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   call void @recvlninit(ptr noundef nonnull %4, i32 noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 5128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 5128
   br label %11
 
 11:                                               ; preds = %52, %1
@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
 
 .lr.ph65:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %22 = phi ptr [ %24, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not34 = icmp eq ptr %24, null
   br i1 %.not34, label %.thread, label %.lr.ph
@@ -642,13 +642,13 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   br label %.loopexit
 
 .thread45.loopexit:                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br label %.thread45
 
 .thread45:                                        ; preds = %.thread45.loopexit, %.lr.ph.preheader, %..thread45_crit_edge
   %30 = phi ptr [ %.pre, %..thread45_crit_edge ], [ %19, %.lr.ph.preheader ], [ %24, %.thread45.loopexit ]
   %.148 = phi ptr [ %.027, %..thread45_crit_edge ], [ %7, %.lr.ph.preheader ], [ %29, %.thread45.loopexit ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp sgt i32 %12, 7
   br i1 %33, label %34, label %52
@@ -701,7 +701,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   call void @free(ptr noundef %32) #11
   %53 = load ptr, ptr %.148, align 8
   store ptr %53, ptr %2, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %.148, align 8
   %56 = load ptr, ptr %2, align 8

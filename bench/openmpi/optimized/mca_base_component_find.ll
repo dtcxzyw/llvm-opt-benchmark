@@ -25,12 +25,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
   br i1 %2, label %mca_base_component_parse_requested.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %mca_base_component_parse_requested.exit.thread, label %12
@@ -70,16 +70,16 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   br i1 %.not3250, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %1, i64 96
-  %26 = getelementptr inbounds i8, ptr %1, i64 120
-  %27 = getelementptr inbounds i8, ptr %1, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %28
 
 28:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %29 = phi ptr [ %24, %.lr.ph ], [ %58, %56 ]
-  %30 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
-  %31 = getelementptr inbounds i8, ptr %29, i64 84
+  %30 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 84
   %32 = tail call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.042, ptr noundef %.043, ptr noundef nonnull %31)
   br i1 %32, label %33, label %56
 
@@ -101,9 +101,9 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
 
 40:                                               ; preds = %39
   store ptr @mca_base_component_list_item_t_class, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store volatile i32 1, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %43 = load ptr, ptr %42, align 8
   %.not6.i.i = icmp eq ptr %43, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread49, label %.lr.ph.i.i
@@ -112,22 +112,22 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   %44 = phi ptr [ %46, %.lr.ph.i.i ], [ %43, %40 ]
   %.07.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %42, %40 ]
   tail call void %44(ptr noundef nonnull %35) #8
-  %45 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread49, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
   %47 = load ptr, ptr %30, align 8
-  %48 = getelementptr inbounds i8, ptr %35, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store ptr %47, ptr %48, align 8
   %49 = load volatile ptr, ptr %26, align 8
-  %50 = getelementptr inbounds i8, ptr %35, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store volatile ptr %49, ptr %50, align 8
   %51 = load volatile ptr, ptr %26, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store volatile ptr %35, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %35, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store volatile ptr %25, ptr %53, align 8
   store volatile ptr %35, ptr %26, align 8
   %54 = load volatile i64, ptr %27, align 8
@@ -137,7 +137,7 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
 
 56:                                               ; preds = %28, %opal_obj_new.exit.thread49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next
+  %57 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
   %58 = load ptr, ptr %57, align 8
   %.not32 = icmp eq ptr %58, null
   br i1 %.not32, label %.loopexit, label %28, !llvm.loop !6
@@ -167,15 +167,15 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %.016.i = load volatile ptr, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %.not1517.i = icmp eq ptr %.016.i, %70
   br i1 %.not1517.i, label %find_dyn_components.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67, %75
   %.018.i = phi ptr [ %.0.i36, %75 ], [ %.016.i, %67 ]
-  %71 = getelementptr inbounds i8, ptr %.018.i, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %.018.i, i64 72
   %72 = call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.042, ptr noundef %.043, ptr noundef nonnull %71)
   br i1 %72, label %73, label %75
 
@@ -184,10 +184,10 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
   br label %75
 
 75:                                               ; preds = %73, %.lr.ph.i
-  %76 = getelementptr inbounds i8, ptr %.018.i, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %.0.i36 = load volatile ptr, ptr %76, align 8
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %.not15.i = icmp eq ptr %.0.i36, %78
   br i1 %.not15.i, label %find_dyn_components.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -200,7 +200,7 @@ find_dyn_components.exit:                         ; preds = %75, %63, %65, %67
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load ptr, ptr %82, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %83) #8
   br label %84
@@ -276,7 +276,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
 
 8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 8
   %.not.not.i = icmp eq ptr %10, null
   br i1 %.not.not.i, label %.loopexit36, label %.lr.ph.i, !llvm.loop !8
@@ -290,15 +290,15 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
 
 .loopexit36:                                      ; preds = %8, %6
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @mca_base_alias_lookup(ptr noundef %14, ptr noundef %16, ptr noundef %3) #8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %component_in_list.exit.thread, label %18
 
 18:                                               ; preds = %.loopexit36
-  %19 = getelementptr inbounds i8, ptr %17, i64 32
-  %20 = getelementptr inbounds i8, ptr %17, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %.037 = load volatile ptr, ptr %20, align 8
   %.not2338 = icmp eq ptr %.037, %19
   br i1 %.not2338, label %component_in_list.exit.thread, label %.lr.ph
@@ -310,20 +310,20 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.039.us = phi ptr [ %.0.us, %.lr.ph.split.us ], [ %.037, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %.039.us, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.039.us, i64 16
   %.0.us = load volatile ptr, ptr %22, align 8
   %.not23.us = icmp eq ptr %.0.us, %19
   br i1 %.not23.us, label %component_in_list.exit.thread, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.i25.preheader:                             ; preds = %.lr.ph, %.loopexit
   %.039 = phi ptr [ %.0, %.loopexit ], [ %.037, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %.039, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.039, i64 40
   %24 = load ptr, ptr %23, align 8
   br label %.lr.ph.i25
 
 25:                                               ; preds = %.lr.ph.i25
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i27
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i27
   %27 = load ptr, ptr %26, align 8
   %.not.not.i28 = icmp eq ptr %27, null
   br i1 %.not.not.i28, label %.loopexit, label %.lr.ph.i25, !llvm.loop !8
@@ -336,7 +336,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
   br i1 %30, label %component_in_list.exit, label %25
 
 .loopexit:                                        ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.039, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %.0 = load volatile ptr, ptr %31, align 8
   %.not23 = icmp eq ptr %.0, %19
   br i1 %.not23, label %component_in_list.exit.thread, label %.lr.ph.i25.preheader, !llvm.loop !9
@@ -370,14 +370,14 @@ define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %
   br i1 %.not53, label %.loopexit42, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph55, %.thread39
   %indvars.iv = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next, %.thread39 ]
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %.03147 = load volatile ptr, ptr %6, align 8
   %.not3548 = icmp eq ptr %.03147, %5
   br i1 %.not3548, label %._crit_edge, label %.lr.ph50
@@ -385,9 +385,9 @@ define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %
 .lr.ph50:                                         ; preds = %8, %.loopexit
   %.03149 = phi ptr [ %.031, %.loopexit ], [ %.03147, %8 ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.03149, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.03149, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %13) #7
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread39, label %16
@@ -400,8 +400,8 @@ define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %
   br i1 %.not36, label %.loopexit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
-  %22 = getelementptr inbounds i8, ptr %19, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %.02944 = load volatile ptr, ptr %22, align 8
   %.not3745 = icmp eq ptr %.02944, %21
   br i1 %.not3745, label %.loopexit, label %.lr.ph
@@ -411,21 +411,21 @@ define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %
   br label %26
 
 24:                                               ; preds = %26
-  %25 = getelementptr inbounds i8, ptr %.02946, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.02946, i64 16
   %.029 = load volatile ptr, ptr %25, align 8
   %.not37 = icmp eq ptr %.029, %21
   br i1 %.not37, label %.loopexit, label %26, !llvm.loop !10
 
 26:                                               ; preds = %.lr.ph, %24
   %.02946 = phi ptr [ %.02944, %.lr.ph ], [ %.029, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.02946, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.02946, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %28) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread39, label %24
 
 .loopexit:                                        ; preds = %24, %20, %16
-  %31 = getelementptr inbounds i8, ptr %.03149, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.03149, i64 16
   %.031 = load volatile ptr, ptr %31, align 8
   %.not35 = icmp eq ptr %.031, %5
   br i1 %.not35, label %._crit_edge, label %.lr.ph50, !llvm.loop !11
@@ -450,7 +450,7 @@ opal_gethostname.exit:                            ; preds = %._crit_edge, %34
 
 .thread39:                                        ; preds = %.lr.ph50, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.loopexit42, label %8, !llvm.loop !12
@@ -469,10 +469,10 @@ define noundef i32 @mca_base_component_find_finalize() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @mca_base_components_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %1, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %5, label %9, label %10
@@ -509,10 +509,10 @@ mca_base_component_parse_requested.exit:          ; preds = %12
 22:                                               ; preds = %16, %.thread, %10
   %.063.ph = phi ptr [ %19, %16 ], [ null, %.thread ], [ null, %10 ]
   %.062.ph = phi i1 [ %18, %16 ], [ true, %.thread ], [ true, %10 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load volatile ptr, ptr %24, align 8
-  %.046.in71 = getelementptr inbounds i8, ptr %25, i64 16
+  %.046.in71 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.04672 = load volatile ptr, ptr %.046.in71, align 8
   %.not5073 = icmp eq ptr %25, %23
   br i1 %.not5073, label %._crit_edge, label %.lr.ph
@@ -520,7 +520,7 @@ mca_base_component_parse_requested.exit:          ; preds = %12
 .lr.ph:                                           ; preds = %22
   %26 = and i32 %1, 2
   %.not54 = icmp ne i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.not53 = icmp eq i32 %26, 0
   br label %28
 
@@ -528,14 +528,14 @@ mca_base_component_parse_requested.exit:          ; preds = %12
   %.04676 = phi ptr [ %.04672, %.lr.ph ], [ %.046, %77 ]
   %.046.in75 = phi ptr [ %.046.in71, %.lr.ph ], [ %.046.in, %77 ]
   %.04474 = phi ptr [ %25, %.lr.ph ], [ %.04676, %77 ]
-  %29 = getelementptr inbounds i8, ptr %.04474, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.04474, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 84
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 84
   %32 = tail call fastcc zeroext i1 @use_component(ptr noundef %0, i1 noundef zeroext %.062.ph, ptr noundef %.063.ph, ptr noundef nonnull %31)
   br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %30, i64 224
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 224
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, %1
   %.not52 = icmp eq i32 %36, %1
@@ -552,26 +552,26 @@ mca_base_component_parse_requested.exit:          ; preds = %12
   br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %30, i64 196
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 196
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %42, ptr noundef nonnull %31) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %41, %39, %37
   %43 = load volatile ptr, ptr %.046.in75, align 8
-  %44 = getelementptr inbounds i8, ptr %.04474, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.04474, i64 24
   %45 = load volatile ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store volatile ptr %43, ptr %46, align 8
   %47 = load volatile ptr, ptr %44, align 8
   %48 = load volatile ptr, ptr %.046.in75, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store volatile ptr %47, ptr %49, align 8
   %50 = load volatile i64, ptr %27, align 8
   %51 = add i64 %50, -1
   store volatile i64 %51, ptr %27, align 8
   %52 = load volatile ptr, ptr %44, align 8
   tail call void @mca_base_component_unload(ptr noundef %30, i32 noundef %4) #8
-  %53 = getelementptr inbounds i8, ptr %.04474, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.04474, i64 8
   %54 = load i8, ptr @opal_uses_threads, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %59
@@ -595,7 +595,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %56, %59
 
 64:                                               ; preds = %opal_thread_add_fetch_32.exit
   %65 = load ptr, ptr %.04474, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
   %.not6.i = icmp eq ptr %68, null
@@ -605,7 +605,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %56, %59
   %69 = phi ptr [ %71, %.lr.ph.i ], [ %68, %64 ]
   %.07.i = phi ptr [ %70, %.lr.ph.i ], [ %67, %64 ]
   tail call void %69(ptr noundef nonnull %.04474) #8
-  %70 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i58 = icmp eq ptr %71, null
   br i1 %.not.i58, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !13
@@ -622,12 +622,12 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %64
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %30, i64 196
+  %76 = getelementptr inbounds nuw i8, ptr %30, i64 196
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %76, ptr noundef nonnull %31) #8
   br label %77
 
 77:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %75, %73, %72
-  %.046.in = getelementptr inbounds i8, ptr %.04676, i64 16
+  %.046.in = getelementptr inbounds nuw i8, ptr %.04676, i64 16
   %.046 = load volatile ptr, ptr %.046.in, align 8
   %.not50 = icmp eq ptr %.04676, %23
   br i1 %.not50, label %._crit_edge, label %28, !llvm.loop !14

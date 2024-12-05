@@ -41,62 +41,62 @@ define hidden range(i32 -1, 2) i32 @aethra_open(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %14 = call i32 @wtap_read_bytes(ptr noundef %12, ptr noundef nonnull %13, i32 noundef 5407, ptr noundef %1, ptr noundef %2) #5
   %.not19 = icmp eq i32 %14, 0
   br i1 %.not19, label %49, label %15
 
 15:                                               ; preds = %11
   %16 = load i32, ptr @aethra_file_type_subtype, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %16, ptr %17, align 4
   %18 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @aethra_read, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @aethra_seek_read, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 5232
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 5232
   %.val = load i16, ptr %22, align 1
   %23 = zext i16 %.val to i32
   %24 = add nsw i32 %23, -1900
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 5234
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 5234
   %.val21 = load i16, ptr %26, align 1
   %27 = zext i16 %.val21 to i32
   %28 = add nsw i32 %27, -1
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 5238
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 5238
   %.val23 = load i16, ptr %30, align 1
   %31 = zext i16 %.val23 to i32
-  %32 = getelementptr inbounds i8, ptr %5, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 223
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 223
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 222
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 222
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   store i32 %43, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %44, align 8
   %45 = call i64 @mktime(ptr noundef nonnull %5) #5
   store i64 %45, ptr %18, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 17, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 148
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %48, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %49
@@ -115,18 +115,18 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 define internal range(i32 0, 2) i32 @aethra_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.aethrarec_hdr, align 1
   %8 = getelementptr i8, ptr %0, i64 96
-  %9 = getelementptr inbounds i8, ptr %7, i64 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 3
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
-  %16 = getelementptr inbounds i8, ptr %1, i64 68
-  %17 = getelementptr inbounds i8, ptr %7, i64 7
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
-  %19 = getelementptr inbounds i8, ptr %1, i64 84
-  %20 = getelementptr inbounds i8, ptr %7, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
   br label %21
 
 21:                                               ; preds = %51, %6
@@ -207,7 +207,7 @@ aethra_read_rec_header.exit.thread:               ; preds = %21, %51, %48, %33
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aethra_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.aethrarec_hdr, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %11 = icmp eq i64 %10, -1
@@ -223,7 +223,7 @@ define internal range(i32 0, 2) i32 @aethra_seek_read(ptr nocapture noundef read
 
 16:                                               ; preds = %12
   %.val.i = load i8, ptr %7, align 1
-  %17 = getelementptr inbounds i8, ptr %7, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.val31.i = load i8, ptr %17, align 1
   %18 = zext i8 %.val31.i to i16
   %19 = shl nuw i16 %18, 8
@@ -250,35 +250,35 @@ define internal range(i32 0, 2) i32 @aethra_seek_read(ptr nocapture noundef read
 
 30:                                               ; preds = %16
   %31 = add nsw i32 %22, -6
-  %32 = getelementptr inbounds i8, ptr %7, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %33 = load i32, ptr %32, align 1
   store i32 0, ptr %2, align 8
   %34 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %35 = getelementptr inbounds i8, ptr %2, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %36, align 4
   %37 = load i64, ptr %.val, align 8
   %38 = udiv i32 %33, 1000
   %39 = zext nneg i32 %38 to i64
   %40 = add i64 %37, %39
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %40, ptr %41, align 8
   %42 = urem i32 %33, 1000
   %43 = mul nuw nsw i32 %42, 1000000
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %31, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 68
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %31, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %7, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 1
   %50 = zext nneg i8 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %2, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 84
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %52, align 4
   %53 = load ptr, ptr %8, align 8
   %54 = call i32 @wtap_read_packet_bytes(ptr noundef %53, ptr noundef %3, i32 noundef %31, ptr noundef %4, ptr noundef %5) #5

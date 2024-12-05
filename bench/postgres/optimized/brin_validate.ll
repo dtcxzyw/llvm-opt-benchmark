@@ -35,17 +35,17 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = zext i32 %15 to i64
   %20 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %19) #4
   %.not123 = icmp eq ptr %20, null
@@ -59,34 +59,34 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #4
   %33 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #4
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %33, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 80
   br label %42
 
 .preheader:                                       ; preds = %100, %24
   %.0106.lcssa = phi i64 [ 0, %24 ], [ %.1107, %100 ]
   %.0.lcssa = phi i1 [ true, %24 ], [ %.1, %100 ]
-  %38 = getelementptr inbounds i8, ptr %32, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph144, label %._crit_edge
 
 .lr.ph144:                                        ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %32, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 80
   br label %104
 
 42:                                               ; preds = %.lr.ph, %100
@@ -95,13 +95,13 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.0106138 = phi i64 [ 0, %.lr.ph ], [ %.1107, %100 ]
   %43 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 22
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 22
   %48 = load i8, ptr %47, align 2
   %49 = zext i8 %48 to i64
   %50 = getelementptr i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i16, ptr %51, align 4
   switch i16 %52, label %69 [
     i16 1, label %81
@@ -112,25 +112,25 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   ]
 
 53:                                               ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %50, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %55, i32 noundef 16, i1 noundef zeroext true, i32 noundef 4, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %56, label %.critedge, label %85
 
 57:                                               ; preds = %42
-  %58 = getelementptr inbounds i8, ptr %50, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %59, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 4, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 23) #4
   br i1 %60, label %.critedge, label %85
 
 61:                                               ; preds = %42
-  %62 = getelementptr inbounds i8, ptr %50, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %63, i32 noundef 16, i1 noundef zeroext true, i32 noundef 3, i32 noundef 3, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
   br i1 %64, label %.critedge, label %85
 
 65:                                               ; preds = %42
-  %66 = getelementptr inbounds i8, ptr %50, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %67) #4
   br i1 %68, label %.critedge, label %85
@@ -146,7 +146,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 73:                                               ; preds = %71
   %74 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %75 = getelementptr inbounds i8, ptr %50, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = tail call ptr @format_procedure(i32 noundef %76) #4
   %78 = load i16, ptr %51, align 4
@@ -156,7 +156,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %100
 
 81:                                               ; preds = %42
-  %82 = getelementptr inbounds i8, ptr %50, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %83, i32 noundef 2281, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #4
   br i1 %84, label %.critedge, label %85
@@ -167,7 +167,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 87:                                               ; preds = %85
   %88 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %89 = getelementptr inbounds i8, ptr %50, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %90 = load i32, ptr %89, align 4
   %91 = tail call ptr @format_procedure(i32 noundef %90) #4
   %92 = load i16, ptr %51, align 4
@@ -200,13 +200,13 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.0108142 = phi i64 [ 0, %.lr.ph144 ], [ %.1109, %165 ]
   %105 = getelementptr [0 x ptr], ptr %41, i64 0, i64 %indvars.iv164
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 22
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 22
   %110 = load i8, ptr %109, align 2
   %111 = zext i8 %110 to i64
   %112 = getelementptr i8, ptr %108, i64 %111
-  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i16, ptr %113, align 4
   %115 = add i16 %114, -64
   %or.cond134 = icmp ult i16 %115, -63
@@ -218,7 +218,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 118:                                              ; preds = %116
   %119 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %120 = getelementptr inbounds i8, ptr %112, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %121 = load i32, ptr %120, align 4
   %122 = tail call ptr @format_operator(i32 noundef %121) #4
   %123 = load i16, ptr %113, align 4
@@ -228,9 +228,9 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %136
 
 126:                                              ; preds = %104
-  %127 = getelementptr inbounds i8, ptr %112, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %112, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %112, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %128, %130
   br i1 %131, label %132, label %136
@@ -244,13 +244,13 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 136:                                              ; preds = %118, %116, %126, %132
   %.1109 = phi i64 [ %135, %132 ], [ %.0108142, %126 ], [ %.0108142, %116 ], [ %.0108142, %118 ]
   %.4 = phi i1 [ %.3143, %132 ], [ %.3143, %126 ], [ false, %116 ], [ false, %118 ]
-  %137 = getelementptr inbounds i8, ptr %112, i64 18
+  %137 = getelementptr inbounds nuw i8, ptr %112, i64 18
   %138 = load i8, ptr %137, align 2
   %.not132 = icmp eq i8 %138, 115
   br i1 %.not132, label %139, label %142
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %112, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %112, i64 28
   %141 = load i32, ptr %140, align 4
   %.not133 = icmp eq i32 %141, 0
   br i1 %.not133, label %150, label %142
@@ -261,7 +261,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 144:                                              ; preds = %142
   %145 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %146 = getelementptr inbounds i8, ptr %112, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %147 = load i32, ptr %146, align 4
   %148 = tail call ptr @format_operator(i32 noundef %147) #4
   %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %148) #4
@@ -270,11 +270,11 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 150:                                              ; preds = %144, %142, %139
   %.5 = phi i1 [ %.4, %139 ], [ false, %142 ], [ false, %144 ]
-  %151 = getelementptr inbounds i8, ptr %112, i64 20
+  %151 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %112, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %112, i64 12
+  %155 = getelementptr inbounds nuw i8, ptr %112, i64 12
   %156 = load i32, ptr %155, align 4
   %157 = tail call zeroext i1 @check_amop_signature(i32 noundef %152, i32 noundef 16, i32 noundef %154, i32 noundef %156) #4
   br i1 %157, label %165, label %158
@@ -303,12 +303,12 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.0108.lcssa = phi i64 [ 0, %.preheader ], [ %.1109, %165 ]
   %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.6, %165 ]
   %169 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %32, ptr noundef %33) #4
-  %170 = getelementptr inbounds i8, ptr %169, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %.not124 = icmp eq ptr %169, null
   br i1 %.not124, label %._crit_edge152.thread, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %._crit_edge
-  %171 = getelementptr inbounds i8, ptr %169, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %172 = load i32, ptr %170, align 4
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.lr.ph187, label %._crit_edge152
@@ -325,7 +325,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %.lr.ph187
-  %180 = getelementptr inbounds i8, ptr %176, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, %17
   %spec.select = select i1 %182, ptr %176, ptr %.0110147186
@@ -333,19 +333,19 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 183:                                              ; preds = %179, %.lr.ph187
   %.1111 = phi ptr [ %.0110147186, %.lr.ph187 ], [ %spec.select, %179 ]
-  %184 = getelementptr inbounds i8, ptr %176, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %185 = load i64, ptr %184, align 8
   %186 = icmp eq i64 %185, 0
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %176, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %189 = load i32, ptr %188, align 4
   %.not129 = icmp eq i32 %177, %189
   br i1 %.not129, label %190, label %215
 
 190:                                              ; preds = %187, %183
-  %191 = getelementptr inbounds i8, ptr %176, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %192 = load i64, ptr %191, align 8
   %.not130 = icmp eq i64 %192, %.0108.lcssa
   br i1 %.not130, label %203, label %193
@@ -358,7 +358,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %196 = tail call i32 @errcode(i32 noundef 117833860) #4
   %197 = load i32, ptr %176, align 8
   %198 = tail call ptr @format_type_be(i32 noundef %197) #4
-  %199 = getelementptr inbounds i8, ptr %176, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = tail call ptr @format_type_be(i32 noundef %200) #4
   %202 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %198, ptr noundef %201) #4
@@ -379,7 +379,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %208 = tail call i32 @errcode(i32 noundef 117833860) #4
   %209 = load i32, ptr %176, align 8
   %210 = tail call ptr @format_type_be(i32 noundef %209) #4
-  %211 = getelementptr inbounds i8, ptr %176, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %212 = load i32, ptr %211, align 4
   %213 = tail call ptr @format_type_be(i32 noundef %212) #4
   %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %210, ptr noundef %213) #4
@@ -401,13 +401,13 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not126, label %._crit_edge152.thread, label %219
 
 219:                                              ; preds = %._crit_edge152
-  %220 = getelementptr inbounds i8, ptr %.0110147.lcssa, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %.0110147.lcssa, i64 8
   %221 = load i64, ptr %220, align 8
   %.not127 = icmp eq i64 %221, %.0108.lcssa
   br i1 %.not127, label %.thread, label %._crit_edge152.thread
 
 .thread:                                          ; preds = %219
-  %222 = getelementptr inbounds i8, ptr %.0110147.lcssa, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.0110147.lcssa, i64 16
   br label %.split.preheader
 
 ._crit_edge152.thread:                            ; preds = %._crit_edge, %219, %._crit_edge152
@@ -420,11 +420,11 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %225 = tail call i32 @errcode(i32 noundef 117833860) #4
   %226 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %18, ptr noundef nonnull @.str.4) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @__func__.brinvalidate) #4
-  %227 = getelementptr inbounds i8, ptr %.0110.lcssa175, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %.0110.lcssa175, i64 16
   br i1 %.not126177, label %.split.us.preheader, label %.split.preheader
 
 228:                                              ; preds = %._crit_edge152.thread
-  %229 = getelementptr inbounds i8, ptr %.0110.lcssa175, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %.0110.lcssa175, i64 16
   br i1 %.not126177, label %.split.us.preheader, label %.split.preheader
 
 .split.us.preheader:                              ; preds = %224, %228

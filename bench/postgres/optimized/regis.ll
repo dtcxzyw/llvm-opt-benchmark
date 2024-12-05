@@ -102,7 +102,7 @@ define dso_local void @RS_compile(ptr nocapture noundef initializes((0, 16)) %0,
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = zext i1 %1 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
   %7 = load i8, ptr %2, align 1
   %.not77 = icmp eq i8 %7, 0
@@ -135,7 +135,7 @@ define dso_local void @RS_compile(ptr nocapture noundef initializes((0, 16)) %0,
   br i1 %.not67, label %17, label %newRegisNode.exit
 
 newRegisNode.exit:                                ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.080, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   store ptr %15, ptr %16, align 8
   br label %18
 
@@ -144,7 +144,7 @@ newRegisNode.exit:                                ; preds = %14
   br label %18
 
 18:                                               ; preds = %17, %newRegisNode.exit
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = tail call i32 @pg_mblen(ptr noundef nonnull %.05779) #7
   %21 = sext i32 %20 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 1 %.05779, i64 %21, i1 false)
@@ -172,7 +172,7 @@ newRegisNode.exit:                                ; preds = %14
   br i1 %.not66, label %37, label %newRegisNode.exit69
 
 newRegisNode.exit69:                              ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %.080, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   store ptr %35, ptr %36, align 8
   br label %38
 
@@ -211,7 +211,7 @@ newRegisNode.exit69:                              ; preds = %34
   br i1 %.not64, label %63, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.080, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.080, i64 16
   %55 = tail call i32 @pg_mblen(ptr noundef nonnull %.05779) #7
   %56 = sext i32 %55 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 1 %.05779, i64 %56, i1 false)
@@ -242,7 +242,7 @@ newRegisNode.exit69:                              ; preds = %34
   br i1 %.not63, label %86, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.080, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.080, i64 16
   %72 = load i32, ptr %.080, align 8
   %73 = lshr i32 %72, 2
   %74 = and i32 %73, 65535
@@ -318,7 +318,7 @@ newRegisNode.exit69:                              ; preds = %34
   %108 = and i32 %105, -131071
   %109 = or disjoint i32 %107, %108
   store i32 %109, ptr %6, align 8
-  %110 = getelementptr inbounds i8, ptr %.483, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.483, i64 8
   %.4 = load ptr, ptr %110, align 8
   %.not62 = icmp eq ptr %.4, null
   br i1 %.not62, label %._crit_edge85, label %104, !llvm.loop !8
@@ -344,7 +344,7 @@ define dso_local void @RS_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @pfree(ptr noundef nonnull %.07) #7
   %.not = icmp eq ptr %4, null
@@ -377,7 +377,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %5, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 65535
@@ -418,7 +418,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
   ]
 
 26:                                               ; preds = %.lr.ph61
-  %27 = getelementptr inbounds i8, ptr %.02758, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
   %28 = tail call i32 @pg_mblen(ptr noundef %.359) #7
   %29 = load i8, ptr %27, align 1
   %30 = icmp eq i8 %29, 0
@@ -453,7 +453,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
   br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !13
 
 44:                                               ; preds = %.lr.ph61
-  %45 = getelementptr inbounds i8, ptr %.02758, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
   %46 = tail call i32 @pg_mblen(ptr noundef %.359) #7
   %47 = load i8, ptr %45, align 1
   %48 = icmp eq i8 %47, 0
@@ -497,7 +497,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
   unreachable
 
 mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.preheader.i, %44
-  %67 = getelementptr inbounds i8, ptr %.02758, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.02758, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @pg_mblen(ptr noundef %.359) #7
   %70 = sext i32 %69 to i64

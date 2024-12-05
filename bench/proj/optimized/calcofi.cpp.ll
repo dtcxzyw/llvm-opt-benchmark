@@ -13,26 +13,26 @@ define hidden noundef ptr @pj_calcofi(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 440
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store double 0.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 1.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 1.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
-  %8 = getelementptr inbounds i8, ptr %0, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load double, ptr %9, align 8
   %11 = fcmp une double %10, 0.000000e+00
   %_ZL17calcofi_s_inverse5PJ_XYP8PJconsts.sink.i = select i1 %11, ptr @_ZL17calcofi_e_inverse5PJ_XYP8PJconsts, ptr @_ZL17calcofi_s_inverse5PJ_XYP8PJconsts
   %_ZL17calcofi_s_forward5PJ_LPP8PJconsts.sink.i = select i1 %11, ptr @_ZL17calcofi_e_forward5PJ_LPP8PJconsts, ptr @_ZL17calcofi_s_forward5PJ_LPP8PJconsts
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %_ZL17calcofi_s_inverse5PJ_XYP8PJconsts.sink.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %_ZL17calcofi_s_forward5PJ_LPP8PJconsts.sink.i, ptr %13, align 8
   br label %23
 
@@ -42,15 +42,15 @@ define hidden noundef ptr @pj_calcofi(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @_ZL11des_calcofi, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 360
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 360
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 380
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 380
   store i32 4, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 384
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 384
   store i32 1, ptr %22, align 8
   br label %23
 
@@ -61,26 +61,26 @@ define hidden noundef ptr @pj_calcofi(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_Z36pj_projection_specific_setup_calcofiP8PJconsts(ptr noundef returned initializes((88, 96), (104, 120), (168, 176), (184, 192), (344, 348), (440, 448), (456, 472)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store double 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 1.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 1.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %9 = load double, ptr %8, align 8
   %10 = fcmp une double %9, 0.000000e+00
   %_ZL17calcofi_s_inverse5PJ_XYP8PJconsts.sink = select i1 %10, ptr @_ZL17calcofi_e_inverse5PJ_XYP8PJconsts, ptr @_ZL17calcofi_s_inverse5PJ_XYP8PJconsts
   %_ZL17calcofi_s_forward5PJ_LPP8PJconsts.sink = select i1 %10, ptr @_ZL17calcofi_e_forward5PJ_LPP8PJconsts, ptr @_ZL17calcofi_s_forward5PJ_LPP8PJconsts
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %_ZL17calcofi_s_inverse5PJ_XYP8PJconsts.sink, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %_ZL17calcofi_s_forward5PJ_LPP8PJconsts.sink, ptr %12, align 8
   ret ptr %0
 }
@@ -95,7 +95,7 @@ define internal { double, double } @_ZL17calcofi_e_inverse5PJ_XYP8PJconsts(doubl
   %7 = fadd double %1, -6.000000e+01
   %8 = fmul double %7, 0xBF53104B57CF96A3
   %9 = tail call double @llvm.fmuladd.f64(double %8, double 0x3FDFFFFFFFFFFFFF, double %6)
-  %10 = getelementptr inbounds i8, ptr %2, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %11 = load double, ptr %10, align 8
   %12 = tail call noundef double @_Z7pj_tsfnddd(double noundef 0x3FE312AD613A9096, double noundef 0x3FE1F6AC2EC1D6AD, double noundef %11)
   %13 = tail call double @log(double noundef %12) #7
@@ -132,7 +132,7 @@ define internal { double, double } @_ZL17calcofi_e_forward5PJ_LPP8PJconsts(doubl
 
 10:                                               ; preds = %3
   %11 = tail call double @sin(double noundef %1) #7
-  %12 = getelementptr inbounds i8, ptr %2, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @_Z7pj_tsfnddd(double noundef %1, double noundef %11, double noundef %13)
   %15 = tail call double @log(double noundef %14) #7

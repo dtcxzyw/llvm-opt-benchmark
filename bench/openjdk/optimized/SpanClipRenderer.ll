@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 752
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
   store ptr %8, ptr @pBandsArrayID, align 8
@@ -31,7 +31,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr n
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 752
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 752
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #4
   store ptr %14, ptr @pEndIndexID, align 8
@@ -40,7 +40,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr n
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 752
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 752
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #4
   store ptr %20, ptr @pRegionID, align 8
@@ -49,7 +49,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr n
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 752
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 752
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3) #4
   store ptr %26, ptr @pCurIndexID, align 8
@@ -58,7 +58,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr n
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 752
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 752
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3) #4
   store ptr %32, ptr @pNumXbandsID, align 8
@@ -71,7 +71,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_initIDs(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %6) #4
   %12 = icmp slt i32 %11, 4
@@ -83,24 +83,24 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1368
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1368
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef %3) #4
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1776
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1776
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef %6, ptr noundef null) #4
   %23 = icmp eq ptr %22, null
   br i1 %23, label %70, label %24
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %22, align 4
   %28 = sub nsw i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %22, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %22, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = sub nsw i32 %30, %32
   %34 = icmp slt i32 %18, %4
@@ -114,7 +114,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
 
 39:                                               ; preds = %35, %24
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1784
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1784
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %22, i32 noundef 0) #4
   tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #4
@@ -122,7 +122,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1776
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1776
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #4
   %48 = icmp eq ptr %47, null
@@ -130,7 +130,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1784
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1784
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %22, i32 noundef 0) #4
   br label %70
@@ -163,11 +163,11 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
 
 fill.exit:                                        ; preds = %.preheader.us.i, %53, %.preheader.lr.ph.i
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1784
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1784
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %47, i32 noundef 0) #4
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1784
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1784
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %22, i32 noundef 0) #4
   tail call void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef nonnull %0, ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6)
@@ -182,7 +182,7 @@ declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %6) #4
   %12 = icmp slt i32 %11, 4
@@ -194,36 +194,36 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1368
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1368
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef %3) #4
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 800
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 800
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @pCurIndexID, align 8
   %23 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %22) #4
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 800
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 800
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @pNumXbandsID, align 8
   %28 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %27) #4
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 760
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 760
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @pRegionID, align 8
   %33 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %32) #4
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 760
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 760
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @pBandsArrayID, align 8
   %38 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %37) #4
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 800
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 800
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @pEndIndexID, align 8
   %43 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %42) #4
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1368
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1368
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef %38) #4
   %48 = icmp sgt i32 %43, %47
@@ -231,7 +231,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 49:                                               ; preds = %14
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1368
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1368
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %0, ptr noundef %38) #4
   br label %54
@@ -239,7 +239,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 54:                                               ; preds = %49, %14
   %.0 = phi i32 [ %53, %49 ], [ %43, %14 ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1776
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1776
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr %57(ptr noundef nonnull %0, ptr noundef %6, ptr noundef null) #4
   %59 = icmp eq ptr %58, null
@@ -247,11 +247,11 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %58, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %58, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = icmp slt i32 %18, %4
   br i1 %68, label %79, label %69
@@ -272,7 +272,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 79:                                               ; preds = %73, %69, %60
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 1784
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1784
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %58, i32 noundef 0) #4
   tail call void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #4
@@ -280,7 +280,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 83:                                               ; preds = %73
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1776
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1776
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr %86(ptr noundef nonnull %0, ptr noundef %38, ptr noundef null) #4
   %88 = icmp eq ptr %87, null
@@ -288,13 +288,13 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
   br i1 %88, label %90, label %93
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %89, i64 1784
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 1784
   %92 = load ptr, ptr %91, align 8
   tail call void %92(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %58, i32 noundef 0) #4
   br label %235
 
 93:                                               ; preds = %83
-  %94 = getelementptr inbounds i8, ptr %89, i64 1776
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 1776
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #4
   %97 = icmp eq ptr %96, null
@@ -318,11 +318,11 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 108:                                              ; preds = %93
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1784
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1784
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %87, i32 noundef 0) #4
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1784
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1784
   %114 = load ptr, ptr %113, align 8
   tail call void %114(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %58, i32 noundef 0) #4
   br label %235
@@ -589,24 +589,24 @@ nextYRange.exit.thread:                           ; preds = %.outer263.loopexit,
   store i32 %.0191.lcssa, ptr %64, align 4
   store i32 %.0189.lcssa, ptr %66, align 4
   %218 = load ptr, ptr %0, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 1784
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1784
   %220 = load ptr, ptr %219, align 8
   tail call void %220(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %96, i32 noundef 0) #4
   %221 = load ptr, ptr %0, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 1784
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 1784
   %223 = load ptr, ptr %222, align 8
   tail call void %223(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %87, i32 noundef 0) #4
   %224 = load ptr, ptr %0, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 1784
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 1784
   %226 = load ptr, ptr %225, align 8
   tail call void %226(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %58, i32 noundef 0) #4
   %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 872
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 872
   %229 = load ptr, ptr %228, align 8
   %230 = load ptr, ptr @pCurIndexID, align 8
   tail call void %229(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %230, i32 noundef %.0198.ph.lcssa) #4
   %231 = load ptr, ptr %0, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 872
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 872
   %233 = load ptr, ptr %232, align 8
   %234 = load ptr, ptr @pNumXbandsID, align 8
   tail call void %233(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %234, i32 noundef %.0199.ph.lcssa) #4

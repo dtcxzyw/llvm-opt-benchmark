@@ -75,7 +75,7 @@ define dso_local void @exit_nicely(i32 noundef %0) local_unnamed_addr #3 {
   %indvars.iv = phi i64 [ %4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr [20 x %struct.anon], ptr @on_exit_nicely_list, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(i32 noundef %0, ptr noundef %8) #6
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

@@ -197,7 +197,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn5Reorg7forwardERKNS_3MatE
   %91 = load i32, ptr %13, align 8
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds float, ptr %.0103148.us.us, i64 %92
-  %94 = getelementptr inbounds i8, ptr %.1147.us.us, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.1147.us.us, i64 4
   %95 = add nuw nsw i32 %.0149.us.us, 1
   %exitcond.not = icmp eq i32 %95, %15
   br i1 %exitcond.not, label %._crit_edge.us.us, label %89, !llvm.loop !6

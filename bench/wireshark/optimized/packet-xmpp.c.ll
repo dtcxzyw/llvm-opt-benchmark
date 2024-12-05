@@ -855,13 +855,13 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not198, label %37, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %1, i64 336
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %35, align 8
   %36 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %212
 
 37:                                               ; preds = %18, %._crit_edge, %14
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @col_set_str(ptr noundef %39, i32 noundef 34, ptr noundef nonnull @.str.443) #4
   %40 = load ptr, ptr %38, align 8
@@ -911,7 +911,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %212
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @p_get_proto_data(ptr noundef %65, ptr noundef nonnull %1, i32 noundef %8, i32 noundef 0) #4
   %67 = icmp eq ptr %66, null
@@ -922,7 +922,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %212
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %66, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not189 = icmp eq ptr %72, null
   br i1 %.not189, label %73, label %75
@@ -946,17 +946,17 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %83, ptr %81, align 8
   %84 = tail call ptr @wmem_file_scope() #4
   %85 = tail call noalias ptr @wmem_tree_new(ptr noundef %84) #4
-  %86 = getelementptr inbounds i8, ptr %81, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %85, ptr %86, align 8
   %87 = tail call ptr @wmem_file_scope() #4
   %88 = tail call noalias ptr @wmem_tree_new(ptr noundef %87) #4
-  %89 = getelementptr inbounds i8, ptr %81, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %88, ptr %89, align 8
   %90 = tail call ptr @wmem_file_scope() #4
   %91 = tail call noalias ptr @wmem_tree_new(ptr noundef %90) #4
-  %92 = getelementptr inbounds i8, ptr %81, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %81, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store i32 0, ptr %93, align 8
   %94 = load i32, ptr @proto_xmpp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %76, i32 noundef %94, ptr noundef nonnull %81) #4
@@ -964,12 +964,12 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 95:                                               ; preds = %79, %75
   %.0178 = phi ptr [ %78, %75 ], [ %81, %79 ]
-  %96 = getelementptr inbounds i8, ptr %1, i64 292
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %1, i64 288
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %99 = load i32, ptr %98, align 8
   %.not194 = icmp eq i32 %97, %99
-  %100 = getelementptr inbounds i8, ptr %6, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %101
 
 101:                                              ; preds = %95, %204
@@ -991,13 +991,13 @@ sub_0:                                            ; preds = %101
   br i1 %.not209, label %sub_1, label %.tail199.thread
 
 sub_1:                                            ; preds = %sub_0
-  %107 = getelementptr inbounds i8, ptr %105, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %108 = load i8, ptr %107, align 1
   %.not210 = icmp eq i8 %108, 113
   br i1 %.not210, label %.tail, label %sub_1201
 
 .tail:                                            ; preds = %sub_1
-  %109 = getelementptr inbounds i8, ptr %105, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 0
   br i1 %111, label %sub_0200, label %sub_1201
@@ -1013,13 +1013,13 @@ sub_0200:                                         ; preds = %.tail
 
 sub_1201:                                         ; preds = %sub_1, %.tail, %sub_0200
   %112 = phi ptr [ %.pre, %sub_0200 ], [ %105, %.tail ], [ %105, %sub_1 ]
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %114 = load i8, ptr %113, align 1
   %.not212 = icmp eq i8 %114, 113
   br i1 %.not212, label %.tail199, label %.tail199.thread
 
 .tail199:                                         ; preds = %sub_1201
-  %115 = getelementptr inbounds i8, ptr %112, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 2
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %121, label %.tail199.thread
@@ -1043,13 +1043,13 @@ sub_1201:                                         ; preds = %sub_1, %.tail, %sub
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %124, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %127 = load ptr, ptr %126, align 8
   %.not5.i = icmp eq ptr %127, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %127, i64 28
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %130 = load i32, ptr %129, align 4
   %131 = or i32 %130, 1
   store i32 %131, ptr %129, align 4
@@ -1063,13 +1063,13 @@ proto_item_set_hidden.exit:                       ; preds = %122, %125, %128
   br i1 %.not213, label %sub_1205, label %proto_item_set_hidden.exit.tail.thread
 
 sub_1205:                                         ; preds = %proto_item_set_hidden.exit
-  %134 = getelementptr inbounds i8, ptr %132, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 1
   %135 = load i8, ptr %134, align 1
   %.not214 = icmp eq i8 %135, 113
   br i1 %.not214, label %proto_item_set_hidden.exit.tail, label %proto_item_set_hidden.exit.tail.thread
 
 proto_item_set_hidden.exit.tail:                  ; preds = %sub_1205
-  %136 = getelementptr inbounds i8, ptr %132, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 2
   %137 = load i8, ptr %136, align 1
   %138 = icmp eq i8 %137, 0
   br i1 %138, label %139, label %proto_item_set_hidden.exit.tail.thread
@@ -1226,7 +1226,7 @@ proto_item_set_hidden.exit.tail.thread:           ; preds = %sub_1205, %proto_it
   %206 = load ptr, ptr %6, align 8
   %207 = load ptr, ptr %100, align 8
   call void %206(ptr noundef %207) #4
-  %208 = getelementptr inbounds i8, ptr %.0174208, i64 40
+  %208 = getelementptr inbounds nuw i8, ptr %.0174208, i64 40
   %209 = load ptr, ptr %208, align 8
   %.not191 = icmp eq ptr %209, null
   br i1 %.not191, label %210, label %101, !llvm.loop !7

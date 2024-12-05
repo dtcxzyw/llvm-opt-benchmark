@@ -344,7 +344,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 199:                                              ; preds = %199, %197
   %200 = phi i64 [ 1, %197 ], [ %204, %199 ]
-  %201 = getelementptr inbounds double, ptr %34, i64 %200
+  %201 = getelementptr inbounds nuw double, ptr %34, i64 %200
   %202 = load double, ptr %201, align 8, !tbaa !7
   %203 = fmul double %187, %202
   store double %203, ptr %201, align 8, !tbaa !7
@@ -433,7 +433,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 252:                                              ; preds = %252, %250
   %253 = phi i64 [ 1, %250 ], [ %257, %252 ]
-  %254 = getelementptr inbounds double, ptr %34, i64 %253
+  %254 = getelementptr inbounds nuw double, ptr %34, i64 %253
   %255 = load double, ptr %254, align 8, !tbaa !7
   %256 = fmul double %240, %255
   store double %256, ptr %254, align 8, !tbaa !7
@@ -516,7 +516,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 302:                                              ; preds = %302, %300
   %303 = phi i64 [ 1, %300 ], [ %307, %302 ]
-  %304 = getelementptr inbounds double, ptr %34, i64 %303
+  %304 = getelementptr inbounds nuw double, ptr %34, i64 %303
   %305 = load double, ptr %304, align 8, !tbaa !7
   %306 = fmul double %290, %305
   store double %306, ptr %304, align 8, !tbaa !7
@@ -564,7 +564,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %324 = phi i64 [ 1, %320 ], [ %337, %333 ]
   %325 = phi double [ %125, %320 ], [ %334, %333 ]
   %326 = phi double [ 0.000000e+00, %320 ], [ %336, %333 ]
-  %327 = getelementptr inbounds double, ptr %34, i64 %324
+  %327 = getelementptr inbounds nuw double, ptr %34, i64 %324
   %328 = load double, ptr %327, align 8, !tbaa !7
   %329 = fcmp une double %328, 0.000000e+00
   br i1 %329, label %330, label %333
@@ -600,7 +600,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 344:                                              ; preds = %343, %341
   store double 1.000000e+00, ptr %11, align 8, !tbaa !7
-  %345 = getelementptr inbounds i8, ptr %11, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %345, i8 0, i64 40, i1 false)
   br label %2125
 
@@ -623,10 +623,10 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %354 = load double, ptr %7, align 8, !tbaa !7
   %355 = load double, ptr %26, align 8, !tbaa !7
   %356 = fcmp ult double %354, %355
-  %357 = getelementptr inbounds i8, ptr %11, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %358 = select i1 %356, double 0.000000e+00, double 1.000000e+00
   store double %358, ptr %357, align 8, !tbaa !7
-  %359 = getelementptr inbounds i8, ptr %11, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 32, i1 false)
   br label %2125
 
@@ -756,7 +756,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 436:                                              ; preds = %436, %433
   %437 = phi i64 [ 1, %433 ], [ %439, %436 ]
-  %438 = getelementptr inbounds double, ptr %43, i64 %437
+  %438 = getelementptr inbounds nuw double, ptr %43, i64 %437
   store double 1.000000e+00, ptr %438, align 8, !tbaa !7
   %439 = add nuw nsw i64 %437, 1
   %440 = icmp eq i64 %439, %435
@@ -803,8 +803,8 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %468 = sext i32 %467 to i64
   %469 = getelementptr inbounds double, ptr %38, i64 %468
   %470 = zext nneg i32 %465 to i64
-  %471 = getelementptr inbounds double, ptr %43, i64 %470
-  %472 = getelementptr inbounds double, ptr %34, i64 %470
+  %471 = getelementptr inbounds nuw double, ptr %43, i64 %470
+  %472 = getelementptr inbounds nuw double, ptr %34, i64 %470
   %473 = select i1 %65, i32 1, i32 %465
   %474 = mul nsw i32 %465, %39
   %475 = add nsw i32 %473, %474
@@ -983,8 +983,8 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %616 = getelementptr i8, ptr %38, i64 8
   %617 = add i32 %441, -1
   %618 = getelementptr i8, ptr %42, i64 8
-  %619 = getelementptr inbounds i8, ptr %27, i64 16
-  %620 = getelementptr inbounds i8, ptr %27, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %621 = sext i32 %35 to i64
   %622 = sext i32 %39 to i64
   %623 = icmp slt i32 %446, 1
@@ -3110,7 +3110,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 2092:                                             ; preds = %2090
   %2093 = call i32 @llvm.smax.i32(i32 %.pre228, i32 1)
   %2094 = zext nneg i32 %2093 to i64
-  %2095 = getelementptr inbounds double, ptr %34, i64 %2094
+  %2095 = getelementptr inbounds nuw double, ptr %34, i64 %2094
   %2096 = load double, ptr %2095, align 8, !tbaa !7
   %2097 = load double, ptr %26, align 8, !tbaa !7
   %2098 = fdiv double %2097, %2084
@@ -3129,7 +3129,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 2106:                                             ; preds = %2106, %2103
   %2107 = phi i64 [ 1, %2103 ], [ %2111, %2106 ]
-  %2108 = getelementptr inbounds double, ptr %34, i64 %2107
+  %2108 = getelementptr inbounds nuw double, ptr %34, i64 %2107
   %2109 = load double, ptr %2108, align 8, !tbaa !7
   %2110 = fmul double %2084, %2109
   store double %2110, ptr %2108, align 8, !tbaa !7
@@ -3147,17 +3147,17 @@ cdce.end:                                         ; preds = %cdce.call, %118
   store double %2115, ptr %11, align 8, !tbaa !7
   %2116 = load i32, ptr %30, align 4, !tbaa !3
   %2117 = sitofp i32 %2116 to double
-  %2118 = getelementptr inbounds i8, ptr %11, i64 8
+  %2118 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %2117, ptr %2118, align 8, !tbaa !7
   %2119 = sitofp i32 %2114 to double
-  %2120 = getelementptr inbounds i8, ptr %11, i64 16
+  %2120 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %2119, ptr %2120, align 8, !tbaa !7
   %2121 = uitofp nneg i32 %1961 to double
-  %2122 = getelementptr inbounds i8, ptr %11, i64 24
+  %2122 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double %2121, ptr %2122, align 8, !tbaa !7
-  %2123 = getelementptr inbounds i8, ptr %11, i64 32
+  %2123 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store double %1904, ptr %2123, align 8, !tbaa !7
-  %2124 = getelementptr inbounds i8, ptr %11, i64 40
+  %2124 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store double %1905, ptr %2124, align 8, !tbaa !7
   br label %2125
 

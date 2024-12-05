@@ -125,8 +125,8 @@ entry:
 while.cond1.preheader:                            ; preds = %entry, %while.end
   %0 = phi ptr [ @.str.3, %entry ], [ %31, %while.end ]
   %pfn.017 = phi ptr [ @name_fns, %entry ], [ %incdec.ptr10, %while.end ]
-  %host.i = getelementptr inbounds i8, ptr %pfn.017, i64 16
-  %email.i = getelementptr inbounds i8, ptr %pfn.017, i64 20
+  %host.i = getelementptr inbounds nuw i8, ptr %pfn.017, i64 16
+  %email.i = getelementptr inbounds nuw i8, ptr %pfn.017, i64 20
   br label %while.body3
 
 while.body3:                                      ; preds = %while.cond1.preheader, %run_cert.exit
@@ -214,7 +214,7 @@ if.end.i.i:                                       ; preds = %if.end25.i, %if.end
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.03.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %p.03.i.i.i, i64 8
   %13 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %if.end6.i.i, label %for.body.i.i.i, !llvm.loop !7
@@ -282,7 +282,7 @@ if.end.i59.i:                                     ; preds = %if.end54.i, %if.end
   br label %for.body.i.i64.i
 
 for.cond.i.i68.i:                                 ; preds = %for.body.i.i64.i
-  %incdec.ptr.i.i69.i = getelementptr inbounds i8, ptr %p.03.i.i65.i, i64 8
+  %incdec.ptr.i.i69.i = getelementptr inbounds nuw i8, ptr %p.03.i.i65.i, i64 8
   %21 = load ptr, ptr %incdec.ptr.i.i69.i, align 8
   %tobool.not.i.i70.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i70.i, label %if.end6.i71.i, label %for.body.i.i64.i, !llvm.loop !7
@@ -341,7 +341,7 @@ if.end.i77.i:                                     ; preds = %if.end76.i, %if.end
   br label %for.body.i.i82.i
 
 for.cond.i.i86.i:                                 ; preds = %for.body.i.i82.i
-  %incdec.ptr.i.i87.i = getelementptr inbounds i8, ptr %p.03.i.i83.i, i64 8
+  %incdec.ptr.i.i87.i = getelementptr inbounds nuw i8, ptr %p.03.i.i83.i, i64 8
   %26 = load ptr, ptr %incdec.ptr.i.i87.i, align 8
   %tobool.not.i.i88.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i88.i, label %if.end6.i89.i, label %for.body.i.i82.i, !llvm.loop !7
@@ -362,7 +362,7 @@ if.end6.i89.i:                                    ; preds = %for.cond.i.i86.i
 
 check_message.exit92.i:                           ; preds = %for.body.i.i82.i, %if.end6.i89.i, %if.end76.i, %if.end76.thread115.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %msg.i75.i)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0118.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pname.0118.i, i64 8
   call void @free(ptr noundef %call2.i) #11
   %29 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i13 = icmp eq ptr %29, null
@@ -370,14 +370,14 @@ check_message.exit92.i:                           ; preds = %for.body.i.i82.i, %
 
 run_cert.exit:                                    ; preds = %check_message.exit92.i
   call void @X509_free(ptr noundef nonnull %call.i) #11
-  %incdec.ptr = getelementptr inbounds i8, ptr %pname.016, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pname.016, i64 8
   %30 = load ptr, ptr %incdec.ptr, align 8
   %tobool2.not = icmp eq ptr %30, null
   br i1 %tobool2.not, label %while.end, label %while.body3, !llvm.loop !10
 
 while.end:                                        ; preds = %run_cert.exit
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %pfn.017, i64 24
-  %name = getelementptr inbounds i8, ptr %pfn.017, i64 32
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %pfn.017, i64 24
+  %name = getelementptr inbounds nuw i8, ptr %pfn.017, i64 32
   %31 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %31, null
   br i1 %tobool.not, label %while.end11, label %while.cond1.preheader, !llvm.loop !11
@@ -487,8 +487,8 @@ entry:
   br i1 %cmp, label %out, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
-  %0 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %vaarg.end15
@@ -573,8 +573,8 @@ entry:
   br i1 %cmp, label %out, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
-  %0 = getelementptr inbounds i8, ptr %ap, i64 16
+  %overflow_arg_area_p = getelementptr inbounds nuw i8, ptr %ap, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %sw.bb

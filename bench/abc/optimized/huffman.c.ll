@@ -14,16 +14,16 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 
 .preheader137:                                    ; preds = %.lr.ph, %4
   %.not141 = icmp slt i32 %2, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
-  %scevgep = getelementptr inbounds i8, ptr %7, i64 4
+  %scevgep = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = shl nuw nsw i64 %wide.trip.count, 2
   %11 = sext i32 %2 to i64
   %12 = add i32 %2, 1
   %13 = icmp samesign ult i32 %2, 260
   %14 = icmp sgt i32 %2, 1
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count205 = zext i32 %12 to i64
   %wide.trip.count210 = zext i32 %12 to i64
   store i32 0, ptr %5, align 16
@@ -33,13 +33,13 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   %20 = shl i32 %18, 8
   %spec.select = select i1 %19, i32 256, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next
   store i32 %spec.select, ptr %21, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader137, label %.lr.ph, !llvm.loop !4
@@ -58,15 +58,15 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %indvars.iv188 = phi i64 [ 1, %.lr.ph145.preheader ], [ %indvars.iv.next189, %._crit_edge ]
   %indvars.iv186 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next187, %._crit_edge ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %22 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next187
+  %22 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next187
   %23 = trunc nuw nsw i64 %indvars.iv188 to i32
   store i32 %23, ptr %22, align 4
-  %24 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %indvars.iv188
+  %24 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv188
   %25 = load i32, ptr %24, align 4
   %26 = trunc nuw nsw i64 %indvars.iv.next187 to i32
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %31
@@ -79,11 +79,11 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %36 = phi i32 [ %39, %.lr.ph140 ], [ %27, %.lr.ph145 ]
   %.0116139 = phi i32 [ %36, %.lr.ph140 ], [ %26, %.lr.ph145 ]
   %37 = zext nneg i32 %.0116139 to i64
-  %38 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %37
   store i32 %35, ptr %38, align 4
   %39 = lshr i32 %36, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %43
@@ -94,7 +94,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 ._crit_edge:                                      ; preds = %.lr.ph140, %.lr.ph145
   %.0116.lcssa = phi i32 [ %26, %.lr.ph145 ], [ %36, %.lr.ph140 ]
   %47 = zext nneg i32 %.0116.lcssa to i64
-  %48 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %47
   store i32 %23, ptr %48, align 4
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
@@ -114,7 +114,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %._crit_edge166 ], [ %15, %50 ]
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge166 ], [ %11, %50 ]
   %51 = load i32, ptr %9, align 4
-  %52 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %indvars.iv198
+  %52 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv198
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %9, align 4
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, -1
@@ -123,7 +123,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 
 ._crit_edge152.thread:                            ; preds = %.lr.ph171
   store i32 %53, ptr %16, align 4
-  %54 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
+  %54 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
   %55 = load i32, ptr %54, align 4
   store i32 %55, ptr %9, align 4
   br label %._crit_edge159
@@ -185,7 +185,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %90 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %89
   store i32 %53, ptr %90, align 4
   %91 = load i32, ptr %9, align 4
-  %92 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
+  %92 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %indvars.iv.next199
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %9, align 4
   %94 = add nsw i64 %indvars.iv198, -2
@@ -275,15 +275,15 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %. = tail call i32 @llvm.umax.i32(i32 %147, i32 %148)
   %149 = add nuw nsw i32 %., 1
   %150 = or i32 %149, %146
-  %151 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next197
+  %151 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv.next197
   store i32 %150, ptr %151, align 4
-  %152 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %indvars.iv.next197
+  %152 = getelementptr inbounds nuw [516 x i32], ptr %7, i64 0, i64 %indvars.iv.next197
   store i32 -1, ptr %152, align 4
   store i32 %137, ptr %132, align 4
   %153 = trunc nuw nsw i64 %indvars.iv.next199 to i32
   %154 = lshr i32 %153, 1
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %158
@@ -296,11 +296,11 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %163 = phi i32 [ %166, %.lr.ph165 ], [ %154, %._crit_edge159 ]
   %.0107163 = phi i32 [ %163, %.lr.ph165 ], [ %153, %._crit_edge159 ]
   %164 = zext nneg i32 %.0107163 to i64
-  %165 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %164
   store i32 %162, ptr %165, align 4
   %166 = lshr i32 %163, 1
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %167
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %170
@@ -311,7 +311,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 ._crit_edge166:                                   ; preds = %.lr.ph165, %._crit_edge159
   %.0107.lcssa = phi i32 [ %153, %._crit_edge159 ], [ %163, %.lr.ph165 ]
   %174 = zext nneg i32 %.0107.lcssa to i64
-  %175 = getelementptr inbounds [260 x i32], ptr %5, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [260 x i32], ptr %5, i64 0, i64 %174
   store i32 %137, ptr %175, align 4
   %176 = icmp sgt i64 %indvars.iv198, 2
   br i1 %176, label %.lr.ph171, label %._crit_edge172.loopexit, !llvm.loop !9
@@ -337,7 +337,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
   %.0119 = phi i32 [ %183, %180 ], [ %179, %.preheader ]
   %.0115 = phi i32 [ %185, %180 ], [ 0, %.preheader ]
   %181 = zext nneg i32 %.0119 to i64
-  %182 = getelementptr inbounds [516 x i32], ptr %7, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [516 x i32], ptr %7, i64 0, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = icmp sgt i32 %183, -1
   %185 = add nuw nsw i32 %.0115, 1
@@ -359,7 +359,7 @@ define void @BZ2_hbMakeCodeLengths(ptr nocapture noundef writeonly %0, ptr nocap
 
 .lr.ph181:                                        ; preds = %._crit_edge177, %.lr.ph181
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph181 ], [ 1, %._crit_edge177 ]
-  %190 = getelementptr inbounds [516 x i32], ptr %6, i64 0, i64 %indvars.iv207
+  %190 = getelementptr inbounds nuw [516 x i32], ptr %6, i64 0, i64 %indvars.iv207
   %191 = load i32, ptr %190, align 4
   %192 = ashr i32 %191, 8
   %193 = sdiv i32 %192, 2
@@ -395,14 +395,14 @@ define void @BZ2_hbAssignCodes(ptr nocapture noundef writeonly %0, ptr nocapture
 7:                                                ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
   %.116.us = phi i32 [ %.01420.us, %.preheader.us ], [ %.2.us, %15 ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp eq i32 %.01519.us, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %.116.us, ptr %13, align 4
   %14 = add nsw i32 %.116.us, 1
   br label %15
@@ -448,7 +448,7 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
 9:                                                ; preds = %.preheader69.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader69.us ], [ %indvars.iv.next, %19 ]
   %.15970.us = phi i32 [ %.05873.us, %.preheader69.us ], [ %.260.us, %19 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = icmp eq i32 %.05774.us, %12
@@ -475,7 +475,7 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
 
 .preheader68:                                     ; preds = %._crit_edge.us, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false)
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.preheader, label %.preheader66
 
@@ -489,10 +489,10 @@ define void @BZ2_hbCreateDecodeTables(ptr nocapture noundef %0, ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv92 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next93, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv92
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv92
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %24
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %24
   %25 = load i32, ptr %gep, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %gep, align 4

@@ -211,8 +211,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %1, %14 ]
   %15 = load i16, ptr %.013.i.i, align 2
   store i16 %15, ptr %.01011.i.i, align 2
-  %16 = getelementptr inbounds i8, ptr %.013.i.i, i64 2
-  %17 = getelementptr inbounds i8, ptr %.01011.i.i, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 2
   %18 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %12
   br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !10
@@ -226,8 +226,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0910.i.i = phi ptr [ %22, %.lr.ph.i15.i ], [ %1, %19 ]
   %20 = load i16, ptr %.012.i.i, align 2
   store i16 %20, ptr %.0910.i.i, align 1
-  %21 = getelementptr inbounds i8, ptr %.012.i.i, i64 2
-  %22 = getelementptr inbounds i8, ptr %.0910.i.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0910.i.i, i64 2
   %23 = add nuw nsw i64 %.0811.i.i, 1
   %exitcond.not.i16.i = icmp eq i64 %23, %12
   br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !11
@@ -244,8 +244,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i21.i = phi ptr [ %27, %.lr.ph.i18.i ], [ %1, %25 ]
   %.0.copyload.i.i = load i16, ptr %.013.i19.i, align 1
   store i16 %.0.copyload.i.i, ptr %.01011.i21.i, align 2
-  %26 = getelementptr inbounds i8, ptr %.013.i19.i, i64 2
-  %27 = getelementptr inbounds i8, ptr %.01011.i21.i, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i19.i, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.01011.i21.i, i64 2
   %28 = add nuw nsw i64 %.0912.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %28, %12
   br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !12
@@ -259,8 +259,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i27.i = phi ptr [ %31, %.lr.ph.i24.i ], [ %1, %29 ]
   %.0.copyload.i28.i = load i16, ptr %.013.i25.i, align 1
   store i16 %.0.copyload.i28.i, ptr %.01011.i27.i, align 1
-  %30 = getelementptr inbounds i8, ptr %.013.i25.i, i64 2
-  %31 = getelementptr inbounds i8, ptr %.01011.i27.i, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i25.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.01011.i27.i, i64 2
   %32 = add nuw nsw i64 %.0912.i26.i, 1
   %exitcond.not.i29.i = icmp eq i64 %32, %12
   br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !13
@@ -288,8 +288,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i.i31 = phi ptr [ %45, %.lr.ph.i.i28 ], [ %1, %42 ]
   %43 = load i32, ptr %.013.i.i29, align 4
   store i32 %43, ptr %.01011.i.i31, align 4
-  %44 = getelementptr inbounds i8, ptr %.013.i.i29, i64 4
-  %45 = getelementptr inbounds i8, ptr %.01011.i.i31, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.013.i.i29, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.01011.i.i31, i64 4
   %46 = add nuw nsw i64 %.0912.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %46, %40
   br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !14
@@ -303,8 +303,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0910.i.i26 = phi ptr [ %50, %.lr.ph.i15.i23 ], [ %1, %47 ]
   %48 = load i32, ptr %.012.i.i24, align 4
   store i32 %48, ptr %.0910.i.i26, align 1
-  %49 = getelementptr inbounds i8, ptr %.012.i.i24, i64 4
-  %50 = getelementptr inbounds i8, ptr %.0910.i.i26, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i24, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i26, i64 4
   %51 = add nuw nsw i64 %.0811.i.i25, 1
   %exitcond.not.i16.i27 = icmp eq i64 %51, %40
   br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !15
@@ -321,8 +321,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i21.i20 = phi ptr [ %55, %.lr.ph.i18.i17 ], [ %1, %53 ]
   %.0.copyload.i.i21 = load i32, ptr %.013.i19.i18, align 1
   store i32 %.0.copyload.i.i21, ptr %.01011.i21.i20, align 4
-  %54 = getelementptr inbounds i8, ptr %.013.i19.i18, i64 4
-  %55 = getelementptr inbounds i8, ptr %.01011.i21.i20, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.013.i19.i18, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.01011.i21.i20, i64 4
   %56 = add nuw nsw i64 %.0912.i20.i19, 1
   %exitcond.not.i22.i22 = icmp eq i64 %56, %40
   br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !16
@@ -336,8 +336,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i27.i14 = phi ptr [ %59, %.lr.ph.i24.i11 ], [ %1, %57 ]
   %.0.copyload.i28.i15 = load i32, ptr %.013.i25.i12, align 1
   store i32 %.0.copyload.i28.i15, ptr %.01011.i27.i14, align 1
-  %58 = getelementptr inbounds i8, ptr %.013.i25.i12, i64 4
-  %59 = getelementptr inbounds i8, ptr %.01011.i27.i14, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.013.i25.i12, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.01011.i27.i14, i64 4
   %60 = add nuw nsw i64 %.0912.i26.i13, 1
   %exitcond.not.i29.i16 = icmp eq i64 %60, %40
   br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !17
@@ -365,8 +365,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i.i54 = phi ptr [ %73, %.lr.ph.i.i51 ], [ %1, %70 ]
   %71 = load i64, ptr %.013.i.i52, align 8
   store i64 %71, ptr %.01011.i.i54, align 8
-  %72 = getelementptr inbounds i8, ptr %.013.i.i52, i64 8
-  %73 = getelementptr inbounds i8, ptr %.01011.i.i54, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.013.i.i52, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.01011.i.i54, i64 8
   %74 = add nuw nsw i64 %.0912.i.i53, 1
   %exitcond.not.i.i55 = icmp eq i64 %74, %68
   br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !18
@@ -380,8 +380,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0910.i.i49 = phi ptr [ %78, %.lr.ph.i15.i46 ], [ %1, %75 ]
   %76 = load i64, ptr %.012.i.i47, align 8
   store i64 %76, ptr %.0910.i.i49, align 1
-  %77 = getelementptr inbounds i8, ptr %.012.i.i47, i64 8
-  %78 = getelementptr inbounds i8, ptr %.0910.i.i49, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.012.i.i47, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i49, i64 8
   %79 = add nuw nsw i64 %.0811.i.i48, 1
   %exitcond.not.i16.i50 = icmp eq i64 %79, %68
   br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !19
@@ -398,8 +398,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i21.i43 = phi ptr [ %83, %.lr.ph.i18.i40 ], [ %1, %81 ]
   %.0.copyload.i.i44 = load i64, ptr %.013.i19.i41, align 1
   store i64 %.0.copyload.i.i44, ptr %.01011.i21.i43, align 8
-  %82 = getelementptr inbounds i8, ptr %.013.i19.i41, i64 8
-  %83 = getelementptr inbounds i8, ptr %.01011.i21.i43, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.013.i19.i41, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.01011.i21.i43, i64 8
   %84 = add nuw nsw i64 %.0912.i20.i42, 1
   %exitcond.not.i22.i45 = icmp eq i64 %84, %68
   br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !20
@@ -413,8 +413,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.01011.i27.i37 = phi ptr [ %87, %.lr.ph.i24.i34 ], [ %1, %85 ]
   %.0.copyload.i28.i38 = load i64, ptr %.013.i25.i35, align 1
   store i64 %.0.copyload.i28.i38, ptr %.01011.i27.i37, align 1
-  %86 = getelementptr inbounds i8, ptr %.013.i25.i35, i64 8
-  %87 = getelementptr inbounds i8, ptr %.01011.i27.i37, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.013.i25.i35, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.01011.i27.i37, i64 8
   %88 = add nuw nsw i64 %.0912.i26.i36, 1
   %exitcond.not.i29.i39 = icmp eq i64 %88, %68
   br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !21
@@ -773,8 +773,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %15 = load i16, ptr %.014.i.i, align 2
   %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
   store i16 %16, ptr %.01112.i.i, align 2
-  %17 = getelementptr inbounds i8, ptr %.014.i.i, i64 2
-  %18 = getelementptr inbounds i8, ptr %.01112.i.i, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 2
   %19 = add nuw nsw i64 %.01013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, %12
   br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !34
@@ -789,8 +789,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %21 = load i16, ptr %.013.i.i, align 2
   %22 = tail call noundef i16 @llvm.bswap.i16(i16 %21)
   store i16 %22, ptr %.01011.i.i, align 1
-  %23 = getelementptr inbounds i8, ptr %.013.i.i, i64 2
-  %24 = getelementptr inbounds i8, ptr %.01011.i.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 2
   %25 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.not.i16.i = icmp eq i64 %25, %12
   br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !35
@@ -808,8 +808,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i.i = load i16, ptr %.014.i19.i, align 1
   %28 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
   store i16 %28, ptr %.01112.i21.i, align 2
-  %29 = getelementptr inbounds i8, ptr %.014.i19.i, i64 2
-  %30 = getelementptr inbounds i8, ptr %.01112.i21.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i19.i, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.01112.i21.i, i64 2
   %31 = add nuw nsw i64 %.01013.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %31, %12
   br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !36
@@ -824,8 +824,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i28.i = load i16, ptr %.014.i25.i, align 1
   %33 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i28.i)
   store i16 %33, ptr %.01112.i27.i, align 1
-  %34 = getelementptr inbounds i8, ptr %.014.i25.i, i64 2
-  %35 = getelementptr inbounds i8, ptr %.01112.i27.i, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.014.i25.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.01112.i27.i, i64 2
   %36 = add nuw nsw i64 %.01013.i26.i, 1
   %exitcond.not.i29.i = icmp eq i64 %36, %12
   br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !37
@@ -854,8 +854,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %47 = load i32, ptr %.014.i.i29, align 4
   %48 = tail call noundef i32 @llvm.bswap.i32(i32 %47)
   store i32 %48, ptr %.01112.i.i31, align 4
-  %49 = getelementptr inbounds i8, ptr %.014.i.i29, i64 4
-  %50 = getelementptr inbounds i8, ptr %.01112.i.i31, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.014.i.i29, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.01112.i.i31, i64 4
   %51 = add nuw nsw i64 %.01013.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %51, %44
   br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !38
@@ -870,8 +870,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %53 = load i32, ptr %.013.i.i24, align 4
   %54 = tail call noundef i32 @llvm.bswap.i32(i32 %53)
   store i32 %54, ptr %.01011.i.i26, align 1
-  %55 = getelementptr inbounds i8, ptr %.013.i.i24, i64 4
-  %56 = getelementptr inbounds i8, ptr %.01011.i.i26, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.013.i.i24, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.01011.i.i26, i64 4
   %57 = add nuw nsw i64 %.0912.i.i25, 1
   %exitcond.not.i16.i27 = icmp eq i64 %57, %44
   br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !39
@@ -889,8 +889,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i.i21 = load i32, ptr %.014.i19.i18, align 1
   %60 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i21)
   store i32 %60, ptr %.01112.i21.i20, align 4
-  %61 = getelementptr inbounds i8, ptr %.014.i19.i18, i64 4
-  %62 = getelementptr inbounds i8, ptr %.01112.i21.i20, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.014.i19.i18, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.01112.i21.i20, i64 4
   %63 = add nuw nsw i64 %.01013.i20.i19, 1
   %exitcond.not.i22.i22 = icmp eq i64 %63, %44
   br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !40
@@ -905,8 +905,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i28.i15 = load i32, ptr %.014.i25.i12, align 1
   %65 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i28.i15)
   store i32 %65, ptr %.01112.i27.i14, align 1
-  %66 = getelementptr inbounds i8, ptr %.014.i25.i12, i64 4
-  %67 = getelementptr inbounds i8, ptr %.01112.i27.i14, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.014.i25.i12, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.01112.i27.i14, i64 4
   %68 = add nuw nsw i64 %.01013.i26.i13, 1
   %exitcond.not.i29.i16 = icmp eq i64 %68, %44
   br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !41
@@ -935,8 +935,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %79 = load i64, ptr %.014.i.i52, align 8
   %80 = tail call noundef i64 @llvm.bswap.i64(i64 %79)
   store i64 %80, ptr %.01112.i.i54, align 8
-  %81 = getelementptr inbounds i8, ptr %.014.i.i52, i64 8
-  %82 = getelementptr inbounds i8, ptr %.01112.i.i54, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.014.i.i52, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.01112.i.i54, i64 8
   %83 = add nuw nsw i64 %.01013.i.i53, 1
   %exitcond.not.i.i55 = icmp eq i64 %83, %76
   br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !42
@@ -951,8 +951,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %85 = load i64, ptr %.013.i.i47, align 8
   %86 = tail call noundef i64 @llvm.bswap.i64(i64 %85)
   store i64 %86, ptr %.01011.i.i49, align 1
-  %87 = getelementptr inbounds i8, ptr %.013.i.i47, i64 8
-  %88 = getelementptr inbounds i8, ptr %.01011.i.i49, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.013.i.i47, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.01011.i.i49, i64 8
   %89 = add nuw nsw i64 %.0912.i.i48, 1
   %exitcond.not.i16.i50 = icmp eq i64 %89, %76
   br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !43
@@ -970,8 +970,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i.i44 = load i64, ptr %.014.i19.i41, align 1
   %92 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i44)
   store i64 %92, ptr %.01112.i21.i43, align 8
-  %93 = getelementptr inbounds i8, ptr %.014.i19.i41, i64 8
-  %94 = getelementptr inbounds i8, ptr %.01112.i21.i43, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.014.i19.i41, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.01112.i21.i43, i64 8
   %95 = add nuw nsw i64 %.01013.i20.i42, 1
   %exitcond.not.i22.i45 = icmp eq i64 %95, %76
   br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !44
@@ -986,8 +986,8 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %.0.copyload.i28.i38 = load i64, ptr %.014.i25.i35, align 1
   %97 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i28.i38)
   store i64 %97, ptr %.01112.i27.i37, align 1
-  %98 = getelementptr inbounds i8, ptr %.014.i25.i35, i64 8
-  %99 = getelementptr inbounds i8, ptr %.01112.i27.i37, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.014.i25.i35, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.01112.i27.i37, i64 8
   %100 = add nuw nsw i64 %.01013.i26.i36, 1
   %exitcond.not.i29.i39 = icmp eq i64 %100, %76
   br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !45

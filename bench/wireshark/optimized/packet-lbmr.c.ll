@@ -1828,7 +1828,7 @@ define internal i32 @dissect_lbmr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.679) #7
   %26 = load i32, ptr @lbmr_use_tag, align 4
@@ -1939,13 +1939,13 @@ lbmr_tag_find.exit:                               ; preds = %30
   br i1 %.not.i326, label %proto_item_set_generated.exit, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i = icmp eq ptr %79, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
@@ -2580,13 +2580,13 @@ dissect_lbmr_pser.exit:                           ; preds = %dissect_lbmr_rctxin
   br i1 %.not.i339, label %proto_item_set_generated.exit341, label %496
 
 496:                                              ; preds = %491
-  %497 = getelementptr inbounds i8, ptr %495, i64 32
+  %497 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %498 = load ptr, ptr %497, align 8
   %.not5.i340 = icmp eq ptr %498, null
   br i1 %.not5.i340, label %proto_item_set_generated.exit341, label %499
 
 499:                                              ; preds = %496
-  %500 = getelementptr inbounds i8, ptr %498, i64 28
+  %500 = getelementptr inbounds nuw i8, ptr %498, i64 28
   %501 = load i32, ptr %500, align 4
   %502 = or i32 %501, 2
   store i32 %502, ptr %500, align 4
@@ -2634,8 +2634,8 @@ proto_item_set_generated.exit341:                 ; preds = %499, %496, %491, %.
   %522 = tail call ptr @proto_tree_add_item(ptr noundef %503, i32 noundef %521, ptr noundef %.0301, i32 noundef 4, i32 noundef -1, i32 noundef 0) #7
   %523 = load i32, ptr @ett_lbmr_qqrs, align 4
   %524 = tail call ptr @proto_item_add_subtree(ptr noundef %522, i32 noundef %523) #7
-  %525 = getelementptr inbounds i8, ptr %519, i64 8
-  %526 = getelementptr inbounds i8, ptr %519, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %519, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %519, i64 16
   br label %527
 
 527:                                              ; preds = %527, %.lr.ph.i342
@@ -2654,7 +2654,7 @@ proto_item_set_generated.exit341:                 ; preds = %499, %496, %491, %.
   %535 = call noalias ptr @wmem_strdup(ptr noundef %534, ptr noundef %530) #7
   store ptr %535, ptr %533, align 8
   %536 = load ptr, ptr %526, align 8
-  %537 = getelementptr inbounds i8, ptr %533, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %533, i64 8
   store ptr %536, ptr %537, align 8
   store ptr %533, ptr %526, align 8
   %538 = load i32, ptr %525, align 8
@@ -2684,8 +2684,8 @@ dissect_lbmr_qqrs.exit:                           ; preds = %527
   %548 = call ptr @proto_tree_add_item(ptr noundef %503, i32 noundef %547, ptr noundef %.0301, i32 noundef %.2, i32 noundef -1, i32 noundef 0) #7
   %549 = load i32, ptr @ett_lbmr_qirs, align 4
   %550 = call ptr @proto_item_add_subtree(ptr noundef %548, i32 noundef %549) #7
-  %551 = getelementptr inbounds i8, ptr %519, i64 32
-  %552 = getelementptr inbounds i8, ptr %519, i64 24
+  %551 = getelementptr inbounds nuw i8, ptr %519, i64 32
+  %552 = getelementptr inbounds nuw i8, ptr %519, i64 24
   br label %553
 
 553:                                              ; preds = %dissect_lbmr_qir_entry.exit.i, %.lr.ph.i346
@@ -2836,12 +2836,12 @@ dissect_lbmr_qqrs.exit:                           ; preds = %527
   store ptr %659, ptr %657, align 8
   %660 = call ptr @wmem_packet_scope() #7
   %661 = call noalias ptr @wmem_strdup(ptr noundef %660, ptr noundef %560) #7
-  %662 = getelementptr inbounds i8, ptr %657, i64 8
+  %662 = getelementptr inbounds nuw i8, ptr %657, i64 8
   store ptr %661, ptr %662, align 8
-  %663 = getelementptr inbounds i8, ptr %657, i64 16
+  %663 = getelementptr inbounds nuw i8, ptr %657, i64 16
   store i16 %638, ptr %663, align 8
   %664 = load ptr, ptr %551, align 8
-  %665 = getelementptr inbounds i8, ptr %657, i64 24
+  %665 = getelementptr inbounds nuw i8, ptr %657, i64 24
   store ptr %664, ptr %665, align 8
   store ptr %657, ptr %551, align 8
   %666 = load i32, ptr %552, align 8
@@ -2896,16 +2896,16 @@ dissect_lbmr_tqr.exit.preheader.i:                ; preds = %680
   %682 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %503, i32 noundef %681, ptr noundef %.0301, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.814) #7
   %683 = load i32, ptr @ett_lbmr_tqrs, align 4
   %684 = tail call ptr @proto_item_add_subtree(ptr noundef %682, i32 noundef %683) #7
-  %685 = getelementptr inbounds i8, ptr %519, i64 48
-  %686 = getelementptr inbounds i8, ptr %519, i64 40
+  %685 = getelementptr inbounds nuw i8, ptr %519, i64 48
+  %686 = getelementptr inbounds nuw i8, ptr %519, i64 40
   br label %dissect_lbmr_tqr.exit.i
 
 dissect_lbmr_tqr.exit.us.preheader.i:             ; preds = %680
   %687 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %503, i32 noundef %681, ptr noundef %.0301, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.22) #7
   %688 = load i32, ptr @ett_lbmr_tqrs, align 4
   %689 = tail call ptr @proto_item_add_subtree(ptr noundef %687, i32 noundef %688) #7
-  %690 = getelementptr inbounds i8, ptr %519, i64 8
-  %691 = getelementptr inbounds i8, ptr %519, i64 16
+  %690 = getelementptr inbounds nuw i8, ptr %519, i64 8
+  %691 = getelementptr inbounds nuw i8, ptr %519, i64 16
   br label %dissect_lbmr_tqr.exit.us.i
 
 dissect_lbmr_tqr.exit.us.i:                       ; preds = %dissect_lbmr_tqr.exit.us.i, %dissect_lbmr_tqr.exit.us.preheader.i
@@ -2931,7 +2931,7 @@ dissect_lbmr_tqr.exit.us.i:                       ; preds = %dissect_lbmr_tqr.ex
   %706 = call noalias ptr @wmem_strdup(ptr noundef %705, ptr noundef %694) #7
   store ptr %706, ptr %704, align 8
   %707 = load ptr, ptr %691, align 8
-  %708 = getelementptr inbounds i8, ptr %704, i64 8
+  %708 = getelementptr inbounds nuw i8, ptr %704, i64 8
   store ptr %707, ptr %708, align 8
   store ptr %704, ptr %691, align 8
   %709 = load i32, ptr %690, align 8
@@ -2970,10 +2970,10 @@ dissect_lbmr_tqr.exit.i:                          ; preds = %dissect_lbmr_tqr.ex
   store i8 %714, ptr %730, align 8
   %731 = call ptr @wmem_packet_scope() #7
   %732 = call noalias ptr @wmem_strdup(ptr noundef %731, ptr noundef %717) #7
-  %733 = getelementptr inbounds i8, ptr %730, i64 8
+  %733 = getelementptr inbounds nuw i8, ptr %730, i64 8
   store ptr %732, ptr %733, align 8
   %734 = load ptr, ptr %685, align 8
-  %735 = getelementptr inbounds i8, ptr %730, i64 16
+  %735 = getelementptr inbounds nuw i8, ptr %730, i64 16
   store ptr %734, ptr %735, align 8
   store ptr %730, ptr %685, align 8
   %736 = load i32, ptr %686, align 8
@@ -3002,43 +3002,43 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %743 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %503, i32 noundef %742, ptr noundef %.0301, i32 noundef %.4, i32 noundef -1, ptr noundef nonnull @.str.817, ptr noundef nonnull @.str.32) #7
   %744 = load i32, ptr @ett_lbmr_tirs, align 4
   %745 = call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744) #7
-  %746 = getelementptr inbounds i8, ptr %6, i64 4
-  %747 = getelementptr inbounds i8, ptr %6, i64 8
-  %748 = getelementptr inbounds i8, ptr %7, i64 8
-  %749 = getelementptr inbounds i8, ptr %7, i64 16
-  %750 = getelementptr inbounds i8, ptr %7, i64 24
-  %751 = getelementptr inbounds i8, ptr %8, i64 4
-  %752 = getelementptr inbounds i8, ptr %8, i64 8
-  %753 = getelementptr inbounds i8, ptr %9, i64 8
-  %754 = getelementptr inbounds i8, ptr %9, i64 16
-  %755 = getelementptr inbounds i8, ptr %9, i64 24
-  %756 = getelementptr inbounds i8, ptr %519, i64 32
-  %757 = getelementptr inbounds i8, ptr %519, i64 24
-  %758 = getelementptr inbounds i8, ptr %10, i64 4
-  %759 = getelementptr inbounds i8, ptr %10, i64 8
-  %760 = getelementptr inbounds i8, ptr %11, i64 8
-  %761 = getelementptr inbounds i8, ptr %11, i64 16
-  %762 = getelementptr inbounds i8, ptr %11, i64 24
-  %763 = getelementptr inbounds i8, ptr %12, i64 4
-  %764 = getelementptr inbounds i8, ptr %12, i64 8
-  %765 = getelementptr inbounds i8, ptr %13, i64 8
-  %766 = getelementptr inbounds i8, ptr %13, i64 16
-  %767 = getelementptr inbounds i8, ptr %13, i64 24
-  %768 = getelementptr inbounds i8, ptr %14, i64 4
-  %769 = getelementptr inbounds i8, ptr %14, i64 8
-  %770 = getelementptr inbounds i8, ptr %15, i64 8
-  %771 = getelementptr inbounds i8, ptr %15, i64 16
-  %772 = getelementptr inbounds i8, ptr %15, i64 24
-  %773 = getelementptr inbounds i8, ptr %16, i64 4
-  %774 = getelementptr inbounds i8, ptr %16, i64 8
-  %775 = getelementptr inbounds i8, ptr %17, i64 8
-  %776 = getelementptr inbounds i8, ptr %17, i64 16
-  %777 = getelementptr inbounds i8, ptr %17, i64 24
-  %778 = getelementptr inbounds i8, ptr %1, i64 208
-  %779 = getelementptr inbounds i8, ptr %1, i64 20
-  %780 = getelementptr inbounds i8, ptr %18, i64 4
-  %781 = getelementptr inbounds i8, ptr %18, i64 8
-  %782 = getelementptr inbounds i8, ptr %18, i64 16
+  %746 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %747 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %748 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %751 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %752 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %756 = getelementptr inbounds nuw i8, ptr %519, i64 32
+  %757 = getelementptr inbounds nuw i8, ptr %519, i64 24
+  %758 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %759 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %760 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %762 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %763 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %764 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %765 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %766 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %767 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %768 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %769 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %771 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %772 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %773 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %774 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %775 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %776 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %777 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %778 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %779 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %780 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %781 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %782 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %783
 
 783:                                              ; preds = %dissect_lbmr_tir_entry.exit.i, %.lr.ph.i356
@@ -3146,7 +3146,7 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %846 = call ptr @proto_tree_add_item(ptr noundef %829, i32 noundef %845, ptr noundef %.0301, i32 noundef %.sink275.i.i.i, i32 noundef 2, i32 noundef 0) #7
   %847 = load i32, ptr %779, align 4
   %848 = call ptr @lbttcp_transport_add(ptr noundef nonnull %778, i16 noundef zeroext %.0258.i.i.i, i32 noundef %.0259.i.i.i, i32 noundef %847) #7
-  %849 = getelementptr inbounds i8, ptr %848, i64 32
+  %849 = getelementptr inbounds nuw i8, ptr %848, i64 32
   %850 = load i64, ptr %849, align 8
   %851 = call ptr @lbttcp_transport_source_string(ptr noundef nonnull %778, i16 noundef zeroext %.0258.i.i.i, i32 noundef %.0259.i.i.i) #7
   %852 = call ptr @wmem_packet_scope() #7
@@ -3154,12 +3154,12 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %854 = call ptr @wmem_packet_scope() #7
   %855 = call noalias ptr @wmem_strdup(ptr noundef %854, ptr noundef %786) #7
   store ptr %855, ptr %853, align 8
-  %856 = getelementptr inbounds i8, ptr %853, i64 8
+  %856 = getelementptr inbounds nuw i8, ptr %853, i64 8
   store ptr %851, ptr %856, align 8
-  %857 = getelementptr inbounds i8, ptr %853, i64 16
+  %857 = getelementptr inbounds nuw i8, ptr %853, i64 16
   store i32 %795, ptr %857, align 8
   %858 = load ptr, ptr %756, align 8
-  %859 = getelementptr inbounds i8, ptr %853, i64 24
+  %859 = getelementptr inbounds nuw i8, ptr %853, i64 24
   store ptr %858, ptr %859, align 8
   store ptr %853, ptr %756, align 8
   %860 = load i32, ptr %757, align 8
@@ -3196,7 +3196,7 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %884 = call ptr @proto_tree_add_item(ptr noundef %866, i32 noundef %883, ptr noundef %.0301, i32 noundef %873, i32 noundef 2, i32 noundef 0) #7
   %885 = load i32, ptr %779, align 4
   %886 = call ptr @lbtrm_transport_add(ptr noundef nonnull %778, i16 noundef zeroext %874, i32 noundef %870, ptr noundef nonnull %18, i16 noundef zeroext %872, i32 noundef %885) #7
-  %887 = getelementptr inbounds i8, ptr %886, i64 64
+  %887 = getelementptr inbounds nuw i8, ptr %886, i64 64
   %888 = load i64, ptr %887, align 8
   %889 = call ptr @lbtrm_transport_source_string(ptr noundef nonnull %778, i16 noundef zeroext %874, i32 noundef %870, ptr noundef nonnull %18, i16 noundef zeroext %872) #7
   %890 = call ptr @wmem_packet_scope() #7
@@ -3204,12 +3204,12 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %892 = call ptr @wmem_packet_scope() #7
   %893 = call noalias ptr @wmem_strdup(ptr noundef %892, ptr noundef %786) #7
   store ptr %893, ptr %891, align 8
-  %894 = getelementptr inbounds i8, ptr %891, i64 8
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 8
   store ptr %889, ptr %894, align 8
-  %895 = getelementptr inbounds i8, ptr %891, i64 16
+  %895 = getelementptr inbounds nuw i8, ptr %891, i64 16
   store i32 %795, ptr %895, align 8
   %896 = load ptr, ptr %756, align 8
-  %897 = getelementptr inbounds i8, ptr %891, i64 24
+  %897 = getelementptr inbounds nuw i8, ptr %891, i64 24
   store ptr %896, ptr %897, align 8
   store ptr %891, ptr %756, align 8
   %898 = load i32, ptr %757, align 8
@@ -3263,7 +3263,7 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %923 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %922, ptr noundef %.0301, i32 noundef %.sink277.i.i.i, i32 noundef 2, i32 noundef 0) #7
   %924 = load i32, ptr %779, align 4
   %925 = call ptr @lbtru_transport_add(ptr noundef nonnull %778, i16 noundef zeroext %.0261.i.i.i, i32 noundef %.0260.i.i.i, i32 noundef %924) #7
-  %926 = getelementptr inbounds i8, ptr %925, i64 32
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 32
   %927 = load i64, ptr %926, align 8
   %928 = call ptr @lbtru_transport_source_string(ptr noundef nonnull %778, i16 noundef zeroext %.0261.i.i.i, i32 noundef %.0260.i.i.i) #7
   %929 = call ptr @wmem_packet_scope() #7
@@ -3271,12 +3271,12 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %931 = call ptr @wmem_packet_scope() #7
   %932 = call noalias ptr @wmem_strdup(ptr noundef %931, ptr noundef %786) #7
   store ptr %932, ptr %930, align 8
-  %933 = getelementptr inbounds i8, ptr %930, i64 8
+  %933 = getelementptr inbounds nuw i8, ptr %930, i64 8
   store ptr %928, ptr %933, align 8
-  %934 = getelementptr inbounds i8, ptr %930, i64 16
+  %934 = getelementptr inbounds nuw i8, ptr %930, i64 16
   store i32 %795, ptr %934, align 8
   %935 = load ptr, ptr %756, align 8
-  %936 = getelementptr inbounds i8, ptr %930, i64 24
+  %936 = getelementptr inbounds nuw i8, ptr %930, i64 24
   store ptr %935, ptr %936, align 8
   store ptr %930, ptr %756, align 8
   %937 = load i32, ptr %757, align 8
@@ -3331,12 +3331,12 @@ dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.ex
   %962 = call ptr @wmem_file_scope() #7
   %963 = call noalias ptr @wmem_alloc(ptr noundef %962, i64 noundef 24) #7
   store i32 %947, ptr %963, align 8
-  %964 = getelementptr inbounds i8, ptr %963, i64 4
+  %964 = getelementptr inbounds nuw i8, ptr %963, i64 4
   store i32 %949, ptr %964, align 4
-  %965 = getelementptr inbounds i8, ptr %963, i64 8
+  %965 = getelementptr inbounds nuw i8, ptr %963, i64 8
   store i16 %951, ptr %965, align 8
   %966 = call i64 @lbm_channel_assign(i8 noundef zeroext 3) #7
-  %967 = getelementptr inbounds i8, ptr %963, i64 16
+  %967 = getelementptr inbounds nuw i8, ptr %963, i64 16
   store i64 %966, ptr %967, align 8
   store i32 %947, ptr %16, align 4
   store i32 %949, ptr %773, align 4
@@ -3353,7 +3353,7 @@ lbtipc_transport_add.exit.i.i.i:                  ; preds = %961, %946
   %.0.i.i.i.i = phi ptr [ %963, %961 ], [ %960, %946 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  %969 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %969 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %970 = load i64, ptr %969, align 8
   %971 = call ptr @wmem_file_scope() #7
   %972 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %971, ptr noundef nonnull @.str.827, i32 noundef %949, i32 noundef %958) #7
@@ -3362,12 +3362,12 @@ lbtipc_transport_add.exit.i.i.i:                  ; preds = %961, %946
   %975 = call ptr @wmem_packet_scope() #7
   %976 = call noalias ptr @wmem_strdup(ptr noundef %975, ptr noundef %786) #7
   store ptr %976, ptr %974, align 8
-  %977 = getelementptr inbounds i8, ptr %974, i64 8
+  %977 = getelementptr inbounds nuw i8, ptr %974, i64 8
   store ptr %972, ptr %977, align 8
-  %978 = getelementptr inbounds i8, ptr %974, i64 16
+  %978 = getelementptr inbounds nuw i8, ptr %974, i64 16
   store i32 %795, ptr %978, align 8
   %979 = load ptr, ptr %756, align 8
-  %980 = getelementptr inbounds i8, ptr %974, i64 24
+  %980 = getelementptr inbounds nuw i8, ptr %974, i64 24
   store ptr %979, ptr %980, align 8
   store ptr %974, ptr %756, align 8
   %981 = load i32, ptr %757, align 8
@@ -3427,18 +3427,18 @@ copy_address_wmem.exit.i.i.i.i:                   ; preds = %990
   %1009 = call ptr @wmem_file_scope() #7
   store i32 2, ptr %1008, align 8
   %1010 = call noalias ptr @wmem_memdup(ptr noundef %1009, ptr noundef nonnull %991, i64 noundef 4) #7
-  %1011 = getelementptr inbounds i8, ptr %1008, i64 16
+  %1011 = getelementptr inbounds nuw i8, ptr %1008, i64 16
   store ptr %1010, ptr %1011, align 8
-  %1012 = getelementptr inbounds i8, ptr %1008, i64 8
+  %1012 = getelementptr inbounds nuw i8, ptr %1008, i64 8
   store ptr %1010, ptr %1012, align 8
-  %1013 = getelementptr inbounds i8, ptr %1008, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %1008, i64 4
   store i32 4, ptr %1013, align 4
-  %1014 = getelementptr inbounds i8, ptr %1008, i64 24
+  %1014 = getelementptr inbounds nuw i8, ptr %1008, i64 24
   store i32 %1002, ptr %1014, align 8
-  %1015 = getelementptr inbounds i8, ptr %1008, i64 28
+  %1015 = getelementptr inbounds nuw i8, ptr %1008, i64 28
   store i16 %1006, ptr %1015, align 4
   %1016 = call i64 @lbm_channel_assign(i8 noundef zeroext 4) #7
-  %1017 = getelementptr inbounds i8, ptr %1008, i64 32
+  %1017 = getelementptr inbounds nuw i8, ptr %1008, i64 32
   store i64 %1016, ptr %1017, align 8
   %.0.copyload.i.i.i.i.i = load i32, ptr %1010, align 1
   store i32 %.0.copyload.i.i.i.i.i, ptr %12, align 4
@@ -3456,7 +3456,7 @@ lbtrdma_transport_add.exit.i.i.i:                 ; preds = %copy_address_wmem.e
   %.0.i267.i.i.i = phi ptr [ %1008, %copy_address_wmem.exit.i.i.i.i ], [ %1005, %990 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  %1019 = getelementptr inbounds i8, ptr %.0.i267.i.i.i, i64 32
+  %1019 = getelementptr inbounds nuw i8, ptr %.0.i267.i.i.i, i64 32
   %1020 = load i64, ptr %1019, align 8
   %1021 = call ptr @wmem_file_scope() #7
   %1022 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %1021, ptr noundef nonnull @.str.828, i32 noundef range(i32 0, 65536) %1002, i32 noundef %1003) #7
@@ -3465,12 +3465,12 @@ lbtrdma_transport_add.exit.i.i.i:                 ; preds = %copy_address_wmem.e
   %1025 = call ptr @wmem_packet_scope() #7
   %1026 = call noalias ptr @wmem_strdup(ptr noundef %1025, ptr noundef %786) #7
   store ptr %1026, ptr %1024, align 8
-  %1027 = getelementptr inbounds i8, ptr %1024, i64 8
+  %1027 = getelementptr inbounds nuw i8, ptr %1024, i64 8
   store ptr %1022, ptr %1027, align 8
-  %1028 = getelementptr inbounds i8, ptr %1024, i64 16
+  %1028 = getelementptr inbounds nuw i8, ptr %1024, i64 16
   store i32 %795, ptr %1028, align 8
   %1029 = load ptr, ptr %756, align 8
-  %1030 = getelementptr inbounds i8, ptr %1024, i64 24
+  %1030 = getelementptr inbounds nuw i8, ptr %1024, i64 24
   store ptr %1029, ptr %1030, align 8
   store ptr %1024, ptr %756, align 8
   %1031 = load i32, ptr %757, align 8
@@ -3525,12 +3525,12 @@ lbtrdma_transport_add.exit.i.i.i:                 ; preds = %copy_address_wmem.e
   %1056 = call ptr @wmem_file_scope() #7
   %1057 = call noalias ptr @wmem_alloc(ptr noundef %1056, i64 noundef 24) #7
   store i32 %1041, ptr %1057, align 8
-  %1058 = getelementptr inbounds i8, ptr %1057, i64 4
+  %1058 = getelementptr inbounds nuw i8, ptr %1057, i64 4
   store i32 %1043, ptr %1058, align 4
-  %1059 = getelementptr inbounds i8, ptr %1057, i64 8
+  %1059 = getelementptr inbounds nuw i8, ptr %1057, i64 8
   store i16 %1045, ptr %1059, align 8
   %1060 = call i64 @lbm_channel_assign(i8 noundef zeroext 5) #7
-  %1061 = getelementptr inbounds i8, ptr %1057, i64 16
+  %1061 = getelementptr inbounds nuw i8, ptr %1057, i64 16
   store i64 %1060, ptr %1061, align 8
   store i32 %1041, ptr %8, align 4
   store i32 %1043, ptr %751, align 4
@@ -3547,7 +3547,7 @@ lbtsmx_transport_add.exit.i.i.i:                  ; preds = %1055, %1040
   %.0.i269.i.i.i = phi ptr [ %1057, %1055 ], [ %1054, %1040 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %1063 = getelementptr inbounds i8, ptr %.0.i269.i.i.i, i64 16
+  %1063 = getelementptr inbounds nuw i8, ptr %.0.i269.i.i.i, i64 16
   %1064 = load i64, ptr %1063, align 8
   %1065 = call ptr @wmem_file_scope() #7
   %1066 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %1065, ptr noundef nonnull @.str.829, i32 noundef %1043, i32 noundef %1052) #7
@@ -3556,12 +3556,12 @@ lbtsmx_transport_add.exit.i.i.i:                  ; preds = %1055, %1040
   %1069 = call ptr @wmem_packet_scope() #7
   %1070 = call noalias ptr @wmem_strdup(ptr noundef %1069, ptr noundef %786) #7
   store ptr %1070, ptr %1068, align 8
-  %1071 = getelementptr inbounds i8, ptr %1068, i64 8
+  %1071 = getelementptr inbounds nuw i8, ptr %1068, i64 8
   store ptr %1066, ptr %1071, align 8
-  %1072 = getelementptr inbounds i8, ptr %1068, i64 16
+  %1072 = getelementptr inbounds nuw i8, ptr %1068, i64 16
   store i32 %795, ptr %1072, align 8
   %1073 = load ptr, ptr %756, align 8
-  %1074 = getelementptr inbounds i8, ptr %1068, i64 24
+  %1074 = getelementptr inbounds nuw i8, ptr %1068, i64 24
   store ptr %1073, ptr %1074, align 8
   store ptr %1068, ptr %756, align 8
   %1075 = load i32, ptr %757, align 8
@@ -3589,13 +3589,13 @@ lbtsmx_transport_add.exit.i.i.i:                  ; preds = %1055, %1040
   br i1 %.not.i270.i.i.i, label %dissect_lbmr_tir_entry.exit.i, label %1084
 
 1084:                                             ; preds = %1081
-  %1085 = getelementptr inbounds i8, ptr %1083, i64 32
+  %1085 = getelementptr inbounds nuw i8, ptr %1083, i64 32
   %1086 = load ptr, ptr %1085, align 8
   %.not5.i.i.i.i = icmp eq ptr %1086, null
   br i1 %.not5.i.i.i.i, label %dissect_lbmr_tir_entry.exit.i, label %1087
 
 1087:                                             ; preds = %1084
-  %1088 = getelementptr inbounds i8, ptr %1086, i64 28
+  %1088 = getelementptr inbounds nuw i8, ptr %1086, i64 28
   %1089 = load i32, ptr %1088, align 4
   %1090 = or i32 %1089, 2
   store i32 %1090, ptr %1088, align 4
@@ -3917,52 +3917,52 @@ define internal noundef ptr @lbmr_tag_copy_cb(ptr noundef returned writeonly ini
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #7
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @g_strdup(ptr noundef %20) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @g_strdup(ptr noundef %36) #7
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %40, ptr %41, align 8
   ret ptr %0
 }
@@ -4003,7 +4003,7 @@ define internal void @lbmr_tag_free_cb(ptr nocapture noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %8, label %7
@@ -4014,7 +4014,7 @@ define internal void @lbmr_tag_free_cb(ptr nocapture noundef %0) #0 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %12, label %11
@@ -4025,7 +4025,7 @@ define internal void @lbmr_tag_free_cb(ptr nocapture noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %16, label %15
@@ -4048,16 +4048,16 @@ declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lbmr_topic_ads_topic_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.852, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr @lbmr_stats_tree_handle_topic_ads_topic, align 4
   %9 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %8, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @wmem_packet_scope() #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %12 = tail call ptr @address_to_str(ptr noundef %10, ptr noundef nonnull %11) #7
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %12, i32 noundef %9, i32 noundef 1, i32 noundef 1) #7
   %14 = tail call ptr @wmem_packet_scope() #7
-  %15 = getelementptr inbounds i8, ptr %3, i64 264
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.853, ptr noundef nonnull %15, i32 noundef %17) #7
   %19 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %18, i32 noundef %13, i32 noundef 1, i32 noundef 1) #7
@@ -4075,15 +4075,15 @@ define internal void @lbmr_topic_ads_topic_stats_tree_init(ptr noundef %0) #0 {
 define internal noundef i32 @lbmr_topic_ads_source_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.854, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #7
   %10 = load i32, ptr @lbmr_stats_tree_handle_topic_ads_source, align 4
   %11 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 1) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %12, i32 noundef %11, i32 noundef 1, i32 noundef 1) #7
   %14 = tail call ptr @wmem_packet_scope() #7
-  %15 = getelementptr inbounds i8, ptr %3, i64 264
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.853, ptr noundef nonnull %15, i32 noundef %17) #7
   %19 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %18, i32 noundef %13, i32 noundef 1, i32 noundef 1) #7
@@ -4100,12 +4100,12 @@ define internal void @lbmr_topic_ads_source_stats_tree_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lbmr_topic_ads_transport_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.855, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %8 = load i32, ptr @lbmr_stats_tree_handle_topic_ads_transport, align 4
   %9 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %8, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @wmem_packet_scope() #7
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %10, ptr noundef nonnull @.str.856, ptr noundef nonnull %11, i32 noundef %13) #7
   %15 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %14, i32 noundef %9, i32 noundef 1, i32 noundef 1) #7
@@ -4122,11 +4122,11 @@ define internal void @lbmr_topic_ads_transport_stats_tree_init(ptr noundef %0) #
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lbmr_topic_queries_topic_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.857, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %8 = load i32, ptr @lbmr_stats_tree_handle_topic_queries_topic, align 4
   %9 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %8, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @wmem_packet_scope() #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %12 = tail call ptr @address_to_str(ptr noundef %10, ptr noundef nonnull %11) #7
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %12, i32 noundef %9, i32 noundef 1, i32 noundef 1) #7
   ret i32 1
@@ -4143,11 +4143,11 @@ define internal void @lbmr_topic_queries_topic_stats_tree_init(ptr noundef %0) #
 define internal noundef i32 @lbmr_topic_queries_receiver_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.858, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #7
   %10 = load i32, ptr @lbmr_stats_tree_handle_topic_queries_receiver, align 4
   %11 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 1) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %12, i32 noundef %11, i32 noundef 1, i32 noundef 1) #7
   ret i32 1
 }
@@ -4163,8 +4163,8 @@ define internal void @lbmr_topic_queries_receiver_stats_tree_init(ptr noundef %0
 define internal noundef i32 @lbmr_topic_queries_pattern_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.859, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i32
   %12 = tail call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @lbm_wildcard_pattern_type_short, ptr noundef nonnull @.str.861) #7
@@ -4172,7 +4172,7 @@ define internal noundef i32 @lbmr_topic_queries_pattern_stats_tree_packet(ptr no
   %14 = load i32, ptr @lbmr_stats_tree_handle_topic_queries_pattern, align 4
   %15 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %13, i32 noundef %14, i32 noundef 1, i32 noundef 1) #7
   %16 = tail call ptr @wmem_packet_scope() #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %18 = tail call ptr @address_to_str(ptr noundef %16, ptr noundef nonnull %17) #7
   %19 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %18, i32 noundef %15, i32 noundef 1, i32 noundef 1) #7
   ret i32 1
@@ -4189,13 +4189,13 @@ define internal void @lbmr_topic_queries_pattern_stats_tree_init(ptr noundef %0)
 define internal noundef i32 @lbmr_topic_queries_pattern_receiver_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.862, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #7
   %10 = load i32, ptr @lbmr_stats_tree_handle_topic_queries_pattern_receiver, align 4
   %11 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 1) #7
   %12 = tail call ptr @wmem_packet_scope() #7
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i32
   %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @lbm_wildcard_pattern_type_short, ptr noundef nonnull @.str.861) #7
@@ -4214,14 +4214,14 @@ define internal void @lbmr_topic_queries_pattern_receiver_stats_tree_init(ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lbmr_queue_ads_queue_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.863, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %8 = load i32, ptr @lbmr_stats_tree_handle_queue_ads_queue, align 4
   %9 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %8, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @wmem_packet_scope() #7
   %11 = tail call ptr @wmem_packet_scope() #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = tail call ptr @address_to_str(ptr noundef %11, ptr noundef nonnull %12) #7
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %10, ptr noundef nonnull @.str.864, ptr noundef %13, i32 noundef %16) #7
@@ -4240,13 +4240,13 @@ define internal void @lbmr_queue_ads_queue_stats_tree_init(ptr noundef %0) #0 {
 define internal noundef i32 @lbmr_queue_ads_source_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.865, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #7
   %10 = load i32, ptr @lbmr_stats_tree_handle_queue_ads_source, align 4
   %11 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 1) #7
   %12 = tail call ptr @wmem_packet_scope() #7
-  %13 = getelementptr inbounds i8, ptr %3, i64 6
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %12, ptr noundef nonnull @.str.864, ptr noundef nonnull %13, i32 noundef %16) #7
@@ -4264,11 +4264,11 @@ define internal void @lbmr_queue_ads_source_stats_tree_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lbmr_queue_queries_queue_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.866, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %8 = load i32, ptr @lbmr_stats_tree_handle_queue_queries_queue, align 4
   %9 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %8, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @wmem_packet_scope() #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %12 = tail call ptr @address_to_str(ptr noundef %10, ptr noundef nonnull %11) #7
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %12, i32 noundef %9, i32 noundef 1, i32 noundef 1) #7
   ret i32 1
@@ -4285,11 +4285,11 @@ define internal void @lbmr_queue_queries_queue_stats_tree_init(ptr noundef %0) #
 define internal noundef i32 @lbmr_queue_queries_receiver_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.867, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %7 = tail call ptr @wmem_packet_scope() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #7
   %10 = load i32, ptr @lbmr_stats_tree_handle_queue_queries_receiver, align 4
   %11 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 1) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %13 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %12, i32 noundef %11, i32 noundef 1, i32 noundef 1) #7
   ret i32 1
 }
@@ -4310,19 +4310,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_lbmr_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.lbmr_tag_entry_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 3
   br i1 %.not, label %8, label %.thread
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %10 = load i32, ptr %9, align 8
   %.not10 = icmp eq i32 %10, 2
   br i1 %.not10, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 236
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %13 = load i32, ptr %12, align 4
   %.not11 = icmp eq i32 %13, 4
   br i1 %.not11, label %14, label %.thread
@@ -4357,34 +4357,34 @@ define internal range(i32 0, 2) i32 @test_lbmr_packet(ptr noundef %0, ptr nounde
 22:                                               ; preds = %14
   store ptr null, ptr %5, align 8
   %23 = load i32, ptr @lbmr_mc_outgoing_udp_port, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %23, ptr %24, align 8
   %25 = load i32, ptr @lbmr_mc_incoming_udp_port, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %27, align 8
   %28 = load i32, ptr @lbmr_mc_incoming_address_host, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %30, align 8
   %31 = load i32, ptr @lbmr_mc_outgoing_address_host, align 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %31, ptr %32, align 8
   %33 = load i32, ptr @lbmr_uc_port_high, align 4
-  %34 = getelementptr inbounds i8, ptr %5, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %33, ptr %34, align 4
   %35 = load i32, ptr @lbmr_uc_port_low, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %35, ptr %36, align 8
   %37 = load i32, ptr @lbmr_uc_dest_port, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %39, align 8
   %40 = load i32, ptr @lbmr_uc_address_host, align 4
-  %41 = getelementptr inbounds i8, ptr %5, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %40, ptr %41, align 8
   %42 = call fastcc i32 @lbmr_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5)
   %43 = icmp eq i32 %42, 0
@@ -4439,13 +4439,13 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.loopexit88
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.098 = load ptr, ptr %9, align 8
   %.not8499 = icmp eq ptr %.098, null
   br i1 %.not8499, label %.loopexit88, label %.lr.ph101
@@ -4458,27 +4458,27 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %12 = load ptr, ptr %.0100, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
   %14 = trunc i64 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %11, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i8 %14, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %11, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %17 = load ptr, ptr %.0100, align 8
   %18 = and i64 %13, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   %19 = load i32, ptr @lbmr_topic_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %19, ptr noundef %0, ptr noundef nonnull %11) #7
-  %20 = getelementptr inbounds i8, ptr %.0100, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0100, i64 8
   %.0 = load ptr, ptr %20, align 8
   %.not84 = icmp eq ptr %.0, null
   br i1 %.not84, label %.loopexit88, label %.lr.ph101, !llvm.loop !20
 
 .loopexit88:                                      ; preds = %.lr.ph101, %8, %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.loopexit87
 
 24:                                               ; preds = %.loopexit88
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.080102 = load ptr, ptr %25, align 8
   %.not85103 = icmp eq ptr %.080102, null
   br i1 %.not85103, label %.loopexit87, label %.lr.ph105
@@ -4491,41 +4491,41 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %28 = load ptr, ptr %.080104, align 8
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #8
   %30 = trunc i64 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %27, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %.080104, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.080104, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #8
   %35 = trunc i64 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %27, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 3
   store i8 %35, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %.080104, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.080104, i64 16
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %41 = load ptr, ptr %.080104, align 8
   %42 = and i64 %29, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr align 1 %41, i64 %42, i1 false)
-  %43 = getelementptr inbounds i8, ptr %27, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 264
   %44 = load ptr, ptr %32, align 8
   %45 = and i64 %34, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr align 1 %44, i64 %45, i1 false)
   %46 = load i32, ptr @lbmr_topic_advertisement_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %46, ptr noundef %0, ptr noundef nonnull %27) #7
-  %47 = getelementptr inbounds i8, ptr %.080104, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.080104, i64 24
   %.080 = load ptr, ptr %47, align 8
   %.not85 = icmp eq ptr %.080, null
   br i1 %.not85, label %.loopexit87, label %.lr.ph105, !llvm.loop !21
 
 .loopexit87:                                      ; preds = %.lr.ph105, %24, %.loopexit88
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %.loopexit
 
 51:                                               ; preds = %.loopexit87
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.082106 = load ptr, ptr %52, align 8
   %.not86107 = icmp eq ptr %.082106, null
   br i1 %.not86107, label %.loopexit, label %.lr.ph109
@@ -4536,33 +4536,33 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %54 = tail call noalias ptr @wmem_alloc0(ptr noundef %53, i64 noundef 260) #7
   store i16 260, ptr %54, align 2
   %55 = load i8, ptr %.082108, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i8 %55, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %.082108, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.082108, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #8
   %60 = trunc i64 %59 to i8
-  %61 = getelementptr inbounds i8, ptr %54, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 %60, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %54, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %63 = load ptr, ptr %57, align 8
   %64 = and i64 %59, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %62, ptr align 1 %63, i64 %64, i1 false)
   %65 = load i32, ptr @lbmr_pattern_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %65, ptr noundef %0, ptr noundef nonnull %54) #7
-  %66 = getelementptr inbounds i8, ptr %.082108, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.082108, i64 16
   %.082 = load ptr, ptr %66, align 8
   %.not86 = icmp eq ptr %.082, null
   br i1 %.not86, label %.loopexit, label %.lr.ph109, !llvm.loop !22
 
 67:                                               ; preds = %2
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %.loopexit90
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.08191 = load ptr, ptr %72, align 8
   %.not92 = icmp eq ptr %.08191, null
   br i1 %.not92, label %.loopexit90, label %.lr.ph
@@ -4575,27 +4575,27 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %75 = load ptr, ptr %.08193, align 8
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #8
   %77 = trunc i64 %76 to i8
-  %78 = getelementptr inbounds i8, ptr %74, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 2
   store i8 %77, ptr %78, align 2
-  %79 = getelementptr inbounds i8, ptr %74, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 3
   %80 = load ptr, ptr %.08193, align 8
   %81 = and i64 %76, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %80, i64 %81, i1 false)
   %82 = load i32, ptr @lbmr_queue_advertisement_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %82, ptr noundef %0, ptr noundef nonnull %74) #7
-  %83 = getelementptr inbounds i8, ptr %.08193, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.08193, i64 8
   %.081 = load ptr, ptr %83, align 8
   %.not = icmp eq ptr %.081, null
   br i1 %.not, label %.loopexit90, label %.lr.ph, !llvm.loop !23
 
 .loopexit90:                                      ; preds = %.lr.ph, %71, %67
-  %84 = getelementptr inbounds i8, ptr %1, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %.loopexit
 
 87:                                               ; preds = %.loopexit90
-  %88 = getelementptr inbounds i8, ptr %1, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.07994 = load ptr, ptr %88, align 8
   %.not8395 = icmp eq ptr %.07994, null
   br i1 %.not8395, label %.loopexit, label %.lr.ph97
@@ -4605,32 +4605,32 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %89 = tail call ptr @wmem_packet_scope() #7
   %90 = tail call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 518) #7
   store i16 518, ptr %90, align 2
-  %91 = getelementptr inbounds i8, ptr %.07996, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.07996, i64 16
   %92 = load i16, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 2
   store i16 %92, ptr %93, align 2
   %94 = load ptr, ptr %.07996, align 8
   %95 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #8
   %96 = trunc i64 %95 to i8
-  %97 = getelementptr inbounds i8, ptr %90, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i8 %96, ptr %97, align 2
-  %98 = getelementptr inbounds i8, ptr %.07996, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.07996, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #8
   %101 = trunc i64 %100 to i8
-  %102 = getelementptr inbounds i8, ptr %90, i64 5
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 5
   store i8 %101, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %90, i64 6
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %104 = load ptr, ptr %.07996, align 8
   %105 = and i64 %95, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %103, ptr align 1 %104, i64 %105, i1 false)
-  %106 = getelementptr inbounds i8, ptr %90, i64 262
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 262
   %107 = load ptr, ptr %98, align 8
   %108 = and i64 %100, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %106, ptr align 1 %107, i64 %108, i1 false)
   %109 = load i32, ptr @lbmr_queue_query_tap_handle, align 4
   tail call void @tap_queue_packet(i32 noundef %109, ptr noundef %0, ptr noundef nonnull %90) #7
-  %110 = getelementptr inbounds i8, ptr %.07996, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %.07996, i64 24
   %.079 = load ptr, ptr %110, align 8
   %.not83 = icmp eq ptr %.079, null
   br i1 %.not83, label %.loopexit, label %.lr.ph97, !llvm.loop !24
@@ -4641,31 +4641,31 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2
   br i1 %.not, label %5, label %102
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %7 = load i32, ptr %6, align 4
   %.not41 = icmp eq i32 %7, 4
   br i1 %.not41, label %8, label %102
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %.not42 = icmp eq i32 %10, 2
   br i1 %.not42, label %11, label %102
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 212
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %13 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %13, 4
   br i1 %.not43, label %14, label %102
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
@@ -4689,35 +4689,35 @@ define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noun
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %14
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i32, ptr %37, align 8
   %.not48 = icmp eq i32 %33, %38
   br i1 %.not48, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load i32, ptr %40, align 8
   %.not49 = icmp eq i32 %33, %41
   br i1 %.not49, label %.thread, label %102
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %46 = load i32, ptr %45, align 4
   %.not50 = icmp eq i32 %44, %46
   br i1 %.not50, label %47, label %102
 
 47:                                               ; preds = %42
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %48 = icmp eq i32 %33, %.pre
   br i1 %48, label %.thread, label %53
 
 .thread:                                          ; preds = %39, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i32, ptr %51, align 8
   %.not51 = icmp eq i32 %50, %52
   br i1 %.not51, label %53, label %102
@@ -4726,7 +4726,7 @@ define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noun
   br label %102
 
 54:                                               ; preds = %14
-  %55 = getelementptr inbounds i8, ptr %0, i64 216
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 1
   %58 = load i8, ptr %57, align 1
@@ -4745,7 +4745,7 @@ define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noun
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
-  %74 = getelementptr inbounds i8, ptr %1, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
   %77 = icmp eq i32 %75, %33
@@ -4755,39 +4755,39 @@ define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noun
   br i1 %or.cond52, label %79, label %101
 
 79:                                               ; preds = %54
-  %80 = getelementptr inbounds i8, ptr %0, i64 288
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 52
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %81, %83
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %0, i64 284
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, %83
   br i1 %88, label %89, label %101
 
 89:                                               ; preds = %85, %79
-  %90 = getelementptr inbounds i8, ptr %1, i64 44
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %91 = load i32, ptr %90, align 4
   %.not44 = icmp ugt i32 %81, %91
   br i1 %.not44, label %95, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %1, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %94 = load i32, ptr %93, align 8
   %.not45 = icmp ult i32 %81, %94
   br i1 %.not45, label %95, label %102
 
 95:                                               ; preds = %92, %89
-  %96 = getelementptr inbounds i8, ptr %0, i64 284
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %97 = load i32, ptr %96, align 4
   %.not46 = icmp ugt i32 %97, %91
   br i1 %.not46, label %101, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %1, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %100 = load i32, ptr %99, align 8
   %.not47 = icmp ult i32 %97, %100
   br i1 %.not47, label %101, label %102
@@ -5491,7 +5491,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @lbmr_tag_mc_incoming_udp_port_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -5499,7 +5499,7 @@ define internal void @lbmr_tag_mc_incoming_udp_port_set_cb(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_mc_incoming_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -5539,21 +5539,21 @@ define internal void @lbmr_tag_mc_incoming_address_set_cb(ptr nocapture noundef 
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #7
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6) #7
   %12 = load i32, ptr %6, align 4
   %13 = call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_mc_incoming_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5581,7 +5581,7 @@ define internal void @lbmr_tag_mc_incoming_address_tostr_cb(ptr nocapture nounde
 define internal void @lbmr_tag_mc_outgoing_udp_port_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -5589,7 +5589,7 @@ define internal void @lbmr_tag_mc_outgoing_udp_port_set_cb(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_mc_outgoing_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -5629,21 +5629,21 @@ define internal void @lbmr_tag_mc_outgoing_address_set_cb(ptr nocapture noundef 
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #7
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6) #7
   %12 = load i32, ptr %6, align 4
   %13 = call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_mc_outgoing_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -5671,7 +5671,7 @@ define internal void @lbmr_tag_mc_outgoing_address_tostr_cb(ptr nocapture nounde
 define internal void @lbmr_tag_uc_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -5679,7 +5679,7 @@ define internal void @lbmr_tag_uc_port_low_set_cb(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_uc_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -5693,7 +5693,7 @@ define internal void @lbmr_tag_uc_port_low_tostr_cb(ptr nocapture noundef readon
 define internal void @lbmr_tag_uc_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -5701,7 +5701,7 @@ define internal void @lbmr_tag_uc_port_high_set_cb(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_uc_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -5715,7 +5715,7 @@ define internal void @lbmr_tag_uc_port_high_tostr_cb(ptr nocapture noundef reado
 define internal void @lbmr_tag_uc_dest_port_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -5723,7 +5723,7 @@ define internal void @lbmr_tag_uc_dest_port_set_cb(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_uc_dest_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -5753,21 +5753,21 @@ define internal void @lbmr_tag_uc_address_set_cb(ptr nocapture noundef initializ
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #7
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6) #7
   %12 = load i32, ptr %6, align 4
   %13 = call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmr_tag_uc_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8

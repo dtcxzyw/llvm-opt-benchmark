@@ -26,7 +26,7 @@ define void @open_libs() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = tail call noalias dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #10
   store i8 46, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %5, align 1
   br label %11
 
@@ -68,7 +68,7 @@ define void @open_libs() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %51
   %19 = phi ptr [ %52, %51 ], [ %18, %.preheader ]
   %.151 = phi i32 [ %.2, %51 ], [ %.0.ph, %.preheader ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 19
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.1, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 7) #11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %51
@@ -131,7 +131,7 @@ define void @open_libs() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %51, %.preheader
   %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.2, %51 ]
   %53 = tail call i32 @closedir(ptr noundef nonnull %16)
-  %54 = getelementptr inbounds i8, ptr %13, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br i1 %.not, label %55, label %.outer
 
 55:                                               ; preds = %._crit_edge
@@ -218,7 +218,7 @@ define void @close_libs() local_unnamed_addr #0 {
 8:                                                ; preds = %5, %.lr.ph
   store ptr null, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -266,7 +266,7 @@ define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -299,7 +299,7 @@ define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -333,7 +333,7 @@ define void @Libs_Init(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %call_inits.exit, label %.lr.ph.i, !llvm.loop !7
@@ -366,7 +366,7 @@ define void @Libs_End(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %call_ends.exit, label %.lr.ph.i, !llvm.loop !8

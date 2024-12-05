@@ -67,7 +67,7 @@ define i32 @data_parser_p_parse(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 9:                                                ; preds = %6
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 2
   %.not14 = icmp eq i32 %12, 0
@@ -103,23 +103,23 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr null, ptr %10, align 8
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.data_parser_p_new) #3
   store i32 782352059, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 0, ptr %21, align 8
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 256
@@ -159,27 +159,27 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
 
 36:                                               ; preds = %34
   %37 = call ptr @find_parser_by_type(i32 noundef 453) #3
-  %38 = getelementptr inbounds i8, ptr %37, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %39 = load i8, ptr %38, align 8
   %.not17.i = icmp eq i8 %39, 0
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 128
   br label %41
 
 41:                                               ; preds = %66, %.lr.ph.i
   %42 = phi i8 [ %39, %.lr.ph.i ], [ %67, %66 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds %struct.flag_bit_t, ptr %43, i64 %indvars.iv.i
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %44 = getelementptr inbounds nuw %struct.flag_bit_t, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8
   %.not13.i = icmp eq i32 %46, 2
   br i1 %.not13.i, label %47, label %66
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @xstrcasecmp(ptr noundef %49, ptr noundef nonnull %.032) #3
   %.not14.i = icmp eq i32 %50, 0
@@ -201,13 +201,13 @@ define noundef ptr @data_parser_p_new(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %44, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %59 = load ptr, ptr %58, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.10, i64 noundef %33, ptr noundef %59) #3
   br label %60
 
 60:                                               ; preds = %57, %54, %51
-  %61 = getelementptr inbounds i8, ptr %44, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = load i32, ptr %21, align 8
   %64 = trunc i64 %62 to i32
@@ -289,7 +289,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %6, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8
   %.not5 = icmp eq ptr %13, null
   br i1 %.not5, label %15, label %14
@@ -300,7 +300,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %14, %11
   store ptr null, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   %.not6 = icmp eq ptr %17, null
   br i1 %.not6, label %19, label %18
@@ -311,7 +311,7 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %18, %15
   store ptr null, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not7 = icmp eq ptr %21, null
   br i1 %.not7, label %23, label %22
@@ -322,13 +322,13 @@ define void @data_parser_p_free(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %22, %19
   store ptr null, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = tail call i32 @slurmdb_connection_close(ptr noundef nonnull %28) #3
   br label %30
 
@@ -369,7 +369,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %.not29 = icmp eq ptr %6, %2
   %.not30 = icmp eq ptr %6, null
@@ -393,9 +393,9 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
   br i1 %13, label %.sink.split, label %34
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %16, align 8
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 256
@@ -408,7 +408,7 @@ define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1
   br i1 %21, label %.sink.split, label %34
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, %2
   %.not26 = icmp eq ptr %24, null
@@ -454,13 +454,13 @@ define i32 @data_parser_p_resolve_openapi_type(ptr nocapture noundef readnone %0
   br i1 %.not21, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %4, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %7 = load i64, ptr %6, align 8
   %.not29 = icmp eq i64 %7, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %4, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 144
   br label %12
 
 9:                                                ; preds = %12
@@ -472,7 +472,7 @@ define i32 @data_parser_p_resolve_openapi_type(ptr nocapture noundef readnone %0
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %struct.parser_s, ptr %13, i64 %indvars.iv, i32 11
+  %14 = getelementptr inbounds nuw %struct.parser_s, ptr %13, i64 %indvars.iv, i32 11
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @xstrcasecmp(ptr noundef %15, ptr noundef nonnull %2) #3
   %.not22 = icmp eq i32 %16, 0
@@ -480,10 +480,10 @@ define i32 @data_parser_p_resolve_openapi_type(ptr nocapture noundef readnone %0
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.parser_s, ptr %18, i64 %indvars.iv, i32 2
+  %19 = getelementptr inbounds nuw %struct.parser_s, ptr %18, i64 %indvars.iv, i32 2
   %20 = load i32, ptr %19, align 8
   %21 = tail call ptr @find_parser_by_type(i32 noundef %20) #3
-  %22 = getelementptr inbounds i8, ptr %21, i64 116
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 116
   %23 = load i32, ptr %22, align 4
   %.not2327 = icmp eq i32 %23, 0
   br i1 %.not2327, label %.loopexit.sink.split, label %.lr.ph28
@@ -491,14 +491,14 @@ define i32 @data_parser_p_resolve_openapi_type(ptr nocapture noundef readnone %0
 .lr.ph28:                                         ; preds = %17, %.lr.ph28
   %24 = phi i32 [ %27, %.lr.ph28 ], [ %23, %17 ]
   %25 = tail call ptr @find_parser_by_type(i32 noundef %24) #3
-  %26 = getelementptr inbounds i8, ptr %25, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 116
   %27 = load i32, ptr %26, align 4
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %.loopexit.sink.split, label %.lr.ph28, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %.lr.ph28, %17, %5
   %.0.lcssa.sink = phi ptr [ %4, %5 ], [ %21, %17 ], [ %25, %.lr.ph28 ]
-  %28 = getelementptr inbounds i8, ptr %.0.lcssa.sink, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.lcssa.sink, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 @openapi_type_format_to_type(i32 noundef %29) #3
   br label %.loopexit
@@ -519,7 +519,7 @@ define ptr @data_parser_p_resolve_type_string(ptr nocapture noundef readnone %0,
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 116
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %5 = load i32, ptr %4, align 4
   %.not89 = icmp eq i32 %5, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph
@@ -527,14 +527,14 @@ define ptr @data_parser_p_resolve_type_string(ptr nocapture noundef readnone %0,
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %6 = phi i32 [ %9, %.lr.ph ], [ %5, %.preheader ]
   %7 = tail call ptr @find_parser_by_type(i32 noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %7, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %9 = load i32, ptr %8, align 4
   %.not8 = icmp eq i32 %9, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi ptr [ %3, %.preheader ], [ %7, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   %11 = load ptr, ptr %10, align 8
   br label %12
 

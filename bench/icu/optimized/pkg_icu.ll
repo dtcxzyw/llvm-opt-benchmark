@@ -62,7 +62,7 @@ if.end9:                                          ; preds = %if.then3, %if.end
 
 for.body.us.i:                                    ; preds = %if.end9, %for.inc.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.us.i ], [ 0, %if.end9 ]
-  %arrayidx.us.i = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %indvars.iv.i
+  %arrayidx.us.i = getelementptr inbounds nuw [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.us.i, align 16
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) %4, i64 4)
   %cmp8.us.i = icmp eq i32 %bcmp.us.i, 0
@@ -102,7 +102,7 @@ if.else.us:                                       ; preds = %while.body.us
   br i1 %cmp2846.us, label %land.rhs.us.preheader, label %if.end35.us
 
 land.rhs.us.preheader:                            ; preds = %if.else.us
-  %strchr42.us = getelementptr inbounds i8, ptr %line, i64 %strlen41.us
+  %strchr42.us = getelementptr inbounds nuw i8, ptr %line, i64 %strlen41.us
   br label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %while.body34.us
@@ -157,14 +157,14 @@ if.end60.us.us.thread:                            ; preds = %for.cond46.us.us
 lor.lhs.false66.us.us:                            ; preds = %for.cond46.us.us, %for.cond46.us.us
   store i8 0, ptr %end.1.us.us, align 1
   call void @_ZN6icu_757Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %listPkg.0, ptr noundef nonnull %start.0.us.us)
-  %add.ptr67.us.us = getelementptr inbounds i8, ptr %end.1.us.us, i64 1
+  %add.ptr67.us.us = getelementptr inbounds nuw i8, ptr %end.1.us.us, i64 1
   %call68.us.us = call ptr @u_skipWhitespace(ptr noundef nonnull %add.ptr67.us.us)
   %9 = load i8, ptr %call68.us.us, align 1
   %cmp70.us.us = icmp eq i8 %9, 0
   br i1 %cmp70.us.us, label %while.cond.backedge.us, label %for.cond.us.us, !llvm.loop !8
 
 for.inc.us.us:                                    ; preds = %for.cond46.us.us
-  %incdec.ptr55.us.us = getelementptr inbounds i8, ptr %end.1.us.us, i64 1
+  %incdec.ptr55.us.us = getelementptr inbounds nuw i8, ptr %end.1.us.us, i64 1
   %.pre53 = load i8, ptr %incdec.ptr55.us.us, align 1
   br label %for.cond46.us.us, !llvm.loop !9
 
@@ -191,7 +191,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp2846, label %land.rhs.preheader, label %if.end35
 
 land.rhs.preheader:                               ; preds = %if.else
-  %strchr42 = getelementptr inbounds i8, ptr %line, i64 %strlen41
+  %strchr42 = getelementptr inbounds nuw i8, ptr %line, i64 %strlen41
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body34
@@ -244,14 +244,14 @@ if.end60.thread:                                  ; preds = %for.cond46
   br label %while.cond.backedge
 
 for.inc:                                          ; preds = %for.cond46
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %end.1, i64 1
+  %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %end.1, i64 1
   %.pre = load i8, ptr %incdec.ptr55, align 1
   br label %for.cond46, !llvm.loop !9
 
 lor.lhs.false66:                                  ; preds = %for.cond46, %for.cond46
   store i8 0, ptr %end.1, align 1
   call void @_ZN6icu_757Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %listPkg.0, ptr noundef %filesPath, ptr noundef nonnull %start.0)
-  %add.ptr67 = getelementptr inbounds i8, ptr %end.1, i64 1
+  %add.ptr67 = getelementptr inbounds nuw i8, ptr %end.1, i64 1
   %call68 = call ptr @u_skipWhitespace(ptr noundef nonnull %add.ptr67)
   %15 = load i8, ptr %call68, align 1
   %cmp70 = icmp eq i8 %15, 0
@@ -267,7 +267,7 @@ land.lhs.true78:                                  ; preds = %for.inc.us.i
   br i1 %cmp81, label %if.then82, label %if.else83
 
 if.then82:                                        ; preds = %land.lhs.true78
-  %doAutoPrefix.i = getelementptr inbounds i8, ptr %listPkg.0, i64 1170
+  %doAutoPrefix.i = getelementptr inbounds nuw i8, ptr %listPkg.0, i64 1170
   store i8 1, ptr %doAutoPrefix.i, align 2
   tail call void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %listPkg.0, ptr noundef nonnull %listname)
   br label %return

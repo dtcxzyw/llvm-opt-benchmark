@@ -25,7 +25,7 @@ define hidden void @_ZN8PtrQueueD2Ev(ptr nocapture nonnull readnone align 8 %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i64 0, 4294967296) i64 @_ZNK8PtrQueue16current_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -44,7 +44,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK8PtrQueue16current_capac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11PtrQueueSet, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -56,7 +56,7 @@ define hidden void @_ZN11PtrQueueSetD2Ev(ptr nocapture nonnull readnone align 8 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11PtrQueueSet11reset_queueER8PtrQueue(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZNK8PtrQueue16current_capacityEv.exit, label %6
@@ -76,7 +76,7 @@ _ZNK8PtrQueue16current_capacityEv.exit:           ; preds = %2, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
@@ -95,7 +95,7 @@ define hidden void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN10BufferNode9Allocator7releaseEPS_(ptr noundef nonnull align 8 dereferenceable(592) %16, ptr noundef nonnull %8) #8
   br label %20
@@ -112,7 +112,7 @@ define hidden void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN10BufferNode9Allocator7releaseEPS_(ptr noundef nonnull align 8 dereferenceable(592) %4, ptr noundef %1) #8
   ret void
@@ -126,7 +126,7 @@ define hidden noundef zeroext i1 @_ZN11PtrQueueSet11try_enqueueER8PtrQueuePv(ptr
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = add nsw i64 %7, -1
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10
@@ -143,7 +143,7 @@ define hidden noundef zeroext i1 @_ZN11PtrQueueSet11try_enqueueER8PtrQueuePv(ptr
 define hidden void @_ZN11PtrQueueSet13retry_enqueueER8PtrQueuePv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = lshr i64 %4, 3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = add nsw i64 %5, -1
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
@@ -155,7 +155,7 @@ define hidden void @_ZN11PtrQueueSet13retry_enqueueER8PtrQueuePv(ptr nocapture n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -170,12 +170,12 @@ define hidden noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue
 
 10:                                               ; preds = %5, %2
   %.0 = phi ptr [ %8, %5 ], [ null, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN10BufferNode9Allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(592) %12) #8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
@@ -185,13 +185,13 @@ define hidden noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PtrQueueSet18install_new_bufferER8PtrQueue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN10BufferNode9Allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(592) %4) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
@@ -203,10 +203,10 @@ declare noundef ptr @_ZN10BufferNode9Allocator8allocateEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZN11PtrQueueSet15allocate_bufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN10BufferNode9Allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(592) %3) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   ret ptr %5
 }
 

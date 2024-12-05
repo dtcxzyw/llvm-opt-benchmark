@@ -161,12 +161,12 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %110 = icmp slt i32 %107, 0
   %111 = tail call i32 @llvm.abs.i32(i32 %107, i1 true)
   %112 = load i32, ptr %5, align 4
-  %113 = getelementptr inbounds i8, ptr %5, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %5, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = load i32, ptr %115, align 4
   %117 = add nsw i32 %116, -1
-  %118 = getelementptr inbounds i8, ptr %5, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, -1
   %.not360.i = icmp samesign ult i32 %109, %111
@@ -442,12 +442,12 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   %255 = icmp slt i32 %252, 0
   %256 = tail call i32 @llvm.abs.i32(i32 %252, i1 true)
   %257 = load i32, ptr %5, align 4
-  %258 = getelementptr inbounds i8, ptr %5, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %259 = load i32, ptr %258, align 4
-  %260 = getelementptr inbounds i8, ptr %5, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %261 = load i32, ptr %260, align 4
   %262 = add nsw i32 %261, -1
-  %263 = getelementptr inbounds i8, ptr %5, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %264 = load i32, ptr %263, align 4
   %265 = add nsw i32 %264, -1
   %.not306 = icmp samesign ult i32 %254, %256
@@ -734,9 +734,9 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
   br i1 %21, label %118, label %22
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %27
@@ -764,7 +764,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
   br label %36
 
 36:                                               ; preds = %35, %31
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %38, %32
   br i1 %39, label %40, label %41
@@ -777,7 +777,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
   %.49.i = call i32 @llvm.smin.i32(i32 %5, i32 %7)
   %.50.i = call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %42 = add nsw i32 %.50.i, 1
-  %43 = getelementptr inbounds i8, ptr %9, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, %.49.i
   br i1 %45, label %46, label %47
@@ -787,7 +787,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
   br label %47
 
 47:                                               ; preds = %46, %41
-  %48 = getelementptr inbounds i8, ptr %9, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, %42
   br i1 %50, label %51, label %RefineBounds.exit
@@ -798,7 +798,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
 
 RefineBounds.exit:                                ; preds = %47, %51
   %52 = load ptr, ptr %29, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %54 = load i32, ptr %53, align 4
   %55 = call i32 %52(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9, i32 noundef %54) #4
   %.not100 = icmp eq i32 %55, 0
@@ -817,10 +817,10 @@ RefineBounds.exit:                                ; preds = %47, %51
   br i1 %63, label %64, label %114
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %29, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
-  %67 = getelementptr inbounds i8, ptr %9, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %68 = load ptr, ptr %67, align 8
   %.not101 = icmp eq ptr %68, null
   br i1 %.not101, label %110, label %69
@@ -846,7 +846,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   br i1 %78, label %79, label %110
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %20, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = sub nsw i32 %spec.select, %spec.store.select
   call void %81(ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %5, i32 noundef %19, i32 noundef %82, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
@@ -873,7 +873,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   br i1 %92, label %93, label %110
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %20, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = sub nsw i32 %spec.select114, %spec.store.select115
   call void %95(ptr noundef nonnull %9, i32 noundef %4, i32 noundef %spec.store.select115, i32 noundef %19, i32 noundef %96, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
@@ -885,7 +885,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   br i1 %.not102, label %110, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %20, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %11, align 4
   %103 = load i32, ptr %12, align 4
@@ -899,7 +899,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   br label %110
 
 110:                                              ; preds = %64, %75, %79, %71, %97, %99, %85, %93, %89
-  %111 = getelementptr inbounds i8, ptr %29, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %112 = load ptr, ptr %111, align 8
   %.not106 = icmp eq ptr %112, null
   br i1 %.not106, label %114, label %113
@@ -909,7 +909,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   br label %114
 
 114:                                              ; preds = %56, %60, %110, %113
-  %115 = getelementptr inbounds i8, ptr %29, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %116 = load ptr, ptr %115, align 8
   %.not107 = icmp eq ptr %116, null
   br i1 %.not107, label %118, label %117

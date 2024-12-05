@@ -102,7 +102,7 @@ entry:
   %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
   %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds i8, ptr %call, i64 256
+  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
   store ptr %mu_.i, ptr %l.i, align 8
   %0 = load atomic i32, ptr %mu_.i monotonic, align 4
   %and.i.i.i.i.i = and i32 %0, 1
@@ -122,15 +122,15 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13base_inte
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds i8, ptr %call, i64 280
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %4 = load i64, ptr %next_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %4, 63
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
+  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
+  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   %6 = load ptr, ptr %impl_.i.i, align 8
@@ -226,14 +226,14 @@ for.body.i:                                       ; preds = %if.then.i.i, %_ZN4a
   %5 = inttoptr i64 %sub.i.i to ptr
   %cond.i.i = select i1 %cmp.i.i3, ptr %call.i.i, ptr %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, i8 0, i64 288, i1 false)
-  %mu_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 256
+  %mu_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 256
   store i32 2, ptr %mu_.i.i.i, align 64
-  %impl_.i.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 264
+  %impl_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 264
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
-  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %i.07.i
   store ptr %cond.i.i, ptr %arrayidx.i, align 8
   %mul.i = shl nuw nsw i64 %i.07.i, 6
-  %arrayidx5.i = getelementptr inbounds [512 x i32], ptr %seed_material.i, i64 0, i64 %mul.i
+  %arrayidx5.i = getelementptr inbounds nuw [512 x i32], ptr %seed_material.i, i64 0, i64 %mul.i
   %6 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
   %and.i.i.i.i.i.i = and i32 %6, 1
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -253,7 +253,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_inte
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
-  %next_.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 280
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 280
   store i64 64, ptr %next_.i.i, align 8
   %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64
   %and.i.i.i.i = and i32 %10, 2
@@ -310,7 +310,7 @@ _ZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEv.exit: ; preds = %_ZN4absl9ca
 define internal fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly %out, i64 noundef %bytes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %l = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 256
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   store ptr %mu_, ptr %l, align 8
   %0 = load atomic i32, ptr %mu_ monotonic, align 8
   %and.i.i.i.i = and i32 %0, 1
@@ -334,9 +334,9 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4a
   br i1 %cmp.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
-  %next_.i = getelementptr inbounds i8, ptr %this, i64 280
-  %impl_.i = getelementptr inbounds i8, ptr %this, i64 264
-  %has_crypto_.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 280
+  %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 264
+  %has_crypto_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %.pre = load i64, ptr %next_.i, align 8
   br label %while.body
 
@@ -439,7 +439,7 @@ entry:
   %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
   %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds i8, ptr %call, i64 256
+  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
   store ptr %mu_.i, ptr %l.i, align 8
   %0 = load atomic i32, ptr %mu_.i monotonic, align 4
   %and.i.i.i.i.i = and i32 %0, 1
@@ -459,15 +459,15 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13base_inte
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds i8, ptr %call, i64 280
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %4 = load i64, ptr %next_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %4, 63
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
+  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
+  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   %6 = load ptr, ptr %impl_.i.i, align 8
@@ -557,7 +557,7 @@ entry:
   %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
   %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds i8, ptr %call, i64 256
+  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
   store ptr %mu_.i, ptr %l.i, align 8
   %0 = load atomic i32, ptr %mu_.i monotonic, align 4
   %and.i.i.i.i.i = and i32 %0, 1
@@ -577,15 +577,15 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13base_inte
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i.i = getelementptr inbounds i8, ptr %call, i64 280
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %4 = load i64, ptr %next_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %4, 63
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   store i64 4, ptr %next_.i.i, align 8
-  %impl_.i.i = getelementptr inbounds i8, ptr %call, i64 264
-  %has_crypto_.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
+  %impl_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 264
+  %has_crypto_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %5 to i1
   %6 = load ptr, ptr %impl_.i.i, align 8
@@ -674,7 +674,7 @@ entry:
   %l.i = alloca %"class.absl::base_internal::SpinLockHolder", align 8
   %call = tail call fastcc noundef ptr @_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l.i)
-  %mu_.i = getelementptr inbounds i8, ptr %call, i64 256
+  %mu_.i = getelementptr inbounds nuw i8, ptr %call, i64 256
   store ptr %mu_.i, ptr %l.i, align 8
   %0 = load atomic i32, ptr %mu_.i monotonic, align 4
   %and.i.i.i.i.i = and i32 %0, 1
@@ -694,15 +694,15 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13base_inte
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %if.then.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
-  %next_.i = getelementptr inbounds i8, ptr %call, i64 280
+  %next_.i = getelementptr inbounds nuw i8, ptr %call, i64 280
   %4 = load i64, ptr %next_.i, align 8
   %cmp.i = icmp ugt i64 %4, 62
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
   store i64 4, ptr %next_.i, align 8
-  %impl_.i = getelementptr inbounds i8, ptr %call, i64 264
-  %has_crypto_.i.i = getelementptr inbounds i8, ptr %call, i64 272
+  %impl_.i = getelementptr inbounds nuw i8, ptr %call, i64 264
+  %has_crypto_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   %5 = load i8, ptr %has_crypto_.i.i, align 8
   %tobool.i.i = trunc i8 %5 to i1
   %6 = load ptr, ptr %impl_.i, align 8

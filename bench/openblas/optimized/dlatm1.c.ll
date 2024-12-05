@@ -92,7 +92,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %44 = phi i64 [ 1, %40 ], [ %48, %43 ]
   %45 = load double, ptr %1, align 8, !tbaa !7
   %46 = fdiv double 1.000000e+00, %45
-  %47 = getelementptr inbounds double, ptr %10, i64 %44
+  %47 = getelementptr inbounds nuw double, ptr %10, i64 %44
   store double %46, ptr %47, align 8, !tbaa !7
   %48 = add nuw nsw i64 %44, 1
   %49 = icmp eq i64 %48, %42
@@ -109,7 +109,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 53:                                               ; preds = %53, %50
   %54 = phi i64 [ 1, %50 ], [ %56, %53 ]
-  %55 = getelementptr inbounds double, ptr %10, i64 %54
+  %55 = getelementptr inbounds nuw double, ptr %10, i64 %54
   store double 1.000000e+00, ptr %55, align 8, !tbaa !7
   %56 = add nuw nsw i64 %54, 1
   %57 = icmp eq i64 %56, %52
@@ -119,7 +119,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %58 = load double, ptr %1, align 8, !tbaa !7
   %59 = fdiv double 1.000000e+00, %58
   %60 = zext nneg i32 %11 to i64
-  %61 = getelementptr inbounds double, ptr %10, i64 %60
+  %61 = getelementptr inbounds nuw double, ptr %10, i64 %60
   store double %59, ptr %61, align 8, !tbaa !7
   br label %.loopexit16
 
@@ -167,7 +167,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .loopexit15:                                      ; preds = %.preheader14, %74
   %91 = phi double [ %79, %74 ], [ %89, %.preheader14 ]
-  %92 = getelementptr inbounds double, ptr %10, i64 %75
+  %92 = getelementptr inbounds nuw double, ptr %10, i64 %75
   store double %91, ptr %92, align 8, !tbaa !7
   %93 = add nuw nsw i64 %75, 1
   %94 = icmp eq i64 %93, %73
@@ -195,7 +195,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %108 = sub i32 %11, %107
   %109 = sitofp i32 %108 to double
   %110 = tail call double @llvm.fmuladd.f64(double %109, double %102, double %98)
-  %111 = getelementptr inbounds double, ptr %10, i64 %106
+  %111 = getelementptr inbounds nuw double, ptr %10, i64 %106
   store double %110, ptr %111, align 8, !tbaa !7
   %112 = add nuw nsw i64 %106, 1
   %113 = icmp eq i64 %112, %104
@@ -219,7 +219,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %123 = tail call double @dlaran_(ptr noundef %4) #5
   %124 = fmul double %117, %123
   %125 = tail call double @exp(double noundef %124) #5
-  %126 = getelementptr inbounds double, ptr %10, i64 %122
+  %126 = getelementptr inbounds nuw double, ptr %10, i64 %122
   store double %125, ptr %126, align 8, !tbaa !7
   %127 = add nuw nsw i64 %122, 1
   %exitcond.not = icmp eq i64 %127, %120
@@ -259,7 +259,7 @@ define void @dlatm1_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds double, ptr %10, i64 %138
+  %142 = getelementptr inbounds nuw double, ptr %10, i64 %138
   %143 = load double, ptr %142, align 8, !tbaa !7
   %144 = fneg double %143
   store double %144, ptr %142, align 8, !tbaa !7
@@ -294,7 +294,7 @@ thread-pre-split10:                               ; preds = %133, %thread-pre-sp
 
 158:                                              ; preds = %158, %152
   %159 = phi i64 [ 1, %152 ], [ %165, %158 ]
-  %160 = getelementptr inbounds double, ptr %10, i64 %159
+  %160 = getelementptr inbounds nuw double, ptr %10, i64 %159
   %161 = load double, ptr %160, align 8, !tbaa !7
   %162 = sub nsw i64 %155, %159
   %163 = getelementptr inbounds double, ptr %10, i64 %162

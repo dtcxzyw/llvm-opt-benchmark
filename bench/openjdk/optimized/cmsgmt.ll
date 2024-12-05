@@ -42,13 +42,13 @@ define hidden ptr @_cmsChain2Lab(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 ._crit_edge:                                      ; preds = %.preheader, %.lr.ph.preheader
   %.pre-phi = phi i64 [ %18, %.lr.ph.preheader ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds [256 x ptr], ptr %10, i64 0, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw [256 x ptr], ptr %10, i64 0, i64 %.pre-phi
   store ptr %16, ptr %21, align 8
-  %22 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %.pre-phi
+  %22 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %.pre-phi
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds [256 x double], ptr %12, i64 0, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [256 x double], ptr %12, i64 0, i64 %.pre-phi
   store double 1.000000e+00, ptr %23, align 8
-  %24 = getelementptr inbounds [256 x i32], ptr %13, i64 0, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %.pre-phi
   store i32 1, ptr %24, align 4
   %25 = add nuw nsw i32 %1, 1
   %26 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef null, i32 noundef 0, i32 noundef %2, i32 noundef %3, i32 noundef %8) #6
@@ -76,7 +76,7 @@ define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 nound
 11:                                               ; preds = %8
   %12 = add i32 %2, -1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @cmsGetColorSpace(ptr noundef %15) #6
   %.not40 = icmp eq i32 %16, 1129142603
@@ -94,9 +94,9 @@ define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %22, label %34, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i32, ptr %3, i64 %13
-  %25 = getelementptr inbounds i32, ptr %5, i64 %13
-  %26 = getelementptr inbounds double, ptr %6, i64 %13
+  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %13
+  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %13
+  %26 = getelementptr inbounds nuw double, ptr %6, i64 %13
   %27 = tail call fastcc ptr @ComputeKToLstar(ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef %24, ptr noundef nonnull %14, ptr noundef %25, ptr noundef %26, i32 noundef %7)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.sink.split, label %29
@@ -170,13 +170,13 @@ _cmsChain2Lab.exit.thread:                        ; preds = %8, %16
 
 _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.ph.preheader.i
   %.pre-phi.i = phi i64 [ %19, %.lr.ph.preheader.i ], [ 0, %.preheader.i ]
-  %22 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %.pre-phi.i
+  %22 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %.pre-phi.i
   store ptr %17, ptr %22, align 8
-  %23 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %.pre-phi.i
+  %23 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %.pre-phi.i
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds [256 x double], ptr %11, i64 0, i64 %.pre-phi.i
+  %24 = getelementptr inbounds nuw [256 x double], ptr %11, i64 0, i64 %.pre-phi.i
   store double 1.000000e+00, ptr %24, align 8
-  %25 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %.pre-phi.i
+  %25 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %.pre-phi.i
   store i32 1, ptr %25, align 4
   %26 = add nuw nsw i32 %2, 1
   %27 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, i32 noundef 4587556, i32 noundef 4849688, i32 noundef %7) #6
@@ -198,11 +198,11 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %14, i64 4
-  %34 = getelementptr inbounds i8, ptr %14, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %35 = add i32 %1, -1
   %36 = uitofp i32 %35 to double
-  %37 = getelementptr inbounds i8, ptr %14, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %wide.trip.count = zext i32 %1 to i64
   br label %38
 
@@ -226,7 +226,7 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   %45 = fdiv double %44, 1.000000e+02
   %46 = fsub double 1.000000e+00, %45
   %47 = fptrunc double %46 to float
-  %48 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
   store float %47, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -273,7 +273,7 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr nocapture no
   %18 = tail call i32 @cmsIsMatrixShaper(ptr noundef %6) #6
   %.not = icmp eq i32 %18, 0
   %.sink = select i1 %.not, double 5.000000e+00, double 1.000000e+00
-  %19 = getelementptr inbounds i8, ptr %8, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %.sink, ptr %19, align 8
   %20 = zext nneg i32 %5 to i64
   %21 = shl nuw nsw i64 %20, 3
@@ -282,13 +282,13 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr nocapture no
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 4 %2, i64 %22, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 8 %4, i64 %21, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 4 %3, i64 %22, i1 false)
-  %23 = getelementptr inbounds [256 x ptr], ptr %9, i64 0, i64 %20
+  %23 = getelementptr inbounds nuw [256 x ptr], ptr %9, i64 0, i64 %20
   store ptr %16, ptr %23, align 8
-  %24 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw [256 x i32], ptr %10, i64 0, i64 %20
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds [256 x double], ptr %11, i64 0, i64 %20
+  %25 = getelementptr inbounds nuw [256 x double], ptr %11, i64 0, i64 %20
   store double 1.000000e+00, ptr %25, align 8
-  %26 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %20
   store i32 1, ptr %26, align 4
   %27 = tail call i32 @cmsGetColorSpace(ptr noundef %6) #6
   %28 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %27) #6
@@ -299,10 +299,10 @@ define hidden ptr @_cmsCreateGamutCheckPipeline(ptr noundef %0, ptr nocapture no
   %33 = call ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, i32 noundef %31, i32 noundef 4849688, i32 noundef 64) #6
   store ptr %33, ptr %8, align 8
   %34 = call ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef nonnull %16, i32 noundef 4849688, ptr noundef %6, i32 noundef %31, i32 noundef 1, i32 noundef 64) #6
-  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %34, ptr %35, align 8
   %36 = call ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %6, i32 noundef %31, ptr noundef nonnull %16, i32 noundef 4849688, i32 noundef 1, i32 noundef 64) #6
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %36, ptr %37, align 8
   %38 = icmp ne ptr %33, null
   %39 = icmp ne ptr %34, null
@@ -404,10 +404,10 @@ define internal noundef i32 @GamutSampler(ptr noundef %0, ptr nocapture noundef 
   %9 = alloca [16 x i16], align 16
   %10 = load ptr, ptr %2, align 8
   call void @cmsDoTransform(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #6
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @cmsDoTransform(ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1) #6
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   call void @cmsDoTransform(ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 1) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -417,7 +417,7 @@ define internal noundef i32 @GamutSampler(ptr noundef %0, ptr nocapture noundef 
   call void @cmsDoTransform(ptr noundef %16, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 1) #6
   %17 = call double @cmsDeltaE(ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %18 = call double @cmsDeltaE(ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %17, %20
   %22 = fcmp one double %18, %20
@@ -479,7 +479,7 @@ define hidden double @cmsDetectTAC(ptr noundef %0) local_unnamed_addr #0 {
   %10 = lshr i32 %7, 3
   %11 = and i32 %10, 15
   store i32 %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float 0.000000e+00, ptr %12, align 8
   %13 = tail call ptr @cmsCreateLab4ProfileTHR(ptr noundef %4, ptr noundef null) #6
   %14 = icmp eq ptr %13, null
@@ -487,7 +487,7 @@ define hidden double @cmsDetectTAC(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %9
   %16 = tail call ptr @cmsCreateTransformTHR(ptr noundef %4, ptr noundef nonnull %13, i32 noundef 655386, ptr noundef %0, i32 noundef %7, i32 noundef 0, i32 noundef 320) #6
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %16, ptr %17, align 8
   %18 = tail call i32 @cmsCloseProfile(ptr noundef nonnull %13) #6
   %19 = icmp eq ptr %16, null
@@ -495,9 +495,9 @@ define hidden double @cmsDetectTAC(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %15
   store i32 6, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 74, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 74, ptr %22, align 8
   %23 = call i32 @cmsSliceSpace16(i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull @EstimateTAC, ptr noundef nonnull %2) #6
   %.not14 = icmp eq i32 %23, 0
@@ -528,7 +528,7 @@ declare i32 @cmsSliceSpace16(i32 noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 {
   %4 = alloca [16 x float], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @cmsDoTransform(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #6
   %7 = load i32, ptr %2, align 8
@@ -542,7 +542,7 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.020 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %8 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fadd float %.020, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -550,13 +550,13 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load float, ptr %11, align 8
   %13 = fcmp ogt float %10, %12
   br i1 %13, label %.lr.ph24, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load float, ptr %14, align 8
   %16 = fcmp olt float %15, 0.000000e+00
   br i1 %16, label %.thread, label %.loopexit
@@ -567,16 +567,16 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr nocapture readnone 
 
 .lr.ph24:                                         ; preds = %._crit_edge
   store float %10, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %wide.trip.count30 = zext i32 %7 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph24, %18
   %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %18 ]
-  %19 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv27
+  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv27
   %20 = load i16, ptr %19, align 2
   %21 = uitofp i16 %20 to float
-  %22 = getelementptr inbounds [16 x float], ptr %17, i64 0, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw [16 x float], ptr %17, i64 0, i64 %indvars.iv27
   store float %21, ptr %22, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
@@ -606,7 +606,7 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %15, %2
   %17 = fcmp ogt double %15, %1
@@ -614,7 +614,7 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
   br i1 %or.cond64, label %23, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, %4
   %22 = fcmp ogt double %20, %3
@@ -626,7 +626,7 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load double, ptr %26, align 8
   %28 = fcmp olt double %27, 0.000000e+00
   %29 = select i1 %28, double %4, double %3
@@ -635,11 +635,11 @@ define hidden range(i32 0, 2) i32 @cmsDesaturateLab(ptr noundef %0, double nound
 
 30:                                               ; preds = %23
   call void @cmsLab2LCh(ptr noundef nonnull %6, ptr noundef nonnull %0) #6
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load double, ptr %31, align 8
   %33 = load double, ptr %14, align 8
   %34 = fdiv double %32, %33
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = load double, ptr %35, align 8
   %37 = fcmp oge double %36, 0.000000e+00
   %38 = fcmp olt double %36, 4.500000e+01
@@ -742,10 +742,10 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
   %18 = trunc i64 %indvars.iv to i16
   %19 = mul i16 %18, 257
-  %20 = getelementptr inbounds [256 x [3 x i16]], ptr %3, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %20 = getelementptr inbounds nuw [256 x [3 x i16]], ptr %3, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i16 %19, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %20, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i16 %19, ptr %22, align 2
   store i16 %19, ptr %20, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -760,10 +760,10 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
 
 25:                                               ; preds = %23, %25
   %indvars.iv46 = phi i64 [ 0, %23 ], [ %indvars.iv.next47, %25 ]
-  %26 = getelementptr inbounds [256 x %struct.cmsCIEXYZ], ptr %4, i64 0, i64 %indvars.iv46, i32 1
+  %26 = getelementptr inbounds nuw [256 x %struct.cmsCIEXYZ], ptr %4, i64 0, i64 %indvars.iv46, i32 1
   %27 = load double, ptr %26, align 8
   %28 = fptrunc double %27 to float
-  %29 = getelementptr inbounds [256 x float], ptr %5, i64 0, i64 %indvars.iv46
+  %29 = getelementptr inbounds nuw [256 x float], ptr %5, i64 0, i64 %indvars.iv46
   store float %28, ptr %29, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 256

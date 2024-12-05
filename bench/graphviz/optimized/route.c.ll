@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load double, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fmul double %9, %9
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %10)
@@ -28,9 +28,9 @@ define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2
   %.sroa.0.0.i = select i1 %12, double %13, double %7
   store double %.sroa.0.0.i, ptr %4, align 8
   store double %.sroa.6.0.i, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = load double, ptr %17, align 8
   %19 = fmul double %18, %18
   %20 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %19)
@@ -72,7 +72,7 @@ define range(i32 -1, 1) i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2
 
 36:                                               ; preds = %28
   %37 = load i32, ptr @opl, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %37, ptr %38, align 8
   %39 = load ptr, ptr @ops, align 8
   store ptr %39, ptr %5, align 8
@@ -129,11 +129,11 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %28 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %29 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.Pxy_t, ptr %2, i64 %indvars.iv
   %30 = getelementptr %struct.Pxy_t, ptr %2, i64 %indvars.iv
   %31 = getelementptr i8, ptr %30, i64 -16
   %32 = load double, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load double, ptr %33, align 8
   %35 = load double, ptr %31, align 8
   %36 = getelementptr i8, ptr %30, i64 -8
@@ -143,7 +143,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %40 = tail call double @hypot(double noundef %38, double noundef %39) #9
   %41 = fadd double %28, %40
   %42 = load ptr, ptr @reallyroutespline.tnas, align 8
-  %43 = getelementptr inbounds %struct.tna_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %struct.tna_t, ptr %42, i64 %indvars.iv
   store double %41, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -161,7 +161,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
 46:                                               ; preds = %.lr.ph193, %46
   %indvars.iv215 = phi i64 [ 1, %.lr.ph193 ], [ %indvars.iv.next216, %46 ]
   %47 = load double, ptr %27, align 8
-  %48 = getelementptr inbounds %struct.tna_t, ptr %42, i64 %indvars.iv215
+  %48 = getelementptr inbounds nuw %struct.tna_t, ptr %42, i64 %indvars.iv215
   %49 = load double, ptr %48, align 8
   %50 = fdiv double %49, %47
   store double %50, ptr %48, align 8
@@ -171,8 +171,8 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
 
 51:                                               ; preds = %.lr.ph195, %51
   %indvars.iv220 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next221, %51 ]
-  %52 = getelementptr inbounds %struct.tna_t, ptr %44, i64 %indvars.iv220
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %52 = getelementptr inbounds nuw %struct.tna_t, ptr %44, i64 %indvars.iv220
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load double, ptr %52, align 8
   %55 = fsub double 1.000000e+00, %54
   %56 = fmul double %54, 3.000000e+00
@@ -181,15 +181,15 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %59 = fmul double %4, %58
   %60 = fmul double %5, %58
   store double %59, ptr %53, align 8
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
   store double %60, ptr %.sroa.223.0..sroa_idx, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %62 = fmul double %54, %56
   %63 = fmul double %55, %62
   %64 = fmul double %6, %63
   %65 = fmul double %7, %63
   store double %64, ptr %61, align 8
-  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 32
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 32
   store double %65, ptr %.sroa.221.0..sroa_idx, align 8
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
@@ -197,7 +197,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
 
 .lr.ph.i:                                         ; preds = %51
   %66 = load double, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load double, ptr %67, align 8
   %69 = zext nneg i32 %3 to i64
   %70 = getelementptr %struct.Pxy_t, ptr %2, i64 %69
@@ -214,17 +214,17 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %.sroa.042.0106.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %83, %75 ]
   %.sroa.5.0105.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %119, %75 ]
   %.sroa.037.0104.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %116, %75 ]
-  %76 = getelementptr inbounds %struct.tna_t, ptr %44, i64 %indvars.iv.i
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %76 = getelementptr inbounds nuw %struct.tna_t, ptr %44, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %80 = load double, ptr %79, align 8
   %81 = fmul double %80, %80
   %82 = tail call double @llvm.fmuladd.f64(double %78, double %78, double %81)
   %83 = fadd double %.sroa.042.0106.i, %82
-  %84 = getelementptr inbounds i8, ptr %76, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %76, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %87 = load double, ptr %86, align 8
   %88 = fmul double %80, %87
   %89 = tail call double @llvm.fmuladd.f64(double %78, double %85, double %88)
@@ -232,7 +232,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %91 = fmul double %87, %87
   %92 = tail call double @llvm.fmuladd.f64(double %85, double %85, double %91)
   %93 = fadd double %.sroa.15.0108.i, %92
-  %94 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw %struct.Pxy_t, ptr %2, i64 %indvars.iv.i
   %95 = load double, ptr %76, align 8
   %96 = fsub double 1.000000e+00, %95
   %97 = fmul double %96, %96
@@ -248,7 +248,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %107 = fadd double %100, %105
   %108 = fadd double %101, %106
   %109 = load double, ptr %94, align 8
-  %110 = getelementptr inbounds i8, ptr %94, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %111 = load double, ptr %110, align 8
   %112 = fsub double %109, %107
   %113 = fsub double %111, %108
@@ -299,7 +299,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %137 = getelementptr %struct.Pxy_t, ptr %2, i64 %136
   %138 = getelementptr i8, ptr %137, i64 -16
   %139 = load double, ptr %2, align 8
-  %140 = getelementptr inbounds i8, ptr %2, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %141 = load double, ptr %140, align 8
   %142 = load double, ptr %138, align 8
   %143 = getelementptr i8, ptr %137, i64 -8
@@ -315,7 +315,7 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   %.185.i = phi double [ %132, %._crit_edge118.i ], [ %148, %.thread.i ]
   %.1.i = phi double [ %131, %._crit_edge118.i ], [ %148, %.thread.i ]
   %.sroa.0169.0.copyload = load double, ptr %2, align 8
-  %.sroa.4172.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4172.0.copyload = load double, ptr %.sroa.4172.0..sroa_idx, align 8
   %149 = fmul double %4, %.1.i
   %150 = fmul double %5, %.1.i
@@ -328,18 +328,18 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   %154 = fmul double %7, %.185.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   %155 = icmp eq i32 %3, 2
-  %156 = getelementptr inbounds i8, ptr %13, i64 8
-  %157 = getelementptr inbounds i8, ptr %13, i64 16
-  %158 = getelementptr inbounds i8, ptr %13, i64 24
-  %159 = getelementptr inbounds i8, ptr %13, i64 32
-  %160 = getelementptr inbounds i8, ptr %13, i64 40
-  %161 = getelementptr inbounds i8, ptr %13, i64 48
-  %162 = getelementptr inbounds i8, ptr %13, i64 56
+  %156 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
   %163 = icmp sgt i32 %1, 0
-  %164 = getelementptr inbounds i8, ptr %9, i64 24
-  %165 = getelementptr inbounds i8, ptr %9, i64 16
-  %166 = getelementptr inbounds i8, ptr %9, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %wide.trip.count76.i.i = zext nneg i32 %1 to i64
   br label %167
 
@@ -371,12 +371,12 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
 .lr.ph.i.i:                                       ; preds = %167, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %167 ]
   %.014.i.i = phi double [ %191, %.lr.ph.i.i ], [ 0.000000e+00, %167 ]
-  %180 = getelementptr inbounds %struct.Pxy_t, ptr %13, i64 %indvars.iv.i.i
+  %180 = getelementptr inbounds nuw %struct.Pxy_t, ptr %13, i64 %indvars.iv.i.i
   %181 = load double, ptr %180, align 16
   %182 = getelementptr i8, ptr %180, i64 -16
   %183 = load double, ptr %182, align 16
   %184 = fsub double %181, %183
-  %185 = getelementptr inbounds i8, ptr %180, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %186 = load double, ptr %185, align 8
   %187 = getelementptr i8, ptr %180, i64 -8
   %188 = load double, ptr %187, align 8
@@ -393,12 +393,12 @@ dist_n.exit.i:                                    ; preds = %.lr.ph.i.i
 .lr.ph.i36.i:                                     ; preds = %dist_n.exit.i, %.lr.ph.i36.i
   %indvars.iv.i37.i = phi i64 [ %indvars.iv.next.i39.i, %.lr.ph.i36.i ], [ 1, %dist_n.exit.i ]
   %.014.i38.i = phi double [ %203, %.lr.ph.i36.i ], [ 0.000000e+00, %dist_n.exit.i ]
-  %192 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %indvars.iv.i37.i
+  %192 = getelementptr inbounds nuw %struct.Pxy_t, ptr %2, i64 %indvars.iv.i37.i
   %193 = load double, ptr %192, align 8
   %194 = getelementptr i8, ptr %192, i64 -16
   %195 = load double, ptr %194, align 8
   %196 = fsub double %193, %195
-  %197 = getelementptr inbounds i8, ptr %192, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %198 = load double, ptr %197, align 8
   %199 = getelementptr i8, ptr %192, i64 -8
   %200 = load double, ptr %199, align 8
@@ -443,13 +443,13 @@ dist_n.exit41.i:                                  ; preds = %dist_n.exit41.loope
 
 223:                                              ; preds = %.loopexit.i.i, %.lr.ph65.i.i
   %indvars.iv73.i.i = phi i64 [ 0, %.lr.ph65.i.i ], [ %indvars.iv.next74.i.i, %.loopexit.i.i ]
-  %224 = getelementptr inbounds %struct.Pedge_t, ptr %0, i64 %indvars.iv73.i.i
+  %224 = getelementptr inbounds nuw %struct.Pedge_t, ptr %0, i64 %indvars.iv73.i.i
   %.sroa.0.0.copyload.i.i = load double, ptr %224, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %224, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %224, i64 8
   %.sroa.3.0.copyload.i.i = load double, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %.sroa.5.16.copyload.i.i = load double, ptr %225, align 8
-  %.sroa.8.16..sroa_idx.i.i = getelementptr inbounds i8, ptr %224, i64 24
+  %.sroa.8.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %224, i64 24
   %.sroa.8.16.copyload.i.i = load double, ptr %.sroa.8.16..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -492,7 +492,7 @@ dist_n.exit41.i:                                  ; preds = %dist_n.exit41.loope
 .lr.ph179.i.i.i:                                  ; preds = %addroot.exit.i.i.i, %.lr.ph179.preheader.i.i.i
   %indvars.iv208.i.i.i = phi i64 [ 0, %.lr.ph179.preheader.i.i.i ], [ %indvars.iv.next209.i.i.i, %addroot.exit.i.i.i ]
   %.0142177.i.i.i = phi i32 [ 0, %.lr.ph179.preheader.i.i.i ], [ %.10.i.i.i, %addroot.exit.i.i.i ]
-  %240 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv208.i.i.i
+  %240 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv208.i.i.i
   %241 = load double, ptr %240, align 8
   %242 = fcmp oge double %241, 0.000000e+00
   %243 = fcmp ole double %241, 1.000000e+00
@@ -529,7 +529,7 @@ addroot.exit.i.i.i:                               ; preds = %244, %.lr.ph179.i.i
 .preheader148.us.i.i.i:                           ; preds = %._crit_edge.us.i.i.i, %.preheader148.us.preheader.i.i.i
   %indvars.iv198.i.i.i = phi i64 [ 0, %.preheader148.us.preheader.i.i.i ], [ %indvars.iv.next199.i.i.i, %._crit_edge.us.i.i.i ]
   %.3145165.us.i.i.i = phi i32 [ 0, %.preheader148.us.preheader.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ]
-  %251 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv198.i.i.i
+  %251 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv198.i.i.i
   %252 = load double, ptr %251, align 8
   %253 = fcmp oge double %252, 0.000000e+00
   %254 = fcmp ole double %252, 1.000000e+00
@@ -546,7 +546,7 @@ addroot.exit.i.i.i:                               ; preds = %244, %.lr.ph179.i.i
 .lr.ph163.split.us.us.i.i.i:                      ; preds = %.preheader148.us.i.i.i, %addroot.exit125.us.us.i.i.i
   %indvars.iv193.i.i.i = phi i64 [ %indvars.iv.next194.i.i.i, %addroot.exit125.us.us.i.i.i ], [ 0, %.preheader148.us.i.i.i ]
   %.4161.us.us.i.i.i = phi i32 [ %.5.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ], [ %.3145165.us.i.i.i, %.preheader148.us.i.i.i ]
-  %255 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv193.i.i.i
+  %255 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv193.i.i.i
   %256 = load double, ptr %255, align 8
   %257 = fcmp oeq double %252, %256
   br i1 %257, label %258, label %addroot.exit125.us.us.i.i.i
@@ -574,7 +574,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %258, %.lr.ph163.spl
 .lr.ph175.i.i.i:                                  ; preds = %addroot.exit123.i.i.i, %.lr.ph175.preheader.i.i.i
   %indvars.iv203.i.i.i = phi i64 [ 0, %.lr.ph175.preheader.i.i.i ], [ %indvars.iv.next204.i.i.i, %addroot.exit123.i.i.i ]
   %.2144173.i.i.i = phi i32 [ 0, %.lr.ph175.preheader.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ]
-  %262 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv203.i.i.i
+  %262 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv203.i.i.i
   %263 = load double, ptr %262, align 8
   %264 = fcmp oge double %263, 0.000000e+00
   %265 = fcmp ole double %263, 1.000000e+00
@@ -607,7 +607,7 @@ addroot.exit123.i.i.i:                            ; preds = %266, %.lr.ph175.i.i
 273:                                              ; preds = %289, %.lr.ph159.i.i.i
   %indvars.iv188.i.i.i = phi i64 [ 0, %.lr.ph159.i.i.i ], [ %indvars.iv.next189.i.i.i, %289 ]
   %.6157.i.i.i = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %.7.i.i.i, %289 ]
-  %274 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv188.i.i.i
+  %274 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv188.i.i.i
   %275 = load double, ptr %274, align 8
   %276 = fcmp oge double %275, 0.000000e+00
   %277 = fcmp ole double %275, 1.000000e+00
@@ -673,7 +673,7 @@ addroot.exit127.i.i.i:                            ; preds = %278
 .lr.ph.i.i.i:                                     ; preds = %326, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %326 ]
   %.8155.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.9.i.i.i, %326 ]
-  %311 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv.i.i.i
+  %311 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv.i.i.i
   %312 = load double, ptr %311, align 8
   %313 = fcmp oge double %312, 0.000000e+00
   %314 = fcmp ole double %312, 1.000000e+00
@@ -720,7 +720,7 @@ splineintersectsline.exit.i.i:                    ; preds = %326, %289, %addroot
 
 .lr.ph.i44.i:                                     ; preds = %363, %.lr.ph.preheader.i42.i
   %indvars.iv.i45.i = phi i64 [ 0, %.lr.ph.preheader.i42.i ], [ %indvars.iv.next.i46.i, %363 ]
-  %329 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %indvars.iv.i45.i
+  %329 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %indvars.iv.i45.i
   %330 = load double, ptr %329, align 8
   %331 = fcmp olt double %330, 0x3EB0C6F7A0B5ED8D
   %332 = fcmp ogt double %330, 0x3FEFFFFDE7210BE9
@@ -806,11 +806,11 @@ growops.exit.i:                                   ; preds = %371, %.loopexit.i
 374:                                              ; preds = %374, %growops.exit.i
   %indvars.iv86.i = phi i64 [ %373, %growops.exit.i ], [ %indvars.iv.next87.i, %374 ]
   %indvars.iv84.i = phi i64 [ 1, %growops.exit.i ], [ %indvars.iv.next85.i, %374 ]
-  %375 = getelementptr inbounds [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv84.i
+  %375 = getelementptr inbounds nuw [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv84.i
   %376 = load double, ptr %375, align 16
   %377 = getelementptr inbounds %struct.Pxy_t, ptr %372, i64 %indvars.iv86.i
   store double %376, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %375, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %379 = load double, ptr %378, align 8
   %indvars.iv.next87.i = add nsw i64 %indvars.iv86.i, 1
   %380 = getelementptr inbounds %struct.Pxy_t, ptr %372, i64 %indvars.iv86.i, i32 1
@@ -855,11 +855,11 @@ growops.exit52.i:                                 ; preds = %392, %384
 395:                                              ; preds = %395, %growops.exit52.i
   %indvars.iv79.i = phi i64 [ %394, %growops.exit52.i ], [ %indvars.iv.next80.i, %395 ]
   %indvars.iv.i129 = phi i64 [ 1, %growops.exit52.i ], [ %indvars.iv.next.i130, %395 ]
-  %396 = getelementptr inbounds [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv.i129
+  %396 = getelementptr inbounds nuw [4 x %struct.Pxy_t], ptr %13, i64 0, i64 %indvars.iv.i129
   %397 = load double, ptr %396, align 16
   %398 = getelementptr inbounds %struct.Pxy_t, ptr %393, i64 %indvars.iv79.i
   store double %397, ptr %398, align 8
-  %399 = getelementptr inbounds i8, ptr %396, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %400 = load double, ptr %399, align 8
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, 1
   %401 = getelementptr inbounds %struct.Pxy_t, ptr %393, i64 %indvars.iv79.i, i32 1
@@ -908,7 +908,7 @@ splinefits.exit:                                  ; preds = %395, %374
   %.0116198 = phi double [ -1.000000e+00, %.lr.ph200.preheader ], [ %.1, %.lr.ph200 ]
   %.0117197 = phi i32 [ -1, %.lr.ph200.preheader ], [ %.1118, %.lr.ph200 ]
   %416 = load ptr, ptr @reallyroutespline.tnas, align 8
-  %417 = getelementptr inbounds %struct.tna_t, ptr %416, i64 %indvars.iv225
+  %417 = getelementptr inbounds nuw %struct.tna_t, ptr %416, i64 %indvars.iv225
   %418 = load double, ptr %417, align 8
   %419 = fsub double 1.000000e+00, %418
   %420 = fmul double %419, %419
@@ -928,9 +928,9 @@ splinefits.exit:                                  ; preds = %395, %374
   %434 = call double @llvm.fmuladd.f64(double %421, double %.sroa.4172.0.copyload, double %433)
   %435 = call double @llvm.fmuladd.f64(double %428, double %413, double %434)
   %436 = call double @llvm.fmuladd.f64(double %431, double %.sroa.4.0.copyload, double %435)
-  %437 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %indvars.iv225
+  %437 = getelementptr inbounds nuw %struct.Pxy_t, ptr %2, i64 %indvars.iv225
   %438 = load double, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %437, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %437, i64 8
   %440 = load double, ptr %439, align 8
   %441 = fsub double %438, %432
   %442 = fsub double %440, %436
@@ -949,7 +949,7 @@ splinefits.exit:                                  ; preds = %395, %374
   %447 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %446
   %448 = getelementptr i8, ptr %447, i64 -16
   %449 = load double, ptr %447, align 8
-  %450 = getelementptr inbounds i8, ptr %447, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %451 = load double, ptr %450, align 8
   %452 = load double, ptr %448, align 8
   %453 = getelementptr i8, ptr %447, i64 -8
@@ -968,7 +968,7 @@ splinefits.exit:                                  ; preds = %395, %374
   %463 = sext i32 %462 to i64
   %464 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %463
   %465 = load double, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %464, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %467 = load double, ptr %466, align 8
   %468 = fsub double %465, %449
   %469 = fsub double %467, %451

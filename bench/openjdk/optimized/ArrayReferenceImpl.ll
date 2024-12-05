@@ -61,7 +61,7 @@ define internal noundef zeroext i8 @length(ptr noundef %0, ptr noundef %1) #0 {
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
   %.not8 = icmp eq i32 %10, 0
@@ -74,7 +74,7 @@ define internal noundef zeroext i8 @length(ptr noundef %0, ptr noundef %1) #0 {
 
 12:                                               ; preds = %6, %11
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %3, ptr noundef %4) #4
   %17 = tail call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %16) #4
@@ -107,7 +107,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gdata, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %.not44 = icmp eq i32 %17, 0
@@ -120,7 +120,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 19:                                               ; preds = %13, %18
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1368
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %4, ptr noundef %5) #4
   %24 = icmp eq i32 %11, -1
@@ -150,7 +150,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
   tail call void @createLocalRefSpace(ptr noundef nonnull %4, i32 noundef 1) #4
   store ptr null, ptr %3, align 8
   %34 = load ptr, ptr @gdata, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 528
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 528
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 2
   %.not46 = icmp eq i32 %37, 0
@@ -163,7 +163,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 39:                                               ; preds = %33, %38
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 248
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 248
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %4, ptr noundef %5) #4
   %44 = call i32 @classSignature(ptr noundef %43, ptr noundef nonnull %3, ptr noundef null) #4
@@ -179,7 +179,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 49:                                               ; preds = %46, %39
   %50 = load ptr, ptr @gdata, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 528
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 528
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 2
   %.not47 = icmp eq i32 %53, 0
@@ -192,11 +192,11 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 55:                                               ; preds = %49, %54
   %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %4, ptr noundef null) #4
   %60 = load ptr, ptr @gdata, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 528
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 528
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 2
   %.not48 = icmp eq i32 %63, 0
@@ -209,7 +209,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 65:                                               ; preds = %55, %64
   %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr %68(ptr noundef nonnull %4) #4
   %.not49 = icmp eq ptr %69, null
@@ -218,7 +218,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 70:                                               ; preds = %65
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext 113) #4
   %71 = load ptr, ptr @gdata, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 528
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 528
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2
   %.not50 = icmp eq i32 %74, 0
@@ -231,7 +231,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
 
 76:                                               ; preds = %70, %75
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %4) #4
   br label %80
@@ -263,7 +263,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gdata, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %.not42 = icmp eq i32 %17, 0
@@ -276,7 +276,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 19:                                               ; preds = %13, %18
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1368
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %4, ptr noundef %5) #4
   %24 = icmp sgt i32 %8, -1
@@ -303,7 +303,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
   tail call void @createLocalRefSpace(ptr noundef nonnull %4, i32 noundef 1) #4
   store ptr null, ptr %3, align 8
   %32 = load ptr, ptr @gdata, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 528
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2
   %.not44 = icmp eq i32 %35, 0
@@ -316,7 +316,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 37:                                               ; preds = %31, %36
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 248
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 248
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %4, ptr noundef %5) #4
   %42 = call i32 @classSignature(ptr noundef %41, ptr noundef nonnull %3, ptr noundef null) #4
@@ -333,7 +333,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 48:                                               ; preds = %44, %37
   %.038 = phi i16 [ %46, %44 ], [ 0, %37 ]
   %49 = load ptr, ptr @gdata, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 528
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 528
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 2
   %.not45 = icmp eq i32 %52, 0
@@ -346,11 +346,11 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 54:                                               ; preds = %48, %53
   %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 160
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr %57(ptr noundef nonnull %4, ptr noundef null) #4
   %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 2
   %.not46 = icmp eq i32 %62, 0
@@ -363,7 +363,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 64:                                               ; preds = %54, %63
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr %67(ptr noundef nonnull %4) #4
   %.not47 = icmp eq ptr %68, null
@@ -371,7 +371,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr @gdata, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 528
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 528
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 2
   %.not48 = icmp eq i32 %73, 0
@@ -384,7 +384,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
 
 75:                                               ; preds = %69, %74
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull %4) #4
   br label %79
@@ -426,7 +426,7 @@ define internal fastcc void @writeComponents(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not.i, label %jdwpTag.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 17
   %11 = load i8, ptr %10, align 1
   %.not13.i = icmp eq i8 %11, 0
   br i1 %.not13.i, label %jdwpTag.exit, label %12
@@ -449,7 +449,7 @@ switch.hole_check:                                ; preds = %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.writeComponents, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.writeComponents, i64 0, i64 %16
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %6, %9, %15, %switch.lookup
@@ -462,7 +462,7 @@ jdwpTag.exit:                                     ; preds = %6, %9, %15, %switch
   br i1 %.not.i53, label %isReferenceTag.exit, label %21
 
 21:                                               ; preds = %jdwpTag.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 17
   %23 = load i8, ptr %22, align 1
   %.fr.i = freeze i8 %23
   %24 = icmp eq i8 %.fr.i, 0
@@ -509,7 +509,7 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
 .lr.ph.i:                                         ; preds = %26, %48
   %.022.i = phi i32 [ %52, %48 ], [ 0, %26 ]
   %27 = load ptr, ptr @gdata, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 528
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 2
   %.not.i54 = icmp eq i32 %30, 0
@@ -522,12 +522,12 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
 
 32:                                               ; preds = %31, %.lr.ph.i
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1384
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1384
   %35 = load ptr, ptr %34, align 8
   %36 = add nuw nsw i32 %.022.i, %4
   %37 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %36) #4
   %38 = load ptr, ptr @gdata, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 528
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 528
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 2
   %.not19.i = icmp eq i32 %41, 0
@@ -540,7 +540,7 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
 
 43:                                               ; preds = %42, %32
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0) #4
   %.not20.i = icmp eq ptr %47, null
@@ -556,7 +556,7 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
 
 ._crit_edge.i:                                    ; preds = %48, %43, %26
   %53 = load ptr, ptr @gdata, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 528
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 528
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 2
   %.not21.i = icmp eq i32 %56, 0
@@ -569,7 +569,7 @@ isReferenceTag.exit:                              ; preds = %jdwpTag.exit, %21, 
 
 writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 160
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef null) #4
   br label %writeByteComponents.exit
@@ -591,7 +591,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %68 = zext nneg i32 %5 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %64, i8 0, i64 %68, i1 false)
   %69 = load ptr, ptr @gdata, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 528
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 528
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 2
   %.not16.i = icmp eq i32 %72, 0
@@ -604,14 +604,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 74:                                               ; preds = %73, %67
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1600
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1600
   %77 = load ptr, ptr %76, align 8
   tail call void %77(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %64) #4
   br label %78
 
 78:                                               ; preds = %78, %74
   %indvars.iv.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i, %78 ]
-  %79 = getelementptr inbounds i8, ptr %64, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 %indvars.iv.i
   %80 = load i8, ptr %79, align 1
   %81 = tail call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %80) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -640,7 +640,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %90 = zext i32 %85 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 0, i64 %90, i1 false)
   %91 = load ptr, ptr @gdata, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 528
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 528
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 2
   %.not16.i57 = icmp eq i32 %94, 0
@@ -653,7 +653,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 96:                                               ; preds = %95, %89
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1608
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1608
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %86) #4
   %wide.trip.count.i58 = zext nneg i32 %5 to i64
@@ -661,7 +661,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 100:                                              ; preds = %100, %96
   %indvars.iv.i59 = phi i64 [ 0, %96 ], [ %indvars.iv.next.i60, %100 ]
-  %101 = getelementptr inbounds i16, ptr %86, i64 %indvars.iv.i59
+  %101 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i59
   %102 = load i16, ptr %101, align 2
   %103 = tail call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %102) #4
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
@@ -691,7 +691,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %113 = shl nuw nsw i64 %112, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %108, i8 0, i64 %113, i1 false)
   %114 = load ptr, ptr @gdata, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 528
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 528
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 2
   %.not16.i63 = icmp eq i32 %117, 0
@@ -704,14 +704,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 119:                                              ; preds = %118, %111
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1640
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1640
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %108) #4
   br label %123
 
 123:                                              ; preds = %123, %119
   %indvars.iv.i65 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i66, %123 ]
-  %124 = getelementptr inbounds float, ptr %108, i64 %indvars.iv.i65
+  %124 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i65
   %125 = load float, ptr %124, align 4
   %126 = tail call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %125) #4
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
@@ -741,7 +741,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %136 = shl nuw nsw i64 %135, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %131, i8 0, i64 %136, i1 false)
   %137 = load ptr, ptr @gdata, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 528
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 528
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 2
   %.not16.i69 = icmp eq i32 %140, 0
@@ -754,14 +754,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 142:                                              ; preds = %141, %134
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 1648
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1648
   %145 = load ptr, ptr %144, align 8
   tail call void %145(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %131) #4
   br label %146
 
 146:                                              ; preds = %146, %142
   %indvars.iv.i71 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i72, %146 ]
-  %147 = getelementptr inbounds double, ptr %131, i64 %indvars.iv.i71
+  %147 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv.i71
   %148 = load double, ptr %147, align 8
   %149 = tail call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %148) #4
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
@@ -791,7 +791,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %159 = shl nuw nsw i64 %158, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %154, i8 0, i64 %159, i1 false)
   %160 = load ptr, ptr @gdata, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 528
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 528
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, 2
   %.not16.i75 = icmp eq i32 %163, 0
@@ -804,14 +804,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 165:                                              ; preds = %164, %157
   %166 = load ptr, ptr %0, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 1624
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1624
   %168 = load ptr, ptr %167, align 8
   tail call void %168(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %154) #4
   br label %169
 
 169:                                              ; preds = %169, %165
   %indvars.iv.i77 = phi i64 [ 0, %165 ], [ %indvars.iv.next.i78, %169 ]
-  %170 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv.i77
+  %170 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv.i77
   %171 = load i32, ptr %170, align 4
   %172 = tail call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %171) #4
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
@@ -841,7 +841,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %182 = shl nuw nsw i64 %181, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %177, i8 0, i64 %182, i1 false)
   %183 = load ptr, ptr @gdata, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 528
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 528
   %185 = load i32, ptr %184, align 8
   %186 = and i32 %185, 2
   %.not16.i81 = icmp eq i32 %186, 0
@@ -854,14 +854,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 188:                                              ; preds = %187, %180
   %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 1632
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 1632
   %191 = load ptr, ptr %190, align 8
   tail call void %191(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %177) #4
   br label %192
 
 192:                                              ; preds = %192, %188
   %indvars.iv.i83 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i84, %192 ]
-  %193 = getelementptr inbounds i64, ptr %177, i64 %indvars.iv.i83
+  %193 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i83
   %194 = load i64, ptr %193, align 8
   %195 = tail call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %194) #4
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -890,7 +890,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %204 = zext i32 %199 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %200, i8 0, i64 %204, i1 false)
   %205 = load ptr, ptr @gdata, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 528
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 528
   %207 = load i32, ptr %206, align 8
   %208 = and i32 %207, 2
   %.not16.i87 = icmp eq i32 %208, 0
@@ -903,7 +903,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 210:                                              ; preds = %209, %203
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 1616
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 1616
   %213 = load ptr, ptr %212, align 8
   tail call void %213(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %200) #4
   %wide.trip.count.i88 = zext nneg i32 %5 to i64
@@ -911,7 +911,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 214:                                              ; preds = %214, %210
   %indvars.iv.i89 = phi i64 [ 0, %210 ], [ %indvars.iv.next.i90, %214 ]
-  %215 = getelementptr inbounds i16, ptr %200, i64 %indvars.iv.i89
+  %215 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv.i89
   %216 = load i16, ptr %215, align 2
   %217 = tail call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %216) #4
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
@@ -939,7 +939,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
   %225 = zext nneg i32 %5 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %221, i8 0, i64 %225, i1 false)
   %226 = load ptr, ptr @gdata, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 528
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 528
   %228 = load i32, ptr %227, align 8
   %229 = and i32 %228, 2
   %.not16.i93 = icmp eq i32 %229, 0
@@ -952,14 +952,14 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 231:                                              ; preds = %230, %224
   %232 = load ptr, ptr %0, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 1592
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 1592
   %234 = load ptr, ptr %233, align 8
   tail call void %234(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 0, 2147483647) %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %221) #4
   br label %235
 
 235:                                              ; preds = %235, %231
   %indvars.iv.i95 = phi i64 [ 0, %231 ], [ %indvars.iv.next.i96, %235 ]
-  %236 = getelementptr inbounds i8, ptr %221, i64 %indvars.iv.i95
+  %236 = getelementptr inbounds nuw i8, ptr %221, i64 %indvars.iv.i95
   %237 = load i8, ptr %236, align 1
   %238 = tail call zeroext i16 @outStream_writeBoolean(ptr noundef %1, i8 noundef zeroext %237) #4
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
@@ -1027,7 +1027,7 @@ jdwpTag.exit.thread:                              ; preds = %6
   br label %isReferenceTag.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %16, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 17
   %20 = load i8, ptr %19, align 1
   %.not13.i = icmp eq i8 %20, 0
   %.pr106118 = load i8, ptr %15, align 1
@@ -1058,7 +1058,7 @@ jdwpTag.exit:                                     ; preds = %21
 jdwpTag.exit.thread112:                           ; preds = %18, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %jdwpTag.exit
   %22 = phi i8 [ %.pr106, %jdwpTag.exit ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %21 ], [ %.pr106118, %18 ]
   %.pr115 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %21 ], [ %16, %18 ]
-  %23 = getelementptr inbounds i8, ptr %.pr115, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %.pr115, i64 17
   %24 = load i8, ptr %23, align 1
   %.fr.i = freeze i8 %24
   %25 = icmp eq i8 %.fr.i, 0
@@ -1081,7 +1081,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.readComponents, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.readComponents, i64 0, i64 %28
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit
 
@@ -1108,7 +1108,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %.014.i = phi i32 [ %52, %47 ], [ 0, %30 ]
   %31 = tail call ptr @inStream_readObjectRef(ptr noundef %0, ptr noundef %1) #4
   %32 = load ptr, ptr @gdata, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 528
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2
   %.not.i56 = icmp eq i32 %35, 0
@@ -1121,12 +1121,12 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 37:                                               ; preds = %36, %.lr.ph.i
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1392
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1392
   %40 = load ptr, ptr %39, align 8
   %41 = add nuw nsw i32 %.014.i, %4
   tail call void %40(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %41, ptr noundef %31) #4
   %42 = load ptr, ptr @gdata, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 528
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 528
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 2
   %.not12.i = icmp eq i32 %45, 0
@@ -1139,7 +1139,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 47:                                               ; preds = %46, %37
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %0) #4
   %.not13.i57 = icmp ne ptr %51, null
@@ -1163,7 +1163,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %56 = call signext i8 @inStream_readByte(ptr noundef %1) #4
   store i8 %56, ptr %14, align 1
   %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 2
   %.not10.i = icmp eq i32 %60, 0
@@ -1176,7 +1176,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 62:                                               ; preds = %61, %55
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1664
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1664
   %65 = load ptr, ptr %64, align 8
   %66 = add nuw nsw i32 %.011.i, %4
   call void %65(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %66, i32 noundef 1, ptr noundef nonnull %14) #4
@@ -1204,7 +1204,7 @@ readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %5
   %72 = call zeroext i16 @inStream_readChar(ptr noundef %1) #4
   store i16 %72, ptr %13, align 2
   %73 = load ptr, ptr @gdata, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 528
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 528
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 2
   %.not10.i66 = icmp eq i32 %76, 0
@@ -1217,7 +1217,7 @@ readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %5
 
 78:                                               ; preds = %77, %71
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1672
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1672
   %81 = load ptr, ptr %80, align 8
   %82 = add nuw nsw i32 %.011.i64, %4
   call void %81(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %13) #4
@@ -1245,7 +1245,7 @@ readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %6
   %88 = call float @inStream_readFloat(ptr noundef %1) #4
   store float %88, ptr %12, align 4
   %89 = load ptr, ptr @gdata, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 528
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 528
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 2
   %.not10.i72 = icmp eq i32 %92, 0
@@ -1258,7 +1258,7 @@ readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %6
 
 94:                                               ; preds = %93, %87
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1704
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1704
   %97 = load ptr, ptr %96, align 8
   %98 = add nuw nsw i32 %.011.i70, %4
   call void %97(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %98, i32 noundef 1, ptr noundef nonnull %12) #4
@@ -1286,7 +1286,7 @@ readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %8
   %104 = call double @inStream_readDouble(ptr noundef %1) #4
   store double %104, ptr %11, align 8
   %105 = load ptr, ptr @gdata, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 528
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 528
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 2
   %.not10.i78 = icmp eq i32 %108, 0
@@ -1299,7 +1299,7 @@ readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %8
 
 110:                                              ; preds = %109, %103
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1712
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1712
   %113 = load ptr, ptr %112, align 8
   %114 = add nuw nsw i32 %.011.i76, %4
   call void %113(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %114, i32 noundef 1, ptr noundef nonnull %11) #4
@@ -1327,7 +1327,7 @@ readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %
   %120 = call i32 @inStream_readInt(ptr noundef %1) #4
   store i32 %120, ptr %10, align 4
   %121 = load ptr, ptr @gdata, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 528
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 528
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 2
   %.not10.i84 = icmp eq i32 %124, 0
@@ -1340,7 +1340,7 @@ readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %
 
 126:                                              ; preds = %125, %119
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1688
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1688
   %129 = load ptr, ptr %128, align 8
   %130 = add nuw nsw i32 %.011.i82, %4
   call void %129(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %130, i32 noundef 1, ptr noundef nonnull %10) #4
@@ -1368,7 +1368,7 @@ readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %
   %136 = call i64 @inStream_readLong(ptr noundef %1) #4
   store i64 %136, ptr %9, align 8
   %137 = load ptr, ptr @gdata, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 528
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 528
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 2
   %.not10.i90 = icmp eq i32 %140, 0
@@ -1381,7 +1381,7 @@ readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %
 
 142:                                              ; preds = %141, %135
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 1696
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1696
   %145 = load ptr, ptr %144, align 8
   %146 = add nuw nsw i32 %.011.i88, %4
   call void %145(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %146, i32 noundef 1, ptr noundef nonnull %9) #4
@@ -1409,7 +1409,7 @@ readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %
   %152 = call signext i16 @inStream_readShort(ptr noundef %1) #4
   store i16 %152, ptr %8, align 2
   %153 = load ptr, ptr @gdata, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 528
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 528
   %155 = load i32, ptr %154, align 8
   %156 = and i32 %155, 2
   %.not10.i96 = icmp eq i32 %156, 0
@@ -1422,7 +1422,7 @@ readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %
 
 158:                                              ; preds = %157, %151
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1680
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1680
   %161 = load ptr, ptr %160, align 8
   %162 = add nuw nsw i32 %.011.i94, %4
   call void %161(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %162, i32 noundef 1, ptr noundef nonnull %8) #4
@@ -1450,7 +1450,7 @@ readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %
   %168 = call zeroext i8 @inStream_readBoolean(ptr noundef %1) #4
   store i8 %168, ptr %7, align 1
   %169 = load ptr, ptr @gdata, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 528
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 528
   %171 = load i32, ptr %170, align 8
   %172 = and i32 %171, 2
   %.not10.i102 = icmp eq i32 %172, 0
@@ -1463,7 +1463,7 @@ readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %
 
 174:                                              ; preds = %173, %167
   %175 = load ptr, ptr %0, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 1656
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1656
   %177 = load ptr, ptr %176, align 8
   %178 = add nuw nsw i32 %.011.i100, %4
   call void %177(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %178, i32 noundef 1, ptr noundef nonnull %7) #4
@@ -1478,7 +1478,7 @@ readBooleanComponents.exit:                       ; preds = %.lr.ph.i99, %174, %
 
 181:                                              ; preds = %isReferenceTag.exit
   %182 = load ptr, ptr @gdata, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 528
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 528
   %184 = load i32, ptr %183, align 8
   %185 = and i32 %184, 128
   %.not54 = icmp eq i32 %185, 0

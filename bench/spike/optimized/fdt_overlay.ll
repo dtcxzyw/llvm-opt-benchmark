@@ -113,7 +113,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   %50 = sub i32 %41, %49
   store i32 %50, ptr %6, align 4
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds i8, ptr %.042.i.i, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 %51
   %53 = and i64 %47, 4294967295
   %54 = call ptr @memchr(ptr noundef %.042.i.i, i32 noundef 58, i64 noundef %53) #9
   %.not52.i.i = icmp eq ptr %54, null
@@ -135,7 +135,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
 63:                                               ; preds = %57
   %.neg.i.i = xor i64 %59, -1
   %64 = add i64 %47, %.neg.i.i
-  %65 = getelementptr inbounds i8, ptr %54, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %66 = and i64 %64, 4294967295
   %67 = call ptr @memchr(ptr noundef nonnull %65, i32 noundef 58, i64 noundef %66) #9
   %.not54.i.i = icmp eq ptr %67, null
@@ -155,7 +155,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   br i1 %.not56.i.i, label %overlay_fixup_phandle.exit.thread.i, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %67, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %77 = call i64 @strtoul(ptr noundef nonnull %76, ptr noundef nonnull %7, i32 noundef 10) #8
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %7, align 8
@@ -369,7 +369,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %.not112, label %31, label %.loopexit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %20, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 47) #9
   %.not113 = icmp eq ptr %33, null
   br i1 %.not113, label %.thread, label %34
@@ -391,7 +391,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %33, i64 13
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 13
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %40, %47
   %49 = trunc i64 %48 to i32
@@ -537,7 +537,7 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
   %112 = sext i32 %.1 to i64
   %113 = getelementptr inbounds i8, ptr %100, i64 %112
   store i8 47, ptr %113, align 1
-  %114 = getelementptr inbounds i8, ptr %113, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %115 = sext i32 %.094 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %.089, i64 %115, i1 false)
   %116 = sext i32 %.pre-phi to i64
@@ -712,11 +712,11 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %rev.i = call noundef i32 @llvm.bswap.i32(i32 %23)
   %24 = zext i32 %rev.i to i64
-  %25 = getelementptr inbounds i8, ptr %17, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %24
   %26 = load i32, ptr %25, align 1
   %rev.i57 = call noundef i32 @llvm.bswap.i32(i32 %26)
   %27 = add i32 %rev.i57, %3

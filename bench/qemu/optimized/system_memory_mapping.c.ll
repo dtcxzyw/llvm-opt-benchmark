@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @memory_mapping_list_add_merge_sorted(ptr nocapture noundef %list, i64 noundef %phys_addr, i64 noundef %virt_addr, i64 noundef %length) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds i8, ptr %list, i64 16
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -36,11 +36,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
   store i64 %phys_addr, ptr %call.i, align 8
-  %virt_addr2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %virt_addr2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %virt_addr, ptr %virt_addr2.i, align 8
-  %length3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %length3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %length, ptr %length3.i, align 8
-  %last_mapping.i = getelementptr inbounds i8, ptr %list, i64 8
+  %last_mapping.i = getelementptr inbounds nuw i8, ptr %list, i64 8
   store ptr %call.i, ptr %last_mapping.i, align 8
   %1 = load i32, ptr %list, align 8
   %inc.i = add i32 %1, 1
@@ -56,10 +56,10 @@ for.body.i.i:                                     ; preds = %if.then, %for.inc.i
   br i1 %cmp.not.i.i, label %for.inc.i.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 32
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 32
   %3 = load ptr, ptr %tql_prev.i.i, align 8
-  %next2.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  %tql_prev3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %next2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
+  %tql_prev3.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %3, ptr %tql_prev3.i.i, align 8
   store ptr %p.021.i.i, ptr %next2.i.i, align 8
   %4 = load ptr, ptr %tql_prev.i.i, align 8
@@ -68,38 +68,38 @@ do.body.i.i:                                      ; preds = %for.body.i.i
   br label %return
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next10.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 24
+  %next10.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 24
   %p.0.i.i = load ptr, ptr %next10.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %p.0.i.i, null
   br i1 %tobool.not.i.i, label %do.body11.i.i, label %for.body.i.i, !llvm.loop !5
 
 do.body11.i.i:                                    ; preds = %for.inc.i.i, %if.then
-  %next12.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr null, ptr %next12.i.i, align 8
-  %tql_prev14.i.i = getelementptr inbounds i8, ptr %list, i64 24
+  %tql_prev14.i.i = getelementptr inbounds nuw i8, ptr %list, i64 24
   %5 = load ptr, ptr %tql_prev14.i.i, align 8
-  %tql_prev16.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %tql_prev16.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %5, ptr %tql_prev16.i.i, align 8
   store ptr %call.i, ptr %5, align 8
   store ptr %next12.i.i, ptr %tql_prev14.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %last_mapping1 = getelementptr inbounds i8, ptr %list, i64 8
+  %last_mapping1 = getelementptr inbounds nuw i8, ptr %list, i64 8
   %6 = load ptr, ptr %last_mapping1, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %for.body.lr.ph, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %7 = load i64, ptr %6, align 8
-  %length.i = getelementptr inbounds i8, ptr %6, i64 16
+  %length.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %length.i, align 8
   %add.i = add i64 %8, %7
   %cmp.i = icmp eq i64 %phys_addr, %add.i
   br i1 %cmp.i, label %mapping_contiguous.exit, label %for.body.lr.ph
 
 mapping_contiguous.exit:                          ; preds = %if.then2
-  %virt_addr2.i36 = getelementptr inbounds i8, ptr %6, i64 8
+  %virt_addr2.i36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %virt_addr2.i36, align 8
   %add4.i = add i64 %9, %8
   %cmp5.i = icmp eq i64 %virt_addr, %add4.i
@@ -117,21 +117,21 @@ for.body.lr.ph:                                   ; preds = %if.end, %mapping_co
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %memory_mapping.091 = phi ptr [ %0, %for.body.lr.ph ], [ %memory_mapping.0, %for.inc ]
   %10 = load i64, ptr %memory_mapping.091, align 8
-  %length.i37 = getelementptr inbounds i8, ptr %memory_mapping.091, i64 16
+  %length.i37 = getelementptr inbounds nuw i8, ptr %memory_mapping.091, i64 16
   %11 = load i64, ptr %length.i37, align 8
   %add.i38 = add i64 %11, %10
   %cmp.i39 = icmp eq i64 %phys_addr, %add.i38
   br i1 %cmp.i39, label %mapping_contiguous.exit44, label %if.end14
 
 mapping_contiguous.exit44:                        ; preds = %for.body
-  %virt_addr2.i41 = getelementptr inbounds i8, ptr %memory_mapping.091, i64 8
+  %virt_addr2.i41 = getelementptr inbounds nuw i8, ptr %memory_mapping.091, i64 8
   %12 = load i64, ptr %virt_addr2.i41, align 8
   %add4.i42 = add i64 %12, %11
   %cmp5.i43 = icmp eq i64 %virt_addr, %add4.i42
   br i1 %cmp5.i43, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %mapping_contiguous.exit44
-  %length.i37.le109 = getelementptr inbounds i8, ptr %memory_mapping.091, i64 16
+  %length.i37.le109 = getelementptr inbounds nuw i8, ptr %memory_mapping.091, i64 16
   %add12 = add i64 %11, %length
   store i64 %add12, ptr %length.i37.le109, align 8
   store ptr %memory_mapping.091, ptr %last_mapping1, align 8
@@ -154,7 +154,7 @@ if.then21:                                        ; preds = %mapping_have_same_r
   br i1 %cmp.i50.not, label %if.end24, label %for.inc
 
 if.end24:                                         ; preds = %if.then21
-  %length.i37.le = getelementptr inbounds i8, ptr %memory_mapping.091, i64 16
+  %length.i37.le = getelementptr inbounds nuw i8, ptr %memory_mapping.091, i64 16
   %cmp.i51 = icmp ult i64 %virt_addr, %memory_mapping.0.val35
   br i1 %cmp.i51, label %if.then.i, label %if.end.i
 
@@ -184,7 +184,7 @@ mapping_merge.exit:                               ; preds = %if.end.i, %if.then1
   br label %return
 
 for.inc:                                          ; preds = %mapping_have_same_region.exit, %if.then21
-  %next = getelementptr inbounds i8, ptr %memory_mapping.091, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %memory_mapping.091, i64 24
   %memory_mapping.0 = load ptr, ptr %next, align 8
   %tobool8.not = icmp eq ptr %memory_mapping.0, null
   br i1 %tobool8.not, label %for.end, label %for.body, !llvm.loop !7
@@ -192,9 +192,9 @@ for.inc:                                          ; preds = %mapping_have_same_r
 for.end:                                          ; preds = %for.inc, %if.end14
   %call.i55 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
   store i64 %phys_addr, ptr %call.i55, align 8
-  %virt_addr2.i56 = getelementptr inbounds i8, ptr %call.i55, i64 8
+  %virt_addr2.i56 = getelementptr inbounds nuw i8, ptr %call.i55, i64 8
   store i64 %virt_addr, ptr %virt_addr2.i56, align 8
-  %length3.i57 = getelementptr inbounds i8, ptr %call.i55, i64 16
+  %length3.i57 = getelementptr inbounds nuw i8, ptr %call.i55, i64 16
   store i64 %length, ptr %length3.i57, align 8
   store ptr %call.i55, ptr %last_mapping1, align 8
   %17 = load i32, ptr %list, align 8
@@ -211,10 +211,10 @@ for.body.i.i63:                                   ; preds = %for.end, %for.inc.i
   br i1 %cmp.not.i.i65, label %for.inc.i.i70, label %do.body.i.i66
 
 do.body.i.i66:                                    ; preds = %for.body.i.i63
-  %tql_prev.i.i67 = getelementptr inbounds i8, ptr %p.021.i.i64, i64 32
+  %tql_prev.i.i67 = getelementptr inbounds nuw i8, ptr %p.021.i.i64, i64 32
   %19 = load ptr, ptr %tql_prev.i.i67, align 8
-  %next2.i.i68 = getelementptr inbounds i8, ptr %call.i55, i64 24
-  %tql_prev3.i.i69 = getelementptr inbounds i8, ptr %call.i55, i64 32
+  %next2.i.i68 = getelementptr inbounds nuw i8, ptr %call.i55, i64 24
+  %tql_prev3.i.i69 = getelementptr inbounds nuw i8, ptr %call.i55, i64 32
   store ptr %19, ptr %tql_prev3.i.i69, align 8
   store ptr %p.021.i.i64, ptr %next2.i.i68, align 8
   %20 = load ptr, ptr %tql_prev.i.i67, align 8
@@ -223,17 +223,17 @@ do.body.i.i66:                                    ; preds = %for.body.i.i63
   br label %return
 
 for.inc.i.i70:                                    ; preds = %for.body.i.i63
-  %next10.i.i71 = getelementptr inbounds i8, ptr %p.021.i.i64, i64 24
+  %next10.i.i71 = getelementptr inbounds nuw i8, ptr %p.021.i.i64, i64 24
   %p.0.i.i72 = load ptr, ptr %next10.i.i71, align 8
   %tobool.not.i.i73 = icmp eq ptr %p.0.i.i72, null
   br i1 %tobool.not.i.i73, label %do.body11.i.i74, label %for.body.i.i63, !llvm.loop !5
 
 do.body11.i.i74:                                  ; preds = %for.inc.i.i70, %for.end
-  %next12.i.i75 = getelementptr inbounds i8, ptr %call.i55, i64 24
+  %next12.i.i75 = getelementptr inbounds nuw i8, ptr %call.i55, i64 24
   store ptr null, ptr %next12.i.i75, align 8
-  %tql_prev14.i.i76 = getelementptr inbounds i8, ptr %list, i64 24
+  %tql_prev14.i.i76 = getelementptr inbounds nuw i8, ptr %list, i64 24
   %21 = load ptr, ptr %tql_prev14.i.i76, align 8
-  %tql_prev16.i.i77 = getelementptr inbounds i8, ptr %call.i55, i64 32
+  %tql_prev16.i.i77 = getelementptr inbounds nuw i8, ptr %call.i55, i64 32
   store ptr %21, ptr %tql_prev16.i.i77, align 8
   store ptr %call.i55, ptr %21, align 8
   store ptr %next12.i.i75, ptr %tql_prev14.i.i76, align 8
@@ -246,26 +246,26 @@ return:                                           ; preds = %do.body11.i.i74, %d
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @memory_mapping_list_free(ptr nocapture noundef %list) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds i8, ptr %list, i64 16
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
   %tobool.not15 = icmp eq ptr %0, null
   br i1 %tobool.not15, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev9 = getelementptr inbounds i8, ptr %list, i64 24
+  %tql_prev9 = getelementptr inbounds nuw i8, ptr %list, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
   %p.016 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end ]
-  %next = getelementptr inbounds i8, ptr %p.016, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %p.016, i64 24
   %1 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %1, null
-  %tql_prev7 = getelementptr inbounds i8, ptr %p.016, i64 32
+  %tql_prev7 = getelementptr inbounds nuw i8, ptr %p.016, i64 32
   %2 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 32
+  %tql_prev5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %tql_prev5, align 8
   br label %if.end
 
@@ -282,7 +282,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 for.end:                                          ; preds = %if.end, %entry
   store i32 0, ptr %list, align 8
-  %last_mapping = getelementptr inbounds i8, ptr %list, i64 8
+  %last_mapping = getelementptr inbounds nuw i8, ptr %list, i64 8
   store ptr null, ptr %last_mapping, align 8
   ret void
 }
@@ -293,9 +293,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define dso_local void @memory_mapping_list_init(ptr noundef initializes((0, 4), (8, 24)) %list) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %list, align 8
-  %last_mapping = getelementptr inbounds i8, ptr %list, i64 8
-  %head = getelementptr inbounds i8, ptr %list, i64 16
-  %tql_prev = getelementptr inbounds i8, ptr %list, i64 24
+  %last_mapping = getelementptr inbounds nuw i8, ptr %list, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 16
+  %tql_prev = getelementptr inbounds nuw i8, ptr %list, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_mapping, i8 0, i64 16, i1 false)
   store ptr %head, ptr %tql_prev, align 8
   ret void
@@ -304,26 +304,26 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @guest_phys_blocks_free(ptr nocapture noundef %list) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds i8, ptr %list, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 8
   %0 = load ptr, ptr %head, align 8
   %tobool.not15 = icmp eq ptr %0, null
   br i1 %tobool.not15, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev9 = getelementptr inbounds i8, ptr %list, i64 16
+  %tql_prev9 = getelementptr inbounds nuw i8, ptr %list, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
   %p.016 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end ]
-  %next = getelementptr inbounds i8, ptr %p.016, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %p.016, i64 32
   %1 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %1, null
-  %tql_prev7 = getelementptr inbounds i8, ptr %p.016, i64 40
+  %tql_prev7 = getelementptr inbounds nuw i8, ptr %p.016, i64 40
   %2 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %tql_prev5 = getelementptr inbounds i8, ptr %1, i64 40
+  %tql_prev5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %2, ptr %tql_prev5, align 8
   br label %if.end
 
@@ -334,7 +334,7 @@ if.else:                                          ; preds = %land.rhs
 if.end:                                           ; preds = %if.else, %if.then
   %3 = load ptr, ptr %next, align 8
   store ptr %3, ptr %2, align 8
-  %mr = getelementptr inbounds i8, ptr %p.016, i64 24
+  %mr = getelementptr inbounds nuw i8, ptr %p.016, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %mr, align 8
   tail call void @memory_region_unref(ptr noundef %4) #9
@@ -352,9 +352,9 @@ declare void @memory_region_unref(ptr noundef) local_unnamed_addr #1
 define dso_local void @guest_phys_blocks_init(ptr noundef initializes((0, 4), (8, 16)) %list) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %list, align 8
-  %head = getelementptr inbounds i8, ptr %list, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 8
   store ptr null, ptr %head, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %list, i64 16
+  %tql_prev = getelementptr inbounds nuw i8, ptr %list, i64 16
   store ptr %head, ptr %tql_prev, align 8
   ret void
 }
@@ -363,11 +363,11 @@ entry:
 define dso_local void @guest_phys_blocks_append(ptr noundef %list) local_unnamed_addr #0 {
 entry:
   %g = alloca %struct.GuestPhysListener, align 8
-  %0 = getelementptr inbounds i8, ptr %g, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %g, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 192, i1 false)
   store ptr %list, ptr %g, align 8
-  %listener = getelementptr inbounds i8, ptr %g, i64 8
-  %region_add = getelementptr inbounds i8, ptr %g, i64 24
+  %listener = getelementptr inbounds nuw i8, ptr %g, i64 8
+  %region_add = getelementptr inbounds nuw i8, ptr %g, i64 24
   store ptr @guest_phys_blocks_region_add, ptr %region_add, align 8
   call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef nonnull @address_space_memory) #9
   call void @memory_listener_unregister(ptr noundef nonnull %listener) #9
@@ -381,7 +381,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define internal void @guest_phys_blocks_region_add(ptr noundef %listener, ptr noundef %section) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %listener, i64 -8
-  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val = load i8, ptr %1, align 1
@@ -427,7 +427,7 @@ define dso_local noundef zeroext i1 @qemu_get_guest_memory_mapping(ptr noundef %
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -445,7 +445,7 @@ for.body.i:                                       ; preds = %entry, %while.end5.
   br i1 %call.i, label %for.body, label %while.end5.i
 
 while.end5.i:                                     ; preds = %for.body.i
-  %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
+  %node.i = getelementptr inbounds nuw i8, ptr %cpu.06.i, i64 568
   %1 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %tobool.not.i = icmp eq i64 %1, 0
@@ -457,7 +457,7 @@ for.body:                                         ; preds = %for.body.i, %while.
   br i1 %call6, label %while.end, label %cleanup.loopexit24
 
 while.end:                                        ; preds = %for.body
-  %node = getelementptr inbounds i8, ptr %cpu.020, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.020, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
@@ -465,28 +465,28 @@ while.end:                                        ; preds = %for.body
   br i1 %cmp5.not, label %cleanup.loopexit24, label %for.body, !llvm.loop !14
 
 if.end12:                                         ; preds = %while.end5.i, %entry
-  %head = getelementptr inbounds i8, ptr %guest_phys_blocks, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %guest_phys_blocks, i64 8
   %block.021 = load ptr, ptr %head, align 8
   %tobool14.not22 = icmp eq ptr %block.021, null
   br i1 %tobool14.not22, label %cleanup, label %for.body15.lr.ph
 
 for.body15.lr.ph:                                 ; preds = %if.end12
-  %last_mapping.i = getelementptr inbounds i8, ptr %list, i64 8
-  %head.i.i = getelementptr inbounds i8, ptr %list, i64 16
-  %tql_prev14.i.i = getelementptr inbounds i8, ptr %list, i64 24
+  %last_mapping.i = getelementptr inbounds nuw i8, ptr %list, i64 8
+  %head.i.i = getelementptr inbounds nuw i8, ptr %list, i64 16
+  %tql_prev14.i.i = getelementptr inbounds nuw i8, ptr %list, i64 24
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %create_new_memory_mapping.exit
   %block.023 = phi ptr [ %block.021, %for.body15.lr.ph ], [ %block.0, %create_new_memory_mapping.exit ]
   %4 = load i64, ptr %block.023, align 8
-  %target_end = getelementptr inbounds i8, ptr %block.023, i64 8
+  %target_end = getelementptr inbounds nuw i8, ptr %block.023, i64 8
   %5 = load i64, ptr %target_end, align 8
   %sub = sub i64 %5, %4
   %call.i14 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
   store i64 %4, ptr %call.i14, align 8
-  %virt_addr2.i = getelementptr inbounds i8, ptr %call.i14, i64 8
+  %virt_addr2.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 8
   store i64 %4, ptr %virt_addr2.i, align 8
-  %length3.i = getelementptr inbounds i8, ptr %call.i14, i64 16
+  %length3.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 16
   store i64 %sub, ptr %length3.i, align 8
   store ptr %call.i14, ptr %last_mapping.i, align 8
   %6 = load i32, ptr %list, align 8
@@ -503,10 +503,10 @@ for.body.i.i:                                     ; preds = %for.body15, %for.in
   br i1 %cmp.not.i.i, label %for.inc.i.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 32
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 32
   %8 = load ptr, ptr %tql_prev.i.i, align 8
-  %next2.i.i = getelementptr inbounds i8, ptr %call.i14, i64 24
-  %tql_prev3.i.i = getelementptr inbounds i8, ptr %call.i14, i64 32
+  %next2.i.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 24
+  %tql_prev3.i.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 32
   store ptr %8, ptr %tql_prev3.i.i, align 8
   store ptr %p.021.i.i, ptr %next2.i.i, align 8
   %9 = load ptr, ptr %tql_prev.i.i, align 8
@@ -515,23 +515,23 @@ do.body.i.i:                                      ; preds = %for.body.i.i
   br label %create_new_memory_mapping.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next10.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 24
+  %next10.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 24
   %p.0.i.i = load ptr, ptr %next10.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %p.0.i.i, null
   br i1 %tobool.not.i.i, label %do.body11.i.i, label %for.body.i.i, !llvm.loop !5
 
 do.body11.i.i:                                    ; preds = %for.inc.i.i, %for.body15
-  %next12.i.i = getelementptr inbounds i8, ptr %call.i14, i64 24
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 24
   store ptr null, ptr %next12.i.i, align 8
   %10 = load ptr, ptr %tql_prev14.i.i, align 8
-  %tql_prev16.i.i = getelementptr inbounds i8, ptr %call.i14, i64 32
+  %tql_prev16.i.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 32
   store ptr %10, ptr %tql_prev16.i.i, align 8
   store ptr %call.i14, ptr %10, align 8
   store ptr %next12.i.i, ptr %tql_prev14.i.i, align 8
   br label %create_new_memory_mapping.exit
 
 create_new_memory_mapping.exit:                   ; preds = %do.body.i.i, %do.body11.i.i
-  %next = getelementptr inbounds i8, ptr %block.023, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %block.023, i64 32
   %block.0 = load ptr, ptr %next, align 8
   %tobool14.not = icmp eq ptr %block.0, null
   br i1 %tobool14.not, label %cleanup, label %for.body15, !llvm.loop !15
@@ -557,28 +557,28 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_get_guest_simple_memory_mapping(ptr nocapture noundef %list, ptr nocapture noundef readonly %guest_phys_blocks) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds i8, ptr %guest_phys_blocks, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %guest_phys_blocks, i64 8
   %block.06 = load ptr, ptr %head, align 8
   %tobool.not7 = icmp eq ptr %block.06, null
   br i1 %tobool.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %last_mapping.i = getelementptr inbounds i8, ptr %list, i64 8
-  %head.i.i = getelementptr inbounds i8, ptr %list, i64 16
-  %tql_prev14.i.i = getelementptr inbounds i8, ptr %list, i64 24
+  %last_mapping.i = getelementptr inbounds nuw i8, ptr %list, i64 8
+  %head.i.i = getelementptr inbounds nuw i8, ptr %list, i64 16
+  %tql_prev14.i.i = getelementptr inbounds nuw i8, ptr %list, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %create_new_memory_mapping.exit
   %block.08 = phi ptr [ %block.06, %for.body.lr.ph ], [ %block.0, %create_new_memory_mapping.exit ]
   %0 = load i64, ptr %block.08, align 8
-  %target_end = getelementptr inbounds i8, ptr %block.08, i64 8
+  %target_end = getelementptr inbounds nuw i8, ptr %block.08, i64 8
   %1 = load i64, ptr %target_end, align 8
   %sub = sub i64 %1, %0
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
   store i64 %0, ptr %call.i, align 8
-  %virt_addr2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %virt_addr2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 0, ptr %virt_addr2.i, align 8
-  %length3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %length3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %sub, ptr %length3.i, align 8
   store ptr %call.i, ptr %last_mapping.i, align 8
   %2 = load i32, ptr %list, align 8
@@ -595,10 +595,10 @@ for.body.i.i:                                     ; preds = %for.body, %for.inc.
   br i1 %cmp.not.i.i, label %for.inc.i.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 32
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 32
   %4 = load ptr, ptr %tql_prev.i.i, align 8
-  %next2.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  %tql_prev3.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %next2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
+  %tql_prev3.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %4, ptr %tql_prev3.i.i, align 8
   store ptr %p.021.i.i, ptr %next2.i.i, align 8
   %5 = load ptr, ptr %tql_prev.i.i, align 8
@@ -607,23 +607,23 @@ do.body.i.i:                                      ; preds = %for.body.i.i
   br label %create_new_memory_mapping.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next10.i.i = getelementptr inbounds i8, ptr %p.021.i.i, i64 24
+  %next10.i.i = getelementptr inbounds nuw i8, ptr %p.021.i.i, i64 24
   %p.0.i.i = load ptr, ptr %next10.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %p.0.i.i, null
   br i1 %tobool.not.i.i, label %do.body11.i.i, label %for.body.i.i, !llvm.loop !5
 
 do.body11.i.i:                                    ; preds = %for.inc.i.i, %for.body
-  %next12.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr null, ptr %next12.i.i, align 8
   %6 = load ptr, ptr %tql_prev14.i.i, align 8
-  %tql_prev16.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %tql_prev16.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %6, ptr %tql_prev16.i.i, align 8
   store ptr %call.i, ptr %6, align 8
   store ptr %next12.i.i, ptr %tql_prev14.i.i, align 8
   br label %create_new_memory_mapping.exit
 
 create_new_memory_mapping.exit:                   ; preds = %do.body.i.i, %do.body11.i.i
-  %next = getelementptr inbounds i8, ptr %block.08, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %block.08, i64 32
   %block.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %block.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !16
@@ -635,26 +635,26 @@ for.end:                                          ; preds = %create_new_memory_m
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @memory_mapping_filter(ptr nocapture noundef %list, i64 noundef %begin, i64 noundef %length) local_unnamed_addr #0 {
 entry:
-  %head = getelementptr inbounds i8, ptr %list, i64 16
+  %head = getelementptr inbounds nuw i8, ptr %list, i64 16
   %0 = load ptr, ptr %head, align 8
   %tobool.not40 = icmp eq ptr %0, null
   br i1 %tobool.not40, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %add = add i64 %length, %begin
-  %tql_prev16 = getelementptr inbounds i8, ptr %list, i64 24
+  %tql_prev16 = getelementptr inbounds nuw i8, ptr %list, i64 24
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %cur.041 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %for.inc ]
-  %next1 = getelementptr inbounds i8, ptr %cur.041, i64 24
+  %next1 = getelementptr inbounds nuw i8, ptr %cur.041, i64 24
   %1 = load ptr, ptr %next1, align 8
   %2 = load i64, ptr %cur.041, align 8
   %cmp.not = icmp ult i64 %2, %add
   br i1 %cmp.not, label %lor.lhs.false, label %do.body
 
 lor.lhs.false:                                    ; preds = %land.rhs
-  %length3 = getelementptr inbounds i8, ptr %cur.041, i64 16
+  %length3 = getelementptr inbounds nuw i8, ptr %cur.041, i64 16
   %3 = load i64, ptr %length3, align 8
   %add4 = add i64 %3, %2
   %cmp5.not = icmp ugt i64 %add4, %begin
@@ -662,12 +662,12 @@ lor.lhs.false:                                    ; preds = %land.rhs
 
 do.body:                                          ; preds = %land.rhs, %lor.lhs.false
   %cmp7.not = icmp eq ptr %1, null
-  %tql_prev14 = getelementptr inbounds i8, ptr %cur.041, i64 32
+  %tql_prev14 = getelementptr inbounds nuw i8, ptr %cur.041, i64 32
   %4 = load ptr, ptr %tql_prev14, align 8
   br i1 %cmp7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %tql_prev12 = getelementptr inbounds i8, ptr %1, i64 32
+  %tql_prev12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %4, ptr %tql_prev12, align 8
   br label %if.end
 
@@ -693,7 +693,7 @@ if.then28:                                        ; preds = %if.end25
   %sub.neg = sub i64 %2, %begin
   %sub31 = add i64 %sub.neg, %3
   store i64 %sub31, ptr %length3, align 8
-  %virt_addr = getelementptr inbounds i8, ptr %cur.041, i64 8
+  %virt_addr = getelementptr inbounds nuw i8, ptr %cur.041, i64 8
   %7 = load i64, ptr %virt_addr, align 8
   %tobool32.not = icmp eq i64 %7, 0
   br i1 %tobool32.not, label %if.end38, label %if.then33
@@ -747,7 +747,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @guest_phys_block_add_section(ptr nocapture noundef readonly %g, ptr nocapture noundef readonly %section) unnamed_addr #0 {
 entry:
-  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_address_space = getelementptr inbounds nuw i8, ptr %section, i64 40
   %0 = load i64, ptr %offset_within_address_space, align 8
   %1 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %1, 18446744073709551616
@@ -760,25 +760,25 @@ if.else.i:                                        ; preds = %entry
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc nuw i128 %1 to i64
   %add = add i64 %0, %coerce.sroa.0.0.extract.trunc
-  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
   %call1 = tail call ptr @memory_region_get_ram_ptr(ptr noundef %2) #9
-  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
+  %offset_within_region = getelementptr inbounds nuw i8, ptr %section, i64 32
   %3 = load i64, ptr %offset_within_region, align 16
   %add.ptr = getelementptr i8, ptr %call1, i64 %3
   %4 = load ptr, ptr %g, align 8
-  %head = getelementptr inbounds i8, ptr %4, i64 8
+  %head = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %head, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then23, label %if.then
 
 if.then:                                          ; preds = %int128_get64.exit
-  %tql_prev = getelementptr inbounds i8, ptr %4, i64 16
+  %tql_prev = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %tql_prev, align 8
-  %tql_prev4 = getelementptr inbounds i8, ptr %6, i64 8
+  %tql_prev4 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %tql_prev4, align 8
   %8 = load ptr, ptr %7, align 8
-  %target_end5 = getelementptr inbounds i8, ptr %8, i64 8
+  %target_end5 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %target_end5, align 8
   %10 = load i64, ptr %8, align 8
   %sub = sub i64 %9, %10
@@ -794,14 +794,14 @@ do.end:                                           ; preds = %if.then
   br i1 %cmp11, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
-  %host_addr12 = getelementptr inbounds i8, ptr %8, i64 16
+  %host_addr12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %host_addr12, align 8
   %add.ptr13 = getelementptr i8, ptr %11, i64 %sub
   %cmp14.not = icmp eq ptr %add.ptr13, %add.ptr
   br i1 %cmp14.not, label %lor.lhs.false15, label %if.then23
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %mr16 = getelementptr inbounds i8, ptr %8, i64 24
+  %mr16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %mr16, align 8
   %13 = load ptr, ptr %mr, align 16
   %cmp18.not = icmp eq ptr %12, %13
@@ -810,24 +810,24 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
 if.then23:                                        ; preds = %do.end, %lor.lhs.false, %lor.lhs.false15, %int128_get64.exit
   %call24 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #11
   store i64 %0, ptr %call24, align 8
-  %target_end26 = getelementptr inbounds i8, ptr %call24, i64 8
+  %target_end26 = getelementptr inbounds nuw i8, ptr %call24, i64 8
   store i64 %add, ptr %target_end26, align 8
-  %host_addr27 = getelementptr inbounds i8, ptr %call24, i64 16
+  %host_addr27 = getelementptr inbounds nuw i8, ptr %call24, i64 16
   store ptr %add.ptr, ptr %host_addr27, align 8
   %14 = load ptr, ptr %mr, align 16
-  %mr29 = getelementptr inbounds i8, ptr %call24, i64 24
+  %mr29 = getelementptr inbounds nuw i8, ptr %call24, i64 24
   store ptr %14, ptr %mr29, align 8
   tail call void @memory_region_ref(ptr noundef %14) #9
-  %next = getelementptr inbounds i8, ptr %call24, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %call24, i64 32
   store ptr null, ptr %next, align 8
   %15 = load ptr, ptr %g, align 8
-  %tql_prev34 = getelementptr inbounds i8, ptr %15, i64 16
+  %tql_prev34 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %tql_prev34, align 8
-  %tql_prev36 = getelementptr inbounds i8, ptr %call24, i64 40
+  %tql_prev36 = getelementptr inbounds nuw i8, ptr %call24, i64 40
   store ptr %16, ptr %tql_prev36, align 8
   store ptr %call24, ptr %16, align 8
   %17 = load ptr, ptr %g, align 8
-  %tql_prev44 = getelementptr inbounds i8, ptr %17, i64 16
+  %tql_prev44 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %next, ptr %tql_prev44, align 8
   %18 = load ptr, ptr %g, align 8
   %19 = load i32, ptr %18, align 8

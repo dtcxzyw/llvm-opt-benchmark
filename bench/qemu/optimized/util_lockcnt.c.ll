@@ -131,7 +131,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %lockcnt, i32 noundef %0, i32 noundef %new_if_free) #10
   br label %trace_lockcnt_fast_path_attempt.exit
@@ -172,7 +172,7 @@ if.then8.i.i48:                                   ; preds = %if.then.i.i45
   %call9.i.i49 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i38, ptr noundef null) #10
   %call10.i.i50 = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i38, align 8
-  %tv_usec.i.i51 = getelementptr inbounds i8, ptr %_now.i.i38, i64 8
+  %tv_usec.i.i51 = getelementptr inbounds nuw i8, ptr %_now.i.i38, i64 8
   %14 = load i64, ptr %tv_usec.i.i51, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i50, i64 noundef %13, i64 noundef %14, ptr noundef %lockcnt, i32 noundef %0, i32 noundef %new_if_free) #10
   br label %trace_lockcnt_fast_path_success.exit
@@ -188,9 +188,9 @@ trace_lockcnt_fast_path_success.exit:             ; preds = %if.then3, %land.lhs
 
 if.end4:                                          ; preds = %trace_lockcnt_fast_path_attempt.exit, %entry
   %15 = phi i32 [ %8, %trace_lockcnt_fast_path_attempt.exit ], [ %0, %entry ]
-  %tv_usec.i.i79 = getelementptr inbounds i8, ptr %_now.i.i66, i64 8
-  %tv_usec.i.i93 = getelementptr inbounds i8, ptr %_now.i.i80, i64 8
-  %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i52, i64 8
+  %tv_usec.i.i79 = getelementptr inbounds nuw i8, ptr %_now.i.i66, i64 8
+  %tv_usec.i.i93 = getelementptr inbounds nuw i8, ptr %_now.i.i80, i64 8
+  %tv_usec.i.i65 = getelementptr inbounds nuw i8, ptr %_now.i.i52, i64 8
   br label %while.cond5
 
 while.cond5:                                      ; preds = %while.cond5.backedge, %if.end4
@@ -383,7 +383,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %lockcnt) #10
   br label %trace_lockcnt_futex_wake.exit
@@ -526,7 +526,7 @@ entry:
   %_now.i.i14 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load atomic i32, ptr %lockcnt monotonic, align 4
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %do.body1
 
 do.body1:                                         ; preds = %trace_lockcnt_unlock_attempt.exit, %entry
@@ -595,7 +595,7 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i21
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #10
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #10
   %14 = load i64, ptr %_now.i.i14, align 8
-  %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
+  %tv_usec.i.i27 = getelementptr inbounds nuw i8, ptr %_now.i.i14, i64 8
   %15 = load i64, ptr %tv_usec.i.i27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %lockcnt, i32 noundef %9, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit
@@ -624,7 +624,7 @@ entry:
   %_now.i.i14 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load atomic i32, ptr %lockcnt monotonic, align 4
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %do.body1
 
 do.body1:                                         ; preds = %trace_lockcnt_unlock_attempt.exit, %entry
@@ -692,7 +692,7 @@ if.then8.i.i24:                                   ; preds = %if.then.i.i21
   %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #10
   %call10.i.i26 = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i14, align 8
-  %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
+  %tv_usec.i.i27 = getelementptr inbounds nuw i8, ptr %_now.i.i14, i64 8
   %14 = load i64, ptr %tv_usec.i.i27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i26, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %lockcnt, i32 noundef %8, i32 noundef range(i32 0, -3) %and) #10
   br label %trace_lockcnt_unlock_success.exit

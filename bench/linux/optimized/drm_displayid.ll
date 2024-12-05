@@ -9,8 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @displayid_iter_edid_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -25,17 +25,17 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread16, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = add nsw i64 %11, 3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = icmp ugt i64 %12, %15
@@ -43,7 +43,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 
 17:                                               ; preds = %8
   %18 = getelementptr i8, ptr %6, i64 %11
-  %19 = getelementptr inbounds i8, ptr %18, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = add nsw i64 %12, %21
@@ -71,7 +71,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 
 32:                                               ; preds = %25
   %33 = getelementptr i8, ptr %6, i64 %29
-  %34 = getelementptr inbounds i8, ptr %33, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
   %37 = add nsw i64 %30, %36
@@ -81,18 +81,18 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   br i1 %or.cond21, label %.thread16, label %.loopexit
 
 .thread16:                                        ; preds = %32, %25, %4
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
-  %44 = getelementptr inbounds i8, ptr %0, i64 29
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %45 = icmp eq ptr %6, null
   br label %46
 
 46:                                               ; preds = %115, %.thread16
   %47 = phi i1 [ false, %115 ], [ %45, %.thread16 ]
   %48 = load ptr, ptr %0, align 8
-  %49 = tail call ptr @drm_find_edid_extension(ptr noundef %48, i32 noundef 112, ptr noundef %42) #6
+  %49 = tail call ptr @drm_find_edid_extension(ptr noundef %48, i32 noundef 112, ptr noundef nonnull %42) #6
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread19, label %51
 
@@ -171,7 +171,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 98:                                               ; preds = %91
   %99 = load i8, ptr %96, align 1
   store i8 %99, ptr %43, align 4
-  %100 = getelementptr inbounds i8, ptr %96, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %101 = load i8, ptr %100, align 1
   store i8 %101, ptr %44, align 1
   br label %102
@@ -186,7 +186,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 
 107:                                              ; preds = %102
   %108 = getelementptr i8, ptr %49, i64 %103
-  %109 = getelementptr inbounds i8, ptr %108, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i64
   %112 = add nsw i64 %104, %111
@@ -214,14 +214,14 @@ define dso_local void @displayid_iter_end(ptr nocapture noundef writeonly initia
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i8 @displayid_version(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   ret i8 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i8 @displayid_primary_use(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 29
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
   ret i8 %3
 }

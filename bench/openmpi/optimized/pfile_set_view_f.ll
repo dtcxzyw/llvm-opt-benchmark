@@ -44,9 +44,9 @@ define void @ompi_file_set_view_f(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %.not, label %54, label %19
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %11, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %18, -1
   br i1 %24, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
@@ -85,7 +85,7 @@ define void @ompi_file_set_view_f(ptr nocapture noundef readonly %0, ptr nocaptu
 37:                                               ; preds = %35, %.lr.ph.i
   %38 = phi i8 [ %31, %.lr.ph.i ], [ %.pre.i.i, %35 ]
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %42 = trunc i8 %38 to i1
   br i1 %42, label %43, label %opal_pointer_array_get_item.exit.i
@@ -97,13 +97,13 @@ define void @ompi_file_set_view_f(ptr nocapture noundef readonly %0, ptr nocaptu
 
 opal_pointer_array_get_item.exit.i:               ; preds = %43, %37
   %45 = phi i8 [ %38, %37 ], [ %.pre.i, %43 ]
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %18
   br i1 %48, label %49, label %27
 
 49:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %50 = getelementptr inbounds i8, ptr %41, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %51 = load i32, ptr %50, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

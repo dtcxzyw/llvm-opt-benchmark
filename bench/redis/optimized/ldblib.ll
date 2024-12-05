@@ -185,7 +185,7 @@ if.end.i:                                         ; preds = %if.then.i17, %if.en
 if.then3.i:                                       ; preds = %if.end.i
   %inc4.i = add nuw nsw i32 %i.0.i, 1
   %idxprom5.i = zext nneg i32 %i.0.i to i64
-  %arrayidx6.i = getelementptr inbounds i8, ptr %buff, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom5.i
   store i8 114, ptr %arrayidx6.i, align 1, !tbaa !8
   br label %if.end7.i
 
@@ -198,14 +198,14 @@ if.end7.i:                                        ; preds = %if.then3.i, %if.end
 if.then10.i:                                      ; preds = %if.end7.i
   %inc11.i = add nuw nsw i32 %i.1.i, 1
   %idxprom12.i = zext nneg i32 %i.1.i to i64
-  %arrayidx13.i = getelementptr inbounds i8, ptr %buff, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom12.i
   store i8 108, ptr %arrayidx13.i, align 1, !tbaa !8
   br label %unmakemask.exit
 
 unmakemask.exit:                                  ; preds = %if.then10.i, %if.end7.i
   %i.2.i = phi i32 [ %inc11.i, %if.then10.i ], [ %i.1.i, %if.end7.i ]
   %idxprom15.i = zext nneg i32 %i.2.i to i64
-  %arrayidx16.i = getelementptr inbounds i8, ptr %buff, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom15.i
   store i8 0, ptr %arrayidx16.i, align 1, !tbaa !8
   call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %buff) #9
   %call5 = call i32 @lua_gethookcount(ptr noundef %retval.0.i) #9
@@ -282,24 +282,24 @@ if.end26:                                         ; preds = %if.end20
   br i1 %tobool28.not, label %if.end30, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %source = getelementptr inbounds i8, ptr %ar, i64 32
+  %source = getelementptr inbounds nuw i8, ptr %ar, i64 32
   %0 = load ptr, ptr %source, align 8, !tbaa !9
   call void @lua_pushstring(ptr noundef %L, ptr noundef %0) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.28) #9
-  %short_src = getelementptr inbounds i8, ptr %ar, i64 56
+  %short_src = getelementptr inbounds nuw i8, ptr %ar, i64 56
   call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %short_src) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.29) #9
-  %linedefined = getelementptr inbounds i8, ptr %ar, i64 48
+  %linedefined = getelementptr inbounds nuw i8, ptr %ar, i64 48
   %1 = load i32, ptr %linedefined, align 8, !tbaa !12
   %conv.i = sext i32 %1 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.30) #9
-  %lastlinedefined = getelementptr inbounds i8, ptr %ar, i64 52
+  %lastlinedefined = getelementptr inbounds nuw i8, ptr %ar, i64 52
   %2 = load i32, ptr %lastlinedefined, align 4, !tbaa !13
   %conv.i88 = sext i32 %2 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i88) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.31) #9
-  %what = getelementptr inbounds i8, ptr %ar, i64 24
+  %what = getelementptr inbounds nuw i8, ptr %ar, i64 24
   %3 = load ptr, ptr %what, align 8, !tbaa !14
   call void @lua_pushstring(ptr noundef %L, ptr noundef %3) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.32) #9
@@ -311,7 +311,7 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   br i1 %tobool32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %currentline = getelementptr inbounds i8, ptr %ar, i64 40
+  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
   %4 = load i32, ptr %currentline, align 8, !tbaa !15
   %conv.i89 = sext i32 %4 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i89) #9
@@ -324,7 +324,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
   br i1 %tobool36.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  %nups = getelementptr inbounds i8, ptr %ar, i64 44
+  %nups = getelementptr inbounds nuw i8, ptr %ar, i64 44
   %5 = load i32, ptr %nups, align 4, !tbaa !16
   %conv.i90 = sext i32 %5 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i90) #9
@@ -337,11 +337,11 @@ if.end38:                                         ; preds = %if.then37, %if.end3
   br i1 %tobool40.not, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %if.end38
-  %name = getelementptr inbounds i8, ptr %ar, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %ar, i64 8
   %6 = load ptr, ptr %name, align 8, !tbaa !17
   call void @lua_pushstring(ptr noundef %L, ptr noundef %6) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.35) #9
-  %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
+  %namewhat = getelementptr inbounds nuw i8, ptr %ar, i64 16
   %7 = load ptr, ptr %namewhat, align 8, !tbaa !18
   call void @lua_pushstring(ptr noundef %L, ptr noundef %7) #9
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.36) #9
@@ -722,12 +722,12 @@ if.end16:                                         ; preds = %if.else14, %if.then
   br i1 %tobool18.not119124, label %while.end73, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end16
-  %short_src = getelementptr inbounds i8, ptr %ar, i64 56
-  %currentline = getelementptr inbounds i8, ptr %ar, i64 40
-  %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
-  %name = getelementptr inbounds i8, ptr %ar, i64 8
-  %what = getelementptr inbounds i8, ptr %ar, i64 24
-  %linedefined = getelementptr inbounds i8, ptr %ar, i64 48
+  %short_src = getelementptr inbounds nuw i8, ptr %ar, i64 56
+  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
+  %namewhat = getelementptr inbounds nuw i8, ptr %ar, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %ar, i64 8
+  %what = getelementptr inbounds nuw i8, ptr %ar, i64 24
+  %linedefined = getelementptr inbounds nuw i8, ptr %ar, i64 48
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end34, %while.body.lr.ph.lr.ph
@@ -878,7 +878,7 @@ if.then:                                          ; preds = %entry
   %reltable.shift = shl nsw i64 %idxprom, 2
   %reltable.intrinsic = tail call ptr @llvm.load.relative.i64(ptr nonnull @reltable.hookf, i64 %reltable.shift)
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %reltable.intrinsic) #9
-  %currentline = getelementptr inbounds i8, ptr %ar, i64 40
+  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
   %1 = load i32, ptr %currentline, align 8, !tbaa !15
   %cmp1 = icmp sgt i32 %1, -1
   br i1 %cmp1, label %if.then2, label %if.else

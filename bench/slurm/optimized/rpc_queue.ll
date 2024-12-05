@@ -67,19 +67,19 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %5, %59
   %8 = phi i16 [ %61, %59 ], [ %7, %5 ]
   %.052 = phi ptr [ %60, %59 ], [ @slurmctld_rpcs, %5 ]
-  %9 = getelementptr inbounds i8, ptr %.052, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %.052, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %59
 
 12:                                               ; preds = %.lr.ph
   %13 = call ptr @rpc_num2string(i16 noundef zeroext %8) #7
-  %14 = getelementptr inbounds i8, ptr %.052, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.052, i64 48
   store ptr %13, ptr %14, align 8
   %15 = call ptr @list_create(ptr noundef null) #7
-  %16 = getelementptr inbounds i8, ptr %.052, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %.052, i64 160
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.052, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.052, i64 72
   %18 = call i32 @pthread_cond_init(ptr noundef nonnull %17, ptr noundef null) #7
   %.not34 = icmp eq i32 %18, 0
   br i1 %.not34, label %21, label %19
@@ -91,7 +91,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   unreachable
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %.052, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %.052, i64 120
   %23 = call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #7
   %.not35 = icmp eq i32 %23, 0
   br i1 %.not35, label %26, label %24
@@ -103,7 +103,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   unreachable
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.052, i64 57
+  %27 = getelementptr inbounds nuw i8, ptr %.052, i64 57
   store i8 0, ptr %27, align 1
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 67108864
@@ -154,7 +154,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %44, %46
-  %50 = getelementptr inbounds i8, ptr %.052, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %.052, i64 64
   %51 = call i32 @pthread_create(ptr noundef nonnull %50, ptr noundef nonnull %1, ptr noundef nonnull @_rpc_queue_worker, ptr noundef nonnull %.052) #7
   %.not40 = icmp eq i32 %51, 0
   br i1 %.not40, label %54, label %52
@@ -177,7 +177,7 @@ define dso_local void @rpc_queue_init() local_unnamed_addr #0 {
   br label %59
 
 59:                                               ; preds = %54, %56, %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.052, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %.052, i64 168
   %61 = load i16, ptr %60, align 8
   %.not33 = icmp eq i16 %61, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -243,15 +243,15 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 
 14:                                               ; preds = %12, %1
   call void @slurm_xfree(ptr noundef nonnull %2) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 %15) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
-  %21 = getelementptr inbounds i8, ptr %0, i64 57
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 57
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %23
 
 23:                                               ; preds = %.backedge, %14
@@ -389,13 +389,13 @@ define internal noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 80:                                               ; preds = %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %81 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #7
-  %82 = getelementptr inbounds i8, ptr %25, i64 200
+  %82 = getelementptr inbounds nuw i8, ptr %25, i64 200
   %83 = load i16, ptr %82, align 8
   %84 = or i16 %83, 32
   store i16 %84, ptr %82, align 8
   %85 = load ptr, ptr %17, align 8
   call void %85(ptr noundef nonnull %25) #7
-  %86 = getelementptr inbounds i8, ptr %25, i64 184
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 184
   %87 = load i32, ptr %86, align 8
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %89, label %95
@@ -446,13 +446,13 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %3, %25
   %.02442 = phi ptr [ %26, %25 ], [ @slurmctld_rpcs, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.02442, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %.02442, i64 56
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %25
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02442, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %.02442, i64 120
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #7
   %.not34 = icmp eq i32 %11, 0
   br i1 %.not34, label %14, label %12
@@ -464,9 +464,9 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.02442, i64 57
+  %15 = getelementptr inbounds nuw i8, ptr %.02442, i64 57
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %.02442, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %.02442, i64 72
   %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #7
   %.not35 = icmp eq i32 %17, 0
   br i1 %.not35, label %21, label %18
@@ -489,20 +489,20 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %21, %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.02442, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %.02442, i64 168
   %27 = load i16, ptr %26, align 8
   %.not = icmp eq i16 %27, 0
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph45:                                         ; preds = %.preheader, %43
   %.02344 = phi ptr [ %44, %43 ], [ @slurmctld_rpcs, %.preheader ]
-  %28 = getelementptr inbounds i8, ptr %.02344, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.02344, i64 56
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %.lr.ph45
-  %32 = getelementptr inbounds i8, ptr %.02344, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.02344, i64 64
   %33 = load i64, ptr %32, align 8
   %.not31 = icmp eq i64 %33, 0
   br i1 %.not31, label %.thread, label %34
@@ -520,7 +520,7 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %31, %36, %34
-  %39 = getelementptr inbounds i8, ptr %.02344, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %.02344, i64 160
   %40 = load ptr, ptr %39, align 8
   %.not33 = icmp eq ptr %40, null
   br i1 %.not33, label %42, label %41
@@ -534,7 +534,7 @@ define dso_local void @rpc_queue_shutdown() local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %.lr.ph45, %42
-  %44 = getelementptr inbounds i8, ptr %.02344, i64 168
+  %44 = getelementptr inbounds nuw i8, ptr %.02344, i64 168
   %45 = load i16, ptr %44, align 8
   %.not30 = icmp eq i16 %45, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph45, !llvm.loop !10
@@ -568,7 +568,7 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %6 = load i16, ptr %5, align 4
   br label %7
 
@@ -579,16 +579,16 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.01626, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %.01626, i64 56
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.01626, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %.01626, i64 160
   %16 = load ptr, ptr %15, align 8
   tail call void @list_enqueue(ptr noundef %16, ptr noundef nonnull %0) #7
-  %17 = getelementptr inbounds i8, ptr %.01626, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %.01626, i64 120
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #7
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %21, label %19
@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.01626, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %.01626, i64 72
   %23 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %22) #7
   %.not22 = icmp eq i32 %23, 0
   br i1 %.not22, label %27, label %24
@@ -623,7 +623,7 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 31:                                               ; preds = %7
-  %32 = getelementptr inbounds i8, ptr %.01626, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %.01626, i64 168
   %33 = load i16, ptr %32, align 8
   %.not = icmp eq i16 %33, 0
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !11

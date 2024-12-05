@@ -73,7 +73,7 @@ define dso_local void @radix_tree_node_rcu_free(ptr noundef initializes((16, 552
   %3 = getelementptr i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(536) %3, i8 0, i64 536, i1 false)
   store volatile ptr %0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %0, ptr %4, align 8
   %5 = load ptr, ptr @radix_tree_node_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %5, ptr noundef %2) #13
@@ -151,9 +151,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__radix_tree_preload(i32 n
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %26, ptr %27, align 8
   store ptr %17, ptr %25, align 8
   %28 = load i32, ptr %21, align 8
@@ -211,8 +211,8 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %.fr = freeze i32 %11
   %12 = and i32 %.fr, 67108848
@@ -300,9 +300,9 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %66, label %radix_tree_node_alloc.exit.thread, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   store ptr %71, ptr %68, align 8
   %72 = add i32 %65, -1
@@ -323,15 +323,15 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
 80:                                               ; preds = %78
   %81 = trunc i32 %46 to i8
   store i8 %81, ptr %74, align 8
-  %82 = getelementptr inbounds i8, ptr %74, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store i8 %44, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %74, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 2
   store i8 0, ptr %83, align 2
-  %84 = getelementptr inbounds i8, ptr %74, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 3
   store i8 0, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %74, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %41, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %74, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %0, ptr %86, align 8
   %87 = or i64 %75, 2
   %88 = inttoptr i64 %87 to ptr
@@ -341,7 +341,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %41, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %92 = load i8, ptr %91, align 2
   %93 = add i8 %92, 1
   store i8 %93, ptr %91, align 2
@@ -356,7 +356,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   %99 = lshr i64 %1, %98
   %100 = trunc i64 %99 to i8
   %101 = and i8 %100, 63
-  %102 = getelementptr inbounds i8, ptr %96, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %103 = and i64 %99, 63
   %104 = getelementptr [64 x ptr], ptr %102, i64 0, i64 %103
   %105 = load volatile ptr, ptr %104, align 8
@@ -387,15 +387,15 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
 118:                                              ; preds = %114
   %119 = trunc i32 %112 to i8
   store i8 %119, ptr %116, align 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 1
   store i8 %110, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %116, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 2
   store i8 0, ptr %121, align 2
-  %122 = getelementptr inbounds i8, ptr %116, i64 3
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 3
   store i8 0, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %116, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %107, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %116, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %0, ptr %124, align 8
   %125 = ptrtoint ptr %116 to i64
   %126 = or disjoint i64 %125, 2
@@ -406,7 +406,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %128, label %137, label %129
 
 129:                                              ; preds = %118
-  %130 = getelementptr inbounds i8, ptr %107, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %131 = load i8, ptr %130, align 2
   %132 = add i8 %131, 1
   store i8 %132, ptr %130, align 2
@@ -427,7 +427,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   %142 = lshr i64 %1, %141
   %143 = trunc i64 %142 to i8
   %144 = and i8 %143, 63
-  %145 = getelementptr inbounds i8, ptr %139, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %146 = and i64 %142, 63
   %147 = getelementptr [64 x ptr], ptr %145, i64 0, i64 %146
   %148 = load volatile ptr, ptr %147, align 8
@@ -448,7 +448,7 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %153, label %188, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %.ph, i64 2
+  %155 = getelementptr inbounds nuw i8, ptr %.ph, i64 2
   %156 = load i8, ptr %155, align 2
   %157 = add i8 %156, 1
   store i8 %157, ptr %155, align 2
@@ -457,21 +457,21 @@ define dso_local range(i32 -2147483648, 1) i32 @radix_tree_insert(ptr noundef %0
   br i1 %159, label %164, label %160
 
 160:                                              ; preds = %154
-  %161 = getelementptr inbounds i8, ptr %.ph, i64 3
+  %161 = getelementptr inbounds nuw i8, ptr %.ph, i64 3
   %162 = load i8, ptr %161, align 1
   %163 = add i8 %162, 1
   store i8 %163, ptr %161, align 1
   br label %164
 
 164:                                              ; preds = %160, %154
-  %165 = getelementptr inbounds i8, ptr %.ph, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %.ph, i64 40
   %166 = ptrtoint ptr %.ph10 to i64
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
-  %169 = getelementptr inbounds i8, ptr %.ph, i64 552
+  %169 = getelementptr inbounds nuw i8, ptr %.ph, i64 552
   %170 = shl i64 %168, 29
   %171 = ashr i64 %170, 32
-  %172 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %169, i64 %171) #13, !srcloc !35
+  %172 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %169, i64 %171) #13, !srcloc !35
   %173 = icmp ult i8 %172, 2
   tail call void @llvm.assume(i1 %173)
   %174 = icmp eq i8 %172, 0
@@ -525,7 +525,7 @@ radix_tree_node_alloc.exit.thread:                ; preds = %133, %114, %48, %78
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local ptr @__radix_tree_lookup(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 3
@@ -568,7 +568,7 @@ define dso_local ptr @__radix_tree_lookup(ptr noundef %0, i64 noundef %1, ptr no
   %30 = load i8, ptr %29, align 8
   %31 = zext nneg i8 %30 to i64
   %32 = lshr i64 %1, %31
-  %33 = getelementptr inbounds i8, ptr %29, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %34 = and i64 %32, 63
   %35 = getelementptr [64 x ptr], ptr %33, i64 0, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
@@ -615,7 +615,7 @@ define dso_local ptr @__radix_tree_lookup(ptr noundef %0, i64 noundef %1, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 3
@@ -654,7 +654,7 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 
   %27 = zext nneg i8 %26 to i64
   %28 = lshr i64 %1, %27
   %29 = and i64 %28, 63
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %31 = getelementptr [64 x ptr], ptr %30, i64 0, i64 %29
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, inttoptr (i64 1026 to ptr)
@@ -691,7 +691,7 @@ define dso_local ptr @radix_tree_lookup_slot(ptr noundef %0, i64 noundef %1) #4 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local ptr @radix_tree_lookup(ptr noundef %0, i64 noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 3
@@ -736,7 +736,7 @@ define dso_local ptr @radix_tree_lookup(ptr noundef %0, i64 noundef %1) #4 align
   %28 = zext nneg i8 %27 to i64
   %29 = lshr i64 %1, %28
   %30 = and i64 %29, 63
-  %31 = getelementptr inbounds i8, ptr %26, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %32 = getelementptr [64 x ptr], ptr %31, i64 0, i64 %30
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, inttoptr (i64 1026 to ptr)
@@ -769,7 +769,7 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
   %12 = icmp ne i64 %11, 0
   %13 = sext i1 %12 to i32
   %14 = add nsw i32 %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4
   %18 = icmp eq i32 %17, 0
@@ -781,13 +781,13 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
 
 21:                                               ; preds = %19
   %22 = ptrtoint ptr %2 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %22, %24
   %26 = shl i64 %25, 29
   %27 = ashr i64 %26, 32
-  %28 = getelementptr inbounds i8, ptr %1, i64 552
-  %29 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 %27) #13, !srcloc !35
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 552
+  %29 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %28, i64 %27) #13, !srcloc !35
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
   %31 = icmp ne i8 %29, 0
@@ -816,7 +816,7 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
 46:                                               ; preds = %40, %35
   %47 = phi i32 [ %38, %35 ], [ %45, %40 ]
   %48 = icmp eq ptr %1, null
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = icmp ne ptr %49, %2
   %51 = select i1 %48, i1 %50, i1 false
   br i1 %51, label %52, label %57
@@ -845,12 +845,12 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %60, label %69, label %.thread2
 
 .thread2:                                         ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %1, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %62 = load i8, ptr %61, align 2
   %63 = trunc nsw i32 %47 to i8
   %64 = add i8 %62, %63
   store i8 %64, ptr %61, align 2
-  %65 = getelementptr inbounds i8, ptr %1, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = trunc nsw i32 %14 to i8
   %68 = add i8 %66, %67
@@ -874,15 +874,15 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %.thread3
-  %9 = getelementptr inbounds i8, ptr %77, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %10 = load i8, ptr %9, align 2
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !51
@@ -907,7 +907,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
 .lr.ph10.preheader:                               ; preds = %.preheader
   %21 = and i64 %18, -4
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %.lr.ph25, label %._crit_edge11
@@ -915,7 +915,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
 .lr.ph10:                                         ; preds = %70
   %26 = and i64 %72, -4
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, 1
   br i1 %30, label %.lr.ph25, label %._crit_edge11
@@ -924,7 +924,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   %31 = phi ptr [ %28, %.lr.ph10 ], [ %23, %.lr.ph10.preheader ]
   %32 = phi ptr [ %27, %.lr.ph10 ], [ %22, %.lr.ph10.preheader ]
   %33 = phi i8 [ 1, %.lr.ph10 ], [ 0, %.lr.ph10.preheader ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %._crit_edge11, label %37
@@ -949,7 +949,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
 48:                                               ; preds = %44
   %49 = and i64 %45, -4
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr null, ptr %51, align 8
   br label %52
 
@@ -961,7 +961,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   br i1 %55, label %63, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %32, i64 552
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 552
   %58 = load volatile i64, ptr %57, align 8
   %59 = and i64 %58, 1
   %60 = icmp eq i64 %59, 0
@@ -981,7 +981,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   br label %65
 
 65:                                               ; preds = %64, %63
-  %66 = getelementptr inbounds i8, ptr %32, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %67 = load volatile ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %66
   br i1 %68, label %70, label %69, !prof !17
@@ -993,7 +993,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   br label %70
 
 70:                                               ; preds = %65, %69
-  tail call void @call_rcu(ptr noundef %66, ptr noundef nonnull @radix_tree_node_rcu_free) #13
+  tail call void @call_rcu(ptr noundef nonnull %66, ptr noundef nonnull @radix_tree_node_rcu_free) #13
   %71 = load volatile ptr, ptr %3, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 3
@@ -1002,19 +1002,19 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %2, %8
   %75 = phi ptr [ %77, %8 ], [ %1, %2 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %88, label %79
 
 79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %77, i64 40
-  %81 = getelementptr inbounds i8, ptr %75, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i64
   %84 = getelementptr [64 x ptr], ptr %80, i64 0, i64 %83
   store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %86 = load i8, ptr %85, align 2
   %87 = add i8 %86, -1
   store i8 %87, ptr %85, align 2
@@ -1036,7 +1036,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   br label %95
 
 95:                                               ; preds = %94, %79
-  %96 = getelementptr inbounds i8, ptr %75, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %97 = load volatile ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, %96
   br i1 %98, label %.thread3, label %99, !prof !17
@@ -1048,7 +1048,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   br label %.thread3
 
 .thread3:                                         ; preds = %95, %99
-  tail call void @call_rcu(ptr noundef %96, ptr noundef nonnull @radix_tree_node_rcu_free) #13
+  tail call void @call_rcu(ptr noundef nonnull %96, ptr noundef nonnull @radix_tree_node_rcu_free) #13
   br i1 %78, label %.loopexit, label %8, !llvm.loop !51
 
 ._crit_edge11:                                    ; preds = %40, %.lr.ph25, %.lr.ph10, %70, %.lr.ph10.preheader, %.preheader
@@ -1071,7 +1071,7 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
   %8 = ptrtoint ptr %4 to i64
   %9 = and i64 %8, 1
   %10 = icmp ne i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
@@ -1095,7 +1095,7 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
 
 27:                                               ; preds = %21, %15
   %28 = phi i32 [ %19, %15 ], [ %26, %21 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = icmp eq ptr %29, %1
   br i1 %30, label %36, label %31
 
@@ -1119,7 +1119,7 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @radix_tree_iter_replace(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @__radix_tree_replace(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3)
   ret void
@@ -1127,7 +1127,7 @@ define dso_local void @radix_tree_iter_replace(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @radix_tree_tag_set(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 3
@@ -1164,7 +1164,7 @@ define dso_local ptr @radix_tree_tag_set(ptr noundef %0, i64 noundef %1, i32 nou
   %24 = load i8, ptr %23, align 8
   %25 = zext nneg i8 %24 to i64
   %26 = lshr i64 %1, %25
-  %27 = getelementptr inbounds i8, ptr %23, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %28 = and i64 %26, 63
   %29 = getelementptr [64 x ptr], ptr %27, i64 0, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
@@ -1177,7 +1177,7 @@ define dso_local ptr @radix_tree_tag_set(ptr noundef %0, i64 noundef %1, i32 nou
   unreachable
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds i8, ptr %23, i64 552
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 552
   %35 = getelementptr [3 x [1 x i64]], ptr %34, i64 0, i64 %18
   %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 %28) #13, !srcloc !35
   %37 = icmp ult i8 %36, 2
@@ -1197,7 +1197,7 @@ define dso_local ptr @radix_tree_tag_set(ptr noundef %0, i64 noundef %1, i32 nou
 
 .thread2:                                         ; preds = %40, %.thread
   %44 = phi ptr [ %5, %.thread ], [ %30, %40 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %2, 26
   %48 = shl nuw i32 1, %47
@@ -1216,7 +1216,7 @@ define dso_local ptr @radix_tree_tag_set(ptr noundef %0, i64 noundef %1, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 3
@@ -1246,7 +1246,7 @@ define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 n
   %22 = load i8, ptr %21, align 8
   %23 = zext nneg i8 %22 to i64
   %24 = lshr i64 %1, %23
-  %25 = getelementptr inbounds i8, ptr %21, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %26 = and i64 %24, 63
   %27 = getelementptr [64 x ptr], ptr %25, i64 0, i64 %26
   %28 = load volatile ptr, ptr %27, align 8
@@ -1270,7 +1270,7 @@ define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 n
 37:                                               ; preds = %48, %35
   %38 = phi i64 [ %26, %35 ], [ %51, %48 ]
   %39 = phi ptr [ %21, %35 ], [ %53, %48 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 552
   %41 = getelementptr [3 x [1 x i64]], ptr %40, i64 0, i64 %36
   %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, i64 %38) #13, !srcloc !35
   %43 = icmp ult i8 %42, 2
@@ -1285,17 +1285,17 @@ define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 n
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %39, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %39, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread5, label %37, !llvm.loop !66
 
 .thread5:                                         ; preds = %48, %.thread, %33
   %55 = phi ptr [ %28, %33 ], [ %5, %.thread ], [ %28, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %2, 26
   %59 = shl nuw i32 1, %58
@@ -1316,7 +1316,7 @@ define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit2, label %7
@@ -1330,7 +1330,7 @@ define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr n
 11:                                               ; preds = %22, %7
   %12 = phi i64 [ %9, %7 ], [ %25, %22 ]
   %13 = phi ptr [ %5, %7 ], [ %27, %22 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 552
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 552
   %15 = getelementptr [3 x [1 x i64]], ptr %14, i64 0, i64 %10
   %16 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 %12) #13, !srcloc !35
   %17 = icmp ult i8 %16, 2
@@ -1345,16 +1345,16 @@ define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr n
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %13, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit2, label %11, !llvm.loop !66
 
 .loopexit2:                                       ; preds = %22, %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %2, 26
   %32 = shl nuw i32 1, %31
@@ -1374,7 +1374,7 @@ define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %2, 26
   %7 = shl nuw i32 1, %6
@@ -1383,7 +1383,7 @@ define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0,
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 3
@@ -1421,11 +1421,11 @@ define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0,
   %36 = load i8, ptr %35, align 8
   %37 = zext nneg i8 %36 to i64
   %38 = lshr i64 %1, %37
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %40 = and i64 %38, 63
   %41 = getelementptr [64 x ptr], ptr %39, i64 0, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 552
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 552
   %44 = getelementptr [3 x [1 x i64]], ptr %43, i64 0, i64 %27
   %45 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %44, i64 %40) #13, !srcloc !35
   %46 = icmp ult i8 %45, 2
@@ -1452,9 +1452,9 @@ define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr nocapture readn
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %6, align 8
   ret ptr null
 }
@@ -1467,7 +1467,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = shl nuw i32 67108864, %4
   %11 = and i32 %9, %10
@@ -1475,7 +1475,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %7, %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %20
@@ -1486,7 +1486,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %17, %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = zext nneg i32 %4 to i64
   %23 = and i32 %2, 32
   %24 = icmp eq i32 %23, 0
@@ -1526,7 +1526,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   %46 = load i8, ptr %45, align 8
   %47 = zext nneg i8 %46 to i64
   %48 = lshr i64 %42, %47
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %50 = and i64 %48, 63
   %51 = getelementptr [64 x ptr], ptr %49, i64 0, i64 %50
   %52 = load volatile ptr, ptr %51, align 8
@@ -1615,7 +1615,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   %104 = load i8, ptr %103, align 8
   %105 = zext nneg i8 %104 to i64
   %106 = lshr i64 %15, %105
-  %107 = getelementptr inbounds i8, ptr %103, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 40
   %108 = and i64 %106, 63
   %109 = getelementptr [64 x ptr], ptr %107, i64 0, i64 %108
   %110 = load volatile ptr, ptr %109, align 8
@@ -1660,11 +1660,11 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   %134 = load i8, ptr %133, align 8
   %135 = zext nneg i8 %134 to i64
   %136 = lshr i64 %130, %135
-  %137 = getelementptr inbounds i8, ptr %133, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %138 = and i64 %136, 63
   %139 = getelementptr [64 x ptr], ptr %137, i64 0, i64 %138
   %140 = load volatile ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %133, i64 552
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 552
   %142 = getelementptr [3 x [1 x i64]], ptr %141, i64 0, i64 %22
   %143 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, i64 %138) #13, !srcloc !35
   %144 = icmp ult i8 %143, 2
@@ -1766,9 +1766,9 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
 .thread8:                                         ; preds = %.thread
   store i64 0, ptr %1, align 8
   store i64 1, ptr %14, align 8
-  %202 = getelementptr inbounds i8, ptr %1, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 1, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %1, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %203, align 8
   br label %.loopexit
 
@@ -1780,11 +1780,11 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   %208 = load i8, ptr %207, align 8
   %209 = zext nneg i8 %208 to i64
   %210 = lshr i64 %15, %209
-  %211 = getelementptr inbounds i8, ptr %207, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %212 = and i64 %210, 63
   %213 = getelementptr [64 x ptr], ptr %211, i64 0, i64 %212
   %214 = load volatile ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %207, i64 552
+  %215 = getelementptr inbounds nuw i8, ptr %207, i64 552
   %216 = getelementptr [3 x [1 x i64]], ptr %215, i64 0, i64 %22
   %217 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %216, i64 %212) #13, !srcloc !35
   %218 = icmp ult i8 %217, 2
@@ -1826,7 +1826,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
   %237 = or i64 %236, %.us-phi34
   %238 = add i64 %237, 1
   store i64 %238, ptr %14, align 8
-  %239 = getelementptr inbounds i8, ptr %1, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %.us-phi36, ptr %239, align 8
   br i1 %6, label %253, label %240
 
@@ -1837,7 +1837,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
 242:                                              ; preds = %240
   %243 = and i64 %.us-phi33, 63
   %244 = lshr i64 %.us-phi33, 6
-  %245 = getelementptr inbounds i8, ptr %.us-phi36, i64 552
+  %245 = getelementptr inbounds nuw i8, ptr %.us-phi36, i64 552
   %246 = and i64 %244, 67108863
   %247 = getelementptr [3 x [1 x i64]], ptr %245, i64 0, i64 %22, i64 %246
   %248 = load i64, ptr %247, align 8
@@ -1846,7 +1846,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
 
 250:                                              ; preds = %242, %240
   %251 = phi i64 [ %249, %242 ], [ 1, %240 ]
-  %252 = getelementptr inbounds i8, ptr %1, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %251, ptr %252, align 8
   br label %253
 
@@ -1867,12 +1867,12 @@ define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr nocapture nound
   br i1 %6, label %.loopexit, label %7, !prof !6
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false), !annotation !70
   store i64 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %11
 
 .loopexit6:                                       ; preds = %45, %39
@@ -1954,13 +1954,13 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr nocapture n
   br i1 %7, label %.loopexit, label %8, !prof !6
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !annotation !70
   store i64 0, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %10, align 8
   %11 = or i32 %4, 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = and i32 %4, 32
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.split.us.outer, label %.split.outer
@@ -2118,13 +2118,13 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nocapt
   br i1 %7, label %.loopexit, label %8, !prof !6
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !annotation !70
   store i64 0, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %10, align 8
   %11 = or i32 %4, 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = and i32 %4, 32
   %14 = icmp eq i32 %13, 0
   %15 = zext i32 %3 to i64
@@ -2236,13 +2236,13 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @radix_tree_iter_delete(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %5, ptr noundef %2)
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -2256,12 +2256,12 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
   %4 = load volatile ptr, ptr %2, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 3
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 4
   %15 = icmp eq i32 %14, 0
@@ -2297,21 +2297,21 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
 .preheader8:                                      ; preds = %29, %37
   %30 = phi i64 [ %40, %37 ], [ %11, %29 ]
   %31 = phi ptr [ %42, %37 ], [ %1, %29 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 552
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 552
   %sext = shl i64 %30, 32
   %33 = ashr exact i64 %sext, 32
-  %34 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %33) #13, !srcloc !35
+  %34 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %32, i64 %33) #13, !srcloc !35
   %35 = icmp ult i8 %34, 2
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
   br i1 %36, label %37, label %.loopexit7
 
 37:                                               ; preds = %.preheader8
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %33) #13, !srcloc !62
-  %38 = getelementptr inbounds i8, ptr %31, i64 1
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %32, i64 %33) #13, !srcloc !62
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %31, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit10.loopexit, label %.preheader8, !llvm.loop !78
@@ -2338,7 +2338,7 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
 50:                                               ; preds = %.preheader, %62
   %51 = phi i64 [ %65, %62 ], [ %11, %.preheader ]
   %52 = phi ptr [ %67, %62 ], [ %1, %.preheader ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 552
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 552
   %54 = getelementptr [3 x [1 x i64]], ptr %53, i64 0, i64 %49
   %sext4 = shl i64 %51, 32
   %55 = ashr exact i64 %sext4, 32
@@ -2355,10 +2355,10 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
   br i1 %61, label %62, label %.loopexit
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %52, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %52, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit5, label %50, !llvm.loop !66
@@ -2386,11 +2386,11 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
   br i1 %6, label %89, label %79
 
 79:                                               ; preds = %.loopexit7
-  %80 = getelementptr inbounds i8, ptr %1, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %81 = load i8, ptr %80, align 2
   %82 = add i8 %81, -1
   store i8 %82, ptr %80, align 2
-  %83 = getelementptr inbounds i8, ptr %1, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %84 = load i8, ptr %83, align 1
   %85 = trunc i64 %5 to i8
   %86 = and i8 %85, 1
@@ -2413,12 +2413,12 @@ define internal fastcc noundef zeroext i1 @__radix_tree_delete(ptr noundef %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr noundef readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 3
-  %.not20 = icmp eq i64 %7, 2
-  br i1 %.not20, label %.lr.ph, label %.thread, !prof !44
+  %.not21 = icmp eq i64 %7, 2
+  br i1 %.not21, label %.lr.ph, label %.thread, !prof !44
 
 8:                                                ; preds = %.preheader
   %9 = load volatile ptr, ptr %4, align 8
@@ -2429,8 +2429,8 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
 
 .thread:                                          ; preds = %8, %3
   %.lcssa = phi ptr [ %5, %3 ], [ %9, %8 ]
-  %.not3 = icmp eq i64 %1, 0
-  br i1 %.not3, label %40, label %.thread2
+  %.not4 = icmp eq i64 %1, 0
+  br i1 %.not4, label %.thread3, label %.thread2
 
 .lr.ph:                                           ; preds = %3, %8
   %12 = phi i64 [ %10, %8 ], [ %6, %3 ]
@@ -2447,7 +2447,7 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
   %21 = ptrtoint ptr %33 to i64
   %22 = and i64 %21, 3
   %23 = icmp eq i64 %22, 2
-  br i1 %23, label %.preheader, label %.loopexit, !llvm.loop !46
+  br i1 %23, label %.preheader, label %39, !llvm.loop !46
 
 .preheader:                                       ; preds = %.lr.ph, %20
   %24 = phi i64 [ %21, %20 ], [ %12, %.lr.ph ]
@@ -2457,7 +2457,7 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
   %28 = zext nneg i8 %27 to i64
   %29 = lshr i64 %1, %28
   %30 = and i64 %29, 63
-  %31 = getelementptr inbounds i8, ptr %26, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %32 = getelementptr [64 x ptr], ptr %31, i64 0, i64 %30
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, inttoptr (i64 1026 to ptr)
@@ -2467,70 +2467,67 @@ define dso_local ptr @radix_tree_delete_item(ptr noundef %0, i64 noundef %1, ptr
   switch i32 %37, label %38 [
     i32 0, label %20
     i32 2, label %8
-    i32 4, label %.loopexit
+    i32 4, label %39
   ], !llvm.loop !46
 
 38:                                               ; preds = %.preheader
   unreachable
 
-.loopexit:                                        ; preds = %.preheader, %20
-  %39 = getelementptr [64 x ptr], ptr %31, i64 0, i64 %30
-  br label %40
+39:                                               ; preds = %20, %.preheader
+  %40 = getelementptr [64 x ptr], ptr %31, i64 0, i64 %30
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.thread2, label %.thread3
 
-40:                                               ; preds = %.loopexit, %.thread
-  %41 = phi ptr [ null, %.thread ], [ %26, %.loopexit ]
-  %42 = phi ptr [ %4, %.thread ], [ %39, %.loopexit ]
-  %43 = phi ptr [ %.lcssa, %.thread ], [ %33, %.loopexit ]
-  %44 = icmp eq ptr %42, null
-  br i1 %44, label %.thread2, label %45
+.thread3:                                         ; preds = %.thread, %39
+  %42 = phi ptr [ %33, %39 ], [ %.lcssa, %.thread ]
+  %43 = phi ptr [ %40, %39 ], [ %4, %.thread ]
+  %44 = phi ptr [ %26, %39 ], [ null, %.thread ]
+  %45 = icmp eq ptr %42, null
+  br i1 %45, label %46, label %65
 
-45:                                               ; preds = %40
-  %46 = icmp eq ptr %43, null
-  br i1 %46, label %47, label %66
+46:                                               ; preds = %.thread3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = and i32 %48, 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.thread2, label %51
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.thread2, label %52
+51:                                               ; preds = %46
+  %52 = icmp eq ptr %44, null
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %47
-  %53 = icmp eq ptr %41, null
-  br i1 %53, label %54, label %56
+53:                                               ; preds = %51
+  %54 = and i32 %48, 67108864
+  %.not6 = icmp eq i32 %54, 0
+  br i1 %.not6, label %65, label %.thread2
 
-54:                                               ; preds = %52
-  %55 = and i32 %49, 67108864
-  %.not5 = icmp eq i32 %55, 0
-  br i1 %.not5, label %66, label %.thread2
+55:                                               ; preds = %51
+  %56 = ptrtoint ptr %43 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %56, %58
+  %60 = shl i64 %59, 29
+  %61 = ashr i64 %60, 32
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 552
+  %63 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 %61) #13, !srcloc !35
+  %64 = icmp ult i8 %63, 2
+  tail call void @llvm.assume(i1 %64)
+  %.not5 = icmp eq i8 %63, 0
+  br i1 %.not5, label %65, label %.thread2
 
-56:                                               ; preds = %52
-  %57 = ptrtoint ptr %42 to i64
-  %58 = getelementptr inbounds i8, ptr %41, i64 40
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %57, %59
-  %61 = shl i64 %60, 29
-  %62 = ashr i64 %61, 32
-  %63 = getelementptr inbounds i8, ptr %41, i64 552
-  %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, i64 %62) #13, !srcloc !35
-  %65 = icmp ult i8 %64, 2
-  tail call void @llvm.assume(i1 %65)
-  %.not4 = icmp eq i8 %64, 0
-  br i1 %.not4, label %66, label %.thread2
+65:                                               ; preds = %53, %55, %.thread3
+  %66 = icmp eq ptr %2, null
+  %67 = icmp eq ptr %42, %2
+  %68 = or i1 %66, %67
+  br i1 %68, label %69, label %.thread2
 
-66:                                               ; preds = %54, %56, %45
-  %67 = icmp eq ptr %2, null
-  %68 = icmp eq ptr %43, %2
-  %69 = or i1 %67, %68
-  br i1 %69, label %70, label %.thread2
-
-70:                                               ; preds = %66
-  %71 = tail call fastcc zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %42)
+69:                                               ; preds = %65
+  %70 = tail call fastcc zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %44, ptr noundef nonnull %43)
   br label %.thread2
 
-.thread2:                                         ; preds = %.lr.ph, %.thread, %54, %70, %66, %56, %47, %40
-  %72 = phi ptr [ %43, %70 ], [ null, %40 ], [ null, %56 ], [ null, %47 ], [ null, %66 ], [ null, %54 ], [ null, %.thread ], [ null, %.lr.ph ]
-  ret ptr %72
+.thread2:                                         ; preds = %.lr.ph, %.thread, %53, %69, %65, %55, %46, %39
+  %71 = phi ptr [ %42, %69 ], [ null, %39 ], [ null, %55 ], [ null, %46 ], [ null, %65 ], [ null, %53 ], [ null, %.thread ], [ null, %.lr.ph ]
+  ret ptr %71
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2541,7 +2538,7 @@ define dso_local ptr @radix_tree_delete(ptr noundef %0, i64 noundef %1) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i32 0, -2147483647) i32 @radix_tree_tagged(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %1, 26
   %6 = shl nuw i32 1, %5
@@ -2567,10 +2564,10 @@ define dso_local void @idr_preload(i32 noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = and i32 %2, 1024
   %10 = icmp eq i32 %9, 0
   %11 = or i32 %2, 8192
@@ -2675,9 +2672,9 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   br i1 %76, label %radix_tree_node_alloc.exit.thread, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   store ptr %81, ptr %78, align 8
   %82 = add i32 %75, -1
@@ -2709,17 +2706,17 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   %95 = trunc i32 %61 to i8
   store i8 %95, ptr %87, align 8
   %96 = trunc i32 %59 to i8
-  %97 = getelementptr inbounds i8, ptr %87, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store i8 %96, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %87, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i8 0, ptr %98, align 2
-  %99 = getelementptr inbounds i8, ptr %87, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 3
   store i8 0, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %87, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %55, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %87, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr %0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %87, i64 552
+  %102 = getelementptr inbounds nuw i8, ptr %87, i64 552
   store i64 -1, ptr %102, align 8
   %103 = or i64 %88, 2
   %104 = inttoptr i64 %103 to ptr
@@ -2729,7 +2726,7 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %94
-  %107 = getelementptr inbounds i8, ptr %55, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %108 = load i8, ptr %107, align 2
   %109 = add i8 %108, 1
   store i8 %109, ptr %107, align 2
@@ -2750,12 +2747,12 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   %119 = lshr i64 %57, %118
   %120 = trunc i64 %119 to i32
   %121 = and i32 %120, 63
-  %122 = getelementptr inbounds i8, ptr %116, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %123 = and i64 %119, 63
   %124 = getelementptr [64 x ptr], ptr %122, i64 0, i64 %123
   %125 = load volatile ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %116, i64 552
-  %127 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %126, i64 %123) #13, !srcloc !35
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 552
+  %127 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %126, i64 %123) #13, !srcloc !35
   %128 = icmp ult i8 %127, 2
   tail call void @llvm.assume(i1 %128)
   %129 = icmp eq i8 %127, 0
@@ -2802,11 +2799,11 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
 
 .preheader:                                       ; preds = %151, %162
   %154 = phi ptr [ %160, %162 ], [ %116, %151 ]
-  %155 = getelementptr inbounds i8, ptr %154, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = add nuw nsw i32 %157, 1
-  %159 = getelementptr inbounds i8, ptr %154, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.loopexit, label %162
@@ -2825,7 +2822,7 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   %169 = phi i32 [ %166, %164 ], [ %61, %151 ]
   %170 = phi ptr [ %160, %164 ], [ %116, %151 ]
   %171 = zext i32 %168 to i64
-  %172 = getelementptr inbounds i8, ptr %170, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 40
   %173 = getelementptr [64 x ptr], ptr %172, i64 0, i64 %171
   %174 = load volatile ptr, ptr %173, align 8
   br label %175
@@ -2837,7 +2834,7 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   %178 = phi i32 [ %61, %._crit_edge ], [ %169, %167 ]
   %179 = phi i64 [ %57, %._crit_edge ], [ %148, %167 ]
   %180 = phi ptr [ %116, %._crit_edge ], [ %170, %167 ]
-  %181 = getelementptr inbounds i8, ptr %180, i64 40
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %182 = getelementptr [64 x ptr], ptr %181, i64 0, i64 %.pre-phi59
   %183 = icmp eq i32 %178, 0
   br i1 %183, label %184, label %.preheader16, !llvm.loop !83
@@ -2860,11 +2857,11 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
   %196 = tail call i64 @llvm.umin.i64(i64 %195, i64 %3)
   %197 = add i64 %196, 1
   store i64 %197, ptr %6, align 8
-  %198 = getelementptr inbounds i8, ptr %1, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %188, ptr %198, align 8
   %199 = and i32 %185, 63
   %200 = lshr i32 %185, 6
-  %201 = getelementptr inbounds i8, ptr %188, i64 552
+  %201 = getelementptr inbounds nuw i8, ptr %188, i64 552
   %202 = zext nneg i32 %200 to i64
   %203 = getelementptr [3 x [1 x i64]], ptr %201, i64 0, i64 0, i64 %202
   %204 = load i64, ptr %203, align 8
@@ -2875,14 +2872,14 @@ define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32
 207:                                              ; preds = %.thread15, %184
   %208 = phi ptr [ %14, %.thread15 ], [ %187, %184 ]
   store i64 1, ptr %6, align 8
-  %209 = getelementptr inbounds i8, ptr %1, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %209, align 8
   br label %210
 
 210:                                              ; preds = %207, %190
   %211 = phi ptr [ %187, %190 ], [ %208, %207 ]
   %212 = phi i64 [ %206, %190 ], [ 1, %207 ]
-  %213 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %212, ptr %213, align 8
   br label %radix_tree_node_alloc.exit.thread
 
@@ -2905,20 +2902,20 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
   br i1 %10, label %5, label %12, !llvm.loop !84
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 67108868
   %20 = icmp eq i32 %19, 4
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %16, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = and i32 %1, 1024
   %24 = icmp eq i32 %23, 0
   %25 = or i32 %1, 8192
@@ -2949,9 +2946,9 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %43, align 8
   %47 = add i32 %40, -1
@@ -2982,20 +2979,20 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
 59:                                               ; preds = %57
   %60 = trunc i32 %28 to i8
   store i8 %60, ptr %52, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store i8 0, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %52, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 2
   store i8 1, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %52, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 3
   store i8 0, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %52, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %52, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %0, ptr %65, align 8
   %66 = load i32, ptr %22, align 4
   %67 = and i32 %66, 4
   %68 = icmp eq i32 %67, 0
-  %69 = getelementptr inbounds i8, ptr %52, i64 552
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 552
   br i1 %68, label %.preheader, label %70
 
 70:                                               ; preds = %59
@@ -3006,7 +3003,7 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %70
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %69, i64 0) #13, !srcloc !65
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %69, i64 0) #13, !srcloc !65
   %75 = load i32, ptr %22, align 4
   %76 = or i32 %75, 67108864
   store i32 %76, ptr %22, align 4
@@ -3049,7 +3046,7 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
 94:                                               ; preds = %90
   %95 = and i64 %91, -4
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %52, ptr %97, align 8
   br label %102
 
@@ -3063,7 +3060,7 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
   br label %102
 
 102:                                              ; preds = %101, %98, %94
-  %103 = getelementptr inbounds i8, ptr %52, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %27, ptr %103, align 8
   %104 = or i64 %53, 2
   %105 = inttoptr i64 %104 to ptr
@@ -3080,7 +3077,7 @@ define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @idr_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 3
@@ -3095,7 +3092,7 @@ define dso_local void @idr_destroy(ptr noundef %0) #0 align 16 {
 10:                                               ; preds = %.loopexit, %7
   %11 = phi ptr [ %9, %7 ], [ %.ph1, %.loopexit ]
   %12 = phi i32 [ 0, %7 ], [ %.ph2, %.loopexit ]
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = zext i32 %12 to i64
   %15 = getelementptr [64 x ptr], ptr %13, i64 0, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
@@ -3127,12 +3124,12 @@ define dso_local void @idr_destroy(ptr noundef %0) #0 align 16 {
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %38
   br i1 %40, label %42, label %41, !prof !17
@@ -3144,7 +3141,7 @@ define dso_local void @idr_destroy(ptr noundef %0) #0 align 16 {
   br label %42
 
 42:                                               ; preds = %41, %32
-  tail call void @call_rcu(ptr noundef %38, ptr noundef nonnull @radix_tree_node_rcu_free) #13
+  tail call void @call_rcu(ptr noundef nonnull %38, ptr noundef nonnull @radix_tree_node_rcu_free) #13
   %43 = icmp eq ptr %29, %9
   br i1 %43, label %.loopexit3, label %28, !llvm.loop !94
 
@@ -3155,7 +3152,7 @@ define dso_local void @idr_destroy(ptr noundef %0) #0 align 16 {
 
 .loopexit3:                                       ; preds = %42, %1
   store ptr null, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 67108864
   store i32 %46, ptr %44, align 4
@@ -3186,9 +3183,9 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal void @radix_tree_node_ctor(ptr noundef initializes((0, 576)) %0) #8 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(576) %0, i8 0, i64 576, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %2, ptr %3, align 8
   ret void
 }
@@ -3205,12 +3202,12 @@ define internal noundef i32 @radix_tree_cpu_dead(i32 noundef %0) #0 align 16 {
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %11
 
 11:                                               ; preds = %11, %9
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %10, align 8
   %15 = load ptr, ptr @radix_tree_node_cachep, align 8

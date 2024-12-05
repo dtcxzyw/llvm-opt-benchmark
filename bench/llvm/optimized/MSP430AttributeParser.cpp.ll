@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm21MSP430AttributeParser7handlerEmRb(ptr dead_on_u
 
 6:                                                ; preds = %4, %5
   %.013.idx22 = phi i64 [ 0, %4 ], [ %.013.add, %5 ]
-  %.013.ptr23 = getelementptr inbounds i8, ptr @_ZN4llvm21MSP430AttributeParser15DisplayRoutinesE, i64 %.013.idx22
+  %.013.ptr23 = getelementptr inbounds nuw i8, ptr @_ZN4llvm21MSP430AttributeParser15DisplayRoutinesE, i64 %.013.idx22
   %7 = load i32, ptr %.013.ptr23, align 8
   %8 = zext i32 %7 to i64
   %.not15 = icmp eq i64 %2, %8
@@ -88,7 +88,7 @@ define dso_local void @_ZN4llvm21MSP430AttributeParser7handlerEmRb(ptr dead_on_u
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %.013.ptr23, i64 8
   %.unpack = load i64, ptr %10, align 8
-  %.elt16 = getelementptr inbounds i8, ptr %.013.ptr23, i64 16
+  %.elt16 = getelementptr inbounds nuw i8, ptr %.013.ptr23, i64 16
   %.unpack17 = load i64, ptr %.elt16, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 %.unpack17
   %12 = and i64 %.unpack, 1
@@ -155,7 +155,7 @@ define linkonce_odr hidden void @_ZN4llvm18ELFAttributeParserD2Ev(ptr noundef no
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   %.pr = load ptr, ptr %2, align 8
@@ -164,7 +164,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %1
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %10 = load ptr, ptr %.pr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #5
   br label %_ZN4llvm13DataExtractor6CursorD2Ev.exit

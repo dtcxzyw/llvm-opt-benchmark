@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvNtCsapf13pIxsjn_3std3env3varRReECsjIaN6dkKMFO_12turborepo_ci(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !alias.scope !4, !noalias !7, !nonnull !10, !align !11, !noundef !10
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !4, !noalias !7, !noundef !10
   tail call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5)
   ret void
@@ -16,7 +16,7 @@ define void @_RINvNtCsapf13pIxsjn_3std3env3varRReECsjIaN6dkKMFO_12turborepo_ci(p
 define hidden { ptr, i64 } @_RNvXNtCs1LoaDTb72WA_4core7convertRReINtB2_5AsRefNtNtNtCsapf13pIxsjn_3std3ffi6os_str5OsStrE6as_refCsjIaN6dkKMFO_12turborepo_ci.llvm.13561104136773926630(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !12, !noundef !10
   %3 = load ptr, ptr %2, align 8, !alias.scope !13, !nonnull !10, !align !11, !noundef !10
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !13, !noundef !10
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -26,7 +26,7 @@ define hidden { ptr, i64 } @_RNvXNtCs1LoaDTb72WA_4core7convertRReINtB2_5AsRefNtN
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_RNvXNtCs1LoaDTb72WA_4core7convertReINtB2_5AsRefNtNtNtCsapf13pIxsjn_3std3ffi6os_str5OsStrE6as_refCsjIaN6dkKMFO_12turborepo_ci.llvm.13561104136773926630(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !11, !noundef !10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !10
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1

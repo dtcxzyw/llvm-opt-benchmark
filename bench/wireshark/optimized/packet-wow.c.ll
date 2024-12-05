@@ -268,12 +268,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_wow(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
-  %6 = getelementptr inbounds i8, ptr %1, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 3724
   %9 = icmp eq i8 %5, 16
   %or.cond = select i1 %8, i1 %9, i1 false
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3724
   %13 = icmp eq i8 %5, 0
@@ -316,13 +316,13 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 65540) i32 @get_wow_pdu_len(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 3724
   %9 = icmp eq i8 %5, 16
   %or.cond = select i1 %8, i1 %9, i1 false
   %spec.select = select i1 %or.cond, i32 1, i32 -1
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3724
   %13 = icmp eq i8 %5, 0
@@ -338,7 +338,7 @@ define internal range(i32 1, 65540) i32 @get_wow_pdu_len(ptr nocapture noundef r
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.128) #3
   %8 = load ptr, ptr %6, align 8
@@ -371,7 +371,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   ]
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 3724
   br i1 %25, label %26, label %33
@@ -386,7 +386,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br label %.sink.split.i
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %1, i64 284
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 3724
   br i1 %36, label %.sink.split.i, label %parse_logon_reconnect_proof.exit
@@ -399,7 +399,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br label %parse_logon_reconnect_proof.exit
 
 39:                                               ; preds = %15
-  %40 = getelementptr inbounds i8, ptr %1, i64 284
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 3724
   br i1 %42, label %43, label %52
@@ -419,7 +419,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br label %parse_logon_reconnect_proof.exit
 
 52:                                               ; preds = %39
-  %53 = getelementptr inbounds i8, ptr %1, i64 288
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 3724
   br i1 %55, label %56, label %parse_logon_reconnect_proof.exit
@@ -429,7 +429,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br label %parse_logon_reconnect_proof.exit
 
 57:                                               ; preds = %15
-  %58 = getelementptr inbounds i8, ptr %1, i64 288
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 3724
   br i1 %60, label %61, label %62
@@ -439,7 +439,7 @@ define internal i32 @dissect_wow_pdu(ptr noundef %0, ptr nocapture noundef reado
   br label %parse_logon_reconnect_proof.exit
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %1, i64 284
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 3724
   br i1 %65, label %66, label %parse_logon_reconnect_proof.exit
@@ -514,7 +514,7 @@ version_is_at_or_above.exit.thread.i:             ; preds = %101, %98, %72
   br label %parse_logon_reconnect_proof.exit
 
 114:                                              ; preds = %15
-  %115 = getelementptr inbounds i8, ptr %1, i64 288
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 3724
   br i1 %117, label %118, label %143
@@ -563,7 +563,7 @@ version_is_at_or_above.exit.thread.i56:           ; preds = %133, %130, %118
   br label %parse_logon_reconnect_proof.exit
 
 143:                                              ; preds = %114
-  %144 = getelementptr inbounds i8, ptr %1, i64 284
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, 3724
   br i1 %146, label %147, label %parse_logon_reconnect_proof.exit
@@ -634,13 +634,13 @@ version_is_at_or_above.exit25.thread.i:           ; preds = %172, %169, %version
   br label %parse_logon_reconnect_proof.exit
 
 178:                                              ; preds = %15
-  %179 = getelementptr inbounds i8, ptr %1, i64 288
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %180 = load i32, ptr %179, align 8
   %181 = icmp eq i32 %180, 3724
   br i1 %181, label %parse_logon_reconnect_proof.exit, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %1, i64 284
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, 3724
   br i1 %185, label %186, label %parse_logon_reconnect_proof.exit
@@ -687,7 +687,7 @@ version_is_at_or_above.exit.i:                    ; preds = %195
 
 .lr.ph.i:                                         ; preds = %.thread139.i
   %203 = add nuw nsw i32 %199, 7
-  %204 = getelementptr inbounds i8, ptr %1, i64 408
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %205
 
 205:                                              ; preds = %version_is_at_or_above.exit99.thread.i, %.lr.ph.i
@@ -840,7 +840,7 @@ define internal fastcc void @parse_logon_challenge_client_to_server(ptr nocaptur
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_wow_pkt_size, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %9, ptr noundef %1, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
   %11 = tail call ptr @g_utf8_strreverse(ptr noundef %10, i64 noundef -1) #3

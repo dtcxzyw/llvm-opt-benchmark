@@ -517,7 +517,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.208) #4
   %22 = load ptr, ptr %20, align 8
@@ -603,7 +603,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %68 = phi i32 [ %63, %65 ], [ %63, %62 ], [ %52, %.thread608 ]
   %.0558607610 = phi i32 [ 0, %65 ], [ 0, %62 ], [ %51, %.thread608 ]
   %.0559 = phi i32 [ 8, %65 ], [ %63, %62 ], [ %52, %.thread608 ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 272
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %70 = load i32, ptr %69, align 8
   %.not574 = icmp ne i32 %70, 0
   %.not575 = icmp ult i32 %68, %.0559
@@ -616,7 +616,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not576, label %107, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %1, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %75 = load i32, ptr %74, align 8
   switch i32 %75, label %106 [
     i32 2, label %76
@@ -624,7 +624,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.0559, ptr %77, align 8
   %78 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0559) #4
   store ptr %78, ptr %5, align 16
@@ -635,31 +635,31 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %111
 
 83:                                               ; preds = %73
-  %84 = getelementptr inbounds i8, ptr %1, i64 216
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %5, align 16
-  %86 = getelementptr inbounds i8, ptr %1, i64 212
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %5, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 240
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %5, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %90, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %1, i64 236
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %5, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %93, ptr %94, align 8
   %95 = tail call i32 @llvm.bswap.i32(i32 %.0559)
   store i32 %95, ptr %6, align 4
-  %96 = getelementptr inbounds i8, ptr %6, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1728053248, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %5, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %6, ptr %97, align 16
-  %98 = getelementptr inbounds i8, ptr %5, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 8, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %5, i64 48
-  %100 = getelementptr inbounds i8, ptr %5, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %.0559, ptr %100, align 8
   %101 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0559) #4
   store ptr %101, ptr %99, align 16
@@ -878,7 +878,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 226:                                              ; preds = %212
   %227 = load i32, ptr @hf_pim_dummy_header, align 4
   %228 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %227, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
-  %229 = getelementptr inbounds i8, ptr %1, i64 208
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %230 = load i32, ptr %229, align 8
   switch i32 %230, label %241 [
     i32 2, label %231
@@ -973,7 +973,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph663:                                        ; preds = %270
   %283 = add i32 %271, 8
-  %284 = getelementptr inbounds i8, ptr %1, i64 408
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %285
 
 285:                                              ; preds = %.lr.ph663, %._crit_edge658
@@ -1075,7 +1075,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %341, label %.lr.ph646, label %.loopexit611
 
 .lr.ph646:                                        ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %1, i64 408
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %343
 
 343:                                              ; preds = %.lr.ph646, %._crit_edge641
@@ -1184,7 +1184,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not588, label %.loopexit611, label %414
 
 414:                                              ; preds = %402
-  %415 = getelementptr inbounds i8, ptr %1, i64 408
+  %415 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.not = icmp eq i8 %403, 0
   br i1 %.not, label %.loopexit611, label %.lr.ph634.preheader
 
@@ -1428,7 +1428,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [1 x %struct.vec_t], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.299) #4
   %8 = load ptr, ptr %6, align 8
@@ -1473,7 +1473,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 35:                                               ; preds = %30, %33
   %.0248 = phi i32 [ 8, %33 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %37 = load i32, ptr %36, align 8
   %.not255 = icmp ne i32 %37, 0
   %.not256 = icmp ult i32 %31, %.0248
@@ -1486,7 +1486,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not257, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.0248, ptr %41, align 8
   %42 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0248) #4
   store ptr %42, ptr %5, align 16
@@ -1549,7 +1549,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
 74:                                               ; preds = %68
   %75 = load i32, ptr @hf_pim_dummy_header, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %75, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
-  %77 = getelementptr inbounds i8, ptr %1, i64 208
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %78 = load i32, ptr %77, align 8
   switch i32 %78, label %89 [
     i32 2, label %79
@@ -1632,7 +1632,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not273, label %.loopexit, label %.lr.ph271
 
 .lr.ph271:                                        ; preds = %109
-  %126 = getelementptr inbounds i8, ptr %1, i64 408
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %127
 
 127:                                              ; preds = %.lr.ph271, %._crit_edge266
@@ -1842,7 +1842,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   br i1 %.not398, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %2, i32 noundef 2, i32 noundef %20) #4
   %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 6, i32 noundef %22, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %26) #4
@@ -1857,7 +1857,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   br i1 %.not398, label %36, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @tvb_address_to_str(ptr noundef %33, ptr noundef %2, i32 noundef 3, i32 noundef %20) #4
   %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 18, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %34) #4
@@ -1887,7 +1887,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
 49:                                               ; preds = %38
   %50 = add i32 %3, 2
   %51 = add i32 %50, %.0371
-  %52 = getelementptr inbounds i8, ptr %0, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %53 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %51) #4
   %54 = icmp sgt i32 %53, 1
   br i1 %54, label %.lr.ph437, label %.critedge
@@ -1993,7 +1993,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   br i1 %.not396, label %122, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 408
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %119 = load ptr, ptr %118, align 8
   %120 = tail call ptr @tvb_address_to_str(ptr noundef %119, ptr noundef %2, i32 noundef 2, i32 noundef %114) #4
   %121 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %116, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %120) #4
@@ -2014,7 +2014,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   br i1 %.not396, label %132, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %0, i64 408
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %129 = load ptr, ptr %128, align 8
   %130 = call ptr @tvb_address_to_str(ptr noundef %129, ptr noundef %2, i32 noundef 3, i32 noundef %114) #4
   %131 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %130) #4
@@ -2060,7 +2060,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   %switch414 = icmp eq i8 %13, 1
   %157 = add i32 %3, 4
   %.not389 = icmp eq ptr %5, null
-  %158 = getelementptr inbounds i8, ptr %0, i64 408
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br i1 %switch414, label %159, label %169
 
 159:                                              ; preds = %152
@@ -2148,7 +2148,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
 203:                                              ; preds = %187
   %204 = add i32 %3, 4
   %205 = add i32 %204, %.2373
-  %206 = getelementptr inbounds i8, ptr %0, i64 408
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %207 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %205) #4
   %208 = icmp sgt i32 %207, 1
   br i1 %208, label %.lr.ph, label %.critedge7

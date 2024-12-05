@@ -128,7 +128,7 @@ if.end39:                                         ; preds = %land.lhs.true33, %i
   br i1 %exitcond, label %err, label %for.end
 
 for.inc:                                          ; preds = %if.end21, %land.lhs.true33, %for.body16
-  %incdec.ptr = getelementptr inbounds i8, ptr %algs.037, i64 32
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %algs.037, i64 32
   %6 = load ptr, ptr %incdec.ptr, align 8
   %cmp15.not = icmp eq ptr %6, null
   br i1 %cmp15.not, label %err, label %for.body16, !llvm.loop !5
@@ -138,7 +138,7 @@ for.end:                                          ; preds = %if.end39
   %idxprom = sext i32 %7 to i64
   %alg.idx = mul nsw i64 %idxprom, 200
   %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
-  %arrayidx47 = getelementptr inbounds [6 x %struct.ossl_algorithm_st], ptr %gep, i64 0, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds nuw [6 x %struct.ossl_algorithm_st], ptr %gep, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(32) %algs.037, i64 32, i1 false)
   %.pr = load ptr, ptr %algs.037, align 8
   %cmp49 = icmp eq ptr %.pr, null
@@ -146,7 +146,7 @@ for.end:                                          ; preds = %if.end39
 
 for.inc53:                                        ; preds = %for.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr = getelementptr inbounds i8, ptr %strchr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   br i1 %cmp10.not.not, label %for.end56, label %for.body, !llvm.loop !7
 
 for.end56:                                        ; preds = %for.inc53
@@ -238,7 +238,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 8
   %cmp1 = icmp eq i32 %2, %operation_id
   br i1 %cmp1, label %if.then, label %for.cond
@@ -246,7 +246,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2020), align 4
   store i32 %3, ptr %no_cache, align 4
-  %alg = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %alg = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -294,7 +294,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %alg.idx = mul nuw nsw i64 %indvars.iv, 200
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
   %cmp3 = icmp eq ptr %gep, %algs
   br i1 %cmp3, label %return, label %for.cond
 

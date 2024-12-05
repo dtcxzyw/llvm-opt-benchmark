@@ -57,11 +57,11 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr nocapture re
   br label %62
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %5, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %27, ptr %7, align 8
   %28 = load i8, ptr %5, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %29, ptr %30, align 8
   %31 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #8
   %.not = icmp eq i8 %31, 0
@@ -105,11 +105,11 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr nocapture re
   br label %62
 
 57:                                               ; preds = %47
-  %58 = getelementptr inbounds i8, ptr %48, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store ptr %58, ptr %7, align 8
   %59 = load i8, ptr %48, align 1
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %9, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %60, ptr %61, align 4
   br label %.thread
 
@@ -125,15 +125,15 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr nocapture re
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__shmesg_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %10, ptr %6, align 8
   store i8 %9, ptr %3, align 1
   %11 = load i64, ptr %4, align 8
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %11) #8
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = trunc i32 %13 to i8
   %15 = load ptr, ptr %6, align 8
@@ -177,12 +177,12 @@ define internal range(i64 2, 258) i64 @H5O__shmesg_size(ptr noundef %0, i1 zeroe
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5O__shmesg_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.5, i32 noundef %4, ptr noundef nonnull @.str.6, i32 noundef %7) #8
   %9 = load i64, ptr %1, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.5, i32 noundef %4, ptr noundef nonnull @.str.8, i64 noundef %9) #8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.5, i32 noundef %4, ptr noundef nonnull @.str.9, i32 noundef %12) #8
   ret i32 0

@@ -32,27 +32,27 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_zstd(ptr nounde
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @archive_compressor_zstd_open, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @archive_compressor_zstd_options, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @archive_compressor_zstd_flush, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr @archive_compressor_zstd_close, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @archive_compressor_zstd_free, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr @.str.2, ptr %16, align 8
   store i32 3, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 -1, ptr %17, align 8
   %18 = tail call ptr @ZSTD_createCStream() #10
-  %19 = getelementptr inbounds i8, ptr %6, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
   br i1 %20, label %21, label %22
@@ -82,16 +82,16 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %1
   %8 = tail call i64 @ZSTD_CStreamOutSize() #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1329217314
@@ -114,9 +114,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocaptur
 
 21:                                               ; preds = %13, %18, %17, %7
   %.026 = phi i64 [ %20, %18 ], [ %8, %17 ], [ %8, %7 ], [ %15, %13 ]
-  %22 = getelementptr inbounds i8, ptr %3, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %.026, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 0, ptr %23, align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %.026) #12
   store ptr %24, ptr %4, align 8
@@ -129,9 +129,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocaptur
   br label %47
 
 28:                                               ; preds = %21, %1
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @archive_compressor_zstd_write, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %3, align 8
   %33 = tail call i64 @ZSTD_initCStream(ptr noundef %31, i32 noundef %32) #10
@@ -140,18 +140,18 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocaptur
   br i1 %.not29, label %38, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %37, i32 noundef -1, ptr noundef nonnull @.str.11) #10
   br label %47
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %30, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = tail call i64 @ZSTD_CCtx_setParameter(ptr noundef %39, i32 noundef 400, i32 noundef %41) #10
   %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = tail call i64 @ZSTD_CCtx_setParameter(ptr noundef %43, i32 noundef 101, i32 noundef %45) #10
   br label %47
@@ -168,7 +168,7 @@ define internal range(i32 -20, 1) i32 @archive_compressor_zstd_options(ptr nocap
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.4) #13
   %12 = icmp eq i32 %11, 0
@@ -279,7 +279,7 @@ string_to_number.exit38.thread:                   ; preds = %49, %47, %58, %56, 
 
 64:                                               ; preds = %62
   %65 = trunc i64 %53 to i32
-  %66 = getelementptr inbounds i8, ptr %10, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %65, ptr %66, align 4
   br label %148
 
@@ -289,7 +289,7 @@ string_to_number.exit38.thread:                   ; preds = %49, %47, %58, %56, 
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %10, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %71, align 8
   br label %148
 
@@ -335,7 +335,7 @@ string_to_number.exit41.thread:                   ; preds = %77, %75, %86, %84, 
   br i1 %91, label %148, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %10, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %81, ptr %93, align 8
   br label %148
 
@@ -381,7 +381,7 @@ string_to_number.exit44.thread:                   ; preds = %99, %97, %108, %106
   br i1 %113, label %148, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %10, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %103, ptr %115, align 8
   br label %148
 
@@ -448,7 +448,7 @@ string_to_number.exit47.thread:                   ; preds = %121, %119, %130, %1
 
 146:                                              ; preds = %141, %138
   %.pre-phi = phi i32 [ %143, %141 ], [ %139, %138 ]
-  %147 = getelementptr inbounds i8, ptr %10, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.pre-phi, ptr %147, align 8
   br label %148
 
@@ -459,23 +459,23 @@ string_to_number.exit47.thread:                   ; preds = %121, %119, %130, %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_zstd_flush(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %12, %14
   br i1 %15, label %16, label %17
@@ -491,9 +491,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_flush(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_zstd_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -509,12 +509,12 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_close(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @archive_compressor_zstd_free(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @ZSTD_freeCStream(ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #10
   tail call void @free(ptr noundef %3) #10
@@ -557,7 +557,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_zstd_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @drive_compressor(ptr noundef %0, ptr noundef %5, i32 noundef 0, ptr noundef %1, i64 noundef %2)
   ret i32 %6
@@ -571,22 +571,22 @@ declare i64 @ZSTD_CCtx_setParameter(ptr noundef, i32 noundef, i32 noundef) local
 define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
-  %18 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.not43 = icmp eq i32 %2, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre47 = load i64, ptr %10, align 8
   br label %20
 
@@ -691,7 +691,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture nou
 
 67:                                               ; preds = %31, %27
   %.039 = phi i64 [ %33, %31 ], [ %29, %27 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @ZSTD_getErrorName(i64 noundef %.039) #10
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %69, i32 noundef -1, ptr noundef nonnull @.str.12, ptr noundef %70) #10

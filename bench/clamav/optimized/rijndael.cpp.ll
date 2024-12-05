@@ -43,10 +43,10 @@ define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = trunc i64 %indvars.iv to i8
-  %4 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %6
   store i8 %3, ptr %7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -54,25 +54,25 @@ define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align
 
 .preheader:                                       ; preds = %2, %_ZL4gmulhh.exit103
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %_ZL4gmulhh.exit103 ], [ 0, %2 ]
-  %8 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv107
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv107
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %indvars.iv107
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %10 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %indvars.iv107
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %9, ptr %11, align 1
   store i8 %9, ptr %10, align 4
-  %12 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %indvars.iv107
-  %13 = getelementptr inbounds i8, ptr %12, i64 3
+  %12 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %indvars.iv107
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 3
   store i8 %9, ptr %13, align 1
   store i8 %9, ptr %12, align 4
-  %14 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %indvars.iv107
-  %15 = getelementptr inbounds i8, ptr %14, i64 3
+  %14 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %indvars.iv107
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
   store i8 %9, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %14, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %9, ptr %16, align 2
-  %17 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %indvars.iv107
-  %18 = getelementptr inbounds i8, ptr %17, i64 2
+  %17 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %indvars.iv107
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %9, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %9, ptr %19, align 1
   br label %20
 
@@ -93,11 +93,11 @@ define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align
   br i1 %.not.i, label %_ZL4gmulhh.exit, label %20, !llvm.loop !6
 
 _ZL4gmulhh.exit:                                  ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %10, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %spec.select.i, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %12, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 %spec.select.i, ptr %28, align 2
-  %29 = getelementptr inbounds i8, ptr %14, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %spec.select.i, ptr %29, align 1
   store i8 %spec.select.i, ptr %17, align 4
   br label %30
@@ -119,14 +119,14 @@ _ZL4gmulhh.exit:                                  ; preds = %20
   br i1 %.not.i70, label %_ZL4gmulhh.exit71, label %30, !llvm.loop !6
 
 _ZL4gmulhh.exit71:                                ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %10, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %spec.select.i68, ptr %37, align 2
-  %38 = getelementptr inbounds i8, ptr %12, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %spec.select.i68, ptr %38, align 1
   store i8 %spec.select.i68, ptr %14, align 4
-  %39 = getelementptr inbounds i8, ptr %17, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store i8 %spec.select.i68, ptr %39, align 1
-  %40 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %indvars.iv107
+  %40 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %indvars.iv107
   %41 = load i8, ptr %40, align 1
   br label %42
 
@@ -147,28 +147,28 @@ _ZL4gmulhh.exit71:                                ; preds = %30
   br i1 %.not.i78, label %_ZL4gmulhh.exit79, label %42, !llvm.loop !6
 
 _ZL4gmulhh.exit79:                                ; preds = %42
-  %49 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %indvars.iv107
-  %50 = getelementptr inbounds i8, ptr %49, i64 2
+  %49 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %indvars.iv107
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 %spec.select.i76, ptr %50, align 2
-  %51 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %indvars.iv107
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %51 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %indvars.iv107
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store i8 %spec.select.i76, ptr %52, align 1
-  %53 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %indvars.iv107
+  %53 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %indvars.iv107
   store i8 %spec.select.i76, ptr %53, align 4
-  %54 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %indvars.iv107
-  %55 = getelementptr inbounds i8, ptr %54, i64 3
+  %54 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %indvars.iv107
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 %spec.select.i76, ptr %55, align 1
   %56 = zext i8 %41 to i64
-  %57 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 2
+  %57 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store i8 %spec.select.i76, ptr %58, align 2
-  %59 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %56
-  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  %59 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %56
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i8 %spec.select.i76, ptr %60, align 1
-  %61 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %56
+  %61 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %56
   store i8 %spec.select.i76, ptr %61, align 4
-  %62 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %56
-  %63 = getelementptr inbounds i8, ptr %62, i64 3
+  %62 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %56
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 3
   store i8 %spec.select.i76, ptr %63, align 1
   br label %64
 
@@ -190,18 +190,18 @@ _ZL4gmulhh.exit79:                                ; preds = %42
 
 _ZL4gmulhh.exit87:                                ; preds = %64
   store i8 %spec.select.i84, ptr %49, align 4
-  %71 = getelementptr inbounds i8, ptr %51, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 3
   store i8 %spec.select.i84, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %53, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i8 %spec.select.i84, ptr %72, align 2
-  %73 = getelementptr inbounds i8, ptr %54, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 %spec.select.i84, ptr %73, align 1
   store i8 %spec.select.i84, ptr %57, align 4
-  %74 = getelementptr inbounds i8, ptr %59, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 3
   store i8 %spec.select.i84, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %61, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 2
   store i8 %spec.select.i84, ptr %75, align 2
-  %76 = getelementptr inbounds i8, ptr %62, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 %spec.select.i84, ptr %76, align 1
   br label %77
 
@@ -222,19 +222,19 @@ _ZL4gmulhh.exit87:                                ; preds = %64
   br i1 %.not.i94, label %_ZL4gmulhh.exit95, label %77, !llvm.loop !6
 
 _ZL4gmulhh.exit95:                                ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %49, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 %spec.select.i92, ptr %84, align 1
   store i8 %spec.select.i92, ptr %51, align 4
-  %85 = getelementptr inbounds i8, ptr %53, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %53, i64 3
   store i8 %spec.select.i92, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %54, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i8 %spec.select.i92, ptr %86, align 2
-  %87 = getelementptr inbounds i8, ptr %57, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store i8 %spec.select.i92, ptr %87, align 1
   store i8 %spec.select.i92, ptr %59, align 4
-  %88 = getelementptr inbounds i8, ptr %61, i64 3
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 3
   store i8 %spec.select.i92, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %62, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %62, i64 2
   store i8 %spec.select.i92, ptr %89, align 2
   br label %90
 
@@ -255,18 +255,18 @@ _ZL4gmulhh.exit95:                                ; preds = %77
   br i1 %.not.i102, label %_ZL4gmulhh.exit103, label %90, !llvm.loop !6
 
 _ZL4gmulhh.exit103:                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %49, i64 3
+  %97 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 %spec.select.i100, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %51, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i8 %spec.select.i100, ptr %98, align 2
-  %99 = getelementptr inbounds i8, ptr %53, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store i8 %spec.select.i100, ptr %99, align 1
   store i8 %spec.select.i100, ptr %54, align 4
-  %100 = getelementptr inbounds i8, ptr %57, i64 3
+  %100 = getelementptr inbounds nuw i8, ptr %57, i64 3
   store i8 %spec.select.i100, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %59, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %59, i64 2
   store i8 %spec.select.i100, ptr %101, align 2
-  %102 = getelementptr inbounds i8, ptr %61, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 %spec.select.i100, ptr %102, align 1
   store i8 %spec.select.i100, ptr %62, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -296,18 +296,18 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
 .lr.ph.preheader:                                 ; preds = %5, %9, %8
   %.sink = phi i32 [ 14, %9 ], [ 12, %8 ], [ 10, %5 ]
   %.016.ph = phi i64 [ 32, %9 ], [ 24, %8 ], [ 16, %5 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %10, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = lshr i64 %indvars.iv, 2
   %14 = and i64 %13, 1073741823
   %15 = and i64 %indvars.iv, 3
-  %16 = getelementptr inbounds [8 x [4 x i8]], ptr %7, i64 0, i64 %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %7, i64 0, i64 %14, i64 %15
   store i8 %12, ptr %16, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.016.ph
@@ -315,7 +315,7 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %17 = icmp eq ptr %4, null
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %17, label %19, label %.preheader
 
 19:                                               ; preds = %._crit_edge
@@ -324,9 +324,9 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %._crit_edge ]
-  %20 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv21
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv21
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds [16 x i8], ptr %18, i64 0, i64 %indvars.iv21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %indvars.iv21
   store i8 %21, ptr %22, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
@@ -338,13 +338,13 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
 
 23:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %.preheader21.lr.ph.i, label %_ZN8Rijndael11keyEncToDecEv.exit
 
 .preheader21.lr.ph.i:                             ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count.i = zext nneg i32 %25 to i64
   br label %.preheader21.i
 
@@ -358,30 +358,30 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
 
 28:                                               ; preds = %28, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %27, i64 0, i64 %indvars.iv30.i, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %27, i64 0, i64 %indvars.iv30.i, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 4
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %31, i64 %indvars.iv26.i
+  %32 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %31, i64 %indvars.iv26.i
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %29, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %36, i64 %indvars.iv26.i
+  %37 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %36, i64 %indvars.iv26.i
   %38 = load i8, ptr %37, align 1
   %39 = xor i8 %38, %33
-  %40 = getelementptr inbounds i8, ptr %29, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %42, i64 %indvars.iv26.i
+  %43 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %42, i64 %indvars.iv26.i
   %44 = load i8, ptr %43, align 1
   %45 = xor i8 %39, %44
-  %46 = getelementptr inbounds i8, ptr %29, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %48, i64 %indvars.iv26.i
+  %49 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %48, i64 %indvars.iv26.i
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %45, %50
-  %52 = getelementptr inbounds [4 x [4 x i8]], ptr %6, i64 0, i64 %indvars.iv.i, i64 %indvars.iv26.i
+  %52 = getelementptr inbounds nuw [4 x [4 x i8]], ptr %6, i64 0, i64 %indvars.iv.i, i64 %indvars.iv26.i
   store i8 %51, ptr %52, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -393,7 +393,7 @@ define void @_ZN8Rijndael4InitEbPKhjS1_(ptr nocapture noundef nonnull align 4 de
   br i1 %exitcond29.not.i, label %54, label %.preheader.i, !llvm.loop !11
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %27, i64 0, i64 %indvars.iv30.i
+  %55 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %27, i64 0, i64 %indvars.iv30.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count.i
@@ -413,7 +413,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [8 x [4 x i8]], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
@@ -421,7 +421,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   br i1 %7, label %.critedge.preheader, label %.preheader118.lr.ph
 
 .preheader118.lr.ph:                              ; preds = %2
-  %scevgep159 = getelementptr inbounds i8, ptr %0, i64 24
+  %scevgep159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.preheader118
 
 .preheader118:                                    ; preds = %.preheader118.lr.ph, %._crit_edge
@@ -470,23 +470,23 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %28 = add nsw i32 %5, -7
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
-  %32 = getelementptr inbounds i8, ptr %30, i64 2
-  %33 = getelementptr inbounds i8, ptr %3, i64 1
-  %34 = getelementptr inbounds i8, ptr %30, i64 3
-  %35 = getelementptr inbounds i8, ptr %3, i64 2
-  %36 = getelementptr inbounds i8, ptr %3, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %.not104 = icmp eq i32 %6, 8
   %37 = icmp sgt i32 %5, 7
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
-  %40 = getelementptr inbounds i8, ptr %3, i64 13
-  %41 = getelementptr inbounds i8, ptr %3, i64 17
-  %42 = getelementptr inbounds i8, ptr %3, i64 14
-  %43 = getelementptr inbounds i8, ptr %3, i64 18
-  %44 = getelementptr inbounds i8, ptr %3, i64 15
-  %45 = getelementptr inbounds i8, ptr %3, i64 19
-  %scevgep189 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 19
+  %scevgep189 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %51
 
@@ -517,34 +517,34 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %.287151 = phi i32 [ %.085.lcssa, %.lr.ph ], [ %.388.lcssa, %.critedge.loopexit ]
   %53 = load i8, ptr %31, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = load i8, ptr %3, align 16
   %58 = xor i8 %57, %56
   store i8 %58, ptr %3, align 16
   %59 = load i8, ptr %32, align 2
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = load i8, ptr %33, align 1
   %64 = xor i8 %63, %62
   store i8 %64, ptr %33, align 1
   %65 = load i8, ptr %34, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = load i8, ptr %35, align 2
   %70 = xor i8 %69, %68
   store i8 %70, ptr %35, align 2
   %71 = load i8, ptr %30, align 4
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = load i8, ptr %36, align 1
   %76 = xor i8 %75, %74
   store i8 %76, ptr %36, align 1
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %77 = getelementptr inbounds [10 x i8], ptr @_ZL4rcon, i64 0, i64 %indvars.iv196
+  %77 = getelementptr inbounds nuw [10 x i8], ptr @_ZL4rcon, i64 0, i64 %indvars.iv196
   %78 = load i8, ptr %77, align 1
   %79 = xor i8 %78, %58
   store i8 %79, ptr %3, align 16
@@ -562,7 +562,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %indvars.iv = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next, %81 ]
   %82 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %80, i64 %indvars.iv
   %83 = load i8, ptr %82, align 1
-  %84 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv165, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv165, i64 %indvars.iv
   %85 = load i8, ptr %84, align 1
   %86 = xor i8 %85, %83
   store i8 %86, ptr %84, align 1
@@ -584,7 +584,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %indvars.iv169 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next170, %89 ]
   %90 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %88, i64 %indvars.iv169
   %91 = load i8, ptr %90, align 1
-  %92 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv173, i64 %indvars.iv169
+  %92 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv173, i64 %indvars.iv169
   %93 = load i8, ptr %92, align 1
   %94 = xor i8 %93, %91
   store i8 %94, ptr %92, align 1
@@ -600,28 +600,28 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 96:                                               ; preds = %95
   %97 = load i8, ptr %38, align 4
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = load i8, ptr %39, align 16
   %102 = xor i8 %101, %100
   store i8 %102, ptr %39, align 16
   %103 = load i8, ptr %40, align 1
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = load i8, ptr %41, align 1
   %108 = xor i8 %107, %106
   store i8 %108, ptr %41, align 1
   %109 = load i8, ptr %42, align 2
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = load i8, ptr %43, align 2
   %114 = xor i8 %113, %112
   store i8 %114, ptr %43, align 2
   %115 = load i8, ptr %44, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [256 x i8], ptr @_ZL1S, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = load i8, ptr %45, align 1
   %120 = xor i8 %119, %118
@@ -637,7 +637,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %indvars.iv177 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next178, %122 ]
   %123 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %121, i64 %indvars.iv177
   %124 = load i8, ptr %123, align 1
-  %125 = getelementptr inbounds [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv181, i64 %indvars.iv177
+  %125 = getelementptr inbounds nuw [8 x [4 x i8]], ptr %3, i64 0, i64 %indvars.iv181, i64 %indvars.iv177
   %126 = load i8, ptr %125, align 1
   %127 = xor i8 %126, %124
   store i8 %127, ptr %125, align 1
@@ -712,13 +712,13 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 dereferenceable(264) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [4 x [4 x i8]], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %.preheader21.lr.ph, label %._crit_edge
 
 .preheader21.lr.ph:                               ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader21
 
@@ -732,30 +732,30 @@ define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 d
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %6, i64 0, i64 %indvars.iv30, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %6, i64 0, i64 %indvars.iv30, i64 %indvars.iv
   %9 = load i8, ptr %8, align 4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %10, i64 %indvars.iv26
+  %11 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %10, i64 %indvars.iv26
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %15, i64 %indvars.iv26
+  %16 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %15, i64 %indvars.iv26
   %17 = load i8, ptr %16, align 1
   %18 = xor i8 %17, %12
-  %19 = getelementptr inbounds i8, ptr %8, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %21, i64 %indvars.iv26
+  %22 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %21, i64 %indvars.iv26
   %23 = load i8, ptr %22, align 1
   %24 = xor i8 %18, %23
-  %25 = getelementptr inbounds i8, ptr %8, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %27, i64 %indvars.iv26
+  %28 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %27, i64 %indvars.iv26
   %29 = load i8, ptr %28, align 1
   %30 = xor i8 %24, %29
-  %31 = getelementptr inbounds [4 x [4 x i8]], ptr %2, i64 0, i64 %indvars.iv, i64 %indvars.iv26
+  %31 = getelementptr inbounds nuw [4 x [4 x i8]], ptr %2, i64 0, i64 %indvars.iv, i64 %indvars.iv26
   store i8 %30, ptr %31, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -767,7 +767,7 @@ define void @_ZN8Rijndael11keyEncToDecEv(ptr nocapture noundef nonnull align 4 d
   br i1 %exitcond29.not, label %33, label %.preheader, !llvm.loop !11
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %6, i64 0, i64 %indvars.iv30
+  %34 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %6, i64 0, i64 %indvars.iv30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
@@ -783,7 +783,7 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   br i1 %5, label %330, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not142 = icmp ult i64 %2, 16
   br i1 %.not142, label %.._crit_edge149_crit_edge, label %.lr.ph148
 
@@ -793,11 +793,11 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
 
 .lr.ph148:                                        ; preds = %6
   %8 = lshr i64 %2, 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %14
 
 14:                                               ; preds = %.lr.ph148, %._crit_edge
@@ -813,30 +813,30 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %18 = load i32, ptr %.044145, align 4
   %19 = load i32, ptr %.045144, align 4
   %20 = xor i32 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.044145, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.044145, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %.045144, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.045144, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = xor i32 %24, %22
-  %26 = getelementptr inbounds i8, ptr %.044145, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.044145, i64 8
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.045144, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.045144, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = xor i32 %29, %27
-  %31 = getelementptr inbounds i8, ptr %.044145, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.044145, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %.045144, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.045144, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, %32
   br label %44
 
 36:                                               ; preds = %14
   %37 = load i32, ptr %.045144, align 4
-  %38 = getelementptr inbounds i8, ptr %.045144, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.045144, i64 4
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %.045144, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.045144, i64 8
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %.045144, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %.045144, i64 12
   %43 = load i32, ptr %42, align 4
   br label %44
 
@@ -871,14 +871,14 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc = zext nneg i32 %.sroa.57.12.extract.shift to i64
   %53 = and i32 %46, 255
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %54
   %56 = and i32 %.sroa.21.4.extract.shift, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %57
   %59 = and i32 %.sroa.39.8.extract.shift, 255
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %60
-  %62 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc
+  %61 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc
   %63 = load i32, ptr %55, align 4
   %64 = load i32, ptr %58, align 4
   %65 = xor i32 %64, %63
@@ -887,17 +887,17 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %68 = load i32, ptr %62, align 4
   %69 = xor i32 %67, %68
   store i32 %69, ptr %.046143, align 4
-  %70 = getelementptr inbounds i8, ptr %.046143, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.046143, i64 4
   %71 = and i32 %48, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %72
   %74 = and i32 %.sroa.36.8.extract.shift, 255
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %75
   %77 = and i32 %.sroa.54.12.extract.shift, 255
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %78
-  %80 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc
+  %79 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %78
+  %80 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc
   %81 = load i32, ptr %73, align 4
   %82 = load i32, ptr %76, align 4
   %83 = xor i32 %82, %81
@@ -906,17 +906,17 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %86 = load i32, ptr %80, align 4
   %87 = xor i32 %85, %86
   store i32 %87, ptr %70, align 4
-  %88 = getelementptr inbounds i8, ptr %.046143, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.046143, i64 8
   %89 = and i32 %50, 255
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %90
   %92 = and i32 %.sroa.51.12.extract.shift, 255
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %93
   %95 = and i32 %.sroa.9.0.extract.shift, 255
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %96
-  %98 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc
+  %97 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %96
+  %98 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc
   %99 = load i32, ptr %91, align 4
   %100 = load i32, ptr %94, align 4
   %101 = xor i32 %100, %99
@@ -925,17 +925,17 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %104 = load i32, ptr %98, align 4
   %105 = xor i32 %103, %104
   store i32 %105, ptr %88, align 4
-  %106 = getelementptr inbounds i8, ptr %.046143, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %.046143, i64 12
   %107 = and i32 %52, 255
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %108
   %110 = and i32 %.sroa.6.0.extract.shift, 255
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %111
   %113 = and i32 %.sroa.24.4.extract.shift, 255
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %114
-  %116 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc
+  %115 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %114
+  %116 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc
   %117 = load i32, ptr %109, align 4
   %118 = load i32, ptr %112, align 4
   %119 = xor i32 %118, %117
@@ -959,28 +959,28 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %129 = phi i32 [ %176, %.lr.ph ], [ %87, %44 ]
   %130 = phi i32 [ %159, %.lr.ph ], [ %69, %44 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %44 ]
-  %131 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv
   %132 = load i32, ptr %131, align 4
   %133 = xor i32 %132, %130
   %.sroa.6.0.extract.shift53 = lshr i32 %133, 8
   %.sroa.9.0.extract.shift59 = lshr i32 %133, 16
   %.sroa.12.0.extract.shift65 = lshr i32 %133, 24
   %.sroa.12.0.extract.trunc66 = zext nneg i32 %.sroa.12.0.extract.shift65 to i64
-  %134 = getelementptr inbounds i8, ptr %131, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = xor i32 %135, %129
   %.sroa.21.4.extract.shift75 = lshr i32 %136, 8
   %.sroa.24.4.extract.shift81 = lshr i32 %136, 16
   %.sroa.27.4.extract.shift87 = lshr i32 %136, 24
   %.sroa.27.4.extract.trunc88 = zext nneg i32 %.sroa.27.4.extract.shift87 to i64
-  %137 = getelementptr inbounds i8, ptr %131, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %138 = load i32, ptr %137, align 4
   %139 = xor i32 %138, %128
   %.sroa.36.8.extract.shift97 = lshr i32 %139, 8
   %.sroa.39.8.extract.shift103 = lshr i32 %139, 16
   %.sroa.42.8.extract.shift109 = lshr i32 %139, 24
   %.sroa.42.8.extract.trunc110 = zext nneg i32 %.sroa.42.8.extract.shift109 to i64
-  %140 = getelementptr inbounds i8, ptr %131, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 12
   %141 = load i32, ptr %140, align 4
   %142 = xor i32 %141, %127
   %.sroa.51.12.extract.shift119 = lshr i32 %142, 8
@@ -989,14 +989,14 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc132 = zext nneg i32 %.sroa.57.12.extract.shift131 to i64
   %143 = and i32 %133, 255
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %144
   %146 = and i32 %.sroa.21.4.extract.shift75, 255
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %147
   %149 = and i32 %.sroa.39.8.extract.shift103, 255
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %150
-  %152 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc132
+  %151 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %150
+  %152 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.57.12.extract.trunc132
   %153 = load i32, ptr %145, align 4
   %154 = load i32, ptr %148, align 4
   %155 = xor i32 %154, %153
@@ -1007,14 +1007,14 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   store i32 %159, ptr %.046143, align 4
   %160 = and i32 %136, 255
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %161
   %163 = and i32 %.sroa.36.8.extract.shift97, 255
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %164
   %166 = and i32 %.sroa.54.12.extract.shift125, 255
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %167
-  %169 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc66
+  %168 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %167
+  %169 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.12.0.extract.trunc66
   %170 = load i32, ptr %162, align 4
   %171 = load i32, ptr %165, align 4
   %172 = xor i32 %171, %170
@@ -1025,14 +1025,14 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   store i32 %176, ptr %70, align 4
   %177 = and i32 %139, 255
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %178
   %180 = and i32 %.sroa.51.12.extract.shift119, 255
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %181
   %183 = and i32 %.sroa.9.0.extract.shift59, 255
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %184
-  %186 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc88
+  %185 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %184
+  %186 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.27.4.extract.trunc88
   %187 = load i32, ptr %179, align 4
   %188 = load i32, ptr %182, align 4
   %189 = xor i32 %188, %187
@@ -1043,14 +1043,14 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   store i32 %193, ptr %88, align 4
   %194 = and i32 %142, 255
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %195
   %197 = and i32 %.sroa.6.0.extract.shift53, 255
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %198
   %200 = and i32 %.sroa.24.4.extract.shift81, 255
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %201
-  %203 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc110
+  %202 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %201
+  %203 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %.sroa.42.8.extract.trunc110
   %204 = load i32, ptr %196, align 4
   %205 = load i32, ptr %199, align 4
   %206 = xor i32 %205, %204
@@ -1079,21 +1079,21 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.9.0.extract.shift61 = lshr i32 %221, 16
   %.sroa.12.0.extract.shift67 = lshr i32 %221, 24
   %.sroa.12.0.extract.trunc68 = zext nneg i32 %.sroa.12.0.extract.shift67 to i64
-  %222 = getelementptr inbounds i8, ptr %219, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %223 = load i32, ptr %222, align 4
   %224 = xor i32 %223, %217
   %.sroa.21.4.extract.shift77 = lshr i32 %224, 8
   %.sroa.24.4.extract.shift83 = lshr i32 %224, 16
   %.sroa.27.4.extract.shift89 = lshr i32 %224, 24
   %.sroa.27.4.extract.trunc90 = zext nneg i32 %.sroa.27.4.extract.shift89 to i64
-  %225 = getelementptr inbounds i8, ptr %219, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %226 = load i32, ptr %225, align 4
   %227 = xor i32 %226, %216
   %.sroa.36.8.extract.shift99 = lshr i32 %227, 8
   %.sroa.39.8.extract.shift105 = lshr i32 %227, 16
   %.sroa.42.8.extract.shift111 = lshr i32 %227, 24
   %.sroa.42.8.extract.trunc112 = zext nneg i32 %.sroa.42.8.extract.shift111 to i64
-  %228 = getelementptr inbounds i8, ptr %219, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %219, i64 12
   %229 = load i32, ptr %228, align 4
   %230 = xor i32 %229, %215
   %.sroa.51.12.extract.shift121 = lshr i32 %230, 8
@@ -1102,87 +1102,87 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc134 = zext nneg i32 %.sroa.57.12.extract.shift133 to i64
   %231 = and i32 %221, 255
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %232, i64 1
+  %233 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %232, i64 1
   %234 = load i8, ptr %233, align 1
   store i8 %234, ptr %.046143, align 1
   %235 = and i32 %.sroa.21.4.extract.shift77, 255
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %236, i64 1
+  %237 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %236, i64 1
   %238 = load i8, ptr %237, align 1
-  %239 = getelementptr inbounds i8, ptr %.046143, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %.046143, i64 1
   store i8 %238, ptr %239, align 1
   %240 = and i32 %.sroa.39.8.extract.shift105, 255
   %241 = zext nneg i32 %240 to i64
-  %242 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %241, i64 1
+  %242 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %241, i64 1
   %243 = load i8, ptr %242, align 1
-  %244 = getelementptr inbounds i8, ptr %.046143, i64 2
+  %244 = getelementptr inbounds nuw i8, ptr %.046143, i64 2
   store i8 %243, ptr %244, align 1
-  %245 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.57.12.extract.trunc134, i64 1
+  %245 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.57.12.extract.trunc134, i64 1
   %246 = load i8, ptr %245, align 1
-  %247 = getelementptr inbounds i8, ptr %.046143, i64 3
+  %247 = getelementptr inbounds nuw i8, ptr %.046143, i64 3
   store i8 %246, ptr %247, align 1
   %248 = and i32 %224, 255
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %249, i64 1
+  %250 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %249, i64 1
   %251 = load i8, ptr %250, align 1
   store i8 %251, ptr %70, align 1
   %252 = and i32 %.sroa.36.8.extract.shift99, 255
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %253, i64 1
+  %254 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %253, i64 1
   %255 = load i8, ptr %254, align 1
-  %256 = getelementptr inbounds i8, ptr %.046143, i64 5
+  %256 = getelementptr inbounds nuw i8, ptr %.046143, i64 5
   store i8 %255, ptr %256, align 1
   %257 = and i32 %.sroa.54.12.extract.shift127, 255
   %258 = zext nneg i32 %257 to i64
-  %259 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %258, i64 1
+  %259 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %258, i64 1
   %260 = load i8, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %.046143, i64 6
+  %261 = getelementptr inbounds nuw i8, ptr %.046143, i64 6
   store i8 %260, ptr %261, align 1
-  %262 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.12.0.extract.trunc68, i64 1
+  %262 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.12.0.extract.trunc68, i64 1
   %263 = load i8, ptr %262, align 1
-  %264 = getelementptr inbounds i8, ptr %.046143, i64 7
+  %264 = getelementptr inbounds nuw i8, ptr %.046143, i64 7
   store i8 %263, ptr %264, align 1
   %265 = and i32 %227, 255
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %266, i64 1
+  %267 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %266, i64 1
   %268 = load i8, ptr %267, align 1
   store i8 %268, ptr %88, align 1
   %269 = and i32 %.sroa.51.12.extract.shift121, 255
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %270, i64 1
+  %271 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %270, i64 1
   %272 = load i8, ptr %271, align 1
-  %273 = getelementptr inbounds i8, ptr %.046143, i64 9
+  %273 = getelementptr inbounds nuw i8, ptr %.046143, i64 9
   store i8 %272, ptr %273, align 1
   %274 = and i32 %.sroa.9.0.extract.shift61, 255
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %275, i64 1
+  %276 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %275, i64 1
   %277 = load i8, ptr %276, align 1
-  %278 = getelementptr inbounds i8, ptr %.046143, i64 10
+  %278 = getelementptr inbounds nuw i8, ptr %.046143, i64 10
   store i8 %277, ptr %278, align 1
-  %279 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.27.4.extract.trunc90, i64 1
+  %279 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.27.4.extract.trunc90, i64 1
   %280 = load i8, ptr %279, align 1
-  %281 = getelementptr inbounds i8, ptr %.046143, i64 11
+  %281 = getelementptr inbounds nuw i8, ptr %.046143, i64 11
   store i8 %280, ptr %281, align 1
   %282 = and i32 %230, 255
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %283, i64 1
+  %284 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %283, i64 1
   %285 = load i8, ptr %284, align 1
   store i8 %285, ptr %106, align 1
   %286 = and i32 %.sroa.6.0.extract.shift55, 255
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %287, i64 1
+  %288 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %287, i64 1
   %289 = load i8, ptr %288, align 1
-  %290 = getelementptr inbounds i8, ptr %.046143, i64 13
+  %290 = getelementptr inbounds nuw i8, ptr %.046143, i64 13
   store i8 %289, ptr %290, align 1
   %291 = and i32 %.sroa.24.4.extract.shift83, 255
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %292, i64 1
+  %293 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %292, i64 1
   %294 = load i8, ptr %293, align 1
-  %295 = getelementptr inbounds i8, ptr %.046143, i64 14
+  %295 = getelementptr inbounds nuw i8, ptr %.046143, i64 14
   store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.42.8.extract.trunc112, i64 1
+  %296 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %.sroa.42.8.extract.trunc112, i64 1
   %297 = load i8, ptr %296, align 1
-  %298 = getelementptr inbounds i8, ptr %.046143, i64 15
+  %298 = getelementptr inbounds nuw i8, ptr %.046143, i64 15
   store i8 %297, ptr %298, align 1
   %299 = load i32, ptr %13, align 4
   %300 = sext i32 %299 to i64
@@ -1192,22 +1192,22 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %304 = xor i32 %303, %302
   store i32 %304, ptr %.046143, align 4
   %305 = load i32, ptr %70, align 4
-  %306 = getelementptr inbounds i8, ptr %301, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %301, i64 4
   %307 = load i32, ptr %306, align 4
   %308 = xor i32 %307, %305
   store i32 %308, ptr %70, align 4
   %309 = load i32, ptr %88, align 4
-  %310 = getelementptr inbounds i8, ptr %301, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %311 = load i32, ptr %310, align 4
   %312 = xor i32 %311, %309
   store i32 %312, ptr %88, align 4
   %313 = load i32, ptr %106, align 4
-  %314 = getelementptr inbounds i8, ptr %301, i64 12
+  %314 = getelementptr inbounds nuw i8, ptr %301, i64 12
   %315 = load i32, ptr %314, align 4
   %316 = xor i32 %315, %313
   store i32 %316, ptr %106, align 4
-  %317 = getelementptr inbounds i8, ptr %.046143, i64 16
-  %318 = getelementptr inbounds i8, ptr %.045144, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %.046143, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %.045144, i64 16
   %319 = add nsw i64 %.043146, -1
   %.not = icmp eq i64 %319, 0
   br i1 %.not, label %._crit_edge149, label %14, !llvm.loop !23
@@ -1216,17 +1216,17 @@ define void @_ZN8Rijndael12blockEncryptEPKhmPh(ptr nocapture noundef nonnull ali
   %320 = phi i32 [ %.pre, %.._crit_edge149_crit_edge ], [ %304, %._crit_edge ]
   %.044.lcssa = phi ptr [ %7, %.._crit_edge149_crit_edge ], [ %.046143, %._crit_edge ]
   store i32 %320, ptr %7, align 4
-  %321 = getelementptr inbounds i8, ptr %.044.lcssa, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %.044.lcssa, i64 4
   %322 = load i32, ptr %321, align 4
-  %323 = getelementptr inbounds i8, ptr %0, i64 12
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %322, ptr %323, align 4
-  %324 = getelementptr inbounds i8, ptr %.044.lcssa, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %.044.lcssa, i64 8
   %325 = load i32, ptr %324, align 4
-  %326 = getelementptr inbounds i8, ptr %0, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %325, ptr %326, align 4
-  %327 = getelementptr inbounds i8, ptr %.044.lcssa, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %.044.lcssa, i64 12
   %328 = load i32, ptr %327, align 4
-  %329 = getelementptr inbounds i8, ptr %0, i64 20
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %328, ptr %329, align 4
   br label %330
 
@@ -1240,28 +1240,28 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   br i1 %5, label %277, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0105.0.copyload = load i32, ptr %7, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.6109.0.copyload = load i32, ptr %.sroa.6109.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %.not516 = icmp ult i64 %2, 16
   br i1 %.not516, label %._crit_edge526, label %.lr.ph525
 
 .lr.ph525:                                        ; preds = %6
   %8 = lshr i64 %2, 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %18
 
 18:                                               ; preds = %.lr.ph525, %270
@@ -1282,27 +1282,27 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.9.0.extract.shift = lshr i32 %24, 16
   %.sroa.12.0.extract.shift = lshr i32 %24, 24
   %.sroa.12.0.extract.trunc = zext nneg i32 %.sroa.12.0.extract.shift to i64
-  %25 = getelementptr inbounds i8, ptr %.014522, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.014522, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %21, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = xor i32 %28, %26
   %.sroa.21.4.extract.shift = lshr i32 %29, 8
   %.sroa.24.4.extract.shift = lshr i32 %29, 16
   %.sroa.27.4.extract.shift = lshr i32 %29, 24
   %.sroa.27.4.extract.trunc = zext nneg i32 %.sroa.27.4.extract.shift to i64
-  %30 = getelementptr inbounds i8, ptr %.014522, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.014522, i64 8
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = xor i32 %33, %31
   %.sroa.36.8.extract.shift = lshr i32 %34, 8
   %.sroa.39.8.extract.shift = lshr i32 %34, 16
   %.sroa.42.8.extract.shift = lshr i32 %34, 24
   %.sroa.42.8.extract.trunc = zext nneg i32 %.sroa.42.8.extract.shift to i64
-  %35 = getelementptr inbounds i8, ptr %.014522, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.014522, i64 12
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %21, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = xor i32 %38, %36
   %.sroa.51.12.extract.shift = lshr i32 %39, 8
@@ -1311,14 +1311,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc = zext nneg i32 %.sroa.57.12.extract.shift to i64
   %40 = and i32 %24, 255
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %41
   %43 = and i32 %.sroa.51.12.extract.shift, 255
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %44
   %46 = and i32 %.sroa.39.8.extract.shift, 255
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %47
-  %49 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.27.4.extract.trunc
+  %48 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.27.4.extract.trunc
   %50 = load i32, ptr %42, align 4
   %51 = load i32, ptr %45, align 4
   %52 = xor i32 %51, %50
@@ -1328,14 +1328,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %56 = xor i32 %54, %55
   %57 = and i32 %29, 255
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %58
   %60 = and i32 %.sroa.6.0.extract.shift, 255
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %61
   %63 = and i32 %.sroa.54.12.extract.shift, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %64
-  %66 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.42.8.extract.trunc
+  %65 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.42.8.extract.trunc
   %67 = load i32, ptr %59, align 4
   %68 = load i32, ptr %62, align 4
   %69 = xor i32 %68, %67
@@ -1345,14 +1345,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %73 = xor i32 %71, %72
   %74 = and i32 %34, 255
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %75
   %77 = and i32 %.sroa.21.4.extract.shift, 255
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %78
   %80 = and i32 %.sroa.9.0.extract.shift, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %81
-  %83 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.57.12.extract.trunc
+  %82 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %81
+  %83 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.57.12.extract.trunc
   %84 = load i32, ptr %76, align 4
   %85 = load i32, ptr %79, align 4
   %86 = xor i32 %85, %84
@@ -1362,14 +1362,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %90 = xor i32 %88, %89
   %91 = and i32 %39, 255
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %92
   %94 = and i32 %.sroa.36.8.extract.shift, 255
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %95
   %97 = and i32 %.sroa.24.4.extract.shift, 255
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %98
-  %100 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.12.0.extract.trunc
+  %99 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %98
+  %100 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.12.0.extract.trunc
   %101 = load i32, ptr %93, align 4
   %102 = load i32, ptr %96, align 4
   %103 = xor i32 %102, %101
@@ -1391,28 +1391,28 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.38.0.in.in509 = phi i32 [ %90, %.lr.ph.preheader ], [ %172, %.lr.ph ]
   %.sroa.51481.0.in.in508 = phi i32 [ %107, %.lr.ph.preheader ], [ %189, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %110 = getelementptr inbounds [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv.next
+  %110 = getelementptr inbounds nuw [15 x [4 x [4 x i8]]], ptr %9, i64 0, i64 %indvars.iv.next
   %111 = load i32, ptr %110, align 4
   %112 = xor i32 %111, %.sroa.12186.0.in.in511
   %.sroa.6.0.extract.shift21 = lshr i32 %112, 8
   %.sroa.9.0.extract.shift27 = lshr i32 %112, 16
   %.sroa.12.0.extract.shift33 = lshr i32 %112, 24
   %.sroa.12.0.extract.trunc34 = zext nneg i32 %.sroa.12.0.extract.shift33 to i64
-  %113 = getelementptr inbounds i8, ptr %110, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = xor i32 %114, %.sroa.25.0.in.in510
   %.sroa.21.4.extract.shift43 = lshr i32 %115, 8
   %.sroa.24.4.extract.shift49 = lshr i32 %115, 16
   %.sroa.27.4.extract.shift55 = lshr i32 %115, 24
   %.sroa.27.4.extract.trunc56 = zext nneg i32 %.sroa.27.4.extract.shift55 to i64
-  %116 = getelementptr inbounds i8, ptr %110, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = xor i32 %117, %.sroa.38.0.in.in509
   %.sroa.36.8.extract.shift65 = lshr i32 %118, 8
   %.sroa.39.8.extract.shift71 = lshr i32 %118, 16
   %.sroa.42.8.extract.shift77 = lshr i32 %118, 24
   %.sroa.42.8.extract.trunc78 = zext nneg i32 %.sroa.42.8.extract.shift77 to i64
-  %119 = getelementptr inbounds i8, ptr %110, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = xor i32 %120, %.sroa.51481.0.in.in508
   %.sroa.51.12.extract.shift87 = lshr i32 %121, 8
@@ -1421,14 +1421,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc100 = zext nneg i32 %.sroa.57.12.extract.shift99 to i64
   %122 = and i32 %112, 255
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %123
   %125 = and i32 %.sroa.51.12.extract.shift87, 255
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %126
   %128 = and i32 %.sroa.39.8.extract.shift71, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %129
-  %131 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.27.4.extract.trunc56
+  %130 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %129
+  %131 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.27.4.extract.trunc56
   %132 = load i32, ptr %124, align 4
   %133 = load i32, ptr %127, align 4
   %134 = xor i32 %133, %132
@@ -1438,14 +1438,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %138 = xor i32 %136, %137
   %139 = and i32 %115, 255
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %140
   %142 = and i32 %.sroa.6.0.extract.shift21, 255
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %143
   %145 = and i32 %.sroa.54.12.extract.shift93, 255
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %146
-  %148 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.42.8.extract.trunc78
+  %147 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %146
+  %148 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.42.8.extract.trunc78
   %149 = load i32, ptr %141, align 4
   %150 = load i32, ptr %144, align 4
   %151 = xor i32 %150, %149
@@ -1455,14 +1455,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %155 = xor i32 %153, %154
   %156 = and i32 %118, 255
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %157
   %159 = and i32 %.sroa.21.4.extract.shift43, 255
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %160
   %162 = and i32 %.sroa.9.0.extract.shift27, 255
   %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %163
-  %165 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.57.12.extract.trunc100
+  %164 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %163
+  %165 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.57.12.extract.trunc100
   %166 = load i32, ptr %158, align 4
   %167 = load i32, ptr %161, align 4
   %168 = xor i32 %167, %166
@@ -1472,14 +1472,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %172 = xor i32 %170, %171
   %173 = and i32 %121, 255
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %174
   %176 = and i32 %.sroa.36.8.extract.shift65, 255
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %177
   %179 = and i32 %.sroa.24.4.extract.shift49, 255
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %180
-  %182 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.12.0.extract.trunc34
+  %181 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %180
+  %182 = getelementptr inbounds nuw [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %.sroa.12.0.extract.trunc34
   %183 = load i32, ptr %175, align 4
   %184 = load i32, ptr %178, align 4
   %185 = xor i32 %184, %183
@@ -1521,59 +1521,59 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.57.12.extract.trunc102 = zext nneg i32 %.sroa.57.12.extract.shift101 to i64
   %199 = and i32 %192, 255
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %200
   %202 = load i8, ptr %201, align 1
   %203 = and i32 %.sroa.51.12.extract.shift89, 255
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = and i32 %.sroa.39.8.extract.shift73, 255
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %208
   %210 = load i8, ptr %209, align 1
-  %211 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.27.4.extract.trunc58
+  %211 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.27.4.extract.trunc58
   %212 = load i8, ptr %211, align 1
   %213 = and i32 %194, 255
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %214
   %216 = load i8, ptr %215, align 1
   %217 = and i32 %.sroa.6.0.extract.shift23, 255
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %218
   %220 = load i8, ptr %219, align 1
   %221 = and i32 %.sroa.54.12.extract.shift95, 255
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %222
   %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.42.8.extract.trunc80
+  %225 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.42.8.extract.trunc80
   %226 = load i8, ptr %225, align 1
   %227 = and i32 %196, 255
   %228 = zext nneg i32 %227 to i64
-  %229 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = and i32 %.sroa.21.4.extract.shift45, 255
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = and i32 %.sroa.9.0.extract.shift29, 255
   %236 = zext nneg i32 %235 to i64
-  %237 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %236
   %238 = load i8, ptr %237, align 1
-  %239 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.57.12.extract.trunc102
+  %239 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.57.12.extract.trunc102
   %240 = load i8, ptr %239, align 1
   %241 = and i32 %198, 255
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = and i32 %.sroa.36.8.extract.shift67, 255
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %246
   %248 = load i8, ptr %247, align 1
   %249 = and i32 %.sroa.24.4.extract.shift51, 255
   %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %250
   %252 = load i8, ptr %251, align 1
-  %253 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.12.0.extract.trunc36
+  %253 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2S5, i64 0, i64 %.sroa.12.0.extract.trunc36
   %254 = load i8, ptr %253, align 1
   %.sroa.12186.0.insert.ext195 = zext i8 %212 to i32
   %.sroa.12186.0.insert.shift196 = shl nuw i32 %.sroa.12186.0.insert.ext195, 24
@@ -1640,14 +1640,14 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %.sroa.25.1.in.in = phi i32 [ %267, %265 ], [ %258, %._crit_edge ]
   %.sroa.12186.1.in.in = phi i32 [ %266, %265 ], [ %256, %._crit_edge ]
   store i32 %.sroa.12186.1.in.in, ptr %.015521, align 4
-  %271 = getelementptr inbounds i8, ptr %.015521, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %.015521, i64 4
   store i32 %.sroa.25.1.in.in, ptr %271, align 4
-  %272 = getelementptr inbounds i8, ptr %.015521, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %.015521, i64 8
   store i32 %.sroa.38.1.in.in, ptr %272, align 4
-  %273 = getelementptr inbounds i8, ptr %.015521, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %.015521, i64 12
   store i32 %.sroa.51481.1.in.in, ptr %273, align 4
-  %274 = getelementptr inbounds i8, ptr %.014522, i64 16
-  %275 = getelementptr inbounds i8, ptr %.015521, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %.014522, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %.015521, i64 16
   %276 = add nsw i64 %.013523, -1
   %.not = icmp eq i64 %276, 0
   br i1 %.not, label %._crit_edge526, label %18, !llvm.loop !25

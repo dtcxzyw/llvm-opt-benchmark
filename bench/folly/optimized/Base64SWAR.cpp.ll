@@ -33,30 +33,30 @@ while.body.i:                                     ; preds = %if.end5, %while.bod
   %errorAccumulator.037.i = phi i32 [ %or20.i, %while.body.i ], [ 0, %if.end5 ]
   %1 = load i8, ptr %f.addr.0, align 1, !tbaa !7
   %conv.i = zext i8 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4, !tbaa !10
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %f.addr.0, i64 1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 1
   %3 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
   %conv6.i = zext i8 %3 to i64
-  %arrayidx.i.i29.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 1024), i64 0, i64 %conv6.i
+  %arrayidx.i.i29.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 1024), i64 0, i64 %conv6.i
   %4 = load i32, ptr %arrayidx.i.i29.i, align 4, !tbaa !10
   %or.i = or i32 %4, %2
-  %arrayidx.i30.i = getelementptr inbounds i8, ptr %f.addr.0, i64 2
+  %arrayidx.i30.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 2
   %5 = load i8, ptr %arrayidx.i30.i, align 1, !tbaa !7
   %conv11.i = zext i8 %5 to i64
-  %arrayidx.i.i31.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 2048), i64 0, i64 %conv11.i
+  %arrayidx.i.i31.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 2048), i64 0, i64 %conv11.i
   %6 = load i32, ptr %arrayidx.i.i31.i, align 4, !tbaa !10
   %or13.i = or i32 %or.i, %6
-  %arrayidx.i32.i = getelementptr inbounds i8, ptr %f.addr.0, i64 3
+  %arrayidx.i32.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 3
   %7 = load i8, ptr %arrayidx.i32.i, align 1, !tbaa !7
   %conv17.i = zext i8 %7 to i64
-  %arrayidx.i.i33.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 3072), i64 0, i64 %conv17.i
+  %arrayidx.i.i33.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 3072), i64 0, i64 %conv17.i
   %8 = load i32, ptr %arrayidx.i.i33.i, align 4, !tbaa !10
   %or19.i = or i32 %or13.i, %8
   %or20.i = or i32 %or19.i, %errorAccumulator.037.i
   store i32 %or19.i, ptr %o.addr.0, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %f.addr.0, i64 4
-  %add.ptr21.i = getelementptr inbounds i8, ptr %o.addr.0, i64 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 4
+  %add.ptr21.i = getelementptr inbounds nuw i8, ptr %o.addr.0, i64 3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i, 4
@@ -68,27 +68,27 @@ _ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb0EEEjR
   %errorAccumulator.0.lcssa.i = phi i32 [ 0, %if.end5 ], [ %or20.i, %while.body.i ]
   %9 = load i8, ptr %f.addr.1, align 1, !tbaa !7
   %conv.i12 = zext i8 %9 to i64
-  %arrayidx.i.i.i13 = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv.i12
+  %arrayidx.i.i.i13 = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv.i12
   %10 = load i32, ptr %arrayidx.i.i.i13, align 4, !tbaa !10
-  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %f.addr.1, i64 1
+  %arrayidx.i.i14 = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 1
   %11 = load i8, ptr %arrayidx.i.i14, align 1, !tbaa !7
   %conv3.i = zext i8 %11 to i64
-  %arrayidx.i.i66.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv3.i
+  %arrayidx.i.i66.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv3.i
   %12 = load i32, ptr %arrayidx.i.i66.i, align 4, !tbaa !10
   %shr.i = lshr i32 %12, 6
   %or.i15 = or i32 %shr.i, %10
   %conv5.i = trunc i32 %or.i15 to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %o.addr.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 1
   store i8 %conv5.i, ptr %o.addr.1, align 1, !tbaa !7
   %13 = or i32 %10, %errorAccumulator.0.lcssa.i
   %or7.i = or i32 %13, %12
-  %arrayidx.i = getelementptr inbounds i8, ptr %f.addr.1, i64 2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 2
   %14 = load i8, ptr %arrayidx.i, align 1, !tbaa !7
   %cmp.i16 = icmp eq i8 %14, 61
   br i1 %cmp.i16, label %land.lhs.true.i, label %if.end13.i
 
 land.lhs.true.i:                                  ; preds = %_ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb0EEEjRPKcS5_RPc.exit
-  %arrayidx9.i = getelementptr inbounds i8, ptr %f.addr.1, i64 3
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 3
   %15 = load i8, ptr %arrayidx9.i, align 1, !tbaa !7
   %cmp11.i = icmp eq i8 %15, 61
   br i1 %cmp11.i, label %if.then.i, label %if.end13.i
@@ -100,16 +100,16 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %_ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb0EEEjRPKcS5_RPc.exit
   %conv15.i = zext i8 %14 to i64
-  %arrayidx.i.i68.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv15.i
+  %arrayidx.i.i68.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv15.i
   %16 = load i32, ptr %arrayidx.i.i68.i, align 4, !tbaa !10
   %shl.i = shl i32 %12, 2
   %shr17.i = lshr i32 %16, 4
   %or18.i = or i32 %shr17.i, %shl.i
   %conv19.i = trunc i32 %or18.i to i8
-  %incdec.ptr20.i = getelementptr inbounds i8, ptr %o.addr.1, i64 2
+  %incdec.ptr20.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 2
   store i8 %conv19.i, ptr %incdec.ptr.i, align 1, !tbaa !7
   %or21.i = or i32 %16, %or7.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %f.addr.1, i64 3
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 3
   %17 = load i8, ptr %arrayidx22.i, align 1, !tbaa !7
   %cmp24.i = icmp eq i8 %17, 61
   br i1 %cmp24.i, label %if.then25.i, label %if.end30.i
@@ -121,13 +121,13 @@ if.then25.i:                                      ; preds = %if.end13.i
 
 if.end30.i:                                       ; preds = %if.end13.i
   %conv32.i = zext i8 %17 to i64
-  %arrayidx.i.i70.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv32.i
+  %arrayidx.i.i70.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL22kBase64SwarDecodeTableE, i64 0, i64 %conv32.i
   %18 = load i32, ptr %arrayidx.i.i70.i, align 4, !tbaa !10
   %shl34.i = shl i32 %16, 4
   %shr35.i = lshr i32 %18, 2
   %or36.i = or i32 %shr35.i, %shl34.i
   %conv37.i = trunc i32 %or36.i to i8
-  %incdec.ptr38.i = getelementptr inbounds i8, ptr %o.addr.1, i64 3
+  %incdec.ptr38.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 3
   store i8 %conv37.i, ptr %incdec.ptr20.i, align 1, !tbaa !7
   %or39.i = or i32 %18, %or21.i
   br label %cleanup40.sink.split.i
@@ -178,30 +178,30 @@ while.body.i:                                     ; preds = %if.end6, %while.bod
   %errorAccumulator.034.i = phi i32 [ %or17.i, %while.body.i ], [ 0, %if.end6 ]
   %1 = load i8, ptr %f.addr.0, align 1, !tbaa !7
   %conv.i = zext i8 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4, !tbaa !10
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %f.addr.0, i64 1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 1
   %3 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !7
   %conv5.i = zext i8 %3 to i64
-  %arrayidx.i.i26.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 1024), i64 0, i64 %conv5.i
+  %arrayidx.i.i26.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 1024), i64 0, i64 %conv5.i
   %4 = load i32, ptr %arrayidx.i.i26.i, align 4, !tbaa !10
   %or.i = or i32 %4, %2
-  %arrayidx.i27.i = getelementptr inbounds i8, ptr %f.addr.0, i64 2
+  %arrayidx.i27.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 2
   %5 = load i8, ptr %arrayidx.i27.i, align 1, !tbaa !7
   %conv9.i = zext i8 %5 to i64
-  %arrayidx.i.i28.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 2048), i64 0, i64 %conv9.i
+  %arrayidx.i.i28.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 2048), i64 0, i64 %conv9.i
   %6 = load i32, ptr %arrayidx.i.i28.i, align 4, !tbaa !10
   %or11.i = or i32 %or.i, %6
-  %arrayidx.i29.i = getelementptr inbounds i8, ptr %f.addr.0, i64 3
+  %arrayidx.i29.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 3
   %7 = load i8, ptr %arrayidx.i29.i, align 1, !tbaa !7
   %conv14.i = zext i8 %7 to i64
-  %arrayidx.i.i30.i = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 3072), i64 0, i64 %conv14.i
+  %arrayidx.i.i30.i = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 3072), i64 0, i64 %conv14.i
   %8 = load i32, ptr %arrayidx.i.i30.i, align 4, !tbaa !10
   %or16.i = or i32 %or11.i, %8
   %or17.i = or i32 %or16.i, %errorAccumulator.034.i
   store i32 %or16.i, ptr %o.addr.0, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %f.addr.0, i64 4
-  %add.ptr18.i = getelementptr inbounds i8, ptr %o.addr.0, i64 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0, i64 4
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %o.addr.0, i64 3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i, 4
@@ -233,50 +233,50 @@ _ZN5folly6detail13base64_detail32base64URLDecodeStripValidPaddingEPKcRS3_.exit.i
   %l.addr.0.i = phi ptr [ %add.ptr10.i.i, %if.end.i.i ], [ %l, %_ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb1EEEjRPKcS5_RPc.exit ]
   %11 = load i8, ptr %f.addr.1, align 1, !tbaa !7
   %conv.i14 = zext i8 %11 to i64
-  %arrayidx.i.i.i15 = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv.i14
+  %arrayidx.i.i.i15 = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv.i14
   %12 = load i32, ptr %arrayidx.i.i.i15, align 4, !tbaa !10
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %f.addr.1, i64 1
+  %arrayidx.i.i16 = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 1
   %13 = load i8, ptr %arrayidx.i.i16, align 1, !tbaa !7
   %conv3.i = zext i8 %13 to i64
-  %arrayidx.i.i53.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv3.i
+  %arrayidx.i.i53.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv3.i
   %14 = load i32, ptr %arrayidx.i.i53.i, align 4, !tbaa !10
   %shr.i = lshr i32 %14, 6
   %or.i17 = or i32 %shr.i, %12
   %conv5.i18 = trunc i32 %or.i17 to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %o.addr.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 1
   store i8 %conv5.i18, ptr %o.addr.1, align 1, !tbaa !7
   %15 = or i32 %12, %errorAccumulator.0.lcssa.i
   %or7.i = or i32 %15, %14
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %f.addr.1, i64 2
+  %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 2
   %cmp.i20 = icmp eq ptr %add.ptr.i19, %l.addr.0.i
   br i1 %cmp.i20, label %invoke.cont, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN5folly6detail13base64_detail32base64URLDecodeStripValidPaddingEPKcRS3_.exit.i
   %16 = load i8, ptr %add.ptr.i19, align 1, !tbaa !7
   %conv9.i21 = zext i8 %16 to i64
-  %arrayidx.i.i54.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv9.i21
+  %arrayidx.i.i54.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv9.i21
   %17 = load i32, ptr %arrayidx.i.i54.i, align 4, !tbaa !10
   %shl.i = shl i32 %14, 2
   %shr11.i = lshr i32 %17, 4
   %or12.i = or i32 %shr11.i, %shl.i
   %conv13.i = trunc i32 %or12.i to i8
-  %incdec.ptr14.i = getelementptr inbounds i8, ptr %o.addr.1, i64 2
+  %incdec.ptr14.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 2
   store i8 %conv13.i, ptr %incdec.ptr.i, align 1, !tbaa !7
   %or15.i = or i32 %17, %or7.i
-  %incdec.ptr16.i = getelementptr inbounds i8, ptr %f.addr.1, i64 3
+  %incdec.ptr16.i = getelementptr inbounds nuw i8, ptr %f.addr.1, i64 3
   %cmp17.i = icmp eq ptr %incdec.ptr16.i, %l.addr.0.i
   br i1 %cmp17.i, label %invoke.cont, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end.i
   %18 = load i8, ptr %incdec.ptr16.i, align 1, !tbaa !7
   %conv21.i = zext i8 %18 to i64
-  %arrayidx.i.i55.i = getelementptr inbounds [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv21.i
+  %arrayidx.i.i55.i = getelementptr inbounds nuw [256 x i32], ptr @_ZN5folly6detail13base64_detail9constantsL25kBase64SwarURLDecodeTableE, i64 0, i64 %conv21.i
   %19 = load i32, ptr %arrayidx.i.i55.i, align 4, !tbaa !10
   %shl23.i = shl i32 %17, 4
   %shr24.i = lshr i32 %19, 2
   %or25.i = or i32 %shr24.i, %shl23.i
   %conv26.i = trunc i32 %or25.i to i8
-  %incdec.ptr27.i = getelementptr inbounds i8, ptr %o.addr.1, i64 3
+  %incdec.ptr27.i = getelementptr inbounds nuw i8, ptr %o.addr.1, i64 3
   store i8 %conv26.i, ptr %incdec.ptr14.i, align 1, !tbaa !7
   %or28.i = or i32 %19, %or15.i
   br label %invoke.cont

@@ -49,7 +49,7 @@ gv_calloc.exit.preheader102:                      ; preds = %gv_calloc.exit.preh
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader102, %gv_calloc.exit
   %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader102 ], [ %indvars.iv.next, %gv_calloc.exit ]
-  %17 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 2147483647, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -65,8 +65,8 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   br i1 %22, label %.lr.ph89, label %._crit_edge
 
 .lr.ph89:                                         ; preds = %gv_calloc.exit._crit_edge
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph89, %25
@@ -133,7 +133,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   %56 = getelementptr inbounds i32, ptr %storemerge.i, i64 %55
   %57 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %57, ptr %56, align 4
-  %58 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   store i32 %.02428.i, ptr %58, align 4
   %59 = add nsw i32 %.02428.i, 1
   br label %60
@@ -161,13 +161,13 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 66:                                               ; preds = %62
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds i32, ptr %storemerge.i, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %3, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = zext nneg i32 %.0.i.i to i64
-  %74 = getelementptr inbounds i32, ptr %storemerge.i, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i32, ptr %3, i64 %76
@@ -185,13 +185,13 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 83:                                               ; preds = %81
   %84 = zext nneg i32 %64 to i64
-  %85 = getelementptr inbounds i32, ptr %storemerge.i, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %3, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = zext nneg i32 %.040.i.i to i64
-  %91 = getelementptr inbounds i32, ptr %storemerge.i, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i32, ptr %3, i64 %93
@@ -207,10 +207,10 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %.1.i.i to i64
-  %101 = getelementptr inbounds i32, ptr %storemerge.i, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = zext nneg i32 %.0.i.i to i64
-  %104 = getelementptr inbounds i32, ptr %storemerge.i, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %103
   %105 = load i32, ptr %104, align 4
   store i32 %105, ptr %101, align 4
   store i32 %102, ptr %104, align 4
@@ -265,7 +265,7 @@ initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %
 
 124:                                              ; preds = %118
   %125 = zext nneg i32 %120 to i64
-  %126 = getelementptr inbounds i32, ptr %storemerge.i, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i32, ptr %3, i64 %128
@@ -287,13 +287,13 @@ initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %
 
 139:                                              ; preds = %136
   %140 = zext nneg i32 %121 to i64
-  %141 = getelementptr inbounds i32, ptr %storemerge.i, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i32, ptr %3, i64 %143
   %145 = load i32, ptr %144, align 4
   %146 = zext nneg i32 %.040.i.i55 to i64
-  %147 = getelementptr inbounds i32, ptr %storemerge.i, i64 %146
+  %147 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %146
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i32, ptr %3, i64 %149
@@ -309,10 +309,10 @@ initHeap.exit.loopexit:                           ; preds = %increaseKey.exit, %
 
 155:                                              ; preds = %153
   %156 = zext nneg i32 %.1.i.i56 to i64
-  %157 = getelementptr inbounds i32, ptr %storemerge.i, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %156
   %158 = load i32, ptr %157, align 4
   %159 = zext nneg i32 %.0.i.i54 to i64
-  %160 = getelementptr inbounds i32, ptr %storemerge.i, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %159
   store i32 %119, ptr %157, align 4
   store i32 %158, ptr %160, align 4
   %161 = load i32, ptr %157, align 4
@@ -338,8 +338,8 @@ extractMax.exit:                                  ; preds = %153
   br i1 %172, label %.lr.ph91, label %initHeap.exit.loopexit
 
 .lr.ph91:                                         ; preds = %.preheader
-  %173 = getelementptr inbounds i8, ptr %170, i64 8
-  %174 = getelementptr inbounds i8, ptr %170, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 16
   br label %175
 
 175:                                              ; preds = %.lr.ph91, %increaseKey.exit
@@ -370,7 +370,7 @@ extractMax.exit:                                  ; preds = %153
   %.029.i60 = phi i32 [ %192, %200 ], [ %190, %188 ]
   %192 = lshr i32 %.029.i60, 1
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds i32, ptr %storemerge.i, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i32, ptr %3, i64 %196
@@ -380,7 +380,7 @@ extractMax.exit:                                  ; preds = %153
 
 200:                                              ; preds = %.lr.ph.i59
   %201 = zext nneg i32 %.029.i60 to i64
-  %202 = getelementptr inbounds i32, ptr %storemerge.i, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %201
   store i32 %195, ptr %202, align 4
   %203 = getelementptr inbounds i32, ptr %11, i64 %196
   store i32 %.029.i60, ptr %203, align 4
@@ -418,7 +418,7 @@ extractMax.exit.thread:                           ; preds = %extractMax.exit.thr
 
 210:                                              ; preds = %.lr.ph98, %215
   %indvars.iv107 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next108, %215 ]
-  %211 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv107
+  %211 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv107
   %212 = load i32, ptr %211, align 4
   %213 = icmp eq i32 %212, 2147483647
   br i1 %213, label %214, label %215
@@ -478,7 +478,7 @@ gv_calloc.exit.preheader56:                       ; preds = %gv_calloc.exit.preh
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader56, %gv_calloc.exit
   %indvars.iv = phi i64 [ 0, %gv_calloc.exit.preheader56 ], [ %indvars.iv.next, %gv_calloc.exit ]
-  %18 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -494,8 +494,8 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
   br i1 %23, label %.lr.ph48, label %._crit_edge
 
 .lr.ph48:                                         ; preds = %gv_calloc.exit._crit_edge
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph48, %26
@@ -516,7 +516,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 ._crit_edge:                                      ; preds = %26, %gv_calloc.exit._crit_edge
   call fastcc void @initHeap_f(ptr noundef %5, i32 noundef %0, ptr noundef %12, ptr noundef nonnull %3, i32 noundef %2)
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.promoted = load i32, ptr %38, align 8
   %.not51 = icmp eq i32 %.promoted, 0
   %.val.pre = load ptr, ptr %5, align 8
@@ -554,7 +554,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 51:                                               ; preds = %45
   %52 = zext nneg i32 %47 to i64
-  %53 = getelementptr inbounds i32, ptr %.val.pre, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds float, ptr %3, i64 %55
@@ -576,13 +576,13 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %48 to i64
-  %68 = getelementptr inbounds i32, ptr %.val.pre, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds float, ptr %3, i64 %70
   %72 = load float, ptr %71, align 4
   %73 = zext nneg i32 %.040.i.i to i64
-  %74 = getelementptr inbounds i32, ptr %.val.pre, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds float, ptr %3, i64 %76
@@ -600,10 +600,10 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv
 
 83:                                               ; preds = %81
   %84 = zext nneg i32 %.1.i.i to i64
-  %85 = getelementptr inbounds i32, ptr %.val.pre, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = zext nneg i32 %.0.i.i to i64
-  %88 = getelementptr inbounds i32, ptr %.val.pre, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %87
   store i32 %46, ptr %85, align 4
   store i32 %86, ptr %88, align 4
   %89 = load i32, ptr %85, align 4
@@ -629,8 +629,8 @@ extractMax_f.exit:                                ; preds = %81
   br i1 %100, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %.preheader
-  %101 = getelementptr inbounds i8, ptr %98, i64 8
-  %102 = getelementptr inbounds i8, ptr %98, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
   br label %103
 
 103:                                              ; preds = %.lr.ph50, %increaseKey_f.exit
@@ -660,7 +660,7 @@ extractMax_f.exit:                                ; preds = %81
   %.01.i = phi i32 [ %120, %128 ], [ %118, %116 ]
   %120 = lshr i32 %.01.i, 1
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %.val.pre, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds float, ptr %3, i64 %124
@@ -670,7 +670,7 @@ extractMax_f.exit:                                ; preds = %81
 
 128:                                              ; preds = %.lr.ph.i
   %129 = zext nneg i32 %.01.i to i64
-  %130 = getelementptr inbounds i32, ptr %.val.pre, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %129
   store i32 %123, ptr %130, align 4
   %131 = getelementptr inbounds i32, ptr %12, i64 %124
   store i32 %.01.i, ptr %131, align 4
@@ -727,7 +727,7 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
 
 .lr.ph.preheader:                                 ; preds = %11
   store ptr %13, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %19, align 8
   %20 = zext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -745,7 +745,7 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
   %24 = getelementptr inbounds i32, ptr %22, i64 %23
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %25, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %.02225, ptr %26, align 4
   %27 = add nsw i32 %.02225, 1
   br label %28
@@ -775,13 +775,13 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
 35:                                               ; preds = %30
   %36 = load ptr, ptr %0, align 8
   %37 = zext nneg i32 %31 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds float, ptr %3, i64 %40
   %42 = load float, ptr %41, align 4
   %43 = zext nneg i32 %.0.i to i64
-  %44 = getelementptr inbounds i32, ptr %36, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %36, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds float, ptr %3, i64 %46
@@ -800,13 +800,13 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
 53:                                               ; preds = %51
   %54 = load ptr, ptr %0, align 8
   %55 = zext nneg i32 %32 to i64
-  %56 = getelementptr inbounds i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds float, ptr %3, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = zext nneg i32 %.040.i to i64
-  %62 = getelementptr inbounds i32, ptr %54, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds float, ptr %3, i64 %64
@@ -825,23 +825,23 @@ define internal fastcc void @initHeap_f(ptr nocapture noundef nonnull %0, i32 no
 71:                                               ; preds = %69
   %72 = load ptr, ptr %0, align 8
   %73 = zext nneg i32 %.1.i to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = zext nneg i32 %.0.i to i64
-  %77 = getelementptr inbounds i32, ptr %72, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %76
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %74, align 4
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %76
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %76
   store i32 %75, ptr %80, align 4
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i32, ptr %81, i64 %73
+  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %73
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %2, i64 %84
   store i32 %.1.i, ptr %85, align 4
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %76
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %76
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %2, i64 %89
@@ -914,7 +914,7 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds float, ptr %18, i64 %26
   store float 0.000000e+00, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i64, ptr %29, i64 %26
   %31 = load i64, ptr %30, align 8
@@ -924,9 +924,9 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
   br i1 %34, label %.lr.ph77, label %._crit_edge
 
 .lr.ph77:                                         ; preds = %gv_calloc.exit67._crit_edge
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   br label %39
 
@@ -945,7 +945,7 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
 ._crit_edge:                                      ; preds = %39, %gv_calloc.exit67._crit_edge
   %46 = trunc i64 %6 to i32
   call fastcc void @initHeap_f(ptr noundef %5, i32 noundef %1, ptr noundef %12, ptr noundef nonnull %18, i32 noundef %46)
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.promoted = load i32, ptr %47, align 8
   %.not81 = icmp eq i32 %.promoted, 0
   %.val.pre = load ptr, ptr %5, align 8
@@ -953,11 +953,11 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
 
 .lr.ph84:                                         ; preds = %._crit_edge
   %invariant.gep = getelementptr i8, ptr %.val.pre, i64 -4
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = sext i32 %.promoted to i64
   br label %54
 
@@ -989,7 +989,7 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
 
 65:                                               ; preds = %59
   %66 = zext nneg i32 %61 to i64
-  %67 = getelementptr inbounds i32, ptr %.val.pre, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds float, ptr %18, i64 %69
@@ -1011,13 +1011,13 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
 
 80:                                               ; preds = %77
   %81 = zext nneg i32 %62 to i64
-  %82 = getelementptr inbounds i32, ptr %.val.pre, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds float, ptr %18, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = zext nneg i32 %.040.i.i to i64
-  %88 = getelementptr inbounds i32, ptr %.val.pre, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds float, ptr %18, i64 %90
@@ -1035,10 +1035,10 @@ gv_calloc.exit67._crit_edge:                      ; preds = %gv_calloc.exit67, %
 
 97:                                               ; preds = %95
   %98 = zext nneg i32 %.1.i.i to i64
-  %99 = getelementptr inbounds i32, ptr %.val.pre, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = zext nneg i32 %.0.i.i to i64
-  %102 = getelementptr inbounds i32, ptr %.val.pre, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %101
   store i32 %60, ptr %99, align 4
   store i32 %100, ptr %102, align 4
   %103 = load i32, ptr %99, align 4
@@ -1066,7 +1066,7 @@ extractMax_f.exit:                                ; preds = %95
   %115 = icmp ult i64 %114, 65
   %.0.i = select i1 %115, ptr %4, ptr %113
   %116 = lshr i64 %108, 3
-  %117 = getelementptr inbounds i8, ptr %.0.i, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = and i32 %55, 7
@@ -1082,13 +1082,13 @@ extractMax_f.exit:                                ; preds = %95
   %126 = sext i32 %.06182 to i64
   %127 = getelementptr inbounds %struct.term_sgd, ptr %2, i64 %126
   store i32 %1, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 %55, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store float %110, ptr %129, align 4
   %130 = fmul float %110, %110
   %131 = fdiv float 1.000000e+00, %130
-  %132 = getelementptr inbounds i8, ptr %127, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 12
   store float %131, ptr %132, align 4
   %133 = add nsw i32 %.06182, 1
   br label %134
@@ -1132,7 +1132,7 @@ extractMax_f.exit:                                ; preds = %95
   %.01.i = phi i32 [ %158, %166 ], [ %156, %154 ]
   %158 = lshr i32 %.01.i, 1
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds i32, ptr %.val.pre, i64 %159
+  %160 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds float, ptr %18, i64 %162
@@ -1142,7 +1142,7 @@ extractMax_f.exit:                                ; preds = %95
 
 166:                                              ; preds = %.lr.ph.i
   %167 = zext nneg i32 %.01.i to i64
-  %168 = getelementptr inbounds i32, ptr %.val.pre, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr %.val.pre, i64 %167
   store i32 %161, ptr %168, align 4
   %169 = getelementptr inbounds i32, ptr %12, i64 %162
   store i32 %.01.i, ptr %169, align 4

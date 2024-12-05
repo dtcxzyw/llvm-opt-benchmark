@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_encode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
@@ -72,13 +72,13 @@ define dso_local i64 @binary_encode(ptr nocapture noundef readonly %0) local_unn
 
 ._crit_edge:                                      ; preds = %12, %1
   %.lcssa = phi ptr [ @enclist, %1 ], [ %13, %12 ]
-  %21 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %22 = load i8, ptr %5, align 1
   %23 = zext i8 %22 to i32
   %24 = and i32 %23, 1
   %.not = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds i8, ptr %5, i64 1
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = select i1 %.not, ptr %26, ptr %25
   %28 = icmp eq i8 %22, 1
   br i1 %28, label %29, label %37
@@ -128,9 +128,9 @@ define dso_local i64 @binary_encode(ptr nocapture noundef readonly %0) local_unn
 56:                                               ; preds = %47
   %57 = add nuw nsw i64 %50, 4
   %58 = tail call ptr @palloc(i64 noundef %57) #7
-  %59 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = tail call i64 %60(ptr noundef nonnull %27, i64 noundef %48, ptr noundef nonnull %61) #7
   %63 = icmp ugt i64 %62, %50
   br i1 %63, label %64, label %67
@@ -170,7 +170,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
@@ -209,8 +209,8 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
   %22 = zext i8 %21 to i32
   %23 = and i32 %22, 1
   %.not = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds i8, ptr %5, i64 1
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %26 = select i1 %.not, ptr %25, ptr %24
   %27 = icmp eq i8 %21, 1
   br i1 %27, label %28, label %36
@@ -244,7 +244,7 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
 
 46:                                               ; preds = %37, %41, %28
   %47 = phi i64 [ %35, %28 ], [ %40, %37 ], [ %45, %41 ]
-  %48 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 %49(ptr noundef nonnull %26, i64 noundef %47) #7
   %51 = icmp ugt i64 %50, 1073741819
@@ -261,9 +261,9 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
 56:                                               ; preds = %46
   %57 = add nuw nsw i64 %50, 4
   %58 = tail call ptr @palloc(i64 noundef %57) #7
-  %59 = getelementptr inbounds i8, ptr %.lcssa, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %62 = tail call i64 %60(ptr noundef nonnull %26, i64 noundef %47, ptr noundef nonnull %61) #7
   %63 = icmp ugt i64 %62, %50
   br i1 %63, label %64, label %67

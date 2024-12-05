@@ -50,7 +50,7 @@ define internal noundef i32 @H5SM__bt2_dst_context(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5SM__bt2_store(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret i32 0
 }
@@ -65,10 +65,10 @@ declare i32 @H5SM__message_decode(ptr noundef, ptr noundef, ptr noundef) #2
 define internal noundef i32 @H5SM__bt2_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #3 {
   %6 = load i32, ptr %3, align 8
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   br i1 %7, label %13, label %16
 
@@ -78,7 +78,7 @@ define internal noundef i32 @H5SM__bt2_debug(ptr nocapture noundef %0, i32 nound
   br label %21
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %8, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %1, ptr noundef nonnull @.str.5, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %10, i32 noundef %12, i32 noundef %18, i32 noundef %19) #6

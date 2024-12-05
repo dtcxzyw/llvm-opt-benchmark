@@ -208,14 +208,14 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %41 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 127)
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %3, align 1
   br i1 %41, label %43, label %.critedge88
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %44, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 128)
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %3, align 1
@@ -226,7 +226,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge88
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %2, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %49 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 129)
   %50 = zext i1 %49 to i8
   store i8 %50, ptr %3, align 1
@@ -237,7 +237,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge90
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %52, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 130)
   %54 = zext i1 %53 to i8
   store i8 %54, ptr %3, align 1
@@ -248,7 +248,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge92
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %2, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %57 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %56, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 131)
   %58 = zext i1 %57 to i8
   store i8 %58, ptr %3, align 1
@@ -259,7 +259,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge94
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 132)
   %62 = zext i1 %61 to i8
   store i8 %62, ptr %3, align 1
@@ -270,7 +270,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge96
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %2, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %65 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %64, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 133)
   %66 = zext i1 %65 to i8
   store i8 %66, ptr %3, align 1
@@ -281,7 +281,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge98
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %2, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %69 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %68, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 135)
   %70 = zext i1 %69 to i8
   store i8 %70, ptr %3, align 1
@@ -292,7 +292,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge100
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %2, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %73 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %72, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 137)
   %74 = zext i1 %73 to i8
   store i8 %74, ptr %3, align 1
@@ -303,7 +303,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge102
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %2, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %77 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 139)
   %78 = zext i1 %77 to i8
   store i8 %78, ptr %3, align 1
@@ -314,7 +314,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge104
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %2, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %81 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 140)
   %82 = zext i1 %81 to i8
   store i8 %82, ptr %3, align 1
@@ -346,7 +346,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %93
 
 93:                                               ; preds = %88, %87, %83
-  %94 = getelementptr inbounds i8, ptr %2, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %95 = load i64, ptr %94, align 8
   %96 = trunc i64 %95 to i32
   store i32 %96, ptr %8, align 4
@@ -371,14 +371,14 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br i1 %107, label %108, label %.critedge108
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %2, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %110 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %109, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 161)
   %111 = zext i1 %110 to i8
   store i8 %111, ptr %3, align 1
   br i1 %110, label %112, label %.critedge110
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %2, i64 60
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %114 = call noundef zeroext i1 @_Z16gmx_fio_doe_realP8t_fileioPfPKcS3_i(ptr noundef %0, ptr noundef nonnull %113, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 162)
   %115 = zext i1 %114 to i8
   store i8 %115, ptr %3, align 1
@@ -389,7 +389,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   br label %.critedge110
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %2, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %118 = call noundef zeroext i1 @_Z16gmx_fio_doe_realP8t_fileioPfPKcS3_i(ptr noundef %0, ptr noundef nonnull %117, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 163)
   br label %119
 
@@ -428,7 +428,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #11
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -436,7 +436,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -513,7 +513,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -547,7 +547,7 @@ define internal fastcc noundef range(i32 4, 9) i32 @_ZL10nFloatSizeP16gmx_trr_he
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -557,39 +557,39 @@ define internal fastcc noundef range(i32 4, 9) i32 @_ZL10nFloatSizeP16gmx_trr_he
   br label %46
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %.not26 = icmp eq i32 %12, 0
   br i1 %.not26, label %18, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %15, 3
   %17 = udiv i32 %12, %16
   br label %46
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 4
   %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %26, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = mul i32 %23, 3
   %25 = udiv i32 %20, %24
   br label %46
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %.not28 = icmp eq i32 %28, 0
   br i1 %.not28, label %34, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %31 = load i32, ptr %30, align 4
   %32 = mul i32 %31, 3
   %33 = udiv i32 %28, %32
@@ -893,7 +893,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
 29:                                               ; preds = %25
   %.not = icmp eq ptr %5, null
   %30 = select i1 %.not, i32 0, i32 36
-  %31 = getelementptr inbounds i8, ptr %24, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %30, ptr %31, align 4
   %.not37 = icmp eq ptr %7, null
   br i1 %.not37, label %35, label %32
@@ -905,7 +905,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
 
 35:                                               ; preds = %29, %32
   %36 = phi i32 [ %34, %32 ], [ 0, %29 ]
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %36, ptr %37, align 8
   %.not38 = icmp eq ptr %8, null
   br i1 %.not38, label %41, label %38
@@ -917,7 +917,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
 
 41:                                               ; preds = %35, %38
   %42 = phi i32 [ %40, %38 ], [ 0, %35 ]
-  %43 = getelementptr inbounds i8, ptr %24, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store i32 %42, ptr %43, align 4
   %.not39 = icmp eq ptr %9, null
   br i1 %.not39, label %.thread, label %44
@@ -933,39 +933,39 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
 
 .thread:                                          ; preds = %44, %41
   %49 = phi i32 [ %46, %44 ], [ 0, %41 ]
-  %50 = getelementptr inbounds i8, ptr %24, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 %49, ptr %50, align 8
   %51 = load i32, ptr %6, align 4
-  %52 = getelementptr inbounds i8, ptr %24, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 44
   store i32 %51, ptr %52, align 4
   %53 = load i64, ptr %2, align 8
-  %54 = getelementptr inbounds i8, ptr %24, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %24, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store i32 0, ptr %55, align 8
   %56 = load float, ptr %3, align 4
-  %57 = getelementptr inbounds i8, ptr %24, i64 60
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 60
   store float %56, ptr %57, align 4
   %58 = load float, ptr %4, align 4
-  %59 = getelementptr inbounds i8, ptr %24, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store float %58, ptr %59, align 8
   %60 = call fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPb(ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull %24, ptr noundef nonnull %11)
   br i1 %60, label %.thread67, label %126
 
 61:                                               ; preds = %47
-  %62 = getelementptr inbounds i8, ptr %24, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %6, align 4
-  %64 = getelementptr inbounds i8, ptr %24, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %24, i64 60
+  %66 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %67 = load float, ptr %66, align 4
   store float %67, ptr %3, align 4
-  %68 = getelementptr inbounds i8, ptr %24, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %69 = load float, ptr %68, align 8
   store float %69, ptr %4, align 4
-  %70 = getelementptr inbounds i8, ptr %24, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %71 = load i32, ptr %70, align 4
   %.not40 = icmp eq i32 %71, 0
   br i1 %.not40, label %83, label %72
@@ -1008,7 +1008,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
   br label %127
 
 83:                                               ; preds = %61
-  %84 = getelementptr inbounds i8, ptr %24, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %85 = load i32, ptr %84, align 8
   %.not41 = icmp eq i32 %85, 0
   br i1 %.not41, label %97, label %86
@@ -1051,7 +1051,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
   br label %127
 
 97:                                               ; preds = %83
-  %98 = getelementptr inbounds i8, ptr %24, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %99 = load i32, ptr %98, align 8
   %.not42 = icmp eq i32 %99, 0
   br i1 %.not42, label %111, label %100
@@ -1094,7 +1094,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
   br label %127
 
 111:                                              ; preds = %97
-  %112 = getelementptr inbounds i8, ptr %24, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %113 = load i32, ptr %112, align 4
   %.not43 = icmp eq i32 %113, 0
   br i1 %.not43, label %.thread67, label %114
@@ -1155,7 +1155,7 @@ define internal fastcc noundef zeroext i1 @_ZL12do_trr_frameP8t_fileiobPlPfS2_PA
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gmx_trr_header_tPA3_fS4_S4_S4_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [3 x [3 x float]], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
@@ -1167,7 +1167,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
 
 13:                                               ; preds = %10, %6
   %.0 = phi i8 [ %12, %10 ], [ 1, %6 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %21, label %16
@@ -1183,7 +1183,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
 
 21:                                               ; preds = %16, %18, %13
   %.1 = phi i8 [ %.0, %13 ], [ 0, %16 ], [ %20, %18 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
   %.not26 = icmp eq i32 %23, 0
   br i1 %.not26, label %29, label %24
@@ -1199,7 +1199,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
 
 29:                                               ; preds = %24, %26, %21
   %.2 = phi i8 [ %.1, %21 ], [ 0, %24 ], [ %28, %26 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i32, ptr %30, align 8
   %.not27 = icmp eq i32 %31, 0
   br i1 %.not27, label %39, label %32
@@ -1209,7 +1209,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = call noundef zeroext i1 @_Z17gmx_fio_ndoe_rvecP8t_fileioPA3_fiPKcS4_i(ptr noundef %0, ptr noundef %3, i32 noundef %36, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 188)
   %38 = zext i1 %37 to i8
@@ -1217,7 +1217,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
 
 39:                                               ; preds = %32, %34, %29
   %.3 = phi i8 [ %.2, %29 ], [ 0, %32 ], [ %38, %34 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %41 = load i32, ptr %40, align 4
   %.not28 = icmp eq i32 %41, 0
   br i1 %.not28, label %49, label %42
@@ -1227,7 +1227,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %1, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %46 = load i32, ptr %45, align 4
   %47 = call noundef zeroext i1 @_Z17gmx_fio_ndoe_rvecP8t_fileioPA3_fiPKcS4_i(ptr noundef %0, ptr noundef %4, i32 noundef %46, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.1, i32 noundef 192)
   %48 = zext i1 %47 to i8
@@ -1235,7 +1235,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
 
 49:                                               ; preds = %42, %44, %39
   %.4 = phi i8 [ %.3, %39 ], [ 0, %42 ], [ %48, %44 ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %51 = load i32, ptr %50, align 8
   %.not29 = icmp eq i32 %51, 0
   br i1 %.not29, label %59, label %52
@@ -1245,7 +1245,7 @@ define internal fastcc noundef zeroext i1 @_ZL17do_trr_frame_dataP8t_fileioP16gm
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %1, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = call noundef zeroext i1 @_Z17gmx_fio_ndoe_rvecP8t_fileioPA3_fiPKcS4_i(ptr noundef %0, ptr noundef %5, i32 noundef %56, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 196)
   %58 = zext i1 %57 to i8

@@ -27,11 +27,11 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 define hidden void @_ZN20ZForwardingAllocator5resetEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %3, i64 noundef %1, i8 noundef zeroext 5, i32 noundef 0) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %5, align 8
   store ptr %4, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   ret void
 }

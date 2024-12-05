@@ -118,7 +118,7 @@ if.then.i:                                        ; preds = %PyObject_TypeCheck.
   br label %exit
 
 if.end.i:                                         ; preds = %PyObject_TypeCheck.exit.i, %if.end
-  %tp_vectorcall_offset.i = getelementptr inbounds i8, ptr %arg, i64 56
+  %tp_vectorcall_offset.i = getelementptr inbounds nuw i8, ptr %arg, i64 56
   %4 = load i64, ptr %tp_vectorcall_offset.i, align 8
   %tobool3.not.i = icmp eq i64 %4, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end7.i
@@ -238,7 +238,7 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %tobool.not.i.i, label %fastcall_args.exit.i, label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %if.else.i.i
-  %ob_item.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %args.val.i.i, @PyLong_Type
   br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %cond.end.i.i.i.i
 
@@ -255,7 +255,7 @@ cond.false4.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit.i.i:                        ; preds = %cond.end.i.i.i.i
-  %ob_size.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %ob_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %ob_size.i.i.i.i, align 8
   br label %if.end.i
 
@@ -324,7 +324,7 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %tobool.not.i.i, label %fastcall_args.exit.i, label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %if.else.i.i
-  %ob_item.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %args.val.i.i, @PyLong_Type
   br i1 %cmp.not.i.i.i.i, label %cond.false.i.i.i.i, label %cond.end.i.i.i.i
 
@@ -341,7 +341,7 @@ cond.false4.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
   unreachable
 
 PyTuple_GET_SIZE.exit.i.i:                        ; preds = %cond.end.i.i.i.i
-  %ob_size.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %ob_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %ob_size.i.i.i.i, align 8
   br label %if.end.i
 
@@ -382,7 +382,7 @@ cond.false4.i.i.i:                                ; preds = %cond.end.i.i8.i
   unreachable
 
 PyTuple_GET_SIZE.exit.i:                          ; preds = %cond.end.i.i8.i
-  %ob_size.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %ob_size.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %ob_size.i.i.i, align 8
   %cmp7.i = icmp slt i64 %nargs.0.ph.i, %10
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
@@ -545,19 +545,19 @@ skip_optional:                                    ; preds = %PyObject_TypeCheck.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %spec.i)
   %tobool.not.i = icmp eq ptr %base.0, null
   %spec.store.select.i = select i1 %tobool.not.i, ptr @PyBaseObject_Type, ptr %base.0
-  %tp_basicsize.i = getelementptr inbounds i8, ptr %spec.store.select.i, i64 32
+  %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %spec.store.select.i, i64 32
   %3 = load i64, ptr %tp_basicsize.i, align 8
   store i64 %3, ptr getelementptr inbounds (i8, ptr @VectorCallClass_members, i64 16), align 16
   store ptr @.str.27, ptr %spec.i, align 8
-  %basicsize.i = getelementptr inbounds i8, ptr %spec.i, i64 8
+  %basicsize.i = getelementptr inbounds nuw i8, ptr %spec.i, i64 8
   %4 = trunc i64 %3 to i32
   %conv.i = add i32 %4, 8
   store i32 %conv.i, ptr %basicsize.i, align 8
-  %itemsize.i = getelementptr inbounds i8, ptr %spec.i, i64 12
+  %itemsize.i = getelementptr inbounds nuw i8, ptr %spec.i, i64 12
   store i32 0, ptr %itemsize.i, align 4
-  %flags.i = getelementptr inbounds i8, ptr %spec.i, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %spec.i, i64 16
   store i32 3072, ptr %flags.i, align 8
-  %slots.i = getelementptr inbounds i8, ptr %spec.i, i64 24
+  %slots.i = getelementptr inbounds nuw i8, ptr %spec.i, i64 24
   store ptr @VectorCallClass_slots, ptr %slots.i, align 8
   %call.i = call ptr @PyType_FromSpecWithBases(ptr noundef nonnull %spec.i, ptr noundef nonnull %spec.store.select.i) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %spec.i)
@@ -655,10 +655,10 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal ptr @MethodDescriptor_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kw) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #5
-  %vectorcall = getelementptr inbounds i8, ptr %call, i64 16
+  %vectorcall = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr @MethodDescriptor_vectorcall, ptr %vectorcall, align 8
   ret ptr %call
 }
@@ -668,7 +668,7 @@ declare ptr @PyMethod_New(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @MethodDescriptor_vectorcall(ptr nocapture noundef readonly %callable, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %vectorcall = getelementptr inbounds i8, ptr %callable, i64 16
+  %vectorcall = getelementptr inbounds nuw i8, ptr %callable, i64 16
   %0 = load ptr, ptr %vectorcall, align 8
   %cmp = icmp ne ptr %0, null
   %conv1 = zext i1 %cmp to i64
@@ -712,9 +712,9 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 define internal ptr @MethodDescriptor2_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kw) #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef %type) #5
-  %vectorcall = getelementptr inbounds i8, ptr %call, i64 16
+  %vectorcall = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %vectorcall, align 8
-  %vectorcall1 = getelementptr inbounds i8, ptr %call, i64 24
+  %vectorcall1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @MethodDescriptor_vectorcall, ptr %vectorcall1, align 8
   ret ptr %call
 }

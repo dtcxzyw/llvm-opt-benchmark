@@ -59,14 +59,14 @@ define internal void @sipstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   unreachable
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %15, align 4
   %16 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int_hash, ptr noundef nonnull @g_int_equal) #10
-  %17 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %16, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @sip_response_code_vals, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sip_response_code_vals, i64 8), align 8
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %sip_init_hash.exit, label %.lr.ph.i
 
@@ -79,25 +79,25 @@ define internal void @sipstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %23 = load i32, ptr %20, align 8
   store i32 %23, ptr %21, align 4
   store i32 0, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %6, ptr %26, align 8
   %27 = load ptr, ptr %17, align 8
   %28 = tail call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef nonnull %21, ptr noundef nonnull %22) #10
   %29 = add i32 %.016.i, 1
   %30 = sext i32 %29 to i64
   %31 = getelementptr [0 x %struct._value_string], ptr @sip_response_code_vals, i64 0, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %sip_init_hash.exit, label %.lr.ph.i, !llvm.loop !5
 
 sip_init_hash.exit:                               ; preds = %.lr.ph.i, %13
   %34 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %35 = getelementptr inbounds i8, ptr %6, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %34, ptr %35, align 8
   ret void
 }
@@ -118,12 +118,12 @@ define internal void @sipstat_reset(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr %4, align 8
   tail call void @g_hash_table_foreach(ptr noundef %5, ptr noundef nonnull @sip_reset_hash_responses, ptr noundef null) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_foreach(ptr noundef %7, ptr noundef nonnull @sip_reset_hash_requests, ptr noundef null) #10
   br label %8
@@ -135,33 +135,33 @@ define internal void @sipstat_reset(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %44, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   %19 = load i32, ptr %10, align 8
   br i1 %18, label %20, label %25
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %19, ptr %21, align 8
   %22 = zext i32 %19 to i64
   store i64 %22, ptr %16, align 8
   %23 = load i32, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %23, ptr %24, align 4
   br label %.sink.split
 
@@ -169,7 +169,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   %26 = zext i32 %19 to i64
   %27 = add i64 %17, %26
   store i64 %27, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %10, align 8
   %31 = icmp ult i32 %29, %30
@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
 
 33:                                               ; preds = %32, %25
   %34 = phi i32 [ %.pre, %32 ], [ %30, %25 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp ugt i32 %36, %34
   br i1 %37, label %38, label %39
@@ -200,32 +200,32 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
 .sink.split:                                      ; preds = %39, %20
   %.sink73 = phi i64 [ 24, %20 ], [ 16, %39 ]
   %.sink = phi i32 [ %23, %20 ], [ %42, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 %.sink73
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink73
   store i32 %.sink, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %.sink.split, %5
-  %45 = getelementptr inbounds i8, ptr %3, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %46 = load i32, ptr %45, align 4
   %.not69 = icmp eq i32 %46, 0
   br i1 %.not69, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
   br label %51
 
 51:                                               ; preds = %47, %44
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load i32, ptr %52, align 8
   %.not70 = icmp eq i32 %53, 0
   br i1 %.not70, label %78, label %54
 
 54:                                               ; preds = %51
   store i32 %53, ptr %6, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr @g_hash_table_lookup(ptr noundef %56, ptr noundef nonnull %6) #10
   %58 = icmp eq ptr %57, null
@@ -279,7 +279,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   br i1 %.not71, label %97, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %0, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = tail call ptr @g_hash_table_lookup(ptr noundef %82, ptr noundef nonnull %79) #10
   %84 = icmp eq ptr %83, null
@@ -290,16 +290,16 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   %87 = load ptr, ptr %3, align 8
   %88 = tail call noalias ptr @g_strdup(ptr noundef %87) #10
   store ptr %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 1, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %86, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr %0, ptr %90, align 8
   %91 = load ptr, ptr %81, align 8
   %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef %88, ptr noundef nonnull %86) #10
   br label %97
 
 93:                                               ; preds = %80
-  %94 = getelementptr inbounds i8, ptr %83, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 8
@@ -327,25 +327,25 @@ define internal void @sipstat_draw(ptr nocapture noundef readonly %0) #0 {
   br label %7
 
 7:                                                ; preds = %5, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %12)
   %puts11 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   tail call void @g_hash_table_foreach(ptr noundef %15, ptr noundef nonnull @sip_draw_hash_responses, ptr noundef nonnull @.str.11) #10
   %puts12 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   tail call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @sip_draw_hash_requests, ptr noundef nonnull @.str.13) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %19, i32 noundef %21, i32 noundef %23)
   %puts13 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -371,7 +371,7 @@ define internal void @sip_reset_hash_responses(ptr nocapture readnone %0, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @sip_reset_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -403,9 +403,9 @@ define internal void @sip_draw_hash_responses(ptr nocapture noundef readonly %0,
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %12, ptr noundef %14, i32 noundef %8)
   br label %16
@@ -416,7 +416,7 @@ define internal void @sip_draw_hash_responses(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @sip_draw_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7

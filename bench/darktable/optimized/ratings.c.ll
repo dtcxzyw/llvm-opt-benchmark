@@ -71,12 +71,12 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0(i64 noundef 12) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #7
   %5 = tail call i64 @gtk_widget_get_type() #9
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %6, ptr %7, align 8, !tbaa !13
   tail call void @gtk_widget_set_halign(ptr noundef %6, i32 noundef 3) #7
   %8 = load ptr, ptr %7, align 8, !tbaa !13
@@ -103,7 +103,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %24 = load ptr, ptr %7, align 8, !tbaa !13
   tail call void @gtk_widget_set_name(ptr noundef %24, ptr noundef nonnull @.str.7) #7
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
-  %26 = getelementptr inbounds i8, ptr %25, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = tail call ptr @dt_action_define(ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %9, ptr noundef nonnull @dt_action_def_rating) #7
   tail call void @dt_shortcut_register(ptr noundef %27, i32 noundef 0, i32 noundef 0, i32 noundef 48, i32 noundef 0) #7
   tail call void @dt_shortcut_register(ptr noundef %27, i32 noundef 1, i32 noundef 0, i32 noundef 49, i32 noundef 0) #7
@@ -146,10 +146,10 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca %struct._cairo_rectangle_int, align 4
   %5 = alloca %struct._GdkRGBA, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
-  %9 = getelementptr inbounds i8, ptr %8, i64 14144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 14144
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %136, label %12
@@ -157,10 +157,10 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #7
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !30
   %15 = sitofp i32 %14 to float
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = sitofp i32 %17 to double
   %19 = fpext float %15 to double
@@ -169,7 +169,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %22 = fmul reassoc nsz arcp contract afn double %21, 2.500000e-01
   %23 = fptrunc double %22 to float
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
-  %25 = getelementptr inbounds i8, ptr %24, i64 1456
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1456
   %26 = load double, ptr %25, align 8, !tbaa !34
   %27 = fmul reassoc nsz arcp contract afn double %26, %18
   %28 = fptosi double %27 to i32
@@ -178,7 +178,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %31 = fptosi double %30 to i32
   %32 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %28, i32 noundef %31) #7
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
-  %34 = getelementptr inbounds i8, ptr %33, i64 1456
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1456
   %35 = load double, ptr %34, align 8, !tbaa !34
   call void @cairo_surface_set_device_scale(ptr noundef %32, double noundef %35, double noundef %35) #7
   %36 = call ptr @cairo_create(ptr noundef %32) #7
@@ -192,7 +192,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %42 = call i32 @gtk_widget_get_state_flags(ptr noundef %0) #7
   call void @gtk_style_context_get_color(ptr noundef %37, i32 noundef %42, ptr noundef nonnull %5) #7
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !33
-  %44 = getelementptr inbounds i8, ptr %43, i64 1448
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %45 = load double, ptr %44, align 8, !tbaa !38
   call void @cairo_set_line_width(ptr noundef %36, double noundef %45) #7
   call void @gdk_cairo_set_source_rgba(ptr noundef %36, ptr noundef nonnull %5) #7
@@ -234,10 +234,10 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
   %80 = fmul reassoc nsz arcp contract afn float %49, 0x3FE9E37820000000
   %81 = fsub reassoc nsz arcp contract afn float %47, %80
   %82 = fpext float %81 to double
-  %83 = getelementptr inbounds i8, ptr %7, i64 4
-  %84 = getelementptr inbounds i8, ptr %5, i64 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
-  %86 = getelementptr inbounds i8, ptr %5, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %87 = fadd reassoc nsz arcp contract afn float %23, %15
   br label %89
 
@@ -308,7 +308,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
 125:                                              ; preds = %117
   %126 = add nuw nsw i32 %90, 1
   %127 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !14
-  %128 = getelementptr inbounds i8, ptr %127, i64 588
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 588
   store i32 %126, ptr %128, align 4, !tbaa !47
   store i32 %126, ptr %7, align 4, !tbaa !39
   br label %130
@@ -331,7 +331,7 @@ define internal noundef i32 @_lib_ratings_draw_callback(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_ratings_button_press_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = load i32, ptr %5, align 4, !tbaa !39
   %7 = icmp sgt i32 %6, 0
@@ -357,14 +357,14 @@ define internal noundef i32 @_lib_ratings_button_release_callback(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_ratings_motion_notify_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load <2 x double>, ptr %6, align 8, !tbaa !49
   %9 = fptosi <2 x double> %8 to <2 x i32>
   store <2 x i32> %9, ptr %7, align 4, !tbaa !50
-  %10 = getelementptr inbounds i8, ptr %2, i64 416
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   tail call void @gtk_widget_queue_draw(ptr noundef %11) #7
   ret i32 1
@@ -372,13 +372,13 @@ define internal noundef i32 @_lib_ratings_motion_notify_callback(ptr nocapture r
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_ratings_leave_notify_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !41
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %7, align 4, !tbaa !51
-  %8 = getelementptr inbounds i8, ptr %2, i64 416
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   tail call void @gtk_widget_queue_draw(ptr noundef %9) #7
   ret i32 1
@@ -400,7 +400,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #7
   store ptr null, ptr %2, align 8, !tbaa !6

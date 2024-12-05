@@ -49,29 +49,29 @@ define dso_local i32 @intel_migrate_init(ptr nocapture noundef writeonly initial
   br i1 %17, label %.loopexit25, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 592
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 592
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %94, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %16, i64 656
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 656
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %94, label %26
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 7168
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 7168
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %31 = load i64, ptr %30, align 4
   %32 = and i64 %31, 32
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %.preheader, label %34
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 65536, ptr %35, align 8
   br label %.preheader
 
@@ -91,9 +91,9 @@ define dso_local i32 @intel_migrate_init(ptr nocapture noundef writeonly initial
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 7168
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 7168
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %47 = load i64, ptr %46, align 4
   %48 = and i64 %47, 32
   %49 = icmp eq i64 %48, 0
@@ -149,9 +149,9 @@ select.unfold:                                    ; preds = %66, %63
 
 73:                                               ; preds = %.loopexit
   %74 = load ptr, ptr %1, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 7168
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 7168
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 28
   %78 = load i64, ptr %77, align 4
   %79 = and i64 %78, 32
   %80 = icmp eq i64 %79, 0
@@ -267,9 +267,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local ptr @intel_migrate_create_context(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x ptr], align 16
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !8
@@ -311,11 +311,11 @@ define dso_local ptr @intel_migrate_create_context(ptr nocapture noundef readonl
   br i1 %32, label %56, label %33
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %31, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i32 262144, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 -1, ptr elementtype(i32) %37) #9, !srcloc !10
   %39 = icmp eq i32 %38, 1
@@ -336,7 +336,7 @@ define dso_local ptr @intel_migrate_create_context(ptr nocapture noundef readonl
 
 .thread:                                          ; preds = %40, %42, %43
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46, i32 1, ptr elementtype(i32) %46) #9, !srcloc !14
   %48 = icmp eq i32 %47, 0
@@ -368,33 +368,33 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %12 = alloca %struct.sgt_dma, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !16
   store ptr %2, ptr %10, align 8, !alias.scope !16
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %14, ptr %15, align 8, !alias.scope !16
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i32, ptr %17, align 8, !noalias !16
   %19 = zext i32 %18 to i64
   %20 = add i64 %14, %19
   store i64 %20, ptr %16, align 8, !alias.scope !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !19
   store ptr %5, ptr %11, align 8, !alias.scope !19
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %22, ptr %23, align 8, !alias.scope !19
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %26 = load i32, ptr %25, align 8, !noalias !19
   %27 = zext i32 %26 to i64
   %28 = add i64 %22, %27
   store i64 %28, ptr %24, align 8, !alias.scope !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !annotation !8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %8, align 8
@@ -404,7 +404,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 .preheader63:                                     ; preds = %9, %38
   %33 = phi i64 [ %40, %38 ], [ 0, %9 ]
   %34 = phi ptr [ %41, %38 ], [ %2, %9 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.loopexit64, label %38
@@ -418,9 +418,9 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 .loopexit64:                                      ; preds = %38, %.preheader63, %9
   %43 = phi i64 [ 0, %9 ], [ %40, %38 ], [ %33, %.preheader63 ]
-  %44 = getelementptr inbounds i8, ptr %31, i64 7168
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 7168
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %47 = load i64, ptr %46, align 4
   %48 = and i64 %47, 512
   %49 = icmp ne i64 %48, 0
@@ -438,7 +438,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 .preheader60:                                     ; preds = %52, %62
   %57 = phi i64 [ %64, %62 ], [ 0, %52 ]
   %58 = phi ptr [ %65, %62 ], [ %5, %52 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.loopexit61, label %62
@@ -471,7 +471,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %77 = phi i64 [ %43, %68 ], [ %73, %69 ]
   %78 = icmp eq i64 %43, %67
   %.pre = load ptr, ptr %44, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %.pre91 = load i64, ptr %.phi.trans.insert, align 4
   %.pre92 = and i64 %.pre91, 512
   br i1 %78, label %.thread, label %79
@@ -485,8 +485,8 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %.thread, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %12, i64 16
-  %86 = getelementptr inbounds i8, ptr %12, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %87 = load i64, ptr %85, align 8
   %88 = load i64, ptr %86, align 8
   %89 = load ptr, ptr %12, align 8
@@ -530,9 +530,9 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 113:                                              ; preds = %110, %105, %.preheader
   %114 = phi ptr [ null, %.preheader ], [ %112, %110 ], [ %106, %105 ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %118 = load i32, ptr %117, align 8
   %119 = zext i32 %118 to i64
   %120 = add i64 %116, %119
@@ -565,9 +565,9 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   %136 = and i1 %7, %135
   %137 = load ptr, ptr %29, align 8
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 7168
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 7168
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 28
   %142 = load i64, ptr %141, align 4
   %143 = and i64 %142, 32
   %144 = icmp eq i64 %143, 0
@@ -605,9 +605,9 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %166, label %167, label %333
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %159, i64 80
+  %168 = getelementptr inbounds nuw i8, ptr %159, i64 80
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 904
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 904
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, null
   br i1 %172, label %176, label %173
@@ -658,21 +658,21 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %198, label %333, label %199
 
 199:                                              ; preds = %197
-  %200 = getelementptr inbounds i8, ptr %159, i64 80
+  %200 = getelementptr inbounds nuw i8, ptr %159, i64 80
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 888
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 888
   %203 = load ptr, ptr %202, align 8
   %204 = tail call i32 %203(ptr noundef %159, i32 noundef 1) #9
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %333
 
 206:                                              ; preds = %199
-  %207 = getelementptr inbounds i8, ptr %159, i64 72
+  %207 = getelementptr inbounds nuw i8, ptr %159, i64 72
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 7176
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 7176
   %210 = load i8, ptr %209, align 8
   %211 = load ptr, ptr %200, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 57
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 57
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
   %215 = icmp ugt i8 %210, 7
@@ -786,7 +786,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 274:                                              ; preds = %.thread50
   %275 = load ptr, ptr %200, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 888
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 888
   %277 = load ptr, ptr %276, align 8
   %278 = tail call i32 %277(ptr noundef %159, i32 noundef 1) #9
   %279 = icmp eq i32 %278, 0
@@ -794,7 +794,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 280:                                              ; preds = %274
   %281 = load ptr, ptr %44, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 28
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 28
   %283 = load i64, ptr %282, align 4
   %284 = and i64 %283, 512
   %285 = icmp eq i64 %284, 0
@@ -817,7 +817,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 295:                                              ; preds = %293
   %296 = load ptr, ptr %200, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 888
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 888
   %298 = load ptr, ptr %297, align 8
   %299 = tail call i32 %298(ptr noundef %159, i32 noundef 1) #9
   %300 = icmp eq i32 %299, 0
@@ -830,7 +830,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 304:                                              ; preds = %301
   %305 = load ptr, ptr %200, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 888
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 888
   %307 = load ptr, ptr %306, align 8
   %308 = tail call i32 %307(ptr noundef %159, i32 noundef 1) #9
   %309 = icmp eq i32 %308, 0
@@ -846,7 +846,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 314:                                              ; preds = %313
   %315 = load ptr, ptr %200, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 888
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 888
   %317 = load ptr, ptr %316, align 8
   %318 = tail call i32 %317(ptr noundef %159, i32 noundef 1) #9
   %319 = icmp eq i32 %318, 0
@@ -870,7 +870,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 328:                                              ; preds = %325
   %329 = load ptr, ptr %200, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 888
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 888
   %331 = load ptr, ptr %330, align 8
   %332 = tail call i32 %331(ptr noundef %159, i32 noundef 1) #9
   br label %333
@@ -885,8 +885,8 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %339, label %.thread52, label %340
 
 340:                                              ; preds = %333
-  %341 = getelementptr inbounds i8, ptr %338, i64 56
-  %342 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %341, i32 -1, ptr elementtype(i32) %341) #9, !srcloc !10
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 56
+  %342 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %341, i32 -1, ptr nonnull elementtype(i32) %341) #9, !srcloc !10
   %343 = icmp eq i32 %342, 1
   br i1 %343, label %347, label %344
 
@@ -895,12 +895,12 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %345, label %.thread52, label %346, !prof !11
 
 346:                                              ; preds = %344
-  tail call void @refcount_warn_saturate(ptr noundef %341, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %341, i32 noundef 3) #9
   br label %.thread52
 
 347:                                              ; preds = %340
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
-  tail call void @dma_fence_release(ptr noundef %341) #9
+  tail call void @dma_fence_release(ptr noundef nonnull %341) #9
   br label %.thread52
 
 .thread52:                                        ; preds = %344, %346, %347, %333
@@ -908,8 +908,8 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %348, label %359, label %349
 
 349:                                              ; preds = %.thread52
-  %350 = getelementptr inbounds i8, ptr %159, i64 56
-  %351 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %350, i32 1, ptr elementtype(i32) %350) #9, !srcloc !14
+  %350 = getelementptr inbounds nuw i8, ptr %159, i64 56
+  %351 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %350, i32 1, ptr nonnull elementtype(i32) %350) #9, !srcloc !14
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %357, label %353, !prof !15
 
@@ -921,7 +921,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 
 357:                                              ; preds = %353, %349
   %358 = phi i32 [ 2, %349 ], [ 1, %353 ]
-  tail call void @refcount_warn_saturate(ptr noundef %350, i32 noundef %358) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %350, i32 noundef %358) #9
   br label %359
 
 359:                                              ; preds = %357, %353, %.thread52
@@ -945,7 +945,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %368, label %.loopexit, label %369
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %367, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %371 = load i32, ptr %370, align 8
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %.loopexit, label %373, !prof !11
@@ -962,7 +962,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %376, label %.loopexit, label %377
 
 377:                                              ; preds = %374
-  %378 = getelementptr inbounds i8, ptr %375, i64 24
+  %378 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %379 = load i32, ptr %378, align 8
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %.loopexit, label %381, !prof !11
@@ -979,7 +979,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %384, label %404, label %385
 
 385:                                              ; preds = %382
-  %386 = getelementptr inbounds i8, ptr %383, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %387 = load i32, ptr %386, align 8
   %388 = icmp ne i32 %387, 0
   %389 = load ptr, ptr %11, align 8
@@ -988,7 +988,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %391, label %392, label %404
 
 392:                                              ; preds = %385
-  %393 = getelementptr inbounds i8, ptr %389, i64 24
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 24
   %394 = load i32, ptr %393, align 8
   %395 = icmp ne i32 %394, 0
   %.not58 = select i1 %395, i1 %363, i1 false
@@ -1000,7 +1000,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %398, label %404, label %399
 
 399:                                              ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %397, i64 24
+  %400 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %401 = load i32, ptr %400, align 8
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %404, label %405, !prof !15
@@ -1039,23 +1039,23 @@ declare dso_local i32 @i915_request_await_deps(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 noundef range(i64 0, 16777217) %4, i32 noundef range(i32 -8388608, -2147483648) %5) unnamed_addr #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 7168
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 7168
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i64, ptr %11, align 4
   %13 = and i64 %12, 32
   %14 = icmp eq i64 %13, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 584
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 584
   %20 = load ptr, ptr %19, align 8
   %21 = select i1 %3, i32 2, i32 0
   %22 = tail call i64 %20(i64 noundef 0, i32 noundef %2, i32 noundef %21) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load ptr, ptr %23, align 8
   br i1 %14, label %31, label %25
 
@@ -1077,9 +1077,9 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %36 = phi i64 [ %34, %31 ], [ %28, %25 ]
   %37 = phi i32 [ 1024, %31 ], [ %29, %25 ]
   %38 = phi i32 [ 4096, %31 ], [ %30, %25 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 57
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 57
   %42 = load i8, ptr %41, align 1
   %43 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #9
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
@@ -1095,17 +1095,17 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %50 = shl nuw nsw i64 %49, 32
   %51 = add nuw nsw i64 %50, %36
   %52 = load ptr, ptr %23, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 476
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %56 = load i32, ptr %55, align 4
   %57 = sub i32 %54, %56
   %58 = lshr i32 %57, 2
   %59 = add nuw nsw i32 %58, 5
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 %37)
-  %61 = getelementptr inbounds i8, ptr %52, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 44
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %52, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %64 = load i32, ptr %63, align 4
   %65 = sub i32 %62, %64
   %66 = lshr i32 %65, 2
@@ -1120,11 +1120,11 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %73 = trunc nuw nsw i64 %72 to i32
   %74 = getelementptr i8, ptr %43, i64 12
   store i32 %73, ptr %71, align 4
-  %75 = getelementptr inbounds i8, ptr %24, i64 16
-  %76 = getelementptr inbounds i8, ptr %24, i64 36
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %24, i64 36
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = zext nneg i32 %38 to i64
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %80
 
 80:                                               ; preds = %191, %48
@@ -1189,16 +1189,16 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   %121 = phi i64 [ %115, %112 ], [ %81, %116 ], [ %81, %108 ]
   %122 = phi i32 [ %37, %112 ], [ %119, %116 ], [ %37, %108 ]
   %123 = load ptr, ptr %23, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load i32, ptr %124, align 8
   %126 = load i32, ptr %55, align 4
   %127 = sub i32 %125, %126
   %128 = lshr i32 %127, 2
   %129 = add nuw nsw i32 %128, 5
   %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 %122)
-  %131 = getelementptr inbounds i8, ptr %123, i64 44
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 44
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %123, i64 36
+  %133 = getelementptr inbounds nuw i8, ptr %123, i64 36
   %134 = load i32, ptr %133, align 4
   %135 = sub i32 %132, %134
   %136 = lshr i32 %135, 2
@@ -1270,13 +1270,13 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
   br i1 %180, label %.loopexit, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %179, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %183 = load i32, ptr %182, align 8
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %.loopexit, label %185
 
 185:                                              ; preds = %181
-  %186 = getelementptr inbounds i8, ptr %179, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %187 = load i64, ptr %186, align 8
   store i64 %187, ptr %77, align 8
   %188 = load i32, ptr %182, align 8
@@ -1317,13 +1317,13 @@ define internal fastcc i32 @emit_pte(ptr noundef %0, ptr nocapture noundef %1, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 0, 16777217) %1, i8 noundef zeroext range(i8 0, 2) %2, i32 noundef range(i32 0, 16777217) %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef range(i32 1, -2147483648) %5) unnamed_addr #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 5168
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 5168
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 26
@@ -1337,9 +1337,9 @@ define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 
   br label %69
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %8, i64 7168
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 7168
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %26 = load i64, ptr %25, align 4
   %27 = and i64 %26, 512
   %28 = icmp eq i64 %27, 0
@@ -1374,7 +1374,7 @@ define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 
   store i32 %48, ptr %41, align 4
   store i32 %3, ptr %49, align 4
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 57
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 57
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
   %54 = getelementptr i8, ptr %17, i64 20
@@ -1384,7 +1384,7 @@ define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 
   store i32 %56, ptr %54, align 4
   store i32 %1, ptr %57, align 4
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 57
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
   %62 = getelementptr i8, ptr %17, i64 28
@@ -1412,26 +1412,26 @@ declare dso_local void @i915_request_add(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef initializes((0, 8)) %6) local_unnamed_addr #0 align 16 {
   %8 = alloca %struct.sgt_dma, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !34
   store ptr %2, ptr %8, align 8, !alias.scope !34
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %13, ptr %14, align 8, !alias.scope !34
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8, !noalias !34
   %18 = zext i32 %17 to i64
   %19 = add i64 %13, %18
   store i64 %19, ptr %15, align 8, !alias.scope !34
   store ptr null, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 7168
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 7168
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i64, ptr %22, align 4
   %24 = and i64 %23, 32
   %25 = icmp eq i64 %24, 0
@@ -1466,9 +1466,9 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %40, label %41, label %204
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %35, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 904
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 904
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %50, label %47
@@ -1501,28 +1501,28 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %60, label %204, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %35, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 888
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 888
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 %65(ptr noundef %35, i32 noundef 1) #9
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %204
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %35, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %62, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 5168
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 5168
   %75 = load i8, ptr %74, align 8
   %76 = zext i8 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %70, i64 7176
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 7176
   %78 = load i8, ptr %77, align 8
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
-  %81 = getelementptr inbounds i8, ptr %70, i64 7177
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 7177
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %80, %83
@@ -1562,7 +1562,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   %110 = getelementptr i8, ptr %89, i64 20
   store i32 %27, ptr %109, align 4
   %111 = load ptr, ptr %62, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 57
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 57
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = getelementptr i8, ptr %89, i64 24
@@ -1592,7 +1592,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   store i32 %124, ptr %121, align 4
   store i32 %27, ptr %125, align 4
   %128 = load ptr, ptr %62, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 57
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 57
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = getelementptr i8, ptr %89, i64 24
@@ -1619,7 +1619,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
 
 .thread22:                                        ; preds = %99, %134, %127, %135
   %139 = load ptr, ptr %20, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %141 = load i64, ptr %140, align 4
   %142 = and i64 %141, 512
   %143 = icmp ne i64 %142, 0
@@ -1629,9 +1629,9 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
 144:                                              ; preds = %.thread22
   %145 = load ptr, ptr %69, align 8
   %146 = load ptr, ptr %62, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 5168
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 5168
   %150 = load i8, ptr %149, align 8
   %151 = zext i8 %150 to i64
   %152 = shl nuw nsw i64 %151, 26
@@ -1640,9 +1640,9 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %154, label %195, label %155
 
 155:                                              ; preds = %144
-  %156 = getelementptr inbounds i8, ptr %145, i64 7168
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 7168
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 28
   %159 = load i64, ptr %158, align 4
   %160 = and i64 %159, 512
   %161 = icmp eq i64 %160, 0
@@ -1671,7 +1671,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   store i32 %171, ptr %174, align 4
   store i32 %27, ptr %175, align 4
   %176 = load ptr, ptr %62, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 57
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 57
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i64
   %180 = getelementptr i8, ptr %153, i64 20
@@ -1681,7 +1681,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   store i32 %182, ptr %180, align 4
   store i32 %27, ptr %183, align 4
   %184 = load ptr, ptr %62, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 57
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 57
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i64
   %188 = getelementptr i8, ptr %153, i64 28
@@ -1706,7 +1706,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
 
 199:                                              ; preds = %.thread23, %195, %.thread22
   %200 = load ptr, ptr %62, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 888
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 888
   %202 = load ptr, ptr %201, align 8
   %203 = tail call i32 %202(ptr noundef %35, i32 noundef 1) #9
   br label %204
@@ -1719,8 +1719,8 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %208, label %.thread25, label %209
 
 209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %207, i64 56
-  %211 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %210, i32 -1, ptr elementtype(i32) %210) #9, !srcloc !10
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 56
+  %211 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %210, i32 -1, ptr nonnull elementtype(i32) %210) #9, !srcloc !10
   %212 = icmp eq i32 %211, 1
   br i1 %212, label %216, label %213
 
@@ -1729,12 +1729,12 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %214, label %.thread25, label %215, !prof !11
 
 215:                                              ; preds = %213
-  tail call void @refcount_warn_saturate(ptr noundef %210, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %210, i32 noundef 3) #9
   br label %.thread25
 
 216:                                              ; preds = %209
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
-  tail call void @dma_fence_release(ptr noundef %210) #9
+  tail call void @dma_fence_release(ptr noundef nonnull %210) #9
   br label %.thread25
 
 .thread25:                                        ; preds = %213, %215, %216, %204
@@ -1742,8 +1742,8 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %217, label %228, label %218
 
 218:                                              ; preds = %.thread25
-  %219 = getelementptr inbounds i8, ptr %35, i64 56
-  %220 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %219, i32 1, ptr elementtype(i32) %219) #9, !srcloc !14
+  %219 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %220 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #9, !srcloc !14
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %226, label %222, !prof !15
 
@@ -1755,7 +1755,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
 
 226:                                              ; preds = %222, %218
   %227 = phi i32 [ 2, %218 ], [ 1, %222 ]
-  tail call void @refcount_warn_saturate(ptr noundef %219, i32 noundef %227) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %219, i32 noundef %227) #9
   br label %228
 
 228:                                              ; preds = %226, %222, %.thread25
@@ -1768,7 +1768,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   br i1 %232, label %233, label %.loopexit
 
 233:                                              ; preds = %228
-  %234 = getelementptr inbounds i8, ptr %230, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %235 = load i32, ptr %234, align 8
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %.loopexit, label %237
@@ -1816,7 +1816,7 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
 
 26:                                               ; preds = %24, %20, %13
   %27 = phi ptr [ %14, %13 ], [ %17, %20 ], [ %17, %24 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 204
   %29 = load volatile i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %._crit_edge, label %.lr.ph, !prof !37
@@ -1824,7 +1824,7 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
 .lr.ph:                                           ; preds = %26, %37
   %31 = phi i32 [ %38, %37 ], [ %29, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 %32, ptr elementtype(i32) %28, i32 %31) #9, !srcloc !38
+  %33 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 %32, ptr nonnull elementtype(i32) %28, i32 %31) #9, !srcloc !38
   %34 = extractvalue { i8, i32 } %33, 0
   %35 = icmp ult i8 %34, 2
   tail call void @llvm.assume(i1 %35)
@@ -1843,9 +1843,9 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
 
 .thread8:                                         ; preds = %.lr.ph, %._crit_edge
   %42 = tail call i32 @intel_context_migrate_copy(ptr noundef %27, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9)
-  %43 = getelementptr inbounds i8, ptr %27, i64 400
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 400
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %.preheader
@@ -1862,7 +1862,7 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
 .lr.ph13:                                         ; preds = %.preheader, %57
   %51 = phi i32 [ %58, %57 ], [ %49, %.preheader ]
   %52 = add i32 %51, -1
-  %53 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 %52, ptr elementtype(i32) %28, i32 %51) #9, !srcloc !38
+  %53 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 %52, ptr nonnull elementtype(i32) %28, i32 %51) #9, !srcloc !38
   %54 = extractvalue { i8, i32 } %53, 0
   %55 = icmp ult i8 %54, 2
   tail call void @llvm.assume(i1 %55)
@@ -1875,22 +1875,22 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
   br i1 %59, label %._crit_edge14, label %.lr.ph13, !prof !39, !llvm.loop !40
 
 ._crit_edge14:                                    ; preds = %57, %.preheader
-  %60 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 2, i32 1, ptr elementtype(i32) %28) #9, !srcloc !41
+  %60 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 2, i32 1, ptr nonnull elementtype(i32) %28) #9, !srcloc !41
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %62, label %.preheader, !llvm.loop !42
 
 62:                                               ; preds = %._crit_edge14
   %63 = load ptr, ptr %43, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef %27) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph13, %62, %48, %._crit_edge
   %66 = phi i32 [ %40, %._crit_edge ], [ %42, %48 ], [ %42, %62 ], [ %42, %.lr.ph13 ]
-  %67 = getelementptr inbounds i8, ptr %27, i64 400
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 400
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 -1, ptr elementtype(i32) %27) #9, !srcloc !10
   %72 = icmp eq i32 %71, 1
@@ -1945,7 +1945,7 @@ define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr
 
 24:                                               ; preds = %22, %18, %11
   %25 = phi ptr [ %12, %11 ], [ %15, %18 ], [ %15, %22 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 204
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 204
   %27 = load volatile i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %._crit_edge, label %.lr.ph, !prof !37
@@ -1953,7 +1953,7 @@ define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr
 .lr.ph:                                           ; preds = %24, %35
   %29 = phi i32 [ %36, %35 ], [ %27, %24 ]
   %30 = add i32 %29, 1
-  %31 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 %30, ptr elementtype(i32) %26, i32 %29) #9, !srcloc !38
+  %31 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 %30, ptr nonnull elementtype(i32) %26, i32 %29) #9, !srcloc !38
   %32 = extractvalue { i8, i32 } %31, 0
   %33 = icmp ult i8 %32, 2
   tail call void @llvm.assume(i1 %33)
@@ -1972,9 +1972,9 @@ define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr
 
 .thread8:                                         ; preds = %.lr.ph, %._crit_edge
   %40 = tail call i32 @intel_context_migrate_clear(ptr noundef %25, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7)
-  %41 = getelementptr inbounds i8, ptr %25, i64 400
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 400
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %.preheader
@@ -1991,7 +1991,7 @@ define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr
 .lr.ph13:                                         ; preds = %.preheader, %55
   %49 = phi i32 [ %56, %55 ], [ %47, %.preheader ]
   %50 = add i32 %49, -1
-  %51 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 %50, ptr elementtype(i32) %26, i32 %49) #9, !srcloc !38
+  %51 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 %50, ptr nonnull elementtype(i32) %26, i32 %49) #9, !srcloc !38
   %52 = extractvalue { i8, i32 } %51, 0
   %53 = icmp ult i8 %52, 2
   tail call void @llvm.assume(i1 %53)
@@ -2004,22 +2004,22 @@ define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr
   br i1 %57, label %._crit_edge14, label %.lr.ph13, !prof !39, !llvm.loop !40
 
 ._crit_edge14:                                    ; preds = %55, %.preheader
-  %58 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 2, i32 1, ptr elementtype(i32) %26) #9, !srcloc !41
+  %58 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 2, i32 1, ptr nonnull elementtype(i32) %26) #9, !srcloc !41
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %.preheader, !llvm.loop !42
 
 60:                                               ; preds = %._crit_edge14
   %61 = load ptr, ptr %41, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef %25) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph13, %60, %46, %._crit_edge
   %64 = phi i32 [ %38, %._crit_edge ], [ %40, %46 ], [ %40, %60 ], [ %40, %.lr.ph13 ]
-  %65 = getelementptr inbounds i8, ptr %25, i64 400
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 400
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 -1, ptr elementtype(i32) %25) #9, !srcloc !10
   %70 = icmp eq i32 %69, 1
@@ -2084,12 +2084,12 @@ declare dso_local void @i915_vm_free_pt_stash(ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @xehpsdv_insert_pte(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = tail call i64 @__px_dma(ptr noundef %6) #9
   %8 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @i915_gem_get_pat_index(ptr noundef %10, i32 noundef 0) #9
   tail call void %5(ptr noundef %0, i64 noundef %7, i64 noundef %8, i32 noundef %11, i32 noundef 2) #9
@@ -2101,10 +2101,10 @@ define internal void @xehpsdv_insert_pte(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @xehpsdv_toggle_pdes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @i915_gem_get_pat_index(ptr noundef %8, i32 noundef 0) #9
   tail call void %5(ptr noundef %0, i64 noundef 0, i64 noundef %6, i32 noundef %9, i32 noundef 2) #9
@@ -2116,12 +2116,12 @@ define internal void @xehpsdv_toggle_pdes(ptr noundef %0, ptr nocapture readnone
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @insert_pte(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = tail call i64 @__px_dma(ptr noundef %6) #9
   %8 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @i915_gem_get_pat_index(ptr noundef %10, i32 noundef 0) #9
   %12 = load ptr, ptr %1, align 8

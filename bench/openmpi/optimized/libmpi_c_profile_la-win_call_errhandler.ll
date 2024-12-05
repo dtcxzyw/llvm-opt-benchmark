@@ -46,7 +46,7 @@ define i32 @PMPI_Win_call_errhandler(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %or.cond.i, label %ompi_win_invalid.exit.thread, label %ompi_win_invalid.exit
 
 ompi_win_invalid.exit:                            ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 3
   %or.cond7.i.not = icmp eq i16 %15, 0
@@ -57,9 +57,9 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
   br label %51
 
 17:                                               ; preds = %ompi_win_invalid.exit, %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %1, -1
   br i1 %22, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
@@ -98,7 +98,7 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
 35:                                               ; preds = %33, %.lr.ph.i
   %36 = phi i8 [ %29, %.lr.ph.i ], [ %.pre.i.i, %33 ]
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
   %40 = trunc i8 %36 to i1
   br i1 %40, label %41, label %opal_pointer_array_get_item.exit.i
@@ -110,13 +110,13 @@ ompi_win_invalid.exit.thread:                     ; preds = %10, %ompi_win_inval
 
 opal_pointer_array_get_item.exit.i:               ; preds = %41, %35
   %43 = phi i8 [ %36, %35 ], [ %.pre.i, %41 ]
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, %1
   br i1 %46, label %47, label %25
 
 47:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %48 = getelementptr inbounds i8, ptr %39, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %49 = load i32, ptr %48, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

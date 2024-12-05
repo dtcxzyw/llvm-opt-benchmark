@@ -72,13 +72,13 @@ declare dso_local i32 @fat_fill_super(ptr noundef, ptr noundef, i32 noundef, i32
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define internal void @setup(ptr nocapture noundef initializes((1016, 1024)) %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store ptr @msdos_dir_inode_operations, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1016
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr @msdos_dentry_operations, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i64, ptr %6, align 16
   %8 = or i64 %7, 1024
   store i64 %8, ptr %6, align 16
@@ -89,25 +89,25 @@ define internal void @setup(ptr nocapture noundef initializes((1016, 1024)) %0) 
 define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 align 16 {
   %4 = alloca [11 x i8], align 1
   %5 = alloca %struct.fat_slot_info, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %7, i64 872
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
-  tail call void @mutex_lock(ptr noundef %10) #12
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %10) #12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 872
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, i8 0, i64 11, i1 false), !annotation !5
-  %18 = getelementptr inbounds i8, ptr %17, i64 184
-  %19 = call fastcc i32 @msdos_format_name(ptr noundef readonly %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef %18), !range !6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 184
+  %19 = call fastcc i32 @msdos_format_name(ptr noundef readonly %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %18), !range !6
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %msdos_find.exit.thread
 
@@ -117,23 +117,23 @@ define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 ali
   br i1 %23, label %24, label %msdos_find.exit
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %17, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 8
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %.msdos_find.exit.thread2_crit_edge, label %29
 
 .msdos_find.exit.thread2_crit_edge:               ; preds = %24
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %msdos_find.exit.thread2
 
 29:                                               ; preds = %24
   %30 = load i8, ptr %12, align 1
   %31 = icmp eq i8 %30, 46
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 11
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 11
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 2
   %37 = icmp eq i8 %36, 0
@@ -141,7 +141,7 @@ define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 ali
   br i1 %38, label %msdos_find.exit.thread2, label %39
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %5, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %msdos_find.exit.thread, label %43
@@ -159,7 +159,7 @@ msdos_find.exit.thread2:                          ; preds = %.msdos_find.exit.th
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #12
   %45 = load i64, ptr %5, align 8
   %46 = call ptr @fat_build_inode(ptr noundef %7, ptr noundef %44, i64 noundef %45) #12
-  %47 = getelementptr inbounds i8, ptr %5, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %54, label %50
@@ -181,8 +181,8 @@ msdos_find.exit:                                  ; preds = %21
 54:                                               ; preds = %msdos_find.exit, %msdos_find.exit.thread, %51, %50, %msdos_find.exit.thread2
   %55 = phi ptr [ %53, %51 ], [ null, %msdos_find.exit ], [ %46, %msdos_find.exit.thread2 ], [ %46, %50 ], [ null, %msdos_find.exit.thread ]
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 136
-  call void @mutex_unlock(ptr noundef %57) #12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %57) #12
   %58 = call ptr @d_splice_alias(ptr noundef %55, ptr noundef %1) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   ret ptr %58
@@ -193,7 +193,7 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
   %6 = alloca %struct.fat_slot_info, align 8
   %7 = alloca %struct.timespec64, align 8
   %8 = alloca [11 x i8], align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
@@ -201,17 +201,17 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %8) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %8, i8 0, i64 11, i1 false), !annotation !5
-  %11 = getelementptr inbounds i8, ptr %10, i64 872
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
-  tail call void @mutex_lock(ptr noundef %13) #12
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %13) #12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 184
-  %20 = call fastcc i32 @msdos_format_name(ptr noundef %15, i32 noundef %17, ptr noundef nonnull %8, ptr noundef %19), !range !6
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
+  %20 = call fastcc i32 @msdos_format_name(ptr noundef %15, i32 noundef %17, ptr noundef nonnull %8, ptr noundef nonnull %19), !range !6
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread
 
@@ -224,7 +224,7 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %32
@@ -242,18 +242,18 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
   %39 = extractvalue { i64, i64 } %38, 0
   %40 = extractvalue { i64, i64 } %38, 1
   store i64 %39, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %40, ptr %41, align 8
   %42 = call fastcc i32 @msdos_add_entry(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %37, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %6, align 8
   %48 = call ptr @fat_build_inode(ptr noundef %10, ptr noundef %46, i64 noundef %47) #12
-  %49 = getelementptr inbounds i8, ptr %6, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %53, label %52
@@ -270,23 +270,23 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
   %55 = call i32 @fat_truncate_time(ptr noundef %48, ptr noundef nonnull %7, i32 noundef 7) #12
   call void @d_instantiate(ptr noundef %2, ptr noundef %48) #12
   %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 136
-  call void @mutex_unlock(ptr noundef %57) #12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %57) #12
   br label %66
 
 .thread:                                          ; preds = %5, %33, %28, %32
   %.ph = phi i32 [ -22, %32 ], [ -22, %28 ], [ %42, %33 ], [ %20, %5 ]
   %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 136
-  call void @mutex_unlock(ptr noundef %59) #12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %59) #12
   br label %68
 
 60:                                               ; preds = %53
   %61 = ptrtoint ptr %48 to i64
   %62 = trunc i64 %61 to i32
   %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 136
-  call void @mutex_unlock(ptr noundef %64) #12
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %64) #12
   %65 = icmp eq i32 %62, 0
   br i1 %65, label %66, label %68
 
@@ -306,28 +306,28 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
 define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = alloca %struct.fat_slot_info, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
-  tail call void @mutex_lock(ptr noundef %11) #12
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %11) #12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 872
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 872
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
-  %20 = getelementptr inbounds i8, ptr %19, i64 184
-  %21 = call fastcc i32 @msdos_format_name(ptr noundef readonly %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef %20), !range !6
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
+  %21 = call fastcc i32 @msdos_format_name(ptr noundef readonly %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %20), !range !6
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %msdos_find.exit.thread
 
@@ -337,7 +337,7 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %25, label %26, label %msdos_find.exit.thread
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %19, i64 224
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, 8
   %30 = icmp eq i16 %29, 0
@@ -346,9 +346,9 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
 31:                                               ; preds = %26
   %32 = load i8, ptr %13, align 1
   %33 = icmp eq i8 %32, 46
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 11
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 11
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 2
   %39 = icmp eq i8 %38, 0
@@ -356,7 +356,7 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %msdos_find.exit.thread, label %45
@@ -379,8 +379,8 @@ msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
 .thread:                                          ; preds = %46, %msdos_find.exit.thread
   %.ph3 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %47, %46 ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 136
-  call void @mutex_unlock(ptr noundef %50) #12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %50) #12
   br label %56
 
 51:                                               ; preds = %46
@@ -388,8 +388,8 @@ msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
   %52 = call i32 @fat_truncate_time(ptr noundef %6, ptr noundef null, i32 noundef 4) #12
   call void @fat_detach(ptr noundef %6) #12
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
-  call void @mutex_unlock(ptr noundef %54) #12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %54) #12
   %55 = call i32 @fat_flush_inodes(ptr noundef %8, ptr noundef %0, ptr noundef %6) #12
   br label %56
 
@@ -404,7 +404,7 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
   %5 = alloca %struct.fat_slot_info, align 8
   %6 = alloca [11 x i8], align 1
   %7 = alloca %struct.timespec64, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
@@ -412,17 +412,17 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, i8 0, i64 11, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
-  tail call void @mutex_lock(ptr noundef %12) #12
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %12) #12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 184
-  %19 = call fastcc i32 @msdos_format_name(ptr noundef %14, i32 noundef %16, ptr noundef nonnull %6, ptr noundef %18), !range !6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 184
+  %19 = call fastcc i32 @msdos_format_name(ptr noundef %14, i32 noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %18), !range !6
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %67
 
@@ -439,7 +439,7 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %67, label %35
@@ -453,7 +453,7 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = extractvalue { i64, i64 } %37, 1
   store i64 %38, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %39, ptr %40, align 8
   %41 = call i32 @fat_alloc_new_dir(ptr noundef %1, ptr noundef nonnull %7) #12
   %42 = icmp slt i32 %41, 0
@@ -466,11 +466,11 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
 
 46:                                               ; preds = %43
   call void @inc_nlink(ptr noundef %1) #12
-  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = load i64, ptr %5, align 8
   %50 = call ptr @fat_build_inode(ptr noundef %9, ptr noundef %48, i64 noundef %49) #12
-  %51 = getelementptr inbounds i8, ptr %5, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -493,8 +493,8 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
   %61 = call i32 @fat_truncate_time(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 7) #12
   call void @d_instantiate(ptr noundef %2, ptr noundef %50) #12
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 136
-  call void @mutex_unlock(ptr noundef %63) #12
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %63) #12
   %64 = call i32 @fat_flush_inodes(ptr noundef %9, ptr noundef %1, ptr noundef %50) #12
   br label %71
 
@@ -505,8 +505,8 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
 67:                                               ; preds = %65, %57, %36, %35, %31, %4
   %68 = phi i32 [ %19, %4 ], [ %44, %65 ], [ %59, %57 ], [ %41, %36 ], [ -22, %31 ], [ -22, %35 ]
   %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 136
-  call void @mutex_unlock(ptr noundef %70) #12
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %70) #12
   br label %71
 
 71:                                               ; preds = %67, %60
@@ -521,32 +521,32 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
 define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = alloca %struct.fat_slot_info, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %6, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
-  tail call void @mutex_lock(ptr noundef %11) #12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %11) #12
   %12 = tail call i32 @fat_dir_empty(ptr noundef %8) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 872
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 872
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
-  %22 = getelementptr inbounds i8, ptr %21, i64 184
-  %23 = call fastcc i32 @msdos_format_name(ptr noundef readonly %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef %22), !range !6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
+  %23 = call fastcc i32 @msdos_format_name(ptr noundef readonly %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %22), !range !6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %msdos_find.exit.thread
 
@@ -556,7 +556,7 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %27, label %28, label %msdos_find.exit.thread
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %21, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, 8
   %32 = icmp eq i16 %31, 0
@@ -565,9 +565,9 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
 33:                                               ; preds = %28
   %34 = load i8, ptr %16, align 1
   %35 = icmp eq i8 %34, 46
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 11
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 11
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 2
   %41 = icmp eq i8 %40, 0
@@ -575,7 +575,7 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %4, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %msdos_find.exit.thread, label %47
@@ -598,8 +598,8 @@ msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
 .thread:                                          ; preds = %2, %48, %msdos_find.exit.thread
   %.ph4 = phi i32 [ %.ph, %msdos_find.exit.thread ], [ %49, %48 ], [ %12, %2 ]
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 136
-  call void @mutex_unlock(ptr noundef %52) #12
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %52) #12
   br label %58
 
 53:                                               ; preds = %48
@@ -608,8 +608,8 @@ msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
   %54 = call i32 @fat_truncate_time(ptr noundef %8, ptr noundef null, i32 noundef 4) #12
   call void @fat_detach(ptr noundef %8) #12
   %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 136
-  call void @mutex_unlock(ptr noundef %56) #12
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %56) #12
   %57 = call i32 @fat_flush_inodes(ptr noundef %6, ptr noundef %0, ptr noundef %8) #12
   br label %58
 
@@ -628,7 +628,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %11 = alloca %struct.timespec64, align 8
   %12 = alloca [11 x i8], align 1
   %13 = alloca [11 x i8], align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %12) #12
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %13) #12
@@ -638,33 +638,33 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
 17:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %12, i8 0, i64 11, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %13, i8 0, i64 11, i1 false), !annotation !5
-  %18 = getelementptr inbounds i8, ptr %15, i64 872
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 136
-  tail call void @mutex_lock(ptr noundef %20) #12
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
+  tail call void @mutex_lock(ptr noundef nonnull %20) #12
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 872
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 872
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 184
-  %29 = call fastcc i32 @msdos_format_name(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %12, ptr noundef %28), !range !6
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 184
+  %29 = call fastcc i32 @msdos_format_name(ptr noundef %22, i32 noundef %24, ptr noundef nonnull %12, ptr noundef nonnull %28), !range !6
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.thread22
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %3, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 872
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 872
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 184
-  %41 = call fastcc i32 @msdos_format_name(ptr noundef %33, i32 noundef %35, ptr noundef nonnull %13, ptr noundef %40), !range !6
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
+  %41 = call fastcc i32 @msdos_format_name(ptr noundef %33, i32 noundef %35, ptr noundef nonnull %13, ptr noundef nonnull %40), !range !6
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread22
 
@@ -686,13 +686,13 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !5
   store ptr null, ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %10, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %9, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @fat_scan(ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %9) #12
   %58 = icmp eq i32 %57, 0
@@ -722,9 +722,9 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   br i1 %75, label %118, label %76
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %10, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %9, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %78, %80
   br i1 %81, label %82, label %.thread20
@@ -736,14 +736,14 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %86 = or disjoint i32 %84, %85
   store i32 %86, ptr %70, align 8
   %87 = load ptr, ptr %14, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 80
   %89 = load i64, ptr %88, align 16
   %90 = and i64 %89, 144
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %82
-  %93 = getelementptr inbounds i8, ptr %1, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 65
   %96 = icmp eq i32 %95, 0
@@ -766,14 +766,14 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %103 = call zeroext i1 @inode_maybe_inc_iversion(ptr noundef %1, i1 noundef zeroext true) #12
   %104 = call i32 @fat_truncate_time(ptr noundef %1, ptr noundef null, i32 noundef 6) #12
   %105 = load ptr, ptr %14, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %107 = load i64, ptr %106, align 16
   %108 = and i64 %107, 144
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %110, label %115
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds i8, ptr %1, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 65
   %114 = icmp eq i32 %113, 0
@@ -792,7 +792,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %120 = extractvalue { i64, i64 } %119, 0
   %121 = extractvalue { i64, i64 } %119, 1
   store i64 %120, ptr %11, align 8
-  %122 = getelementptr inbounds i8, ptr %11, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %121, ptr %122, align 8
   br i1 %74, label %123, label %131
 
@@ -833,14 +833,14 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %142 = or disjoint i32 %140, %141
   store i32 %142, ptr %70, align 8
   %143 = load ptr, ptr %36, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 80
   %145 = load i64, ptr %144, align 16
   %146 = and i64 %145, 144
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %136
-  %149 = getelementptr inbounds i8, ptr %3, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %150 = load i32, ptr %149, align 4
   %151 = and i32 %150, 65
   %152 = icmp eq i32 %151, 0
@@ -863,23 +863,23 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %160 = getelementptr i8, ptr %3, i64 -108
   %161 = load i32, ptr %160, align 4
   %162 = trunc i32 %161 to i16
-  %163 = getelementptr inbounds i8, ptr %159, i64 26
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 26
   store i16 %162, ptr %163, align 2
   %164 = lshr i32 %161, 16
   %165 = trunc nuw i32 %164 to i16
-  %166 = getelementptr inbounds i8, ptr %159, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 20
   store i16 %165, ptr %166, align 4
   %167 = load ptr, ptr %7, align 8
   call void @mark_buffer_dirty_inode(ptr noundef %167, ptr noundef %54) #12
   %168 = load ptr, ptr %36, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
   %170 = load i64, ptr %169, align 16
   %171 = and i64 %170, 144
   %172 = icmp eq i64 %171, 0
   br i1 %172, label %173, label %178
 
 173:                                              ; preds = %158
-  %174 = getelementptr inbounds i8, ptr %3, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %175, 65
   %177 = icmp eq i32 %176, 0
@@ -915,14 +915,14 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %190 = call zeroext i1 @inode_maybe_inc_iversion(ptr noundef %1, i1 noundef zeroext true) #12
   %191 = call i32 @fat_truncate_time(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 6) #12
   %192 = load ptr, ptr %14, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 80
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 80
   %194 = load i64, ptr %193, align 16
   %195 = and i64 %194, 144
   %196 = icmp eq i64 %195, 0
   br i1 %196, label %197, label %202
 
 197:                                              ; preds = %189
-  %198 = getelementptr inbounds i8, ptr %1, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %199 = load i32, ptr %198, align 4
   %200 = and i32 %199, 65
   %201 = icmp eq i32 %200, 0
@@ -986,11 +986,11 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %222 = getelementptr i8, ptr %1, i64 -108
   %223 = load i32, ptr %222, align 4
   %224 = trunc i32 %223 to i16
-  %225 = getelementptr inbounds i8, ptr %221, i64 26
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 26
   store i16 %224, ptr %225, align 2
   %226 = lshr i32 %223, 16
   %227 = trunc nuw i32 %226 to i16
-  %228 = getelementptr inbounds i8, ptr %221, i64 20
+  %228 = getelementptr inbounds nuw i8, ptr %221, i64 20
   store i16 %227, ptr %228, align 4
   %229 = load ptr, ptr %7, align 8
   call void @mark_buffer_dirty_inode(ptr noundef %229, ptr noundef %54) #12
@@ -1037,8 +1037,8 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
 .thread22:                                        ; preds = %17, %31
   %.ph = phi i32 [ %41, %31 ], [ %29, %17 ]
   %248 = load ptr, ptr %18, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 136
-  call void @mutex_unlock(ptr noundef %249) #12
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %249) #12
   br label %256
 
 250:                                              ; preds = %216, %219
@@ -1048,8 +1048,8 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   %251 = load ptr, ptr %18, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 136
-  call void @mutex_unlock(ptr noundef %252) #12
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 136
+  call void @mutex_unlock(ptr noundef nonnull %252) #12
   %253 = icmp eq i32 %212, 0
   br i1 %253, label %254, label %256
 
@@ -1101,7 +1101,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noca
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 8
   %11 = icmp eq i16 %10, 0
@@ -1120,8 +1120,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noca
   br i1 %19, label %.thread11, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 34
-  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 34
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %23
 
 23:                                               ; preds = %56, %20
@@ -1385,18 +1385,18 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
   %8 = alloca %struct.msdos_dir_entry, align 4
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 872
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 872
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #12
   store i16 0, ptr %9, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #12
   store i16 0, ptr %10, align 2, !annotation !5
-  %15 = getelementptr inbounds i8, ptr %8, i64 11
-  %16 = getelementptr inbounds i8, ptr %8, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(21) %16, i8 0, i64 19, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %16, i8 0, i64 19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %8, ptr noundef align 1 dereferenceable(11) %1, i64 11, i1 false)
   %17 = icmp eq i32 %2, 0
   %18 = select i1 %17, i8 32, i8 16
@@ -1404,25 +1404,25 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
   %20 = or disjoint i8 %18, 2
   %21 = select i1 %19, i8 %18, i8 %20
   store i8 %21, ptr %15, align 1
-  %22 = getelementptr inbounds i8, ptr %8, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %22, align 4
   call void @fat_time_unix2fat(ptr noundef %14, ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #12
-  %23 = getelementptr inbounds i8, ptr %8, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(7) %23, i8 0, i64 7, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %23, i8 0, i64 7, i1 false)
   %24 = load i16, ptr %9, align 2
-  %25 = getelementptr inbounds i8, ptr %8, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 22
   store i16 %24, ptr %25, align 2
   %26 = load i16, ptr %10, align 2
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i16 %26, ptr %27, align 4
   %28 = trunc i32 %4 to i16
-  %29 = getelementptr inbounds i8, ptr %8, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 26
   store i16 %28, ptr %29, align 2
   %30 = lshr i32 %4, 16
   %31 = trunc nuw nsw i32 %30 to i16
-  %32 = getelementptr inbounds i8, ptr %8, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 0, ptr %33, align 4
   %34 = call i32 @fat_add_entries(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, ptr noundef %6) #12
   %35 = icmp eq i32 %34, 0
@@ -1431,14 +1431,14 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
 36:                                               ; preds = %7
   %37 = call i32 @fat_truncate_time(ptr noundef %0, ptr noundef %5, i32 noundef 6) #12
   %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load i64, ptr %39, align 16
   %41 = and i64 %40, 144
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 65
   %47 = icmp eq i32 %46, 0
@@ -1528,18 +1528,18 @@ declare dso_local zeroext i1 @inode_maybe_inc_iversion(ptr noundef, i1 noundef z
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
 define internal noundef i32 @msdos_hash(ptr noundef %0, ptr nocapture noundef %1) #10 align 16 {
   %3 = alloca [11 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = call fastcc i32 @msdos_format_name(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %3, ptr noundef %8), !range !6
+  %13 = call fastcc i32 @msdos_format_name(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %8), !range !6
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -1557,25 +1557,25 @@ define internal noundef i32 @msdos_hash(ptr noundef %0, ptr nocapture noundef %1
 define internal i32 @msdos_cmp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #6 align 16 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [11 x i8], align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 184
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %5, i8 0, i64 11, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, i8 0, i64 11, i1 false), !annotation !5
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = call fastcc i32 @msdos_format_name(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5, ptr noundef %11), !range !6
+  %16 = call fastcc i32 @msdos_format_name(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %11), !range !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %4
-  %19 = call fastcc i32 @msdos_format_name(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %6, ptr noundef %11), !range !6
+  %19 = call fastcc i32 @msdos_format_name(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %11), !range !6
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 

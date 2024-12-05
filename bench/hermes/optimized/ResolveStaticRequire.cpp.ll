@@ -27,11 +27,11 @@ entry:
 define hidden void @_ZN6hermes26createResolveStaticRequireEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.141") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #1 {
 _ZNSt10unique_ptrIN6hermes20ResolveStaticRequireESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #4, !noalias !4
-  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @.str.13, ptr %name2.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 20, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes20ResolveStaticRequireE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8

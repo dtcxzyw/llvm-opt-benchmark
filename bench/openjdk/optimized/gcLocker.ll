@@ -58,25 +58,25 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8GCLocker13log_debug_jniEPKc(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogImpl, align 1
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 800
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(888) %6) #8
   %21 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
@@ -138,25 +138,25 @@ define hidden noundef zeroext i1 @_ZN8GCLocker22check_active_before_gcEv() local
   %8 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   tail call void @_ZN14GCLockerTracer15start_gc_lockerEi(i32 noundef %8) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %10
 
 10:                                               ; preds = %7
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 800
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(888) %12) #8
   %27 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
@@ -212,25 +212,25 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %0, %
 6:                                                ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   tail call void @_ZN14GCLockerTracer15inc_stall_countEv() #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN8GCLocker13log_debug_jniEPKc.exit, label %8
 
 8:                                                ; preds = %6
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(888) %10) #8
   %25 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
@@ -314,7 +314,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
   br i1 %8, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %9 = getelementptr inbounds i8, ptr %0, i64 1308
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 4
@@ -346,7 +346,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
   %5 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   %6 = add nsw i32 %5, -1
   store volatile i32 %6, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1308
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, -1
   store i32 %9, ptr %7, align 4
@@ -361,32 +361,32 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr @_ZN8GCLocker18_total_collectionsE, align 4
   tail call void @_ZN14GCLockerTracer16report_gc_lockerEv() #8
   %19 = load ptr, ptr @JNICritical_lock, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_67ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN13MutexUnlockerD2Ev.exit, label %21
 
 21:                                               ; preds = %15
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 800
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 800
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(888) %23) #8
   %38 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
@@ -415,7 +415,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %15, %42, %44
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %45 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 192
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 192
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(104) %45, i32 noundef 5) #8
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #8

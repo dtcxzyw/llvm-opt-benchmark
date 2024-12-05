@@ -57,30 +57,30 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @msxml_read_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert139 = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert139 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre140 = load i64, ptr %.phi.trans.insert139, align 8
   br label %28
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %9, %13
   br i1 %14, label %msxml_read_cb_new_window.exit.thread, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %9
   %19 = sub i64 %13, %18
@@ -96,7 +96,7 @@ define i32 @msxml_read_cb(ptr nocapture noundef %0, ptr nocapture noundef writeo
   br label %msxml_read_cb_new_window.exit.thread
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %11, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %11, i64 noundef %18, i64 noundef range(i64 1, 131073) %spec.select.i, i32 noundef 0) #4
   %.not31.i = icmp eq ptr %25, null
@@ -108,7 +108,7 @@ define i32 @msxml_read_cb(ptr nocapture noundef %0, ptr nocapture noundef writeo
 
 msxml_read_cb_new_window.exit:                    ; preds = %22
   store ptr %25, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %27, align 8
   store i64 %18, ptr %8, align 8
   store i64 %spec.select.i, ptr %16, align 8
@@ -117,15 +117,15 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
 28:                                               ; preds = %msxml_read_cb_new_window.exit, %._crit_edge138
   %29 = phi i64 [ %.pre140, %._crit_edge138 ], [ 0, %msxml_read_cb_new_window.exit ]
   %30 = phi i64 [ %.pre, %._crit_edge138 ], [ %spec.select.i, %msxml_read_cb_new_window.exit ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = sub i64 %30, %29
   %.not130 = icmp eq i32 %2, 0
   br i1 %.not130, label %._crit_edge127, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %36
 
 36:                                               ; preds = %.lr.ph126, %._crit_edge
@@ -143,7 +143,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
 38:                                               ; preds = %36
   %39 = load i64, ptr %34, align 8
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %39, %42
   br i1 %43, label %.thread, label %44
@@ -157,7 +157,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
   br i1 %.not.i86, label %48, label %51
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %40, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %50 = load i64, ptr %49, align 8
   store i64 %50, ptr %34, align 8
@@ -165,7 +165,7 @@ msxml_read_cb_new_window.exit:                    ; preds = %22
   br label %.thread
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %40, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %40, i64 noundef %46, i64 noundef range(i64 1, 131073) %spec.select.i85, i32 noundef 0) #4
   %.not31.i87 = icmp eq ptr %54, null
@@ -280,7 +280,7 @@ switch.early.test:                                ; preds = %76
   br i1 %.not79, label %88, label %85
 
 85:                                               ; preds = %.thread98
-  %86 = getelementptr inbounds i8, ptr %.061118, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.061118, i64 1
   store i8 59, ptr %.061118, align 1
   %87 = add nuw i64 %.164114, 1
   br label %88
@@ -300,9 +300,9 @@ switch.early.test:                                ; preds = %76
 .thread96:                                        ; preds = %.thread96.sink.split, %79, %76, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %65, %88, %82
   %.3 = phi i64 [ %.4, %88 ], [ %.164114, %82 ], [ %.164114, %65 ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %switch.early.test ], [ %.164114, %76 ], [ %.164114, %79 ], [ %.164114, %.thread96.sink.split ]
   %.1 = phi ptr [ %.2, %88 ], [ %.061118, %82 ], [ %.061118, %65 ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %switch.early.test ], [ %.061118, %76 ], [ %.061118, %79 ], [ %.061118, %.thread96.sink.split ]
-  %89 = getelementptr inbounds i8, ptr %.062115, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.062115, i64 1
   %90 = load i8, ptr %.062115, align 1
-  %91 = getelementptr inbounds i8, ptr %.1, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %90, ptr %.1, align 1
   %92 = add i64 %.268113, -1
   %93 = add nuw i64 %.3, 1
@@ -346,9 +346,9 @@ define i32 @cli_scanmsxml(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   %7 = call ptr @xmlReaderForIO(ptr noundef nonnull @msxml_read_cb, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef null, i32 noundef 2080) #4
   %.not12 = icmp eq ptr %7, null
@@ -356,7 +356,7 @@ define i32 @cli_scanmsxml(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %3
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #4
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @cli_json_parse_error(ptr noundef %10, ptr noundef nonnull @.str.4) #4
   br label %15

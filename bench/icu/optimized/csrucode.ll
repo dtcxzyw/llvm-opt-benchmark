@@ -82,9 +82,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_UTF_16_BE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
+  %fRawInput = getelementptr inbounds nuw i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
+  %fRawLength = getelementptr inbounds nuw i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %1, i32 30)
   %sub = add nsw i32 %cond, -1
@@ -94,12 +94,12 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %confidence.020 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
   %shl = shl nuw i16 %conv, 8
   %3 = or disjoint i64 %indvars.iv, 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 %3
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %4 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %4 to i16
   %or = or disjoint i16 %shl, %conv5
@@ -178,9 +178,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7522CharsetRecog_UTF_16_LE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
+  %fRawInput = getelementptr inbounds nuw i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
+  %fRawLength = getelementptr inbounds nuw i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %1, i32 30)
   %sub = add nsw i32 %cond, -1
@@ -190,11 +190,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %confidence.023 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
   %3 = or disjoint i64 %indvars.iv, 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 %3
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %4 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %4 to i16
   %shl = shl nuw i16 %conv5, 8
@@ -209,13 +209,13 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp10, label %land.lhs.true11, label %for.end
 
 land.lhs.true11:                                  ; preds = %if.then
-  %arrayidx12 = getelementptr inbounds i8, ptr %0, i64 2
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %arrayidx12, align 1
   %cmp14 = icmp eq i8 %5, 0
   br i1 %cmp14, label %land.lhs.true15, label %for.end
 
 land.lhs.true15:                                  ; preds = %land.lhs.true11
-  %arrayidx16 = getelementptr inbounds i8, ptr %0, i64 3
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %6 = load i8, ptr %arrayidx16, align 1
   %cmp18 = icmp eq i8 %6, 0
   %spec.select = select i1 %cmp18, i32 0, i32 100
@@ -282,9 +282,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_UTF_325matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
+  %fRawInput = getelementptr inbounds nuw i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
+  %fRawLength = getelementptr inbounds nuw i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %div = sdiv i32 %1, 4
   %mul = shl nsw i32 %div, 2
@@ -293,7 +293,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef 0)
   %cmp2 = icmp eq i32 %call, 65279
@@ -304,7 +304,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.031 = phi i32 [ %add16, %for.body ], [ 0, %for.body.preheader ]
   %numInvalid.030 = phi i32 [ %numInvalid.1, %for.body ], [ 0, %for.body.preheader ]
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 40
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef %i.031)
   %or.cond = icmp ugt i32 %call6, 1114110

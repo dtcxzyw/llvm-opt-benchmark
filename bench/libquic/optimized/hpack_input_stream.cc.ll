@@ -36,9 +36,9 @@ $_ZN7logging17MakeCheckOpStringIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 define dso_local void @_ZN3net16HpackInputStreamC2EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr %buffer.coerce0, i64 %buffer.coerce1) unnamed_addr #0 align 2 {
 entry:
   store ptr %buffer.coerce0, ptr %this, align 8
-  %buffer.sroa.2.0.buffer_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer.sroa.2.0.buffer_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %buffer.coerce1, ptr %buffer.sroa.2.0.buffer_.sroa_idx, align 8
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bit_offset_, i8 0, i64 17, i1 false)
   ret void
 }
@@ -71,7 +71,7 @@ entry:
   br i1 %call, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
-  %need_more_data_ = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_, align 8
   br label %return
 
@@ -110,7 +110,7 @@ entry:
   %ref.tmp12 = alloca i32, align 4
   %ref.tmp13 = alloca i32, align 4
   %ref.tmp17 = alloca %"class.logging::LogMessage", align 8
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   %1 = load i64, ptr %peeked_count, align 8
   %add = add i64 %1, %0
@@ -177,7 +177,7 @@ entry:
   %ref.tmp13 = alloca i64, align 8
   %ref.tmp16 = alloca i32, align 4
   %ref.tmp21 = alloca %"class.logging::LogMessage", align 8
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   %add = add i64 %0, %bit_count
   %div2 = lshr i64 %add, 3
@@ -225,7 +225,7 @@ if.end27:                                         ; preds = %if.then11, %if.else
   %2 = load i64, ptr %byte_count, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %2)
   %3 = load i64, ptr %byte_count, align 8
-  %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %4 = load i32, ptr %parsed_bytes_current_, align 4
   %5 = trunc i64 %3 to i32
   %conv30 = add i32 %4, %5
@@ -240,12 +240,12 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %need_more_data_ = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end3, label %return
@@ -269,12 +269,12 @@ entry:
   br i1 %call.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %need_more_data_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_.i, align 8
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %bit_offset_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
   br i1 %cmp.not.i, label %if.end, label %return
@@ -283,7 +283,7 @@ if.end:                                           ; preds = %if.end.i
   %call5.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 0)
   store i8 %call5.i, ptr %next_octet, align 1
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 1)
-  %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %parsed_bytes_current_, align 4
   %add = add i32 %1, 1
   store i32 %add, ptr %parsed_bytes_current_, align 4
@@ -299,7 +299,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef initializes((0, 4)) %I) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   store i64 0, ptr %bit_offset_, align 8
   store i32 0, ptr %I, align 4
@@ -307,7 +307,7 @@ if.end13:
   br i1 %call.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end13
-  %need_more_data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_.i.i, align 8
   br label %return
 
@@ -319,7 +319,7 @@ if.end.i.i:                                       ; preds = %if.end13
 if.end20:                                         ; preds = %if.end.i.i
   %call5.i.i = tail call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 0)
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(33) %this, i64 noundef 1)
-  %parsed_bytes_current_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %parsed_bytes_current_.i, align 4
   %add.i = add i32 %2, 1
   store i32 %add.i, ptr %parsed_bytes_current_.i, align 4
@@ -340,7 +340,7 @@ while.body:                                       ; preds = %if.end20, %if.end48
   br i1 %call.i.i12, label %if.then.i.i21, label %if.end.i.i13
 
 if.then.i.i21:                                    ; preds = %while.body
-  %need_more_data_.i.i22 = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_.i.i22, align 8
   br label %return
 
@@ -399,7 +399,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %need_more_data_ = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_, align 8
   br label %return
 
@@ -408,7 +408,7 @@ if.end4:                                          ; preds = %if.end
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %call6, i64 noundef %conv)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %str, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %conv)
-  %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %parsed_bytes_current_, align 4
   %add = add i32 %1, %0
   store i32 %add, ptr %parsed_bytes_current_, align 4
@@ -442,7 +442,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end3
-  %need_more_data_6 = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %need_more_data_6, align 8
   br label %return
 
@@ -451,12 +451,12 @@ if.end7:                                          ; preds = %if.end3
   %1 = extractvalue { ptr, i64 } %call10, 0
   %2 = extractvalue { ptr, i64 } %call10, 1
   store ptr %1, ptr %bounded_reader, align 8
-  %buffer.sroa.2.0.buffer_.sroa_idx.i = getelementptr inbounds i8, ptr %bounded_reader, i64 8
+  %buffer.sroa.2.0.buffer_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %bounded_reader, i64 8
   store i64 %2, ptr %buffer.sroa.2.0.buffer_.sroa_idx.i, align 8
-  %bit_offset_.i = getelementptr inbounds i8, ptr %bounded_reader, i64 16
+  %bit_offset_.i = getelementptr inbounds nuw i8, ptr %bounded_reader, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bit_offset_.i, i8 0, i64 17, i1 false)
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %conv)
-  %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %parsed_bytes_current_, align 4
   %add = add i32 %3, %0
   store i32 %add, ptr %parsed_bytes_current_, align 4
@@ -478,7 +478,7 @@ declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char
 define dso_local { i64, i32 } @_ZN3net16HpackInputStream18InitializePeekBitsEv(ptr noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp30 = alloca %"class.logging::LogMessage", align 8
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.else27
@@ -530,7 +530,7 @@ if.else27:                                        ; preds = %entry
 
 cond.false:                                       ; preds = %if.else27
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp30, ptr noundef nonnull @.str, i32 noundef 217, i32 noundef 2)
-  %stream_.i1 = getelementptr inbounds i8, ptr %ref.tmp30, i64 8
+  %stream_.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i1, ptr noundef nonnull @.str.2)
           to label %invoke.cont34 unwind label %lpad31
 
@@ -568,7 +568,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net16HpackInputStream20ConsumeByteRemainderEv(ptr noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -585,7 +585,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net16HpackInputStream11ParsedBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %parsed_bytes_ = getelementptr inbounds i8, ptr %this, i64 24
+  %parsed_bytes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %parsed_bytes_, align 8
   ret i32 %0
 }
@@ -593,7 +593,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net16HpackInputStream12NeedMoreDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %need_more_data_ = getelementptr inbounds i8, ptr %this, i64 32
+  %need_more_data_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %need_more_data_, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -602,9 +602,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net16HpackInputStream19MarkCurrentPositionEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((24, 28)) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
+  %parsed_bytes_current_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %parsed_bytes_current_, align 4
-  %parsed_bytes_ = getelementptr inbounds i8, ptr %this, i64 24
+  %parsed_bytes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %0, ptr %parsed_bytes_, align 8
   ret void
 }

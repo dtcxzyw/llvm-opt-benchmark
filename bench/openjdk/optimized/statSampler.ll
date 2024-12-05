@@ -104,21 +104,21 @@ define hidden void @_ZN11StatSampler20create_misc_perfdataEv() local_unnamed_add
   %1 = alloca %class.ExceptionMark, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   %14 = load ptr, ptr %1, align 8
   %15 = call noundef i64 @_ZN2os17elapsed_frequencyEv() #6
   %16 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 17, ptr noundef nonnull @.str.20, i32 noundef 6, i64 noundef %15, ptr noundef %14) #6
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %42
@@ -240,7 +240,7 @@ define hidden void @_ZN11StatSampler9disengageEv() local_unnamed_addr #0 align 2
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   br label %12
@@ -256,12 +256,12 @@ define hidden void @_ZN11StatSampler9disengageEv() local_unnamed_addr #0 align 2
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %12 ]
   %17 = phi ptr [ %25, %.lr.ph.i ], [ %14, %12 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(48) %21) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -287,12 +287,12 @@ define hidden void @_ZN11StatSampler11sample_dataEP12PerfDataList(ptr nocapture 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = phi ptr [ %13, %.lr.ph ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(48) %9) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -339,12 +339,12 @@ define hidden void @_ZN11StatSampler14collect_sampleEv() local_unnamed_addr #0 a
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %0 ]
   %5 = phi ptr [ %13, %.lr.ph.i ], [ %2, %0 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(48) %9) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -365,7 +365,7 @@ define hidden void @_ZN11StatSampler22assert_system_propertyEPKcS1_P10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = icmp eq ptr %2, null
@@ -385,7 +385,7 @@ declare noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StatSampler21add_property_constantE9CounterNSPKcP10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN9Arguments12get_propertyEPKc(ptr noundef %1) #6
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = icmp eq ptr %4, null
@@ -409,7 +409,7 @@ define hidden void @_ZN11StatSampler30add_optional_property_constantE9CounterNSP
   br i1 %.not, label %_ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %8, label %_ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread.exit
@@ -424,7 +424,7 @@ _ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StatSampler38create_system_property_instrumentationEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread.exit, label %_ZN11StatSampler21add_property_constantE9CounterNSPKcS2_P10JavaThread.exit.thread
@@ -721,12 +721,12 @@ define linkonce_odr hidden void @_ZN15StatSamplerTask4taskEv(ptr noundef nonnull
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %1 ]
   %6 = phi ptr [ %14, %.lr.ph.i.i ], [ %3, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(48) %10) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

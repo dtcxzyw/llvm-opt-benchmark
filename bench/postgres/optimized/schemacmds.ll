@@ -34,11 +34,11 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %6 = alloca i32, align 4
   %7 = alloca %struct.ObjectAddress, align 8
   %8 = alloca %struct.StringInfoData, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @namespace_search_path, align 8
   call void @GetUserIdAndSecContext(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %16, label %14
@@ -70,13 +70,13 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 22
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = call ptr @pstrdup(ptr noundef nonnull %32) #4
   call void @ReleaseSysCache(ptr noundef nonnull %21) #4
   br label %34
@@ -116,7 +116,7 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 52:                                               ; preds = %45, %41
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %65
@@ -128,9 +128,9 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
 
 58:                                               ; preds = %56
   store i32 2615, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %7, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %57, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %60, align 8
   call void @checkMembershipInCurrentExtension(ptr noundef nonnull %7) #4
   %61 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #4
@@ -182,21 +182,21 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %82 = load ptr, ptr %8, align 8
   %83 = call i32 @set_config_option(ptr noundef nonnull @.str.6, ptr noundef %82, i32 noundef 6, i32 noundef 13, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #4
   store i32 2615, ptr %7, align 8
-  %84 = getelementptr inbounds i8, ptr %7, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %71, ptr %84, align 4
   %.sroa.012.0.copyload = load i64, ptr %7, align 8
   %.sroa.011.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.012.0.copyload, i32 0, i64 %.sroa.011.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %0) #4
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr @transformCreateSchemaStmtElements(ptr noundef %86, ptr noundef %.054) #4
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %.not70 = icmp eq ptr %87, null
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %87, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %90 = load i32, ptr %88, align 4
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %.lr.ph77, label %._crit_edge
@@ -208,15 +208,15 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef ptr @palloc0(i64 noundef 136) #4
   store i32 314, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 6, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %95, i64 18
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 18
   store i8 0, ptr %97, align 2
-  %98 = getelementptr inbounds i8, ptr %95, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 120
   store ptr %94, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %95, i64 128
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 128
   store i32 %2, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 132
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 132
   store i32 %3, ptr %100, align 4
   %101 = load ptr, ptr @None_Receiver, align 8
   call void @ProcessUtility(ptr noundef nonnull %95, ptr noundef %1, i1 noundef zeroext false, i32 noundef 3, ptr noundef null, ptr noundef null, ptr noundef %101, ptr noundef null) #4
@@ -323,9 +323,9 @@ define dso_local { i64, i32 } @RenameSchema(ptr noundef %0, ptr noundef %1) loca
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -383,9 +383,9 @@ define dso_local { i64, i32 } @RenameSchema(ptr noundef %0, ptr noundef %1) loca
   unreachable
 
 44:                                               ; preds = %37, %34
-  %45 = getelementptr inbounds i8, ptr %16, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 4
   tail call void @namestrcpy(ptr noundef nonnull %45, ptr noundef %1) #4
-  %46 = getelementptr inbounds i8, ptr %5, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %3, ptr noundef nonnull %46, ptr noundef nonnull %5) #4
   %47 = load ptr, ptr @object_access_hook, align 8
   %.not27 = icmp eq ptr %47, null
@@ -452,13 +452,13 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %0, p
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, %2
   br i1 %.not, label %50, label %16
@@ -470,7 +470,7 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %0, p
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %13, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef 36, ptr noundef nonnull %21) #4
   br label %22
 
@@ -493,7 +493,7 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %0, p
   store i32 0, ptr %5, align 4
   store i32 65536, ptr %6, align 4
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %31, ptr %32, align 16
   %33 = call i64 @SysCacheGetAttr(i32 noundef 35, ptr noundef nonnull %0, i16 noundef signext 4, ptr noundef nonnull %7) #4
   %34 = load i8, ptr %7, align 1
@@ -505,18 +505,18 @@ define internal fastcc void @AlterSchemaOwner_internal(ptr noundef nonnull %0, p
   %38 = call ptr @pg_detoast_datum(ptr noundef %37) #4
   %39 = load i32, ptr %14, align 4
   %40 = call ptr @aclnewowner(ptr noundef %38, i32 noundef %39, i32 noundef %2) #4
-  %41 = getelementptr inbounds i8, ptr %6, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 1, ptr %41, align 1
   %42 = ptrtoint ptr %40 to i64
-  %43 = getelementptr inbounds i8, ptr %4, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %42, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %36, %30
-  %45 = getelementptr inbounds i8, ptr %1, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr @heap_modify_tuple(ptr noundef nonnull %0, ptr noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   call void @CatalogTupleUpdate(ptr noundef %1, ptr noundef nonnull %48, ptr noundef %47) #4
   call void @heap_freetuple(ptr noundef %47) #4
   %49 = load i32, ptr %13, align 4
@@ -554,9 +554,9 @@ define dso_local { i64, i32 } @AlterSchemaOwner(ptr noundef %0, i32 noundef %1) 
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15

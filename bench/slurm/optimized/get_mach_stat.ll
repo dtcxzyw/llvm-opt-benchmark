@@ -54,9 +54,9 @@ define dso_local range(i32 3, 2) i32 @get_tmp_disk(ptr nocapture noundef initial
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %9
   %13 = lshr i64 %12, 20
@@ -92,7 +92,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 define dso_local i32 @get_up_time(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = load ptr, ptr @conf, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4416
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4416
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %13, label %6
@@ -100,7 +100,7 @@ define dso_local i32 @get_up_time(ptr nocapture noundef writeonly initializes((0
 6:                                                ; preds = %1
   %7 = tail call i64 @time(ptr noundef null) #5
   %8 = load ptr, ptr @conf, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4416
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4416
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %7, %10
   %12 = trunc i64 %11 to i32
@@ -149,7 +149,7 @@ define dso_local i32 @get_cpu_load(ptr nocapture noundef writeonly initializes((
   br label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = uitofp i64 %10 to float
   %12 = fmul float %11, 0x3EF0000000000000
@@ -178,9 +178,9 @@ define dso_local i32 @get_free_mem(ptr nocapture noundef writeonly initializes((
   br label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = mul i64 %10, %13

@@ -122,20 +122,20 @@ define dso_local ptr @snd_lookup_minor_data(i32 noundef %0, i32 noundef %1) #0 a
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 648
-  %22 = tail call ptr @get_device(ptr noundef %21) #5
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 648
+  %22 = tail call ptr @get_device(ptr noundef nonnull %21) #5
   br label %23
 
 23:                                               ; preds = %20, %16, %12, %9, %4
@@ -179,15 +179,15 @@ define dso_local i32 @snd_register_device(i32 noundef %0, ptr noundef %1, i32 no
 
 16:                                               ; preds = %14, %12
   %17 = phi i32 [ %15, %14 ], [ -1, %12 ]
-  %18 = getelementptr inbounds i8, ptr %10, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %1, ptr %22, align 8
   tail call void @mutex_lock(ptr noundef nonnull @sound_mutex) #5
   switch i32 %0, label %.thread11 [
@@ -233,12 +233,12 @@ define dso_local i32 @snd_register_device(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %40, label %41, label %.thread11
 
 41:                                               ; preds = %.thread
-  %42 = getelementptr inbounds i8, ptr %10, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %5, ptr %42, align 8
   %43 = load i32, ptr @major, align 4
   %44 = shl i32 %43, 20
   %45 = or i32 %44, %36
-  %46 = getelementptr inbounds i8, ptr %5, i64 644
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 644
   store i32 %45, ptr %46, align 4
   %47 = tail call i32 @device_add(ptr noundef nonnull %5) #5
   %48 = icmp slt i32 %47, 0
@@ -279,7 +279,7 @@ define dso_local range(i32 -2, 1) i32 @snd_unregister_device(ptr noundef %0) #0 
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %11, label %16
@@ -315,7 +315,7 @@ define dso_local i32 @snd_minor_info_init() local_unnamed_addr #2 section ".init
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @snd_minor_info_read, ptr %4, align 8
   %5 = tail call i32 @snd_info_register(ptr noundef nonnull %1) #5
   br label %6
@@ -341,13 +341,13 @@ define internal void @snd_minor_info_read(ptr nocapture readnone %0, ptr nocaptu
   br i1 %7, label %56, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %42
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, -1
   %16 = load ptr, ptr %1, align 8
@@ -563,7 +563,7 @@ declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1048575
   %6 = icmp samesign ugt i32 %5, 255
@@ -604,8 +604,8 @@ define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %34
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %16, i64 648
-  tail call void @put_device(ptr noundef %27) #5
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 648
+  tail call void @put_device(ptr noundef nonnull %27) #5
   br label %34
 
 28:                                               ; preds = %12
@@ -635,7 +635,7 @@ define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 38:                                               ; preds = %34, %7
   %39 = phi ptr [ %35, %34 ], [ %10, %7 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %43
@@ -656,7 +656,7 @@ define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %48, label %61, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %1, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %55, label %53
@@ -668,7 +668,7 @@ define internal i32 @snd_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 55:                                               ; preds = %53, %49
   store ptr %47, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %61, label %59

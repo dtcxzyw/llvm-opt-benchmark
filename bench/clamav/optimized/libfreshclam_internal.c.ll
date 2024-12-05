@@ -425,10 +425,10 @@ define range(i32 0, 16) i32 @load_freshclam_dat() local_unnamed_addr #0 {
   %80 = load i32, ptr %79, align 8
   %81 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %80) #23
   %82 = load ptr, ptr @g_freshclamDat, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef nonnull %83) #23
   %85 = load ptr, ptr @g_freshclamDat, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = load i64, ptr %86, align 8
   %88 = icmp sgt i64 %87, 0
   br i1 %88, label %91, label %108
@@ -618,7 +618,7 @@ define range(i32 0, 16) i32 @new_freshclam_dat() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   store i32 1, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %7 = call i32 @RAND_bytes(ptr noundef nonnull %1, i32 noundef 16) #23
   %8 = icmp slt i32 %7, 1
@@ -637,44 +637,44 @@ define range(i32 0, 16) i32 @new_freshclam_dat() local_unnamed_addr #0 {
 
 uuid_v4_gen.exit:                                 ; preds = %._crit_edge.i, %9
   %12 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 4
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
   store i8 %16, ptr %13, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 4095
   %20 = or disjoint i16 %19, 16384
   store i16 %20, ptr %17, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
   %24 = zext nneg i16 %20 to i32
   %25 = zext i8 %16 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 9
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %1, i64 11
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i8, ptr %35, align 4
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %1, i64 13
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %1, i64 14
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %42 = load i8, ptr %41, align 2
   %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %1, i64 15
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 37, ptr noundef nonnull @.str.75, i32 noundef %12, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46) #23
-  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i8 0, ptr %48, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   %49 = load ptr, ptr @g_freshclamDat, align 8
@@ -722,9 +722,9 @@ define noundef i64 @HeaderCallback(ptr nocapture noundef readonly %0, i64 nounde
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %3, ptr noundef nonnull align 1 dereferenceable(20) %11, i64 20, i1 false)
-  %12 = getelementptr inbounds i8, ptr %3, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %12, align 1
   br label %13
 
@@ -766,7 +766,7 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   store i32 0, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %18)
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 60, ptr noundef nonnull @.str.88, ptr noundef nonnull %0) #23
-  %27 = getelementptr inbounds i8, ptr %18, i64 59
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 59
   store i8 0, ptr %27, align 1
   %28 = call i32 @access(ptr noundef nonnull %18, i32 noundef 4) #23
   %29 = icmp eq i32 %28, -1
@@ -793,9 +793,9 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %39 = call ptr @cli_safer_strdup(ptr noundef nonnull %18) #23
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %18)
   %40 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.78, ptr noundef nonnull %0, ptr noundef %39) #23
-  %41 = getelementptr inbounds i8, ptr %35, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load i32, ptr %43, align 8
   br label %45
 
@@ -811,10 +811,10 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr null, ptr %16, align 8
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 60, ptr noundef nonnull @.str.88, ptr noundef nonnull %0) #23
-  %48 = getelementptr inbounds i8, ptr %14, i64 59
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 59
   store i8 0, ptr %48, align 1
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 60, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #23
-  %50 = getelementptr inbounds i8, ptr %15, i64 59
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 59
   store i8 0, ptr %50, align 1
   %51 = icmp eq i32 %3, 0
   %52 = icmp ne ptr %1, null
@@ -972,7 +972,7 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %16, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 8
   %121 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.102, ptr noundef nonnull %0, i32 noundef %120) #23
   %122 = load i32, ptr %119, align 8
@@ -1050,13 +1050,13 @@ query_remote_database_version.exit.i:             ; preds = %130, %129
   br label %166
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %.0.i89.i, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i89.i, i64 8
   %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.0.i89.i, i64 12
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i89.i, i64 12
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %.0.i89.i, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i89.i, i64 16
   %148 = load i32, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %.0.i89.i, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i89.i, i64 40
   %150 = load ptr, ptr %149, align 8
   %151 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.82, ptr noundef %.08487.i, i32 noundef %144, i32 noundef %146, i32 noundef %148, ptr noundef %150) #23
   br label %154
@@ -1675,13 +1675,13 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   br label %.thread284
 
 400:                                              ; preds = %395
-  %401 = getelementptr inbounds i8, ptr %396, i64 8
+  %401 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %402 = load i32, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %396, i64 12
+  %403 = getelementptr inbounds nuw i8, ptr %396, i64 12
   %404 = load i32, ptr %403, align 4
-  %405 = getelementptr inbounds i8, ptr %396, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %406 = load i32, ptr %405, align 8
-  %407 = getelementptr inbounds i8, ptr %396, i64 40
+  %407 = getelementptr inbounds nuw i8, ptr %396, i64 40
   %408 = load ptr, ptr %407, align 8
   %409 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef %.2159, i32 noundef %402, i32 noundef %404, i32 noundef %406, ptr noundef %408) #23
   %410 = call i32 @cl_retflevel() #23
@@ -1876,7 +1876,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   br label %.thread89
 
 60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %48, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = icmp ult i32 %62, %4
   br i1 %63, label %64, label %.thread89
@@ -1954,7 +1954,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef nonnull %0, pt
 
 16:                                               ; preds = %11
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 60, ptr noundef nonnull @.str.214, ptr noundef nonnull %1) #23
-  %18 = getelementptr inbounds i8, ptr %6, i64 59
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 59
   store i8 0, ptr %18, align 1
   %19 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %6, i32 noundef 0) #23
   %20 = icmp eq i32 %19, -1
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef nonnull %0, pt
   br label %.thread100
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %7, i64 512
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 512
   store i8 0, ptr %29, align 16
   %30 = call i32 @close(i32 noundef %19) #23
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 10) #27
@@ -2090,25 +2090,25 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef nonnull %0, pt
   br i1 %.not80, label %.backedge, label %sub_0
 
 sub_0:                                            ; preds = %.lr.ph
-  %86 = getelementptr inbounds i8, ptr %84, i64 19
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 19
   %87 = load i8, ptr %86, align 1
   %.not131 = icmp eq i8 %87, 46
   br i1 %.not131, label %.tail, label %.tail126.thread
 
 .tail:                                            ; preds = %sub_0
-  %88 = getelementptr inbounds i8, ptr %84, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %.backedge, label %sub_1128
 
 sub_1128:                                         ; preds = %.tail
-  %91 = getelementptr inbounds i8, ptr %84, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %92 = load i8, ptr %91, align 1
   %.not133 = icmp eq i8 %92, 46
   br i1 %.not133, label %.tail126, label %.tail126.thread
 
 .tail126:                                         ; preds = %sub_1128
-  %93 = getelementptr inbounds i8, ptr %84, i64 21
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 21
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %.backedge, label %.tail126.thread
@@ -2278,13 +2278,13 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %.not107, label %19, label %50
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 7
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %21 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 47) #27
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #27
   %26 = icmp ult i64 %25, 5
   br i1 %26, label %27, label %29
@@ -2303,7 +2303,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %135
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %7, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %36 = load i64, ptr %35, align 8
   %37 = call i32 @stat(ptr noundef nonnull %24, ptr noundef nonnull %7) #23
   %.not108 = icmp eq i32 %37, -1
@@ -2335,7 +2335,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #27
   %56 = icmp ult i64 %55, 5
   br i1 %56, label %57, label %59
@@ -2347,7 +2347,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 59:                                               ; preds = %53
   %60 = call i32 @stat(ptr noundef nonnull %54, ptr noundef nonnull %7) #23
   %.not109 = icmp eq i32 %60, -1
-  %61 = getelementptr inbounds i8, ptr %7, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %62 = load i64, ptr %61, align 8
   %63 = select i1 %.not109, i64 0, i64 %62
   %64 = tail call fastcc i32 @downloadFile(ptr noundef nonnull %0, ptr noundef %16, i32 noundef %2, i64 noundef %63)
@@ -2441,10 +2441,10 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %135
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %107, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %113 = load i32, ptr %112, align 4
   %114 = tail call i32 @cl_retflevel() #23
-  %115 = getelementptr inbounds i8, ptr %107, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %116 = load i32, ptr %115, align 8
   %117 = icmp ult i32 %114, %116
   br i1 %117, label %118, label %123
@@ -2564,9 +2564,9 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 28:                                               ; preds = %24, %22
   store i64 0, ptr %7, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %31, align 8
   %32 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %29, i32 noundef 20219, ptr noundef nonnull @xferinfo) #23
   %.not61 = icmp eq i32 %32, 0
@@ -2678,7 +2678,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br label %152
 
 78:                                               ; preds = %65
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %79, align 8
   %80 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %44, i32 noundef 20011, ptr noundef nonnull @WriteFileCallback) #23
   %.not73 = icmp eq i32 %80, 0
@@ -2768,7 +2768,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %119 = call i64 @time(ptr noundef null) #23
   %120 = add nsw i64 %119, 86400
   %121 = load ptr, ptr @g_freshclamDat, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store i64 %120, ptr %122, align 8
   %123 = call i32 @save_freshclam_dat()
   br label %152
@@ -2783,7 +2783,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %.sink100.v = select i1 %127, i64 %129, i64 14400
   %.sink100 = add nsw i64 %.sink100.v, %128
   %130 = load ptr, ptr @g_freshclamDat, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
   store i64 %.sink100, ptr %131, align 8
   %132 = call i32 @save_freshclam_dat()
   br label %152
@@ -2934,9 +2934,9 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 32:                                               ; preds = %28, %26
   store i64 0, ptr %10, align 8
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %35, align 8
   %36 = tail call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %33, i32 noundef 20219, ptr noundef nonnull @xferinfo) #23
   %.not71 = icmp eq i32 %36, 0
@@ -3034,7 +3034,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 73:                                               ; preds = %71, %69
   %74 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
   store ptr %74, ptr %7, align 8
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %75, align 8
   %76 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 20011, ptr noundef nonnull @WriteMemoryCallback) #23
   %.not84 = icmp eq i32 %76, 0
@@ -3149,7 +3149,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 .sink.split114:                                   ; preds = %101, %104
   %.sink.sink = phi i64 [ %.sink, %104 ], [ %103, %101 ]
   %129 = load ptr, ptr @g_freshclamDat, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 48
   store i64 %.sink.sink, ptr %130, align 8
   %131 = call i32 @save_freshclam_dat()
   br label %132
@@ -3183,7 +3183,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 140:                                              ; preds = %.split
   %141 = tail call ptr @__ctype_b_loc() #24
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %139, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv
   %144 = load i8, ptr %143, align 1
   %145 = sext i8 %144 to i64
   %146 = getelementptr inbounds i16, ptr %142, i64 %145
@@ -3199,7 +3199,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   br label %160
 
 151:                                              ; preds = %140
-  %152 = getelementptr inbounds [513 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [513 x i8], ptr %6, i64 0, i64 %indvars.iv
   store i8 %144, ptr %152, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -3285,12 +3285,12 @@ define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef rang
 12:                                               ; preds = %8
   %13 = tail call ptr @get_version() #23
   %14 = load ptr, ptr @g_freshclamDat, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.144, ptr noundef %13, ptr noundef nonnull %15) #23
   br label %17
 
 17:                                               ; preds = %12, %10
-  %18 = getelementptr inbounds i8, ptr %3, i64 127
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %18, align 1
   %19 = load i16, ptr @mprintf_verbose, align 2
   %.not41 = icmp eq i16 %19, 0
@@ -3543,7 +3543,7 @@ declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   store i64 0, ptr %6, align 8
   %9 = sitofp i64 %1 to double
@@ -3551,7 +3551,7 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   br i1 %10, label %164, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %164
@@ -3829,7 +3829,7 @@ define internal noundef i64 @WriteMemoryCallback(ptr noundef readonly %0, i64 no
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %5, 1
   %13 = add i64 %12, %11
@@ -3943,7 +3943,7 @@ define internal noundef i64 @WriteFileCallback(ptr noundef readonly %0, i64 noun
   %8 = mul i64 %2, %1
   %9 = load i32, ptr %3, align 8
   %10 = tail call i64 @write(i32 noundef %9, ptr noundef nonnull %0, i64 noundef %8) #23
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8

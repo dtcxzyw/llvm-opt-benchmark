@@ -33,10 +33,10 @@ $_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19DeviceStreamManager4ImplC2ERK17DeviceInformationNS_18SimulationWorkloadEb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 1 %1, ptr nocapture noundef readonly byval(%"class.gmx::SimulationWorkload") align 8 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN13DeviceContextC1ERK17DeviceInformation(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %6, align 8
@@ -66,7 +66,7 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i: ; preds = %_ZSt11mak
   br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i, %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %14 = getelementptr inbounds i8, ptr %2, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %15 = load i8, ptr %14, align 2
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit17
@@ -87,7 +87,7 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit: ; preds = %_Z
   br label %.body
 
 _ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit11: ; preds = %.noexc8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   store ptr %18, ptr %21, align 8
   %.not.i.i.i.i12 = icmp eq ptr %22, null
@@ -131,7 +131,7 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit17: ; preds = %
   br label %.body
 
 _ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit21: ; preds = %.noexc18
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   store ptr %30, ptr %33, align 8
   %.not.i.i.i.i22 = icmp eq ptr %34, null
@@ -146,13 +146,13 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit27: ; preds = %
   br i1 %16, label %43, label %35
 
 35:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit27
-  %36 = getelementptr inbounds i8, ptr %2, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %2, i64 10
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit37
@@ -173,7 +173,7 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit27: ; preds = %
   br label %.body
 
 _ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit31: ; preds = %.noexc28
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load ptr, ptr %47, align 8
   store ptr %44, ptr %47, align 8
   %.not.i.i.i.i32 = icmp eq ptr %48, null
@@ -185,7 +185,7 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i33: ; preds = %_ZSt11m
   br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit37
 
 _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit37: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit31, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i33, %39
-  %49 = getelementptr inbounds i8, ptr %2, i64 17
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
   br i1 %51, label %52, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit47
@@ -206,7 +206,7 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit37: ; preds = %
   br label %.body
 
 _ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit41: ; preds = %.noexc38
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8
   store ptr %53, ptr %56, align 8
   %.not.i.i.i.i42 = icmp eq ptr %57, null
@@ -272,7 +272,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %3
 
 3:                                                ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit, %1
@@ -319,7 +319,7 @@ define void @_ZN3gmx19DeviceStreamManager4ImplD2Ev(ptr noundef nonnull align 8 d
 
 2:                                                ; preds = %1, %19
   %.0.idx18 = phi i64 [ 8, %1 ], [ %.0.add, %19 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.idx18
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx18
   %3 = load ptr, ptr %.0.ptr, align 8
   %.not13 = icmp eq ptr %3, null
   br i1 %.not13, label %19, label %4
@@ -342,7 +342,7 @@ define void @_ZN3gmx19DeviceStreamManager4ImplD2Ev(ptr noundef nonnull align 8 d
   %12 = tail call ptr @__cxa_begin_catch(ptr %7) #16
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %17) #19
@@ -442,7 +442,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx19DeviceStreamMan
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager6streamENS_16DeviceStreamTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -452,13 +452,13 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager12bondedStreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 @_ZNK12DeviceStream7isValidEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
   br i1 %9, label %16, label %10
@@ -468,7 +468,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
   unreachable
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 @_ZNK12DeviceStream7isValidEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
   br i1 %14, label %16, label %15
@@ -480,7 +480,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 16:                                               ; preds = %11, %6
   %.sink2 = phi i64 [ 16, %6 ], [ 8, %11 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %.sink2
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink2
   %.0 = load ptr, ptr %18, align 8
   ret ptr %.0
 }
@@ -493,7 +493,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3gmx19DeviceStreamManager13streamIsValidENS_16DeviceStreamTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8

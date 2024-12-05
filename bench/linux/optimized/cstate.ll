@@ -157,7 +157,7 @@ define internal i32 @cstate_pmu_init() #0 section ".init.text" align 16 {
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call fastcc i32 @cstate_probe(ptr noundef %10) #8, !range !5
@@ -212,7 +212,7 @@ declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc range(i32 -19, 1) i32 @cstate_probe(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %5 = icmp eq i64 %4, 0
@@ -236,11 +236,11 @@ define internal fastcc range(i32 -19, 1) i32 @cstate_probe(ptr noundef %0) unnam
 12:                                               ; preds = %11, %7
   %13 = tail call i64 @perf_msr_probe(ptr noundef nonnull @core_msr, i32 noundef 4, i1 noundef zeroext true, ptr noundef %0) #7
   store i64 %13, ptr @core_msr_mask, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = tail call i64 @perf_msr_probe(ptr noundef nonnull @pkg_msr, i32 noundef 7, i1 noundef zeroext true, ptr noundef %14) #7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = tail call i64 @perf_msr_probe(ptr noundef nonnull @pkg_msr, i32 noundef 7, i1 noundef zeroext true, ptr noundef nonnull %14) #7
   store i64 %15, ptr @pkg_msr_mask, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = tail call i64 @perf_msr_probe(ptr noundef nonnull @module_msr, i32 noundef 1, i1 noundef zeroext true, ptr noundef %16) #7
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = tail call i64 @perf_msr_probe(ptr noundef nonnull @module_msr, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %16) #7
   store i64 %17, ptr @module_msr_mask, align 8
   %18 = load i64, ptr @core_msr_mask, align 8
   %19 = icmp ne i64 %18, 0
@@ -682,25 +682,25 @@ declare dso_local void @perf_pmu_migrate_context(ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocapture noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %5, %9
   br i1 %10, label %11, label %109
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %109
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 652
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %109, label %19
@@ -727,7 +727,7 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocaptu
 32:                                               ; preds = %23
   %33 = getelementptr [4 x %struct.perf_msr], ptr @core_msr, i64 0, i64 %25
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 384
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %34, ptr %35, align 8
   %36 = load i32, ptr %16, align 4
   %37 = sext i32 %36 to i64
@@ -765,13 +765,13 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocaptu
   br i1 %60, label %109, label %61
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %0, i64 132
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, 2
   store i32 %64, ptr %62, align 4
   %65 = getelementptr [7 x %struct.perf_msr], ptr @pkg_msr, i64 0, i64 %54
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 384
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %66, ptr %67, align 8
   %68 = load i32, ptr %16, align 4
   %69 = sext i32 %68 to i64
@@ -806,7 +806,7 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocaptu
 
 89:                                               ; preds = %84
   %90 = load i64, ptr @module_msr, align 16
-  %91 = getelementptr inbounds i8, ptr %0, i64 384
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %90, ptr %91, align 8
   %92 = load i32, ptr %16, align 4
   %93 = tail call ptr @cpu_clustergroup_mask(i32 noundef %92) #7
@@ -830,9 +830,9 @@ define internal noundef range(i32 -22, 1) i32 @cstate_pmu_event_init(ptr nocaptu
 
 106:                                              ; preds = %100
   store i32 %103, ptr %16, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 360
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 %102, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 396
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 -1, ptr %108, align 4
   br label %109
 
@@ -848,7 +848,7 @@ define internal noundef i32 @cstate_pmu_event_add(ptr noundef %0, i32 noundef %1
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !17
@@ -864,7 +864,7 @@ define internal noundef i32 @cstate_pmu_event_add(ptr noundef %0, i32 noundef %1
   br label %15
 
 15:                                               ; preds = %14, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 488
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store volatile i64 %13, ptr %16, align 8
   br label %17
 
@@ -874,9 +874,9 @@ define internal noundef i32 @cstate_pmu_event_add(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load volatile i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %6
 
 6:                                                ; preds = %21, %2
@@ -896,7 +896,7 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
   br label %16
 
 16:                                               ; preds = %15, %6
-  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %14, ptr elementtype(i64) %3, i64 %7) #7, !srcloc !19
+  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !19
   %18 = extractvalue { i8, i64 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -909,14 +909,14 @@ define internal void @cstate_pmu_event_del(ptr noundef %0, i32 %1) #3 align 16 {
 
 23:                                               ; preds = %16
   %24 = sub i64 %14, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, i64 %24, ptr elementtype(i64) %25) #7, !srcloc !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !21
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cstate_pmu_event_start(ptr noundef %0, i32 %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 384
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %5) #7, !srcloc !17
@@ -932,16 +932,16 @@ define internal void @cstate_pmu_event_start(ptr noundef %0, i32 %1) #3 align 16
   br label %12
 
 12:                                               ; preds = %11, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store volatile i64 %10, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load volatile i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %6
 
 6:                                                ; preds = %21, %2
@@ -961,7 +961,7 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
   br label %16
 
 16:                                               ; preds = %15, %6
-  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %14, ptr elementtype(i64) %3, i64 %7) #7, !srcloc !19
+  %17 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %14, ptr nonnull elementtype(i64) %3, i64 %7) #7, !srcloc !19
   %18 = extractvalue { i8, i64 } %17, 0
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -974,16 +974,16 @@ define internal void @cstate_pmu_event_stop(ptr noundef %0, i32 %1) #3 align 16 
 
 23:                                               ; preds = %16
   %24 = sub i64 %14, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, i64 %24, ptr elementtype(i64) %25) #7, !srcloc !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 %24, ptr nonnull elementtype(i64) %25) #7, !srcloc !21
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 488
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %5
 
 5:                                                ; preds = %20, %1
@@ -1003,7 +1003,7 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
   br label %15
 
 15:                                               ; preds = %14, %5
-  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %13, ptr elementtype(i64) %2, i64 %6) #7, !srcloc !19
+  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %13, ptr nonnull elementtype(i64) %2, i64 %6) #7, !srcloc !19
   %17 = extractvalue { i8, i64 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1016,8 +1016,8 @@ define internal void @cstate_pmu_event_update(ptr noundef %0) #3 align 16 {
 
 22:                                               ; preds = %15
   %23 = sub i64 %13, %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 %23, ptr elementtype(i64) %24) #7, !srcloc !21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %23, ptr nonnull elementtype(i64) %24) #7, !srcloc !21
   ret void
 }
 
@@ -1029,7 +1029,7 @@ define internal noundef i64 @__cstate_cstate_event_show(ptr nocapture readnone %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @cstate_get_attr_cpumask(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @cstate_core_pmu
   br i1 %6, label %11, label %7

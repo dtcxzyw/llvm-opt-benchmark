@@ -190,7 +190,7 @@ define noalias nonnull ptr @JLI_List_new(i64 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 JLI_MemAlloc.exit:                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %0, ptr %5, align 8
   %6 = shl i64 %0, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #17
@@ -204,7 +204,7 @@ JLI_MemAlloc.exit:                                ; preds = %1
 
 JLI_MemAlloc.exit5:                               ; preds = %JLI_MemAlloc.exit
   store ptr %7, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %10, align 8
   ret ptr %2
 }
@@ -220,7 +220,7 @@ define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not9, label %13, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not11 = icmp eq i64 %5, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -255,7 +255,7 @@ define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @JLI_List_ensureCapacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %.lr.ph, label %15
@@ -289,10 +289,10 @@ JLI_MemRealloc.exit:                              ; preds = %9
 
 ; Function Attrs: nounwind uwtable
 define void @JLI_List_add(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %7, %5
   br i1 %8, label %.lr.ph.i, label %.JLI_List_ensureCapacity.exit_crit_edge
@@ -352,10 +352,10 @@ JLI_MemAlloc.exit:                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %1, i64 %2, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 %2
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, %11
   br i1 %14, label %.lr.ph.i, label %JLI_MemAlloc.exit.JLI_List_ensureCapacity.exit_crit_edge
@@ -404,7 +404,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noalias nonnull ptr @JLI_List_combine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -464,7 +464,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden noalias nonnull ptr @JLI_List_join(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not32 = icmp eq i64 %4, 0
   br i1 %.not32, label %._crit_edge.thread, label %.lr.ph
@@ -511,7 +511,7 @@ define hidden noalias nonnull ptr @JLI_List_join(ptr nocapture noundef readonly 
   br i1 %.not, label %JLI_MemAlloc.exit, label %22
 
 22:                                               ; preds = %.lr.ph30
-  %23 = getelementptr inbounds i8, ptr %.02328, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
   store i8 %1, ptr %.02328, align 1
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.129
@@ -549,7 +549,7 @@ define hidden noalias nonnull ptr @JLI_List_split(ptr noundef %0, i8 noundef sig
   %7 = icmp eq i8 %6, %1
   %8 = zext i1 %7 to i32
   %9 = add nuw nsw i32 %.02530, %8
-  %10 = getelementptr inbounds i8, ptr %.031, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.031, i64 1
   %11 = icmp ult ptr %10, %4
   br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
@@ -569,7 +569,7 @@ define hidden noalias nonnull ptr @JLI_List_split(ptr noundef %0, i8 noundef sig
   unreachable
 
 JLI_MemAlloc.exit.i:                              ; preds = %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.025.lcssa, ptr %16, align 8
   %17 = shl nuw nsw i64 %.025.lcssa, 3
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #17
@@ -583,7 +583,7 @@ JLI_MemAlloc.exit.i:                              ; preds = %._crit_edge
 
 JLI_List_new.exit:                                ; preds = %JLI_MemAlloc.exit.i
   store ptr %18, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %21, align 8
   br label %.loopexit.outer
 
@@ -617,12 +617,12 @@ JLI_List_new.exit:                                ; preds = %JLI_MemAlloc.exit.i
   ret ptr %13
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %.02634, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
   br label %34
 
 34:                                               ; preds = %.lr.ph37, %32
   %.3 = phi ptr [ %33, %32 ], [ %.235, %.lr.ph37 ]
-  %35 = getelementptr inbounds i8, ptr %.02634, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.02634, i64 1
   %.not = icmp ugt ptr %35, %4
   br i1 %.not, label %.loopexit.outer, label %.lr.ph37, !llvm.loop !14
 }

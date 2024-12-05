@@ -13,13 +13,13 @@ entry:
   %val.addr = alloca ptr, align 8
   %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 8
   store ptr %val, ptr %val.addr, align 8
-  %funcs = getelementptr inbounds i8, ptr %it, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %asn1_cb = getelementptr inbounds i8, ptr %0, i64 16
+  %asn1_cb = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %asn1_cb, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -44,7 +44,7 @@ if.end11:                                         ; preds = %if.end
   %call12 = tail call i32 @BIO_asn1_set_prefix(ptr noundef nonnull %call3, ptr noundef nonnull @ndef_prefix, ptr noundef nonnull @ndef_prefix_free) #6
   %call13 = tail call i32 @BIO_asn1_set_suffix(ptr noundef nonnull %call3, ptr noundef nonnull @ndef_suffix, ptr noundef nonnull @ndef_suffix_free) #6
   store ptr %call4, ptr %sarg, align 8
-  %ndef_bio = getelementptr inbounds i8, ptr %sarg, i64 8
+  %ndef_bio = getelementptr inbounds nuw i8, ptr %sarg, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ndef_bio, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %asn1_cb, align 8
   %call16 = call i32 %2(i32 noundef 10, ptr noundef nonnull %val.addr, ptr noundef nonnull %it, ptr noundef nonnull %sarg) #6
@@ -52,18 +52,18 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp, label %if.then29, label %if.end18
 
 if.end18:                                         ; preds = %if.end11
-  %boundary = getelementptr inbounds i8, ptr %sarg, i64 16
+  %boundary = getelementptr inbounds nuw i8, ptr %sarg, i64 16
   %3 = load ptr, ptr %val.addr, align 8
   store ptr %3, ptr %call, align 8
-  %it20 = getelementptr inbounds i8, ptr %call, i64 8
+  %it20 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %it, ptr %it20, align 8
   %4 = load ptr, ptr %ndef_bio, align 8
-  %ndef_bio22 = getelementptr inbounds i8, ptr %call, i64 16
+  %ndef_bio22 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %4, ptr %ndef_bio22, align 8
   %5 = load ptr, ptr %boundary, align 8
-  %boundary24 = getelementptr inbounds i8, ptr %call, i64 32
+  %boundary24 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %5, ptr %boundary24, align 8
-  %out25 = getelementptr inbounds i8, ptr %call, i64 24
+  %out25 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call4, ptr %out25, align 8
   %call26 = call i64 @BIO_ctrl(ptr noundef nonnull %call3, i32 noundef 153, i64 noundef 0, ptr noundef nonnull %call) #6
   %6 = load ptr, ptr %ndef_bio, align 8
@@ -111,7 +111,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
   %1 = load ptr, ptr %0, align 8
-  %it = getelementptr inbounds i8, ptr %0, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %it, align 8
   %call = tail call i32 @ASN1_item_ndef_i2d(ptr noundef %1, ptr noundef null, ptr noundef %2) #6
   %conv = sext i32 %call to i64
@@ -121,13 +121,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call1, ptr %derbuf, align 8
   store ptr %call1, ptr %pbuf, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %it, align 8
   %call7 = call i32 @ASN1_item_ndef_i2d(ptr noundef %3, ptr noundef nonnull %p, ptr noundef %4) #6
-  %boundary = getelementptr inbounds i8, ptr %0, i64 32
+  %boundary = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %boundary, align 8
   %6 = load ptr, ptr %5, align 8
   %tobool8.not = icmp eq ptr %6, null
@@ -155,7 +155,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %derbuf, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -187,22 +187,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
-  %it = getelementptr inbounds i8, ptr %0, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %it, align 8
-  %funcs = getelementptr inbounds i8, ptr %1, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %funcs, align 8
-  %ndef_bio = getelementptr inbounds i8, ptr %0, i64 16
+  %ndef_bio = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %ndef_bio, align 8
-  %ndef_bio1 = getelementptr inbounds i8, ptr %sarg, i64 8
+  %ndef_bio1 = getelementptr inbounds nuw i8, ptr %sarg, i64 8
   store ptr %3, ptr %ndef_bio1, align 8
-  %out = getelementptr inbounds i8, ptr %0, i64 24
+  %out = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %out, align 8
   store ptr %4, ptr %sarg, align 8
-  %boundary = getelementptr inbounds i8, ptr %0, i64 32
+  %boundary = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %boundary, align 8
-  %boundary3 = getelementptr inbounds i8, ptr %sarg, i64 16
+  %boundary3 = getelementptr inbounds nuw i8, ptr %sarg, i64 16
   store ptr %5, ptr %boundary3, align 8
-  %asn1_cb = getelementptr inbounds i8, ptr %2, i64 16
+  %asn1_cb = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %asn1_cb, align 8
   %call = call i32 %6(i32 noundef 11, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %sarg) #6
   %cmp = icmp slt i32 %call, 1
@@ -219,7 +219,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end6
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call10, ptr %derbuf, align 8
   store ptr %call10, ptr %pbuf, align 8
   %9 = load ptr, ptr %0, align 8
@@ -256,7 +256,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
-  %derbuf.i = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %derbuf.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.end, label %if.then2.i

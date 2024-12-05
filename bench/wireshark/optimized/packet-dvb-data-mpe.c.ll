@@ -105,10 +105,10 @@ define internal i32 @dissect_dvb_data_mpe(ptr noundef %0, ptr noundef %1, ptr no
   %9 = alloca i32, align 4
   %10 = alloca %struct._address, align 8
   store i32 0, ptr %5, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %12, i64 noundef 6) #2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.32) #2
   %16 = load ptr, ptr %14, align 8
@@ -189,11 +189,11 @@ define internal i32 @dissect_dvb_data_mpe(ptr noundef %0, ptr noundef %1, ptr no
   %64 = load i32, ptr @hf_dvb_data_mpe_dst_mac, align 4
   %65 = call ptr @proto_tree_add_ether(ptr noundef %20, i32 noundef %64, ptr noundef %0, i32 noundef 3, i32 noundef 2, ptr noundef nonnull %13) #2
   store i32 1, ptr %10, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 6, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %10, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %68, align 8
   %69 = load ptr, ptr %14, align 8
   %70 = load ptr, ptr %11, align 8

@@ -1267,7 +1267,7 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery(ptr noundef %0, ptr noundef 
 define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.hopcount_info_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.404) #6
   %8 = load ptr, ptr %6, align 8
@@ -1294,7 +1294,7 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   br i1 %9, label %.preheader274, label %323
 
 .preheader274:                                    ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %11
 
 11:                                               ; preds = %.preheader274, %.loopexit
@@ -2007,7 +2007,7 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noun
   %6 = alloca %struct.hopcount_info_t, align 8
   store i32 0, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.763) #6
   %9 = load ptr, ptr %7, align 8
@@ -2243,9 +2243,9 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br i1 %.not1307, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @tvb_bytes_to_str(ptr noundef %50, ptr noundef %0, i32 noundef %42, i32 noundef %26) #6
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.769, ptr noundef %51) #6
@@ -2289,7 +2289,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %71 = add i32 %70, 946684800
   %72 = zext i32 %71 to i64
   store i64 %72, ptr %14, align 8
-  %73 = getelementptr inbounds i8, ptr %14, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %73, align 8
   %74 = load i32, ptr @hf_duidllt_time, align 4
   %75 = call ptr @proto_tree_add_time(ptr noundef %37, i32 noundef %74, ptr noundef %0, i32 noundef %69, i32 noundef 4, ptr noundef nonnull %14) #6
@@ -2301,7 +2301,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %78 = load i32, ptr @hf_duidllt_link_layer_addr, align 4
   %79 = add i32 %3, 12
   %80 = add nsw i32 %26, -8
-  %81 = getelementptr inbounds i8, ptr %1, i64 408
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %82 = load ptr, ptr %81, align 8
   %83 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %82, ptr noundef %0, i32 noundef %79, i32 noundef %80, i16 noundef zeroext %77) #6
   %84 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef %80, ptr noundef %83) #6
@@ -2361,7 +2361,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %113 = load i32, ptr @hf_duidll_link_layer_addr, align 4
   %114 = add i32 %3, 8
   %115 = add nsw i32 %26, -4
-  %116 = getelementptr inbounds i8, ptr %1, i64 408
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %117 = load ptr, ptr %116, align 8
   %118 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %117, ptr noundef %0, i32 noundef %114, i32 noundef %115, i16 noundef zeroext %112) #6
   %119 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %113, ptr noundef %0, i32 noundef %114, i32 noundef %115, ptr noundef %118) #6
@@ -2720,7 +2720,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 329:                                              ; preds = %321
   %330 = load i32, ptr @hf_iaid, align 4
-  %331 = getelementptr inbounds i8, ptr %1, i64 408
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %332 = load ptr, ptr %331, align 8
   %333 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %332, ptr noundef %0, i32 noundef %42, i32 noundef 4, i16 noundef zeroext %23) #6
   %334 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %330, ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %333) #6
@@ -2783,7 +2783,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 365:                                              ; preds = %361
   %366 = load i32, ptr @hf_iata, align 4
-  %367 = getelementptr inbounds i8, ptr %1, i64 408
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %368 = load ptr, ptr %367, align 8
   %369 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %368, ptr noundef %0, i32 noundef %42, i32 noundef 4, i16 noundef zeroext 4) #6
   %370 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %366, ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %369) #6
@@ -2817,9 +2817,9 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 383:                                              ; preds = %379
   %384 = load i32, ptr @hf_iaaddr_ip, align 4
   %385 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %384, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
-  %386 = getelementptr inbounds i8, ptr %1, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %1, i64 408
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %389 = load ptr, ptr %388, align 8
   %390 = tail call ptr @tvb_address_to_str(ptr noundef %389, ptr noundef %0, i32 noundef 3, i32 noundef %42) #6
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %387, i32 noundef 25, ptr noundef nonnull @.str.785, ptr noundef %390) #6
@@ -3110,7 +3110,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 560:                                              ; preds = %556
   %561 = add i32 %551, %42
   %562 = load i32, ptr @hf_cablelabs_interface_id_link_address, align 4
-  %563 = getelementptr inbounds i8, ptr %1, i64 408
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %564 = load ptr, ptr %563, align 8
   %565 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %564, ptr noundef %0, i32 noundef %561, i32 noundef 6, i16 noundef zeroext 1) #6
   %566 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %562, ptr noundef %0, i32 noundef %561, i32 noundef %558, ptr noundef %565) #6
@@ -3804,13 +3804,13 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %.not.i, label %proto_item_set_url.exit, label %895
 
 895:                                              ; preds = %892
-  %896 = getelementptr inbounds i8, ptr %894, i64 32
+  %896 = getelementptr inbounds nuw i8, ptr %894, i64 32
   %897 = load ptr, ptr %896, align 8
   %.not5.i = icmp eq ptr %897, null
   br i1 %.not5.i, label %proto_item_set_url.exit, label %898
 
 898:                                              ; preds = %895
-  %899 = getelementptr inbounds i8, ptr %897, i64 28
+  %899 = getelementptr inbounds nuw i8, ptr %897, i64 28
   %900 = load i32, ptr %899, align 4
   %901 = or i32 %900, 4
   store i32 %901, ptr %899, align 4
@@ -3856,7 +3856,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 920:                                              ; preds = %30
   %921 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %42, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
   %922 = load i32, ptr @hf_option_failover_dns_hostname, align 4
-  %923 = getelementptr inbounds i8, ptr %1, i64 408
+  %923 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %924 = load ptr, ptr %923, align 8
   %925 = load ptr, ptr %15, align 8
   %926 = load i32, ptr %16, align 4
@@ -3868,7 +3868,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 930:                                              ; preds = %30
   %931 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %42, ptr noundef nonnull %17, ptr noundef nonnull %18) #6
   %932 = load i32, ptr @hf_option_failover_dns_zonename, align 4
-  %933 = getelementptr inbounds i8, ptr %1, i64 408
+  %933 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %934 = load ptr, ptr %933, align 8
   %935 = load ptr, ptr %17, align 8
   %936 = load i32, ptr %18, align 4
@@ -4119,7 +4119,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %1059 = load i32, ptr @hf_client_link_layer_addr, align 4
   %1060 = add i32 %3, 6
   %1061 = add nsw i32 %26, -2
-  %1062 = getelementptr inbounds i8, ptr %1, i64 408
+  %1062 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1063 = load ptr, ptr %1062, align 8
   %1064 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %1063, ptr noundef %0, i32 noundef %1060, i32 noundef %1061, i16 noundef zeroext %1058) #6
   %1065 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %1059, ptr noundef %0, i32 noundef %1060, i32 noundef %1061, ptr noundef %1064) #6
@@ -4194,10 +4194,10 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
 13:                                               ; preds = %6
   %14 = add i32 %4, -1
   %15 = add i32 %14, %7
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %17, ptr noundef null) #6
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.outer.backedge
@@ -4245,7 +4245,7 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not195, label %52, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.844) #6
   %42 = load i32, ptr @hf_dhcpv6_domain_field_len_exceeded, align 4
@@ -4272,7 +4272,7 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %55, label %56, label %77
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.847) #6
   tail call void @wmem_strbuf_append_c(ptr noundef %18, i8 noundef signext 46) #6
@@ -4315,7 +4315,7 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   tail call void @col_append_str(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.851) #6
   %83 = load i32, ptr @hf_dhcpv6_root_only_domain_name, align 4
@@ -4359,7 +4359,7 @@ define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not197, label %117, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load ptr, ptr %109, align 8
   tail call void @col_append_str(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.854) #6
   %111 = load i32, ptr @hf_dhcpv6_partial_name_preceded_by_fqdn, align 4
@@ -4441,7 +4441,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i8 %8 to i32
   %12 = tail call ptr @val_to_str_ext(i32 noundef %11, ptr noundef nonnull @msgtype_vals_ext, ptr noundef nonnull @.str.859) #6
@@ -4466,14 +4466,14 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
 
 21:                                               ; preds = %13
   %22 = load i8, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   %.pre = add i32 %3, 1
   br label %40
 
 25:                                               ; preds = %.thread
   %26 = load i8, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @hf_dhcpv6_msgtype, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %29, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
@@ -4507,7 +4507,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
   br label %50
 
 50:                                               ; preds = %46, %40
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %52 = load i32, ptr %51, align 8
   %.not67 = icmp eq i32 %52, 0
   br i1 %.not67, label %60, label %53
@@ -4527,7 +4527,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
 60:                                               ; preds = %57, %53, %50
   store i32 1, ptr %51, align 8
   %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = add i32 %3, 2
   %65 = tail call ptr @tvb_address_to_str(ptr noundef %63, ptr noundef %0, i32 noundef 3, i32 noundef %64) #6
@@ -4541,7 +4541,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not66, label %73, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = zext i8 %67 to i32
   %72 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %70, ptr noundef nonnull @ei_dhcpv6_error_hopcount, ptr noundef nonnull @.str.863, i32 noundef %71) #6

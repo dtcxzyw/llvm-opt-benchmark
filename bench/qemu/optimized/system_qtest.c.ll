@@ -207,7 +207,7 @@ define dso_local void @qtest_server_init(ptr noundef %qtest_chrdev, ptr noundef 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -223,7 +223,7 @@ if.then4:                                         ; preds = %entry
 
 if.end5:                                          ; preds = %entry
   %call6 = tail call ptr @object_new(ptr noundef nonnull @.str.3) #18
-  %label = getelementptr inbounds i8, ptr %call, i64 96
+  %label = getelementptr inbounds nuw i8, ptr %call, i64 96
   %0 = load ptr, ptr %label, align 8
   %call7 = tail call zeroext i1 @object_property_set_str(ptr noundef %call6, ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @error_abort) #18
   %tobool8.not = icmp eq ptr %qtest_log, null
@@ -294,7 +294,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %qtest_chr = getelementptr inbounds i8, ptr %0, i64 64
+  %qtest_chr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %qtest_chr, align 8
   %cmp = icmp ne ptr %1, null
   br label %land.end
@@ -321,7 +321,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call1 = tail call ptr @g_string_append(ptr noundef %1, ptr noundef %buf) #18
   %2 = load ptr, ptr @qtest_server_inproc_recv.gstr, align 8
   %3 = load ptr, ptr %2, align 8
-  %len = getelementptr inbounds i8, ptr %2, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %len, align 8
   %5 = getelementptr i8, ptr %3, i64 %4
   %arrayidx = getelementptr i8, ptr %5, i64 -1
@@ -602,7 +602,7 @@ if.else53.i:                                      ; preds = %qtest_send_prefix.e
   br label %qtest_process_command.exit
 
 if.end55.i:                                       ; preds = %if.end47.i
-  %gpios.i = getelementptr inbounds i8, ptr %call.i456.i, i64 96
+  %gpios.i = getelementptr inbounds nuw i8, ptr %call.i456.i, i64 96
   %ngl.0623.i = load ptr, ptr %gpios.i, align 8
   %tobool57.not624.i = icmp eq ptr %ngl.0623.i, null
   br i1 %tobool57.not624.i, label %for.end79.i, label %for.body58.lr.ph.i
@@ -621,7 +621,7 @@ for.body58.us.i:                                  ; preds = %for.body58.lr.ph.i,
 
 for.inc78.us.i:                                   ; preds = %for.body70.us.i, %for.cond67.preheader.us.i, %for.body58.us.i
   %interception_succeeded.1.us.i = phi i1 [ %interception_succeeded.0625.us.i, %for.body58.us.i ], [ true, %for.cond67.preheader.us.i ], [ true, %for.body70.us.i ]
-  %node.us.i = getelementptr inbounds i8, ptr %ngl.0626.us.i, i64 24
+  %node.us.i = getelementptr inbounds nuw i8, ptr %ngl.0626.us.i, i64 24
   %ngl.0.us.i = load ptr, ptr %node.us.i, align 8
   %tobool57.not.us.i = icmp eq ptr %ngl.0.us.i, null
   br i1 %tobool57.not.us.i, label %for.end79.i, label %for.body58.us.i, !llvm.loop !7
@@ -639,19 +639,19 @@ for.body70.us.i:                                  ; preds = %for.cond67.preheade
   br i1 %cmp68.us.i, label %for.body70.us.i, label %for.inc78.us.i, !llvm.loop !8
 
 for.cond67.preheader.us.i:                        ; preds = %for.body58.us.i
-  %num_out.us.i = getelementptr inbounds i8, ptr %ngl.0626.us.i, i64 20
+  %num_out.us.i = getelementptr inbounds nuw i8, ptr %ngl.0626.us.i, i64 20
   %33 = load i32, ptr %num_out.us.i, align 4
   %cmp68621.us.i = icmp sgt i32 %33, 0
   br i1 %cmp68621.us.i, label %for.body70.us.i, label %for.inc78.us.i
 
 for.body58.i:                                     ; preds = %for.body58.lr.ph.i, %for.body58.i
   %ngl.0626.i = phi ptr [ %ngl.0.i, %for.body58.i ], [ %ngl.0623.i, %for.body58.lr.ph.i ]
-  %in.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 8
+  %in.i = getelementptr inbounds nuw i8, ptr %ngl.0626.i, i64 8
   %34 = load ptr, ptr %in.i, align 8
-  %num_in.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 16
+  %num_in.i = getelementptr inbounds nuw i8, ptr %ngl.0626.i, i64 16
   %35 = load i32, ptr %num_in.i, align 8
   call void @qemu_irq_intercept_in(ptr noundef %34, ptr noundef nonnull @qtest_irq_handler, i32 noundef %35) #18
-  %node.i = getelementptr inbounds i8, ptr %ngl.0626.i, i64 24
+  %node.i = getelementptr inbounds nuw i8, ptr %ngl.0626.i, i64 24
   %ngl.0.i = load ptr, ptr %node.i, align 8
   %tobool57.not.i = icmp eq ptr %ngl.0.i, null
   br i1 %tobool57.not.i, label %for.end79.i, label %for.body58.i, !llvm.loop !7
@@ -1071,7 +1071,7 @@ if.then350.i:                                     ; preds = %do.end344.i
   %84 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %85 = inttoptr i64 %84 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
-  %as.i = getelementptr inbounds i8, ptr %85, i64 528
+  %as.i = getelementptr inbounds nuw i8, ptr %85, i64 528
   %86 = load ptr, ptr %as.i, align 16
   %87 = load i64, ptr %addr314.i, align 8
   %call381.i = call i32 @address_space_write(ptr noundef %86, i64 noundef %87, i32 1, ptr noundef nonnull %data.i, i64 noundef 1) #18
@@ -1093,7 +1093,7 @@ tswap16s.exit.i:                                  ; preds = %if.then.i514.i, %if
   %90 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %91 = inttoptr i64 %90 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
-  %as397.i = getelementptr inbounds i8, ptr %91, i64 528
+  %as397.i = getelementptr inbounds nuw i8, ptr %91, i64 528
   %92 = load ptr, ptr %as397.i, align 16
   %93 = load i64, ptr %addr314.i, align 8
   %call430.i = call i32 @address_space_write(ptr noundef %92, i64 noundef %93, i32 1, ptr noundef nonnull %data389.i, i64 noundef 2) #18
@@ -1115,7 +1115,7 @@ tswap32s.exit.i:                                  ; preds = %if.then.i517.i, %if
   %96 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %97 = inttoptr i64 %96 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
-  %as446.i = getelementptr inbounds i8, ptr %97, i64 528
+  %as446.i = getelementptr inbounds nuw i8, ptr %97, i64 528
   %98 = load ptr, ptr %as446.i, align 16
   %99 = load i64, ptr %addr314.i, align 8
   %call479.i = call i32 @address_space_write(ptr noundef %98, i64 noundef %99, i32 1, ptr noundef nonnull %data438.i, i64 noundef 4) #18
@@ -1136,7 +1136,7 @@ tswap64s.exit.i:                                  ; preds = %if.then.i520.i, %if
   %102 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %103 = inttoptr i64 %102 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
-  %as494.i = getelementptr inbounds i8, ptr %103, i64 528
+  %as494.i = getelementptr inbounds nuw i8, ptr %103, i64 528
   %104 = load ptr, ptr %as494.i, align 16
   %105 = load i64, ptr %addr314.i, align 8
   %call527.i = call i32 @address_space_write(ptr noundef %104, i64 noundef %105, i32 1, ptr noundef nonnull %data487.i, i64 noundef 8) #18
@@ -1218,11 +1218,11 @@ while.end583.i:                                   ; preds = %do.end571.i
   %113 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %114 = inttoptr i64 %113 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
-  %as585.i = getelementptr inbounds i8, ptr %114, i64 528
+  %as585.i = getelementptr inbounds nuw i8, ptr %114, i64 528
   %115 = load ptr, ptr %as585.i, align 16
   %116 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i.i = getelementptr inbounds i8, ptr %115, i64 32
+  %current_map.i.i = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load atomic i64, ptr %current_map.i.i monotonic, align 8
   %118 = inttoptr i64 %117 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1243,19 +1243,19 @@ land.lhs.true6.i.i:                               ; preds = %land.lhs.true.i1527
   br i1 %call7.i521.i, label %lor.rhs.i.i, label %if.then6.i1529.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true6.i.i, %land.lhs.true.i1527.i
-  %rom_device.i.i.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 45
+  %rom_device.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i1522.i, i64 45
   %121 = load i8, ptr %rom_device.i.i.i, align 1
   %tobool.i7.i.i = trunc i8 %121 to i1
   br i1 %tobool.i7.i.i, label %memory_access_is_direct.exit.i, label %if.else.i1524.i
 
 memory_access_is_direct.exit.i:                   ; preds = %lor.rhs.i.i
-  %romd_mode.i.i.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 40
+  %romd_mode.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i1522.i, i64 40
   %122 = load i8, ptr %romd_mode.i.i.i, align 8
   %tobool1.i.i.i = trunc i8 %122 to i1
   br i1 %tobool1.i.i.i, label %if.then6.i1529.i, label %if.else.i1524.i
 
 if.then6.i1529.i:                                 ; preds = %memory_access_is_direct.exit.i, %land.lhs.true6.i.i
-  %ram_block.i1530.i = getelementptr inbounds i8, ptr %call4.i1522.i, i64 56
+  %ram_block.i1530.i = getelementptr inbounds nuw i8, ptr %call4.i1522.i, i64 56
   %123 = load ptr, ptr %ram_block.i1530.i, align 8
   %124 = load i64, ptr %addr1.i1509.i, align 8
   %call7.i1531.i = call ptr @qemu_map_ram_ptr(ptr noundef %123, i64 noundef %124) #18
@@ -1279,11 +1279,11 @@ while.end632.i:                                   ; preds = %do.end571.i
   %129 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %130 = inttoptr i64 %129 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !15
-  %as634.i = getelementptr inbounds i8, ptr %130, i64 528
+  %as634.i = getelementptr inbounds nuw i8, ptr %130, i64 528
   %131 = load ptr, ptr %as634.i, align 16
   %132 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i522.i = getelementptr inbounds i8, ptr %131, i64 32
+  %current_map.i522.i = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load atomic i64, ptr %current_map.i522.i monotonic, align 8
   %134 = inttoptr i64 %133 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1304,19 +1304,19 @@ land.lhs.true6.i531.i:                            ; preds = %land.lhs.true.i1496
   br i1 %call7.i532.i, label %lor.rhs.i525.i, label %if.then6.i1498.i
 
 lor.rhs.i525.i:                                   ; preds = %land.lhs.true6.i531.i, %land.lhs.true.i1496.i
-  %rom_device.i.i526.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 45
+  %rom_device.i.i526.i = getelementptr inbounds nuw i8, ptr %call4.i1491.i, i64 45
   %137 = load i8, ptr %rom_device.i.i526.i, align 1
   %tobool.i7.i527.i = trunc i8 %137 to i1
   br i1 %tobool.i7.i527.i, label %memory_access_is_direct.exit533.i, label %if.else.i1493.i
 
 memory_access_is_direct.exit533.i:                ; preds = %lor.rhs.i525.i
-  %romd_mode.i.i529.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 40
+  %romd_mode.i.i529.i = getelementptr inbounds nuw i8, ptr %call4.i1491.i, i64 40
   %138 = load i8, ptr %romd_mode.i.i529.i, align 8
   %tobool1.i.i530.i = trunc i8 %138 to i1
   br i1 %tobool1.i.i530.i, label %if.then6.i1498.i, label %if.else.i1493.i
 
 if.then6.i1498.i:                                 ; preds = %memory_access_is_direct.exit533.i, %land.lhs.true6.i531.i
-  %ram_block.i1499.i = getelementptr inbounds i8, ptr %call4.i1491.i, i64 56
+  %ram_block.i1499.i = getelementptr inbounds nuw i8, ptr %call4.i1491.i, i64 56
   %139 = load ptr, ptr %ram_block.i1499.i, align 8
   %140 = load i64, ptr %addr1.i1478.i, align 8
   %call7.i1500.i = call ptr @qemu_map_ram_ptr(ptr noundef %139, i64 noundef %140) #18
@@ -1343,11 +1343,11 @@ while.end682.i:                                   ; preds = %do.end571.i
   %146 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %147 = inttoptr i64 %146 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
-  %as684.i = getelementptr inbounds i8, ptr %147, i64 528
+  %as684.i = getelementptr inbounds nuw i8, ptr %147, i64 528
   %148 = load ptr, ptr %as684.i, align 16
   %149 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i535.i = getelementptr inbounds i8, ptr %148, i64 32
+  %current_map.i535.i = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load atomic i64, ptr %current_map.i535.i monotonic, align 8
   %151 = inttoptr i64 %150 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1368,19 +1368,19 @@ land.lhs.true6.i544.i:                            ; preds = %land.lhs.true.i1465
   br i1 %call7.i545.i, label %lor.rhs.i538.i, label %if.then6.i1467.i
 
 lor.rhs.i538.i:                                   ; preds = %land.lhs.true6.i544.i, %land.lhs.true.i1465.i
-  %rom_device.i.i539.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 45
+  %rom_device.i.i539.i = getelementptr inbounds nuw i8, ptr %call4.i1460.i, i64 45
   %154 = load i8, ptr %rom_device.i.i539.i, align 1
   %tobool.i7.i540.i = trunc i8 %154 to i1
   br i1 %tobool.i7.i540.i, label %memory_access_is_direct.exit546.i, label %if.else.i1462.i
 
 memory_access_is_direct.exit546.i:                ; preds = %lor.rhs.i538.i
-  %romd_mode.i.i542.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 40
+  %romd_mode.i.i542.i = getelementptr inbounds nuw i8, ptr %call4.i1460.i, i64 40
   %155 = load i8, ptr %romd_mode.i.i542.i, align 8
   %tobool1.i.i543.i = trunc i8 %155 to i1
   br i1 %tobool1.i.i543.i, label %if.then6.i1467.i, label %if.else.i1462.i
 
 if.then6.i1467.i:                                 ; preds = %memory_access_is_direct.exit546.i, %land.lhs.true6.i544.i
-  %ram_block.i1468.i = getelementptr inbounds i8, ptr %call4.i1460.i, i64 56
+  %ram_block.i1468.i = getelementptr inbounds nuw i8, ptr %call4.i1460.i, i64 56
   %156 = load ptr, ptr %ram_block.i1468.i, align 8
   %157 = load i64, ptr %addr1.i1447.i, align 8
   %call7.i1469.i = call ptr @qemu_map_ram_ptr(ptr noundef %156, i64 noundef %157) #18
@@ -1407,11 +1407,11 @@ while.end731.i:                                   ; preds = %do.end571.i
   %163 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %164 = inttoptr i64 %163 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %as733.i = getelementptr inbounds i8, ptr %164, i64 528
+  %as733.i = getelementptr inbounds nuw i8, ptr %164, i64 528
   %165 = load ptr, ptr %as733.i, align 16
   %166 = load i64, ptr %addr553.i, align 8
   call fastcc void @rcu_read_auto_lock()
-  %current_map.i549.i = getelementptr inbounds i8, ptr %165, i64 32
+  %current_map.i549.i = getelementptr inbounds nuw i8, ptr %165, i64 32
   %167 = load atomic i64, ptr %current_map.i549.i monotonic, align 8
   %168 = inttoptr i64 %167 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
@@ -1432,19 +1432,19 @@ land.lhs.true6.i558.i:                            ; preds = %land.lhs.true.i1434
   br i1 %call7.i559.i, label %lor.rhs.i552.i, label %if.then6.i1436.i
 
 lor.rhs.i552.i:                                   ; preds = %land.lhs.true6.i558.i, %land.lhs.true.i1434.i
-  %rom_device.i.i553.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 45
+  %rom_device.i.i553.i = getelementptr inbounds nuw i8, ptr %call4.i1429.i, i64 45
   %171 = load i8, ptr %rom_device.i.i553.i, align 1
   %tobool.i7.i554.i = trunc i8 %171 to i1
   br i1 %tobool.i7.i554.i, label %memory_access_is_direct.exit560.i, label %if.else.i1431.i
 
 memory_access_is_direct.exit560.i:                ; preds = %lor.rhs.i552.i
-  %romd_mode.i.i556.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 40
+  %romd_mode.i.i556.i = getelementptr inbounds nuw i8, ptr %call4.i1429.i, i64 40
   %172 = load i8, ptr %romd_mode.i.i556.i, align 8
   %tobool1.i.i557.i = trunc i8 %172 to i1
   br i1 %tobool1.i.i557.i, label %if.then6.i1436.i, label %if.else.i1431.i
 
 if.then6.i1436.i:                                 ; preds = %memory_access_is_direct.exit560.i, %land.lhs.true6.i558.i
-  %ram_block.i1437.i = getelementptr inbounds i8, ptr %call4.i1429.i, i64 56
+  %ram_block.i1437.i = getelementptr inbounds nuw i8, ptr %call4.i1429.i, i64 56
   %173 = load ptr, ptr %ram_block.i1437.i, align 8
   %174 = load i64, ptr %addr1.i1416.i, align 8
   %call7.i1438.i = call ptr @qemu_map_ram_ptr(ptr noundef %173, i64 noundef %174) #18
@@ -1549,7 +1549,7 @@ do.end814.i:                                      ; preds = %do.body809.i
   %188 = load i64, ptr %len.i, align 8
   %189 = load i64, ptr %addr777.i, align 8
   %190 = inttoptr i64 %187 to ptr
-  %as822.i = getelementptr inbounds i8, ptr %190, i64 528
+  %as822.i = getelementptr inbounds nuw i8, ptr %190, i64 528
   %191 = load ptr, ptr %as822.i, align 16
   %call13.i1391.i = call i32 @address_space_read_full(ptr noundef %191, i64 noundef %189, i32 1, ptr noundef %call815.i, i64 noundef %188) #18
   %192 = load i64, ptr %len.i, align 8
@@ -1628,7 +1628,7 @@ do.end906.i:                                      ; preds = %do.end897.i
   %201 = load i64, ptr %len876.i, align 8
   %202 = load i64, ptr %addr875.i, align 8
   %203 = inttoptr i64 %200 to ptr
-  %as914.i = getelementptr inbounds i8, ptr %203, i64 528
+  %as914.i = getelementptr inbounds nuw i8, ptr %203, i64 528
   %204 = load ptr, ptr %as914.i, align 16
   %call13.i.i = call i32 @address_space_read_full(ptr noundef %204, i64 noundef %202, i32 1, ptr noundef %call907.i, i64 noundef %201) #18
   %205 = load i64, ptr %len876.i, align 8
@@ -1782,7 +1782,7 @@ while.end1032.i:                                  ; preds = %for.inc1025.i, %if.
   %225 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %226 = inttoptr i64 %225 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
-  %as1034.i = getelementptr inbounds i8, ptr %226, i64 528
+  %as1034.i = getelementptr inbounds nuw i8, ptr %226, i64 528
   %227 = load ptr, ptr %as1034.i, align 16
   %228 = load i64, ptr %addr955.i, align 8
   %229 = load i64, ptr %len956.i, align 8
@@ -1864,7 +1864,7 @@ if.then1119.i:                                    ; preds = %do.end1117.i
   %241 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %242 = inttoptr i64 %241 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
-  %as1128.i = getelementptr inbounds i8, ptr %242, i64 528
+  %as1128.i = getelementptr inbounds nuw i8, ptr %242, i64 528
   %243 = load ptr, ptr %as1128.i, align 16
   %244 = load i64, ptr %addr1074.i, align 8
   %245 = load i64, ptr %len1075.i, align 8
@@ -1956,7 +1956,7 @@ while.end1224.i:                                  ; preds = %if.then1215.i, %if.
   %259 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %260 = inttoptr i64 %259 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !24
-  %as1226.i = getelementptr inbounds i8, ptr %260, i64 528
+  %as1226.i = getelementptr inbounds nuw i8, ptr %260, i64 528
   %261 = load ptr, ptr %as1226.i, align 16
   %262 = load i64, ptr %addr1169.i, align 8
   %263 = load i64, ptr %len1170.i, align 8
@@ -2396,7 +2396,7 @@ declare i64 @llvm.bswap.i64(i64) #12
 define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @get_ptr_rcu_reader() #18
-  %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %depth.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   %0 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -2423,7 +2423,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -2442,7 +2442,7 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   fence seq_cst
-  %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %waiting.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_clear_RCUReadAuto.exit
@@ -2487,9 +2487,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @qtest_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.76, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #18
-  %unparent = getelementptr inbounds i8, ptr %oc, i64 80
+  %unparent = getelementptr inbounds nuw i8, ptr %oc, i64 80
   store ptr @qtest_unparent, ptr %unparent, align 8
-  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qtest_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @qtest_get_chardev, ptr noundef nonnull @qtest_set_chardev) #18
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @qtest_get_log, ptr noundef nonnull @qtest_set_log) #18
@@ -2505,7 +2505,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %qtest_chr = getelementptr inbounds i8, ptr %call.i, i64 64
+  %qtest_chr = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   tail call void @qemu_chr_fe_disconnect(ptr noundef nonnull %qtest_chr) #18
   %.b5 = load i1, ptr @qtest_opened, align 1
   br i1 %.b5, label %if.else, label %if.end
@@ -2530,7 +2530,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end6, %entry
-  %has_machine_link = getelementptr inbounds i8, ptr %call.i, i64 40
+  %has_machine_link = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %2 = load i8, ptr %has_machine_link, align 8
   %tobool8 = trunc i8 %2 to i1
   br i1 %tobool8, label %if.then9, label %if.end12
@@ -2558,7 +2558,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
+  %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %chr_name, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %if.end3
@@ -2568,23 +2568,23 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %parent = getelementptr inbounds i8, ptr %uc, i64 32
+  %parent = getelementptr inbounds nuw i8, ptr %uc, i64 32
   %2 = load ptr, ptr %parent, align 8
   %call4 = tail call ptr @qdev_get_machine() #18
   %cmp.not = icmp eq ptr %2, %call4
   br i1 %cmp.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %has_machine_link = getelementptr inbounds i8, ptr %call.i, i64 40
+  %has_machine_link = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i8 1, ptr %has_machine_link, align 8
   %call6 = tail call ptr @qdev_get_machine() #18
   %call7 = tail call ptr @object_property_add_const_link(ptr noundef %call6, ptr noundef nonnull @.str.3, ptr noundef nonnull %uc) #18
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end3, %if.then5
-  %chr1.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %chr1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %3 = load ptr, ptr %chr1.i, align 8
-  %log.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %log.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %4 = load ptr, ptr %log.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2608,7 +2608,7 @@ if.end4.sink.split.i:                             ; preds = %if.else.i, %if.then
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end4.sink.split.i, %if.then.i
-  %qtest_chr.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %qtest_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %call5.i = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %qtest_chr.i, ptr noundef %3, ptr noundef %errp) #18
   br i1 %call5.i, label %if.end7.i, label %return
 
@@ -2640,7 +2640,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @qtest_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
-  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
+  %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %chr_name, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #18
   ret ptr %call1
@@ -2668,12 +2668,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 48
+  %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %1) #18
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %value) #18
   store ptr %call4, ptr %chr_name, align 8
-  %chr6 = getelementptr inbounds i8, ptr %call.i, i64 56
+  %chr6 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %chr6, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
@@ -2695,7 +2695,7 @@ return:                                           ; preds = %if.end10, %if.then2
 define internal noalias ptr @qtest_get_log(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.QTEST) #18
-  %log = getelementptr inbounds i8, ptr %call.i, i64 120
+  %log = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %log, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #18
   ret ptr %call1
@@ -2714,7 +2714,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %log = getelementptr inbounds i8, ptr %call.i, i64 120
+  %log = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %1 = load ptr, ptr %log, align 8
   tail call void @g_free(ptr noundef %1) #18
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #18

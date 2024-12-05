@@ -50,17 +50,17 @@ define ptr @Dar_ManRwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.Dar_RwrPar_t_, align 4
   %10 = alloca %struct.Dar_RefPar_t_, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %12 = load i64, ptr %11, align 8
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %9) #12
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %10) #12
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %2, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %2, ptr %16, align 4
   %17 = call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   %.not = icmp eq i32 %2, 0
@@ -76,7 +76,7 @@ define ptr @Dar_ManRwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br i1 %.not79, label %39, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %17, i64 488
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 488
   store i64 %12, ptr %22, align 8
   %23 = call ptr @Dar_ManBalance(ptr noundef %17, i32 noundef 0) #12
   call void @Aig_ManStop(ptr noundef %17) #12
@@ -100,7 +100,7 @@ define ptr @Dar_ManRwsat(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 30:                                               ; preds = %27
   %31 = load i64, ptr %8, align 8
   %32 = mul nsw i64 %31, 1000000
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = sdiv i64 %34, 1000
   %36 = add nsw i64 %35, %32
@@ -118,7 +118,7 @@ Abc_Clock.exit:                                   ; preds = %27, %30
 
 39:                                               ; preds = %26, %Abc_Clock.exit, %20
   %.071 = phi ptr [ %23, %Abc_Clock.exit ], [ %23, %26 ], [ %17, %20 ]
-  %40 = getelementptr inbounds i8, ptr %.071, i64 488
+  %40 = getelementptr inbounds nuw i8, ptr %.071, i64 488
   store i64 %12, ptr %40, align 8
   %41 = call i32 @Dar_ManRewrite(ptr noundef %.071, ptr noundef nonnull %9) #12
   %42 = call ptr @Aig_ManDupDfs(ptr noundef %.071) #12
@@ -143,7 +143,7 @@ Abc_Clock.exit:                                   ; preds = %27, %30
 49:                                               ; preds = %46
   %50 = load i64, ptr %7, align 8
   %51 = mul nsw i64 %50, 1000000
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = sdiv i64 %53, 1000
   %55 = add nsw i64 %54, %51
@@ -160,7 +160,7 @@ Abc_Clock.exit88:                                 ; preds = %46, %49
   br i1 %.not85, label %115, label %.sink.split
 
 58:                                               ; preds = %Abc_Clock.exit88, %45
-  %59 = getelementptr inbounds i8, ptr %42, i64 488
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 488
   store i64 %12, ptr %59, align 8
   %60 = call i32 @Dar_ManRefactor(ptr noundef %42, ptr noundef nonnull %10) #12
   %61 = call ptr @Aig_ManDupDfs(ptr noundef %42) #12
@@ -184,7 +184,7 @@ Abc_Clock.exit88:                                 ; preds = %46, %49
 68:                                               ; preds = %65
   %69 = load i64, ptr %6, align 8
   %70 = mul nsw i64 %69, 1000000
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = sdiv i64 %72, 1000
   %74 = add nsw i64 %73, %70
@@ -204,7 +204,7 @@ Abc_Clock.exit90:                                 ; preds = %65, %68
   br i1 %.not79, label %96, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %61, i64 488
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 488
   store i64 %12, ptr %79, align 8
   %80 = call ptr @Dar_ManBalance(ptr noundef %61, i32 noundef 0) #12
   call void @Aig_ManStop(ptr noundef %61) #12
@@ -227,7 +227,7 @@ Abc_Clock.exit90:                                 ; preds = %65, %68
 87:                                               ; preds = %84
   %88 = load i64, ptr %5, align 8
   %89 = mul nsw i64 %88, 1000000
-  %90 = getelementptr inbounds i8, ptr %5, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = sdiv i64 %91, 1000
   %93 = add nsw i64 %92, %89
@@ -245,7 +245,7 @@ Abc_Clock.exit92:                                 ; preds = %84, %87
 
 96:                                               ; preds = %83, %Abc_Clock.exit92, %77
   %.1 = phi ptr [ %80, %Abc_Clock.exit92 ], [ %80, %83 ], [ %61, %77 ]
-  %97 = getelementptr inbounds i8, ptr %.1, i64 488
+  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 488
   store i64 %12, ptr %97, align 8
   %98 = call i32 @Dar_ManRewrite(ptr noundef %.1, ptr noundef nonnull %9) #12
   %99 = call ptr @Aig_ManDupDfs(ptr noundef %.1) #12
@@ -269,7 +269,7 @@ Abc_Clock.exit92:                                 ; preds = %84, %87
 106:                                              ; preds = %103
   %107 = load i64, ptr %4, align 8
   %108 = mul nsw i64 %107, 1000000
-  %109 = getelementptr inbounds i8, ptr %4, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %110 = load i64, ptr %109, align 8
   %111 = sdiv i64 %110, 1000
   %112 = add nsw i64 %111, %108
@@ -312,15 +312,15 @@ define ptr @Dar_ManCompress(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %7 = alloca %struct.Dar_RefPar_t_, align 4
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %6) #12
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %7) #12
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %12, align 4
   %13 = call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   %.not = icmp eq i32 %4, 0
@@ -369,9 +369,9 @@ define ptr @Dar_ManCompress(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 31:                                               ; preds = %27, %29, %26
   %.0 = phi ptr [ %28, %29 ], [ %28, %27 ], [ %23, %26 ]
-  %32 = getelementptr inbounds i8, ptr %6, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 1, ptr %33, align 4
   %34 = call i32 @Dar_ManRewrite(ptr noundef %.0, ptr noundef nonnull %6) #12
   %35 = call ptr @Aig_ManDupDfs(ptr noundef %.0) #12
@@ -393,17 +393,17 @@ define ptr @Dar_ManCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %8 = alloca %struct.Dar_RefPar_t_, align 4
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %7) #12
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %8) #12
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %3, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %14, align 4
   %15 = call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   %.not = icmp eq i32 %5, 0
@@ -460,9 +460,9 @@ define ptr @Dar_ManCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   br label %37
 
 37:                                               ; preds = %35, %32
-  %38 = getelementptr inbounds i8, ptr %7, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %8, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 1, ptr %39, align 4
   %40 = call i32 @Dar_ManRewrite(ptr noundef %34, ptr noundef nonnull %7) #12
   %41 = call ptr @Aig_ManDupDfs(ptr noundef %34) #12
@@ -533,19 +533,19 @@ define ptr @Dar_ManCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 define noalias noundef ptr @Dar_ManChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
 Vec_PtrPush.exit31:
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 8, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   store ptr %9, ptr %7, align 8
   %10 = tail call ptr @Dar_ManCompress(ptr noundef %9, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
   %12 = tail call ptr @Dar_ManCompress2(ptr noundef %10, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef %3, i32 noundef %4)
   store i32 3, ptr %6, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %12, ptr %13, align 8
   ret ptr %5
 }
@@ -564,7 +564,7 @@ define ptr @Dar_ManChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 14:                                               ; preds = %7
   %15 = load i64, ptr %11, align 8
   %.neg39 = mul i64 %15, -1000000
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i64, ptr %16, align 8
   %.neg = sdiv i64 %17, -1000
   %.neg40 = add i64 %.neg, %.neg39
@@ -577,16 +577,16 @@ Abc_Clock.exit:                                   ; preds = %7, %14
   %19 = getelementptr i8, ptr %18, i64 4
   store i32 8, ptr %18, align 8
   %20 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8
   %22 = call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   store ptr %22, ptr %20, align 8
   %23 = call ptr @Dar_ManCompress(ptr noundef %22, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %6)
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %23, ptr %24, align 8
   %25 = call ptr @Dar_ManCompress2(ptr noundef %23, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef %6)
   store i32 3, ptr %19, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %25, ptr %26, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %Vec_PtrPush.exit, label %28
@@ -611,7 +611,7 @@ Vec_PtrPush.exit:                                 ; preds = %Abc_Clock.exit
 32:                                               ; preds = %29
   %33 = load i64, ptr %10, align 8
   %34 = mul nsw i64 %33, 1000000
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = sdiv i64 %36, 1000
   %38 = add nsw i64 %37, %34
@@ -635,7 +635,7 @@ Abc_Clock.exit34:                                 ; preds = %29, %32
 45:                                               ; preds = %42
   %46 = load i64, ptr %9, align 8
   %.neg42 = mul i64 %46, -1000000
-  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = load i64, ptr %47, align 8
   %.neg41 = sdiv i64 %48, -1000
   %.neg43 = add i64 %.neg41, %.neg42
@@ -663,7 +663,7 @@ Abc_Clock.exit36:                                 ; preds = %42, %45
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
   %.val = load ptr, ptr %21, align 8
-  %55 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   call void @Aig_ManStop(ptr noundef %56) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -695,7 +695,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %60
 64:                                               ; preds = %61
   %65 = load i64, ptr %8, align 8
   %66 = mul nsw i64 %65, 1000000
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = sdiv i64 %68, 1000
   %70 = add nsw i64 %69, %66
@@ -759,15 +759,15 @@ define ptr @Dar_NewCompress(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %7 = alloca %struct.Dar_RefPar_t_, align 4
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %6) #12
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %7) #12
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %12, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %15, label %13
@@ -815,9 +815,9 @@ define ptr @Dar_NewCompress(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 30:                                               ; preds = %26, %28, %25
   %.0 = phi ptr [ %27, %28 ], [ %27, %26 ], [ %22, %25 ]
-  %31 = getelementptr inbounds i8, ptr %6, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %7, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 1, ptr %32, align 4
   %33 = call i32 @Dar_ManRewrite(ptr noundef %.0, ptr noundef nonnull %6) #12
   %34 = call ptr @Aig_ManDupDfs(ptr noundef %.0) #12
@@ -839,17 +839,17 @@ define ptr @Dar_NewCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %9 = alloca %struct.Dar_RefPar_t_, align 4
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %8) #12
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %9) #12
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %15, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %18, label %16
@@ -912,9 +912,9 @@ define ptr @Dar_NewCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 
 39:                                               ; preds = %34, %37, %33
   %.1 = phi ptr [ %30, %33 ], [ %36, %37 ], [ %36, %34 ]
-  %40 = getelementptr inbounds i8, ptr %8, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %9, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 1, ptr %41, align 4
   %42 = call i32 @Dar_ManRewrite(ptr noundef %.1, ptr noundef nonnull %8) #12
   %43 = call ptr @Aig_ManDupDfs(ptr noundef %.1) #12
@@ -988,7 +988,7 @@ define ptr @Dar_NewCompress2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Dar_NewChoiceSynthesisGuard(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val12 = load i32, ptr %4, align 4
@@ -1004,7 +1004,7 @@ define range(i32 0, 2) i32 @Dar_NewChoiceSynthesisGuard(ptr nocapture noundef re
 7:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.017 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %8 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
@@ -1047,7 +1047,7 @@ define ptr @Dar_NewChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %Vec_PtrPush.exit64, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val12.i = load i32, ptr %10, align 4
@@ -1063,7 +1063,7 @@ define ptr @Dar_NewChoiceSynthesis(ptr noundef %0, i32 noundef %1, i32 noundef %
 13:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %.017.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %26 ]
-  %14 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %26, label %17
@@ -1105,20 +1105,20 @@ Dar_NewChoiceSynthesisGuard.exit:                 ; preds = %26
 Vec_PtrPush.exit64:                               ; preds = %6, %Dar_NewChoiceSynthesisGuard.exit, %29, %28, %7
   %.037 = phi i32 [ %2, %Dar_NewChoiceSynthesisGuard.exit ], [ 0, %6 ], [ 0, %29 ], [ 0, %28 ], [ %2, %7 ]
   %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 8, ptr %30, align 8
   %32 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
   %34 = tail call ptr @Gia_ManFromAig(ptr noundef %0) #12
   store ptr %34, ptr %32, align 8
   %35 = tail call ptr @Dar_NewCompress(ptr noundef %0, i32 noundef %1, i32 noundef %.037, i32 noundef %3, i32 noundef %5)
   %36 = tail call ptr @Gia_ManFromAig(ptr noundef %35) #12
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %36, ptr %37, align 8
   %38 = tail call ptr @Dar_NewCompress2(ptr noundef %35, i32 noundef %1, i32 noundef %.037, i32 noundef 1, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %39 = tail call ptr @Gia_ManFromAig(ptr noundef %38) #12
-  %40 = getelementptr inbounds i8, ptr %32, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %39, ptr %40, align 8
   tail call void @Aig_ManStop(ptr noundef %38) #12
   %41 = load ptr, ptr %32, align 8
@@ -1134,7 +1134,7 @@ Vec_PtrPush.exit64:                               ; preds = %6, %Dar_NewChoiceSy
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit64, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrPush.exit64 ]
   %.val = load ptr, ptr %33, align 8
-  %45 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   tail call void @Gia_ManStop(ptr noundef %46) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1167,7 +1167,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #12
@@ -1177,7 +1177,7 @@ define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef initializes((56, 64)
 9:                                                ; preds = %2
   %10 = load i64, ptr %4, align 8
   %.neg59 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg60 = add i64 %.neg, %.neg59
@@ -1186,21 +1186,21 @@ define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef initializes((56, 64)
 Abc_Clock.exit:                                   ; preds = %2, %9
   %.0.i.neg = phi i64 [ %.neg60, %9 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %16 = getelementptr i8, ptr %15, i64 4
   store i32 8, ptr %15, align 8
   %17 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %18, align 8
   %19 = call ptr @Aig_ManDupDfs(ptr noundef %0) #12
   store ptr %19, ptr %17, align 8
   %20 = call ptr @Dar_ManCompress(ptr noundef %19, i32 noundef 1, i32 noundef 1, i32 noundef %14, i32 noundef %6)
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %21, align 8
   %22 = call ptr @Dar_ManCompress2(ptr noundef %20, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %14, i32 noundef %6)
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %22, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %24 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
@@ -1210,7 +1210,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 26:                                               ; preds = %Abc_Clock.exit
   %27 = load i64, ptr %3, align 8
   %28 = mul nsw i64 %27, 1000000
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = sdiv i64 %30, 1000
   %32 = add nsw i64 %31, %28
@@ -1220,7 +1220,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
   %.0.i52 = phi i64 [ %32, %26 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %33 = add i64 %.0.i52, %.0.i.neg
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %33, ptr %34, align 8
   %35 = load ptr, ptr %17, align 8
   %36 = load ptr, ptr %23, align 8
@@ -1235,7 +1235,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %18, align 8
-  %39 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   call void @Aig_ManStop(ptr noundef %40) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1257,7 +1257,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %44
   call void @free(ptr noundef nonnull %15) #12
   %45 = call ptr @Dch_ComputeChoices(ptr noundef %37, ptr noundef %1) #12
   call void @Aig_ManStop(ptr noundef %37) #12
-  %46 = getelementptr inbounds i8, ptr %0, i64 352
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %47 = load ptr, ptr %46, align 8
   store ptr null, ptr %46, align 8
   %48 = load ptr, ptr %0, align 8
@@ -1273,7 +1273,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %44
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit, %49
   %54 = phi ptr [ %52, %49 ], [ null, %Vec_PtrFree.exit ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i55 = icmp eq ptr %56, null
   br i1 %.not.i55, label %Abc_UtilStrsav.exit56, label %57
@@ -1291,7 +1291,7 @@ Abc_UtilStrsav.exit56:                            ; preds = %Abc_UtilStrsav.exit
   call void @Aig_ManStop(ptr noundef nonnull %0) #12
   %64 = call ptr @Aig_ManDupDfsGuided(ptr noundef %45, ptr noundef %63) #12
   call void @Aig_ManStop(ptr noundef %45) #12
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not.i57 = icmp eq ptr %66, null
   br i1 %.not.i57, label %Vec_PtrFree.exit58, label %67
@@ -1302,7 +1302,7 @@ Abc_UtilStrsav.exit56:                            ; preds = %Abc_UtilStrsav.exit
 
 Vec_PtrFree.exit58:                               ; preds = %Abc_UtilStrsav.exit56, %67
   call void @free(ptr noundef nonnull %63) #12
-  %68 = getelementptr inbounds i8, ptr %64, i64 352
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 352
   store ptr %47, ptr %68, align 8
   %69 = call i32 @Aig_ManChoiceLevel(ptr noundef %64) #12
   %70 = load ptr, ptr %64, align 8
@@ -1315,7 +1315,7 @@ Vec_PtrFree.exit58:                               ; preds = %Abc_UtilStrsav.exit
   br label %72
 
 72:                                               ; preds = %Vec_PtrFree.exit58, %71
-  %73 = getelementptr inbounds i8, ptr %64, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not48 = icmp eq ptr %74, null
   br i1 %.not48, label %76, label %75
@@ -1347,7 +1347,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 352
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1363,7 +1363,7 @@ define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef initializes((56, 64)) %
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
   %13 = phi ptr [ %11, %8 ], [ null, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i52 = icmp eq ptr %15, null
   br i1 %.not.i52, label %Abc_UtilStrsav.exit53, label %16
@@ -1385,7 +1385,7 @@ Abc_UtilStrsav.exit53:                            ; preds = %Abc_UtilStrsav.exit
 24:                                               ; preds = %Abc_UtilStrsav.exit53
   %25 = load i64, ptr %4, align 8
   %.neg57 = mul i64 %25, -1000000
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i64, ptr %26, align 8
   %.neg = sdiv i64 %27, -1000
   %.neg58 = add i64 %.neg, %.neg57
@@ -1395,11 +1395,11 @@ Abc_Clock.exit:                                   ; preds = %Abc_UtilStrsav.exit
   %.0.i.neg = phi i64 [ %.neg58, %24 ], [ 1, %Abc_UtilStrsav.exit53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %28 = call ptr @Aig_ManDupDfs(ptr noundef nonnull %0) #12
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @Dar_NewChoiceSynthesis(ptr noundef %28, i32 noundef 1, i32 noundef 1, i32 noundef %30, i32 noundef %32, i32 noundef %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -1410,7 +1410,7 @@ Abc_Clock.exit:                                   ; preds = %Abc_UtilStrsav.exit
 38:                                               ; preds = %Abc_Clock.exit
   %39 = load i64, ptr %3, align 8
   %40 = mul nsw i64 %39, 1000000
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = sdiv i64 %42, 1000
   %44 = add nsw i64 %43, %40
@@ -1420,35 +1420,35 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit, %38
   %.0.i54 = phi i64 [ %44, %38 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %45 = add i64 %.0.i54, %.0.i.neg
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %48 = load i32, ptr %47, align 4
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %Abc_Clock.exit55
-  %50 = getelementptr inbounds i8, ptr %1, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %33, align 4
   %53 = call ptr @Cec_ComputeChoicesNew(ptr noundef %35, i32 noundef %51, i32 noundef %52) #12
   br label %70
 
 54:                                               ; preds = %Abc_Clock.exit55
-  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = load i32, ptr %55, align 8
   %.not48 = icmp eq i32 %56, 0
   br i1 %.not48, label %62, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %1, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %33, align 4
   %61 = call ptr @Cec_ComputeChoicesNew2(ptr noundef %35, i32 noundef %59, i32 noundef %60) #12
   br label %70
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %1, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %64 = load i32, ptr %63, align 4
   %.not49 = icmp eq i32 %64, 0
   br i1 %.not49, label %67, label %65
@@ -1470,7 +1470,7 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit, %38
   call void @Aig_ManStop(ptr noundef nonnull %0) #12
   %72 = call ptr @Aig_ManDupDfsGuided(ptr noundef %.0, ptr noundef %71) #12
   call void @Aig_ManStop(ptr noundef %.0) #12
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i56 = icmp eq ptr %74, null
   br i1 %.not.i56, label %Vec_PtrFree.exit, label %75
@@ -1481,7 +1481,7 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit, %38
 
 Vec_PtrFree.exit:                                 ; preds = %70, %75
   call void @free(ptr noundef nonnull %71) #12
-  %76 = getelementptr inbounds i8, ptr %72, i64 352
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 352
   store ptr %6, ptr %76, align 8
   %77 = call i32 @Aig_ManChoiceLevel(ptr noundef %72) #12
   %78 = load ptr, ptr %72, align 8
@@ -1494,7 +1494,7 @@ Vec_PtrFree.exit:                                 ; preds = %70, %75
   br label %80
 
 80:                                               ; preds = %Vec_PtrFree.exit, %79
-  %81 = getelementptr inbounds i8, ptr %72, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not51 = icmp eq ptr %82, null
   br i1 %.not51, label %84, label %83

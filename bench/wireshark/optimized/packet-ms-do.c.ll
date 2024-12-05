@@ -170,7 +170,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_do(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.61) #3
   %8 = load ptr, ptr %6, align 8
@@ -193,9 +193,9 @@ define internal i32 @dissect_do(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 292
-  %20 = getelementptr inbounds i8, ptr %1, i64 288
-  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge
@@ -305,7 +305,7 @@ dissect_do_message.exit.thread.thread:            ; preds = %63
 
 switch.lookup:                                    ; preds = %86
   %91 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds [21 x ptr], ptr @switch.table.dissect_do, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.dissect_do, i64 0, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %do_add_message_tree.exit.i
 
@@ -332,7 +332,7 @@ do_add_message_tree.exit.i:                       ; preds = %86, %switch.lookup
 
 switch.lookup41:                                  ; preds = %do_add_message_tree.exit.i
   %106 = zext nneg i8 %89 to i64
-  %switch.gep42 = getelementptr inbounds [21 x ptr], ptr @switch.table.dissect_do.2, i64 0, i64 %106
+  %switch.gep42 = getelementptr inbounds nuw [21 x ptr], ptr @switch.table.dissect_do.2, i64 0, i64 %106
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %dissect_do_message.exit
 
@@ -359,9 +359,9 @@ dissect_do_message.exit.thread..backedge_crit_edge: ; preds = %72, %dissect_do_m
 .loopexit:                                        ; preds = %dissect_do_message.exit.thread, %dissect_do_message.exit.thread.thread
   %.0202326 = phi i32 [ %67, %dissect_do_message.exit.thread.thread ], [ %108, %dissect_do_message.exit.thread ]
   %112 = load i32, ptr %5, align 4
-  %113 = getelementptr inbounds i8, ptr %1, i64 332
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %1, i64 336
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %.0202326, ptr %114, align 8
   %115 = call i32 @tvb_reported_length(ptr noundef %0) #3
   br label %119
@@ -438,7 +438,7 @@ define internal noundef zeroext i1 @dissect_do_empty_message(ptr noundef %0, ptr
   br label %18
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %4 to i32
   %17 = tail call ptr @val_to_str_ext_const(i32 noundef %16, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3
@@ -472,7 +472,7 @@ define internal noundef zeroext i1 @dissect_do_have(ptr noundef %0, ptr noundef 
   %18 = load i32, ptr %5, align 4
   %19 = add i32 %18, 4
   store i32 %19, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i8 %4 to i32
   %23 = call ptr @val_to_str_ext_const(i32 noundef %22, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3
@@ -545,7 +545,7 @@ define internal noundef zeroext i1 @dissect_do_bitfield(ptr noundef %0, ptr noca
 
 ._crit_edge:                                      ; preds = %36, %6
   %.038.lcssa = phi i32 [ 0, %6 ], [ %spec.select40, %36 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = zext i8 %4 to i32
   %43 = tail call ptr @val_to_str_ext_const(i32 noundef %42, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3
@@ -591,7 +591,7 @@ define internal noundef zeroext i1 @dissect_do_request_cancel(ptr noundef %0, pt
   %28 = load i32, ptr %5, align 4
   %29 = add i32 %28, 4
   store i32 %29, ptr %5, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i8 %4 to i32
   %33 = call ptr @val_to_str_ext_const(i32 noundef %32, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3
@@ -647,20 +647,20 @@ define internal noundef zeroext i1 @dissect_do_piece(ptr noundef %0, ptr noundef
   br i1 %.not.i, label %proto_item_set_generated.exit, label %33
 
 33:                                               ; preds = %16
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i = icmp eq ptr %35, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, 2
   store i32 %39, ptr %37, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %16, %33, %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = zext i8 %4 to i32
   %43 = call ptr @val_to_str_ext_const(i32 noundef %42, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3
@@ -682,7 +682,7 @@ define internal noundef zeroext i1 @dissect_do_heap_spraying(ptr noundef %0, ptr
   %11 = load i32, ptr %5, align 4
   %12 = add i32 %11, %9
   store i32 %12, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %4 to i32
   %16 = tail call ptr @val_to_str_ext_const(i32 noundef %15, ptr noundef nonnull @message_types_ext, ptr noundef nonnull @.str.72) #3

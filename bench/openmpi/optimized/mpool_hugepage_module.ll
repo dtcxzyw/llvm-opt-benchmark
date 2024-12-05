@@ -27,14 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_mpool_hugepage_hugepage_constructor(ptr nocapture noundef writeonly initializes((40, 64)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @mca_mpool_hugepage_hugepage_destructor(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
   ret void
@@ -43,17 +43,17 @@ define internal void @mca_mpool_hugepage_hugepage_destructor(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef initializes((0, 52), (88, 96)) %0, ptr noundef %1) local_unnamed_addr #2 {
   store ptr @mca_mpool_hugepage_component, ptr %0, align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @mca_mpool_hugepage_alloc, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @mca_mpool_hugepage_realloc, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @mca_mpool_hugepage_free, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @mca_mpool_hugepage_finalize, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 128, ptr %8, align 16
   %9 = load i32, ptr @opal_class_init_epoch, align 4
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
@@ -65,11 +65,11 @@ define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef initial
   br label %12
 
 12:                                               ; preds = %11, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_mutex_t_class, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i = icmp eq ptr %16, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -78,23 +78,23 @@ define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef initial
   %17 = phi ptr [ %19, %.lr.ph.i ], [ %16, %12 ]
   %.07.i = phi ptr [ %18, %.lr.ph.i ], [ %15, %12 ]
   tail call void %17(ptr noundef nonnull %13) #10
-  %18 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %20, align 8
   %21 = tail call ptr @mca_allocator_component_lookup(ptr noundef nonnull @.str.1) #10
   %22 = icmp eq ptr %21, null
   br i1 %22, label %opal_obj_run_destructors.exit, label %23
 
 23:                                               ; preds = %opal_obj_run_constructors.exit
-  %24 = getelementptr inbounds i8, ptr %21, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(i1 noundef zeroext true, ptr noundef nonnull @mca_mpool_hugepage_seg_alloc, ptr noundef nonnull @mca_mpool_hugepage_seg_free, ptr noundef nonnull %0) #10
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %26, ptr %27, align 16
   %28 = load i32, ptr @opal_class_init_epoch, align 4
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @opal_rb_tree_t_class, i64 32), align 8
@@ -106,11 +106,11 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   br label %31
 
 31:                                               ; preds = %30, %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr @opal_rb_tree_t_class, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %0, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store volatile i32 1, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_rb_tree_t_class, i64 40), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_rb_tree_t_class, i64 40), align 8
   %35 = load ptr, ptr %34, align 8
   %.not6.i25 = icmp eq ptr %35, null
   br i1 %.not6.i25, label %opal_obj_run_constructors.exit29, label %.lr.ph.i26
@@ -119,7 +119,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
   %36 = phi ptr [ %38, %.lr.ph.i26 ], [ %35, %31 ]
   %.07.i27 = phi ptr [ %37, %.lr.ph.i26 ], [ %34, %31 ]
   tail call void %36(ptr noundef nonnull %32) #10
-  %37 = getelementptr inbounds i8, ptr %.07.i27, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i27, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i28 = icmp eq ptr %38, null
   br i1 %.not.i28, label %opal_obj_run_constructors.exit29, label %.lr.ph.i26, !llvm.loop !4
@@ -131,7 +131,7 @@ opal_obj_run_constructors.exit29:                 ; preds = %.lr.ph.i26, %31
 
 40:                                               ; preds = %opal_obj_run_constructors.exit29
   %41 = load ptr, ptr %32, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %.not6.i30 = icmp eq ptr %44, null
@@ -141,7 +141,7 @@ opal_obj_run_constructors.exit29:                 ; preds = %.lr.ph.i26, %31
   %45 = phi ptr [ %47, %.lr.ph.i31 ], [ %44, %40 ]
   %.07.i32 = phi ptr [ %46, %.lr.ph.i31 ], [ %43, %40 ]
   tail call void %45(ptr noundef nonnull %32) #10
-  %46 = getelementptr inbounds i8, ptr %.07.i32, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.07.i32, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not.i33 = icmp eq ptr %47, null
   br i1 %.not.i33, label %opal_obj_run_destructors.exit, label %.lr.ph.i31, !llvm.loop !6
@@ -153,7 +153,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i31, %40, %o
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mca_mpool_hugepage_alloc(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %6, i64 noundef %1, i64 noundef %2) #10
@@ -162,9 +162,9 @@ define internal ptr @mca_mpool_hugepage_alloc(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mca_mpool_hugepage_realloc(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %5, ptr noundef %1, i64 noundef %2) #10
   ret ptr %8
@@ -172,9 +172,9 @@ define internal ptr @mca_mpool_hugepage_realloc(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_mpool_hugepage_free(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %4, ptr noundef %1) #10
   ret void
@@ -182,22 +182,22 @@ define internal void @mca_mpool_hugepage_free(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_mpool_hugepage_finalize(ptr noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %3) #10
   store ptr null, ptr %2, align 16
   br label %8
 
 8:                                                ; preds = %1, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null
@@ -207,15 +207,15 @@ define internal void @mca_mpool_hugepage_finalize(ptr noundef %0) #2 {
   %14 = phi ptr [ %16, %.lr.ph.i ], [ %13, %8 ]
   %.07.i = phi ptr [ %15, %.lr.ph.i ], [ %12, %8 ]
   tail call void %14(ptr noundef nonnull %9) #10
-  %15 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i7 = icmp eq ptr %21, null
@@ -225,7 +225,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %8
   %22 = phi ptr [ %24, %.lr.ph.i8 ], [ %21, %opal_obj_run_destructors.exit ]
   %.07.i9 = phi ptr [ %23, %.lr.ph.i8 ], [ %20, %opal_obj_run_destructors.exit ]
   tail call void %22(ptr noundef nonnull %17) #10
-  %23 = getelementptr inbounds i8, ptr %.07.i9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i9, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i10 = icmp eq ptr %24, null
   br i1 %.not.i10, label %opal_obj_run_destructors.exit11, label %.lr.ph.i8, !llvm.loop !6
@@ -241,23 +241,23 @@ declare ptr @mca_allocator_component_lookup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %1) #2 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %1, align 8
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, -1
   %10 = add i64 %9, %8
   %11 = sub i64 0, %8
   %12 = and i64 %10, %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %35, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %17 = atomicrmw volatile add ptr %16, i32 1 monotonic, align 4
   %18 = add i32 %17, 1
   %19 = tail call i32 @getpid() #10
@@ -292,7 +292,7 @@ define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %
 35:                                               ; preds = %2, %28
   %.036 = phi i32 [ 2, %28 ], [ 34, %2 ]
   %.035 = phi i32 [ %24, %28 ], [ -1, %2 ]
-  %36 = getelementptr inbounds i8, ptr %5, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, %.036
   %39 = call ptr @mmap(ptr noundef null, i64 noundef %12, i32 noundef 3, i32 noundef %38, i32 noundef %.035, i64 noundef 0) #10
@@ -335,9 +335,9 @@ define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %
 
 .thread:                                          ; preds = %48, %55
   %.03744 = phi ptr [ %56, %55 ], [ %39, %48 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %59 = call i32 @pthread_mutex_lock(ptr noundef nonnull %58) #10
-  %60 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %61 = inttoptr i64 %12 to ptr
   %62 = call i32 @opal_rb_tree_insert(ptr noundef nonnull %60, ptr noundef %.03744, ptr noundef %61) #10
   %63 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_mpool_hugepage_component, i64 360), i64 %12 monotonic, align 8
@@ -352,10 +352,10 @@ define ptr @mca_mpool_hugepage_seg_alloc(ptr noundef %0, ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define void @mca_mpool_hugepage_seg_free(ptr noundef %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 16
   %8 = tail call ptr @opal_rb_tree_find_with(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %7) #10
   %.not = icmp eq ptr %8, null

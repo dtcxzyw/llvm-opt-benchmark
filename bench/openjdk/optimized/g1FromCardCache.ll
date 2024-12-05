@@ -91,7 +91,7 @@ _ZN18MmapArrayAllocatorIhE8allocateEm8MEMFLAGS.exit.i: ; preds = %9
   %41 = mul i64 %.021.i, %24
   %42 = add i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %.021.i
+  %44 = getelementptr inbounds nuw ptr, ptr %39, i64 %.021.i
   store ptr %43, ptr %44, align 8
   %45 = add nuw nsw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %45, %17
@@ -131,9 +131,9 @@ _ZN13Padded2DArrayImL8MEMFLAGS5ELm128EE17create_unfreeableEjjPm.exit: ; preds = 
 57:                                               ; preds = %57, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %57 ]
   %58 = load ptr, ptr @_ZN15G1FromCardCache6_cacheE, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv20.i
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv20.i
   store i64 0, ptr %61, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i2 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -214,9 +214,9 @@ define hidden void @_ZN15G1FromCardCache10invalidateEjm(i32 noundef %0, i64 noun
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ %13, %.preheader.us ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr @_ZN15G1FromCardCache6_cacheE, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv20
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv20
   store i64 0, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -274,9 +274,9 @@ define hidden void @_ZN15G1FromCardCache5clearEj(i32 noundef %0) local_unnamed_a
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr @_ZN15G1FromCardCache6_cacheE, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %9
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %9
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
   store i64 0, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

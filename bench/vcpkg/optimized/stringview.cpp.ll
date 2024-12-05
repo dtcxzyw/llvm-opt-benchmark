@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN5vcpkg10StringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   store i64 %5, ptr %4, align 8
   ret void
@@ -30,7 +30,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 define dso_local void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, i64 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -60,7 +60,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK5vcpkg10StringView9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %3, i64 noundef %5)
   ret void
@@ -131,8 +131,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr readonl
   br i1 %or.cond.not, label %9, label %_ZSt23lexicographical_compareIPKcS1_EbT_S2_T0_S3_.exit.loopexit
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %.02023.i.i.i.i.i, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01924.i.i.i.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
@@ -171,8 +171,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkggtENS_10StringViewES0_(ptr readonl
   br i1 %or.cond.not, label %9, label %_ZN5vcpkgltENS_10StringViewES0_.exit.loopexit
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %.02023.i.i.i.i.i.i, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01924.i.i.i.i.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
@@ -211,8 +211,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkgleENS_10StringViewES0_(ptr readonl
   br i1 %or.cond.not, label %9, label %_ZN5vcpkgltENS_10StringViewES0_.exit.loopexit
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %.02023.i.i.i.i.i.i, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01924.i.i.i.i.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
@@ -251,8 +251,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkggeENS_10StringViewES0_(ptr readonl
   br i1 %or.cond.not, label %9, label %_ZN5vcpkgltENS_10StringViewES0_.exit.loopexit
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %.02023.i.i.i.i.i.i, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01924.i.i.i.i.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
@@ -273,7 +273,7 @@ _ZN5vcpkgltENS_10StringViewES0_.exit:             ; preds = %_ZN5vcpkgltENS_10St
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5vcpkgplEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %4, i64 noundef %6)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8

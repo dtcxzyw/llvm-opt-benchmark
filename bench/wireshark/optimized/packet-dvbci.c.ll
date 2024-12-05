@@ -1526,15 +1526,15 @@ define hidden range(i32 -1, 2) i32 @dvbci_set_addrs(i8 noundef zeroext %0, ptr n
 
 .sink.split:                                      ; preds = %2
   %3 = icmp eq i8 %0, -2
-  %4 = getelementptr inbounds i8, ptr %1, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 212
-  %6 = getelementptr inbounds i8, ptr %1, i64 216
-  %7 = getelementptr inbounds i8, ptr %1, i64 224
-  %8 = getelementptr inbounds i8, ptr %1, i64 232
-  %9 = getelementptr inbounds i8, ptr %1, i64 236
-  %10 = getelementptr inbounds i8, ptr %1, i64 240
-  %11 = getelementptr inbounds i8, ptr %1, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %. = select i1 %3, i32 5, i32 4
   %.str.5..str.6 = select i1 %3, ptr @.str.5, ptr @.str.6
   %.10 = select i1 %3, i32 4, i32 5
@@ -1687,9 +1687,9 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
 21:                                               ; preds = %18
   %22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
   store ptr %22, ptr @dvbci_sek_bin, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %2, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %25
 
 25:                                               ; preds = %25, %21
@@ -1728,9 +1728,9 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
 39:                                               ; preds = %36
   %40 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
   store ptr %40, ptr @dvbci_siv_bin, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %43
 
 43:                                               ; preds = %43, %39
@@ -1785,7 +1785,7 @@ define internal i32 @dissect_dvbci_exported_sac_msg(ptr noundef %0, ptr noundef 
 
 6:                                                ; preds = %4
   %7 = icmp eq i8 %5, -1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 34, ptr noundef null, ptr noundef nonnull @.str.595) #15
   %10 = load ptr, ptr %8, align 8
@@ -1859,7 +1859,7 @@ define internal range(i32 0, 65540) i32 @dissect_dvbci(ptr noundef %0, ptr nound
   br i1 %.not95, label %18, label %76
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.581) #15
   %21 = load ptr, ptr %19, align 8
@@ -1881,15 +1881,15 @@ define internal range(i32 0, 65540) i32 @dissect_dvbci(ptr noundef %0, ptr nound
 
 dvbci_set_addrs.exit:                             ; preds = %18
   %34 = icmp eq i8 %10, -2
-  %35 = getelementptr inbounds i8, ptr %1, i64 208
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 212
-  %37 = getelementptr inbounds i8, ptr %1, i64 216
-  %38 = getelementptr inbounds i8, ptr %1, i64 224
-  %39 = getelementptr inbounds i8, ptr %1, i64 232
-  %40 = getelementptr inbounds i8, ptr %1, i64 236
-  %41 = getelementptr inbounds i8, ptr %1, i64 240
-  %42 = getelementptr inbounds i8, ptr %1, i64 248
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %..i = select i1 %34, i32 5, i32 4
   %.str.5..str.6.i = select i1 %34, ptr @.str.5, ptr @.str.6
   %.10.i = select i1 %34, i32 4, i32 5
@@ -2071,10 +2071,10 @@ define internal void @dissect_dvbci_payload_ap(i32 noundef %0, i32 %1, ptr nound
   %33 = zext i8 %31 to i32
   %34 = load i32, ptr %8, align 4
   %35 = call i32 @dvb_enc_to_item_enc(i32 noundef %34) #15
-  %36 = getelementptr inbounds i8, ptr %5, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @proto_tree_add_item_ret_string(ptr noundef %6, i32 noundef %32, ptr noundef %2, i32 noundef %29, i32 noundef %33, i32 noundef %35, ptr noundef %37, ptr noundef nonnull %9) #15
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %9, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %40, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.930, ptr noundef %41) #15
@@ -2082,7 +2082,7 @@ define internal void @dissect_dvbci_payload_ap(i32 noundef %0, i32 %1, ptr nound
 
 42:                                               ; preds = %7
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %43 to i32
   %47 = tail call ptr @val_to_str(i32 noundef %46, ptr noundef nonnull @dvbci_data_rate, ptr noundef nonnull @.str.932) #15
@@ -2133,7 +2133,7 @@ define internal void @dissect_dvbci_payload_ca(i32 noundef %0, i32 noundef %1, p
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %22, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   %24 = add i32 %3, 1
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %24) #15
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext i16 %25 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.934, i32 noundef %28) #15
@@ -2254,7 +2254,7 @@ dissect_es.exit:                                  ; preds = %81, %72, %84
 
 92:                                               ; preds = %7
   %93 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #15
-  %94 = getelementptr inbounds i8, ptr %5, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = zext i16 %93 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %95, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.934, i32 noundef %96) #15
@@ -2396,7 +2396,7 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %23) #15
   %25 = load i32, ptr @hf_dvbci_service_id, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %25, ptr noundef %2, i32 noundef %23, i32 noundef 2, i32 noundef 0) #15
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = zext i16 %9 to i32
   %30 = zext i16 %16 to i32
@@ -2419,7 +2419,7 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %44 = and i16 %43, 8191
   %45 = load i32, ptr @hf_dvbci_replacement_pid, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %45, ptr noundef %2, i32 noundef %42, i32 noundef 2, i32 noundef 0) #15
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = zext i8 %34 to i32
   %50 = zext nneg i16 %39 to i32
@@ -2431,7 +2431,7 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %54 = load i32, ptr @hf_dvbci_replacement_ref, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %54, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = zext i8 %53 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.941, i32 noundef %58) #15
@@ -2489,7 +2489,7 @@ dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph, 
   br i1 %.not97, label %93, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %5, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = load ptr, ptr %88, align 8
   tail call void @col_append_str(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.942) #15
   %90 = load ptr, ptr %88, align 8
@@ -2507,7 +2507,7 @@ dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph, 
   %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %98 = load i32, ptr @hf_dvbci_hc_status, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %98, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %100 = getelementptr inbounds i8, ptr %5, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq i8 %97, 0
   %103 = select i1 %102, ptr @.str.784, ptr @.str.943
@@ -2541,7 +2541,7 @@ define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, p
   %14 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %13, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %8) #15
   %15 = load i64, ptr %8, align 8
   %16 = icmp eq i64 %15, 0
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %16, label %19, label %20
 
@@ -2551,7 +2551,7 @@ define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, p
   br label %52
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %5, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @rel_time_to_str(ptr noundef %22, ptr noundef nonnull %8) #15
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %18, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.946, ptr noundef %23) #15
@@ -2580,9 +2580,9 @@ define internal void @dissect_dvbci_payload_dt(i32 noundef %0, i32 noundef %1, p
 35:                                               ; preds = %30
   %36 = load i32, ptr @hf_dvbci_utc_time, align 4
   %37 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %36, ptr noundef %2, i32 noundef %3, i32 noundef %31, ptr noundef nonnull %9) #15
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @abs_time_to_str_ex(ptr noundef %41, ptr noundef nonnull %9, i32 noundef 19, i32 noundef 0) #15
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.950, ptr noundef %42) #15
@@ -2647,7 +2647,7 @@ define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, 
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %24 = zext i8 %23 to i32
   %25 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @dvbci_disp_ctl_cmd, ptr noundef nonnull @.str.953) #15
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_append_sep_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef %25) #15
   %28 = load i32, ptr @hf_dvbci_disp_ctl_cmd, align 4
@@ -2671,7 +2671,7 @@ define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, 
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %40 = zext i8 %39 to i32
   %41 = tail call ptr @val_to_str_const(i32 noundef %40, ptr noundef nonnull @dvbci_disp_rep_id, ptr noundef nonnull @.str.953) #15
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @col_append_sep_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef %41) #15
   %44 = load i32, ptr @hf_dvbci_disp_rep_id, align 4
@@ -2812,7 +2812,7 @@ define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, 
   %124 = load i32, ptr @hf_dvbci_choice_ref, align 4
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %124, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   %126 = icmp eq i8 %123, 0
-  %127 = getelementptr inbounds i8, ptr %5, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %126, label %128, label %130
 
 128:                                              ; preds = %122
@@ -2849,7 +2849,7 @@ define internal void @dissect_dvbci_payload_hlc(i32 noundef %0, i32 %1, ptr noun
   br label %12
 
 12:                                               ; preds = %.sink.split, %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #15
   %16 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef %15, i32 noundef 10) #15
@@ -2857,7 +2857,7 @@ define internal void @dissect_dvbci_payload_hlc(i32 noundef %0, i32 %1, ptr noun
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull %16) #15
   br label %20
@@ -2879,7 +2879,7 @@ define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noun
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %10 = load i32, ptr @hf_dvbci_cup_type, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull @dvbci_cup_type, ptr noundef nonnull @.str.947) #15
@@ -2904,7 +2904,7 @@ define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noun
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %28 = load i32, ptr @hf_dvbci_cup_answer, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %28, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i8 %27 to i32
   %33 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @dvbci_cup_answer, ptr noundef nonnull @.str.947) #15
@@ -2922,7 +2922,7 @@ define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noun
 
 39:                                               ; preds = %34
   %40 = zext nneg i8 %35 to i32
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.966, i32 noundef %40) #15
   %43 = load i32, ptr @hf_dvbci_cup_progress, align 4
@@ -2971,7 +2971,7 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %16 = load i32, ptr @hf_dvbci_cc_status_field, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %16, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i8 %15 to i32
   %21 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @dvbci_cc_status, ptr noundef nonnull @.str.947) #15
@@ -3030,7 +3030,7 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
   %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %52 = load i32, ptr @hf_dvbci_pincode_status, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %52, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = zext i8 %51 to i32
   %57 = tail call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @dvbci_pincode_status, ptr noundef nonnull @.str.947) #15
@@ -3148,7 +3148,7 @@ define internal void @dissect_dvbci_payload_ami(i32 noundef %0, i32 %1, ptr noun
   %17 = add i32 %3, 2
   %18 = load i32, ptr @hf_dvbci_app_dom_id, align 4
   %19 = zext i8 %10 to i32
-  %20 = getelementptr inbounds i8, ptr %5, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @proto_tree_add_item_ret_string(ptr noundef %6, i32 noundef %18, ptr noundef %2, i32 noundef %17, i32 noundef %19, i32 noundef 0, ptr noundef %21, ptr noundef nonnull %8) #15
   %23 = load ptr, ptr %8, align 8
@@ -3156,7 +3156,7 @@ define internal void @dissect_dvbci_payload_ami(i32 noundef %0, i32 %1, ptr noun
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load ptr, ptr %25, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.961, ptr noundef nonnull @.str.1009, ptr noundef nonnull %23) #15
   br label %27
@@ -3172,7 +3172,7 @@ define internal void @dissect_dvbci_payload_ami(i32 noundef %0, i32 %1, ptr noun
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %34 = load i32, ptr @hf_dvbci_ack_code, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %34, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i8 %33 to i32
   %39 = tail call ptr @val_to_str_const(i32 noundef %38, ptr noundef nonnull @dvbci_ack_code, ptr noundef nonnull @.str.947) #15
@@ -3233,7 +3233,7 @@ define internal void @dissect_dvbci_payload_lsc(i32 noundef %0, i32 noundef %1, 
   %13 = load i32, ptr @hf_dvbci_comms_cmd_id, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext i8 %15 to i32
   %19 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @dvbci_comms_cmd_id, ptr noundef nonnull @.str.927) #15
@@ -3321,7 +3321,7 @@ dissect_conn_desc.exit.thread:                    ; preds = %21
   ]
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %5, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = zext i16 %49 to i32
   %61 = call ptr @tcp_port_to_display(ptr noundef %59, i32 noundef %60) #15
@@ -3334,7 +3334,7 @@ dissect_conn_desc.exit.thread:                    ; preds = %21
   br label %.sink.split148.i
 
 65:                                               ; preds = %56
-  %66 = getelementptr inbounds i8, ptr %5, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = zext i16 %49 to i32
   %69 = call ptr @udp_port_to_display(ptr noundef %67, i32 noundef %68) #15
@@ -3401,7 +3401,7 @@ dissect_conn_desc.exit.thread:                    ; preds = %21
   ]
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %5, i64 408
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %98 = load ptr, ptr %97, align 8
   %99 = zext i16 %91 to i32
   %100 = call ptr @tcp_port_to_display(ptr noundef %98, i32 noundef %99) #15
@@ -3414,7 +3414,7 @@ dissect_conn_desc.exit.thread:                    ; preds = %21
   br label %.sink.split150.i
 
 104:                                              ; preds = %95
-  %105 = getelementptr inbounds i8, ptr %5, i64 408
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %106 = load ptr, ptr %105, align 8
   %107 = zext i16 %91 to i32
   %108 = call ptr @udp_port_to_display(ptr noundef %106, i32 noundef %107) #15
@@ -3560,7 +3560,7 @@ dissect_conn_desc.exit:                           ; preds = %73, %79, %store_lsc
   %178 = load i32, ptr @hf_dvbci_comms_rep_id, align 4
   %179 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %178, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   %180 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
-  %181 = getelementptr inbounds i8, ptr %5, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = zext i8 %180 to i32
   %184 = tail call ptr @val_to_str(i32 noundef %183, ptr noundef nonnull @dvbci_comms_rep_id, ptr noundef nonnull @.str.927) #15
@@ -3605,7 +3605,7 @@ dissect_conn_desc.exit:                           ; preds = %73, %79, %store_lsc
   %199 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %200 = load i32, ptr @hf_dvbci_phase_id, align 4
   %201 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %200, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  %202 = getelementptr inbounds i8, ptr %5, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = zext i8 %199 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.1024, i32 noundef %204) #15
@@ -3717,7 +3717,7 @@ define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @hf_dvbci_afs_dom_id, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @proto_tree_add_item_ret_string(ptr noundef %6, i32 noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 2, ptr noundef %12, ptr noundef nonnull %8) #15
   %14 = load ptr, ptr %8, align 8
@@ -3725,7 +3725,7 @@ define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noun
   br i1 %.not, label %23, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.1010, ptr noundef nonnull %14) #15
   br label %23
@@ -3811,7 +3811,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   br label %dissect_opp_cap_loop.exit199
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void @col_append_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.942) #15
   %53 = load ptr, ptr %51, align 8
@@ -4102,7 +4102,7 @@ define internal void @dissect_dvbci_payload_sas(i32 noundef %0, i32 %1, ptr noun
 9:                                                ; preds = %7, %7
   %10 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %3) #15
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 19, ptr noundef nonnull @.str.1030, i64 noundef %10) #15
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_append_sep_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull %8) #15
   %14 = load i32, ptr @hf_dvbci_sas_app_id, align 4
@@ -4137,7 +4137,7 @@ define internal void @dissect_dvbci_payload_sas(i32 noundef %0, i32 %1, ptr noun
 
 30:                                               ; preds = %7
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i8 %31 to i32
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef nonnull @.str.1032, i32 noundef %34) #15
@@ -4294,7 +4294,7 @@ define internal fastcc void @dissect_si_string(ptr noundef %0, i32 noundef %1, i
   call void @dvb_add_chartbl(ptr noundef %4, i32 noundef %14, ptr noundef %0, i32 noundef %1, i32 noundef %13, i32 noundef %15) #15
   %16 = add i32 %13, %1
   %17 = sub i32 %2, %13
-  %18 = getelementptr inbounds i8, ptr %3, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %9, align 4
   %21 = call i32 @dvb_enc_to_item_enc(i32 noundef %20) #15
@@ -4308,7 +4308,7 @@ define internal fastcc void @dissect_si_string(ptr noundef %0, i32 noundef %1, i
   br i1 %.not31, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
   call void @col_append_sep_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.961, ptr noundef nonnull %22) #15
   br label %28
@@ -4387,7 +4387,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br i1 %.not95, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %22
 
 22:                                               ; preds = %.lr.ph, %129
@@ -4755,7 +4755,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
 .critedge.sink.split.i:                           ; preds = %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %.critedge3.thread, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %.critedge3
   %.16272 = phi i32 [ %.2.lcssa, %158 ], [ %.2.lcssa, %157 ], [ %.2.lcssa, %156 ], [ %.2.lcssa, %155 ], [ %.2.lcssa, %154 ], [ %.2.lcssa, %153 ], [ %.2.lcssa, %152 ], [ %.2.lcssa, %151 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %149 ], [ %.2.lcssa, %148 ], [ %.2.lcssa, %147 ], [ %.2.lcssa, %146 ], [ %.16273, %171 ], [ %.16273, %170 ], [ %.16273, %169 ], [ %.16273, %168 ], [ %.16273, %167 ], [ %.16273, %166 ], [ %.16273, %165 ], [ %.16273, %164 ], [ %.16273, %163 ], [ %.16273, %162 ], [ %.16273, %161 ], [ %.16273, %160 ], [ %.16273, %159 ], [ %.2.lcssa, %.critedge3 ], [ %.16273, %.critedge3.thread ]
   %.str.989.sink.i = phi ptr [ @.str.989, %158 ], [ @.str.988, %157 ], [ @.str.987, %156 ], [ @.str.986, %155 ], [ @.str.985, %154 ], [ @.str.984, %153 ], [ @.str.983, %152 ], [ @.str.982, %151 ], [ @.str.981, %150 ], [ @.str.980, %149 ], [ @.str.979, %148 ], [ @.str.978, %147 ], [ @.str.977, %146 ], [ @.str.1003, %171 ], [ @.str.1002, %170 ], [ @.str.1001, %169 ], [ @.str.1000, %168 ], [ @.str.999, %167 ], [ @.str.998, %166 ], [ @.str.997, %165 ], [ @.str.996, %164 ], [ @.str.995, %163 ], [ @.str.994, %162 ], [ @.str.993, %161 ], [ @.str.992, %160 ], [ @.str.991, %159 ], [ @.str.976, %.critedge3 ], [ @.str.990, %.critedge3.thread ]
-  %172 = getelementptr inbounds i8, ptr %3, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %173 = load ptr, ptr %172, align 8
   call void @col_append_sep_str(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.961, ptr noundef nonnull %.str.989.sink.i) #15
   br label %174
@@ -4774,7 +4774,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #15
   %10 = load i32, ptr @hf_dvbci_sac_msg_ctr, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %10, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #15
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %13, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1004, i32 noundef %9) #15
   %14 = add i32 %2, 4
@@ -4854,7 +4854,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   br i1 %.not26.i, label %61, label %.thread.thread125
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %3, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %41 to i64
   %65 = call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef %64) #15
@@ -4960,12 +4960,12 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   call void @tvb_composite_finalize(ptr noundef %109) #15
   %111 = call ptr @export_pdu_create_tags(ptr noundef nonnull %3, ptr noundef nonnull @.str.594, i16 noundef zeroext 12, ptr noundef nonnull @dissect_sac_msg.dvbci_exp_pdu_items) #15
   %112 = call i32 @tvb_captured_length(ptr noundef %109) #15
-  %113 = getelementptr inbounds i8, ptr %111, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i32 %112, ptr %113, align 8
   %114 = call i32 @tvb_reported_length(ptr noundef %109) #15
-  %115 = getelementptr inbounds i8, ptr %111, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 20
   store i32 %114, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %111, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store ptr %109, ptr %116, align 8
   %117 = load i32, ptr @exported_pdu_tap, align 4
   call void @tap_queue_packet(i32 noundef %117, ptr noundef nonnull %3, ptr noundef %111) #15
@@ -5047,13 +5047,13 @@ define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext range(i8 -2, 1) i8 @dvbci_get_evt_from_addrs(ptr nocapture noundef readonly %0) unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
   br i1 %4, label %5, label %addresses_equal.exit9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 212
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %addresses_equal.exit9 [
     i32 4, label %8
@@ -5061,26 +5061,26 @@ define internal fastcc zeroext range(i8 -2, 1) i8 @dvbci_get_evt_from_addrs(ptr 
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
   %11 = icmp eq i32 %bcmp.i, 0
   br i1 %11, label %addresses_equal.exit, label %.thread.thread
 
 addresses_equal.exit:                             ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 7
   br i1 %14, label %15, label %.thread.thread
 
 15:                                               ; preds = %addresses_equal.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 236
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 5
   br i1 %18, label %19, label %.thread.thread
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %21 = load ptr, ptr %20, align 8
   %bcmp.i8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %21, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
   %22 = icmp eq i32 %bcmp.i8, 0
@@ -5090,26 +5090,26 @@ addresses_equal.exit:                             ; preds = %8
   br label %addresses_equal.exit9
 
 23:                                               ; preds = %5
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8
   %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %25, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
   %26 = icmp eq i32 %bcmp.i11, 0
   br i1 %26, label %addresses_equal.exit12, label %addresses_equal.exit9
 
 addresses_equal.exit12:                           ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %addresses_equal.exit15.thread
 
 30:                                               ; preds = %addresses_equal.exit12
-  %31 = getelementptr inbounds i8, ptr %0, i64 236
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 4
   br i1 %33, label %34, label %addresses_equal.exit15.thread
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load ptr, ptr %35, align 8
   %bcmp.i14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %36, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
   %37 = icmp eq i32 %bcmp.i14, 0
@@ -5129,7 +5129,7 @@ define internal fastcc void @dissect_dvbci_ami_file_req(ptr noundef %0, i32 noun
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #15
   %7 = load i32, ptr @hf_dvbci_req_type, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #15
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i8 %6 to i32
   %12 = tail call ptr @val_to_str_const(i32 noundef %11, ptr noundef nonnull @dvbci_req_type, ptr noundef nonnull @.str.947) #15
@@ -5160,7 +5160,7 @@ define internal fastcc void @dissect_dvbci_ami_file_req(ptr noundef %0, i32 noun
 23:                                               ; preds = %22, %22
   %24 = load i32, ptr @hf_dvbci_file_name, align 4
   %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #15
-  %26 = getelementptr inbounds i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef %.0, i32 noundef %25, i32 noundef 0, ptr noundef %27, ptr noundef nonnull %5) #15
   %29 = load ptr, ptr %9, align 8
@@ -5203,7 +5203,7 @@ define internal fastcc void @dissect_dvbci_ami_file_ack(ptr noundef %0, i32 noun
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #15
   %21 = load i32, ptr @hf_dvbci_req_type, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #15
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @dvbci_req_type, ptr noundef nonnull @.str.947) #15
   tail call void @col_append_sep_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef %25) #15
@@ -5220,7 +5220,7 @@ define internal fastcc void @dissect_dvbci_ami_file_ack(ptr noundef %0, i32 noun
   %29 = load i32, ptr @hf_dvbci_file_name_len, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %29, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0) #15
   %31 = add i32 %1, 3
-  %32 = getelementptr inbounds i8, ptr %2, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = zext i8 %28 to i32
   %35 = tail call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef %34, i32 noundef 0) #15
@@ -5335,7 +5335,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dvbci_buf_neg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #15
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i8 %3, -2
   %9 = select i1 %8, ptr @.str.1041, ptr @.str.1042
@@ -5389,7 +5389,7 @@ define internal fastcc void @dissect_dvbci_lpdu(ptr noundef %0, ptr noundef %1, 
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #15
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.1047) #15
   %16 = load i32, ptr @ett_dvbci_link, align 4
@@ -5438,7 +5438,7 @@ define internal fastcc void @dissect_dvbci_lpdu(ptr noundef %0, ptr noundef %1, 
   br i1 %40, label %.thread, label %47
 
 .thread:                                          ; preds = %44
-  %45 = getelementptr inbounds i8, ptr %1, i64 272
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %45, align 8
   %46 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.1052) #15
@@ -5603,7 +5603,7 @@ dissect_dvbci_tpdu_hdr.exit.i:                    ; preds = %97, %95, %93
   br i1 %brmerge.not.i, label %115, label %118
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %1, i64 272
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %116, align 8
   %117 = load ptr, ptr %14, align 8
   call void @col_append_str(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.1052) #15
@@ -5743,7 +5743,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   br i1 %.not.i58.i, label %dissect_dvbci_spdu.exit.i, label %184
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %183, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 1
   %186 = load i8, ptr %185, align 1
   %.not135.i.i = icmp eq i8 %186, 0
   %.not136.i.i = icmp eq i8 %186, %3
@@ -5757,7 +5757,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   br label %189
 
 189:                                              ; preds = %.sink.split.i.i, %184
-  %190 = getelementptr inbounds i8, ptr %183, i64 2
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 2
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
   %193 = load i32, ptr %7, align 4
@@ -5843,7 +5843,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
 
 246:                                              ; preds = %224
   call void @col_append_sep_str(ptr noundef %244, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.650) #15
-  %247 = getelementptr inbounds i8, ptr %1, i64 20
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %248 = load i32, ptr %247, align 4
   %249 = zext i16 %241 to i32
   %250 = shl nuw nsw i32 %249, 8
@@ -5873,7 +5873,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
   %268 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.0.i, i32 noundef %267) #15
   %269 = load i32, ptr @hf_dvbci_sess_nb, align 4
   %270 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %269, ptr noundef nonnull %.0.i, i32 noundef %267, i32 noundef 2, i32 noundef 0) #15
-  %271 = getelementptr inbounds i8, ptr %1, i64 20
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %272 = load i32, ptr %271, align 4
   %273 = zext i16 %268 to i32
   %274 = shl nuw nsw i32 %273, 8
@@ -5884,7 +5884,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
 
 277:                                              ; preds = %260
   %278 = load i32, ptr %271, align 4
-  %279 = getelementptr inbounds i8, ptr %276, i64 32
+  %279 = getelementptr inbounds nuw i8, ptr %276, i64 32
   store i32 %278, ptr %279, align 8
   br label %.thread.i.i
 
@@ -5905,7 +5905,7 @@ dissect_dvbci_tpdu_status.exit.i:                 ; preds = %158, %156
 
 288:                                              ; preds = %286
   %289 = zext i16 %.0125.i.i to i32
-  %290 = getelementptr inbounds i8, ptr %1, i64 20
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %291 = load i32, ptr %290, align 4
   %292 = shl nuw nsw i32 %289, 8
   %293 = or disjoint i32 %292, %20
@@ -5944,13 +5944,13 @@ dissect_res_id.exit.i.i:                          ; preds = %297
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %312
 
 312:                                              ; preds = %dissect_res_id.exit.i.i
-  %313 = getelementptr inbounds i8, ptr %311, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %311, i64 32
   %314 = load ptr, ptr %313, align 8
   %.not5.i.i.i = icmp eq ptr %314, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %315
 
 315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %314, i64 28
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 28
   %317 = load i32, ptr %316, align 4
   %318 = or i32 %317, 2
   store i32 %318, ptr %316, align 4
@@ -6014,7 +6014,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
   br label %dissect_dvbci_apdu.exit.i.i
 
 353:                                              ; preds = %346
-  %354 = getelementptr inbounds i8, ptr %350, i64 12
+  %354 = getelementptr inbounds nuw i8, ptr %350, i64 12
   %355 = load i8, ptr %354, align 4
   %.not89.i.i.i = icmp eq i8 %355, 0
   %.not90.i.i.i = icmp eq i8 %355, %3
@@ -6028,7 +6028,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
   br label %358
 
 358:                                              ; preds = %.sink.split.i.i.i, %353
-  %359 = getelementptr inbounds i8, ptr %350, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %350, i64 4
   %360 = load i32, ptr %359, align 4
   %.not91.i.i.i = icmp ne i32 %360, -1
   %361 = load i32, ptr %5, align 4
@@ -6041,7 +6041,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
   br label %dissect_dvbci_apdu.exit.i.i
 
 365:                                              ; preds = %358
-  %366 = getelementptr inbounds i8, ptr %350, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %367 = load i32, ptr %366, align 8
   %.not92.i.i.i = icmp eq i32 %367, -1
   %.not93.i.i.i = icmp eq i32 %361, %367
@@ -6060,7 +6060,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
   %373 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.1157.i.i, i32 noundef %372) #15
   %374 = ptrtoint ptr %373 to i64
   %375 = trunc i64 %374 to i32
-  %376 = getelementptr inbounds i8, ptr %350, i64 14
+  %376 = getelementptr inbounds nuw i8, ptr %350, i64 14
   %377 = load i16, ptr %376, align 2
   %378 = zext i16 %377 to i32
   %379 = call ptr @val_to_str_const(i32 noundef %378, ptr noundef nonnull @dvbci_res_class, ptr noundef nonnull @.str.1069) #15
@@ -6077,7 +6077,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %315, %312, %dissect
 
 386:                                              ; preds = %384, %371
   %387 = and i32 %375, 63
-  %388 = getelementptr inbounds i8, ptr %350, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %350, i64 16
   %389 = load i8, ptr %388, align 8
   %390 = zext i8 %389 to i32
   %391 = icmp samesign ult i32 %387, %390
@@ -6097,7 +6097,7 @@ thread-pre-split.i.i:                             ; preds = %392, %386
   br i1 %.not96.i.i.i, label %dissect_dvbci_apdu.exit.i.i, label %396
 
 396:                                              ; preds = %394
-  %397 = getelementptr inbounds i8, ptr %350, i64 24
+  %397 = getelementptr inbounds nuw i8, ptr %350, i64 24
   %398 = load ptr, ptr %397, align 8
   %.not97.i.i.i = icmp eq ptr %398, null
   br i1 %.not97.i.i.i, label %dissect_dvbci_apdu.exit.i.i, label %399

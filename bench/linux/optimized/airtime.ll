@@ -25,18 +25,18 @@ define dso_local i32 @ieee80211_calc_rx_airtime(ptr nocapture noundef readonly %
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 31
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 7
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 30
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
   switch i8 %15, label %17 [
     i8 4, label %16
@@ -58,9 +58,9 @@ define dso_local i32 @ieee80211_calc_rx_airtime(ptr nocapture noundef readonly %
 
 17:                                               ; preds = %._crit_edge, %9
   %18 = phi i8 [ %.pre, %._crit_edge ], [ %15, %9 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 312
   %22 = zext i8 %18 to i64
   %23 = getelementptr [6 x ptr], ptr %21, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
@@ -68,23 +68,23 @@ define dso_local i32 @ieee80211_calc_rx_airtime(ptr nocapture noundef readonly %
   br i1 %25, label %57, label %26
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 33
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, %29
   br i1 %32, label %33, label %57
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %24, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i8 %28 to i64
   %37 = getelementptr %struct.ieee80211_rate, ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 4
   %40 = icmp eq i32 %39, 0
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i16, ptr %41, align 4
   %43 = select i1 %13, i32 202, i32 106
   %44 = select i1 %40, i32 36, i32 %43
@@ -120,10 +120,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 30
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 31
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %7 = load i8, ptr %6, align 1
   %8 = lshr i8 %7, 3
   %9 = and i8 %8, 15
@@ -159,7 +159,7 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
   ]
 
 .thread8:                                         ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 33
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = lshr i32 %19, 3
@@ -179,7 +179,7 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
   br label %73
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %0, i64 34
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %15, 3
@@ -191,11 +191,11 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
   br i1 %38, label %52, label %.thread3
 
 39:                                               ; preds = %14
-  %40 = getelementptr inbounds i8, ptr %0, i64 34
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i32
   %43 = mul nuw nsw i32 %15, 24
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, 24
   %47 = zext nneg i8 %46 to i32
@@ -214,7 +214,7 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
 .thread3:                                         ; preds = %29, %39
   %53 = phi i32 [ %50, %39 ], [ %37, %29 ]
   %54 = phi i32 [ %42, %39 ], [ %32, %29 ]
-  %.in.in = getelementptr inbounds i8, ptr %0, i64 33
+  %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 33
   %.in = load i8, ptr %.in.in, align 1
   %55 = zext nneg i8 %.in to i32
   %56 = icmp ugt i8 %.in, 11
@@ -226,7 +226,7 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
   %60 = phi i32 [ %23, %.thread8 ], [ %55, %.thread3 ]
   %61 = zext nneg i32 %59 to i64
   %62 = getelementptr [144 x %struct.mcs_group], ptr @airtime_mcs_groups, i64 0, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %64 = zext nneg i32 %60 to i64
   %65 = getelementptr [12 x i16], ptr %63, i64 0, i64 %64
   %66 = load i16, ptr %65, align 2
@@ -247,13 +247,13 @@ define internal fastcc i32 @ieee80211_get_rate_duration(ptr nocapture noundef re
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ieee80211_calc_tx_airtime(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.ieee80211_rx_status, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 36
-  %8 = getelementptr inbounds i8, ptr %4, i64 31
-  %9 = getelementptr inbounds i8, ptr %4, i64 30
-  %10 = getelementptr inbounds i8, ptr %4, i64 33
-  %11 = getelementptr inbounds i8, ptr %4, i64 34
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 31
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 30
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 34
   br label %12
 
 12:                                               ; preds = %60, %3
@@ -271,7 +271,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr nocapture noundef readonly %
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %15, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %23 = load i16, ptr %22, align 1
   %24 = and i16 %23, 31
   %25 = icmp eq i16 %24, 0
@@ -362,7 +362,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   %6 = alloca %struct.ieee80211_rx_status, align 8
   %7 = alloca i32, align 4
   %8 = add i32 %3, 38
-  %9 = getelementptr inbounds i8, ptr %1, i64 856
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.thread
@@ -386,11 +386,11 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   store i32 0, ptr %7, align 4, !annotation !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  %22 = getelementptr inbounds i8, ptr %6, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 %19, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %26 = zext i8 %19 to i64
   %27 = getelementptr [6 x ptr], ptr %25, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -402,16 +402,16 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
 32:                                               ; preds = %18
   %33 = getelementptr i8, ptr %2, i64 -286
   %34 = load i8, ptr %33, align 2
-  %35 = getelementptr inbounds i8, ptr %6, i64 31
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 31
   %36 = shl i8 %34, 3
   %37 = and i8 %36, 120
   %38 = getelementptr i8, ptr %2, i64 -287
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %6, i64 34
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 34
   store i8 %39, ptr %40, align 2
   %41 = getelementptr i8, ptr %2, i64 -288
   %42 = load i8, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %6, i64 33
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 %42, ptr %43, align 1
   %44 = load i16, ptr %21, align 2
   %45 = zext i16 %44 to i32
@@ -446,14 +446,14 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %6, i64 30
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 30
   store i8 4, ptr %64, align 2
   br label %65
 
 65:                                               ; preds = %63, %59
   %66 = getelementptr i8, ptr %2, i64 -285
   %67 = load i8, ptr %66, align 1
-  %68 = getelementptr inbounds i8, ptr %6, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %69 = shl i8 %67, 3
   %70 = and i8 %69, 24
   store i8 %70, ptr %68, align 8
@@ -462,7 +462,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br i1 %72, label %73, label %136
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %28, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %.loopexit
@@ -470,7 +470,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
 77:                                               ; preds = %73
   %78 = getelementptr i8, ptr %2, i64 -290
   %79 = load i16, ptr %78, align 2
-  %80 = getelementptr inbounds i8, ptr %28, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = zext nneg i32 %75 to i64
   br label %83
@@ -520,7 +520,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
 
 107:                                              ; preds = %104, %102, %100
   %108 = phi i8 [ 40, %100 ], [ 32, %102 ], [ %., %104 ]
-  %109 = getelementptr inbounds i8, ptr %6, i64 30
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 30
   %110 = and i16 %97, 128
   %111 = icmp ne i16 %110, 0
   %112 = zext i1 %111 to i8
@@ -529,7 +529,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   %115 = and i8 %114, 4
   %116 = or disjoint i8 %115, %112
   store i8 %116, ptr %109, align 2
-  %117 = getelementptr inbounds i8, ptr %6, i64 33
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 %93, ptr %117, align 1
   %118 = lshr i16 %97, 5
   %119 = zext nneg i16 %118 to i32
@@ -538,21 +538,21 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br i1 %121, label %129, label %122
 
 122:                                              ; preds = %107
-  %123 = getelementptr inbounds i8, ptr %6, i64 31
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 31
   %124 = or disjoint i8 %108, 2
   store i8 %124, ptr %123, align 1
   %125 = and i8 %93, 15
   store i8 %125, ptr %117, align 1
   %126 = lshr i8 %93, 4
   %127 = add nuw nsw i8 %126, 1
-  %128 = getelementptr inbounds i8, ptr %6, i64 34
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 34
   store i8 %127, ptr %128, align 2
   br label %136
 
 129:                                              ; preds = %107
   %130 = and i32 %119, 8
   %131 = icmp eq i32 %130, 0
-  %132 = getelementptr inbounds i8, ptr %6, i64 31
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 31
   br i1 %131, label %135, label %133
 
 133:                                              ; preds = %129
@@ -616,16 +616,16 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br label %199
 
 167:                                              ; preds = %.thread
-  %168 = getelementptr inbounds i8, ptr %0, i64 64
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 312
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 312
   %.mask = and i32 %15, 255
   %171 = zext nneg i32 %.mask to i64
   %172 = getelementptr [6 x ptr], ptr %170, i64 0, i64 %171
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %1, i64 152
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %175 = load i32, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %1, i64 126
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %177 = load i8, ptr %176, align 2, !range !23, !noundef !24
   %178 = icmp eq i8 %177, 0
   %179 = icmp eq i32 %175, 0
@@ -638,10 +638,10 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
 
 183:                                              ; preds = %180, %167
   %184 = phi i64 [ %182, %180 ], [ 0, %167 ]
-  %185 = getelementptr inbounds i8, ptr %173, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr %struct.ieee80211_rate, ptr %186, i64 %184
-  %188 = getelementptr inbounds i8, ptr %187, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %189 = load i16, ptr %188, align 4
   %190 = load i32, ptr %187, align 4
   %191 = and i32 %190, 4

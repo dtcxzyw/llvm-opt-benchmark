@@ -70,7 +70,7 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit: ; preds = %6
 
 11:                                               ; preds = %6
   store ptr %3, ptr %7, align 8, !alias.scope !4
-  %.sroa.2.0..sroa_idx4.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %4, ptr %.sroa.2.0..sroa_idx4.i.i.i, align 8, !alias.scope !4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %12, align 8, !alias.scope !4
@@ -92,7 +92,7 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit: ; preds = %6
 
 _ZN4llvm16dyn_cast_or_nullIN5clang4ento11TypedRegionEKNS2_9MemRegionEEEDaPT0_.exit: ; preds = %19
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 %26(ptr noundef nonnull align 8 dereferenceable(56) %18) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -229,7 +229,7 @@ define dso_local void @_ZN5clang4ento23SimpleConstraintManager9assumeAuxEN4llvm1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %4, ptr %13, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %3, i8 %4) #9
   br i1 %17, label %27, label %18
@@ -247,7 +247,7 @@ define dso_local void @_ZN5clang4ento23SimpleConstraintManager9assumeAuxEN4llvm1
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %18, %21
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %9, ptr noundef %19, i1 noundef zeroext %5) #9
   %25 = load ptr, ptr %9, align 8
@@ -281,7 +281,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit39: ; preds = %29, %31
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %10, ptr noundef nonnull %3, i1 noundef zeroext %5) #9
   %35 = load ptr, ptr %10, align 8
@@ -335,7 +335,7 @@ _ZNK4llvm6APSIntneEl.exit:                        ; preds = %37, %43, %46
 
 51:                                               ; preds = %27
   store ptr %3, ptr %11, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 10, ptr %.sroa.212.0..sroa_idx, align 8
   %52 = call noundef zeroext i1 @_ZNK5clang4ento6nonloc15PointerToMember19isNullMemberPointerEv(ptr noundef nonnull align 8 dereferenceable(9) %11) #9
   %spec.select36 = xor i1 %5, %52
@@ -367,10 +367,10 @@ _ZNK4llvm6APSIntneEl.exit:                        ; preds = %37, %43, %46
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit57: ; preds = %57, %59
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %12, ptr %.sroa.0.0.copyload.i.i.i.i, i8 %.sroa.2.0.copyload.i.i.i.i, i1 noundef zeroext %5) #9
   %63 = load ptr, ptr %12, align 8
@@ -400,7 +400,7 @@ define dso_local void @_ZN5clang4ento23SimpleConstraintManager28assumeInclusiveR
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %4, ptr %12, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %3, i8 %4) #9
   br i1 %16, label %26, label %17
@@ -418,7 +418,7 @@ define dso_local void @_ZN5clang4ento23SimpleConstraintManager28assumeInclusiveR
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %17, %20
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %10, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6, i1 noundef zeroext %7) #9
   %24 = load ptr, ptr %10, align 8
@@ -451,7 +451,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20: ; preds = %31, %32
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %11, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6, i1 noundef zeroext %7) #9
   %36 = load ptr, ptr %11, align 8
@@ -698,7 +698,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %63
   %72 = load ptr, ptr %0, align 8
   %73 = lshr i32 %67, 6
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %72, i64 %74
   %.in.i.i.i.i = select i1 %71, ptr %0, ptr %75
   %76 = load i64, ptr %.in.i.i.i.i, align 8
   %77 = and i64 %76, %70
@@ -720,7 +720,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit33:            ; preds = %78
   %87 = load ptr, ptr %1, align 8
   %88 = lshr i32 %82, 6
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds i64, ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw i64, ptr %87, i64 %89
   %.in.i.i.i.i32 = select i1 %86, ptr %1, ptr %90
   %91 = load i64, ptr %.in.i.i.i.i32, align 8
   %92 = and i64 %91, %85

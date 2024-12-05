@@ -731,7 +731,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_lmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.vec_t], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.426) #3
   %9 = load ptr, ptr %7, align 8
@@ -803,13 +803,13 @@ lmp_msg_to_filter_num.exit:                       ; preds = %14, %switch.early.t
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %43
 
 43:                                               ; preds = %lmp_msg_to_filter_num.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 1
   store i32 %49, ptr %47, align 4
@@ -826,7 +826,7 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
   br label %920
 
 54:                                               ; preds = %proto_item_set_hidden.exit
-  %55 = getelementptr inbounds i8, ptr %1, i64 272
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %56 = load i32, ptr %55, align 8
   %.not1057 = icmp eq i32 %56, 0
   br i1 %.not1057, label %57, label %66
@@ -837,7 +837,7 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
   br i1 %.not1058, label %66, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %16, ptr %60, align 8
   %61 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %16) #3
   store ptr %61, ptr %6, align 16
@@ -864,7 +864,7 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
   br i1 %75, label %.lr.ph1171, label %.loopexit1143
 
 .lr.ph1171:                                       ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %1, i64 408
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %77
 
 77:                                               ; preds = %.lr.ph1171, %.thread1131
@@ -892,13 +892,13 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
   br i1 %.not.i1106, label %proto_item_set_generated.exit, label %92
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %91, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not5.i1107 = icmp eq ptr %94, null
   br i1 %.not5.i1107, label %proto_item_set_generated.exit, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 2
   store i32 %98, ptr %96, align 4
@@ -1591,7 +1591,7 @@ lmp_class_to_filter_num.exit:                     ; preds = %proto_item_set_gene
 
 switch.lookup:                                    ; preds = %484
   %486 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_lmp, i64 0, i64 %486
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_lmp, i64 0, i64 %486
   %switch.load = load i32, ptr %switch.gep, align 4
   %487 = icmp ugt i16 %79, 4
   br i1 %487, label %.lr.ph1163, label %.thread1131

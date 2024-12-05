@@ -43,8 +43,8 @@ define dso_local void @_ZN12Sample_DebugC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca %class.FileIO, align 8
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12Sample_Debug, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   invoke void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
           to label %5 unwind label %44
@@ -76,30 +76,30 @@ define dso_local void @_ZN12Sample_DebugC2Ev(ptr noundef nonnull align 8 derefer
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
-  %23 = getelementptr inbounds i8, ptr %16, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load float, ptr %26, align 8
   %28 = fpext float %27 to double
-  %29 = getelementptr inbounds i8, ptr %16, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %30 = load float, ptr %29, align 4
   %31 = fpext float %30 to double
-  %32 = getelementptr inbounds i8, ptr %16, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %33 = load float, ptr %32, align 8
   %34 = fpext float %33 to double
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %19, double noundef %22, double noundef %25, double noundef %28, double noundef %31, double noundef %34)
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds i8, ptr %36, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load float, ptr %40, align 8
   %42 = fpext float %41 to double
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %39, double noundef %42)
@@ -163,19 +163,19 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12Sample_DebugD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12Sample_Debug, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %3)
           to label %4 unwind label %11
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %6)
           to label %7 unwind label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %9 = load ptr, ptr %8, align 8
   invoke void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %9)
           to label %10 unwind label %11
@@ -213,19 +213,19 @@ declare void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12Sample_DebugD0Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12Sample_Debug, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %3)
           to label %4 unwind label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %6)
           to label %7 unwind label %10
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %9 = load ptr, ptr %8, align 8
   invoke void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %9)
           to label %_ZN12Sample_DebugD2Ev.exit unwind label %10
@@ -263,29 +263,29 @@ define dso_local void @_ZN12Sample_Debug15handleDebugModeEv(ptr nocapture nonnul
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12Sample_Debug12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_Z36duDebugDrawCompactHeightfieldRegionsP11duDebugDrawRK20rcCompactHeightfield(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(96) %3)
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_Z18duDebugDrawNavMeshP11duDebugDrawRK9dtNavMeshh(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(100) %8, i8 noundef zeroext 1)
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %13 = load i32, ptr %12, align 8
   %.not7 = icmp eq i32 %13, 0
   br i1 %.not7, label %18, label %14
@@ -296,31 +296,31 @@ define dso_local void @_ZN12Sample_Debug12handleRenderEv(ptr noundef nonnull ali
   br i1 %.not8, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(100) %15, i32 noundef %13, i32 noundef -2147483393)
   br label %18
 
 18:                                               ; preds = %16, %14, %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %20 = load ptr, ptr %19, align 8
   %.not9 = icmp eq ptr %20, null
   br i1 %.not9, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_Z22duDebugDrawRawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(60) %20, float noundef 2.500000e-01)
   %23 = load ptr, ptr %19, align 8
   tail call void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(60) %23, float noundef 1.000000e+00)
   br label %24
 
 24:                                               ; preds = %21, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %26 = load ptr, ptr %25, align 8
   %.not10 = icmp eq ptr %26, null
   br i1 %.not10, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(96) %26)
   br label %29
 
@@ -347,37 +347,37 @@ define dso_local void @_ZN12Sample_Debug19handleRenderOverlayEPdS0_Pi(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(276) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMinEv(ptr noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   br label %15
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not5 = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %spec.select = select i1 %.not5, ptr null, ptr %14
   br label %15
 
@@ -388,30 +388,30 @@ define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMinEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMaxEv(ptr noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not4 = icmp eq ptr %8, null
   br i1 %.not4, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   br label %15
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not5 = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %0, i64 260
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %spec.select = select i1 %.not5, ptr null, ptr %14
   br label %15
 
@@ -422,14 +422,14 @@ define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMaxEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12Sample_Debug11handleClickEPKfS1_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   br label %11
@@ -440,14 +440,14 @@ define dso_local void @_ZN12Sample_Debug11handleClickEPKfS1_b(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12Sample_Debug12handleToggleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %8
@@ -458,20 +458,20 @@ define dso_local void @_ZN12Sample_Debug12handleToggleEv(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN12Sample_Debug11handleBuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %6)
   store ptr null, ptr %5, align 8
   %7 = tail call noundef ptr @_Z17rcAllocContourSetv()
   store ptr %7, ptr %5, align 8
   %.not3 = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8
   br i1 %.not3, label %10, label %11
 
@@ -506,49 +506,49 @@ declare void @_ZN6Sample15collectSettingsER13BuildSettings(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample12getInputGeomEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample10getNavMeshEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample15getNavMeshQueryEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample8getCrowdEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample14getAgentRadiusEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample14getAgentHeightEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample13getAgentClimbEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load float, ptr %2, align 4
   ret float %3
 }

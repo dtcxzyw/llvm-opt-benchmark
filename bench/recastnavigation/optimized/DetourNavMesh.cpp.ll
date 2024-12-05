@@ -54,7 +54,7 @@ declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9dtNavMeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 60), (64, 100)) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   ret void
@@ -65,38 +65,38 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9dtNavMeshD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %6
 
 6:                                                ; preds = %.lr.ph, %21
   %7 = phi i32 [ %3, %.lr.ph ], [ %22, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.dtMeshTile, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %9, i64 92
+  %9 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %9, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %15 = load ptr, ptr %14, align 8
   invoke void @_Z6dtFreePv(ptr noundef %15)
           to label %16 unwind label %.loopexit
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.dtMeshTile, ptr %17, i64 %indvars.iv, i32 11
+  %18 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %17, i64 %indvars.iv, i32 11
   store ptr null, ptr %18, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.dtMeshTile, ptr %19, i64 %indvars.iv, i32 12
+  %20 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %19, i64 %indvars.iv, i32 12
   store i32 0, ptr %20, align 8
   %.pre = load i32, ptr %2, align 8
   br label %21
@@ -109,13 +109,13 @@ define void @_ZN9dtNavMeshD2Ev(ptr nocapture noundef nonnull readonly align 8 de
   br i1 %24, label %6, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %21, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
   invoke void @_Z6dtFreePv(ptr noundef %26)
           to label %27 unwind label %.loopexit.split-lp
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   invoke void @_Z6dtFreePv(ptr noundef %29)
           to label %30 unwind label %.loopexit.split-lp
@@ -157,28 +157,28 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) initializes((0, 60), (80, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load float, ptr %1, align 4
   store float %4, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store float %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %18, ptr %19, align 8
   %20 = sdiv i32 %18, 4
   %21 = add nsw i32 %20, -1
@@ -193,16 +193,16 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %30 = lshr i32 %29, 16
   %31 = or i32 %30, %29
   %32 = add i32 %31, 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %spec.select = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
   store i32 %spec.select, ptr %33, align 4
   %34 = add nsw i32 %spec.select, -1
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %34, ptr %35, align 8
   %36 = sext i32 %18 to i64
   %37 = mul nsw i64 %36, 104
   %38 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %37, i32 noundef 0)
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %38, ptr %39, align 8
   %.not15 = icmp eq ptr %38, null
   br i1 %.not15, label %135, label %40
@@ -212,7 +212,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 3
   %44 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %43, i32 noundef 0)
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %44, ptr %45, align 8
   %.not16 = icmp eq ptr %44, null
   br i1 %.not16, label %135, label %46
@@ -228,7 +228,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %53 = sext i32 %52 to i64
   %54 = shl nsw i64 %53, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %54, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %55, align 8
   %56 = load i32, ptr %19, align 8
   %57 = icmp sgt i32 %56, 0
@@ -243,14 +243,14 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %59 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %64, %.lr.ph ]
   %indvars.iv = phi i64 [ %58, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %60 = getelementptr inbounds %struct.dtMeshTile, ptr %59, i64 %indvars.iv.next
+  %60 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %59, i64 %indvars.iv.next
   store i32 1, ptr %60, align 8
   %61 = load ptr, ptr %55, align 8
   %62 = load ptr, ptr %39, align 8
-  %63 = getelementptr inbounds %struct.dtMeshTile, ptr %62, i64 %indvars.iv.next, i32 14
+  %63 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %62, i64 %indvars.iv.next, i32 14
   store ptr %61, ptr %63, align 8
   %64 = load ptr, ptr %39, align 8
-  %65 = getelementptr inbounds %struct.dtMeshTile, ptr %64, i64 %indvars.iv.next
+  %65 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %64, i64 %indvars.iv.next
   store ptr %65, ptr %55, align 8
   %66 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -286,9 +286,9 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %94 = or i32 %93, %84
   %95 = or i32 %94, %87
   %96 = or i32 %95, %90
-  %97 = getelementptr inbounds i8, ptr %0, i64 92
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, -1
   %101 = lshr i32 %100, 1
@@ -319,12 +319,12 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %126 = or i32 %125, %116
   %127 = or i32 %126, %119
   %128 = or i32 %127, %122
-  %129 = getelementptr inbounds i8, ptr %0, i64 96
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %128, ptr %129, align 8
   %130 = add nuw i32 %96, %128
   %131 = sub i32 32, %130
   %132 = tail call noundef i32 @llvm.umin.i32(i32 %131, i32 31)
-  %133 = getelementptr inbounds i8, ptr %0, i64 88
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %132, ptr %133, align 8
   %134 = icmp ult i32 %131, 10
   %. = select i1 %134, i32 -2147483640, i32 1073741824
@@ -346,38 +346,38 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh4initEPhii(p
   br i1 %.not, label %7, label %35
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not15 = icmp eq i32 %9, 7
   br i1 %.not15, label %10, label %35
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load float, ptr %11, align 4
   store float %12, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %20 = load float, ptr %19, align 4
   %21 = fsub float %20, %12
-  %22 = getelementptr inbounds i8, ptr %5, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 92
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %24 = load float, ptr %23, align 4
   %25 = fsub float %24, %17
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store float %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %29, ptr %30, align 4
   %31 = call noundef i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %5)
   %32 = icmp slt i32 %31, 0
@@ -400,15 +400,15 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br i1 %.not, label %9, label %_ZNK9dtNavMesh9getTileAtEiii.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %.not132 = icmp eq i32 %11, 7
   br i1 %.not132, label %12, label %_ZNK9dtNavMesh9getTileAtEiii.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -1
   %18 = lshr i32 %17, 1
@@ -443,19 +443,19 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br i1 %46, label %_ZNK9dtNavMesh9getTileAtEiii.exit, label %47
 
 47:                                               ; preds = %12
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i32, ptr %54, align 8
   %56 = mul i32 %49, -1918454973
   %57 = mul i32 %51, -669632447
   %58 = add i32 %57, %56
   %59 = and i32 %55, %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %59 to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
@@ -465,31 +465,31 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
 
 .lr.ph.i:                                         ; preds = %47, %78
   %.019.i = phi ptr [ %.0.i, %78 ], [ %.017.i, %47 ]
-  %64 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not16.i = icmp eq ptr %65, null
   br i1 %.not16.i, label %78, label %66
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, %49
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %65, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, %51
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %65, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, %53
   br i1 %77, label %_ZNK9dtNavMesh9getTileAtEiii.exit, label %78
 
 78:                                               ; preds = %74, %70, %66, %.lr.ph.i
-  %79 = getelementptr inbounds i8, ptr %.019.i, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %.019.i, i64 96
   %.0.i = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
@@ -499,36 +499,36 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br i1 %.not134, label %80, label %86
 
 80:                                               ; preds = %.loopexit
-  %81 = getelementptr inbounds i8, ptr %0, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load ptr, ptr %81, align 8
   %.not135 = icmp eq ptr %82, null
   br i1 %.not135, label %_ZNK9dtNavMesh9getTileAtEiii.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 96
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %81, align 8
   store ptr null, ptr %84, align 8
   br label %120
 
 86:                                               ; preds = %.loopexit
-  %87 = getelementptr inbounds i8, ptr %0, i64 92
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %88 = load i32, ptr %87, align 4
   %notmask.i = shl nsw i32 -1, %88
   %89 = xor i32 %notmask.i, -1
   %90 = lshr i32 %4, %14
   %91 = and i32 %90, %89
-  %92 = getelementptr inbounds i8, ptr %0, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %93 = load i32, ptr %92, align 8
   %.not136 = icmp slt i32 %91, %93
   br i1 %.not136, label %94, label %_ZNK9dtNavMesh9getTileAtEiii.exit
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %0, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %96 = load ptr, ptr %95, align 8
   %97 = zext nneg i32 %91 to i64
-  %98 = getelementptr inbounds %struct.dtMeshTile, ptr %96, i64 %97
-  %99 = getelementptr inbounds i8, ptr %0, i64 72
+  %98 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %100
 
 100:                                              ; preds = %100, %94
@@ -538,7 +538,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %101 = icmp ne ptr %.1, null
   %102 = icmp ne ptr %.1, %98
   %103 = select i1 %101, i1 %102, i1 false
-  %104 = getelementptr inbounds i8, ptr %.1, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 96
   br i1 %103, label %100, label %105, !llvm.loop !8
 
 105:                                              ; preds = %100
@@ -554,7 +554,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br label %111
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.0126, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %.0126, i64 96
   store ptr %107, ptr %110, align 8
   %.pre = load i32, ptr %13, align 8
   %.pre176 = load i32, ptr %87, align 4
@@ -563,7 +563,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
 111:                                              ; preds = %109, %108
   %112 = phi i32 [ %.pre176, %109 ], [ %88, %108 ]
   %113 = phi i32 [ %.pre, %109 ], [ %14, %108 ]
-  %114 = getelementptr inbounds i8, ptr %0, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %115 = load i32, ptr %114, align 8
   %notmask.i141 = shl nsw i32 -1, %115
   %116 = xor i32 %notmask.i141, -1
@@ -586,61 +586,61 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %129 = sext i32 %127 to i64
   %130 = getelementptr inbounds ptr, ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.0125.ph, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 96
   store ptr %131, ptr %132, align 8
   %133 = load ptr, ptr %60, align 8
   %134 = getelementptr inbounds ptr, ptr %133, i64 %129
   store ptr %.0125.ph, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 28
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %136 = load i32, ptr %135, align 4
   %137 = mul i32 %136, 12
   %138 = load i32, ptr %15, align 4
   %139 = shl i32 %138, 5
-  %140 = getelementptr inbounds i8, ptr %1, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %141 = load i32, ptr %140, align 4
   %142 = mul i32 %141, 12
-  %143 = getelementptr inbounds i8, ptr %1, i64 36
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %144 = load i32, ptr %143, align 4
   %145 = mul i32 %144, 12
-  %146 = getelementptr inbounds i8, ptr %1, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %147 = load i32, ptr %146, align 4
   %148 = mul i32 %147, 12
-  %149 = getelementptr inbounds i8, ptr %1, i64 44
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %150 = load i32, ptr %149, align 4
   %151 = shl i32 %150, 2
-  %152 = getelementptr inbounds i8, ptr %1, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %153 = load i32, ptr %152, align 4
   %154 = shl i32 %153, 4
-  %155 = getelementptr inbounds i8, ptr %1, i64 100
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %156 = sext i32 %137 to i64
   %157 = getelementptr inbounds i8, ptr %155, i64 %156
-  %158 = getelementptr inbounds i8, ptr %.0125.ph, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 24
   store ptr %155, ptr %158, align 8
   %159 = sext i32 %139 to i64
   %160 = getelementptr inbounds i8, ptr %157, i64 %159
-  %161 = getelementptr inbounds i8, ptr %.0125.ph, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 16
   store ptr %157, ptr %161, align 8
   %162 = sext i32 %142 to i64
   %163 = getelementptr inbounds i8, ptr %160, i64 %162
-  %164 = getelementptr inbounds i8, ptr %.0125.ph, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 32
   store ptr %160, ptr %164, align 8
   %165 = sext i32 %145 to i64
   %166 = getelementptr inbounds i8, ptr %163, i64 %165
-  %167 = getelementptr inbounds i8, ptr %.0125.ph, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 40
   store ptr %163, ptr %167, align 8
   %168 = sext i32 %148 to i64
   %169 = getelementptr inbounds i8, ptr %166, i64 %168
-  %170 = getelementptr inbounds i8, ptr %.0125.ph, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 48
   store ptr %166, ptr %170, align 8
   %171 = sext i32 %151 to i64
   %172 = getelementptr inbounds i8, ptr %169, i64 %171
-  %173 = getelementptr inbounds i8, ptr %.0125.ph, i64 56
+  %173 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 56
   store ptr %169, ptr %173, align 8
   %174 = sext i32 %154 to i64
   %175 = getelementptr inbounds i8, ptr %172, i64 %174
-  %176 = getelementptr inbounds i8, ptr %.0125.ph, i64 64
+  %176 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 64
   store ptr %172, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %.0125.ph, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 72
   store ptr %175, ptr %177, align 8
   %.not139 = icmp eq i32 %154, 0
   br i1 %.not139, label %178, label %179
@@ -650,7 +650,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br label %179
 
 179:                                              ; preds = %178, %120
-  %180 = getelementptr inbounds i8, ptr %.0125.ph, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 4
   store i32 0, ptr %180, align 4
   %181 = load i32, ptr %140, align 4
   %182 = sext i32 %181 to i64
@@ -665,7 +665,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %179 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %187 = load ptr, ptr %164, align 8
-  %188 = getelementptr inbounds %struct.dtLink, ptr %187, i64 %indvars.iv, i32 1
+  %188 = getelementptr inbounds nuw %struct.dtLink, ptr %187, i64 %indvars.iv, i32 1
   %189 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %189, ptr %188, align 4
   %190 = load i32, ptr %140, align 4
@@ -675,13 +675,13 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br i1 %193, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %179
-  %194 = getelementptr inbounds i8, ptr %.0125.ph, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 8
   store ptr %1, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %.0125.ph, i64 80
+  %195 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 80
   store ptr %1, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %.0125.ph, i64 88
+  %196 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 88
   store i32 %2, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %.0125.ph, i64 92
+  %197 = getelementptr inbounds nuw i8, ptr %.0125.ph, i64 92
   store i32 %3, ptr %197, align 4
   tail call void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph)
   tail call void @_ZN9dtNavMesh16baseOffMeshLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph)
@@ -698,7 +698,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
 
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %206
   %indvars.iv167 = phi i64 [ 0, %.lr.ph161.preheader ], [ %indvars.iv.next168, %206 ]
-  %202 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %indvars.iv167
+  %202 = getelementptr inbounds nuw [32 x ptr], ptr %7, i64 0, i64 %indvars.iv167
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, %.0125.ph
   br i1 %204, label %206, label %205
@@ -790,19 +790,19 @@ default.unreachable:                              ; preds = %.preheader
 .lr.ph.i.i:                                       ; preds = %229, %253
   %.022.i.i = phi ptr [ %.0.i.i, %253 ], [ %.019.i.i, %229 ]
   %.01621.i.i = phi i32 [ %.1.i.i, %253 ], [ 0, %229 ]
-  %238 = getelementptr inbounds i8, ptr %.022.i.i, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %239 = load ptr, ptr %238, align 8
   %.not18.i.i = icmp eq ptr %239, null
   br i1 %.not18.i.i, label %253, label %240
 
 240:                                              ; preds = %.lr.ph.i.i
-  %241 = getelementptr inbounds i8, ptr %239, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %242, %.019.i142
   br i1 %243, label %244, label %253
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %239, i64 12
+  %245 = getelementptr inbounds nuw i8, ptr %239, i64 12
   %246 = load i32, ptr %245, align 4
   %247 = icmp eq i32 %246, %.0.i143
   %248 = icmp slt i32 %.01621.i.i, 32
@@ -818,7 +818,7 @@ default.unreachable:                              ; preds = %.preheader
 
 253:                                              ; preds = %249, %244, %240, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %250, %249 ], [ %.01621.i.i, %244 ], [ %.01621.i.i, %240 ], [ %.01621.i.i, %.lr.ph.i.i ]
-  %254 = getelementptr inbounds i8, ptr %.022.i.i, i64 96
+  %254 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %254, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !11
@@ -834,7 +834,7 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
 
 257:                                              ; preds = %.lr.ph163, %257
   %indvars.iv170 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next171, %257 ]
-  %258 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %indvars.iv170
+  %258 = getelementptr inbounds nuw [32 x ptr], ptr %7, i64 0, i64 %indvars.iv170
   %259 = load ptr, ptr %258, align 8
   tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef %259, i32 noundef %.0121165)
   tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.0125.ph, i32 noundef %256)
@@ -854,7 +854,7 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
   br i1 %.not140, label %_ZNK9dtNavMesh9getTileAtEiii.exit, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %261
-  %262 = getelementptr inbounds i8, ptr %0, i64 80
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %263 = load ptr, ptr %262, align 8
   %264 = ptrtoint ptr %.0125.ph to i64
   %265 = ptrtoint ptr %263 to i64
@@ -863,7 +863,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %261
   %268 = trunc i64 %267 to i32
   %269 = load i32, ptr %.0125.ph, align 8
   %270 = load i32, ptr %13, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 92
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %272 = load i32, ptr %271, align 4
   %273 = add i32 %272, %270
   %274 = shl i32 %269, %273
@@ -895,18 +895,18 @@ define noundef i32 @_ZNK9dtNavMesh19findConnectingPolysEPKfS1_PK10dtMeshTileiPjP
   ]
 
 _ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread:   ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load float, ptr %13, align 4
   %15 = fcmp olt float %12, %14
   %. = select i1 %15, float %14, float %12
   %.102 = select i1 %15, ptr %2, ptr %1
   %.103 = select i1 %15, float %12, float %14
   %.104 = select i1 %15, ptr %1, ptr %2
-  %.sroa.669.074.in = getelementptr inbounds i8, ptr %.104, i64 4
+  %.sroa.669.074.in = getelementptr inbounds nuw i8, ptr %.104, i64 4
   %.sroa.669.074 = load float, ptr %.sroa.669.074.in, align 4
-  %.sroa.666.078.in = getelementptr inbounds i8, ptr %.102, i64 4
+  %.sroa.666.078.in = getelementptr inbounds nuw i8, ptr %.102, i64 4
   %.sroa.666.078 = load float, ptr %.sroa.666.078.in, align 4
   %16 = load float, ptr %1, align 4
   br label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
@@ -919,11 +919,11 @@ _ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread87: ; preds = %9
   %.106 = select i1 %19, ptr %2, ptr %1
   %.107 = select i1 %19, float %17, float %18
   %.108 = select i1 %19, ptr %1, ptr %2
-  %.sroa.669.092.in = getelementptr inbounds i8, ptr %.108, i64 4
+  %.sroa.669.092.in = getelementptr inbounds nuw i8, ptr %.108, i64 4
   %.sroa.669.092 = load float, ptr %.sroa.669.092.in, align 4
-  %.sroa.666.094.in = getelementptr inbounds i8, ptr %.106, i64 4
+  %.sroa.666.094.in = getelementptr inbounds nuw i8, ptr %.106, i64 4
   %.sroa.666.094 = load float, ptr %.sroa.666.094.in, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load float, ptr %20, align 4
   br label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
@@ -933,7 +933,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   %.sroa.067.077 = phi float [ %.103, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread ], [ %.107, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread87 ], [ undef, %9 ]
   %.sroa.669.075 = phi float [ %.sroa.669.074, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread ], [ %.sroa.669.092, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread87 ], [ undef, %9 ]
   %.0.i = phi float [ %16, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread ], [ %21, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit.thread87 ], [ 0.000000e+00, %9 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %3 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -941,26 +941,26 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   %27 = sdiv exact i64 %26, 104
   %28 = trunc i64 %27 to i32
   %29 = load i32, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 92
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
   %35 = shl i32 %29, %34
   %36 = shl i32 %28, %31
   %37 = or i32 %36, %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph129, label %.loopexit109
 
 .lr.ph129:                                        ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %44 = and i32 %4, 32767
   %45 = or disjoint i32 %44, 32768
-  %46 = getelementptr inbounds i8, ptr %3, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %47 = fadd float %.sroa.067.077, 0x3F847AE140000000
   %48 = fadd float %.sroa.064.081, 0xBF847AE140000000
   %49 = fsub float %.sroa.666.079, %.sroa.669.075
@@ -979,16 +979,16 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   %.sroa.061.0123 = phi float [ undef, %.lr.ph129 ], [ %.sroa.061.3, %.loopexit ]
   %.sroa.663.0122 = phi float [ undef, %.lr.ph129 ], [ %.sroa.663.3, %.loopexit ]
   %56 = load ptr, ptr %43, align 8
-  %57 = getelementptr inbounds %struct.dtPoly, ptr %56, i64 %indvars.iv133
-  %58 = getelementptr inbounds i8, ptr %57, i64 30
+  %57 = getelementptr inbounds nuw %struct.dtPoly, ptr %56, i64 %indvars.iv133
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 30
   %59 = load i8, ptr %58, align 2
   %.not131 = icmp eq i8 %59, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
-  %61 = getelementptr inbounds i8, ptr %57, i64 4
-  %62 = getelementptr inbounds i8, ptr %55, i64 68
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %63 = zext i8 %59 to i64
   br label %64
 
@@ -998,7 +998,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   %.sroa.6.1116 = phi float [ %.sroa.6.0124, %.lr.ph ], [ %.sroa.6.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.061.1115 = phi float [ %.sroa.061.0123, %.lr.ph ], [ %.sroa.061.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.663.1114 = phi float [ %.sroa.663.0122, %.lr.ph ], [ %.sroa.663.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %65 = getelementptr inbounds [6 x i16], ptr %60, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [6 x i16], ptr %60, i64 0, i64 %indvars.iv
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %.not53 = icmp eq i32 %45, %67
@@ -1010,16 +1010,16 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %46, align 8
-  %70 = getelementptr inbounds [6 x i16], ptr %61, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [6 x i16], ptr %61, i64 0, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
   %.idx = mul nuw nsw i64 %72, 12
-  %73 = getelementptr inbounds i8, ptr %69, i64 %.idx
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %74 = add nuw nsw i64 %indvars.iv, 1
   %75 = icmp eq i64 %74, %63
   %76 = and i64 %74, 4294967295
   %77 = select i1 %75, i64 0, i64 %76
-  %78 = getelementptr inbounds [6 x i16], ptr %61, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [6 x i16], ptr %61, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2
   switch i32 %10, label %_ZL12getSlabCoordPKfi.exit57 [
     i32 0, label %80
@@ -1031,7 +1031,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   br label %_ZL12getSlabCoordPKfi.exit57
 
 82:                                               ; preds = %68
-  %83 = getelementptr inbounds i8, ptr %73, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %84 = load float, ptr %83, align 4
   br label %_ZL12getSlabCoordPKfi.exit57
 
@@ -1047,16 +1047,16 @@ _ZL12getSlabCoordPKfi.exit57:                     ; preds = %68, %80, %82
 90:                                               ; preds = %_ZL12getSlabCoordPKfi.exit57
   %91 = zext i16 %79 to i64
   %.idx54 = mul nuw nsw i64 %91, 12
-  %92 = getelementptr inbounds i8, ptr %69, i64 %.idx54
+  %92 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx54
   switch i32 %10, label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58 [
     i32 0, label %93
     i32 2, label %99
   ]
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %73, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %92, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %97 = load float, ptr %96, align 4
   %98 = fcmp olt float %95, %97
   %.139 = select i1 %98, ptr %73, ptr %92
@@ -1080,9 +1080,9 @@ _ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58.sink.split: ; preds = %99, %93
   %.sink137 = phi ptr [ %.140, %93 ], [ %.144, %99 ]
   %.sroa.061.4.ph = phi float [ %.141, %93 ], [ %.145, %99 ]
   %.sroa.0.4.ph = phi float [ %.142, %93 ], [ %.146, %99 ]
-  %103 = getelementptr inbounds i8, ptr %.sink138, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.sink138, i64 4
   %104 = load float, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %.sink137, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %.sink137, i64 4
   %106 = load float, ptr %105, align 4
   br label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit58
 
@@ -1170,7 +1170,7 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97:     ; preds = %._Z12overlapSlabsPK
   %.sroa.0.3 = phi float [ %.sroa.0.4, %136 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0125, %54 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.1 = phi i32 [ %151, %136 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048128, %54 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load i32, ptr %153, align 4
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next134, %155
@@ -1187,7 +1187,7 @@ define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr nocapture 
   br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1195,9 +1195,9 @@ define noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr nocapture 
   %9 = sdiv exact i64 %8, 104
   %10 = trunc i64 %9 to i32
   %11 = load i32, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, %13
   %17 = shl i32 %11, %16
@@ -1218,7 +1218,7 @@ define void @_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_(ptr nocapture nounde
   br i1 %or.cond, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, label %.loopexit
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1226,9 +1226,9 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
   %11 = sdiv exact i64 %10, 104
   %12 = trunc i64 %11 to i32
   %13 = load i32, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, %15
   %19 = shl i32 %13, %18
@@ -1238,24 +1238,24 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
   %22 = xor i32 %notmask.i, -1
   %23 = lshr i32 %21, %15
   %24 = and i32 %23, %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph38, label %.loopexit
 
 .lr.ph38:                                         ; preds = %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %33
 
 33:                                               ; preds = %.lr.ph38, %._crit_edge
   %34 = phi ptr [ %26, %.lr.ph38 ], [ %61, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %._crit_edge ]
   %35 = load ptr, ptr %30, align 8
-  %36 = getelementptr inbounds %struct.dtPoly, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.dtPoly, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %.not34 = icmp eq i32 %37, -1
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -1265,7 +1265,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
   %.02935 = phi i32 [ %49, %60 ], [ %37, %33 ]
   %38 = load ptr, ptr %31, align 8
   %39 = zext i32 %.02935 to i64
-  %40 = getelementptr inbounds %struct.dtLink, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw %struct.dtLink, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %16, align 4
   %notmask.i33 = shl nsw i32 -1, %42
@@ -1274,7 +1274,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
   %45 = lshr i32 %41, %44
   %46 = and i32 %45, %43
   %47 = icmp eq i32 %46, %24
-  %48 = getelementptr inbounds %struct.dtLink, ptr %38, i64 %39, i32 1
+  %48 = getelementptr inbounds nuw %struct.dtLink, ptr %38, i64 %39, i32 1
   %49 = load i32, ptr %48, align 4
   br i1 %47, label %50, label %60
 
@@ -1288,14 +1288,14 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
 
 53:                                               ; preds = %50
   %54 = zext i32 %.02836 to i64
-  %55 = getelementptr inbounds %struct.dtLink, ptr %38, i64 %54, i32 1
+  %55 = getelementptr inbounds nuw %struct.dtLink, ptr %38, i64 %54, i32 1
   store i32 %49, ptr %55, align 4
   br label %56
 
 56:                                               ; preds = %53, %52
   %57 = load i32, ptr %32, align 4
   %58 = load ptr, ptr %31, align 8
-  %59 = getelementptr inbounds %struct.dtLink, ptr %58, i64 %39, i32 1
+  %59 = getelementptr inbounds nuw %struct.dtLink, ptr %58, i64 %39, i32 1
   store i32 %57, ptr %59, align 4
   store i32 %.02935, ptr %32, align 4
   br label %60
@@ -1312,7 +1312,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %3
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %33
   %61 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %34, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
@@ -1328,7 +1328,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr nocapture noun
   br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1336,9 +1336,9 @@ define noundef i32 @_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile(ptr nocapture noun
   %9 = sdiv exact i64 %8, 104
   %10 = trunc i64 %9 to i32
   %11 = load i32, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, %13
   %17 = shl i32 %11, %16
@@ -1359,40 +1359,40 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
   br i1 %.not, label %.loopexit97, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph102, label %.loopexit97
 
 .lr.ph102:                                        ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not79 = icmp eq i32 %3, -1
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph102, %._crit_edge
   %17 = phi ptr [ %8, %.lr.ph102 ], [ %110, %._crit_edge ]
   %indvars.iv111 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next112, %._crit_edge ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds %struct.dtPoly, ptr %18, i64 %indvars.iv111
-  %20 = getelementptr inbounds i8, ptr %19, i64 30
+  %19 = getelementptr inbounds nuw %struct.dtPoly, ptr %18, i64 %indvars.iv111
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 30
   %21 = load i8, ptr %20, align 2
   %.not103 = icmp eq i8 %21, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = zext i8 %21 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph100, %.loopexit
   %indvars.iv106 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next107, %.loopexit ]
-  %26 = getelementptr inbounds [6 x i16], ptr %22, i64 0, i64 %indvars.iv106
+  %26 = getelementptr inbounds nuw [6 x i16], ptr %22, i64 0, i64 %indvars.iv106
   %27 = load i16, ptr %26, align 2
   %28 = icmp sgt i16 %27, -1
   br i1 %28, label %.loopexit, label %29
@@ -1406,20 +1406,20 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds [6 x i16], ptr %23, i64 0, i64 %indvars.iv106
+  %34 = getelementptr inbounds nuw [6 x i16], ptr %23, i64 0, i64 %indvars.iv106
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
   %.idx = mul nuw nsw i64 %36, 12
-  %37 = getelementptr inbounds i8, ptr %33, i64 %.idx
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %38 = add nuw nsw i64 %indvars.iv106, 1
   %39 = icmp eq i64 %38, %24
   %40 = and i64 %38, 4294967295
   %41 = select i1 %39, i64 0, i64 %40
-  %42 = getelementptr inbounds [6 x i16], ptr %23, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [6 x i16], ptr %23, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
   %.idx81 = mul nuw nsw i64 %44, 12
-  %45 = getelementptr inbounds i8, ptr %33, i64 %.idx81
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx81
   %46 = and i32 %31, 7
   %47 = xor i32 %46, 4
   %48 = call noundef i32 @_ZNK9dtNavMesh19findConnectingPolysEPKfS1_PK10dtMeshTileiPjPfi(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %37, ptr noundef %45, ptr noundef %2, i32 noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 4)
@@ -1430,8 +1430,8 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
   %50 = trunc i64 %indvars.iv106 to i8
   %51 = trunc i16 %27 to i8
   %trunc = and i8 %51, -5
-  %52 = getelementptr inbounds i8, ptr %37, i64 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i32, ptr %14, align 4
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %.loopexit, label %.lr.ph.split.preheader
@@ -1453,19 +1453,19 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 58:                                               ; preds = %.lr.ph.split
   %59 = load ptr, ptr %15, align 8
   %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds %struct.dtLink, ptr %59, i64 %60, i32 1
+  %61 = getelementptr inbounds nuw %struct.dtLink, ptr %59, i64 %60, i32 1
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %14, align 4
-  %63 = getelementptr inbounds %struct.dtLink, ptr %59, i64 %60
-  %64 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %struct.dtLink, ptr %59, i64 %60
+  %64 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %63, align 4
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 %50, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %63, i64 9
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 9
   store i8 %51, ptr %67, align 1
   %68 = load i32, ptr %19, align 4
-  %69 = getelementptr inbounds i8, ptr %63, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %68, ptr %69, align 4
   store i32 %56, ptr %19, align 4
   switch i8 %trunc, label %_Z9allocLinkP10dtMeshTile.exit.thread [
@@ -1475,7 +1475,7 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 
 70:                                               ; preds = %58
   %71 = shl nuw nsw i64 %indvars.iv, 1
-  %72 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %71
   %73 = load float, ptr %72, align 8
   %74 = load float, ptr %52, align 4
   %75 = fsub float %73, %74
@@ -1486,7 +1486,7 @@ define void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr nocapture noun
 
 79:                                               ; preds = %58
   %80 = shl nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %80
   %82 = load float, ptr %81, align 8
   %83 = load float, ptr %37, align 4
   %84 = fsub float %82, %83
@@ -1501,7 +1501,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %70, %79
   %.sink137 = phi float [ %86, %79 ], [ %77, %70 ]
   %.sink135 = phi float [ %87, %79 ], [ %78, %70 ]
   %88 = or disjoint i64 %.sink, 1
-  %89 = getelementptr inbounds [8 x float], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %88
   %90 = load float, ptr %89, align 4
   %91 = fsub float %90, %.sink139
   %92 = fdiv float %91, %.sink137
@@ -1515,7 +1515,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %70, %79
   %98 = tail call float @llvm.round.f32(float %97)
   %99 = select i1 %94, float 0.000000e+00, float %98
   %100 = fptoui float %99 to i8
-  %101 = getelementptr inbounds i8, ptr %63, i64 10
+  %101 = getelementptr inbounds nuw i8, ptr %63, i64 10
   store i8 %100, ptr %101, align 2
   %102 = fcmp olt float %.093, 0.000000e+00
   %103 = fcmp ogt float %.093, 1.000000e+00
@@ -1524,7 +1524,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread.sink.split: ; preds = %70, %79
   %106 = tail call float @llvm.round.f32(float %105)
   %107 = select i1 %102, float 0.000000e+00, float %106
   %108 = fptoui float %107 to i8
-  %109 = getelementptr inbounds i8, ptr %63, i64 11
+  %109 = getelementptr inbounds nuw i8, ptr %63, i64 11
   store i8 %108, ptr %109, align 1
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
 
@@ -1545,7 +1545,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %_Z9allocLinkP10dtMe
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
   %110 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %16 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next112, %113
@@ -1571,61 +1571,61 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
   %10 = and i8 %9, 7
   %11 = xor i8 %10, 4
   %12 = select i1 %8, i8 -1, i8 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %2, i64 72
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
-  %24 = getelementptr inbounds i8, ptr %6, i64 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = ptrtoint ptr %2 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 92
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 92
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_Z9allocLinkP10dtMeshTile.exit72.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9allocLinkP10dtMeshTile.exit72.thread ]
   %35 = phi ptr [ %14, %.lr.ph ], [ %130, %_Z9allocLinkP10dtMeshTile.exit72.thread ]
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %36, i64 %indvars.iv
-  %38 = getelementptr inbounds i8, ptr %37, i64 31
+  %37 = getelementptr inbounds nuw %struct.dtOffMeshConnection, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 31
   %39 = load i8, ptr %38, align 1
   %.not67 = icmp eq i8 %39, %12
   br i1 %.not67, label %40, label %_Z9allocLinkP10dtMeshTile.exit72.thread
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds %struct.dtPoly, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw %struct.dtPoly, ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %48
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %37, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %50 = load float, ptr %49, align 4
   store float %50, ptr %5, align 4
-  %51 = getelementptr inbounds i8, ptr %35, i64 68
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %52 = load float, ptr %51, align 4
   store float %52, ptr %20, align 4
   store float %50, ptr %21, align 4
-  %53 = getelementptr inbounds i8, ptr %37, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %54 = call noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %1, ptr noundef nonnull %53, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not68 = icmp eq i32 %54, 0
   br i1 %.not68, label %_Z9allocLinkP10dtMeshTile.exit72.thread, label %55
@@ -1636,7 +1636,7 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
   %58 = fsub float %56, %57
   %59 = fmul float %58, %58
   %60 = load float, ptr %22, align 4
-  %61 = getelementptr inbounds i8, ptr %37, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %62 = load float, ptr %61, align 4
   %63 = fsub float %60, %62
   %64 = fmul float %63, %63
@@ -1648,16 +1648,16 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
 
 69:                                               ; preds = %55
   %70 = load ptr, ptr %23, align 8
-  %71 = getelementptr inbounds i8, ptr %45, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i64
   %.idx = mul nuw nsw i64 %73, 12
-  %74 = getelementptr inbounds i8, ptr %70, i64 %.idx
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
   store float %56, ptr %74, align 4
   %75 = load float, ptr %24, align 4
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store float %60, ptr %77, align 4
   %78 = load i32, ptr %25, align 4
   %79 = icmp eq i32 %78, -1
@@ -1666,27 +1666,27 @@ define void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr nocaptu
 80:                                               ; preds = %69
   %81 = load ptr, ptr %26, align 8
   %82 = zext i32 %78 to i64
-  %83 = getelementptr inbounds %struct.dtLink, ptr %81, i64 %82, i32 1
+  %83 = getelementptr inbounds nuw %struct.dtLink, ptr %81, i64 %82, i32 1
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %25, align 4
-  %85 = getelementptr inbounds %struct.dtLink, ptr %81, i64 %82
+  %85 = getelementptr inbounds nuw %struct.dtLink, ptr %81, i64 %82
   store i32 %54, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i8 1, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %85, i64 9
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 9
   store i8 %12, ptr %87, align 1
-  %88 = getelementptr inbounds i8, ptr %85, i64 11
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 11
   store i8 0, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %85, i64 10
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 10
   store i8 0, ptr %89, align 2
   %90 = load i32, ptr %45, align 4
-  %91 = getelementptr inbounds i8, ptr %85, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %90, ptr %91, align 4
   store i32 %78, ptr %45, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
 
 _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %69, %80
-  %92 = getelementptr inbounds i8, ptr %37, i64 30
+  %92 = getelementptr inbounds nuw i8, ptr %37, i64 30
   %93 = load i8, ptr %92, align 2
   %94 = and i8 %93, 1
   %.not70 = icmp eq i8 %94, 0
@@ -1700,7 +1700,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %69, %80
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %95
   %98 = load ptr, ptr %28, align 8
   %99 = zext i32 %96 to i64
-  %100 = getelementptr inbounds %struct.dtLink, ptr %98, i64 %99, i32 1
+  %100 = getelementptr inbounds nuw %struct.dtLink, ptr %98, i64 %99, i32 1
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %27, align 4
   %102 = load i32, ptr %29, align 8
@@ -1710,8 +1710,8 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %95
   %105 = and i32 %54, 65535
   %106 = and i32 %105, %103
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds %struct.dtPoly, ptr %104, i64 %107
-  %109 = getelementptr inbounds %struct.dtLink, ptr %98, i64 %99
+  %108 = getelementptr inbounds nuw %struct.dtPoly, ptr %104, i64 %107
+  %109 = getelementptr inbounds nuw %struct.dtLink, ptr %98, i64 %99
   %110 = load ptr, ptr %31, align 8
   %111 = ptrtoint ptr %110 to i64
   %112 = sub i64 %32, %111
@@ -1727,16 +1727,16 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %95
   %122 = or i32 %118, %121
   %123 = or i32 %122, %119
   store i32 %123, ptr %109, align 4
-  %124 = getelementptr inbounds i8, ptr %109, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i8 -1, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %109, i64 9
+  %125 = getelementptr inbounds nuw i8, ptr %109, i64 9
   store i8 %9, ptr %125, align 1
-  %126 = getelementptr inbounds i8, ptr %109, i64 11
+  %126 = getelementptr inbounds nuw i8, ptr %109, i64 11
   store i8 0, ptr %126, align 1
-  %127 = getelementptr inbounds i8, ptr %109, i64 10
+  %127 = getelementptr inbounds nuw i8, ptr %109, i64 10
   store i8 0, ptr %127, align 2
   %128 = load i32, ptr %108, align 4
-  %129 = getelementptr inbounds i8, ptr %109, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 %128, ptr %129, align 4
   store i32 %96, ptr %108, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit72.thread
@@ -1744,7 +1744,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %95
 _Z9allocLinkP10dtMeshTile.exit72.thread:          ; preds = %95, %_Z9allocLinkP10dtMeshTile.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %55, %48, %40, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load ptr, ptr %13, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 52
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 52
   %132 = load i32, ptr %131, align 4
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
@@ -1765,38 +1765,38 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
   %12 = load float, ptr %3, align 4
   %13 = fsub float %11, %12
   store float %13, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fsub float %15, %17
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load float, ptr %22, align 4
   %24 = fsub float %21, %23
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float %24, ptr %25, align 4
   %26 = fadd float %11, %12
   store float %26, ptr %7, align 4
   %27 = fadd float %15, %17
-  %28 = getelementptr inbounds i8, ptr %7, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %27, ptr %28, align 4
   %29 = fadd float %21, %23
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %29, ptr %30, align 4
   %31 = call noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 128)
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %9, i64 4
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %38
 
@@ -1804,7 +1804,7 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %.02229 = phi i32 [ 0, %.lr.ph ], [ %.1, %70 ]
   %.02427 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.125, %70 ]
-  %39 = getelementptr inbounds [128 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x i32], ptr %8, i64 0, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   store i8 0, ptr %10, align 1
   call void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %40, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -1822,7 +1822,7 @@ define noundef i32 @_ZNK9dtNavMesh21findNearestPolyInTileEPK10dtMeshTilePKfS4_Pf
   %50 = fneg float %44
   %51 = select i1 %49, float %50, float %44
   %52 = load ptr, ptr %35, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 68
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 68
   %54 = load float, ptr %53, align 4
   %55 = fsub float %51, %54
   %56 = fcmp ogt float %55, 0.000000e+00
@@ -1869,7 +1869,7 @@ define void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr nocapture noundef 
   br i1 %.not, label %.loopexit39, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -1877,53 +1877,53 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   %8 = sdiv exact i64 %7, 104
   %9 = trunc i64 %8 to i32
   %10 = load i32, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, %12
   %16 = shl i32 %10, %15
   %17 = shl i32 %9, %12
   %18 = or i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph43, label %.loopexit39
 
 .lr.ph43:                                         ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %27
 
 27:                                               ; preds = %.lr.ph43, %.loopexit
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %.loopexit ]
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %struct.dtPoly, ptr %28, i64 %indvars.iv46
+  %29 = getelementptr inbounds nuw %struct.dtPoly, ptr %28, i64 %indvars.iv46
   store i32 -1, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %29, i64 31
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 31
   %31 = load i8, ptr %30, align 1
   %.mask = and i8 %31, -64
   %32 = icmp eq i8 %.mask, 64
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %29, i64 30
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 30
   %35 = load i8, ptr %34, align 2
   %.not44 = icmp eq i8 %35, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = zext i8 %35 to i64
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_Z9allocLinkP10dtMeshTile.exit.thread
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_Z9allocLinkP10dtMeshTile.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = getelementptr inbounds [6 x i16], ptr %36, i64 0, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw [6 x i16], ptr %36, i64 0, i64 %indvars.iv.next
   %40 = load i16, ptr %39, align 2
   %or.cond = icmp sgt i16 %40, 0
   br i1 %or.cond, label %41, label %_Z9allocLinkP10dtMeshTile.exit.thread
@@ -1936,26 +1936,26 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 44:                                               ; preds = %41
   %45 = load ptr, ptr %26, align 8
   %46 = zext i32 %42 to i64
-  %47 = getelementptr inbounds %struct.dtLink, ptr %45, i64 %46, i32 1
+  %47 = getelementptr inbounds nuw %struct.dtLink, ptr %45, i64 %46, i32 1
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %25, align 4
-  %49 = getelementptr inbounds %struct.dtLink, ptr %45, i64 %46
+  %49 = getelementptr inbounds nuw %struct.dtLink, ptr %45, i64 %46
   %50 = load i16, ptr %39, align 2
   %51 = zext i16 %50 to i32
   %52 = add nsw i32 %51, -1
   %53 = or i32 %18, %52
   store i32 %53, ptr %49, align 4
   %54 = trunc i64 %indvars.iv.next to i8
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %49, i64 9
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 9
   store i8 -1, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %49, i64 11
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 11
   store i8 0, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %49, i64 10
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 10
   store i8 0, ptr %58, align 2
   %59 = load i32, ptr %29, align 4
-  %60 = getelementptr inbounds i8, ptr %49, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %59, ptr %60, align 4
   store i32 %42, ptr %29, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
@@ -1967,7 +1967,7 @@ _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %41, %44, %38
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread, %33, %27
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %62 = load ptr, ptr %19, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next47, %65
@@ -1985,7 +1985,7 @@ define void @_ZN9dtNavMesh16baseOffMeshLinksEP10dtMeshTile(ptr nocapture noundef
   br i1 %.not, label %.loopexit, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -1993,47 +1993,47 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   %10 = sdiv exact i64 %9, 104
   %11 = trunc i64 %10 to i32
   %12 = load i32, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %14
   %18 = shl i32 %12, %17
   %19 = shl i32 %11, %14
   %20 = or i32 %19, %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 72
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
-  %32 = getelementptr inbounds i8, ptr %4, i64 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_Z9allocLinkP10dtMeshTile.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9allocLinkP10dtMeshTile.exit61 ]
   %36 = phi ptr [ %22, %.lr.ph ], [ %109, %_Z9allocLinkP10dtMeshTile.exit61 ]
   %37 = load ptr, ptr %26, align 8
-  %38 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw %struct.dtOffMeshConnection, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %27, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds %struct.dtPoly, ptr %39, i64 %42
-  %44 = getelementptr inbounds i8, ptr %38, i64 24
+  %43 = getelementptr inbounds nuw %struct.dtPoly, ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %45 = load float, ptr %44, align 4
   store float %45, ptr %3, align 4
-  %46 = getelementptr inbounds i8, ptr %36, i64 68
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 68
   %47 = load float, ptr %46, align 4
   store float %47, ptr %28, align 4
   store float %45, ptr %29, align 4
@@ -2047,7 +2047,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   %52 = fsub float %50, %51
   %53 = fmul float %52, %52
   %54 = load float, ptr %30, align 4
-  %55 = getelementptr inbounds i8, ptr %38, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %56 = load float, ptr %55, align 4
   %57 = fsub float %54, %56
   %58 = fmul float %57, %57
@@ -2059,16 +2059,16 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 
 63:                                               ; preds = %49
   %64 = load ptr, ptr %31, align 8
-  %65 = getelementptr inbounds i8, ptr %43, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %66 = load i16, ptr %65, align 4
   %67 = zext i16 %66 to i64
   %.idx = mul nuw nsw i64 %67, 12
-  %68 = getelementptr inbounds i8, ptr %64, i64 %.idx
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   store float %50, ptr %68, align 4
   %69 = load float, ptr %32, align 4
-  %70 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store float %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store float %54, ptr %71, align 4
   %72 = load i32, ptr %33, align 4
   %73 = icmp eq i32 %72, -1
@@ -2077,21 +2077,21 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 74:                                               ; preds = %63
   %75 = load ptr, ptr %34, align 8
   %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds %struct.dtLink, ptr %75, i64 %76, i32 1
+  %77 = getelementptr inbounds nuw %struct.dtLink, ptr %75, i64 %76, i32 1
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %33, align 4
-  %79 = getelementptr inbounds %struct.dtLink, ptr %75, i64 %76
+  %79 = getelementptr inbounds nuw %struct.dtLink, ptr %75, i64 %76
   store i32 %48, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i8 0, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %79, i64 9
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 9
   store i8 -1, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %79, i64 11
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 11
   store i8 0, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %79, i64 10
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 10
   store i8 0, ptr %83, align 2
   %84 = load i32, ptr %43, align 4
-  %85 = getelementptr inbounds i8, ptr %79, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %84, ptr %85, align 4
   store i32 %72, ptr %43, align 4
   %.pr = load i32, ptr %33, align 4
@@ -2101,7 +2101,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 87:                                               ; preds = %74
   %88 = load ptr, ptr %34, align 8
   %89 = zext i32 %.pr to i64
-  %90 = getelementptr inbounds %struct.dtLink, ptr %88, i64 %89, i32 1
+  %90 = getelementptr inbounds nuw %struct.dtLink, ptr %88, i64 %89, i32 1
   %91 = load i32, ptr %90, align 4
   store i32 %91, ptr %33, align 4
   %92 = load i32, ptr %13, align 8
@@ -2111,22 +2111,22 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   %95 = and i32 %48, 65535
   %96 = and i32 %95, %93
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds %struct.dtPoly, ptr %94, i64 %97
-  %99 = getelementptr inbounds %struct.dtLink, ptr %88, i64 %89
+  %98 = getelementptr inbounds nuw %struct.dtPoly, ptr %94, i64 %97
+  %99 = getelementptr inbounds nuw %struct.dtLink, ptr %88, i64 %89
   %100 = load i16, ptr %40, align 4
   %101 = zext i16 %100 to i32
   %102 = or i32 %20, %101
   store i32 %102, ptr %99, align 4
-  %103 = getelementptr inbounds i8, ptr %99, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i8 -1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %99, i64 9
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 9
   store i8 -1, ptr %104, align 1
-  %105 = getelementptr inbounds i8, ptr %99, i64 11
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 11
   store i8 0, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %99, i64 10
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 10
   store i8 0, ptr %106, align 2
   %107 = load i32, ptr %98, align 4
-  %108 = getelementptr inbounds i8, ptr %99, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %107, ptr %108, align 4
   store i32 %.pr, ptr %98, align 4
   br label %_Z9allocLinkP10dtMeshTile.exit61
@@ -2134,7 +2134,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
 _Z9allocLinkP10dtMeshTile.exit61:                 ; preds = %74, %63, %87, %49, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 52
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 52
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
@@ -2151,54 +2151,54 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %8 = alloca [18 x float], align 16
   %9 = alloca [3 x ptr], align 16
   %10 = alloca float, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 31
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %12 = load i8, ptr %11, align 1
   %.mask = and i8 %12, -64
   %13 = icmp eq i8 %.mask, 64
   br i1 %13, label %177, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %2 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = lshr exact i64 %19, 5
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = and i64 %20, 4294967295
-  %24 = getelementptr inbounds %struct.dtPolyDetail, ptr %22, i64 %23
-  %25 = getelementptr inbounds i8, ptr %2, i64 30
+  %24 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i32
   %.not57 = icmp eq i8 %26, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %wide.trip.count = zext i8 %26 to i64
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = mul nuw nsw i64 %indvars.iv, 3
-  %33 = getelementptr inbounds [18 x float], ptr %8, i64 0, i64 %32
-  %34 = getelementptr inbounds [6 x i16], ptr %30, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [18 x float], ptr %8, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw [6 x i16], ptr %30, i64 0, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
   %.idx51 = mul nuw nsw i64 %36, 12
-  %37 = getelementptr inbounds i8, ptr %29, i64 %.idx51
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx51
   %38 = load float, ptr %37, align 4
   store float %38, ptr %33, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %33, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %40, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %33, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store float %43, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2213,19 +2213,19 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   br i1 %.not, label %177, label %.preheader
 
 .preheader:                                       ; preds = %46
-  %47 = getelementptr inbounds i8, ptr %24, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %48 = load i8, ptr %47, align 1
   %.not58 = icmp eq i8 %48, 0
   br i1 %.not58, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
-  %50 = getelementptr inbounds i8, ptr %24, i64 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 48
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
-  %53 = getelementptr inbounds i8, ptr %2, i64 4
-  %54 = getelementptr inbounds i8, ptr %9, i64 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %61
 
 56:                                               ; preds = %90
@@ -2242,13 +2242,13 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %64 = add i32 %63, %.04554
   %65 = shl i32 %64, 2
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 %66
   %68 = load i8, ptr %25, align 2
   br label %69
 
 69:                                               ; preds = %61, %88
   %indvars.iv60 = phi i64 [ 0, %61 ], [ %indvars.iv.next61, %88 ]
-  %70 = getelementptr inbounds i8, ptr %67, i64 %indvars.iv60
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv60
   %71 = load i8, ptr %70, align 1
   %72 = icmp ult i8 %71, %68
   br i1 %72, label %73, label %80
@@ -2256,11 +2256,11 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
 73:                                               ; preds = %69
   %74 = load ptr, ptr %52, align 8
   %75 = zext i8 %71 to i64
-  %76 = getelementptr inbounds [6 x i16], ptr %53, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [6 x i16], ptr %53, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i64
   %.idx = mul nuw nsw i64 %78, 12
-  %79 = getelementptr inbounds i8, ptr %74, i64 %.idx
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
   br label %88
 
 80:                                               ; preds = %69
@@ -2271,12 +2271,12 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %84 = add i32 %82, %83
   %85 = mul i32 %84, 3
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds float, ptr %81, i64 %86
+  %87 = getelementptr inbounds nuw float, ptr %81, i64 %86
   br label %88
 
 88:                                               ; preds = %73, %80
   %.sink = phi ptr [ %79, %73 ], [ %87, %80 ]
-  %89 = getelementptr inbounds [3 x ptr], ptr %9, i64 0, i64 %indvars.iv60
+  %89 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv60
   store ptr %.sink, ptr %89, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
@@ -2302,16 +2302,16 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %100 = lshr exact i64 %99, 5
   %101 = load ptr, ptr %21, align 8
   %102 = and i64 %100, 4294967295
-  %103 = getelementptr inbounds %struct.dtPolyDetail, ptr %101, i64 %102
-  %104 = getelementptr inbounds i8, ptr %103, i64 9
+  %103 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %101, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 9
   %105 = load i8, ptr %104, align 1
   %106 = icmp ne i8 %105, 0
   call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds i8, ptr %1, i64 56
-  %108 = getelementptr inbounds i8, ptr %103, i64 4
-  %109 = getelementptr inbounds i8, ptr %1, i64 48
-  %110 = getelementptr inbounds i8, ptr %1, i64 24
-  %111 = getelementptr inbounds i8, ptr %2, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %112
 
 112:                                              ; preds = %166, %._crit_edge56
@@ -2325,17 +2325,17 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %115 = add i32 %114, %.05469.i
   %116 = shl i32 %115, 2
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr %113, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 %117
   %119 = load i8, ptr %25, align 2
   br label %121
 
 .preheader.i:                                     ; preds = %140
-  %120 = getelementptr inbounds i8, ptr %118, i64 3
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 3
   br label %142
 
 121:                                              ; preds = %140, %112
   %indvars.iv.i = phi i64 [ 0, %112 ], [ %indvars.iv.next.i, %140 ]
-  %122 = getelementptr inbounds i8, ptr %118, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i
   %123 = load i8, ptr %122, align 1
   %124 = icmp ult i8 %123, %119
   br i1 %124, label %125, label %132
@@ -2343,11 +2343,11 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
 125:                                              ; preds = %121
   %126 = load ptr, ptr %110, align 8
   %127 = zext i8 %123 to i64
-  %128 = getelementptr inbounds [6 x i16], ptr %111, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [6 x i16], ptr %111, i64 0, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i64
   %.idx.i = mul nuw nsw i64 %130, 12
-  %131 = getelementptr inbounds i8, ptr %126, i64 %.idx.i
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i
   br label %140
 
 132:                                              ; preds = %121
@@ -2358,12 +2358,12 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %136 = add i32 %134, %135
   %137 = mul i32 %136, 3
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds float, ptr %133, i64 %138
+  %139 = getelementptr inbounds nuw float, ptr %133, i64 %138
   br label %140
 
 140:                                              ; preds = %132, %125
   %.sink.i = phi ptr [ %131, %125 ], [ %139, %132 ]
-  %141 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
   store ptr %.sink.i, ptr %141, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2386,17 +2386,17 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   br i1 %148, label %150, label %._crit_edge80.i
 
 150:                                              ; preds = %142
-  %151 = getelementptr inbounds i8, ptr %118, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %118, i64 %149
   %152 = load i8, ptr %151, align 1
-  %153 = getelementptr inbounds i8, ptr %118, i64 %indvars.iv76.i
+  %153 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv76.i
   %154 = load i8, ptr %153, align 1
   %155 = icmp ult i8 %152, %154
   br i1 %155, label %164, label %._crit_edge80.i
 
 ._crit_edge80.i:                                  ; preds = %150, %142
-  %156 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %149
+  %156 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %149
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv76.i
+  %158 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv76.i
   %159 = load ptr, ptr %158, align 8
   %160 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef %3, ptr noundef %157, ptr noundef %159, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %161 = fcmp olt float %160, %.167.i
@@ -2424,9 +2424,9 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   br i1 %170, label %112, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !32
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %166
-  %171 = getelementptr inbounds i8, ptr %.253.i, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %.253.i, i64 4
   %172 = load float, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %.257.i, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.257.i, i64 4
   %174 = load float, ptr %173, align 4
   %175 = fsub float %174, %172
   %176 = call float @llvm.fmuladd.f32(float %175, float %.250.i, float %172)
@@ -2453,34 +2453,34 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %6 = alloca [3 x ptr], align 16
   %7 = alloca float, align 4
   %8 = alloca float, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load i32, ptr %9, align 4
   %notmask9.i.i = shl nsw i32 -1, %10
   %11 = xor i32 %notmask9.i.i, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
   %notmask10.i.i = shl nsw i32 -1, %13
   %14 = xor i32 %notmask10.i.i, -1
   %15 = lshr i32 %1, %13
   %16 = and i32 %15, %11
   %17 = and i32 %1, %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds %struct.dtMeshTile, ptr %19, i64 %20
-  %22 = getelementptr inbounds %struct.dtMeshTile, ptr %19, i64 %20, i32 3
+  %21 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %19, i64 %20, i32 3
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %17 to i64
-  %25 = getelementptr inbounds %struct.dtPoly, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw %struct.dtPoly, ptr %23, i64 %24
   %26 = load float, ptr %2, align 4
   store float %26, ptr %3, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %31, ptr %32, align 4
   %33 = tail call noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPolyPKfPf(ptr nonnull align 8 poison, ptr noundef %21, ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %29)
   %.not18 = icmp eq ptr %4, null
@@ -2501,25 +2501,25 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   br label %38
 
 38:                                               ; preds = %37, %36
-  %39 = getelementptr inbounds i8, ptr %25, i64 31
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 31
   %40 = load i8, ptr %39, align 1
   %.mask = and i8 %40, -64
   %41 = icmp eq i8 %.mask, 64
   br i1 %41, label %42, label %71
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %21, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %25, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = zext i16 %46 to i64
   %.idx = mul nuw nsw i64 %47, 12
-  %48 = getelementptr inbounds i8, ptr %44, i64 %.idx
-  %49 = getelementptr inbounds i8, ptr %25, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i64
   %.idx17 = mul nuw nsw i64 %51, 12
-  %52 = getelementptr inbounds i8, ptr %44, i64 %.idx17
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx17
   %53 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef %48, ptr noundef %52, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %54 = load float, ptr %8, align 4
   %55 = load float, ptr %48, align 4
@@ -2527,16 +2527,16 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %57 = fsub float %56, %55
   %58 = call float @llvm.fmuladd.f32(float %57, float %54, float %55)
   store float %58, ptr %3, align 4
-  %59 = getelementptr inbounds i8, ptr %48, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %52, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = call float @llvm.fmuladd.f32(float %63, float %54, float %60)
   store float %64, ptr %29, align 4
-  %65 = getelementptr inbounds i8, ptr %48, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %66 = load float, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %52, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %68 = load float, ptr %67, align 4
   %69 = fsub float %68, %66
   %70 = call float @llvm.fmuladd.f32(float %69, float %54, float %66)
@@ -2546,26 +2546,26 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 71:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %72 = getelementptr inbounds i8, ptr %21, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %25 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = lshr exact i64 %76, 5
-  %78 = getelementptr inbounds i8, ptr %21, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %79 = load ptr, ptr %78, align 8
   %80 = and i64 %77, 4294967295
-  %81 = getelementptr inbounds %struct.dtPolyDetail, ptr %79, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 9
+  %81 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 9
   %83 = load i8, ptr %82, align 1
   %84 = icmp ne i8 %83, 0
   tail call void @llvm.assume(i1 %84)
-  %85 = getelementptr inbounds i8, ptr %21, i64 56
-  %86 = getelementptr inbounds i8, ptr %81, i64 4
-  %87 = getelementptr inbounds i8, ptr %25, i64 30
-  %88 = getelementptr inbounds i8, ptr %21, i64 48
-  %89 = getelementptr inbounds i8, ptr %21, i64 24
-  %90 = getelementptr inbounds i8, ptr %25, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %25, i64 30
+  %88 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %25, i64 4
   br label %91
 
 91:                                               ; preds = %.loopexit.i, %71
@@ -2580,8 +2580,8 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %95 = add i32 %94, %.05370.i
   %96 = shl i32 %95, 2
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %93, i64 %97
-  %99 = getelementptr inbounds i8, ptr %98, i64 3
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 3
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, 21
   %102 = icmp eq i8 %101, 0
@@ -2593,7 +2593,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 
 104:                                              ; preds = %123, %.preheader61.i
   %indvars.iv.i = phi i64 [ 0, %.preheader61.i ], [ %indvars.iv.next.i, %123 ]
-  %105 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i
   %106 = load i8, ptr %105, align 1
   %107 = icmp ult i8 %106, %103
   br i1 %107, label %108, label %115
@@ -2601,11 +2601,11 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 108:                                              ; preds = %104
   %109 = load ptr, ptr %89, align 8
   %110 = zext i8 %106 to i64
-  %111 = getelementptr inbounds [6 x i16], ptr %90, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [6 x i16], ptr %90, i64 0, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i64
   %.idx.i = mul nuw nsw i64 %113, 12
-  %114 = getelementptr inbounds i8, ptr %109, i64 %.idx.i
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx.i
   br label %123
 
 115:                                              ; preds = %104
@@ -2616,12 +2616,12 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %119 = add i32 %117, %118
   %120 = mul i32 %119, 3
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds float, ptr %116, i64 %121
+  %122 = getelementptr inbounds nuw float, ptr %116, i64 %121
   br label %123
 
 123:                                              ; preds = %115, %108
   %.sink.i = phi ptr [ %114, %108 ], [ %122, %115 ]
-  %124 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv.i
   store ptr %.sink.i, ptr %124, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2644,9 +2644,9 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 
 131:                                              ; preds = %.preheader.i
   %132 = zext nneg i32 %.04267.i to i64
-  %133 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %132
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv77.i
+  %135 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %indvars.iv77.i
   %136 = load ptr, ptr %135, align 8
   %137 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef %134, ptr noundef %136, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %138 = fcmp olt float %137, %.268.i
@@ -2687,16 +2687,16 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf
   %149 = fsub float %148, %147
   %150 = call float @llvm.fmuladd.f32(float %149, float %.146.i, float %147)
   store float %150, ptr %3, align 4
-  %151 = getelementptr inbounds i8, ptr %.150.i, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %.150.i, i64 4
   %152 = load float, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %.155.i, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %.155.i, i64 4
   %154 = load float, ptr %153, align 4
   %155 = fsub float %154, %152
   %156 = call float @llvm.fmuladd.f32(float %155, float %.146.i, float %152)
   store float %156, ptr %29, align 4
-  %157 = getelementptr inbounds i8, ptr %.150.i, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.150.i, i64 8
   %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds i8, ptr %.155.i, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.155.i, i64 8
   %160 = load float, ptr %159, align 4
   %161 = fsub float %160, %158
   %162 = call float @llvm.fmuladd.f32(float %161, float %.146.i, float %158)
@@ -2711,27 +2711,27 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #13 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
   %7 = xor i32 %notmask9.i, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %notmask10.i = shl nsw i32 -1, %9
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
   %13 = and i32 %1, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds %struct.dtMeshTile, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %15, i64 %16
   store ptr %17, ptr %2, align 8
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds %struct.dtMeshTile, ptr %18, i64 %16, i32 3
+  %19 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %18, i64 %16, i32 3
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds %struct.dtPoly, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw %struct.dtPoly, ptr %20, i64 %21
   store ptr %22, ptr %3, align 8
   ret void
 }
@@ -2740,21 +2740,21 @@ declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK9dtNavMesh19queryPolygonsInTileEPK10dtMeshTilePKfS4_Pji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109, label %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.dtBVNode, ptr %8, i64 %13
-  %15 = getelementptr inbounds i8, ptr %10, i64 72
-  %16 = getelementptr inbounds i8, ptr %10, i64 84
-  %17 = getelementptr inbounds i8, ptr %10, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %18 = load float, ptr %17, align 4
   %19 = load float, ptr %2, align 4
   %20 = load float, ptr %15, align 4
@@ -2764,22 +2764,22 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %24 = select i1 %23, float %21, float %19
   %25 = select i1 %22, float %20, float %24
   %26 = fsub float %25, %20
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 76
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %10, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %32 = load float, ptr %31, align 4
   %33 = fcmp olt float %28, %30
   %34 = fcmp ogt float %28, %32
   %35 = select i1 %34, float %32, float %28
   %36 = select i1 %33, float %30, float %35
   %37 = fsub float %36, %30
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %10, i64 92
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 92
   %43 = load float, ptr %42, align 4
   %44 = fcmp olt float %39, %41
   %45 = fcmp ogt float %39, %43
@@ -2792,14 +2792,14 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %52 = select i1 %51, float %21, float %49
   %53 = select i1 %50, float %20, float %52
   %54 = fsub float %53, %20
-  %55 = getelementptr inbounds i8, ptr %3, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %56 = load float, ptr %55, align 4
   %57 = fcmp olt float %56, %30
   %58 = fcmp ogt float %56, %32
   %59 = select i1 %58, float %32, float %56
   %60 = select i1 %57, float %30, float %59
   %61 = fsub float %60, %30
-  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = load float, ptr %62, align 4
   %64 = fcmp olt float %63, %41
   %65 = fcmp ogt float %63, %43
@@ -2824,7 +2824,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %84 = tail call float @llvm.fmuladd.f32(float %18, float %68, float 1.000000e+00)
   %85 = fptoui float %84 to i16
   %86 = or i16 %85, 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %1 to i64
   %90 = ptrtoint ptr %88 to i64
@@ -2832,9 +2832,9 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %92 = sdiv exact i64 %91, 104
   %93 = trunc i64 %92 to i32
   %94 = load i32, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 92
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %98, %96
   %100 = shl i32 %94, %99
@@ -2846,7 +2846,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
 .lr.ph:                                           ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %148
   %.095132 = phi ptr [ %.1, %148 ], [ %8, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
   %.098131 = phi i32 [ %.199126, %148 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
-  %104 = getelementptr inbounds i8, ptr %.095132, i64 6
+  %104 = getelementptr inbounds nuw i8, ptr %.095132, i64 6
   %105 = load i16, ptr %104, align 2
   %106 = icmp ugt i16 %71, %105
   br i1 %106, label %110, label %107
@@ -2858,13 +2858,13 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
 
 110:                                              ; preds = %107, %.lr.ph
   %111 = phi i1 [ false, %.lr.ph ], [ %109, %107 ]
-  %112 = getelementptr inbounds i8, ptr %.095132, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.095132, i64 8
   %113 = load i16, ptr %112, align 2
   %114 = icmp ugt i16 %74, %113
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %.095132, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %.095132, i64 2
   %117 = load i16, ptr %116, align 2
   %118 = icmp uge i16 %83, %117
   %spec.select15.i = select i1 %118, i1 %111, i1 false
@@ -2872,23 +2872,23 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
 
 119:                                              ; preds = %115, %110
   %120 = phi i1 [ false, %110 ], [ %spec.select15.i, %115 ]
-  %121 = getelementptr inbounds i8, ptr %.095132, i64 10
+  %121 = getelementptr inbounds nuw i8, ptr %.095132, i64 10
   %122 = load i16, ptr %121, align 2
   %123 = icmp ugt i16 %77, %122
   br i1 %123, label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
 
 _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread: ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %.095132, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %.095132, i64 12
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, -1
   br label %138
 
 _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
-  %127 = getelementptr inbounds i8, ptr %.095132, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %.095132, i64 4
   %128 = load i16, ptr %127, align 2
   %129 = icmp uge i16 %86, %128
   %spec.select16.i = select i1 %129, i1 %120, i1 false
-  %130 = getelementptr inbounds i8, ptr %.095132, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %.095132, i64 12
   %131 = load i32, ptr %130, align 4
   %132 = icmp sgt i32 %131, -1
   %brmerge.demorgan = and i1 %spec.select16.i, %132
@@ -2913,13 +2913,13 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
 
 142:                                              ; preds = %.thread, %138
   %.199127 = phi i32 [ %135, %.thread ], [ %.098131, %138 ]
-  %143 = getelementptr inbounds i8, ptr %.095132, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.095132, i64 16
   br label %148
 
 144:                                              ; preds = %138
   %145 = sub nsw i32 0, %140
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds %struct.dtBVNode, ptr %.095132, i64 %146
+  %147 = getelementptr inbounds nuw %struct.dtBVNode, ptr %.095132, i64 %146
   br label %148
 
 148:                                              ; preds = %144, %142
@@ -2929,7 +2929,7 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
   br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
-  %150 = getelementptr inbounds i8, ptr %0, i64 80
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %1 to i64
   %153 = ptrtoint ptr %151 to i64
@@ -2937,28 +2937,28 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
   %155 = sdiv exact i64 %154, 104
   %156 = trunc i64 %155 to i32
   %157 = load i32, ptr %1, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 96
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %159 = load i32, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 92
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %161 = load i32, ptr %160, align 4
   %162 = add i32 %161, %159
   %163 = shl i32 %157, %162
   %164 = shl i32 %156, %159
   %165 = or i32 %164, %163
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load i32, ptr %168, align 4
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph149, label %.loopexit
 
 .lr.ph149:                                        ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109
-  %171 = getelementptr inbounds i8, ptr %1, i64 16
-  %172 = getelementptr inbounds i8, ptr %1, i64 24
-  %173 = getelementptr inbounds i8, ptr %2, i64 4
-  %174 = getelementptr inbounds i8, ptr %3, i64 4
-  %175 = getelementptr inbounds i8, ptr %2, i64 8
-  %176 = getelementptr inbounds i8, ptr %3, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %177
 
 177:                                              ; preds = %.lr.ph149, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
@@ -2966,8 +2966,8 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
   %indvars.iv159 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next160, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %.096147 = phi i32 [ 0, %.lr.ph149 ], [ %.197, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %179 = load ptr, ptr %171, align 8
-  %180 = getelementptr inbounds %struct.dtPoly, ptr %179, i64 %indvars.iv159
-  %181 = getelementptr inbounds i8, ptr %180, i64 31
+  %180 = getelementptr inbounds nuw %struct.dtPoly, ptr %179, i64 %indvars.iv159
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 31
   %182 = load i8, ptr %181, align 1
   %.mask = and i8 %182, -64
   %183 = icmp eq i8 %.mask, 64
@@ -2975,17 +2975,17 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
 
 184:                                              ; preds = %177
   %185 = load ptr, ptr %172, align 8
-  %186 = getelementptr inbounds i8, ptr %180, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %187 = load i16, ptr %186, align 4
   %188 = zext i16 %187 to i64
   %.idx = mul nuw nsw i64 %188, 12
-  %189 = getelementptr inbounds i8, ptr %185, i64 %.idx
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx
   %190 = load float, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %189, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds i8, ptr %189, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %180, i64 30
+  %195 = getelementptr inbounds nuw i8, ptr %180, i64 30
   %196 = load i8, ptr %195, align 2
   %197 = icmp ugt i8 %196, 1
   br i1 %197, label %.lr.ph140.preheader, label %._crit_edge
@@ -3002,19 +3002,19 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
   %.sroa.0113.0135 = phi float [ %190, %.lr.ph140.preheader ], [ %204, %.lr.ph140 ]
   %.sroa.4115.0134 = phi float [ %192, %.lr.ph140.preheader ], [ %208, %.lr.ph140 ]
   %.sroa.8117.0133 = phi float [ %194, %.lr.ph140.preheader ], [ %212, %.lr.ph140 ]
-  %198 = getelementptr inbounds [6 x i16], ptr %186, i64 0, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [6 x i16], ptr %186, i64 0, i64 %indvars.iv
   %199 = load i16, ptr %198, align 2
   %200 = zext i16 %199 to i64
   %.idx102 = mul nuw nsw i64 %200, 12
-  %201 = getelementptr inbounds i8, ptr %185, i64 %.idx102
+  %201 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx102
   %202 = load float, ptr %201, align 4
   %203 = fcmp olt float %.sroa.0113.0135, %202
   %204 = select i1 %203, float %.sroa.0113.0135, float %202
-  %205 = getelementptr inbounds i8, ptr %201, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %206 = load float, ptr %205, align 4
   %207 = fcmp olt float %.sroa.4115.0134, %206
   %208 = select i1 %207, float %.sroa.4115.0134, float %206
-  %209 = getelementptr inbounds i8, ptr %201, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %210 = load float, ptr %209, align 4
   %211 = fcmp olt float %.sroa.8117.0133, %210
   %212 = select i1 %211, float %.sroa.8117.0133, float %210
@@ -3089,7 +3089,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %233, %237, %242, %1
   %248 = phi ptr [ %178, %177 ], [ %.pre, %242 ], [ %178, %237 ], [ %178, %233 ]
   %.197 = phi i32 [ %.096147, %177 ], [ %245, %242 ], [ %.096147, %237 ], [ %.096147, %233 ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load i32, ptr %249, align 4
   %251 = sext i32 %250 to i64
   %252 = icmp slt i64 %indvars.iv.next160, %251
@@ -3105,13 +3105,13 @@ declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %1, -1918454973
   %8 = mul i32 %2, -669632447
   %9 = add i32 %8, %7
   %10 = and i32 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -3121,31 +3121,31 @@ define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull r
 
 .lr.ph:                                           ; preds = %4, %29
   %.019 = phi ptr [ %.0, %29 ], [ %.017, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.019, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %29, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %16, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %2
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %3
   br i1 %28, label %._crit_edge, label %29
 
 29:                                               ; preds = %25, %21, %17, %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.019, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %.019, i64 96
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -3157,13 +3157,13 @@ define noundef ptr @_ZNK9dtNavMesh9getTileAtEiii(ptr nocapture noundef nonnull r
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = mul i32 %1, -1918454973
   %9 = mul i32 %2, -669632447
   %10 = add i32 %9, %8
   %11 = and i32 %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -3174,19 +3174,19 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture n
 .lr.ph:                                           ; preds = %5, %31
   %.022 = phi ptr [ %.0, %31 ], [ %.019, %5 ]
   %.01621 = phi i32 [ %.1, %31 ], [ 0, %5 ]
-  %16 = getelementptr inbounds i8, ptr %.022, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %17, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %2
   %26 = icmp slt i32 %.01621, %4
@@ -3202,7 +3202,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr nocapture n
 
 31:                                               ; preds = %27, %22, %18, %.lr.ph
   %.1 = phi i32 [ %28, %27 ], [ %.01621, %22 ], [ %.01621, %18 ], [ %.01621, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %.022, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -3264,13 +3264,13 @@ define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr n
 27:                                               ; preds = %24, %22, %19, %17, %14, %12, %9, %7, %6
   %.019 = phi i32 [ %1, %6 ], [ %25, %24 ], [ %1, %22 ], [ %20, %19 ], [ %18, %17 ], [ %15, %14 ], [ %1, %12 ], [ %10, %9 ], [ %8, %7 ]
   %.0 = phi i32 [ %2, %6 ], [ %26, %24 ], [ %23, %22 ], [ %21, %19 ], [ %2, %17 ], [ %16, %14 ], [ %13, %12 ], [ %11, %9 ], [ %2, %7 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i32, ptr %28, align 8
   %30 = mul i32 %.019, -1918454973
   %31 = mul i32 %.0, -669632447
   %32 = add i32 %31, %30
   %33 = and i32 %32, %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds ptr, ptr %35, i64 %36
@@ -3281,19 +3281,19 @@ define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr n
 .lr.ph.i:                                         ; preds = %27, %53
   %.022.i = phi ptr [ %.0.i, %53 ], [ %.019.i, %27 ]
   %.01621.i = phi i32 [ %.1.i, %53 ], [ 0, %27 ]
-  %38 = getelementptr inbounds i8, ptr %.022.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not18.i = icmp eq ptr %39, null
   br i1 %.not18.i, label %53, label %40
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %.019
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %39, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %.0
   %48 = icmp slt i32 %.01621.i, %5
@@ -3309,7 +3309,7 @@ define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr n
 
 53:                                               ; preds = %49, %44, %40, %.lr.ph.i
   %.1.i = phi i32 [ %50, %49 ], [ %.01621.i, %44 ], [ %.01621.i, %40 ], [ %.01621.i, %.lr.ph.i ]
-  %54 = getelementptr inbounds i8, ptr %.022.i, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3321,13 +3321,13 @@ _ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit: ; preds = %53, %27
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = mul i32 %1, -1918454973
   %9 = mul i32 %2, -669632447
   %10 = add i32 %9, %8
   %11 = and i32 %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
@@ -3338,19 +3338,19 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture 
 .lr.ph:                                           ; preds = %5, %31
   %.022 = phi ptr [ %.0, %31 ], [ %.019, %5 ]
   %.01621 = phi i32 [ %.1, %31 ], [ 0, %5 ]
-  %16 = getelementptr inbounds i8, ptr %.022, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %17, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %2
   %26 = icmp slt i32 %.01621, %4
@@ -3366,7 +3366,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture 
 
 31:                                               ; preds = %27, %22, %18, %.lr.ph
   %.1 = phi i32 [ %28, %27 ], [ %.01621, %22 ], [ %.01621, %18 ], [ %.01621, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %.022, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -3378,13 +3378,13 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %1, -1918454973
   %8 = mul i32 %2, -669632447
   %9 = add i32 %8, %7
   %10 = and i32 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -3394,31 +3394,31 @@ define noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr nocapture noundef nonnu
 
 .lr.ph:                                           ; preds = %4, %45
   %.020 = phi ptr [ %.0, %45 ], [ %.018, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.020, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %45, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %21, label %45
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %16, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %2
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %3
   br i1 %28, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, label %45
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %.020 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -3426,9 +3426,9 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %25
   %34 = sdiv exact i64 %33, 104
   %35 = trunc i64 %34 to i32
   %36 = load i32, ptr %.020, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 92
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, %38
   %42 = shl i32 %36, %41
@@ -3437,7 +3437,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %25
   br label %.loopexit
 
 45:                                               ; preds = %25, %21, %17, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.020, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %.020, i64 96
   %.0 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
@@ -3453,15 +3453,15 @@ define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull
   br i1 %.not, label %25, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %notmask.i = shl nsw i32 -1, %5
   %6 = xor i32 %notmask.i, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %1, %8
   %10 = and i32 %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8
   %.not11 = icmp slt i32 %10, %12
   br i1 %.not11, label %13, label %25
@@ -3469,15 +3469,15 @@ define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull
 13:                                               ; preds = %3
   %14 = add i32 %8, %5
   %15 = lshr i32 %1, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i32, ptr %16, align 8
   %notmask.i13 = shl nsw i32 -1, %17
   %18 = xor i32 %notmask.i13, -1
   %19 = and i32 %15, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %10 to i64
-  %23 = getelementptr inbounds %struct.dtMeshTile, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 8
   %.not12 = icmp eq i32 %24, %19
   %. = select i1 %.not12, ptr %23, ptr null
@@ -3490,14 +3490,14 @@ define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0) local_unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.dtMeshTile, ptr %4, i64 %5
@@ -3506,7 +3506,7 @@ define noundef ptr @_ZN9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.dtMeshTile, ptr %4, i64 %5
@@ -3516,21 +3516,21 @@ define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #15 align 2 {
   %5 = load float, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load float, ptr %6, align 4
   %8 = fsub float %5, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load float, ptr %9, align 8
   %11 = fdiv float %8, %10
   %12 = tail call float @llvm.floor.f32(float %11)
   %13 = fptosi float %12 to i32
   store i32 %13, ptr %2, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load float, ptr %16, align 4
   %18 = fsub float %15, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load float, ptr %19, align 4
   %21 = fdiv float %18, %20
   %22 = tail call float @llvm.floor.f32(float %21)
@@ -3548,18 +3548,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
   br i1 %.not, label %42, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %7 = load i32, ptr %6, align 4
   %notmask9.i = shl nsw i32 -1, %7
   %8 = xor i32 %notmask9.i, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
   %notmask10.i = shl nsw i32 -1, %10
   %11 = xor i32 %notmask10.i, -1
   %12 = lshr i32 %1, %10
   %13 = and i32 %12, %8
   %14 = and i32 %1, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %.not8 = icmp ult i32 %13, %16
   br i1 %.not8, label %17, label %42
@@ -3567,27 +3567,27 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
 17:                                               ; preds = %5
   %18 = add i32 %10, %7
   %19 = lshr i32 %1, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i32, ptr %20, align 8
   %notmask.i = shl nsw i32 -1, %21
   %22 = xor i32 %notmask.i, -1
   %23 = and i32 %19, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %13 to i64
-  %27 = getelementptr inbounds %struct.dtMeshTile, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %25, i64 %26
   %28 = load i32, ptr %27, align 8
   %.not9 = icmp eq i32 %28, %23
   br i1 %.not9, label %29, label %42
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %42, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load i32, ptr %34, align 4
   %.not10 = icmp ult i32 %14, %35
   br i1 %.not10, label %36, label %42
@@ -3595,10 +3595,10 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
 36:                                               ; preds = %33
   store ptr %27, ptr %2, align 8
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr inbounds %struct.dtMeshTile, ptr %37, i64 %26, i32 3
+  %38 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %37, i64 %26, i32 3
   %39 = load ptr, ptr %38, align 8
   %40 = zext nneg i32 %14 to i64
-  %41 = getelementptr inbounds %struct.dtPoly, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw %struct.dtPoly, ptr %39, i64 %40
   store ptr %41, ptr %3, align 8
   br label %42
 
@@ -3613,18 +3613,18 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture nounde
   br i1 %.not, label %34, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %notmask9.i = shl nsw i32 -1, %5
   %6 = xor i32 %notmask9.i, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i32, ptr %7, align 8
   %notmask10.i = shl nsw i32 -1, %8
   %9 = xor i32 %notmask10.i, -1
   %10 = lshr i32 %1, %8
   %11 = and i32 %10, %6
   %12 = and i32 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not6 = icmp ult i32 %11, %14
   br i1 %.not6, label %15, label %34
@@ -3632,27 +3632,27 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr nocapture nounde
 15:                                               ; preds = %3
   %16 = add i32 %8, %5
   %17 = lshr i32 %1, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i32, ptr %18, align 8
   %notmask.i = shl nsw i32 -1, %19
   %20 = xor i32 %notmask.i, -1
   %21 = and i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %11 to i64
-  %25 = getelementptr inbounds %struct.dtMeshTile, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8
   %.not7 = icmp eq i32 %26, %21
   br i1 %.not7, label %27, label %34
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %29, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load i32, ptr %32, align 4
   %.not8 = icmp ult i32 %12, %33
   br label %34
@@ -3669,16 +3669,16 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
   br i1 %.not, label %285, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i32, ptr %7, align 4
   %notmask.i = shl nsw i32 -1, %8
   %9 = xor i32 %notmask.i, -1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %1, %11
   %13 = and i32 %12, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
   %.not84 = icmp slt i32 %13, %16
   br i1 %.not84, label %17, label %285
@@ -3690,29 +3690,29 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
   %notmask.i93 = shl nsw i32 -1, %20
   %21 = xor i32 %notmask.i93, -1
   %22 = and i32 %19, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %.fr129 = freeze ptr %24
   %25 = zext nneg i32 %13 to i64
-  %26 = getelementptr inbounds %struct.dtMeshTile, ptr %.fr129, i64 %25
+  %26 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %.fr129, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not85 = icmp eq i32 %27, %22
   br i1 %.not85, label %28, label %285
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = mul i32 %32, -1918454973
   %38 = mul i32 %34, -669632447
   %39 = add i32 %38, %37
   %40 = and i32 %39, %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds ptr, ptr %42, i64 %43
@@ -3732,12 +3732,12 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
   %.073122.lcssa = phi ptr [ %.073119, %.lr.ph.preheader ], [ %.073, %.lr.ph ]
   %.074121.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.073122151, %.lr.ph ]
   %.not87 = icmp eq ptr %.074121.lcssa, null
-  %47 = getelementptr inbounds i8, ptr %.073122.lcssa, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %.073122.lcssa, i64 96
   %48 = load ptr, ptr %47, align 8
   br i1 %.not87, label %51, label %49
 
 49:                                               ; preds = %.lr.ph._crit_edge
-  %50 = getelementptr inbounds i8, ptr %.074121.lcssa, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %.074121.lcssa, i64 96
   store ptr %48, ptr %50, align 8
   br label %.loopexit
 
@@ -3747,16 +3747,16 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
 
 .lr.ph152:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.073122151 = phi ptr [ %.073, %.lr.ph ], [ %.073119, %.lr.ph.preheader ]
-  %52 = getelementptr inbounds i8, ptr %.073122151, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %.073122151, i64 96
   %.073 = load ptr, ptr %52, align 8
   %.not86 = icmp eq ptr %.073, null
   br i1 %.not86, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph152, %28, %49, %51
   %53 = load ptr, ptr %29, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %53, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %35, align 8
   %59 = mul i32 %55, -1918454973
@@ -3773,19 +3773,19 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
 .lr.ph.i:                                         ; preds = %.loopexit, %81
   %.022.i = phi ptr [ %.0.i, %81 ], [ %.019.i, %.loopexit ]
   %.01621.i = phi i32 [ %.1.i, %81 ], [ 0, %.loopexit ]
-  %66 = getelementptr inbounds i8, ptr %.022.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not18.i = icmp eq ptr %67, null
   br i1 %.not18.i, label %81, label %68
 
 68:                                               ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, %55
   br i1 %71, label %72, label %81
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %67, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, %57
   %76 = icmp slt i32 %.01621.i, 32
@@ -3801,7 +3801,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
 
 81:                                               ; preds = %77, %72, %68, %.lr.ph.i
   %.1.i = phi i32 [ %78, %77 ], [ %.01621.i, %72 ], [ %.01621.i, %68 ], [ %.01621.i, %.lr.ph.i ]
-  %82 = getelementptr inbounds i8, ptr %.022.i, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %82, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3830,7 +3830,7 @@ _ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei.exit..preheader_crit_edge: ; preds 
 
 .lr.ph124.split:                                  ; preds = %.lr.ph124.split.preheader, %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph124.split.preheader ], [ %indvars.iv.next, %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit ]
-  %85 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [32 x ptr], ptr %5, i64 0, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   %87 = icmp ne ptr %86, %26
   %88 = icmp ne ptr %86, null
@@ -3854,24 +3854,24 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph124.split
   %101 = xor i32 %notmask.i.i, -1
   %102 = lshr i32 %100, %95
   %103 = and i32 %102, %101
-  %104 = getelementptr inbounds i8, ptr %86, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load i32, ptr %106, align 4
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph38.i, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit
 
 .lr.ph38.i:                                       ; preds = %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i
-  %109 = getelementptr inbounds i8, ptr %86, i64 16
-  %110 = getelementptr inbounds i8, ptr %86, i64 32
-  %111 = getelementptr inbounds i8, ptr %86, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %86, i64 4
   br label %112
 
 112:                                              ; preds = %._crit_edge.i, %.lr.ph38.i
   %113 = phi ptr [ %105, %.lr.ph38.i ], [ %140, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph38.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %114 = load ptr, ptr %109, align 8
-  %115 = getelementptr inbounds %struct.dtPoly, ptr %114, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw %struct.dtPoly, ptr %114, i64 %indvars.iv.i
   %116 = load i32, ptr %115, align 4
   %.not34.i = icmp eq i32 %116, -1
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i95
@@ -3881,7 +3881,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph124.split
   %.02935.i = phi i32 [ %128, %139 ], [ %116, %112 ]
   %117 = load ptr, ptr %110, align 8
   %118 = zext i32 %.02935.i to i64
-  %119 = getelementptr inbounds %struct.dtLink, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw %struct.dtLink, ptr %117, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = load i32, ptr %7, align 4
   %notmask.i33.i = shl nsw i32 -1, %121
@@ -3890,7 +3890,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph124.split
   %124 = lshr i32 %120, %123
   %125 = and i32 %124, %122
   %126 = icmp eq i32 %125, %103
-  %127 = getelementptr inbounds %struct.dtLink, ptr %117, i64 %118, i32 1
+  %127 = getelementptr inbounds nuw %struct.dtLink, ptr %117, i64 %118, i32 1
   %128 = load i32, ptr %127, align 4
   br i1 %126, label %129, label %139
 
@@ -3904,14 +3904,14 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph124.split
 
 132:                                              ; preds = %129
   %133 = zext i32 %.02836.i to i64
-  %134 = getelementptr inbounds %struct.dtLink, ptr %117, i64 %133, i32 1
+  %134 = getelementptr inbounds nuw %struct.dtLink, ptr %117, i64 %133, i32 1
   store i32 %128, ptr %134, align 4
   br label %135
 
 135:                                              ; preds = %132, %131
   %136 = load i32, ptr %111, align 4
   %137 = load ptr, ptr %110, align 8
-  %138 = getelementptr inbounds %struct.dtLink, ptr %137, i64 %118, i32 1
+  %138 = getelementptr inbounds nuw %struct.dtLink, ptr %137, i64 %118, i32 1
   store i32 %136, ptr %138, align 4
   store i32 %.02935.i, ptr %111, align 4
   br label %139
@@ -3928,7 +3928,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i: ; preds = %.lr.ph124.split
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %112
   %140 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %113, %112 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next.i, %143
@@ -3942,9 +3942,9 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit: ; preds = %._crit_edge.i, %
 145:                                              ; preds = %.preheader, %._crit_edge
   %.071128 = phi i32 [ 0, %.preheader ], [ %256, %._crit_edge ]
   %146 = load ptr, ptr %29, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %146, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %150 = load i32, ptr %149, align 4
   switch i32 %.071128, label %default.unreachable [
     i32 0, label %151
@@ -4014,19 +4014,19 @@ default.unreachable:                              ; preds = %145
 .lr.ph.i.i:                                       ; preds = %171, %195
   %.022.i.i = phi ptr [ %.0.i.i, %195 ], [ %.019.i.i, %171 ]
   %.01621.i.i = phi i32 [ %.1.i.i, %195 ], [ 0, %171 ]
-  %180 = getelementptr inbounds i8, ptr %.022.i.i, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %181 = load ptr, ptr %180, align 8
   %.not18.i.i = icmp eq ptr %181, null
   br i1 %.not18.i.i, label %195, label %182
 
 182:                                              ; preds = %.lr.ph.i.i
-  %183 = getelementptr inbounds i8, ptr %181, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, %.019.i98
   br i1 %185, label %186, label %195
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %181, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %188, %.0.i99
   %190 = icmp slt i32 %.01621.i.i, 32
@@ -4042,7 +4042,7 @@ default.unreachable:                              ; preds = %145
 
 195:                                              ; preds = %191, %186, %182, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %192, %191 ], [ %.01621.i.i, %186 ], [ %.01621.i.i, %182 ], [ %.01621.i.i, %.lr.ph.i.i ]
-  %196 = getelementptr inbounds i8, ptr %.022.i.i, i64 96
+  %196 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %196, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit, label %.lr.ph.i.i, !llvm.loop !11
@@ -4058,7 +4058,7 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %195
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126.split.preheader, %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116
   %indvars.iv138 = phi i64 [ 0, %.lr.ph126.split.preheader ], [ %indvars.iv.next139, %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116 ]
-  %198 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv138
+  %198 = getelementptr inbounds nuw [32 x ptr], ptr %5, i64 0, i64 %indvars.iv138
   %199 = load ptr, ptr %198, align 8
   %.not132 = icmp eq ptr %199, null
   br i1 %.not132, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101
@@ -4080,24 +4080,24 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph126.split
   %212 = xor i32 %notmask.i.i102, -1
   %213 = lshr i32 %211, %206
   %214 = and i32 %213, %212
-  %215 = getelementptr inbounds i8, ptr %199, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load i32, ptr %217, align 4
   %219 = icmp sgt i32 %218, 0
   br i1 %219, label %.lr.ph38.i103, label %_ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116
 
 .lr.ph38.i103:                                    ; preds = %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101
-  %220 = getelementptr inbounds i8, ptr %199, i64 16
-  %221 = getelementptr inbounds i8, ptr %199, i64 32
-  %222 = getelementptr inbounds i8, ptr %199, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %199, i64 4
   br label %223
 
 223:                                              ; preds = %._crit_edge.i114, %.lr.ph38.i103
   %224 = phi ptr [ %216, %.lr.ph38.i103 ], [ %251, %._crit_edge.i114 ]
   %indvars.iv.i104 = phi i64 [ 0, %.lr.ph38.i103 ], [ %indvars.iv.next.i115, %._crit_edge.i114 ]
   %225 = load ptr, ptr %220, align 8
-  %226 = getelementptr inbounds %struct.dtPoly, ptr %225, i64 %indvars.iv.i104
+  %226 = getelementptr inbounds nuw %struct.dtPoly, ptr %225, i64 %indvars.iv.i104
   %227 = load i32, ptr %226, align 4
   %.not34.i105 = icmp eq i32 %227, -1
   br i1 %.not34.i105, label %._crit_edge.i114, label %.lr.ph.i106
@@ -4107,7 +4107,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph126.split
   %.02935.i108 = phi i32 [ %239, %250 ], [ %227, %223 ]
   %228 = load ptr, ptr %221, align 8
   %229 = zext i32 %.02935.i108 to i64
-  %230 = getelementptr inbounds %struct.dtLink, ptr %228, i64 %229
+  %230 = getelementptr inbounds nuw %struct.dtLink, ptr %228, i64 %229
   %231 = load i32, ptr %230, align 4
   %232 = load i32, ptr %7, align 4
   %notmask.i33.i109 = shl nsw i32 -1, %232
@@ -4116,7 +4116,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph126.split
   %235 = lshr i32 %231, %234
   %236 = and i32 %235, %233
   %237 = icmp eq i32 %236, %214
-  %238 = getelementptr inbounds %struct.dtLink, ptr %228, i64 %229, i32 1
+  %238 = getelementptr inbounds nuw %struct.dtLink, ptr %228, i64 %229, i32 1
   %239 = load i32, ptr %238, align 4
   br i1 %237, label %240, label %250
 
@@ -4130,14 +4130,14 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph126.split
 
 243:                                              ; preds = %240
   %244 = zext i32 %.02836.i107 to i64
-  %245 = getelementptr inbounds %struct.dtLink, ptr %228, i64 %244, i32 1
+  %245 = getelementptr inbounds nuw %struct.dtLink, ptr %228, i64 %244, i32 1
   store i32 %239, ptr %245, align 4
   br label %246
 
 246:                                              ; preds = %243, %242
   %247 = load i32, ptr %222, align 4
   %248 = load ptr, ptr %221, align 8
-  %249 = getelementptr inbounds %struct.dtLink, ptr %248, i64 %229, i32 1
+  %249 = getelementptr inbounds nuw %struct.dtLink, ptr %248, i64 %229, i32 1
   store i32 %247, ptr %249, align 4
   store i32 %.02935.i108, ptr %222, align 4
   br label %250
@@ -4154,7 +4154,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit.i101: ; preds = %.lr.ph126.split
 ._crit_edge.i114:                                 ; preds = %._crit_edge.loopexit.i112, %223
   %251 = phi ptr [ %.pre.i113, %._crit_edge.loopexit.i112 ], [ %224, %223 ]
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i104, 1
-  %252 = getelementptr inbounds i8, ptr %251, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load i32, ptr %252, align 4
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next.i115, %254
@@ -4171,18 +4171,18 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
   br i1 %exitcond143.not, label %257, label %145, !llvm.loop !44
 
 257:                                              ; preds = %._crit_edge
-  %258 = getelementptr inbounds i8, ptr %26, i64 92
+  %258 = getelementptr inbounds nuw i8, ptr %26, i64 92
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 1
   %.not88 = icmp eq i32 %260, 0
   br i1 %.not88, label %267, label %261
 
 261:                                              ; preds = %257
-  %262 = getelementptr inbounds i8, ptr %26, i64 80
+  %262 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %263 = load ptr, ptr %262, align 8
   tail call void @_Z6dtFreePv(ptr noundef %263)
   store ptr null, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %26, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i32 0, ptr %264, align 8
   %.not91 = icmp eq ptr %2, null
   br i1 %.not91, label %266, label %265
@@ -4200,7 +4200,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
   br i1 %.not89, label %271, label %268
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds i8, ptr %26, i64 80
+  %269 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %270 = load ptr, ptr %269, align 8
   store ptr %270, ptr %2, align 8
   br label %271
@@ -4210,7 +4210,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
   br i1 %.not90, label %275, label %272
 
 272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %26, i64 88
+  %273 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %274 = load i32, ptr %273, align 8
   br label %.sink.split
 
@@ -4221,7 +4221,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
 
 275:                                              ; preds = %.sink.split, %271, %266
   store i32 0, ptr %258, align 4
-  %276 = getelementptr inbounds i8, ptr %26, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %26, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %276, i8 0, i64 76, i1 false)
   %277 = load i32, ptr %26, align 8
   %278 = add i32 %277, 1
@@ -4231,9 +4231,9 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
   %281 = and i32 %278, %280
   %spec.select = tail call i32 @llvm.umax.i32(i32 %281, i32 1)
   store i32 %spec.select, ptr %26, align 8
-  %282 = getelementptr inbounds i8, ptr %0, i64 72
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %26, i64 96
+  %284 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store ptr %283, ptr %284, align 8
   store ptr %26, ptr %282, align 8
   br label %285
@@ -4249,9 +4249,9 @@ define noundef range(i32 -2147483636, -2147483648) i32 @_ZNK9dtNavMesh16getTileS
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %7, 2
   %9 = add nsw i32 %8, 12
@@ -4268,9 +4268,9 @@ define noundef range(i32 1073741824, -2147483631) i32 @_ZNK9dtNavMesh14storeTile
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 2
   %11 = add nsw i32 %10, 12
@@ -4282,12 +4282,12 @@ _ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit: ; preds = %4, %5
   br i1 %12, label %.loopexit, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1145982291, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %1 to i64
   %19 = ptrtoint ptr %17 to i64
@@ -4295,42 +4295,42 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %_ZNK9dtNavMesh16get
   %21 = sdiv exact i64 %20, 104
   %22 = trunc i64 %21 to i32
   %23 = load i32, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, %25
   %29 = shl i32 %23, %28
   %30 = shl i32 %22, %25
   %31 = or i32 %30, %29
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %38
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds %struct.dtPoly, ptr %39, i64 %indvars.iv
-  %41 = getelementptr inbounds %struct.dtPolyState, ptr %13, i64 %indvars.iv
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %40 = getelementptr inbounds nuw %struct.dtPoly, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.dtPolyState, ptr %13, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i16, ptr %42, align 4
   store i16 %43, ptr %41, align 2
-  %44 = getelementptr inbounds i8, ptr %40, i64 31
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 31
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 63
-  %47 = getelementptr inbounds i8, ptr %41, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i8 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %14, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
@@ -4347,9 +4347,9 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh16restoreTil
   br i1 %.not.i, label %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 2
   %11 = add nsw i32 %10, 12
@@ -4361,22 +4361,22 @@ _ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit: ; preds = %4, %5
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
-  %14 = getelementptr inbounds i8, ptr %2, i64 12
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %16, 1145982291
   br i1 %.not, label %17, label %.loopexit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %.not21 = icmp eq i32 %19, 1
   br i1 %.not21, label %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, label %.loopexit
 
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %1 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -4384,9 +4384,9 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
   %27 = sdiv exact i64 %26, 104
   %28 = trunc i64 %27 to i32
   %29 = load i32, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 92
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
   %35 = shl i32 %29, %34
@@ -4397,26 +4397,26 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
 
 .preheader:                                       ; preds = %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit
   %38 = load ptr, ptr %15, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %43
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds %struct.dtPoly, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds %struct.dtPolyState, ptr %14, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.dtPoly, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.dtPolyState, ptr %14, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i8, ptr %45, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 28
   store i16 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %50 = load i8, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %45, i64 31
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 31
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, -64
   %54 = and i8 %50, 63
@@ -4424,7 +4424,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
   store i8 %55, ptr %51, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load ptr, ptr %15, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -4441,18 +4441,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
   br i1 %.not, label %82, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i32, ptr %7, align 4
   %notmask9.i = shl nsw i32 -1, %8
   %9 = xor i32 %notmask9.i, -1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i32, ptr %10, align 8
   %notmask10.i = shl nsw i32 -1, %11
   %12 = xor i32 %notmask10.i, -1
   %13 = lshr i32 %2, %11
   %14 = and i32 %13, %9
   %15 = and i32 %2, %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %.not30 = icmp ult i32 %14, %17
   br i1 %.not30, label %18, label %82
@@ -4460,37 +4460,37 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
 18:                                               ; preds = %6
   %19 = add i32 %11, %8
   %20 = lshr i32 %2, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i32, ptr %21, align 8
   %notmask.i = shl nsw i32 -1, %22
   %23 = xor i32 %notmask.i, -1
   %24 = and i32 %20, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %14 to i64
-  %28 = getelementptr inbounds %struct.dtMeshTile, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 8
   %.not31 = icmp eq i32 %29, %24
   br i1 %.not31, label %30, label %82
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %82, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = load i32, ptr %35, align 4
   %.not32 = icmp ult i32 %15, %36
   br i1 %.not32, label %37, label %82
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %28, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext nneg i32 %15 to i64
-  %41 = getelementptr inbounds %struct.dtPoly, ptr %39, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 31
+  %41 = getelementptr inbounds nuw %struct.dtPoly, ptr %39, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 31
   %43 = load i8, ptr %42, align 1
   %.mask = and i8 %43, -64
   %.not33 = icmp eq i8 %.mask, 64
@@ -4502,15 +4502,15 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
   br i1 %.not3441, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %28, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %45 = load ptr, ptr %44, align 8
   br label %46
 
 46:                                               ; preds = %.lr.ph, %54
   %.042 = phi i32 [ %.040, %.lr.ph ], [ %.0, %54 ]
   %47 = zext i32 %.042 to i64
-  %48 = getelementptr inbounds %struct.dtLink, ptr %45, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %48 = getelementptr inbounds nuw %struct.dtLink, ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 4
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %54
@@ -4524,7 +4524,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
   br label %.loopexit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %48, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.0 = load i32, ptr %55, align 4
   %.not34 = icmp eq i32 %.0, -1
   br i1 %.not34, label %.loopexit, label %46, !llvm.loop !47
@@ -4532,39 +4532,39 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
 .loopexit:                                        ; preds = %54, %.preheader, %52
   %.024 = phi i64 [ %spec.select, %52 ], [ 0, %.preheader ], [ 0, %54 ]
   %.023 = phi i64 [ %spec.select37, %52 ], [ 1, %.preheader ], [ 1, %54 ]
-  %56 = getelementptr inbounds i8, ptr %28, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %41, i64 4
-  %59 = getelementptr inbounds [6 x i16], ptr %58, i64 0, i64 %.024
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %59 = getelementptr inbounds nuw [6 x i16], ptr %58, i64 0, i64 %.024
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %.idx = mul nuw nsw i64 %61, 12
-  %62 = getelementptr inbounds i8, ptr %57, i64 %.idx
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
   %63 = load float, ptr %62, align 4
   store float %63, ptr %3, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %3, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %62, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load float, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %68, ptr %69, align 4
   %70 = load ptr, ptr %56, align 8
-  %71 = getelementptr inbounds [6 x i16], ptr %58, i64 0, i64 %.023
+  %71 = getelementptr inbounds nuw [6 x i16], ptr %58, i64 0, i64 %.023
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i64
   %.idx36 = mul nuw nsw i64 %73, 12
-  %74 = getelementptr inbounds i8, ptr %70, i64 %.idx36
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx36
   %75 = load float, ptr %74, align 4
   store float %75, ptr %4, align 4
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %4, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %77, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %80, ptr %81, align 4
   br label %82
 
@@ -4579,18 +4579,18 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
   br i1 %.not, label %57, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %notmask9.i = shl nsw i32 -1, %5
   %6 = xor i32 %notmask9.i, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i32, ptr %7, align 8
   %notmask10.i = shl nsw i32 -1, %8
   %9 = xor i32 %notmask10.i, -1
   %10 = lshr i32 %1, %8
   %11 = and i32 %10, %6
   %12 = and i32 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not18 = icmp ult i32 %11, %14
   br i1 %.not18, label %15, label %57
@@ -4598,43 +4598,43 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
 15:                                               ; preds = %3
   %16 = add i32 %8, %5
   %17 = lshr i32 %1, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i32, ptr %18, align 8
   %notmask.i = shl nsw i32 -1, %19
   %20 = xor i32 %notmask.i, -1
   %21 = and i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %11 to i64
-  %25 = getelementptr inbounds %struct.dtMeshTile, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8
   %.not19 = icmp eq i32 %26, %21
   br i1 %.not19, label %27, label %57
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %57, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %29, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load i32, ptr %32, align 4
   %.not20 = icmp ult i32 %12, %33
   br i1 %.not20, label %34, label %57
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %25, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %12 to i64
-  %38 = getelementptr inbounds %struct.dtPoly, ptr %36, i64 %37, i32 5
+  %38 = getelementptr inbounds nuw %struct.dtPoly, ptr %36, i64 %37, i32 5
   %39 = load i8, ptr %38, align 1
   %.mask = and i8 %39, -64
   %.not21 = icmp eq i8 %.mask, 64
   br i1 %.not21, label %40, label %57
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %29, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %42 = load i32, ptr %41, align 4
   %43 = sub i32 %12, %42
   %44 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
@@ -4643,7 +4643,7 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %28, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %43, %49
   br i1 %50, label %52, label %51
@@ -4653,10 +4653,10 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr nocapture no
   br label %52
 
 52:                                               ; preds = %46, %51, %40
-  %53 = getelementptr inbounds i8, ptr %25, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %43 to i64
-  %56 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw %struct.dtOffMeshConnection, ptr %54, i64 %55
   br label %57
 
 57:                                               ; preds = %34, %31, %15, %27, %3, %2, %52
@@ -4672,18 +4672,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFla
   br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
   %7 = xor i32 %notmask9.i, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %notmask10.i = shl nsw i32 -1, %9
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
   %13 = and i32 %1, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
   br i1 %.not11, label %16, label %40
@@ -4691,36 +4691,36 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFla
 16:                                               ; preds = %4
   %17 = add i32 %9, %6
   %18 = lshr i32 %1, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %notmask.i = shl nsw i32 -1, %20
   %21 = xor i32 %notmask.i, -1
   %22 = and i32 %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds %struct.dtMeshTile, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not12 = icmp eq i32 %27, %22
   br i1 %.not12, label %28, label %40
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load i32, ptr %33, align 4
   %.not13 = icmp ult i32 %13, %34
   br i1 %.not13, label %35, label %40
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %13 to i64
-  %39 = getelementptr inbounds %struct.dtPoly, ptr %37, i64 %38, i32 3
+  %39 = getelementptr inbounds nuw %struct.dtPoly, ptr %37, i64 %38, i32 3
   store i16 %2, ptr %39, align 4
   br label %40
 
@@ -4735,18 +4735,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFl
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
   %7 = xor i32 %notmask9.i, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %notmask10.i = shl nsw i32 -1, %9
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
   %13 = and i32 %1, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
   br i1 %.not11, label %16, label %41
@@ -4754,36 +4754,36 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFl
 16:                                               ; preds = %4
   %17 = add i32 %9, %6
   %18 = lshr i32 %1, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %notmask.i = shl nsw i32 -1, %20
   %21 = xor i32 %notmask.i, -1
   %22 = and i32 %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds %struct.dtMeshTile, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not12 = icmp eq i32 %27, %22
   br i1 %.not12, label %28, label %41
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load i32, ptr %33, align 4
   %.not13 = icmp ult i32 %13, %34
   br i1 %.not13, label %35, label %41
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %13 to i64
-  %39 = getelementptr inbounds %struct.dtPoly, ptr %37, i64 %38, i32 3
+  %39 = getelementptr inbounds nuw %struct.dtPoly, ptr %37, i64 %38, i32 3
   %40 = load i16, ptr %39, align 4
   store i16 %40, ptr %2, align 2
   br label %41
@@ -4799,18 +4799,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAre
   br i1 %.not, label %44, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
   %7 = xor i32 %notmask9.i, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %notmask10.i = shl nsw i32 -1, %9
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
   %13 = and i32 %1, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
   br i1 %.not11, label %16, label %44
@@ -4818,36 +4818,36 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAre
 16:                                               ; preds = %4
   %17 = add i32 %9, %6
   %18 = lshr i32 %1, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %notmask.i = shl nsw i32 -1, %20
   %21 = xor i32 %notmask.i, -1
   %22 = and i32 %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds %struct.dtMeshTile, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not12 = icmp eq i32 %27, %22
   br i1 %.not12, label %28, label %44
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %44, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load i32, ptr %33, align 4
   %.not13 = icmp ult i32 %13, %34
   br i1 %.not13, label %35, label %44
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %13 to i64
-  %39 = getelementptr inbounds %struct.dtPoly, ptr %37, i64 %38, i32 5
+  %39 = getelementptr inbounds nuw %struct.dtPoly, ptr %37, i64 %38, i32 5
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, -64
   %42 = and i8 %2, 63
@@ -4866,18 +4866,18 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAr
   br i1 %.not, label %42, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
   %7 = xor i32 %notmask9.i, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %notmask10.i = shl nsw i32 -1, %9
   %10 = xor i32 %notmask10.i, -1
   %11 = lshr i32 %1, %9
   %12 = and i32 %11, %7
   %13 = and i32 %1, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp ult i32 %12, %15
   br i1 %.not11, label %16, label %42
@@ -4885,36 +4885,36 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAr
 16:                                               ; preds = %4
   %17 = add i32 %9, %6
   %18 = lshr i32 %1, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %notmask.i = shl nsw i32 -1, %20
   %21 = xor i32 %notmask.i, -1
   %22 = and i32 %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds %struct.dtMeshTile, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.dtMeshTile, ptr %24, i64 %25
   %27 = load i32, ptr %26, align 8
   %.not12 = icmp eq i32 %27, %22
   br i1 %.not12, label %28, label %42
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %42, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load i32, ptr %33, align 4
   %.not13 = icmp ult i32 %13, %34
   br i1 %.not13, label %35, label %42
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %13 to i64
-  %39 = getelementptr inbounds %struct.dtPoly, ptr %37, i64 %38, i32 5
+  %39 = getelementptr inbounds nuw %struct.dtPoly, ptr %37, i64 %38, i32 5
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 63
   store i8 %41, ptr %2, align 1

@@ -9,7 +9,7 @@ define hidden void @od_ec_dec_init(ptr nocapture noundef nonnull writeonly initi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -14, ptr %4, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34,7 +34,7 @@ define hidden void @od_ec_dec_init(ptr nocapture noundef nonnull writeonly initi
   %15 = xor i32 %14, %.02526.i
   %16 = add nsw i16 %.02427.i, 8
   %17 = add nsw i32 %.029.i, -8
-  %18 = getelementptr inbounds i8, ptr %.02328.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.02328.i, i64 1
   %19 = icmp samesign ugt i32 %.029.i, 7
   %20 = icmp ult ptr %18, %6
   %21 = select i1 %19, i1 %20, i1 false
@@ -121,7 +121,7 @@ define hidden range(i32 0, 2) i32 @od_ec_decode_bool_q15(ptr nocapture noundef n
   %38 = xor i32 %37, %.02526.i.i
   %39 = add i16 %.02427.i.i, 8
   %40 = add nsw i32 %.029.i.i, -8
-  %41 = getelementptr inbounds i8, ptr %.02328.i.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02328.i.i, i64 1
   %42 = icmp samesign ugt i32 %.029.i.i, 7
   %43 = icmp ult ptr %41, %31
   %44 = select i1 %42, i1 %43, i1 false
@@ -196,7 +196,7 @@ od_ec_dec_refill.exit.i:                          ; preds = %._crit_edge.i.threa
   %75 = xor i32 %74, %.02526.i.i34
   %76 = add i16 %.02427.i.i33, 8
   %77 = add nsw i32 %.029.i.i31, -8
-  %78 = getelementptr inbounds i8, ptr %.02328.i.i32, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.02328.i.i32, i64 1
   %79 = icmp samesign ugt i32 %.029.i.i31, 7
   %80 = icmp ult ptr %78, %68
   %81 = select i1 %79, i1 %80, i1 false
@@ -306,7 +306,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr 
   %51 = xor i32 %50, %.02526.i.i
   %52 = add i16 %.02427.i.i, 8
   %53 = add nsw i32 %.029.i.i, -8
-  %54 = getelementptr inbounds i8, ptr %.02328.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.02328.i.i, i64 1
   %55 = icmp samesign ugt i32 %.029.i.i, 7
   %56 = icmp ult ptr %54, %44
   %57 = select i1 %55, i1 %56, i1 false

@@ -7,22 +7,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @Csw_CutHash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 23
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %3 = load i8, ptr %2, align 1
   %4 = icmp sgt i8 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %wide.trip.count = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.078 = phi i32 [ 0, %.lr.ph ], [ %12, %6 ]
-  %7 = getelementptr inbounds [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = mul nsw i32 %10, %8
   %12 = xor i32 %11, %.078
@@ -37,13 +37,13 @@ define i32 @Csw_CutHash(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Csw_TableCountCuts(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -51,7 +51,7 @@ define i32 @Csw_TableCountCuts(ptr nocapture noundef readonly %0) local_unnamed_
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %.1, %11 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -74,22 +74,22 @@ define i32 @Csw_TableCountCuts(ptr nocapture noundef readonly %0) local_unnamed_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Csw_TableCutInsert(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 23
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %4 = load i8, ptr %3, align 1
   %5 = icmp sgt i8 %4, 0
   br i1 %5, label %.lr.ph.i, label %Csw_CutHash.exit
 
 .lr.ph.i:                                         ; preds = %2
   %wide.trip.count.i = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i
@@ -99,10 +99,10 @@ define void @Csw_TableCutInsert(ptr nocapture noundef readonly %0, ptr noundef %
 
 Csw_CutHash.exit:                                 ; preds = %7, %2
   %.07.lcssa.i = phi i32 [ 0, %2 ], [ %13, %7 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = urem i32 %.07.lcssa.i, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -116,22 +116,22 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Csw_TableCutLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 23
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %4 = load i8, ptr %3, align 1
   %5 = icmp sgt i8 %4, 0
   br i1 %5, label %.lr.ph.i, label %Csw_CutHash.exit
 
 .lr.ph.i:                                         ; preds = %2
   %wide.trip.count.i = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %13, %7 ]
-  %8 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [128 x i32], ptr @Csw_CutHash.s_FPrimes, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = mul nsw i32 %11, %9
   %13 = xor i32 %12, %.078.i
@@ -141,10 +141,10 @@ define ptr @Csw_TableCutLookup(ptr nocapture noundef readonly %0, ptr nocapture 
 
 Csw_CutHash.exit:                                 ; preds = %7, %2
   %.07.lcssa.i = phi i32 [ 0, %2 ], [ %13, %7 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = urem i32 %.07.lcssa.i, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -153,11 +153,11 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
   br i1 %.not52, label %Aig_ManObj.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Csw_CutHash.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = sext i8 %4 to i64
   %24 = shl nsw i64 %23, 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %26 = sext i8 %4 to i32
   %27 = icmp slt i8 %4, 6
   %28 = add nsw i32 %26, -5
@@ -168,26 +168,26 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
 
 32:                                               ; preds = %.lr.ph, %Kit_TruthIsEqual.exit.thread
   %.02753 = phi ptr [ %.02751, %.lr.ph ], [ %.027, %Kit_TruthIsEqual.exit.thread ]
-  %33 = getelementptr inbounds i8, ptr %.02753, i64 23
+  %33 = getelementptr inbounds nuw i8, ptr %.02753, i64 23
   %34 = load i8, ptr %33, align 1
   %.not28 = icmp eq i8 %34, %4
   br i1 %.not28, label %35, label %Kit_TruthIsEqual.exit.thread
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.02753, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.02753, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %21, align 4
   %.not29 = icmp eq i32 %37, %38
   br i1 %.not29, label %39, label %Kit_TruthIsEqual.exit.thread
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.02753, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.02753, i64 24
   %bcmp = tail call i32 @bcmp(ptr nonnull %40, ptr nonnull %22, i64 %24)
   %.not30 = icmp eq i32 %bcmp, 0
   br i1 %.not30, label %41, label %Kit_TruthIsEqual.exit.thread
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.02753, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %.02753, i64 22
   %43 = load i8, ptr %42, align 2
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i32, ptr %40, i64 %44
@@ -209,15 +209,15 @@ select.unfold.i:                                  ; preds = %41, %56
 
 56:                                               ; preds = %select.unfold.i
   %57 = add nsw i64 %indvars.iv.i34, -1
-  %58 = getelementptr inbounds i32, ptr %45, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %45, i64 %57
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i32, ptr %48, i64 %57
+  %60 = getelementptr inbounds nuw i32, ptr %48, i64 %57
   %61 = load i32, ptr %60, align 4
   %.not.i = icmp eq i32 %59, %61
   br i1 %.not.i, label %select.unfold.i, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !8
 
 Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 32
   %.val = load ptr, ptr %64, align 8
@@ -225,7 +225,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
   br i1 %.not.i35, label %Aig_ManObj.exit, label %65
 
 65:                                               ; preds = %Kit_TruthIsEqual.exit
-  %66 = getelementptr inbounds i8, ptr %.02753, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.02753, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr i8, ptr %.val, i64 8
   %.val.i = load ptr, ptr %68, align 8
@@ -242,16 +242,16 @@ select.unfold.i37:                                ; preds = %41, %74
 
 74:                                               ; preds = %select.unfold.i37
   %75 = add nsw i64 %indvars.iv.i38, -1
-  %76 = getelementptr inbounds i32, ptr %45, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %45, i64 %75
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i32, ptr %48, i64 %75
+  %78 = getelementptr inbounds nuw i32, ptr %48, i64 %75
   %79 = load i32, ptr %78, align 4
   %80 = xor i32 %79, %77
   %.not.i40 = icmp eq i32 %80, -1
   br i1 %.not.i40, label %select.unfold.i37, label %Kit_TruthIsEqual.exit.thread, !llvm.loop !9
 
 Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr i8, ptr %82, i64 32
   %.val33 = load ptr, ptr %83, align 8
@@ -259,7 +259,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
   br i1 %.not.i41, label %Aig_ManObj.exit43, label %84
 
 84:                                               ; preds = %Kit_TruthIsOpposite.exit
-  %85 = getelementptr inbounds i8, ptr %.02753, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.02753, i64 16
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr i8, ptr %.val33, i64 8
   %.val.i42 = load ptr, ptr %87, align 8

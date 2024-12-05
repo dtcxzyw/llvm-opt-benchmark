@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
   %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 31)
@@ -82,19 +82,19 @@ define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr nocapture noundef re
   br i1 %10, label %dom_html5_serialize_node.exit, label %11
 
 11:                                               ; preds = %9, %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not77.i = icmp eq ptr %13, null
   br i1 %.not77.i, label %dom_html5_serialize_node.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %16
 
 16:                                               ; preds = %.backedge.i, %.lr.ph.i
   %.02778.i = phi ptr [ %13, %.lr.ph.i ], [ %.027.be.i, %.backedge.i ]
-  %17 = getelementptr inbounds i8, ptr %.02778.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 8
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %dom_html5_serialize_element_end.exit.thread65.i [
     i32 14, label %19
@@ -115,7 +115,7 @@ define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr nocapture noundef re
 23:                                               ; preds = %19
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %.02778.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %24(ptr noundef %25, ptr noundef %27) #4
   %.not7.i.i = icmp eq i32 %28, 0
@@ -129,9 +129,9 @@ dom_html5_serialize_doctype.exit.i:               ; preds = %23
   br i1 %.not37.i, label %dom_html5_serialize_element_end.exit.thread65.i, label %dom_html5_serialize_node.exit
 
 32:                                               ; preds = %16, %16
-  %33 = getelementptr inbounds i8, ptr %.02778.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %dom_local_name_compare_ex.exit28.thread.i.i
@@ -143,14 +143,14 @@ dom_html5_serialize_doctype.exit.i:               ; preds = %23
   br i1 %40, label %dom_is_html_ns.exit.thread.i.i, label %dom_is_html_ns.exit.i.i
 
 dom_is_html_ns.exit.i.i:                          ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %dom_is_html_ns.exit.thread.i.i, label %dom_local_name_compare_ex.exit28.thread.i.i
 
 dom_is_html_ns.exit.thread.i.i:                   ; preds = %dom_is_html_ns.exit.i.i, %38
-  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #5
   switch i64 %47, label %dom_local_name_compare_ex.exit28.thread.i.i [
@@ -201,13 +201,13 @@ dom_local_name_compare_ex.exit28.i.i:             ; preds = %dom_is_html_ns.exit
 63:                                               ; preds = %dom_local_name_compare_ex.exit28.i.i, %dom_local_name_compare_ex.exit27.i.i, %dom_local_name_compare_ex.exit26.i.i, %dom_local_name_compare_ex.exit25.i.i, %dom_local_name_compare_ex.exit24.i.i, %dom_local_name_compare_ex.exit23.i.i, %dom_local_name_compare_ex.exit.i.i
   %64 = load ptr, ptr %0, align 8
   %65 = load ptr, ptr %15, align 8
-  %66 = getelementptr inbounds i8, ptr %.02778.i, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 80
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 %64(ptr noundef %65, ptr noundef %67) #4
   br label %dom_html5_serialize_text_node.exit.i
 
 dom_local_name_compare_ex.exit28.thread.i.i:      ; preds = %dom_local_name_compare_ex.exit28.i.i, %dom_local_name_compare_ex.exit27.i.i, %dom_local_name_compare_ex.exit26.i.i, %dom_local_name_compare_ex.exit25.i.i, %dom_local_name_compare_ex.exit24.i.i, %dom_local_name_compare_ex.exit.i.i, %dom_is_html_ns.exit.thread.i.i, %dom_is_html_ns.exit.i.i, %32
-  %69 = getelementptr inbounds i8, ptr %.02778.i, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 80
   %70 = load ptr, ptr %69, align 8
   %71 = tail call fastcc i32 @dom_html5_escape_string(ptr noundef readonly %0, ptr noundef %70, i1 noundef zeroext false)
   br label %dom_html5_serialize_text_node.exit.i
@@ -227,7 +227,7 @@ dom_html5_serialize_text_node.exit.i:             ; preds = %dom_local_name_comp
 76:                                               ; preds = %72
   %77 = load ptr, ptr %0, align 8
   %78 = load ptr, ptr %15, align 8
-  %79 = getelementptr inbounds i8, ptr %.02778.i, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 %77(ptr noundef %78, ptr noundef %80) #4
   %.not12.i.i = icmp eq i32 %81, 0
@@ -243,7 +243,7 @@ dom_html5_serialize_text_node.exit.i:             ; preds = %dom_local_name_comp
 86:                                               ; preds = %82
   %87 = load ptr, ptr %0, align 8
   %88 = load ptr, ptr %15, align 8
-  %89 = getelementptr inbounds i8, ptr %.02778.i, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 80
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 %87(ptr noundef %88, ptr noundef %90) #4
   %.not14.i.i = icmp eq i32 %91, 0
@@ -266,7 +266,7 @@ dom_html5_serialize_processing_instruction.exit.i: ; preds = %86
 99:                                               ; preds = %95
   %100 = load ptr, ptr %0, align 8
   %101 = load ptr, ptr %15, align 8
-  %102 = getelementptr inbounds i8, ptr %.02778.i, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 80
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %100(ptr noundef %101, ptr noundef %103) #4
   %.not7.i45.i = icmp eq i32 %104, 0
@@ -292,7 +292,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %.not81.i.i, label %114, label %dom_html5_serialize_node.exit
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %.02778.i, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 96
   %.077115.i.i = load ptr, ptr %115, align 8
   %.not82116.i.i = icmp eq ptr %.077115.i.i, null
   br i1 %.not82116.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -303,7 +303,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %116, label %117, label %145
 
 117:                                              ; preds = %.lr.ph.i.i
-  %118 = getelementptr inbounds i8, ptr %.077117.i.i, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %.077117.i.i, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not101.i.i = icmp eq ptr %119, null
   %120 = load ptr, ptr %14, align 8
@@ -338,7 +338,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 135:                                              ; preds = %133, %129
   %136 = load ptr, ptr %0, align 8
   %137 = load ptr, ptr %15, align 8
-  %138 = getelementptr inbounds i8, ptr %.077117.i.i, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.077117.i.i, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %136(ptr noundef %137, ptr noundef %139) #4
   %.not106.i.i = icmp eq i32 %140, 0
@@ -357,13 +357,13 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %.not82.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %145, %114
-  %146 = getelementptr inbounds i8, ptr %.02778.i, i64 88
+  %146 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 88
   %.078118.i.i = load ptr, ptr %146, align 8
   %.not83119.i.i = icmp eq ptr %.078118.i.i, null
   br i1 %.not83119.i.i, label %dom_html5_serialize_element_start.exit.i, label %.lr.ph122.i.i
 
 147:                                              ; preds = %237
-  %148 = getelementptr inbounds i8, ptr %.078120.i.i, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 48
   %.078.i.i = load ptr, ptr %148, align 8
   %.not83.i.i = icmp eq ptr %.078.i.i, null
   br i1 %.not83.i.i, label %dom_html5_serialize_element_start.exit.i, label %.lr.ph122.i.i
@@ -377,7 +377,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %.not84.i.i, label %152, label %dom_html5_serialize_node.exit
 
 152:                                              ; preds = %.lr.ph122.i.i
-  %153 = getelementptr inbounds i8, ptr %.078120.i.i, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 72
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %dom_is_ns.exit.i.i
@@ -385,14 +385,14 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 156:                                              ; preds = %152
   %157 = load ptr, ptr %0, align 8
   %158 = load ptr, ptr %15, align 8
-  %159 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = tail call i32 %157(ptr noundef %158, ptr noundef %160) #4
   %.not96.i.i = icmp eq i32 %161, 0
   br i1 %.not96.i.i, label %228, label %dom_html5_serialize_node.exit
 
 dom_is_ns.exit.i.i:                               ; preds = %152
-  %162 = getelementptr inbounds i8, ptr %154, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %163 = load ptr, ptr %162, align 8
   %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(37) @.str.44) #5
   %165 = icmp eq i32 %164, 0
@@ -408,7 +408,7 @@ dom_is_ns.exit.i.i:                               ; preds = %152
 170:                                              ; preds = %166
   %171 = load ptr, ptr %0, align 8
   %172 = load ptr, ptr %15, align 8
-  %173 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i32 %171(ptr noundef %172, ptr noundef %174) #4
   %.not95.i.i = icmp eq i32 %175, 0
@@ -420,7 +420,7 @@ dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
   br i1 %177, label %178, label %dom_is_ns.exit113.i.i
 
 178:                                              ; preds = %dom_is_ns.exit111.i.i
-  %179 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.47) #5
   %182 = icmp eq i32 %181, 0
@@ -461,14 +461,14 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
 200:                                              ; preds = %196
   %201 = load ptr, ptr %0, align 8
   %202 = load ptr, ptr %15, align 8
-  %203 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = tail call i32 %201(ptr noundef %202, ptr noundef %204) #4
   %.not90.i.i = icmp eq i32 %205, 0
   br i1 %.not90.i.i, label %228, label %dom_html5_serialize_node.exit
 
 206:                                              ; preds = %dom_is_ns.exit113.i.i
-  %207 = getelementptr inbounds i8, ptr %154, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
   %210 = load ptr, ptr %0, align 8
@@ -476,7 +476,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
   br i1 %209, label %212, label %216
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %214 = load ptr, ptr %213, align 8
   %215 = tail call i32 %210(ptr noundef %211, ptr noundef %214) #4
   %.not88.i.i = icmp eq i32 %215, 0
@@ -497,7 +497,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
 222:                                              ; preds = %218
   %223 = load ptr, ptr %0, align 8
   %224 = load ptr, ptr %15, align 8
-  %225 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %.078120.i.i, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = tail call i32 %223(ptr noundef %224, ptr noundef %226) #4
   %.not87.i.i = icmp eq i32 %227, 0
@@ -537,7 +537,7 @@ dom_html5_serialize_element_start.exit.i:         ; preds = %147, %._crit_edge.i
   br i1 %.not31.i, label %244, label %dom_html5_serialize_node.exit
 
 244:                                              ; preds = %dom_html5_serialize_element_start.exit.i
-  %245 = getelementptr inbounds i8, ptr %.02778.i, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 24
   %246 = load ptr, ptr %245, align 8
   %.not32.i = icmp eq ptr %246, null
   %247 = tail call fastcc zeroext i1 @dom_html5_serializes_as_void(ptr noundef nonnull %.02778.i)
@@ -578,20 +578,20 @@ dom_html5_serialize_element_end.exit.i:           ; preds = %256
   br i1 %.not33.i, label %dom_html5_serialize_element_end.exit.thread65.i, label %dom_html5_serialize_node.exit
 
 dom_html5_serialize_element_end.exit.thread65.i:  ; preds = %dom_html5_serialize_element_end.exit.i, %251, %248, %dom_html5_serialize_comment.exit.i, %dom_html5_serialize_processing_instruction.exit.i, %dom_html5_serialize_text_node.exit.i, %dom_html5_serialize_doctype.exit.i, %16
-  %261 = getelementptr inbounds i8, ptr %.02778.i, i64 48
+  %261 = getelementptr inbounds nuw i8, ptr %.02778.i, i64 48
   %262 = load ptr, ptr %261, align 8
   %.not38.i = icmp eq ptr %262, null
   br i1 %.not38.i, label %.preheader.i, label %.backedge.i
 
 .preheader.i:                                     ; preds = %dom_html5_serialize_element_end.exit.thread65.i, %dom_html5_serialize_element_end.exit54.thread70.i
   %.2.i = phi ptr [ %264, %dom_html5_serialize_element_end.exit54.thread70.i ], [ %.02778.i, %dom_html5_serialize_element_end.exit.thread65.i ]
-  %263 = getelementptr inbounds i8, ptr %.2.i, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %.2.i, i64 40
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, %1
   br i1 %265, label %dom_html5_serialize_node.exit, label %266
 
 266:                                              ; preds = %.preheader.i
-  %267 = getelementptr inbounds i8, ptr %264, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %268 = load i32, ptr %267, align 8
   %269 = icmp eq i32 %268, 1
   br i1 %269, label %270, label %dom_html5_serialize_element_end.exit54.thread70.i
@@ -620,7 +620,7 @@ dom_html5_serialize_element_end.exit54.i:         ; preds = %276
   br i1 %.not39.i, label %dom_html5_serialize_element_end.exit54.thread70.i, label %dom_html5_serialize_node.exit
 
 dom_html5_serialize_element_end.exit54.thread70.i: ; preds = %dom_html5_serialize_element_end.exit54.i, %270, %266
-  %281 = getelementptr inbounds i8, ptr %264, i64 48
+  %281 = getelementptr inbounds nuw i8, ptr %264, i64 48
   %282 = load ptr, ptr %281, align 8
   %283 = icmp eq ptr %282, null
   br i1 %283, label %.preheader.i, label %.backedge.i
@@ -638,14 +638,14 @@ define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr noca
   br i1 %3, label %dom_is_html_ns.exit.thread, label %dom_is_html_ns.exit
 
 dom_is_html_ns.exit:                              ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %.val, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %dom_is_html_ns.exit.thread, label %dom_local_name_compare_ex.exit54.thread
 
 dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #5
   switch i64 %10, label %dom_local_name_compare_ex.exit54.thread [
@@ -781,8 +781,8 @@ declare i32 @zend_binary_strcmp(ptr noundef, i64 noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = select i1 %2, ptr @.str.28, ptr @.str.29
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %80, %3
@@ -818,11 +818,11 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br i1 %.not68, label %22, label %.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %80
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %9, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, -96
   br i1 %27, label %28, label %80
@@ -845,7 +845,7 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br i1 %.not66, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %9, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %80
 
 41:                                               ; preds = %7
@@ -866,7 +866,7 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br i1 %.not64, label %52, label %.loopexit
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %9, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %80
 
 54:                                               ; preds = %7
@@ -887,7 +887,7 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br i1 %.not62, label %65, label %.loopexit
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %9, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %80
 
 67:                                               ; preds = %7
@@ -908,13 +908,13 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br i1 %.not60, label %78, label %.loopexit
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %9, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %80
 
 80:                                               ; preds = %7, %24, %39, %78, %65, %52, %22
   %.158 = phi ptr [ %79, %78 ], [ %66, %65 ], [ %53, %52 ], [ %40, %39 ], [ %.057, %24 ], [ %23, %22 ], [ %.057, %7 ]
   %.1 = phi ptr [ %9, %78 ], [ %9, %65 ], [ %9, %52 ], [ %25, %39 ], [ %9, %24 ], [ %9, %22 ], [ %9, %7 ]
-  %81 = getelementptr inbounds i8, ptr %.1, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %7
 
 82:                                               ; preds = %7
@@ -936,19 +936,19 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dom_html5_serialize_element_tag_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %26, label %dom_is_html_ns.exit
 
 dom_is_html_ns.exit:                              ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %11 = icmp eq i32 %10, 0
@@ -966,14 +966,14 @@ dom_is_ns.exit20:                                 ; preds = %dom_is_ns.exit
 
 16:                                               ; preds = %dom_is_ns.exit20
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %17(ptr noundef %19, ptr noundef nonnull %7) #4
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %21, label %33
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %18, align 8
   %25 = tail call i32 %23(ptr noundef %24, ptr noundef nonnull @.str.51, i64 noundef 1) #4
@@ -982,9 +982,9 @@ dom_is_ns.exit20:                                 ; preds = %dom_is_ns.exit
 
 26:                                               ; preds = %21, %dom_is_ns.exit20, %dom_is_ns.exit, %dom_is_html_ns.exit, %5, %2
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %27(ptr noundef %29, ptr noundef %31) #4
   br label %33

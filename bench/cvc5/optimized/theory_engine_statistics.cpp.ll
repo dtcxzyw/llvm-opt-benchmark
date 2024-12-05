@@ -74,7 +74,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
-  %d_stdEffortChecks = getelementptr inbounds i8, ptr %this, i64 8
+  %d_stdEffortChecks = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #8
   %call.i20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %call.i.noexc19 unwind label %lpad7
@@ -101,7 +101,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   store ptr %call11, ptr %d_stdEffortChecks, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #8
-  %d_fullEffortChecks = getelementptr inbounds i8, ptr %this, i64 16
+  %d_fullEffortChecks = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #8
   %call.i28 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %call.i.noexc27 unwind label %lpad18
@@ -128,7 +128,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store ptr %call22, ptr %d_fullEffortChecks, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #8
-  %d_combineTheoriesCalls = getelementptr inbounds i8, ptr %this, i64 24
+  %d_combineTheoriesCalls = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #8
   %call.i36 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27)
           to label %call.i.noexc35 unwind label %lpad29
@@ -178,7 +178,7 @@ invoke.cont41:                                    ; preds = %.noexc45
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %d_lcEffortChecks = getelementptr inbounds i8, ptr %this, i64 32
+  %d_lcEffortChecks = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call44, ptr %d_lcEffortChecks, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39) #8

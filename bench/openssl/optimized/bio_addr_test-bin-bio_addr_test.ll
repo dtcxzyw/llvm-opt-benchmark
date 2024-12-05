@@ -59,7 +59,7 @@ entry:
   %arrayidx = getelementptr inbounds [3 x i32], ptr @families, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %sa.i)
-  %.sink.i.sroa.gep18 = getelementptr inbounds i8, ptr %sa.i, i64 4
+  %.sink.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %sa.i, i64 4
   switch i32 %0, label %sw.default.i [
     i32 2, label %sw.epilog.i
     i32 10, label %sw.bb1.i
@@ -67,11 +67,11 @@ entry:
   ]
 
 sw.bb1.i:                                         ; preds = %entry
-  %.sink.i.sroa.gep17 = getelementptr inbounds i8, ptr %sa.i, i64 8
+  %.sink.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %sa.i, i64 2
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %sa.i, i64 2
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %entry

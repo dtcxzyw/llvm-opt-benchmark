@@ -53,7 +53,7 @@ define hidden void @_ZN12aho_corasick11ahocorasick11AhoCorasick25try_find_overla
   %5 = alloca { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, align 8
   %6 = alloca { i64, [13 x i64] }, align 8
   %.sroa.0.sroa.6 = alloca [96 x i8], align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %8 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %9 = tail call noundef align 1 ptr @_ZN12aho_corasick11ahocorasick28enforce_anchored_consistency17h97c3c1968cab6c68E(i8 noundef %8, i1 noundef zeroext false)
   %10 = icmp eq ptr %9, null
@@ -64,45 +64,45 @@ define hidden void @_ZN12aho_corasick11ahocorasick11AhoCorasick25try_find_overla
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %3, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.915.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.915.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.915.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 33
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 0, ptr %.sroa.11.0..sroa_idx, align 1
   call void @_ZN12aho_corasick9automaton9Automaton25try_find_overlapping_iter17hcb549818a2bd65d7E(ptr noalias nocapture noundef nonnull sret({ i64, [13 x i64] }) align 8 dereferenceable(112) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %12 = load i64, ptr %6, align 8, !range !6, !noundef !5
   %13 = icmp eq i64 %12, 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   br i1 %13, label %19, label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %17, align 8
   store i64 2, ptr %0, align 8
   br label %21
 
 18:                                               ; preds = %11
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.sroa.6, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.0..sroa_idx, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   store i64 %12, ptr %0, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.sroa.6, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.sroa.6)
   br label %21
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %20, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.sroa.6)
@@ -131,7 +131,7 @@ define hidden void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h0
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005c9b00f3adE(ptr noalias nocapture noundef nonnull sret({ i64, [54 x i64] }) align 8 dereferenceable(440) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %13 = load i64, ptr %11, align 8, !range !7, !noundef !5
   %14 = icmp eq i64 %13, -9223372036854775808
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   br i1 %14, label %19, label %16
 
@@ -139,15 +139,15 @@ default.unreachable100:                           ; preds = %16
   unreachable
 
 16:                                               ; preds = %3
-  %.sroa.533.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.533.0..sroa_idx, i64 408, i1 false)
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %11)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   store i64 %13, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  %17 = getelementptr inbounds i8, ptr %1, i64 73
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %18 = load i8, ptr %17, align 1, !range !8, !noundef !5
   switch i8 %18, label %default.unreachable100 [
     i8 3, label %21
@@ -158,7 +158,7 @@ default.unreachable100:                           ; preds = %16
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %11)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %82
@@ -169,9 +169,9 @@ default.unreachable100:                           ; preds = %16
   call void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder10build_auto17h13d848004bab0b0fE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i8, [7 x i8] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(440) %9)
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %9)
   %.pre = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre97 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %10, i64 16
+  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre99 = load i8, ptr %.phi.trans.insert98, align 8, !range !4
   br label %22
 
@@ -186,25 +186,25 @@ default.unreachable100:                           ; preds = %16
   %25 = phi ptr [ %.pre, %21 ], [ %72, %80 ], [ %53, %61 ], [ %33, %44 ]
   %.1 = phi i1 [ false, %21 ], [ true, %80 ], [ true, %61 ], [ false, %44 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %26 = getelementptr inbounds i8, ptr %1, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %27 = load i8, ptr %26, align 8, !range !4, !noundef !5
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %28, align 8
-  %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %.sroa.427.0..sroa_idx, align 8
-  %.sroa.528.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %23, ptr %.sroa.528.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %27, ptr %.sroa.6.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br i1 %.1, label %81, label %82
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %30, ptr noundef nonnull align 8 dereferenceable(440) %12, i64 440, i1 false)
   store i64 1, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %31, align 8
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !9
   %33 = tail call noundef align 8 dereferenceable_or_null(456) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 456, i64 noundef 8) #12, !noalias !9
@@ -232,13 +232,13 @@ default.unreachable100:                           ; preds = %16
 
 40:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN12aho_corasick3nfa10contiguous7Builder24build_from_noncontiguous17he75dc9e10cedb3d4E(ptr noalias nocapture noundef nonnull sret({ i64, [47 x i64] }) align 8 dereferenceable(384) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %12)
           to label %45 unwind label %.body.thread90
 
 42:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %7)
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN12aho_corasick3dfa7Builder24build_from_noncontiguous17h0866b2660a3f0685E(ptr noalias nocapture noundef nonnull sret({ i64, [52 x i64] }) align 8 dereferenceable(424) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %12)
           to label %64 unwind label %.body.thread90
 
@@ -250,22 +250,22 @@ default.unreachable100:                           ; preds = %16
 45:                                               ; preds = %40
   %46 = load i64, ptr %8, align 8, !range !7, !noundef !5
   %47 = icmp eq i64 %46, -9223372036854775808
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.78, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   br i1 %47, label %60, label %49
 
 49:                                               ; preds = %45
-  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(352) %.sroa.543.0..sroa_idx, i64 352, i1 false)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.78, i64 24, i1 false)
   store i64 1, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %46, ptr %51, align 8
   %52 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !12
   %53 = call noundef align 8 dereferenceable_or_null(400) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 400, i64 noundef 8) #12, !noalias !12
@@ -302,7 +302,7 @@ default.unreachable100:                           ; preds = %16
 
 62:                                               ; preds = %79, %60
   %.sroa.717.sink = phi ptr [ %.sroa.717, %79 ], [ %.sroa.78, %60 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717.sink, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -312,22 +312,22 @@ default.unreachable100:                           ; preds = %16
 64:                                               ; preds = %42
   %65 = load i64, ptr %7, align 8, !range !7, !noundef !5
   %66 = icmp eq i64 %65, -9223372036854775808
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
   br i1 %66, label %79, label %68
 
 68:                                               ; preds = %64
-  %.sroa.553.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %.sroa.324.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(392) %.sroa.553.0..sroa_idx, i64 392, i1 false)
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %7)
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.223.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717, i64 24, i1 false)
   store i64 1, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %65, ptr %70, align 8
   %71 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !15
   %72 = call noundef align 8 dereferenceable_or_null(440) ptr @__rust_alloc(i64 noundef range(i64 400, 457) 440, i64 noundef 8) #12, !noalias !15
@@ -388,7 +388,7 @@ default.unreachable100:                           ; preds = %16
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h17272e56127b34eeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 400
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load i32, ptr %3, align 8, !noundef !5
   %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
@@ -396,7 +396,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef range(i8 0, 3) i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h48bb6016bbc94762E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
 }
@@ -404,21 +404,21 @@ define internal noundef range(i8 0, 3) i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17hd635d6e4be8def0eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i1 zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #2 {
   %5 = zext i8 %3 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
-  %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %5
   %8 = load i8, ptr %7, align 1, !noundef !5
   %9 = zext i8 %8 to i32
   %10 = add i32 %2, %9
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
   %14 = icmp ugt i64 %13, %11
   br i1 %14, label %15, label %20, !prof !18
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %11
+  %18 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %11
   %19 = load i32, ptr %18, align 4, !noundef !5
   ret i32 %19
 
@@ -430,15 +430,15 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef range(i64 0, 4294967296) i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hb51de27c4de9f073E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ugt i64 %5, %3
   br i1 %6, label %7, label %13, !prof !18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -453,25 +453,25 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
   br i1 %2, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load i32, ptr %5, align 8, !noundef !5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %15
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 412
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 412
   %10 = load i32, ptr %9, align 4, !noundef !5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %18, label %21
 
 12:                                               ; preds = %4
   %13 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError24invalid_input_unanchored17h4621f3d27e72fba0E()
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
   br label %17
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %16, align 4
   br label %17
 
@@ -482,12 +482,12 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
 
 18:                                               ; preds = %8
   %19 = tail call noundef nonnull align 1 ptr @_ZN12aho_corasick4util5error10MatchError22invalid_input_anchored17h1c26780cb9b8bb2bE()
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   br label %17
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %10, ptr %22, align 4
   br label %17
 }
@@ -495,19 +495,19 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17h71b0941ebdd2fcd9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN4core6option15Option$LT$T$GT$6map_or17h3c5bf26918f8a52fE.exit":
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %1, align 8, !noundef !5
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !noundef !5
   %11 = icmp eq ptr %10, null
   %12 = mul i64 %4, 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val.i = load i64, ptr %13, align 8
   %.0.i = select i1 %11, i64 0, i64 %.val.i
   %reass.add = add i64 %8, %2
@@ -520,7 +520,7 @@ define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17h4f0878f143c1d95cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -528,21 +528,21 @@ define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$13match_pattern17h64aafaea0d083a6aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = and i64 %6, 63
   %8 = lshr i64 %4, %7
   %9 = add nsw i64 %8, -2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %13, label %20, !prof !18
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %15, i64 0, i64 %9
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !5
   %19 = icmp ult i64 %2, %18
   br i1 %19, label %21, label %26, !prof !18
@@ -552,7 +552,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   unreachable
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds [0 x i32], ptr %23, i64 0, i64 %2
   %25 = load i32, ptr %24, align 4, !noundef !5
@@ -565,14 +565,14 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17h80c9cf10d8691c73E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 392
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17hd8520eebe16a48caE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -585,7 +585,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h0505686c04bdb0a3E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 404
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %4 = load i32, ptr %3, align 4
   %5 = freeze i32 %4
   %6 = add i32 %1, -1
@@ -595,10 +595,10 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h8641e4ef75cca42bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load i32, ptr %3, align 8, !noundef !5
   %5 = icmp eq i32 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 412
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
@@ -608,18 +608,18 @@ define internal noundef zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17hf4e02ffc50218061E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(424) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = and i64 %5, 63
   %7 = lshr i64 %3, %6
   %8 = add nsw i64 %7, -2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %12, label %17, !prof !18
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %14, i64 0, i64 %8, i32 1
   %16 = load i64, ptr %15, align 8, !noundef !5
@@ -632,7 +632,7 @@ define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hc6fc221205e9c040E"(ptr noalias noundef readonly align 8 dereferenceable(424) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
   %. = select i1 %4, ptr null, ptr %2
@@ -641,7 +641,7 @@ define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN77_$LT$aho_
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h7083443fa9e23ff9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8, !noundef !5
   %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
@@ -649,7 +649,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef range(i8 0, 3) i8 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h79a48db62bf30c50E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
 }
@@ -657,12 +657,12 @@ define internal noundef range(i8 0, 3) i8 @"_ZN89_$LT$aho_corasick..nfa..contigu
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h67981125af0efda2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i1 noundef zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = zext i8 %3 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %5
   %8 = load i8, ptr %7, align 1, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !5
   %13 = zext i32 %2 to i64
   %14 = icmp ugt i64 %12, %13
@@ -674,7 +674,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %17 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %13
+  %17 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %13
   %18 = load i32, ptr %17, align 4, !noundef !5
   %trunc.us = trunc i32 %18 to i8
   switch i8 %trunc.us, label %29 [
@@ -694,7 +694,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %25, label %.loopexit.split.loop.exit153.split.us, label %.split167.us, !prof !18
 
 .loopexit.split.loop.exit153.split.us:            ; preds = %23
-  %26 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %24
   %27 = load i32, ptr %26, align 4, !noundef !5
   %.not.us.not = icmp eq i32 %27, 1
   %28 = select i1 %.not.us.not, i32 0, i32 %27
@@ -718,8 +718,8 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %40, label %.split177.us, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us": ; preds = %38
-  %41 = getelementptr inbounds i32, ptr %10, i64 %36
-  %42 = getelementptr inbounds i32, ptr %41, i64 %.0.us
+  %41 = getelementptr inbounds nuw i32, ptr %10, i64 %36
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.0.us
   br label %43
 
 43:                                               ; preds = %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit.us"
@@ -729,7 +729,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %44, label %.loopexit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.us"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.us": ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.sroa.0.0.us, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 4
   %46 = add nuw nsw i64 %.sroa.8.0.us, 1
   %47 = load i32, ptr %.sroa.0.0.us, align 4, !noundef !5
   %.sroa.08.0.extract.trunc.us = trunc i32 %47 to i8
@@ -756,7 +756,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
   %55 = phi i64 [ %130, %127 ], [ %13, %.lr.ph ]
-  %56 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4, !noundef !5
   %trunc = trunc i32 %57 to i8
   switch i8 %trunc, label %61 [
@@ -798,8 +798,8 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5b6de3bc991b0b08E.exit": ; preds = %70
-  %73 = getelementptr inbounds i32, ptr %10, i64 %68
-  %74 = getelementptr inbounds i32, ptr %73, i64 %.0
+  %73 = getelementptr inbounds nuw i32, ptr %10, i64 %68
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.0
   br label %75
 
 .split173.us:                                     ; preds = %61, %29
@@ -814,7 +814,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %76, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit": ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
   %78 = add nuw nsw i64 %.sroa.8.0, 1
   %79 = load i32, ptr %.sroa.0.0, align 4, !noundef !5
   %.sroa.08.0.extract.trunc = trunc i32 %79 to i8
@@ -917,7 +917,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   br i1 %117, label %118, label %121, !prof !18
 
 118:                                              ; preds = %.split.us
-  %119 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %116
+  %119 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %116
   %120 = load i32, ptr %119, align 4, !noundef !5
   br label %.loopexit
 
@@ -926,7 +926,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   unreachable
 
 122:                                              ; preds = %58
-  %123 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %59
+  %123 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %59
   %124 = load i32, ptr %123, align 4, !noundef !5
   %.not.not = icmp eq i32 %124, 1
   br i1 %.not.not, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread", label %.loopexit
@@ -946,7 +946,7 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   ret i32 %.1
 
 127:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c10b3a9556de695E.exit.thread"
-  %128 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %125
+  %128 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %125
   %129 = load i32, ptr %128, align 4, !noundef !5
   %130 = zext i32 %129 to i64
   %131 = icmp ugt i64 %12, %130
@@ -960,15 +960,15 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hcaa273474df4da1eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ugt i64 %5, %3
   br i1 %6, label %7, label %13, !prof !18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -981,9 +981,9 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZN89_$LT$aho_corasick..n
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11start_state17h2a227c4b5ee25663E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %. = select i1 %2, i64 372, i64 368
-  %4 = getelementptr inbounds i8, ptr %1, i64 %.
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   %.sink = load i32, ptr %4, align 4, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %5, align 4
   store i32 0, ptr %0, align 8
   ret void
@@ -992,16 +992,16 @@ define internal void @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$a
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17hf1efd1278e3e3cc6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN4core6option15Option$LT$T$GT$6map_or17h06e7ec8252f79d2dE.exit":
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %1, align 8, !noundef !5
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !noundef !5
   %7 = icmp eq ptr %6, null
   %8 = add i64 %4, %2
   %9 = shl i64 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i64, ptr %10, align 8
   %.0.i = select i1 %7, i64 0, i64 %.val.i
   %11 = add i64 %.0.i, %9
@@ -1010,7 +1010,7 @@ define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17h3bb8621fe0ed8b3aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -1020,18 +1020,18 @@ define internal noundef i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca i64, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = icmp ult i64 %8, %6
   br i1 %9, label %52, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = sub nuw i64 %8, %6
-  %16 = getelementptr inbounds i32, ptr %12, i64 %6
+  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %2, ptr %5, align 8, !noalias !24
@@ -1119,14 +1119,14 @@ _ZN12aho_corasick3nfa10contiguous5State13match_pattern17h3a2375ee6765aef4E.exit:
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17h495a46ab8f5b2ce7E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17h9c40c0776a966a44E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -1139,7 +1139,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 364
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4 = load i32, ptr %3, align 4
   %5 = freeze i32 %4
   %6 = add i32 %1, -1
@@ -1149,10 +1149,10 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17hac314a92ce8b17d9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 368
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8, !noundef !5
   %5 = icmp eq i32 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 372
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
@@ -1162,18 +1162,18 @@ define internal noundef zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NF
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef range(i64 0, 2147483648) i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17he3482d860fcd88fbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ult i64 %5, %3
   br i1 %6, label %34, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = sub nuw i64 %5, %3
-  %13 = getelementptr inbounds i32, ptr %9, i64 %3
+  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %.not.i = icmp eq i64 %5, %3
   br i1 %.not.i, label %18, label %14, !prof !27
@@ -1229,7 +1229,7 @@ _ZN12aho_corasick3nfa10contiguous5State9match_len17hd21b541d2068b2cbE.exit: ; pr
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17h2d7d23ef9ce4aba1E"(ptr noalias noundef readonly align 8 dereferenceable(384) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
   %. = select i1 %4, ptr null, ptr %2
@@ -1238,7 +1238,7 @@ define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN89_$LT$aho_
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17he07063594137fe52E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = load i32, ptr %3, align 8, !noundef !5
   %switch.selectcmp = icmp ule i32 %1, %4
   ret i1 %switch.selectcmp
@@ -1246,34 +1246,34 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef range(i8 0, 3) i8 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h32fbd01b112c7333E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 432
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
   ret i8 %3
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h2cae0fffa4328cccE"(ptr noalias noundef readonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1, i32 noundef %2, i8 noundef %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !31, !noundef !5
   %7 = zext i32 %2 to i64
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !prof !19
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !31, !nonnull !5, !noundef !5
   %11 = zext i8 %3 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
-  %13 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8, !nonnull !5
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %18 = getelementptr inbounds [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %7, i32 1
+  %18 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %7, i32 1
   %19 = load i32, ptr %18, align 4, !noalias !31, !noundef !5
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %29, label %21
@@ -1287,7 +1287,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   br i1 %26, label %27, label %.split.us, !prof !18
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %25
+  %28 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %25
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us
 
 29:                                               ; preds = %.lr.ph.split.us
@@ -1295,8 +1295,8 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
   %33 = icmp ne ptr %31, null
-  %34 = getelementptr inbounds i8, ptr %31, i64 40
-  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   br label %36
 
 36:                                               ; preds = %42, %29
@@ -1313,15 +1313,15 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %35, align 8, !noalias !34, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %43, i64 0, i64 %39
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %44, i64 5
+  %44 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %43, i64 0, i64 %39
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %44, i64 5
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 1, !noalias !34
   %.sroa.6.1.copyload.us = load i8, ptr %44, align 1, !noalias !38
   %.not.i.us = icmp ugt i8 %3, %.sroa.6.1.copyload.us
   br i1 %.not.i.us, label %36, label %45
 
 45:                                               ; preds = %42
-  %.sroa.814.1..sroa_idx.us = getelementptr inbounds i8, ptr %44, i64 1
+  %.sroa.814.1..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = icmp eq i8 %3, %.sroa.6.1.copyload.us
   br i1 %46, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.us.thread
 
@@ -1339,7 +1339,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %47 = phi i64 [ %79, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread ], [ %7, %.lr.ph ]
   %.0939 = phi i32 [ %78, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread ], [ %2, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %48 = getelementptr inbounds [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %47, i32 1
+  %48 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %47, i32 1
   %49 = load i32, ptr %48, align 4, !noalias !31, !noundef !5
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %69
@@ -1354,8 +1354,8 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   %53 = extractvalue { ptr, i32 } %52, 0
   %54 = extractvalue { ptr, i32 } %52, 1
   %55 = icmp ne ptr %53, null
-  %56 = getelementptr inbounds i8, ptr %53, i64 40
-  %57 = getelementptr inbounds i8, ptr %53, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   br label %58
 
 58:                                               ; preds = %64, %51
@@ -1378,15 +1378,15 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %57, align 8, !noalias !34, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds [0 x <{ i8, i32, i32 }>], ptr %65, i64 0, i64 %61
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %66, i64 5
+  %66 = getelementptr inbounds nuw [0 x <{ i8, i32, i32 }>], ptr %65, i64 0, i64 %61
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 5
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 1, !noalias !34
   %.sroa.6.1.copyload = load i8, ptr %66, align 1, !noalias !38
   %.not.i = icmp ugt i8 %3, %.sroa.6.1.copyload
   br i1 %.not.i, label %58, label %67
 
 67:                                               ; preds = %64
-  %.sroa.814.1..sroa_idx = getelementptr inbounds i8, ptr %66, i64 1
+  %.sroa.814.1..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = icmp eq i8 %3, %.sroa.6.1.copyload
   br i1 %68, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit, label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread
 
@@ -1399,7 +1399,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   br i1 %74, label %75, label %.split.us, !prof !18
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %73
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit
 
 .split.us:                                        ; preds = %69, %21
@@ -1418,7 +1418,7 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
   ret i32 %.us-phi49
 
 _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit.thread: ; preds = %58, %67, %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.exit
-  %77 = getelementptr inbounds [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %47, i32 3
+  %77 = getelementptr inbounds nuw [0 x { i32, i32, i32, i32, i32 }], ptr %10, i64 0, i64 %47, i32 3
   %78 = load i32, ptr %77, align 4, !noundef !5
   %79 = zext i32 %78 to i64
   %80 = icmp ugt i64 %6, %79
@@ -1428,15 +1428,15 @@ _ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd279a79af93b6dddE.
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal noundef range(i64 0, 4294967296) i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hc422b5e22cd9419dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ugt i64 %5, %3
   br i1 %6, label %7, label %13, !prof !18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %3
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %3
   %11 = load i32, ptr %10, align 4, !noundef !5
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -1449,9 +1449,9 @@ define internal noundef range(i64 0, 4294967296) i64 @"_ZN92_$LT$aho_corasick..n
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11start_state17h1aca42f428e8eb65E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %. = select i1 %2, i64 428, i64 424
-  %4 = getelementptr inbounds i8, ptr %1, i64 %.
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   %.sink = load i32, ptr %4, align 4, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %5, align 4
   store i32 0, ptr %0, align 8
   ret void
@@ -1460,23 +1460,23 @@ define internal void @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u2
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17h8cc09fc8fe8dce34E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN4core6option15Option$LT$T$GT$6map_or17he458aaf2b2a870d3E.exit":
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %1, align 8, !noundef !5
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8, !noundef !5
   %13 = icmp eq ptr %12, null
   %14 = mul i64 %2, 20
   %15 = mul i64 %4, 9
   %16 = shl i64 %6, 3
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.val.i = load i64, ptr %17, align 8
   %.0.i = select i1 %13, i64 0, i64 %.val.i
   %reass.add = add i64 %10, %8
@@ -1490,7 +1490,7 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17h70f027de97ee1506E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -1504,8 +1504,8 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 88
-  %8 = getelementptr inbounds i8, ptr %5, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   br label %9
 
 9:                                                ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i", %.lr.ph.i.i
@@ -1527,7 +1527,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i": ; preds = %13
   %18 = load ptr, ptr %8, align 8, !noalias !39, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds [0 x { i32, i32 }], ptr %18, i64 0, i64 %14, i32 1
+  %19 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %18, i64 0, i64 %14, i32 1
   %20 = load i32, ptr %19, align 4, !noalias !39, !noundef !5
   %exitcond.not.i.i = icmp eq i64 %11, %2
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i, label %9
@@ -1541,7 +1541,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thre
   %24 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %24)
   %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds i8, ptr %5, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = load i64, ptr %26, align 8, !noalias !48, !noundef !5
   %28 = icmp ugt i64 %27, %25
   br i1 %28, label %30, label %29, !prof !18
@@ -1555,23 +1555,23 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ;
   unreachable
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %5, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %32 = load ptr, ptr %31, align 8, !noalias !48, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds [0 x { i32, i32 }], ptr %32, i64 0, i64 %25
+  %33 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %32, i64 0, i64 %25
   %34 = load i32, ptr %33, align 4, !noalias !48, !noundef !5
   ret i32 %34
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17h378e7c8076cc5340E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17ha2fac99e5b1d4279E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 400
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -1584,7 +1584,7 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17hf00e77385dd1f51bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 420
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %4 = load i32, ptr %3, align 4
   %5 = freeze i32 %4
   %6 = add i32 %1, -1
@@ -1594,10 +1594,10 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h795614e3d962e6a4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8, !noundef !5
   %5 = icmp eq i32 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 428
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %1, %7
   %.0 = select i1 %5, i1 true, i1 %8
@@ -1614,9 +1614,9 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 .lr.ph.i:                                         ; preds = %2
   %6 = extractvalue { ptr, i32 } %3, 0
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i64, ptr %7, align 8, !alias.scope !53, !noalias !56, !noundef !5
-  %9 = getelementptr inbounds i8, ptr %6, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = load ptr, ptr %9, align 8, !alias.scope !53, !nonnull !5
   br label %11
 
@@ -1632,7 +1632,7 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   unreachable
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds [0 x { i32, i32 }], ptr %10, i64 0, i64 %12, i32 1
+  %16 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %10, i64 0, i64 %12, i32 1
   %17 = load i32, ptr %16, align 4, !noalias !61, !noundef !5
   %18 = add i64 %.015.i, 1
   %19 = icmp eq i32 %17, 0
@@ -1645,7 +1645,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E.exit: ; preds = 
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef align 8 dereferenceable_or_null(24) ptr @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17hf2350c1b17f389b9E"(ptr noalias noundef readonly align 8 dereferenceable(440) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %4 = icmp eq ptr %3, null
   %. = select i1 %4, ptr null, ptr %2

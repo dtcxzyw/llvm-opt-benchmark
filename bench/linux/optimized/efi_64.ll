@@ -442,9 +442,9 @@ declare dso_local i32 @kernel_unmap_pages_in_pgd(ptr noundef, i64 noundef, i64 n
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_map_region(ptr nocapture noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   tail call fastcc void @__map_region(ptr noundef %0, i64 noundef %5) #16
   %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
@@ -454,7 +454,7 @@ define dso_local void @efi_map_region(ptr nocapture noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %1
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %11, align 8
   br label %30
 
@@ -481,7 +481,7 @@ define dso_local void @efi_map_region(ptr nocapture noundef %0) local_unnamed_ad
 27:                                               ; preds = %12
   tail call fastcc void @__map_region(ptr noundef %0, i64 noundef %23) #16
   %28 = load i64, ptr @efi_va, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %28, ptr %29, align 8
   br label %30
 
@@ -497,16 +497,16 @@ define internal fastcc void @__map_region(ptr nocapture noundef readonly %0, i64
   %6 = and i32 %5, -3
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i64 2, i64 -9223372036854775806
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = shl i64 %10, 1
   %12 = and i64 %11, 16
   %13 = or disjoint i64 %8, %12
   %14 = xor i64 %13, 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = lshr i64 %16, 12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %17, i64 noundef %1, i32 noundef %20, i64 noundef %14) #15
@@ -524,10 +524,10 @@ define internal fastcc void @__map_region(ptr nocapture noundef readonly %0, i64
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_map_region_fixed(ptr nocapture noundef readonly %0) local_unnamed_addr #0 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @__map_region(ptr noundef %0, i64 noundef %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   tail call fastcc void @__map_region(ptr noundef %0, i64 noundef %5) #16
   ret void
@@ -572,7 +572,7 @@ define dso_local void @efi_runtime_update_mappings() local_unnamed_addr #0 secti
   %18 = phi ptr [ %48, %47 ], [ %15, %10 ]
   %19 = phi i64 [ %49, %47 ], [ %13, %10 ]
   %20 = phi ptr [ %50, %47 ], [ %11, %10 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, -1
   br i1 %23, label %47, label %24
@@ -638,7 +638,7 @@ define internal range(i32 0, 2) i32 @efi_update_mem_attr(ptr nocapture readnone 
   %6 = zext i1 %4 to i8
   %7 = or i8 %5, %6
   store i8 %7, ptr @efi_disable_ibt_for_runtime, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = shl i64 %9, 49
   %11 = and i64 %10, -9223372036854775808
@@ -653,10 +653,10 @@ define internal range(i32 0, 2) i32 @efi_update_mem_attr(ptr nocapture readnone 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc range(i32 0, 2) i32 @efi_update_mappings(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @efi_mm, i64 128), align 64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = tail call i32 @kernel_map_pages_in_pgd(ptr noundef %3, i64 noundef %6, i64 noundef %5, i32 noundef %9, i64 noundef %1) #15
@@ -665,13 +665,13 @@ define internal fastcc range(i32 0, 2) i32 @efi_update_mappings(ptr nocapture no
 
 12:                                               ; preds = %2
   %13 = load i64, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i64 noundef %13, i64 noundef %15) #15
   br label %17
 
 17:                                               ; preds = %12, %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %7, align 8
   %21 = trunc i64 %20 to i32
@@ -712,7 +712,7 @@ define dso_local void @arch_efi_call_virt_setup() local_unnamed_addr #3 align 16
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1200
   %9 = load ptr, ptr %8, align 16
   store ptr %9, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %8, align 16
@@ -728,7 +728,7 @@ define dso_local void @arch_efi_call_virt_teardown() local_unnamed_addr #3 align
   %1 = load ptr, ptr @efi_prev_mm, align 8
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1200
   store ptr %1, ptr %4, align 16
   tail call void @switch_mm(ptr noundef nonnull @efi_mm, ptr noundef %1, ptr noundef null) #14
   %5 = tail call i64 @spec_ctrl_current() #14
@@ -1003,7 +1003,7 @@ define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr nocapture nounde
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %130 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 1200
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1200
   %133 = load ptr, ptr %132, align 16
   store ptr %133, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %132, align 16
@@ -1016,7 +1016,7 @@ define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !23
   %139 = load ptr, ptr @efi, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %141 = load i32, ptr %140, align 8
   %142 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %141, i32 noundef %75, i32 noundef %53, i32 noundef %96, i32 noundef %33, i32 noundef %119, ptr noundef nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
@@ -1189,7 +1189,7 @@ define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %82 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds i8, ptr %83, i64 1200
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1200
   %85 = load ptr, ptr %84, align 16
   store ptr %85, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %84, align 16
@@ -1202,7 +1202,7 @@ define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !23
   %91 = load ptr, ptr @efi, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 52
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 52
   %93 = load i32, ptr %92, align 4
   %94 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %93, i32 noundef %76, i32 noundef %72, i32 noundef %75, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
@@ -1379,7 +1379,7 @@ define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr nocapture nounde
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %87 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 1200
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1200
   %90 = load ptr, ptr %89, align 16
   store ptr %90, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %89, align 16
@@ -1392,7 +1392,7 @@ define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !23
   %96 = load ptr, ptr @efi, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %98 = load i32, ptr %97, align 8
   %99 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %98, i32 noundef %34, i32 noundef %54, i32 noundef %2, i64 noundef %3, i32 noundef %76, ptr noundef nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
@@ -1588,7 +1588,7 @@ define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr noca
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %95 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 1200
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1200
   %98 = load ptr, ptr %97, align 16
   store ptr %98, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %97, align 16
@@ -1601,7 +1601,7 @@ define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr noca
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !23
   %104 = load ptr, ptr @efi, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %106 = load i32, ptr %105, align 8
   %107 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %106, i32 noundef %42, i32 noundef %62, i32 noundef %2, i64 noundef %3, i32 noundef %84, ptr noundef nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
@@ -1703,7 +1703,7 @@ define internal void @efi_thunk_reset_system(i32 noundef %0, i64 noundef %1, i64
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %34 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 1200
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1200
   %37 = load ptr, ptr %36, align 16
   store ptr %37, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %36, align 16
@@ -1716,7 +1716,7 @@ define internal void @efi_thunk_reset_system(i32 noundef %0, i64 noundef %1, i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !23
   %43 = load ptr, ptr @efi, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load i32, ptr %44, align 8
   %46 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %45, i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %28, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
@@ -1873,7 +1873,7 @@ define internal i64 @efi_thunk_query_variable_info(i32 noundef %0, ptr noundef %
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %78 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 1200
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1200
   %81 = load ptr, ptr %80, align 16
   store ptr %81, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %80, align 16
@@ -1886,7 +1886,7 @@ define internal i64 @efi_thunk_query_variable_info(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !23
   %87 = load ptr, ptr @efi, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 76
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 76
   %89 = load i32, ptr %88, align 4
   %90 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %89, i32 noundef %0, i32 noundef %30, i32 noundef %51, i32 noundef %72, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
@@ -2070,7 +2070,7 @@ define internal i64 @efi_thunk_query_variable_info_nonblocking(i32 noundef %0, p
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ${3:c}\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09wrmsr\0A6651:\0A.popsection\0A", "{cx},{ax},{dx},i,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 73, i32 1, i32 0, i32 368) #14, !srcloc !17
   %86 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 1200
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1200
   %89 = load ptr, ptr %88, align 16
   store ptr %89, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %88, align 16
@@ -2083,7 +2083,7 @@ define internal i64 @efi_thunk_query_variable_info_nonblocking(i32 noundef %0, p
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !23
   %95 = load ptr, ptr @efi, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 76
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 76
   %97 = load i32, ptr %96, align 4
   %98 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %97, i32 noundef %0, i32 noundef %38, i32 noundef %59, i32 noundef %80, ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
@@ -2149,7 +2149,7 @@ define dso_local i64 @efi_set_virtual_address_map(i64 noundef %0, i64 noundef %1
   %13 = inttoptr i64 %4 to ptr
   %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 1200
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1200
   %17 = load ptr, ptr %16, align 16
   store ptr %17, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %16, align 16
@@ -2165,7 +2165,7 @@ define dso_local i64 @efi_set_virtual_address_map(i64 noundef %0, i64 noundef %1
   %20 = icmp ne i8 %19, 0
   %21 = call i64 @ibt_save(i1 noundef zeroext %20) #18
   %22 = load ptr, ptr @efi, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = call i64 (ptr, ...) @__efi_call(ptr noundef %24, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #14
   call void @ibt_restore(i64 noundef %21) #18
@@ -2179,7 +2179,7 @@ define dso_local i64 @efi_set_virtual_address_map(i64 noundef %0, i64 noundef %1
 
 29:                                               ; preds = %28, %12
   call void @kernel_fpu_end() #14
-  %30 = getelementptr inbounds i8, ptr %13, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %31 = load volatile ptr, ptr %30, align 8
   store ptr %31, ptr @efi, align 8
   %32 = load ptr, ptr @efi_prev_mm, align 8
@@ -2205,7 +2205,7 @@ define internal fastcc i64 @efi_thunk_set_virtual_address_map(i64 noundef %0, i6
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !49
   %8 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !18
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1200
   %11 = load ptr, ptr %10, align 16
   store ptr %11, ptr @efi_prev_mm, align 8
   store ptr @efi_mm, ptr %10, align 16
@@ -2218,7 +2218,7 @@ define internal fastcc i64 @efi_thunk_set_virtual_address_map(i64 noundef %0, i6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !23
   %17 = load ptr, ptr @efi, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = call i64 (i32, ...) @__efi64_thunk(i32 noundef %19, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14

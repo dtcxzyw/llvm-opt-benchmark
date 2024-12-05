@@ -26,16 +26,16 @@ define dso_local zeroext i1 @intel_gsc_uc_fw_proxy_init_done(ptr nocapture nound
   br i1 %1, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %4, i32 1141824, i1 noundef zeroext true) #6
   br label %17
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @intel_runtime_pm_get(ptr noundef %11) #6
-  %13 = getelementptr inbounds i8, ptr %4, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %4, i32 1141824, i1 noundef zeroext true) #6
   %16 = load ptr, ptr %10, align 8
@@ -58,7 +58,7 @@ define dso_local noundef i32 @intel_gsc_uc_fw_proxy_get_status(ptr nocapture nou
 define dso_local zeroext i1 @intel_gsc_uc_fw_init_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %3, i32 1141824, i1 noundef zeroext true) #6
   %7 = and i32 %6, 512
@@ -78,7 +78,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -90,9 +90,9 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br label %.loopexit
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load i32, ptr %19, align 1
   %21 = add i32 %20, %18
   %22 = zext i32 %21 to i64
@@ -105,7 +105,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -127,7 +127,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   br label %58
 
@@ -163,7 +163,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br label %.loopexit
 
 62:                                               ; preds = %47
-  %63 = getelementptr inbounds i8, ptr %49, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %64 = load i16, ptr %63, align 1
   %65 = zext i16 %64 to i64
   %66 = mul nuw nsw i64 %65, 12
@@ -177,7 +177,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
   br label %75
 
@@ -212,7 +212,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %93, label %.thread, label %84, !llvm.loop !5
 
 94:                                               ; preds = %84
-  %95 = getelementptr inbounds i8, ptr %86, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %96 = load i32, ptr %95, align 1
   %97 = zext i32 %96 to i64
   %98 = getelementptr i8, ptr %49, i64 %97
@@ -226,7 +226,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %102, label %106, label %103
 
 103:                                              ; preds = %.thread
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load ptr, ptr %104, align 8
   br label %106
 
@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %117 = load ptr, ptr %116, align 8
   br label %118
 
@@ -269,7 +269,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %127, label %131, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %126, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %130 = load ptr, ptr %129, align 8
   br label %131
 
@@ -281,7 +281,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br label %.loopexit
 
 135:                                              ; preds = %122
-  %136 = getelementptr inbounds i8, ptr %98, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %137 = load i32, ptr %136, align 1
   %138 = zext i32 %137 to i64
   %139 = mul nuw nsw i64 %138, 24
@@ -295,7 +295,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %144, label %148, label %145
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %143, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %147 = load ptr, ptr %146, align 8
   br label %148
 
@@ -311,7 +311,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %153, label %.loopexit, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %98, i64 10
+  %155 = getelementptr inbounds nuw i8, ptr %98, i64 10
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i64
   %158 = getelementptr i8, ptr %98, i64 %157
@@ -325,16 +325,16 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   br i1 %163, label %164, label %174
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds i8, ptr %161, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %166 = load i32, ptr %165, align 1
   %167 = and i32 %166, 33554431
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr i8, ptr %98, i64 %168
-  %170 = getelementptr inbounds i8, ptr %0, i64 416
-  tail call void @intel_uc_fw_version_from_gsc_manifest(ptr noundef %170, ptr noundef %169) #6
-  %171 = getelementptr inbounds i8, ptr %169, i64 44
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  tail call void @intel_uc_fw_version_from_gsc_manifest(ptr noundef nonnull %170, ptr noundef %169) #6
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 44
   %172 = load i32, ptr %171, align 1
-  %173 = getelementptr inbounds i8, ptr %0, i64 432
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i32 %172, ptr %173, align 8
   br label %.loopexit
 
@@ -369,12 +369,12 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = getelementptr i8, ptr %0, i64 -24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %4, i32 1141824, i1 noundef zeroext true) #6
   %8 = and i32 %7, 512
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   br i1 %9, label %15, label %12
 
@@ -400,7 +400,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 20:                                               ; preds = %19, %17
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 144
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef %21, i32 1141824, i1 noundef zeroext true) #6
   %25 = and i32 %24, 15
@@ -408,21 +408,21 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %26, label %27, label %193
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %29, i64 224
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 224
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i64, ptr %34, align 8
   %36 = icmp ult i64 %33, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @intel_gt_coherent_map_type(ptr noundef %2, ptr noundef %39, i1 noundef zeroext true) #6
   %41 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %39, i32 noundef %40) #6
@@ -430,7 +430,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %42, label %56, label %.thread23
 
 .thread23:                                        ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 448
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr %34, align 8
   tail call void @memcpy_toio(ptr noundef %44, ptr noundef %41, i64 noundef %45) #6
@@ -438,15 +438,15 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   %47 = load i64, ptr %34, align 8
   %48 = getelementptr i8, ptr %46, i64 %47
   %49 = load ptr, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load i64, ptr %50, align 8
   %52 = sub i64 %51, %47
   tail call void @memset_io(ptr noundef %48, i32 noundef 0, i64 noundef %52) #6
   %53 = getelementptr i8, ptr %0, i64 584
   tail call void @intel_guc_write_barrier(ptr noundef %53) #6
   %54 = load ptr, ptr %38, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #6, !srcloc !9
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 672
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #6, !srcloc !9
   br label %60
 
 56:                                               ; preds = %37
@@ -457,11 +457,11 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 60:                                               ; preds = %.thread23, %56
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 7408
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 7408
   %63 = load i32, ptr %62, align 8
   %64 = or i32 %63, 16
   store i32 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 456
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68
@@ -472,9 +472,9 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %70, label %152, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %66, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 904
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 904
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %80, label %77
@@ -486,9 +486,9 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 80:                                               ; preds = %77, %71
   %81 = load ptr, ptr %28, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 248
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 248
   %85 = load i32, ptr %84, align 8
   %86 = tail call ptr @intel_ring_begin(ptr noundef %69, i32 noundef 4) #6
   %87 = icmp ugt ptr %86, inttoptr (i64 -4096 to ptr)
@@ -504,7 +504,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   %92 = getelementptr i8, ptr %86, i64 12
   store i32 0, ptr %91, align 4
   %93 = load ptr, ptr %28, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 224
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 224
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 12
   %97 = trunc i64 %96 to i32
@@ -520,7 +520,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 103:                                              ; preds = %.thread24, %99
   %104 = load ptr, ptr %72, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 888
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 888
   %106 = load ptr, ptr %105, align 8
   %107 = tail call i32 %106(ptr noundef %69, i32 noundef 0) #6
   br label %108
@@ -531,8 +531,8 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %110, label %121, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %69, i64 56
-  %113 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %112, i32 1, ptr elementtype(i32) %112) #6, !srcloc !10
+  %112 = getelementptr inbounds nuw i8, ptr %69, i64 56
+  %113 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %112, i32 1, ptr nonnull elementtype(i32) %112) #6, !srcloc !10
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %119, label %115, !prof !11
 
@@ -544,7 +544,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 119:                                              ; preds = %115, %111
   %120 = phi i32 [ 2, %111 ], [ 1, %115 ]
-  tail call void @refcount_warn_saturate(ptr noundef %112, i32 noundef %120) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %112, i32 noundef %120) #6
   br label %121
 
 121:                                              ; preds = %119, %115, %108
@@ -568,8 +568,8 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %110, label %.thread26, label %131
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %69, i64 56
-  %133 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %132, i32 -1, ptr elementtype(i32) %132) #6, !srcloc !13
+  %132 = getelementptr inbounds nuw i8, ptr %69, i64 56
+  %133 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %132, i32 -1, ptr nonnull elementtype(i32) %132) #6, !srcloc !13
   %134 = icmp eq i32 %133, 1
   br i1 %134, label %138, label %135
 
@@ -578,12 +578,12 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %136, label %.thread26, label %137, !prof !12
 
 137:                                              ; preds = %135
-  tail call void @refcount_warn_saturate(ptr noundef %132, i32 noundef 3) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %132, i32 noundef 3) #6
   br label %.thread26
 
 138:                                              ; preds = %131
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
-  tail call void @dma_fence_release(ptr noundef %132) #6
+  tail call void @dma_fence_release(ptr noundef nonnull %132) #6
   br label %.thread26
 
 .thread26:                                        ; preds = %135, %137, %138, %129
@@ -596,7 +596,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %141, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %145 = load ptr, ptr %144, align 8
   br label %146
 
@@ -638,7 +638,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %167, label %171, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %166, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %170 = load ptr, ptr %169, align 8
   br label %171
 
@@ -646,21 +646,21 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   %172 = phi ptr [ %170, %168 ], [ null, %165 ]
   %173 = getelementptr i8, ptr %0, i64 4904
   %174 = load i32, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 40
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 44
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %0, i64 416
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %182 = load i32, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 420
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %0, i64 424
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %186 = load i32, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 428
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i8, ptr %0, i64 432
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %190 = load i32, ptr %189, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %172, ptr noundef nonnull @.str.10, i32 noundef %174, ptr noundef %176, i32 noundef %178, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190) #7
   br label %193
@@ -695,7 +695,7 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -708,18 +708,18 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
 
 18:                                               ; preds = %1
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %23 = load i32, ptr %22, align 8
   %24 = trunc i64 %21 to i32
   %25 = add i32 %23, %24
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %3, align 8
   call void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef %27, i8 noundef zeroext 7, i32 noundef 40, i64 noundef 0) #6
-  %28 = getelementptr inbounds i8, ptr %27, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   store i8 48, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %27, i64 37
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 37
   store i8 66, ptr %29, align 1
   %30 = add nuw nsw i64 %26, 4096
   %31 = call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef %0, i64 noundef %26, i32 noundef 40, i64 noundef %30, i32 noundef 4096) #6
@@ -732,7 +732,7 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   br label %39
 
@@ -755,7 +755,7 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -777,12 +777,12 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
   %65 = getelementptr i8, ptr %27, i64 4138
   %66 = load i16, ptr %65, align 1
   %67 = zext i16 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %67, ptr %68, align 8
   %69 = getelementptr i8, ptr %27, i64 4140
   %70 = load i16, ptr %69, align 1
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds i8, ptr %0, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %71, ptr %72, align 4
   br label %73
 

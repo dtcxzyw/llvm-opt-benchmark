@@ -45,31 +45,31 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = tail call i32 %7(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %359
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 304
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %19 = load ptr, ptr %18, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %15, double noundef -1.000000e+00, ptr noundef %17, ptr noundef %19) #8
   %20 = load ptr, ptr %1, align 8
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %20(ptr noundef %21, ptr noundef nonnull %22, ptr noundef %24) #8
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = add nsw i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -81,11 +81,11 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %.not38, label %31, label %359
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %359 [
     i32 0, label %37
@@ -95,14 +95,14 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 37:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %38 = getelementptr inbounds i8, ptr %0, i64 648
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load double, ptr %40, align 8
   %42 = fmul double %41, 1.100000e+00
   %.0133181.i = fmul double %41, 9.000000e-01
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
-  %44 = getelementptr inbounds i8, ptr %39, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 144
   br label %45
 
 45:                                               ; preds = %78, %37
@@ -110,9 +110,9 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %.0116183.i = phi i32 [ 0, %37 ], [ %79, %78 ]
   %.0130182.i = phi double [ %42, %37 ], [ %.0133184.i, %78 ]
   %46 = load ptr, ptr %38, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %50 = load double, ptr %49, align 8
   %51 = load ptr, ptr %18, align 8
   %52 = load ptr, ptr %43, align 8
@@ -123,7 +123,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 %56(ptr noundef %52, ptr noundef nonnull %4, ptr noundef %53) #8
   %58 = load ptr, ptr %38, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = add nsw i64 %60, 1
   store i64 %61, ptr %59, align 8
@@ -141,7 +141,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %68 = call double @llvm.fmuladd.f64(double %67, double %50, double %66)
   store double %68, ptr %4, align 8
   %69 = load ptr, ptr %38, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i64, ptr %70, align 8
   %72 = add nsw i64 %71, 1
   store i64 %72, ptr %70, align 8
@@ -172,9 +172,9 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %.1131186.i = phi double [ %115, %114 ], [ %.0130.lcssa.i, %80 ]
   %.1134185.i = phi double [ %.1131186.i, %114 ], [ %.0133.lcssa.i, %80 ]
   %82 = load ptr, ptr %38, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %86 = load double, ptr %85, align 8
   %87 = load ptr, ptr %18, align 8
   %88 = load ptr, ptr %43, align 8
@@ -185,7 +185,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %92 = load ptr, ptr %91, align 8
   %93 = call i32 %92(ptr noundef %88, ptr noundef nonnull %5, ptr noundef %89) #8
   %94 = load ptr, ptr %38, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = add nsw i64 %96, 1
   store i64 %97, ptr %95, align 8
@@ -203,7 +203,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %104 = call double @llvm.fmuladd.f64(double %103, double %86, double %102)
   store double %104, ptr %5, align 8
   %105 = load ptr, ptr %38, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load i64, ptr %106, align 8
   %108 = add nsw i64 %107, 1
   store i64 %108, ptr %106, align 8
@@ -231,15 +231,15 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 119:                                              ; preds = %117
   %120 = load ptr, ptr %38, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 168
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 168
   %122 = load i32, ptr %121, align 8
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %.lr.ph.i, label %arkRelaxNewtonSolve.exit.thread52
 
 .lr.ph.i:                                         ; preds = %119
   %124 = load double, ptr %4, align 8
-  %125 = getelementptr inbounds i8, ptr %39, i64 152
-  %126 = getelementptr inbounds i8, ptr %39, i64 160
+  %125 = getelementptr inbounds nuw i8, ptr %39, i64 152
+  %126 = getelementptr inbounds nuw i8, ptr %39, i64 160
   br label %127
 
 127:                                              ; preds = %233, %.lr.ph.i
@@ -398,9 +398,9 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 215:                                              ; preds = %213, %211, %207
   %.4.i = phi double [ %208, %207 ], [ %212, %211 ], [ %214, %213 ]
-  %216 = getelementptr inbounds i8, ptr %129, i64 64
+  %216 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %217 = load double, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %129, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %129, i64 72
   %219 = load double, ptr %218, align 8
   %220 = load ptr, ptr %18, align 8
   %221 = load ptr, ptr %43, align 8
@@ -411,7 +411,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %225 = load ptr, ptr %224, align 8
   %226 = call i32 %225(ptr noundef %221, ptr noundef nonnull %5, ptr noundef %222) #8
   %227 = load ptr, ptr %38, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 40
   %229 = load i64, ptr %228, align 8
   %230 = add nsw i64 %229, 1
   store i64 %230, ptr %228, align 8
@@ -429,42 +429,42 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %237 = call double @llvm.fmuladd.f64(double %236, double %219, double %235)
   store double %237, ptr %5, align 8
   %238 = load ptr, ptr %38, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 40
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 40
   %240 = load i64, ptr %239, align 8
   %241 = add nsw i64 %240, 1
   store i64 %241, ptr %239, align 8
   %242 = add nuw nsw i32 %.2194.i, 1
   %243 = load ptr, ptr %38, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 168
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 168
   %245 = load i32, ptr %244, align 8
   %246 = icmp slt i32 %242, %245
   br i1 %246, label %127, label %arkRelaxNewtonSolve.exit.thread52
 
 247:                                              ; preds = %31
-  %248 = getelementptr inbounds i8, ptr %0, i64 648
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 96
-  %251 = getelementptr inbounds i8, ptr %249, i64 168
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 96
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 168
   %252 = load i32, ptr %251, align 8
   %253 = icmp sgt i32 %252, 0
   br i1 %253, label %.lr.ph.i41, label %arkRelaxNewtonSolve.exit.thread
 
 .lr.ph.i41:                                       ; preds = %247
-  %254 = getelementptr inbounds i8, ptr %249, i64 80
-  %255 = getelementptr inbounds i8, ptr %0, i64 312
-  %256 = getelementptr inbounds i8, ptr %249, i64 144
-  %257 = getelementptr inbounds i8, ptr %249, i64 88
-  %258 = getelementptr inbounds i8, ptr %0, i64 320
-  %259 = getelementptr inbounds i8, ptr %249, i64 152
-  %260 = getelementptr inbounds i8, ptr %249, i64 160
-  %261 = getelementptr inbounds i8, ptr %249, i64 176
+  %254 = getelementptr inbounds nuw i8, ptr %249, i64 80
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %256 = getelementptr inbounds nuw i8, ptr %249, i64 144
+  %257 = getelementptr inbounds nuw i8, ptr %249, i64 88
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %259 = getelementptr inbounds nuw i8, ptr %249, i64 152
+  %260 = getelementptr inbounds nuw i8, ptr %249, i64 160
+  %261 = getelementptr inbounds nuw i8, ptr %249, i64 176
   %.pre.i42 = load double, ptr %250, align 8
   br label %268
 
 262:                                              ; preds = %316
   %263 = add nuw nsw i32 %.02636.i, 1
   %264 = load ptr, ptr %248, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 168
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 168
   %266 = load i32, ptr %265, align 8
   %267 = icmp slt i32 %263, %266
   br i1 %267, label %268, label %arkRelaxNewtonSolve.exit.thread
@@ -473,9 +473,9 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %269 = phi double [ %.pre.i42, %.lr.ph.i41 ], [ %326, %262 ]
   %270 = phi ptr [ %249, %.lr.ph.i41 ], [ %264, %262 ]
   %.02636.i = phi i32 [ 0, %.lr.ph.i41 ], [ %263, %262 ]
-  %271 = getelementptr inbounds i8, ptr %270, i64 64
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 64
   %272 = load double, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %270, i64 72
+  %273 = getelementptr inbounds nuw i8, ptr %270, i64 72
   %274 = load double, ptr %273, align 8
   %275 = load ptr, ptr %18, align 8
   %276 = load ptr, ptr %255, align 8
@@ -486,7 +486,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %280 = load ptr, ptr %279, align 8
   %281 = tail call i32 %280(ptr noundef %276, ptr noundef nonnull %254, ptr noundef %277) #8
   %282 = load ptr, ptr %248, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 40
   %284 = load i64, ptr %283, align 8
   %285 = add nsw i64 %284, 1
   store i64 %285, ptr %283, align 8
@@ -514,17 +514,17 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %299 = load ptr, ptr %255, align 8
   %300 = load ptr, ptr %258, align 8
   %301 = load ptr, ptr %248, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 72
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 72
   %303 = load double, ptr %302, align 8
   %304 = load ptr, ptr %23, align 8
   %305 = load ptr, ptr %16, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %305, double noundef %297, ptr noundef %298, ptr noundef %299) #8
   %306 = load ptr, ptr %248, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8
   %309 = tail call i32 %308(ptr noundef %299, ptr noundef %300, ptr noundef %304) #8
   %310 = load ptr, ptr %248, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 48
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = load i64, ptr %311, align 8
   %313 = add nsw i64 %312, 1
   store i64 %313, ptr %311, align 8
@@ -558,7 +558,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 arkRelaxNewtonSolve.exit.thread52.sink.split:     ; preds = %63, %45, %99, %.preheader.i, %232, %215
   %.0.i.ph.ph = phi i32 [ -45, %215 ], [ 1, %232 ], [ -45, %.preheader.i ], [ 1, %99 ], [ -45, %45 ], [ 1, %63 ]
   %331 = load ptr, ptr %38, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 40
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 40
   %333 = load i64, ptr %332, align 8
   %334 = add nsw i64 %333, 1
   store i64 %334, ptr %332, align 8
@@ -573,7 +573,7 @@ arkRelaxNewtonSolve.exit.thread52:                ; preds = %233, %arkRelaxNewto
 arkRelaxNewtonSolve.exit:                         ; preds = %64, %100, %143, %154
   %.lcssa.sink = phi double [ %144, %154 ], [ %144, %143 ], [ %104, %100 ], [ %68, %64 ]
   %.3.i.lcssa.sink = phi double [ %.3.i, %154 ], [ %.3.i, %143 ], [ %.1131186.i, %100 ], [ %.0133184.i, %64 ]
-  %335 = getelementptr inbounds i8, ptr %39, i64 80
+  %335 = getelementptr inbounds nuw i8, ptr %39, i64 80
   store double %.lcssa.sink, ptr %335, align 8
   store double %.3.i.lcssa.sink, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -582,30 +582,30 @@ arkRelaxNewtonSolve.exit:                         ; preds = %64, %100, %143, %15
 
 arkRelaxNewtonSolve.exit.thread:                  ; preds = %262, %268, %287, %296, %315, %247, %arkRelaxNewtonSolve.exit.thread52
   %.046 = phi i32 [ %.0.i.ph, %arkRelaxNewtonSolve.exit.thread52 ], [ 3, %247 ], [ 2, %315 ], [ -46, %296 ], [ 1, %287 ], [ -45, %268 ], [ 3, %262 ]
-  %336 = getelementptr inbounds i8, ptr %1, i64 184
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %337 = load i64, ptr %336, align 8
   %338 = add nsw i64 %337, 1
   store i64 %338, ptr %336, align 8
   br label %359
 
 arkRelaxNewtonSolve.exit.thread48:                ; preds = %288, %316, %arkRelaxNewtonSolve.exit
-  %339 = getelementptr inbounds i8, ptr %0, i64 648
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 96
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 96
   %342 = load double, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %1, i64 112
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %344 = load double, ptr %343, align 8
   %345 = fcmp olt double %342, %344
   br i1 %345, label %350, label %346
 
 346:                                              ; preds = %arkRelaxNewtonSolve.exit.thread48
-  %347 = getelementptr inbounds i8, ptr %1, i64 120
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %348 = load double, ptr %347, align 8
   %349 = fcmp ogt double %342, %348
   br i1 %349, label %350, label %354
 
 350:                                              ; preds = %346, %arkRelaxNewtonSolve.exit.thread48
-  %351 = getelementptr inbounds i8, ptr %1, i64 192
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %352 = load i64, ptr %351, align 8
   %353 = add nsw i64 %352, 1
   store i64 %353, ptr %351, align 8
@@ -615,7 +615,7 @@ arkRelaxNewtonSolve.exit.thread48:                ; preds = %288, %316, %arkRela
   %355 = load double, ptr %34, align 8
   store double %355, ptr %32, align 8
   %356 = load ptr, ptr %339, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 96
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 96
   %358 = load double, ptr %357, align 8
   store double %358, ptr %2, align 8
   br label %359
@@ -637,7 +637,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetEtaFail(ptr noundef %0, double noundef 
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -650,7 +650,7 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = fcmp ogt double %1, 0.000000e+00
   %9 = fcmp olt double %1, 1.000000e+00
   %or.cond = and i1 %8, %9
-  %10 = getelementptr inbounds i8, ptr %6, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %arkRelaxAccessMem.exit
@@ -676,7 +676,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetLowerBound(ptr noundef %0, double nound
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -689,7 +689,7 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = fcmp ogt double %1, 0.000000e+00
   %9 = fcmp olt double %1, 1.000000e+00
   %or.cond = and i1 %8, %9
-  %10 = getelementptr inbounds i8, ptr %6, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 112
   br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %arkRelaxAccessMem.exit
@@ -715,7 +715,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetMaxFails(ptr noundef %0, i32 noundef %1
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -726,7 +726,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetMaxFails(ptr noundef %0, i32 noundef %1
 
 arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = icmp sgt i32 %1, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %arkRelaxAccessMem.exit
@@ -752,7 +752,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetMaxIters(ptr noundef %0, i32 noundef %1
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -763,7 +763,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetMaxIters(ptr noundef %0, i32 noundef %1
 
 arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = icmp sgt i32 %1, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 168
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %arkRelaxAccessMem.exit
@@ -789,7 +789,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetSolver(ptr noundef %0, i32 noundef %1) 
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -807,7 +807,7 @@ arkRelaxAccessMem.exit:                           ; preds = %4
   br label %arkRelaxAccessMem.exit.thread
 
 9:                                                ; preds = %arkRelaxAccessMem.exit
-  %10 = getelementptr inbounds i8, ptr %6, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 %1, ptr %10, align 8
   br label %arkRelaxAccessMem.exit.thread
 
@@ -828,7 +828,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetResTol(ptr noundef %0, double noundef %
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -839,7 +839,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetResTol(ptr noundef %0, double noundef %
 
 arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = fcmp ogt double %1, 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %6, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 144
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %arkRelaxAccessMem.exit
@@ -865,7 +865,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetTol(ptr noundef %0, double noundef %1, 
   br label %arkRelaxAccessMem.exit.thread
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 648
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load ptr, ptr %6, align 8
   %.not11.i = icmp eq ptr %7, null
   br i1 %.not11.i, label %8, label %arkRelaxAccessMem.exit
@@ -877,10 +877,10 @@ define range(i32 -44, 1) i32 @arkRelaxSetTol(ptr noundef %0, double noundef %1, 
 arkRelaxAccessMem.exit:                           ; preds = %5
   %9 = fcmp ogt double %1, 0.000000e+00
   %.sink = select i1 %9, double %1, double 0x3CD0000000000000
-  %10 = getelementptr inbounds i8, ptr %7, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store double %.sink, ptr %10, align 8
   %11 = fcmp ogt double %2, 0.000000e+00
-  %12 = getelementptr inbounds i8, ptr %7, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 160
   br i1 %11, label %13, label %14
 
 13:                                               ; preds = %arkRelaxAccessMem.exit
@@ -906,7 +906,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetUpperBound(ptr noundef %0, double nound
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -917,7 +917,7 @@ define range(i32 -44, 1) i32 @arkRelaxSetUpperBound(ptr noundef %0, double nound
 
 arkRelaxAccessMem.exit:                           ; preds = %4
   %8 = fcmp ogt double %1, 1.000000e+00
-  %9 = getelementptr inbounds i8, ptr %6, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %arkRelaxAccessMem.exit
@@ -943,7 +943,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr noc
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -953,7 +953,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr noc
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -973,7 +973,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr no
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -983,7 +983,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr no
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -1003,7 +1003,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr nocap
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -1013,7 +1013,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr nocap
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -1033,7 +1033,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -1043,7 +1043,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -1063,7 +1063,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -1073,7 +1073,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -1093,7 +1093,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %7, label %arkRelaxAccessMem.exit
@@ -1103,7 +1103,7 @@ define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr 
   br label %arkRelaxAccessMem.exit.thread
 
 arkRelaxAccessMem.exit:                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %arkRelaxAccessMem.exit.thread
@@ -1123,7 +1123,7 @@ define range(i32 -44, 1) i32 @arkRelaxPrintAllStats(ptr noundef %0, ptr nocaptur
   br label %arkRelaxAccessMem.exit.thread
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 648
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load ptr, ptr %6, align 8
   %.not11.i = icmp eq ptr %7, null
   br i1 %.not11.i, label %8, label %arkRelaxAccessMem.exit
@@ -1139,43 +1139,43 @@ arkRelaxAccessMem.exit:                           ; preds = %5
   ]
 
 9:                                                ; preds = %arkRelaxAccessMem.exit
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %14) #8
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.4, i64 noundef %17) #8
-  %19 = getelementptr inbounds i8, ptr %7, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %20 = load i64, ptr %19, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, i64 noundef %20) #8
-  %22 = getelementptr inbounds i8, ptr %7, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, i64 noundef %23) #8
-  %25 = getelementptr inbounds i8, ptr %7, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %26 = load i64, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef %26) #8
   br label %arkRelaxAccessMem.exit.thread
 
 28:                                               ; preds = %arkRelaxAccessMem.exit
-  %29 = getelementptr inbounds i8, ptr %7, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef %30) #8
-  %32 = getelementptr inbounds i8, ptr %7, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %33 = load i64, ptr %32, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef %33) #8
-  %35 = getelementptr inbounds i8, ptr %7, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %36 = load i64, ptr %35, align 8
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef %36) #8
-  %38 = getelementptr inbounds i8, ptr %7, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %39 = load i64, ptr %38, align 8
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %39) #8
-  %41 = getelementptr inbounds i8, ptr %7, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %42 = load i64, ptr %41, align 8
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %42) #8
-  %44 = getelementptr inbounds i8, ptr %7, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %45 = load i64, ptr %44, align 8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i64 noundef %45) #8
   br label %arkRelaxAccessMem.exit.thread
@@ -1208,7 +1208,7 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 0, ptr %11, align 8
   br label %50
 
@@ -1237,7 +1237,7 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
   br label %50
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 648
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %22 = load ptr, ptr %21, align 8
   %.not46 = icmp eq ptr %22, null
   br i1 %.not46, label %23, label %41
@@ -1249,31 +1249,31 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not47, label %50, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store i32 10, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
   store double 8.000000e-01, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
   store double 1.200000e+00, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %calloc, i64 128
   store double 2.500000e-01, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %calloc, i64 136
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
   store double 0x3CE4000000000000, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 152
   store double 0x3CD0000000000000, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %calloc, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %calloc, i64 160
   store double 0x3D06849B86A12B9B, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 168
   store i32 10, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
   store double 1.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 544
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %36 = load i64, ptr %35, align 8
   %37 = add nsw i64 %36, 12
   store i64 %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 552
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %39 = load i64, ptr %38, align 8
   %40 = add nsw i64 %39, 14
   store i64 %40, ptr %38, align 8
@@ -1283,15 +1283,15 @@ define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr
   %42 = phi ptr [ %calloc, %24 ], [ %22, %20 ]
   store ptr %1, ptr %42, align 8
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %2, ptr %44, align 8
   %45 = load ptr, ptr %21, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %3, ptr %46, align 8
   %47 = load ptr, ptr %21, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %4, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 640
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 1, ptr %49, align 8
   br label %50
 
@@ -1319,7 +1319,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 648
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
@@ -1338,58 +1338,58 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr nocapture nou
   br i1 %.not26, label %37, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, 1
   store i64 %16, ptr %14, align 8
   %17 = load i32, ptr %1, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %53, label %22
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 376
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %24 = load double, ptr %23, align 8
   %25 = tail call double @llvm.fabs.f64(double %24)
-  %26 = getelementptr inbounds i8, ptr %0, i64 384
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %27 = load double, ptr %26, align 8
   %28 = fmul double %27, 0x3FF000010C6F7A0B
   %29 = fcmp ugt double %25, %28
   br i1 %29, label %30, label %53
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 440
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %32 = load i32, ptr %31, align 8
   %.not27 = icmp eq i32 %32, 0
   br i1 %.not27, label %33, label %53
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %7, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 416
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store double %35, ptr %36, align 8
   br label %53
 
 37:                                               ; preds = %12
   %38 = load double, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 376
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %40 = load double, ptr %39, align 8
   %41 = fmul double %38, %40
   store double %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0) #8
   %45 = tail call double @SUNRpowerI(double noundef %38, i32 noundef %44) #8
   %46 = load double, ptr %2, align 8
   %47 = fmul double %45, %46
   store double %47, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 264
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %49 = load ptr, ptr %48, align 8
   %50 = fsub double 1.000000e+00, %38
-  %51 = getelementptr inbounds i8, ptr %0, i64 272
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %52 = load ptr, ptr %51, align 8
   tail call void @N_VLinearSum(double noundef %38, ptr noundef %49, double noundef %50, ptr noundef %52, ptr noundef %49) #8
   br label %53

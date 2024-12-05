@@ -10,9 +10,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -102, 1) i32 @ompi_osc_sm_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4448
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4448
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds i32, ptr %8, i64 %9
@@ -88,10 +88,10 @@ start_exclusive.exit:                             ; preds = %.lr.ph.i, %18, %39,
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -102, 1) i32 @ompi_osc_sm_unlock(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   fence seq_cst
-  %5 = getelementptr inbounds i8, ptr %4, i64 4448
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4448
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds i32, ptr %6, i64 %7
@@ -140,9 +140,9 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 248
   %.val = load ptr, ptr %7, align 8
@@ -160,9 +160,9 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr nocaptur
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %start_shared.exit.i.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %start_shared.exit.i.us ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4448
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4448
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv21
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv21
   %16 = load i32, ptr %15, align 4
   %.not.i.us = icmp eq i32 %16, 0
   br i1 %.not.i.us, label %17, label %ompi_osc_sm_lock.exit
@@ -171,11 +171,11 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr nocaptur
   %18 = getelementptr i8, ptr %12, i64 4472
   store i32 3, ptr %15, align 4
   %.val.i17.i.us = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %.val.i17.i.us, i64 %indvars.iv21, i32 1
+  %19 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %.val.i17.i.us, i64 %indvars.iv21, i32 1
   %20 = atomicrmw volatile add ptr %19, i32 1 monotonic, align 4
   fence seq_cst
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %21, i64 %indvars.iv21, i32 1, i32 2
+  %22 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %21, i64 %indvars.iv21, i32 1, i32 2
   %23 = load i32, ptr %22, align 4
   %.not7.i.i.us = icmp eq i32 %20, %23
   br i1 %.not7.i.i.us, label %start_shared.exit.i.us, label %.lr.ph.i18.i.us
@@ -184,7 +184,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr nocaptur
   %24 = tail call i32 @opal_progress() #3
   fence seq_cst
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %25, i64 %indvars.iv21, i32 1, i32 2
+  %26 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %25, i64 %indvars.iv21, i32 1, i32 2
   %27 = load i32, ptr %26, align 4
   %.not.i19.i.us = icmp eq i32 %20, %27
   br i1 %.not.i19.i.us, label %start_shared.exit.i.us, label %.lr.ph.i18.i.us, !llvm.loop !6
@@ -199,9 +199,9 @@ start_shared.exit.i.us:                           ; preds = %.lr.ph.i18.i.us, %1
 .lr.ph.split:                                     ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4448
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4448
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %34, label %ompi_osc_sm_lock.exit
@@ -219,9 +219,9 @@ ompi_osc_sm_lock.exit:                            ; preds = %34, %.lr.ph.split, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -102, 1) i32 @ompi_osc_sm_unlock_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 248
   %.val = load ptr, ptr %6, align 8
@@ -238,9 +238,9 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_unlock_all(ptr nocapture noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %9 = load ptr, ptr %2, align 8
   fence seq_cst
-  %10 = getelementptr inbounds i8, ptr %9, i64 4448
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4448
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   switch i32 %13, label %ompi_osc_sm_unlock.exit [
     i32 0, label %ompi_osc_sm_unlock.exit.thread
@@ -252,22 +252,22 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_unlock_all(ptr nocapture noundef read
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr i8, ptr %9, i64 4472
   %.val.i.i = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %.val.i.i, i64 %indvars.iv, i32 1, i32 1
+  %16 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %.val.i.i, i64 %indvars.iv, i32 1, i32 1
   %17 = atomicrmw volatile add ptr %16, i32 1 monotonic, align 4
   %.val3.i.i = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %.val3.i.i, i64 %indvars.iv, i32 1, i32 2
+  %18 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %.val3.i.i, i64 %indvars.iv, i32 1, i32 2
   br label %.sink.split
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr i8, ptr %9, i64 4472
   %.val.i = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.ompi_osc_sm_node_state_t, ptr %.val.i, i64 %indvars.iv, i32 1, i32 1
+  %21 = getelementptr inbounds nuw %struct.ompi_osc_sm_node_state_t, ptr %.val.i, i64 %indvars.iv, i32 1, i32 1
   br label %.sink.split
 
 ompi_osc_sm_unlock.exit:                          ; preds = %.lr.ph
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str) #3
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   store i32 0, ptr %23, align 4
   br label %ompi_osc_sm_unlock.exit.thread
 
@@ -278,7 +278,7 @@ ompi_osc_sm_unlock.exit:                          ; preds = %.lr.ph
 
 25:                                               ; preds = %.sink.split, %.lr.ph
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 0, ptr %27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -21,19 +21,19 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %name, ptr %call, align 8
-  %fn4 = getelementptr inbounds i8, ptr %call, i64 8
+  %fn4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %fn, ptr %fn4, align 8
-  %enabled = getelementptr inbounds i8, ptr %call, i64 40
+  %enabled = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i8 1, ptr %enabled, align 8
-  %options5 = getelementptr inbounds i8, ptr %call, i64 16
+  %options5 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %options, ptr %options5, align 8
-  %special_features6 = getelementptr inbounds i8, ptr %call, i64 20
+  %special_features6 = getelementptr inbounds nuw i8, ptr %call, i64 20
   store i32 %special_features, ptr %special_features6, align 4
-  %node = getelementptr inbounds i8, ptr %call, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %node, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %cmds, i64 8
+  %tql_prev = getelementptr inbounds nuw i8, ptr %cmds, i64 8
   %1 = load ptr, ptr %tql_prev, align 8
-  %tql_prev8 = getelementptr inbounds i8, ptr %call, i64 32
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %tql_prev8, align 8
   store ptr %call, ptr %1, align 8
   store ptr %node, ptr %tql_prev, align 8
@@ -61,7 +61,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %node = getelementptr inbounds i8, ptr %cmd.06, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %cmd.06, i64 24
   %cmd.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %cmd.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -89,14 +89,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %enabled3.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 40
+  %enabled3.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 40
   store i8 0, ptr %enabled3.i, align 8
-  %disable_reason5.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 48
+  %disable_reason5.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 48
   store ptr %disable_reason, ptr %disable_reason5.i, align 8
   br label %qmp_toggle_command.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 24
+  %node.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 24
   %cmd.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %cmd.0.i, null
   br i1 %tobool.not.i, label %qmp_toggle_command.exit, label %for.body.i, !llvm.loop !7
@@ -120,14 +120,14 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %enabled3.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 40
+  %enabled3.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 40
   store i8 1, ptr %enabled3.i, align 8
-  %disable_reason5.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 48
+  %disable_reason5.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 48
   store ptr null, ptr %disable_reason5.i, align 8
   br label %qmp_toggle_command.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %node.i = getelementptr inbounds i8, ptr %cmd.08.i, i64 24
+  %node.i = getelementptr inbounds nuw i8, ptr %cmd.08.i, i64 24
   %cmd.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %cmd.0.i, null
   br i1 %tobool.not.i, label %qmp_toggle_command.exit, label %for.body.i, !llvm.loop !7
@@ -139,7 +139,7 @@ qmp_toggle_command.exit:                          ; preds = %for.inc.i, %entry, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qmp_command_is_enabled(ptr nocapture noundef readonly %cmd) local_unnamed_addr #6 {
 entry:
-  %enabled = getelementptr inbounds i8, ptr %cmd, i64 40
+  %enabled = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %0 = load i8, ptr %enabled, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -155,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qmp_has_success_response(ptr nocapture noundef readonly %cmd) local_unnamed_addr #6 {
 entry:
-  %options = getelementptr inbounds i8, ptr %cmd, i64 16
+  %options = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %0 = load i32, ptr %options, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -172,7 +172,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %cmd.05 = phi ptr [ %cmd.0, %for.body ], [ %cmd.03, %entry ]
   tail call void %fn(ptr noundef nonnull %cmd.05, ptr noundef %opaque) #10
-  %node = getelementptr inbounds i8, ptr %cmd.05, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %cmd.05, i64 24
   %cmd.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %cmd.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8

@@ -37,12 +37,12 @@ define dso_local void @InitCatalogCache() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %17 ]
   %2 = getelementptr [83 x %struct.cachedesc], ptr @cacheinfo, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
-  %9 = getelementptr inbounds i8, ptr %2, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call ptr @InitCatCache(i32 noundef %11, i32 noundef %3, i32 noundef %5, i32 noundef %7, ptr noundef nonnull %8, i32 noundef %10) #8
@@ -324,7 +324,7 @@ define dso_local i32 @GetSysCacheOid(i32 noundef %0, i16 noundef signext %1, i64
 12:                                               ; preds = %6
   %13 = sext i16 %1 to i32
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call fastcc i64 @heap_getattr(ptr noundef nonnull %11, i32 noundef %13, ptr noundef %16, ptr noundef nonnull %7)
   %18 = trunc i64 %17 to i32
@@ -342,9 +342,9 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   br i1 %5, label %6, label %75
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
@@ -358,33 +358,33 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
 16:                                               ; preds = %6
   store i8 0, ptr %3, align 1
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, 1
   %.not.i = icmp eq i16 %20, 0
   br i1 %.not.i, label %21, label %61
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = add nsw i32 %1, -1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 76
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %59
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %17, i64 22
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 22
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %17, i64 %32
   %34 = zext nneg i32 %27 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %25, i64 86
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
-  %39 = getelementptr inbounds i8, ptr %25, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
   br i1 %38, label %41, label %57
 
@@ -433,7 +433,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
 
 61:                                               ; preds = %16
   %62 = add nsw i32 %1, -1
-  %63 = getelementptr inbounds i8, ptr %17, i64 23
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 23
   %64 = lshr i32 %62, 3
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr i8, ptr %63, i64 %65
@@ -472,13 +472,13 @@ define dso_local ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 95
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %18
@@ -502,13 +502,13 @@ define dso_local ptr @SearchSysCacheCopyAttName(i32 noundef %0, ptr noundef %1) 
   br i1 %.not.i, label %SearchSysCacheAttName.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 95
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %SearchSysCacheAttName.exit.thread.sink.split, label %SearchSysCacheAttName.exit
@@ -537,13 +537,13 @@ define dso_local zeroext i1 @SearchSysCacheExistsAttName(i32 noundef %0, ptr nou
   br i1 %.not.i, label %SearchSysCacheAttName.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 95
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   tail call void @ReleaseCatCache(ptr noundef nonnull %6) #8
@@ -565,13 +565,13 @@ define dso_local ptr @SearchSysCacheAttNum(i32 noundef %0, i16 noundef signext %
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 95
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %18
@@ -595,13 +595,13 @@ define dso_local ptr @SearchSysCacheCopyAttNum(i32 noundef %0, i16 noundef signe
   br i1 %.not.i, label %SearchSysCacheAttNum.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 95
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 95
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %SearchSysCacheAttNum.exit.thread.sink.split, label %SearchSysCacheAttNum.exit
@@ -640,7 +640,7 @@ define dso_local i64 @SysCacheGetAttr(i32 noundef %0, ptr noundef %1, i16 nounde
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %15, label %16
@@ -648,7 +648,7 @@ define dso_local i64 @SysCacheGetAttr(i32 noundef %0, ptr noundef %1, i16 nounde
 15:                                               ; preds = %12
   tail call void @InitCatCachePhase2(ptr noundef nonnull %8, i1 noundef zeroext false) #8
   %.pre = load ptr, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
 
@@ -680,7 +680,7 @@ define dso_local i64 @SysCacheGetAttrNotNull(i32 noundef %0, ptr noundef %1, i16
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not11.i = icmp eq ptr %14, null
   br i1 %.not11.i, label %15, label %SysCacheGetAttr.exit
@@ -688,7 +688,7 @@ define dso_local i64 @SysCacheGetAttrNotNull(i32 noundef %0, ptr noundef %1, i16
 15:                                               ; preds = %12
   tail call void @InitCatCachePhase2(ptr noundef nonnull %8, i1 noundef zeroext false) #8
   %.pre.i = load ptr, ptr %7, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre12.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %SysCacheGetAttr.exit
 
@@ -707,7 +707,7 @@ SysCacheGetAttr.exit:                             ; preds = %12, %15
   %24 = load i32, ptr %23, align 16
   %25 = call ptr @get_rel_name(i32 noundef %24) #8
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i16 %2 to i64
   %30 = mul nsw i64 %29, 104

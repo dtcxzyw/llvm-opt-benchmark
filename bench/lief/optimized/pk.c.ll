@@ -31,9 +31,9 @@ define hidden void @mbedtls_pk_free(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9) #6
   br label %10
@@ -56,7 +56,7 @@ define hidden noundef ptr @mbedtls_pk_info_from_type(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.mbedtls_pk_info_from_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.mbedtls_pk_info_from_type, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -76,10 +76,10 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr nocapture noundef %
   br i1 %.not, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8() #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %13, label %12
@@ -102,7 +102,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr nocapture n
 7:                                                ; preds = %5
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_rsa_alt_info, i64 72), align 8
   %9 = tail call ptr %8() #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %16, label %12
@@ -110,11 +110,11 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr nocapture n
 12:                                               ; preds = %7
   store ptr @mbedtls_rsa_alt_info, ptr %0, align 8
   store ptr %1, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %4, ptr %15, align 8
   br label %16
 
@@ -134,7 +134,7 @@ define hidden i32 @mbedtls_pk_can_do(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(i32 noundef %1) #6
   br label %11
@@ -168,13 +168,13 @@ define hidden i32 @mbedtls_pk_verify_restartable(ptr nocapture noundef readonly 
 17:                                               ; preds = %14, %10
   %18 = phi ptr [ %8, %10 ], [ %.pre, %14 ]
   %.011.ph = phi i64 [ %3, %10 ], [ %16, %14 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %pk_hashlen_helper.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %20(ptr noundef %24, i32 noundef %1, ptr noundef %2, i64 noundef %.011.ph, ptr noundef %4, i64 noundef %5) #6
   br label %pk_hashlen_helper.exit
@@ -208,13 +208,13 @@ define hidden i32 @mbedtls_pk_verify(ptr nocapture noundef readonly %0, i32 noun
 16:                                               ; preds = %13, %9
   %17 = phi ptr [ %7, %9 ], [ %.pre.i, %13 ]
   %.011.ph.i = phi i64 [ %3, %9 ], [ %15, %13 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %mbedtls_pk_verify_restartable.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %19(ptr noundef %23, i32 noundef %1, ptr noundef %2, i64 noundef %.011.ph.i, ptr noundef %4, i64 noundef %5) #6
   br label %mbedtls_pk_verify_restartable.exit
@@ -231,7 +231,7 @@ define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly %1
   br i1 %10, label %mbedtls_pk_verify.exit, label %mbedtls_pk_can_do.exit
 
 mbedtls_pk_can_do.exit:                           ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(i32 noundef %0) #6
   %.not = icmp eq i32 %13, 0
@@ -268,13 +268,13 @@ mbedtls_pk_can_do.exit:                           ; preds = %8
 26:                                               ; preds = %23, %19
   %27 = phi ptr [ %17, %19 ], [ %.pre.i.i, %23 ]
   %.011.ph.i.i = phi i64 [ %5, %19 ], [ %25, %23 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %mbedtls_pk_verify.exit, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %29(ptr noundef %33, i32 noundef %3, ptr noundef %4, i64 noundef %.011.ph.i.i, ptr noundef %6, i64 noundef %7) #6
   br label %mbedtls_pk_verify.exit
@@ -293,13 +293,13 @@ mbedtls_pk_can_do.exit:                           ; preds = %8
   br i1 %41, label %.thread, label %mbedtls_pk_get_len.exit
 
 .thread:                                          ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %mbedtls_pk_rsa.exit
 
 mbedtls_pk_get_len.exit:                          ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i64 %44(ptr noundef %46) #6
   %48 = add i64 %47, 7
@@ -325,7 +325,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %.thread, %51, %mbed
   %56 = phi ptr [ null, %51 ], [ %spec.select.i, %mbedtls_pk_get_type.exit.i ], [ null, %.thread ]
   %57 = trunc i64 %5 to i32
   %58 = load i32, ptr %1, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %56, i32 noundef %3, i32 noundef %57, ptr noundef %4, i32 noundef %58, i32 noundef %60, ptr noundef %6) #6
   %.not33 = icmp eq i32 %61, 0
@@ -337,7 +337,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %.thread, %51, %mbed
   br i1 %64, label %mbedtls_pk_get_len.exit38, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %55, align 8
   %69 = tail call i64 %67(ptr noundef %68) #6
@@ -382,13 +382,13 @@ define hidden i32 @mbedtls_pk_sign_restartable(ptr nocapture noundef readonly %0
 20:                                               ; preds = %17, %13
   %21 = phi ptr [ %11, %13 ], [ %.pre, %17 ]
   %.014.ph = phi i64 [ %3, %13 ], [ %19, %17 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %pk_hashlen_helper.exit, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %23(ptr noundef %27, i32 noundef %1, ptr noundef %2, i64 noundef %.014.ph, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #6
   br label %pk_hashlen_helper.exit
@@ -422,13 +422,13 @@ define hidden i32 @mbedtls_pk_sign(ptr nocapture noundef readonly %0, i32 nounde
 19:                                               ; preds = %16, %12
   %20 = phi ptr [ %10, %12 ], [ %.pre.i, %16 ]
   %.014.ph.i = phi i64 [ %3, %12 ], [ %18, %16 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mbedtls_pk_sign_restartable.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %22(ptr noundef %26, i32 noundef %1, ptr noundef %2, i64 noundef %.014.ph.i, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #6
   br label %mbedtls_pk_sign_restartable.exit
@@ -446,7 +446,7 @@ define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr nocapture noundef rea
   br i1 %12, label %mbedtls_pk_sign.exit, label %mbedtls_pk_can_do.exit
 
 mbedtls_pk_can_do.exit:                           ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(i32 noundef %0) #6
   %.not = icmp eq i32 %15, 0
@@ -479,13 +479,13 @@ mbedtls_pk_can_do.exit:                           ; preds = %10
 27:                                               ; preds = %24, %20
   %28 = phi ptr [ %18, %20 ], [ %.pre.i.i, %24 ]
   %.014.ph.i.i = phi i64 [ %4, %20 ], [ %26, %24 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %mbedtls_pk_sign.exit, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %30(ptr noundef %34, i32 noundef %2, ptr noundef %3, i64 noundef %.014.ph.i.i, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) #6
   br label %mbedtls_pk_sign.exit
@@ -497,7 +497,7 @@ mbedtls_pk_can_do.exit:                           ; preds = %10
 
 switch.lookup:                                    ; preds = %36
   %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.mbedtls_pk_sign_ext, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.mbedtls_pk_sign_ext, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = load ptr, ptr %1, align 8
   %40 = icmp eq ptr %39, null
@@ -509,7 +509,7 @@ mbedtls_pk_get_type.exit:                         ; preds = %switch.lookup
   br i1 %42, label %43, label %mbedtls_pk_get_type.exit.thread
 
 43:                                               ; preds = %mbedtls_pk_get_type.exit
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 4
   %47 = tail call i32 @psa_sign_hash(i32 noundef %46, i32 noundef %switch.load, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7) #6
@@ -517,7 +517,7 @@ mbedtls_pk_get_type.exit:                         ; preds = %switch.lookup
   br label %mbedtls_pk_sign.exit
 
 mbedtls_pk_get_type.exit.thread:                  ; preds = %switch.lookup, %mbedtls_pk_get_type.exit
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %switch.load, ptr noundef %50, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7) #6
   br label %mbedtls_pk_sign.exit
@@ -559,13 +559,13 @@ define hidden i32 @mbedtls_pk_decrypt(ptr nocapture noundef readonly %0, ptr nou
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %13(ptr noundef %17, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   br label %19
@@ -582,13 +582,13 @@ define hidden i32 @mbedtls_pk_encrypt(ptr nocapture noundef readonly %0, ptr nou
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %13(ptr noundef %17, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   br label %19
@@ -612,7 +612,7 @@ define hidden i32 @mbedtls_pk_check_pair(ptr nocapture noundef readonly %0, ptr 
   br i1 %or.cond, label %27, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %27, label %15
@@ -632,9 +632,9 @@ define hidden i32 @mbedtls_pk_check_pair(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %21, label %27
 
 21:                                               ; preds = %20, %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %13(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %2, ptr noundef %3) #6
   br label %27
@@ -655,9 +655,9 @@ define hidden i64 @mbedtls_pk_get_bitlen(ptr noundef readonly %0) local_unnamed_
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %8(ptr noundef %10) #6
   br label %12
@@ -674,13 +674,13 @@ define hidden range(i32 -16128, 1) i32 @mbedtls_pk_debug(ptr nocapture noundef r
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %7(ptr noundef %11, ptr noundef %1) #6
   br label %12
@@ -701,7 +701,7 @@ define hidden ptr @mbedtls_pk_get_name(ptr noundef readonly %0) local_unnamed_ad
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 

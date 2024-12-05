@@ -245,7 +245,7 @@ if.end87:                                         ; preds = %if.then83
   br i1 %cmp.i, label %if.end91, label %copy_bag_attr.exit
 
 copy_bag_attr.exit:                               ; preds = %if.end87
-  %attrib.i = getelementptr inbounds i8, ptr %call84, i64 16
+  %attrib.i = getelementptr inbounds nuw i8, ptr %call84, i64 16
   %call1.i77 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i75) #3
   %call2.i78 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i, ptr noundef %call1.i77) #3
   %cmp3.i.not = icmp eq ptr %call2.i78, null
@@ -257,7 +257,7 @@ if.end91:                                         ; preds = %if.end87, %copy_bag
   br i1 %cmp.i81, label %if.end95, label %copy_bag_attr.exit89
 
 copy_bag_attr.exit89:                             ; preds = %if.end91
-  %attrib.i83 = getelementptr inbounds i8, ptr %call84, i64 16
+  %attrib.i83 = getelementptr inbounds nuw i8, ptr %call84, i64 16
   %call1.i84 = call ptr @EVP_PKEY_get_attr(ptr noundef nonnull %pkey, i32 noundef %call.i80) #3
   %call2.i85 = call ptr @X509at_add1_attr(ptr noundef nonnull %attrib.i83, ptr noundef %call1.i84) #3
   %cmp3.i86.not = icmp eq ptr %call2.i85, null

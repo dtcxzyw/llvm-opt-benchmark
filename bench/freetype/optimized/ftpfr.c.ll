@@ -11,9 +11,9 @@ define i32 @FT_Get_PFR_Metrics(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not, label %47, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %magicptr.i = ptrtoint ptr %10 to i64
   switch i64 %magicptr.i, label %ft_pfr_check.exit [
@@ -22,10 +22,10 @@ define i32 @FT_Get_PFR_Metrics(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   ]
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %19, label %17
@@ -40,7 +40,7 @@ define i32 @FT_Get_PFR_Metrics(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %.0.i = phi ptr [ %18, %17 ], [ null, %11 ]
   %.not19.i = icmp eq ptr %.0.i, null
   %21 = select i1 %.not19.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %22 = getelementptr inbounds i8, ptr %20, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store ptr %21, ptr %22, align 8
   br label %ft_pfr_check.exit
 
@@ -59,7 +59,7 @@ ft_pfr_check.exit.thread:                         ; preds = %6, %ft_pfr_check.ex
   br i1 %.not36, label %30, label %26
 
 26:                                               ; preds = %ft_pfr_check.exit.thread
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
   store i32 %29, ptr %1, align 4
@@ -70,22 +70,22 @@ ft_pfr_check.exit.thread:                         ; preds = %6, %ft_pfr_check.ex
   br i1 %.not37, label %35, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load i16, ptr %32, align 8
   %34 = zext i16 %33 to i32
   store i32 %34, ptr %2, align 4
   br label %35
 
 35:                                               ; preds = %31, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %37 = load ptr, ptr %36, align 8
   %.not38 = icmp eq ptr %37, null
   br i1 %.not38, label %43, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %42 = load i64, ptr %41, align 8
   br label %43
 
@@ -122,9 +122,9 @@ define i32 @FT_Get_PFR_Kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %.not18, label %28, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %magicptr.i = ptrtoint ptr %10 to i64
   switch i64 %magicptr.i, label %ft_pfr_check.exit [
@@ -133,10 +133,10 @@ define i32 @FT_Get_PFR_Kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   ]
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %19, label %17
@@ -151,7 +151,7 @@ define i32 @FT_Get_PFR_Kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %.0.i = phi ptr [ %18, %17 ], [ null, %11 ]
   %.not19.i = icmp eq ptr %.0.i, null
   %21 = select i1 %.not19.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %22 = getelementptr inbounds i8, ptr %20, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store ptr %21, ptr %22, align 8
   br label %ft_pfr_check.exit
 
@@ -161,7 +161,7 @@ ft_pfr_check.exit:                                ; preds = %6, %19
   br i1 %.not19, label %ft_pfr_check.exit.thread, label %23
 
 23:                                               ; preds = %ft_pfr_check.exit
-  %24 = getelementptr inbounds i8, ptr %.015.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) #2
   br label %28
@@ -187,9 +187,9 @@ define i32 @FT_Get_PFR_Advance(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %.not13, label %ft_pfr_check.exit.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %magicptr.i = ptrtoint ptr %9 to i64
   switch i64 %magicptr.i, label %ft_pfr_check.exit [
@@ -198,10 +198,10 @@ define i32 @FT_Get_PFR_Advance(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   ]
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %18, label %16
@@ -216,7 +216,7 @@ define i32 @FT_Get_PFR_Advance(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %.0.i = phi ptr [ %17, %16 ], [ null, %10 ]
   %.not19.i = icmp eq ptr %.0.i, null
   %20 = select i1 %.not19.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %21 = getelementptr inbounds i8, ptr %19, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr %20, ptr %21, align 8
   br label %ft_pfr_check.exit
 
@@ -226,7 +226,7 @@ ft_pfr_check.exit:                                ; preds = %5, %18
   br i1 %.not14, label %ft_pfr_check.exit.thread, label %22
 
 22:                                               ; preds = %ft_pfr_check.exit
-  %23 = getelementptr inbounds i8, ptr %.015.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.015.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   br label %ft_pfr_check.exit.thread

@@ -42,23 +42,23 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next51, %.lr.ph45 ]
-  %18 = getelementptr inbounds float, ptr %2, i64 %indvars.iv50
+  %18 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv50
   %19 = load float, ptr %18, align 4
   %20 = fmul float %6, %19
   store float %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fmul float %6, %22
   store float %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %25 = load float, ptr %24, align 4
   %26 = fmul float %6, %25
   store float %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %28 = load float, ptr %27, align 4
   %29 = fmul float %6, %28
   store float %29, ptr %27, align 4
-  %30 = getelementptr inbounds i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %31 = load float, ptr %30, align 4
   %32 = fmul float %6, %31
   store float %32, ptr %30, align 4
@@ -68,7 +68,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv53 = phi i64 [ %17, %.lr.ph47.preheader ], [ %indvars.iv.next54, %.lr.ph47 ]
-  %34 = getelementptr inbounds float, ptr %2, i64 %indvars.iv53
+  %34 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv53
   %35 = load float, ptr %34, align 4
   %36 = fmul float %6, %35
   store float %36, ptr %34, align 4
@@ -83,7 +83,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
   %41 = fmul float %6, %40
   store float %41, ptr %39, align 4

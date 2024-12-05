@@ -191,7 +191,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8
   ret void
@@ -199,7 +199,7 @@ define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly ini
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @register_reloptions_validator(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @lappend(ptr noundef %4, ptr noundef %1) #12
   store ptr %5, ptr %3, align 8
@@ -233,17 +233,17 @@ define dso_local void @add_bool_reloption(i32 noundef %0, ptr noundef %1, ptr no
 
 14:                                               ; preds = %12, %9
   %.sink.i.i = phi ptr [ %13, %12 ], [ null, %9 ]
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.sink.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %0, ptr %16, align 8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %4, ptr %21, align 4
   %.not24.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not24.i.i, label %init_bool_reloption.exit, label %22
@@ -254,7 +254,7 @@ define dso_local void @add_bool_reloption(i32 noundef %0, ptr noundef %1, ptr no
 
 init_bool_reloption.exit:                         ; preds = %14, %22
   %23 = zext i1 %3 to i8
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %23, ptr %24, align 8
   %25 = load i32, ptr @num_custom_options, align 4
   %26 = load i32, ptr @add_reloption.max_custom_options, align 4
@@ -319,24 +319,24 @@ define dso_local void @add_local_bool_reloption(ptr nocapture noundef %0, ptr no
 
 init_bool_reloption.exit:                         ; preds = %5, %8
   %.sink.i.i = phi ptr [ %9, %8 ], [ null, %5 ]
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sink.i.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %11, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %16, align 4
   %17 = zext i1 %3 to i8
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %17, ptr %18, align 8
   %19 = tail call ptr @palloc(i64 noundef 16) #12
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %4, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = tail call ptr @lappend(ptr noundef %21, ptr noundef nonnull %19) #12
@@ -369,17 +369,17 @@ define dso_local void @add_int_reloption(i32 noundef %0, ptr noundef %1, ptr nou
 
 16:                                               ; preds = %14, %11
   %.sink.i.i = phi ptr [ %15, %14 ], [ null, %11 ]
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sink.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %0, ptr %18, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
   %.not24.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not24.i.i, label %init_int_reloption.exit, label %24
@@ -389,11 +389,11 @@ define dso_local void @add_int_reloption(i32 noundef %0, ptr noundef %1, ptr nou
   br label %init_int_reloption.exit
 
 init_int_reloption.exit:                          ; preds = %16, %24
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i32 %4, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %12, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %5, ptr %27, align 8
   %28 = load i32, ptr @num_custom_options, align 4
   %29 = load i32, ptr @add_reloption.max_custom_options, align 4
@@ -458,27 +458,27 @@ define dso_local void @add_local_int_reloption(ptr nocapture noundef %0, ptr nou
 
 init_int_reloption.exit:                          ; preds = %7, %10
   %.sink.i.i = phi ptr [ %11, %10 ], [ null, %7 ]
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink.i.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %13, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %4, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %5, ptr %21, align 8
   %22 = tail call ptr @palloc(i64 noundef 16) #12
   store ptr %8, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %6, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = tail call ptr @lappend(ptr noundef %24, ptr noundef nonnull %22) #12
@@ -511,17 +511,17 @@ define dso_local void @add_real_reloption(i32 noundef %0, ptr noundef %1, ptr no
 
 16:                                               ; preds = %14, %11
   %.sink.i.i = phi ptr [ %15, %14 ], [ null, %11 ]
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sink.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %0, ptr %18, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
   %.not24.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not24.i.i, label %init_real_reloption.exit, label %24
@@ -531,11 +531,11 @@ define dso_local void @add_real_reloption(i32 noundef %0, ptr noundef %1, ptr no
   br label %init_real_reloption.exit
 
 init_real_reloption.exit:                         ; preds = %16, %24
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store double %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store double %4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store double %5, ptr %27, align 8
   %28 = load i32, ptr @num_custom_options, align 4
   %29 = load i32, ptr @add_reloption.max_custom_options, align 4
@@ -600,27 +600,27 @@ define dso_local void @add_local_real_reloption(ptr nocapture noundef %0, ptr no
 
 init_real_reloption.exit:                         ; preds = %7, %10
   %.sink.i.i = phi ptr [ %11, %10 ], [ null, %7 ]
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink.i.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %13, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 2, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store double %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store double %5, ptr %21, align 8
   %22 = tail call ptr @palloc(i64 noundef 16) #12
   store ptr %8, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %6, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = tail call ptr @lappend(ptr noundef %24, ptr noundef nonnull %22) #12
@@ -653,17 +653,17 @@ define dso_local void @add_enum_reloption(i32 noundef %0, ptr noundef %1, ptr no
 
 16:                                               ; preds = %14, %11
   %.sink.i.i = phi ptr [ %15, %14 ], [ null, %11 ]
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sink.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %0, ptr %18, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
   %.not24.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not24.i.i, label %init_enum_reloption.exit, label %24
@@ -673,11 +673,11 @@ define dso_local void @add_enum_reloption(i32 noundef %0, ptr noundef %1, ptr no
   br label %init_enum_reloption.exit
 
 init_enum_reloption.exit:                         ; preds = %16, %24
-  %25 = getelementptr inbounds i8, ptr %12, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %4, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %5, ptr %27, align 8
   %28 = load i32, ptr @num_custom_options, align 4
   %29 = load i32, ptr @add_reloption.max_custom_options, align 4
@@ -742,27 +742,27 @@ define dso_local void @add_local_enum_reloption(ptr nocapture noundef %0, ptr no
 
 init_enum_reloption.exit:                         ; preds = %7, %10
   %.sink.i.i = phi ptr [ %11, %10 ], [ null, %7 ]
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink.i.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %13, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 3, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %5, ptr %21, align 8
   %22 = tail call ptr @palloc(i64 noundef 16) #12
   store ptr %8, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %6, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = tail call ptr @lappend(ptr noundef %24, ptr noundef nonnull %22) #12
@@ -855,17 +855,17 @@ define internal fastcc ptr @init_string_reloption(i32 noundef %0, ptr noundef %1
 
 18:                                               ; preds = %16, %13
   %.sink.i = phi ptr [ %17, %16 ], [ null, %13 ]
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sink.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %0, ptr %20, align 8
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %14, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 4, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 %6, ptr %25, align 4
   %.not24.i = icmp eq ptr %.0.i, null
   br i1 %.not24.i, label %allocate_reloption.exit, label %26
@@ -875,9 +875,9 @@ define internal fastcc ptr @init_string_reloption(i32 noundef %0, ptr noundef %1
   br label %allocate_reloption.exit
 
 allocate_reloption.exit:                          ; preds = %18, %26
-  %27 = getelementptr inbounds i8, ptr %14, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %5, ptr %28, align 8
   %.not24 = icmp eq ptr %3, null
   br i1 %.not24, label %39, label %29
@@ -896,23 +896,23 @@ allocate_reloption.exit:                          ; preds = %18, %26
 
 35:                                               ; preds = %32, %30
   %.sink = phi ptr [ %31, %30 ], [ %34, %32 ]
-  %36 = getelementptr inbounds i8, ptr %14, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %.sink, ptr %36, align 8
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %38 = trunc i64 %37 to i32
   br label %41
 
 39:                                               ; preds = %allocate_reloption.exit
-  %40 = getelementptr inbounds i8, ptr %14, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr @.str.42, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %39, %35
   %.sink27 = phi i32 [ 0, %39 ], [ %38, %35 ]
   %.sink25 = phi i8 [ 1, %39 ], [ 0, %35 ]
-  %42 = getelementptr inbounds i8, ptr %14, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.sink27, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i8 %.sink25, ptr %43, align 4
   ret ptr %14
 }
@@ -939,48 +939,48 @@ define dso_local void @add_local_string_reloption(ptr nocapture noundef %0, ptr 
 
 14:                                               ; preds = %12, %9
   %.sink.i.i = phi ptr [ %13, %12 ], [ null, %9 ]
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.sink.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %16, align 8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 4, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %10, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %4, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %5, ptr %23, align 8
   %.not24.i = icmp eq ptr %3, null
   br i1 %.not24.i, label %29, label %24
 
 24:                                               ; preds = %14
   %25 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #12
-  %26 = getelementptr inbounds i8, ptr %10, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %25, ptr %26, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %28 = trunc i64 %27 to i32
   br label %init_string_reloption.exit
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %10, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr @.str.42, ptr %30, align 8
   br label %init_string_reloption.exit
 
 init_string_reloption.exit:                       ; preds = %24, %29
   %.sink27.i = phi i32 [ 0, %29 ], [ %28, %24 ]
   %.sink25.i = phi i8 [ 1, %29 ], [ 0, %24 ]
-  %31 = getelementptr inbounds i8, ptr %10, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %.sink27.i, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i8 %.sink25.i, ptr %32, align 4
   %33 = tail call ptr @palloc(i64 noundef 16) #12
   store ptr %10, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %6, ptr %34, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = tail call ptr @lappend(ptr noundef %35, ptr noundef nonnull %33) #12
@@ -1008,8 +1008,8 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %15, label %.lr.ph131, label %.loopexit119
 
 .lr.ph131:                                        ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = icmp eq ptr %2, null
   br i1 %18, label %.lr.ph131.split.us, label %.lr.ph131.split
 
@@ -1021,7 +1021,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %21 = getelementptr i64, ptr %20, i64 %indvars.iv158
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %23, align 4
   %26 = lshr i32 %25, 2
   %27 = add nsw i32 %26, -4
@@ -1052,13 +1052,13 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %54 ], [ 0, %.lr.ph.us ]
   %36 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv153
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not104.us.us = icmp eq ptr %39, null
   br i1 %.not104.us.us, label %40, label %54
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #13
   %44 = trunc i64 %43 to i32
@@ -1091,7 +1091,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %57 = getelementptr i64, ptr %56, i64 %indvars.iv150
   %58 = load i64, ptr %57, align 8
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %59, align 4
   %62 = lshr i32 %61, 2
   %63 = add nsw i32 %62, -4
@@ -1108,7 +1108,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %67 = getelementptr %union.ListCell, ptr %65, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %88, label %72
@@ -1119,7 +1119,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %.not103, label %74, label %88
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %68, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #13
   %78 = trunc i64 %77 to i32
@@ -1160,13 +1160,13 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
 
 .loopexit119:                                     ; preds = %.loopexit.split, %.loopexit.split.us.us, %11, %10
   %.079 = phi ptr [ null, %10 ], [ null, %11 ], [ %.2.us, %.loopexit.split.us.us ], [ %.2, %.loopexit.split ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %95 = load i32, ptr %94, align 4
   %.not92137 = icmp sgt i32 %95, 0
   br i1 %.not92137, label %.lr.ph140, label %._crit_edge
 
 .lr.ph140:                                        ; preds = %.loopexit119
-  %96 = getelementptr inbounds i8, ptr %1, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not95 = icmp eq ptr %3, null
   %97 = icmp eq ptr %2, null
   br i1 %5, label %.lr.ph140.split.us, label %.lr.ph140.split
@@ -1180,7 +1180,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %100 = zext nneg i32 %.sroa.4.0138.us to i64
   %101 = getelementptr %union.ListCell, ptr %98, i64 %100
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
   %.not100.us = icmp eq ptr %104, null
   br i1 %.not100.us, label %.thread117.us, label %.split.us
@@ -1196,7 +1196,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %106 = load ptr, ptr %96, align 8
   %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv161
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not94 = icmp eq ptr %110, null
   br i1 %.not94, label %.thread115, label %114
@@ -1253,7 +1253,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %.not97, label %.thread116, label %.thread117
 
 .thread116:                                       ; preds = %.thread115, %129
-  %131 = getelementptr inbounds i8, ptr %108, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %132 = load ptr, ptr %131, align 8
   %.not99 = icmp eq ptr %132, null
   br i1 %.not99, label %135, label %133
@@ -1272,7 +1272,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   br i1 %138, label %139, label %150
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %108, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(5) @.str.5) #13
   %143 = icmp eq i32 %142, 0
@@ -1291,7 +1291,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   unreachable
 
 150:                                              ; preds = %139, %136, %135
-  %151 = getelementptr inbounds i8, ptr %108, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #13
   %154 = add i64 %153, 5
@@ -1302,7 +1302,7 @@ define dso_local i64 @transformRelOptions(i64 noundef %0, ptr noundef readonly %
   %159 = trunc i64 %156 to i32
   %160 = shl i32 %159, 2
   store i32 %160, ptr %158, align 4
-  %161 = getelementptr inbounds i8, ptr %158, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %162 = load ptr, ptr %151, align 8
   %163 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %161, ptr noundef nonnull @.str.7, ptr noundef %162, ptr noundef %.077) #12
   %164 = ptrtoint ptr %158 to i64
@@ -1417,9 +1417,9 @@ declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 1
   %.not.i = icmp eq i16 %8, 0
@@ -1432,7 +1432,7 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %12, label %13, label %43
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %5, i64 %16
@@ -1501,11 +1501,11 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noca
 49:                                               ; preds = %35, %32, %29, %26, %41, %43, %47
   %.0.i.ph = phi i64 [ %42, %41 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %44, %43 ], [ %48, %47 ]
   %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 22
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 22
   %52 = load i8, ptr %51, align 2
   %53 = zext i8 %52 to i64
   %54 = getelementptr i8, ptr %50, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 115
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 115
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %fastgetattr.exit [
     i8 105, label %67
@@ -1522,11 +1522,11 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %.not.i14, label %fastgetattr.exit, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 100, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 28
   store i32 -1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 88
   store double -1.000000e+00, ptr %62, align 8
   br label %fastgetattr.exit
 
@@ -1565,11 +1565,11 @@ define dso_local noundef ptr @heap_reloptions(i8 noundef signext %0, i64 noundef
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 100, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store double -1.000000e+00, ptr %9, align 8
   br label %12
 
@@ -1646,7 +1646,7 @@ define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroex
   %11 = phi ptr [ %19, %.lr.ph.i ], [ %10, %8 ]
   %.02437.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %8 ]
   %.02636.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %8 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, %2
   %.not34.i = icmp ne i32 %14, 0
@@ -1676,7 +1676,7 @@ define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroex
   %27 = phi ptr [ %40, %36 ], [ %26, %21 ]
   %.040.i = phi i32 [ %.1.i, %36 ], [ 0, %21 ]
   %.12539.i = phi i32 [ %37, %36 ], [ 0, %21 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, %2
   %.not33.i = icmp eq i32 %30, 0
@@ -1686,7 +1686,7 @@ define dso_local noundef ptr @build_reloptions(i64 noundef %0, i1 noundef zeroex
   %32 = sext i32 %.040.i to i64
   %33 = getelementptr %struct.relopt_value, ptr %24, i64 %32
   store ptr %27, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 0, ptr %34, align 8
   %35 = add i32 %.040.i, 1
   br label %36
@@ -1727,16 +1727,16 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
   %.022.i = phi i64 [ %3, %.lr.ph.preheader.i ], [ %.1.i16, %84 ]
   %45 = getelementptr %struct.relopt_value, ptr %.028.i, i64 %indvars.iv.i
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
   br i1 %49, label %50, label %84
 
 50:                                               ; preds = %.lr.ph.i15
-  %51 = getelementptr inbounds i8, ptr %46, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %52 = load ptr, ptr %51, align 8
   %.not.i17 = icmp eq ptr %52, null
-  %53 = getelementptr inbounds i8, ptr %45, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %.not.i17, label %71, label %56
@@ -1745,18 +1745,18 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
   br i1 %55, label %57, label %60
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %45, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %59 = load ptr, ptr %58, align 8
   br label %67
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %46, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %46, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -1770,13 +1770,13 @@ parseRelOptions.exit:                             ; preds = %.loopexit.i, %41
   br i1 %55, label %72, label %76
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %45, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #13
   br label %80
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %46, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %78 = load i32, ptr %77, align 8
   %79 = sext i32 %78 to i64
   br label %80
@@ -1842,11 +1842,11 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %19, label %20, label %14
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %0, i64 %23
-  %25 = getelementptr inbounds i8, ptr %12, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %.split112.us [
     i32 0, label %84
@@ -1857,35 +1857,35 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   ]
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %12, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   br i1 %34, label %.thread.us, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %12, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 56
   br label %41
 
 .thread.us:                                       ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %12, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not91.us = icmp eq ptr %38, null
   br i1 %.not91.us, label %.thread94.us, label %44
 
 39:                                               ; preds = %27
-  %40 = getelementptr inbounds i8, ptr %11, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %41
 
 41:                                               ; preds = %39, %35
   %.079.in.us = phi ptr [ %40, %39 ], [ %36, %35 ]
   %.079.us = load ptr, ptr %.079.in.us, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %43 = load ptr, ptr %42, align 8
   %.not.us = icmp eq ptr %43, null
   br i1 %.not.us, label %53, label %44
@@ -1929,44 +1929,44 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread96.us
 
 63:                                               ; preds = %20
-  %64 = getelementptr inbounds i8, ptr %11, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
-  %67 = getelementptr inbounds i8, ptr %11, i64 16
-  %68 = getelementptr inbounds i8, ptr %12, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.in.us = select i1 %66, ptr %67, ptr %68
   %69 = load i32, ptr %.in.us, align 8
   store i32 %69, ptr %24, align 4
   br label %.thread96.us
 
 70:                                               ; preds = %20
-  %71 = getelementptr inbounds i8, ptr %11, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
-  %74 = getelementptr inbounds i8, ptr %11, i64 16
-  %75 = getelementptr inbounds i8, ptr %12, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.in86.us = select i1 %73, ptr %74, ptr %75
   %76 = load double, ptr %.in86.us, align 8
   store double %76, ptr %24, align 8
   br label %.thread96.us
 
 77:                                               ; preds = %20
-  %78 = getelementptr inbounds i8, ptr %11, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
-  %81 = getelementptr inbounds i8, ptr %11, i64 16
-  %82 = getelementptr inbounds i8, ptr %12, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.in87.us = select i1 %80, ptr %81, ptr %82
   %83 = load i32, ptr %.in87.us, align 8
   store i32 %83, ptr %24, align 4
   br label %.thread96.us
 
 84:                                               ; preds = %20
-  %85 = getelementptr inbounds i8, ptr %11, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
-  %88 = getelementptr inbounds i8, ptr %11, i64 16
-  %89 = getelementptr inbounds i8, ptr %12, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.in88.in.in.us = select i1 %87, ptr %88, ptr %89
   %.in88.in.us = load i8, ptr %.in88.in.in.us, align 8
   %.in88.us = and i8 %.in88.in.us, 1
@@ -1989,7 +1989,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %90)
   %91 = load ptr, ptr %11, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %93) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1821, ptr noundef nonnull @__func__.fillRelOptions) #12
@@ -2027,7 +2027,7 @@ define dso_local noundef ptr @build_local_reloptions(ptr nocapture noundef reado
   br i1 %.not.i, label %list_length.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   br label %list_length.exit
 
@@ -2037,12 +2037,12 @@ list_length.exit:                                 ; preds = %3, %5
   %10 = shl nsw i64 %9, 4
   %11 = tail call ptr @palloc(i64 noundef %10) #12
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %list_length.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %13, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph70, label %._crit_edge.thread84
@@ -2057,13 +2057,13 @@ list_length.exit:                                 ; preds = %3, %5
   %22 = getelementptr %struct.relopt_parse_elt, ptr %11, i64 %indvars.iv
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %13, align 4
@@ -2078,7 +2078,7 @@ list_length.exit:                                 ; preds = %3, %5
 
 ._crit_edge.thread84:                             ; preds = %.lr.ph, %._crit_edge
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %12, %.lr.ph ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   br label %list_length.exit.i
 
@@ -2088,12 +2088,12 @@ list_length.exit.i:                               ; preds = %list_length.exit, %
   %38 = mul nsw i64 %37, 24
   %39 = tail call ptr @palloc(i64 noundef %38) #12
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %.not.i53 = icmp eq ptr %40, null
   br i1 %.not.i53, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_length.exit.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph31.i, label %._crit_edge.i
@@ -2106,7 +2106,7 @@ list_length.exit.i:                               ; preds = %list_length.exit, %
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr %struct.relopt_value, ptr %39, i64 %indvars.iv.i
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 0, ptr %50, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = load i32, ptr %41, align 4
@@ -2123,7 +2123,7 @@ list_length.exit.i:                               ; preds = %list_length.exit, %
   br label %parseLocalRelOptions.exit
 
 parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %54
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = icmp sgt i32 %8, 0
   br i1 %57, label %.lr.ph.preheader.i, label %allocateReloptStruct.exit
@@ -2137,16 +2137,16 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %54
   %.022.i = phi i64 [ %56, %.lr.ph.preheader.i ], [ %.1.i, %97 ]
   %58 = getelementptr %struct.relopt_value, ptr %39, i64 %indvars.iv.i56
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 4
   br i1 %62, label %63, label %97
 
 63:                                               ; preds = %.lr.ph.i55
-  %64 = getelementptr inbounds i8, ptr %59, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not.i58 = icmp eq ptr %65, null
-  %66 = getelementptr inbounds i8, ptr %58, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %67 = load i8, ptr %66, align 8
   %68 = trunc i8 %67 to i1
   br i1 %.not.i58, label %84, label %69
@@ -2155,18 +2155,18 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %54
   br i1 %68, label %70, label %73
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %58, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %72 = load ptr, ptr %71, align 8
   br label %80
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %59, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 36
   %75 = load i8, ptr %74, align 4
   %76 = trunc i8 %75 to i1
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %59, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %79 = load ptr, ptr %78, align 8
   br label %80
 
@@ -2180,13 +2180,13 @@ parseLocalRelOptions.exit:                        ; preds = %._crit_edge.i, %54
   br i1 %68, label %85, label %89
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %58, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
   br label %93
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %59, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %91 = load i32, ptr %90, align 8
   %92 = sext i32 %91 to i64
   br label %93
@@ -2211,14 +2211,14 @@ allocateReloptStruct.exit:                        ; preds = %97, %parseLocalRelO
   br i1 %2, label %100, label %.thread62
 
 100:                                              ; preds = %allocateReloptStruct.exit
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %.not50 = icmp eq ptr %102, null
   br i1 %.not50, label %.thread62, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %105 = load i32, ptr %103, align 4
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph76, label %.thread62
@@ -2275,13 +2275,13 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   br label %5
 
 5:                                                ; preds = %4, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %.not28 = icmp sgt i32 %7, 0
   br i1 %.not28, label %.lr.ph32, label %.loopexit
 
 .lr.ph32:                                         ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @relOpts, align 8
   %11 = load ptr, ptr %10, align 8
@@ -2297,7 +2297,7 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   %.01730 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %._crit_edge ]
   %12 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -2306,7 +2306,7 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   %.027 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
   %.126 = phi i32 [ %.01730, %.lr.ph ], [ %.2, %28 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -2315,7 +2315,7 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %17, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %27 = load i32, ptr %26, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.126, i32 %27)
   br label %28
@@ -2457,13 +2457,13 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %43 = sext i32 %.5118 to i64
   %44 = getelementptr ptr, ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 0, ptr %45, align 4
   %46 = load ptr, ptr %44, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #13
   %49 = trunc i64 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %46, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 %49, ptr %50, align 8
   %51 = add i32 %.5118, 1
   %52 = sext i32 %51 to i64
@@ -2485,13 +2485,13 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %57 = sext i32 %.6124 to i64
   %58 = getelementptr ptr, ptr %39, i64 %57
   store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 1, ptr %59, align 4
   %60 = load ptr, ptr %58, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #13
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i32 %63, ptr %64, align 8
   %65 = add i32 %.6124, 1
   %66 = add i32 %.669123, 1
@@ -2514,13 +2514,13 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %72 = sext i32 %.7129 to i64
   %73 = getelementptr ptr, ptr %39, i64 %72
   store ptr %71, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 28
   store i32 2, ptr %74, align 4
   %75 = load ptr, ptr %73, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #13
   %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %75, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i32 %78, ptr %79, align 8
   %80 = add i32 %.7129, 1
   %81 = add i32 %.770128, 1
@@ -2543,13 +2543,13 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %87 = sext i32 %.8134 to i64
   %88 = getelementptr ptr, ptr %39, i64 %87
   store ptr %86, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 28
   store i32 3, ptr %89, align 4
   %90 = load ptr, ptr %88, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #13
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %90, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i32 %93, ptr %94, align 8
   %95 = add i32 %.8134, 1
   %96 = add i32 %.871133, 1
@@ -2577,13 +2577,13 @@ define internal fastcc void @initialize_reloptions() unnamed_addr #0 {
   %104 = sext i32 %.9139 to i64
   %105 = getelementptr ptr, ptr %39, i64 %104
   store ptr %103, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %103, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 28
   store i32 4, ptr %106, align 4
   %107 = load ptr, ptr %105, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #13
   %110 = trunc i64 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %107, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i32 %110, ptr %111, align 8
   %112 = add i32 %.9139, 1
   %113 = add i32 %.972138, 1
@@ -2651,7 +2651,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %14 = getelementptr i64, ptr %13, i64 %indvars.iv123
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %16, align 4
   %19 = lshr i32 %18, 2
   %20 = add nsw i32 %19, -4
@@ -2661,7 +2661,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 0, %12 ]
   %21 = getelementptr %struct.relopt_value, ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %20, %24
   br i1 %25, label %26, label %179
@@ -2680,7 +2680,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br i1 %34, label %35, label %179
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   %brmerge.not.i = and i1 %1, %38
@@ -2702,7 +2702,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %48 = sext i32 %46 to i64
   %49 = call ptr @palloc(i64 noundef %48) #12
   %50 = load ptr, ptr %21, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = getelementptr i8, ptr %17, i64 %53
@@ -2712,7 +2712,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %57 = getelementptr i8, ptr %49, i64 %56
   store i8 0, ptr %57, align 1
   %58 = load ptr, ptr %21, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
   switch i32 %60, label %171 [
     i32 0, label %61
@@ -2723,7 +2723,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   ]
 
 61:                                               ; preds = %45
-  %62 = getelementptr inbounds i8, ptr %21, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %63 = call zeroext i1 @parse_bool(ptr noundef nonnull %49, ptr noundef nonnull %62) #12
   %64 = zext i1 %63 to i8
   %brmerge91.i = select i1 %.not89.i, i1 true, i1 %63
@@ -2740,7 +2740,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   unreachable
 
 71:                                               ; preds = %45
-  %72 = getelementptr inbounds i8, ptr %21, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %73 = call zeroext i1 @parse_int(ptr noundef nonnull %49, ptr noundef nonnull %72, i32 noundef 0, ptr noundef null) #12
   %74 = zext i1 %73 to i8
   %brmerge93.i = select i1 %.not89.i, i1 true, i1 %73
@@ -2761,19 +2761,19 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
 
 82:                                               ; preds = %81
   %83 = load i32, ptr %72, align 8
-  %84 = getelementptr inbounds i8, ptr %58, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %85 = load i32, ptr %84, align 4
   %86 = icmp slt i32 %83, %85
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %58, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %89 = load i32, ptr %88, align 8
   %90 = icmp sgt i32 %83, %89
   br i1 %90, label %91, label %.thread.i
 
 91:                                               ; preds = %87, %82
-  %92 = getelementptr inbounds i8, ptr %58, i64 36
+  %92 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %93)
   %94 = call i32 @errcode(i32 noundef 50856066) #12
@@ -2781,14 +2781,14 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %96) #12
   %98 = load i32, ptr %92, align 4
-  %99 = getelementptr inbounds i8, ptr %58, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %100 = load i32, ptr %99, align 8
   %101 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.50, i32 noundef %98, i32 noundef %100) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1619, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
 102:                                              ; preds = %45
-  %103 = getelementptr inbounds i8, ptr %21, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %104 = call zeroext i1 @parse_real(ptr noundef nonnull %49, ptr noundef nonnull %103, i32 noundef 0, ptr noundef null) #12
   %105 = zext i1 %104 to i8
   %brmerge95.i = select i1 %.not89.i, i1 true, i1 %104
@@ -2809,19 +2809,19 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
 
 113:                                              ; preds = %112
   %114 = load double, ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %58, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %116 = load double, ptr %115, align 8
   %117 = fcmp olt double %114, %116
   br i1 %117, label %122, label %118
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %58, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %120 = load double, ptr %119, align 8
   %121 = fcmp ogt double %114, %120
   br i1 %121, label %122, label %.thread.i
 
 122:                                              ; preds = %118, %113
-  %123 = getelementptr inbounds i8, ptr %58, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %124)
   %125 = call i32 @errcode(i32 noundef 50856066) #12
@@ -2829,14 +2829,14 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %127) #12
   %129 = load double, ptr %123, align 8
-  %130 = getelementptr inbounds i8, ptr %58, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %131 = load double, ptr %130, align 8
   %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.52, double noundef %129, double noundef %131) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
 133:                                              ; preds = %45
-  %134 = getelementptr inbounds i8, ptr %58, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %135, align 8
   %.not86105.i = icmp eq ptr %136, null
@@ -2850,9 +2850,9 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %.lr.ph.i
-  %141 = getelementptr inbounds i8, ptr %.079106.i, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.079106.i, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %21, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %142, ptr %143, align 8
   br label %.loopexit.i
 
@@ -2877,7 +2877,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %152 = load ptr, ptr %21, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %153, ptr noundef %49) #12
-  %155 = getelementptr inbounds i8, ptr %58, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %156 = load ptr, ptr %155, align 8
   %.not87.i = icmp eq ptr %156, null
   br i1 %.not87.i, label %159, label %157
@@ -2894,19 +2894,19 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   br i1 %147, label %.thread.i, label %161
 
 161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %58, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %21, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %163, ptr %164, align 8
   br label %.thread.i
 
 165:                                              ; preds = %45
-  %166 = getelementptr inbounds i8, ptr %21, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %49, ptr %166, align 8
   br i1 %1, label %167, label %parse_one_reloption.exit.thread
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds i8, ptr %58, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %169 = load ptr, ptr %168, align 8
   %.not.i = icmp eq ptr %169, null
   br i1 %.not.i, label %parse_one_reloption.exit.thread, label %170
@@ -2919,7 +2919,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %172)
   %173 = load ptr, ptr %21, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 28
   %175 = load i32, ptr %174, align 4
   %176 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %175) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1685, ptr noundef nonnull @__func__.parse_one_reloption) #12

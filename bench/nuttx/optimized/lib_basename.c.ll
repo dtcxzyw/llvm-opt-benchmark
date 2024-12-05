@@ -41,7 +41,7 @@ define ptr @basename(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %10, %5
   %14 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #2
   %.not16 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %spec.select = select i1 %.not16, ptr %0, ptr %15
   br label %.loopexit
 

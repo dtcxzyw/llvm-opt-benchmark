@@ -93,10 +93,10 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
@@ -113,10 +113,10 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
@@ -140,11 +140,11 @@ _ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit: ; preds = %16, %29, %37, 
 45:                                               ; preds = %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
   %46 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 808
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 808
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %51 to i64
   %55 = ptrtoint ptr %53 to i64
@@ -153,7 +153,7 @@ _ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit: ; preds = %16, %29, %37, 
   br i1 %.not.i.i.i.i, label %59, label %57
 
 57:                                               ; preds = %45
-  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %58, ptr %52, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -169,9 +169,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %59, %57
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %2, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit ], [ null, %2 ], [ null, %24 ]
   %61 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 12, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %63, align 8
   store ptr %storemerge.i, ptr %62, align 8
   ret ptr %61
@@ -184,10 +184,10 @@ define hidden noundef ptr @_ZN10StackValue42create_stack_value_from_narrowOop_lo
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6
   br label %_ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit
@@ -221,11 +221,11 @@ _ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit: ; preds = %4, %12,
 30:                                               ; preds = %_ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 808
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 808
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
@@ -234,7 +234,7 @@ _ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit: ; preds = %4, %12,
   br i1 %.not.i.i.i.i, label %44, label %42
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %43, ptr %37, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -250,9 +250,9 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %44, %42
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
   %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit ]
   %46 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i8 12, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 0, ptr %48, align 8
   store ptr %storemerge.i, ptr %47, align 8
   ret ptr %46
@@ -261,10 +261,10 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZL27oop_from_narro
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN10StackValue20resolve_monitor_lockEPK5frame8Location(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #1 align 2 {
   %3 = lshr i32 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
   ret ptr %7
 }
 
@@ -365,14 +365,14 @@ define weak_odr hidden noundef ptr @_ZN10StackValue18create_stack_valueI11Regist
 define linkonce_odr hidden noundef ptr @_ZN10StackValue18create_stack_valueI11RegisterMapEEPS_P10ScopeValuePhPKT_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
 _ZNK16stackChunkHandleclEv.exit:
   %3 = alloca %class.Location, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4968
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4968
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %7, label %8, label %63
 
 8:                                                ; preds = %_ZNK16stackChunkHandleclEv.exit
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i36 = load i32, ptr %9, align 8
   store i32 %.sroa.0.0.copyload.i36, ptr %3, align 4
   %10 = and i32 %.sroa.0.0.copyload.i36, 15
@@ -396,10 +396,10 @@ _ZNK16stackChunkHandleclEv.exit:
   %15 = bitcast float %13 to i32
   %.sroa.010.0.insert.ext = zext i32 %15 to i64
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.010.0.insert.ext, -2401018183117963264
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %16, align 8
   store i8 10, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.010.0.insert.insert, ptr %17, align 8
   br label %134
 
@@ -408,30 +408,30 @@ _ZNK16stackChunkHandleclEv.exit:
   %20 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.08.0.insert.ext = and i64 %19, 4294967295
   %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.ext, -2401018183117963264
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr null, ptr %21, align 8
   store i8 10, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %.sroa.08.0.insert.insert, ptr %22, align 8
   br label %134
 
 23:                                               ; preds = %8
   %24 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %25 = load i64, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %26, align 8
   store i8 10, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %25, ptr %27, align 8
   br label %134
 
 28:                                               ; preds = %8
   %29 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %30 = load i64, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %31, align 8
   store i8 10, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %30, ptr %32, align 8
   br label %134
 
@@ -476,19 +476,19 @@ _ZNK16stackChunkHandleclEv.exit40:                ; preds = %39, %41
   %50 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.06.0.insert.ext = zext i32 %49 to i64
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.06.0.insert.ext, -2401018183117963264
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr null, ptr %51, align 8
   store i8 10, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.06.0.insert.insert, ptr %52, align 8
   br label %134
 
 53:                                               ; preds = %8
   %54 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr null, ptr %55, align 8
   store i8 19, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %56, align 8
   br label %134
 
@@ -510,88 +510,88 @@ _ZNK16stackChunkHandleclEv.exit40:                ; preds = %39, %41
 
 63:                                               ; preds = %_ZNK16stackChunkHandleclEv.exit
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.05.0.insert.ext = zext i32 %70 to i64
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.05.0.insert.ext, -2401018183117963264
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr null, ptr %72, align 8
   store i8 10, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 %.sroa.05.0.insert.insert, ptr %73, align 8
   br label %134
 
 74:                                               ; preds = %63
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %74
   %80 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i41 = load ptr, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i8 12, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 0, ptr %83, align 8
   store ptr %.sroa.0.0.copyload.i41, ptr %82, align 8
   br label %134
 
 84:                                               ; preds = %74
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr null, ptr %93, align 8
   store i8 10, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %91, ptr %94, align 8
   br label %134
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %98 = load ptr, ptr %97, align 8
   %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %99, label %100, label %106
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr null, ptr %104, align 8
   store i8 10, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 %102, ptr %105, align 8
   br label %134
 
 106:                                              ; preds = %95
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %111 = load ptr, ptr %0, align 8
   br i1 %110, label %112, label %127
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %111, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 120
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr %114(ptr noundef nonnull align 8 dereferenceable(59) %0) #6
   %116 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
@@ -599,7 +599,7 @@ _ZNK16stackChunkHandleclEv.exit40:                ; preds = %39, %41
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %0, i64 57
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %120 = load i8, ptr %119, align 1
   %121 = and i8 %120, 1
   %122 = zext nneg i8 %121 to i64
@@ -607,15 +607,15 @@ _ZNK16stackChunkHandleclEv.exit40:                ; preds = %39, %41
 
 123:                                              ; preds = %118, %112
   %124 = phi i64 [ 0, %112 ], [ %122, %118 ]
-  %125 = getelementptr inbounds i8, ptr %116, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i8 12, ptr %116, align 8
-  %126 = getelementptr inbounds i8, ptr %116, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i64 %124, ptr %126, align 8
   store ptr %115, ptr %125, align 8
   br label %134
 
 127:                                              ; preds = %106
-  %128 = getelementptr inbounds i8, ptr %111, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = tail call noundef zeroext i1 %129(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %131 = load ptr, ptr @g_assert_poison, align 8
@@ -643,14 +643,14 @@ define weak_odr hidden noundef ptr @_ZN10StackValue19stack_value_addressI11Regis
   br i1 %6, label %7, label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 8
   %9 = and i32 %.sroa.0.0.copyload.i, 15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 4968
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4968
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK11RegisterMap7in_contEv.exit.thread, label %_ZNK11RegisterMap7in_contEv.exit
@@ -668,12 +668,12 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
 17:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread
   %18 = lshr i32 %.sroa.0.0.copyload.i, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %19
+  %20 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i32
   %23 = sub i32 %22, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %24 = sdiv i32 %23, 64
-  %25 = getelementptr inbounds i8, ptr %1, i64 4872
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4872
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds [10 x i64], ptr %25, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
@@ -695,12 +695,12 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
 39:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = lshr i32 %.sroa.0.0.copyload.i, 3
   %43 = and i32 %42, 536870908
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %44
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
 46:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit
@@ -711,12 +711,12 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %11, %_ZNK11Register
 48:                                               ; preds = %46
   %49 = lshr i32 %.sroa.0.0.copyload.i, 5
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %50
+  %51 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
   %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %55 = sdiv i32 %54, 64
-  %56 = getelementptr inbounds i8, ptr %1, i64 4872
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4872
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds [10 x i64], ptr %56, i64 0, i64 %57
   %59 = load i64, ptr %58, align 8
@@ -753,7 +753,7 @@ _ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i64, ptr %76, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = sext i32 %71 to i64
   %86 = sub nsw i64 0, %85
   %87 = getelementptr inbounds i64, ptr %84, i64 %86
@@ -764,7 +764,7 @@ _ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit
 90:                                               ; preds = %46
   %91 = lshr i32 %.sroa.0.0.copyload.i, 3
   %92 = and i32 %91, 536870908
-  %93 = getelementptr inbounds i8, ptr %0, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %94 = load i32, ptr %93, align 8
   %95 = ptrtoint ptr %15 to i64
   %96 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
@@ -778,12 +778,12 @@ _ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds i64, ptr %99, i64 %105
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = sext i32 %94 to i64
   %109 = sub nsw i64 0, %108
   %110 = getelementptr inbounds i64, ptr %107, i64 %109
   %111 = zext nneg i32 %92 to i64
-  %112 = getelementptr inbounds i8, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %111
   br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit
 
 _ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %37, %33, %_ZNK17stackChunkOopDesc15reg_to_locationERK5framePK11RegisterMapP9VMRegImpl.exit, %90, %39, %7, %3
@@ -799,7 +799,7 @@ define weak_odr hidden noundef ptr @_ZN10StackValue18create_stack_valueI16SmallR
   br i1 %6, label %7, label %_ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load i32, ptr %8, align 8
   %9 = and i32 %.sroa.0.0.copyload.i.i, 15
   %10 = icmp eq i32 %9, 0
@@ -816,12 +816,12 @@ define weak_odr hidden noundef ptr @_ZN10StackValue18create_stack_valueI16SmallR
   br label %_ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = lshr i32 %.sroa.0.0.copyload.i.i, 3
   %20 = and i32 %19, 536870908
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   br label %_ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit
 
 _ZN10StackValue19stack_value_addressI16SmallRegisterMapEEPhPK5framePKT_P10ScopeValue.exit: ; preds = %3, %7, %13, %16
@@ -840,7 +840,7 @@ _ZNK16stackChunkHandleclEv.exit:
   br i1 %6, label %7, label %52
 
 7:                                                ; preds = %_ZNK16stackChunkHandleclEv.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 8
   store i32 %.sroa.0.0.copyload.i, ptr %3, align 4
   %9 = and i32 %.sroa.0.0.copyload.i, 15
@@ -864,10 +864,10 @@ _ZNK16stackChunkHandleclEv.exit:
   %14 = bitcast float %12 to i32
   %.sroa.010.0.insert.ext = zext i32 %14 to i64
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.010.0.insert.ext, -2401018183117963264
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %15, align 8
   store i8 10, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.010.0.insert.insert, ptr %16, align 8
   br label %123
 
@@ -876,30 +876,30 @@ _ZNK16stackChunkHandleclEv.exit:
   %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.08.0.insert.ext = and i64 %18, 4294967295
   %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.ext, -2401018183117963264
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %20, align 8
   store i8 10, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.08.0.insert.insert, ptr %21, align 8
   br label %123
 
 22:                                               ; preds = %7
   %23 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %24 = load i64, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr null, ptr %25, align 8
   store i8 10, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %24, ptr %26, align 8
   br label %123
 
 27:                                               ; preds = %7
   %28 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %29 = load i64, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr null, ptr %30, align 8
   store i8 10, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %29, ptr %31, align 8
   br label %123
 
@@ -924,19 +924,19 @@ _ZNK16stackChunkHandleclEv.exit37:                ; preds = %7
   %39 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.06.0.insert.ext = zext i32 %38 to i64
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.06.0.insert.ext, -2401018183117963264
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr null, ptr %40, align 8
   store i8 10, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %.sroa.06.0.insert.insert, ptr %41, align 8
   br label %123
 
 42:                                               ; preds = %7
   %43 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr null, ptr %44, align 8
   store i8 19, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %45, align 8
   br label %123
 
@@ -958,88 +958,88 @@ _ZNK16stackChunkHandleclEv.exit37:                ; preds = %7
 
 52:                                               ; preds = %_ZNK16stackChunkHandleclEv.exit
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
   %.sroa.05.0.insert.ext = zext i32 %59 to i64
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.05.0.insert.ext, -2401018183117963264
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr null, ptr %61, align 8
   store i8 10, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 %.sroa.05.0.insert.insert, ptr %62, align 8
   br label %123
 
 63:                                               ; preds = %52
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %63
   %69 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i38 = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i8 12, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %72, align 8
   store ptr %.sroa.0.0.copyload.i38, ptr %71, align 8
   br label %123
 
 73:                                               ; preds = %63
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr null, ptr %82, align 8
   store i8 10, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %80, ptr %83, align 8
   br label %123
 
 84:                                               ; preds = %73
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr null, ptr %93, align 8
   store i8 10, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %91, ptr %94, align 8
   br label %123
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %100 = load ptr, ptr %0, align 8
   br i1 %99, label %101, label %116
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %100, i64 120
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 120
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr %103(ptr noundef nonnull align 8 dereferenceable(59) %0) #6
   %105 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #6
@@ -1047,7 +1047,7 @@ _ZNK16stackChunkHandleclEv.exit37:                ; preds = %7
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %0, i64 57
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, 1
   %111 = zext nneg i8 %110 to i64
@@ -1055,15 +1055,15 @@ _ZNK16stackChunkHandleclEv.exit37:                ; preds = %7
 
 112:                                              ; preds = %107, %101
   %113 = phi i64 [ 0, %101 ], [ %111, %107 ]
-  %114 = getelementptr inbounds i8, ptr %105, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i8 12, ptr %105, align 8
-  %115 = getelementptr inbounds i8, ptr %105, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 %113, ptr %115, align 8
   store ptr %104, ptr %114, align 8
   br label %123
 
 116:                                              ; preds = %95
-  %117 = getelementptr inbounds i8, ptr %100, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = tail call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %120 = load ptr, ptr @g_assert_poison, align 8
@@ -1091,7 +1091,7 @@ define weak_odr hidden noundef ptr @_ZN10StackValue19stack_value_addressI16Small
   br i1 %6, label %7, label %23
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %8, align 8
   %9 = and i32 %.sroa.0.0.copyload.i, 15
   %10 = icmp eq i32 %9, 0
@@ -1108,12 +1108,12 @@ define weak_odr hidden noundef ptr @_ZN10StackValue19stack_value_addressI16Small
   br label %23
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = lshr i32 %.sroa.0.0.copyload.i, 3
   %20 = and i32 %19, 536870908
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   br label %23
 
 23:                                               ; preds = %13, %16, %7, %3
@@ -1128,9 +1128,9 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br i1 %4, label %5, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 769
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %10 = and i8 %9, 1
@@ -1139,13 +1139,13 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2440
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2440
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %1 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = lshr i64 %15, %17
-  %19 = getelementptr inbounds i8, ptr %14, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   %22 = load i8, ptr %21, align 1
@@ -1165,7 +1165,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %12, i64 769
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %34 = and i8 %33, 4
@@ -1176,8 +1176,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 2448
-  %40 = getelementptr inbounds i8, ptr %37, i64 41
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2448
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 41
   %41 = load i8, ptr %40, align 1
   %42 = add i8 %41, 1
   store i8 %42, ptr %40, align 1
@@ -1189,7 +1189,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %37, i64 42
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 42
   %47 = load i8, ptr %46, align 2
   %48 = trunc i8 %47 to i1
   br i1 %48, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %49
@@ -1219,7 +1219,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br i1 %60, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %61
 
 61:                                               ; preds = %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
-  %62 = getelementptr inbounds i8, ptr %57, i64 2448
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 2448
   tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull %37) #6
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 

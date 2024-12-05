@@ -1791,7 +1791,7 @@ define internal i32 @dissect_ua3g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #9
   %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #9
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.1142) #9
   %16 = load i32, ptr @hf_ua3g_length, align 4
@@ -2573,7 +2573,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i8 %8 to i32
   %12 = tail call ptr @val_to_str_const(i32 noundef %11, ptr noundef nonnull @str_command_ip_device_routing, ptr noundef nonnull @.str.1143) #9
@@ -2735,9 +2735,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %.not767851, label %139, label %.lr.ph856
 
 .lr.ph856:                                        ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %5, i64 4
-  %83 = getelementptr inbounds i8, ptr %5, i64 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %85
 
 85:                                               ; preds = %.lr.ph856, %134
@@ -2881,7 +2881,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %or.cond910, label %144, label %.loopexit
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %2, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %146 = load i32, ptr %145, align 4
   call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %.0727.lcssa, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %146, i32 noundef 0, ptr noundef null) #9
   %147 = add nuw nsw i32 %.0727.lcssa, 1
@@ -3282,9 +3282,9 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %.not751800, label %.loopexit, label %.lr.ph805
 
 .lr.ph805:                                        ; preds = %357
-  %358 = getelementptr inbounds i8, ptr %7, i64 4
-  %359 = getelementptr inbounds i8, ptr %7, i64 8
-  %360 = getelementptr inbounds i8, ptr %7, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %361
 
 361:                                              ; preds = %.lr.ph805, %401
@@ -3386,7 +3386,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %.not752, label %415, label %410
 
 410:                                              ; preds = %409
-  %411 = getelementptr inbounds i8, ptr %2, i64 20
+  %411 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %412 = load i32, ptr %411, align 4
   call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1697, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %412, i32 noundef 0, ptr noundef null) #9
   %413 = add nuw nsw i32 %.1697, 1
@@ -3399,7 +3399,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %.not753, label %.loopexit, label %416
 
 416:                                              ; preds = %415
-  %417 = getelementptr inbounds i8, ptr %2, i64 20
+  %417 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %418 = load i32, ptr %417, align 4
   call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %418, i32 noundef 0, ptr noundef null) #9
   %419 = add nuw nsw i32 %.1, 1
@@ -3531,10 +3531,10 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %481
   %485 = zext nneg i8 %464 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.decode_ip_device_routing, i64 0, i64 %485
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.decode_ip_device_routing, i64 0, i64 %485
   %switch.load = load ptr, ptr %switch.gep, align 8
   %486 = zext nneg i8 %464 to i64
-  %switch.gep16 = getelementptr inbounds [3 x i32], ptr @switch.table.decode_ip_device_routing.24, i64 0, i64 %486
+  %switch.gep16 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.decode_ip_device_routing.24, i64 0, i64 %486
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   br label %487
 
@@ -3561,7 +3561,7 @@ switch.lookup:                                    ; preds = %481
 define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = zext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @val_to_str_const(i32 noundef %5, ptr noundef nonnull @str_command_led, ptr noundef nonnull @.str.1143) #9
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef %8) #9
@@ -3590,7 +3590,7 @@ define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1,
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %8 = zext nneg i8 %6 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_command_lcd_line, ptr noundef nonnull @.str.1143) #9
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i8 %7 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.1152, ptr noundef %9, i32 noundef %12) #9
@@ -3598,7 +3598,7 @@ define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %46, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %15, ptr noundef nonnull @.str.1153) #9
   %17 = load ptr, ptr %14, align 8
@@ -3643,7 +3643,7 @@ define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_main_voice_mode, ptr noundef nonnull @.str.1143) #9
@@ -3763,7 +3763,7 @@ define internal fastcc void @decode_dwl_dtmf_clck_format(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_set_clck(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_command_set_clck, ptr noundef nonnull @.str.1143) #9
@@ -3852,7 +3852,7 @@ define internal fastcc void @decode_voice_channel(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i8 %4 to i32
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @str_ext_ring_cmd, ptr noundef nonnull @.str.1143) #9
@@ -3868,7 +3868,7 @@ define internal fastcc void @decode_lcd_cursor(ptr noundef %0, ptr noundef %1, p
   %5 = and i8 %4, 2
   %.not = icmp eq i8 %5, 0
   %6 = select i1 %.not, ptr @.str.958, ptr @.str.1103
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef nonnull %6) #9
   %9 = load i32, ptr @hf_ua3g_lcd_cursor_line_number, align 4
@@ -3945,7 +3945,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i8 %6 to i32
   %10 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @str_command_beep, ptr noundef nonnull @.str.1143) #9
@@ -4067,7 +4067,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
   br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !23
 
 74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.1161) #9
   br label %.loopexit
@@ -4081,7 +4081,7 @@ define internal fastcc void @decode_sidetone(ptr noundef %0, ptr noundef %1, ptr
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef nonnull %5) #9
   %8 = load i32, ptr @hf_ua3g_command_sidetone, align 4
@@ -4138,7 +4138,7 @@ define internal fastcc void @decode_ringing_cadence(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i8 %4 to i32
   %8 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @str_mute, ptr noundef nonnull @.str.1143) #9
@@ -4153,7 +4153,7 @@ define internal fastcc void @decode_feedback(ptr noundef %0, ptr noundef %1, ptr
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %5, 0
   %6 = select i1 %.not, ptr @.str.958, ptr @.str.1103
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef nonnull %6) #9
   %.not26 = icmp eq ptr %0, null
@@ -4241,7 +4241,7 @@ define internal fastcc void @decode_icon_cmd(ptr noundef %0, ptr noundef %1) unn
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_command_audio_config, ptr noundef nonnull @.str.1143) #9
@@ -4329,7 +4329,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   br label %.loopexit.sink.split
 
 65:                                               ; preds = %10
-  %66 = getelementptr inbounds i8, ptr %2, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %67, ptr noundef nonnull @.str.1153) #9
   %.1138149 = add nsw i32 %3, -1
@@ -4409,7 +4409,7 @@ define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1,
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %6, 0
   %7 = select i1 %.not, ptr @.str.958, ptr @.str.1103
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef nonnull %7) #9
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
@@ -4432,7 +4432,7 @@ define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr noc
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1148, ptr noundef nonnull %5) #9
   %.not27 = icmp eq ptr %0, null
@@ -4466,7 +4466,7 @@ define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr noc
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_ua_dwl_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_command_ua_dwl_protocol, ptr noundef nonnull @.str.1143) #9
@@ -4643,7 +4643,7 @@ define internal fastcc void @decode_subdevice_msg(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @str_command_cs_ip_device_routing, ptr noundef nonnull @.str.1143) #9

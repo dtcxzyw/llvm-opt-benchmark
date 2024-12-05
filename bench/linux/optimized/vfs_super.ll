@@ -59,8 +59,8 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %19
 
 19:                                               ; preds = %18, %17
-  %20 = getelementptr inbounds i8, ptr %10, i64 12
-  %21 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 -1, ptr elementtype(i32) %20) #6, !srcloc !6
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %21 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 -1, ptr nonnull elementtype(i32) %20) #6, !srcloc !6
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %26, label %23
 
@@ -69,7 +69,7 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %24, label %.thread, label %25, !prof !7
 
 25:                                               ; preds = %23
-  tail call void @refcount_warn_saturate(ptr noundef %20, i32 noundef 3) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %20, i32 noundef 3) #6
   br label %.thread
 
 26:                                               ; preds = %19
@@ -82,27 +82,27 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %131
 
 28:                                               ; preds = %12
-  %29 = getelementptr inbounds i8, ptr %13, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 9223372036854775807, ptr %29, align 32
-  %30 = getelementptr inbounds i8, ptr %7, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   %33 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %32, i32 -1) #8, !srcloc !9
   %34 = add i32 %33, 1
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %13, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 %35, ptr %36, align 4
   %37 = and i32 %34, 255
   %38 = shl nuw i32 1, %37
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %13, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store i64 16914839, ptr %41, align 32
   %42 = load i32, ptr %7, align 8
   %43 = and i32 %42, 2
   %44 = icmp eq i32 %43, 0
-  %45 = getelementptr inbounds i8, ptr %13, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br i1 %44, label %52, label %46
 
 46:                                               ; preds = %28
@@ -113,33 +113,33 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %13, i64 168
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store ptr @v9fs_xattr_handlers, ptr %51, align 8
   br label %54
 
 52:                                               ; preds = %28
   store ptr @v9fs_super_ops, ptr %45, align 16
-  %53 = getelementptr inbounds i8, ptr %13, i64 896
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 896
   store i64 4294967295, ptr %53, align 64
   br label %54
 
 54:                                               ; preds = %52, %50, %46
-  %55 = getelementptr inbounds i8, ptr %13, i64 888
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 888
   store i64 0, ptr %55, align 8
   %56 = tail call i32 @super_setup_bdi(ptr noundef %13) #6
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %137
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %7, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %13, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 216
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i64 0, ptr %65, align 8
   br label %76
 
@@ -147,9 +147,9 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %67 = load i32, ptr %30, align 8
   %68 = lshr i32 %67, 12
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %13, i64 216
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 216
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store i64 %69, ptr %72, align 8
   %73 = load i32, ptr %30, align 8
   %74 = lshr i32 %73, 12
@@ -160,16 +160,16 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %77 = phi ptr [ %70, %66 ], [ %63, %62 ]
   %78 = phi i64 [ %75, %66 ], [ 0, %62 ]
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   store i64 %78, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %13, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %82 = load i64, ptr %81, align 16
   %83 = or i64 %82, 1073741824
   store i64 %83, ptr %81, align 16
   %84 = load i32, ptr %59, align 4
   %85 = and i32 %84, 10
   %86 = icmp eq i32 %85, 0
-  %87 = getelementptr inbounds i8, ptr %13, i64 1016
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 1016
   %88 = select i1 %86, ptr @v9fs_dentry_operations, ptr @v9fs_cached_dentry_operations
   store ptr %88, ptr %87, align 8
   %89 = tail call ptr @v9fs_get_inode(ptr noundef %13, i16 noundef zeroext 17407, i32 noundef 0) #6
@@ -187,7 +187,7 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %96, label %137, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %13, i64 104
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %95, ptr %98, align 8
   %99 = load i32, ptr %7, align 8
   %100 = and i32 %99, 2
@@ -205,11 +205,11 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %137
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %103, i64 8
-  %109 = tail call i64 @v9fs_qid2ino(ptr noundef %108) #6
-  %110 = getelementptr inbounds i8, ptr %95, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %109 = tail call i64 @v9fs_qid2ino(ptr noundef nonnull %108) #6
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
   store i64 %109, ptr %112, align 8
   %113 = load ptr, ptr %110, align 8
   tail call void @v9fs_stat2inode_dotl(ptr noundef %103, ptr noundef %113, i32 noundef 0) #6
@@ -226,11 +226,11 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %137
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %115, i64 8
-  %121 = tail call i64 @v9fs_qid2ino(ptr noundef %120) #6
-  %122 = getelementptr inbounds i8, ptr %95, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %121 = tail call i64 @v9fs_qid2ino(ptr noundef nonnull %120) #6
+  %122 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   store i64 %121, ptr %124, align 8
   %125 = load ptr, ptr %122, align 8
   tail call void @v9fs_stat2inode(ptr noundef %115, ptr noundef %125, ptr noundef %13, i32 noundef 0) #6
@@ -246,8 +246,8 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %128, label %153, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %127, i64 96
-  call void @lockref_get(ptr noundef %130) #6
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 96
+  call void @lockref_get(ptr noundef nonnull %130) #6
   br label %153
 
 131:                                              ; preds = %.thread, %9
@@ -273,8 +273,8 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %142
 
 142:                                              ; preds = %141, %140
-  %143 = getelementptr inbounds i8, ptr %10, i64 12
-  %144 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %143, i32 -1, ptr elementtype(i32) %143) #6, !srcloc !6
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %144 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %143, i32 -1, ptr nonnull elementtype(i32) %143) #6, !srcloc !6
   %145 = icmp eq i32 %144, 1
   br i1 %145, label %149, label %146
 
@@ -283,7 +283,7 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %147, label %.thread22, label %148, !prof !7
 
 148:                                              ; preds = %146
-  tail call void @refcount_warn_saturate(ptr noundef %143, i32 noundef 3) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %143, i32 noundef 3) #6
   br label %.thread22
 
 149:                                              ; preds = %142
@@ -305,7 +305,7 @@ define internal ptr @v9fs_mount(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @v9fs_kill_super(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   tail call void @kill_anon_super(ptr noundef %0) #6
   tail call void @v9fs_session_cancel(ptr noundef %3) #6
@@ -326,7 +326,7 @@ declare dso_local ptr @sget(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_set_super(ptr noundef initializes((872, 880)) %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %1, ptr %3, align 8
   %4 = tail call i32 @set_anon_super(ptr noundef %0, ptr noundef %1) #6
   ret i32 %4
@@ -394,24 +394,24 @@ define internal i32 @v9fs_write_inode_dotl(ptr noundef %0, ptr noundef %1) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 0, 2) i32 @v9fs_drop_inode(ptr nocapture noundef readonly %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 872
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = zext i1 %17 to i32
@@ -440,9 +440,9 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 8:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !10
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 872
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 2
@@ -460,39 +460,39 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %19 = load i32, ptr %3, align 8
   %20 = zext i32 %19 to i64
   store i64 %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
-  %41 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %1, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 %45, ptr %46, align 8
   br label %49
 
@@ -514,8 +514,8 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %54
 
 54:                                               ; preds = %53, %52
-  %55 = getelementptr inbounds i8, ptr %4, i64 12
-  %56 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, i32 -1, ptr elementtype(i32) %55) #6, !srcloc !6
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %56 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, i32 -1, ptr nonnull elementtype(i32) %55) #6, !srcloc !6
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %61, label %58
 
@@ -524,7 +524,7 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %59, label %.thread3, label %60, !prof !7
 
 60:                                               ; preds = %58
-  call void @refcount_warn_saturate(ptr noundef %55, i32 noundef 3) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %55, i32 noundef 3) #6
   br label %.thread3
 
 61:                                               ; preds = %54
@@ -540,7 +540,7 @@ define internal i32 @v9fs_statfs(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @v9fs_umount_begin(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   tail call void @v9fs_session_begin_cancel(ptr noundef %3) #6
   ret void

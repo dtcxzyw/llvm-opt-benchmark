@@ -316,7 +316,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %109
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %5, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = load ptr, ptr @input_file, align 8
   %61 = call i32 (ptr, i32, ...) @open64(ptr noundef %60, i32 noundef 0) #14
@@ -342,7 +342,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %109
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %6, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %72 = load i64, ptr %71, align 8
   %73 = load ptr, ptr @output_file, align 8
   %74 = icmp eq ptr %73, null
@@ -593,7 +593,7 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
   unreachable
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %7, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load i64, ptr %17, align 8
   br label %19
 

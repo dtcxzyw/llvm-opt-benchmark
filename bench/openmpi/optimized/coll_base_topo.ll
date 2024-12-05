@@ -23,16 +23,16 @@ define noalias noundef ptr @ompi_coll_base_topo_build_tree(i32 noundef %0, ptr n
   br i1 %.not, label %70, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %12, align 4
   store i32 %2, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 -1, ptr %13, align 4
   store i32 0, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %15 = shl nuw nsw i32 %0, 2
   %16 = zext nneg i32 %15 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 -1, i64 %16, i1 false)
@@ -116,7 +116,7 @@ pown.exit.i:                                      ; preds = %.lr.ph.i.i, %pown.e
   %.010.i84 = phi i32 [ %.010.i.ph, %34 ], [ 1, %.loopexit85 ], [ 0, %.preheader.i74 ], [ -1, %18 ], [ %.010.i.ph, %.lr.ph.i ]
   %.014.i = phi i32 [ %35, %34 ], [ %0, %.loopexit85 ], [ 1, %.preheader.i74 ], [ 0, %18 ], [ %36, %.lr.ph.i ]
   %invariant.op = add i32 %21, %.val73
-  %38 = getelementptr inbounds i8, ptr %9, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %39 = sext i32 %.014.i to i64
   %40 = sext i32 %spec.select to i64
   %41 = zext nneg i32 %.val.val to i64
@@ -136,7 +136,7 @@ pown.exit.i:                                      ; preds = %.lr.ph.i.i, %pown.e
   %47 = trunc nsw i64 %44 to i32
   %.reass = add i32 %invariant.op, %47
   %48 = srem i32 %.reass, %.val.val
-  %49 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [0 x i32], ptr %38, i64 0, i64 %indvars.iv
   store i32 %48, ptr %49, align 4
   %50 = add nuw nsw i32 %43, 1
   store i32 %50, ptr %10, align 4
@@ -228,19 +228,19 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocap
   br i1 %.not, label %57, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %9, align 4
   %10 = add nsw i32 %.val.val, -1
   store i32 %10, ptr %5, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 -1, ptr %11, align 4
   store i32 0, ptr %7, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 -1, ptr %13, align 4
   %14 = ashr i32 %.val.val, 1
   %15 = icmp sgt i32 %.val.val, 2
@@ -379,12 +379,12 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
 
 7:                                                ; preds = %2
   %8 = sub nsw i32 %.val74, %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %9, align 4
   store i32 -32766, ptr %6, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 -32766, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %11, i8 -1, i64 128, i1 false)
   %12 = icmp slt i32 %8, 0
   %13 = select i1 %12, i32 %.val.val, i32 0
@@ -408,7 +408,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
 
 23:                                               ; preds = %7, %18
   %spec.select72.sink = phi i32 [ %spec.select72, %18 ], [ %1, %7 ]
-  %24 = getelementptr inbounds i8, ptr %6, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %spec.select72.sink, ptr %24, align 4
   %25 = icmp slt i32 %.0.i, %.val.val
   br i1 %25, label %.lr.ph, label %._crit_edge
@@ -433,7 +433,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
   %.not71 = icmp slt i32 %31, %.val.val
   %32 = select i1 %.not71, i32 0, i32 %.val.val
   %spec.select73 = sub nsw i32 %31, %32
-  %33 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
   store i32 %spec.select73, ptr %33, align 4
   %34 = shl i32 %.05678, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -472,18 +472,18 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
   br i1 %.not, label %38, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %11, align 4
   store i32 -32766, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 -32766, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %13, i8 -1, i64 128, i1 false)
   %14 = icmp eq i32 %1, %.val53
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %9, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %1, ptr %16, align 4
   br label %17
 
@@ -501,7 +501,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
 21:                                               ; preds = %.lr.ph
   %22 = add nsw i32 %19, %1
   %23 = srem i32 %22, %.val.val
-  %24 = getelementptr inbounds i8, ptr %9, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %23, ptr %24, align 4
   br label %.loopexit
 
@@ -575,12 +575,12 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
   br i1 %20, label %49, label %21
 
 21:                                               ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %22, align 4
   store i32 %1, ptr %19, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 -2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %25
 
 25:                                               ; preds = %27, %21
@@ -609,7 +609,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
 .preheader.lr.ph:                                 ; preds = %.loopexit72
   %invariant.op = add i32 %.fr, %1
   %35 = icmp sgt i32 %2, 1
-  %36 = getelementptr inbounds i8, ptr %19, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 20
   br i1 %35, label %.preheader.us, label %._crit_edge84
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %..loopexit_crit_edge.us
@@ -674,8 +674,8 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
 11:                                               ; preds = %3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 32)
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %14 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 32)
   %15 = shl nuw nsw i32 %14, 2
   %16 = zext nneg i32 %15 to i64
@@ -704,7 +704,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
 
 28:                                               ; preds = %22, %24
   %.sink = phi i32 [ %27, %24 ], [ -1, %22 ]
-  %29 = getelementptr inbounds i8, ptr %7, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sink, ptr %29, align 4
   %30 = add nsw i32 %.0125.fr, 1
   %.not152 = icmp slt i32 %30, %.val.val
@@ -729,7 +729,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
 37:                                               ; preds = %35
   store i32 -1, ptr %13, align 4
   store i32 0, ptr %12, align 4
-  %38 = getelementptr inbounds i8, ptr %7, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 -1, ptr %38, align 4
   br label %83
 
@@ -766,7 +766,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   %.0128 = phi i32 [ %.0131, %47 ], [ %51, %49 ]
   %54 = icmp eq i32 %.pn, 0
   %spec.select164 = select i1 %54, i32 0, i32 %45
-  %55 = getelementptr inbounds i8, ptr %7, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %56 = xor i32 %.pn, -1
   %57 = add i32 %.0125.fr, %56
   %58 = add i32 %57, %.0128
@@ -802,7 +802,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   br label %83
 
 71:                                               ; preds = %39
-  %72 = getelementptr inbounds i8, ptr %7, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 -1, ptr %72, align 4
   %73 = add nsw i32 %2, 1
   %74 = srem i32 %73, %.val.val
@@ -818,7 +818,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %77 = phi i32 [ %74, %.lr.ph.preheader ], [ %82, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %78 = getelementptr inbounds [0 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [0 x i32], ptr %13, i64 0, i64 %indvars.iv
   %79 = icmp sgt i64 %indvars.iv, %76
   %80 = sext i1 %79 to i32
   %81 = add i32 %.0131, %80

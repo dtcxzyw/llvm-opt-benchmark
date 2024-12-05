@@ -17,29 +17,29 @@ define dso_local zeroext i1 @data_behind(ptr noundef readonly %0) local_unnamed_
   br i1 %.not10, label %24, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %24, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, %11
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp ne i32 %18, 0
   br label %24
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ne i32 %22, 0
   br label %24
@@ -61,13 +61,13 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
   br i1 %.not62, label %99, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not63 = icmp eq ptr %7, null
   br i1 %.not63, label %99, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = icmp sgt i16 %10, 80
   br i1 %11, label %12, label %15
@@ -80,28 +80,28 @@ define dso_local noundef zeroext i1 @data_ahead(ptr noundef readonly %0) local_u
 
 15:                                               ; preds = %8, %12
   %.052 = phi ptr [ %14, %12 ], [ @data_ahead.buffer, %8 ]
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, %18
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %58
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = sext i16 %10 to i32
   %27 = add nsw i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %27, %29
   br i1 %30, label %.lr.ph76, label %.loopexit
 
 .lr.ph76:                                         ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = getelementptr inbounds i8, ptr %7, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 36
   br label %33
 
 33:                                               ; preds = %.lr.ph76, %52
@@ -145,17 +145,17 @@ After_Last_Non_Pad_Position.exit:                 ; preds = %45, %47
   br i1 %57, label %33, label %.loopexit, !llvm.loop !7
 
 58:                                               ; preds = %15
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = add nsw i32 %60, %18
-  %62 = getelementptr inbounds i8, ptr %7, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = icmp slt i32 %61, %63
   br i1 %64, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
-  %66 = getelementptr inbounds i8, ptr %7, i64 36
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 36
   br label %70
 
 67:                                               ; preds = %After_Last_Non_Pad_Position.exit67
@@ -207,11 +207,11 @@ After_Last_Non_Pad_Position.exit67:               ; preds = %82, %84
   br i1 %.154, label %91, label %99
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = tail call i32 @wmove(ptr noundef %93, i32 noundef %95, i32 noundef %97) #7
   br label %99

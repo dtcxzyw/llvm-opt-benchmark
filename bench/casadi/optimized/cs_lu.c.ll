@@ -9,7 +9,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br i1 %.not, label %168, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
   %8 = icmp ne ptr %1, null
@@ -17,13 +17,13 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br i1 %or.cond, label %9, label %168
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load double, ptr %16, align 8
   %18 = tail call ptr @cs_malloc(i32 noundef %11, i64 noundef 8) #4
   %19 = shl nsw i32 %11, 1
@@ -42,10 +42,10 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %28 = tail call ptr @cs_spalloc(i32 noundef %11, i32 noundef %11, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
   store ptr %28, ptr %21, align 8
   %29 = tail call ptr @cs_spalloc(i32 noundef %11, i32 noundef %11, i32 noundef %26, i32 noundef 1, i32 noundef 0) #4
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %29, ptr %30, align 8
   %31 = tail call ptr @cs_malloc(i32 noundef %11, i64 noundef 4) #4
-  %32 = getelementptr inbounds i8, ptr %21, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %31, ptr %32, align 8
   %33 = icmp ne ptr %28, null
   %34 = icmp ne ptr %29, null
@@ -55,9 +55,9 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br i1 %or.cond9, label %36, label %.sink.split
 
 36:                                               ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %28, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %29, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp sgt i32 %11, 0
   br i1 %41, label %.lr.ph246, label %.preheader218
@@ -84,10 +84,10 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %38, i8 0, i64 %51, i1 false)
-  %52 = getelementptr inbounds i8, ptr %28, i64 24
-  %53 = getelementptr inbounds i8, ptr %28, i64 32
-  %54 = getelementptr inbounds i8, ptr %29, i64 24
-  %55 = getelementptr inbounds i8, ptr %29, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %.not217 = icmp eq ptr %13, null
   %wide.trip.count266 = zext nneg i32 %11 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
@@ -98,9 +98,9 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %indvars.iv263 = phi i64 [ 0, %.lr.ph246 ], [ %indvars.iv.next264, %._crit_edge241 ]
   %.0245 = phi i32 [ 0, %.lr.ph246 ], [ %127, %._crit_edge241 ]
   %.0184244 = phi i32 [ 0, %.lr.ph246 ], [ %.2186, %._crit_edge241 ]
-  %57 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv263
+  %57 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv263
   store i32 %.0184244, ptr %57, align 4
-  %58 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv263
+  %58 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv263
   store i32 %.0245, ptr %58, align 4
   %59 = add nsw i32 %.0184244, %11
   %60 = load i32, ptr %28, align 8
@@ -136,7 +136,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br i1 %.not217, label %83, label %80
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv263
+  %81 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv263
   %82 = load i32, ptr %81, align 4
   br label %83
 
@@ -284,11 +284,11 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
 
 ._crit_edge247:                                   ; preds = %._crit_edge241
   %154 = zext nneg i32 %11 to i64
-  %155 = getelementptr inbounds i32, ptr %38, i64 %154
+  %155 = getelementptr inbounds nuw i32, ptr %38, i64 %154
   store i32 %.2186, ptr %155, align 4
-  %156 = getelementptr inbounds i32, ptr %40, i64 %154
+  %156 = getelementptr inbounds nuw i32, ptr %40, i64 %154
   store i32 %127, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %28, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %158 = load ptr, ptr %157, align 8
   %159 = icmp sgt i32 %.2186, 0
   br i1 %159, label %.lr.ph252.preheader, label %._crit_edge253
@@ -299,7 +299,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
 
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
   %indvars.iv268 = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next269, %.lr.ph252 ]
-  %160 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv268
+  %160 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv268
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i32, ptr %31, i64 %162

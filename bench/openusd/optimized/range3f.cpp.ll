@@ -53,19 +53,19 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 91)
   %.sroa.011.0.copyload = load <2 x float>, ptr %1, align 4
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.212.0.copyload = load float, ptr %.sroa.212.0..sroa_idx, align 4
   store <2 x float> %.sroa.011.0.copyload, ptr %3, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %.sroa.212.0.copyload, ptr %.sroa.28.0..sroa_idx, align 8
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7GfVec3fE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(12) %3)
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.2)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.03.0.copyload = load <2 x float>, ptr %8, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.24.0.copyload = load float, ptr %.sroa.24.0..sroa_idx, align 4
   store <2 x float> %.sroa.03.0.copyload, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %.sroa.24.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7GfVec3fE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(12) %4)
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 93)
@@ -83,30 +83,30 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3fC2ERKNS_9GfRange3dE(
   %3 = load double, ptr %1, align 8
   %4 = fptrunc double %3 to float
   store float %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fptrunc double %6 to float
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fptrunc double %10 to float
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %11, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load double, ptr %14, align 8
   %16 = fptrunc double %15 to float
   store float %16, ptr %13, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load double, ptr %17, align 8
   %19 = fptrunc double %18 to float
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load double, ptr %21, align 8
   %23 = fptrunc double %22 to float
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %23, ptr %24, align 4
   ret void
 }
@@ -138,9 +138,9 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f18GetDist
 
 18:                                               ; preds = %10, %14, %6
   %.0 = phi double [ %9, %6 ], [ %17, %14 ], [ 0.000000e+00, %10 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fcmp olt float %20, %22
   br i1 %23, label %24, label %29
@@ -153,7 +153,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f18GetDist
   br label %38
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load float, ptr %30, align 4
   %32 = fcmp ogt float %20, %31
   br i1 %32, label %33, label %38
@@ -167,9 +167,9 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f18GetDist
 
 38:                                               ; preds = %29, %33, %24
   %.1 = phi double [ %28, %24 ], [ %37, %33 ], [ %.0, %29 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load float, ptr %41, align 4
   %43 = fcmp olt float %40, %42
   br i1 %43, label %44, label %49
@@ -182,7 +182,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f18GetDist
   br label %58
 
 49:                                               ; preds = %38
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load float, ptr %50, align 4
   %52 = fcmp ogt float %40, %51
   br i1 %52, label %53, label %58
@@ -229,7 +229,7 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9
   %14 = and i64 %1, 2
   %.not5 = icmp eq i64 %14, 0
   %15 = select i1 %.not5, ptr %0, ptr %12
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load float, ptr %16, align 4
   %.not6 = icmp samesign ult i64 %1, 4
   %18 = select i1 %.not6, ptr %0, ptr %12
@@ -240,7 +240,7 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9
 19:                                               ; preds = %10, %5
   %.pn = phi ptr [ %0, %5 ], [ %18, %10 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload8, %5 ], [ %.sroa.0.4.vec.insert, %10 ]
-  %.sroa.4.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.sroa.4.0 = load float, ptr %.sroa.4.0.in, align 4
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.4.0, 1
@@ -278,22 +278,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit: ; preds = %3
   %14 = and i64 %2, 2
   %.not5.i = icmp eq i64 %14, 0
   %15 = select i1 %.not5.i, ptr %1, ptr %12
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load float, ptr %16, align 4
   %.not6.i = icmp samesign ult i64 %2, 4
   %18 = select i1 %.not6.i, ptr %1, ptr %12
-  %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.4.0.i = load float, ptr %.sroa.4.0.in.i, align 4
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %1, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload.i = load float, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %19 = fadd float %.sroa.0.0.vec.extract.i, %.val9.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load float, ptr %20, align 4
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
   %22 = fadd float %.sroa.0.4.vec.extract.i, %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load float, ptr %23, align 4
   %25 = fadd float %.sroa.6.0.copyload.i, %24
   %26 = fmul float %19, 5.000000e-01
@@ -319,14 +319,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit: ; preds = %3
   %.sink35 = phi float [ %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit ], [ 0xC7EFFFFFE0000000, %6 ]
   %.sink34 = phi float [ %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit ], [ 0xC7EFFFFFE0000000, %6 ]
   %.sink = phi float [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit ], [ 0xC7EFFFFFE0000000, %6 ]
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink40
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink40
   store float %.sink39, ptr %.sroa.217.0..sroa_idx, align 4
-  %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink38
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38
   store float %.sink37, ptr %.sroa.318.0..sroa_idx, align 4
   store float %.sink36, ptr %0, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sink35, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sink34, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %.sink, ptr %41, align 4

@@ -42,7 +42,7 @@ if.end3:                                          ; preds = %if.end20.i, %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %arrayidx7 = getelementptr inbounds i8, ptr %input, i64 1
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %input, i64 1
   %0 = load i8, ptr %arrayidx7, align 1
   %conv = sext i8 %0 to i32
   %and = and i32 %conv, 192
@@ -63,7 +63,7 @@ if.end18:                                         ; preds = %if.end10
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %arrayidx22 = getelementptr inbounds i8, ptr %input, i64 2
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %input, i64 2
   %2 = load i8, ptr %arrayidx22, align 1
   %cmp25 = icmp slt i8 %2, -64
   br i1 %cmp25, label %if.end27, label %return
@@ -93,7 +93,7 @@ if.end47:                                         ; preds = %if.end27
   br i1 %cmp48, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.end47
-  %arrayidx51 = getelementptr inbounds i8, ptr %input, i64 3
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %input, i64 3
   %4 = load i8, ptr %arrayidx51, align 1
   %cmp54 = icmp slt i8 %4, -64
   br i1 %cmp54, label %if.end56, label %return
@@ -118,7 +118,7 @@ if.end79:                                         ; preds = %if.end56
   br i1 %cmp80, label %return, label %if.end82
 
 if.end82:                                         ; preds = %if.end79
-  %arrayidx83 = getelementptr inbounds i8, ptr %input, i64 4
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %input, i64 4
   %7 = load i8, ptr %arrayidx83, align 1
   %cmp86 = icmp slt i8 %7, -64
   br i1 %cmp86, label %if.end88, label %return
@@ -129,7 +129,7 @@ if.end88:                                         ; preds = %if.end82
   br i1 %or.cond30, label %return, label %if.end94
 
 if.end94:                                         ; preds = %if.end88
-  %arrayidx95 = getelementptr inbounds i8, ptr %input, i64 5
+  %arrayidx95 = getelementptr inbounds nuw i8, ptr %input, i64 5
   %8 = load i8, ptr %arrayidx95, align 1
   %cmp98 = icmp slt i8 %8, -64
   %spec.select = select i1 %cmp98, i32 -6, i32 -5

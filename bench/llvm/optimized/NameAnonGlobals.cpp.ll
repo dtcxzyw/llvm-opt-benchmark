@@ -78,15 +78,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm17nameUnamedGlobalsERNS_6ModuleE(pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.021.0.copyload = load ptr, ptr %11, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.sroa.222.0.copyload = load ptr, ptr %.sroa.222.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %_ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEppEv.exit
 
 _ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEppEv.exit: ; preds = %48, %1
@@ -110,11 +110,11 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
 
 _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSC_.exit.thread: ; preds = %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSC_.exit.thread.preheader, %34
   %.0.idx.i.i = phi i64 [ %.0.add.i.i, %34 ], [ 0, %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSC_.exit.thread.preheader ]
-  %.0.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE3getIJLm0ELm1EEEERS1_St16integer_sequenceImJXspT_EEE.GetHelperFns, i64 %.0.idx.i.i
+  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE3getIJLm0ELm1EEEERS1_St16integer_sequenceImJXspT_EEE.GetHelperFns, i64 %.0.idx.i.i
   %24 = icmp ne i64 %.0.idx.i.i, 32
   call void @llvm.assume(i1 %24)
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
-  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %.0.ptr.i.i, i64 8
+  %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 %.fca.1.load.i.i
   %26 = and i64 %.fca.0.load.i.i, 1
@@ -145,11 +145,11 @@ _ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_det
 
 37:                                               ; preds = %48, %_ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEdeEv.exit
   %.0.idx.i.i9 = phi i64 [ 0, %_ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEdeEv.exit ], [ %.0.add.i.i15, %48 ]
-  %.0.ptr.i.i10 = getelementptr inbounds i8, ptr @__const._ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE9incrementIJLm0ELm1EEEEvSt16integer_sequenceImJXspT_EEE.IncrementHelperFns, i64 %.0.idx.i.i9
+  %.0.ptr.i.i10 = getelementptr inbounds nuw i8, ptr @__const._ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE9incrementIJLm0ELm1EEEEvSt16integer_sequenceImJXspT_EEE.IncrementHelperFns, i64 %.0.idx.i.i9
   %38 = icmp ne i64 %.0.idx.i.i9, 32
   call void @llvm.assume(i1 %38)
   %.fca.0.load.i.i11 = load i64, ptr %.0.ptr.i.i10, align 16
-  %.fca.1.gep.i.i12 = getelementptr inbounds i8, ptr %.0.ptr.i.i10, i64 8
+  %.fca.1.gep.i.i12 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i10, i64 8
   %.fca.1.load.i.i13 = load i64, ptr %.fca.1.gep.i.i12, align 8
   %39 = getelementptr inbounds i8, ptr %7, i64 %.fca.1.load.i.i13
   %40 = and i64 %.fca.0.load.i.i11, 1
@@ -327,7 +327,7 @@ define internal fastcc void @"_ZZN4llvm17nameUnamedGlobalsERNS_6ModuleEENK3$_0cl
 
 ._crit_edge41.i:                                  ; preds = %64, %._crit_edge.i
   call void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %4, ptr noundef nonnull align 1 dereferenceable(16) %5) #9
-  %66 = getelementptr inbounds i8, ptr %6, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %66, i64 noundef 32) #9
   call void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -381,13 +381,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN12_GLOBAL__N_112
   %83 = load i8, ptr %17, align 1, !noalias !14
   %84 = icmp eq i8 %83, 1
   %.sroa.05.0.copyload.i.i = load ptr, ptr %11, align 8, !noalias !14
-  %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !14
   %.014.i.i = select i1 %84, i8 %74, i8 2
   %.sroa.05.0.i.i = select i1 %84, ptr %.sroa.05.0.copyload.i.i, ptr %11
   %.sroa.36.0.i.i = select i1 %84, i64 %.sroa.36.0.copyload.i.i, i64 undef
   store ptr %.sroa.05.0.i.i, ptr %10, align 8, !alias.scope !14
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.36.0.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !14
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %19, ptr %85, align 8, !alias.scope !14
@@ -401,11 +401,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN12_GLOBAL__N_112
 
 88:                                               ; preds = %_ZN12_GLOBAL__N_112ModuleHasher3getB5cxx11Ev.exit
   store ptr %19, ptr %10, align 8
-  %.sroa.342.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 4, ptr %.sroa.342.0..sroa_idx, align 8
-  %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 33
+  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %.sroa.443.0..sroa_idx, align 1
-  %.sroa.36.0..sroa_idx.i.i447 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.36.0..sroa_idx.i.i447 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.36.0.copyload.i.i548 = load i64, ptr %.sroa.36.0..sroa_idx.i.i447, align 8, !noalias !15
   br label %89
 
@@ -414,7 +414,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN12_GLOBAL__N_112
   %91 = phi i8 [ 4, %88 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %92 = phi i64 [ %.sroa.36.0.copyload.i.i548, %88 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   store ptr %90, ptr %9, align 8, !alias.scope !15
-  %.sroa.23.0..sroa_idx.i.i.i15 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %92, ptr %.sroa.23.0..sroa_idx.i.i.i15, align 8, !alias.scope !15
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.1, ptr %93, align 8, !alias.scope !15
@@ -466,7 +466,7 @@ define dso_local void @_ZN4llvm18NameAnonGlobalPass3runERNS_6ModuleERNS_15Analys
   br label %13
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 72, i1 false), !alias.scope !33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
@@ -542,8 +542,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE15incrementHelperILm0EEEbv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp ne ptr %4, %5
@@ -579,8 +579,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm15concat_iteratorINS_12Gl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEE9getHelperILm0EEEPS1_v(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %4, %5

@@ -212,7 +212,7 @@ define internal i32 @dissect_rtitcp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %11, i32 noundef 25) #4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_rtitcp_pdu_len, ptr noundef nonnull @dissect_rtitcp_common, ptr noundef %3) #4
@@ -264,7 +264,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca ptr, align 8
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.103) #4
   %11 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #4
@@ -310,10 +310,10 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %dissect_rtitcp_control_protocol.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
-  %39 = getelementptr inbounds i8, ptr %1, i64 20
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %41
 
 41:                                               ; preds = %dissect_control_message.exit.i, %.lr.ph.i
@@ -379,7 +379,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
 82:                                               ; preds = %76, %64
   %.0124.i.i = phi ptr [ %75, %64 ], [ %78, %76 ]
   %83 = load ptr, ptr %38, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 50
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 50
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 8
   %.not135.i.i = icmp eq i16 %86, 0
@@ -395,9 +395,9 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %91 = call noalias ptr @wmem_alloc(ptr noundef %90, i64 noundef 24) #4
   %92 = load i32, ptr %39, align 4
   store i32 %92, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 0, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %91, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %95 = call ptr @wmem_file_scope() #4
   %96 = call noalias ptr @wmem_alloc0(ptr noundef %95, i64 noundef 8) #4
@@ -414,7 +414,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %39, align 4
-  %104 = getelementptr inbounds i8, ptr %101, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %103, ptr %104, align 4
   br label %.thread.i.i
 
@@ -428,9 +428,9 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %108 = load ptr, ptr %37, align 8
   %109 = call noalias ptr @wmem_alloc(ptr noundef %108, i64 noundef 24) #4
   store i32 0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   br label %.thread.i.i
 
@@ -441,7 +441,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not139.i.i, label %113, label %122
 
 113:                                              ; preds = %.thread.i.i
-  %114 = getelementptr inbounds i8, ptr %.1.i.i, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %115 = load i32, ptr %114, align 4
   %.not140.i.i = icmp eq i32 %115, 0
   br i1 %.not140.i.i, label %proto_item_set_generated.exit.i.i, label %116
@@ -453,7 +453,7 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not5.i.i.i = icmp eq ptr %121, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %proto_item_set_generated.exit.sink.split.i.i
@@ -470,20 +470,20 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i143.i.i, label %proto_item_set_generated.exit145.i.i, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %129 = load ptr, ptr %128, align 8
   %.not5.i144.i.i = icmp eq ptr %129, null
   br i1 %.not5.i144.i.i, label %proto_item_set_generated.exit145.i.i, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 2
   store i32 %133, ptr %131, align 4
   br label %proto_item_set_generated.exit145.i.i
 
 proto_item_set_generated.exit145.i.i:             ; preds = %130, %127, %124
-  %134 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %40, ptr noundef nonnull %134) #4
   %135 = load i32, ptr @hf_rtitcp_response_time, align 4
   %136 = call ptr @proto_tree_add_time(ptr noundef %50, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #4
@@ -491,14 +491,14 @@ proto_item_set_generated.exit145.i.i:             ; preds = %130, %127, %124
   br i1 %.not.i146.i.i, label %proto_item_set_generated.exit.i.i, label %137
 
 137:                                              ; preds = %proto_item_set_generated.exit145.i.i
-  %138 = getelementptr inbounds i8, ptr %136, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not5.i147.i.i = icmp eq ptr %139, null
   br i1 %.not5.i147.i.i, label %proto_item_set_generated.exit.i.i, label %proto_item_set_generated.exit.sink.split.i.i
 
 proto_item_set_generated.exit.sink.split.i.i:     ; preds = %137, %119
   %.sink184.i.i = phi ptr [ %121, %119 ], [ %139, %137 ]
-  %140 = getelementptr inbounds i8, ptr %.sink184.i.i, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %.sink184.i.i, i64 28
   %141 = load i32, ptr %140, align 4
   %142 = or i32 %141, 2
   store i32 %142, ptr %140, align 4

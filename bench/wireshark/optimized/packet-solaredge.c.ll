@@ -703,7 +703,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   br i1 %.not, label %16, label %436
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.90) #5
   %19 = load ptr, ptr %17, align 8
@@ -764,12 +764,12 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   br i1 %57, label %58, label %104
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %1, i64 408
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = zext i16 %23 to i64
   %62 = tail call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef %61) #5
   %63 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28) #5
-  %64 = getelementptr inbounds i8, ptr %54, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %65 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -1257,7 +1257,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   br i1 %386, label %387, label %dissect_solaredge_devicedata.exit
 
 387:                                              ; preds = %382
-  %388 = getelementptr inbounds i8, ptr %383, i64 8
+  %388 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %389 = load i32, ptr %388, align 8
   %390 = icmp eq i32 %389, 16
   br i1 %390, label %391, label %dissect_solaredge_devicedata.exit
@@ -1291,7 +1291,7 @@ tailrecurse.i:                                    ; preds = %376, %106
 406:                                              ; preds = %400
   %407 = load i32, ptr @proto_solaredge, align 4
   %408 = call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %407) #5
-  %409 = getelementptr inbounds i8, ptr %408, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %410 = call i32 @gcry_cipher_open(ptr noundef nonnull %409, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
   %.not117 = icmp eq i32 %410, 0
   br i1 %.not117, label %411, label %417

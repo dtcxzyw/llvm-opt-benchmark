@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @createLockObject(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
   %6 = icmp eq ptr %5, null
@@ -63,7 +63,7 @@ define hidden ptr @createLockObject(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #15
   %12 = icmp eq ptr %11, null
@@ -71,7 +71,7 @@ define hidden ptr @createLockObject(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %11) #15
   %18 = icmp eq ptr %17, null
@@ -79,7 +79,7 @@ define hidden ptr @createLockObject(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
   br label %24
@@ -96,7 +96,7 @@ define hidden void @destroyLockObject(ptr noundef %0, ptr noundef %1) local_unna
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   br label %7
@@ -114,7 +114,7 @@ define hidden void @putModuleEntry(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 880
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 880
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pNativeDataID, align 8
   %11 = ptrtoint ptr %2 to i64
@@ -132,7 +132,7 @@ define hidden ptr @getModuleEntry(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pNativeDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %8) #15
@@ -151,7 +151,7 @@ define hidden ptr @getFunctionList(ptr noundef %0, ptr noundef %1) local_unnamed
 
 getModuleEntry.exit:                              ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pNativeDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %7) #15
@@ -160,7 +160,7 @@ getModuleEntry.exit:                              ; preds = %2
 
 getModuleEntry.exit.thread:                       ; preds = %2, %getModuleEntry.exit
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #15
   %.not.i.i.i = icmp eq ptr %13, null
@@ -168,14 +168,14 @@ getModuleEntry.exit.thread:                       ; preds = %2, %getModuleEntry.
 
 14:                                               ; preds = %getModuleEntry.exit.thread
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.41) #15
   br label %throwDisconnectedRuntimeException.exit
 
 19:                                               ; preds = %getModuleEntry.exit
   %20 = inttoptr i64 %8 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %throwDisconnectedRuntimeException.exit
 
@@ -191,7 +191,7 @@ define hidden ptr @getFunctionList30(ptr noundef %0, ptr noundef %1) local_unnam
 
 getModuleEntry.exit:                              ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pNativeDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %7) #15
@@ -200,7 +200,7 @@ getModuleEntry.exit:                              ; preds = %2
 
 getModuleEntry.exit.thread:                       ; preds = %2, %getModuleEntry.exit
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #15
   %.not.i.i.i = icmp eq ptr %13, null
@@ -208,14 +208,14 @@ getModuleEntry.exit.thread:                       ; preds = %2, %getModuleEntry.
 
 14:                                               ; preds = %getModuleEntry.exit.thread
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.41) #15
   br label %throwDisconnectedRuntimeException.exit
 
 19:                                               ; preds = %getModuleEntry.exit
   %20 = inttoptr i64 %8 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   br label %throwDisconnectedRuntimeException.exit
 
@@ -231,7 +231,7 @@ define hidden range(i32 0, 2) i32 @isModulePresent(ptr noundef %0, ptr noundef %
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pNativeDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %8) #15
@@ -256,7 +256,7 @@ define hidden noundef i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef ret
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   %.not32.i = icmp eq ptr %7, null
@@ -264,7 +264,7 @@ define hidden noundef i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef ret
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
   %.not33.i = icmp eq ptr %12, null
@@ -272,7 +272,7 @@ define hidden noundef i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef ret
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %12, i64 noundef %1, ptr noundef null) #15
   %.not35.i = icmp eq ptr %17, null
@@ -280,14 +280,14 @@ define hidden noundef i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef ret
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17) #15
   br label %23
 
 23:                                               ; preds = %18, %13, %8, %3
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %7) #15
   br label %ckAssertReturnValueOK2.exit
@@ -303,7 +303,7 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   %.not32 = icmp eq ptr %8, null
@@ -311,7 +311,7 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #15
   %.not33 = icmp eq ptr %13, null
@@ -323,7 +323,7 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1336
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1336
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %2) #15
   br label %20
@@ -331,7 +331,7 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 20:                                               ; preds = %15, %14
   %.0 = phi ptr [ %19, %15 ], [ null, %14 ]
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13, i64 noundef %1, ptr noundef %.0) #15
   %.not35 = icmp eq ptr %24, null
@@ -339,14 +339,14 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %24) #15
   br label %30
 
 30:                                               ; preds = %9, %25, %20, %4
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 184
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef %8) #15
   br label %34
@@ -358,7 +358,7 @@ define hidden noundef i64 @ckAssertReturnValueOK2(ptr noundef %0, i64 noundef re
 ; Function Attrs: nounwind uwtable
 define hidden void @p11ThrowOutOfMemoryError(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i = icmp eq ptr %6, null
@@ -366,7 +366,7 @@ define hidden void @p11ThrowOutOfMemoryError(ptr noundef %0, ptr noundef %1) loc
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #15
   br label %throwByName.exit
@@ -378,7 +378,7 @@ throwByName.exit:                                 ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define hidden void @p11ThrowNullPointerException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %.not.i = icmp eq ptr %6, null
@@ -386,7 +386,7 @@ define hidden void @p11ThrowNullPointerException(ptr noundef %0, ptr noundef %1)
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #15
   br label %throwByName.exit
@@ -398,7 +398,7 @@ throwByName.exit:                                 ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define hidden void @p11ThrowIOException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #15
   %.not.i = icmp eq ptr %6, null
@@ -406,7 +406,7 @@ define hidden void @p11ThrowIOException(ptr noundef %0, ptr noundef %1) local_un
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #15
   br label %throwByName.exit
@@ -418,7 +418,7 @@ throwByName.exit:                                 ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define hidden void @p11ThrowPKCS11RuntimeException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #15
   %.not.i = icmp eq ptr %6, null
@@ -426,7 +426,7 @@ define hidden void @p11ThrowPKCS11RuntimeException(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #15
   br label %throwByName.exit
@@ -450,7 +450,7 @@ define hidden void @freeCKAttributeArray(ptr noundef %0, i32 noundef %1) local_u
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %0, i64 %indvars.iv, i32 1
+  %4 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %0, i64 %indvars.iv, i32 1
   %5 = load ptr, ptr %4, align 8
   %.not10 = icmp eq ptr %5, null
   br i1 %.not10, label %7, label %6
@@ -481,7 +481,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %117, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not73 = icmp eq ptr %4, null
   br i1 %.not73, label %116, label %5
@@ -514,7 +514,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   switch i64 %9, label %115 [
     i64 48, label %10
@@ -524,73 +524,73 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %11) #15
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %.sink.split
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %15) #15
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   br label %.sink.split
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #15
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %22 = load ptr, ptr %21, align 8
   br label %.sink.split
 
 23:                                               ; preds = %5
   %24 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %24) #15
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load ptr, ptr %25, align 8
   br label %.sink.split
 
 27:                                               ; preds = %5, %5
   %28 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %28) #15
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @free(ptr noundef %30) #15
-  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32) #15
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %.sink.split
 
 35:                                               ; preds = %5, %5, %5, %5
   %36 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %36) #15
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void @free(ptr noundef %38) #15
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %40 = load ptr, ptr %39, align 8
   br label %.sink.split
 
 41:                                               ; preds = %5, %5
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load ptr, ptr %42, align 8
   tail call void @free(ptr noundef %43) #15
-  %44 = getelementptr inbounds i8, ptr %4, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %45 = load ptr, ptr %44, align 8
   tail call void @free(ptr noundef %45) #15
-  %46 = getelementptr inbounds i8, ptr %4, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %47 = load ptr, ptr %46, align 8
   %.not79 = icmp eq ptr %47, null
   br i1 %.not79, label %115, label %48
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %50 = load ptr, ptr %49, align 8
   tail call void @free(ptr noundef %50) #15
   %51 = load ptr, ptr %46, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
   tail call void @free(ptr noundef %53) #15
   %54 = load ptr, ptr %46, align 8
@@ -599,55 +599,55 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 55:                                               ; preds = %5, %5
   %56 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %56) #15
-  %57 = getelementptr inbounds i8, ptr %4, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %58 = load ptr, ptr %57, align 8
   tail call void @free(ptr noundef %58) #15
-  %59 = getelementptr inbounds i8, ptr %4, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %60 = load ptr, ptr %59, align 8
   br label %.sink.split
 
 61:                                               ; preds = %5
-  %62 = getelementptr inbounds i8, ptr %4, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %63 = load ptr, ptr %62, align 8
   tail call void @free(ptr noundef %63) #15
-  %64 = getelementptr inbounds i8, ptr %4, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %65 = load ptr, ptr %64, align 8
   tail call void @free(ptr noundef %65) #15
-  %66 = getelementptr inbounds i8, ptr %4, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %67 = load ptr, ptr %66, align 8
   %.not78 = icmp eq ptr %67, null
   br i1 %.not78, label %115, label %68
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %70 = load ptr, ptr %69, align 8
   tail call void @free(ptr noundef %70) #15
   %71 = load ptr, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   tail call void @free(ptr noundef %73) #15
   %74 = load ptr, ptr %66, align 8
   br label %.sink.split
 
 75:                                               ; preds = %5, %5
-  %76 = getelementptr inbounds i8, ptr %4, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef %77) #15
-  %78 = getelementptr inbounds i8, ptr %4, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %79 = load ptr, ptr %78, align 8
   br label %.sink.split
 
 80:                                               ; preds = %5
-  %81 = getelementptr inbounds i8, ptr %4, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
-  %84 = getelementptr inbounds i8, ptr %4, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = load ptr, ptr %84, align 8
   tail call void @free(ptr noundef %85) #15
-  %86 = getelementptr inbounds i8, ptr %4, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %87 = load ptr, ptr %86, align 8
   tail call void @free(ptr noundef %87) #15
-  %88 = getelementptr inbounds i8, ptr %4, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %89 = load ptr, ptr %88, align 8
   %.not75 = icmp eq ptr %89, null
   br i1 %83, label %90, label %100
@@ -656,7 +656,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not75, label %96, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %4, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %93 = load ptr, ptr %92, align 8
   %.not76 = icmp eq ptr %93, null
   br i1 %.not76, label %96, label %94
@@ -670,7 +670,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 96:                                               ; preds = %94, %91, %90
   %97 = phi ptr [ %.pre80, %94 ], [ %89, %91 ], [ null, %90 ]
   tail call void @free(ptr noundef %97) #15
-  %98 = getelementptr inbounds i8, ptr %4, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %99 = load ptr, ptr %98, align 8
   br label %.sink.split
 
@@ -678,7 +678,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not75, label %.sink.split, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %4, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %103 = load i64, ptr %102, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %89, i8 0, i64 %103, i1 false)
   %.pre = load ptr, ptr %88, align 8
@@ -687,13 +687,13 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 104:                                              ; preds = %5, %5, %5, %5, %5
   %105 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %105) #15
-  %106 = getelementptr inbounds i8, ptr %4, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not77 = icmp eq ptr %107, null
   br i1 %.not77, label %111, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %4, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %110 = load i64, ptr %109, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %110, i1 false)
   %.pre81 = load ptr, ptr %106, align 8
@@ -702,7 +702,7 @@ define hidden void @freeCKMechanismPtr(ptr noundef %0) local_unnamed_addr #3 {
 111:                                              ; preds = %108, %104
   %112 = phi ptr [ %.pre81, %108 ], [ null, %104 ]
   tail call void @free(ptr noundef %112) #15
-  %113 = getelementptr inbounds i8, ptr %4, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %114 = load ptr, ptr %113, align 8
   br label %.sink.split
 
@@ -732,7 +732,7 @@ define hidden noundef ptr @updateGCMParams(ptr nocapture noundef readnone %0, pt
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %42 [
     i64 48, label %6
@@ -740,54 +740,54 @@ define hidden noundef ptr @updateGCMParams(ptr nocapture noundef readnone %0, pt
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #16
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %21, ptr %22, align 8
   store ptr %9, ptr %7, align 8
   br label %.sink.split
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #16
   %27 = load ptr, ptr %25, align 8
   store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %29, ptr %30, align 8
   %31 = shl i64 %29, 3
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %25, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %25, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %26, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 %40, ptr %41, align 8
   store ptr %26, ptr %24, align 8
   br label %.sink.split
@@ -819,7 +819,7 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %12 = sext i32 %11 to i64
@@ -832,7 +832,7 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %19, null
@@ -840,17 +840,17 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %15, i64 1592
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 1592
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %11, ptr noundef %13) #15
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1824
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1824
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i8 %30(ptr noundef nonnull %0) #15
   %.not33 = icmp eq i8 %31, 0
@@ -875,7 +875,7 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
 38:                                               ; preds = %37
   tail call void @free(ptr noundef %13) #15
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i35 = icmp eq ptr %42, null
@@ -883,7 +883,7 @@ define hidden void @jBooleanArrayToCKBBoolArray(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -925,7 +925,7 @@ define hidden void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %1, ptr 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %12 = sext i32 %11 to i64
@@ -938,7 +938,7 @@ define hidden void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %19, null
@@ -946,17 +946,17 @@ define hidden void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %1, ptr 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %15, i64 1600
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 1600
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %11, ptr noundef %13) #15
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1824
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1824
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i8 %30(ptr noundef nonnull %0) #15
   %.not21 = icmp eq i8 %31, 0
@@ -986,7 +986,7 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %12 = sext i32 %11 to i64
@@ -999,7 +999,7 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %19, null
@@ -1007,17 +1007,17 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %15, i64 1632
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 1632
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %11, ptr noundef %13) #15
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1824
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1824
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i8 %30(ptr noundef nonnull %0) #15
   %.not33 = icmp eq i8 %31, 0
@@ -1042,7 +1042,7 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
 38:                                               ; preds = %37
   tail call void @free(ptr noundef %13) #15
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i35 = icmp eq ptr %42, null
@@ -1050,7 +1050,7 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1090,7 +1090,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %12 = sext i32 %11 to i64
@@ -1103,7 +1103,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %19, null
@@ -1111,17 +1111,17 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %15, i64 1608
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 1608
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %11, ptr noundef %13) #15
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1824
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1824
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i8 %30(ptr noundef nonnull %0) #15
   %.not33 = icmp eq i8 %31, 0
@@ -1146,7 +1146,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
 38:                                               ; preds = %37
   tail call void @free(ptr noundef %13) #15
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i35 = icmp eq ptr %42, null
@@ -1154,7 +1154,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1195,7 +1195,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %12 = sext i32 %11 to i64
@@ -1208,7 +1208,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %25, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %19, null
@@ -1216,17 +1216,17 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %15, i64 1608
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 1608
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %11, ptr noundef %13) #15
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1824
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1824
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i8 %30(ptr noundef nonnull %0) #15
   %.not33 = icmp eq i8 %31, 0
@@ -1246,7 +1246,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i35 = icmp eq ptr %41, null
@@ -1254,7 +1254,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit36
@@ -1296,7 +1296,7 @@ define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1352
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1352
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5) #15
   %13 = icmp eq ptr %12, null
@@ -1313,11 +1313,11 @@ define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1360
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1360
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12) #15
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr %25(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %26, null
@@ -1325,7 +1325,7 @@ define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1333,7 +1333,7 @@ define hidden void @jStringToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, ptr
 32:                                               ; preds = %14
   %33 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %12) #15
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1360
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1360
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %12) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1361,7 +1361,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1368
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %13 = sext i32 %12 to i64
@@ -1378,7 +1378,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %21, null
@@ -1386,7 +1386,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1397,12 +1397,12 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %27, %57
   %.048 = phi i64 [ %58, %57 ], [ 0, %27 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1384
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1384
   %30 = load ptr, ptr %29, align 8
   %31 = trunc i64 %.048 to i32
   %32 = call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %31) #15
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1824
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1824
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i8 %35(ptr noundef nonnull %0) #15
   %.not32 = icmp eq i8 %36, 0
@@ -1423,7 +1423,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %40 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %37, i64 %indvars.iv.i, i32 1
+  %40 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %37, i64 %indvars.iv.i, i32 1
   %41 = load ptr, ptr %40, align 8
   %.not10.i = icmp eq ptr %41, null
   br i1 %.not10.i, label %43, label %42
@@ -1446,7 +1446,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
   call void @jAttributeToCKAttribute(ptr dead_on_unwind nonnull writable sret(%struct.CK_ATTRIBUTE) align 8 %5, ptr noundef nonnull %0, ptr noundef %32) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1824
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1824
   %48 = load ptr, ptr %47, align 8
   %49 = call zeroext i8 %48(ptr noundef nonnull %0) #15
   %.not33 = icmp eq i8 %49, 0
@@ -1467,7 +1467,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 .lr.ph.i39:                                       ; preds = %56, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %56 ]
-  %53 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %51, i64 %indvars.iv.i40, i32 1
+  %53 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %51, i64 %indvars.iv.i40, i32 1
   %54 = load ptr, ptr %53, align 8
   %.not10.i41 = icmp eq ptr %54, null
   br i1 %.not10.i41, label %56, label %55
@@ -1503,7 +1503,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckByteArrayToJByteArray(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1408
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1408
   %6 = load ptr, ptr %5, align 8
   %7 = trunc i64 %2 to i32
   %8 = tail call ptr %6(ptr noundef nonnull %0, i32 noundef %7) #15
@@ -1512,7 +1512,7 @@ define hidden ptr @ckByteArrayToJByteArray(ptr noundef %0, ptr noundef %1, i64 n
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1664
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1664
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %7, ptr noundef %1) #15
   br label %13
@@ -1540,7 +1540,7 @@ define hidden ptr @ckULongArrayToJLongArray(ptr noundef %0, ptr nocapture nounde
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %12, null
@@ -1548,14 +1548,14 @@ define hidden ptr @ckULongArrayToJLongArray(ptr noundef %0, ptr nocapture nounde
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1440
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1440
   %20 = load ptr, ptr %19, align 8
   %21 = trunc i64 %2 to i32
   %22 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef %21) #15
@@ -1564,7 +1564,7 @@ define hidden ptr @ckULongArrayToJLongArray(ptr noundef %0, ptr nocapture nounde
 
 23:                                               ; preds = %._crit_edge
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1696
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1696
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef 0, i32 noundef %21, ptr noundef %4) #15
   br label %27
@@ -1592,7 +1592,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %11, null
@@ -1600,7 +1600,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1618,7 +1618,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1416
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1416
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %2 to i32
   %26 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef %25) #15
@@ -1627,7 +1627,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr nocapture noundef
 
 27:                                               ; preds = %._crit_edge
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1672
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1672
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef 0, i32 noundef %25, ptr noundef %4) #15
   br label %31
@@ -1655,7 +1655,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr nocapture nou
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %11, null
@@ -1663,7 +1663,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr nocapture nou
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1681,7 +1681,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr nocapture nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1416
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1416
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %2 to i32
   %26 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef %25) #15
@@ -1690,7 +1690,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr nocapture nou
 
 27:                                               ; preds = %._crit_edge
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1672
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1672
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef 0, i32 noundef %25, ptr noundef %4) #15
   br label %31
@@ -1707,7 +1707,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %12, %7, %31
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
   %7 = icmp eq ptr %6, null
@@ -1715,7 +1715,7 @@ define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noun
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10) #15
   %13 = icmp eq ptr %12, null
@@ -1725,7 +1725,7 @@ define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noun
   %15 = load i8, ptr %1, align 1
   %16 = icmp eq i8 %15, 1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = zext i1 %16 to i32
   %21 = tail call ptr (ptr, ptr, ptr, ...) %19(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i32 noundef %20) #15
@@ -1739,7 +1739,7 @@ define hidden ptr @ckBBoolPtrToJBooleanObject(ptr noundef %0, ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #15
   %7 = icmp eq ptr %6, null
@@ -1747,7 +1747,7 @@ define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr nocapture noundef
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12) #15
   %13 = icmp eq ptr %12, null
@@ -1756,7 +1756,7 @@ define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr nocapture noundef
 14:                                               ; preds = %8
   %15 = load i64, ptr %1, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr (ptr, ptr, ptr, ...) %18(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef %15) #15
   br label %20
@@ -1769,7 +1769,7 @@ define hidden ptr @ckULongPtrToJLongObject(ptr noundef %0, ptr nocapture noundef
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #15
   %7 = icmp eq ptr %6, null
@@ -1777,7 +1777,7 @@ define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #15
   %13 = icmp eq ptr %12, null
@@ -1785,7 +1785,7 @@ define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 296
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12) #15
   %19 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
@@ -1794,7 +1794,7 @@ define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %25, null
@@ -1802,7 +1802,7 @@ define hidden noundef ptr @jBooleanObjectToCKBBoolPtr(ptr noundef %0, ptr nounde
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1824,7 +1824,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #15
   %7 = icmp eq ptr %6, null
@@ -1832,7 +1832,7 @@ define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #15
   %13 = icmp eq ptr %12, null
@@ -1840,7 +1840,7 @@ define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 320
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %17 = load ptr, ptr %16, align 8
   %18 = tail call signext i8 (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12) #15
   %19 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
@@ -1849,7 +1849,7 @@ define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %25, null
@@ -1857,7 +1857,7 @@ define hidden noundef ptr @jByteObjectToCKBytePtr(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1874,7 +1874,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #15
   %7 = icmp eq ptr %6, null
@@ -1882,7 +1882,7 @@ define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #15
   %13 = icmp eq ptr %12, null
@@ -1890,7 +1890,7 @@ define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 392
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 392
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12) #15
   %19 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
@@ -1899,7 +1899,7 @@ define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %25, null
@@ -1907,7 +1907,7 @@ define hidden noundef ptr @jIntegerObjectToCKULongPtr(ptr noundef %0, ptr nounde
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1925,7 +1925,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #15
   %7 = icmp eq ptr %6, null
@@ -1933,7 +1933,7 @@ define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #15
   %13 = icmp eq ptr %12, null
@@ -1941,7 +1941,7 @@ define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 416
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12) #15
   %19 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
@@ -1950,7 +1950,7 @@ define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %25, null
@@ -1958,7 +1958,7 @@ define hidden noundef ptr @jLongObjectToCKULongPtr(ptr noundef %0, ptr noundef %
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -1975,7 +1975,7 @@ p11ThrowOutOfMemoryError.exit:                    ; preds = %26, %21, %8, %2, %3
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #15
   %7 = icmp eq ptr %6, null
@@ -1983,7 +1983,7 @@ define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #15
   %13 = icmp eq ptr %12, null
@@ -1991,7 +1991,7 @@ define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 344
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i16 (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12) #15
   %19 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
@@ -2000,7 +2000,7 @@ define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %25, null
@@ -2008,7 +2008,7 @@ define hidden noundef ptr @jCharObjectToCKCharPtr(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -2035,7 +2035,7 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #15
   %12 = icmp eq ptr %11, null
@@ -2043,12 +2043,12 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i8 %16(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11) #15
   %.not = icmp eq i8 %17, 0
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   br i1 %.not, label %48, label %21
 
@@ -2059,7 +2059,7 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 264
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 264
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #15
   %29 = icmp eq ptr %28, null
@@ -2067,7 +2067,7 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 416
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 416
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %28) #15
   %35 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
@@ -2076,7 +2076,7 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i.i = icmp eq ptr %41, null
@@ -2084,7 +2084,7 @@ define hidden ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef null) #15
   br label %jLongObjectToCKULongPtr.exit
@@ -2105,12 +2105,12 @@ jLongObjectToCKULongPtr.exit:                     ; preds = %21, %24, %37, %42, 
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 256
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 256
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %49) #15
   %.not188 = icmp eq i8 %55, 0
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   br i1 %.not188, label %88, label %59
 
@@ -2121,7 +2121,7 @@ jLongObjectToCKULongPtr.exit:                     ; preds = %21, %24, %37, %42, 
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 264
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #15
   %67 = icmp eq ptr %66, null
@@ -2129,7 +2129,7 @@ jLongObjectToCKULongPtr.exit:                     ; preds = %21, %24, %37, %42, 
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 296
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 296
   %71 = load ptr, ptr %70, align 8
   %72 = tail call zeroext i8 (ptr, ptr, ptr, ...) %71(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %66) #15
   %73 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #18
@@ -2138,7 +2138,7 @@ jLongObjectToCKULongPtr.exit:                     ; preds = %21, %24, %37, %42, 
 
 75:                                               ; preds = %68
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr %78(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i.i200 = icmp eq ptr %79, null
@@ -2146,7 +2146,7 @@ jLongObjectToCKULongPtr.exit:                     ; preds = %21, %24, %37, %42, 
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 %83(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef null) #15
   br label %jBooleanObjectToCKBBoolPtr.exit
@@ -2169,7 +2169,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 256
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 256
   %94 = load ptr, ptr %93, align 8
   %95 = tail call zeroext i8 %94(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %89) #15
   %.not189 = icmp eq i8 %95, 0
@@ -2182,7 +2182,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 98:                                               ; preds = %91
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #15
   %103 = icmp eq ptr %102, null
@@ -2190,7 +2190,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 104:                                              ; preds = %98
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 256
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 256
   %107 = load ptr, ptr %106, align 8
   %108 = tail call zeroext i8 %107(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %102) #15
   %.not190 = icmp eq i8 %108, 0
@@ -2203,7 +2203,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 111:                                              ; preds = %104
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr %114(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #15
   %116 = icmp eq ptr %115, null
@@ -2211,7 +2211,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 117:                                              ; preds = %111
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 256
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 256
   %120 = load ptr, ptr %119, align 8
   %121 = tail call zeroext i8 %120(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %115) #15
   %.not191 = icmp eq i8 %121, 0
@@ -2224,7 +2224,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 124:                                              ; preds = %117
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %127 = load ptr, ptr %126, align 8
   %128 = tail call ptr %127(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #15
   %129 = icmp eq ptr %128, null
@@ -2232,7 +2232,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 130:                                              ; preds = %124
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 256
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 256
   %133 = load ptr, ptr %132, align 8
   %134 = tail call zeroext i8 %133(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %128) #15
   %.not192 = icmp eq i8 %134, 0
@@ -2245,7 +2245,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 137:                                              ; preds = %130
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr %140(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #15
   %142 = icmp eq ptr %141, null
@@ -2253,7 +2253,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 143:                                              ; preds = %137
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 256
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 256
   %146 = load ptr, ptr %145, align 8
   %147 = tail call zeroext i8 %146(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %141) #15
   %.not193 = icmp eq i8 %147, 0
@@ -2266,7 +2266,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 150:                                              ; preds = %143
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %153 = load ptr, ptr %152, align 8
   %154 = tail call ptr %153(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #15
   %155 = icmp eq ptr %154, null
@@ -2274,7 +2274,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 156:                                              ; preds = %150
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 256
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 256
   %159 = load ptr, ptr %158, align 8
   %160 = tail call zeroext i8 %159(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %154) #15
   %.not194 = icmp eq i8 %160, 0
@@ -2287,7 +2287,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 163:                                              ; preds = %156
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %166 = load ptr, ptr %165, align 8
   %167 = tail call ptr %166(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #15
   %168 = icmp eq ptr %167, null
@@ -2295,7 +2295,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 169:                                              ; preds = %163
   %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 256
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 256
   %172 = load ptr, ptr %171, align 8
   %173 = tail call zeroext i8 %172(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %167) #15
   %.not195 = icmp eq i8 %173, 0
@@ -2308,7 +2308,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 176:                                              ; preds = %169
   %177 = load ptr, ptr %0, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 48
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 48
   %179 = load ptr, ptr %178, align 8
   %180 = tail call ptr %179(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #15
   %181 = icmp eq ptr %180, null
@@ -2316,7 +2316,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 182:                                              ; preds = %176
   %183 = load ptr, ptr %0, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 256
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 256
   %185 = load ptr, ptr %184, align 8
   %186 = tail call zeroext i8 %185(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %180) #15
   %.not196 = icmp eq i8 %186, 0
@@ -2329,7 +2329,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 189:                                              ; preds = %182
   %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 48
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 48
   %192 = load ptr, ptr %191, align 8
   %193 = tail call ptr %192(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #15
   %194 = icmp eq ptr %193, null
@@ -2337,7 +2337,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 195:                                              ; preds = %189
   %196 = load ptr, ptr %0, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 256
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 256
   %198 = load ptr, ptr %197, align 8
   %199 = tail call zeroext i8 %198(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %193) #15
   %.not197 = icmp eq i8 %199, 0
@@ -2350,7 +2350,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 202:                                              ; preds = %195
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
   %205 = load ptr, ptr %204, align 8
   %206 = tail call ptr %205(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #15
   %207 = icmp eq ptr %206, null
@@ -2358,7 +2358,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 208:                                              ; preds = %202
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 256
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 256
   %211 = load ptr, ptr %210, align 8
   %212 = tail call zeroext i8 %211(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %206) #15
   %.not198 = icmp eq i8 %212, 0
@@ -2371,7 +2371,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 215:                                              ; preds = %208
   %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 48
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 48
   %218 = load ptr, ptr %217, align 8
   %219 = tail call ptr %218(ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
   %220 = icmp eq ptr %219, null
@@ -2379,7 +2379,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 221:                                              ; preds = %215
   %222 = load ptr, ptr %0, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 264
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 264
   %224 = load ptr, ptr %223, align 8
   %225 = tail call ptr %224(ptr noundef nonnull %0, ptr noundef nonnull %219, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #15
   %226 = icmp eq ptr %225, null
@@ -2387,11 +2387,11 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 227:                                              ; preds = %221
   %228 = load ptr, ptr %0, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 272
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 272
   %230 = load ptr, ptr %229, align 8
   %231 = tail call ptr (ptr, ptr, ptr, ...) %230(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %225) #15
   %232 = load ptr, ptr %0, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 48
   %234 = load ptr, ptr %233, align 8
   %235 = tail call ptr %234(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #15
   %236 = icmp eq ptr %235, null
@@ -2399,7 +2399,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 237:                                              ; preds = %227
   %238 = load ptr, ptr %0, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 264
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 264
   %240 = load ptr, ptr %239, align 8
   %241 = tail call ptr %240(ptr noundef nonnull %0, ptr noundef nonnull %235, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #15
   %242 = icmp eq ptr %241, null
@@ -2407,11 +2407,11 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 243:                                              ; preds = %237
   %244 = load ptr, ptr %0, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 272
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 272
   %246 = load ptr, ptr %245, align 8
   %247 = tail call ptr (ptr, ptr, ptr, ...) %246(ptr noundef nonnull %0, ptr noundef %231, ptr noundef nonnull %241) #15
   %248 = load ptr, ptr %0, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 1352
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 1352
   %250 = load ptr, ptr %249, align 8
   %251 = tail call ptr %250(ptr noundef nonnull %0, ptr noundef %247, ptr noundef null) #15
   %252 = icmp eq ptr %251, null
@@ -2426,11 +2426,11 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 258:                                              ; preds = %253
   %259 = load ptr, ptr %0, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 1360
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 1360
   %261 = load ptr, ptr %260, align 8
   tail call void %261(ptr noundef nonnull %0, ptr noundef %247, ptr noundef nonnull %251) #15
   %262 = load ptr, ptr %0, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 48
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 48
   %264 = load ptr, ptr %263, align 8
   %265 = tail call ptr %264(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #15
   %.not.i.i = icmp eq ptr %265, null
@@ -2438,7 +2438,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 266:                                              ; preds = %258
   %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 112
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 112
   %269 = load ptr, ptr %268, align 8
   %270 = tail call i32 %269(ptr noundef nonnull %0, ptr noundef nonnull %265, ptr noundef null) #15
   br label %p11ThrowOutOfMemoryError.exit
@@ -2447,11 +2447,11 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %256, ptr noundef nonnull align 1 dereferenceable(71) @.str.39, i64 71, i1 false) #15
   %272 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(1) %251) #15
   %273 = load ptr, ptr %0, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 1360
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 1360
   %275 = load ptr, ptr %274, align 8
   tail call void %275(ptr noundef nonnull %0, ptr noundef %247, ptr noundef nonnull %251) #15
   %276 = load ptr, ptr %0, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 48
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 48
   %278 = load ptr, ptr %277, align 8
   %279 = tail call ptr %278(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #15
   %.not.i.i201 = icmp eq ptr %279, null
@@ -2459,7 +2459,7 @@ jBooleanObjectToCKBBoolPtr.exit:                  ; preds = %59, %62, %75, %80, 
 
 280:                                              ; preds = %271
   %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 112
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 112
   %283 = load ptr, ptr %282, align 8
   %284 = tail call i32 %283(ptr noundef nonnull %0, ptr noundef nonnull %279, ptr noundef nonnull %256) #15
   br label %p11ThrowPKCS11RuntimeException.exit

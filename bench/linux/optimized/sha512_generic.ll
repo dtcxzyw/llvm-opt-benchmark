@@ -47,8 +47,8 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 127
@@ -76,14 +76,14 @@ define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr
 
 21:                                               ; preds = %19
   %22 = sub nuw nsw i32 128, %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = and i64 %6, 127
   %25 = getelementptr i8, ptr %23, i64 %24
   %26 = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %25, ptr noundef align 1 %1, i64 %26, i1 false)
   %27 = getelementptr i8, ptr %1, i64 %26
   %28 = sub i32 %2, %22
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %4, ptr noundef %23, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %4, ptr noundef nonnull %23, i32 noundef 1)
   br label %29
 
 29:                                               ; preds = %21, %19
@@ -95,7 +95,7 @@ define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr
 
 34:                                               ; preds = %29
   %35 = lshr i32 %30, 7
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %4, ptr noundef %31, i32 noundef %35)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %4, ptr noundef %31, i32 noundef %35)
   %36 = and i32 %30, -128
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %31, i64 %37
@@ -109,7 +109,7 @@ define dso_local noundef i32 @crypto_sha512_update(ptr nocapture noundef %0, ptr
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = zext nneg i32 %41 to i64
   %47 = getelementptr i8, ptr %45, i64 %46
   %48 = zext i32 %40 to i64
@@ -498,8 +498,8 @@ define internal fastcc void @sha512_generic_block_fn(ptr nocapture noundef %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 127
@@ -527,14 +527,14 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %20
   %23 = sub nuw nsw i32 128, %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = and i64 %7, 127
   %26 = getelementptr i8, ptr %24, i64 %25
   %27 = zext nneg i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %26, ptr noundef align 1 %1, i64 %27, i1 false)
   %28 = getelementptr i8, ptr %1, i64 %27
   %29 = sub i32 %2, %23
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %5, ptr noundef %24, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %5, ptr noundef nonnull %24, i32 noundef 1)
   br label %30
 
 30:                                               ; preds = %22, %20
@@ -546,7 +546,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
 
 35:                                               ; preds = %30
   %36 = lshr i32 %31, 7
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %5, ptr noundef %32, i32 noundef %36)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %5, ptr noundef %32, i32 noundef %36)
   %37 = and i32 %31, -128
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %32, i64 %38
@@ -560,7 +560,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = zext nneg i32 %42 to i64
   %48 = getelementptr i8, ptr %46, i64 %47
   %49 = zext i32 %41 to i64
@@ -568,7 +568,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   br label %50
 
 50:                                               ; preds = %45, %40
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load i64, ptr %6, align 8
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 127
@@ -585,7 +585,7 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   %62 = xor i32 %54, 127
   %63 = zext nneg i32 %62 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %61, i8 0, i64 %63, i1 false)
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %5, ptr noundef %51, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %5, ptr noundef nonnull %51, i32 noundef 1)
   br label %64
 
 64:                                               ; preds = %59, %50
@@ -606,9 +606,9 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   %77 = tail call i64 @llvm.bswap.i64(i64 %76)
   %78 = getelementptr i8, ptr %0, i64 208
   store i64 %77, ptr %78, align 8
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %5, ptr noundef %51, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %5, ptr noundef nonnull %51, i32 noundef 1)
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 -8
   %83 = load i32, ptr %82, align 8
@@ -630,16 +630,16 @@ define dso_local noundef i32 @crypto_sha512_finup(ptr noundef %0, ptr nocapture 
   br i1 %92, label %sha512_final.exit, label %.preheader.i, !llvm.loop !13
 
 sha512_final.exit:                                ; preds = %.preheader.i, %64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(208) %5, i8 0, i64 208, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #9, !srcloc !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %5, i8 0, i64 208, i1 false)
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #9, !srcloc !14
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 127
@@ -656,7 +656,7 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef 
   %16 = xor i32 %8, 127
   %17 = zext nneg i32 %16 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %3, ptr noundef %4, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   br label %18
 
 18:                                               ; preds = %13, %2
@@ -677,9 +677,9 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef 
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
   %32 = getelementptr i8, ptr %0, i64 208
   store i64 %31, ptr %32, align 8
-  tail call fastcc void @sha512_generic_block_fn(ptr noundef %3, ptr noundef %4, i32 noundef 1)
+  tail call fastcc void @sha512_generic_block_fn(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1)
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load i32, ptr %36, align 8
@@ -701,8 +701,8 @@ define internal noundef i32 @sha512_final(ptr noundef %0, ptr nocapture noundef 
   br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(208) %3, i8 0, i64 208, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #9, !srcloc !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(208) %3, i8 0, i64 208, i1 false)
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #9, !srcloc !14
   ret i32 0
 }
 
@@ -738,7 +738,7 @@ declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7640891576956012808, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   store i64 -4942790177534073029, ptr %3, align 8
@@ -754,14 +754,14 @@ define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly in
   store i64 2270897969802886507, ptr %8, align 8
   %9 = getelementptr i8, ptr %0, i64 64
   store i64 6620516959819538809, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @sha384_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -3766243637369397544, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   store i64 7105036623409894663, ptr %3, align 8
@@ -777,8 +777,8 @@ define internal noundef i32 @sha384_base_init(ptr nocapture noundef writeonly in
   store i64 -2662702644619276377, ptr %8, align 8
   %9 = getelementptr i8, ptr %0, i64 64
   store i64 5167115440072839076, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   ret i32 0
 }
 

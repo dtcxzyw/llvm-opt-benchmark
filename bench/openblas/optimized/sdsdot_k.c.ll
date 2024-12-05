@@ -24,17 +24,17 @@ define double @sdsdot_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 n
   %15 = phi ptr [ %47, %.preheader4 ], [ %1, %11 ]
   %16 = phi double [ %46, %.preheader4 ], [ 0.000000e+00, %11 ]
   %17 = phi i64 [ %49, %.preheader4 ], [ 0, %11 ]
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load <8 x float>, ptr %18, align 1, !tbaa !3
-  %20 = getelementptr inbounds i8, ptr %14, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %21 = load <8 x float>, ptr %20, align 1, !tbaa !3
-  %22 = getelementptr inbounds i8, ptr %15, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %23 = load <8 x float>, ptr %22, align 1, !tbaa !3
-  %24 = getelementptr inbounds i8, ptr %14, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %25 = load <8 x float>, ptr %24, align 1, !tbaa !3
-  %26 = getelementptr inbounds i8, ptr %15, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %27 = load <8 x float>, ptr %26, align 1, !tbaa !3
-  %28 = getelementptr inbounds i8, ptr %14, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %29 = load <8 x float>, ptr %28, align 1, !tbaa !3
   %30 = load <8 x float>, ptr %15, align 1, !tbaa !3
   %31 = load <8 x float>, ptr %14, align 1, !tbaa !3
@@ -53,8 +53,8 @@ define double @sdsdot_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 n
   %44 = extractelement <4 x float> %43, i64 0
   %45 = fpext float %44 to double
   %46 = fadd double %16, %45
-  %47 = getelementptr inbounds i8, ptr %15, i64 128
-  %48 = getelementptr inbounds i8, ptr %14, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %49 = add nuw nsw i64 %17, 32
   %50 = icmp samesign ult i64 %49, %12
   br i1 %50, label %.preheader4, label %.loopexit5, !llvm.loop !6
@@ -67,10 +67,10 @@ define double @sdsdot_k(i64 noundef %0, ptr nocapture noundef readonly %1, i64 n
 .preheader:                                       ; preds = %.loopexit5, %.preheader
   %53 = phi double [ %61, %.preheader ], [ 0.000000e+00, %.loopexit5 ]
   %54 = phi i64 [ %62, %.preheader ], [ %12, %.loopexit5 ]
-  %55 = getelementptr inbounds float, ptr %3, i64 %54
+  %55 = getelementptr inbounds nuw float, ptr %3, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !9
   %57 = fpext float %56 to double
-  %58 = getelementptr inbounds float, ptr %1, i64 %54
+  %58 = getelementptr inbounds nuw float, ptr %1, i64 %54
   %59 = load float, ptr %58, align 4, !tbaa !9
   %60 = fpext float %59 to double
   %61 = tail call double @llvm.fmuladd.f64(double %57, double %60, double %53)

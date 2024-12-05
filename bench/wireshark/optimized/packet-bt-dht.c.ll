@@ -178,7 +178,7 @@ define internal noundef i32 @dissect_bt_dht(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.36) #5
   %9 = load ptr, ptr %7, align 8
@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @dissect_bt_dht_heur(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %4
   %7 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr @bt_dht_handle, align 8
   tail call void @conversation_set_dissector_from_frame_number(ptr noundef nonnull %7, i32 noundef %9, ptr noundef %10) #5
@@ -219,7 +219,7 @@ define internal range(i32 0, 2) i32 @dissect_bt_dht_heur(ptr noundef %0, ptr nou
   br i1 %.not.i, label %dissect_bt_dht.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.36) #5
   %15 = load ptr, ptr %13, align 8
@@ -312,8 +312,8 @@ define internal fastcc noundef i32 @dissect_bencoded_dict(ptr noundef %0, ptr no
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %32
 
 32:                                               ; preds = %.lr.ph, %dissect_bencoded_dict_entry.exit
@@ -365,7 +365,7 @@ sub_0:                                            ; preds = %47
   br i1 %.not130, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %53 = getelementptr inbounds i8, ptr %51, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %56, label %.tail.thread
@@ -583,13 +583,13 @@ sub_079:                                          ; preds = %156
   br i1 %.not131, label %sub_180, label %.tail82.thread
 
 sub_180:                                          ; preds = %sub_079
-  %162 = getelementptr inbounds i8, ptr %151, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %163 = load i8, ptr %162, align 1
   %.not132 = icmp eq i8 %163, 112
   br i1 %.not132, label %.tail78, label %sub_184
 
 .tail78:                                          ; preds = %sub_180
-  %164 = getelementptr inbounds i8, ptr %151, i64 2
+  %164 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %165 = load i8, ptr %164, align 1
   %166 = icmp eq i8 %165, 0
   br i1 %166, label %167, label %sub_184
@@ -652,13 +652,13 @@ sub_180:                                          ; preds = %sub_079
   br label %218
 
 sub_184:                                          ; preds = %.tail78, %sub_180
-  %196 = getelementptr inbounds i8, ptr %151, i64 1
+  %196 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %197 = load i8, ptr %196, align 1
   %.not134 = icmp eq i8 %197, 100
   br i1 %.not134, label %.tail82, label %.tail82.thread
 
 .tail82:                                          ; preds = %sub_184
-  %198 = getelementptr inbounds i8, ptr %151, i64 2
+  %198 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %199 = load i8, ptr %198, align 1
   %200 = icmp eq i8 %199, 0
   br i1 %200, label %215, label %.tail82.thread
@@ -680,13 +680,13 @@ sub_088:                                          ; preds = %203
   ]
 
 .tail87:                                          ; preds = %sub_088
-  %206 = getelementptr inbounds i8, ptr %151, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %207 = load i8, ptr %206, align 1
   %208 = icmp eq i8 %207, 0
   br i1 %208, label %215, label %.tail91.thread
 
 .tail91:                                          ; preds = %sub_088
-  %209 = getelementptr inbounds i8, ptr %151, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %210 = load i8, ptr %209, align 1
   %211 = icmp eq i8 %210, 0
   br i1 %211, label %215, label %.tail91.thread
@@ -722,7 +722,7 @@ sub_096:                                          ; preds = %222
   br i1 %.not137, label %.tail95, label %sub_0100
 
 .tail95:                                          ; preds = %sub_096
-  %225 = getelementptr inbounds i8, ptr %223, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 1
   %226 = load i8, ptr %225, align 1
   %227 = icmp eq i8 %226, 0
   br i1 %227, label %228, label %.tail103.thread
@@ -749,7 +749,7 @@ sub_0100:                                         ; preds = %sub_096, %232
   br i1 %.not138, label %.tail99, label %sub_0104
 
 .tail99:                                          ; preds = %sub_0100
-  %239 = getelementptr inbounds i8, ptr %223, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %223, i64 1
   %240 = load i8, ptr %239, align 1
   %241 = icmp eq i8 %240, 0
   br i1 %241, label %242, label %.tail103.thread
@@ -766,7 +766,7 @@ sub_0104:                                         ; preds = %sub_0100, %242
   br i1 %.not139, label %.tail103, label %.tail103.thread
 
 .tail103:                                         ; preds = %sub_0104
-  %245 = getelementptr inbounds i8, ptr %223, i64 1
+  %245 = getelementptr inbounds nuw i8, ptr %223, i64 1
   %246 = load i8, ptr %245, align 1
   %247 = icmp eq i8 %246, 0
   br i1 %247, label %248, label %.tail103.thread
@@ -905,7 +905,7 @@ define internal fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr nocaptur
 
 .critedge26.i:                                    ; preds = %14, %11
   %.020.lcssa.i = phi i32 [ %3, %11 ], [ %15, %14 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = sub i32 %.020.lcssa.i, %3
   %20 = tail call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %0, i32 noundef %3, i32 noundef %19, i32 noundef 0) #5
@@ -1070,7 +1070,7 @@ define internal fastcc noundef i32 @dissect_bencoded_int(ptr noundef %0, ptr noc
   %.033.lcssa = phi i32 [ %12, %11 ], [ %17, %16 ]
   %19 = load i32, ptr @hf_bencoded_list_terminator, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %.033.lcssa, i32 noundef 1, i32 noundef 0) #5
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = sub i32 %.033.lcssa, %12
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %0, i32 noundef %12, i32 noundef %23, i32 noundef 0) #5
@@ -1112,7 +1112,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr nocapture n
 
 .critedge26.i:                                    ; preds = %13, %10
   %.020.lcssa.i = phi i32 [ %3, %10 ], [ %14, %13 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = sub i32 %.020.lcssa.i, %3
   %19 = tail call ptr @tvb_get_string_enc(ptr noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef %18, i32 noundef 0) #5
@@ -1218,7 +1218,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr nocapture n
 77:                                               ; preds = %72, %._crit_edge
   %.2 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %76, %72 ]
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %25, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.50, i32 noundef %.0.lcssa) #5
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %.0.lcssa) #5
   %80 = load ptr, ptr %16, align 8

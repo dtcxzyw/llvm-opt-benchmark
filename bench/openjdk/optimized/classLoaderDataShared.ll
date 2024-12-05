@@ -59,7 +59,7 @@ define hidden void @_ZN23ArchivedClassLoaderData15iterate_symbolsEP15ClassLoader
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load volatile ptr, ptr %5, align 8
   tail call void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %2) #4
   %7 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
@@ -82,13 +82,13 @@ define hidden void @_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData(ptr
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load volatile ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %5) #4
   store ptr %6, ptr %0, align 8
   %7 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
   %8 = tail call noundef ptr @_ZN16ModuleEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %7) #4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   br label %10
 
@@ -106,12 +106,12 @@ define hidden void @_ZN23ArchivedClassLoaderData21init_archived_entriesEP15Class
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load volatile ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   tail call void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %5, ptr noundef %6) #4
   %7 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN16ModuleEntryTable21init_archived_entriesEP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %7, ptr noundef %9) #4
   br label %10
@@ -126,14 +126,14 @@ declare void @_ZN16ModuleEntryTable21init_archived_entriesEP5ArrayIP11ModuleEntr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN11MutexLockerD2Ev.exit, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load volatile ptr, ptr %9, align 8
   %11 = load ptr, ptr @Module_lock, align 8
   %.not.i.i = icmp eq ptr %11, null
@@ -180,7 +180,7 @@ declare void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ArchivedClassLoaderData19clear_archived_oopsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -193,8 +193,8 @@ define hidden void @_ZN23ArchivedClassLoaderData19clear_archived_oopsEv(ptr noca
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = phi ptr [ %10, %.lr.ph ], [ %3, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN11ModuleEntry19clear_archived_oopsEv(ptr noundef nonnull align 8 dereferenceable(80) %9) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -217,7 +217,7 @@ define hidden void @_ZN21ClassLoaderDataShared15iterate_symbolsEP16MetaspaceClos
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData15iterate_symbolsEP15ClassLoaderDataP16MetaspaceClosure.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load volatile ptr, ptr %4, align 8
   tail call void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(880) %5, ptr noundef %0) #4
   %6 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %2) #4
@@ -243,7 +243,7 @@ _ZL33java_platform_loader_data_or_nullv.exit:     ; preds = %9, %11
   br i1 %.not.i3, label %_ZN23ArchivedClassLoaderData15iterate_symbolsEP15ClassLoaderDataP16MetaspaceClosure.exit4, label %13
 
 13:                                               ; preds = %_ZL33java_platform_loader_data_or_nullv.exit
-  %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %15 = load volatile ptr, ptr %14, align 8
   tail call void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(880) %15, ptr noundef %0) #4
   %16 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i) #4
@@ -269,7 +269,7 @@ _ZL31java_system_loader_data_or_nullv.exit:       ; preds = %19, %21
   br i1 %.not.i6, label %_ZN23ArchivedClassLoaderData15iterate_symbolsEP15ClassLoaderDataP16MetaspaceClosure.exit7, label %23
 
 23:                                               ; preds = %_ZL31java_system_loader_data_or_nullv.exit
-  %24 = getelementptr inbounds i8, ptr %.0.i.i5, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 64
   %25 = load volatile ptr, ptr %24, align 8
   tail call void @_ZN17PackageEntryTable15iterate_symbolsEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(880) %25, ptr noundef %0) #4
   %26 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i5) #4
@@ -287,13 +287,13 @@ define hidden void @_ZN21ClassLoaderDataShared24allocate_archived_tablesEv() loc
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load volatile ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %4) #4
   store ptr %5, ptr @_ZL26_archived_boot_loader_data, align 8
   %6 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
   %7 = tail call noundef ptr @_ZN16ModuleEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %6) #4
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   br label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit
 
 _ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit: ; preds = %0, %2
@@ -315,13 +315,13 @@ _ZL33java_platform_loader_data_or_nullv.exit:     ; preds = %10, %12
   br i1 %.not.i1, label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit2, label %14
 
 14:                                               ; preds = %_ZL33java_platform_loader_data_or_nullv.exit
-  %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %16 = load volatile ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %16) #4
   store ptr %17, ptr @_ZL30_archived_platform_loader_data, align 8
   %18 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i) #4
   %19 = tail call noundef ptr @_ZN16ModuleEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %18) #4
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   br label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit2
 
 _ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit2: ; preds = %_ZL33java_platform_loader_data_or_nullv.exit, %14
@@ -343,13 +343,13 @@ _ZL31java_system_loader_data_or_nullv.exit:       ; preds = %22, %24
   br i1 %.not.i4, label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit5, label %26
 
 26:                                               ; preds = %_ZL31java_system_loader_data_or_nullv.exit
-  %27 = getelementptr inbounds i8, ptr %.0.i.i3, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 64
   %28 = load volatile ptr, ptr %27, align 8
   %29 = tail call noundef ptr @_ZN17PackageEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %28) #4
   store ptr %29, ptr @_ZL28_archived_system_loader_data, align 8
   %30 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i3) #4
   %31 = tail call noundef ptr @_ZN16ModuleEntryTable25allocate_archived_entriesEv(ptr noundef nonnull align 8 dereferenceable(880) %30) #4
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   br label %_ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit5
 
 _ZN23ArchivedClassLoaderData8allocateEP15ClassLoaderData.exit5: ; preds = %_ZL31java_system_loader_data_or_nullv.exit, %26
@@ -363,12 +363,12 @@ define hidden void @_ZN21ClassLoaderDataShared20init_archived_tablesEv() local_u
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load volatile ptr, ptr %3, align 8
   %5 = load ptr, ptr @_ZL26_archived_boot_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef %5) #4
   %6 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21init_archived_entriesEP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %7) #4
   br label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit
 
@@ -391,12 +391,12 @@ _ZL33java_platform_loader_data_or_nullv.exit:     ; preds = %10, %12
   br i1 %.not.i1, label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit2, label %14
 
 14:                                               ; preds = %_ZL33java_platform_loader_data_or_nullv.exit
-  %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %16 = load volatile ptr, ptr %15, align 8
   %17 = load ptr, ptr @_ZL30_archived_platform_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %16, ptr noundef %17) #4
   %18 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i) #4
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21init_archived_entriesEP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %18, ptr noundef %19) #4
   br label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit2
 
@@ -419,12 +419,12 @@ _ZL31java_system_loader_data_or_nullv.exit:       ; preds = %22, %24
   br i1 %.not.i4, label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit5, label %26
 
 26:                                               ; preds = %_ZL31java_system_loader_data_or_nullv.exit
-  %27 = getelementptr inbounds i8, ptr %.0.i.i3, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 64
   %28 = load volatile ptr, ptr %27, align 8
   %29 = load ptr, ptr @_ZL28_archived_system_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21init_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %28, ptr noundef %29) #4
   %30 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i3) #4
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21init_archived_entriesEP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %30, ptr noundef %31) #4
   br label %_ZN23ArchivedClassLoaderData21init_archived_entriesEP15ClassLoaderData.exit5
 
@@ -440,31 +440,31 @@ declare noundef ptr @_ZN11ModuleEntry18get_archived_entryEPS_(ptr noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ClassLoaderDataShared9serializeEP16SerializeClosure(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZL26_archived_boot_loader_data) #4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8)) #4
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8)) #4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZL30_archived_platform_loader_data) #4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8)) #4
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8)) #4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZL28_archived_system_loader_data) #4
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8)) #4
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8)) #4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZL30_archived_javabase_moduleEntry) #4
   %23 = load ptr, ptr %0, align 8
@@ -478,13 +478,13 @@ define hidden void @_ZN21ClassLoaderDataShared9serializeEP16SerializeClosure(ptr
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit, label %31
 
 31:                                               ; preds = %28
   %32 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %29) #4
-  %33 = getelementptr inbounds i8, ptr %29, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %34 = load volatile ptr, ptr %33, align 8
   %35 = load ptr, ptr @Module_lock, align 8
   %.not.i.i.i = icmp eq ptr %35, null
@@ -492,7 +492,7 @@ define hidden void @_ZN21ClassLoaderDataShared9serializeEP16SerializeClosure(ptr
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %31
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %35) #4
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %32, ptr noundef nonnull %29, ptr noundef %36) #4
   %37 = load ptr, ptr @_ZL26_archived_boot_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %34, ptr noundef %37) #4
@@ -500,7 +500,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %31
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 
 _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit.critedge: ; preds = %31
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %32, ptr noundef nonnull %29, ptr noundef %38) #4
   %39 = load ptr, ptr @_ZL26_archived_boot_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %34, ptr noundef %39) #4
@@ -509,7 +509,7 @@ _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit.critedge: ; preds
 _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit: ; preds = %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit.critedge, %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %40 = load ptr, ptr @_ZL30_archived_javabase_moduleEntry, align 8
   store ptr %40, ptr @_ZN16ModuleEntryTable16_javabase_moduleE, align 8
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %44, label %42
 
@@ -535,7 +535,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ClassLoaderDataShared19clear_archived_oopsEv() local_unnamed_addr #0 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit, label %.preheader.i
 
@@ -547,19 +547,19 @@ define hidden void @_ZN21ClassLoaderDataShared19clear_archived_oopsEv() local_un
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = phi ptr [ %8, %.lr.ph.i ], [ %1, %.preheader.i ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN11ModuleEntry19clear_archived_oopsEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next.i, %10
   br i1 %11, label %.lr.ph.i, label %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit, !llvm.loop !6
 
 _ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit: ; preds = %.lr.ph.i, %0, %.preheader.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   %.not.i1 = icmp eq ptr %12, null
   br i1 %.not.i1, label %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit6, label %.preheader.i2
 
@@ -571,19 +571,19 @@ _ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit: ; preds = %.lr.ph.i, %
 .lr.ph.i3:                                        ; preds = %.preheader.i2, %.lr.ph.i3
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %.lr.ph.i3 ], [ 0, %.preheader.i2 ]
   %15 = phi ptr [ %19, %.lr.ph.i3 ], [ %12, %.preheader.i2 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.i4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i4
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZN11ModuleEntry19clear_archived_oopsEv(ptr noundef nonnull align 8 dereferenceable(80) %18) #4
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i5, %21
   br i1 %22, label %.lr.ph.i3, label %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit6, !llvm.loop !6
 
 _ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit6: ; preds = %.lr.ph.i3, %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit, %.preheader.i2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   %.not.i7 = icmp eq ptr %23, null
   br i1 %.not.i7, label %_ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit12, label %.preheader.i8
 
@@ -595,12 +595,12 @@ _ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit6: ; preds = %.lr.ph.i3,
 .lr.ph.i9:                                        ; preds = %.preheader.i8, %.lr.ph.i9
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph.i9 ], [ 0, %.preheader.i8 ]
   %26 = phi ptr [ %30, %.lr.ph.i9 ], [ %23, %.preheader.i8 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i10
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i10
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN11ModuleEntry19clear_archived_oopsEv(ptr noundef nonnull align 8 dereferenceable(80) %29) #4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i11, %32
@@ -613,26 +613,26 @@ _ZN23ArchivedClassLoaderData19clear_archived_oopsEv.exit12: ; preds = %.lr.ph.i9
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN21ClassLoaderDataShared48restore_archived_oops_for_null_class_loader_dataEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit, label %3
 
 3:                                                ; preds = %0
   %4 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #4
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load volatile ptr, ptr %5, align 8
   %7 = load ptr, ptr @Module_lock, align 8
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.thread, label %9
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.thread: ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %1, ptr noundef %8) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 
 9:                                                ; preds = %3
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26_archived_boot_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %1, ptr noundef %10) #4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
@@ -647,13 +647,13 @@ declare noundef ptr @_ZNK11ModuleEntry6moduleEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ClassLoaderDataShared41restore_java_platform_loader_from_archiveEP15ClassLoaderData(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit, label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load volatile ptr, ptr %5, align 8
   %7 = load ptr, ptr @Module_lock, align 8
   %.not.i.i.i = icmp eq ptr %7, null
@@ -661,21 +661,21 @@ define hidden void @_ZN21ClassLoaderDataShared41restore_java_platform_loader_fro
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %8) #4
   %9 = load ptr, ptr @_ZL30_archived_platform_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %9) #4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %10) #4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 
 _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit.critedge: ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %11) #4
   %12 = load ptr, ptr @_ZL30_archived_platform_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %12) #4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL30_archived_platform_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %13) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 
@@ -685,13 +685,13 @@ _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit: ; preds = %_ZN23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ClassLoaderDataShared39restore_java_system_loader_from_archiveEP15ClassLoaderData(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit, label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN15ClassLoaderData7modulesEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load volatile ptr, ptr %5, align 8
   %7 = load ptr, ptr @Module_lock, align 8
   %.not.i.i.i = icmp eq ptr %7, null
@@ -699,21 +699,21 @@ define hidden void @_ZN21ClassLoaderDataShared39restore_java_system_loader_from_
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %8) #4
   %9 = load ptr, ptr @_ZL28_archived_system_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %9) #4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %10) #4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 
 _ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit.critedge: ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21load_archived_entriesEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %11) #4
   %12 = load ptr, ptr @_ZL28_archived_system_loader_data, align 8
   tail call void @_ZN17PackageEntryTable21load_archived_entriesEP5ArrayIP12PackageEntryE(ptr noundef nonnull align 8 dereferenceable(880) %6, ptr noundef %12) #4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL28_archived_system_loader_data, i64 8), align 8
   tail call void @_ZN16ModuleEntryTable21restore_archived_oopsEP15ClassLoaderDataP5ArrayIP11ModuleEntryE(ptr noundef nonnull align 8 dereferenceable(880) %4, ptr noundef nonnull %0, ptr noundef %13) #4
   br label %_ZN23ArchivedClassLoaderData7restoreEP15ClassLoaderDatabb.exit
 

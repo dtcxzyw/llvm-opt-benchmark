@@ -106,13 +106,13 @@ sub_0:                                            ; preds = %7
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %.not1 = icmp eq i8 %12, 118
   br i1 %.not1, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 109
   br i1 %15, label %26, label %.tail.thread
@@ -335,12 +335,12 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
   %59 = icmp eq i64 %18, %58
-  %60 = getelementptr inbounds i8, ptr %56, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %61 = load i32, ptr %60, align 4
   br i1 %59, label %62, label %65
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %56, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %64 = add i32 %61, %2
   store i32 %64, ptr %63, align 4
   br label %.loopexit
@@ -350,7 +350,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
   br i1 %66, label %67, label %51
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %56, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %44, ptr %56, align 4
   store i32 %2, ptr %68, align 4
   br label %.loopexit
@@ -371,7 +371,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
 77:                                               ; preds = %77, %74
   %78 = phi i64 [ 0, %74 ], [ %86, %77 ]
   %79 = getelementptr %struct.profile_hit, ptr %32, i64 %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = load ptr, ptr @prof_buffer, align 8
   %83 = load i32, ptr %79, align 4
@@ -419,7 +419,7 @@ define dso_local void @profile_hits(i32 noundef %0, ptr noundef %1, i32 noundef 
 define dso_local void @profile_tick(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #15, !srcloc !25
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 0
@@ -792,7 +792,7 @@ define internal i64 @read_profile(ptr nocapture readnone %0, ptr noundef %1, i64
 43:                                               ; preds = %59, %35
   %44 = phi i64 [ 0, %35 ], [ %60, %59 ]
   %45 = getelementptr %struct.profile_hit, ptr %42, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %52

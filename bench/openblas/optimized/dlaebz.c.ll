@@ -83,7 +83,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %76 = phi i32 [ %69, %72 ], [ %95, %94 ]
   %77 = phi i64 [ 2, %72 ], [ %96, %94 ]
   %78 = phi double [ %66, %72 ], [ %90, %94 ]
-  %79 = getelementptr inbounds double, ptr %26, i64 %77
+  %79 = getelementptr inbounds nuw double, ptr %26, i64 %77
   %80 = load double, ptr %79, align 8, !tbaa !7
   %81 = getelementptr double, ptr %44, i64 %77
   %82 = load double, ptr %81, align 8, !tbaa !7
@@ -150,7 +150,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %126 = load double, ptr %125, align 8, !tbaa !7
   %127 = fadd double %124, %126
   %128 = fmul double %127, 5.000000e-01
-  %129 = getelementptr inbounds double, ptr %28, i64 %122
+  %129 = getelementptr inbounds nuw double, ptr %28, i64 %122
   store double %128, ptr %129, align 8, !tbaa !7
   %130 = add nuw nsw i64 %122, 1
   %131 = icmp eq i64 %130, %118
@@ -235,7 +235,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %181 = phi i32 [ %173, %177 ], [ %200, %199 ]
   %182 = phi double [ %174, %177 ], [ %201, %199 ]
   %183 = phi i64 [ 2, %177 ], [ %202, %199 ]
-  %184 = getelementptr inbounds double, ptr %26, i64 %183
+  %184 = getelementptr inbounds nuw double, ptr %26, i64 %183
   %185 = load double, ptr %184, align 8, !tbaa !7
   %186 = getelementptr double, ptr %135, i64 %183
   %187 = load double, ptr %186, align 8, !tbaa !7
@@ -433,7 +433,7 @@ define void @dlaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %311 = phi i64 [ 2, %304 ], [ %327, %310 ]
   %312 = phi double [ %307, %304 ], [ %326, %310 ]
   %313 = phi i32 [ %301, %304 ], [ %325, %310 ]
-  %314 = getelementptr inbounds double, ptr %26, i64 %311
+  %314 = getelementptr inbounds nuw double, ptr %26, i64 %311
   %315 = load double, ptr %314, align 8, !tbaa !7
   %316 = getelementptr double, ptr %135, i64 %311
   %317 = load double, ptr %316, align 8, !tbaa !7

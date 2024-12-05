@@ -16,7 +16,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
   %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef %x)
   br label %return
@@ -40,7 +40,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %call, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %call, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %if.then2 [
     i32 408, label %if.end3
@@ -53,7 +53,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end, %if.end
-  %privatekey = getelementptr inbounds i8, ptr %c, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %c, i64 8
   %1 = load ptr, ptr %privatekey, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end16, label %if.then5
@@ -105,7 +105,7 @@ if.end:                                           ; preds = %entry
   %call = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %p, i64 noundef %der_len) #5
   %cmp1 = icmp ne ptr %call, null
   %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %der, i64 %der_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %der, i64 %der_len
   %cmp2.not = icmp eq ptr %0, %add.ptr
   %or.cond = select i1 %cmp1, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %SSL_use_certificate.exit, label %if.then3
@@ -116,7 +116,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 SSL_use_certificate.exit:                         ; preds = %if.end
-  %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert.i = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
   %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
@@ -153,7 +153,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @RSA_up_ref(ptr noundef nonnull %rsa) #5
   %call5 = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call, ptr noundef nonnull %rsa) #5
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
   %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %call)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
@@ -173,7 +173,7 @@ declare i32 @EVP_PKEY_assign_RSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef nonnull %pkey) unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %pkey, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %if.then [
     i32 408, label %if.end
@@ -207,7 +207,7 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end11:                                         ; preds = %if.then1, %land.lhs.true, %if.end
-  %privatekey = getelementptr inbounds i8, ptr %c, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %c, i64 8
   %4 = load ptr, ptr %privatekey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %4) #5
   %call12 = tail call ptr @EVP_PKEY_up_ref(ptr noundef nonnull %pkey) #5
@@ -244,7 +244,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call i32 @RSA_up_ref(ptr noundef nonnull %call) #5
   %call5.i = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #5
-  %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert.i = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert.i, align 8
   %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %call.i)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call.i) #5
@@ -275,7 +275,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
   %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %pkey)
   br label %return
@@ -301,7 +301,7 @@ if.end:                                           ; preds = %entry
   %call = call ptr @d2i_PrivateKey(i32 noundef %type, ptr noundef null, ptr noundef nonnull %p, i64 noundef %der_len) #5
   %cmp1 = icmp ne ptr %call, null
   %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %der, i64 %der_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %der, i64 %der_len
   %cmp2.not = icmp eq ptr %0, %add.ptr
   %or.cond = select i1 %cmp1, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %SSL_use_PrivateKey.exit, label %if.then3
@@ -312,7 +312,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 SSL_use_PrivateKey.exit:                          ; preds = %if.end
-  %cert.i = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert.i = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %1 = load ptr, ptr %cert.i, align 8
   %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
@@ -336,7 +336,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
   %call = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef %x)
   br label %return
@@ -362,7 +362,7 @@ if.end:                                           ; preds = %entry
   %call = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %p, i64 noundef %der_len) #5
   %cmp1 = icmp ne ptr %call, null
   %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %der, i64 %der_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %der, i64 %der_len
   %cmp2.not = icmp eq ptr %0, %add.ptr
   %or.cond = select i1 %cmp1, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %SSL_CTX_use_certificate.exit, label %if.then3
@@ -373,7 +373,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 SSL_CTX_use_certificate.exit:                     ; preds = %if.end
-  %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
   %call.i = call fastcc i32 @ssl_set_cert(ptr noundef %1, ptr noundef nonnull %call)
   call void @X509_free(ptr noundef nonnull %call) #5
@@ -406,7 +406,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i32 @RSA_up_ref(ptr noundef nonnull %rsa) #5
   %call5 = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call, ptr noundef nonnull %rsa) #5
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
   %call6 = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %call)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
@@ -440,7 +440,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = tail call i32 @RSA_up_ref(ptr noundef nonnull %call) #5
   %call5.i = tail call i32 @EVP_PKEY_assign_RSA(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #5
-  %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert.i, align 8
   %call6.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %call.i)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call.i) #5
@@ -467,7 +467,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
   %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %pkey)
   br label %return
@@ -493,7 +493,7 @@ if.end:                                           ; preds = %entry
   %call = call ptr @d2i_PrivateKey(i32 noundef %type, ptr noundef null, ptr noundef nonnull %p, i64 noundef %der_len) #5
   %cmp1 = icmp ne ptr %call, null
   %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %der, i64 %der_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %der, i64 %der_len
   %cmp2.not = icmp eq ptr %0, %add.ptr
   %or.cond = select i1 %cmp1, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %SSL_CTX_use_PrivateKey.exit, label %if.then3
@@ -504,7 +504,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %if.end
-  %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %1 = load ptr, ptr %cert.i, align 8
   %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %1, ptr noundef nonnull %call)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #5
@@ -518,9 +518,9 @@ return:                                           ; preds = %SSL_CTX_use_Private
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @SSL_set_private_key_method(ptr nocapture noundef readonly %ssl, ptr noundef %key_method) local_unnamed_addr #2 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method1 = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %key_method, ptr %key_method1, align 8
   ret void
 }
@@ -528,9 +528,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @SSL_CTX_set_private_key_method(ptr nocapture noundef readonly %ctx, ptr noundef %key_method) local_unnamed_addr #2 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ctx, i64 296
+  %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
-  %key_method1 = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %key_method, ptr %key_method1, align 8
   ret void
 }
@@ -538,21 +538,21 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_set_private_key_digest_prefs(ptr nocapture noundef readonly %ssl, ptr noundef %digest_nids, i64 noundef %num_digests) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %digest_nids1 = getelementptr inbounds i8, ptr %0, i64 72
+  %digest_nids1 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %digest_nids1, align 8
   tail call void @free(ptr noundef %1) #5
   %2 = load ptr, ptr %cert, align 8
-  %num_digest_nids = getelementptr inbounds i8, ptr %2, i64 80
+  %num_digest_nids = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 0, ptr %num_digest_nids, align 8
   %mul = shl i64 %num_digests, 2
   %call = tail call ptr @BUF_memdup(ptr noundef %digest_nids, i64 noundef %mul) #5
   %3 = load ptr, ptr %cert, align 8
-  %digest_nids4 = getelementptr inbounds i8, ptr %3, i64 72
+  %digest_nids4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %call, ptr %digest_nids4, align 8
   %4 = load ptr, ptr %cert, align 8
-  %digest_nids6 = getelementptr inbounds i8, ptr %4, i64 72
+  %digest_nids6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %5 = load ptr, ptr %digest_nids6, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then, label %if.end
@@ -562,7 +562,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %num_digest_nids8 = getelementptr inbounds i8, ptr %4, i64 80
+  %num_digest_nids8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 %num_digests, ptr %num_digest_nids8, align 8
   br label %return
 
@@ -579,15 +579,15 @@ declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @ssl_has_private_key(ptr nocapture noundef readonly %ssl) local_unnamed_addr #4 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %privatekey = getelementptr inbounds i8, ptr %0, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %privatekey, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %key_method, align 8
   %cmp2 = icmp ne ptr %2, null
   %3 = zext i1 %cmp2 to i32
@@ -601,9 +601,9 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl_private_key_type(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -614,7 +614,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %privatekey = getelementptr inbounds i8, ptr %0, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %privatekey, align 8
   %call4 = tail call i32 @EVP_PKEY_id(ptr noundef %3) #5
   br label %return
@@ -629,21 +629,21 @@ declare i32 @EVP_PKEY_id(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i64 @ssl_private_key_max_signature_len(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %max_signature_len = getelementptr inbounds i8, ptr %1, i64 8
+  %max_signature_len = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %max_signature_len, align 8
   %call = tail call i64 %2(ptr noundef nonnull %ssl) #5
   br label %return
 
 if.end:                                           ; preds = %entry
-  %privatekey = getelementptr inbounds i8, ptr %0, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %privatekey, align 8
   %call4 = tail call i32 @EVP_PKEY_size(ptr noundef %3) #5
   %conv = sext i32 %call4 to i64
@@ -660,21 +660,21 @@ declare i32 @EVP_PKEY_size(ptr noundef) local_unnamed_addr #1
 define hidden i32 @ssl_private_key_sign(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, ptr noundef %md, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sign = getelementptr inbounds i8, ptr %1, i64 16
+  %sign = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %sign, align 8
   %call = tail call i32 %2(ptr noundef nonnull %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, ptr noundef %md, ptr noundef %in, i64 noundef %in_len) #5
   br label %return
 
 if.end:                                           ; preds = %entry
-  %privatekey = getelementptr inbounds i8, ptr %0, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %privatekey, align 8
   %call4 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef %3, ptr noundef null) #5
   %cmp5 = icmp eq ptr %call4, null
@@ -724,11 +724,11 @@ declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl_private_key_sign_complete(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
-  %sign_complete = getelementptr inbounds i8, ptr %1, i64 24
+  %sign_complete = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %sign_complete, align 8
   %call = tail call i32 %2(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out) #5
   ret i32 %call
@@ -737,21 +737,21 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl_private_key_decrypt(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %decrypt = getelementptr inbounds i8, ptr %1, i64 32
+  %decrypt = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %decrypt, align 8
   %call = tail call i32 %2(ptr noundef nonnull %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) #5
   br label %return
 
 if.end:                                           ; preds = %entry
-  %privatekey = getelementptr inbounds i8, ptr %0, i64 8
+  %privatekey = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %privatekey, align 8
   %call4 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %3) #5
   %cmp5 = icmp eq ptr %call4, null
@@ -779,11 +779,11 @@ declare i32 @RSA_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ssl_private_key_decrypt_complete(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out) local_unnamed_addr #0 {
 entry:
-  %cert = getelementptr inbounds i8, ptr %ssl, i64 136
+  %cert = getelementptr inbounds nuw i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
-  %key_method = getelementptr inbounds i8, ptr %0, i64 24
+  %key_method = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %key_method, align 8
-  %decrypt_complete = getelementptr inbounds i8, ptr %1, i64 40
+  %decrypt_complete = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load ptr, ptr %decrypt_complete, align 8
   %call = tail call i32 %2(ptr noundef %ssl, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out) #5
   ret i32 %call

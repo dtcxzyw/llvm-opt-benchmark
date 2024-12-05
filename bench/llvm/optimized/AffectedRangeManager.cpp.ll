@@ -59,7 +59,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager20com
   br i1 %22, label %23, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
 
 23:                                               ; preds = %19, %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.01520.i.i, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.01520.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %24, %16
   br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit, label %.lr.ph.i.i
 
@@ -73,7 +73,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   br i1 %28, label %.preheader, label %.outer
 
 .preheader:                                       ; preds = %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
-  %.044 = getelementptr inbounds i8, ptr %.02754, i64 8
+  %.044 = getelementptr inbounds nuw i8, ptr %.02754, i64 8
   %.not3145 = icmp eq ptr %.044, %5
   br i1 %.not3145, label %.critedge, label %.lr.ph.preheader
 
@@ -89,7 +89,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
 .lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %35, %.lr.ph ], [ %29, %.lr.ph.preheader ]
   %.04776 = phi ptr [ %.0, %.lr.ph ], [ %.044, %.lr.ph.preheader ]
-  %.0 = getelementptr inbounds i8, ptr %.04776, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.04776, i64 8
   %.not31 = icmp eq ptr %.0, %5
   br i1 %.not31, label %.critedge, label %.lr.ph, !llvm.loop !4
 
@@ -140,7 +140,7 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   br i1 %57, label %58, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
 
 58:                                               ; preds = %54, %.lr.ph.i.i35
-  %59 = getelementptr inbounds i8, ptr %.01520.i.i36, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.01520.i.i36, i64 12
   %.not.not.i.i40 = icmp eq ptr %59, %51
   br i1 %.not.not.i.i40, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit.thread, label %.lr.ph.i.i35
 
@@ -156,7 +156,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 .outer:                                           ; preds = %_ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatTokenE.exit
   %60 = tail call noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17nonPPLineAffectedEPNS0_13AnnotatedLineEPKS2_RN4llvm15SmallVectorImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %8, ptr noundef %.028.ph60, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %spec.select = select i1 %60, i1 true, i1 %.02953
-  %61 = getelementptr inbounds i8, ptr %.02754, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.02754, i64 8
   %.not52 = icmp eq ptr %61, %5
   br i1 %.not52, label %.outer._crit_edge, label %.lr.ph55, !llvm.loop !6
 
@@ -194,7 +194,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager24aff
   br i1 %16, label %17, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit
 
 17:                                               ; preds = %13, %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.01520.i, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.01520.i, i64 12
   %.not.not.i = icmp eq ptr %18, %10
   br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17aff
   br i1 %23, label %24, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit
 
 24:                                               ; preds = %20, %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %.01520.i, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.01520.i, i64 12
   %.not.not.i = icmp eq ptr %25, %17
   br i1 %.not.not.i, label %_ZN5clang6format20AffectedRangeManager22affectsCharSourceRangeERKNS_15CharSourceRangeE.exit, label %.lr.ph.i
 
@@ -264,7 +264,7 @@ define dso_local void @_ZN5clang6format20AffectedRangeManager17markAllAsAffected
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   tail call void @_ZN5clang6format20AffectedRangeManager17markAllAsAffectedEPPNS0_13AnnotatedLineES4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %8, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %.08, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.not = icmp eq ptr %11, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -325,7 +325,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17non
   br i1 %28, label %29, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit
 
 29:                                               ; preds = %25, %.lr.ph.i.i
-  %30 = getelementptr inbounds i8, ptr %.01520.i.i, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.01520.i.i, i64 12
   %.not.not.i.i = icmp eq ptr %30, %22
   br i1 %.not.not.i.i, label %_ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4_b.exit, label %.lr.ph.i.i
 
@@ -478,7 +478,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager22aff
   br i1 %14, label %15, label %._crit_edge
 
 15:                                               ; preds = %8, %11
-  %16 = getelementptr inbounds i8, ptr %.01520, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.01520, i64 12
   %.not.not = icmp eq ptr %16, %6
   br i1 %.not.not, label %._crit_edge, label %8
 

@@ -75,7 +75,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager20detachTimeoutManagerEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
 entry:
-  %obj_.i = getelementptr inbounds i8, ptr %this, i64 240
+  %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_.i, align 8, !tbaa !7
   %cmp.i = icmp eq ptr %0, %obj
   br i1 %cmp.i, label %if.then.i, label %_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE.exit
@@ -85,7 +85,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %evcb_flags.i.i.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %evcb_flags.i.i.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %1 = load i16, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
@@ -93,7 +93,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit.i: ; preds = %if.then.i.i, %if.then.i
   store ptr null, ptr %obj_.i, align 8, !tbaa !7
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN5folly7TimerFD6cancelEv(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr.i)
   br label %_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE.exit
 
@@ -113,7 +113,7 @@ entry:
 define noundef zeroext i1 @_ZN5folly23STTimerFDTimeoutManager22scheduleTimeoutHighResEPNS_12AsyncTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %obj, i64 %timeout.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.google::LogMessageFatal", align 8
-  %obj_ = getelementptr inbounds i8, ptr %this, i64 240
+  %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_, align 8
   %cmp = icmp ne ptr %0, null
   %cmp3 = icmp ne ptr %0, %obj
@@ -150,14 +150,14 @@ cleanup.done16:                                   ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done16
-  %evcb_flags.i.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %evcb_flags.i.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %2 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %.sink.i = or i16 %2, 8
   store i16 %.sink.i, ptr %evcb_flags.i.i, align 2, !tbaa !41
   br label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit
 
 _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit: ; preds = %if.then.i, %cleanup.done16
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr, i64 %timeout.coerce)
   ret i1 true
 }
@@ -165,7 +165,7 @@ _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager13cancelTimeoutEPNS_12AsyncTimeoutE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %obj) unnamed_addr #2 align 2 {
 entry:
-  %obj_ = getelementptr inbounds i8, ptr %this, i64 240
+  %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
   %cmp = icmp eq ptr %0, %obj
   br i1 %cmp, label %if.then, label %if.end
@@ -175,7 +175,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %_ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %evcb_flags.i.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %evcb_flags.i.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %1 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i, align 2, !tbaa !41
@@ -183,7 +183,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN5folly23STTimerFDTimeoutManager9setActiveEPNS_12AsyncTimeoutEb.exit: ; preds = %if.then.i, %if.then
   store ptr null, ptr %obj_, align 8, !tbaa !7
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN5folly7TimerFD6cancelEv(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr)
   br label %if.end
 
@@ -200,16 +200,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5folly23STTimerFDTimeoutManager24isInTimeoutManagerThreadEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 232
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %eventBase_, align 8, !tbaa !43
-  %loopThread_.i = getelementptr inbounds i8, ptr %0, i64 72
+  %loopThread_.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #17
   %cmp.i.i = icmp eq i64 %1, %call.i.i
   br i1 %cmp.i.i, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
-  %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 65
+  %strictLoopThread_.i = getelementptr inbounds nuw i8, ptr %0, i64 65
   %2 = load i8, ptr %strictLoopThread_.i, align 1, !tbaa !44, !range !133, !noundef !134
   %tobool.not.i = icmp eq i8 %2, 0
   %cmp.i14.i = icmp eq i64 %1, 0
@@ -224,19 +224,19 @@ _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %lor.rhs.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %obj_ = getelementptr inbounds i8, ptr %this, i64 240
+  %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %obj_, align 8, !tbaa !7
-  %evcb_flags.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %evcb_flags.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i16, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i, align 2, !tbaa !41
   %vtable = load ptr, ptr %0, align 8, !tbaa !135
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #14
   br label %if.end
@@ -268,19 +268,19 @@ declare void @_ZN5folly7TimerFD12handlerReadyEt(ptr noundef nonnull align 8 dere
 ; Function Attrs: nounwind uwtable
 define void @_ZThn16_N5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr nocapture noundef %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %obj_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %obj_.i, align 8, !tbaa !7
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %entry
   store ptr null, ptr %obj_.i, align 8, !tbaa !7
-  %evcb_flags.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %evcb_flags.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i16, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %2 = and i16 %1, -9
   store i16 %2, ptr %evcb_flags.i.i.i, align 2, !tbaa !41
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !135
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(192) %0) #14
   br label %_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit
@@ -292,7 +292,7 @@ _ZN5folly23STTimerFDTimeoutManager9onTimeoutEv.exit: ; preds = %invoke.cont.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN5folly7TimerFD12allocateDataEv(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 200
+  %ioVecPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !137
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !137
   %tobool.not = icmp eq ptr %0, null
@@ -303,18 +303,18 @@ cond.false:                                       ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %cond.false
-  %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %arg_.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %freeFunc_.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 16), ptr %call2, align 8, !tbaa !135
-  %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
+  %timerData_.i = getelementptr inbounds nuw i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !138
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !142
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i, align 8, !tbaa !143
-  %cbFunc_.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %cbFunc_.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i, align 8, !tbaa !144
-  %data_.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %timerData_.i, ptr %data_.i, align 8, !tbaa !145
-  %iov_len.i = getelementptr inbounds i8, ptr %call2, i64 24
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store i64 8, ptr %iov_len.i, align 8, !tbaa !146
   br label %cond.end
 
@@ -351,7 +351,7 @@ entry:
 define linkonce_odr noundef ptr @_ZThn176_N5folly7TimerFD12allocateDataEv(ptr noundef %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -176
-  %ioVecPtr_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ioVecPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %ioVecPtr_.i, align 8, !tbaa !137
   store ptr null, ptr %ioVecPtr_.i, align 8, !tbaa !137
   %tobool.not.i = icmp eq ptr %1, null
@@ -362,18 +362,18 @@ cond.false.i:                                     ; preds = %entry
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %cond.false.i
-  %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
+  %arg_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
+  %freeFunc_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 16), ptr %call2.i, align 8, !tbaa !135
-  %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
+  %timerData_.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !138
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !142
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i.i, align 8, !tbaa !143
-  %cbFunc_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 40
+  %cbFunc_.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i.i, align 8, !tbaa !144
-  %data_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   store ptr %timerData_.i.i, ptr %data_.i.i, align 8, !tbaa !145
-  %iov_len.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 24
   store i64 8, ptr %iov_len.i.i, align 8, !tbaa !146
   br label %_ZN5folly7TimerFD12allocateDataEv.exit
 
@@ -409,7 +409,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #0 comdat align 2 {
 entry:
-  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
+  %destroyPending_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4, !range !133
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %delayed, i1 %tobool2.not, i1 false
@@ -418,7 +418,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %destroyPending_, align 4, !tbaa !147
   %vtable = load ptr, ptr %this, align 8, !tbaa !135
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #14
   br label %delete.end
@@ -430,19 +430,19 @@ delete.end:                                       ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guardCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !148
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
+  %destroyPending_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4, !tbaa !147
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !135
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -455,20 +455,20 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN5folly23STTimerFDTimeoutManagerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %eventBase) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN5folly14TimeoutManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %eventBase)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !135
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 112), ptr %0, align 8, !tbaa !135
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 168), ptr %add.ptr2, align 8, !tbaa !135
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 200
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 208), ptr %add.ptr3, align 8, !tbaa !135
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 232
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !43
-  %obj_ = getelementptr inbounds i8, ptr %this, i64 240
+  %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr null, ptr %obj_, align 8, !tbaa !7
   ret void
 
@@ -492,11 +492,11 @@ declare void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN5folly23STTimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (16, 24), (192, 208)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !135
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 112), ptr %add.ptr, align 8, !tbaa !135
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 168), ptr %add.ptr2, align 8, !tbaa !135
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 200
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 208), ptr %add.ptr3, align 8, !tbaa !135
   invoke void @_ZN5folly7TimerFD6cancelEv(ptr noundef nonnull align 8 dereferenceable(212) %add.ptr)
           to label %invoke.cont unwind label %terminate.lpad
@@ -547,7 +547,7 @@ entry:
   br i1 %tobool.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %entry
-  %evcb_flags.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %evcb_flags.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %0 = load i16, ptr %evcb_flags.i, align 2, !tbaa !41
   %1 = and i16 %0, -9
   %masksel = select i1 %active, i16 8, i16 0
@@ -587,7 +587,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %ioVec, align 8, !tbaa !135
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %ioVec) #14
   br label %delete.end
@@ -599,7 +599,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi(ptr noundef %ioVec, i32 noundef %res) #2 comdat align 2 {
 entry:
-  %arg_ = getelementptr inbounds i8, ptr %ioVec, i64 8
+  %arg_ = getelementptr inbounds nuw i8, ptr %ioVec, i64 8
   %0 = load ptr, ptr %arg_, align 8, !tbaa !142
   tail call void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %ioVec, i32 noundef %res)
   ret void

@@ -26,10 +26,10 @@ declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -45,7 +45,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [256 x i32], ptr @EncLen_CP949, i64 0, i64 %6
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_CP949, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 0, %18
   br label %27
@@ -53,7 +53,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
 20:                                               ; preds = %14
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
+  %23 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   %26 = select i1 %25, i32 2, i32 -1
@@ -108,7 +108,7 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
 5:                                                ; preds = %4
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @CP949_CAN_BE_TRAIL_TABLE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @CP949_CAN_BE_TRAIL_TABLE, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not32 = icmp eq i8 %9, 0
   br i1 %.not32, label %.loopexit, label %.preheader
@@ -127,9 +127,9 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
 
 .loopexit:                                        ; preds = %11, %.preheader, %5
   %.026 = phi ptr [ %1, %5 ], [ %.1, %.preheader ], [ %.1, %11 ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %23
@@ -167,7 +167,7 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
 define internal range(i32 0, 2) i32 @cp949_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @CP949_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @CP949_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   %8 = zext i1 %.not to i32

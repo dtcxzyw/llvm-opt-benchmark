@@ -33,45 +33,45 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN5logos5MatchC2EPNS_9PointPairES2_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (40, 56)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load float, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
   %8 = load float, ptr %7, align 8
   %9 = fsub float %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %9, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load float, ptr %12, align 4
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load float, ptr %15, align 4
   %17 = fsub float %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store float %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load float, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load float, ptr %23, align 8
   %25 = fsub float %21, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %25, ptr %26, align 8
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %28, align 4
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load float, ptr %31, align 4
   %33 = fsub float %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %38 = load float, ptr %37, align 4
   %39 = fsub float %36, %38
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
@@ -96,15 +96,15 @@ _ZN5logos5Match17setRelOrientationEv.exit:        ; preds = %.lr.ph.i.i, %3
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
   %53 = fcmp olt float %52, %48
   %.sroa.speculated.i.i = select i1 %53, float %52, float %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.speculated.i.i, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = load float, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %58 = load float, ptr %57, align 8
   %59 = fsub float %56, %58
   %60 = tail call noundef float @llvm.fabs.f32(float %59)
-  %61 = getelementptr inbounds i8, ptr %0, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %60, ptr %61, align 4
   tail call void @_ZN5logos5Match24interOrientationAndScaleEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
@@ -115,39 +115,39 @@ define hidden void @_ZN5logos5Match26calculateInternalVariablesEv(ptr nocapture 
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load float, ptr %7, align 8
   %9 = fsub float %4, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %9, ptr %10, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load float, ptr %12, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load float, ptr %15, align 4
   %17 = fsub float %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store float %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load float, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load float, ptr %23, align 8
   %25 = fsub float %21, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %25, ptr %26, align 8
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %28, align 4
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load float, ptr %31, align 4
   %33 = fsub float %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %33, ptr %34, align 4
   ret void
 }
@@ -155,11 +155,11 @@ define hidden void @_ZN5logos5Match26calculateInternalVariablesEv(ptr nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5logos5Match17setRelOrientationEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load float, ptr %7, align 4
   %9 = fsub float %4, %8
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
@@ -184,7 +184,7 @@ _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %23 = fcmp olt float %22, %18
   %.sroa.speculated.i = select i1 %23, float %22, float %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.speculated.i, ptr %24, align 8
   ret void
 }
@@ -192,28 +192,28 @@ _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN5logos5Match11setRelScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((20, 24)) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load float, ptr %7, align 8
   %9 = fsub float %4, %8
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %10, ptr %11, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load float, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load float, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load float, ptr %8, align 8
   %10 = fneg float %9
   %11 = fmul float %7, %10
@@ -240,15 +240,15 @@ define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture no
   %27 = add nsw i32 %.neg.i, %25
   %28 = sitofp i32 %27 to float
   %29 = fmul float %23, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %29, ptr %30, align 8
   %31 = tail call noundef float @logf(float noundef %sqrt10) #12
   %32 = tail call noundef float @logf(float noundef %sqrt) #12
   %33 = fsub float %31, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %33, ptr %34, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %37 = load float, ptr %36, align 4
   %38 = load float, ptr %30, align 8
   %39 = fsub float %37, %38
@@ -274,13 +274,13 @@ _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
   %53 = fcmp olt float %52, %48
   %.sroa.speculated.i = select i1 %53, float %52, float %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %.sroa.speculated.i, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %35, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %56 = load float, ptr %55, align 8
   %57 = fsub float %56, %33
   %58 = tail call noundef float @llvm.fabs.f32(float %57)
-  %59 = getelementptr inbounds i8, ptr %0, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %58, ptr %59, align 4
   ret void
 }
@@ -329,28 +329,28 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5logos5Match4signEf(ptr nocapture
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5logos5Match10printMatchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #8 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load float, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %2, float noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.1)
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load float, ptr %8, align 4
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %7, float noundef %9)
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.2)
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load float, ptr %13, align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %12, float noundef %14)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.3)
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load float, ptr %18, align 4
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %17, float noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.4)
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load float, ptr %24, align 4
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %22, float noundef %25)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

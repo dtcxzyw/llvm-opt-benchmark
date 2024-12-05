@@ -133,7 +133,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %34 = load ptr, ptr %1, align 8
   %35 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %34, i32 noundef 47) #15
   %.not.i.i = icmp eq ptr %35, null
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %34, ptr %36
   store ptr %.0.i.i, ptr @CmdName, align 8
   store i32 0, ptr @opterr, align 4
@@ -278,7 +278,7 @@ initargs.exit:                                    ; preds = %79, %81
   br i1 %.not8.i.i, label %emitAttr.exit95, label %indent.exit.i91
 
 indent.exit.i91:                                  ; preds = %.lr.ph.i.i
-  %98 = getelementptr inbounds i8, ptr %.010.i.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr @outFile, align 8
   %101 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr %100)
@@ -303,7 +303,7 @@ indent.exit.i91:                                  ; preds = %.lr.ph.i.i
   ]
 
 106:                                              ; preds = %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93, %.preheader.i.i93
-  %107 = getelementptr inbounds i8, ptr %104, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 1
   br label %.preheader.i.i93
 
 108:                                              ; preds = %.preheader.i.i93
@@ -342,9 +342,9 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit95, %8
   %124 = load i64, ptr @id, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr @id, align 8
-  %126 = getelementptr inbounds i8, ptr %.019204.i, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.019204.i, i64 16
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i64 %124, ptr %128, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
@@ -370,7 +370,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit95, %8
   %.sroa.18.0199.i.i.i = phi double [ %.sroa.18.1.i.i.i, %emitAttr.exit88 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.1619.0198.i.i.i = phi double [ %.sroa.1619.1.i.i.i, %emitAttr.exit88 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0197.i.i.i = phi i32 [ %.sroa.0.3.i.i.i, %emitAttr.exit88 ], [ 0, %.lr.ph.i ]
-  %130 = getelementptr inbounds i8, ptr %.0213.i.i.i, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.0213.i.i.i, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.22) #15
   %133 = icmp eq i32 %132, 0
@@ -411,7 +411,7 @@ sub_0.i.i.i:                                      ; preds = %143
   br i1 %.not229.i.i.i, label %sub_1.i.i.i, label %.tail.i.i.i
 
 sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
-  %150 = getelementptr inbounds i8, ptr %146, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = sub nsw i32 78, %152
@@ -419,7 +419,7 @@ sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
   br i1 %.not230.i.i.i, label %sub_2.i.i.i, label %.tail.i.i.i
 
 sub_2.i.i.i:                                      ; preds = %sub_1.i.i.i
-  %154 = getelementptr inbounds i8, ptr %146, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = sub nsw i32 0, %156
@@ -465,7 +465,7 @@ indent.exit.i84:                                  ; preds = %163
   ]
 
 171:                                              ; preds = %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86, %.preheader.i.i86
-  %172 = getelementptr inbounds i8, ptr %169, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 1
   br label %.preheader.i.i86
 
 173:                                              ; preds = %.preheader.i.i86
@@ -522,7 +522,7 @@ indent.exit.i77:                                  ; preds = %185
   ]
 
 193:                                              ; preds = %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79, %.preheader.i.i79
-  %194 = getelementptr inbounds i8, ptr %191, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 1
   br label %.preheader.i.i79
 
 195:                                              ; preds = %.preheader.i.i79
@@ -731,7 +731,7 @@ indent.exit.i70:                                  ; preds = %286
   ]
 
 294:                                              ; preds = %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72, %.preheader.i.i72
-  %295 = getelementptr inbounds i8, ptr %292, i64 1
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 1
   br label %.preheader.i.i72
 
 296:                                              ; preds = %.preheader.i.i72
@@ -915,7 +915,7 @@ indent.exit.i63:                                  ; preds = %.preheader102
   ]
 
 359:                                              ; preds = %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65, %.preheader.i.i65
-  %360 = getelementptr inbounds i8, ptr %357, i64 1
+  %360 = getelementptr inbounds nuw i8, ptr %357, i64 1
   br label %.preheader.i.i65
 
 361:                                              ; preds = %.preheader.i.i65
@@ -968,7 +968,7 @@ indent.exit.i56:                                  ; preds = %.preheader101
   ]
 
 377:                                              ; preds = %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58, %.preheader.i.i58
-  %378 = getelementptr inbounds i8, ptr %375, i64 1
+  %378 = getelementptr inbounds nuw i8, ptr %375, i64 1
   br label %.preheader.i.i58
 
 379:                                              ; preds = %.preheader.i.i58
@@ -1021,7 +1021,7 @@ indent.exit.i49:                                  ; preds = %.preheader100
   ]
 
 395:                                              ; preds = %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51, %.preheader.i.i51
-  %396 = getelementptr inbounds i8, ptr %393, i64 1
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 1
   br label %.preheader.i.i51
 
 397:                                              ; preds = %.preheader.i.i51
@@ -1074,7 +1074,7 @@ indent.exit.i42:                                  ; preds = %.preheader99
   ]
 
 413:                                              ; preds = %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44, %.preheader.i.i44
-  %414 = getelementptr inbounds i8, ptr %411, i64 1
+  %414 = getelementptr inbounds nuw i8, ptr %411, i64 1
   br label %.preheader.i.i44
 
 415:                                              ; preds = %.preheader.i.i44
@@ -1127,7 +1127,7 @@ indent.exit.i35:                                  ; preds = %.preheader98
   ]
 
 431:                                              ; preds = %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37, %.preheader.i.i37
-  %432 = getelementptr inbounds i8, ptr %429, i64 1
+  %432 = getelementptr inbounds nuw i8, ptr %429, i64 1
   br label %.preheader.i.i37
 
 433:                                              ; preds = %.preheader.i.i37
@@ -1190,7 +1190,7 @@ indent.exit.i28:                                  ; preds = %.preheader97
   ]
 
 455:                                              ; preds = %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30, %.preheader.i.i30
-  %456 = getelementptr inbounds i8, ptr %453, i64 1
+  %456 = getelementptr inbounds nuw i8, ptr %453, i64 1
   br label %.preheader.i.i30
 
 457:                                              ; preds = %.preheader.i.i30
@@ -1248,7 +1248,7 @@ indent.exit.i21:                                  ; preds = %467
   ]
 
 476:                                              ; preds = %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23, %.preheader.i.i23
-  %477 = getelementptr inbounds i8, ptr %474, i64 1
+  %477 = getelementptr inbounds nuw i8, ptr %474, i64 1
   br label %.preheader.i.i23
 
 478:                                              ; preds = %.preheader.i.i23
@@ -1301,7 +1301,7 @@ indent.exit.i14:                                  ; preds = %.preheader96
   ]
 
 494:                                              ; preds = %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16, %.preheader.i.i16
-  %495 = getelementptr inbounds i8, ptr %492, i64 1
+  %495 = getelementptr inbounds nuw i8, ptr %492, i64 1
   br label %.preheader.i.i16
 
 496:                                              ; preds = %.preheader.i.i16
@@ -1354,7 +1354,7 @@ indent.exit.i:                                    ; preds = %.preheader
   ]
 
 512:                                              ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
-  %513 = getelementptr inbounds i8, ptr %510, i64 1
+  %513 = getelementptr inbounds nuw i8, ptr %510, i64 1
   br label %.preheader.i.i
 
 514:                                              ; preds = %.preheader.i.i
@@ -1418,12 +1418,12 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %537 = and i32 %536, 3
   %538 = icmp eq i32 %537, 3
   %.idx.i.i = select i1 %538, i64 0, i64 64
-  %539 = getelementptr inbounds i8, ptr %.0210.i, i64 %.idx.i.i
-  %540 = getelementptr inbounds i8, ptr %539, i64 56
+  %539 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 %.idx.i.i
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 56
   %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 16
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 16
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 16
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
   %545 = load i64, ptr %544, align 8
   %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef nonnull @.str.65, i64 noundef %545) #16
   %547 = load ptr, ptr @outFile, align 8
@@ -1432,11 +1432,11 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %550 = icmp eq i32 %549, 2
   %.idx9.i.i = select i1 %550, i64 0, i64 -64
   %551 = getelementptr inbounds i8, ptr %.0210.i, i64 %.idx9.i.i
-  %552 = getelementptr inbounds i8, ptr %551, i64 56
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 56
   %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds i8, ptr %553, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %553, i64 16
   %555 = load ptr, ptr %554, align 8
-  %556 = getelementptr inbounds i8, ptr %555, i64 16
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %557 = load i64, ptr %556, align 8
   %558 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %547, ptr noundef nonnull @.str.66, i64 noundef %557) #16
   %559 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef null) #16
@@ -1458,7 +1458,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit, %444
   %.sroa.17.0177.i.i.i = phi ptr [ %.sroa.17.1.i.i.i, %emitAttr.exit141.i ], [ null, %.lr.ph212.i ]
   %.sroa.1316.0176.i.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %emitAttr.exit141.i ], [ null, %.lr.ph212.i ]
   %.sroa.0.0175.i.i.i = phi i32 [ %.sroa.0.5.i.i.i, %emitAttr.exit141.i ], [ 0, %.lr.ph212.i ]
-  %560 = getelementptr inbounds i8, ptr %.0188.i.i.i, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %.0188.i.i.i, i64 16
   %561 = load ptr, ptr %560, align 8
   %562 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %561, ptr noundef nonnull dereferenceable(6) @.str.22) #15
   %563 = icmp eq i32 %562, 0
@@ -1522,7 +1522,7 @@ indent.exit.i137.i:                               ; preds = %577
   ]
 
 585:                                              ; preds = %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i, %.preheader.i.i139.i
-  %586 = getelementptr inbounds i8, ptr %583, i64 1
+  %586 = getelementptr inbounds nuw i8, ptr %583, i64 1
   br label %.preheader.i.i139.i
 
 587:                                              ; preds = %.preheader.i.i139.i
@@ -1705,7 +1705,7 @@ indent.exit.i130.i:                               ; preds = %658
   ]
 
 666:                                              ; preds = %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i, %.preheader.i.i132.i
-  %667 = getelementptr inbounds i8, ptr %664, i64 1
+  %667 = getelementptr inbounds nuw i8, ptr %664, i64 1
   br label %.preheader.i.i132.i
 
 668:                                              ; preds = %.preheader.i.i132.i
@@ -1767,17 +1767,17 @@ emitAttr.exit141.i:                               ; preds = %.loopexit.i133.i, %
   ]
 
 684:                                              ; preds = %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i, %.preheader179.i
-  %685 = getelementptr inbounds i8, ptr %.0.i.i119.i, i64 1
+  %685 = getelementptr inbounds nuw i8, ptr %.0.i.i119.i, i64 1
   br label %.preheader179.i
 
 skipWS.exit.i120.tail.i:                          ; preds = %.preheader179.i
-  %686 = getelementptr inbounds i8, ptr %.0.i.i119.i, i64 1
+  %686 = getelementptr inbounds nuw i8, ptr %.0.i.i119.i, i64 1
   %687 = load i8, ptr %686, align 1
   %688 = icmp eq i8 %687, 44
   br i1 %688, label %689, label %arrowEnd.exit127.i
 
 689:                                              ; preds = %skipWS.exit.i120.tail.i
-  %690 = getelementptr inbounds i8, ptr %.0.i.i119.i, i64 2
+  %690 = getelementptr inbounds nuw i8, ptr %.0.i.i119.i, i64 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   br label %691
 
@@ -1794,7 +1794,7 @@ skipWS.exit.i120.tail.i:                          ; preds = %.preheader179.i
   ]
 
 693:                                              ; preds = %691, %691, %691, %691, %691, %691
-  %694 = getelementptr inbounds i8, ptr %.0.i.i.i123.i, i64 1
+  %694 = getelementptr inbounds nuw i8, ptr %.0.i.i.i123.i, i64 1
   br label %691
 
 skipWS.exit.i.i124.i:                             ; preds = %691
@@ -1804,7 +1804,7 @@ skipWS.exit.i.i124.i:                             ; preds = %691
   br i1 %697, label %readPoint.exit.thread.i126.i, label %698
 
 698:                                              ; preds = %skipWS.exit.i.i124.i
-  %699 = getelementptr inbounds i8, ptr %696, i64 1
+  %699 = getelementptr inbounds nuw i8, ptr %696, i64 1
   store ptr %699, ptr %18, align 8
   %700 = call double @strtod(ptr noundef nonnull %699, ptr noundef nonnull %18) #16
   %701 = load ptr, ptr %18, align 8
@@ -1847,17 +1847,17 @@ arrowEnd.exit127.i:                               ; preds = %.preheader179.i, %r
   ]
 
 708:                                              ; preds = %706, %706, %706, %706, %706, %706
-  %709 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %709 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %706
 
 skipWS.exit.i.tail.i:                             ; preds = %706
-  %710 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %710 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   %711 = load i8, ptr %710, align 1
   %712 = icmp eq i8 %711, 44
   br i1 %712, label %713, label %arrowEnd.exit.i
 
 713:                                              ; preds = %skipWS.exit.i.tail.i
-  %714 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 2
+  %714 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   br label %715
 
@@ -1874,7 +1874,7 @@ skipWS.exit.i.tail.i:                             ; preds = %706
   ]
 
 717:                                              ; preds = %715, %715, %715, %715, %715, %715
-  %718 = getelementptr inbounds i8, ptr %.0.i.i.i118.i, i64 1
+  %718 = getelementptr inbounds nuw i8, ptr %.0.i.i.i118.i, i64 1
   br label %715
 
 skipWS.exit.i.i.i:                                ; preds = %715
@@ -1884,7 +1884,7 @@ skipWS.exit.i.i.i:                                ; preds = %715
   br i1 %721, label %readPoint.exit.thread.i.i, label %722
 
 722:                                              ; preds = %skipWS.exit.i.i.i
-  %723 = getelementptr inbounds i8, ptr %720, i64 1
+  %723 = getelementptr inbounds nuw i8, ptr %720, i64 1
   store ptr %723, ptr %19, align 8
   %724 = call double @strtod(ptr noundef nonnull %723, ptr noundef nonnull %19) #16
   %725 = load ptr, ptr %19, align 8
@@ -1960,7 +1960,7 @@ indent.exit._crit_edge.i.i.i.i:                   ; preds = %indent.exit._crit_e
   ]
 
 743:                                              ; preds = %741, %741, %741, %741, %741, %741
-  %744 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %744 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %741
 
 skipWS.exit.i.i.i.i.i:                            ; preds = %741
@@ -1970,7 +1970,7 @@ skipWS.exit.i.i.i.i.i:                            ; preds = %741
   br i1 %747, label %readPoint.exit.thread.i.i.i.i, label %748
 
 748:                                              ; preds = %skipWS.exit.i.i.i.i.i
-  %749 = getelementptr inbounds i8, ptr %746, i64 1
+  %749 = getelementptr inbounds nuw i8, ptr %746, i64 1
   store ptr %749, ptr %30, align 8
   %750 = call double @strtod(ptr noundef nonnull %749, ptr noundef nonnull %30) #16
   %751 = load ptr, ptr %30, align 8
@@ -2087,7 +2087,7 @@ indent.exit.i112.i:                               ; preds = %.preheader176.i
   ]
 
 784:                                              ; preds = %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i, %.preheader.i.i114.i
-  %785 = getelementptr inbounds i8, ptr %782, i64 1
+  %785 = getelementptr inbounds nuw i8, ptr %782, i64 1
   br label %.preheader.i.i114.i
 
 786:                                              ; preds = %.preheader.i.i114.i
@@ -2140,7 +2140,7 @@ indent.exit.i105.i:                               ; preds = %.preheader175.i
   ]
 
 802:                                              ; preds = %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i, %.preheader.i.i107.i
-  %803 = getelementptr inbounds i8, ptr %800, i64 1
+  %803 = getelementptr inbounds nuw i8, ptr %800, i64 1
   br label %.preheader.i.i107.i
 
 804:                                              ; preds = %.preheader.i.i107.i
@@ -2193,7 +2193,7 @@ indent.exit.i98.i:                                ; preds = %.preheader174.i
   ]
 
 820:                                              ; preds = %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i, %.preheader.i.i100.i
-  %821 = getelementptr inbounds i8, ptr %818, i64 1
+  %821 = getelementptr inbounds nuw i8, ptr %818, i64 1
   br label %.preheader.i.i100.i
 
 822:                                              ; preds = %.preheader.i.i100.i
@@ -2246,7 +2246,7 @@ indent.exit.i91.i:                                ; preds = %.preheader173.i
   ]
 
 838:                                              ; preds = %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i, %.preheader.i.i93.i
-  %839 = getelementptr inbounds i8, ptr %836, i64 1
+  %839 = getelementptr inbounds nuw i8, ptr %836, i64 1
   br label %.preheader.i.i93.i
 
 840:                                              ; preds = %.preheader.i.i93.i
@@ -2314,7 +2314,7 @@ indent.exit.i84.i:                                ; preds = %854
   ]
 
 862:                                              ; preds = %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i, %.preheader.i.i86.i
-  %863 = getelementptr inbounds i8, ptr %860, i64 1
+  %863 = getelementptr inbounds nuw i8, ptr %860, i64 1
   br label %.preheader.i.i86.i
 
 864:                                              ; preds = %.preheader.i.i86.i
@@ -2391,7 +2391,7 @@ indent.exit.i77.i:                                ; preds = %885
   ]
 
 893:                                              ; preds = %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i, %.preheader.i.i79.i
-  %894 = getelementptr inbounds i8, ptr %891, i64 1
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 1
   br label %.preheader.i.i79.i
 
 895:                                              ; preds = %.preheader.i.i79.i
@@ -2458,7 +2458,7 @@ indent.exit.i70.i:                                ; preds = %.preheader172.i
   ]
 
 917:                                              ; preds = %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i, %.preheader.i.i72.i
-  %918 = getelementptr inbounds i8, ptr %915, i64 1
+  %918 = getelementptr inbounds nuw i8, ptr %915, i64 1
   br label %.preheader.i.i72.i
 
 919:                                              ; preds = %.preheader.i.i72.i
@@ -2516,7 +2516,7 @@ indent.exit.i63.i:                                ; preds = %929
   ]
 
 938:                                              ; preds = %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i, %.preheader.i.i65.i
-  %939 = getelementptr inbounds i8, ptr %936, i64 1
+  %939 = getelementptr inbounds nuw i8, ptr %936, i64 1
   br label %.preheader.i.i65.i
 
 940:                                              ; preds = %.preheader.i.i65.i
@@ -2569,7 +2569,7 @@ indent.exit.i56.i:                                ; preds = %.preheader171.i
   ]
 
 956:                                              ; preds = %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i, %.preheader.i.i58.i
-  %957 = getelementptr inbounds i8, ptr %954, i64 1
+  %957 = getelementptr inbounds nuw i8, ptr %954, i64 1
   br label %.preheader.i.i58.i
 
 958:                                              ; preds = %.preheader.i.i58.i
@@ -2622,7 +2622,7 @@ indent.exit.i.i:                                  ; preds = %.preheader.i
   ]
 
 974:                                              ; preds = %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i, %.preheader.i.i53.i
-  %975 = getelementptr inbounds i8, ptr %972, i64 1
+  %975 = getelementptr inbounds nuw i8, ptr %972, i64 1
   br label %.preheader.i.i53.i
 
 976:                                              ; preds = %.preheader.i.i53.i

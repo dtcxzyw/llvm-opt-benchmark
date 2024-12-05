@@ -49,16 +49,16 @@ define dso_local void @_ZN22DefaultRndNumGeneratorC2EmP8Sequence(ptr noundef non
   %4 = alloca %"class.std::allocator", align 1
   tail call void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV22DefaultRndNumGenerator, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %7 unwind label %9
 
 7:                                                ; preds = %3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %8, align 8
   ret void
 
@@ -92,7 +92,7 @@ define dso_local void @_ZN22DefaultRndNumGeneratorD2Ev(ptr noundef nonnull align
           to label %2 unwind label %4
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   tail call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   ret void
@@ -136,7 +136,7 @@ define dso_local void @_ZN22DefaultRndNumGeneratorD0Ev(ptr noundef nonnull align
   unreachable
 
 _ZN22DefaultRndNumGeneratorD2Ev.exit:             ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   tail call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
@@ -162,9 +162,9 @@ define dso_local noundef nonnull ptr @_ZN22DefaultRndNumGenerator21make_rndnum_g
 
 .noexc:                                           ; preds = %4
   store ptr getelementptr inbounds (i8, ptr @_ZTV22DefaultRndNumGenerator, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %11 unwind label %9
@@ -178,7 +178,7 @@ define dso_local noundef nonnull ptr @_ZN22DefaultRndNumGenerator21make_rndnum_g
 
 11:                                               ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #12
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr %6, ptr @_ZN22DefaultRndNumGenerator5impl_E, align 8
@@ -209,10 +209,10 @@ define dso_local void @_ZN22DefaultRndNumGenerator12get_sequenceERNSt7__cxx1112b
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %10 unwind label %13
@@ -262,13 +262,13 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %11 = zext i32 %1 to i64
   %12 = urem i64 %10, %11
   %13 = trunc nuw i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
@@ -277,7 +277,7 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
 
 .preheader:                                       ; preds = %4
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %13)
   br i1 %20, label %.lr.ph, label %.loopexit
@@ -285,13 +285,13 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   store i64 %16, ptr %14, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = urem i64 %24, %11
   %26 = trunc nuw i64 %25 to i32
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %26)
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !5
@@ -315,7 +315,7 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
           to label %36 unwind label %40
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %39 unwind label %42
 
@@ -352,7 +352,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN22DefaultRndNumGenerator12rnd_flipcoinEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -361,21 +361,21 @@ define dso_local noundef zeroext i1 @_ZN22DefaultRndNumGenerator12rnd_flipcoinEj
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 1)
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %13, %4
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %23 = urem i64 %22, 100
@@ -390,7 +390,7 @@ define dso_local noundef zeroext i1 @_ZN22DefaultRndNumGenerator12rnd_flipcoinEj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN22DefaultRndNumGenerator11trace_depthB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
@@ -421,22 +421,22 @@ define dso_local void @_ZN22DefaultRndNumGenerator15RandomHexDigitsB5cxx11Ei(ptr
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %30
   %.in = phi i32 [ %2, %.lr.ph ], [ %11, %30 ]
   %11 = add nsw i32 %.in, -1
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %16 unwind label %.loopexit8
 
 16:                                               ; preds = %10
   %17 = and i64 %15, 15
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %19)
           to label %21 unwind label %.loopexit8
@@ -448,7 +448,7 @@ define dso_local void @_ZN22DefaultRndNumGenerator15RandomHexDigitsB5cxx11Ei(ptr
   %25 = load i64, ptr %9, align 8
   %26 = trunc i64 %25 to i32
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %23, i32 noundef 16, i32 noundef %26)
           to label %30 unwind label %.loopexit8
@@ -509,22 +509,22 @@ define dso_local void @_ZN22DefaultRndNumGenerator12RandomDigitsB5cxx11Ei(ptr de
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %29
   %.in = phi i32 [ %2, %.lr.ph ], [ %11, %29 ]
   %11 = add nsw i32 %.in, -1
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %16 unwind label %.loopexit8
 
 16:                                               ; preds = %10
   %17 = urem i64 %15, 10
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %19)
           to label %21 unwind label %.loopexit8
@@ -535,7 +535,7 @@ define dso_local void @_ZN22DefaultRndNumGenerator12RandomDigitsB5cxx11Ei(ptr de
   %24 = load i64, ptr %9, align 8
   %25 = trunc i64 %24 to i32
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %22, i32 noundef 10, i32 noundef %25)
           to label %29 unwind label %.loopexit8

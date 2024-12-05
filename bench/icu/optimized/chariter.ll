@@ -56,7 +56,7 @@ entry:
 define void @_ZN6icu_7517CharacterIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
-  %textLength = getelementptr inbounds i8, ptr %this, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %textLength, i8 0, i64 16, i1 false)
   ret void
 }
@@ -65,13 +65,13 @@ entry:
 define void @_ZN6icu_7517CharacterIteratorC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
-  %textLength = getelementptr inbounds i8, ptr %this, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 12
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %pos, align 4
-  %begin = getelementptr inbounds i8, ptr %this, i64 16
+  %begin = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %begin, align 8
-  %end = getelementptr inbounds i8, ptr %this, i64 20
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %length, ptr %end, align 4
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -89,13 +89,13 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN6icu_7517CharacterIteratorC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length, i32 noundef %position) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
-  %textLength = getelementptr inbounds i8, ptr %this, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 12
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %position, ptr %pos, align 4
-  %begin = getelementptr inbounds i8, ptr %this, i64 16
+  %begin = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %begin, align 8
-  %end = getelementptr inbounds i8, ptr %this, i64 20
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %length, ptr %end, align 4
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -127,13 +127,13 @@ if.end16:                                         ; preds = %if.end16.sink.split
 define void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %length, i32 noundef %textBegin, i32 noundef %textEnd, i32 noundef %position) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
-  %textLength = getelementptr inbounds i8, ptr %this, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %length, ptr %textLength, align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 12
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %position, ptr %pos, align 4
-  %begin = getelementptr inbounds i8, ptr %this, i64 16
+  %begin = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %textBegin, ptr %begin, align 8
-  %end = getelementptr inbounds i8, ptr %this, i64 20
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %textEnd, ptr %end, align 4
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -206,20 +206,20 @@ entry:
 define void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharacterIteratorE, i64 16), ptr %this, align 8
-  %textLength = getelementptr inbounds i8, ptr %this, i64 8
-  %textLength2 = getelementptr inbounds i8, ptr %that, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %textLength2 = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load i32, ptr %textLength2, align 8
   store i32 %0, ptr %textLength, align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 12
-  %pos3 = getelementptr inbounds i8, ptr %that, i64 12
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %pos3 = getelementptr inbounds nuw i8, ptr %that, i64 12
   %1 = load i32, ptr %pos3, align 4
   store i32 %1, ptr %pos, align 4
-  %begin = getelementptr inbounds i8, ptr %this, i64 16
-  %begin4 = getelementptr inbounds i8, ptr %that, i64 16
+  %begin = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %begin4 = getelementptr inbounds nuw i8, ptr %that, i64 16
   %2 = load i32, ptr %begin4, align 8
   store i32 %2, ptr %begin, align 8
-  %end = getelementptr inbounds i8, ptr %this, i64 20
-  %end5 = getelementptr inbounds i8, ptr %that, i64 20
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %end5 = getelementptr inbounds nuw i8, ptr %that, i64 20
   %3 = load i32, ptr %end5, align 4
   store i32 %3, ptr %end, align 4
   ret void
@@ -228,21 +228,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %that) local_unnamed_addr #6 align 2 {
 entry:
-  %textLength = getelementptr inbounds i8, ptr %that, i64 8
+  %textLength = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load i32, ptr %textLength, align 8
-  %textLength2 = getelementptr inbounds i8, ptr %this, i64 8
+  %textLength2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %0, ptr %textLength2, align 8
-  %pos = getelementptr inbounds i8, ptr %that, i64 12
+  %pos = getelementptr inbounds nuw i8, ptr %that, i64 12
   %1 = load i32, ptr %pos, align 4
-  %pos3 = getelementptr inbounds i8, ptr %this, i64 12
+  %pos3 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %1, ptr %pos3, align 4
-  %begin = getelementptr inbounds i8, ptr %that, i64 16
+  %begin = getelementptr inbounds nuw i8, ptr %that, i64 16
   %2 = load i32, ptr %begin, align 8
-  %begin4 = getelementptr inbounds i8, ptr %this, i64 16
+  %begin4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %2, ptr %begin4, align 8
-  %end = getelementptr inbounds i8, ptr %that, i64 20
+  %end = getelementptr inbounds nuw i8, ptr %that, i64 20
   %3 = load i32, ptr %end, align 4
-  %end5 = getelementptr inbounds i8, ptr %this, i64 20
+  %end5 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %3, ptr %end5, align 4
   ret ptr %this
 }
@@ -251,11 +251,11 @@ entry:
 define noundef zeroext i16 @_ZN6icu_7517CharacterIterator12firstPostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 192
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 0, i32 noundef 0)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i16 %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret i16 %call2
@@ -265,11 +265,11 @@ entry:
 define noundef i32 @_ZN6icu_7517CharacterIterator14first32PostIncEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 192
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 0, i32 noundef 0)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret i32 %call2

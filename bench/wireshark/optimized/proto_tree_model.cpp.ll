@@ -66,7 +66,7 @@ define void @_ZN14ProtoTreeModelC2EP7QObject(ptr noundef nonnull align 8 derefer
           to label %5 unwind label %9
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %6, align 8
   ret void
 
@@ -105,7 +105,7 @@ declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14ProtoTreeModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14ProtoTreeModel, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -134,7 +134,7 @@ define void @_ZN14ProtoTreeModelD0Ev(ptr noundef nonnull align 8 dereferenceable
 define i32 @_ZNK14ProtoTreeModel5flagsERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = tail call i32 @_ZNK18QAbstractItemModel5flagsERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %8 = icmp slt i32 %7, 1
@@ -148,29 +148,29 @@ declare i32 @_ZNK18QAbstractItemModel5flagsERK11QModelIndex(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK14ProtoTreeModel5indexEiiRK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 align 2 {
 _ZNK11QModelIndex7isValidEv.exit.thread:
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   %8 = icmp sgt i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
   %or.cond.i = select i1 %8, i1 %11, i1 false
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
   %or.cond = select i1 %or.cond.i, i1 %14, i1 false
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %.0 = select i1 %or.cond, ptr %17, ptr %6
   %18 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %.0)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %18, label %22, label %20
 
 20:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread
   store i32 -1, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %21, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %29
@@ -178,7 +178,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:
 22:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread
   %23 = tail call noundef ptr @_ZN9ProtoNode5childEi(ptr noundef nonnull align 8 dereferenceable(40) %.0, i32 noundef %2)
   %.not = icmp eq ptr %23, null
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br i1 %.not, label %25, label %26
 
 25:                                               ; preds = %22
@@ -192,7 +192,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:
   store i32 0, ptr %24, align 4, !alias.scope !4
   %27 = ptrtoint ptr %23 to i64
   store i64 %27, ptr %19, align 8, !alias.scope !4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %28, align 8, !alias.scope !4
   br label %29
 
@@ -202,7 +202,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK14ProtoTreeModel18protoNodeFromIndexERK11QModelIndex(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   ret ptr %5
@@ -216,11 +216,11 @@ declare noundef ptr @_ZN9ProtoNode5childEi(ptr noundef nonnull align 8 dereferen
 define void @_ZNK14ProtoTreeModel6parentERK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 8
   %5 = icmp sgt i32 %4, -1
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, -1
   %or.cond.i = select i1 %5, i1 %8, i1 false
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   %or.cond = select i1 %or.cond.i, i1 %11, i1 false
@@ -228,14 +228,14 @@ define void @_ZNK14ProtoTreeModel6parentERK11QModelIndex(ptr dead_on_unwind noal
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
   store i32 -1, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call noundef ptr @_ZN9ProtoNode10parentNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
@@ -245,9 +245,9 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
 
 19:                                               ; preds = %14
   store i32 -1, ptr %0, align 8, !alias.scope !7
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %20, align 4, !alias.scope !7
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !7
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -256,8 +256,8 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
   %24 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %18), !noalias !7
   %25 = icmp sgt i32 %23, -1
   %or.cond.not.i = and i1 %25, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %or.cond.not.i, label %29, label %28
 
 28:                                               ; preds = %22
@@ -271,7 +271,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
   store i32 0, ptr %26, align 4, !alias.scope !10
   %30 = ptrtoint ptr %18 to i64
   store i64 %30, ptr %27, align 8, !alias.scope !10
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %31, align 8, !alias.scope !10
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -288,9 +288,9 @@ define void @_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode(ptr dead_on_un
 
 4:                                                ; preds = %3
   store i32 -1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %17
 
@@ -299,8 +299,8 @@ define void @_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode(ptr dead_on_un
   %9 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   %10 = icmp sgt i32 %8, -1
   %or.cond.not = and i1 %10, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %or.cond.not, label %14, label %13
 
 13:                                               ; preds = %7
@@ -314,7 +314,7 @@ define void @_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode(ptr dead_on_un
   store i32 0, ptr %11, align 4, !alias.scope !13
   %15 = ptrtoint ptr %2 to i64
   store i64 %15, ptr %12, align 8, !alias.scope !13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %16, align 8, !alias.scope !13
   br label %17
 
@@ -326,17 +326,17 @@ define void @_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode(ptr dead_on_un
 define noundef i32 @_ZNK14ProtoTreeModel8rowCountERK11QModelIndex(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, -1
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -1
   %or.cond.i = select i1 %4, i1 %7, i1 false
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %or.cond = select i1 %or.cond.i, i1 %10, i1 false
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %.sink = select i1 %or.cond, ptr %15, ptr %12
@@ -360,11 +360,11 @@ define void @_ZNK14ProtoTreeModel4dataERK11QModelIndexi(ptr dead_on_unwind noali
   %14 = alloca %class.QFont, align 8
   %15 = load i32, ptr %2, align 8
   %16 = icmp sgt i32 %15, -1
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, -1
   %or.cond.i = select i1 %16, i1 %19, i1 false
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ne ptr %21, null
   %or.cond = select i1 %or.cond.i, i1 %22, i1 false
@@ -372,12 +372,12 @@ define void @_ZNK14ProtoTreeModel4dataERK11QModelIndexi(ptr dead_on_unwind noali
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %23, align 8
   br label %116
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
   call void @_ZN16FieldInformationC1EPK9ProtoNodeP7QObject(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %27, ptr noundef null)
@@ -389,7 +389,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
 
 30:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %31, align 8
   br label %_ZN7QStringD2Ev.exit
 
@@ -486,7 +486,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i10:    ; preds = %42
           to label %60 unwind label %32
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %7, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 1
   call void @_ZN16FieldInformation10HeaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #12
@@ -579,7 +579,7 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %71
           to label %89 unwind label %32
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %11, i64 76
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 1
   call void @_ZN16FieldInformation10HeaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #12
@@ -660,7 +660,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %100
 
 114:                                              ; preds = %34, %107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
-  %115 = getelementptr inbounds i8, ptr %0, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %115, align 8
   br label %_ZN7QStringD2Ev.exit
 
@@ -695,7 +695,7 @@ declare void @_ZNK16FieldInformation10headerInfoEv(ptr dead_on_unwind writable s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16FieldInformation10HeaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -711,7 +711,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %1
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i1 = icmp eq ptr %8, null
   br i1 %.not.i.i.i1, label %_ZN7QStringD2Ev.exit4, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2
@@ -772,7 +772,7 @@ declare void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unn
 define void @_ZN14ProtoTreeModel11setRootNodeEP11_proto_node(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QModelIndex, align 8
   tail call void @_ZN18QAbstractItemModel15beginResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -807,9 +807,9 @@ define void @_ZN14ProtoTreeModel11setRootNodeEP11_proto_node(ptr noundef nonnull
 
 17:                                               ; preds = %13
   store i32 -1, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = add nsw i32 %15, -1
   call void @_ZN18QAbstractItemModel15beginInsertRowsERK11QModelIndexii(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 0, i32 noundef %20)
@@ -833,24 +833,24 @@ declare noundef i32 @_ZN9ProtoNode3rowEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN14ProtoTreeModel15foreachFindHfidEP9ProtoNodePv(ptr noundef nonnull %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr %1, align 8
   %14 = icmp eq i32 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %16, align 8
   br label %.loopexit
 
@@ -881,7 +881,7 @@ declare noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %struct.find_hfid_, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = icmp slt i32 %2, 0
@@ -890,9 +890,9 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias noc
 
 9:                                                ; preds = %3
   store i32 -1, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -902,7 +902,7 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias noc
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
   br i1 %17, label %18, label %28
@@ -913,8 +913,8 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias noc
   %20 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %16), !noalias !18
   %21 = icmp sgt i32 %19, -1
   %or.cond.not.i = and i1 %21, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %or.cond.not.i, label %25, label %24
 
 24:                                               ; preds = %18
@@ -928,15 +928,15 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias noc
   store i32 0, ptr %22, align 4, !alias.scope !21
   %26 = ptrtoint ptr %16 to i64
   store i64 %26, ptr %23, align 8, !alias.scope !21
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %27, align 8, !alias.scope !21
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 28:                                               ; preds = %14, %12
   store i32 -1, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -947,7 +947,7 @@ _ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit: ; preds = %25, %24, %
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN14ProtoTreeModel16foreachFindFieldEP9ProtoNodePv(ptr noundef nonnull %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK9ProtoNode9protoNodeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %5, %6
@@ -959,7 +959,7 @@ define noundef zeroext i1 @_ZN14ProtoTreeModel16foreachFindFieldEP9ProtoNodePv(p
   br i1 %9, label %.lr.ph, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %11, align 8
   br label %.loopexit
 
@@ -983,7 +983,7 @@ define noundef zeroext i1 @_ZN14ProtoTreeModel16foreachFindFieldEP9ProtoNodePv(p
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %struct.find_field_info_, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %2, null
@@ -992,9 +992,9 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
 
 9:                                                ; preds = %3
   store i32 -1, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -1005,9 +1005,9 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
 
 14:                                               ; preds = %12
   store i32 -1, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
@@ -1018,7 +1018,7 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
   br i1 %23, label %24, label %34
@@ -1029,8 +1029,8 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
   %26 = tail call noundef zeroext i1 @_ZNK9ProtoNode7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %22), !noalias !25
   %27 = icmp sgt i32 %25, -1
   %or.cond.not.i = and i1 %27, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %or.cond.not.i, label %31, label %30
 
 30:                                               ; preds = %24
@@ -1044,15 +1044,15 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
   store i32 0, ptr %28, align 4, !alias.scope !28
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %29, align 8, !alias.scope !28
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %33, align 8, !alias.scope !28
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 34:                                               ; preds = %20, %17
   store i32 -1, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 

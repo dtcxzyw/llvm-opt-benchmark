@@ -22,41 +22,41 @@ define dso_local void @i915_gem_ww_ctx_init(ptr noundef initializes((0, 24)) %0,
   store ptr %5, ptr %0, align 8
   %6 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @reservation_ww_class, i64 1, ptr nonnull elementtype(i64) @reservation_ww_class) #3, !srcloc !6
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 0, ptr %10, align 4
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @reservation_ww_class, i64 24), align 8
   %12 = trunc i32 %11 to i16
-  %13 = getelementptr inbounds i8, ptr %0, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %12, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %17, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_ww_unlock_single(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 528
-  %3 = getelementptr inbounds i8, ptr %0, i64 536
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %12
@@ -66,7 +66,7 @@ define dso_local void @i915_gem_ww_unlock_single(ptr noundef %0) local_unnamed_a
   br label %13
 
 13:                                               ; preds = %12, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %15 = load ptr, ptr %14, align 8
   tail call void @ww_mutex_unlock(ptr noundef %15) #3
   %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #3, !srcloc !7
@@ -92,7 +92,7 @@ define dso_local void @i915_gem_ww_unlock_single(ptr noundef %0) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_ww_ctx_fini(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   %5 = getelementptr i8, ptr %3, i64 -528
@@ -103,17 +103,17 @@ define dso_local void @i915_gem_ww_ctx_fini(ptr noundef %0) local_unnamed_addr #
 .preheader.i:                                     ; preds = %1, %.thread.i
   %8 = phi ptr [ %31, %.thread.i ], [ %5, %1 ]
   %9 = phi ptr [ %29, %.thread.i ], [ %3, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %10, align 8
   %14 = getelementptr i8, ptr %9, i64 -64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -152,7 +152,7 @@ define dso_local void @i915_gem_ww_ctx_fini(ptr noundef %0) local_unnamed_addr #
   br i1 %33, label %i915_gem_ww_ctx_unlock_all.exit, label %.preheader.i, !llvm.loop !10
 
 i915_gem_ww_ctx_unlock_all.exit:                  ; preds = %.thread.i, %1
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37, !prof !8
@@ -169,7 +169,7 @@ i915_gem_ww_ctx_unlock_all.exit:                  ; preds = %.thread.i, %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_gem_ww_ctx_backoff(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !16
@@ -181,7 +181,7 @@ define dso_local i32 @i915_gem_ww_ctx_backoff(ptr noundef %0) local_unnamed_addr
   br label %65
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   %10 = getelementptr i8, ptr %8, i64 -528
@@ -192,17 +192,17 @@ define dso_local i32 @i915_gem_ww_ctx_backoff(ptr noundef %0) local_unnamed_addr
 .preheader.i:                                     ; preds = %6, %.thread.i
   %13 = phi ptr [ %36, %.thread.i ], [ %10, %6 ]
   %14 = phi ptr [ %34, %.thread.i ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %16, ptr %18, align 8
   store volatile ptr %17, ptr %16, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %14, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %15, align 8
   %19 = getelementptr i8, ptr %14, i64 -64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -246,10 +246,10 @@ i915_gem_ww_ctx_unlock_all.exit.loopexit:         ; preds = %.thread.i
 
 i915_gem_ww_ctx_unlock_all.exit:                  ; preds = %i915_gem_ww_ctx_unlock_all.exit.loopexit, %6
   %39 = phi ptr [ %.pre, %i915_gem_ww_ctx_unlock_all.exit.loopexit ], [ %3, %6 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i8, ptr %40, align 8, !range !20, !noundef !21
   %42 = icmp eq i8 %41, 0
-  %43 = getelementptr inbounds i8, ptr %39, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 248
   %44 = load ptr, ptr %43, align 8
   br i1 %42, label %.thread, label %47
 
@@ -266,12 +266,12 @@ i915_gem_ww_ctx_unlock_all.exit:                  ; preds = %i915_gem_ww_ctx_unl
 
 51:                                               ; preds = %.thread, %47
   %52 = phi ptr [ %46, %.thread ], [ %50, %47 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 528
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 528
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   store ptr %53, ptr %54, align 8
   store ptr %7, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 536
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 536
   store ptr %55, ptr %56, align 8
   store volatile ptr %53, ptr %55, align 8
   br label %.thread1

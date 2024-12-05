@@ -558,7 +558,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_jfif(ptr noundef %0, ptr 
 
 14:                                               ; preds = %9, %12
   %.0117 = phi i32 [ 0, %12 ], [ 1, %9 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.388, ptr noundef nonnull @.str.389) #4
   %17 = load i32, ptr @proto_jfif, align 4
@@ -840,7 +840,7 @@ define internal fastcc void @process_app0_segment(ptr noundef %0, ptr noundef %1
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %16 = load i32, ptr @hf_len, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %16, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @tvb_get_stringz_enc(ptr noundef %19, ptr noundef %1, i32 noundef 4, ptr noundef nonnull %7, i32 noundef 0) #4
   %21 = load i32, ptr @hf_identifier, align 4
@@ -927,7 +927,7 @@ define internal fastcc void @process_app1_segment(ptr noundef %0, ptr noundef %1
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %17 = load i32, ptr @hf_len, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %19 = getelementptr inbounds i8, ptr %2, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @tvb_get_stringz_enc(ptr noundef %20, ptr noundef %1, i32 noundef 4, ptr noundef nonnull %9, i32 noundef 0) #4
   %22 = load i32, ptr @hf_identifier, align 4
@@ -1029,7 +1029,7 @@ define internal fastcc void @process_app2_segment(ptr noundef %0, ptr noundef %1
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %14, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %16 = load i32, ptr @hf_len, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %16, ptr noundef %1, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @tvb_get_stringz_enc(ptr noundef %19, ptr noundef %1, i32 noundef 4, ptr noundef nonnull %7, i32 noundef 0) #4
   %21 = load i32, ptr @hf_identifier, align 4
@@ -1238,10 +1238,10 @@ switch.hole_check:                                ; preds = %.lr.ph162
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.process_tiff_ifd_chain, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.process_tiff_ifd_chain, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %40 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep175 = getelementptr inbounds [10 x i32], ptr @switch.table.process_tiff_ifd_chain.1, i64 0, i64 %40
+  %switch.gep175 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.process_tiff_ifd_chain.1, i64 0, i64 %40
   %switch.load176 = load i32, ptr %switch.gep175, align 4
   %.0121.ph = load i32, ptr %switch.load, align 4
   %.rhs.trunc = trunc nuw nsw i32 %switch.load176 to i8

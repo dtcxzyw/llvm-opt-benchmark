@@ -36,7 +36,7 @@ define internal noundef i32 @heartbeat_open() #0 {
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 272), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 280), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 288), i8 0, i64 64, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
   br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -45,7 +45,7 @@ define internal noundef i32 @heartbeat_open() #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
   %.02.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %4 ]
   tail call void %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 232)) #9
-  %8 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -65,11 +65,11 @@ define internal noundef i32 @heartbeat_close() #0 {
   %4 = add i64 %3, -1
   store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 496), align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 472), align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
   store ptr %11, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 472), align 8
@@ -85,7 +85,7 @@ define internal noundef i32 @heartbeat_close() #0 {
   unreachable
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr %17, align 8
@@ -94,9 +94,9 @@ define internal noundef i32 @heartbeat_close() #0 {
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i = icmp eq ptr %27, null
@@ -106,19 +106,19 @@ define internal noundef i32 @heartbeat_close() #0 {
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
   tail call void %28(ptr noundef nonnull %5) #9
-  %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
-  %31 = getelementptr inbounds i8, ptr %5, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %32 = load ptr, ptr %31, align 8
   %.not14 = icmp eq ptr %32, null
   br i1 %.not14, label %35, label %33
 
 33:                                               ; preds = %pmix_obj_run_destructors.exit
-  %34 = getelementptr inbounds i8, ptr %5, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 56
   tail call void %32(ptr noundef nonnull %34, ptr noundef nonnull %5) #9
   br label %36
 
@@ -133,7 +133,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
 
 ._crit_edge:                                      ; preds = %36, %0
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 272), align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   %.not6.i15 = icmp eq ptr %42, null
@@ -143,7 +143,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %43 = phi ptr [ %45, %.lr.ph.i16 ], [ %42, %._crit_edge ]
   %.07.i17 = phi ptr [ %44, %.lr.ph.i16 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 232)) #9
-  %44 = getelementptr inbounds i8, ptr %.07.i17, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.07.i17, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i18 = icmp eq ptr %45, null
   br i1 %.not.i18, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16, !llvm.loop !6

@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
   br label %err.thread
 
 if.end:                                           ; preds = %entry
-  %flags2 = getelementptr inbounds i8, ptr %dso, i64 20
+  %flags2 = getelementptr inbounds nuw i8, ptr %dso, i64 20
   %1 = load i32, ptr %flags2, align 4
   %and = and i32 %1, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -60,14 +60,14 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   store i32 %0, ptr %call1, align 4
-  %meth_data = getelementptr inbounds i8, ptr %dso, i64 8
+  %meth_data = getelementptr inbounds nuw i8, ptr %dso, i64 8
   %2 = load ptr, ptr %meth_data, align 8
   %call13 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call5) #10
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then18, label %if.end16
 
 if.end16:                                         ; preds = %if.end9
-  %loaded_filename = getelementptr inbounds i8, ptr %dso, i64 64
+  %loaded_filename = getelementptr inbounds nuw i8, ptr %dso, i64 64
   store ptr %call, ptr %loaded_filename, align 8
   br label %return
 
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %meth_data = getelementptr inbounds i8, ptr %dso, i64 8
+  %meth_data = getelementptr inbounds nuw i8, ptr %dso, i64 8
   %0 = load ptr, ptr %meth_data, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #10
   %cmp2 = icmp slt i32 %call1, 1
@@ -145,7 +145,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %meth_data = getelementptr inbounds i8, ptr %dso, i64 8
+  %meth_data = getelementptr inbounds nuw i8, ptr %dso, i64 8
   %0 = load ptr, ptr %meth_data, align 8
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #10
   %cmp3 = icmp slt i32 %call2, 1

@@ -18,9 +18,9 @@ define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsP
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"struct.Luau::ParseOptions", align 1
   store i32 1, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %12
@@ -36,7 +36,7 @@ define dso_local noalias noundef ptr @_Z12luau_compilePKcmP18lua_CompileOptionsP
 
 14:                                               ; preds = %13
   store i8 0, ptr %9, align 1
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %15, align 1
   invoke void @_ZN4Luau7compileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14CompileOptionsERKNS_12ParseOptionsEPNS_15BytecodeEncoderE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 1 dereferenceable(2) %9, ptr noundef null)
           to label %16 unwind label %21

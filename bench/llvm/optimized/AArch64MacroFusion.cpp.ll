@@ -38,7 +38,7 @@ define internal noundef zeroext i1 @_ZL22shouldScheduleAdjacentRKN4llvm15TargetI
 
 ._crit_edge:                                      ; preds = %4, %8
   %10 = trunc i8 %.pre to i1
-  %11 = getelementptr inbounds i8, ptr %3, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %.val = load i16, ptr %11, align 4
   %.not.i = icmp eq i16 %.val, 1802
   br i1 %.not.i, label %12, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread
@@ -104,7 +104,7 @@ _ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread: ; preds = %.cr
   br i1 %30, label %31, label %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit.thread64
 
 31:                                               ; preds = %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread
-  %32 = getelementptr inbounds i8, ptr %3, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %.val34 = load i16, ptr %32, align 4
   %33 = add i16 %.val34, -1831
   %switch.i = icmp ult i16 %33, 4
@@ -156,7 +156,7 @@ _ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit.thread64: ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 353
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
-  %43 = getelementptr inbounds i8, ptr %3, i64 68
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %.val35 = load i16, ptr %43, align 4
   br i1 %42, label %44, label %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit.thread67
 
@@ -209,7 +209,7 @@ _ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit.thread67: ; preds = %_ZL19isArithm
 
 _ZL15isCryptoEORPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit, %57, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit.thread67
   %60 = phi i16 [ 2335, %57 ], [ %.val35, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit.thread67 ], [ %.val35, %_ZL9isAESPairPKN4llvm12MachineInstrERS1_.exit ]
-  %61 = getelementptr inbounds i8, ptr %3, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -244,12 +244,12 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71: ; preds = %72
   br i1 %78, label %.thread, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 .thread:                                          ; preds = %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71
-  %79 = getelementptr inbounds i8, ptr %3, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val3872 = load ptr, ptr %79, align 8
   br label %86
 
 80:                                               ; preds = %_ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit
-  %81 = getelementptr inbounds i8, ptr %3, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val38 = load ptr, ptr %81, align 8
   %82 = icmp eq ptr %2, null
   br i1 %82, label %86, label %83
@@ -275,13 +275,13 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71: ; preds = %72
   br i1 %87, label %.thread14.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.val3875, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %.val3875, i64 112
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 16
   br i1 %91, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread60, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 .thread14.i:                                      ; preds = %.thread12.i
-  %92 = getelementptr inbounds i8, ptr %.val38, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %.val38, i64 112
   %93 = load i64, ptr %92, align 8
   %94 = icmp eq i64 %93, 16
   br i1 %94, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread60, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
@@ -291,13 +291,13 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71: ; preds = %72
   br i1 %95, label %.thread10.i, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 96:                                               ; preds = %86
-  %97 = getelementptr inbounds i8, ptr %.val3875, i64 112
+  %97 = getelementptr inbounds nuw i8, ptr %.val3875, i64 112
   %98 = load i64, ptr %97, align 8
   %99 = icmp eq i64 %98, 16
   br i1 %99, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread60, label %110
 
 .thread10.i:                                      ; preds = %.thread7.i
-  %100 = getelementptr inbounds i8, ptr %.val38, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %.val38, i64 112
   %101 = load i64, ptr %100, align 8
   %102 = icmp eq i64 %101, 16
   br i1 %102, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread60, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
@@ -305,7 +305,7 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71: ; preds = %72
 103:                                              ; preds = %83
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, 32
   %109 = icmp eq i16 %60, 4776
@@ -313,7 +313,7 @@ _ZL13isAdrpAddPairPKN4llvm12MachineInstrERS1_.exit.thread71: ; preds = %72
   br i1 %or.cond.i51, label %._crit_edge94, label %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
 
 ._crit_edge94:                                    ; preds = %103
-  %.phi.trans.insert95 = getelementptr inbounds i8, ptr %.val38, i64 112
+  %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %.val38, i64 112
   %.pre96 = load i64, ptr %.phi.trans.insert95, align 8
   br label %110
 
@@ -330,7 +330,7 @@ _ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %83, %.thread14.i
   br i1 %116, label %117, label %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread79
 
 117:                                              ; preds = %_ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit
-  %118 = getelementptr inbounds i8, ptr %3, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val40 = load ptr, ptr %118, align 8
   switch i16 %113, label %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread79 [
     i16 6756, label %119
@@ -371,7 +371,7 @@ _ZL14isLiteralsPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %83, %.thread14.i
   ]
 
 _ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit: ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %.val40, i64 80
+  %124 = getelementptr inbounds nuw i8, ptr %.val40, i64 80
   %125 = load i64, ptr %124, align 8
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread60, label %_ZL17isAddressLdStPairPKN4llvm12MachineInstrERS1_.exit.thread79
@@ -564,7 +564,7 @@ _ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread86: ; preds = %
   br i1 %178, label %179, label %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
 
 179:                                              ; preds = %_ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread86
-  %180 = getelementptr inbounds i8, ptr %3, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val42 = load ptr, ptr %180, align 8
   %.val43 = load i16, ptr %61, align 4
   switch i16 %.val43, label %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread [
@@ -579,14 +579,14 @@ _ZL21isArithmeticLogicPairPKN4llvm12MachineInstrERS1_.exit.thread86: ; preds = %
 
 182:                                              ; preds = %181, %179, %179
   %.0.i56 = phi i1 [ false, %179 ], [ false, %179 ], [ true, %181 ]
-  %183 = getelementptr inbounds i8, ptr %.val42, i64 64
+  %183 = getelementptr inbounds nuw i8, ptr %.val42, i64 64
   %184 = load i32, ptr %183, align 8
   %185 = and i32 %184, 255
   %186 = icmp eq i32 %185, 1
   br i1 %186, label %187, label %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread
 
 187:                                              ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %.val42, i64 80
+  %188 = getelementptr inbounds nuw i8, ptr %.val42, i64 80
   %189 = load i64, ptr %188, align 8
   %.not.i57 = icmp eq i64 %189, 1
   br i1 %.not.i57, label %190, label %_ZL27isAddSub2RegAndConstOnePairPKN4llvm12MachineInstrERS1_.exit.thread

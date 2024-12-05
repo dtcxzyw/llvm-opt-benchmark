@@ -95,7 +95,7 @@ define internal range(i32 -1366, 1) i32 @parse_nodes(ptr noundef %0, ptr nocaptu
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %16, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 48), align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef %15) #12
   %23 = load ptr, ptr %3, align 8
@@ -147,7 +147,7 @@ define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef %0, ptr nocaptu
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %16, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_compress, i64 48), align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef %15) #12
   %23 = load ptr, ptr %3, align 8
@@ -238,11 +238,11 @@ define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noun
 
 19:                                               ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %16, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %16
   store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %16
   store ptr %25, ptr %23, align 8
@@ -255,7 +255,7 @@ define internal range(i32 -1366, 1) i32 @pack(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal range(i32 -1366, 1) i32 @unpack(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
   %.not = icmp eq i32 %5, 0
@@ -344,11 +344,11 @@ define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef no
   %11 = add i64 %10, %9
   %12 = call noalias ptr @calloc(i64 noundef %11, i64 noundef 1) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.2, i64 6, i1 false) #12
-  %13 = getelementptr inbounds i8, ptr %12, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) @.str.3, i64 16, i1 false) #12
-  %14 = getelementptr inbounds i8, ptr %12, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #12
-  %15 = getelementptr inbounds i8, ptr %12, i64 27
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 27
   %16 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %8) #12
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
   %18 = shl i64 %17, 32

@@ -1484,7 +1484,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_17221(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %6 = and i8 %5, 127
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.1005) #2
   %9 = load i32, ptr @proto_17221, align 4
@@ -2517,7 +2517,7 @@ define internal fastcc void @dissect_17221_aecp(ptr noundef %0, ptr noundef %1, 
   %542 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %541, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #2
   %543 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 22) #2
   %544 = tail call i64 @tvb_get_guint48(ptr noundef %0, i32 noundef 22, i32 noundef 0) #2
-  %545 = getelementptr inbounds i8, ptr %1, i64 408
+  %545 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %546 = load ptr, ptr %545, align 8
   %547 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %546, ptr noundef nonnull @.str.1010, i64 noundef %544) #2
   %548 = load ptr, ptr @vendor_unique_protocol_dissector_table, align 8

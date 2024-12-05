@@ -105,10 +105,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %sum.049 = phi i64 [ 0, %entry ], [ %add2, %for.body ]
   %i.048 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.048
-  %namelen = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %nva, i64 %i.048
+  %namelen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %namelen, align 8
-  %valuelen = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %valuelen, align 8
   %add = add i64 %0, %sum.049
   %add2 = add i64 %add, %1
@@ -122,16 +122,16 @@ for.end:                                          ; preds = %for.body
 
 for.body5:                                        ; preds = %for.end, %for.body5
   %i.150 = phi i64 [ 0, %for.end ], [ %inc17, %for.body5 ]
-  %arrayidx6 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.150
+  %arrayidx6 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %nva, i64 %i.150
   %2 = load ptr, ptr %arrayidx6, align 8
-  %namelen8 = getelementptr inbounds i8, ptr %arrayidx6, i64 16
+  %namelen8 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 16
   %3 = load i64, ptr %namelen8, align 8
   %4 = load ptr, ptr @stdout, align 8
   %call9 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %4)
   %call10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  %value = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %5 = load ptr, ptr %value, align 8
-  %valuelen13 = getelementptr inbounds i8, ptr %arrayidx6, i64 24
+  %valuelen13 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 24
   %6 = load i64, ptr %valuelen13, align 8
   %7 = load ptr, ptr @stdout, align 8
   %call14 = tail call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %6, ptr noundef %7)
@@ -177,7 +177,7 @@ if.then36:                                        ; preds = %for.body33
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %for.body33
-  %arrayidx39 = getelementptr inbounds i8, ptr %call20, i64 %i.252
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %call20, i64 %i.252
   %9 = load i8, ptr %arrayidx39, align 1
   %conv40 = zext i8 %9 to i32
   %call41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %conv40)
@@ -198,9 +198,9 @@ for.end51:                                        ; preds = %for.inc49, %if.end
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %nv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %inflate_flags.i)
-  %namelen.i = getelementptr inbounds i8, ptr %nv.i, i64 16
-  %value.i = getelementptr inbounds i8, ptr %nv.i, i64 8
-  %valuelen.i = getelementptr inbounds i8, ptr %nv.i, i64 24
+  %namelen.i = getelementptr inbounds nuw i8, ptr %nv.i, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %nv.i, i64 8
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %nv.i, i64 24
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end12.i, %for.end51
@@ -212,7 +212,7 @@ for.cond.i:                                       ; preds = %if.end12.i, %for.en
   br i1 %cmp.i, label %if.then57, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %call.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i, i64 %call.i
   %sub.i = sub i64 %inlen.addr.0.i, %call.i
   %10 = load i32, ptr %inflate_flags.i, align 4
   %and.i = and i32 %10, 2

@@ -29,7 +29,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   store i32 %12, ptr @screen_width, align 4
@@ -178,7 +178,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   store i8 0, ptr %.sink, align 1
   %96 = load ptr, ptr %5, align 8
   %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %96, ptr noundef nonnull %.16184)
-  %.2 = getelementptr inbounds i8, ptr %.sink, i64 1
+  %.2 = getelementptr inbounds nuw i8, ptr %.sink, i64 1
   %98 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %98) #8
   %99 = load ptr, ptr %4, align 8

@@ -34,7 +34,7 @@ define i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %13, label %15
@@ -53,7 +53,7 @@ declare i32 @dissect_dcerpc_uint8(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @PIDL_dissect_uint8_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %55
@@ -66,11 +66,11 @@ define hidden i32 @PIDL_dissect_uint8_val(ptr noundef %0, i32 noundef %1, ptr no
 
 16:                                               ; preds = %13
   %17 = call ptr @proto_registrar_get_nth(i32 noundef %6) #6
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #6
   store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %17, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %47 [
     i32 1, label %23
@@ -78,7 +78,7 @@ define hidden i32 @PIDL_dissect_uint8_val(ptr noundef %0, i32 noundef %1, ptr no
   ]
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %17, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not32 = icmp eq ptr %25, null
   %26 = load i8, ptr %10, align 1
@@ -97,7 +97,7 @@ define hidden i32 @PIDL_dissect_uint8_val(ptr noundef %0, i32 noundef %1, ptr no
   br label %48
 
 35:                                               ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %17, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %37 = load ptr, ptr %36, align 8
   %.not31 = icmp eq ptr %37, null
   %38 = load i8, ptr %10, align 1
@@ -120,7 +120,7 @@ define hidden i32 @PIDL_dissect_uint8_val(ptr noundef %0, i32 noundef %1, ptr no
   unreachable
 
 48:                                               ; preds = %40, %45, %28, %33
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.6, ptr noundef %51, ptr noundef nonnull %20) #6
@@ -170,13 +170,13 @@ define i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %13, label %19
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not17 = icmp eq i32 %15, 0
   %16 = and i32 %1, 1
@@ -197,13 +197,13 @@ declare i32 @dissect_dcerpc_uint16(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca i16, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %59
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not34 = icmp eq i32 %15, 0
   %16 = and i32 %1, 1
@@ -218,11 +218,11 @@ define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr n
 
 20:                                               ; preds = %13
   %21 = call ptr @proto_registrar_get_nth(i32 noundef %6) #6
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 64) #6
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %21, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %51 [
     i32 1, label %27
@@ -230,7 +230,7 @@ define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr n
   ]
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %21, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not38 = icmp eq ptr %29, null
   %30 = load i16, ptr %10, align 2
@@ -249,7 +249,7 @@ define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr n
   br label %52
 
 39:                                               ; preds = %20
-  %40 = getelementptr inbounds i8, ptr %21, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not37 = icmp eq ptr %41, null
   %42 = load i16, ptr %10, align 2
@@ -272,7 +272,7 @@ define hidden i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 52:                                               ; preds = %44, %49, %32, %37
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %21, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.6, ptr noundef %55, ptr noundef nonnull %24) #6
@@ -312,13 +312,13 @@ define i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %.not21, label %.critedge, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %14, label %22
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = load i32, ptr %15, align 8
   %.not23 = icmp eq i32 %16, 0
   br i1 %.not23, label %17, label %.critedge
@@ -348,9 +348,9 @@ declare i32 @dissect_dcerpc_uint32(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
@@ -365,13 +365,13 @@ define i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %17
 
 17:                                               ; preds = %16, %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %.not24.i = icmp eq i32 %19, 0
   br i1 %.not24.i, label %20, label %dissect_ndr_uint64.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = load i32, ptr %21, align 8
   %.not25.i = icmp eq i32 %22, 0
   br i1 %.not25.i, label %23, label %30
@@ -395,13 +395,13 @@ define i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 32:                                               ; preds = %8
   store i32 0, ptr %9, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %34 = load i32, ptr %33, align 4
   %.not22.i = icmp eq i32 %34, 0
   br i1 %.not22.i, label %35, label %dissect_ndr_uint32.exit
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %37 = load i32, ptr %36, align 8
   %.not23.i = icmp eq i32 %37, 0
   br i1 %.not23.i, label %38, label %.critedge.i
@@ -447,13 +447,13 @@ define i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not24 = icmp eq i32 %12, 0
   br i1 %.not24, label %13, label %25
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not25 = icmp eq i32 %15, 0
   br i1 %.not25, label %16, label %23
@@ -483,9 +483,9 @@ define i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
@@ -500,13 +500,13 @@ define i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %17
 
 17:                                               ; preds = %15, %16
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %.not22.i = icmp eq i32 %19, 0
   br i1 %.not22.i, label %20, label %dissect_ndr_uint32.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = load i32, ptr %21, align 8
   %.not23.i = icmp eq i32 %22, 0
   br i1 %.not23.i, label %23, label %.critedge.i
@@ -528,13 +528,13 @@ define i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 28:                                               ; preds = %8
   store i16 0, ptr %9, align 2
-  %29 = getelementptr inbounds i8, ptr %4, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %30 = load i32, ptr %29, align 4
   %.not16.i = icmp eq i32 %30, 0
   br i1 %.not16.i, label %31, label %dissect_ndr_uint16.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i32, ptr %32, align 8
   %.not17.i = icmp eq i32 %33, 0
   %34 = and i32 %1, 1
@@ -564,13 +564,13 @@ dissect_ndr_uint32.exit:                          ; preds = %.critedge.i, %17, %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %58
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not36 = icmp eq i32 %15, 0
   br i1 %.not36, label %16, label %20
@@ -594,11 +594,11 @@ define hidden i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %1, ptr n
 
 23:                                               ; preds = %20
   %24 = call ptr @proto_registrar_get_nth(i32 noundef %6) #6
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 64) #6
   store i8 0, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %24, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %29 = load i32, ptr %28, align 4
   switch i32 %29, label %50 [
     i32 1, label %30
@@ -606,7 +606,7 @@ define hidden i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %1, ptr n
   ]
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not40 = icmp eq ptr %32, null
   %33 = load i32, ptr %10, align 4
@@ -623,7 +623,7 @@ define hidden i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %1, ptr n
   br label %51
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %24, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not39 = icmp eq ptr %42, null
   %43 = load i32, ptr %10, align 4
@@ -644,7 +644,7 @@ define hidden i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 51:                                               ; preds = %44, %48, %34, %38
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.6, ptr noundef %54, ptr noundef nonnull %27) #6
@@ -680,13 +680,13 @@ define i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not19 = icmp eq i32 %12, 0
   br i1 %.not19, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not20 = icmp eq i32 %15, 0
   br i1 %.not20, label %16, label %20
@@ -718,13 +718,13 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden i32 @PIDL_dissect_uint64_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %60
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not37 = icmp eq i32 %15, 0
   br i1 %.not37, label %16, label %20
@@ -748,11 +748,11 @@ define hidden i32 @PIDL_dissect_uint64_val(ptr noundef %0, i32 noundef %1, ptr n
 
 23:                                               ; preds = %20
   %24 = call ptr @proto_registrar_get_nth(i32 noundef %6) #6
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 64) #6
   store i8 0, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %24, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %29 = load i32, ptr %28, align 4
   switch i32 %29, label %52 [
     i32 1, label %30
@@ -760,7 +760,7 @@ define hidden i32 @PIDL_dissect_uint64_val(ptr noundef %0, i32 noundef %1, ptr n
   ]
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not41 = icmp eq ptr %32, null
   %33 = load i64, ptr %10, align 8
@@ -778,7 +778,7 @@ define hidden i32 @PIDL_dissect_uint64_val(ptr noundef %0, i32 noundef %1, ptr n
   br label %53
 
 41:                                               ; preds = %23
-  %42 = getelementptr inbounds i8, ptr %24, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not40 = icmp eq ptr %43, null
   %44 = load i64, ptr %10, align 8
@@ -800,7 +800,7 @@ define hidden i32 @PIDL_dissect_uint64_val(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 53:                                               ; preds = %45, %50, %34, %39
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.6, ptr noundef %56, ptr noundef nonnull %27) #6
@@ -836,13 +836,13 @@ define i32 @dissect_ndr_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %16, label %20
@@ -879,13 +879,13 @@ define i32 @dissect_ndr_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %16, label %20
@@ -922,13 +922,13 @@ define i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %16, label %20
@@ -965,13 +965,13 @@ define i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load i32, ptr %14, align 8
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %16, label %20
@@ -1003,13 +1003,13 @@ declare i32 @dissect_dcerpc_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dissect_ndr_ctx_hnd(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i32, ptr %12, align 8
   %.not24 = icmp eq i32 %13, 0
   br i1 %.not24, label %14, label %18

@@ -247,7 +247,7 @@ if.end136:                                        ; preds = %if.then128, %sw.epi
   %ii.1 = phi i32 [ 0, %if.then128 ], [ %ii.0101, %sw.epilog ]
   %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.1) #3
   %1 = load i32, ptr %call134, align 8
-  %value = getelementptr inbounds i8, ptr %call134, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call134, i64 8
   %2 = load ptr, ptr %value, align 8
   %3 = add nsw i32 %ii.1, 1
   %sub = sub i32 25, %j.1
@@ -295,7 +295,7 @@ if.end150:                                        ; preds = %for.end
   ]
 
 sw.bb:                                            ; preds = %if.end150, %if.end150, %if.end150, %if.end150, %if.end150
-  %data = getelementptr inbounds i8, ptr %bs.095, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %bs.095, i64 8
   %5 = load ptr, ptr %data, align 8
   %6 = load i32, ptr %bs.095, align 8
   %call151 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %5, i32 noundef %6) #3

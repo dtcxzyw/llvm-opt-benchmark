@@ -20,14 +20,14 @@ declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef,
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = add i64 %1, -1
   %7 = icmp ult i64 %6, 1024
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
+  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
   %10 = load i8, ptr %9, align 1
   %11 = icmp sgt i8 %10, -1
   br i1 %11, label %12, label %.thread
@@ -38,9 +38,9 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   br label %20
 
 .thread:                                          ; preds = %3, %8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %16(ptr noundef %18, ptr noundef null, i64 noundef 0, i64 noundef %1)
   br label %20
@@ -57,13 +57,13 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   unreachable
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %5, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %1
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 760
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %30 = zext i8 %2 to i64
-  %31 = getelementptr inbounds [256 x i64], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i64], ptr %29, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %1
   store i64 %33, ptr %31, align 8
@@ -72,23 +72,23 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL8newblockP9lua_Statei(ptr noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds [40 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [40 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %33
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %6
+  %10 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %6
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 512
   %13 = select i1 %12, i32 32744, i32 16360
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %13 to i64
   %19 = tail call noundef ptr %15(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %18)
@@ -105,41 +105,41 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit: ; preds = %9
   %23 = sext i32 %22 to i64
   %24 = udiv i64 %21, %23
   %25 = trunc nuw nsw i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store i32 %13, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 %22, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %19, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr null, ptr %28, align 8
   %29 = add nsw i32 %25, -1
   %30 = mul nsw i32 %29, %22
-  %31 = getelementptr inbounds i8, ptr %19, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 52
   store i32 0, ptr %32, align 4
   store ptr %19, ptr %7, align 8
   br label %33
 
 33:                                               ; preds = %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit, %2
   %.027 = phi ptr [ %8, %2 ], [ %19, %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit ]
-  %34 = getelementptr inbounds i8, ptr %.027, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.027, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.027, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.027, i64 56
   %39 = zext nneg i32 %35 to i64
-  %40 = getelementptr inbounds [1 x i8], ptr %38, i64 %39
-  %41 = getelementptr inbounds i8, ptr %.027, i64 36
+  %40 = getelementptr inbounds nuw [1 x i8], ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %.027, i64 36
   %42 = load i32, ptr %41, align 4
   %43 = sub nsw i32 %35, %42
   store i32 %43, ptr %34, align 8
   br label %48
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %.027, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.027, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
@@ -147,12 +147,12 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit: ; preds = %9
 
 48:                                               ; preds = %44, %37
   %.0 = phi ptr [ %40, %37 ], [ %46, %44 ]
-  %49 = getelementptr inbounds i8, ptr %.027, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %.027, i64 52
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 4
   store ptr %.027, ptr %.0, align 8
-  %52 = getelementptr inbounds i8, ptr %.027, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.027, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not31 = icmp eq ptr %53, null
   br i1 %.not31, label %54, label %62
@@ -163,7 +163,7 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit: ; preds = %9
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.027, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %7, align 8
   %.not32 = icmp eq ptr %59, null
@@ -178,7 +178,7 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit: ; preds = %9
   br label %62
 
 62:                                               ; preds = %61, %54, %48
-  %63 = getelementptr inbounds i8, ptr %.0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   ret ptr %63
 }
 
@@ -187,35 +187,35 @@ declare hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef, i32 noundef) local_
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = add i64 %1, -1
   %7 = icmp ult i64 %6, 1024
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
+  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
   %10 = load i8, ptr %9, align 1
   %11 = icmp sgt i8 %10, -1
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
   %13 = zext nneg i8 %10 to i64
-  %14 = getelementptr inbounds i8, ptr %5, i64 416
-  %15 = getelementptr inbounds [40 x ptr], ptr %14, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  %15 = getelementptr inbounds nuw [40 x ptr], ptr %14, i64 0, i64 %13
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %46
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %5, i64 744
-  %19 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %13
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 744
+  %19 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %13
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 512
   %22 = select i1 %21, i32 32744, i32 16360
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %22 to i64
   %28 = tail call noundef ptr %24(ptr noundef %26, ptr noundef null, i64 noundef 0, i64 noundef %27)
@@ -231,27 +231,27 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
   %32 = sext i32 %20 to i64
   %33 = udiv i64 %31, %32
   %34 = trunc nuw nsw i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %28, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   store i32 %22, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 36
   store i32 %20, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %28, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr null, ptr %37, align 8
   %38 = add nsw i32 %34, -1
   %39 = mul nsw i32 %38, %20
-  %40 = getelementptr inbounds i8, ptr %28, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %28, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 52
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %28, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %43 = load ptr, ptr %18, align 8
   store ptr %43, ptr %42, align 8
   %.not30.i.i.i = icmp eq ptr %43, null
   br i1 %.not30.i.i.i, label %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i, label %44
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %28, ptr %45, align 8
   br label %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i
 
@@ -262,24 +262,24 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
 
 46:                                               ; preds = %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i, %12
   %.026.i = phi ptr [ %16, %12 ], [ %28, %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i ]
-  %47 = getelementptr inbounds i8, ptr %.026.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.026.i, i64 48
   %48 = load i32, ptr %47, align 8
   %49 = icmp sgt i32 %48, -1
   br i1 %49, label %50, label %.thread.i
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.026.i, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.026.i, i64 56
   %52 = zext nneg i32 %48 to i64
-  %53 = getelementptr inbounds [1 x i8], ptr %51, i64 %52
-  %54 = getelementptr inbounds i8, ptr %.026.i, i64 36
+  %53 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %.026.i, i64 36
   %55 = load i32, ptr %54, align 4
   %56 = sub nsw i32 %48, %55
   store i32 %56, ptr %47, align 8
-  %57 = getelementptr inbounds i8, ptr %.026.i, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %.026.i, i64 52
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.026.i, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.026.i, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %60 = icmp sgt i32 %56, -1
   %.not30.i = icmp ne ptr %.pre.i, null
@@ -287,12 +287,12 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
   br i1 %brmerge.i, label %98, label %.thread36.i
 
 .thread.i:                                        ; preds = %46
-  %61 = getelementptr inbounds i8, ptr %.026.i, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.026.i, i64 40
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %.026.i, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %.026.i, i64 52
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %65, align 4
@@ -301,7 +301,7 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
 
 .thread36.i:                                      ; preds = %.thread.i, %50
   %.03538.i = phi ptr [ %62, %.thread.i ], [ %53, %50 ]
-  %68 = getelementptr inbounds i8, ptr %.026.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %15, align 8
   %.not31.i = icmp eq ptr %69, null
@@ -316,12 +316,12 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
   br label %98
 
 .thread:                                          ; preds = %3, %8
-  %72 = getelementptr inbounds i8, ptr %5, i64 744
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 744
   %73 = trunc i64 %1 to i32
   %74 = add i32 %73, 56
-  %75 = getelementptr inbounds i8, ptr %5, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %5, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %74 to i64
   %80 = tail call noundef ptr %76(ptr noundef %78, ptr noundef null, i64 noundef 0, i64 noundef %79)
@@ -333,15 +333,15 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
   unreachable
 
 82:                                               ; preds = %.thread
-  %83 = getelementptr inbounds i8, ptr %80, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   store i32 %74, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 36
   store i32 %73, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %80, i64 40
-  %86 = getelementptr inbounds i8, ptr %80, i64 48
-  %87 = getelementptr inbounds i8, ptr %80, i64 52
-  %88 = getelementptr inbounds i8, ptr %80, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 52
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   %89 = load ptr, ptr %72, align 8
   store ptr %89, ptr %88, align 8
@@ -349,13 +349,13 @@ _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit.i: ; preds = %44, %30
   br i1 %.not30.i25, label %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit, label %90
 
 90:                                               ; preds = %82
-  %91 = getelementptr inbounds i8, ptr %89, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr %80, ptr %91, align 8
   br label %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit
 
 _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %82, %90
   store ptr %80, ptr %72, align 8
-  %92 = getelementptr inbounds i8, ptr %80, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %93 = load i32, ptr %84, align 4
   %94 = load i32, ptr %86, align 8
   %95 = sub nsw i32 %94, %93
@@ -367,13 +367,13 @@ _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %82, %90
 
 98:                                               ; preds = %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit, %50, %.thread.i, %71
   %.0 = phi ptr [ %92, %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit ], [ %62, %.thread.i ], [ %.03538.i, %71 ], [ %53, %50 ]
-  %99 = getelementptr inbounds i8, ptr %5, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %1
   store i64 %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 760
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %103 = zext i8 %2 to i64
-  %104 = getelementptr inbounds [256 x i64], ptr %102, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [256 x i64], ptr %102, i64 0, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, %1
   store i64 %106, ptr %104, align 8
@@ -382,14 +382,14 @@ _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %82, %90
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = add i64 %2, -1
   %8 = icmp ult i64 %7, 1024
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %10 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
   %13 = icmp sgt i8 %11, -1
@@ -398,23 +398,23 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %1, i64 -8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %31
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %6, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds [40 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [40 x ptr], ptr %24, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %27, ptr %28, align 8
   %.not23.i = icmp eq ptr %27, null
   br i1 %.not23.i, label %30, label %29
@@ -432,7 +432,7 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
   %32 = phi ptr [ %.pre.i, %30 ], [ null, %19 ], [ %18, %14 ]
   store ptr %32, ptr %15, align 8
   store ptr %15, ptr %17, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr %33, align 4
@@ -440,9 +440,9 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
   br i1 %36, label %37, label %_ZL9freeblockP9lua_StateiPv.exit
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %39 = zext nneg i32 %12 to i64
-  %40 = getelementptr inbounds i8, ptr %16, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %41, null
   %.pre.i.i = load ptr, ptr %16, align 8
@@ -458,12 +458,12 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store ptr %45, ptr %46, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %16
   br i1 %50, label %51, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
@@ -475,32 +475,32 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
 
 _ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %51, %47, %44
   %.val.i.i = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %16, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
   %60 = tail call noundef ptr %54(ptr noundef %56, ptr noundef nonnull %16, i64 noundef %59, i64 noundef 0)
   br label %_ZL9freeblockP9lua_StateiPv.exit
 
 .thread:                                          ; preds = %4, %9
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef ptr %62(ptr noundef %64, ptr noundef %1, i64 noundef %2, i64 noundef 0)
   br label %_ZL9freeblockP9lua_StateiPv.exit
 
 _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i, %31, %.thread
-  %66 = getelementptr inbounds i8, ptr %6, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %67 = load i64, ptr %66, align 8
   %68 = sub i64 %67, %2
   store i64 %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 760
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %70 = zext i8 %3 to i64
-  %71 = getelementptr inbounds [256 x i64], ptr %69, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i64], ptr %69, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = sub i64 %72, %2
   store i64 %73, ptr %71, align 8
@@ -509,14 +509,14 @@ _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = add i64 %2, -1
   %9 = icmp ult i64 %8, 1024
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
@@ -525,23 +525,23 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 15:                                               ; preds = %10
   store i8 0, ptr %1, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %31
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %16, i64 416
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 416
   %25 = zext nneg i32 %13 to i64
-  %26 = getelementptr inbounds [40 x ptr], ptr %24, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [40 x ptr], ptr %24, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8
   %.not22.i = icmp eq ptr %27, null
   br i1 %.not22.i, label %30, label %29
@@ -557,10 +557,10 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 31:                                               ; preds = %30, %19, %15
   %32 = phi ptr [ %.pre.i, %30 ], [ null, %19 ], [ %18, %15 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %32, ptr %33, align 8
   store ptr %1, ptr %17, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %34, align 4
@@ -568,10 +568,10 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
   br i1 %37, label %38, label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %16, i64 416
-  %40 = getelementptr inbounds i8, ptr %16, i64 744
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 416
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 744
   %41 = zext nneg i32 %13 to i64
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %43, null
   %.pre.i.i = load ptr, ptr %4, align 8
@@ -587,12 +587,12 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store ptr %47, ptr %48, align 8
   br label %55
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %50 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %4
   br i1 %52, label %53, label %55
@@ -604,15 +604,15 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 55:                                               ; preds = %53, %49, %46
   %.val.i.i = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not18.i.i.i = icmp eq ptr %57, null
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br i1 %.not18.i.i.i, label %._crit_edge.i.i.i, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %.pre.i.i.i, ptr %59, align 8
   br label %._crit_edge.i.i.i
 
@@ -622,7 +622,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 60:                                               ; preds = %._crit_edge.i.i.i
   %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 24
   store ptr %61, ptr %62, align 8
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split
 
@@ -637,16 +637,16 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split
 
 .thread:                                          ; preds = %5, %10
-  %68 = getelementptr inbounds i8, ptr %7, i64 744
-  %69 = getelementptr inbounds i8, ptr %4, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 744
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not18.i = icmp eq ptr %70, null
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre.i17 = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not18.i, label %._crit_edge.i, label %71
 
 71:                                               ; preds = %.thread
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %.pre.i17, ptr %72, align 8
   br label %._crit_edge.i
 
@@ -656,7 +656,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 73:                                               ; preds = %._crit_edge.i
   %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds i8, ptr %.pre.i17, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.pre.i17, i64 24
   store ptr %74, ptr %75, align 8
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split
 
@@ -672,24 +672,24 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 
 _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split: ; preds = %79, %76, %73, %60, %63, %66
   %.val.i.i.sink23 = phi ptr [ %.val.i.i, %66 ], [ %.val.i.i, %63 ], [ %.val.i.i, %60 ], [ %7, %73 ], [ %7, %76 ], [ %7, %79 ]
-  %81 = getelementptr inbounds i8, ptr %.val.i.i.sink23, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink23, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.val.i.i.sink23, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink23, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %86 = load i32, ptr %85, align 8
   %87 = sext i32 %86 to i64
   %88 = tail call noundef ptr %82(ptr noundef %84, ptr noundef nonnull %4, i64 noundef %87, i64 noundef 0)
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit
 
 _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit:   ; preds = %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split, %31
-  %89 = getelementptr inbounds i8, ptr %7, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load i64, ptr %89, align 8
   %91 = sub i64 %90, %2
   store i64 %91, ptr %89, align 8
-  %92 = getelementptr inbounds i8, ptr %7, i64 760
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %93 = zext i8 %3 to i64
-  %94 = getelementptr inbounds [256 x i64], ptr %92, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [256 x i64], ptr %92, i64 0, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = sub i64 %95, %2
   store i64 %96, ptr %94, align 8
@@ -698,14 +698,14 @@ _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit:   ; preds = %_ZL12freegcoblockP9
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = add i64 %3, -1
   %9 = icmp ult i64 %8, 1024
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %3
+  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %3
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   br label %14
@@ -717,7 +717,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %19 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i32
   br label %22
@@ -737,9 +737,9 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br label %35
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr %31(ptr noundef %33, ptr noundef null, i64 noundef 0, i64 noundef %3)
   br label %35
@@ -772,23 +772,23 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 -8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %51, label %63
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %48, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %46, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %57 = zext nneg i32 %23 to i64
-  %58 = getelementptr inbounds [40 x ptr], ptr %56, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [40 x ptr], ptr %56, i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %48, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %59, ptr %60, align 8
   %.not23.i = icmp eq ptr %59, null
   br i1 %.not23.i, label %62, label %61
@@ -806,7 +806,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   %64 = phi ptr [ %.pre.i, %62 ], [ null, %51 ], [ %50, %45 ]
   store ptr %64, ptr %47, align 8
   store ptr %47, ptr %49, align 8
-  %65 = getelementptr inbounds i8, ptr %48, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 52
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, -1
   store i32 %67, ptr %65, align 4
@@ -814,9 +814,9 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br i1 %68, label %69, label %_ZL9freeblockP9lua_StateiPv.exit
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %46, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i8, ptr %48, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %73, null
   %.pre.i.i = load ptr, ptr %48, align 8
@@ -832,12 +832,12 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
 
 76:                                               ; preds = %75
   %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store ptr %77, ptr %78, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds ptr, ptr %70, i64 %71
+  %80 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %48
   br i1 %82, label %83, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
@@ -849,28 +849,28 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
 
 _ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %83, %79, %76
   %.val.i.i = load ptr, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %48, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = sext i32 %90 to i64
   %92 = tail call noundef ptr %86(ptr noundef %88, ptr noundef nonnull %48, i64 noundef %91, i64 noundef 0)
   br label %_ZL9freeblockP9lua_StateiPv.exit
 
 93:                                               ; preds = %44
-  %94 = getelementptr inbounds i8, ptr %7, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %7, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef ptr %95(ptr noundef %97, ptr noundef %1, i64 noundef %2, i64 noundef 0)
   br label %_ZL9freeblockP9lua_StateiPv.exit
 
 99:                                               ; preds = %22
-  %100 = getelementptr inbounds i8, ptr %7, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %7, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef ptr %101(ptr noundef %103, ptr noundef %1, i64 noundef %2, i64 noundef %3)
   %105 = icmp eq ptr %104, null
@@ -884,14 +884,14 @@ _ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %83, %79, %76
 
 _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i, %63, %99, %93
   %.0 = phi ptr [ %36, %93 ], [ %104, %99 ], [ %36, %63 ], [ %36, %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i ]
-  %108 = getelementptr inbounds i8, ptr %7, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %109 = load i64, ptr %108, align 8
   %110 = sub i64 %3, %2
   %111 = add i64 %110, %109
   store i64 %111, ptr %108, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 760
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %113 = zext i8 %4 to i64
-  %114 = getelementptr inbounds [256 x i64], ptr %112, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [256 x i64], ptr %112, i64 0, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %110, %115
   store i64 %116, ptr %114, align 8
@@ -903,17 +903,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_Z20luaM_getpagewalkinfoP8lua_PagePPcS2_PiS3_(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, -56
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = udiv i64 %9, %12
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
@@ -924,7 +924,7 @@ define hidden void @_Z20luaM_getpagewalkinfoP8lua_PagePPcS2_PiS3_(ptr noundef %0
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %15, i64 %23
   store ptr %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %3, align 4
   %27 = load i32, ptr %10, align 4
@@ -934,17 +934,17 @@ define hidden void @_Z20luaM_getpagewalkinfoP8lua_PagePPcS2_PiS3_(ptr noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_Z16luaM_getpageinfoP8lua_PagePiS1_S1_S1_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = add nsw i64 %8, -56
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = udiv i64 %9, %12
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %1, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %2, align 4
   %17 = load i32, ptr %10, align 4
@@ -956,24 +956,24 @@ define hidden void @_Z16luaM_getpageinfoP8lua_PagePiS1_S1_S1_(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_Z16luaM_getnextpageP8lua_Page(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = add nsw i64 %6, -56
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = udiv i64 %7, %10
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
@@ -985,7 +985,7 @@ define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr nound
   br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4
   br label %.lr.ph
 
@@ -1017,28 +1017,28 @@ define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 744
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit
   %.09 = phi ptr [ %9, %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit ], [ %7, %3 ]
-  %8 = getelementptr inbounds i8, ptr %.09, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.09, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = add nsw i64 %12, -56
-  %14 = getelementptr inbounds i8, ptr %.09, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %.09, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = udiv i64 %13, %16
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %.09, i64 56
-  %20 = getelementptr inbounds i8, ptr %.09, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.09, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
@@ -1050,7 +1050,7 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
   br i1 %.not13.i, label %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %.09, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %.09, i64 52
   %28 = load i32, ptr %27, align 4
   br label %.lr.ph.i
 
@@ -1089,16 +1089,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) @_ZL16kSizeClassConfig, i8 0, i64 160, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1025) getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i8 -1, i64 1025, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1025) getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i8 -1, i64 1025, i1 false)
   br label %1
 
 1:                                                ; preds = %1, %0
   %.02530.i.i = phi i32 [ 8, %0 ], [ %6, %1 ]
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %3 = add nsw i32 %2, 1
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %4
   store i32 %.02530.i.i, ptr %5, align 4
@@ -1108,9 +1108,9 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
 
 .preheader29.i.i:                                 ; preds = %1, %.preheader29.i.i
   %.02431.i.i = phi i32 [ %12, %.preheader29.i.i ], [ 64, %1 ]
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %10 = sext i32 %8 to i64
   %11 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %10
   store i32 %.02431.i.i, ptr %11, align 4
@@ -1120,9 +1120,9 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
 
 .preheader28.i.i:                                 ; preds = %.preheader29.i.i, %.preheader28.i.i
   %.02332.i.i = phi i32 [ %18, %.preheader28.i.i ], [ 256, %.preheader29.i.i ]
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %16 = sext i32 %14 to i64
   %17 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %16
   store i32 %.02332.i.i, ptr %17, align 4
@@ -1131,15 +1131,15 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   br i1 %19, label %.preheader28.i.i, label %.preheader27.i.i, !llvm.loop !10
 
 .preheader26.i.i:                                 ; preds = %.preheader27.i.i
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i.i, label %.preheader.i.i.preheader
 
 .preheader27.i.i:                                 ; preds = %.preheader28.i.i, %.preheader27.i.i
   %.02233.i.i = phi i32 [ %26, %.preheader27.i.i ], [ 512, %.preheader28.i.i ]
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %24 = sext i32 %22 to i64
   %25 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %24
   store i32 %.02233.i.i, ptr %25, align 4
@@ -1150,13 +1150,13 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
 .lr.ph.i.i:                                       ; preds = %.preheader26.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader26.i.i ]
   %28 = trunc i64 %indvars.iv.i.i to i8
-  %29 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %31
+  %32 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %31
   store i8 %28, ptr %32, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i.i, %34
   br i1 %35, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !12
@@ -1166,14 +1166,14 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %43
   %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %43 ], [ 1023, %.preheader.i.i.preheader ]
-  %36 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %indvars.iv37.i.i
+  %36 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %indvars.iv37.i.i
   %37 = load i8, ptr %36, align 1
   %38 = icmp slt i8 %37, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %.preheader.i.i
   %40 = add nuw nsw i64 %indvars.iv37.i.i, 1
-  %41 = getelementptr inbounds [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   store i8 %42, ptr %36, align 1
   br label %43

@@ -177,7 +177,7 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [4 x %struct.bio_dgram_case], ptr @bio_dgram_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %local = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %local = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %local, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ina.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ina6.i)
@@ -211,7 +211,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.the
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pina.0.i, i8 0, i64 %inal.0.i, i1 false)
   %call.i = tail call i32 @htonl(i32 noundef 2130706433) #7
   store i32 %call.i, ptr %ina.i, align 4
-  %arrayidx.i = getelementptr inbounds i8, ptr %ina6.i, i64 15
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ina6.i, i64 15
   store i8 1, ptr %arrayidx.i, align 1
   %call5.i = tail call ptr @BIO_ADDR_new() #6
   %call6.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 142, ptr noundef nonnull @.str.6, ptr noundef %call5.i) #6
@@ -385,17 +385,17 @@ if.end134.i:                                      ; preds = %if.end128.i
 
 if.end140.i:                                      ; preds = %if.end134.i
   store ptr @.str.37, ptr %tx_msg.i, align 16
-  %data_len.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 8
+  %data_len.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 8
   store i64 5, ptr %data_len.i, align 8
-  %peer.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 16
-  %local.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 24
-  %arrayidx146.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 40
+  %peer.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 16
+  %local.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 24
+  %arrayidx146.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %peer.i, i8 0, i64 24, i1 false)
   store ptr @.str.38, ptr %arrayidx146.i, align 8
-  %data_len149.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 48
+  %data_len149.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 48
   store i64 6, ptr %data_len149.i, align 16
-  %peer151.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 56
-  %local153.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 64
+  %peer151.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 56
+  %local153.i = getelementptr inbounds nuw i8, ptr %tx_msg.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peer151.i, i8 0, i64 24, i1 false)
   %call157.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call160.i = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 250, ptr noundef nonnull @.str.39, i32 noundef %call157.i) #6
@@ -464,24 +464,24 @@ lor.lhs.false210.i:                               ; preds = %if.end203.i
 
 if.end214.i:                                      ; preds = %lor.lhs.false210.i
   store ptr %rx_buf.i, ptr %rx_msg.i, align 16
-  %data_len219.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 8
+  %data_len219.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 8
   store i64 128, ptr %data_len219.i, align 8
-  %peer221.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 16
+  %peer221.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 16
   store ptr %call14.i, ptr %peer221.i, align 16
-  %local223.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 24
+  %local223.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 24
   store ptr %call19.i, ptr %local223.i, align 8
-  %flags225.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 32
+  %flags225.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 32
   store i64 2147483648, ptr %flags225.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %rx_buf.i, i8 0, i64 128, i1 false)
-  %arrayidx228.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 40
+  %arrayidx228.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 40
   store ptr %rx_buf2.i, ptr %arrayidx228.i, align 8
-  %data_len231.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 48
+  %data_len231.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 48
   store i64 128, ptr %data_len231.i, align 16
-  %peer233.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 56
+  %peer233.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 56
   store ptr %call24.i, ptr %peer233.i, align 8
-  %local235.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 64
+  %local235.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 64
   store ptr %call29.i, ptr %local235.i, align 16
-  %flags237.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 72
+  %flags237.i = getelementptr inbounds nuw i8, ptr %rx_msg.i, i64 72
   store i64 2147483648, ptr %flags237.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %rx_buf2.i, i8 0, i64 128, i1 false)
   %call240.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef %rx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
@@ -642,17 +642,17 @@ if.end385.i:                                      ; preds = %if.end379.i, %if.en
 for.body.i:                                       ; preds = %for.body.i, %if.end385.i
   %i.0107.i = phi i64 [ 0, %if.end385.i ], [ %inc.i, %for.body.i ]
   %conv388.i = trunc nuw nsw i64 %i.0107.i to i8
-  %arrayidx389.i = getelementptr inbounds [128 x i8], ptr %tx_buf.i, i64 0, i64 %i.0107.i
+  %arrayidx389.i = getelementptr inbounds nuw [128 x i8], ptr %tx_buf.i, i64 0, i64 %i.0107.i
   store i8 %conv388.i, ptr %arrayidx389.i, align 1
-  %arrayidx391.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %tx_msg.i, i64 0, i64 %i.0107.i
+  %arrayidx391.i = getelementptr inbounds nuw [128 x %struct.bio_msg_st], ptr %tx_msg.i, i64 0, i64 %i.0107.i
   store ptr %arrayidx389.i, ptr %arrayidx391.i, align 8
-  %data_len394.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 8
+  %data_len394.i = getelementptr inbounds nuw i8, ptr %arrayidx391.i, i64 8
   store i64 1, ptr %data_len394.i, align 8
-  %peer396.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 16
+  %peer396.i = getelementptr inbounds nuw i8, ptr %arrayidx391.i, i64 16
   store ptr %call9.i, ptr %peer396.i, align 8
-  %local399.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 24
+  %local399.i = getelementptr inbounds nuw i8, ptr %arrayidx391.i, i64 24
   store ptr %cond.i, ptr %local399.i, align 8
-  %flags401.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 32
+  %flags401.i = getelementptr inbounds nuw i8, ptr %arrayidx391.i, i64 32
   store i64 0, ptr %flags401.i, align 8
   %inc.i = add nuw nsw i64 %i.0107.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 128
@@ -676,12 +676,12 @@ for.body416.preheader.i:                          ; preds = %lor.lhs.false408.i
 
 for.body416.i:                                    ; preds = %for.body416.i, %for.body416.preheader.i
   %i.1108.i = phi i64 [ %inc431.i, %for.body416.i ], [ 0, %for.body416.preheader.i ]
-  %add.ptr419.i = getelementptr inbounds i8, ptr %rx_buf.i, i64 %i.1108.i
-  %arrayidx420.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %rx_msg.i, i64 0, i64 %i.1108.i
+  %add.ptr419.i = getelementptr inbounds nuw i8, ptr %rx_buf.i, i64 %i.1108.i
+  %arrayidx420.i = getelementptr inbounds nuw [128 x %struct.bio_msg_st], ptr %rx_msg.i, i64 0, i64 %i.1108.i
   store ptr %add.ptr419.i, ptr %arrayidx420.i, align 8
-  %data_len423.i = getelementptr inbounds i8, ptr %arrayidx420.i, i64 8
+  %data_len423.i = getelementptr inbounds nuw i8, ptr %arrayidx420.i, i64 8
   store i64 1, ptr %data_len423.i, align 8
-  %peer425.i = getelementptr inbounds i8, ptr %arrayidx420.i, i64 16
+  %peer425.i = getelementptr inbounds nuw i8, ptr %arrayidx420.i, i64 16
   %inc431.i = add nuw nsw i64 %i.1108.i, 1
   %exitcond109.not.i = icmp eq i64 %inc431.i, 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peer425.i, i8 0, i64 24, i1 false)
@@ -778,7 +778,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.075 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %call2 = tail call i32 @test_random() #6
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %key, i64 0, i64 %i.075
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr %key, i64 0, i64 %i.075
   store i32 %call2, ptr %arrayidx, align 4
   %inc = add nuw nsw i64 %i.075, 1
   %exitcond.not = icmp eq i64 %inc, 8
@@ -852,7 +852,7 @@ if.end42:                                         ; preds = %if.end38
   br i1 %tobool44.not, label %err, label %for.cond47.preheader
 
 for.cond47.preheader:                             ; preds = %if.end42
-  %add.ptr = getelementptr inbounds i8, ptr %scratch, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %scratch, i64 4
   br label %for.body50
 
 for.body50:                                       ; preds = %for.cond47.preheader, %if.end69
@@ -957,12 +957,12 @@ if.end130:                                        ; preds = %for.end124
 
 if.end137:                                        ; preds = %if.end130
   store ptr %scratch, ptr %msgs, align 16
-  %data_len = getelementptr inbounds i8, ptr %msgs, i64 8
+  %data_len = getelementptr inbounds nuw i8, ptr %msgs, i64 8
   store i64 19, ptr %data_len, align 8
-  %add.ptr142 = getelementptr inbounds i8, ptr %scratch, i64 19
-  %arrayidx143 = getelementptr inbounds i8, ptr %msgs, i64 40
+  %add.ptr142 = getelementptr inbounds nuw i8, ptr %scratch, i64 19
+  %arrayidx143 = getelementptr inbounds nuw i8, ptr %msgs, i64 40
   store ptr %add.ptr142, ptr %arrayidx143, align 8
-  %data_len146 = getelementptr inbounds i8, ptr %msgs, i64 48
+  %data_len146 = getelementptr inbounds nuw i8, ptr %msgs, i64 48
   store i64 46, ptr %data_len146, align 16
   %10 = load ptr, ptr %bio1, align 8
   %call148 = call i32 @BIO_sendmmsg(ptr noundef %10, ptr noundef nonnull %msgs, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %num_processed) #6
@@ -980,12 +980,12 @@ lor.lhs.false:                                    ; preds = %if.end137
 
 if.end156:                                        ; preds = %lor.lhs.false
   store ptr %scratch2, ptr %rmsgs, align 16
-  %data_len161 = getelementptr inbounds i8, ptr %rmsgs, i64 8
+  %data_len161 = getelementptr inbounds nuw i8, ptr %rmsgs, i64 8
   store i64 64, ptr %data_len161, align 8
-  %add.ptr163 = getelementptr inbounds i8, ptr %scratch2, i64 64
-  %arrayidx164 = getelementptr inbounds i8, ptr %rmsgs, i64 40
+  %add.ptr163 = getelementptr inbounds nuw i8, ptr %scratch2, i64 64
+  %arrayidx164 = getelementptr inbounds nuw i8, ptr %rmsgs, i64 40
   store ptr %add.ptr163, ptr %arrayidx164, align 8
-  %data_len167 = getelementptr inbounds i8, ptr %rmsgs, i64 48
+  %data_len167 = getelementptr inbounds nuw i8, ptr %rmsgs, i64 48
   store i64 64, ptr %data_len167, align 16
   %12 = load ptr, ptr %bio2, align 8
   %call169 = call i32 @BIO_recvmmsg(ptr noundef %12, ptr noundef nonnull %rmsgs, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %num_processed) #6
@@ -1052,7 +1052,7 @@ if.end222:                                        ; preds = %if.end217
   br i1 %tobool225.not, label %err, label %if.end227
 
 if.end227:                                        ; preds = %if.end222
-  %peer = getelementptr inbounds i8, ptr %msgs, i64 16
+  %peer = getelementptr inbounds nuw i8, ptr %msgs, i64 16
   store ptr %call198, ptr %peer, align 16
   %18 = load ptr, ptr %bio1, align 8
   %call230 = call i32 @BIO_sendmmsg(ptr noundef %18, ptr noundef nonnull %msgs, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %num_processed) #6
@@ -1137,9 +1137,9 @@ if.end283:                                        ; preds = %lor.lhs.false279
 if.end289:                                        ; preds = %if.end283
   store ptr %scratch2, ptr %rmsgs, align 16
   store i64 64, ptr %data_len161, align 8
-  %peer296 = getelementptr inbounds i8, ptr %rmsgs, i64 16
+  %peer296 = getelementptr inbounds nuw i8, ptr %rmsgs, i64 16
   store ptr %call218, ptr %peer296, align 16
-  %local = getelementptr inbounds i8, ptr %rmsgs, i64 24
+  %local = getelementptr inbounds nuw i8, ptr %rmsgs, i64 24
   store ptr %call223, ptr %local, align 8
   %28 = load ptr, ptr %bio2, align 8
   %call299 = call i32 @BIO_recvmmsg(ptr noundef %28, ptr noundef nonnull %rmsgs, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %num_processed) #6
@@ -1183,7 +1183,7 @@ if.end328:                                        ; preds = %if.end323
   br i1 %tobool332.not, label %err, label %if.end334
 
 if.end334:                                        ; preds = %if.end328
-  %local336 = getelementptr inbounds i8, ptr %msgs, i64 24
+  %local336 = getelementptr inbounds nuw i8, ptr %msgs, i64 24
   store ptr %call208, ptr %local336, align 8
   %33 = load ptr, ptr %bio1, align 8
   %call337 = call i64 @BIO_ctrl(ptr noundef %33, i32 noundef 84, i64 noundef 1, ptr noundef null) #6

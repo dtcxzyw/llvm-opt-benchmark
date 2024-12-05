@@ -331,7 +331,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %30, 
   %.not.i27 = sub i64 0, %44
   %47 = and i64 %46, %.not.i27
   store i64 %47, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %40, ptr %.sroa.2.0..sroa_idx, align 8
   %48 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #9
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -393,7 +393,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile22SelectSection
   br i1 %.not30, label %21, label %.thread27
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull %22, i64 noundef 128) #9
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 6))
   %23 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #9
@@ -443,7 +443,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile22SelectSection
   br i1 %.not30, label %46, label %.thread29
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %9, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull %47, i64 noundef 128) #9
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 7))
   %48 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #9
@@ -498,7 +498,7 @@ declare noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF22SelectSectionForGlo
 define dso_local void @_ZN4llvm24RISCVELFTargetObjectFile17getModuleMetadataERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1092) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.252", align 8
   tail call void @_ZN4llvm27TargetLoweringObjectFileELF17getModuleMetadataERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1026) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull %4, i64 noundef 8) #9
   call void @_ZNK4llvm6Module22getModuleFlagsMetadataERNS_15SmallVectorImplINS0_15ModuleFlagEntryEEE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #9
   %5 = load ptr, ptr %3, align 8
@@ -540,7 +540,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread14:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %25 = getelementptr inbounds i8, ptr %.018, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %.not = icmp eq ptr %25, %7
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -583,7 +583,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm24RISCVELFTargetObjectFile24isCons
   %.not.i = sub i64 0, %13
   %16 = and i64 %15, %.not.i
   store i64 %16, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %9, ptr %.sroa.2.0..sroa_idx, align 8
   %17 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -615,7 +615,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile21getSectionFor
   %.not.i.i = sub i64 0, %15
   %18 = and i64 %17, %.not.i.i
   store i64 %18, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %11, ptr %.sroa.2.0..sroa_idx.i, align 8
   %19 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -854,7 +854,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 32:                                               ; preds = %2
   %33 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1) #9
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %33, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %34 = shl i64 %.sroa.0.0.copyload1.i.i.i.i, 3
   br label %58
@@ -949,7 +949,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #9
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 

@@ -118,13 +118,13 @@ define hidden noundef ptr @_ZN14TypeArrayKlass12create_klassE9BasicTypePKcP10Jav
   %.014 = phi ptr [ %5, %4 ], [ null, %3 ]
   %7 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %8 = tail call noundef ptr @_ZN14TypeArrayKlass8allocateEP15ClassLoaderData9BasicTypeP6SymbolP10JavaThread(ptr noundef %7, i8 noundef zeroext %0, ptr noundef %.014, ptr noundef %2)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @_ZN16ModuleEntryTable16_javabase_moduleE, align 8
   tail call void @_ZN10ArrayKlass27complete_create_array_klassEPS_P5KlassP11ModuleEntryP10JavaThread(ptr noundef nonnull %8, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %2) #10
@@ -156,7 +156,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass8allocateEP15ClassLoaderData9Basic
   tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(220) %7, ptr noundef %2, i32 noundef 5) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %7, align 8
   %10 = tail call noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %1) #10
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %10, ptr %11, align 8
   %12 = load i8, ptr @UseCompressedClassPointers, align 1
   %13 = trunc i8 %12 to i1
@@ -193,7 +193,7 @@ _ZN14TypeArrayKlassC2E9BasicTypeP6Symbol.exit:    ; preds = %16, %_ZN12arrayOopD
   %28 = and i64 %24, %27
   %29 = shl nuw i64 %28, 3
   %30 = zext i8 %1 to i64
-  %31 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = udiv i64 %29, %33
@@ -202,10 +202,10 @@ _ZN14TypeArrayKlassC2E9BasicTypeP6Symbol.exit:    ; preds = %16, %_ZN12arrayOopD
   %37 = and i64 %36, %27
   %.0.in.i.i = select i1 %35, i64 %37, i64 %34
   %.0.i.i = trunc i64 %.0.in.i.i to i32
-  %38 = getelementptr inbounds i8, ptr %7, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 %.0.i.i, ptr %38, align 8
   %39 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr %39, ptr %40, align 8
   br label %41
 
@@ -229,7 +229,7 @@ define hidden void @_ZN14TypeArrayKlassC2E9BasicTypeP6Symbol(ptr noundef nonnull
   tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2, i32 noundef 5) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %0, align 8
   %4 = tail call noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %1) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %5, align 8
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
@@ -266,7 +266,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %10, %_ZN12arrayO
   %22 = and i64 %18, %21
   %23 = shl nuw i64 %22, 3
   %24 = zext i8 %1 to i64
-  %25 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = udiv i64 %23, %27
@@ -275,10 +275,10 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %10, %_ZN12arrayO
   %31 = and i64 %30, %21
   %.0.in.i = select i1 %29, i64 %31, i64 %28
   %.0.i = trunc i64 %.0.in.i to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %.0.i, ptr %32, align 8
   %33 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %33, ptr %34, align 8
   ret void
 }
@@ -289,16 +289,16 @@ declare noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef %1, i32 noundef %6, ptr noundef %3) #10
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %33
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 16
   %13 = and i32 %12, 255
@@ -319,7 +319,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(
   %27 = and i64 %24, %26
   %28 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull %0, i64 noundef %27, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3) #10
   br label %33
@@ -334,16 +334,16 @@ declare void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14TypeArrayKlass14multi_allocateEiPiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8
   tail call void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef %5, i32 noundef %7, ptr noundef %3) #10
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %_ZN14TypeArrayKlass8allocateEiP10JavaThread.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 16
   %14 = and i32 %13, 255
@@ -364,7 +364,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass14multi_allocateEiPiP10JavaThread(
   %28 = and i64 %25, %27
   %29 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef nonnull align 8 dereferenceable(220) %0, i64 noundef %28, i32 noundef %5, i1 noundef zeroext true, ptr noundef nonnull %3) #10
   br label %_ZN14TypeArrayKlass8allocateEiP10JavaThread.exit
@@ -382,7 +382,7 @@ define hidden void @_ZN14TypeArrayKlass10copy_arrayEP12arrayOopDesciS1_iiP10Java
   %11 = alloca %class.stringStream, align 8
   %12 = load i8, ptr @UseCompressedClassPointers, align 1
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %13, label %_ZNK7oopDesc12is_typeArrayEv.exit, label %_ZNK7oopDesc12is_typeArrayEv.exit.thread
 
 _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %7
@@ -395,28 +395,28 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %7
   %21 = shl i64 %19, %20
   %22 = add i64 %21, %18
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 5
   br i1 %26, label %_ZNK7oopDesc5klassEv.exit66, label %31
 
 _ZNK7oopDesc12is_typeArrayEv.exit.thread:         ; preds = %7
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 5
   br i1 %30, label %_ZNK7oopDesc5klassEv.exit66, label %31
 
 31:                                               ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit.thread, %_ZNK7oopDesc12is_typeArrayEv.exit
-  %32 = getelementptr inbounds i8, ptr %6, i64 800
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = load i64, ptr %40, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #10
   %42 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -433,20 +433,20 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %31
   %50 = shl i64 %48, %49
   %51 = add i64 %50, %47
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 6
   br i1 %55, label %60, label %_ZNK7oopDesc5klassEv.exit64
 
 _ZNK7oopDesc11is_objArrayEv.exit.thread:          ; preds = %31
   %56 = load ptr, ptr %14, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 6
   br i1 %59, label %67, label %_ZNK7oopDesc5klassEv.exit64
 
 60:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
   %64 = shl i64 %63, %49
@@ -455,18 +455,18 @@ _ZNK7oopDesc11is_objArrayEv.exit.thread:          ; preds = %31
   br label %_ZNK7oopDesc5klassEv.exit
 
 67:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %60, %67
   %.0.i = phi ptr [ %66, %60 ], [ %69, %67 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = lshr i32 %71, 8
   %73 = and i32 %72, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str, ptr noundef %76) #10
   br label %78
@@ -504,11 +504,11 @@ _ZNK7oopDesc5klassEv.exit64:                      ; preds = %_ZNK7oopDesc11is_ob
 
 _ZNK7oopDesc5klassEv.exit66:                      ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit.thread, %_ZNK7oopDesc12is_typeArrayEv.exit
   %.0.i65 = phi ptr [ %23, %_ZNK7oopDesc12is_typeArrayEv.exit ], [ %27, %_ZNK7oopDesc12is_typeArrayEv.exit.thread ]
-  %.in127 = getelementptr inbounds i8, ptr %0, i64 8
+  %.in127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load i32, ptr %.in127, align 8
   %.in = lshr i32 %86, 8
   %87 = trunc i32 %.in to i8
-  %88 = getelementptr inbounds i8, ptr %.0.i65, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = lshr i32 %89, 8
   %91 = trunc i32 %90 to i8
@@ -516,20 +516,20 @@ _ZNK7oopDesc5klassEv.exit66:                      ; preds = %_ZNK7oopDesc12is_ty
   br i1 %.not, label %139, label %92
 
 92:                                               ; preds = %_ZNK7oopDesc5klassEv.exit66
-  %93 = getelementptr inbounds i8, ptr %6, i64 800
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %94, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %94, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %94, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %102 = load i64, ptr %101, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %9, i64 noundef 0) #10
   %103 = load i8, ptr @UseCompressedClassPointers, align 1
   %104 = trunc i8 %103 to i1
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %104, label %106, label %121
 
 106:                                              ; preds = %92
@@ -557,19 +557,19 @@ _ZNK7oopDesc5klassEv.exit66:                      ; preds = %_ZNK7oopDesc12is_ty
 _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
   %.pn129 = phi ptr [ %115, %106 ], [ %122, %121 ]
   %.0.i69 = phi ptr [ %120, %106 ], [ %123, %121 ]
-  %.pn.in.in.in.in = getelementptr inbounds i8, ptr %.pn129, i64 8
+  %.pn.in.in.in.in = getelementptr inbounds nuw i8, ptr %.pn129, i64 8
   %.pn.in.in.in = load i32, ptr %.pn.in.in.in.in, align 8
   %.pn.in.in = lshr i32 %.pn.in.in.in, 8
   %.pn.in = and i32 %.pn.in.in, 255
   %.pn = zext nneg i32 %.pn.in to i64
-  %.in128 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %.pn
+  %.in128 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %.pn
   %124 = load ptr, ptr %.in128, align 8
-  %125 = getelementptr inbounds i8, ptr %.0.i69, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = lshr i32 %126, 8
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.6, ptr noundef %124, ptr noundef %131) #10
   %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
@@ -605,15 +605,15 @@ _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
 
 143:                                              ; preds = %139
   %144 = icmp slt i32 %2, 0
-  %145 = getelementptr inbounds i8, ptr %6, i64 800
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %146, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %146, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 40
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %146, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %154 = load i64, ptr %153, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %10, i64 noundef 0) #10
   br i1 %144, label %155, label %181
@@ -621,7 +621,7 @@ _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
 155:                                              ; preds = %143
   %156 = load i8, ptr @UseCompressedClassPointers, align 1
   %157 = trunc i8 %156 to i1
-  %158 = getelementptr inbounds i8, ptr %1, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %157, label %159, label %169
 
 159:                                              ; preds = %155
@@ -643,14 +643,14 @@ _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
 _ZNK7oopDesc5klassEv.exit75:                      ; preds = %159, %169
   %171 = phi i64 [ 12, %159 ], [ 16, %169 ]
   %.0.i74 = phi ptr [ %168, %159 ], [ %170, %169 ]
-  %172 = getelementptr inbounds i8, ptr %.0.i74, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.0.i74, i64 8
   %173 = load i32, ptr %172, align 8
   %174 = lshr i32 %173, 8
   %175 = and i32 %174, 255
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %176
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 %171
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 %171
   %180 = load i32, ptr %179, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef %178, i32 noundef %180) #10
   br label %208
@@ -682,14 +682,14 @@ _ZNK7oopDesc5klassEv.exit75:                      ; preds = %159, %169
 _ZNK7oopDesc5klassEv.exit77:                      ; preds = %185, %195
   %197 = phi i64 [ 12, %185 ], [ 16, %195 ]
   %.0.i76 = phi ptr [ %194, %185 ], [ %196, %195 ]
-  %198 = getelementptr inbounds i8, ptr %.0.i76, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %.0.i76, i64 8
   %199 = load i32, ptr %198, align 8
   %200 = lshr i32 %199, 8
   %201 = and i32 %200, 255
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %202
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %3, i64 %197
+  %205 = getelementptr inbounds nuw i8, ptr %3, i64 %197
   %206 = load i32, ptr %205, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.8, i32 noundef %4, ptr noundef %204, i32 noundef %206) #10
   br label %208
@@ -726,40 +726,40 @@ _ZNK7oopDesc5klassEv.exit77:                      ; preds = %185, %195
 216:                                              ; preds = %139
   %217 = add nuw i32 %5, %2
   %218 = select i1 %13, i64 12, i64 16
-  %219 = getelementptr inbounds i8, ptr %1, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = icmp ugt i32 %217, %220
   br i1 %221, label %227, label %222
 
 222:                                              ; preds = %216
   %223 = add nuw i32 %5, %4
-  %224 = getelementptr inbounds i8, ptr %3, i64 %218
+  %224 = getelementptr inbounds nuw i8, ptr %3, i64 %218
   %225 = load i32, ptr %224, align 4
   %226 = icmp ugt i32 %223, %225
   br i1 %226, label %227, label %296
 
 227:                                              ; preds = %222, %216
-  %228 = getelementptr inbounds i8, ptr %6, i64 800
+  %228 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %229, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %229, i64 40
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 40
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %229, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %237 = load i64, ptr %236, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %11, i64 noundef 0) #10
   %238 = load i8, ptr @UseCompressedClassPointers, align 1
   %239 = trunc i8 %238 to i1
   %240 = select i1 %239, i64 12, i64 16
-  %241 = getelementptr inbounds i8, ptr %1, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 %240
   %242 = load i32, ptr %241, align 4
   %243 = icmp ugt i32 %217, %242
   br i1 %243, label %244, label %265
 
 244:                                              ; preds = %227
-  %245 = getelementptr inbounds i8, ptr %1, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %239, label %246, label %256
 
 246:                                              ; preds = %244
@@ -780,12 +780,12 @@ _ZNK7oopDesc5klassEv.exit77:                      ; preds = %185, %195
 
 _ZNK7oopDesc5klassEv.exit82:                      ; preds = %246, %256
   %.0.i81 = phi ptr [ %255, %246 ], [ %257, %256 ]
-  %258 = getelementptr inbounds i8, ptr %.0.i81, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 8
   %259 = load i32, ptr %258, align 8
   %260 = lshr i32 %259, 8
   %261 = and i32 %260, 255
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %262
   %264 = load ptr, ptr %263, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.10, i32 noundef %217, ptr noundef %264, i32 noundef %242) #10
   br label %288
@@ -812,14 +812,14 @@ _ZNK7oopDesc5klassEv.exit82:                      ; preds = %246, %256
 
 _ZNK7oopDesc5klassEv.exit84:                      ; preds = %267, %277
   %.0.i83 = phi ptr [ %276, %267 ], [ %278, %277 ]
-  %279 = getelementptr inbounds i8, ptr %.0.i83, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %.0.i83, i64 8
   %280 = load i32, ptr %279, align 8
   %281 = lshr i32 %280, 8
   %282 = and i32 %281, 255
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %283
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds i8, ptr %3, i64 %240
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 %240
   %287 = load i32, ptr %286, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.11, i32 noundef %266, ptr noundef %285, i32 noundef %287) #10
   br label %288
@@ -947,12 +947,12 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK14TypeArrayKlass8oop_sizeEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
   %7 = select i1 %6, i64 12, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %4, 16
   %11 = and i32 %10, 255
@@ -993,7 +993,7 @@ define hidden noundef nonnull ptr @_ZN14TypeArrayKlass13external_nameE9BasicType
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN14TypeArrayKlass13external_nameE9BasicType, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN14TypeArrayKlass13external_nameE9BasicType, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1009,7 +1009,7 @@ define hidden void @_ZNK14TypeArrayKlass8print_onEP12outputStream(ptr nocapture 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14TypeArrayKlass14print_value_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 65280
   %6 = icmp eq i32 %5, 1024
@@ -1023,7 +1023,7 @@ define hidden void @_ZNK14TypeArrayKlass14print_value_onEP12outputStream(ptr noc
   %9 = lshr i32 %4, 8
   %.mask = and i32 %9, 255
   %10 = zext nneg i32 %.mask to i64
-  %11 = getelementptr inbounds [20 x ptr], ptr @type2name_tab, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [20 x ptr], ptr @type2name_tab, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, ptr noundef %12) #10
   br label %13
@@ -1047,10 +1047,10 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i64 12, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 256)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 8
   %13 = trunc i32 %12 to i8
@@ -1081,7 +1081,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %20 = select i1 %19, i64 16, i64 20
   %21 = add nsw i64 %20, %16
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   %26 = select i1 %25, ptr @.str.30, ptr @.str.31
@@ -1107,7 +1107,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %34 = select i1 %33, i64 16, i64 20
   %35 = add nsw i64 %34, %30
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv.i32
+  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i32
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
   %40 = tail call i32 @isprint(i32 noundef %39) #12
@@ -1135,7 +1135,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %49 = select i1 %48, i64 16, i64 20
   %50 = add nsw i64 %49, %45
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.i37
+  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i37
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = trunc nuw nsw i64 %indvars.iv.i37 to i32
@@ -1160,7 +1160,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %62 = select i1 %61, i64 16, i64 24
   %63 = add nsw i64 %62, %58
   %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv.i42
+  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.i42
   %66 = load double, ptr %65, align 8
   %67 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.33, i32 noundef %67, double noundef %66) #10
@@ -1184,7 +1184,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %74 = select i1 %73, i64 16, i64 20
   %75 = add nsw i64 %74, %70
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv.i47
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv.i47
   %78 = load i8, ptr %77, align 1
   %79 = sext i8 %78 to i32
   %80 = tail call i32 @isprint(i32 noundef %79) #12
@@ -1212,7 +1212,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %89 = select i1 %88, i64 16, i64 20
   %90 = add nsw i64 %89, %85
   %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds i16, ptr %91, i64 %indvars.iv.i53
+  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv.i53
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
   %95 = trunc nuw nsw i64 %indvars.iv.i53 to i32
@@ -1237,7 +1237,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %102 = select i1 %101, i64 16, i64 20
   %103 = add nsw i64 %102, %98
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i58
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i58
   %106 = load i32, ptr %105, align 4
   %107 = trunc nuw nsw i64 %indvars.iv.i58 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.35, i32 noundef %107, i32 noundef %106, i32 noundef %106) #10
@@ -1261,7 +1261,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %114 = select i1 %113, i64 16, i64 24
   %115 = add nsw i64 %114, %110
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds i64, ptr %116, i64 %indvars.iv.i63
+  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv.i63
   %118 = load i64, ptr %117, align 8
   %119 = lshr i64 %118, 32
   %120 = trunc nuw i64 %119 to i32
@@ -1282,7 +1282,7 @@ _ZL19print_boolean_arrayP16typeArrayOopDesciP12outputStream.exit: ; preds = %111
   %125 = load i8, ptr @UseCompressedClassPointers, align 1
   %126 = trunc i8 %125 to i1
   %127 = select i1 %126, i64 12, i64 16
-  %128 = getelementptr inbounds i8, ptr %1, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = sub nsw i32 %129, %9
   %131 = icmp sgt i32 %130, 0

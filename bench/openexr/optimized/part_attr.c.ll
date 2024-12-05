@@ -150,7 +150,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -163,7 +163,7 @@ if.end3.if.then8_crit_edge:                       ; preds = %if.end3
   br label %if.then8
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   %.pre21 = load i8, ptr %ctxt, align 8
@@ -175,29 +175,29 @@ if.then8:                                         ; preds = %if.end3.if.then8_cr
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i17 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i17 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i17) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %attributes, align 8
   %cmp16 = icmp eq i8 %.pre21, 1
   br i1 %cmp16, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end13
-  %mutex.i19 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i19 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i19) #6
   br label %if.end19
 
@@ -206,7 +206,7 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end19
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error, align 8
   %call22 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end4
 
@@ -241,7 +241,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
   br i1 %cmp5, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp7.not = icmp slt i32 %part_index, %1
   br i1 %cmp7.not, label %if.end14, label %if.then9
@@ -252,21 +252,21 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp12, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then9
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then9, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end14:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool15.not = icmp eq ptr %outattr, null
   br i1 %tobool15.not, label %if.then16, label %if.end25
@@ -277,12 +277,12 @@ if.then16:                                        ; preds = %if.end14
   br i1 %cmp19, label %cond.true21, label %cond.end23
 
 cond.true21:                                      ; preds = %if.then16
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %cond.end23
 
 cond.end23:                                       ; preds = %if.then16, %cond.true21
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error, align 8
   %call24 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
@@ -292,7 +292,7 @@ if.end25:                                         ; preds = %if.end14
   br i1 %cmp26, label %if.then31, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %if.end25
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %attributes, align 8
   %cmp29.not = icmp slt i32 %idx, %8
   br i1 %cmp29.not, label %if.end41, label %if.then31
@@ -303,12 +303,12 @@ if.then31:                                        ; preds = %lor.lhs.false28, %i
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
-  %standard_error39 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %10 = load ptr, ptr %standard_error39, align 8
   %call40 = tail call i32 %10(ptr noundef nonnull %ctxt, i32 noundef 4) #6
   br label %return
@@ -328,22 +328,22 @@ if.else50:                                        ; preds = %if.end41
   br i1 %cmp53, label %cond.true55, label %cond.end57
 
 cond.true55:                                      ; preds = %if.else50
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end57
 
 cond.end57:                                       ; preds = %if.else50, %cond.true55
-  %standard_error58 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error58 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %12 = load ptr, ptr %standard_error58, align 8
   %call59 = tail call i32 %12(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
 
 if.end61:                                         ; preds = %if.end41, %if.then48
   %.sink = phi i64 [ 16, %if.then48 ], [ 24, %if.end41 ]
-  %entries = getelementptr inbounds i8, ptr %5, i64 %.sink
+  %entries = getelementptr inbounds nuw i8, ptr %5, i64 %.sink
   %srclist.0 = load ptr, ptr %entries, align 8
   %idxprom62 = zext nneg i32 %idx to i64
-  %arrayidx63 = getelementptr inbounds ptr, ptr %srclist.0, i64 %idxprom62
+  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %srclist.0, i64 %idxprom62
   %13 = load ptr, ptr %arrayidx63, align 8
   store ptr %13, ptr %outattr, align 8
   %14 = load i8, ptr %ctxt, align 8
@@ -351,7 +351,7 @@ if.end61:                                         ; preds = %if.end41, %if.then4
   br i1 %cmp66, label %cond.true68, label %return
 
 cond.true68:                                      ; preds = %if.end61
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
@@ -373,7 +373,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -382,7 +382,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -393,12 +393,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i21 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i21 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i21) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -413,23 +413,23 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i23 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i23) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call23 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
 
 if.end24:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %7, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %7, i64 8
   %call25 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %tmpptr) #6
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %if.then28, label %if.end29
@@ -445,7 +445,7 @@ if.end29:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp32, label %cond.true34, label %return
 
 cond.true34:                                      ; preds = %if.end29
-  %mutex.i25 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i25) #6
   br label %return
 
@@ -468,7 +468,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end4
 
@@ -477,7 +477,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
   br i1 %cmp5, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp7.not = icmp slt i32 %part_index, %1
   br i1 %cmp7.not, label %if.end14, label %if.then9
@@ -488,21 +488,21 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp12, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then9
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then9, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end14:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool15.not = icmp eq ptr %count, null
   br i1 %tobool15.not, label %if.then16, label %if.end25
@@ -513,12 +513,12 @@ if.then16:                                        ; preds = %if.end14
   br i1 %cmp19, label %cond.true21, label %cond.end23
 
 cond.true21:                                      ; preds = %if.then16
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   br label %cond.end23
 
 cond.end23:                                       ; preds = %if.then16, %cond.true21
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error, align 8
   %call24 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
@@ -538,26 +538,26 @@ if.else33:                                        ; preds = %if.end25
   br i1 %cmp36, label %cond.true38, label %cond.end40
 
 cond.true38:                                      ; preds = %if.else33
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %cond.end40
 
 cond.end40:                                       ; preds = %if.else33, %cond.true38
-  %standard_error41 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error41 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %9 = load ptr, ptr %standard_error41, align 8
   %call42 = tail call i32 %9(ptr noundef nonnull %ctxt, i32 noundef 3) #6
   br label %return
 
 if.end44:                                         ; preds = %if.end25, %if.then31
   %.sink = phi i64 [ 16, %if.then31 ], [ 24, %if.end25 ]
-  %entries = getelementptr inbounds i8, ptr %5, i64 %.sink
+  %entries = getelementptr inbounds nuw i8, ptr %5, i64 %.sink
   %srclist.0 = load ptr, ptr %entries, align 8
   %tobool45.not = icmp eq ptr %outlist, null
   br i1 %tobool45.not, label %if.end53, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end44
   %10 = load i32, ptr %count, align 4
-  %attributes46 = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %attributes46, align 8
   %cmp47.not = icmp slt i32 %10, %11
   br i1 %cmp47.not, label %if.end53, label %if.then49
@@ -569,7 +569,7 @@ if.then49:                                        ; preds = %land.lhs.true
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then49, %land.lhs.true, %if.end44
-  %attributes54 = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %attributes54, align 8
   store i32 %12, ptr %count, align 4
   %13 = load i8, ptr %ctxt, align 8
@@ -577,7 +577,7 @@ if.end53:                                         ; preds = %if.then49, %land.lh
   br i1 %cmp58, label %cond.true60, label %return
 
 cond.true60:                                      ; preds = %if.end53
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -596,20 +596,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -621,18 +621,18 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call9 = tail call i32 @exr_attr_list_add_by_type(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef %type, i32 noundef 0, ptr noundef null, ptr noundef %outattr) #6
   %call.i21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
@@ -651,20 +651,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -676,18 +676,18 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call9 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, i32 noundef %type, i32 noundef 0, ptr noundef null, ptr noundef %outattr) #6
   %call.i21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
@@ -747,29 +747,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -779,42 +779,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %compression = getelementptr inbounds i8, ptr %3, i64 40
+  %compression = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %compression, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 5
   br i1 %cmp22.not, label %if.then33, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %compression, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.6) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.6, i32 noundef 5, i32 noundef 0, ptr noundef null, ptr noundef nonnull %compression) #6
   %cmp31 = icmp eq i32 %call20, 0
   br i1 %cmp31, label %if.end29.if.then33_crit_edge, label %if.end35
@@ -826,9 +826,9 @@ if.end29.if.then33_crit_edge:                     ; preds = %if.end29
 if.then33:                                        ; preds = %if.end29.if.then33_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end29.if.then33_crit_edge ], [ %7, %if.else ]
   %conv34 = trunc i32 %ctype to i8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i8 %conv34, ptr %13, align 8
-  %comp_type = getelementptr inbounds i8, ptr %3, i64 176
+  %comp_type = getelementptr inbounds nuw i8, ptr %3, i64 176
   store i32 %ctype, ptr %comp_type, align 8
   br label %if.end35
 
@@ -849,7 +849,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef %ctxt, i32 noundef 3, ptr noundef nonnull @.str.8) #6
   br label %return
@@ -859,29 +859,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp4.not = icmp slt i32 %part_index, %1
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end3
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error, align 8
   %call6 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %3 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i8, ptr %ctxt, align 8
   switch i8 %5, label %if.end20 [
@@ -891,42 +891,42 @@ if.end7:                                          ; preds = %lor.lhs.false
 
 if.then10:                                        ; preds = %if.end7
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call11 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then17:                                        ; preds = %if.end7
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error18 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error18 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error18, align 8
   %call19 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end20:                                         ; preds = %if.end7
-  %dataWindow = getelementptr inbounds i8, ptr %4, i64 48
+  %dataWindow = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %dataWindow, align 8
   %tobool21.not = icmp eq ptr %8, null
   br i1 %tobool21.not, label %if.end33, label %if.else
 
 if.else:                                          ; preds = %if.end20
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp26.not = icmp eq i32 %9, 1
   br i1 %cmp26.not, label %if.then37, label %if.then28
 
 if.then28:                                        ; preds = %if.else
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error29 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error29 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error29, align 8
   %11 = load ptr, ptr %dataWindow, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call31 = tail call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %12, ptr noundef nonnull @.str.7) #6
   br label %return
 
 if.end33:                                         ; preds = %if.end20
-  %attributes = getelementptr inbounds i8, ptr %4, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %4, i64 8
   %call24 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.7, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %dataWindow) #6
   %cmp35 = icmp eq i32 %call24, 0
   br i1 %cmp35, label %if.end33.if.then37_crit_edge, label %if.end39
@@ -937,10 +937,10 @@ if.end33.if.then37_crit_edge:                     ; preds = %if.end33
 
 if.then37:                                        ; preds = %if.end33.if.then37_crit_edge, %if.else
   %13 = phi ptr [ %.pre, %if.end33.if.then37_crit_edge ], [ %8, %if.else ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %dw, i64 16, i1 false)
-  %data_window = getelementptr inbounds i8, ptr %4, i64 144
+  %data_window = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_window, ptr noundef nonnull align 1 dereferenceable(16) %dw, i64 16, i1 false)
   %call38 = tail call i32 @internal_exr_compute_tile_information(ptr noundef nonnull %ctxt, ptr noundef nonnull %4, i32 noundef 1) #6
   br label %if.end39
@@ -962,7 +962,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef %ctxt, i32 noundef 3, ptr noundef nonnull @.str.8) #6
   br label %return
@@ -972,29 +972,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp4.not = icmp slt i32 %part_index, %1
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end3
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error, align 8
   %call6 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %3 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i8, ptr %ctxt, align 8
   switch i8 %5, label %if.end20 [
@@ -1004,42 +1004,42 @@ if.end7:                                          ; preds = %lor.lhs.false
 
 if.then10:                                        ; preds = %if.end7
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call11 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then17:                                        ; preds = %if.end7
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error18 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error18 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error18, align 8
   %call19 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end20:                                         ; preds = %if.end7
-  %displayWindow = getelementptr inbounds i8, ptr %4, i64 56
+  %displayWindow = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load ptr, ptr %displayWindow, align 8
   %tobool21.not = icmp eq ptr %8, null
   br i1 %tobool21.not, label %if.end33, label %if.else
 
 if.else:                                          ; preds = %if.end20
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp26.not = icmp eq i32 %9, 1
   br i1 %cmp26.not, label %if.then37, label %if.then28
 
 if.then28:                                        ; preds = %if.else
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error29 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error29 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error29, align 8
   %11 = load ptr, ptr %displayWindow, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call31 = tail call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %12, ptr noundef nonnull @.str.9) #6
   br label %return
 
 if.end33:                                         ; preds = %if.end20
-  %attributes = getelementptr inbounds i8, ptr %4, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %4, i64 8
   %call24 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.9, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %displayWindow) #6
   %cmp35 = icmp eq i32 %call24, 0
   br i1 %cmp35, label %if.end33.if.then37_crit_edge, label %if.end38
@@ -1050,10 +1050,10 @@ if.end33.if.then37_crit_edge:                     ; preds = %if.end33
 
 if.then37:                                        ; preds = %if.end33.if.then37_crit_edge, %if.else
   %13 = phi ptr [ %.pre, %if.end33.if.then37_crit_edge ], [ %8, %if.else ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %dw, i64 16, i1 false)
-  %display_window = getelementptr inbounds i8, ptr %4, i64 160
+  %display_window = getelementptr inbounds nuw i8, ptr %4, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %display_window, ptr noundef nonnull align 1 dereferenceable(16) %dw, i64 16, i1 false)
   br label %if.end38
 
@@ -1074,7 +1074,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 4, ptr noundef nonnull @.str.11, i32 noundef %lo, i32 noundef 0, i32 noundef 3) #6
   br label %return
@@ -1084,29 +1084,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp3 = icmp slt i32 %part_index, 0
   br i1 %cmp3, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp4.not = icmp slt i32 %part_index, %1
   br i1 %cmp4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end2
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error6 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error6 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error6, align 8
   %call7 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %3 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i8, ptr %ctxt, align 8
   switch i8 %5, label %if.end21 [
@@ -1116,42 +1116,42 @@ if.end8:                                          ; preds = %lor.lhs.false
 
 if.then11:                                        ; preds = %if.end8
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call12 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then18:                                        ; preds = %if.end8
   %call.i40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error19 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error19 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error19, align 8
   %call20 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end21:                                         ; preds = %if.end8
-  %lineOrder = getelementptr inbounds i8, ptr %4, i64 64
+  %lineOrder = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load ptr, ptr %lineOrder, align 8
   %tobool22.not = icmp eq ptr %8, null
   br i1 %tobool22.not, label %if.end34, label %if.else
 
 if.else:                                          ; preds = %if.end21
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp27.not = icmp eq i32 %9, 12
   br i1 %cmp27.not, label %if.then38, label %if.then29
 
 if.then29:                                        ; preds = %if.else
   %call.i42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error30 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error30, align 8
   %11 = load ptr, ptr %lineOrder, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call32 = tail call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %12, ptr noundef nonnull @.str.10) #6
   br label %return
 
 if.end34:                                         ; preds = %if.end21
-  %attributes = getelementptr inbounds i8, ptr %4, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %4, i64 8
   %call25 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.10, i32 noundef 12, i32 noundef 0, ptr noundef null, ptr noundef nonnull %lineOrder) #6
   %cmp36 = icmp eq i32 %call25, 0
   br i1 %cmp36, label %if.end34.if.then38_crit_edge, label %if.end40
@@ -1163,9 +1163,9 @@ if.end34.if.then38_crit_edge:                     ; preds = %if.end34
 if.then38:                                        ; preds = %if.end34.if.then38_crit_edge, %if.else
   %13 = phi ptr [ %.pre, %if.end34.if.then38_crit_edge ], [ %8, %if.else ]
   %conv39 = trunc nuw nsw i32 %lo to i8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 %conv39, ptr %14, align 8
-  %lineorder = getelementptr inbounds i8, ptr %4, i64 180
+  %lineorder = getelementptr inbounds nuw i8, ptr %4, i64 180
   store i32 %lo, ptr %lineorder, align 4
   br label %if.end40
 
@@ -1186,29 +1186,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -1218,42 +1218,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %pixelAspectRatio = getelementptr inbounds i8, ptr %3, i64 72
+  %pixelAspectRatio = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = load ptr, ptr %pixelAspectRatio, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 8
   br i1 %cmp22.not, label %if.then33, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %pixelAspectRatio, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.12) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.12, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull %pixelAspectRatio) #6
   %cmp31 = icmp eq i32 %call20, 0
   br i1 %cmp31, label %if.end29.if.then33_crit_edge, label %if.end34
@@ -1264,7 +1264,7 @@ if.end29.if.then33_crit_edge:                     ; preds = %if.end29
 
 if.then33:                                        ; preds = %if.end29.if.then33_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end29.if.then33_crit_edge ], [ %7, %if.else ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store float %par, ptr %13, align 8
   br label %if.end34
 
@@ -1285,29 +1285,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -1317,42 +1317,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %screenWindowCenter = getelementptr inbounds i8, ptr %3, i64 80
+  %screenWindowCenter = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load ptr, ptr %screenWindowCenter, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 24
   br i1 %cmp22.not, label %if.end34, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %screenWindowCenter, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.13) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.13, i32 noundef 24, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowCenter) #6
   %cmp31.not = icmp eq i32 %call20, 0
   br i1 %cmp31.not, label %if.end34, label %if.then33
@@ -1367,7 +1367,7 @@ if.end34:                                         ; preds = %if.else, %if.end29
 
 if.then36:                                        ; preds = %if.end34
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %12 = load ptr, ptr %report_error, align 8
   %call37 = tail call i32 %12(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.8) #6
   br label %return
@@ -1375,13 +1375,13 @@ if.then36:                                        ; preds = %if.end34
 if.end38:                                         ; preds = %if.end34
   %13 = load ptr, ptr %screenWindowCenter, align 8
   %14 = load float, ptr %swc, align 1
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8
   store float %14, ptr %16, align 1
-  %y = getelementptr inbounds i8, ptr %swc, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %swc, i64 4
   %17 = load float, ptr %y, align 1
   %18 = load ptr, ptr %15, align 8
-  %y40 = getelementptr inbounds i8, ptr %18, i64 4
+  %y40 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float %17, ptr %y40, align 1
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
   br label %return
@@ -1398,29 +1398,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -1430,42 +1430,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %screenWindowWidth = getelementptr inbounds i8, ptr %3, i64 88
+  %screenWindowWidth = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load ptr, ptr %screenWindowWidth, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 8
   br i1 %cmp22.not, label %if.then33, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %screenWindowWidth, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.14) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.14, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowWidth) #6
   %cmp31 = icmp eq i32 %call20, 0
   br i1 %cmp31, label %if.end29.if.then33_crit_edge, label %if.end34
@@ -1476,7 +1476,7 @@ if.end29.if.then33_crit_edge:                     ; preds = %if.end29
 
 if.then33:                                        ; preds = %if.end29.if.then33_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end29.if.then33_crit_edge ], [ %7, %if.else ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store float %ssw, ptr %13, align 8
   br label %if.end34
 
@@ -1496,12 +1496,12 @@ entry:
   %dispWindow = alloca %struct.exr_attr_box2i_t, align 4
   %swc = alloca %struct.exr_attr_v2f_t, align 8
   store i32 0, ptr %dispWindow, align 4
-  %y = getelementptr inbounds i8, ptr %dispWindow, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %dispWindow, i64 4
   store i32 0, ptr %y, align 4
-  %max = getelementptr inbounds i8, ptr %dispWindow, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %dispWindow, i64 8
   %sub = add nsw i32 %width, -1
   store i32 %sub, ptr %max, align 4
-  %y2 = getelementptr inbounds i8, ptr %dispWindow, i64 12
+  %y2 = getelementptr inbounds nuw i8, ptr %dispWindow, i64 12
   %sub3 = add nsw i32 %height, -1
   store i32 %sub3, ptr %y2, align 4
   store i64 0, ptr %swc, align 8
@@ -1518,29 +1518,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool4.not = icmp eq ptr %source, null
   br i1 %tobool4.not, label %if.then5, label %if.end6
@@ -1554,7 +1554,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %mutex.i45 = getelementptr inbounds i8, ptr %source, i64 504
+  %mutex.i45 = getelementptr inbounds nuw i8, ptr %source, i64 504
   %call.i46 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i45) #6
   br label %if.end9
 
@@ -1563,7 +1563,7 @@ if.end9:                                          ; preds = %if.then8, %if.end6
   br i1 %cmp10, label %if.then14, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.end9
-  %num_parts12 = getelementptr inbounds i8, ptr %source, i64 196
+  %num_parts12 = getelementptr inbounds nuw i8, ptr %source, i64 196
   %4 = load i32, ptr %num_parts12, align 4
   %cmp13.not = icmp slt i32 %src_part_index, %4
   br i1 %cmp13.not, label %if.end20, label %if.then14
@@ -1572,44 +1572,44 @@ if.then14:                                        ; preds = %lor.lhs.false11, %i
   br i1 %cmp7.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.then14
-  %mutex.i47 = getelementptr inbounds i8, ptr %source, i64 504
+  %mutex.i47 = getelementptr inbounds nuw i8, ptr %source, i64 504
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i47) #6
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.then14
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error18 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error18 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error18, align 8
   %call19 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %src_part_index) #6
   br label %return
 
 if.end20:                                         ; preds = %lor.lhs.false11
-  %parts21 = getelementptr inbounds i8, ptr %source, i64 472
+  %parts21 = getelementptr inbounds nuw i8, ptr %source, i64 472
   %6 = load ptr, ptr %parts21, align 8
   %idxprom22 = zext nneg i32 %src_part_index to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %6, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom22
   %7 = load ptr, ptr %arrayidx23, align 8
-  %attributes = getelementptr inbounds i8, ptr %7, i64 8
-  %entries = getelementptr inbounds i8, ptr %7, i64 16
-  %attributes29 = getelementptr inbounds i8, ptr %3, i64 8
-  %version.i = getelementptr inbounds i8, ptr %3, i64 120
-  %type118.i = getelementptr inbounds i8, ptr %3, i64 112
-  %tiles.i = getelementptr inbounds i8, ptr %3, i64 96
-  %screenWindowWidth.i = getelementptr inbounds i8, ptr %3, i64 88
-  %screenWindowCenter.i = getelementptr inbounds i8, ptr %3, i64 80
-  %pixelAspectRatio.i = getelementptr inbounds i8, ptr %3, i64 72
-  %name73.i = getelementptr inbounds i8, ptr %3, i64 104
-  %lineOrder.i = getelementptr inbounds i8, ptr %3, i64 64
-  %lineorder.i = getelementptr inbounds i8, ptr %3, i64 180
-  %displayWindow.i = getelementptr inbounds i8, ptr %3, i64 56
-  %display_window.i = getelementptr inbounds i8, ptr %3, i64 160
-  %dataWindow.i = getelementptr inbounds i8, ptr %3, i64 48
-  %data_window.i = getelementptr inbounds i8, ptr %3, i64 144
-  %chunkCount.i = getelementptr inbounds i8, ptr %3, i64 128
-  %compression.i = getelementptr inbounds i8, ptr %3, i64 40
-  %comp_type.i = getelementptr inbounds i8, ptr %3, i64 176
-  %channels.i = getelementptr inbounds i8, ptr %3, i64 32
-  %standard_error.i = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %attributes = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %entries = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %attributes29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %version.i = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %type118.i = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %tiles.i = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %screenWindowWidth.i = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %screenWindowCenter.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %pixelAspectRatio.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %name73.i = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %lineOrder.i = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %lineorder.i = getelementptr inbounds nuw i8, ptr %3, i64 180
+  %displayWindow.i = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %display_window.i = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %dataWindow.i = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %data_window.i = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %chunkCount.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %compression.i = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %comp_type.i = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %channels.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %standard_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end20, %for.inc
@@ -1622,7 +1622,7 @@ land.rhs:                                         ; preds = %if.end20, %for.inc
 
 for.body:                                         ; preds = %land.rhs
   %10 = load ptr, ptr %entries, align 8
-  %arrayidx28 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %arrayidx28 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx28, align 8
   store ptr null, ptr %attr, align 8
   %12 = load ptr, ptr %11, align 8
@@ -1634,7 +1634,7 @@ if.then32:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %attr.i)
   %13 = load ptr, ptr %11, align 8
   store ptr null, ptr %attr.i, align 8
-  %type1.i = getelementptr inbounds i8, ptr %11, i64 20
+  %type1.i = getelementptr inbounds nuw i8, ptr %11, i64 20
   %14 = load i32, ptr %type1.i, align 4
   %15 = load i8, ptr %13, align 1
   switch i8 %15, label %sw.epilog.i [
@@ -1670,7 +1670,7 @@ if.then8.i:                                       ; preds = %if.else.i
   br i1 %cmp12.i, label %if.then14.i, label %sw.epilog.i
 
 if.then14.i:                                      ; preds = %if.then8.i
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i8, ptr %17, align 8
   %conv15.i = zext i8 %18 to i32
   store i32 %conv15.i, ptr %comp_type.i, align 8
@@ -1698,7 +1698,7 @@ if.then31.i:                                      ; preds = %sw.bb27.i
   br i1 %cmp35.i, label %if.end137.i.thread, label %sw.epilog.i
 
 if.end137.i.thread:                               ; preds = %if.then31.i
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = load ptr, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_window.i, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
   br label %if.end141.i
@@ -1716,7 +1716,7 @@ if.then43.i:                                      ; preds = %if.else39.i
   br i1 %cmp47.i, label %if.then49.i, label %sw.epilog.i
 
 if.then49.i:                                      ; preds = %if.then43.i
-  %23 = getelementptr inbounds i8, ptr %11, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %24 = load ptr, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %display_window.i, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
   br label %if.end141.i
@@ -1734,7 +1734,7 @@ if.then57.i:                                      ; preds = %sw.bb53.i
   br i1 %cmp61.i, label %if.then63.i, label %sw.epilog.i
 
 if.then63.i:                                      ; preds = %if.then57.i
-  %26 = getelementptr inbounds i8, ptr %11, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %27 = load i8, ptr %26, align 8
   %conv64.i = zext i8 %27 to i32
   store i32 %conv64.i, ptr %lineorder.i, align 4
@@ -1865,164 +1865,164 @@ if.end141.i:                                      ; preds = %if.end137.i.thread,
 
 sw.bb142.i:                                       ; preds = %if.end141.i
   %29 = load ptr, ptr %attr.i, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %33 = load ptr, ptr %32, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb143.i:                                       ; preds = %if.end141.i
   %34 = load ptr, ptr %attr.i, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %38 = load ptr, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(16) %38, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb144.i:                                       ; preds = %if.end141.i
   %39 = load ptr, ptr %attr.i, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %11, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %43 = load ptr, ptr %42, align 8
   %call145.i = call i32 @exr_attr_chlist_duplicate(ptr noundef nonnull %ctxt, ptr noundef %41, ptr noundef %43) #6
   br label %sw.epilog181.i
 
 sw.bb146.i:                                       ; preds = %if.end141.i
   %44 = load ptr, ptr %attr.i, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %48 = load ptr, ptr %47, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %46, ptr noundef nonnull align 1 dereferenceable(32) %48, i64 32, i1 false)
   br label %copy_attr.exit
 
 sw.bb147.i:                                       ; preds = %if.end141.i
-  %49 = getelementptr inbounds i8, ptr %11, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %50 = load i8, ptr %49, align 8
   %51 = load ptr, ptr %attr.i, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i8 %50, ptr %52, align 8
   br label %copy_attr.exit
 
 sw.bb148.i:                                       ; preds = %if.end141.i
-  %53 = getelementptr inbounds i8, ptr %11, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %54 = load double, ptr %53, align 8
   %55 = load ptr, ptr %attr.i, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store double %54, ptr %56, align 8
   br label %copy_attr.exit
 
 sw.bb149.i:                                       ; preds = %if.end141.i
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %58 = load i8, ptr %57, align 8
   %59 = load ptr, ptr %attr.i, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i8 %58, ptr %60, align 8
   br label %copy_attr.exit
 
 sw.bb150.i:                                       ; preds = %if.end141.i
-  %61 = getelementptr inbounds i8, ptr %11, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %62 = load float, ptr %61, align 8
   %63 = load ptr, ptr %attr.i, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store float %62, ptr %64, align 8
   br label %copy_attr.exit
 
 sw.bb151.i:                                       ; preds = %if.end141.i
   %65 = load ptr, ptr %attr.i, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %11, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %69 = load ptr, ptr %68, align 8
-  %arr.i = getelementptr inbounds i8, ptr %69, i64 8
+  %arr.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %70 = load ptr, ptr %arr.i, align 8
   %71 = load i32, ptr %69, align 8
   %call152.i = call i32 @exr_attr_float_vector_create(ptr noundef nonnull %ctxt, ptr noundef %67, ptr noundef %70, i32 noundef %71) #6
   br label %sw.epilog181.i
 
 sw.bb153.i:                                       ; preds = %if.end141.i
-  %72 = getelementptr inbounds i8, ptr %11, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = load ptr, ptr %attr.i, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i32 %73, ptr %75, align 8
   br label %copy_attr.exit
 
 sw.bb154.i:                                       ; preds = %if.end141.i
   %76 = load ptr, ptr %attr.i, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %11, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %80 = load ptr, ptr %79, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %78, ptr noundef nonnull align 1 dereferenceable(28) %80, i64 28, i1 false)
   br label %copy_attr.exit
 
 sw.bb155.i:                                       ; preds = %if.end141.i
-  %81 = getelementptr inbounds i8, ptr %11, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = load ptr, ptr %attr.i, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i8 %82, ptr %84, align 8
   br label %copy_attr.exit
 
 sw.bb156.i:                                       ; preds = %if.end141.i
   %85 = load ptr, ptr %attr.i, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %11, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %89 = load ptr, ptr %88, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %87, ptr noundef nonnull align 1 dereferenceable(36) %89, i64 36, i1 false)
   br label %copy_attr.exit
 
 sw.bb157.i:                                       ; preds = %if.end141.i
   %90 = load ptr, ptr %attr.i, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %94 = load ptr, ptr %93, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %92, ptr noundef nonnull align 1 dereferenceable(72) %94, i64 72, i1 false)
   br label %copy_attr.exit
 
 sw.bb158.i:                                       ; preds = %if.end141.i
   %95 = load ptr, ptr %attr.i, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %11, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %99 = load ptr, ptr %98, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %97, ptr noundef nonnull align 1 dereferenceable(64) %99, i64 64, i1 false)
   br label %copy_attr.exit
 
 sw.bb159.i:                                       ; preds = %if.end141.i
   %100 = load ptr, ptr %attr.i, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %11, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %104 = load ptr, ptr %103, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %102, ptr noundef nonnull align 1 dereferenceable(128) %104, i64 128, i1 false)
   br label %copy_attr.exit
 
 sw.bb160.i:                                       ; preds = %if.end141.i
   %105 = load ptr, ptr %attr.i, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %11, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %109 = load ptr, ptr %108, align 8
   %110 = load i32, ptr %109, align 8
-  %height.i = getelementptr inbounds i8, ptr %109, i64 4
+  %height.i = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %height.i, align 4
-  %rgba.i = getelementptr inbounds i8, ptr %109, i64 16
+  %rgba.i = getelementptr inbounds nuw i8, ptr %109, i64 16
   %112 = load ptr, ptr %rgba.i, align 8
   %call161.i = call i32 @exr_attr_preview_create(ptr noundef nonnull %ctxt, ptr noundef %107, i32 noundef %110, i32 noundef %111, ptr noundef %112) #6
   br label %sw.epilog181.i
 
 sw.bb162.i:                                       ; preds = %if.end141.i
   %113 = load ptr, ptr %attr.i, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %11, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = load i64, ptr %117, align 1
   store i64 %118, ptr %115, align 1
@@ -2030,11 +2030,11 @@ sw.bb162.i:                                       ; preds = %if.end141.i
 
 sw.bb163.i:                                       ; preds = %if.end141.i
   %119 = load ptr, ptr %attr.i, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %11, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %123 = load ptr, ptr %122, align 8
-  %str.i = getelementptr inbounds i8, ptr %123, i64 8
+  %str.i = getelementptr inbounds nuw i8, ptr %123, i64 8
   %124 = load ptr, ptr %str.i, align 8
   %125 = load i32, ptr %123, align 8
   %call165.i = call i32 @exr_attr_string_create_with_length(ptr noundef nonnull %ctxt, ptr noundef %121, ptr noundef %124, i32 noundef %125) #6
@@ -2042,27 +2042,27 @@ sw.bb163.i:                                       ; preds = %if.end141.i
 
 sw.bb166.i:                                       ; preds = %if.end141.i
   %126 = load ptr, ptr %attr.i, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %11, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %130 = load ptr, ptr %129, align 8
   %call167.i = call i32 @exr_attr_string_vector_copy(ptr noundef nonnull %ctxt, ptr noundef %128, ptr noundef %130) #6
   br label %sw.epilog181.i
 
 sw.bb168.i:                                       ; preds = %if.end141.i
   %131 = load ptr, ptr %attr.i, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %11, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %135 = load ptr, ptr %134, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %133, ptr noundef nonnull align 1 dereferenceable(9) %135, i64 9, i1 false)
   br label %copy_attr.exit
 
 sw.bb169.i:                                       ; preds = %if.end141.i
   %136 = load ptr, ptr %attr.i, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %11, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %140 = load ptr, ptr %139, align 8
   %141 = load i64, ptr %140, align 1
   store i64 %141, ptr %138, align 1
@@ -2070,9 +2070,9 @@ sw.bb169.i:                                       ; preds = %if.end141.i
 
 sw.bb170.i:                                       ; preds = %if.end141.i
   %142 = load ptr, ptr %attr.i, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %11, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = load i64, ptr %146, align 1
   store i64 %147, ptr %144, align 1
@@ -2080,9 +2080,9 @@ sw.bb170.i:                                       ; preds = %if.end141.i
 
 sw.bb171.i:                                       ; preds = %if.end141.i
   %148 = load ptr, ptr %attr.i, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %11, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = load i64, ptr %152, align 1
   store i64 %153, ptr %150, align 1
@@ -2090,45 +2090,45 @@ sw.bb171.i:                                       ; preds = %if.end141.i
 
 sw.bb172.i:                                       ; preds = %if.end141.i
   %154 = load ptr, ptr %attr.i, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %11, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %158 = load ptr, ptr %157, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %156, ptr noundef nonnull align 1 dereferenceable(16) %158, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb173.i:                                       ; preds = %if.end141.i
   %159 = load ptr, ptr %attr.i, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %11, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %163 = load ptr, ptr %162, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %161, ptr noundef nonnull align 1 dereferenceable(12) %163, i64 12, i1 false)
   br label %copy_attr.exit
 
 sw.bb174.i:                                       ; preds = %if.end141.i
   %164 = load ptr, ptr %attr.i, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %11, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %168 = load ptr, ptr %167, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %166, ptr noundef nonnull align 1 dereferenceable(12) %168, i64 12, i1 false)
   br label %copy_attr.exit
 
 sw.bb175.i:                                       ; preds = %if.end141.i
   %169 = load ptr, ptr %attr.i, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %11, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %173 = load ptr, ptr %172, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %171, ptr noundef nonnull align 1 dereferenceable(24) %173, i64 24, i1 false)
   br label %copy_attr.exit
 
 sw.bb176.i:                                       ; preds = %if.end141.i
   %174 = load ptr, ptr %attr.i, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %11, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %178 = load ptr, ptr %177, align 8
   %call177.i = call i32 @exr_attr_opaquedata_copy(ptr noundef nonnull %ctxt, ptr noundef %176, ptr noundef %178) #6
   br label %sw.epilog181.i
@@ -2176,7 +2176,7 @@ if.end38:                                         ; preds = %if.then36, %for.end
   br i1 %cmp7.not, label %if.end41, label %if.then40
 
 if.then40:                                        ; preds = %if.end38
-  %mutex.i52 = getelementptr inbounds i8, ptr %source, i64 504
+  %mutex.i52 = getelementptr inbounds nuw i8, ptr %source, i64 504
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i52) #6
   br label %if.end41
 
@@ -2203,7 +2203,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -2212,7 +2212,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -2223,12 +2223,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -2243,29 +2243,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %channels = getelementptr inbounds i8, ptr %7, i64 32
+  %channels = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load ptr, ptr %channels, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 3
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -2276,22 +2276,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %channels, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.3) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %out, align 8
   %16 = load i8, ptr %ctxt, align 8
@@ -2299,7 +2299,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -2309,7 +2309,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -2325,29 +2325,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -2357,42 +2357,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %channels = getelementptr inbounds i8, ptr %3, i64 32
+  %channels = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %channels, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 3
   br i1 %cmp22.not, label %if.then33, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %channels, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.3) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.3, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef nonnull %channels) #6
   %cmp31 = icmp eq i32 %call20, 0
   br i1 %cmp31, label %if.end29.if.then33_crit_edge, label %if.end35
@@ -2403,7 +2403,7 @@ if.end29.if.then33_crit_edge:                     ; preds = %if.end29
 
 if.then33:                                        ; preds = %if.end29.if.then33_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end29.if.then33_crit_edge ], [ %7, %if.else ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %call34 = tail call i32 @exr_attr_chlist_add(ptr noundef nonnull %ctxt, ptr noundef %14, ptr noundef %name, i32 noundef %ptype, i32 noundef %islinear, i32 noundef %xsamp, i32 noundef %ysamp) #6
   br label %if.end35
@@ -2428,7 +2428,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef %ctxt, i32 noundef 3, ptr noundef nonnull @.str.5) #6
   br label %return
@@ -2438,29 +2438,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp4.not = icmp slt i32 %part_index, %1
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end3
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error, align 8
   %call6 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %3 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i8, ptr %ctxt, align 8
   switch i8 %5, label %if.end20 [
@@ -2470,42 +2470,42 @@ if.end7:                                          ; preds = %lor.lhs.false
 
 if.then10:                                        ; preds = %if.end7
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call11 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then17:                                        ; preds = %if.end7
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error18 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error18 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error18, align 8
   %call19 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end20:                                         ; preds = %if.end7
-  %channels21 = getelementptr inbounds i8, ptr %4, i64 32
+  %channels21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %channels21, align 8
   %tobool22.not = icmp eq ptr %8, null
   br i1 %tobool22.not, label %if.end34, label %if.else
 
 if.else:                                          ; preds = %if.end20
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp27.not = icmp eq i32 %9, 3
   br i1 %cmp27.not, label %if.then38, label %if.then29
 
 if.then29:                                        ; preds = %if.else
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error30 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error30, align 8
   %11 = load ptr, ptr %channels21, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call32 = tail call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %12, ptr noundef nonnull @.str.3) #6
   br label %return
 
 if.end34:                                         ; preds = %if.end20
-  %attributes = getelementptr inbounds i8, ptr %4, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %4, i64 8
   %call25 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.3, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef nonnull %channels21) #6
   %cmp36 = icmp eq i32 %call25, 0
   br i1 %cmp36, label %if.end34.if.then38_crit_edge, label %if.end45
@@ -2525,7 +2525,7 @@ if.then42:                                        ; preds = %if.then38
   br label %return
 
 if.end43:                                         ; preds = %if.then38
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %call44 = call i32 @exr_attr_chlist_destroy(ptr noundef nonnull %ctxt, ptr noundef %15) #6
   %16 = load ptr, ptr %14, align 8
@@ -2558,7 +2558,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -2567,7 +2567,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -2578,12 +2578,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -2598,29 +2598,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %compression = getelementptr inbounds i8, ptr %7, i64 40
+  %compression = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load ptr, ptr %compression, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end52, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 5
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -2631,22 +2631,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %compression, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.6) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i8, ptr %14, align 8
   %conv44 = zext i8 %15 to i32
   store i32 %conv44, ptr %out, align 4
@@ -2655,7 +2655,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp47, label %cond.true49, label %return
 
 cond.true49:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -2665,7 +2665,7 @@ if.end52:                                         ; preds = %if.end25
   br i1 %cmp55, label %cond.true57, label %return
 
 cond.true57:                                      ; preds = %if.end52
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -2686,7 +2686,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -2695,7 +2695,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -2706,12 +2706,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -2726,29 +2726,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %dataWindow = getelementptr inbounds i8, ptr %7, i64 48
+  %dataWindow = getelementptr inbounds nuw i8, ptr %7, i64 48
   %8 = load ptr, ptr %dataWindow, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 1
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -2759,22 +2759,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %dataWindow, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.7) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
   %16 = load i8, ptr %ctxt, align 8
@@ -2782,7 +2782,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -2792,7 +2792,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -2813,7 +2813,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -2822,7 +2822,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -2833,12 +2833,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -2853,29 +2853,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %displayWindow = getelementptr inbounds i8, ptr %7, i64 56
+  %displayWindow = getelementptr inbounds nuw i8, ptr %7, i64 56
   %8 = load ptr, ptr %displayWindow, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 1
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -2886,22 +2886,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %displayWindow, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.9) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
   %16 = load i8, ptr %ctxt, align 8
@@ -2909,7 +2909,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -2919,7 +2919,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -2940,7 +2940,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -2949,7 +2949,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -2960,12 +2960,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -2980,29 +2980,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %lineOrder = getelementptr inbounds i8, ptr %7, i64 64
+  %lineOrder = getelementptr inbounds nuw i8, ptr %7, i64 64
   %8 = load ptr, ptr %lineOrder, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end52, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 12
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -3013,22 +3013,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %lineOrder, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.10) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i8, ptr %14, align 8
   %conv44 = zext i8 %15 to i32
   store i32 %conv44, ptr %out, align 4
@@ -3037,7 +3037,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp47, label %cond.true49, label %return
 
 cond.true49:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3047,7 +3047,7 @@ if.end52:                                         ; preds = %if.end25
   br i1 %cmp55, label %cond.true57, label %return
 
 cond.true57:                                      ; preds = %if.end52
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3068,7 +3068,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -3077,7 +3077,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -3088,12 +3088,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -3108,29 +3108,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %pixelAspectRatio = getelementptr inbounds i8, ptr %7, i64 72
+  %pixelAspectRatio = getelementptr inbounds nuw i8, ptr %7, i64 72
   %8 = load ptr, ptr %pixelAspectRatio, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 8
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -3141,22 +3141,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %pixelAspectRatio, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.12) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load float, ptr %14, align 8
   store float %15, ptr %out, align 4
   %16 = load i8, ptr %ctxt, align 8
@@ -3164,7 +3164,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3174,7 +3174,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3195,7 +3195,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -3204,7 +3204,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -3215,12 +3215,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -3235,29 +3235,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.13) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %screenWindowCenter = getelementptr inbounds i8, ptr %7, i64 80
+  %screenWindowCenter = getelementptr inbounds nuw i8, ptr %7, i64 80
   %8 = load ptr, ptr %screenWindowCenter, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 24
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -3268,22 +3268,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %screenWindowCenter, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.13) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 1
   store i64 %16, ptr %out, align 1
@@ -3292,7 +3292,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3302,7 +3302,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3323,7 +3323,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -3332,7 +3332,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -3343,12 +3343,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -3363,29 +3363,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %screenWindowWidth = getelementptr inbounds i8, ptr %7, i64 88
+  %screenWindowWidth = getelementptr inbounds nuw i8, ptr %7, i64 88
   %8 = load ptr, ptr %screenWindowWidth, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 8
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -3396,22 +3396,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %screenWindowWidth, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.14) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load float, ptr %14, align 8
   store float %15, ptr %out, align 4
   %16 = load i8, ptr %ctxt, align 8
@@ -3419,7 +3419,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3429,7 +3429,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3450,7 +3450,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -3459,7 +3459,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -3470,31 +3470,31 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %tiles = getelementptr inbounds i8, ptr %5, i64 96
+  %tiles = getelementptr inbounds nuw i8, ptr %5, i64 96
   %6 = load ptr, ptr %tiles, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %if.end55, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %type = getelementptr inbounds i8, ptr %6, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %6, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp18.not = icmp eq i32 %9, 21
   br i1 %cmp18.not, label %if.end31, label %if.then20
@@ -3505,16 +3505,16 @@ if.then20:                                        ; preds = %if.then15
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %tiles, align 8
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
   %11 = phi ptr [ %6, %if.then20 ], [ %.pre, %cond.true25 ]
-  %print_error28 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error28, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call30 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.15, ptr noundef %13) #6
   br label %return
@@ -3533,7 +3533,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
   br i1 %tobool35.not, label %if.end37, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
-  %y_size = getelementptr inbounds i8, ptr %8, i64 4
+  %y_size = getelementptr inbounds nuw i8, ptr %8, i64 4
   %15 = load i32, ptr %y_size, align 1
   store i32 %15, ptr %ysize, align 4
   br label %if.end37
@@ -3543,7 +3543,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %level_and_round = getelementptr inbounds i8, ptr %8, i64 8
+  %level_and_round = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i8, ptr %level_and_round, align 1
   %17 = and i8 %16, 15
   %and = zext nneg i8 %17 to i32
@@ -3555,7 +3555,7 @@ if.end41:                                         ; preds = %if.then39, %if.end3
   br i1 %tobool42.not, label %if.end47, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %level_and_round44 = getelementptr inbounds i8, ptr %8, i64 8
+  %level_and_round44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = load i8, ptr %level_and_round44, align 1
   %19 = lshr i8 %18, 4
   %shr = zext nneg i8 %19 to i32
@@ -3568,7 +3568,7 @@ if.end47:                                         ; preds = %if.then43, %if.end4
   br i1 %cmp50, label %cond.true52, label %return
 
 cond.true52:                                      ; preds = %if.end47
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3578,7 +3578,7 @@ if.end55:                                         ; preds = %if.end13
   br i1 %cmp58, label %cond.true60, label %return
 
 cond.true60:                                      ; preds = %if.end55
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3594,29 +3594,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -3626,20 +3626,20 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %storage_mode = getelementptr inbounds i8, ptr %3, i64 4
+  %storage_mode = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %storage_mode, align 4
   switch i32 %7, label %if.end25 [
     i32 0, label %if.then23
@@ -3648,35 +3648,35 @@ if.end16:                                         ; preds = %if.end3
 
 if.then23:                                        ; preds = %if.end16, %if.end16
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call24 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 19, ptr noundef nonnull @.str.16) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end16
-  %tiles = getelementptr inbounds i8, ptr %3, i64 96
+  %tiles = getelementptr inbounds nuw i8, ptr %3, i64 96
   %9 = load ptr, ptr %tiles, align 8
   %tobool26.not = icmp eq ptr %9, null
   br i1 %tobool26.not, label %if.end38, label %if.else
 
 if.else:                                          ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %9, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %type, align 4
   %cmp31.not = icmp eq i32 %10, 21
   br i1 %cmp31.not, label %if.then42, label %if.then33
 
 if.then33:                                        ; preds = %if.else
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error34 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %11 = load ptr, ptr %print_error34, align 8
   %12 = load ptr, ptr %tiles, align 8
-  %type_name = getelementptr inbounds i8, ptr %12, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call36 = tail call i32 (ptr, i32, ptr, ...) %11(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.17) #6
   br label %return
 
 if.end38:                                         ; preds = %if.end25
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call29 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.17, i32 noundef 21, i32 noundef 0, ptr noundef null, ptr noundef nonnull %tiles) #6
   %cmp40 = icmp eq i32 %call29, 0
   br i1 %cmp40, label %if.end38.if.then42_crit_edge, label %if.end52
@@ -3687,18 +3687,18 @@ if.end38.if.then42_crit_edge:                     ; preds = %if.end38
 
 if.then42:                                        ; preds = %if.end38.if.then42_crit_edge, %if.else
   %14 = phi ptr [ %.pre, %if.end38.if.then42_crit_edge ], [ %9, %if.else ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   store i32 %x_size, ptr %16, align 1
   %17 = load ptr, ptr %15, align 8
-  %y_size44 = getelementptr inbounds i8, ptr %17, i64 4
+  %y_size44 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %y_size, ptr %y_size44, align 1
   %conv45 = shl i32 %round_mode, 4
   %conv48 = and i32 %level_mode, 15
   %or = or disjoint i32 %conv45, %conv48
   %conv50 = trunc i32 %or to i8
   %18 = load ptr, ptr %15, align 8
-  %level_and_round = getelementptr inbounds i8, ptr %18, i64 8
+  %level_and_round = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %conv50, ptr %level_and_round, align 1
   %call51 = tail call i32 @internal_exr_compute_tile_information(ptr noundef nonnull %ctxt, ptr noundef nonnull %3, i32 noundef 1) #6
   br label %if.end52
@@ -3725,7 +3725,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -3734,7 +3734,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -3745,12 +3745,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -3765,29 +3765,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.18) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds i8, ptr %7, i64 104
+  %name = getelementptr inbounds nuw i8, ptr %7, i64 104
   %8 = load ptr, ptr %name, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 19
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -3798,24 +3798,24 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %name, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.19, ptr noundef %13) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
-  %str = getelementptr inbounds i8, ptr %15, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %str, align 8
   store ptr %16, ptr %out, align 8
   %17 = load i8, ptr %ctxt, align 8
@@ -3823,7 +3823,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -3833,7 +3833,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -3849,29 +3849,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -3881,42 +3881,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %name = getelementptr inbounds i8, ptr %3, i64 104
+  %name = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %name, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.20, i32 noundef 19, i32 noundef 0, ptr noundef null, ptr noundef nonnull %name) #6
   %.pre = load ptr, ptr %name, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 19
   br i1 %cmp22.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %name, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.20) #6
   br label %return
@@ -3934,7 +3934,7 @@ lor.lhs.false32:                                  ; preds = %if.end29
 
 if.then37:                                        ; preds = %lor.lhs.false32, %if.end29
   %call.i62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %14 = load ptr, ptr %report_error, align 8
   %call38 = tail call i32 %14(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.21) #6
   br label %return
@@ -3946,7 +3946,7 @@ if.end39:                                         ; preds = %lor.lhs.false32
 
 if.then43:                                        ; preds = %if.end39
   %call.i64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error44 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %15 = load ptr, ptr %print_error44, align 8
   %call45 = tail call i32 (ptr, i32, ptr, ...) %15(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.22, i64 noundef %call40) #6
   br label %return
@@ -3956,7 +3956,7 @@ if.end46:                                         ; preds = %if.end39
   br i1 %cmp47, label %if.then49, label %if.end71
 
 if.then49:                                        ; preds = %if.end46
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   %conv50 = trunc nuw nsw i64 %call40 to i32
@@ -3964,13 +3964,13 @@ if.then49:                                        ; preds = %if.end46
   br i1 %cmp51, label %land.lhs.true, label %if.else56
 
 land.lhs.true:                                    ; preds = %if.then49
-  %alloc_size = getelementptr inbounds i8, ptr %17, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %alloc_size, align 4
   %cmp53 = icmp sgt i32 %19, 0
   br i1 %cmp53, label %if.then55, label %if.else56
 
 if.then55:                                        ; preds = %land.lhs.true
-  %str = getelementptr inbounds i8, ptr %17, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %str, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %val, i64 %call40, i1 false)
   br label %if.end71
@@ -3982,7 +3982,7 @@ if.else56:                                        ; preds = %land.lhs.true, %if.
 
 if.then61:                                        ; preds = %if.else56
   %call.i66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error62 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error62 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %22 = load ptr, ptr %print_error62, align 8
   %23 = load ptr, ptr %16, align 8
   %24 = load i32, ptr %23, align 8
@@ -4020,7 +4020,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -4029,7 +4029,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -4040,12 +4040,12 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i28 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i28) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -4060,29 +4060,29 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp18, label %cond.true20, label %cond.end22
 
 cond.true20:                                      ; preds = %if.then15
-  %mutex.i30 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i30) #6
   br label %cond.end22
 
 cond.end22:                                       ; preds = %if.then15, %cond.true20
-  %print_error23 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error23, align 8
   %call24 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.24) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end13
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %version = getelementptr inbounds i8, ptr %7, i64 120
+  %version = getelementptr inbounds nuw i8, ptr %7, i64 120
   %8 = load ptr, ptr %version, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %if.end51, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp29.not = icmp eq i32 %9, 10
   br i1 %cmp29.not, label %if.end42, label %if.then31
@@ -4093,22 +4093,22 @@ if.then31:                                        ; preds = %if.then27
   br i1 %cmp34, label %cond.true36, label %cond.end38
 
 cond.true36:                                      ; preds = %if.then31
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   %.pre = load ptr, ptr %version, align 8
   br label %cond.end38
 
 cond.end38:                                       ; preds = %if.then31, %cond.true36
   %11 = phi ptr [ %8, %if.then31 ], [ %.pre, %cond.true36 ]
-  %print_error39 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error39 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %12 = load ptr, ptr %print_error39, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call41 = tail call i32 (ptr, i32, ptr, ...) %12(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %13, ptr noundef nonnull @.str.24) #6
   br label %return
 
 if.end42:                                         ; preds = %if.then27
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %out, align 4
   %16 = load i8, ptr %ctxt, align 8
@@ -4116,7 +4116,7 @@ if.end42:                                         ; preds = %if.then27
   br i1 %cmp46, label %cond.true48, label %return
 
 cond.true48:                                      ; preds = %if.end42
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %return
 
@@ -4126,7 +4126,7 @@ if.end51:                                         ; preds = %if.end25
   br i1 %cmp54, label %cond.true56, label %return
 
 cond.true56:                                      ; preds = %if.end51
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
@@ -4146,29 +4146,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp4 = icmp slt i32 %part_index, 0
   br i1 %cmp4, label %if.then7, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %0
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false5, %if.end3
   %call.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false5
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end21 [
@@ -4178,42 +4178,42 @@ if.end8:                                          ; preds = %lor.lhs.false5
 
 if.then11:                                        ; preds = %if.end8
   %call.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call12 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then18:                                        ; preds = %if.end8
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error19 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error19 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error19, align 8
   %call20 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end21:                                         ; preds = %if.end8
-  %version = getelementptr inbounds i8, ptr %3, i64 120
+  %version = getelementptr inbounds nuw i8, ptr %3, i64 120
   %7 = load ptr, ptr %version, align 8
   %tobool22.not = icmp eq ptr %7, null
   br i1 %tobool22.not, label %if.end34, label %if.else
 
 if.else:                                          ; preds = %if.end21
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp27.not = icmp eq i32 %8, 10
   br i1 %cmp27.not, label %if.then38, label %if.then29
 
 if.then29:                                        ; preds = %if.else
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error30 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error30, align 8
   %10 = load ptr, ptr %version, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call32 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.24) #6
   br label %return
 
 if.end34:                                         ; preds = %if.end21
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call25 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.24, i32 noundef 10, i32 noundef 0, ptr noundef null, ptr noundef nonnull %version) #6
   %cmp36 = icmp eq i32 %call25, 0
   br i1 %cmp36, label %if.end34.if.then38_crit_edge, label %if.end39
@@ -4224,7 +4224,7 @@ if.end34.if.then38_crit_edge:                     ; preds = %if.end34
 
 if.then38:                                        ; preds = %if.end34.if.then38_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end34.if.then38_crit_edge ], [ %7, %if.else ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 1, ptr %13, align 8
   br label %if.end39
 
@@ -4245,29 +4245,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -4277,42 +4277,42 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %chunkCount = getelementptr inbounds i8, ptr %3, i64 128
+  %chunkCount = getelementptr inbounds nuw i8, ptr %3, i64 128
   %7 = load ptr, ptr %chunkCount, align 8
   %tobool17.not = icmp eq ptr %7, null
   br i1 %tobool17.not, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %if.end16
-  %type = getelementptr inbounds i8, ptr %7, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %type, align 4
   %cmp22.not = icmp eq i32 %8, 10
   br i1 %cmp22.not, label %if.then33, label %if.then24
 
 if.then24:                                        ; preds = %if.else
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %9 = load ptr, ptr %print_error25, align 8
   %10 = load ptr, ptr %chunkCount, align 8
-  %type_name = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %type_name, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %9(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef %11, ptr noundef nonnull @.str.25) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull @.str.25, i32 noundef 10, i32 noundef 0, ptr noundef null, ptr noundef nonnull %chunkCount) #6
   %cmp31 = icmp eq i32 %call20, 0
   br i1 %cmp31, label %if.end29.if.then33_crit_edge, label %if.end34
@@ -4323,9 +4323,9 @@ if.end29.if.then33_crit_edge:                     ; preds = %if.end29
 
 if.then33:                                        ; preds = %if.end29.if.then33_crit_edge, %if.else
   %12 = phi ptr [ %.pre, %if.end29.if.then33_crit_edge ], [ %7, %if.else ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %val, ptr %13, align 8
-  %chunk_count = getelementptr inbounds i8, ptr %3, i64 244
+  %chunk_count = getelementptr inbounds nuw i8, ptr %3, i64 244
   store i32 %val, ptr %chunk_count, align 4
   br label %if.end34
 
@@ -4352,7 +4352,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -4361,7 +4361,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -4372,21 +4372,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -4402,18 +4402,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.26) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -4424,13 +4424,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 1
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -4441,16 +4441,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.27, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -4465,18 +4465,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out, ptr noundef nonnull align 1 dereferenceable(16) %19, i64 16, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -4484,7 +4484,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -4524,20 +4524,20 @@ if.end8:                                          ; preds = %entry, %land.lhs.tr
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp12 = icmp slt i32 %part_index, 0
   br i1 %cmp12, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp13.not = icmp slt i32 %part_index, %0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false, %if.end11
   %call.i51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call15 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -4551,25 +4551,25 @@ if.end16:                                         ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %if.end16
   %call.i53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call20 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then26:                                        ; preds = %if.end16
   %call.i55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error27 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error27 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error27, align 8
   %call28 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call30, label %if.else51 [
     i32 15, label %if.then33
@@ -4587,17 +4587,17 @@ if.then38:                                        ; preds = %if.then33
 
 if.then44:                                        ; preds = %if.end29
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp45.not = icmp eq i32 %9, 1
   br i1 %cmp45.not, label %if.end53.thread, label %if.then47
 
 if.then47:                                        ; preds = %if.then44
   %call.i59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error48 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error48 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error48, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call49 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.27, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -4617,7 +4617,7 @@ if.end53.thread:                                  ; preds = %if.then44
 
 if.then55:                                        ; preds = %if.end53.thread, %if.end53
   %call.i63 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error56 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error56 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error56, align 8
   %call57 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.29) #6
   br label %return
@@ -4632,7 +4632,7 @@ if.end58.if.then61_crit_edge:                     ; preds = %if.end58
 
 if.then61:                                        ; preds = %if.end58.if.then61_crit_edge, %if.end53.thread
   %14 = phi ptr [ %.pre, %if.end58.if.then61_crit_edge ], [ %8, %if.end53.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %if.end62
@@ -4663,7 +4663,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -4672,7 +4672,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -4683,21 +4683,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -4713,18 +4713,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.30) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -4735,13 +4735,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 2
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -4752,16 +4752,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -4776,18 +4776,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out, ptr noundef nonnull align 1 dereferenceable(16) %19, i64 16, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -4795,7 +4795,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -4813,20 +4813,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -4840,25 +4840,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -4876,17 +4876,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 2
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -4906,7 +4906,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.32) #6
   br label %return
@@ -4921,7 +4921,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %if.end49
@@ -4949,7 +4949,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -4958,7 +4958,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -4969,21 +4969,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -4999,18 +4999,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.33) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -5021,13 +5021,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 3
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -5038,16 +5038,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.34, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -5062,18 +5062,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %out, align 8
   %20 = load i8, ptr %ctxt, align 8
@@ -5081,7 +5081,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -5100,29 +5100,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool4.not = icmp eq ptr %name, null
   br i1 %tobool4.not, label %if.end9, label %land.lhs.true
@@ -5144,7 +5144,7 @@ if.end9:                                          ; preds = %land.lhs.true, %if.
 
 if.then12:                                        ; preds = %if.end9
   %call.i60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call13 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
@@ -5155,13 +5155,13 @@ if.end14:                                         ; preds = %if.end9
 
 if.then16:                                        ; preds = %if.end14
   %call.i62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error17 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error17 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %6 = load ptr, ptr %print_error17, align 8
   %call18 = tail call i32 (ptr, i32, ptr, ...) %6(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.35, ptr noundef %name) #6
   br label %return
 
 if.end19:                                         ; preds = %if.end14
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call20 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   %cmp21 = icmp eq i32 %call20, 15
   br i1 %cmp21, label %if.then23, label %if.end26
@@ -5186,7 +5186,7 @@ for.cond.preheader:                               ; preds = %if.end33
   br i1 %cmp3969, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %entries = getelementptr inbounds i8, ptr %channels, i64 8
+  %entries = getelementptr inbounds nuw i8, ptr %channels, i64 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %for.body
 
@@ -5202,18 +5202,18 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %8 = load ptr, ptr %entries, align 8
-  %add.ptr = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %8, i64 %indvars.iv
-  %str = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %8, i64 %indvars.iv
+  %str = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %9 = load ptr, ptr %str, align 8
   %10 = load i32, ptr %add.ptr, align 8
-  %pixel_type = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %pixel_type = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %11 = load i32, ptr %pixel_type, align 8
-  %p_linear = getelementptr inbounds i8, ptr %add.ptr, i64 20
+  %p_linear = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
   %12 = load i8, ptr %p_linear, align 4
   %conv43 = zext i8 %12 to i32
-  %x_sampling = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %x_sampling = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %13 = load i32, ptr %x_sampling, align 8
-  %y_sampling = getelementptr inbounds i8, ptr %add.ptr, i64 28
+  %y_sampling = getelementptr inbounds nuw i8, ptr %add.ptr, i64 28
   %14 = load i32, ptr %y_sampling, align 4
   %call44 = call i32 @exr_attr_chlist_add_with_length(ptr noundef nonnull %ctxt, ptr noundef nonnull %clist, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %conv43, i32 noundef %13, i32 noundef %14) #6
   %cmp45.not = icmp eq i32 %call44, 0
@@ -5226,11 +5226,11 @@ if.then47:                                        ; preds = %for.body
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %15 = load ptr, ptr %attr, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %call50 = call i32 @exr_attr_chlist_destroy(ptr noundef nonnull %ctxt, ptr noundef %17) #6
   %18 = load ptr, ptr %attr, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %clist, i64 16, i1 false)
   br label %if.end51
@@ -5262,7 +5262,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -5271,7 +5271,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -5282,21 +5282,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -5312,18 +5312,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.36) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -5334,13 +5334,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 4
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -5351,16 +5351,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.37, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -5375,18 +5375,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %out, ptr noundef nonnull align 1 dereferenceable(32) %19, i64 32, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -5394,7 +5394,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -5412,20 +5412,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -5439,25 +5439,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -5475,17 +5475,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 4
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.37, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -5505,7 +5505,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.38) #6
   br label %return
@@ -5520,7 +5520,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %val, i64 32, i1 false)
   br label %if.end49
@@ -5548,7 +5548,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -5557,7 +5557,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -5568,21 +5568,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -5598,18 +5598,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.39) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -5620,13 +5620,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 5
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -5637,16 +5637,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -5661,18 +5661,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load i8, ptr %18, align 8
   %conv67 = zext i8 %19 to i32
   store i32 %conv67, ptr %out, align 4
@@ -5681,7 +5681,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp70, label %cond.true72, label %return
 
 cond.true72:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -5699,7 +5699,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef %name, i32 noundef %cval, i32 noundef 0, i32 noundef 10) #6
   br label %return
@@ -5723,20 +5723,20 @@ if.end7:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp11 = icmp slt i32 %part_index, 0
   br i1 %cmp11, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp13.not = icmp slt i32 %part_index, %1
   br i1 %cmp13.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end10
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error16 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error16 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error16, align 8
   %call17 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -5750,25 +5750,25 @@ if.end18:                                         ; preds = %lor.lhs.false
 
 if.then22:                                        ; preds = %if.end18
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error, align 8
   %call23 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then29:                                        ; preds = %if.end18
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error30 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error30 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error30, align 8
   %call31 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end32:                                         ; preds = %if.end18
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %7, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %7, i64 8
   %call33 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call33, label %if.else54 [
     i32 15, label %if.then36
@@ -5786,17 +5786,17 @@ if.then41:                                        ; preds = %if.then36
 
 if.then47:                                        ; preds = %if.end32
   %9 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %9, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %type, align 4
   %cmp48.not = icmp eq i32 %10, 5
   br i1 %cmp48.not, label %if.then59, label %if.then50
 
 if.then50:                                        ; preds = %if.then47
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error51 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error51 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %11 = load ptr, ptr %print_error51, align 8
   %12 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %12, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call52 = call i32 (ptr, i32, ptr, ...) %11(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef %name, ptr noundef %13) #6
   br label %return
@@ -5816,7 +5816,7 @@ if.end56.if.then59_crit_edge:                     ; preds = %if.end56
 
 if.then59:                                        ; preds = %if.end56.if.then59_crit_edge, %if.then47
   %14 = phi ptr [ %.pre, %if.end56.if.then59_crit_edge ], [ %9, %if.then47 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 %conv, ptr %15, align 8
   br label %if.end60
 
@@ -5843,7 +5843,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -5852,7 +5852,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -5863,21 +5863,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -5893,18 +5893,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.42) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -5915,13 +5915,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 6
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -5932,16 +5932,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -5956,18 +5956,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load double, ptr %18, align 8
   store double %19, ptr %out, align 8
   %20 = load i8, ptr %ctxt, align 8
@@ -5975,7 +5975,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -5993,20 +5993,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -6020,25 +6020,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -6056,17 +6056,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 6
   br i1 %cmp32.not, label %if.then43, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -6086,7 +6086,7 @@ if.end40.if.then43_crit_edge:                     ; preds = %if.end40
 
 if.then43:                                        ; preds = %if.end40.if.then43_crit_edge, %if.then31
   %13 = phi ptr [ %.pre, %if.end40.if.then43_crit_edge ], [ %8, %if.then31 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store double %val, ptr %14, align 8
   br label %if.end44
 
@@ -6113,7 +6113,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -6122,7 +6122,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -6133,21 +6133,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -6163,18 +6163,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.39) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -6185,13 +6185,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 7
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -6202,16 +6202,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -6226,18 +6226,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load i8, ptr %18, align 8
   %conv67 = zext i8 %19 to i32
   store i32 %conv67, ptr %out, align 4
@@ -6246,7 +6246,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp70, label %cond.true72, label %return
 
 cond.true72:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -6264,7 +6264,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 4, ptr noundef nonnull @.str.44, ptr noundef %name, i32 noundef %eval, i32 noundef 0, i32 noundef 2) #6
   br label %return
@@ -6275,20 +6275,20 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp4 = icmp slt i32 %part_index, 0
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end3
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error9 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error9 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error9, align 8
   %call10 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -6302,25 +6302,25 @@ if.end11:                                         ; preds = %lor.lhs.false
 
 if.then15:                                        ; preds = %if.end11
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error, align 8
   %call16 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then22:                                        ; preds = %if.end11
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error23 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error23, align 8
   %call24 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end25:                                         ; preds = %if.end11
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %7, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %7, i64 8
   %call26 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call26, label %if.else47 [
     i32 15, label %if.then29
@@ -6338,17 +6338,17 @@ if.then34:                                        ; preds = %if.then29
 
 if.then40:                                        ; preds = %if.end25
   %9 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %9, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %type, align 4
   %cmp41.not = icmp eq i32 %10, 7
   br i1 %cmp41.not, label %if.then52, label %if.then43
 
 if.then43:                                        ; preds = %if.then40
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error44 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %11 = load ptr, ptr %print_error44, align 8
   %12 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %12, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call45 = call i32 (ptr, i32, ptr, ...) %11(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef %name, ptr noundef %13) #6
   br label %return
@@ -6368,7 +6368,7 @@ if.end49.if.then52_crit_edge:                     ; preds = %if.end49
 
 if.then52:                                        ; preds = %if.end49.if.then52_crit_edge, %if.then40
   %14 = phi ptr [ %.pre, %if.end49.if.then52_crit_edge ], [ %9, %if.then40 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 %conv, ptr %15, align 8
   br label %if.end53
 
@@ -6395,7 +6395,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -6404,7 +6404,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -6415,21 +6415,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -6445,18 +6445,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.45) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -6467,13 +6467,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 8
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -6484,16 +6484,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.46, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -6508,18 +6508,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load float, ptr %18, align 8
   store float %19, ptr %out, align 4
   %20 = load i8, ptr %ctxt, align 8
@@ -6527,7 +6527,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -6567,20 +6567,20 @@ if.end8:                                          ; preds = %entry, %land.lhs.tr
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp12 = icmp slt i32 %part_index, 0
   br i1 %cmp12, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp13.not = icmp slt i32 %part_index, %0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false, %if.end11
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call15 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -6594,25 +6594,25 @@ if.end16:                                         ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %if.end16
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call20 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then26:                                        ; preds = %if.end16
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error27 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error27 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error27, align 8
   %call28 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call30, label %if.else51 [
     i32 15, label %if.then33
@@ -6630,17 +6630,17 @@ if.then38:                                        ; preds = %if.then33
 
 if.then44:                                        ; preds = %if.end29
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp45.not = icmp eq i32 %9, 8
   br i1 %cmp45.not, label %if.then56, label %if.then47
 
 if.then47:                                        ; preds = %if.then44
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error48 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error48 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error48, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call49 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.46, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -6660,7 +6660,7 @@ if.end53.if.then56_crit_edge:                     ; preds = %if.end53
 
 if.then56:                                        ; preds = %if.end53.if.then56_crit_edge, %if.then44
   %13 = phi ptr [ %.pre, %if.end53.if.then56_crit_edge ], [ %8, %if.then44 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store float %val, ptr %14, align 8
   br label %if.end57
 
@@ -6687,7 +6687,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -6696,7 +6696,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -6707,21 +6707,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -6737,18 +6737,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.47) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -6759,13 +6759,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 9
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -6776,16 +6776,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.48, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -6795,7 +6795,7 @@ if.end54:                                         ; preds = %if.end41
   br i1 %tobool55.not, label %if.end57, label %if.then56
 
 if.then56:                                        ; preds = %if.end54
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %sz, align 4
@@ -6806,9 +6806,9 @@ if.end57:                                         ; preds = %if.then56, %if.end5
   br i1 %tobool58.not, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %20 = load ptr, ptr %19, align 8
-  %arr = getelementptr inbounds i8, ptr %20, i64 8
+  %arr = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %arr, align 8
   store ptr %21, ptr %out, align 8
   br label %if.end60
@@ -6819,7 +6819,7 @@ if.end60:                                         ; preds = %if.then59, %if.end5
   br i1 %cmp63, label %cond.true65, label %return
 
 cond.true65:                                      ; preds = %if.end60
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
@@ -6839,29 +6839,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then4, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp2.not = icmp slt i32 %part_index, %0
   br i1 %cmp2.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %lor.lhs.false, %if.end
   %call.i60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end19 [
@@ -6871,14 +6871,14 @@ if.end5:                                          ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %if.end5
   %call.i62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call10 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then16:                                        ; preds = %if.end5
   %call.i64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error17 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error17 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error17, align 8
   %call18 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
@@ -6891,7 +6891,7 @@ if.end19:                                         ; preds = %if.end5
 
 if.then25:                                        ; preds = %if.end19
   %call.i66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error26 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error26 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error26, align 8
   %call27 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %sz, ptr noundef %name) #6
   br label %return
@@ -6902,13 +6902,13 @@ if.end28:                                         ; preds = %if.end19
 
 if.then30:                                        ; preds = %if.end28
   %call.i68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error31 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error31 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %8 = load ptr, ptr %print_error31, align 8
   %call32 = tail call i32 (ptr, i32, ptr, ...) %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.50, ptr noundef %name) #6
   br label %return
 
 if.end33:                                         ; preds = %if.end28
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call34 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call34, label %if.end80 [
     i32 15, label %if.then37
@@ -6931,43 +6931,43 @@ if.end43:                                         ; preds = %if.then37
 
 if.then48:                                        ; preds = %if.end43
   %10 = load ptr, ptr %attr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %call49 = call i32 @exr_attr_float_vector_create(ptr noundef nonnull %ctxt, ptr noundef %12, ptr noundef nonnull %val, i32 noundef %sz) #6
   br label %if.end80
 
 if.then53:                                        ; preds = %if.end33
   %13 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %13, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %13, i64 20
   %14 = load i32, ptr %type, align 4
   %cmp54.not = icmp eq i32 %14, 9
   br i1 %cmp54.not, label %if.end59, label %if.then56
 
 if.then56:                                        ; preds = %if.then53
   %call.i72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error57 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error57 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %15 = load ptr, ptr %print_error57, align 8
   %16 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %16, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %type_name, align 8
   %call58 = call i32 (ptr, i32, ptr, ...) %15(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.51, ptr noundef %name, ptr noundef %17) #6
   br label %return
 
 if.end59:                                         ; preds = %if.then53
-  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %cmp60 = icmp eq i32 %20, %sz
   br i1 %cmp60, label %land.lhs.true, label %if.else65
 
 land.lhs.true:                                    ; preds = %if.end59
-  %alloc_size = getelementptr inbounds i8, ptr %19, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %alloc_size, align 4
   %cmp62 = icmp sgt i32 %21, 0
   br i1 %cmp62, label %if.then64, label %if.else65
 
 if.then64:                                        ; preds = %land.lhs.true
-  %arr = getelementptr inbounds i8, ptr %19, i64 8
+  %arr = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %arr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 4 %val, i64 %mul, i1 false)
   br label %if.end80
@@ -6979,10 +6979,10 @@ if.else65:                                        ; preds = %land.lhs.true, %if.
 
 if.then70:                                        ; preds = %if.else65
   %call.i74 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error71 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error71 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %24 = load ptr, ptr %print_error71, align 8
   %25 = load ptr, ptr %attr, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %call73 = call i32 (ptr, i32, ptr, ...) %24(ptr noundef nonnull %ctxt, i32 noundef 20, ptr noundef nonnull @.str.52, ptr noundef %name, i32 noundef %28, i32 noundef %sz) #6
@@ -6991,7 +6991,7 @@ if.then70:                                        ; preds = %if.else65
 if.else74:                                        ; preds = %if.else65
   %call75 = call i32 @exr_attr_float_vector_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %19) #6
   %29 = load ptr, ptr %attr, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %call76 = call i32 @exr_attr_float_vector_create(ptr noundef nonnull %ctxt, ptr noundef %31, ptr noundef nonnull %val, i32 noundef %sz) #6
   br label %if.end80
@@ -7023,7 +7023,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -7032,7 +7032,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -7043,21 +7043,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -7073,18 +7073,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.53) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -7095,13 +7095,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 10
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -7112,16 +7112,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.54, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -7136,18 +7136,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %out, align 4
   %20 = load i8, ptr %ctxt, align 8
@@ -7155,7 +7155,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -7195,20 +7195,20 @@ if.end9:                                          ; preds = %entry, %land.lhs.tr
   br i1 %tobool10.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp13.not = icmp slt i32 %part_index, %0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false, %if.end12
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call15 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -7222,25 +7222,25 @@ if.end16:                                         ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %if.end16
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call20 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then26:                                        ; preds = %if.end16
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error27 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error27 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error27, align 8
   %call28 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end29:                                         ; preds = %if.end16
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call30, label %if.else51 [
     i32 15, label %if.then33
@@ -7258,17 +7258,17 @@ if.then38:                                        ; preds = %if.then33
 
 if.then44:                                        ; preds = %if.end29
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp45.not = icmp eq i32 %9, 10
   br i1 %cmp45.not, label %if.then56, label %if.then47
 
 if.then47:                                        ; preds = %if.then44
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error48 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error48 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error48, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call49 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.54, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -7288,7 +7288,7 @@ if.end53.if.then56_crit_edge:                     ; preds = %if.end53
 
 if.then56:                                        ; preds = %if.end53.if.then56_crit_edge, %if.then44
   %13 = phi ptr [ %.pre, %if.end53.if.then56_crit_edge ], [ %8, %if.then44 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %val, ptr %14, align 8
   br label %if.end57
 
@@ -7315,7 +7315,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -7324,7 +7324,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -7335,21 +7335,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -7365,18 +7365,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.55) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -7387,13 +7387,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 11
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -7404,16 +7404,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.56, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -7428,18 +7428,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %out, ptr noundef nonnull align 1 dereferenceable(28) %19, i64 28, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -7447,7 +7447,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -7465,20 +7465,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -7492,25 +7492,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -7528,17 +7528,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 11
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.56, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -7558,7 +7558,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.57) #6
   br label %return
@@ -7573,7 +7573,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %16, ptr noundef nonnull align 1 dereferenceable(28) %val, i64 28, i1 false)
   br label %if.end49
@@ -7601,7 +7601,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -7610,7 +7610,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -7621,21 +7621,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -7651,18 +7651,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.39) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -7673,13 +7673,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 12
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -7690,16 +7690,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -7714,18 +7714,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load i8, ptr %18, align 8
   %conv67 = zext i8 %19 to i32
   store i32 %conv67, ptr %out, align 4
@@ -7734,7 +7734,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp70, label %cond.true72, label %return
 
 cond.true72:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -7752,7 +7752,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef %ctxt, i32 noundef 4, ptr noundef nonnull @.str.58, ptr noundef %name, i32 noundef %lval, i32 noundef 0, i32 noundef 3) #6
   br label %return
@@ -7776,20 +7776,20 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp12 = icmp slt i32 %part_index, 0
   br i1 %cmp12, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp14.not = icmp slt i32 %part_index, %1
   br i1 %cmp14.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end11
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error17 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error17 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error17, align 8
   %call18 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -7803,25 +7803,25 @@ if.end19:                                         ; preds = %lor.lhs.false
 
 if.then23:                                        ; preds = %if.end19
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error, align 8
   %call24 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then30:                                        ; preds = %if.end19
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error31 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error31 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error31, align 8
   %call32 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end33:                                         ; preds = %if.end19
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %6 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %7, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %7, i64 8
   %call34 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call34, label %if.else55 [
     i32 15, label %if.then37
@@ -7839,17 +7839,17 @@ if.then42:                                        ; preds = %if.then37
 
 if.then48:                                        ; preds = %if.end33
   %9 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %9, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %type, align 4
   %cmp49.not = icmp eq i32 %10, 12
   br i1 %cmp49.not, label %if.then60, label %if.then51
 
 if.then51:                                        ; preds = %if.then48
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %11 = load ptr, ptr %print_error52, align 8
   %12 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %12, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %11(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.40, ptr noundef %name, ptr noundef %13) #6
   br label %return
@@ -7869,7 +7869,7 @@ if.end57.if.then60_crit_edge:                     ; preds = %if.end57
 
 if.then60:                                        ; preds = %if.end57.if.then60_crit_edge, %if.then48
   %14 = phi ptr [ %.pre, %if.end57.if.then60_crit_edge ], [ %9, %if.then48 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 %conv, ptr %15, align 8
   br label %if.end61
 
@@ -7896,7 +7896,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -7905,7 +7905,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -7916,21 +7916,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -7946,18 +7946,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.59) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -7968,13 +7968,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 13
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -7985,16 +7985,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.60, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -8009,18 +8009,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %out, ptr noundef nonnull align 1 dereferenceable(36) %19, i64 36, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -8028,7 +8028,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -8046,20 +8046,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -8073,25 +8073,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -8109,17 +8109,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 13
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.60, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -8139,7 +8139,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.61) #6
   br label %return
@@ -8154,7 +8154,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %16, ptr noundef nonnull align 1 dereferenceable(36) %val, i64 36, i1 false)
   br label %if.end49
@@ -8182,7 +8182,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -8191,7 +8191,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -8202,21 +8202,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -8232,18 +8232,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.62) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -8254,13 +8254,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 14
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -8271,16 +8271,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -8295,18 +8295,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %out, ptr noundef nonnull align 1 dereferenceable(72) %19, i64 72, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -8314,7 +8314,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -8332,20 +8332,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -8359,25 +8359,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -8395,17 +8395,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 14
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -8425,7 +8425,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.64) #6
   br label %return
@@ -8440,7 +8440,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %16, ptr noundef nonnull align 1 dereferenceable(72) %val, i64 72, i1 false)
   br label %if.end49
@@ -8468,7 +8468,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -8477,7 +8477,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -8488,21 +8488,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -8518,18 +8518,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.65) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -8540,13 +8540,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 15
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -8557,16 +8557,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -8581,18 +8581,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %out, ptr noundef nonnull align 1 dereferenceable(64) %19, i64 64, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -8600,7 +8600,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -8618,20 +8618,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -8645,25 +8645,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -8681,17 +8681,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 15
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -8711,7 +8711,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.67) #6
   br label %return
@@ -8726,7 +8726,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %16, ptr noundef nonnull align 1 dereferenceable(64) %val, i64 64, i1 false)
   br label %if.end49
@@ -8754,7 +8754,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -8763,7 +8763,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -8774,21 +8774,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -8804,18 +8804,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.68) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -8826,13 +8826,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 16
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -8843,16 +8843,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -8867,18 +8867,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %out, ptr noundef nonnull align 1 dereferenceable(128) %19, i64 128, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -8886,7 +8886,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -8904,20 +8904,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -8931,25 +8931,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -8967,17 +8967,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 16
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -8997,7 +8997,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.70) #6
   br label %return
@@ -9012,7 +9012,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %16, ptr noundef nonnull align 1 dereferenceable(128) %val, i64 128, i1 false)
   br label %if.end49
@@ -9040,7 +9040,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -9049,7 +9049,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -9060,21 +9060,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -9090,18 +9090,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.71) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -9112,13 +9112,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 17
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -9129,16 +9129,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.72, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -9153,18 +9153,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -9172,7 +9172,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -9190,20 +9190,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -9217,32 +9217,32 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   %tobool18.not = icmp eq ptr %val, null
   br i1 %tobool18.not, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end16
   %call.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error20 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error20 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error20, align 8
   %call21 = call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.73, ptr noundef %name) #6
   br label %return
@@ -9269,35 +9269,35 @@ if.end31:                                         ; preds = %if.then25
 
 if.then36:                                        ; preds = %if.end31
   %9 = load ptr, ptr %attr, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %val, align 8
-  %height = getelementptr inbounds i8, ptr %val, i64 4
+  %height = getelementptr inbounds nuw i8, ptr %val, i64 4
   %13 = load i32, ptr %height, align 4
-  %rgba = getelementptr inbounds i8, ptr %val, i64 16
+  %rgba = getelementptr inbounds nuw i8, ptr %val, i64 16
   %14 = load ptr, ptr %rgba, align 8
   %call37 = call i32 @exr_attr_preview_create(ptr noundef nonnull %ctxt, ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14) #6
   br label %if.end87
 
 if.then41:                                        ; preds = %if.end22
   %15 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %15, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %15, i64 20
   %16 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %16, 17
   br i1 %cmp42.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
   %call.i70 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error45 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error45 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error45, align 8
   %18 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %18, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load ptr, ptr %type_name, align 8
   %call46 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.74, ptr noundef %name, ptr noundef %19) #6
   br label %return
 
 if.end47:                                         ; preds = %if.then41
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   %23 = load i32, ptr %val, align 8
@@ -9305,15 +9305,15 @@ if.end47:                                         ; preds = %if.then41
   br i1 %cmp50, label %land.lhs.true, label %if.else66
 
 land.lhs.true:                                    ; preds = %if.end47
-  %height52 = getelementptr inbounds i8, ptr %21, i64 4
+  %height52 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %height52, align 4
-  %height53 = getelementptr inbounds i8, ptr %val, i64 4
+  %height53 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %25 = load i32, ptr %height53, align 4
   %cmp54 = icmp eq i32 %24, %25
   br i1 %cmp54, label %land.lhs.true56, label %if.else66
 
 land.lhs.true56:                                  ; preds = %land.lhs.true
-  %alloc_size = getelementptr inbounds i8, ptr %21, i64 8
+  %alloc_size = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load i64, ptr %alloc_size, align 8
   %cmp57.not = icmp eq i64 %26, 0
   br i1 %cmp57.not, label %if.else66, label %if.then59
@@ -9322,9 +9322,9 @@ if.then59:                                        ; preds = %land.lhs.true56
   %mul = shl i32 %22, 2
   %mul62 = mul i32 %mul, %24
   %conv63 = zext i32 %mul62 to i64
-  %rgba64 = getelementptr inbounds i8, ptr %21, i64 16
+  %rgba64 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %rgba64, align 8
-  %rgba65 = getelementptr inbounds i8, ptr %val, i64 16
+  %rgba65 = getelementptr inbounds nuw i8, ptr %val, i64 16
   %28 = load ptr, ptr %rgba65, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 %conv63, i1 false)
   br label %if.end87
@@ -9336,16 +9336,16 @@ if.else66:                                        ; preds = %land.lhs.true56, %l
 
 if.then71:                                        ; preds = %if.else66
   %call.i72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error72 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error72 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %30 = load ptr, ptr %print_error72, align 8
   %31 = load ptr, ptr %attr, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
-  %height74 = getelementptr inbounds i8, ptr %33, i64 4
+  %height74 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %height74, align 4
   %36 = load i32, ptr %val, align 8
-  %height76 = getelementptr inbounds i8, ptr %val, i64 4
+  %height76 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %37 = load i32, ptr %height76, align 4
   %call77 = call i32 (ptr, i32, ptr, ...) %30(ptr noundef nonnull %ctxt, i32 noundef 20, ptr noundef nonnull @.str.75, ptr noundef %name, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37) #6
   br label %return
@@ -9353,12 +9353,12 @@ if.then71:                                        ; preds = %if.else66
 if.else78:                                        ; preds = %if.else66
   %call79 = call i32 @exr_attr_preview_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %21) #6
   %38 = load ptr, ptr %attr, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %val, align 8
-  %height81 = getelementptr inbounds i8, ptr %val, i64 4
+  %height81 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %42 = load i32, ptr %height81, align 4
-  %rgba82 = getelementptr inbounds i8, ptr %val, i64 16
+  %rgba82 = getelementptr inbounds nuw i8, ptr %val, i64 16
   %43 = load ptr, ptr %rgba82, align 8
   %call83 = call i32 @exr_attr_preview_create(ptr noundef nonnull %ctxt, ptr noundef %40, i32 noundef %41, i32 noundef %42, ptr noundef %43) #6
   br label %if.end87
@@ -9390,7 +9390,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -9399,7 +9399,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -9410,21 +9410,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -9440,18 +9440,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.76) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -9462,13 +9462,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 18
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -9479,16 +9479,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.77, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -9503,18 +9503,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 1
   store i64 %20, ptr %out, align 1
@@ -9523,7 +9523,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -9541,20 +9541,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -9568,25 +9568,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -9604,17 +9604,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 18
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.77, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -9634,7 +9634,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.78) #6
   br label %return
@@ -9649,7 +9649,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %val, align 1
   store i64 %17, ptr %16, align 1
@@ -9678,7 +9678,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -9687,7 +9687,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -9698,21 +9698,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i32 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i32 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i32) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -9728,18 +9728,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i34 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i34 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i34) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.79) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -9750,13 +9750,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 19
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -9767,16 +9767,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.80, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -9786,7 +9786,7 @@ if.end54:                                         ; preds = %if.end41
   br i1 %tobool55.not, label %if.end58, label %if.then56
 
 if.then56:                                        ; preds = %if.end54
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %length, align 4
@@ -9797,9 +9797,9 @@ if.end58:                                         ; preds = %if.then56, %if.end5
   br i1 %tobool59.not, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %20 = load ptr, ptr %19, align 8
-  %str = getelementptr inbounds i8, ptr %20, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %str, align 8
   store ptr %21, ptr %out, align 8
   br label %if.end61
@@ -9810,7 +9810,7 @@ if.end61:                                         ; preds = %if.then60, %if.end5
   br i1 %cmp64, label %cond.true66, label %return
 
 cond.true66:                                      ; preds = %if.end61
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
@@ -9828,29 +9828,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool4.not = icmp eq ptr %name, null
   br i1 %tobool4.not, label %if.end17, label %land.lhs.true
@@ -9872,7 +9872,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true
 
 if.then14:                                        ; preds = %land.lhs.true11
   %call.i71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error15 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error15 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error15, align 8
   %call16 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.82) #6
   br label %return
@@ -9886,20 +9886,20 @@ if.end17:                                         ; preds = %if.end3, %land.lhs.
 
 if.then20:                                        ; preds = %if.end17
   %call.i73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call21 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then27:                                        ; preds = %if.end17
   %call.i75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error28 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error28 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error28, align 8
   %call29 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end30:                                         ; preds = %if.end17
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call31 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   %tobool32.not = icmp eq ptr %val, null
   br i1 %tobool32.not, label %if.end39, label %cond.end
@@ -9911,7 +9911,7 @@ cond.end:                                         ; preds = %if.end30
 
 if.then36:                                        ; preds = %cond.end
   %call.i77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error37 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error37 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %8 = load ptr, ptr %print_error37, align 8
   %call38 = call i32 (ptr, i32, ptr, ...) %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.83, i64 noundef %call33, ptr noundef %name) #6
   br label %return
@@ -9939,7 +9939,7 @@ if.end48:                                         ; preds = %if.then42
 
 if.then53:                                        ; preds = %if.end48
   %10 = load ptr, ptr %attr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %conv54 = trunc nuw nsw i64 %cond88 to i32
   %call55 = call i32 @exr_attr_string_create_with_length(ptr noundef nonnull %ctxt, ptr noundef %12, ptr noundef %val, i32 noundef %conv54) #6
@@ -9947,23 +9947,23 @@ if.then53:                                        ; preds = %if.end48
 
 if.then59:                                        ; preds = %if.end39
   %13 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %13, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %13, i64 20
   %14 = load i32, ptr %type, align 4
   %cmp60.not = icmp eq i32 %14, 19
   br i1 %cmp60.not, label %if.end65, label %if.then62
 
 if.then62:                                        ; preds = %if.then59
   %call.i81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error63 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error63 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %15 = load ptr, ptr %print_error63, align 8
   %16 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %16, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %type_name, align 8
   %call64 = call i32 (ptr, i32, ptr, ...) %15(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.84, ptr noundef %name, ptr noundef %17) #6
   br label %return
 
 if.end65:                                         ; preds = %if.then59
-  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %conv66 = trunc nuw nsw i64 %cond88 to i32
@@ -9971,7 +9971,7 @@ if.end65:                                         ; preds = %if.then59
   br i1 %cmp67, label %land.lhs.true69, label %if.else76
 
 land.lhs.true69:                                  ; preds = %if.end65
-  %alloc_size = getelementptr inbounds i8, ptr %19, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %alloc_size, align 4
   %cmp70 = icmp sgt i32 %21, 0
   br i1 %cmp70, label %if.then72, label %if.else76
@@ -9980,7 +9980,7 @@ if.then72:                                        ; preds = %land.lhs.true69
   br i1 %tobool32.not, label %if.end92, label %if.then74
 
 if.then74:                                        ; preds = %if.then72
-  %str = getelementptr inbounds i8, ptr %19, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %str, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %val, i64 %cond88, i1 false)
   br label %if.end92
@@ -9992,10 +9992,10 @@ if.else76:                                        ; preds = %land.lhs.true69, %i
 
 if.then81:                                        ; preds = %if.else76
   %call.i83 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error82 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error82 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %24 = load ptr, ptr %print_error82, align 8
   %25 = load ptr, ptr %attr, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %call85 = call i32 (ptr, i32, ptr, ...) %24(ptr noundef nonnull %ctxt, i32 noundef 20, ptr noundef nonnull @.str.85, ptr noundef %name, i32 noundef %28, i32 noundef %conv66) #6
@@ -10030,7 +10030,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -10039,7 +10039,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -10050,21 +10050,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -10080,18 +10080,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i48 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i48 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i48) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.86) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -10102,13 +10102,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i50 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i50 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i50) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 20
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -10119,16 +10119,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i52 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i52) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.87, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -10143,12 +10143,12 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i54 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i54 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i54) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %report_error64 = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %17 = load ptr, ptr %report_error64, align 8
   %call65 = call i32 %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.88) #6
   br label %return
@@ -10158,14 +10158,14 @@ if.end66:                                         ; preds = %if.end54
   br i1 %tobool67.not, label %if.end66.if.end90_crit_edge, label %if.then68
 
 if.end66.if.end90_crit_edge:                      ; preds = %if.end66
-  %.phi.trans.insert67 = getelementptr inbounds i8, ptr %10, i64 24
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8
   %.pre69 = load i32, ptr %.pre68, align 8
   br label %if.end90
 
 if.then68:                                        ; preds = %if.end66
   %18 = load i32, ptr %size, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %cmp69 = icmp slt i32 %18, %21
@@ -10181,11 +10181,11 @@ if.then71:                                        ; preds = %if.then68
   br i1 %cmp74, label %cond.true76, label %cond.end78
 
 cond.true76:                                      ; preds = %if.then71
-  %mutex.i56 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i56 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i57 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i56) #6
   %.pre63 = load i32, ptr %size, align 4
   %.pre64 = load ptr, ptr %attr, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre64, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre64, i64 24
   %.pre65 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre66 = load i32, ptr %.pre65, align 8
   br label %cond.end78
@@ -10193,7 +10193,7 @@ cond.true76:                                      ; preds = %if.then71
 cond.end78:                                       ; preds = %if.then71, %cond.true76
   %23 = phi i32 [ %21, %if.then71 ], [ %.pre66, %cond.true76 ]
   %24 = phi i32 [ %18, %if.then71 ], [ %.pre63, %cond.true76 ]
-  %print_error79 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error79 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %25 = load ptr, ptr %print_error79, align 8
   %call81 = call i32 (ptr, i32, ptr, ...) %25(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.89, ptr noundef nonnull %name, i32 noundef %24, i32 noundef %23) #6
   br label %return
@@ -10201,11 +10201,11 @@ cond.end78:                                       ; preds = %if.then71, %cond.tr
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %26 = phi ptr [ %29, %for.body ], [ %20, %for.cond.preheader ]
-  %strings = getelementptr inbounds i8, ptr %26, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load ptr, ptr %strings, align 8
-  %str = getelementptr inbounds %struct.exr_attr_string_t, ptr %27, i64 %indvars.iv, i32 2
+  %str = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %27, i64 %indvars.iv, i32 2
   %28 = load ptr, ptr %str, align 8
-  %arrayidx89 = getelementptr inbounds ptr, ptr %out, i64 %indvars.iv
+  %arrayidx89 = getelementptr inbounds nuw ptr, ptr %out, i64 %indvars.iv
   store ptr %28, ptr %arrayidx89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load ptr, ptr %19, align 8
@@ -10222,7 +10222,7 @@ if.end90:                                         ; preds = %for.body, %if.end66
   br i1 %cmp94, label %cond.true96, label %return
 
 cond.true96:                                      ; preds = %if.end90
-  %mutex.i58 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i58 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i58) #6
   br label %return
 
@@ -10240,29 +10240,29 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %2 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i8, ptr %ctxt, align 8
   switch i8 %4, label %if.end16 [
@@ -10272,14 +10272,14 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i102 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
@@ -10290,7 +10290,7 @@ if.end16:                                         ; preds = %if.end3
 
 if.then19:                                        ; preds = %if.end16
   %call.i104 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error20 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error20 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error20, align 8
   %call21 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.90, i32 noundef %size, ptr noundef %name) #6
   br label %return
@@ -10301,13 +10301,13 @@ if.end22:                                         ; preds = %if.end16
 
 if.then24:                                        ; preds = %if.end22
   %call.i106 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error25 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error25 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %8 = load ptr, ptr %print_error25, align 8
   %call26 = tail call i32 (ptr, i32, ptr, ...) %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.91, ptr noundef %name) #6
   br label %return
 
 if.end27:                                         ; preds = %if.end22
-  %attributes = getelementptr inbounds i8, ptr %3, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %3, i64 8
   %call28 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call28, label %if.end156 [
     i32 15, label %if.then31
@@ -10330,7 +10330,7 @@ if.end37:                                         ; preds = %if.then31
 
 if.end44:                                         ; preds = %if.end37
   %10 = load ptr, ptr %attr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %call43 = call i32 @exr_attr_string_vector_init(ptr noundef nonnull %ctxt, ptr noundef %12, i32 noundef %size) #6
   %cmp45135 = icmp eq i32 %call43, 0
@@ -10345,9 +10345,9 @@ for.body.preheader:                               ; preds = %if.end44
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv154 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next155, %for.body ]
   %15 = load ptr, ptr %attr, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %arrayidx50 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv154
+  %arrayidx50 = getelementptr inbounds nuw ptr, ptr %val, i64 %indvars.iv154
   %18 = load ptr, ptr %arrayidx50, align 8
   %19 = trunc nuw nsw i64 %indvars.iv154 to i32
   %call51 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %17, i32 noundef %19, ptr noundef %18) #6
@@ -10359,30 +10359,30 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then54:                                        ; preds = %if.end27
   %21 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %21, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %21, i64 20
   %22 = load i32, ptr %type, align 4
   %cmp55.not = icmp eq i32 %22, 20
   br i1 %cmp55.not, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %if.then54
   %call.i110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error58 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error58 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %23 = load ptr, ptr %print_error58, align 8
   %24 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %24, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load ptr, ptr %type_name, align 8
   %call59 = call i32 (ptr, i32, ptr, ...) %23(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.92, ptr noundef %name, ptr noundef %25) #6
   br label %return
 
 if.end60:                                         ; preds = %if.then54
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %cmp61 = icmp eq i32 %28, %size
   br i1 %cmp61, label %land.lhs.true, label %if.else128
 
 land.lhs.true:                                    ; preds = %if.end60
-  %alloc_size = getelementptr inbounds i8, ptr %27, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %alloc_size, align 4
   %cmp63 = icmp sgt i32 %29, 0
   br i1 %cmp63, label %if.then65, label %if.else128
@@ -10409,14 +10409,14 @@ for.body120.preheader:                            ; preds = %for.cond113.prehead
 
 for.body79:                                       ; preds = %for.body79.preheader, %if.end103
   %indvars.iv148 = phi i64 [ 0, %for.body79.preheader ], [ %indvars.iv.next149, %if.end103 ]
-  %arrayidx81 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv148
+  %arrayidx81 = getelementptr inbounds nuw ptr, ptr %val, i64 %indvars.iv148
   %33 = load ptr, ptr %arrayidx81, align 8
   %tobool82.not = icmp eq ptr %33, null
   br i1 %tobool82.not, label %if.then83, label %if.end86
 
 if.then83:                                        ; preds = %for.body79
   %call.i112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error84 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error84 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %34 = load ptr, ptr %print_error84, align 8
   %call85 = call i32 (ptr, i32, ptr, ...) %34(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.93, ptr noundef %name) #6
   br label %return
@@ -10424,11 +10424,11 @@ if.then83:                                        ; preds = %for.body79
 if.end86:                                         ; preds = %for.body79
   %call89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #7
   %35 = load ptr, ptr %attr, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  %strings = getelementptr inbounds i8, ptr %37, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = load ptr, ptr %strings, align 8
-  %arrayidx91 = getelementptr inbounds %struct.exr_attr_string_t, ptr %38, i64 %indvars.iv148
+  %arrayidx91 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %38, i64 %indvars.iv148
   %39 = load i32, ptr %arrayidx91, align 8
   %conv92 = sext i32 %39 to i64
   %cmp93.not = icmp eq i64 %call89, %conv92
@@ -10437,14 +10437,14 @@ if.end86:                                         ; preds = %for.body79
 if.then95:                                        ; preds = %if.end86
   %40 = trunc nuw nsw i64 %indvars.iv148 to i32
   %call.i114 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error96 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error96 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %41 = load ptr, ptr %print_error96, align 8
   %42 = load ptr, ptr %attr, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
-  %strings97 = getelementptr inbounds i8, ptr %44, i64 8
+  %strings97 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %45 = load ptr, ptr %strings97, align 8
-  %arrayidx99 = getelementptr inbounds %struct.exr_attr_string_t, ptr %45, i64 %indvars.iv148
+  %arrayidx99 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %45, i64 %indvars.iv148
   %46 = load i32, ptr %arrayidx99, align 8
   %conv101 = trunc i64 %call89 to i32
   %call102 = call i32 (ptr, i32, ptr, ...) %41(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.94, ptr noundef %name, i32 noundef %40, i32 noundef %46, i32 noundef %conv101) #6
@@ -10463,9 +10463,9 @@ if.end103:                                        ; preds = %if.end86
 for.body120:                                      ; preds = %for.body120.preheader, %for.body120
   %indvars.iv151 = phi i64 [ 0, %for.body120.preheader ], [ %indvars.iv.next152, %for.body120 ]
   %49 = load ptr, ptr %attr, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
-  %arrayidx122 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv151
+  %arrayidx122 = getelementptr inbounds nuw ptr, ptr %val, i64 %indvars.iv151
   %52 = load ptr, ptr %arrayidx122, align 8
   %53 = trunc nuw nsw i64 %indvars.iv151 to i32
   %call123 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %51, i32 noundef %53, ptr noundef %52) #6
@@ -10490,10 +10490,10 @@ for.body146.preheader:                            ; preds = %for.cond139.prehead
 
 if.then133:                                       ; preds = %if.else128
   %call.i116 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error134 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error134 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %57 = load ptr, ptr %print_error134, align 8
   %58 = load ptr, ptr %attr, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
   %call136 = call i32 (ptr, i32, ptr, ...) %57(ptr noundef nonnull %ctxt, i32 noundef 20, ptr noundef nonnull @.str.95, ptr noundef %name, i32 noundef %61, i32 noundef %size) #6
@@ -10502,9 +10502,9 @@ if.then133:                                       ; preds = %if.else128
 for.body146:                                      ; preds = %for.body146.preheader, %for.body146
   %indvars.iv = phi i64 [ 0, %for.body146.preheader ], [ %indvars.iv.next, %for.body146 ]
   %62 = load ptr, ptr %attr, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  %arrayidx148 = getelementptr inbounds ptr, ptr %val, i64 %indvars.iv
+  %arrayidx148 = getelementptr inbounds nuw ptr, ptr %val, i64 %indvars.iv
   %65 = load ptr, ptr %arrayidx148, align 8
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %call149 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %ctxt, ptr noundef %64, i32 noundef %66, ptr noundef %65) #6
@@ -10543,7 +10543,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -10552,7 +10552,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -10563,21 +10563,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -10593,18 +10593,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.96) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -10615,13 +10615,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 21
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -10632,16 +10632,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.97, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -10656,18 +10656,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %out, ptr noundef nonnull align 1 dereferenceable(9) %19, i64 9, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -10675,7 +10675,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -10702,9 +10702,9 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then
   %0 = load i32, ptr %val, align 1
-  %y_size = getelementptr inbounds i8, ptr %val, i64 4
+  %y_size = getelementptr inbounds nuw i8, ptr %val, i64 4
   %1 = load i32, ptr %y_size, align 1
-  %level_and_round = getelementptr inbounds i8, ptr %val, i64 8
+  %level_and_round = getelementptr inbounds nuw i8, ptr %val, i64 8
   %2 = load i8, ptr %level_and_round, align 1
   %conv = zext i8 %2 to i32
   %and = and i32 %conv, 15
@@ -10718,20 +10718,20 @@ if.end7:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp11 = icmp slt i32 %part_index, 0
   br i1 %cmp11, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %3 = load i32, ptr %num_parts, align 4
   %cmp13.not = icmp slt i32 %part_index, %3
   br i1 %cmp13.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false, %if.end10
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error, align 8
   %call16 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -10745,25 +10745,25 @@ if.end17:                                         ; preds = %lor.lhs.false
 
 if.then21:                                        ; preds = %if.end17
   %call.i52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error, align 8
   %call22 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then28:                                        ; preds = %if.end17
   %call.i54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error29 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error29 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %7 = load ptr, ptr %standard_error29, align 8
   %call30 = tail call i32 %7(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end31:                                         ; preds = %if.end17
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %8 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %9, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %9, i64 8
   %call32 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call32, label %if.else53 [
     i32 15, label %if.then35
@@ -10781,17 +10781,17 @@ if.then40:                                        ; preds = %if.then35
 
 if.then46:                                        ; preds = %if.end31
   %11 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %11, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %11, i64 20
   %12 = load i32, ptr %type, align 4
   %cmp47.not = icmp eq i32 %12, 21
   br i1 %cmp47.not, label %if.end55.thread, label %if.then49
 
 if.then49:                                        ; preds = %if.then46
   %call.i58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error50 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error50 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error50, align 8
   %14 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %14, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call51 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.97, ptr noundef %name, ptr noundef %15) #6
   br label %return
@@ -10811,7 +10811,7 @@ if.end55.thread:                                  ; preds = %if.then46
 
 if.then57:                                        ; preds = %if.end55.thread, %if.end55
   %call.i62 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error58 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error58 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %16 = load ptr, ptr %print_error58, align 8
   %call59 = call i32 (ptr, i32, ptr, ...) %16(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.98) #6
   br label %return
@@ -10826,7 +10826,7 @@ if.end60.if.then63_crit_edge:                     ; preds = %if.end60
 
 if.then63:                                        ; preds = %if.end60.if.then63_crit_edge, %if.end55.thread
   %17 = phi ptr [ %.pre, %if.end60.if.then63_crit_edge ], [ %11, %if.end55.thread ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %19, ptr noundef nonnull align 1 dereferenceable(9) %val, i64 9, i1 false)
   br label %if.end64
@@ -10854,7 +10854,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -10863,7 +10863,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -10874,21 +10874,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -10904,18 +10904,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.99) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -10926,13 +10926,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 22
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -10943,16 +10943,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.100, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -10967,18 +10967,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 1
   store i64 %20, ptr %out, align 1
@@ -10987,7 +10987,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -11005,20 +11005,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -11032,25 +11032,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -11068,17 +11068,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 22
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.100, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -11098,7 +11098,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.101) #6
   br label %return
@@ -11113,7 +11113,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %val, align 1
   store i64 %17, ptr %16, align 1
@@ -11142,7 +11142,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -11151,7 +11151,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -11162,21 +11162,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -11192,18 +11192,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.102) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -11214,13 +11214,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 23
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -11231,16 +11231,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.103, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -11255,18 +11255,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 1
   store i64 %20, ptr %out, align 1
@@ -11275,7 +11275,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -11293,20 +11293,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -11320,25 +11320,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -11356,17 +11356,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 23
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.103, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -11386,7 +11386,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.104) #6
   br label %return
@@ -11401,7 +11401,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %val, align 1
   store i64 %17, ptr %16, align 1
@@ -11430,7 +11430,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -11439,7 +11439,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -11450,21 +11450,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -11480,18 +11480,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.105) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -11502,13 +11502,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 24
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -11519,16 +11519,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.106, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -11543,18 +11543,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 1
   store i64 %20, ptr %out, align 1
@@ -11563,7 +11563,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -11594,20 +11594,20 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp5 = icmp slt i32 %part_index, 0
   br i1 %cmp5, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %0
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end4
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call8 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -11621,25 +11621,25 @@ if.end9:                                          ; preds = %lor.lhs.false
 
 if.then12:                                        ; preds = %if.end9
   %call.i48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call13 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then19:                                        ; preds = %if.end9
   %call.i50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error20 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error20 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error20, align 8
   %call21 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end22:                                         ; preds = %if.end9
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call23 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call23, label %if.else44 [
     i32 15, label %if.then26
@@ -11657,17 +11657,17 @@ if.then31:                                        ; preds = %if.then26
 
 if.then37:                                        ; preds = %if.end22
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp38.not = icmp eq i32 %9, 24
   br i1 %cmp38.not, label %if.end46.thread, label %if.then40
 
 if.then40:                                        ; preds = %if.then37
   %call.i54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error41 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error41 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error41, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call42 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.106, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -11687,7 +11687,7 @@ if.end46.thread:                                  ; preds = %if.then37
 
 if.then48:                                        ; preds = %if.end46.thread, %if.end46
   %call.i58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error49 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error49 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error49, align 8
   %call50 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.107) #6
   br label %return
@@ -11702,7 +11702,7 @@ if.end51.if.then54_crit_edge:                     ; preds = %if.end51
 
 if.then54:                                        ; preds = %if.end51.if.then54_crit_edge, %if.end46.thread
   %14 = phi ptr [ %.pre, %if.end51.if.then54_crit_edge ], [ %8, %if.end46.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %val, align 1
   store i64 %17, ptr %16, align 1
@@ -11731,7 +11731,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -11740,7 +11740,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -11751,21 +11751,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -11781,18 +11781,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.108) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -11803,13 +11803,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 25
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -11820,16 +11820,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.109, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -11844,18 +11844,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out, ptr noundef nonnull align 1 dereferenceable(16) %19, i64 16, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -11863,7 +11863,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -11881,20 +11881,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -11908,25 +11908,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -11944,17 +11944,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 25
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.109, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -11974,7 +11974,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.110) #6
   br label %return
@@ -11989,7 +11989,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %val, i64 16, i1 false)
   br label %if.end49
@@ -12017,7 +12017,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -12026,7 +12026,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -12037,21 +12037,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -12067,18 +12067,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.111) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -12089,13 +12089,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 26
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -12106,16 +12106,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.112, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -12130,18 +12130,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %out, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -12149,7 +12149,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -12167,20 +12167,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -12194,25 +12194,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -12230,17 +12230,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 26
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.112, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -12260,7 +12260,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.113) #6
   br label %return
@@ -12275,7 +12275,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %16, ptr noundef nonnull align 1 dereferenceable(12) %val, i64 12, i1 false)
   br label %if.end49
@@ -12303,7 +12303,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -12312,7 +12312,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -12323,21 +12323,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -12353,18 +12353,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.114) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -12375,13 +12375,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 27
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -12392,16 +12392,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.115, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -12416,18 +12416,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %out, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -12435,7 +12435,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -12453,20 +12453,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -12480,25 +12480,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -12516,17 +12516,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 27
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.115, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -12546,7 +12546,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.116) #6
   br label %return
@@ -12561,7 +12561,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %16, ptr noundef nonnull align 1 dereferenceable(12) %val, i64 12, i1 false)
   br label %if.end49
@@ -12589,7 +12589,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -12598,7 +12598,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -12609,21 +12609,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i36 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i36) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -12639,18 +12639,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.117) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -12661,13 +12661,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %10, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type, align 4
   %cmp42.not = icmp eq i32 %11, 28
   br i1 %cmp42.not, label %if.end54, label %if.then44
@@ -12678,16 +12678,16 @@ if.then44:                                        ; preds = %if.end41
   br i1 %cmp47, label %cond.true49, label %cond.end51
 
 cond.true49:                                      ; preds = %if.then44
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end51
 
 cond.end51:                                       ; preds = %if.then44, %cond.true49
   %13 = phi ptr [ %10, %if.then44 ], [ %.pre, %cond.true49 ]
-  %print_error52 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error52 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error52, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call53 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.118, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -12702,18 +12702,18 @@ if.then56:                                        ; preds = %if.end54
   br i1 %cmp59, label %cond.true61, label %cond.end63
 
 cond.true61:                                      ; preds = %if.then56
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   br label %cond.end63
 
 cond.end63:                                       ; preds = %if.then56, %cond.true61
-  %print_error64 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error64 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %17 = load ptr, ptr %print_error64, align 8
   %call65 = call i32 (ptr, i32, ptr, ...) %17(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #6
   br label %return
 
 if.end66:                                         ; preds = %if.end54
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %out, ptr noundef nonnull align 1 dereferenceable(24) %19, i64 24, i1 false)
   %20 = load i8, ptr %ctxt, align 8
@@ -12721,7 +12721,7 @@ if.end66:                                         ; preds = %if.end54
   br i1 %cmp69, label %cond.true71, label %return
 
 cond.true71:                                      ; preds = %if.end66
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -12739,20 +12739,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -12766,25 +12766,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else38 [
     i32 15, label %if.then20
@@ -12802,17 +12802,17 @@ if.then25:                                        ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type = getelementptr inbounds i8, ptr %8, i64 20
+  %type = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type, align 4
   %cmp32.not = icmp eq i32 %9, 28
   br i1 %cmp32.not, label %if.end40.thread, label %if.then34
 
 if.then34:                                        ; preds = %if.then31
   %call.i49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error35 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error35 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error35, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call36 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.118, ptr noundef %name, ptr noundef %12) #6
   br label %return
@@ -12832,7 +12832,7 @@ if.end40.thread:                                  ; preds = %if.then31
 
 if.then42:                                        ; preds = %if.end40.thread, %if.end40
   %call.i53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error43 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error43 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %13 = load ptr, ptr %print_error43, align 8
   %call44 = call i32 (ptr, i32, ptr, ...) %13(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %name, ptr noundef nonnull @.str.119) #6
   br label %return
@@ -12847,7 +12847,7 @@ if.end45.if.then48_crit_edge:                     ; preds = %if.end45
 
 if.then48:                                        ; preds = %if.end45.if.then48_crit_edge, %if.end40.thread
   %14 = phi ptr [ %.pre, %if.end45.if.then48_crit_edge ], [ %8, %if.end40.thread ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %16, ptr noundef nonnull align 1 dereferenceable(24) %val, i64 24, i1 false)
   br label %if.end49
@@ -12875,7 +12875,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   br label %if.end3
 
@@ -12884,7 +12884,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %1 = load i32, ptr %num_parts, align 4
   %cmp6.not = icmp slt i32 %part_index, %1
   br i1 %cmp6.not, label %if.end13, label %if.then8
@@ -12895,21 +12895,21 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then8
-  %mutex.i38 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i38 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i38) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then8, %cond.true
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %4 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %tobool14.not = icmp eq ptr %name, null
   br i1 %tobool14.not, label %if.then20, label %lor.lhs.false15
@@ -12925,18 +12925,18 @@ if.then20:                                        ; preds = %lor.lhs.false15, %i
   br i1 %cmp23, label %cond.true25, label %cond.end27
 
 cond.true25:                                      ; preds = %if.then20
-  %mutex.i40 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i40 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i40) #6
   br label %cond.end27
 
 cond.end27:                                       ; preds = %if.then20, %cond.true25
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %8 = load ptr, ptr %report_error, align 8
   %call28 = tail call i32 %8(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.120) #6
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false15
-  %attributes = getelementptr inbounds i8, ptr %5, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call30 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef nonnull %name, ptr noundef nonnull %attr) #6
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end41, label %if.then33
@@ -12947,13 +12947,13 @@ if.then33:                                        ; preds = %if.end29
   br i1 %cmp36, label %cond.true38, label %return
 
 cond.true38:                                      ; preds = %if.then33
-  %mutex.i42 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i42 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i42) #6
   br label %return
 
 if.end41:                                         ; preds = %if.end29
   %10 = load ptr, ptr %attr, align 8
-  %type42 = getelementptr inbounds i8, ptr %10, i64 20
+  %type42 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %11 = load i32, ptr %type42, align 4
   %cmp43.not = icmp eq i32 %11, 29
   br i1 %cmp43.not, label %if.then58, label %if.then45
@@ -12964,16 +12964,16 @@ if.then45:                                        ; preds = %if.end41
   br i1 %cmp48, label %cond.true50, label %cond.end52
 
 cond.true50:                                      ; preds = %if.then45
-  %mutex.i44 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i44 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i44) #6
   %.pre = load ptr, ptr %attr, align 8
   br label %cond.end52
 
 cond.end52:                                       ; preds = %if.then45, %cond.true50
   %13 = phi ptr [ %10, %if.then45 ], [ %.pre, %cond.true50 ]
-  %print_error53 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error53 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %14 = load ptr, ptr %print_error53, align 8
-  %type_name = getelementptr inbounds i8, ptr %13, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %type_name, align 8
   %call54 = call i32 (ptr, i32, ptr, ...) %14(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.121, ptr noundef nonnull %name, ptr noundef %15) #6
   br label %return
@@ -12983,15 +12983,15 @@ if.then58:                                        ; preds = %if.end41
   br i1 %tobool59.not, label %if.end62, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
-  %type_name61 = getelementptr inbounds i8, ptr %10, i64 8
+  %type_name61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %type_name61, align 8
   store ptr %16, ptr %type, align 8
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then60, %if.then58
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %18 = load ptr, ptr %17, align 8
-  %pack_func_ptr = getelementptr inbounds i8, ptr %18, i64 40
+  %pack_func_ptr = getelementptr inbounds nuw i8, ptr %18, i64 40
   %19 = load ptr, ptr %pack_func_ptr, align 8
   %tobool63.not = icmp eq ptr %19, null
   %tobool71.not = icmp eq ptr %size, null
@@ -13001,7 +13001,7 @@ if.then64:                                        ; preds = %if.end62
   br i1 %tobool71.not, label %if.end67, label %if.then66
 
 if.then66:                                        ; preds = %if.then64
-  %unpacked_size = getelementptr inbounds i8, ptr %18, i64 4
+  %unpacked_size = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %unpacked_size, align 4
   store i32 %20, ptr %size, align 4
   br label %if.end67
@@ -13014,7 +13014,7 @@ if.else:                                          ; preds = %if.end62
   br i1 %tobool71.not, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %if.else
-  %packed_alloc_size = getelementptr inbounds i8, ptr %18, i64 8
+  %packed_alloc_size = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %packed_alloc_size, align 8
   store i32 %21, ptr %size, align 4
   br label %if.end73
@@ -13026,7 +13026,7 @@ if.end73:                                         ; preds = %if.then72, %if.else
 if.end78.sink.split:                              ; preds = %if.end73, %if.end67
   %.sink48 = phi i64 [ 24, %if.end67 ], [ 16, %if.end73 ]
   %22 = load ptr, ptr %17, align 8
-  %unpacked_data = getelementptr inbounds i8, ptr %22, i64 %.sink48
+  %unpacked_data = getelementptr inbounds nuw i8, ptr %22, i64 %.sink48
   %23 = load ptr, ptr %unpacked_data, align 8
   store ptr %23, ptr %out, align 8
   br label %if.end78
@@ -13037,7 +13037,7 @@ if.end78:                                         ; preds = %if.end78.sink.split
   br i1 %cmp81, label %cond.true83, label %return
 
 cond.true83:                                      ; preds = %if.end78
-  %mutex.i46 = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i46 = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i46) #6
   br label %return
 
@@ -13055,20 +13055,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %ctxt, i64 504
+  %mutex.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 504
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex.i) #6
   %cmp = icmp slt i32 %part_index, 0
   br i1 %cmp, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
+  %num_parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
   %cmp1.not = icmp slt i32 %part_index, %0
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %call.i42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %part_index) #6
   br label %return
@@ -13082,25 +13082,25 @@ if.end3:                                          ; preds = %lor.lhs.false
 
 if.then6:                                         ; preds = %if.end3
   %call.i44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call7 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 8) #6
   br label %return
 
 if.then13:                                        ; preds = %if.end3
   %call.i46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %standard_error14 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error14, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 21) #6
   br label %return
 
 if.end16:                                         ; preds = %if.end3
-  %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
+  %parts = getelementptr inbounds nuw i8, ptr %ctxt, i64 472
   %5 = load ptr, ptr %parts, align 8
   %idxprom = zext nneg i32 %part_index to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %attributes = getelementptr inbounds i8, ptr %6, i64 8
+  %attributes = getelementptr inbounds nuw i8, ptr %6, i64 8
   %call17 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %ctxt, ptr noundef nonnull %attributes, ptr noundef %name, ptr noundef nonnull %attr) #6
   switch i32 %call17, label %if.else39 [
     i32 15, label %if.then20
@@ -13123,17 +13123,17 @@ if.end26:                                         ; preds = %if.then20
 
 if.then31:                                        ; preds = %if.end16
   %8 = load ptr, ptr %attr, align 8
-  %type32 = getelementptr inbounds i8, ptr %8, i64 20
+  %type32 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %9 = load i32, ptr %type32, align 4
   %cmp33.not = icmp eq i32 %9, 29
   br i1 %cmp33.not, label %if.end41, label %if.then35
 
 if.then35:                                        ; preds = %if.then31
   %call.i50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex.i) #6
-  %print_error36 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error36 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %10 = load ptr, ptr %print_error36, align 8
   %11 = load ptr, ptr %attr, align 8
-  %type_name = getelementptr inbounds i8, ptr %11, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %type_name, align 8
   %call37 = call i32 (ptr, i32, ptr, ...) %10(ptr noundef nonnull %ctxt, i32 noundef 16, ptr noundef nonnull @.str.122, ptr noundef %name, ptr noundef %type, ptr noundef %12) #6
   br label %return
@@ -13144,9 +13144,9 @@ if.else39:                                        ; preds = %if.end16
 
 if.end41:                                         ; preds = %if.then31, %if.end26
   %13 = phi ptr [ %8, %if.then31 ], [ %.pre, %if.end26 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %pack_func_ptr = getelementptr inbounds i8, ptr %15, i64 40
+  %pack_func_ptr = getelementptr inbounds nuw i8, ptr %15, i64 40
   %16 = load ptr, ptr %pack_func_ptr, align 8
   %tobool42.not = icmp eq ptr %16, null
   br i1 %tobool42.not, label %if.else50, label %if.then43
@@ -13158,7 +13158,7 @@ if.then43:                                        ; preds = %if.end41
 
 if.then47:                                        ; preds = %if.then43
   %17 = load ptr, ptr %attr, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %call48 = call i32 @exr_attr_opaquedata_pack(ptr noundef nonnull %ctxt, ptr noundef %19, ptr noundef null, ptr noundef null) #6
   br label %if.end52

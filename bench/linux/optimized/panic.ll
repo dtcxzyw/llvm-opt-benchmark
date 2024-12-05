@@ -621,7 +621,7 @@ define dso_local noundef ptr @print_tainted() local_unnamed_addr #2 align 16 {
   tail call void @llvm.assume(i1 %9)
   %10 = xor i8 %8, 1
   %11 = zext nneg i8 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = getelementptr i8, ptr %6, i64 1
   store i8 %13, ptr %6, align 1
@@ -782,7 +782,7 @@ define dso_local void @__warn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #18
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1320
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1320
   %12 = load i32, ptr %11, align 8
   br i1 %7, label %15, label %13
 
@@ -800,8 +800,8 @@ define dso_local void @__warn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  %22 = tail call i32 @vprintk(ptr noundef %20, ptr noundef %21) #18
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = tail call i32 @vprintk(ptr noundef %20, ptr noundef nonnull %21) #18
   br label %23
 
 23:                                               ; preds = %19, %17
@@ -879,7 +879,7 @@ define dso_local void @__warn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @__SCT__tp_func_error_report_end(ptr noundef %62, i32 noundef 2, i64 noundef %50) #18
   br label %64

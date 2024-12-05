@@ -46,7 +46,7 @@ define void @php_network_freeaddresses(ptr noundef %0) local_unnamed_addr #0 {
   %4 = phi ptr [ %6, %.lr.ph ], [ %3, %.preheader ]
   %.09 = phi ptr [ %5, %.lr.ph ], [ %0, %.preheader ]
   tail call void @_efree(ptr noundef nonnull %4) #19
-  %5 = getelementptr inbounds i8, ptr %.09, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -70,8 +70,8 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
 
 8:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %10, align 8
   %11 = load i32, ptr @php_network_getaddresses.ipv6_borked, align 4
   %12 = icmp eq i32 %11, -1
@@ -116,7 +116,7 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
   br i1 %.not108, label %36, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 64
   %.not109 = icmp eq i32 %29, 0
@@ -139,7 +139,7 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
   %37 = call ptr @gai_strerror(i32 noundef %22) #19
   %38 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %37) #19
   store ptr %38, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %39) #19
   br label %85
 
@@ -163,7 +163,7 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
   br i1 %.not105, label %58, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 64
   %.not106 = icmp eq i32 %51, 0
@@ -187,7 +187,7 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
   %60 = load i32, ptr %59, align 4
   %61 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i32 noundef %60) #19
   store ptr %61, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %62) #19
   br label %85
 
@@ -198,7 +198,7 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
 .preheader:                                       ; preds = %42, %.preheader
   %.086 = phi i32 [ %66, %.preheader ], [ 1, %42 ]
   %.085 = phi ptr [ %65, %.preheader ], [ %43, %42 ]
-  %64 = getelementptr inbounds i8, ptr %.085, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.085, i64 40
   %65 = load ptr, ptr %64, align 8
   %.not102 = icmp eq ptr %65, null
   %66 = add nuw nsw i32 %.086, 1
@@ -214,18 +214,18 @@ define i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, ptr nocaptu
 71:                                               ; preds = %71, %67
   %.087 = phi ptr [ %69, %67 ], [ %80, %71 ]
   %.1 = phi ptr [ %70, %67 ], [ %82, %71 ]
-  %72 = getelementptr inbounds i8, ptr %.1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
   %75 = call noalias ptr @_emalloc(i64 noundef %74) #21
   store ptr %75, ptr %.087, align 8
-  %76 = getelementptr inbounds i8, ptr %.1, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %72, align 8
   %79 = zext i32 %78 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %75, ptr align 2 %77, i64 %79, i1 false)
-  %80 = getelementptr inbounds i8, ptr %.087, i64 8
-  %81 = getelementptr inbounds i8, ptr %.1, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %.087, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %82 = load ptr, ptr %81, align 8
   %.not103 = icmp eq ptr %82, null
   br i1 %.not103, label %83, label %71
@@ -313,13 +313,13 @@ php_socket_error_str.exit:                        ; preds = %20
   %24 = add i64 %23, 32
   %25 = tail call noalias ptr @_emalloc(i64 noundef %24) #21
   store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 22, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %22, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %21, i64 %22, i1 false)
   %30 = getelementptr inbounds [1 x i8], ptr %29, i64 0, i64 %22
   store i8 0, ptr %30, align 1
@@ -332,9 +332,9 @@ php_socket_error_str.exit:                        ; preds = %20
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i32 %0, ptr %8, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 29, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 0, ptr %34, align 2
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %php_pollfd_for.exit, label %35
@@ -342,7 +342,7 @@ php_socket_error_str.exit:                        ; preds = %20
 35:                                               ; preds = %32
   %36 = load i64, ptr %4, align 8
   %37 = mul nsw i64 %36, 1000
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = sdiv i64 %39, 1000
   %41 = add nsw i64 %40, %37
@@ -409,13 +409,13 @@ php_socket_error_str.exit41:                      ; preds = %56
   %60 = add i64 %59, 32
   %61 = call noalias ptr @_emalloc(i64 noundef %60) #21
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 22, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %58, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
@@ -444,13 +444,13 @@ define noalias noundef ptr @php_socket_error_str(i64 noundef %0) local_unnamed_a
   %6 = add i64 %5, 32
   %7 = tail call noalias ptr @_emalloc(i64 noundef %6) #21
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 1 %3, i64 %4, i1 false)
   %12 = getelementptr inbounds [1 x i8], ptr %11, i64 0, i64 %4
   store i8 0, ptr %12, align 1
@@ -507,7 +507,7 @@ define i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 noundef %1
 27:                                               ; preds = %23, %26
   %.037 = phi i32 [ 16, %26 ], [ 28, %23 ]
   %28 = call zeroext i16 @htons(i16 noundef zeroext %15) #20
-  %29 = getelementptr inbounds i8, ptr %24, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i16 %28, ptr %29, align 2
   %30 = zext nneg i16 %25 to i32
   %31 = call i32 @socket(i32 noundef %30, i32 noundef %2, i32 noundef 0) #19
@@ -557,7 +557,7 @@ define i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 noundef %1
 
 52:                                               ; preds = %27, %23, %48
   %.1 = phi i32 [ %.03855, %23 ], [ %.03855, %27 ], [ %50, %48 ]
-  %53 = getelementptr inbounds i8, ptr %.03954, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.03954, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %._crit_edge, label %23
@@ -582,13 +582,13 @@ php_socket_error_str.exit:                        ; preds = %56
   %60 = add i64 %59, 32
   %61 = call noalias ptr @_emalloc(i64 noundef %60) #21
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 22, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %58, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
@@ -605,7 +605,7 @@ php_socket_error_str.exit:                        ; preds = %56
   %68 = phi ptr [ %70, %.lr.ph.i ], [ %67, %.preheader.i ]
   %.09.i = phi ptr [ %69, %.lr.ph.i ], [ %13, %.preheader.i ]
   call void @_efree(ptr noundef nonnull %68) #19
-  %69 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -639,20 +639,20 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = add nsw i64 %1, -1
   %12 = tail call ptr @memchr(ptr noundef nonnull %10, i32 noundef 93, i64 noundef %11) #22
   %.not57 = icmp eq ptr %12, null
   br i1 %.not57, label %71, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %.not58 = icmp eq i8 %15, 58
   br i1 %.not58, label %16, label %71
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %12, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2
   br label %22
 
 18:                                               ; preds = %4
@@ -661,7 +661,7 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   br i1 %.not, label %71, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br label %22
 
 22:                                               ; preds = %20, %16
@@ -674,28 +674,28 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   %25 = ptrtoint ptr %.050 to i64
   %26 = sub i64 %24, %25
   %27 = tail call noalias ptr @_estrndup(ptr noundef nonnull %.050, i64 noundef %26) #19
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef %27, ptr noundef nonnull %28) #19
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %22
   %32 = tail call zeroext i16 @htons(i16 noundef zeroext %.052) #20
-  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %32, ptr %33, align 2
   store i16 10, ptr %2, align 4
   store i32 28, ptr %3, align 4
   br label %70
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %36 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef %27, ptr noundef nonnull %35) #19
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
   %39 = tail call zeroext i16 @htons(i16 noundef zeroext %.052) #20
-  %40 = getelementptr inbounds i8, ptr %2, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %39, ptr %40, align 2
   store i16 2, ptr %2, align 4
   store i32 16, ptr %3, align 4
@@ -712,10 +712,10 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   br i1 %.not59, label %70, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %27, ptr noundef nonnull %47) #19
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 64
   %.not60 = icmp eq i32 %51, 0
@@ -754,7 +754,7 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
 .preheader.i:                                     ; preds = %62, %63
   %storemerge = phi i32 [ 16, %63 ], [ 28, %62 ]
   %64 = call zeroext i16 @htons(i16 noundef zeroext %.052) #20
-  %65 = getelementptr inbounds i8, ptr %2, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %64, ptr %65, align 2
   store i32 %storemerge, ptr %3, align 4
   %.pr = load ptr, ptr %59, align 8
@@ -770,7 +770,7 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   %67 = phi ptr [ %69, %.lr.ph.i ], [ %66, %.lr.ph.i.preheader ]
   %.09.i = phi ptr [ %68, %.lr.ph.i ], [ %59, %.lr.ph.i.preheader ]
   call void @_efree(ptr noundef nonnull %67) #19
-  %68 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %php_network_freeaddresses.exit, label %.lr.ph.i
@@ -829,13 +829,13 @@ define void @php_network_populate_name_from_sockaddr(ptr noundef %0, i32 noundef
   ]
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %15, ptr noundef nonnull %6, i32 noundef 256) #19
   %.not182 = icmp eq ptr %16, null
   br i1 %.not182, label %58, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = call zeroext i16 @ntohs(i16 noundef zeroext %19) #20
   %21 = zext i16 %20 to i32
@@ -843,13 +843,13 @@ define void @php_network_populate_name_from_sockaddr(ptr noundef %0, i32 noundef
   br label %.sink.split
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %24, ptr noundef nonnull %6, i32 noundef 256) #19
   %.not181 = icmp eq ptr %25, null
   br i1 %.not181, label %58, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = call zeroext i16 @ntohs(i16 noundef zeroext %28) #20
   %30 = zext i16 %29 to i32
@@ -857,7 +857,7 @@ define void @php_network_populate_name_from_sockaddr(ptr noundef %0, i32 noundef
   br label %.sink.split
 
 32:                                               ; preds = %12
-  %33 = getelementptr inbounds i8, ptr %0, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %47
@@ -869,13 +869,13 @@ define void @php_network_populate_name_from_sockaddr(ptr noundef %0, i32 noundef
   %40 = add nsw i64 %39, 32
   %41 = tail call noalias ptr @_emalloc(i64 noundef %40) #21
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %38, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 1 %33, i64 %38, i1 false)
   %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %38
   store i8 0, ptr %46, align 1
@@ -889,13 +889,13 @@ define void @php_network_populate_name_from_sockaddr(ptr noundef %0, i32 noundef
   %51 = add nsw i64 %50, 32
   %52 = tail call noalias ptr @_emalloc(i64 noundef %51) #21
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 22, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 %49, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 1 %33, i64 %49, i1 false)
   %57 = getelementptr inbounds [1 x i8], ptr %56, i64 0, i64 %49
   store i8 0, ptr %57, align 1
@@ -974,9 +974,9 @@ define i32 @php_network_accept_incoming(i32 noundef %0, ptr noundef %1, ptr noun
   store i32 %7, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i32 %0, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i16 25, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i16 0, ptr %14, align 2
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %php_pollfd_for.exit, label %15
@@ -984,7 +984,7 @@ define i32 @php_network_accept_incoming(i32 noundef %0, ptr noundef %1, ptr noun
 15:                                               ; preds = %8
   %16 = load i64, ptr %4, align 8
   %17 = mul nsw i64 %16, 1000
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = sdiv i64 %19, 1000
   %21 = add nsw i64 %20, %17
@@ -1052,13 +1052,13 @@ php_socket_error_str.exit:                        ; preds = %42
   %46 = add i64 %45, 32
   %47 = call noalias ptr @_emalloc(i64 noundef %46) #21
   store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 22, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %44, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 1 %43, i64 %44, i1 false)
   %52 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 %44
   store i8 0, ptr %52, align 1
@@ -1096,9 +1096,9 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
   %25 = load i64, ptr %13, align 8
   %26 = add nsw i64 %25, %24
   store i64 %26, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = add nsw i64 %30, %28
   store i64 %31, ptr %29, align 8
@@ -1115,18 +1115,18 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
 36:                                               ; preds = %22, %33, %21
   %. = phi ptr [ %12, %22 ], [ %12, %33 ], [ null, %21 ]
   %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 2
-  %40 = getelementptr inbounds i8, ptr %15, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %41 = zext i16 %8 to i32
   %.not90 = icmp eq ptr %5, null
   %42 = and i64 %9, 4
   %.not93 = icmp eq i64 %42, 0
   %43 = and i64 %9, 32
   %.not94 = icmp eq i64 %43, 0
-  %44 = getelementptr inbounds i8, ptr %14, i64 8
-  %45 = getelementptr inbounds i8, ptr %13, i64 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %47 = load ptr, ptr %37, align 8
   %.not82102 = icmp eq ptr %47, null
   br i1 %.not82102, label %.critedge, label %.lr.ph
@@ -1152,13 +1152,13 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
 
 53:                                               ; preds = %51, %50
   %54 = call zeroext i16 @htons(i16 noundef zeroext %1) #20
-  %55 = getelementptr inbounds i8, ptr %48, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %54, ptr %55, align 2
   br label %.tail.thread
 
 56:                                               ; preds = %.lr.ph
   %57 = call zeroext i16 @htons(i16 noundef zeroext %1) #20
-  %58 = getelementptr inbounds i8, ptr %48, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %57, ptr %58, align 2
   %.not83 = icmp eq ptr %.06798103, null
   br i1 %.not83, label %.tail.thread, label %59
@@ -1174,7 +1174,7 @@ sub_0:                                            ; preds = %59
   br i1 %.not99, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %62 = getelementptr inbounds i8, ptr %.06798103, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.06798103, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %.tail.thread
@@ -1254,7 +1254,7 @@ sub_0:                                            ; preds = %59
   br i1 %.not91, label %108, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %96, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 64
   %.not92 = icmp eq i32 %100, 0
@@ -1355,7 +1355,7 @@ sub_times.exit:                                   ; preds = %136, %128, %116
 
 .backedge:                                        ; preds = %51, %.lr.ph, %.tail.thread, %sub_times.exit
   %.06798.be = phi ptr [ %.2, %sub_times.exit ], [ %.06798103, %.lr.ph ], [ %.2, %.tail.thread ], [ %.06798103, %51 ]
-  %141 = getelementptr inbounds i8, ptr %.06897104, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.06897104, i64 8
   %142 = load ptr, ptr %141, align 8
   %.not82 = icmp eq ptr %142, null
   br i1 %.not82, label %.critedge, label %.lr.ph
@@ -1375,7 +1375,7 @@ sub_times.exit:                                   ; preds = %136, %128, %116
   %146 = phi ptr [ %148, %.lr.ph.i ], [ %145, %.preheader.i ]
   %.09.i = phi ptr [ %147, %.lr.ph.i ], [ %143, %.preheader.i ]
   call void @_efree(ptr noundef nonnull %146) #19
-  %147 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %148 = load ptr, ptr %147, align 8
   %.not.i = icmp eq ptr %148, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1409,19 +1409,19 @@ define void @php_any_addr(i32 noundef %0, ptr nocapture noundef writeonly initia
 4:                                                ; preds = %3
   store i16 10, ptr %1, align 4
   %5 = tail call zeroext i16 @htons(i16 noundef zeroext %2) #20
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %5, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %13
 
 8:                                                ; preds = %3
   store i16 2, ptr %1, align 4
   %9 = tail call zeroext i16 @htons(i16 noundef zeroext %2) #20
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %9, ptr %10, align 2
   %11 = tail call i32 @htonl(i32 noundef 0) #20
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %11, ptr %12, align 4
   br label %13
 
@@ -1499,10 +1499,10 @@ define ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noundef %1) lo
 7:                                                ; preds = %5, %3
   %8 = phi ptr [ %4, %3 ], [ %6, %5 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 1, ptr %9, align 4
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %10, ptr %11, align 8
   store i32 %0, ptr %8, align 8
   %12 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_generic_socket_ops, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull @.str.10) #19
@@ -1521,7 +1521,7 @@ define ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noundef %1) lo
   br label %21
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %12, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 16
   store i32 %20, ptr %18, align 4

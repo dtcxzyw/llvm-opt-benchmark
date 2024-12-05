@@ -56,8 +56,8 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load volatile i32, ptr %21, align 8
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %._crit_edge, label %.lr.ph35
@@ -69,15 +69,15 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
 
 25:                                               ; preds = %._crit_edge
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %26, ptr %27, align 4
   %28 = load i32, ptr @ompi_status_empty, align 8
   store i32 %28, ptr %2, align 8
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %29, ptr %30, align 8
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %31, ptr %32, align 4
   br label %59
 
@@ -89,13 +89,13 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
 
 .split:                                           ; preds = %.lr.ph35
   store i32 1, ptr %1, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %.split
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = tail call i32 @ompi_grequest_invoke_query(ptr noundef nonnull %0, ptr noundef nonnull %39) #2
   br label %41
 
@@ -104,20 +104,20 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not30, label %59, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
-  %44 = getelementptr inbounds i8, ptr %0, i64 68
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %43, align 8
   store i32 %47, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 76
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %52, ptr %53, align 4
   br label %59
 

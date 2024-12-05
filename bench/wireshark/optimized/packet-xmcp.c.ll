@@ -473,7 +473,7 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not157, label %16, label %557
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.142) #7
   %19 = load ptr, ptr %17, align 8
@@ -493,17 +493,17 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   store i32 %29, ptr %7, align 4
   %30 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #7
-  %31 = getelementptr inbounds i8, ptr %7, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %30, ptr %31, align 4
   %32 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #7
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %32, ptr %33, align 4
   store i32 3, ptr %8, align 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %36, align 8
   %37 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #7
   %38 = load i32, ptr @proto_xmcp, align 4
@@ -532,12 +532,12 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   %50 = call ptr @wmem_file_scope() #7
   %51 = call noalias ptr @wmem_alloc(ptr noundef %50, i64 noundef 32) #7
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
-  %55 = getelementptr inbounds i8, ptr %51, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i32 0, ptr %55, align 8
   %56 = load ptr, ptr %.0143, align 8
   call void @wmem_tree_insert32_array(ptr noundef %56, ptr noundef nonnull %8, ptr noundef nonnull %51) #7
@@ -545,9 +545,9 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 57:                                               ; preds = %49, %46
   %.0 = phi ptr [ %48, %46 ], [ %51, %49 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 50
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 50
   %61 = load i16, ptr %60, align 2
   %62 = and i16 %61, 8
   %.not160 = icmp eq i16 %62, 0
@@ -566,22 +566,22 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %67, label %68, label %80
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %1, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %.0, align 8
-  %71 = getelementptr inbounds i8, ptr %.0, i64 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
   br label %80
 
 73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %.0, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %1, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %79 = load i32, ptr %78, align 4
   store i32 %79, ptr %74, align 4
   br label %80
@@ -621,7 +621,7 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 96:                                               ; preds = %91, %94
   %97 = phi i16 [ %92, %91 ], [ %.pre, %94 ]
-  %98 = getelementptr inbounds i8, ptr %.0, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %99 = load i32, ptr %98, align 8
   %100 = icmp ne i32 %99, 0
   %101 = icmp eq i16 %97, 11
@@ -663,7 +663,7 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.0, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %126 = load i32, ptr %125, align 4
   %.not165 = icmp eq i32 %126, 0
   br i1 %.not165, label %proto_item_set_generated.exit, label %127
@@ -675,13 +675,13 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %proto_item_set_generated.exit, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %132 = load ptr, ptr %131, align 8
   %.not5.i = icmp eq ptr %132, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %132, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = or i32 %135, 2
   store i32 %136, ptr %134, align 4
@@ -699,21 +699,21 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i169, label %proto_item_set_generated.exit171, label %142
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %141, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %144 = load ptr, ptr %143, align 8
   %.not5.i170 = icmp eq ptr %144, null
   br i1 %.not5.i170, label %proto_item_set_generated.exit171, label %145
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %144, i64 28
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = or i32 %147, 2
   store i32 %148, ptr %146, align 4
   br label %proto_item_set_generated.exit171
 
 proto_item_set_generated.exit171:                 ; preds = %139, %142, %145
-  %149 = getelementptr inbounds i8, ptr %1, i64 24
-  %150 = getelementptr inbounds i8, ptr %.0, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   call void @nstime_delta(ptr noundef nonnull %9, ptr noundef nonnull %149, ptr noundef nonnull %150) #7
   %151 = load i32, ptr @hf_xmcp_time, align 4
   %152 = call ptr @proto_tree_add_time(ptr noundef %84, i32 noundef %151, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9) #7
@@ -721,13 +721,13 @@ proto_item_set_generated.exit171:                 ; preds = %139, %142, %145
   br i1 %.not.i172, label %proto_item_set_generated.exit, label %153
 
 153:                                              ; preds = %proto_item_set_generated.exit171
-  %154 = getelementptr inbounds i8, ptr %152, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %155 = load ptr, ptr %154, align 8
   %.not5.i173 = icmp eq ptr %155, null
   br i1 %.not5.i173, label %proto_item_set_generated.exit, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %155, i64 28
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 28
   %158 = load i32, ptr %157, align 4
   %159 = or i32 %158, 2
   store i32 %159, ptr %157, align 4
@@ -749,7 +749,7 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
   %164 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %163, ptr noundef %0, i32 noundef 20, i32 noundef %107, i32 noundef 0) #7
   %165 = load i32, ptr @ett_xmcp_attr_all, align 4
   %166 = call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %165) #7
-  %167 = getelementptr inbounds i8, ptr %1, i64 408
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %168
 
 168:                                              ; preds = %162, %decode_xmcp_attr_value.exit
@@ -875,13 +875,13 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %240
 
 240:                                              ; preds = %232
-  %241 = getelementptr inbounds i8, ptr %239, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %242 = load ptr, ptr %241, align 8
   %.not5.i.i = icmp eq ptr %242, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %242, i64 28
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 28
   %245 = load i32, ptr %244, align 4
   %246 = or i32 %245, 2
   store i32 %246, ptr %244, align 4
@@ -1469,13 +1469,13 @@ decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread388.i,
   br i1 %.not.i176, label %proto_item_set_generated.exit178, label %523
 
 523:                                              ; preds = %520
-  %524 = getelementptr inbounds i8, ptr %522, i64 32
+  %524 = getelementptr inbounds nuw i8, ptr %522, i64 32
   %525 = load ptr, ptr %524, align 8
   %.not5.i177 = icmp eq ptr %525, null
   br i1 %.not5.i177, label %proto_item_set_generated.exit178, label %526
 
 526:                                              ; preds = %523
-  %527 = getelementptr inbounds i8, ptr %525, i64 28
+  %527 = getelementptr inbounds nuw i8, ptr %525, i64 28
   %528 = load i32, ptr %527, align 4
   %529 = or i32 %528, 2
   store i32 %529, ptr %527, align 4
@@ -1629,28 +1629,28 @@ define internal fastcc void @add_xmcp_port_name(ptr nocapture noundef readonly %
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tcp_port_to_display(ptr noundef %10, i32 noundef %4) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.245, ptr noundef %11) #7
   br label %24
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @udp_port_to_display(ptr noundef %14, i32 noundef %4) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.246, ptr noundef %15) #7
   br label %24
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @dccp_port_to_display(ptr noundef %18, i32 noundef %4) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.247, ptr noundef %19) #7
   br label %24
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %0, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @sctp_port_to_display(ptr noundef %22, i32 noundef %4) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.248, ptr noundef %23) #7

@@ -86,64 +86,64 @@ define noundef ptr @KINCreate() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   store double 0x3CB0000000000000, ptr %calloc, align 8
-  %4 = getelementptr inbounds i8, ptr %calloc, i64 584
+  %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 584
   store ptr @KINErrHandler, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 592
   store ptr %calloc, ptr %5, align 8
   %6 = load ptr, ptr @stderr, align 8
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 600
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 600
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 608
+  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 608
   store ptr @KINInfoHandler, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 616
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 616
   store ptr %calloc, ptr %9, align 8
   %10 = load ptr, ptr @stdout, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc, i64 624
+  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 624
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store i64 200, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store i64 10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
   store i64 5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store i64 10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 200
   store double 2.000000e+00, ptr %16, align 8
   %17 = tail call double @SUNRsqrt(double noundef 0x3CB0000000000000) #12
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 136
   store double %17, ptr %18, align 8
   %19 = tail call double @SUNRpowerR(double noundef 0x3CB0000000000000, double noundef 0x3FE5555555555556) #12
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store double %19, ptr %20, align 8
   %21 = tail call double @SUNRpowerR(double noundef 0x3CB0000000000000, double noundef 0x3FD5555555555555) #12
-  %22 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store double %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %calloc, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 168
   store double 1.000000e-01, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 184
   store double 2.000000e+00, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 176
   store double 9.000000e-01, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 576
+  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 576
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 544
+  %29 = getelementptr inbounds nuw i8, ptr %calloc, i64 544
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 552
+  %30 = getelementptr inbounds nuw i8, ptr %calloc, i64 552
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 560
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 560
   store double 1.000000e-05, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %calloc, i64 568
+  %32 = getelementptr inbounds nuw i8, ptr %calloc, i64 568
   store double 9.000000e-01, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 440
+  %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 440
   store i64 17, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 448
+  %34 = getelementptr inbounds nuw i8, ptr %calloc, i64 448
   store i64 22, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %calloc, i64 424
+  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br label %36
 
@@ -171,9 +171,9 @@ define void @KINProcessError(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %20
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 584
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 592
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %19 = load ptr, ptr %18, align 8
   call void %17(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %19) #12
   br label %20
@@ -201,7 +201,7 @@ define void @KINErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 600
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 600
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -218,7 +218,7 @@ define void @KINErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 ; Function Attrs: nofree nounwind uwtable
 define void @KINInfoHandler(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 624
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 624
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -264,61 +264,61 @@ define range(i32 -4, 1) i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %14, label %KINCheckNvector.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.val, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %KINCheckNvector.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.val, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %KINCheckNvector.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.val, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %KINCheckNvector.exit.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.val, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %KINCheckNvector.exit.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.val, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %KINCheckNvector.exit.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.val, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %KINCheckNvector.exit.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.val, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %KINCheckNvector.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %.val, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %KINCheckNvector.exit.thread, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.val, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %KINCheckNvector.exit.thread, label %KINCheckNvector.exit
 
 KINCheckNvector.exit:                             ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.val, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %52 = load ptr, ptr %51, align 8
   %.not35 = icmp eq ptr %52, null
   br i1 %.not35, label %KINCheckNvector.exit.thread, label %53
@@ -328,7 +328,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   br label %245
 
 53:                                               ; preds = %KINCheckNvector.exit
-  %54 = getelementptr inbounds i8, ptr %.val, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not28 = icmp eq ptr %55, null
   br i1 %.not28, label %59, label %56
@@ -342,19 +342,19 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 59:                                               ; preds = %53, %56
   %.sink36 = phi i64 [ %57, %56 ], [ 0, %53 ]
   %.sink = phi i64 [ %58, %56 ], [ 0, %53 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 424
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 %.sink36, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 432
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %.sink, ptr %61, align 8
   %62 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %63 = getelementptr inbounds i8, ptr %0, i64 272
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
   br i1 %64, label %240, label %65
 
 65:                                               ; preds = %59
   %66 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %67 = getelementptr inbounds i8, ptr %0, i64 280
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %66, ptr %67, align 8
   %68 = icmp eq ptr %66, null
   br i1 %68, label %69, label %71
@@ -366,7 +366,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 71:                                               ; preds = %65
   %72 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %73 = getelementptr inbounds i8, ptr %0, i64 312
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %72, ptr %73, align 8
   %74 = icmp eq ptr %72, null
   br i1 %74, label %75, label %78
@@ -380,7 +380,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 78:                                               ; preds = %71
   %79 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %80 = getelementptr inbounds i8, ptr %0, i64 328
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
   br i1 %81, label %82, label %86
@@ -396,7 +396,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 86:                                               ; preds = %78
   %87 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %88 = getelementptr inbounds i8, ptr %0, i64 336
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %87, ptr %88, align 8
   %89 = icmp eq ptr %87, null
   br i1 %89, label %90, label %95
@@ -415,17 +415,17 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 95:                                               ; preds = %86
   %96 = load i64, ptr %61, align 8
   %97 = mul nsw i64 %96, 5
-  %98 = getelementptr inbounds i8, ptr %0, i64 448
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %99 = load i64, ptr %98, align 8
   %100 = add nsw i64 %99, %97
   store i64 %100, ptr %98, align 8
   %101 = load i64, ptr %60, align 8
   %102 = mul nsw i64 %101, 5
-  %103 = getelementptr inbounds i8, ptr %0, i64 440
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %104 = load i64, ptr %103, align 8
   %105 = add nsw i64 %104, %102
   store i64 %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 408
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %107 = load i64, ptr %106, align 8
   %.not.i = icmp eq i64 %107, 0
   br i1 %.not.i, label %KINAllocVectors.exit, label %108
@@ -434,7 +434,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %109 = shl i64 %107, 3
   %110 = mul i64 %109, %107
   %111 = call noalias ptr @malloc(i64 noundef %110) #14
-  %112 = getelementptr inbounds i8, ptr %0, i64 400
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %111, ptr %112, align 8
   %113 = icmp eq ptr %111, null
   br i1 %113, label %114, label %115
@@ -445,7 +445,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 115:                                              ; preds = %108
   %116 = call noalias ptr @malloc(i64 noundef %109) #14
-  %117 = getelementptr inbounds i8, ptr %0, i64 392
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %116, ptr %117, align 8
   %118 = icmp eq ptr %116, null
   br i1 %118, label %119, label %120
@@ -456,7 +456,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 120:                                              ; preds = %115
   %121 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %122 = getelementptr inbounds i8, ptr %0, i64 344
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %121, ptr %122, align 8
   %123 = icmp eq ptr %121, null
   br i1 %123, label %124, label %130
@@ -476,7 +476,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 
 130:                                              ; preds = %120
   %131 = call ptr @N_VClone(ptr noundef nonnull %2) #12
-  %132 = getelementptr inbounds i8, ptr %0, i64 352
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %131, ptr %132, align 8
   %133 = icmp eq ptr %131, null
   br i1 %133, label %134, label %141
@@ -500,7 +500,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %142 = load i64, ptr %106, align 8
   %143 = trunc i64 %142 to i32
   %144 = call ptr @N_VCloneVectorArray(i32 noundef %143, ptr noundef nonnull %2) #12
-  %145 = getelementptr inbounds i8, ptr %0, i64 360
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %144, ptr %145, align 8
   %146 = icmp eq ptr %144, null
   br i1 %146, label %147, label %155
@@ -526,7 +526,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %156 = load i64, ptr %106, align 8
   %157 = trunc i64 %156 to i32
   %158 = call ptr @N_VCloneVectorArray(i32 noundef %157, ptr noundef nonnull %2) #12
-  %159 = getelementptr inbounds i8, ptr %0, i64 368
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %158, ptr %159, align 8
   %160 = icmp eq ptr %158, null
   br i1 %160, label %161, label %172
@@ -567,7 +567,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %183 = load i64, ptr %103, align 8
   %184 = add nsw i64 %182, %183
   store i64 %184, ptr %103, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 416
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %186 = load i32, ptr %185, align 8
   %.not128.i = icmp eq i32 %186, 0
   br i1 %.not128.i, label %KINAllocVectors.exit, label %187
@@ -575,7 +575,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
 187:                                              ; preds = %172
   %188 = trunc i64 %173 to i32
   %189 = call ptr @N_VCloneVectorArray(i32 noundef %188, ptr noundef nonnull %2) #12
-  %190 = getelementptr inbounds i8, ptr %0, i64 376
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %189, ptr %190, align 8
   %191 = icmp eq ptr %189, null
   br i1 %191, label %192, label %206
@@ -609,7 +609,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   %207 = load i64, ptr %106, align 8
   %208 = trunc i64 %207 to i32
   %209 = call ptr @N_VCloneVectorArray(i32 noundef %208, ptr noundef nonnull %2) #12
-  %210 = getelementptr inbounds i8, ptr %0, i64 384
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %209, ptr %210, align 8
   %211 = icmp eq ptr %209, null
   br i1 %211, label %212, label %229
@@ -664,12 +664,12 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, 
   br label %245
 
 KINAllocVectors.exit:                             ; preds = %229, %172, %119, %114, %95
-  %241 = getelementptr inbounds i8, ptr %0, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %0, i64 456
-  %243 = getelementptr inbounds i8, ptr %0, i64 496
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr null, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 576
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 576
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, i8 0, i64 32, i1 false)
   store i32 1, ptr %244, align 8
   br label %245
@@ -694,7 +694,7 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %KINPicardAA.exit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 576
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
@@ -704,13 +704,13 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %KINPicardAA.exit
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %2, ptr %17, align 8
   %18 = icmp eq i32 %2, 3
   %19 = icmp eq ptr %1, null
@@ -724,7 +724,7 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %KINPicardAA.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 92
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %24 = load i32, ptr %23, align 4
   %.not150 = icmp eq i32 %24, 0
   br i1 %.not150, label %26, label %25
@@ -734,15 +734,15 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %KINPicardAA.exit
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load double, ptr %33, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, double noundef %32, double noundef %34)
   %.pre372 = load ptr, ptr %14, align 8
@@ -750,24 +750,24 @@ define range(i32 -999, 3) i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 nounde
 
 35:                                               ; preds = %30, %26
   %36 = phi ptr [ %.pre372, %30 ], [ %1, %26 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 208
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
-  %39 = getelementptr inbounds i8, ptr %0, i64 400
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 392
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 328
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 280
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 408
-  %50 = getelementptr inbounds i8, ptr %0, i64 272
-  %51 = getelementptr inbounds i8, ptr %0, i64 504
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  %53 = getelementptr inbounds i8, ptr %0, i64 600
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %54 = load ptr, ptr %46, align 8
   %55 = load ptr, ptr %47, align 8
   %56 = load ptr, ptr %48, align 8
@@ -940,7 +940,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br label %KINPicardAA.exit
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %0, i64 320
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %136 = load ptr, ptr %135, align 8
   %.not106.i = icmp eq ptr %136, null
   br i1 %.not106.i, label %.thread.i151, label %137
@@ -956,22 +956,22 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br label %KINPicardAA.exit
 
 .thread.i151:                                     ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %0, i64 92
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %141, align 4
   br label %160
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %0, i64 92
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 1, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %136, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 184
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 184
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
   br i1 %148, label %153, label %149
 
 149:                                              ; preds = %142
-  %150 = getelementptr inbounds i8, ptr %145, i64 192
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 192
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %154
@@ -982,7 +982,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %14, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 328
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %157 = load ptr, ptr %156, align 8
   %158 = tail call i32 @N_VConstrMask(ptr noundef nonnull %136, ptr noundef %155, ptr noundef %157) #12
   %.not108.i = icmp eq i32 %158, 0
@@ -993,21 +993,21 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br label %KINPicardAA.exit
 
 160:                                              ; preds = %154, %.thread.i151
-  %161 = getelementptr inbounds i8, ptr %0, i64 44
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %162 = load i32, ptr %161, align 4
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %164, label %169
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %0, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %166 = load double, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load double, ptr %167, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.11, double noundef %166, double noundef %168)
   br label %169
 
 169:                                              ; preds = %164, %160
-  %170 = getelementptr inbounds i8, ptr %0, i64 128
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %171 = load double, ptr %170, align 8
   %172 = fcmp oeq double %171, 0.000000e+00
   br i1 %172, label %173, label %178
@@ -1021,21 +1021,21 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
 
 178:                                              ; preds = %173, %169
   %.sink.i = phi double [ %177, %173 ], [ %171, %169 ]
-  %179 = getelementptr inbounds i8, ptr %0, i64 120
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %180 = fcmp olt double %.sink.i, 1.000000e+00
   %storemerge.i = select i1 %180, double 1.000000e+00, double %.sink.i
   store double %storemerge.i, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 488
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %182 = load i32, ptr %181, align 8
   %.not109.i = icmp eq i32 %182, 0
   br i1 %.not109.i, label %201, label %183
 
 183:                                              ; preds = %178
-  %184 = getelementptr inbounds i8, ptr %0, i64 80
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %185 = load i32, ptr %184, align 8
   %186 = icmp ne i32 %185, 3
   %187 = zext i1 %186 to i32
-  %188 = getelementptr inbounds i8, ptr %0, i64 100
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %187, ptr %188, align 4
   %189 = icmp eq i32 %185, 1
   br i1 %189, label %190, label %195
@@ -1044,7 +1044,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   %191 = tail call double @SUNRsqrt(double noundef 5.000000e+00) #12
   %192 = fadd double %191, 1.000000e+00
   %193 = fmul double %192, 5.000000e-01
-  %194 = getelementptr inbounds i8, ptr %0, i64 184
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %193, ptr %194, align 8
   %.pre.i = load i32, ptr %184, align 8
   br label %195
@@ -1055,30 +1055,30 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br i1 %.not110.i, label %199, label %197
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds i8, ptr %0, i64 168
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 5.000000e-01, ptr %198, align 8
   br label %199
 
 199:                                              ; preds = %197, %195
-  %200 = getelementptr inbounds i8, ptr %0, i64 104
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %200, align 8
   br label %203
 
 201:                                              ; preds = %178
-  %202 = getelementptr inbounds i8, ptr %0, i64 100
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %202, align 4
   br label %203
 
 203:                                              ; preds = %201, %199
-  %204 = getelementptr inbounds i8, ptr %0, i64 208
-  %205 = getelementptr inbounds i8, ptr %0, i64 216
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %204, i8 0, i64 48, i1 false)
   %207 = load ptr, ptr %206, align 8
   %208 = load ptr, ptr %14, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 280
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = tail call i32 %207(ptr noundef %208, ptr noundef %210, ptr noundef %212) #12
   %214 = load i64, ptr %205, align 8
@@ -1103,7 +1103,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   %221 = load ptr, ptr %209, align 8
   %222 = load ptr, ptr %16, align 8
   %223 = tail call fastcc double @KINScFNorm(ptr noundef nonnull %0, ptr noundef %221, ptr noundef %222)
-  %224 = getelementptr inbounds i8, ptr %0, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %225 = load double, ptr %224, align 8
   %226 = fmul double %225, 1.000000e-02
   %227 = fcmp ugt double %223, %226
@@ -1113,7 +1113,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   %229 = load ptr, ptr %209, align 8
   %230 = load ptr, ptr %16, align 8
   %231 = tail call double @N_VWL2Norm(ptr noundef %229, ptr noundef %230) #12
-  %232 = getelementptr inbounds i8, ptr %0, i64 504
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store double %231, ptr %232, align 8
   br label %KINPicardAA.exit
 
@@ -1127,7 +1127,7 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br label %237
 
 237:                                              ; preds = %236, %233
-  %238 = getelementptr inbounds i8, ptr %0, i64 456
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %239 = load ptr, ptr %238, align 8
   %.not112.i = icmp eq ptr %239, null
   br i1 %.not112.i, label %243, label %240
@@ -1145,13 +1145,13 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   %244 = load ptr, ptr %209, align 8
   %245 = load ptr, ptr %16, align 8
   %246 = tail call double @N_VWL2Norm(ptr noundef %244, ptr noundef %245) #12
-  %247 = getelementptr inbounds i8, ptr %0, i64 504
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store double %246, ptr %247, align 8
   %248 = fmul double %246, 5.000000e-01
   %249 = fmul double %246, %248
-  %250 = getelementptr inbounds i8, ptr %0, i64 512
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store double %249, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 536
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store double %246, ptr %251, align 8
   %252 = load i32, ptr %161, align 4
   %253 = icmp sgt i32 %252, 0
@@ -1164,20 +1164,20 @@ KINFP.exit:                                       ; preds = %.loopexit.i, %112
   br label %KINSolInit.exit
 
 KINSolInit.exit:                                  ; preds = %254, %243
-  %257 = getelementptr inbounds i8, ptr %0, i64 256
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 192
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %259 = load i32, ptr %258, align 8
   %.not139 = icmp eq i32 %259, 0
   %.sink = select i1 %.not139, double 2.000000e+00, double 1.000000e+00
-  %260 = getelementptr inbounds i8, ptr %0, i64 200
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %.sink, ptr %260, align 8
   %261 = load i32, ptr %181, align 8
   %.not140 = icmp eq i32 %261, 0
   br i1 %.not140, label %268, label %262
 
 262:                                              ; preds = %KINSolInit.exit
-  %263 = getelementptr inbounds i8, ptr %0, i64 84
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %264 = load i32, ptr %263, align 4
   %.not141 = icmp eq i32 %264, 0
   br i1 %.not141, label %265, label %268
@@ -1189,68 +1189,68 @@ KINSolInit.exit:                                  ; preds = %254, %243
 
 268:                                              ; preds = %265, %262, %KINSolInit.exit
   %.0124 = phi double [ 0.000000e+00, %262 ], [ %267, %265 ], [ 0.000000e+00, %KINSolInit.exit ]
-  %269 = getelementptr inbounds i8, ptr %0, i64 552
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %270 = load double, ptr %269, align 8
   %271 = fcmp oeq double %270, 0.000000e+00
   %.sink370 = zext i1 %271 to i32
-  %272 = getelementptr inbounds i8, ptr %0, i64 544
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %.sink370, ptr %272, align 8
   %273 = load i32, ptr %17, align 8
   %274 = icmp eq i32 %273, 2
   br i1 %274, label %307, label %.preheader
 
 .preheader:                                       ; preds = %268
-  %275 = getelementptr inbounds i8, ptr %0, i64 108
-  %276 = getelementptr inbounds i8, ptr %0, i64 224
-  %277 = getelementptr inbounds i8, ptr %0, i64 56
-  %278 = getelementptr inbounds i8, ptr %0, i64 112
-  %279 = getelementptr inbounds i8, ptr %0, i64 464
-  %280 = getelementptr inbounds i8, ptr %0, i64 88
-  %281 = getelementptr inbounds i8, ptr %0, i64 96
-  %282 = getelementptr inbounds i8, ptr %0, i64 232
-  %283 = getelementptr inbounds i8, ptr %0, i64 272
-  %284 = getelementptr inbounds i8, ptr %0, i64 312
-  %285 = getelementptr inbounds i8, ptr %0, i64 472
-  %286 = getelementptr inbounds i8, ptr %0, i64 528
-  %287 = getelementptr inbounds i8, ptr %0, i64 520
-  %288 = getelementptr inbounds i8, ptr %0, i64 144
-  %289 = getelementptr inbounds i8, ptr %0, i64 152
-  %290 = getelementptr inbounds i8, ptr %0, i64 92
-  %291 = getelementptr inbounds i8, ptr %0, i64 32
-  %292 = getelementptr inbounds i8, ptr %0, i64 328
-  %293 = getelementptr inbounds i8, ptr %0, i64 336
-  %294 = getelementptr inbounds i8, ptr %0, i64 240
-  %295 = getelementptr inbounds i8, ptr %0, i64 248
-  %296 = getelementptr inbounds i8, ptr %0, i64 72
-  %297 = getelementptr inbounds i8, ptr %0, i64 100
-  %298 = getelementptr inbounds i8, ptr %0, i64 168
-  %299 = getelementptr inbounds i8, ptr %0, i64 160
-  %300 = getelementptr inbounds i8, ptr %0, i64 84
-  %301 = getelementptr inbounds i8, ptr %0, i64 48
-  %302 = getelementptr inbounds i8, ptr %0, i64 104
-  %303 = getelementptr inbounds i8, ptr %0, i64 64
-  %304 = getelementptr inbounds i8, ptr %0, i64 560
-  %305 = getelementptr inbounds i8, ptr %0, i64 568
-  %306 = getelementptr inbounds i8, ptr %0, i64 600
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 600
   br label %441
 
 307:                                              ; preds = %268
-  %308 = getelementptr inbounds i8, ptr %0, i64 272
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %309 = load ptr, ptr %308, align 8
   %310 = tail call ptr @N_VClone(ptr noundef %309) #12
-  %311 = getelementptr inbounds i8, ptr %0, i64 288
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %310, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %0, i64 424
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %313 = load i64, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %0, i64 440
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %315 = load i64, ptr %314, align 8
   %316 = add nsw i64 %315, %313
   store i64 %316, ptr %314, align 8
-  %317 = getelementptr inbounds i8, ptr %0, i64 400
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %0, i64 392
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %0, i64 328
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %322 = load ptr, ptr %321, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %310) #12
   %323 = load i32, ptr %181, align 8
@@ -1258,7 +1258,7 @@ KINSolInit.exit:                                  ; preds = %254, %243
   br i1 %.not.i152, label %330, label %324
 
 324:                                              ; preds = %307
-  %325 = getelementptr inbounds i8, ptr %0, i64 84
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %326 = load i32, ptr %325, align 4
   %.not85.i = icmp eq i32 %326, 0
   br i1 %.not85.i, label %327, label %330
@@ -1270,23 +1270,23 @@ KINSolInit.exit:                                  ; preds = %254, %243
 
 330:                                              ; preds = %327, %324, %307
   %.0.i153 = phi double [ 0.000000e+00, %324 ], [ %329, %327 ], [ 0.000000e+00, %307 ]
-  %331 = getelementptr inbounds i8, ptr %0, i64 168
-  %332 = getelementptr inbounds i8, ptr %0, i64 160
-  %333 = getelementptr inbounds i8, ptr %0, i64 84
-  %334 = getelementptr inbounds i8, ptr %0, i64 224
-  %335 = getelementptr inbounds i8, ptr %0, i64 56
-  %336 = getelementptr inbounds i8, ptr %0, i64 112
-  %337 = getelementptr inbounds i8, ptr %0, i64 96
-  %338 = getelementptr inbounds i8, ptr %0, i64 88
-  %339 = getelementptr inbounds i8, ptr %0, i64 464
-  %340 = getelementptr inbounds i8, ptr %0, i64 232
-  %341 = getelementptr inbounds i8, ptr %0, i64 472
-  %342 = getelementptr inbounds i8, ptr %0, i64 528
-  %343 = getelementptr inbounds i8, ptr %0, i64 520
-  %344 = getelementptr inbounds i8, ptr %0, i64 408
-  %345 = getelementptr inbounds i8, ptr %0, i64 48
-  %346 = getelementptr inbounds i8, ptr %0, i64 100
-  %347 = getelementptr inbounds i8, ptr %0, i64 600
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 600
   br label %348
 
 348:                                              ; preds = %435, %330
@@ -2604,7 +2604,7 @@ define void @KINPrintInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load ptr, ptr %15, align 16
   %17 = zext nneg i32 %12 to i64
   %18 = getelementptr i8, ptr %16, i64 %17
@@ -2613,7 +2613,7 @@ define void @KINPrintInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr
   br label %24
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 8
   store ptr %23, ptr %21, align 8
@@ -2685,9 +2685,9 @@ define void @KINPrintInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr
   br label %42
 
 42:                                               ; preds = %40, %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 608
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 616
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %46 = load ptr, ptr %45, align 8
   call void %44(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %46) #12
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -2698,25 +2698,25 @@ declare ptr @N_VClone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @KINForcingTerm(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %26
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 504
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 520
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, 2.000000e+00
   %12 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 528
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %14 = load double, ptr %13, align 8
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %12)
   %16 = tail call double @SUNRsqrt(double noundef %15) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %20 = load double, ptr %19, align 8
   %21 = tail call double @SUNRpowerR(double noundef %18, double noundef %20) #12
   %22 = fsub double %1, %16
@@ -2734,21 +2734,21 @@ define internal fastcc void @KINForcingTerm(ptr nocapture noundef nonnull %0, do
   br i1 %28, label %29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 168
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %45
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load double, ptr %34, align 8
   %36 = tail call double @SUNRpowerR(double noundef %33, double noundef %35) #12
   %37 = fmul double %31, %36
   %38 = load double, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 504
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %40 = load double, ptr %39, align 8
   %41 = fdiv double %1, %40
   %42 = load double, ptr %34, align 8
@@ -2761,7 +2761,7 @@ define internal fastcc void @KINForcingTerm(ptr nocapture noundef nonnull %0, do
   %.1 = phi double [ %37, %29 ], [ %.0, %._crit_edge ]
   %47 = fcmp olt double %.1, 1.000000e-01
   %.2 = select i1 %47, double 0.000000e+00, double %.1
-  %48 = getelementptr inbounds i8, ptr %0, i64 168
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %49 = fcmp ogt double %46, %.2
   %50 = select i1 %49, double %46, double %.2
   %51 = fcmp ogt double %50, 1.000000e-04
@@ -2784,7 +2784,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %126, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -2794,7 +2794,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %10 = load ptr, ptr %9, align 8
   %.not64.i = icmp eq ptr %10, null
   br i1 %.not64.i, label %12, label %11
@@ -2804,7 +2804,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %2, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %14 = load ptr, ptr %13, align 8
   %.not65.i = icmp eq ptr %14, null
   br i1 %.not65.i, label %16, label %15
@@ -2814,7 +2814,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %18 = load ptr, ptr %17, align 8
   %.not66.i = icmp eq ptr %18, null
   br i1 %.not66.i, label %20, label %19
@@ -2824,7 +2824,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %19, %16
-  %21 = getelementptr inbounds i8, ptr %2, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %22 = load ptr, ptr %21, align 8
   %.not67.i = icmp eq ptr %22, null
   br i1 %.not67.i, label %24, label %23
@@ -2834,13 +2834,13 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 2
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %2, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %30 = load ptr, ptr %29, align 8
   %.not68.i = icmp eq ptr %30, null
   br i1 %.not68.i, label %.thread.i, label %31
@@ -2857,39 +2857,39 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %switch.i, label %.thread.i, label %43
 
 .thread.i:                                        ; preds = %32, %28
-  %35 = getelementptr inbounds i8, ptr %2, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %36 = load i64, ptr %35, align 8
   %37 = icmp sgt i64 %36, 0
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %.thread.i
-  %39 = getelementptr inbounds i8, ptr %2, i64 400
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %40 = load ptr, ptr %39, align 8
   tail call void @free(ptr noundef %40) #12
-  %41 = getelementptr inbounds i8, ptr %2, i64 392
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %42 = load ptr, ptr %41, align 8
   tail call void @free(ptr noundef %42) #12
   br label %43
 
 43:                                               ; preds = %38, %.thread.i, %32
-  %44 = getelementptr inbounds i8, ptr %2, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %45 = load i64, ptr %44, align 8
   %.not69.i = icmp eq i64 %45, 0
   br i1 %.not69.i, label %._crit_edge.i, label %46
 
 ._crit_edge.i:                                    ; preds = %43
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 424
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 424
   %.pre80.i = load i64, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert81.i = getelementptr inbounds i8, ptr %2, i64 440
+  %.phi.trans.insert81.i = getelementptr inbounds nuw i8, ptr %2, i64 440
   %.pre82.i = load i64, ptr %.phi.trans.insert81.i, align 8
-  %.phi.trans.insert83.i = getelementptr inbounds i8, ptr %2, i64 432
+  %.phi.trans.insert83.i = getelementptr inbounds nuw i8, ptr %2, i64 432
   %.pre84.i = load i64, ptr %.phi.trans.insert83.i, align 8
-  %.phi.trans.insert85.i = getelementptr inbounds i8, ptr %2, i64 448
+  %.phi.trans.insert85.i = getelementptr inbounds nuw i8, ptr %2, i64 448
   %.pre86.i = load i64, ptr %.phi.trans.insert85.i, align 8
   br label %97
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %2, i64 344
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %48 = load ptr, ptr %47, align 8
   %.not70.i = icmp eq ptr %48, null
   br i1 %.not70.i, label %50, label %49
@@ -2899,7 +2899,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %50
 
 50:                                               ; preds = %49, %46
-  %51 = getelementptr inbounds i8, ptr %2, i64 352
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %52 = load ptr, ptr %51, align 8
   %.not71.i = icmp eq ptr %52, null
   br i1 %.not71.i, label %54, label %53
@@ -2909,45 +2909,45 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %54
 
 54:                                               ; preds = %53, %50
-  %55 = getelementptr inbounds i8, ptr %2, i64 360
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %56 = load ptr, ptr %55, align 8
   %57 = load i64, ptr %44, align 8
   %58 = trunc i64 %57 to i32
   tail call void @N_VDestroyVectorArray(ptr noundef %56, i32 noundef %58) #12
-  %59 = getelementptr inbounds i8, ptr %2, i64 368
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %60 = load ptr, ptr %59, align 8
   %61 = load i64, ptr %44, align 8
   %62 = trunc i64 %61 to i32
   tail call void @N_VDestroyVectorArray(ptr noundef %60, i32 noundef %62) #12
   %63 = load i64, ptr %44, align 8
   %64 = shl nsw i64 %63, 1
-  %65 = getelementptr inbounds i8, ptr %2, i64 424
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %66 = load i64, ptr %65, align 8
   %67 = mul nsw i64 %64, %66
-  %68 = getelementptr inbounds i8, ptr %2, i64 440
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %69 = load i64, ptr %68, align 8
   %.neg77.i = add i64 %69, -2
   %70 = sub i64 %.neg77.i, %67
   store i64 %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 432
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %72 = load i64, ptr %71, align 8
   %73 = mul nsw i64 %72, %64
-  %74 = getelementptr inbounds i8, ptr %2, i64 448
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %75 = load i64, ptr %74, align 8
   %.neg79.i = add i64 %75, -2
   %76 = sub i64 %.neg79.i, %73
   store i64 %76, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 416
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %78 = load i32, ptr %77, align 8
   %.not72.i = icmp eq i32 %78, 0
   br i1 %.not72.i, label %97, label %79
 
 79:                                               ; preds = %54
-  %80 = getelementptr inbounds i8, ptr %2, i64 376
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %81 = load ptr, ptr %80, align 8
   %82 = trunc i64 %63 to i32
   tail call void @N_VDestroyVectorArray(ptr noundef %81, i32 noundef %82) #12
-  %83 = getelementptr inbounds i8, ptr %2, i64 384
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %84 = load ptr, ptr %83, align 8
   %85 = load i64, ptr %44, align 8
   %86 = trunc i64 %85 to i32
@@ -2969,23 +2969,23 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %99 = phi i64 [ %.pre84.i, %._crit_edge.i ], [ %72, %54 ], [ %93, %79 ]
   %100 = phi i64 [ %.pre82.i, %._crit_edge.i ], [ %70, %54 ], [ %92, %79 ]
   %101 = phi i64 [ %.pre80.i, %._crit_edge.i ], [ %66, %54 ], [ %89, %79 ]
-  %102 = getelementptr inbounds i8, ptr %2, i64 424
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %.neg.i = mul i64 %101, -5
-  %103 = getelementptr inbounds i8, ptr %2, i64 440
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %104 = add i64 %.neg.i, %100
   store i64 %104, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %2, i64 432
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %.neg73.i = mul i64 %99, -5
-  %106 = getelementptr inbounds i8, ptr %2, i64 448
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %107 = add i64 %.neg73.i, %98
   store i64 %107, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %2, i64 92
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %109 = load i32, ptr %108, align 4
   %.not74.i = icmp eq i32 %109, 0
   br i1 %.not74.i, label %KINFreeVectors.exit, label %110
 
 110:                                              ; preds = %97
-  %111 = getelementptr inbounds i8, ptr %2, i64 320
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %112 = load ptr, ptr %111, align 8
   %.not75.i = icmp eq ptr %112, null
   br i1 %.not75.i, label %114, label %113
@@ -3010,7 +3010,7 @@ define void @KINFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %KINFreeVectors.exit
 
 KINFreeVectors.exit:                              ; preds = %97, %114
-  %121 = getelementptr inbounds i8, ptr %2, i64 480
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %122 = load ptr, ptr %121, align 8
   %.not = icmp eq ptr %122, null
   br i1 %.not, label %124, label %123
@@ -3052,7 +3052,7 @@ declare double @N_VWL2Norm(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @KINScFNorm(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VProd(ptr noundef %2, ptr noundef %1, ptr noundef %5) #12
   %6 = load ptr, ptr %4, align 8
@@ -3066,17 +3066,17 @@ declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -996, 1) i32 @KINConstraint(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 264
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef 1.000000e+00, ptr noundef %5, ptr noundef %7) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @N_VConstrMask(ptr noundef %9, ptr noundef %10, ptr noundef %12) #12
   %.not = icmp eq i32 %13, 0
@@ -3096,7 +3096,7 @@ define internal fastcc range(i32 -996, 1) i32 @KINConstraint(ptr nocapture nound
   %22 = load ptr, ptr %6, align 8
   %23 = tail call double @N_VMinQuotient(ptr noundef %21, ptr noundef %22) #12
   %24 = fmul double %23, 9.000000e-01
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double %24, ptr %25, align 8
   br label %26
 
@@ -3126,7 +3126,7 @@ declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load i64, ptr %9, align 8
   %11 = shl i64 %10, 2
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #14
@@ -3139,16 +3139,16 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 352
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 368
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %15
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %20, ptr noundef %24) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 344
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 360
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %15
   %30 = load ptr, ptr %29, align 8
@@ -3156,10 +3156,10 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br label %31
 
 31:                                               ; preds = %18, %8
-  %32 = getelementptr inbounds i8, ptr %0, i64 352
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %33 = load ptr, ptr %32, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %33) #12
-  %34 = getelementptr inbounds i8, ptr %0, i64 344
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %35 = load ptr, ptr %34, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %35) #12
   switch i32 %5, label %59 [
@@ -3172,28 +3172,28 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br label %.loopexit
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 360
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %15
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %15
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 384
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %15
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %15
   %45 = load ptr, ptr %44, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %41, ptr noundef %45) #12
   %46 = load ptr, ptr %38, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %15
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %15
   %48 = load ptr, ptr %47, align 8
   %49 = tail call double @N_VDotProd(ptr noundef %48, ptr noundef %48) #12
   %50 = tail call double @sqrt(double noundef %49) #12
   store double %50, ptr %6, align 8
   %51 = fdiv double 1.000000e+00, %50
   %52 = load ptr, ptr %38, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %15
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %15
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 376
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %15
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %15
   %58 = load ptr, ptr %57, align 8
   tail call void @N_VScale(double noundef %51, ptr noundef %54, ptr noundef %58) #12
   store i32 0, ptr %12, align 4
@@ -3213,11 +3213,11 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %64, label %.lr.ph, label %.preheader220
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 360
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds ptr, ptr %67, i64 %15
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 384
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 %15
   %73 = load ptr, ptr %72, align 8
@@ -3226,17 +3226,17 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %74, label %.lr.ph238, label %._crit_edge
 
 .lr.ph238:                                        ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %0, i64 376
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %76
 
 76:                                               ; preds = %.lr.ph238, %76
   %indvars.iv269 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next270, %76 ]
-  %77 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv269
+  %77 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv269
   %78 = trunc nuw nsw i64 %indvars.iv269 to i32
   store i32 %78, ptr %77, align 4
   %79 = load ptr, ptr %75, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv269
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv269
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %70, align 8
   %83 = getelementptr inbounds ptr, ptr %82, i64 %15
@@ -3257,7 +3257,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   %97 = load double, ptr %96, align 8
   %98 = fneg double %97
   %99 = load ptr, ptr %75, align 8
-  %100 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv269
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv269
   %101 = load ptr, ptr %100, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %92, double noundef %98, ptr noundef %101, ptr noundef %92) #12
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
@@ -3286,7 +3286,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   %119 = load ptr, ptr %70, align 8
   %120 = getelementptr inbounds ptr, ptr %119, i64 %15
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 376
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds ptr, ptr %123, i64 %15
   %125 = load ptr, ptr %124, align 8
@@ -3308,7 +3308,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph ], [ 0, %.preheader221 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %63, %.preheader221 ]
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
-  %128 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv250
+  %128 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv250
   %129 = trunc nsw i64 %indvars.iv to i32
   store i32 %129, ptr %128, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -3320,15 +3320,15 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %131, label %.lr.ph230, label %.loopexit218
 
 .lr.ph230:                                        ; preds = %.preheader219
-  %132 = getelementptr inbounds i8, ptr %0, i64 360
-  %133 = getelementptr inbounds i8, ptr %0, i64 384
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %139
 
 .lr.ph228:                                        ; preds = %.preheader220, %.lr.ph228
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %.lr.ph228 ], [ %.1203.lcssa, %.preheader220 ]
   %.1227 = phi i32 [ %135, %.lr.ph228 ], [ 0, %.preheader220 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %134 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv255
+  %134 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv255
   store i32 %.1227, ptr %134, align 4
   %135 = add nuw i32 %.1227, 1
   %exitcond.not = icmp eq i32 %.1227, %16
@@ -3339,17 +3339,17 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %136, label %.lr.ph236, label %.loopexit218
 
 .lr.ph236:                                        ; preds = %.preheader217
-  %137 = getelementptr inbounds i8, ptr %0, i64 384
-  %138 = getelementptr inbounds i8, ptr %0, i64 376
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 376
   br label %150
 
 139:                                              ; preds = %.lr.ph230, %139
   %indvars.iv258 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next259, %139 ]
   %140 = load ptr, ptr %132, align 8
-  %141 = getelementptr inbounds ptr, ptr %140, i64 %indvars.iv258
+  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv258
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %133, align 8
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv258
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv258
   %145 = load ptr, ptr %144, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %142, ptr noundef %145) #12
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
@@ -3366,7 +3366,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
 150:                                              ; preds = %.lr.ph236, %.loopexit216
   %indvars.iv266 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next267, %.loopexit216 ]
   %indvars.iv261 = phi i64 [ 1, %.lr.ph236 ], [ %indvars.iv.next262, %.loopexit216 ]
-  %151 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv266
+  %151 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv266
   %152 = load i32, ptr %151, align 4
   %153 = load ptr, ptr %137, align 8
   %154 = sext i32 %152 to i64
@@ -3400,7 +3400,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
 
 .lr.ph234:                                        ; preds = %150, %.lr.ph234
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.lr.ph234 ], [ %indvars.iv261, %150 ]
-  %177 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv263
+  %177 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv263
   %178 = load i32, ptr %177, align 4
   %179 = load ptr, ptr %137, align 8
   %180 = sext i32 %178 to i64
@@ -3442,12 +3442,12 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   br i1 %204, label %.lr.ph241, label %.loopexit
 
 .lr.ph241:                                        ; preds = %.loopexit218
-  %205 = getelementptr inbounds i8, ptr %0, i64 376
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %wide.trip.count276 = zext nneg i32 %spec.select to i64
   br label %209
 
 .preheader.lr.ph:                                 ; preds = %209
-  %206 = getelementptr inbounds i8, ptr %0, i64 368
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %207 = zext nneg i32 %spec.select to i64
   %208 = zext nneg i32 %spec.select to i64
   br label %.preheader
@@ -3455,13 +3455,13 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
 209:                                              ; preds = %.lr.ph241, %209
   %indvars.iv273 = phi i64 [ 0, %.lr.ph241 ], [ %indvars.iv.next274, %209 ]
   %210 = load ptr, ptr %205, align 8
-  %211 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv273
+  %211 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv273
   %212 = load i32, ptr %211, align 4
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds ptr, ptr %210, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %215) #12
-  %217 = getelementptr inbounds double, ptr %7, i64 %indvars.iv273
+  %217 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv273
   store double %216, ptr %217, align 8
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
@@ -3471,7 +3471,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   %indvars.iv278 = phi i64 [ %207, %.preheader.lr.ph ], [ %indvars.iv.next279, %._crit_edge244 ]
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, -1
   %218 = icmp slt i64 %indvars.iv278, %208
-  %219 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next279
+  %219 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next279
   br i1 %218, label %.lr.ph243, label %.preheader.._crit_edge244_crit_edge
 
 .preheader.._crit_edge244_crit_edge:              ; preds = %.preheader
@@ -3490,7 +3490,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   %223 = mul nsw i64 %222, %indvars.iv280
   %gep246 = getelementptr double, ptr %invariant.gep245, i64 %223
   %224 = load double, ptr %gep246, align 8
-  %225 = getelementptr inbounds double, ptr %7, i64 %indvars.iv280
+  %225 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv280
   %226 = load double, ptr %225, align 8
   %227 = fneg double %224
   %228 = tail call double @llvm.fmuladd.f64(double %227, double %226, double %221)
@@ -3502,7 +3502,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
 
 ._crit_edge244:                                   ; preds = %220, %.preheader.._crit_edge244_crit_edge
   %231 = phi double [ %.pre284, %.preheader.._crit_edge244_crit_edge ], [ %228, %220 ]
-  %232 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next279
+  %232 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next279
   %233 = load i64, ptr %9, align 8
   %234 = add i64 %233, 1
   %235 = mul i64 %234, %indvars.iv.next279
@@ -3512,7 +3512,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly 
   store double %238, ptr %232, align 8
   %239 = fneg double %238
   %240 = load ptr, ptr %206, align 8
-  %241 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next279
+  %241 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next279
   %242 = load i32, ptr %241, align 4
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds ptr, ptr %240, i64 %243

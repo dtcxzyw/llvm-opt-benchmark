@@ -45,7 +45,7 @@ define noundef double @_Z19calcZeroPointEnergyN3gmx8ArrayRefIKfEEf(ptr readonly 
   %10 = fmul double %.sroa.speculated.i, 0x44EA78437A00E75D
   %11 = tail call noundef double @sqrt(double noundef %10) #7
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %.015)
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 4
   %.not = icmp eq ptr %13, %1
   br i1 %.not, label %._crit_edge, label %6
 
@@ -83,7 +83,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
 15:                                               ; preds = %.lr.ph, %41
   %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
   %.02126 = phi i64 [ %6, %.lr.ph ], [ %42, %41 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02126
+  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.02126
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %41
@@ -158,7 +158,7 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
 15:                                               ; preds = %.lr.ph, %42
   %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %42 ]
   %.02126 = phi i64 [ %6, %.lr.ph ], [ %43, %42 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02126
+  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.02126
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %42
@@ -306,10 +306,10 @@ define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 no
   br label %.sink.split
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %24 = load float, ptr %23, align 4
   %25 = fmul float %14, %24
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load float, ptr %26, align 4
   %28 = fmul float %25, %27
   %29 = fcmp ogt float %28, 0.000000e+00
@@ -362,7 +362,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
 15:                                               ; preds = %.lr.ph, %48
   %.030 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %48 ]
   %.02229 = phi i64 [ %6, %.lr.ph ], [ %49, %48 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02229
+  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.02229
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %41
@@ -450,7 +450,7 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
 .lr.ph:                                           ; preds = %._crit_edge21, %.lr.ph
   %.020 = phi double [ %20, %.lr.ph ], [ 0.000000e+00, %._crit_edge21 ]
   %.01519 = phi i64 [ %21, %.lr.ph ], [ %5, %._crit_edge21 ]
-  %14 = getelementptr inbounds float, ptr %0, i64 %.01519
+  %14 = getelementptr inbounds nuw float, ptr %0, i64 %.01519
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
   %17 = fmul double %9, %16

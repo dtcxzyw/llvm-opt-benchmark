@@ -49,34 +49,34 @@ define dso_local i32 @key_task_permission(ptr noundef %0, ptr noundef %1, i32 no
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %14, align 8
   %17 = load i32, ptr %15, align 8
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %13, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %21 = load i32, ptr %20, align 8
   %22 = lshr i32 %21, 16
   br label %49
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %13, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 108
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %46, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %13, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 16128
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %46, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %25, %34
   br i1 %35, label %36, label %38
@@ -86,7 +86,7 @@ define dso_local i32 @key_task_permission(ptr noundef %0, ptr noundef %1, i32 no
   br label %49
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @groups_search(ptr noundef %40, i32 %25) #2
   %42 = icmp eq i32 %41, 0
@@ -98,7 +98,7 @@ define dso_local i32 @key_task_permission(ptr noundef %0, ptr noundef %1, i32 no
   br label %49
 
 46:                                               ; preds = %38, %27, %23
-  %47 = getelementptr inbounds i8, ptr %13, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %48 = load i32, ptr %47, align 8
   br label %49
 
@@ -131,9 +131,9 @@ declare dso_local i32 @security_key_permission(ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -128, 1) i32 @key_validate(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %3, 32
   %7 = icmp eq i64 %6, 0

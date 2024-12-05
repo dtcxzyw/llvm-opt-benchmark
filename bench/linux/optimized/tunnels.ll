@@ -24,15 +24,15 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   store ptr null, ptr %6, align 8, !annotation !5
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @ethnl_parse_header_dev_get(ptr noundef nonnull %5, ptr noundef %10, ptr noundef %12, ptr noundef %14, i1 noundef zeroext true) #6
   %16 = icmp slt i32 %15, 0
@@ -41,18 +41,18 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
 17:                                               ; preds = %2
   call void @rtnl_lock() #6
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 1
   %22 = icmp ne i32 %21, 0
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 2192
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2192
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %25, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 36
   br label %32
 
 29:                                               ; preds = %17
@@ -73,7 +73,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
   br i1 %37, label %62, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %35, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %40 = load i32, ptr %39, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %40, ptr %4, align 4
@@ -94,7 +94,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = trunc i64 %33 to i32
   %56 = call i64 %54(ptr noundef %52, i32 noundef %55) #6
@@ -109,7 +109,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
 
 62:                                               ; preds = %57, %32
   %63 = phi i64 [ %34, %32 ], [ %59, %57 ]
-  %64 = getelementptr inbounds i8, ptr %25, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 8
   %67 = icmp eq i32 %66, 0
@@ -159,7 +159,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 1280
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 1280
   %96 = load ptr, ptr %95, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %96, ptr elementtype(i32) %96) #6, !srcloc !9
   br label %97
@@ -167,9 +167,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
 97:                                               ; preds = %94, %91
   %98 = load ptr, ptr %6, align 8
   %99 = getelementptr i8, ptr %98, i64 -20
-  %100 = getelementptr inbounds i8, ptr %86, i64 192
+  %100 = getelementptr inbounds nuw i8, ptr %86, i64 192
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %86, i64 184
+  %102 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
   %105 = getelementptr i8, ptr %101, i64 %104
@@ -179,9 +179,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
   %109 = trunc i64 %108 to i32
   store i32 %109, ptr %99, align 4
   %110 = load ptr, ptr %11, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %110, i64 280
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 280
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 @netlink_unicast(ptr noundef %114, ptr noundef nonnull %86, i32 noundef %112, i32 noundef 64) #6
   %116 = call i32 @llvm.smin.i32(i32 %115, i32 0)
@@ -199,7 +199,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocap
   br i1 %120, label %124, label %121
 
 121:                                              ; preds = %.thread
-  %122 = getelementptr inbounds i8, ptr %119, i64 1280
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 1280
   %123 = load ptr, ptr %122, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %123, ptr elementtype(i32) %123) #6, !srcloc !9
   br label %124
@@ -233,20 +233,20 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %11 = icmp ne i32 %10, 0
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2192
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2192
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %154, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
@@ -257,7 +257,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
   br i1 %26, label %154, label %27
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %14, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 36
   br label %29
 
 29:                                               ; preds = %.critedge, %27
@@ -288,8 +288,8 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
   br i1 %46, label %47, label %.loopexit11
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %31, i64 4
-  %49 = call i32 @ethnl_put_bitset32(ptr noundef %1, i32 noundef 2, ptr noundef %48, ptr noundef null, i32 noundef 3, ptr noundef nonnull @udp_tunnel_type_names, i1 noundef zeroext %11) #6
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %49 = call i32 @ethnl_put_bitset32(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %48, ptr noundef null, i32 noundef 3, ptr noundef nonnull @udp_tunnel_type_names, i1 noundef zeroext %11) #6
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %.loopexit11
 
@@ -300,7 +300,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = trunc i64 %30 to i32
   %59 = call i32 %57(ptr noundef %55, i32 noundef %58, ptr noundef %1) #6
@@ -322,7 +322,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
   br i1 %70, label %71, label %29, !llvm.loop !10
 
 71:                                               ; preds = %.critedge, %29
-  %72 = getelementptr inbounds i8, ptr %14, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 8
   %75 = icmp eq i32 %74, 0
@@ -431,7 +431,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
 
 .loopexit11:                                      ; preds = %43, %47, %54, %132, %.thread9
   %133 = phi ptr [ %80, %132 ], [ %80, %.thread9 ], [ %38, %54 ], [ %38, %47 ], [ %38, %43 ]
-  %134 = getelementptr inbounds i8, ptr %1, i64 200
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %135 = load ptr, ptr %134, align 8
   %136 = icmp ugt ptr %135, %133
   br i1 %136, label %137, label %138, !prof !11
@@ -453,7 +453,7 @@ define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %122, %138
-  %144 = getelementptr inbounds i8, ptr %1, i64 200
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %145 = load ptr, ptr %144, align 8
   %146 = icmp ugt ptr %145, %22
   br i1 %146, label %147, label %148, !prof !11
@@ -487,28 +487,28 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ethnl_tunnel_info_start(ptr noundef initializes((80, 104)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %7 = getelementptr i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @ethnl_parse_header_dev_get(ptr noundef %4, ptr noundef %8, ptr noundef %13, ptr noundef %15, i1 noundef zeroext false) #6
+  %16 = tail call i32 @ethnl_parse_header_dev_get(ptr noundef nonnull %4, ptr noundef %8, ptr noundef %13, ptr noundef %15, i1 noundef zeroext false) #6
   %17 = load ptr, ptr %4, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %17, i64 1280
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 1280
   %21 = load ptr, ptr %20, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %21, ptr elementtype(i32) %21) #6, !srcloc !9
   store ptr null, ptr %4, align 8
@@ -520,15 +520,15 @@ define dso_local i32 @ethnl_tunnel_info_start(ptr noundef initializes((80, 104))
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void @rtnl_lock() #6
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
-  %9 = getelementptr inbounds i8, ptr %7, i64 312
-  %10 = tail call ptr @xa_find(ptr noundef %9, ptr noundef %8, i64 noundef -1, i32 noundef 8) #6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %10 = tail call ptr @xa_find(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef -1, i32 noundef 8) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread8, label %12
 
@@ -537,9 +537,9 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
   br label %72
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %16
 
 16:                                               ; preds = %63, %12
@@ -585,7 +585,7 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
 
 36:                                               ; preds = %20
   store ptr %17, ptr %3, align 8
-  %37 = tail call fastcc i32 @ethnl_tunnel_info_fill_reply(ptr noundef %3, ptr noundef %0)
+  %37 = tail call fastcc i32 @ethnl_tunnel_info_fill_reply(ptr noundef nonnull %3, ptr noundef %0)
   store ptr null, ptr %3, align 8
   %38 = icmp slt i32 %37, 0
   %39 = getelementptr i8, ptr %18, i64 -20
@@ -633,7 +633,7 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
   br label %63
 
 63:                                               ; preds = %54, %52
-  %64 = tail call ptr @xa_find_after(ptr noundef %9, ptr noundef %8, i64 noundef -1, i32 noundef 8) #6
+  %64 = tail call ptr @xa_find_after(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef -1, i32 noundef 8) #6
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %16, !llvm.loop !15
 
@@ -644,7 +644,7 @@ define dso_local i32 @ethnl_tunnel_info_dumpit(ptr noundef %0, ptr noundef %1) l
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %.thread, %.loopexit
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 0
   %spec.select = select i1 %71, i32 -90, i32 %70
@@ -682,7 +682,7 @@ define internal fastcc void @nla_nest_cancel(ptr noundef %0, ptr noundef %1) unn
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ugt ptr %6, %1
   br i1 %7, label %8, label %9, !prof !11

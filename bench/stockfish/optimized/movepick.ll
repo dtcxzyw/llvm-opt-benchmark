@@ -47,31 +47,31 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS_5StatsIsLi7183ELi2EJLi4096EEEEPKNS5_IsLi10692ELi16EJLi64ELi8EEEEPPKNS5_IsLi29952ELi16EJLi64EEEEPKNS5_IsLi8192ELi512EJLi16ELi64EEEES4_PKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2172) initializes((0, 42), (44, 68), (112, 116), (120, 124)) %0, ptr noundef nonnull align 8 dereferenceable(865) %1, i16 %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i16 %8, ptr nocapture noundef readonly %9) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %17 = load i16, ptr %9, align 2
   store i16 %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 52
-  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %20 = load i16, ptr %19, align 2
   store i16 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i16 %8, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 848
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i64, ptr %25, align 16
   %.not11 = icmp eq i16 %2, 0
   br i1 %.not11, label %31, label %27
@@ -87,7 +87,7 @@ define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS
   %.not = icmp eq i64 %26, 0
   %33 = select i1 %.not, i32 0, i32 8
   %34 = or disjoint i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %34, ptr %35, align 8
   ret void
 }
@@ -100,21 +100,21 @@ declare noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4MoveE(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS_5StatsIsLi7183ELi2EJLi4096EEEEPKNS5_IsLi10692ELi16EJLi64ELi8EEEEPPKNS5_IsLi29952ELi16EJLi64EEEEPKNS5_IsLi8192ELi512EJLi16ELi64EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2172) initializes((0, 42), (112, 116), (120, 124)) %0, ptr noundef nonnull align 8 dereferenceable(865) %1, i16 %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 848
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i64, ptr %17, align 16
   %.not8 = icmp eq i16 %2, 0
   br i1 %.not8, label %23, label %19
@@ -130,7 +130,7 @@ define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS
   %.not = icmp eq i64 %18, 0
   %25 = select i1 %.not, i32 14, i32 8
   %26 = or disjoint i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %26, ptr %27, align 8
   ret void
 }
@@ -138,11 +138,11 @@ define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS_5StatsIsLi10692ELi16EJLi64ELi8EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(2172) initializes((0, 8), (16, 24), (40, 42), (112, 120)) %0, ptr noundef nonnull align 8 dereferenceable(865) %1, i16 %2, i32 noundef %3, ptr noundef %4) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %3, ptr %8, align 4
   %.not = icmp eq i16 %2, 0
   br i1 %.not, label %24, label %9
@@ -150,7 +150,7 @@ define dso_local void @_ZN9Stockfish10MovePickerC2ERKNS_8PositionENS_4MoveEiPKNS
 9:                                                ; preds = %5
   %10 = and i16 %2, 63
   %11 = zext nneg i16 %10 to i64
-  %12 = getelementptr inbounds [64 x i32], ptr %1, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i32], ptr %1, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
   %.not.i.i = icmp ult i16 %2, -16384
@@ -175,7 +175,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %9
 
 24:                                               ; preds = %9, %19, %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread, %5
   %25 = phi i32 [ 12, %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread ], [ 12, %5 ], [ %23, %19 ], [ 12, %9 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %25, ptr %26, align 8
   ret void
 }
@@ -184,12 +184,12 @@ declare noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull align 8 dereferenceable(2172) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
-  %4 = getelementptr inbounds i8, ptr %0, i64 124
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %3, align 8
   br label %9
 
@@ -220,7 +220,7 @@ define dso_local i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull 
 11:                                               ; preds = %9, %9, %9, %9
   %12 = add nuw nsw i32 %10, 1
   store i32 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.07.0.copyload = load i16, ptr %13, align 8
   br label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
@@ -240,30 +240,30 @@ define dso_local i16 @_ZN9Stockfish10MovePicker9next_moveEb(ptr noundef nonnull 
   %19 = load i16, ptr %.013.i, align 2
   %20 = and i16 %19, 63
   %21 = zext nneg i16 %20 to i64
-  %22 = getelementptr inbounds [64 x i32], ptr %18, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [64 x i32], ptr %18, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = mul nsw i32 %26, 7
   %28 = load ptr, ptr %8, align 8
   %29 = lshr i16 %19, 6
   %30 = and i16 %29, 63
   %31 = zext nneg i16 %30 to i64
-  %32 = getelementptr inbounds [64 x i32], ptr %18, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [64 x i32], ptr %18, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.14"], ptr %28, i64 0, i64 %34
-  %36 = getelementptr inbounds [64 x %"struct.Stockfish::Stats.16"], ptr %35, i64 0, i64 %21
+  %35 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.14"], ptr %28, i64 0, i64 %34
+  %36 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Stats.16"], ptr %35, i64 0, i64 %21
   %37 = and i32 %23, 7
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [8 x %"class.Stockfish::StatsEntry"], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x %"class.Stockfish::StatsEntry"], ptr %36, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i32
   %42 = add nsw i32 %27, %41
-  %43 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %.not.i = icmp eq ptr %44, %16
   br i1 %.not.i, label %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit.loopexit, label %.lr.ph.i
 
@@ -275,7 +275,7 @@ _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit.loopexit: ; preds = %.l
 _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit: ; preds = %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit.loopexit, %14
   %45 = phi ptr [ %.pre189, %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit.loopexit ], [ %16, %14 ]
   %46 = phi ptr [ %.pre188, %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit.loopexit ], [ %17, %14 ]
-  %.01724.i = getelementptr inbounds i8, ptr %46, i64 8
+  %.01724.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %47 = icmp ult ptr %.01724.i, %45
   br i1 %47, label %.lr.ph28.i, label %_ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit
 
@@ -285,7 +285,7 @@ _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit: ; preds = %_ZN9Stockfi
   %48 = load i64, ptr %.01727.i, align 4
   %.sroa.2.0.extract.shift.i = lshr i64 %48, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %49 = getelementptr inbounds i8, ptr %.01825.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.01825.i, i64 8
   %50 = load i64, ptr %49, align 4
   store i64 %50, ptr %.01727.i, align 4
   br label %.lr.ph.i15
@@ -307,7 +307,7 @@ _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE0EEEvv.exit: ; preds = %_ZN9Stockfi
 .critedge.i:                                      ; preds = %54, %.lr.ph.i15
   %.0.lcssa.i = phi ptr [ %46, %54 ], [ %.021.i, %.lr.ph.i15 ]
   store i64 %48, ptr %.0.lcssa.i, align 4
-  %.017.i = getelementptr inbounds i8, ptr %.01727.i, i64 8
+  %.017.i = getelementptr inbounds nuw i8, ptr %.01727.i, i64 8
   %57 = icmp ult ptr %.017.i, %45
   br i1 %57, label %.lr.ph28.i, label %_ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit, !llvm.loop !7
 
@@ -324,7 +324,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   br i1 %63, label %.lr.ph.i16, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit.thread"
 
 .lr.ph.i16:                                       ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %65
 
 65:                                               ; preds = %80, %.lr.ph.i16
@@ -337,7 +337,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %67, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = sdiv i32 %73, -18
   %75 = tail call noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(ptr noundef nonnull align 8 dereferenceable(865) %71, i16 %68, i32 noundef %74) #7
@@ -346,7 +346,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
 
 "_ZZN9Stockfish10MovePicker9next_moveEbENK3$_0clEv.exit.i": ; preds = %70
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %78, ptr %5, align 8
   %79 = load i64, ptr %76, align 4
   store i64 %79, ptr %77, align 4
@@ -357,28 +357,28 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
 80:                                               ; preds = %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_0clEv.exit.i", %65
   %81 = phi ptr [ %.pre2.i, %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_0clEv.exit.i" ], [ %66, %65 ]
   %82 = phi ptr [ %.pre.i, %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_0clEv.exit.i" ], [ %67, %65 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %83, ptr %6, align 8
   %84 = icmp ult ptr %83, %81
   br i1 %84, label %65, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit.thread", !llvm.loop !8
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit": ; preds = %70
-  %85 = getelementptr inbounds i8, ptr %76, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %85, ptr %6, align 8
   %.sroa.0.0.copyload.i = load i16, ptr %76, align 4
   %.not99 = icmp eq i16 %.sroa.0.0.copyload.i, 0
   br i1 %.not99, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit.thread", label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit.thread": ; preds = %80, %60, %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_0EENS_4MoveET0_.exit"
-  %86 = getelementptr inbounds i8, ptr %0, i64 44
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store ptr %86, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 68
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store ptr %87, ptr %7, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %89 = load i16, ptr %86, align 4
   %90 = load i16, ptr %88, align 4
   %91 = icmp eq i16 %89, %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 52
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %93 = load i16, ptr %92, align 4
   %94 = icmp eq i16 %93, %90
   %or.cond = select i1 %91, i1 true, i1 %94
@@ -407,7 +407,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   br i1 %102, label %.lr.ph.i19, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_1EENS_4MoveET0_.exit.thread"
 
 .lr.ph.i19:                                       ; preds = %.loopexit
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %104
 
 104:                                              ; preds = %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.thread.i", %.lr.ph.i19
@@ -424,7 +424,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   %110 = load ptr, ptr %0, align 8
   %111 = and i16 %107, 63
   %112 = zext nneg i16 %111 to i64
-  %113 = getelementptr inbounds [64 x i32], ptr %110, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [64 x i32], ptr %110, i64 0, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = icmp ne i32 %114, 0
   %.not.i.i.i.i = icmp ult i16 %107, -16384
@@ -448,13 +448,13 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
 "_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.thread.i": ; preds = %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit._ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.thread_crit_edge.i", %109, %104
   %120 = phi ptr [ %105, %109 ], [ %.pre2.i22, %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit._ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.thread_crit_edge.i" ], [ %105, %104 ]
   %121 = phi ptr [ %106, %109 ], [ %.pre.i21, %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit._ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.thread_crit_edge.i" ], [ %106, %104 ]
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %122, ptr %6, align 8
   %123 = icmp ult ptr %122, %120
   br i1 %123, label %104, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_1EENS_4MoveET0_.exit.thread", !llvm.loop !9
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_1EENS_4MoveET0_.exit": ; preds = %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_1clEv.exit.i"
-  %124 = getelementptr inbounds i8, ptr %.pre.i21, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.pre.i21, i64 8
   store ptr %124, ptr %6, align 8
   %.sroa.0.0.copyload.i23 = load i16, ptr %.pre.i21, align 4
   %.not100 = icmp eq i16 %.sroa.0.0.copyload.i23, 0
@@ -474,18 +474,18 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   store ptr %128, ptr %6, align 8
   %129 = load ptr, ptr %0, align 8
   %130 = tail call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %129, ptr noundef %128) #7
-  %131 = getelementptr inbounds i8, ptr %0, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %130, ptr %132, align 8
   store ptr %130, ptr %7, align 8
   tail call void @_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(2172) %0)
   %133 = load ptr, ptr %6, align 8
   %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 120
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %136 = load i32, ptr %135, align 8
   %137 = mul nsw i32 %136, -3330
-  %.01724.i24 = getelementptr inbounds i8, ptr %133, i64 8
+  %.01724.i24 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %138 = icmp ult ptr %.01724.i24, %134
   br i1 %138, label %.lr.ph28.i25, label %_ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39
 
@@ -493,7 +493,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   %.01727.i26 = phi ptr [ %.017.i37, %151 ], [ %.01724.i24, %127 ]
   %.pn26.i27 = phi ptr [ %.01727.i26, %151 ], [ %133, %127 ]
   %.01825.i28 = phi ptr [ %.1.i, %151 ], [ %133, %127 ]
-  %139 = getelementptr inbounds i8, ptr %.pn26.i27, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %.pn26.i27, i64 12
   %140 = load i32, ptr %139, align 4
   %.not.i29 = icmp slt i32 %140, %137
   br i1 %.not.i29, label %151, label %141
@@ -502,7 +502,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   %142 = load i64, ptr %.01727.i26, align 4
   %.sroa.2.0.extract.shift.i30 = lshr i64 %142, 32
   %.sroa.2.0.extract.trunc.i31 = trunc nuw i64 %.sroa.2.0.extract.shift.i30 to i32
-  %143 = getelementptr inbounds i8, ptr %.01825.i28, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.01825.i28, i64 8
   %144 = load i64, ptr %143, align 4
   store i64 %144, ptr %.01727.i26, align 4
   %.not1920.i32 = icmp eq ptr %143, %133
@@ -529,7 +529,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
 
 151:                                              ; preds = %.critedge.i35, %.lr.ph28.i25
   %.1.i = phi ptr [ %143, %.critedge.i35 ], [ %.01825.i28, %.lr.ph28.i25 ]
-  %.017.i37 = getelementptr inbounds i8, ptr %.01727.i26, i64 8
+  %.017.i37 = getelementptr inbounds nuw i8, ptr %.01727.i26, i64 8
   %152 = icmp ult ptr %.017.i37, %134
   br i1 %152, label %.lr.ph28.i25, label %_ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39, !llvm.loop !7
 
@@ -551,11 +551,11 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %159, label %.lr.ph.i41, label %.critedge
 
 .lr.ph.i41:                                       ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %0, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %161 = load i16, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 44
-  %163 = getelementptr inbounds i8, ptr %0, i64 52
-  %164 = getelementptr inbounds i8, ptr %0, i64 60
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %165 = load i16, ptr %162, align 4
   %166 = load i16, ptr %163, align 4
   %167 = load i16, ptr %164, align 4
@@ -576,33 +576,33 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %or.cond95, label %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_3clEv.exit.thread.i", label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_3EENS_4MoveET0_.exit"
 
 "_ZZN9Stockfish10MovePicker9next_moveEbENK3$_3clEv.exit.thread.i": ; preds = %171, %168
-  %172 = getelementptr inbounds i8, ptr %169, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %172, ptr %6, align 8
   %173 = icmp ult ptr %172, %158
   br i1 %173, label %168, label %.critedge, !llvm.loop !10
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_3EENS_4MoveET0_.exit": ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %169, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %174, ptr %6, align 8
   %.sroa.0.0.copyload.i44 = load i16, ptr %169, align 4
   %.not101 = icmp eq i16 %.sroa.0.0.copyload.i44, 0
   br i1 %.not101, label %.critedge, label %175
 
 175:                                              ; preds = %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_3EENS_4MoveET0_.exit"
-  %176 = getelementptr inbounds i8, ptr %169, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %177 = load i32, ptr %176, align 4
   %178 = icmp sgt i32 %177, -8000
   br i1 %178, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit", label %179
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %0, i64 120
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %181 = load i32, ptr %180, align 8
   %182 = mul nsw i32 %181, -3330
   %.not13 = icmp sgt i32 %177, %182
   br i1 %.not13, label %183, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %0, i64 96
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %169, ptr %184, align 8
   br label %.critedge
 
@@ -627,7 +627,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %189, label %.lr.ph.i47, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_4EENS_4MoveET0_.exit.thread"
 
 .lr.ph.i47:                                       ; preds = %.loopexit109
-  %190 = getelementptr inbounds i8, ptr %0, i64 40
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %191 = load i16, ptr %190, align 8
   br label %192
 
@@ -635,7 +635,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   %193 = phi ptr [ %.promoted.i45, %.lr.ph.i47 ], [ %195, %196 ]
   %194 = load i16, ptr %193, align 2
   %.not.i48 = icmp eq i16 %194, %191
-  %195 = getelementptr inbounds i8, ptr %193, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr %195, ptr %6, align 8
   br i1 %.not.i48, label %196, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_4EENS_4MoveET0_.exit"
 
@@ -649,10 +649,10 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %.not102, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_4EENS_4MoveET0_.exit.thread", label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_4EENS_4MoveET0_.exit.thread": ; preds = %196, %.loopexit109, %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_4EENS_4MoveET0_.exit"
-  %198 = getelementptr inbounds i8, ptr %0, i64 96
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %199 = load ptr, ptr %198, align 8
   store ptr %199, ptr %6, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 104
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %201 = load ptr, ptr %200, align 8
   store ptr %201, ptr %7, align 8
   store i32 %187, ptr %3, align 8
@@ -668,11 +668,11 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %204, label %.lr.ph.i52, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 .lr.ph.i52:                                       ; preds = %202
-  %205 = getelementptr inbounds i8, ptr %0, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %206 = load i16, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 44
-  %208 = getelementptr inbounds i8, ptr %0, i64 52
-  %209 = getelementptr inbounds i8, ptr %0, i64 60
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %210 = load i16, ptr %207, align 4
   %211 = load i16, ptr %208, align 4
   %212 = load i16, ptr %209, align 4
@@ -693,13 +693,13 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %or.cond97, label %"_ZZN9Stockfish10MovePicker9next_moveEbENK3$_5clEv.exit.thread.i", label %217
 
 217:                                              ; preds = %216
-  %218 = getelementptr inbounds i8, ptr %214, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store ptr %218, ptr %6, align 8
   %.sroa.0.0.copyload.i57 = load i16, ptr %214, align 4
   br label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 "_ZZN9Stockfish10MovePicker9next_moveEbENK3$_5clEv.exit.thread.i": ; preds = %216, %213
-  %219 = getelementptr inbounds i8, ptr %214, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store ptr %219, ptr %6, align 8
   %220 = icmp ult ptr %219, %203
   br i1 %220, label %213, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit", !llvm.loop !12
@@ -714,9 +714,9 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   br i1 %.not21.i, label %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE3EEEvv.exit, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %221
-  %225 = getelementptr inbounds i8, ptr %0, i64 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 24
-  %227 = getelementptr inbounds i8, ptr %0, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %228
 
 228:                                              ; preds = %285, %.lr.ph.i58
@@ -725,7 +725,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
   %.sroa.03.0.copyload.i = load i16, ptr %.022.i, align 4
   %230 = and i16 %.sroa.03.0.copyload.i, 63
   %231 = zext nneg i16 %230 to i64
-  %232 = getelementptr inbounds [64 x i32], ptr %229, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw [64 x i32], ptr %229, i64 0, i64 %231
   %233 = load i32, ptr %232, align 4
   %234 = icmp ne i32 %233, 0
   %.not.i.i.i = icmp ult i16 %.sroa.03.0.copyload.i, -16384
@@ -739,12 +739,12 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit39: ; 
 
 _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i: ; preds = %228
   %238 = zext i32 %233 to i64
-  %239 = getelementptr inbounds [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [16 x i32], ptr @_ZN9StockfishL10PieceValueE, i64 0, i64 %238
   %240 = load i32, ptr %239, align 4
   %241 = lshr i16 %.sroa.03.0.copyload.i, 6
   %242 = and i16 %241, 63
   %243 = zext nneg i16 %242 to i64
-  %244 = getelementptr inbounds [64 x i32], ptr %229, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw [64 x i32], ptr %229, i64 0, i64 %243
   %245 = load i32, ptr %244, align 4
   %246 = and i32 %245, 7
   %247 = add i32 %240, 268435456
@@ -753,13 +753,13 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i: ; preds = %228
 
 249:                                              ; preds = %228
   %250 = load ptr, ptr %225, align 8
-  %251 = getelementptr inbounds i8, ptr %229, i64 860
+  %251 = getelementptr inbounds nuw i8, ptr %229, i64 860
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds [2 x %"struct.Stockfish::Stats.20"], ptr %250, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [2 x %"struct.Stockfish::Stats.20"], ptr %250, i64 0, i64 %253
   %255 = and i16 %.sroa.03.0.copyload.i, 4095
   %256 = zext nneg i16 %255 to i64
-  %257 = getelementptr inbounds [4096 x %"class.Stockfish::StatsEntry.22"], ptr %254, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [4096 x %"class.Stockfish::StatsEntry.22"], ptr %254, i64 0, i64 %256
   %258 = load i16, ptr %257, align 2
   %259 = sext i16 %258 to i32
   %260 = load ptr, ptr %226, align 8
@@ -767,23 +767,23 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i: ; preds = %228
   %262 = lshr i16 %.sroa.03.0.copyload.i, 6
   %263 = and i16 %262, 63
   %264 = zext nneg i16 %263 to i64
-  %265 = getelementptr inbounds [64 x i32], ptr %229, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [64 x i32], ptr %229, i64 0, i64 %264
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %261, i64 0, i64 %267
-  %269 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %268, i64 0, i64 %231
+  %268 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %261, i64 0, i64 %267
+  %269 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %268, i64 0, i64 %231
   %270 = load i16, ptr %269, align 2
   %271 = sext i16 %270 to i32
   %272 = add nsw i32 %271, %259
   %273 = load ptr, ptr %227, align 8
-  %274 = getelementptr inbounds i8, ptr %229, i64 848
+  %274 = getelementptr inbounds nuw i8, ptr %229, i64 848
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = and i64 %277, 511
-  %279 = getelementptr inbounds [512 x %"struct.Stockfish::Stats.25"], ptr %273, i64 0, i64 %278
-  %280 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.27"], ptr %279, i64 0, i64 %267
-  %281 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.29"], ptr %280, i64 0, i64 %231
+  %279 = getelementptr inbounds nuw [512 x %"struct.Stockfish::Stats.25"], ptr %273, i64 0, i64 %278
+  %280 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.27"], ptr %279, i64 0, i64 %267
+  %281 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.29"], ptr %280, i64 0, i64 %231
   %282 = load i16, ptr %281, align 2
   %283 = sext i16 %282 to i32
   %284 = add nsw i32 %272, %283
@@ -791,9 +791,9 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i: ; preds = %228
 
 285:                                              ; preds = %249, %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i
   %.sink.i = phi i32 [ %248, %_ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread.i ], [ %284, %249 ]
-  %286 = getelementptr inbounds i8, ptr %.022.i, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %.022.i, i64 4
   store i32 %.sink.i, ptr %286, align 4
-  %287 = getelementptr inbounds i8, ptr %.022.i, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %.not.i59 = icmp eq ptr %287, %223
   br i1 %.not.i59, label %_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE3EEEvv.exit, label %228
 
@@ -810,13 +810,13 @@ _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE3EEEvv.exit: ; preds = %285, %221
   br i1 %292, label %.lr.ph.i61, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 .lr.ph.i61:                                       ; preds = %.loopexit111
-  %293 = getelementptr inbounds i8, ptr %0, i64 40
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %294
 
 294:                                              ; preds = %312, %.lr.ph.i61
   %295 = phi ptr [ %291, %.lr.ph.i61 ], [ %313, %312 ]
   %296 = phi ptr [ %290, %.lr.ph.i61 ], [ %310, %312 ]
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %.not17.i.i.i = icmp eq ptr %297, %295
   br i1 %.not17.i.i.i, label %_ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i, label %.lr.ph.i.i.i
 
@@ -824,13 +824,13 @@ _ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE3EEEvv.exit: ; preds = %285, %221
   %298 = phi ptr [ %304, %.lr.ph.i.i.i ], [ %297, %294 ]
   %.019.i.i.i = phi ptr [ %spec.select.i.i.i62, %.lr.ph.i.i.i ], [ %296, %294 ]
   %.01218.i.i.i = phi ptr [ %298, %.lr.ph.i.i.i ], [ %296, %294 ]
-  %299 = getelementptr inbounds i8, ptr %.019.i.i.i, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 4
   %300 = load i32, ptr %299, align 4
-  %301 = getelementptr inbounds i8, ptr %.01218.i.i.i, i64 12
+  %301 = getelementptr inbounds nuw i8, ptr %.01218.i.i.i, i64 12
   %302 = load i32, ptr %301, align 4
   %303 = icmp slt i32 %300, %302
   %spec.select.i.i.i62 = select i1 %303, ptr %298, ptr %.019.i.i.i
-  %304 = getelementptr inbounds i8, ptr %298, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %.not.i.i.i63 = icmp eq ptr %304, %295
   br i1 %.not.i.i.i63, label %_ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -844,7 +844,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   %308 = load i16, ptr %307, align 2
   %309 = load i16, ptr %293, align 8
   %.not.i64 = icmp eq i16 %308, %309
-  %310 = getelementptr inbounds i8, ptr %307, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store ptr %310, ptr %6, align 8
   br i1 %.not.i64, label %312, label %311
 
@@ -864,8 +864,8 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %318, label %.lr.ph.i67, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 .lr.ph.i67:                                       ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %0, i64 40
-  %320 = getelementptr inbounds i8, ptr %0, i64 116
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 116
   br label %321
 
 321:                                              ; preds = %332, %.lr.ph.i67
@@ -888,7 +888,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   br label %332
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds i8, ptr %.pre.i70, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %.pre.i70, i64 8
   store ptr %331, ptr %6, align 8
   %.sroa.0.0.copyload.i72 = load i16, ptr %.pre.i70, align 4
   br label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
@@ -896,7 +896,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
 332:                                              ; preds = %._crit_edge.i, %321
   %333 = phi ptr [ %.pre2.i71, %._crit_edge.i ], [ %322, %321 ]
   %334 = phi ptr [ %.pre.i70, %._crit_edge.i ], [ %323, %321 ]
-  %335 = getelementptr inbounds i8, ptr %334, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store ptr %335, ptr %6, align 8
   %336 = icmp ult ptr %335, %333
   br i1 %336, label %321, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit", !llvm.loop !15
@@ -908,7 +908,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %339, label %.lr.ph.i75, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_8EENS_4MoveET0_.exit.thread"
 
 .lr.ph.i75:                                       ; preds = %337
-  %340 = getelementptr inbounds i8, ptr %0, i64 40
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %341 = load i16, ptr %340, align 8
   br label %342
 
@@ -916,7 +916,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   %343 = phi ptr [ %.promoted.i73, %.lr.ph.i75 ], [ %345, %346 ]
   %344 = load i16, ptr %343, align 2
   %.not.i76 = icmp eq i16 %344, %341
-  %345 = getelementptr inbounds i8, ptr %343, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 8
   store ptr %345, ptr %6, align 8
   br i1 %.not.i76, label %346, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_8EENS_4MoveET0_.exit"
 
@@ -930,7 +930,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %.not98, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_8EENS_4MoveET0_.exit.thread", label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 "_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_8EENS_4MoveET0_.exit.thread": ; preds = %346, %337, %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_8EENS_4MoveET0_.exit"
-  %348 = getelementptr inbounds i8, ptr %0, i64 120
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %349 = load i32, ptr %348, align 8
   %.not = icmp eq i32 %349, 0
   br i1 %.not, label %350, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
@@ -960,7 +960,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   br i1 %356, label %.lr.ph.i80, label %"_ZN9Stockfish10MovePicker6selectILNS0_8PickTypeE0EZNS0_9next_moveEbE3$_5EENS_4MoveET0_.exit"
 
 .lr.ph.i80:                                       ; preds = %.loopexit113
-  %357 = getelementptr inbounds i8, ptr %0, i64 40
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %358 = load i16, ptr %357, align 8
   br label %359
 
@@ -968,7 +968,7 @@ _ZSt11max_elementIPN9Stockfish7ExtMoveEET_S3_S3_.exit.i: ; preds = %.lr.ph.i.i.i
   %360 = phi ptr [ %.promoted.i78, %.lr.ph.i80 ], [ %362, %364 ]
   %361 = load i16, ptr %360, align 2
   %.not.i81 = icmp eq i16 %361, %358
-  %362 = getelementptr inbounds i8, ptr %360, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %360, i64 8
   store ptr %362, ptr %6, align 8
   br i1 %.not.i81, label %364, label %363
 
@@ -992,16 +992,16 @@ declare noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9Stockfish10MovePicker5scoreILNS_7GenTypeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(2172) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 860
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 860
   %4 = load i32, ptr %3, align 4
   %5 = xor i32 %4, 1
   %6 = icmp eq i32 %4, 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %8 = load i64, ptr %7, align 8
   br i1 %6, label %9, label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %8
   %13 = shl i64 %12, 7
@@ -1012,7 +1012,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish10MovePicker5scoreILNS_7GenType
   br label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %2, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, %8
   %22 = lshr i64 %21, 9
@@ -1024,11 +1024,11 @@ define linkonce_odr dso_local void @_ZN9Stockfish10MovePicker5scoreILNS_7GenType
 
 _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit: ; preds = %9, %18
   %27 = phi i64 [ %17, %9 ], [ %26, %18 ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 320
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %29 = zext i32 %5 to i64
-  %30 = getelementptr inbounds [2 x i64], ptr %28, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i64], ptr %28, i64 0, i64 %29
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 272
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, %31
   %.not5.i = icmp eq i64 %34, 0
@@ -1040,7 +1040,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit: ; preds
   %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i, i1 true)
   %36 = add i64 %.046.i, -1
   %37 = and i64 %36, %.046.i
-  %38 = getelementptr inbounds [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %35
+  %38 = getelementptr inbounds nuw [64 x i64], ptr getelementptr inbounds (i8, ptr @_ZN9Stockfish13PseudoAttacksE, i64 1024), i64 0, i64 %35
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %.07.i
   %.not.i = icmp eq i64 %37, 0
@@ -1048,14 +1048,14 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit: ; preds
 
 _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit: ; preds = %.lr.ph.i, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit
   %.0.lcssa.i = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE1EEEmNS_5ColorE.exit ], [ %40, %.lr.ph.i ]
-  %41 = getelementptr inbounds i8, ptr %2, i64 280
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, %31
   %.not5.i87 = icmp eq i64 %43, 0
   br i1 %.not5.i87, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit, label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit
-  %44 = getelementptr inbounds i8, ptr %2, i64 256
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %45 = load i64, ptr %44, align 8
   br label %46
 
@@ -1065,20 +1065,20 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit: ; preds
   %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i90, i1 true)
   %48 = add i64 %.046.i90, -1
   %49 = and i64 %48, %.046.i90
-  %50 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %47
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %50 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 16
   %53 = load i64, ptr %50, align 16
   %54 = and i64 %53, %45
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = mul i64 %54, %56
-  %58 = getelementptr inbounds i8, ptr %50, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = zext nneg i32 %59 to i64
   %61 = lshr i64 %57, %60
   %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds i64, ptr %52, i64 %62
+  %63 = getelementptr inbounds nuw i64, ptr %52, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, %.07.i89
   %.not.i91 = icmp eq i64 %49, 0
@@ -1088,14 +1088,14 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit: ; preds
   %.0.lcssa.i92 = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE2EEEmNS_5ColorE.exit ], [ %65, %46 ]
   %66 = or i64 %.0.lcssa.i, %.0.lcssa.i92
   %67 = or i64 %66, %27
-  %68 = getelementptr inbounds i8, ptr %2, i64 288
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %69 = load i64, ptr %68, align 8
   %70 = and i64 %69, %31
   %.not5.i93 = icmp eq i64 %70, 0
   br i1 %.not5.i93, label %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit, label %.lr.ph.i94
 
 .lr.ph.i94:                                       ; preds = %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit
-  %71 = getelementptr inbounds i8, ptr %2, i64 256
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %72 = load i64, ptr %71, align 8
   br label %73
 
@@ -1105,20 +1105,20 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit: ; preds
   %74 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.046.i96, i1 true)
   %75 = add i64 %.046.i96, -1
   %76 = and i64 %75, %.046.i96
-  %77 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %74
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %77 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 16
   %80 = load i64, ptr %77, align 16
   %81 = and i64 %80, %72
-  %82 = getelementptr inbounds i8, ptr %77, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = mul i64 %81, %83
-  %85 = getelementptr inbounds i8, ptr %77, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %86 = load i32, ptr %85, align 8
   %87 = zext nneg i32 %86 to i64
   %88 = lshr i64 %84, %87
   %89 = and i64 %88, 4294967295
-  %90 = getelementptr inbounds i64, ptr %79, i64 %89
+  %90 = getelementptr inbounds nuw i64, ptr %79, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = or i64 %91, %.07.i95
   %.not.i97 = icmp eq i64 %76, 0
@@ -1128,9 +1128,9 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
   %.0.lcssa.i98 = phi i64 [ 0, %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE3EEEmNS_5ColorE.exit ], [ %92, %73 ]
   %93 = or i64 %.0.lcssa.i98, %67
   %94 = zext i32 %4 to i64
-  %95 = getelementptr inbounds [2 x i64], ptr %28, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i64], ptr %28, i64 0, i64 %94
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %2, i64 296
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %96, %98
   %100 = and i64 %99, %93
@@ -1140,17 +1140,17 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
   %104 = or i64 %101, %103
   %105 = and i64 %104, %96
   %106 = or i64 %105, %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %110 = load ptr, ptr %109, align 8
   %.not101 = icmp eq ptr %108, %110
   br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 32
-  %113 = getelementptr inbounds i8, ptr %0, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %114
 
 114:                                              ; preds = %.lr.ph, %222
@@ -1160,35 +1160,35 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
   %116 = lshr i16 %.sroa.0.0.copyload, 6
   %117 = and i16 %116, 63
   %118 = zext nneg i16 %117 to i64
-  %119 = getelementptr inbounds [64 x i32], ptr %115, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [64 x i32], ptr %115, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 7
   %122 = and i16 %.sroa.0.0.copyload, 63
   %123 = load ptr, ptr %111, align 8
-  %124 = getelementptr inbounds i8, ptr %115, i64 860
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 860
   %125 = load i32, ptr %124, align 4
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds [2 x %"struct.Stockfish::Stats.20"], ptr %123, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [2 x %"struct.Stockfish::Stats.20"], ptr %123, i64 0, i64 %126
   %128 = and i16 %.sroa.0.0.copyload, 4095
   %129 = zext nneg i16 %128 to i64
-  %130 = getelementptr inbounds [4096 x %"class.Stockfish::StatsEntry.22"], ptr %127, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [4096 x %"class.Stockfish::StatsEntry.22"], ptr %127, i64 0, i64 %129
   %131 = load i16, ptr %130, align 2
   %132 = sext i16 %131 to i32
   %133 = shl nsw i32 %132, 1
-  %134 = getelementptr inbounds i8, ptr %.0102, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.0102, i64 4
   store i32 %133, ptr %134, align 4
   %135 = load ptr, ptr %112, align 8
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 848
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 848
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %140, 511
-  %142 = getelementptr inbounds [512 x %"struct.Stockfish::Stats.25"], ptr %135, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [512 x %"struct.Stockfish::Stats.25"], ptr %135, i64 0, i64 %141
   %143 = zext i32 %120 to i64
-  %144 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.27"], ptr %142, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.27"], ptr %142, i64 0, i64 %143
   %145 = zext nneg i16 %122 to i64
-  %146 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.29"], ptr %144, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.29"], ptr %144, i64 0, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = sext i16 %147 to i32
   %149 = add nsw i32 %148, %132
@@ -1196,56 +1196,56 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
   store i32 %150, ptr %134, align 4
   %151 = load ptr, ptr %113, align 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %152, i64 0, i64 %143
-  %154 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %153, i64 0, i64 %145
+  %153 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %152, i64 0, i64 %143
+  %154 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %153, i64 0, i64 %145
   %155 = load i16, ptr %154, align 2
   %156 = sext i16 %155 to i32
   %157 = add nsw i32 %149, %156
   %158 = shl nsw i32 %157, 1
   store i32 %158, ptr %134, align 4
   %159 = load ptr, ptr %113, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %161, i64 0, i64 %143
-  %163 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %162, i64 0, i64 %145
+  %162 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %161, i64 0, i64 %143
+  %163 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %162, i64 0, i64 %145
   %164 = load i16, ptr %163, align 2
   %165 = sext i16 %164 to i32
   %166 = add nsw i32 %158, %165
   store i32 %166, ptr %134, align 4
   %167 = load ptr, ptr %113, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %169, i64 0, i64 %143
-  %171 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %170, i64 0, i64 %145
+  %170 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %169, i64 0, i64 %143
+  %171 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %170, i64 0, i64 %145
   %172 = load i16, ptr %171, align 2
   %173 = sdiv i16 %172, 4
   %174 = sext i16 %173 to i32
   %175 = add nsw i32 %166, %174
   store i32 %175, ptr %134, align 4
   %176 = load ptr, ptr %113, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %178, i64 0, i64 %143
-  %180 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %179, i64 0, i64 %145
+  %179 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %178, i64 0, i64 %143
+  %180 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %179, i64 0, i64 %145
   %181 = load i16, ptr %180, align 2
   %182 = sext i16 %181 to i32
   %183 = add nsw i32 %175, %182
   store i32 %183, ptr %134, align 4
   %184 = load ptr, ptr %113, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds [16 x %"struct.Stockfish::Stats.32"], ptr %186, i64 0, i64 %143
-  %188 = getelementptr inbounds [64 x %"class.Stockfish::StatsEntry.34"], ptr %187, i64 0, i64 %145
+  %187 = getelementptr inbounds nuw [16 x %"struct.Stockfish::Stats.32"], ptr %186, i64 0, i64 %143
+  %188 = getelementptr inbounds nuw [64 x %"class.Stockfish::StatsEntry.34"], ptr %187, i64 0, i64 %145
   %189 = load i16, ptr %188, align 2
   %190 = sext i16 %189 to i32
   %191 = add nsw i32 %183, %190
   store i32 %191, ptr %134, align 4
   %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 848
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 848
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 96
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 96
   %196 = zext nneg i32 %121 to i64
-  %197 = getelementptr inbounds [8 x i64], ptr %195, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i64], ptr %195, i64 0, i64 %196
   %198 = load i64, ptr %197, align 8
   %199 = shl nuw i64 1, %145
   %200 = and i64 %198, %199
@@ -1318,7 +1318,7 @@ _ZNK9Stockfish8Position10attacks_byILNS_9PieceTypeE4EEEmNS_5ColorE.exit: ; preds
   %.neg86 = phi i32 [ %.neg83, %215 ], [ %.neg84, %218 ], [ %.neg85, %220 ], [ 0, %214 ], [ 0, %.thread ]
   %224 = add nsw i32 %.neg86, %223
   store i32 %224, ptr %134, align 4
-  %225 = getelementptr inbounds i8, ptr %.0102, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.0102, i64 8
   %.not = icmp eq ptr %225, %110
   br i1 %.not, label %._crit_edge, label %114
 

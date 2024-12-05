@@ -57,9 +57,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_lskcipher_al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_lskcipher_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 -64
@@ -117,7 +117,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_lskcipher_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -56
   %9 = load ptr, ptr %8, align 8
@@ -127,9 +127,9 @@ define dso_local i32 @crypto_lskcipher_encrypt(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = ptrtoint ptr %1 to i64
@@ -146,7 +146,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr i8, ptr %8, i64 -16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr i8, ptr %8, i64 -12
   %27 = load i32, ptr %26, align 4
@@ -215,7 +215,7 @@ define internal fastcc i32 @crypto_lskcipher_crypt(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_lskcipher_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -48
   %9 = load ptr, ptr %8, align 8
@@ -226,15 +226,15 @@ define dso_local i32 @crypto_lskcipher_decrypt(ptr noundef %0, ptr noundef %1, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.skcipher_walk, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !5
   %12 = getelementptr i8, ptr %8, i64 -16
@@ -242,7 +242,7 @@ define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_
   %14 = ptrtoint ptr %11 to i64
   %15 = getelementptr i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   %20 = zext i32 %19 to i64
@@ -251,14 +251,14 @@ define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_
   %23 = sub nsw i64 0, %20
   %24 = and i64 %22, %23
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %13 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %27, i64 %28, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8
   %31 = call i32 @skcipher_walk_virt(ptr noundef nonnull %2, ptr noundef %0, i1 noundef zeroext false) #12
-  %32 = getelementptr inbounds i8, ptr %2, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %crypto_lskcipher_crypt_sg.exit, label %35
@@ -266,9 +266,9 @@ define dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef %0) local_unnamed_
 35:                                               ; preds = %1
   %36 = and i32 %30, 515
   %37 = xor i32 %36, 2
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
-  %40 = getelementptr inbounds i8, ptr %2, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %41 = or i32 %37, 1
   br label %42
 
@@ -298,15 +298,15 @@ crypto_lskcipher_crypt_sg.exit:                   ; preds = %42, %1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.skcipher_walk, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false), !annotation !5
   %12 = getelementptr i8, ptr %8, i64 -16
@@ -314,7 +314,7 @@ define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_
   %14 = ptrtoint ptr %11 to i64
   %15 = getelementptr i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   %20 = zext i32 %19 to i64
@@ -323,14 +323,14 @@ define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_
   %23 = sub nsw i64 0, %20
   %24 = and i64 %22, %23
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %13 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %27, i64 %28, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8
   %31 = call i32 @skcipher_walk_virt(ptr noundef nonnull %2, ptr noundef %0, i1 noundef zeroext false) #12
-  %32 = getelementptr inbounds i8, ptr %2, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %crypto_lskcipher_crypt_sg.exit, label %35
@@ -338,9 +338,9 @@ define dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef %0) local_unnamed_
 35:                                               ; preds = %1
   %36 = and i32 %30, 515
   %37 = xor i32 %36, 2
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
-  %40 = getelementptr inbounds i8, ptr %2, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %41 = or i32 %37, 1
   br label %42
 
@@ -369,8 +369,8 @@ crypto_lskcipher_crypt_sg.exit:                   ; preds = %42, %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_init_lskcipher_ops_sg(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @crypto_mod_get(ptr noundef %4) #12
   %6 = icmp eq ptr %5, null
@@ -389,7 +389,7 @@ define dso_local i32 @crypto_init_lskcipher_ops_sg(ptr nocapture noundef %0) loc
 
 13:                                               ; preds = %7
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @crypto_lskcipher_exit_tfm_sg, ptr %14, align 8
   br label %15
 
@@ -406,7 +406,7 @@ declare dso_local void @crypto_mod_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_lskcipher_exit_tfm_sg(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #12
   ret void
@@ -414,7 +414,7 @@ define internal void @crypto_lskcipher_exit_tfm_sg(ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_grab_lskcipher(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @crypto_lskcipher_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #12
   ret i32 %7
@@ -431,27 +431,27 @@ define dso_local ptr @crypto_alloc_lskcipher(ptr noundef %0, i32 noundef %1, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_register_lskcipher(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = tail call i32 @skcipher_prepare_alg_common(ptr noundef %2) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = tail call i32 @skcipher_prepare_alg_common(ptr noundef nonnull %2) #12
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %7), !range !9
   %9 = icmp samesign ult i32 %8, 2
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 376
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr @crypto_lskcipher_type, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 4
   store i32 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = tail call i32 @crypto_register_alg(ptr noundef %15) #12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = tail call i32 @crypto_register_alg(ptr noundef nonnull %15) #12
   br label %.thread
 
 .thread:                                          ; preds = %5, %1, %10
@@ -464,8 +464,8 @@ declare dso_local i32 @crypto_register_alg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_unregister_lskcipher(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @crypto_unregister_alg(ptr noundef %2) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @crypto_unregister_alg(ptr noundef nonnull %2) #12
   ret void
 }
 
@@ -485,27 +485,27 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
   %indvars.iv = phi i32 [ %indvars.iv.next, %30 ], [ -1, %4 ]
   %7 = phi i64 [ %31, %30 ], [ 0, %4 ]
   %8 = getelementptr %struct.lskcipher_alg, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = tail call i32 @skcipher_prepare_alg_common(ptr noundef %9) #12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = tail call i32 @skcipher_prepare_alg_common(ptr noundef nonnull %9) #12
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.thread6
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !9
   %16 = icmp samesign ult i32 %15, 2
   br i1 %16, label %17, label %.thread6
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %8, i64 376
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 376
   store ptr @crypto_lskcipher_type, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = or i32 %20, 4
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 64
-  %23 = tail call i32 @crypto_register_alg(ptr noundef %22) #12
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %23 = tail call i32 @crypto_register_alg(ptr noundef nonnull %22) #12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %30, label %.thread6
 
@@ -574,27 +574,27 @@ define dso_local i32 @lskcipher_register_instance(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
-  %8 = tail call i32 @skcipher_prepare_alg_common(ptr noundef %7) #12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = tail call i32 @skcipher_prepare_alg_common(ptr noundef nonnull %7) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %12 = load i32, ptr %11, align 4
   %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12), !range !9
   %14 = icmp samesign ult i32 %13, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store ptr @crypto_lskcipher_type, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %18 = load i32, ptr %17, align 8
   %19 = or i32 %18, 4
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
-  %21 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef %20) #12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %21 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef nonnull %20) #12
   br label %.thread
 
 .thread:                                          ; preds = %10, %6, %15, %5
@@ -636,19 +636,19 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   br i1 %18, label %107, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 512
-  %21 = getelementptr inbounds i8, ptr %17, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 512
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %22 = load i32, ptr %3, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 544
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 544
   store ptr @crypto_lskcipher_type, ptr %23, align 8
-  %24 = call i32 @crypto_grab_spawn(ptr noundef %20, ptr noundef %21, ptr noundef %13, i32 noundef 0, i32 noundef %22) #12
+  %24 = call i32 @crypto_grab_spawn(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %13, i32 noundef 0, i32 noundef %22) #12
   store i8 0, ptr %4, align 16
   %25 = icmp eq i32 %24, -2
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = call i32 @bcmp(ptr noundef dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.thread, label %30
 
@@ -660,7 +660,7 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
 33:                                               ; preds = %30
   %34 = load i32, ptr %3, align 4
   store ptr @crypto_lskcipher_type, ptr %23, align 8
-  %35 = call i32 @crypto_grab_spawn(ptr noundef %20, ptr noundef %21, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %34) #12
+  %35 = call i32 @crypto_grab_spawn(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %34) #12
   br label %36
 
 36:                                               ; preds = %33, %19
@@ -669,11 +669,11 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %17, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = getelementptr i8, ptr %41, i64 -24
-  %44 = call i32 @crypto_inst_setname(ptr noundef %21, ptr noundef %42, ptr noundef %41) #12
+  %44 = call i32 @crypto_inst_setname(ptr noundef nonnull %21, ptr noundef nonnull %42, ptr noundef %41) #12
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %.thread
 
@@ -699,8 +699,8 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
 
 60:                                               ; preds = %54
   store i8 0, ptr %57, align 1
-  %61 = getelementptr inbounds i8, ptr %17, i64 128
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef %42, ptr noundef nonnull %4) #12
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %61, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef nonnull %42, ptr noundef nonnull %4) #12
   %63 = icmp sgt i32 %62, 127
   br i1 %63, label %.thread, label %64
 
@@ -710,8 +710,8 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %17, i64 256
-  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %68, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef %42, ptr noundef %13) #12
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %68, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef nonnull %42, ptr noundef %13) #12
   %70 = icmp sgt i32 %69, 127
   br i1 %70, label %.thread, label %76
 
@@ -732,43 +732,43 @@ define dso_local ptr @lskcipher_alloc_instance_simple(ptr noundef %0, ptr nounde
   store ptr @lskcipher_free_instance_simple, ptr %17, align 8
   %81 = getelementptr i8, ptr %41, i64 36
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %17, i64 8
-  %84 = getelementptr inbounds i8, ptr %17, i64 48
-  %85 = getelementptr inbounds i8, ptr %17, i64 108
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 %82, ptr %85, align 4
   %86 = getelementptr i8, ptr %41, i64 44
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %17, i64 116
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 116
   store i32 %87, ptr %88, align 4
   %89 = getelementptr i8, ptr %41, i64 48
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %17, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store i32 %90, ptr %91, align 8
   %92 = load i32, ptr %43, align 8
   store i32 %92, ptr %84, align 8
   %93 = getelementptr i8, ptr %41, i64 -20
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %17, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store i32 %94, ptr %95, align 4
   %96 = load i32, ptr %81, align 4
-  %97 = getelementptr inbounds i8, ptr %17, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i32 %96, ptr %97, align 8
   %98 = getelementptr i8, ptr %41, i64 -8
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %17, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i32 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %17, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i32 8, ptr %101, align 8
   store ptr @lskcipher_setkey_simple, ptr %83, align 8
-  %102 = getelementptr inbounds i8, ptr %17, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr @lskcipher_init_tfm_simple, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %17, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr @lskcipher_exit_tfm_simple, ptr %103, align 8
   br label %107
 
 .thread:                                          ; preds = %67, %60, %54, %49, %26, %76, %71, %39, %36, %30
   %104 = phi i32 [ -36, %30 ], [ %37, %36 ], [ %44, %39 ], [ -22, %76 ], [ -40, %71 ], [ -2, %26 ], [ -36, %67 ], [ -36, %60 ], [ -22, %54 ], [ -22, %49 ]
-  call void @crypto_drop_spawn(ptr noundef %20) #12
+  call void @crypto_drop_spawn(ptr noundef nonnull %20) #12
   call void @kfree(ptr noundef nonnull %17) #12
   %105 = sext i32 %104 to i64
   %106 = inttoptr i64 %105 to ptr
@@ -804,28 +804,28 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lskcipher_free_instance_simple(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @crypto_drop_spawn(ptr noundef %2) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %2) #12
   tail call void @kfree(ptr noundef %0) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lskcipher_setkey_simple(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -1048321
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1048320
   %12 = or disjoint i32 %11, %8
   store i32 %12, ptr %6, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 -64
@@ -877,7 +877,7 @@ define internal i32 @lskcipher_setkey_simple(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @lskcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm2(ptr noundef %4) #12
@@ -890,7 +890,7 @@ define internal i32 @lskcipher_init_tfm_simple(ptr nocapture noundef %0) #0 alig
   br label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -901,7 +901,7 @@ define internal i32 @lskcipher_init_tfm_simple(ptr nocapture noundef %0) #0 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lskcipher_exit_tfm_simple(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #12
   ret void
@@ -933,7 +933,7 @@ declare dso_local i32 @crypto_alg_extsize(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_lskcipher_init_tfm(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -32
   %5 = load ptr, ptr %4, align 8
@@ -941,7 +941,7 @@ define internal i32 @crypto_lskcipher_init_tfm(ptr noundef %0) #0 align 16 {
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @crypto_lskcipher_exit_tfm, ptr %8, align 8
   br label %9
 
@@ -963,7 +963,7 @@ define internal i32 @crypto_lskcipher_init_tfm(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_lskcipher_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5) #12
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %4) #12
   %5 = getelementptr i8, ptr %1, i64 -24
@@ -994,7 +994,7 @@ define internal void @crypto_lskcipher_free_instance(ptr noundef %0) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_lskcipher_exit_tfm(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -32
   %5 = load ptr, ptr %4, align 8

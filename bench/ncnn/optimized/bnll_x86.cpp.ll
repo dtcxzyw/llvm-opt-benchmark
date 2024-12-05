@@ -148,7 +148,7 @@ define hidden noundef i32 @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6Op
   %101 = select <4 x i1> %31, <4 x float> %30, <4 x float> zeroinitializer
   %102 = fadd fast <4 x float> %100, %101
   store <4 x float> %102, ptr %.0307402, align 16
-  %103 = getelementptr inbounds i8, ptr %.0307402, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.0307402, i64 16
   %104 = add nuw nsw i32 %.0308401, 4
   %105 = or disjoint i32 %104, 3
   %106 = icmp slt i32 %105, %16
@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6Op
 119:                                              ; preds = %115, %109
   %storemerge = phi float [ %118, %115 ], [ %114, %109 ]
   store float %storemerge, ptr %.1405, align 4
-  %120 = getelementptr inbounds i8, ptr %.1405, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %.1405, i64 4
   %121 = add nuw nsw i32 %.1309404, 1
   %exitcond.not = icmp eq i32 %121, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph406, !llvm.loop !6

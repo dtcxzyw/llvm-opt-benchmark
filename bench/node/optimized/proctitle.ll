@@ -34,7 +34,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %size.036 = phi i64 [ %add, %for.body.preheader ], [ %add8, %for.body ]
-  %arrayidx5 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %add7 = add i64 %size.036, 1
@@ -54,7 +54,7 @@ for.end:                                          ; preds = %for.body, %if.end
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %for.end
-  %arrayidx18 = getelementptr inbounds ptr, ptr %call11, i64 %conv
+  %arrayidx18 = getelementptr inbounds nuw ptr, ptr %call11, i64 %conv
   %2 = load ptr, ptr %argv, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx18, ptr align 1 %2, i64 %add, i1 false)
   store ptr %arrayidx18, ptr %call11, align 8
@@ -70,12 +70,12 @@ for.body23:                                       ; preds = %for.body23.preheade
   %s.040 = phi ptr [ %arrayidx18, %for.body23.preheader ], [ %add.ptr, %for.body23 ]
   %size.139 = phi i64 [ %add, %for.body23.preheader ], [ %add27, %for.body23 ]
   %add.ptr = getelementptr inbounds i8, ptr %s.040, i64 %size.139
-  %arrayidx25 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv48
+  %arrayidx25 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv48
   %3 = load ptr, ptr %arrayidx25, align 8
   %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
   %add27 = add i64 %call26, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %3, i64 %add27, i1 false)
-  %arrayidx31 = getelementptr inbounds ptr, ptr %call11, i64 %indvars.iv48
+  %arrayidx31 = getelementptr inbounds nuw ptr, ptr %call11, i64 %indvars.iv48
   store ptr %add.ptr, ptr %arrayidx31, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -89,8 +89,8 @@ for.end34:                                        ; preds = %if.end15, %for.end3
   %idxprom28.lcssa = phi i64 [ %indvars.iv48, %for.end34.loopexit ], [ 0, %if.end15 ]
   %size.1.lcssa = phi i64 [ %add27, %for.end34.loopexit ], [ %add, %if.end15 ]
   %inc33.lcssa = phi i64 [ %4, %for.end34.loopexit ], [ 1, %if.end15 ]
-  %arrayidx29.le = getelementptr inbounds ptr, ptr %argv, i64 %idxprom28.lcssa
-  %arrayidx36 = getelementptr inbounds ptr, ptr %call11, i64 %inc33.lcssa
+  %arrayidx29.le = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom28.lcssa
+  %arrayidx36 = getelementptr inbounds nuw ptr, ptr %call11, i64 %inc33.lcssa
   store ptr null, ptr %arrayidx36, align 8
   %5 = load ptr, ptr %arrayidx29.le, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %5, i64 %size.1.lcssa

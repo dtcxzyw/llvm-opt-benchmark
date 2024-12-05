@@ -152,12 +152,12 @@ define dso_local void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERK
   %.sroa.0.0.copyload.i = load i64, ptr %54, align 8
   %55 = and i64 %.sroa.0.0.copyload.i, 1
   %.not.i.i.not = icmp eq i64 %55, 0
-  %.sink247.sroa.gep = getelementptr inbounds i8, ptr %27, i64 5
-  %.sink247.sroa.gep257 = getelementptr inbounds i8, ptr %27, i64 6
-  %.sink249.sroa.gep = getelementptr inbounds i8, ptr %27, i64 4
-  %.sink249.sroa.gep258 = getelementptr inbounds i8, ptr %27, i64 5
-  %.sink252.sroa.gep = getelementptr inbounds i8, ptr %27, i64 3
-  %.sink252.sroa.gep259 = getelementptr inbounds i8, ptr %27, i64 4
+  %.sink247.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 5
+  %.sink247.sroa.gep257 = getelementptr inbounds nuw i8, ptr %27, i64 6
+  %.sink249.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %.sink249.sroa.gep258 = getelementptr inbounds nuw i8, ptr %27, i64 5
+  %.sink252.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 3
+  %.sink252.sroa.gep259 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br i1 %.not.i.i.not, label %61, label %56
 
 56:                                               ; preds = %5
@@ -276,7 +276,7 @@ define dso_local void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERK
 _ZN4llvmeqENS_9StringRefES0_.exit.thread218.thread241: ; preds = %97
   %101 = call noundef zeroext i1 @_ZNK4llvm6Triple16getMacOSXVersionERNS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(16) %26) #7
   store ptr @.str.15, ptr %3, align 8
-  %.sroa.2216.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 5, ptr %.sroa.2216.0..sroa_idx, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit54
 
@@ -285,14 +285,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread218.thread241: ; preds = %97
   %104 = extractvalue { i64, i64 } %103, 0
   %105 = extractvalue { i64, i64 } %103, 1
   store i64 %104, ptr %26, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %105, ptr %.sroa.26.0..sroa_idx, align 8
   %106 = load i32, ptr %98, align 4
   %107 = call { ptr, i64 } @_ZN4llvm6Triple13getOSTypeNameENS0_6OSTypeE(i32 noundef %106) #7
   %108 = extractvalue { ptr, i64 } %107, 0
   %109 = extractvalue { ptr, i64 } %107, 1
   store ptr %108, ptr %3, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %109, ptr %.sroa.24.0..sroa_idx, align 8
   switch i64 %109, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread221 [
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -354,7 +354,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %129 = select i1 %124, i32 %119, i32 %.urem
   %130 = trunc i32 %129 to i8
   %131 = or disjoint i8 %130, 48
-  %132 = getelementptr inbounds i8, ptr %27, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %131, ptr %132, align 1
   %133 = trunc nuw i64 %121 to i32
   %134 = and i32 %133, 2147483647
@@ -363,7 +363,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %136 = trunc nuw nsw i32 %135 to i8
   %137 = or disjoint i8 %136, 48
   %138 = select i1 %.not232, i8 48, i8 %137
-  %139 = getelementptr inbounds i8, ptr %27, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %138, ptr %139, align 1
   %140 = trunc i64 %123 to i32
   %.sroa.0189.0.extract.trunc = and i32 %140, 2147483647
@@ -373,9 +373,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %143 = trunc nuw nsw i32 %142 to i8
   %144 = or disjoint i8 %143, 48
   %145 = select i1 %.not233, i8 48, i8 %144
-  %146 = getelementptr inbounds i8, ptr %27, i64 3
+  %146 = getelementptr inbounds nuw i8, ptr %27, i64 3
   store i8 %145, ptr %146, align 1
-  %147 = getelementptr inbounds i8, ptr %27, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i8 0, ptr %147, align 1
   %cond = icmp eq i32 %116, 5
   br i1 %cond, label %200, label %.thread246
@@ -401,12 +401,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %155 = udiv i32 %.0.i73, 10
   %156 = trunc i32 %155 to i8
   %157 = add i8 %156, 48
-  %158 = getelementptr inbounds i8, ptr %27, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %157, ptr %158, align 1
   %159 = urem i32 %.0.i73, 10
   %160 = trunc nuw nsw i32 %159 to i8
   %161 = or disjoint i8 %160, 48
-  %162 = getelementptr inbounds i8, ptr %27, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %161, ptr %162, align 1
   %163 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %164 = load i64, ptr %163, align 8
@@ -422,7 +422,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %169 = urem i32 %.pre-phi, 10
   %170 = trunc nuw nsw i32 %169 to i8
   %171 = or disjoint i8 %170, 48
-  %172 = getelementptr inbounds i8, ptr %27, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %171, ptr %172, align 1
   %173 = lshr i64 %.fr, 32
   %174 = trunc nuw i64 %173 to i32
@@ -432,12 +432,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   %176 = udiv i32 %.0.i99, 10
   %177 = trunc i32 %176 to i8
   %178 = add i8 %177, 48
-  %179 = getelementptr inbounds i8, ptr %27, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %178, ptr %179, align 1
   %180 = urem i32 %.0.i99, 10
   %181 = trunc nuw nsw i32 %180 to i8
   %182 = or disjoint i8 %181, 48
-  %183 = getelementptr inbounds i8, ptr %27, i64 3
+  %183 = getelementptr inbounds nuw i8, ptr %27, i64 3
   store i8 %182, ptr %183, align 1
   br label %184
 
@@ -657,7 +657,7 @@ define linkonce_odr hidden void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5T
 15:                                               ; preds = %3
   store i64 2334393380830012451, ptr %8, align 1
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -676,7 +676,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 24:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %25 = getelementptr inbounds i8, ptr %19, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %25, ptr %18, align 8
   store i8 32, ptr %19, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -696,7 +696,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
   br label %_ZN4llvm11raw_ostreamlsEc.exit5
 
 32:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit5

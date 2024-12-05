@@ -252,24 +252,24 @@ define hidden void @ftype_register_bytes() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @bytes_fvalue_new(ptr nocapture noundef writeonly initializes((8, 16)) %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @bytes_fvalue_copy(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_bytes_ref(ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @bytes_fvalue_free(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -290,7 +290,7 @@ define internal noundef zeroext i1 @bytes_from_literal(ptr nocapture noundef %0,
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %bytes_fvalue_free.exit, label %10
@@ -323,7 +323,7 @@ define internal noundef zeroext i1 @bytes_from_string(ptr nocapture noundef %0, 
   %.0 = phi i64 [ %8, %7 ], [ %2, %4 ]
   %10 = trunc i64 %.0 to i32
   %11 = tail call ptr @g_byte_array_append(ptr noundef %5, ptr noundef %1, i32 noundef %10) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %bytes_fvalue_free.exit, label %14
@@ -369,7 +369,7 @@ byte_array_from_charconst.exit:                   ; preds = %3
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %byte_array_from_charconst.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i7 = icmp eq ptr %14, null
   br i1 %.not.i7, label %bytes_fvalue_free.exit, label %15
@@ -415,7 +415,7 @@ byte_array_from_charconst.exit.i:                 ; preds = %4
   br i1 %.not.i, label %bytes_from_charconst.exit, label %13
 
 13:                                               ; preds = %byte_array_from_charconst.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i7.i = icmp eq ptr %15, null
   br i1 %.not.i7.i, label %bytes_fvalue_free.exit.i, label %16
@@ -474,7 +474,7 @@ byte_array_from_charconst.exit.i.i:               ; preds = %10
   br i1 %.not.i.i, label %bytes_from_uinteger64.exit, label %18
 
 18:                                               ; preds = %byte_array_from_charconst.exit.i.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i7.i.i = icmp eq ptr %20, null
   br i1 %.not.i7.i.i, label %bytes_fvalue_free.exit.i.i, label %21
@@ -497,7 +497,7 @@ bytes_from_uinteger64.exit:                       ; preds = %bytes_fvalue_free.e
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytes_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @g_bytes_get_data(ptr noundef %7, ptr noundef nonnull %5) #8
   %9 = icmp eq i32 %2, 1
@@ -553,7 +553,7 @@ bytes_to_dfilter_repr.exit:                       ; preds = %15, %21
 
 ; Function Attrs: nounwind uwtable
 define internal void @bytes_fvalue_set(ptr nocapture noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %bytes_fvalue_free.exit, label %5
@@ -571,7 +571,7 @@ bytes_fvalue_free.exit:                           ; preds = %2, %5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytes_fvalue_get(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_bytes_ref(ptr noundef %3) #8
   ret ptr %4
@@ -579,9 +579,9 @@ define internal ptr @bytes_fvalue_get(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @g_bytes_compare(ptr noundef %5, ptr noundef %7) #8
   store i32 %8, ptr %2, align 4
@@ -592,10 +592,10 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @g_bytes_get_data(ptr noundef %7, ptr noundef nonnull %4) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @g_bytes_get_data(ptr noundef %10, ptr noundef nonnull %5) #8
   %12 = load i64, ptr %4, align 8
@@ -610,7 +610,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef nonnull %4) #8
   %8 = load i64, ptr %4, align 8
@@ -622,7 +622,7 @@ define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bytes_hash(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @g_bytes_hash(ptr noundef %3) #8
   ret i32 %4
@@ -631,7 +631,7 @@ define internal i32 @bytes_hash(ptr nocapture noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @bytes_is_zero(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = call ptr @g_bytes_get_data(ptr noundef %4, ptr noundef nonnull %2) #8
   %6 = load i64, ptr %2, align 8
@@ -655,7 +655,7 @@ define internal noundef zeroext i1 @bytes_is_zero(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @g_bytes_get_size(ptr noundef %3) #8
   %5 = trunc i64 %4 to i32
@@ -664,7 +664,7 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
   %8 = zext i32 %2 to i64
@@ -678,10 +678,10 @@ define internal noundef i32 @bytes_bitwise_and(ptr nocapture noundef writeonly %
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @g_bytes_get_data(ptr noundef %9, ptr noundef nonnull %5) #8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @g_bytes_get_data(ptr noundef %12, ptr noundef nonnull %6) #8
   %14 = load i64, ptr %5, align 8
@@ -718,7 +718,7 @@ define internal noundef i32 @bytes_bitwise_and(ptr nocapture noundef writeonly %
 
 33:                                               ; preds = %31, %18
   %.sink = phi ptr [ %32, %31 ], [ %19, %18 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %34, align 8
   ret i32 0
 }
@@ -730,7 +730,7 @@ define internal noundef zeroext i1 @ax25_from_literal(ptr nocapture noundef %0, 
   br i1 %.not18, label %bytes_from_literal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %10, label %9
@@ -784,7 +784,7 @@ define internal noundef zeroext i1 @vines_from_literal(ptr nocapture noundef %0,
   br i1 %.not18, label %bytes_from_literal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %10, label %9
@@ -838,7 +838,7 @@ define internal noundef zeroext i1 @ether_from_literal(ptr nocapture noundef %0,
   br i1 %.not18, label %bytes_from_literal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %10, label %9
@@ -906,7 +906,7 @@ define internal noundef zeroext i1 @oid_from_literal(ptr nocapture noundef %0, p
   br label %17
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %bytes_fvalue_free.exit, label %15
@@ -927,7 +927,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @oid_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
   %8 = load ptr, ptr %5, align 8
@@ -958,7 +958,7 @@ define internal noundef zeroext i1 @rel_oid_from_literal(ptr nocapture noundef %
   br label %17
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %bytes_fvalue_free.exit, label %15
@@ -979,7 +979,7 @@ bytes_fvalue_free.exit:                           ; preds = %12, %15
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @rel_oid_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
   %8 = load ptr, ptr %5, align 8
@@ -996,7 +996,7 @@ define internal noundef zeroext i1 @system_id_from_literal(ptr nocapture noundef
   br i1 %.not12, label %bytes_from_literal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %10, label %9
@@ -1034,7 +1034,7 @@ bytes_from_literal.exit:                          ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @system_id_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @g_bytes_get_data(ptr noundef %6, ptr noundef null) #8
   %8 = load ptr, ptr %5, align 8
@@ -1051,7 +1051,7 @@ define internal noundef zeroext i1 @fcwwn_from_literal(ptr nocapture noundef %0,
   br i1 %.not12, label %bytes_from_literal.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %10, label %9

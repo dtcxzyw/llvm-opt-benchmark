@@ -12,7 +12,7 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   br i1 %5, label %63, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = icmp eq ptr %1, null
@@ -34,7 +34,7 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   br i1 %17, label %63, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %19, align 8
   %20 = icmp eq i32 %2, 1024
   %21 = load i32, ptr %0, align 8
@@ -42,26 +42,26 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   %masksel = select i1 %20, i32 1024, i32 0
   %storemerge = or disjoint i32 %22, %masksel
   store i32 %storemerge, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.thread54, label %29
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %8, i64 26
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 26
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 15
   %33 = icmp eq i16 %32, 3
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %28, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not51 = icmp eq ptr %36, null
   br i1 %.not51, label %.thread54, label %37
@@ -71,9 +71,9 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   br label %60
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %41, ptr %42, align 8
   %43 = or i32 %storemerge, 64
   store i32 %43, ptr %4, align 8
@@ -103,7 +103,7 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %27, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not50 = icmp eq ptr %57, null
   br i1 %.not50, label %.thread57, label %58

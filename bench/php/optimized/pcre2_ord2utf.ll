@@ -19,7 +19,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %5 = getelementptr inbounds [0 x i32], ptr @_pcre2_utf8_table1, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_utf8_table1, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not = icmp sgt i32 %0, %6
   br i1 %.not, label %7, label %._crit_edge.split.loop.exit34
@@ -36,7 +36,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
 ._crit_edge:                                      ; preds = %7, %._crit_edge.split.loop.exit34
   %.015.lcssa = phi i32 [ %8, %._crit_edge.split.loop.exit34 ], [ %3, %7 ]
   %9 = zext nneg i32 %.015.lcssa to i64
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %11 = icmp sgt i32 %.015.lcssa, 0
   br i1 %11, label %.lr.ph25, label %._crit_edge26
 
@@ -59,7 +59,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %.015.lcssa32 = phi i32 [ %.015.lcssa, %._crit_edge ], [ 0, %2 ], [ %.015.lcssa, %.lr.ph25 ]
   %.017.lcssa = phi i32 [ %0, %._crit_edge ], [ %0, %2 ], [ %16, %.lr.ph25 ]
   %.016.lcssa = phi ptr [ %10, %._crit_edge ], [ %1, %2 ], [ %15, %.lr.ph25 ]
-  %20 = getelementptr inbounds [0 x i32], ptr @_pcre2_utf8_table2, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_utf8_table2, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, %.017.lcssa
   %23 = trunc i32 %22 to i8

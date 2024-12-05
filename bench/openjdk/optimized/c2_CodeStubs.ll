@@ -15,19 +15,19 @@ $_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi 
 define hidden void @_ZN14C2CodeStubListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %8) #5
   store i32 0, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = ptrtoint ptr %8 to i64
   store i64 %13, ptr %12, align 8
   ret void
@@ -40,8 +40,8 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = zext nneg i32 %3 to i64
   br label %8
 
@@ -49,18 +49,18 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(88) %11) #5
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
@@ -70,14 +70,14 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   br i1 %27, label %28, label %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit
 
 28:                                               ; preds = %8
-  %29 = getelementptr inbounds i8, ptr %18, i64 96
-  %30 = getelementptr inbounds i8, ptr %18, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %31 = load ptr, ptr %30, align 8
   tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %31, ptr noundef nonnull align 8 dereferenceable(88) %29, i32 noundef %15) #5
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 280
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit
@@ -85,7 +85,7 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
 38:                                               ; preds = %28
   %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1808
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1808
   %42 = load ptr, ptr %41, align 8
   tail call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %42, ptr noundef nonnull @.str) #5
   br label %.loopexit
@@ -107,21 +107,21 @@ declare void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 2288
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2288
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 572
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 572
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 520
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 520
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 524
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 524
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %_ZN11PhaseOutput8add_stubEP10C2CodeStub.exit
@@ -144,7 +144,7 @@ _ZN11PhaseOutput8add_stubEP10C2CodeStub.exit:     ; preds = %13, %19
   %27 = phi i32 [ %.pre.i.i.i, %19 ], [ %15, %13 ]
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %14, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 528
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
@@ -162,9 +162,9 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -196,7 +196,7 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -215,9 +215,9 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -227,14 +227,14 @@ _ZN13GrowableArrayIP10C2CodeStubE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP10C2CodeStubE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

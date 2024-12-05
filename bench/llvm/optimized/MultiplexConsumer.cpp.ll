@@ -39,46 +39,45 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListenerC2ERKSt6vec
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = ashr exact i64 %9, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i, label %11
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i, label %10
 
-11:                                               ; preds = %2
-  %12 = icmp ugt i64 %10, 1152921504606846975
-  br i1 %12, label %13, label %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i
+10:                                               ; preds = %2
+  %11 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %11, label %12, label %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i
 
-13:                                               ; preds = %11
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #11
+12:                                               ; preds = %10
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #12
   unreachable
 
-_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %11
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %10
+  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #13
   br label %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i, %2
-  %15 = phi ptr [ %14, %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %2 ]
-  store ptr %15, ptr %3, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr %1, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %19 to i64
-  %23 = sub i64 %21, %22
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit, label %24
+  %14 = phi ptr [ %13, %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %2 ]
+  store ptr %14, ptr %3, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %14, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %16, ptr %17, align 8
+  %18 = load ptr, ptr %1, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = ptrtoint ptr %18 to i64
+  %22 = sub i64 %20, %21
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %18
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit, label %23
 
-24:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %15, ptr align 8 %19, i64 %23, i1 false)
+23:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %18, i64 %22, i1 false)
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit
 
-_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i, %24
-  %25 = getelementptr inbounds i8, ptr %15, i64 %23
-  store ptr %25, ptr %16, align 8
+_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i, %23
+  %24 = getelementptr inbounds i8, ptr %14, i64 %22
+  store ptr %24, ptr %15, align 8
   ret void
 }
 
@@ -101,9 +100,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener17ReaderIni
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -131,9 +130,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener14Identifie
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -155,10 +154,10 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener9MacroReadE
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.05.09, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -185,9 +184,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8TypeReadEN
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.08
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, i64 %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, i64 %2) #14
   %18 = add i64 %.08, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -215,9 +214,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8DeclReadEN
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -245,9 +244,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19Predefine
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -275,9 +274,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener12SelectorR
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, i64 %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, i64 %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -305,9 +304,9 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19MacroDefi
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -329,10 +328,10 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener10ModuleRea
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.05.09, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -353,10 +352,10 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener16ModuleImp
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.05.09, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, i32 %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %1, i32 %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -374,7 +373,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListenerC2EN4llvm8ArrayRef
   br i1 %5, label %6, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 6:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #12
   unreachable
 
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %3
@@ -382,25 +381,24 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.ex
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %9
 
 _ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %7 = getelementptr inbounds i8, ptr null, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
 9:                                                ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #12
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #13
   store ptr %10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %1, i64 %.idx, i1 false)
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, %9
-  %13 = phi ptr [ null, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i ], [ %10, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %15, align 8
+  %13 = phi ptr [ %7, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i ], [ %11, %9 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %14, align 8
   ret void
 }
 
@@ -423,9 +421,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefi
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -453,9 +451,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDecl
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -483,9 +481,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicit
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -513,9 +511,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -543,9 +541,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -573,9 +571,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -597,10 +595,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21ResolvedExceptio
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -627,9 +625,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTyp
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, i64 %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, i64 %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -651,10 +649,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22ResolvedOperator
   %.sroa.07.011 = phi ptr [ %13, %.lr.ph ], [ %6, %4 ]
   %9 = load ptr, ptr %.sroa.07.011, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %1, ptr noundef %2, ptr noundef %3) #13
-  %13 = getelementptr inbounds i8, ptr %.sroa.07.011, i64 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
   %.not = icmp eq ptr %13, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -681,9 +679,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplici
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -711,9 +709,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationReq
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -741,9 +739,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefiniti
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -765,10 +763,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30FunctionDefiniti
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -795,9 +793,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentI
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -825,9 +823,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberIni
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -855,9 +853,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategor
   %13 = getelementptr inbounds ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #13
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %1, ptr noundef %2) #14
   %18 = add i64 %.07, 1
   %.not = icmp eq i64 %18, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -885,9 +883,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarke
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -915,9 +913,9 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #13
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %1) #14
   %17 = add i64 %.06, 1
   %.not = icmp eq i64 %17, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -939,10 +937,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener31DeclarationMarke
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -963,10 +961,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -987,10 +985,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener25RedefinedHiddenD
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1011,10 +1009,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedAttributeTo
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1035,10 +1033,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21EnteringModulePu
   %.sroa.04.08 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.sroa.04.08, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1059,10 +1057,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener19AddedManglingNum
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.05.09, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1083,10 +1081,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedStaticLocal
   %.sroa.05.09 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.05.09, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i32 noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1107,10 +1105,10 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedAnonymousNa
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #13
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, ptr noundef %2) #14
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1154,12 +1152,12 @@ define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrIN
   %.sroa.025.044 = phi ptr [ null, %.lr.ph ], [ %.sroa.025.1, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.6.043 = phi ptr [ null, %.lr.ph ], [ %.sroa.6.1, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.12.042 = phi ptr [ null, %.lr.ph ], [ %.sroa.12.1, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.022.041 = phi ptr [ %15, %.lr.ph ], [ %83, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.022.041 = phi ptr [ %15, %.lr.ph ], [ %77, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit ]
   %20 = load ptr, ptr %.sroa.022.041, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(9) %20) #13
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(9) %20) #14
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit, label %25
 
@@ -1169,7 +1167,7 @@ define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrIN
 
 26:                                               ; preds = %25
   store ptr %24, ptr %.sroa.6.043, align 8
-  %27 = getelementptr inbounds i8, ptr %.sroa.6.043, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.6.043, i64 8
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
 
 28:                                               ; preds = %25
@@ -1180,7 +1178,7 @@ define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrIN
   br i1 %32, label %33, label %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 33:                                               ; preds = %28
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #11
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #12
   unreachable
 
 _ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %28
@@ -1190,200 +1188,186 @@ _ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %36 = icmp ult i64 %35, %34
   %37 = tail call i64 @llvm.umin.i64(i64 %35, i64 1152921504606846975)
   %38 = select i1 %36, i64 1152921504606846975, i64 %37
-  %.not.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.i.i, label %39
+  %.not.i.i.i = icmp ne i64 %38, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %39 = shl nuw nsw i64 %38, 3
+  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #13
+  %41 = getelementptr inbounds i8, ptr %40, i64 %31
+  store ptr %24, ptr %41, align 8
+  %42 = icmp sgt i64 %31, 0
+  br i1 %42, label %43, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-39:                                               ; preds = %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %40 = shl nuw nsw i64 %38, 3
-  %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #12
-  br label %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %39, %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %42 = phi ptr [ %41, %39 ], [ null, %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %34
-  store ptr %24, ptr %43, align 8
-  %44 = icmp sgt i64 %31, 0
-  br i1 %44, label %45, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-
-45:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %42, ptr align 8 %.sroa.025.044, i64 %31, i1 false)
+43:                                               ; preds = %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %.sroa.025.044, i64 %31, i1 false)
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %45, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-  %46 = getelementptr inbounds i8, ptr %42, i64 %31
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %43, %_ZNKSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.not.i17.i.i = icmp eq ptr %.sroa.025.044, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %48
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %45
 
-48:                                               ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.044, i64 noundef %31) #14
+45:                                               ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.044, i64 noundef %31) #15
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %49 = getelementptr inbounds ptr, ptr %42, i64 %38
+_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %26, %19
-  %.sroa.12.1 = phi ptr [ %.sroa.12.042, %19 ], [ %49, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12.042, %26 ]
-  %.sroa.6.1 = phi ptr [ %.sroa.6.043, %19 ], [ %47, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %27, %26 ]
-  %.sroa.025.1 = phi ptr [ %.sroa.025.044, %19 ], [ %42, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.025.044, %26 ]
-  %50 = load ptr, ptr %.sroa.022.041, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 144
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(9) %50) #13
-  %.not5 = icmp eq ptr %54, null
-  br i1 %.not5, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit, label %55
+  %.sroa.12.1 = phi ptr [ %.sroa.12.042, %19 ], [ %46, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.12.042, %26 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.043, %19 ], [ %44, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %27, %26 ]
+  %.sroa.025.1 = phi ptr [ %.sroa.025.044, %19 ], [ %40, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.025.044, %26 ]
+  %47 = load ptr, ptr %.sroa.022.041, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(9) %47) #14
+  %.not5 = icmp eq ptr %51, null
+  br i1 %.not5, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit, label %52
 
-55:                                               ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
-  %56 = load ptr, ptr %17, align 8
-  %57 = load ptr, ptr %18, align 8
-  %.not.i6 = icmp eq ptr %56, %57
-  br i1 %.not.i6, label %60, label %58
+52:                                               ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
+  %53 = load ptr, ptr %17, align 8
+  %54 = load ptr, ptr %18, align 8
+  %.not.i6 = icmp eq ptr %53, %54
+  br i1 %.not.i6, label %57, label %55
 
-58:                                               ; preds = %55
-  store ptr %54, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %59, ptr %17, align 8
+55:                                               ; preds = %52
+  store ptr %51, ptr %53, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr %56, ptr %17, align 8
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %3, align 8
-  %62 = ptrtoint ptr %56 to i64
-  %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = icmp eq i64 %64, 9223372036854775800
-  br i1 %65, label %66, label %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %3, align 8
+  %59 = ptrtoint ptr %53 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = icmp eq i64 %61, 9223372036854775800
+  br i1 %62, label %63, label %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-66:                                               ; preds = %60
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #11
+63:                                               ; preds = %57
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #12
   unreachable
 
-_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %60
-  %67 = ashr exact i64 %64, 3
-  %.sroa.speculated.i.i.i7 = tail call i64 @llvm.umax.i64(i64 %67, i64 1)
-  %68 = add nsw i64 %.sroa.speculated.i.i.i7, %67
-  %69 = icmp ult i64 %68, %67
-  %70 = tail call i64 @llvm.umin.i64(i64 %68, i64 1152921504606846975)
-  %71 = select i1 %69, i64 1152921504606846975, i64 %70
-  %.not.i.i.i8 = icmp eq i64 %71, 0
-  br i1 %.not.i.i.i8, label %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EE11_M_allocateEm.exit.i.i, label %72
+_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %57
+  %64 = ashr exact i64 %61, 3
+  %.sroa.speculated.i.i.i7 = tail call i64 @llvm.umax.i64(i64 %64, i64 1)
+  %65 = add nsw i64 %.sroa.speculated.i.i.i7, %64
+  %66 = icmp ult i64 %65, %64
+  %67 = tail call i64 @llvm.umin.i64(i64 %65, i64 1152921504606846975)
+  %68 = select i1 %66, i64 1152921504606846975, i64 %67
+  %.not.i.i.i8 = icmp ne i64 %68, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i8)
+  %69 = shl nuw nsw i64 %68, 3
+  %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #13
+  %71 = getelementptr inbounds i8, ptr %70, i64 %61
+  store ptr %51, ptr %71, align 8
+  %72 = icmp sgt i64 %61, 0
+  br i1 %72, label %73, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-72:                                               ; preds = %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %73 = shl nuw nsw i64 %71, 3
-  %74 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #12
-  br label %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %72, %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %75 = phi ptr [ %74, %72 ], [ null, %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %67
-  store ptr %54, ptr %76, align 8
-  %77 = icmp sgt i64 %64, 0
-  br i1 %77, label %78, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-
-78:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %75, ptr align 8 %61, i64 %64, i1 false)
+73:                                               ; preds = %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr align 8 %58, i64 %61, i1 false)
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %78, %_ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EE11_M_allocateEm.exit.i.i
-  %79 = getelementptr inbounds i8, ptr %75, i64 %64
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %.not.i17.i.i9 = icmp eq ptr %61, null
-  br i1 %.not.i17.i.i9, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %81
+_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %73, %_ZNKSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %.not.i17.i.i9 = icmp eq ptr %58, null
+  br i1 %.not.i17.i.i9, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %75
 
-81:                                               ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %64) #14
+75:                                               ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %61) #15
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %81, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %75, ptr %3, align 8
-  store ptr %80, ptr %17, align 8
-  %82 = getelementptr inbounds ptr, ptr %75, i64 %71
-  store ptr %82, ptr %18, align 8
+_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %75, %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %70, ptr %3, align 8
+  store ptr %74, ptr %17, align 8
+  %76 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
+  store ptr %76, ptr %18, align 8
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %58, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
-  %83 = getelementptr inbounds i8, ptr %.sroa.022.041, i64 8
-  %.not33 = icmp eq ptr %83, %16
+_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %55, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE9push_backERKS2_.exit
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.022.041, i64 8
+  %.not33 = icmp eq ptr %77, %16
   br i1 %.not33, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EE9push_backERKS2_.exit
-  %84 = ptrtoint ptr %.sroa.12.1 to i64
-  %85 = icmp eq ptr %.sroa.025.1, %.sroa.6.1
-  br i1 %85, label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, label %86
+  %78 = ptrtoint ptr %.sroa.12.1 to i64
+  %79 = icmp eq ptr %.sroa.025.1, %.sroa.6.1
+  br i1 %79, label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, label %80
 
-86:                                               ; preds = %._crit_edge
-  %87 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !27
-  %88 = ptrtoint ptr %.sroa.6.1 to i64
-  %89 = ptrtoint ptr %.sroa.025.1 to i64
-  %90 = sub i64 %88, %89
-  %91 = ashr exact i64 %90, 3
-  tail call void @_ZN5clang28MultiplexASTMutationListenerC1EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr %.sroa.025.1, i64 %91) #13, !noalias !27
-  %92 = load ptr, ptr %13, align 8
-  store ptr %87, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %92, null
+80:                                               ; preds = %._crit_edge
+  %81 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13, !noalias !27
+  %82 = ptrtoint ptr %.sroa.6.1 to i64
+  %83 = ptrtoint ptr %.sroa.025.1 to i64
+  %84 = sub i64 %82, %83
+  %85 = ashr exact i64 %84, 3
+  tail call void @_ZN5clang28MultiplexASTMutationListenerC1EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr %.sroa.025.1, i64 %85) #14, !noalias !27
+  %86 = load ptr, ptr %13, align 8
+  store ptr %81, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i: ; preds = %86
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(32) %92) #13
+_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i: ; preds = %80
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(32) %86) #14
   br label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %2, %86, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i, %._crit_edge
-  %.sroa.025.0.lcssa54 = phi ptr [ %.sroa.025.1, %86 ], [ %.sroa.025.1, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i ], [ %.sroa.025.1, %._crit_edge ], [ null, %2 ]
-  %.sroa.12.0.lcssa53 = phi i64 [ %84, %86 ], [ %84, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i ], [ %84, %._crit_edge ], [ 0, %2 ]
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %96, %98
-  br i1 %99, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, label %100
+_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %2, %80, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i, %._crit_edge
+  %.sroa.025.0.lcssa54 = phi ptr [ %.sroa.025.1, %80 ], [ %.sroa.025.1, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i ], [ %.sroa.025.1, %._crit_edge ], [ null, %2 ]
+  %.sroa.12.0.lcssa53 = phi i64 [ %78, %80 ], [ %78, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i.i.i.i ], [ %78, %._crit_edge ], [ 0, %2 ]
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %90, %92
+  br i1 %93, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, label %94
 
-100:                                              ; preds = %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
-  %101 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !30
-  call void @_ZN5clang35MultiplexASTDeserializationListenerC1ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(24) %3) #13, !noalias !30
-  %102 = load ptr, ptr %14, align 8
-  store ptr %101, ptr %14, align 8
-  %.not.i.i.i.i11 = icmp eq ptr %102, null
+94:                                               ; preds = %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
+  %95 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13, !noalias !30
+  call void @_ZN5clang35MultiplexASTDeserializationListenerC1ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(24) %3) #14, !noalias !30
+  %96 = load ptr, ptr %14, align 8
+  store ptr %95, ptr %14, align 8
+  %.not.i.i.i.i11 = icmp eq ptr %96, null
   br i1 %.not.i.i.i.i11, label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split, label %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i: ; preds = %100
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %102) #13
+_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i: ; preds = %94
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8
+  call void %99(ptr noundef nonnull align 8 dereferenceable(32) %96) #14
   br label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split
 
-_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split: ; preds = %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i, %100
+_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split: ; preds = %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i.i.i.i, %94
   %.pr = load ptr, ptr %3, align 8
   br label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
-  %106 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split ], [ %96, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit ]
-  %.not.i.i.i13 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i13, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit, label %107
+  %100 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exitthread-pre-split ], [ %90, %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit ]
+  %.not.i.i.i13 = icmp eq ptr %100, null
+  br i1 %.not.i.i.i13, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit, label %101
 
-107:                                              ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = ptrtoint ptr %109 to i64
-  %111 = ptrtoint ptr %106 to i64
-  %112 = sub i64 %110, %111
-  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %112) #14
+101:                                              ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = ptrtoint ptr %103 to i64
+  %105 = ptrtoint ptr %100 to i64
+  %106 = sub i64 %104, %105
+  call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef %106) #15
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, %107
+_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, %101
   %.not.i.i.i14 = icmp eq ptr %.sroa.025.0.lcssa54, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit, label %113
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit, label %107
 
-113:                                              ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit
-  %114 = ptrtoint ptr %.sroa.025.0.lcssa54 to i64
-  %115 = sub i64 %.sroa.12.0.lcssa53, %114
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa54, i64 noundef %115) #14
+107:                                              ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit
+  %108 = ptrtoint ptr %.sroa.025.0.lcssa54 to i64
+  %109 = sub i64 %.sroa.12.0.lcssa53, %108
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.lcssa54, i64 noundef %109) #15
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit, %113
+_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit, %107
   ret void
 }
 
@@ -1397,9 +1381,9 @@ define dso_local void @_ZN5clang17MultiplexConsumerD2Ev(ptr nocapture noundef no
 
 _ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br label %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang35MultiplexASTDeserializationListenerEEclEPS1_.exit.i
@@ -1411,9 +1395,9 @@ _ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_delet
 
 _ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   br label %_ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang35MultiplexASTDeserializationListenerESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5clang28MultiplexASTMutationListenerEEclEPS1_.exit.i
@@ -1433,14 +1417,14 @@ _ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EE
 
 _ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(9) %16) #13
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(9) %16) #14
   br label %_ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang11ASTConsumerEEclEPS1_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i, align 8
-  %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %20, %15
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !33
 
@@ -1459,7 +1443,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_Ev
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #15
   br label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %22
@@ -1468,8 +1452,8 @@ _ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang17MultiplexConsumerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang17MultiplexConsumerD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #14
+  tail call void @_ZN5clang17MultiplexConsumerD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #15
   ret void
 }
 
@@ -1489,10 +1473,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer10InitializeERNS_10ASTContext
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1517,14 +1501,14 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLeve
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr %1) #13
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr %1) #14
   br label %13
 
 13:                                               ; preds = %7, %.lr.ph
   %14 = phi i1 [ false, %.lr.ph ], [ %12, %7 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1546,10 +1530,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer30HandleInlineFunctionDefinit
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1570,10 +1554,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer37HandleCXXStaticMemberVarIns
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1594,10 +1578,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleInterestingDeclENS_12
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1618,10 +1602,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleTranslationUnitERNS_1
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1642,10 +1626,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer23HandleTagDeclDefinitionEPNS
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1666,10 +1650,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer31HandleTagDeclRequiredDefini
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1690,10 +1674,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer38HandleCXXImplicitFunctionIn
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1714,10 +1698,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer33HandleTopLevelDeclInObjCCon
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1738,10 +1722,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer24HandleImplicitImportDeclEPN
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1762,10 +1746,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteTentativeDefinition
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1786,10 +1770,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteExternalDeclaration
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1810,10 +1794,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer22AssignInheritanceModelEPNS_
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1834,10 +1818,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer12HandleVTableEPNS_13CXXRecor
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.sroa.05.09, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #13
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef %1) #14
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1872,10 +1856,10 @@ define dso_local void @_ZN5clang17MultiplexConsumer10PrintStatsEv(ptr nocapture 
   %.sroa.04.08 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.sroa.04.08, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1900,14 +1884,14 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFun
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.sroa.06.010, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %1) #13
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef %1) #14
   br label %13
 
 13:                                               ; preds = %7, %.lr.ph
   %14 = phi i1 [ false, %.lr.ph ], [ %12, %7 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1937,13 +1921,13 @@ define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(p
 
 11:                                               ; preds = %.lr.ph
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #13
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 %1) #14
   br label %15
 
 15:                                               ; preds = %.lr.ph, %11
-  %16 = getelementptr inbounds i8, ptr %.sroa.07.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 8
   %.not10 = icmp eq ptr %16, %6
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1972,13 +1956,13 @@ define dso_local void @_ZN5clang17MultiplexConsumer10ForgetSemaEv(ptr nocapture 
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
   br label %14
 
 14:                                               ; preds = %.lr.ph, %10
-  %15 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 8
   %.not9 = icmp eq ptr %15, %5
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -2000,11 +1984,11 @@ define linkonce_odr hidden void @_ZN5clang35MultiplexASTDeserializationListenerD
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #15
   br label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
 }
 
@@ -2022,12 +2006,12 @@ define linkonce_odr hidden void @_ZN5clang35MultiplexASTDeserializationListenerD
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #15
   br label %_ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit
 
 _ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
+  tail call void @_ZN5clang26ASTDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #15
   ret void
 }
 
@@ -2045,11 +2029,11 @@ define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD2Ev(ptr
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #15
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
 }
 
@@ -2067,12 +2051,12 @@ define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD0Ev(ptr
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #15
   br label %_ZN5clang28MultiplexASTMutationListenerD2Ev.exit
 
 _ZN5clang28MultiplexASTMutationListenerD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
+  tail call void @_ZN5clang19ASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #15
   ret void
 }
 
@@ -2108,6 +2092,9 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2119,10 +2106,11 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { builtin nounwind allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { builtin nounwind allocsize(0) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

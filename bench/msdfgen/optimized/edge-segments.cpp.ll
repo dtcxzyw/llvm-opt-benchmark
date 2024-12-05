@@ -44,16 +44,16 @@ $_ZN7msdfgen12CubicSegmentD0Ev = comdat any
 define dso_local noalias noundef nonnull ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %p1.coerce0, ptr %arrayidx4.i, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   ret ptr %call
 }
@@ -84,35 +84,35 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds i8, ptr %call8, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call8, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call8, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store double %p2.coerce0, ptr %arrayidx4.i, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call8, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call8, i64 40
   store double %p2.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %call11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %color.i.i7 = getelementptr inbounds i8, ptr %call11, i64 8
+  %color.i.i7 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store i32 %edgeColor, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call11, align 8
-  %scevgep.i8 = getelementptr inbounds i8, ptr %call11, i64 16
+  %scevgep.i8 = getelementptr inbounds nuw i8, ptr %call11, i64 16
   store double %p0.coerce0, ptr %scevgep.i8, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds i8, ptr %call11, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %call11, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i9, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call11, i64 32
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
   store double %p1.coerce0, ptr %arrayidx5.i, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call11, i64 48
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call11, i64 48
   store double %p2.coerce0, ptr %arrayidx7.i, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call11, i64 56
   store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   br label %return
 
@@ -145,16 +145,16 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds i8, ptr %call15, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call15, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call15, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call15, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call15, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call15, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call15, i64 32
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call15, i64 32
   store double %p3.coerce0, ptr %arrayidx4.i, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call15, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call15, i64 40
   store double %p3.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   br label %return
 
@@ -178,43 +178,43 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then35:                                        ; preds = %if.end
   %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %color.i.i35 = getelementptr inbounds i8, ptr %call36, i64 8
+  %color.i.i35 = getelementptr inbounds nuw i8, ptr %call36, i64 8
   store i32 %edgeColor, ptr %color.i.i35, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call36, align 8
-  %scevgep.i36 = getelementptr inbounds i8, ptr %call36, i64 16
+  %scevgep.i36 = getelementptr inbounds nuw i8, ptr %call36, i64 16
   store double %p0.coerce0, ptr %scevgep.i36, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i37 = getelementptr inbounds i8, ptr %call36, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %call36, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i37, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call36, i64 32
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call36, i64 32
   store double %sub.i19, ptr %arrayidx5.i, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call36, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call36, i64 40
   store double %sub3.i20, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call36, i64 48
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call36, i64 48
   store double %p3.coerce0, ptr %arrayidx7.i, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call36, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call36, i64 56
   store double %p3.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   br label %return
 
 if.end42:                                         ; preds = %if.end
   %call43 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %color.i.i38 = getelementptr inbounds i8, ptr %call43, i64 8
+  %color.i.i38 = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store i32 %edgeColor, ptr %color.i.i38, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call43, align 8
-  %scevgep.i39 = getelementptr inbounds i8, ptr %call43, i64 16
+  %scevgep.i39 = getelementptr inbounds nuw i8, ptr %call43, i64 16
   store double %p0.coerce0, ptr %scevgep.i39, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i40 = getelementptr inbounds i8, ptr %call43, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %call43, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i40, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %call43, i64 32
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call43, i64 32
   store double %p1.coerce0, ptr %arrayidx6.i, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call43, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call43, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %call43, i64 48
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %call43, i64 48
   store double %p2.coerce0, ptr %arrayidx8.i, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call43, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call43, i64 56
   store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %call43, i64 64
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %call43, i64 64
   store double %p3.coerce0, ptr %arrayidx10.i, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call43, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call43, i64 72
   store double %p3.coerce1, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   br label %return
 
@@ -231,7 +231,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 0.000000e+00)
   %1 = extractvalue { double, double } %call, 0
@@ -245,7 +245,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 40
   %4 = load ptr, ptr %vfn5, align 8
   %call6 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 0.000000e+00)
   %5 = extractvalue { double, double } %call6, 0
@@ -273,7 +273,7 @@ if.else:                                          ; preds = %entry
 
 if.then22:                                        ; preds = %if.else
   %vtable25 = load ptr, ptr %this, align 8
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 48
+  %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 48
   %13 = load ptr, ptr %vfn26, align 8
   %call27 = tail call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 1.000000e+00)
   %14 = extractvalue { double, double } %call27, 0
@@ -287,7 +287,7 @@ if.then22:                                        ; preds = %if.else
   %retval.sroa.3.0.i17 = select i1 %tobool.i14, double %div2.i16, double 1.000000e+00
   %retval.sroa.0.0.i18 = select i1 %tobool.i14, double %div.i15, double 0.000000e+00
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 40
+  %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 40
   %17 = load ptr, ptr %vfn32, align 8
   %call33 = tail call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 1.000000e+00)
   %18 = extractvalue { double, double } %call33, 0
@@ -312,7 +312,7 @@ if.then40:                                        ; preds = %if.then22
 if.end53.sink.split:                              ; preds = %if.then40, %if.then12
   %.sink = phi double [ %9, %if.then12 ], [ %22, %if.then40 ]
   store double %.sink, ptr %distance, align 8
-  %dot49 = getelementptr inbounds i8, ptr %distance, i64 8
+  %dot49 = getelementptr inbounds nuw i8, ptr %distance, i64 8
   store double 0.000000e+00, ptr %dot49, align 8
   br label %if.end53
 
@@ -326,16 +326,16 @@ declare double @llvm.fabs.f64(double) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegmentC2ENS_7Vector2ES1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds i8, ptr %this, i64 8
+  %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %this, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 16
+  %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %p1.coerce0, ptr %arrayidx4, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx4.sroa_idx, align 8
   ret void
 }
@@ -343,20 +343,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen16QuadraticSegmentC2ENS_7Vector2ES1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds i8, ptr %this, i64 8
+  %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %this, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 16
+  %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %p1.coerce0, ptr %arrayidx5, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx5.sroa_idx, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %p2.coerce0, ptr %arrayidx7, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx7.sroa_idx, align 8
   ret void
 }
@@ -364,24 +364,24 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegmentC2ENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 12), (16, 80)) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, double %p3.coerce0, double %p3.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds i8, ptr %this, i64 8
+  %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %this, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 16
+  %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %p0.coerce1, ptr %p0.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %p1.coerce0, ptr %arrayidx6, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %p1.coerce1, ptr %p1.sroa.2.0.arrayidx6.sroa_idx, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %p2.coerce0, ptr %arrayidx8, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %p2.coerce1, ptr %p2.sroa.2.0.arrayidx8.sroa_idx, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store double %p3.coerce0, ptr %arrayidx10, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   store double %p3.coerce1, ptr %p3.sroa.2.0.arrayidx10.sroa_idx, align 8
   ret void
 }
@@ -390,26 +390,26 @@ entry:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx4.i, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   ret ptr %call
 }
@@ -418,34 +418,34 @@ invoke.cont:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
-  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx5.i, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double %agg.tmp5.sroa.0.0.copyload, ptr %arrayidx7.i, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %agg.tmp5.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   ret ptr %call
 }
@@ -454,42 +454,42 @@ invoke.cont:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
-  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp8.sroa.0.0.copyload = load double, ptr %arrayidx10, align 8
-  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx, align 8
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %agg.tmp2.sroa.0.0.copyload, ptr %arrayidx6.i, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %agg.tmp2.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double %agg.tmp5.sroa.0.0.copyload, ptr %arrayidx8.i, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %agg.tmp5.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store double %agg.tmp8.sroa.0.0.copyload, ptr %arrayidx10.i, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store double %agg.tmp8.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   ret ptr %call
 }
@@ -515,34 +515,34 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen13LinearSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen12CubicSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
@@ -559,13 +559,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
@@ -574,9 +574,9 @@ entry:
   %mul1.i3.i = fmul double %param, %agg.tmp3.sroa.2.0.copyload
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp10.sroa.0.0.copyload = load double, ptr %arrayidx12, align 8
-  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx, align 8
   %mul.i.i4 = fmul double %sub.i, %agg.tmp3.sroa.0.0.copyload
   %mul1.i.i5 = fmul double %sub.i, %agg.tmp3.sroa.2.0.copyload
@@ -598,14 +598,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double 1.000000e+00, %param
   %mul.i.i = fmul double %sub.i, %agg.tmp.sroa.0.0.copyload
@@ -615,7 +615,7 @@ entry:
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
   %agg.tmp7.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp7.sroa.2.0.copyload = load double, ptr %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx, align 8
   %mul.i.i7 = fmul double %sub.i, %agg.tmp7.sroa.0.0.copyload
   %mul1.i.i8 = fmul double %sub.i, %agg.tmp7.sroa.2.0.copyload
@@ -629,9 +629,9 @@ entry:
   %mul1.i3.i19 = fmul double %param, %add3.i.i
   %add.i.i20 = fadd double %mul.i2.i18, %mul.i.i16
   %add3.i.i21 = fadd double %mul1.i3.i19, %mul1.i.i17
-  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp22.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
-  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp22.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
   %mul.i.i25 = fmul double %sub.i, %agg.tmp2.sroa.0.0.copyload
   %mul1.i.i26 = fmul double %sub.i, %agg.tmp2.sroa.2.0.copyload
@@ -659,13 +659,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -677,19 +677,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp2.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp2.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
-  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp7.sroa.0.0.copyload = load double, ptr %arrayidx9, align 8
-  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp7.sroa.2.0.copyload = load double, ptr %agg.tmp7.sroa.2.0.arrayidx9.sroa_idx, align 8
   %sub.i1 = fsub double %agg.tmp7.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i2 = fsub double %agg.tmp7.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -716,19 +716,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp4.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp4.sroa.2.0.copyload = load double, ptr %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp4.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp8.sroa.0.0.copyload = load double, ptr %arrayidx10, align 8
-  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp8.sroa.2.0.arrayidx10.sroa_idx, align 8
   %sub.i5 = fsub double %agg.tmp8.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i6 = fsub double %agg.tmp8.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
@@ -739,9 +739,9 @@ entry:
   %mul1.i3.i = fmul double %param, %sub3.i6
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
-  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx28, align 8
-  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx, align 8
   %sub.i14 = fsub double %agg.tmp26.sroa.0.0.copyload, %agg.tmp8.sroa.0.0.copyload
   %sub3.i15 = fsub double %agg.tmp26.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
@@ -797,19 +797,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp2.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp2.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
   %agg.tmp10.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp10.sroa.2.0.copyload = load double, ptr %agg.tmp10.sroa.2.0.arrayidx12.sroa_idx, align 8
   %sub.i1 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp10.sroa.0.0.copyload
   %sub3.i2 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp10.sroa.2.0.copyload
@@ -823,27 +823,27 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp4.sroa.0.0.copyload = load double, ptr %arrayidx6, align 8
-  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp4.sroa.2.0.copyload = load double, ptr %agg.tmp4.sroa.2.0.arrayidx6.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp4.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
   %agg.tmp11.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
   %sub.i1 = fsub double %agg.tmp4.sroa.0.0.copyload, %agg.tmp11.sroa.0.0.copyload
   %sub3.i2 = fsub double %agg.tmp4.sroa.2.0.copyload, %agg.tmp11.sroa.2.0.copyload
   %sub.i5 = fsub double %sub.i, %sub.i1
   %sub3.i6 = fsub double %sub3.i, %sub3.i2
-  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp18.sroa.0.0.copyload = load double, ptr %arrayidx20, align 8
-  %agg.tmp18.sroa.2.0.arrayidx20.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp18.sroa.2.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp18.sroa.2.0.copyload = load double, ptr %agg.tmp18.sroa.2.0.arrayidx20.sroa_idx, align 8
   %sub.i9 = fsub double %agg.tmp18.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i10 = fsub double %agg.tmp18.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
@@ -864,13 +864,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -883,19 +883,19 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local noundef double @_ZNK7msdfgen16QuadraticSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %sub.i17 = fsub double %agg.tmp6.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i18 = fsub double %agg.tmp6.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
@@ -945,15 +945,15 @@ declare double @log(double noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %origin.coerce0, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %origin.coerce1, %agg.tmp2.sroa.2.0.copyload
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i6 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i7 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -965,9 +965,9 @@ entry:
   store double %div, ptr %param, align 8
   %cmp = fcmp ogt double %div, 5.000000e-01
   %idxprom = zext i1 %cmp to i64
-  %arrayidx18 = getelementptr inbounds [2 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
+  %arrayidx18 = getelementptr inbounds nuw [2 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
   %agg.tmp16.sroa.0.0.copyload = load double, ptr %arrayidx18, align 8
-  %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %agg.tmp16.sroa.2.0.copyload = load double, ptr %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx, align 8
   %sub.i11 = fsub double %agg.tmp16.sroa.0.0.copyload, %origin.coerce0
   %sub3.i12 = fsub double %agg.tmp16.sroa.2.0.copyload, %origin.coerce1
@@ -1034,21 +1034,21 @@ return:                                           ; preds = %if.then, %if.end30
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(64) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %origin.coerce0
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %origin.coerce1
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i22 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i23 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp11.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
-  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
   %sub.i26 = fsub double %agg.tmp11.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i27 = fsub double %agg.tmp11.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
@@ -1068,7 +1068,7 @@ entry:
   %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i22, double %mul3.i37)
   %call36 = call noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef nonnull %t, double noundef %0, double noundef %mul, double noundef %4, double noundef %5)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %6 = load ptr, ptr %vfn, align 8
   %call37 = call { double, double } %6(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0.000000e+00)
   %7 = extractvalue { double, double } %call37, 0
@@ -1090,7 +1090,7 @@ entry:
   %div = fdiv double %fneg, %14
   store double %div, ptr %param, align 8
   %vtable50 = load ptr, ptr %this, align 8
-  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 48
+  %vfn51 = getelementptr inbounds nuw i8, ptr %vtable50, i64 48
   %15 = load ptr, ptr %vfn51, align 8
   %call52 = call { double, double } %15(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 1.000000e+00)
   %agg.tmp54.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
@@ -1137,7 +1137,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %minDistance.1131 = phi double [ %minDistance.0, %for.body.preheader ], [ %minDistance.2, %for.inc ]
-  %arrayidx84 = getelementptr inbounds [3 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx84 = getelementptr inbounds nuw [3 x double], ptr %t, i64 0, i64 %indvars.iv
   %25 = load double, ptr %arrayidx84, align 8
   %cmp85 = fcmp ogt double %25, 0.000000e+00
   %cmp88 = fcmp olt double %25, 1.000000e+00
@@ -1193,7 +1193,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 if.end133:                                        ; preds = %for.end
   %cmp134 = fcmp olt double %31, 5.000000e-01
   %vtable138 = load ptr, ptr %this, align 8
-  %vfn139 = getelementptr inbounds i8, ptr %vtable138, i64 48
+  %vfn139 = getelementptr inbounds nuw i8, ptr %vtable138, i64 48
   %32 = load ptr, ptr %vfn139, align 8
   br i1 %cmp134, label %if.then135, label %if.else
 
@@ -1260,29 +1260,29 @@ declare noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef, double noundef,
 ; Function Attrs: mustprogress uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(80) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %param) unnamed_addr #0 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %origin.coerce0
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %origin.coerce1
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i35 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i36 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp11.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
-  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
   %sub.i39 = fsub double %agg.tmp11.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i40 = fsub double %agg.tmp11.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
   %sub.i43 = fsub double %sub.i39, %sub.i35
   %sub3.i44 = fsub double %sub3.i40, %sub3.i36
-  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp22.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
-  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp22.sroa.2.0.copyload = load double, ptr %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx, align 8
   %sub.i47 = fsub double %agg.tmp22.sroa.0.0.copyload, %agg.tmp11.sroa.0.0.copyload
   %sub3.i48 = fsub double %agg.tmp22.sroa.2.0.copyload, %agg.tmp11.sroa.2.0.copyload
@@ -1291,7 +1291,7 @@ entry:
   %sub.i59 = fsub double %sub.i55, %sub.i43
   %sub3.i60 = fsub double %sub3.i56, %sub3.i44
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call40 = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
   %1 = extractvalue { double, double } %call40, 0
@@ -1313,7 +1313,7 @@ entry:
   %div = fdiv double %fneg, %8
   store double %div, ptr %param, align 8
   %vtable52 = load ptr, ptr %this, align 8
-  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 48
+  %vfn53 = getelementptr inbounds nuw i8, ptr %vtable52, i64 48
   %9 = load ptr, ptr %vfn53, align 8
   %call54 = tail call { double, double } %9(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
   %agg.tmp56.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
@@ -1468,7 +1468,7 @@ for.end185:                                       ; preds = %for.inc183
 if.end189:                                        ; preds = %for.end185
   %cmp190 = fcmp olt double %27, 5.000000e-01
   %vtable194 = load ptr, ptr %this, align 8
-  %vfn195 = getelementptr inbounds i8, ptr %vtable194, i64 48
+  %vfn195 = getelementptr inbounds nuw i8, ptr %vtable194, i64 48
   %28 = load ptr, ptr %vfn195, align 8
   br i1 %cmp190, label %if.then191, label %if.else
 
@@ -1533,11 +1533,11 @@ return:                                           ; preds = %for.end185, %if.els
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %y2 = getelementptr inbounds i8, ptr %this, i64 24
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp oge double %y, %0
-  %y5 = getelementptr inbounds i8, ptr %this, i64 40
+  %y5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load double, ptr %y5, align 8
   %cmp6 = fcmp olt double %y, %1
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
@@ -1551,7 +1551,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %sub = fsub double %y, %0
-  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %sub25 = fsub double %1, %0
   %div = fdiv double %sub, %sub25
   %2 = load double, ptr %p, align 8
@@ -1580,8 +1580,8 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define dso_local noundef range(i32 -2147483648, 3) i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [2 x double], align 16
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %y2 = getelementptr inbounds i8, ptr %this, i64 24
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp ogt double %y, %0
   %cond = select i1 %cmp, i32 1, i32 -1
@@ -1592,14 +1592,14 @@ entry:
   br i1 %cmp10, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
-  %y16 = getelementptr inbounds i8, ptr %this, i64 40
+  %y16 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load double, ptr %y16, align 8
   %cmp17 = fcmp olt double %2, %3
   br i1 %cmp17, label %if.then32, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %cmp24 = fcmp oeq double %2, %3
-  %y30 = getelementptr inbounds i8, ptr %this, i64 56
+  %y30 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load double, ptr %y30, align 8
   %cmp31 = fcmp olt double %2, %4
   %or.cond51 = select i1 %cmp24, i1 %cmp31, i1 false
@@ -1616,15 +1616,15 @@ if.end35:                                         ; preds = %lor.lhs.false, %if.
   %agg.tmp38.sroa.0.0.copyload = phi double [ %agg.tmp38.sroa.0.0.copyload.pre, %if.then32 ], [ %1, %entry ], [ %1, %lor.lhs.false ]
   %nextDY.0 = phi i32 [ %cond, %if.then32 ], [ %cond, %entry ], [ 1, %lor.lhs.false ]
   %total.0 = phi i32 [ 1, %if.then32 ], [ 0, %entry ], [ 0, %lor.lhs.false ]
-  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx37, align 8
-  %agg.tmp.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx37.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp38.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp38.sroa.2.0.copyload
-  %arrayidx44 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp42.sroa.0.0.copyload = load double, ptr %arrayidx44, align 8
-  %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp42.sroa.2.0.copyload = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
   %sub.i54 = fsub double %agg.tmp42.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i55 = fsub double %agg.tmp42.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
@@ -1638,7 +1638,7 @@ if.end35:                                         ; preds = %lor.lhs.false, %if.
 
 land.lhs.true58:                                  ; preds = %if.end35
   %5 = load double, ptr %t, align 16
-  %arrayidx60 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %t, i64 8
   %6 = load double, ptr %arrayidx60, align 8
   %cmp61 = fcmp ogt double %5, %6
   br i1 %cmp61, label %if.then62, label %for.body.preheader
@@ -1660,7 +1660,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %total.164 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
   %nextDY.163 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
-  %arrayidx71 = getelementptr inbounds [2 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx71 = getelementptr inbounds nuw [2 x double], ptr %t, i64 0, i64 %indvars.iv
   %8 = load double, ptr %arrayidx71, align 8
   %cmp72 = fcmp ult double %8, 0.000000e+00
   %cmp76 = fcmp ugt double %8, 1.000000e+00
@@ -1808,8 +1808,8 @@ declare noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef, double nound
 define dso_local noundef range(i32 -2147483648, 4) i32 @_ZNK7msdfgen12CubicSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %y2 = getelementptr inbounds i8, ptr %this, i64 24
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp ogt double %y, %0
   %cond = select i1 %cmp, i32 1, i32 -1
@@ -1820,7 +1820,7 @@ entry:
   br i1 %cmp10, label %if.then, label %if.end51
 
 if.then:                                          ; preds = %entry
-  %y16 = getelementptr inbounds i8, ptr %this, i64 40
+  %y16 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load double, ptr %y16, align 8
   %cmp17 = fcmp olt double %2, %3
   br i1 %cmp17, label %if.then48, label %lor.lhs.false
@@ -1830,14 +1830,14 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %cmp24, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %y30 = getelementptr inbounds i8, ptr %this, i64 56
+  %y30 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %4 = load double, ptr %y30, align 8
   %cmp31 = fcmp olt double %2, %4
   br i1 %cmp31, label %if.then48, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %land.lhs.true
   %cmp39 = fcmp oeq double %2, %4
-  %y46 = getelementptr inbounds i8, ptr %this, i64 72
+  %y46 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load double, ptr %y46, align 8
   %cmp47 = fcmp olt double %2, %5
   %or.cond66 = select i1 %cmp39, i1 %cmp47, i1 false
@@ -1854,23 +1854,23 @@ if.end51:                                         ; preds = %lor.lhs.false, %lor
   %agg.tmp54.sroa.0.0.copyload = phi double [ %agg.tmp54.sroa.0.0.copyload.pre, %if.then48 ], [ %1, %entry ], [ %1, %lor.lhs.false32 ], [ %1, %lor.lhs.false ]
   %nextDY.0 = phi i32 [ %cond, %if.then48 ], [ %cond, %entry ], [ 1, %lor.lhs.false32 ], [ 1, %lor.lhs.false ]
   %total.0 = phi i32 [ 1, %if.then48 ], [ 0, %entry ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false ]
-  %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx53, align 8
-  %agg.tmp.sroa.2.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.arrayidx53.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx53.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp54.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp54.sroa.2.0.copyload
-  %arrayidx60 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp58.sroa.0.0.copyload = load double, ptr %arrayidx60, align 8
-  %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp58.sroa.2.0.copyload = load double, ptr %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx, align 8
   %sub.i69 = fsub double %agg.tmp58.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i70 = fsub double %agg.tmp58.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
   %sub.i73 = fsub double %sub.i69, %sub.i
   %sub3.i74 = fsub double %sub3.i70, %sub3.i
-  %arrayidx71 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx71 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp69.sroa.0.0.copyload = load double, ptr %arrayidx71, align 8
-  %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp69.sroa.2.0.copyload = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
   %sub.i77 = fsub double %agg.tmp69.sroa.0.0.copyload, %agg.tmp58.sroa.0.0.copyload
   %sub3.i78 = fsub double %agg.tmp69.sroa.2.0.copyload, %agg.tmp58.sroa.2.0.copyload
@@ -1887,7 +1887,7 @@ if.end51:                                         ; preds = %lor.lhs.false, %lor
 
 if.then96:                                        ; preds = %if.end51
   %6 = load double, ptr %t, align 16
-  %arrayidx98 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx98 = getelementptr inbounds nuw i8, ptr %t, i64 8
   %7 = load double, ptr %arrayidx98, align 8
   %cmp99 = fcmp ogt double %6, %7
   br i1 %cmp99, label %if.then100, label %if.end105
@@ -1904,7 +1904,7 @@ if.end105:                                        ; preds = %if.then100, %if.the
   br i1 %cmp106.not, label %for.body.preheader, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %if.end105
-  %arrayidx109 = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx109 = getelementptr inbounds nuw i8, ptr %t, i64 16
   %10 = load double, ptr %arrayidx109, align 16
   %cmp110 = fcmp ogt double %9, %10
   br i1 %cmp110, label %if.then111, label %for.body.preheader
@@ -1932,7 +1932,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %total.195 = phi i32 [ %total.0, %for.body.preheader ], [ %total.2, %for.inc ]
   %nextDY.194 = phi i32 [ %nextDY.0, %for.body.preheader ], [ %nextDY.2, %for.inc ]
-  %arrayidx130 = getelementptr inbounds [3 x double], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx130 = getelementptr inbounds nuw [3 x double], ptr %t, i64 0, i64 %indvars.iv
   %12 = load double, ptr %arrayidx130, align 8
   %cmp131 = fcmp ult double %12, 0.000000e+00
   %cmp135 = fcmp ugt double %12, 1.000000e+00
@@ -2091,9 +2091,9 @@ if.end284:                                        ; preds = %if.end252.thread, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
@@ -2131,9 +2131,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i5 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
@@ -2177,9 +2177,9 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit16: ; preds = %if.end10.i1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK7msdfgen16QuadraticSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
@@ -2217,9 +2217,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i21 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
@@ -2257,9 +2257,9 @@ if.then13.i28:                                    ; preds = %if.end10.i26
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit32
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit32: ; preds = %if.end10.i26, %if.then13.i28
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
@@ -2283,7 +2283,7 @@ if.then:                                          ; preds = %_ZN7msdfgenL11point
 
 if.then29:                                        ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
   %call31 = tail call { double, double } %8(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %div)
   %9 = extractvalue { double, double } %call31, 0
@@ -2339,7 +2339,7 @@ if.then34:                                        ; preds = %if.end32
 
 if.then48:                                        ; preds = %if.then34
   %vtable50 = load ptr, ptr %this, align 8
-  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 40
+  %vfn51 = getelementptr inbounds nuw i8, ptr %vtable50, i64 40
   %17 = load ptr, ptr %vfn51, align 8
   %call52 = tail call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %div44)
   %18 = extractvalue { double, double } %call52, 0
@@ -2387,9 +2387,9 @@ if.end54:                                         ; preds = %if.then13.i60, %if.
 define dso_local void @_ZNK7msdfgen12CubicSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
   %params = alloca [2 x double], align 16
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp olt double %agg.tmp.sroa.0.0.copyload, %0
@@ -2427,9 +2427,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i24 = fcmp olt double %agg.tmp2.sroa.0.0.copyload, %4
@@ -2467,17 +2467,17 @@ if.then13.i31:                                    ; preds = %if.end10.i29
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35: ; preds = %if.end10.i29, %if.then13.i31
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
-  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
   %agg.tmp8.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp5.sroa.0.0.copyload, %agg.tmp8.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp5.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
-  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp13.sroa.0.0.copyload = load double, ptr %arrayidx15, align 8
-  %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp13.sroa.2.0.copyload = load double, ptr %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx, align 8
   %sub.i36 = fsub double %agg.tmp13.sroa.0.0.copyload, %agg.tmp5.sroa.0.0.copyload
   %sub3.i37 = fsub double %agg.tmp13.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload
@@ -2507,7 +2507,7 @@ for.body.preheader:                               ; preds = %_ZN7msdfgenL11point
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx47 = getelementptr inbounds [2 x double], ptr %params, i64 0, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds nuw [2 x double], ptr %params, i64 0, i64 %indvars.iv
   %8 = load double, ptr %arrayidx47, align 8
   %cmp48 = fcmp ogt double %8, 0.000000e+00
   %cmp51 = fcmp olt double %8, 1.000000e+00
@@ -2516,7 +2516,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %9 = load ptr, ptr %vfn, align 8
   %call55 = call { double, double } %9(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %8)
   %10 = extractvalue { double, double } %call55, 0
@@ -2572,7 +2572,7 @@ for.body63.preheader:                             ; preds = %for.end
 
 for.body63:                                       ; preds = %for.body63.preheader, %for.inc79
   %indvars.iv93 = phi i64 [ 0, %for.body63.preheader ], [ %indvars.iv.next94, %for.inc79 ]
-  %arrayidx65 = getelementptr inbounds [2 x double], ptr %params, i64 0, i64 %indvars.iv93
+  %arrayidx65 = getelementptr inbounds nuw [2 x double], ptr %params, i64 0, i64 %indvars.iv93
   %16 = load double, ptr %arrayidx65, align 8
   %cmp66 = fcmp ogt double %16, 0.000000e+00
   %cmp70 = fcmp olt double %16, 1.000000e+00
@@ -2581,7 +2581,7 @@ for.body63:                                       ; preds = %for.body63.preheade
 
 if.then71:                                        ; preds = %for.body63
   %vtable75 = load ptr, ptr %this, align 8
-  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 40
+  %vfn76 = getelementptr inbounds nuw i8, ptr %vtable75, i64 40
   %17 = load ptr, ptr %vfn76, align 8
   %call77 = call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %16)
   %18 = extractvalue { double, double } %call77, 0
@@ -2634,9 +2634,9 @@ for.end81:                                        ; preds = %for.inc79, %for.end
 define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2646,9 +2646,9 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2658,14 +2658,14 @@ entry:
 define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
-  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, i64 16, i1 false)
-  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2674,9 +2674,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 32)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %to.coerce0, ptr %p, align 8
-  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %to.coerce1, ptr %to.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
 }
@@ -2685,13 +2685,13 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -2701,9 +2701,9 @@ entry:
   %0 = fneg double %sub.i5
   %neg.i = fmul double %sub3.i, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
-  %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %arrayidx34, align 8
-  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
   %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -2737,17 +2737,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %to.coerce0, %agg.tmp3.sroa.0.0.copyload
   %sub3.i = fsub double %to.coerce1, %agg.tmp3.sroa.2.0.copyload
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %arrayidx5, align 8
   %add.i = fadd double %sub.i, %0
   store double %add.i, ptr %arrayidx5, align 8
-  %y3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %y3.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load double, ptr %y3.i, align 8
   %add4.i = fadd double %sub3.i, %1
   store double %add4.i, ptr %y3.i, align 8
@@ -2759,9 +2759,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 48)) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %to.coerce0, ptr %arrayidx, align 8
-  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %to.coerce1, ptr %to.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
 }
@@ -2770,14 +2770,14 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -2788,7 +2788,7 @@ entry:
   %neg.i = fmul double %sub3.i, %0
   %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub3.i6, double %neg.i)
   %agg.tmp32.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp32.sroa.2.0.copyload = load double, ptr %agg.tmp32.sroa.2.0.arrayidx34.sroa_idx, align 8
   %sub.i13 = fsub double %agg.tmp32.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i14 = fsub double %agg.tmp32.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -2822,17 +2822,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %to.coerce0, %agg.tmp3.sroa.0.0.copyload
   %sub3.i = fsub double %to.coerce1, %agg.tmp3.sroa.2.0.copyload
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load double, ptr %arrayidx5, align 8
   %add.i = fadd double %sub.i, %0
   store double %add.i, ptr %arrayidx5, align 8
-  %y3.i = getelementptr inbounds i8, ptr %this, i64 56
+  %y3.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load double, ptr %y3.i, align 8
   %add4.i = fadd double %sub3.i, %1
   store double %add4.i, ptr %y3.i, align 8
@@ -2845,12 +2845,12 @@ entry:
 define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call3 = invoke { double, double } %0(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont4 unwind label %lpad
@@ -2858,30 +2858,30 @@ entry:
 invoke.cont4:                                     ; preds = %entry
   %1 = extractvalue { double, double } %call3, 0
   %2 = extractvalue { double, double } %call3, 1
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %3, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %1, ptr %arrayidx4.i, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %2, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
+  %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 40
   %4 = load ptr, ptr %vfn8, align 8
   %call11 = invoke { double, double } %4(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont4
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 40
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 40
   %5 = load ptr, ptr %vfn14, align 8
   %call16 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont18 unwind label %lpad9
@@ -2892,21 +2892,21 @@ invoke.cont18:                                    ; preds = %invoke.cont10
   %8 = extractvalue { double, double } %call16, 0
   %9 = extractvalue { double, double } %call16, 1
   %10 = load i32, ptr %color, align 8
-  %color.i.i2 = getelementptr inbounds i8, ptr %call5, i64 8
+  %color.i.i2 = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 %10, ptr %color.i.i2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call5, align 8
-  %scevgep.i3 = getelementptr inbounds i8, ptr %call5, i64 16
+  %scevgep.i3 = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store double %7, ptr %scevgep.i3, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i4 = getelementptr inbounds i8, ptr %call5, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %call5, i64 24
   store double %6, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i4, align 8
-  %arrayidx4.i5 = getelementptr inbounds i8, ptr %call5, i64 32
+  %arrayidx4.i5 = getelementptr inbounds nuw i8, ptr %call5, i64 32
   store double %8, ptr %arrayidx4.i5, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i6 = getelementptr inbounds i8, ptr %call5, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %call5, i64 40
   store double %9, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i6, align 8
   store ptr %call5, ptr %part1, align 8
   %call19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable21 = load ptr, ptr %this, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 40
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 40
   %11 = load ptr, ptr %vfn22, align 8
   %call25 = invoke { double, double } %11(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont30 unwind label %lpad23
@@ -2914,21 +2914,21 @@ invoke.cont18:                                    ; preds = %invoke.cont10
 invoke.cont30:                                    ; preds = %invoke.cont18
   %12 = extractvalue { double, double } %call25, 0
   %13 = extractvalue { double, double } %call25, 1
-  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx28, align 8
-  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp26.sroa.2.0.arrayidx28.sroa_idx, align 8
   %14 = load i32, ptr %color, align 8
-  %color.i.i7 = getelementptr inbounds i8, ptr %call19, i64 8
+  %color.i.i7 = getelementptr inbounds nuw i8, ptr %call19, i64 8
   store i32 %14, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call19, align 8
-  %scevgep.i8 = getelementptr inbounds i8, ptr %call19, i64 16
+  %scevgep.i8 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   store double %12, ptr %scevgep.i8, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds i8, ptr %call19, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %call19, i64 24
   store double %13, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i9, align 8
-  %arrayidx4.i10 = getelementptr inbounds i8, ptr %call19, i64 32
+  %arrayidx4.i10 = getelementptr inbounds nuw i8, ptr %call19, i64 32
   store double %agg.tmp26.sroa.0.0.copyload, ptr %arrayidx4.i10, align 8
-  %p1.sroa.2.0.arrayidx4.sroa_idx.i11 = getelementptr inbounds i8, ptr %call19, i64 40
+  %p1.sroa.2.0.arrayidx4.sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %call19, i64 40
   store double %agg.tmp26.sroa.2.0.copyload, ptr %p1.sroa.2.0.arrayidx4.sroa_idx.i11, align 8
   store ptr %call19, ptr %part2, align 8
   ret void
@@ -2959,16 +2959,16 @@ eh.resume:                                        ; preds = %lpad23, %lpad9, %lp
 define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call12 = invoke { double, double } %0(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont13 unwind label %lpad
@@ -2982,27 +2982,27 @@ invoke.cont13:                                    ; preds = %invoke.cont
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %1 = extractvalue { double, double } %call12, 0
   %2 = extractvalue { double, double } %call12, 1
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %3, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %add.i.i, ptr %arrayidx5.i, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %add3.i.i, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double %1, ptr %arrayidx7.i, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %2, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable16 = load ptr, ptr %this, align 8
-  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 40
+  %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 40
   %4 = load ptr, ptr %vfn17, align 8
   %call20 = invoke { double, double } %4(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont40 unwind label %lpad18
@@ -3012,12 +3012,12 @@ invoke.cont40:                                    ; preds = %invoke.cont13
   %agg.tmp23.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp26.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
   %agg.tmp26.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp35.sroa.0.0.copyload = load double, ptr %arrayidx37, align 8
-  %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp35.sroa.2.0.copyload = load double, ptr %agg.tmp35.sroa.2.0.arrayidx37.sroa_idx, align 8
   %vtable43 = load ptr, ptr %this, align 8
-  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 40
+  %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 40
   %5 = load ptr, ptr %vfn44, align 8
   %call46 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont48 unwind label %lpad18
@@ -3044,25 +3044,25 @@ invoke.cont48:                                    ; preds = %invoke.cont40
   %8 = extractvalue { double, double } %call46, 0
   %9 = extractvalue { double, double } %call46, 1
   %10 = load i32, ptr %color, align 8
-  %color.i.i26 = getelementptr inbounds i8, ptr %call14, i64 8
+  %color.i.i26 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store i32 %10, ptr %color.i.i26, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call14, align 8
-  %scevgep.i27 = getelementptr inbounds i8, ptr %call14, i64 16
+  %scevgep.i27 = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store double %7, ptr %scevgep.i27, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds i8, ptr %call14, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %call14, i64 24
   store double %6, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i28, align 8
-  %arrayidx5.i29 = getelementptr inbounds i8, ptr %call14, i64 32
+  %arrayidx5.i29 = getelementptr inbounds nuw i8, ptr %call14, i64 32
   store double %add.i.i22, ptr %arrayidx5.i29, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i30 = getelementptr inbounds i8, ptr %call14, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %call14, i64 40
   store double %add3.i.i23, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i30, align 8
-  %arrayidx7.i31 = getelementptr inbounds i8, ptr %call14, i64 48
+  %arrayidx7.i31 = getelementptr inbounds nuw i8, ptr %call14, i64 48
   store double %8, ptr %arrayidx7.i31, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i32 = getelementptr inbounds i8, ptr %call14, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %call14, i64 56
   store double %9, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i32, align 8
   store ptr %call14, ptr %part1, align 8
   %call49 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
+  %vfn52 = getelementptr inbounds nuw i8, ptr %vtable51, i64 40
   %11 = load ptr, ptr %vfn52, align 8
   %call55 = invoke { double, double } %11(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont69 unwind label %lpad53
@@ -3081,20 +3081,20 @@ invoke.cont69:                                    ; preds = %invoke.cont48
   %12 = extractvalue { double, double } %call55, 1
   %13 = extractvalue { double, double } %call55, 0
   %14 = load i32, ptr %color, align 8
-  %color.i.i41 = getelementptr inbounds i8, ptr %call49, i64 8
+  %color.i.i41 = getelementptr inbounds nuw i8, ptr %call49, i64 8
   store i32 %14, ptr %color.i.i41, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call49, align 8
-  %scevgep.i42 = getelementptr inbounds i8, ptr %call49, i64 16
+  %scevgep.i42 = getelementptr inbounds nuw i8, ptr %call49, i64 16
   store double %13, ptr %scevgep.i42, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i43 = getelementptr inbounds i8, ptr %call49, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %call49, i64 24
   store double %12, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i43, align 8
-  %arrayidx5.i44 = getelementptr inbounds i8, ptr %call49, i64 32
+  %arrayidx5.i44 = getelementptr inbounds nuw i8, ptr %call49, i64 32
   store double %add.i.i37, ptr %arrayidx5.i44, align 8
-  %p1.sroa.2.0.arrayidx5.sroa_idx.i45 = getelementptr inbounds i8, ptr %call49, i64 40
+  %p1.sroa.2.0.arrayidx5.sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %call49, i64 40
   store double %add3.i.i38, ptr %p1.sroa.2.0.arrayidx5.sroa_idx.i45, align 8
-  %arrayidx7.i46 = getelementptr inbounds i8, ptr %call49, i64 48
+  %arrayidx7.i46 = getelementptr inbounds nuw i8, ptr %call49, i64 48
   store double %agg.tmp60.sroa.0.0.copyload, ptr %arrayidx7.i46, align 8
-  %p2.sroa.2.0.arrayidx7.sroa_idx.i47 = getelementptr inbounds i8, ptr %call49, i64 56
+  %p2.sroa.2.0.arrayidx7.sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %call49, i64 56
   store double %agg.tmp60.sroa.2.0.copyload, ptr %p2.sroa.2.0.arrayidx7.sroa_idx.i47, align 8
   store ptr %call49, ptr %part2, align 8
   ret void
@@ -3125,13 +3125,13 @@ eh.resume:                                        ; preds = %lpad53, %lpad18, %l
 define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %cmp.i = fcmp oeq double %agg.tmp.sroa.0.0.copyload, %agg.tmp6.sroa.0.0.copyload
   %cmp3.i = fcmp oeq double %agg.tmp.sroa.2.0.copyload, %agg.tmp6.sroa.2.0.copyload
@@ -3150,12 +3150,12 @@ invoke.cont18:                                    ; preds = %entry
 invoke.cont39:                                    ; preds = %invoke.cont18, %entry
   %agg.tmp2.sroa.0.0 = phi double [ %add.i.i, %invoke.cont18 ], [ %agg.tmp.sroa.0.0.copyload, %entry ]
   %agg.tmp2.sroa.3.0 = phi double [ %add3.i.i, %invoke.cont18 ], [ %agg.tmp.sroa.2.0.copyload, %entry ]
-  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp34.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
-  %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp34.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call43 = invoke { double, double } %1(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont44 unwind label %lpad
@@ -3181,31 +3181,31 @@ invoke.cont44:                                    ; preds = %invoke.cont39
   %add.i.i22 = fadd double %mul.i.i18, %mul.i2.i20
   %2 = extractvalue { double, double } %call43, 0
   %3 = extractvalue { double, double } %call43, 1
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %4, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %agg.tmp2.sroa.0.0, ptr %arrayidx6.i, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %agg.tmp2.sroa.3.0, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double %add.i.i22, ptr %arrayidx8.i, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %add3.i.i23, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store double %2, ptr %arrayidx10.i, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store double %3, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   store ptr %call, ptr %part0, align 8
   %call45 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 40
+  %vfn48 = getelementptr inbounds nuw i8, ptr %vtable47, i64 40
   %5 = load ptr, ptr %vfn48, align 8
   %call51 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont140 unwind label %lpad49
@@ -3217,12 +3217,12 @@ invoke.cont140:                                   ; preds = %invoke.cont44
   %agg.tmp58.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %agg.tmp67.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
   %agg.tmp67.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
-  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx90, align 8
-  %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx, align 8
   %vtable143 = load ptr, ptr %this, align 8
-  %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 40
+  %vfn144 = getelementptr inbounds nuw i8, ptr %vtable143, i64 40
   %6 = load ptr, ptr %vfn144, align 8
   %call146 = invoke { double, double } %6(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont148 unwind label %lpad49
@@ -3305,29 +3305,29 @@ invoke.cont148:                                   ; preds = %invoke.cont140
   %9 = extractvalue { double, double } %call146, 0
   %10 = extractvalue { double, double } %call146, 1
   %11 = load i32, ptr %color, align 8
-  %color.i.i138 = getelementptr inbounds i8, ptr %call45, i64 8
+  %color.i.i138 = getelementptr inbounds nuw i8, ptr %call45, i64 8
   store i32 %11, ptr %color.i.i138, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call45, align 8
-  %scevgep.i139 = getelementptr inbounds i8, ptr %call45, i64 16
+  %scevgep.i139 = getelementptr inbounds nuw i8, ptr %call45, i64 16
   store double %8, ptr %scevgep.i139, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i140 = getelementptr inbounds i8, ptr %call45, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %call45, i64 24
   store double %7, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i140, align 8
-  %arrayidx6.i141 = getelementptr inbounds i8, ptr %call45, i64 32
+  %arrayidx6.i141 = getelementptr inbounds nuw i8, ptr %call45, i64 32
   store double %add.i.i78, ptr %arrayidx6.i141, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i142 = getelementptr inbounds i8, ptr %call45, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i142 = getelementptr inbounds nuw i8, ptr %call45, i64 40
   store double %add3.i.i79, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i142, align 8
-  %arrayidx8.i143 = getelementptr inbounds i8, ptr %call45, i64 48
+  %arrayidx8.i143 = getelementptr inbounds nuw i8, ptr %call45, i64 48
   store double %add.i.i134, ptr %arrayidx8.i143, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i144 = getelementptr inbounds i8, ptr %call45, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %call45, i64 56
   store double %add3.i.i135, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i144, align 8
-  %arrayidx10.i145 = getelementptr inbounds i8, ptr %call45, i64 64
+  %arrayidx10.i145 = getelementptr inbounds nuw i8, ptr %call45, i64 64
   store double %9, ptr %arrayidx10.i145, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i146 = getelementptr inbounds i8, ptr %call45, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %call45, i64 72
   store double %10, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i146, align 8
   store ptr %call45, ptr %part1, align 8
   %call149 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable151 = load ptr, ptr %this, align 8
-  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 40
+  %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 40
   %12 = load ptr, ptr %vfn152, align 8
   %call155 = invoke { double, double } %12(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont175 unwind label %lpad153
@@ -3365,24 +3365,24 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   %agg.tmp177.sroa.0.0 = select i1 %15, double %agg.tmp170.sroa.0.0.copyload, double %add.i.i159
   %agg.tmp177.sroa.3.0 = select i1 %15, double %agg.tmp170.sroa.2.0.copyload, double %add3.i.i160
   %16 = load i32, ptr %color, align 8
-  %color.i.i181 = getelementptr inbounds i8, ptr %call149, i64 8
+  %color.i.i181 = getelementptr inbounds nuw i8, ptr %call149, i64 8
   store i32 %16, ptr %color.i.i181, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call149, align 8
-  %scevgep.i182 = getelementptr inbounds i8, ptr %call149, i64 16
+  %scevgep.i182 = getelementptr inbounds nuw i8, ptr %call149, i64 16
   store double %13, ptr %scevgep.i182, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i183 = getelementptr inbounds i8, ptr %call149, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i183 = getelementptr inbounds nuw i8, ptr %call149, i64 24
   store double %14, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i183, align 8
-  %arrayidx6.i184 = getelementptr inbounds i8, ptr %call149, i64 32
+  %arrayidx6.i184 = getelementptr inbounds nuw i8, ptr %call149, i64 32
   store double %add.i.i167, ptr %arrayidx6.i184, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i185 = getelementptr inbounds i8, ptr %call149, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i185 = getelementptr inbounds nuw i8, ptr %call149, i64 40
   store double %add3.i.i168, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i185, align 8
-  %arrayidx8.i186 = getelementptr inbounds i8, ptr %call149, i64 48
+  %arrayidx8.i186 = getelementptr inbounds nuw i8, ptr %call149, i64 48
   store double %agg.tmp177.sroa.0.0, ptr %arrayidx8.i186, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i187 = getelementptr inbounds i8, ptr %call149, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i187 = getelementptr inbounds nuw i8, ptr %call149, i64 56
   store double %agg.tmp177.sroa.3.0, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i187, align 8
-  %arrayidx10.i188 = getelementptr inbounds i8, ptr %call149, i64 64
+  %arrayidx10.i188 = getelementptr inbounds nuw i8, ptr %call149, i64 64
   store double %agg.tmp170.sroa.0.0.copyload, ptr %arrayidx10.i188, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i189 = getelementptr inbounds i8, ptr %call149, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i189 = getelementptr inbounds nuw i8, ptr %call149, i64 72
   store double %agg.tmp170.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i189, align 8
   store ptr %call149, ptr %part2, align 8
   ret void
@@ -3413,13 +3413,13 @@ eh.resume:                                        ; preds = %lpad153, %lpad49, %
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14convertToCubicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %p = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %mul.i.i = fmul double %agg.tmp.sroa.0.0.copyload, 0x3FD5555555555556
   %mul1.i.i = fmul double %agg.tmp.sroa.2.0.copyload, 0x3FD5555555555556
@@ -3427,9 +3427,9 @@ invoke.cont22:
   %mul1.i3.i = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FE5555555555555
   %add.i.i = fadd double %mul.i.i, %mul.i2.i
   %add3.i.i = fadd double %mul1.i.i, %mul1.i3.i
-  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp14.sroa.0.0.copyload = load double, ptr %arrayidx16, align 8
-  %agg.tmp14.sroa.2.0.arrayidx16.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %agg.tmp14.sroa.2.0.arrayidx16.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp14.sroa.2.0.copyload = load double, ptr %agg.tmp14.sroa.2.0.arrayidx16.sroa_idx, align 8
   %mul.i.i1 = fmul double %agg.tmp6.sroa.0.0.copyload, 0x3FE5555555555556
   %mul1.i.i2 = fmul double %agg.tmp6.sroa.2.0.copyload, 0x3FE5555555555556
@@ -3437,26 +3437,26 @@ invoke.cont22:
   %mul1.i3.i4 = fmul double %agg.tmp14.sroa.2.0.copyload, 0x3FD5555555555555
   %add.i.i5 = fadd double %mul.i.i1, %mul.i2.i3
   %add3.i.i6 = fadd double %mul1.i.i2, %mul1.i3.i4
-  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %color = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
-  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 24
+  %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store double %agg.tmp.sroa.2.0.copyload, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store double %add.i.i, ptr %arrayidx6.i, align 8
-  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %p1.sroa.2.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store double %add3.i.i, ptr %p1.sroa.2.0.arrayidx6.sroa_idx.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store double %add.i.i5, ptr %arrayidx8.i, align 8
-  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 56
+  %p2.sroa.2.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store double %add3.i.i6, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 64
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store double %agg.tmp14.sroa.0.0.copyload, ptr %arrayidx10.i, align 8
-  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 72
+  %p3.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store double %agg.tmp14.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i, align 8
   ret ptr %call
 }
@@ -3466,7 +3466,7 @@ define dso_local void @_ZN7msdfgen12CubicSegment10deconvergeEid(ptr noundef nonn
 entry:
   %conv = sitofp i32 %param to double
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
   %1 = extractvalue { double, double } %call, 0
@@ -3481,7 +3481,7 @@ entry:
   %retval.sroa.5.0.i = select i1 %tobool.i, double %div4.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 56
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 56
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
   %5 = extractvalue { double, double } %call7, 0
@@ -3511,11 +3511,11 @@ sw.bb:                                            ; preds = %entry
   %add3.i = fadd double %2, %mul1.i
   %mul.i14 = fmul double %amount, %add.i
   %mul1.i15 = fmul double %amount, %add3.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load double, ptr %arrayidx, align 8
   %add.i18 = fadd double %mul.i14, %9
   store double %add.i18, ptr %arrayidx, align 8
-  %y3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %y3.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load double, ptr %y3.i, align 8
   %add4.i = fadd double %mul1.i15, %10
   store double %add4.i, ptr %y3.i, align 8
@@ -3537,11 +3537,11 @@ sw.bb24:                                          ; preds = %entry
   %sub3.i29 = fsub double %2, %mul1.i25
   %mul.i32 = fmul double %amount, %sub.i28
   %mul1.i33 = fmul double %amount, %sub3.i29
-  %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %12 = load double, ptr %arrayidx38, align 8
   %sub.i36 = fsub double %12, %mul.i32
   store double %sub.i36, ptr %arrayidx38, align 8
-  %y3.i37 = getelementptr inbounds i8, ptr %this, i64 56
+  %y3.i37 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %13 = load double, ptr %y3.i37, align 8
   %sub4.i = fsub double %13, %mul1.i33
   store double %sub4.i, ptr %y3.i37, align 8

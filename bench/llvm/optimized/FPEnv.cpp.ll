@@ -85,27 +85,27 @@ define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 8
-  br i1 %4, label %switch.hole_check, label %7
+  br i1 %4, label %switch.hole_check, label %8
 
 switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i8 -97, %1
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
+  br i1 %switch.lobit, label %switch.lookup, label %8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %1 to i64
-  %switch.gep6 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1, i64 0, i64 %6
-  %switch.load7 = load i64, ptr %switch.gep6, align 8
-  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %0, i64 8
+  %switch.gep7 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1, i64 0, i64 %6
+  %switch.load8 = load i64, ptr %switch.gep7, align 8
   store ptr %switch.load, ptr %0, align 8
-  store i64 %switch.load7, ptr %.sroa.2.0..sroa_idx.i5, align 8
   store i8 1, ptr %3, align 8
-  br label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %switch.load8, ptr %7, align 8
+  br label %8
 
-7:                                                ; preds = %switch.hole_check, %2, %switch.lookup
+8:                                                ; preds = %switch.hole_check, %2, %switch.lookup
   ret void
 }
 
@@ -145,22 +145,22 @@ define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17Exception
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 3
-  br i1 %4, label %switch.lookup, label %7
+  br i1 %4, label %switch.lookup, label %8
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %1 to i64
-  %switch.gep4 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2, i64 0, i64 %6
-  %switch.load5 = load i64, ptr %switch.gep4, align 8
-  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %0, i64 8
+  %switch.gep5 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2, i64 0, i64 %6
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
   store ptr %switch.load, ptr %0, align 8
-  store i64 %switch.load5, ptr %.sroa.2.0..sroa_idx.i3, align 8
   store i8 1, ptr %3, align 8
-  br label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %switch.load6, ptr %7, align 8
+  br label %8
 
-7:                                                ; preds = %2, %switch.lookup
+8:                                                ; preds = %2, %switch.lookup
   ret void
 }
 

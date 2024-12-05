@@ -228,7 +228,7 @@ define internal i32 @dissect_lacp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.94) #2
   %12 = load ptr, ptr %10, align 8
@@ -289,7 +289,7 @@ define internal i32 @dissect_lacp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %45 = add nuw nsw i32 %.0229, 5
   %46 = load i32, ptr @hf_lacp_actor_sysid, align 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 6, i32 noundef 0) #2
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @tvb_address_to_str(ptr noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %45) #2
   %51 = add nuw nsw i32 %.0229, 11
@@ -340,13 +340,13 @@ lacp_state_flags_to_str.exit:                     ; preds = %76
   br i1 %.not.i240, label %proto_item_set_generated.exit, label %80
 
 80:                                               ; preds = %lacp_state_flags_to_str.exit
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8
   %.not5.i = icmp eq ptr %82, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %85, 2
   store i32 %86, ptr %84, align 4
@@ -440,13 +440,13 @@ lacp_state_flags_to_str.exit246:                  ; preds = %140
   br i1 %.not.i247, label %proto_item_set_generated.exit249, label %144
 
 144:                                              ; preds = %lacp_state_flags_to_str.exit246
-  %145 = getelementptr inbounds i8, ptr %143, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %146 = load ptr, ptr %145, align 8
   %.not5.i248 = icmp eq ptr %146, null
   br i1 %.not5.i248, label %proto_item_set_generated.exit249, label %147
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %146, i64 28
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 28
   %149 = load i32, ptr %148, align 4
   %150 = or i32 %149, 2
   store i32 %150, ptr %148, align 4

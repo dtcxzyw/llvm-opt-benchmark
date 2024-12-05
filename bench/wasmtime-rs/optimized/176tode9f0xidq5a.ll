@@ -53,9 +53,9 @@ define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h5e52c4426619ed75E"(ptr sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.31.0.copyload = load i64, ptr %.sroa.31.0..sroa_idx, align 8
   %4 = trunc nuw i8 %.sroa.0.0.copyload to i1
   tail call void @_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType3new17h4cba0d77d5f34e60E(ptr sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, i1 zeroext %4, i8 %.sroa.2.0.copyload, i64 %.sroa.31.0.copyload)
@@ -65,9 +65,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h6adb62f68fed77fbE"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.31.0.copyload = load i64, ptr %.sroa.31.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %4 = icmp eq i64 %.sroa.31.0.copyload, 0
@@ -82,9 +82,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %7 = load i64, ptr %6, align 8, !noalias !5, !noundef !3
   %8 = udiv i64 %7, %.sroa.31.0.copyload
   store i8 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.2.0.copyload, ptr %9, align 1, !alias.scope !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8, !alias.scope !5
   ret void
 }
@@ -92,9 +92,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9cb28f6709927541E"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.31.0.copyload = load i64, ptr %.sroa.31.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %4 = icmp eq i64 %.sroa.31.0.copyload, 0
@@ -109,9 +109,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %7 = load i64, ptr %6, align 8, !noalias !9, !noundef !3
   %8 = udiv i64 %7, %.sroa.31.0.copyload
   store i8 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !9
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.2.0.copyload, ptr %9, align 1, !alias.scope !9
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8, !alias.scope !9
   ret void
 }
@@ -119,9 +119,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd59c89e9cac23a12E"(ptr sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.31.0.copyload = load i64, ptr %.sroa.31.0..sroa_idx, align 8
   %4 = trunc nuw i8 %.sroa.0.0.copyload to i1
   tail call void @_ZN22cranelift_codegen_meta4cdsl5types10VectorType3new17h73c594a52a55a648E(ptr sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, i1 zeroext %4, i8 %.sroa.2.0.copyload, i64 %.sroa.31.0.copyload)
@@ -135,9 +135,9 @@ define hidden void @"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$
   %6 = call i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nonnull align 8 %5)
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %3, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %9, align 8
   ret void
 }
@@ -149,9 +149,9 @@ define hidden void @"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors
   %6 = call i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nonnull align 8 %5)
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %3, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %9, align 8
   ret void
 }

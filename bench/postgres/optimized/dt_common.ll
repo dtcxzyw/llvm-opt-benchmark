@@ -143,10 +143,10 @@ datebsearch.exit.thread:                          ; preds = %26
 datebsearch.exit.thread15:                        ; preds = %23, %7
   %.017 = phi ptr [ %6, %7 ], [ %18, %23 ]
   store ptr %.017, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %.017, i64 11
+  %30 = getelementptr inbounds nuw i8, ptr %.017, i64 11
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.017, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.017, i64 12
   %34 = load i32, ptr %33, align 4
   br label %35
 
@@ -244,24 +244,24 @@ define void @EncodeDateOnly(ptr nocapture noundef readonly %0, i32 noundef %1, p
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.37, i32 noundef %7, i32 noundef %11, i32 noundef %13) #18
   br label %83
 
 15:                                               ; preds = %5
   %16 = sub i32 1, %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.38, i32 noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef nonnull @.str.39) #18
   br label %83
@@ -270,23 +270,23 @@ define void @EncodeDateOnly(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %3, label %23, label %29
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.40, i32 noundef %25, i32 noundef %27) #18
   br label %35
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.40, i32 noundef %31, i32 noundef %33) #18
   br label %35
 
 35:                                               ; preds = %29, %23
-  %36 = getelementptr inbounds i8, ptr %0, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
   %39 = getelementptr i8, ptr %2, i64 5
@@ -302,12 +302,12 @@ define void @EncodeDateOnly(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %83
 
 45:                                               ; preds = %4
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.43, i32 noundef %47, i32 noundef %49) #18
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, 0
   %54 = getelementptr i8, ptr %2, i64 5
@@ -326,23 +326,23 @@ define void @EncodeDateOnly(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %3, label %61, label %67
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.46, i32 noundef %63, i32 noundef %65) #18
   br label %73
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %2, ptr noundef nonnull @.str.46, i32 noundef %69, i32 noundef %71) #18
   br label %73
 
 73:                                               ; preds = %67, %61
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
   %77 = getelementptr i8, ptr %2, i64 5
@@ -406,7 +406,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EncodeDateTime(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #4 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, -1
   %spec.select = and i1 %2, %11
@@ -417,18 +417,18 @@ define void @EncodeDateTime(ptr nocapture noundef %0, i32 noundef %1, i1 noundef
   ]
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   %16 = sub i32 1, %14
   %17 = select i1 %15, i32 %14, i32 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %6, ptr noundef nonnull @.str.49, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25) #18
   %.not180 = icmp eq i32 %1, 0
@@ -511,31 +511,31 @@ TrimTrailingZeros.exit:                           ; preds = %41, %.lr.ph.i, %30,
   br i1 %7, label %68, label %74
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %6, ptr noundef nonnull @.str.40, i32 noundef %70, i32 noundef %72) #18
   br label %80
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %6, ptr noundef nonnull @.str.40, i32 noundef %76, i32 noundef %78) #18
   br label %80
 
 80:                                               ; preds = %74, %68
   %81 = getelementptr i8, ptr %6, i64 5
-  %82 = getelementptr inbounds i8, ptr %0, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
   %85 = sub i32 1, %83
   %86 = select i1 %84, i32 %83, i32 %85
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %81, ptr noundef nonnull @.str.55, i32 noundef %86, i32 noundef %88, i32 noundef %90) #18
   %.not176 = icmp eq i32 %1, 0
@@ -625,20 +625,20 @@ TrimTrailingZeros.exit194:                        ; preds = %106, %.lr.ph.i190, 
   br label %300
 
 137:                                              ; preds = %8
-  %138 = getelementptr inbounds i8, ptr %0, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %0, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %141 = load i32, ptr %140, align 8
   %142 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %6, ptr noundef nonnull @.str.43, i32 noundef %139, i32 noundef %141) #18
   %143 = getelementptr i8, ptr %6, i64 5
-  %144 = getelementptr inbounds i8, ptr %0, i64 20
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %145 = load i32, ptr %144, align 4
   %146 = icmp sgt i32 %145, 0
   %147 = sub i32 1, %145
   %148 = select i1 %146, i32 %145, i32 %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %143, ptr noundef nonnull @.str.57, i32 noundef %148, i32 noundef %150, i32 noundef %152) #18
   %.not = icmp eq i32 %1, 0
@@ -728,11 +728,11 @@ TrimTrailingZeros.exit202:                        ; preds = %168, %.lr.ph.i198, 
   br label %300
 
 199:                                              ; preds = %8
-  %200 = getelementptr inbounds i8, ptr %0, i64 20
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %0, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %203 = load i32, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 12
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %203, 2
   %.015.v.i = select i1 %206, i32 1, i32 13
@@ -752,7 +752,7 @@ TrimTrailingZeros.exit202:                        ; preds = %168, %.lr.ph.i198, 
   %216 = add i32 %215, %209
   %217 = add i32 %216, %211
   %218 = srem i32 %217, 7
-  %219 = getelementptr inbounds i8, ptr %0, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %218, ptr %219, align 8
   %220 = sext i32 %218 to i64
   %221 = getelementptr [8 x ptr], ptr @days, i64 0, i64 %220
@@ -785,9 +785,9 @@ TrimTrailingZeros.exit202:                        ; preds = %168, %.lr.ph.i198, 
 
 241:                                              ; preds = %233, %225
   %242 = getelementptr i8, ptr %6, i64 10
-  %243 = getelementptr inbounds i8, ptr %0, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %244 = load i32, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %0, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %246 = load i32, ptr %245, align 4
   %247 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %242, ptr noundef nonnull @.str.61, i32 noundef %244, i32 noundef %246) #18
   %.not183 = icmp eq i32 %1, 0
@@ -902,27 +902,27 @@ define range(i32 -1, 1) i32 @GetEpochTime(ptr nocapture noundef writeonly %0) lo
   br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1900
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %20, ptr %21, align 4
   %22 = load i32, ptr %3, align 8
   store i32 %22, ptr %0, align 8
@@ -953,41 +953,41 @@ define void @GetCurrentDateTime(ptr nocapture noundef writeonly %0) local_unname
   br label %abstime2tm.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1900
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %23, ptr %24, align 4
   %25 = load i32, ptr %5, align 8
   store i32 %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %33, ptr %34, align 8
   br label %abstime2tm.exit
 
@@ -1032,7 +1032,7 @@ define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef wr
   %6 = alloca [7 x i8], align 1
   store i32 7168, ptr %1, align 4
   %7 = call i32 @strtoint(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 10) #18
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load i8, ptr %9, align 1
@@ -1042,7 +1042,7 @@ define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef wr
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %9, i64 1
   %13 = call i32 @strtoint(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 10) #18
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %13, ptr %14, align 4
   %15 = load ptr, ptr %5, align 8
   %16 = load i8, ptr %15, align 1
@@ -1094,7 +1094,7 @@ define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef wr
   br i1 %exitcond.not, label %35, label %25, !llvm.loop !7
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %6, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 0, ptr %36, align 1
   %37 = call i32 @strtoint(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 10) #18
   store i32 %37, ptr %3, align 4
@@ -1683,13 +1683,13 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   %18 = alloca ptr, align 8
   store i8 0, ptr %14, align 1
   store i32 2, ptr %3, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %20, align 4
   store i32 0, ptr %4, align 8
   store i32 0, ptr %5, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %21, align 8
   store i32 0, ptr %15, align 4
   %invariant.gep = getelementptr i8, ptr %1, i64 4
@@ -1697,13 +1697,13 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   br i1 %22, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = add nsw i32 %2, -1
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 12
-  %27 = getelementptr inbounds i8, ptr %4, i64 20
-  %28 = getelementptr inbounds i8, ptr %4, i64 40
-  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = zext nneg i32 %24 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %31
@@ -1932,10 +1932,10 @@ DecodeSpecial.exit.thread.i:                      ; preds = %142
 DecodeSpecial.exit.i:                             ; preds = %139, %123
   %.018.i.i = phi ptr [ %122, %123 ], [ %134, %139 ]
   store ptr %.018.i.i, ptr getelementptr inbounds (i8, ptr @datecache, i64 192), align 16
-  %146 = getelementptr inbounds i8, ptr %.018.i.i, i64 11
+  %146 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 11
   %147 = load i8, ptr %146, align 1
   %148 = sext i8 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.018.i.i, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 12
   %150 = load i32, ptr %149, align 4
   store i8 %121, ptr %.012.lcssa.i, align 1
   %.off.i = add nsw i32 %148, -5
@@ -2340,9 +2340,9 @@ j2date.exit348:                                   ; preds = %246, %249
 DecodeSpecial.exit:                               ; preds = %340, %324
   %.018.i = phi ptr [ %323, %324 ], [ %335, %340 ]
   store ptr %.018.i, ptr %322, align 8
-  %347 = getelementptr inbounds i8, ptr %.018.i, i64 11
+  %347 = getelementptr inbounds nuw i8, ptr %.018.i, i64 11
   %348 = load i8, ptr %347, align 1
-  %349 = getelementptr inbounds i8, ptr %.018.i, i64 12
+  %349 = getelementptr inbounds nuw i8, ptr %.018.i, i64 12
   %350 = load i32, ptr %349, align 4
   %351 = icmp eq i8 %348, 8
   br i1 %351, label %585, label %352
@@ -2390,32 +2390,32 @@ DecodeSpecial.exit:                               ; preds = %340, %324
   br label %GetCurrentDateTime.exit
 
 361:                                              ; preds = %356
-  %362 = getelementptr inbounds i8, ptr %359, i64 20
+  %362 = getelementptr inbounds nuw i8, ptr %359, i64 20
   %363 = load i32, ptr %362, align 4
   %364 = add i32 %363, 1900
   store i32 %364, ptr %27, align 4
-  %365 = getelementptr inbounds i8, ptr %359, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %366 = load i32, ptr %365, align 8
   %367 = add i32 %366, 1
   store i32 %367, ptr %25, align 8
-  %368 = getelementptr inbounds i8, ptr %359, i64 12
+  %368 = getelementptr inbounds nuw i8, ptr %359, i64 12
   %369 = load i32, ptr %368, align 4
   store i32 %369, ptr %26, align 4
-  %370 = getelementptr inbounds i8, ptr %359, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %371 = load i32, ptr %370, align 8
   store i32 %371, ptr %19, align 8
-  %372 = getelementptr inbounds i8, ptr %359, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %359, i64 4
   %373 = load i32, ptr %372, align 4
   store i32 %373, ptr %20, align 4
   %374 = load i32, ptr %359, align 8
   store i32 %374, ptr %4, align 8
-  %375 = getelementptr inbounds i8, ptr %359, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %359, i64 32
   %376 = load i32, ptr %375, align 8
   store i32 %376, ptr %21, align 8
-  %377 = getelementptr inbounds i8, ptr %359, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %359, i64 40
   %378 = load i64, ptr %377, align 8
   store i64 %378, ptr %28, align 8
-  %379 = getelementptr inbounds i8, ptr %359, i64 48
+  %379 = getelementptr inbounds nuw i8, ptr %359, i64 48
   %380 = load ptr, ptr %379, align 8
   store ptr %380, ptr %29, align 8
   br label %GetCurrentDateTime.exit
@@ -2444,32 +2444,32 @@ GetCurrentDateTime.exit:                          ; preds = %360, %361
   br label %GetCurrentDateTime.exit354
 
 386:                                              ; preds = %381
-  %387 = getelementptr inbounds i8, ptr %384, i64 20
+  %387 = getelementptr inbounds nuw i8, ptr %384, i64 20
   %388 = load i32, ptr %387, align 4
   %389 = add i32 %388, 1900
   store i32 %389, ptr %27, align 4
-  %390 = getelementptr inbounds i8, ptr %384, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %391 = load i32, ptr %390, align 8
   %392 = add i32 %391, 1
   store i32 %392, ptr %25, align 8
-  %393 = getelementptr inbounds i8, ptr %384, i64 12
+  %393 = getelementptr inbounds nuw i8, ptr %384, i64 12
   %394 = load i32, ptr %393, align 4
   store i32 %394, ptr %26, align 4
-  %395 = getelementptr inbounds i8, ptr %384, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %396 = load i32, ptr %395, align 8
   store i32 %396, ptr %19, align 8
-  %397 = getelementptr inbounds i8, ptr %384, i64 4
+  %397 = getelementptr inbounds nuw i8, ptr %384, i64 4
   %398 = load i32, ptr %397, align 4
   store i32 %398, ptr %20, align 4
   %399 = load i32, ptr %384, align 8
   store i32 %399, ptr %4, align 8
-  %400 = getelementptr inbounds i8, ptr %384, i64 32
+  %400 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %401 = load i32, ptr %400, align 8
   store i32 %401, ptr %21, align 8
-  %402 = getelementptr inbounds i8, ptr %384, i64 40
+  %402 = getelementptr inbounds nuw i8, ptr %384, i64 40
   %403 = load i64, ptr %402, align 8
   store i64 %403, ptr %28, align 8
-  %404 = getelementptr inbounds i8, ptr %384, i64 48
+  %404 = getelementptr inbounds nuw i8, ptr %384, i64 48
   %405 = load ptr, ptr %404, align 8
   store ptr %405, ptr %29, align 8
   br label %GetCurrentDateTime.exit354
@@ -2566,32 +2566,32 @@ j2date.exit362:                                   ; preds = %434, %437
   br label %GetCurrentDateTime.exit364
 
 459:                                              ; preds = %454
-  %460 = getelementptr inbounds i8, ptr %457, i64 20
+  %460 = getelementptr inbounds nuw i8, ptr %457, i64 20
   %461 = load i32, ptr %460, align 4
   %462 = add i32 %461, 1900
   store i32 %462, ptr %27, align 4
-  %463 = getelementptr inbounds i8, ptr %457, i64 16
+  %463 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %464 = load i32, ptr %463, align 8
   %465 = add i32 %464, 1
   store i32 %465, ptr %25, align 8
-  %466 = getelementptr inbounds i8, ptr %457, i64 12
+  %466 = getelementptr inbounds nuw i8, ptr %457, i64 12
   %467 = load i32, ptr %466, align 4
   store i32 %467, ptr %26, align 4
-  %468 = getelementptr inbounds i8, ptr %457, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %469 = load i32, ptr %468, align 8
   store i32 %469, ptr %19, align 8
-  %470 = getelementptr inbounds i8, ptr %457, i64 4
+  %470 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %471 = load i32, ptr %470, align 4
   store i32 %471, ptr %20, align 4
   %472 = load i32, ptr %457, align 8
   store i32 %472, ptr %4, align 8
-  %473 = getelementptr inbounds i8, ptr %457, i64 32
+  %473 = getelementptr inbounds nuw i8, ptr %457, i64 32
   %474 = load i32, ptr %473, align 8
   store i32 %474, ptr %21, align 8
-  %475 = getelementptr inbounds i8, ptr %457, i64 40
+  %475 = getelementptr inbounds nuw i8, ptr %457, i64 40
   %476 = load i64, ptr %475, align 8
   store i64 %476, ptr %28, align 8
-  %477 = getelementptr inbounds i8, ptr %457, i64 48
+  %477 = getelementptr inbounds nuw i8, ptr %457, i64 48
   %478 = load ptr, ptr %477, align 8
   store ptr %478, ptr %29, align 8
   br label %GetCurrentDateTime.exit364
@@ -2623,32 +2623,32 @@ GetCurrentDateTime.exit364:                       ; preds = %458, %459
   br label %GetCurrentDateTime.exit366
 
 484:                                              ; preds = %479
-  %485 = getelementptr inbounds i8, ptr %482, i64 20
+  %485 = getelementptr inbounds nuw i8, ptr %482, i64 20
   %486 = load i32, ptr %485, align 4
   %487 = add i32 %486, 1900
   store i32 %487, ptr %27, align 4
-  %488 = getelementptr inbounds i8, ptr %482, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %482, i64 16
   %489 = load i32, ptr %488, align 8
   %490 = add i32 %489, 1
   store i32 %490, ptr %25, align 8
-  %491 = getelementptr inbounds i8, ptr %482, i64 12
+  %491 = getelementptr inbounds nuw i8, ptr %482, i64 12
   %492 = load i32, ptr %491, align 4
   store i32 %492, ptr %26, align 4
-  %493 = getelementptr inbounds i8, ptr %482, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %494 = load i32, ptr %493, align 8
   store i32 %494, ptr %19, align 8
-  %495 = getelementptr inbounds i8, ptr %482, i64 4
+  %495 = getelementptr inbounds nuw i8, ptr %482, i64 4
   %496 = load i32, ptr %495, align 4
   store i32 %496, ptr %20, align 4
   %497 = load i32, ptr %482, align 8
   store i32 %497, ptr %4, align 8
-  %498 = getelementptr inbounds i8, ptr %482, i64 32
+  %498 = getelementptr inbounds nuw i8, ptr %482, i64 32
   %499 = load i32, ptr %498, align 8
   store i32 %499, ptr %21, align 8
-  %500 = getelementptr inbounds i8, ptr %482, i64 40
+  %500 = getelementptr inbounds nuw i8, ptr %482, i64 40
   %501 = load i64, ptr %500, align 8
   store i64 %501, ptr %28, align 8
-  %502 = getelementptr inbounds i8, ptr %482, i64 48
+  %502 = getelementptr inbounds nuw i8, ptr %482, i64 48
   %503 = load ptr, ptr %502, align 8
   store ptr %503, ptr %29, align 8
   br label %GetCurrentDateTime.exit366
@@ -2849,7 +2849,7 @@ j2date.exit377:                                   ; preds = %532, %535
   br i1 %.2278, label %586, label %._crit_edge.thread
 
 586:                                              ; preds = %._crit_edge
-  %587 = getelementptr inbounds i8, ptr %4, i64 20
+  %587 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %588 = load i32, ptr %587, align 4
   %589 = icmp sgt i32 %588, 0
   br i1 %589, label %590, label %.loopexit
@@ -2867,7 +2867,7 @@ j2date.exit377:                                   ; preds = %532, %535
   br i1 %593, label %594, label %604
 
 594:                                              ; preds = %._crit_edge.thread
-  %595 = getelementptr inbounds i8, ptr %4, i64 20
+  %595 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %596 = load i32, ptr %595, align 4
   %597 = icmp slt i32 %596, 70
   br i1 %597, label %598, label %600
@@ -2937,13 +2937,13 @@ j2date.exit377:                                   ; preds = %532, %535
   br label %.loopexit
 
 623:                                              ; preds = %617
-  %624 = getelementptr inbounds i8, ptr %4, i64 12
+  %624 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %625 = load i32, ptr %624, align 4
   %626 = icmp slt i32 %625, 1
   br i1 %626, label %.loopexit, label %627
 
 627:                                              ; preds = %623
-  %628 = getelementptr inbounds i8, ptr %4, i64 20
+  %628 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %629 = load i32, ptr %628, align 4
   %630 = and i32 %629, 3
   %631 = icmp eq i32 %630, 0
@@ -2962,7 +2962,7 @@ j2date.exit377:                                   ; preds = %532, %535
 
 638:                                              ; preds = %632, %634, %627
   %639 = phi i64 [ 0, %627 ], [ 1, %632 ], [ %637, %634 ]
-  %640 = getelementptr inbounds i8, ptr %4, i64 16
+  %640 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %641 = load i32, ptr %640, align 8
   %642 = add i32 %641, -1
   %643 = sext i32 %642 to i64
@@ -3070,7 +3070,7 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   br i1 %exitcond.not, label %15, label %12, !llvm.loop !22
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i8 0, ptr %16, align 1
   %17 = call i32 @strtoint(ptr noundef nonnull %8, ptr noundef null, i32 noundef 10) #18
   store i32 %17, ptr %5, align 4
@@ -3095,16 +3095,16 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i32 14, ptr %3, align 4
   %24 = getelementptr i8, ptr %1, i64 6
   %25 = tail call i32 @atoi(ptr nocapture noundef %24) #17
-  %26 = getelementptr inbounds i8, ptr %4, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %25, ptr %26, align 4
   store i8 0, ptr %24, align 1
   %27 = getelementptr i8, ptr %1, i64 4
   %28 = tail call i32 @atoi(ptr nocapture noundef %27) #17
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %28, ptr %29, align 8
   store i8 0, ptr %27, align 1
   %30 = tail call i32 @atoi(ptr nocapture noundef %1) #17
-  %31 = getelementptr inbounds i8, ptr %4, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %30, ptr %31, align 4
   br label %65
 
@@ -3112,16 +3112,16 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i32 14, ptr %3, align 4
   %33 = getelementptr i8, ptr %1, i64 4
   %34 = tail call i32 @atoi(ptr nocapture noundef %33) #17
-  %35 = getelementptr inbounds i8, ptr %4, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %34, ptr %35, align 4
   store i8 0, ptr %33, align 1
   %36 = getelementptr i8, ptr %1, i64 2
   %37 = tail call i32 @atoi(ptr nocapture noundef %36) #17
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %37, ptr %38, align 8
   store i8 0, ptr %36, align 1
   %39 = tail call i32 @atoi(ptr nocapture noundef %1) #17
-  %40 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %39, ptr %40, align 4
   store i8 1, ptr %6, align 1
   br label %65
@@ -3130,13 +3130,13 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i32 14, ptr %3, align 4
   %42 = getelementptr i8, ptr %1, i64 2
   %43 = tail call i32 @atoi(ptr nocapture noundef %42) #17
-  %44 = getelementptr inbounds i8, ptr %4, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %43, ptr %44, align 4
   store i8 0, ptr %42, align 1
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %45, align 8
   %46 = tail call i32 @atoi(ptr nocapture noundef %1) #17
-  %47 = getelementptr inbounds i8, ptr %4, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %46, ptr %47, align 4
   store i8 1, ptr %6, align 1
   br label %65
@@ -3161,11 +3161,11 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i8 0, ptr %52, align 1
   %54 = getelementptr i8, ptr %1, i64 2
   %55 = call i32 @atoi(ptr nocapture noundef %54) #17
-  %56 = getelementptr inbounds i8, ptr %4, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %55, ptr %56, align 4
   store i8 0, ptr %54, align 1
   %57 = call i32 @atoi(ptr nocapture noundef %1) #17
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %57, ptr %58, align 8
   br label %65
 
@@ -3174,11 +3174,11 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
   store i32 0, ptr %4, align 8
   %60 = getelementptr i8, ptr %1, i64 2
   %61 = call i32 @atoi(ptr nocapture noundef %60) #17
-  %62 = getelementptr inbounds i8, ptr %4, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %61, ptr %62, align 4
   store i8 0, ptr %60, align 1
   %63 = call i32 @atoi(ptr nocapture noundef %1) #17
-  %64 = getelementptr inbounds i8, ptr %4, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %63, ptr %64, align 8
   br label %65
 
@@ -3289,7 +3289,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %indvars.iv.next132 = phi i64 [ %indvars.iv.next131, %.thread129 ], [ %indvars.iv.next, %44 ]
   store i32 0, ptr %2, align 4
   %49 = tail call ptr @__ctype_b_loc() #19
-  %50 = getelementptr inbounds i8, ptr %3, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = and i64 %indvars.iv.next132, 4294967295
   br label %51
 
@@ -3363,9 +3363,9 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
 DecodeSpecial.exit:                               ; preds = %78, %63
   %.018.i = phi ptr [ %62, %63 ], [ %73, %78 ]
   store ptr %.018.i, ptr %61, align 8
-  %85 = getelementptr inbounds i8, ptr %.018.i, i64 11
+  %85 = getelementptr inbounds nuw i8, ptr %.018.i, i64 11
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds i8, ptr %.018.i, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %.018.i, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i8 %86, 8
   br i1 %89, label %102, label %90
@@ -3455,7 +3455,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br i1 %.1, label %122, label %.thread143
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %3, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %124 = load i32, ptr %123, align 4
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %126, label %.loopexit
@@ -3471,7 +3471,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br i1 %129, label %130, label %.loopexit
 
 130:                                              ; preds = %.thread143
-  %131 = getelementptr inbounds i8, ptr %3, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %132, 70
   br i1 %133, label %134, label %136
@@ -3549,9 +3549,9 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr no
 
 35:                                               ; preds = %30
   store i32 32778, ptr %3, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %10, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %38 = load i32, ptr %37, align 4
   %.0.i = add i32 %38, 4799
   %.neg.i = sdiv i32 %.0.i, -100
@@ -3563,8 +3563,8 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr no
   %44 = add i32 %43, %40
   %45 = add i32 %44, %.neg.i
   %46 = add i32 %45, %41
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
-  %48 = getelementptr inbounds i8, ptr %4, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %49 = add i32 %46, 32043
   %50 = udiv i32 %49, 146097
   %.neg.i106 = mul i32 %50, 1073595727
@@ -3630,20 +3630,20 @@ j2date.exit:                                      ; preds = %62, %65
   br i1 %or.cond, label %86, label %92
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %4, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, -1
   %or.cond103 = icmp ult i32 %89, 31
   br i1 %or.cond103, label %90, label %92
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %4, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %88, ptr %91, align 4
   store i32 8, ptr %3, align 4
   br label %92
 
 92:                                               ; preds = %90, %86, %84
-  %93 = getelementptr inbounds i8, ptr %4, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %10, ptr %93, align 4
   br label %123
 
@@ -3662,7 +3662,7 @@ j2date.exit:                                      ; preds = %62, %65
 
 99:                                               ; preds = %94
   store i32 2, ptr %3, align 4
-  %100 = getelementptr inbounds i8, ptr %4, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %10, ptr %100, align 8
   br label %123
 
@@ -3687,7 +3687,7 @@ j2date.exit:                                      ; preds = %62, %65
 
 108:                                              ; preds = %103
   store i32 8, ptr %3, align 4
-  %109 = getelementptr inbounds i8, ptr %4, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %109, align 4
   br label %123
 
@@ -3700,7 +3700,7 @@ j2date.exit:                                      ; preds = %62, %65
 
 111:                                              ; preds = %.thread107
   store i32 2, ptr %3, align 4
-  %112 = getelementptr inbounds i8, ptr %4, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %10, ptr %112, align 8
   br label %123
 
@@ -3713,7 +3713,7 @@ j2date.exit:                                      ; preds = %62, %65
 
 117:                                              ; preds = %113
   store i32 8, ptr %3, align 4
-  %118 = getelementptr inbounds i8, ptr %4, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %10, ptr %118, align 4
   br label %123
 
@@ -3724,7 +3724,7 @@ j2date.exit:                                      ; preds = %62, %65
 
 121:                                              ; preds = %119
   store i32 4, ptr %3, align 4
-  %122 = getelementptr inbounds i8, ptr %4, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %10, ptr %122, align 4
   store i8 1, ptr %6, align 1
   br label %123
@@ -4083,7 +4083,7 @@ sub_0299:                                         ; preds = %153, %.tail.thread
   br i1 %.not359, label %.tail298, label %.tail298.thread
 
 .tail298:                                         ; preds = %sub_0299
-  %157 = getelementptr inbounds i8, ptr %155, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %158 = load i8, ptr %157, align 1
   %159 = icmp eq i8 %158, 109
   br i1 %159, label %160, label %.tail298.thread
@@ -4146,7 +4146,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
   br i1 %.not357, label %.tail306, label %.tail306.thread
 
 .tail306:                                         ; preds = %sub_0307
-  %183 = getelementptr inbounds i8, ptr %181, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 1
   %184 = load i8, ptr %183, align 1
   %185 = icmp eq i8 %184, 77
   br i1 %185, label %186, label %.tail306.thread
@@ -4214,21 +4214,21 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
   br i1 %.not289, label %.backedgethread-pre-split, label %218
 
 218:                                              ; preds = %213
-  %219 = getelementptr inbounds i8, ptr %217, i64 20
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 20
   %220 = load i32, ptr %219, align 4
   %221 = add i32 %220, 1900
   store i32 %221, ptr %3, align 4
-  %222 = getelementptr inbounds i8, ptr %217, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %223 = load i32, ptr %222, align 8
   %224 = add i32 %223, 1
   store i32 %224, ptr %4, align 4
-  %225 = getelementptr inbounds i8, ptr %217, i64 12
+  %225 = getelementptr inbounds nuw i8, ptr %217, i64 12
   %226 = load i32, ptr %225, align 4
   store i32 %226, ptr %5, align 4
-  %227 = getelementptr inbounds i8, ptr %217, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %228 = load i32, ptr %227, align 8
   store i32 %228, ptr %6, align 4
-  %229 = getelementptr inbounds i8, ptr %217, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %230 = load i32, ptr %229, align 4
   store i32 %230, ptr %7, align 4
   %231 = load i32, ptr %217, align 8
@@ -4340,7 +4340,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 287:                                              ; preds = %.preheader, %298
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %298 ]
   %288 = getelementptr [277 x %struct.datetkn], ptr @datetktbl, i64 0, i64 %indvars.iv
-  %289 = getelementptr inbounds i8, ptr %288, i64 11
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 11
   %290 = load i8, ptr %289, align 1
   %.off = add i8 %290, -5
   %switch = icmp ult i8 %.off, 2
@@ -4352,7 +4352,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
   br i1 %293, label %294, label %298
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %288, i64 12
+  %295 = getelementptr inbounds nuw i8, ptr %288, i64 12
   %296 = load i32, ptr %295, align 4
   %297 = sub i32 0, %296
   store i32 %297, ptr %9, align 4
@@ -4559,16 +4559,16 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
   %391 = load i32, ptr %8, align 4
   store i32 %391, ptr %13, align 8
   %392 = load i32, ptr %7, align 4
-  %393 = getelementptr inbounds i8, ptr %13, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %392, ptr %393, align 4
   %394 = load i32, ptr %6, align 4
-  %395 = getelementptr inbounds i8, ptr %13, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %394, ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %13, i64 12
+  %396 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %390, ptr %396, align 4
-  %397 = getelementptr inbounds i8, ptr %13, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %389, ptr %397, align 8
-  %398 = getelementptr inbounds i8, ptr %13, i64 20
+  %398 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %388, ptr %398, align 4
   %399 = call i32 @tm2timestamp(ptr noundef nonnull %13, i32 noundef 0, ptr noundef %9, ptr noundef %2) #18
   br label %.loopexit316

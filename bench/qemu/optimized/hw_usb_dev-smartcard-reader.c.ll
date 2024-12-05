@@ -197,9 +197,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @ccid_card_send_apdu_to_guest(ptr noundef %card, ptr noundef %apdu, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i11, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
@@ -209,7 +209,7 @@ entry:
   br i1 %cmp.i.not, label %do.body, label %ccid_peek_next_answer.exit
 
 do.body:                                          ; preds = %entry
-  %debug = getelementptr inbounds i8, ptr %call.i12, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i12, i64 75011
   %3 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %3, 0
   br i1 %cmp.not, label %return, label %if.then5
@@ -219,16 +219,16 @@ if.then5:                                         ; preds = %do.body
   br label %return
 
 ccid_peek_next_answer.exit:                       ; preds = %entry
-  %bmCommandStatus = getelementptr inbounds i8, ptr %call.i12, i64 74989
+  %bmCommandStatus = getelementptr inbounds nuw i8, ptr %call.i12, i64 74989
   store i8 0, ptr %bmCommandStatus, align 1
-  %pending_answers.i = getelementptr inbounds i8, ptr %call.i12, i64 74720
-  %pending_answers_start.i = getelementptr inbounds i8, ptr %call.i12, i64 74976
+  %pending_answers.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 74720
+  %pending_answers_start.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 74976
   %4 = load i32, ptr %pending_answers_start.i, align 8
   %rem.i = and i32 %4, 127
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i, i64 0, i64 %idxprom.i
   %cmp9 = icmp eq ptr %arrayidx.i, null
-  %debug13 = getelementptr inbounds i8, ptr %call.i12, i64 75011
+  %debug13 = getelementptr inbounds nuw i8, ptr %call.i12, i64 75011
   %5 = load i8, ptr %debug13, align 1
   %cmp15.not = icmp eq i8 %5, 0
   br i1 %cmp9, label %do.body12, label %do.body22
@@ -242,7 +242,7 @@ if.then17:                                        ; preds = %do.body12
 
 do.end20:                                         ; preds = %do.body12, %if.then17
   store i8 1, ptr %bmCommandStatus, align 1
-  %bError.i = getelementptr inbounds i8, ptr %call.i12, i64 74988
+  %bError.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 74988
   store i8 -5, ptr %bError.i, align 4
   br label %return
 
@@ -250,7 +250,7 @@ do.body22:                                        ; preds = %ccid_peek_next_answ
   br i1 %cmp15.not, label %ccid_remove_pending_answer.exit.i, label %do.end32
 
 do.end32:                                         ; preds = %do.body22
-  %seq = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %seq = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %6 = load i8, ptr %seq, align 1
   %conv28 = zext i8 %6 to i32
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -271,7 +271,7 @@ if.then2.i:                                       ; preds = %do.body.i
 
 do.end.i:                                         ; preds = %if.then2.i, %do.body.i
   store i8 1, ptr %bmCommandStatus, align 1
-  %bError.i.i = getelementptr inbounds i8, ptr %call.i12, i64 74988
+  %bError.i.i = getelementptr inbounds nuw i8, ptr %call.i12, i64 74988
   store i8 -2, ptr %bError.i.i, align 4
   br label %return
 
@@ -286,7 +286,7 @@ ccid_remove_pending_answer.exit.i:                ; preds = %do.body22, %do.end3
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i, i64 0, i64 %idxprom.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
-  %seq3.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %seq3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %11 = load i8, ptr %seq3.i.i, align 1
   tail call fastcc void @ccid_print_pending_answers(ptr noundef nonnull %call.i12)
   tail call fastcc void @ccid_write_data_block(ptr noundef nonnull %call.i12, i8 noundef zeroext %10, i8 noundef zeroext %11, ptr noundef %apdu, i32 noundef %len)
@@ -303,22 +303,22 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define dso_local void @ccid_card_card_removed(ptr noundef %card) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %bmSlotICCState.i = getelementptr inbounds i8, ptr %call.i4, i64 75008
+  %bmSlotICCState.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 75008
   %2 = load i8, ptr %bmSlotICCState.i, align 8
   %3 = and i8 %2, -2
   %cmp.not.i = icmp eq i8 %2, %3
   %4 = or i8 %3, 2
   %storemerge7.i = select i1 %cmp.not.i, i8 %3, i8 %4
   store i8 %storemerge7.i, ptr %bmSlotICCState.i, align 8
-  %notify_slot_change.i = getelementptr inbounds i8, ptr %call.i4, i64 75010
+  %notify_slot_change.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 75010
   store i8 1, ptr %notify_slot_change.i, align 2
-  %intr.i = getelementptr inbounds i8, ptr %call.i4, i64 5864
+  %intr.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 5864
   %5 = load ptr, ptr %intr.i, align 8
   tail call void @usb_wakeup(ptr noundef %5, i32 noundef 0) #10
   %6 = getelementptr i8, ptr %call.i4, i64 74984
@@ -327,8 +327,8 @@ entry:
   br i1 %cmp.i.not3.i, label %ccid_flush_pending_answers.exit, label %ccid_write_data_block_answer.exit.lr.ph.i
 
 ccid_write_data_block_answer.exit.lr.ph.i:        ; preds = %entry
-  %pending_answers.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74720
-  %pending_answers_start.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74976
+  %pending_answers.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74720
+  %pending_answers_start.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74976
   br label %ccid_write_data_block_answer.exit.i
 
 ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_block_answer.exit.i, %ccid_write_data_block_answer.exit.lr.ph.i
@@ -342,7 +342,7 @@ ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_blo
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i.i.i, i64 0, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
-  %seq3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 1
+  %seq3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 1
   %9 = load i8, ptr %seq3.i.i.i, align 1
   tail call fastcc void @ccid_print_pending_answers(ptr noundef nonnull %call.i4)
   tail call fastcc void @ccid_write_data_block(ptr noundef nonnull %call.i4, i8 noundef zeroext %8, i8 noundef zeroext %9, ptr noundef null, i32 noundef 0)
@@ -351,16 +351,16 @@ ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_blo
   br i1 %cmp.i.not.i, label %ccid_flush_pending_answers.exit, label %ccid_write_data_block_answer.exit.i, !llvm.loop !5
 
 ccid_flush_pending_answers.exit:                  ; preds = %ccid_write_data_block_answer.exit.i, %entry
-  %bulk_in_pending_start.i.i = getelementptr inbounds i8, ptr %call.i4, i64 9144
+  %bulk_in_pending_start.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 9144
   store i32 0, ptr %bulk_in_pending_start.i.i, align 8
-  %bulk_in_pending_end.i.i = getelementptr inbounds i8, ptr %call.i4, i64 9148
+  %bulk_in_pending_end.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 9148
   store i32 0, ptr %bulk_in_pending_end.i.i, align 4
-  %bulk_in_pending_num.i.i = getelementptr inbounds i8, ptr %call.i4, i64 9152
+  %bulk_in_pending_num.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 9152
   store i32 0, ptr %bulk_in_pending_num.i.i, align 8
   store i32 0, ptr %6, align 8
-  %pending_answers_start.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74976
+  %pending_answers_start.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74976
   store i32 0, ptr %pending_answers_start.i.i, align 8
-  %pending_answers_end.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74980
+  %pending_answers_end.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74980
   store i32 0, ptr %pending_answers_end.i.i, align 4
   ret void
 }
@@ -369,13 +369,13 @@ ccid_flush_pending_answers.exit:                  ; preds = %ccid_write_data_blo
 define dso_local noundef i32 @ccid_card_ccid_attach(ptr noundef %card) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %debug = getelementptr inbounds i8, ptr %call.i2, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i2, i64 75011
   %2 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %2, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -392,13 +392,13 @@ do.end:                                           ; preds = %entry, %if.then
 define dso_local void @ccid_card_ccid_detach(ptr noundef %card) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %debug = getelementptr inbounds i8, ptr %call.i5, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i5, i64 75011
   %2 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %2, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -420,25 +420,25 @@ if.then6:                                         ; preds = %do.end
   %6 = or i8 %5, 2
   %storemerge7.i = select i1 %cmp.not.i, i8 %5, i8 %6
   store i8 %storemerge7.i, ptr %3, align 8
-  %notify_slot_change.i = getelementptr inbounds i8, ptr %call.i5, i64 75010
+  %notify_slot_change.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 75010
   store i8 1, ptr %notify_slot_change.i, align 2
-  %intr.i = getelementptr inbounds i8, ptr %call.i5, i64 5864
+  %intr.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 5864
   %7 = load ptr, ptr %intr.i, align 8
   tail call void @usb_wakeup(ptr noundef %7, i32 noundef 0) #10
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %do.end
-  %bulk_in_pending_start.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 9144
+  %bulk_in_pending_start.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 9144
   store i32 0, ptr %bulk_in_pending_start.i.i.i, align 8
-  %bulk_in_pending_end.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 9148
+  %bulk_in_pending_end.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 9148
   store i32 0, ptr %bulk_in_pending_end.i.i.i, align 4
-  %bulk_in_pending_num.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 9152
+  %bulk_in_pending_num.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 9152
   store i32 0, ptr %bulk_in_pending_num.i.i.i, align 8
-  %pending_answers_num.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 74984
+  %pending_answers_num.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 74984
   store i32 0, ptr %pending_answers_num.i.i.i, align 8
-  %pending_answers_start.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 74976
+  %pending_answers_start.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 74976
   store i32 0, ptr %pending_answers_start.i.i.i, align 8
-  %pending_answers_end.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 74980
+  %pending_answers_end.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 74980
   store i32 0, ptr %pending_answers_end.i.i.i, align 4
   ret void
 }
@@ -447,17 +447,17 @@ if.end7:                                          ; preds = %if.then6, %do.end
 define dso_local void @ccid_card_card_error(ptr noundef %card, i64 noundef %error) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %bmCommandStatus = getelementptr inbounds i8, ptr %call.i7, i64 74989
+  %bmCommandStatus = getelementptr inbounds nuw i8, ptr %call.i7, i64 74989
   store i8 1, ptr %bmCommandStatus, align 1
-  %last_answer_error = getelementptr inbounds i8, ptr %call.i7, i64 74712
+  %last_answer_error = getelementptr inbounds nuw i8, ptr %call.i7, i64 74712
   store i64 %error, ptr %last_answer_error, align 8
-  %debug = getelementptr inbounds i8, ptr %call.i7, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i7, i64 75011
   %2 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %2, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -475,8 +475,8 @@ do.end:                                           ; preds = %entry, %if.then
 ccid_write_data_block_answer.exit:                ; preds = %do.end
   %dec.i.i = add i32 %call2.val, -1
   store i32 %dec.i.i, ptr %3, align 8
-  %pending_answers.i.i = getelementptr inbounds i8, ptr %call.i7, i64 74720
-  %pending_answers_start.i.i = getelementptr inbounds i8, ptr %call.i7, i64 74976
+  %pending_answers.i.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 74720
+  %pending_answers_start.i.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 74976
   %4 = load i32, ptr %pending_answers_start.i.i, align 8
   %inc.i.i = add i32 %4, 1
   store i32 %inc.i.i, ptr %pending_answers_start.i.i, align 8
@@ -484,7 +484,7 @@ ccid_write_data_block_answer.exit:                ; preds = %do.end
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx.i.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i.i, i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
-  %seq3.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %seq3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %6 = load i8, ptr %seq3.i.i, align 1
   tail call fastcc void @ccid_print_pending_answers(ptr noundef nonnull %call.i7)
   tail call fastcc void @ccid_write_data_block(ptr noundef nonnull %call.i7, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef null, i32 noundef 0)
@@ -498,13 +498,13 @@ if.end8:                                          ; preds = %ccid_write_data_blo
 define dso_local void @ccid_card_card_inserted(ptr noundef %card) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %card, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %bmCommandStatus = getelementptr inbounds i8, ptr %call.i4, i64 74989
+  %bmCommandStatus = getelementptr inbounds nuw i8, ptr %call.i4, i64 74989
   store i8 0, ptr %bmCommandStatus, align 1
   %2 = getelementptr i8, ptr %call.i4, i64 74984
   %s.val2.i = load i32, ptr %2, align 8
@@ -512,8 +512,8 @@ entry:
   br i1 %cmp.i.not3.i, label %ccid_flush_pending_answers.exit, label %ccid_write_data_block_answer.exit.lr.ph.i
 
 ccid_write_data_block_answer.exit.lr.ph.i:        ; preds = %entry
-  %pending_answers.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74720
-  %pending_answers_start.i.i.i = getelementptr inbounds i8, ptr %call.i4, i64 74976
+  %pending_answers.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74720
+  %pending_answers_start.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 74976
   br label %ccid_write_data_block_answer.exit.i
 
 ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_block_answer.exit.i, %ccid_write_data_block_answer.exit.lr.ph.i
@@ -527,7 +527,7 @@ ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_blo
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i.i.i, i64 0, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
-  %seq3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 1
+  %seq3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 1
   %5 = load i8, ptr %seq3.i.i.i, align 1
   tail call fastcc void @ccid_print_pending_answers(ptr noundef nonnull %call.i4)
   tail call fastcc void @ccid_write_data_block(ptr noundef nonnull %call.i4, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef null, i32 noundef 0)
@@ -536,16 +536,16 @@ ccid_write_data_block_answer.exit.i:              ; preds = %ccid_write_data_blo
   br i1 %cmp.i.not.i, label %ccid_flush_pending_answers.exit, label %ccid_write_data_block_answer.exit.i, !llvm.loop !5
 
 ccid_flush_pending_answers.exit:                  ; preds = %ccid_write_data_block_answer.exit.i, %entry
-  %bmSlotICCState.i = getelementptr inbounds i8, ptr %call.i4, i64 75008
+  %bmSlotICCState.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 75008
   %6 = load i8, ptr %bmSlotICCState.i, align 8
   %storemerge.i = or i8 %6, 1
   %cmp.not.i = icmp eq i8 %6, %storemerge.i
   %7 = or i8 %6, 3
   %storemerge7.i = select i1 %cmp.not.i, i8 %storemerge.i, i8 %7
   store i8 %storemerge7.i, ptr %bmSlotICCState.i, align 8
-  %notify_slot_change.i = getelementptr inbounds i8, ptr %call.i4, i64 75010
+  %notify_slot_change.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 75010
   store i8 1, ptr %notify_slot_change.i, align 2
-  %intr.i = getelementptr inbounds i8, ptr %call.i4, i64 5864
+  %intr.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 5864
   %8 = load ptr, ptr %intr.i, align 8
   tail call void @usb_wakeup(ptr noundef %8, i32 noundef 0) #10
   ret void
@@ -577,7 +577,7 @@ entry:
   %conv = zext i32 %len to i64
   %0 = trunc i32 %len to i16
   %conv1 = add i16 %0, 10
-  %debug.i = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %1 = load i8, ptr %debug.i, align 1
   %cmp.i = icmp ugt i8 %1, 3
   %conv2.i = zext i16 %conv1 to i32
@@ -601,7 +601,7 @@ if.then12.i:                                      ; preds = %do.body7.i
   br label %return
 
 if.end17.i:                                       ; preds = %do.end.i
-  %bulk_in_pending_num.i = getelementptr inbounds i8, ptr %s, i64 9152
+  %bulk_in_pending_num.i = getelementptr inbounds nuw i8, ptr %s, i64 9152
   %3 = load i32, ptr %bulk_in_pending_num.i, align 8
   %cmp18.i = icmp ugt i32 %3, 7
   br i1 %cmp18.i, label %do.body21.i, label %ccid_reserve_recv_buf.exit
@@ -616,8 +616,8 @@ if.then26.i:                                      ; preds = %do.body21.i
   br label %return
 
 ccid_reserve_recv_buf.exit:                       ; preds = %if.end17.i
-  %bulk_in_pending.i = getelementptr inbounds i8, ptr %s, i64 6008
-  %bulk_in_pending_end.i = getelementptr inbounds i8, ptr %s, i64 9148
+  %bulk_in_pending.i = getelementptr inbounds nuw i8, ptr %s, i64 6008
+  %bulk_in_pending_end.i = getelementptr inbounds nuw i8, ptr %s, i64 9148
   %5 = load i32, ptr %bulk_in_pending_end.i, align 4
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %bulk_in_pending_end.i, align 4
@@ -626,18 +626,18 @@ ccid_reserve_recv_buf.exit:                       ; preds = %if.end17.i
   %arrayidx.i = getelementptr [8 x %struct.BulkIn], ptr %bulk_in_pending.i, i64 0, i64 %idxprom.i
   %inc32.i = add nuw nsw i32 %3, 1
   store i32 %inc32.i, ptr %bulk_in_pending_num.i, align 8
-  %len34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 384
+  %len34.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 384
   store i32 %conv2.i, ptr %len34.i, align 4
   %cmp = icmp eq ptr %arrayidx.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ccid_reserve_recv_buf.exit
   store i8 -128, ptr %arrayidx.i, align 1
-  %dwLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %dwLength = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   store i32 %len, ptr %dwLength, align 1
-  %bSlot = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %bSlot = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   store i8 %slot, ptr %bSlot, align 1
-  %bSeq = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %bSeq = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   store i8 %seq, ptr %bSeq, align 1
   %6 = getelementptr i8, ptr %s, i64 75008
   %s.val.i.i = load i8, ptr %6, align 8
@@ -646,7 +646,7 @@ if.end:                                           ; preds = %ccid_reserve_recv_b
   br i1 %tobool.i.not.i.i, label %ccid_card_status.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end
-  %powered.i.i = getelementptr inbounds i8, ptr %s, i64 75009
+  %powered.i.i = getelementptr inbounds nuw i8, ptr %s, i64 75009
   %8 = load i8, ptr %powered.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %8, 0
   %9 = zext i1 %tobool.not.i.i to i8
@@ -654,7 +654,7 @@ cond.true.i.i:                                    ; preds = %if.end
 
 ccid_card_status.exit.i:                          ; preds = %cond.true.i.i, %if.end
   %cond1.i.i = phi i8 [ %9, %cond.true.i.i ], [ 2, %if.end ]
-  %bmCommandStatus.i = getelementptr inbounds i8, ptr %s, i64 74989
+  %bmCommandStatus.i = getelementptr inbounds nuw i8, ptr %s, i64 74989
   %10 = load i8, ptr %bmCommandStatus.i, align 1
   %shl.i = shl i8 %10, 6
   %or.i = or disjoint i8 %shl.i, %cond1.i.i
@@ -668,11 +668,11 @@ if.then.i22:                                      ; preds = %ccid_card_status.ex
   br label %ccid_calc_status.exit
 
 ccid_calc_status.exit:                            ; preds = %ccid_card_status.exit.i, %if.then.i22
-  %bStatus = getelementptr inbounds i8, ptr %arrayidx.i, i64 7
+  %bStatus = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 7
   store i8 %or.i, ptr %bStatus, align 1
-  %bError = getelementptr inbounds i8, ptr %s, i64 74988
+  %bError = getelementptr inbounds nuw i8, ptr %s, i64 74988
   %12 = load i8, ptr %bError, align 4
-  %bError13 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %bError13 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i8 %12, ptr %bError13, align 1
   %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %if.end26, label %do.body
@@ -700,14 +700,14 @@ if.else:                                          ; preds = %if.then28
   unreachable
 
 if.end31:                                         ; preds = %if.then28
-  %abData = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
+  %abData = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %abData, ptr nonnull align 1 %data, i64 %conv, i1 false)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end31, %if.end26
   store i8 0, ptr %bError, align 4
   store i8 0, ptr %bmCommandStatus.i, align 1
-  %bulk = getelementptr inbounds i8, ptr %s, i64 5872
+  %bulk = getelementptr inbounds nuw i8, ptr %s, i64 5872
   %14 = load ptr, ptr %bulk, align 8
   tail call void @usb_wakeup(ptr noundef %14, i32 noundef 0) #10
   br label %return
@@ -722,7 +722,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal fastcc void @ccid_print_pending_answers(ptr nocapture noundef readonly %s) unnamed_addr #4 {
 entry:
-  %debug = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %0 = load i8, ptr %debug, align 1
   %cmp = icmp ugt i8 %0, 3
   br i1 %cmp, label %if.then, label %do.end
@@ -751,9 +751,9 @@ if.end13:                                         ; preds = %do.end
   br i1 %cmp1414, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %pending_answers_start = getelementptr inbounds i8, ptr %s, i64 74976
+  %pending_answers_start = getelementptr inbounds nuw i8, ptr %s, i64 74976
   %3 = load i32, ptr %pending_answers_start, align 8
-  %pending_answers = getelementptr inbounds i8, ptr %s, i64 74720
+  %pending_answers = getelementptr inbounds nuw i8, ptr %s, i64 74720
   %rem20 = srem i32 %3, 128
   %idxprom21 = sext i32 %rem20 to i64
   %arrayidx22 = getelementptr [128 x %struct.Answer], ptr %pending_answers, i64 0, i64 %idxprom21
@@ -769,7 +769,7 @@ do.body19:                                        ; preds = %for.inc, %for.body.
 if.then24:                                        ; preds = %do.body19
   %5 = load i8, ptr %arrayidx.lcssa, align 1
   %conv25 = zext i8 %5 to i32
-  %seq = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 1
+  %seq = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa, i64 1
   %6 = load i8, ptr %seq, align 1
   %conv26 = zext i8 %6 to i32
   %call27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %conv25, i32 noundef %conv26)
@@ -786,7 +786,7 @@ do.body30:                                        ; preds = %for.body.lr.ph, %fo
 if.then35:                                        ; preds = %do.body30
   %8 = load i8, ptr %arrayidx26, align 1
   %conv37 = zext i8 %8 to i32
-  %seq38 = getelementptr inbounds i8, ptr %arrayidx26, i64 1
+  %seq38 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 1
   %9 = load i8, ptr %seq38, align 1
   %conv39 = zext i8 %9 to i32
   %call40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %conv37, i32 noundef %conv39)
@@ -816,11 +816,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @ccid_card_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @.str.24, ptr %bus_type, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @ccid_card_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @ccid_card_unrealize, ptr %unrealize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ccid_props) #10
   ret void
@@ -833,14 +833,14 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD) #10
   %call.i12 = tail call ptr @object_get_class(ptr noundef %call.i) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD_GET_CLASS) #10
-  %parent_bus = getelementptr inbounds i8, ptr %qdev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %qdev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
   store ptr null, ptr %local_err, align 8
-  %slot = getelementptr inbounds i8, ptr %call.i, i64 160
+  %slot = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %2 = load i32, ptr %slot, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -850,7 +850,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %card5 = getelementptr inbounds i8, ptr %call.i14, i64 6000
+  %card5 = getelementptr inbounds nuw i8, ptr %call.i14, i64 6000
   %3 = load ptr, ptr %card5, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %if.end8, label %if.then7
@@ -860,7 +860,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %realize = getelementptr inbounds i8, ptr %call1.i, i64 192
+  %realize = getelementptr inbounds nuw i8, ptr %call1.i, i64 192
   %4 = load ptr, ptr %realize, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end14, label %if.then9
@@ -889,9 +889,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD) #10
   %call.i6 = tail call ptr @object_get_class(ptr noundef %call.i) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD_GET_CLASS) #10
-  %parent_bus = getelementptr inbounds i8, ptr %qdev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %qdev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #10
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
@@ -906,7 +906,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %unrealize = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %4 = load ptr, ptr %unrealize, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end7, label %if.then5
@@ -916,7 +916,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
-  %card8 = getelementptr inbounds i8, ptr %call.i8, i64 6000
+  %card8 = getelementptr inbounds nuw i8, ptr %call.i8, i64 6000
   store ptr null, ptr %card8, align 8
   ret void
 }
@@ -937,30 +937,30 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #10
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.34, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #10
-  %realize = getelementptr inbounds i8, ptr %call.i12, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i12, i64 176
   store ptr @ccid_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds i8, ptr %call.i12, i64 280
+  %product_desc = getelementptr inbounds nuw i8, ptr %call.i12, i64 280
   store ptr @.str.32, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds i8, ptr %call.i12, i64 288
+  %usb_desc = getelementptr inbounds nuw i8, ptr %call.i12, i64 288
   store ptr @desc_ccid, ptr %usb_desc, align 8
-  %handle_reset = getelementptr inbounds i8, ptr %call.i12, i64 216
+  %handle_reset = getelementptr inbounds nuw i8, ptr %call.i12, i64 216
   store ptr @ccid_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds i8, ptr %call.i12, i64 224
+  %handle_control = getelementptr inbounds nuw i8, ptr %call.i12, i64 224
   store ptr @ccid_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds i8, ptr %call.i12, i64 232
+  %handle_data = getelementptr inbounds nuw i8, ptr %call.i12, i64 232
   store ptr @ccid_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i12, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i12, i64 184
   store ptr @ccid_unrealize, ptr %unrealize, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.33, ptr %desc, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @ccid_vmstate, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ccid_properties) #10
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %unplug = getelementptr inbounds i8, ptr %call.i13, i64 136
+  %unplug = getelementptr inbounds nuw i8, ptr %call.i13, i64 136
   store ptr @qdev_simple_device_unplug_cb, ptr %unplug, align 8
   ret void
 }
@@ -971,48 +971,48 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
   tail call void @usb_desc_create_serial(ptr noundef %dev) #10
   tail call void @usb_desc_init(ptr noundef %dev) #10
-  %bus = getelementptr inbounds i8, ptr %call.i, i64 5880
+  %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 5880
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 120, ptr noundef nonnull @.str.24, ptr noundef %call.i26, ptr noundef null) #10
   %call.i27 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #10
   tail call void @qbus_set_hotplug_handler(ptr noundef %call.i27, ptr noundef %dev) #10
   %call4 = tail call ptr @usb_ep_get(ptr noundef %dev, i32 noundef 105, i32 noundef 1) #10
-  %intr = getelementptr inbounds i8, ptr %call.i, i64 5864
+  %intr = getelementptr inbounds nuw i8, ptr %call.i, i64 5864
   store ptr %call4, ptr %intr, align 8
   %call5 = tail call ptr @usb_ep_get(ptr noundef %dev, i32 noundef 105, i32 noundef 2) #10
-  %bulk = getelementptr inbounds i8, ptr %call.i, i64 5872
+  %bulk = getelementptr inbounds nuw i8, ptr %call.i, i64 5872
   store ptr %call5, ptr %bulk, align 8
-  %card = getelementptr inbounds i8, ptr %call.i, i64 6000
+  %card = getelementptr inbounds nuw i8, ptr %call.i, i64 6000
   store ptr null, ptr %card, align 8
-  %speed = getelementptr inbounds i8, ptr %call.i, i64 216
+  %speed = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   store i32 1, ptr %speed, align 8
-  %speedmask = getelementptr inbounds i8, ptr %call.i, i64 220
+  %speedmask = getelementptr inbounds nuw i8, ptr %call.i, i64 220
   store i32 2, ptr %speedmask, align 4
-  %notify_slot_change = getelementptr inbounds i8, ptr %call.i, i64 75010
+  %notify_slot_change = getelementptr inbounds nuw i8, ptr %call.i, i64 75010
   store i8 0, ptr %notify_slot_change, align 2
-  %powered = getelementptr inbounds i8, ptr %call.i, i64 75009
+  %powered = getelementptr inbounds nuw i8, ptr %call.i, i64 75009
   store i8 1, ptr %powered, align 1
-  %pending_answers_num = getelementptr inbounds i8, ptr %call.i, i64 74984
-  %last_answer_error = getelementptr inbounds i8, ptr %call.i, i64 74712
+  %pending_answers_num = getelementptr inbounds nuw i8, ptr %call.i, i64 74984
+  %last_answer_error = getelementptr inbounds nuw i8, ptr %call.i, i64 74712
   store i64 0, ptr %last_answer_error, align 8
-  %bulk_in_pending_start = getelementptr inbounds i8, ptr %call.i, i64 9144
-  %bulk_in_pending_end = getelementptr inbounds i8, ptr %call.i, i64 9148
-  %current_bulk_in = getelementptr inbounds i8, ptr %call.i, i64 9160
+  %bulk_in_pending_start = getelementptr inbounds nuw i8, ptr %call.i, i64 9144
+  %bulk_in_pending_end = getelementptr inbounds nuw i8, ptr %call.i, i64 9148
+  %current_bulk_in = getelementptr inbounds nuw i8, ptr %call.i, i64 9160
   store ptr null, ptr %current_bulk_in, align 8
-  %bulk_out_pos = getelementptr inbounds i8, ptr %call.i, i64 74704
+  %bulk_out_pos = getelementptr inbounds nuw i8, ptr %call.i, i64 74704
   store i32 0, ptr %bulk_out_pos, align 8
-  %abProtocolDataStructure.i = getelementptr inbounds i8, ptr %call.i, i64 74991
+  %abProtocolDataStructure.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74991
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %pending_answers_num, i8 0, i64 7, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
   store i32 0, ptr %bulk_in_pending_start, align 8
   store i32 0, ptr %bulk_in_pending_end, align 4
-  %bulk_in_pending_num.i.i = getelementptr inbounds i8, ptr %call.i, i64 9152
+  %bulk_in_pending_num.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9152
   store i32 0, ptr %bulk_in_pending_num.i.i, align 8
-  %pending_answers_start.i.i = getelementptr inbounds i8, ptr %call.i, i64 74976
+  %pending_answers_start.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74976
   store i32 0, ptr %pending_answers_start.i.i, align 8
-  %pending_answers_end.i.i = getelementptr inbounds i8, ptr %call.i, i64 74980
+  %pending_answers_end.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74980
   store i32 0, ptr %pending_answers_end.i.i, align 4
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %0 = load i8, ptr %debug, align 1
   %conv = zext i8 %0 to i32
   %call8 = tail call i32 @parse_debug_env(ptr noundef nonnull @.str.35, i32 noundef 4, i32 noundef %conv) #10
@@ -1025,7 +1025,7 @@ entry:
 define internal void @ccid_handle_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %0 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1035,17 +1035,17 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %bulk_in_pending_start.i.i = getelementptr inbounds i8, ptr %call.i, i64 9144
+  %bulk_in_pending_start.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9144
   store i32 0, ptr %bulk_in_pending_start.i.i, align 8
-  %bulk_in_pending_end.i.i = getelementptr inbounds i8, ptr %call.i, i64 9148
+  %bulk_in_pending_end.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9148
   store i32 0, ptr %bulk_in_pending_end.i.i, align 4
-  %bulk_in_pending_num.i.i = getelementptr inbounds i8, ptr %call.i, i64 9152
+  %bulk_in_pending_num.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9152
   store i32 0, ptr %bulk_in_pending_num.i.i, align 8
-  %pending_answers_num.i.i = getelementptr inbounds i8, ptr %call.i, i64 74984
+  %pending_answers_num.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74984
   store i32 0, ptr %pending_answers_num.i.i, align 8
-  %pending_answers_start.i.i = getelementptr inbounds i8, ptr %call.i, i64 74976
+  %pending_answers_start.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74976
   store i32 0, ptr %pending_answers_start.i.i, align 8
-  %pending_answers_end.i.i = getelementptr inbounds i8, ptr %call.i, i64 74980
+  %pending_answers_end.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74980
   store i32 0, ptr %pending_answers_end.i.i, align 4
   ret void
 }
@@ -1054,7 +1054,7 @@ do.end:                                           ; preds = %entry, %if.then
 define internal void @ccid_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %0 = load i8, ptr %debug, align 1
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1159,7 +1159,7 @@ if.then45:                                        ; preds = %do.body40
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %if.then45, %do.body40, %if.then35, %do.body30, %if.then24, %do.body19, %if.then14, %do.body9
-  %status49 = getelementptr inbounds i8, ptr %p, i64 84
+  %status49 = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -3, ptr %status49, align 4
   br label %sw.epilog
 
@@ -1179,9 +1179,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %p, i64 64
+  %size.i = getelementptr inbounds nuw i8, ptr %p, i64 64
   %1 = load i64, ptr %size.i, align 8
-  %bulk_out_pos.i = getelementptr inbounds i8, ptr %call.i, i64 74704
+  %bulk_out_pos.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74704
   %2 = load i32, ptr %bulk_out_pos.i, align 8
   %conv.i = zext i32 %2 to i64
   %add.i = add i64 %1, %conv.i
@@ -1189,7 +1189,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i, label %err.i, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb
-  %bulk_out_data.i = getelementptr inbounds i8, ptr %call.i, i64 9168
+  %bulk_out_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9168
   %add.ptr.i = getelementptr i8, ptr %bulk_out_data.i, i64 %conv.i
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr.i, i64 noundef %1) #10
   %3 = load i64, ptr %size.i, align 8
@@ -1201,7 +1201,7 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp12.i, label %do.body.i, label %if.end20.i
 
 do.body.i:                                        ; preds = %if.end.i
-  %debug.i = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %6 = load i8, ptr %debug.i, align 1
   %cmp16.not.i = icmp eq i8 %6, 0
   br i1 %cmp16.not.i, label %err.i, label %if.then18.i
@@ -1212,7 +1212,7 @@ if.then18.i:                                      ; preds = %do.body.i
 
 if.end20.i:                                       ; preds = %if.end.i
   %sub.i = add i32 %conv10.i, -10
-  %dwLength.i = getelementptr inbounds i8, ptr %call.i, i64 9169
+  %dwLength.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9169
   %7 = load i32, ptr %dwLength.i, align 1
   %cmp24.i = icmp ult i32 %sub.i, %7
   br i1 %cmp24.i, label %land.lhs.true.i, label %if.end43.i
@@ -1223,7 +1223,7 @@ land.lhs.true.i:                                  ; preds = %if.end20.i
   br i1 %cmp28.i, label %do.body31.i, label %if.end43.i
 
 do.body31.i:                                      ; preds = %land.lhs.true.i
-  %debug32.i = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug32.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %9 = load i8, ptr %debug32.i, align 1
   %cmp34.i = icmp ugt i8 %9, 3
   br i1 %cmp34.i, label %if.then36.i, label %sw.epilog37
@@ -1234,7 +1234,7 @@ if.then36.i:                                      ; preds = %do.body31.i
 
 if.end43.i:                                       ; preds = %land.lhs.true.i, %if.end20.i
   %cmp47.not.i = icmp eq i32 %sub.i, %7
-  %debug64.i = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug64.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %10 = load i8, ptr %debug64.i, align 1
   br i1 %cmp47.not.i, label %do.body63.i, label %do.body50.i
 
@@ -1259,7 +1259,7 @@ if.then68.i:                                      ; preds = %do.body63.i
 
 switch.lookup:                                    ; preds = %if.then68.i
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.ccid_handle_data, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.ccid_handle_data, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ccid_message_type_to_str.exit.i
 
@@ -1292,14 +1292,14 @@ do.body78.i:                                      ; preds = %do.end74.i
   br i1 %cmp81.not.i, label %do.end87.i, label %if.then83.i
 
 if.then83.i:                                      ; preds = %do.body78.i
-  %bPowerSelect.i = getelementptr inbounds i8, ptr %call.i, i64 9175
+  %bPowerSelect.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9175
   %16 = load i8, ptr %bPowerSelect.i, align 1
   %conv84.i = zext i8 %16 to i32
   %call85.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, ptr noundef nonnull @__func__.ccid_handle_bulk_out, i32 noundef %conv84.i)
   br label %do.end87.i
 
 do.end87.i:                                       ; preds = %if.then83.i, %do.body78.i
-  %powered.i = getelementptr inbounds i8, ptr %call.i, i64 75009
+  %powered.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75009
   store i8 1, ptr %powered.i, align 1
   %17 = getelementptr i8, ptr %call.i, i64 75008
   %s.val.i = load i8, ptr %17, align 8
@@ -1308,9 +1308,9 @@ do.end87.i:                                       ; preds = %if.then83.i, %do.bo
   br i1 %tobool.i.not.i, label %if.then89.i, label %if.end90.i
 
 if.then89.i:                                      ; preds = %do.end87.i
-  %bmCommandStatus.i.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 1, ptr %bmCommandStatus.i.i, align 1
-  %bError.i.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 -2, ptr %bError.i.i, align 4
   br label %if.end90.i
 
@@ -1319,11 +1319,11 @@ if.end90.i:                                       ; preds = %if.then89.i, %do.en
   br label %sw.epilog.i
 
 sw.bb91.i:                                        ; preds = %do.end74.i
-  %bError.i63.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i63.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i63.i, align 4
-  %bmCommandStatus.i64.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i64.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 0, ptr %bmCommandStatus.i64.i, align 1
-  %powered92.i = getelementptr inbounds i8, ptr %call.i, i64 75009
+  %powered92.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75009
   store i8 0, ptr %powered92.i, align 1
   tail call fastcc void @ccid_write_slot_status(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
@@ -1333,11 +1333,11 @@ sw.bb93.i:                                        ; preds = %do.end74.i
   br label %sw.epilog.i
 
 sw.bb96.i:                                        ; preds = %do.end74.i
-  %bError.i65.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i65.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i65.i, align 4
-  %bmCommandStatus.i66.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i66.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 0, ptr %bmCommandStatus.i66.i, align 1
-  %bProtocolNum.i.i = getelementptr inbounds i8, ptr %call.i, i64 9175
+  %bProtocolNum.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9175
   %19 = load i8, ptr %bProtocolNum.i.i, align 1
   %20 = and i8 %19, 3
   %or.cond.i.i = icmp samesign ugt i8 %20, 1
@@ -1348,10 +1348,10 @@ if.then.i.i:                                      ; preds = %sw.bb96.i
   br label %ccid_set_parameters.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb96.i
-  %bProtocolNum5.i.i = getelementptr inbounds i8, ptr %call.i, i64 74990
+  %bProtocolNum5.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74990
   store i8 %20, ptr %bProtocolNum5.i.i, align 2
-  %abProtocolDataStructure.i.i = getelementptr inbounds i8, ptr %call.i, i64 74991
-  %abProtocolDataStructure6.i.i = getelementptr inbounds i8, ptr %call.i, i64 9178
+  %abProtocolDataStructure.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74991
+  %abProtocolDataStructure6.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9178
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %abProtocolDataStructure6.i.i, i64 7, i1 false)
   br label %ccid_set_parameters.exit.i
 
@@ -1360,29 +1360,29 @@ ccid_set_parameters.exit.i:                       ; preds = %if.end.i.i, %if.the
   br label %sw.epilog.i
 
 sw.bb97.i:                                        ; preds = %do.end74.i
-  %bError.i67.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i67.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i67.i, align 4
-  %bmCommandStatus.i68.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i68.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 0, ptr %bmCommandStatus.i68.i, align 1
-  %bProtocolNum.i69.i = getelementptr inbounds i8, ptr %call.i, i64 74990
+  %bProtocolNum.i69.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74990
   store i8 0, ptr %bProtocolNum.i69.i, align 2
-  %abProtocolDataStructure.i70.i = getelementptr inbounds i8, ptr %call.i, i64 74991
+  %abProtocolDataStructure.i70.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74991
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i70.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
   tail call fastcc void @ccid_write_parameters(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
 
 sw.bb98.i:                                        ; preds = %do.end74.i
-  %bError.i71.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i71.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i71.i, align 4
-  %bmCommandStatus.i72.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i72.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 0, ptr %bmCommandStatus.i72.i, align 1
   tail call fastcc void @ccid_write_parameters(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
 
 sw.bb99.i:                                        ; preds = %do.end74.i
-  %bmCommandStatus.i73.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i73.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 1, ptr %bmCommandStatus.i73.i, align 1
-  %bError.i74.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i74.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i74.i, align 4
   tail call fastcc void @ccid_write_slot_status(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
@@ -1397,9 +1397,9 @@ if.then105.i:                                     ; preds = %do.body100.i
   br label %do.end110.i
 
 do.end110.i:                                      ; preds = %if.then105.i, %do.body100.i
-  %bmCommandStatus.i75.i = getelementptr inbounds i8, ptr %call.i, i64 74989
+  %bmCommandStatus.i75.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74989
   store i8 1, ptr %bmCommandStatus.i75.i, align 1
-  %bError.i76.i = getelementptr inbounds i8, ptr %call.i, i64 74988
+  %bError.i76.i = getelementptr inbounds nuw i8, ptr %call.i, i64 74988
   store i8 0, ptr %bError.i76.i, align 4
   tail call fastcc void @ccid_write_slot_status(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
@@ -1409,13 +1409,13 @@ sw.epilog.i:                                      ; preds = %do.end110.i, %sw.bb
   br label %sw.epilog37
 
 err.i:                                            ; preds = %if.then55.i, %do.body50.i, %if.then18.i, %do.body.i, %sw.bb
-  %status.i = getelementptr inbounds i8, ptr %p, i64 84
+  %status.i = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -3, ptr %status.i, align 4
   store i32 0, ptr %bulk_out_pos.i, align 8
   br label %sw.epilog37
 
 sw.bb1:                                           ; preds = %entry
-  %ep = getelementptr inbounds i8, ptr %p, i64 16
+  %ep = getelementptr inbounds nuw i8, ptr %p, i64 16
   %22 = load ptr, ptr %ep, align 8
   %23 = load i8, ptr %22, align 8
   switch i8 %23, label %do.body16 [
@@ -1424,15 +1424,15 @@ sw.bb1:                                           ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %sw.bb1
-  %max_packet_size = getelementptr inbounds i8, ptr %dev, i64 4396
+  %max_packet_size = getelementptr inbounds nuw i8, ptr %dev, i64 4396
   %24 = load i32, ptr %max_packet_size, align 4
-  %current_bulk_in.i.i = getelementptr inbounds i8, ptr %call.i, i64 9160
+  %current_bulk_in.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9160
   %25 = load ptr, ptr %current_bulk_in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %if.then.i
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb2
-  %bulk_in_pending_num.i.i = getelementptr inbounds i8, ptr %call.i, i64 9152
+  %bulk_in_pending_num.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9152
   %26 = load i32, ptr %bulk_in_pending_num.i.i, align 8
   %cmp1.i.i = icmp eq i32 %26, 0
   br i1 %cmp1.i.i, label %if.end24.thread.i, label %ccid_bulk_in_get.exit.i
@@ -1440,8 +1440,8 @@ lor.lhs.false.i.i:                                ; preds = %sw.bb2
 ccid_bulk_in_get.exit.i:                          ; preds = %lor.lhs.false.i.i
   %dec.i.i = add i32 %26, -1
   store i32 %dec.i.i, ptr %bulk_in_pending_num.i.i, align 8
-  %bulk_in_pending.i.i = getelementptr inbounds i8, ptr %call.i, i64 6008
-  %bulk_in_pending_start.i.i = getelementptr inbounds i8, ptr %call.i, i64 9144
+  %bulk_in_pending.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 6008
+  %bulk_in_pending_start.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9144
   %27 = load i32, ptr %bulk_in_pending_start.i.i, align 8
   %inc.i.i = add i32 %27, 1
   store i32 %inc.i.i, ptr %bulk_in_pending_start.i.i, align 8
@@ -1454,13 +1454,13 @@ ccid_bulk_in_get.exit.i:                          ; preds = %lor.lhs.false.i.i
 
 if.then.i:                                        ; preds = %ccid_bulk_in_get.exit.i, %sw.bb2
   %28 = phi ptr [ %arrayidx.i.i, %ccid_bulk_in_get.exit.i ], [ %25, %sw.bb2 ]
-  %len2.i = getelementptr inbounds i8, ptr %28, i64 384
+  %len2.i = getelementptr inbounds nuw i8, ptr %28, i64 384
   %29 = load i32, ptr %len2.i, align 4
-  %pos.i = getelementptr inbounds i8, ptr %28, i64 388
+  %pos.i = getelementptr inbounds nuw i8, ptr %28, i64 388
   %30 = load i32, ptr %pos.i, align 4
   %sub.i21 = sub i32 %29, %30
   %conv.i22 = zext i32 %sub.i21 to i64
-  %size.i23 = getelementptr inbounds i8, ptr %p, i64 64
+  %size.i23 = getelementptr inbounds nuw i8, ptr %p, i64 64
   %31 = load i64, ptr %size.i23, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %conv.i22)
   %conv6.i = trunc nuw i64 %cond.i to i32
@@ -1474,20 +1474,20 @@ if.then7.i:                                       ; preds = %if.then.i
   %conv11.i = ashr exact i64 %sext.i, 32
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr.i24, i64 noundef %conv11.i) #10
   %.pre.i = load ptr, ptr %current_bulk_in.i.i, align 8
-  %pos13.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 388
+  %pos13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 388
   %.pre33.i = load i32, ptr %pos13.phi.trans.insert.i, align 4
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.then7.i, %if.then.i
   %32 = phi i32 [ %.pre33.i, %if.then7.i ], [ %30, %if.then.i ]
   %33 = phi ptr [ %.pre.i, %if.then7.i ], [ %28, %if.then.i ]
-  %pos13.i = getelementptr inbounds i8, ptr %33, i64 388
+  %pos13.i = getelementptr inbounds nuw i8, ptr %33, i64 388
   %add.i26 = add i32 %32, %conv6.i
   store i32 %add.i26, ptr %pos13.i, align 4
   %34 = load ptr, ptr %current_bulk_in.i.i, align 8
-  %pos15.i = getelementptr inbounds i8, ptr %34, i64 388
+  %pos15.i = getelementptr inbounds nuw i8, ptr %34, i64 388
   %35 = load i32, ptr %pos15.i, align 4
-  %len17.i = getelementptr inbounds i8, ptr %34, i64 384
+  %len17.i = getelementptr inbounds nuw i8, ptr %34, i64 384
   %36 = load i32, ptr %len17.i, align 4
   %cmp18.i = icmp ne i32 %35, %36
   %cmp20.not.i = icmp eq i32 %24, %conv6.i
@@ -1500,7 +1500,7 @@ ccid_bulk_in_release.exit.i:                      ; preds = %if.end.i25
   br label %if.end24.i
 
 if.end24.thread.i:                                ; preds = %ccid_bulk_in_get.exit.i, %lor.lhs.false.i.i
-  %status.i31 = getelementptr inbounds i8, ptr %p, i64 84
+  %status.i31 = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -2, ptr %status.i31, align 4
   br label %if.end34.i
 
@@ -1508,7 +1508,7 @@ if.end24.i:                                       ; preds = %ccid_bulk_in_releas
   br i1 %tobool.not.i, label %if.end34.i, label %do.body.i27
 
 do.body.i27:                                      ; preds = %if.end24.i
-  %debug.i28 = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug.i28 = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %37 = load i8, ptr %debug.i28, align 1
   %cmp28.i29 = icmp ugt i8 %37, 2
   br i1 %cmp28.i29, label %if.then30.i, label %if.end34.i
@@ -1521,13 +1521,13 @@ if.then30.i:                                      ; preds = %do.body.i27
 if.end34.i:                                       ; preds = %if.then30.i, %do.body.i27, %if.end24.i, %if.end24.thread.i
   %len.032.i = phi i32 [ 0, %if.end24.thread.i ], [ %conv6.i, %if.then30.i ], [ %conv6.i, %do.body.i27 ], [ 0, %if.end24.i ]
   %conv35.i = sext i32 %len.032.i to i64
-  %size37.i = getelementptr inbounds i8, ptr %p, i64 64
+  %size37.i = getelementptr inbounds nuw i8, ptr %p, i64 64
   %39 = load i64, ptr %size37.i, align 8
   %cmp38.i = icmp ugt i64 %39, %conv35.i
   br i1 %cmp38.i, label %do.body41.i, label %sw.epilog37
 
 do.body41.i:                                      ; preds = %if.end34.i
-  %debug42.i = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug42.i = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %40 = load i8, ptr %debug42.i, align 1
   %cmp44.not.i = icmp eq i8 %40, 0
   br i1 %cmp44.not.i, label %sw.epilog37, label %if.then46.i
@@ -1537,41 +1537,41 @@ if.then46.i:                                      ; preds = %do.body41.i
   br label %sw.epilog37
 
 sw.bb3:                                           ; preds = %sw.bb1
-  %notify_slot_change = getelementptr inbounds i8, ptr %call.i, i64 75010
+  %notify_slot_change = getelementptr inbounds nuw i8, ptr %call.i, i64 75010
   %41 = load i8, ptr %notify_slot_change, align 2
   %tobool.not = icmp eq i8 %41, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb3
   store i8 80, ptr %buf, align 1
-  %bmSlotICCState = getelementptr inbounds i8, ptr %call.i, i64 75008
+  %bmSlotICCState = getelementptr inbounds nuw i8, ptr %call.i, i64 75008
   %42 = load i8, ptr %bmSlotICCState, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %buf, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 %42, ptr %arrayidx4, align 1
   call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef nonnull %buf, i64 noundef 2) #10
   store i8 0, ptr %notify_slot_change, align 2
   %43 = load i8, ptr %bmSlotICCState, align 8
   %44 = and i8 %43, -3
   store i8 %44, ptr %bmSlotICCState, align 8
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %45 = load i8, ptr %debug, align 1
   %cmp = icmp ugt i8 %45, 1
   br i1 %cmp, label %if.then11, label %sw.epilog37
 
 if.then11:                                        ; preds = %if.then
   %conv13 = zext i8 %44 to i32
-  %size = getelementptr inbounds i8, ptr %p, i64 64
+  %size = getelementptr inbounds nuw i8, ptr %p, i64 64
   %46 = load i64, ptr %size, align 8
   %call14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %conv13, i64 noundef %46)
   br label %sw.epilog37
 
 if.else:                                          ; preds = %sw.bb3
-  %status = getelementptr inbounds i8, ptr %p, i64 84
+  %status = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -2, ptr %status, align 4
   br label %sw.epilog37
 
 do.body16:                                        ; preds = %sw.bb1
-  %debug17 = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug17 = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %47 = load i8, ptr %debug17, align 1
   %cmp19.not = icmp eq i8 %47, 0
   br i1 %cmp19.not, label %do.end24, label %if.then21
@@ -1581,12 +1581,12 @@ if.then21:                                        ; preds = %do.body16
   br label %do.end24
 
 do.end24:                                         ; preds = %do.body16, %if.then21
-  %status25 = getelementptr inbounds i8, ptr %p, i64 84
+  %status25 = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -3, ptr %status25, align 4
   br label %sw.epilog37
 
 do.body27:                                        ; preds = %entry
-  %debug28 = getelementptr inbounds i8, ptr %call.i, i64 75011
+  %debug28 = getelementptr inbounds nuw i8, ptr %call.i, i64 75011
   %48 = load i8, ptr %debug28, align 1
   %cmp30.not = icmp eq i8 %48, 0
   br i1 %cmp30.not, label %do.end35, label %if.then32
@@ -1596,7 +1596,7 @@ if.then32:                                        ; preds = %do.body27
   br label %do.end35
 
 do.end35:                                         ; preds = %do.body27, %if.then32
-  %status36 = getelementptr inbounds i8, ptr %p, i64 84
+  %status36 = getelementptr inbounds nuw i8, ptr %p, i64 84
   store i32 -3, ptr %status36, align 4
   br label %sw.epilog37
 
@@ -1608,11 +1608,11 @@ sw.epilog37:                                      ; preds = %if.then46.i, %do.bo
 define internal void @ccid_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.USB_CCID_DEV) #10
-  %bulk_in_pending_start.i = getelementptr inbounds i8, ptr %call.i, i64 9144
+  %bulk_in_pending_start.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9144
   store i32 0, ptr %bulk_in_pending_start.i, align 8
-  %bulk_in_pending_end.i = getelementptr inbounds i8, ptr %call.i, i64 9148
+  %bulk_in_pending_end.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9148
   store i32 0, ptr %bulk_in_pending_end.i, align 4
-  %bulk_in_pending_num.i = getelementptr inbounds i8, ptr %call.i, i64 9152
+  %bulk_in_pending_num.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9152
   store i32 0, ptr %bulk_in_pending_num.i, align 8
   ret void
 }
@@ -1638,7 +1638,7 @@ declare void @usb_packet_copy(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ccid_write_slot_status(ptr noundef %s, ptr nocapture noundef readonly %recv) unnamed_addr #0 {
 entry:
-  %debug.i = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %0 = load i8, ptr %debug.i, align 1
   %cmp.i = icmp ugt i8 %0, 3
   br i1 %cmp.i, label %if.then.i, label %do.end.i
@@ -1648,7 +1648,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %bulk_in_pending_num.i = getelementptr inbounds i8, ptr %s, i64 9152
+  %bulk_in_pending_num.i = getelementptr inbounds nuw i8, ptr %s, i64 9152
   %1 = load i32, ptr %bulk_in_pending_num.i, align 8
   %cmp18.i = icmp ugt i32 %1, 7
   br i1 %cmp18.i, label %do.body21.i, label %ccid_reserve_recv_buf.exit
@@ -1663,8 +1663,8 @@ if.then26.i:                                      ; preds = %do.body21.i
   br label %return
 
 ccid_reserve_recv_buf.exit:                       ; preds = %do.end.i
-  %bulk_in_pending.i = getelementptr inbounds i8, ptr %s, i64 6008
-  %bulk_in_pending_end.i = getelementptr inbounds i8, ptr %s, i64 9148
+  %bulk_in_pending.i = getelementptr inbounds nuw i8, ptr %s, i64 6008
+  %bulk_in_pending_end.i = getelementptr inbounds nuw i8, ptr %s, i64 9148
   %3 = load i32, ptr %bulk_in_pending_end.i, align 4
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %bulk_in_pending_end.i, align 4
@@ -1673,22 +1673,22 @@ ccid_reserve_recv_buf.exit:                       ; preds = %do.end.i
   %arrayidx.i = getelementptr [8 x %struct.BulkIn], ptr %bulk_in_pending.i, i64 0, i64 %idxprom.i
   %inc32.i = add nuw nsw i32 %1, 1
   store i32 %inc32.i, ptr %bulk_in_pending_num.i, align 8
-  %len34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 384
+  %len34.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 384
   store i32 10, ptr %len34.i, align 4
   %cmp = icmp eq ptr %arrayidx.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ccid_reserve_recv_buf.exit
   store i8 -127, ptr %arrayidx.i, align 1
-  %dwLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %dwLength = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   store i32 0, ptr %dwLength, align 1
-  %bSlot = getelementptr inbounds i8, ptr %recv, i64 5
+  %bSlot = getelementptr inbounds nuw i8, ptr %recv, i64 5
   %4 = load i8, ptr %bSlot, align 1
-  %bSlot5 = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %bSlot5 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   store i8 %4, ptr %bSlot5, align 1
-  %bSeq = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %5 = load i8, ptr %bSeq, align 1
-  %bSeq8 = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %bSeq8 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   store i8 %5, ptr %bSeq8, align 1
   %6 = getelementptr i8, ptr %s, i64 75008
   %s.val.i.i = load i8, ptr %6, align 8
@@ -1697,7 +1697,7 @@ if.end:                                           ; preds = %ccid_reserve_recv_b
   br i1 %tobool.i.not.i.i, label %ccid_card_status.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end
-  %powered.i.i = getelementptr inbounds i8, ptr %s, i64 75009
+  %powered.i.i = getelementptr inbounds nuw i8, ptr %s, i64 75009
   %8 = load i8, ptr %powered.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %8, 0
   %9 = zext i1 %tobool.not.i.i to i8
@@ -1705,7 +1705,7 @@ cond.true.i.i:                                    ; preds = %if.end
 
 ccid_card_status.exit.i:                          ; preds = %cond.true.i.i, %if.end
   %cond1.i.i = phi i8 [ %9, %cond.true.i.i ], [ 2, %if.end ]
-  %bmCommandStatus.i = getelementptr inbounds i8, ptr %s, i64 74989
+  %bmCommandStatus.i = getelementptr inbounds nuw i8, ptr %s, i64 74989
   %10 = load i8, ptr %bmCommandStatus.i, align 1
   %shl.i = shl i8 %10, 6
   %or.i = or disjoint i8 %shl.i, %cond1.i.i
@@ -1719,17 +1719,17 @@ if.then.i16:                                      ; preds = %ccid_card_status.ex
   br label %ccid_calc_status.exit
 
 ccid_calc_status.exit:                            ; preds = %ccid_card_status.exit.i, %if.then.i16
-  %bStatus = getelementptr inbounds i8, ptr %arrayidx.i, i64 7
+  %bStatus = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 7
   store i8 %or.i, ptr %bStatus, align 1
-  %bError = getelementptr inbounds i8, ptr %s, i64 74988
+  %bError = getelementptr inbounds nuw i8, ptr %s, i64 74988
   %12 = load i8, ptr %bError, align 4
-  %bError12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %bError12 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i8 %12, ptr %bError12, align 1
-  %bClockStatus = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %bClockStatus = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
   store i8 0, ptr %bClockStatus, align 1
   store i8 0, ptr %bError, align 4
   store i8 0, ptr %bmCommandStatus.i, align 1
-  %bulk = getelementptr inbounds i8, ptr %s, i64 5872
+  %bulk = getelementptr inbounds nuw i8, ptr %s, i64 5872
   %13 = load ptr, ptr %bulk, align 8
   tail call void @usb_wakeup(ptr noundef %13, i32 noundef 0) #10
   br label %return
@@ -1743,8 +1743,8 @@ define internal fastcc void @ccid_write_data_block_atr(ptr noundef %s, ptr nocap
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
-  %abProtocolDataStructure = getelementptr inbounds i8, ptr %s, i64 74991
-  %card = getelementptr inbounds i8, ptr %s, i64 6000
+  %abProtocolDataStructure = getelementptr inbounds nuw i8, ptr %s, i64 74991
+  %card = getelementptr inbounds nuw i8, ptr %s, i64 6000
   %0 = load ptr, ptr %card, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %atr_get_protocol_num.exit, label %if.then
@@ -1752,7 +1752,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD_GET_CLASS) #10
-  %get_atr.i = getelementptr inbounds i8, ptr %call1.i.i, i64 176
+  %get_atr.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 176
   %1 = load ptr, ptr %get_atr.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %atr_get_protocol_num.exit, label %if.end
@@ -1790,7 +1790,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 atr_get_protocol_num.exit:                        ; preds = %if.then, %entry, %if.end, %lor.lhs.false.i, %if.end.i
   %atr.029 = phi ptr [ %call2.i, %if.end.i ], [ %call2.i, %lor.lhs.false.i ], [ %call2.i, %if.end ], [ null, %entry ], [ null, %if.then ]
   %retval.0.i26 = phi i8 [ %7, %if.end.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.then ]
-  %debug = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %8 = load i8, ptr %debug, align 1
   %cmp = icmp ugt i8 %8, 3
   %conv6 = zext nneg i8 %retval.0.i26 to i32
@@ -1805,13 +1805,13 @@ do.end:                                           ; preds = %atr_get_protocol_nu
   br i1 %cmp10, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %do.end
-  %bProtocolNum = getelementptr inbounds i8, ptr %s, i64 74990
+  %bProtocolNum = getelementptr inbounds nuw i8, ptr %s, i64 74990
   %9 = load i8, ptr %bProtocolNum, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end, %cond.false
   %cond = phi i8 [ %9, %cond.false ], [ %retval.0.i26, %do.end ]
-  %bProtocolNum15 = getelementptr inbounds i8, ptr %s, i64 74990
+  %bProtocolNum15 = getelementptr inbounds nuw i8, ptr %s, i64 74990
   store i8 %cond, ptr %bProtocolNum15, align 2
   switch i8 %retval.0.i26, label %do.body20 [
     i8 0, label %sw.bb
@@ -1836,9 +1836,9 @@ if.then25:                                        ; preds = %do.body20
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then25, %do.body20, %sw.bb17, %sw.bb
-  %bSlot = getelementptr inbounds i8, ptr %recv, i64 5
+  %bSlot = getelementptr inbounds nuw i8, ptr %recv, i64 5
   %11 = load i8, ptr %bSlot, align 1
-  %bSeq = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %12 = load i8, ptr %bSeq, align 1
   %13 = load i32, ptr %len, align 4
   call fastcc void @ccid_write_data_block(ptr noundef nonnull %s, i8 noundef zeroext %11, i8 noundef zeroext %12, ptr noundef %atr.029, i32 noundef %13)
@@ -1855,13 +1855,13 @@ entry:
   br i1 %tobool.i.not.i, label %do.body, label %ccid_card_status.exit
 
 ccid_card_status.exit:                            ; preds = %entry
-  %powered.i = getelementptr inbounds i8, ptr %s, i64 75009
+  %powered.i = getelementptr inbounds nuw i8, ptr %s, i64 75009
   %2 = load i8, ptr %powered.i, align 1
   %tobool.not.i.not = icmp eq i8 %2, 0
   br i1 %tobool.not.i.not, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %entry, %ccid_card_status.exit
-  %debug = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %3 = load i8, ptr %debug, align 1
   %cmp3.not = icmp eq i8 %3, 0
   br i1 %cmp3.not, label %do.end, label %if.then5
@@ -1871,30 +1871,30 @@ if.then5:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then5
-  %bSlot = getelementptr inbounds i8, ptr %recv, i64 5
+  %bSlot = getelementptr inbounds nuw i8, ptr %recv, i64 5
   %4 = load i8, ptr %bSlot, align 1
-  %bSeq = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %5 = load i8, ptr %bSeq, align 1
   tail call fastcc void @ccid_write_data_block(ptr noundef nonnull %s, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef null, i32 noundef 0)
   br label %if.end37
 
 if.end8:                                          ; preds = %ccid_card_status.exit
-  %dwLength = getelementptr inbounds i8, ptr %recv, i64 1
+  %dwLength = getelementptr inbounds nuw i8, ptr %recv, i64 1
   %6 = load i32, ptr %dwLength, align 1
-  %debug12 = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug12 = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %7 = load i8, ptr %debug12, align 1
   %cmp14.not = icmp eq i8 %7, 0
   br i1 %cmp14.not, label %do.end22, label %if.then16
 
 if.then16:                                        ; preds = %if.end8
-  %bSeq18 = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq18 = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %8 = load i8, ptr %bSeq18, align 1
   %conv19 = zext i8 %8 to i32
   %call20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef nonnull @__func__.ccid_on_apdu_from_guest, i32 noundef %conv19, i32 noundef %6)
   br label %do.end22
 
 do.end22:                                         ; preds = %if.end8, %if.then16
-  %pending_answers_num.i = getelementptr inbounds i8, ptr %s, i64 74984
+  %pending_answers_num.i = getelementptr inbounds nuw i8, ptr %s, i64 74984
   %9 = load i32, ptr %pending_answers_num.i, align 8
   %cmp.i = icmp ult i32 %9, 128
   br i1 %cmp.i, label %ccid_add_pending_answer.exit, label %if.else.i
@@ -1906,23 +1906,23 @@ if.else.i:                                        ; preds = %do.end22
 ccid_add_pending_answer.exit:                     ; preds = %do.end22
   %inc.i = add nuw nsw i32 %9, 1
   store i32 %inc.i, ptr %pending_answers_num.i, align 8
-  %pending_answers.i = getelementptr inbounds i8, ptr %s, i64 74720
-  %pending_answers_end.i = getelementptr inbounds i8, ptr %s, i64 74980
+  %pending_answers.i = getelementptr inbounds nuw i8, ptr %s, i64 74720
+  %pending_answers_end.i = getelementptr inbounds nuw i8, ptr %s, i64 74980
   %10 = load i32, ptr %pending_answers_end.i, align 4
   %inc2.i = add i32 %10, 1
   store i32 %inc2.i, ptr %pending_answers_end.i, align 4
   %rem.i = and i32 %10, 127
   %idxprom.i = zext nneg i32 %rem.i to i64
   %arrayidx.i = getelementptr [128 x %struct.Answer], ptr %pending_answers.i, i64 0, i64 %idxprom.i
-  %bSlot.i = getelementptr inbounds i8, ptr %recv, i64 5
+  %bSlot.i = getelementptr inbounds nuw i8, ptr %recv, i64 5
   %11 = load i8, ptr %bSlot.i, align 1
   store i8 %11, ptr %arrayidx.i, align 1
-  %bSeq.i = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq.i = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %12 = load i8, ptr %bSeq.i, align 1
-  %seq.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %seq.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   store i8 %12, ptr %seq.i, align 1
   tail call fastcc void @ccid_print_pending_answers(ptr noundef nonnull %s)
-  %card = getelementptr inbounds i8, ptr %s, i64 6000
+  %card = getelementptr inbounds nuw i8, ptr %s, i64 6000
   %13 = load ptr, ptr %card, align 8
   %tobool = icmp ne ptr %13, null
   %cmp24 = icmp ult i32 %6, 65537
@@ -1932,13 +1932,13 @@ ccid_add_pending_answer.exit:                     ; preds = %do.end22
 if.then26:                                        ; preds = %ccid_add_pending_answer.exit
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %13) #10
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.29, i32 noundef 19, ptr noundef nonnull @__func__.CCID_CARD_GET_CLASS) #10
-  %apdu_from_guest.i = getelementptr inbounds i8, ptr %call1.i.i, i64 184
+  %apdu_from_guest.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 184
   %14 = load ptr, ptr %apdu_from_guest.i, align 8
   %tobool.not.i16 = icmp eq ptr %14, null
   br i1 %tobool.not.i16, label %if.end37, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then26
-  %abData = getelementptr inbounds i8, ptr %recv, i64 10
+  %abData = getelementptr inbounds nuw i8, ptr %recv, i64 10
   tail call void %14(ptr noundef nonnull %13, ptr noundef nonnull %abData, i32 noundef %6) #10
   br label %if.end37
 
@@ -1958,11 +1958,11 @@ if.end37:                                         ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ccid_write_parameters(ptr noundef %s, ptr nocapture noundef readonly %recv) unnamed_addr #0 {
 entry:
-  %ulProtocolDataStructureSize = getelementptr inbounds i8, ptr %s, i64 75000
+  %ulProtocolDataStructureSize = getelementptr inbounds nuw i8, ptr %s, i64 75000
   %0 = load i32, ptr %ulProtocolDataStructureSize, align 8
   %conv = trunc i32 %0 to i16
   %add = add i16 %conv, 17
-  %debug.i = getelementptr inbounds i8, ptr %s, i64 75011
+  %debug.i = getelementptr inbounds nuw i8, ptr %s, i64 75011
   %1 = load i8, ptr %debug.i, align 1
   %cmp.i = icmp ugt i8 %1, 3
   %conv2.i = zext i16 %add to i32
@@ -1986,7 +1986,7 @@ if.then12.i:                                      ; preds = %do.body7.i
   br label %return
 
 if.end17.i:                                       ; preds = %do.end.i
-  %bulk_in_pending_num.i = getelementptr inbounds i8, ptr %s, i64 9152
+  %bulk_in_pending_num.i = getelementptr inbounds nuw i8, ptr %s, i64 9152
   %3 = load i32, ptr %bulk_in_pending_num.i, align 8
   %cmp18.i = icmp ugt i32 %3, 7
   br i1 %cmp18.i, label %do.body21.i, label %ccid_reserve_recv_buf.exit
@@ -2001,8 +2001,8 @@ if.then26.i:                                      ; preds = %do.body21.i
   br label %return
 
 ccid_reserve_recv_buf.exit:                       ; preds = %if.end17.i
-  %bulk_in_pending.i = getelementptr inbounds i8, ptr %s, i64 6008
-  %bulk_in_pending_end.i = getelementptr inbounds i8, ptr %s, i64 9148
+  %bulk_in_pending.i = getelementptr inbounds nuw i8, ptr %s, i64 6008
+  %bulk_in_pending_end.i = getelementptr inbounds nuw i8, ptr %s, i64 9148
   %5 = load i32, ptr %bulk_in_pending_end.i, align 4
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %bulk_in_pending_end.i, align 4
@@ -2011,22 +2011,22 @@ ccid_reserve_recv_buf.exit:                       ; preds = %if.end17.i
   %arrayidx.i = getelementptr [8 x %struct.BulkIn], ptr %bulk_in_pending.i, i64 0, i64 %idxprom.i
   %inc32.i = add nuw nsw i32 %3, 1
   store i32 %inc32.i, ptr %bulk_in_pending_num.i, align 8
-  %len34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 384
+  %len34.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 384
   store i32 %conv2.i, ptr %len34.i, align 4
   %cmp = icmp eq ptr %arrayidx.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ccid_reserve_recv_buf.exit
   store i8 -126, ptr %arrayidx.i, align 1
-  %dwLength = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %dwLength = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   store i32 0, ptr %dwLength, align 1
-  %bSlot = getelementptr inbounds i8, ptr %recv, i64 5
+  %bSlot = getelementptr inbounds nuw i8, ptr %recv, i64 5
   %6 = load i8, ptr %bSlot, align 1
-  %bSlot7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %bSlot7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   store i8 %6, ptr %bSlot7, align 1
-  %bSeq = getelementptr inbounds i8, ptr %recv, i64 6
+  %bSeq = getelementptr inbounds nuw i8, ptr %recv, i64 6
   %7 = load i8, ptr %bSeq, align 1
-  %bSeq10 = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %bSeq10 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   store i8 %7, ptr %bSeq10, align 1
   %8 = getelementptr i8, ptr %s, i64 75008
   %s.val.i.i = load i8, ptr %8, align 8
@@ -2035,7 +2035,7 @@ if.end:                                           ; preds = %ccid_reserve_recv_b
   br i1 %tobool.i.not.i.i, label %ccid_card_status.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end
-  %powered.i.i = getelementptr inbounds i8, ptr %s, i64 75009
+  %powered.i.i = getelementptr inbounds nuw i8, ptr %s, i64 75009
   %10 = load i8, ptr %powered.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %10, 0
   %11 = zext i1 %tobool.not.i.i to i8
@@ -2043,7 +2043,7 @@ cond.true.i.i:                                    ; preds = %if.end
 
 ccid_card_status.exit.i:                          ; preds = %cond.true.i.i, %if.end
   %cond1.i.i = phi i8 [ %11, %cond.true.i.i ], [ 2, %if.end ]
-  %bmCommandStatus.i = getelementptr inbounds i8, ptr %s, i64 74989
+  %bmCommandStatus.i = getelementptr inbounds nuw i8, ptr %s, i64 74989
   %12 = load i8, ptr %bmCommandStatus.i, align 1
   %shl.i = shl i8 %12, 6
   %or.i = or disjoint i8 %shl.i, %cond1.i.i
@@ -2057,22 +2057,22 @@ if.then.i20:                                      ; preds = %ccid_card_status.ex
   br label %ccid_calc_status.exit
 
 ccid_calc_status.exit:                            ; preds = %ccid_card_status.exit.i, %if.then.i20
-  %bStatus = getelementptr inbounds i8, ptr %arrayidx.i, i64 7
+  %bStatus = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 7
   store i8 %or.i, ptr %bStatus, align 1
-  %bError = getelementptr inbounds i8, ptr %s, i64 74988
+  %bError = getelementptr inbounds nuw i8, ptr %s, i64 74988
   %14 = load i8, ptr %bError, align 4
-  %bError14 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %bError14 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i8 %14, ptr %bError14, align 1
-  %bProtocolNum = getelementptr inbounds i8, ptr %s, i64 74990
+  %bProtocolNum = getelementptr inbounds nuw i8, ptr %s, i64 74990
   %15 = load i8, ptr %bProtocolNum, align 2
-  %bProtocolNum15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %bProtocolNum15 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
   store i8 %15, ptr %bProtocolNum15, align 1
-  %abProtocolDataStructure = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
-  %abProtocolDataStructure16 = getelementptr inbounds i8, ptr %s, i64 74991
+  %abProtocolDataStructure = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 10
+  %abProtocolDataStructure16 = getelementptr inbounds nuw i8, ptr %s, i64 74991
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure, ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure16, i64 7, i1 false)
   store i8 0, ptr %bError, align 4
   store i8 0, ptr %bmCommandStatus.i, align 1
-  %bulk = getelementptr inbounds i8, ptr %s, i64 5872
+  %bulk = getelementptr inbounds nuw i8, ptr %s, i64 5872
   %16 = load ptr, ptr %bulk, align 8
   tail call void @usb_wakeup(ptr noundef %16, i32 noundef 0) #10
   br label %return
@@ -2084,9 +2084,9 @@ return:                                           ; preds = %if.then26.i, %do.bo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @ccid_post_load(ptr nocapture noundef initializes((268, 272)) %opaque, i32 %version_id) #6 {
 entry:
-  %state_vmstate = getelementptr inbounds i8, ptr %opaque, i64 75004
+  %state_vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 75004
   %0 = load i32, ptr %state_vmstate, align 4
-  %state = getelementptr inbounds i8, ptr %opaque, i64 268
+  %state = getelementptr inbounds nuw i8, ptr %opaque, i64 268
   store i32 %0, ptr %state, align 4
   ret i32 0
 }
@@ -2094,9 +2094,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @ccid_pre_save(ptr nocapture noundef initializes((75004, 75008)) %opaque) #6 {
 entry:
-  %state = getelementptr inbounds i8, ptr %opaque, i64 268
+  %state = getelementptr inbounds nuw i8, ptr %opaque, i64 268
   %0 = load i32, ptr %state, align 4
-  %state_vmstate = getelementptr inbounds i8, ptr %opaque, i64 75004
+  %state_vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 75004
   store i32 %0, ptr %state_vmstate, align 4
   ret i32 0
 }

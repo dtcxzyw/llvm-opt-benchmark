@@ -36,10 +36,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @initClientMultiState(ptr nocapture noundef writeonly initializes((424, 444), (448, 460)) %c) local_unnamed_addr #0 {
 entry:
-  %mstate = getelementptr inbounds i8, ptr %c, i64 424
-  %argv_len_sums = getelementptr inbounds i8, ptr %c, i64 448
+  %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %argv_len_sums = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums, align 8
-  %alloc_count = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate, i8 0, i64 20, i1 false)
   ret void
@@ -48,8 +48,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeClientMultiState(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
 entry:
-  %mstate = getelementptr inbounds i8, ptr %c, i64 424
-  %count = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count = getelementptr inbounds nuw i8, ptr %c, i64 432
   %0 = load i32, ptr %count, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body, label %for.end8
@@ -57,8 +57,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.end
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %for.end ], [ 0, %entry ]
   %1 = load ptr, ptr %mstate, align 8
-  %add.ptr = getelementptr inbounds %struct.multiCmd, ptr %1, i64 %indvars.iv14
-  %argc = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %add.ptr = getelementptr inbounds nuw %struct.multiCmd, ptr %1, i64 %indvars.iv14
+  %argc = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   %2 = load i32, ptr %argc, align 4
   %cmp39 = icmp sgt i32 %2, 0
   br i1 %cmp39, label %for.body4, label %for.end
@@ -66,7 +66,7 @@ for.body:                                         ; preds = %entry, %for.end
 for.body4:                                        ; preds = %for.body, %for.body4
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body4 ], [ 0, %for.body ]
   %3 = load ptr, ptr %add.ptr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void @decrRefCount(ptr noundef %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -97,21 +97,21 @@ declare void @zfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @queueMultiCommand(ptr nocapture noundef %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 4128
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mstate = getelementptr inbounds i8, ptr %c, i64 424
-  %count = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count = getelementptr inbounds nuw i8, ptr %c, i64 432
   %1 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then1, label %if.end.if.end4_crit_edge
 
 if.end.if.end4_crit_edge:                         ; preds = %if.end
-  %alloc_count8.phi.trans.insert = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %c, i64 456
   %.pre32 = load i32, ptr %alloc_count8.phi.trans.insert, align 8
   %.pre33.pre = load ptr, ptr %mstate, align 8
   br label %if.end4
@@ -119,7 +119,7 @@ if.end.if.end4_crit_edge:                         ; preds = %if.end
 if.then1:                                         ; preds = %if.end
   %call = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #11
   store ptr %call, ptr %mstate, align 8
-  %alloc_count = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 2, ptr %alloc_count, align 8
   %.pre = load i32, ptr %count, align 8
   br label %if.end4
@@ -132,7 +132,7 @@ if.end4:                                          ; preds = %if.end.if.end4_crit
   br i1 %cmp9, label %if.then10, label %if.end26
 
 if.then10:                                        ; preds = %if.end4
-  %alloc_count8 = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count8 = getelementptr inbounds nuw i8, ptr %c, i64 456
   %cmp13 = icmp slt i32 %2, 1073741823
   %mul = shl nsw i32 %2, 1
   %spec.select = select i1 %cmp13, i32 %mul, i32 2147483647
@@ -149,40 +149,40 @@ if.end26:                                         ; preds = %if.then10, %if.end4
   %5 = phi ptr [ %call23, %if.then10 ], [ %.pre33, %if.end4 ]
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds %struct.multiCmd, ptr %5, i64 %idx.ext
-  %cmd = getelementptr inbounds i8, ptr %c, i64 128
+  %cmd = getelementptr inbounds nuw i8, ptr %c, i64 128
   %6 = load ptr, ptr %cmd, align 8
-  %cmd31 = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %cmd31 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %6, ptr %cmd31, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %7 = load i32, ptr %argc, align 8
-  %argc32 = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %argc32 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %7, ptr %argc32, align 4
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %8 = load ptr, ptr %argv, align 8
   store ptr %8, ptr %add.ptr, align 8
-  %argv_len = getelementptr inbounds i8, ptr %c, i64 104
+  %argv_len = getelementptr inbounds nuw i8, ptr %c, i64 104
   %9 = load i32, ptr %argv_len, align 8
-  %argv_len34 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %argv_len34 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %9, ptr %argv_len34, align 8
   %10 = load i32, ptr %count, align 8
   %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %count, align 8
-  %cmd_flags38 = getelementptr inbounds i8, ptr %c, i64 436
+  %cmd_flags38 = getelementptr inbounds nuw i8, ptr %c, i64 436
   %11 = load i32, ptr %cmd_flags38, align 4
   %12 = trunc i64 %cmd_flags to i32
   %conv40 = or i32 %11, %12
   store i32 %conv40, ptr %cmd_flags38, align 4
-  %cmd_inv_flags = getelementptr inbounds i8, ptr %c, i64 440
+  %cmd_inv_flags = getelementptr inbounds nuw i8, ptr %c, i64 440
   %13 = load i32, ptr %cmd_inv_flags, align 8
   %14 = xor i32 %12, -1
   %conv44 = or i32 %13, %14
   store i32 %conv44, ptr %cmd_inv_flags, align 8
-  %argv_len_sum = getelementptr inbounds i8, ptr %c, i64 120
+  %argv_len_sum = getelementptr inbounds nuw i8, ptr %c, i64 120
   %15 = load i64, ptr %argv_len_sum, align 8
   %16 = load i32, ptr %argc, align 8
   %conv46 = sext i32 %16 to i64
   %mul47 = shl nsw i64 %conv46, 3
-  %argv_len_sums = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums = getelementptr inbounds nuw i8, ptr %c, i64 448
   %17 = load i64, ptr %argv_len_sums, align 8
   %add = add i64 %17, %15
   %add49 = add i64 %add, %mul47
@@ -206,8 +206,8 @@ declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @discardTransaction(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %mstate.i = getelementptr inbounds i8, ptr %c, i64 424
-  %count.i = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate.i = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count.i = getelementptr inbounds nuw i8, ptr %c, i64 432
   %0 = load i32, ptr %count.i, align 8
   %cmp11.i = icmp sgt i32 %0, 0
   br i1 %cmp11.i, label %for.body.i, label %freeClientMultiState.exit
@@ -215,8 +215,8 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.end.i
   %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %for.end.i ], [ 0, %entry ]
   %1 = load ptr, ptr %mstate.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.multiCmd, ptr %1, i64 %indvars.iv14.i
-  %argc.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %add.ptr.i = getelementptr inbounds nuw %struct.multiCmd, ptr %1, i64 %indvars.iv14.i
+  %argc.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 12
   %2 = load i32, ptr %argc.i, align 4
   %cmp39.i = icmp sgt i32 %2, 0
   br i1 %cmp39.i, label %for.body4.i, label %for.end.i
@@ -224,7 +224,7 @@ for.body.i:                                       ; preds = %entry, %for.end.i
 for.body4.i:                                      ; preds = %for.body.i, %for.body4.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body4.i ], [ 0, %for.body.i ]
   %3 = load ptr, ptr %add.ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @decrRefCount(ptr noundef %4) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -245,12 +245,12 @@ for.end.i:                                        ; preds = %for.body4.i, %for.b
 freeClientMultiState.exit:                        ; preds = %for.end.i, %entry
   %10 = load ptr, ptr %mstate.i, align 8
   tail call void @zfree(ptr noundef %10) #10
-  %argv_len_sums.i = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums.i = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums.i, align 8
-  %alloc_count.i = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count.i = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i, i8 0, i64 20, i1 false)
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %11 = load i64, ptr %flags, align 8
   %and = and i64 %11, -4137
   store i64 %and, ptr %flags, align 8
@@ -262,9 +262,9 @@ freeClientMultiState.exit:                        ; preds = %for.end.i, %entry
 define dso_local void @unwatchAllKeys(ptr noundef %c) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %c, i64 536
+  %watched_keys = getelementptr inbounds nuw i8, ptr %c, i64 536
   %0 = load ptr, ptr %watched_keys, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %while.end, label %if.end
@@ -277,7 +277,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end13
   %call15 = phi ptr [ %call, %if.end13 ], [ %call13, %if.end ]
-  %value = getelementptr inbounds i8, ptr %call15, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call15, i64 16
   %2 = load ptr, ptr %value, align 8
   %3 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %3, align 8
@@ -291,17 +291,17 @@ cond.false:                                       ; preds = %while.body
 
 cond.end:                                         ; preds = %while.body
   call void @listUnlinkNode(ptr noundef nonnull %.val, ptr noundef nonnull %2) #10
-  %len7 = getelementptr inbounds i8, ptr %.val, i64 40
+  %len7 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %4 = load i64, ptr %len7, align 8
   %cmp8 = icmp eq i64 %4, 0
   br i1 %cmp8, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %cond.end
-  %db = getelementptr inbounds i8, ptr %2, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %db, align 8
-  %watched_keys11 = getelementptr inbounds i8, ptr %5, i64 40
+  %watched_keys11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %watched_keys11, align 8
-  %key = getelementptr inbounds i8, ptr %2, i64 24
+  %key = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %key, align 8
   %call12 = call i32 @dictDelete(ptr noundef %6, ptr noundef %7) #10
   br label %if.end13
@@ -309,7 +309,7 @@ if.then10:                                        ; preds = %cond.end
 if.end13:                                         ; preds = %if.then10, %cond.end
   %8 = load ptr, ptr %watched_keys, align 8
   call void @listDelNode(ptr noundef %8, ptr noundef nonnull %call15) #10
-  %key15 = getelementptr inbounds i8, ptr %2, i64 24
+  %key15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %key15, align 8
   call void @decrRefCount(ptr noundef %9) #10
   call void @zfree(ptr noundef nonnull %2) #10
@@ -324,7 +324,7 @@ while.end:                                        ; preds = %if.end13, %if.end, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @flagTransaction(ptr nocapture noundef %c) local_unnamed_addr #5 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool.not = icmp eq i64 %and, 0
@@ -342,7 +342,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @multiCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool.not = icmp eq i64 %and, 0
@@ -370,7 +370,7 @@ declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @discardCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool.not = icmp eq i64 %and, 0
@@ -381,8 +381,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mstate.i.i = getelementptr inbounds i8, ptr %c, i64 424
-  %count.i.i = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate.i.i = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 432
   %1 = load i32, ptr %count.i.i, align 8
   %cmp11.i.i = icmp sgt i32 %1, 0
   br i1 %cmp11.i.i, label %for.body.i.i, label %discardTransaction.exit
@@ -390,8 +390,8 @@ if.end:                                           ; preds = %entry
 for.body.i.i:                                     ; preds = %if.end, %for.end.i.i
   %indvars.iv14.i.i = phi i64 [ %indvars.iv.next15.i.i, %for.end.i.i ], [ 0, %if.end ]
   %2 = load ptr, ptr %mstate.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.multiCmd, ptr %2, i64 %indvars.iv14.i.i
-  %argc.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.multiCmd, ptr %2, i64 %indvars.iv14.i.i
+  %argc.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
   %3 = load i32, ptr %argc.i.i, align 4
   %cmp39.i.i = icmp sgt i32 %3, 0
   br i1 %cmp39.i.i, label %for.body4.i.i, label %for.end.i.i
@@ -399,7 +399,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.end.i.
 for.body4.i.i:                                    ; preds = %for.body.i.i, %for.body4.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body4.i.i ], [ 0, %for.body.i.i ]
   %4 = load ptr, ptr %add.ptr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   tail call void @decrRefCount(ptr noundef %5) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -420,9 +420,9 @@ for.end.i.i:                                      ; preds = %for.body4.i.i, %for
 discardTransaction.exit:                          ; preds = %for.end.i.i, %if.end
   %11 = load ptr, ptr %mstate.i.i, align 8
   tail call void @zfree(ptr noundef %11) #10
-  %argv_len_sums.i.i = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums.i.i = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums.i.i, align 8
-  %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
   %12 = load i64, ptr %flags, align 8
@@ -440,8 +440,8 @@ return:                                           ; preds = %discardTransaction.
 ; Function Attrs: nounwind uwtable
 define dso_local void @execCommandAbort(ptr noundef %c, ptr noundef %error) local_unnamed_addr #1 {
 entry:
-  %mstate.i.i = getelementptr inbounds i8, ptr %c, i64 424
-  %count.i.i = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate.i.i = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 432
   %0 = load i32, ptr %count.i.i, align 8
   %cmp11.i.i = icmp sgt i32 %0, 0
   br i1 %cmp11.i.i, label %for.body.i.i, label %discardTransaction.exit
@@ -449,8 +449,8 @@ entry:
 for.body.i.i:                                     ; preds = %entry, %for.end.i.i
   %indvars.iv14.i.i = phi i64 [ %indvars.iv.next15.i.i, %for.end.i.i ], [ 0, %entry ]
   %1 = load ptr, ptr %mstate.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.multiCmd, ptr %1, i64 %indvars.iv14.i.i
-  %argc.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.multiCmd, ptr %1, i64 %indvars.iv14.i.i
+  %argc.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
   %2 = load i32, ptr %argc.i.i, align 4
   %cmp39.i.i = icmp sgt i32 %2, 0
   br i1 %cmp39.i.i, label %for.body4.i.i, label %for.end.i.i
@@ -458,7 +458,7 @@ for.body.i.i:                                     ; preds = %entry, %for.end.i.i
 for.body4.i.i:                                    ; preds = %for.body.i.i, %for.body4.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body4.i.i ], [ 0, %for.body.i.i ]
   %3 = load ptr, ptr %add.ptr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   tail call void @decrRefCount(ptr noundef %4) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -479,12 +479,12 @@ for.end.i.i:                                      ; preds = %for.body4.i.i, %for
 discardTransaction.exit:                          ; preds = %for.end.i.i, %entry
   %10 = load ptr, ptr %mstate.i.i, align 8
   tail call void @zfree(ptr noundef %10) #10
-  %argv_len_sums.i.i = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums.i.i = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums.i.i, align 8
-  %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
-  %flags.i = getelementptr inbounds i8, ptr %c, i64 8
+  %flags.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %11 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %11, -4137
   store i64 %and.i, ptr %flags.i, align 8
@@ -492,16 +492,16 @@ discardTransaction.exit:                          ; preds = %for.end.i.i, %entry
   %12 = load i8, ptr %error, align 1
   %cmp = icmp eq i8 %12, 45
   %spec.select.idx = zext i1 %cmp to i64
-  %spec.select = getelementptr inbounds i8, ptr %error, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %error, i64 %spec.select.idx
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.select) #10
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1472), align 8
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %14 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %14, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %14, i64 48
   %15 = load i32, ptr %id, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %16 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %17 = load i32, ptr %argc, align 8
   tail call void @replicationFeedMonitors(ptr noundef nonnull %c, ptr noundef %13, i32 noundef %15, ptr noundef %16, i32 noundef %17) #10
   ret void
@@ -516,7 +516,7 @@ define dso_local void @execCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %acl_errpos = alloca i32, align 4
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool.not = icmp eq i64 %and, 0
@@ -528,9 +528,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
-  %watched_keys.i = getelementptr inbounds i8, ptr %c, i64 536
+  %watched_keys.i = getelementptr inbounds nuw i8, ptr %c, i64 536
   %1 = load ptr, ptr %watched_keys.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %1, i64 40
+  %len.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i64, ptr %len.i, align 8
   %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %isWatchedKeyExpired.exit.thread, label %if.end.i
@@ -543,9 +543,9 @@ if.end.i:                                         ; preds = %if.end
 
 while.body.i:                                     ; preds = %if.end.i, %while.cond.backedge.i
   %call6.i = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call4.i, %if.end.i ]
-  %value.i = getelementptr inbounds i8, ptr %call6.i, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
-  %expired.i = getelementptr inbounds i8, ptr %3, i64 48
+  %expired.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %bf.load.i = load i8, ptr %expired.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool2.not.i = icmp eq i8 %bf.clear.i, 0
@@ -557,9 +557,9 @@ while.cond.backedge.i:                            ; preds = %if.end4.i, %while.b
   br i1 %tobool.not.i, label %isWatchedKeyExpired.exit.thread, label %while.body.i, !llvm.loop !9
 
 if.end4.i:                                        ; preds = %while.body.i
-  %db.i = getelementptr inbounds i8, ptr %3, i64 32
+  %db.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %db.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %3, i64 24
+  %key.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %key.i, align 8
   %call5.i = call i32 @keyIsExpired(ptr noundef %4, ptr noundef %5) #10
   %tobool6.not.i = icmp eq i32 %call5.i, 0
@@ -594,7 +594,7 @@ if.then12:                                        ; preds = %if.then8
   br label %if.end13
 
 if.else:                                          ; preds = %if.then8
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %9 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %9 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 96), i64 0, i64 %idxprom
@@ -603,8 +603,8 @@ if.else:                                          ; preds = %if.then8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then12
-  %mstate.i.i = getelementptr inbounds i8, ptr %c, i64 424
-  %count.i.i = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate.i.i = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 432
   %11 = load i32, ptr %count.i.i, align 8
   %cmp11.i.i = icmp sgt i32 %11, 0
   br i1 %cmp11.i.i, label %for.body.i.i, label %discardTransaction.exit
@@ -612,8 +612,8 @@ if.end13:                                         ; preds = %if.else, %if.then12
 for.body.i.i:                                     ; preds = %if.end13, %for.end.i.i
   %indvars.iv14.i.i = phi i64 [ %indvars.iv.next15.i.i, %for.end.i.i ], [ 0, %if.end13 ]
   %12 = load ptr, ptr %mstate.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.multiCmd, ptr %12, i64 %indvars.iv14.i.i
-  %argc.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.multiCmd, ptr %12, i64 %indvars.iv14.i.i
+  %argc.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
   %13 = load i32, ptr %argc.i.i, align 4
   %cmp39.i.i = icmp sgt i32 %13, 0
   br i1 %cmp39.i.i, label %for.body4.i.i, label %for.end.i.i
@@ -621,7 +621,7 @@ for.body.i.i:                                     ; preds = %if.end13, %for.end.
 for.body4.i.i:                                    ; preds = %for.body.i.i, %for.body4.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body4.i.i ], [ 0, %for.body.i.i ]
   %14 = load ptr, ptr %add.ptr.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   call void @decrRefCount(ptr noundef %15) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -642,9 +642,9 @@ for.end.i.i:                                      ; preds = %for.body4.i.i, %for
 discardTransaction.exit:                          ; preds = %for.end.i.i, %if.end13
   %21 = load ptr, ptr %mstate.i.i, align 8
   call void @zfree(ptr noundef %21) #10
-  %argv_len_sums.i.i = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums.i.i = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums.i.i, align 8
-  %alloc_count.i.i = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count.i.i = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate.i.i, i8 0, i64 20, i1 false)
   %22 = load i64, ptr %flags, align 8
@@ -658,16 +658,16 @@ if.end14:                                         ; preds = %if.end4
   store i64 %or17, ptr %flags, align 8
   call void @unwatchAllKeys(ptr noundef nonnull %c)
   store i32 1, ptr getelementptr inbounds (i8, ptr @server, i64 220), align 4
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %23 = load ptr, ptr %argv, align 8
-  %argv_len = getelementptr inbounds i8, ptr %c, i64 104
+  %argv_len = getelementptr inbounds nuw i8, ptr %c, i64 104
   %24 = load i32, ptr %argv_len, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %25 = load i32, ptr %argc, align 8
-  %cmd = getelementptr inbounds i8, ptr %c, i64 128
+  %cmd = getelementptr inbounds nuw i8, ptr %c, i64 128
   %26 = load ptr, ptr %cmd, align 8
-  %mstate = getelementptr inbounds i8, ptr %c, i64 424
-  %count = getelementptr inbounds i8, ptr %c, i64 432
+  %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
+  %count = getelementptr inbounds nuw i8, ptr %c, i64 432
   %27 = load i32, ptr %count, align 8
   %conv = sext i32 %27 to i64
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv) #10
@@ -676,22 +676,22 @@ if.end14:                                         ; preds = %if.end4
   br i1 %cmp86, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %realcmd = getelementptr inbounds i8, ptr %c, i64 144
+  %realcmd = getelementptr inbounds nuw i8, ptr %c, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end63
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end63 ]
   %29 = load ptr, ptr %mstate, align 8
-  %argc24 = getelementptr inbounds %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 2
+  %argc24 = getelementptr inbounds nuw %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 2
   %30 = load i32, ptr %argc24, align 4
   store i32 %30, ptr %argc, align 8
-  %arrayidx29 = getelementptr inbounds %struct.multiCmd, ptr %29, i64 %indvars.iv
+  %arrayidx29 = getelementptr inbounds nuw %struct.multiCmd, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %arrayidx29, align 8
   store ptr %31, ptr %argv, align 8
-  %argv_len36 = getelementptr inbounds %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 1
+  %argv_len36 = getelementptr inbounds nuw %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 1
   %32 = load i32, ptr %argv_len36, align 8
   store i32 %32, ptr %argv_len, align 8
-  %cmd42 = getelementptr inbounds %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 3
+  %cmd42 = getelementptr inbounds nuw %struct.multiCmd, ptr %29, i64 %indvars.iv, i32 3
   %33 = load ptr, ptr %cmd42, align 8
   store ptr %33, ptr %realcmd, align 8
   store ptr %33, ptr %cmd, align 8
@@ -737,19 +737,19 @@ cond.false:                                       ; preds = %if.else50
 if.end63:                                         ; preds = %if.else50, %sw.epilog
   %37 = load i32, ptr %argc, align 8
   %38 = load ptr, ptr %mstate, align 8
-  %argc69 = getelementptr inbounds %struct.multiCmd, ptr %38, i64 %indvars.iv, i32 2
+  %argc69 = getelementptr inbounds nuw %struct.multiCmd, ptr %38, i64 %indvars.iv, i32 2
   store i32 %37, ptr %argc69, align 4
   %39 = load ptr, ptr %argv, align 8
   %40 = load ptr, ptr %mstate, align 8
-  %arrayidx74 = getelementptr inbounds %struct.multiCmd, ptr %40, i64 %indvars.iv
+  %arrayidx74 = getelementptr inbounds nuw %struct.multiCmd, ptr %40, i64 %indvars.iv
   store ptr %39, ptr %arrayidx74, align 8
   %41 = load i32, ptr %argv_len, align 8
   %42 = load ptr, ptr %mstate, align 8
-  %argv_len81 = getelementptr inbounds %struct.multiCmd, ptr %42, i64 %indvars.iv, i32 1
+  %argv_len81 = getelementptr inbounds nuw %struct.multiCmd, ptr %42, i64 %indvars.iv, i32 1
   store i32 %41, ptr %argv_len81, align 8
   %43 = load ptr, ptr %cmd, align 8
   %44 = load ptr, ptr %mstate, align 8
-  %cmd87 = getelementptr inbounds %struct.multiCmd, ptr %44, i64 %indvars.iv, i32 3
+  %cmd87 = getelementptr inbounds nuw %struct.multiCmd, ptr %44, i64 %indvars.iv, i32 3
   store ptr %43, ptr %cmd87, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %count, align 8
@@ -777,7 +777,7 @@ if.end93:                                         ; preds = %if.then90, %for.end
   store ptr %23, ptr %argv, align 8
   store i32 %24, ptr %argv_len, align 8
   store i32 %25, ptr %argc, align 8
-  %realcmd97 = getelementptr inbounds i8, ptr %c, i64 144
+  %realcmd97 = getelementptr inbounds nuw i8, ptr %c, i64 144
   store ptr %26, ptr %realcmd97, align 8
   store ptr %26, ptr %cmd, align 8
   br i1 %.lcssa, label %for.body.i.i69, label %discardTransaction.exit82
@@ -785,8 +785,8 @@ if.end93:                                         ; preds = %if.then90, %for.end
 for.body.i.i69:                                   ; preds = %if.end93, %for.end.i.i74
   %indvars.iv14.i.i70 = phi i64 [ %indvars.iv.next15.i.i75, %for.end.i.i74 ], [ 0, %if.end93 ]
   %49 = load ptr, ptr %mstate, align 8
-  %add.ptr.i.i71 = getelementptr inbounds %struct.multiCmd, ptr %49, i64 %indvars.iv14.i.i70
-  %argc.i.i72 = getelementptr inbounds i8, ptr %add.ptr.i.i71, i64 12
+  %add.ptr.i.i71 = getelementptr inbounds nuw %struct.multiCmd, ptr %49, i64 %indvars.iv14.i.i70
+  %argc.i.i72 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i71, i64 12
   %50 = load i32, ptr %argc.i.i72, align 4
   %cmp39.i.i73 = icmp sgt i32 %50, 0
   br i1 %cmp39.i.i73, label %for.body4.i.i77, label %for.end.i.i74
@@ -794,7 +794,7 @@ for.body.i.i69:                                   ; preds = %if.end93, %for.end.
 for.body4.i.i77:                                  ; preds = %for.body.i.i69, %for.body4.i.i77
   %indvars.iv.i.i78 = phi i64 [ %indvars.iv.next.i.i80, %for.body4.i.i77 ], [ 0, %for.body.i.i69 ]
   %51 = load ptr, ptr %add.ptr.i.i71, align 8
-  %arrayidx.i.i79 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.i.i78
+  %arrayidx.i.i79 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i.i78
   %52 = load ptr, ptr %arrayidx.i.i79, align 8
   call void @decrRefCount(ptr noundef %52) #10
   %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i78, 1
@@ -815,9 +815,9 @@ for.end.i.i74:                                    ; preds = %for.body4.i.i77, %f
 discardTransaction.exit82:                        ; preds = %for.end.i.i74, %if.end93
   %58 = load ptr, ptr %mstate, align 8
   call void @zfree(ptr noundef %58) #10
-  %argv_len_sums.i.i65 = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums.i.i65 = getelementptr inbounds nuw i8, ptr %c, i64 448
   store i64 0, ptr %argv_len_sums.i.i65, align 8
-  %alloc_count.i.i66 = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count.i.i66 = getelementptr inbounds nuw i8, ptr %c, i64 456
   store i32 0, ptr %alloc_count.i.i66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mstate, i8 0, i64 20, i1 false)
   %59 = load i64, ptr %flags, align 8
@@ -835,9 +835,9 @@ return:                                           ; preds = %discardTransaction.
 define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %c, i64 536
+  %watched_keys = getelementptr inbounds nuw i8, ptr %c, i64 536
   %0 = load ptr, ptr %watched_keys, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -850,9 +850,9 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %while.cond.backedge
   %call6 = phi ptr [ %call, %while.cond.backedge ], [ %call4, %if.end ]
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %2 = load ptr, ptr %value, align 8
-  %expired = getelementptr inbounds i8, ptr %2, i64 48
+  %expired = getelementptr inbounds nuw i8, ptr %2, i64 48
   %bf.load = load i8, ptr %expired, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
@@ -864,9 +864,9 @@ while.cond.backedge:                              ; preds = %while.body, %if.end
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !9
 
 if.end4:                                          ; preds = %while.body
-  %db = getelementptr inbounds i8, ptr %2, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %db, align 8
-  %key = getelementptr inbounds i8, ptr %2, i64 24
+  %key = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %key, align 8
   %call5 = call i32 @keyIsExpired(ptr noundef %3, ptr noundef %4) #10
   %tobool6.not = icmp eq i32 %call5, 0
@@ -896,7 +896,7 @@ declare void @abort() local_unnamed_addr #6
 define dso_local void @watchForKey(ptr noundef %c, ptr noundef %key) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %c, i64 536
+  %watched_keys = getelementptr inbounds nuw i8, ptr %c, i64 536
   %0 = load ptr, ptr %watched_keys, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #10
   %call23 = call ptr @listNext(ptr noundef nonnull %li) #10
@@ -904,21 +904,21 @@ entry:
   br i1 %tobool.not24, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %db1 = getelementptr inbounds i8, ptr %c, i64 32
+  %db1 = getelementptr inbounds nuw i8, ptr %c, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %call25 = phi ptr [ %call23, %while.body.lr.ph ], [ %call, %if.end ]
-  %value = getelementptr inbounds i8, ptr %call25, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call25, i64 16
   %1 = load ptr, ptr %value, align 8
-  %db = getelementptr inbounds i8, ptr %1, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %db, align 8
   %3 = load ptr, ptr %db1, align 8
   %cmp = icmp eq ptr %2, %3
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %key2 = getelementptr inbounds i8, ptr %1, i64 24
+  %key2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %key2, align 8
   %call3 = call i32 @equalStringObjects(ptr noundef %key, ptr noundef %4) #10
   %tobool4.not = icmp eq i32 %call3, 0
@@ -930,9 +930,9 @@ if.end:                                           ; preds = %land.lhs.true, %whi
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end, %entry
-  %db5 = getelementptr inbounds i8, ptr %c, i64 32
+  %db5 = getelementptr inbounds nuw i8, ptr %c, i64 32
   %5 = load ptr, ptr %db5, align 8
-  %watched_keys6 = getelementptr inbounds i8, ptr %5, i64 40
+  %watched_keys6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %watched_keys6, align 8
   %call7 = call ptr @dictFetchValue(ptr noundef %6, ptr noundef %key) #10
   %tobool8.not = icmp eq ptr %call7, null
@@ -941,7 +941,7 @@ while.end:                                        ; preds = %if.end, %entry
 if.then9:                                         ; preds = %while.end
   %call10 = call ptr @listCreate() #10
   %7 = load ptr, ptr %db5, align 8
-  %watched_keys12 = getelementptr inbounds i8, ptr %7, i64 40
+  %watched_keys12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load ptr, ptr %watched_keys12, align 8
   %call13 = call i32 @dictAdd(ptr noundef %8, ptr noundef %key, ptr noundef %call10) #10
   call void @incrRefCount(ptr noundef %key) #10
@@ -950,15 +950,15 @@ if.then9:                                         ; preds = %while.end
 if.end14:                                         ; preds = %if.then9, %while.end
   %clients.0 = phi ptr [ %call7, %while.end ], [ %call10, %if.then9 ]
   %call15 = call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #11
-  %key16 = getelementptr inbounds i8, ptr %call15, i64 24
+  %key16 = getelementptr inbounds nuw i8, ptr %call15, i64 24
   store ptr %key, ptr %key16, align 8
-  %client = getelementptr inbounds i8, ptr %call15, i64 40
+  %client = getelementptr inbounds nuw i8, ptr %call15, i64 40
   store ptr %c, ptr %client, align 8
   %9 = load ptr, ptr %db5, align 8
-  %db18 = getelementptr inbounds i8, ptr %call15, i64 32
+  %db18 = getelementptr inbounds nuw i8, ptr %call15, i64 32
   store ptr %9, ptr %db18, align 8
   %call20 = call i32 @keyIsExpired(ptr noundef %9, ptr noundef %key) #10
-  %expired = getelementptr inbounds i8, ptr %call15, i64 48
+  %expired = getelementptr inbounds nuw i8, ptr %call15, i64 48
   %10 = trunc i32 %call20 to i8
   %bf.load = load i8, ptr %expired, align 8
   %bf.value = and i8 %10, 1
@@ -968,7 +968,7 @@ if.end14:                                         ; preds = %if.then9, %while.en
   call void @incrRefCount(ptr noundef %key) #10
   %11 = load ptr, ptr %watched_keys, align 8
   %call22 = call ptr @listAddNodeTail(ptr noundef %11, ptr noundef %call15) #10
-  %value.i = getelementptr inbounds i8, ptr %call15, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %call15, i64 16
   store ptr %clients.0, ptr %value.i, align 8
   call void @listLinkNodeTail(ptr noundef %clients.0, ptr noundef %call15) #10
   br label %return
@@ -1007,11 +1007,11 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @touchWatchedKey(ptr noundef readonly %db, ptr noundef %key) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %db, i64 40
+  %watched_keys = getelementptr inbounds nuw i8, ptr %db, i64 40
   %0 = load ptr, ptr %watched_keys, align 8
-  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = sub i64 0, %2
   %cmp = icmp eq i64 %1, %add
@@ -1029,25 +1029,25 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool8.not15, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end6
-  %ptr = getelementptr inbounds i8, ptr %key, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %key, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %skip_client
   %call716 = phi ptr [ %call714, %while.body.lr.ph ], [ %call7, %skip_client ]
-  %expired = getelementptr inbounds i8, ptr %call716, i64 48
+  %expired = getelementptr inbounds nuw i8, ptr %call716, i64 48
   %bf.load = load i8, ptr %expired, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool9.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool9.not, label %if.end27, label %if.then10
 
 if.then10:                                        ; preds = %while.body
-  %db11 = getelementptr inbounds i8, ptr %call716, i64 32
+  %db11 = getelementptr inbounds nuw i8, ptr %call716, i64 32
   %3 = load ptr, ptr %db11, align 8
   %cmp12 = icmp eq ptr %db, %3
   br i1 %cmp12, label %land.lhs.true, label %while.end
 
 land.lhs.true:                                    ; preds = %if.then10
-  %key13 = getelementptr inbounds i8, ptr %call716, i64 24
+  %key13 = getelementptr inbounds nuw i8, ptr %call716, i64 24
   %4 = load ptr, ptr %key13, align 8
   %call14 = call i32 @equalStringObjects(ptr noundef %key, ptr noundef %4) #10
   %tobool15.not = icmp eq i32 %call14, 0
@@ -1072,9 +1072,9 @@ if.then22:                                        ; preds = %land.lhs.true16
   br label %skip_client
 
 if.end27:                                         ; preds = %while.body
-  %client = getelementptr inbounds i8, ptr %call716, i64 40
+  %client = getelementptr inbounds nuw i8, ptr %call716, i64 40
   %9 = load ptr, ptr %client, align 8
-  %flags = getelementptr inbounds i8, ptr %9, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i64, ptr %flags, align 8
   %or = or i64 %10, 32
   store i64 %or, ptr %flags, align 8
@@ -1098,11 +1098,11 @@ declare i32 @calculateKeySlot(ptr noundef) local_unnamed_addr #2
 define dso_local void @touchAllWatchedKeysInDb(ptr nocapture noundef readonly %emptied, ptr noundef %replaced_with) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %emptied, i64 40
+  %watched_keys = getelementptr inbounds nuw i8, ptr %emptied, i64 40
   %0 = load ptr, ptr %watched_keys, align 8
-  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = sub i64 0, %2
   %cmp = icmp eq i64 %1, %add
@@ -1122,7 +1122,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %call528.us = phi ptr [ %call5.us, %while.cond.backedge.us ], [ %call526, %while.body.lr.ph ]
   %call7.us = call ptr @dictGetKey(ptr noundef nonnull %call528.us) #10
   %3 = load ptr, ptr %emptied, align 8
-  %ptr.us = getelementptr inbounds i8, ptr %call7.us, i64 8
+  %ptr.us = getelementptr inbounds nuw i8, ptr %call7.us, i64 8
   %4 = load ptr, ptr %ptr.us, align 8
   %call8.us = call i32 @calculateKeySlot(ptr noundef %4) #10
   %idxprom.us = sext i32 %call8.us to i64
@@ -1151,7 +1151,7 @@ while.cond.backedge.us:                           ; preds = %while.cond27.backed
 
 while.body30.us.us29:                             ; preds = %if.end26.us, %while.cond27.backedge.us.us42
   %call2825.us.us30 = phi ptr [ %call28.us.us43, %while.cond27.backedge.us.us42 ], [ %call2823.us, %if.end26.us ]
-  %expired.us.us31 = getelementptr inbounds i8, ptr %call2825.us.us30, i64 48
+  %expired.us.us31 = getelementptr inbounds nuw i8, ptr %call2825.us.us30, i64 48
   %bf.load.us.us32 = load i8, ptr %expired.us.us31, align 8
   %bf.clear.us.us33 = and i8 %bf.load.us.us32, 1
   %tobool31.not.us.us34 = icmp eq i8 %bf.clear.us.us33, 0
@@ -1163,9 +1163,9 @@ if.then32.us.us35:                                ; preds = %while.body30.us.us2
   br label %while.cond27.backedge.us.us42
 
 if.else52.us.us38:                                ; preds = %while.body30.us.us29
-  %client.us.us39 = getelementptr inbounds i8, ptr %call2825.us.us30, i64 40
+  %client.us.us39 = getelementptr inbounds nuw i8, ptr %call2825.us.us30, i64 40
   %7 = load ptr, ptr %client.us.us39, align 8
-  %flags.us.us40 = getelementptr inbounds i8, ptr %7, i64 8
+  %flags.us.us40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i64, ptr %flags.us.us40, align 8
   %or.us.us41 = or i64 %8, 32
   store i64 %or.us.us41, ptr %flags.us.us40, align 8
@@ -1180,7 +1180,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call528 = phi ptr [ %call5, %while.cond.backedge ], [ %call526, %while.body.lr.ph ]
   %call7 = call ptr @dictGetKey(ptr noundef nonnull %call528) #10
   %9 = load ptr, ptr %emptied, align 8
-  %ptr = getelementptr inbounds i8, ptr %call7, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %10 = load ptr, ptr %ptr, align 8
   %call8 = call i32 @calculateKeySlot(ptr noundef %10) #10
   %idxprom = sext i32 %call8 to i64
@@ -1216,7 +1216,7 @@ if.end26:                                         ; preds = %if.then22
 
 while.body30:                                     ; preds = %if.end26, %while.cond27.backedge
   %call2825 = phi ptr [ %call28, %while.cond27.backedge ], [ %call2823, %if.end26 ]
-  %expired = getelementptr inbounds i8, ptr %call2825, i64 48
+  %expired = getelementptr inbounds nuw i8, ptr %call2825, i64 48
   %bf.load = load i8, ptr %expired, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool31.not = icmp eq i8 %bf.clear, 0
@@ -1265,9 +1265,9 @@ if.then57:                                        ; preds = %land.lhs.true54
   br label %while.cond27.backedge
 
 if.end63:                                         ; preds = %if.else52, %land.lhs.true54, %if.else
-  %client = getelementptr inbounds i8, ptr %call2825, i64 40
+  %client = getelementptr inbounds nuw i8, ptr %call2825, i64 40
   %21 = load ptr, ptr %client, align 8
-  %flags = getelementptr inbounds i8, ptr %21, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load i64, ptr %flags, align 8
   %or = or i64 %22, 32
   store i64 %or, ptr %flags, align 8
@@ -1299,7 +1299,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @watchCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool.not = icmp eq i64 %and, 0
@@ -1315,13 +1315,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %for.cond.preheader, label %if.then4
 
 for.cond.preheader:                               ; preds = %if.end
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %1 = load i32, ptr %argc, align 8
   %cmp10 = icmp sgt i32 %1, 1
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   br label %for.body
 
 if.then4:                                         ; preds = %if.end
@@ -1332,7 +1332,7 @@ if.then4:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void @watchForKey(ptr noundef nonnull %c, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1354,7 +1354,7 @@ return:                                           ; preds = %for.end, %if.then4,
 define dso_local void @unwatchCommand(ptr noundef %c) local_unnamed_addr #1 {
 entry:
   tail call void @unwatchAllKeys(ptr noundef %c)
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, -33
   store i64 %and, ptr %flags, align 8
@@ -1366,15 +1366,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @multiStateMemOverhead(ptr nocapture noundef readonly %c) local_unnamed_addr #7 {
 entry:
-  %argv_len_sums = getelementptr inbounds i8, ptr %c, i64 448
+  %argv_len_sums = getelementptr inbounds nuw i8, ptr %c, i64 448
   %0 = load i64, ptr %argv_len_sums, align 8
-  %watched_keys = getelementptr inbounds i8, ptr %c, i64 536
+  %watched_keys = getelementptr inbounds nuw i8, ptr %c, i64 536
   %1 = load ptr, ptr %watched_keys, align 8
-  %len = getelementptr inbounds i8, ptr %1, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %mul = mul i64 %2, 80
   %add = add i64 %mul, %0
-  %alloc_count = getelementptr inbounds i8, ptr %c, i64 456
+  %alloc_count = getelementptr inbounds nuw i8, ptr %c, i64 456
   %3 = load i32, ptr %alloc_count, align 8
   %conv = sext i32 %3 to i64
   %mul2 = mul nsw i64 %conv, 24

@@ -22,7 +22,7 @@ define void @Java_sun_nio_ch_UnixDispatcher_init(ptr noundef %0, ptr nocapture n
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 4
   store i32 %8, ptr @preCloseFD, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @close(i32 noundef %10) #3
   br label %12

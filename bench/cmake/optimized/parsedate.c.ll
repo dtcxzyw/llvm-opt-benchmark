@@ -80,7 +80,7 @@ define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %0, ptr nocap
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
   %10 = phi ptr [ %11, %.lr.ph.i ], [ %.0231305, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i = icmp ne i8 %12, 0
   %13 = add i8 %12, -58
@@ -123,7 +123,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %.old39, label %27, label %.critedge
 
 27:                                               ; preds = %23, %26
-  %28 = getelementptr inbounds i8, ptr %.0122, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.0122, i64 1
   %29 = add nuw nsw i64 %.0123, 1
   %.pre328 = load i8, ptr %28, align 1
   br label %.preheader, !llvm.loop !7
@@ -162,7 +162,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %.not.i190, label %42, label %.thread259
 
 42:                                               ; preds = %40, %36
-  %43 = getelementptr inbounds i8, ptr %.117.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %44 = add nuw nsw i32 %.01316.i, 1
   %exitcond.not.i = icmp eq i32 %44, 7
   br i1 %exitcond.not.i, label %.loopexit286, label %36, !llvm.loop !8
@@ -185,7 +185,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %.not9.i, label %48, label %.thread259
 
 48:                                               ; preds = %.preheader.i
-  %49 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %50 = add nuw nsw i32 %.0710.i, 1
   %exitcond.not.i192 = icmp eq i32 %50, 12
   br i1 %exitcond.not.i192, label %.loopexit, label %.preheader.i, !llvm.loop !9
@@ -210,13 +210,13 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %.not.i196, label %56, label %checktz.exit
 
 56:                                               ; preds = %54, %.preheader.i193
-  %57 = getelementptr inbounds i8, ptr %.01116.i, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 12
   %58 = add nuw nsw i32 %.01215.i, 1
   %exitcond.not.i194 = icmp eq i32 %58, 69
   br i1 %exitcond.not.i194, label %.thread267, label %.preheader.i193, !llvm.loop !10
 
 checktz.exit:                                     ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.01116.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 8
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %60, 60
   br label %.thread259
@@ -225,7 +225,7 @@ checktz.exit:                                     ; preds = %54
   %.1266 = phi i32 [ %.2, %checktz.exit ], [ %.2, %.preheader.i ], [ %.01316.i, %40 ]
   %.1119265 = phi i32 [ %.2120, %checktz.exit ], [ %.0710.i, %.preheader.i ], [ %.0118314, %40 ]
   %.1140264 = phi i32 [ %61, %checktz.exit ], [ %.0139310, %.preheader.i ], [ %.0139310, %40 ]
-  %62 = getelementptr inbounds i8, ptr %.2233, i64 %.0123
+  %62 = getelementptr inbounds nuw i8, ptr %.2233, i64 %.0123
   br label %176
 
 63:                                               ; preds = %skip.exit
@@ -240,11 +240,11 @@ checktz.exit:                                     ; preds = %54
 67:                                               ; preds = %65
   %68 = zext nneg i8 %17 to i32
   %69 = add nsw i32 %68, -48
-  %70 = getelementptr inbounds i8, ptr %.2233, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.2233, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = add i8 %71, -48
   %or.cond.i.i = icmp ult i8 %72, 10
-  %73 = getelementptr inbounds i8, ptr %.2233, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %.2233, i64 2
   %74 = mul nuw nsw i32 %69, 10
   %75 = zext nneg i8 %71 to i32
   %76 = add nsw i32 %74, -48
@@ -260,7 +260,7 @@ checktz.exit:                                     ; preds = %54
   br i1 %81, label %82, label %match_time.exit.thread
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = add i8 %84, -48
   %or.cond.i198 = icmp ult i8 %85, 10
@@ -269,7 +269,7 @@ checktz.exit:                                     ; preds = %54
 86:                                               ; preds = %82
   %87 = zext nneg i8 %84 to i32
   %88 = add nsw i32 %87, -48
-  %89 = getelementptr inbounds i8, ptr %.1.i, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = add i8 %90, -48
   %or.cond.i18.i = icmp ult i8 %91, 10
@@ -284,7 +284,7 @@ oneortwodigit.exit20.i:                           ; preds = %86
   br i1 %96, label %thread-pre-split.i, label %match_time.exit.thread
 
 thread-pre-split.i:                               ; preds = %oneortwodigit.exit20.i
-  %97 = getelementptr inbounds i8, ptr %.1.i, i64 3
+  %97 = getelementptr inbounds nuw i8, ptr %.1.i, i64 3
   %.pr.i = load i8, ptr %97, align 1
   br label %oneortwodigit.exit20.thread.i
 
@@ -296,7 +296,7 @@ oneortwodigit.exit20.thread.i:                    ; preds = %thread-pre-split.i,
   br i1 %99, label %100, label %116
 
 100:                                              ; preds = %oneortwodigit.exit20.thread.i
-  %101 = getelementptr inbounds i8, ptr %.229.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.229.i, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = add i8 %102, -48
   %or.cond17.i = icmp ult i8 %103, 10
@@ -305,14 +305,14 @@ oneortwodigit.exit20.thread.i:                    ; preds = %thread-pre-split.i,
 104:                                              ; preds = %100
   %105 = zext nneg i8 %102 to i32
   %106 = add nsw i32 %105, -48
-  %107 = getelementptr inbounds i8, ptr %.229.i, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.229.i, i64 2
   %108 = load i8, ptr %107, align 1
   %109 = add i8 %108, -48
   %or.cond.i21.i = icmp ult i8 %109, 10
   br i1 %or.cond.i21.i, label %oneortwodigit.exit23.i, label %116
 
 oneortwodigit.exit23.i:                           ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %.229.i, i64 3
+  %110 = getelementptr inbounds nuw i8, ptr %.229.i, i64 3
   %111 = mul nuw nsw i32 %106, 10
   %112 = zext nneg i8 %108 to i32
   %113 = add nsw i32 %111, -48

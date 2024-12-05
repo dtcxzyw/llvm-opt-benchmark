@@ -225,7 +225,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @wmem_list_tail(ptr noundef %17) #3
   %19 = tail call ptr @wmem_list_frame_prev(ptr noundef %18) #3
@@ -240,10 +240,10 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   store i32 1, ptr %9, align 4
   %26 = load i32, ptr %3, align 8
   store i32 %26, ptr %7, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %8, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %30, 0
   %31 = zext i1 %.not to i32
@@ -251,9 +251,9 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %32, label %37
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %3, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 68
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -263,51 +263,51 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %.sink, ptr %11, align 4
   store i32 %storemerge, ptr %12, align 4
   store i32 256, ptr %13, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %39 = load i16, ptr %38, align 8
   %40 = zext i16 %39 to i32
   store i32 %40, ptr %14, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr %15, align 4
   store i32 1, ptr %6, align 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %8, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %6, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %9, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 1, ptr %48, align 16
-  %49 = getelementptr inbounds i8, ptr %6, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %10, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 1, ptr %50, align 16
-  %51 = getelementptr inbounds i8, ptr %6, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %11, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 1, ptr %52, align 16
-  %53 = getelementptr inbounds i8, ptr %6, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %12, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %54, align 16
-  %55 = getelementptr inbounds i8, ptr %6, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %13, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 1, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %6, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %14, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i32 1, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %15, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 0, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %6, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr null, ptr %61, align 8
   %62 = call ptr @btsdp_get_service_info(ptr noundef nonnull %6) #3
   %.not85 = icmp eq ptr %62, null
@@ -320,23 +320,23 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %66, label %67, label %.thread
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %62, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %8, align 4
   %71 = icmp eq i32 %69, %70
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %62, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %76, label %.thread
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %62, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 1
-  %80 = getelementptr inbounds i8, ptr %62, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %81 = load i32, ptr %80, align 8
   br i1 %79, label %82, label %90
 
@@ -346,7 +346,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %62, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = load i32, ptr %12, align 4
   %89 = icmp eq i32 %87, %88
@@ -357,19 +357,19 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %91, label %92, label %.thread
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %62, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %.thread
 
 96:                                               ; preds = %92, %85
-  %97 = getelementptr inbounds i8, ptr %62, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, 256
   br i1 %99, label %100, label %.thread
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %62, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %102 = load i32, ptr %101, align 4
   %103 = load i16, ptr %38, align 8
   %104 = zext i16 %103 to i32
@@ -377,7 +377,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %105, label %106, label %.thread
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %62, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %108 = load i32, ptr %107, align 8
   switch i32 %108, label %.thread [
     i32 18, label %109
@@ -388,7 +388,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
 109:                                              ; preds = %106, %106
   %110 = load i32, ptr %29, align 4
   %.not87 = icmp eq i32 %110, 0
-  %111 = getelementptr inbounds i8, ptr %1, i64 348
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %112 = load i32, ptr %111, align 4
   br i1 %.not87, label %113, label %115
 
@@ -406,7 +406,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
 117:                                              ; preds = %106
   %118 = load i32, ptr %29, align 4
   %.not89 = icmp eq i32 %118, 0
-  %119 = getelementptr inbounds i8, ptr %1, i64 348
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %120 = load i32, ptr %119, align 4
   br i1 %.not89, label %123, label %121
 
@@ -464,10 +464,10 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   %145 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %146 = load i32, ptr @ett_bthcrp, align 4
   %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #3
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %149 = load ptr, ptr %148, align 8
   call void @col_set_str(ptr noundef %149, i32 noundef 34, ptr noundef nonnull @.str.94) #3
-  %150 = getelementptr inbounds i8, ptr %1, i64 348
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %151 = load i32, ptr %150, align 4
   %152 = load ptr, ptr %148, align 8
   %switch.selectcmp = icmp eq i32 %151, 1
@@ -696,7 +696,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
 265:                                              ; preds = %251
   %266 = load i32, ptr @hf_bthcrp_control_1284_id, align 4
   %267 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #3
-  %268 = getelementptr inbounds i8, ptr %1, i64 408
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %269 = load ptr, ptr %268, align 8
   %270 = call ptr @proto_tree_add_item_ret_string(ptr noundef %147, i32 noundef %266, ptr noundef %0, i32 noundef %.0.i, i32 noundef %267, i32 noundef 0, ptr noundef %269, ptr noundef nonnull %5) #3
   %271 = load ptr, ptr %148, align 8

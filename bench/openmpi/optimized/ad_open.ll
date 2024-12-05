@@ -50,54 +50,54 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 26:                                               ; preds = %12
   %27 = tail call ptr @MPIO_File_resolve(ptr noundef nonnull %21) #7
   store i32 2487376, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i64 %6, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr %1, ptr %30, align 8
   %31 = tail call ptr @ADIOI_Strdup(ptr noundef %2) #7
-  %32 = getelementptr inbounds i8, ptr %27, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i32 %3, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 232
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %4, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 104
   store i64 %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %27, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 152
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %27, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 200
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 216
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %27, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store ptr %7, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %27, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store ptr %8, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %27, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store i64 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %27, i64 240
-  %44 = getelementptr inbounds i8, ptr %27, i64 212
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 240
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 212
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   store i32 %10, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %27, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 208
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %27, i64 220
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 220
   store i32 -1, ptr %46, align 4
   %47 = load ptr, ptr @ADIOI_DFLT_ERR_HANDLER, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 224
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 224
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %27, i64 272
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 272
   store ptr @ompi_mpi_win_null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %27, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 288
   store ptr @ompi_mpi_win_null, ptr %50, align 8
   %51 = call i32 @PMPI_Comm_rank(ptr noundef %1, ptr noundef nonnull %15) #7
   %52 = call i32 @PMPI_Comm_size(ptr noundef %1, ptr noundef nonnull %16) #7
   %53 = call ptr @ADIOI_Calloc_fn(i64 noundef 1, i64 noundef 144, i32 noundef 82, ptr noundef nonnull @.str.1) #7
-  %54 = getelementptr inbounds i8, ptr %27, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 136
   store ptr %53, ptr %54, align 8
   %55 = icmp eq ptr %53, null
   br i1 %55, label %56, label %59
@@ -109,14 +109,14 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %207
 
 59:                                               ; preds = %26
-  %60 = getelementptr inbounds i8, ptr %53, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 80
   store ptr null, ptr %60, align 8
   %61 = load ptr, ptr %54, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
   store ptr null, ptr %62, align 8
   %63 = load ptr, ptr %54, align 8
   store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %27, i64 144
+  %64 = getelementptr inbounds nuw i8, ptr %27, i64 144
   store ptr @ompi_mpi_info_null, ptr %64, align 8
   %65 = load ptr, ptr @ADIOI_syshints, align 8
   %66 = icmp ne ptr %65, @ompi_mpi_info_null
@@ -147,7 +147,7 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %78 = load ptr, ptr @ADIOI_syshints, align 8
   call void @ADIOI_incorporate_system_hints(ptr noundef %9, ptr noundef %78, ptr noundef nonnull %18) #7
   %79 = load ptr, ptr %35, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %18, align 8
   call void %81(ptr noundef nonnull %27, ptr noundef %82, ptr noundef nonnull %14) #7
@@ -164,25 +164,25 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 86:                                               ; preds = %84, %77
   %87 = load ptr, ptr %64, align 8
   %88 = load ptr, ptr %35, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 192
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 192
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 @PMPI_Info_set(ptr noundef %87, ptr noundef nonnull @.str.2, ptr noundef %90) #7
   %92 = load ptr, ptr %54, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load i32, ptr %93, align 8
   %95 = sext i32 %94 to i64
   %96 = call ptr @ADIOI_Malloc_fn(i64 noundef %95, i32 noundef 130, ptr noundef nonnull @.str.1) #7
-  %97 = getelementptr inbounds i8, ptr %27, i64 264
+  %97 = getelementptr inbounds nuw i8, ptr %27, i64 264
   store ptr %96, ptr %97, align 8
   %98 = load ptr, ptr %54, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 68
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 68
   %100 = load i32, ptr %99, align 4
   %.not113 = icmp eq i32 %100, 0
   br i1 %.not113, label %114, label %101
 
 101:                                              ; preds = %86
   %102 = load ptr, ptr %35, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 184
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 184
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 %104(ptr noundef nonnull %27, i32 noundef 306) #7
   %.not.i.not = icmp eq i32 %105, 0
@@ -190,7 +190,7 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %35, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 184
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 184
   %109 = load ptr, ptr %108, align 8
   %110 = call i32 %109(ptr noundef nonnull %27, i32 noundef 306) #7
   %.not.i124.not = icmp eq i32 %110, 0
@@ -198,13 +198,13 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 111:                                              ; preds = %106, %101
   %112 = load ptr, ptr %54, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 68
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 68
   store i32 0, ptr %113, align 4
   br label %114
 
 114:                                              ; preds = %111, %106, %86
   %115 = load ptr, ptr %35, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 184
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 184
   %117 = load ptr, ptr %116, align 8
   %118 = call i32 %117(ptr noundef nonnull %27, i32 noundef 304) #7
   %.not116 = icmp eq i32 %118, 0
@@ -212,13 +212,13 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 119:                                              ; preds = %114
   %120 = load ptr, ptr %54, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 68
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 68
   store i32 0, ptr %121, align 4
   br label %122
 
 122:                                              ; preds = %119, %114
   %123 = load ptr, ptr %54, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 88
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 88
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %.preheader.i
@@ -245,10 +245,10 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 140:                                              ; preds = %132
   %141 = load ptr, ptr %54, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 80
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 80
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %13, align 8
-  %145 = getelementptr inbounds i8, ptr %141, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 20
   %146 = load i32, ptr %145, align 4
   %147 = call i32 @ADIOI_cb_config_list_parse(ptr noundef %143, ptr noundef %144, ptr noundef nonnull %135, i32 noundef %146) #7
   %148 = icmp sgt i32 %147, 0
@@ -259,10 +259,10 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %151 = shl nuw nsw i64 %150, 2
   %152 = call ptr @ADIOI_Malloc_fn(i64 noundef %151, i32 noundef 299, ptr noundef nonnull @.str.1) #7
   %153 = load ptr, ptr %54, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 88
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 88
   store ptr %152, ptr %154, align 8
   %155 = load ptr, ptr %54, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 88
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 88
   %157 = load ptr, ptr %156, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %157, ptr nonnull align 4 %135, i64 %151, i1 false)
   br label %158
@@ -270,7 +270,7 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 158:                                              ; preds = %149, %140
   call void @ADIOI_Free_fn(ptr noundef nonnull %135, i32 noundef 302, ptr noundef nonnull @.str.1) #7
   %159 = load ptr, ptr %54, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 20
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 20
   store i32 %147, ptr %160, align 4
   %161 = call ptr @ADIOI_Malloc_fn(i64 noundef 257, i32 noundef 305, ptr noundef nonnull @.str.1) #7
   %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %161, i64 noundef 257, ptr noundef nonnull @.str.5, i32 noundef %147) #7
@@ -282,7 +282,7 @@ define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 165:                                              ; preds = %158, %127
   %166 = call i32 @ADIOI_cb_bcast_rank_map(ptr noundef nonnull %27) #7
   %167 = load ptr, ptr %54, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 20
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %169 = load i32, ptr %168, align 4
   %170 = icmp slt i32 %169, 1
   br i1 %170, label %171, label %build_cb_config_list.exitthread-pre-split
@@ -312,25 +312,25 @@ build_cb_config_list.exit..preheader.i_crit_edge: ; preds = %build_cb_config_lis
 
 .preheader.i:                                     ; preds = %build_cb_config_list.exit..preheader.i_crit_edge, %122
   %174 = phi ptr [ %.pre128, %build_cb_config_list.exit..preheader.i_crit_edge ], [ %123, %122 ]
-  %175 = getelementptr inbounds i8, ptr %27, i64 72
+  %175 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store i32 0, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %27, i64 256
+  %176 = getelementptr inbounds nuw i8, ptr %27, i64 256
   store i32 -2, ptr %176, align 8
   %177 = load i32, ptr %15, align 4
-  %178 = getelementptr inbounds i8, ptr %174, i64 20
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 20
   %179 = load i32, ptr %178, align 4
   %180 = icmp sgt i32 %179, 0
   br i1 %180, label %.lr.ph.i, label %is_aggregator.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %181 = getelementptr inbounds i8, ptr %174, i64 88
+  %181 = getelementptr inbounds nuw i8, ptr %174, i64 88
   %182 = load ptr, ptr %181, align 8
   %wide.trip.count.i = zext nneg i32 %179 to i64
   br label %183
 
 183:                                              ; preds = %189, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %189 ]
-  %184 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i
+  %184 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv.i
   %185 = load i32, ptr %184, align 4
   %186 = icmp eq i32 %177, %185
   br i1 %186, label %187, label %189
@@ -348,15 +348,15 @@ is_aggregator.exit:                               ; preds = %189, %.preheader.i,
   %storemerge = phi i32 [ %188, %187 ], [ -1, %.preheader.i ], [ -1, %189 ]
   %.011.i = phi i32 [ 1, %187 ], [ 0, %.preheader.i ], [ 0, %189 ]
   store i32 %storemerge, ptr %176, align 8
-  %190 = getelementptr inbounds i8, ptr %27, i64 76
+  %190 = getelementptr inbounds nuw i8, ptr %27, i64 76
   store i32 %.011.i, ptr %190, align 4
   %191 = load ptr, ptr %35, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   call void %193(ptr noundef nonnull %27, i32 noundef %177, i32 noundef %5, ptr noundef nonnull %11) #7
-  %194 = getelementptr inbounds i8, ptr %27, i64 96
+  %194 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store i32 %5, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %27, i64 92
+  %195 = getelementptr inbounds nuw i8, ptr %27, i64 92
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 64
   %.not118 = icmp eq i32 %197, 0
@@ -393,38 +393,38 @@ is_aggregator.exit:                               ; preds = %189, %.preheader.i,
   br i1 %212, label %213, label %225
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %.0, i64 136
+  %214 = getelementptr inbounds nuw i8, ptr %.0, i64 136
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 68
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 68
   %217 = load i32, ptr %216, align 4
   %.not120 = icmp eq i32 %217, 0
   br i1 %.not120, label %.sink.split, label %218
 
 218:                                              ; preds = %213
-  %219 = getelementptr inbounds i8, ptr %.0, i64 76
+  %219 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %220 = load i32, ptr %219, align 4
   %.not121 = icmp eq i32 %220, 0
   br i1 %.not121, label %225, label %.sink.split
 
 .sink.split:                                      ; preds = %213, %218
-  %221 = getelementptr inbounds i8, ptr %.0, i64 56
+  %221 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 88
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 88
   %224 = load ptr, ptr %223, align 8
   call void %224(ptr noundef nonnull %.0, ptr noundef nonnull %11) #7
   br label %225
 
 225:                                              ; preds = %.sink.split, %218, %210
-  %226 = getelementptr inbounds i8, ptr %.0, i64 80
+  %226 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %227 = load ptr, ptr %226, align 8
   call void @ADIOI_Free_fn(ptr noundef %227, i32 noundef 204, ptr noundef nonnull @.str.1) #7
-  %228 = getelementptr inbounds i8, ptr %.0, i64 136
+  %228 = getelementptr inbounds nuw i8, ptr %.0, i64 136
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 88
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 88
   %231 = load ptr, ptr %230, align 8
   call void @ADIOI_Free_fn(ptr noundef %231, i32 noundef 205, ptr noundef nonnull @.str.1) #7
   %232 = load ptr, ptr %228, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 80
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 80
   %234 = load ptr, ptr %233, align 8
   %.not122 = icmp eq ptr %234, null
   br i1 %.not122, label %236, label %235
@@ -437,7 +437,7 @@ is_aggregator.exit:                               ; preds = %189, %.preheader.i,
 236:                                              ; preds = %235, %225
   %237 = phi ptr [ %.pre129, %235 ], [ %232, %225 ]
   call void @ADIOI_Free_fn(ptr noundef %237, i32 noundef 208, ptr noundef nonnull @.str.1) #7
-  %238 = getelementptr inbounds i8, ptr %.0, i64 144
+  %238 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   %239 = load ptr, ptr %238, align 8
   %.not123 = icmp eq ptr %239, @ompi_mpi_info_null
   br i1 %.not123, label %242, label %240
@@ -447,7 +447,7 @@ is_aggregator.exit:                               ; preds = %189, %.preheader.i,
   br label %242
 
 242:                                              ; preds = %240, %236
-  %243 = getelementptr inbounds i8, ptr %.0, i64 264
+  %243 = getelementptr inbounds nuw i8, ptr %.0, i64 264
   %244 = load ptr, ptr %243, align 8
   call void @ADIOI_Free_fn(ptr noundef %244, i32 noundef 211, ptr noundef nonnull @.str.1) #7
   call void @ADIOI_Free_fn(ptr noundef nonnull %.0, i32 noundef 212, ptr noundef nonnull @.str.1) #7

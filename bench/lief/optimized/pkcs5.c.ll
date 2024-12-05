@@ -42,10 +42,10 @@ define hidden i32 @mbedtls_pkcs5_pbes2(ptr nocapture noundef readonly %0, i32 no
   store i32 0, ptr %11, align 4
   store i32 2, ptr %18, align 4
   store i64 0, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
   %30 = load i32, ptr %0, align 8
@@ -62,13 +62,13 @@ define hidden i32 @mbedtls_pkcs5_pbes2(ptr nocapture noundef readonly %0, i32 no
   br label %.critedge
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %13, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %37 = load i64, ptr %36, align 8
   %.not33 = icmp eq i64 %37, 9
   br i1 %.not33, label %38, label %.critedge
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %13, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %40 = load ptr, ptr %39, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.1, ptr noundef nonnull dereferenceable(9) %40, i64 9)
   %.not50 = icmp eq i32 %bcmp, 0
@@ -77,10 +77,10 @@ define hidden i32 @mbedtls_pkcs5_pbes2(ptr nocapture noundef readonly %0, i32 no
 41:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %42 = getelementptr inbounds i8, ptr %15, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %43, i64 %45
   %47 = load i32, ptr %15, align 8
@@ -88,14 +88,14 @@ define hidden i32 @mbedtls_pkcs5_pbes2(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not.i, label %48, label %pkcs5_parse_pbkdf2_params.exit.thread47
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %17, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %50 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %46, ptr noundef nonnull %49, i32 noundef 4) #8
   %.not28.i = icmp eq i32 %50, 0
   br i1 %.not28.i, label %51, label %pkcs5_parse_pbkdf2_params.exit
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %17, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %52, ptr %53, align 8
   %54 = load i64, ptr %49, align 8
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
@@ -187,7 +187,7 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = lshr i32 %87, 3
   store i32 %88, ptr %11, align 4
@@ -196,9 +196,9 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br i1 %.not37, label %90, label %.critedge
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %16, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %83, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %94 = load i32, ptr %93, align 8
   %95 = zext i32 %94 to i64
   %.not38 = icmp eq i64 %92, %95
@@ -207,7 +207,7 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
 96:                                               ; preds = %90
   call void @mbedtls_md_init(ptr noundef nonnull %22) #8
   call void @mbedtls_cipher_init(ptr noundef nonnull %24) #8
-  %97 = getelementptr inbounds i8, ptr %16, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = load i64, ptr %91, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %20, ptr align 1 %98, i64 %99, i1 false)
@@ -216,7 +216,7 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br i1 %.not39, label %101, label %117
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %17, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = load i64, ptr %49, align 8
   %105 = load i32, ptr %10, align 4
@@ -337,7 +337,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 26:                                               ; preds = %25
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
   %27 = and i64 %indvars.iv.next123, 4294967295
-  %28 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = add i8 %29, 1
   store i8 %30, ptr %28, align 1
@@ -366,9 +366,9 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 
 .preheader.us.us.us:                              ; preds = %36, %.preheader.us.us.us
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.preheader.us.us.us ], [ 0, %36 ]
-  %38 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 %indvars.iv118
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %indvars.iv118
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 %indvars.iv118
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv118
   %41 = load i8, ptr %40, align 1
   %42 = xor i8 %41, %39
   store i8 %42, ptr %40, align 1
@@ -386,7 +386,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   %45 = zext nneg i32 %44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077.us.us, ptr nonnull align 16 %10, i64 %45, i1 false)
   %46 = sub i32 %.04176.us.us, %44
-  %47 = getelementptr inbounds i8, ptr %.077.us.us, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %.077.us.us, i64 %45
   br label %25
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %61
@@ -423,7 +423,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 56:                                               ; preds = %55
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, -1
   %57 = and i64 %indvars.iv.next127, 4294967295
-  %58 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = add i8 %59, 1
   store i8 %60, ptr %58, align 1
@@ -460,7 +460,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   %70 = zext nneg i32 %69 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077.us, ptr nonnull align 16 %10, i64 %70, i1 false)
   %71 = sub nuw nsw i32 %.04176.us, %69
-  %72 = getelementptr inbounds i8, ptr %.077.us, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %.077.us, i64 %70
   br label %55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %91
@@ -491,7 +491,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   %82 = zext nneg i32 %81 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077, ptr nonnull align 16 %10, i64 %82, i1 false)
   %83 = sub i32 %.04176, %81
-  %84 = getelementptr inbounds i8, ptr %.077, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %.077, i64 %82
   br label %85
 
 85:                                               ; preds = %86, %80
@@ -502,7 +502,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 86:                                               ; preds = %85
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %87 = and i64 %indvars.iv.next, 4294967295
-  %88 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = add i8 %89, 1
   store i8 %90, ptr %88, align 1
@@ -566,22 +566,22 @@ define hidden range(i32 0, 2) i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local
 
 .preheader.split.us:                              ; preds = %.preheader, %22
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %22 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %indvars.iv32
-  %9 = getelementptr inbounds [6 x i64], ptr @plen_test_data, i64 0, i64 %indvars.iv32
+  %8 = getelementptr inbounds nuw [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %indvars.iv32
+  %9 = getelementptr inbounds nuw [6 x i64], ptr @plen_test_data, i64 0, i64 %indvars.iv32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %indvars.iv32
-  %12 = getelementptr inbounds [6 x i64], ptr @slen_test_data, i64 0, i64 %indvars.iv32
+  %11 = getelementptr inbounds nuw [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %indvars.iv32
+  %12 = getelementptr inbounds nuw [6 x i64], ptr @slen_test_data, i64 0, i64 %indvars.iv32
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %indvars.iv32
+  %14 = getelementptr inbounds nuw [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %indvars.iv32
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %indvars.iv32
+  %16 = getelementptr inbounds nuw [6 x i32], ptr @key_len_test_data, i64 0, i64 %indvars.iv32
   %17 = load i32, ptr %16, align 4
   %18 = call i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %11, i64 noundef %13, i32 noundef %15, i32 noundef %17, ptr noundef nonnull %3)
   %.not24.us = icmp eq i32 %18, 0
   br i1 %.not24.us, label %19, label %.critedge
 
 19:                                               ; preds = %.preheader.split.us
-  %20 = getelementptr inbounds [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %indvars.iv32
   %21 = zext i32 %17 to i64
   %bcmp.us = call i32 @bcmp(ptr nonnull %20, ptr nonnull %3, i64 %21)
   %.not25.us = icmp eq i32 %bcmp.us, 0
@@ -596,22 +596,22 @@ define hidden range(i32 0, 2) i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader ]
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23)
-  %25 = getelementptr inbounds [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %indvars.iv
-  %26 = getelementptr inbounds [6 x i64], ptr @plen_test_data, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [6 x i64], ptr @plen_test_data, i64 0, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %indvars.iv
-  %29 = getelementptr inbounds [6 x i64], ptr @slen_test_data, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [6 x i64], ptr @slen_test_data, i64 0, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [6 x i32], ptr @key_len_test_data, i64 0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = call i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef nonnull %2, ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull %28, i64 noundef %30, i32 noundef %32, i32 noundef %34, ptr noundef nonnull %3)
   %.not24 = icmp eq i32 %35, 0
   br i1 %.not24, label %36, label %.split.us
 
 36:                                               ; preds = %.preheader.split
-  %37 = getelementptr inbounds [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %indvars.iv
   %38 = zext i32 %34 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %37, ptr nonnull %3, i64 %38)
   %.not25 = icmp eq i32 %bcmp, 0

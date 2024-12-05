@@ -15,37 +15,37 @@ define float @Map_SwitchCutGetDerefed(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i8, ptr %4, align 4
   %or.cond = icmp sgt i8 %5, 1
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %59
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %59 ], [ 0, %.lr.ph ]
   %.0491.us = phi float [ %.1.us, %59 ], [ %.56.val, %.lr.ph ]
-  %7 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv5
+  %7 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv5
   %8 = load ptr, ptr %7, align 8
   %9 = trunc nuw nsw i64 %indvars.iv5 to i32
   %10 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %9) #2
-  %11 = getelementptr inbounds i8, ptr %8, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %12 = load ptr, ptr %11, align 8
   %.not53.us = icmp eq ptr %12, null
   br i1 %.not53.us, label %26, label %13
 
 13:                                               ; preds = %.lr.ph.split.us
-  %14 = getelementptr inbounds i8, ptr %8, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %15 = load ptr, ptr %14, align 8
   %.not54.us = icmp eq ptr %15, null
   br i1 %.not54.us, label %26, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr %18, align 8
@@ -58,7 +58,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %25, label %59, label %46
 
 26:                                               ; preds = %13, %.lr.ph.split.us
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %28 = sext i32 %10 to i64
   %29 = getelementptr inbounds [3 x i32], ptr %27, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
@@ -74,14 +74,14 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %8, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %39 = load float, ptr %38, align 8
   %40 = fadd float %.0491.us, %39
   br label %41
 
 41:                                               ; preds = %37, %33, %26
   %.4.us = phi float [ %40, %37 ], [ %.0491.us, %33 ], [ %.0491.us, %26 ]
-  %42 = getelementptr inbounds i8, ptr %8, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %42, align 8
@@ -100,7 +100,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.not57.us = icmp eq i32 %10, 0
   %51 = zext i1 %.not57.us to i32
   %52 = zext i1 %.not57.us to i64
-  %53 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [2 x ptr], ptr %11, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   br label %55
 
@@ -124,24 +124,24 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %.lr.ph ]
   %.0491 = phi float [ %.1, %115 ], [ %.56.val, %.lr.ph ]
-  %63 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %65) #2
-  %67 = getelementptr inbounds i8, ptr %64, i64 144
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %68 = load ptr, ptr %67, align 8
   %.not55 = icmp eq ptr %68, null
   br i1 %.not55, label %82, label %69
 
 69:                                               ; preds = %.lr.ph.split
-  %70 = getelementptr inbounds i8, ptr %64, i64 152
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %71 = load ptr, ptr %70, align 8
   %.not56 = icmp eq ptr %71, null
   br i1 %.not56, label %82, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %64, i64 32
-  %74 = getelementptr inbounds i8, ptr %64, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %75 = load i32, ptr %74, align 8
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %74, align 8
@@ -154,7 +154,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %81, label %115, label %102
 
 82:                                               ; preds = %69, %.lr.ph.split
-  %83 = getelementptr inbounds i8, ptr %64, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %84 = sext i32 %66 to i64
   %85 = getelementptr inbounds [3 x i32], ptr %83, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -170,14 +170,14 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %64, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %95 = load float, ptr %94, align 8
   %96 = fadd float %.0491, %95
   br label %97
 
 97:                                               ; preds = %93, %89, %82
   %.2 = phi float [ %96, %93 ], [ %.0491, %89 ], [ %.0491, %82 ]
-  %98 = getelementptr inbounds i8, ptr %64, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %99 = load i32, ptr %98, align 8
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 8
@@ -196,7 +196,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.not57 = icmp eq i32 %66, 0
   %107 = zext i1 %.not57 to i32
   %108 = zext i1 %.not57 to i64
-  %109 = getelementptr inbounds [2 x ptr], ptr %67, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %108
   %110 = load ptr, ptr %109, align 8
   br label %111
 
@@ -240,22 +240,22 @@ define float @Map_SwitchCutDeref(ptr nocapture noundef readonly %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %59, %1
   %.033.lcssa = phi float [ 0.000000e+00, %1 ], [ %.134, %59 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph43, label %._crit_edge
 
 .lr.ph43:                                         ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %65
 
 .lr.ph:                                           ; preds = %1, %59
@@ -263,10 +263,10 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
   %11 = phi ptr [ %60, %59 ], [ %3, %1 ]
   %.03339 = phi float [ %.134, %59 ], [ 0.000000e+00, %1 ]
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %59, label %19
@@ -274,7 +274,7 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
 19:                                               ; preds = %.lr.ph
   %20 = tail call i32 @Map_NodeIsAnd(ptr noundef nonnull %14) #2
   %.not36 = icmp eq i32 %20, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 144
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 144
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not36, label %._crit_edge49, label %21
 
@@ -288,33 +288,33 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %14, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25, %22
-  %30 = getelementptr inbounds i8, ptr %14, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %31 = load float, ptr %30, align 8
   %32 = fadd float %.03339, %31
   br label %33
 
 33:                                               ; preds = %29, %25, %21
   %.3 = phi float [ %32, %29 ], [ %.03339, %25 ], [ %.03339, %21 ]
-  %34 = getelementptr inbounds i8, ptr %14, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %35 = load ptr, ptr %34, align 8
   %.not38 = icmp eq ptr %35, null
   br i1 %.not38, label %._crit_edge49, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %14, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   %brmerge = or i1 %.not37, %39
   br i1 %brmerge, label %40, label %.thread
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %14, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %42 = load float, ptr %41, align 8
   %43 = fadd float %.3, %42
   br label %._crit_edge49
@@ -331,20 +331,20 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
 
 .thread:                                          ; preds = %36, %45, %._crit_edge49
   %.252 = phi float [ %.2, %45 ], [ %.2, %._crit_edge49 ], [ %.3, %36 ]
-  %48 = getelementptr inbounds i8, ptr %14, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %14, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51, %45
   %.251 = phi float [ %.252, %51 ], [ %.2, %45 ]
-  %56 = getelementptr inbounds i8, ptr %14, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %57 = load float, ptr %56, align 8
   %58 = fadd float %.251, %57
   br label %59
@@ -353,7 +353,7 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
   %.134 = phi float [ %.03339, %.lr.ph ], [ %58, %55 ], [ %.252, %51 ], [ %.252, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
@@ -363,7 +363,7 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %80 ]
   %.441 = phi float [ %.033.lcssa, %.lr.ph43 ], [ %.5, %80 ]
   %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv46
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv46
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @Map_NodeIsVar(ptr noundef %68) #2
   %.not = icmp eq i32 %69, 0
@@ -371,7 +371,7 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv46
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv46
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, 1
@@ -379,7 +379,7 @@ define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_u
   br i1 %.not35, label %76, label %80
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %73, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %78 = load float, ptr %77, align 8
   %79 = fadd float %.441, %78
   br label %80

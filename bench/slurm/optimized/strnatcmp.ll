@@ -31,7 +31,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
   %.038.in = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %.038 = load i8, ptr %.038.in, align 1
   %12 = zext i8 %.038 to i64
-  %13 = getelementptr inbounds i16, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %5, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
@@ -41,7 +41,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
 .preheader:                                       ; preds = %11
   %.038.in.le = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %16 = zext i8 %9 to i64
-  %17 = getelementptr inbounds i16, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %5, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8192
   %.not4872 = icmp eq i16 %19, 0
@@ -53,7 +53,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
   %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next89
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw i16, ptr %5, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8192
   %.not48 = icmp eq i16 %25, 0
@@ -86,7 +86,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
   %.01020.i = phi ptr [ %46, %45 ], [ %.038.in.le, %29 ]
   %36 = load i8, ptr %.021.i, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 2048
   %.not16.i = icmp eq i16 %40, 0
@@ -101,11 +101,11 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
   br i1 %44, label %compare_left.exit.thread, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.01020.i, i64 1
-  %47 = getelementptr inbounds i8, ptr %.021.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.01020.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %48 = load i8, ptr %46, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds i16, ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw i16, ptr %5, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 2048
   %.not.i = icmp eq i16 %52, 0
@@ -114,7 +114,7 @@ define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr no
 compare_left.exit:                                ; preds = %45
   %53 = load i8, ptr %47, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %5, i64 %54
+  %55 = getelementptr inbounds nuw i16, ptr %5, i64 %54
   %56 = load i16, ptr %55, align 2
   %.mask = and i16 %56, 2048
   %.not52 = icmp eq i16 %.mask, 0
@@ -123,7 +123,7 @@ compare_left.exit:                                ; preds = %45
 ._crit_edge.i56:                                  ; preds = %76
   %57 = load i8, ptr %78, align 1
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw i16, ptr %5, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 2048
   %.not22.i = icmp eq i16 %61, 0
@@ -136,7 +136,7 @@ compare_left.exit:                                ; preds = %45
   %.01833.i = phi ptr [ %77, %76 ], [ %.038.in.le, %29 ]
   %63 = load i8, ptr %.01734.i, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds i16, ptr %5, i64 %64
+  %65 = getelementptr inbounds nuw i16, ptr %5, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 2048
   %.not24.i = icmp eq i16 %67, 0
@@ -166,11 +166,11 @@ compare_left.exit:                                ; preds = %45
 
 76:                                               ; preds = %74, %73, %70
   %.1.i = phi i32 [ %spec.store.select.i, %70 ], [ %spec.store.select1.i, %73 ], [ %.035.i, %74 ]
-  %77 = getelementptr inbounds i8, ptr %.01833.i, i64 1
-  %78 = getelementptr inbounds i8, ptr %.01734.i, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.01833.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.01734.i, i64 1
   %79 = load i8, ptr %77, align 1
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds i16, ptr %5, i64 %80
+  %81 = getelementptr inbounds nuw i16, ptr %5, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 2048
   %.not.i55 = icmp eq i16 %83, 0

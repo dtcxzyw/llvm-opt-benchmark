@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef range(i32 -12, 1) i32 @refill_pi_state_cache() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 2328
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2328
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %15, !prof !7
@@ -49,14 +49,14 @@ define dso_local noundef range(i32 -12, 1) i32 @refill_pi_state_cache() local_un
 
 10:                                               ; preds = %6
   store volatile ptr %8, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store volatile i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store ptr %8, ptr %3, align 8
   br label %15
 
@@ -79,7 +79,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @get_pi_state(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %.preheader
@@ -87,7 +87,7 @@ define dso_local void @get_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
 .preheader:                                       ; preds = %1, %10
   %5 = phi i32 [ %11, %10 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #13, !srcloc !8
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #13, !srcloc !8
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -107,7 +107,7 @@ define dso_local void @get_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %16, label %18, label %17, !prof !12
 
 17:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef 0) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %2, i32 noundef 0) #13
   br label %18
 
 18:                                               ; preds = %17, %.thread
@@ -130,8 +130,8 @@ define dso_local void @put_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #13, !srcloc !16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -1, ptr nonnull elementtype(i32) %4) #13, !srcloc !16
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %10, label %7
 
@@ -140,26 +140,26 @@ define dso_local void @put_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %8, label %.thread, label %9, !prof !12
 
 9:                                                ; preds = %7
-  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %4, i32 noundef 3) #13
   br label %.thread
 
 10:                                               ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %30, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %15) #13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %15) #13
   %17 = load ptr, ptr %11, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %17, i64 2060
-  tail call void @_raw_spin_lock(ptr noundef %20) #13
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 2060
+  tail call void @_raw_spin_lock(ptr noundef nonnull %20) #13
   %21 = load volatile ptr, ptr %0, align 8
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %23, label %24, !prof !7
@@ -173,25 +173,25 @@ define dso_local void @put_pi_state(ptr noundef %0) local_unnamed_addr #0 align 
 
 24:                                               ; preds = %23, %19
   %25 = phi ptr [ %.pre, %23 ], [ %21, %19 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %27, ptr %28, align 8
   store volatile ptr %25, ptr %27, align 8
   store volatile ptr %0, ptr %0, align 8
   store volatile ptr %0, ptr %26, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %20) #13
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #13
   br label %29
 
 29:                                               ; preds = %24, %14
-  tail call void @rt_mutex_proxy_unlock(ptr noundef %15) #13
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %15, i64 noundef %16) #13
+  tail call void @rt_mutex_proxy_unlock(ptr noundef nonnull %15) #13
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %15, i64 noundef %16) #13
   br label %30
 
 30:                                               ; preds = %29, %10
   %31 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 2328
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2328
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %37, label %36
@@ -215,14 +215,14 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pi_state_update_owner(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 2060
-  tail call void @_raw_spin_lock(ptr noundef %7) #13
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2060
+  tail call void @_raw_spin_lock(ptr noundef nonnull %7) #13
   %8 = load volatile ptr, ptr %0, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %11, !prof !7
@@ -236,14 +236,14 @@ define internal fastcc void @pi_state_update_owner(ptr noundef %0, ptr noundef %
 
 11:                                               ; preds = %10, %6
   %12 = phi ptr [ %.pre, %10 ], [ %8, %6 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %15, align 8
   store volatile ptr %12, ptr %14, align 8
   store volatile ptr %0, ptr %0, align 8
   store volatile ptr %0, ptr %13, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %7) #13
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #13
   br label %16
 
 16:                                               ; preds = %11, %2
@@ -251,8 +251,8 @@ define internal fastcc void @pi_state_update_owner(ptr noundef %0, ptr noundef %
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 2060
-  tail call void @_raw_spin_lock(ptr noundef %19) #13
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2060
+  tail call void @_raw_spin_lock(ptr noundef nonnull %19) #13
   %20 = load volatile ptr, ptr %0, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %23, label %22, !prof !12
@@ -264,16 +264,16 @@ define internal fastcc void @pi_state_update_owner(ptr noundef %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 2312
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2312
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %0, ptr %26, align 8
   store ptr %25, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %27, align 8
   store volatile ptr %0, ptr %24, align 8
   store ptr %1, ptr %3, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %19) #13
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %19) #13
   br label %28
 
 28:                                               ; preds = %23, %16
@@ -317,7 +317,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %23, label %80, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %22, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %27 = load ptr, ptr %26, align 8
   %28 = and i32 %24, 1073741823
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
@@ -326,7 +326,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %29, label %78, label %30, !prof !7
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %27, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %32 = load volatile i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35, !prof !7
@@ -338,8 +338,8 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %35
 
 35:                                               ; preds = %34, %30
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @_raw_spin_lock_irq(ptr noundef %36) #13
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %36) #13
   %37 = call i32 @futex_get_value_locked(ptr noundef nonnull %12, ptr noundef %0) #13
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %76
@@ -352,7 +352,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
 42:                                               ; preds = %39
   %43 = and i32 %24, 1073741824
   %44 = icmp eq i32 %43, 0
-  %45 = getelementptr inbounds i8, ptr %27, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %44, label %52, label %48
@@ -383,7 +383,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
 .preheader:                                       ; preds = %56, %64
   %59 = phi i32 [ %65, %64 ], [ %57, %56 ]
   %60 = add i32 %59, 1
-  %61 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, i32 %60, ptr elementtype(i32) %31, i32 %59) #13, !srcloc !8
+  %61 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 %60, ptr nonnull elementtype(i32) %31, i32 %59) #13, !srcloc !8
   %62 = extractvalue { i8, i32 } %61, 0
   %63 = icmp ult i8 %62, 2
   call void @llvm.assume(i1 %63)
@@ -403,7 +403,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %70, label %72, label %71, !prof !12
 
 71:                                               ; preds = %.thread
-  call void @refcount_warn_saturate(ptr noundef %31, i32 noundef 0) #13
+  call void @refcount_warn_saturate(ptr noundef nonnull %31, i32 noundef 0) #13
   br label %72
 
 72:                                               ; preds = %71, %.thread
@@ -417,13 +417,13 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %75
 
 75:                                               ; preds = %74, %72
-  call void @_raw_spin_unlock_irq(ptr noundef %36) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %36) #13
   store ptr %27, ptr %3, align 8
   br label %78
 
 76:                                               ; preds = %53, %52, %50, %39, %35
   %77 = phi i32 [ -22, %53 ], [ -22, %52 ], [ -22, %50 ], [ -11, %39 ], [ -14, %35 ]
-  call void @_raw_spin_unlock_irq(ptr noundef %36) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %36) #13
   br label %78
 
 78:                                               ; preds = %76, %75, %25
@@ -456,11 +456,11 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %94, label %.thread11, label %97
 
 97:                                               ; preds = %83
-  %98 = getelementptr inbounds i8, ptr %4, i64 2060
-  call void @_raw_spin_lock_irq(ptr noundef %98) #13
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 2060
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %98) #13
   %99 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 2328
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 2328
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %105, !prof !7
@@ -473,10 +473,10 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
 
 105:                                              ; preds = %104, %97
   store ptr null, ptr %101, align 8
-  %106 = getelementptr inbounds i8, ptr %102, i64 16
-  call void @rt_mutex_init_proxy_locked(ptr noundef %106, ptr noundef %4) #13
-  %107 = getelementptr inbounds i8, ptr %102, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %107, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  call void @rt_mutex_init_proxy_locked(ptr noundef nonnull %106, ptr noundef %4) #13
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
   %108 = load volatile ptr, ptr %102, align 8
   %109 = icmp eq ptr %108, %102
   br i1 %109, label %111, label %110, !prof !12
@@ -488,18 +488,18 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %111
 
 111:                                              ; preds = %110, %105
-  %112 = getelementptr inbounds i8, ptr %4, i64 2312
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 2312
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %102, ptr %114, align 8
   store ptr %113, ptr %102, align 8
-  %115 = getelementptr inbounds i8, ptr %102, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %112, ptr %115, align 8
   store volatile ptr %102, ptr %112, align 8
-  %116 = getelementptr inbounds i8, ptr %102, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store ptr %4, ptr %116, align 8
   store ptr %102, ptr %3, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %98) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %98) #13
   br label %.thread11
 
 117:                                              ; preds = %80
@@ -534,7 +534,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread11
 
 136:                                              ; preds = %126
-  %137 = getelementptr inbounds i8, ptr %127, i64 44
+  %137 = getelementptr inbounds nuw i8, ptr %127, i64 44
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 2097152
   %140 = icmp eq i32 %139, 0
@@ -545,9 +545,9 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread11
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %127, i64 2060
-  call void @_raw_spin_lock_irq(ptr noundef %143) #13
-  %144 = getelementptr inbounds i8, ptr %127, i64 2368
+  %143 = getelementptr inbounds nuw i8, ptr %127, i64 2060
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %143) #13
+  %144 = getelementptr inbounds nuw i8, ptr %127, i64 2368
   %145 = load i32, ptr %144, align 64
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %156, label %147, !prof !12
@@ -566,20 +566,20 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   %154 = select i1 %153, i32 -3, i32 -11
   %.ph = select i1 %151, i32 %154, i32 -14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %143) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %143) #13
   call fastcc void @put_task_struct(ptr noundef nonnull %127)
   br label %.thread11
 
 155:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %143) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %143) #13
   store ptr %127, ptr %5, align 8
   br label %.thread11
 
 156:                                              ; preds = %142
   %157 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %158 = inttoptr i64 %157 to ptr
-  %159 = getelementptr inbounds i8, ptr %158, i64 2328
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 2328
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %162, label %163, !prof !7
@@ -592,10 +592,10 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
 
 163:                                              ; preds = %162, %156
   store ptr null, ptr %159, align 8
-  %164 = getelementptr inbounds i8, ptr %160, i64 16
-  call void @rt_mutex_init_proxy_locked(ptr noundef %164, ptr noundef nonnull %127) #13
-  %165 = getelementptr inbounds i8, ptr %160, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %165, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  call void @rt_mutex_init_proxy_locked(ptr noundef nonnull %164, ptr noundef nonnull %127) #13
+  %165 = getelementptr inbounds nuw i8, ptr %160, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
   %166 = load volatile ptr, ptr %160, align 8
   %167 = icmp eq ptr %166, %160
   br i1 %167, label %169, label %168, !prof !12
@@ -607,20 +607,20 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br label %169
 
 169:                                              ; preds = %168, %163
-  %170 = getelementptr inbounds i8, ptr %127, i64 2312
+  %170 = getelementptr inbounds nuw i8, ptr %127, i64 2312
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store ptr %160, ptr %172, align 8
   store ptr %171, ptr %160, align 8
-  %173 = getelementptr inbounds i8, ptr %160, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %170, ptr %173, align 8
   store volatile ptr %160, ptr %170, align 8
-  %174 = getelementptr inbounds i8, ptr %160, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %160, i64 48
   store ptr %127, ptr %174, align 8
   store ptr %160, ptr %3, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %143) #13
-  %175 = getelementptr inbounds i8, ptr %127, i64 40
-  %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %175, i32 -1, ptr elementtype(i32) %175) #13, !srcloc !16
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %143) #13
+  %175 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %175, i32 -1, ptr nonnull elementtype(i32) %175) #13, !srcloc !16
   %177 = icmp eq i32 %176, 1
   br i1 %177, label %181, label %178
 
@@ -629,7 +629,7 @@ define dso_local i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %179, label %.thread11, label %180, !prof !12
 
 180:                                              ; preds = %178
-  call void @refcount_warn_saturate(ptr noundef %175, i32 noundef 3) #13
+  call void @refcount_warn_saturate(ptr noundef nonnull %175, i32 noundef 3) #13
   br label %.thread11
 
 181:                                              ; preds = %169
@@ -660,9 +660,9 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %2, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11
   %12 = inttoptr i64 %11 to ptr
@@ -676,7 +676,7 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   br i1 %13, label %23, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %18 = load volatile ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
@@ -693,19 +693,19 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
 23:                                               ; preds = %22, %15, %14
   %24 = phi ptr [ %.pre, %22 ], [ %8, %14 ], [ %8, %15 ]
   %25 = phi ptr [ %12, %22 ], [ %12, %14 ], [ null, %15 ]
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  tail call void @_raw_spin_lock_irq(ptr noundef %26) #13
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %26) #13
   %27 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4, !annotation !24
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %25, null
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
-  %32 = getelementptr inbounds i8, ptr %27, i64 40
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = icmp eq ptr %25, %12
   %35 = icmp eq ptr %29, %12
   br label %36
@@ -717,7 +717,7 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   br i1 %35, label %38, label %fixup_pi_state_owner.exit
 
 38:                                               ; preds = %37
-  %39 = call i32 @__rt_mutex_futex_trylock(ptr noundef %31) #13
+  %39 = call i32 @__rt_mutex_futex_trylock(ptr noundef nonnull %31) #13
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %fixup_pi_state_owner.exit
 
@@ -730,7 +730,7 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   br i1 %46, label %.thread.i, label %51, !prof !7
 
 .thread.i:                                        ; preds = %41
-  call void @_raw_spin_unlock_irq(ptr noundef %31) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %31) #13
   %47 = load ptr, ptr %33, align 8
   call void @_raw_spin_unlock(ptr noundef %47) #13
   br label %80
@@ -787,7 +787,7 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
 
 .loopexit.i:                                      ; preds = %69, %60, %51
   %76 = phi i32 [ %58, %51 ], [ %64, %60 ], [ %72, %69 ]
-  call void @_raw_spin_unlock_irq(ptr noundef %31) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %31) #13
   %77 = load ptr, ptr %33, align 8
   call void @_raw_spin_unlock(ptr noundef %77) #13
   switch i32 %76, label %82 [
@@ -813,7 +813,7 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   %84 = phi i32 [ %76, %82 ], [ 0, %80 ], [ %79, %78 ]
   %85 = load ptr, ptr %33, align 8
   call void @_raw_spin_lock(ptr noundef %85) #13
-  call void @_raw_spin_lock_irq(ptr noundef %31) #13
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %31) #13
   %86 = load ptr, ptr %28, align 8
   %87 = icmp eq ptr %86, %29
   br i1 %87, label %90, label %88
@@ -838,7 +838,7 @@ fixup_pi_state_owner.exit:                        ; preds = %37, %38, %50, %74, 
   %97 = phi i32 [ %89, %88 ], [ %84, %92 ], [ %75, %74 ], [ 0, %37 ], [ 1, %38 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %26) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %26) #13
   br label %98
 
 98:                                               ; preds = %fixup_pi_state_owner.exit, %16, %14
@@ -860,7 +860,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 2328
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2328
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %23, !prof !7
@@ -873,14 +873,14 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 18:                                               ; preds = %14
   store volatile ptr %16, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store volatile ptr %16, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store volatile i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr %16, ptr %11, align 8
   br label %23
 
@@ -888,20 +888,20 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false), !annotation !24
   %24 = call ptr @futex_setup_timer(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %1, i64 noundef 0) #13
-  %25 = getelementptr inbounds i8, ptr %8, i64 72
-  %26 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %25, i32 noundef 1) #13
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %26 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %25, i32 noundef 1) #13
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.loopexit8, !prof !44
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %30 = and i32 %1, 16
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %28, %.split.us.backedge
   %32 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
-  %33 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %32, ptr noundef %25, ptr noundef %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
+  %33 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %32, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
   switch i32 %33, label %.split21.us.loopexit83 [
     i32 0, label %.split18.us
     i32 1, label %.split21.us
@@ -915,7 +915,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   %35 = load ptr, ptr %6, align 8
   call void @wait_for_owner_exiting(i32 noundef %33, ptr noundef %35) #13
   %36 = call i32 @__SCT__cond_resched() #13
-  %37 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %25, i32 noundef 1) #13
+  %37 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %25, i32 noundef 1) #13
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.split.us.backedge, label %.loopexit8, !prof !46
 
@@ -930,7 +930,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .split:                                           ; preds = %28, %47
   %42 = call ptr @futex_q_lock(ptr noundef nonnull %8) #13
-  %43 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %42, ptr noundef %25, ptr noundef %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
+  %43 = call i32 @futex_lock_pi_atomic(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %29, ptr noundef %10, ptr noundef nonnull %6, i32 noundef 0)
   switch i32 %43, label %.split21.us.loopexit91 [
     i32 0, label %.split18.us
     i32 1, label %.split21.us
@@ -947,7 +947,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %47
 
 47:                                               ; preds = %110, %44
-  %48 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef %25, i32 noundef 1) #13
+  %48 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %25, i32 noundef 1) #13
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.split, label %.loopexit8, !prof !46
 
@@ -970,35 +970,35 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %29, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  %58 = call i32 @rt_mutex_futex_trylock(ptr noundef %57) #13
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = call i32 @rt_mutex_futex_trylock(ptr noundef nonnull %57) #13
   %59 = icmp eq i32 %58, 0
   %60 = select i1 %59, i32 -11, i32 0
   br label %91
 
 61:                                               ; preds = %53
   call void @rt_mutex_pre_schedule() #13
-  %62 = getelementptr inbounds i8, ptr %7, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %63 = ptrtoint ptr %62 to i64
   store i64 %63, ptr %62, align 8
   %64 = ptrtoint ptr %7 to i64
   store i64 %64, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 3, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %7, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr null, ptr %66, align 8
   %67 = load ptr, ptr %29, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
-  call void @_raw_spin_lock_irq(ptr noundef %68) #13
-  %69 = getelementptr inbounds i8, ptr %8, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %68) #13
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %70 = load ptr, ptr %69, align 8
   call void @_raw_spin_unlock(ptr noundef %70) #13
   %71 = load ptr, ptr %29, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = call i32 @__rt_mutex_start_proxy_lock(ptr noundef %72, ptr noundef nonnull %7, ptr noundef %10) #13
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = call i32 @__rt_mutex_start_proxy_lock(ptr noundef nonnull %72, ptr noundef nonnull %7, ptr noundef %10) #13
   %74 = load ptr, ptr %29, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  call void @_raw_spin_unlock_irq(ptr noundef %75) #13
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %75) #13
   switch i32 %73, label %.thread7 [
     i32 0, label %76
     i32 1, label %.thread
@@ -1014,16 +1014,16 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 79:                                               ; preds = %76, %78
   %80 = load ptr, ptr %29, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = call i32 @rt_mutex_wait_proxy_lock(ptr noundef %81, ptr noundef %24, ptr noundef nonnull %7) #13
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = call i32 @rt_mutex_wait_proxy_lock(ptr noundef nonnull %81, ptr noundef %24, ptr noundef nonnull %7) #13
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %61, %79
   %84 = phi i32 [ %82, %79 ], [ %73, %61 ]
   %85 = load ptr, ptr %29, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
-  %87 = call zeroext i1 @rt_mutex_cleanup_proxy_lock(ptr noundef %86, ptr noundef nonnull %7) #13
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = call zeroext i1 @rt_mutex_cleanup_proxy_lock(ptr noundef nonnull %86, ptr noundef nonnull %7) #13
   %88 = select i1 %87, i32 %84, i32 0
   br label %.thread
 
@@ -1043,7 +1043,7 @@ define dso_local i32 @futex_lock_pi(ptr noundef %0, i32 noundef %1, ptr noundef 
   %97 = call i32 @llvm.smin.i32(i32 %95, i32 0)
   %98 = select i1 %96, i32 %92, i32 %97
   call void @futex_unqueue_pi(ptr noundef nonnull %8) #13
-  %99 = getelementptr inbounds i8, ptr %8, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %100 = load ptr, ptr %99, align 8
   call void @_raw_spin_unlock(ptr noundef %100) #13
   br label %.loopexit8
@@ -1161,8 +1161,8 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 
 17:                                               ; preds = %2
   store i32 0, ptr %5, align 4, !annotation !24
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %20
 
 20:                                               ; preds = %101, %17
@@ -1179,35 +1179,35 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 
 28:                                               ; preds = %25
   %29 = call ptr @futex_hash(ptr noundef nonnull %6) #13
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  call void @_raw_spin_lock(ptr noundef %30) #13
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  call void @_raw_spin_lock(ptr noundef nonnull %30) #13
   %31 = call ptr @futex_top_waiter(ptr noundef %29, ptr noundef nonnull %6) #13
   %32 = icmp eq ptr %31, null
   br i1 %32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %88
   %33 = phi ptr [ %89, %88 ], [ %31, %28 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread29, label %37
 
 37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds i8, ptr %35, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %8
   br i1 %40, label %41, label %.thread29
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %35, i64 16
-  call void @_raw_spin_lock_irq(ptr noundef %42) #13
-  %43 = getelementptr inbounds i8, ptr %35, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %42) #13
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %88, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %44, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 88
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %42
   br i1 %49, label %51, label %50, !prof !12
@@ -1218,7 +1218,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   unreachable
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %35, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %53 = load volatile i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.thread15, label %.preheader
@@ -1226,7 +1226,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 .preheader:                                       ; preds = %51, %60
   %55 = phi i32 [ %61, %60 ], [ %53, %51 ]
   %56 = add i32 %55, 1
-  %57 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52, i32 %56, ptr elementtype(i32) %52, i32 %55) #13, !srcloc !8
+  %57 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %52, i32 %56, ptr nonnull elementtype(i32) %52, i32 %55) #13, !srcloc !8
   %58 = extractvalue { i8, i32 } %57, 0
   %59 = icmp ult i8 %58, 2
   call void @llvm.assume(i1 %59)
@@ -1246,7 +1246,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %66, label %68, label %67, !prof !12
 
 67:                                               ; preds = %.thread15
-  call void @refcount_warn_saturate(ptr noundef %52, i32 noundef 0) #13
+  call void @refcount_warn_saturate(ptr noundef nonnull %52, i32 noundef 0) #13
   br label %68
 
 68:                                               ; preds = %67, %.thread15
@@ -1260,14 +1260,14 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   br label %71
 
 71:                                               ; preds = %70, %68
-  call void @_raw_spin_unlock(ptr noundef %30) #13
+  call void @_raw_spin_unlock(ptr noundef nonnull %30) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   store ptr %3, ptr %18, align 8
   store ptr null, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !24
-  %72 = getelementptr inbounds i8, ptr %44, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @__task_pid_nr_ns(ptr noundef %73, i32 noundef 0, ptr noundef null) #13
   %75 = or i32 %74, -2147483648
@@ -1283,7 +1283,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 81:                                               ; preds = %78
   %82 = and i32 %79, 1073741823
   %83 = icmp eq i32 %82, %22
-  call void @_raw_spin_unlock_irq(ptr noundef %42) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %42) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   call void @put_pi_state(ptr noundef nonnull %35)
@@ -1291,8 +1291,8 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 
 84:                                               ; preds = %78
   call fastcc void @pi_state_update_owner(ptr noundef nonnull %35, ptr noundef %73)
-  %85 = call zeroext i1 @__rt_mutex_futex_unlock(ptr noundef %42, ptr noundef nonnull %3) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %42) #13
+  %85 = call zeroext i1 @__rt_mutex_futex_unlock(ptr noundef nonnull %42, ptr noundef nonnull %3) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %42) #13
   br i1 %85, label %86, label %.thread19
 
 86:                                               ; preds = %84
@@ -1306,7 +1306,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   br label %.thread27
 
 87:                                               ; preds = %71
-  call void @_raw_spin_unlock_irq(ptr noundef %42) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %42) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   call void @put_pi_state(ptr noundef nonnull %35)
@@ -1317,7 +1317,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 
 88:                                               ; preds = %41
   call void @__futex_unqueue(ptr noundef nonnull %33) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %42) #13
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %42) #13
   %89 = call ptr @futex_top_waiter(ptr noundef %29, ptr noundef nonnull %6) #13
   %90 = icmp eq ptr %89, null
   br i1 %90, label %._crit_edge, label %.lr.ph
@@ -1328,7 +1328,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %92, label %95, label %93
 
 93:                                               ; preds = %._crit_edge
-  call void @_raw_spin_unlock(ptr noundef %30) #13
+  call void @_raw_spin_unlock(ptr noundef nonnull %30) #13
   switch i32 %91, label %94 [
     i32 -14, label %.thread31
     i32 -11, label %.thread30
@@ -1348,7 +1348,7 @@ define dso_local i32 @futex_unlock_pi(ptr noundef %0, i32 noundef %1) local_unna
 
 .thread29:                                        ; preds = %37, %.lr.ph, %95
   %99 = phi i32 [ %98, %95 ], [ -22, %.lr.ph ], [ -22, %37 ]
-  call void @_raw_spin_unlock(ptr noundef %30) #13
+  call void @_raw_spin_unlock(ptr noundef nonnull %30) #13
   br label %.thread27
 
 .thread30:                                        ; preds = %81, %87, %93
@@ -1419,8 +1419,8 @@ declare dso_local ptr @find_get_task_by_vpid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @put_task_struct(ptr noundef nonnull %0) unnamed_addr #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #13, !srcloc !16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #13, !srcloc !16
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %8, label %5
 
@@ -1429,7 +1429,7 @@ define internal fastcc void @put_task_struct(ptr noundef nonnull %0) unnamed_add
   br i1 %6, label %.thread, label %7, !prof !12
 
 7:                                                ; preds = %5
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef 3) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %2, i32 noundef 3) #13
   br label %.thread
 
 8:                                                ; preds = %1

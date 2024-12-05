@@ -801,10 +801,10 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %28, %34, %21
   br label %886
 
 71:                                               ; preds = %.loopexit1175
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   call void @col_set_str(ptr noundef %73, i32 noundef 34, ptr noundef nonnull @.str.176) #9
-  %74 = getelementptr inbounds i8, ptr %1, i64 276
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %75 = load i8, ptr %74, align 4
   %76 = and i8 %75, 1
   %.not929 = icmp eq i8 %76, 0
@@ -819,12 +819,12 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %28, %34, %21
 80:                                               ; preds = %77
   %81 = call ptr @export_pdu_create_common_tags(ptr noundef nonnull %1, ptr noundef nonnull @.str.177, i16 noundef zeroext 12) #9
   %82 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  %83 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i32 %82, ptr %83, align 8
   %84 = call i32 @tvb_reported_length(ptr noundef %0) #9
-  %85 = getelementptr inbounds i8, ptr %81, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %81, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %0, ptr %86, align 8
   %87 = load i32, ptr @exported_pdu_tap, align 4
   call void @tap_queue_packet(i32 noundef %87, ptr noundef nonnull %1, ptr noundef %81) #9
@@ -857,13 +857,13 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %28, %34, %21
   br i1 %or.cond.i, label %megaco_tree_add_string.exit, label %105
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds i8, ptr %103, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %107 = load ptr, ptr %106, align 8
   %.not5.i.i = icmp eq ptr %107, null
   br i1 %.not5.i.i, label %megaco_tree_add_string.exit, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %107, i64 28
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 28
   %110 = load i32, ptr %109, align 4
   %111 = or i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -892,13 +892,13 @@ megaco_tree_add_string.exit:                      ; preds = %98, %105, %108
   br i1 %or.cond.i1037, label %megaco_tree_add_string.exit1039, label %126
 
 126:                                              ; preds = %megaco_tree_add_string.exit
-  %127 = getelementptr inbounds i8, ptr %124, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %128 = load ptr, ptr %127, align 8
   %.not5.i.i1038 = icmp eq ptr %128, null
   br i1 %.not5.i.i1038, label %megaco_tree_add_string.exit1039, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %128, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
   %131 = load i32, ptr %130, align 4
   %132 = or i32 %131, 1
   store i32 %132, ptr %130, align 4
@@ -977,13 +977,13 @@ megaco_tvb_skip_wsp.exit1051:                     ; preds = %.lr.ph.i1047, %158,
   br i1 %or.cond.i1054, label %megaco_tree_add_string.exit1056, label %166
 
 166:                                              ; preds = %megaco_tvb_skip_wsp.exit1051
-  %167 = getelementptr inbounds i8, ptr %164, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %168 = load ptr, ptr %167, align 8
   %.not5.i.i1055 = icmp eq ptr %168, null
   br i1 %.not5.i.i1055, label %megaco_tree_add_string.exit1056, label %169
 
 169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %168, i64 28
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 28
   %171 = load i32, ptr %170, align 4
   %172 = or i32 %171, 1
   store i32 %172, ptr %170, align 4
@@ -993,7 +993,7 @@ megaco_tree_add_string.exit1056:                  ; preds = %megaco_tvb_skip_wsp
   %173 = load ptr, ptr %72, align 8
   call void @col_clear(ptr noundef %173, i32 noundef 25) #9
   %174 = add i32 %13, -1
-  %175 = getelementptr inbounds i8, ptr %1, i64 408
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %176 = add i32 %13, -2
   br label %177
 
@@ -1041,7 +1041,7 @@ megaco_tree_add_string.exit1056:                  ; preds = %megaco_tvb_skip_wsp
   br i1 %195, label %.split.loop.exit25.i, label %196
 
 196:                                              ; preds = %193, %188
-  %197 = getelementptr inbounds i8, ptr %189, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %198 = load ptr, ptr %197, align 8
   %.not.i1057 = icmp eq ptr %198, null
   br i1 %.not.i1057, label %205, label %199
@@ -1226,13 +1226,13 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   br i1 %or.cond.i1062, label %megaco_tree_add_string.exit1064, label %289
 
 289:                                              ; preds = %283
-  %290 = getelementptr inbounds i8, ptr %287, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %291 = load ptr, ptr %290, align 8
   %.not5.i.i1063 = icmp eq ptr %291, null
   br i1 %.not5.i.i1063, label %megaco_tree_add_string.exit1064, label %292
 
 292:                                              ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %291, i64 28
+  %293 = getelementptr inbounds nuw i8, ptr %291, i64 28
   %294 = load i32, ptr %293, align 4
   %295 = or i32 %294, 1
   store i32 %295, ptr %293, align 4
@@ -1305,13 +1305,13 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %megaco_tvb_skip_wsp
   br i1 %or.cond.i1077, label %my_proto_tree_add_uint.exit, label %327
 
 327:                                              ; preds = %megaco_tvb_skip_wsp_return.exit
-  %328 = getelementptr inbounds i8, ptr %325, i64 32
+  %328 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %329 = load ptr, ptr %328, align 8
   %.not5.i.i1078 = icmp eq ptr %329, null
   br i1 %.not5.i.i1078, label %my_proto_tree_add_uint.exit, label %330
 
 330:                                              ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %329, i64 28
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 28
   %332 = load i32, ptr %331, align 4
   %333 = or i32 %332, 1
   store i32 %333, ptr %331, align 4
@@ -1362,13 +1362,13 @@ megaco_tvb_skip_wsp.exit1084:                     ; preds = %.lr.ph.i1080, %342,
   br i1 %or.cond.i1087, label %megaco_tree_add_string.exit1089, label %354
 
 354:                                              ; preds = %349
-  %355 = getelementptr inbounds i8, ptr %352, i64 32
+  %355 = getelementptr inbounds nuw i8, ptr %352, i64 32
   %356 = load ptr, ptr %355, align 8
   %.not5.i.i1088 = icmp eq ptr %356, null
   br i1 %.not5.i.i1088, label %megaco_tree_add_string.exit1089, label %357
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %356, i64 28
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 28
   %359 = load i32, ptr %358, align 4
   %360 = or i32 %359, 1
   store i32 %360, ptr %358, align 4
@@ -1440,13 +1440,13 @@ megaco_tvb_skip_wsp_return.exit1100:              ; preds = %megaco_tvb_skip_wsp
   br i1 %or.cond.i1103, label %my_proto_tree_add_uint.exit1105, label %391
 
 391:                                              ; preds = %megaco_tvb_skip_wsp_return.exit1100
-  %392 = getelementptr inbounds i8, ptr %389, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %389, i64 32
   %393 = load ptr, ptr %392, align 8
   %.not5.i.i1104 = icmp eq ptr %393, null
   br i1 %.not5.i.i1104, label %my_proto_tree_add_uint.exit1105, label %394
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %393, i64 28
+  %395 = getelementptr inbounds nuw i8, ptr %393, i64 28
   %396 = load i32, ptr %395, align 4
   %397 = or i32 %396, 1
   store i32 %397, ptr %395, align 4
@@ -1579,13 +1579,13 @@ megaco_tvb_skip_wsp.exit1117:                     ; preds = %.lr.ph.i1113, %428,
   br i1 %or.cond.i1120, label %my_proto_tree_add_uint.exit1122, label %451
 
 451:                                              ; preds = %447
-  %452 = getelementptr inbounds i8, ptr %449, i64 32
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 32
   %453 = load ptr, ptr %452, align 8
   %.not5.i.i1121 = icmp eq ptr %453, null
   br i1 %.not5.i.i1121, label %my_proto_tree_add_uint.exit1122, label %454
 
 454:                                              ; preds = %451
-  %455 = getelementptr inbounds i8, ptr %453, i64 28
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 28
   %456 = load i32, ptr %455, align 4
   %457 = or i32 %456, 1
   store i32 %457, ptr %455, align 4
@@ -1829,13 +1829,13 @@ megaco_tvb_skip_wsp_return.exit1133:              ; preds = %532, %megaco_tvb_sk
   br i1 %.not.i1144, label %proto_item_set_hidden.exit, label %554
 
 554:                                              ; preds = %552
-  %555 = getelementptr inbounds i8, ptr %553, i64 32
+  %555 = getelementptr inbounds nuw i8, ptr %553, i64 32
   %556 = load ptr, ptr %555, align 8
   %.not5.i = icmp eq ptr %556, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %557
 
 557:                                              ; preds = %554
-  %558 = getelementptr inbounds i8, ptr %556, i64 28
+  %558 = getelementptr inbounds nuw i8, ptr %556, i64 28
   %559 = load i32, ptr %558, align 4
   %560 = or i32 %559, 1
   store i32 %560, ptr %558, align 4
@@ -2293,7 +2293,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %spec.select1031 = select i1 %or.cond52, i8 %790, i8 %788
   %791 = call ptr @wmem_packet_scope() #9
   %792 = call noalias ptr @wmem_alloc0(ptr noundef %791, i64 noundef 48) #9
-  %793 = getelementptr inbounds i8, ptr %792, i64 20
+  %793 = getelementptr inbounds nuw i8, ptr %792, i64 20
   store i32 0, ptr %793, align 4
   switch i8 %spec.select1031, label %829 [
     i8 69, label %794
@@ -2317,11 +2317,11 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   store i8 101, ptr %8, align 16
   %802 = call ptr @wmem_packet_scope() #9
   %803 = call ptr @get_utf_8_string(ptr noundef %802, ptr noundef nonnull %8, i32 noundef %801) #9
-  %804 = getelementptr inbounds i8, ptr %792, i64 8
+  %804 = getelementptr inbounds nuw i8, ptr %792, i64 8
   store ptr %803, ptr %804, align 8
   %805 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %803) #10
   %806 = trunc i64 %805 to i32
-  %807 = getelementptr inbounds i8, ptr %792, i64 16
+  %807 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store i32 %806, ptr %807, align 8
   store ptr %803, ptr %792, align 8
   %808 = load i32, ptr @keep_persistent_data, align 4
@@ -2332,10 +2332,10 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   br label %849
 
 813:                                              ; preds = %787
-  %814 = getelementptr inbounds i8, ptr %792, i64 16
+  %814 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store i32 1, ptr %814, align 8
   store ptr @.str.336, ptr %792, align 8
-  %815 = getelementptr inbounds i8, ptr %792, i64 8
+  %815 = getelementptr inbounds nuw i8, ptr %792, i64 8
   store ptr @.str.336, ptr %815, align 8
   %816 = load i32, ptr @keep_persistent_data, align 4
   %817 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 2, ptr noundef %1, i32 noundef %816) #9
@@ -2346,10 +2346,10 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   br label %849
 
 821:                                              ; preds = %787
-  %822 = getelementptr inbounds i8, ptr %792, i64 16
+  %822 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store i32 1, ptr %822, align 8
   store ptr @.str.339, ptr %792, align 8
-  %823 = getelementptr inbounds i8, ptr %792, i64 8
+  %823 = getelementptr inbounds nuw i8, ptr %792, i64 8
   store ptr @.str.339, ptr %823, align 8
   %824 = load i32, ptr @keep_persistent_data, align 4
   %825 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 1, ptr noundef %1, i32 noundef %824) #9
@@ -2373,12 +2373,12 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %836 = load i32, ptr @hf_megaco_termid, align 4
   %837 = call ptr @tvb_format_text(ptr noundef %830, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780) #9
   %838 = call ptr @proto_tree_add_string(ptr noundef %550, i32 noundef %836, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780, ptr noundef %837) #9
-  %839 = getelementptr inbounds i8, ptr %792, i64 16
+  %839 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store i32 %780, ptr %839, align 8
   %840 = load ptr, ptr %175, align 8
   %841 = call ptr @tvb_format_text(ptr noundef %840, ptr noundef %0, i32 noundef %.0.lcssa.i1156, i32 noundef %780) #9
   store ptr %841, ptr %792, align 8
-  %842 = getelementptr inbounds i8, ptr %792, i64 8
+  %842 = getelementptr inbounds nuw i8, ptr %792, i64 8
   store ptr %841, ptr %842, align 8
   %843 = load i32, ptr @keep_persistent_data, align 4
   %844 = call ptr @gcp_cmd_add_term(ptr noundef %24, ptr noundef %415, ptr noundef %.6863, ptr noundef nonnull %792, i32 noundef 0, ptr noundef %1, i32 noundef %843) #9
@@ -2515,7 +2515,7 @@ declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %111 [
     i32 1, label %9
@@ -2542,55 +2542,55 @@ define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef rea
   ]
 
 9:                                                ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %12, null
   br i1 %.not45, label %111, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %.not46 = icmp eq i32 %15, %19
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   br i1 %.not46, label %26, label %22
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
   br label %111
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
   br label %111
 
 30:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %31 = getelementptr inbounds i8, ptr %3, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.010.i = load ptr, ptr %33, align 8
   %.not11.i = icmp eq ptr %.010.i, null
   br i1 %.not11.i, label %megacostat_had_request.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %3, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   br label %40
 
 38:                                               ; preds = %46
-  %39 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %.0.i = load ptr, ptr %39, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.thread57, label %40, !llvm.loop !16
@@ -2598,23 +2598,23 @@ define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef rea
 40:                                               ; preds = %38, %.lr.ph.i
   %.012.i = phi ptr [ %.010.i, %.lr.ph.i ], [ %.0.i, %38 ]
   %41 = load ptr, ptr %.012.i, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %.not9.i = icmp eq i32 %45, %37
   br i1 %.not9.i, label %.thread57, label %46
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, %8
   br i1 %49, label %megacostat_is_duplicate_reply.exit, label %38
 
 megacostat_is_duplicate_reply.exit:               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
@@ -2622,48 +2622,48 @@ megacostat_is_duplicate_reply.exit:               ; preds = %46
 
 .thread57:                                        ; preds = %38, %40
   %55 = load ptr, ptr %.010.i, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   %.not7.i = icmp eq i32 %59, %63
   br i1 %.not7.i, label %megacostat_had_request.exit.thread, label %megacostat_had_request.exit
 
 megacostat_had_request.exit:                      ; preds = %.thread57
-  %64 = getelementptr inbounds i8, ptr %55, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %65, -12
   %switch9.i = icmp ult i32 %66, -11
   br i1 %switch9.i, label %megacostat_had_request.exit.thread, label %72
 
 megacostat_had_request.exit.thread:               ; preds = %30, %.thread57, %megacostat_had_request.exit
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
   br label %111
 
 72:                                               ; preds = %megacostat_had_request.exit
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = add i32 %76, -1
   store i32 %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load ptr, ptr %31, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %78, ptr noundef nonnull %81) #9
   %82 = load i32, ptr %7, align 8
   %83 = load ptr, ptr %73, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   switch i32 %82, label %104 [
     i32 12, label %106
@@ -2722,7 +2722,7 @@ megacostat_had_request.exit.thread:               ; preds = %30, %.thread57, %me
   %.sink = phi ptr [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %72 ]
   call void @time_stat_update(ptr noundef %.sink, ptr noundef nonnull %6, ptr noundef %1) #9
   %107 = load ptr, ptr %73, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr i8, ptr %109, i64 720
   call void @time_stat_update(ptr noundef %110, ptr noundef nonnull %6, ptr noundef %1) #9
@@ -2908,13 +2908,13 @@ define internal fastcc void @megaco_tree_add_string(ptr noundef %0, i32 noundef 
   br i1 %or.cond, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -3108,13 +3108,13 @@ define internal fastcc void @my_proto_tree_add_uint(ptr noundef %0, i32 noundef 
   br i1 %or.cond, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -3220,7 +3220,7 @@ define internal fastcc void @dissect_megaco_descriptors(ptr noundef %0, ptr noun
 megaco_tvb_skip_wsp.exit:                         ; preds = %.lr.ph.i, %23, %7
   %.0.lcssa.i = phi i32 [ %15, %7 ], [ %.08.i, %.lr.ph.i ], [ %16, %23 ]
   %25 = add i32 %4, -1
-  %26 = getelementptr inbounds i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %27
 
 27:                                               ; preds = %megaco_tvb_skip_wsp.exit224, %megaco_tvb_skip_wsp.exit
@@ -3339,7 +3339,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i179, %
   br i1 %81, label %find_megaco_descriptors_names.exit, label %82
 
 82:                                               ; preds = %79, %74
-  %83 = getelementptr inbounds i8, ptr %75, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not.i182 = icmp eq ptr %84, null
   br i1 %.not.i182, label %91, label %85
@@ -3503,7 +3503,7 @@ megaco_tvb_skip_wsp.exit.i:                       ; preds = %132, %.lr.ph.i.i, %
   br i1 %151, label %.split.loop.exit25.i.i, label %152
 
 152:                                              ; preds = %149, %144
-  %153 = getelementptr inbounds i8, ptr %145, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %154 = load ptr, ptr %153, align 8
   %.not.i66.i = icmp eq ptr %154, null
   br i1 %.not.i66.i, label %161, label %155
@@ -3740,7 +3740,7 @@ megaco_tvb_skip_wsp_return.exit.i:                ; preds = %megaco_tvb_skip_wsp
   br i1 %255, label %find_megaco_descriptors_names.exit.i, label %256
 
 256:                                              ; preds = %253, %248
-  %257 = getelementptr inbounds i8, ptr %249, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %258 = load ptr, ptr %257, align 8
   %.not.i113.i = icmp eq ptr %258, null
   br i1 %.not.i113.i, label %265, label %259
@@ -4333,8 +4333,8 @@ define internal fastcc void @dissect_megaco_mediadescriptor(ptr noundef %0, ptr 
 
 .lr.ph199:                                        ; preds = %8
   %17 = load ptr, ptr @g_ascii_table, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph199, %.backedge
@@ -4398,7 +4398,7 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %.lr.ph.i, %28, %20
   br i1 %47, label %find_megaco_mediaParm_names.exit, label %48
 
 48:                                               ; preds = %45, %40
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i105 = icmp eq ptr %50, null
   br i1 %.not.i105, label %57, label %51
@@ -4569,7 +4569,7 @@ megaco_tvb_skip_wsp.exit124:                      ; preds = %.lr.ph.i120, %95, %
   br i1 %121, label %.split.loop.exit25.i.i, label %122
 
 122:                                              ; preds = %119, %114
-  %123 = getelementptr inbounds i8, ptr %115, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %124 = load ptr, ptr %123, align 8
   %.not.i.i = icmp eq ptr %124, null
   br i1 %.not.i.i, label %131, label %125
@@ -5630,7 +5630,7 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %15, %21, %6
   %25 = load i32, ptr @hf_megaco_signal_descriptor, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %4, i32 noundef %., i32 noundef 0) #9
   %27 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %26, ptr noundef nonnull @ei_megaco_signal_descriptor) #9
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_append_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.408) #9
   br label %.loopexit203
@@ -5668,9 +5668,9 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %15, %21, %6
 
 megaco_tvb_skip_wsp.exit173:                      ; preds = %41, %47, %30
   %.0.lcssa.i168 = phi i32 [ %32, %30 ], [ %.08.i170, %41 ], [ %38, %47 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr @tvb_format_text(ptr noundef %52, ptr noundef %0, i32 noundef %31, i32 noundef 1) #9
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.409, ptr noundef %53) #9
@@ -6072,7 +6072,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %.lr.ph.i165, %35, %
   %reass.sub = sub i32 %.0.lcssa.i164, %.0.lcssa.i
   %38 = add i32 %reass.sub, 1
   %39 = load i32, ptr @hf_megaco_requestid, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @tvb_format_text(ptr noundef %41, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %38) #9
   %43 = tail call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #9
@@ -6545,12 +6545,12 @@ define internal fastcc void @dissect_megaco_LocalRemotedescriptor(ptr noundef %0
 11:                                               ; preds = %7
   %12 = load i32, ptr @hf_megaco_Context, align 4
   store i32 %12, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 1, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %5, ptr %.sroa.5.0..sroa_idx, align 8
   %13 = load ptr, ptr @sip_hide_generated_call_ids, align 8
   %.not = icmp eq ptr %13, null
@@ -6563,7 +6563,7 @@ define internal fastcc void @dissect_megaco_LocalRemotedescriptor(ptr noundef %0
 16:                                               ; preds = %11, %14
   %storemerge = phi i32 [ %15, %14 ], [ 0, %11 ]
   store i32 %storemerge, ptr %.sroa.3.0..sroa_idx, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %9, ptr %17, align 8
   br label %18
 
@@ -6604,7 +6604,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_megaco_h245(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_format_text(ptr noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4) #9
   %10 = load i32, ptr @hf_megaco_h245, align 4

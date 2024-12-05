@@ -28,7 +28,7 @@ define void @png_destroy_png_struct(ptr noalias noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1264) %2, ptr noundef nonnull align 8 dereferenceable(1264) %0, i64 1264, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1264) %0, i8 0, i64 1264, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 1016
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1016
   %5 = load ptr, ptr %4, align 8, !alias.scope !4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %png_free_default.exit.i, label %6
@@ -63,7 +63,7 @@ define void @png_free(ptr noalias noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %or.cond, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1016
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %png_free_default.exit, label %8
@@ -92,7 +92,7 @@ define noalias ptr @png_calloc(ptr noalias noundef %0, i64 noundef %1) local_unn
   br i1 %.not.i.i, label %png_malloc_base.exit.thread.i, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1008
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %7 = load ptr, ptr %6, align 8, !alias.scope !7
   %.not13.i.i = icmp eq ptr %7, null
   br i1 %.not13.i.i, label %10, label %8
@@ -133,7 +133,7 @@ define noalias ptr @png_malloc(ptr noalias noundef %0, i64 noundef %1) local_unn
   br i1 %.not.i, label %png_malloc_base.exit.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1008
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %7 = load ptr, ptr %6, align 8, !alias.scope !12
   %.not13.i = icmp eq ptr %7, null
   br i1 %.not13.i, label %10, label %8
@@ -170,7 +170,7 @@ define noalias ptr @png_malloc_base(ptr noalias noundef %0, i64 noundef %1) loca
   br i1 %.not12, label %9, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1008
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %6 = load ptr, ptr %5, align 8
   %.not13 = icmp eq ptr %6, null
   br i1 %.not13, label %9, label %7
@@ -218,7 +218,7 @@ define noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef %1, i64
   br i1 %.not12.i.i, label %17, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 1008
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %14 = load ptr, ptr %13, align 8, !alias.scope !15
   %.not13.i.i = icmp eq ptr %14, null
   br i1 %.not13.i.i, label %17, label %15
@@ -280,7 +280,7 @@ define noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readon
   br i1 %.not12.i.i, label %26, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 1008
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %23 = load ptr, ptr %22, align 8, !alias.scope !20
   %.not13.i.i = icmp eq ptr %23, null
   br i1 %.not13.i.i, label %26, label %24
@@ -353,7 +353,7 @@ define noalias ptr @png_malloc_warn(ptr noalias noundef %0, i64 noundef %1) loca
   br i1 %.not.i, label %png_malloc_base.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1008
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %6 = load ptr, ptr %5, align 8, !alias.scope !25
   %.not13.i = icmp eq ptr %6, null
   br i1 %.not13.i, label %9, label %7
@@ -406,11 +406,11 @@ define void @png_set_mem_fn(ptr noalias noundef writeonly %0, ptr noundef %1, pt
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1000
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1008
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1016
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %3, ptr %8, align 8
   br label %9
 
@@ -424,7 +424,7 @@ define ptr @png_get_mem_ptr(ptr noalias noundef readonly %0) local_unnamed_addr 
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1000
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %5 = load ptr, ptr %4, align 8
   br label %6
 

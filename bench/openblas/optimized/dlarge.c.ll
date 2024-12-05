@@ -46,7 +46,7 @@ define void @dlarge_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %.loopexit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = zext nneg i32 %13 to i64
   %28 = sext i32 %9 to i64
   %29 = getelementptr double, ptr %12, i64 %28

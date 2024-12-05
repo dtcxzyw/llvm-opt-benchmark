@@ -91,7 +91,7 @@ define void @gui_init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   tail call void @free(ptr noundef %3) #12
   ret void
@@ -124,14 +124,14 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %20 = call i64 @g_strlcpy(ptr noundef nonnull %16, ptr noundef %19, i64 noundef 4096) #12
   call void @dt_image_path_append_version(i32 noundef %2, ptr noundef nonnull %16, i64 noundef 4096) #12
   %21 = call ptr @g_strrstr(ptr noundef nonnull %16, ptr noundef nonnull @.str.1) #12
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 0, ptr %22, align 1, !tbaa !18
-  %23 = getelementptr inbounds i8, ptr %3, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = call ptr %24(ptr noundef %4) #12
   %26 = call i64 @g_strlcat(ptr noundef nonnull %16, ptr noundef %25, i64 noundef 4096) #12
   %27 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null) #12
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !21
   %29 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef %27, ptr noundef %3, ptr noundef %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #12
   %30 = icmp eq i32 %29, 0
@@ -152,7 +152,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %37 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, i64 noundef %36, i32 noundef 5) #12
   %38 = load ptr, ptr %28, align 8, !tbaa !21
   call void (ptr, ...) @dt_control_log(ptr noundef %37, i32 noundef %5, i32 noundef %6, ptr noundef %38) #12
-  %39 = getelementptr inbounds i8, ptr %1, i64 4096
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   %41 = call ptr @g_list_append(ptr noundef %40, ptr noundef nonnull %18) #12
   store ptr %41, ptr %39, align 8, !tbaa !22
@@ -222,7 +222,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = tail call i64 %6(ptr noundef %0) #12
   %8 = icmp ne i64 %7, %4
@@ -247,7 +247,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr noundef %1) loca
 define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4096
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4096
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = tail call i32 @g_list_length(ptr noundef %6) #12
   %8 = shl nsw i32 %7, 1
@@ -257,12 +257,12 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   %12 = shl nsw i64 %11, 3
   %13 = tail call noalias ptr @g_malloc0(i64 noundef %12) #13
   store ptr @.str.6, ptr %13, align 8, !tbaa !25
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @.str.7, ptr %14, align 8, !tbaa !25
   %15 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #12
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !25
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @.str.9, ptr %17, align 8, !tbaa !25
   %18 = load ptr, ptr %5, align 8, !tbaa !25
   %19 = icmp eq ptr %18, null
@@ -277,7 +277,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   %24 = phi ptr [ null, %2 ], [ %50, %20 ]
   call void @g_list_free_full(ptr noundef %23, ptr noundef nonnull @g_free) #12
   store ptr null, ptr %5, align 8, !tbaa !22
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %24, ptr %25, align 8, !tbaa !25
   %26 = sext i32 %9 to i64
   %27 = getelementptr inbounds ptr, ptr %13, i64 %26
@@ -295,7 +295,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %35 = load ptr, ptr %33, align 8, !tbaa !35
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = call noalias ptr @g_path_get_basename(ptr noundef %37) #12
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !37
@@ -322,14 +322,14 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
   call void @g_free(ptr noundef %43) #12
   call void @g_free(ptr noundef %38) #12
   %51 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.10) #12
-  %52 = getelementptr inbounds ptr, ptr %13, i64 %32
+  %52 = getelementptr inbounds nuw ptr, ptr %13, i64 %32
   store ptr %51, ptr %52, align 8, !tbaa !25
   %53 = load ptr, ptr %36, align 8, !tbaa !21
   %54 = getelementptr i8, ptr %52, i64 8
   store ptr %53, ptr %54, align 8, !tbaa !25
   %55 = add nuw nsw i64 %32, 2
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #12
-  %56 = getelementptr inbounds i8, ptr %33, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = icmp eq ptr %57, null
   br i1 %58, label %20, label %.preheader
@@ -359,7 +359,7 @@ define void @finalize_store(ptr nocapture noundef readnone %0, ptr nocapture nou
 
 68:                                               ; preds = %68, %63
   %69 = phi i64 [ 4, %63 ], [ %72, %68 ]
-  %70 = getelementptr inbounds ptr, ptr %13, i64 %69
+  %70 = getelementptr inbounds nuw ptr, ptr %13, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !25
   call void @g_free(ptr noundef %71) #12
   %72 = add nuw nsw i64 %69, 1
@@ -398,7 +398,7 @@ declare i32 @g_spawn_sync(ptr noundef, ptr noundef, ptr noundef, i32 noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @supported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = tail call ptr %4(ptr noundef null) #12
   %6 = load i8, ptr %5, align 1, !tbaa !18

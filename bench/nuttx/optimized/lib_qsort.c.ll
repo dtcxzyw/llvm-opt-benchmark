@@ -91,9 +91,9 @@ swapfunc.exit.us.us:                              ; preds = %.lr.ph417.us
   %.0.i.us.us = phi i64 [ %38, %.preheader431 ], [ %20, %.lr.ph417.us430 ]
   %34 = load i64, ptr %.021.i.us.us, align 8
   %35 = load i64, ptr %.022.i.us.us, align 8
-  %36 = getelementptr inbounds i8, ptr %.021.i.us.us, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.021.i.us.us, i64 8
   store i64 %35, ptr %.021.i.us.us, align 8
-  %37 = getelementptr inbounds i8, ptr %.022.i.us.us, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.022.i.us.us, i64 8
   store i64 %34, ptr %.022.i.us.us, align 8
   %38 = add nsw i64 %.0.i.us.us, -1
   %39 = icmp samesign ugt i64 %.0.i.us.us, 1
@@ -121,9 +121,9 @@ swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader431
   %.018.i = phi ptr [ %48, %.preheader ], [ %42, %.lr.ph417 ]
   %45 = load i8, ptr %.019.i, align 1
   %46 = load i8, ptr %.018.i, align 1
-  %47 = getelementptr inbounds i8, ptr %.019.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
   store i8 %46, ptr %.019.i, align 1
-  %48 = getelementptr inbounds i8, ptr %.018.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   store i8 %45, ptr %.018.i, align 1
   %49 = add nsw i64 %.020.i, -1
   %50 = icmp sgt i64 %.020.i, 1
@@ -302,9 +302,9 @@ med3.exit268:                                     ; preds = %137, %135, %131, %1
   %.0.i274 = phi i64 [ %150, %.preheader451 ], [ %14, %145 ]
   %146 = load i64, ptr %.021.i273, align 8
   %147 = load i64, ptr %.022.i272, align 8
-  %148 = getelementptr inbounds i8, ptr %.021.i273, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.021.i273, i64 8
   store i64 %147, ptr %.021.i273, align 8
-  %149 = getelementptr inbounds i8, ptr %.022.i272, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %.022.i272, i64 8
   store i64 %146, ptr %.022.i272, align 8
   %150 = add nsw i64 %.0.i274, -1
   %151 = icmp samesign ugt i64 %.0.i274, 1
@@ -316,9 +316,9 @@ med3.exit268:                                     ; preds = %137, %135, %131, %1
   %.018.i271 = phi ptr [ %155, %.preheader343 ], [ %.1238, %145 ]
   %152 = load i8, ptr %.019.i270, align 1
   %153 = load i8, ptr %.018.i271, align 1
-  %154 = getelementptr inbounds i8, ptr %.019.i270, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %.019.i270, i64 1
   store i8 %153, ptr %.019.i270, align 1
-  %155 = getelementptr inbounds i8, ptr %.018.i271, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.018.i271, i64 1
   store i8 %152, ptr %.018.i271, align 1
   %156 = add nsw i64 %.020.i269, -1
   %157 = icmp sgt i64 %.020.i269, 1
@@ -391,9 +391,9 @@ swapfunc.exit282.us:                              ; preds = %165
   %.0.i281 = phi i64 [ %181, %.preheader440 ], [ %14, %176 ]
   %177 = load i64, ptr %.021.i280, align 8
   %178 = load i64, ptr %.022.i279, align 8
-  %179 = getelementptr inbounds i8, ptr %.021.i280, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.021.i280, i64 8
   store i64 %178, ptr %.021.i280, align 8
-  %180 = getelementptr inbounds i8, ptr %.022.i279, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.022.i279, i64 8
   store i64 %177, ptr %.022.i279, align 8
   %181 = add nsw i64 %.0.i281, -1
   %182 = icmp samesign ugt i64 %.0.i281, 1
@@ -405,9 +405,9 @@ swapfunc.exit282.us:                              ; preds = %165
   %.018.i278 = phi ptr [ %186, %.preheader335 ], [ %.1225363, %176 ]
   %183 = load i8, ptr %.019.i277, align 1
   %184 = load i8, ptr %.018.i278, align 1
-  %185 = getelementptr inbounds i8, ptr %.019.i277, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.019.i277, i64 1
   store i8 %184, ptr %.019.i277, align 1
-  %186 = getelementptr inbounds i8, ptr %.018.i278, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.018.i278, i64 1
   store i8 %183, ptr %.018.i278, align 1
   %187 = add nsw i64 %.020.i276, -1
   %188 = icmp sgt i64 %.020.i276, 1
@@ -462,9 +462,9 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   %.0.i288 = phi i64 [ %205, %.preheader438 ], [ %14, %200 ]
   %201 = load i64, ptr %.021.i287, align 8
   %202 = load i64, ptr %.022.i286, align 8
-  %203 = getelementptr inbounds i8, ptr %.021.i287, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %.021.i287, i64 8
   store i64 %202, ptr %.021.i287, align 8
-  %204 = getelementptr inbounds i8, ptr %.022.i286, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.022.i286, i64 8
   store i64 %201, ptr %.022.i286, align 8
   %205 = add nsw i64 %.0.i288, -1
   %206 = icmp samesign ugt i64 %.0.i288, 1
@@ -476,9 +476,9 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   %.018.i285 = phi ptr [ %210, %.preheader333 ], [ %.1229379, %200 ]
   %207 = load i8, ptr %.019.i284, align 1
   %208 = load i8, ptr %.018.i285, align 1
-  %209 = getelementptr inbounds i8, ptr %.019.i284, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.019.i284, i64 1
   store i8 %208, ptr %.019.i284, align 1
-  %210 = getelementptr inbounds i8, ptr %.018.i285, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %.018.i285, i64 1
   store i8 %207, ptr %.018.i285, align 1
   %211 = add nsw i64 %.020.i283, -1
   %212 = icmp sgt i64 %.020.i283, 1
@@ -514,9 +514,9 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
   %.0.i295 = phi i64 [ %224, %.preheader442 ], [ %14, %219 ]
   %220 = load i64, ptr %.021.i294, align 8
   %221 = load i64, ptr %.022.i293, align 8
-  %222 = getelementptr inbounds i8, ptr %.021.i294, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.021.i294, i64 8
   store i64 %221, ptr %.021.i294, align 8
-  %223 = getelementptr inbounds i8, ptr %.022.i293, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.022.i293, i64 8
   store i64 %220, ptr %.022.i293, align 8
   %224 = add nsw i64 %.0.i295, -1
   %225 = icmp samesign ugt i64 %.0.i295, 1
@@ -528,9 +528,9 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
   %.018.i292 = phi ptr [ %229, %.preheader337 ], [ %.1227380, %219 ]
   %226 = load i8, ptr %.019.i291, align 1
   %227 = load i8, ptr %.018.i292, align 1
-  %228 = getelementptr inbounds i8, ptr %.019.i291, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %.019.i291, i64 1
   store i8 %227, ptr %.019.i291, align 1
-  %229 = getelementptr inbounds i8, ptr %.018.i292, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.018.i292, i64 1
   store i8 %226, ptr %.018.i292, align 1
   %230 = add nsw i64 %.020.i290, -1
   %231 = icmp sgt i64 %.020.i290, 1
@@ -608,9 +608,9 @@ swapfunc.exit303.us.us:                           ; preds = %.lr.ph404.us
   %.0.i302.us.us = phi i64 [ %257, %.preheader435 ], [ %14, %.lr.ph404.us415 ]
   %253 = load i64, ptr %.021.i301.us.us, align 8
   %254 = load i64, ptr %.022.i300.us.us, align 8
-  %255 = getelementptr inbounds i8, ptr %.021.i301.us.us, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %.021.i301.us.us, i64 8
   store i64 %254, ptr %.021.i301.us.us, align 8
-  %256 = getelementptr inbounds i8, ptr %.022.i300.us.us, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %.022.i300.us.us, i64 8
   store i64 %253, ptr %.022.i300.us.us, align 8
   %257 = add nsw i64 %.0.i302.us.us, -1
   %258 = icmp samesign ugt i64 %.0.i302.us.us, 1
@@ -638,9 +638,9 @@ swapfunc.exit303.loopexit.us.us:                  ; preds = %.preheader435
   %.018.i299 = phi ptr [ %267, %.preheader328 ], [ %261, %.lr.ph404 ]
   %264 = load i8, ptr %.019.i298, align 1
   %265 = load i8, ptr %.018.i299, align 1
-  %266 = getelementptr inbounds i8, ptr %.019.i298, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %.019.i298, i64 1
   store i8 %265, ptr %.019.i298, align 1
-  %267 = getelementptr inbounds i8, ptr %.018.i299, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.018.i299, i64 1
   store i8 %264, ptr %.018.i299, align 1
   %268 = add nsw i64 %.020.i297, -1
   %269 = icmp sgt i64 %.020.i297, 1
@@ -681,9 +681,9 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   %.0.i309 = phi i64 [ %285, %284 ], [ %291, %286 ]
   %287 = load i64, ptr %.021.i308, align 8
   %288 = load i64, ptr %.022.i307, align 8
-  %289 = getelementptr inbounds i8, ptr %.021.i308, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.021.i308, i64 8
   store i64 %288, ptr %.021.i308, align 8
-  %290 = getelementptr inbounds i8, ptr %.022.i307, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %.022.i307, i64 8
   store i64 %287, ptr %.022.i307, align 8
   %291 = add nsw i64 %.0.i309, -1
   %292 = icmp samesign ugt i64 %.0.i309, 1
@@ -695,9 +695,9 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   %.018.i306 = phi ptr [ %296, %.preheader341 ], [ %283, %280 ]
   %293 = load i8, ptr %.019.i305, align 1
   %294 = load i8, ptr %.018.i306, align 1
-  %295 = getelementptr inbounds i8, ptr %.019.i305, i64 1
+  %295 = getelementptr inbounds nuw i8, ptr %.019.i305, i64 1
   store i8 %294, ptr %.019.i305, align 1
-  %296 = getelementptr inbounds i8, ptr %.018.i306, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %.018.i306, i64 1
   store i8 %293, ptr %.018.i306, align 1
   %297 = add nsw i64 %.020.i304, -1
   %298 = icmp samesign ugt i64 %.020.i304, 1
@@ -731,9 +731,9 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   %.0.i316 = phi i64 [ %312, %311 ], [ %318, %313 ]
   %314 = load i64, ptr %.021.i315, align 8
   %315 = load i64, ptr %.022.i314, align 8
-  %316 = getelementptr inbounds i8, ptr %.021.i315, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.021.i315, i64 8
   store i64 %315, ptr %.021.i315, align 8
-  %317 = getelementptr inbounds i8, ptr %.022.i314, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.022.i314, i64 8
   store i64 %314, ptr %.022.i314, align 8
   %318 = add nsw i64 %.0.i316, -1
   %319 = icmp samesign ugt i64 %.0.i316, 1
@@ -745,9 +745,9 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   %.018.i313 = phi ptr [ %323, %.preheader339 ], [ %310, %307 ]
   %320 = load i8, ptr %.019.i312, align 1
   %321 = load i8, ptr %.018.i313, align 1
-  %322 = getelementptr inbounds i8, ptr %.019.i312, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %.019.i312, i64 1
   store i8 %321, ptr %.019.i312, align 1
-  %323 = getelementptr inbounds i8, ptr %.018.i313, i64 1
+  %323 = getelementptr inbounds nuw i8, ptr %.018.i313, i64 1
   store i8 %320, ptr %.018.i313, align 1
   %324 = add nsw i64 %.020.i311, -1
   %325 = icmp samesign ugt i64 %.020.i311, 1

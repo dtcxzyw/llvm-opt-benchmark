@@ -61,26 +61,26 @@ define hidden void @VP8DspInitSSE2() local_unnamed_addr #0 {
 define internal void @Transform_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
   %4 = load i64, ptr %0, align 1
   %5 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %4, i64 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 1
   %8 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %7, i64 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 1
   %11 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %10, i64 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 1
   %14 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %13, i64 0
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %28, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 1
   %24 = insertelement <2 x i64> %5, i64 %17, i64 1
   %25 = insertelement <2 x i64> %8, i64 %19, i64 1
@@ -183,13 +183,13 @@ define internal void @Transform_SSE2(ptr nocapture noundef readonly %0, ptr noca
 114:                                              ; preds = %28
   %115 = load i64, ptr %1, align 1
   %116 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %115, i64 0
-  %117 = getelementptr inbounds i8, ptr %1, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %118 = load i64, ptr %117, align 1
   %119 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %118, i64 0
-  %120 = getelementptr inbounds i8, ptr %1, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %121 = load i64, ptr %120, align 1
   %122 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %121, i64 0
-  %123 = getelementptr inbounds i8, ptr %1, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %124 = load i64, ptr %123, align 1
   %125 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %124, i64 0
   br label %138
@@ -198,15 +198,15 @@ define internal void @Transform_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %.val = load i32, ptr %1, align 1
   %127 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.val, i64 0
   %128 = bitcast <4 x i32> %127 to <2 x i64>
-  %129 = getelementptr inbounds i8, ptr %1, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val334 = load i32, ptr %129, align 1
   %130 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.val334, i64 0
   %131 = bitcast <4 x i32> %130 to <2 x i64>
-  %132 = getelementptr inbounds i8, ptr %1, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val335 = load i32, ptr %132, align 1
   %133 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.val335, i64 0
   %134 = bitcast <4 x i32> %133 to <2 x i64>
-  %135 = getelementptr inbounds i8, ptr %1, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val336 = load i32, ptr %135, align 1
   %136 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.val336, i64 0
   %137 = bitcast <4 x i32> %136 to <2 x i64>
@@ -250,13 +250,13 @@ define internal void @Transform_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %167 = bitcast <16 x i8> %159 to <2 x i64>
   %168 = extractelement <2 x i64> %167, i64 0
   store i64 %168, ptr %1, align 1
-  %169 = getelementptr inbounds i8, ptr %1, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %170 = extractelement <2 x i64> %166, i64 0
   store i64 %170, ptr %169, align 1
-  %171 = getelementptr inbounds i8, ptr %1, i64 64
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %172 = extractelement <2 x i64> %165, i64 0
   store i64 %172, ptr %171, align 1
-  %173 = getelementptr inbounds i8, ptr %1, i64 96
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %174 = extractelement <2 x i64> %164, i64 0
   store i64 %174, ptr %173, align 1
   br label %187
@@ -265,15 +265,15 @@ define internal void @Transform_SSE2(ptr nocapture noundef readonly %0, ptr noca
   %176 = bitcast <16 x i8> %159 to <4 x i32>
   %177 = extractelement <4 x i32> %176, i64 0
   store i32 %177, ptr %1, align 1
-  %178 = getelementptr inbounds i8, ptr %1, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %179 = bitcast <16 x i8> %160 to <4 x i32>
   %180 = extractelement <4 x i32> %179, i64 0
   store i32 %180, ptr %178, align 1
-  %181 = getelementptr inbounds i8, ptr %1, i64 64
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %182 = bitcast <16 x i8> %161 to <4 x i32>
   %183 = extractelement <4 x i32> %182, i64 0
   store i32 %183, ptr %181, align 1
-  %184 = getelementptr inbounds i8, ptr %1, i64 96
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %185 = bitcast <16 x i8> %162 to <4 x i32>
   %186 = extractelement <4 x i32> %185, i64 0
   store i32 %186, ptr %184, align 1
@@ -1933,8 +1933,8 @@ define internal void @HFilter16i_SSE2(ptr nocapture noundef %0, i32 noundef %1, 
   %.0154159 = phi <2 x i64> [ %83, %5 ], [ %173, %Store16x4_SSE2.exit ]
   %.0155158 = phi <2 x i64> [ %82, %5 ], [ %172, %Store16x4_SSE2.exit ]
   %.0156157 = phi <2 x i64> [ %81, %5 ], [ %244, %Store16x4_SSE2.exit ]
-  %94 = getelementptr inbounds i8, ptr %.0162, i64 2
-  %95 = getelementptr inbounds i8, ptr %.0162, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0162, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.0162, i64 4
   %96 = bitcast <2 x i64> %.0154159 to <16 x i8>
   %97 = bitcast <2 x i64> %.0155158 to <16 x i8>
   %98 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %96, <16 x i8> %97)
@@ -2498,8 +2498,8 @@ define internal void @HFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %94 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %87, <16 x i8> %83)
   %95 = or <16 x i8> %93, %94
   %96 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %92, <16 x i8> %95)
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
-  %98 = getelementptr inbounds i8, ptr %1, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %99 = getelementptr inbounds i8, ptr %97, i64 %8
   %.val57.i.i69 = load i32, ptr %99, align 1
   %100 = getelementptr inbounds i8, ptr %97, i64 %11
@@ -2655,7 +2655,7 @@ define internal void @HFilter8i_SSE2(ptr nocapture noundef %0, ptr nocapture nou
   %234 = select <16 x i1> %.not.i, <16 x i8> zeroinitializer, <16 x i8> %233
   %235 = tail call <16 x i8> @llvm.ssub.sat.v16i8(<16 x i8> %203, <16 x i8> %234)
   %236 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %202, <16 x i8> %234)
-  %237 = getelementptr inbounds i8, ptr %0, i64 2
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %238 = xor <16 x i8> %236, splat (i8 -128)
   %239 = xor <16 x i8> %229, splat (i8 -128)
   %240 = xor <16 x i8> %230, splat (i8 -128)
@@ -2712,7 +2712,7 @@ Store4x4_SSE2.exit.i:                             ; preds = %253
   br i1 %exitcond.not.i44.i, label %Store4x4_SSE2.exit46.i, label %264, !llvm.loop !4
 
 Store4x4_SSE2.exit46.i:                           ; preds = %264
-  %271 = getelementptr inbounds i8, ptr %1, i64 2
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %272 = bitcast <8 x i16> %251 to <4 x i32>
   %.sroa.024.0.vec.extract.i = extractelement <4 x i32> %272, i64 0
   %273 = bitcast <8 x i16> %251 to <16 x i8>
@@ -3154,7 +3154,7 @@ define internal void @SimpleHFilter16i_SSE2(ptr nocapture noundef %0, i32 nounde
 4:                                                ; preds = %3, %4
   %.07 = phi i32 [ 3, %3 ], [ %6, %4 ]
   %.056 = phi ptr [ %0, %3 ], [ %5, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.056, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %.056, i64 4
   tail call void @SimpleHFilter16_SSE2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   %6 = add nsw i32 %.07, -1
   %7 = icmp ugt i32 %.07, 1
@@ -3192,7 +3192,7 @@ define internal void @TM4_SSE2(ptr nocapture noundef %0) #2 {
   %20 = extractelement <4 x i32> %19, i64 0
   store i32 %20, ptr %.0143.i, align 1
   %21 = add nuw nsw i32 %.0134142.i, 1
-  %22 = getelementptr inbounds i8, ptr %.0143.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0143.i, i64 32
   %exitcond148.not.i = icmp eq i32 %21, 4
   br i1 %exitcond148.not.i, label %TrueMotion_SSE2.exit, label %8, !llvm.loop !10
 
@@ -3220,7 +3220,7 @@ define internal void @VE4_SSE2(ptr nocapture noundef %0) #2 {
 15:                                               ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
   %16 = shl nuw nsw i64 %indvars.iv, 5
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i32 %14, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3240,13 +3240,13 @@ define internal void @RD4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %7 = getelementptr inbounds i8, ptr %0, i64 -1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 31
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 63
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 95
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 95
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %15, 8
@@ -3265,16 +3265,16 @@ define internal void @RD4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %32 = and <16 x i8> %31, splat (i8 1)
   %33 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %30, <16 x i8> %32)
   %34 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %33, <16 x i8> %28)
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = bitcast <16 x i8> %34 to <4 x i32>
   %37 = extractelement <4 x i32> %36, i64 0
   store i32 %37, ptr %35, align 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = shufflevector <16 x i8> %34, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %40 = bitcast <16 x i8> %39 to <4 x i32>
   %41 = extractelement <4 x i32> %40, i64 0
   store i32 %41, ptr %38, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = shufflevector <16 x i8> %34, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %44 = bitcast <16 x i8> %43 to <4 x i32>
   %45 = extractelement <4 x i32> %44, i64 0
@@ -3291,10 +3291,10 @@ define internal void @VR4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 31
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 63
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 -33
@@ -3320,16 +3320,16 @@ define internal void @VR4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %31 = bitcast <16 x i8> %18 to <4 x i32>
   %32 = extractelement <4 x i32> %31, i64 0
   store i32 %32, ptr %0, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = bitcast <16 x i8> %30 to <4 x i32>
   %35 = extractelement <4 x i32> %34, i64 0
   store i32 %35, ptr %33, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %18, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %38 = bitcast <16 x i8> %37 to <4 x i32>
   %39 = extractelement <4 x i32> %38, i64 0
   store i32 %39, ptr %36, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %30, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %42 = bitcast <16 x i8> %41 to <4 x i32>
   %43 = extractelement <4 x i32> %42, i64 0
@@ -3374,17 +3374,17 @@ define internal void @LD4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %20 = bitcast <16 x i8> %19 to <4 x i32>
   %21 = extractelement <4 x i32> %20, i64 0
   store i32 %21, ptr %0, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %24 = bitcast <16 x i8> %23 to <4 x i32>
   %25 = extractelement <4 x i32> %24, i64 0
   store i32 %25, ptr %22, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %28 = bitcast <16 x i8> %27 to <4 x i32>
   %29 = extractelement <4 x i32> %28, i64 0
   store i32 %29, ptr %26, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 3, i32 4, i32 5, i32 6, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %32 = bitcast <16 x i8> %31 to <4 x i32>
   %33 = extractelement <4 x i32> %32, i64 0
@@ -3417,25 +3417,25 @@ define internal void @VL4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36
   %22 = bitcast <16 x i8> %9 to <4 x i32>
   %23 = extractelement <4 x i32> %22, i64 0
   store i32 %23, ptr %0, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = bitcast <16 x i8> %21 to <4 x i32>
   %26 = extractelement <4 x i32> %25, i64 0
   store i32 %26, ptr %24, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = shufflevector <16 x i8> %9, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %29 = bitcast <16 x i8> %28 to <4 x i32>
   %30 = extractelement <4 x i32> %29, i64 0
   store i32 %30, ptr %27, align 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = shufflevector <16 x i8> %21, <16 x i8> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %33 = bitcast <16 x i8> %32 to <4 x i32>
   %34 = extractelement <4 x i32> %33, i64 0
   store i32 %34, ptr %31, align 1
   %35 = extractelement <16 x i8> %21, i64 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 67
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 67
   store i8 %35, ptr %36, align 1
   %37 = extractelement <16 x i8> %21, i64 5
-  %38 = getelementptr inbounds i8, ptr %0, i64 99
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 99
   store i8 %37, ptr %38, align 1
   ret void
 }
@@ -3479,7 +3479,7 @@ define internal void @DC16_SSE2(ptr nocapture noundef %0) #2 {
 24:                                               ; preds = %24, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %24 ]
   %25 = shl nuw nsw i64 %indvars.iv.i, 5
-  %26 = getelementptr inbounds i8, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   store <16 x i8> %23, ptr %26, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -3516,7 +3516,7 @@ define internal void @TM16_SSE2(ptr nocapture noundef %0) #2 {
   %20 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %18, <8 x i16> %19)
   store <16 x i8> %20, ptr %.2145.i, align 1
   %21 = add nuw nsw i32 %.2136144.i, 1
-  %22 = getelementptr inbounds i8, ptr %.2145.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.2145.i, i64 32
   %exitcond149.not.i = icmp eq i32 %21, 16
   br i1 %exitcond149.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !14
 
@@ -3533,7 +3533,7 @@ define internal void @VE16_SSE2(ptr nocapture noundef %0) #2 {
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   store <2 x i64> %3, ptr %6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -3555,7 +3555,7 @@ define internal void @HE16_SSE2(ptr nocapture noundef %0) #2 {
   %5 = insertelement <16 x i8> poison, i8 %4, i64 0
   %6 = shufflevector <16 x i8> %5, <16 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %6, ptr %.042, align 1
-  %7 = getelementptr inbounds i8, ptr %.042, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.042, i64 32
   %8 = add nsw i32 %.04041, -1
   %9 = icmp ugt i32 %.04041, 1
   br i1 %9, label %2, label %10, !llvm.loop !16
@@ -3591,7 +3591,7 @@ define internal void @DC16NoTop_SSE2(ptr nocapture noundef %0) #2 {
 12:                                               ; preds = %12, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %12 ]
   %13 = shl nuw nsw i64 %indvars.iv.i, 5
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   store <16 x i8> %11, ptr %14, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -3623,7 +3623,7 @@ define internal void @DC16NoLeft_SSE2(ptr nocapture noundef %0) #2 {
 17:                                               ; preds = %17, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %17 ]
   %18 = shl nuw nsw i64 %indvars.iv.i, 5
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   store <16 x i8> %16, ptr %19, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -3640,7 +3640,7 @@ define internal void @DC16NoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #4 
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv.i, 5
-  %4 = getelementptr inbounds i8, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   store <16 x i8> splat (i8 -128), ptr %4, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -3688,7 +3688,7 @@ define internal void @DC8uv_SSE2(ptr nocapture noundef %0) #2 {
 23:                                               ; preds = %23, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %23 ]
   %24 = shl nuw nsw i64 %indvars.iv.i, 5
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   store i64 %22, ptr %25, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -3726,7 +3726,7 @@ define internal void @TM8uv_SSE2(ptr nocapture noundef %0) #2 {
   %21 = extractelement <2 x i64> %20, i64 0
   store i64 %21, ptr %.1141.i, align 1
   %22 = add nuw nsw i32 %.1135140.i, 1
-  %23 = getelementptr inbounds i8, ptr %.1141.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.1141.i, i64 32
   %exitcond.not.i = icmp eq i32 %22, 8
   br i1 %exitcond.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !20
 
@@ -3743,7 +3743,7 @@ define internal void @VE8uv_SSE2(ptr nocapture noundef %0) #2 {
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   store i64 %3, ptr %6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -3782,7 +3782,7 @@ define internal void @DC8uvNoTop_SSE2(ptr nocapture noundef %0) #2 {
 14:                                               ; preds = %14, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %14 ]
   %15 = shl nuw nsw i64 %indvars.iv.i, 5
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   store i64 %13, ptr %16, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -3813,7 +3813,7 @@ define internal void @DC8uvNoLeft_SSE2(ptr nocapture noundef %0) #2 {
 16:                                               ; preds = %16, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %16 ]
   %17 = shl nuw nsw i64 %indvars.iv.i, 5
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   store i64 %15, ptr %18, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -3830,7 +3830,7 @@ define internal void @DC8uvNoTopLeft_SSE2(ptr nocapture noundef writeonly %0) #4
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %3 = shl nuw nsw i64 %indvars.iv.i, 5
-  %4 = getelementptr inbounds i8, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   store i64 -9187201950435737472, ptr %4, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8

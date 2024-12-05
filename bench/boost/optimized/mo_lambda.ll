@@ -225,7 +225,7 @@ define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %2
   %10 = load ptr, ptr %7, align 8, !tbaa !15, !noalias !12
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !12
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #15, !noalias !12
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
@@ -275,78 +275,78 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19
   br label %3, !llvm.loop !19
 
 _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail: ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 38
   br i1 %10, label %11, label %.thread57
 
 11:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19tokenizer8is_blankEc.exit.tail
-  %12 = getelementptr inbounds i8, ptr %4, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %12, ptr %0, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 260, ptr %13, align 8, !tbaa !10
   br label %61
 
 .tail:                                            ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 124
   br i1 %16, label %17, label %.thread57
 
 17:                                               ; preds = %.tail
-  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %18, ptr %0, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 261, ptr %19, align 8, !tbaa !10
   br label %61
 
 .tail18:                                          ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 61
   br i1 %22, label %23, label %.thread57
 
 23:                                               ; preds = %.tail18
-  %24 = getelementptr inbounds i8, ptr %4, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %24, ptr %0, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 257, ptr %25, align 8, !tbaa !10
   br label %61
 
 .tail22:                                          ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 61
   br i1 %28, label %29, label %.thread57
 
 29:                                               ; preds = %.tail22
-  %30 = getelementptr inbounds i8, ptr %4, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %30, ptr %0, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 256, ptr %31, align 8, !tbaa !10
   br label %61
 
 .tail26:                                          ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %4, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 61
   br i1 %34, label %35, label %.thread57
 
 35:                                               ; preds = %.tail26
-  %36 = getelementptr inbounds i8, ptr %4, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %36, ptr %0, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 258, ptr %37, align 8, !tbaa !10
   br label %61
 
 .tail30:                                          ; preds = %3
-  %38 = getelementptr inbounds i8, ptr %4, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 61
   br i1 %40, label %41, label %.thread57
 
 41:                                               ; preds = %.tail30
-  %42 = getelementptr inbounds i8, ptr %4, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %42, ptr %0, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 259, ptr %43, align 8, !tbaa !10
@@ -416,7 +416,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 .preheader:                                       ; preds = %.noexc
   %7 = ptrtoint ptr %6 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i146 = load i32, ptr %8, align 8, !noalias !21
   %.not14.i147 = icmp eq i32 %.val.i146, 261
   br i1 %.not14.i147, label %.lr.ph, label %.loopexit
@@ -456,11 +456,11 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
           cleanup
   %19 = inttoptr i64 %9 to ptr
   %20 = load ptr, ptr %11, align 8, !tbaa !15
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   %23 = load ptr, ptr %19, align 8, !tbaa !15
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
@@ -471,7 +471,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i45
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
   %27 = load ptr, ptr %.pr90, align 8, !tbaa !15
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.pr90) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit46
@@ -484,7 +484,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i42: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !21
   %30 = load ptr, ptr %.pr90, align 8, !tbaa !15
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %.pr90) #15
   br label %33
@@ -562,7 +562,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread122: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21, %40
   store ptr null, ptr %0, align 8, !tbaa !28
   %50 = load ptr, ptr %38, align 8, !tbaa !15
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %38) #15
   br label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i36
@@ -571,7 +571,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load ptr, ptr %42, align 8, !tbaa !15
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %42) #15
   br label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33
@@ -585,7 +585,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread
   %.pn109113 = phi { ptr, i32 } [ %53, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread ], [ %57, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31 ]
   %58 = load ptr, ptr %38, align 8, !tbaa !15
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %38) #15
   br label %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i39
@@ -596,7 +596,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i36: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread122
   %61 = load ptr, ptr %35, align 8, !tbaa !15
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit37
@@ -607,7 +607,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i39: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33
   %.pn.pn.ph134 = phi { ptr, i32 } [ %39, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116 ], [ %.pn109113, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33 ]
   %64 = load ptr, ptr %35, align 8, !tbaa !15
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit40
@@ -629,7 +629,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 .preheader:                                       ; preds = %2
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val39 = load i32, ptr %7, align 8
   %.not14.i40 = icmp eq i32 %.val39, 260
   br i1 %.not14.i40, label %.lr.ph, label %._crit_edge
@@ -673,11 +673,11 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
           cleanup
   %19 = inttoptr i64 %9 to ptr
   %20 = load ptr, ptr %11, align 8, !tbaa !15
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   %23 = load ptr, ptr %19, align 8, !tbaa !15
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
@@ -688,7 +688,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   %27 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
@@ -707,7 +707,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32
   store ptr null, ptr %0, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   %31 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
@@ -816,7 +816,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br i1 %.not, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 10:                                               ; preds = %2
@@ -831,7 +831,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 13:                                               ; preds = %13, %11
   %.013.idx15.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level3E, i64 %.013.idx15.i
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level3E, i64 %.013.idx15.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
@@ -869,7 +869,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i11: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
@@ -882,7 +882,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
@@ -902,7 +902,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i20: ; preds = %29
   %32 = load ptr, ptr %31, align 8, !tbaa !15
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
@@ -914,7 +914,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
   %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %.thread
@@ -933,7 +933,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29: ; preds = %39
   %41 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
@@ -955,7 +955,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32: ; preds = %45
   %46 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
@@ -979,7 +979,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br i1 %.not, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 10:                                               ; preds = %2
@@ -994,7 +994,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 13:                                               ; preds = %13, %11
   %.013.idx1.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level4E, i64 %.013.idx1.i
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level4E, i64 %.013.idx1.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx1.i, 4
@@ -1032,7 +1032,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i11: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
@@ -1045,7 +1045,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
@@ -1065,7 +1065,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i20: ; preds = %29
   %32 = load ptr, ptr %31, align 8, !tbaa !15
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
@@ -1077,7 +1077,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
   %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %.thread
@@ -1096,7 +1096,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29: ; preds = %39
   %41 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
@@ -1118,7 +1118,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32: ; preds = %45
   %46 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
@@ -1142,7 +1142,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br i1 %.not, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 10:                                               ; preds = %2
@@ -1157,7 +1157,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 13:                                               ; preds = %13, %11
   %.013.idx15.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level5E, i64 %.013.idx15.i
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level5E, i64 %.013.idx15.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
@@ -1195,7 +1195,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i11: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
@@ -1208,7 +1208,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
@@ -1228,7 +1228,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i20: ; preds = %29
   %32 = load ptr, ptr %31, align 8, !tbaa !15
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
@@ -1240,7 +1240,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
   %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %.thread
@@ -1259,7 +1259,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29: ; preds = %39
   %41 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
@@ -1281,7 +1281,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32: ; preds = %45
   %46 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
@@ -1305,7 +1305,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br i1 %.not, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 10:                                               ; preds = %2
@@ -1320,7 +1320,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 13:                                               ; preds = %13, %11
   %.013.idx1.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
-  %.013.ptr.i = getelementptr inbounds i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level6E, i64 %.013.idx1.i
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level6E, i64 %.013.idx1.i
   %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx1.i, 4
@@ -1358,7 +1358,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i11: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
@@ -1371,7 +1371,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i14: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit12
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
@@ -1391,7 +1391,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i20: ; preds = %29
   %32 = load ptr, ptr %31, align 8, !tbaa !15
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
@@ -1403,7 +1403,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit21
   %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %.thread
@@ -1422,7 +1422,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i23
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i29: ; preds = %39
   %41 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit30
@@ -1444,7 +1444,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i32: ; preds = %45
   %46 = load ptr, ptr %.pr35, align 8, !tbaa !15
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %.pr35) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
@@ -1461,13 +1461,13 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   %5 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store i64 193273528353, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %7, %2
   %.013.idx15.i = phi i64 [ 0, %2 ], [ %.013.add.i, %7 ]
-  %.013.ptr.i = getelementptr inbounds i8, ptr %4, i64 %.013.idx15.i
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.013.idx15.i
   %8 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
   %.not14.i = icmp eq i32 %.val, %8
   %.013.add.i = add nuw nsw i64 %.013.idx15.i, 4
@@ -1476,7 +1476,7 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
   br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %7
 
 _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not14.i, label %10, label %24
 
 10:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -1504,7 +1504,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load ptr, ptr %11, align 8, !tbaa !15
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -1588,7 +1588,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_19make_exprINS3_8identityEJEEES
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i13: ; preds = %27
   store ptr null, ptr %0, align 8, !tbaa !28
   %35 = load ptr, ptr %25, align 8, !tbaa !15
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %25) #15
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit14
@@ -1625,7 +1625,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryIS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -1644,7 +1644,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryIS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt11logical_notIxEED2Ev.exit
@@ -1674,7 +1674,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryIS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -1693,7 +1693,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryIS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15unaryISt6negateIxEED2Ev.exit
@@ -1777,7 +1777,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -1791,7 +1791,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -1810,7 +1810,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -1824,7 +1824,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7dividesIxELb1EED2Ev.exit
@@ -1859,7 +1859,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -1873,7 +1873,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -1892,7 +1892,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -1906,7 +1906,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10multipliesIxELb0EED2Ev.exit
@@ -1949,7 +1949,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -1963,7 +1963,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -1982,7 +1982,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -1996,7 +1996,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7modulusIxELb1EED2Ev.exit
@@ -2031,7 +2031,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2045,7 +2045,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2064,7 +2064,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2078,7 +2078,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4plusIxELb0EED2Ev.exit
@@ -2113,7 +2113,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2127,7 +2127,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2146,7 +2146,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2160,7 +2160,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt5minusIxELb0EED2Ev.exit
@@ -2196,7 +2196,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2210,7 +2210,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2229,7 +2229,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2243,7 +2243,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt7greaterIxELb0EED2Ev.exit
@@ -2279,7 +2279,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2293,7 +2293,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2312,7 +2312,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2326,7 +2326,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt4lessIxELb0EED2Ev.exit
@@ -2362,7 +2362,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2376,7 +2376,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2395,7 +2395,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2409,7 +2409,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt13greater_equalIxELb0EED2Ev.exit
@@ -2445,7 +2445,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2459,7 +2459,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2478,7 +2478,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2492,7 +2492,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10less_equalIxELb0EED2Ev.exit
@@ -2528,7 +2528,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2542,7 +2542,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2561,7 +2561,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2575,7 +2575,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt8equal_toIxELb0EED2Ev.exit
@@ -2611,7 +2611,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2625,7 +2625,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2644,7 +2644,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2658,7 +2658,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt12not_equal_toIxELb0EED2Ev.exit
@@ -2696,7 +2696,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2710,7 +2710,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2729,7 +2729,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2743,7 +2743,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt11logical_andIxELb0EED2Ev.exit
@@ -2780,7 +2780,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2794,7 +2794,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2813,7 +2813,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryI
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2827,7 +2827,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16binaryISt10logical_orIxELb0EED2Ev.exit
@@ -2863,7 +2863,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111condit
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
@@ -2877,7 +2877,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit: ; preds = %1, %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
@@ -2891,7 +2891,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3: ; preds = %_ZN5boos
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i5: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3
   %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit6
@@ -2910,7 +2910,7 @@ define internal void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111condit
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
@@ -2924,7 +2924,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i2.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3.i
@@ -2938,7 +2938,7 @@ _ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3.i: ; preds = %_ZNKSt
 
 _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i.i5.i: ; preds = %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit3.i
   %14 = load ptr, ptr %13, align 8, !tbaa !15
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
   br label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalD2Ev.exit

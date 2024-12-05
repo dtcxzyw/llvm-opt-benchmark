@@ -116,16 +116,16 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   ret void
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2fcdaa6d72397caE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !range !15, !noalias !6, !noundef !5
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1966b1f5a30ceee9E.exit", label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !6, !noundef !5
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1966b1f5a30ceee9E.exit", label %16
@@ -140,11 +140,11 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h762ddb0c8b4f459cE.exit"
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !alias.scope !19, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !alias.scope !19, !noundef !5
   invoke void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17hbda0f05e491057c1E.llvm.15088319939977076843"(ptr noalias noundef nonnull align 8 %21, i64 noundef %23) #15
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha370d6e37ab0f371E.llvm.15088319939977076843.exit.i" unwind label %24, !noalias !16
@@ -250,18 +250,18 @@ define void @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action..Action
   call void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_struct17ha72e122f2092dd31E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 @anon.87ca45a344918d6f02278ccbdb92a4fc.13, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 @anon.87ca45a344918d6f02278ccbdb92a4fc.15, i64 noundef 1)
   %5 = load i64, ptr %4, align 8, !range !15, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775808
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %20, label %9
 
 9:                                                ; preds = %2
-  %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.68.0.copyload = load i64, ptr %.sroa.68.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store i64 %5, ptr %3, align 8
-  %.sroa.6.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %.sroa.6.0..sroa_idx2, align 8
-  %.sroa.8.0..sroa_idx4 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.68.0.copyload, ptr %.sroa.8.0..sroa_idx4, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !46
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 1, 25) 24, i64 noundef range(i64 1, 9) 8) #14, !noalias !46
@@ -293,14 +293,14 @@ define void @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action..Action
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hae1ba51dc40ffa95E.exit": ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr %11, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.16, ptr %19, align 8
   br label %23
 
 20:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %21 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8ee9f086bf36dc75E"(ptr noalias noundef nonnull align 8 %8)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   store ptr null, ptr %0, align 8
   br label %23
@@ -311,7 +311,7 @@ define void @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action..Action
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action..Action$GT$10partial_eq17h92cff90a2563a30eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -332,13 +332,13 @@ define noundef zeroext i1 @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %7, i64 16
   %.val6.i = load i64, ptr %18, align 8, !alias.scope !49, !noundef !5
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i.i = load i64, ptr %19, align 8, !noalias !49, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val6.i
   br i1 %.not.i.i.i.i, label %20, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ab345359eb77b8aE.exit"
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %21, align 8, !noalias !49, !nonnull !5, !noundef !5
   %22 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %22, align 8, !alias.scope !49, !nonnull !5, !noundef !5
@@ -401,13 +401,13 @@ define { ptr, ptr } @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions11OpenBrowser15__autogenerated34__gpui_actions_builder_openbrowser17h701d1684056cdb6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.12, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 5687385772795028389, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 8103122756387350449, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..action..Action$GT$5build17hf3749c4c6ac52b84E", ptr %5, align 8
   ret void
 }
@@ -430,18 +430,18 @@ define void @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action..Action$
   call void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_struct17he4ca84d559c1801bE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 @anon.87ca45a344918d6f02278ccbdb92a4fc.19, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 @anon.87ca45a344918d6f02278ccbdb92a4fc.15, i64 noundef 1)
   %5 = load i64, ptr %4, align 8, !range !15, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775808
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %20, label %9
 
 9:                                                ; preds = %2
-  %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.68.0.copyload = load i64, ptr %.sroa.68.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store i64 %5, ptr %3, align 8
-  %.sroa.6.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %.sroa.6.0..sroa_idx2, align 8
-  %.sroa.8.0..sroa_idx4 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.68.0.copyload, ptr %.sroa.8.0..sroa_idx4, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !59
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 1, 25) 24, i64 noundef range(i64 1, 9) 8) #14, !noalias !59
@@ -473,14 +473,14 @@ define void @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action..Action$
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9c08e281762ea732E.exit": ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr %11, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.20, ptr %19, align 8
   br label %23
 
 20:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %21 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8ee9f086bf36dc75E"(ptr noalias noundef nonnull align 8 %8)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   store ptr null, ptr %0, align 8
   br label %23
@@ -491,7 +491,7 @@ define void @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action..Action$
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action..Action$GT$10partial_eq17h72562e6e2bf6416bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -512,13 +512,13 @@ define noundef zeroext i1 @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..a
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %7, i64 16
   %.val6.i = load i64, ptr %18, align 8, !alias.scope !62, !noundef !5
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i.i = load i64, ptr %19, align 8, !noalias !62, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val6.i
   br i1 %.not.i.i.i.i, label %20, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5b01d184435c5440E.exit"
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %21, align 8, !noalias !62, !nonnull !5, !noundef !5
   %22 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %22, align 8, !alias.scope !62, !nonnull !5, !noundef !5
@@ -581,13 +581,13 @@ define { ptr, ptr } @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions10OpenZedUrl15__autogenerated33__gpui_actions_builder_openzedurl17h441149c43b113723E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.18, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -1863831049677221444, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -7841210803106557916, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..action..Action$GT$5build17h2b2154598c79bda9E", ptr %5, align 8
   ret void
 }
@@ -611,7 +611,7 @@ define { ptr, i64 } @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..actio
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..action..Action$GT$5build17h16f9325e110d19abE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.24, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -619,7 +619,7 @@ define void @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..action..Actio
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..action..Action$GT$10partial_eq17h8feaf8669dc07640E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -652,13 +652,13 @@ define { ptr, ptr } @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..actio
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions12OpenSettings15__autogenerated35__gpui_actions_builder_opensettings17h5f68d33de6680afaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.23, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 4025944042168057782, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 6188904564763202523, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN66_$LT$zed_actions..OpenSettings$u20$as$u20$gpui..action..Action$GT$5build17h16f9325e110d19abE", ptr %5, align 8
   ret void
 }
@@ -682,7 +682,7 @@ define { ptr, i64 } @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui..action..Action$GT$5build17h6955cc135f2862adE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.28, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -690,7 +690,7 @@ define void @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui..action
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui..action..Action$GT$10partial_eq17h86e15978e1c13f29E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -723,13 +723,13 @@ define { ptr, ptr } @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions19OpenAccountSettings15__autogenerated42__gpui_actions_builder_openaccountsettings17he621e64e4d40c806E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.27, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -2632730800526286628, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 8901882439365568337, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN73_$LT$zed_actions..OpenAccountSettings$u20$as$u20$gpui..action..Action$GT$5build17h6955cc135f2862adE", ptr %5, align 8
   ret void
 }
@@ -753,7 +753,7 @@ define { ptr, i64 } @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Actio
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Action$GT$5build17h33c8792fac15316fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.32, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -761,7 +761,7 @@ define void @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Action$GT$5bu
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Action$GT$10partial_eq17h9b2ad98aa4a95208E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -794,13 +794,13 @@ define { ptr, ptr } @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Actio
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions4Quit15__autogenerated27__gpui_actions_builder_quit17hfd26faeece316eacE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.31, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 9, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -5534790228579135037, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -5213222845148862475, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN58_$LT$zed_actions..Quit$u20$as$u20$gpui..action..Action$GT$5build17h33c8792fac15316fE", ptr %5, align 8
   ret void
 }
@@ -824,7 +824,7 @@ define { ptr, i64 } @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action..Action$GT$5build17h6806abe7d4896a9cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.36, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -832,7 +832,7 @@ define void @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action..Action$
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action..Action$GT$10partial_eq17h2eb60c061cba7df2E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -865,13 +865,13 @@ define { ptr, ptr } @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions10OpenKeymap15__autogenerated33__gpui_actions_builder_openkeymap17h0e9155141487b95aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.35, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -6556028068203059976, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -1857671892412390348, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN64_$LT$zed_actions..OpenKeymap$u20$as$u20$gpui..action..Action$GT$5build17h6806abe7d4896a9cE", ptr %5, align 8
   ret void
 }
@@ -895,7 +895,7 @@ define { ptr, i64 } @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Acti
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Action$GT$5build17h6ca77e2ce34a48c5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.40, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -903,7 +903,7 @@ define void @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Action$GT$5b
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Action$GT$10partial_eq17h7eae0e8d751f7c9aE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -936,13 +936,13 @@ define { ptr, ptr } @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Acti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions5About15__autogenerated28__gpui_actions_builder_about17hf8851cb8eded45eeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.39, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 6998448777954502997, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -8068019541806352867, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN59_$LT$zed_actions..About$u20$as$u20$gpui..action..Action$GT$5build17h6ca77e2ce34a48c5E", ptr %5, align 8
   ret void
 }
@@ -966,7 +966,7 @@ define { ptr, i64 } @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..actio
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..action..Action$GT$5build17h3d6fe4724e9daf14E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.44, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -974,7 +974,7 @@ define void @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..action..Actio
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..action..Action$GT$10partial_eq17h52a3ce77d9e50303E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1007,13 +1007,13 @@ define { ptr, ptr } @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..actio
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions12OpenLicenses15__autogenerated35__gpui_actions_builder_openlicenses17h18e35e8157c6cd7dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.43, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2182473087638276348, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -7666315797179788293, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN66_$LT$zed_actions..OpenLicenses$u20$as$u20$gpui..action..Action$GT$5build17h3d6fe4724e9daf14E", ptr %5, align 8
   ret void
 }
@@ -1037,7 +1037,7 @@ define { ptr, i64 } @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..a
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..action..Action$GT$5build17h5929e92b59922098E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.48, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1045,7 +1045,7 @@ define void @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..action..A
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..action..Action$GT$10partial_eq17hed365e40b1b99ba5E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1078,13 +1078,13 @@ define { ptr, ptr } @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions16OpenTelemetryLog15__autogenerated39__gpui_actions_builder_opentelemetrylog17h99571a6a63384c03E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.47, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 21, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -6182445623821176881, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -1658976436649845076, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN70_$LT$zed_actions..OpenTelemetryLog$u20$as$u20$gpui..action..Action$GT$5build17h5929e92b59922098E", ptr %5, align 8
   ret void
 }
@@ -1108,7 +1108,7 @@ define { ptr, i64 } @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$g
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17he39200a858c97c94E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.52, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1116,7 +1116,7 @@ define void @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$gpui..act
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17h8ea39bf1b7efe09bE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1149,13 +1149,13 @@ define { ptr, ptr } @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$g
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions22DecreaseBufferFontSize15__autogenerated45__gpui_actions_builder_decreasebufferfontsize17h2f631a5c0c81fcedE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.51, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 27, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 5476089972850562118, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1235247106865575675, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN76_$LT$zed_actions..DecreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17he39200a858c97c94E", ptr %5, align 8
   ret void
 }
@@ -1179,7 +1179,7 @@ define { ptr, i64 } @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$g
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17hec024cee0d6f115aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.56, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1187,7 +1187,7 @@ define void @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$gpui..act
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17hb407db5ea644e2c1E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1220,13 +1220,13 @@ define { ptr, ptr } @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$g
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions22IncreaseBufferFontSize15__autogenerated45__gpui_actions_builder_increasebufferfontsize17hcb1fe3687b7f8addE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.55, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 27, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -6651523594867505977, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -6559585774100665397, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN76_$LT$zed_actions..IncreaseBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17hec024cee0d6f115aE", ptr %5, align 8
   ret void
 }
@@ -1250,7 +1250,7 @@ define { ptr, i64 } @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17hea9605216c4d9e4dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.60, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1258,7 +1258,7 @@ define void @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui..action
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17h66be28bfb70ca0daE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1291,13 +1291,13 @@ define { ptr, ptr } @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions19ResetBufferFontSize15__autogenerated42__gpui_actions_builder_resetbufferfontsize17hb2bfdd2cb41ff3a7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.59, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -1829364265965297596, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 2073211960709099993, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN73_$LT$zed_actions..ResetBufferFontSize$u20$as$u20$gpui..action..Action$GT$5build17hea9605216c4d9e4dE", ptr %5, align 8
   ret void
 }
@@ -1321,7 +1321,7 @@ define { ptr, i64 } @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h31e9b134ef2cd6e0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.64, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1329,7 +1329,7 @@ define void @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui..action.
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17h2c6ef45c28f070ecE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1362,13 +1362,13 @@ define { ptr, ptr } @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions18DecreaseUiFontSize15__autogenerated41__gpui_actions_builder_decreaseuifontsize17h0ec2457788a84b76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.63, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1313017535532607786, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -1099542194203195921, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN72_$LT$zed_actions..DecreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h31e9b134ef2cd6e0E", ptr %5, align 8
   ret void
 }
@@ -1392,7 +1392,7 @@ define { ptr, i64 } @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h832b6ca3768c5639E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.68, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1400,7 +1400,7 @@ define void @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui..action.
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17h8e0a67360646fb0eE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1433,13 +1433,13 @@ define { ptr, ptr } @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions18IncreaseUiFontSize15__autogenerated41__gpui_actions_builder_increaseuifontsize17hb3eb11c7a53f7b27E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.67, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 7061771764447632343, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -3523091864821120364, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN72_$LT$zed_actions..IncreaseUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h832b6ca3768c5639E", ptr %5, align 8
   ret void
 }
@@ -1463,7 +1463,7 @@ define { ptr, i64 } @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..ac
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h9e0b4f22e2ebd2d8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.72, ptr %3, align 8
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hfe27b9f45ae11fb7E"(ptr noalias noundef align 8 dereferenceable(72) %1)
   ret void
@@ -1471,7 +1471,7 @@ define void @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..action..Ac
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..action..Action$GT$10partial_eq17hdac5c59c44486f38E"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1504,13 +1504,13 @@ define { ptr, ptr } @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..ac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions15ResetUiFontSize15__autogenerated38__gpui_actions_builder_resetuifontsize17hd075fc0db328333fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.71, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 20, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -7355848350239090441, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -5188608157369575198, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN69_$LT$zed_actions..ResetUiFontSize$u20$as$u20$gpui..action..Action$GT$5build17h9e0b4f22e2ebd2d8E", ptr %5, align 8
   ret void
 }
@@ -1557,18 +1557,18 @@ define void @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Actio
   call void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_struct17h05dd1579d7cb2cb8E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 @anon.87ca45a344918d6f02278ccbdb92a4fc.76, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 @anon.87ca45a344918d6f02278ccbdb92a4fc.78, i64 noundef 1)
   %5 = load i64, ptr %4, align 8, !range !72, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775807
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %20, label %9
 
 9:                                                ; preds = %2
-  %.sroa.68.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.68.0.copyload = load i64, ptr %.sroa.68.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store i64 %5, ptr %3, align 8
-  %.sroa.6.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %.sroa.6.0..sroa_idx2, align 8
-  %.sroa.8.0..sroa_idx4 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.68.0.copyload, ptr %.sroa.8.0..sroa_idx4, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !73
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 1, 25) 24, i64 noundef range(i64 1, 9) 8) #14, !noalias !73
@@ -1600,14 +1600,14 @@ define void @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Actio
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hc4272df100aa79bdE.exit": ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr %11, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.79, ptr %19, align 8
   br label %23
 
 20:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %21 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8ee9f086bf36dc75E"(ptr noalias noundef nonnull align 8 %8)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   store ptr null, ptr %0, align 8
   br label %23
@@ -1618,7 +1618,7 @@ define void @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Actio
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Action$GT$10partial_eq17hb37060f805ffb662E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   %6 = tail call { ptr, ptr } %5(ptr noundef nonnull align 1 %1)
   %7 = extractvalue { ptr, ptr } %6, 0
@@ -1647,17 +1647,17 @@ define noundef zeroext i1 @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui.
   br i1 %brmerge.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8eb90e43e38fafb9E.exit", label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i.i = load i64, ptr %23, align 8, !noalias !82, !noundef !5
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val3.i.i = load i64, ptr %24, align 8, !alias.scope !82, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val3.i.i
   br i1 %.not.i.i.i.i, label %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8eb90e43e38fafb9E.exit"
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val2.i.i = load ptr, ptr %26, align 8, !alias.scope !82, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %27, align 8, !noalias !82, !nonnull !5, !noundef !5
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val2.i.i, i64 %.val1.i.i), !alias.scope !83, !noalias !82
   %28 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -1683,7 +1683,7 @@ define { ptr, ptr } @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..actio
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %7
@@ -1691,7 +1691,7 @@ define { ptr, ptr } @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..actio
 7:                                                ; preds = %1, %6
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %6 ], [ -9223372036854775808, %1 ]
   store i64 %.sroa.0.0, ptr %3, align 8
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !87
@@ -1739,13 +1739,13 @@ define { ptr, ptr } @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..actio
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN11zed_actions12InlineAssist15__autogenerated35__gpui_actions_builder_inlineassist17h74378f2cb3a36eebE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 {
   store ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.75, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -827972896384002665, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -6237072483207949683, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Action$GT$5build17he3d7471297d7e7c7E", ptr %5, align 8
   ret void
 }

@@ -13,9 +13,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Curl_wildcard_init(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @Curl_llist_init(ptr noundef nonnull %2, ptr noundef nonnull @fileinfo_dtor) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %3, align 8
   ret i32 0
 }
@@ -35,31 +35,31 @@ define dso_local void @Curl_wildcard_dtor(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not16 = icmp eq ptr %5, null
   br i1 %.not16, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   tail call void %5(ptr noundef %8) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %9
 
 9:                                                ; preds = %6, %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @Curl_llist_destroy(ptr noundef nonnull %10, ptr noundef null) #7
   %11 = load ptr, ptr @Curl_cfree, align 8
   %12 = load ptr, ptr %2, align 8
   tail call void %11(ptr noundef %12) #7
   store ptr null, ptr %2, align 8
   %13 = load ptr, ptr @Curl_cfree, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %13(ptr noundef %15) #7
   store ptr null, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 1, ptr %16, align 8
   %17 = load ptr, ptr @Curl_cfree, align 8
   tail call void %17(ptr noundef nonnull %2) #7
@@ -86,7 +86,7 @@ define dso_local void @Curl_ftp_parselist_data_free(ptr nocapture noundef %0) lo
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @Curl_fileinfo_cleanup(ptr noundef %5) #7
   br label %6
@@ -102,7 +102,7 @@ declare void @Curl_fileinfo_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @Curl_ftp_parselist_geterror(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -115,12 +115,12 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   %10 = mul i64 %2, %1
-  %11 = getelementptr inbounds i8, ptr %3, i64 4944
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4944
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %574
@@ -145,17 +145,17 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   br i1 %.not736, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.thread, %26
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
-  %28 = getelementptr inbounds i8, ptr %15, i64 32
-  %29 = getelementptr inbounds i8, ptr %15, i64 24
-  %30 = getelementptr inbounds i8, ptr %15, i64 4
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 40
-  %33 = getelementptr inbounds i8, ptr %15, i64 64
-  %34 = getelementptr inbounds i8, ptr %15, i64 80
-  %35 = getelementptr inbounds i8, ptr %15, i64 56
-  %36 = getelementptr inbounds i8, ptr %15, i64 48
-  %37 = getelementptr inbounds i8, ptr %15, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 72
   br label %.lr.ph.split.us.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.outer, %.lr.ph.lr.ph
@@ -179,14 +179,14 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 43:                                               ; preds = %41
   store i64 0, ptr %28, align 8
   store i32 0, ptr %29, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 152
   call void @Curl_dyn_init(ptr noundef nonnull %44, i64 noundef 10000) #7
   %.pre = load ptr, ptr %27, align 8
   br label %45
 
 45:                                               ; preds = %43, %.lr.ph.split.us
   %46 = phi ptr [ %.pre, %43 ], [ %40, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %48 = call i32 @Curl_dyn_addn(ptr noundef nonnull %47, ptr noundef nonnull %5, i64 noundef 1) #7
   %.not499.us = icmp eq i32 %48, 0
   br i1 %.not499.us, label %49, label %.split628.us
@@ -265,14 +265,14 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 69:                                               ; preds = %.split686.us
   %70 = zext i32 %63 to i64
-  %71 = getelementptr inbounds i8, ptr %51, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 %70
   store i8 0, ptr %71, align 1
   %72 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str, ptr noundef nonnull dereferenceable(1) %51, i64 noundef 6) #8
   %.not521 = icmp eq i32 %72, 0
   br i1 %.not521, label %73, label %83
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %51, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 6
   br label %75
 
 75:                                               ; preds = %.critedge, %73
@@ -289,12 +289,12 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   br i1 %or.cond524732, label %.lr.ph734, label %.critedge3
 
 .critedge:                                        ; preds = %75, %75
-  %78 = getelementptr inbounds i8, ptr %.0461, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0461, i64 1
   br label %75, !llvm.loop !5
 
 .lr.ph734:                                        ; preds = %.preheader, %.lr.ph734
   %.1733 = phi ptr [ %79, %.lr.ph734 ], [ %.0461, %.preheader ]
-  %79 = getelementptr inbounds i8, ptr %.1733, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.1733, i64 1
   %.pr = load i8, ptr %79, align 1
   %80 = add i8 %.pr, -48
   %or.cond524 = icmp ult i8 %80, 10
@@ -358,7 +358,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 93:                                               ; preds = %.split637.us, %91, %90, %89, %88, %87, %86, %85
   %.sink = phi i32 [ 7, %91 ], [ 3, %90 ], [ 4, %89 ], [ 6, %88 ], [ 5, %87 ], [ 2, %86 ], [ 1, %85 ], [ 0, %.split637.us ]
-  %94 = getelementptr inbounds i8, ptr %46, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %.sink, ptr %94, align 8
   store i32 2, ptr %30, align 4
   store i32 0, ptr %29, align 8
@@ -397,7 +397,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   br label %574
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %51, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %51, i64 10
   store i8 0, ptr %108, align 1
   %109 = load i64, ptr %28, align 8
   %110 = getelementptr inbounds i8, ptr %51, i64 %109
@@ -406,7 +406,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   %switch.select.i = select i1 %switch.selectcmp.i, i32 0, i32 16777216
   %switch.selectcmp68.i = icmp eq i8 %111, 114
   %switch.select69.i = select i1 %switch.selectcmp68.i, i32 256, i32 %switch.select.i
-  %112 = getelementptr inbounds i8, ptr %110, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %116 [
     i8 119, label %114
@@ -423,7 +423,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 118:                                              ; preds = %116, %114, %107
   %.1.i = phi i32 [ %115, %114 ], [ %117, %116 ], [ %switch.select69.i, %107 ]
-  %119 = getelementptr inbounds i8, ptr %110, i64 2
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %120 = load i8, ptr %119, align 1
   switch i8 %120, label %127 [
     i8 120, label %121
@@ -450,7 +450,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 129:                                              ; preds = %127, %125, %123, %121, %118
   %.2.i = phi i32 [ %122, %121 ], [ %124, %123 ], [ %126, %125 ], [ %128, %127 ], [ %.1.i, %118 ]
-  %130 = getelementptr inbounds i8, ptr %110, i64 3
+  %130 = getelementptr inbounds nuw i8, ptr %110, i64 3
   %131 = load i8, ptr %130, align 1
   switch i8 %131, label %134 [
     i8 114, label %132
@@ -467,7 +467,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 136:                                              ; preds = %134, %132, %129
   %.3.i = phi i32 [ %133, %132 ], [ %135, %134 ], [ %.2.i, %129 ]
-  %137 = getelementptr inbounds i8, ptr %110, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %138 = load i8, ptr %137, align 1
   switch i8 %138, label %141 [
     i8 119, label %139
@@ -484,7 +484,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 143:                                              ; preds = %141, %139, %136
   %.4.i = phi i32 [ %140, %139 ], [ %142, %141 ], [ %.3.i, %136 ]
-  %144 = getelementptr inbounds i8, ptr %110, i64 5
+  %144 = getelementptr inbounds nuw i8, ptr %110, i64 5
   %145 = load i8, ptr %144, align 1
   switch i8 %145, label %152 [
     i8 120, label %146
@@ -511,7 +511,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 154:                                              ; preds = %152, %150, %148, %146, %143
   %.5.i = phi i32 [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %.4.i, %143 ]
-  %155 = getelementptr inbounds i8, ptr %110, i64 6
+  %155 = getelementptr inbounds nuw i8, ptr %110, i64 6
   %156 = load i8, ptr %155, align 1
   switch i8 %156, label %159 [
     i8 114, label %157
@@ -528,7 +528,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 161:                                              ; preds = %159, %157, %154
   %.6.i = phi i32 [ %158, %157 ], [ %160, %159 ], [ %.5.i, %154 ]
-  %162 = getelementptr inbounds i8, ptr %110, i64 7
+  %162 = getelementptr inbounds nuw i8, ptr %110, i64 7
   %163 = load i8, ptr %162, align 1
   switch i8 %163, label %166 [
     i8 119, label %164
@@ -545,7 +545,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 168:                                              ; preds = %166, %164, %161
   %.7.i = phi i32 [ %165, %164 ], [ %167, %166 ], [ %.6.i, %161 ]
-  %169 = getelementptr inbounds i8, ptr %110, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %170 = load i8, ptr %169, align 1
   switch i8 %170, label %ftp_pl_get_permission.exit.thread [
     i8 120, label %171
@@ -577,12 +577,12 @@ ftp_pl_get_permission.exit.thread:                ; preds = %168, %ftp_pl_get_pe
 
 177:                                              ; preds = %ftp_pl_get_permission.exit
   %178 = load ptr, ptr %27, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 96
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 96
   %180 = load i32, ptr %179, align 8
   %181 = or i32 %180, 8
   store i32 %181, ptr %179, align 8
   %182 = load ptr, ptr %27, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store i32 %.8.i, ptr %183, align 8
   %184 = load i64, ptr %28, align 8
   store i64 %184, ptr %37, align 8
@@ -647,12 +647,12 @@ ftp_pl_get_permission.exit.thread:                ; preds = %168, %ftp_pl_get_pe
 
 212:                                              ; preds = %198
   %213 = load ptr, ptr %27, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 96
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 96
   %215 = load i32, ptr %214, align 8
   %216 = or i32 %215, 128
   store i32 %216, ptr %214, align 8
   %217 = load ptr, ptr %27, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 48
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 48
   store i64 %206, ptr %218, align 8
   br label %219
 
@@ -817,12 +817,12 @@ ftp_pl_get_permission.exit.thread:                ; preds = %168, %ftp_pl_get_pe
 
 286:                                              ; preds = %279
   %287 = load ptr, ptr %27, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 96
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 96
   %289 = load i32, ptr %288, align 8
   %290 = or i32 %289, 64
   store i32 %290, ptr %288, align 8
   %291 = load ptr, ptr %27, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 40
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
   store i64 %283, ptr %292, align 8
   br label %293
 
@@ -1008,7 +1008,7 @@ ftp_pl_get_permission.exit.thread:                ; preds = %168, %ftp_pl_get_pe
   store i8 0, ptr %366, align 1
   %367 = load i64, ptr %28, align 8
   store i64 %367, ptr %33, align 8
-  %368 = getelementptr inbounds i8, ptr %46, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %369 = load i32, ptr %368, align 8
   %370 = icmp eq i32 %369, 2
   br i1 %370, label %371, label %372
@@ -1445,14 +1445,14 @@ switch.early.test:                                ; preds = %373
   br i1 %533, label %534, label %537
 
 534:                                              ; preds = %524
-  %535 = getelementptr inbounds i8, ptr %46, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1, ptr %535, align 8
-  %536 = getelementptr inbounds i8, ptr %46, i64 40
+  %536 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i64 0, ptr %536, align 8
   br label %544
 
 537:                                              ; preds = %524
-  %538 = getelementptr inbounds i8, ptr %46, i64 40
+  %538 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %539 = call i32 @curlx_strtoofft(ptr noundef nonnull %531, ptr noundef nonnull %9, i32 noundef 10, ptr noundef nonnull %538) #7
   %.not501 = icmp eq i32 %539, 0
   br i1 %.not501, label %541, label %540
@@ -1463,13 +1463,13 @@ switch.early.test:                                ; preds = %373
 
 541:                                              ; preds = %537
   %542 = load ptr, ptr %27, align 8
-  %543 = getelementptr inbounds i8, ptr %542, i64 8
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
   store i32 0, ptr %543, align 8
   br label %544
 
 544:                                              ; preds = %541, %534
   %545 = load ptr, ptr %27, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 96
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 96
   %547 = load i32, ptr %546, align 8
   %548 = or i32 %547, 64
   store i32 %548, ptr %546, align 8
@@ -1554,7 +1554,7 @@ switch.early.test:                                ; preds = %373
 
 574:                                              ; preds = %4, %.split630.us, %571, %540, %512, %493, %492, %485, %474, %450, %444, %431, %424, %418, %407, %378, %355, %344, %331, %320, %307, %296, %264, %222, %192, %ftp_pl_get_permission.exit.thread, %106, %101, %92, %83, %81, %.split628.us, %.split.us
   %.0462 = phi i64 [ %10, %4 ], [ %10, %.split628.us ], [ %572, %.split630.us ], [ %10, %571 ], [ %10, %540 ], [ %10, %512 ], [ %10, %485 ], [ %10, %492 ], [ %10, %493 ], [ %10, %474 ], [ %10, %450 ], [ %10, %444 ], [ %10, %431 ], [ %10, %424 ], [ %10, %418 ], [ %10, %407 ], [ %10, %378 ], [ %10, %355 ], [ %10, %344 ], [ %10, %331 ], [ %10, %320 ], [ %10, %307 ], [ %10, %296 ], [ %10, %264 ], [ %10, %222 ], [ %10, %192 ], [ %10, %101 ], [ %10, %106 ], [ %10, %ftp_pl_get_permission.exit.thread ], [ %10, %92 ], [ %10, %83 ], [ %10, %81 ], [ %10, %.split.us ]
-  %575 = getelementptr inbounds i8, ptr %15, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %576 = load ptr, ptr %575, align 8
   %.not523 = icmp eq ptr %576, null
   br i1 %.not523, label %.loopexit, label %577
@@ -1593,59 +1593,59 @@ declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4944
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4944
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %10 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %9) #7
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   store ptr %13, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %15 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %15, 0
   %16 = getelementptr inbounds i8, ptr %10, i64 %15
   %spec.select = select i1 %.not, ptr null, ptr %16
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %spec.select, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %20 = load i64, ptr %19, align 8
   %.not50 = icmp eq i64 %20, 0
   %21 = getelementptr inbounds i8, ptr %10, i64 %20
   %22 = select i1 %.not50, ptr null, ptr %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %25 = load i64, ptr %24, align 8
   %.not51 = icmp eq i64 %25, 0
   %26 = getelementptr inbounds i8, ptr %10, i64 %25
   %27 = select i1 %.not51, ptr null, ptr %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %10, i64 %30
   store ptr %31, ptr %17, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %33 = load i64, ptr %32, align 8
   %.not52 = icmp eq i64 %33, 0
   %34 = getelementptr inbounds i8, ptr %10, i64 %33
   %35 = select i1 %.not52, ptr null, ptr %34
-  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 2496
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %38 = load ptr, ptr %37, align 8
   %.not53 = icmp eq ptr %38, null
   %spec.store.select = select i1 %.not53, ptr @Curl_fnmatch, ptr %38
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext true) #7
-  %39 = getelementptr inbounds i8, ptr %0, i64 2504
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2504
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %1, align 8
   %44 = tail call i32 %spec.store.select(ptr noundef %40, ptr noundef %42, ptr noundef %43) #7
@@ -1653,7 +1653,7 @@ define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %0, ptr noundef %1)
   br i1 %45, label %46, label %.critedge58
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %50, label %.critedge
@@ -1674,9 +1674,9 @@ define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %0, ptr noundef %1)
   br label %54
 
 54:                                               ; preds = %.critedge, %52
-  %55 = getelementptr inbounds i8, ptr %4, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @Curl_llist_insert_next(ptr noundef nonnull %7, ptr noundef %56, ptr noundef nonnull %1, ptr noundef nonnull %57) #7
   br label %59
 
@@ -1690,7 +1690,7 @@ define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %0, ptr noundef %1)
 
 59:                                               ; preds = %58, %54
   %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr null, ptr %61, align 8
   ret void
 }

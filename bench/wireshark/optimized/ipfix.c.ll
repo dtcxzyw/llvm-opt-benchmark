@@ -39,8 +39,8 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph58:                                         ; preds = %8, %3
   %.038 = phi i32 [ 20, %3 ], [ %spec.select, %8 ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %15
 
 15:                                               ; preds = %.lr.ph58, %._crit_edge
@@ -137,18 +137,18 @@ define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, p
   br i1 %.not48, label %59, label %.loopexit
 
 59:                                               ; preds = %.loopexit50
-  %60 = getelementptr inbounds i8, ptr %0, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 128, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 148
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @ipfix_read, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ipfix_seek_read, ptr %64, align 8
   %65 = load i32, ptr @ipfix_file_type_subtype, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %65, ptr %66, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %.loopexit
@@ -173,19 +173,19 @@ define internal fastcc range(i32 0, 2) i32 @ipfix_read_message_header(ptr nounde
   %7 = load i16, ptr %0, align 4
   %rev = tail call i16 @llvm.bswap.i16(i16 %7)
   store i16 %rev, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
   %rev35 = tail call i16 @llvm.bswap.i16(i16 %9)
   store i16 %rev35, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
   store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %16, align 4
@@ -248,23 +248,23 @@ ipfix_read_message.exit.thread:                   ; preds = %6
 ipfix_read_message.exit:                          ; preds = %6
   store i32 0, ptr %1, align 8
   %12 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %13 = getelementptr inbounds i8, ptr %1, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
-  %19 = getelementptr inbounds i8, ptr %1, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %17, ptr %19, align 4
   store i32 %17, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %24, align 8
   %25 = call i32 @wtap_read_packet_bytes(ptr noundef %10, ptr noundef %2, i32 noundef %17, ptr noundef %3, ptr noundef %4) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -283,7 +283,7 @@ ipfix_read_message.exit:                          ; preds = %6
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ipfix_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.ipfix_message_header_s, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %11 = icmp eq i64 %10, -1
@@ -303,23 +303,23 @@ ipfix_read_message.exit.thread:                   ; preds = %12
 ipfix_read_message.exit:                          ; preds = %12
   store i32 0, ptr %2, align 8
   %15 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %16 = getelementptr inbounds i8, ptr %2, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
-  %22 = getelementptr inbounds i8, ptr %2, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %20, ptr %22, align 4
   store i32 %20, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %27, align 8
   %28 = call i32 @wtap_read_packet_bytes(ptr noundef %13, ptr noundef %3, i32 noundef %20, ptr noundef %4, ptr noundef %5) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)

@@ -28,20 +28,20 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = add i32 %4, 40
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, %6
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 %13, %15
   %17 = icmp ult i32 %16, %6
@@ -60,7 +60,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 24:                                               ; preds = %20, %11
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   br label %26
 
 26:                                               ; preds = %24, %2
@@ -72,28 +72,28 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %29, label %.thread, label %30, !prof !6
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %32 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = trunc i64 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %1, i64 180
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %40 = trunc i32 %4 to i16
   %41 = add i16 %38, %40
   store i16 %41, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %28, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %43 = load i16, ptr %42, align 4
   %44 = tail call i16 @llvm.bswap.i16(i16 %43)
   %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %1, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %47, %6
   %49 = icmp eq i32 %48, %45
   %50 = select i1 %49, i16 1, i16 2
-  %51 = getelementptr inbounds i8, ptr %28, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %52 = load i8, ptr %51, align 2
   %53 = zext i8 %52 to i32
   %54 = zext i8 %52 to i64
@@ -103,26 +103,26 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %30
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %154
 
 62:                                               ; preds = %58, %30
-  %63 = getelementptr inbounds i8, ptr %1, i64 116
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %64 = load volatile ptr, ptr %55, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread17, label %.lr.ph.preheader, !prof !7
 
 .lr.ph.preheader:                                 ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 1
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread17.loopexit, label %.lr.ph58
 
 .lr.ph:                                           ; preds = %120
-  %70 = getelementptr inbounds i8, ptr %125, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1
   %73 = icmp eq i32 %72, 0
@@ -168,7 +168,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %95, label %.thread17.loopexit, label %96, !prof !6
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %94, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 1
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 3
@@ -248,7 +248,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %141, label %.thread, label %142
 
 142:                                              ; preds = %.thread17
-  %143 = getelementptr inbounds i8, ptr %140, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.thread, label %146
@@ -279,12 +279,12 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %160 = phi i32 [ %53, %154 ], [ %.lcssa24, %146 ]
   %161 = phi ptr [ %28, %154 ], [ %153, %146 ]
   %162 = phi ptr [ %56, %154 ], [ %140, %146 ]
-  %163 = getelementptr inbounds i8, ptr %1, i64 178
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 178
   %164 = trunc i32 %159 to i16
   %165 = add i16 %.pre-phi57, %164
   store i16 %165, ptr %163, align 2
   %166 = trunc nuw nsw i32 %160 to i16
-  %167 = getelementptr inbounds i8, ptr %1, i64 66
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 66
   store i16 %166, ptr %167, align 2
   %168 = add nsw i16 %50, -1
   %169 = zext i16 %165 to i32
@@ -295,29 +295,29 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %173, label %.loopexit, label %174
 
 174:                                              ; preds = %157
-  %175 = getelementptr inbounds i8, ptr %161, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %176 = getelementptr i8, ptr %161, i64 16
-  %177 = getelementptr inbounds i8, ptr %161, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %178 = getelementptr i8, ptr %161, i64 32
-  %179 = getelementptr inbounds i8, ptr %161, i64 6
+  %179 = getelementptr inbounds nuw i8, ptr %161, i64 6
   %180 = icmp ugt i32 %171, 40
   %181 = zext i32 %171 to i64
   %182 = getelementptr i8, ptr %161, i64 40
   %183 = add nsw i64 %181, -40
-  %184 = getelementptr inbounds i8, ptr %161, i64 7
-  %185 = getelementptr inbounds i8, ptr %1, i64 70
+  %184 = getelementptr inbounds nuw i8, ptr %161, i64 7
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 70
   br label %186
 
 186:                                              ; preds = %251, %174
   %187 = phi ptr [ %172, %174 ], [ %252, %251 ]
-  %188 = getelementptr inbounds i8, ptr %187, i64 70
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 70
   %189 = load i16, ptr %188, align 2
   %190 = and i16 %189, 1
   %191 = icmp eq i16 %190, 0
   br i1 %191, label %251, label %192
 
 192:                                              ; preds = %186
-  %193 = getelementptr inbounds i8, ptr %187, i64 200
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 200
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr i8, ptr %194, i64 %5
   %196 = load i32, ptr %161, align 4
@@ -328,7 +328,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %200, label %201, label %226
 
 201:                                              ; preds = %192
-  %202 = getelementptr inbounds i8, ptr %195, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %203 = load i64, ptr %175, align 8
   %204 = load i64, ptr %202, align 8
   %205 = load i64, ptr %176, align 8
@@ -340,7 +340,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %210, label %211, label %226
 
 211:                                              ; preds = %201
-  %212 = getelementptr inbounds i8, ptr %195, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %213 = load i64, ptr %177, align 8
   %214 = load i64, ptr %212, align 8
   %215 = load i64, ptr %178, align 8
@@ -353,7 +353,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 
 221:                                              ; preds = %211
   %222 = load i8, ptr %179, align 2
-  %223 = getelementptr inbounds i8, ptr %195, i64 6
+  %223 = getelementptr inbounds nuw i8, ptr %195, i64 6
   %224 = load i8, ptr %223, align 2
   %225 = icmp eq i8 %222, %224
   br i1 %225, label %228, label %226
@@ -374,13 +374,13 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 
 233:                                              ; preds = %229, %228
   %234 = load i8, ptr %184, align 1
-  %235 = getelementptr inbounds i8, ptr %195, i64 7
+  %235 = getelementptr inbounds nuw i8, ptr %195, i64 7
   %236 = load i8, ptr %235, align 1
   %237 = xor i8 %236, %234
   %238 = zext i8 %237 to i32
   %239 = or i32 %198, %238
   %240 = icmp ne i32 %239, 0
-  %241 = getelementptr inbounds i8, ptr %187, i64 60
+  %241 = getelementptr inbounds nuw i8, ptr %187, i64 60
   %242 = load i16, ptr %241, align 4
   %243 = zext i1 %240 to i16
   %244 = or i16 %242, %243
@@ -392,7 +392,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %248, label %251, label %249
 
 249:                                              ; preds = %233
-  %250 = getelementptr inbounds i8, ptr %187, i64 62
+  %250 = getelementptr inbounds nuw i8, ptr %187, i64 62
   store i16 0, ptr %250, align 2
   br label %251
 
@@ -402,11 +402,11 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %253, label %.loopexit, label %186, !llvm.loop !9
 
 .loopexit:                                        ; preds = %251, %157
-  %254 = getelementptr inbounds i8, ptr %1, i64 70
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %255 = load i16, ptr %254, align 2
   %256 = or i16 %255, 1024
   store i16 %256, ptr %254, align 2
-  %257 = getelementptr inbounds i8, ptr %1, i64 60
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %258 = load i16, ptr %257, align 4
   %259 = or i16 %258, %168
   store i16 %259, ptr %257, align 4
@@ -415,7 +415,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %261, label %268, label %262
 
 262:                                              ; preds = %.loopexit
-  %263 = getelementptr inbounds i8, ptr %1, i64 72
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %264 = load i32, ptr %263, align 8
   %265 = sub i32 0, %264
   %266 = tail call i32 @csum_partial(ptr noundef %161, i32 noundef %171, i32 noundef %265) #8
@@ -442,7 +442,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br label %.thread
 
 279:                                              ; preds = %268
-  %280 = getelementptr inbounds i8, ptr %162, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %281, @tcp6_gro_receive
   br i1 %282, label %283, label %285, !prof !12
@@ -466,7 +466,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 .thread:                                          ; preds = %18, %20, %289, %287, %283, %276, %142, %.thread17, %26
   %291 = phi i16 [ 1, %26 ], [ %50, %142 ], [ %50, %.thread17 ], [ %168, %283 ], [ %168, %289 ], [ %168, %287 ], [ %168, %276 ], [ 1, %20 ], [ 1, %18 ]
   %292 = phi ptr [ null, %26 ], [ null, %142 ], [ null, %.thread17 ], [ %284, %283 ], [ %290, %289 ], [ %288, %287 ], [ null, %276 ], [ null, %20 ], [ null, %18 ]
-  %293 = getelementptr inbounds i8, ptr %1, i64 60
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %294 = load i16, ptr %293, align 4
   %295 = or i16 %294, %291
   store i16 %295, ptr %293, align 4
@@ -490,33 +490,33 @@ declare dso_local ptr @udp6_gro_receive(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %4 = load i24, ptr %3, align 1
   %5 = and i24 %4, 8192
   %6 = icmp eq i24 %5, 0
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i16 -8826, ptr %8, align 8
   %9 = and i24 %4, -129
   store i24 %9, ptr %3, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = trunc i64 %16 to i16
-  %18 = getelementptr inbounds i8, ptr %0, i64 172
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %19 = trunc i32 %1 to i16
   %20 = add i16 %17, %19
   store i16 %20, ptr %18, align 4
   br label %21
 
 21:                                               ; preds = %7, %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8
   %24 = sub i32 %23, %1
   %25 = add i32 %24, -40
@@ -524,19 +524,19 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   br i1 %26, label %27, label %60, !prof !5
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 182
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
-  %35 = getelementptr inbounds i8, ptr %0, i64 178
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i64
   %38 = sub nsw i64 %37, %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %33, i64 %38, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 -8
   store ptr %41, ptr %39, align 8
@@ -546,14 +546,14 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %44 = load i16, ptr %30, align 2
   %45 = add i16 %44, -8
   store i16 %45, ptr %30, align 2
-  %46 = getelementptr inbounds i8, ptr %0, i64 180
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %47 = load i16, ptr %46, align 4
   %48 = add i16 %47, -8
   store i16 %48, ptr %46, align 4
   %49 = sext i32 %1 to i64
   %50 = getelementptr i8, ptr %41, i64 %49
   %51 = getelementptr i8, ptr %50, i64 40
-  %52 = getelementptr inbounds i8, ptr %50, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %53 = load i8, ptr %52, align 2
   store i8 %53, ptr %51, align 4
   %54 = getelementptr i8, ptr %50, i64 41
@@ -570,13 +570,13 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   br label %68
 
 60:                                               ; preds = %21
-  %61 = getelementptr inbounds i8, ptr %0, i64 200
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %1 to i64
   %64 = getelementptr i8, ptr %62, i64 %63
   %65 = trunc nuw i32 %25 to i16
   %66 = tail call i16 @llvm.bswap.i16(i16 %65)
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %64, i64 6
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %64, i64 6
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %67 = zext i8 %.pre to i64
   br label %68
@@ -585,7 +585,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %69 = phi i64 [ %67, %60 ], [ 0, %27 ]
   %70 = phi ptr [ %64, %60 ], [ %50, %27 ]
   %71 = phi i16 [ %66, %60 ], [ 0, %27 ]
-  %72 = getelementptr inbounds i8, ptr %70, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i16 %71, ptr %72, align 4
   %73 = getelementptr [256 x ptr], ptr @inet6_offloads, i64 0, i64 %69
   %74 = load volatile ptr, ptr %73, align 8
@@ -597,7 +597,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %77 = phi ptr [ %86, %84 ], [ %70, %68 ]
   %78 = phi i32 [ %92, %84 ], [ 0, %68 ]
   %79 = phi i32 [ %91, %84 ], [ 40, %68 ]
-  %80 = getelementptr inbounds i8, ptr %76, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 1
   %83 = icmp eq i32 %82, 0
@@ -606,7 +606,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
 84:                                               ; preds = %.preheader
   %85 = zext nneg i32 %79 to i64
   %86 = getelementptr i8, ptr %77, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 3
@@ -622,7 +622,7 @@ define dso_local i32 @ipv6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
 98:                                               ; preds = %.preheader
   %99 = add i32 %1, 40
   %100 = add i32 %99, %78
-  %101 = getelementptr inbounds i8, ptr %76, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread, label %104, !prof !5
@@ -726,23 +726,23 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !17
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i16
-  %12 = getelementptr inbounds i8, ptr %0, i64 180
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i16 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65537
   br i1 %15, label %.thread, label %16, !prof !12
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, -8826
   br i1 %19, label %20, label %.thread
@@ -755,7 +755,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %25 = shl i64 %24, 32
   %26 = ashr exact i64 %25, 32
   %27 = add nsw i64 %26, 48
-  %28 = getelementptr inbounds i8, ptr %0, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %29 = load i32, ptr %28, align 4
   %30 = sub i32 %14, %29
   %31 = zext i32 %30 to i64
@@ -763,7 +763,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds i8, ptr %22, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 6
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %.thread
@@ -787,18 +787,18 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 126
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %51 = load i8, ptr %50, align 2
   %52 = and i8 %51, 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %68, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 188
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = getelementptr i8, ptr %7, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load volatile i32, ptr %59, align 4
   %61 = and i32 %60, 65535
   %62 = ashr i32 %60, 16
@@ -819,7 +819,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 68:                                               ; preds = %._crit_edge40, %54, %49
   %69 = phi i16 [ %.pre41, %._crit_edge40 ], [ %11, %54 ], [ %11, %49 ]
   %70 = phi ptr [ %.pre, %._crit_edge40 ], [ %7, %54 ], [ %7, %49 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 182
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i64
   %74 = getelementptr i8, ptr %70, i64 %73
@@ -853,7 +853,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %90 = load ptr, ptr %6, align 8
   %91 = zext i16 %87 to i64
   %92 = getelementptr i8, ptr %90, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 6
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 6
   store i8 6, ptr %93, align 2
   %.pre42 = load i16, ptr %12, align 4
   %.pre43 = load i32, ptr %13, align 8
@@ -863,12 +863,12 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %94 = phi i32 [ %14, %46 ], [ %14, %37 ], [ %14, %42 ], [ %14, %33 ], [ %14, %20 ], [ %14, %16 ], [ %14, %2 ], [ %.pre43, %83 ]
   %95 = phi i16 [ %11, %46 ], [ %11, %37 ], [ %11, %42 ], [ %11, %33 ], [ %11, %20 ], [ %11, %16 ], [ %11, %2 ], [ %.pre42, %83 ]
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %0, i64 182
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
   %100 = sub nsw i64 %96, %99
   %101 = trunc nsw i64 %100 to i32
-  %102 = getelementptr inbounds i8, ptr %0, i64 116
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %103 = load i32, ptr %102, align 4
   %104 = sub i32 %94, %103
   %105 = icmp ult i32 %104, 40
@@ -891,9 +891,9 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %115, label %122, label %116
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 528
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 528
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %120, %1
   br label %122
@@ -922,7 +922,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %135 = load ptr, ptr %4, align 8
   %136 = getelementptr i8, ptr %135, i64 40
   store ptr %136, ptr %4, align 8
-  %137 = getelementptr inbounds i8, ptr %134, i64 6
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 6
   %138 = load i8, ptr %137, align 2
   %139 = zext i8 %138 to i64
   %140 = getelementptr [256 x ptr], ptr @inet6_offloads, i64 0, i64 %139
@@ -931,14 +931,14 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %142, label %._crit_edge, label %.lr.ph.preheader, !prof !7
 
 .lr.ph.preheader:                                 ; preds = %132
-  %143 = getelementptr inbounds i8, ptr %141, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, 1
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %._crit_edge, label %.lr.ph62
 
 .lr.ph:                                           ; preds = %186
-  %147 = getelementptr inbounds i8, ptr %191, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 1
   %150 = icmp eq i32 %149, 0
@@ -975,7 +975,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %163 = phi i32 [ %.pre47, %._crit_edge44 ], [ %153, %.lr.ph62 ]
   %164 = phi i32 [ %.pre46, %._crit_edge44 ], [ %151, %.lr.ph62 ]
   %165 = phi ptr [ %.pre45, %._crit_edge44 ], [ %152, %.lr.ph62 ]
-  %166 = getelementptr inbounds i8, ptr %165, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
   %169 = shl nuw nsw i32 %168, 3
@@ -1026,7 +1026,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 ._crit_edge:                                      ; preds = %186, %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %132
   %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2361, %172 ], [ %.in2361, %156 ], [ %.in2361, %174 ], [ %.in2361, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
-  %193 = getelementptr inbounds i8, ptr %0, i64 129
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %194 = load i24, ptr %193, align 1
   %195 = and i24 %194, 8192
   %.not = icmp eq i24 %195, 0
@@ -1034,11 +1034,11 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 196:                                              ; preds = %._crit_edge
   %197 = load ptr, ptr %6, align 8
-  %198 = getelementptr inbounds i8, ptr %0, i64 188
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %199 = load i32, ptr %198, align 4
   %200 = zext i32 %199 to i64
   %201 = getelementptr i8, ptr %197, i64 %200
-  %202 = getelementptr inbounds i8, ptr %201, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, 768
   %205 = icmp eq i32 %204, 0
@@ -1058,11 +1058,11 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 212:                                              ; preds = %211
   %213 = load ptr, ptr %6, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 188
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %215 = load i32, ptr %214, align 4
   %216 = zext i32 %215 to i64
   %217 = getelementptr i8, ptr %213, i64 %216
-  %218 = getelementptr inbounds i8, ptr %217, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %219 = load i32, ptr %218, align 8
   %220 = and i32 %219, 65536
   %221 = icmp ne i32 %220, 0
@@ -1088,7 +1088,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %234 = ptrtoint ptr %232 to i64
   %235 = sub i64 %233, %234
   %236 = trunc i64 %235 to i16
-  %237 = getelementptr inbounds i8, ptr %0, i64 178
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i16 %236, ptr %237, align 2
   %238 = load ptr, ptr %225, align 8
   %239 = tail call ptr %238(ptr noundef %0, i64 noundef %123) #8
@@ -1113,13 +1113,13 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %252, label %.thread17, label %253
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds i8, ptr %239, i64 192
+  %254 = getelementptr inbounds nuw i8, ptr %239, i64 192
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %239, i64 188
+  %256 = getelementptr inbounds nuw i8, ptr %239, i64 188
   %257 = load i32, ptr %256, align 4
   %258 = zext i32 %257 to i64
   %259 = getelementptr i8, ptr %255, i64 %258
-  %260 = getelementptr inbounds i8, ptr %259, i64 24
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %261 = load i32, ptr %260, align 8
   %262 = and i32 %261, 4096
   %263 = icmp eq i32 %262, 0
@@ -1129,9 +1129,9 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 .split.us:                                        ; preds = %253, %335
   %265 = phi ptr [ %336, %335 ], [ %239, %253 ]
   %266 = phi i16 [ %326, %335 ], [ 0, %253 ]
-  %267 = getelementptr inbounds i8, ptr %265, i64 192
+  %267 = getelementptr inbounds nuw i8, ptr %265, i64 192
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %265, i64 182
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 182
   %270 = load i16, ptr %269, align 2
   %271 = zext i16 %270 to i64
   %272 = getelementptr i8, ptr %268, i64 %271
@@ -1139,11 +1139,11 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %263, label %294, label %274
 
 274:                                              ; preds = %.split.us
-  %275 = getelementptr inbounds i8, ptr %265, i64 188
+  %275 = getelementptr inbounds nuw i8, ptr %265, i64 188
   %276 = load i32, ptr %275, align 4
   %277 = zext i32 %276 to i64
   %278 = getelementptr i8, ptr %268, i64 %277
-  %279 = getelementptr inbounds i8, ptr %278, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 4
   %280 = load i16, ptr %279, align 4
   %281 = icmp eq i16 %280, 0
   br i1 %281, label %294, label %282
@@ -1163,7 +1163,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br label %298
 
 294:                                              ; preds = %274, %.split.us
-  %295 = getelementptr inbounds i8, ptr %265, i64 112
+  %295 = getelementptr inbounds nuw i8, ptr %265, i64 112
   %296 = load i32, ptr %295, align 8
   %297 = add i32 %264, %296
   br label %298
@@ -1172,18 +1172,18 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %299 = phi i32 [ %293, %282 ], [ %297, %294 ]
   %300 = trunc i32 %299 to i16
   %301 = call i16 @llvm.bswap.i16(i16 %300)
-  %302 = getelementptr inbounds i8, ptr %273, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %273, i64 4
   store i16 %301, ptr %302, align 4
   %303 = load ptr, ptr %267, align 8
   %304 = ptrtoint ptr %273 to i64
   %305 = ptrtoint ptr %303 to i64
   %306 = sub i64 %304, %305
   %307 = trunc i64 %306 to i16
-  %308 = getelementptr inbounds i8, ptr %265, i64 180
+  %308 = getelementptr inbounds nuw i8, ptr %265, i64 180
   store i16 %307, ptr %308, align 4
   %309 = load i16, ptr %269, align 2
   %310 = sub i16 %307, %309
-  %311 = getelementptr inbounds i8, ptr %265, i64 120
+  %311 = getelementptr inbounds nuw i8, ptr %265, i64 120
   store i16 %310, ptr %311, align 8
   %312 = call i32 @ip6_find_1stfragopt(ptr noundef nonnull %265, ptr noundef nonnull %3) #8
   %313 = icmp sgt i32 %312, -1
@@ -1193,7 +1193,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %315 = zext nneg i32 %312 to i64
   %316 = getelementptr i8, ptr %273, i64 %315
   %317 = call i16 @llvm.bswap.i16(i16 %266)
-  %318 = getelementptr inbounds i8, ptr %316, i64 2
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 2
   store i16 %317, ptr %318, align 2
   %319 = load ptr, ptr %265, align 8
   %320 = icmp eq ptr %319, null
@@ -1213,14 +1213,14 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 327:                                              ; preds = %.thread18.us
   %328 = load i16, ptr %269, align 2
-  %329 = getelementptr inbounds i8, ptr %265, i64 174
+  %329 = getelementptr inbounds nuw i8, ptr %265, i64 174
   store i16 %328, ptr %329, align 2
   %330 = load i16, ptr %308, align 4
-  %331 = getelementptr inbounds i8, ptr %265, i64 172
+  %331 = getelementptr inbounds nuw i8, ptr %265, i64 172
   store i16 %330, ptr %331, align 4
-  %332 = getelementptr inbounds i8, ptr %265, i64 178
+  %332 = getelementptr inbounds nuw i8, ptr %265, i64 178
   %333 = load i16, ptr %332, align 2
-  %334 = getelementptr inbounds i8, ptr %265, i64 170
+  %334 = getelementptr inbounds nuw i8, ptr %265, i64 170
   store i16 %333, ptr %334, align 2
   br label %335
 
@@ -1237,30 +1237,30 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 .split.split.us.split.us:                         ; preds = %.split.split.us, %.split.split.us.split.us
   %338 = phi ptr [ %361, %.split.split.us.split.us ], [ %239, %.split.split.us ]
-  %339 = getelementptr inbounds i8, ptr %338, i64 192
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 192
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %338, i64 182
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 182
   %342 = load i16, ptr %341, align 2
   %343 = zext i16 %342 to i64
   %344 = getelementptr i8, ptr %340, i64 %343
   %345 = getelementptr i8, ptr %344, i64 %100
-  %346 = getelementptr inbounds i8, ptr %338, i64 112
+  %346 = getelementptr inbounds nuw i8, ptr %338, i64 112
   %347 = load i32, ptr %346, align 8
   %348 = add i32 %264, %347
   %349 = trunc i32 %348 to i16
   %350 = tail call i16 @llvm.bswap.i16(i16 %349)
-  %351 = getelementptr inbounds i8, ptr %345, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %345, i64 4
   store i16 %350, ptr %351, align 4
   %352 = load ptr, ptr %339, align 8
   %353 = ptrtoint ptr %345 to i64
   %354 = ptrtoint ptr %352 to i64
   %355 = sub i64 %353, %354
   %356 = trunc i64 %355 to i16
-  %357 = getelementptr inbounds i8, ptr %338, i64 180
+  %357 = getelementptr inbounds nuw i8, ptr %338, i64 180
   store i16 %356, ptr %357, align 4
   %358 = load i16, ptr %341, align 2
   %359 = sub i16 %356, %358
-  %360 = getelementptr inbounds i8, ptr %338, i64 120
+  %360 = getelementptr inbounds nuw i8, ptr %338, i64 120
   store i16 %359, ptr %360, align 8
   %361 = load ptr, ptr %338, align 8
   %362 = icmp eq ptr %361, null
@@ -1268,38 +1268,38 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 .split.split.us.split:                            ; preds = %.split.split.us, %.split.split.us.split
   %363 = phi ptr [ %391, %.split.split.us.split ], [ %239, %.split.split.us ]
-  %364 = getelementptr inbounds i8, ptr %363, i64 192
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 192
   %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds i8, ptr %363, i64 182
+  %366 = getelementptr inbounds nuw i8, ptr %363, i64 182
   %367 = load i16, ptr %366, align 2
   %368 = zext i16 %367 to i64
   %369 = getelementptr i8, ptr %365, i64 %368
   %370 = getelementptr i8, ptr %369, i64 %100
-  %371 = getelementptr inbounds i8, ptr %363, i64 112
+  %371 = getelementptr inbounds nuw i8, ptr %363, i64 112
   %372 = load i32, ptr %371, align 8
   %373 = add i32 %264, %372
   %374 = trunc i32 %373 to i16
   %375 = tail call i16 @llvm.bswap.i16(i16 %374)
-  %376 = getelementptr inbounds i8, ptr %370, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %370, i64 4
   store i16 %375, ptr %376, align 4
   %377 = load ptr, ptr %364, align 8
   %378 = ptrtoint ptr %370 to i64
   %379 = ptrtoint ptr %377 to i64
   %380 = sub i64 %378, %379
   %381 = trunc i64 %380 to i16
-  %382 = getelementptr inbounds i8, ptr %363, i64 180
+  %382 = getelementptr inbounds nuw i8, ptr %363, i64 180
   store i16 %381, ptr %382, align 4
   %383 = load i16, ptr %366, align 2
   %384 = sub i16 %381, %383
-  %385 = getelementptr inbounds i8, ptr %363, i64 120
+  %385 = getelementptr inbounds nuw i8, ptr %363, i64 120
   store i16 %384, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %363, i64 174
+  %386 = getelementptr inbounds nuw i8, ptr %363, i64 174
   store i16 %383, ptr %386, align 2
-  %387 = getelementptr inbounds i8, ptr %363, i64 172
+  %387 = getelementptr inbounds nuw i8, ptr %363, i64 172
   store i16 %381, ptr %387, align 4
-  %388 = getelementptr inbounds i8, ptr %363, i64 178
+  %388 = getelementptr inbounds nuw i8, ptr %363, i64 178
   %389 = load i16, ptr %388, align 2
-  %390 = getelementptr inbounds i8, ptr %363, i64 170
+  %390 = getelementptr inbounds nuw i8, ptr %363, i64 170
   store i16 %389, ptr %390, align 2
   %391 = load ptr, ptr %363, align 8
   %392 = icmp eq ptr %391, null
@@ -1307,18 +1307,18 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
 
 .split.split:                                     ; preds = %.split, %446
   %393 = phi ptr [ %447, %446 ], [ %239, %.split ]
-  %394 = getelementptr inbounds i8, ptr %393, i64 192
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 192
   %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %393, i64 182
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 182
   %397 = load i16, ptr %396, align 2
   %398 = zext i16 %397 to i64
   %399 = getelementptr i8, ptr %395, i64 %398
   %400 = getelementptr i8, ptr %399, i64 %100
-  %401 = getelementptr inbounds i8, ptr %393, i64 188
+  %401 = getelementptr inbounds nuw i8, ptr %393, i64 188
   %402 = load i32, ptr %401, align 4
   %403 = zext i32 %402 to i64
   %404 = getelementptr i8, ptr %395, i64 %403
-  %405 = getelementptr inbounds i8, ptr %404, i64 4
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 4
   %406 = load i16, ptr %405, align 4
   %407 = icmp eq i16 %406, 0
   br i1 %407, label %420, label %408
@@ -1338,7 +1338,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br label %424
 
 420:                                              ; preds = %.split.split
-  %421 = getelementptr inbounds i8, ptr %393, i64 112
+  %421 = getelementptr inbounds nuw i8, ptr %393, i64 112
   %422 = load i32, ptr %421, align 8
   %423 = add i32 %264, %422
   br label %424
@@ -1347,18 +1347,18 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %425 = phi i32 [ %419, %408 ], [ %423, %420 ]
   %426 = trunc i32 %425 to i16
   %427 = tail call i16 @llvm.bswap.i16(i16 %426)
-  %428 = getelementptr inbounds i8, ptr %400, i64 4
+  %428 = getelementptr inbounds nuw i8, ptr %400, i64 4
   store i16 %427, ptr %428, align 4
   %429 = load ptr, ptr %394, align 8
   %430 = ptrtoint ptr %400 to i64
   %431 = ptrtoint ptr %429 to i64
   %432 = sub i64 %430, %431
   %433 = trunc i64 %432 to i16
-  %434 = getelementptr inbounds i8, ptr %393, i64 180
+  %434 = getelementptr inbounds nuw i8, ptr %393, i64 180
   store i16 %433, ptr %434, align 4
   %435 = load i16, ptr %396, align 2
   %436 = sub i16 %433, %435
-  %437 = getelementptr inbounds i8, ptr %393, i64 120
+  %437 = getelementptr inbounds nuw i8, ptr %393, i64 120
   store i16 %436, ptr %437, align 8
   br i1 %115, label %446, label %440
 
@@ -1369,13 +1369,13 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br label %.thread17
 
 440:                                              ; preds = %424
-  %441 = getelementptr inbounds i8, ptr %393, i64 174
+  %441 = getelementptr inbounds nuw i8, ptr %393, i64 174
   store i16 %435, ptr %441, align 2
-  %442 = getelementptr inbounds i8, ptr %393, i64 172
+  %442 = getelementptr inbounds nuw i8, ptr %393, i64 172
   store i16 %433, ptr %442, align 4
-  %443 = getelementptr inbounds i8, ptr %393, i64 178
+  %443 = getelementptr inbounds nuw i8, ptr %393, i64 178
   %444 = load i16, ptr %443, align 2
-  %445 = getelementptr inbounds i8, ptr %393, i64 170
+  %445 = getelementptr inbounds nuw i8, ptr %393, i64 170
   store i16 %444, ptr %445, align 2
   br label %446
 
@@ -1401,13 +1401,13 @@ declare dso_local void @kfree_skb_list_reason(ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @sit_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 256
   %12 = icmp eq i32 %11, 0
@@ -1424,14 +1424,14 @@ define internal ptr @sit_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @sit_ip6ip6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 70
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 2
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i16 1, ptr %8, align 4
   br label %12
 
@@ -1448,17 +1448,17 @@ define internal ptr @sit_ip6ip6_gro_receive(ptr noundef %0, ptr noundef %1) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sit_gro_complete(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %4 = load i24, ptr %3, align 1
   %5 = or i24 %4, 8192
   store i24 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 188
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 256
   store i32 %14, ptr %12, align 8
@@ -1468,13 +1468,13 @@ define internal i32 @sit_gro_complete(ptr noundef %0, i32 noundef %1) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @ip6ip6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 512
   %12 = icmp eq i32 %11, 0
@@ -1491,17 +1491,17 @@ define internal ptr @ip6ip6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ip6ip6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %4 = load i24, ptr %3, align 1
   %5 = or i24 %4, 8192
   store i24 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 188
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 512
   store i32 %14, ptr %12, align 8
@@ -1511,13 +1511,13 @@ define internal i32 @ip6ip6_gro_complete(ptr noundef %0, i32 noundef %1) #0 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @ip4ip6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 512
   %12 = icmp eq i32 %11, 0
@@ -1534,14 +1534,14 @@ define internal ptr @ip4ip6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @ip4ip6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 70
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 2
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i16 1, ptr %8, align 4
   br label %12
 
@@ -1558,17 +1558,17 @@ define internal ptr @ip4ip6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ip4ip6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %4 = load i24, ptr %3, align 1
   %5 = or i24 %4, 8192
   store i24 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 188
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 512
   store i32 %14, ptr %12, align 8

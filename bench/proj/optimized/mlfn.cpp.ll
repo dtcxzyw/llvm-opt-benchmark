@@ -18,7 +18,7 @@ define hidden noalias noundef ptr @_Z7pj_enfnd(double noundef %0) local_unnamed_
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 3, %1 ]
   %.011.i = phi double [ %7, %.lr.ph.i ], [ 3.906250e-03, %1 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %5 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE9coeff_rad, i64 %indvars.iv.next.i
+  %5 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE9coeff_rad, i64 %indvars.iv.next.i
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %.011.i, double %2, double %6)
   %8 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -28,7 +28,7 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %9 = fadd double %0, 1.000000e+00
   %10 = fdiv double %7, %9
   store double %10, ptr %3, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 56
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %11
 
 11:                                               ; preds = %_ZL7polyvaldPKdi.exit, %_ZL7polyvaldPKdi.exit42
@@ -38,9 +38,9 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %12 = sub nuw nsw i32 5, %.02847
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %.02748 to i64
-  %15 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_mu_phi, i64 %14
+  %15 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_mu_phi, i64 %14
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds double, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw double, ptr %15, i64 %16
   %18 = load double, ptr %17, align 8
   %.not.i = icmp samesign ugt i32 %.02847, 3
   br i1 %.not.i, label %_ZL7polyvaldPKdi.exit35.thread, label %.lr.ph.i31
@@ -49,10 +49,10 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
   %19 = fmul double %.02946, %18
   %20 = add nuw nsw i32 %.02847, 1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds double, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw double, ptr %3, i64 %21
   store double %19, ptr %22, align 8
-  %23 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
-  %24 = getelementptr inbounds double, ptr %23, i64 %16
+  %23 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
+  %24 = getelementptr inbounds nuw double, ptr %23, i64 %16
   %25 = load double, ptr %24, align 8
   br label %_ZL7polyvaldPKdi.exit42
 
@@ -60,7 +60,7 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.i31 ], [ %16, %11 ]
   %.011.i33 = phi double [ %28, %.lr.ph.i31 ], [ %18, %11 ]
   %indvars.iv.next.i34 = add nsw i64 %indvars.iv.i32, -1
-  %26 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.next.i34
+  %26 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next.i34
   %27 = load double, ptr %26, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %.011.i33, double %2, double %27)
   %29 = icmp samesign ugt i64 %indvars.iv.i32, 1
@@ -70,10 +70,10 @@ _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %30 = fmul double %.02946, %28
   %31 = add nuw nsw i32 %.02847, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds double, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw double, ptr %3, i64 %32
   store double %30, ptr %33, align 8
-  %34 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
-  %35 = getelementptr inbounds double, ptr %34, i64 %16
+  %34 = getelementptr inbounds nuw double, ptr @_ZZ7pj_enfndE12coeff_phi_mu, i64 %14
+  %35 = getelementptr inbounds nuw double, ptr %34, i64 %16
   %36 = load double, ptr %35, align 8
   br label %.lr.ph.i37
 
@@ -81,7 +81,7 @@ _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i40, %.lr.ph.i37 ], [ %16, %_ZL7polyvaldPKdi.exit35 ]
   %.011.i39 = phi double [ %39, %.lr.ph.i37 ], [ %36, %_ZL7polyvaldPKdi.exit35 ]
   %indvars.iv.next.i40 = add nsw i64 %indvars.iv.i38, -1
-  %37 = getelementptr inbounds double, ptr %34, i64 %indvars.iv.next.i40
+  %37 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.next.i40
   %38 = load double, ptr %37, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %.011.i39, double %2, double %38)
   %40 = icmp samesign ugt i64 %indvars.iv.i38, 1
@@ -92,7 +92,7 @@ _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7po
   %.0.lcssa.i41 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %39, %.lr.ph.i37 ]
   %42 = fmul double %.02946, %.0.lcssa.i41
   %43 = zext nneg i32 %.02847 to i64
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %43
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %43
   store double %42, ptr %gep, align 8
   %44 = fmul double %0, %.02946
   %45 = add nuw nsw i32 %.02748, 1
@@ -144,7 +144,7 @@ define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr nocaptu
   %4 = fdiv double %0, %3
   %5 = tail call double @sin(double noundef %4) #7
   %6 = tail call double @cos(double noundef %4) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = fsub double %6, %5
   %9 = fmul double %8, 2.000000e+00
   %10 = fadd double %5, %6
@@ -158,7 +158,7 @@ define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr nocaptu
   %13 = fneg double %.01516.i
   %14 = tail call double @llvm.fmuladd.f64(double %11, double %.01417.i, double %13)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %15 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i
   %16 = load double, ptr %15, align 8
   %17 = fadd double %14, %16
   %18 = icmp ugt i64 %indvars.iv.i, 1

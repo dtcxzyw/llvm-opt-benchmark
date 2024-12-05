@@ -13,7 +13,7 @@ entry:
   %0 = load i32, ptr %pi, align 4
   %1 = and i32 %c, 255
   %idxprom = zext nneg i32 %1 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZN8base_icu20utf8_countTrailBytesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @_ZN8base_icu20utf8_countTrailBytesE, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv1 = zext i8 %2 to i32
   %add = add nsw i32 %0, %conv1
@@ -103,7 +103,7 @@ lor.lhs.false:                                    ; preds = %if.then, %sw.epilog
   %c.addr.062 = phi i32 [ %or39, %sw.epilog ], [ %and, %if.then ]
   %i.061 = phi i32 [ %inc33, %sw.epilog ], [ %0, %if.then ]
   %idxprom51 = zext i8 %2 to i64
-  %arrayidx52 = getelementptr inbounds [4 x i32], ptr @_ZN8base_icuL13utf8_minLegalE, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds nuw [4 x i32], ptr @_ZN8base_icuL13utf8_minLegalE, i64 0, i64 %idxprom51
   %11 = load i32, ptr %arrayidx52, align 4
   %cmp53 = icmp slt i32 %c.addr.062, %11
   br i1 %cmp53, label %if.then59, label %lor.lhs.false54

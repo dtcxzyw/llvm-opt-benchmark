@@ -8,19 +8,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !12
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !13
-  %12 = getelementptr inbounds i8, ptr %3, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = getelementptr i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !15
-  %16 = getelementptr inbounds i8, ptr %15, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %17 = load float, ptr %16, align 16, !tbaa !27
-  %18 = getelementptr inbounds i8, ptr %15, i64 276
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 276
   %19 = load float, ptr %18, align 4, !tbaa !27
-  %20 = getelementptr inbounds i8, ptr %15, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %21 = load float, ptr %20, align 8, !tbaa !27
   %22 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %19, float %21)
   %23 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %17, float %22)
@@ -42,21 +42,21 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %39 = shufflevector <2 x ptr> %38, <2 x ptr> poison, <2 x i32> zeroinitializer
   %40 = getelementptr i8, <2 x ptr> %39, <2 x i64> <i64 307584, i64 205056>
   %41 = shufflevector <2 x ptr> %40, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %42 = getelementptr inbounds i8, ptr %36, i64 410112
-  %43 = getelementptr inbounds i8, ptr %36, i64 512640
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 410112
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 512640
   %44 = getelementptr i8, ptr %36, i64 615168
-  %45 = getelementptr inbounds i8, ptr %36, i64 717696
-  %46 = getelementptr inbounds i8, ptr %36, i64 820224
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 717696
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 820224
   %47 = getelementptr i8, ptr %36, i64 922880
   %48 = getelementptr i8, ptr %36, i64 871552
-  %49 = getelementptr inbounds i8, ptr %36, i64 974208
-  %50 = getelementptr inbounds i8, ptr %36, i64 1076736
-  %51 = getelementptr inbounds i8, ptr %36, i64 1179264
-  %52 = getelementptr inbounds i8, ptr %36, i64 1230592
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 974208
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 1076736
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 1179264
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 1230592
   %53 = getelementptr i8, ptr %36, i64 1281920
-  %54 = getelementptr inbounds i8, ptr %36, i64 461440
-  %55 = getelementptr inbounds i8, ptr %36, i64 1384448
-  %56 = getelementptr inbounds i8, ptr %36, i64 1397376
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 461440
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 1384448
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 1397376
   %57 = add i32 %13, %9
   %58 = icmp sgt i32 %13, -16
   br i1 %58, label %59, label %.loopexit370
@@ -64,7 +64,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 59:                                               ; preds = %6
   %60 = add i32 %11, %7
   %61 = icmp sgt i32 %11, -16
-  %62 = getelementptr inbounds i8, ptr %36, i64 1384688
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 1384688
   %63 = add i32 %57, 16
   %64 = add i32 %60, 16
   %65 = add i32 %57, -2
@@ -73,9 +73,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %68 = add nsw i32 %7, 32
   %69 = getelementptr i8, ptr %36, i64 101888
   %70 = getelementptr i8, ptr %36, i64 103168
-  %71 = getelementptr inbounds i8, ptr %36, i64 820544
-  %72 = getelementptr inbounds i8, ptr %36, i64 666368
-  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %36, i64 820544
+  %72 = getelementptr inbounds nuw i8, ptr %36, i64 666368
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %74 = getelementptr i8, ptr %4, i64 12
   br i1 %61, label %75, label %.loopexit370
 
@@ -479,7 +479,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %374 = load float, ptr %373, align 4, !tbaa !27
   %375 = lshr exact i32 %362, 1
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds float, ptr %47, i64 %376
+  %377 = getelementptr inbounds nuw float, ptr %47, i64 %376
   %378 = load float, ptr %377, align 4, !tbaa !27
   %379 = add nsw i32 %362, -1
   %380 = ashr i32 %379, 1
@@ -489,7 +489,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %384 = add nuw nsw i32 %362, 160
   %385 = lshr exact i32 %384, 1
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds float, ptr %47, i64 %386
+  %387 = getelementptr inbounds nuw float, ptr %47, i64 %386
   %388 = load float, ptr %387, align 4, !tbaa !27
   %.neg312 = fadd reassoc nsz arcp contract afn float %374, 2.000000e+00
   %389 = fadd reassoc nsz arcp contract afn float %378, %383
@@ -497,13 +497,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %391 = fadd reassoc nsz arcp contract afn float %390, %388
   %392 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %391
   %393 = zext nneg i32 %362 to i64
-  %394 = getelementptr inbounds float, ptr %36, i64 %393
+  %394 = getelementptr inbounds nuw float, ptr %36, i64 %393
   %395 = load float, ptr %394, align 4, !tbaa !27
   %396 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %372
   %397 = load float, ptr %396, align 4, !tbaa !27
   %398 = fmul reassoc nsz arcp contract afn float %397, %374
   %399 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %378
-  %400 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %376
+  %400 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %376
   %401 = load float, ptr %400, align 4, !tbaa !27
   %402 = fmul reassoc nsz arcp contract afn float %401, %399
   %403 = fadd reassoc nsz arcp contract afn float %402, %398
@@ -512,7 +512,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %406 = load float, ptr %405, align 4, !tbaa !27
   %407 = fmul reassoc nsz arcp contract afn float %406, %404
   %408 = fadd reassoc nsz arcp contract afn float %403, %407
-  %409 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %386
+  %409 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %386
   %410 = load float, ptr %409, align 4, !tbaa !27
   %411 = fmul reassoc nsz arcp contract afn float %410, %388
   %412 = fadd reassoc nsz arcp contract afn float %408, %411
@@ -551,7 +551,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %436 = fmul reassoc nsz arcp contract afn float %435, %433
   %437 = load float, ptr %377, align 4, !tbaa !27
   %438 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %437
-  %439 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %376
+  %439 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %376
   %440 = load float, ptr %439, align 4, !tbaa !27
   %441 = fmul reassoc nsz arcp contract afn float %438, %440
   %442 = fadd reassoc nsz arcp contract afn float %441, %436
@@ -562,7 +562,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %447 = fmul reassoc nsz arcp contract afn float %444, %446
   %448 = fadd reassoc nsz arcp contract afn float %442, %447
   %449 = load float, ptr %387, align 4, !tbaa !27
-  %450 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %386
+  %450 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %386
   %451 = load float, ptr %450, align 4, !tbaa !27
   %452 = fmul reassoc nsz arcp contract afn float %451, %449
   %453 = fadd reassoc nsz arcp contract afn float %448, %452
@@ -605,7 +605,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %478 = getelementptr inbounds float, ptr %47, i64 %477
   %479 = load float, ptr %478, align 4, !tbaa !27
   %480 = lshr exact i64 %468, 1
-  %481 = getelementptr inbounds float, ptr %47, i64 %480
+  %481 = getelementptr inbounds nuw float, ptr %47, i64 %480
   %482 = load float, ptr %481, align 4, !tbaa !27
   %483 = add nsw i32 %474, -1
   %484 = ashr i32 %483, 1
@@ -615,20 +615,20 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %488 = add nuw nsw i64 %468, 160
   %489 = lshr exact i64 %488, 1
   %490 = and i64 %489, 2147483647
-  %491 = getelementptr inbounds float, ptr %47, i64 %490
+  %491 = getelementptr inbounds nuw float, ptr %47, i64 %490
   %492 = load float, ptr %491, align 4, !tbaa !27
   %.neg309 = fadd reassoc nsz arcp contract afn float %479, 2.000000e+00
   %493 = fadd reassoc nsz arcp contract afn float %482, %487
   %494 = fsub reassoc nsz arcp contract afn float %.neg309, %493
   %495 = fadd reassoc nsz arcp contract afn float %494, %492
   %496 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %495
-  %497 = getelementptr inbounds float, ptr %36, i64 %468
+  %497 = getelementptr inbounds nuw float, ptr %36, i64 %468
   %498 = load float, ptr %497, align 8, !tbaa !27
   %499 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %477
   %500 = load float, ptr %499, align 4, !tbaa !27
   %501 = fmul reassoc nsz arcp contract afn float %500, %479
   %502 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %482
-  %503 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %480
+  %503 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %480
   %504 = load float, ptr %503, align 4, !tbaa !27
   %505 = fmul reassoc nsz arcp contract afn float %504, %502
   %506 = fadd reassoc nsz arcp contract afn float %505, %501
@@ -637,7 +637,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %509 = load float, ptr %508, align 4, !tbaa !27
   %510 = fmul reassoc nsz arcp contract afn float %509, %507
   %511 = fadd reassoc nsz arcp contract afn float %506, %510
-  %512 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %490
+  %512 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %490
   %513 = load float, ptr %512, align 4, !tbaa !27
   %514 = fmul reassoc nsz arcp contract afn float %513, %492
   %515 = fadd reassoc nsz arcp contract afn float %511, %514
@@ -674,7 +674,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %537 = fmul reassoc nsz arcp contract afn float %536, %534
   %538 = load float, ptr %481, align 4, !tbaa !27
   %539 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %538
-  %540 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %480
+  %540 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %480
   %541 = load float, ptr %540, align 4, !tbaa !27
   %542 = fmul reassoc nsz arcp contract afn float %539, %541
   %543 = fadd reassoc nsz arcp contract afn float %542, %537
@@ -685,7 +685,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %548 = fmul reassoc nsz arcp contract afn float %545, %547
   %549 = fadd reassoc nsz arcp contract afn float %543, %548
   %550 = load float, ptr %491, align 4, !tbaa !27
-  %551 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %490
+  %551 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %490
   %552 = load float, ptr %551, align 4, !tbaa !27
   %553 = fmul reassoc nsz arcp contract afn float %552, %550
   %554 = fadd reassoc nsz arcp contract afn float %549, %553
@@ -727,10 +727,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %576, label %577, label %616
 
 577:                                              ; preds = %574
-  %578 = getelementptr inbounds float, ptr %36, i64 %572
+  %578 = getelementptr inbounds nuw float, ptr %36, i64 %572
   %579 = load float, ptr %578, align 4, !tbaa !27
   %580 = lshr exact i64 %468, 1
-  %581 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %580
+  %581 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %580
   %582 = load float, ptr %581, align 4, !tbaa !27
   %583 = fsub reassoc nsz arcp contract afn float %579, %582
   %584 = tail call float @llvm.fabs.f32(float %583)
@@ -758,7 +758,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %597 = getelementptr inbounds float, ptr %2, i64 %596
   store float %595, ptr %597, align 4, !tbaa !27
   %598 = load float, ptr %578, align 4, !tbaa !27
-  %599 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %580
+  %599 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %580
   %600 = load float, ptr %599, align 4, !tbaa !27
   %601 = fsub reassoc nsz arcp contract afn float %598, %600
   %602 = tail call float @llvm.fabs.f32(float %601)
@@ -814,11 +814,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 632:                                              ; preds = %629
   %633 = zext nneg i32 %625 to i64
-  %634 = getelementptr inbounds float, ptr %36, i64 %633
+  %634 = getelementptr inbounds nuw float, ptr %36, i64 %633
   %635 = load float, ptr %634, align 4, !tbaa !27
   %636 = lshr exact i32 %625, 1
   %637 = zext nneg i32 %636 to i64
-  %638 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %637
   %639 = load float, ptr %638, align 4, !tbaa !27
   %640 = fsub reassoc nsz arcp contract afn float %635, %639
   %641 = tail call float @llvm.fabs.f32(float %640)
@@ -848,7 +848,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %657 = getelementptr inbounds float, ptr %2, i64 %656
   store float %652, ptr %657, align 4, !tbaa !27
   %658 = load float, ptr %634, align 4, !tbaa !27
-  %659 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %637
+  %659 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %637
   %660 = load float, ptr %659, align 4, !tbaa !27
   %661 = fsub reassoc nsz arcp contract afn float %658, %660
   %662 = tail call float @llvm.fabs.f32(float %661)
@@ -896,10 +896,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %688, label %689, label %729
 
 689:                                              ; preds = %686
-  %690 = getelementptr inbounds float, ptr %36, i64 %684
+  %690 = getelementptr inbounds nuw float, ptr %36, i64 %684
   %691 = load float, ptr %690, align 8, !tbaa !27
   %692 = lshr exact i64 %684, 1
-  %693 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %692
   %694 = load float, ptr %693, align 4, !tbaa !27
   %695 = fsub reassoc nsz arcp contract afn float %691, %694
   %696 = tail call float @llvm.fabs.f32(float %695)
@@ -927,7 +927,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %710 = getelementptr inbounds float, ptr %2, i64 %709
   store float %707, ptr %710, align 4, !tbaa !27
   %711 = load float, ptr %690, align 8, !tbaa !27
-  %712 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %692
+  %712 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %692
   %713 = load float, ptr %712, align 4, !tbaa !27
   %714 = fsub reassoc nsz arcp contract afn float %711, %713
   %715 = tail call float @llvm.fabs.f32(float %714)
@@ -974,37 +974,37 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %741 = load float, ptr %740, align 4, !tbaa !27
   %742 = add nuw nsw i64 %684, 2
   %743 = lshr exact i64 %742, 1
-  %744 = getelementptr inbounds float, ptr %47, i64 %743
+  %744 = getelementptr inbounds nuw float, ptr %47, i64 %743
   %745 = load float, ptr %744, align 4, !tbaa !27
   %746 = lshr exact i64 %684, 1
-  %747 = getelementptr inbounds float, ptr %47, i64 %746
+  %747 = getelementptr inbounds nuw float, ptr %47, i64 %746
   %748 = load float, ptr %747, align 4, !tbaa !27
   %749 = add nuw nsw i64 %684, 161
   %750 = lshr i64 %749, 1
   %751 = and i64 %750, 2147483647
-  %752 = getelementptr inbounds float, ptr %47, i64 %751
+  %752 = getelementptr inbounds nuw float, ptr %47, i64 %751
   %753 = load float, ptr %752, align 4, !tbaa !27
   %.neg315 = fadd reassoc nsz arcp contract afn float %741, 2.000000e+00
   %754 = fadd reassoc nsz arcp contract afn float %745, %748
   %755 = fsub reassoc nsz arcp contract afn float %.neg315, %754
   %756 = fadd reassoc nsz arcp contract afn float %755, %753
   %757 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %756
-  %758 = getelementptr inbounds float, ptr %36, i64 %730
+  %758 = getelementptr inbounds nuw float, ptr %36, i64 %730
   %759 = load float, ptr %758, align 4, !tbaa !27
   %760 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %739
   %761 = load float, ptr %760, align 4, !tbaa !27
   %762 = fmul reassoc nsz arcp contract afn float %761, %741
   %763 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %745
-  %764 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %743
+  %764 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %743
   %765 = load float, ptr %764, align 4, !tbaa !27
   %766 = fmul reassoc nsz arcp contract afn float %765, %763
   %767 = fadd reassoc nsz arcp contract afn float %766, %762
   %768 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %748
-  %769 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %746
+  %769 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %746
   %770 = load float, ptr %769, align 4, !tbaa !27
   %771 = fmul reassoc nsz arcp contract afn float %770, %768
   %772 = fadd reassoc nsz arcp contract afn float %767, %771
-  %773 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %751
+  %773 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %751
   %774 = load float, ptr %773, align 4, !tbaa !27
   %775 = fmul reassoc nsz arcp contract afn float %774, %753
   %776 = fadd reassoc nsz arcp contract afn float %772, %775
@@ -1041,18 +1041,18 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %797 = fmul reassoc nsz arcp contract afn float %796, %794
   %798 = load float, ptr %744, align 4, !tbaa !27
   %799 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %798
-  %800 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %743
+  %800 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %743
   %801 = load float, ptr %800, align 4, !tbaa !27
   %802 = fmul reassoc nsz arcp contract afn float %799, %801
   %803 = fadd reassoc nsz arcp contract afn float %802, %797
   %804 = load float, ptr %747, align 4, !tbaa !27
   %805 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %804
-  %806 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %746
+  %806 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %746
   %807 = load float, ptr %806, align 4, !tbaa !27
   %808 = fmul reassoc nsz arcp contract afn float %805, %807
   %809 = fadd reassoc nsz arcp contract afn float %803, %808
   %810 = load float, ptr %752, align 4, !tbaa !27
-  %811 = getelementptr inbounds [12800 x float], ptr %72, i64 0, i64 %751
+  %811 = getelementptr inbounds nuw [12800 x float], ptr %72, i64 0, i64 %751
   %812 = load float, ptr %811, align 4, !tbaa !27
   %813 = fmul reassoc nsz arcp contract afn float %812, %810
   %814 = fadd reassoc nsz arcp contract afn float %809, %813
@@ -1120,7 +1120,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %858 = add nuw nsw i64 %850, 161
   %859 = lshr i64 %858, 1
   %860 = and i64 %859, 2147483647
-  %861 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %860
+  %861 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %860
   %862 = load float, ptr %861, align 4, !tbaa !27
   %863 = add nsw i32 %852, -483
   %864 = ashr i32 %863, 1
@@ -1135,7 +1135,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %873 = add nuw nsw i64 %850, 159
   %874 = lshr i64 %873, 1
   %875 = and i64 %874, 2147483647
-  %876 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %875
+  %876 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %875
   %877 = load float, ptr %876, align 4, !tbaa !27
   %878 = add nsw i32 %852, -477
   %879 = ashr i32 %878, 1
@@ -1145,12 +1145,12 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %883 = add nuw nsw i64 %850, 483
   %884 = lshr i64 %883, 1
   %885 = and i64 %884, 2147483647
-  %886 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %885
+  %886 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %885
   %887 = load float, ptr %886, align 4, !tbaa !27
   %888 = add nuw nsw i64 %850, 477
   %889 = lshr i64 %888, 1
   %890 = and i64 %889, 2147483647
-  %891 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %890
+  %891 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %890
   %892 = load float, ptr %891, align 4, !tbaa !27
   %893 = add nsw i32 %852, -163
   %894 = ashr i32 %893, 1
@@ -1170,17 +1170,17 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %908 = add nuw nsw i64 %850, 157
   %909 = lshr i64 %908, 1
   %910 = and i64 %909, 2147483647
-  %911 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %910
+  %911 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %910
   %912 = load float, ptr %911, align 4, !tbaa !27
   %913 = add nuw nsw i64 %850, 163
   %914 = lshr i64 %913, 1
   %915 = and i64 %914, 2147483647
-  %916 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %915
+  %916 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %915
   %917 = load float, ptr %916, align 4, !tbaa !27
   %918 = add nuw nsw i64 %850, 481
   %919 = lshr i64 %918, 1
   %920 = and i64 %919, 2147483647
-  %921 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %920
+  %921 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %920
   %922 = load float, ptr %921, align 4, !tbaa !27
   %923 = insertelement <4 x float> poison, float %857, i64 0
   %924 = insertelement <4 x float> %923, float %872, i64 1
@@ -1241,7 +1241,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %979 = tail call reassoc nsz arcp contract afn float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %954)
   %980 = fdiv reassoc nsz arcp contract afn float %978, %979
   %981 = lshr i64 %850, 1
-  %982 = getelementptr inbounds [12800 x float], ptr %44, i64 %5654, i64 %981
+  %982 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 %5654, i64 %981
   store float %980, ptr %982, align 4, !tbaa !27
   %983 = add nuw nsw i32 %851, 2
   %984 = add nuw nsw i64 %850, 2
@@ -1594,11 +1594,11 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1289 = add i64 %1287, %1053
   %1290 = add i64 %1287, %1285
   %1291 = and i64 %1290, 2147483646
-  %1292 = getelementptr inbounds float, ptr %37, i64 %1291
+  %1292 = getelementptr inbounds nuw float, ptr %37, i64 %1291
   %1293 = load <8 x float>, ptr %1292, align 8, !tbaa !27, !alias.scope !42, !noalias !45
   %1294 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 5.000000e-01), %1293
   %1295 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.fabs.v8f32(<8 x float> %1294)
-  %1296 = getelementptr inbounds float, ptr %47, i64 %1291
+  %1296 = getelementptr inbounds nuw float, ptr %47, i64 %1291
   %1297 = load <8 x float>, ptr %1296, align 8, !tbaa !27, !alias.scope !47, !noalias !45
   %1298 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 5.000000e-01), %1297
   %1299 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.fabs.v8f32(<8 x float> %1298)
@@ -1914,9 +1914,9 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1600 = phi i32 [ %1865, %1864 ], [ %.ph528, %.preheader525 ]
   %1601 = lshr i64 %1598, 1
   %1602 = and i64 %1601, 2147483647
-  %1603 = getelementptr inbounds float, ptr %37, i64 %1602
+  %1603 = getelementptr inbounds nuw float, ptr %37, i64 %1602
   %1604 = load float, ptr %1603, align 4, !tbaa !27
-  %1605 = getelementptr inbounds float, ptr %47, i64 %1602
+  %1605 = getelementptr inbounds nuw float, ptr %47, i64 %1602
   %1606 = load float, ptr %1605, align 4, !tbaa !27
   %1607 = insertelement <2 x float> poison, float %1604, i64 0
   %1608 = insertelement <2 x float> %1607, float %1606, i64 1
@@ -2277,7 +2277,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1860 = getelementptr inbounds float, ptr %53, i64 %1598
   %1861 = load float, ptr %1860, align 4, !tbaa !27
   %1862 = fsub reassoc nsz arcp contract afn float %1858, %1861
-  %1863 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %1602
+  %1863 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %1602
   store float %1862, ptr %1863, align 4, !tbaa !27
   br label %1864
 
@@ -2330,13 +2330,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1901 = add nuw nsw i64 %1886, 159
   %1902 = lshr i64 %1901, 1
   %1903 = and i64 %1902, 2147483647
-  %1904 = getelementptr inbounds float, ptr %37, i64 %1903
+  %1904 = getelementptr inbounds nuw float, ptr %37, i64 %1903
   %1905 = load float, ptr %1904, align 4, !tbaa !27
   %1906 = fadd reassoc nsz arcp contract afn float %1900, %1905
   %1907 = add nuw nsw i64 %1886, 161
   %1908 = lshr i64 %1907, 1
   %1909 = and i64 %1908, 2147483647
-  %1910 = getelementptr inbounds float, ptr %37, i64 %1909
+  %1910 = getelementptr inbounds nuw float, ptr %37, i64 %1909
   %1911 = load float, ptr %1910, align 4, !tbaa !27
   %1912 = fadd reassoc nsz arcp contract afn float %1906, %1911
   %1913 = tail call i1 @llvm.is.fpclass.f32(float %1912, i32 96)
@@ -2344,7 +2344,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1915 = add i32 %1914, -16777216
   %1916 = bitcast i32 %1915 to float
   %1917 = select i1 %1913, float %1912, float %1916
-  %1918 = getelementptr inbounds float, ptr %37, i64 %1887
+  %1918 = getelementptr inbounds nuw float, ptr %37, i64 %1887
   %1919 = load float, ptr %1918, align 4, !tbaa !27
   %1920 = insertelement <2 x float> poison, float %1919, i64 0
   %1921 = insertelement <2 x float> %1920, float %1917, i64 1
@@ -2361,14 +2361,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 1928:                                             ; preds = %1927, %1885
   %1929 = phi float [ %1917, %1927 ], [ %1919, %1885 ]
-  %1930 = getelementptr inbounds float, ptr %53, i64 %1886
+  %1930 = getelementptr inbounds nuw float, ptr %53, i64 %1886
   %1931 = load float, ptr %1930, align 4, !tbaa !27
-  %1932 = getelementptr inbounds float, ptr %42, i64 %1887
+  %1932 = getelementptr inbounds nuw float, ptr %42, i64 %1887
   %1933 = load float, ptr %1932, align 4, !tbaa !27
   %1934 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1929
   %1935 = fmul reassoc nsz arcp contract afn float %1933, %1934
   %1936 = fadd reassoc nsz arcp contract afn float %1935, %1931
-  %1937 = getelementptr inbounds float, ptr %54, i64 %1887
+  %1937 = getelementptr inbounds nuw float, ptr %54, i64 %1887
   %1938 = load float, ptr %1937, align 4, !tbaa !27
   %1939 = fmul reassoc nsz arcp contract afn float %1938, %1929
   %1940 = fadd reassoc nsz arcp contract afn float %1936, %1939
@@ -2377,7 +2377,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %1943 = add i32 %1942, -8388608
   %1944 = bitcast i32 %1943 to float
   %1945 = select i1 %1941, float %1940, float %1944
-  %1946 = getelementptr inbounds float, ptr %48, i64 %1887
+  %1946 = getelementptr inbounds nuw float, ptr %48, i64 %1887
   store float %1945, ptr %1946, align 4, !tbaa !27
   %1947 = add nuw nsw i32 %1888, 2
   %1948 = add nuw nsw i64 %1886, 2
@@ -2552,17 +2552,17 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 2085:                                             ; preds = %2083, %2075
   %2086 = phi float [ %2084, %2083 ], [ %2082, %2075 ]
-  %2087 = getelementptr inbounds float, ptr %48, i64 %1970
+  %2087 = getelementptr inbounds nuw float, ptr %48, i64 %1970
   %2088 = load float, ptr %2087, align 4, !tbaa !27
   %2089 = fadd reassoc nsz arcp contract afn float %2088, 0x3EE4F8B580000000
   %2090 = lshr i64 %1972, 1
   %2091 = and i64 %2090, 2147483647
-  %2092 = getelementptr inbounds float, ptr %48, i64 %2091
+  %2092 = getelementptr inbounds nuw float, ptr %48, i64 %2091
   %2093 = load float, ptr %2092, align 4, !tbaa !27
   %2094 = fadd reassoc nsz arcp contract afn float %2089, %2093
   %2095 = lshr i64 %1983, 1
   %2096 = and i64 %2095, 2147483647
-  %2097 = getelementptr inbounds float, ptr %48, i64 %2096
+  %2097 = getelementptr inbounds nuw float, ptr %48, i64 %2096
   %2098 = load float, ptr %2097, align 4, !tbaa !27
   %2099 = fadd reassoc nsz arcp contract afn float %2094, %2098
   %2100 = trunc i64 %1988 to i32
@@ -2577,7 +2577,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2109 = getelementptr inbounds float, ptr %48, i64 %2108
   %2110 = load float, ptr %2109, align 4, !tbaa !27
   %2111 = fadd reassoc nsz arcp contract afn float %2105, %2110
-  %2112 = getelementptr inbounds float, ptr %46, i64 %1970
+  %2112 = getelementptr inbounds nuw float, ptr %46, i64 %1970
   %2113 = load float, ptr %2112, align 4, !tbaa !27
   %2114 = fadd reassoc nsz arcp contract afn float %2113, 0x3EE4F8B580000000
   %2115 = trunc i64 %2001 to i32
@@ -2594,12 +2594,12 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2126 = fadd reassoc nsz arcp contract afn float %2120, %2125
   %2127 = lshr i64 %2014, 1
   %2128 = and i64 %2127, 2147483647
-  %2129 = getelementptr inbounds float, ptr %46, i64 %2128
+  %2129 = getelementptr inbounds nuw float, ptr %46, i64 %2128
   %2130 = load float, ptr %2129, align 4, !tbaa !27
   %2131 = fadd reassoc nsz arcp contract afn float %2130, %2114
   %2132 = lshr i64 %2022, 1
   %2133 = and i64 %2132, 2147483647
-  %2134 = getelementptr inbounds float, ptr %46, i64 %2133
+  %2134 = getelementptr inbounds nuw float, ptr %46, i64 %2133
   %2135 = load float, ptr %2134, align 4, !tbaa !27
   %2136 = fadd reassoc nsz arcp contract afn float %2131, %2135
   %2137 = fmul reassoc nsz arcp contract afn float %2099, %2056
@@ -2607,14 +2607,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2139 = fadd reassoc nsz arcp contract afn float %2138, %2137
   %2140 = fadd reassoc nsz arcp contract afn float %2111, %2099
   %2141 = fdiv reassoc nsz arcp contract afn float %2139, %2140
-  %2142 = getelementptr inbounds float, ptr %42, i64 %1970
+  %2142 = getelementptr inbounds nuw float, ptr %42, i64 %1970
   store float %2141, ptr %2142, align 4, !tbaa !27
   %2143 = fmul reassoc nsz arcp contract afn float %2126, %2086
   %2144 = fmul reassoc nsz arcp contract afn float %2136, %2071
   %2145 = fadd reassoc nsz arcp contract afn float %2144, %2143
   %2146 = fadd reassoc nsz arcp contract afn float %2136, %2126
   %2147 = fdiv reassoc nsz arcp contract afn float %2145, %2146
-  %2148 = getelementptr inbounds float, ptr %54, i64 %1970
+  %2148 = getelementptr inbounds nuw float, ptr %54, i64 %1970
   store float %2147, ptr %2148, align 4, !tbaa !27
   %2149 = trunc i64 %1969 to i32
   %2150 = add i32 %2149, -160
@@ -2631,13 +2631,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2161 = add nsw i64 %1969, 1
   %2162 = lshr i64 %2161, 1
   %2163 = and i64 %2162, 2147483647
-  %2164 = getelementptr inbounds float, ptr %51, i64 %2163
+  %2164 = getelementptr inbounds nuw float, ptr %51, i64 %2163
   %2165 = load float, ptr %2164, align 4, !tbaa !27
   %2166 = fadd reassoc nsz arcp contract afn float %2160, %2165
   %2167 = add nsw i64 %1969, 160
   %2168 = lshr i64 %2167, 1
   %2169 = and i64 %2168, 2147483647
-  %2170 = getelementptr inbounds float, ptr %51, i64 %2169
+  %2170 = getelementptr inbounds nuw float, ptr %51, i64 %2169
   %2171 = load float, ptr %2170, align 4, !tbaa !27
   %2172 = fadd reassoc nsz arcp contract afn float %2166, %2171
   %2173 = fmul reassoc nsz arcp contract afn float %2172, 0x3FC18F9AA0000000
@@ -2671,19 +2671,19 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2201 = lshr <4 x i64> %2200, splat (i64 1)
   %2202 = and <4 x i64> %2201, splat (i64 2147483647)
   %2203 = extractelement <4 x i64> %2202, i64 0
-  %2204 = getelementptr inbounds float, ptr %51, i64 %2203
+  %2204 = getelementptr inbounds nuw float, ptr %51, i64 %2203
   %2205 = load float, ptr %2204, align 4, !tbaa !27
   %2206 = fadd reassoc nsz arcp contract afn float %2197, %2205
   %2207 = extractelement <4 x i64> %2202, i64 1
-  %2208 = getelementptr inbounds float, ptr %51, i64 %2207
+  %2208 = getelementptr inbounds nuw float, ptr %51, i64 %2207
   %2209 = load float, ptr %2208, align 4, !tbaa !27
   %2210 = fadd reassoc nsz arcp contract afn float %2206, %2209
   %2211 = extractelement <4 x i64> %2202, i64 2
-  %2212 = getelementptr inbounds float, ptr %51, i64 %2211
+  %2212 = getelementptr inbounds nuw float, ptr %51, i64 %2211
   %2213 = load float, ptr %2212, align 4, !tbaa !27
   %2214 = fadd reassoc nsz arcp contract afn float %2210, %2213
   %2215 = extractelement <4 x i64> %2202, i64 3
-  %2216 = getelementptr inbounds float, ptr %51, i64 %2215
+  %2216 = getelementptr inbounds nuw float, ptr %51, i64 %2215
   %2217 = load float, ptr %2216, align 4, !tbaa !27
   %2218 = fadd reassoc nsz arcp contract afn float %2214, %2217
   %2219 = fmul reassoc nsz arcp contract afn float %2218, 0x3FACE0CAC0000000
@@ -2694,10 +2694,10 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2224 = getelementptr inbounds float, ptr %52, i64 %2157
   %2225 = load float, ptr %2224, align 4, !tbaa !27
   %2226 = fadd reassoc nsz arcp contract afn float %2225, %2223
-  %2227 = getelementptr inbounds float, ptr %52, i64 %2163
+  %2227 = getelementptr inbounds nuw float, ptr %52, i64 %2163
   %2228 = load float, ptr %2227, align 4, !tbaa !27
   %2229 = fadd reassoc nsz arcp contract afn float %2226, %2228
-  %2230 = getelementptr inbounds float, ptr %52, i64 %2169
+  %2230 = getelementptr inbounds nuw float, ptr %52, i64 %2169
   %2231 = load float, ptr %2230, align 4, !tbaa !27
   %2232 = fadd reassoc nsz arcp contract afn float %2229, %2231
   %2233 = fmul reassoc nsz arcp contract afn float %2232, 0x3FC18F9AA0000000
@@ -2712,16 +2712,16 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2242 = getelementptr inbounds float, ptr %52, i64 %2194
   %2243 = load float, ptr %2242, align 4, !tbaa !27
   %2244 = fadd reassoc nsz arcp contract afn float %2241, %2243
-  %2245 = getelementptr inbounds float, ptr %52, i64 %2203
+  %2245 = getelementptr inbounds nuw float, ptr %52, i64 %2203
   %2246 = load float, ptr %2245, align 4, !tbaa !27
   %2247 = fadd reassoc nsz arcp contract afn float %2244, %2246
-  %2248 = getelementptr inbounds float, ptr %52, i64 %2207
+  %2248 = getelementptr inbounds nuw float, ptr %52, i64 %2207
   %2249 = load float, ptr %2248, align 4, !tbaa !27
   %2250 = fadd reassoc nsz arcp contract afn float %2247, %2249
-  %2251 = getelementptr inbounds float, ptr %52, i64 %2211
+  %2251 = getelementptr inbounds nuw float, ptr %52, i64 %2211
   %2252 = load float, ptr %2251, align 4, !tbaa !27
   %2253 = fadd reassoc nsz arcp contract afn float %2250, %2252
-  %2254 = getelementptr inbounds float, ptr %52, i64 %2215
+  %2254 = getelementptr inbounds nuw float, ptr %52, i64 %2215
   %2255 = load float, ptr %2254, align 4, !tbaa !27
   %2256 = fadd reassoc nsz arcp contract afn float %2253, %2255
   %2257 = fmul reassoc nsz arcp contract afn float %2256, 0x3FACE0CAC0000000
@@ -2729,7 +2729,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2259 = fadd reassoc nsz arcp contract afn float %2258, %2233
   %2260 = fadd reassoc nsz arcp contract afn float %2259, %2257
   %2261 = fdiv reassoc nsz arcp contract afn float %2221, %2260
-  %2262 = getelementptr inbounds float, ptr %37, i64 %1970
+  %2262 = getelementptr inbounds nuw float, ptr %37, i64 %1970
   store float %2261, ptr %2262, align 4, !tbaa !27
   %2263 = load float, ptr %1980, align 4, !tbaa !27
   %2264 = fcmp reassoc nsz arcp contract afn olt float %2147, %2263
@@ -3003,7 +3003,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2436 = fadd reassoc nsz arcp contract afn float %2435, %2431
   %2437 = lshr exact i64 %2424, 1
   %2438 = and i64 %2437, 2147483647
-  %2439 = getelementptr inbounds float, ptr %52, i64 %2438
+  %2439 = getelementptr inbounds nuw float, ptr %52, i64 %2438
   store float %2436, ptr %2439, align 4, !tbaa !27
   %2440 = load float, ptr %2426, align 8, !tbaa !27
   %2441 = getelementptr i8, ptr %2426, i64 -644
@@ -3015,7 +3015,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2447 = fsub reassoc nsz arcp contract afn float %2440, %2446
   %2448 = fmul reassoc nsz arcp contract afn float %2447, %2447
   %2449 = fadd reassoc nsz arcp contract afn float %2448, %2444
-  %2450 = getelementptr inbounds float, ptr %51, i64 %2438
+  %2450 = getelementptr inbounds nuw float, ptr %51, i64 %2438
   store float %2449, ptr %2450, align 4, !tbaa !27
   %2451 = getelementptr i8, ptr %2426, i64 -632
   %2452 = load float, ptr %2451, align 8, !tbaa !27
@@ -3026,7 +3026,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2457 = load float, ptr %2456, align 4, !tbaa !27
   %2458 = fsub reassoc nsz arcp contract afn float %2452, %2457
   %2459 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2458)
-  %2460 = getelementptr inbounds float, ptr %46, i64 %2438
+  %2460 = getelementptr inbounds nuw float, ptr %46, i64 %2438
   store float %2459, ptr %2460, align 4, !tbaa !27
   %2461 = add i64 %2453, 695784701952
   %2462 = ashr exact i64 %2461, 30
@@ -3036,7 +3036,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2466 = load float, ptr %2465, align 8, !tbaa !27
   %2467 = fsub reassoc nsz arcp contract afn float %2464, %2466
   %2468 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2467)
-  %2469 = getelementptr inbounds float, ptr %48, i64 %2438
+  %2469 = getelementptr inbounds nuw float, ptr %48, i64 %2438
   store float %2468, ptr %2469, align 4, !tbaa !27
   %2470 = add nuw nsw i32 %2425, 2
   %2471 = add nuw nsw i64 %2424, 2
@@ -3064,7 +3064,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2485 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2484)
   %2486 = lshr exact i64 %2477, 1
   %2487 = and i64 %2486, 2147483647
-  %2488 = getelementptr inbounds float, ptr %46, i64 %2487
+  %2488 = getelementptr inbounds nuw float, ptr %46, i64 %2487
   store float %2485, ptr %2488, align 4, !tbaa !27
   %2489 = getelementptr i8, ptr %2479, i64 644
   %2490 = load float, ptr %2489, align 4, !tbaa !27
@@ -3072,7 +3072,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2492 = load float, ptr %2491, align 4, !tbaa !27
   %2493 = fsub reassoc nsz arcp contract afn float %2490, %2492
   %2494 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2493)
-  %2495 = getelementptr inbounds float, ptr %48, i64 %2487
+  %2495 = getelementptr inbounds nuw float, ptr %48, i64 %2487
   store float %2494, ptr %2495, align 4, !tbaa !27
   %2496 = or disjoint i64 %2477, 1
   %2497 = getelementptr inbounds float, ptr %53, i64 %2496
@@ -3089,7 +3089,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2508 = fsub reassoc nsz arcp contract afn float %2498, %2507
   %2509 = fmul reassoc nsz arcp contract afn float %2508, %2508
   %2510 = fadd reassoc nsz arcp contract afn float %2509, %2505
-  %2511 = getelementptr inbounds float, ptr %52, i64 %2487
+  %2511 = getelementptr inbounds nuw float, ptr %52, i64 %2487
   store float %2510, ptr %2511, align 4, !tbaa !27
   %2512 = load float, ptr %2497, align 4, !tbaa !27
   %2513 = getelementptr i8, ptr %2479, i64 -640
@@ -3103,7 +3103,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2521 = fsub reassoc nsz arcp contract afn float %2512, %2520
   %2522 = fmul reassoc nsz arcp contract afn float %2521, %2521
   %2523 = fadd reassoc nsz arcp contract afn float %2522, %2516
-  %2524 = getelementptr inbounds float, ptr %51, i64 %2487
+  %2524 = getelementptr inbounds nuw float, ptr %51, i64 %2487
   store float %2523, ptr %2524, align 4, !tbaa !27
   %2525 = add nuw nsw i32 %2478, 2
   %2526 = add nuw nsw i64 %2477, 2
@@ -3234,42 +3234,42 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2638 = fadd reassoc nsz arcp contract afn float %2637, %2587
   %2639 = fadd reassoc nsz arcp contract afn float %2638, %2612
   %2640 = fadd reassoc nsz arcp contract afn float %2639, %2636
-  %2641 = getelementptr inbounds i8, ptr %2561, i64 4
+  %2641 = getelementptr inbounds nuw i8, ptr %2561, i64 4
   %2642 = load float, ptr %2641, align 4, !tbaa !97
   %2643 = fmul reassoc nsz arcp contract afn float %2642, 0x3FC5BFD720000000
-  %2644 = getelementptr inbounds i8, ptr %2567, i64 4
+  %2644 = getelementptr inbounds nuw i8, ptr %2567, i64 4
   %2645 = load float, ptr %2644, align 4, !tbaa !97
-  %2646 = getelementptr inbounds i8, ptr %2572, i64 4
+  %2646 = getelementptr inbounds nuw i8, ptr %2572, i64 4
   %2647 = load float, ptr %2646, align 4, !tbaa !97
   %2648 = fadd reassoc nsz arcp contract afn float %2647, %2645
-  %2649 = getelementptr inbounds i8, ptr %2578, i64 4
+  %2649 = getelementptr inbounds nuw i8, ptr %2578, i64 4
   %2650 = load float, ptr %2649, align 4, !tbaa !97
   %2651 = fadd reassoc nsz arcp contract afn float %2648, %2650
-  %2652 = getelementptr inbounds i8, ptr %2584, i64 4
+  %2652 = getelementptr inbounds nuw i8, ptr %2584, i64 4
   %2653 = load float, ptr %2652, align 4, !tbaa !97
   %2654 = fadd reassoc nsz arcp contract afn float %2651, %2653
   %2655 = fmul reassoc nsz arcp contract afn float %2654, 0x3FBBE3F360000000
-  %2656 = getelementptr inbounds i8, ptr %2591, i64 4
+  %2656 = getelementptr inbounds nuw i8, ptr %2591, i64 4
   %2657 = load float, ptr %2656, align 4, !tbaa !97
-  %2658 = getelementptr inbounds i8, ptr %2596, i64 4
+  %2658 = getelementptr inbounds nuw i8, ptr %2596, i64 4
   %2659 = load float, ptr %2658, align 4, !tbaa !97
   %2660 = fadd reassoc nsz arcp contract afn float %2659, %2657
-  %2661 = getelementptr inbounds i8, ptr %2603, i64 4
+  %2661 = getelementptr inbounds nuw i8, ptr %2603, i64 4
   %2662 = load float, ptr %2661, align 4, !tbaa !97
   %2663 = fadd reassoc nsz arcp contract afn float %2660, %2662
-  %2664 = getelementptr inbounds i8, ptr %2609, i64 4
+  %2664 = getelementptr inbounds nuw i8, ptr %2609, i64 4
   %2665 = load float, ptr %2664, align 4, !tbaa !97
   %2666 = fadd reassoc nsz arcp contract afn float %2663, %2665
   %2667 = fmul reassoc nsz arcp contract afn float %2666, 0x3FB1E20460000000
-  %2668 = getelementptr inbounds i8, ptr %2616, i64 4
+  %2668 = getelementptr inbounds nuw i8, ptr %2616, i64 4
   %2669 = load float, ptr %2668, align 4, !tbaa !97
-  %2670 = getelementptr inbounds i8, ptr %2621, i64 4
+  %2670 = getelementptr inbounds nuw i8, ptr %2621, i64 4
   %2671 = load float, ptr %2670, align 4, !tbaa !97
   %2672 = fadd reassoc nsz arcp contract afn float %2671, %2669
-  %2673 = getelementptr inbounds i8, ptr %2627, i64 4
+  %2673 = getelementptr inbounds nuw i8, ptr %2627, i64 4
   %2674 = load float, ptr %2673, align 4, !tbaa !97
   %2675 = fadd reassoc nsz arcp contract afn float %2672, %2674
-  %2676 = getelementptr inbounds i8, ptr %2633, i64 4
+  %2676 = getelementptr inbounds nuw i8, ptr %2633, i64 4
   %2677 = load float, ptr %2676, align 4, !tbaa !97
   %2678 = fadd reassoc nsz arcp contract afn float %2675, %2677
   %2679 = fmul reassoc nsz arcp contract afn float %2678, 0x3F9D684DC0000000
@@ -3344,13 +3344,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2734 = add nuw nsw i64 %2721, 159
   %2735 = lshr i64 %2734, 1
   %2736 = and i64 %2735, 2147483647
-  %2737 = getelementptr inbounds float, ptr %47, i64 %2736
+  %2737 = getelementptr inbounds nuw float, ptr %47, i64 %2736
   %2738 = load float, ptr %2737, align 4, !tbaa !27
   %2739 = fadd reassoc nsz arcp contract afn float %2733, %2738
   %2740 = add nuw nsw i64 %2721, 161
   %2741 = lshr i64 %2740, 1
   %2742 = and i64 %2741, 2147483647
-  %2743 = getelementptr inbounds float, ptr %47, i64 %2742
+  %2743 = getelementptr inbounds nuw float, ptr %47, i64 %2742
   %2744 = load float, ptr %2743, align 4, !tbaa !27
   %2745 = fadd reassoc nsz arcp contract afn float %2739, %2744
   %2746 = tail call i1 @llvm.is.fpclass.f32(float %2745, i32 96)
@@ -3359,7 +3359,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2749 = bitcast i32 %2748 to float
   %2750 = select i1 %2746, float %2745, float %2749
   %2751 = lshr i64 %2721, 1
-  %2752 = getelementptr inbounds float, ptr %47, i64 %2751
+  %2752 = getelementptr inbounds nuw float, ptr %47, i64 %2751
   %2753 = load float, ptr %2752, align 4, !tbaa !27
   %2754 = insertelement <2 x float> poison, float %2753, i64 0
   %2755 = insertelement <2 x float> %2754, float %2750, i64 1
@@ -3370,21 +3370,21 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2760 = extractelement <2 x i1> %2759, i64 0
   %2761 = select reassoc nsz arcp contract afn i1 %2760, float %2750, float %2753
   store float %2761, ptr %2752, align 4, !tbaa !27
-  %2762 = getelementptr inbounds float, ptr %42, i64 %2721
+  %2762 = getelementptr inbounds nuw float, ptr %42, i64 %2721
   %2763 = load float, ptr %2762, align 4, !tbaa !27
-  %2764 = getelementptr inbounds float, ptr %43, i64 %2721
+  %2764 = getelementptr inbounds nuw float, ptr %43, i64 %2721
   %2765 = load float, ptr %2764, align 4, !tbaa !27
   %2766 = fsub reassoc nsz arcp contract afn float %2763, %2765
   %2767 = fmul reassoc nsz arcp contract afn float %2761, %2766
   %2768 = fadd reassoc nsz arcp contract afn float %2767, %2765
-  %2769 = getelementptr inbounds [12800 x float], ptr %44, i64 0, i64 %2751
+  %2769 = getelementptr inbounds nuw [12800 x float], ptr %44, i64 0, i64 %2751
   store float %2768, ptr %2769, align 4, !tbaa !27
-  %2770 = getelementptr inbounds float, ptr %53, i64 %2721
+  %2770 = getelementptr inbounds nuw float, ptr %53, i64 %2721
   %2771 = load float, ptr %2770, align 4, !tbaa !27
   %2772 = fadd reassoc nsz arcp contract afn float %2768, %2771
-  %2773 = getelementptr inbounds float, ptr %36, i64 %2721
+  %2773 = getelementptr inbounds nuw float, ptr %36, i64 %2721
   store float %2772, ptr %2773, align 4, !tbaa !27
-  %2774 = getelementptr inbounds i8, ptr %46, i64 %2751
+  %2774 = getelementptr inbounds nuw i8, ptr %46, i64 %2751
   %2775 = load i8, ptr %2774, align 1, !tbaa !94
   %2776 = icmp eq i8 %2775, 0
   br i1 %2776, label %2804, label %2777
@@ -3402,7 +3402,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2787 = select i1 %2783, float %2782, float %2786
   %2788 = fsub reassoc nsz arcp contract afn float %2772, %2787
   %2789 = fmul reassoc nsz arcp contract afn float %2788, %2788
-  %2790 = getelementptr inbounds %struct.s_hv, ptr %49, i64 %2751
+  %2790 = getelementptr inbounds nuw %struct.s_hv, ptr %49, i64 %2751
   store float %2789, ptr %2790, align 8, !tbaa !95
   %2791 = load float, ptr %2773, align 4, !tbaa !27
   %2792 = getelementptr i8, ptr %2773, i64 -640
@@ -3420,7 +3420,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   br label %2806
 
 2804:                                             ; preds = %2720
-  %2805 = getelementptr inbounds %struct.s_hv, ptr %49, i64 %2751
+  %2805 = getelementptr inbounds nuw %struct.s_hv, ptr %49, i64 %2751
   store float 0.000000e+00, ptr %2805, align 8, !tbaa !95
   br label %2806
 
@@ -3428,7 +3428,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2807 = phi reassoc nsz arcp contract afn float [ %2803, %2777 ], [ 0.000000e+00, %2804 ]
   %.idx = shl nsw i64 %2751, 3
   %.offs = or disjoint i64 %.idx, 4
-  %2808 = getelementptr inbounds i8, ptr %49, i64 %.offs
+  %2808 = getelementptr inbounds nuw i8, ptr %49, i64 %.offs
   store float %2807, ptr %2808, align 4, !tbaa !97
   %2809 = add nuw nsw i64 %2721, 2
   %2810 = icmp slt i64 %2809, %2717
@@ -3466,7 +3466,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2833 = phi i64 [ %2827, %2824 ], [ %3142, %3141 ]
   %2834 = phi i32 [ %2825, %2824 ], [ %3145, %3141 ]
   %2835 = lshr i64 %2833, 1
-  %2836 = getelementptr inbounds i8, ptr %46, i64 %2835
+  %2836 = getelementptr inbounds nuw i8, ptr %46, i64 %2835
   %2837 = load i8, ptr %2836, align 1, !tbaa !94
   %2838 = icmp eq i8 %2837, 0
   br i1 %2838, label %3141, label %.preheader
@@ -3496,7 +3496,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %2861 = fadd reassoc nsz arcp contract afn <2 x float> %2860, %2859
   %2862 = fdiv reassoc nsz arcp contract afn <2 x float> %2859, %2861
   %2863 = extractelement <2 x float> %2862, i64 0
-  %2864 = getelementptr inbounds float, ptr %47, i64 %2835
+  %2864 = getelementptr inbounds nuw float, ptr %47, i64 %2835
   store float %2863, ptr %2864, align 4, !tbaa !27
   br label %3141
 
@@ -3907,14 +3907,14 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 3226:                                             ; preds = %3224
   %3227 = lshr i64 %3165, 1
-  %3228 = getelementptr inbounds i8, ptr %55, i64 %3227
+  %3228 = getelementptr inbounds nuw i8, ptr %55, i64 %3227
   %3229 = load i8, ptr %3228, align 1, !tbaa !94
   br label %3230
 
 3230:                                             ; preds = %3226, %3224, %3164
   %3231 = phi i8 [ 1, %3164 ], [ %3229, %3226 ], [ 0, %3224 ]
   %3232 = lshr i64 %3165, 1
-  %3233 = getelementptr inbounds i8, ptr %46, i64 %3232
+  %3233 = getelementptr inbounds nuw i8, ptr %46, i64 %3232
   store i8 %3231, ptr %3233, align 1, !tbaa !94
   %3234 = icmp sgt i32 %3156, %3195
   br i1 %3234, label %3164, label %.loopexit328, !llvm.loop !105
@@ -3957,13 +3957,13 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3262 = phi i32 [ %3239, %3247 ], [ %3276, %3274 ]
   %3263 = phi i32 [ %3240, %3247 ], [ %3275, %3274 ]
   %3264 = lshr i64 %3258, 1
-  %3265 = getelementptr inbounds float, ptr %56, i64 %3264
+  %3265 = getelementptr inbounds nuw float, ptr %56, i64 %3264
   %3266 = load float, ptr %3265, align 4, !tbaa !27
   %3267 = fcmp reassoc nsz arcp contract afn ogt float %3266, 0.000000e+00
   br i1 %3267, label %3268, label %3274
 
 3268:                                             ; preds = %3257
-  %3269 = getelementptr inbounds i8, ptr %55, i64 %3264
+  %3269 = getelementptr inbounds nuw i8, ptr %55, i64 %3264
   store i8 1, ptr %3269, align 1, !tbaa !94
   %3270 = icmp eq i32 %3260, 0
   %3271 = select i1 %3270, i32 %3236, i32 %3260
@@ -4145,7 +4145,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3435 = fadd reassoc nsz arcp contract afn float %3433, %3434
   %3436 = lshr i64 %3297, 1
   %3437 = and i64 %3436, 2147483647
-  %3438 = getelementptr inbounds float, ptr %56, i64 %3437
+  %3438 = getelementptr inbounds nuw float, ptr %56, i64 %3437
   store float %3435, ptr %3438, align 4, !tbaa !27
   %3439 = add nuw nsw i32 %3298, 2
   %3440 = icmp slt i32 %3439, %5635
@@ -4345,7 +4345,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3621 = phi float [ %3611, %3456 ], [ %3619, %3612 ]
   %3622 = lshr i64 %3457, 1
   %3623 = and i64 %3622, 2147483647
-  %3624 = getelementptr inbounds float, ptr %47, i64 %3623
+  %3624 = getelementptr inbounds nuw float, ptr %47, i64 %3623
   store float %3621, ptr %3624, align 4, !tbaa !27
   %3625 = add nuw nsw i32 %3458, 2
   %3626 = icmp slt i32 %3625, %5635
@@ -5564,144 +5564,144 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %4547 = sext i32 %4545 to i64
   %4548 = getelementptr inbounds float, ptr %1, i64 %4547
   %4549 = load float, ptr %4548, align 4, !tbaa !27
-  %4550 = getelementptr inbounds float, ptr %53, i64 %4546
+  %4550 = getelementptr inbounds nuw float, ptr %53, i64 %4546
   store float %4549, ptr %4550, align 64, !tbaa !27
-  %4551 = getelementptr inbounds float, ptr %36, i64 %4546
+  %4551 = getelementptr inbounds nuw float, ptr %36, i64 %4546
   store float %4549, ptr %4551, align 64, !tbaa !27
   %4552 = add i32 %4545, -1
   %4553 = sext i32 %4552 to i64
   %4554 = getelementptr inbounds float, ptr %1, i64 %4553
   %4555 = load float, ptr %4554, align 4, !tbaa !27
   %4556 = or disjoint i64 %4546, 1
-  %4557 = getelementptr inbounds float, ptr %53, i64 %4556
+  %4557 = getelementptr inbounds nuw float, ptr %53, i64 %4556
   store float %4555, ptr %4557, align 4, !tbaa !27
-  %4558 = getelementptr inbounds float, ptr %36, i64 %4556
+  %4558 = getelementptr inbounds nuw float, ptr %36, i64 %4556
   store float %4555, ptr %4558, align 4, !tbaa !27
   %4559 = add i32 %4545, -2
   %4560 = sext i32 %4559 to i64
   %4561 = getelementptr inbounds float, ptr %1, i64 %4560
   %4562 = load float, ptr %4561, align 4, !tbaa !27
   %4563 = or disjoint i64 %4546, 2
-  %4564 = getelementptr inbounds float, ptr %53, i64 %4563
+  %4564 = getelementptr inbounds nuw float, ptr %53, i64 %4563
   store float %4562, ptr %4564, align 8, !tbaa !27
-  %4565 = getelementptr inbounds float, ptr %36, i64 %4563
+  %4565 = getelementptr inbounds nuw float, ptr %36, i64 %4563
   store float %4562, ptr %4565, align 8, !tbaa !27
   %4566 = add i32 %4545, -3
   %4567 = sext i32 %4566 to i64
   %4568 = getelementptr inbounds float, ptr %1, i64 %4567
   %4569 = load float, ptr %4568, align 4, !tbaa !27
   %4570 = or disjoint i64 %4546, 3
-  %4571 = getelementptr inbounds float, ptr %53, i64 %4570
+  %4571 = getelementptr inbounds nuw float, ptr %53, i64 %4570
   store float %4569, ptr %4571, align 4, !tbaa !27
-  %4572 = getelementptr inbounds float, ptr %36, i64 %4570
+  %4572 = getelementptr inbounds nuw float, ptr %36, i64 %4570
   store float %4569, ptr %4572, align 4, !tbaa !27
   %4573 = add i32 %4545, -4
   %4574 = sext i32 %4573 to i64
   %4575 = getelementptr inbounds float, ptr %1, i64 %4574
   %4576 = load float, ptr %4575, align 4, !tbaa !27
   %4577 = or disjoint i64 %4546, 4
-  %4578 = getelementptr inbounds float, ptr %53, i64 %4577
+  %4578 = getelementptr inbounds nuw float, ptr %53, i64 %4577
   store float %4576, ptr %4578, align 16, !tbaa !27
-  %4579 = getelementptr inbounds float, ptr %36, i64 %4577
+  %4579 = getelementptr inbounds nuw float, ptr %36, i64 %4577
   store float %4576, ptr %4579, align 16, !tbaa !27
   %4580 = add i32 %4545, -5
   %4581 = sext i32 %4580 to i64
   %4582 = getelementptr inbounds float, ptr %1, i64 %4581
   %4583 = load float, ptr %4582, align 4, !tbaa !27
   %4584 = or disjoint i64 %4546, 5
-  %4585 = getelementptr inbounds float, ptr %53, i64 %4584
+  %4585 = getelementptr inbounds nuw float, ptr %53, i64 %4584
   store float %4583, ptr %4585, align 4, !tbaa !27
-  %4586 = getelementptr inbounds float, ptr %36, i64 %4584
+  %4586 = getelementptr inbounds nuw float, ptr %36, i64 %4584
   store float %4583, ptr %4586, align 4, !tbaa !27
   %4587 = add i32 %4545, -6
   %4588 = sext i32 %4587 to i64
   %4589 = getelementptr inbounds float, ptr %1, i64 %4588
   %4590 = load float, ptr %4589, align 4, !tbaa !27
   %4591 = or disjoint i64 %4546, 6
-  %4592 = getelementptr inbounds float, ptr %53, i64 %4591
+  %4592 = getelementptr inbounds nuw float, ptr %53, i64 %4591
   store float %4590, ptr %4592, align 8, !tbaa !27
-  %4593 = getelementptr inbounds float, ptr %36, i64 %4591
+  %4593 = getelementptr inbounds nuw float, ptr %36, i64 %4591
   store float %4590, ptr %4593, align 8, !tbaa !27
   %4594 = add i32 %4545, -7
   %4595 = sext i32 %4594 to i64
   %4596 = getelementptr inbounds float, ptr %1, i64 %4595
   %4597 = load float, ptr %4596, align 4, !tbaa !27
   %4598 = or disjoint i64 %4546, 7
-  %4599 = getelementptr inbounds float, ptr %53, i64 %4598
+  %4599 = getelementptr inbounds nuw float, ptr %53, i64 %4598
   store float %4597, ptr %4599, align 4, !tbaa !27
-  %4600 = getelementptr inbounds float, ptr %36, i64 %4598
+  %4600 = getelementptr inbounds nuw float, ptr %36, i64 %4598
   store float %4597, ptr %4600, align 4, !tbaa !27
   %4601 = add i32 %4545, -8
   %4602 = sext i32 %4601 to i64
   %4603 = getelementptr inbounds float, ptr %1, i64 %4602
   %4604 = load float, ptr %4603, align 4, !tbaa !27
   %4605 = or disjoint i64 %4546, 8
-  %4606 = getelementptr inbounds float, ptr %53, i64 %4605
+  %4606 = getelementptr inbounds nuw float, ptr %53, i64 %4605
   store float %4604, ptr %4606, align 32, !tbaa !27
-  %4607 = getelementptr inbounds float, ptr %36, i64 %4605
+  %4607 = getelementptr inbounds nuw float, ptr %36, i64 %4605
   store float %4604, ptr %4607, align 32, !tbaa !27
   %4608 = add i32 %4545, -9
   %4609 = sext i32 %4608 to i64
   %4610 = getelementptr inbounds float, ptr %1, i64 %4609
   %4611 = load float, ptr %4610, align 4, !tbaa !27
   %4612 = or disjoint i64 %4546, 9
-  %4613 = getelementptr inbounds float, ptr %53, i64 %4612
+  %4613 = getelementptr inbounds nuw float, ptr %53, i64 %4612
   store float %4611, ptr %4613, align 4, !tbaa !27
-  %4614 = getelementptr inbounds float, ptr %36, i64 %4612
+  %4614 = getelementptr inbounds nuw float, ptr %36, i64 %4612
   store float %4611, ptr %4614, align 4, !tbaa !27
   %4615 = add i32 %4545, -10
   %4616 = sext i32 %4615 to i64
   %4617 = getelementptr inbounds float, ptr %1, i64 %4616
   %4618 = load float, ptr %4617, align 4, !tbaa !27
   %4619 = or disjoint i64 %4546, 10
-  %4620 = getelementptr inbounds float, ptr %53, i64 %4619
+  %4620 = getelementptr inbounds nuw float, ptr %53, i64 %4619
   store float %4618, ptr %4620, align 8, !tbaa !27
-  %4621 = getelementptr inbounds float, ptr %36, i64 %4619
+  %4621 = getelementptr inbounds nuw float, ptr %36, i64 %4619
   store float %4618, ptr %4621, align 8, !tbaa !27
   %4622 = add i32 %4545, -11
   %4623 = sext i32 %4622 to i64
   %4624 = getelementptr inbounds float, ptr %1, i64 %4623
   %4625 = load float, ptr %4624, align 4, !tbaa !27
   %4626 = or disjoint i64 %4546, 11
-  %4627 = getelementptr inbounds float, ptr %53, i64 %4626
+  %4627 = getelementptr inbounds nuw float, ptr %53, i64 %4626
   store float %4625, ptr %4627, align 4, !tbaa !27
-  %4628 = getelementptr inbounds float, ptr %36, i64 %4626
+  %4628 = getelementptr inbounds nuw float, ptr %36, i64 %4626
   store float %4625, ptr %4628, align 4, !tbaa !27
   %4629 = add i32 %4545, -12
   %4630 = sext i32 %4629 to i64
   %4631 = getelementptr inbounds float, ptr %1, i64 %4630
   %4632 = load float, ptr %4631, align 4, !tbaa !27
   %4633 = or disjoint i64 %4546, 12
-  %4634 = getelementptr inbounds float, ptr %53, i64 %4633
+  %4634 = getelementptr inbounds nuw float, ptr %53, i64 %4633
   store float %4632, ptr %4634, align 16, !tbaa !27
-  %4635 = getelementptr inbounds float, ptr %36, i64 %4633
+  %4635 = getelementptr inbounds nuw float, ptr %36, i64 %4633
   store float %4632, ptr %4635, align 16, !tbaa !27
   %4636 = add i32 %4545, -13
   %4637 = sext i32 %4636 to i64
   %4638 = getelementptr inbounds float, ptr %1, i64 %4637
   %4639 = load float, ptr %4638, align 4, !tbaa !27
   %4640 = or disjoint i64 %4546, 13
-  %4641 = getelementptr inbounds float, ptr %53, i64 %4640
+  %4641 = getelementptr inbounds nuw float, ptr %53, i64 %4640
   store float %4639, ptr %4641, align 4, !tbaa !27
-  %4642 = getelementptr inbounds float, ptr %36, i64 %4640
+  %4642 = getelementptr inbounds nuw float, ptr %36, i64 %4640
   store float %4639, ptr %4642, align 4, !tbaa !27
   %4643 = add i32 %4545, -14
   %4644 = sext i32 %4643 to i64
   %4645 = getelementptr inbounds float, ptr %1, i64 %4644
   %4646 = load float, ptr %4645, align 4, !tbaa !27
   %4647 = or disjoint i64 %4546, 14
-  %4648 = getelementptr inbounds float, ptr %53, i64 %4647
+  %4648 = getelementptr inbounds nuw float, ptr %53, i64 %4647
   store float %4646, ptr %4648, align 8, !tbaa !27
-  %4649 = getelementptr inbounds float, ptr %36, i64 %4647
+  %4649 = getelementptr inbounds nuw float, ptr %36, i64 %4647
   store float %4646, ptr %4649, align 8, !tbaa !27
   %4650 = add i32 %4545, -15
   %4651 = sext i32 %4650 to i64
   %4652 = getelementptr inbounds float, ptr %1, i64 %4651
   %4653 = load float, ptr %4652, align 4, !tbaa !27
   %4654 = or disjoint i64 %4546, 15
-  %4655 = getelementptr inbounds float, ptr %53, i64 %4654
+  %4655 = getelementptr inbounds nuw float, ptr %53, i64 %4654
   store float %4653, ptr %4655, align 4, !tbaa !27
-  %4656 = getelementptr inbounds float, ptr %36, i64 %4654
+  %4656 = getelementptr inbounds nuw float, ptr %36, i64 %4654
   store float %4653, ptr %4656, align 4, !tbaa !27
   %4657 = add nuw nsw i64 %4541, 1
   %4658 = icmp eq i64 %4657, %213
@@ -6358,144 +6358,144 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5136 = sext i32 %5134 to i64
   %5137 = getelementptr inbounds float, ptr %1, i64 %5136
   %5138 = load float, ptr %5137, align 4, !tbaa !27
-  %5139 = getelementptr inbounds float, ptr %53, i64 %5135
+  %5139 = getelementptr inbounds nuw float, ptr %53, i64 %5135
   store float %5138, ptr %5139, align 64, !tbaa !27
-  %5140 = getelementptr inbounds float, ptr %36, i64 %5135
+  %5140 = getelementptr inbounds nuw float, ptr %36, i64 %5135
   store float %5138, ptr %5140, align 64, !tbaa !27
   %5141 = add i32 %5134, -1
   %5142 = sext i32 %5141 to i64
   %5143 = getelementptr inbounds float, ptr %1, i64 %5142
   %5144 = load float, ptr %5143, align 4, !tbaa !27
   %5145 = or disjoint i64 %5135, 1
-  %5146 = getelementptr inbounds float, ptr %53, i64 %5145
+  %5146 = getelementptr inbounds nuw float, ptr %53, i64 %5145
   store float %5144, ptr %5146, align 4, !tbaa !27
-  %5147 = getelementptr inbounds float, ptr %36, i64 %5145
+  %5147 = getelementptr inbounds nuw float, ptr %36, i64 %5145
   store float %5144, ptr %5147, align 4, !tbaa !27
   %5148 = add i32 %5134, -2
   %5149 = sext i32 %5148 to i64
   %5150 = getelementptr inbounds float, ptr %1, i64 %5149
   %5151 = load float, ptr %5150, align 4, !tbaa !27
   %5152 = or disjoint i64 %5135, 2
-  %5153 = getelementptr inbounds float, ptr %53, i64 %5152
+  %5153 = getelementptr inbounds nuw float, ptr %53, i64 %5152
   store float %5151, ptr %5153, align 8, !tbaa !27
-  %5154 = getelementptr inbounds float, ptr %36, i64 %5152
+  %5154 = getelementptr inbounds nuw float, ptr %36, i64 %5152
   store float %5151, ptr %5154, align 8, !tbaa !27
   %5155 = add i32 %5134, -3
   %5156 = sext i32 %5155 to i64
   %5157 = getelementptr inbounds float, ptr %1, i64 %5156
   %5158 = load float, ptr %5157, align 4, !tbaa !27
   %5159 = or disjoint i64 %5135, 3
-  %5160 = getelementptr inbounds float, ptr %53, i64 %5159
+  %5160 = getelementptr inbounds nuw float, ptr %53, i64 %5159
   store float %5158, ptr %5160, align 4, !tbaa !27
-  %5161 = getelementptr inbounds float, ptr %36, i64 %5159
+  %5161 = getelementptr inbounds nuw float, ptr %36, i64 %5159
   store float %5158, ptr %5161, align 4, !tbaa !27
   %5162 = add i32 %5134, -4
   %5163 = sext i32 %5162 to i64
   %5164 = getelementptr inbounds float, ptr %1, i64 %5163
   %5165 = load float, ptr %5164, align 4, !tbaa !27
   %5166 = or disjoint i64 %5135, 4
-  %5167 = getelementptr inbounds float, ptr %53, i64 %5166
+  %5167 = getelementptr inbounds nuw float, ptr %53, i64 %5166
   store float %5165, ptr %5167, align 16, !tbaa !27
-  %5168 = getelementptr inbounds float, ptr %36, i64 %5166
+  %5168 = getelementptr inbounds nuw float, ptr %36, i64 %5166
   store float %5165, ptr %5168, align 16, !tbaa !27
   %5169 = add i32 %5134, -5
   %5170 = sext i32 %5169 to i64
   %5171 = getelementptr inbounds float, ptr %1, i64 %5170
   %5172 = load float, ptr %5171, align 4, !tbaa !27
   %5173 = or disjoint i64 %5135, 5
-  %5174 = getelementptr inbounds float, ptr %53, i64 %5173
+  %5174 = getelementptr inbounds nuw float, ptr %53, i64 %5173
   store float %5172, ptr %5174, align 4, !tbaa !27
-  %5175 = getelementptr inbounds float, ptr %36, i64 %5173
+  %5175 = getelementptr inbounds nuw float, ptr %36, i64 %5173
   store float %5172, ptr %5175, align 4, !tbaa !27
   %5176 = add i32 %5134, -6
   %5177 = sext i32 %5176 to i64
   %5178 = getelementptr inbounds float, ptr %1, i64 %5177
   %5179 = load float, ptr %5178, align 4, !tbaa !27
   %5180 = or disjoint i64 %5135, 6
-  %5181 = getelementptr inbounds float, ptr %53, i64 %5180
+  %5181 = getelementptr inbounds nuw float, ptr %53, i64 %5180
   store float %5179, ptr %5181, align 8, !tbaa !27
-  %5182 = getelementptr inbounds float, ptr %36, i64 %5180
+  %5182 = getelementptr inbounds nuw float, ptr %36, i64 %5180
   store float %5179, ptr %5182, align 8, !tbaa !27
   %5183 = add i32 %5134, -7
   %5184 = sext i32 %5183 to i64
   %5185 = getelementptr inbounds float, ptr %1, i64 %5184
   %5186 = load float, ptr %5185, align 4, !tbaa !27
   %5187 = or disjoint i64 %5135, 7
-  %5188 = getelementptr inbounds float, ptr %53, i64 %5187
+  %5188 = getelementptr inbounds nuw float, ptr %53, i64 %5187
   store float %5186, ptr %5188, align 4, !tbaa !27
-  %5189 = getelementptr inbounds float, ptr %36, i64 %5187
+  %5189 = getelementptr inbounds nuw float, ptr %36, i64 %5187
   store float %5186, ptr %5189, align 4, !tbaa !27
   %5190 = add i32 %5134, -8
   %5191 = sext i32 %5190 to i64
   %5192 = getelementptr inbounds float, ptr %1, i64 %5191
   %5193 = load float, ptr %5192, align 4, !tbaa !27
   %5194 = or disjoint i64 %5135, 8
-  %5195 = getelementptr inbounds float, ptr %53, i64 %5194
+  %5195 = getelementptr inbounds nuw float, ptr %53, i64 %5194
   store float %5193, ptr %5195, align 32, !tbaa !27
-  %5196 = getelementptr inbounds float, ptr %36, i64 %5194
+  %5196 = getelementptr inbounds nuw float, ptr %36, i64 %5194
   store float %5193, ptr %5196, align 32, !tbaa !27
   %5197 = add i32 %5134, -9
   %5198 = sext i32 %5197 to i64
   %5199 = getelementptr inbounds float, ptr %1, i64 %5198
   %5200 = load float, ptr %5199, align 4, !tbaa !27
   %5201 = or disjoint i64 %5135, 9
-  %5202 = getelementptr inbounds float, ptr %53, i64 %5201
+  %5202 = getelementptr inbounds nuw float, ptr %53, i64 %5201
   store float %5200, ptr %5202, align 4, !tbaa !27
-  %5203 = getelementptr inbounds float, ptr %36, i64 %5201
+  %5203 = getelementptr inbounds nuw float, ptr %36, i64 %5201
   store float %5200, ptr %5203, align 4, !tbaa !27
   %5204 = add i32 %5134, -10
   %5205 = sext i32 %5204 to i64
   %5206 = getelementptr inbounds float, ptr %1, i64 %5205
   %5207 = load float, ptr %5206, align 4, !tbaa !27
   %5208 = or disjoint i64 %5135, 10
-  %5209 = getelementptr inbounds float, ptr %53, i64 %5208
+  %5209 = getelementptr inbounds nuw float, ptr %53, i64 %5208
   store float %5207, ptr %5209, align 8, !tbaa !27
-  %5210 = getelementptr inbounds float, ptr %36, i64 %5208
+  %5210 = getelementptr inbounds nuw float, ptr %36, i64 %5208
   store float %5207, ptr %5210, align 8, !tbaa !27
   %5211 = add i32 %5134, -11
   %5212 = sext i32 %5211 to i64
   %5213 = getelementptr inbounds float, ptr %1, i64 %5212
   %5214 = load float, ptr %5213, align 4, !tbaa !27
   %5215 = or disjoint i64 %5135, 11
-  %5216 = getelementptr inbounds float, ptr %53, i64 %5215
+  %5216 = getelementptr inbounds nuw float, ptr %53, i64 %5215
   store float %5214, ptr %5216, align 4, !tbaa !27
-  %5217 = getelementptr inbounds float, ptr %36, i64 %5215
+  %5217 = getelementptr inbounds nuw float, ptr %36, i64 %5215
   store float %5214, ptr %5217, align 4, !tbaa !27
   %5218 = add i32 %5134, -12
   %5219 = sext i32 %5218 to i64
   %5220 = getelementptr inbounds float, ptr %1, i64 %5219
   %5221 = load float, ptr %5220, align 4, !tbaa !27
   %5222 = or disjoint i64 %5135, 12
-  %5223 = getelementptr inbounds float, ptr %53, i64 %5222
+  %5223 = getelementptr inbounds nuw float, ptr %53, i64 %5222
   store float %5221, ptr %5223, align 16, !tbaa !27
-  %5224 = getelementptr inbounds float, ptr %36, i64 %5222
+  %5224 = getelementptr inbounds nuw float, ptr %36, i64 %5222
   store float %5221, ptr %5224, align 16, !tbaa !27
   %5225 = add i32 %5134, -13
   %5226 = sext i32 %5225 to i64
   %5227 = getelementptr inbounds float, ptr %1, i64 %5226
   %5228 = load float, ptr %5227, align 4, !tbaa !27
   %5229 = or disjoint i64 %5135, 13
-  %5230 = getelementptr inbounds float, ptr %53, i64 %5229
+  %5230 = getelementptr inbounds nuw float, ptr %53, i64 %5229
   store float %5228, ptr %5230, align 4, !tbaa !27
-  %5231 = getelementptr inbounds float, ptr %36, i64 %5229
+  %5231 = getelementptr inbounds nuw float, ptr %36, i64 %5229
   store float %5228, ptr %5231, align 4, !tbaa !27
   %5232 = add i32 %5134, -14
   %5233 = sext i32 %5232 to i64
   %5234 = getelementptr inbounds float, ptr %1, i64 %5233
   %5235 = load float, ptr %5234, align 4, !tbaa !27
   %5236 = or disjoint i64 %5135, 14
-  %5237 = getelementptr inbounds float, ptr %53, i64 %5236
+  %5237 = getelementptr inbounds nuw float, ptr %53, i64 %5236
   store float %5235, ptr %5237, align 8, !tbaa !27
-  %5238 = getelementptr inbounds float, ptr %36, i64 %5236
+  %5238 = getelementptr inbounds nuw float, ptr %36, i64 %5236
   store float %5235, ptr %5238, align 8, !tbaa !27
   %5239 = add i32 %5134, -15
   %5240 = sext i32 %5239 to i64
   %5241 = getelementptr inbounds float, ptr %1, i64 %5240
   %5242 = load float, ptr %5241, align 4, !tbaa !27
   %5243 = or disjoint i64 %5135, 15
-  %5244 = getelementptr inbounds float, ptr %53, i64 %5243
+  %5244 = getelementptr inbounds nuw float, ptr %53, i64 %5243
   store float %5242, ptr %5244, align 4, !tbaa !27
-  %5245 = getelementptr inbounds float, ptr %36, i64 %5243
+  %5245 = getelementptr inbounds nuw float, ptr %36, i64 %5243
   store float %5242, ptr %5245, align 4, !tbaa !27
   %5246 = add nuw nsw i64 %5130, 1
   %5247 = icmp eq i64 %5246, 16
@@ -6777,26 +6777,26 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5448 = add i32 %5443, %5447
   %5449 = sext i32 %5448 to i64
   %5450 = getelementptr inbounds float, ptr %1, i64 %5449
-  %5451 = getelementptr inbounds i8, ptr %5450, i64 32
-  %5452 = getelementptr inbounds i8, ptr %5450, i64 64
-  %5453 = getelementptr inbounds i8, ptr %5450, i64 96
+  %5451 = getelementptr inbounds nuw i8, ptr %5450, i64 32
+  %5452 = getelementptr inbounds nuw i8, ptr %5450, i64 64
+  %5453 = getelementptr inbounds nuw i8, ptr %5450, i64 96
   %5454 = load <8 x float>, ptr %5450, align 4, !tbaa !27, !alias.scope !132
   %5455 = load <8 x float>, ptr %5451, align 4, !tbaa !27, !alias.scope !132
   %5456 = load <8 x float>, ptr %5452, align 4, !tbaa !27, !alias.scope !132
   %5457 = load <8 x float>, ptr %5453, align 4, !tbaa !27, !alias.scope !132
   %5458 = add nuw nsw i64 %5446, %5434
   %5459 = getelementptr inbounds float, ptr %53, i64 %5458
-  %5460 = getelementptr inbounds i8, ptr %5459, i64 32
-  %5461 = getelementptr inbounds i8, ptr %5459, i64 64
-  %5462 = getelementptr inbounds i8, ptr %5459, i64 96
+  %5460 = getelementptr inbounds nuw i8, ptr %5459, i64 32
+  %5461 = getelementptr inbounds nuw i8, ptr %5459, i64 64
+  %5462 = getelementptr inbounds nuw i8, ptr %5459, i64 96
   store <8 x float> %5454, ptr %5459, align 64, !tbaa !27, !alias.scope !135, !noalias !132
   store <8 x float> %5455, ptr %5460, align 32, !tbaa !27, !alias.scope !135, !noalias !132
   store <8 x float> %5456, ptr %5461, align 64, !tbaa !27, !alias.scope !135, !noalias !132
   store <8 x float> %5457, ptr %5462, align 32, !tbaa !27, !alias.scope !135, !noalias !132
   %5463 = getelementptr inbounds float, ptr %36, i64 %5458
-  %5464 = getelementptr inbounds i8, ptr %5463, i64 32
-  %5465 = getelementptr inbounds i8, ptr %5463, i64 64
-  %5466 = getelementptr inbounds i8, ptr %5463, i64 96
+  %5464 = getelementptr inbounds nuw i8, ptr %5463, i64 32
+  %5465 = getelementptr inbounds nuw i8, ptr %5463, i64 64
+  %5466 = getelementptr inbounds nuw i8, ptr %5463, i64 96
   store <8 x float> %5454, ptr %5463, align 64, !tbaa !27, !alias.scope !135, !noalias !132
   store <8 x float> %5455, ptr %5464, align 32, !tbaa !27, !alias.scope !135, !noalias !132
   store <8 x float> %5456, ptr %5465, align 64, !tbaa !27, !alias.scope !135, !noalias !132
@@ -6880,25 +6880,25 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5509 = add i32 %5503, %5507
   %5510 = sext i32 %5509 to i64
   %5511 = getelementptr inbounds float, ptr %1, i64 %5510
-  %5512 = getelementptr inbounds i8, ptr %5511, i64 32
-  %5513 = getelementptr inbounds i8, ptr %5511, i64 64
-  %5514 = getelementptr inbounds i8, ptr %5511, i64 96
+  %5512 = getelementptr inbounds nuw i8, ptr %5511, i64 32
+  %5513 = getelementptr inbounds nuw i8, ptr %5511, i64 64
+  %5514 = getelementptr inbounds nuw i8, ptr %5511, i64 96
   %5515 = load <8 x float>, ptr %5511, align 4, !tbaa !27, !alias.scope !140
   %5516 = load <8 x float>, ptr %5512, align 4, !tbaa !27, !alias.scope !140
   %5517 = load <8 x float>, ptr %5513, align 4, !tbaa !27, !alias.scope !140
   %5518 = load <8 x float>, ptr %5514, align 4, !tbaa !27, !alias.scope !140
   %5519 = getelementptr inbounds float, ptr %53, i64 %5508
-  %5520 = getelementptr inbounds i8, ptr %5519, i64 32
-  %5521 = getelementptr inbounds i8, ptr %5519, i64 64
-  %5522 = getelementptr inbounds i8, ptr %5519, i64 96
+  %5520 = getelementptr inbounds nuw i8, ptr %5519, i64 32
+  %5521 = getelementptr inbounds nuw i8, ptr %5519, i64 64
+  %5522 = getelementptr inbounds nuw i8, ptr %5519, i64 96
   store <8 x float> %5515, ptr %5519, align 64, !tbaa !27, !alias.scope !143, !noalias !140
   store <8 x float> %5516, ptr %5520, align 32, !tbaa !27, !alias.scope !143, !noalias !140
   store <8 x float> %5517, ptr %5521, align 64, !tbaa !27, !alias.scope !143, !noalias !140
   store <8 x float> %5518, ptr %5522, align 32, !tbaa !27, !alias.scope !143, !noalias !140
   %5523 = getelementptr inbounds float, ptr %36, i64 %5508
-  %5524 = getelementptr inbounds i8, ptr %5523, i64 32
-  %5525 = getelementptr inbounds i8, ptr %5523, i64 64
-  %5526 = getelementptr inbounds i8, ptr %5523, i64 96
+  %5524 = getelementptr inbounds nuw i8, ptr %5523, i64 32
+  %5525 = getelementptr inbounds nuw i8, ptr %5523, i64 64
+  %5526 = getelementptr inbounds nuw i8, ptr %5523, i64 96
   store <8 x float> %5515, ptr %5523, align 64, !tbaa !27, !alias.scope !143, !noalias !140
   store <8 x float> %5516, ptr %5524, align 32, !tbaa !27, !alias.scope !143, !noalias !140
   store <8 x float> %5517, ptr %5525, align 64, !tbaa !27, !alias.scope !143, !noalias !140
@@ -7003,26 +7003,26 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %5587 = add i32 %5582, %5586
   %5588 = sext i32 %5587 to i64
   %5589 = getelementptr inbounds float, ptr %1, i64 %5588
-  %5590 = getelementptr inbounds i8, ptr %5589, i64 32
-  %5591 = getelementptr inbounds i8, ptr %5589, i64 64
-  %5592 = getelementptr inbounds i8, ptr %5589, i64 96
+  %5590 = getelementptr inbounds nuw i8, ptr %5589, i64 32
+  %5591 = getelementptr inbounds nuw i8, ptr %5589, i64 64
+  %5592 = getelementptr inbounds nuw i8, ptr %5589, i64 96
   %5593 = load <8 x float>, ptr %5589, align 4, !tbaa !27, !alias.scope !147
   %5594 = load <8 x float>, ptr %5590, align 4, !tbaa !27, !alias.scope !147
   %5595 = load <8 x float>, ptr %5591, align 4, !tbaa !27, !alias.scope !147
   %5596 = load <8 x float>, ptr %5592, align 4, !tbaa !27, !alias.scope !147
   %5597 = add nsw i64 %5585, %5573
   %5598 = getelementptr inbounds float, ptr %53, i64 %5597
-  %5599 = getelementptr inbounds i8, ptr %5598, i64 32
-  %5600 = getelementptr inbounds i8, ptr %5598, i64 64
-  %5601 = getelementptr inbounds i8, ptr %5598, i64 96
+  %5599 = getelementptr inbounds nuw i8, ptr %5598, i64 32
+  %5600 = getelementptr inbounds nuw i8, ptr %5598, i64 64
+  %5601 = getelementptr inbounds nuw i8, ptr %5598, i64 96
   store <8 x float> %5593, ptr %5598, align 64, !tbaa !27, !alias.scope !150, !noalias !147
   store <8 x float> %5594, ptr %5599, align 32, !tbaa !27, !alias.scope !150, !noalias !147
   store <8 x float> %5595, ptr %5600, align 64, !tbaa !27, !alias.scope !150, !noalias !147
   store <8 x float> %5596, ptr %5601, align 32, !tbaa !27, !alias.scope !150, !noalias !147
   %5602 = getelementptr inbounds float, ptr %36, i64 %5597
-  %5603 = getelementptr inbounds i8, ptr %5602, i64 32
-  %5604 = getelementptr inbounds i8, ptr %5602, i64 64
-  %5605 = getelementptr inbounds i8, ptr %5602, i64 96
+  %5603 = getelementptr inbounds nuw i8, ptr %5602, i64 32
+  %5604 = getelementptr inbounds nuw i8, ptr %5602, i64 64
+  %5605 = getelementptr inbounds nuw i8, ptr %5602, i64 96
   store <8 x float> %5593, ptr %5602, align 64, !tbaa !27, !alias.scope !150, !noalias !147
   store <8 x float> %5594, ptr %5603, align 32, !tbaa !27, !alias.scope !150, !noalias !147
   store <8 x float> %5595, ptr %5604, align 64, !tbaa !27, !alias.scope !150, !noalias !147

@@ -66,19 +66,19 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %11, %20
   %21 = add i64 %2, 7
   %22 = and i64 %21, 65528
-  %23 = getelementptr inbounds i8, ptr %0, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 24, ptr %24, align 4
   %25 = sub i64 %1, %22
   %26 = trunc i64 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %26, ptr %28, align 4
   %29 = trunc i64 %1 to i16
   %30 = or i16 %29, 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 18
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %30, ptr %31, align 2
   ret void
 }
@@ -99,7 +99,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
 
 8:                                                ; preds = %6
   %9 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i16, ptr %10, align 4
   %.not = icmp ne i16 %9, %11
   %spec.select = zext i1 %.not to i8
@@ -108,20 +108,20 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
 12:                                               ; preds = %8, %6
   %.132 = phi i8 [ 0, %6 ], [ %spec.select, %8 ]
   %.1 = phi i16 [ 0, %6 ], [ %9, %8 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = load i16, ptr %13, align 2
   %15 = icmp ult i16 %14, 8
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i16, ptr %17, align 4
   %19 = load i16, ptr %4, align 2
   %.not38 = icmp ugt i16 %18, %19
   br i1 %.not38, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i16, ptr %21, align 4
   %.not39 = icmp ule i16 %19, %22
   %23 = icmp ult i16 %22, 8193
@@ -173,7 +173,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
 41:                                               ; preds = %39
   %42 = tail call i32 @errcode(i32 noundef 16779816) #11
   %43 = zext i16 %.0 to i32
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i32
   %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %43, i32 noundef %46) #11
@@ -224,19 +224,19 @@ declare void @pgstat_report_checksum_failure() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i16 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i16, ptr %6, align 4
   %8 = icmp ult i16 %7, 24
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %11 = load i16, ptr %10, align 2
   %12 = icmp ugt i16 %7, %11
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i16, ptr %14, align 4
   %16 = icmp ugt i16 %11, %15
   %17 = icmp ugt i16 %15, 8192
@@ -249,10 +249,10 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   %20 = tail call i32 @errcode(i32 noundef 16779816) #11
   %21 = load i16, ptr %6, align 4
   %22 = zext i16 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22, i32 noundef %25, i32 noundef %28) #11
@@ -281,7 +281,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %.not85, label %.loopexit, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = zext nneg i16 %3 to i64
   %44 = add nsw i64 %43, -1
   %45 = getelementptr [0 x %struct.ItemIdData], ptr %42, i64 0, i64 %44
@@ -314,7 +314,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %56
 
 56:                                               ; preds = %.lr.ph, %61
@@ -386,7 +386,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %86, label %104, label %87
 
 87:                                               ; preds = %78
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = add nsw i64 %69, -1
   %90 = getelementptr [0 x %struct.ItemIdData], ptr %88, i64 0, i64 %89
   br i1 %.096, label %91, label %95
@@ -491,17 +491,17 @@ PageInit.exit:                                    ; preds = %PageInit.exit.sink.
   %reass.sub = sub i16 %20, %.val8
   %21 = add i16 %reass.sub, 7
   %22 = and i16 %21, -8
-  %23 = getelementptr inbounds i8, ptr %5, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 0, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 24, ptr %24, align 4
   %25 = sub i16 %3, %22
-  %26 = getelementptr inbounds i8, ptr %5, i64 14
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i16 %25, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 %25, ptr %27, align 4
   %28 = or disjoint i16 %3, 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 18
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 %28, ptr %29, align 2
   %30 = zext i16 %25 to i64
   %31 = getelementptr i8, ptr %5, i64 %30
@@ -532,13 +532,13 @@ declare void @pfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = alloca [291 x %struct.itemIdCompactData], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 14
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
   %12 = icmp ult i16 %4, 24
@@ -578,7 +578,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   br i1 %.not93104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = add nuw nsw i32 %30, 1
   %wide.trip.count = zext nneg i32 %32 to i64
   br label %33
@@ -609,7 +609,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   %42 = load i32, ptr %36, align 4
   %43 = trunc i32 %42 to i16
   %44 = and i16 %43, 32767
-  %45 = getelementptr inbounds i8, ptr %.082105, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.082105, i64 2
   store i16 %44, ptr %45, align 2
   %46 = and i32 %42, 32767
   %47 = icmp samesign ult i32 %46, %8
@@ -618,7 +618,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %.082105, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.082105, i64 2
   %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %52)
   %53 = tail call i32 @errcode(i32 noundef 16779816) #11
@@ -637,7 +637,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   %61 = trunc nuw nsw i32 %60 to i16
   %62 = add nuw i16 %61, 7
   %63 = and i16 %62, -8
-  %64 = getelementptr inbounds i8, ptr %.082105, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.082105, i64 4
   store i16 %63, ptr %64, align 2
   %65 = zext i16 %63 to i64
   %66 = add i64 %.073109, %65
@@ -715,7 +715,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
 97:                                               ; preds = %89, %88
   %.281 = phi i32 [ %92, %89 ], [ %.079.lcssa, %88 ]
   %98 = icmp sgt i32 %.281, 0
-  %99 = getelementptr inbounds i8, ptr %0, i64 10
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, -2
   %masksel = zext i1 %98 to i16
@@ -730,7 +730,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   br i1 %3, label %6, label %64
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
   %smax162 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -741,10 +741,10 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %19 ], [ 0, %6 ]
   %.0 = phi i32 [ %20, %19 ], [ %9, %6 ]
   %11 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv160
-  %12 = getelementptr inbounds i8, ptr %11, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   %18 = add nsw i32 %17, %14
@@ -763,7 +763,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   br i1 %23, label %.lr.ph143, label %._crit_edge144
 
 .lr.ph143:                                        ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = and i64 %indvars.iv160, 4294967295
   %wide.trip.count169 = zext i32 %1 to i64
   br label %26
@@ -779,10 +779,10 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   %30 = zext i16 %29 to i64
   %31 = add nsw i64 %30, -1
   %32 = getelementptr [0 x %struct.ItemIdData], ptr %24, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %27, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %27, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %39 = add nsw i32 %38, %35
@@ -851,12 +851,12 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %72 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv
-  %73 = getelementptr inbounds i8, ptr %72, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i64
   %76 = getelementptr i8, ptr %5, i64 %75
   %77 = getelementptr i8, ptr %2, i64 %75
-  %78 = getelementptr inbounds i8, ptr %72, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %80, i1 false)
@@ -865,12 +865,12 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !11
 
 81:                                               ; preds = %.preheader
-  %82 = getelementptr inbounds i8, ptr %2, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %83 = load i16, ptr %82, align 4
   %84 = zext i16 %83 to i32
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 2
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.pre = load i16, ptr %.phi.trans.insert, align 2
-  %.phi.trans.insert171 = getelementptr inbounds i8, ptr %0, i64 4
+  %.phi.trans.insert171 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre172 = load i16, ptr %.phi.trans.insert171, align 2
   %.pre174 = sext i16 %.pre to i32
   %.pre176 = zext i16 %.pre172 to i32
@@ -878,7 +878,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   br label %111
 
 85:                                               ; preds = %64
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = load i16, ptr %86, align 4
   %88 = zext i16 %87 to i32
   br label %89
@@ -888,10 +888,10 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   %.5 = phi i32 [ %88, %85 ], [ %100, %99 ]
   %90 = zext nneg i32 %.5118 to i64
   %91 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %91, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = add nsw i32 %97, %94
@@ -907,7 +907,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
 102:                                              ; preds = %89, %99
   %.6119 = phi i32 [ %.5118, %89 ], [ %1, %99 ]
   %.6 = phi i32 [ %.5, %89 ], [ %100, %99 ]
-  %103 = getelementptr inbounds i8, ptr %2, i64 14
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
   %106 = zext i16 %104 to i64
@@ -926,7 +926,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   br i1 %112, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %2, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %114 = sext i32 %.4117 to i64
   %wide.trip.count158 = sext i32 %1 to i64
   br label %115
@@ -942,10 +942,10 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
   %119 = zext i16 %118 to i64
   %120 = add nsw i64 %119, -1
   %121 = getelementptr [0 x %struct.ItemIdData], ptr %113, i64 0, i64 %120
-  %122 = getelementptr inbounds i8, ptr %116, i64 2
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 2
   %123 = load i16, ptr %122, align 2
   %124 = sext i16 %123 to i32
-  %125 = getelementptr inbounds i8, ptr %116, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
   %128 = add nsw i32 %127, %124
@@ -997,7 +997,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
 153:                                              ; preds = %._crit_edge, %._crit_edge144
   %.3 = phi i32 [ %.2.lcssa, %._crit_edge144 ], [ %.7.lcssa, %._crit_edge ]
   %154 = trunc i32 %.3 to i16
-  %155 = getelementptr inbounds i8, ptr %2, i64 14
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i16 %154, ptr %155, align 2
   ret void
 }
@@ -1016,7 +1016,7 @@ define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) lo
   br i1 %.not2425, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %20
@@ -1073,14 +1073,14 @@ define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) lo
   br label %.thread
 
 31:                                               ; preds = %._crit_edge.thread39, %.thread44
-  %32 = getelementptr inbounds i8, ptr %0, i64 10
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %33 = load i16, ptr %32, align 2
   %34 = or i16 %33, 1
   store i16 %34, ptr %32, align 2
   br label %38
 
 .thread:                                          ; preds = %._crit_edge, %27, %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, -2
   store i16 %37, ptr %35, align 2
@@ -1092,10 +1092,10 @@ define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %4, %7
@@ -1107,10 +1107,10 @@ define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 14
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = sub nsw i32 %5, %8
@@ -1124,10 +1124,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMult
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %4, %7
@@ -1138,10 +1138,10 @@ define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = sub nsw i32 %4, %7
@@ -1167,7 +1167,7 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr nocapture nou
   br i1 %.not21, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
@@ -1193,19 +1193,19 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 24
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %8 = load i16, ptr %7, align 2
   %9 = icmp ugt i16 %4, %8
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i16, ptr %11, align 4
   %13 = icmp ugt i16 %8, %12
   %14 = icmp ugt i16 %12, 8192
@@ -1225,10 +1225,10 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
   %21 = tail call i32 @errcode(i32 noundef 16779816) #11
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
   %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
@@ -1257,7 +1257,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 
 43:                                               ; preds = %31
   %44 = add nsw i32 %38, -1
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = zext nneg i16 %1 to i64
   %47 = add nsw i64 %46, -1
   %48 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
@@ -1375,13 +1375,13 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [408 x %struct.itemIdCompactData], align 16
   %5 = alloca [408 x %struct.ItemIdData], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
   %15 = icmp slt i32 %2, 3
@@ -1442,7 +1442,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   br i1 %.not100111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %41
 
 41:                                               ; preds = %.lr.ph, %83
@@ -1499,7 +1499,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   %68 = trunc i32 %.086113 to i16
   store i16 %68, ptr %.088112, align 2
   %69 = trunc nuw nsw i32 %47 to i16
-  %70 = getelementptr inbounds i8, ptr %.088112, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.088112, i64 2
   store i16 %69, ptr %70, align 2
   %71 = icmp sgt i32 %.081115, %47
   %..081 = tail call i32 @llvm.smin.i32(i32 %.081115, i32 %47)
@@ -1507,7 +1507,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   %72 = trunc nuw nsw i32 %46 to i16
   %73 = add nuw i16 %72, 7
   %74 = and i16 %73, -8
-  %75 = getelementptr inbounds i8, ptr %.088112, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.088112, i64 4
   store i16 %74, ptr %75, align 2
   %76 = zext i16 %74 to i64
   %77 = add i64 %.084114, %76
@@ -1561,7 +1561,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   unreachable
 
 97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %0, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %99 = sext i32 %.086.lcssa to i64
   %100 = shl nsw i64 %99, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %98, ptr nonnull align 16 %5, i64 %100, i1 false)
@@ -1585,19 +1585,19 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 24
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %8 = load i16, ptr %7, align 2
   %9 = icmp ugt i16 %4, %8
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i16, ptr %11, align 4
   %13 = icmp ugt i16 %8, %12
   %14 = icmp ugt i16 %12, 8192
@@ -1617,10 +1617,10 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   %21 = tail call i32 @errcode(i32 noundef 16779816) #11
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
   %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
@@ -1649,7 +1649,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
   unreachable
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = zext nneg i16 %1 to i64
   %47 = add nsw i64 %46, -1
   %48 = getelementptr [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
@@ -1761,19 +1761,19 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = icmp ult i16 %6, 24
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %10 = load i16, ptr %9, align 2
   %11 = icmp ugt i16 %6, %10
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i16, ptr %13, align 4
   %15 = icmp ugt i16 %10, %14
   %16 = icmp ugt i16 %14, 8192
@@ -1793,10 +1793,10 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture nound
   %23 = tail call i32 @errcode(i32 noundef 16779816) #11
   %24 = load i16, ptr %5, align 4
   %25 = zext i16 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i32
   %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %28, i32 noundef %31) #11
@@ -1825,7 +1825,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture nound
   unreachable
 
 46:                                               ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = zext nneg i16 %1 to i64
   %49 = add nsw i64 %48, -1
   %50 = getelementptr [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %49
@@ -1956,7 +1956,7 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly %0, i32 noundef %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %14, ptr noundef nonnull align 1 dereferenceable(8192) %0, i64 8192, i1 false)
   %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef %14, i32 noundef %1) #11
   %16 = load ptr, ptr @PageSetChecksumCopy.pageCopy, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %15, ptr %17, align 4
   br label %18
 
@@ -1980,7 +1980,7 @@ define dso_local void @PageSetChecksumInplace(ptr noundef %0, i32 noundef %1) lo
 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %8, ptr %9, align 4
   br label %10
 

@@ -171,45 +171,45 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %119 = alloca [216 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc807568605084d3cE"(ptr nonnull sret([216 x i8]) align 8 %118, ptr align 8 %1)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hdbaf498d81c8b760E"(ptr nonnull sret([216 x i8]) align 8 %119, ptr nonnull align 8 %118, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.0, i64 38, ptr nonnull align 8 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.2)
-  %120 = getelementptr inbounds i8, ptr %119, i64 176
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 176
   store i64 0, ptr %117, align 8
-  %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 8
+  %.sroa.288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.288.0..sroa_idx, align 8
-  %.sroa.389.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 16
+  %.sroa.389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 16
   store i64 0, ptr %.sroa.389.0..sroa_idx, align 8
-  %121 = getelementptr inbounds i8, ptr %117, i64 232
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 232
   store i8 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %117, i64 104
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 104
   store i64 -9223372036854775807, ptr %122, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 112
-  %123 = getelementptr inbounds i8, ptr %117, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store i64 0, ptr %123, align 8
-  %.sroa.269.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 32
+  %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 32
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.269.0..sroa_idx, align 8
-  %.sroa.370.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 40
+  %.sroa.370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 40
   store i64 0, ptr %.sroa.370.0..sroa_idx, align 8
-  %124 = getelementptr inbounds i8, ptr %117, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 136
   store i64 -9223372036854775807, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %117, i64 168
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 168
   store i64 -9223372036854775807, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %117, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 48
   store i64 0, ptr %126, align 8
-  %.sroa.395.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 56
+  %.sroa.395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 56
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.395.0..sroa_idx, align 8
-  %.sroa.498.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 64
+  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 64
   store i64 0, ptr %.sroa.498.0..sroa_idx, align 8
-  %127 = getelementptr inbounds i8, ptr %117, i64 200
+  %127 = getelementptr inbounds nuw i8, ptr %117, i64 200
   store i64 -9223372036854775807, ptr %127, align 8
-  %.sroa.6.0..sroa_idx64 = getelementptr inbounds i8, ptr %117, i64 208
-  %128 = getelementptr inbounds i8, ptr %117, i64 72
+  %.sroa.6.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %117, i64 208
+  %128 = getelementptr inbounds nuw i8, ptr %117, i64 72
   store i64 0, ptr %128, align 8
-  %.sroa.081.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 80
+  %.sroa.081.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 80
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.081.sroa.2.0..sroa_idx, align 8
-  %.sroa.081.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 88
+  %.sroa.081.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 88
   store i64 0, ptr %.sroa.081.sroa.3.0..sroa_idx, align 8
-  %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 96
+  %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 96
   store i8 0, ptr %.sroa.282.0..sroa_idx, align 8
-  %129 = getelementptr inbounds i8, ptr %119, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %129, i64 32, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0ffebff02a90d31fE"(ptr nonnull sret([32 x i8]) align 8 %116, ptr nonnull align 8 %115)
           to label %132 unwind label %.loopexit.split-lp321
@@ -264,7 +264,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %144 = extractvalue { ptr, ptr } %142, 0
   %145 = extractvalue { ptr, ptr } %142, 1
   store ptr %144, ptr %111, align 8
-  %146 = getelementptr inbounds i8, ptr %111, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr %145, ptr %146, align 8
   br label %147
 
@@ -278,14 +278,14 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 151:                                              ; preds = %149
   store i64 0, ptr %110, align 8
-  %152 = getelementptr inbounds i8, ptr %110, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %110, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i64 0, ptr %153, align 8
   store i64 0, ptr %109, align 8
-  %154 = getelementptr inbounds i8, ptr %109, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %109, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 0, ptr %155, align 8
   invoke void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b5b583a1E"(ptr nonnull sret([120 x i8]) align 8 %108)
           to label %161 unwind label %159
@@ -335,11 +335,11 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %165 = extractvalue { ptr, ptr } %162, 0
   %166 = extractvalue { ptr, ptr } %162, 1
   store ptr %165, ptr %107, align 8
-  %167 = getelementptr inbounds i8, ptr %107, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %166, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %106, i64 8
-  %169 = getelementptr inbounds i8, ptr %106, i64 16
-  %170 = getelementptr inbounds i8, ptr %101, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %101, i64 8
   br label %.backedge319
 
 .backedge319:                                     ; preds = %.backedge319.backedge, %164
@@ -351,7 +351,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br i1 %173, label %174, label %177
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %119, i64 112
+  %175 = getelementptr inbounds nuw i8, ptr %119, i64 112
   %176 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h1fe38ac72d03f05cE"(ptr nonnull align 8 %175)
           to label %178 unwind label %.loopexit.split-lp315
 
@@ -363,42 +363,42 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %179 = extractvalue { ptr, ptr } %176, 0
   %180 = extractvalue { ptr, ptr } %176, 1
   store ptr %179, ptr %100, align 8
-  %181 = getelementptr inbounds i8, ptr %100, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %180, ptr %181, align 8
-  %.sroa.2109.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 8
-  %182 = getelementptr inbounds i8, ptr %96, i64 8
-  %183 = getelementptr inbounds i8, ptr %96, i64 32
-  %184 = getelementptr inbounds i8, ptr %96, i64 16
-  %185 = getelementptr inbounds i8, ptr %96, i64 24
-  %.sroa.4.0..sroa_idx80 = getelementptr inbounds i8, ptr %93, i64 8
-  %186 = getelementptr inbounds i8, ptr %91, i64 32
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %91, i64 8
-  %187 = getelementptr inbounds i8, ptr %90, i64 8
-  %188 = getelementptr inbounds i8, ptr %88, i64 8
-  %189 = getelementptr inbounds i8, ptr %88, i64 16
-  %190 = getelementptr inbounds i8, ptr %69, i64 64
-  %191 = getelementptr inbounds i8, ptr %69, i64 16
-  %192 = getelementptr inbounds i8, ptr %69, i64 24
-  %193 = getelementptr inbounds i8, ptr %69, i64 32
-  %194 = getelementptr inbounds i8, ptr %66, i64 8
-  %195 = getelementptr inbounds i8, ptr %66, i64 16
-  %196 = getelementptr inbounds i8, ptr %65, i64 8
-  %197 = getelementptr inbounds i8, ptr %87, i64 64
-  %198 = getelementptr inbounds i8, ptr %76, i64 8
-  %.sroa.395.0..sroa_idx96 = getelementptr inbounds i8, ptr %75, i64 8
-  %.sroa.498.0..sroa_idx99 = getelementptr inbounds i8, ptr %75, i64 16
-  %199 = getelementptr inbounds i8, ptr %87, i64 16
-  %200 = getelementptr inbounds i8, ptr %87, i64 24
-  %201 = getelementptr inbounds i8, ptr %87, i64 32
-  %202 = getelementptr inbounds i8, ptr %85, i64 16
-  %203 = getelementptr inbounds i8, ptr %80, i64 32
-  %204 = getelementptr inbounds i8, ptr %80, i64 24
+  %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %.sroa.4.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %69, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %198 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %.sroa.395.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.sroa.498.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %80, i64 24
   br label %205
 
 205:                                              ; preds = %624, %178
   %206 = load ptr, ptr %100, align 8
   %207 = load ptr, ptr %181, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load ptr, ptr %208, align 8, !invariant.load !3, !nonnull !3
   %210 = invoke align 8 ptr %209(ptr align 1 %206)
           to label %212 unwind label %.loopexit308
@@ -442,7 +442,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %220 = extractvalue { ptr, i32 } %218, 0
   %221 = extractvalue { ptr, i32 } %218, 1
   store ptr %220, ptr %59, align 8
-  %222 = getelementptr inbounds i8, ptr %59, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 %221, ptr %222, align 8
   invoke void @_ZN13logos_codegen4util9MaybeVoid4take17hee9224ede371c24eE(ptr nonnull sret([32 x i8]) align 8 %58, ptr nonnull align 8 %125)
           to label %225 unwind label %.thread205
@@ -491,12 +491,12 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 231:                                              ; preds = %229
   store i64 -9223372036854775807, ptr %55, align 8
-  %.sroa.6.0..sroa_idx66 = getelementptr inbounds i8, ptr %55, i64 8
+  %.sroa.6.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %55, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx66, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   br label %233
 
 232:                                              ; preds = %229
-  %.sroa.2114.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2114.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
   store i64 %.sroa.021.0.copyload, ptr %3, align 8
   invoke void @_ZN4core3ops8function6FnOnce9call_once17hae6689316740eb44E(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
@@ -620,7 +620,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %269 unwind label %267
 
 265:                                              ; preds = %262
-  %.sroa.2116.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2116.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.326, i64 24, i1 false)
   store i64 %.sroa.024.0.copyload, ptr %49, align 8
   br label %269
@@ -698,13 +698,13 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 281:                                              ; preds = %280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false)
   store ptr %49, ptr %45, align 8
-  %282 = getelementptr inbounds i8, ptr %45, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %47, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %45, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %58, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %45, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %57, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %45, i64 32
+  %285 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %56, ptr %285, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he939d0ff406a92a3E"(ptr nonnull sret([32 x i8]) align 8 %44, ptr nonnull align 8 %43)
@@ -791,8 +791,8 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %304
-  %305 = getelementptr inbounds i8, ptr %36, i64 8
-  %306 = getelementptr inbounds i8, ptr %35, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %309
 
 307:                                              ; preds = %301
@@ -811,15 +811,15 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %320 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit299:                                     ; preds = %309, %334
-  %313 = getelementptr inbounds i8, ptr %108, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %108, i64 40
+  %315 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %316 = load i64, ptr %315, align 8
   %317 = getelementptr inbounds { i32, i32 }, ptr %314, i64 %316
   store ptr %314, ptr %34, align 8
-  %318 = getelementptr inbounds i8, ptr %34, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %317, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %32, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %336
 
 320:                                              ; preds = %311
@@ -878,7 +878,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 341:                                              ; preds = %338
   %342 = load i32, ptr %337, align 4
-  %343 = getelementptr inbounds i8, ptr %337, i64 4
+  %343 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %344 = load i32, ptr %343, align 4
   %345 = invoke align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr nonnull align 8 %108, i32 %342, ptr nonnull align 8 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.21)
           to label %564 unwind label %.loopexit
@@ -1030,12 +1030,12 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 386:                                              ; preds = %385
   %387 = landingpad { ptr, i32 }
           cleanup
-  %388 = getelementptr inbounds i8, ptr %119, i64 144
+  %388 = getelementptr inbounds nuw i8, ptr %119, i64 144
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..restriction..Visibility$GT$17h78542714760f9c46E"(ptr nonnull align 8 %388) #6
           to label %391 unwind label %250
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %119, i64 144
+  %390 = getelementptr inbounds nuw i8, ptr %119, i64 144
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..restriction..Visibility$GT$17h78542714760f9c46E"(ptr nonnull align 8 %390)
           to label %394 unwind label %392
 
@@ -1055,7 +1055,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 395:                                              ; preds = %397, %391
   %.pn178 = phi { ptr, i32 } [ %398, %397 ], [ %.pn176, %391 ]
-  %396 = getelementptr inbounds i8, ptr %119, i64 56
+  %396 = getelementptr inbounds nuw i8, ptr %119, i64 56
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h83bcb9db46a6e6c0E"(ptr nonnull align 8 %396) #6
           to label %401 unwind label %250
 
@@ -1065,7 +1065,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br label %395
 
 399:                                              ; preds = %394
-  %400 = getelementptr inbounds i8, ptr %119, i64 56
+  %400 = getelementptr inbounds nuw i8, ptr %119, i64 56
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h83bcb9db46a6e6c0E"(ptr nonnull align 8 %400)
           to label %404 unwind label %402
 
@@ -1619,12 +1619,12 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 546:                                              ; preds = %545
   %547 = landingpad { ptr, i32 }
           cleanup
-  %548 = getelementptr inbounds i8, ptr %119, i64 144
+  %548 = getelementptr inbounds nuw i8, ptr %119, i64 144
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..restriction..Visibility$GT$17h78542714760f9c46E"(ptr nonnull align 8 %548) #6
           to label %551 unwind label %250
 
 549:                                              ; preds = %545
-  %550 = getelementptr inbounds i8, ptr %119, i64 144
+  %550 = getelementptr inbounds nuw i8, ptr %119, i64 144
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..restriction..Visibility$GT$17h78542714760f9c46E"(ptr nonnull align 8 %550)
           to label %554 unwind label %552
 
@@ -1644,7 +1644,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 555:                                              ; preds = %557, %551
   %.pn162 = phi { ptr, i32 } [ %558, %557 ], [ %.pn160, %551 ]
-  %556 = getelementptr inbounds i8, ptr %119, i64 56
+  %556 = getelementptr inbounds nuw i8, ptr %119, i64 56
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h83bcb9db46a6e6c0E"(ptr nonnull align 8 %556) #6
           to label %561 unwind label %250
 
@@ -1654,7 +1654,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br label %555
 
 559:                                              ; preds = %554
-  %560 = getelementptr inbounds i8, ptr %119, i64 56
+  %560 = getelementptr inbounds nuw i8, ptr %119, i64 56
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h83bcb9db46a6e6c0E"(ptr nonnull align 8 %560)
           to label %404 unwind label %562
 
@@ -1681,7 +1681,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %570 unwind label %.loopexit
 
 570:                                              ; preds = %568
-  %571 = getelementptr inbounds i8, ptr %565, i64 72
+  %571 = getelementptr inbounds nuw i8, ptr %565, i64 72
   %572 = load i64, ptr %571, align 8
   %573 = add i64 %572, 1
   store i64 %573, ptr %33, align 8
@@ -1723,17 +1723,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   unreachable
 
 582:                                              ; preds = %215
-  %583 = getelementptr inbounds i8, ptr %210, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %583, ptr %92, align 8
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hb2016bb004a85b66E(ptr nonnull sret([32 x i8]) align 8 %10, ptr nonnull align 8 %92)
           to label %592 unwind label %.loopexit308
 
 584:                                              ; preds = %215
-  %585 = getelementptr inbounds i8, ptr %210, i64 8
+  %585 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %585, ptr %99, align 8
-  %586 = getelementptr inbounds i8, ptr %210, i64 24
+  %586 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %587 = load i64, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %210, i64 32
+  %588 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %589 = load ptr, ptr %588, align 8
   %.not122 = icmp ne ptr %589, null
   %. = zext i1 %.not122 to i64
@@ -1753,11 +1753,11 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %.sroa.4.0..sroa_idx80.sink = phi ptr [ %.sroa.4.0..sroa_idx80, %615 ], [ %.sroa.5, %215 ], [ %.sroa.5, %594 ]
   %.sroa.078.0 = phi i64 [ %.sroa.078.0.copyload79, %615 ], [ -9223372036854775807, %215 ], [ -9223372036854775807, %594 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx80.sink, i64 24, i1 false)
-  %597 = getelementptr inbounds i8, ptr %210, i64 264
+  %597 = getelementptr inbounds nuw i8, ptr %210, i64 264
   store ptr %597, ptr %186, align 8
   store i64 %.sroa.078.0, ptr %91, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
-  %598 = getelementptr inbounds i8, ptr %210, i64 240
+  %598 = getelementptr inbounds nuw i8, ptr %210, i64 240
   %599 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9f249db89ce44aa3E"(ptr nonnull align 8 %598)
           to label %618 unwind label %.loopexit.split-lp304
 
@@ -1865,7 +1865,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %627 = add i64 %626, -39
   %switch = icmp ult i64 %627, 2
   %.329 = select i1 %switch, i64 8, i64 176
-  %628 = getelementptr inbounds i8, ptr %621, i64 %.329
+  %628 = getelementptr inbounds nuw i8, ptr %621, i64 %.329
   %629 = invoke align 8 ptr @_ZN3syn4path4Path9get_ident17h480e867a0c181d3eE(ptr nonnull align 8 %628)
           to label %630 unwind label %.loopexit303
 
@@ -2431,7 +2431,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %382 unwind label %250
 
 813:                                              ; preds = %382
-  %814 = getelementptr inbounds i8, ptr %119, i64 144
+  %814 = getelementptr inbounds nuw i8, ptr %119, i64 144
   invoke void @"_ZN4core3ptr49drop_in_place$LT$syn..restriction..Visibility$GT$17h78542714760f9c46E"(ptr nonnull align 8 %814) #6
           to label %815 unwind label %250
 
@@ -2440,12 +2440,12 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %816 unwind label %250
 
 816:                                              ; preds = %815
-  %817 = getelementptr inbounds i8, ptr %119, i64 56
+  %817 = getelementptr inbounds nuw i8, ptr %119, i64 56
   invoke void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h83bcb9db46a6e6c0E"(ptr nonnull align 8 %817) #6
           to label %818 unwind label %250
 
 818:                                              ; preds = %816
-  %819 = getelementptr inbounds i8, ptr %119, i64 112
+  %819 = getelementptr inbounds nuw i8, ptr %119, i64 112
   invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17h1923ac4881bd25ecE"(ptr nonnull align 8 %819) #6
           to label %405 unwind label %250
 }
@@ -2495,11 +2495,11 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
   %20 = extractvalue { ptr, ptr } %18, 0
   %21 = extractvalue { ptr, ptr } %18, 1
   store ptr %20, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %.backedge49
 
 .backedge49:                                      ; preds = %.backedge49.backedge, %19
@@ -2511,7 +2511,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %16, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %29 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h1fe38ac72d03f05cE"(ptr nonnull align 8 %28)
           to label %33 unwind label %.loopexit.split-lp45
 
@@ -2527,15 +2527,15 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
   %34 = extractvalue { ptr, ptr } %29, 0
   %35 = extractvalue { ptr, ptr } %29, 1
   store ptr %34, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %38
 
 38:                                               ; preds = %67, %33
   %39 = load ptr, ptr %4, align 8
   %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8, !invariant.load !3, !nonnull !3
   %43 = invoke align 8 ptr %42(ptr align 1 %39)
           to label %47 unwind label %45
@@ -2559,7 +2559,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit: ; preds = %2
           to label %52 unwind label %.loopexit.split-lp45
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 240
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h23f673fe01760bc6E"(ptr nonnull align 8 %51)
           to label %_ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit30 unwind label %45
 
@@ -2585,7 +2585,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit30: ; preds = %
 _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %68, %55
   %58 = load ptr, ptr %3, align 8
   %59 = load ptr, ptr %37, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !invariant.load !3, !nonnull !3
   %62 = invoke align 8 ptr %61(ptr align 1 %58)
           to label %65 unwind label %63
@@ -2605,7 +2605,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
           to label %38 unwind label %45
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %62, i64 224
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 224
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain17h23f673fe01760bc6E"(ptr nonnull align 8 %69)
           to label %_ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31 unwind label %63
 
@@ -2616,7 +2616,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
   unreachable
 
 72:                                               ; preds = %30
-  %73 = getelementptr inbounds i8, ptr %24, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %74 = invoke zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %73, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.38, i64 6)
           to label %75 unwind label %.loopexit44
 
@@ -2628,7 +2628,7 @@ _ZN13logos_codegen20strip_attrs_from_vec17h430a96aab9391bc5E.exit31: ; preds = %
           to label %77 unwind label %.loopexit44
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %24, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %24, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   invoke void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %13, ptr nonnull align 8 %12)
@@ -2781,17 +2781,17 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %6, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
   br i1 %7, label %22, label %14
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
   br i1 %10, label %22, label %18
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hac7fa778c7b33786E(ptr nonnull align 8 %12, ptr nonnull align 1 @anon.5b418b87a9b94c9eaa9a3f8794d1b081.41, i64 5)
   br i1 %13, label %22, label %20
 
@@ -2834,7 +2834,7 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
   %14 = alloca [24 x i8], align 8
   call void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %13, ptr align 8 %1)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9dbad20e6ece07c2E"(ptr nonnull sret([24 x i8]) align 8 %14, ptr nonnull align 8 %13)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %18, label %19
@@ -2879,7 +2879,7 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
   unreachable
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %33 = load i32, ptr %8, align 8
   %34 = icmp eq i32 %33, 0
@@ -2891,13 +2891,13 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
           to label %60 unwind label %49
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %8, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %38 = load i8, ptr %37, align 4
   %switch = icmp eq i8 %38, 0
   br i1 %switch, label %.invoke, label %45
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %.invoke, label %45
@@ -2916,10 +2916,10 @@ define hidden void @_ZN13logos_codegen21strip_wrapping_parens17h723a53f42e20bce1
           to label %51 unwind label %49
 
 45:                                               ; preds = %36, %39
-  %.sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 4
+  %.sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.2.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   store i32 0, ptr %7, align 8
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.219.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.2, i64 28, i1 false)
   invoke void @_ZN4core4iter6traits8iterator8Iterator7collect17h953207cf9e50ec1dE(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %7)
           to label %54 unwind label %43

@@ -37,7 +37,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i
   %12 = icmp ne ptr %10, %0
   %13 = zext i1 %12 to i32
   %14 = add i32 %11, %13
-  %15 = getelementptr inbounds i8, ptr %10, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %5, align 4
   br label %17
@@ -62,7 +62,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i
   br i1 %33, label %34, label %17, !llvm.loop !5
 
 34:                                               ; preds = %17
-  %35 = getelementptr inbounds i8, ptr %10, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ne ptr %36, null
   %38 = icmp ne ptr %36, %8
@@ -152,7 +152,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i
 
 81:                                               ; preds = %79, %.preheader13
   %82 = phi i32 [ %80, %79 ], [ %72, %.preheader13 ]
-  %83 = getelementptr inbounds i8, ptr %71, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %3, align 4
   br label %85
@@ -193,7 +193,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i
   br i1 %108, label %109, label %85, !llvm.loop !5
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %71, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = icmp ne ptr %111, null
   %113 = icmp ne ptr %111, %69
@@ -259,7 +259,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 15
   br i1 %4, label %7, label %5
@@ -285,7 +285,7 @@ define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr n
   %15 = zext i1 %14 to i32
   %16 = add i32 %13, 4
   %17 = add i32 %16, %15
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
   %21 = icmp ne ptr %19, %10
@@ -366,7 +366,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly %0, ptr
 
 22:                                               ; preds = %20, %.preheader9
   %23 = phi i32 [ %21, %20 ], [ %13, %.preheader9 ]
-  %24 = getelementptr inbounds i8, ptr %12, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %5, align 4
   br label %26
@@ -407,7 +407,7 @@ define dso_local i32 @acpi_ns_build_normalized_path(ptr noundef readonly %0, ptr
   br i1 %49, label %50, label %26, !llvm.loop !5
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %12, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
   %54 = load ptr, ptr @acpi_gbl_root_node, align 8
@@ -479,7 +479,7 @@ define dso_local i32 @acpi_ns_handle_to_name(ptr noundef %0, ptr noundef %1) loc
 8:                                                ; preds = %5
   %9 = tail call ptr @acpi_ut_get_node_name(ptr noundef nonnull %3) #7
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   store i32 %10, ptr %12, align 4
   %13 = load ptr, ptr %11, align 8
@@ -525,7 +525,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   %13 = icmp ne ptr %11, %6
   %14 = zext i1 %13 to i32
   %15 = add i32 %12, %14
-  %16 = getelementptr inbounds i8, ptr %11, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %5, align 4
   br label %18
@@ -550,7 +550,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   br i1 %34, label %35, label %18, !llvm.loop !5
 
 35:                                               ; preds = %18
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ne ptr %37, null
   %39 = icmp ne ptr %37, %9
@@ -593,7 +593,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   br i1 %62, label %63, label %138
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   %66 = icmp eq ptr %65, null
@@ -624,7 +624,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
 
 80:                                               ; preds = %78, %.preheader13
   %81 = phi i32 [ %79, %78 ], [ %71, %.preheader13 ]
-  %82 = getelementptr inbounds i8, ptr %70, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %4, align 4
   br label %84
@@ -665,7 +665,7 @@ define dso_local i32 @acpi_ns_handle_to_pathname(ptr noundef %0, ptr noundef %1,
   br i1 %107, label %108, label %84, !llvm.loop !5
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %70, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = icmp ne ptr %110, null
   %112 = load ptr, ptr @acpi_gbl_root_node, align 8
@@ -733,7 +733,7 @@ define dso_local ptr @acpi_ns_build_prefixed_pathname(ptr noundef readonly %0, p
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %16, label %10

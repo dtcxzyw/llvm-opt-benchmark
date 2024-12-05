@@ -86,11 +86,11 @@ _ZNKO32pxrInternal_v0_24__pxrReserved__12SdfAssetPath12GetAssetPathB5cxx11Ev.exi
   %11 = and i32 %9, 255
   %12 = lshr i32 %9, 8
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = mul nuw nsw i32 %12, 24
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = atomicrmw add ptr %19, i32 1 monotonic, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
@@ -148,11 +148,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = atomicrmw sub ptr %12, i32 1 seq_cst, align 4
   %14 = and i32 %13, 2147483647
@@ -404,7 +404,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i.i.i, %12
-  %24 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 64
   %25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #11
   %26 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %24) #11
   %27 = icmp eq i64 %25, %26
@@ -423,14 +423,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %33, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.i.i.i": ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i22.i.i.i, %28
-  %34 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 96
   %.0.copyload.i.i.i.i.i25.i.i.i = load i64, ptr %11, align 8
   %.0.copyload.i2.i.i.i.i26.i.i.i = load i64, ptr %34, align 4
   %35 = icmp eq i64 %.0.copyload.i.i.i.i.i25.i.i.i, %.0.copyload.i2.i.i.i.i26.i.i.i
   br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i22.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit.thread.i.i.i"
-  %36 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 128
   %37 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #11
   %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %36) #11
   %39 = icmp eq i64 %37, %38
@@ -449,14 +449,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %45, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.i.i.i": ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i28.i.i.i, %40
-  %46 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 160
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 160
   %.0.copyload.i.i.i.i.i31.i.i.i = load i64, ptr %11, align 8
   %.0.copyload.i2.i.i.i.i32.i.i.i = load i64, ptr %46, align 4
   %47 = icmp eq i64 %.0.copyload.i.i.i.i.i31.i.i.i, %.0.copyload.i2.i.i.i.i32.i.i.i
   br i1 %47, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i28.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit27.thread.i.i.i"
-  %48 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 192
   %49 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #11
   %50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %48) #11
   %51 = icmp eq i64 %49, %50
@@ -475,14 +475,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %57, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.i.i.i": ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i34.i.i.i, %52
-  %58 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 224
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 224
   %.0.copyload.i.i.i.i.i37.i.i.i = load i64, ptr %11, align 8
   %.0.copyload.i2.i.i.i.i38.i.i.i = load i64, ptr %58, align 4
   %59 = icmp eq i64 %.0.copyload.i.i.i.i.i37.i.i.i, %.0.copyload.i2.i.i.i.i38.i.i.i
   br i1 %59, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit39.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i34.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit33.thread.i.i.i"
-  %60 = getelementptr inbounds i8, ptr %.sroa.061.071.i.i.i, i64 256
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.061.071.i.i.i, i64 256
   %61 = add nsw i64 %.072.i.i.i, -1
   %62 = icmp sgt i64 %.072.i.i.i, 1
   br i1 %62, label %12, label %._crit_edge.loopexit.i.i.i, !llvm.loop !4
@@ -529,7 +529,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %76, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i40.i.i.i, %64
-  %77 = getelementptr inbounds i8, ptr %.sroa.061.0.lcssa.i.i.i, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.061.0.lcssa.i.i.i, i64 64
   br label %78
 
 78:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit45.thread.i.i.i", %._crit_edge.i.i.i
@@ -560,7 +560,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %90, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESt6vectorIS3_SaIS3_EEEEZNS2_26SdfFindReferenceByIdentityERKS8_RS4_E3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i46.i.i.i, %78
-  %91 = getelementptr inbounds i8, ptr %.sroa.061.1.i.i.i, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.061.1.i.i.i, i64 64
   br label %92
 
 92:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__26SdfFindReferenceByIdentityERKSt6vectorINS2_12SdfReferenceESaIS4_EERKS4_E3$_0EclINS_17__normal_iteratorIPS9_S6_EEEEbT_.exit51.thread.i.i.i", %._crit_edge.i.i.i

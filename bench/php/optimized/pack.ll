@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
@@ -65,8 +65,8 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.thread, label %14
@@ -86,15 +86,15 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 16:                                               ; preds = %._crit_edge910, %.thread
   %17 = phi ptr [ %.pre, %._crit_edge910 ], [ %13, %.thread ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = add i32 %5, -1
   %.not = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.1548 = select i1 %.not, i32 1, i32 %5
   %.1 = select i1 %.not, ptr null, ptr %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 134217728
   %.not603 = icmp eq i32 %25, 0
@@ -219,7 +219,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 60:                                               ; preds = %58
   %61 = sext i32 %.0508709 to i64
   %62 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 6
   br i1 %65, label %.critedge615, label %66
@@ -238,7 +238,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 
 .critedge615:                                     ; preds = %60, %66
   %71 = load ptr, ptr %62, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
   %75 = icmp eq i8 %32, 90
@@ -571,16 +571,16 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %215 = and i64 %214, 4294967288
   %216 = call noalias ptr @_emalloc(i64 noundef %215) #14
   store i32 1, ptr %216, align 4
-  %217 = getelementptr inbounds i8, ptr %216, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 22, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %216, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 0, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %216, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i64 %.0545.lcssa, ptr %219, align 8
   br i1 %.not808, label %._crit_edge805, label %.lr.ph804
 
 .lr.ph804:                                        ; preds = %._crit_edge725
-  %220 = getelementptr inbounds i8, ptr %216, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 24
   br label %221
 
 221:                                              ; preds = %.lr.ph804, %.loopexit
@@ -684,7 +684,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %245 = add nsw i32 %.2510801, 1
   %246 = sext i32 %.2510801 to i64
   %247 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %246
-  %248 = getelementptr inbounds i8, ptr %247, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load i8, ptr %248, align 8
   %250 = icmp eq i8 %249, 6
   br i1 %250, label %251, label %253
@@ -708,8 +708,8 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %261 = select i1 %260, i8 0, i8 32
   %262 = sext i32 %226 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %257, i8 %261, i64 %262, i1 false)
-  %263 = getelementptr inbounds i8, ptr %.0494, i64 24
-  %264 = getelementptr inbounds i8, ptr %.0494, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.0494, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %.0494, i64 16
   %265 = load i64, ptr %264, align 8
   %. = call i64 @llvm.umin.i64(i64 %265, i64 %244)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %257, ptr nonnull align 8 %263, i64 %., i1 false)
@@ -718,7 +718,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %.not609, label %.loopexit, label %267
 
 267:                                              ; preds = %255
-  %268 = getelementptr inbounds i8, ptr %.0567, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %.0567, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 64
   %.not610 = icmp eq i32 %270, 0
@@ -743,7 +743,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %280 = add nsw i32 %.2510801, 1
   %281 = sext i32 %.2510801 to i64
   %282 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %281
-  %283 = getelementptr inbounds i8, ptr %282, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load i8, ptr %283, align 8
   %285 = icmp eq i8 %284, 6
   br i1 %285, label %286, label %288
@@ -759,10 +759,10 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 290:                                              ; preds = %288, %286
   %.0568 = phi ptr [ null, %286 ], [ %289, %288 ]
   %.0495 = phi ptr [ %287, %286 ], [ %289, %288 ]
-  %291 = getelementptr inbounds i8, ptr %.0495, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %.0495, i64 24
   %292 = add nsw i32 %.2519800, -1
   %293 = sext i32 %226 to i64
-  %294 = getelementptr inbounds i8, ptr %.0495, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %.0495, i64 16
   %295 = load i64, ptr %294, align 8
   %296 = icmp ult i64 %295, %293
   br i1 %296, label %297, label %300
@@ -785,7 +785,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.0515793 = phi i32 [ %329, %322 ], [ %279, %300 ]
   %.3520792 = phi i32 [ %.4521, %322 ], [ %292, %300 ]
   %302 = add nsw i32 %.in815, -1
-  %303 = getelementptr inbounds i8, ptr %.0507795, i64 1
+  %303 = getelementptr inbounds nuw i8, ptr %.0507795, i64 1
   %304 = load i8, ptr %.0507795, align 1
   %305 = sext i8 %304 to i32
   %306 = add i8 %304, -48
@@ -858,7 +858,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %.not605, label %.loopexit, label %332
 
 332:                                              ; preds = %._crit_edge798
-  %333 = getelementptr inbounds i8, ptr %.0568, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %.0568, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = and i32 %334, 64
   %.not606 = icmp eq i32 %335, 0
@@ -930,12 +930,12 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 359:                                              ; preds = %359, %.lr.ph770
   %.010.i626 = phi ptr [ %358, %.lr.ph770 ], [ %365, %359 ]
   %.089.i627 = phi i64 [ 0, %.lr.ph770 ], [ %366, %359 ]
-  %360 = getelementptr inbounds i32, ptr %.0505, i64 %.089.i627
+  %360 = getelementptr inbounds nuw i32, ptr %.0505, i64 %.089.i627
   %361 = load i32, ptr %360, align 4
   %362 = sext i32 %361 to i64
   %363 = getelementptr inbounds i8, ptr %357, i64 %362
   %364 = load i8, ptr %363, align 1
-  %365 = getelementptr inbounds i8, ptr %.010.i626, i64 1
+  %365 = getelementptr inbounds nuw i8, ptr %.010.i626, i64 1
   store i8 %364, ptr %.010.i626, align 1
   %366 = add nuw nsw i64 %.089.i627, 1
   %exitcond.not.i628 = icmp eq i64 %366, 2
@@ -969,12 +969,12 @@ php_pack.exit629:                                 ; preds = %359
 375:                                              ; preds = %375, %.lr.ph777
   %.010.i630 = phi ptr [ %374, %.lr.ph777 ], [ %381, %375 ]
   %.089.i631 = phi i64 [ 0, %.lr.ph777 ], [ %382, %375 ]
-  %376 = getelementptr inbounds i32, ptr @int_map, i64 %.089.i631
+  %376 = getelementptr inbounds nuw i32, ptr @int_map, i64 %.089.i631
   %377 = load i32, ptr %376, align 4
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i8, ptr %372, i64 %378
   %380 = load i8, ptr %379, align 1
-  %381 = getelementptr inbounds i8, ptr %.010.i630, i64 1
+  %381 = getelementptr inbounds nuw i8, ptr %.010.i630, i64 1
   store i8 %380, ptr %.010.i630, align 1
   %382 = add nuw nsw i64 %.089.i631, 1
   %exitcond.not.i632 = icmp eq i64 %382, 4
@@ -1015,12 +1015,12 @@ php_pack.exit633:                                 ; preds = %375
 393:                                              ; preds = %393, %.lr.ph763
   %.010.i634 = phi ptr [ %392, %.lr.ph763 ], [ %399, %393 ]
   %.089.i635 = phi i64 [ 0, %.lr.ph763 ], [ %400, %393 ]
-  %394 = getelementptr inbounds i32, ptr %.0504, i64 %.089.i635
+  %394 = getelementptr inbounds nuw i32, ptr %.0504, i64 %.089.i635
   %395 = load i32, ptr %394, align 4
   %396 = sext i32 %395 to i64
   %397 = getelementptr inbounds i8, ptr %391, i64 %396
   %398 = load i8, ptr %397, align 1
-  %399 = getelementptr inbounds i8, ptr %.010.i634, i64 1
+  %399 = getelementptr inbounds nuw i8, ptr %.010.i634, i64 1
   store i8 %398, ptr %.010.i634, align 1
   %400 = add nuw nsw i64 %.089.i635, 1
   %exitcond.not.i636 = icmp eq i64 %400, 4
@@ -1061,12 +1061,12 @@ php_pack.exit637:                                 ; preds = %393
 410:                                              ; preds = %410, %.lr.ph731
   %.010.i638 = phi ptr [ %409, %.lr.ph731 ], [ %416, %410 ]
   %.089.i639 = phi i64 [ 0, %.lr.ph731 ], [ %417, %410 ]
-  %411 = getelementptr inbounds i32, ptr %.0503, i64 %.089.i639
+  %411 = getelementptr inbounds nuw i32, ptr %.0503, i64 %.089.i639
   %412 = load i32, ptr %411, align 4
   %413 = sext i32 %412 to i64
   %414 = getelementptr inbounds i8, ptr %408, i64 %413
   %415 = load i8, ptr %414, align 1
-  %416 = getelementptr inbounds i8, ptr %.010.i638, i64 1
+  %416 = getelementptr inbounds nuw i8, ptr %.010.i638, i64 1
   store i8 %415, ptr %.010.i638, align 1
   %417 = add nuw nsw i64 %.089.i639, 1
   %exitcond.not.i640 = icmp eq i64 %417, 8
@@ -1085,7 +1085,7 @@ php_pack.exit641:                                 ; preds = %410
   %419 = add nsw i32 %.in813, -1
   %indvars.iv.next880 = add nsw i64 %indvars.iv879, 1
   %420 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv879
-  %421 = getelementptr inbounds i8, ptr %420, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %422 = load i8, ptr %421, align 8
   %423 = icmp eq i8 %422, 5
   br i1 %423, label %424, label %426
@@ -1115,7 +1115,7 @@ php_pack.exit641:                                 ; preds = %410
   %435 = add nsw i32 %.in812, -1
   %indvars.iv.next877 = add nsw i64 %indvars.iv876, 1
   %436 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv876
-  %437 = getelementptr inbounds i8, ptr %436, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i8, ptr %437, align 8
   %439 = icmp eq i8 %438, 5
   br i1 %439, label %440, label %442
@@ -1145,7 +1145,7 @@ php_pack.exit641:                                 ; preds = %410
   %451 = add nsw i32 %.in811, -1
   %indvars.iv.next874 = add nsw i64 %indvars.iv873, 1
   %452 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv873
-  %453 = getelementptr inbounds i8, ptr %452, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %454 = load i8, ptr %453, align 8
   %455 = icmp eq i8 %454, 5
   br i1 %455, label %456, label %458
@@ -1177,7 +1177,7 @@ php_pack.exit641:                                 ; preds = %410
   %469 = add nsw i32 %.in810, -1
   %indvars.iv.next871 = add nsw i64 %indvars.iv870, 1
   %470 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv870
-  %471 = getelementptr inbounds i8, ptr %470, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %472 = load i8, ptr %471, align 8
   %473 = icmp eq i8 %472, 5
   br i1 %473, label %474, label %476
@@ -1206,7 +1206,7 @@ php_pack.exit641:                                 ; preds = %410
   %484 = add nsw i32 %.in, -1
   %indvars.iv.next868 = add nsw i64 %indvars.iv867, 1
   %485 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv867
-  %486 = getelementptr inbounds i8, ptr %485, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
   %487 = load i8, ptr %486, align 8
   %488 = icmp eq i8 %487, 5
   br i1 %488, label %489, label %491
@@ -1235,7 +1235,7 @@ php_pack.exit641:                                 ; preds = %410
   %499 = add nsw i32 %.in814, -1
   %indvars.iv.next900 = add nsw i64 %indvars.iv899, 1
   %500 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv899
-  %501 = getelementptr inbounds i8, ptr %500, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   %502 = load i8, ptr %501, align 8
   %503 = icmp eq i8 %502, 5
   br i1 %503, label %504, label %506
@@ -1347,12 +1347,12 @@ php_pack.exit641:                                 ; preds = %410
   %.2519.lcssa = phi i64 [ 0, %._crit_edge725 ], [ %545, %._crit_edge805.loopexit ]
   call void @_efree(ptr noundef %28) #12
   call void @_efree(ptr noundef %29) #12
-  %546 = getelementptr inbounds i8, ptr %216, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %547 = getelementptr inbounds [1 x i8], ptr %546, i64 0, i64 %.2519.lcssa
   store i8 0, ptr %547, align 1
   store i64 %.2519.lcssa, ptr %219, align 8
   store ptr %216, ptr %1, align 8
-  %548 = getelementptr inbounds i8, ptr %1, i64 8
+  %548 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %548, align 8
   br label %549
 
@@ -1403,7 +1403,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %17 = alloca %struct._zval_struct, align 8
   %18 = alloca [21 x i8], align 16
   store i64 0, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, -2
   %or.cond1059.not = icmp eq i32 %21, 2
@@ -1414,8 +1414,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %.thread1118
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 6
   br i1 %27, label %.critedge1061, label %29
@@ -1430,8 +1430,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %30, label %31, label %.thread1118
 
 31:                                               ; preds = %29, %.critedge1061
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 6
   br i1 %35, label %.critedge1063, label %37
@@ -1450,8 +1450,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %40, label %.thread1136, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load i8, ptr %43, align 8
   %45 = icmp eq i8 %44, 4
   br i1 %45, label %.thread1114, label %47
@@ -1476,7 +1476,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 .thread1136:                                      ; preds = %47, %.thread1114, %39
   %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %16, align 8
   %53 = icmp slt i64 %52, 0
@@ -1492,24 +1492,24 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %.loopexit1140
 
 58:                                               ; preds = %.thread1136
-  %59 = getelementptr inbounds i8, ptr %49, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 %52
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %52
   %64 = sub nsw i64 %51, %52
   %65 = call ptr @_zend_new_array_0() #12
   store ptr %65, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %66, align 8
   %67 = icmp sgt i64 %62, 0
   br i1 %67, label %.lr.ph1200, label %.loopexit1140
 
 .lr.ph1200:                                       ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %60, i64 24
-  %69 = getelementptr inbounds i8, ptr %18, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %70 = ptrtoint ptr %69 to i64
-  %71 = getelementptr inbounds i8, ptr %17, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %72
 
 72:                                               ; preds = %.lr.ph1200, %.loopexit
@@ -1517,7 +1517,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %.09621197 = phi i64 [ %62, %.lr.ph1200 ], [ %.4966, %.loopexit ]
   %.09671196 = phi i64 [ 0, %.lr.ph1200 ], [ %.19681146, %.loopexit ]
   %73 = add nsw i64 %.09621197, -1
-  %74 = getelementptr inbounds i8, ptr %.09591198, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.09591198, i64 1
   %75 = load i8, ptr %.09591198, align 1
   %.not1033 = icmp eq i64 %.09621197, 1
   br i1 %.not1033, label %.critedge8, label %76
@@ -1561,14 +1561,14 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %or.cond1066, label %92, label %.lr.ph1162.preheader
 
 92:                                               ; preds = %.lr.ph
-  %93 = getelementptr inbounds i8, ptr %.29611155, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.29611155, i64 1
   %94 = add nsw i64 %.29641154, -1
   %95 = icmp sgt i64 %.29641154, 1
   br i1 %95, label %.lr.ph, label %.critedge8
 
 .critedge:                                        ; preds = %76
   %96 = icmp eq i8 %77, 42
-  %97 = getelementptr inbounds i8, ptr %.09591198, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %.09591198, i64 2
   %98 = add nsw i64 %.09621197, -2
   %.1963 = select i1 %96, i64 %98, i64 %73
   %.1960 = select i1 %96, ptr %97, ptr %74
@@ -1592,7 +1592,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 101:                                              ; preds = %.lr.ph1162
   %102 = add nsw i64 %.39651160, -1
-  %103 = getelementptr inbounds i8, ptr %.31161, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.31161, i64 1
   %104 = icmp sgt i64 %.39651160, 1
   br i1 %104, label %.lr.ph1162, label %.critedge8
 
@@ -1747,22 +1747,22 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 157:                                              ; preds = %156
   %158 = call noalias ptr @_emalloc(i64 noundef %135) #14
   store i32 1, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %158, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i32 22, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 0, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %158, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store i64 %132, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %158, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %.19601220, i64 %132, i1 false)
-  %163 = getelementptr inbounds [1 x i8], ptr %162, i64 0, i64 %132
+  %163 = getelementptr inbounds nuw [1 x i8], ptr %162, i64 0, i64 %132
   store i8 0, ptr %163, align 1
   br label %182
 
 164:                                              ; preds = %156
   %165 = load i8, ptr %.19601220, align 1
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
   br label %182
 
@@ -1835,21 +1835,21 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %190 = add i64 %189, 32
   %191 = call noalias ptr @_emalloc(i64 noundef %190) #14
   store i32 1, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %191, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 22, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %191, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 0, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store i64 %.0946, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %191, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr nonnull align 1 %188, i64 %.0946, i1 false)
   %196 = getelementptr inbounds [1 x i8], ptr %195, i64 0, i64 %.0946
   store i8 0, ptr %196, align 1
   store ptr %191, ptr %17, align 8
   store i32 262, ptr %71, align 8
   %197 = load ptr, ptr %1, align 8
-  %198 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %199 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %200 = load i64, ptr %199, align 8
   %201 = load i8, ptr %198, align 1
   %202 = icmp sgt i8 %201, 57
@@ -1864,7 +1864,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1055, label %206, label %.critedge1073
 
 206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %207 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %208 = load i8, ptr %207, align 1
   %209 = add i8 %208, -58
   %or.cond1071 = icmp ult i8 %209, -10
@@ -1920,21 +1920,21 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %231 = add i64 %230, 32
   %232 = call noalias ptr @_emalloc(i64 noundef %231) #14
   store i32 1, ptr %232, align 4
-  %233 = getelementptr inbounds i8, ptr %232, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   store i32 22, ptr %233, align 4
-  %234 = getelementptr inbounds i8, ptr %232, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i64 0, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %232, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store i64 %.1942.lcssa, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %232, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %232, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %236, ptr nonnull align 1 %229, i64 %.1942.lcssa, i1 false)
   %237 = getelementptr inbounds [1 x i8], ptr %236, i64 0, i64 %.1942.lcssa
   store i8 0, ptr %237, align 1
   store ptr %232, ptr %17, align 8
   store i32 262, ptr %71, align 8
   %238 = load ptr, ptr %1, align 8
-  %239 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %240 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %241 = load i64, ptr %240, align 8
   %242 = load i8, ptr %239, align 1
   %243 = icmp sgt i8 %242, 57
@@ -1949,7 +1949,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1054, label %247, label %.critedge1077
 
 247:                                              ; preds = %246
-  %248 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %248 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %249 = load i8, ptr %248, align 1
   %250 = add i8 %249, -58
   %or.cond1075 = icmp ult i8 %250, -10
@@ -1996,21 +1996,21 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %270 = add nuw i64 %269, 32
   %271 = call noalias ptr @_emalloc(i64 noundef %270) #14
   store i32 1, ptr %271, align 4
-  %272 = getelementptr inbounds i8, ptr %271, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 4
   store i32 22, ptr %272, align 4
-  %273 = getelementptr inbounds i8, ptr %271, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i64 0, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %271, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store i64 %.0939.lcssa, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %271, i64 24
+  %275 = getelementptr inbounds nuw i8, ptr %271, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %275, ptr nonnull align 1 %262, i64 %.0939.lcssa, i1 false)
-  %276 = getelementptr inbounds [1 x i8], ptr %275, i64 0, i64 %.0939.lcssa
+  %276 = getelementptr inbounds nuw [1 x i8], ptr %275, i64 0, i64 %.0939.lcssa
   store i8 0, ptr %276, align 1
   store ptr %271, ptr %17, align 8
   store i32 262, ptr %71, align 8
   %277 = load ptr, ptr %1, align 8
-  %278 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %279 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %280 = load i64, ptr %279, align 8
   %281 = load i8, ptr %278, align 1
   %282 = icmp sgt i8 %281, 57
@@ -2025,7 +2025,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1048, label %286, label %.critedge1081
 
 286:                                              ; preds = %285
-  %287 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %287 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %288 = load i8, ptr %287, align 1
   %289 = add i8 %288, -58
   %or.cond1079 = icmp ult i8 %289, -10
@@ -2060,18 +2060,18 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %305 = add i64 %304, 32
   %306 = call noalias ptr @_emalloc(i64 noundef %305) #14
   store i32 1, ptr %306, align 4
-  %307 = getelementptr inbounds i8, ptr %306, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 4
   store i32 22, ptr %307, align 4
-  %308 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 0, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %306, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 16
   store i64 %.1936, ptr %309, align 8
   %310 = icmp sgt i64 %.1936, 0
   br i1 %310, label %.lr.ph1174, label %._crit_edge
 
 .lr.ph1174:                                       ; preds = %296
   %311 = getelementptr i8, ptr %63, i64 %.19681191
-  %312 = getelementptr inbounds i8, ptr %306, i64 24
+  %312 = getelementptr inbounds nuw i8, ptr %306, i64 24
   br label %313
 
 313:                                              ; preds = %.lr.ph1174, %313
@@ -2089,7 +2089,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %321 = or disjoint i8 %320, 48
   %322 = add nuw nsw i8 %320, 87
   %.0928 = select i1 %319, i8 %321, i8 %322
-  %323 = getelementptr inbounds [1 x i8], ptr %312, i64 0, i64 %.09291173
+  %323 = getelementptr inbounds nuw [1 x i8], ptr %312, i64 0, i64 %.09291173
   store i8 %.0928, ptr %323, align 1
   %324 = xor i32 %.09341170, 4
   %325 = add nsw i32 %.09321171, -1
@@ -2102,7 +2102,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %exitcond.not, label %._crit_edge, label %313
 
 ._crit_edge:                                      ; preds = %313, %296
-  %329 = getelementptr inbounds i8, ptr %306, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %330 = getelementptr inbounds [1 x i8], ptr %329, i64 0, i64 %.1936
   store i8 0, ptr %330, align 1
   store ptr %306, ptr %17, align 8
@@ -2112,8 +2112,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %333 = select i1 %.not1046, i32 262, i32 6
   store i32 %333, ptr %71, align 8
   %334 = load ptr, ptr %1, align 8
-  %335 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %336 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %336 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %337 = load i64, ptr %336, align 8
   %338 = load i8, ptr %335, align 1
   %339 = icmp sgt i8 %338, 57
@@ -2128,7 +2128,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1047, label %343, label %.critedge1084
 
 343:                                              ; preds = %342
-  %344 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %344 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %345 = load i8, ptr %344, align 1
   %346 = add i8 %345, -58
   %or.cond1082 = icmp ult i8 %346, -10
@@ -2156,8 +2156,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store i64 %358, ptr %17, align 8
   store i32 4, ptr %71, align 8
   %359 = load ptr, ptr %1, align 8
-  %360 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %361 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %362 = load i64, ptr %361, align 8
   %363 = load i8, ptr %360, align 1
   %364 = icmp sgt i8 %363, 57
@@ -2172,7 +2172,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1045, label %368, label %.critedge1087
 
 368:                                              ; preds = %367
-  %369 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %369 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %370 = load i8, ptr %369, align 1
   %371 = add i8 %370, -58
   %or.cond1085 = icmp ult i8 %371, -10
@@ -2217,8 +2217,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store i64 %.0925, ptr %17, align 8
   store i32 4, ptr %71, align 8
   %388 = load ptr, ptr %1, align 8
-  %389 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %390 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %391 = load i64, ptr %390, align 8
   %392 = load i8, ptr %389, align 1
   %393 = icmp sgt i8 %392, 57
@@ -2233,7 +2233,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1044, label %397, label %.critedge1090
 
 397:                                              ; preds = %396
-  %398 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %398 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %399 = load i8, ptr %398, align 1
   %400 = add i8 %399, -58
   %or.cond1088 = icmp ult i8 %400, -10
@@ -2269,8 +2269,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store i64 %.0923, ptr %17, align 8
   store i32 4, ptr %71, align 8
   %416 = load ptr, ptr %1, align 8
-  %417 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %418 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %418 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %419 = load i64, ptr %418, align 8
   %420 = load i8, ptr %417, align 1
   %421 = icmp sgt i8 %420, 57
@@ -2285,7 +2285,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1043, label %425, label %.critedge1093
 
 425:                                              ; preds = %424
-  %426 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %426 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %427 = load i8, ptr %426, align 1
   %428 = add i8 %427, -58
   %or.cond1091 = icmp ult i8 %428, -10
@@ -2330,8 +2330,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store i64 %.0920, ptr %17, align 8
   store i32 4, ptr %71, align 8
   %446 = load ptr, ptr %1, align 8
-  %447 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %448 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %447 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %449 = load i64, ptr %448, align 8
   %450 = load i8, ptr %447, align 1
   %451 = icmp sgt i8 %450, 57
@@ -2346,7 +2346,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1042, label %455, label %.critedge1096
 
 455:                                              ; preds = %454
-  %456 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %456 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %457 = load i8, ptr %456, align 1
   %458 = add i8 %457, -58
   %or.cond1094 = icmp ult i8 %458, -10
@@ -2373,8 +2373,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store i64 %spec.select1137, ptr %17, align 8
   store i32 4, ptr %71, align 8
   %468 = load ptr, ptr %1, align 8
-  %469 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %470 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %469 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %471 = load i64, ptr %470, align 8
   %472 = load i8, ptr %469, align 1
   %473 = icmp sgt i8 %472, 57
@@ -2389,7 +2389,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1041, label %477, label %.critedge1099
 
 477:                                              ; preds = %476
-  %478 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %478 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %479 = load i8, ptr %478, align 1
   %480 = add i8 %479, -58
   %or.cond1097 = icmp ult i8 %480, -10
@@ -2431,8 +2431,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store double %496, ptr %17, align 8
   store i32 5, ptr %71, align 8
   %497 = load ptr, ptr %1, align 8
-  %498 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %499 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %499 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %500 = load i64, ptr %499, align 8
   %501 = load i8, ptr %498, align 1
   %502 = icmp sgt i8 %501, 57
@@ -2447,7 +2447,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1040, label %506, label %.critedge1102
 
 506:                                              ; preds = %505
-  %507 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %507 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %508 = load i8, ptr %507, align 1
   %509 = add i8 %508, -58
   %or.cond1100 = icmp ult i8 %509, -10
@@ -2488,8 +2488,8 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   store double %.0915, ptr %17, align 8
   store i32 5, ptr %71, align 8
   %524 = load ptr, ptr %1, align 8
-  %525 = getelementptr inbounds i8, ptr %.0947, i64 24
-  %526 = getelementptr inbounds i8, ptr %.0947, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %.0947, i64 24
+  %526 = getelementptr inbounds nuw i8, ptr %.0947, i64 16
   %527 = load i64, ptr %526, align 8
   %528 = load i8, ptr %525, align 1
   %529 = icmp sgt i8 %528, 57
@@ -2504,7 +2504,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %.not1039, label %533, label %.critedge1105
 
 533:                                              ; preds = %532
-  %534 = getelementptr inbounds i8, ptr %.0947, i64 25
+  %534 = getelementptr inbounds nuw i8, ptr %.0947, i64 25
   %535 = load i8, ptr %534, align 1
   %536 = add i8 %535, -58
   %or.cond1103 = icmp ult i8 %536, -10
@@ -2547,7 +2547,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %.1973 = phi i32 [ %.09721190, %182 ], [ %137, %548 ], [ %137, %545 ], [ %.09721190, %543 ], [ %.09721190, %539 ], [ %.09721190, %.critedge1105 ], [ %.09721190, %512 ], [ %.09721190, %.critedge1102 ], [ %.09721190, %483 ], [ %.09721190, %.critedge1099 ], [ %.09721190, %461 ], [ %.09721190, %.critedge1096 ], [ %.09721190, %431 ], [ %.09721190, %.critedge1093 ], [ %.09721190, %403 ], [ %.09721190, %.critedge1090 ], [ %.09721190, %374 ], [ %.09721190, %.critedge1087 ], [ %.09721190, %349 ], [ %.09721190, %.critedge1084 ], [ %.09721190, %292 ], [ %.09721190, %.critedge1081 ], [ %.09721190, %253 ], [ %.09721190, %.critedge1077 ], [ %.09721190, %212 ], [ %.09721190, %.critedge1073 ], [ %137, %549 ], [ %137, %550 ]
   %.2969 = phi i64 [ %.19681191, %182 ], [ %547, %548 ], [ %547, %545 ], [ %.19681191, %543 ], [ %.19681191, %539 ], [ %.19681191, %.critedge1105 ], [ %.19681191, %512 ], [ %.19681191, %.critedge1102 ], [ %.19681191, %483 ], [ %.19681191, %.critedge1099 ], [ %.19681191, %461 ], [ %.19681191, %.critedge1096 ], [ %.19681191, %431 ], [ %.19681191, %.critedge1093 ], [ %.19681191, %403 ], [ %.19681191, %.critedge1090 ], [ %.19681191, %374 ], [ %.19681191, %.critedge1087 ], [ %.19681191, %349 ], [ %.19681191, %.critedge1084 ], [ %.19681191, %292 ], [ %.19681191, %.critedge1081 ], [ %.19681191, %253 ], [ %.19681191, %.critedge1077 ], [ %.19681191, %212 ], [ %.19681191, %.critedge1073 ], [ %136, %549 ], [ %.19681191, %550 ]
   %.2 = phi i32 [ %.19491192, %182 ], [ %.19491192, %548 ], [ %.19491192, %545 ], [ %.19491192, %543 ], [ %.19491192, %539 ], [ %.19491192, %.critedge1105 ], [ %.19491192, %512 ], [ %.19491192, %.critedge1102 ], [ %.19491192, %483 ], [ %.19491192, %.critedge1099 ], [ %.19491192, %461 ], [ %.19491192, %.critedge1096 ], [ %.19491192, %431 ], [ %.19491192, %.critedge1093 ], [ %.19491192, %403 ], [ %.19491192, %.critedge1090 ], [ %.19491192, %374 ], [ %.19491192, %.critedge1087 ], [ %.19491192, %349 ], [ %.19491192, %.critedge1084 ], [ %261, %292 ], [ %261, %.critedge1081 ], [ %220, %253 ], [ %220, %.critedge1077 ], [ %187, %212 ], [ %187, %.critedge1073 ], [ %.19491192, %549 ], [ %.19491192, %550 ]
-  %552 = getelementptr inbounds i8, ptr %.0947, i64 4
+  %552 = getelementptr inbounds nuw i8, ptr %.0947, i64 4
   %553 = load i32, ptr %552, align 4
   %554 = and i32 %553, 64
   %.not1056 = icmp eq i32 %554, 0
@@ -2614,7 +2614,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %579 = sext i1 %.lcssa to i64
   %.4966 = add nsw i64 %.3965.lcssa, %579
   %.4.idx = zext i1 %.lcssa to i64
-  %.4 = getelementptr inbounds i8, ptr %.3.lcssa, i64 %.4.idx
+  %.4 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %.4.idx
   %580 = icmp sgt i64 %.4966, 0
   br i1 %580, label %72, label %.loopexit1140
 
@@ -2642,7 +2642,7 @@ define hidden noundef i32 @zm_startup_pack(i32 noundef %0, i32 noundef %1) local
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds [4 x i32], ptr @int_map, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i32], ptr @int_map, i64 0, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

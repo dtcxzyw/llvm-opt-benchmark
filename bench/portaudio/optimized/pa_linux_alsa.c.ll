@@ -284,11 +284,11 @@ define i32 @PaAlsa_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_un
   %12 = tail call ptr @snd_asoundlib_version() #25, !callees !4
   %13 = tail call i32 @atoi(ptr nocapture noundef %12) #26
   %14 = shl i32 %13, 16
-  %15 = getelementptr inbounds i8, ptr %12, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %16 = tail call i32 @atoi(ptr nocapture noundef nonnull %15) #26
   %17 = shl i32 %16, 8
   %18 = or i32 %17, %14
-  %19 = getelementptr inbounds i8, ptr %12, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #26
   %21 = or i32 %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 276
@@ -1026,8 +1026,8 @@ PaAlsa_StrDup.exit:                               ; preds = %37
   br i1 %74, label %75, label %.critedge.i
 
 75:                                               ; preds = %.lr.ph.i
-  %76 = getelementptr inbounds i8, ptr %.13349.i, i64 1
-  %77 = getelementptr inbounds i8, ptr %.12950.i, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.13349.i, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.12950.i, i64 1
   %78 = load i8, ptr %76, align 1
   switch i8 %78, label %80 [
     i8 32, label %79
@@ -1058,7 +1058,7 @@ PaAlsa_StrDup.exit:                               ; preds = %37
   br i1 %.not44.i, label %._crit_edge.i, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.230.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.230.i, i64 1
   %.not45.i = icmp eq i8 %86, 32
   br i1 %.not45.i, label %.critedge2.i, label %85, !llvm.loop !22
 
@@ -1083,16 +1083,16 @@ PaAlsa_StrDup.exit:                               ; preds = %37
   ]
 
 93:                                               ; preds = %.preheader.i
-  %94 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %94, align 1
   br label %.preheader.i, !llvm.loop !24
 
 95:                                               ; preds = %.preheader.i, %.preheader.i
-  %96 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 32
   %spec.select.idx.i = select i1 %98, i64 2, i64 0
-  %spec.select.i = getelementptr inbounds i8, ptr %.3.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 %spec.select.idx.i
   br label %SkipCardDetailsInName.exit
 
 SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._crit_edge.i, %95
@@ -1314,7 +1314,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
 
 199:                                              ; preds = %.preheader, %198
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %198 ], [ 0, %.preheader ]
-  %200 = getelementptr inbounds [11 x ptr], ptr @IgnorePlugin.ignoredPlugins, i64 0, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [11 x ptr], ptr @IgnorePlugin.ignoredPlugins, i64 0, i64 %indvars.iv.i
   %201 = load ptr, ptr %200, align 8
   %202 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %194, ptr noundef nonnull dereferenceable(1) %201) #26
   %.not9.i = icmp eq i32 %202, 0
@@ -1382,7 +1382,7 @@ IgnorePlugin.exit:                                ; preds = %198
 .lr.ph:                                           ; preds = %.lr.ph.i193.preheader, %.lr.ph.i193
   %indvars.iv.i194265 = phi i64 [ %indvars.iv.next.i195, %.lr.ph.i193 ], [ 0, %.lr.ph.i193.preheader ]
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i194265, 1
-  %234 = getelementptr inbounds [26 x %struct.HwDevInfo], ptr @predefinedNames, i64 0, i64 %indvars.iv.next.i195
+  %234 = getelementptr inbounds nuw [26 x %struct.HwDevInfo], ptr @predefinedNames, i64 0, i64 %indvars.iv.next.i195
   %235 = load ptr, ptr %234, align 16
   %.not.i196 = icmp eq ptr %235, null
   br i1 %.not.i196, label %.loopexit, label %.lr.ph.i193, !llvm.loop !36
@@ -4219,7 +4219,7 @@ sub_0:                                            ; preds = %5
   br i1 %.not62, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds i8, ptr %16, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 119, %22
@@ -4227,7 +4227,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not63, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %24 = getelementptr inbounds i8, ptr %16, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 58, %26
@@ -5929,7 +5929,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
 81:                                               ; preds = %.thread
   %82 = zext i32 %79 to i64
   %83 = load ptr, ptr %41, align 8
-  %84 = getelementptr inbounds %struct.pollfd, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw %struct.pollfd, ptr %83, i64 %82
   %85 = load ptr, ptr %9, align 8
   %86 = load i32, ptr %44, align 4
   %87 = tail call i32 @snd_pcm_poll_descriptors(ptr noundef %85, ptr noundef %84, i32 noundef %86) #25, !callees !100
@@ -6563,7 +6563,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   %50 = mul i64 %42, %49
   %51 = add i64 %50, %46
   %52 = lshr i64 %51, 3
-  %53 = getelementptr inbounds i8, ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 %52
   br label %57
 
 54:                                               ; preds = %31
@@ -7139,7 +7139,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.03341 = phi ptr [ %38, %.lr.ph ], [ %42, %40 ]
-  %41 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   store ptr %.03341, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %.03341, i64 %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7501,7 +7501,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %81 = mul i64 %73, %80
   %82 = add i64 %81, %77
   %83 = lshr i64 %82, 3
-  %84 = getelementptr inbounds i8, ptr %74, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 %83
   br label %88
 
 85:                                               ; preds = %65
@@ -7551,7 +7551,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 107:                                              ; preds = %.lr.ph109, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %107 ]
   %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %struct._snd_pcm_channel_area, ptr %108, i64 %indvars.iv
   %110 = load i64, ptr %106, align 8
   %111 = load ptr, ptr %109, align 8
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -7563,7 +7563,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %118 = mul i64 %110, %117
   %119 = add i64 %118, %114
   %120 = lshr i64 %119, 3
-  %121 = getelementptr inbounds i8, ptr %111, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 %120
   %122 = trunc nuw nsw i64 %indvars.iv to i32
   call void %9(ptr noundef %1, i32 noundef %122, ptr noundef %121, i32 noundef 1) #25, !callees !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7590,7 +7590,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
   %.088111 = phi ptr [ %128, %.lr.ph112 ], [ %136, %135 ]
   %.2110 = phi i32 [ 0, %.lr.ph112 ], [ %137, %135 ]
   call void %9(ptr noundef %1, i32 noundef %.2110, ptr noundef %.088111, i32 noundef 1) #25, !callees !118
-  %136 = getelementptr inbounds i8, ptr %.088111, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %.088111, i64 %134
   %137 = add nuw nsw i32 %.2110, 1
   %138 = load i32, ptr %103, align 8
   %139 = icmp slt i32 %137, %138
@@ -7642,9 +7642,9 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 166:                                              ; preds = %.lr.ph115, %166
   %indvars.iv119 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next120, %166 ]
   %.086113 = phi ptr [ %161, %.lr.ph115 ], [ %168, %166 ]
-  %167 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv119
+  %167 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv119
   store ptr %.086113, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %.086113, i64 %165
+  %168 = getelementptr inbounds nuw i8, ptr %.086113, i64 %165
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %166, !llvm.loop !123

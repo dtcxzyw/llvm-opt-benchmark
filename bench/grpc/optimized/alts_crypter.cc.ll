@@ -17,7 +17,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %process_in_place = getelementptr inbounds i8, ptr %0, i64 8
+  %process_in_place = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %process_in_place, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end, label %if.then
@@ -81,7 +81,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %destruct = getelementptr inbounds i8, ptr %0, i64 16
+  %destruct = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %destruct, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end, label %if.then4

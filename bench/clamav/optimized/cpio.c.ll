@@ -34,18 +34,18 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.cpio_hdr_old, align 2
   %3 = alloca [513 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %3, i8 0, i64 513, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load i64, ptr %6, align 8
   %or.cond103.not105.not = icmp eq i64 %7, 0
   br i1 %or.cond103.not105.not, label %fmap_readn.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.20..20..20..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.22..22..22..sroa_idx = getelementptr inbounds i8, ptr %2, i64 22
-  %.24..24..24..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
-  %.6..6..6..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  %.20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.22..22..22..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 22
+  %.24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 6
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.backedge
@@ -57,7 +57,7 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %.055106 = phi ptr [ null, %.lr.ph ], [ %.156, %.backedge ]
   %11 = sub nuw i64 %9, %.0109
   %spec.select.i = call i64 @llvm.umin.i64(i64 %11, i64 26)
-  %12 = getelementptr inbounds i8, ptr %10, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr %13(ptr noundef nonnull %10, i64 noundef %.0109, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
   %.not.i = icmp eq ptr %14, null
@@ -98,7 +98,7 @@ fmap_readn.exit:                                  ; preds = %8
   %27 = zext nneg i16 %26 to i32
   %28 = load ptr, ptr %4, align 8
   %29 = zext nneg i16 %26 to i64
-  %30 = getelementptr inbounds i8, ptr %28, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %31 = load i64, ptr %30, align 8
   %.not104 = icmp eq i64 %17, %31
   br i1 %.not104, label %fmap_readn.exit92, label %32
@@ -110,7 +110,7 @@ fmap_readn.exit:                                  ; preds = %8
 34:                                               ; preds = %32
   %35 = sub nuw i64 %31, %17
   %spec.select.i90 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %29, i64 %35)
-  %36 = getelementptr inbounds i8, ptr %28, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef range(i64 0, 4294967296) %spec.select.i90, i32 noundef 0) #8
   %.not.i91 = icmp eq ptr %38, null
@@ -129,7 +129,7 @@ fmap_readn.exit92:                                ; preds = %24, %39
   %41 = add i64 %17, %29
   %42 = add nsw i32 %27, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %43
   store i8 0, ptr %44, align 1
   %45 = load i8, ptr %3, align 16
   %.not7.i = icmp eq i8 %45, 0
@@ -152,7 +152,7 @@ fmap_readn.exit92:                                ; preds = %24, %39
   br label %51
 
 51:                                               ; preds = %50, %48
-  %52 = getelementptr inbounds i8, ptr %.08.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %53 = load i8, ptr %52, align 1
   %.not.i93 = icmp eq i8 %53, 0
   br i1 %.not.i93, label %sanitname.exit, label %.lr.ph.i
@@ -229,7 +229,7 @@ sanitname.exit:                                   ; preds = %51, %40
 .backedge:                                        ; preds = %75, %62
   %.0.be = phi i64 [ %78, %75 ], [ %.1, %62 ]
   %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 88
   %81 = load i64, ptr %80, align 8
   %or.cond103.not = icmp ult i64 %.0.be, %81
   br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread
@@ -265,18 +265,18 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %2, i8 0, i64 76, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load i64, ptr %9, align 8
   %or.cond53.not55.not = icmp eq i64 %10, 0
   br i1 %or.cond53.not55.not, label %fmap_readn.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 59
-  %12 = getelementptr inbounds i8, ptr %4, i64 6
-  %13 = getelementptr inbounds i8, ptr %2, i64 65
-  %14 = getelementptr inbounds i8, ptr %4, i64 11
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 59
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 65
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 11
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.backedge
@@ -287,7 +287,7 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %.02656 = phi i32 [ 0, %.lr.ph ], [ %30, %.backedge ]
   %18 = sub nuw i64 %16, %.058
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 76)
-  %19 = getelementptr inbounds i8, ptr %17, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.058, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
   %.not.i = icmp eq ptr %21, null
@@ -329,7 +329,7 @@ fmap_readn.exit:                                  ; preds = %15
   %36 = call i32 @llvm.umin.i32(i32 %34, i32 513)
   %37 = load ptr, ptr %7, align 8
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds i8, ptr %37, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %40 = load i64, ptr %39, align 8
   %.not54 = icmp eq i64 %24, %40
   br i1 %.not54, label %fmap_readn.exit48, label %41
@@ -341,7 +341,7 @@ fmap_readn.exit:                                  ; preds = %15
 43:                                               ; preds = %41
   %44 = sub nuw i64 %40, %24
   %spec.select.i46 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %38, i64 %44)
-  %45 = getelementptr inbounds i8, ptr %37, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i46, i32 noundef 0) #8
   %.not.i47 = icmp eq ptr %47, null
@@ -360,7 +360,7 @@ fmap_readn.exit48:                                ; preds = %35, %48
   %50 = add i64 %24, %38
   %51 = add nsw i32 %36, -1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %52
   store i8 0, ptr %53, align 1
   %54 = load i8, ptr %3, align 16
   %.not7.i = icmp eq i8 %54, 0
@@ -383,7 +383,7 @@ fmap_readn.exit48:                                ; preds = %35, %48
   br label %60
 
 60:                                               ; preds = %59, %57
-  %61 = getelementptr inbounds i8, ptr %.08.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %62 = load i8, ptr %61, align 1
   %.not.i49 = icmp eq i8 %62, 0
   br i1 %.not.i49, label %sanitname.exit, label %.lr.ph.i
@@ -442,7 +442,7 @@ sanitname.exit:                                   ; preds = %60, %49
 .backedge:                                        ; preds = %84, %72
   %.0.be = phi i64 [ %87, %84 ], [ %.1, %72 ]
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
   %90 = load i64, ptr %89, align 8
   %or.cond53.not = icmp ult i64 %.0.be, %90
   br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread
@@ -471,18 +471,18 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(513) %4, i8 0, i64 513, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load i64, ptr %10, align 8
   %or.cond70.not72.not = icmp eq i64 %11, 0
   br i1 %or.cond70.not72.not, label %fmap_readn.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not = icmp eq i32 %1, 0
-  %12 = getelementptr inbounds i8, ptr %3, i64 94
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 54
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 94
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 54
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.backedge
@@ -493,7 +493,7 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.03673 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
   %18 = sub nuw i64 %16, %.075
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
-  %19 = getelementptr inbounds i8, ptr %17, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.075, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #8
   %.not.i = icmp eq ptr %21, null
@@ -543,7 +543,7 @@ fmap_readn.exit:                                  ; preds = %15
   %37 = call i32 @llvm.umin.i32(i32 %35, i32 513)
   %38 = load ptr, ptr %8, align 8
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds i8, ptr %38, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %41 = load i64, ptr %40, align 8
   %.not71 = icmp eq i64 %24, %41
   br i1 %.not71, label %fmap_readn.exit65, label %42
@@ -555,7 +555,7 @@ fmap_readn.exit:                                  ; preds = %15
 44:                                               ; preds = %42
   %45 = sub nuw i64 %41, %24
   %spec.select.i63 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %39, i64 %45)
-  %46 = getelementptr inbounds i8, ptr %38, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i63, i32 noundef 0) #8
   %.not.i64 = icmp eq ptr %48, null
@@ -574,7 +574,7 @@ fmap_readn.exit65:                                ; preds = %36, %49
   %51 = add i64 %24, %39
   %52 = add nsw i32 %37, -1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds [513 x i8], ptr %4, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [513 x i8], ptr %4, i64 0, i64 %53
   store i8 0, ptr %54, align 1
   %55 = load i8, ptr %4, align 16
   %.not7.i = icmp eq i8 %55, 0
@@ -597,7 +597,7 @@ fmap_readn.exit65:                                ; preds = %36, %49
   br label %61
 
 61:                                               ; preds = %60, %58
-  %62 = getelementptr inbounds i8, ptr %.08.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %63 = load i8, ptr %62, align 1
   %.not.i66 = icmp eq i8 %63, 0
   br i1 %.not.i66, label %sanitname.exit, label %.lr.ph.i
@@ -690,7 +690,7 @@ sanitname.exit:                                   ; preds = %61, %50
 .backedge:                                        ; preds = %101, %84
   %.0.be = phi i64 [ %104, %101 ], [ %.1, %84 ]
   %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 88
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
   %107 = load i64, ptr %106, align 8
   %or.cond70.not = icmp ult i64 %.0.be, %107
   br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread

@@ -57,7 +57,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @deallocate(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -82,9 +82,9 @@ define internal i64 @function_memsize(ptr noundef %0) #0 {
 define i64 @rb_fiddle_new_function(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3 x i64], align 16
   store i64 %0, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %6, align 16
   %7 = load i64, ptr @cFiddleFunction, align 8
   %8 = call i64 @rb_class_new_instance(i32 noundef 3, ptr noundef nonnull %4, i64 noundef %7) #8
@@ -129,7 +129,7 @@ define internal i64 @function_call(i32 noundef %0, ptr noundef %1, i64 noundef %
   %4 = alloca %struct.nogvl_ffi_call_args, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   store i64 0, ptr %5, align 8
   %8 = tail call i64 @rb_iv_get(i64 noundef %2, ptr noundef nonnull @.str.5) #8
@@ -163,7 +163,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
   br label %rb_array_len.exit.i
 
 22:                                               ; preds = %rbimpl_intern_const.exit
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load i64, ptr %23, align 8
   br label %rb_array_len.exit.i
 
@@ -232,7 +232,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %50 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @function_data_type) #8
   store ptr %50, ptr %4, align 8
   %.not134 = icmp eq i64 %14, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %50, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %51 = icmp eq ptr %.pre, null
   br i1 %.not134, label %54, label %52
@@ -299,8 +299,8 @@ rb_num2int_inline.exit:                           ; preds = %62, %64
 
 .lr.ph170:                                        ; preds = %._crit_edge
   %79 = inttoptr i64 %55 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %smax = tail call i32 @llvm.smax.i32(i32 %.0113, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %82
@@ -318,12 +318,12 @@ rb_num2int_inline.exit:                           ; preds = %62, %64
 
 rb_array_const_ptr.exit:                          ; preds = %82, %85
   %.0.i143 = phi ptr [ %86, %85 ], [ %80, %82 ]
-  %87 = getelementptr inbounds i64, ptr %.0.i143, i64 %indvars.iv185
+  %87 = getelementptr inbounds nuw i64, ptr %.0.i143, i64 %indvars.iv185
   %88 = load i64, ptr %87, align 8
   %89 = tail call i64 @rb_fix2int(i64 noundef %88) #8
   %90 = trunc i64 %89 to i32
   %91 = tail call ptr @rb_fiddle_int_to_ffi_type(i32 noundef %90) #8
-  %92 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv185
+  %92 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv185
   store ptr %91, ptr %92, align 8
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
@@ -335,7 +335,7 @@ rb_array_const_ptr.exit:                          ; preds = %82, %85
 
 ._crit_edge171:                                   ; preds = %._crit_edge, %._crit_edge171.loopexit
   %.0115.lcssa = phi i64 [ %93, %._crit_edge171.loopexit ], [ 0, %._crit_edge ]
-  %94 = getelementptr inbounds ptr, ptr %78, i64 %.0115.lcssa
+  %94 = getelementptr inbounds nuw ptr, ptr %78, i64 %.0115.lcssa
   store ptr null, ptr %94, align 8
   %95 = tail call i64 @rb_fix2int(i64 noundef %9) #8
   %96 = trunc i64 %95 to i32
@@ -355,7 +355,7 @@ rb_array_const_ptr.exit:                          ; preds = %82, %85
   br i1 %.not137, label %105, label %102
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %50, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %50, i64 8
   tail call void @ruby_xfree(ptr noundef nonnull %78) #8
   store ptr null, ptr %103, align 8
   %104 = load i64, ptr @rb_eRuntimeError, align 8
@@ -383,8 +383,8 @@ rb_array_const_ptr.exit:                          ; preds = %82, %85
 
 114:                                              ; preds = %112, %110
   %115 = phi ptr [ %111, %110 ], [ %113, %112 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 %106
-  %117 = getelementptr inbounds i8, ptr %4, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %106
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %116, ptr %117, align 8
   %118 = icmp sgt i32 %0, 0
   %119 = icmp ne i32 %.0113, 0
@@ -393,8 +393,8 @@ rb_array_const_ptr.exit:                          ; preds = %82, %85
 
 .lr.ph176:                                        ; preds = %114
   %121 = inttoptr i64 %.0 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
-  %123 = getelementptr inbounds i8, ptr %121, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %124 = zext nneg i32 %.0113 to i64
   br label %125
 
@@ -413,7 +413,7 @@ rb_array_const_ptr.exit:                          ; preds = %82, %85
 
 rb_array_const_ptr.exit146:                       ; preds = %125, %128
   %.0.i145 = phi ptr [ %129, %128 ], [ %122, %125 ]
-  %130 = getelementptr inbounds i64, ptr %.0.i145, i64 %indvars.iv188
+  %130 = getelementptr inbounds nuw i64, ptr %.0.i145, i64 %indvars.iv188
   %131 = load i64, ptr %130, align 8
   %132 = call i64 @rb_fix2int(i64 noundef %131) #8
   %133 = trunc i64 %132 to i32
@@ -444,7 +444,7 @@ rb_array_const_ptr.exit146:                       ; preds = %125, %128
 
 147:                                              ; preds = %142
   %148 = inttoptr i64 %137 to ptr
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   br label %rb_class_of.exit
 
 150:                                              ; preds = %142
@@ -518,7 +518,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 170:                                              ; preds = %167, %rb_array_const_ptr.exit146
   %171 = phi i64 [ %169, %167 ], [ %137, %rb_array_const_ptr.exit146 ]
   %.1118 = phi i64 [ %.2119, %167 ], [ %.0117172, %rb_array_const_ptr.exit146 ]
-  %172 = getelementptr inbounds %union.fiddle_generic, ptr %115, i64 %indvars.iv188
+  %172 = getelementptr inbounds nuw %union.fiddle_generic, ptr %115, i64 %indvars.iv188
   call void @rb_fiddle_value_to_generic(i32 noundef %133, ptr noundef nonnull %6, ptr noundef nonnull %172) #8
   %173 = load i64, ptr %6, align 8
   %.not140 = icmp eq i64 %173, %171
@@ -542,7 +542,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 181:                                              ; preds = %178, %170
   %.4 = phi i64 [ %.5, %178 ], [ %.1118, %170 ]
   %182 = load ptr, ptr %117, align 8
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv188
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv188
   store ptr %172, ptr %183, align 8
   %184 = add nsw i32 %spec.select, 1
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
@@ -558,7 +558,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 ._crit_edge177:                                   ; preds = %._crit_edge177.loopexit, %114
   %189 = phi ptr [ %116, %114 ], [ %182, %._crit_edge177.loopexit ]
   %.1116.lcssa = phi i64 [ 0, %114 ], [ %188, %._crit_edge177.loopexit ]
-  %190 = getelementptr inbounds ptr, ptr %189, i64 %.1116.lcssa
+  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %.1116.lcssa
   store ptr null, ptr %190, align 8
   %191 = and i64 %8, 1
   %.not.i155 = icmp eq i64 %191, 0
@@ -575,7 +575,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 rb_num2ulong_inline.exit:                         ; preds = %192, %194
   %.0.i156 = phi i64 [ %193, %192 ], [ %195, %194 ]
   %196 = inttoptr i64 %.0.i156 to ptr
-  %197 = getelementptr inbounds i8, ptr %4, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %196, ptr %197, align 8
   %198 = and i64 %15, -5
   %.not164 = icmp eq i64 %198, 0
@@ -583,7 +583,7 @@ rb_num2ulong_inline.exit:                         ; preds = %192, %194
 
 199:                                              ; preds = %rb_num2ulong_inline.exit
   %200 = load ptr, ptr %4, align 8
-  %201 = getelementptr inbounds i8, ptr %4, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %202 = load ptr, ptr %117, align 8
   call void @ffi_call(ptr noundef %200, ptr noundef %196, ptr noundef nonnull %201, ptr noundef %202) #8
   br label %205
@@ -614,7 +614,7 @@ rbimpl_intern_const.exit162:                      ; preds = %.lr.ph.i160, %205
   %213 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %208, i64 noundef %.lcssa.i159, i32 noundef 1, i64 noundef %212) #8
   call void @rb_free_tmp_buffer(ptr noundef nonnull %5) #8
   %214 = call i64 @rb_iv_get(i64 noundef %2, ptr noundef nonnull @.str.14) #8
-  %215 = getelementptr inbounds i8, ptr %4, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %216 = load i64, ptr %215, align 8
   %217 = call i64 @rb_fiddle_generic_to_value(i64 noundef %214, i64 %216) #8
   ret i64 %217
@@ -654,7 +654,7 @@ define internal noundef i64 @initialize(i32 noundef %0, ptr noundef %1, i64 noun
   %23 = load i64, ptr %9, align 16
   %.not21 = icmp eq i64 %23, 36
   %spec.select = select i1 %.not21, i64 4, i64 %23
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i64, ptr %24, align 8
   %.not22 = icmp eq i64 %25, 36
   %spec.select23 = select i1 %.not22, i64 0, i64 %25
@@ -770,7 +770,7 @@ Check_Type.exit.i:                                ; preds = %68
   br label %rb_array_len.exit.i.i
 
 76:                                               ; preds = %Check_Type.exit.i
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load i64, ptr %77, align 8
   br label %rb_array_len.exit.i.i
 
@@ -801,8 +801,8 @@ RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i
   br i1 %.not3.i, label %normalize_argument_types.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %69, i64 16
-  %89 = getelementptr inbounds i8, ptr %69, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %69, i64 32
   br label %90
 
 90:                                               ; preds = %110, %.lr.ph.i
@@ -818,7 +818,7 @@ RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i
 
 rb_array_const_ptr.exit.i:                        ; preds = %93, %90
   %.0.i.i = phi ptr [ %94, %93 ], [ %88, %90 ]
-  %95 = getelementptr inbounds i64, ptr %.0.i.i, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv.i
   %96 = load i64, ptr %95, align 8
   %97 = call i64 @rb_fiddle_type_ensure(i64 noundef %96) #8
   %98 = and i64 %97, 1
@@ -874,7 +874,7 @@ normalize_argument_types.exit:                    ; preds = %110, %105, %85
   %122 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %121) #8
   %123 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.9, i64 noundef %.031) #8
   %124 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @function_data_type) #8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr null, ptr %125, align 8
   ret i64 %2
 }
@@ -937,10 +937,10 @@ declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @nogvl_ffi_call(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @ffi_call(ptr noundef %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %7) #8
   ret ptr null

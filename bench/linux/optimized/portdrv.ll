@@ -57,12 +57,12 @@ module asm ".previous\09\09\09\09\09"
 define dso_local ptr @pcie_port_find_device(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.portdrv_service_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
-  %7 = call i32 @device_for_each_child(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull @find_service_iter) #13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %7 = call i32 @device_for_each_child(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull @find_service_iter) #13
   %8 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   ret ptr %8
@@ -79,15 +79,15 @@ declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, ptr nocapture noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @pcie_port_bus_type
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
@@ -101,7 +101,7 @@ define internal noundef range(i32 0, 2) i32 @find_service_iter(ptr noundef %0, p
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %10, i64 -80
   store ptr %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %18, align 8
   br label %19
 
@@ -121,17 +121,17 @@ define dso_local i32 @pcie_port_service_register(ptr noundef %0) local_unnamed_a
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @pcie_port_bus_type, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @pcie_port_probe_service, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @pcie_port_remove_service, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr @pcie_port_shutdown_service, ptr %10, align 8
-  %11 = tail call i32 @driver_register(ptr noundef %6) #13
+  %11 = tail call i32 @driver_register(ptr noundef nonnull %6) #13
   br label %12
 
 12:                                               ; preds = %4, %1
@@ -145,7 +145,7 @@ define internal i32 @pcie_port_probe_service(ptr noundef %0) #0 align 16 {
   br i1 %2, label %20, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = getelementptr i8, ptr %5, i64 -80
@@ -180,7 +180,7 @@ define internal noundef i32 @pcie_port_remove_service(ptr noundef %0) #0 align 1
   br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %7
@@ -216,8 +216,8 @@ declare dso_local i32 @driver_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcie_port_service_unregister(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @driver_unregister(ptr noundef %2) #13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @driver_unregister(ptr noundef nonnull %2) #13
   ret void
 }
 
@@ -286,7 +286,7 @@ declare dso_local i32 @pcie_pme_init() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @dmi_pcie_pme_disable_msi(ptr nocapture noundef readonly %0) #7 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %3) #14
   store i8 1, ptr @pcie_pme_msi_disabled, align 1
@@ -301,8 +301,8 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = alloca [5 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 106
-  %7 = getelementptr inbounds i8, ptr %0, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %210, label %10
@@ -329,10 +329,10 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   br i1 %17, label %18, label %199
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @pci_find_host_bridge(ptr noundef %20) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 1689
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %23 = load i40, ptr %22, align 1
   %24 = and i40 %23, 16777216
   %25 = icmp eq i40 %24, 0
@@ -353,7 +353,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %21, i64 832
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 832
   %34 = load i16, ptr %33, align 64
   %35 = and i16 %34, 16
   %36 = icmp eq i16 %35, 0
@@ -380,7 +380,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %21, i64 832
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 832
   %49 = load i16, ptr %48, align 64
   %50 = and i16 %49, 64
   %51 = icmp eq i16 %50, 0
@@ -499,9 +499,9 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 116:                                              ; preds = %115
   %117 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %89) #13
   store i32 %117, ptr %5, align 16
-  %118 = getelementptr inbounds i8, ptr %5, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %117, ptr %119, align 16
   br label %120
 
@@ -512,7 +512,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 
 123:                                              ; preds = %120
   %124 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
-  %125 = getelementptr inbounds i8, ptr %5, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %124, ptr %125, align 4
   br label %126
 
@@ -521,7 +521,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 
 127:                                              ; preds = %126
   %128 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %106) #13
-  %129 = getelementptr inbounds i8, ptr %5, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %128, ptr %129, align 4
   br label %.thread
 
@@ -546,8 +546,8 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 
 .thread:                                          ; preds = %.preheader, %127, %126, %138
   %141 = phi i32 [ %139, %138 ], [ %67, %126 ], [ %67, %127 ], [ %67, %.preheader ]
-  %142 = getelementptr inbounds i8, ptr %0, i64 264
-  %143 = getelementptr inbounds i8, ptr %0, i64 184
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %144
 
 144:                                              ; preds = %191, %.thread
@@ -568,15 +568,15 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   br i1 %156, label %188, label %157
 
 157:                                              ; preds = %151
-  %158 = getelementptr inbounds i8, ptr %155, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %0, ptr %158, align 8
   store i32 %153, ptr %155, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store i32 %148, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %155, i64 32
-  %161 = getelementptr inbounds i8, ptr %155, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 128
   store ptr @pcie_port_bus_type, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %155, i64 720
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 720
   store ptr @release_pcie_device, ptr %162, align 8
   %163 = load ptr, ptr %142, align 8
   %164 = icmp eq ptr %163, null
@@ -594,10 +594,10 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   %172 = zext nneg i16 %171 to i32
   %173 = add nsw i32 %148, -1024
   %174 = add nsw i32 %173, %172
-  %175 = call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %160, ptr noundef nonnull @.str.7, ptr noundef %168, i32 noundef %174) #13
-  %176 = getelementptr inbounds i8, ptr %155, i64 96
+  %175 = call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %160, ptr noundef nonnull @.str.7, ptr noundef %168, i32 noundef %174) #13
+  %176 = getelementptr inbounds nuw i8, ptr %155, i64 96
   store ptr %143, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %155, i64 252
+  %177 = getelementptr inbounds nuw i8, ptr %155, i64 252
   %178 = load i16, ptr %177, align 4
   %179 = and i16 %178, 8
   %180 = icmp eq i16 %179, 0
@@ -609,16 +609,16 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   br label %183
 
 183:                                              ; preds = %181, %167
-  %184 = call i32 @device_register(ptr noundef %160) #13
+  %184 = call i32 @device_register(ptr noundef nonnull %160) #13
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %187, label %186
 
 186:                                              ; preds = %183
-  call void @put_device(ptr noundef %160) #13
+  call void @put_device(ptr noundef nonnull %160) #13
   br label %188
 
 187:                                              ; preds = %183
-  call void @pm_runtime_no_callbacks(ptr noundef %160) #13
+  call void @pm_runtime_no_callbacks(ptr noundef nonnull %160) #13
   br label %188
 
 188:                                              ; preds = %187, %186, %151
@@ -652,20 +652,20 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
 201:                                              ; preds = %66, %195
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #13
   %202 = call i32 @pci_save_state(ptr noundef %0) #13
-  %203 = getelementptr inbounds i8, ptr %0, i64 408
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 5, ptr %203, align 8
   %204 = call zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) #13
   br i1 %204, label %205, label %210
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %0, i64 184
-  call void @pm_runtime_set_autosuspend_delay(ptr noundef %206, i32 noundef 100) #13
-  call void @__pm_runtime_use_autosuspend(ptr noundef %206, i1 noundef zeroext true) #13
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void @pm_runtime_set_autosuspend_delay(ptr noundef nonnull %206, i32 noundef 100) #13
+  call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %206, i1 noundef zeroext true) #13
   %207 = call i64 @ktime_get_mono_fast_ns() #13
-  %208 = getelementptr inbounds i8, ptr %0, i64 656
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store volatile i64 %207, ptr %208, align 8
-  %209 = call i32 @__pm_runtime_suspend(ptr noundef %206, i32 noundef 13) #13
-  call void @pm_runtime_allow(ptr noundef %206) #13
+  %209 = call i32 @__pm_runtime_suspend(ptr noundef nonnull %206, i32 noundef 13) #13
+  call void @pm_runtime_allow(ptr noundef nonnull %206) #13
   br label %210
 
 210:                                              ; preds = %199, %205, %201, %10, %2
@@ -679,16 +679,16 @@ define internal void @pcie_portdrv_remove(ptr noundef %0) #0 align 16 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @pm_runtime_forbid(ptr noundef %4) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, ptr elementtype(i32) %5) #13, !srcloc !12
-  tail call void @__pm_runtime_use_autosuspend(ptr noundef %4, i1 noundef zeroext false) #13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @pm_runtime_forbid(ptr noundef nonnull %4) #13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !12
+  tail call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %4, i1 noundef zeroext false) #13
   br label %6
 
 6:                                                ; preds = %3, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = tail call i32 @device_for_each_child(ptr noundef %7, ptr noundef null, ptr noundef nonnull @remove_iter) #13
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = tail call i32 @device_for_each_child(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull @remove_iter) #13
   tail call void @pci_free_irq_vectors(ptr noundef %0) #13
   tail call void @pci_disable_device(ptr noundef %0) #13
   ret void
@@ -700,16 +700,16 @@ define internal void @pcie_portdrv_shutdown(ptr noundef %0) #0 align 16 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @pm_runtime_forbid(ptr noundef %4) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, ptr elementtype(i32) %5) #13, !srcloc !12
-  tail call void @__pm_runtime_use_autosuspend(ptr noundef %4, i1 noundef zeroext false) #13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @pm_runtime_forbid(ptr noundef nonnull %4) #13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #13, !srcloc !12
+  tail call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %4, i1 noundef zeroext false) #13
   br label %6
 
 6:                                                ; preds = %3, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = tail call i32 @device_for_each_child(ptr noundef %7, ptr noundef null, ptr noundef nonnull @remove_iter) #13
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = tail call i32 @device_for_each_child(ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull @remove_iter) #13
   tail call void @pci_free_irq_vectors(ptr noundef %0) #13
   ret void
 }
@@ -804,7 +804,7 @@ declare dso_local void @pm_runtime_forbid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @remove_iter(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @pcie_port_bus_type
   br i1 %5, label %6, label %7
@@ -837,8 +837,8 @@ define internal noundef i32 @pcie_portdrv_slot_reset(ptr noundef %0) #0 align 16
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   store i64 64, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = call i32 @device_for_each_child(ptr noundef %3, ptr noundef nonnull %2, ptr noundef nonnull @pcie_port_device_iter) #13
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = call i32 @device_for_each_child(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull @pcie_port_device_iter) #13
   call void @pci_restore_state(ptr noundef %0) #13
   %5 = call i32 @pci_save_state(ptr noundef %0) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
@@ -848,13 +848,13 @@ define internal noundef i32 @pcie_portdrv_slot_reset(ptr noundef %0) #0 align 16
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pcie_port_device_iter(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @pcie_port_bus_type
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %19, label %11

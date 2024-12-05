@@ -12,19 +12,19 @@ define i32 @file_munmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @nxsched_self() #2
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 16
   %6 = tail call ptr @nxsched_self() #2
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 16
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %2
   %10 = tail call ptr @nxsched_self() #2
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 944
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 944
   br label %14
 
 14:                                               ; preds = %2, %9
@@ -40,7 +40,7 @@ define internal fastcc i32 @file_munmap_(ptr noundef %0, i64 noundef %1) unnamed
 
 .preheader:                                       ; preds = %18, %25
   %.015 = phi ptr [ %26, %25 ], [ %19, %18 ]
-  %21 = getelementptr inbounds i8, ptr %.015, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.015, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %5, ptr noundef nonnull %.015, ptr noundef %0, i64 noundef %1) #2
   %24 = icmp eq i32 %23, 0

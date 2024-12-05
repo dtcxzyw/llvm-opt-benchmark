@@ -56,11 +56,11 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @throw_new_debugger_exception(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %10, null
@@ -68,7 +68,7 @@ define hidden void @throw_new_debugger_exception(ptr noundef %0, ptr noundef %1)
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %6, ptr noundef %1)
   br label %16
@@ -81,7 +81,7 @@ define hidden void @throw_new_debugger_exception(ptr noundef %0, ptr noundef %1)
 define hidden noundef ptr @get_proc_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %3)
   %8 = inttoptr i64 %7 to ptr
@@ -97,11 +97,11 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
   br i1 %5, label %20, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i = icmp eq ptr %14, null
@@ -109,18 +109,18 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull @.str.2)
   br label %throw_new_debugger_exception.exit
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %6, i64 752
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   store ptr %23, ptr @_ZL18p_ps_prochandle_ID, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %27, null
@@ -128,12 +128,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 752
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 752
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   store ptr %32, ptr @_ZL13threadList_ID, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not24 = icmp eq ptr %36, null
@@ -141,12 +141,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 37:                                               ; preds = %28
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 752
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 752
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6)
   store ptr %41, ptr @_ZL17loadObjectList_ID, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not25 = icmp eq ptr %45, null
@@ -154,12 +154,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 264
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   store ptr %50, ptr @_ZL22createClosestSymbol_ID, align 8
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 120
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not26 = icmp eq ptr %54, null
@@ -167,12 +167,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 55:                                               ; preds = %46
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 264
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
   store ptr %59, ptr @_ZL19createLoadObject_ID, align 8
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not27 = icmp eq ptr %63, null
@@ -180,12 +180,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 264
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13)
   store ptr %68, ptr @_ZL23getThreadForThreadId_ID, align 8
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 120
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 120
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not28 = icmp eq ptr %72, null
@@ -193,11 +193,11 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 73:                                               ; preds = %64
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.14)
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not29 = icmp eq ptr %81, null
@@ -205,12 +205,12 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_init0(ptr no
 
 82:                                               ; preds = %73
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 264
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 264
   %85 = load ptr, ptr %84, align 8
   %86 = tail call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %77, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   store ptr %86, ptr @_ZL10listAdd_ID, align 8
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 120
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %throw_new_debugger_exception.exit
@@ -238,11 +238,11 @@ define hidden void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr nocapture 
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i = icmp eq ptr %14, null
@@ -250,7 +250,7 @@ define hidden void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr nocapture 
 
 15:                                               ; preds = %6
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull @.str.17)
   br label %throw_new_debugger_exception.exit
@@ -264,11 +264,11 @@ define hidden void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr nocapture 
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i8 = icmp eq ptr %32, null
@@ -276,24 +276,24 @@ define hidden void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr nocapture 
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %28, ptr noundef nonnull @.str.18)
   br label %throw_new_debugger_exception.exit
 
 38:                                               ; preds = %20
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %40 = load i8, ptr %39, align 4
   %.not7 = icmp eq i8 %40, 2
   br i1 %.not7, label %throw_new_debugger_exception.exit, label %41
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i10 = icmp eq ptr %49, null
@@ -301,7 +301,7 @@ define hidden void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr nocapture 
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, ptr noundef nonnull @.str.19)
   br label %throw_new_debugger_exception.exit
@@ -330,7 +330,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_setSAAltRoot
 
 6:                                                ; preds = %5, %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1352
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null)
   %11 = icmp eq ptr %10, null
@@ -345,7 +345,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_setSAAltRoot
   %17 = load ptr, ptr @_ZL9saaltroot, align 8
   %18 = tail call i32 @putenv(ptr noundef %17) #14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1360
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1360
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull %10)
   br label %22
@@ -377,7 +377,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.22, i32 noundef %2) #14
   call void @_Z13verifyBitnessP7JNIEnv_PKc(ptr noundef %0, ptr noundef nonnull %4)
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %11, null
@@ -391,11 +391,11 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
 15:                                               ; preds = %12
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 230, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #14
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i = icmp eq ptr %24, null
@@ -403,7 +403,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %20, ptr noundef nonnull %6)
   br label %throw_new_debugger_exception.exit
@@ -412,7 +412,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
   %31 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %32 = ptrtoint ptr %13 to i64
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 880
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 880
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %31, i64 noundef %32)
   call fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13)
@@ -439,7 +439,7 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   %10 = sext i32 %8 to i64
   %11 = tail call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %9, i64 noundef %10)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not51 = icmp eq ptr %15, null
@@ -448,11 +448,11 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr @_ZL13threadList_ID, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 760
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 760
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %17)
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not52 = icmp eq ptr %25, null
@@ -462,7 +462,7 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   %27 = load ptr, ptr @_ZL10listAdd_ID, align 8
   %28 = tail call noundef zeroext i8 (ptr, ptr, ptr, ...) @_ZN7JNIEnv_17CallBooleanMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef %27, ptr noundef %11)
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not53 = icmp eq ptr %32, null
@@ -470,11 +470,11 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11)
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21)
   %40 = add nuw nsw i32 %.055, 1
@@ -491,11 +491,11 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   call void @get_lib_addr_range(ptr noundef nonnull %2, i32 noundef %.156, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %43 = call ptr @get_lib_name(ptr noundef nonnull %2, i32 noundef %.156)
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1336
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1336
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %43)
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %51, null
@@ -507,7 +507,7 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   %55 = load i64, ptr %4, align 8
   %56 = call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %53, ptr noundef %47, i64 noundef %54, i64 noundef %55)
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not48 = icmp eq ptr %60, null
@@ -516,11 +516,11 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
 61:                                               ; preds = %52
   %62 = load ptr, ptr @_ZL17loadObjectList_ID, align 8
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 760
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 760
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %62)
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not49 = icmp eq ptr %70, null
@@ -530,7 +530,7 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   %72 = load ptr, ptr @_ZL10listAdd_ID, align 8
   %73 = call noundef zeroext i8 (ptr, ptr, ptr, ...) @_ZN7JNIEnv_17CallBooleanMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66, ptr noundef %72, ptr noundef %56)
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not50 = icmp eq ptr %77, null
@@ -538,15 +538,15 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
 
 78:                                               ; preds = %71
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 184
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %47)
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 184
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %56)
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 184
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %66)
   %88 = add nuw nsw i32 %.156, 1
@@ -562,24 +562,24 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__Lja
   %5 = alloca %class.AutoJavaString, align 8
   %6 = alloca %class.AutoJavaString, align 8
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %7, align 8
   %8 = icmp eq ptr %2, null
   br i1 %8, label %_ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1352
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1352
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null)
   br label %_ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit
 
 _ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit:   ; preds = %4, %9
   %14 = phi ptr [ %13, %9 ], [ null, %4 ]
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN7JNIEnv_17ExceptionOccurredEv.exit unwind label %20
@@ -595,24 +595,24 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit:            ; preds = %_ZN14AutoJavaString
 
 22:                                               ; preds = %_ZN7JNIEnv_17ExceptionOccurredEv.exit
   store ptr %0, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %23, align 8
   %24 = icmp eq ptr %3, null
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1352
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1352
   %28 = load ptr, ptr %27, align 8
   %29 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null)
           to label %30 unwind label %20
 
 30:                                               ; preds = %22, %25
   %31 = phi ptr [ null, %22 ], [ %29, %25 ]
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN7JNIEnv_17ExceptionOccurredEv.exit23 unwind label %37
@@ -633,7 +633,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit23:          ; preds = %30
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN7JNIEnv_17ExceptionOccurredEv.exit25 unwind label %37
@@ -658,7 +658,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit25:          ; preds = %40
   %51 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %52 = ptrtoint ptr %46 to i64
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 880
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 880
   %55 = load ptr, ptr %54, align 8
   invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %51, i64 noundef %52)
           to label %_ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit unwind label %37
@@ -673,7 +673,7 @@ _ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit: ; preds = %50
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1360
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1360
   %60 = load ptr, ptr %59, align 8
   invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %31)
           to label %_ZN14AutoJavaStringD2Ev.exit unwind label %61
@@ -691,7 +691,7 @@ _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %57, %56, %_ZN7JNIEn
 
 64:                                               ; preds = %_ZN14AutoJavaStringD2Ev.exit
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1360
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1360
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull %14)
           to label %_ZN14AutoJavaStringD2Ev.exit28 unwind label %68
@@ -718,17 +718,17 @@ declare ptr @Pgrab_core(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AutoJavaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1360
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1360
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, ptr noundef nonnull %3)
           to label %_ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit unwind label %11
@@ -748,7 +748,7 @@ _ZN7JNIEnv_21ReleaseStringUTFCharsEP8_jstringPKc.exit: ; preds = %4, %1
 define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_detach0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %3)
   %.not = icmp eq i64 %7, 0
@@ -781,29 +781,29 @@ define i64 @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_lookupByName0
   %6 = alloca %class.AutoJavaString, align 8
   %7 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 808
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 808
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %7)
   %12 = inttoptr i64 %11 to ptr
   store ptr %0, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %13, align 8
   %14 = icmp eq ptr %2, null
   br i1 %14, label %_ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit, label %15
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1352
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1352
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null)
   br label %_ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit
 
 _ZN14AutoJavaStringC2EP7JNIEnv_P8_jstring.exit:   ; preds = %4, %15
   %20 = phi ptr [ %19, %15 ], [ null, %4 ]
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN7JNIEnv_17ExceptionOccurredEv.exit unwind label %26
@@ -819,24 +819,24 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit:            ; preds = %_ZN14AutoJavaString
 
 28:                                               ; preds = %_ZN7JNIEnv_17ExceptionOccurredEv.exit
   store ptr %0, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %29, align 8
   %30 = icmp eq ptr %3, null
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1352
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1352
   %34 = load ptr, ptr %33, align 8
   %35 = invoke noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null)
           to label %36 unwind label %26
 
 36:                                               ; preds = %28, %31
   %37 = phi ptr [ null, %28 ], [ %35, %31 ]
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN7JNIEnv_17ExceptionOccurredEv.exit18 unwind label %43
@@ -862,7 +862,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit18:          ; preds = %36
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1360
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1360
   %51 = load ptr, ptr %50, align 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef nonnull %37)
           to label %_ZN14AutoJavaStringD2Ev.exit unwind label %52
@@ -881,7 +881,7 @@ _ZN14AutoJavaStringD2Ev.exit:                     ; preds = %48, %47, %_ZN7JNIEn
 
 55:                                               ; preds = %_ZN14AutoJavaStringD2Ev.exit
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1360
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1360
   %58 = load ptr, ptr %57, align 8
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull %20)
           to label %_ZN14AutoJavaStringD2Ev.exit20 unwind label %59
@@ -909,7 +909,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_looku
   %4 = alloca i64, align 8
   %5 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %5)
   %10 = inttoptr i64 %9 to ptr
@@ -919,11 +919,11 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_looku
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1336
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1336
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %11)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %21, null
@@ -934,7 +934,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_looku
   %24 = load i64, ptr %4, align 8
   %25 = call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %23, ptr noundef %17, i64 noundef %24)
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not14 = icmp eq ptr %29, null
@@ -953,7 +953,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_16CallObjectMethodEP8_jobject
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef ptr %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -965,11 +965,11 @@ define ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_readBytesFrom
   %5 = alloca i8, align 1
   %6 = trunc i64 %3 to i32
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %6)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %14, null
@@ -977,11 +977,11 @@ define ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_readBytesFrom
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1472
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1472
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull %5)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not16 = icmp eq ptr %23, null
@@ -990,14 +990,14 @@ define ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_readBytesFrom
 24:                                               ; preds = %15
   %25 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 808
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 808
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %25)
   %30 = inttoptr i64 %29 to ptr
   %31 = inttoptr i64 %2 to ptr
   %32 = call i32 @ps_pdread(ptr noundef %30, ptr noundef %31, ptr noundef %19, i64 noundef %3)
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1536
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1536
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef %19, i32 noundef 0)
   %36 = icmp eq i32 %32, 0
@@ -1017,7 +1017,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
   %5 = alloca i8, align 1
   %6 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %6)
   %11 = inttoptr i64 %10 to ptr
@@ -1033,11 +1033,11 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1440
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1440
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 28)
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq ptr %26, null
@@ -1045,109 +1045,109 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_getTh
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1504
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1504
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %22, ptr noundef nonnull %5)
   %32 = load i64, ptr %4, align 8
   store i64 %32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %31, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %31, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %31, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %31, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %31, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %31, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %31, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 112
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %31, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %31, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %31, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %31, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i64 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %31, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 136
   store i64 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %31, i64 144
+  %80 = getelementptr inbounds nuw i8, ptr %31, i64 144
   store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %4, i64 152
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %31, i64 160
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 160
   store i64 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %4, i64 160
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %31, i64 168
+  %86 = getelementptr inbounds nuw i8, ptr %31, i64 168
   store i64 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %4, i64 168
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %31, i64 208
+  %89 = getelementptr inbounds nuw i8, ptr %31, i64 208
   store i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 176
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %31, i64 216
+  %92 = getelementptr inbounds nuw i8, ptr %31, i64 216
   store i64 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %4, i64 184
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %31, i64 200
+  %95 = getelementptr inbounds nuw i8, ptr %31, i64 200
   store i64 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %4, i64 192
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %31, i64 192
+  %98 = getelementptr inbounds nuw i8, ptr %31, i64 192
   store i64 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %4, i64 200
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %31, i64 176
+  %101 = getelementptr inbounds nuw i8, ptr %31, i64 176
   store i64 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 208
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %31, i64 184
+  %104 = getelementptr inbounds nuw i8, ptr %31, i64 184
   store i64 %103, ptr %104, align 8
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1568
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1568
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %22, ptr noundef nonnull %31, i32 noundef 0)
   br label %108
@@ -1169,7 +1169,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
 define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_demangle(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1352
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null)
   %9 = icmp eq ptr %8, null
@@ -1177,11 +1177,11 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i = icmp eq ptr %18, null
@@ -1189,7 +1189,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, ptr noundef nonnull @.str.26)
   br label %throw_new_debugger_exception.exit
@@ -1197,7 +1197,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 24:                                               ; preds = %3
   %25 = call ptr @__cxa_demangle(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1360
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1360
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef nonnull %8)
   %29 = icmp ne ptr %25, null
@@ -1208,7 +1208,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %25)
   call void @free(ptr noundef nonnull %25) #14
@@ -1220,11 +1220,11 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not.i20 = icmp eq ptr %47, null
@@ -1232,7 +1232,7 @@ define noundef ptr @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_deman
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %43, ptr noundef nonnull @.str.27)
   br label %throw_new_debugger_exception.exit
@@ -1248,7 +1248,7 @@ declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define i64 @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_findLibPtrByAddress0(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @_ZL18p_ps_prochandle_ID, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %4)
   %9 = inttoptr i64 %8 to ptr
@@ -1268,7 +1268,7 @@ define linkonce_odr hidden noundef zeroext i8 @_ZN7JNIEnv_17CallBooleanMethodEP8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef zeroext i8 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)

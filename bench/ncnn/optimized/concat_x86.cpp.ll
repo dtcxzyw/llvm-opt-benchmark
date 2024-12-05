@@ -314,7 +314,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %185, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load ptr, ptr %189, align 8
   invoke void %190(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef %186)
           to label %853 unwind label %192
@@ -381,9 +381,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
   %223 = load i64, ptr %218, align 8
   %224 = mul i64 %222, %223
   %225 = getelementptr inbounds i8, ptr %219, i64 %224
-  %226 = getelementptr inbounds float, ptr %.29131391.us, i64 %200
-  %227 = getelementptr inbounds float, ptr %.29131391.us, i64 %202
-  %228 = getelementptr inbounds float, ptr %.29131391.us, i64 %204
+  %226 = getelementptr inbounds nuw float, ptr %.29131391.us, i64 %200
+  %227 = getelementptr inbounds nuw float, ptr %.29131391.us, i64 %202
+  %228 = getelementptr inbounds nuw float, ptr %.29131391.us, i64 %204
   br label %229
 
 229:                                              ; preds = %.lr.ph1388.us, %229
@@ -394,27 +394,27 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
   %.09211382.us = phi ptr [ %228, %.lr.ph1388.us ], [ %240, %229 ]
   %.09291381.us = phi i32 [ 0, %.lr.ph1388.us ], [ %242, %229 ]
   %230 = load float, ptr %.09171386.us, align 4
-  %231 = getelementptr inbounds i8, ptr %.09181385.us, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %.09181385.us, i64 4
   store float %230, ptr %.09181385.us, align 4
-  %232 = getelementptr inbounds i8, ptr %.09171386.us, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %.09171386.us, i64 4
   %233 = load float, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %.09191384.us, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %.09191384.us, i64 4
   store float %233, ptr %.09191384.us, align 4
-  %235 = getelementptr inbounds i8, ptr %.09171386.us, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %.09171386.us, i64 8
   %236 = load float, ptr %235, align 4
-  %237 = getelementptr inbounds i8, ptr %.09201383.us, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %.09201383.us, i64 4
   store float %236, ptr %.09201383.us, align 4
-  %238 = getelementptr inbounds i8, ptr %.09171386.us, i64 12
+  %238 = getelementptr inbounds nuw i8, ptr %.09171386.us, i64 12
   %239 = load float, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %.09211382.us, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %.09211382.us, i64 4
   store float %239, ptr %.09211382.us, align 4
-  %241 = getelementptr inbounds i8, ptr %.09171386.us, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %.09171386.us, i64 16
   %242 = add nuw nsw i32 %.09291381.us, 1
   %exitcond1524.not = icmp eq i32 %242, %89
   br i1 %exitcond1524.not, label %._crit_edge1389.us, label %229, !llvm.loop !8
 
 ._crit_edge1389.us:                               ; preds = %229
-  %243 = getelementptr inbounds float, ptr %.29131391.us, i64 %207
+  %243 = getelementptr inbounds nuw float, ptr %.29131391.us, i64 %207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %244 = load i32, ptr %214, align 8
   %245 = sext i32 %244 to i64
@@ -494,7 +494,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
 
 284:                                              ; preds = %281
   %285 = load ptr, ptr %282, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 24
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   %287 = load ptr, ptr %286, align 8
   invoke void %287(ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef %283)
           to label %290 unwind label %291
@@ -888,21 +888,21 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
   %.09261423.us = phi ptr [ %505, %.lr.ph1429.us ], [ %517, %515 ]
   %.09271422.us = phi ptr [ %499, %.lr.ph1429.us ], [ %527, %515 ]
   %516 = load float, ptr %.09271422.us, align 4
-  %517 = getelementptr inbounds i8, ptr %.09261423.us, i64 4
+  %517 = getelementptr inbounds nuw i8, ptr %.09261423.us, i64 4
   store float %516, ptr %.09261423.us, align 4
-  %518 = getelementptr inbounds i8, ptr %.09271422.us, i64 4
+  %518 = getelementptr inbounds nuw i8, ptr %.09271422.us, i64 4
   %519 = load float, ptr %518, align 4
-  %520 = getelementptr inbounds i8, ptr %.09251424.us, i64 4
+  %520 = getelementptr inbounds nuw i8, ptr %.09251424.us, i64 4
   store float %519, ptr %.09251424.us, align 4
-  %521 = getelementptr inbounds i8, ptr %.09271422.us, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %.09271422.us, i64 8
   %522 = load float, ptr %521, align 4
-  %523 = getelementptr inbounds i8, ptr %.09241425.us, i64 4
+  %523 = getelementptr inbounds nuw i8, ptr %.09241425.us, i64 4
   store float %522, ptr %.09241425.us, align 4
-  %524 = getelementptr inbounds i8, ptr %.09271422.us, i64 12
+  %524 = getelementptr inbounds nuw i8, ptr %.09271422.us, i64 12
   %525 = load float, ptr %524, align 4
-  %526 = getelementptr inbounds i8, ptr %.09231426.us, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %.09231426.us, i64 4
   store float %525, ptr %.09231426.us, align 4
-  %527 = getelementptr inbounds i8, ptr %.09271422.us, i64 16
+  %527 = getelementptr inbounds nuw i8, ptr %.09271422.us, i64 16
   %528 = add nuw nsw i32 %.09221427.us, 1
   %exitcond1535.not = icmp eq i32 %528, %486
   br i1 %exitcond1535.not, label %._crit_edge1430.us, label %515, !llvm.loop !15
@@ -993,7 +993,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
 
 575:                                              ; preds = %572
   %576 = load ptr, ptr %573, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 24
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 24
   %578 = load ptr, ptr %577, align 8
   invoke void %578(ptr noundef nonnull align 8 dereferenceable(8) %573, ptr noundef %574)
           to label %581 unwind label %582
@@ -1032,7 +1032,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10Concat_x867forwardERKSt
 
 591:                                              ; preds = %588
   %592 = load ptr, ptr %589, align 8
-  %593 = getelementptr inbounds i8, ptr %592, i64 24
+  %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
   %594 = load ptr, ptr %593, align 8
   invoke void %594(ptr noundef nonnull align 8 dereferenceable(8) %589, ptr noundef %590)
           to label %853 unwind label %596

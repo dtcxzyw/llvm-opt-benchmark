@@ -23,9 +23,9 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not85, label %._crit_edge91.thread, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %11
 
 11:                                               ; preds = %.lr.ph90, %._crit_edge
@@ -45,12 +45,12 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   %15 = icmp eq i32 %14, 2
   %.idx = select i1 %15, i64 0, i64 -64
   %16 = getelementptr inbounds i8, ptr %.05283, i64 %.idx
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %.088, %18
-  %20 = getelementptr inbounds i8, ptr %.05283, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.05283, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load i16, ptr %22, align 8
   %.not65 = icmp eq i16 %23, 0
   br i1 %19, label %24, label %29
@@ -60,7 +60,7 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 360
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 360
   %28 = load i32, ptr %27, align 8
   tail call void @makeSelfArcs(ptr noundef nonnull %.05283, i32 noundef %28) #14
   br label %.thread
@@ -74,31 +74,31 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %31 = icmp eq i32 %14, 3
   %.idx39.i = select i1 %31, i64 0, i64 64
-  %32 = getelementptr inbounds i8, ptr %.05283, i64 %.idx39.i
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %.05283, i64 %.idx39.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load ptr, ptr %33, align 8, !noalias !4
-  %35 = getelementptr inbounds i8, ptr %18, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %36 = load ptr, ptr %35, align 8, !noalias !4
-  %37 = getelementptr inbounds i8, ptr %36, i64 336
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 336
   %38 = load ptr, ptr %37, align 8, !noalias !4
   store ptr %38, ptr %4, align 8, !noalias !4
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %40, i64 336
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 336
   %42 = load ptr, ptr %41, align 8, !noalias !4
   store ptr %42, ptr %5, align 8, !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !4
-  %43 = getelementptr inbounds i8, ptr %36, i64 162
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 162
   %44 = load i8, ptr %43, align 2, !noalias !4
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %30
-  %47 = getelementptr inbounds i8, ptr %38, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %48 = load ptr, ptr %47, align 8, !noalias !4
-  %49 = getelementptr inbounds i8, ptr %48, i64 160
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 160
   %50 = load ptr, ptr %49, align 8, !noalias !4
-  %51 = getelementptr inbounds i8, ptr %50, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8, !noalias !4
   store ptr %52, ptr %4, align 8, !noalias !4
   br label %53
@@ -106,17 +106,17 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
 53:                                               ; preds = %46, %30
   %.0..0.53.i = phi ptr [ %52, %46 ], [ %38, %30 ]
   %.030.i = phi ptr [ %38, %46 ], [ %18, %30 ]
-  %54 = getelementptr inbounds i8, ptr %40, i64 162
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 162
   %55 = load i8, ptr %54, align 2, !noalias !4
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %42, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %59 = load ptr, ptr %58, align 8, !noalias !4
-  %60 = getelementptr inbounds i8, ptr %59, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 160
   %61 = load ptr, ptr %60, align 8, !noalias !4
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %63 = load ptr, ptr %62, align 8, !noalias !4
   store ptr %63, ptr %5, align 8, !noalias !4
   br label %64
@@ -124,17 +124,17 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
 64:                                               ; preds = %57, %53
   %.0..0.47.i = phi ptr [ %63, %57 ], [ %42, %53 ]
   %.0.i = phi ptr [ %42, %57 ], [ %34, %53 ]
-  %65 = getelementptr inbounds i8, ptr %.0..0.53.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0..0.53.i, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !4
-  %67 = getelementptr inbounds i8, ptr %66, i64 160
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 160
   %68 = load ptr, ptr %67, align 8, !noalias !4
-  %69 = getelementptr inbounds i8, ptr %68, i64 52
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 52
   %70 = load i32, ptr %69, align 4, !noalias !4
-  %71 = getelementptr inbounds i8, ptr %.0..0.47.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0..0.47.i, i64 16
   %72 = load ptr, ptr %71, align 8, !noalias !4
-  %73 = getelementptr inbounds i8, ptr %72, i64 160
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 160
   %74 = load ptr, ptr %73, align 8, !noalias !4
-  %75 = getelementptr inbounds i8, ptr %74, i64 52
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 52
   %76 = load i32, ptr %75, align 4, !noalias !4
   %77 = icmp sgt i32 %70, %76
   br i1 %77, label %.lr.ph.i.i, label %86
@@ -145,11 +145,11 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
   %.01314.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.030.i, %64 ]
   %.012.i.i = load ptr, ptr %.012.in15.i.i, align 8, !noalias !4
   call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i.i, ptr noundef nonnull %.01314.i.i, ptr noundef null, ptr noundef %1)
-  %78 = getelementptr inbounds i8, ptr %.012.i.i, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %79 = load ptr, ptr %78, align 8, !noalias !4
-  %80 = getelementptr inbounds i8, ptr %79, i64 160
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 160
   %81 = load ptr, ptr %80, align 8, !noalias !4
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = add nsw i32 %.016.i.i, -1
   %84 = icmp sgt i32 %83, %76
   br i1 %84, label %.lr.ph.i.i, label %raiseLevel.exit.i
@@ -168,11 +168,11 @@ raiseLevel.exit.i:                                ; preds = %.lr.ph.i.i
   %.01314.i44.i = phi ptr [ %.012.i45.i, %.lr.ph.i41.i ], [ %.0.i, %86 ]
   %.012.i45.i = load ptr, ptr %.012.in15.i43.i, align 8, !noalias !4
   call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.012.i45.i, ptr noundef nonnull %.01314.i44.i, ptr noundef null, ptr noundef %1)
-  %88 = getelementptr inbounds i8, ptr %.012.i45.i, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.012.i45.i, i64 16
   %89 = load ptr, ptr %88, align 8, !noalias !4
-  %90 = getelementptr inbounds i8, ptr %89, i64 160
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 160
   %91 = load ptr, ptr %90, align 8, !noalias !4
-  %92 = getelementptr inbounds i8, ptr %91, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %93 = add nsw i32 %.016.i42.i, -1
   %94 = icmp sgt i32 %93, %70
   br i1 %94, label %.lr.ph.i41.i, label %raiseLevel.exit46.i
@@ -196,17 +196,17 @@ raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   %98 = phi ptr [ %110, %.lr.ph.i ], [ %.0..promoted57.i, %96 ]
   call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %97, ptr noundef null, ptr noundef %.23260.i, ptr noundef %1)
   call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %98, ptr noundef %.261.i, ptr noundef null, ptr noundef %1)
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load ptr, ptr %99, align 8, !noalias !4
-  %101 = getelementptr inbounds i8, ptr %100, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 160
   %102 = load ptr, ptr %101, align 8, !noalias !4
-  %103 = getelementptr inbounds i8, ptr %102, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %104 = load ptr, ptr %103, align 8, !noalias !4
-  %105 = getelementptr inbounds i8, ptr %98, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %106 = load ptr, ptr %105, align 8, !noalias !4
-  %107 = getelementptr inbounds i8, ptr %106, i64 160
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 160
   %108 = load ptr, ptr %107, align 8, !noalias !4
-  %109 = getelementptr inbounds i8, ptr %108, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %110 = load ptr, ptr %109, align 8, !noalias !4
   %.not.i = icmp eq ptr %104, %110
   br i1 %.not.i, label %objectList.exit, label %.lr.ph.i
@@ -282,18 +282,18 @@ objectList.exit:                                  ; preds = %.lr.ph.i, %96
 
 .preheader:                                       ; preds = %113, %.preheader
   %.05379 = phi ptr [ %149, %.preheader ], [ %.05283, %113 ]
-  %141 = getelementptr inbounds i8, ptr %.05379, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.05379, i64 16
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 192
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 192
   %144 = tail call { ptr, i32 } @getPath(ptr noundef nonnull %.05379, ptr noundef nonnull %114, i1 noundef zeroext false) #14
   %145 = extractvalue { ptr, i32 } %144, 0
   %146 = extractvalue { ptr, i32 } %144, 1
   store ptr %145, ptr %143, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %142, i64 200
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 200
   store i32 %146, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @makeSpline(ptr noundef nonnull %.05379, ptr noundef %.val, i32 noundef %111, i1 noundef zeroext false) #14
   %147 = load ptr, ptr %141, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 232
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 232
   %149 = load ptr, ptr %148, align 8
   %.not69 = icmp eq ptr %149, null
   br i1 %.not69, label %150, label %.preheader
@@ -366,23 +366,23 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef nonnull %0, ptr 
   br i1 %.not34, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %24, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 236
   %10 = load i32, ptr %9, align 4
   %.not2736 = icmp slt i32 %10, 1
   br i1 %.not2736, label %._crit_edge, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %26
 
 .lr.ph:                                           ; preds = %5, %24
   %.02535 = phi ptr [ %25, %24 ], [ %6, %5 ]
-  %13 = getelementptr inbounds i8, ptr %.02535, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.02535, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 336
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, %1
   %.not30 = icmp eq ptr %.02535, %2
@@ -392,7 +392,7 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef nonnull %0, ptr 
   br i1 %or.cond32, label %24, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %14, i64 162
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 162
   %20 = load i8, ptr %19, align 2
   %21 = trunc i8 %20 to i1
   br i1 %21, label %24, label %22
@@ -410,9 +410,9 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef nonnull %0, ptr 
 26:                                               ; preds = %.lr.ph38, %82
   %27 = phi ptr [ %8, %.lr.ph38 ], [ %83, %82 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph38 ], [ %indvars.iv.next, %82 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 240
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not28 = icmp eq ptr %31, %2
   %.not29 = icmp eq ptr %31, %3
@@ -431,17 +431,17 @@ define internal fastcc void @addGraphObjs(ptr nocapture noundef nonnull %0, ptr 
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %31, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %.sroa.011.0.copyload.i = load double, ptr %40, align 8
-  %.sroa.414.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 40
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 40
   %.sroa.414.0.copyload.i = load double, ptr %.sroa.414.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 48
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 48
   %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 56
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 56
   %.sroa.10.0.copyload.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8
-  %41 = getelementptr inbounds i8, ptr %33, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 4, ptr %41, align 8
   %42 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #15
   %43 = icmp eq ptr %42, null
@@ -495,19 +495,19 @@ makeClustObs.exit:                                ; preds = %49, %58
   %.sroa.8.0.i = phi double [ %52, %49 ], [ %69, %58 ]
   %.sroa.12.0.i = phi double [ %55, %49 ], [ %72, %58 ]
   store double %.sroa.06.0.i, ptr %42, align 8
-  %75 = getelementptr inbounds i8, ptr %42, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store double %.sroa.4.0.i, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %42, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store double %.sroa.06.0.i, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %42, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store double %.sroa.12.0.i, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %42, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store double %.sroa.8.0.i, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %42, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store double %.sroa.12.0.i, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %42, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store double %.sroa.8.0.i, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %42, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store double %.sroa.4.0.i, ptr %81, align 8
   tail call fastcc void @objlist_append(ptr noundef %0, ptr noundef nonnull %33)
   %.pre = load ptr, ptr %7, align 8
@@ -516,7 +516,7 @@ makeClustObs.exit:                                ; preds = %49, %58
 82:                                               ; preds = %26, %makeClustObs.exit
   %83 = phi ptr [ %27, %26 ], [ %.pre, %makeClustObs.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds i8, ptr %83, i64 236
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 236
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %.not27.not = icmp slt i64 %indvars.iv, %86
@@ -528,9 +528,9 @@ makeClustObs.exit:                                ; preds = %49, %58
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @objlist_append(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i

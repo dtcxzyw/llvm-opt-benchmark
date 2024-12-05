@@ -149,7 +149,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 768
   %or.cond = icmp eq i32 %10, 0

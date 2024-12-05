@@ -25,16 +25,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_csum_partial
 define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.xdr_skb_reader, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !6
   store ptr %1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %11 = load i8, ptr %10, align 8
   %12 = lshr i8 %11, 5
   %13 = and i8 %12, 3
@@ -42,7 +42,7 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture no
   br i1 %14, label %78, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 129
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %17 = load i24, ptr %16, align 1
   %18 = and i24 %17, 32768
   %19 = icmp eq i24 %18, 0
@@ -53,17 +53,17 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture no
   br i1 %21, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %36
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
@@ -75,10 +75,10 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture no
 
 36:                                               ; preds = %._crit_edge, %22
   %37 = phi ptr [ %.pre, %._crit_edge ], [ %27, %22 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %39 = load i32, ptr %38, align 8
   %40 = tail call i32 @csum_partial(ptr noundef %37, i32 noundef 0, i32 noundef %39) #9
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %40, ptr %41, align 8
   %42 = call fastcc i64 @xdr_partial_copy_from_skb(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @xdr_skb_read_and_csum_bits)
   %43 = icmp slt i64 %42, 0
@@ -129,7 +129,7 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture no
   br i1 %74, label %75, label %85
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %77 = load ptr, ptr %76, align 8
   call void @netdev_rx_csum_fault(ptr noundef %77, ptr noundef %1) #9
   br label %85
@@ -162,11 +162,11 @@ declare dso_local i32 @csum_partial(ptr noundef, i32 noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = icmp eq i64 %10, 0
@@ -179,7 +179,7 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.thread, label %20
@@ -189,14 +189,14 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
   br i1 %21, label %.loopexit, label %22, !prof !9
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = lshr i32 %24, 12
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr ptr, ptr %5, i64 %26
   %28 = and i32 %24, 4095
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %31
 
 31:                                               ; preds = %86, %22
@@ -229,7 +229,7 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %48 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !13
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 2628
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2628
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -295,14 +295,14 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
 
 .loopexit:                                        ; preds = %86, %20
   %90 = phi i64 [ %10, %20 ], [ %82, %86 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, 4294967295
   %.not9 = icmp eq i64 %93, 0
   br i1 %.not9, label %.thread, label %94
 
 94:                                               ; preds = %.loopexit
-  %95 = getelementptr inbounds i8, ptr %0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 %2(ptr noundef %1, ptr noundef %96, i64 noundef %93) #9, !callees !10
   %98 = add i64 %97, %90
@@ -315,15 +315,15 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @xdr_skb_read_and_csum_bits(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = trunc i64 %6 to i32
   %11 = tail call i32 @skb_copy_and_csum_bits(ptr noundef %9, i32 noundef %8, ptr noundef %1, i32 noundef %10) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %8, 1
   %15 = icmp eq i32 %14, 0
@@ -351,11 +351,11 @@ declare dso_local void @netdev_rx_csum_fault(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @xdr_skb_read_bits(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = trunc i64 %6 to i32
   %11 = tail call i32 @skb_copy_bits(ptr noundef %7, i32 noundef %9, ptr noundef %1, i32 noundef %10) #9
@@ -382,7 +382,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   %8 = alloca [2 x %struct.kvec], align 16
   %9 = icmp eq i32 %4, 0
   %10 = select i1 %9, i32 0, i32 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 %10, %3
   %14 = add i32 %12, %13
@@ -391,11 +391,11 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br i1 %15, label %118, label %16, !prof !9
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %1, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 32768
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   %23 = add i32 %10, %22
@@ -421,21 +421,21 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   store i32 %4, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
   store ptr %7, ptr %8, align 16
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(16) %34, ptr noundef align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef align 8 dereferenceable(16) %2, i64 16, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
-  call void @iov_iter_kvec(ptr noundef %38, i32 noundef 1, ptr noundef nonnull %8, i64 noundef 2, i64 noundef %37) #9
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @iov_iter_kvec(ptr noundef nonnull %38, i32 noundef 1, ptr noundef nonnull %8, i64 noundef 2, i64 noundef %37) #9
   %39 = icmp eq i32 %3, 0
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %32
   %41 = zext i32 %3 to i64
-  call void @iov_iter_advance(ptr noundef %38, i64 noundef %41) #9
+  call void @iov_iter_advance(ptr noundef nonnull %38, i64 noundef %41) #9
   br label %42
 
 42:                                               ; preds = %40, %32
@@ -445,15 +445,15 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br label %52
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i64, ptr %20, align 8
-  tail call void @iov_iter_kvec(ptr noundef %45, i32 noundef 1, ptr noundef %2, i64 noundef 1, i64 noundef %46) #9
+  tail call void @iov_iter_kvec(ptr noundef nonnull %45, i32 noundef 1, ptr noundef %2, i64 noundef 1, i64 noundef %46) #9
   %47 = icmp eq i32 %3, 0
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %44
   %49 = zext i32 %3 to i64
-  tail call void @iov_iter_advance(ptr noundef %45, i64 noundef %49) #9
+  tail call void @iov_iter_advance(ptr noundef nonnull %45, i64 noundef %49) #9
   br label %50
 
 50:                                               ; preds = %48, %44
@@ -479,7 +479,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
 60:                                               ; preds = %.thread, %58
   %61 = phi i32 [ %59, %58 ], [ 0, %.thread ]
   %62 = phi i32 [ %14, %58 ], [ %27, %.thread ]
-  %63 = getelementptr inbounds i8, ptr %2, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %64 = load i32, ptr %63, align 4
   %65 = icmp ult i32 %61, %64
   br i1 %65, label %66, label %94
@@ -497,16 +497,16 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
 
 72:                                               ; preds = %69, %66
   %73 = zext i32 %61 to i64
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
-  %75 = getelementptr inbounds i8, ptr %2, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = call i64 @xdr_buf_pagecount(ptr noundef %2) #9
   %78 = load i32, ptr %63, align 4
-  %79 = getelementptr inbounds i8, ptr %2, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %80 = load i32, ptr %79, align 8
   %81 = add i32 %80, %78
   %82 = zext i32 %81 to i64
-  call void @iov_iter_bvec(ptr noundef %74, i32 noundef 1, ptr noundef %76, i64 noundef %77, i64 noundef %82) #9
+  call void @iov_iter_bvec(ptr noundef nonnull %74, i32 noundef 1, ptr noundef %76, i64 noundef %77, i64 noundef %82) #9
   %83 = load i32, ptr %79, align 8
   %84 = zext i32 %83 to i64
   %85 = add nuw nsw i64 %84, %73
@@ -514,7 +514,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %72
-  call void @iov_iter_advance(ptr noundef %74, i64 noundef %85) #9
+  call void @iov_iter_advance(ptr noundef nonnull %74, i64 noundef %85) #9
   br label %88
 
 88:                                               ; preds = %87, %72
@@ -536,24 +536,24 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
 96:                                               ; preds = %.thread15, %94
   %97 = phi i32 [ %95, %94 ], [ 0, %.thread15 ]
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %2, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %100 = load i64, ptr %99, align 8
   %101 = icmp ugt i64 %100, %98
   br i1 %101, label %102, label %118
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %2, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %104 = load i32, ptr %17, align 4
   %105 = and i32 %104, -32769
   store i32 %105, ptr %17, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load i64, ptr %99, align 8
-  call void @iov_iter_kvec(ptr noundef %106, i32 noundef 1, ptr noundef %103, i64 noundef 1, i64 noundef %107) #9
+  call void @iov_iter_kvec(ptr noundef nonnull %106, i32 noundef 1, ptr noundef nonnull %103, i64 noundef 1, i64 noundef %107) #9
   %108 = icmp eq i32 %97, 0
   br i1 %108, label %110, label %109
 
 109:                                              ; preds = %102
-  call void @iov_iter_advance(ptr noundef %106, i64 noundef %98) #9
+  call void @iov_iter_advance(ptr noundef nonnull %106, i64 noundef %98) #9
   br label %110
 
 110:                                              ; preds = %109, %102

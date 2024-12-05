@@ -9,7 +9,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br i1 %.not, label %127, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = icmp ne ptr %1, null
@@ -17,19 +17,19 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br i1 %or.cond, label %8, label %127
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not159 = icmp eq ptr %10, null
   br i1 %.not159, label %127, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not160 = icmp eq ptr %13, null
   br i1 %.not160, label %127, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @cs_calloc(i32 noundef 1, i64 noundef 32) #4
   %18 = shl nsw i32 %16, 1
@@ -60,11 +60,11 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
 33:                                               ; preds = %26
   %34 = sext i32 %16 to i64
   %35 = getelementptr inbounds i32, ptr %19, i64 %34
-  %36 = getelementptr inbounds i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %28, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i32, ptr %21, i64 %34
   %43 = load i32, ptr %42, align 4
@@ -74,11 +74,11 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br i1 %.not162, label %.sink.split, label %45
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = icmp sgt i32 %16, 0
   br i1 %52, label %.lr.ph.preheader, label %._crit_edge183
@@ -93,11 +93,11 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %53 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
   store i32 %54, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -107,12 +107,12 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   %indvars.iv197 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next198, %116 ]
   %57 = trunc nuw nsw i64 %indvars.iv197 to i32
   %58 = tail call i32 @cs_ereach(ptr noundef nonnull %28, i32 noundef %57, ptr noundef %23, ptr noundef nonnull %35, ptr noundef nonnull %19) #4
-  %59 = getelementptr inbounds double, ptr %20, i64 %indvars.iv197
+  %59 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv197
   store double 0.000000e+00, ptr %59, align 8
-  %60 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv197
+  %60 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv197
   %61 = load i32, ptr %60, align 4
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %62 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv.next198
+  %62 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.next198
   %63 = load i32, ptr %62, align 4
   %64 = icmp slt i32 %61, %63
   br i1 %64, label %.lr.ph168.preheader, label %._crit_edge
@@ -229,7 +229,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br i1 %115, label %116, label %.sink.split
 
 116:                                              ; preds = %._crit_edge179
-  %117 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv197
+  %117 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv197
   %118 = load i32, ptr %117, align 4
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %117, align 4

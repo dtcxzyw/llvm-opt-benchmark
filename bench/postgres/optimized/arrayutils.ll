@@ -370,7 +370,7 @@ define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, p
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 2275
   br i1 %.not, label %10, label %6
@@ -384,7 +384,7 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not12 = icmp eq i32 %12, 1
   br i1 %.not12, label %17, label %13

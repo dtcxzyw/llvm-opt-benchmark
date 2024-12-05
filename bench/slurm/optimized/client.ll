@@ -178,21 +178,21 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 168, ptr noundef nonnull @__func__.client_req_init) #11
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   store i32 %0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %6, align 4
   %7 = tail call i32 @slurm_xstrncmp(ptr noundef %1, ptr noundef nonnull @.str.51, i64 noundef 5) #11
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @.str.52, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 10, ptr %11, align 1
   br label %_parse_cmd.exit.thread
 
@@ -210,8 +210,8 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr @pmi_version, align 4
   %24 = icmp ne i32 %23, 1
@@ -221,15 +221,15 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not55.i, label %38, label %27
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 32, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 10, ptr %29, align 1
   br label %30
 
 30:                                               ; preds = %37, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 4, %27 ]
-  %31 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %33 [
     i8 32, label %.critedge.loopexit69.i
@@ -253,9 +253,9 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not58.i, label %.critedge.i, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 59, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 17
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 59, ptr %43, align 1
   %44 = load i8, ptr %21, align 1
   %.not4860.i = icmp eq i8 %44, 59
@@ -274,7 +274,7 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 47:                                               ; preds = %46
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %48 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.next67.i
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.next67.i
   %49 = load i8, ptr %48, align 1
   %.not48.i = icmp eq i8 %49, 59
   br i1 %.not48.i, label %.critedge.loopexit.split.loop.exit.i, label %46, !llvm.loop !8
@@ -299,7 +299,7 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 54:                                               ; preds = %.critedge.i
   %55 = zext nneg i32 %.1.i to i64
-  %56 = getelementptr inbounds i8, ptr %20, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %20, i64 %55
   store i8 0, ptr %56, align 1
   %57 = add nuw nsw i32 %.1.i, 1
   store i32 %57, ptr %6, align 4
@@ -327,9 +327,9 @@ define void @client_req_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %5) #11
   call void @slurm_xfree(ptr noundef nonnull %2) #11
   br label %6
@@ -340,19 +340,19 @@ define void @client_req_free(ptr noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp slt i32 %3, %4
   br i1 %5, label %.lr.ph73, label %.loopexit
 
 .lr.ph73:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 17
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph73, %71
@@ -485,14 +485,14 @@ define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed
   %.pre-phi = phi i32 [ %.pre83, %66 ], [ %62, %60 ]
   %72 = load ptr, ptr %11, align 8
   %73 = zext i32 %.pre-phi to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   store ptr %21, ptr %74, align 8
   %75 = load ptr, ptr %11, align 8
   %76 = load i32, ptr %9, align 4
   %77 = shl i32 %76, 1
   %78 = or disjoint i32 %77, 1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %75, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %75, i64 %79
   store ptr %34, ptr %80, align 8
   %81 = load i32, ptr %9, align 4
   %82 = add i32 %81, 1
@@ -503,20 +503,20 @@ define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed
 
 .loopexit:                                        ; preds = %71, %1, %52, %23
   %.052 = phi i32 [ -1, %23 ], [ -1, %52 ], [ 0, %1 ], [ 0, %71 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 44
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %88 = load i32, ptr %87, align 4
   %89 = shl i32 %88, 1
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr %86, i64 %90
+  %91 = getelementptr inbounds nuw ptr, ptr %86, i64 %90
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %85, align 8
   %93 = load i32, ptr %87, align 4
   %94 = shl i32 %93, 1
   %95 = or disjoint i32 %94, 1
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %92, i64 %96
+  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %96
   store ptr null, ptr %97, align 8
   ret i32 %.052
 }
@@ -525,7 +525,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 
 ; Function Attrs: nounwind uwtable
 define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %5, label %7
@@ -536,7 +536,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 7:                                                ; preds = %1
   %8 = tail call ptr @spawn_req_new() #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @slurm_xstrcmp(ptr noundef %11, ptr noundef nonnull @.str.9) #11
@@ -549,18 +549,18 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @atoi(ptr nocapture noundef %18) #12
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %19, ptr %20, align 8
   %21 = zext i32 %19 to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 280, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %24 = getelementptr inbounds i8, ptr %8, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @slurm_xstrcmp(ptr noundef %27, ptr noundef nonnull @.str.11) #11
   %.not152 = icmp eq i32 %28, 0
@@ -572,10 +572,10 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 31:                                               ; preds = %15
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @atoi(ptr nocapture noundef %34) #12
-  %36 = getelementptr inbounds i8, ptr %8, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %35, ptr %36, align 4
   %37 = load i32, ptr %2, align 4
   %38 = add i32 %37, -2
@@ -594,13 +594,13 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %47 = zext i32 %35 to i64
   %48 = shl nuw nsw i64 %47, 3
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 295, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr %36, align 4
   %52 = zext i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 3
   %54 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %53, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 296, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %55 = getelementptr inbounds i8, ptr %8, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %54, ptr %55, align 8
   %56 = load i32, ptr %36, align 4
   %.not204 = icmp eq i32 %56, 0
@@ -621,7 +621,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 2, %46 ]
   %59 = load ptr, ptr %9, align 8
   %60 = shl nuw nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @slurm_xstrncmp(ptr noundef %62, ptr noundef nonnull @.str.13, i64 noundef 5) #11
   %.not166 = icmp eq i32 %63, 0
@@ -629,9 +629,9 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 64:                                               ; preds = %.lr.ph
   %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %60
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %60
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 5
   %69 = tail call i32 @atoi(ptr nocapture noundef nonnull %68) #12
   %70 = zext i32 %69 to i64
   %.not167 = icmp eq i64 %indvars.iv224, %70
@@ -644,15 +644,15 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 74:                                               ; preds = %64
   %75 = or disjoint i64 %60, 1
-  %76 = getelementptr inbounds ptr, ptr %65, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %65, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @slurm_xstrdup(ptr noundef %77) #11
   %79 = load ptr, ptr %50, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv224
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv224
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %9, align 8
   %82 = or disjoint i64 %60, 2
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @slurm_xstrncmp(ptr noundef %84, ptr noundef nonnull @.str.15, i64 noundef 5) #11
   %.not168 = icmp eq i32 %85, 0
@@ -660,9 +660,9 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 86:                                               ; preds = %74
   %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %82
+  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %82
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 5
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 5
   %91 = tail call i32 @atoi(ptr nocapture noundef nonnull %90) #12
   %92 = zext i32 %91 to i64
   %.not169 = icmp eq i64 %indvars.iv224, %92
@@ -675,11 +675,11 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
 
 96:                                               ; preds = %86
   %97 = or disjoint i64 %60, 3
-  %98 = getelementptr inbounds ptr, ptr %87, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr %87, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = tail call ptr @slurm_xstrdup(ptr noundef %99) #11
   %101 = load ptr, ptr %55, align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv224
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv224
   store ptr %100, ptr %102, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
@@ -693,10 +693,10 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %.1202 = phi i32 [ %.3, %.loopexit ], [ %.0.lcssa, %.preheader ]
   %106 = tail call ptr @spawn_subcmd_new() #11
   %107 = load ptr, ptr %24, align 8
-  %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv243
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv243
   store ptr %106, ptr %108, align 8
   %109 = load ptr, ptr %24, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv243
+  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv243
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %9, align 8
   %113 = shl nsw i32 %.1202, 1
@@ -739,7 +739,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %139 = getelementptr inbounds ptr, ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 @atoi(ptr nocapture noundef %140) #12
-  %142 = getelementptr inbounds i8, ptr %111, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 %141, ptr %142, align 8
   %143 = load ptr, ptr %9, align 8
   %144 = add i32 %113, 4
@@ -761,7 +761,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %155 = getelementptr inbounds ptr, ptr %152, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = tail call i32 @atoi(ptr nocapture noundef %156) #12
-  %158 = getelementptr inbounds i8, ptr %111, i64 12
+  %158 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 %157, ptr %158, align 4
   %159 = add nsw i32 %.1202, 3
   %160 = load i32, ptr %2, align 4
@@ -798,14 +798,14 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %179 = zext i32 %177 to i64
   %180 = shl nuw nsw i64 %179, 3
   %181 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %180, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 357, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %182 = getelementptr inbounds i8, ptr %111, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %181, ptr %182, align 8
   %.pre = load i32, ptr %158, align 4
   %183 = icmp eq i32 %.pre, 0
   br i1 %183, label %._crit_edge, label %.lr.ph194
 
 .lr.ph194:                                        ; preds = %178
-  %184 = getelementptr inbounds i8, ptr %111, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %185 = sext i32 %159 to i64
   br label %186
 
@@ -824,7 +824,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %193 = load ptr, ptr %9, align 8
   %194 = getelementptr inbounds ptr, ptr %193, i64 %188
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = tail call i32 @atoi(ptr nocapture noundef nonnull %196) #12
   %198 = zext i32 %197 to i64
   %.not165 = icmp eq i64 %indvars.iv231, %198
@@ -841,7 +841,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %205 = load ptr, ptr %204, align 8
   %206 = tail call ptr @slurm_xstrdup(ptr noundef %205) #11
   %207 = load ptr, ptr %184, align 8
-  %208 = getelementptr inbounds ptr, ptr %207, i64 %indvars.iv231
+  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv231
   store ptr %206, ptr %208, align 8
   %indvars.iv.next230 = add nsw i64 %indvars.iv229, 1
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
@@ -890,7 +890,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not157, label %233, label %231
 
 231:                                              ; preds = %224
-  %232 = getelementptr inbounds i8, ptr %111, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i32 0, ptr %232, align 8
   br label %.loopexit
 
@@ -901,7 +901,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %237 = getelementptr inbounds ptr, ptr %234, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = tail call i32 @atoi(ptr nocapture noundef %238) #12
-  %240 = getelementptr inbounds i8, ptr %111, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i32 %239, ptr %240, align 8
   %241 = add nsw i32 %.2.lcssa, 1
   %242 = load i32, ptr %2, align 4
@@ -926,21 +926,21 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %254 = zext i32 %239 to i64
   %255 = shl nuw nsw i64 %254, 3
   %256 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %255, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 396, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %257 = getelementptr inbounds i8, ptr %111, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr %256, ptr %257, align 8
   %258 = load i32, ptr %240, align 8
   %259 = zext i32 %258 to i64
   %260 = shl nuw nsw i64 %259, 3
   %261 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %260, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 398, ptr noundef nonnull @__func__.client_req_parse_spawn_req) #11
-  %262 = getelementptr inbounds i8, ptr %111, i64 40
+  %262 = getelementptr inbounds nuw i8, ptr %111, i64 40
   store ptr %261, ptr %262, align 8
   %.pre246 = load i32, ptr %240, align 8
   %263 = icmp eq i32 %.pre246, 0
   br i1 %263, label %.loopexit, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %253
-  %264 = getelementptr inbounds i8, ptr %111, i64 32
-  %265 = getelementptr inbounds i8, ptr %111, i64 40
+  %264 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %265 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %266 = sext i32 %241 to i64
   br label %267
 
@@ -959,7 +959,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %274 = load ptr, ptr %9, align 8
   %275 = getelementptr inbounds ptr, ptr %274, i64 %269
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 7
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 7
   %278 = tail call i32 @atoi(ptr nocapture noundef nonnull %277) #12
   %279 = zext i32 %278 to i64
   %.not160 = icmp eq i64 %indvars.iv238, %279
@@ -976,7 +976,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %286 = load ptr, ptr %285, align 8
   %287 = tail call ptr @slurm_xstrdup(ptr noundef %286) #11
   %288 = load ptr, ptr %264, align 8
-  %289 = getelementptr inbounds ptr, ptr %288, i64 %indvars.iv238
+  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv238
   store ptr %287, ptr %289, align 8
   %290 = load ptr, ptr %9, align 8
   %291 = trunc nsw i64 %269 to i32
@@ -992,7 +992,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %298 = load ptr, ptr %9, align 8
   %299 = getelementptr inbounds ptr, ptr %298, i64 %293
   %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 7
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 7
   %302 = tail call i32 @atoi(ptr nocapture noundef nonnull %301) #12
   %303 = zext i32 %302 to i64
   %.not162 = icmp eq i64 %indvars.iv238, %303
@@ -1010,7 +1010,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %311 = load ptr, ptr %310, align 8
   %312 = tail call ptr @slurm_xstrdup(ptr noundef %311) #11
   %313 = load ptr, ptr %265, align 8
-  %314 = getelementptr inbounds ptr, ptr %313, i64 %indvars.iv238
+  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv238
   store ptr %312, ptr %314, align 8
   %indvars.iv.next237 = add nsw i64 %indvars.iv236, 2
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
@@ -1068,17 +1068,17 @@ declare void @spawn_req_free(ptr noundef) local_unnamed_addr #3
 define ptr @client_req_parse_spawn_subcmd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = alloca [64 x i8], align 16
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 442, ptr noundef nonnull @__func__.client_req_parse_spawn_subcmd) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not11.i.i = icmp eq i32 %5, 0
   br i1 %.not11.i.i, label %client_req_get_int.exit.thread, label %.lr.ph.i.i
 
 client_req_get_int.exit.thread:                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %client_req_get_int.exit46
 
 .lr.ph.i.i:                                       ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 8:                                                ; preds = %12
@@ -1092,7 +1092,7 @@ client_req_get_int.exit.thread:                   ; preds = %1
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %8 ]
   %13 = load ptr, ptr %7, align 8
   %14 = shl nuw nsw i64 %indvars.iv.i.i, 1
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull @.str.34, ptr noundef %16) #11
   %.not.i.i = icmp eq i32 %17, 0
@@ -1102,7 +1102,7 @@ _client_req_get_val.exit.i:                       ; preds = %12
   %18 = load ptr, ptr %7, align 8
   %19 = and i64 %14, 4294967294
   %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %client_req_get_str.exitthread-pre-split, label %23
@@ -1118,7 +1118,7 @@ client_req_get_str.exitthread-pre-split:          ; preds = %23, %_client_req_ge
 
 client_req_get_str.exit:                          ; preds = %8, %client_req_get_str.exitthread-pre-split
   %25 = phi i32 [ %.pr, %client_req_get_str.exitthread-pre-split ], [ %9, %8 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not11.i.i32 = icmp eq i32 %25, 0
   br i1 %.not11.i.i32, label %client_req_get_int.exitthread-pre-split, label %.lr.ph.i.i33
 
@@ -1133,7 +1133,7 @@ client_req_get_str.exit:                          ; preds = %8, %client_req_get_
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i36, %27 ], [ 0, %client_req_get_str.exit ]
   %31 = load ptr, ptr %7, align 8
   %32 = shl nuw nsw i64 %indvars.iv.i.i34, 1
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull @.str.35, ptr noundef %34) #11
   %.not.i.i35 = icmp eq i32 %35, 0
@@ -1143,7 +1143,7 @@ _client_req_get_val.exit.i37:                     ; preds = %.lr.ph.i.i33
   %36 = load ptr, ptr %7, align 8
   %37 = and i64 %32, 4294967294
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8
   %.not.i38 = icmp eq ptr %40, null
   br i1 %.not.i38, label %client_req_get_int.exitthread-pre-split, label %41
@@ -1159,7 +1159,7 @@ client_req_get_int.exitthread-pre-split:          ; preds = %41, %_client_req_ge
 
 client_req_get_int.exit:                          ; preds = %27, %client_req_get_int.exitthread-pre-split
   %43 = phi i32 [ %.pr80, %client_req_get_int.exitthread-pre-split ], [ %28, %27 ]
-  %44 = getelementptr inbounds i8, ptr %3, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.not11.i.i39 = icmp eq i32 %43, 0
   br i1 %.not11.i.i39, label %client_req_get_int.exit46, label %.lr.ph.i.i40
 
@@ -1174,7 +1174,7 @@ client_req_get_int.exit:                          ; preds = %27, %client_req_get
   %indvars.iv.i.i41 = phi i64 [ %indvars.iv.next.i.i43, %45 ], [ 0, %client_req_get_int.exit ]
   %49 = load ptr, ptr %7, align 8
   %50 = shl nuw nsw i64 %indvars.iv.i.i41, 1
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull @.str.36, ptr noundef %52) #11
   %.not.i.i42 = icmp eq i32 %53, 0
@@ -1184,7 +1184,7 @@ _client_req_get_val.exit.i44:                     ; preds = %.lr.ph.i.i40
   %54 = load ptr, ptr %7, align 8
   %55 = and i64 %50, 4294967294
   %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not.i45 = icmp eq ptr %58, null
   br i1 %.not.i45, label %client_req_get_int.exit46, label %59
@@ -1200,14 +1200,14 @@ client_req_get_int.exit46:                        ; preds = %45, %client_req_get
   %63 = zext i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
   %65 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 447, ptr noundef nonnull @__func__.client_req_parse_spawn_subcmd) #11
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %65, ptr %66, align 8
   %67 = load i32, ptr %61, align 4
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %client_req_get_int.exit46
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %69
 
 69:                                               ; preds = %.lr.ph, %client_req_get_str.exit54
@@ -1216,7 +1216,7 @@ client_req_get_int.exit46:                        ; preds = %45, %client_req_get
   %70 = trunc nuw nsw i64 %indvars.iv.next to i32
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.37, i32 noundef %70) #11
   %72 = load ptr, ptr %66, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %4, align 4
   %.not11.i.i47 = icmp eq i32 %74, 0
   br i1 %.not11.i.i47, label %client_req_get_str.exit54, label %.lr.ph.i.i48
@@ -1232,7 +1232,7 @@ client_req_get_int.exit46:                        ; preds = %45, %client_req_get
   %indvars.iv.i.i49 = phi i64 [ %indvars.iv.next.i.i51, %75 ], [ 0, %69 ]
   %79 = load ptr, ptr %68, align 8
   %80 = shl nuw nsw i64 %indvars.iv.i.i49, 1
-  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @slurm_xstrcmp(ptr noundef nonnull %2, ptr noundef %82) #11
   %.not.i.i50 = icmp eq i32 %83, 0
@@ -1242,7 +1242,7 @@ _client_req_get_val.exit.i52:                     ; preds = %.lr.ph.i.i48
   %84 = load ptr, ptr %68, align 8
   %85 = and i64 %80, 4294967294
   %86 = or disjoint i64 %85, 1
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw ptr, ptr %84, i64 %86
   %88 = load ptr, ptr %87, align 8
   %.not.i53 = icmp eq ptr %88, null
   br i1 %.not.i53, label %client_req_get_str.exit54, label %89
@@ -1259,13 +1259,13 @@ client_req_get_str.exit54:                        ; preds = %75, %69, %_client_r
   br i1 %93, label %69, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %client_req_get_str.exit54, %client_req_get_int.exit46
-  %94 = getelementptr inbounds i8, ptr %3, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %95 = load i32, ptr %4, align 4
   %.not11.i.i55 = icmp eq i32 %95, 0
   br i1 %.not11.i.i55, label %client_req_get_int.exit62, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %._crit_edge
-  %96 = getelementptr inbounds i8, ptr %0, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %101
 
 97:                                               ; preds = %101
@@ -1279,7 +1279,7 @@ client_req_get_str.exit54:                        ; preds = %75, %69, %_client_r
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i56 ], [ %indvars.iv.next.i.i59, %97 ]
   %102 = load ptr, ptr %96, align 8
   %103 = shl nuw nsw i64 %indvars.iv.i.i57, 1
-  %104 = getelementptr inbounds ptr, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 @slurm_xstrcmp(ptr noundef nonnull @.str.38, ptr noundef %105) #11
   %.not.i.i58 = icmp eq i32 %106, 0
@@ -1289,7 +1289,7 @@ _client_req_get_val.exit.i60:                     ; preds = %101
   %107 = load ptr, ptr %96, align 8
   %108 = and i64 %103, 4294967294
   %109 = or disjoint i64 %108, 1
-  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw ptr, ptr %107, i64 %109
   %111 = load ptr, ptr %110, align 8
   %.not.i61 = icmp eq ptr %111, null
   br i1 %.not.i61, label %client_req_get_int.exit62, label %112
@@ -1304,20 +1304,20 @@ client_req_get_int.exit62:                        ; preds = %97, %._crit_edge, %
   %115 = zext i32 %114 to i64
   %116 = shl nuw nsw i64 %115, 3
   %117 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %116, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 453, ptr noundef nonnull @__func__.client_req_parse_spawn_subcmd) #11
-  %118 = getelementptr inbounds i8, ptr %3, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %117, ptr %118, align 8
   %119 = load i32, ptr %94, align 8
   %120 = zext i32 %119 to i64
   %121 = shl nuw nsw i64 %120, 3
   %122 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %121, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 454, ptr noundef nonnull @__func__.client_req_parse_spawn_subcmd) #11
-  %123 = getelementptr inbounds i8, ptr %3, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %122, ptr %123, align 8
   %124 = load i32, ptr %94, align 8
   %.not101 = icmp eq i32 %124, 0
   br i1 %.not101, label %._crit_edge100, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %client_req_get_int.exit62
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %126
 
 126:                                              ; preds = %.lr.ph99, %client_req_get_str.exit78
@@ -1325,7 +1325,7 @@ client_req_get_int.exit62:                        ; preds = %97, %._crit_edge, %
   %127 = trunc nuw nsw i64 %indvars.iv118 to i32
   %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %127) #11
   %129 = load ptr, ptr %118, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv118
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv118
   %131 = load i32, ptr %4, align 4
   %.not11.i.i63 = icmp eq i32 %131, 0
   br i1 %.not11.i.i63, label %client_req_get_str.exit70, label %.lr.ph.i.i64
@@ -1341,7 +1341,7 @@ client_req_get_int.exit62:                        ; preds = %97, %._crit_edge, %
   %indvars.iv.i.i65 = phi i64 [ %indvars.iv.next.i.i67, %132 ], [ 0, %126 ]
   %136 = load ptr, ptr %125, align 8
   %137 = shl nuw nsw i64 %indvars.iv.i.i65, 1
-  %138 = getelementptr inbounds ptr, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = call i32 @slurm_xstrcmp(ptr noundef nonnull %2, ptr noundef %139) #11
   %.not.i.i66 = icmp eq i32 %140, 0
@@ -1351,7 +1351,7 @@ _client_req_get_val.exit.i68:                     ; preds = %.lr.ph.i.i64
   %141 = load ptr, ptr %125, align 8
   %142 = and i64 %137, 4294967294
   %143 = or disjoint i64 %142, 1
-  %144 = getelementptr inbounds ptr, ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw ptr, ptr %141, i64 %143
   %145 = load ptr, ptr %144, align 8
   %.not.i69 = icmp eq ptr %145, null
   br i1 %.not.i69, label %client_req_get_str.exit70, label %146
@@ -1364,7 +1364,7 @@ _client_req_get_val.exit.i68:                     ; preds = %.lr.ph.i.i64
 client_req_get_str.exit70:                        ; preds = %132, %126, %_client_req_get_val.exit.i68, %146
   %148 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.40, i32 noundef %127) #11
   %149 = load ptr, ptr %123, align 8
-  %150 = getelementptr inbounds ptr, ptr %149, i64 %indvars.iv118
+  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv118
   %151 = load i32, ptr %4, align 4
   %.not11.i.i71 = icmp eq i32 %151, 0
   br i1 %.not11.i.i71, label %client_req_get_str.exit78, label %.lr.ph.i.i72
@@ -1380,7 +1380,7 @@ client_req_get_str.exit70:                        ; preds = %132, %126, %_client
   %indvars.iv.i.i73 = phi i64 [ %indvars.iv.next.i.i75, %152 ], [ 0, %client_req_get_str.exit70 ]
   %156 = load ptr, ptr %125, align 8
   %157 = shl nuw nsw i64 %indvars.iv.i.i73, 1
-  %158 = getelementptr inbounds ptr, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = call i32 @slurm_xstrcmp(ptr noundef nonnull %2, ptr noundef %159) #11
   %.not.i.i74 = icmp eq i32 %160, 0
@@ -1390,7 +1390,7 @@ _client_req_get_val.exit.i76:                     ; preds = %.lr.ph.i.i72
   %161 = load ptr, ptr %125, align 8
   %162 = and i64 %157, 4294967294
   %163 = or disjoint i64 %162, 1
-  %164 = getelementptr inbounds ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds nuw ptr, ptr %161, i64 %163
   %165 = load ptr, ptr %164, align 8
   %.not.i77 = icmp eq ptr %165, null
   br i1 %.not.i77, label %client_req_get_str.exit78, label %166
@@ -1413,13 +1413,13 @@ client_req_get_str.exit78:                        ; preds = %152, %client_req_ge
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @client_req_get_str(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not11.i = icmp eq i32 %5, 0
   br i1 %.not11.i, label %_client_req_get_val.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 7:                                                ; preds = %11
@@ -1433,7 +1433,7 @@ define noundef zeroext i1 @client_req_get_str(ptr nocapture noundef readonly %0,
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %12 = load ptr, ptr %6, align 8
   %13 = shl nuw nsw i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_xstrcmp(ptr noundef %1, ptr noundef %15) #11
   %.not.i = icmp eq i32 %16, 0
@@ -1443,7 +1443,7 @@ _client_req_get_val.exit:                         ; preds = %11
   %17 = load ptr, ptr %6, align 8
   %18 = and i64 %13, 4294967294
   %19 = or disjoint i64 %18, 1
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_client_req_get_val.exit.thread, label %22
@@ -1460,13 +1460,13 @@ _client_req_get_val.exit.thread:                  ; preds = %7, %3, %_client_req
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @client_req_get_int(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not11.i = icmp eq i32 %5, 0
   br i1 %.not11.i, label %_client_req_get_val.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 7:                                                ; preds = %11
@@ -1480,7 +1480,7 @@ define noundef zeroext i1 @client_req_get_int(ptr nocapture noundef readonly %0,
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %12 = load ptr, ptr %6, align 8
   %13 = shl nuw nsw i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_xstrcmp(ptr noundef %1, ptr noundef %15) #11
   %.not.i = icmp eq i32 %16, 0
@@ -1490,7 +1490,7 @@ _client_req_get_val.exit:                         ; preds = %11
   %17 = load ptr, ptr %6, align 8
   %18 = and i64 %13, 4294967294
   %19 = or disjoint i64 %18, 1
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_client_req_get_val.exit.thread, label %22
@@ -1510,13 +1510,13 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @client_req_get_bool(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not11.i = icmp eq i32 %5, 0
   br i1 %.not11.i, label %_client_req_get_val.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 7:                                                ; preds = %11
@@ -1530,7 +1530,7 @@ define noundef zeroext i1 @client_req_get_bool(ptr nocapture noundef readonly %0
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %12 = load ptr, ptr %6, align 8
   %13 = shl nuw nsw i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_xstrcmp(ptr noundef %1, ptr noundef %15) #11
   %.not.i = icmp eq i32 %16, 0
@@ -1540,7 +1540,7 @@ _client_req_get_val.exit:                         ; preds = %11
   %17 = load ptr, ptr %6, align 8
   %18 = and i64 %13, 4294967294
   %19 = or disjoint i64 %18, 1
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not9 = icmp eq ptr %21, null
   br i1 %.not9, label %_client_req_get_val.exit.thread, label %22
@@ -1635,7 +1635,7 @@ define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0,
   %.us-phi = phi i64 [ %20, %.lr.ph.split.us ], [ %27, %26 ]
   %.us-phi59 = phi i32 [ %21, %.lr.ph.split.us ], [ %28, %26 ]
   %33 = and i64 %.us-phi, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.035.ph68, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.035.ph68, i64 %33
   %35 = sub nsw i32 %.034.ph70, %.us-phi59
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.loopexit48
@@ -1715,7 +1715,7 @@ define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0,
   %.us-phi75 = phi i64 [ %52, %.lr.ph72.split.us ], [ %59, %58 ]
   %.us-phi76 = phi i32 [ %53, %.lr.ph72.split.us ], [ %60, %58 ]
   %65 = and i64 %.us-phi75, 2147483647
-  %66 = getelementptr inbounds i8, ptr %.032.ph88, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %.032.ph88, i64 %65
   %67 = sub nsw i32 %.033.ph86, %.us-phi76
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %.loopexit
@@ -1797,7 +1797,7 @@ define i32 @send_kvs_fence_resp_to_clients(i32 noundef %0, ptr noundef %1) local
   br label %19
 
 19:                                               ; preds = %18, %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, 0
   br i1 %.not.i, label %_str_replace.exit, label %.lr.ph.i, !llvm.loop !21
@@ -1841,7 +1841,7 @@ _str_replace.exit:                                ; preds = %19, %13
   br label %35
 
 35:                                               ; preds = %34, %.lr.ph.i28
-  %36 = getelementptr inbounds i8, ptr %.010.i29, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.010.i29, i64 1
   %37 = load i8, ptr %36, align 1
   %.not.i30 = icmp eq i8 %37, 0
   br i1 %.not.i30, label %_str_replace.exit31, label %.lr.ph.i28, !llvm.loop !21
@@ -1865,7 +1865,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %39 ]
   %41 = load ptr, ptr @task_socks, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %42 = getelementptr inbounds i8, ptr %41, i64 %.idx
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %43 = load i32, ptr %42, align 4
   %44 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -20,7 +20,7 @@ define void @_ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E(ptr align 8 %0, 
   %6 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %6)
   store ptr %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   %8 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %4)
   %9 = icmp eq ptr %8, null
@@ -81,17 +81,17 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_names28_$u7b$$u7b$closure$u7d$$u7d$17h4b88a368503140c9E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %17, !prof !5
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %10, i64 0, i64 %4, i32 1
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !6, !noundef !3
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !3
   %15 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
@@ -112,9 +112,9 @@ define hidden noundef zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl8settings12Se
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17hf3978e1a609b3468E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !6, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = insertvalue { ptr, i64 } poison, ptr %4, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %6, 1
@@ -128,17 +128,17 @@ define hidden void @"_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuil
   %6 = load i8, ptr %5, align 1, !noundef !3
   %7 = add i8 %6, 1
   store i8 %7, ptr %5, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !6, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i64, ptr %10, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %11, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %6, ptr %14, align 8
   ret void
 }
@@ -154,10 +154,10 @@ define void @"_ZN93_$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex
 define void @"_ZN88_$LT$cranelift_codegen_meta..cdsl..settings..BoolSetting$u20$as$u20$core..hash..Hash$GT$4hash17h7b5188b74bdc9ecdE"(ptr nocapture readonly align 1 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !8, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %7)
   ret void
@@ -174,7 +174,7 @@ define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$
   %8 = xor i64 %7, -9223372036854775808
   %9 = icmp ult i64 %8, 3
   %10 = select i1 %9, i64 %8, i64 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %10, label %12 [
     i64 0, label %13
     i64 1, label %19
@@ -187,17 +187,17 @@ define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$
 13:                                               ; preds = %2
   %14 = load i8, ptr %11, align 8, !range !8, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %16 = load i8, ptr %15, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %18 = load i8, ptr %17, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %18)
   br label %25
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17h10d5d1f551dea9aeE(ptr align 8 %1, i64 %22)
   tail call void @_ZN4core4hash4Hash10hash_slice17he66983acc0be7859E(ptr nonnull align 8 %20, i64 %22, ptr align 8 %1)
@@ -214,23 +214,23 @@ define void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN84_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u20$core..hash..Hash$GT$4hash17h3b37329063b6b920E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !6, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !noundef !3
   tail call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hb6aa96737738310dE"(ptr align 8 %1, ptr nonnull align 1 %4, i64 %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !6, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8, !noundef !3
   tail call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hb6aa96737738310dE"(ptr align 8 %1, ptr nonnull align 1 %8, i64 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !6, !noundef !3
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8, !noundef !3
   tail call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hb6aa96737738310dE"(ptr align 8 %1, ptr nonnull align 1 %12, i64 %14)
   tail call void @"_ZN92_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..hash..Hash$GT$4hash17h9e3726b76f4abcb5E"(ptr align 8 %0, ptr align 8 %1)
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i8, ptr %15, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h3404c073e3721731E(ptr align 8 %1, i8 %16)
   ret void
@@ -239,25 +239,25 @@ define void @"_ZN84_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u20$core..hash..Hash$GT$4hash17hc4cdcba113b368b6E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr, {} }, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !6, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !noundef !3
   tail call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hb6aa96737738310dE"(ptr align 8 %1, ptr nonnull align 1 %5, i64 %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !6, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8, !noundef !3
   tail call void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$9write_str17hb6aa96737738310dE"(ptr align 8 %1, ptr nonnull align 1 %9, i64 %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17h10d5d1f551dea9aeE(ptr align 8 %1, i64 %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %16 = getelementptr inbounds i64, ptr %13, i64 %15
   store ptr %13, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8
   %18 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee65b00b5bd0f6d6E"(ptr nonnull align 8 %3)
   %19 = icmp eq ptr %18, null

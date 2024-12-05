@@ -21,7 +21,7 @@ define hidden noundef ptr @_ZN13OopStorageSet13create_strongEPKc8MEMFLAGS(ptr no
   %5 = add i32 %4, 1
   store i32 %5, ptr @_ZZN13OopStorageSet13create_strongEPKc8MEMFLAGSE17registered_strong, align 4
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %6
   store ptr %3, ptr %7, align 8
   ret ptr %3
 }
@@ -36,7 +36,7 @@ define hidden noundef ptr @_ZN13OopStorageSet11create_weakEPKc8MEMFLAGS(ptr noun
   store i32 %5, ptr @_ZZN13OopStorageSet11create_weakEPKc8MEMFLAGSE15registered_weak, align 4
   %6 = add i32 %4, 5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %7
   store ptr %3, ptr %8, align 8
   ret ptr %3
 }
@@ -47,9 +47,9 @@ define hidden void @_ZN13OopStorageSet11fill_strongEPP10OopStorage(ptr nocapture
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -62,7 +62,7 @@ define hidden void @_ZN13OopStorageSet11fill_strongEPP10OopStorage(ptr nocapture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN13OopStorageSet11get_storageEj(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -74,9 +74,9 @@ define hidden void @_ZN13OopStorageSet9fill_weakEPP10OopStorage(ptr nocapture no
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = add nuw nsw i64 %indvars.iv, 5
-  %4 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %5, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -92,9 +92,9 @@ define hidden void @_ZN13OopStorageSet8fill_allEPP10OopStorage(ptr nocapture nou
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -107,7 +107,7 @@ define hidden void @_ZN13OopStorageSet8fill_allEPP10OopStorage(ptr nocapture nou
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -115,7 +115,7 @@ define weak_odr hidden noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongId
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -123,7 +123,7 @@ define weak_odr hidden noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEE
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef ptr @_ZN13OopStorageSet11get_storageINS_2IdEEEP10OopStorageT_(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN13OopStorageSet9_storagesE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

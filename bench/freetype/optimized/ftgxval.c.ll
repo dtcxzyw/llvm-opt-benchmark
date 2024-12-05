@@ -16,7 +16,7 @@ define i32 @FT_TrueTypeGX_Validate(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not14, label %13, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @ft_module_get_service(ptr noundef %8, ptr noundef nonnull @.str, i8 noundef zeroext 1) #2
   %.not15 = icmp eq ptr %9, null
@@ -40,7 +40,7 @@ define void @FT_TrueTypeGX_Free(ptr noundef readonly %0, ptr noundef %1) local_u
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %1) #2
   br label %6
@@ -61,7 +61,7 @@ define i32 @FT_ClassicKern_Validate(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not13, label %12, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @ft_module_get_service(ptr noundef %7, ptr noundef nonnull @.str.1, i8 noundef zeroext 1) #2
   %.not14 = icmp eq ptr %8, null
@@ -83,7 +83,7 @@ define void @FT_ClassicKern_Free(ptr noundef readonly %0, ptr noundef %1) local_
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %1) #2
   br label %6

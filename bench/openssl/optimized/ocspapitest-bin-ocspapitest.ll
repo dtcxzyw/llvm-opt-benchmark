@@ -266,7 +266,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb2:                                           ; preds = %if.end
-  %location = getelementptr inbounds i8, ptr %call, i64 8
+  %location = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %location, align 8
   %call3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 169, ptr noundef nonnull @.str.46, ptr noundef %0) #6
   %tobool4.not = icmp eq i32 %call3, 0
@@ -279,7 +279,7 @@ if.end6:                                          ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.end
-  %location10 = getelementptr inbounds i8, ptr %call, i64 8
+  %location10 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load ptr, ptr %location10, align 8
   tail call void @GENERAL_NAME_free(ptr noundef %2) #6
   %call11 = tail call ptr @GENERAL_NAME_new() #6

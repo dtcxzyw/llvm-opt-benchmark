@@ -72,9 +72,9 @@ declare dso_local i32 @phy_drivers_register(ptr noundef, i32 noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl821x_read_page(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @__mdiobus_read(ptr noundef %3, i32 noundef %5, i32 noundef 31) #8
   ret i32 %6
@@ -83,9 +83,9 @@ define internal i32 @rtl821x_read_page(ptr nocapture noundef readonly %0) #2 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl821x_write_page(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = trunc i32 %1 to i16
-  %4 = getelementptr inbounds i8, ptr %0, i64 728
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 792
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @__mdiobus_write(ptr noundef %5, i32 noundef %7, i32 noundef 31, i16 noundef zeroext %3) #8
   ret i32 %8
@@ -99,16 +99,16 @@ declare dso_local i32 @genphy_resume(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8201_config_intr(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 792
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @mdiobus_read(ptr noundef %8, i32 noundef %10, i32 noundef 30) #8
   %12 = icmp sgt i32 %11, -1
@@ -124,9 +124,9 @@ define internal i32 @rtl8201_config_intr(ptr noundef %0) #2 align 16 {
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 728
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 792
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @mdiobus_read(ptr noundef %20, i32 noundef %22, i32 noundef 30) #8
   %24 = tail call i32 @llvm.smin.i32(i32 %23, i32 0)
@@ -139,9 +139,9 @@ define internal i32 @rtl8201_config_intr(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @rtl8201_handle_interrupt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @mdiobus_read(ptr noundef %3, i32 noundef %5, i32 noundef 30) #8
   %7 = icmp slt i32 %6, 0
@@ -178,13 +178,13 @@ define internal range(i32 -2147483648, 1) i32 @rtl8211_config_aneg(ptr noundef %
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1016
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 100
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 988
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8192
   %12 = icmp eq i32 %11, 0
@@ -196,9 +196,9 @@ define internal range(i32 -2147483648, 1) i32 @rtl8211_config_aneg(ptr noundef %
 14:                                               ; preds = %8, %13
   %.sink2 = phi i16 [ 8456, %13 ], [ 8504, %8 ]
   %15 = phi i16 [ 0, %13 ], [ 608, %8 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 728
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 792
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 @mdiobus_write(ptr noundef %17, i32 noundef %19, i32 noundef 23, i16 noundef zeroext %.sink2) #8
   %21 = load ptr, ptr %16, align 8
@@ -213,9 +213,9 @@ define internal range(i32 -2147483648, 1) i32 @rtl8211_config_aneg(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211b_suspend(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @mdiobus_write(ptr noundef %3, i32 noundef %5, i32 noundef 14, i16 noundef zeroext 512) #8
   %7 = tail call i32 @genphy_suspend(ptr noundef %0) #8
@@ -224,9 +224,9 @@ define internal i32 @rtl8211b_suspend(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211b_resume(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @mdiobus_write(ptr noundef %3, i32 noundef %5, i32 noundef 14, i16 noundef zeroext 0) #8
   %7 = tail call i32 @genphy_resume(ptr noundef %0) #8
@@ -235,13 +235,13 @@ define internal i32 @rtl8211b_resume(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211b_config_intr(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %9 = load i32, ptr %8, align 8
   br i1 %5, label %17, label %10
 
@@ -275,9 +275,9 @@ define internal i32 @rtl8211b_config_intr(ptr nocapture noundef readonly %0) #2 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @rtl821x_handle_interrupt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @mdiobus_read(ptr noundef %3, i32 noundef %5, i32 noundef 19) #8
   %7 = icmp slt i32 %6, 0
@@ -320,13 +320,13 @@ define internal i32 @rtl8211c_config_init(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211e_config_intr(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %9 = load i32, ptr %8, align 8
   br i1 %5, label %17, label %10
 
@@ -360,7 +360,7 @@ define internal i32 @rtl8211e_config_intr(ptr nocapture noundef readonly %0) #2 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211e_config_init(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1004
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %23 [
     i32 9, label %7
@@ -385,9 +385,9 @@ define internal i32 @rtl8211e_config_init(ptr noundef %0) #2 align 16 {
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 728
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 792
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 @__mdiobus_write(ptr noundef %13, i32 noundef %15, i32 noundef 30, i16 noundef zeroext 164) #8
   %17 = icmp eq i32 %16, 0
@@ -409,7 +409,7 @@ define internal i32 @rtl8211e_config_init(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211f_config_init(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 8
   %5 = tail call i32 @phy_modify_paged_changed(ptr noundef %0, i32 noundef 2627, i32 noundef 24, i16 noundef zeroext 4102, i16 noundef zeroext %4) #8
@@ -423,7 +423,7 @@ define internal i32 @rtl8211f_config_init(ptr noundef %0) #2 align 16 {
   br label %40
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 1004
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %40 [
     i32 9, label %16
@@ -462,13 +462,13 @@ define internal i32 @rtl8211f_config_init(ptr noundef %0) #2 align 16 {
   br label %40
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i8, ptr %27, align 4, !range !5, !noundef !6
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %3, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = tail call i32 @phy_modify_paged(ptr noundef %0, i32 noundef 2627, i32 noundef 25, i16 noundef zeroext 1, i16 noundef zeroext %32) #8
   %34 = icmp slt i32 %33, 0
@@ -491,16 +491,16 @@ define internal i32 @rtl8211f_config_init(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @rtl821x_probe(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias noundef dereferenceable_or_null(16) ptr @devm_kmalloc(ptr noundef %0, i64 noundef 16, i32 noundef 3520) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %27, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %9, align 8
   %10 = tail call i32 @phy_read_paged(ptr noundef %0, i32 noundef 2627, i32 noundef 24) #8
   %11 = icmp slt i32 %10, 0
@@ -511,7 +511,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl821x_probe(ptr noundef %0) #2 
   %14 = and i16 %13, 4102
   store i16 %14, ptr %6, align 8
   %15 = icmp ne i32 %5, 1886328
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = zext i1 %15 to i8
   store i8 %17, ptr %16, align 4
   br i1 %15, label %18, label %25
@@ -524,12 +524,12 @@ define internal range(i32 -2147483648, 1) i32 @rtl821x_probe(ptr noundef %0) #2 
 21:                                               ; preds = %18
   %22 = trunc i32 %19 to i16
   %23 = and i16 %22, 1
-  %24 = getelementptr inbounds i8, ptr %6, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %23, ptr %24, align 2
   br label %25
 
 25:                                               ; preds = %21, %12
-  %26 = getelementptr inbounds i8, ptr %0, i64 1184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store ptr %6, ptr %26, align 8
   br label %27
 
@@ -540,7 +540,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl821x_probe(ptr noundef %0) #2 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl821x_suspend(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4096
   %5 = icmp eq i32 %4, 0
@@ -562,7 +562,7 @@ define internal i32 @rtl821x_suspend(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @rtl821x_resume(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4096
   %5 = icmp eq i32 %4, 0
@@ -593,7 +593,7 @@ define internal range(i32 -2147483648, 1) i32 @rtlgen_read_status(ptr noundef %0
   br i1 %3, label %22, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 988
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 16384
   %8 = icmp eq i32 %7, 0
@@ -632,7 +632,7 @@ define internal range(i32 -2147483648, 1) i32 @rtlgen_read_status(ptr noundef %0
 
 19:                                               ; preds = %18, %17, %16, %15, %14, %12
   %20 = phi i32 [ 5000, %18 ], [ 2500, %17 ], [ 10000, %16 ], [ 1000, %15 ], [ 100, %14 ], [ 10, %12 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 1016
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i32 %20, ptr %21, align 8
   br label %22
 
@@ -643,7 +643,7 @@ define internal range(i32 -2147483648, 1) i32 @rtlgen_read_status(ptr noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl8211f_config_intr(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
   %5 = icmp eq i32 %4, 0
@@ -706,15 +706,15 @@ define internal i32 @rtlgen_resume(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @rtlgen_match_phy_device(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 848
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1886208
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @mdiobus_write(ptr noundef %7, i32 noundef %9, i32 noundef 31, i16 noundef zeroext 2657) #8
   %11 = load ptr, ptr %6, align 8
@@ -754,9 +754,9 @@ define internal i32 @rtlgen_read_mmd(ptr nocapture noundef readonly %0, i32 noun
 14:                                               ; preds = %11, %7, %3
   %.sink2 = phi i16 [ 2652, %3 ], [ 2653, %7 ], [ 2653, %11 ]
   %15 = phi i32 [ 18, %3 ], [ 16, %7 ], [ 17, %11 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 728
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 792
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 @__mdiobus_write(ptr noundef %17, i32 noundef %19, i32 noundef 31, i16 noundef zeroext %.sink2) #8
   %21 = load ptr, ptr %16, align 8
@@ -780,9 +780,9 @@ define internal i32 @rtlgen_write_mmd(ptr nocapture noundef readonly %0, i32 nou
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 792
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @__mdiobus_write(ptr noundef %10, i32 noundef %12, i32 noundef 31, i16 noundef zeroext 2653) #8
   %14 = load ptr, ptr %9, align 8
@@ -805,17 +805,17 @@ define internal i32 @rtl822x_get_features(ptr noundef %0) #2 align 16 {
   br i1 %3, label %22, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1040
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %6 = and i32 %2, 8192
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 47) #8, !srcloc !7
   br label %10
 
 9:                                                ; preds = %4
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 47) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 47) #8, !srcloc !8
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -824,11 +824,11 @@ define internal i32 @rtl822x_get_features(ptr noundef %0) #2 align 16 {
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 48) #8, !srcloc !7
   br label %15
 
 14:                                               ; preds = %10
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 48) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 48) #8, !srcloc !8
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -837,11 +837,11 @@ define internal i32 @rtl822x_get_features(ptr noundef %0) #2 align 16 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 12) #8, !srcloc !7
   br label %20
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 12) #8, !srcloc !8
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -855,14 +855,14 @@ define internal i32 @rtl822x_get_features(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl822x_config_aneg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8192
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1056
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %8 = load volatile i64, ptr %7, align 8
   %9 = lshr i64 %8, 40
   %10 = trunc i64 %9 to i16
@@ -884,7 +884,7 @@ define internal i32 @rtl822x_config_aneg(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8192
   %5 = icmp eq i32 %4, 0
@@ -896,17 +896,17 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
   br i1 %8, label %9, label %45
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %11 = and i32 %7, 2048
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 12) #8, !srcloc !7
   br label %15
 
 14:                                               ; preds = %9
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 12) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 12) #8, !srcloc !8
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -915,11 +915,11 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 48) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 48) #8, !srcloc !7
   br label %20
 
 19:                                               ; preds = %15
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 48) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 48) #8, !srcloc !8
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -928,11 +928,11 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 47) #8, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 47) #8, !srcloc !7
   br label %25
 
 24:                                               ; preds = %20
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 47) #8, !srcloc !8
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 47) #8, !srcloc !8
   br label %25
 
 25:                                               ; preds = %24, %23, %1
@@ -979,7 +979,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
 
 42:                                               ; preds = %41, %40, %39, %38, %37, %35
   %43 = phi i32 [ 5000, %41 ], [ 2500, %40 ], [ 10000, %39 ], [ 1000, %38 ], [ 100, %37 ], [ 10, %35 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 1016
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i32 %43, ptr %44, align 8
   br label %45
 
@@ -990,15 +990,15 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @rtl8226_match_phy_device(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 848
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1886208
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @mdiobus_write(ptr noundef %7, i32 noundef %9, i32 noundef 31, i16 noundef zeroext 2657) #8
   %11 = load ptr, ptr %6, align 8
@@ -1038,9 +1038,9 @@ define internal i32 @rtl822x_read_mmd(ptr nocapture noundef readonly %0, i32 nou
 rtlgen_read_mmd.exit:                             ; preds = %3, %7, %11
   %.sink2.i = phi i16 [ 2652, %3 ], [ 2653, %7 ], [ 2653, %11 ]
   %14 = phi i32 [ 18, %3 ], [ 16, %7 ], [ 17, %11 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 728
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 792
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 @__mdiobus_write(ptr noundef %16, i32 noundef %18, i32 noundef 31, i16 noundef zeroext %.sink2.i) #8
   %20 = load ptr, ptr %15, align 8
@@ -1071,9 +1071,9 @@ rtlgen_read_mmd.exit.thread:                      ; preds = %11, %rtlgen_read_mm
 36:                                               ; preds = %33, %29, %rtlgen_read_mmd.exit.thread
   %.sink2 = phi i16 [ 2670, %rtlgen_read_mmd.exit.thread ], [ 2669, %29 ], [ 2669, %33 ]
   %37 = phi i32 [ 22, %rtlgen_read_mmd.exit.thread ], [ 18, %29 ], [ 16, %33 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 728
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 792
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %41 = load i32, ptr %40, align 8
   %42 = tail call i32 @__mdiobus_write(ptr noundef %39, i32 noundef %41, i32 noundef 31, i16 noundef zeroext %.sink2) #8
   %43 = load ptr, ptr %38, align 8
@@ -1104,9 +1104,9 @@ define internal i32 @rtl822x_write_mmd(ptr nocapture noundef readonly %0, i32 no
 .thread1.sink.split:                              ; preds = %8, %4
   %.sink10 = phi i16 [ 2653, %4 ], [ 2669, %8 ]
   %.sink6 = phi i32 [ 16, %4 ], [ 18, %8 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 728
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 792
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %14 = load i32, ptr %13, align 8
   %15 = tail call i32 @__mdiobus_write(ptr noundef %12, i32 noundef %14, i32 noundef 31, i16 noundef zeroext %.sink10) #8
   %16 = load ptr, ptr %11, align 8
@@ -1146,20 +1146,20 @@ declare dso_local i32 @genphy_handle_interrupt_no_ack(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @rtl9000a_config_init(ptr nocapture noundef initializes((1016, 1024)) %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -8193
   store i32 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1016
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i32 100, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1020
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   store i32 1, ptr %6, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl9000a_config_aneg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1037
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %5 [
     i8 4, label %4
@@ -1192,18 +1192,18 @@ define internal i32 @rtl9000a_config_aneg(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl9000a_read_status(ptr noundef initializes((1036, 1037), (1038, 1039)) %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1036
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i8 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1038
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   store i8 1, ptr %3, align 2
   %4 = tail call i32 @genphy_update_link(ptr noundef %0) #8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 792
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @mdiobus_read(ptr noundef %8, i32 noundef %10, i32 noundef 9) #8
   %12 = icmp slt i32 %11, 0
@@ -1234,16 +1234,16 @@ define internal i32 @rtl9000a_read_status(ptr noundef initializes((1036, 1037), 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl9000a_config_intr(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 988
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 792
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @mdiobus_read(ptr noundef %8, i32 noundef %10, i32 noundef 29) #8
   %12 = icmp sgt i32 %11, -1
@@ -1259,9 +1259,9 @@ define internal i32 @rtl9000a_config_intr(ptr noundef %0) #2 align 16 {
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 728
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 792
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @mdiobus_read(ptr noundef %20, i32 noundef %22, i32 noundef 29) #8
   br label %24
@@ -1278,9 +1278,9 @@ define internal i32 @rtl9000a_config_intr(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @rtl9000a_handle_interrupt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @mdiobus_read(ptr noundef %3, i32 noundef %5, i32 noundef 29) #8
   %7 = icmp slt i32 %6, 0

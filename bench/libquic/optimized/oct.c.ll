@@ -45,7 +45,7 @@ if.then9.i:                                       ; preds = %lor.lhs.false.i, %i
   br label %return
 
 if.end10.i:                                       ; preds = %lor.lhs.false.i
-  %field.i = getelementptr inbounds i8, ptr %group, i64 80
+  %field.i = getelementptr inbounds nuw i8, ptr %group, i64 80
   %call.i = tail call i32 @BN_num_bytes(ptr noundef nonnull %field.i) #2
   %conv11.i = zext i32 %call.i to i64
   %cmp12.i = icmp eq i32 %and1.i, 2
@@ -81,7 +81,7 @@ if.end27.i:                                       ; preds = %if.then21.i, %if.en
   br i1 %or.cond2.i, label %err.i, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end27.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %call37.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr.i, i64 noundef %conv11.i, ptr noundef nonnull %call28.i) #2
   %tobool38.not.i = icmp eq ptr %call37.i, null
   br i1 %tobool38.not.i, label %err.i, label %if.end40.i
@@ -104,7 +104,7 @@ if.then49.i:                                      ; preds = %if.end46.i
   br i1 %tobool51.not.i, label %err.i, label %if.end70.i
 
 if.else.i:                                        ; preds = %if.end46.i
-  %add.ptr55.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv11.i
+  %add.ptr55.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %conv11.i
   %call56.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr55.i, i64 noundef %conv11.i, ptr noundef nonnull %call29.i) #2
   %tobool57.not.i = icmp eq ptr %call56.i, null
   br i1 %tobool57.not.i, label %err.i, label %if.end59.i
@@ -171,7 +171,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %ec_GFp_simple_point2oct.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %field.i = getelementptr inbounds i8, ptr %group, i64 80
+  %field.i = getelementptr inbounds nuw i8, ptr %group, i64 80
   %call4.i = tail call i32 @BN_num_bytes(ptr noundef nonnull %field.i) #2
   %conv.i = zext i32 %call4.i to i64
   %cmp5.i = icmp eq i32 %form, 2
@@ -228,7 +228,7 @@ if.else.i:                                        ; preds = %land.lhs.true36.i, 
 if.end44.i:                                       ; preds = %if.else.i, %land.lhs.true36.i
   %storemerge.i = phi i8 [ %conv42.i, %if.else.i ], [ 3, %land.lhs.true36.i ]
   store i8 %storemerge.i, ptr %buf, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %call45.i = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %add.ptr.i, i64 noundef %conv.i, ptr noundef %call24.i) #2
   %tobool46.not.i = icmp eq i32 %call45.i, 0
   br i1 %tobool46.not.i, label %if.then69.sink.split.i, label %if.end48.i
@@ -238,7 +238,7 @@ if.end48.i:                                       ; preds = %if.end44.i
   br i1 %cmp50.i, label %if.then52.i, label %if.end59.i
 
 if.then52.i:                                      ; preds = %if.end48.i
-  %add.ptr53.i = getelementptr inbounds i8, ptr %buf, i64 %add.i
+  %add.ptr53.i = getelementptr inbounds nuw i8, ptr %buf, i64 %add.i
   %call54.i = tail call i32 @BN_bn2bin_padded(ptr noundef nonnull %add.ptr53.i, i64 noundef %conv.i, ptr noundef nonnull %call25.i) #2
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %if.then69.sink.split.i, label %if.end57.i
@@ -311,7 +311,7 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %field = getelementptr inbounds i8, ptr %group, i64 80
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 80
   %call1 = tail call i32 @BN_cmp(ptr noundef %x, ptr noundef nonnull %field) #2
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -344,13 +344,13 @@ if.end8:                                          ; preds = %if.then3, %if.end
 
 if.end16:                                         ; preds = %if.end8
   %0 = load ptr, ptr %group, align 8
-  %field_decode = getelementptr inbounds i8, ptr %0, i64 80
+  %field_decode = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %field_decode, align 8
   %cmp17 = icmp eq ptr %1, null
   br i1 %cmp17, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end16
-  %field_sqr = getelementptr inbounds i8, ptr %0, i64 64
+  %field_sqr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %2 = load ptr, ptr %field_sqr, align 8
   %call21 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
   %tobool22.not = icmp eq i32 %call21, 0
@@ -358,7 +358,7 @@ if.then19:                                        ; preds = %if.end16
 
 lor.lhs.false23:                                  ; preds = %if.then19
   %3 = load ptr, ptr %group, align 8
-  %field_mul = getelementptr inbounds i8, ptr %3, i64 56
+  %field_mul = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load ptr, ptr %field_mul, align 8
   %call25 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef %call10, ptr noundef %call11, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
   %tobool26.not = icmp eq i32 %call25, 0
@@ -375,7 +375,7 @@ lor.lhs.false32:                                  ; preds = %if.else
   br i1 %tobool35.not, label %err157, label %if.end38
 
 if.end38:                                         ; preds = %lor.lhs.false32, %lor.lhs.false23
-  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 152
+  %a_is_minus3 = getelementptr inbounds nuw i8, ptr %group, i64 152
   %5 = load i32, ptr %a_is_minus3, align 8
   %tobool39.not = icmp eq i32 %5, 0
   br i1 %tobool39.not, label %if.else54, label %if.then40
@@ -397,13 +397,13 @@ lor.lhs.false48:                                  ; preds = %lor.lhs.false44
 
 if.else54:                                        ; preds = %if.end38
   %6 = load ptr, ptr %group, align 8
-  %field_decode56 = getelementptr inbounds i8, ptr %6, i64 80
+  %field_decode56 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %7 = load ptr, ptr %field_decode56, align 8
   %tobool57.not = icmp eq ptr %7, null
   br i1 %tobool57.not, label %if.else69, label %if.then58
 
 if.then58:                                        ; preds = %if.else54
-  %a = getelementptr inbounds i8, ptr %group, i64 104
+  %a = getelementptr inbounds nuw i8, ptr %group, i64 104
   %call61 = tail call i32 %7(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #2
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err157, label %lor.lhs.false63
@@ -414,9 +414,9 @@ lor.lhs.false63:                                  ; preds = %if.then58
   br i1 %tobool66.not, label %err157, label %if.end77
 
 if.else69:                                        ; preds = %if.else54
-  %field_mul71 = getelementptr inbounds i8, ptr %6, i64 56
+  %field_mul71 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %field_mul71, align 8
-  %a72 = getelementptr inbounds i8, ptr %group, i64 104
+  %a72 = getelementptr inbounds nuw i8, ptr %group, i64 104
   %call73 = tail call i32 %8(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a72, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %err157, label %if.end77
@@ -428,10 +428,10 @@ if.end77:                                         ; preds = %if.else69, %lor.lhs
 
 if.end83:                                         ; preds = %if.end77, %lor.lhs.false48
   %9 = load ptr, ptr %group, align 8
-  %field_decode85 = getelementptr inbounds i8, ptr %9, i64 80
+  %field_decode85 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %10 = load ptr, ptr %field_decode85, align 8
   %tobool86.not = icmp eq ptr %10, null
-  %b99 = getelementptr inbounds i8, ptr %group, i64 128
+  %b99 = getelementptr inbounds nuw i8, ptr %group, i64 128
   br i1 %tobool86.not, label %if.else98, label %if.then87
 
 if.then87:                                        ; preds = %if.end83

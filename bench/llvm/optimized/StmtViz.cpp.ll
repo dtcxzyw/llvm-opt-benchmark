@@ -30,7 +30,7 @@ define dso_local void @_ZNK5clang4Stmt7viewASTEv(ptr nocapture noundef nonnull r
 13:                                               ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %6, ptr noundef nonnull align 1 dereferenceable(51) @.str, i64 51, i1 false)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 51
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 51
   store ptr %15, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -53,7 +53,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %16, ptr noundef nonnull align 1 dereferenceable(29) @.str.1, i64 29, i1 false)
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 29
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 29
   store ptr %28, ptr %26, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit3
 

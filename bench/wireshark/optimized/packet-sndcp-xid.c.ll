@@ -412,7 +412,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %53, label %.lr.ph180, label %.critedge
 
 .lr.ph180:                                        ; preds = %.preheader
-  %54 = getelementptr inbounds i8, ptr %46, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %55 = load ptr, ptr %54, align 8
   br label %69
 

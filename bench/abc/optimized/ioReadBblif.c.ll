@@ -25,13 +25,13 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 1, i32 noundef 1) #12
   %3 = tail call ptr @Bbl_ManName(ptr noundef %0) #12
   %4 = tail call ptr @Extra_UtilStrsav(ptr noundef %3) #12
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1000, ptr %6, align 8
   %calloc.i = tail call dereferenceable_or_null(8000) ptr @calloc(i64 1, i64 8000)
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %calloc.i, ptr %8, align 8
   store i32 1000, ptr %7, align 4
   %9 = tail call ptr @Bbl_ManObjFirst(ptr noundef %0) #12
@@ -39,7 +39,7 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 256
   br label %11
 
 11:                                               ; preds = %.lr.ph, %25
@@ -74,7 +74,7 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load ptr, ptr %10, align 8
   %22 = tail call ptr @Bbl_ObjSop(ptr noundef %0, ptr noundef nonnull %.03849) #12
   %23 = tail call ptr @Abc_SopRegister(ptr noundef %21, ptr noundef %22) #12
-  %24 = getelementptr inbounds i8, ptr %.1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -163,7 +163,7 @@ declare ptr @Bbl_ObjSop(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = add nsw i32 %1, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not.i.not = icmp slt i32 %1, %6
   br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %7
@@ -179,7 +179,7 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   br i1 %.not.i.i.not, label %Vec_PtrGrow.exit.i, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not9.i.i = icmp eq ptr %13, null
   %14 = sext i32 %4 to i64
@@ -203,7 +203,7 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   br i1 %.not.i.i.not, label %Vec_PtrGrow.exit.i, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not9.i21.i = icmp eq ptr %25, null
   %26 = sext i32 %9 to i64
@@ -235,7 +235,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
   br i1 %.not4, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrGrow.exit.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = sext i32 %34 to i64
   %wide.trip.count.i = sext i32 %4 to i64
   br label %37
@@ -303,14 +303,14 @@ define void @Bbl_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   tail call void @Bbl_ObjMark(ptr noundef %0) #12
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %1, align 8
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %13, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -319,7 +319,7 @@ define void @Bbl_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not9.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i, label %20, label %18
@@ -340,7 +340,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %20, %18
 
 23:                                               ; preds = %13
   %24 = shl nuw nsw i32 %10, 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not9.i10.i = icmp eq ptr %26, null
   %27 = zext nneg i32 %24 to i64
@@ -382,11 +382,11 @@ declare void @Bbl_ObjMark(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Bbl_ManDfs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
   store i32 1000, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #13
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = tail call ptr @Bbl_ManObjFirst(ptr noundef %0) #12
   %.not9 = icmp eq ptr %6, null
@@ -454,13 +454,13 @@ Abc_Clock.exit:
   %22 = call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #12
   %23 = call ptr @Bbl_ManName(ptr noundef %0) #12
   %24 = call ptr @Extra_UtilStrsav(ptr noundef %23) #12
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %25, align 8
   %26 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 1000, ptr %26, align 8
   %calloc.i = call dereferenceable_or_null(8000) ptr @calloc(i64 1, i64 8000)
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %calloc.i, ptr %28, align 8
   store i32 1000, ptr %27, align 4
   %29 = call ptr @Bbl_ManObjFirst(ptr noundef %0) #12
@@ -489,11 +489,11 @@ Abc_Clock.exit88:                                 ; preds = %34, %._crit_edge
   %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %37 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4
   store i32 1000, ptr %37, align 8
   %39 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #13
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8
   %41 = call ptr @Bbl_ManObjFirst(ptr noundef %0) #12
   %.not9.i = icmp eq ptr %41, null
@@ -522,18 +522,18 @@ Bbl_ManDfs.exit.loopexit:                         ; preds = %44
 Bbl_ManDfs.exit:                                  ; preds = %Bbl_ManDfs.exit.loopexit, %Abc_Clock.exit88
   %.val86108 = phi i1 [ %46, %Bbl_ManDfs.exit.loopexit ], [ false, %Abc_Clock.exit88 ]
   %47 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 0, ptr %48, align 4
   store i32 100, ptr %47, align 8
   %49 = call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #13
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %49, ptr %50, align 8
   br i1 %.val86108, label %.lr.ph110, label %.critedge
 
 .lr.ph110:                                        ; preds = %Bbl_ManDfs.exit, %._crit_edge107
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge107 ], [ 0, %Bbl_ManDfs.exit ]
   %.val85 = load ptr, ptr %40, align 8
-  %51 = getelementptr inbounds ptr, ptr %.val85, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   store i32 0, ptr %48, align 4
   %53 = call ptr @Bbl_ObjFaninFirst(ptr noundef %52) #12
@@ -679,7 +679,7 @@ Vec_PtrFree.exit91:                               ; preds = %Vec_PtrFree.exit, %
   br i1 %.not78, label %._crit_edge114, label %.lr.ph113, !llvm.loop !15
 
 ._crit_edge114:                                   ; preds = %108, %Vec_PtrFree.exit91
-  %110 = getelementptr inbounds i8, ptr %22, i64 256
+  %110 = getelementptr inbounds nuw i8, ptr %22, i64 256
   %111 = load ptr, ptr %110, align 8
   %112 = call i32 @Abc_AigCleanup(ptr noundef %111) #12
   %113 = call i32 @Bbl_ManFncSize(ptr noundef %0) #12
@@ -693,13 +693,13 @@ Vec_PtrFree.exit91:                               ; preds = %Vec_PtrFree.exit, %
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %122
   %indvars.iv121 = phi i64 [ %115, %.lr.ph118.preheader ], [ %indvars.iv.next122, %122 ]
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, -1
-  %116 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next122
+  %116 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next122
   %117 = load ptr, ptr %116, align 8
   %.not80 = icmp eq ptr %117, null
   br i1 %.not80, label %122, label %118
 
 118:                                              ; preds = %.lr.ph118
-  %119 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %120 = load ptr, ptr %119, align 8
   %.not.i92 = icmp eq ptr %120, null
   br i1 %.not.i92, label %Dec_GraphFree.exit, label %121
@@ -834,7 +834,7 @@ define void @Bbl_ManTest(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %1
   %15 = load i64, ptr %11, align 8
   %.neg37 = mul i64 %15, -1000000
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i64, ptr %16, align 8
   %.neg = sdiv i64 %17, -1000
   %.neg38 = add i64 %.neg, %.neg37
@@ -853,7 +853,7 @@ Abc_Clock.exit:                                   ; preds = %1, %14
 21:                                               ; preds = %Abc_Clock.exit
   %22 = load i64, ptr %10, align 8
   %23 = mul nsw i64 %22, 1000000
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = sdiv i64 %25, 1000
   %27 = add nsw i64 %26, %23
@@ -870,7 +870,7 @@ Abc_Clock.exit20:                                 ; preds = %Abc_Clock.exit, %21
 30:                                               ; preds = %Abc_Clock.exit20
   %31 = load i64, ptr %9, align 8
   %.neg40 = mul i64 %31, -1000000
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load i64, ptr %32, align 8
   %.neg39 = sdiv i64 %33, -1000
   %.neg41 = add i64 %.neg39, %.neg40
@@ -888,7 +888,7 @@ Abc_Clock.exit22:                                 ; preds = %Abc_Clock.exit20, %
 36:                                               ; preds = %Abc_Clock.exit22
   %37 = load i64, ptr %8, align 8
   %38 = mul nsw i64 %37, 1000000
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = sdiv i64 %40, 1000
   %42 = add nsw i64 %41, %38
@@ -905,7 +905,7 @@ Abc_Clock.exit24:                                 ; preds = %Abc_Clock.exit22, %
 45:                                               ; preds = %Abc_Clock.exit24
   %46 = load i64, ptr %7, align 8
   %.neg43 = mul i64 %46, -1000000
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i64, ptr %47, align 8
   %.neg42 = sdiv i64 %48, -1000
   %.neg44 = add i64 %.neg42, %.neg43
@@ -924,7 +924,7 @@ Abc_Clock.exit26:                                 ; preds = %Abc_Clock.exit24, %
 52:                                               ; preds = %Abc_Clock.exit26
   %53 = load i64, ptr %6, align 8
   %54 = mul nsw i64 %53, 1000000
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = sdiv i64 %56, 1000
   %58 = add nsw i64 %57, %54
@@ -941,7 +941,7 @@ Abc_Clock.exit28:                                 ; preds = %Abc_Clock.exit26, %
 61:                                               ; preds = %Abc_Clock.exit28
   %62 = load i64, ptr %5, align 8
   %.neg46 = mul i64 %62, -1000000
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = load i64, ptr %63, align 8
   %.neg45 = sdiv i64 %64, -1000
   %.neg47 = add i64 %.neg45, %.neg46
@@ -960,7 +960,7 @@ Abc_Clock.exit30:                                 ; preds = %Abc_Clock.exit28, %
 68:                                               ; preds = %Abc_Clock.exit30
   %69 = load i64, ptr %4, align 8
   %70 = mul nsw i64 %69, 1000000
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = sdiv i64 %72, 1000
   %74 = add nsw i64 %73, %70
@@ -977,7 +977,7 @@ Abc_Clock.exit32:                                 ; preds = %Abc_Clock.exit30, %
 77:                                               ; preds = %Abc_Clock.exit32
   %78 = load i64, ptr %3, align 8
   %.neg49 = mul i64 %78, -1000000
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %80 = load i64, ptr %79, align 8
   %.neg48 = sdiv i64 %80, -1000
   %.neg50 = add i64 %.neg48, %.neg49
@@ -995,7 +995,7 @@ Abc_Clock.exit34:                                 ; preds = %Abc_Clock.exit32, %
 83:                                               ; preds = %Abc_Clock.exit34
   %84 = load i64, ptr %2, align 8
   %85 = mul nsw i64 %84, 1000000
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = sdiv i64 %87, 1000
   %89 = add nsw i64 %88, %85

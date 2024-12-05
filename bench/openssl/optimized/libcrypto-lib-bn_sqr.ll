@@ -15,15 +15,15 @@ entry:
 define range(i32 0, 2) i32 @bn_sqr_fixed_top(ptr noundef %r, ptr noundef readonly %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %t = alloca [32 x i64], align 16
-  %top = getelementptr inbounds i8, ptr %a, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %top1 = getelementptr inbounds i8, ptr %r, i64 8
+  %top1 = getelementptr inbounds nuw i8, ptr %r, i64 8
   store i32 0, ptr %top1, align 8
-  %neg = getelementptr inbounds i8, ptr %r, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %r, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -112,9 +112,9 @@ if.end43:                                         ; preds = %if.else38
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then16, %if.end34, %if.end43, %if.then21, %if.then13
-  %neg51 = getelementptr inbounds i8, ptr %cond, i64 16
+  %neg51 = getelementptr inbounds nuw i8, ptr %cond, i64 16
   store i32 0, ptr %neg51, align 8
-  %top52 = getelementptr inbounds i8, ptr %cond, i64 8
+  %top52 = getelementptr inbounds nuw i8, ptr %cond, i64 8
   store i32 %mul, ptr %top52, align 8
   %cmp53.not = icmp eq ptr %r, %cond
   br i1 %cmp53.not, label %if.end59, label %land.lhs.true
@@ -162,19 +162,19 @@ entry:
   br i1 %cmp, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %r, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %r, i64 8
   %dec = add nsw i32 %n, -1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %a, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %2 = load i64, ptr %a, align 8
   %call = tail call i64 @bn_mul_words(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %incdec.ptr2, i32 noundef %dec, i64 noundef %2) #3
   %idxprom4 = zext nneg i32 %dec to i64
-  %arrayidx5 = getelementptr inbounds i64, ptr %incdec.ptr, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw i64, ptr %incdec.ptr, i64 %idxprom4
   store i64 %call, ptr %arrayidx5, align 8
   %cmp732.not = icmp eq i32 %n, 2
   br i1 %cmp732.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %r, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %r, i64 24
   %sub6 = add nsw i32 %n, -2
   %3 = zext nneg i32 %n to i64
   %4 = add nsw i64 %3, -1
@@ -186,13 +186,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %ap.135 = phi ptr [ %incdec.ptr2, %for.body.preheader ], [ %incdec.ptr9, %for.body ]
   %i.034 = phi i32 [ %sub6, %for.body.preheader ], [ %dec15, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %ap.135, i64 8
+  %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %ap.135, i64 8
   %5 = load i64, ptr %ap.135, align 8
   %6 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call11 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %rp.136, ptr noundef nonnull %incdec.ptr9, i32 noundef %6, i64 noundef %5) #3
   %arrayidx13 = getelementptr inbounds i64, ptr %rp.136, i64 %indvars.iv.next
   store i64 %call11, ptr %arrayidx13, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %rp.136, i64 16
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %rp.136, i64 16
   %dec15 = add nsw i32 %i.034, -1
   %cmp7 = icmp samesign ugt i32 %i.034, 1
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !4
@@ -233,7 +233,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.end6:                                          ; preds = %if.end3
   %idxprom = zext nneg i32 %div to i64
-  %arrayidx = getelementptr inbounds i64, ptr %a, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr %a, i64 %idxprom
   %call = tail call i32 @bn_cmp_words(ptr noundef %a, ptr noundef %arrayidx, i32 noundef %div) #3
   %cmp7 = icmp sgt i32 %call, 0
   br i1 %cmp7, label %if.then8, label %if.else12
@@ -253,18 +253,18 @@ if.then14:                                        ; preds = %if.else12
 if.then23:                                        ; preds = %if.then8, %if.then14
   %mul78 = shl nuw nsw i32 %n2, 1
   %idxprom2179 = zext nneg i32 %mul78 to i64
-  %arrayidx2280 = getelementptr inbounds i64, ptr %t, i64 %idxprom2179
+  %arrayidx2280 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom2179
   %idxprom24 = zext nneg i32 %n2 to i64
-  %arrayidx25 = getelementptr inbounds i64, ptr %t, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom24
   tail call void @bn_sqr_recursive(ptr noundef nonnull %arrayidx25, ptr noundef %t, i32 noundef %div, ptr noundef nonnull %arrayidx2280)
   br label %if.end30
 
 if.else26:                                        ; preds = %if.else12
   %mul = shl nuw nsw i32 %n2, 1
   %idxprom21 = zext nneg i32 %mul to i64
-  %arrayidx22 = getelementptr inbounds i64, ptr %t, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom21
   %idxprom27 = zext nneg i32 %n2 to i64
-  %arrayidx28 = getelementptr inbounds i64, ptr %t, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom27
   %mul29 = shl nuw nsw i64 %idxprom27, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %arrayidx28, i8 0, i64 %mul29, i1 false)
   br label %if.end30
@@ -273,15 +273,15 @@ if.end30:                                         ; preds = %if.else26, %if.then
   %idxprom31.pre-phi = phi i64 [ %idxprom27, %if.else26 ], [ %idxprom24, %if.then23 ]
   %arrayidx2281 = phi ptr [ %arrayidx22, %if.else26 ], [ %arrayidx2280, %if.then23 ]
   tail call void @bn_sqr_recursive(ptr noundef %r, ptr noundef %a, i32 noundef %div, ptr noundef nonnull %arrayidx2281)
-  %arrayidx32 = getelementptr inbounds i64, ptr %r, i64 %idxprom31.pre-phi
+  %arrayidx32 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom31.pre-phi
   tail call void @bn_sqr_recursive(ptr noundef nonnull %arrayidx32, ptr noundef %arrayidx, i32 noundef %div, ptr noundef nonnull %arrayidx2281)
   %call37 = tail call i64 @bn_add_words(ptr noundef %t, ptr noundef %r, ptr noundef nonnull %arrayidx32, i32 noundef %n2) #3
   %conv38 = trunc i64 %call37 to i32
-  %arrayidx40 = getelementptr inbounds i64, ptr %t, i64 %idxprom31.pre-phi
+  %arrayidx40 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom31.pre-phi
   %call43 = tail call i64 @bn_sub_words(ptr noundef nonnull %arrayidx40, ptr noundef %t, ptr noundef nonnull %arrayidx40, i32 noundef %n2) #3
   %conv44 = trunc i64 %call43 to i32
   %sub = sub nsw i32 %conv38, %conv44
-  %arrayidx46 = getelementptr inbounds i64, ptr %r, i64 %idxprom
+  %arrayidx46 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom
   %call51 = tail call i64 @bn_add_words(ptr noundef %arrayidx46, ptr noundef %arrayidx46, ptr noundef nonnull %arrayidx40, i32 noundef %n2) #3
   %conv52 = trunc i64 %call51 to i32
   %add = add nsw i32 %sub, %conv52
@@ -291,7 +291,7 @@ if.end30:                                         ; preds = %if.else26, %if.then
 if.then54:                                        ; preds = %if.end30
   %add55 = add nuw nsw i32 %div, %n2
   %idxprom56 = zext nneg i32 %add55 to i64
-  %arrayidx57 = getelementptr inbounds i64, ptr %r, i64 %idxprom56
+  %arrayidx57 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom56
   %0 = load i64, ptr %arrayidx57, align 8
   %conv58 = sext i32 %add to i64
   %add59 = add i64 %0, %conv58
@@ -301,7 +301,7 @@ if.then54:                                        ; preds = %if.end30
 
 do.body:                                          ; preds = %if.then54, %do.body
   %p.0 = phi ptr [ %incdec.ptr, %do.body ], [ %arrayidx57, %if.then54 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 8
   %1 = load i64, ptr %incdec.ptr, align 8
   %add64 = add i64 %1, 1
   store i64 %add64, ptr %incdec.ptr, align 8

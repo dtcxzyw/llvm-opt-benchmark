@@ -115,8 +115,8 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %runstate1 = getelementptr inbounds i8, ptr %opaque, i64 4
-  %received = getelementptr inbounds i8, ptr %opaque, i64 108
+  %runstate1 = getelementptr inbounds nuw i8, ptr %opaque, i64 4
+  %received = getelementptr inbounds nuw i8, ptr %opaque, i64 108
   store i8 1, ptr %received, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -141,7 +141,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %runstate1) #7
   br label %trace_migrate_global_state_post_load.exit
@@ -176,7 +176,7 @@ if.then8:                                         ; preds = %if.then7
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %state = getelementptr inbounds i8, ptr %opaque, i64 104
+  %state = getelementptr inbounds nuw i8, ptr %opaque, i64 104
   store i32 %call5, ptr %state, align 4
   br label %return
 
@@ -189,7 +189,7 @@ return:                                           ; preds = %if.then7, %if.then8
 define internal noundef i32 @global_state_pre_save(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %runstate = getelementptr inbounds i8, ptr %opaque, i64 4
+  %runstate = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -213,7 +213,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %runstate) #7
   br label %trace_migrate_global_state_pre_save.exit
@@ -242,9 +242,9 @@ if.end:                                           ; preds = %trace_migrate_globa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @global_state_needed(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %runstate1 = getelementptr inbounds i8, ptr %opaque, i64 4
+  %runstate1 = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %call = tail call ptr @migrate_get_current() #7
-  %store_global_state = getelementptr inbounds i8, ptr %call, i64 1537
+  %store_global_state = getelementptr inbounds nuw i8, ptr %call, i64 1537
   %0 = load i8, ptr %store_global_state, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %if.end

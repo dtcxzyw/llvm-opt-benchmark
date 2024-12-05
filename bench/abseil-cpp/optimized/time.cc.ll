@@ -40,7 +40,7 @@ entry:
   %al = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
   %ref.tmp24 = alloca %"class.absl::time_internal::cctz::time_zone", align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 4
-  %agg.tmp.sroa.2.0.this2.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this2.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this2.sroa_idx, align 4
   %cmp.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 9223372036854775807
   %cmp8.i.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
@@ -48,28 +48,28 @@ entry:
   br i1 %spec.select.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %subsecond.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
-  %rep_lo_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %subsecond.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
+  %rep_lo_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i64 9223372036854775807, ptr %agg.result, align 8, !alias.scope !5
-  %month.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %month.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 12, ptr %month.i, align 8, !alias.scope !5
-  %day.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %day.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 31, ptr %day.i, align 4, !alias.scope !5
-  %hour.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %hour.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 23, ptr %hour.i, align 8, !alias.scope !5
-  %minute.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %minute.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 59, ptr %minute.i, align 4, !alias.scope !5
-  %second.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 59, ptr %second.i, align 8, !alias.scope !5
   store i64 9223372036854775807, ptr %subsecond.i.i, align 4, !alias.scope !5
   store i32 -1, ptr %rep_lo_.i.i.i, align 4, !alias.scope !5
-  %weekday.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %weekday.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 4, ptr %weekday.i, align 8, !alias.scope !5
-  %yearday.i = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %yearday.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 44
   store i32 365, ptr %yearday.i, align 4, !alias.scope !5
-  %offset.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %offset.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store i32 0, ptr %offset.i, align 8, !alias.scope !5
-  %is_dst.i = getelementptr inbounds i8, ptr %agg.result, i64 52
+  %is_dst.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 52
   store i8 0, ptr %is_dst.i, align 4, !alias.scope !5
   br label %return
 
@@ -79,28 +79,28 @@ if.end:                                           ; preds = %entry
   br i1 %spec.select.i.i3, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end
-  %subsecond.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 28
-  %rep_lo_.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %subsecond.i.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
+  %rep_lo_.i.i.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i64 -9223372036854775808, ptr %agg.result, align 8, !alias.scope !8
-  %month.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %month.i6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 1, ptr %month.i6, align 8, !alias.scope !8
-  %day.i7 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %day.i7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 1, ptr %day.i7, align 4, !alias.scope !8
-  %hour.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %hour.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 0, ptr %hour.i8, align 8, !alias.scope !8
-  %minute.i9 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %minute.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 0, ptr %minute.i9, align 4, !alias.scope !8
-  %second.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %second.i10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %second.i10, align 8, !alias.scope !8
   store i64 -9223372036854775808, ptr %subsecond.i.i4, align 4, !alias.scope !8
   store i32 -1, ptr %rep_lo_.i.i.i5, align 4, !alias.scope !8
-  %weekday.i11 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %weekday.i11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 7, ptr %weekday.i11, align 8, !alias.scope !8
-  %yearday.i12 = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %yearday.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 44
   store i32 1, ptr %yearday.i12, align 4, !alias.scope !8
-  %offset.i13 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %offset.i13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store i32 0, ptr %offset.i13, align 8, !alias.scope !8
-  %is_dst.i14 = getelementptr inbounds i8, ptr %agg.result, i64 52
+  %is_dst.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 52
   store i8 0, ptr %is_dst.i14, align 4, !alias.scope !8
   br label %return
 
@@ -109,31 +109,31 @@ if.end13:                                         ; preds = %if.end
   store ptr %tz.coerce, ptr %ref.tmp24, align 8
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %al, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(8) %tp)
   %cs.sroa.0.0.copyload = load i64, ptr %al, align 8
-  %cs.sroa.3.0.al.sroa_idx = getelementptr inbounds i8, ptr %al, i64 8
+  %cs.sroa.3.0.al.sroa_idx = getelementptr inbounds nuw i8, ptr %al, i64 8
   %cs.sroa.3.0.copyload = load i64, ptr %cs.sroa.3.0.al.sroa_idx, align 8
-  %subsecond.i = getelementptr inbounds i8, ptr %agg.result, i64 28
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %subsecond.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i64 %cs.sroa.0.0.copyload, ptr %agg.result, align 8
   %cs.sroa.3.8.extract.trunc = trunc i64 %cs.sroa.3.0.copyload to i32
   %sext = shl i32 %cs.sroa.3.8.extract.trunc, 24
   %conv.i = ashr exact i32 %sext, 24
-  %month = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %month = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %conv.i, ptr %month, align 8
   %0 = shl i32 %cs.sroa.3.8.extract.trunc, 16
   %conv.i16 = ashr i32 %0, 24
-  %day = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %day = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 %conv.i16, ptr %day, align 4
   %1 = shl i32 %cs.sroa.3.8.extract.trunc, 8
   %conv.i17 = ashr i32 %1, 24
-  %hour = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %hour = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %conv.i17, ptr %hour, align 8
   %conv.i18 = ashr i32 %cs.sroa.3.8.extract.trunc, 24
-  %minute = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %minute = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 %conv.i18, ptr %minute, align 4
   %sh.diff = lshr i64 %cs.sroa.3.0.copyload, 8
   %tr.sh.diff = trunc i64 %sh.diff to i32
   %conv.i19 = ashr i32 %tr.sh.diff, 24
-  %second = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %second = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %conv.i19, ptr %second, align 8
   %agg.tmp35.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this2.sroa_idx, align 4
   store i64 0, ptr %subsecond.i, align 4
@@ -168,7 +168,7 @@ if.end13:                                         ; preds = %if.end
   %4 = icmp ult i32 %switch.tableidx, 6
   %switch.offset = add i32 %3, 1
   %retval.0.i = select i1 %4, i32 %switch.offset, i32 1
-  %weekday = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %weekday = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 %retval.0.i, ptr %weekday, align 8
   %cmp.i27 = icmp sgt i8 %ref.tmp41.sroa.2.8.extract.trunc, 2
   %5 = and i64 %cs.sroa.0.0.copyload, 3
@@ -192,24 +192,24 @@ _ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second
   %7 = load i32, ptr %arrayidx.i30, align 4
   %add.i31 = add nsw i32 %conv.i28, %conv.i16
   %add5.i33 = add i32 %add.i31, %7
-  %yearday = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %yearday = getelementptr inbounds nuw i8, ptr %agg.result, i64 44
   store i32 %add5.i33, ptr %yearday, align 4
-  %offset = getelementptr inbounds i8, ptr %al, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %al, i64 16
   %8 = load i32, ptr %offset, align 8
-  %offset46 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %offset46 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store i32 %8, ptr %offset46, align 8
-  %is_dst = getelementptr inbounds i8, ptr %al, i64 20
+  %is_dst = getelementptr inbounds nuw i8, ptr %al, i64 20
   %9 = load i8, ptr %is_dst, align 4
-  %is_dst47 = getelementptr inbounds i8, ptr %agg.result, i64 52
+  %is_dst47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 52
   %frombool = and i8 %9, 1
   store i8 %frombool, ptr %is_dst47, align 4
-  %abbr = getelementptr inbounds i8, ptr %al, i64 24
+  %abbr = getelementptr inbounds nuw i8, ptr %al, i64 24
   %10 = load ptr, ptr %abbr, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit, %if.then12, %if.then
   %.sink = phi ptr [ %10, %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit ], [ @.str, %if.then12 ], [ @.str, %if.then ]
-  %zone_abbr = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %zone_abbr = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %.sink, ptr %zone_abbr, align 8
   ret void
 }
@@ -225,11 +225,11 @@ entry:
   %rhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rhs.i.i)
   store i64 0, ptr %rhs.i.i, align 8
-  %coerce.sroa.2.0.rhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %rhs.i.i, i64 8
+  %coerce.sroa.2.0.rhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %rhs.i.i, i64 8
   store i32 4000000, ptr %coerce.sroa.2.0.rhs.sroa_idx.i.i, align 8
   %call.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(ptr noundef nonnull align 4 dereferenceable(12) %rhs.i.i, double noundef %udate) #13
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %call.i.i, align 4
-  %retval.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %retval.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i, align 4
   %.fca.0.insert.i.i = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.copyload.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.i, i32 %retval.sroa.2.0.copyload.i.i, 1
@@ -253,16 +253,16 @@ entry:
   %conv.i.pn.i.i.i = select i1 %cmp.i.i.i, i32 %conv.i.i.i.i, i32 %0
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rhs.i)
   store i64 %sub.pn.i.i.i, ptr %rhs.i, align 8
-  %coerce.sroa.2.0.rhs.sroa_idx.i = getelementptr inbounds i8, ptr %rhs.i, i64 8
+  %coerce.sroa.2.0.rhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %rhs.i, i64 8
   store i32 %conv.i.pn.i.i.i, ptr %coerce.sroa.2.0.rhs.sroa_idx.i, align 8
   %call.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %rhs.i, i64 noundef 100) #13
   %retval.sroa.0.0.copyload.i = load i64, ptr %call.i.i, align 4
-  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %rhs.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i)
   store i64 -62135596800, ptr %lhs.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds i8, ptr %lhs.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %lhs.i, i64 8
   store i32 0, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   %call.i.i1 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i, i64 %retval.sroa.0.0.copyload.i, i32 %retval.sroa.2.0.copyload.i) #13
   %retval.sroa.0.0.copyload.i2 = load i64, ptr %lhs.i, align 8
@@ -289,10 +289,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rem.i)
-  %hi_.i.i.i = getelementptr inbounds i8, ptr %rem.i, i64 4
+  %hi_.i.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 4
   store i32 0, ptr %hi_.i.i.i, align 4
   store i32 0, ptr %rem.i, align 8
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %rem.i, i64 8
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 8
   store i32 0, ptr %rep_lo_.i.i, align 8
   %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %t.coerce0, i32 %t.coerce1, i64 0, i32 4, ptr noundef nonnull %rem.i) #13
   %cmp.i = icmp sgt i64 %call.i.i, 0
@@ -327,10 +327,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rem.i)
-  %hi_.i.i.i = getelementptr inbounds i8, ptr %rem.i, i64 4
+  %hi_.i.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 4
   store i32 0, ptr %hi_.i.i.i, align 4
   store i32 0, ptr %rem.i, align 8
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %rem.i, i64 8
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 8
   store i32 0, ptr %rep_lo_.i.i, align 8
   %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %t.coerce0, i32 %t.coerce1, i64 0, i32 4000, ptr noundef nonnull %rem.i) #13
   %cmp.i = icmp sgt i64 %call.i.i, 0
@@ -365,10 +365,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rem.i)
-  %hi_.i.i.i = getelementptr inbounds i8, ptr %rem.i, i64 4
+  %hi_.i.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 4
   store i32 0, ptr %hi_.i.i.i, align 4
   store i32 0, ptr %rem.i, align 8
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %rem.i, i64 8
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 8
   store i32 0, ptr %rep_lo_.i.i, align 8
   %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %t.coerce0, i32 %t.coerce1, i64 0, i32 4000000, ptr noundef nonnull %rem.i) #13
   %cmp.i = icmp sgt i64 %call.i.i, 0
@@ -436,18 +436,18 @@ entry:
   %lhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i)
   store i64 %t.coerce0, ptr %lhs.i.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %lhs.i.i, i64 8
   store i32 %t.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %call.i.i = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i, i64 -62135596800, i32 0) #13
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %call.i.i, align 4
-  %retval.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %retval.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rem.i)
-  %hi_.i.i.i = getelementptr inbounds i8, ptr %rem.i, i64 4
+  %hi_.i.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 4
   store i32 0, ptr %hi_.i.i.i, align 4
   store i32 0, ptr %rem.i, align 8
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %rem.i, i64 8
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %rem.i, i64 8
   store i32 0, ptr %rep_lo_.i.i, align 8
   %call.i.i1 = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.2.0.copyload.i.i, i64 0, i32 400, ptr noundef nonnull %rem.i) #13
   %cmp.i = icmp sgt i64 %call.i.i1, 0
@@ -568,9 +568,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %m.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %subsecond.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %rep_lo_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %subsecond.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %rep_lo_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %call.i.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !11
   %0 = extractvalue { i64, i64 } %call.i.i.i.i, 0
   %1 = extractvalue { i64, i64 } %call.i.i.i.i, 1
@@ -578,9 +578,9 @@ if.then:                                          ; preds = %entry
   store i64 %1, ptr %m.i.i.i.i, align 8, !alias.scope !11
   store i64 9223372036854775807, ptr %subsecond.i.i, align 8, !alias.scope !11
   store i32 -1, ptr %rep_lo_.i.i.i, align 8, !alias.scope !11
-  %offset.i = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %offset.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 0, ptr %offset.i, align 4, !alias.scope !11
-  %is_dst.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %is_dst.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %is_dst.i, align 8, !alias.scope !11
   br label %return
 
@@ -590,48 +590,48 @@ if.end:                                           ; preds = %entry
   br i1 %spec.select.i.i9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end
-  %m.i.i.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %subsecond.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %rep_lo_.i.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %subsecond.i.i11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %rep_lo_.i.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 -9223372036854775808, ptr %agg.result, align 8, !alias.scope !14
   store i64 257, ptr %m.i.i.i.i10, align 8, !alias.scope !14
   store i64 -9223372036854775808, ptr %subsecond.i.i11, align 8, !alias.scope !14
   store i32 -1, ptr %rep_lo_.i.i.i12, align 8, !alias.scope !14
-  %offset.i13 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %offset.i13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 0, ptr %offset.i13, align 4, !alias.scope !14
-  %is_dst.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %is_dst.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %is_dst.i14, align 8, !alias.scope !14
   br label %return
 
 if.end11:                                         ; preds = %if.end
   store i64 %t.coerce0, ptr %tp, align 8
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %al, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %tp)
-  %m.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %subsecond.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %rep_lo_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %m.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %subsecond.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %rep_lo_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %al, align 8
-  %agg.tmp.sroa.2.0.f_.sroa_idx.i = getelementptr inbounds i8, ptr %al, i64 8
+  %agg.tmp.sroa.2.0.f_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %al, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %agg.result, align 8
   store i64 %agg.tmp.sroa.2.0.copyload.i, ptr %m.i.i.i, align 8
   store i64 0, ptr %subsecond.i, align 8
   store i32 %t.coerce1, ptr %rep_lo_.i.i, align 8
-  %offset = getelementptr inbounds i8, ptr %al, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %al, i64 16
   %2 = load i32, ptr %offset, align 8
-  %offset32 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %offset32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %2, ptr %offset32, align 4
-  %is_dst = getelementptr inbounds i8, ptr %al, i64 20
+  %is_dst = getelementptr inbounds nuw i8, ptr %al, i64 20
   %3 = load i8, ptr %is_dst, align 4
-  %is_dst33 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %is_dst33 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %is_dst33, align 8
-  %abbr = getelementptr inbounds i8, ptr %al, i64 24
+  %abbr = getelementptr inbounds nuw i8, ptr %al, i64 24
   %4 = load ptr, ptr %abbr, align 8
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then10, %if.then
   %.sink = phi ptr [ %4, %if.end11 ], [ @.str, %if.then10 ], [ @.str, %if.then ]
-  %zone_abbr = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %zone_abbr = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr %.sink, ptr %zone_abbr, align 8
   ret void
 }
@@ -642,10 +642,10 @@ entry:
   %cs = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
   store i64 %ct.coerce0, ptr %cs, align 8
-  %0 = getelementptr inbounds i8, ptr %cs, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %cs, i64 8
   store i64 %ct.coerce1, ptr %0, align 8
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %cs)
-  %pre.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %pre.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %pre.i, i8 0, i64 36, i1 false)
   %1 = load i32, ptr %cl, align 8
   %switch = icmp ult i32 %1, 3
@@ -656,28 +656,28 @@ sw.epilog.sink.split:                             ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.epilog.sink.split
-  %pre = getelementptr inbounds i8, ptr %cl, i64 8
+  %pre = getelementptr inbounds nuw i8, ptr %cl, i64 8
   %call = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre, ptr noundef nonnull align 8 dereferenceable(16) %cs, ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call.fca.0.extract = extractvalue { i64, i32 } %call, 0
   %call.fca.1.extract = extractvalue { i64, i32 } %call, 1
   store i64 %call.fca.0.extract, ptr %pre.i, align 4
-  %ref.tmp.sroa.2.0.pre8.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %ref.tmp.sroa.2.0.pre8.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 %call.fca.1.extract, ptr %ref.tmp.sroa.2.0.pre8.sroa_idx, align 4
-  %trans = getelementptr inbounds i8, ptr %cl, i64 16
+  %trans = getelementptr inbounds nuw i8, ptr %cl, i64 16
   %call11 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans, ptr noundef nonnull align 8 dereferenceable(16) %cs, ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call11.fca.0.extract = extractvalue { i64, i32 } %call11, 0
   %call11.fca.1.extract = extractvalue { i64, i32 } %call11, 1
-  %trans14 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %trans14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %call11.fca.0.extract, ptr %trans14, align 4
-  %ref.tmp9.sroa.2.0.trans14.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %ref.tmp9.sroa.2.0.trans14.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %call11.fca.1.extract, ptr %ref.tmp9.sroa.2.0.trans14.sroa_idx, align 4
-  %post = getelementptr inbounds i8, ptr %cl, i64 24
+  %post = getelementptr inbounds nuw i8, ptr %cl, i64 24
   %call17 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post, ptr noundef nonnull align 8 dereferenceable(16) %cs, ptr noundef nonnull align 8 dereferenceable(8) %this)
   %call17.fca.0.extract = extractvalue { i64, i32 } %call17, 0
   %call17.fca.1.extract = extractvalue { i64, i32 } %call17, 1
-  %post20 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %post20 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i64 %call17.fca.0.extract, ptr %post20, align 4
-  %ref.tmp15.sroa.2.0.post20.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %ref.tmp15.sroa.2.0.post20.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 %call17.fca.1.extract, ptr %ref.tmp15.sroa.2.0.post20.sroa_idx, align 4
   ret void
 }
@@ -709,9 +709,9 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br i1 %cmp4.i.i, label %land.rhs.i.i, label %if.end13thread-pre-split
 
 land.rhs.i.i:                                     ; preds = %lor.rhs.i.i
-  %m.i.i.i = getelementptr inbounds i8, ptr %al, i64 8
+  %m.i.i.i = getelementptr inbounds nuw i8, ptr %al, i64 8
   %2 = load i8, ptr %m.i.i.i, align 8
-  %m.i21.i.i = getelementptr inbounds i8, ptr %cs, i64 8
+  %m.i21.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %3 = load i8, ptr %m.i21.i.i, align 8
   %cmp7.i.i = icmp slt i8 %2, %3
   br i1 %cmp7.i.i, label %return, label %lor.rhs8.i.i
@@ -721,9 +721,9 @@ lor.rhs8.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %cmp11.i.i, label %land.rhs12.i.i, label %if.end13thread-pre-split
 
 land.rhs12.i.i:                                   ; preds = %lor.rhs8.i.i
-  %d.i.i.i = getelementptr inbounds i8, ptr %al, i64 9
+  %d.i.i.i = getelementptr inbounds nuw i8, ptr %al, i64 9
   %4 = load i8, ptr %d.i.i.i, align 1
-  %d.i28.i.i = getelementptr inbounds i8, ptr %cs, i64 9
+  %d.i28.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 9
   %5 = load i8, ptr %d.i28.i.i, align 1
   %cmp15.i.i = icmp slt i8 %4, %5
   br i1 %cmp15.i.i, label %return, label %lor.rhs16.i.i
@@ -733,9 +733,9 @@ lor.rhs16.i.i:                                    ; preds = %land.rhs12.i.i
   br i1 %cmp19.i.i, label %land.rhs20.i.i, label %if.end13thread-pre-split
 
 land.rhs20.i.i:                                   ; preds = %lor.rhs16.i.i
-  %hh.i.i.i = getelementptr inbounds i8, ptr %al, i64 10
+  %hh.i.i.i = getelementptr inbounds nuw i8, ptr %al, i64 10
   %6 = load i8, ptr %hh.i.i.i, align 2
-  %hh.i35.i.i = getelementptr inbounds i8, ptr %cs, i64 10
+  %hh.i35.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 10
   %7 = load i8, ptr %hh.i35.i.i, align 2
   %cmp23.i.i = icmp slt i8 %6, %7
   br i1 %cmp23.i.i, label %return, label %lor.rhs24.i.i
@@ -745,9 +745,9 @@ lor.rhs24.i.i:                                    ; preds = %land.rhs20.i.i
   br i1 %cmp27.i.i, label %land.rhs28.i.i, label %if.end13thread-pre-split
 
 land.rhs28.i.i:                                   ; preds = %lor.rhs24.i.i
-  %mm.i.i.i = getelementptr inbounds i8, ptr %al, i64 11
+  %mm.i.i.i = getelementptr inbounds nuw i8, ptr %al, i64 11
   %8 = load i8, ptr %mm.i.i.i, align 1
-  %mm.i42.i.i = getelementptr inbounds i8, ptr %cs, i64 11
+  %mm.i42.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 11
   %9 = load i8, ptr %mm.i42.i.i, align 1
   %cmp31.i.i = icmp slt i8 %8, %9
   br i1 %cmp31.i.i, label %return, label %lor.rhs32.i.i
@@ -757,9 +757,9 @@ lor.rhs32.i.i:                                    ; preds = %land.rhs28.i.i
   br i1 %cmp35.i.i, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %if.end13thread-pre-split
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i.i
-  %ss.i.i.i = getelementptr inbounds i8, ptr %al, i64 12
+  %ss.i.i.i = getelementptr inbounds nuw i8, ptr %al, i64 12
   %10 = load i8, ptr %ss.i.i.i, align 4
-  %ss.i49.i.i = getelementptr inbounds i8, ptr %cs, i64 12
+  %ss.i49.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 12
   %11 = load i8, ptr %ss.i49.i.i, align 4
   %cmp39.i.i = icmp slt i8 %10, %11
   br i1 %cmp39.i.i, label %return, label %if.end13thread-pre-split
@@ -785,9 +785,9 @@ lor.rhs.i:                                        ; preds = %if.then15
   br i1 %cmp4.i, label %land.rhs.i, label %if.end27
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %m.i.i = getelementptr inbounds i8, ptr %cs, i64 8
+  %m.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %14 = load i8, ptr %m.i.i, align 8
-  %m.i21.i = getelementptr inbounds i8, ptr %al16, i64 8
+  %m.i21.i = getelementptr inbounds nuw i8, ptr %al16, i64 8
   %15 = load i8, ptr %m.i21.i, align 8
   %cmp7.i = icmp slt i8 %14, %15
   br i1 %cmp7.i, label %return, label %lor.rhs8.i
@@ -797,9 +797,9 @@ lor.rhs8.i:                                       ; preds = %land.rhs.i
   br i1 %cmp11.i, label %land.rhs12.i, label %if.end27
 
 land.rhs12.i:                                     ; preds = %lor.rhs8.i
-  %d.i.i = getelementptr inbounds i8, ptr %cs, i64 9
+  %d.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 9
   %16 = load i8, ptr %d.i.i, align 1
-  %d.i28.i = getelementptr inbounds i8, ptr %al16, i64 9
+  %d.i28.i = getelementptr inbounds nuw i8, ptr %al16, i64 9
   %17 = load i8, ptr %d.i28.i, align 1
   %cmp15.i = icmp slt i8 %16, %17
   br i1 %cmp15.i, label %return, label %lor.rhs16.i
@@ -809,9 +809,9 @@ lor.rhs16.i:                                      ; preds = %land.rhs12.i
   br i1 %cmp19.i, label %land.rhs20.i, label %if.end27
 
 land.rhs20.i:                                     ; preds = %lor.rhs16.i
-  %hh.i.i = getelementptr inbounds i8, ptr %cs, i64 10
+  %hh.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 10
   %18 = load i8, ptr %hh.i.i, align 2
-  %hh.i35.i = getelementptr inbounds i8, ptr %al16, i64 10
+  %hh.i35.i = getelementptr inbounds nuw i8, ptr %al16, i64 10
   %19 = load i8, ptr %hh.i35.i, align 2
   %cmp23.i = icmp slt i8 %18, %19
   br i1 %cmp23.i, label %return, label %lor.rhs24.i
@@ -821,9 +821,9 @@ lor.rhs24.i:                                      ; preds = %land.rhs20.i
   br i1 %cmp27.i, label %land.rhs28.i, label %if.end27
 
 land.rhs28.i:                                     ; preds = %lor.rhs24.i
-  %mm.i.i = getelementptr inbounds i8, ptr %cs, i64 11
+  %mm.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 11
   %20 = load i8, ptr %mm.i.i, align 1
-  %mm.i42.i = getelementptr inbounds i8, ptr %al16, i64 11
+  %mm.i42.i = getelementptr inbounds nuw i8, ptr %al16, i64 11
   %21 = load i8, ptr %mm.i42.i, align 1
   %cmp31.i = icmp slt i8 %20, %21
   br i1 %cmp31.i, label %return, label %lor.rhs32.i
@@ -833,9 +833,9 @@ lor.rhs32.i:                                      ; preds = %land.rhs28.i
   br i1 %cmp35.i, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %if.end27
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %lor.rhs32.i
-  %ss.i.i = getelementptr inbounds i8, ptr %cs, i64 12
+  %ss.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 12
   %22 = load i8, ptr %ss.i.i, align 4
-  %ss.i49.i = getelementptr inbounds i8, ptr %al16, i64 12
+  %ss.i49.i = getelementptr inbounds nuw i8, ptr %al16, i64 12
   %23 = load i8, ptr %ss.i49.i, align 4
   %cmp39.i = icmp slt i8 %22, %23
   br i1 %cmp39.i, label %return, label %if.end27
@@ -860,27 +860,27 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tr.i)
   store i64 %t.coerce0, ptr %tp.i, align 8
   store i64 1970, ptr %tr.i, align 8
-  %m.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 8
+  %m.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 8
   store i8 1, ptr %m.i.i.i.i, align 8
-  %d.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 9
+  %d.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 9
   store i8 1, ptr %d.i.i.i.i, align 1
-  %hh.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 10
+  %hh.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 10
   store i8 0, ptr %hh.i.i.i.i, align 2
-  %mm.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 11
+  %mm.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 11
   store i8 0, ptr %mm.i.i.i.i, align 1
-  %ss.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 12
+  %ss.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
-  %to.i.i = getelementptr inbounds i8, ptr %tr.i, i64 16
+  %to.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 16
   store i64 1970, ptr %to.i.i, align 8
-  %m.i.i1.i.i = getelementptr inbounds i8, ptr %tr.i, i64 24
+  %m.i.i1.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 24
   store i8 1, ptr %m.i.i1.i.i, align 8
-  %d.i.i2.i.i = getelementptr inbounds i8, ptr %tr.i, i64 25
+  %d.i.i2.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 25
   store i8 1, ptr %d.i.i2.i.i, align 1
-  %hh.i.i3.i.i = getelementptr inbounds i8, ptr %tr.i, i64 26
+  %hh.i.i3.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 26
   store i8 0, ptr %hh.i.i3.i.i, align 2
-  %mm.i.i4.i.i = getelementptr inbounds i8, ptr %tr.i, i64 27
+  %mm.i.i4.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 27
   store i8 0, ptr %mm.i.i4.i.i, align 1
-  %ss.i.i5.i.i = getelementptr inbounds i8, ptr %tr.i, i64 28
+  %ss.i.i5.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 28
   store i8 0, ptr %ss.i.i5.i.i, align 4
   %call9.i = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15next_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %tp.i, ptr noundef nonnull %tr.i)
   br i1 %call9.i, label %if.end.i, label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
@@ -889,13 +889,13 @@ if.end.i:                                         ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %tr.i, align 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %m.i.i.i.i, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %trans, align 8
-  %ref.tmp10.sroa.2.0.trans.sroa_idx.i = getelementptr inbounds i8, ptr %trans, i64 8
+  %ref.tmp10.sroa.2.0.trans.sroa_idx.i = getelementptr inbounds nuw i8, ptr %trans, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload.i.i, ptr %ref.tmp10.sroa.2.0.trans.sroa_idx.i, align 8
   %agg.tmp.sroa.0.0.copyload.i2.i = load i64, ptr %to.i.i, align 8
   %agg.tmp.sroa.2.0.copyload.i4.i = load i64, ptr %m.i.i1.i.i, align 8
-  %to13.i = getelementptr inbounds i8, ptr %trans, i64 16
+  %to13.i = getelementptr inbounds nuw i8, ptr %trans, i64 16
   store i64 %agg.tmp.sroa.0.0.copyload.i2.i, ptr %to13.i, align 8
-  %ref.tmp12.sroa.2.0.to13.sroa_idx.i = getelementptr inbounds i8, ptr %trans, i64 24
+  %ref.tmp12.sroa.2.0.to13.sroa_idx.i = getelementptr inbounds nuw i8, ptr %trans, i64 24
   store i64 %agg.tmp.sroa.2.0.copyload.i4.i, ptr %ref.tmp12.sroa.2.0.to13.sroa_idx.i, align 8
   br label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
@@ -916,27 +916,27 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tr.i)
   store i64 %t.coerce0, ptr %tp.i, align 8
   store i64 1970, ptr %tr.i, align 8
-  %m.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 8
+  %m.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 8
   store i8 1, ptr %m.i.i.i.i, align 8
-  %d.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 9
+  %d.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 9
   store i8 1, ptr %d.i.i.i.i, align 1
-  %hh.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 10
+  %hh.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 10
   store i8 0, ptr %hh.i.i.i.i, align 2
-  %mm.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 11
+  %mm.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 11
   store i8 0, ptr %mm.i.i.i.i, align 1
-  %ss.i.i.i.i = getelementptr inbounds i8, ptr %tr.i, i64 12
+  %ss.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 12
   store i8 0, ptr %ss.i.i.i.i, align 4
-  %to.i.i = getelementptr inbounds i8, ptr %tr.i, i64 16
+  %to.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 16
   store i64 1970, ptr %to.i.i, align 8
-  %m.i.i1.i.i = getelementptr inbounds i8, ptr %tr.i, i64 24
+  %m.i.i1.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 24
   store i8 1, ptr %m.i.i1.i.i, align 8
-  %d.i.i2.i.i = getelementptr inbounds i8, ptr %tr.i, i64 25
+  %d.i.i2.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 25
   store i8 1, ptr %d.i.i2.i.i, align 1
-  %hh.i.i3.i.i = getelementptr inbounds i8, ptr %tr.i, i64 26
+  %hh.i.i3.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 26
   store i8 0, ptr %hh.i.i3.i.i, align 2
-  %mm.i.i4.i.i = getelementptr inbounds i8, ptr %tr.i, i64 27
+  %mm.i.i4.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 27
   store i8 0, ptr %mm.i.i4.i.i, align 1
-  %ss.i.i5.i.i = getelementptr inbounds i8, ptr %tr.i, i64 28
+  %ss.i.i5.i.i = getelementptr inbounds nuw i8, ptr %tr.i, i64 28
   store i8 0, ptr %ss.i.i5.i.i, align 4
   %call9.i = call noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15prev_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %tp.i, ptr noundef nonnull %tr.i)
   br i1 %call9.i, label %if.end.i, label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
@@ -945,13 +945,13 @@ if.end.i:                                         ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %tr.i, align 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %m.i.i.i.i, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %trans, align 8
-  %ref.tmp10.sroa.2.0.trans.sroa_idx.i = getelementptr inbounds i8, ptr %trans, i64 8
+  %ref.tmp10.sroa.2.0.trans.sroa_idx.i = getelementptr inbounds nuw i8, ptr %trans, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload.i.i, ptr %ref.tmp10.sroa.2.0.trans.sroa_idx.i, align 8
   %agg.tmp.sroa.0.0.copyload.i2.i = load i64, ptr %to.i.i, align 8
   %agg.tmp.sroa.2.0.copyload.i4.i = load i64, ptr %m.i.i1.i.i, align 8
-  %to13.i = getelementptr inbounds i8, ptr %trans, i64 16
+  %to13.i = getelementptr inbounds nuw i8, ptr %trans, i64 16
   store i64 %agg.tmp.sroa.0.0.copyload.i2.i, ptr %to13.i, align 8
-  %ref.tmp12.sroa.2.0.to13.sroa_idx.i = getelementptr inbounds i8, ptr %trans, i64 24
+  %ref.tmp12.sroa.2.0.to13.sroa_idx.i = getelementptr inbounds nuw i8, ptr %trans, i64 24
   store i64 %agg.tmp.sroa.2.0.copyload.i4.i, ptr %ref.tmp12.sroa.2.0.to13.sroa_idx.i, align 8
   br label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
@@ -975,16 +975,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %post.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %post.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 9223372036854775807, ptr %post.i, align 4, !alias.scope !17
-  %ref.tmp.sroa.2.0.post.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.2.0.post.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 -1, ptr %ref.tmp.sroa.2.0.post.sroa_idx.i, align 4, !alias.scope !17
-  %trans.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %trans.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %trans.i, ptr noundef nonnull align 4 dereferenceable(12) %post.i, i64 12, i1 false), !alias.scope !17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %post.i, i64 12, i1 false), !alias.scope !17
-  %kind.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %kind.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 0, ptr %kind.i, align 4, !alias.scope !17
-  %normalized.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %normalized.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 1, ptr %normalized.i, align 4, !alias.scope !17
   br label %return
 
@@ -993,16 +993,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %post.i9 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %post.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 -9223372036854775808, ptr %post.i9, align 4, !alias.scope !20
-  %ref.tmp.sroa.2.0.post.sroa_idx.i10 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ref.tmp.sroa.2.0.post.sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 -1, ptr %ref.tmp.sroa.2.0.post.sroa_idx.i10, align 4, !alias.scope !20
-  %trans.i11 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %trans.i11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %trans.i11, ptr noundef nonnull align 4 dereferenceable(12) %post.i9, i64 12, i1 false), !alias.scope !20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %post.i9, i64 12, i1 false), !alias.scope !20
-  %kind.i12 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %kind.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 0, ptr %kind.i12, align 4, !alias.scope !20
-  %normalized.i13 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %normalized.i13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 1, ptr %normalized.i13, align 4, !alias.scope !20
   br label %return
 
@@ -1019,45 +1019,45 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cl.i)
   store i64 %0, ptr %cs.i, align 8, !noalias !23
-  %2 = getelementptr inbounds i8, ptr %cs.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %cs.i, i64 8
   store i64 %1, ptr %2, align 8, !noalias !23
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i), !noalias !23
   %3 = load i32, ptr %cl.i, align 8, !noalias !23
-  %pre.i = getelementptr inbounds i8, ptr %cl.i, i64 8
+  %pre.i = getelementptr inbounds nuw i8, ptr %cl.i, i64 8
   %call.i14 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i14, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i14, 1
-  %trans.i15 = getelementptr inbounds i8, ptr %cl.i, i64 16
+  %trans.i15 = getelementptr inbounds nuw i8, ptr %cl.i, i64 16
   %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i15, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
   %call11.fca.0.extract.i = extractvalue { i64, i32 } %call11.i, 0
   %call11.fca.1.extract.i = extractvalue { i64, i32 } %call11.i, 1
-  %post.i16 = getelementptr inbounds i8, ptr %cl.i, i64 24
+  %post.i16 = getelementptr inbounds nuw i8, ptr %cl.i, i64 24
   %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i16, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
   %call17.fca.0.extract.i = extractvalue { i64, i32 } %call17.i, 0
   %call17.fca.1.extract.i = extractvalue { i64, i32 } %call17.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cl.i)
   store i64 %call.fca.0.extract.i, ptr %agg.result, align 4
-  %ti.sroa.5.4.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ti.sroa.5.4.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %call.fca.1.extract.i, ptr %ti.sroa.5.4.agg.result.sroa_idx, align 4
-  %trans10 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %trans10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i64 %call11.fca.0.extract.i, ptr %trans10, align 4
-  %ti.sroa.8.16.trans10.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %ti.sroa.8.16.trans10.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 %call11.fca.1.extract.i, ptr %ti.sroa.8.16.trans10.sroa_idx, align 4
-  %post11 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %post11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 %call17.fca.0.extract.i, ptr %post11, align 4
-  %ti.sroa.11.28.post11.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %ti.sroa.11.28.post11.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 %call17.fca.1.extract.i, ptr %ti.sroa.11.28.post11.sroa_idx, align 4
   %switch = icmp ult i32 %3, 3
   br i1 %switch, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.epilog.sink.split:                             ; preds = %if.end4
-  %kind16 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %kind16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 %3, ptr %kind16, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end4, %sw.epilog.sink.split
-  %normalized = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %normalized = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 0, ptr %normalized, align 4
   %cmp17.not = icmp eq i64 %year, %0
   %sext = shl i32 %cs.sroa.3.8.extract.trunc, 24
@@ -1097,10 +1097,10 @@ entry:
   %cl.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
   %tz = alloca %"class.absl::TimeZone", align 8
   store ptr %tz.coerce, ptr %tz, align 8
-  %tm_year2 = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year2 = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year2, align 4
   %conv = sext i32 %0 to i64
-  %tm_mon10 = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mon10 = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %1 = load i32, ptr %tm_mon10, align 8
   %cmp12 = icmp eq i32 %1, 2147483647
   %add = zext i1 %cmp12 to i64
@@ -1109,13 +1109,13 @@ entry:
   %2 = add nsw i32 %1, 1
   %add16 = select i1 %cmp12, i32 2147483636, i32 %2
   %conv17 = sext i32 %add16 to i64
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday, align 4
   %conv18 = sext i32 %3 to i64
-  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %4 = load i32, ptr %tm_hour, align 8
   %conv19 = sext i32 %4 to i64
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %5 = load i32, ptr %tm_min, align 4
   %conv20 = sext i32 %5 to i64
   %6 = load i32, ptr %tm, align 8
@@ -1126,22 +1126,22 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cl.i)
   store i64 %7, ptr %cs.i, align 8, !noalias !26
-  %9 = getelementptr inbounds i8, ptr %cs.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %cs.i, i64 8
   store i64 %8, ptr %9, align 8, !noalias !26
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i) #13, !noalias !26
-  %pre.i = getelementptr inbounds i8, ptr %cl.i, i64 8
+  %pre.i = getelementptr inbounds nuw i8, ptr %cl.i, i64 8
   %call.i12 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i12, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i12, 1
-  %trans.i = getelementptr inbounds i8, ptr %cl.i, i64 16
+  %trans.i = getelementptr inbounds nuw i8, ptr %cl.i, i64 16
   %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
-  %post.i = getelementptr inbounds i8, ptr %cl.i, i64 24
+  %post.i = getelementptr inbounds nuw i8, ptr %cl.i, i64 24
   %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
   %call17.fca.0.extract.i = extractvalue { i64, i32 } %call17.i, 0
   %call17.fca.1.extract.i = extractvalue { i64, i32 } %call17.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cl.i)
-  %tm_isdst = getelementptr inbounds i8, ptr %tm, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %tm, i64 32
   %10 = load i32, ptr %tm_isdst, align 8
   %cmp22 = icmp eq i32 %10, 0
   %retval.sroa.4.0.copyload.sroa.speculated = select i1 %cmp22, i32 %call17.fca.1.extract.i, i32 %call.fca.1.extract.i
@@ -1158,7 +1158,7 @@ entry:
   %al.i = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
   %tz = alloca %"class.absl::TimeZone", align 8
   store ptr %tz.coerce, ptr %tz, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %al.i)
@@ -1191,7 +1191,7 @@ if.end11.i:                                       ; preds = %if.end.i
   store i64 %t.coerce0, ptr %tp.i, align 8, !noalias !34
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %al.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(8) %tp.i) #13, !noalias !34
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %al.i, align 8, !noalias !34
-  %agg.tmp.sroa.2.0.f_.sroa_idx.i.i = getelementptr inbounds i8, ptr %al.i, i64 8
+  %agg.tmp.sroa.2.0.f_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %al.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i.i, align 8, !noalias !34
   %ci.sroa.8.8.extract.trunc = trunc i64 %agg.tmp.sroa.2.0.copyload.i.i to i8
   %ci.sroa.14.8.extract.shift = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 8
@@ -1202,7 +1202,7 @@ if.end11.i:                                       ; preds = %if.end.i
   %ci.sroa.16.8.extract.trunc = trunc i64 %ci.sroa.16.8.extract.shift to i32
   %ci.sroa.17.8.extract.shift = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 32
   %ci.sroa.17.8.extract.trunc = trunc nuw i64 %ci.sroa.17.8.extract.shift to i32
-  %is_dst.i = getelementptr inbounds i8, ptr %al.i, i64 20
+  %is_dst.i = getelementptr inbounds nuw i8, ptr %al.i, i64 20
   %3 = load i8, ptr %is_dst.i, align 4, !noalias !34
   %frombool.i = and i8 %3, 1
   %4 = zext nneg i8 %frombool.i to i32
@@ -1223,18 +1223,18 @@ _ZNK4absl8TimeZone2AtENS_4TimeE.exit:             ; preds = %if.end.i, %if.then.
   store i32 %conv.i, ptr %agg.result, align 8
   %sext61 = shl i32 %ci.sroa.16.0, 24
   %conv.i10 = ashr exact i32 %sext61, 24
-  %tm_min = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %conv.i10, ptr %tm_min, align 4
   %sext62 = shl i32 %ci.sroa.15.0, 24
   %conv.i11 = ashr exact i32 %sext62, 24
-  %tm_hour = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %conv.i11, ptr %tm_hour, align 8
   %conv.i12 = sext i8 %ci.sroa.14.0 to i32
-  %tm_mday = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 %conv.i12, ptr %tm_mday, align 4
   %conv.i13 = sext i8 %ci.sroa.8.0 to i32
   %sub = add nsw i32 %conv.i13, -1
-  %tm_mon = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %sub, ptr %tm_mon, align 8
   %cmp = icmp slt i64 %ci.sroa.0.0, -2147481748
   br i1 %cmp, label %if.end23, label %if.else
@@ -1250,7 +1250,7 @@ if.else18:                                        ; preds = %if.else
 
 if.end23:                                         ; preds = %if.else, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, %if.else18
   %.sink = phi i32 [ %conv21, %if.else18 ], [ -2147483648, %_ZNK4absl8TimeZone2AtENS_4TimeE.exit ], [ 2147481747, %if.else ]
-  %tm_year17 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %tm_year17 = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 %.sink, ptr %tm_year17, align 4
   %rem.i.i = srem i64 %ci.sroa.0.0, 400
   %idxprom.i.i = sext i8 %ci.sroa.8.0 to i64
@@ -1280,7 +1280,7 @@ if.end23:                                         ; preds = %if.else, %_ZNK4absl
   %8 = sext i32 %7 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4absl4ToTMENS_4TimeENS_8TimeZoneE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %tm_wday37 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %tm_wday37 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %switch.load, ptr %tm_wday37, align 8
   %cmp.i.i15 = icmp sgt i8 %ci.sroa.8.0, 2
   %9 = and i64 %ci.sroa.0.0, 3
@@ -1305,9 +1305,9 @@ _ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tag
   %add.i.i20 = add nsw i32 %conv.i12.i.i, -1
   %add5.i.i21 = add nsw i32 %add.i.i20, %conv.i.i
   %sub40 = add i32 %add5.i.i21, %11
-  %tm_yday = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %tm_yday = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %sub40, ptr %tm_yday, align 4
-  %tm_isdst = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 %ci.sroa.27.0, ptr %tm_isdst, align 8
   ret void
 }

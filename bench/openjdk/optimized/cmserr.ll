@@ -38,8 +38,8 @@ define hidden i32 @cmsstrcasecmp(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
-  %13 = getelementptr inbounds i8, ptr %.07, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %14 = icmp eq i8 %4, 0
   br i1 %14, label %.loopexit, label %3, !llvm.loop !6
 
@@ -164,7 +164,7 @@ define internal ptr @_cmsCallocDefaultFn(ptr noundef %0, i32 noundef %1, i32 nou
 
 12:                                               ; preds = %8
   %13 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef %0, i32 noundef %4) #20
   br label %17
@@ -204,13 +204,13 @@ define hidden void @_cmsAllocMemPluginChunk(ptr noundef %0, ptr noundef readonly
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_cmsSubAllocDup.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @_cmsSubAlloc(ptr noundef %9, i32 noundef 48)
   %.not.i = icmp eq ptr %10, null
@@ -221,12 +221,12 @@ define hidden void @_cmsAllocMemPluginChunk(ptr noundef %0, ptr noundef readonly
   br label %_cmsSubAllocDup.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %_cmsSubAllocDup.exit
 
 _cmsSubAllocDup.exit:                             ; preds = %11, %7, %3, %12
   %.sink = phi ptr [ %13, %12 ], [ null, %3 ], [ %10, %11 ], [ null, %7 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink, ptr %14, align 8
   ret void
 }
@@ -261,24 +261,24 @@ define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocap
   br label %28
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_cmsMallocZeroDefaultFn, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @_cmsCallocDefaultFn, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @_cmsDupDefaultFn, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
@@ -288,7 +288,7 @@ define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocap
   br label %20
 
 20:                                               ; preds = %19, %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %24, label %23
@@ -298,7 +298,7 @@ define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocap
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
   %.not24 = icmp eq ptr %26, null
   br i1 %.not24, label %28, label %27
@@ -324,25 +324,25 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMemHandlerPlugin(ptr noundef %0, 
   br i1 %.not, label %_cmsInstallAllocFunctions.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %6, ptr %7, align 8
   br label %_cmsInstallAllocFunctions.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_cmsInstallAllocFunctions.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_cmsInstallAllocFunctions.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_cmsInstallAllocFunctions.exit, label %20
@@ -356,18 +356,18 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMemHandlerPlugin(ptr noundef %0, 
   %24 = load ptr, ptr %9, align 8
   store ptr %24, ptr %21, align 8
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @_cmsMallocZeroDefaultFn, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %21, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @_cmsCallocDefaultFn, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr @_cmsDupDefaultFn, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %35, label %34
@@ -377,7 +377,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMemHandlerPlugin(ptr noundef %0, 
   br label %35
 
 35:                                               ; preds = %34, %23
-  %36 = getelementptr inbounds i8, ptr %1, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %37 = load ptr, ptr %36, align 8
   %.not23.i = icmp eq ptr %37, null
   br i1 %.not23.i, label %39, label %38
@@ -387,7 +387,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMemHandlerPlugin(ptr noundef %0, 
   br label %39
 
 39:                                               ; preds = %38, %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %41 = load ptr, ptr %40, align 8
   %.not24.i = icmp eq ptr %41, null
   br i1 %.not24.i, label %_cmsInstallAllocFunctions.exit, label %42
@@ -414,7 +414,7 @@ define hidden ptr @_cmsMalloc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsMallocZero(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef %1) #20
   ret ptr %6
@@ -423,7 +423,7 @@ define hidden ptr @_cmsMallocZero(ptr noundef %0, i32 noundef %1) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i32 noundef %1, i32 noundef %2) #20
   ret ptr %7
@@ -432,7 +432,7 @@ define hidden ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsRealloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1, i32 noundef %2) #20
   ret ptr %7
@@ -445,7 +445,7 @@ define hidden void @_cmsFree(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 3:                                                ; preds = %2
   %4 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef nonnull %1) #20
   br label %7
@@ -457,7 +457,7 @@ define hidden void @_cmsFree(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1, i32 noundef %2) #20
   ret ptr %7
@@ -466,7 +466,7 @@ define hidden ptr @_cmsDupMem(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsCreateSubAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, i32 noundef 16) #20
   %7 = icmp eq ptr %6, null
@@ -477,7 +477,7 @@ define hidden ptr @_cmsCreateSubAlloc(ptr noundef %0, i32 noundef %1) local_unna
   %9 = icmp eq i32 %1, 0
   %spec.store.select.i = select i1 %9, i32 20480, i32 %1
   %10 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef %0, i32 noundef 24) #20
   %14 = icmp eq ptr %13, null
@@ -493,27 +493,27 @@ define hidden ptr @_cmsCreateSubAlloc(ptr noundef %0, i32 noundef %1) local_unna
 
 _cmsFree.exit.i:                                  ; preds = %15
   %20 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef %0, ptr noundef nonnull %13) #20
   br label %_cmsFree.exit
 
 _cmsCreateSubAllocChunk.exit:                     ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %spec.store.select.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %26, align 8
   br label %31
 
 _cmsFree.exit:                                    ; preds = %_cmsFree.exit.i, %8
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %27, align 8
   %28 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef %0, ptr noundef nonnull %6) #20
   br label %31
@@ -525,14 +525,14 @@ _cmsFree.exit:                                    ; preds = %_cmsFree.exit.i, %8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_cmsSubAllocDestroy(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %_cmsFree.exit16, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_cmsFree.exit14
   %.018 = phi ptr [ %5, %_cmsFree.exit14 ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.018, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %.018, align 8
   %.not12 = icmp eq ptr %6, null
@@ -541,7 +541,7 @@ define hidden void @_cmsSubAllocDestroy(ptr noundef %0) local_unnamed_addr #6 {
 _cmsFree.exit:                                    ; preds = %.lr.ph
   %7 = load ptr, ptr %0, align 8
   %8 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %7, i32 noundef 4) #20
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef %7, ptr noundef nonnull %6) #20
   br label %_cmsFree.exit14
@@ -549,7 +549,7 @@ _cmsFree.exit:                                    ; preds = %.lr.ph
 _cmsFree.exit14:                                  ; preds = %_cmsFree.exit, %.lr.ph
   %11 = load ptr, ptr %0, align 8
   %12 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %11, i32 noundef 4) #20
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef %11, ptr noundef nonnull %.018) #20
   %.not = icmp eq ptr %5, null
@@ -558,7 +558,7 @@ _cmsFree.exit14:                                  ; preds = %_cmsFree.exit, %.lr
 _cmsFree.exit16:                                  ; preds = %_cmsFree.exit14, %1
   %15 = load ptr, ptr %0, align 8
   %16 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %15, i32 noundef 4) #20
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef %15, ptr noundef nonnull %0) #20
   ret void
@@ -566,11 +566,11 @@ _cmsFree.exit16:                                  ; preds = %_cmsFree.exit14, %1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsSubAlloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   %10 = add i32 %1, 7
@@ -583,7 +583,7 @@ define hidden ptr @_cmsSubAlloc(ptr nocapture noundef %0, i32 noundef %1) local_
   %spec.select = tail call i32 @llvm.umax.i32(i32 %14, i32 %11)
   %15 = load ptr, ptr %0, align 8
   %16 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %15, i32 noundef 4) #20
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef %15, i32 noundef 24) #20
   %20 = icmp eq ptr %19, null
@@ -599,17 +599,17 @@ define hidden ptr @_cmsSubAlloc(ptr nocapture noundef %0, i32 noundef %1) local_
 
 _cmsFree.exit.i:                                  ; preds = %21
   %26 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %15, i32 noundef 4) #20
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %15, ptr noundef nonnull %19) #20
   br label %_cmsCreateSubAllocChunk.exit.thread
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %19, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %spec.select, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %19, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %32, align 8
   %33 = load ptr, ptr %3, align 8
   store ptr %33, ptr %32, align 8
@@ -621,9 +621,9 @@ _cmsFree.exit.i:                                  ; preds = %21
   %35 = phi i32 [ %.pre, %29 ], [ %8, %2 ]
   %36 = phi ptr [ %19, %29 ], [ %4, %2 ]
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %39 = zext i32 %35 to i64
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   %41 = add i32 %35, %11
   store i32 %41, ptr %38, align 4
   br label %_cmsCreateSubAllocChunk.exit.thread
@@ -644,14 +644,14 @@ define hidden void @_cmsAllocLogErrorChunk(ptr nocapture noundef initializes((24
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_cmsSubAllocDup.exit, label %.thread
 
 .thread:                                          ; preds = %2, %3
   %.07 = phi ptr [ %5, %3 ], [ @_cmsAllocLogErrorChunk.LogErrorChunk, %2 ]
-  %.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %.in, align 8
   %8 = tail call ptr @_cmsSubAlloc(ptr noundef %7, i32 noundef 8)
   %.not.i = icmp eq ptr %8, null
@@ -664,7 +664,7 @@ define hidden void @_cmsAllocLogErrorChunk(ptr nocapture noundef initializes((24
 
 _cmsSubAllocDup.exit:                             ; preds = %3, %.thread, %9
   %.0.i = phi ptr [ null, %3 ], [ %8, %9 ], [ null, %.thread ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i, ptr %11, align 8
   ret void
 }
@@ -734,7 +734,7 @@ declare void @llvm.va_end.p0(ptr) #11
 define hidden void @_cmsTagSignature2String(ptr nocapture noundef writeonly initializes((0, 5)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %1) #20
   store i32 %3, ptr %0, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %4, align 1
   ret void
 }
@@ -761,7 +761,7 @@ define internal void @defMtxDestroy(ptr noundef %0, ptr noundef %1) #6 {
 
 4:                                                ; preds = %2
   %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 4) #20
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, ptr noundef nonnull %1) #20
   br label %_cmsFree.exit
@@ -790,14 +790,14 @@ define hidden void @_cmsAllocMutexPluginChunk(ptr nocapture noundef initializes(
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_cmsSubAllocDup.exit, label %.thread
 
 .thread:                                          ; preds = %2, %3
   %.07 = phi ptr [ %5, %3 ], [ @_cmsAllocMutexPluginChunk.MutexChunk, %2 ]
-  %.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %.in, align 8
   %8 = tail call ptr @_cmsSubAlloc(ptr noundef %7, i32 noundef 32)
   %.not.i = icmp eq ptr %8, null
@@ -809,7 +809,7 @@ define hidden void @_cmsAllocMutexPluginChunk(ptr nocapture noundef initializes(
 
 _cmsSubAllocDup.exit:                             ; preds = %3, %.thread, %9
   %.0.i = phi ptr [ null, %3 ], [ %8, %9 ], [ null, %.thread ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.0.i, ptr %10, align 8
   ret void
 }
@@ -825,25 +825,25 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMutexPlugin(ptr noundef %0, ptr n
   br label %29
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %29, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %29, label %22
@@ -851,13 +851,13 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterMutexPlugin(ptr noundef %0, ptr n
 22:                                               ; preds = %18
   store ptr %8, ptr %3, align 8
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %27, ptr %28, align 8
   br label %29
 
@@ -885,7 +885,7 @@ define hidden ptr @_cmsCreateMutex(ptr noundef %0) local_unnamed_addr #6 {
 ; Function Attrs: nounwind uwtable
 define hidden void @_cmsDestroyMutex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 14) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -901,7 +901,7 @@ define hidden void @_cmsDestroyMutex(ptr noundef %0, ptr noundef %1) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_cmsLockMutex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 14) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -918,7 +918,7 @@ define hidden i32 @_cmsLockMutex(ptr noundef %0, ptr noundef %1) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden void @_cmsUnlockMutex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 14) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -937,13 +937,13 @@ define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef in
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_cmsSubAllocDup.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @_cmsSubAlloc(ptr noundef %9, i32 noundef 16)
   %.not.i = icmp eq ptr %10, null
@@ -954,7 +954,7 @@ define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef in
   br label %_cmsSubAllocDup.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @_cmsSubAlloc(ptr noundef %14, i32 noundef 16)
   %.not.i7 = icmp eq ptr %15, null
@@ -966,7 +966,7 @@ define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef in
 
 _cmsSubAllocDup.exit:                             ; preds = %16, %12, %11, %7, %3
   %.sink = phi ptr [ null, %3 ], [ %10, %11 ], [ null, %7 ], [ %15, %12 ], [ %15, %16 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.sink, ptr %17, align 8
   ret void
 }
@@ -985,21 +985,21 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterParallelizationPlugin(ptr noundef
   br label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %14, ptr %15, align 4
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8
   br label %18
 

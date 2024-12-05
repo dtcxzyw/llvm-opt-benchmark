@@ -84,21 +84,21 @@ declare double @fmod(double noundef, double noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %node, double noundef %absoluteLeft, double noundef %absoluteTop) local_unnamed_addr #2 {
 entry:
-  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
+  %config_.i = getelementptr inbounds nuw i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   %call1 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %position_.i = getelementptr inbounds i8, ptr %node, i64 508
+  %position_.i = getelementptr inbounds nuw i8, ptr %node, i64 508
   %1 = load float, ptr %position_.i, align 4
   %conv = fpext float %1 to double
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 512
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 512
   %2 = load float, ptr %arrayidx.i.i.i, align 4
   %conv6 = fpext float %2 to double
-  %dimensions_.i = getelementptr inbounds i8, ptr %node, i64 492
+  %dimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 492
   %3 = load float, ptr %dimensions_.i, align 4
   %conv9 = fpext float %3 to double
-  %arrayidx.i.i.i47 = getelementptr inbounds i8, ptr %node, i64 496
+  %arrayidx.i.i.i47 = getelementptr inbounds nuw i8, ptr %node, i64 496
   %4 = load float, ptr %arrayidx.i.i.i47, align 4
   %conv12 = fpext float %4 to double
   %add = fadd double %absoluteLeft, %conv
@@ -536,9 +536,9 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit248: ; preds = %if.then3.i246,
   br label %if.end
 
 if.end:                                           ; preds = %_ZN8facebook4yoga21roundValueToPixelGridEddbb.exit248, %entry
-  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %children_.i = getelementptr inbounds nuw i8, ptr %node, i64 592
   %46 = load ptr, ptr %children_.i, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %node, i64 600
   %47 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i249255 = icmp eq ptr %46, %47
   br i1 %cmp.i249255, label %for.end, label %for.body
@@ -547,7 +547,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %__begin2.sroa.0.0256 = phi ptr [ %incdec.ptr.i, %for.body ], [ %46, %if.end ]
   %48 = load ptr, ptr %__begin2.sroa.0.0256, align 8
   tail call void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %48, double noundef %add, double noundef %add13)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0256, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0256, i64 8
   %cmp.i249 = icmp eq ptr %incdec.ptr.i, %47
   br i1 %cmp.i249, label %for.end, label %for.body
 

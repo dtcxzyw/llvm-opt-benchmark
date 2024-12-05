@@ -35,7 +35,7 @@ define noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr nocapture noundef n
 entry:
   %error.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
-  %closure_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %closure_list_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end8, %entry
@@ -53,13 +53,13 @@ while.body:                                       ; preds = %if.then, %_ZL12exec
   %0 = load ptr, ptr %c.09, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %error_data.i = getelementptr inbounds i8, ptr %c.09, i64 24
+  %error_data.i = getelementptr inbounds nuw i8, ptr %c.09, i64 24
   %1 = load i64, ptr %error_data.i, align 8
   call void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error.i, i64 noundef %1)
   store i64 0, ptr %error_data.i, align 8
-  %cb.i = getelementptr inbounds i8, ptr %c.09, i64 8
+  %cb.i = getelementptr inbounds nuw i8, ptr %c.09, i64 8
   %2 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds i8, ptr %c.09, i64 16
+  %cb_arg.i = getelementptr inbounds nuw i8, ptr %c.09, i64 16
   %3 = load ptr, ptr %cb_arg.i, align 8
   %4 = load i64, ptr %error.i, align 8
   store i64 %4, ptr %agg.tmp.i, align 8
@@ -123,7 +123,7 @@ if.end8:                                          ; preds = %_ZL12exec_ctx_runP1
   br label %for.cond, !llvm.loop !6
 
 do.body:                                          ; preds = %if.else
-  %combiner_data_ = getelementptr inbounds i8, ptr %this, i64 24
+  %combiner_data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %combiner_data_, align 8
   %cmp9.not = icmp eq ptr %12, null
   br i1 %cmp9.not, label %do.end, label %if.then10
@@ -166,7 +166,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.end, %if.then.i.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
-  %error_data = getelementptr inbounds i8, ptr %closure, i64 24
+  %error_data = getelementptr inbounds nuw i8, ptr %closure, i64 24
   store i64 %call, ptr %error_data, align 8
   %3 = load i64, ptr %agg.tmp, align 8
   %and.i.i.i3 = and i64 %3, 1
@@ -187,21 +187,21 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i5
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i5
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %7 = load ptr, ptr %6, align 8
-  %closure_list_.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %closure_list_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %closure, align 8
   %8 = load ptr, ptr %closure_list_.i.i, align 8
   %cmp1.i.i = icmp eq ptr %8, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %tail.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
 _ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.else.i.i
   %.sink.i.i = phi ptr [ %9, %if.else.i.i ], [ %closure_list_.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   store ptr %closure, ptr %.sink.i.i, align 8
-  %tail6.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %tail6.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %closure, ptr %tail6.i.i, align 8
   br label %return
 
@@ -257,21 +257,21 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %c.06 = phi ptr [ %0, %while.body.lr.ph ], [ %2, %_ZL14exec_ctx_schedP12grpc_closure.exit ]
   %2 = load ptr, ptr %c.06, align 8
   %3 = load ptr, ptr %1, align 8
-  %closure_list_.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %closure_list_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %c.06, align 8
   %4 = load ptr, ptr %closure_list_.i.i, align 8
   %cmp1.i.i = icmp eq ptr %4, null
   br i1 %cmp1.i.i, label %_ZL14exec_ctx_schedP12grpc_closure.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body
-  %tail.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %tail.i.i, align 8
   br label %_ZL14exec_ctx_schedP12grpc_closure.exit
 
 _ZL14exec_ctx_schedP12grpc_closure.exit:          ; preds = %while.body, %if.else.i.i
   %.sink.i.i = phi ptr [ %5, %if.else.i.i ], [ %closure_list_.i.i, %while.body ]
   store ptr %c.06, ptr %.sink.i.i, align 8
-  %tail6.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %tail6.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %c.06, ptr %tail6.i.i, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7

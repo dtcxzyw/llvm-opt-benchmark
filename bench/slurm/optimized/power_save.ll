@@ -158,7 +158,7 @@ define dso_local range(i32 -1, 1) i32 @power_job_reboot(ptr noundef %0, ptr noca
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @resume_prog, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr @max_timeout, align 4
   tail call void @slurmscriptd_run_power(ptr noundef %7, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %9, ptr noundef nonnull @.str, i32 noundef %10, ptr noundef null, ptr noundef null) #12
@@ -269,7 +269,7 @@ define dso_local void @power_save_exc_setup() local_unnamed_addr #0 {
 
 28:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %26, align 1
-  %29 = getelementptr inbounds i8, ptr %26, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %30 = call i64 @strtol(ptr nocapture noundef nonnull %29, ptr noundef null, i32 noundef 10) #12
   %31 = call i32 @node_name2bitmap(ptr noundef nonnull %.01429.i, i1 noundef zeroext false, ptr noundef nonnull %6) #12
   %.not23.i = icmp eq i64 %30, 0
@@ -295,7 +295,7 @@ define dso_local void @power_save_exc_setup() local_unnamed_addr #0 {
   %43 = trunc i64 %.1.i to i32
   store i32 %43, ptr %42, align 8
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr @partial_node_list, align 8
   call void @list_append(ptr noundef %46, ptr noundef nonnull %42) #12
@@ -379,7 +379,7 @@ _parse_exc_nodes.exit:                            ; preds = %16, %._crit_edge.i,
 70:                                               ; preds = %.lr.ph
   %71 = load ptr, ptr @exc_node_bitmap, align 8
   %.not19 = icmp eq ptr %71, null
-  %72 = getelementptr inbounds i8, ptr %67, i64 232
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 232
   %73 = load ptr, ptr %72, align 8
   br i1 %.not19, label %75, label %74
 
@@ -547,7 +547,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_list_part_node_lists(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @bitmap2node_name(ptr noundef %5) #12
   store ptr %6, ptr %3, align 8
@@ -669,7 +669,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not18.i, label %44, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %39, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %42 = tail call i64 @strtol(ptr nocapture noundef nonnull %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i16
   store i16 %43, ptr @power_save_interval, align 2
@@ -682,7 +682,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not19.i, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %49 = tail call i64 @strtol(ptr nocapture noundef nonnull %48, ptr noundef null, i32 noundef 10) #12
   %50 = trunc i64 %49 to i16
   store i16 %50, ptr @power_save_min_interval, align 2
@@ -752,7 +752,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not9.i.i, label %82, label %86
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %2, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 18
   %.not10.i.i = icmp eq i32 %85, 0
@@ -793,7 +793,7 @@ _clear_power_config.exit.i:                       ; preds = %21, %19
   br i1 %.not9.i28.i, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %1, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 18
   %.not10.i29.i = icmp eq i32 %104, 0
@@ -1135,10 +1135,10 @@ define internal noalias noundef ptr @_power_save_thread(ptr nocapture readnone %
   br i1 %.not2844, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %636
@@ -1411,7 +1411,7 @@ _rl_get_tokens.exit.i:                            ; preds = %122, %._crit_edge.i
   br i1 %.not158.i, label %.loopexit.i, label %.lr.ph256.i, !llvm.loop !11
 
 150:                                              ; preds = %137
-  %151 = getelementptr inbounds i8, ptr %139, i64 448
+  %151 = getelementptr inbounds nuw i8, ptr %139, i64 448
   %152 = load i32, ptr %151, align 8
   %153 = and i32 %152, 16384
   %.not199.i = icmp eq i32 %153, 0
@@ -1437,7 +1437,7 @@ _rl_get_tokens.exit.i:                            ; preds = %122, %._crit_edge.i
   br label %.backedge.i
 
 163:                                              ; preds = %150
-  %164 = getelementptr inbounds i8, ptr %139, i64 576
+  %164 = getelementptr inbounds nuw i8, ptr %139, i64 576
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr @power_node_bitmap, align 8
   %167 = call i32 @bit_overlap_any(ptr noundef %165, ptr noundef %166) #12
@@ -1568,18 +1568,18 @@ _rl_spend_token.exit.i:                           ; preds = %210, %208, %205
   %225 = call ptr @data_list_append(ptr noundef %103) #12
   %226 = call ptr @data_set_dict(ptr noundef %225) #12
   %227 = call ptr @data_key_set(ptr noundef %226, ptr noundef nonnull @.str.51) #12
-  %228 = getelementptr inbounds i8, ptr %139, i64 256
+  %228 = getelementptr inbounds nuw i8, ptr %139, i64 256
   %229 = load ptr, ptr %228, align 8
   %230 = call ptr @data_set_string(ptr noundef %227, ptr noundef %229) #12
   %231 = call ptr @data_key_set(ptr noundef %226, ptr noundef nonnull @.str.52) #12
-  %232 = getelementptr inbounds i8, ptr %139, i64 392
+  %232 = getelementptr inbounds nuw i8, ptr %139, i64 392
   %233 = load i32, ptr %232, align 8
   %234 = zext i32 %233 to i64
   %235 = call ptr @data_set_int(ptr noundef %231, i64 noundef %234) #12
   %236 = call ptr @data_key_set(ptr noundef %226, ptr noundef nonnull @.str.53) #12
-  %237 = getelementptr inbounds i8, ptr %139, i64 216
+  %237 = getelementptr inbounds nuw i8, ptr %139, i64 216
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 216
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 216
   %240 = load ptr, ptr %239, align 8
   %241 = call ptr @data_set_string(ptr noundef %236, ptr noundef %240) #12
   %242 = load ptr, ptr %164, align 8
@@ -1604,13 +1604,13 @@ _rl_spend_token.exit.i:                           ; preds = %210, %208, %205
   %254 = call ptr @job_share_string(i16 noundef zeroext %253) #12
   %255 = call ptr @data_set_string(ptr noundef %252, ptr noundef %254) #12
   %256 = call ptr @data_key_set(ptr noundef %226, ptr noundef nonnull @.str.57) #12
-  %257 = getelementptr inbounds i8, ptr %139, i64 664
+  %257 = getelementptr inbounds nuw i8, ptr %139, i64 664
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 224
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 224
   %260 = load ptr, ptr %259, align 8
   %261 = call ptr @data_set_string(ptr noundef %256, ptr noundef %260) #12
   %262 = call ptr @data_key_set(ptr noundef %226, ptr noundef nonnull @.str.58) #12
-  %263 = getelementptr inbounds i8, ptr %139, i64 808
+  %263 = getelementptr inbounds nuw i8, ptr %139, i64 808
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr @data_set_string(ptr noundef %262, ptr noundef %264) #12
   %266 = load ptr, ptr %15, align 8
@@ -1699,12 +1699,12 @@ _rl_spend_token.exit.i:                           ; preds = %210, %208, %205
   %300 = phi ptr [ %555, %552 ], [ %298, %.loopexit.i ]
   %.0259.i = phi i32 [ %spec.select.i, %552 ], [ 0, %.loopexit.i ]
   %.0137258.i = phi i1 [ %.4.i, %552 ], [ false, %.loopexit.i ]
-  %301 = getelementptr inbounds i8, ptr %300, i64 304
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 304
   %302 = load i32, ptr %301, align 8
   %303 = and i32 %302, 4096
   %304 = lshr exact i32 %303, 12
   %spec.select.i = add i32 %304, %.0259.i
-  %305 = getelementptr inbounds i8, ptr %300, i64 192
+  %305 = getelementptr inbounds nuw i8, ptr %300, i64 192
   %306 = load i32, ptr %305, align 8
   %307 = zext i32 %306 to i64
   %308 = call i32 @bit_test(ptr noundef %299, i64 noundef %307) #12
@@ -1811,7 +1811,7 @@ _rl_spend_token.exit234.i:                        ; preds = %349, %347, %344, %3
   %355 = load i32, ptr %305, align 8
   %356 = zext i32 %355 to i64
   call void @bit_clear(ptr noundef %354, i64 noundef %356) #12
-  %357 = getelementptr inbounds i8, ptr %300, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %300, i64 24
   store i64 %65, ptr %357, align 8
   %358 = load ptr, ptr @booting_node_bitmap, align 8
   %359 = load i32, ptr %305, align 8
@@ -1835,9 +1835,9 @@ _rl_spend_token.exit234.i:                        ; preds = %349, %347, %344, %3
   br i1 %or.cond214.i, label %372, label %378
 
 372:                                              ; preds = %_rl_spend_token.exit234.i
-  %373 = getelementptr inbounds i8, ptr %300, i64 368
+  %373 = getelementptr inbounds nuw i8, ptr %300, i64 368
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %300, i64 384
+  %375 = getelementptr inbounds nuw i8, ptr %300, i64 384
   %376 = load i32, ptr %375, align 8
   %377 = call i32 @clusteracct_storage_g_node_down(ptr noundef %371, ptr noundef nonnull %300, i64 noundef range(i64 0, -9223372036854775808) %65, ptr noundef %374, i32 noundef %376) #12
   br label %380
@@ -1903,7 +1903,7 @@ _rl_get_tokens.exit241.i:                         ; preds = %396, %._crit_edge.i
   br i1 %.not183.i, label %_node_state_should_suspend.exit.thread.i, label %404
 
 404:                                              ; preds = %_rl_get_tokens.exit241.i, %384
-  %405 = getelementptr inbounds i8, ptr %300, i64 448
+  %405 = getelementptr inbounds nuw i8, ptr %300, i64 448
   %406 = load i16, ptr %405, align 8
   %407 = icmp eq i16 %406, 0
   br i1 %407, label %408, label %_node_state_should_suspend.exit.thread.i
@@ -1915,13 +1915,13 @@ _rl_get_tokens.exit241.i:                         ; preds = %396, %._crit_edge.i
   br i1 %.not184.i, label %411, label %433
 
 411:                                              ; preds = %408
-  %412 = getelementptr inbounds i8, ptr %300, i64 216
+  %412 = getelementptr inbounds nuw i8, ptr %300, i64 216
   %413 = load i64, ptr %412, align 8
   %.not185.i = icmp eq i64 %413, 0
   br i1 %.not185.i, label %_node_state_should_suspend.exit.thread.i, label %414
 
 414:                                              ; preds = %411
-  %415 = getelementptr inbounds i8, ptr %300, i64 452
+  %415 = getelementptr inbounds nuw i8, ptr %300, i64 452
   %416 = load i32, ptr %415, align 4
   %417 = zext i32 %416 to i64
   %418 = sub nsw i64 %65, %417
@@ -2013,7 +2013,7 @@ _rl_spend_token.exit246.i:                        ; preds = %452, %450, %446
   %463 = load i32, ptr %305, align 8
   %464 = zext i32 %463 to i64
   call void @bit_clear(ptr noundef %462, i64 noundef %464) #12
-  %465 = getelementptr inbounds i8, ptr %300, i64 344
+  %465 = getelementptr inbounds nuw i8, ptr %300, i64 344
   store i64 %65, ptr %465, align 8
   %466 = load i8, ptr @idle_on_node_suspend, align 1
   %467 = trunc nuw i8 %466 to i1
@@ -2045,9 +2045,9 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   br i1 %.not188.i, label %506, label %479
 
 479:                                              ; preds = %_node_state_should_suspend.exit.thread.i
-  %480 = getelementptr inbounds i8, ptr %300, i64 344
+  %480 = getelementptr inbounds nuw i8, ptr %300, i64 344
   %481 = load i64, ptr %480, align 8
-  %482 = getelementptr inbounds i8, ptr %300, i64 456
+  %482 = getelementptr inbounds nuw i8, ptr %300, i64 456
   %483 = load i16, ptr %482, align 8
   %484 = zext i16 %483 to i64
   %485 = add nsw i64 %481, %484
@@ -2063,7 +2063,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   br i1 %.not189.i, label %494, label %491
 
 491:                                              ; preds = %487
-  %492 = getelementptr inbounds i8, ptr %300, i64 256
+  %492 = getelementptr inbounds nuw i8, ptr %300, i64 256
   %493 = load ptr, ptr %492, align 8
   call void @set_node_comm_name(ptr noundef nonnull %300, ptr noundef null, ptr noundef %493) #12
   %.pre267.i = load i32, ptr %301, align 8
@@ -2083,14 +2083,14 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   br label %500
 
 500:                                              ; preds = %499, %494
-  %501 = getelementptr inbounds i8, ptr %300, i64 216
+  %501 = getelementptr inbounds nuw i8, ptr %300, i64 216
   store i64 0, ptr %501, align 8
   store i64 0, ptr %480, align 8
   call void @node_mgr_reset_node_stats(ptr noundef nonnull %300) #12
   call void @reset_node_active_features(ptr noundef nonnull %300) #12
   call void @reset_node_instance(ptr noundef nonnull %300) #12
   %502 = load ptr, ptr @acct_db_conn, align 8
-  %503 = getelementptr inbounds i8, ptr %300, i64 384
+  %503 = getelementptr inbounds nuw i8, ptr %300, i64 384
   %504 = load i32, ptr %503, align 8
   %505 = call i32 @clusteracct_storage_g_node_down(ptr noundef %502, ptr noundef nonnull %300, i64 noundef range(i64 0, -9223372036854775808) %65, ptr noundef nonnull @.str.61, i32 noundef %504) #12
   br label %506
@@ -2105,9 +2105,9 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   br i1 %.not192.i, label %552, label %511
 
 511:                                              ; preds = %506
-  %512 = getelementptr inbounds i8, ptr %300, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %513 = load i64, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %300, i64 400
+  %514 = getelementptr inbounds nuw i8, ptr %300, i64 400
   %515 = load i16, ptr %514, align 8
   %516 = zext i16 %515 to i64
   %517 = add nsw i64 %513, %516
@@ -2126,7 +2126,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   br i1 %524, label %525, label %530
 
 525:                                              ; preds = %522
-  %526 = getelementptr inbounds i8, ptr %300, i64 256
+  %526 = getelementptr inbounds nuw i8, ptr %300, i64 256
   %527 = load ptr, ptr %526, align 8
   %528 = load i16, ptr %514, align 8
   %529 = zext i16 %528 to i32
@@ -2149,7 +2149,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %473, %_rl_spend_tok
   %538 = load i32, ptr %305, align 8
   %539 = zext i32 %538 to i64
   call void @bit_clear(ptr noundef %537, i64 noundef %539) #12
-  %540 = getelementptr inbounds i8, ptr %300, i64 216
+  %540 = getelementptr inbounds nuw i8, ptr %300, i64 216
   store i64 0, ptr %540, align 8
   store i64 0, ptr %512, align 8
   call void @node_mgr_reset_node_stats(ptr noundef nonnull %300) #12
@@ -2622,11 +2622,11 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %5 = phi ptr [ %11, %.lr.ph ], [ %4, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 452
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 452
   store i32 -2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 456
   store i16 -2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 400
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 400
   store i16 -2, ptr %8, align 8
   %9 = load i32, ptr %2, align 4
   %10 = add nsw i32 %9, 1
@@ -2645,19 +2645,19 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
 
 .lr.ph23:                                         ; preds = %._crit_edge, %.lr.ph23
   %15 = phi ptr [ %31, %.lr.ph23 ], [ %14, %._crit_edge ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 452
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 452
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -2
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1380), align 4
   %20 = select i1 %18, i32 %19, i32 %17
   store i32 %20, ptr %16, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 456
   %22 = load i16, ptr %21, align 8
   %23 = icmp eq i16 %22, -2
   %24 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1384), align 8
   %.in = select i1 %23, i16 %24, i16 %22
   store i16 %.in, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 400
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 400
   %26 = load i16, ptr %25, align 8
   %27 = icmp eq i16 %26, -2
   %28 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1018), align 2
@@ -2683,7 +2683,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 300
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %6 = load i32, ptr %5, align 4
   %switch = icmp ugt i32 %6, -3
   br i1 %switch, label %8, label %7
@@ -2693,7 +2693,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br label %8
 
 8:                                                ; preds = %4, %7, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 296
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
   %.not54 = icmp eq i16 %10, -2
@@ -2706,7 +2706,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br label %14
 
 14:                                               ; preds = %12, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %16 = load i16, ptr %15, align 8
   %.not55 = icmp eq i16 %16, -2
   br i1 %.not55, label %19, label %17
@@ -2718,7 +2718,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br label %19
 
 19:                                               ; preds = %17, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %3, align 4
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @next_node_bitmap(ptr noundef %21, ptr noundef nonnull %3) #12
@@ -2726,12 +2726,12 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br i1 %.not5665, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 300
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br label %24
 
 24:                                               ; preds = %.lr.ph, %46
   %25 = phi ptr [ %22, %.lr.ph ], [ %50, %46 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 452
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 452
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -2
   %29 = load i32, ptr %23, align 4
@@ -2751,7 +2751,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br label %32
 
 32:                                               ; preds = %.sink.split, %30
-  %33 = getelementptr inbounds i8, ptr %25, i64 400
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 400
   %34 = load i16, ptr %33, align 8
   %35 = icmp eq i16 %34, -2
   %36 = load i16, ptr %9, align 8
@@ -2771,7 +2771,7 @@ define internal noundef i32 @_set_partition_options(ptr nocapture noundef readon
   br label %39
 
 39:                                               ; preds = %.sink.split66, %37
-  %40 = getelementptr inbounds i8, ptr %25, i64 456
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 456
   %41 = load i16, ptr %40, align 8
   %42 = icmp eq i16 %41, -2
   %43 = load i16, ptr %15, align 8
@@ -2814,7 +2814,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 define internal void @_exc_node_part_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -2871,7 +2871,7 @@ define internal fastcc noundef zeroext i1 @_valid_prog(ptr noundef nonnull %0) u
   br i1 %.not9, label %8, label %.sink.split
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 18
   %.not10 = icmp eq i32 %11, 0
@@ -2953,14 +2953,14 @@ declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_build_resume_job_list(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16384
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 576
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @power_node_bitmap, align 8
   %10 = tail call i32 @bit_overlap_any(ptr noundef %8, ptr noundef %9) #12
@@ -2969,7 +2969,7 @@ define internal noundef i32 @_build_resume_job_list(ptr nocapture noundef readon
 
 11:                                               ; preds = %6
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 1116, ptr noundef nonnull @__func__._build_resume_job_list) #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 392
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 4
   %15 = load ptr, ptr @resume_job_list, align 8
@@ -2993,7 +2993,7 @@ declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @_pick_exc_nodes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @bit_set_count(ptr noundef %6) #12
   %8 = load i32, ptr %0, align 8
@@ -3038,7 +3038,7 @@ define internal noundef i32 @_pick_exc_nodes(ptr nocapture noundef readonly %0, 
   br i1 %or.cond, label %25, label %33
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %18, i64 448
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 448
   %27 = load i16, ptr %26, align 8
   %.not21 = icmp eq i16 %27, 0
   br i1 %.not21, label %28, label %33

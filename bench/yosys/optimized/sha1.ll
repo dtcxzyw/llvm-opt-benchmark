@@ -46,18 +46,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4SHA1C2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   store i32 1732584193, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1009589776, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %7, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
           to label %_ZN4SHA15resetEv.exit unwind label %9
@@ -78,17 +78,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4SHA15resetEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20), (56, 64)) %0) local_unnamed_addr #3 align 2 {
   store i32 1732584193, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1009589776, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
   ret void
 }
@@ -123,7 +123,7 @@ define void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64)
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca [16 x i32], align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %7 = sub i64 64, %6
   %8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %7) #13
@@ -181,7 +181,7 @@ define void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64)
   %39 = zext i8 %38 to i32
   %40 = shl nuw i32 %39, 24
   %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   store i32 %41, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -276,7 +276,7 @@ define void @_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_tra
   %23 = zext i8 %22 to i32
   %24 = shl nuw i32 %23, 24
   %25 = or disjoint i32 %20, %24
-  %26 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %25, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -289,13 +289,13 @@ define void @_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = xor i32 %9, %7
   %13 = and i32 %12, %5
@@ -310,7 +310,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %22 = xor i32 %21, %7
   %23 = and i32 %22, %3
   %24 = xor i32 %23, %7
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 5)
   %28 = add i32 %9, 1518500249
@@ -321,7 +321,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %33 = xor i32 %21, %32
   %34 = and i32 %20, %33
   %35 = xor i32 %34, %21
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 5)
   %39 = add i32 %7, 1518500249
@@ -332,7 +332,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %44 = xor i32 %43, %32
   %45 = and i32 %31, %44
   %46 = xor i32 %45, %32
-  %47 = getelementptr inbounds i8, ptr %1, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 5)
   %50 = add i32 %21, 1518500249
@@ -343,7 +343,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %55 = xor i32 %54, %43
   %56 = and i32 %42, %55
   %57 = xor i32 %56, %43
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i32, ptr %58, align 4
   %60 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 5)
   %61 = add i32 %32, 1518500249
@@ -354,7 +354,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %66 = xor i32 %65, %54
   %67 = and i32 %53, %66
   %68 = xor i32 %67, %54
-  %69 = getelementptr inbounds i8, ptr %1, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 5)
   %72 = add i32 %70, 1518500249
@@ -365,7 +365,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %77 = xor i32 %76, %65
   %78 = and i32 %64, %77
   %79 = xor i32 %78, %65
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load i32, ptr %80, align 4
   %82 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 5)
   %83 = add i32 %81, 1518500249
@@ -376,7 +376,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %88 = xor i32 %87, %76
   %89 = and i32 %75, %88
   %90 = xor i32 %89, %76
-  %91 = getelementptr inbounds i8, ptr %1, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %92 = load i32, ptr %91, align 4
   %93 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 5)
   %94 = add i32 %92, 1518500249
@@ -387,7 +387,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %99 = xor i32 %98, %87
   %100 = and i32 %86, %99
   %101 = xor i32 %100, %87
-  %102 = getelementptr inbounds i8, ptr %1, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %103 = load i32, ptr %102, align 4
   %104 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
   %105 = add i32 %103, 1518500249
@@ -398,7 +398,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %110 = xor i32 %109, %98
   %111 = and i32 %97, %110
   %112 = xor i32 %111, %98
-  %113 = getelementptr inbounds i8, ptr %1, i64 36
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 5)
   %116 = add i32 %114, 1518500249
@@ -409,7 +409,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %121 = xor i32 %120, %109
   %122 = and i32 %108, %121
   %123 = xor i32 %122, %109
-  %124 = getelementptr inbounds i8, ptr %1, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %125 = load i32, ptr %124, align 4
   %126 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 5)
   %127 = add i32 %125, 1518500249
@@ -420,7 +420,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %132 = xor i32 %131, %120
   %133 = and i32 %119, %132
   %134 = xor i32 %133, %120
-  %135 = getelementptr inbounds i8, ptr %1, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %136 = load i32, ptr %135, align 4
   %137 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 5)
   %138 = add i32 %136, 1518500249
@@ -431,7 +431,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %143 = xor i32 %142, %131
   %144 = and i32 %130, %143
   %145 = xor i32 %144, %131
-  %146 = getelementptr inbounds i8, ptr %1, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %147 = load i32, ptr %146, align 4
   %148 = tail call i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 5)
   %149 = add i32 %147, 1518500249
@@ -442,7 +442,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %154 = xor i32 %153, %142
   %155 = and i32 %141, %154
   %156 = xor i32 %155, %142
-  %157 = getelementptr inbounds i8, ptr %1, i64 52
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %158 = load i32, ptr %157, align 4
   %159 = tail call i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 5)
   %160 = add i32 %158, 1518500249
@@ -453,7 +453,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %165 = xor i32 %164, %153
   %166 = and i32 %152, %165
   %167 = xor i32 %166, %153
-  %168 = getelementptr inbounds i8, ptr %1, i64 56
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %169 = load i32, ptr %168, align 4
   %170 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 5)
   %171 = add i32 %169, 1518500249
@@ -464,7 +464,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %176 = xor i32 %175, %164
   %177 = and i32 %163, %176
   %178 = xor i32 %177, %164
-  %179 = getelementptr inbounds i8, ptr %1, i64 60
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 5)
   %182 = add i32 %180, 1518500249
@@ -1315,7 +1315,7 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
   %1007 = load i32, ptr %10, align 8
   %1008 = add i32 %974, %1007
   store i32 %1008, ptr %10, align 8
-  %1009 = getelementptr inbounds i8, ptr %0, i64 56
+  %1009 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1010 = load i64, ptr %1009, align 8
   %1011 = add i64 %1010, 1
   store i64 %1011, ptr %1009, align 8
@@ -1326,9 +1326,9 @@ define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 derefer
 define void @_ZN4SHA15finalB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [16 x i32], align 16
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %9 = shl i64 %6, 9
   %10 = shl i64 %8, 3
@@ -1373,7 +1373,7 @@ define void @_ZN4SHA15finalB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"
   %39 = zext i8 %38 to i32
   %40 = shl nuw i32 %39, 24
   %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   store i32 %41, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1390,11 +1390,11 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 .loopexit13:                                      ; preds = %.loopexit13.loopexit, %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit
   %44 = trunc i64 %11 to i32
-  %45 = getelementptr inbounds i8, ptr %3, i64 60
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %44, ptr %45, align 4
   %46 = lshr i64 %11, 32
   %47 = trunc nuw i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %3, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %47, ptr %48, align 8
   call void @_ZN4SHA19transformEPj(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
@@ -1414,7 +1414,7 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %55 unwind label %.loopexit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %57)
           to label %59 unwind label %.loopexit
@@ -1441,13 +1441,13 @@ _ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 61:                                               ; preds = %59
   store i32 1732584193, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 -271733879, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -1732584194, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 271733878, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 -1009589776, ptr %65, align 8
   store i64 0, ptr %5, align 8
   %66 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
@@ -1474,7 +1474,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 8
@@ -1507,7 +1507,7 @@ define void @_ZN4SHA19from_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %8 unwind label %12
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #12
   ret void
@@ -1520,7 +1520,7 @@ define void @_ZN4SHA19from_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 12:                                               ; preds = %7, %6
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #12
   br label %15
 
@@ -1581,7 +1581,7 @@ define void @_Z4sha1RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr d
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   ret void
 
@@ -1592,7 +1592,7 @@ define void @_Z4sha1RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr d
 
 .body:                                            ; preds = %5, %10
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %6, %5 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
   resume { ptr, i32 } %eh.lpad-body
 }

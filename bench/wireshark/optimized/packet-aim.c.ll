@@ -1332,7 +1332,7 @@ define internal void @aim_generic_family(ptr nocapture noundef writeonly %0, i32
   br i1 %.not8.i, label %aim_get_family.exit.thread, label %.lr.ph.i
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.069.i, i64 8
   %.06.i = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit.thread, label %.lr.ph.i, !llvm.loop !4
@@ -1340,13 +1340,13 @@ define internal void @aim_generic_family(ptr nocapture noundef writeonly %0, i32
 .lr.ph.i:                                         ; preds = %2, %4
   %.069.i = phi ptr [ %.06.i, %4 ], [ %.067.i, %2 ]
   %6 = load ptr, ptr %.069.i, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, %3
   br i1 %9, label %aim_get_family.exit, label %4
 
 aim_get_family.exit:                              ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %aim_get_family.exit.thread
 
@@ -1417,380 +1417,380 @@ define hidden void @proto_reg_handoff_aim() local_unnamed_addr #0 {
   %5 = load i32, ptr @ett_aim_admin, align 4
   %6 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %4) #9
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @proto_get_protocol_short_name(ptr noundef %7) #9
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @aim_fnac_family_admin, ptr %12, align 8
   %13 = load ptr, ptr @families, align 8
   %14 = tail call ptr @g_list_append(ptr noundef %13, ptr noundef %6) #9
   store ptr %14, ptr @families, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %15, align 4
   store i32 %5, ptr %6, align 8
   %16 = load i32, ptr @proto_aim_adverts, align 4
   %17 = load i32, ptr @ett_aim_adverts, align 4
   %18 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %19 = tail call ptr @find_protocol_by_id(i32 noundef %16) #9
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %20, align 8
   %21 = tail call ptr @proto_get_protocol_short_name(ptr noundef %19) #9
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i16 5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr @aim_fnac_family_adverts, ptr %24, align 8
   %25 = load ptr, ptr @families, align 8
   %26 = tail call ptr @g_list_append(ptr noundef %25, ptr noundef %18) #9
   store ptr %26, ptr @families, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %16, ptr %27, align 4
   store i32 %17, ptr %18, align 8
   %28 = load i32, ptr @proto_aim_bos, align 4
   %29 = load i32, ptr @ett_aim_bos, align 4
   %30 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %31 = tail call ptr @find_protocol_by_id(i32 noundef %28) #9
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %31, ptr %32, align 8
   %33 = tail call ptr @proto_get_protocol_short_name(ptr noundef %31) #9
-  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i16 9, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr @aim_fnac_family_bos, ptr %36, align 8
   %37 = load ptr, ptr @families, align 8
   %38 = tail call ptr @g_list_append(ptr noundef %37, ptr noundef %30) #9
   store ptr %38, ptr @families, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %28, ptr %39, align 4
   store i32 %29, ptr %30, align 8
   %40 = load i32, ptr @proto_aim_buddylist, align 4
   %41 = load i32, ptr @ett_aim_buddylist, align 4
   %42 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %43 = tail call ptr @find_protocol_by_id(i32 noundef %40) #9
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %43, ptr %44, align 8
   %45 = tail call ptr @proto_get_protocol_short_name(ptr noundef %43) #9
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i16 3, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %42, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr @aim_fnac_family_buddylist, ptr %48, align 8
   %49 = load ptr, ptr @families, align 8
   %50 = tail call ptr @g_list_append(ptr noundef %49, ptr noundef %42) #9
   store ptr %50, ptr @families, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %40, ptr %51, align 4
   store i32 %41, ptr %42, align 8
   %52 = load i32, ptr @proto_aim_chat, align 4
   %53 = load i32, ptr @ett_aim_chat, align 4
   %54 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %55 = tail call ptr @find_protocol_by_id(i32 noundef %52) #9
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %55, ptr %56, align 8
   %57 = tail call ptr @proto_get_protocol_short_name(ptr noundef %55) #9
-  %58 = getelementptr inbounds i8, ptr %54, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i16 14, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr @aim_fnac_family_chat, ptr %60, align 8
   %61 = load ptr, ptr @families, align 8
   %62 = tail call ptr @g_list_append(ptr noundef %61, ptr noundef %54) #9
   store ptr %62, ptr @families, align 8
-  %63 = getelementptr inbounds i8, ptr %54, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %52, ptr %63, align 4
   store i32 %53, ptr %54, align 8
   %64 = load i32, ptr @proto_aim_chatnav, align 4
   %65 = load i32, ptr @ett_aim_chatnav, align 4
   %66 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %67 = tail call ptr @find_protocol_by_id(i32 noundef %64) #9
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %67, ptr %68, align 8
   %69 = tail call ptr @proto_get_protocol_short_name(ptr noundef %67) #9
-  %70 = getelementptr inbounds i8, ptr %66, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %66, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i16 13, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %66, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr @aim_fnac_family_chatnav, ptr %72, align 8
   %73 = load ptr, ptr @families, align 8
   %74 = tail call ptr @g_list_append(ptr noundef %73, ptr noundef %66) #9
   store ptr %74, ptr @families, align 8
-  %75 = getelementptr inbounds i8, ptr %66, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %64, ptr %75, align 4
   store i32 %65, ptr %66, align 8
   %76 = load i32, ptr @proto_aim_directory, align 4
   %77 = load i32, ptr @ett_aim_directory, align 4
   %78 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %79 = tail call ptr @find_protocol_by_id(i32 noundef %76) #9
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %79, ptr %80, align 8
   %81 = tail call ptr @proto_get_protocol_short_name(ptr noundef %79) #9
-  %82 = getelementptr inbounds i8, ptr %78, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i16 15, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %78, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store ptr @aim_fnac_family_directory, ptr %84, align 8
   %85 = load ptr, ptr @families, align 8
   %86 = tail call ptr @g_list_append(ptr noundef %85, ptr noundef %78) #9
   store ptr %86, ptr @families, align 8
-  %87 = getelementptr inbounds i8, ptr %78, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %76, ptr %87, align 4
   store i32 %77, ptr %78, align 8
   %88 = load i32, ptr @proto_aim_email, align 4
   %89 = load i32, ptr @ett_aim_email, align 4
   %90 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %91 = tail call ptr @find_protocol_by_id(i32 noundef %88) #9
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %91, ptr %92, align 8
   %93 = tail call ptr @proto_get_protocol_short_name(ptr noundef %91) #9
-  %94 = getelementptr inbounds i8, ptr %90, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %90, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i16 24, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %90, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store ptr @aim_fnac_family_email, ptr %96, align 8
   %97 = load ptr, ptr @families, align 8
   %98 = tail call ptr @g_list_append(ptr noundef %97, ptr noundef %90) #9
   store ptr %98, ptr @families, align 8
-  %99 = getelementptr inbounds i8, ptr %90, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %88, ptr %99, align 4
   store i32 %89, ptr %90, align 8
   %100 = load i32, ptr @proto_aim_generic, align 4
   %101 = load i32, ptr @ett_generic, align 4
   %102 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %103 = tail call ptr @find_protocol_by_id(i32 noundef %100) #9
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %103, ptr %104, align 8
   %105 = tail call ptr @proto_get_protocol_short_name(ptr noundef %103) #9
-  %106 = getelementptr inbounds i8, ptr %102, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
   store ptr %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %102, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i16 1, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %102, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr @aim_fnac_family_generic, ptr %108, align 8
   %109 = load ptr, ptr @families, align 8
   %110 = tail call ptr @g_list_append(ptr noundef %109, ptr noundef %102) #9
   store ptr %110, ptr @families, align 8
-  %111 = getelementptr inbounds i8, ptr %102, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 %100, ptr %111, align 4
   store i32 %101, ptr %102, align 8
   %112 = load i32, ptr @proto_aim_icq, align 4
   %113 = load i32, ptr @ett_aim_icq, align 4
   %114 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %115 = tail call ptr @find_protocol_by_id(i32 noundef %112) #9
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr %115, ptr %116, align 8
   %117 = tail call ptr @proto_get_protocol_short_name(ptr noundef %115) #9
-  %118 = getelementptr inbounds i8, ptr %114, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %114, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i16 21, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %114, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr @aim_fnac_family_icq, ptr %120, align 8
   %121 = load ptr, ptr @families, align 8
   %122 = tail call ptr @g_list_append(ptr noundef %121, ptr noundef %114) #9
   store ptr %122, ptr @families, align 8
-  %123 = getelementptr inbounds i8, ptr %114, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 %112, ptr %123, align 4
   store i32 %113, ptr %114, align 8
   %124 = load i32, ptr @proto_aim_invitation, align 4
   %125 = load i32, ptr @ett_aim_invitation, align 4
   %126 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %127 = tail call ptr @find_protocol_by_id(i32 noundef %124) #9
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %127, ptr %128, align 8
   %129 = tail call ptr @proto_get_protocol_short_name(ptr noundef %127) #9
-  %130 = getelementptr inbounds i8, ptr %126, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %126, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i16 6, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr @aim_fnac_family_invitation, ptr %132, align 8
   %133 = load ptr, ptr @families, align 8
   %134 = tail call ptr @g_list_append(ptr noundef %133, ptr noundef %126) #9
   store ptr %134, ptr @families, align 8
-  %135 = getelementptr inbounds i8, ptr %126, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %124, ptr %135, align 4
   store i32 %125, ptr %126, align 8
   %136 = load i32, ptr @proto_aim_location, align 4
   %137 = load i32, ptr @ett_aim_location, align 4
   %138 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %139 = tail call ptr @find_protocol_by_id(i32 noundef %136) #9
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %139, ptr %140, align 8
   %141 = tail call ptr @proto_get_protocol_short_name(ptr noundef %139) #9
-  %142 = getelementptr inbounds i8, ptr %138, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %138, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store i16 2, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %138, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store ptr @aim_fnac_family_location, ptr %144, align 8
   %145 = load ptr, ptr @families, align 8
   %146 = tail call ptr @g_list_append(ptr noundef %145, ptr noundef %138) #9
   store ptr %146, ptr @families, align 8
-  %147 = getelementptr inbounds i8, ptr %138, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 %136, ptr %147, align 4
   store i32 %137, ptr %138, align 8
   %148 = load i32, ptr @proto_aim_messaging, align 4
   %149 = load i32, ptr @ett_aim_messaging, align 4
   %150 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %151 = tail call ptr @find_protocol_by_id(i32 noundef %148) #9
-  %152 = getelementptr inbounds i8, ptr %150, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr %151, ptr %152, align 8
   %153 = tail call ptr @proto_get_protocol_short_name(ptr noundef %151) #9
-  %154 = getelementptr inbounds i8, ptr %150, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store ptr %153, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %150, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store i16 4, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %150, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store ptr @aim_fnac_family_messaging, ptr %156, align 8
   %157 = load ptr, ptr @families, align 8
   %158 = tail call ptr @g_list_append(ptr noundef %157, ptr noundef %150) #9
   store ptr %158, ptr @families, align 8
-  %159 = getelementptr inbounds i8, ptr %150, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 %148, ptr %159, align 4
   store i32 %149, ptr %150, align 8
   %160 = load i32, ptr @proto_aim_popup, align 4
   %161 = load i32, ptr @ett_aim_popup, align 4
   %162 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %163 = tail call ptr @find_protocol_by_id(i32 noundef %160) #9
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %163, ptr %164, align 8
   %165 = tail call ptr @proto_get_protocol_short_name(ptr noundef %163) #9
-  %166 = getelementptr inbounds i8, ptr %162, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr %165, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %162, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i16 8, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %162, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 32
   store ptr @aim_fnac_family_popup, ptr %168, align 8
   %169 = load ptr, ptr @families, align 8
   %170 = tail call ptr @g_list_append(ptr noundef %169, ptr noundef %162) #9
   store ptr %170, ptr @families, align 8
-  %171 = getelementptr inbounds i8, ptr %162, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i32 %160, ptr %171, align 4
   store i32 %161, ptr %162, align 8
   %172 = load i32, ptr @proto_aim_signon, align 4
   %173 = load i32, ptr @ett_aim_signon, align 4
   %174 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %175 = tail call ptr @find_protocol_by_id(i32 noundef %172) #9
-  %176 = getelementptr inbounds i8, ptr %174, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %175, ptr %176, align 8
   %177 = tail call ptr @proto_get_protocol_short_name(ptr noundef %175) #9
-  %178 = getelementptr inbounds i8, ptr %174, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store ptr %177, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %174, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store i16 23, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %174, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store ptr @aim_fnac_family_signon, ptr %180, align 8
   %181 = load ptr, ptr @families, align 8
   %182 = tail call ptr @g_list_append(ptr noundef %181, ptr noundef %174) #9
   store ptr %182, ptr @families, align 8
-  %183 = getelementptr inbounds i8, ptr %174, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %174, i64 4
   store i32 %172, ptr %183, align 4
   store i32 %173, ptr %174, align 8
   %184 = load i32, ptr @proto_aim_ssi, align 4
   %185 = load i32, ptr @ett_aim_ssi, align 4
   %186 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %187 = tail call ptr @find_protocol_by_id(i32 noundef %184) #9
-  %188 = getelementptr inbounds i8, ptr %186, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %187, ptr %188, align 8
   %189 = tail call ptr @proto_get_protocol_short_name(ptr noundef %187) #9
-  %190 = getelementptr inbounds i8, ptr %186, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %189, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %186, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store i16 19, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %186, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 32
   store ptr @aim_fnac_family_ssi, ptr %192, align 8
   %193 = load ptr, ptr @families, align 8
   %194 = tail call ptr @g_list_append(ptr noundef %193, ptr noundef %186) #9
   store ptr %194, ptr @families, align 8
-  %195 = getelementptr inbounds i8, ptr %186, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %186, i64 4
   store i32 %184, ptr %195, align 4
   store i32 %185, ptr %186, align 8
   %196 = load i32, ptr @proto_aim_sst, align 4
   %197 = load i32, ptr @ett_aim_sst, align 4
   %198 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %199 = tail call ptr @find_protocol_by_id(i32 noundef %196) #9
-  %200 = getelementptr inbounds i8, ptr %198, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store ptr %199, ptr %200, align 8
   %201 = tail call ptr @proto_get_protocol_short_name(ptr noundef %199) #9
-  %202 = getelementptr inbounds i8, ptr %198, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 24
   store ptr %201, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %198, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store i16 16, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %198, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %198, i64 32
   store ptr @aim_fnac_family_sst, ptr %204, align 8
   %205 = load ptr, ptr @families, align 8
   %206 = tail call ptr @g_list_append(ptr noundef %205, ptr noundef %198) #9
   store ptr %206, ptr @families, align 8
-  %207 = getelementptr inbounds i8, ptr %198, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 %196, ptr %207, align 4
   store i32 %197, ptr %198, align 8
   %208 = load i32, ptr @proto_aim_stats, align 4
   %209 = load i32, ptr @ett_aim_stats, align 4
   %210 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %211 = tail call ptr @find_protocol_by_id(i32 noundef %208) #9
-  %212 = getelementptr inbounds i8, ptr %210, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %211, ptr %212, align 8
   %213 = tail call ptr @proto_get_protocol_short_name(ptr noundef %211) #9
-  %214 = getelementptr inbounds i8, ptr %210, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store ptr %213, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %210, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store i16 11, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %210, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %210, i64 32
   store ptr @aim_fnac_family_stats, ptr %216, align 8
   %217 = load ptr, ptr @families, align 8
   %218 = tail call ptr @g_list_append(ptr noundef %217, ptr noundef %210) #9
   store ptr %218, ptr @families, align 8
-  %219 = getelementptr inbounds i8, ptr %210, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %210, i64 4
   store i32 %208, ptr %219, align 4
   store i32 %209, ptr %210, align 8
   %220 = load i32, ptr @proto_aim_translate, align 4
   %221 = load i32, ptr @ett_aim_translate, align 4
   %222 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %223 = tail call ptr @find_protocol_by_id(i32 noundef %220) #9
-  %224 = getelementptr inbounds i8, ptr %222, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %223, ptr %224, align 8
   %225 = tail call ptr @proto_get_protocol_short_name(ptr noundef %223) #9
-  %226 = getelementptr inbounds i8, ptr %222, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %222, i64 24
   store ptr %225, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %222, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store i16 12, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %222, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %222, i64 32
   store ptr @aim_fnac_family_translate, ptr %228, align 8
   %229 = load ptr, ptr @families, align 8
   %230 = tail call ptr @g_list_append(ptr noundef %229, ptr noundef %222) #9
   store ptr %230, ptr @families, align 8
-  %231 = getelementptr inbounds i8, ptr %222, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %222, i64 4
   store i32 %220, ptr %231, align 4
   store i32 %221, ptr %222, align 8
   %232 = load i32, ptr @proto_aim_userlookup, align 4
   %233 = load i32, ptr @ett_aim_userlookup, align 4
   %234 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
   %235 = tail call ptr @find_protocol_by_id(i32 noundef %232) #9
-  %236 = getelementptr inbounds i8, ptr %234, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr %235, ptr %236, align 8
   %237 = tail call ptr @proto_get_protocol_short_name(ptr noundef %235) #9
-  %238 = getelementptr inbounds i8, ptr %234, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 24
   store ptr %237, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %234, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %234, i64 16
   store i16 10, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %234, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %234, i64 32
   store ptr @aim_fnac_family_userlookup, ptr %240, align 8
   %241 = load ptr, ptr @families, align 8
   %242 = tail call ptr @g_list_append(ptr noundef %241, ptr noundef %234) #9
   store ptr %242, ptr @families, align 8
-  %243 = getelementptr inbounds i8, ptr %234, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %234, i64 4
   store i32 %232, ptr %243, align 4
   store i32 %233, ptr %234, align 8
   ret void
@@ -1831,7 +1831,7 @@ define internal range(i32 0, 2) i32 @dissect_aim_ssl_heur(ptr noundef %0, ptr no
 
 dissect_aim.exit:                                 ; preds = %11, %13
   %16 = load ptr, ptr @aim_handle, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %16, ptr %18, align 8
   br label %19
@@ -1861,7 +1861,7 @@ define internal range(i32 6, 65542) i32 @get_aim_pdu_len(ptr nocapture readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aim_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.323) #9
   %7 = load ptr, ptr %5, align 8
@@ -1938,7 +1938,7 @@ dissect_aim_tlv_sequence.exit.i:                  ; preds = %.lr.ph.i.i, %31, %2
   br i1 %.not8.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i55
 
 46:                                               ; preds = %.lr.ph.i.i55
-  %47 = getelementptr inbounds i8, ptr %.069.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 8
   %.06.i.i = load ptr, ptr %47, align 8
   %.not.i.i = icmp eq ptr %.06.i.i, null
   br i1 %.not.i.i, label %aim_get_family.exit.i, label %.lr.ph.i.i55, !llvm.loop !4
@@ -1946,7 +1946,7 @@ dissect_aim_tlv_sequence.exit.i:                  ; preds = %.lr.ph.i.i, %31, %2
 .lr.ph.i.i55:                                     ; preds = %44, %46
   %.069.i.i = phi ptr [ %.06.i.i, %46 ], [ %.067.i.i, %44 ]
   %48 = load ptr, ptr %.069.i.i, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %50, %45
   br i1 %51, label %aim_get_family.exit.i, label %46
@@ -1961,15 +1961,15 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, 
 .lr.ph24.i.i:                                     ; preds = %aim_get_family.exit.i, %.loopexit.i.i
   %.01423.i.i = phi ptr [ %.014.i.i, %.loopexit.i.i ], [ %.01421.i.i, %aim_get_family.exit.i ]
   %53 = load ptr, ptr %.01423.i.i, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = icmp eq i16 %55, %45
   br i1 %56, label %.preheader.i.i, label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph24.i.i
-  %57 = getelementptr inbounds i8, ptr %53, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not1519.i.i = icmp eq ptr %60, null
   br i1 %.not1519.i.i, label %.loopexit.i.i, label %.lr.ph.i125.i
@@ -1978,7 +1978,7 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, 
   %62 = add i32 %.020.i.i, 1
   %63 = sext i32 %62 to i64
   %64 = getelementptr %struct._aim_subtype, ptr %58, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not15.i.i = icmp eq ptr %66, null
   br i1 %.not15.i.i, label %.loopexit.i.i, label %.lr.ph.i125.i, !llvm.loop !7
@@ -1991,7 +1991,7 @@ aim_get_family.exit.i:                            ; preds = %.lr.ph.i.i55, %46, 
   br i1 %69, label %aim_get_subtype.exit.i, label %61
 
 .loopexit.i.i:                                    ; preds = %61, %.preheader.i.i, %.lr.ph24.i.i
-  %70 = getelementptr inbounds i8, ptr %.01423.i.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.01423.i.i, i64 8
   %.014.i.i = load ptr, ptr %70, align 8
   %.not.i124.i = icmp eq ptr %.014.i.i, null
   br i1 %.not.i124.i, label %aim_get_subtype.exit.i, label %.lr.ph24.i.i, !llvm.loop !8
@@ -2011,14 +2011,14 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %.not.i, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %79 = load ptr, ptr %78, align 8
   br label %80
 
 80:                                               ; preds = %77, %75
   %81 = phi ptr [ %79, %77 ], [ @.str.110, %75 ]
   %82 = zext i16 %45 to i32
-  %83 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not120.i = icmp eq ptr %84, null
   %85 = select i1 %.not120.i, ptr @.str.110, ptr %84
@@ -2028,7 +2028,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %.not.i, label %92, label %89
 
 89:                                               ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %91 = load ptr, ptr %90, align 8
   br label %92
 
@@ -2072,7 +2072,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %112, label %114, label %126
 
 114:                                              ; preds = %.loopexit.i
-  %115 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %116 = load ptr, ptr %115, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 34, ptr noundef %116) #9
   %117 = load ptr, ptr %5, align 8
@@ -2082,7 +2082,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   %119 = load ptr, ptr %115, align 8
   tail call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef %119) #9
   %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %122 = load ptr, ptr %121, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.574, ptr noundef %122) #9
   br label %132
@@ -2112,7 +2112,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %or.cond5.i, label %133, label %143
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %135, ptr noundef %111, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
   %137 = load i32, ptr %.0.i.i, align 8
@@ -2124,7 +2124,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br label %dissect_aim_newconn.exit
 
 140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %142 = load ptr, ptr %141, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.574, ptr noundef %142) #9
   br label %143
@@ -2137,7 +2137,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %or.cond7.i, label %146, label %dissect_aim_newconn.exit
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %.013.i.i, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 16
   %148 = load ptr, ptr %147, align 8
   %.not123.i = icmp eq ptr %148, null
   br i1 %.not123.i, label %dissect_aim_newconn.exit, label %149
@@ -2233,7 +2233,7 @@ define internal fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 
 14:                                               ; preds = %8
   %15 = add i32 %2, 2
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %15) #9
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not51 = icmp eq ptr %18, null
   %.str.110. = select i1 %.not51, ptr @.str.110, ptr %18
@@ -2249,7 +2249,7 @@ define internal fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 
   %28 = add i32 %2, 4
   %29 = load i32, ptr @ett_aim_tlv_value, align 4
   %30 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %28, i32 noundef %19, i32 noundef %29, ptr noundef nonnull %6, ptr noundef nonnull @.str.517) #9
-  %31 = getelementptr inbounds i8, ptr %10, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not52 = icmp eq ptr %32, null
   br i1 %.not52, label %37, label %33
@@ -2276,7 +2276,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_aim_tlv_value_string(ptr noundef %0, i16 zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %2, i32 noundef 0, i32 noundef %5, i32 noundef 2) #9
   %9 = load ptr, ptr %6, align 8
@@ -2368,7 +2368,7 @@ declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_aim_snac_error(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
   %7 = zext i16 %6 to i32
@@ -2525,7 +2525,7 @@ define internal fastcc i32 @dissect_aim_buddyname(ptr noundef %0, ptr nocapture 
 7:                                                ; preds = %4
   %8 = add nuw nsw i32 %.pre, 1
   %9 = load i32, ptr @ett_aim_buddyname, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @tvb_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %6, i32 noundef %.pre) #9
   %13 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.599, ptr noundef %12) #9
@@ -2586,12 +2586,12 @@ define internal i32 @dissect_aim_buddylist_reject(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aim_buddylist_oncoming(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %7 = zext i8 %6 to i32
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef 2) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.607) #9
   %11 = load ptr, ptr %9, align 8
@@ -2625,12 +2625,12 @@ dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aim_buddylist_offgoing(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %7 = zext i8 %6 to i32
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef 2) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.608) #9
   %11 = load ptr, ptr %9, align 8
@@ -2676,7 +2676,7 @@ define internal i32 @dissect_aim_tlv_value_userstatus(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_aim_tlv_value_ipv4(ptr noundef %0, i16 zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @tvb_address_to_str(ptr noundef %6, ptr noundef %2, i32 noundef 2, i32 noundef 0) #9
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %0, ptr noundef nonnull @.str.570, ptr noundef %7) #9
@@ -2744,7 +2744,7 @@ define internal i32 @dissect_aim_tlv_value_client_short_capabilities(ptr noundef
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %dissect_aim_short_capability.exit
@@ -2771,7 +2771,7 @@ aim_find_short_capability.exit.thread.i:          ; preds = %14
 17:                                               ; preds = %14, %11
   %indvars.iv.i.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i.i, %14 ]
   %18 = phi ptr [ @known_client_caps, %11 ], [ %15, %14 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %19, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %20 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %20, label %aim_find_short_capability.exit.i, label %14
@@ -2809,11 +2809,11 @@ define internal fastcc noundef i32 @dissect_aim_capability(ptr noundef %0, ptr n
   %5 = alloca %struct._e_guid_t, align 8
   call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #9
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 %6, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %9, align 8
   br label %13
 
@@ -2831,7 +2831,7 @@ aim_find_capability.exit.thread:                  ; preds = %10
 13:                                               ; preds = %10, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %10 ]
   %14 = phi ptr [ @known_client_caps, %3 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %15, ptr noundef nonnull dereferenceable(16) %4, i64 16)
   %16 = icmp eq i32 %bcmp.i, 0
   br i1 %16, label %aim_find_capability.exit, label %10
@@ -2907,7 +2907,7 @@ define internal noundef i32 @dissect_aim_chat_userinfo_list(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aim_chat_outgoing_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 1000) #9
   %7 = load ptr, ptr %4, align 8
@@ -2919,7 +2919,7 @@ define internal i32 @dissect_aim_chat_outgoing_msg(ptr noundef %0, ptr nocapture
   %reass.sub = sub i32 %12, %9
   %13 = add i32 %reass.sub, -40
   tail call fastcc void @aim_get_message(ptr noundef %6, ptr noundef %0, i32 noundef %11, i32 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.673, ptr noundef %6) #9
   %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -2928,7 +2928,7 @@ define internal i32 @dissect_aim_chat_outgoing_msg(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aim_chat_incoming_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 1000) #9
   %7 = load ptr, ptr %4, align 8
@@ -2940,7 +2940,7 @@ define internal i32 @dissect_aim_chat_incoming_msg(ptr noundef %0, ptr nocapture
   %reass.sub = sub i32 %12, %9
   %13 = add i32 %reass.sub, -36
   tail call fastcc void @aim_get_message(ptr noundef %6, ptr noundef %0, i32 noundef %11, i32 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.674, ptr noundef %10) #9
   %16 = load ptr, ptr %14, align 8
@@ -3226,7 +3226,7 @@ define internal noundef i32 @dissect_aim_generic_service_req(ptr noundef %0, ptr
   br i1 %.not8.i, label %aim_get_family.exit.thread, label %.lr.ph.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.069.i, i64 8
   %.06.i = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit.thread, label %.lr.ph.i, !llvm.loop !4
@@ -3234,7 +3234,7 @@ define internal noundef i32 @dissect_aim_generic_service_req(ptr noundef %0, ptr
 .lr.ph.i:                                         ; preds = %3, %5
   %.069.i = phi ptr [ %.06.i, %5 ], [ %.067.i, %3 ]
   %7 = load ptr, ptr %.069.i, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i16, ptr %8, align 8
   %10 = icmp eq i16 %9, %4
   br i1 %10, label %13, label %5
@@ -3247,7 +3247,7 @@ aim_get_family.exit.thread:                       ; preds = %5, %3
 13:                                               ; preds = %.lr.ph.i
   %14 = load i32, ptr @hf_generic_servicereq_service, align 4
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -3358,7 +3358,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
   br label %73
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds i8, ptr %.069.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.069.i, i64 8
   %.06.i = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %aim_get_family.exit, label %.lr.ph.i, !llvm.loop !4
@@ -3366,7 +3366,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
 .lr.ph.i:                                         ; preds = %.lr.ph98, %40
   %.069.i = phi ptr [ %.06.i, %40 ], [ %.067.i, %.lr.ph98 ]
   %42 = load ptr, ptr %.069.i, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i16, ptr %43, align 8
   %45 = icmp eq i16 %44, %36
   br i1 %45, label %aim_get_family.exit, label %40
@@ -3378,15 +3378,15 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
 .lr.ph24.i:                                       ; preds = %aim_get_family.exit, %.loopexit.i
   %.01423.i = phi ptr [ %.014.i, %.loopexit.i ], [ %.067.i, %aim_get_family.exit ]
   %46 = load ptr, ptr %.01423.i, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i16, ptr %47, align 8
   %49 = icmp eq i16 %48, %36
   br i1 %49, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph24.i
-  %50 = getelementptr inbounds i8, ptr %46, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not1519.i = icmp eq ptr %53, null
   br i1 %.not1519.i, label %.loopexit.i, label %.lr.ph.i80
@@ -3395,7 +3395,7 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
   %55 = add i32 %.020.i, 1
   %56 = sext i32 %55 to i64
   %57 = getelementptr %struct._aim_subtype, ptr %51, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not15.i = icmp eq ptr %59, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i80, !llvm.loop !7
@@ -3408,7 +3408,7 @@ aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
   br i1 %62, label %aim_get_subtype.exit, label %54
 
 .loopexit.i:                                      ; preds = %54, %.preheader.i, %.lr.ph24.i
-  %63 = getelementptr inbounds i8, ptr %.01423.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 8
   %.014.i = load ptr, ptr %63, align 8
   %.not.i79 = icmp eq ptr %.014.i, null
   br i1 %.not.i79, label %aim_get_subtype.exit, label %.lr.ph24.i, !llvm.loop !8
@@ -3420,7 +3420,7 @@ aim_get_subtype.exit:                             ; preds = %.loopexit.i, %.lr.p
   br i1 %.not77, label %68, label %65
 
 65:                                               ; preds = %aim_get_subtype.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %67 = load ptr, ptr %66, align 8
   br label %68
 
@@ -3430,7 +3430,7 @@ aim_get_subtype.exit:                             ; preds = %.loopexit.i, %.lr.p
   br i1 %.not78, label %73, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -3812,7 +3812,7 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %._crit_edge62
 
@@ -3820,11 +3820,11 @@ define internal i32 @dissect_aim_tlv_value_icq(ptr noundef %0, i16 zeroext %1, p
   %.lcssa = phi ptr [ %25, %._crit_edge ], [ @icq_calls, %19 ], [ getelementptr inbounds nuw (i8, ptr @icq_calls, i64 1224), %.lr.ph ]
   %30 = phi ptr [ %29, %._crit_edge ], [ @.str.733, %19 ], [ @.str.110, %.lr.ph ]
   %spec.select = phi ptr [ %29, %._crit_edge ], [ @.str.733, %19 ], [ @.str.731, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull %spec.select) #9
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.732, ptr noundef nonnull %30) #9
-  %33 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not56 = icmp eq ptr %34, null
   br i1 %.not56, label %38, label %35
@@ -4002,12 +4002,12 @@ define internal i32 @dissect_aim_msg_outgoing(ptr noundef %0, ptr noundef %1, pt
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #9
   %7 = load i32, ptr @hf_aim_message_channel_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #9
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 11, i32 noundef %12, i32 noundef 2) #9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %9, align 8
   %17 = zext i8 %11 to i64
@@ -4156,18 +4156,18 @@ define internal noundef i32 @dissect_aim_msg_client_err(ptr noundef %0, ptr noca
   %38 = tail call i32 @tvb_get_ntohl(ptr noundef %30, i32 noundef 4) #9
   store i32 %38, ptr %6, align 8
   %39 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 8) #9
-  %40 = getelementptr inbounds i8, ptr %6, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %39, ptr %40, align 4
   %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 10) #9
-  %42 = getelementptr inbounds i8, ptr %6, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %41, ptr %42, align 2
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = call ptr @tvb_memcpy(ptr noundef %30, ptr noundef nonnull %43, i32 noundef 12, i64 noundef 8) #9
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %45, align 8
   br label %50
 
@@ -4186,7 +4186,7 @@ aim_find_plugin.exit.thread.i.i:                  ; preds = %46
 50:                                               ; preds = %46, %29
   %indvars.iv.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i.i, %46 ]
   %51 = phi ptr [ @known_client_plugins, %29 ], [ %47, %46 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %52, ptr noundef nonnull dereferenceable(16) %5, i64 16)
   %53 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %53, label %aim_find_plugin.exit.i.i, label %46
@@ -4314,7 +4314,7 @@ define internal noundef i32 @dissect_aim_tlv_value_messageblock(ptr noundef %0, 
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %3, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %20
 
 20:                                               ; preds = %.lr.ph, %30
@@ -4473,13 +4473,13 @@ define internal i32 @dissect_aim_snac_register(ptr noundef %0, ptr noundef %1, p
 define internal range(i32 3, 263) i32 @dissect_aim_snac_signon_signon(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_aim_infotype, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #9
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #9
   %9 = zext i8 %8 to i32
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef 4, i32 noundef %9, i32 noundef 2) #9
   %11 = zext i8 %8 to i64
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = tail call ptr @format_text(ptr noundef %14, ptr noundef %10, i64 noundef %11) #9
@@ -4625,7 +4625,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @dissect_ssi_ssi_items(p
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_aim_ssi_result(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #9
   %7 = zext i16 %6 to i32

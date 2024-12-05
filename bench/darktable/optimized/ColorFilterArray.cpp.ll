@@ -72,14 +72,14 @@ define hidden void @_ZN8rawspeed16ColorFilterArrayC2ERKNS_8iPoint2DE(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = load i32, ptr %1, align 4, !tbaa !6
   %4 = icmp eq i32 %3, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %4, i1 %7, i1 false
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %1, align 4, !tbaa.struct !11
   store i64 %11, ptr %10, align 8, !tbaa.struct !11
   %12 = trunc i64 %11 to i32
@@ -110,7 +110,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArrayC2ERKNS_8iPoint2DE(ptr noundef
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %0, align 8, !tbaa !13
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !13
   %30 = icmp eq ptr %27, %29
   br i1 %30, label %35, label %31
@@ -144,14 +144,14 @@ define hidden void @_ZN8rawspeed16ColorFilterArrayC2ERKNS_8iPoint2DE(ptr noundef
 define hidden void @_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !6
   %4 = icmp eq i32 %3, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %4, i1 %7, i1 false
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %1, align 4, !tbaa.struct !11
   store i64 %11, ptr %10, align 8, !tbaa.struct !11
   %12 = trunc i64 %11 to i32
@@ -176,7 +176,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray7setSizeERKNS_8iPoint2DE(ptr n
 24:                                               ; preds = %22
   tail call void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19)
   %25 = load ptr, ptr %0, align 8, !tbaa !13
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = icmp eq ptr %25, %27
   br i1 %28, label %33, label %29
@@ -230,7 +230,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = load ptr, ptr %0, align 8, !tbaa !17
   %6 = ptrtoint ptr %4 to i64
@@ -241,7 +241,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -255,7 +255,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
 
 20:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !15
-  %21 = getelementptr inbounds i8, ptr %4, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %22 = add nsw i64 %11, -1
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %26, label %24
@@ -283,14 +283,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
   %33 = add nuw i64 %32, %8
   %34 = tail call i64 @llvm.umin.i64(i64 %33, i64 9223372036854775807)
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #21
-  %36 = getelementptr inbounds i8, ptr %35, i64 %8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %8
   store i8 0, ptr %36, align 1, !tbaa !15
   %37 = add nsw i64 %11, -1
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %36, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %40, i8 0, i64 %37, i1 false), !tbaa !15
   br label %41
 
@@ -314,7 +314,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
   store ptr %35, ptr %0, align 8, !tbaa !17
   %48 = getelementptr inbounds i8, ptr %35, i64 %1
   store ptr %48, ptr %3, align 8, !tbaa !19
-  %49 = getelementptr inbounds i8, ptr %35, i64 %34
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   store ptr %49, ptr %12, align 8, !tbaa !20
   br label %56
 
@@ -338,7 +338,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resiz
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %9
@@ -348,10 +348,10 @@ define hidden noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !6
   %12 = icmp sgt i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   tail call void @llvm.assume(i1 %12)
@@ -381,10 +381,10 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %4 = trunc i64 %1 to i32
   %5 = lshr i64 %1, 32
   %6 = trunc nuw i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !6
   %9 = icmp eq i32 %8, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %6
   %13 = select i1 %9, i1 %12, i1 false
@@ -414,7 +414,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
 27:                                               ; preds = %25
   tail call void @_ZNSt6vectorIN8rawspeed8CFAColorESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %22)
   %28 = load ptr, ptr %0, align 8, !tbaa !13
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !13
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %36, label %32
@@ -440,8 +440,8 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   br i1 %44, label %71, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %48 = load ptr, ptr %0, align 8, !tbaa !17
   %49 = and i64 %43, 1
   %50 = icmp eq i64 %43, 1
@@ -479,7 +479,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %67 = phi ptr [ %64, %61 ], [ %59, %58 ]
   %68 = load i32, ptr %67, align 4
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %48, i64 %55
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 %55
   store i8 %69, ptr %70, align 1, !tbaa !15
   br label %71
 
@@ -512,7 +512,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %85 = phi ptr [ %79, %76 ], [ %82, %81 ]
   %86 = load i32, ptr %85, align 4
   %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds i8, ptr %48, i64 %73
+  %88 = getelementptr inbounds nuw i8, ptr %48, i64 %73
   store i8 %87, ptr %88, align 1, !tbaa !15
   %89 = or disjoint i64 %73, 1
   %90 = load i32, ptr %3, align 16
@@ -537,7 +537,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
   %101 = phi ptr [ %98, %95 ], [ %93, %92 ]
   %102 = load i32, ptr %101, align 4
   %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %48, i64 %89
+  %104 = getelementptr inbounds nuw i8, ptr %48, i64 %89
   store i8 %103, ptr %104, align 1, !tbaa !15
   %105 = add nuw i64 %73, 2
   %106 = icmp eq i64 %105, %52
@@ -548,7 +548,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray6setCFAENS_8iPoint2DEz(ptr nou
 define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %9
@@ -559,7 +559,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
 
 9:                                                ; preds = %2
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.3, i32 noundef %1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !6
   %12 = srem i32 %1, %11
   %13 = icmp eq i32 %12, 0
@@ -567,7 +567,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
@@ -584,11 +584,11 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
   %24 = mul nuw nsw i64 %21, %23
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #21
   store ptr %25, ptr %3, align 8, !tbaa !17
-  %26 = getelementptr inbounds i8, ptr %25, i64 %24
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !20
   store i8 0, ptr %25, align 1, !tbaa !15
-  %28 = getelementptr inbounds i8, ptr %25, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %29 = add nsw i64 %24, -1
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -599,7 +599,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef non
 
 32:                                               ; preds = %31, %19
   %33 = phi ptr [ %28, %19 ], [ %26, %31 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %33, ptr %34, align 8, !tbaa !19
   %35 = icmp sgt i32 %16, 0
   br i1 %35, label %36, label %.loopexit8
@@ -765,13 +765,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %3, label %65, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = load ptr, ptr %1, align 8, !tbaa !13
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = load ptr, ptr %0, align 8, !tbaa !13
   %14 = ptrtoint ptr %12 to i64
@@ -807,12 +807,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 28:                                               ; preds = %27, %25
   store ptr %22, ptr %0, align 8, !tbaa !17
-  %29 = getelementptr inbounds i8, ptr %22, i64 %10
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %10
   store ptr %29, ptr %11, align 8, !tbaa !20
   br label %61
 
 30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !19
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %15
@@ -862,7 +862,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 61:                                               ; preds = %57, %48, %38, %36, %28
   %62 = load ptr, ptr %0, align 8, !tbaa !17
   %63 = getelementptr inbounds i8, ptr %62, i64 %10
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %63, ptr %64, align 8, !tbaa !19
   br label %65
 
@@ -874,7 +874,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %9
@@ -885,14 +885,14 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
 
 9:                                                ; preds = %2
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 65536, ptr noundef nonnull @.str.5, i32 noundef %1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = srem i32 %1, %11
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %143, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
   %16 = load i32, ptr %15, align 8, !tbaa !6
   %17 = icmp eq i32 %16, 0
@@ -906,11 +906,11 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
   %23 = mul nuw nsw i64 %20, %22
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #21
   store ptr %24, ptr %3, align 8, !tbaa !17
-  %25 = getelementptr inbounds i8, ptr %24, i64 %23
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !20
   store i8 0, ptr %24, align 1, !tbaa !15
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %28 = add nsw i64 %23, -1
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %31, label %30
@@ -921,7 +921,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
 
 31:                                               ; preds = %30, %18
   %32 = phi ptr [ %27, %18 ], [ %25, %30 ]
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !19
   %34 = icmp sgt i32 %11, 0
   br i1 %34, label %36, label %.loopexit10
@@ -1118,21 +1118,21 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK8rawspeed16ColorFilterArray8asStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !31
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !33
   store i8 0, ptr %4, align 8, !tbaa !36
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %6, align 8, !tbaa !6
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.preheader24, label %.loopexit
@@ -1204,9 +1204,9 @@ define hidden void @_ZNK8rawspeed16ColorFilterArray8asStringB5cxx11Ev(ptr dead_o
 
 56:                                               ; preds = %34
   %57 = zext nneg i8 %51 to i64
-  %58 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 0, i64 %57
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.30, i64 0, i64 %57
+  %60 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.30, i64 0, i64 %57
   %61 = load ptr, ptr %60, align 8
   store ptr %12, ptr %3, align 8, !tbaa !31, !alias.scope !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %61, i64 %59, i1 false)
@@ -1518,14 +1518,14 @@ define hidden void @_ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFA
 
 7:                                                ; preds = %2
   %8 = zext nneg i8 %3 to i64
-  %9 = getelementptr inbounds [9 x i64], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.30, i64 0, i64 %8
+  %11 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN8rawspeed16ColorFilterArray13colorToStringB5cxx11ENS_8CFAColorE.30, i64 0, i64 %8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %12, i64 %10, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %14, align 8, !tbaa !33
   %15 = getelementptr inbounds i8, ptr %13, i64 %10
   store i8 0, ptr %15, align 1, !tbaa !36
@@ -1605,7 +1605,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 define hidden void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = trunc i64 %1 to i32
   %5 = lshr i64 %1, 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !48
   %8 = icmp sle i32 %7, %4
   %9 = icmp slt i32 %4, 0
@@ -1618,7 +1618,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8
 
 12:                                               ; preds = %3
   %13 = trunc nuw i64 %5 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4, !tbaa !37
   %16 = icmp sle i32 %15, %13
   %17 = icmp slt i64 %1, 0
@@ -1644,10 +1644,10 @@ define hidden void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8
 define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 6
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 6
   %10 = select i1 %6, i1 %9, i1 false
@@ -1655,7 +1655,7 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %0, align 8, !tbaa !13
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = icmp ne ptr %12, %14
   %16 = icmp slt i32 %5, 3
@@ -1722,12 +1722,12 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = load ptr, ptr %2, align 8, !tbaa !47
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !33
   %47 = icmp ult i64 %46, 16
   call void @llvm.assume(i1 %47)
@@ -2214,12 +2214,12 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
 
 223:                                              ; preds = %219
   %224 = load ptr, ptr %3, align 8, !tbaa !47
-  %225 = getelementptr inbounds i8, ptr %3, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %226 = icmp eq ptr %224, %225
   br i1 %226, label %227, label %231
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %3, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %229 = load i64, ptr %228, align 8, !tbaa !33
   %230 = icmp ult i64 %229, 16
   call void @llvm.assume(i1 %230)
@@ -2238,12 +2238,12 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %234 = landingpad { ptr, i32 }
           cleanup
   %235 = load ptr, ptr %3, align 8, !tbaa !47
-  %236 = getelementptr inbounds i8, ptr %3, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %237 = icmp eq ptr %235, %236
   br i1 %237, label %238, label %242
 
 238:                                              ; preds = %233
-  %239 = getelementptr inbounds i8, ptr %3, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %240 = load i64, ptr %239, align 8, !tbaa !33
   %241 = icmp ult i64 %240, 16
   call void @llvm.assume(i1 %241)

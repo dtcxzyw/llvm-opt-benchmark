@@ -1182,20 +1182,20 @@ do.end702:                                        ; preds = %delete.end698, %del
 
 if.end706:                                        ; preds = %do.end675, %if.end493
   %nevents.0 = phi i32 [ 4, %do.end675 ], [ 3, %if.end493 ]
-  %recv.i = getelementptr inbounds i8, ptr %stats, i64 16
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 8
-  %bytes.i = getelementptr inbounds i8, ptr %stats, i64 24
-  %arrayinit.element13.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 16
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 24
-  %bytes19.i = getelementptr inbounds i8, ptr %stats, i64 8
-  %arrayinit.element20.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 32
-  %backend.i = getelementptr inbounds i8, ptr %stats, i64 32
-  %recv21.i = getelementptr inbounds i8, ptr %stats, i64 48
-  %arrayinit.element23.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 40
-  %bytes26.i = getelementptr inbounds i8, ptr %stats, i64 56
-  %arrayinit.element27.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 48
-  %arrayinit.element31.i = getelementptr inbounds i8, ptr %stat_vals.i, i64 56
-  %bytes34.i = getelementptr inbounds i8, ptr %stats, i64 40
+  %recv.i = getelementptr inbounds nuw i8, ptr %stats, i64 16
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 8
+  %bytes.i = getelementptr inbounds nuw i8, ptr %stats, i64 24
+  %arrayinit.element13.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 16
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 24
+  %bytes19.i = getelementptr inbounds nuw i8, ptr %stats, i64 8
+  %arrayinit.element20.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 32
+  %backend.i = getelementptr inbounds nuw i8, ptr %stats, i64 32
+  %recv21.i = getelementptr inbounds nuw i8, ptr %stats, i64 48
+  %arrayinit.element23.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 40
+  %bytes26.i = getelementptr inbounds nuw i8, ptr %stats, i64 56
+  %arrayinit.element27.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 48
+  %arrayinit.element31.i = getelementptr inbounds nuw i8, ptr %stat_vals.i, i64 56
+  %bytes34.i = getelementptr inbounds nuw i8, ptr %stats, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %if.end706, %if.end997
@@ -1295,7 +1295,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %frontend_out.1385.us = phi i8 [ %frontend_out.0400, %for.body.us.preheader ], [ %frontend_out.2.us, %for.inc.us ]
   %backend_in.1384.us = phi i8 [ %backend_in.0399, %for.body.us.preheader ], [ %backend_in.2.us, %for.inc.us ]
   %backend_out.1383.us = phi i8 [ %backend_out.0398, %for.body.us.preheader ], [ %backend_out.2.us, %for.inc.us ]
-  %arrayidx818.us = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405
+  %arrayidx818.us = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv405
   %29 = load ptr, ptr %arrayidx818.us, align 16
   %cmp820.us = icmp eq ptr %29, %frontend_
   br i1 %cmp820.us, label %if.then821.us, label %if.else833.us
@@ -1305,14 +1305,14 @@ if.else833.us:                                    ; preds = %for.body.us
   br i1 %cmp837.us, label %if.then838.us, label %for.inc.us
 
 if.then838.us:                                    ; preds = %if.else833.us
-  %events841.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
+  %events841.us = getelementptr inbounds nuw i8, ptr %arrayidx818.us, i64 24
   %30 = load i16, ptr %events841.us, align 8
   %31 = trunc i16 %30 to i8
   %32 = lshr i8 %31, 1
   br label %for.inc.us
 
 if.then821.us:                                    ; preds = %for.body.us
-  %events824.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
+  %events824.us = getelementptr inbounds nuw i8, ptr %arrayidx818.us, i64 24
   %33 = load i16, ptr %events824.us, align 8
   %34 = trunc i16 %33 to i8
   %35 = lshr i8 %34, 1
@@ -1379,7 +1379,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %backend_in.1384 = phi i8 [ %backend_in.2, %for.inc ], [ %backend_in.0399, %for.body.lr.ph ]
   %backend_out.1383 = phi i8 [ %backend_out.2, %for.inc ], [ %backend_out.0398, %for.body.lr.ph ]
   %state.1382 = phi i32 [ %state.2, %for.inc ], [ %state.0397, %for.body.lr.ph ]
-  %arrayidx = getelementptr inbounds [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %events, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %arrayidx, align 16
   %cmp784 = icmp eq ptr %36, %control_
   br i1 %cmp784, label %if.then785, label %if.end816
@@ -1433,7 +1433,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.the
   %ind.028.i = phi i64 [ 0, %if.then10.i ], [ %inc.i, %for.cond.i ]
   %call36.i = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i, i64 noundef 8)
   %call37.i = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %cmsg.i)
-  %add.ptr.i = getelementptr inbounds i64, ptr %stat_vals.i, i64 %ind.028.i
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %stat_vals.i, i64 %ind.028.i
   %37 = load i64, ptr %add.ptr.i, align 8
   store i64 %37, ptr %call37.i, align 1
   %cmp38.not.i = icmp eq i64 %ind.028.i, 7
@@ -1536,7 +1536,7 @@ if.end816:                                        ; preds = %for.body
   br i1 %cmp820, label %if.then821, label %if.else833
 
 if.then821:                                       ; preds = %if.end816
-  %events824 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %events824 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %39 = load i16, ptr %events824, align 8
   %40 = trunc i16 %39 to i8
   %41 = lshr i8 %40, 1
@@ -1547,7 +1547,7 @@ if.else833:                                       ; preds = %if.end816
   br i1 %cmp837, label %if.then838, label %for.inc
 
 if.then838:                                       ; preds = %if.else833
-  %events841 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %events841 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %42 = load i16, ptr %events841, align 8
   %43 = trunc i16 %42 to i8
   %44 = lshr i8 %43, 1
@@ -1893,9 +1893,9 @@ entry:
   %ctrl.i = alloca %"class.zmq::msg_t", align 8
   %more = alloca i32, align 4
   %moresz = alloca i64, align 8
-  %bytes = getelementptr inbounds i8, ptr %recving, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %recving, i64 8
   %tobool.not.i = icmp eq ptr %capture_, null
-  %bytes23 = getelementptr inbounds i8, ptr %sending, i64 8
+  %bytes23 = getelementptr inbounds nuw i8, ptr %sending, i64 8
   br i1 %tobool.not.i, label %while.body.preheader.us, label %while.body.preheader
 
 while.body.preheader.us:                          ; preds = %entry, %for.inc.split.us.us

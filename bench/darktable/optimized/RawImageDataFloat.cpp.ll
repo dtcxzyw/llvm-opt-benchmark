@@ -46,88 +46,88 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN8rawspeed17RawImageDataFloatC2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((16, 57), (64, 100), (152, 153), (164, 165), (168, 245), (248, 308)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   store i8 1, ptr %3, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 -1, ptr %5, align 8, !tbaa !71
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i8 0, ptr %6, align 8, !tbaa !72
-  %7 = getelementptr inbounds i8, ptr %0, i64 164
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i8 0, ptr %7, align 4, !tbaa !73
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
-  %9 = getelementptr inbounds i8, ptr %0, i64 244
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %8, i8 0, i64 76, i1 false)
   store i8 1, ptr %9, align 4, !tbaa !74
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store double 1.000000e+00, ptr %10, align 8, !tbaa !75
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store <4 x float> splat (float 0x7FF8000000000000), ptr %11, align 8, !tbaa !76
-  %12 = getelementptr inbounds i8, ptr %0, i64 272
-  %13 = getelementptr inbounds i8, ptr %0, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
   store i32 1, ptr %13, align 4, !tbaa !78
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 1, ptr %14, align 8, !tbaa !79
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %16, ptr %15, align 8, !tbaa !80
-  %17 = getelementptr inbounds i8, ptr %0, i64 320
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 0, ptr %17, align 8, !tbaa !81
   store i8 0, ptr %16, align 8, !tbaa !82
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
-  %19 = getelementptr inbounds i8, ptr %0, i64 360
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %19, ptr %18, align 8, !tbaa !80
-  %20 = getelementptr inbounds i8, ptr %0, i64 352
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %20, align 8, !tbaa !81
   store i8 0, ptr %19, align 8, !tbaa !82
-  %21 = getelementptr inbounds i8, ptr %0, i64 376
-  %22 = getelementptr inbounds i8, ptr %0, i64 392
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %22, ptr %21, align 8, !tbaa !80
-  %23 = getelementptr inbounds i8, ptr %0, i64 384
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 0, ptr %23, align 8, !tbaa !81
   store i8 0, ptr %22, align 8, !tbaa !82
-  %24 = getelementptr inbounds i8, ptr %0, i64 408
-  %25 = getelementptr inbounds i8, ptr %0, i64 424
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %25, ptr %24, align 8, !tbaa !80
-  %26 = getelementptr inbounds i8, ptr %0, i64 416
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %26, align 8, !tbaa !81
   store i8 0, ptr %25, align 8, !tbaa !82
-  %27 = getelementptr inbounds i8, ptr %0, i64 440
-  %28 = getelementptr inbounds i8, ptr %0, i64 456
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %28, ptr %27, align 8, !tbaa !80
-  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 0, ptr %29, align 8, !tbaa !81
   store i8 0, ptr %28, align 8, !tbaa !82
-  %30 = getelementptr inbounds i8, ptr %0, i64 472
-  %31 = getelementptr inbounds i8, ptr %0, i64 488
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %31, ptr %30, align 8, !tbaa !80
-  %32 = getelementptr inbounds i8, ptr %0, i64 480
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i64 0, ptr %32, align 8, !tbaa !81
   store i8 0, ptr %31, align 8, !tbaa !82
-  %33 = getelementptr inbounds i8, ptr %0, i64 504
-  %34 = getelementptr inbounds i8, ptr %0, i64 520
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %34, ptr %33, align 8, !tbaa !80
-  %35 = getelementptr inbounds i8, ptr %0, i64 512
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 0, ptr %35, align 8, !tbaa !81
   store i8 0, ptr %34, align 8, !tbaa !82
-  %36 = getelementptr inbounds i8, ptr %0, i64 536
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 0, ptr %36, align 8, !tbaa !83
-  %37 = getelementptr inbounds i8, ptr %0, i64 552
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 560
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 584
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 1, ptr %39, align 8, !tbaa !84
-  %40 = getelementptr inbounds i8, ptr %0, i64 588
-  %41 = getelementptr inbounds i8, ptr %0, i64 592
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %41, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed17RawImageDataFloatE, i64 16), ptr %0, align 8, !tbaa !85
   store i32 4, ptr %40, align 4, !tbaa !87
-  %42 = getelementptr inbounds i8, ptr %0, i64 548
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i32 1, ptr %42, align 4, !tbaa !88
   ret void
 }
@@ -144,16 +144,16 @@ declare void @_ZN8rawspeed12RawImageDataC2ENS_12RawImageTypeERKNS_8iPoint2DEii(p
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array.26", align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 560
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = load ptr, ptr %3, align 8, !tbaa !89, !noalias !90, !nonnull !93, !noundef !93
-  %5 = getelementptr inbounds i8, ptr %0, i64 584
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %6 = load i32, ptr %5, align 8, !tbaa !84, !noalias !90
-  %7 = getelementptr inbounds i8, ptr %0, i64 600
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %8 = load i32, ptr %7, align 8, !tbaa !94
   %9 = mul nsw i32 %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 604
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %11 = load i32, ptr %10, align 4, !tbaa !95
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !96, !noalias !90
   %14 = ashr i32 %13, 2
   %15 = mul nuw nsw i32 %14, %11
@@ -172,24 +172,24 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %23 = xor i1 %21, %22
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #21
-  %24 = getelementptr inbounds i8, ptr %0, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %24, align 8, !tbaa !97
-  %26 = getelementptr inbounds i8, ptr %0, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %27 = load ptr, ptr %26, align 8, !tbaa !97
   %28 = icmp eq ptr %25, %27
   br i1 %28, label %.loopexit13, label %29
 
 29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 596
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %31
   %35 = icmp sgt i32 %33, 0
-  %36 = getelementptr inbounds i8, ptr %0, i64 592
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, %37
   %41 = icmp slt i32 %39, 1
@@ -226,9 +226,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 
 .loopexit13:                                      ; preds = %.loopexit11, %1
   %70 = phi i32 [ 0, %1 ], [ %444, %.loopexit11 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 100
-  %72 = getelementptr inbounds i8, ptr %0, i64 120
-  %73 = getelementptr inbounds i8, ptr %0, i64 152
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %74 = load i8, ptr %73, align 8, !tbaa !72, !range !98, !noundef !93
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %76, label %77
@@ -239,13 +239,13 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 
 77:                                               ; preds = %76, %.loopexit13
   store ptr %71, ptr %72, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 4, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 136
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 2, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 140
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 2, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 2, ptr %81, align 8
   %82 = icmp eq i32 %70, 0
   br i1 %82, label %447, label %450
@@ -254,9 +254,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %84 = phi i32 [ 0, %29 ], [ %444, %.loopexit11 ]
   %85 = phi ptr [ %25, %29 ], [ %445, %.loopexit11 ]
   %86 = load i32, ptr %85, align 4, !tbaa !99
-  %87 = getelementptr inbounds i8, ptr %85, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !99
-  %89 = getelementptr inbounds i8, ptr %85, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %90 = load i8, ptr %89, align 4, !tbaa !100
   %91 = and i32 %88, -2
   %92 = and i8 %90, 1
@@ -289,7 +289,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %108 = icmp ule i32 %107, %15
   tail call void @llvm.assume(i1 %108)
   %109 = zext nneg i32 %106 to i64
-  %110 = getelementptr inbounds float, ptr %4, i64 %109
+  %110 = getelementptr inbounds nuw float, ptr %4, i64 %109
   %111 = shl nuw nsw i64 %103, 1
   %112 = and i64 %111, 2
   br label %113
@@ -298,11 +298,11 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %114 = phi i64 [ %123, %113 ], [ %45, %.split.us ]
   %115 = icmp samesign ult i64 %114, %42
   tail call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds float, ptr %110, i64 %114
+  %116 = getelementptr inbounds nuw float, ptr %110, i64 %114
   %117 = load float, ptr %116, align 4, !tbaa !76
   %118 = and i64 %114, 1
   %119 = or disjoint i64 %118, %112
-  %120 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %119
   %121 = load float, ptr %120, align 4, !tbaa !76
   %122 = fadd float %117, %121
   store float %122, ptr %120, align 4, !tbaa !76
@@ -330,7 +330,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %136 = and i64 %135, 2
   %gep = getelementptr float, ptr %invariant.gep, i64 %134
   %137 = or disjoint i64 %136, %68
-  %138 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %137
   %139 = getelementptr inbounds i8, ptr %138, i64 -28
   %140 = getelementptr inbounds i8, ptr %138, i64 -60
   %141 = getelementptr inbounds i8, ptr %138, i64 -92
@@ -424,9 +424,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %196 = extractelement <8 x i1> %164, i64 7
   tail call void @llvm.assume(i1 %196)
   %197 = getelementptr float, ptr %gep, i64 %156
-  %198 = getelementptr inbounds i8, ptr %197, i64 32
-  %199 = getelementptr inbounds i8, ptr %197, i64 64
-  %200 = getelementptr inbounds i8, ptr %197, i64 96
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 96
   %201 = load <8 x float>, ptr %197, align 4, !tbaa !76
   %202 = load <8 x float>, ptr %198, align 4, !tbaa !76
   %203 = load <8 x float>, ptr %199, align 4, !tbaa !76
@@ -506,7 +506,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %254 = icmp ule i32 %253, %15
   tail call void @llvm.assume(i1 %254)
   %255 = zext nneg i32 %252 to i64
-  %256 = getelementptr inbounds float, ptr %4, i64 %255
+  %256 = getelementptr inbounds nuw float, ptr %4, i64 %255
   %257 = shl nuw nsw i64 %249, 1
   %258 = and i64 %257, 2
   br i1 %247, label %._crit_edge, label %259
@@ -514,7 +514,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 259:                                              ; preds = %248
   %260 = getelementptr float, ptr %256, i64 %227
   %261 = or disjoint i64 %258, %245
-  %262 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %261
   %263 = getelementptr inbounds i8, ptr %262, i64 -28
   %264 = getelementptr inbounds i8, ptr %262, i64 -60
   %265 = getelementptr inbounds i8, ptr %262, i64 -92
@@ -680,9 +680,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %360 = extractelement <8 x i1> %328, i64 7
   tail call void @llvm.assume(i1 %360)
   %361 = getelementptr float, ptr %260, i64 %280
-  %362 = getelementptr inbounds i8, ptr %361, i64 32
-  %363 = getelementptr inbounds i8, ptr %361, i64 64
-  %364 = getelementptr inbounds i8, ptr %361, i64 96
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 32
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 64
+  %364 = getelementptr inbounds nuw i8, ptr %361, i64 96
   %365 = load <8 x float>, ptr %361, align 4, !tbaa !76
   %366 = load <8 x float>, ptr %362, align 4, !tbaa !76
   %367 = load <8 x float>, ptr %363, align 4, !tbaa !76
@@ -726,7 +726,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %390 = load float, ptr %389, align 4, !tbaa !76
   %391 = and i64 %384, 1
   %392 = or disjoint i64 %391, %258
-  %393 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %392
+  %393 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %392
   %394 = load float, ptr %393, align 4, !tbaa !76
   %395 = fadd float %390, %394
   store float %395, ptr %393, align 4, !tbaa !76
@@ -744,9 +744,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 402:                                              ; preds = %.loopexit10
   %403 = and i64 %399, 1
   %404 = or disjoint i64 %403, %258
-  %405 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %404
+  %405 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %404
   %406 = xor i64 %404, 1
-  %407 = getelementptr inbounds [4 x float], ptr %2, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %406
   %.promoted = load float, ptr %405, align 4, !tbaa !76
   %.promoted24 = load float, ptr %407, align 4, !tbaa !76
   br label %408
@@ -803,12 +803,12 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %442 = phi i32 [ %39, %97 ], [ %33, %223 ], [ %39, %.loopexit.us ], [ %39, %212 ], [ %33, %438 ]
   %443 = mul i32 %442, %91
   %444 = add i32 %443, %84
-  %445 = getelementptr inbounds i8, ptr %85, i64 12
+  %445 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %446 = icmp eq ptr %445, %27
   br i1 %446, label %.loopexit13, label %83
 
 447:                                              ; preds = %77
-  %448 = getelementptr inbounds i8, ptr %0, i64 96
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %449 = load i32, ptr %448, align 8, !tbaa !71
   br label %466
 
@@ -822,7 +822,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %457 = fdiv <4 x float> %454, %456
   %458 = fptosi <4 x float> %457 to <4 x i32>
   store <4 x i32> %458, ptr %71, align 4, !tbaa !99
-  %459 = getelementptr inbounds i8, ptr %0, i64 56
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %460 = load i8, ptr %459, align 8, !tbaa !6, !range !98, !noundef !93
   %461 = icmp eq i8 %460, 0
   br i1 %461, label %462, label %470
@@ -878,16 +878,16 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExc
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 560
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8, !tbaa !89, !noalias !112, !nonnull !93, !noundef !93
-  %4 = getelementptr inbounds i8, ptr %0, i64 584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %5 = load i32, ptr %4, align 8, !tbaa !84
-  %6 = getelementptr inbounds i8, ptr %0, i64 600
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %7 = load i32, ptr %6, align 8, !tbaa !94, !noalias !112
   %8 = mul nsw i32 %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 604
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %10 = load i32, ptr %9, align 4, !tbaa !95, !noalias !112
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !96, !noalias !112
   %13 = ashr i32 %12, 2
   %14 = mul nuw nsw i32 %13, %10
@@ -905,15 +905,15 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %21 = icmp ne i32 %10, 0
   %22 = xor i1 %20, %21
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i8, ptr %0, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %24 = load i32, ptr %23, align 8, !tbaa !117, !noalias !118
   %25 = mul nsw i32 %24, %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 596
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %27 = load i32, ptr %26, align 4, !tbaa !119, !noalias !118
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8, !tbaa !120
   %30 = mul nsw i32 %29, %5
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !121
   %33 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %33)
@@ -935,19 +935,19 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   tail call void @llvm.assume(i1 %43)
   %44 = add i32 %29, -150
   %45 = mul i32 %44, %5
-  %46 = getelementptr inbounds i8, ptr %0, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %47 = load ptr, ptr %46, align 8, !tbaa !97
-  %48 = getelementptr inbounds i8, ptr %0, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %49 = load ptr, ptr %48, align 8, !tbaa !97
   %50 = icmp ne ptr %47, %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %52 = load i8, ptr %51, align 8, !range !98
   %53 = icmp ne i8 %52, 0
   %54 = select i1 %50, i1 true, i1 %53
   br i1 %54, label %271, label %55
 
 55:                                               ; preds = %1
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load i32, ptr %56, align 8, !tbaa !71
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %274
@@ -1005,7 +1005,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %94 = icmp ule i32 %93, %14
   tail call void @llvm.assume(i1 %94)
   %95 = zext nneg i32 %92 to i64
-  %96 = getelementptr inbounds float, ptr %3, i64 %95
+  %96 = getelementptr inbounds nuw float, ptr %3, i64 %95
   br label %97
 
 97:                                               ; preds = %.preheader.us, %97
@@ -1017,7 +1017,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %102 = add nuw nsw i64 %98, %68
   %103 = icmp samesign ule i64 %102, %69
   tail call void @llvm.assume(i1 %103)
-  %104 = getelementptr inbounds float, ptr %96, i64 %102
+  %104 = getelementptr inbounds nuw float, ptr %96, i64 %102
   %105 = load float, ptr %104, align 4, !tbaa !76
   %106 = fcmp olt float %99, %105
   %107 = select i1 %106, float %99, float %105
@@ -1047,7 +1047,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %121 = icmp ule i32 %120, %14
   tail call void @llvm.assume(i1 %121)
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds float, ptr %3, i64 %122
+  %123 = getelementptr inbounds nuw float, ptr %3, i64 %122
   br label %124
 
 124:                                              ; preds = %124, %.preheader3.us
@@ -1057,7 +1057,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %128 = add nuw nsw i64 %125, %68
   %129 = icmp samesign ule i64 %128, %69
   tail call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds float, ptr %123, i64 %128
+  %130 = getelementptr inbounds nuw float, ptr %123, i64 %128
   %131 = load float, ptr %130, align 4, !tbaa !76
   %132 = fcmp olt float %126, %131
   %133 = select i1 %132, float %126, float %131
@@ -1065,42 +1065,42 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %135 = add nuw nsw i64 %134, %68
   %136 = icmp samesign ule i64 %135, %69
   tail call void @llvm.assume(i1 %136)
-  %137 = getelementptr inbounds float, ptr %123, i64 %135
+  %137 = getelementptr inbounds nuw float, ptr %123, i64 %135
   %138 = load float, ptr %137, align 4, !tbaa !76
   %139 = fcmp olt float %133, %138
   %140 = select i1 %139, float %133, float %138
   %141 = add nuw nsw i64 %82, %125
   %142 = icmp samesign ule i64 %141, %69
   tail call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds float, ptr %123, i64 %141
+  %143 = getelementptr inbounds nuw float, ptr %123, i64 %141
   %144 = load float, ptr %143, align 4, !tbaa !76
   %145 = fcmp olt float %140, %144
   %146 = select i1 %145, float %140, float %144
   %147 = add nuw nsw i64 %83, %125
   %148 = icmp samesign ule i64 %147, %69
   tail call void @llvm.assume(i1 %148)
-  %149 = getelementptr inbounds float, ptr %123, i64 %147
+  %149 = getelementptr inbounds nuw float, ptr %123, i64 %147
   %150 = load float, ptr %149, align 4, !tbaa !76
   %151 = fcmp olt float %146, %150
   %152 = select i1 %151, float %146, float %150
   %153 = add nuw nsw i64 %84, %125
   %154 = icmp samesign ule i64 %153, %69
   tail call void @llvm.assume(i1 %154)
-  %155 = getelementptr inbounds float, ptr %123, i64 %153
+  %155 = getelementptr inbounds nuw float, ptr %123, i64 %153
   %156 = load float, ptr %155, align 4, !tbaa !76
   %157 = fcmp olt float %152, %156
   %158 = select i1 %157, float %152, float %156
   %159 = add nuw nsw i64 %85, %125
   %160 = icmp samesign ule i64 %159, %69
   tail call void @llvm.assume(i1 %160)
-  %161 = getelementptr inbounds float, ptr %123, i64 %159
+  %161 = getelementptr inbounds nuw float, ptr %123, i64 %159
   %162 = load float, ptr %161, align 4, !tbaa !76
   %163 = fcmp olt float %158, %162
   %164 = select i1 %163, float %158, float %162
   %165 = add nuw nsw i64 %86, %125
   %166 = icmp samesign ule i64 %165, %69
   tail call void @llvm.assume(i1 %166)
-  %167 = getelementptr inbounds float, ptr %123, i64 %165
+  %167 = getelementptr inbounds nuw float, ptr %123, i64 %165
   %168 = load float, ptr %167, align 4, !tbaa !76
   %169 = fcmp olt float %164, %168
   %170 = select i1 %169, float %164, float %168
@@ -1110,7 +1110,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %.reass.us = add nuw nsw i64 %125, %invariant.op
   %173 = icmp samesign ule i64 %.reass.us, %69
   tail call void @llvm.assume(i1 %173)
-  %174 = getelementptr inbounds float, ptr %123, i64 %.reass.us
+  %174 = getelementptr inbounds nuw float, ptr %123, i64 %.reass.us
   %175 = load float, ptr %174, align 4, !tbaa !76
   %176 = fcmp olt float %170, %175
   %177 = select i1 %176, float %170, float %175
@@ -1137,7 +1137,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %191 = icmp ule i32 %190, %14
   tail call void @llvm.assume(i1 %191)
   %192 = zext nneg i32 %189 to i64
-  %193 = getelementptr inbounds float, ptr %3, i64 %192
+  %193 = getelementptr inbounds nuw float, ptr %3, i64 %192
   br label %194
 
 194:                                              ; preds = %.preheader3, %194
@@ -1147,7 +1147,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %198 = add nuw nsw i64 %195, %68
   %199 = icmp samesign ule i64 %198, %69
   tail call void @llvm.assume(i1 %199)
-  %200 = getelementptr inbounds float, ptr %193, i64 %198
+  %200 = getelementptr inbounds nuw float, ptr %193, i64 %198
   %201 = load float, ptr %200, align 4, !tbaa !76
   %202 = fcmp olt float %196, %201
   %203 = select i1 %202, float %196, float %201
@@ -1155,42 +1155,42 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %205 = add nuw nsw i64 %204, %68
   %206 = icmp samesign ule i64 %205, %69
   tail call void @llvm.assume(i1 %206)
-  %207 = getelementptr inbounds float, ptr %193, i64 %205
+  %207 = getelementptr inbounds nuw float, ptr %193, i64 %205
   %208 = load float, ptr %207, align 4, !tbaa !76
   %209 = fcmp olt float %203, %208
   %210 = select i1 %209, float %203, float %208
   %211 = add nuw nsw i64 %82, %195
   %212 = icmp samesign ule i64 %211, %69
   tail call void @llvm.assume(i1 %212)
-  %213 = getelementptr inbounds float, ptr %193, i64 %211
+  %213 = getelementptr inbounds nuw float, ptr %193, i64 %211
   %214 = load float, ptr %213, align 4, !tbaa !76
   %215 = fcmp olt float %210, %214
   %216 = select i1 %215, float %210, float %214
   %217 = add nuw nsw i64 %83, %195
   %218 = icmp samesign ule i64 %217, %69
   tail call void @llvm.assume(i1 %218)
-  %219 = getelementptr inbounds float, ptr %193, i64 %217
+  %219 = getelementptr inbounds nuw float, ptr %193, i64 %217
   %220 = load float, ptr %219, align 4, !tbaa !76
   %221 = fcmp olt float %216, %220
   %222 = select i1 %221, float %216, float %220
   %223 = add nuw nsw i64 %84, %195
   %224 = icmp samesign ule i64 %223, %69
   tail call void @llvm.assume(i1 %224)
-  %225 = getelementptr inbounds float, ptr %193, i64 %223
+  %225 = getelementptr inbounds nuw float, ptr %193, i64 %223
   %226 = load float, ptr %225, align 4, !tbaa !76
   %227 = fcmp olt float %222, %226
   %228 = select i1 %227, float %222, float %226
   %229 = add nuw nsw i64 %85, %195
   %230 = icmp samesign ule i64 %229, %69
   tail call void @llvm.assume(i1 %230)
-  %231 = getelementptr inbounds float, ptr %193, i64 %229
+  %231 = getelementptr inbounds nuw float, ptr %193, i64 %229
   %232 = load float, ptr %231, align 4, !tbaa !76
   %233 = fcmp olt float %228, %232
   %234 = select i1 %233, float %228, float %232
   %235 = add nuw nsw i64 %86, %195
   %236 = icmp samesign ule i64 %235, %69
   tail call void @llvm.assume(i1 %236)
-  %237 = getelementptr inbounds float, ptr %193, i64 %235
+  %237 = getelementptr inbounds nuw float, ptr %193, i64 %235
   %238 = load float, ptr %237, align 4, !tbaa !76
   %239 = fcmp olt float %234, %238
   %240 = select i1 %239, float %234, float %238
@@ -1200,7 +1200,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %.reass = add nuw nsw i64 %195, %invariant.op
   %243 = icmp samesign ule i64 %.reass, %69
   tail call void @llvm.assume(i1 %243)
-  %244 = getelementptr inbounds float, ptr %193, i64 %.reass
+  %244 = getelementptr inbounds nuw float, ptr %193, i64 %.reass
   %245 = load float, ptr %244, align 4, !tbaa !76
   %246 = fcmp olt float %240, %245
   %247 = select i1 %246, float %240, float %245
@@ -1218,7 +1218,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %255 = add nuw nsw i64 %251, %68
   %256 = icmp samesign ule i64 %255, %69
   tail call void @llvm.assume(i1 %256)
-  %257 = getelementptr inbounds float, ptr %193, i64 %255
+  %257 = getelementptr inbounds nuw float, ptr %193, i64 %255
   %258 = load float, ptr %257, align 4, !tbaa !76
   %259 = fcmp olt float %252, %258
   %260 = select i1 %259, float %252, float %258
@@ -1267,16 +1267,16 @@ declare void @_ZN8rawspeed12RawImageData11startWorkerENS_14RawImageWorker18RawIm
 define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::array.26", align 16
   %5 = alloca %"struct.std::array.26", align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 560
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %7 = load ptr, ptr %6, align 8, !tbaa !89, !noalias !125, !nonnull !93, !noundef !93
-  %8 = getelementptr inbounds i8, ptr %0, i64 584
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %9 = load i32, ptr %8, align 8, !tbaa !84
-  %10 = getelementptr inbounds i8, ptr %0, i64 600
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %11 = load i32, ptr %10, align 8, !tbaa !94, !noalias !125
   %12 = mul nsw i32 %11, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 604
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %14 = load i32, ptr %13, align 4, !tbaa !95, !noalias !125
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !96, !noalias !125
   %17 = ashr i32 %16, 2
   %18 = icmp sgt i32 %12, -1
@@ -1293,15 +1293,15 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %24 = icmp ne i32 %14, 0
   %25 = xor i1 %23, %24
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %0, i64 592
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %27 = load i32, ptr %26, align 8, !tbaa !117
   %28 = mul nsw i32 %27, %9
-  %29 = getelementptr inbounds i8, ptr %0, i64 596
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %30 = load i32, ptr %29, align 4, !tbaa !119
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !120
   %33 = mul nsw i32 %32, %9
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !121, !noalias !130
   %36 = icmp sgt i32 %28, -1
   tail call void @llvm.assume(i1 %36)
@@ -1323,25 +1323,25 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
-  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %49 = load i8, ptr %48, align 8, !tbaa !72, !range !98, !noundef !93
   %50 = icmp ne i8 %49, 0
   tail call void @llvm.assume(i1 %50)
   %51 = load ptr, ptr %47, align 8, !tbaa !97, !noalias !131, !nonnull !93, !noundef !93
-  %52 = getelementptr inbounds i8, ptr %0, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %53 = load i32, ptr %52, align 8, !tbaa !99, !noalias !131
   %54 = icmp sgt i32 %53, -1
   tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds i8, ptr %0, i64 140
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %56 = load i32, ptr %55, align 4, !tbaa !134, !noalias !131
   %57 = icmp sgt i32 %56, -1
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds i8, ptr %0, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = load i32, ptr %58, align 8, !tbaa !137, !noalias !131
   %60 = icmp sgt i32 %59, -1
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds i8, ptr %0, i64 136
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %62 = load i32, ptr %61, align 8, !tbaa !138, !noalias !131
   %63 = icmp ne i32 %62, 0
   tail call void @llvm.assume(i1 %63)
@@ -1364,8 +1364,8 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %75 = and i32 %27, 1
   %76 = shl nuw i32 %30, 1
   %77 = and i32 %76, 2
-  %78 = getelementptr inbounds i8, ptr %0, i64 160
-  %79 = getelementptr inbounds i8, ptr %0, i64 164
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %80 = load i8, ptr %79, align 4, !tbaa !73, !range !98, !noundef !93
   %81 = icmp ne i8 %80, 0
   tail call void @llvm.assume(i1 %81)
@@ -1439,7 +1439,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %129 = icmp ule i32 %128, %105
   tail call void @llvm.assume(i1 %129)
   %130 = zext nneg i32 %127 to i64
-  %131 = getelementptr inbounds float, ptr %7, i64 %130
+  %131 = getelementptr inbounds nuw float, ptr %7, i64 %130
   %132 = shl nuw nsw i64 %122, 1
   %133 = and i64 %132, 2
   br label %134
@@ -1449,14 +1449,14 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %136 = add nuw nsw i64 %135, %110
   %137 = icmp samesign ule i64 %136, %111
   tail call void @llvm.assume(i1 %137)
-  %138 = getelementptr inbounds float, ptr %131, i64 %136
+  %138 = getelementptr inbounds nuw float, ptr %131, i64 %136
   %139 = load float, ptr %138, align 4, !tbaa !76
   %140 = and i64 %135, 1
   %141 = or disjoint i64 %140, %133
-  %142 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !76
   %144 = fsub float %139, %143
-  %145 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %141
+  %145 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %141
   %146 = load float, ptr %145, align 4, !tbaa !76
   %147 = fmul float %144, %146
   store float %147, ptr %138, align 4, !tbaa !76
@@ -1486,17 +1486,17 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %160 = icmp ule i32 %159, %105
   tail call void @llvm.assume(i1 %160)
   %161 = zext nneg i32 %158 to i64
-  %162 = getelementptr inbounds float, ptr %7, i64 %161
+  %162 = getelementptr inbounds nuw float, ptr %7, i64 %161
   %163 = shl nuw nsw i64 %153, 1
   %164 = and i64 %163, 2
-  %165 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %164
   %166 = load float, ptr %165, align 8, !tbaa !76
-  %167 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %164
+  %167 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %164
   %168 = load float, ptr %167, align 8, !tbaa !76
   %169 = or disjoint i64 %164, 1
-  %170 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %169
   %171 = load float, ptr %170, align 4, !tbaa !76
-  %172 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %169
+  %172 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %169
   %173 = load float, ptr %172, align 4, !tbaa !76
   br label %174
 
@@ -1505,7 +1505,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %176 = add nuw nsw i64 %175, %110
   %177 = icmp samesign ule i64 %176, %111
   tail call void @llvm.assume(i1 %177)
-  %178 = getelementptr inbounds float, ptr %162, i64 %176
+  %178 = getelementptr inbounds nuw float, ptr %162, i64 %176
   %179 = load float, ptr %178, align 4, !tbaa !76
   %180 = fsub float %179, %166
   %181 = fmul float %168, %180
@@ -1514,7 +1514,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %183 = add nuw nsw i64 %182, %110
   %184 = icmp samesign ule i64 %183, %111
   tail call void @llvm.assume(i1 %184)
-  %185 = getelementptr inbounds float, ptr %162, i64 %183
+  %185 = getelementptr inbounds nuw float, ptr %162, i64 %183
   %186 = load float, ptr %185, align 4, !tbaa !76
   %187 = fsub float %186, %171
   %188 = fmul float %173, %187
@@ -1523,7 +1523,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %190 = add nuw nsw i64 %189, %110
   %191 = icmp samesign ule i64 %190, %111
   tail call void @llvm.assume(i1 %191)
-  %192 = getelementptr inbounds float, ptr %162, i64 %190
+  %192 = getelementptr inbounds nuw float, ptr %162, i64 %190
   %193 = load float, ptr %192, align 4, !tbaa !76
   %194 = fsub float %193, %166
   %195 = fmul float %168, %194
@@ -1532,7 +1532,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %197 = add nuw nsw i64 %196, %110
   %198 = icmp samesign ule i64 %197, %111
   tail call void @llvm.assume(i1 %198)
-  %199 = getelementptr inbounds float, ptr %162, i64 %197
+  %199 = getelementptr inbounds nuw float, ptr %162, i64 %197
   %200 = load float, ptr %199, align 4, !tbaa !76
   %201 = fsub float %200, %171
   %202 = fmul float %173, %201
@@ -1560,17 +1560,17 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %215 = icmp ule i32 %214, %105
   tail call void @llvm.assume(i1 %215)
   %216 = zext nneg i32 %213 to i64
-  %217 = getelementptr inbounds float, ptr %7, i64 %216
+  %217 = getelementptr inbounds nuw float, ptr %7, i64 %216
   %218 = shl nuw nsw i64 %208, 1
   %219 = and i64 %218, 2
-  %220 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %219
   %221 = load float, ptr %220, align 8, !tbaa !76
-  %222 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %219
+  %222 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %219
   %223 = load float, ptr %222, align 8, !tbaa !76
   %224 = or disjoint i64 %219, 1
-  %225 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %224
   %226 = load float, ptr %225, align 4, !tbaa !76
-  %227 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %224
+  %227 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %224
   %228 = load float, ptr %227, align 4, !tbaa !76
   br label %229
 
@@ -1579,7 +1579,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %231 = add nuw nsw i64 %230, %110
   %232 = icmp samesign ule i64 %231, %111
   tail call void @llvm.assume(i1 %232)
-  %233 = getelementptr inbounds float, ptr %217, i64 %231
+  %233 = getelementptr inbounds nuw float, ptr %217, i64 %231
   %234 = load float, ptr %233, align 4, !tbaa !76
   %235 = fsub float %234, %221
   %236 = fmul float %223, %235
@@ -1588,7 +1588,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %238 = add nuw nsw i64 %237, %110
   %239 = icmp samesign ule i64 %238, %111
   tail call void @llvm.assume(i1 %239)
-  %240 = getelementptr inbounds float, ptr %217, i64 %238
+  %240 = getelementptr inbounds nuw float, ptr %217, i64 %238
   %241 = load float, ptr %240, align 4, !tbaa !76
   %242 = fsub float %241, %226
   %243 = fmul float %228, %242
@@ -1597,7 +1597,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %245 = add nuw nsw i64 %244, %110
   %246 = icmp samesign ule i64 %245, %111
   tail call void @llvm.assume(i1 %246)
-  %247 = getelementptr inbounds float, ptr %217, i64 %245
+  %247 = getelementptr inbounds nuw float, ptr %217, i64 %245
   %248 = load float, ptr %247, align 4, !tbaa !76
   %249 = fsub float %248, %221
   %250 = fmul float %223, %249
@@ -1606,7 +1606,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %252 = add nuw nsw i64 %251, %110
   %253 = icmp samesign ule i64 %252, %111
   tail call void @llvm.assume(i1 %253)
-  %254 = getelementptr inbounds float, ptr %217, i64 %252
+  %254 = getelementptr inbounds nuw float, ptr %217, i64 %252
   %255 = load float, ptr %254, align 4, !tbaa !76
   %256 = fsub float %255, %226
   %257 = fmul float %228, %256
@@ -1621,14 +1621,14 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %262 = add nuw nsw i64 %260, %110
   %263 = icmp samesign ule i64 %262, %111
   tail call void @llvm.assume(i1 %263)
-  %264 = getelementptr inbounds float, ptr %217, i64 %262
+  %264 = getelementptr inbounds nuw float, ptr %217, i64 %262
   %265 = load float, ptr %264, align 4, !tbaa !76
   %266 = and i64 %260, 1
   %267 = or disjoint i64 %266, %219
-  %268 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %267
   %269 = load float, ptr %268, align 4, !tbaa !76
   %270 = fsub float %265, %269
-  %271 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %267
+  %271 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %267
   %272 = load float, ptr %271, align 4, !tbaa !76
   %273 = fmul float %270, %272
   store float %273, ptr %264, align 4, !tbaa !76
@@ -1651,16 +1651,16 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 560
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %6 = load ptr, ptr %5, align 8, !tbaa !89, !noalias !142, !nonnull !93, !noundef !93
-  %7 = getelementptr inbounds i8, ptr %0, i64 584
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %8 = load i32, ptr %7, align 8, !tbaa !84
-  %9 = getelementptr inbounds i8, ptr %0, i64 600
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %10 = load i32, ptr %9, align 8, !tbaa !94
   %11 = mul nsw i32 %10, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 604
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %13 = load i32, ptr %12, align 4, !tbaa !95
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !96, !noalias !142
   %16 = ashr i32 %15, 2
   %17 = mul nuw nsw i32 %16, %13
@@ -1677,9 +1677,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %23 = icmp ne i32 %11, 0
   %24 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %23)
-  %25 = getelementptr inbounds i8, ptr %0, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %26 = load ptr, ptr %25, align 8, !tbaa !145, !nonnull !93, !noundef !93
-  %27 = getelementptr inbounds i8, ptr %0, i64 240
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %28 = load i32, ptr %27, align 8, !tbaa !146
   %29 = mul nuw nsw i32 %28, %13
   %30 = icmp ne i32 %28, 0
@@ -1687,7 +1687,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %31 = icmp sgt i32 %28, -1
   tail call void @llvm.assume(i1 %31)
   tail call void @llvm.assume(i1 %24)
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i8, ptr %32, align 8, !tbaa !6, !range !98, !noundef !93
   %34 = icmp eq i8 %33, 0
   %35 = select i1 %34, i32 1, i32 2
@@ -1705,12 +1705,12 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %43 = icmp samesign ule i32 %42, %29
   tail call void @llvm.assume(i1 %43)
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds i8, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 %44
   %46 = mul nuw nsw i32 %16, %2
   %47 = add nuw nsw i32 %46, %11
   %48 = icmp samesign ule i32 %47, %17
   %49 = zext nneg i32 %46 to i64
-  %50 = getelementptr inbounds float, ptr %6, i64 %49
+  %50 = getelementptr inbounds nuw float, ptr %6, i64 %49
   br label %51
 
 51:                                               ; preds = %74, %38
@@ -1721,7 +1721,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %56 = icmp samesign ugt i32 %28, %55
   tail call void @llvm.assume(i1 %56)
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr inbounds i8, ptr %45, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !82
   %60 = zext i8 %59 to i32
   %61 = and i32 %52, 7
@@ -1738,7 +1738,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   tail call void @llvm.assume(i1 %68)
   tail call void @llvm.assume(i1 %48)
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds float, ptr %50, i64 %69
+  %70 = getelementptr inbounds nuw float, ptr %50, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !76
   %72 = sub nsw i32 %1, %52
   %73 = sitofp i32 %72 to float
@@ -1770,12 +1770,12 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %90 = icmp samesign ule i32 %89, %29
   tail call void @llvm.assume(i1 %90)
   %91 = zext nneg i32 %88 to i64
-  %92 = getelementptr inbounds i8, ptr %26, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %26, i64 %91
   %93 = mul nuw nsw i32 %16, %2
   %94 = add nuw nsw i32 %93, %11
   %95 = icmp samesign ule i32 %94, %17
   %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds float, ptr %6, i64 %96
+  %97 = getelementptr inbounds nuw float, ptr %6, i64 %96
   br label %114
 
 .loopexit18:                                      ; preds = %138, %.loopexit19
@@ -1790,14 +1790,14 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %104 = icmp samesign ugt i32 %28, %103
   tail call void @llvm.assume(i1 %104)
   %105 = zext nneg i32 %103 to i64
-  %106 = getelementptr inbounds i8, ptr %26, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %26, i64 %105
   %107 = and i32 %1, 7
   %108 = shl nuw nsw i32 1, %107
   %109 = add i32 %3, %1
   %110 = icmp sgt i32 %109, -1
   %111 = icmp ugt i32 %11, %109
   %112 = zext nneg i32 %109 to i64
-  %113 = getelementptr inbounds float, ptr %6, i64 %112
+  %113 = getelementptr inbounds nuw float, ptr %6, i64 %112
   br label %145
 
 114:                                              ; preds = %138, %85
@@ -1810,7 +1810,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %120 = icmp samesign ugt i32 %28, %118
   tail call void @llvm.assume(i1 %120)
   %121 = zext nneg i32 %118 to i64
-  %122 = getelementptr inbounds i8, ptr %92, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %92, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !82
   %124 = zext i8 %123 to i32
   %125 = and i32 %115, 7
@@ -1827,7 +1827,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   tail call void @llvm.assume(i1 %132)
   tail call void @llvm.assume(i1 %95)
   %133 = zext nneg i32 %130 to i64
-  %134 = getelementptr inbounds float, ptr %97, i64 %133
+  %134 = getelementptr inbounds nuw float, ptr %97, i64 %133
   %135 = load float, ptr %134, align 4, !tbaa !76
   %136 = sub nsw i32 %115, %1
   %137 = sitofp i32 %136 to float
@@ -1853,7 +1853,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %152 = icmp ule i32 %151, %29
   tail call void @llvm.assume(i1 %152)
   %153 = zext nneg i32 %150 to i64
-  %154 = getelementptr inbounds i8, ptr %106, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %106, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !82
   %156 = zext i8 %155 to i32
   %157 = and i32 %108, %156
@@ -1868,7 +1868,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %162 = icmp ule i32 %161, %17
   tail call void @llvm.assume(i1 %162)
   %163 = zext nneg i32 %160 to i64
-  %164 = getelementptr inbounds float, ptr %113, i64 %163
+  %164 = getelementptr inbounds nuw float, ptr %113, i64 %163
   %165 = load float, ptr %164, align 4, !tbaa !76
   %166 = sub nsw i32 %2, %146
   %167 = sitofp i32 %166 to float
@@ -1895,14 +1895,14 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %181 = icmp samesign ugt i32 %28, %180
   tail call void @llvm.assume(i1 %181)
   %182 = zext nneg i32 %180 to i64
-  %183 = getelementptr inbounds i8, ptr %26, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr %26, i64 %182
   %184 = and i32 %1, 7
   %185 = shl nuw nsw i32 1, %184
   %186 = add i32 %3, %1
   %187 = icmp sgt i32 %186, -1
   %188 = icmp ugt i32 %11, %186
   %189 = zext nneg i32 %186 to i64
-  %190 = getelementptr inbounds float, ptr %6, i64 %189
+  %190 = getelementptr inbounds nuw float, ptr %6, i64 %189
   %191 = zext nneg i32 %177 to i64
   %192 = zext nneg i32 %35 to i64
   %193 = zext nneg i32 %13 to i64
@@ -1922,7 +1922,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %203 = icmp ule i32 %202, %29
   tail call void @llvm.assume(i1 %203)
   %204 = zext nneg i32 %201 to i64
-  %205 = getelementptr inbounds i8, ptr %183, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %183, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !82
   %207 = zext i8 %206 to i32
   %208 = and i32 %185, %207
@@ -1937,7 +1937,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %213 = icmp ule i32 %212, %17
   tail call void @llvm.assume(i1 %213)
   %214 = zext nneg i32 %211 to i64
-  %215 = getelementptr inbounds float, ptr %190, i64 %214
+  %215 = getelementptr inbounds nuw float, ptr %190, i64 %214
   %216 = load float, ptr %215, align 4, !tbaa !76
   %217 = sub nsw i32 %200, %2
   %218 = sitofp i32 %217 to float
@@ -2015,9 +2015,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %273 = icmp samesign ule i32 %272, %17
   tail call void @llvm.assume(i1 %273)
   %274 = zext nneg i32 %271 to i64
-  %275 = getelementptr inbounds float, ptr %6, i64 %274
+  %275 = getelementptr inbounds nuw float, ptr %6, i64 %274
   %276 = zext nneg i32 %266 to i64
-  %277 = getelementptr inbounds float, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw float, ptr %275, i64 %276
   store float %265, ptr %277, align 4, !tbaa !76
   %278 = icmp sgt i32 %8, 1
   %279 = icmp eq i32 %3, 0
@@ -2053,7 +2053,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat8doLookupEii(ptr nocapture no
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed17RawImageDataFloat13setWithLookUpEtPSt4bytePj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) unnamed_addr #1 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 608
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !97
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
@@ -2074,13 +2074,13 @@ declare void @_ZNK8rawspeed12RawImageData6anchorEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed12RawImageDataE, i64 16), ptr %0, align 8, !tbaa !85
-  %2 = getelementptr inbounds i8, ptr %0, i64 608
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !152
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -2095,13 +2095,13 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
 
 11:                                               ; preds = %10, %1
   store ptr null, ptr %2, align 8, !tbaa !97
-  %12 = getelementptr inbounds i8, ptr %0, i64 560
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %13 = load ptr, ptr %12, align 8, !tbaa !89
   %14 = icmp eq ptr %13, null
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 576
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %17 = load ptr, ptr %16, align 8, !tbaa !154
   %18 = ptrtoint ptr %13 to i64
   %19 = icmp ne ptr %17, %13
@@ -2113,15 +2113,15 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %22
 
 22:                                               ; preds = %15, %11
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %23) #21
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8, !tbaa !145
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 232
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load ptr, ptr %28, align 8, !tbaa !155
   %30 = ptrtoint ptr %25 to i64
   %31 = icmp ne ptr %29, %25
@@ -2133,7 +2133,7 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %34
 
 34:                                               ; preds = %27, %22
-  %35 = getelementptr inbounds i8, ptr %0, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %36 = load ptr, ptr %35, align 8, !tbaa !156
   %37 = icmp eq ptr %36, null
   br i1 %37, label %39, label %38
@@ -2143,7 +2143,7 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %39
 
 39:                                               ; preds = %38, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %41 = load ptr, ptr %40, align 8, !tbaa !157
   %42 = icmp eq ptr %41, null
   br i1 %42, label %44, label %43
@@ -2153,7 +2153,7 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %44
 
 44:                                               ; preds = %43, %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !158
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -2163,9 +2163,9 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %49
 
 49:                                               ; preds = %48, %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !159
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !160
   %54 = icmp eq ptr %51, %53
   br i1 %54, label %69, label %.preheader
@@ -2173,12 +2173,12 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
 .preheader:                                       ; preds = %49, %64
   %55 = phi ptr [ %65, %64 ], [ %51, %49 ]
   %56 = load ptr, ptr %55, align 8, !tbaa !161
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %58 = icmp eq ptr %56, %57
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %55, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !81
   %62 = icmp ult i64 %61, 16
   tail call void @llvm.assume(i1 %62)
@@ -2189,7 +2189,7 @@ define linkonce_odr hidden void @_ZN8rawspeed12RawImageDataD2Ev(ptr noundef nonn
   br label %64
 
 64:                                               ; preds = %63, %59
-  %65 = getelementptr inbounds i8, ptr %55, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %66 = icmp eq ptr %65, %53
   br i1 %66, label %67, label %.preheader, !llvm.loop !162
 
@@ -2230,14 +2230,14 @@ declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !161
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i64, ptr %7, align 8, !tbaa !81
   %9 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %9)
@@ -2248,14 +2248,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %13 = load ptr, ptr %12, align 8, !tbaa !161
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load i64, ptr %17, align 8, !tbaa !81
   %19 = icmp ult i64 %18, 16
   tail call void @llvm.assume(i1 %19)
@@ -2266,14 +2266,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %21
 
 21:                                               ; preds = %20, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = load ptr, ptr %22, align 8, !tbaa !161
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %28 = load i64, ptr %27, align 8, !tbaa !81
   %29 = icmp ult i64 %28, 16
   tail call void @llvm.assume(i1 %29)
@@ -2284,14 +2284,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %31
 
 31:                                               ; preds = %30, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8, !tbaa !161
-  %34 = getelementptr inbounds i8, ptr %0, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %38 = load i64, ptr %37, align 8, !tbaa !81
   %39 = icmp ult i64 %38, 16
   tail call void @llvm.assume(i1 %39)
@@ -2302,14 +2302,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %41
 
 41:                                               ; preds = %40, %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !161
-  %44 = getelementptr inbounds i8, ptr %0, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %48 = load i64, ptr %47, align 8, !tbaa !81
   %49 = icmp ult i64 %48, 16
   tail call void @llvm.assume(i1 %49)
@@ -2320,14 +2320,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %51
 
 51:                                               ; preds = %50, %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %53 = load ptr, ptr %52, align 8, !tbaa !161
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = icmp eq ptr %53, %54
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = load i64, ptr %57, align 8, !tbaa !81
   %59 = icmp ult i64 %58, 16
   tail call void @llvm.assume(i1 %59)
@@ -2338,14 +2338,14 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %61
 
 61:                                               ; preds = %60, %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load ptr, ptr %62, align 8, !tbaa !161
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load i64, ptr %67, align 8, !tbaa !81
   %69 = icmp ult i64 %68, 16
   tail call void @llvm.assume(i1 %69)
@@ -2356,7 +2356,7 @@ define linkonce_odr hidden void @_ZN8rawspeed13ImageMetaDataD2Ev(ptr noundef non
   br label %71
 
 71:                                               ; preds = %70, %66
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !163
   %74 = icmp eq ptr %73, null
   br i1 %74, label %76, label %75

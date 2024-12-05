@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Map_SuperTableCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %calloc13 = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %calloc13, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %calloc13, i64 16
   store ptr %3, ptr %4, align 8
   br label %.loopexit.i
 
@@ -45,7 +45,7 @@ define noalias noundef ptr @Map_SuperTableCreate(ptr nocapture noundef readonly 
   br i1 %11, label %.loopexit.i.backedge, label %7, !llvm.loop !4
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
-  %12 = getelementptr inbounds i8, ptr %calloc13, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %calloc13, i64 8
   store i32 %5, ptr %12, align 8
   %13 = sext i32 %5 to i64
   %14 = shl nsw i64 %13, 3
@@ -80,9 +80,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = shl nsw i32 %7, 1
   %.not = icmp slt i32 %5, %8
@@ -96,14 +96,14 @@ define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocaptur
 10:                                               ; preds = %9, %3
   %11 = phi i32 [ %.pre, %9 ], [ %7, %3 ]
   %12 = load i32, ptr %1, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = mul i32 %14, 2003
   %16 = add i32 %15, %12
   %17 = urem i32 %16, %11
   %18 = load ptr, ptr %0, align 8
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %.033 = load ptr, ptr %20, align 8
   %cond34 = icmp eq ptr %.033, null
   br i1 %cond34, label %._crit_edge, label %.lr.ph
@@ -115,34 +115,34 @@ define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocaptur
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.035, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.035, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %14
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %.lr.ph, %23
-  %28 = getelementptr inbounds i8, ptr %.035, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %.0 = load ptr, ptr %28, align 8
   %cond = icmp eq ptr %.0, null
   br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %27, %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %30) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %32 = load i32, ptr %1, align 4
   store i32 %32, ptr %31, align 8
   %33 = load i32, ptr %13, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %33, ptr %34, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %19
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %19
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %31, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %19
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %19
   store ptr %31, ptr %40, align 8
   %41 = load i32, ptr %4, align 4
   %42 = add nsw i32 %41, 1
@@ -151,9 +151,9 @@ define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocaptur
 
 .loopexit:                                        ; preds = %23, %._crit_edge
   %.1 = phi ptr [ %31, %._crit_edge ], [ %.035, %23 ]
-  %43 = getelementptr inbounds i8, ptr %.1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 248
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr %44, ptr %45, align 8
   store ptr %2, ptr %43, align 8
   ret i32 0
@@ -161,7 +161,7 @@ define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Map_SuperTableResize(ptr nocapture noundef %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = shl nsw i32 %3, 1
   %5 = add i32 %4, -1
@@ -204,25 +204,25 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
   %16 = phi i32 [ %32, %._crit_edge ], [ %3, %Abc_PrimeCudd.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %Abc_PrimeCudd.exit ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not36 = icmp eq ptr %19, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph47, %.lr.ph
   %.sink56 = phi ptr [ %21, %.lr.ph ], [ %19, %.lr.ph47 ]
-  %20 = getelementptr inbounds i8, ptr %.sink56, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.sink56, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %.sink56, align 8
-  %23 = getelementptr inbounds i8, ptr %.sink56, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, 2003
   %26 = add i32 %25, %22
   %27 = urem i32 %26, %6
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %calloc, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.sink56, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.sink56, i64 24
   store ptr %30, ptr %31, align 8
   store ptr %.sink56, ptr %29, align 8
   %.not38 = icmp eq ptr %21, null
@@ -258,9 +258,9 @@ declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = shl nsw i32 %8, 1
   %.not = icmp slt i32 %6, %9
@@ -274,14 +274,14 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
 11:                                               ; preds = %10, %4
   %12 = phi i32 [ %.pre, %10 ], [ %8, %4 ]
   %13 = load i32, ptr %1, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %15, 2003
   %17 = add i32 %16, %13
   %18 = urem i32 %17, %12
   %19 = load ptr, ptr %0, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %.03133 = load ptr, ptr %21, align 8
   %.not3234 = icmp eq ptr %.03133, null
   br i1 %.not3234, label %._crit_edge, label %.lr.ph
@@ -293,38 +293,38 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.03135, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.03135, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %15
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph, %24
-  %29 = getelementptr inbounds i8, ptr %.03135, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.03135, i64 24
   %.031 = load ptr, ptr %29, align 8
   %.not32 = icmp eq ptr %.031, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %28, %11
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %31) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %33 = load i32, ptr %1, align 4
   store i32 %33, ptr %32, align 8
   %34 = load i32, ptr %14, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %3, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %20
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %20
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %20
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %20
   store ptr %32, ptr %43, align 8
   %44 = load i32, ptr %5, align 4
   %45 = add nsw i32 %44, 1
@@ -339,18 +339,18 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Map_SuperTableLookupC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = mul i32 %5, 2003
   %7 = add i32 %6, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = urem i32 %7, %11
   %13 = load ptr, ptr %9, align 8
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %.01214 = load ptr, ptr %15, align 8
   %.not15 = icmp eq ptr %.01214, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -362,18 +362,18 @@ define ptr @Map_SuperTableLookupC(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.01216, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %5
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.01216, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.01216, i64 16
   %24 = load ptr, ptr %23, align 8
   br label %.loopexit
 
 25:                                               ; preds = %.lr.ph, %18
-  %26 = getelementptr inbounds i8, ptr %.01216, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.01216, i64 24
   %.012 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %.012, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -386,16 +386,16 @@ define ptr @Map_SuperTableLookupC(ptr nocapture noundef readonly %0, ptr nocaptu
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @Map_SuperTableLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = load i32, ptr %1, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = mul i32 %6, 2003
   %8 = add i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = urem i32 %8, %10
   %12 = load ptr, ptr %0, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %.01416 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %.01416, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -407,21 +407,21 @@ define ptr @Map_SuperTableLookup(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.01418, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01418, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %6
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.01418, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01418, i64 8
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %2, align 4
-  %24 = getelementptr inbounds i8, ptr %.01418, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01418, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %.loopexit
 
 26:                                               ; preds = %.lr.ph, %17
-  %27 = getelementptr inbounds i8, ptr %.01418, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.01418, i64 24
   %.014 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.014, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
@@ -434,10 +434,10 @@ define ptr @Map_SuperTableLookup(ptr nocapture noundef readonly %0, ptr nocaptur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Map_SuperTableCompareSupergates(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %5)
   ret i32 %.0
@@ -446,10 +446,10 @@ define range(i32 -1, 2) i32 @Map_SuperTableCompareSupergates(ptr nocapture nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Map_SuperTableCompareGatesInList(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 236
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 236
   %5 = load float, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 236
   %8 = load float, ptr %7, align 4
   %9 = fcmp ogt float %5, %8
   %10 = fcmp olt float %5, %8
@@ -463,7 +463,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph55, label %._crit_edge56
@@ -476,7 +476,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
 10:                                               ; preds = %.lr.ph55, %._crit_edge50
   %indvars.iv60 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next61, %._crit_edge50 ]
   %.03152 = phi i32 [ 0, %.lr.ph55 ], [ %.132.lcssa, %._crit_edge50 ]
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv60
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv60
   %.03444 = load ptr, ptr %11, align 8
   %.not3745 = icmp eq ptr %.03444, null
   br i1 %.not3745, label %._crit_edge50, label %.lr.ph49
@@ -484,7 +484,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
 .lr.ph49:                                         ; preds = %10, %._crit_edge
   %.03447 = phi ptr [ %.034, %._crit_edge ], [ %.03444, %10 ]
   %.13246 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.03152, %10 ]
-  %12 = getelementptr inbounds i8, ptr %.03447, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.03447, i64 16
   %.03340 = load ptr, ptr %12, align 8
   %.not3841 = icmp eq ptr %.03340, null
   br i1 %.not3841, label %._crit_edge, label %.lr.ph.preheader
@@ -499,7 +499,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   store ptr %.03343, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.03343, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %.03343, i64 248
   %.033 = load ptr, ptr %15, align 8
   %.not38 = icmp eq ptr %.033, null
   br i1 %.not38, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
@@ -510,7 +510,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph49
   %.2.lcssa = phi i32 [ %.13246, %.lr.ph49 ], [ %16, %._crit_edge.loopexit ]
-  %17 = getelementptr inbounds i8, ptr %.03447, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.03447, i64 24
   %.034 = load ptr, ptr %17, align 8
   %.not37 = icmp eq ptr %.034, null
   br i1 %.not37, label %._crit_edge50, label %.lr.ph49, !llvm.loop !14
@@ -532,9 +532,9 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
 
 19:                                               ; preds = %._crit_edge56, %25
   %indvars.iv63 = phi i64 [ 0, %._crit_edge56 ], [ %indvars.iv.next64, %25 ]
-  %20 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv63
+  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv63
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %44, label %25
@@ -545,17 +545,17 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28)
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 236
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 236
   %32 = load float, ptr %31, align 4
   %33 = fpext float %32 to double
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %33)
   %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 224
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %38)
   %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %42)
   %putchar = tail call i32 @putchar(i32 10)
@@ -579,7 +579,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph50, label %._crit_edge51
@@ -588,14 +588,14 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   %9 = phi i32 [ %31, %._crit_edge47 ], [ %7, %2 ]
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge47 ], [ 0, %2 ]
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv56
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv56
   %.03342 = load ptr, ptr %11, align 8
   %.not3543 = icmp eq ptr %.03342, null
   br i1 %.not3543, label %._crit_edge47, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %.lr.ph50, %._crit_edge.thread
   %.03344 = phi ptr [ %.033, %._crit_edge.thread ], [ %.03342, %.lr.ph50 ]
-  %12 = getelementptr inbounds i8, ptr %.03344, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.03344, i64 16
   %.03237 = load ptr, ptr %12, align 8
   %.not3638 = icmp eq ptr %.03237, null
   br i1 %.not3638, label %._crit_edge.thread, label %.lr.ph
@@ -604,9 +604,9 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph46 ]
   %.03240 = phi ptr [ %.032, %.lr.ph ], [ %.03237, %.lr.ph46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %.03240, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.03240, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %.03240, i64 248
   %.032 = load ptr, ptr %14, align 8
   %.not36 = icmp eq ptr %.032, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -622,9 +622,9 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
 17:                                               ; preds = %._crit_edge, %17
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %22, %17 ]
   %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %17 ]
-  %19 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv53
+  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv53
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 248
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 248
   store ptr %18, ptr %21, align 8
   %22 = load ptr, ptr %19, align 8
   store ptr %22, ptr %12, align 8
@@ -633,7 +633,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br i1 %exitcond.not, label %23, label %17, !llvm.loop !18
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %15, 12
   %27 = and i32 %26, 268431360
@@ -643,7 +643,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph46, %23
-  %30 = getelementptr inbounds i8, ptr %.03344, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.03344, i64 24
   %.033 = load ptr, ptr %30, align 8
   %.not35 = icmp eq ptr %.033, null
   br i1 %.not35, label %._crit_edge47.loopexit, label %.lr.ph46, !llvm.loop !19

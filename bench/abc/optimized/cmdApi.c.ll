@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @Cmd_CommandIsDefined(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @st__lookup(ptr noundef %4, ptr noundef %1, ptr noundef null) #7
   ret i32 %5
@@ -38,14 +38,14 @@ define void @Cmd_CommandAdd(ptr nocapture noundef readonly %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @st__delete(ptr noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %2) #7
   %15 = load ptr, ptr %7, align 8
@@ -57,11 +57,11 @@ define void @Cmd_CommandAdd(ptr nocapture noundef readonly %0, ptr noundef %1, p
   %18 = call ptr @Extra_UtilStrsav(ptr noundef %2) #7
   store ptr %18, ptr %17, align 8
   %19 = call ptr @Extra_UtilStrsav(ptr noundef %1) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %4, ptr %22, align 8
   %23 = load ptr, ptr %8, align 8
   %24 = call i32 @st__insert(ptr noundef %23, ptr noundef %18, ptr noundef nonnull %17) #7
@@ -158,7 +158,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   br i1 %.not110, label %41, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %35, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %40 = tail call i32 @atoi(ptr nocapture noundef nonnull %39) #9
   br label %41
 
@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   br i1 %.not107, label %56, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %35, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %55 = tail call i32 @atoi(ptr nocapture noundef nonnull %54) #9
   br label %56
 
@@ -224,7 +224,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   br i1 %.not104, label %71, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %35, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %70 = tail call i32 @atoi(ptr nocapture noundef nonnull %69) #9
   br label %71
 
@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   br i1 %.not101, label %86, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %35, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %85 = tail call double @atof(ptr noundef nonnull %84) #9
   br label %86
 
@@ -295,7 +295,7 @@ define range(i32 0, 2) i32 @Cmd_CommandHandleSpecial(ptr noundef %0, ptr noundef
   br i1 %.not98, label %105, label %102
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %35, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %104 = tail call i32 @atoi(ptr nocapture noundef nonnull %103) #9
   br label %105
 
@@ -355,13 +355,13 @@ define i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %10 = load i32, ptr %9, align 4
   %.not17 = icmp eq i32 %10, 0
   br i1 %.not17, label %11, label %12

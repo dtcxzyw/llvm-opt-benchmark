@@ -9,7 +9,7 @@ define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr 
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %8 = load i8, ptr %7, align 1
   %9 = icmp sgt i8 %8, 0
   %10 = select i1 %9, i32 4, i32 0
@@ -31,7 +31,7 @@ define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr 
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %20, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 17
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, %11
   br i1 %27, label %28, label %get_ref_filter_type.exit
@@ -65,7 +65,7 @@ get_ref_filter_type.exit:                         ; preds = %28, %24, %2
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %38
-  %49 = getelementptr inbounds i8, ptr %44, i64 17
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, %11
   br i1 %51, label %52, label %get_ref_filter_type.exit29
@@ -139,7 +139,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 150
   %17 = icmp ne i32 %1, 0
   %18 = zext i1 %17 to i64
-  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   br label %22
@@ -156,7 +156,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @av1_get_palette_cache(ptr
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 150
   %27 = icmp ne i32 %1, 0
   %28 = zext i1 %27 to i64
-  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   br label %32
@@ -698,29 +698,29 @@ has_uni_comp_refs.exit83.thread:                  ; preds = %53, %52, %79, %is_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10635
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10636
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10637
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %8, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 10638
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %12, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 10639
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 10640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 10641
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10641
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %26
@@ -733,13 +733,13 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10636
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10637
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 10638
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, %7
@@ -752,9 +752,9 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p1(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10637
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %3 = load i8, ptr %2, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 10638
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %3, %5
   %7 = icmp ult i8 %3, %5
@@ -765,17 +765,17 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_uni_comp_ref_p2(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10635
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10636
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10637
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 10638
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, %11
@@ -814,14 +814,14 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_ref_p2(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10639
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10640
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10641
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10641
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, %11
@@ -846,29 +846,29 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_comp_bwdref_p1(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10635
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10636
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10637
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %8, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 10638
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %12, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 10639
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 10640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 10641
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10641
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %26
@@ -881,14 +881,14 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p1(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10639
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10639
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10640
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10641
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10641
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, %11
@@ -900,17 +900,17 @@ define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p2(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 3) i32 @av1_get_pred_context_single_ref_p3(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10635
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10635
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 10636
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10636
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nuw nsw i32 %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 10637
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10637
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 10638
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10638
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, %11

@@ -15,20 +15,20 @@ $_ZTV13PhaseRegAlloc = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13PhaseRegAllocC2EjR8PhaseCFGR7MatcherPFvvE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(1008) %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 9) #3
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13PhaseRegAlloc, i64 16), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -559038737, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %12, align 8
   %13 = load i32, ptr @_ZN13PhaseRegAlloc15_num_allocatorsE, align 4
   %14 = icmp sgt i32 %13, 0
@@ -45,7 +45,7 @@ define hidden void @_ZN13PhaseRegAllocC2EjR8PhaseCFGR7MatcherPFvvE(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds [10 x ptr], ptr @_ZN13PhaseRegAlloc17_alloc_statisticsE, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN13PhaseRegAlloc17_alloc_statisticsE, i64 0, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %4
   br i1 %18, label %.loopexit, label %15
@@ -68,13 +68,13 @@ declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32))
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK13PhaseRegAlloc20reg2offset_uncheckedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %1, %6
   %8 = add nsw i32 %1, -616
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %8, %10
   %12 = sub nsw i32 %1, %6
@@ -86,13 +86,13 @@ define hidden noundef i32 @_ZNK13PhaseRegAlloc20reg2offset_uncheckedEi(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %1, %6
   %8 = add nsw i32 %1, -616
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %8, %10
   %12 = sub nsw i32 %1, %6
@@ -105,15 +105,15 @@ define hidden noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr nocapture nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK13PhaseRegAlloc10offset2regEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sdiv i32 %1, 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %3, %5
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 792
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 792
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, %3
   br label %16
@@ -133,8 +133,8 @@ define hidden void @_ZN13PhaseRegAlloc7set_oopEPK4Nodeb(ptr noundef nonnull alig
   br i1 %2, label %4, label %19
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 5
   %9 = load i32, ptr %5, align 8
@@ -148,10 +148,10 @@ define hidden void @_ZN13PhaseRegAlloc7set_oopEPK4Nodeb(ptr noundef nonnull alig
 _ZN9VectorSet3setEj.exit:                         ; preds = %4, %10
   %11 = and i32 %7, 31
   %12 = shl nuw i32 1, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %8 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, %12
   store i32 %18, ptr %16, align 4
@@ -163,8 +163,8 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %4, %10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK13PhaseRegAlloc6is_oopEPK4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 5
   %7 = load i32, ptr %3, align 8
@@ -174,10 +174,10 @@ define hidden noundef zeroext i1 @_ZNK13PhaseRegAlloc6is_oopEPK4Node(ptr nocaptu
 8:                                                ; preds = %2
   %9 = and i32 %5, 31
   %10 = shl nuw i32 1, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %10
   %17 = icmp ne i32 %16, 0
@@ -193,12 +193,12 @@ define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr nocapture noundef 
   %3 = ashr i32 %1, 1
   %4 = add i32 %1, 200
   %5 = add i32 %4, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %5, ptr %6, align 8
   %7 = zext i32 %5 to i64
   %8 = shl nuw nsw i64 %7, 2
   %9 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i32 noundef 0) #3
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %6, align 8
   %12 = icmp ult i32 %1, %11
@@ -211,9 +211,9 @@ define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds %class.OptoRegPair, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %14, i64 %indvars.iv
   store i16 -1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %15, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 -1, ptr %16, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %6, align 8

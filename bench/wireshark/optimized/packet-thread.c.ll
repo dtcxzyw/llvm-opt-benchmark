@@ -1944,8 +1944,8 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
 
 .lr.ph856:                                        ; preds = %get_chancount.exit
   %62 = and i32 %.04762.i, 65535
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %65
 
 65:                                               ; preds = %.lr.ph856, %.loopexit
@@ -2567,13 +2567,13 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   br i1 %.not.i824, label %proto_item_set_generated.exit, label %374
 
 374:                                              ; preds = %360
-  %375 = getelementptr inbounds i8, ptr %373, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %373, i64 32
   %376 = load ptr, ptr %375, align 8
   %.not5.i = icmp eq ptr %376, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %377
 
 377:                                              ; preds = %374
-  %378 = getelementptr inbounds i8, ptr %376, i64 28
+  %378 = getelementptr inbounds nuw i8, ptr %376, i64 28
   %379 = load i32, ptr %378, align 4
   %380 = or i32 %379, 2
   store i32 %380, ptr %378, align 4
@@ -2611,14 +2611,14 @@ proto_item_set_generated.exit:                    ; preds = %360, %374, %377
   %rev = call i16 @llvm.bswap.i16(i16 %390)
   store i16 %rev, ptr %404, align 2
   %rev804 = call i16 @llvm.bswap.i16(i16 %394)
-  %405 = getelementptr inbounds i8, ptr %404, i64 2
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 2
   store i16 %rev804, ptr %405, align 2
   %406 = add nuw nsw i32 %77, 4
   %trunc = trunc i32 %406 to i16
   %rev805 = call i16 @llvm.bswap.i16(i16 %trunc)
-  %407 = getelementptr inbounds i8, ptr %404, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %404, i64 4
   store i16 %rev805, ptr %407, align 2
-  %408 = getelementptr inbounds i8, ptr %404, i64 6
+  %408 = getelementptr inbounds nuw i8, ptr %404, i64 6
   store i16 0, ptr %408, align 2
   %409 = getelementptr i8, ptr %404, i64 8
   %410 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %409, i32 noundef %399, i64 noundef %402) #7
@@ -3012,10 +3012,10 @@ define internal i32 @dissect_thread_nwd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not377, label %._crit_edge, label %.lr.ph380
 
 .lr.ph380:                                        ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph380, %.loopexit
@@ -3414,7 +3414,7 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not, label %57, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.366) #7
   %9 = load i32, ptr @proto_thread_bcn, align 4
@@ -3424,7 +3424,7 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr nocapture noundef re
   %13 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %13, i32 noundef 25) #7
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.474, i32 noundef %17) #7
@@ -3437,7 +3437,7 @@ define internal i32 @dissect_thread_bcn(ptr noundef %0, ptr nocapture noundef re
   %24 = load i32, ptr @hf_thread_bcn_version, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %26 = load i32, ptr @hf_thread_bcn_network_id, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0, ptr noundef %28, ptr noundef nonnull %5) #7
   %30 = load ptr, ptr %7, align 8
@@ -3564,10 +3564,10 @@ define internal i32 @dissect_thread_coap(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @wmem_strbuf_get_str(ptr noundef %10) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @wmem_strsplit(ptr noundef %13, ptr noundef %11, ptr noundef nonnull @.str.476, i32 noundef 3) #7
   %15 = tail call i32 @g_strv_length(ptr noundef %14) #7
@@ -3656,7 +3656,7 @@ define internal range(i32 0, 2) i32 @dissect_thread_bcn_heur(ptr noundef %0, ptr
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -2
   %switch = icmp eq i32 %8, 2
@@ -3685,7 +3685,7 @@ declare void @register_mle_key_hash_handler(i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %66 [
     i32 1, label %7
@@ -3693,7 +3693,7 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr nocapture noundef re
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i8, ptr %8, align 8
   %10 = tail call ptr @g_byte_array_new() #7
   %.b.i = load i1, ptr @thread_seq_ctr_acqd, align 4
@@ -3709,7 +3709,7 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr nocapture noundef re
 15:                                               ; preds = %7
   %16 = load ptr, ptr @thread_seq_ctr_str, align 8
   %17 = tail call i32 @hex_str_to_bytes(ptr noundef %16, ptr noundef %10, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 4
   br i1 %.not.i, label %set_thread_seq_ctr_from_key_index.exit, label %20
@@ -3735,7 +3735,7 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
 30:                                               ; preds = %4
   %31 = tail call ptr @g_byte_array_new() #7
   %32 = tail call ptr @g_byte_array_set_size(ptr noundef %31, i32 noundef 4) #7
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load i32, ptr %33, align 8
   %35 = lshr i32 %34, 24
   %36 = trunc nuw i32 %35 to i8
@@ -3773,7 +3773,7 @@ set_thread_seq_ctr_from_key_index.exit:           ; preds = %11, %15, %20
 
 57:                                               ; preds = %set_thread_seq_ctr_from_key_index.exit, %30, %54
   %.0.ph = phi ptr [ %32, %54 ], [ %32, %30 ], [ %.0.i, %set_thread_seq_ctr_from_key_index.exit ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 66
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %59 = load i16, ptr %58, align 2
   tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.ph, i16 noundef zeroext %59, ptr noundef %3, ptr noundef null, ptr noundef %1)
   %60 = load ptr, ptr %.0.ph, align 8
@@ -3795,7 +3795,7 @@ declare void @register_ieee802154_mac_key_hash_handler(i32 noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %.thread [
     i32 1, label %7
@@ -3803,7 +3803,7 @@ define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef re
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i8, ptr %8, align 8
   %10 = tail call ptr @g_byte_array_new() #7
   %.b.i = load i1, ptr @thread_seq_ctr_acqd, align 4
@@ -3819,7 +3819,7 @@ define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef re
 15:                                               ; preds = %7
   %16 = load ptr, ptr @thread_seq_ctr_str, align 8
   %17 = tail call i32 @hex_str_to_bytes(ptr noundef %16, ptr noundef %10, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 4
   br i1 %.not.i, label %32, label %20
@@ -3831,13 +3831,13 @@ define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef re
   br label %32
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %.thread
@@ -3856,7 +3856,7 @@ define internal range(i32 0, 3) i32 @set_thread_mac_key(ptr nocapture noundef re
   %38 = and i8 %37, 127
   %39 = or disjoint i8 %36, %38
   store i8 %39, ptr %34, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 66
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %41 = load i16, ptr %40, align 2
   tail call fastcc void @create_thread_temp_keys(ptr noundef %.0.i, i16 noundef zeroext %41, ptr noundef %3, ptr noundef %1, ptr noundef null)
   %42 = load ptr, ptr %.0.i, align 8
@@ -3971,7 +3971,7 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnu
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 15
   br i1 %14, label %15, label %.critedge
@@ -3993,7 +3993,7 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnu
   br label %24
 
 24:                                               ; preds = %17, %15
-  %25 = getelementptr inbounds i8, ptr %2, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %26 = load i32, ptr %25, align 4
   %cond = icmp eq i32 %26, 2
   br i1 %cond, label %27, label %.critedge37
@@ -4002,7 +4002,7 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnu
   %28 = load ptr, ptr %0, align 8
   %29 = load i32, ptr %28, align 1
   store i32 %29, ptr %6, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.366, i64 6, i1 false)
   %31 = load ptr, ptr %8, align 8
   %32 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 10, ptr noundef %31, i64 noundef 16) #7
@@ -4014,7 +4014,7 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnu
   br i1 %.not31, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %7, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false)
   br label %36
 

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr noundef %3, double %4, double %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %4, double %5, i32 noundef %6, ptr noundef %8) #10
   br i1 %12, label %13, label %22
@@ -28,7 +28,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   br label %80
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %11 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
@@ -43,7 +43,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   %33 = add nsw i32 %11, 3
   %34 = sext i32 %33 to i64
   %35 = tail call fastcc ptr @gv_calloc(i64 noundef %34, i64 noundef 8)
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = icmp sgt i32 %11, -2
   br i1 %37, label %.lr.ph.preheader.i, label %.loopexit.preheader.i
 
@@ -55,7 +55,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %40 = getelementptr inbounds double, ptr %36, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i
   store double 0xC1DFFFFFFFC00000, ptr %40, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %38
@@ -80,7 +80,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 47:                                               ; preds = %75, %.lr.ph63.us.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph63.us.i ], [ %indvars.iv.next74.i, %75 ]
   %.161.us.i = phi i32 [ -1, %.lr.ph63.us.i ], [ %.2.us.i, %75 ]
-  %48 = getelementptr inbounds double, ptr %36, i64 %indvars.iv73.i
+  %48 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv73.i
   %49 = load double, ptr %48, align 8
   %50 = fcmp olt double %49, 0.000000e+00
   br i1 %50, label %51, label %75
@@ -91,11 +91,11 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds double, ptr %53, i64 %indvars.iv73.i
+  %54 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv73.i
   br label %59
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv73.i
+  %56 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv73.i
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds double, ptr %57, i64 %41
   br label %59
@@ -113,7 +113,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 
 65:                                               ; preds = %59
   store double %62, ptr %48, align 8
-  %66 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv73.i
+  %66 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv73.i
   store i32 %.05365.us.i, ptr %66, align 4
   br label %67
 

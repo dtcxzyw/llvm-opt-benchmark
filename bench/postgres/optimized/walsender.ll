@@ -227,9 +227,9 @@ define dso_local void @InitWalSender() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %0 ]
   %5 = load ptr, ptr @WalSndCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = getelementptr [0 x %struct.WalSnd], ptr %6, i64 0, i64 %indvars.iv.i
-  %8 = getelementptr inbounds i8, ptr %7, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #16, !srcloc !5
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %12, label %10
@@ -255,28 +255,28 @@ define dso_local void @InitWalSender() local_unnamed_addr #0 {
 18:                                               ; preds = %12
   %19 = load i32, ptr @MyProcPid, align 4
   store i32 %19, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
-  %24 = getelementptr inbounds i8, ptr %7, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %7, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 -1, i64 24, i1 false)
   store i32 0, ptr %25, align 8
   %26 = load ptr, ptr @MyProc, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 36
-  %28 = getelementptr inbounds i8, ptr %7, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 0, ptr %29, align 8
   %30 = load i32, ptr @MyDatabaseId, align 4
   %31 = icmp ne i32 %30, 0
   %spec.select.i = zext i1 %31 to i32
-  %32 = getelementptr inbounds i8, ptr %7, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 %spec.select.i, ptr %32, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
   store i8 0, ptr %8, align 4
@@ -296,14 +296,14 @@ InitWalSenderSlot.exit:                           ; preds = %14, %0, %18
   %37 = getelementptr i8, ptr %36, i64 512
   %38 = tail call zeroext i1 @LWLockAcquire(ptr noundef %37, i32 noundef 0) #16
   %39 = load ptr, ptr @MyProc, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 148
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 148
   %41 = load i8, ptr %40, align 4
   %42 = or i8 %41, 32
   store i8 %42, ptr %40, align 4
   %43 = load ptr, ptr @ProcGlobal, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
@@ -343,7 +343,7 @@ define dso_local void @WalSndErrorCleanup() local_unnamed_addr #0 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %3, i64 1208
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1208
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %9
@@ -396,13 +396,13 @@ WalSndResourceCleanup.exit:                       ; preds = %17, %14, %12
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @MyWalSnd, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %WalSndSetState.exit, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %23, i64 76
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %29 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %28, i8 1, ptr nonnull elementtype(i8) %28) #16, !srcloc !5
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %32, label %30
@@ -457,13 +457,13 @@ declare void @proc_exit(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @WalSndSetState(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MyWalSnd, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #16, !srcloc !5
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %11, label %9
@@ -522,13 +522,13 @@ define dso_local noundef zeroext i1 @exec_replication_command(ptr noundef %0) lo
   br i1 %.not, label %WalSndSetState.exit, label %26
 
 26:                                               ; preds = %1
-  %27 = getelementptr inbounds i8, ptr %.pre109, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.pre109, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 4
   br i1 %29, label %WalSndSetState.exit, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.pre109, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %.pre109, i64 76
   %32 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #16, !srcloc !5
   %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %35, label %33
@@ -546,7 +546,7 @@ define dso_local noundef zeroext i1 @exec_replication_command(ptr noundef %0) lo
 
 WalSndSetState.exit:                              ; preds = %35, %26, %1
   %36 = phi ptr [ %.pre, %35 ], [ %.pre109, %26 ], [ %.pre109, %1 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 4
   br i1 %39, label %40, label %44
@@ -730,11 +730,11 @@ WalSndSetState.exit:                              ; preds = %35, %26, %1
   store i64 %112, ptr %22, align 16
   %113 = load i32, ptr %24, align 4
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %22, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %114, ptr %115, align 8
   %116 = call ptr @cstring_to_text(ptr noundef nonnull %21) #16
   %117 = ptrtoint ptr %116 to i64
-  %118 = getelementptr inbounds i8, ptr %22, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %117, ptr %118, align 16
   %.not14.i = icmp eq ptr %.013.i, null
   br i1 %.not14.i, label %123, label %119
@@ -742,12 +742,12 @@ WalSndSetState.exit:                              ; preds = %35, %26, %1
 119:                                              ; preds = %107
   %120 = call ptr @cstring_to_text(ptr noundef nonnull %.013.i) #16
   %121 = ptrtoint ptr %120 to i64
-  %122 = getelementptr inbounds i8, ptr %22, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %121, ptr %122, align 8
   br label %IdentifySystem.exit
 
 123:                                              ; preds = %107
-  %124 = getelementptr inbounds i8, ptr %23, i64 3
+  %124 = getelementptr inbounds nuw i8, ptr %23, i64 3
   store i8 1, ptr %124, align 1
   br label %IdentifySystem.exit
 
@@ -782,14 +782,14 @@ IdentifySystem.exit:                              ; preds = %119, %123
   %127 = load ptr, ptr @MainLWLockArray, align 8
   %128 = getelementptr i8, ptr %127, i64 4736
   %129 = tail call zeroext i1 @LWLockAcquire(ptr noundef %128, i32 noundef 1) #16
-  %130 = getelementptr inbounds i8, ptr %66, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = tail call ptr @SearchNamedReplicationSlot(ptr noundef %131, i1 noundef zeroext false) #16
   %133 = icmp eq ptr %132, null
   br i1 %133, label %138, label %134
 
 134:                                              ; preds = %125
-  %135 = getelementptr inbounds i8, ptr %132, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 1
   %136 = load i8, ptr %135, align 1
   %137 = trunc i8 %136 to i1
   br i1 %137, label %141, label %138
@@ -811,15 +811,15 @@ IdentifySystem.exit:                              ; preds = %119, %123
 
 145:                                              ; preds = %143, %141
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i, ptr nonnull align 8 %132, i64 88, i1 true)
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 88
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %132, i64 88
   %.sroa.1.0.copyload.i = load volatile i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   store volatile i32 %.sroa.1.0.copyload.i, ptr %.sroa.1.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 92
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %132, i64 92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.2.i, ptr nonnull align 4 %.sroa.2.0..sroa_idx.i, i64 12, i1 true)
-  %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 104
+  %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %132, i64 104
   %.sroa.210.0.copyload.i = load volatile i64, ptr %.sroa.210.0..sroa_idx.i, align 8
   store volatile i64 %.sroa.210.0.copyload.i, ptr %.sroa.210.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %132, i64 112
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %132, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.7.i, ptr nonnull align 8 %.sroa.7.0..sroa_idx.i, i64 160, i1 true)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !11
   store i8 0, ptr %132, align 8
@@ -852,9 +852,9 @@ IdentifySystem.exit:                              ; preds = %119, %123
   %160 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %158, i32 noundef %159) #16
   %161 = call ptr @cstring_to_text(ptr noundef nonnull %16) #16
   %162 = ptrtoint ptr %161 to i64
-  %163 = getelementptr inbounds i8, ptr %14, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %162, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %15, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 0, ptr %164, align 1
   %.sroa.210.i.0..sroa.210.i.0..sroa.210.i.0..sroa.210.0..sroa.210.0..sroa.210.0..sroa.210.104.13.pr.i = load i64, ptr %.sroa.210.i, align 8
   %165 = icmp eq i64 %.sroa.210.i.0..sroa.210.i.0..sroa.210.i.0..sroa.210.0..sroa.210.0..sroa.210.0..sroa.210.104.13.pr.i, 0
@@ -880,9 +880,9 @@ IdentifySystem.exit:                              ; preds = %119, %123
   %.sroa.210.i.0..sroa.210.i.0..sroa.210.i.0..sroa.210.0..sroa.210.0..sroa.210.0..sroa.210.104.14.i = load i64, ptr %.sroa.210.i, align 8
   %175 = call i32 @tliOfPointInHistory(i64 noundef %.sroa.210.i.0..sroa.210.i.0..sroa.210.i.0..sroa.210.0..sroa.210.0..sroa.210.0..sroa.210.104.14.i, ptr noundef %174) #16
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds i8, ptr %14, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %176, ptr %177, align 16
-  %178 = getelementptr inbounds i8, ptr %15, i64 2
+  %178 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i8 0, ptr %178, align 1
   br label %ReadReplicationSlot.exit
 
@@ -918,15 +918,15 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   store i32 0, ptr %12, align 4
-  %184 = getelementptr inbounds i8, ptr %66, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %185 = load ptr, ptr %184, align 8
   %.not.i.i = icmp eq ptr %185, null
   br i1 %.not.i.i, label %parseCreateReplSlotOptions.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
-  %187 = getelementptr inbounds i8, ptr %185, i64 16
-  %188 = getelementptr inbounds i8, ptr %66, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %189 = load i32, ptr %186, align 4
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.lr.ph.i, label %parseCreateReplSlotOptions.exit.i
@@ -944,7 +944,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   %191 = load ptr, ptr %187, align 8
   %192 = getelementptr %union.ListCell, ptr %191, i64 %indvars.iv.i84.i
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(9) @.str.46) #19
   %197 = icmp eq i32 %196, 0
@@ -983,7 +983,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %214, label %262, label %215
 
 215:                                              ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %193, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %217 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %217)
   %218 = tail call i32 @errcode(i32 noundef 50856066) #16
@@ -1068,7 +1068,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br label %262
 
 257:                                              ; preds = %245
-  %258 = getelementptr inbounds i8, ptr %193, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %259)
   %260 = load ptr, ptr %258, align 8
@@ -1096,15 +1096,15 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   %.244.i = phi i1 [ false, %183 ], [ false, %.lr.ph.i.i ], [ %.143.i, %262 ]
   %.241.i = phi i1 [ false, %183 ], [ false, %.lr.ph.i.i ], [ %.140.i, %262 ]
   %.2.i = phi i32 [ 0, %183 ], [ 0, %.lr.ph.i.i ], [ %.138.i, %262 ]
-  %266 = getelementptr inbounds i8, ptr %66, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %267 = load i32, ptr %266, align 8
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %280
 
 269:                                              ; preds = %parseCreateReplSlotOptions.exit.i
-  %270 = getelementptr inbounds i8, ptr %66, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %66, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %273 = load i8, ptr %272, align 8
   %274 = trunc i8 %273 to i1
   %275 = select i1 %274, i32 2, i32 0
@@ -1124,9 +1124,9 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
 
 280:                                              ; preds = %parseCreateReplSlotOptions.exit.i
   tail call void @CheckLogicalDecodingRequirements() #16
-  %281 = getelementptr inbounds i8, ptr %66, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i8, ptr %66, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %284 = load i8, ptr %283, align 8
   %285 = trunc i8 %284 to i1
   %286 = select i1 %285, i32 2, i32 1
@@ -1207,12 +1207,12 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
 
 319:                                              ; preds = %314, %287, %280
   %.027.i = phi i1 [ true, %287 ], [ false, %280 ], [ true, %314 ]
-  %320 = getelementptr inbounds i8, ptr %66, i64 24
+  %320 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %321 = load ptr, ptr %320, align 8
   store ptr @logical_read_xlog_page, ptr %13, align 8
-  %322 = getelementptr inbounds i8, ptr %13, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @WalSndSegmentOpen, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %13, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @wal_segment_close, ptr %323, align 8
   %324 = call ptr @CreateInitDecodingContext(ptr noundef %321, ptr noundef null, i1 noundef zeroext %.027.i, i64 noundef 0, ptr noundef nonnull %13, ptr noundef nonnull @WalSndPrepareWrite, ptr noundef nonnull @WalSndWriteData, ptr noundef nonnull @WalSndUpdateProgress) #16
   store i64 0, ptr @last_reply_timestamp, align 8
@@ -1223,13 +1223,13 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   ]
 
 325:                                              ; preds = %319
-  %326 = getelementptr inbounds i8, ptr %324, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %327 = load ptr, ptr %326, align 8
   %328 = call ptr @SnapBuildExportSnapshot(ptr noundef %327) #16
   br label %334
 
 329:                                              ; preds = %319
-  %330 = getelementptr inbounds i8, ptr %324, i64 32
+  %330 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %331 = load ptr, ptr %330, align 8
   %332 = call ptr @SnapBuildInitialSnapshot(ptr noundef %331) #16
   %333 = load ptr, ptr @MyProc, align 8
@@ -1250,7 +1250,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
 338:                                              ; preds = %337, %334, %279, %276, %269
   %.0.i58 = phi ptr [ null, %276 ], [ null, %279 ], [ null, %269 ], [ %.1.i, %334 ], [ %.1.i, %337 ]
   %339 = load ptr, ptr @MyReplicationSlot, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 120
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 120
   %341 = load i64, ptr %340, align 8
   %342 = lshr i64 %341, 32
   %343 = trunc nuw i64 %342 to i32
@@ -1264,13 +1264,13 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   call void @TupleDescInitBuiltinEntry(ptr noundef %347, i16 noundef signext 4, ptr noundef nonnull @.str.45, i32 noundef 25, i32 noundef -1, i32 noundef 0) #16
   %348 = call ptr @begin_tup_output_tupdesc(ptr noundef %346, ptr noundef %347, ptr noundef nonnull @TTSOpsVirtual) #16
   %349 = load ptr, ptr @MyReplicationSlot, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 24
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %351 = call ptr @cstring_to_text(ptr noundef nonnull %350) #16
   %352 = ptrtoint ptr %351 to i64
   store i64 %352, ptr %11, align 16
   %353 = call ptr @cstring_to_text(ptr noundef nonnull %10) #16
   %354 = ptrtoint ptr %353 to i64
-  %355 = getelementptr inbounds i8, ptr %11, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %354, ptr %355, align 8
   %.not31.i = icmp eq ptr %.0.i58, null
   br i1 %.not31.i, label %360, label %356
@@ -1278,17 +1278,17 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
 356:                                              ; preds = %338
   %357 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i58) #16
   %358 = ptrtoint ptr %357 to i64
-  %359 = getelementptr inbounds i8, ptr %11, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %358, ptr %359, align 16
   br label %362
 
 360:                                              ; preds = %338
-  %361 = getelementptr inbounds i8, ptr %12, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 1, ptr %361, align 2
   br label %362
 
 362:                                              ; preds = %360, %356
-  %363 = getelementptr inbounds i8, ptr %66, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %364 = load ptr, ptr %363, align 8
   %.not32.i = icmp eq ptr %364, null
   br i1 %.not32.i, label %369, label %365
@@ -1296,12 +1296,12 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
 365:                                              ; preds = %362
   %366 = call ptr @cstring_to_text(ptr noundef nonnull %364) #16
   %367 = ptrtoint ptr %366 to i64
-  %368 = getelementptr inbounds i8, ptr %11, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %367, ptr %368, align 8
   br label %CreateReplicationSlot.exit
 
 369:                                              ; preds = %362
-  %370 = getelementptr inbounds i8, ptr %12, i64 3
+  %370 = getelementptr inbounds nuw i8, ptr %12, i64 3
   store i8 1, ptr %370, align 1
   br label %CreateReplicationSlot.exit
 
@@ -1330,14 +1330,14 @@ CreateReplicationSlot.exit:                       ; preds = %365, %369
 
 376:                                              ; preds = %82
   tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.12, i64 noundef 22) #16
-  %377 = getelementptr inbounds i8, ptr %66, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %378 = load ptr, ptr %377, align 8
   %379 = icmp eq ptr %378, null
   br i1 %379, label %AlterReplicationSlot.exit, label %.lr.ph.i.i59
 
 .lr.ph.i.i59:                                     ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %378, i64 4
-  %381 = getelementptr inbounds i8, ptr %378, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %378, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %382 = load i32, ptr %380, align 4
   %383 = icmp sgt i32 %382, 0
   br i1 %383, label %.lr.ph27.i.i, label %AlterReplicationSlot.exit
@@ -1347,7 +1347,7 @@ CreateReplicationSlot.exit:                       ; preds = %365, %369
   %384 = load ptr, ptr %381, align 8
   %385 = getelementptr %union.ListCell, ptr %384, i64 %indvars.iv.i.i
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
   %389 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %388, ptr noundef nonnull dereferenceable(9) @.str.54) #19
   %390 = icmp eq i32 %389, 0
@@ -1374,7 +1374,7 @@ CreateReplicationSlot.exit:                       ; preds = %365, %369
   br i1 %399, label %.lr.ph27.i.i, label %AlterReplicationSlot.exit
 
 .split.i.i:                                       ; preds = %.lr.ph27.i.i
-  %400 = getelementptr inbounds i8, ptr %386, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %401 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %401)
   %402 = load ptr, ptr %400, align 8
@@ -1384,7 +1384,7 @@ CreateReplicationSlot.exit:                       ; preds = %365, %369
 
 AlterReplicationSlot.exit:                        ; preds = %395, %376, %.lr.ph.i.i59
   %.0.i60 = phi i1 [ false, %376 ], [ false, %.lr.ph.i.i59 ], [ %396, %395 ]
-  %404 = getelementptr inbounds i8, ptr %66, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %405 = load ptr, ptr %404, align 8
   tail call void @ReplicationSlotAlter(ptr noundef %405, i1 noundef zeroext %.0.i60) #16
   tail call void @EndReplicationCommand(ptr noundef nonnull @.str.12) #16
@@ -1393,7 +1393,7 @@ AlterReplicationSlot.exit:                        ; preds = %395, %376, %.lr.ph.
 406:                                              ; preds = %82
   tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.13, i64 noundef 17) #16
   tail call void @PreventInTransactionBlock(i1 noundef zeroext true, ptr noundef nonnull @.str.13) #16
-  %407 = getelementptr inbounds i8, ptr %66, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %408 = load i32, ptr %407, align 4
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %410, label %411
@@ -1407,7 +1407,7 @@ AlterReplicationSlot.exit:                        ; preds = %395, %376, %.lr.ph.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   tail call void @CheckLogicalDecodingRequirements() #16
-  %412 = getelementptr inbounds i8, ptr %66, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %413 = load ptr, ptr %412, align 8
   tail call void @ReplicationSlotAcquire(ptr noundef %413, i1 noundef zeroext true) #16
   %414 = load i8, ptr @am_cascading_walsender, align 1
@@ -1432,28 +1432,28 @@ AlterReplicationSlot.exit:                        ; preds = %395, %376, %.lr.ph.
   br label %423
 
 423:                                              ; preds = %422, %416, %411
-  %424 = getelementptr inbounds i8, ptr %66, i64 24
+  %424 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %425 = load i64, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %66, i64 32
+  %426 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %427 = load ptr, ptr %426, align 8
   store ptr @logical_read_xlog_page, ptr %9, align 8
-  %428 = getelementptr inbounds i8, ptr %9, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @WalSndSegmentOpen, ptr %428, align 8
-  %429 = getelementptr inbounds i8, ptr %9, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @wal_segment_close, ptr %429, align 8
   %430 = call ptr @CreateDecodingContext(i64 noundef %425, ptr noundef %427, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull @WalSndPrepareWrite, ptr noundef nonnull @WalSndWriteData, ptr noundef nonnull @WalSndUpdateProgress) #16
   store ptr %430, ptr @logical_decoding_ctx, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 16
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load ptr, ptr %431, align 8
   store ptr %432, ptr @xlogreader, align 8
   %433 = load ptr, ptr @MyWalSnd, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 4
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 4
   %435 = load i32, ptr %434, align 4
   %436 = icmp eq i32 %435, 2
   br i1 %436, label %WalSndSetState.exit.i, label %437
 
 437:                                              ; preds = %423
-  %438 = getelementptr inbounds i8, ptr %433, i64 76
+  %438 = getelementptr inbounds nuw i8, ptr %433, i64 76
   %439 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %438, i8 1, ptr nonnull elementtype(i8) %438) #16, !srcloc !5
   %.not.i.i62 = icmp eq i8 %439, 0
   br i1 %.not.i.i62, label %442, label %440
@@ -1473,7 +1473,7 @@ WalSndSetState.exit.i:                            ; preds = %442, %423
   call void @enlargeStringInfo(ptr noundef nonnull %7, i32 noundef 1) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %443 = load ptr, ptr %7, align 8, !alias.scope !12
-  %444 = getelementptr inbounds i8, ptr %7, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %445 = load i32, ptr %444, align 8, !alias.scope !12
   %446 = sext i32 %445 to i64
   %447 = getelementptr i8, ptr %443, i64 %446
@@ -1491,42 +1491,42 @@ WalSndSetState.exit.i:                            ; preds = %442, %423
   store i32 %453, ptr %444, align 8, !alias.scope !15
   call void @pq_endmessage(ptr noundef nonnull %7) #16
   %454 = load ptr, ptr @PqCommMethods, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8
   %457 = call i32 %456() #16
   %458 = load ptr, ptr @logical_decoding_ctx, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load ptr, ptr %459, align 8
   %461 = load ptr, ptr @MyReplicationSlot, align 8
-  %462 = getelementptr inbounds i8, ptr %461, i64 104
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 104
   %463 = load i64, ptr %462, align 8
   call void @XLogBeginRead(ptr noundef %460, i64 noundef %463) #16
   %464 = load ptr, ptr @MyReplicationSlot, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 120
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 120
   %466 = load i64, ptr %465, align 8
   store i64 %466, ptr @sentPtr, align 8
   %467 = load ptr, ptr @MyWalSnd, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 76
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 76
   %469 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %468, i8 1, ptr nonnull elementtype(i8) %468) #16, !srcloc !5
   %.not.i63 = icmp eq i8 %469, 0
   br i1 %.not.i63, label %474, label %470
 
 470:                                              ; preds = %WalSndSetState.exit.i
   %471 = load ptr, ptr @MyWalSnd, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 76
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 76
   %473 = call i32 @s_lock(ptr noundef nonnull %472, ptr noundef nonnull @.str.1, i32 noundef 1515, ptr noundef nonnull @__func__.StartLogicalReplication) #16
   br label %474
 
 474:                                              ; preds = %470, %WalSndSetState.exit.i
   %475 = load ptr, ptr @MyReplicationSlot, align 8
-  %476 = getelementptr inbounds i8, ptr %475, i64 104
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 104
   %477 = load i64, ptr %476, align 8
   %478 = load ptr, ptr @MyWalSnd, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   store i64 %477, ptr %479, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !18
   %480 = load ptr, ptr @MyWalSnd, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 76
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 76
   store i8 0, ptr %481, align 4
   store volatile i32 1, ptr @replication_active, align 4
   call void @SyncRepInitConfig() #16
@@ -1545,13 +1545,13 @@ WalSndSetState.exit.i:                            ; preds = %442, %423
 
 485:                                              ; preds = %474
   %486 = load ptr, ptr @MyWalSnd, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 4
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 4
   %488 = load i32, ptr %487, align 4
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %StartLogicalReplication.exit, label %490
 
 490:                                              ; preds = %485
-  %491 = getelementptr inbounds i8, ptr %486, i64 76
+  %491 = getelementptr inbounds nuw i8, ptr %486, i64 76
   %492 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %491, i8 1, ptr nonnull elementtype(i8) %491) #16, !srcloc !5
   %.not.i4.i = icmp eq i8 %492, 0
   br i1 %.not.i4.i, label %495, label %493
@@ -1568,7 +1568,7 @@ WalSndSetState.exit.i:                            ; preds = %442, %423
 
 StartLogicalReplication.exit:                     ; preds = %485, %495
   store i32 56, ptr %8, align 8
-  %496 = getelementptr inbounds i8, ptr %8, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %496, align 8
   call void @EndCommand(ptr noundef nonnull %8, i32 noundef 2, i1 noundef zeroext false) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -1591,19 +1591,19 @@ StartLogicalReplication.exit:                     ; preds = %485, %495
   %500 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 2) #16
   tail call void @TupleDescInitBuiltinEntry(ptr noundef %500, i16 noundef signext 1, ptr noundef nonnull @.str.83, i32 noundef 25, i32 noundef -1, i32 noundef 0) #16
   tail call void @TupleDescInitBuiltinEntry(ptr noundef %500, i16 noundef signext 2, ptr noundef nonnull @.str.84, i32 noundef 25, i32 noundef -1, i32 noundef 0) #16
-  %501 = getelementptr inbounds i8, ptr %66, i64 4
+  %501 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %502 = load i32, ptr %501, align 4
   %503 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.90, i32 noundef %502) #16
   %504 = load i32, ptr %501, align 4
   %505 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.91, i32 noundef %504) #16
-  %506 = getelementptr inbounds i8, ptr %499, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %507 = load ptr, ptr %506, align 8
   call void %507(ptr noundef %499, i32 noundef 1, ptr noundef %500) #16
   call void @pq_beginmessage(ptr noundef nonnull %3, i8 noundef signext 68) #16
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 2) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %508 = load ptr, ptr %3, align 8, !alias.scope !19
-  %509 = getelementptr inbounds i8, ptr %3, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %510 = load i32, ptr %509, align 8, !alias.scope !19
   %511 = sext i32 %510 to i64
   %512 = getelementptr i8, ptr %508, i64 %511
@@ -1740,7 +1740,7 @@ SendTimeLineHistory.exit:                         ; preds = %._crit_edge.i
   %574 = tail call ptr @CreateDestReceiver(i32 noundef 4) #16
   tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.15, i64 noundef 4) #16
   tail call void @StartTransactionCommand() #16
-  %575 = getelementptr inbounds i8, ptr %66, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %576 = load ptr, ptr %575, align 8
   tail call void @GetPGVariable(ptr noundef %576, ptr noundef %574) #16
   tail call void @CommitTransactionCommand() #16
@@ -1760,7 +1760,7 @@ SendTimeLineHistory.exit:                         ; preds = %._crit_edge.i
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %582 = load ptr, ptr %2, align 8, !alias.scope !29
-  %583 = getelementptr inbounds i8, ptr %2, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %584 = load i32, ptr %583, align 8, !alias.scope !29
   %585 = sext i32 %584 to i64
   %586 = getelementptr i8, ptr %582, i64 %585
@@ -1778,7 +1778,7 @@ SendTimeLineHistory.exit:                         ; preds = %._crit_edge.i
   store i32 %592, ptr %583, align 8, !alias.scope !32
   call void @pq_endmessage_reuse(ptr noundef nonnull %2) #16
   %593 = load ptr, ptr @PqCommMethods, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 8
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
   %595 = load ptr, ptr %594, align 8
   %596 = call i32 %595() #16
   br label %HandleUploadManifestPacket.exit.i
@@ -1963,9 +1963,9 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
   %9 = alloca [2 x i8], align 2
   %10 = load i32, ptr @wal_segment_size, align 4
   store ptr null, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @WalSndSegmentOpen, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @wal_segment_close, ptr %12, align 8
   %13 = call ptr @XLogReaderAllocate(i32 noundef %10, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #16
   store ptr %13, ptr @xlogreader, align 8
@@ -1982,7 +1982,7 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
   unreachable
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not35 = icmp eq ptr %21, null
   br i1 %.not35, label %30, label %22
@@ -1990,7 +1990,7 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
 22:                                               ; preds = %19
   call void @ReplicationSlotAcquire(ptr noundef nonnull %21, i1 noundef zeroext true) #16
   %23 = load ptr, ptr @MyReplicationSlot, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %25 = load i32, ptr %24, align 8
   %.not36 = icmp eq i32 %25, 0
   br i1 %.not36, label %30, label %26
@@ -2030,7 +2030,7 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
 
 41:                                               ; preds = %39, %33
   %.0 = phi i64 [ %.0.i, %33 ], [ %40, %39 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i32, ptr %42, align 8
   %.not37 = icmp eq i32 %43, 0
   br i1 %.not37, label %70, label %44
@@ -2056,7 +2056,7 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
   br i1 %52, label %72, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %51, %55
   br i1 %56, label %57, label %72
@@ -2099,20 +2099,20 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = icmp ult i64 %76, %51
   br i1 %77, label %78, label %WalSndSetState.exit42
 
 78:                                               ; preds = %.thread, %74, %72
   %79 = load ptr, ptr @MyWalSnd, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 2
   br i1 %82, label %WalSndSetState.exit, label %83
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %79, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 76
   %85 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %84, i8 1, ptr nonnull elementtype(i8) %84) #16, !srcloc !5
   %.not.i = icmp eq i8 %85, 0
   br i1 %.not.i, label %88, label %86
@@ -2132,7 +2132,7 @@ WalSndSetState.exit:                              ; preds = %78, %88
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 1) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %89 = load ptr, ptr %4, align 8, !alias.scope !36
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load i32, ptr %90, align 8, !alias.scope !36
   %92 = sext i32 %91 to i64
   %93 = getelementptr i8, ptr %89, i64 %92
@@ -2150,10 +2150,10 @@ WalSndSetState.exit:                              ; preds = %78, %88
   store i32 %99, ptr %90, align 8, !alias.scope !39
   call void @pq_endmessage(ptr noundef nonnull %4) #16
   %100 = load ptr, ptr @PqCommMethods, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 %102() #16
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load i64, ptr %104, align 8
   %106 = icmp ult i64 %.0, %105
   br i1 %106, label %107, label %117
@@ -2175,25 +2175,25 @@ WalSndSetState.exit:                              ; preds = %78, %88
 117:                                              ; preds = %WalSndSetState.exit
   store i64 %105, ptr @sentPtr, align 8
   %118 = load ptr, ptr @MyWalSnd, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 76
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 76
   %120 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %119, i8 1, ptr nonnull elementtype(i8) %119) #16, !srcloc !5
   %.not38 = icmp eq i8 %120, 0
   br i1 %.not38, label %125, label %121
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr @MyWalSnd, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 76
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 76
   %124 = call i32 @s_lock(ptr noundef nonnull %123, ptr noundef nonnull @.str.1, i32 noundef 978, ptr noundef nonnull @__func__.StartReplication) #16
   br label %125
 
 125:                                              ; preds = %117, %121
   %126 = load i64, ptr @sentPtr, align 8
   %127 = load ptr, ptr @MyWalSnd, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 %126, ptr %128, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
   %129 = load ptr, ptr @MyWalSnd, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 76
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 76
   store i8 0, ptr %130, align 4
   call void @SyncRepInitConfig() #16
   store volatile i32 1, ptr @replication_active, align 4
@@ -2209,13 +2209,13 @@ WalSndSetState.exit:                              ; preds = %78, %88
 
 133:                                              ; preds = %125
   %134 = load ptr, ptr @MyWalSnd, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %WalSndSetState.exit42, label %138
 
 138:                                              ; preds = %133
-  %139 = getelementptr inbounds i8, ptr %134, i64 76
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 76
   %140 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %139, i8 1, ptr nonnull elementtype(i8) %139) #16, !srcloc !5
   %.not.i41 = icmp eq i8 %140, 0
   br i1 %.not.i41, label %143, label %141
@@ -2261,7 +2261,7 @@ WalSndSetState.exit42:                            ; preds = %143, %133, %74
   store i64 %159, ptr %8, align 16
   %160 = call ptr @cstring_to_text(ptr noundef nonnull %7) #16
   %161 = ptrtoint ptr %160 to i64
-  %162 = getelementptr inbounds i8, ptr %8, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %161, ptr %162, align 8
   call void @do_tup_output(ptr noundef %157, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   call void @end_tup_output(ptr noundef %157) #16
@@ -2315,9 +2315,9 @@ define dso_local void @WalSndRqstFileReload() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %0 ]
   %3 = load ptr, ptr @WalSndCtl, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = getelementptr [0 x %struct.WalSnd], ptr %4, i64 0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #16, !srcloc !5
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
@@ -2336,7 +2336,7 @@ define dso_local void @WalSndRqstFileReload() local_unnamed_addr #0 {
   br label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
   br label %16
@@ -2486,7 +2486,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   %32 = load ptr, ptr @WalSndCtl, align 8
   %33 = getelementptr [3 x %struct.dlist_head], ptr %32, i64 0, i64 %indvars.iv
   store ptr %33, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %33, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2508,10 +2508,10 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %.preheader
   %41 = load ptr, ptr @WalSndCtl, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 76
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 76
   call void @ConditionVariableInit(ptr noundef nonnull %42) #16
   %43 = load ptr, ptr @WalSndCtl, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   call void @ConditionVariableInit(ptr noundef nonnull %44) #16
   br label %45
 
@@ -2532,7 +2532,7 @@ define dso_local void @WalSndWakeup(i1 noundef zeroext %0, i1 noundef zeroext %1
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @WalSndCtl, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 76
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %5) #16
   br label %6
 
@@ -2541,7 +2541,7 @@ define dso_local void @WalSndWakeup(i1 noundef zeroext %0, i1 noundef zeroext %1
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @WalSndCtl, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %9) #16
   br label %10
 
@@ -2560,9 +2560,9 @@ define dso_local void @WalSndInitStopping() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %0 ]
   %3 = load ptr, ptr @WalSndCtl, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = getelementptr [0 x %struct.WalSnd], ptr %4, i64 0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #16, !srcloc !5
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %10, label %8
@@ -2604,9 +2604,9 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.backedge ], [ 0, %0 ]
   %2 = load ptr, ptr @WalSndCtl, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = getelementptr [0 x %struct.WalSnd], ptr %3, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #16, !srcloc !5
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %9, label %7
@@ -2625,7 +2625,7 @@ define dso_local void @WalSndWaitStopping() local_unnamed_addr #0 {
   br label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = load i32, ptr %14, align 4
   %.not11 = icmp eq i32 %15, 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
@@ -2661,7 +2661,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
   %2 = alloca ptr, align 8
   %3 = alloca [12 x i64], align 16
   %4 = alloca [12 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #16
   %7 = call i32 @SyncRepGetCandidateStandbys(ptr noundef nonnull %2) #16
@@ -2671,38 +2671,38 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
 
 .lr.ph99:                                         ; preds = %1
   %10 = icmp sgt i32 %7, 0
-  %11 = getelementptr inbounds i8, ptr %4, i64 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 3
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
-  %19 = getelementptr inbounds i8, ptr %4, i64 5
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
-  %21 = getelementptr inbounds i8, ptr %3, i64 48
-  %22 = getelementptr inbounds i8, ptr %4, i64 6
-  %23 = getelementptr inbounds i8, ptr %3, i64 56
-  %24 = getelementptr inbounds i8, ptr %4, i64 7
-  %25 = getelementptr inbounds i8, ptr %3, i64 64
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 72
-  %28 = getelementptr inbounds i8, ptr %3, i64 80
-  %29 = getelementptr inbounds i8, ptr %3, i64 88
-  %30 = getelementptr inbounds i8, ptr %4, i64 11
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
-  %32 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %33
 
 33:                                               ; preds = %.lr.ph99, %131
   %indvars.iv102 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next103, %131 ]
   %34 = load ptr, ptr @WalSndCtl, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = getelementptr [0 x %struct.WalSnd], ptr %35, i64 0, i64 %indvars.iv102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %37 = getelementptr inbounds i8, ptr %36, i64 76
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 76
   %38 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %37, i8 1, ptr nonnull elementtype(i8) %37) #16, !srcloc !5
   %.not = icmp eq i8 %38, 0
   br i1 %.not, label %41, label %39
@@ -2722,25 +2722,25 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
   br label %131
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %36, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %36, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %36, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %36, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %36, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %36, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %36, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %36, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %36, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %65 = load i64, ptr %64, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
   store i8 0, ptr %37, align 4
@@ -2753,7 +2753,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
 67:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %68 = getelementptr %struct.SyncRepStandbyData, ptr %66, i64 %indvars.iv
-  %69 = getelementptr inbounds i8, ptr %68, i64 36
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 36
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
   %72 = icmp eq i64 %indvars.iv102, %71
@@ -2787,7 +2787,7 @@ define dso_local noundef i64 @pg_stat_get_wal_senders(ptr noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %81
   %83 = zext nneg i32 %49 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.pg_stat_get_wal_senders, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.pg_stat_get_wal_senders, i64 0, i64 %83
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %WalSndGetStateString.exit
 
@@ -2842,9 +2842,9 @@ WalSndGetStateString.exit:                        ; preds = %81, %switch.lookup
 
 93:                                               ; preds = %.split81
   %94 = call ptr @palloc(i64 noundef 16) #16
-  %95 = getelementptr inbounds i8, ptr %94, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
   store i32 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 0, ptr %96, align 8
   store i64 %57, ptr %94, align 8
   %97 = ptrtoint ptr %94 to i64
@@ -2861,9 +2861,9 @@ WalSndGetStateString.exit:                        ; preds = %81, %switch.lookup
 
 101:                                              ; preds = %98
   %102 = call ptr @palloc(i64 noundef 16) #16
-  %103 = getelementptr inbounds i8, ptr %102, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 0, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 0, ptr %104, align 8
   store i64 %59, ptr %102, align 8
   %105 = ptrtoint ptr %102 to i64
@@ -2880,9 +2880,9 @@ WalSndGetStateString.exit:                        ; preds = %81, %switch.lookup
 
 109:                                              ; preds = %106
   %110 = call ptr @palloc(i64 noundef 16) #16
-  %111 = getelementptr inbounds i8, ptr %110, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 0, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 0, ptr %112, align 8
   store i64 %61, ptr %110, align 8
   %113 = ptrtoint ptr %110 to i64
@@ -2899,7 +2899,7 @@ WalSndGetStateString.exit:                        ; preds = %81, %switch.lookup
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @SyncRepConfig, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i8, ptr %119, align 4
   %121 = icmp eq i8 %120, 0
   %.str.20..str.21 = select i1 %121, ptr @.str.20, ptr @.str.21
@@ -3082,14 +3082,14 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @MyWalSnd, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = load i64, ptr @sentPtr, align 8
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %38, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = icmp ult i64 %45, %41
   br i1 %46, label %47, label %49
@@ -3111,7 +3111,7 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 51:                                               ; preds = %49
   store i1 true, ptr @WalSndCaughtUp, align 1
   %52 = load ptr, ptr @PqCommMethods, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54() #16
   %.not20.i = icmp eq i32 %55, 0
@@ -3131,7 +3131,7 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr @PqCommMethods, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = tail call zeroext i1 %62() #16
   br i1 %63, label %64, label %103
@@ -3182,7 +3182,7 @@ WalSndCheckTimeOut.exit.i:                        ; preds = %70
 85:                                               ; preds = %80
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
   %86 = load ptr, ptr @PqCommMethods, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 %88() #16
   %.not4.i.i = icmp eq i32 %89, 0
@@ -3215,7 +3215,7 @@ WalSndKeepaliveIfNecessary.exit.i:                ; preds = %85, %80, %WalSndChe
 WalSndComputeSleeptime.exit.i:                    ; preds = %96, %WalSndKeepaliveIfNecessary.exit.i
   %.04.i.i = phi i64 [ %98, %96 ], [ 10000, %WalSndKeepaliveIfNecessary.exit.i ]
   %99 = load ptr, ptr @PqCommMethods, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = tail call zeroext i1 %101() #16
   %..i = select i1 %102, i32 6, i32 2
@@ -3248,17 +3248,17 @@ WalSndWaitForWal.exit:                            ; preds = %5, %103
 112:                                              ; preds = %110, %108
   %113 = phi i32 [ %111, %110 ], [ %.pre, %108 ]
   call void @XLogReadDetermineTimeline(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %113) #16
-  %114 = getelementptr inbounds i8, ptr %0, i64 1264
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %115 = load i32, ptr %114, align 8
   %116 = load i32, ptr %7, align 4
   %117 = icmp ne i32 %115, %116
   %118 = zext i1 %117 to i8
   store i8 %118, ptr @sendTimeLineIsHistoric, align 1
   store i32 %115, ptr @sendTimeLine, align 4
-  %119 = getelementptr inbounds i8, ptr %0, i64 1272
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr @sendTimeLineValidUpto, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 1280
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %122 = load i32, ptr %121, align 8
   store i32 %122, ptr @sendTimeLineNextTLI, align 4
   %123 = icmp ult i64 %.0.i, %9
@@ -3279,11 +3279,11 @@ WalSndWaitForWal.exit:                            ; preds = %5, %103
   br label %131
 
 131:                                              ; preds = %130, %124
-  %132 = getelementptr inbounds i8, ptr %0, i64 1204
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %133 to i64
   %135 = udiv i64 %1, %134
-  %136 = getelementptr inbounds i8, ptr %0, i64 1224
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %137 = load i32, ptr %136, align 8
   call void @CheckXLogRemoved(i64 noundef %135, i32 noundef %137) #16
   br label %138
@@ -3305,7 +3305,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208,
 
 9:                                                ; preds = %3
   %10 = load i64, ptr @sendTimeLineValidUpto, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1204
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = udiv i64 %10, %13
@@ -3319,7 +3319,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208,
 
 18:                                               ; preds = %9, %16, %3
   %19 = phi i32 [ %6, %9 ], [ %17, %16 ], [ %6, %3 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1204
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = udiv i64 4294967296, %22
@@ -3329,7 +3329,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208,
   %27 = trunc nuw i64 %26 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.67, i32 noundef %19, i32 noundef %25, i32 noundef %27) #16
   %29 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef 0) #16
-  %30 = getelementptr inbounds i8, ptr %0, i64 1208
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 %29, ptr %30, align 8
   %31 = icmp sgt i32 %29, -1
   br i1 %31, label %46, label %32
@@ -3366,14 +3366,14 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208,
 
 ; Function Attrs: nounwind uwtable
 define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   tail call void @resetStringInfo(ptr noundef %6) #16
   %7 = load ptr, ptr %5, align 8
   tail call void @enlargeStringInfo(ptr noundef %7, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %8 = load ptr, ptr %7, align 8, !alias.scope !57
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !alias.scope !57
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
@@ -3386,7 +3386,7 @@ define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 
   %15 = tail call i64 @llvm.bswap.i64(i64 %1)
   %16 = select i1 %3, i64 %15, i64 0
   %17 = load ptr, ptr %14, align 8, !alias.scope !60
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8, !alias.scope !60
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
@@ -3397,7 +3397,7 @@ define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 
   tail call void @enlargeStringInfo(ptr noundef %23, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %24 = load ptr, ptr %23, align 8, !alias.scope !63
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8, !alias.scope !63
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %24, i64 %27
@@ -3408,7 +3408,7 @@ define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 
   tail call void @enlargeStringInfo(ptr noundef %30, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %31 = load ptr, ptr %30, align 8, !alias.scope !66
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !alias.scope !66
   %34 = sext i32 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
@@ -3426,13 +3426,13 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)
   %7 = load ptr, ptr @tmpbuf, align 8, !alias.scope !69
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   store i64 %6, ptr %10, align 1, !noalias !69
   %11 = add i32 %8, 8
-  store i32 %11, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !69
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 17
@@ -3440,11 +3440,11 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
   %17 = load i64, ptr %16, align 1
   store i64 %17, ptr %15, align 1
   %18 = load ptr, ptr @PqCommMethods, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %12, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   tail call void %20(i8 noundef signext 100, ptr noundef %22, i64 noundef %25) #16
@@ -3458,7 +3458,7 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
 
 28:                                               ; preds = %4, %27
   %29 = load ptr, ptr @PqCommMethods, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31() #16
   %.not4 = icmp eq i32 %32, 0
@@ -3480,7 +3480,7 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
 
 42:                                               ; preds = %34
   %43 = load ptr, ptr @PqCommMethods, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 %45() #16
   br i1 %46, label %47, label %48
@@ -3496,7 +3496,7 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
 ; Function Attrs: nounwind uwtable
 define internal void @WalSndUpdateProgress(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
   %5 = tail call i64 @GetCurrentTimestamp() #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 300
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %41
@@ -3519,11 +3519,11 @@ define internal void @WalSndUpdateProgress(ptr nocapture noundef readonly %0, i6
 
 19:                                               ; preds = %15
   store i64 %1, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 131080
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 131080
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   %23 = srem i32 %22, 8192
-  %24 = getelementptr inbounds i8, ptr %16, i64 131084
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 131084
   br label %25
 
 25:                                               ; preds = %25, %19
@@ -3550,7 +3550,7 @@ define internal void @WalSndUpdateProgress(ptr nocapture noundef readonly %0, i6
 32:                                               ; preds = %.sink.split.i, %29
   %33 = phi i32 [ %21, %29 ], [ %.sink.i, %.sink.split.i ]
   %.010.i = phi i32 [ %23, %29 ], [ %21, %.sink.split.i ]
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %35 = sext i32 %33 to i64
   %36 = getelementptr [8192 x %struct.WalTimeSample], ptr %34, i64 0, i64 %35
   store i64 %1, ptr %36, align 8
@@ -3578,7 +3578,7 @@ LagTrackerWrite.exit:                             ; preds = %12, %15, %32
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr @WalSndCtl, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %49 = load volatile i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %.critedge
@@ -3586,7 +3586,7 @@ LagTrackerWrite.exit:                             ; preds = %12, %15, %32
 51:                                               ; preds = %46
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext false, i64 noundef %1)
   %52 = load ptr, ptr @PqCommMethods, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54() #16
   %.not = icmp eq i32 %55, 0
@@ -3598,7 +3598,7 @@ LagTrackerWrite.exit:                             ; preds = %12, %15, %32
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr @PqCommMethods, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = tail call zeroext i1 %60() #16
   br i1 %61, label %69, label %.critedge
@@ -3791,16 +3791,16 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 60:                                               ; preds = %59, %36
   %61 = call i64 @GetCurrentTimestamp() #16
   %62 = load ptr, ptr @lag_tracker, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 131084
-  %64 = getelementptr inbounds i8, ptr %62, i64 131080
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 131084
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 131080
   %65 = load i32, ptr %64, align 8
   %.promoted.i.i.i = load i32, ptr %63, align 4
   %.not49.i.i.i = icmp eq i32 %.promoted.i.i.i, %65
   br i1 %.not49.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %62, i64 8
-  %67 = getelementptr inbounds i8, ptr %62, i64 131096
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 131096
   %68 = sext i32 %.promoted.i.i.i to i64
   %69 = getelementptr [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %68
   %70 = load i64, ptr %69, align 8
@@ -3817,7 +3817,7 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %71
   %75 = phi ptr [ %73, %71 ], [ %69, %.lr.ph.i.i.i ]
   %76 = phi i32 [ %80, %71 ], [ %.promoted.i.i.i, %.lr.ph.i.i.i ]
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i64, ptr %77, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
   %79 = add i32 %76, 1
@@ -3852,18 +3852,18 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
   br i1 %88, label %LagTrackerRead.exit.i.i, label %89
 
 89:                                               ; preds = %.thread.i.i
-  %90 = getelementptr inbounds i8, ptr %62, i64 131104
+  %90 = getelementptr inbounds nuw i8, ptr %62, i64 131104
   %91 = load i64, ptr %90, align 8
   %.not36.i.i.i = icmp eq i64 %91, 0
   br i1 %.not36.i.i.i, label %110, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %62, i64 131096
+  %93 = getelementptr inbounds nuw i8, ptr %62, i64 131096
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %62, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %95 = sext i32 %87 to i64
   %96 = getelementptr [8192 x %struct.WalTimeSample], ptr %94, i64 0, i64 %95
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %96, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %97 = icmp ult i64 %37, %.sroa.02.0.copyload.i.i.i
   %98 = icmp sgt i64 %91, %.sroa.2.0.copyload.i.i.i
@@ -3905,7 +3905,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
   br i1 %.not49.i55.i.i, label %._crit_edge.i60.i.i, label %.lr.ph.i56.i.i
 
 .lr.ph.i56.i.i:                                   ; preds = %LagTrackerRead.exit.i.i
-  %118 = getelementptr inbounds i8, ptr %62, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %119 = getelementptr i8, ptr %62, i64 131112
   %120 = sext i32 %.promoted.i54.i.i to i64
   %121 = getelementptr [8192 x %struct.WalTimeSample], ptr %118, i64 0, i64 %120
@@ -3923,7 +3923,7 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
 .lr.ph110.i.i:                                    ; preds = %.lr.ph.i56.i.i, %123
   %127 = phi ptr [ %125, %123 ], [ %121, %.lr.ph.i56.i.i ]
   %128 = phi i32 [ %132, %123 ], [ %.promoted.i54.i.i, %.lr.ph.i56.i.i ]
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load i64, ptr %129, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %127, i64 16, i1 false)
   %131 = add i32 %128, 1
@@ -3966,10 +3966,10 @@ LagTrackerRead.exit.i.i:                          ; preds = %115, %92, %.thread.
 144:                                              ; preds = %141
   %145 = getelementptr i8, ptr %62, i64 131112
   %.sroa.02.0.copyload.i67.i.i = load i64, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %62, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %147 = sext i32 %139 to i64
   %148 = getelementptr [8192 x %struct.WalTimeSample], ptr %146, i64 0, i64 %147
-  %.sroa.2.0..sroa_idx.i68.i.i = getelementptr inbounds i8, ptr %148, i64 8
+  %.sroa.2.0..sroa_idx.i68.i.i = getelementptr inbounds nuw i8, ptr %148, i64 8
   %.sroa.2.0.copyload.i69.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i68.i.i, align 8
   %149 = icmp ult i64 %38, %.sroa.02.0.copyload.i67.i.i
   %150 = icmp sgt i64 %143, %.sroa.2.0.copyload.i69.i.i
@@ -4011,7 +4011,7 @@ LagTrackerRead.exit73.i.i:                        ; preds = %167, %144, %.thread
   br i1 %.not49.i75.i.i, label %._crit_edge.i80.i.i, label %.lr.ph.i76.i.i
 
 .lr.ph.i76.i.i:                                   ; preds = %LagTrackerRead.exit73.i.i
-  %170 = getelementptr inbounds i8, ptr %62, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %171 = getelementptr i8, ptr %62, i64 131128
   %172 = sext i32 %.promoted.i74.i.i to i64
   %173 = getelementptr [8192 x %struct.WalTimeSample], ptr %170, i64 0, i64 %172
@@ -4029,7 +4029,7 @@ LagTrackerRead.exit73.i.i:                        ; preds = %167, %144, %.thread
 .lr.ph114.i.i:                                    ; preds = %.lr.ph.i76.i.i, %175
   %179 = phi ptr [ %177, %175 ], [ %173, %.lr.ph.i76.i.i ]
   %180 = phi i32 [ %184, %175 ], [ %.promoted.i74.i.i, %.lr.ph.i76.i.i ]
-  %181 = getelementptr inbounds i8, ptr %179, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %182 = load i64, ptr %181, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %179, i64 16, i1 false)
   %183 = add i32 %180, 1
@@ -4072,10 +4072,10 @@ LagTrackerRead.exit73.i.i:                        ; preds = %167, %144, %.thread
 196:                                              ; preds = %193
   %197 = getelementptr i8, ptr %62, i64 131128
   %.sroa.02.0.copyload.i87.i.i = load i64, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %62, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %199 = sext i32 %191 to i64
   %200 = getelementptr [8192 x %struct.WalTimeSample], ptr %198, i64 0, i64 %199
-  %.sroa.2.0..sroa_idx.i88.i.i = getelementptr inbounds i8, ptr %200, i64 8
+  %.sroa.2.0..sroa_idx.i88.i.i = getelementptr inbounds nuw i8, ptr %200, i64 8
   %.sroa.2.0.copyload.i89.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i88.i.i, align 8
   %201 = icmp ult i64 %39, %.sroa.02.0.copyload.i87.i.i
   %202 = icmp sgt i64 %195, %.sroa.2.0.copyload.i89.i.i
@@ -4124,7 +4124,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
 
 224:                                              ; preds = %223, %LagTrackerRead.exit93.i.i
   %225 = load ptr, ptr @MyWalSnd, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 76
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 76
   %227 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %226, i8 1, ptr nonnull elementtype(i8) %226) #16, !srcloc !5
   %.not47.i.i = icmp eq i8 %227, 0
   br i1 %.not47.i.i, label %230, label %228
@@ -4134,18 +4134,18 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br label %230
 
 230:                                              ; preds = %228, %224
-  %231 = getelementptr inbounds i8, ptr %225, i64 24
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store i64 %37, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %225, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %225, i64 32
   store i64 %38, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %225, i64 40
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 40
   store i64 %39, ptr %233, align 8
   %.not48.i.i = icmp ne i64 %.0.i.i.i, -1
   %brmerge.i.i = select i1 %.not48.i.i, i1 true, i1 %.1.i.i
   br i1 %brmerge.i.i, label %234, label %236
 
 234:                                              ; preds = %230
-  %235 = getelementptr inbounds i8, ptr %225, i64 48
+  %235 = getelementptr inbounds nuw i8, ptr %225, i64 48
   store i64 %.0.i.i.i, ptr %235, align 8
   br label %236
 
@@ -4155,7 +4155,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br i1 %brmerge52.i.i, label %237, label %239
 
 237:                                              ; preds = %236
-  %238 = getelementptr inbounds i8, ptr %225, i64 56
+  %238 = getelementptr inbounds nuw i8, ptr %225, i64 56
   store i64 %.0.i65.i.i, ptr %238, align 8
   br label %239
 
@@ -4165,12 +4165,12 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br i1 %brmerge53.i.i, label %240, label %242
 
 240:                                              ; preds = %239
-  %241 = getelementptr inbounds i8, ptr %225, i64 64
+  %241 = getelementptr inbounds nuw i8, ptr %225, i64 64
   store i64 %.0.i85.i.i, ptr %241, align 8
   br label %242
 
 242:                                              ; preds = %240, %239
-  %243 = getelementptr inbounds i8, ptr %225, i64 88
+  %243 = getelementptr inbounds nuw i8, ptr %225, i64 88
   store i64 %40, ptr %243, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !74
   store i8 0, ptr %226, align 4
@@ -4190,7 +4190,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br i1 %or.cond.i.i, label %251, label %ProcessStandbyMessage.exit
 
 251:                                              ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %248, i64 88
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 88
   %253 = load i32, ptr %252, align 8
   %.not51.i.i = icmp eq i32 %253, 0
   br i1 %.not51.i.i, label %255, label %254
@@ -4209,7 +4209,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br label %259
 
 259:                                              ; preds = %257, %255
-  %260 = getelementptr inbounds i8, ptr %248, i64 104
+  %260 = getelementptr inbounds nuw i8, ptr %248, i64 104
   %261 = load i64, ptr %260, align 8
   %.not8.not.i.i.i = icmp eq i64 %261, %38
   br i1 %.not8.not.i.i.i, label %.critedge.i95.i.i, label %262
@@ -4253,7 +4253,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
 
 277:                                              ; preds = %276, %263
   %278 = load ptr, ptr @MyWalSnd, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 76
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 76
   %280 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %279, i8 1, ptr nonnull elementtype(i8) %279) #16, !srcloc !5
   %.not.i2.i = icmp eq i8 %280, 0
   br i1 %.not.i2.i, label %283, label %281
@@ -4263,7 +4263,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br label %283
 
 283:                                              ; preds = %281, %277
-  %284 = getelementptr inbounds i8, ptr %278, i64 88
+  %284 = getelementptr inbounds nuw i8, ptr %278, i64 88
   store i64 %264, ptr %284, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !76
   store i8 0, ptr %279, align 4
@@ -4274,7 +4274,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
 
 287:                                              ; preds = %283
   %288 = load ptr, ptr @MyProc, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 56
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 56
   store i32 0, ptr %289, align 8
   %290 = load ptr, ptr @MyReplicationSlot, align 8
   %.not31.i.i = icmp eq ptr %290, null
@@ -4352,13 +4352,13 @@ TransactionIdInRecentPast.exit37.i.i:             ; preds = %309, %308
 
 318:                                              ; preds = %316
   %319 = load ptr, ptr @MyProc, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 56
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 56
   store i32 %267, ptr %320, align 8
   br label %ProcessStandbyMessage.exit
 
 .thread41.i.i:                                    ; preds = %316, %.thread.i4.i
   %321 = load ptr, ptr @MyProc, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 56
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 56
   store i32 %265, ptr %322, align 8
   br label %ProcessStandbyMessage.exit
 
@@ -4382,7 +4382,7 @@ TransactionIdInRecentPast.exit37.i.i:             ; preds = %309, %308
 
 330:                                              ; preds = %329
   %331 = load ptr, ptr @PqCommMethods, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 40
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 40
   %333 = load ptr, ptr %332, align 8
   call void %333(i8 noundef signext 99, ptr noundef null, i64 noundef 0) #16
   store i1 true, ptr @streamingDoneSending, align 1
@@ -4431,12 +4431,12 @@ define internal fastcc void @WalSndKeepalive(i1 noundef zeroext %0, i64 noundef 
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %7 = load ptr, ptr @output_message, align 8, !alias.scope !78
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   store i8 107, ptr %10, align 1, !noalias !78
   %11 = add i32 %8, 1
-  store i32 %11, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !78
   %12 = icmp eq i64 %1, 0
   %13 = load i64, ptr @sentPtr, align 8
   %14 = select i1 %12, i64 %13, i64 %1
@@ -4444,35 +4444,35 @@ define internal fastcc void @WalSndKeepalive(i1 noundef zeroext %0, i64 noundef 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
   %16 = load ptr, ptr @output_message, align 8, !alias.scope !81
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   store i64 %15, ptr %19, align 1, !noalias !81
   %20 = add i32 %17, 8
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !81
   %21 = tail call i64 @GetCurrentTimestamp() #16
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
   %23 = load ptr, ptr @output_message, align 8, !alias.scope !84
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
   %25 = sext i32 %24 to i64
   %26 = getelementptr i8, ptr %23, i64 %25
   store i64 %22, ptr %26, align 1, !noalias !84
   %27 = add i32 %24, 8
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !84
   %28 = zext i1 %0 to i8
   tail call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %29 = load ptr, ptr @output_message, align 8, !alias.scope !87
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
   store i8 %28, ptr %32, align 1, !noalias !87
   %33 = add i32 %30, 1
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !87
   %34 = load ptr, ptr @PqCommMethods, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @output_message, align 8
   %38 = sext i32 %33 to i64
@@ -4510,7 +4510,7 @@ define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noun
   %5 = load ptr, ptr @FeBeWaitSet, align 8
   tail call void @ModifyWaitEvent(ptr noundef %5, i32 noundef 0, i32 noundef %0, ptr noundef null) #16
   %6 = load ptr, ptr @MyWalSnd, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 0, label %.sink.split
@@ -4523,7 +4523,7 @@ define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noun
 .sink.split:                                      ; preds = %3, %9
   %.sink4 = phi i64 [ 88, %9 ], [ 76, %3 ]
   %10 = load ptr, ptr @WalSndCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %.sink4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink4
   tail call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %11) #16
   br label %12
 
@@ -4534,7 +4534,7 @@ define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noun
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 16
   %.not = icmp eq i32 %19, 0
@@ -4598,9 +4598,9 @@ define internal fastcc void @PhysicalReplicationSlotNewXmin(i32 noundef %0, i32 
 
 7:                                                ; preds = %2, %5
   %8 = load ptr, ptr @MyProc, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %11, 2
   %13 = icmp ugt i32 %0, 2
@@ -4613,13 +4613,13 @@ define internal fastcc void @PhysicalReplicationSlotNewXmin(i32 noundef %0, i32 
 
 16:                                               ; preds = %14, %7
   store i32 %0, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %0, ptr %17, align 4
   br label %18
 
 18:                                               ; preds = %16, %14
   %.0 = phi i1 [ true, %16 ], [ false, %14 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 100
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %20, 2
   %22 = icmp ugt i32 %1, 2
@@ -4632,7 +4632,7 @@ define internal fastcc void @PhysicalReplicationSlotNewXmin(i32 noundef %0, i32 
 
 .critedge:                                        ; preds = %23, %18
   store i32 %1, ptr %19, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %1, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
   store i8 0, ptr %3, align 8
@@ -4744,7 +4744,7 @@ WalSndCheckTimeOut.exit:                          ; preds = %7
 23:                                               ; preds = %17
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
   %24 = load ptr, ptr @PqCommMethods, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26() #16
   %.not4.i = icmp eq i32 %27, 0
@@ -4756,7 +4756,7 @@ WalSndCheckTimeOut.exit:                          ; preds = %7
 
 WalSndKeepaliveIfNecessary.exit:                  ; preds = %4, %1, %WalSndCheckTimeOut.exit, %17, %23
   %29 = load ptr, ptr @PqCommMethods, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 %31() #16
   br i1 %32, label %33, label %54
@@ -4807,7 +4807,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %33, %39
 
 48:                                               ; preds = %47, %45
   %49 = load ptr, ptr @PqCommMethods, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %51() #16
   %.not2 = icmp eq i32 %52, 0
@@ -4851,7 +4851,7 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0
   store i64 %4, ptr @last_reply_timestamp, align 8
   store i1 false, ptr @waiting_for_ping_response, align 1
   %5 = icmp ne ptr %0, @XLogSendLogical
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %7
 
 7:                                                ; preds = %.backedge, %1
@@ -4887,14 +4887,14 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @PqCommMethods, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = call zeroext i1 %19() #16
   br i1 %20, label %21, label %152
 
 21:                                               ; preds = %16, %15, %14
   %22 = load ptr, ptr @PqCommMethods, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = call zeroext i1 %24() #16
   br i1 %25, label %27, label %26
@@ -4909,7 +4909,7 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0
 
 28:                                               ; preds = %27, %26
   %29 = load ptr, ptr @PqCommMethods, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31() #16
   %.not14 = icmp eq i32 %32, 0
@@ -4925,14 +4925,14 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr @PqCommMethods, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = call zeroext i1 %38() #16
   br i1 %39, label %87, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr @MyWalSnd, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 2
   br i1 %44, label %45, label %WalSndSetState.exit
@@ -4949,13 +4949,13 @@ define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0
 
 50:                                               ; preds = %45, %47
   %51 = load ptr, ptr @MyWalSnd, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 3
   br i1 %54, label %WalSndSetState.exit, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %51, i64 76
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 76
   %57 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %56, i8 1, ptr nonnull elementtype(i8) %56) #16, !srcloc !5
   %.not.i = icmp eq i8 %57, 0
   br i1 %.not.i, label %60, label %58
@@ -4979,13 +4979,13 @@ WalSndSetState.exit:                              ; preds = %60, %50, %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void %0() #16, !callees !91
   %63 = load ptr, ptr @MyWalSnd, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %63, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %69 = load i64, ptr %68, align 8
   br label %70
 
@@ -4999,18 +4999,18 @@ WalSndSetState.exit:                              ; preds = %60, %50, %40
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr @PqCommMethods, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = call zeroext i1 %77() #16
   br i1 %78, label %85, label %79
 
 79:                                               ; preds = %74
   store i32 56, ptr %3, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %80, align 8
   call void @EndCommand(ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext false) #16
   %81 = load ptr, ptr @PqCommMethods, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 %83() #16
   call void @proc_exit(i32 noundef 0) #17
@@ -5075,7 +5075,7 @@ WalSndCheckTimeOut.exit:                          ; preds = %93
 109:                                              ; preds = %103
   call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
   %110 = load ptr, ptr @PqCommMethods, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 %112() #16
   %.not4.i = icmp eq i32 %113, 0
@@ -5096,7 +5096,7 @@ WalSndKeepaliveIfNecessary.exit:                  ; preds = %90, %87, %WalSndChe
 
 116:                                              ; preds = %115, %WalSndKeepaliveIfNecessary.exit
   %117 = load ptr, ptr @PqCommMethods, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = call zeroext i1 %119() #16
   br i1 %120, label %121, label %.backedge
@@ -5126,7 +5126,7 @@ WalSndKeepaliveIfNecessary.exit:                  ; preds = %90, %87, %WalSndChe
 WalSndComputeSleeptime.exit:                      ; preds = %121, %127
   %.04.i = phi i64 [ %129, %127 ], [ 10000, %121 ]
   %130 = load ptr, ptr @PqCommMethods, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = call zeroext i1 %132() #16
   %134 = or disjoint i32 %., 4
@@ -5135,7 +5135,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %121, %127
   %135 = load ptr, ptr @FeBeWaitSet, align 8
   call void @ModifyWaitEvent(ptr noundef %135, i32 noundef 0, i32 noundef %.1, ptr noundef null) #16
   %136 = load ptr, ptr @MyWalSnd, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 96
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %138 = load i32, ptr %137, align 8
   switch i32 %138, label %142 [
     i32 0, label %.sink.split.i
@@ -5148,7 +5148,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %121, %127
 .sink.split.i:                                    ; preds = %139, %WalSndComputeSleeptime.exit
   %.sink4.i = phi i64 [ 88, %139 ], [ 76, %WalSndComputeSleeptime.exit ]
   %140 = load ptr, ptr @WalSndCtl, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 %.sink4.i
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %.sink4.i
   call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %141) #16
   br label %142
 
@@ -5193,13 +5193,13 @@ define internal void @XLogSendPhysical() #0 {
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr @MyWalSnd, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %WalSndSetState.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #16, !srcloc !5
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %16, label %14
@@ -5291,11 +5291,11 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 
 51:                                               ; preds = %47
   store i64 %.0, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %48, i64 131080
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 131080
   %53 = load i32, ptr %52, align 8
   %54 = add i32 %53, 1
   %55 = srem i32 %54, 8192
-  %56 = getelementptr inbounds i8, ptr %48, i64 131084
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 131084
   br label %57
 
 57:                                               ; preds = %57, %51
@@ -5322,7 +5322,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 64:                                               ; preds = %.sink.split.i, %61
   %65 = phi i32 [ %53, %61 ], [ %.sink.i, %.sink.split.i ]
   %.010.i = phi i32 [ %55, %61 ], [ %53, %.sink.split.i ]
-  %66 = getelementptr inbounds i8, ptr %48, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %67 = sext i32 %65 to i64
   %68 = getelementptr [8192 x %struct.WalTimeSample], ptr %66, i64 0, i64 %67
   store i64 %.0, ptr %68, align 8
@@ -5346,7 +5346,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 76:                                               ; preds = %LagTrackerWrite.exit
   %77 = load ptr, ptr @xlogreader, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1208
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1208
   %79 = load i32, ptr %78, align 8
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %81, label %82
@@ -5357,7 +5357,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 82:                                               ; preds = %81, %76
   %83 = load ptr, ptr @PqCommMethods, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
   call void %85(i8 noundef signext 99, ptr noundef null, i64 noundef 0) #16
   store i1 true, ptr @streamingDoneSending, align 1
@@ -5399,41 +5399,41 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 1) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %103 = load ptr, ptr @output_message, align 8, !alias.scope !92
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
   %105 = sext i32 %104 to i64
   %106 = getelementptr i8, ptr %103, i64 %105
   store i8 119, ptr %106, align 1, !noalias !92
   %107 = add i32 %104, 1
-  store i32 %107, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
+  store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !92
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %108 = call i64 @llvm.bswap.i64(i64 %.pre)
   %109 = load ptr, ptr @output_message, align 8, !alias.scope !95
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
   %111 = sext i32 %110 to i64
   %112 = getelementptr i8, ptr %109, i64 %111
   store i64 %108, ptr %112, align 1, !noalias !95
   %113 = add i32 %110, 8
-  store i32 %113, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
+  store i32 %113, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !95
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %114 = call i64 @llvm.bswap.i64(i64 %.0)
   %115 = load ptr, ptr @output_message, align 8, !alias.scope !98
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   %117 = sext i32 %116 to i64
   %118 = getelementptr i8, ptr %115, i64 %117
   store i64 %114, ptr %118, align 1, !noalias !98
   %119 = add i32 %116, 8
-  store i32 %119, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
+  store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !98
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef 8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %120 = load ptr, ptr @output_message, align 8, !alias.scope !101
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   %122 = sext i32 %121 to i64
   %123 = getelementptr i8, ptr %120, i64 %122
   store i64 0, ptr %123, align 1, !noalias !101
   %124 = add i32 %121, 8
-  store i32 %124, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
+  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8, !alias.scope !101
   %125 = trunc i64 %102 to i32
   call void @enlargeStringInfo(ptr noundef nonnull @output_message, i32 noundef %125) #16
   br label %126
@@ -5446,7 +5446,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %129 = sext i32 %128 to i64
   %130 = getelementptr i8, ptr %127, i64 %129
   %131 = load ptr, ptr @xlogreader, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 1224
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1224
   %133 = load i32, ptr %132, align 8
   %134 = call i64 @WALReadFromBuffers(ptr noundef %130, i64 noundef %.040, i64 noundef %.042, i32 noundef %133) #16
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
@@ -5463,7 +5463,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %142 = load ptr, ptr @output_message, align 8
   %143 = sext i32 %137 to i64
   %144 = getelementptr i8, ptr %142, i64 %143
-  %145 = getelementptr inbounds i8, ptr %141, i64 1224
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 1224
   %146 = load i32, ptr %145, align 8
   %147 = call zeroext i1 @WALRead(ptr noundef %141, ptr noundef %144, i64 noundef %138, i64 noundef %139, i32 noundef %146, ptr noundef nonnull %3) #16
   br i1 %147, label %149, label %148
@@ -5474,11 +5474,11 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 149:                                              ; preds = %148, %140, %126
   %150 = load ptr, ptr @xlogreader, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1204
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1204
   %152 = load i32, ptr %151, align 4
   %153 = sext i32 %152 to i64
   %154 = udiv i64 %138, %153
-  %155 = getelementptr inbounds i8, ptr %150, i64 1224
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 1224
   %156 = load i32, ptr %155, align 8
   call void @CheckXLogRemoved(i64 noundef %154, i32 noundef %156) #16
   %157 = load i8, ptr @am_cascading_walsender, align 1
@@ -5487,7 +5487,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 159:                                              ; preds = %149
   %160 = load ptr, ptr @MyWalSnd, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 76
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 76
   %162 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %161, i8 1, ptr nonnull elementtype(i8) %161) #16, !srcloc !5
   %.not53 = icmp eq i8 %162, 0
   br i1 %.not53, label %165, label %163
@@ -5497,7 +5497,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   br label %165
 
 165:                                              ; preds = %159, %163
-  %166 = getelementptr inbounds i8, ptr %160, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %167 = load i8, ptr %166, align 8
   %168 = trunc i8 %167 to i1
   store i8 0, ptr %166, align 8
@@ -5507,7 +5507,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 169:                                              ; preds = %165
   %170 = load ptr, ptr @xlogreader, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 1208
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1208
   %172 = load i32, ptr %171, align 8
   %173 = icmp sgt i32 %172, -1
   br i1 %173, label %174, label %175
@@ -5531,19 +5531,19 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %183 = call i64 @llvm.bswap.i64(i64 %182)
   %184 = load ptr, ptr @tmpbuf, align 8, !alias.scope !105
-  %185 = load i32, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
   %186 = sext i32 %185 to i64
   %187 = getelementptr i8, ptr %184, i64 %186
   store i64 %183, ptr %187, align 1, !noalias !105
   %188 = add i32 %185, 8
-  store i32 %188, ptr getelementptr inbounds (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
+  store i32 %188, ptr getelementptr inbounds nuw (i8, ptr @tmpbuf, i64 8), align 8, !alias.scope !105
   %189 = load ptr, ptr @output_message, align 8
   %190 = getelementptr i8, ptr %189, i64 17
   %191 = load ptr, ptr @tmpbuf, align 8
   %192 = load i64, ptr %191, align 1
   store i64 %192, ptr %190, align 1
   %193 = load ptr, ptr @PqCommMethods, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr @output_message, align 8
   %197 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
@@ -5551,7 +5551,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   call void %195(i8 noundef signext 100, ptr noundef %196, i64 noundef %198) #16
   store i64 %.041, ptr @sentPtr, align 8
   %199 = load ptr, ptr @MyWalSnd, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 76
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 76
   %201 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %200, i8 1, ptr nonnull elementtype(i8) %200) #16, !srcloc !5
   %.not54 = icmp eq i8 %201, 0
   br i1 %.not54, label %204, label %202
@@ -5562,7 +5562,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 
 204:                                              ; preds = %175, %202
   %205 = load i64, ptr @sentPtr, align 8
-  %206 = getelementptr inbounds i8, ptr %199, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i64 %205, ptr %206, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !108
   store i8 0, ptr %200, align 4
@@ -5591,7 +5591,7 @@ define internal void @XLogSendLogical() #0 {
   %3 = alloca ptr, align 8
   store i1 false, ptr @WalSndCaughtUp, align 1
   %4 = load ptr, ptr @logical_decoding_ctx, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = call ptr @XLogReadRecord(ptr noundef %6, ptr noundef nonnull %3) #16
   %8 = load ptr, ptr %3, align 8
@@ -5612,13 +5612,13 @@ define internal void @XLogSendLogical() #0 {
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @logical_decoding_ctx, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @LogicalDecodingProcessRecord(ptr noundef %15, ptr noundef %17) #16
   %18 = load ptr, ptr @logical_decoding_ctx, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr @sentPtr, align 8
   br label %23
@@ -5630,9 +5630,9 @@ define internal void @XLogSendLogical() #0 {
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @logical_decoding_ctx, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load i64, ptr %30, align 8
   %.not6 = icmp ult i64 %31, %24
   br i1 %.not6, label %43, label %32
@@ -5668,9 +5668,9 @@ define internal void @XLogSendLogical() #0 {
 43:                                               ; preds = %.sink.split, %26
   %44 = phi i64 [ %24, %26 ], [ %.0.i.sink, %.sink.split ]
   %45 = load ptr, ptr @logical_decoding_ctx, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load i64, ptr %48, align 8
   %.not7 = icmp ult i64 %49, %44
   br i1 %.not7, label %50, label %.thread
@@ -5694,7 +5694,7 @@ define internal void @XLogSendLogical() #0 {
 
 54:                                               ; preds = %53, %51, %50
   %55 = load ptr, ptr @MyWalSnd, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 76
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 76
   %57 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %56, i8 1, ptr nonnull elementtype(i8) %56) #16, !srcloc !5
   %.not10 = icmp eq i8 %57, 0
   br i1 %.not10, label %60, label %58
@@ -5705,7 +5705,7 @@ define internal void @XLogSendLogical() #0 {
 
 60:                                               ; preds = %54, %58
   %61 = load i64, ptr @sentPtr, align 8
-  %62 = getelementptr inbounds i8, ptr %55, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %61, ptr %62, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !109
   store i8 0, ptr %56, align 4
@@ -5761,7 +5761,7 @@ declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal void @WalSndKill(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyWalSnd, align 8
   store ptr null, ptr @MyWalSnd, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #16, !srcloc !5
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %8, label %6
@@ -5771,7 +5771,7 @@ define internal void @WalSndKill(i32 %0, i64 %1) #0 {
   br label %8
 
 8:                                                ; preds = %2, %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr null, ptr %9, align 8
   store i32 0, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !110

@@ -214,12 +214,12 @@ define dso_local range(i32 -1, 1) i32 @StreamServerPort(i32 noundef %0, ptr noun
   %15 = alloca i32, align 4
   store ptr null, ptr %12, align 8
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 40, i1 false)
-  %17 = getelementptr inbounds i8, ptr %13, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %0, ptr %17, align 4
   store i32 1, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %18, align 8
   %19 = icmp eq i32 %0, 1
   %20 = zext i16 %2 to i32
@@ -313,7 +313,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br i1 %19, label %63, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %.094130, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.094130, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %215, label %63
@@ -333,7 +333,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %.loopexit
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %.094130, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.094130, i64 4
   %72 = load i32, ptr %71, align 4
   switch i32 %72, label %74 [
     i32 2, label %.thread
@@ -352,9 +352,9 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 .thread:                                          ; preds = %73, %70, %74
   %.090108 = phi ptr [ %10, %74 ], [ @.str.9, %70 ], [ @.str.10, %73 ]
-  %77 = getelementptr inbounds i8, ptr %.094130, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.094130, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.094130, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.094130, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = call i32 @pg_getnameinfo_all(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %11, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #19
   %.pre = load i32, ptr %71, align 4
@@ -439,9 +439,9 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %215
 
 .thread113:                                       ; preds = %96, %110, %108
-  %120 = getelementptr inbounds i8, ptr %.094130, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.094130, i64 24
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %.094130, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.094130, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = call i32 @bind(i32 noundef %83, ptr %121, i32 noundef %123) #19
   %125 = icmp slt i32 %124, 0
@@ -518,7 +518,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %.sink.split.i
 
 164:                                              ; preds = %156
-  %165 = getelementptr inbounds i8, ptr %158, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %166 = load i32, ptr %165, align 8
   br label %167
 
@@ -625,7 +625,7 @@ Setup_AF_UNIX.exit:                               ; preds = %143, %175
 
 215:                                              ; preds = %87, %85, %59, %208, %196, %138, %118, %106
   %.1 = phi i32 [ %.095128, %59 ], [ %.095128, %87 ], [ %.095128, %85 ], [ %.095128, %106 ], [ %.095128, %118 ], [ %.095128, %138 ], [ %.095128, %196 ], [ %214, %208 ]
-  %216 = getelementptr inbounds i8, ptr %.094130, i64 40
+  %216 = getelementptr inbounds nuw i8, ptr %.094130, i64 40
   %217 = load ptr, ptr %216, align 8
   %.not102 = icmp eq ptr %217, null
   br i1 %.not102, label %.loopexit, label %58, !llvm.loop !5
@@ -685,8 +685,8 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @StreamConnection(i32 noundef %0, ptr noundef initializes((280, 284)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 152
-  %5 = getelementptr inbounds i8, ptr %1, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 128, ptr %5, align 8
   %6 = tail call i32 @accept(i32 noundef %0, ptr nonnull %4, ptr noundef nonnull %5) #19
   store i32 %6, ptr %1, align 8
@@ -708,8 +708,8 @@ define dso_local range(i32 -1, 1) i32 @StreamConnection(i32 noundef %0, ptr noun
   br label %50
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 128, ptr %16, align 8
   %17 = tail call i32 @getsockname(i32 noundef %6, ptr nonnull %15, ptr noundef nonnull %16) #19
   %18 = icmp slt i32 %17, 0
@@ -793,19 +793,19 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesidle(i32 noundef %0, ptr 
   br i1 %5, label %48, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 392
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %34
@@ -902,19 +902,19 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesinterval(i32 noundef %0, 
   br i1 %5, label %48, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 396
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 380
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 380
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %34
@@ -1011,19 +1011,19 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivescount(i32 noundef %0, ptr
   br i1 %5, label %48, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 400
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %34
@@ -1120,19 +1120,19 @@ define dso_local range(i32 -1, 1) i32 @pq_settcpusertimeout(i32 noundef %0, ptr 
   br i1 %5, label %48, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %48, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 404
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 404
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %0, %12
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 388
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %34
@@ -1242,12 +1242,12 @@ define dso_local void @StreamClose(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @TouchSocketFiles() local_unnamed_addr #7 {
   %1 = load ptr, ptr @sock_paths, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph13, label %._crit_edge
@@ -1274,12 +1274,12 @@ declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @RemoveSocketFiles() local_unnamed_addr #7 {
   %1 = load ptr, ptr @sock_paths, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph13, label %._crit_edge
@@ -1376,7 +1376,7 @@ define internal fastcc range(i32 -1, 1) i32 @pq_recvbuf() unnamed_addr #0 {
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 0, ptr %19, align 4
   %20 = tail call ptr @__errno_location() #22
   br label %21
@@ -1483,7 +1483,7 @@ define dso_local range(i32 -1, -2147483648) i32 @pq_getbyte_if_available(ptr nou
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 1, ptr %17, align 4
   %18 = tail call ptr @__errno_location() #22
   store i32 0, ptr %18, align 4
@@ -1768,7 +1768,7 @@ pq_getbytes.exit20:                               ; preds = %46
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %40
   %71 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %41, %40 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %34, ptr %72, align 8
   %73 = getelementptr i8, ptr %71, i64 %42
   store i8 0, ptr %73, align 1
@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 -1, 1) i32 @internal_putbytes(ptr nocapture nou
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %12, align 4
   %13 = tail call fastcc i32 @internal_flush()
   %.not16 = icmp eq i32 %13, 0
@@ -1936,19 +1936,19 @@ define dso_local i32 @pq_getkeepalivesidle(ptr noundef %0) local_unnamed_addr #0
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 376
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -1992,19 +1992,19 @@ define dso_local i32 @pq_getkeepalivesinterval(ptr noundef %0) local_unnamed_add
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 396
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 380
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -2045,19 +2045,19 @@ define dso_local i32 @pq_getkeepalivescount(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 400
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -2098,19 +2098,19 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
   br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 404
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 388
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
@@ -2160,19 +2160,19 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_idle() local_unnamed_a
   br i1 %3, label %pq_getkeepalivesidle.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %pq_getkeepalivesidle.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %pq_getkeepalivesidle.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 376
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %pq_getkeepalivesidle.exit
@@ -2224,19 +2224,19 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_interval() local_unnam
   br i1 %3, label %pq_getkeepalivesinterval.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %pq_getkeepalivesinterval.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 396
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 396
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %pq_getkeepalivesinterval.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 380
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %pq_getkeepalivesinterval.exit
@@ -2288,19 +2288,19 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_count() local_unnamed_
   br i1 %3, label %pq_getkeepalivescount.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %pq_getkeepalivescount.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 400
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 400
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %pq_getkeepalivescount.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %pq_getkeepalivescount.exit
@@ -2352,19 +2352,19 @@ define dso_local noundef nonnull ptr @show_tcp_user_timeout() local_unnamed_addr
   br i1 %3, label %pq_gettcpusertimeout.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 1
   br i1 %7, label %pq_gettcpusertimeout.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 404
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 404
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %pq_gettcpusertimeout.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 388
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 388
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %pq_gettcpusertimeout.exit
@@ -2478,7 +2478,7 @@ define internal range(i32 -1, 1) i32 @socket_flush() #0 {
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %8, align 4
   %9 = tail call fastcc i32 @internal_flush()
   store i1 false, ptr @PqCommBusy, align 1
@@ -2514,7 +2514,7 @@ define internal range(i32 -1, 1) i32 @socket_flush_if_writable() #0 {
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 1, ptr %12, align 4
   store i1 true, ptr @PqCommBusy, align 1
   %13 = tail call fastcc i32 @internal_flush()
@@ -2595,7 +2595,7 @@ define internal void @socket_putmessage_noblock(i8 noundef signext %0, ptr nound
 
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr @PqCommMethods, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) #19
   ret void

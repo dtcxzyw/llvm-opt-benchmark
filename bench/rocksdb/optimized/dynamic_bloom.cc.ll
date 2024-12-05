@@ -37,7 +37,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb12DynamicBloomC2EPNS_9AllocatorEjjmPNS_6LoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((4, 8)) %this, ptr noundef %allocator, i32 noundef %total_bits, i32 noundef %num_probes, i64 noundef %huge_page_tlb_size, ptr noundef %logger) unnamed_addr #2 align 2 {
 entry:
-  %kNumDoubleProbes = getelementptr inbounds i8, ptr %this, i64 4
+  %kNumDoubleProbes = getelementptr inbounds nuw i8, ptr %this, i64 4
   %cmp = icmp eq i32 %num_probes, 1
   %0 = lshr i32 %num_probes, 1
   %div = select i1 %cmp, i32 1, i32 %0
@@ -64,7 +64,7 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
   %add11 = add i32 %sub10, %mul8
   %conv12 = zext i32 %add11 to i64
   %vtable = load ptr, ptr %allocator, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call13 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv12, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call13, i8 0, i64 %conv12, i1 false)
@@ -76,7 +76,7 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
   %sub18 = sub nsw i64 %conv15, %rem
   %raw.0.idx = select i1 %cmp16.not, i64 0, i64 %sub18
   %raw.0 = getelementptr inbounds i8, ptr %call13, i64 %raw.0.idx
-  %data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %raw.0, ptr %data_, align 8
   ret void
 }

@@ -21,7 +21,7 @@ define { i64, ptr } @taper(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.val187 = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %7 = load double, ptr %.val, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %.val, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %9 = load double, ptr %8, align 8, !noalias !4
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %10 = icmp eq ptr %calloc, null
@@ -36,21 +36,21 @@ define { i64, ptr } @taper(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 insertArr.exit:                                   ; preds = %3
   store double %7, ptr %calloc, align 8
-  %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %calloc, i64 8
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store double %9, ptr %.sroa.45.0..sroa_idx.i, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, i64 16, i1 false), !noalias !4
   %16 = icmp ugt i64 %.val187, 3
   br i1 %16, label %.lr.ph.i, label %pathtolines.exit.thread
 
 pathtolines.exit.thread:                          ; preds = %insertArr.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   br label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %insertArr.exit
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %scevgep.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %invariant.gep.i = getelementptr i8, ptr %.val, i64 16
   br label %20
 
@@ -129,15 +129,15 @@ insertArr.exit.i:                                 ; preds = %23, %41
   %.sroa.16.2 = phi i64 [ %spec.select.i.i.i.i, %41 ], [ %.sroa.16.1, %23 ]
   %50 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.2, i64 %.sroa.9.1
   store double %27, ptr %50, align 8, !noalias !4
-  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 8
+  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store double %28, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 16
+  %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 16
   store double %32, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.67.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 24
+  %.sroa.67.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i8 0, ptr %.sroa.67.0..sroa_idx.i.i, align 8, !noalias !4
-  %.sroa.89.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 32
+  %.sroa.89.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.89.0..sroa_idx.i.i, i8 0, i64 17, i1 false), !noalias !4
-  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 56
+  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %50, i64 56
   store double 0.000000e+00, ptr %.sroa.12.0..sroa_idx.i.i, align 8, !noalias !4
   %51 = add i64 %.sroa.9.1, 1
   %52 = add nuw nsw i32 %.06.i, 1
@@ -203,19 +203,19 @@ mymod.exit191:                                    ; preds = %mymod.exit, %74
   %79 = fptosi double %.0.i190 to i32
   %80 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0173218
   %.sroa.0104.0.copyload = load double, ptr %80, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 16
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 16
   %.sroa.9.0.copyload = load double, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 24
-  %.sroa.10123.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 32
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 40
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 48
-  %.sroa.16141.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %.sroa.10123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %.sroa.16141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 56
   %81 = sext i32 %79 to i64
   %82 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %81
   %.sroa.0.0.copyload = load double, ptr %82, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %82, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %83 = fsub double %.sroa.2.0.copyload, %.sroa.6.0.copyload
   %84 = fsub double %.sroa.0.0.copyload, %.sroa.0104.0.copyload
@@ -238,7 +238,7 @@ myatan.exit:                                      ; preds = %mymod.exit191, %87,
   %92 = sext i32 %69 to i64
   %93 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %92
   %.sroa.0101.0.copyload = load double, ptr %93, align 8
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 8
+  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.sroa.2102.0.copyload = load double, ptr %.sroa.2102.0..sroa_idx, align 8
   %94 = fsub double %.sroa.2102.0.copyload, %.sroa.6.0.copyload
   %95 = fsub double %.sroa.0101.0.copyload, %.sroa.0104.0.copyload
@@ -350,15 +350,15 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %.0171222 = phi i64 [ %155, %154 ], [ 0, %._crit_edge ]
   %143 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3243, i64 %.0171222
   %.sroa.0104.0.copyload107 = load double, ptr %143, align 8
-  %.sroa.6.0..sroa_idx109 = getelementptr inbounds i8, ptr %143, i64 8
+  %.sroa.6.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %.sroa.6.0.copyload110 = load double, ptr %.sroa.6.0..sroa_idx109, align 8
-  %.sroa.10123.0..sroa_idx124 = getelementptr inbounds i8, ptr %143, i64 32
+  %.sroa.10123.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %.sroa.10123.0.copyload125 = load double, ptr %.sroa.10123.0..sroa_idx124, align 8
-  %.sroa.12.0..sroa_idx129 = getelementptr inbounds i8, ptr %143, i64 40
+  %.sroa.12.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %.sroa.12.0.copyload130 = load double, ptr %.sroa.12.0..sroa_idx129, align 8
-  %.sroa.14.0..sroa_idx134 = getelementptr inbounds i8, ptr %143, i64 48
+  %.sroa.14.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %.sroa.14.0.copyload135 = load i8, ptr %.sroa.14.0..sroa_idx134, align 8
-  %.sroa.16141.0..sroa_idx142 = getelementptr inbounds i8, ptr %143, i64 56
+  %.sroa.16141.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %143, i64 56
   %.sroa.16141.0.copyload143 = load double, ptr %.sroa.16141.0..sroa_idx142, align 8
   %144 = trunc i8 %.sroa.14.0.copyload135 to i1
   %145 = call double @cos(double noundef %.sroa.10123.0.copyload125) #14
@@ -405,15 +405,15 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %.0169231 = phi i64 [ %176, %175 ], [ %.sroa.9.2246256, %._crit_edge225 ]
   %162 = getelementptr inbounds %struct.pathpoint, ptr %.sroa.0.3244257, i64 %.0169231
   %.sroa.0104.0.copyload108 = load double, ptr %162, align 8
-  %.sroa.6.0..sroa_idx111 = getelementptr inbounds i8, ptr %162, i64 8
+  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %.sroa.6.0.copyload112 = load double, ptr %.sroa.6.0..sroa_idx111, align 8
-  %.sroa.10123.0..sroa_idx126 = getelementptr inbounds i8, ptr %162, i64 32
+  %.sroa.10123.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %.sroa.10123.0.copyload127 = load double, ptr %.sroa.10123.0..sroa_idx126, align 8
-  %.sroa.12.0..sroa_idx131 = getelementptr inbounds i8, ptr %162, i64 40
+  %.sroa.12.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %162, i64 40
   %.sroa.12.0.copyload132 = load double, ptr %.sroa.12.0..sroa_idx131, align 8
-  %.sroa.14.0..sroa_idx136 = getelementptr inbounds i8, ptr %162, i64 48
+  %.sroa.14.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %162, i64 48
   %.sroa.14.0.copyload137 = load i8, ptr %.sroa.14.0..sroa_idx136, align 8
-  %.sroa.16141.0..sroa_idx144 = getelementptr inbounds i8, ptr %162, i64 56
+  %.sroa.16141.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %162, i64 56
   %.sroa.16141.0.copyload145 = load double, ptr %.sroa.16141.0..sroa_idx144, align 8
   %163 = trunc i8 %.sroa.14.0.copyload137 to i1
   %164 = fadd double %.sroa.16141.0.copyload145, 0x400921FB54442D18
@@ -442,7 +442,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   call void @free(ptr noundef nonnull %.sroa.0.3244257) #14
   %.fca.0.load = load i64, ptr %5, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load = load ptr, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
   ret { i64, ptr } %.fca.1.insert
@@ -459,7 +459,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @addto(ptr nocapture noundef nonnull %0, double noundef %1, double noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = add i64 %6, 1
@@ -510,7 +510,7 @@ gv_recalloc.exit:                                 ; preds = %16, %23, %25
   store i64 %28, ptr %0, align 8
   %29 = getelementptr inbounds %struct.pointf_s, ptr %.0.i.i, i64 %27
   store double %1, ptr %29, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %2, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }

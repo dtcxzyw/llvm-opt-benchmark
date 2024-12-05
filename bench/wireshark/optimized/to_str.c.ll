@@ -2262,7 +2262,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [9 x i8], align 1
-  %7 = getelementptr inbounds i8, ptr %6, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %81, label %9
 
@@ -2453,12 +2453,12 @@ define void @display_epoch_time(ptr noundef %0, i64 noundef %1, ptr nocapture no
 ; Function Attrs: nounwind uwtable
 define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [20 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %68, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %19
@@ -2625,17 +2625,17 @@ define void @format_nstime_as_iso8601(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %42
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1900
-  %20 = getelementptr inbounds i8, ptr %.0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %.0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %.0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %.0, align 8
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.8, i32 noundef %19, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %29) #10
@@ -2656,7 +2656,7 @@ define void @format_nstime_as_iso8601(ptr noundef %0, i64 noundef %1, ptr nounde
 36:                                               ; preds = %34
   %37 = sub nuw i64 %1, %35
   %38 = getelementptr i8, ptr %0, i64 %35
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = call i32 @format_fractional_part_nsecs(ptr noundef %38, i64 noundef %37, i32 noundef %40, ptr noundef %3, i32 noundef %5)
   br label %42

@@ -39,17 +39,17 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h003f391f5593a7f2E"(ptr 
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   %8 = call zeroext i1 @"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h78fa83025d6fc07cE"(ptr nonnull align 16 %3)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %13
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
   br label %13
 
@@ -65,14 +65,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h484b0598e65711ceE"(ptr 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   call void @"_ZN14cranelift_isle6parser6Parser13expect_rparen28_$u7b$$u7b$closure$u7d$$u7d$17he78f3f5dca1a257dE"(ptr nonnull align 16 %3)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
   br label %10
 
@@ -87,17 +87,17 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7ccc5c0aeb2f4f20E"(ptr 
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i128, ptr %6, align 16, !noundef !4
   %8 = tail call i128 @"_ZN14cranelift_isle5lexer5Lexer10next_token28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8a5d25837cfaf12aE"(i128 %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %8, ptr %9, align 16
   br label %14
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %12, ptr %13, align 1
   br label %14
 
@@ -115,14 +115,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h891b15bef487b29fE"(ptr 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   call void @"_ZN14cranelift_isle6parser6Parser9expect_at28_$u7b$$u7b$closure$u7d$$u7d$17he6696ae0aaeff8e1E"(ptr nonnull align 16 %3)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
   br label %10
 
@@ -138,14 +138,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, i64 32, i1 false)
   call void @"_ZN14cranelift_isle6parser6Parser13expect_lparen28_$u7b$$u7b$closure$u7d$$u7d$17h9afa315e13f73669E"(ptr nonnull align 16 %3)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
   br label %10
 
@@ -168,8 +168,8 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hacaa283a6f3f012bE"(ptr 
   br label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
   store i64 6, ptr %0, align 16
   br label %10
@@ -183,12 +183,12 @@ define { ptr, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1d1464ecca1c
   %5 = alloca { i64, { i8, [1 x i8] }, [6 x i8] }, align 8
   %6 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %7 = icmp eq i64 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %7, label %9, label %15
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %8, align 8, !nonnull !4, !align !8, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = insertvalue { ptr, i64 } poison, ptr %10, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %12, 1
@@ -208,9 +208,9 @@ define { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb61
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = insertvalue { i64, i64 } poison, i64 %10, 0
   %14 = insertvalue { i64, i64 } %13, i64 %12, 1
@@ -269,9 +269,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6730064135629c5fE"(
   %.sink2 = phi ptr [ %9, %5 ], [ %1, %4 ]
   %.sink = phi i64 [ %8, %5 ], [ %2, %4 ]
   %storemerge = phi i64 [ 1, %5 ], [ 0, %4 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %12, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -292,9 +292,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha6c6e8e60871fa94E"(
   %.sink2 = phi i64 [ %6, %4 ], [ %1, %3 ]
   %.sink = phi i64 [ %7, %4 ], [ %2, %3 ]
   %storemerge = phi i64 [ 1, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %10, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -307,7 +307,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc395d12b49b5cd51E"(
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %11
@@ -337,9 +337,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc96a0b06a8b1ba3fE"(
   %.sink2 = phi ptr [ %9, %5 ], [ %1, %4 ]
   %.sink = phi i64 [ %8, %5 ], [ %2, %4 ]
   %storemerge = phi i64 [ 1, %5 ], [ 0, %4 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %12, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -353,17 +353,17 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17heb16a1579548405fE"(
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i128, ptr %9, align 16, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %10, ptr %11, align 16
   br label %16
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !4
   call void @"_ZN14cranelift_isle5lexer5Lexer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17h14a979a90a40bc81E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 16 %2, ptr align 8 %3, i8 %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %16
 

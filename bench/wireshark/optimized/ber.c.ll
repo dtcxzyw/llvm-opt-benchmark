@@ -43,7 +43,7 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond65, label %16, label %49
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %18 = load i8, ptr %17, align 1
   %.not60 = icmp eq i8 %18, -128
   br i1 %.not60, label %37, label %19
@@ -97,17 +97,17 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
 
 41:                                               ; preds = %37
   %42 = load i32, ptr @ber_file_type_subtype, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 90, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @ber_full_file_read, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ber_full_file_seek_read, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 148
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %48, align 4
   br label %49
 
@@ -129,9 +129,9 @@ define internal range(i32 0, 2) i32 @ber_full_file_read(ptr noundef %0, ptr noun
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -147,9 +147,9 @@ define internal range(i32 0, 2) i32 @ber_full_file_seek_read(ptr noundef %0, i64
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %10, ptr %11, align 8
   br label %12
 

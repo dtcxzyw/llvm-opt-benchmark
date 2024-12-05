@@ -15,8 +15,8 @@ define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr noc
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @initStringInfo(ptr noundef nonnull %4) #4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %8
 
 8:                                                ; preds = %49, %3

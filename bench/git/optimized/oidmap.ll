@@ -25,14 +25,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algo.i = getelementptr inbounds i8, ptr %e1, i64 48
+  %algo.i = getelementptr inbounds nuw i8, ptr %e1, i64 48
   %0 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
   br label %return
 
@@ -42,15 +42,15 @@ if.else.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %oid4 = getelementptr inbounds i8, ptr %e2, i64 16
-  %algo.i3 = getelementptr inbounds i8, ptr %e1, i64 48
+  %oid4 = getelementptr inbounds nuw i8, ptr %e2, i64 16
+  %algo.i3 = getelementptr inbounds nuw i8, ptr %e1, i64 48
   %3 = load i32, ptr %algo.i3, align 4
   %tobool.not.i4 = icmp eq i32 %3, 0
   br i1 %tobool.not.i4, label %if.then.i15, label %if.else.i5
 
 if.then.i15:                                      ; preds = %if.end
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i16 = getelementptr inbounds i8, ptr %4, i64 256
+  %hash_algo.i16 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i16, align 8
   br label %return
 
@@ -62,7 +62,7 @@ if.else.i5:                                       ; preds = %if.end
 return:                                           ; preds = %if.else.i5, %if.then.i15, %if.else.i, %if.then.i
   %algop.0.i8.sink = phi ptr [ %arrayidx.i, %if.else.i ], [ %2, %if.then.i ], [ %arrayidx.i7, %if.else.i5 ], [ %5, %if.then.i15 ]
   %oid4.sink = phi ptr [ %keydata, %if.else.i ], [ %keydata, %if.then.i ], [ %oid4, %if.else.i5 ], [ %oid4, %if.then.i15 ]
-  %oid3 = getelementptr inbounds i8, ptr %e1, i64 16
+  %oid3 = getelementptr inbounds nuw i8, ptr %e1, i64 16
   %6 = getelementptr i8, ptr %algop.0.i8.sink, i64 16
   %algop.0.val.i9 = load i64, ptr %6, align 8
   %cmp.i.i10 = icmp eq i64 %algop.0.val.i9, 32
@@ -95,7 +95,7 @@ declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local ptr @oidmap_get(ptr noundef %map, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.hashmap_entry, align 8
-  %cmpfn = getelementptr inbounds i8, ptr %map, i64 8
+  %cmpfn = getelementptr inbounds nuw i8, ptr %map, i64 8
   %0 = load ptr, ptr %cmpfn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -103,7 +103,7 @@ entry:
 if.end:                                           ; preds = %entry
   %key.val = load i32, ptr %key, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
-  %hash1.i.i = getelementptr inbounds i8, ptr %key.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %key.i, i64 8
   store i32 %key.val, ptr %hash1.i.i, align 8
   store ptr null, ptr %key.i, align 8
   %call.i = call ptr @hashmap_get(ptr noundef nonnull %map, ptr noundef nonnull %key.i, ptr noundef nonnull %key) #5
@@ -119,7 +119,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local ptr @oidmap_remove(ptr noundef %map, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.hashmap_entry, align 8
-  %cmpfn = getelementptr inbounds i8, ptr %map, i64 8
+  %cmpfn = getelementptr inbounds nuw i8, ptr %map, i64 8
   %0 = load ptr, ptr %cmpfn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -130,7 +130,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %key.val = load i32, ptr %key, align 4
-  %hash1.i = getelementptr inbounds i8, ptr %entry1, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   store i32 %key.val, ptr %hash1.i, align 8
   store ptr null, ptr %entry1, align 8
   %call4 = call ptr @hashmap_remove(ptr noundef nonnull %map, ptr noundef nonnull %entry1, ptr noundef nonnull %key) #5
@@ -142,7 +142,7 @@ declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @oidmap_put(ptr noundef %map, ptr noundef initializes((0, 12)) %entry1) local_unnamed_addr #0 {
 entry:
-  %cmpfn = getelementptr inbounds i8, ptr %map, i64 8
+  %cmpfn = getelementptr inbounds nuw i8, ptr %map, i64 8
   %0 = load ptr, ptr %cmpfn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -152,9 +152,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %oid = getelementptr inbounds i8, ptr %entry1, i64 16
+  %oid = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %oid.val = load i32, ptr %oid, align 4
-  %hash1.i = getelementptr inbounds i8, ptr %entry1, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   store i32 %oid.val, ptr %hash1.i, align 8
   store ptr null, ptr %entry1, align 8
   %call5 = tail call ptr @hashmap_put(ptr noundef nonnull %map, ptr noundef nonnull %entry1) #5

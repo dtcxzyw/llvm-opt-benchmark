@@ -19,9 +19,9 @@ define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef initializ
 4:                                                ; preds = %2, %4
   %.09 = phi i64 [ 0, %2 ], [ %11, %4 ]
   %5 = shl nuw nsw i64 %.09, 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = load i32, ptr %6, align 1
-  %8 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %.09
+  %8 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.09
   %9 = load i32, ptr %8, align 4
   %10 = xor i32 %9, %7
   store i32 %10, ptr %8, align 4
@@ -32,7 +32,7 @@ define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef initializ
 12:                                               ; preds = %4
   %13 = load i8, ptr %1, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %14, ptr %15, align 8
   ret i32 0
 }
@@ -47,13 +47,13 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i6
 5:                                                ; preds = %2
   %6 = trunc nuw nsw i64 %1 to i8
   store i8 %6, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 1, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 1, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
@@ -63,9 +63,9 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i6
 12:                                               ; preds = %12, %5
   %.09.i = phi i64 [ 0, %5 ], [ %19, %12 ]
   %13 = shl nuw nsw i64 %.09.i, 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %.09.i
+  %16 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.09.i
   %17 = load i32, ptr %16, align 4
   %18 = xor i32 %17, %15
   store i32 %18, ptr %16, align 4
@@ -74,7 +74,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i6
   br i1 %exitcond.not.i, label %blake2s_init_param.exit, label %12, !llvm.loop !5
 
 blake2s_init_param.exit:                          ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %20, align 8
   br label %21
 
@@ -105,13 +105,13 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
   %13 = trunc nuw nsw i64 %1 to i8
   store i8 %13, ptr %5, align 16
   %14 = trunc nuw nsw i64 %3 to i8
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %14, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 1, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %5, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 1, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = getelementptr i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %19, i8 0, i64 104, i1 false)
@@ -121,9 +121,9 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
 20:                                               ; preds = %20, %12
   %.09.i = phi i64 [ 0, %12 ], [ %27, %20 ]
   %21 = shl nuw nsw i64 %.09.i, 2
-  %22 = getelementptr inbounds i8, ptr %5, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %.09.i
+  %24 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.09.i
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %25, %23
   store i32 %26, ptr %24, align 4
@@ -132,11 +132,11 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0
   br i1 %exitcond.not.i, label %blake2s_init_param.exit, label %20, !llvm.loop !5
 
 blake2s_init_param.exit:                          ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %2, i64 %3, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 64, %30
   %32 = icmp ult i64 %31, 64
@@ -144,7 +144,7 @@ blake2s_init_param.exit:                          ; preds = %20
 
 33:                                               ; preds = %blake2s_init_param.exit
   store i64 0, ptr %29, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = getelementptr inbounds i8, ptr %34, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 16 %6, i64 %31, i1 false)
   %36 = load i32, ptr %19, align 8
@@ -152,12 +152,12 @@ blake2s_init_param.exit:                          ; preds = %20
   store i32 %37, ptr %19, align 8
   %38 = icmp ugt i32 %36, -65
   %39 = zext i1 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, %39
   store i32 %42, ptr %40, align 4
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %34)
-  %43 = getelementptr inbounds i8, ptr %6, i64 %31
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %31
   %44 = icmp ugt i64 %30, 64
   br i1 %44, label %.lr.ph.i, label %blake2s_update.exit
 
@@ -173,7 +173,7 @@ blake2s_init_param.exit:                          ; preds = %20
   %50 = add i32 %49, %48
   store i32 %50, ptr %40, align 4
   call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %.13033.i)
-  %51 = getelementptr inbounds i8, ptr %.13033.i, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %.13033.i, i64 64
   %52 = add i64 %.134.i, -64
   %53 = icmp ugt i64 %52, 64
   br i1 %53, label %.lr.ph.i, label %blake2s_update.exit, !llvm.loop !7
@@ -181,7 +181,7 @@ blake2s_init_param.exit:                          ; preds = %20
 blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_init_param.exit, %33
   %.029.i = phi ptr [ %6, %blake2s_init_param.exit ], [ %43, %33 ], [ %51, %.lr.ph.i ]
   %.0.i = phi i64 [ 64, %blake2s_init_param.exit ], [ %30, %33 ], [ %52, %.lr.ph.i ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %29, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %.029.i, i64 %.0.i, i1 false)
@@ -206,7 +206,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   br i1 %.not, label %37, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 64, %6
   %8 = icmp ugt i64 %2, %7
@@ -214,16 +214,16 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
 
 9:                                                ; preds = %4
   store i64 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds i8, ptr %10, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %1, i64 %7, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 64
   store i32 %14, ptr %12, align 8
   %15 = icmp ugt i32 %13, -65
   %16 = zext i1 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4
@@ -245,7 +245,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   %28 = add i32 %27, %26
   store i32 %28, ptr %17, align 4
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef %.13033)
-  %29 = getelementptr inbounds i8, ptr %.13033, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.13033, i64 64
   %30 = add i64 %.134, -64
   %31 = icmp ugt i64 %30, 64
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !7
@@ -253,7 +253,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
   %.029 = phi ptr [ %1, %4 ], [ %20, %9 ], [ %29, %.lr.ph ]
   %.0 = phi i64 [ %2, %4 ], [ %21, %9 ], [ %30, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i64, ptr %5, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.029, i64 %.0, i1 false)
@@ -271,55 +271,55 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
 .preheader.preheader:
   %2 = alloca [16 x i32], align 16
   %.sroa.0.0.copyload = load i32, ptr %1, align 1
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 1
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 1
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 1
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 1
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.36.0.copyload = load i32, ptr %.sroa.36.0..sroa_idx, align 1
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.44.0.copyload = load i32, ptr %.sroa.44.0..sroa_idx, align 1
-  %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.51.0.copyload = load i32, ptr %.sroa.51.0..sroa_idx, align 1
-  %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.58.0.copyload = load i32, ptr %.sroa.58.0..sroa_idx, align 1
-  %.sroa.65.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 36
+  %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.65.0.copyload = load i32, ptr %.sroa.65.0..sroa_idx, align 1
-  %.sroa.72.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.72.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.72.0.copyload = load i32, ptr %.sroa.72.0..sroa_idx, align 1
-  %.sroa.79.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 44
+  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.sroa.79.0.copyload = load i32, ptr %.sroa.79.0..sroa_idx, align 1
-  %.sroa.86.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.86.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.86.0.copyload = load i32, ptr %.sroa.86.0..sroa_idx, align 1
-  %.sroa.93.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 52
+  %.sroa.93.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 52
   %.sroa.93.0.copyload = load i32, ptr %.sroa.93.0..sroa_idx, align 1
-  %.sroa.100.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.100.0.copyload = load i32, ptr %.sroa.100.0..sroa_idx, align 1
-  %.sroa.107.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 60
+  %.sroa.107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.sroa.107.0.copyload = load i32, ptr %.sroa.107.0..sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
-  %4 = getelementptr inbounds i8, ptr %2, i64 36
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 52
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %19 = load i32, ptr %2, align 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %20, align 16
   %22 = add i32 %21, %19
   %23 = add i32 %22, %.sroa.0.0.copyload
@@ -336,9 +336,9 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
   %34 = add i32 %33, %27
   %35 = xor i32 %34, %29
   %36 = tail call i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 25)
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, %38
   %42 = add i32 %41, %.sroa.15.0.copyload
@@ -355,9 +355,9 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
   %53 = add i32 %52, %46
   %54 = xor i32 %53, %48
   %55 = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 25)
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, %57
   %61 = add i32 %60, %.sroa.29.0.copyload
@@ -374,9 +374,9 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
   %72 = add i32 %71, %65
   %73 = xor i32 %72, %67
   %74 = tail call i32 @llvm.fshl.i32(i32 %73, i32 %73, i32 25)
-  %75 = getelementptr inbounds i8, ptr %2, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %2, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, %76
   %80 = add i32 %79, %.sroa.44.0.copyload
@@ -1569,13 +1569,13 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
 
 1204:                                             ; preds = %.preheader.preheader, %1204
   %.223 = phi i64 [ 0, %.preheader.preheader ], [ %1214, %1204 ]
-  %1205 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %.223
+  %1205 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.223
   %1206 = load i32, ptr %1205, align 4
-  %1207 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %.223
+  %1207 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %.223
   %1208 = load i32, ptr %1207, align 4
   %1209 = xor i32 %1208, %1206
   %1210 = or disjoint i64 %.223, 8
-  %1211 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %1210
+  %1211 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %1210
   %1212 = load i32, ptr %1211, align 4
   %1213 = xor i32 %1209, %1212
   store i32 %1213, ptr %1205, align 4
@@ -1595,7 +1595,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr nocapture noundef %0, p
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %2, %8
   br i1 %9, label %50, label %10
@@ -1607,32 +1607,32 @@ define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr nocapture noundef %0, p
   br i1 %.not22, label %12, label %50
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, %15
   store i32 %18, ptr %16, align 8
   %19 = icmp ult i32 %18, %15
   %20 = zext i1 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, %20
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load i8, ptr %24, align 8
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %blake2s_set_lastblock.exit, label %26
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 -1, ptr %27, align 4
   br label %blake2s_set_lastblock.exit
 
 blake2s_set_lastblock.exit:                       ; preds = %12, %26
   store i32 -1, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds i8, ptr %28, i64 %14
   %30 = sub i64 64, %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %29, i8 0, i64 %30, i1 false)
@@ -1642,22 +1642,22 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
 31:                                               ; preds = %blake2s_set_lastblock.exit, %31
   %.023 = phi i64 [ 0, %blake2s_set_lastblock.exit ], [ %46, %31 ]
   %32 = shl nuw nsw i64 %.023, 2
-  %33 = getelementptr inbounds i8, ptr %4, i64 %32
-  %34 = getelementptr inbounds [8 x i32], ptr %0, i64 0, i64 %.023
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %.023
   %35 = load i32, ptr %34, align 4
   %36 = trunc i32 %35 to i8
   store i8 %36, ptr %33, align 4
   %37 = lshr i32 %35, 8
   %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %38, ptr %39, align 1
   %40 = lshr i32 %35, 16
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %33, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %41, ptr %42, align 2
   %43 = lshr i32 %35, 24
   %44 = trunc nuw i32 %43 to i8
-  %45 = getelementptr inbounds i8, ptr %33, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 %44, ptr %45, align 1
   %46 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %46, 8
@@ -1709,14 +1709,14 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 nou
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %23 = trunc nuw nsw i64 %1 to i8
   store i8 %23, ptr %8, align 16
-  %24 = getelementptr inbounds i8, ptr %8, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %8, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 1, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %8, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 1, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %8, i64 4
-  %28 = getelementptr inbounds i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %28, i8 0, i64 104, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
@@ -1725,9 +1725,9 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 nou
 29:                                               ; preds = %29, %22
   %.09.i.i = phi i64 [ 0, %22 ], [ %36, %29 ]
   %30 = shl nuw nsw i64 %.09.i.i, 2
-  %31 = getelementptr inbounds i8, ptr %8, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %.09.i.i
+  %33 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.09.i.i
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, %32
   store i32 %35, ptr %33, align 4
@@ -1736,7 +1736,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly %0, i64 nou
   br i1 %exitcond.not.i.i, label %blake2s_init.exit, label %29, !llvm.loop !5
 
 blake2s_init.exit:                                ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %9, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 %1, ptr %37, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %38
@@ -1746,7 +1746,7 @@ blake2s_init.exit:                                ; preds = %29
   br i1 %.not.i, label %72, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %9, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %41 = load i64, ptr %40, align 16
   %42 = sub i64 64, %41
   %43 = icmp ugt i64 %3, %42
@@ -1754,16 +1754,16 @@ blake2s_init.exit:                                ; preds = %29
 
 44:                                               ; preds = %39
   store i64 0, ptr %40, align 16
-  %45 = getelementptr inbounds i8, ptr %9, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %46 = getelementptr inbounds i8, ptr %45, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %2, i64 %42, i1 false)
-  %47 = getelementptr inbounds i8, ptr %9, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %48 = load i32, ptr %47, align 16
   %49 = add i32 %48, 64
   store i32 %49, ptr %47, align 16
   %50 = icmp ugt i32 %48, -65
   %51 = zext i1 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %9, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, %51
   store i32 %54, ptr %52, align 4
@@ -1785,7 +1785,7 @@ blake2s_init.exit:                                ; preds = %29
   %63 = add i32 %62, %61
   store i32 %63, ptr %52, align 4
   call fastcc void @blake2s_compress(ptr noundef nonnull %9, ptr noundef %.13033.i)
-  %64 = getelementptr inbounds i8, ptr %.13033.i, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %.13033.i, i64 64
   %65 = add i64 %.134.i, -64
   %66 = icmp ugt i64 %65, 64
   br i1 %66, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
@@ -1793,7 +1793,7 @@ blake2s_init.exit:                                ; preds = %29
 .loopexit.i:                                      ; preds = %.lr.ph.i, %44, %39
   %.029.i = phi ptr [ %2, %39 ], [ %55, %44 ], [ %64, %.lr.ph.i ]
   %.0.i28 = phi i64 [ %3, %39 ], [ %56, %44 ], [ %65, %.lr.ph.i ]
-  %67 = getelementptr inbounds i8, ptr %9, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %68 = load i64, ptr %40, align 16
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %.029.i, i64 %.0.i28, i1 false)
@@ -1805,44 +1805,44 @@ blake2s_init.exit:                                ; preds = %29
 72:                                               ; preds = %.loopexit.i, %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %73 = getelementptr inbounds i8, ptr %9, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %74 = load i64, ptr %73, align 8
   %75 = icmp ult i64 %1, %74
   br i1 %75, label %blake2s_final.exit, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %9, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.val.i = load i32, ptr %77, align 8
   %.not22.i = icmp eq i32 %.val.i, 0
   br i1 %.not22.i, label %78, label %blake2s_final.exit
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %9, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %80 = load i64, ptr %79, align 16
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %9, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %83 = load i32, ptr %82, align 16
   %84 = add i32 %83, %81
   store i32 %84, ptr %82, align 16
   %85 = icmp ult i32 %84, %81
   %86 = zext i1 %85 to i32
-  %87 = getelementptr inbounds i8, ptr %9, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %86
   store i32 %89, ptr %87, align 4
-  %90 = getelementptr inbounds i8, ptr %9, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %91 = load i8, ptr %90, align 16
   %.not.i.i = icmp eq i8 %91, 0
   br i1 %.not.i.i, label %blake2s_set_lastblock.exit.i, label %92
 
 92:                                               ; preds = %78
-  %93 = getelementptr inbounds i8, ptr %9, i64 44
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 -1, ptr %93, align 4
   br label %blake2s_set_lastblock.exit.i
 
 blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
   store i32 -1, ptr %77, align 8
-  %94 = getelementptr inbounds i8, ptr %9, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %95 = getelementptr inbounds i8, ptr %94, i64 %80
   %96 = sub i64 64, %80
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %95, i8 0, i64 %96, i1 false)
@@ -1852,22 +1852,22 @@ blake2s_set_lastblock.exit.i:                     ; preds = %92, %78
 97:                                               ; preds = %97, %blake2s_set_lastblock.exit.i
   %.023.i = phi i64 [ 0, %blake2s_set_lastblock.exit.i ], [ %112, %97 ]
   %98 = shl nuw nsw i64 %.023.i, 2
-  %99 = getelementptr inbounds i8, ptr %7, i64 %98
-  %100 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %.023.i
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %.023.i
   %101 = load i32, ptr %100, align 4
   %102 = trunc i32 %101 to i8
   store i8 %102, ptr %99, align 4
   %103 = lshr i32 %101, 8
   %104 = trunc i32 %103 to i8
-  %105 = getelementptr inbounds i8, ptr %99, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 %104, ptr %105, align 1
   %106 = lshr i32 %101, 16
   %107 = trunc i32 %106 to i8
-  %108 = getelementptr inbounds i8, ptr %99, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 %107, ptr %108, align 2
   %109 = lshr i32 %101, 24
   %110 = trunc nuw i32 %109 to i8
-  %111 = getelementptr inbounds i8, ptr %99, i64 3
+  %111 = getelementptr inbounds nuw i8, ptr %99, i64 3
   store i8 %110, ptr %111, align 1
   %112 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %112, 8

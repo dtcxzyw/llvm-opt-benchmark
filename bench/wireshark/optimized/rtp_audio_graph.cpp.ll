@@ -32,11 +32,11 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
   %7 = alloca %class.QColor, align 4
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV13RtpAudioGraph, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 34
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i64 0, ptr %10, align 2
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %11 unwind label %34
@@ -46,15 +46,15 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
           to label %12 unwind label %36
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %13, align 8
   %14 = invoke noundef ptr @_ZN11QCustomPlot8addGraphEP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(513) %1, ptr noundef null, ptr noundef null)
           to label %15 unwind label %38
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %17) #5
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %6, align 8
@@ -91,7 +91,7 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %8, ptr noundef nonnull align 4 dereferenceable(14) %33, i64 14, i1 false)
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #5
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
@@ -163,9 +163,9 @@ declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) u
 define void @_ZN13RtpAudioGraph8setMutedEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .invoke:
   %2 = alloca %class.QPen, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %5) #5
   %6 = select i1 %1, i32 3, i32 1
   invoke void @_ZN4QPen8setStyleEN2Qt8PenStyleE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %6)
@@ -194,7 +194,7 @@ define void @_ZN13RtpAudioGraph12setHighlightEb(ptr nocapture noundef nonnull re
   %3 = alloca %class.QCPDataSelection, align 8
   %4 = alloca %class.QCPDataRange, align 4
   %5 = alloca %class.QPen, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br i1 %1, label %8, label %9
 
@@ -233,7 +233,7 @@ _ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split: ; preds = %_ZN17QArrayDataPoin
 _ZN16QCPDataSelectionD2Ev.exit.invoke:            ; preds = %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i, %.critedge17, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19, %.critedge
   %15 = phi double [ 1.000000e+00, %.critedge ], [ 1.000000e+00, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19 ], [ 5.000000e-01, %.critedge17 ], [ 5.000000e-01, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i ], [ %.ph, %_ZN16QCPDataSelectionD2Ev.exit.invoke.sink.split ]
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %17) #5
   invoke void @_ZN4QPen9setWidthFEd(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %15)
           to label %31 unwind label %29
@@ -313,7 +313,7 @@ define void @_ZN13RtpAudioGraph11setSelectedEb(ptr noundef nonnull align 8 deref
   %4 = alloca %class.QCPDataRange, align 4
   %5 = alloca %class.QPen, align 8
   %6 = alloca %class.QColor, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   br i1 %1, label %9, label %10
 
@@ -350,9 +350,9 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i: ; preds = %.critedge1
 
 _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %.critedge17, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i, %15
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %18) #5
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %6, i32 noundef %20) #5
   br label %_ZN16QCPDataSelectionD2Ev.exit.invoke
@@ -377,9 +377,9 @@ _ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19: ; preds = %.critedg
 
 _ZN16QCPDataSelectionD2Ev.exit21:                 ; preds = %.critedge, %_ZN17QArrayDataPointerI12QCPDataRangeE5derefEv.exit.i.i.i19, %23
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %26) #5
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %_ZN16QCPDataSelectionD2Ev.exit.invoke
 
 28:                                               ; preds = %11
@@ -437,7 +437,7 @@ _ZN16QCPDataSelectionD2Ev.exit29:                 ; preds = %33, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13RtpAudioGraph7setDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr noundef nonnull align 8 dereferenceable(313) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
   ret void
@@ -447,7 +447,7 @@ declare void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13RtpAudioGraph6removeEP11QCustomPlot(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef nonnull align 8 dereferenceable(513) %1, ptr noundef %4)
   ret void
@@ -457,7 +457,7 @@ declare noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13RtpAudioGraph13isMyPlottableEP20QCPAbstractPlottable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   ret i1 %5

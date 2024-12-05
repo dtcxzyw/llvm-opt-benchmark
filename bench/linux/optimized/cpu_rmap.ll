@@ -54,10 +54,10 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
 16:                                               ; preds = %4
   store volatile i32 1, ptr %14, align 8
   %17 = getelementptr i8, ptr %14, i64 %9
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load i64, ptr @__cpu_possible_mask, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %21
 
 21:                                               ; preds = %16, %30
@@ -79,7 +79,7 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
   %33 = and i64 %27, 63
   %34 = getelementptr [0 x %struct.anon], ptr %20, i64 0, i64 %33
   store i16 %32, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %34, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store i16 -1, ptr %35, align 2
   %36 = add nuw nsw i64 %27, 1
   %37 = and i64 %36, 127
@@ -88,7 +88,7 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
 
 .thread:                                          ; preds = %21, %30, %26
   %39 = trunc nuw i32 %0 to i16
-  %40 = getelementptr inbounds i8, ptr %14, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i16 %39, ptr %40, align 4
   br label %41
 
@@ -129,13 +129,13 @@ define dso_local noundef range(i32 0, 2) i32 @cpu_rmap_put(ptr noundef %0) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local i32 @cpu_rmap_add(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %4 to i64
   br label %10
@@ -173,7 +173,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   %4 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre26 = load i64, ptr @__cpu_online_mask, align 8
   br label %6
 
@@ -203,7 +203,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %19, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 -1, ptr %23, align 2
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #8, !srcloc !14
   %.pre = load i64, ptr @__cpu_online_mask, align 8
@@ -239,7 +239,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   %42 = and i64 %37, 63
   %43 = getelementptr [0 x %struct.anon], ptr %5, i64 0, i64 %42
   store i16 %1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %43, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store i16 0, ptr %44, align 2
   %45 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %42
   %46 = load i64, ptr %45, align 8
@@ -276,7 +276,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
   %70 = add i64 %69, ptrtoint (ptr @cpu_sibling_map to i64)
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr [0 x %struct.anon], ptr %5, i64 0, i64 %67
-  %73 = getelementptr inbounds i8, ptr %72, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i64, ptr %71, align 8
   br label %75
 
@@ -301,7 +301,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 87:                                               ; preds = %84
   %88 = and i64 %81, 63
   %89 = getelementptr [0 x %struct.anon], ptr %5, i64 0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %91 = load i16, ptr %90, align 2
   %92 = icmp ugt i16 %91, 1
   br i1 %92, label %93, label %.thread21.sink.split
@@ -339,7 +339,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 112:                                              ; preds = %109
   %113 = and i64 %106, 63
   %114 = getelementptr [0 x %struct.anon], ptr %5, i64 0, i64 %113
-  %115 = getelementptr inbounds i8, ptr %114, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load i16, ptr %115, align 2
   %117 = icmp ugt i16 %116, 2
   br i1 %117, label %118, label %.thread21.sink.split
@@ -380,7 +380,7 @@ define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noun
 140:                                              ; preds = %137
   %141 = and i64 %134, 63
   %142 = getelementptr [0 x %struct.anon], ptr %5, i64 0, i64 %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 2
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %144 = load i16, ptr %143, align 2
   %145 = icmp ugt i16 %144, 3
   br i1 %145, label %146, label %.thread21.sink.split
@@ -416,13 +416,13 @@ define dso_local void @free_irq_cpu_rmap(ptr noundef %0) #0 align 16 {
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %19, %7
@@ -486,11 +486,11 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @irq_cpu_rmap_notify, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr @irq_cpu_rmap_release, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %9, align 8
   %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #8, !srcloc !20
   %11 = icmp eq i32 %10, 0
@@ -508,13 +508,13 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
   br label %18
 
 18:                                               ; preds = %16, %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %20 to i64
   br label %26
@@ -541,7 +541,7 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
   %39 = getelementptr ptr, ptr %24, i64 %38
   store ptr %4, ptr %39, align 8
   %40 = trunc i64 %27 to i16
-  %41 = getelementptr inbounds i8, ptr %4, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i16 %40, ptr %41, align 8
   %42 = tail call i32 @irq_set_affinity_notifier(i32 noundef %1, ptr noundef nonnull %4) #8
   %43 = icmp eq i32 %42, 0
@@ -587,9 +587,9 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @irq_cpu_rmap_notify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i16, ptr %5, align 8
   %7 = tail call i32 @cpu_rmap_update(ptr noundef %4, i16 noundef zeroext %6, ptr noundef %1)
   ret void
@@ -599,7 +599,7 @@ define internal void @irq_cpu_rmap_notify(ptr nocapture noundef readonly %0, ptr
 define internal void @irq_cpu_rmap_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 52
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 60
   %7 = load i16, ptr %6, align 8

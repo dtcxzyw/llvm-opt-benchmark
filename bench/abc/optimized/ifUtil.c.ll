@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @If_ManCleanNodeCopy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val6 = load i32, ptr %4, align 4
@@ -27,9 +27,9 @@ define void @If_ManCleanNodeCopy(ptr nocapture noundef readonly %0) local_unname
   %6 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val5 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr null, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load ptr, ptr %2, align 8
@@ -45,7 +45,7 @@ define void @If_ManCleanNodeCopy(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @If_ManCleanCutData(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val6 = load i32, ptr %4, align 4
@@ -57,9 +57,9 @@ define void @If_ManCleanCutData(ptr nocapture noundef readonly %0) local_unnamed
   %6 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val5 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr null, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load ptr, ptr %2, align 8
@@ -75,7 +75,7 @@ define void @If_ManCleanCutData(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @If_ManCleanMarkV(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val6 = load i32, ptr %4, align 4
@@ -87,7 +87,7 @@ define void @If_ManCleanMarkV(ptr nocapture noundef readonly %0) local_unnamed_a
   %6 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val5 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -513
@@ -106,7 +106,7 @@ define void @If_ManCleanMarkV(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val1824 = load i32, ptr %4, align 4
@@ -122,9 +122,9 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
   %7 = phi ptr [ %12, %.lr.ph ], [ %3, %1 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val20 = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 0, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %2, align 8
@@ -139,7 +139,7 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
   %16 = phi ptr [ %32, %.critedge ], [ %12, %.critedge.preheader ]
   %17 = getelementptr i8, ptr %16, i64 8
   %.val19 = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val19, i64 %indvars.iv30
+  %18 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv30
   %19 = load ptr, ptr %18, align 8
   %.val21 = load i32, ptr %19, align 8
   %20 = and i32 %.val21, 15
@@ -149,9 +149,9 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
   ]
 
 21:                                               ; preds = %.lr.ph28
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -159,9 +159,9 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
 
 .critedge.sink.split:                             ; preds = %.lr.ph28, %21
   %.sink38 = phi i64 [ 32, %21 ], [ 24, %.lr.ph28 ]
-  %27 = getelementptr inbounds i8, ptr %19, i64 %.sink38
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink38
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -182,7 +182,7 @@ define void @If_ManResetOriginalRefs(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val5164 = load i32, ptr %4, align 4
@@ -200,7 +200,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   %.03566 = phi i32 [ %.136, %.loopexit ], [ 0, %1 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val53 = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val53, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.val54 = load i32, ptr %10, align 8
   %11 = and i32 %.val54, 15
@@ -211,7 +211,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   %13 = add nsw i32 %.03566, 1
   %.not42 = icmp sgt i32 %.067, %.03566
   %spec.select = select i1 %.not42, i32 %.067, i32 %13
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   %.237 = select i1 %16, i32 %.03566, i32 %13
@@ -223,7 +223,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   br i1 %.not59, label %25, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %.val55, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.val55, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr %20, align 8
@@ -242,7 +242,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   br i1 %.not60, label %34, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.val58, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.val58, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 8
@@ -267,7 +267,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   br i1 %.not61, label %44, label %38
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %.04062, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.04062, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %39, align 8
@@ -278,7 +278,7 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
 
 44:                                               ; preds = %38, %.preheader
   %.6 = phi i32 [ %.563, %.preheader ], [ %spec.select50, %38 ]
-  %45 = getelementptr inbounds i8, ptr %.04062, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.04062, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not46 = icmp eq ptr %46, null
   br i1 %.not46, label %.loopexit, label %.preheader, !llvm.loop !10
@@ -299,11 +299,11 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
   %51 = phi ptr [ %58, %.critedge ], [ %47, %.critedge.preheader ]
   %52 = getelementptr i8, ptr %51, i64 8
   %.val52 = load ptr, ptr %52, align 8
-  %53 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv73
+  %53 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv73
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %56, ptr %57, align 8
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %58 = load ptr, ptr %2, align 8
@@ -320,13 +320,13 @@ define range(i32 0, -2147483648) i32 @If_ManCrossCut(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @If_ManReverseOrder(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 84
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val31 = load i32, ptr %9, align 4
@@ -338,14 +338,14 @@ define noalias noundef ptr @If_ManReverseOrder(ptr nocapture noundef readonly %0
   %11 = phi ptr [ %21, %.lr.ph ], [ %8, %1 ]
   %12 = getelementptr i8, ptr %11, i64 8
   %.val29 = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val29, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 13
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %calloc, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %19, ptr %20, align 8
   store ptr %14, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -362,7 +362,7 @@ define noalias noundef ptr @If_ManReverseOrder(ptr nocapture noundef readonly %0
   %26 = add i32 %.val.lcssa, -1
   %or.cond.i = icmp ult i32 %26, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val.lcssa
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %27, align 4
   store i32 %spec.store.select.i, ptr %25, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -376,7 +376,7 @@ define noalias noundef ptr @If_ManReverseOrder(ptr nocapture noundef readonly %0
 
 Vec_PtrAlloc.exit:                                ; preds = %.critedge, %28
   %32 = phi ptr [ %31, %28 ], [ null, %.critedge ]
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr %2, align 4
   %35 = icmp sgt i32 %34, -1
@@ -388,7 +388,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.critedge, %28
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %._crit_edge
   %indvars.iv42 = phi i64 [ %36, %.lr.ph38.preheader ], [ %indvars.iv.next43, %._crit_edge ]
-  %37 = getelementptr inbounds ptr, ptr %calloc, i64 %indvars.iv42
+  %37 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %indvars.iv42
   %.02633 = load ptr, ptr %37, align 8
   %.not2834 = icmp eq ptr %.02633, null
   br i1 %.not2834, label %._crit_edge, label %.lr.ph36
@@ -456,7 +456,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %63 = sext i32 %38 to i64
   %64 = getelementptr inbounds ptr, ptr %61, i64 %63
   store ptr %.02635, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.02635, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.02635, i64 64
   %.026 = load ptr, ptr %65, align 8
   %.not28 = icmp eq ptr %.026, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph36, !llvm.loop !14
@@ -486,20 +486,20 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = freeze ptr %7
   br label %9
 
 9:                                                ; preds = %2, %5
   %.fr = phi ptr [ %8, %5 ], [ null, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -514,11 +514,11 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %switch, label %.critedge, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %17 = load i64, ptr %16, align 4
   %18 = trunc i64 %17 to i32
   %19 = lshr i32 %18, 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %19, %21
   store i32 %22, ptr %20, align 8
@@ -528,9 +528,9 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %.not.i, label %30, label %24
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = sitofp i32 %28 to float
   br label %If_CutLutArea.exit
@@ -547,24 +547,24 @@ define float @If_ManMarkMapping_rec(ptr nocapture noundef %0, ptr nocapture noun
   br label %If_CutLutArea.exit
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 280
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 280
   %40 = load ptr, ptr %39, align 8
   %.not8.i = icmp eq ptr %40, null
   br i1 %.not8.i, label %If_CutLutArea.exit, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = lshr i64 %.val35, 24
   %44 = and i64 %43, 255
-  %45 = getelementptr inbounds [33 x float], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [33 x float], ptr %42, i64 0, i64 %44
   %46 = load float, ptr %45, align 4
   br label %If_CutLutArea.exit
 
 If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
   %47 = phi float [ %29, %24 ], [ %35, %32 ], [ %46, %41 ], [ 1.000000e+00, %36 ]
-  %48 = getelementptr inbounds i8, ptr %1, i64 116
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %49 = and i64 %.val35, 4278190080
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %.critedge, label %.lr.ph
@@ -572,13 +572,13 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
 .lr.ph:                                           ; preds = %If_CutLutArea.exit
   %50 = getelementptr i8, ptr %0, i64 40
   %.not33 = icmp eq ptr %.fr, null
-  %51 = getelementptr inbounds i8, ptr %0, i64 108
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 108
   br i1 %.not33, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %58
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %58 ], [ 0, %.lr.ph ]
   %.02439.us = phi float [ %62, %58 ], [ %47, %.lr.ph ]
-  %52 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %indvars.iv48
+  %52 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %indvars.iv48
   %53 = load i32, ptr %52, align 4
   %.val36.us = load ptr, ptr %50, align 8
   %54 = getelementptr i8, ptr %.val36.us, i64 8
@@ -605,7 +605,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %.02439 = phi float [ %82, %73 ], [ %47, %.lr.ph ]
-  %67 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %.val36 = load ptr, ptr %50, align 8
   %69 = getelementptr i8, ptr %.val36, i64 8
@@ -617,7 +617,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
   br i1 %.not32, label %.critedge, label %73
 
 73:                                               ; preds = %.lr.ph.split
-  %74 = getelementptr inbounds i8, ptr %72, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds float, ptr %.fr, i64 %76
@@ -641,7 +641,7 @@ If_CutLutArea.exit:                               ; preds = %24, %32, %36, %41
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @If_ManMarkMapping(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val2125 = load i32, ptr %4, align 4
@@ -653,15 +653,15 @@ define void @If_ManMarkMapping(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %6 = phi ptr [ %15, %.lr.ph ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val23, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store float 0x4415AF1D80000000, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %2, align 8
@@ -672,13 +672,13 @@ define void @If_ManMarkMapping(ptr nocapture noundef %0) local_unnamed_addr #4 {
   br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 100
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
   %.val27 = load i32, ptr %24, align 4
@@ -690,7 +690,7 @@ define void @If_ManMarkMapping(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %26 = phi ptr [ %34, %.lr.ph29 ], [ %23, %.critedge ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val22 = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val22, i64 %indvars.iv31
+  %28 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv31
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 24
   %.val24 = load ptr, ptr %30, align 8
@@ -712,7 +712,7 @@ define void @If_ManMarkMapping(ptr nocapture noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @If_ManCollectMappingDirect(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val2125.i = load i32, ptr %4, align 4
@@ -724,15 +724,15 @@ define noalias noundef ptr @If_ManCollectMappingDirect(ptr nocapture noundef %0)
   %6 = phi ptr [ %15, %.lr.ph.i ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23.i = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val23.i, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %.val23.i, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store float 0x4415AF1D80000000, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load ptr, ptr %2, align 8
@@ -744,13 +744,13 @@ define noalias noundef ptr @If_ManCollectMappingDirect(ptr nocapture noundef %0)
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %1
   %.val1419 = phi ptr [ %3, %1 ], [ %15, %.lr.ph.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 100
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
   %.val27.i = load i32, ptr %24, align 4
@@ -762,7 +762,7 @@ define noalias noundef ptr @If_ManCollectMappingDirect(ptr nocapture noundef %0)
   %26 = phi ptr [ %34, %.lr.ph29.i ], [ %23, %.critedge.i ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val22.i = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val22.i, i64 %indvars.iv31.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.val22.i, i64 %indvars.iv31.i
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 24
   %.val24.i = load ptr, ptr %30, align 8
@@ -790,7 +790,7 @@ If_ManMarkMapping.exit:                           ; preds = %If_ManMarkMapping.e
   %41 = add i32 %.val14.val, -1
   %or.cond.i = icmp ult i32 %41, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val14.val
-  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 0, ptr %42, align 4
   store i32 %spec.store.select.i, ptr %40, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -804,7 +804,7 @@ If_ManMarkMapping.exit:                           ; preds = %If_ManMarkMapping.e
 
 Vec_PtrAlloc.exit:                                ; preds = %If_ManMarkMapping.exit, %43
   %47 = phi ptr [ %46, %43 ], [ null, %If_ManMarkMapping.exit ]
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %47, ptr %48, align 8
   %.val15 = load i32, ptr %39, align 4
   %49 = icmp sgt i32 %.val15, 0
@@ -815,7 +815,7 @@ Vec_PtrAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %Vec_PtrAlloc.exit ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val12 = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %.val13 = load i32, ptr %53, align 8
   %54 = and i32 %.val13, 15
@@ -823,7 +823,7 @@ Vec_PtrAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   br i1 %.not, label %55, label %86
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds i8, ptr %53, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %57 = load i32, ptr %56, align 4
   %.not11 = icmp eq i32 %57, 0
   br i1 %.not11, label %86, label %58
@@ -908,7 +908,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @If_ManCollectMappingInt(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val2125.i = load i32, ptr %4, align 4
@@ -920,15 +920,15 @@ define noalias noundef ptr @If_ManCollectMappingInt(ptr nocapture noundef %0) lo
   %6 = phi ptr [ %15, %.lr.ph.i ], [ %3, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23.i = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val23.i, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %.val23.i, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store float 0x4415AF1D80000000, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load ptr, ptr %2, align 8
@@ -940,13 +940,13 @@ define noalias noundef ptr @If_ManCollectMappingInt(ptr nocapture noundef %0) lo
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %1
   %.val2652 = phi ptr [ %3, %1 ], [ %15, %.lr.ph.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 100
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
   %.val27.i = load i32, ptr %24, align 4
@@ -958,7 +958,7 @@ define noalias noundef ptr @If_ManCollectMappingInt(ptr nocapture noundef %0) lo
   %26 = phi ptr [ %34, %.lr.ph29.i ], [ %23, %.critedge.i ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val22.i = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val22.i, i64 %indvars.iv31.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.val22.i, i64 %indvars.iv31.i
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 24
   %.val24.i = load ptr, ptr %30, align 8
@@ -986,7 +986,7 @@ If_ManMarkMapping.exit:                           ; preds = %If_ManMarkMapping.e
   %41 = add i32 %.val26.val, -1
   %or.cond.i = icmp ult i32 %41, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val26.val
-  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 0, ptr %42, align 4
   store i32 %spec.store.select.i, ptr %40, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -1000,7 +1000,7 @@ If_ManMarkMapping.exit:                           ; preds = %If_ManMarkMapping.e
 
 Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.exit, %43
   %47 = phi ptr [ %46, %43 ], [ null, %If_ManMarkMapping.exit ]
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %47, ptr %48, align 8
   %.val43 = load i32, ptr %39, align 4
   %49 = icmp sgt i32 %.val43, 0
@@ -1011,7 +1011,7 @@ Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %148 ], [ 0, %Vec_IntAlloc.exit ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val24 = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val24, i64 %indvars.iv48
+  %52 = getelementptr inbounds nuw ptr, ptr %.val24, i64 %indvars.iv48
   %53 = load ptr, ptr %52, align 8
   %.val25 = load i32, ptr %53, align 8
   %54 = and i32 %.val25, 15
@@ -1019,7 +1019,7 @@ Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   br i1 %.not, label %55, label %148
 
 55:                                               ; preds = %.lr.ph45
-  %56 = getelementptr inbounds i8, ptr %53, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %57 = load i32, ptr %56, align 4
   %.not23 = icmp eq i32 %57, 0
   br i1 %.not23, label %148, label %58
@@ -1029,7 +1029,7 @@ Vec_IntAlloc.exit:                                ; preds = %If_ManMarkMapping.e
   %.val27 = load i64, ptr %59, align 4
   %60 = trunc i64 %.val27 to i32
   %61 = lshr i32 %60, 24
-  %62 = getelementptr inbounds i8, ptr %53, i64 116
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 116
   %63 = load i32, ptr %42, align 4
   %64 = load i32, ptr %40, align 8
   %65 = icmp eq i32 %63, %64
@@ -1101,7 +1101,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Vec_IntPush.exit34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %Vec_IntPush.exit34 ]
-  %90 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
   %92 = load i32, ptr %42, align 4
   %93 = load i32, ptr %40, align 8
@@ -1169,7 +1169,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit34, %Vec_IntPush.exit
-  %119 = getelementptr inbounds i8, ptr %53, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = load i32, ptr %42, align 4
   %122 = load i32, ptr %40, align 8
@@ -1250,20 +1250,20 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 76
   %.val5160 = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %8 = load i32, ptr %7, align 8
   %9 = sub nsw i32 %.val5160, %8
   %10 = icmp slt i32 %5, %9
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = sext i32 %5 to i64
   br label %13
 
@@ -1282,7 +1282,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val51 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 248
   %23 = load i32, ptr %22, align 8
   %24 = sub nsw i32 %.val51, %23
   %25 = sext i32 %24 to i64
@@ -1290,7 +1290,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   br i1 %26, label %13, label %.critedge.loopexit, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %21, i64 256
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 256
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
@@ -1304,7 +1304,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   br i1 %30, label %.lr.ph64, label %.critedge2
 
 .lr.ph64:                                         ; preds = %.critedge
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = sext i32 %28 to i64
   br label %33
 
@@ -1336,7 +1336,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   %45 = phi ptr [ %34, %33 ], [ %.pre90, %40 ]
   %.val52 = phi i32 [ %.val5288, %33 ], [ %.val52.pre, %40 ]
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
-  %46 = getelementptr inbounds i8, ptr %45, i64 248
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 248
   %47 = load i32, ptr %46, align 8
   %48 = sub nsw i32 %.val52, %47
   %49 = sext i32 %48 to i64
@@ -1344,7 +1344,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   br i1 %50, label %33, label %.critedge2.loopexit, !llvm.loop !23
 
 .critedge2.loopexit:                              ; preds = %44
-  %.phi.trans.insert91 = getelementptr inbounds i8, ptr %45, i64 256
+  %.phi.trans.insert91 = getelementptr inbounds nuw i8, ptr %45, i64 256
   %.pre92 = load i32, ptr %.phi.trans.insert91, align 8
   br label %.critedge2
 
@@ -1357,7 +1357,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   br i1 %53, label %.lr.ph69, label %.critedge4.preheader
 
 .lr.ph69:                                         ; preds = %.critedge2
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 8
   %.val44 = load ptr, ptr %56, align 8
@@ -1372,7 +1372,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   br i1 %59, label %.lr.ph73, label %.critedge6
 
 .lr.ph73:                                         ; preds = %.critedge4.preheader
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = sext i32 %52 to i64
   br label %.critedge4
 
@@ -1416,7 +1416,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %.val54 = load i32, ptr %6, align 4
   %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 248
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 248
   %82 = load i32, ptr %81, align 8
   %83 = sub nsw i32 %.val54, %82
   %84 = sext i32 %83 to i64
@@ -1429,10 +1429,10 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @If_CutTraverse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 36
-  %7 = getelementptr inbounds i8, ptr %2, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i64, ptr %7, align 4
   %9 = and i64 %8, 4278190080
   %.not27 = icmp eq i64 %9, 0
@@ -1440,12 +1440,12 @@ define void @If_CutTraverse(ptr nocapture noundef readonly %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr i8, ptr %0, i64 40
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
-  %12 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.val21 = load ptr, ptr %10, align 8
   %14 = getelementptr i8, ptr %.val21, i64 8
@@ -1542,7 +1542,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 55:                                               ; preds = %.lr.ph26, %55
   %indvars.iv29 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next30, %55 ]
   %.val20 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv29
+  %56 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv29
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, -257
@@ -1591,14 +1591,14 @@ define internal fastcc void @If_CutTraverse_rec(ptr noundef %0, ptr noundef %1) 
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %1, align 8
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %14
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1607,7 +1607,7 @@ define internal fastcc void @If_CutTraverse_rec(ptr noundef %0, ptr noundef %1) 
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not9.i.i = icmp eq ptr %23, null
   br i1 %.not9.i.i, label %26, label %24
@@ -1628,7 +1628,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %26, %24
 
 29:                                               ; preds = %19
   %30 = shl nuw nsw i32 %16, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not9.i10.i = icmp eq ptr %32, null
   %33 = zext nneg i32 %30 to i64
@@ -1666,11 +1666,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define void @If_CutTraverseTest(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   store i32 1000, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #11
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   tail call void @If_CutTraverse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %8 = load ptr, ptr %7, align 8
@@ -1745,7 +1745,7 @@ define void @If_ObjPrint(ptr noundef readonly %0) local_unnamed_addr #5 {
   br label %29
 
 29:                                               ; preds = %11, %19, %13, %9
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %31)
   %putchar = tail call i32 @putchar(i32 10)

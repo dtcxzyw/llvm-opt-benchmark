@@ -86,20 +86,20 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7jsonnet8internal22jsonnet_string_unparseERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.jsonnet::internal::UStringStream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = select i1 %2, i32 39, i32 34
   store i32 %8, ptr %6, align 8
   store i64 1, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %9, align 4
   invoke void @_ZN7jsonnet8internal21jsonnet_string_escapeERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2)
           to label %10 unwind label %82
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %7, align 8
   %15 = sub i64 1152921504606846975, %14
@@ -159,7 +159,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i.
   %35 = getelementptr inbounds i32, ptr %34, i64 %18
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
 
@@ -246,7 +246,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_mutateEmmPKDim.exit.
   %64 = getelementptr inbounds i32, ptr %63, i64 %42
   store i32 0, ptr %64, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %65, ptr %0, align 8, !alias.scope !4
   %66 = load ptr, ptr %4, align 8, !noalias !4
   %67 = load i64, ptr %7, align 8, !noalias !4
@@ -292,7 +292,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   br label %77
 
 77:                                               ; preds = %76, %74, %._crit_edge.i.i.i
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %67, ptr %78, align 8, !alias.scope !4
   %79 = getelementptr inbounds i8, ptr %73, i64 %.idx.i.i
   store i32 0, ptr %79, align 4
@@ -320,7 +320,7 @@ _ZN7jsonnet8internal13UStringStreamD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
   %85 = landingpad { ptr, i32 }
           cleanup
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i27, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i26
 
@@ -362,20 +362,20 @@ define void @_ZN7jsonnet8internal21jsonnet_string_escapeERKNSt7__cxx1112basic_st
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string.0", align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %9, align 8
   store i32 0, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !alias.scope !7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %13, align 8, !alias.scope !10
   store i32 0, ptr %12, align 8
   br label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i130
@@ -385,9 +385,9 @@ define void @_ZN7jsonnet8internal21jsonnet_string_escapeERKNSt7__cxx1112basic_st
   %15 = load i32, ptr %14, align 4
   %16 = select i1 %2, ptr @.str, ptr @.str.1
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %367
@@ -1301,7 +1301,7 @@ _ZN7jsonnet8internal13UStringStreamlsEDi.exit:    ; preds = %_ZNKSt7__cxx1112bas
   %.pre = load ptr, ptr %4, align 8, !noalias !10
   %.pre160 = load i64, ptr %9, align 8, !noalias !10
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %371 = getelementptr inbounds i8, ptr %0, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %371, ptr %0, align 8, !alias.scope !10
   %.idx.i.i = shl nsw i64 %.pre160, 2
   %372 = icmp ugt i64 %.pre160, 3
@@ -1340,7 +1340,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
 381:                                              ; preds = %380, %378, %._crit_edge.i.i.i
   %382 = phi i64 [ %.pre160, %380 ], [ 1, %378 ], [ %.pre160, %._crit_edge.i.i.i ]
   %.idx.i.i162164 = phi i64 [ %.idx.i.i, %380 ], [ 4, %378 ], [ %.pre160, %._crit_edge.i.i.i ]
-  %383 = getelementptr inbounds i8, ptr %0, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %382, ptr %383, align 8, !alias.scope !10
   %384 = getelementptr inbounds i8, ptr %377, i64 %.idx.i.i162164
   store i32 0, ptr %384, align 4
@@ -1392,7 +1392,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 8
@@ -1421,7 +1421,7 @@ define noundef i64 @_ZN7jsonnet8internal28jsonnet_string_parse_unicodeERKNS0_13L
 7:                                                ; preds = %2, %52
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %52 ]
   %.04163 = phi i64 [ 0, %2 ], [ %55, %52 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 255
   %11 = icmp eq i32 %10, 0
@@ -1486,7 +1486,7 @@ define noundef i64 @_ZN7jsonnet8internal28jsonnet_string_parse_unicodeERKNS0_13L
 30:                                               ; preds = %26
   %31 = trunc i32 %9 to i8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.13)
           to label %34 unwind label %45
 
@@ -1605,10 +1605,10 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7jsonnet8internal11StaticErrorC2ERKNS0_13LocationRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %7 unwind label %8
 
@@ -1624,7 +1624,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11StaticErrorC2ERKNS0_13LocationRa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7jsonnet8internal11StaticErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
   ret void
@@ -1671,7 +1671,7 @@ define noundef zeroext range(i32 65536, 1114112) i32 @_ZN7jsonnet8internal23deco
 
 16:                                               ; preds = %3
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.16)
           to label %19 unwind label %24
 
@@ -1735,9 +1735,9 @@ define void @_ZN7jsonnet8internal23jsonnet_string_unescapeERKNS0_13LocationRange
   %10 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %11 = alloca %"class.std::__cxx11::basic_string.0", align 8
   %12 = alloca %"class.std::__cxx11::basic_string.0", align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
   store i32 0, ptr %13, align 8
   %15 = load ptr, ptr %2, align 8
@@ -1752,7 +1752,7 @@ define void @_ZN7jsonnet8internal23jsonnet_string_unescapeERKNS0_13LocationRange
   ]
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.039, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %283 [
     i32 34, label %21
@@ -2346,12 +2346,12 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
   br label %327
 
 197:                                              ; preds = %18
-  %198 = getelementptr inbounds i8, ptr %.039, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %199 = invoke noundef i64 @_ZN7jsonnet8internal28jsonnet_string_parse_unicodeERKNS0_13LocationRangeEPKDi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %198)
           to label %200 unwind label %.loopexit
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %.039, i64 20
+  %201 = getelementptr inbounds nuw i8, ptr %.039, i64 20
   %202 = icmp ult i64 %199, 55296
   %203 = and i64 %199, -8192
   %204 = icmp eq i64 %203, 57344
@@ -2359,7 +2359,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
   br i1 %205, label %252, label %206
 
 206:                                              ; preds = %200
-  %207 = getelementptr inbounds i8, ptr %.039, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.039, i64 24
   %208 = load i32, ptr %207, align 4
   %.not61 = icmp eq i32 %208, 92
   br i1 %.not61, label %225, label %209
@@ -2369,7 +2369,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
           to label %210 unwind label %.loopexit.split-lp
 
 210:                                              ; preds = %209
-  %211 = getelementptr inbounds i8, ptr %4, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %212 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull @.str.17)
           to label %213 unwind label %218
 
@@ -2419,7 +2419,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
   br label %332
 
 225:                                              ; preds = %206
-  %226 = getelementptr inbounds i8, ptr %.039, i64 28
+  %226 = getelementptr inbounds nuw i8, ptr %.039, i64 28
   %227 = load i32, ptr %226, align 4
   %.not62 = icmp eq i32 %227, 117
   br i1 %.not62, label %244, label %228
@@ -2429,7 +2429,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
           to label %229 unwind label %.loopexit.split-lp
 
 229:                                              ; preds = %228
-  %230 = getelementptr inbounds i8, ptr %6, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull @.str.17)
           to label %232 unwind label %237
 
@@ -2479,7 +2479,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
   br label %332
 
 244:                                              ; preds = %225
-  %245 = getelementptr inbounds i8, ptr %.039, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %.039, i64 32
   %246 = invoke noundef i64 @_ZN7jsonnet8internal28jsonnet_string_parse_unicodeERKNS0_13LocationRangeEPKDi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %245)
           to label %247 unwind label %.loopexit
 
@@ -2488,7 +2488,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit164: ; preds =
           to label %249 unwind label %.loopexit
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %.039, i64 44
+  %250 = getelementptr inbounds nuw i8, ptr %.039, i64 44
   %251 = zext nneg i32 %248 to i64
   br label %252
 
@@ -2609,7 +2609,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit177: ; preds =
           to label %286 unwind label %298
 
 286:                                              ; preds = %284
-  %287 = getelementptr inbounds i8, ptr %10, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %288 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %287, ptr noundef nonnull @.str.19)
           to label %289 unwind label %298
 
@@ -2744,7 +2744,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEpLEDi.exit190: ; preds =
   %328 = load ptr, ptr %0, align 8
   %329 = getelementptr inbounds i32, ptr %328, i64 %.sink
   store i32 0, ptr %329, align 4
-  %330 = getelementptr inbounds i8, ptr %.2, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   br label %16, !llvm.loop !20
 
 331:                                              ; preds = %16
@@ -2849,14 +2849,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_mutateEmmPKDim(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %2, %1
   %9 = sub i64 %7, %8
   %10 = sub i64 %4, %2
   %11 = add i64 %10, %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %15, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit
 

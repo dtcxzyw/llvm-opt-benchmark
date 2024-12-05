@@ -4793,7 +4793,7 @@ define internal void @base_unsigned_one_hundredth_kg_per_meter(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @btatt_handle_value(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_btatt, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #13
@@ -4813,7 +4813,7 @@ define internal ptr @btatt_handle_value(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @btatt_handle_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_btatt, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #13
@@ -4892,10 +4892,10 @@ define internal i32 @dissect_btatt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #13
   %45 = load i32, ptr @ett_btatt, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #13
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void @col_set_str(ptr noundef %48, i32 noundef 34, ptr noundef nonnull @.str.3068) #13
-  %49 = getelementptr inbounds i8, ptr %1, i64 348
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %47, align 8
   %switch.selectcmp = icmp eq i32 %50, 1
@@ -4908,19 +4908,19 @@ define internal i32 @dissect_btatt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %get_mtu.exit, label %52
 
 52:                                               ; preds = %42
-  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load i32, ptr %53, align 4
   store i32 1, ptr %16, align 16
-  %55 = getelementptr inbounds i8, ptr %16, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %3, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %16, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %3, i64 4
-  %58 = getelementptr inbounds i8, ptr %16, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %16, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 0, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %16, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr null, ptr %60, align 8
   %61 = load ptr, ptr @mtus, align 8
   %62 = call ptr @wmem_tree_lookup32_array(ptr noundef %61, ptr noundef nonnull %16) #13
@@ -4952,34 +4952,34 @@ get_mtu.exit:                                     ; preds = %42, %52, %63, %65
   %73 = load i32, ptr @ett_btatt_opcode, align 4
   %74 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef %72, i32 noundef %73, ptr noundef nonnull @hfx_btatt_opcode, i32 noundef 0, i32 noundef 1) #13
   %75 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
-  %76 = getelementptr inbounds i8, ptr %17, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %75, ptr %76, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   br i1 %.not.i, label %get_request.exit, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %1, i64 376
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %79 = load i8, ptr %78, align 8
   %80 = zext i8 %79 to i32
   store i32 %80, ptr %15, align 4
   store i32 1, ptr %14, align 16
-  %81 = getelementptr inbounds i8, ptr %14, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %3, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %14, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %3, i64 4
-  %84 = getelementptr inbounds i8, ptr %14, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %14, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %85, align 16
-  %86 = getelementptr inbounds i8, ptr %14, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %15, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 0, ptr %87, align 16
-  %88 = getelementptr inbounds i8, ptr %14, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %90 = load i32, ptr %89, align 4
   %91 = load ptr, ptr @requests, align 8
   %92 = call ptr @wmem_tree_lookup32_array(ptr noundef %91, ptr noundef nonnull %14) #13
@@ -4992,7 +4992,7 @@ get_mtu.exit:                                     ; preds = %42, %52, %63, %65
   br i1 %.not46.i, label %.critedge.i, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr %89, align 4
   %99 = icmp eq i32 %97, %98
@@ -5051,7 +5051,7 @@ get_request.exit.thread:                          ; preds = %102
   br i1 %.not47.i, label %get_request.exit, label %117
 
 117:                                              ; preds = %.critedge.i
-  %118 = getelementptr inbounds i8, ptr %116, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = load i32, ptr %89, align 4
   %121 = icmp eq i32 %119, %120
@@ -5139,7 +5139,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 .lr.ph1015:                                       ; preds = %.preheader996
   %.not919 = icmp eq ptr %.037.i, null
-  %140 = getelementptr inbounds i8, ptr %.037.i, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %.037.i, i64 20
   br label %346
 
 141:                                              ; preds = %get_request.exit.thread, %get_request.exit
@@ -5269,7 +5269,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 195:                                              ; preds = %194, %194
   %196 = load i32, ptr @hf_btatt_uuid16, align 4
-  %197 = getelementptr inbounds i8, ptr %.037.i976, i64 20
+  %197 = getelementptr inbounds nuw i8, ptr %.037.i976, i64 20
   %198 = load i16, ptr %197, align 4
   %199 = zext i16 %198 to i32
   %200 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %196, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %199) #13
@@ -5277,13 +5277,13 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   br i1 %.not.i955, label %proto_item_set_generated.exit.thread, label %201
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %200, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %203 = load ptr, ptr %202, align 8
   %.not5.i = icmp eq ptr %203, null
   br i1 %.not5.i, label %proto_item_set_generated.exit.thread, label %204
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %203, i64 28
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 28
   %206 = load i32, ptr %205, align 4
   %207 = or i32 %206, 2
   store i32 %207, ptr %205, align 4
@@ -5296,9 +5296,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %209, i32 noundef 25, ptr noundef nonnull @.str.3074, i32 noundef %211) #13
   %212 = load i32, ptr @hf_btatt_client_rx_mtu, align 4
   %213 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %212, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #13
-  %214 = getelementptr inbounds i8, ptr %1, i64 80
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 50
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 50
   %217 = load i16, ptr %216, align 2
   %218 = and i16 %217, 8
   %219 = icmp eq i16 %218, 0
@@ -5323,9 +5323,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.3075, i32 noundef %228) #13
   %229 = load i32, ptr @hf_btatt_server_rx_mtu, align 4
   %230 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %229, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #13
-  %231 = getelementptr inbounds i8, ptr %1, i64 80
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 50
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 50
   %234 = load i16, ptr %233, align 2
   %235 = and i16 %234, 8
   %236 = icmp eq i16 %235, 0
@@ -5337,7 +5337,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 239:                                              ; preds = %225
   %240 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #13
-  %241 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %242 = load i16, ptr %241, align 8
   %spec.select = call i16 @llvm.umin.i16(i16 %240, i16 %242)
   %.0859 = zext i16 %spec.select to i32
@@ -5357,9 +5357,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %251 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %250, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #13
   %252 = load i32, ptr @hf_btatt_ending_handle, align 4
   %253 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %252, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #13
-  %254 = getelementptr inbounds i8, ptr %1, i64 80
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 50
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 50
   %257 = load i16, ptr %256, align 2
   %258 = and i16 %257, 8
   %259 = icmp eq i16 %258, 0
@@ -5371,7 +5371,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %262 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #13
   store i16 %262, ptr %21, align 8
   %263 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 3, i32 noundef -2147483648) #13
-  %264 = getelementptr inbounds i8, ptr %21, i64 2
+  %264 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i16 %263, ptr %264, align 2
   %265 = getelementptr i8, ptr %1, i64 20
   %.val928 = load i32, ptr %265, align 4
@@ -5395,7 +5395,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   br i1 %272, label %.lr.ph1018, label %proto_item_set_generated.exit
 
 .lr.ph1018:                                       ; preds = %.preheader994
-  %273 = getelementptr inbounds i8, ptr %1, i64 408
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %294
 
 .preheader:                                       ; preds = %267
@@ -5404,7 +5404,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   br i1 %275, label %.lr.ph1021, label %proto_item_set_generated.exit
 
 .lr.ph1021:                                       ; preds = %.preheader
-  %276 = getelementptr inbounds i8, ptr %1, i64 408
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %277
 
 277:                                              ; preds = %.lr.ph1021, %277
@@ -5481,9 +5481,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 2 dereferenceable(20) %24, i64 20, i1 false)
   %328 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 7) #13
   %329 = call fastcc i32 @dissect_attribute_value(ptr noundef %46, ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 7, i32 noundef %328, i16 noundef zeroext 0, ptr noundef nonnull byval(%struct._uuid_t) align 8 %18, ptr noundef nonnull %17)
-  %330 = getelementptr inbounds i8, ptr %1, i64 80
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 50
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 50
   %333 = load i16, ptr %332, align 2
   %334 = and i16 %333, 8
   %335 = icmp eq i16 %334, 0
@@ -5495,9 +5495,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %338 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #13
   store i16 %338, ptr %25, align 8
   %339 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 3, i32 noundef -2147483648) #13
-  %340 = getelementptr inbounds i8, ptr %25, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i16 %339, ptr %340, align 2
-  %341 = getelementptr inbounds i8, ptr %25, i64 4
+  %341 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %341, ptr noundef nonnull align 8 dereferenceable(20) %18, i64 20, i1 false)
   %342 = getelementptr i8, ptr %1, i64 20
   %.val930 = load i32, ptr %342, align 4
@@ -5562,9 +5562,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 383:                                              ; preds = %368
   %384 = load i32, ptr @hf_btatt_uuid16, align 4
   %385 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %384, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #13
-  %386 = getelementptr inbounds i8, ptr %1, i64 80
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 50
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 50
   %389 = load i16, ptr %388, align 2
   %390 = and i16 %389, 8
   %391 = icmp eq i16 %390, 0
@@ -5576,9 +5576,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %394 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #13
   store i16 %394, ptr %27, align 8
   %395 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 3, i32 noundef -2147483648) #13
-  %396 = getelementptr inbounds i8, ptr %27, i64 2
+  %396 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i16 %395, ptr %396, align 2
-  %397 = getelementptr inbounds i8, ptr %27, i64 4
+  %397 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @get_bluetooth_uuid(ptr dead_on_unwind nonnull writable sret(%struct._uuid_t) align 2 %28, ptr noundef %0, i32 noundef 5, i32 noundef 2) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %397, ptr noundef nonnull align 2 dereferenceable(20) %28, i64 20, i1 false)
   %398 = getelementptr i8, ptr %1, i64 20
@@ -5600,9 +5600,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %407 = zext i16 %406 to i32
   %408 = call ptr @val_to_str_ext_const(i32 noundef %407, ptr noundef nonnull @bluetooth_uuid_vals_ext, ptr noundef nonnull @.str.3072) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %405, ptr noundef nonnull @.str.3080, ptr noundef %408) #13
-  %409 = getelementptr inbounds i8, ptr %1, i64 80
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 50
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 50
   %412 = load i16, ptr %411, align 2
   %413 = and i16 %412, 8
   %414 = icmp eq i16 %413, 0
@@ -5614,9 +5614,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %417 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #13
   store i16 %417, ptr %29, align 8
   %418 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 3, i32 noundef -2147483648) #13
-  %419 = getelementptr inbounds i8, ptr %29, i64 2
+  %419 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i16 %418, ptr %419, align 2
-  %420 = getelementptr inbounds i8, ptr %29, i64 4
+  %420 = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @get_bluetooth_uuid(ptr dead_on_unwind nonnull writable sret(%struct._uuid_t) align 2 %30, ptr noundef %0, i32 noundef 5, i32 noundef 16) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %420, ptr noundef nonnull align 2 dereferenceable(20) %30, i64 20, i1 false)
   %421 = getelementptr i8, ptr %1, i64 20
@@ -5652,7 +5652,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 .lr.ph1012:                                       ; preds = %433
   %.not918 = icmp eq ptr %.037.i, null
-  %438 = getelementptr inbounds i8, ptr %.037.i, i64 20
+  %438 = getelementptr inbounds nuw i8, ptr %.037.i, i64 20
   %439 = add nsw i32 %432, -2
   br label %440
 
@@ -5700,7 +5700,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 463:                                              ; preds = %.loopexit
   %464 = load i32, ptr @hf_btatt_uuid16, align 4
-  %465 = getelementptr inbounds i8, ptr %.037.i, i64 20
+  %465 = getelementptr inbounds nuw i8, ptr %.037.i, i64 20
   %466 = load i16, ptr %465, align 4
   %467 = zext i16 %466 to i32
   %468 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %464, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %467) #13
@@ -5708,13 +5708,13 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   br i1 %.not.i956, label %proto_item_set_generated.exit.thread, label %469
 
 469:                                              ; preds = %463
-  %470 = getelementptr inbounds i8, ptr %468, i64 32
+  %470 = getelementptr inbounds nuw i8, ptr %468, i64 32
   %471 = load ptr, ptr %470, align 8
   %.not5.i957 = icmp eq ptr %471, null
   br i1 %.not5.i957, label %proto_item_set_generated.exit.thread, label %472
 
 472:                                              ; preds = %469
-  %473 = getelementptr inbounds i8, ptr %471, i64 28
+  %473 = getelementptr inbounds nuw i8, ptr %471, i64 28
   %474 = load i32, ptr %473, align 4
   %475 = or i32 %474, 2
   store i32 %475, ptr %473, align 4
@@ -5726,9 +5726,9 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
   %479 = add i32 %478, -2
   %480 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %479) #13
   call fastcc void @col_append_info_by_handle(ptr noundef nonnull %1, i16 noundef zeroext %480, ptr noundef %3)
-  %481 = getelementptr inbounds i8, ptr %1, i64 80
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 50
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 50
   %484 = load i16, ptr %483, align 2
   %485 = and i16 %484, 8
   %486 = icmp eq i16 %485, 0
@@ -5738,7 +5738,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 488:                                              ; preds = %476
   store i16 %480, ptr %33, align 8
-  %489 = getelementptr inbounds i8, ptr %33, i64 2
+  %489 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i16 0, ptr %489, align 2
   %490 = getelementptr i8, ptr %1, i64 20
   %.val936 = load i32, ptr %490, align 4
@@ -5758,7 +5758,7 @@ get_request.exit:                                 ; preds = %71, %77, %95, %110,
 
 497:                                              ; preds = %495
   %498 = load i32, ptr @hf_btatt_handle, align 4
-  %499 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %499 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %500 = load i16, ptr %499, align 8
   %501 = zext i16 %500 to i32
   %502 = call fastcc i32 @dissect_handle(ptr noundef %46, ptr noundef nonnull %1, i32 noundef %498, ptr noundef %0, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %18, i32 noundef %501)
@@ -5796,9 +5796,9 @@ is_long_attribute_value.exit:                     ; preds = %504, %504, %504, %5
 506:                                              ; preds = %is_long_attribute_value.exit
   %507 = load i32, ptr @hf_btatt_value, align 4
   %508 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %507, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #13
-  %509 = getelementptr inbounds i8, ptr %1, i64 80
+  %509 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds i8, ptr %510, i64 50
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 50
   %512 = load i16, ptr %511, align 2
   %513 = and i16 %512, 8
   %514 = icmp eq i16 %513, 0
@@ -5808,7 +5808,7 @@ is_long_attribute_value.exit:                     ; preds = %504, %504, %504, %5
   br i1 %or.cond25, label %517, label %522
 
 517:                                              ; preds = %506
-  %518 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %518 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %519 = load i16, ptr %518, align 8
   %520 = zext i16 %519 to i32
   %521 = getelementptr i8, ptr %1, i64 20
@@ -5825,7 +5825,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   br i1 %496, label %525, label %528
 
 525:                                              ; preds = %is_long_attribute_value.exit.thread
-  %526 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %526 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %527 = load i16, ptr %526, align 8
   br label %528
 
@@ -5849,9 +5849,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %540 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %539, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef -2147483648) #13
   %541 = add i32 %533, 2
   %542 = call fastcc i32 @dissect_attribute_value(ptr noundef %46, ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %541, i32 noundef 0, i16 noundef zeroext %535, ptr noundef nonnull byval(%struct._uuid_t) align 8 %18, ptr noundef nonnull %17)
-  %543 = getelementptr inbounds i8, ptr %1, i64 80
+  %543 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %544 = load ptr, ptr %543, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 50
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 50
   %546 = load i16, ptr %545, align 2
   %547 = and i16 %546, 8
   %548 = icmp eq i16 %547, 0
@@ -5862,7 +5862,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 550:                                              ; preds = %531
   store i16 %535, ptr %34, align 8
   %551 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %533, i32 noundef -2147483648) #13
-  %552 = getelementptr inbounds i8, ptr %34, i64 2
+  %552 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store i16 %551, ptr %552, align 2
   %553 = getelementptr i8, ptr %1, i64 20
   %.val938 = load i32, ptr %553, align 4
@@ -5882,13 +5882,13 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 
 559:                                              ; preds = %556
   %560 = load i32, ptr @hf_btatt_handle, align 4
-  %561 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %562 = load i16, ptr %561, align 8
   %563 = zext i16 %562 to i32
   %564 = call fastcc i32 @dissect_handle(ptr noundef %46, ptr noundef nonnull %1, i32 noundef %560, ptr noundef %0, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %18, i32 noundef %563)
   %565 = load i16, ptr %561, align 8
   call fastcc void @col_append_info_by_handle(ptr noundef nonnull %1, i16 noundef zeroext %565, ptr noundef %3)
-  %566 = getelementptr inbounds i8, ptr %.037.i, i64 18
+  %566 = getelementptr inbounds nuw i8, ptr %.037.i, i64 18
   %567 = load i16, ptr %566, align 2
   %568 = icmp eq i16 %567, 0
   br i1 %568, label %569, label %575
@@ -5906,9 +5906,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   br label %proto_item_set_generated.exit.thread
 
 575:                                              ; preds = %569, %559
-  %576 = getelementptr inbounds i8, ptr %1, i64 80
+  %576 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %577 = load ptr, ptr %576, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 50
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 50
   %579 = load i16, ptr %578, align 2
   %580 = and i16 %579, 8
   %581 = icmp eq i16 %580, 0
@@ -5993,9 +5993,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 
 ._crit_edge:                                      ; preds = %.lr.ph1007, %617
   %.7.lcssa = phi i32 [ 1, %617 ], [ %622, %.lr.ph1007 ]
-  %630 = getelementptr inbounds i8, ptr %1, i64 80
+  %630 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %631 = load ptr, ptr %630, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 50
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 50
   %633 = load i16, ptr %632, align 2
   %634 = and i16 %633, 8
   %635 = icmp eq i16 %634, 0
@@ -6012,7 +6012,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %642 = and i32 %639, -2
   %643 = zext i32 %642 to i64
   %644 = call ptr @tvb_memdup(ptr noundef %641, ptr noundef %0, i32 noundef 1, i64 noundef %643) #13
-  %645 = getelementptr inbounds i8, ptr %36, i64 8
+  %645 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %644, ptr %645, align 8
   %646 = getelementptr i8, ptr %1, i64 20
   %.val940 = load i32, ptr %646, align 4
@@ -6031,13 +6031,13 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   br i1 %651, label %.preheader998, label %670
 
 .preheader998:                                    ; preds = %649
-  %652 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %653 = load i32, ptr %652, align 8
   %.not1023 = icmp eq i32 %653, 0
   br i1 %.not1023, label %proto_item_set_generated.exit.thread, label %.lr.ph1004
 
 .lr.ph1004:                                       ; preds = %.preheader998
-  %654 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %654 = getelementptr inbounds nuw i8, ptr %.037.i, i64 24
   br label %655
 
 655:                                              ; preds = %.lr.ph1004, %655
@@ -6086,7 +6086,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 .lr.ph:                                           ; preds = %679
   %.not908 = icmp eq ptr %.037.i, null
   %684 = add nsw i32 %678, -4
-  %685 = getelementptr inbounds i8, ptr %.037.i, i64 20
+  %685 = getelementptr inbounds nuw i8, ptr %.037.i, i64 20
   br label %686
 
 686:                                              ; preds = %.lr.ph, %709
@@ -6138,7 +6138,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 
 714:                                              ; preds = %711
   %715 = load i32, ptr @hf_btatt_uuid16, align 4
-  %716 = getelementptr inbounds i8, ptr %.037.i, i64 20
+  %716 = getelementptr inbounds nuw i8, ptr %.037.i, i64 20
   %717 = load i16, ptr %716, align 4
   %718 = zext i16 %717 to i32
   %719 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %715, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %718) #13
@@ -6146,13 +6146,13 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   br i1 %.not.i960, label %proto_item_set_generated.exit.thread, label %720
 
 720:                                              ; preds = %714
-  %721 = getelementptr inbounds i8, ptr %719, i64 32
+  %721 = getelementptr inbounds nuw i8, ptr %719, i64 32
   %722 = load ptr, ptr %721, align 8
   %.not5.i961 = icmp eq ptr %722, null
   br i1 %.not5.i961, label %proto_item_set_generated.exit.thread, label %723
 
 723:                                              ; preds = %720
-  %724 = getelementptr inbounds i8, ptr %722, i64 28
+  %724 = getelementptr inbounds nuw i8, ptr %722, i64 28
   %725 = load i32, ptr %724, align 4
   %726 = or i32 %725, 2
   store i32 %726, ptr %724, align 4
@@ -6167,9 +6167,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %732 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %729) #13
   %733 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %730, i32 noundef -2147483648) #13
   %734 = call fastcc i32 @dissect_attribute_value(ptr noundef %46, ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %729, i32 noundef %732, i16 noundef zeroext %733, ptr noundef nonnull byval(%struct._uuid_t) align 8 %18, ptr noundef nonnull %17)
-  %735 = getelementptr inbounds i8, ptr %1, i64 80
+  %735 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %736 = load ptr, ptr %735, align 8
-  %737 = getelementptr inbounds i8, ptr %736, i64 50
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 50
   %738 = load i16, ptr %737, align 2
   %739 = and i16 %738, 8
   %740 = icmp eq i16 %739, 0
@@ -6195,36 +6195,36 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %746 = zext i8 %.val943 to i32
   store i32 %746, ptr %13, align 4
   store i32 1, ptr %11, align 16
-  %747 = getelementptr inbounds i8, ptr %11, i64 8
+  %747 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %3, ptr %747, align 8
-  %748 = getelementptr inbounds i8, ptr %11, i64 16
+  %748 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %748, align 16
-  %749 = getelementptr inbounds i8, ptr %3, i64 4
-  %750 = getelementptr inbounds i8, ptr %11, i64 24
+  %749 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %750 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %749, ptr %750, align 8
-  %751 = getelementptr inbounds i8, ptr %11, i64 32
+  %751 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 1, ptr %751, align 16
-  %752 = getelementptr inbounds i8, ptr %11, i64 40
+  %752 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %13, ptr %752, align 8
-  %753 = getelementptr inbounds i8, ptr %11, i64 48
+  %753 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 1, ptr %753, align 16
-  %754 = getelementptr inbounds i8, ptr %11, i64 56
+  %754 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %12, ptr %754, align 8
-  %755 = getelementptr inbounds i8, ptr %11, i64 64
+  %755 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %755, align 16
-  %756 = getelementptr inbounds i8, ptr %11, i64 72
+  %756 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr null, ptr %756, align 8
   %757 = call ptr @wmem_file_scope() #13
   %758 = call noalias ptr @wmem_alloc0(ptr noundef %757, i64 noundef 40) #13
   store i8 %75, ptr %758, align 8
   %759 = load i32, ptr %12, align 4
-  %760 = getelementptr inbounds i8, ptr %758, i64 4
+  %760 = getelementptr inbounds nuw i8, ptr %758, i64 4
   store i32 %759, ptr %760, align 4
-  %761 = getelementptr inbounds i8, ptr %758, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %758, i64 8
   store i32 0, ptr %761, align 8
-  %762 = getelementptr inbounds i8, ptr %758, i64 16
+  %762 = getelementptr inbounds nuw i8, ptr %758, i64 16
   store i16 %731, ptr %762, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %758, i64 18
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %758, i64 18
   store i16 0, ptr %.sroa.4.0..sroa_idx, align 2
   %763 = load ptr, ptr @requests, align 8
   call void @wmem_tree_insert32_array(ptr noundef %763, ptr noundef nonnull %11, ptr noundef nonnull %758) #13
@@ -6244,7 +6244,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 
 768:                                              ; preds = %765
   %769 = load i32, ptr @hf_btatt_handle, align 4
-  %770 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %771 = load i16, ptr %770, align 8
   %772 = zext i16 %771 to i32
   %773 = call fastcc i32 @dissect_handle(ptr noundef %46, ptr noundef nonnull %1, i32 noundef %769, ptr noundef %0, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %18, i32 noundef %772)
@@ -6267,9 +6267,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %785 = load i32, ptr @hf_btatt_offset, align 4
   %786 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %785, ptr noundef %0, i32 noundef %779, i32 noundef 2, i32 noundef -2147483648) #13
   %787 = add i32 %779, 2
-  %788 = getelementptr inbounds i8, ptr %1, i64 80
+  %788 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %789 = load ptr, ptr %788, align 8
-  %790 = getelementptr inbounds i8, ptr %789, i64 50
+  %790 = getelementptr inbounds nuw i8, ptr %789, i64 50
   %791 = load i16, ptr %790, align 2
   %792 = and i16 %791, 8
   %793 = icmp eq i16 %792, 0
@@ -6291,34 +6291,34 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   %799 = zext i8 %.val945 to i32
   store i32 %799, ptr %10, align 4
   store i32 1, ptr %8, align 16
-  %800 = getelementptr inbounds i8, ptr %8, i64 8
+  %800 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %800, align 8
-  %801 = getelementptr inbounds i8, ptr %8, i64 16
+  %801 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %801, align 16
-  %802 = getelementptr inbounds i8, ptr %3, i64 4
-  %803 = getelementptr inbounds i8, ptr %8, i64 24
+  %802 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %803 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %802, ptr %803, align 8
-  %804 = getelementptr inbounds i8, ptr %8, i64 32
+  %804 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 1, ptr %804, align 16
-  %805 = getelementptr inbounds i8, ptr %8, i64 40
+  %805 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %10, ptr %805, align 8
-  %806 = getelementptr inbounds i8, ptr %8, i64 48
+  %806 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 1, ptr %806, align 16
-  %807 = getelementptr inbounds i8, ptr %8, i64 56
+  %807 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %9, ptr %807, align 8
-  %808 = getelementptr inbounds i8, ptr %8, i64 64
+  %808 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %808, align 16
-  %809 = getelementptr inbounds i8, ptr %8, i64 72
+  %809 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %809, align 8
   %810 = call ptr @wmem_file_scope() #13
   %811 = call noalias ptr @wmem_alloc0(ptr noundef %810, i64 noundef 40) #13
   store i8 22, ptr %811, align 8
   %812 = load i32, ptr %9, align 4
-  %813 = getelementptr inbounds i8, ptr %811, i64 4
+  %813 = getelementptr inbounds nuw i8, ptr %811, i64 4
   store i32 %812, ptr %813, align 4
-  %814 = getelementptr inbounds i8, ptr %811, i64 8
+  %814 = getelementptr inbounds nuw i8, ptr %811, i64 8
   store i32 0, ptr %814, align 8
-  %815 = getelementptr inbounds i8, ptr %811, i64 16
+  %815 = getelementptr inbounds nuw i8, ptr %811, i64 16
   store ptr null, ptr %815, align 8
   %816 = load ptr, ptr @requests, align 8
   call void @wmem_tree_insert32_array(ptr noundef %816, ptr noundef nonnull %8, ptr noundef nonnull %811) #13
@@ -6326,7 +6326,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %.pre = load ptr, ptr %788, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 50
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 50
   %.pre1031 = load i16, ptr %.phi.trans.insert, align 2
   br label %817
 
@@ -6353,38 +6353,38 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   store i32 %823, ptr %5, align 4
   store i32 %.val953, ptr %7, align 4
   store i32 1, ptr %6, align 16
-  %827 = getelementptr inbounds i8, ptr %6, i64 8
+  %827 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %827, align 8
-  %828 = getelementptr inbounds i8, ptr %6, i64 16
+  %828 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %828, align 16
-  %829 = getelementptr inbounds i8, ptr %3, i64 4
-  %830 = getelementptr inbounds i8, ptr %6, i64 24
+  %829 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %830 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %829, ptr %830, align 8
-  %831 = getelementptr inbounds i8, ptr %6, i64 32
+  %831 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %831, align 16
-  %832 = getelementptr inbounds i8, ptr %6, i64 40
+  %832 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %5, ptr %832, align 8
-  %833 = getelementptr inbounds i8, ptr %6, i64 48
+  %833 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 1, ptr %833, align 16
-  %834 = getelementptr inbounds i8, ptr %6, i64 56
+  %834 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %7, ptr %834, align 8
-  %835 = getelementptr inbounds i8, ptr %6, i64 64
+  %835 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %835, align 16
-  %836 = getelementptr inbounds i8, ptr %6, i64 72
+  %836 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %836, align 8
   %837 = call ptr @wmem_file_scope() #13
   %838 = call noalias ptr @wmem_alloc(ptr noundef %837, i64 noundef 24) #13
   %839 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %787) #13
   store i32 %839, ptr %838, align 8
-  %840 = getelementptr inbounds i8, ptr %838, i64 4
+  %840 = getelementptr inbounds nuw i8, ptr %838, i64 4
   store i32 %825, ptr %840, align 4
   %841 = load i32, ptr %7, align 4
-  %842 = getelementptr inbounds i8, ptr %838, i64 8
+  %842 = getelementptr inbounds nuw i8, ptr %838, i64 8
   store i32 %841, ptr %842, align 8
   %843 = call ptr @wmem_file_scope() #13
   %844 = zext i32 %839 to i64
   %845 = call ptr @tvb_memdup(ptr noundef %843, ptr noundef %0, i32 noundef %787, i64 noundef %844) #13
-  %846 = getelementptr inbounds i8, ptr %838, i64 16
+  %846 = getelementptr inbounds nuw i8, ptr %838, i64 16
   store ptr %845, ptr %846, align 8
   %847 = load ptr, ptr @fragments, align 8
   call void @wmem_tree_insert32_array(ptr noundef %847, ptr noundef nonnull %6, ptr noundef nonnull %838) #13
@@ -6411,7 +6411,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 857:                                              ; preds = %854
   %858 = load i32, ptr @hf_btatt_value, align 4
   %859 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %858, ptr noundef %0, i32 noundef %787, i32 noundef -1, i32 noundef 0) #13
-  %860 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %860 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %861 = load i16, ptr %860, align 8
   %862 = zext i16 %861 to i32
   %863 = call fastcc ptr @get_value(ptr noundef nonnull %1, i32 noundef %862, ptr noundef %3, ptr noundef %38)
@@ -6446,9 +6446,9 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %878, i32 noundef 25, ptr noundef nonnull @.str.3088, ptr noundef %881) #13
   %882 = load i32, ptr @hf_btatt_flags, align 4
   %883 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %882, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #13
-  %884 = getelementptr inbounds i8, ptr %1, i64 80
+  %884 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %885 = load ptr, ptr %884, align 8
-  %886 = getelementptr inbounds i8, ptr %885, i64 50
+  %886 = getelementptr inbounds nuw i8, ptr %885, i64 50
   %887 = load i16, ptr %886, align 2
   %888 = and i16 %887, 8
   %889 = icmp eq i16 %888, 0
@@ -6476,7 +6476,7 @@ is_long_attribute_value.exit.thread:              ; preds = %504, %is_long_attri
 
 898:                                              ; preds = %895
   %899 = load i32, ptr @hf_btatt_handle, align 4
-  %900 = getelementptr inbounds i8, ptr %.037.i, i64 16
+  %900 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %901 = load i16, ptr %900, align 8
   %902 = zext i16 %901 to i32
   %903 = call fastcc i32 @dissect_handle(ptr noundef %46, ptr noundef nonnull %1, i32 noundef %899, ptr noundef %0, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %18, i32 noundef %902)
@@ -6522,13 +6522,13 @@ proto_item_set_generated.exit.thread:             ; preds = %655, %.preheader998
   br i1 %927, label %928, label %proto_item_set_generated.exit968
 
 928:                                              ; preds = %proto_item_set_generated.exit.thread
-  %929 = getelementptr inbounds i8, ptr %.037.i977984, i64 4
+  %929 = getelementptr inbounds nuw i8, ptr %.037.i977984, i64 4
   %930 = load i32, ptr %929, align 4
   %.not922 = icmp eq i32 %930, 0
   br i1 %.not922, label %proto_item_set_generated.exit965, label %931
 
 931:                                              ; preds = %928
-  %932 = getelementptr inbounds i8, ptr %1, i64 20
+  %932 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %933 = load i32, ptr %932, align 4
   %.not923 = icmp eq i32 %930, %933
   br i1 %.not923, label %proto_item_set_generated.exit965, label %934
@@ -6540,26 +6540,26 @@ proto_item_set_generated.exit.thread:             ; preds = %655, %.preheader998
   br i1 %.not.i963, label %proto_item_set_generated.exit965, label %937
 
 937:                                              ; preds = %934
-  %938 = getelementptr inbounds i8, ptr %936, i64 32
+  %938 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %939 = load ptr, ptr %938, align 8
   %.not5.i964 = icmp eq ptr %939, null
   br i1 %.not5.i964, label %proto_item_set_generated.exit965, label %940
 
 940:                                              ; preds = %937
-  %941 = getelementptr inbounds i8, ptr %939, i64 28
+  %941 = getelementptr inbounds nuw i8, ptr %939, i64 28
   %942 = load i32, ptr %941, align 4
   %943 = or i32 %942, 2
   store i32 %943, ptr %941, align 4
   br label %proto_item_set_generated.exit965
 
 proto_item_set_generated.exit965:                 ; preds = %940, %937, %934, %931, %928
-  %944 = getelementptr inbounds i8, ptr %1, i64 80
+  %944 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %945 = load ptr, ptr %944, align 8
-  %946 = getelementptr inbounds i8, ptr %945, i64 50
+  %946 = getelementptr inbounds nuw i8, ptr %945, i64 50
   %947 = load i16, ptr %946, align 2
   %948 = and i16 %947, 8
   %.not924 = icmp eq i16 %948, 0
-  %949 = getelementptr inbounds i8, ptr %.037.i977984, i64 8
+  %949 = getelementptr inbounds nuw i8, ptr %.037.i977984, i64 8
   %950 = load i32, ptr %949, align 8
   %951 = icmp eq i32 %950, 0
   br i1 %.not924, label %952, label %959
@@ -6568,7 +6568,7 @@ proto_item_set_generated.exit965:                 ; preds = %940, %937, %934, %9
   br i1 %951, label %953, label %.thread
 
 953:                                              ; preds = %952
-  %954 = getelementptr inbounds i8, ptr %1, i64 20
+  %954 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %955 = load i32, ptr %954, align 4
   %956 = load i32, ptr %929, align 4
   %957 = icmp ugt i32 %955, %956
@@ -6583,7 +6583,7 @@ proto_item_set_generated.exit965:                 ; preds = %940, %937, %934, %9
 
 .thread:                                          ; preds = %952, %958, %959
   %960 = phi i32 [ %950, %959 ], [ %950, %952 ], [ %955, %958 ]
-  %961 = getelementptr inbounds i8, ptr %1, i64 20
+  %961 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %962 = load i32, ptr %961, align 4
   %.not926 = icmp eq i32 %960, %962
   br i1 %.not926, label %proto_item_set_generated.exit968, label %963
@@ -6595,13 +6595,13 @@ proto_item_set_generated.exit965:                 ; preds = %940, %937, %934, %9
   br i1 %.not.i966, label %proto_item_set_generated.exit968, label %966
 
 966:                                              ; preds = %963
-  %967 = getelementptr inbounds i8, ptr %965, i64 32
+  %967 = getelementptr inbounds nuw i8, ptr %965, i64 32
   %968 = load ptr, ptr %967, align 8
   %.not5.i967 = icmp eq ptr %968, null
   br i1 %.not5.i967, label %proto_item_set_generated.exit968, label %969
 
 969:                                              ; preds = %966
-  %970 = getelementptr inbounds i8, ptr %968, i64 28
+  %970 = getelementptr inbounds nuw i8, ptr %968, i64 28
   %971 = load i32, ptr %970, align 4
   %972 = or i32 %971, 2
   store i32 %972, ptr %970, align 4
@@ -6660,7 +6660,7 @@ define hidden void @proto_reg_handoff_btatt() local_unnamed_addr #1 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.2139, i32 noundef 4, ptr noundef %14) #13
   %15 = tail call i32 @register_tap(ptr noundef nonnull @.str.2140) #13
   store i32 %15, ptr @btatt_tap_handles, align 4
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bluetooth_uuid_vals, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bluetooth_uuid_vals, i64 8), align 8
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -6698,7 +6698,7 @@ define hidden void @proto_reg_handoff_btatt() local_unnamed_addr #1 {
   %38 = add i32 %.023, 1
   %39 = sext i32 %38 to i64
   %40 = getelementptr [0 x %struct._value_string], ptr @bluetooth_uuid_vals, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -6723,7 +6723,7 @@ declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca %struct._uuid_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @wmem_list_tail(ptr noundef %7) #13
   %9 = tail call ptr @wmem_list_frame_data(ptr noundef %8) #13
@@ -6752,12 +6752,12 @@ define internal i32 @dissect_btgatt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.sink15 = phi i16 [ %23, %19 ], [ 0, %4 ]
   %.sink14 = phi i8 [ %24, %19 ], [ 0, %4 ]
   %.sink = phi i8 [ %26, %19 ], [ 0, %4 ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 2, ptr %28, align 2
   store i16 %.sink15, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %.sink14, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %.sink, ptr %30, align 1
   %31 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
   %32 = tail call fastcc i32 @dissect_attribute_value(ptr noundef %15, ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, i32 noundef %31, i16 noundef zeroext 0, ptr noundef nonnull byval(%struct._uuid_t) align 8 %5, ptr noundef %3)
@@ -6789,10 +6789,10 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
   %2 = phi ptr [ @.str.2287, %0 ], [ %14, %12 ]
   %3 = phi ptr [ @__const.proto_reg_handoff_btgatt.uuid_dissectors, %0 ], [ %13, %12 ]
   %4 = load ptr, ptr @bluetooth_uuids, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %4, ptr noundef nonnull %2, ptr noundef %6, i32 noundef 0) #13
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %12, label %9
@@ -6816,7 +6816,7 @@ define hidden void @proto_reg_handoff_btgatt() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_nordic_uart_tx(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -6843,7 +6843,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_nordic_uart_rx(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -6870,7 +6870,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_nordic_dfu_control_point(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr58 = freeze i8 %6
   %7 = and i8 %.fr58, -7
@@ -6955,7 +6955,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_nordic_dfu_packet(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -6982,7 +6982,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_accelerometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
   %7 = and i8 %.fr34, -7
@@ -7026,7 +7026,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_accelerometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7051,7 +7051,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 7) i32 @dissect_btgatt_microbit_magnetometer_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr34 = freeze i8 %6
   %7 = and i8 %.fr34, -7
@@ -7095,7 +7095,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7120,7 +7120,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_magnetometer_bearing(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7145,7 +7145,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_a_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7170,7 +7170,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_button_b_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7196,7 +7196,7 @@ switch.early.test:                                ; preds = %4
 ; Function Attrs: nounwind uwtable
 define internal range(i32 2, 1) i32 @dissect_btgatt_microbit_pin_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
   %.fr30 = freeze i8 %7
   %8 = and i8 %.fr30, -7
@@ -7244,7 +7244,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_pin_ad_config(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr10 = freeze i8 %6
   %7 = and i8 %.fr10, -7
@@ -7273,7 +7273,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_pin_io_config(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr10 = freeze i8 %6
   %7 = and i8 %.fr10, -7
@@ -7302,7 +7302,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_pwm_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7329,7 +7329,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_led_matrix(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7356,7 +7356,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_led_text(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7383,7 +7383,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_scrolling_delay(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7408,7 +7408,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_microbit_requirements(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7435,7 +7435,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_microbit_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7462,7 +7462,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_client_requirements(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7489,7 +7489,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btgatt_microbit_client_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr8 = freeze i8 %6
   %7 = and i8 %.fr8, -7
@@ -7516,7 +7516,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_dfu_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7541,7 +7541,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @dissect_btgatt_microbit_temperature_value(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7566,7 +7566,7 @@ switch.early.test:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 3) i32 @dissect_btgatt_microbit_temperature_period(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr9 = freeze i8 %6
   %7 = and i8 %.fr9, -7
@@ -7654,13 +7654,13 @@ define internal fastcc noundef i32 @dissect_handle(ptr noundef %0, ptr nocapture
   br i1 %.not.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 2
   store i32 %33, ptr %31, align 4
@@ -7693,23 +7693,23 @@ get_service_uuid_from_handle.exit.thread:         ; preds = %35
   br label %get_bluetooth_uuid_from_handle.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %39 = load i32, ptr %38, align 4, !noalias !15
   store i32 1, ptr %14, align 16, !noalias !15
-  %40 = getelementptr inbounds i8, ptr %14, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %5, ptr %40, align 8, !noalias !15
-  %41 = getelementptr inbounds i8, ptr %14, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %41, align 16, !noalias !15
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
-  %43 = getelementptr inbounds i8, ptr %14, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %42, ptr %43, align 8, !noalias !15
-  %44 = getelementptr inbounds i8, ptr %14, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %44, align 16, !noalias !15
-  %45 = getelementptr inbounds i8, ptr %14, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %13, ptr %45, align 8, !noalias !15
-  %46 = getelementptr inbounds i8, ptr %14, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 0, ptr %46, align 16, !noalias !15
-  %47 = getelementptr inbounds i8, ptr %14, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr null, ptr %47, align 8, !noalias !15
   %.not1115.i = icmp eq i16 %.064, 0
   br i1 %.not1115.i, label %get_service_uuid_from_handle.exit.thread86, label %.lr.ph.i
@@ -7737,7 +7737,7 @@ get_service_uuid_from_handle.exit.thread86:       ; preds = %37
   br i1 %.not13.i, label %.thread.i, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %51, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %54 = load i32, ptr %53, align 4, !noalias !15
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %.thread.i
@@ -7768,19 +7768,19 @@ get_service_uuid_from_handle.exit:                ; preds = %.thread.i, %56
 59:                                               ; preds = %get_service_uuid_from_handle.exit, %get_service_uuid_from_handle.exit.thread86
   %60 = phi i32 [ %.pre, %get_service_uuid_from_handle.exit ], [ %39, %get_service_uuid_from_handle.exit.thread86 ]
   store i32 1, ptr %12, align 16, !noalias !25
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %61, align 8, !noalias !25
-  %62 = getelementptr inbounds i8, ptr %12, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %62, align 16, !noalias !25
-  %63 = getelementptr inbounds i8, ptr %12, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %42, ptr %63, align 8, !noalias !25
-  %64 = getelementptr inbounds i8, ptr %12, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 1, ptr %64, align 16, !noalias !25
-  %65 = getelementptr inbounds i8, ptr %12, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %11, ptr %65, align 8, !noalias !25
-  %66 = getelementptr inbounds i8, ptr %12, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 0, ptr %66, align 16, !noalias !25
-  %67 = getelementptr inbounds i8, ptr %12, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr null, ptr %67, align 8, !noalias !25
   br i1 %.not1115.i, label %get_characteristic_uuid_from_handle.exit.thread87, label %.lr.ph.i72
 
@@ -7807,7 +7807,7 @@ get_characteristic_uuid_from_handle.exit.thread87: ; preds = %59
   br i1 %.not15.i, label %.critedge.i, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %71, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %74 = load i32, ptr %73, align 4, !noalias !25
   switch i32 %74, label %.critedge.i [
     i32 0, label %get_characteristic_uuid_from_handle.exit
@@ -7840,19 +7840,19 @@ get_characteristic_uuid_from_handle.exit:         ; preds = %72, %.critedge.i, %
 78:                                               ; preds = %get_characteristic_uuid_from_handle.exit, %get_characteristic_uuid_from_handle.exit.thread87
   %79 = phi i32 [ %.pre90, %get_characteristic_uuid_from_handle.exit ], [ %60, %get_characteristic_uuid_from_handle.exit.thread87 ]
   store i32 1, ptr %10, align 16, !noalias !30
-  %80 = getelementptr inbounds i8, ptr %10, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %5, ptr %80, align 8, !noalias !30
-  %81 = getelementptr inbounds i8, ptr %10, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %81, align 16, !noalias !30
-  %82 = getelementptr inbounds i8, ptr %10, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %42, ptr %82, align 8, !noalias !30
-  %83 = getelementptr inbounds i8, ptr %10, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 1, ptr %83, align 16, !noalias !30
-  %84 = getelementptr inbounds i8, ptr %10, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %9, ptr %84, align 8, !noalias !30
-  %85 = getelementptr inbounds i8, ptr %10, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 0, ptr %85, align 16, !noalias !30
-  %86 = getelementptr inbounds i8, ptr %10, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr null, ptr %86, align 8, !noalias !30
   %87 = load ptr, ptr @handle_to_uuid, align 8, !noalias !30
   %88 = call ptr @wmem_tree_lookup32_array(ptr noundef %87, ptr noundef nonnull %10) #13, !noalias !30
@@ -7878,7 +7878,7 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_fr
   br i1 %.not, label %proto_item_set_generated.exit79, label %92
 
 92:                                               ; preds = %get_bluetooth_uuid_from_handle.exit
-  %93 = getelementptr inbounds i8, ptr %15, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %94 = load i8, ptr %93, align 2
   switch i8 %94, label %proto_item_set_generated.exit79 [
     i8 16, label %95
@@ -7886,7 +7886,7 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_fr
   ]
 
 95:                                               ; preds = %92, %92
-  %96 = getelementptr inbounds i8, ptr %1, i64 408
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
   %98 = call ptr @print_bluetooth_uuid(ptr noundef %97, ptr noundef nonnull %15) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.063, ptr noundef nonnull @.str.3092, ptr noundef %98) #13
@@ -7905,7 +7905,7 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_fr
 
 108:                                              ; preds = %95
   %109 = load i32, ptr @hf_btatt_service_uuid128, align 4
-  %110 = getelementptr inbounds i8, ptr %15, i64 3
+  %110 = getelementptr inbounds nuw i8, ptr %15, i64 3
   %111 = call ptr @proto_tree_add_bytes_with_length(ptr noundef %100, i32 noundef %109, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %110, i32 noundef 16) #13
   br label %112
 
@@ -7915,13 +7915,13 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %get_service_uuid_fr
   br i1 %.not.i77, label %proto_item_set_generated.exit79, label %113
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %.0, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %115 = load ptr, ptr %114, align 8
   %.not5.i78 = icmp eq ptr %115, null
   br i1 %.not5.i78, label %proto_item_set_generated.exit79, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 28
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 28
   %118 = load i32, ptr %117, align 4
   %119 = or i32 %118, 2
   store i32 %119, ptr %117, align 4
@@ -7933,7 +7933,7 @@ proto_item_set_generated.exit79:                  ; preds = %116, %113, %112, %9
   br i1 %.not68, label %proto_item_set_generated.exit82, label %120
 
 120:                                              ; preds = %proto_item_set_generated.exit79
-  %121 = getelementptr inbounds i8, ptr %16, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %122 = load i8, ptr %121, align 2
   switch i8 %122, label %proto_item_set_generated.exit82 [
     i8 16, label %123
@@ -7941,7 +7941,7 @@ proto_item_set_generated.exit79:                  ; preds = %116, %113, %112, %9
   ]
 
 123:                                              ; preds = %120, %120
-  %124 = getelementptr inbounds i8, ptr %1, i64 408
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %125 = load ptr, ptr %124, align 8
   %126 = call ptr @print_bluetooth_uuid(ptr noundef %125, ptr noundef nonnull %16) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.063, ptr noundef nonnull @.str.3092, ptr noundef %126) #13
@@ -7960,7 +7960,7 @@ proto_item_set_generated.exit79:                  ; preds = %116, %113, %112, %9
 
 136:                                              ; preds = %123
   %137 = load i32, ptr @hf_btatt_characteristic_uuid128, align 4
-  %138 = getelementptr inbounds i8, ptr %16, i64 3
+  %138 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %139 = call ptr @proto_tree_add_bytes_with_length(ptr noundef %128, i32 noundef %137, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %138, i32 noundef 16) #13
   br label %140
 
@@ -7970,24 +7970,24 @@ proto_item_set_generated.exit79:                  ; preds = %116, %113, %112, %9
   br i1 %.not.i80, label %proto_item_set_generated.exit82, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.1, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %143 = load ptr, ptr %142, align 8
   %.not5.i81 = icmp eq ptr %143, null
   br i1 %.not5.i81, label %proto_item_set_generated.exit82, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %143, i64 28
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 28
   %146 = load i32, ptr %145, align 4
   %147 = or i32 %146, 2
   store i32 %147, ptr %145, align 4
   br label %proto_item_set_generated.exit82
 
 proto_item_set_generated.exit82:                  ; preds = %144, %141, %140, %120, %proto_item_set_generated.exit79
-  %148 = getelementptr inbounds i8, ptr %1, i64 408
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %149 = load ptr, ptr %148, align 8
   %150 = call ptr @print_bluetooth_uuid(ptr noundef %149, ptr noundef nonnull %17) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.063, ptr noundef nonnull @.str.3093, ptr noundef %150) #13
-  %151 = getelementptr inbounds i8, ptr %17, i64 2
+  %151 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %152 = load i8, ptr %151, align 2
   switch i8 %152, label %proto_item_set_generated.exit85 [
     i8 16, label %153
@@ -8010,7 +8010,7 @@ proto_item_set_generated.exit82:                  ; preds = %144, %141, %140, %1
 
 163:                                              ; preds = %153
   %164 = load i32, ptr @hf_btatt_uuid128, align 4
-  %165 = getelementptr inbounds i8, ptr %17, i64 3
+  %165 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %166 = call ptr @proto_tree_add_bytes_with_length(ptr noundef %155, i32 noundef %164, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %165, i32 noundef 16) #13
   br label %167
 
@@ -8020,13 +8020,13 @@ proto_item_set_generated.exit82:                  ; preds = %144, %141, %140, %1
   br i1 %.not.i83, label %proto_item_set_generated.exit85, label %168
 
 168:                                              ; preds = %167
-  %169 = getelementptr inbounds i8, ptr %.2, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not5.i84 = icmp eq ptr %170, null
   br i1 %.not5.i84, label %proto_item_set_generated.exit85, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = or i32 %173, 2
   store i32 %174, ptr %172, align 4
@@ -8057,23 +8057,23 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 1, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %6, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr null, ptr %17, align 8
   %.not1115 = icmp eq i32 %2, 0
   br i1 %.not1115, label %.loopexit, label %.lr.ph
@@ -8090,7 +8090,7 @@ define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noa
   br i1 %.not13, label %.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %21, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.thread
@@ -8136,23 +8136,23 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   store i32 %17, ptr %8, align 4, !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, i8 0, i64 20, i1 false), !alias.scope !32
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4, !noalias !32
   store i32 1, ptr %9, align 16, !noalias !32
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %20, align 8, !noalias !32
-  %21 = getelementptr inbounds i8, ptr %9, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %21, align 16, !noalias !32
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %22, ptr %23, align 8, !noalias !32
-  %24 = getelementptr inbounds i8, ptr %9, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 1, ptr %24, align 16, !noalias !32
-  %25 = getelementptr inbounds i8, ptr %9, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %8, ptr %25, align 8, !noalias !32
-  %26 = getelementptr inbounds i8, ptr %9, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 0, ptr %26, align 16, !noalias !32
-  %27 = getelementptr inbounds i8, ptr %9, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr null, ptr %27, align 8, !noalias !32
   %.not1115.i = icmp eq i16 %1, 0
   br i1 %.not1115.i, label %.loopexit30, label %.lr.ph.i
@@ -8169,7 +8169,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %.not13.i, label %.thread.i, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %31, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %34 = load i32, ptr %33, align 4, !noalias !32
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.thread.i
@@ -8196,19 +8196,19 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %14, i8 0, i64 20, i1 false), !alias.scope !35
   %39 = load i32, ptr %18, align 4, !noalias !35
   store i32 1, ptr %7, align 16, !noalias !35
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %40, align 8, !noalias !35
-  %41 = getelementptr inbounds i8, ptr %7, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %41, align 16, !noalias !35
-  %42 = getelementptr inbounds i8, ptr %7, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %22, ptr %42, align 8, !noalias !35
-  %43 = getelementptr inbounds i8, ptr %7, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %43, align 16, !noalias !35
-  %44 = getelementptr inbounds i8, ptr %7, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %6, ptr %44, align 8, !noalias !35
-  %45 = getelementptr inbounds i8, ptr %7, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 0, ptr %45, align 16, !noalias !35
-  %46 = getelementptr inbounds i8, ptr %7, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr null, ptr %46, align 8, !noalias !35
   br i1 %.not1115.i, label %.loopexit, label %.lr.ph.i25
 
@@ -8224,7 +8224,7 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   br i1 %.not15.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %50, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %53 = load i32, ptr %52, align 4, !noalias !35
   switch i32 %53, label %.critedge.i [
     i32 0, label %.loopexit
@@ -8253,19 +8253,19 @@ define internal fastcc void @col_append_info_by_handle(ptr nocapture noundef rea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %15, i8 0, i64 20, i1 false), !alias.scope !38
   %57 = load i32, ptr %18, align 4, !noalias !38
   store i32 1, ptr %5, align 16, !noalias !38
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %58, align 8, !noalias !38
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %59, align 16, !noalias !38
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %22, ptr %60, align 8, !noalias !38
-  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %61, align 16, !noalias !38
-  %62 = getelementptr inbounds i8, ptr %5, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %4, ptr %62, align 8, !noalias !38
-  %63 = getelementptr inbounds i8, ptr %5, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 0, ptr %63, align 16, !noalias !38
-  %64 = getelementptr inbounds i8, ptr %5, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %64, align 8, !noalias !38
   %65 = load ptr, ptr @handle_to_uuid, align 8, !noalias !38
   %66 = call ptr @wmem_tree_lookup32_array(ptr noundef %65, ptr noundef nonnull %5) #13, !noalias !38
@@ -8290,9 +8290,9 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %.loopexit, %67, %69
   br i1 %.not21, label %70, label %76
 
 70:                                               ; preds = %get_bluetooth_uuid_from_handle.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 408
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @print_bluetooth_uuid(ptr noundef %74, ptr noundef nonnull %12) #13
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.3094, i32 noundef %17, ptr noundef %75) #13
@@ -8301,9 +8301,9 @@ get_bluetooth_uuid_from_handle.exit:              ; preds = %.loopexit, %67, %69
 76:                                               ; preds = %get_bluetooth_uuid_from_handle.exit
   %bcmp22 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %11, ptr noundef nonnull dereferenceable(20) %12, i64 20)
   %.not23 = icmp eq i32 %bcmp22, 0
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @print_bluetooth_uuid(ptr noundef %80, ptr noundef nonnull %10) #13
   %82 = load ptr, ptr %79, align 8
@@ -8338,34 +8338,34 @@ define internal fastcc void @save_request(i32 %.20.val, i8 %.376.val, i8 noundef
   %7 = zext i8 %.376.val to i32
   store i32 %7, ptr %6, align 4
   store i32 1, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 1, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 0, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %17, align 8
   %18 = call ptr @wmem_file_scope() #13
   %19 = call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 40) #13
   store i8 %0, ptr %19, align 8
   %20 = load i32, ptr %5, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %24 = load ptr, ptr @requests, align 8
   call void @wmem_tree_insert32_array(ptr noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %19) #13
@@ -8378,20 +8378,20 @@ define internal fastcc void @save_mtu(i32 %.20.val, ptr noundef nonnull %0, i32 
   %4 = alloca i32, align 4
   store i32 %.20.val, ptr %4, align 4
   store i32 1, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 0, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr null, ptr %12, align 8
   %13 = call ptr @wmem_file_scope() #13
   %14 = call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 4) #13
@@ -8417,7 +8417,7 @@ define internal fastcc void @save_handle(ptr noundef %0, ptr nocapture noundef r
   br i1 %9, label %switch.early.test, label %12
 
 switch.early.test:                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i8, ptr %10, align 2
   switch i8 %11, label %46 [
     i8 16, label %12
@@ -8431,20 +8431,20 @@ switch.early.test:                                ; preds = %5
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 24) #13
   store i32 %2, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 20, i1 false)
   %20 = load i32, ptr @btatt_tap_handles, align 4
   tail call void @tap_queue_packet(i32 noundef %20, ptr noundef %0, ptr noundef nonnull %18) #13
   br label %21
 
 21:                                               ; preds = %15, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 50
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 50
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %27 = icmp eq i16 %26, 0
@@ -8453,33 +8453,33 @@ switch.early.test:                                ; preds = %5
   br i1 %or.cond9, label %29, label %46
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %8, align 4
   store i32 1, ptr %7, align 16
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %4, i64 4
-  %35 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %7, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %6, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 1, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %7, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %8, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %7, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %41, align 8
   %42 = call ptr @wmem_file_scope() #13
   %43 = call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 20, i1 false)
-  %44 = getelementptr inbounds i8, ptr %43, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i32 %3, ptr %44, align 4
   %45 = load ptr, ptr @handle_to_uuid, align 8
   call void @wmem_tree_insert32_array(ptr noundef %45, ptr noundef nonnull %7, ptr noundef %43) #13
@@ -8518,7 +8518,7 @@ define internal fastcc i32 @dissect_attribute_value(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %9
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @proto_btatt, align 4
   %32 = tail call ptr @p_get_proto_data(ptr noundef %30, ptr noundef %2, i32 noundef %31, i32 noundef 0) #13
@@ -8535,16 +8535,16 @@ define internal fastcc i32 @dissect_attribute_value(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %34, %27
-  %40 = getelementptr inbounds i8, ptr %2, i64 332
-  %41 = getelementptr inbounds i8, ptr %2, i64 336
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 332
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %42 = zext i16 %6 to i32
   %43 = shl nuw i32 %42, 16
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 284
-  %46 = getelementptr inbounds i8, ptr %2, i64 288
-  %47 = getelementptr inbounds i8, ptr %2, i64 272
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 284
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 272
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %50
 
 50:                                               ; preds = %103, %39
@@ -8746,20 +8746,20 @@ switch.early.test:                                ; preds = %132
 141:                                              ; preds = %140
   %142 = load i32, ptr %49, align 4, !noalias !41
   store i32 1, ptr %11, align 16, !noalias !41
-  %143 = getelementptr inbounds i8, ptr %11, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %28, ptr %143, align 8, !noalias !41
-  %144 = getelementptr inbounds i8, ptr %11, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %144, align 16, !noalias !41
-  %145 = getelementptr inbounds i8, ptr %28, i64 4
-  %146 = getelementptr inbounds i8, ptr %11, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %145, ptr %146, align 8, !noalias !41
-  %147 = getelementptr inbounds i8, ptr %11, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 1, ptr %147, align 16, !noalias !41
-  %148 = getelementptr inbounds i8, ptr %11, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %10, ptr %148, align 8, !noalias !41
-  %149 = getelementptr inbounds i8, ptr %11, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 0, ptr %149, align 16, !noalias !41
-  %150 = getelementptr inbounds i8, ptr %11, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr null, ptr %150, align 8, !noalias !41
   %.not1115.i = icmp eq i16 %6, 0
   br i1 %.not1115.i, label %get_service_uuid_from_handle.exit, label %.lr.ph.i
@@ -8776,7 +8776,7 @@ switch.early.test:                                ; preds = %132
   br i1 %.not13.i, label %.thread.i, label %155
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds i8, ptr %154, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 20
   %157 = load i32, ptr %156, align 4, !noalias !41
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %.thread.i
@@ -10345,7 +10345,7 @@ switch.early.test7945:                            ; preds = %640
 
 644:                                              ; preds = %643
   %645 = load i32, ptr %28, align 8
-  %646 = getelementptr inbounds i8, ptr %28, i64 4
+  %646 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %647 = load i32, ptr %646, align 4
   br label %648
 
@@ -21539,7 +21539,7 @@ switch.early.test8143.thread:                     ; preds = %4669, %switch.early
 4786:                                             ; preds = %4783
   %4787 = load i32, ptr %28, align 8
   store i32 %4787, ptr %4785, align 4
-  %4788 = getelementptr inbounds i8, ptr %28, i64 4
+  %4788 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %4789 = load i32, ptr %4788, align 4
   br label %4791
 
@@ -21549,17 +21549,17 @@ switch.early.test8143.thread:                     ; preds = %4669, %switch.early
 
 4791:                                             ; preds = %4790, %4786
   %.sink = phi i32 [ 0, %4790 ], [ %4789, %4786 ]
-  %4792 = getelementptr inbounds i8, ptr %4785, i64 4
+  %4792 = getelementptr inbounds nuw i8, ptr %4785, i64 4
   store i32 %.sink, ptr %4792, align 4
-  %4793 = getelementptr inbounds i8, ptr %4785, i64 8
+  %4793 = getelementptr inbounds nuw i8, ptr %4785, i64 8
   store i16 0, ptr %4793, align 4
   %4794 = load i16, ptr %7, align 8
-  %4795 = getelementptr inbounds i8, ptr %4785, i64 10
+  %4795 = getelementptr inbounds nuw i8, ptr %4785, i64 10
   store i16 %4794, ptr %4795, align 2
-  %4796 = getelementptr inbounds i8, ptr %4785, i64 12
+  %4796 = getelementptr inbounds nuw i8, ptr %4785, i64 12
   store i32 0, ptr %4796, align 4
   %4797 = load i8, ptr %44, align 8
-  %4798 = getelementptr inbounds i8, ptr %4785, i64 16
+  %4798 = getelementptr inbounds nuw i8, ptr %4785, i64 16
   %switch.selectcmp9033 = icmp eq i8 %4797, 27
   %switch.select9034 = zext i1 %switch.selectcmp9033 to i32
   %switch.selectcmp9035 = icmp eq i8 %4797, 82
@@ -21742,38 +21742,38 @@ define internal fastcc void @save_value_fragment(i32 %.20.val, ptr noundef %0, i
   store i32 %2, ptr %6, align 4
   store i32 %.20.val, ptr %8, align 4
   store i32 1, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 1, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %18, align 8
   %19 = call ptr @wmem_file_scope() #13
   %20 = call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 24) #13
   %21 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #13
   store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %3, ptr %22, align 4
   %23 = load i32, ptr %8, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %23, ptr %24, align 8
   %25 = call ptr @wmem_file_scope() #13
   %26 = zext i32 %21 to i64
   %27 = call ptr @tvb_memdup(ptr noundef %25, ptr noundef %0, i32 noundef %1, i64 noundef %26) #13
-  %28 = getelementptr inbounds i8, ptr %20, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr @fragments, align 8
   call void @wmem_tree_insert32_array(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %20) #13
@@ -21789,23 +21789,23 @@ define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0,
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 1, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %6, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr @fragments, align 8
   %19 = call ptr @wmem_tree_lookup32_array(ptr noundef %18, ptr noundef nonnull %6) #13
@@ -21813,7 +21813,7 @@ define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0,
   br i1 %.not43, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %21 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %9) #13
   %.not4456 = icmp eq ptr %21, null
   br i1 %.not4456, label %.thread, label %.lr.ph60
@@ -21823,7 +21823,7 @@ define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0,
   %.0345059 = phi i32 [ %41, %43 ], [ -1, %.lr.ph ]
   %.not465158 = phi i1 [ true, %43 ], [ false, %.lr.ph ]
   %.05257 = phi ptr [ %.1, %43 ], [ null, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %.not45 = icmp ult i32 %24, %.0345059
   br i1 %.not45, label %25, label %.thread
@@ -21852,7 +21852,7 @@ define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0,
   %.1 = phi ptr [ %31, %28 ], [ %.05257, %32 ]
   %36 = zext i32 %35 to i64
   %37 = getelementptr i8, ptr %.1, i64 %36
-  %38 = getelementptr inbounds i8, ptr %22, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %34 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %39, i64 %40, i1 false)
@@ -21861,7 +21861,7 @@ define internal fastcc noalias ptr @get_value(ptr nocapture noundef readonly %0,
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, -1
   %47 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %46) #13
@@ -21900,23 +21900,23 @@ define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unw
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 1, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %6, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr null, ptr %17, align 8
   %.not1317 = icmp eq i32 %2, 0
   br i1 %.not1317, label %.loopexit, label %.lr.ph
@@ -21933,7 +21933,7 @@ define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unw
   br i1 %.not15, label %.critedge, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %21, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %.critedge [
     i32 0, label %.loopexit
@@ -22090,7 +22090,7 @@ define internal fastcc i32 @dissect_gatt_uuid(ptr noundef %0, ptr noundef %1, pt
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %2, i32 noundef %3, i32 noundef 16, i32 noundef 0) #13
   call void @get_bluetooth_uuid(ptr dead_on_unwind nonnull writable sret(%struct._uuid_t) align 2 %6, ptr noundef %2, i32 noundef %3, i32 noundef 16) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %5, ptr noundef nonnull align 2 dereferenceable(20) %6, i64 20, i1 false)
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @print_bluetooth_uuid(ptr noundef %20, ptr noundef nonnull %5) #13
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.3080, ptr noundef %21) #13

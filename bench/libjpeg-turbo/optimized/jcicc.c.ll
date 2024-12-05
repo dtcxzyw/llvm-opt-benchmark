@@ -12,7 +12,7 @@ define void @jpeg_write_icc_profile(ptr noundef %0, ptr noundef readonly %1, i32
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 23, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
@@ -20,18 +20,18 @@ define void @jpeg_write_icc_profile(ptr noundef %0, ptr noundef readonly %1, i32
   br label %11
 
 11:                                               ; preds = %3, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = icmp slt i32 %13, 101
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 20, ptr %17, align 8
   %18 = load i32, ptr %12, align 4
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 %18, ptr %20, align 4
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
@@ -76,7 +76,7 @@ define void @jpeg_write_icc_profile(ptr noundef %0, ptr noundef readonly %1, i32
   %30 = load i8, ptr %.149, align 1
   %31 = zext i8 %30 to i32
   tail call void @jpeg_write_m_byte(ptr noundef %0, i32 noundef %31) #3
-  %32 = getelementptr inbounds i8, ptr %.149, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.149, i64 1
   %.not48 = icmp eq i32 %29, 0
   br i1 %.not48, label %33, label %28, !llvm.loop !4
 

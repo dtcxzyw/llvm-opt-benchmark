@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Ptngc_coder_init() local_unnamed_addr #0 {
   %1 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 48) #7
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
   ret ptr %1
 }
@@ -26,7 +26,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ptngc_out8bits(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 7
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -47,7 +47,7 @@ define void @Ptngc_out8bits(ptr nocapture noundef %0, ptr nocapture noundef %1) 
   %13 = load ptr, ptr %1, align 8
   store i8 %12, ptr %13, align 1
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %1, align 8
   %16 = load i32, ptr %0, align 4
   %17 = and i32 %16, %10
@@ -65,7 +65,7 @@ define void @Ptngc_write_pattern(ptr nocapture noundef %0, i32 noundef %1, i32 n
   %5 = load i32, ptr %0, align 4
   %6 = shl i32 %5, %2
   store i32 %6, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %2
   store i32 %9, ptr %7, align 4
@@ -116,7 +116,7 @@ define void @Ptngc_write_pattern(ptr nocapture noundef %0, i32 noundef %1, i32 n
   %29 = load ptr, ptr %3, align 8
   store i8 %28, ptr %29, align 1
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %3, align 8
   %32 = load i32, ptr %0, align 4
   %33 = and i32 %32, %26
@@ -133,7 +133,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %._crit_e
 define void @Ptngc_writebits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
   %5 = load i32, ptr %0, align 4
   %6 = shl i32 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %2
   store i32 %9, ptr %7, align 4
@@ -154,7 +154,7 @@ define void @Ptngc_writebits(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   %19 = load ptr, ptr %3, align 8
   store i8 %18, ptr %19, align 1
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %3, align 8
   %22 = load i32, ptr %0, align 4
   %23 = and i32 %22, %16
@@ -179,7 +179,7 @@ define void @Ptngc_write32bits(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %0, align 4
   %.pre26 = load i32, ptr %11, align 4
   br label %12
@@ -212,7 +212,7 @@ define void @Ptngc_write32bits(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %29 = load ptr, ptr %3, align 8
   store i8 %28, ptr %29, align 1
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %3, align 8
   %32 = load i32, ptr %0, align 4
   %33 = and i32 %32, %26
@@ -238,7 +238,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %12
   %41 = and i32 %.1.lcssa, %1
   %42 = load i32, ptr %0, align 4
   %43 = shl i32 %42, %.019.lcssa
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, %.019.lcssa
   store i32 %46, ptr %44, align 4
@@ -259,7 +259,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %12
   %56 = load ptr, ptr %3, align 8
   store i8 %55, ptr %56, align 1
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %58, ptr %3, align 8
   %59 = load i32, ptr %0, align 4
   %60 = and i32 %59, %53
@@ -278,7 +278,7 @@ define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %5, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %0, align 4
   %.pre45 = load i32, ptr %6, align 4
   br label %11
@@ -294,7 +294,7 @@ define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %8, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = zext nneg i32 %.024.lcssa to i64
   %.pre46 = load i32, ptr %0, align 4
   %.pre47 = load i32, ptr %9, align 4
@@ -305,16 +305,16 @@ define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef
   %13 = phi i32 [ %.pre, %.lr.ph ], [ %46, %Ptngc_writebits.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ptngc_writebits.exit ]
   %.031 = phi i32 [ %2, %.lr.ph ], [ %47, %Ptngc_writebits.exit ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
-  %18 = getelementptr inbounds i8, ptr %14, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %21, %17
-  %23 = getelementptr inbounds i8, ptr %14, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
@@ -338,7 +338,7 @@ define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef
   %38 = load ptr, ptr %3, align 8
   store i8 %37, ptr %38, align 1
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %40, ptr %3, align 8
   %41 = load i32, ptr %0, align 4
   %42 = and i32 %41, %35
@@ -360,7 +360,7 @@ Ptngc_writebits.exit:                             ; preds = %.lr.ph.i.i, %11
   %51 = phi i32 [ %.pre46, %.lr.ph35 ], [ %74, %Ptngc_writebits.exit27 ]
   %indvars.iv42 = phi i64 [ %10, %.lr.ph35 ], [ %indvars.iv.next43, %Ptngc_writebits.exit27 ]
   %.134 = phi i32 [ %.0.lcssa, %.lr.ph35 ], [ %75, %Ptngc_writebits.exit27 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv42
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv42
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl i32 %51, 8
@@ -383,7 +383,7 @@ Ptngc_writebits.exit:                             ; preds = %.lr.ph.i.i, %11
   %66 = load ptr, ptr %3, align 8
   store i8 %65, ptr %66, align 1
   %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %68, ptr %3, align 8
   %69 = load i32, ptr %0, align 4
   %70 = and i32 %69, %63
@@ -412,12 +412,12 @@ Ptngc_writebits.exit27:                           ; preds = %.lr.ph.i.i26, %49
 
 78:                                               ; preds = %._crit_edge
   %79 = zext nneg i32 %.125.lcssa to i64
-  %80 = getelementptr inbounds i8, ptr %1, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = load i32, ptr %0, align 4
   %84 = shl i32 %83, %.1.lcssa
-  %85 = getelementptr inbounds i8, ptr %0, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, %.1.lcssa
   store i32 %87, ptr %85, align 4
@@ -438,7 +438,7 @@ Ptngc_writebits.exit27:                           ; preds = %.lr.ph.i.i26, %49
   %97 = load ptr, ptr %3, align 8
   store i8 %96, ptr %97, align 1
   %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %3, align 8
   %100 = load i32, ptr %0, align 4
   %101 = and i32 %100, %94
@@ -453,7 +453,7 @@ Ptngc_writebits.exit29:                           ; preds = %.lr.ph.i.i28, %78, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ptngc_pack_flush(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %._crit_edge.i, label %Ptngc_write_pattern.exit
@@ -477,7 +477,7 @@ define void @Ptngc_pack_flush(ptr nocapture noundef %0, ptr nocapture noundef %1
   %16 = load ptr, ptr %1, align 8
   store i8 %15, ptr %16, align 1
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %1, align 8
   %19 = load i32, ptr %0, align 4
   %20 = and i32 %19, %13
@@ -519,7 +519,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .lr.ph222:                                        ; preds = %.lr.ph222.preheader, %.lr.ph222
   %indvars.iv264 = phi i64 [ 0, %.lr.ph222.preheader ], [ %indvars.iv.next265, %.lr.ph222 ]
   %.0141220 = phi i32 [ 2147483647, %.lr.ph222.preheader ], [ %spec.select, %.lr.ph222 ]
-  %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv264
+  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv264
   %24 = load i32, ptr %23, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %24, i32 %.0141220)
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
@@ -533,15 +533,15 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   store i8 %26, ptr %15, align 1
   %27 = lshr i32 %25, 8
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %15, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %28, ptr %29, align 1
   %30 = lshr i32 %25, 16
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %15, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i8 %31, ptr %32, align 1
   %33 = lshr i32 %25, 24
   %34 = trunc nuw i32 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %15, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 3
   store i8 %34, ptr %35, align 1
   %36 = icmp sgt i32 %5, 0
   %37 = icmp sgt i32 %20, 2
@@ -595,7 +595,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 
 ._crit_edge233:                                   ; preds = %.split.us.us, %._crit_edge
   %50 = icmp sgt i32 %6, 4
-  %51 = getelementptr inbounds i8, ptr %15, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br i1 %50, label %52, label %53
 
 52:                                               ; preds = %._crit_edge233
@@ -628,9 +628,9 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   br label %275
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %64, align 4
   %65 = load i32, ptr %2, align 4
   %66 = shl nsw i32 %65, 3
@@ -645,7 +645,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .preheader188:                                    ; preds = %62
   %69 = load i32, ptr %2, align 4
   %70 = icmp sgt i32 %69, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br i1 %70, label %.lr.ph218, label %.preheader188..loopexit_crit_edge
 
 .preheader188..loopexit_crit_edge:                ; preds = %.preheader188
@@ -666,7 +666,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %89 ]
   %.0133205 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select155, %89 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %83
@@ -695,7 +695,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 
 .lr.ph.preheader.i:                               ; preds = %89, %72
   %.0133.lcssa = phi i32 [ 0, %72 ], [ %spec.select155, %89 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0133.lcssa, ptr %0, align 4
   br label %.lr.ph.i
 
@@ -710,7 +710,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %96 = lshr i32 %91, %93
   %97 = trunc i32 %96 to i8
   store i8 %97, ptr %.3, align 1
-  %98 = getelementptr inbounds i8, ptr %.3, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %99 = load i32, ptr %0, align 4
   %100 = and i32 %99, %95
   store i32 %100, ptr %0, align 4
@@ -753,7 +753,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %indvars.iv252 = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next253, %118 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv252
   %109 = load i32, ptr %gep, align 4
-  %110 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv252
+  %110 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv252
   store i32 0, ptr %110, align 4
   %111 = icmp sgt i32 %109, 0
   br i1 %111, label %.sink.split, label %112
@@ -783,7 +783,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %118 ]
   %.02840.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %118 ]
   %.03138.i = phi i32 [ %.132.lcssa.i, %._crit_edge.i ], [ %75, %118 ]
-  %119 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %120 = load i32, ptr %119, align 4
   %.not34.i = icmp ult i32 %120, %.03138.i
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i156
@@ -834,7 +834,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %138 = lshr i32 %133, %135
   %139 = trunc i32 %138 to i8
   store i8 %139, ptr %.7, align 1
-  %140 = getelementptr inbounds i8, ptr %.7, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %141 = load i32, ptr %0, align 4
   %142 = and i32 %141, %137
   store i32 %142, ptr %0, align 4
@@ -860,7 +860,7 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
   %.pre.i165 = phi i32 [ %146, %Ptngc_out8bits.exit.i ], [ %202, %Ptngc_write32bits.exit ]
   %.6 = phi ptr [ %.5, %Ptngc_out8bits.exit.i ], [ %.19, %Ptngc_write32bits.exit ]
   %indvars.iv44.i = phi i64 [ 0, %Ptngc_out8bits.exit.i ], [ %indvars.iv.next45.i, %Ptngc_write32bits.exit ]
-  %154 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv44.i
+  %154 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv44.i
   %155 = load i32, ptr %154, align 4
   br i1 %152, label %.lr.ph.i164, label %._crit_edge.i160
 
@@ -892,7 +892,7 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
   %170 = lshr i32 %165, %167
   %171 = trunc i32 %170 to i8
   store i8 %171, ptr %.18, align 1
-  %172 = getelementptr inbounds i8, ptr %.18, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.18, i64 1
   %173 = load i32, ptr %0, align 4
   %174 = and i32 %173, %169
   store i32 %174, ptr %0, align 4
@@ -938,7 +938,7 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
   %194 = lshr i32 %189, %191
   %195 = trunc i32 %194 to i8
   store i8 %195, ptr %.15, align 1
-  %196 = getelementptr inbounds i8, ptr %.15, i64 1
+  %196 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   %197 = load i32, ptr %0, align 4
   %198 = and i32 %197, %193
   store i32 %198, ptr %0, align 4
@@ -966,7 +966,7 @@ pack_triplet.exit:                                ; preds = %126
 .lr.ph218:                                        ; preds = %.preheader188, %pack_stopbits_item.exit
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %pack_stopbits_item.exit ], [ 0, %.preheader188 ]
   %.2182216 = phi ptr [ %.10, %pack_stopbits_item.exit ], [ %68, %.preheader188 ]
-  %204 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv261
+  %204 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv261
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %207, label %210
@@ -1033,7 +1033,7 @@ pack_triplet.exit:                                ; preds = %126
   %239 = lshr i32 %234, %236
   %240 = trunc i32 %239 to i8
   store i8 %240, ptr %.11, align 1
-  %241 = getelementptr inbounds i8, ptr %.11, i64 1
+  %241 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   %242 = load i32, ptr %0, align 4
   %243 = and i32 %242, %238
   store i32 %243, ptr %0, align 4
@@ -1061,7 +1061,7 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
 .loopexit:                                        ; preds = %203, %pack_stopbits_item.exit, %.preheader188..loopexit_crit_edge, %.preheader190
   %253 = phi i32 [ %.pre, %.preheader188..loopexit_crit_edge ], [ %101, %.preheader190 ], [ %246, %pack_stopbits_item.exit ], [ %201, %203 ]
   %.1181 = phi ptr [ %68, %.preheader188..loopexit_crit_edge ], [ %98, %.preheader190 ], [ %.10, %pack_stopbits_item.exit ], [ %.19, %203 ]
-  %254 = getelementptr inbounds i8, ptr %0, i64 4
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %255 = icmp sgt i32 %253, 0
   br i1 %255, label %._crit_edge.i.i, label %Ptngc_pack_flush.exit
 
@@ -1083,7 +1083,7 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
   %264 = lshr i32 %259, %261
   %265 = trunc i32 %264 to i8
   store i8 %265, ptr %.12, align 1
-  %266 = getelementptr inbounds i8, ptr %.12, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %.12, i64 1
   %267 = load i32, ptr %0, align 4
   %268 = and i32 %267, %263
   store i32 %268, ptr %0, align 4
@@ -1171,7 +1171,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.not58.i = icmp ult i32 %.2495.i, 2
   %.350.i = select i1 %.not58.i, i32 128, i32 %17
   %.3.idx.i = zext i1 %.not58.i to i64
-  %.3.i = getelementptr inbounds i8, ptr %.2466.i, i64 %.3.idx.i
+  %.3.i = getelementptr inbounds nuw i8, ptr %.2466.i, i64 %.3.idx.i
   %18 = add nuw nsw i32 %.0524.i, 1
   %exitcond.not.i = icmp eq i32 %18, %.039.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
@@ -1187,7 +1187,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.not.i = icmp samesign ult i32 %.249.lcssa.i, 2
   %spec.select59.i = select i1 %.not.i, i32 128, i32 %22
   %spec.select60.idx.i = zext i1 %.not.i to i64
-  %spec.select60.i = getelementptr inbounds i8, ptr %.246.lcssa.i, i64 %spec.select60.idx.i
+  %spec.select60.i = getelementptr inbounds nuw i8, ptr %.246.lcssa.i, i64 %spec.select60.idx.i
   %.not56.i = icmp eq i32 %21, 0
   br i1 %.not56.i, label %26, label %23
 
@@ -1204,7 +1204,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %30 = icmp eq i32 %29, 0
   %31 = sub nsw i32 0, %28
   %spec.select61.i = select i1 %30, i32 %31, i32 %28
-  %32 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   store i32 %spec.select61.i, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1215,21 +1215,21 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %35 = load i8, ptr %1, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw i32 %36, 24
-  %38 = getelementptr inbounds i8, ptr %1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
   %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds i8, ptr %1, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not2.i = icmp ult i32 %51, %34
   br i1 %.not2.i, label %._crit_edge.i42, label %.lr.ph.i40
 
@@ -1274,7 +1274,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.not72.i = icmp ult i32 %.1596.i, 2
   %.260.i = select i1 %.not72.i, i32 128, i32 %65
   %.2.idx.i = zext i1 %.not72.i to i64
-  %.2.i = getelementptr inbounds i8, ptr %.1577.i, i64 %.2.idx.i
+  %.2.i = getelementptr inbounds nuw i8, ptr %.1577.i, i64 %.2.idx.i
   br i1 %59, label %58, label %66, !llvm.loop !27
 
 66:                                               ; preds = %58
@@ -1311,7 +1311,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.not70.us.i = icmp ult i32 %.4629.us.i, 2
   %.563.us.i = select i1 %.not70.us.i, i32 128, i32 %75
   %.5.idx.us.i = zext i1 %.not70.us.i to i64
-  %.5.us.i = getelementptr inbounds i8, ptr %.410.us.i, i64 %.5.idx.us.i
+  %.5.us.i = getelementptr inbounds nuw i8, ptr %.410.us.i, i64 %.5.idx.us.i
   %76 = add nuw i32 %.04911.us.i, 1
   %exitcond.not.i46 = icmp eq i32 %76, %.051.i
   br i1 %exitcond.not.i46, label %._crit_edge14.us.i, label %69, !llvm.loop !28
@@ -1349,7 +1349,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %87 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %86, ptr noundef nonnull @.str, i32 noundef 570) #7
   %88 = sdiv i32 %3, %6
   %89 = load i32, ptr %1, align 1
-  %90 = getelementptr inbounds i8, ptr %1, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @bwlzh_decompress(ptr noundef nonnull %90, i32 noundef %3, ptr noundef %87) #7
   %91 = icmp sgt i32 %6, 0
   %92 = icmp sgt i32 %88, 2

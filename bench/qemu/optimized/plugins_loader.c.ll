@@ -123,7 +123,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr %head, ptr %arg, align 8
-  %curr = getelementptr inbounds i8, ptr %arg, i64 8
+  %curr = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store ptr null, ptr %curr, align 8
   %call3 = call i32 @qemu_opt_foreach(ptr noundef nonnull %call1, ptr noundef nonnull @plugin_add, ptr noundef nonnull %arg, ptr noundef nonnull @error_fatal) #11
   call void @qemu_opts_del(ptr noundef nonnull %call1) #11
@@ -170,7 +170,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   br i1 %cmp.i, label %if.end18, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %entry2.i = getelementptr inbounds i8, ptr %desc.06.i, i64 16
+  %entry2.i = getelementptr inbounds nuw i8, ptr %desc.06.i, i64 16
   %desc.0.i = load ptr, ptr %entry2.i, align 8
   %tobool.not.i = icmp eq ptr %desc.0.i, null
   br i1 %tobool.not.i, label %if.then6, label %for.body.i, !llvm.loop !5
@@ -179,27 +179,27 @@ if.then6:                                         ; preds = %for.inc.i, %if.end
   %call7 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #15
   %call8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %value) #11
   store ptr %call8, ptr %call7, align 8
-  %entry9 = getelementptr inbounds i8, ptr %call7, i64 16
+  %entry9 = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store ptr null, ptr %entry9, align 8
   %2 = load ptr, ptr %opaque, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %2, i64 8
+  %tql_prev = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %tql_prev, align 8
-  %tql_prev12 = getelementptr inbounds i8, ptr %call7, i64 24
+  %tql_prev12 = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr %3, ptr %tql_prev12, align 8
   store ptr %call7, ptr %3, align 8
   %4 = load ptr, ptr %opaque, align 8
-  %tql_prev17 = getelementptr inbounds i8, ptr %4, i64 8
+  %tql_prev17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %entry9, ptr %tql_prev17, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %for.body.i, %if.then6
   %p.0 = phi ptr [ %call7, %if.then6 ], [ %desc.06.i, %for.body.i ]
-  %curr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %curr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %p.0, ptr %curr, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %curr19 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %curr19 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %5 = load ptr, ptr %curr19, align 8
   %cmp20 = icmp eq ptr %5, null
   br i1 %cmp20, label %if.then21, label %if.end22
@@ -243,11 +243,11 @@ if.else35:                                        ; preds = %land.lhs.true, %if.
 if.end37:                                         ; preds = %if.else35, %if.end33
   %fullarg.1 = phi ptr [ %call36, %if.else35 ], [ %fullarg.0, %if.end33 ]
   %6 = load ptr, ptr %curr19, align 8
-  %argc = getelementptr inbounds i8, ptr %6, i64 32
+  %argc = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load i32, ptr %argc, align 8
   %inc = add i32 %7, 1
   store i32 %inc, ptr %argc, align 8
-  %argv = getelementptr inbounds i8, ptr %6, i64 8
+  %argv = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %argv, align 8
   %conv = sext i32 %inc to i64
   %call40 = call ptr @g_realloc_n(ptr noundef %8, i64 noundef %conv, i64 noundef 8) #11
@@ -272,30 +272,30 @@ entry:
   %sym.i = alloca ptr, align 8
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #15
   store ptr @.str.5, ptr %call, align 8
-  %version = getelementptr inbounds i8, ptr %call, i64 8
+  %version = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %version, align 8
-  %cur = getelementptr inbounds i8, ptr %call, i64 12
+  %cur = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 1, ptr %cur, align 4
-  %system_emulation = getelementptr inbounds i8, ptr %call, i64 16
+  %system_emulation = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i8 0, ptr %system_emulation, align 8
   %0 = load ptr, ptr %head, align 8
   %tobool.not39 = icmp eq ptr %0, null
   br i1 %tobool.not39, label %cleanup, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev13 = getelementptr inbounds i8, ptr %head, i64 8
+  %tql_prev13 = getelementptr inbounds nuw i8, ptr %head, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end14
   %desc.040 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end14 ]
-  %entry2 = getelementptr inbounds i8, ptr %desc.040, i64 16
+  %entry2 = getelementptr inbounds nuw i8, ptr %desc.040, i64 16
   %1 = load ptr, ptr %entry2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sym.i)
   %2 = load i32, ptr @qemu_dcache_linesize, align 4
   %conv.i = sext i32 %2 to i64
   %call.i = call ptr @qemu_memalign(i64 noundef %conv.i, i64 noundef 120) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call.i, i8 0, i64 120, i1 false)
-  %desc1.i = getelementptr inbounds i8, ptr %call.i, i64 104
+  %desc1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %desc.040, ptr %desc1.i, align 8
   %3 = load ptr, ptr %desc.040, align 8
   %call2.i = call ptr @g_module_open(ptr noundef %3, i32 noundef 2) #11
@@ -367,7 +367,7 @@ while.end.i:                                      ; preds = %if.else28.i
   %15 = inttoptr i64 %14 to ptr
   call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 225) #11
   %16 = ptrtoint ptr %call.i to i64
-  %id.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %16, ptr %id.i, align 8
   br label %for.cond.i
 
@@ -397,19 +397,19 @@ if.else54.i:                                      ; preds = %if.then46.i
   unreachable
 
 do.body58.i:                                      ; preds = %if.then46.i
-  %entry59.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %entry59.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr null, ptr %entry59.i, align 8
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 8), align 8
-  %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %tql_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %20, ptr %tql_prev.i, align 8
   store ptr %call.i, ptr %20, align 8
   store ptr %entry59.i, ptr getelementptr inbounds (i8, ptr @plugin, i64 8), align 8
-  %installing.i = getelementptr inbounds i8, ptr %call.i, i64 112
+  %installing.i = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store i8 1, ptr %installing.i, align 8
   %21 = load i64, ptr %id.i, align 8
-  %argc.i = getelementptr inbounds i8, ptr %desc.040, i64 32
+  %argc.i = getelementptr inbounds nuw i8, ptr %desc.040, i64 32
   %22 = load i32, ptr %argc.i, align 8
-  %argv.i = getelementptr inbounds i8, ptr %desc.040, i64 8
+  %argv.i = getelementptr inbounds nuw i8, ptr %desc.040, i64 8
   %23 = load ptr, ptr %argv.i, align 8
   %call64.i = call i32 %6(i64 noundef %21, ptr noundef nonnull %call, i32 noundef %22, ptr noundef %23) #11
   store i8 0, ptr %installing.i, align 8
@@ -419,7 +419,7 @@ do.body58.i:                                      ; preds = %if.then46.i
 if.then67.i:                                      ; preds = %do.body58.i
   %24 = load ptr, ptr %desc.040, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 248, ptr noundef nonnull @__func__.plugin_load, ptr noundef nonnull @.str.23, ptr noundef %24, i32 noundef %call64.i) #11
-  %uninstalling.i = getelementptr inbounds i8, ptr %call.i, i64 113
+  %uninstalling.i = getelementptr inbounds nuw i8, ptr %call.i, i64 113
   %25 = load i8, ptr %uninstalling.i, align 1
   %tobool69.i = trunc i8 %25 to i1
   br i1 %tobool69.i, label %plugin_load.exit.thread16, label %if.then70.i
@@ -447,12 +447,12 @@ do.body:                                          ; preds = %do.body58.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
   %28 = load ptr, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %28, null
-  %tql_prev12 = getelementptr inbounds i8, ptr %desc.040, i64 24
+  %tql_prev12 = getelementptr inbounds nuw i8, ptr %desc.040, i64 24
   %29 = load ptr, ptr %tql_prev12, align 8
   br i1 %cmp.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %do.body
-  %tql_prev10 = getelementptr inbounds i8, ptr %28, i64 24
+  %tql_prev10 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %29, ptr %tql_prev10, align 8
   br label %if.end14
 
@@ -491,7 +491,7 @@ entry:
   %lnot = xor i1 %reset, true
   %frombool10 = zext i1 %lnot to i8
   %call1.us.us = tail call ptr @plugin_id_to_ctx_locked(i64 noundef %id) #11
-  %uninstalling.us.us = getelementptr inbounds i8, ptr %call1.us.us, i64 113
+  %uninstalling.us.us = getelementptr inbounds nuw i8, ptr %call1.us.us, i64 113
   %2 = load i8, ptr %uninstalling.us.us, align 1
   %tobool2.us.us = trunc i8 %2 to i1
   br i1 %reset, label %for.body.us.us, label %for.body.us30
@@ -500,7 +500,7 @@ for.body.us.us:                                   ; preds = %entry
   br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us.us
 
 lor.lhs.false.us.us:                              ; preds = %for.body.us.us
-  %resetting.us.us = getelementptr inbounds i8, ptr %call1.us.us, i64 114
+  %resetting.us.us = getelementptr inbounds nuw i8, ptr %call1.us.us, i64 114
   %3 = load i8, ptr %resetting.us.us, align 2
   %tobool4.us.us = trunc i8 %3 to i1
   br i1 %tobool4.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us.us
@@ -513,7 +513,7 @@ for.body.us30:                                    ; preds = %entry
   br i1 %tobool2.us.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %lor.lhs.false.us35
 
 lor.lhs.false.us35:                               ; preds = %for.body.us30
-  %resetting6.us36 = getelementptr inbounds i8, ptr %call1.us.us, i64 114
+  %resetting6.us36 = getelementptr inbounds nuw i8, ptr %call1.us.us, i64 114
   store i8 %frombool, ptr %resetting6.us36, align 2
   br label %for.end
 
@@ -526,9 +526,9 @@ for.end:                                          ; preds = %qemu_lockable_auto_
   tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   %call11 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #15
   store ptr %call1.us.us, ptr %call11, align 8
-  %cb13 = getelementptr inbounds i8, ptr %call11, i64 8
+  %cb13 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %cb, ptr %cb13, align 8
-  %reset15 = getelementptr inbounds i8, ptr %call11, i64 16
+  %reset15 = getelementptr inbounds nuw i8, ptr %call11, i64 16
   store i8 %frombool, ptr %reset15, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %5 = load ptr, ptr %4, align 8
@@ -594,13 +594,13 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i
-  %reset.i = getelementptr inbounds i8, ptr %data, i64 16
+  %reset.i = getelementptr inbounds nuw i8, ptr %data, i64 16
   %3 = load i8, ptr %reset.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %do.body.i, label %do.body10.i
 
 do.body.i:                                        ; preds = %for.end.i
-  %resetting.i = getelementptr inbounds i8, ptr %2, i64 114
+  %resetting.i = getelementptr inbounds nuw i8, ptr %2, i64 114
   %4 = load i8, ptr %resetting.i, align 2
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %do.end.i, label %if.else.i
@@ -610,13 +610,13 @@ if.else.i:                                        ; preds = %do.body.i
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
-  %cb.i = getelementptr inbounds i8, ptr %data, i64 8
+  %cb.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %5 = load ptr, ptr %cb.i, align 8
   %tobool4.not.i = icmp eq ptr %5, null
   br i1 %tobool4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.end.i
-  %id.i = getelementptr inbounds i8, ptr %2, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %id.i, align 8
   tail call void %5(i64 noundef %6) #11
   br label %if.end7.i
@@ -626,7 +626,7 @@ if.end7.i:                                        ; preds = %if.then5.i, %do.end
   br label %plugin_reset_destroy__locked.exit
 
 do.body10.i:                                      ; preds = %for.end.i
-  %uninstalling.i = getelementptr inbounds i8, ptr %2, i64 113
+  %uninstalling.i = getelementptr inbounds nuw i8, ptr %2, i64 113
   %7 = load i8, ptr %uninstalling.i, align 1
   %tobool11.i = trunc i8 %7 to i1
   br i1 %tobool11.i, label %do.end15.i, label %if.else13.i
@@ -636,7 +636,7 @@ if.else13.i:                                      ; preds = %do.body10.i
   unreachable
 
 do.end15.i:                                       ; preds = %do.body10.i
-  %installing.i = getelementptr inbounds i8, ptr %2, i64 112
+  %installing.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i8, ptr %installing.i, align 8
   %tobool16.i = trunc i8 %8 to i1
   br i1 %tobool16.i, label %if.then17.i, label %if.end18.i
@@ -648,7 +648,7 @@ if.then17.i:                                      ; preds = %do.end15.i
 
 if.end18.i:                                       ; preds = %do.end15.i
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 88), align 8
-  %id19.i = getelementptr inbounds i8, ptr %2, i64 8
+  %id19.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i = tail call i32 @g_hash_table_remove(ptr noundef %9, ptr noundef nonnull %id19.i) #11
   %tobool20.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool20.not.i, label %if.else24.i, label %do.body27.i
@@ -658,15 +658,15 @@ if.else24.i:                                      ; preds = %if.end18.i
   unreachable
 
 do.body27.i:                                      ; preds = %if.end18.i
-  %entry28.i = getelementptr inbounds i8, ptr %2, i64 88
+  %entry28.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %10 = load ptr, ptr %entry28.i, align 8
   %cmp29.not.i = icmp eq ptr %10, null
-  %tql_prev37.i = getelementptr inbounds i8, ptr %2, i64 96
+  %tql_prev37.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %11 = load ptr, ptr %tql_prev37.i, align 8
   br i1 %cmp29.not.i, label %if.else35.i, label %if.then30.i
 
 if.then30.i:                                      ; preds = %do.body27.i
-  %tql_prev34.i = getelementptr inbounds i8, ptr %10, i64 96
+  %tql_prev34.i = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %11, ptr %tql_prev34.i, align 8
   %.pre.i = load ptr, ptr %entry28.i, align 8
   br label %if.end38.i
@@ -678,7 +678,7 @@ if.else35.i:                                      ; preds = %do.body27.i
 if.end38.i:                                       ; preds = %if.else35.i, %if.then30.i
   %12 = phi ptr [ null, %if.else35.i ], [ %.pre.i, %if.then30.i ]
   store ptr %12, ptr %11, align 8
-  %cb48.i = getelementptr inbounds i8, ptr %data, i64 8
+  %cb48.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry28.i, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %cb48.i, align 8
   %tobool49.not.i = icmp eq ptr %13, null
@@ -701,15 +701,15 @@ if.then56.i:                                      ; preds = %if.end53.i
   br label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.then56.i, %if.end53.i
-  %desc.i = getelementptr inbounds i8, ptr %2, i64 104
+  %desc.i = getelementptr inbounds nuw i8, ptr %2, i64 104
   %16 = load ptr, ptr %desc.i, align 8
-  %argc.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %argc.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %17 = load i32, ptr %argc.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %17, 0
   br i1 %cmp7.i.i, label %for.body.lr.ph.i.i, label %plugin_desc_free.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end58.i
-  %argv.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %argv.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -725,7 +725,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %plugin_desc_free.exit.i, !llvm.loop !9
 
 plugin_desc_free.exit.i:                          ; preds = %for.body.i.i, %if.end58.i
-  %argv1.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %argv1.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load ptr, ptr %argv1.i.i, align 8
   tail call void @g_free(ptr noundef %22) #11
   %23 = load ptr, ptr %16, align 8

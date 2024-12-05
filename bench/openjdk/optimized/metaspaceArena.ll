@@ -59,11 +59,11 @@ $_ZN9LogPrefixILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @_ZNK9metaspace14MetaspaceArena16next_chunk_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp slt i32 %3, %7
   %8 = load ptr, ptr %5, align 8
@@ -79,29 +79,29 @@ define hidden noundef signext i8 @_ZNK9metaspace14MetaspaceArena16next_chunk_lev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace14MetaspaceArena13salvage_chunkEPNS_9MetachunkE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %4, %6
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %40, label %8
 
 8:                                                ; preds = %2
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %28, label %10
 
 10:                                               ; preds = %8
   %11 = ptrtoint ptr %0 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %1 to i64
   %15 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #9
   %16 = sext i8 %15 to i32
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i8, ptr %19, align 8
   %21 = sext i8 %20 to i32
   %22 = sext i8 %20 to i64
@@ -115,17 +115,17 @@ define hidden void @_ZN9metaspace14MetaspaceArena13salvage_chunkEPNS_9MetachunkE
 
 28:                                               ; preds = %8, %10
   %29 = tail call noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %7) #9
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull align 8 dereferenceable(8) %31) #9, !srcloc !6
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm.exit
 
 36:                                               ; preds = %28
   %37 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 304, i8 noundef zeroext 24, i32 noundef 0) #9
-  %38 = getelementptr inbounds i8, ptr %37, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %37, i8 0, i64 296, i1 false)
   store i64 32, ptr %38, align 8
   store ptr %37, ptr %33, align 8
@@ -155,14 +155,14 @@ declare noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 304, i8 noundef zeroext 24, i32 noundef 0) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 296
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %8, i8 0, i64 296, i1 false)
   store i64 32, ptr %9, align 8
   store ptr %8, ptr %4, align 8
@@ -187,11 +187,11 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm(p
 
 6:                                                ; preds = %2
   %7 = tail call noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %1) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not.i.i = icmp slt i32 %9, %13
   %14 = load ptr, ptr %11, align 8
@@ -223,19 +223,19 @@ declare void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace14MetaspaceArenaC2EPNS_12ChunkManagerEPKNS_17ArenaGrowthPolicyEPNS_21AbstractAtomicCounterImEEPKc(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %11, align 8
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
 
@@ -260,29 +260,29 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace14MetaspaceArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %._crit_edge, label %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph
 
 _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph: ; preds = %1
   %4 = ptrtoint ptr %0 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit
 
 _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit: ; preds = %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph, %23
   %.020 = phi ptr [ %3, %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph ], [ %7, %23 ]
   %.sroa.0.019 = phi i32 [ 0, %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph ], [ %.sroa.0.1, %23 ]
   %.sroa.4.018 = phi i64 [ 0, %_ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit.lr.ph ], [ %10, %23 ]
-  %6 = getelementptr inbounds i8, ptr %.020, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %.020, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %.020, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ne i64 %9, 0
   %10 = add i64 %9, %.sroa.4.018
   %11 = zext i1 %.not.i to i32
   %.sroa.0.1 = add i32 %.sroa.0.019, %11
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %23, label %13
 
@@ -293,7 +293,7 @@ _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit: ; preds = %_ZN9metaspa
   %17 = sext i8 %16 to i32
   %18 = load ptr, ptr %.020, align 8
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr inbounds i8, ptr %.020, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = sext i8 %21 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef %14, i64 noundef %15, i32 noundef %17, i64 noundef %19, i32 noundef %22)
@@ -308,23 +308,23 @@ _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit: ; preds = %_ZN9metaspa
 ._crit_edge:                                      ; preds = %23, %1
   %.sroa.4.0.lcssa = phi i64 [ 0, %1 ], [ %10, %23 ]
   %.sroa.0.0.lcssa = phi i32 [ 0, %1 ], [ %.sroa.0.1, %23 ]
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not15 = icmp eq ptr %25, null
   br i1 %.not15, label %30, label %26
 
 26:                                               ; preds = %._crit_edge
   %27 = ptrtoint ptr %0 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %27, ptr noundef %29, i32 noundef %.sroa.0.0.lcssa, i64 noundef %.sroa.4.0.lcssa)
   br label %30
 
 30:                                               ; preds = %._crit_edge, %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = sub i64 0, %.sroa.4.0.lcssa
   %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull align 8 dereferenceable(8) %32) #9, !srcloc !6
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %39, label %38
@@ -334,13 +334,13 @@ _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit: ; preds = %_ZN9metaspa
   br label %39
 
 39:                                               ; preds = %38, %30
-  %40 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %40 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not16 = icmp eq ptr %40, null
   br i1 %.not16, label %45, label %41
 
 41:                                               ; preds = %39
   %42 = ptrtoint ptr %0 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %42, ptr noundef %44)
   br label %45
@@ -363,15 +363,15 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %48, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %1
   %12 = icmp ugt i64 %11, 2097152
@@ -400,11 +400,11 @@ define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge
   br i1 %30, label %31, label %48
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %.not.i.i = icmp slt i32 %33, %37
   %38 = load ptr, ptr %35, align 8
@@ -432,28 +432,28 @@ declare noundef zeroext i1 @_ZN9metaspace12ChunkManager21attempt_enlarge_chunkEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %0 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %5, ptr noundef %7, i64 noundef %1)
   br label %8
 
 8:                                                ; preds = %2, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %39, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %10, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = select i1 %14, i1 %17, i1 false
@@ -465,24 +465,24 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef 
   br i1 %.not11, label %39, label %21
 
 21:                                               ; preds = %19
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %41, label %23
 
 23:                                               ; preds = %21
   %24 = ptrtoint ptr %0 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %20 to i64
   %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 256
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 280
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 280
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %30
-  %34 = getelementptr inbounds i8, ptr %28, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 288
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 288
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %35
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %24, ptr noundef %26, i64 noundef %27, i32 noundef %33, i64 noundef %38)
@@ -501,18 +501,18 @@ declare noundef ptr @_ZN9metaspace10FreeBlocks12remove_blockEm(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread43, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = sext i8 %7 to i64
   %9 = and i64 %8, 4294967295
   %10 = lshr i64 2097152, %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %10, %12
   %14 = icmp ult i64 %13, %1
@@ -550,11 +550,11 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   br i1 %37, label %38, label %.thread43
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %.not.i.i.i = icmp slt i32 %40, %44
   %45 = load ptr, ptr %42, align 8
@@ -574,33 +574,33 @@ _ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit: ; preds = %
   br i1 %53, label %54, label %.thread43
 
 54:                                               ; preds = %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not59 = icmp eq ptr %55, null
   br i1 %.not59, label %60, label %56
 
 56:                                               ; preds = %54
   %57 = ptrtoint ptr %0 to i64
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, i64 noundef %57, ptr noundef %59)
   br label %60
 
 60:                                               ; preds = %56, %54, %5
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, %1
   %65 = tail call noundef zeroext i1 @_ZN9metaspace9Metachunk16ensure_committedEm(ptr noundef nonnull align 8 dereferenceable(72) %61, i64 noundef %64) #9
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %60
-  %67 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not60 = icmp eq ptr %67, null
   br i1 %.not60, label %.thread43, label %68
 
 68:                                               ; preds = %66
   %69 = ptrtoint ptr %0 to i64
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.14, i64 noundef %69, ptr noundef %71, i64 noundef %1)
   br label %.thread43
@@ -623,11 +623,11 @@ _ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit: ; preds = %
 
 _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   %79 = tail call noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %1) #9
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 8
   %.not.i.i.i30 = icmp slt i32 %81, %85
   %86 = load ptr, ptr %83, align 8
@@ -645,20 +645,20 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   br i1 %.not28, label %116, label %95
 
 95:                                               ; preds = %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit
-  %96 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not61 = icmp eq ptr %96, null
   br i1 %.not61, label %109, label %97
 
 97:                                               ; preds = %95
   %98 = ptrtoint ptr %0 to i64
-  %99 = getelementptr inbounds i8, ptr %0, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %100 = load ptr, ptr %99, align 8
   %101 = ptrtoint ptr %94 to i64
   %102 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %94) #9
   %103 = sext i8 %102 to i32
   %104 = load ptr, ptr %94, align 8
   %105 = ptrtoint ptr %104 to i64
-  %106 = getelementptr inbounds i8, ptr %94, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %107 = load i8, ptr %106, align 8
   %108 = sext i8 %107 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.15, i64 noundef %98, ptr noundef %100, i64 noundef %101, i32 noundef %103, i64 noundef %105, i32 noundef %108, i64 noundef %1)
@@ -670,31 +670,31 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   br i1 %.not29, label %.thread45, label %112
 
 .thread45:                                        ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %94, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
   store ptr null, ptr %111, align 8
   br label %122
 
 112:                                              ; preds = %109
   tail call void @_ZN9metaspace14MetaspaceArena13salvage_chunkEPNS_9MetachunkE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %110)
   %.pr = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds i8, ptr %94, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %94, i64 48
   store ptr %.pr, ptr %113, align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %122, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %.pr, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %.pr, i64 40
   store ptr %94, ptr %115, align 8
   br label %122
 
 116:                                              ; preds = %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit
-  %117 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %117 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not64 = icmp eq ptr %117, null
   br i1 %.not64, label %.thread48, label %118
 
 118:                                              ; preds = %116
   %119 = ptrtoint ptr %0 to i64
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %121 = load ptr, ptr %120, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %119, ptr noundef %121, i64 noundef %1)
   br label %.thread48
@@ -710,31 +710,31 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
 
 .thread48:                                        ; preds = %116, %118, %122
   %127 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull @_ZN9metaspace13InternalStats24_num_allocs_failed_limitE) #9, !srcloc !6
-  %128 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %128 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not65 = icmp eq ptr %128, null
   br i1 %.not65, label %168, label %129
 
 129:                                              ; preds = %.thread48
   %130 = ptrtoint ptr %0 to i64
-  %131 = getelementptr inbounds i8, ptr %0, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %132 = load ptr, ptr %131, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.17, i64 noundef %130, ptr noundef %132)
   br label %168
 
 .thread52:                                        ; preds = %72, %122
   %.154 = phi ptr [ %125, %122 ], [ %74, %72 ]
-  %133 = getelementptr inbounds i8, ptr %0, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull align 8 dereferenceable(8) %134) #9, !srcloc !6
-  %136 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %136 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not62 = icmp eq ptr %136, null
   br i1 %.not62, label %161, label %137
 
 137:                                              ; preds = %.thread52
   %138 = ptrtoint ptr %0 to i64
-  %139 = getelementptr inbounds i8, ptr %0, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %142 = load i32, ptr %141, align 8
   %143 = load ptr, ptr %3, align 8
   %144 = ptrtoint ptr %143 to i64
@@ -743,28 +743,28 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   %147 = load ptr, ptr %3, align 8
   %148 = load ptr, ptr %147, align 8
   %149 = ptrtoint ptr %148 to i64
-  %150 = getelementptr inbounds i8, ptr %147, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %151 = load i8, ptr %150, align 8
   %152 = sext i8 %151 to i32
   %153 = sext i8 %151 to i64
   %154 = and i64 %153, 4294967295
   %155 = lshr i64 2097152, %154
-  %156 = getelementptr inbounds i8, ptr %147, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %147, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %159 = load i64, ptr %158, align 8
   %160 = sub i64 %159, %157
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.18, i64 noundef %138, ptr noundef %140, i32 noundef %142, i64 noundef %144, i32 noundef %146, i64 noundef %149, i32 noundef %152, i64 noundef %155, i64 noundef %157, i64 noundef %159, i64 noundef %160)
   br label %161
 
 161:                                              ; preds = %.thread52, %137
-  %162 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %162 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not63 = icmp eq ptr %162, null
   br i1 %.not63, label %168, label %163
 
 163:                                              ; preds = %161
   %164 = ptrtoint ptr %0 to i64
-  %165 = getelementptr inbounds i8, ptr %0, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %166 = load ptr, ptr %165, align 8
   %167 = ptrtoint ptr %.154 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.19, i64 noundef %164, ptr noundef %166, i64 noundef %167)
@@ -777,27 +777,27 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %0 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %1 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.20, i64 noundef %6, ptr noundef %8, i64 noundef %9, i64 noundef %2)
   br label %10
 
 10:                                               ; preds = %3, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm.exit
 
 14:                                               ; preds = %10
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 304, i8 noundef zeroext 24, i32 noundef 0) #9
-  %16 = getelementptr inbounds i8, ptr %15, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %15, i8 0, i64 296, i1 false)
   store i64 32, ptr %16, align 8
   store ptr %15, ptr %11, align 8
@@ -811,14 +811,14 @@ _ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm.exit: ; p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10ArenaStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.022 = load ptr, ptr %3, align 8
   %.not23 = icmp eq ptr %.022, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.024 = phi ptr [ %.0, %.lr.ph ], [ %.022, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.024, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
   %7 = getelementptr inbounds [15 x %"struct.metaspace::InUseChunkStats"], ptr %1, i64 0, i64 %6
@@ -829,19 +829,19 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
   %11 = sext i8 %10 to i64
   %12 = and i64 %11, 4294967295
   %13 = lshr i64 2097152, %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %13, %15
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %.024, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %18
   store i64 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %.024, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %23
   store i64 %26, ptr %24, align 8
@@ -851,39 +851,39 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
   %30 = load i64, ptr %22, align 8
   %31 = sub i64 %29, %30
   %. = select i1 %28, i64 32, i64 40
-  %32 = getelementptr inbounds i8, ptr %7, i64 %.
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %31, %33
   store i64 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %.024, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.024, i64 48
   %.0 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not20 = icmp eq ptr %37, null
   br i1 %.not20, label %57, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %37, i64 256
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 256
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 280
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 280
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, %40
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %1, i64 720
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %44
   store i64 %47, ptr %45, align 8
   %48 = load ptr, ptr %36, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 264
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 264
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 288
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 288
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 728
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %53, %55
   store i64 %56, ptr %54, align 8
@@ -895,7 +895,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #5 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.026 = load ptr, ptr %5, align 8
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
@@ -905,19 +905,19 @@ define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr n
   %.01730 = phi i64 [ %17, %.lr.ph ], [ 0, %4 ]
   %.01829 = phi i64 [ %11, %.lr.ph ], [ 0, %4 ]
   %.01928 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.031, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %.01928
-  %9 = getelementptr inbounds i8, ptr %.031, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %.01829
-  %12 = getelementptr inbounds i8, ptr %.031, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %13 = load i8, ptr %12, align 8
   %14 = sext i8 %13 to i64
   %15 = and i64 %14, 4294967295
   %16 = lshr i64 2097152, %15
   %17 = add i64 %16, %.01730
-  %18 = getelementptr inbounds i8, ptr %.031, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -955,22 +955,22 @@ define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace14MetaspaceArena8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #9
   %9 = tail call noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21, ptr noundef %4, i32 noundef %7, i64 noundef %8, i64 noundef %9) #9
   tail call void @_ZNK9metaspace13MetachunkList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull %1) #9
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = load ptr, ptr %0, align 8
   %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, i64 noundef %12, i64 noundef %14, i64 noundef %17) #9

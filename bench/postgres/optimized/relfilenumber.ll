@@ -44,7 +44,7 @@ define dso_local void @transfer_all_new_tablespaces(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.transfer_all_new_tablespaces, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.transfer_all_new_tablespaces, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @prep_status_progress(ptr noundef nonnull %switch.load) #6
   br label %8
@@ -102,13 +102,13 @@ declare void @check_ok() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph38, label %._crit_edge39
 
 .lr.ph38:                                         ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = icmp eq ptr %4, null
   br i1 %11, label %.lr.ph38.split.us, label %.lr.ph38.split
 
@@ -124,7 +124,7 @@ define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, p
 16:                                               ; preds = %.lr.ph.us, %22
   %indvars.iv60 = phi i64 [ %41, %.lr.ph.us ], [ %indvars.iv.next61, %22 ]
   %17 = getelementptr %struct.DbInfo, ptr %38, i64 %indvars.iv60
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %19) #7
   %21 = icmp eq i32 %20, 0
@@ -176,7 +176,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 .lr.ph.us:                                        ; preds = %.lr.ph38.split.us
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %.02335.us to i64
   %42 = sext i32 %14 to i64
@@ -193,7 +193,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 .lr.ph:                                           ; preds = %.lr.ph38.split
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %.02335 to i64
   %51 = sext i32 %45 to i64
@@ -202,7 +202,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 52:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %50, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %53 = getelementptr %struct.DbInfo, ptr %47, i64 %indvars.iv
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %55) #7
   %57 = icmp eq i32 %56, 0
@@ -215,7 +215,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 ._crit_edge:                                      ; preds = %.lr.ph38.split, %58, %.lr.ph38.split.us, %22
   %.lcssa31 = phi ptr [ %13, %22 ], [ %13, %.lr.ph38.split.us ], [ %44, %58 ], [ %44, %.lr.ph38.split ]
-  %59 = getelementptr inbounds i8, ptr %.lcssa31, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.lcssa31, i64 8
   %60 = load ptr, ptr %59, align 8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.3, ptr noundef %60) #8
   unreachable
@@ -288,14 +288,14 @@ define internal fastcc void @transfer_relfile(ptr nocapture noundef readonly %0,
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [65 x i8], align 16
   %7 = alloca %struct.stat, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %16
 
 16:                                               ; preds = %67, %3

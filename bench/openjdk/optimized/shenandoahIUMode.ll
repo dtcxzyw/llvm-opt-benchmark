@@ -97,7 +97,7 @@ define hidden void @_ZNK16ShenandoahIUMode16initialize_flagsEv(ptr nocapture non
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
 
@@ -142,7 +142,7 @@ define hidden void @_ZNK16ShenandoahIUMode16initialize_flagsEv(ptr nocapture non
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not1 = icmp eq ptr %30, null
   br i1 %.not1, label %32, label %31
 
@@ -164,7 +164,7 @@ define hidden void @_ZNK16ShenandoahIUMode16initialize_flagsEv(ptr nocapture non
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %39, null
   br i1 %.not2, label %41, label %40
 
@@ -271,7 +271,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ...) unnamed_addr #0 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
@@ -303,7 +303,7 @@ define hidden noundef ptr @_ZNK16ShenandoahIUMode21initialize_heuristicsEv(ptr n
 10:                                               ; preds = %5
   %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 5, i32 noundef 0) #5
   %12 = icmp eq ptr %7, null
-  %13 = getelementptr inbounds i8, ptr %7, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %spec.select = select i1 %12, ptr null, ptr %13
   tail call void @_ZN30ShenandoahAggressiveHeuristicsC1EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %11, ptr noundef %spec.select) #5
   br label %36
@@ -316,7 +316,7 @@ define hidden noundef ptr @_ZNK16ShenandoahIUMode21initialize_heuristicsEv(ptr n
 17:                                               ; preds = %14
   %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 5, i32 noundef 0) #5
   %19 = icmp eq ptr %7, null
-  %20 = getelementptr inbounds i8, ptr %7, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %spec.select1 = select i1 %19, ptr null, ptr %20
   tail call void @_ZN26ShenandoahStaticHeuristicsC1EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %18, ptr noundef %spec.select1) #5
   br label %36
@@ -329,7 +329,7 @@ define hidden noundef ptr @_ZNK16ShenandoahIUMode21initialize_heuristicsEv(ptr n
 24:                                               ; preds = %21
   %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 464, i8 noundef zeroext 5, i32 noundef 0) #5
   %26 = icmp eq ptr %7, null
-  %27 = getelementptr inbounds i8, ptr %7, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %spec.select2 = select i1 %26, ptr null, ptr %27
   tail call void @_ZN28ShenandoahAdaptiveHeuristicsC1EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(464) %25, ptr noundef %spec.select2) #5
   br label %36
@@ -342,7 +342,7 @@ define hidden noundef ptr @_ZNK16ShenandoahIUMode21initialize_heuristicsEv(ptr n
 31:                                               ; preds = %28
   %32 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 5, i32 noundef 0) #5
   %33 = icmp eq ptr %7, null
-  %34 = getelementptr inbounds i8, ptr %7, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %spec.select3 = select i1 %33, ptr null, ptr %34
   tail call void @_ZN27ShenandoahCompactHeuristicsC1EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %32, ptr noundef %spec.select3) #5
   br label %36

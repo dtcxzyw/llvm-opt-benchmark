@@ -17,7 +17,7 @@ define range(i32 0, 2) i32 @WebPAnimDecoderOptionsInitInternal(ptr noundef write
 
 4:                                                ; preds = %2
   store i32 1, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   br label %6
 
@@ -37,7 +37,7 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @WebPGetFeaturesInternal(ptr noundef %7, i64 noundef %9, ptr noundef nonnull %4, i32 noundef 521) #8
   %.not36 = icmp eq i32 %10, 0
@@ -54,7 +54,7 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
 
 15:                                               ; preds = %14
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   switch i32 %.sroa.0.0.copyload, label %ApplyDecoderOptions.exit.thread [
     i32 8, label %.thread
@@ -66,22 +66,22 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
 .thread:                                          ; preds = %14, %15, %15, %15, %15
   %.sroa.0.045 = phi i32 [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ %.sroa.0.0.copyload, %15 ], [ 1, %14 ]
   %.sroa.3.044 = phi i32 [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ %.sroa.3.0.copyload, %15 ], [ 0, %14 ]
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = and i32 %.sroa.0.045, 13
   %18 = icmp eq i32 %17, 1
   %19 = select i1 %18, ptr @BlendPixelRowNonPremult, ptr @BlendPixelRowPremult
-  %20 = getelementptr inbounds i8, ptr %12, i64 248
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 248
   store ptr %19, ptr %20, align 8
   %21 = call i32 @WebPInitDecoderConfigInternal(ptr noundef nonnull %16, i32 noundef 521) #8
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %ApplyDecoderOptions.exit.thread, label %22
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %12, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %.sroa.0.045, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 60
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %12, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 208
   store i32 %.sroa.3.044, ptr %25, align 8
   %26 = call ptr @WebPDemuxInternal(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 263) #8
   store ptr %26, ptr %12, align 8
@@ -90,23 +90,23 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
 
 28:                                               ; preds = %22
   %29 = call i32 @WebPDemuxGetI(ptr noundef nonnull %26, i32 noundef 1) #8
-  %30 = getelementptr inbounds i8, ptr %12, i64 256
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store i32 %29, ptr %30, align 8
   %31 = load ptr, ptr %12, align 8
   %32 = call i32 @WebPDemuxGetI(ptr noundef %31, i32 noundef 2) #8
-  %33 = getelementptr inbounds i8, ptr %12, i64 260
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 260
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %12, align 8
   %35 = call i32 @WebPDemuxGetI(ptr noundef %34, i32 noundef 3) #8
-  %36 = getelementptr inbounds i8, ptr %12, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store i32 %35, ptr %36, align 8
   %37 = load ptr, ptr %12, align 8
   %38 = call i32 @WebPDemuxGetI(ptr noundef %37, i32 noundef 4) #8
-  %39 = getelementptr inbounds i8, ptr %12, i64 268
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 268
   store i32 %38, ptr %39, align 4
   %40 = load ptr, ptr %12, align 8
   %41 = call i32 @WebPDemuxGetI(ptr noundef %40, i32 noundef 5) #8
-  %42 = getelementptr inbounds i8, ptr %12, i64 272
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 272
   store i32 %41, ptr %42, align 8
   %43 = load i32, ptr %30, align 8
   %44 = shl i32 %43, 2
@@ -114,7 +114,7 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
   %46 = load i32, ptr %33, align 4
   %47 = zext i32 %46 to i64
   %48 = call ptr @WebPSafeCalloc(i64 noundef %45, i64 noundef %47) #8
-  %49 = getelementptr inbounds i8, ptr %12, i64 296
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 296
   store ptr %48, ptr %49, align 8
   %50 = icmp eq ptr %48, null
   br i1 %50, label %ApplyDecoderOptions.exit.thread, label %51
@@ -126,30 +126,30 @@ define ptr @WebPAnimDecoderNewInternal(ptr noundef %0, ptr noundef readonly %1, 
   %55 = load i32, ptr %33, align 4
   %56 = zext i32 %55 to i64
   %57 = call ptr @WebPSafeCalloc(i64 noundef %54, i64 noundef %56) #8
-  %58 = getelementptr inbounds i8, ptr %12, i64 304
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 304
   store ptr %57, ptr %58, align 8
   %59 = icmp eq ptr %57, null
   br i1 %59, label %ApplyDecoderOptions.exit.thread, label %WebPAnimDecoderReset.exit
 
 WebPAnimDecoderReset.exit:                        ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %12, i64 312
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 312
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 320
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 320
   call void @WebPDemuxReleaseIterator(ptr noundef nonnull %61) #8
-  %62 = getelementptr inbounds i8, ptr %12, i64 404
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 404
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %61, i8 0, i64 84, i1 false)
   store i32 1, ptr %62, align 4
   br label %WebPAnimDecoderDelete.exit
 
 ApplyDecoderOptions.exit.thread:                  ; preds = %.thread, %15, %51, %28, %22
-  %63 = getelementptr inbounds i8, ptr %12, i64 320
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 320
   call void @WebPDemuxReleaseIterator(ptr noundef nonnull %63) #8
   %64 = load ptr, ptr %12, align 8
   call void @WebPDemuxDelete(ptr noundef %64) #8
-  %65 = getelementptr inbounds i8, ptr %12, i64 296
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 296
   %66 = load ptr, ptr %65, align 8
   call void @WebPSafeFree(ptr noundef %66) #8
-  %67 = getelementptr inbounds i8, ptr %12, i64 304
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %68 = load ptr, ptr %67, align 8
   call void @WebPSafeFree(ptr noundef %68) #8
   call void @WebPSafeFree(ptr noundef nonnull %12) #8
@@ -173,11 +173,11 @@ define void @WebPAnimDecoderReset(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 312
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @WebPDemuxReleaseIterator(ptr noundef nonnull %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 404
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 404
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %4, i8 0, i64 84, i1 false)
   store i32 1, ptr %5, align 4
   br label %6
@@ -192,14 +192,14 @@ define void @WebPAnimDecoderDelete(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @WebPDemuxReleaseIterator(ptr noundef nonnull %3) #8
   %4 = load ptr, ptr %0, align 8
   tail call void @WebPDemuxDelete(ptr noundef %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load ptr, ptr %5, align 8
   tail call void @WebPSafeFree(ptr noundef %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
   tail call void @WebPSafeFree(ptr noundef %8) #8
   tail call void @WebPSafeFree(ptr noundef nonnull %0) #8
@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @WebPAnimDecoderGetInfo(ptr noundef readonly %0, ptr 
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(36) %6, i64 36, i1 false)
   br label %7
 
@@ -237,19 +237,19 @@ define range(i32 0, 2) i32 @WebPAnimDecoderGetNext(ptr noundef %0, ptr noundef w
   br i1 %or.cond3, label %212, label %WebPAnimDecoderHasMoreFrames.exit
 
 WebPAnimDecoderHasMoreFrames.exit:                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 404
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load i32, ptr %10, align 8
   %.not137 = icmp sgt i32 %9, %11
   br i1 %.not137, label %212, label %12
 
 12:                                               ; preds = %WebPAnimDecoderHasMoreFrames.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 260
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = call i32 @WebPDemuxGetFrame(ptr noundef %19, i32 noundef %9, ptr noundef nonnull %4) #8
@@ -257,32 +257,32 @@ WebPAnimDecoderHasMoreFrames.exit:                ; preds = %3
   br i1 %.not106, label %212, label %21
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 320
-  %28 = getelementptr inbounds i8, ptr %0, i64 400
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %4, align 8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %IsKeyFrame.exit.thread, label %32
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %4, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %34 = load i32, ptr %33, align 8
   %.not.i = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds i8, ptr %4, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 1
   %or.cond132 = select i1 %.not.i, i1 true, i1 %37
   br i1 %or.cond132, label %38, label %45
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = icmp ne i32 %40, %14
   %44 = icmp ne i32 %42, %16
@@ -290,15 +290,15 @@ WebPAnimDecoderHasMoreFrames.exit:                ; preds = %3
   br i1 %.not16.i, label %45, label %IsKeyFrame.exit.thread
 
 45:                                               ; preds = %32, %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 348
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %IsKeyFrame.exit, label %IsKeyFrame.exit.thread126
 
 IsKeyFrame.exit:                                  ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 336
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 340
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %50, %14
   %54 = icmp eq i32 %52, %16
@@ -309,7 +309,7 @@ IsKeyFrame.exit:                                  ; preds = %45
   br i1 %.not, label %IsKeyFrame.exit.thread126, label %IsKeyFrame.exit.thread
 
 IsKeyFrame.exit.thread:                           ; preds = %38, %21, %IsKeyFrame.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 296
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %59 = load ptr, ptr %58, align 8
   %60 = zext i32 %14 to i64
   %61 = zext i32 %16 to i64
@@ -319,9 +319,9 @@ IsKeyFrame.exit.thread:                           ; preds = %38, %21, %IsKeyFram
   br label %72
 
 IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 304
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %67 = load ptr, ptr %66, align 8
   %68 = zext i32 %14 to i64
   %69 = zext i32 %16 to i64
@@ -333,11 +333,11 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
 72:                                               ; preds = %IsKeyFrame.exit.thread126, %IsKeyFrame.exit.thread
   %.0.i112124 = phi i32 [ 0, %IsKeyFrame.exit.thread126 ], [ 1, %IsKeyFrame.exit.thread ]
   %73 = shl i32 %14, 2
-  %74 = getelementptr inbounds i8, ptr %4, i64 12
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 20
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %76, align 4
   %80 = sext i32 %79 to i64
   %81 = zext i32 %73 to i64
@@ -348,15 +348,15 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   %86 = load i32, ptr %75, align 8
   %87 = sext i32 %86 to i64
   %88 = shl nsw i64 %87, 2
-  %89 = getelementptr inbounds i8, ptr %4, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %73, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %82, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 296
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i8, ptr %96, i64 %85
   %98 = getelementptr i8, ptr %97, i64 %88
@@ -368,7 +368,7 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
 100:                                              ; preds = %72
   %101 = load i32, ptr %4, align 8
   %102 = icmp slt i32 %101, 2
-  %103 = getelementptr inbounds i8, ptr %4, i64 60
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %104 = load i32, ptr %103, align 4
   %105 = or i32 %104, %.0.i112124
   %106 = icmp ne i32 %105, 0
@@ -376,7 +376,7 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   br i1 %or.cond8, label %.loopexit, label %107
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %0, i64 348
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 0
   %111 = load i32, ptr %76, align 4
@@ -387,20 +387,20 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   br i1 %112, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader138
-  %113 = getelementptr inbounds i8, ptr %4, i64 16
-  %114 = getelementptr inbounds i8, ptr %0, i64 328
-  %115 = getelementptr inbounds i8, ptr %0, i64 336
-  %116 = getelementptr inbounds i8, ptr %0, i64 332
-  %117 = getelementptr inbounds i8, ptr %0, i64 340
-  %118 = getelementptr inbounds i8, ptr %0, i64 304
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 340
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %136
 
 .preheader:                                       ; preds = %107
   br i1 %112, label %.lr.ph142, label %.loopexit
 
 .lr.ph142:                                        ; preds = %.preheader
-  %119 = getelementptr inbounds i8, ptr %0, i64 304
-  %120 = getelementptr inbounds i8, ptr %4, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %121
 
 121:                                              ; preds = %.lr.ph142, %121
@@ -412,9 +412,9 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   %126 = add i32 %124, %125
   %127 = zext i32 %126 to i64
   %128 = load ptr, ptr %95, align 8
-  %129 = getelementptr inbounds i32, ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %127
   %130 = load ptr, ptr %119, align 8
-  %131 = getelementptr inbounds i32, ptr %130, i64 %127
+  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %127
   %132 = load i32, ptr %120, align 8
   call void %18(ptr noundef %129, ptr noundef %131, i32 noundef %132) #8
   %133 = add nuw nsw i32 %.099141, 1
@@ -465,9 +465,9 @@ FindBlendRangeAtRow.exit:                         ; preds = %149, %136
   %157 = add i32 %139, %156
   %158 = zext i32 %157 to i64
   %159 = load ptr, ptr %95, align 8
-  %160 = getelementptr inbounds i32, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %158
   %161 = load ptr, ptr %118, align 8
-  %162 = getelementptr inbounds i32, ptr %161, i64 %158
+  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %158
   call void %18(ptr noundef %160, ptr noundef %162, i32 noundef %.1) #8
   br label %FindBlendRangeAtRow.exit.thread
 
@@ -482,9 +482,9 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   %166 = add i32 %.0118148, %165
   %167 = zext i32 %166 to i64
   %168 = load ptr, ptr %95, align 8
-  %169 = getelementptr inbounds i32, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %167
   %170 = load ptr, ptr %118, align 8
-  %171 = getelementptr inbounds i32, ptr %170, i64 %167
+  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %167
   call void %18(ptr noundef %169, ptr noundef %171, i32 noundef %.0117149) #8
   br label %172
 
@@ -500,30 +500,30 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   store i32 %.0.i112124, ptr %28, align 8
   %176 = load ptr, ptr %95, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 304
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %178 = load ptr, ptr %177, align 8
   %179 = zext i32 %14 to i64
   %180 = zext i32 %16 to i64
   %181 = shl nuw nsw i64 %179, 2
   %182 = mul i64 %181, %180
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %178, ptr readonly align 1 %176, i64 %182, i1 false)
-  %183 = getelementptr inbounds i8, ptr %0, i64 348
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, 1
   br i1 %185, label %186, label %ZeroFillFrameRect.exit
 
 186:                                              ; preds = %.loopexit
-  %187 = getelementptr inbounds i8, ptr %0, i64 340
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %188 = load i32, ptr %187, align 4
   %189 = icmp sgt i32 %188, 0
   br i1 %189, label %.lr.ph.i, label %ZeroFillFrameRect.exit
 
 .lr.ph.i:                                         ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %0, i64 336
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %191 = load i32, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 332
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %193 = load i32, ptr %192, align 4
-  %194 = getelementptr inbounds i8, ptr %0, i64 328
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %195 = load i32, ptr %194, align 8
   %196 = load ptr, ptr %177, align 8
   %197 = mul nsw i32 %193, %73
@@ -569,9 +569,9 @@ define range(i32 0, 2) i32 @WebPAnimDecoderHasMoreFrames(ptr noundef readonly %0
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 404
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load i32, ptr %6, align 8
   %8 = icmp sle i32 %5, %7
   %9 = zext i1 %8 to i32
@@ -622,13 +622,13 @@ define internal void @BlendPixelRowNonPremult(ptr nocapture noundef %0, ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not = icmp ugt i32 %6, -16777217
   br i1 %.not, label %50, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %6, 16777216
   br i1 %10, label %BlendPixelNonPremult.exit, label %11
@@ -700,13 +700,13 @@ define internal void @BlendPixelRowPremult(ptr nocapture noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not = icmp ugt i32 %6, -16777217
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %6, 24
   %11 = sub nuw nsw i32 256, %10

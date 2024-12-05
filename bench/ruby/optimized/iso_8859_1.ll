@@ -46,13 +46,13 @@ define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture
   br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 115, ptr %11, align 1
   br label %16
 
 12:                                               ; preds = %5
   %13 = zext i8 %7 to i64
-  %14 = getelementptr inbounds [0 x i8], ptr @OnigEncISO_8859_1_ToLowerCaseTable, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncISO_8859_1_ToLowerCaseTable, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   br label %16
 
@@ -61,7 +61,7 @@ define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture
   %.0 = phi i32 [ 1, %12 ], [ 2, %10 ]
   store i8 %.sink, ptr %3, align 1
   %.pn = load ptr, ptr %1, align 8
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %1, align 8
   ret i32 %.0
 }
@@ -82,19 +82,19 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 8:                                                ; preds = %5
   store i32 1, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %9, align 4
   %10 = load i8, ptr %1, align 1
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %12, ptr %13, align 4
   %14 = load i8, ptr %1, align 1
   %15 = icmp eq i8 %14, 83
   br i1 %15, label %16, label %83
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = icmp ugt ptr %2, %17
   br i1 %18, label %19, label %83
 
@@ -106,9 +106,9 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %23, align 4
   br label %.sink.split
 
@@ -119,19 +119,19 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 26:                                               ; preds = %24
   store i32 1, ptr %3, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %27, align 4
   %28 = load i8, ptr %1, align 1
   %29 = zext i8 %28 to i32
   %30 = add nsw i32 %29, -32
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %30, ptr %31, align 4
   %32 = load i8, ptr %1, align 1
   %33 = icmp eq i8 %32, 115
   br i1 %33, label %34, label %83
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %1, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %36 = icmp ugt ptr %2, %35
   br i1 %36, label %37, label %83
 
@@ -143,9 +143,9 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
   ]
 
 39:                                               ; preds = %37, %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %41, align 4
   br label %.sink.split
 
@@ -159,7 +159,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 44:                                               ; preds = %42
   store i32 1, ptr %3, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %45, align 4
   %46 = load i8, ptr %1, align 1
   %47 = zext i8 %46 to i32
@@ -174,39 +174,39 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 50:                                               ; preds = %49
   store i32 1, ptr %3, align 4
-  %51 = getelementptr inbounds i8, ptr %3, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 115, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 115, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %3, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 2, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %3, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 83, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %3, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 83, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %3, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 2, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %3, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 115, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 83, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %3, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 2, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %3, i64 68
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 83, ptr %64, align 4
   br label %.sink.split
 
 65:                                               ; preds = %49
   store i32 1, ptr %3, align 4
-  %66 = getelementptr inbounds i8, ptr %3, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %66, align 4
   %67 = load i8, ptr %1, align 1
   %68 = zext i8 %67 to i32
@@ -215,7 +215,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noun
 
 70:                                               ; preds = %42
   store i32 1, ptr %3, align 4
-  %71 = getelementptr inbounds i8, ptr %3, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %71, align 4
   %72 = load i8, ptr %1, align 1
   %73 = zext i8 %72 to i32
@@ -234,7 +234,7 @@ switch.early.test:                                ; preds = %75
 
 77:                                               ; preds = %switch.early.test
   store i32 1, ptr %3, align 4
-  %78 = getelementptr inbounds i8, ptr %3, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %78, align 4
   %79 = load i8, ptr %1, align 1
   %80 = zext i8 %79 to i32
@@ -245,7 +245,7 @@ switch.early.test:                                ; preds = %75
   %.sink90 = phi i64 [ 8, %77 ], [ 8, %70 ], [ 8, %65 ], [ 72, %50 ], [ 8, %44 ], [ 28, %39 ], [ 28, %21 ]
   %.sink = phi i32 [ %81, %77 ], [ %74, %70 ], [ %69, %65 ], [ 115, %50 ], [ %48, %44 ], [ 223, %39 ], [ 223, %21 ]
   %.0.ph = phi i32 [ 1, %77 ], [ 1, %70 ], [ 1, %65 ], [ 4, %50 ], [ 1, %44 ], [ 2, %39 ], [ 2, %21 ]
-  %82 = getelementptr inbounds i8, ptr %3, i64 %.sink90
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink90
   store i32 %.sink, ptr %82, align 4
   br label %83
 
@@ -263,7 +263,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -294,7 +294,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %12 = phi ptr [ %48, %44 ], [ %8, %6 ]
   %.054 = phi i32 [ %spec.select, %44 ], [ %7, %6 ]
   %.03953 = phi ptr [ %45, %44 ], [ %3, %6 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
   %15 = icmp eq i8 %14, -33
@@ -307,7 +307,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 18:                                               ; preds = %16
   %19 = or i32 %.054, 262144
-  %20 = getelementptr inbounds i8, ptr %.03953, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.03953, i64 1
   store i8 83, ptr %.03953, align 1
   %21 = and i32 %.054, 32768
   %.not50 = icmp eq i32 %21, 0
@@ -321,13 +321,13 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 25:                                               ; preds = %23
   %26 = or i32 %.054, 262144
-  %27 = getelementptr inbounds i8, ptr %.03953, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.03953, i64 1
   store i8 115, ptr %.03953, align 1
   br label %44
 
 28:                                               ; preds = %.lr.ph
   %29 = zext i8 %14 to i64
-  %30 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 1024
   %.not = icmp eq i16 %32, 0
@@ -366,7 +366,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %.041 = phi i8 [ %22, %18 ], [ 115, %25 ], [ -33, %23 ], [ %36, %34 ], [ %14, %37 ], [ %43, %41 ], [ %14, %38 ], [ %14, %37 ], [ %14, %37 ], [ %14, %37 ]
   %.140 = phi ptr [ %20, %18 ], [ %27, %25 ], [ %.03953, %23 ], [ %.03953, %34 ], [ %.03953, %37 ], [ %.03953, %41 ], [ %.03953, %38 ], [ %.03953, %37 ], [ %.03953, %37 ], [ %.03953, %37 ]
   %.1 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %.054, %23 ], [ %35, %34 ], [ %.054, %37 ], [ %42, %41 ], [ %.054, %38 ], [ %.054, %37 ], [ %.054, %37 ], [ %.054, %37 ]
-  %45 = getelementptr inbounds i8, ptr %.140, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.140, i64 1
   store i8 %.041, ptr %.140, align 1
   %46 = and i32 %.1, 32768
   %.not51 = icmp eq i32 %46, 0

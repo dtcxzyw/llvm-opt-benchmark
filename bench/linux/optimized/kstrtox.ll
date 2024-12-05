@@ -825,7 +825,7 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
   br label %19
 
 12:                                               ; preds = %8, %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = add nsw i32 %15, -70

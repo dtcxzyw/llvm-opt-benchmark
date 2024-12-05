@@ -614,9 +614,9 @@ thread-pre-split20:                               ; preds = %.loopexit32
 
 412:                                              ; preds = %412, %409
   %413 = phi i64 [ 1, %409 ], [ %416, %412 ]
-  %414 = getelementptr inbounds double, ptr %53, i64 %413
+  %414 = getelementptr inbounds nuw double, ptr %53, i64 %413
   store double 1.000000e+00, ptr %414, align 8, !tbaa !10
-  %415 = getelementptr inbounds double, ptr %54, i64 %413
+  %415 = getelementptr inbounds nuw double, ptr %54, i64 %413
   store double 0.000000e+00, ptr %415, align 8, !tbaa !10
   %416 = add nuw nsw i64 %413, 1
   %417 = icmp eq i64 %416, %411

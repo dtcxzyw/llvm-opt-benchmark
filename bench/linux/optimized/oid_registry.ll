@@ -94,7 +94,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr nocapture noundef readon
   br i1 %45, label %25, label %.loopexit, !llvm.loop !8
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %33, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %49, 1
@@ -225,7 +225,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr nocapture noundef 
   br i1 %58, label %38, label %.loopexit, !llvm.loop !8
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %46, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = add nuw nsw i32 %62, 1

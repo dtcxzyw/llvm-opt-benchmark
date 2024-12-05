@@ -15,13 +15,13 @@ define dso_local void @dummy_start_vcpu_thread(ptr noundef initializes((176, 184
 entry:
   %thread_name = alloca [16 x i8], align 16
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #8
-  %thread = getelementptr inbounds i8, ptr %cpu, i64 176
+  %thread = getelementptr inbounds nuw i8, ptr %cpu, i64 176
   store ptr %call, ptr %thread, align 16
   %call1 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #8
-  %halt_cond = getelementptr inbounds i8, ptr %cpu, i64 192
+  %halt_cond = getelementptr inbounds nuw i8, ptr %cpu, i64 192
   store ptr %call1, ptr %halt_cond, align 16
   tail call void @qemu_cond_init(ptr noundef %call1) #9
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %thread_name, i64 noundef 16, ptr noundef nonnull @.str, i32 noundef %0) #9
   %1 = load ptr, ptr %thread, align 16
@@ -46,23 +46,23 @@ entry:
   %sig = alloca i32, align 4
   tail call void @rcu_register_thread() #9
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 27) #9
-  %thread = getelementptr inbounds i8, ptr %arg, i64 176
+  %thread = getelementptr inbounds nuw i8, ptr %arg, i64 176
   %0 = load ptr, ptr %thread, align 16
   tail call void @qemu_thread_get_self(ptr noundef %0) #9
   %call = tail call i32 @qemu_get_thread_id() #9
-  %thread_id = getelementptr inbounds i8, ptr %arg, i64 184
+  %thread_id = getelementptr inbounds nuw i8, ptr %arg, i64 184
   store i32 %call, ptr %thread_id, align 8
-  %can_do_io = getelementptr inbounds i8, ptr %arg, i64 10164
+  %can_do_io = getelementptr inbounds nuw i8, ptr %arg, i64 10164
   store i8 1, ptr %can_do_io, align 4
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   store ptr %arg, ptr %1, align 8
   %call1 = call i32 @sigemptyset(ptr noundef nonnull %waitset) #9
   %call2 = call i32 @sigaddset(ptr noundef nonnull %waitset, i32 noundef 10) #9
   call void @cpu_thread_signal_created(ptr noundef %arg) #9
-  %random_seed = getelementptr inbounds i8, ptr %arg, i64 240
+  %random_seed = getelementptr inbounds nuw i8, ptr %arg, i64 240
   %2 = load i64, ptr %random_seed, align 16
   call void @qemu_guest_random_seed_thread_part2(i64 noundef %2) #9
-  %unplug = getelementptr inbounds i8, ptr %arg, i64 205
+  %unplug = getelementptr inbounds nuw i8, ptr %arg, i64 205
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %entry

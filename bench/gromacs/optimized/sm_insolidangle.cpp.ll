@@ -119,7 +119,7 @@ define internal noundef nonnull ptr @_ZL22init_data_insolidangleiP18gmx_ana_selp
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %4)
           to label %_ZN23methoddata_insolidangleC2Ev.exit unwind label %5
 
@@ -130,15 +130,15 @@ define internal noundef nonnull ptr @_ZL22init_data_insolidangleiP18gmx_ana_selp
   br label %.body
 
 _ZN23methoddata_insolidangleC2Ev.exit:            ; preds = %.noexc
-  %7 = getelementptr inbounds i8, ptr %3, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 304
   store float 5.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 308
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 308
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %8, i8 0, i64 44, i1 false)
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %7, ptr %11, align 8
   ret ptr %3
 
@@ -158,7 +158,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %5 = alloca %"class.gmx::InvalidInputError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %9 = load float, ptr %8, align 8
   %10 = fcmp ugt float %9, 0.000000e+00
   br i1 %10, label %22, label %11
@@ -175,11 +175,11 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
 14:                                               ; preds = %13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %15, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.7, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 394, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %12, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %16 unwind label %19
@@ -220,24 +220,24 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   store float %25, ptr %8, align 8
   %26 = tail call noundef float @cosf(float noundef %25) #18
   %27 = fneg float %26
-  %28 = getelementptr inbounds i8, ptr %3, i64 312
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 312
   store float %27, ptr %28, align 8
   %29 = load float, ptr %8, align 8
   %30 = fmul float %29, 5.000000e-01
-  %31 = getelementptr inbounds i8, ptr %3, i64 316
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 316
   store float %30, ptr %31, align 4
   %32 = fpext float %30 to double
   %33 = fdiv double 0x400921FB54442D18, %32
   %34 = fptosi double %33 to i32
-  %35 = getelementptr inbounds i8, ptr %3, i64 320
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 320
   store i32 %34, ptr %35, align 8
   %36 = sitofp i32 %34 to double
   %37 = fdiv double 1.800000e+02, %36
   %38 = fmul double %37, 0x3F91DF46A2529D39
   %39 = fptrunc double %38 to float
-  %40 = getelementptr inbounds i8, ptr %3, i64 324
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 324
   store float %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 328
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %42 = fpext float %39 to double
   %43 = fdiv double 0x400921FB54442D18, %42
   %44 = fptosi double %43 to i32
@@ -245,7 +245,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %46 = sext i32 %45 to i64
   %47 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 404, i64 noundef range(i64 -2147483647, 2147483648) %46, i64 noundef 16)
   store ptr %47, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 336
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 336
   store i32 0, ptr %48, align 8
   %49 = load i32, ptr %35, align 8
   %50 = icmp sgt i32 %49, 0
@@ -273,7 +273,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %66 = fdiv double %63, %65
   %67 = fptosi double %66 to i32
   %68 = load ptr, ptr %41, align 8
-  %69 = getelementptr inbounds %struct.partition, ptr %68, i64 %indvars.iv, i32 1
+  %69 = getelementptr inbounds nuw %struct.partition, ptr %68, i64 %indvars.iv, i32 1
   %70 = add nsw i32 %67, 2
   %71 = sext i32 %70 to i64
   %72 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, i32 noundef 411, i64 noundef range(i64 -2147483646, 2147483648) %71, i64 noundef 8)
@@ -293,9 +293,9 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %storemerge.lcssa = phi i64 [ 0, %22 ], [ %79, %._crit_edge.loopexit ]
-  %80 = getelementptr inbounds i8, ptr %3, i64 340
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 340
   store i32 0, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %3, i64 344
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %82 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7, i32 noundef 415, i64 noundef range(i64 -2147483648, 2147483648) %storemerge.lcssa, i64 noundef 16)
   store ptr %82, ptr %81, align 8
   ret void
@@ -310,13 +310,13 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -324,7 +324,7 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.partition, ptr %7, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %struct.partition, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef 434, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -343,19 +343,19 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %._crit_edge, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 340
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %19
 
 19:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %struct.spheresurfacebin, ptr %20, i64 %indvars.iv.i, i32 2
+  %21 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %20, i64 %indvars.iv.i, i32 2
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %24, label %23
@@ -367,10 +367,10 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
 
 24:                                               ; preds = %23, %19
   %25 = phi ptr [ %.pre.i, %23 ], [ %20, %19 ]
-  %26 = getelementptr inbounds %struct.spheresurfacebin, ptr %25, i64 %indvars.iv.i, i32 1
+  %26 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %25, i64 %indvars.iv.i, i32 1
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds %struct.spheresurfacebin, ptr %27, i64 %indvars.iv.i, i32 2
+  %28 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %27, i64 %indvars.iv.i, i32 2
   store ptr null, ptr %28, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %15, align 4
@@ -379,10 +379,10 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
   br i1 %31, label %19, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %24, %14
-  %32 = getelementptr inbounds i8, ptr %0, i64 344
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %33 = load ptr, ptr %32, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7, i32 noundef 439, ptr noundef %33)
-  %34 = getelementptr inbounds i8, ptr %0, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %34) #18
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
@@ -392,19 +392,19 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL23init_frame_insolidangleRKN3gmx20SelMethodEvalContextEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) #0 {
   %3 = alloca [3 x float], align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 340
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %_ZL19free_surface_pointsP23methoddata_insolidangle.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 344
   br label %8
 
 8:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %struct.spheresurfacebin, ptr %9, i64 %indvars.iv.i, i32 2
+  %10 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %9, i64 %indvars.iv.i, i32 2
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %13, label %12
@@ -416,10 +416,10 @@ define internal void @_ZL23init_frame_insolidangleRKN3gmx20SelMethodEvalContextE
 
 13:                                               ; preds = %12, %8
   %14 = phi ptr [ %.pre.i, %12 ], [ %9, %8 ]
-  %15 = getelementptr inbounds %struct.spheresurfacebin, ptr %14, i64 %indvars.iv.i, i32 1
+  %15 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %14, i64 %indvars.iv.i, i32 1
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.spheresurfacebin, ptr %16, i64 %indvars.iv.i, i32 2
+  %17 = getelementptr inbounds nuw %struct.spheresurfacebin, ptr %16, i64 %indvars.iv.i, i32 2
   store ptr null, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %4, align 4
@@ -429,16 +429,16 @@ define internal void @_ZL23init_frame_insolidangleRKN3gmx20SelMethodEvalContextE
 
 _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %13, %2
   store i32 0, ptr %4, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.i17, label %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit
 
 .lr.ph.i17:                                       ; preds = %_ZL19free_surface_pointsP23methoddata_insolidangle.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 324
-  %25 = getelementptr inbounds i8, ptr %1, i64 316
-  %26 = getelementptr inbounds i8, ptr %1, i64 328
-  %27 = getelementptr inbounds i8, ptr %1, i64 344
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 324
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 316
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 344
   br label %28
 
 28:                                               ; preds = %72, %.lr.ph.i17
@@ -465,7 +465,7 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %13, %2
   %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
   %spec.store.select.i = add nuw i32 %46, 1
   %47 = load ptr, ptr %26, align 8
-  %48 = getelementptr inbounds %struct.partition, ptr %47, i64 %indvars.iv37.i
+  %48 = getelementptr inbounds nuw %struct.partition, ptr %47, i64 %indvars.iv37.i
   store i32 %spec.store.select.i, ptr %48, align 8
   %49 = uitofp nneg i32 %spec.store.select.i to double
   %wide.trip.count.i = zext i32 %spec.store.select.i to i64
@@ -481,15 +481,15 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %13, %2
   %56 = fadd double %55, -1.000000e-04
   %57 = fptrunc double %56 to float
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds %struct.partition, ptr %58, i64 %indvars.iv37.i, i32 1
+  %59 = getelementptr inbounds nuw %struct.partition, ptr %58, i64 %indvars.iv37.i, i32 1
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.t_partition_item, ptr %60, i64 %indvars.iv.i18
+  %61 = getelementptr inbounds nuw %struct.t_partition_item, ptr %60, i64 %indvars.iv.i18
   store float %57, ptr %61, align 4
   %62 = load i32, ptr %4, align 4
   %63 = load ptr, ptr %26, align 8
-  %64 = getelementptr inbounds %struct.partition, ptr %63, i64 %indvars.iv37.i, i32 1
+  %64 = getelementptr inbounds nuw %struct.partition, ptr %63, i64 %indvars.iv37.i, i32 1
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.t_partition_item, ptr %65, i64 %indvars.iv.i18, i32 1
+  %66 = getelementptr inbounds nuw %struct.t_partition_item, ptr %65, i64 %indvars.iv.i18, i32 1
   store i32 %62, ptr %66, align 4
   %67 = load ptr, ptr %27, align 8
   %68 = sext i32 %62 to i64
@@ -504,14 +504,14 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %13, %2
 
 72:                                               ; preds = %50
   %73 = load ptr, ptr %26, align 8
-  %74 = getelementptr inbounds %struct.partition, ptr %73, i64 %indvars.iv37.i, i32 1
+  %74 = getelementptr inbounds nuw %struct.partition, ptr %73, i64 %indvars.iv37.i, i32 1
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.t_partition_item, ptr %75, i64 %wide.trip.count.i
+  %76 = getelementptr inbounds nuw %struct.t_partition_item, ptr %75, i64 %wide.trip.count.i
   store float 0x4009222FC0000000, ptr %76, align 4
   %77 = load ptr, ptr %26, align 8
-  %78 = getelementptr inbounds %struct.partition, ptr %77, i64 %indvars.iv37.i, i32 1
+  %78 = getelementptr inbounds nuw %struct.partition, ptr %77, i64 %indvars.iv37.i, i32 1
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.t_partition_item, ptr %79, i64 %wide.trip.count.i, i32 1
+  %80 = getelementptr inbounds nuw %struct.t_partition_item, ptr %79, i64 %wide.trip.count.i, i32 1
   store i32 -1, ptr %80, align 4
   %81 = load i32, ptr %21, align 8
   %82 = sext i32 %81 to i64
@@ -519,19 +519,19 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %13, %2
   br i1 %83, label %28, label %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit, !llvm.loop !10
 
 _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19free_surface_pointsP23methoddata_insolidangle.exit
-  %84 = getelementptr inbounds i8, ptr %1, i64 152
-  %85 = getelementptr inbounds i8, ptr %1, i64 200
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %86 = load i32, ptr %85, align 8
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
-  %89 = getelementptr inbounds i8, ptr %3, i64 4
-  %90 = getelementptr inbounds i8, ptr %3, i64 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 304
-  %92 = getelementptr inbounds i8, ptr %1, i64 324
-  %93 = getelementptr inbounds i8, ptr %1, i64 328
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 324
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %94 = getelementptr i8, ptr %1, i64 344
   br label %95
 
@@ -540,7 +540,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   %96 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %96, null
   %97 = load ptr, ptr %84, align 8
-  %98 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv31
+  %98 = getelementptr inbounds nuw [3 x float], ptr %97, i64 %indvars.iv31
   %99 = load ptr, ptr %1, align 8
   br i1 %.not, label %101, label %100
 
@@ -555,14 +555,14 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   %102 = load float, ptr %98, align 4
   %103 = load float, ptr %99, align 4
   %104 = fsub float %102, %103
-  %105 = getelementptr inbounds i8, ptr %98, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %99, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %108 = load float, ptr %107, align 4
   %109 = fsub float %106, %108
-  %110 = getelementptr inbounds i8, ptr %98, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %99, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %113 = load float, ptr %112, align 4
   %114 = fsub float %111, %113
   br label %115
@@ -703,7 +703,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   %207 = fpext float %206 to double
   %208 = fcmp ult double %207, 0xC00921FB54442D18
   %209 = load ptr, ptr %93, align 8
-  %210 = getelementptr inbounds %struct.partition, ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw %struct.partition, ptr %209, i64 %indvars.iv
   br i1 %208, label %226, label %211
 
 211:                                              ; preds = %201
@@ -712,7 +712,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   br i1 %213, label %.lr.ph.i.i, label %_ZL18find_partition_binP9partitionf.exit.i
 
 .lr.ph.i.i:                                       ; preds = %211
-  %214 = getelementptr inbounds i8, ptr %210, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %215 = load ptr, ptr %214, align 8
   br label %216
 
@@ -740,7 +740,7 @@ _ZL20clear_surface_pointsP23methoddata_insolidangle.exit: ; preds = %72, %_ZL19f
   br i1 %230, label %.lr.ph.i79.i, label %_ZL18find_partition_binP9partitionf.exit84.i
 
 .lr.ph.i79.i:                                     ; preds = %226
-  %231 = getelementptr inbounds i8, ptr %210, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %232 = load ptr, ptr %231, align 8
   br label %233
 
@@ -779,7 +779,7 @@ _ZL18find_partition_binP9partitionf.exit.i:       ; preds = %216, %_ZL18find_par
   br i1 %249, label %.lr.ph.i86.i, label %_ZL18find_partition_binP9partitionf.exit91.i
 
 .lr.ph.i86.i:                                     ; preds = %248
-  %250 = getelementptr inbounds i8, ptr %210, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %251 = load ptr, ptr %250, align 8
   br label %252
 
@@ -806,7 +806,7 @@ _ZL18find_partition_binP9partitionf.exit.i:       ; preds = %216, %_ZL18find_par
   br i1 %265, label %.lr.ph.i93.i, label %_ZL18find_partition_binP9partitionf.exit98.i
 
 .lr.ph.i93.i:                                     ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %210, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %267 = load ptr, ptr %266, align 8
   br label %268
 
@@ -859,7 +859,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   %.067110.i = phi float [ %284, %.lr.ph.i26 ], [ %.168.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %.170109.i = phi float [ %.069.i, %.lr.ph.i26 ], [ %.271.i, %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i ]
   %291 = load ptr, ptr %93, align 8
-  %292 = getelementptr inbounds %struct.partition, ptr %291, i64 %indvars.iv
+  %292 = getelementptr inbounds nuw %struct.partition, ptr %291, i64 %indvars.iv
   %293 = load i32, ptr %292, align 8
   %294 = icmp eq i32 %.1112.i, %293
   br i1 %294, label %295, label %302
@@ -877,7 +877,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   %.271.i = phi float [ %298, %295 ], [ %.170109.i, %290 ]
   %.168.i = phi float [ %301, %295 ], [ %.067110.i, %290 ]
   %.2.i = phi i32 [ 0, %295 ], [ %.1112.i, %290 ]
-  %303 = getelementptr inbounds %struct.partition, ptr %291, i64 %indvars.iv, i32 1
+  %303 = getelementptr inbounds nuw %struct.partition, ptr %291, i64 %indvars.iv, i32 1
   %304 = load ptr, ptr %303, align 8
   %305 = sext i32 %.2.i to i64
   %306 = getelementptr inbounds %struct.t_partition_item, ptr %304, i64 %305
@@ -915,7 +915,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   br i1 %325, label %_ZL17add_surface_pointP23methoddata_insolidangleiiPf.exit.i, label %326
 
 326:                                              ; preds = %318
-  %327 = getelementptr inbounds i8, ptr %323, i64 4
+  %327 = getelementptr inbounds nuw i8, ptr %323, i64 4
   %328 = load i32, ptr %327, align 4
   %329 = icmp eq i32 %324, %328
   br i1 %329, label %330, label %340
@@ -925,8 +925,8 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   store i32 %331, ptr %327, align 4
   %332 = load ptr, ptr %94, align 8
   %333 = getelementptr inbounds %struct.spheresurfacebin, ptr %332, i64 %322
-  %334 = getelementptr inbounds i8, ptr %333, i64 8
-  %335 = getelementptr inbounds i8, ptr %333, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %336 = load i32, ptr %335, align 4
   %337 = sext i32 %336 to i64
   %338 = load ptr, ptr %334, align 8
@@ -947,10 +947,10 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   %347 = load float, ptr %3, align 4
   store float %347, ptr %346, align 4
   %348 = load float, ptr %89, align 4
-  %349 = getelementptr inbounds i8, ptr %346, i64 4
+  %349 = getelementptr inbounds nuw i8, ptr %346, i64 4
   store float %348, ptr %349, align 4
   %350 = load float, ptr %90, align 4
-  %351 = getelementptr inbounds i8, ptr %346, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store float %350, ptr %351, align 4
   %352 = load ptr, ptr %94, align 8
   %353 = getelementptr inbounds %struct.spheresurfacebin, ptr %352, i64 %322
@@ -982,7 +982,7 @@ _ZL19store_surface_pointP23methoddata_insolidanglePf.exit: ; preds = %.lr.ph.i21
   br i1 %366, label %95, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL19store_surface_pointP23methoddata_insolidanglePf.exit, %_ZL20clear_surface_pointsP23methoddata_insolidangle.exit
-  %367 = getelementptr inbounds i8, ptr %1, i64 308
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 308
   store float -1.000000e+00, ptr %367, align 4
   ret void
 }
@@ -990,29 +990,29 @@ _ZL19store_surface_pointP23methoddata_insolidanglePf.exit: ; preds = %.lr.ph.i21
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca [3 x float], align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 4
-  %.phi.trans.insert9.i = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 324
-  %13 = getelementptr inbounds i8, ptr %3, i64 320
-  %14 = getelementptr inbounds i8, ptr %3, i64 328
-  %15 = getelementptr inbounds i8, ptr %3, i64 344
-  %16 = getelementptr inbounds i8, ptr %3, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.phi.trans.insert9.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 324
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 328
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 344
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 312
   br label %17
 
 17:                                               ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds [3 x float], ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [3 x float], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   %.not.i = icmp eq ptr %20, null
@@ -1030,14 +1030,14 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %24 = load float, ptr %19, align 4
   %25 = load float, ptr %21, align 4
   %26 = fsub float %24, %25
-  %27 = getelementptr inbounds i8, ptr %19, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %21, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %30 = load float, ptr %29, align 4
   %31 = fsub float %28, %30
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %21, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load float, ptr %34, align 4
   %36 = fsub float %33, %35
   br label %37
@@ -1082,7 +1082,7 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   br label %_ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %63, align 8
   br label %65
 
@@ -1123,7 +1123,7 @@ _ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i: ; preds = %_ZL18find
   br i1 %84, label %.lr.ph.i.i, label %_ZL19accept_insolidanglePfPK5t_pbcPv.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %85 = getelementptr inbounds i8, ptr %81, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load float, ptr %5, align 4
   %88 = load float, ptr %.phi.trans.insert.i, align 4
@@ -1139,13 +1139,13 @@ _ZL16find_surface_binP23methoddata_insolidanglePf.exit.i.i: ; preds = %_ZL18find
 
 92:                                               ; preds = %91, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %91 ]
-  %93 = getelementptr inbounds [3 x float], ptr %86, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw [3 x float], ptr %86, i64 %indvars.iv.i.i
   %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %96 = load float, ptr %95, align 4
   %97 = fmul float %88, %96
   %98 = call float @llvm.fmuladd.f32(float %87, float %94, float %97)
-  %99 = getelementptr inbounds i8, ptr %93, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %100 = load float, ptr %99, align 4
   %101 = call noundef float @llvm.fmuladd.f32(float %89, float %100, float %98)
   %102 = fneg float %101
@@ -1200,8 +1200,8 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -1215,7 +1215,7 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -1229,7 +1229,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -1240,12 +1240,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -1290,7 +1290,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -1308,13 +1308,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1322,10 +1322,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -1351,10 +1351,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -1376,7 +1376,7 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
@@ -1397,9 +1397,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1415,7 +1415,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
@@ -1625,25 +1625,25 @@ define noundef zeroext i1 @_Z31_gmx_selelem_can_estimate_coverRKN3gmx20Selection
   %2 = alloca %"class.std::shared_ptr.8", align 8
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2
   %or.cond = select i1 %4, i1 %7, i1 false
   br i1 %or.cond, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i, label %20, label %17
@@ -1673,7 +1673,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %23, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @sm_insolidangle, align 8
@@ -1686,7 +1686,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
   br i1 %brmerge, label %._crit_edge, label %45
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %28, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 4
   %.not12 = icmp eq i32 %37, 0
@@ -1712,10 +1712,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
 45:                                               ; preds = %32, %38, %42, %34
   %.111 = phi i1 [ %.01025, %34 ], [ %.01025, %42 ], [ true, %38 ], [ false, %32 ]
   %.19 = phi i8 [ %.0826, %34 ], [ %.0826, %42 ], [ %.0826, %38 ], [ 1, %32 ]
-  %46 = getelementptr inbounds i8, ptr %23, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %23, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %11, align 8
   %.not.i.i.i15 = icmp eq ptr %49, %50
@@ -1726,7 +1726,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
   br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %54 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i16 = icmp eq i8 %54, 0
   br i1 %.not.i.i.i.i16, label %58, label %55
@@ -1748,7 +1748,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %61
 
 61:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load atomic i64, ptr %62 acquire, align 8
   %64 = icmp eq i64 %63, 4294967297
   %65 = trunc i64 %63 to i32
@@ -1756,10 +1756,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 66:                                               ; preds = %61
   store i32 0, ptr %62, align 8
-  %67 = getelementptr inbounds i8, ptr %60, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 0, ptr %67, align 4
   %68 = load ptr, ptr %60, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(16) %60) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -1785,10 +1785,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %60, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull align 8 dereferenceable(16) %60) #18
-  %83 = getelementptr inbounds i8, ptr %60, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %84 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %84, 0
   br i1 %.not.i.i.i.i.i.i, label %88, label %85
@@ -1810,7 +1810,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %90, %66
   %92 = load ptr, ptr %60, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %60) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
@@ -1832,7 +1832,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %45, %_Z
   br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %97
 
 97:                                               ; preds = %._crit_edge
-  %98 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load atomic i64, ptr %98 acquire, align 8
   %100 = icmp eq i64 %99, 4294967297
   %101 = trunc i64 %99 to i32
@@ -1840,10 +1840,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %45, %_Z
 
 102:                                              ; preds = %97
   store i32 0, ptr %98, align 8
-  %103 = getelementptr inbounds i8, ptr %96, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 0, ptr %103, align 4
   %104 = load ptr, ptr %96, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i22
@@ -1869,10 +1869,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %45, %_Z
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %96, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   tail call void %118(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
-  %119 = getelementptr inbounds i8, ptr %96, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %120 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i20 = icmp eq i8 %120, 0
   br i1 %.not.i.i.i.i.i.i20, label %124, label %121
@@ -1894,7 +1894,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %45, %_Z
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i22: ; preds = %126, %102
   %128 = load ptr, ptr %96, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   tail call void %130(ptr noundef nonnull align 8 dereferenceable(16) %96) #18
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
@@ -1906,13 +1906,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit: ; preds = %_ZNSt16_Sp_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1920,10 +1920,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -1949,10 +1949,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i, label %31, label %28
@@ -1974,7 +1974,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1991,7 +1991,7 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   br i1 %4, label %5, label %69
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @sm_insolidangle, align 8
@@ -1999,23 +1999,23 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 308
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 308
   %15 = load float, ptr %14, align 4
   %16 = fcmp olt float %15, 0.000000e+00
   br i1 %16, label %17, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 320
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 320
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph36.i, label %_ZL25estimate_covered_fractionP23methoddata_insolidangle.exit
 
 .lr.ph36.i:                                       ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %13, i64 324
-  %22 = getelementptr inbounds i8, ptr %13, i64 328
-  %23 = getelementptr inbounds i8, ptr %13, i64 344
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 324
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 344
   br label %27
 
 .loopexit.i:                                      ; preds = %65, %27
@@ -2041,13 +2041,13 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   %37 = tail call noundef float @cosf(float noundef %36) #18
   %38 = fsub float %32, %37
   %39 = load ptr, ptr %22, align 8
-  %40 = getelementptr inbounds %struct.partition, ptr %39, i64 %indvars.iv39.i
+  %40 = getelementptr inbounds nuw %struct.partition, ptr %39, i64 %indvars.iv39.i
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %27
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %23, align 8
   %wide.trip.count.i = zext nneg i32 %41 to i64
@@ -2059,10 +2059,10 @@ define noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeE
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
   %.132.i = phi float [ %.03034.i, %.lr.ph.i ], [ %.2.i, %65 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %48 = getelementptr inbounds %struct.t_partition_item, ptr %44, i64 %indvars.iv.next.i
+  %48 = getelementptr inbounds nuw %struct.t_partition_item, ptr %44, i64 %indvars.iv.next.i
   %49 = load float, ptr %48, align 4
   %50 = fsub float %49, %47
-  %51 = getelementptr inbounds %struct.t_partition_item, ptr %44, i64 %indvars.iv.i, i32 1
+  %51 = getelementptr inbounds nuw %struct.t_partition_item, ptr %44, i64 %indvars.iv.i, i32 1
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds %struct.spheresurfacebin, ptr %45, i64 %53
@@ -2102,14 +2102,14 @@ _ZL25estimate_covered_fractionP23methoddata_insolidangle.exit: ; preds = %17, %.
 
 69:                                               ; preds = %1
   %70 = icmp eq i32 %3, 2
-  %71 = getelementptr inbounds i8, ptr %0, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
   %or.cond = select i1 %70, i1 %73, i1 false
   br i1 %or.cond, label %74, label %.thread
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTreeElementE(ptr noundef nonnull align 8 dereferenceable(168) %76)
   %78 = fcmp olt float %77, 1.000000e+00
@@ -2120,18 +2120,18 @@ _ZL25estimate_covered_fractionP23methoddata_insolidangle.exit: ; preds = %17, %.
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit
 
 .thread:                                          ; preds = %5, %69
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %2, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 104
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %83, align 8
   %.not.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %86
 
 86:                                               ; preds = %.thread
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %88, 0
   br i1 %.not.i.i.i.i, label %92, label %89
@@ -2168,10 +2168,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %.thread
   resume { ptr, i32 } %100
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %95, i64 112
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 112
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %2, align 8
-  %104 = getelementptr inbounds i8, ptr %95, i64 120
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 120
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %83, align 8
   %.not.i.i.i19 = icmp eq ptr %105, %106
@@ -2182,7 +2182,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %.thread
   br i1 %.not7.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i, label %108
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i20 = icmp eq i8 %110, 0
   br i1 %.not.i.i.i.i20, label %114, label %111
@@ -2204,7 +2204,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, label %117
 
 117:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %119 = load atomic i64, ptr %118 acquire, align 8
   %120 = icmp eq i64 %119, 4294967297
   %121 = trunc i64 %119 to i32
@@ -2212,10 +2212,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 122:                                              ; preds = %117
   store i32 0, ptr %118, align 8
-  %123 = getelementptr inbounds i8, ptr %116, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 12
   store i32 0, ptr %123, align 4
   %124 = load ptr, ptr %116, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
   tail call void %126(ptr noundef nonnull align 8 dereferenceable(16) %116) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -2241,10 +2241,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr %116, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   tail call void %138(ptr noundef nonnull align 8 dereferenceable(16) %116) #18
-  %139 = getelementptr inbounds i8, ptr %116, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %140 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %140, 0
   br i1 %.not.i.i.i.i.i.i, label %144, label %141
@@ -2266,7 +2266,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %146, %122
   %148 = load ptr, ptr %116, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
   tail call void %150(ptr noundef nonnull align 8 dereferenceable(16) %116) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
@@ -2288,7 +2288,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %101, %_
   br i1 %.not.i.i.i21, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %153
 
 153:                                              ; preds = %._crit_edge
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %155 = load atomic i64, ptr %154 acquire, align 8
   %156 = icmp eq i64 %155, 4294967297
   %157 = trunc i64 %155 to i32
@@ -2296,10 +2296,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %101, %_
 
 158:                                              ; preds = %153
   store i32 0, ptr %154, align 8
-  %159 = getelementptr inbounds i8, ptr %152, i64 12
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 12
   store i32 0, ptr %159, align 4
   %160 = load ptr, ptr %152, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
   tail call void %162(ptr noundef nonnull align 8 dereferenceable(16) %152) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i26
@@ -2325,10 +2325,10 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %101, %_
 
 171:                                              ; preds = %169
   %172 = load ptr, ptr %152, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
   tail call void %174(ptr noundef nonnull align 8 dereferenceable(16) %152) #18
-  %175 = getelementptr inbounds i8, ptr %152, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %152, i64 12
   %176 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i24 = icmp eq i8 %176, 0
   br i1 %.not.i.i.i.i.i.i24, label %180, label %177
@@ -2350,7 +2350,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %101, %_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i26: ; preds = %182, %158
   %184 = load ptr, ptr %152, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   tail call void %186(ptr noundef nonnull align 8 dereferenceable(16) %152) #18
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit

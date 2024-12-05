@@ -49,8 +49,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   br i1 %21, label %22, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
 22:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 80
-  %24 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i = icmp eq ptr %23, %8
   br i1 %.not.i.i.i.i.i, label %.loopexit25, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -103,8 +103,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   br i1 %57, label %58, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
 58:                                               ; preds = %.lr.ph.i.i.i.i.i13
-  %59 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i15, i64 16
-  %60 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i14, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i15, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i14, i64 16
   %.not.i.i.i.i.i16 = icmp eq ptr %59, %40
   br i1 %.not.i.i.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i.i.i13, !llvm.loop !6
 
@@ -138,8 +138,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   %79 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i19, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %78, %80
-  %82 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i20, i64 16
-  %83 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i19, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i20, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i19, i64 16
   %.not.i.i.i.i.i21 = icmp ne ptr %82, %64
   %or.cond.not = select i1 %81, i1 %.not.i.i.i.i.i21, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i18, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !6
@@ -178,7 +178,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.029.036 = phi ptr [ %12, %.lr.ph ], [ %4, %2 ]
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_17HgiAttachmentDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(80) %.sroa.029.036)
-  %12 = getelementptr inbounds i8, ptr %.sroa.029.036, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.029.036, i64 80
   %.not = icmp eq ptr %12, %6
   br i1 %.not, label %.preheader34, label %.lr.ph
 

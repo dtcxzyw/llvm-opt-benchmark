@@ -19,14 +19,14 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
   br i1 %4, label %42, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 568
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
   store i32 0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 540
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %11 [
     i32 0, label %42
@@ -34,7 +34,7 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
   ]
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   br label %13
 
 13:                                               ; preds = %30, %11
@@ -93,23 +93,23 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @regcache_maple_exit(ptr nocapture noundef %0) #0 align 16 {
   %2 = alloca %struct.ma_state, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 568
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 4294967295, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i64 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %12 = icmp eq ptr %4, null
   store i32 0, ptr %11, align 4
   br i1 %12, label %20, label %13
@@ -143,24 +143,24 @@ define internal noundef i32 @regcache_maple_exit(ptr nocapture noundef %0) #0 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @regcache_maple_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext i32 %1 to i64
   store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 0, ptr %14, align 4
   tail call void @__rcu_read_lock() #10
   %15 = call ptr @mas_walk(ptr noundef nonnull %4) #10
@@ -186,24 +186,24 @@ define internal noundef range(i32 -2, 1) i32 @regcache_maple_read(ptr nocapture 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regcache_maple_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext i32 %1 to i64
   store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 0, ptr %14, align 4
   tail call void @__rcu_read_lock() #10
   %15 = call ptr @mas_walk(ptr noundef nonnull %4) #10
@@ -259,7 +259,7 @@ define internal i32 @regcache_maple_write(ptr nocapture noundef readonly %0, i32
   %47 = phi i64 [ %41, %40 ], [ %8, %35 ]
   %48 = phi i64 [ %45, %40 ], [ 0, %35 ]
   call void @__rcu_read_unlock() #10
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load i32, ptr %49, align 8
   %51 = sub i64 %47, %36
   %52 = shl i64 %51, 3
@@ -315,26 +315,26 @@ define internal i32 @regcache_maple_write(ptr nocapture noundef readonly %0, i32
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext i32 %1 to i64
   store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = zext i32 %2 to i64
   store i64 %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i64 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 60
-  %16 = getelementptr inbounds i8, ptr %0, i64 549
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 549
   store i32 0, ptr %15, align 4
   store i8 1, ptr %16, align 1
   tail call void @__rcu_read_lock() #10
@@ -423,25 +423,25 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @regcache_maple_drop(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext i32 %1 to i64
   store i64 %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = zext i32 %2 to i64
   store i64 %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i64 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 0, ptr %15, align 4
   tail call void @_raw_spin_lock(ptr noundef %6) #10
   %16 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
@@ -451,7 +451,7 @@ define internal i32 @regcache_maple_drop(ptr nocapture noundef readonly %0, i32 
 18:                                               ; preds = %3
   %19 = add i32 %1, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = add i32 %2, 1
   %23 = zext i32 %22 to i64
   br label %24
@@ -557,26 +557,26 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @regcache_maple_insert_block(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %13, align 8
   store i64 -1, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
-  %16 = getelementptr inbounds i8, ptr %4, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %17 = sub i32 %2, %1
   %18 = add i32 %17, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %16, align 4
   %20 = icmp slt i32 %18, 0
   br i1 %20, label %.thread, label %21, !prof !12
@@ -595,7 +595,7 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr nocapture noundef re
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 552
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -615,7 +615,7 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr nocapture noundef re
 
 .loopexit:                                        ; preds = %33, %28
   tail call void @_raw_spin_lock(ptr noundef %6) #10
-  %44 = getelementptr inbounds i8, ptr %0, i64 552
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr %struct.reg_default, ptr %45, i64 %8
   %47 = load i32, ptr %46, align 4
@@ -691,7 +691,7 @@ declare dso_local zeroext i1 @regcache_reg_needs_sync(ptr noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8
   tail call void @mas_pause(ptr noundef %2) #10
   tail call void @__rcu_read_unlock() #10
@@ -706,7 +706,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapt
 12:                                               ; preds = %10
   %13 = zext i32 %8 to i64
   %14 = mul i64 %7, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef %16) #11
   %18 = icmp eq ptr %17, null
@@ -719,7 +719,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapt
 
 22:                                               ; preds = %19
   %23 = zext i32 %3 to i64
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %25
 
 25:                                               ; preds = %25, %22
@@ -748,7 +748,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nocapt
 
 40:                                               ; preds = %37
   %41 = zext i32 %3 to i64
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %46
 
 43:                                               ; preds = %46

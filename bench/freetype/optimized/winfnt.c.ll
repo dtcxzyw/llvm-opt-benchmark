@@ -60,7 +60,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %17 = alloca %struct.WinPE_RsrcDataEntryRec_, align 8
   %18 = alloca i32, align 4
   %19 = alloca %struct.FT_CharMapRec_, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %21 = load ptr, ptr %20, align 8
   %22 = icmp slt i32 %2, 0
   %23 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
@@ -77,9 +77,9 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %25 = getelementptr inbounds i8, ptr %1, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %27, align 8
   %28 = zext nneg i32 %24 to i64
   %29 = tail call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef 0) #11
@@ -103,7 +103,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %35, label %36, label %.thread.i
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %7, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
   %40 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %39) #11
@@ -128,7 +128,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 45:                                               ; preds = %43
   %46 = load i16, ptr %37, align 2
   %47 = zext i16 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %8, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i64
   %51 = add nuw nsw i64 %50, %47
@@ -138,7 +138,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %.not146.i, label %53, label %fnt_face_get_dll_font.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %8, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i64
   %57 = load i16, ptr %48, align 2
@@ -160,7 +160,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %.not148175.i, label %.loopexit.i, label %.lr.ph176.i
 
 .lr.ph176.i:                                      ; preds = %.preheader.i
-  %65 = getelementptr inbounds i8, ptr %26, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 64
   br label %67
 
 66:                                               ; preds = %61
@@ -177,7 +177,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 71:                                               ; preds = %67
   %72 = call i64 @FT_Stream_Pos(ptr noundef %26) #11
   %73 = load ptr, ptr %65, align 8
-  %74 = getelementptr inbounds i8, ptr %26, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %73 to i64
   %77 = ptrtoint ptr %75 to i64
@@ -190,8 +190,8 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %82 = zext i16 %69 to i64
   %83 = mul nuw nsw i64 %82, 12
   %84 = load ptr, ptr %65, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 %83
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %83
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store ptr %86, ptr %65, align 8
   %87 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %26) #11
   %.not148.i = icmp eq i16 %87, 0
@@ -213,7 +213,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 91:                                               ; preds = %.loopexit.i
   %92 = zext i16 %.0112.i to i64
   %93 = mul nuw nsw i64 %92, 118
-  %94 = getelementptr inbounds i8, ptr %26, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = icmp ugt i64 %93, %95
   br i1 %96, label %97, label %98
@@ -262,11 +262,11 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %116 = zext i16 %115 to i64
   %117 = shl nuw nsw i64 %116, %112
   %118 = load ptr, ptr %27, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 224
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 224
   store i64 %117, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %26, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %122, ptr %120, align 8
   call void @FT_Stream_ExitFrame(ptr noundef nonnull %26) #11
   %123 = load ptr, ptr %27, align 8
@@ -292,15 +292,15 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 132:                                              ; preds = %130
   %133 = load i64, ptr %9, align 8
   %134 = icmp ne i64 %133, 17744
-  %135 = getelementptr inbounds i8, ptr %9, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %136 = load i16, ptr %135, align 8
   %137 = icmp ne i16 %136, 332
   %or.cond5.i = select i1 %134, i1 true, i1 %137
-  %138 = getelementptr inbounds i8, ptr %9, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %139 = load i16, ptr %138, align 4
   %140 = icmp ne i16 %139, 224
   %or.cond9.i = select i1 %or.cond5.i, i1 true, i1 %140
-  %141 = getelementptr inbounds i8, ptr %9, i64 14
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 14
   %142 = load i16, ptr %141, align 2
   %143 = icmp ne i16 %142, 267
   %or.cond13.i = select i1 %or.cond9.i, i1 true, i1 %143
@@ -312,14 +312,14 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 
 145:                                              ; preds = %132
   store i64 0, ptr %1, align 8
-  %146 = getelementptr inbounds i8, ptr %9, i64 10
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %147 = load i16, ptr %146, align 2
   %.not177.i = icmp eq i16 %147, 0
   br i1 %.not177.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %9, i64 16
-  %149 = getelementptr inbounds i8, ptr %10, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %154
 
 150:                                              ; preds = %156
@@ -346,7 +346,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %fnt_face_get_dll_font.exit
 
 160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %10, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %162 = load i64, ptr %161, align 8
   %163 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %162) #11
   store i32 %163, ptr %6, align 4
@@ -361,8 +361,8 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 
 166:                                              ; preds = %164
   %167 = load i64, ptr %161, align 8
-  %168 = getelementptr inbounds i8, ptr %11, i64 20
-  %169 = getelementptr inbounds i8, ptr %11, i64 22
+  %168 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %169 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %170 = load i16, ptr %168, align 4
   %171 = load i16, ptr %169, align 2
   %172 = or i16 %171, %170
@@ -371,14 +371,14 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 
 .lr.ph174.i:                                      ; preds = %166
   %173 = add i64 %167, 16
-  %174 = getelementptr inbounds i8, ptr %14, i64 8
-  %175 = getelementptr inbounds i8, ptr %12, i64 20
-  %176 = getelementptr inbounds i8, ptr %12, i64 22
-  %177 = getelementptr inbounds i8, ptr %15, i64 8
-  %178 = getelementptr inbounds i8, ptr %13, i64 20
-  %179 = getelementptr inbounds i8, ptr %13, i64 22
-  %180 = getelementptr inbounds i8, ptr %16, i64 8
-  %181 = getelementptr inbounds i8, ptr %17, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 22
+  %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 22
+  %180 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %182
 
 182:                                              ; preds = %._crit_edge171.i, %.lr.ph174.i
@@ -556,7 +556,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   store i64 %260, ptr %253, align 8
   %261 = load i64, ptr %181, align 8
   %262 = load ptr, ptr %27, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 224
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 224
   store i64 %261, ptr %263, align 8
   %264 = load ptr, ptr %27, align 8
   %265 = call fastcc i32 @fnt_font_load(ptr noundef %264, ptr noundef %26)
@@ -636,7 +636,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %.not.i.i, label %fnt_face_get_dll_font.exit, label %302
 
 302:                                              ; preds = %.thread.i
-  %303 = getelementptr inbounds i8, ptr %301, i64 216
+  %303 = getelementptr inbounds nuw i8, ptr %301, i64 216
   %304 = load ptr, ptr %303, align 8
   %.not13.i.i = icmp eq ptr %304, null
   br i1 %.not13.i.i, label %306, label %305
@@ -646,7 +646,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %306
 
 306:                                              ; preds = %305, %302
-  %307 = getelementptr inbounds i8, ptr %301, i64 232
+  %307 = getelementptr inbounds nuw i8, ptr %301, i64 232
   %308 = load ptr, ptr %307, align 8
   call void @ft_mem_free(ptr noundef %299, ptr noundef %308) #11
   store ptr null, ptr %307, align 8
@@ -706,9 +706,9 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
 318:                                              ; preds = %315
   store i64 1, ptr %1, align 8
   store i64 0, ptr %316, align 8
-  %319 = getelementptr inbounds i8, ptr %0, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %320 = load i64, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %316, i64 224
+  %321 = getelementptr inbounds nuw i8, ptr %316, i64 224
   store i64 %320, ptr %321, align 8
   %322 = call fastcc i32 @fnt_font_load(ptr noundef nonnull %316, ptr noundef %0)
   store i32 %322, ptr %18, align 4
@@ -728,21 +728,21 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
 
 .thread126:                                       ; preds = %324, %325
   %326 = load ptr, ptr %27, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 108
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 108
   %328 = load i16, ptr %327, align 4
   %.not109 = icmp eq i16 %328, 0
   br i1 %.not109, label %.thread129.sink.split, label %329
 
 329:                                              ; preds = %.thread126
-  %330 = getelementptr inbounds i8, ptr %1, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %28, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %1, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %332 = load i64, ptr %331, align 8
   %333 = or i64 %332, 18
   store i64 %333, ptr %331, align 8
-  %334 = getelementptr inbounds i8, ptr %326, i64 112
+  %334 = getelementptr inbounds nuw i8, ptr %326, i64 112
   %335 = load i16, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %326, i64 114
+  %336 = getelementptr inbounds nuw i8, ptr %326, i64 114
   %337 = load i16, ptr %336, align 2
   %338 = icmp eq i16 %335, %337
   br i1 %338, label %339, label %341
@@ -753,26 +753,26 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br label %341
 
 341:                                              ; preds = %339, %329
-  %342 = getelementptr inbounds i8, ptr %326, i64 98
+  %342 = getelementptr inbounds nuw i8, ptr %326, i64 98
   %343 = load i8, ptr %342, align 2
   %.not110 = icmp eq i8 %343, 0
   br i1 %.not110, label %348, label %344
 
 344:                                              ; preds = %341
-  %345 = getelementptr inbounds i8, ptr %1, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %346 = load i64, ptr %345, align 8
   %347 = or i64 %346, 1
   store i64 %347, ptr %345, align 8
   br label %348
 
 348:                                              ; preds = %344, %341
-  %349 = getelementptr inbounds i8, ptr %326, i64 102
+  %349 = getelementptr inbounds nuw i8, ptr %326, i64 102
   %350 = load i16, ptr %349, align 2
   %351 = icmp ugt i16 %350, 799
   br i1 %351, label %352, label %356
 
 352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %1, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %354 = load i64, ptr %353, align 8
   %355 = or i64 %354, 2
   store i64 %355, ptr %353, align 8
@@ -780,40 +780,40 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
 
 356:                                              ; preds = %352, %348
   %357 = call ptr @ft_mem_qalloc(ptr noundef %21, i64 noundef 32, ptr noundef nonnull %18) #11
-  %358 = getelementptr inbounds i8, ptr %1, i64 64
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %357, ptr %358, align 8
   %359 = load i32, ptr %18, align 4
   %.not111 = icmp eq i32 %359, 0
   br i1 %.not111, label %360, label %.thread129
 
 360:                                              ; preds = %356
-  %361 = getelementptr inbounds i8, ptr %1, i64 56
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 1, ptr %361, align 8
   %362 = load i16, ptr %334, align 8
-  %363 = getelementptr inbounds i8, ptr %357, i64 2
+  %363 = getelementptr inbounds nuw i8, ptr %357, i64 2
   store i16 %362, ptr %363, align 2
   %364 = load i16, ptr %327, align 4
-  %365 = getelementptr inbounds i8, ptr %326, i64 96
+  %365 = getelementptr inbounds nuw i8, ptr %326, i64 96
   %366 = load i16, ptr %365, align 8
   %367 = add i16 %366, %364
   store i16 %367, ptr %357, align 8
-  %368 = getelementptr inbounds i8, ptr %326, i64 86
+  %368 = getelementptr inbounds nuw i8, ptr %326, i64 86
   %369 = load i16, ptr %368, align 2
   %370 = zext i16 %369 to i64
   %371 = shl nuw nsw i64 %370, 6
-  %372 = getelementptr inbounds i8, ptr %357, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i64 %371, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %326, i64 90
+  %373 = getelementptr inbounds nuw i8, ptr %326, i64 90
   %374 = load i16, ptr %373, align 2
   %.not112 = icmp eq i16 %374, 0
   %spec.store.select = select i1 %.not112, i16 72, i16 %374
-  %375 = getelementptr inbounds i8, ptr %326, i64 88
+  %375 = getelementptr inbounds nuw i8, ptr %326, i64 88
   %376 = load i16, ptr %375, align 8
   %.not113 = icmp eq i16 %376, 0
   %spec.store.select2 = select i1 %.not113, i16 72, i16 %376
   %377 = zext i16 %spec.store.select2 to i64
   %378 = call i64 @FT_MulDiv(i64 noundef %371, i64 noundef %377, i64 noundef 72) #11
-  %379 = getelementptr inbounds i8, ptr %357, i64 24
+  %379 = getelementptr inbounds nuw i8, ptr %357, i64 24
   %380 = add nsw i64 %378, 32
   %381 = and i64 %380, -64
   store i64 %381, ptr %379, align 8
@@ -837,20 +837,20 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   %389 = phi i64 [ %.pre, %._crit_edge ], [ %387, %386 ]
   %390 = zext i16 %spec.store.select to i64
   %391 = call i64 @FT_MulDiv(i64 noundef %389, i64 noundef %390, i64 noundef 72) #11
-  %392 = getelementptr inbounds i8, ptr %357, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %357, i64 16
   %393 = add nsw i64 %391, 32
   %394 = and i64 %393, -64
   store i64 %394, ptr %392, align 8
-  %395 = getelementptr inbounds i8, ptr %19, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %395, align 8
   store ptr %1, ptr %19, align 8
-  %396 = getelementptr inbounds i8, ptr %326, i64 104
+  %396 = getelementptr inbounds nuw i8, ptr %326, i64 104
   %397 = load i8, ptr %396, align 8
   %398 = icmp eq i8 %397, 77
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %388
-  %400 = getelementptr inbounds i8, ptr %19, i64 12
+  %400 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1634889070, ptr %395, align 8
   store i16 1, ptr %400, align 4
   br label %401
@@ -862,9 +862,9 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br i1 %.not114, label %403, label %.thread129
 
 403:                                              ; preds = %401
-  %404 = getelementptr inbounds i8, ptr %326, i64 117
+  %404 = getelementptr inbounds nuw i8, ptr %326, i64 117
   %405 = load i8, ptr %404, align 1
-  %406 = getelementptr inbounds i8, ptr %326, i64 116
+  %406 = getelementptr inbounds nuw i8, ptr %326, i64 116
   %407 = load i8, ptr %406, align 4
   %408 = icmp ult i8 %405, %407
   br i1 %408, label %.thread129.sink.split, label %409
@@ -873,11 +873,11 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   %narrow = sub nuw i8 %405, %407
   %410 = zext i8 %narrow to i64
   %411 = add nuw nsw i64 %410, 2
-  %412 = getelementptr inbounds i8, ptr %1, i64 32
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %411, ptr %412, align 8
-  %413 = getelementptr inbounds i8, ptr %326, i64 136
+  %413 = getelementptr inbounds nuw i8, ptr %326, i64 136
   %414 = load i64, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %326, i64 16
+  %415 = getelementptr inbounds nuw i8, ptr %326, i64 16
   %416 = load i64, ptr %415, align 8
   %.not115 = icmp ult i64 %414, %416
   br i1 %.not115, label %417, label %.thread129.sink.split
@@ -886,14 +886,14 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   %418 = sub nuw i64 %416, %414
   %419 = add i64 %418, 1
   %420 = call ptr @ft_mem_qalloc(ptr noundef %21, i64 noundef %419, ptr noundef nonnull %18) #11
-  %421 = getelementptr inbounds i8, ptr %326, i64 232
+  %421 = getelementptr inbounds nuw i8, ptr %326, i64 232
   store ptr %420, ptr %421, align 8
   %422 = load i32, ptr %18, align 4
   %.not116 = icmp eq i32 %422, 0
   br i1 %.not116, label %423, label %.thread129
 
 423:                                              ; preds = %417
-  %424 = getelementptr inbounds i8, ptr %326, i64 216
+  %424 = getelementptr inbounds nuw i8, ptr %326, i64 216
   %425 = load ptr, ptr %424, align 8
   %426 = load i64, ptr %413, align 8
   %427 = getelementptr inbounds i8, ptr %425, i64 %426
@@ -911,11 +911,11 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br i1 %.not117, label %435, label %.thread129
 
 435:                                              ; preds = %423
-  %436 = getelementptr inbounds i8, ptr %1, i64 40
+  %436 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %433, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %1, i64 48
+  %437 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr @.str.3, ptr %437, align 8
-  %438 = getelementptr inbounds i8, ptr %1, i64 24
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %439 = load i64, ptr %438, align 8
   %440 = and i64 %439, 2
   %.not118 = icmp eq i64 %440, 0
@@ -958,7 +958,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br i1 %.not.i.i122, label %fnt_font_done.exit.i, label %451
 
 451:                                              ; preds = %.thread129
-  %452 = getelementptr inbounds i8, ptr %450, i64 216
+  %452 = getelementptr inbounds nuw i8, ptr %450, i64 216
   %453 = load ptr, ptr %452, align 8
   %.not13.i.i123 = icmp eq ptr %453, null
   br i1 %.not13.i.i123, label %455, label %454
@@ -968,7 +968,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br label %455
 
 455:                                              ; preds = %454, %451
-  %456 = getelementptr inbounds i8, ptr %450, i64 232
+  %456 = getelementptr inbounds nuw i8, ptr %450, i64 232
   %457 = load ptr, ptr %456, align 8
   call void @ft_mem_free(ptr noundef %448, ptr noundef %457) #11
   store ptr null, ptr %456, align 8
@@ -977,11 +977,11 @@ fnt_face_get_dll_font.exit:                       ; preds = %154, %182, %188, %1
   br label %fnt_font_done.exit.i
 
 fnt_font_done.exit.i:                             ; preds = %455, %.thread129
-  %458 = getelementptr inbounds i8, ptr %1, i64 64
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %459 = load ptr, ptr %458, align 8
   call void @ft_mem_free(ptr noundef %448, ptr noundef %459) #11
   store ptr null, ptr %458, align 8
-  %460 = getelementptr inbounds i8, ptr %1, i64 56
+  %460 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 0, ptr %460, align 8
   %.pre140 = load i32, ptr %18, align 4
   br label %FNT_Face_Done.exit
@@ -997,17 +997,17 @@ define internal void @FNT_Face_Done(ptr noundef %0) #0 {
   br i1 %.not, label %19, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %fnt_font_done.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %13, label %12
@@ -1017,7 +1017,7 @@ define internal void @FNT_Face_Done(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = getelementptr inbounds i8, ptr %8, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 232
   %15 = load ptr, ptr %14, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %15) #11
   store ptr null, ptr %14, align 8
@@ -1026,11 +1026,11 @@ define internal void @FNT_Face_Done(ptr noundef %0) #0 {
   br label %fnt_font_done.exit
 
 fnt_font_done.exit:                               ; preds = %2, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %17) #11
   store ptr null, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %18, align 8
   br label %19
 
@@ -1043,18 +1043,18 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
   store i32 0, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %117, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not93 = icmp eq ptr %10, null
   br i1 %.not93, label %117, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %.not94 = icmp ult i32 %2, %14
@@ -1069,14 +1069,14 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   br label %22
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %10, i64 118
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 118
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
   br label %22
 
 22:                                               ; preds = %18, %16
   %.0 = phi i32 [ %17, %16 ], [ %21, %18 ]
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = icmp eq i16 %24, 768
   %26 = select i1 %25, i32 6, i32 4
@@ -1084,7 +1084,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %28 = mul i32 %26, %.0
   %29 = add i32 %28, %27
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %10, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, -2
   %.neg = select i1 %25, i64 -4, i64 -2
@@ -1093,19 +1093,19 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not96, label %35, label %117
 
 35:                                               ; preds = %22
-  %36 = getelementptr inbounds i8, ptr %10, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %30
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %30
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 8
   %43 = load i8, ptr %38, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %42, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 156
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %38, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 2
   br i1 %25, label %48, label %51
 
 48:                                               ; preds = %35
@@ -1125,36 +1125,36 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not97, label %56, label %117
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %10, i64 108
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 108
   %58 = load i16, ptr %57, align 4
   %59 = zext i16 %58 to i32
   store i32 %59, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 178
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 1, ptr %60, align 2
-  %61 = getelementptr inbounds i8, ptr %0, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 92
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 92
   %63 = load i16, ptr %62, align 4
   %64 = zext i16 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %0, i64 196
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1651078259, ptr %66, align 8
   %67 = shl nuw nsw i32 %45, 6
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %68, ptr %69, align 8
   %70 = shl nuw nsw i32 %59, 6
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %68, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %74, align 8
   %75 = shl nuw nsw i32 %64, 6
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %0, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %76, ptr %77, align 8
   tail call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %69, i64 noundef %71) #11
   %78 = and i32 %3, 4194304
@@ -1163,15 +1163,15 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
 
 79:                                               ; preds = %56
   %80 = load ptr, ptr %36, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 %.087
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.087
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 184
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 184
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr %46, align 4
   %87 = add i32 %86, 7
   %88 = lshr i32 %87, 3
-  %89 = getelementptr inbounds i8, ptr %0, i64 160
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %88, ptr %89, align 8
   %.not99 = icmp ult i32 %87, 8
   br i1 %.not99, label %117, label %90
@@ -1189,7 +1189,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %98 = zext nneg i32 %88 to i64
   %99 = zext i32 %91 to i64
   %100 = call ptr @ft_mem_qrealloc(ptr noundef %85, i64 noundef %98, i64 noundef 0, i64 noundef %99, ptr noundef null, ptr noundef nonnull %5) #11
-  %101 = getelementptr inbounds i8, ptr %0, i64 168
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %100, ptr %101, align 8
   %102 = load i32, ptr %5, align 4
   %.not100 = icmp eq i32 %102, 0
@@ -1201,7 +1201,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %.086105 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %81, %97 ]
   %103 = load i32, ptr %7, align 8
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %.086105, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %.086105, i64 %104
   %.not110 = icmp eq i32 %103, 0
   br i1 %.not110, label %._crit_edge, label %.lr.ph
 
@@ -1210,7 +1210,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
   %.1102 = phi ptr [ %107, %.lr.ph ], [ %.086105, %.lr.ph108 ]
   %106 = load i8, ptr %.1102, align 1
   store i8 %106, ptr %.083103, align 1
-  %107 = getelementptr inbounds i8, ptr %.1102, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.1102, i64 1
   %108 = load i32, ptr %89, align 8
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %.083103, i64 %109
@@ -1220,15 +1220,15 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph108
   %.1.lcssa = phi ptr [ %.086105, %.lr.ph108 ], [ %107, %.lr.ph ]
   %112 = add nsw i32 %.085106, -1
-  %113 = getelementptr inbounds i8, ptr %.084107, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.084107, i64 1
   %.not101 = icmp eq i32 %112, 0
   br i1 %.not101, label %._crit_edge109, label %.lr.ph108, !llvm.loop !10
 
 ._crit_edge109:                                   ; preds = %._crit_edge
   %.pre.pre = load i32, ptr %5, align 4
-  %114 = getelementptr inbounds i8, ptr %0, i64 296
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 1, ptr %116, align 8
   br label %117
 
@@ -1240,14 +1240,14 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   br i1 %.not, label %17, label %12
 
@@ -1269,7 +1269,7 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
   ]
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 32
   %26 = ashr i64 %25, 6
@@ -1277,7 +1277,7 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
   br i1 %27, label %33, label %.thread
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %5, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i64
   %32 = icmp eq i64 %20, %31
@@ -1285,13 +1285,13 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
 
 33:                                               ; preds = %22, %28
   tail call void @FT_Select_Metrics(ptr noundef nonnull %3, i64 noundef 0) #11
-  %34 = getelementptr inbounds i8, ptr %5, i64 92
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i64
   %37 = shl nuw nsw i64 %36, 6
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 108
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %40 = load i16, ptr %39, align 4
   %41 = zext i16 %40 to i32
   %42 = load i16, ptr %34, align 4
@@ -1299,13 +1299,13 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
   %.neg.i = sub nsw i32 %43, %41
   %44 = shl nsw i32 %.neg.i, 6
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 114
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 114
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
   %50 = shl nuw nsw i64 %49, 6
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %50, ptr %51, align 8
   br label %.thread
 
@@ -1317,16 +1317,16 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @FNT_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
   tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef 0) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
   %9 = shl nuw nsw i64 %8, 6
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 108
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
   %14 = load i16, ptr %6, align 4
@@ -1334,13 +1334,13 @@ define internal noundef i32 @FNT_Size_Select(ptr nocapture noundef initializes((
   %.neg = sub nsw i32 %15, %13
   %16 = shl nsw i32 %.neg, 6
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 114
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 114
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i64
   %22 = shl nuw nsw i64 %21, 6
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %22, ptr %23, align 8
   ret i32 0
 }
@@ -1349,9 +1349,9 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @winfnt_get_header(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 208)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(208) %5, i64 208, i1 false)
   ret i32 0
 }
@@ -1363,7 +1363,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fnt_font_load(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call i32 @FT_Stream_Seek(ptr noundef %1, i64 noundef %4) #11
   %.not = icmp eq i32 %5, 0
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @fnt_font_load(ptr noundef %0, ptr noundef %1) unname
 
 10:                                               ; preds = %8, %8
   %11 = icmp eq i16 %9, 768
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = select i1 %11, i64 148, i64 118
   %15 = icmp ult i64 %13, %14
@@ -1394,12 +1394,12 @@ define internal fastcc i32 @fnt_font_load(ptr noundef %0, ptr noundef %1) unname
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %22 = load i16, ptr %21, align 4
   %23 = and i16 %22, 1
   %.not28 = icmp eq i16 %23, 0
@@ -1413,7 +1413,7 @@ define internal fastcc i32 @fnt_font_load(ptr noundef %0, ptr noundef %1) unname
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %30 = tail call i32 @FT_Stream_ExtractFrame(ptr noundef %1, i64 noundef %28, ptr noundef nonnull %29) #11
   br label %31
 
@@ -1454,29 +1454,29 @@ declare hidden i32 @FT_Stream_ExtractFrame(ptr noundef, i64 noundef, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @fnt_cmap_init(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #5 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 116
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 117
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 117
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %reass.sub = sub nsw i32 %12, %8
   %13 = add nsw i32 %reass.sub, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %13, ptr %14, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @fnt_cmap_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %5, %7
   %9 = add i32 %5, 1
@@ -1488,14 +1488,14 @@ define internal i32 @fnt_cmap_char_index(ptr nocapture noundef readonly %0, i32 
 define internal i32 @fnt_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #7 {
   %3 = load i32, ptr %1, align 4
   %4 = add i32 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp ugt i32 %4, %6
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %2
   %8 = sub nuw i32 %4, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %8, %10
   %12 = add i32 %8, 1

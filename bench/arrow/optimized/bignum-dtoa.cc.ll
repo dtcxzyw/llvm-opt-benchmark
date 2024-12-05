@@ -94,16 +94,16 @@ if.then23:                                        ; preds = %_ZN14arrow_vendored
 
 if.end26:                                         ; preds = %_ZN14arrow_vendored17double_conversionL18NormalizedExponentEmi.exit
   store i16 0, ptr %numerator, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %numerator, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %numerator, i64 2
   store i16 0, ptr %exponent_.i, align 2
   store i16 0, ptr %denominator, align 4
-  %exponent_.i48 = getelementptr inbounds i8, ptr %denominator, i64 2
+  %exponent_.i48 = getelementptr inbounds nuw i8, ptr %denominator, i64 2
   store i16 0, ptr %exponent_.i48, align 2
   store i16 0, ptr %delta_minus, align 4
-  %exponent_.i49 = getelementptr inbounds i8, ptr %delta_minus, i64 2
+  %exponent_.i49 = getelementptr inbounds nuw i8, ptr %delta_minus, i64 2
   store i16 0, ptr %exponent_.i49, align 2
   store i16 0, ptr %delta_plus, align 4
-  %exponent_.i50 = getelementptr inbounds i8, ptr %delta_plus, i64 2
+  %exponent_.i50 = getelementptr inbounds nuw i8, ptr %delta_plus, i64 2
   store i16 0, ptr %exponent_.i50, align 2
   %cmp.i51 = icmp sgt i32 %exponent.0, -1
   br i1 %cmp.i51, label %if.then.i, label %if.else.i
@@ -443,7 +443,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call = tail call noundef zeroext i16 @_ZN14arrow_vendored17double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
   %conv = trunc i16 %call to i8
   %add = add i8 %conv, 48
-  %arrayidx.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv
   store i8 %add, ptr %arrayidx.i, align 1
   tail call void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -462,7 +462,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx.i18 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i17
   store i8 %add9, ptr %arrayidx.i18, align 1
   %idxprom.i19.phi.trans.insert = zext nneg i32 %sub to i64
-  %arrayidx.i20.phi.trans.insert = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i19.phi.trans.insert
+  %arrayidx.i20.phi.trans.insert = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i19.phi.trans.insert
   %.pre = load i8, ptr %arrayidx.i20.phi.trans.insert, align 1
   br label %for.body17
 
@@ -474,11 +474,11 @@ for.body17:                                       ; preds = %for.end, %if.end22
 
 if.end22:                                         ; preds = %for.body17
   %idxprom.i19 = zext nneg i32 %i13.037 to i64
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i19
+  %arrayidx.i20 = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i19
   store i8 48, ptr %arrayidx.i20, align 1
   %sub24 = add nsw i32 %i13.037, -1
   %idxprom.i23 = zext nneg i32 %sub24 to i64
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i23
+  %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idxprom.i23
   %1 = load i8, ptr %arrayidx.i24, align 1
   %inc26 = add i8 %1, 1
   store i8 %inc26, ptr %arrayidx.i24, align 1

@@ -113,12 +113,12 @@ _get_group_cache.exit.i.thread:                   ; preds = %24
   br i1 %.not28.i.i, label %35, label %30, !llvm.loop !7
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = shl i32 %37, 2
   %39 = sext i32 %38 to i64
   %40 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %39, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__._get_group_cache) #12
-  %41 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %42 = load ptr, ptr %41, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %42, i64 %39, i1 false)
   %43 = load i32, ptr %36, align 8
@@ -190,9 +190,9 @@ _get_group_members.exit.thread90:                 ; preds = %59
 ._crit_edge.i:                                    ; preds = %62, %47
   %.062.lcssa.i = phi i32 [ %50, %47 ], [ %63, %62 ]
   %72 = phi ptr [ %56, %47 ], [ %69, %62 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
   %.not7189.i = icmp eq ptr %77, null
@@ -237,9 +237,9 @@ _get_group_members.exit.thread90:                 ; preds = %59
   %.1.i = phi i32 [ %.091.i, %.lr.ph93.i ], [ %.2.i, %89 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv.next.i
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.next.i
   %100 = load ptr, ptr %99, align 8
   %.not71.i = icmp eq ptr %100, null
   br i1 %.not71.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !9
@@ -282,7 +282,7 @@ _get_group_members.exit.thread90:                 ; preds = %59
   %.6 = phi i32 [ %.7, %.loopexit.i ], [ %.5, %.outer80.i ]
   %114 = phi ptr [ %158, %.loopexit.i ], [ %105, %.outer80.i ]
   %.3103.i = phi i32 [ %.4.i, %.loopexit.i ], [ %.3.ph.i, %.outer80.i ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, %74
   br i1 %117, label %118, label %.loopexit.i
@@ -306,7 +306,7 @@ _get_group_members.exit.thread90:                 ; preds = %59
 
 127:                                              ; preds = %124, %121, %118
   %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
   %.not7396.i = icmp eq ptr %131, null
@@ -351,9 +351,9 @@ _get_group_members.exit.thread90:                 ; preds = %59
   %.6.i = phi i32 [ %.598.i, %.lr.ph100.i ], [ %.7.i, %143 ]
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv.next113.i
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.next113.i
   %154 = load ptr, ptr %153, align 8
   %.not73.i = icmp eq ptr %154, null
   br i1 %.not73.i, label %.loopexit.i, label %.lr.ph100.i, !llvm.loop !10
@@ -390,7 +390,7 @@ _get_group_members.exit.thread90:                 ; preds = %59
   br i1 %or.cond9.i, label %183, label %167
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %165, i64 20
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 20
   %169 = load i32, ptr %168, align 4
   %.not75.i = icmp eq i32 %169, %74
   br i1 %.not75.i, label %170, label %162, !llvm.loop !11
@@ -411,7 +411,7 @@ _get_group_members.exit.thread90:                 ; preds = %59
 177:                                              ; preds = %172, %170
   %178 = phi ptr [ %.pre118.i, %172 ], [ %165, %170 ]
   %.9.i = phi i32 [ %173, %172 ], [ %.8.ph.i, %170 ]
-  %179 = getelementptr inbounds i8, ptr %178, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load i32, ptr %179, align 8
   %181 = load ptr, ptr %7, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -448,12 +448,12 @@ _get_group_members.exit.thread90:                 ; preds = %59
   %194 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 409, ptr noundef nonnull @__func__._put_group_cache) #12
   %195 = call ptr @xstrdup(ptr noundef nonnull %.01264) #12
   store ptr %195, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i32 %184, ptr %196, align 8
   %197 = sext i32 %193 to i64
   %198 = add nsw i64 %197, 4
   %199 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %198, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 412, ptr noundef nonnull @__func__._put_group_cache) #12
-  %200 = getelementptr inbounds i8, ptr %194, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr %199, ptr %200, align 8
   %201 = icmp sgt i64 %indvars.iv, 0
   br i1 %201, label %202, label %203
@@ -538,7 +538,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv87 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next88, %.lr.ph ]
   %218 = load ptr, ptr %14, align 8
-  %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv87
+  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv87
   %220 = load i32, ptr %219, align 4
   %221 = load ptr, ptr %11, align 8
   %222 = load i32, ptr %1, align 4
@@ -590,7 +590,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i24, %253 ], [ 0, %231 ]
   %.02430.i = phi i32 [ %.1.i23, %253 ], [ %238, %231 ]
   %.02529.i = phi i32 [ %.126.i, %253 ], [ 0, %231 ]
-  %243 = getelementptr inbounds i32, ptr %242, i64 %indvars.iv.i21
+  %243 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv.i21
   %244 = load i32, ptr %243, align 4
   %245 = icmp eq i32 %244, %.02430.i
   br i1 %245, label %253, label %246
@@ -601,7 +601,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %249 = getelementptr inbounds i32, ptr %233, i64 %248
   store i32 %.02430.i, ptr %249, align 4
   %250 = load ptr, ptr %11, align 8
-  %251 = getelementptr inbounds i32, ptr %250, i64 %indvars.iv.i21
+  %251 = getelementptr inbounds nuw i32, ptr %250, i64 %indvars.iv.i21
   %252 = load i32, ptr %251, align 4
   %.pre.i22 = load i32, ptr %1, align 4
   br label %253
@@ -704,7 +704,7 @@ define dso_local i64 @get_group_tlm() local_unnamed_addr #0 {
   br label %8
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i64, ptr %6, align 8
   br label %8
 
@@ -774,7 +774,7 @@ define internal void @_cache_del_func(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef %0) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %3) #12
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   ret void

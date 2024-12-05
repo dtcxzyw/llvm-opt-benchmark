@@ -83,7 +83,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store double 1.000000e-02, ptr %6, align 8
   store double 1.500000e+01, ptr %7, align 8
   store i32 123, ptr %8, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %3, align 4
   %13 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @init.opts, ptr noundef nonnull %3) #11
   %14 = icmp eq i32 %13, -1
@@ -116,7 +116,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %19, label %.thread78.i, label %21
 
 .thread78.i:                                      ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %60
 
 21:                                               ; preds = %17
@@ -125,7 +125,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %23, label %.thread82.i, label %.thread.i
 
 .thread82.i:                                      ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %16, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 5
   br label %67
 
 25:                                               ; preds = %.lr.ph.i
@@ -134,7 +134,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %27, label %.thread86.i, label %.thread.i
 
 .thread86.i:                                      ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %16, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 12
   br label %76
 
 29:                                               ; preds = %.lr.ph.i
@@ -143,7 +143,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %31, label %.thread94.i, label %.thread.i
 
 .thread94.i:                                      ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %16, i64 11
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 11
   br label %93
 
 33:                                               ; preds = %.lr.ph.i
@@ -152,7 +152,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %35, label %.thread90.i, label %.thread.i
 
 .thread90.i:                                      ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %16, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 9
   br label %81
 
 37:                                               ; preds = %.lr.ph.i
@@ -390,7 +390,7 @@ init.exit:                                        ; preds = %107, %110
   %134 = icmp eq i32 %133, 2
   %.idx.i.i = select i1 %134, i64 0, i64 -64
   %135 = getelementptr inbounds i8, ptr %.01822.i.i, i64 %.idx.i.i
-  %136 = getelementptr inbounds i8, ptr %135, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %137 = load ptr, ptr %136, align 8
   %138 = icmp eq ptr %137, %.01725.i.i
   %139 = icmp eq ptr %137, %.123.i.i

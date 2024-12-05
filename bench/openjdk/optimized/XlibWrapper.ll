@@ -47,7 +47,7 @@ define hidden void @freeNativeStringArray(ptr noundef %0, i32 noundef %1) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -68,7 +68,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1368
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1) #14
   %8 = icmp eq i32 %7, 0
@@ -92,7 +92,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
   %.03965 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
   %.04064 = phi i32 [ %.444, %34 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1384
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1384
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.03965) #14
   %.not = icmp eq ptr %17, null
@@ -105,7 +105,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
 
 .thread:                                          ; preds = %18
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
   br label %.preheader.i
@@ -130,7 +130,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
   %.242 = phi i32 [ %26, %25 ], [ %.04064, %29 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %19) #14
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 184
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
   br i1 %.not51.not, label %.preheader.i, label %34
@@ -152,7 +152,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %37 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   tail call void @free(ptr noundef %38) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -227,7 +227,7 @@ declare i32 @XSetCloseDownMode(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DefaultScreen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -236,7 +236,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Defa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
   %9 = ptrtoint ptr %8 to i64
@@ -246,7 +246,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr nocapture noundef r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_sun_awt_X11_XlibWrapper_DoesBackingStore(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load i32, ptr %5, align 8
   ret i32 %6
 }
@@ -254,7 +254,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_DoesBackingStore(ptr nocapture noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidth(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 3
   %9 = load i32, ptr %8, align 8
@@ -265,7 +265,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayWidthMM(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 5
   %9 = load i32, ptr %8, align 8
@@ -276,7 +276,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeight(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 4
   %9 = load i32, ptr %8, align 4
@@ -287,7 +287,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_DisplayHeightMM(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 6
   %9 = load i32, ptr %8, align 4
@@ -298,7 +298,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 2
   %9 = load i64, ptr %8, align 8
@@ -308,7 +308,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr nocapture noundef readno
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_sun_awt_X11_XlibWrapper_ScreenCount(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 228
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 228
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -797,7 +797,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetProperty(ptr noundef %0, ptr nocapt
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1352
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1352
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef null) #14
   store ptr %14, ptr %7, align 8
@@ -815,12 +815,12 @@ define void @Java_sun_awt_X11_XlibWrapper_SetProperty(ptr noundef %0, ptr nocapt
   br i1 %or.cond, label %20, label %33
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = call i32 @XChangeProperty(ptr noundef %18, i64 noundef %3, i64 noundef %4, i64 noundef %22, i32 noundef %24, i32 noundef 0, ptr noundef %25, i32 noundef %28) #14
@@ -837,7 +837,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetProperty(ptr noundef %0, ptr nocapt
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1360
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1360
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %7, align 8
   call void %37(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %38) #14
@@ -1147,7 +1147,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_getScreenOfWindow(ptr nocapture noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)
   %6 = inttoptr i64 %2 to ptr
   %7 = call i32 @XGetWindowAttributes(ptr noundef %6, i64 noundef %3, ptr noundef nonnull %5) #14
-  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   ret i64 %10
@@ -1195,7 +1195,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noca
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1408
   %8 = load ptr, ptr %7, align 8
   %9 = trunc i64 %5 to i32
   %10 = tail call ptr %8(ptr noundef nonnull %0, i32 noundef %9) #14
@@ -1204,7 +1204,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noca
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1664
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1664
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %9, ptr noundef %4) #14
   br label %16
@@ -1216,7 +1216,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_getStringBytes(ptr noundef %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_awt_X11_XlibWrapper_ServerVendor(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %6) #14
   ret ptr %7
@@ -1225,7 +1225,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_ServerVendor(ptr noundef %0, ptr nocapt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_sun_awt_X11_XlibWrapper_VendorRelease(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 116
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -1287,7 +1287,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_IsKanaKeyboard(pt
   %.014 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %3 ]
   %.0913 = phi i32 [ %26, %.lr.ph ], [ 0, %3 ]
   %.01012 = phi ptr [ %21, %.lr.ph ], [ %13, %3 ]
-  %21 = getelementptr inbounds i8, ptr %.01012, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.01012, i64 8
   %22 = load i64, ptr %.01012, align 8
   %23 = and i64 %22, 65280
   %24 = icmp eq i64 %23, 1024
@@ -1315,7 +1315,7 @@ declare ptr @XGetKeyboardMapping(ptr noundef, i8 noundef zeroext, i32 noundef, p
 ; Function Attrs: nounwind uwtable
 define i64 @Java_sun_awt_X11_XlibWrapper_SetToolkitErrorHandler(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef nonnull @jvm_xawt) #14
   %7 = icmp slt i32 %6, 0
@@ -1387,17 +1387,17 @@ define void @Java_sun_awt_X11_XlibWrapper_PrintXErrorEvent(ptr nocapture noundef
   %6 = alloca [128 x i8], align 16
   %7 = inttoptr i64 %3 to ptr
   %8 = inttoptr i64 %2 to ptr
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = call i32 @XGetErrorText(ptr noundef %8, i32 noundef %11, ptr noundef nonnull %5, i32 noundef 128) #14
   %13 = load ptr, ptr @stderr, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %13, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, i64 noundef %15, i64 noundef %17) #14
-  %19 = getelementptr inbounds i8, ptr %7, i64 33
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %21) #14
@@ -1412,7 +1412,7 @@ define void @Java_sun_awt_X11_XlibWrapper_PrintXErrorEvent(ptr nocapture noundef
 
 30:                                               ; preds = %4
   %31 = load ptr, ptr @stderr, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 34
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 34
   %33 = load i8, ptr %32, align 2
   %34 = zext i8 %33 to i32
   %35 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %31, ptr noundef nonnull @.str.6, i32 noundef %34) #14
@@ -1452,7 +1452,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XInternAtoms(ptr noundef %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1562,21 +1562,21 @@ define void @Java_sun_awt_X11_XlibWrapper_memcpy(ptr nocapture noundef readnone 
 define void @Java_sun_awt_X11_XlibWrapper_XSetMinMaxHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @XAllocSizeHints() #14
   store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %7, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %7, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i32 %7, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %5, ptr %18, align 4
   %19 = inttoptr i64 %2 to ptr
   tail call void @XSetWMNormalHints(ptr noundef %19, i64 noundef %3, ptr noundef nonnull %10) #14
@@ -1697,7 +1697,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XGetAtomName(ptr noundef %0, ptr nocapt
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1336
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1336
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %6) #14
   %17 = tail call i32 @XFree(ptr noundef nonnull %6) #14
@@ -1768,9 +1768,9 @@ declare ptr @XCreateGC(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XlibWrapper_XDestroyImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %4) #14
   ret void
@@ -2041,7 +2041,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XlibWrapper_XNextSecondaryLoo
   %12 = shl i32 %.010, 1
   %13 = select i1 %11, i32 %12, i32 250
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @tkClass, align 8
   %18 = load ptr, ptr @awtWaitMID, align 8
@@ -2070,7 +2070,7 @@ define internal range(i32 0, 2) i32 @secondary_loop_event(ptr nocapture readnone
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %2, align 8
   %9 = icmp eq i64 %7, %8
@@ -2089,7 +2089,7 @@ define internal range(i32 0, 2) i32 @secondary_loop_event(ptr nocapture readnone
 define void @Java_sun_awt_X11_XlibWrapper_ExitSecondaryLoop(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   store i1 false, ptr @exitSecondaryLoop, align 4
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1128
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1128
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @tkClass, align 8
   %7 = load ptr, ptr @awtNotifyAllMID, align 8
@@ -2112,11 +2112,11 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1824
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1824
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i8 %18(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %19, 0
@@ -2124,11 +2124,11 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0) #14
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0) #14
   br label %27
@@ -2139,12 +2139,12 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %15) #14
   store ptr %33, ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList.stringClass, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0, ptr noundef nonnull %15) #14
   %37 = load ptr, ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList.stringClass, align 8
@@ -2157,7 +2157,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 40:                                               ; preds = %29, %4
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1368
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1368
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %2) #14
   %45 = icmp eq i32 %44, 0
@@ -2165,32 +2165,32 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   br i1 %45, label %47, label %52
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %46, i64 1376
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 1376
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList.stringClass, align 8
   %51 = tail call ptr %49(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %50, ptr noundef null) #14
   br label %122
 
 52:                                               ; preds = %40
-  %53 = getelementptr inbounds i8, ptr %46, i64 1472
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 1472
   %54 = load ptr, ptr %53, align 8
   %55 = call ptr %54(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %8) #14
   %56 = icmp eq ptr %55, null
   br i1 %56, label %122, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %58, align 8
   store ptr %55, ptr %5, align 8
   %59 = sext i32 %44 to i64
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 8, ptr %61, align 8
   %62 = call i32 @XTextPropertyToStringList(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %63 = icmp eq i32 %62, 0
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1536
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1536
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %55, i32 noundef 2) #14
   br i1 %63, label %122, label %67
@@ -2199,7 +2199,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   %68 = load i32, ptr %7, align 4
   %69 = icmp eq i32 %68, 0
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1376
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1376
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList.stringClass, align 8
   br i1 %69, label %74, label %76
@@ -2211,7 +2211,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 76:                                               ; preds = %67
   %77 = call ptr %72(ptr noundef nonnull %0, i32 noundef %68, ptr noundef %73, ptr noundef null) #14
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1824
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1824
   %80 = load ptr, ptr %79, align 8
   %81 = call zeroext i8 %80(ptr noundef nonnull %0) #14
   %.not82 = icmp eq i8 %81, 0
@@ -2227,14 +2227,14 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 .lr.ph:                                           ; preds = %82, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %82 ]
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1336
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1336
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   %92 = call ptr %88(ptr noundef nonnull %0, ptr noundef %91) #14
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1824
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1824
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i8 %95(ptr noundef nonnull %0) #14
   %.not83 = icmp eq i8 %96, 0
@@ -2246,12 +2246,12 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1392
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1392
   %102 = load ptr, ptr %101, align 8
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   call void %102(ptr noundef nonnull %0, ptr noundef nonnull %77, i32 noundef %103, ptr noundef nonnull %92) #14
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1824
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1824
   %106 = load ptr, ptr %105, align 8
   %107 = call zeroext i8 %106(ptr noundef nonnull %0) #14
   %.not84 = icmp eq i8 %107, 0
@@ -2259,7 +2259,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   br i1 %.not84, label %109, label %.loopexit.sink.split
 
 109:                                              ; preds = %99
-  %110 = getelementptr inbounds i8, ptr %108, i64 184
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 184
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull %0, ptr noundef nonnull %92) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2274,11 +2274,11 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
 
 .loopexit.sink.split:                             ; preds = %99, %.loopexit.sink.split.sink.split
   %.sink = phi ptr [ %115, %.loopexit.sink.split.sink.split ], [ %108, %99 ]
-  %116 = getelementptr inbounds i8, ptr %.sink, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %.sink, i64 128
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull %0) #14
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 136
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull %0) #14
   br label %.loopexit
@@ -2318,7 +2318,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyIntArray(ptr noundef %0, ptr nocap
   %6 = alloca i8, align 1
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1496
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1496
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %6) #14
   %11 = inttoptr i64 %2 to ptr
@@ -2330,7 +2330,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyIntArray(ptr noundef %0, ptr nocap
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1560
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1560
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %10, i32 noundef 2) #14
   br label %18
@@ -2344,7 +2344,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyLongArray(ptr noundef %0, ptr noca
   %6 = alloca i8, align 1
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1504
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %6) #14
   %11 = inttoptr i64 %2 to ptr
@@ -2356,7 +2356,7 @@ define void @Java_sun_awt_X11_XlibWrapper_copyLongArray(ptr noundef %0, ptr noca
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1568
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1568
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %10, i32 noundef 2) #14
   br label %18
@@ -2425,12 +2425,12 @@ declare void @XShapeCombineMask(ptr noundef, i64 noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XlibWrapper_SetZOrder(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.XWindowChanges, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %4, ptr %7, align 8
   %8 = icmp ne i64 %4, 0
   %spec.select = zext i1 %8 to i32
   %spec.select6 = select i1 %8, i32 96, i32 64
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %spec.select, ptr %9, align 8
   %10 = inttoptr i64 %2 to ptr
   %11 = call i32 @XConfigureWindow(ptr noundef %10, i64 noundef %3, i32 noundef %spec.select6, ptr noundef nonnull %6) #14
@@ -2452,7 +2452,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr noc
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1368
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1368
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %6) #14
   %20 = icmp eq i32 %19, 0
@@ -2463,7 +2463,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr noc
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1496
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1496
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %8) #14
   %28 = icmp eq ptr %27, null
@@ -2480,7 +2480,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr noc
   br i1 %.not, label %.sink.split, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = call i32 @BitmapToYXBandedRectangles(i32 noundef 32, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %35, ptr noundef nonnull %33) #14
   %37 = inttoptr i64 %2 to ptr
   call void @XShapeCombineRectangles(ptr noundef %37, i64 noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %33, i32 noundef %36, i32 noundef 0, i32 noundef 3) #14
@@ -2490,7 +2490,7 @@ define void @Java_sun_awt_X11_XlibWrapper_SetBitmapShape(ptr noundef %0, ptr noc
 
 .sink.split:                                      ; preds = %31, %29, %34
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1560
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1560
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %27, i32 noundef 2) #14
   br label %41

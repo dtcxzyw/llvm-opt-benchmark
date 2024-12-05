@@ -146,10 +146,10 @@ declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %addr, ptr nocapture noundef readonly %expected, i64 noundef %size, i64 noundef %timeout_ns, ptr noundef %park_arg, i32 noundef %detach) local_unnamed_addr #0 {
 entry:
   %wait = alloca %struct.wait_entry, align 8
-  %0 = getelementptr inbounds i8, ptr %wait, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %wait, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 56, i1 false)
   store ptr %park_arg, ptr %wait, align 8
-  %addr2 = getelementptr inbounds i8, ptr %wait, i64 8
+  %addr2 = getelementptr inbounds nuw i8, ptr %wait, i64 8
   %1 = ptrtoint ptr %addr to i64
   store i64 %1, ptr %addr2, align 8
   %rem = urem i64 %1, 257
@@ -207,7 +207,7 @@ if.end.i14:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %sw.bb3.i, %sw.bb9.i, %sw.bb13.i, %atomic_memcmp.exit
-  %sema = getelementptr inbounds i8, ptr %wait, i64 16
+  %sema = getelementptr inbounds nuw i8, ptr %wait, i64 16
   %call.i = call i32 @sem_init(ptr noundef nonnull %sema, i32 noundef 0, i32 noundef 0) #9
   %cmp.i15 = icmp slt i32 %call.i, 0
   br i1 %cmp.i15, label %if.then.i, label %_PySemaphore_Init.exit
@@ -217,16 +217,16 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _PySemaphore_Init.exit:                           ; preds = %if.end
-  %root.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %node.i = getelementptr inbounds i8, ptr %wait, i64 48
-  %prev.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %root.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %node.i = getelementptr inbounds nuw i8, ptr %wait, i64 48
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %14 = load ptr, ptr %prev.i.i, align 16
-  %prev1.i.i = getelementptr inbounds i8, ptr %wait, i64 56
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %wait, i64 56
   store ptr %14, ptr %prev1.i.i, align 8
   store ptr %root.i, ptr %node.i, align 8
   store ptr %node.i, ptr %14, align 8
   store ptr %node.i, ptr %prev.i.i, align 16
-  %num_waiters.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %num_waiters.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %15 = load i64, ptr %num_waiters.i, align 8
   %inc.i = add i64 %15, 1
   store i64 %inc.i, ptr %num_waiters.i, align 8
@@ -253,7 +253,7 @@ if.end.i19:                                       ; preds = %if.end8
   br label %_PyRawMutex_Lock.exit20
 
 _PyRawMutex_Lock.exit20:                          ; preds = %if.end8, %if.end.i19
-  %is_unparking = getelementptr inbounds i8, ptr %wait, i64 64
+  %is_unparking = getelementptr inbounds nuw i8, ptr %wait, i64 64
   %20 = load i8, ptr %is_unparking, align 8
   %tobool10 = trunc i8 %20 to i1
   br i1 %tobool10, label %if.then11, label %if.else
@@ -335,7 +335,7 @@ if.else:                                          ; preds = %_PyRawMutex_Lock.ex
   %27 = load ptr, ptr %prev1.i.i, align 8
   %28 = load ptr, ptr %node.i, align 8
   store ptr %28, ptr %27, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %28, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %27, ptr %prev4.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.i, i8 0, i64 16, i1 false)
   %29 = load i64, ptr %num_waiters.i, align 8
@@ -377,7 +377,7 @@ if.end.i:                                         ; preds = %entry
   br label %_PyRawMutex_Lock.exit
 
 _PyRawMutex_Lock.exit:                            ; preds = %entry, %if.end.i
-  %root1.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %root1.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %_PyRawMutex_Lock.exit
@@ -394,14 +394,14 @@ for.body.i:                                       ; preds = %for.cond.i
 
 dequeue.exit:                                     ; preds = %for.body.i
   %add.ptr.i = getelementptr i8, ptr %node.0.i, i64 -48
-  %prev1.i.i = getelementptr inbounds i8, ptr %node.0.i, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %node.0.i, i64 8
   %4 = load ptr, ptr %prev1.i.i, align 8
   %5 = load ptr, ptr %node.0.i, align 8
   store ptr %5, ptr %4, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %prev4.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.0.i, i8 0, i64 16, i1 false)
-  %num_waiters.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %num_waiters.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %6 = load i64, ptr %num_waiters.i, align 8
   %dec.i = add i64 %6, -1
   store i64 %dec.i, ptr %num_waiters.i, align 8
@@ -437,7 +437,7 @@ _PyRawMutex_Unlock.exit:                          ; preds = %if.end, %if.end.i11
   br i1 %tobool.not19, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %_PyRawMutex_Unlock.exit
-  %sema = getelementptr inbounds i8, ptr %retval.0.i17, i64 16
+  %sema = getelementptr inbounds nuw i8, ptr %retval.0.i17, i64 16
   %call.i = tail call i32 @sem_post(ptr noundef nonnull %sema) #9
   %cmp.not.i12 = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i12, label %if.end4, label %if.then.i13
@@ -455,7 +455,7 @@ define dso_local void @_PyParkingLot_UnparkAll(ptr noundef %addr) local_unnamed_
 entry:
   %head = alloca %struct.llist_node, align 8
   store ptr %head, ptr %head, align 8
-  %prev = getelementptr inbounds i8, ptr %head, i64 8
+  %prev = getelementptr inbounds nuw i8, ptr %head, i64 8
   store ptr %head, ptr %prev, align 8
   %0 = ptrtoint ptr %addr to i64
   %rem = urem i64 %0, 257
@@ -469,13 +469,13 @@ if.end.i:                                         ; preds = %entry
   br label %_PyRawMutex_Lock.exit
 
 _PyRawMutex_Lock.exit:                            ; preds = %entry, %if.end.i
-  %root1.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %root1.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %root1.i, align 8
   %cmp.not10.i = icmp eq ptr %3, %root1.i
   br i1 %cmp.not10.i, label %dequeue_all.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_PyRawMutex_Lock.exit
-  %num_waiters.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %num_waiters.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -487,10 +487,10 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp3.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %prev1.i.i = getelementptr inbounds i8, ptr %node.011.i, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %node.011.i, i64 8
   %5 = load ptr, ptr %prev1.i.i, align 8
   store ptr %_next.012.i, ptr %5, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %_next.012.i, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %_next.012.i, i64 8
   store ptr %5, ptr %prev4.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.011.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %prev, align 8
@@ -528,10 +528,10 @@ for.cond:                                         ; preds = %for.body, %_PyRawMu
 
 for.body:                                         ; preds = %for.cond
   %_next.0 = load ptr, ptr %node.0, align 8
-  %prev1.i = getelementptr inbounds i8, ptr %node.0, i64 8
+  %prev1.i = getelementptr inbounds nuw i8, ptr %node.0, i64 8
   %12 = load ptr, ptr %prev1.i, align 8
   store ptr %_next.0, ptr %12, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %_next.0, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %_next.0, i64 8
   store ptr %12, ptr %prev4.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node.0, i8 0, i64 16, i1 false)
   %sema = getelementptr i8, ptr %node.0, i64 -32
@@ -557,7 +557,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.03 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %root = getelementptr [257 x %struct.Bucket], ptr @buckets, i64 0, i64 %i.03, i32 1
   store ptr %root, ptr %root, align 8
-  %prev.i = getelementptr inbounds i8, ptr %root, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %root, i64 8
   store ptr %root, ptr %prev.i, align 16
   %inc = add nuw nsw i64 %i.03, 1
   %exitcond.not = icmp eq i64 %inc, 257

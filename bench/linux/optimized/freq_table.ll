@@ -39,14 +39,14 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpufreq_gene
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef zeroext i1 @policy_has_boost_freq(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %12
   %5 = phi ptr [ %13, %12 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %8 [
     i32 -2, label %.loopexit
@@ -76,7 +76,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr noca
   %4 = phi ptr [ %1, %2 ], [ %22, %19 ]
   %5 = phi i32 [ -1, %2 ], [ %20, %19 ]
   %6 = phi i32 [ 0, %2 ], [ %21, %19 ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %9 [
     i32 -2, label %23
@@ -106,12 +106,12 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr noca
   br label %3, !llvm.loop !8
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %5, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %5, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %6, ptr %27, align 8
   %28 = load i32, ptr %24, align 8
   %29 = icmp ult i32 %28, %6
@@ -132,16 +132,16 @@ declare dso_local i32 @cpufreq_boost_enabled() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, %5
   %9 = tail call i32 @llvm.umax.i32(i32 %7, i32 %4)
   %10 = select i1 %8, i32 %9, i32 %5
   store i32 %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, %10
   %14 = tail call i32 @llvm.umax.i32(i32 %12, i32 %4)
@@ -152,7 +152,7 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture nound
 16:                                               ; preds = %28, %2
   %17 = phi i32 [ -1, %2 ], [ %29, %28 ]
   %18 = phi ptr [ %1, %2 ], [ %30, %28 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %21 [
     i32 -2, label %31
@@ -193,22 +193,22 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_verify(ptr nocapture noundef %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, %8
   %12 = tail call i32 @llvm.umax.i32(i32 %10, i32 %7)
   %13 = select i1 %11, i32 %12, i32 %8
   store i32 %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, %13
   %17 = tail call i32 @llvm.umax.i32(i32 %15, i32 %7)
@@ -219,7 +219,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_
 19:                                               ; preds = %32, %5
   %20 = phi i32 [ -1, %5 ], [ %33, %32 ]
   %21 = phi ptr [ %3, %5 ], [ %34, %32 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %24 [
     i32 -2, label %35
@@ -261,7 +261,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   switch i32 %2, label %9 [
     i32 1, label %.thread58
@@ -270,8 +270,8 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   ]
 
 .thread58:                                        ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.split.us.preheader
 
 8:                                                ; preds = %3, %3
@@ -279,8 +279,8 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
 
 9:                                                ; preds = %8, %3
   %10 = phi i32 [ 0, %3 ], [ -1, %8 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   switch i32 %2, label %.split [
     i32 1, label %.split.us.preheader
     i32 0, label %.split.us17
@@ -301,7 +301,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %20 = phi i32 [ %45, %43 ], [ %16, %.split.us.preheader ]
   %21 = phi i32 [ %46, %43 ], [ -1, %.split.us.preheader ]
   %22 = phi i32 [ %47, %43 ], [ %15, %.split.us.preheader ]
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %25 [
     i32 -2, label %.split13.us
@@ -354,7 +354,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %53 = phi i32 [ %78, %76 ], [ %2, %9 ]
   %54 = phi i32 [ %79, %76 ], [ -1, %9 ]
   %55 = phi i32 [ %80, %76 ], [ %10, %9 ]
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %57 = load i32, ptr %56, align 4
   switch i32 %57, label %58 [
     i32 -2, label %.split13.us
@@ -405,7 +405,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
   %84 = phi ptr [ %112, %109 ], [ %5, %9 ]
   %85 = phi i32 [ %110, %109 ], [ -1, %9 ]
   %86 = phi i32 [ %111, %109 ], [ %10, %9 ]
-  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = load i32, ptr %87, align 4
   switch i32 %88, label %89 [
     i32 -2, label %.split13.us
@@ -456,7 +456,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
 .split:                                           ; preds = %9, %125
   %114 = phi i32 [ %127, %125 ], [ 0, %9 ]
   %115 = phi ptr [ %126, %125 ], [ %5, %9 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 4
   switch i32 %117, label %118 [
     i32 -2, label %.split13.us
@@ -493,7 +493,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr nocapture noundef readonl
 
 131:                                              ; preds = %129
   tail call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #9, !srcloc !11
-  %132 = getelementptr inbounds i8, ptr %0, i64 28
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %133 = load i32, ptr %132, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %133) #9
   tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #9, !srcloc !12
@@ -512,7 +512,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @cpufreq_frequency_table_get_index(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 336
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader, !prof !16
@@ -520,7 +520,7 @@ define dso_local i32 @cpufreq_frequency_table_get_index(ptr nocapture noundef re
 .preheader:                                       ; preds = %2, %12
   %6 = phi ptr [ %13, %12 ], [ %4, %2 ]
   %7 = phi i32 [ %14, %12 ], [ 0, %2 ]
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
     i32 -2, label %.loopexit
@@ -543,7 +543,7 @@ define dso_local i32 @cpufreq_frequency_table_get_index(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal i64 @scaling_available_frequencies_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 336
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %.preheader
@@ -551,7 +551,7 @@ define internal i64 @scaling_available_frequencies_show(ptr nocapture noundef re
 .preheader:                                       ; preds = %2, %19
   %6 = phi i64 [ %20, %19 ], [ 0, %2 ]
   %7 = phi ptr [ %21, %19 ], [ %4, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
     i32 -2, label %22
@@ -589,7 +589,7 @@ define internal i64 @scaling_available_frequencies_show(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 336
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %.preheader
@@ -597,7 +597,7 @@ define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readon
 .preheader:                                       ; preds = %2, %19
   %6 = phi i64 [ %20, %19 ], [ 0, %2 ]
   %7 = phi ptr [ %21, %19 ], [ %4, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
     i32 -2, label %22
@@ -635,7 +635,7 @@ define internal i64 @scaling_boost_frequencies_show(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader
@@ -649,7 +649,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
   %8 = phi ptr [ %26, %23 ], [ %3, %1 ]
   %9 = phi i32 [ %24, %23 ], [ -1, %1 ]
   %10 = phi i32 [ %25, %23 ], [ 0, %1 ]
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %13 [
     i32 -2, label %27
@@ -679,12 +679,12 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
   br label %.preheader, !llvm.loop !8
 
 27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %9, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %9, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %10, ptr %31, align 8
   %32 = load i32, ptr %28, align 8
   %33 = icmp ult i32 %32, %10
@@ -700,7 +700,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 344
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 0, ptr %39, align 8
   br label %40
 
@@ -708,7 +708,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
   %41 = phi i32 [ 0, %37 ], [ %65, %64 ]
   %42 = phi ptr [ null, %37 ], [ %66, %64 ]
   %43 = phi ptr [ %38, %37 ], [ %67, %64 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 4
   switch i32 %45, label %46 [
     i32 -2, label %68
@@ -720,7 +720,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noca
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %42, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %45, %50
   br i1 %51, label %52, label %54

@@ -104,7 +104,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %15
   %.099139 = phi ptr [ %16, %15 ], [ %5, %.preheader ]
   %.0103138 = phi i32 [ %.1104, %15 ], [ 7, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.099139, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.099139, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not133 = icmp eq ptr %11, null
   br i1 %.not133, label %15, label %12
@@ -143,7 +143,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %24 = phi ptr [ %37, %35 ], [ %23, %._crit_edge ]
   %.1142 = phi ptr [ %36, %35 ], [ %5, %._crit_edge ]
   %.0107141 = phi i32 [ %.1108, %35 ], [ 1, %._crit_edge ]
-  %25 = getelementptr inbounds i8, ptr %.1142, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.1142, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not131 = icmp eq ptr %26, null
   br i1 %.not131, label %35, label %27
@@ -373,13 +373,13 @@ sub_0:                                            ; preds = %122
   br i1 %.not146, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %126 = getelementptr inbounds i8, ptr %123, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 1
   %127 = load i8, ptr %126, align 1
   %.not147 = icmp eq i8 %127, 110
   br i1 %.not147, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %128 = getelementptr inbounds i8, ptr %123, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 2
   %129 = load i8, ptr %128, align 1
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %131, label %.tail.thread
@@ -902,7 +902,7 @@ define dso_local noundef zeroext i1 @CreateReplicationSlot(ptr noundef %0, ptr n
   br i1 %5, label %20, label %59
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i64, ptr %21, align 8
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %AppendPlainCommandOption.exit, label %23
@@ -939,7 +939,7 @@ AppendPlainCommandOption.exit:                    ; preds = %20, %23, %29, %30
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load i64, ptr %36, align 8
   %.not.i59 = icmp eq i64 %37, 0
   br i1 %.not.i59, label %AppendPlainCommandOption.exit61, label %38
@@ -980,7 +980,7 @@ AppendPlainCommandOption.exit61:                  ; preds = %35, %38, %44, %45
   br label %60
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %52 = load i64, ptr %51, align 8
   %.not.i62 = icmp eq i64 %52, 0
   br i1 %.not.i62, label %.thread65, label %53
@@ -1006,7 +1006,7 @@ AppendPlainCommandOption.exit61:                  ; preds = %35, %38, %44, %45
 
 60:                                               ; preds = %.thread, %59
   %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds i8, ptr %11, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr i8, ptr %61, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -1
@@ -1076,7 +1076,7 @@ declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AppendPlainCommandOption(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %14, label %6
@@ -1107,7 +1107,7 @@ define dso_local void @AppendPlainCommandOption(ptr noundef %0, i1 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AppendStringCommandOption(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %AppendPlainCommandOption.exit, label %7
@@ -1205,7 +1205,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AppendIntegerCommandOption(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %AppendPlainCommandOption.exit, label %7
@@ -1242,7 +1242,7 @@ define dso_local i64 @feGetCurrentTimestamp() local_unnamed_addr #7 {
   %3 = load i64, ptr %1, align 8
   %4 = mul i64 %3, 1000000
   %5 = add i64 %4, -946684800000000
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %5, %7
   ret i64 %8

@@ -11,14 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_value_array_construct(ptr nocapture noundef writeonly initializes((120, 152)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @pmix_value_array_destruct(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -33,7 +33,7 @@ define internal void @pmix_value_array_destruct(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %.lr.ph, label %17
@@ -46,9 +46,9 @@ define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr nocapture noundef %0
 
 9:                                                ; preds = %.lr.ph
   store i64 %7, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %7
   %15 = tail call ptr @realloc(ptr noundef %11, i64 noundef %14) #7
@@ -57,7 +57,7 @@ define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr nocapture noundef %0
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %9, %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %1, ptr %18, align 8
   br label %19
 

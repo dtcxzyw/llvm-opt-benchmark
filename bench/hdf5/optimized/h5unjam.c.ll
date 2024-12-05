@@ -264,7 +264,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %parse_command_line.exit
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %4, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %86 = load i64, ptr %85, align 8
   %87 = load i32, ptr @do_delete, align 4
   %88 = icmp ne i32 %87, 0

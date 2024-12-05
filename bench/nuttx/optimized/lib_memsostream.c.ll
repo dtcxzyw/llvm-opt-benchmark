@@ -5,22 +5,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lib_memsostream(ptr nocapture noundef writeonly initializes((0, 4), (8, 64)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @memsostream_putc, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @memsostream_puts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lib_snoflush, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @memsostream_seek, ptr %7, align 8
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %9, align 8
   %10 = add nsw i32 %2, -1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %11, ptr %12, align 8
   store i8 0, ptr %1, align 1
   ret void
@@ -28,16 +28,16 @@ define void @lib_memsostream(ptr nocapture noundef writeonly initializes((0, 4),
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @memsostream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
   %9 = trunc i32 %1 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %4
   store i8 %9, ptr %12, align 1
@@ -58,12 +58,12 @@ define internal void @memsostream_putc(ptr nocapture noundef %0, i32 noundef %1)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @memsostream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = sext i32 %2 to i64
   %7 = add nsw i64 %6, 1
   %8 = add i64 %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %8, %10
   %12 = xor i64 %5, -1
@@ -74,7 +74,7 @@ define internal i32 @memsostream_puts(ptr nocapture noundef %0, ptr nocapture no
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %5
   %21 = zext nneg i32 %15 to i64
@@ -109,7 +109,7 @@ define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr nocapture no
 
 .sink.split:                                      ; preds = %3, %4
   %.sink15 = phi i64 [ 56, %4 ], [ 48, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %.sink15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = add nsw i32 %1, %7
@@ -121,7 +121,7 @@ define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr nocapture no
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %.not = icmp slt i32 %.0, %14
@@ -129,7 +129,7 @@ define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr nocapture no
 
 15:                                               ; preds = %11
   %16 = zext nneg i32 %.0 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %16, ptr %17, align 8
   br label %18
 

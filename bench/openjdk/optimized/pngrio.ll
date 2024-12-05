@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @png_read_data(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -31,7 +31,7 @@ define hidden void @png_default_read_data(ptr noundef %0, ptr nocapture noundef 
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %7)
   %.not = icmp eq i64 %8, %2
@@ -54,10 +54,10 @@ define hidden void @png_set_read_fn(ptr noalias noundef writeonly %0, ptr nounde
   br i1 %4, label %7, label %.sink.split
 
 .sink.split:                                      ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %2, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %png_default_read_data. = select i1 %.not, ptr @png_default_read_data, ptr %2
   store ptr %png_default_read_data., ptr %6, align 8
   br label %7

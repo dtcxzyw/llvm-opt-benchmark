@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @alloc_parser_obj(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   br label %5
 
@@ -32,13 +32,13 @@ define dso_local ptr @alloc_parser_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %3
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -48,7 +48,7 @@ define dso_local ptr @alloc_parser_obj(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @__func__.alloc_parser_obj) #3
   br label %.loopexit
@@ -67,7 +67,7 @@ define dso_local ptr @alloc_parser_obj(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %20
   %24 = tail call i64 @xsize(ptr noundef %.011) #3
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %.011 to i64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.1, i64 noundef %24, ptr noundef %26, i64 noundef %27) #3
@@ -87,7 +87,7 @@ declare i64 @xsize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_parser_obj(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   br label %6
 
@@ -98,13 +98,13 @@ define dso_local void @free_parser_obj(ptr nocapture noundef readonly %0, ptr no
 
 6:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %7 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %4
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   %xfree_ptr..i = select i1 %.not.i, ptr @xfree_ptr, ptr %12
@@ -124,7 +124,7 @@ parser_obj_free_func.exit:                        ; preds = %5, %10
 
 18:                                               ; preds = %15
   %19 = tail call i64 @xsize(ptr noundef %1) #3
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %1 to i64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.2, i64 noundef %19, ptr noundef %21, i64 noundef %22) #3
@@ -137,7 +137,7 @@ parser_obj_free_func.exit:                        ; preds = %5, %10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   br label %5
 
@@ -148,13 +148,13 @@ define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) lo
 
 5:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %3
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %xfree_ptr. = select i1 %.not, ptr @xfree_ptr, ptr %11
@@ -167,13 +167,13 @@ define dso_local ptr @parser_obj_free_func(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local zeroext i1 @alloc_registered(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   br label %4
 
 4:                                                ; preds = %4, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [18 x %struct.anon], ptr @types, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -234,9 +234,9 @@ declare void @slurmdb_destroy_qos_rec(ptr noundef) #1
 define internal noundef ptr @_create_qos_rec_obj() #0 {
   %1 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @__func__._create_qos_rec_obj) #3
   tail call void @slurmdb_init_qos_rec(ptr noundef %1, i1 noundef zeroext false, i32 noundef -2) #3
-  %2 = getelementptr inbounds i8, ptr %1, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i16 0, ptr %3, align 8
   ret ptr %1
 }
@@ -253,10 +253,10 @@ declare void @slurmdb_destroy_user_rec(ptr noundef) #1
 define internal ptr @_create_user_rec_obj() #0 {
   %1 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @__func__._create_user_rec_obj) #3
   %2 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_assoc_rec) #3
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %3, align 8
   %4 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_coord_rec) #3
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %4, ptr %5, align 8
   ret ptr %1
 }

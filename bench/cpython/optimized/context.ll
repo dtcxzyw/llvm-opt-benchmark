@@ -75,21 +75,21 @@ declare void @abort() local_unnamed_addr #4
 define hidden void @mpd_init(ptr noundef initializes((0, 48)) %ctx, i64 noundef %prec) local_unnamed_addr #0 {
 entry:
   store i64 38, ptr %ctx, align 8
-  %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 999999999999999999, ptr %emax.i, align 8
-  %emin.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin.i, align 8
-  %round.i = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round.i = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 4, ptr %round.i, align 4
-  %traps.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 19390, ptr %traps.i, align 8
-  %status.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 0, ptr %status.i, align 4
-  %newtrap.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %newtrap.i, align 8
-  %clamp.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp.i, align 8
-  %allcr.i = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr.i = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 1, ptr %allcr.i, align 4
   %0 = add i64 %prec, -1000000000000000000
   %or.cond.i = icmp ult i64 %0, -999999999999999999
@@ -119,21 +119,21 @@ return:                                           ; preds = %if.end, %mpd_addsta
 define hidden void @mpd_defaultcontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 38, ptr %ctx, align 8
-  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 999999999999999999, ptr %emax, align 8
-  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
-  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 4, ptr %round, align 4
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 19390, ptr %traps, align 8
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 0, ptr %status, align 4
-  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %newtrap, align 8
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 1, ptr %allcr, align 4
   ret void
 }
@@ -157,18 +157,18 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden void @mpd_addstatus_raise(ptr noundef %ctx, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %0 = load i32, ptr %status, align 4
   %or = or i32 %0, %flags
   store i32 %or, ptr %status, align 4
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %1 = load i32, ptr %traps, align 8
   %and = and i32 %1, %flags
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 %and, ptr %newtrap, align 8
   %2 = load ptr, ptr @mpd_traphandler, align 8
   tail call void %2(ptr noundef nonnull %ctx) #9
@@ -182,21 +182,21 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden void @mpd_maxcontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 999999999999999999, ptr %ctx, align 8
-  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 999999999999999999, ptr %emax, align 8
-  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
-  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 6, ptr %round, align 4
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 19390, ptr %traps, align 8
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 0, ptr %status, align 4
-  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %newtrap, align 8
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 1, ptr %allcr, align 4
   ret void
 }
@@ -205,21 +205,21 @@ entry:
 define hidden void @mpd_basiccontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 9, ptr %ctx, align 8
-  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 999999999999999999, ptr %emax, align 8
-  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 -999999999999999999, ptr %emin, align 8
-  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 4, ptr %round, align 4
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 19391, ptr %traps, align 8
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 0, ptr %status, align 4
-  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %newtrap, align 8
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 0, ptr %clamp, align 8
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 1, ptr %allcr, align 4
   ret void
 }
@@ -244,22 +244,22 @@ if.end:                                           ; preds = %entry
   %add = add nuw nsw i32 %div315, 3
   %sh_prom = zext nneg i32 %add to i64
   %mul416 = shl nuw nsw i64 3, %sh_prom
-  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 %mul416, ptr %emax, align 8
   %sub6 = sub nsw i64 1, %mul416
-  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 %sub6, ptr %emin, align 8
-  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 6, ptr %round, align 4
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 0, ptr %traps, align 8
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 0, ptr %status, align 4
-  %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
+  %newtrap = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i32 0, ptr %newtrap, align 8
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 1, ptr %clamp, align 8
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 1, ptr %allcr, align 4
   br label %return
 
@@ -278,7 +278,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @mpd_getemax(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %emax = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load i64, ptr %emax, align 8
   ret i64 %0
 }
@@ -286,7 +286,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @mpd_getemin(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %emin = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i64, ptr %emin, align 8
   ret i64 %0
 }
@@ -294,7 +294,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @mpd_getround(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %round = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   %0 = load i32, ptr %round, align 4
   ret i32 %0
 }
@@ -302,7 +302,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @mpd_gettraps(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i32, ptr %traps, align 8
   ret i32 %0
 }
@@ -310,7 +310,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @mpd_getstatus(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %0 = load i32, ptr %status, align 4
   ret i32 %0
 }
@@ -318,7 +318,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @mpd_getclamp(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load i32, ptr %clamp, align 8
   ret i32 %0
 }
@@ -326,7 +326,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @mpd_getcr(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %0 = load i32, ptr %allcr, align 4
   ret i32 %0
 }
@@ -338,7 +338,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %emax2 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %emax2 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i64 %emax, ptr %emax2, align 8
   br label %return
 
@@ -355,7 +355,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %emin2 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %emin2 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store i64 %emin, ptr %emin2, align 8
   br label %return
 
@@ -371,7 +371,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %round2 = getelementptr inbounds i8, ptr %ctx, i64 36
+  %round2 = getelementptr inbounds nuw i8, ptr %ctx, i64 36
   store i32 %round, ptr %round2, align 4
   br label %return
 
@@ -387,7 +387,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %traps = getelementptr inbounds i8, ptr %ctx, i64 24
+  %traps = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 %flags, ptr %traps, align 8
   br label %return
 
@@ -403,7 +403,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %status = getelementptr inbounds i8, ptr %ctx, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i32 %flags, ptr %status, align 4
   br label %return
 
@@ -419,7 +419,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
+  %clamp = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 %c, ptr %clamp, align 8
   br label %return
 
@@ -435,7 +435,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
+  %allcr = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   store i32 %c, ptr %allcr, align 4
   br label %return
 

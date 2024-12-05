@@ -42,19 +42,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitializeBackupManifest(ptr nocapture noundef initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
   %5 = icmp eq i32 %1, 1
   br i1 %5, label %.thread, label %10
 
 .thread:                                          ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 33
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 1, ptr %9, align 2
   br label %29
 
@@ -62,7 +62,7 @@ define dso_local void @InitializeBackupManifest(ptr nocapture noundef initialize
   %11 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext false) #7
   store ptr %11, ptr %0, align 8
   %12 = tail call ptr @pg_cryptohash_create(i32 noundef 3) #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = tail call i32 @pg_cryptohash_init(ptr noundef %12) #7
   %15 = icmp slt i32 %14, 0
@@ -78,15 +78,15 @@ define dso_local void @InitializeBackupManifest(ptr nocapture noundef initialize
   unreachable
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %22, align 8
   %23 = icmp eq i32 %1, 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = zext i1 %23 to i8
   store i8 %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 33
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 34
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 1, ptr %27, align 2
   %28 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.2) #7
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %28)
@@ -120,7 +120,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 34
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %._crit_edge
@@ -131,7 +131,7 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
   br label %18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %sext = shl i64 %3, 32
   %10 = ashr exact i64 %sext, 32
@@ -152,7 +152,7 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
   %.pre-phi = phi i64 [ %.pre11, %._crit_edge ], [ %10, %7 ]
   %19 = load ptr, ptr %0, align 8
   tail call void @BufFileWrite(ptr noundef %19, ptr noundef %1, i64 noundef %.pre-phi) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %.pre-phi
   store i64 %22, ptr %20, align 8
@@ -163,7 +163,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeBackupManifest(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @pg_cryptohash_free(ptr noundef %3) #7
   store ptr null, ptr %2, align 8
@@ -194,7 +194,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
 14:                                               ; preds = %12, %11
   %.0 = phi ptr [ %8, %12 ], [ %2, %11 ]
   call void @initStringInfo(ptr noundef nonnull %9) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 33
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %19
@@ -211,7 +211,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
 20:                                               ; preds = %19, %18
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #9
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %29, label %26
@@ -232,7 +232,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   %sext = shl i64 %21, 32
   %31 = ashr exact i64 %sext, 32
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
@@ -250,7 +250,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.10) #7
   call void @enlargeStringInfo(ptr noundef nonnull %9, i32 noundef 128) #7
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
@@ -351,8 +351,8 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph68, label %.critedge
@@ -365,7 +365,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne i64 %17, 0
   %19 = icmp ult i64 %17, %1
@@ -391,7 +391,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.split61, label %33
@@ -421,7 +421,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 
   br i1 %43, label %.split64, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %15, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %46 = load i64, ptr %45, align 8
   %.pre72 = load i32, ptr %8, align 4
   br label %47
@@ -463,9 +463,9 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not28, label %49, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 34
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @pg_cryptohash_final(ptr noundef %8, ptr noundef nonnull %3, i64 noundef 32) #7
   %10 = icmp slt i32 %9, 0
@@ -483,7 +483,7 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
 16:                                               ; preds = %5
   call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.23)
   %17 = call i64 @hex_encode(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull %4) #7
-  %18 = getelementptr inbounds i8, ptr %4, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %18, align 16
   call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull %4)
   call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
@@ -502,17 +502,17 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull %1) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8
   %.not30 = icmp eq i64 %30, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -525,7 +525,7 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
   %38 = load ptr, ptr %32, align 8
   call void @BufFileReadExact(ptr noundef %37, ptr noundef %38, i64 noundef %.) #7
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull %1, i64 noundef %.) #7
   %42 = add i64 %., %.029
@@ -535,7 +535,7 @@ define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %33, %25
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull %1) #7
   %48 = load ptr, ptr %0, align 8

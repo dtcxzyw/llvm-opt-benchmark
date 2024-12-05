@@ -44,9 +44,9 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store i64 1, ptr %this, align 8
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %path.coerce0, ptr %path_, align 8
-  %path.sroa.4.0.path_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %path.sroa.4.0.path_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %path.coerce1, ptr %path.sroa.4.0.path_.sroa_idx, align 8
   br label %return
 
@@ -59,8 +59,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define noundef zeroext i1 @_ZNK8facebook5velox9functions17JsonPathTokenizer7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -75,8 +75,8 @@ define void @_ZN8facebook5velox9functions17JsonPathTokenizer7getNextB5cxx11Ev(pt
 entry:
   %token = alloca %"class.folly::Expected", align 8
   %0 = load i64, ptr %this, align 8
-  %path_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %e_.i.i, align 8
   %2 = load ptr, ptr %path_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -126,7 +126,7 @@ cond.false:                                       ; preds = %land.lhs.true.i21, 
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %which_.i.i = getelementptr inbounds i8, ptr %token, i64 32
+  %which_.i.i = getelementptr inbounds nuw i8, ptr %token, i64 32
   %6 = load i8, ptr %which_.i.i, align 8
   %cmp.i.i = icmp eq i8 %6, 1
   br i1 %cmp.i.i, label %lor.lhs.false, label %invoke.cont9
@@ -149,7 +149,7 @@ land.lhs.true.i34:                                ; preds = %lor.lhs.false
 
 invoke.cont9:                                     ; preds = %lor.lhs.false, %land.lhs.true.i34, %cond.end
   store i8 0, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 2, ptr %which_.i.i.i, align 8
   br label %cleanup
 
@@ -157,7 +157,7 @@ if.end12:                                         ; preds = %land.lhs.true.i34
   %inc.i38 = add nuw i64 %7, 1
   store i64 %inc.i38, ptr %this, align 8
   store i8 0, ptr %agg.result, align 8
-  %which_.i.i.i41 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %which_.i.i.i41, align 8
   invoke void @_ZN5folly15expected_detail15ExpectedStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbLNS0_11StorageTypeE2EE6assignIS9_EEvOT_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %token)
           to label %if.end12.cleanup_crit_edge unwind label %terminate.lpad.i.i.i
@@ -184,7 +184,7 @@ sw.bb.i.i.i44:                                    ; preds = %cleanup
 
 if.end13:                                         ; preds = %entry, %land.lhs.true.i8
   store i8 0, ptr %agg.result, align 8
-  %which_.i.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i48 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 2, ptr %which_.i.i.i48, align 8
   br label %return
 
@@ -196,8 +196,8 @@ return:                                           ; preds = %sw.bb.i.i.i44, %cle
 define noundef zeroext i1 @_ZN8facebook5velox9functions17JsonPathTokenizer5matchEc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef signext %expected) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -228,8 +228,8 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i64, ptr %this, align 8
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -268,7 +268,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox9
 
 if.then:                                          ; preds = %entry, %while.end
   store i8 0, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 2, ptr %which_.i.i.i, align 8
   br label %return
 
@@ -300,7 +300,7 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %_ZNK5folly5RangeIPK
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
-  %which_.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 1, ptr %which_.i.i.i4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
   br label %return
@@ -314,8 +314,8 @@ define void @_ZN8facebook5velox9functions17JsonPathTokenizer23matchQuotedSubscri
 entry:
   %token = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #16
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %this, align 8
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
@@ -414,7 +414,7 @@ if.end75:                                         ; preds = %land.lhs.true.i
 
 cleanup:                                          ; preds = %invoke.cont71, %invoke.cont22, %if.end75
   %.sink = phi i8 [ 2, %invoke.cont71 ], [ 2, %invoke.cont22 ], [ 1, %if.end75 ]
-  %which_.i.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %which_.i.i.i14, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %token) #16
   ret void
@@ -426,8 +426,8 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i64, ptr %this, align 8
-  %path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %e_.i, align 8
   %2 = load ptr, ptr %path_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -464,7 +464,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox9
 
 if.then:                                          ; preds = %entry, %while.end
   store i8 0, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 2, ptr %which_.i.i.i, align 8
   br label %return
 
@@ -496,7 +496,7 @@ _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %_ZNK5folly5RangeIPK
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
-  %which_.i.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %which_.i.i.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 1, ptr %which_.i.i.i4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
   br label %return
@@ -571,9 +571,9 @@ entry:
   br i1 %cmp.i, label %sw.epilog, label %if.end
 
 if.end:                                           ; preds = %entry
-  %which_ = getelementptr inbounds i8, ptr %that, i64 32
+  %which_ = getelementptr inbounds nuw i8, ptr %that, i64 32
   %0 = load i8, ptr %which_, align 8
-  %which_.i8 = getelementptr inbounds i8, ptr %this, i64 32
+  %which_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i8, ptr %which_.i8, align 8
   switch i8 %0, label %sw.default [
     i8 1, label %sw.bb

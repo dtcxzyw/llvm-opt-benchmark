@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 716
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -24,7 +24,7 @@ define dso_local i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %0, p
   br label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load i64, ptr %11, align 8
   br label %13
 
@@ -33,13 +33,13 @@ define dso_local i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %0, p
   %15 = tail call { i64, i32 } @Curl_now() #8
   %16 = extractvalue { i64, i32 } %15, 0
   %17 = extractvalue { i64, i32 } %15, 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = tail call i64 @Curl_timediff(i64 %16, i32 %17, i64 %19, i32 %21) #8
   %23 = sub nsw i64 %14, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 704
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %25 = load i32, ptr %24, align 8
   %.not18 = icmp eq i32 %25, 0
   %brmerge = or i1 %2, %.not18
@@ -50,9 +50,9 @@ define dso_local i64 @Curl_pp_state_timeout(ptr nocapture noundef readonly %0, p
   %28 = tail call { i64, i32 } @Curl_now() #8
   %29 = extractvalue { i64, i32 } %28, 0
   %30 = extractvalue { i64, i32 } %28, 1
-  %31 = getelementptr inbounds i8, ptr %5, i64 344
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 352
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %34 = load i32, ptr %33, align 8
   %35 = tail call i64 @Curl_timediff(i64 %29, i32 %30, i64 %32, i32 %34) #8
   %36 = sub nsw i64 %27, %35
@@ -70,11 +70,11 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 716
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
@@ -84,7 +84,7 @@ define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr nocapture noundef re
   br label %16
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load i64, ptr %14, align 8
   br label %16
 
@@ -93,13 +93,13 @@ define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr nocapture noundef re
   %18 = tail call { i64, i32 } @Curl_now() #8
   %19 = extractvalue { i64, i32 } %18, 0
   %20 = extractvalue { i64, i32 } %18, 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = tail call i64 @Curl_timediff(i64 %19, i32 %20, i64 %22, i32 %24) #8
   %26 = sub nsw i64 %17, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 704
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %28 = load i32, ptr %27, align 8
   %.not18.i = icmp eq i32 %28, 0
   %brmerge.i = or i1 %3, %.not18.i
@@ -110,9 +110,9 @@ define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr nocapture noundef re
   %31 = tail call { i64, i32 } @Curl_now() #8
   %32 = extractvalue { i64, i32 } %31, 0
   %33 = extractvalue { i64, i32 } %31, 1
-  %34 = getelementptr inbounds i8, ptr %6, i64 344
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 352
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 352
   %37 = load i32, ptr %36, align 8
   %38 = tail call i64 @Curl_timediff(i64 %32, i32 %33, i64 %35, i32 %37) #8
   %39 = sub nsw i64 %30, %38
@@ -135,13 +135,13 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
   br i1 %44, label %58, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %1, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %47 = load i64, ptr %46, align 8
   %.not = icmp eq i64 %47, 0
   br i1 %.not, label %48, label %58
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load i64, ptr %49, align 8
   %.not36 = icmp eq i64 %50, 0
   br i1 %.not36, label %51, label %.thread48
@@ -192,7 +192,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
   br label %.thread
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 144
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
   %72 = tail call i32 %70(ptr noundef nonnull %0, ptr noundef %71) #8
@@ -216,18 +216,18 @@ declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_pp_init(ptr noundef initializes((0, 9), (40, 52)) %0) local_unnamed_addr #0 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call { i64, i32 } @Curl_now() #8
   %4 = extractvalue { i64, i32 } %3, 0
   %5 = extractvalue { i64, i32 } %3, 1
   store i64 %4, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %5, ptr %.sroa.2.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @Curl_dyn_init(ptr noundef nonnull %7, i64 noundef 65536) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 65536) #8
   ret void
 }
@@ -238,13 +238,13 @@ declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i32 @Curl_pp_vsendf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %31, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @Curl_dyn_reset(ptr noundef nonnull %9) #8
   %10 = tail call i32 @Curl_dyn_vaddf(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3) #8
   %.not36 = icmp eq i32 %10, 0
@@ -256,7 +256,7 @@ define dso_local i32 @Curl_pp_vsendf(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not37, label %13, label %31
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 1, ptr %14, align 8
   %15 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %9) #8
   %16 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %9) #8
@@ -269,26 +269,26 @@ define dso_local i32 @Curl_pp_vsendf(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @Curl_debug(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %16, i64 noundef %19) #8
   %20 = load i64, ptr %5, align 8
   %.not39 = icmp eq i64 %20, %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not39, label %26, label %22
 
 22:                                               ; preds = %18
   store ptr %16, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %15, ptr %23, align 8
   %24 = sub i64 %15, %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %24, ptr %25, align 8
   br label %31
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %28 = call { i64, i32 } @Curl_now() #8
   %29 = extractvalue { i64, i32 } %28, 0
   %30 = extractvalue { i64, i32 } %28, 1
   store i64 %29, ptr %27, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %30, ptr %.sroa.2.0..sroa_idx, align 8
   br label %31
 
@@ -324,17 +324,17 @@ define dso_local i32 @Curl_pp_sendf(ptr noundef %0, ptr noundef %1, ptr noundef 
 define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [900 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %3, align 4
   store i64 0, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %2, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %14 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %13) #8
   %15 = load i64, ptr %10, align 8
   %16 = sub i64 %14, %15
@@ -343,7 +343,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   br label %18
 
 18:                                               ; preds = %12, %5
-  %19 = getelementptr inbounds i8, ptr %2, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %20 = load i64, ptr %19, align 8
   %.not71 = icmp eq i64 %20, 0
   br i1 %.not71, label %21, label %41
@@ -371,7 +371,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   br label %.loopexit
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %2, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %32 = call i32 @Curl_dyn_addn(ptr noundef nonnull %31, ptr noundef nonnull %7, i64 noundef %25) #8
   %.not73 = icmp eq i32 %32, 0
   br i1 %.not73, label %33, label %.loopexit
@@ -379,7 +379,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
 33:                                               ; preds = %30
   %34 = load i64, ptr %6, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, %35
   store i32 %38, ptr %36, align 8
@@ -389,7 +389,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   br label %41
 
 41:                                               ; preds = %33, %18
-  %42 = getelementptr inbounds i8, ptr %2, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %43 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %42) #8
   %44 = call i64 @Curl_dyn_len(ptr noundef nonnull %42) #8
   %45 = call ptr @memchr(ptr noundef %43, i32 noundef 10, i64 noundef %44) #10
@@ -397,7 +397,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not7482, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %2, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 152
   br label %47
 
 47:                                               ; preds = %.lr.ph, %74
@@ -463,7 +463,7 @@ define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not74, label %._crit_edge, label %47
 
 78:                                               ; preds = %._crit_edge, %64
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %79, align 8
   br label %.loopexit
 
@@ -484,12 +484,12 @@ declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %2, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   %. = select i1 %.not, i32 1, i32 65536
@@ -499,12 +499,12 @@ define dso_local range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_pp_flushsend(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
@@ -524,13 +524,13 @@ define dso_local i32 @Curl_pp_flushsend(ptr noundef %0, ptr nocapture noundef %1
   br label %24
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %21 = call { i64, i32 } @Curl_now() #8
   %22 = extractvalue { i64, i32 } %21, 0
   %23 = extractvalue { i64, i32 } %21, 1
   store i64 %22, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %23, ptr %.sroa.2.0..sroa_idx, align 8
   br label %24
 
@@ -540,9 +540,9 @@ define dso_local i32 @Curl_pp_flushsend(ptr noundef %0, ptr nocapture noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Curl_pp_disconnect(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @Curl_dyn_free(ptr noundef nonnull %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @Curl_dyn_free(ptr noundef nonnull %3) #8
   ret i32 0
 }
@@ -551,13 +551,13 @@ declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @Curl_pp_moredata(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %5) #8
   %7 = icmp ne i64 %6, 0
   br label %8

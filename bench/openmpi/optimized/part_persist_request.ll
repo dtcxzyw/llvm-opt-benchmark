@@ -23,11 +23,11 @@ define internal void @mca_part_persist_request_construct(ptr noundef initializes
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @opal_convertor_t_class, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -36,22 +36,22 @@ define internal void @mca_part_persist_request_construct(ptr noundef initializes
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull %6) #2
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 8, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_part_persist_request_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -61,7 +61,7 @@ define internal void @mca_part_persist_request_destruct(ptr noundef %0) #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %1 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %1 ]
   tail call void %7(ptr noundef nonnull %2) #2
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6

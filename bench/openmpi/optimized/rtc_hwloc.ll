@@ -64,11 +64,11 @@ define internal void @assign(ptr nocapture readnone %0) #0 {
 define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond89 = icmp ult i32 %11, 64
@@ -76,7 +76,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 12:                                               ; preds = %2
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %25
@@ -87,7 +87,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %8, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %22 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %21) #6
   br label %23
 
@@ -109,7 +109,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 1
   br i1 %34, label %35, label %192
@@ -119,7 +119,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %26, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %6, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %39 = tail call ptr @prte_util_print_jobids(ptr noundef nonnull %38) #6
   br label %40
 
@@ -128,7 +128,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %27, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %8, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %44 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull %43) #6
   br label %45
 
@@ -138,7 +138,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br label %192
 
 47:                                               ; preds = %25
-  %48 = getelementptr inbounds i8, ptr %8, i64 456
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 456
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %53, label %51
@@ -156,14 +156,14 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @prte_hwloc_topology, align 8
   %57 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %56, i32 noundef 0, i32 noundef 0) #7
-  %58 = getelementptr inbounds i8, ptr %57, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 232
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %55
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 136
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %62, ptr noundef %64, ptr noundef nonnull @.str.5, i32 noundef 118) #6
   %.pre93 = load ptr, ptr @prte_hwloc_topology, align 8
@@ -177,9 +177,9 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %70, label %71, label %98
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %6, i64 472
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 472
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 140
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 140
   %75 = load i16, ptr %74, align 4
   %76 = and i16 %75, 16384
   %.not87 = icmp eq i16 %76, 0
@@ -209,7 +209,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %87 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %87) #6
   %.pre94 = load ptr, ptr %72, align 8
-  %.phi.trans.insert95 = getelementptr inbounds i8, ptr %.pre94, i64 140
+  %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %.pre94, i64 140
   %.pre96 = load i16, ptr %.phi.trans.insert95, align 4
   br label %88
 
@@ -218,7 +218,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %90 = and i16 %89, 4096
   %.not88 = icmp eq i16 %90, 0
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %92 = getelementptr inbounds i8, ptr %10, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %3, align 8
   br i1 %.not88, label %95, label %96
@@ -232,13 +232,13 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br label %192
 
 98:                                               ; preds = %95, %71, %66
-  %99 = getelementptr inbounds i8, ptr %6, i64 784
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 784
   %100 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %99, i16 noundef zeroext 236, ptr noundef null, i16 noundef zeroext 1) #6
   br i1 %100, label %101, label %192
 
 101:                                              ; preds = %98
   %102 = icmp eq i32 %69, 0
-  %103 = getelementptr inbounds i8, ptr %8, i64 400
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %104 = load i32, ptr %103, align 8
   br i1 %102, label %105, label %106
 
@@ -251,12 +251,12 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br label %192
 
 107:                                              ; preds = %53
-  %108 = getelementptr inbounds i8, ptr %6, i64 784
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 784
   %109 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %108, i16 noundef zeroext 236, ptr noundef null, i16 noundef zeroext 1) #6
   br i1 %109, label %110, label %192
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %8, i64 400
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %112 = load i32, ptr %111, align 8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %112) #6
   br label %192
@@ -282,14 +282,14 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 124:                                              ; preds = %123, %117
   %125 = phi ptr [ @.str.13, %123 ], [ %121, %117 ]
-  %126 = getelementptr inbounds i8, ptr %6, i64 472
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 472
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 140
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 140
   %129 = load i16, ptr %128, align 4
   %130 = and i16 %129, 20480
   %or.cond91.not = icmp eq i16 %130, 16384
   %131 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %132 = getelementptr inbounds i8, ptr %10, i64 136
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %133 = load ptr, ptr %132, align 8
   br i1 %or.cond91.not, label %134, label %135
 
@@ -310,9 +310,9 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %140, label %141, label %166
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %6, i64 472
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 472
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 140
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 140
   %145 = load i16, ptr %144, align 4
   %146 = and i16 %145, 16384
   %.not82 = icmp eq i16 %146, 0
@@ -339,7 +339,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %154 = load ptr, ptr %48, align 8
   %155 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.8, ptr noundef %153, ptr noundef %154) #6
   %.pre = load ptr, ptr %142, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 140
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 140
   %.pre92 = load i16, ptr %.phi.trans.insert, align 4
   br label %156
 
@@ -348,7 +348,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %158 = and i16 %157, 4096
   %.not83 = icmp eq i16 %158, 0
   %159 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %160 = getelementptr inbounds i8, ptr %10, i64 136
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %3, align 8
   br i1 %.not83, label %163, label %164
@@ -366,12 +366,12 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %167, label %168, label %.thread
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds i8, ptr %6, i64 784
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 784
   %170 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %169, i16 noundef zeroext 236, ptr noundef null, i16 noundef zeroext 1) #6
   br i1 %170, label %171, label %.thread
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %8, i64 400
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %173 = load i32, ptr %172, align 8
   call fastcc void @report_binding(ptr noundef %6, i32 noundef %173)
   br label %.thread
@@ -382,9 +382,9 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   br i1 %.not84, label %192, label %175
 
 175:                                              ; preds = %.thread
-  %176 = getelementptr inbounds i8, ptr %6, i64 472
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 472
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 140
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 140
   %179 = load i16, ptr %178, align 4
   %180 = and i16 %179, 16384
   %.not85 = icmp eq i16 %180, 0
@@ -401,7 +401,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %184 = load i32, ptr @prte_hwloc_base_mbfa, align 4
   %185 = icmp eq i32 %184, 2
   %186 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %187 = getelementptr inbounds i8, ptr %10, i64 136
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %188 = load ptr, ptr %187, align 8
   br i1 %185, label %189, label %190
 
@@ -448,7 +448,7 @@ declare zeroext i1 @prte_get_attribute(ptr noundef, i16 noundef zeroext, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @report_binding(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 784
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %4 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %3, i16 noundef zeroext 279, ptr noundef null, i16 noundef zeroext 1) #6
   %5 = tail call noalias ptr @hwloc_bitmap_alloc() #6
   %6 = load ptr, ptr @prte_hwloc_topology, align 8

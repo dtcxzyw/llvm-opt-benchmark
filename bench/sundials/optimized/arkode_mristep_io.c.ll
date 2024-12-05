@@ -475,7 +475,7 @@ define i32 @MRIStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 336
   %11 = load ptr, ptr %10, align 8
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %14, label %12
@@ -509,43 +509,43 @@ define i32 @MRIStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 280
   store i32 3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store double 1.000000e-01, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 216
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store double 3.000000e-01, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store double 2.300000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store double 2.000000e-01, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 264
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store i32 20, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 284
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 284
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store ptr null, ptr %25, align 8
   br label %26
 
@@ -563,13 +563,13 @@ define i32 @MRIStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %8, align 8
   %9 = icmp eq i32 %1, 1
   %10 = zext i1 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %7, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store double 0x3D19000000000000, ptr %12, align 8
   br label %13
 
@@ -587,11 +587,11 @@ define i32 @MRIStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store double 2.000000e-01, ptr %9, align 8
   br label %10
 
@@ -613,31 +613,31 @@ define i32 @MRIStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %9 = add i32 %1, -5
   %or.cond = icmp ult i32 %9, -2
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %. = select i1 %or.cond, i32 3, i32 %1
   store i32 %., ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 68
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %15 = load ptr, ptr %14, align 8
   call void @MRIStepCoupling_Space(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %5) #4
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   call void @MRIStepCoupling_Free(ptr noundef %18) #4
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store ptr null, ptr %20, align 8
   %21 = load i64, ptr %6, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 552
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 552
   %24 = load i64, ptr %23, align 8
   %25 = sub nsw i64 %24, %21
   store i64 %25, ptr %23, align 8
   %26 = load i64, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 544
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 544
   %28 = load i64, ptr %27, align 8
   %29 = sub nsw i64 %28, %26
   store i64 %29, ptr %27, align 8
@@ -672,48 +672,48 @@ define i32 @MRIStepSetCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 68
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %18 = load ptr, ptr %17, align 8
   call void @MRIStepCoupling_Space(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %5) #4
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   call void @MRIStepCoupling_Free(ptr noundef %21) #4
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store ptr null, ptr %23, align 8
   %24 = load i64, ptr %6, align 8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 552
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 552
   %27 = load i64, ptr %26, align 8
   %28 = sub nsw i64 %27, %24
   store i64 %28, ptr %26, align 8
   %29 = load i64, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 544
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 544
   %31 = load i64, ptr %30, align 8
   %32 = sub nsw i64 %31, %29
   store i64 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %22, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %22, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %22, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 %40, ptr %41, align 4
   %42 = call ptr @MRIStepCoupling_Copy(ptr noundef nonnull %1) #4
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store ptr %42, ptr %44, align 8
   %45 = icmp eq ptr %42, null
   br i1 %45, label %46, label %48
@@ -727,12 +727,12 @@ define i32 @MRIStepSetCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_add
   call void @MRIStepCoupling_Space(ptr noundef nonnull %42, ptr noundef nonnull %6, ptr noundef nonnull %5) #4
   %49 = load i64, ptr %6, align 8
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 552
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 552
   %52 = load i64, ptr %51, align 8
   %53 = add nsw i64 %52, %49
   store i64 %53, ptr %51, align 8
   %54 = load i64, ptr %5, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 544
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 544
   %56 = load i64, ptr %55, align 8
   %57 = add nsw i64 %56, %54
   store i64 %57, ptr %55, align 8
@@ -757,7 +757,7 @@ define i32 @MRIStepSetPreInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 352
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -775,7 +775,7 @@ define i32 @MRIStepSetPostInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 360
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -822,7 +822,7 @@ define i32 @MRIStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unna
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %. = select i1 %6, double %1, double 3.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -842,7 +842,7 @@ define i32 @MRIStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unname
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %. = select i1 %6, double %1, double 2.300000e+00
   store double %., ptr %8, align 8
   br label %9
@@ -862,7 +862,7 @@ define i32 @MRIStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unn
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %. = select i1 %6, double %1, double 2.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -882,7 +882,7 @@ define i32 @MRIStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unna
 .sink.split:                                      ; preds = %2
   %6 = icmp eq i32 %1, 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %. = select i1 %6, i32 20, i32 %1
   store i32 %., ptr %8, align 8
   br label %9
@@ -901,7 +901,7 @@ define i32 @MRIStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unna
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store i32 %1, ptr %8, align 8
   br label %9
 
@@ -919,7 +919,7 @@ define i32 @MRIStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -932,7 +932,7 @@ define i32 @MRIStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
 13:                                               ; preds = %6
   %14 = icmp slt i32 %1, 1
   %spec.select = select i1 %14, i32 3, i32 %1
-  %15 = getelementptr inbounds i8, ptr %7, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store i32 %spec.select, ptr %15, align 8
   %16 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef nonnull %9, i32 noundef %spec.select) #4
   %.not8 = icmp eq i32 %16, 0
@@ -961,7 +961,7 @@ define i32 @MRIStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_un
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %. = select i1 %6, double %1, double 1.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -980,7 +980,7 @@ define i32 @MRIStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnam
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -998,7 +998,7 @@ define i32 @MRIStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_un
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %1, ptr %8, align 8
   br label %9
 
@@ -1021,15 +1021,15 @@ define i32 @MRIStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %1, align 8
   %16 = add nsw i64 %15, %14
   store i64 %16, ptr %1, align 8
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %2, align 8
   %21 = add nsw i64 %20, %19
@@ -1053,9 +1053,9 @@ define i32 @MRIStepGetLastInnerStepFlag(ptr noundef %0, ptr nocapture noundef wr
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 344
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %1, align 4
   br label %12
@@ -1074,7 +1074,7 @@ define i32 @MRIStepGetCurrentGamma(ptr noundef %0, ptr nocapture noundef writeon
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load double, ptr %8, align 8
   store double %9, ptr %1, align 8
   br label %10
@@ -1093,10 +1093,10 @@ define i32 @MRIStepGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonl
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 368
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 376
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 376
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %2, align 8
   br label %13
@@ -1115,7 +1115,7 @@ define i32 @MRIStepGetNumLinSolvSetups(ptr noundef %0, ptr nocapture noundef wri
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 384
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 384
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -1134,7 +1134,7 @@ define i32 @MRIStepGetNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef w
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -1153,7 +1153,7 @@ define i32 @MRIStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture nound
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 400
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -1172,10 +1172,10 @@ define i32 @MRIStepGetNonlinSolvStats(ptr noundef %0, ptr nocapture noundef writ
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 392
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 400
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %2, align 8
   br label %13
@@ -1194,7 +1194,7 @@ define i32 @MRIStepGetCurrentCoupling(ptr noundef %0, ptr nocapture noundef writ
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %1, align 8
   br label %10
@@ -1224,30 +1224,30 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 368
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 368
   %13 = load i64, ptr %12, align 8
   %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, i64 noundef %13) #4
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 376
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %17 = load i64, ptr %16, align 8
   %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef %17) #4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 392
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 392
   %21 = load i64, ptr %20, align 8
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef %21) #4
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 400
   %25 = load i64, ptr %24, align 8
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef %25) #4
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 488
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 488
   %29 = load i64, ptr %28, align 8
   %30 = icmp sgt i64 %29, 0
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %10
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 392
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 392
   %34 = load i64, ptr %33, align 8
   %35 = sitofp i64 %34 to double
   %36 = uitofp nneg i64 %29 to double
@@ -1257,11 +1257,11 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 39:                                               ; preds = %31, %10
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 384
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 384
   %42 = load i64, ptr %41, align 8
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %42) #4
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr %46(ptr noundef %0) #4
   %.not82 = icmp eq ptr %47, null
@@ -1269,35 +1269,35 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 168
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef %0) #4
-  %53 = getelementptr inbounds i8, ptr %52, i64 128
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   %54 = load i64, ptr %53, align 8
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %54) #4
-  %56 = getelementptr inbounds i8, ptr %52, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %57 = load i64, ptr %56, align 8
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i64 noundef %57) #4
-  %59 = getelementptr inbounds i8, ptr %52, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %60 = load i64, ptr %59, align 8
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i64 noundef %60) #4
-  %62 = getelementptr inbounds i8, ptr %52, i64 168
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 168
   %63 = load i64, ptr %62, align 8
   %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef %63) #4
-  %65 = getelementptr inbounds i8, ptr %52, i64 160
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 160
   %66 = load i64, ptr %65, align 8
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef %66) #4
-  %68 = getelementptr inbounds i8, ptr %52, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 176
   %69 = load i64, ptr %68, align 8
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, i64 noundef %69) #4
-  %71 = getelementptr inbounds i8, ptr %52, i64 184
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 184
   %72 = load i64, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.18, i64 noundef %72) #4
-  %74 = getelementptr inbounds i8, ptr %52, i64 192
+  %74 = getelementptr inbounds nuw i8, ptr %52, i64 192
   %75 = load i64, ptr %74, align 8
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i64 noundef %75) #4
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 392
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 392
   %79 = load i64, ptr %78, align 8
   %80 = icmp sgt i64 %79, 0
   br i1 %80, label %81, label %205
@@ -1311,7 +1311,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %87 = load i64, ptr %53, align 8
   %88 = sitofp i64 %87 to double
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 392
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 392
   %91 = load i64, ptr %90, align 8
   %92 = sitofp i64 %91 to double
   %93 = fdiv double %88, %92
@@ -1319,7 +1319,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %95 = load i64, ptr %59, align 8
   %96 = sitofp i64 %95 to double
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 392
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 392
   %99 = load i64, ptr %98, align 8
   %100 = sitofp i64 %99 to double
   %101 = fdiv double %96, %100
@@ -1328,30 +1328,30 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 103:                                              ; preds = %9
   %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 368
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 368
   %106 = load i64, ptr %105, align 8
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i64 noundef %106) #4
   %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 376
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 376
   %110 = load i64, ptr %109, align 8
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, i64 noundef %110) #4
   %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 392
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 392
   %114 = load i64, ptr %113, align 8
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i64 noundef %114) #4
   %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 400
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 400
   %118 = load i64, ptr %117, align 8
   %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %118) #4
   %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 488
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 488
   %122 = load i64, ptr %121, align 8
   %123 = icmp sgt i64 %122, 0
   br i1 %123, label %124, label %132
 
 124:                                              ; preds = %103
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 392
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 392
   %127 = load i64, ptr %126, align 8
   %128 = sitofp i64 %127 to double
   %129 = uitofp nneg i64 %122 to double
@@ -1365,11 +1365,11 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 134:                                              ; preds = %132, %124
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 384
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 384
   %137 = load i64, ptr %136, align 8
   %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i64 noundef %137) #4
   %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 168
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 168
   %141 = load ptr, ptr %140, align 8
   %142 = call ptr %141(ptr noundef %0) #4
   %.not81 = icmp eq ptr %142, null
@@ -1377,35 +1377,35 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 143:                                              ; preds = %134
   %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 168
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 168
   %146 = load ptr, ptr %145, align 8
   %147 = call ptr %146(ptr noundef %0) #4
-  %148 = getelementptr inbounds i8, ptr %147, i64 128
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 128
   %149 = load i64, ptr %148, align 8
   %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i64 noundef %149) #4
-  %151 = getelementptr inbounds i8, ptr %147, i64 136
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 136
   %152 = load i64, ptr %151, align 8
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i64 noundef %152) #4
-  %154 = getelementptr inbounds i8, ptr %147, i64 152
+  %154 = getelementptr inbounds nuw i8, ptr %147, i64 152
   %155 = load i64, ptr %154, align 8
   %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i64 noundef %155) #4
-  %157 = getelementptr inbounds i8, ptr %147, i64 168
+  %157 = getelementptr inbounds nuw i8, ptr %147, i64 168
   %158 = load i64, ptr %157, align 8
   %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, i64 noundef %158) #4
-  %160 = getelementptr inbounds i8, ptr %147, i64 160
+  %160 = getelementptr inbounds nuw i8, ptr %147, i64 160
   %161 = load i64, ptr %160, align 8
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i64 noundef %161) #4
-  %163 = getelementptr inbounds i8, ptr %147, i64 176
+  %163 = getelementptr inbounds nuw i8, ptr %147, i64 176
   %164 = load i64, ptr %163, align 8
   %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %164) #4
-  %166 = getelementptr inbounds i8, ptr %147, i64 184
+  %166 = getelementptr inbounds nuw i8, ptr %147, i64 184
   %167 = load i64, ptr %166, align 8
   %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i64 noundef %167) #4
-  %169 = getelementptr inbounds i8, ptr %147, i64 192
+  %169 = getelementptr inbounds nuw i8, ptr %147, i64 192
   %170 = load i64, ptr %169, align 8
   %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i64 noundef %170) #4
   %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 392
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 392
   %174 = load i64, ptr %173, align 8
   %175 = icmp sgt i64 %174, 0
   br i1 %175, label %176, label %198
@@ -1419,7 +1419,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %182 = load i64, ptr %148, align 8
   %183 = sitofp i64 %182 to double
   %184 = load ptr, ptr %5, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 392
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 392
   %186 = load i64, ptr %185, align 8
   %187 = sitofp i64 %186 to double
   %188 = fdiv double %183, %187
@@ -1427,7 +1427,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %190 = load i64, ptr %154, align 8
   %191 = sitofp i64 %190 to double
   %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 392
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 392
   %194 = load i64, ptr %193, align 8
   %195 = sitofp i64 %194 to double
   %196 = fdiv double %191, %195
@@ -1494,7 +1494,7 @@ define i32 @MRIStepWriteCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -1507,7 +1507,7 @@ define i32 @MRIStepWriteCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_a
 13:                                               ; preds = %6
   %14 = call i64 @fwrite(ptr nonnull @.str.48, i64 29, i64 1, ptr %1)
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   call void @MRIStepCoupling_Write(ptr noundef %17, ptr noundef %1) #4
   br label %18

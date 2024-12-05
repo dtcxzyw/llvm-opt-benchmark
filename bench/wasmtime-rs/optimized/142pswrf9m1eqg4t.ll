@@ -34,7 +34,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %13, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %15, ptr %11, align 8
   %16 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %15, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.7)
   br i1 %16, label %26, label %23
@@ -48,23 +48,23 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE
   call void @llvm.assume(i1 %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %20, ptr noundef nonnull align 1 dereferenceable(14) @anon.4e1cc6541a8017bb5332795774be03f4.4, i64 14, i1 false)
   store i64 %19, ptr %3, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %20, ptr %.sroa.224.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 14, ptr %.sroa.325.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 16 %1, ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %37
 
 23:                                               ; preds = %14
   store ptr %11, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E", ptr %24, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %8, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.1, i64 1, ptr nonnull align 8 %7, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %8)
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %10, ptr align 16 %1, ptr nonnull align 8 %12, ptr nonnull align 8 %9)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %37
 
@@ -75,21 +75,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 16
   %30 = icmp eq i64 %.sroa.211.0.copyload, 5
   br i1 %30, label %34, label %35
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 16
-  %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.216.0.copyload, ptr %.sroa.219.0..sroa_idx, align 16
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.320.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.317.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -98,10 +98,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE
   unreachable
 
 35:                                               ; preds = %29
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.211.0.copyload, ptr %36, align 16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -130,7 +130,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E
 
 15:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %14, i64 32, i1 false)
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %16, ptr %12, align 8
   %17 = call zeroext i1 @_ZN4core3ops8function2Fn4call17h595849e278e5b177E(ptr nonnull align 1 %3, ptr nonnull align 16 %16)
   br i1 %17, label %27, label %24
@@ -144,23 +144,23 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E
   call void @llvm.assume(i1 %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %21, ptr noundef nonnull align 1 dereferenceable(14) @anon.4e1cc6541a8017bb5332795774be03f4.4, i64 14, i1 false)
   store i64 %20, ptr %4, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %21, ptr %.sroa.224.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 14, ptr %.sroa.325.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %6, ptr align 16 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   br label %38
 
 24:                                               ; preds = %15
   store ptr %12, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E", ptr %25, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.1, i64 1, ptr nonnull align 8 %8, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %9)
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %11, ptr align 16 %1, ptr nonnull align 8 %13, ptr nonnull align 8 %10)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %11, i64 72, i1 false)
   br label %38
 
@@ -171,21 +171,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 16
   %31 = icmp eq i64 %.sroa.211.0.copyload, 5
   br i1 %31, label %35, label %36
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 16
-  %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false)
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.216.0.copyload, ptr %.sroa.219.0..sroa_idx, align 16
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.320.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.317.0..sroa_idx, i64 24, i1 false)
   br label %38
 
@@ -194,10 +194,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E
   unreachable
 
 36:                                               ; preds = %30
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.211.0.copyload, ptr %37, align 16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %38
 
@@ -226,7 +226,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E
 
 15:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %14, i64 32, i1 false)
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %16, ptr %12, align 8
   %17 = call zeroext i1 @_ZN4core3ops8function2Fn4call17hc521e6cf04d56de2E(ptr nonnull align 1 %3, ptr nonnull align 16 %16)
   br i1 %17, label %27, label %24
@@ -240,23 +240,23 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E
   call void @llvm.assume(i1 %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %21, ptr noundef nonnull align 1 dereferenceable(14) @anon.4e1cc6541a8017bb5332795774be03f4.4, i64 14, i1 false)
   store i64 %20, ptr %4, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %21, ptr %.sroa.224.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 14, ptr %.sroa.325.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %6, ptr align 16 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   br label %38
 
 24:                                               ; preds = %15
   store ptr %12, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E", ptr %25, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.1, i64 1, ptr nonnull align 8 %8, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %9)
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %11, ptr align 16 %1, ptr nonnull align 8 %13, ptr nonnull align 8 %10)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(72) %11, i64 72, i1 false)
   br label %38
 
@@ -267,21 +267,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 16
   %31 = icmp eq i64 %.sroa.211.0.copyload, 5
   br i1 %31, label %35, label %36
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 16
-  %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false)
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.216.0.copyload, ptr %.sroa.219.0..sroa_idx, align 16
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.320.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.317.0..sroa_idx, i64 24, i1 false)
   br label %38
 
@@ -290,10 +290,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E
   unreachable
 
 36:                                               ; preds = %30
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.211.0.copyload, ptr %37, align 16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %38
 
@@ -321,7 +321,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %13, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %15, ptr %11, align 8
   %16 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %15, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.6)
   br i1 %16, label %26, label %23
@@ -335,23 +335,23 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE
   call void @llvm.assume(i1 %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %20, ptr noundef nonnull align 1 dereferenceable(14) @anon.4e1cc6541a8017bb5332795774be03f4.4, i64 14, i1 false)
   store i64 %19, ptr %3, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %20, ptr %.sroa.224.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 14, ptr %.sroa.325.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 16 %1, ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %37
 
 23:                                               ; preds = %14
   store ptr %11, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E", ptr %24, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %8, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.1, i64 1, ptr nonnull align 8 %7, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %8)
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %10, ptr align 16 %1, ptr nonnull align 8 %12, ptr nonnull align 8 %9)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %37
 
@@ -362,21 +362,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 16
   %30 = icmp eq i64 %.sroa.211.0.copyload, 5
   br i1 %30, label %34, label %35
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 16
-  %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.216.0.copyload, ptr %.sroa.219.0..sroa_idx, align 16
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.320.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.317.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -385,10 +385,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE
   unreachable
 
 35:                                               ; preds = %29
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.211.0.copyload, ptr %36, align 16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -416,7 +416,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %13, i64 32, i1 false)
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %15, ptr %11, align 8
   %16 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %15, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.8)
   br i1 %16, label %26, label %23
@@ -430,23 +430,23 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
   call void @llvm.assume(i1 %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %20, ptr noundef nonnull align 1 dereferenceable(14) @anon.4e1cc6541a8017bb5332795774be03f4.4, i64 14, i1 false)
   store i64 %19, ptr %3, align 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %20, ptr %.sroa.224.0..sroa_idx, align 8
-  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 14, ptr %.sroa.325.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %5, ptr align 16 %1, ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %37
 
 23:                                               ; preds = %14
   store ptr %11, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E", ptr %24, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %8, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.1, i64 1, ptr nonnull align 8 %7, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %8)
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %10, ptr align 16 %1, ptr nonnull align 8 %12, ptr nonnull align 8 %9)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   br label %37
 
@@ -457,21 +457,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 16
   %30 = icmp eq i64 %.sroa.211.0.copyload, 5
   br i1 %30, label %34, label %35
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 16
-  %.sroa.317.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.216.0.copyload, ptr %.sroa.219.0..sroa_idx, align 16
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.320.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.317.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -480,10 +480,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
   unreachable
 
 35:                                               ; preds = %29
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.211.0.copyload, ptr %36, align 16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %37
 
@@ -501,7 +501,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i64, ptr %7, align 16, !range !5, !noundef !4
   %9 = icmp eq i64 %8, 2
   br i1 %9, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit", label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread"
@@ -510,22 +510,22 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   %10 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %15 = load ptr, ptr %14, align 16, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef08bb7ec18bd030E"(ptr nonnull align 1 %15, i64 %17, ptr nonnull align 1 %11, i64 %13)
   br i1 %18, label %22, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread"
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 5, ptr %20, align 16
   br label %33
 
 "_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread": ; preds = %6, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit"
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 5, ptr %21, align 16
   br label %33
 
@@ -536,21 +536,21 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.sroa.213.0.copyload = load i64, ptr %.sroa.213.0..sroa_idx, align 16
   %26 = icmp eq i64 %.sroa.213.0.copyload, 5
   br i1 %26, label %30, label %31
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.sroa.218.0.copyload = load i64, ptr %.sroa.218.0..sroa_idx, align 16
-  %.sroa.319.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
-  %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.218.0.copyload, ptr %.sroa.221.0..sroa_idx, align 16
-  %.sroa.322.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.322.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.319.0..sroa_idx, i64 24, i1 false)
   br label %33
 
@@ -559,10 +559,10 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   unreachable
 
 31:                                               ; preds = %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.213.0.copyload, ptr %32, align 16
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %33
 
@@ -579,7 +579,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %4, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.7)
   br label %6
 
@@ -595,7 +595,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h34a1584d01f4eea
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %4, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.8)
   br label %6
 
@@ -612,7 +612,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h39637a1c2359a2e
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = call zeroext i1 @_ZN4core3ops8function2Fn4call17h595849e278e5b177E(ptr nonnull align 1 %2, ptr nonnull align 16 %5)
   br label %7
 
@@ -628,7 +628,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h3d254db310930c2
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = tail call zeroext i1 @"_ZN69_$LT$cranelift_isle..lexer..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h900b850018f853c2E"(ptr nonnull align 16 %4, ptr nonnull align 16 @anon.4e1cc6541a8017bb5332795774be03f4.6)
   br label %6
 
@@ -645,7 +645,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h5a57535aabd8190
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = call zeroext i1 @_ZN4core3ops8function2Fn4call17hc521e6cf04d56de2E(ptr nonnull align 1 %2, ptr nonnull align 16 %5)
   br label %7
 
@@ -662,16 +662,16 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f34
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %6 = load i64, ptr %5, align 16, !range !5, !noundef !4
   %7 = icmp eq i64 %6, 2
   br i1 %7, label %8, label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load ptr, ptr %9, align 16, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load i64, ptr %11, align 8, !noundef !4
   store i32 0, ptr %2, align 4
   %13 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h1c2de9e8c454ec82E(i32 36, ptr nonnull align 1 %2, i64 4)
@@ -740,9 +740,9 @@ define hidden void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b
   tail call void @llvm.assume(i1 %9)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @anon.4e1cc6541a8017bb5332795774be03f4.9, i64 12, i1 false)
   store i64 %7, ptr %4, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 12, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN14cranelift_isle6parser6Parser5error17h71b18efc2394cda9E(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %4)
   ret void
@@ -772,7 +772,7 @@ switch.edge:                                      ; preds = %switch.early.test, 
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN14cranelift_isle6parser6Parser10parse_type28_$u7b$$u7b$closure$u7d$$u7d$17h72c38556ca3ce0a6E"(ptr align 16 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call zeroext i1 @_ZN14cranelift_isle5lexer5Token6is_sym17h70f056fc40d88988E(ptr nonnull align 16 %2)
   ret i1 %3
 }
@@ -786,7 +786,7 @@ define hidden void @"_ZN14cranelift_isle6parser6Parser10parse_rule28_$u7b$$u7b$c
   %8 = alloca { i64, i64, i64, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   store ptr %4, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17ha1acbdc4200c8b38E", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.4e1cc6541a8017bb5332795774be03f4.11, i64 1, ptr nonnull align 8 %5, i64 1)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 8 %6)

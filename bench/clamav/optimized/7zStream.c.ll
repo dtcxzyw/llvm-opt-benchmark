@@ -85,7 +85,7 @@ define i32 @SeqInStream_ReadByte(ptr noundef %0, ptr noundef %1) local_unnamed_a
 define i32 @LookInStream_SeekTo(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #7
   ret i32 %6
@@ -108,7 +108,7 @@ define i32 @LookInStream_LookRead(ptr noundef %0, ptr nocapture noundef writeonl
   %11 = load ptr, ptr %4, align 8
   %12 = load i64, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %12, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %2, align 8
   %16 = call i32 %14(ptr noundef nonnull %0, i64 noundef %15) #7
@@ -129,7 +129,7 @@ define i32 @LookInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %13
@@ -165,7 +165,7 @@ define i32 @LookInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   br i1 %.not15.i, label %LookInStream_Read2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %12, %.lr.ph.i
@@ -199,11 +199,11 @@ define void @LookToRead_CreateVTable(ptr nocapture noundef writeonly initializes
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @LookToRead_Look_Exact, ptr @LookToRead_Look_Lookahead
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @LookToRead_Skip, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @LookToRead_Read, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @LookToRead_Seek, ptr %6, align 8
   ret void
 }
@@ -211,9 +211,9 @@ define void @LookToRead_CreateVTable(ptr nocapture noundef writeonly initializes
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = icmp eq i64 %6, %8
@@ -227,10 +227,10 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture nou
 12:                                               ; preds = %11
   store i64 0, ptr %7, align 8
   store i64 16384, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = call i32 %15(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %4) #7
   %18 = load i64, ptr %4, align 8
   store i64 %18, ptr %5, align 8
@@ -250,7 +250,7 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture nou
 
 .thread:                                          ; preds = %11, %23, %19
   %.017 = phi i32 [ %.0, %23 ], [ %.0, %19 ], [ 0, %11 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i64, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 %25
   store ptr %26, ptr %1, align 8
@@ -259,9 +259,9 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = icmp eq i64 %5, %7
@@ -283,10 +283,10 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = tail call i32 %18(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %2) #7
   %21 = load i64, ptr %2, align 8
   store i64 %21, ptr %4, align 8
@@ -302,7 +302,7 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef
 
 .thread:                                          ; preds = %10, %15, %24, %22
   %.02125 = phi i32 [ 0, %24 ], [ 0, %22 ], [ 0, %10 ], [ %20, %15 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %6, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store ptr %27, ptr %1, align 8
@@ -311,7 +311,7 @@ define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @LookToRead_Skip(ptr nocapture noundef %0, i64 noundef %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
   store i64 %5, ptr %3, align 8
@@ -320,15 +320,15 @@ define internal noundef i32 @LookToRead_Skip(ptr nocapture noundef %0, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Read(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2) #7
@@ -338,7 +338,7 @@ define internal i32 @LookToRead_Read(ptr nocapture noundef %0, ptr noundef %1, p
   %15 = sub i64 %5, %7
   %16 = load i64, ptr %2, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds i8, ptr %17, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %18, i64 %spec.select, i1 false)
   %19 = load i64, ptr %6, align 8
@@ -354,11 +354,11 @@ define internal i32 @LookToRead_Read(ptr nocapture noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @LookToRead_Seek(ptr nocapture noundef initializes((40, 56)) %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %6, ptr noundef %1, i32 noundef %2) #7
   ret i32 %9
@@ -366,7 +366,7 @@ define internal i32 @LookToRead_Seek(ptr nocapture noundef initializes((40, 56))
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LookToRead_Init(ptr nocapture noundef writeonly initializes((40, 56)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
@@ -380,7 +380,7 @@ define void @SecToLook_CreateVTable(ptr nocapture noundef writeonly initializes(
 ; Function Attrs: nounwind uwtable
 define internal i32 @SecToLook_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %7 = load i64, ptr %2, align 8
@@ -397,7 +397,7 @@ define internal i32 @SecToLook_Read(ptr nocapture noundef readonly %0, ptr nocap
   %13 = load ptr, ptr %4, align 8
   %14 = load i64, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %13, i64 %14, i1 false)
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %2, align 8
   %18 = call i32 %16(ptr noundef nonnull %6, i64 noundef %17) #7
@@ -417,9 +417,9 @@ define void @SecToRead_CreateVTable(ptr nocapture noundef writeonly initializes(
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SecToRead_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %5, ptr noundef %1, ptr noundef %2) #7
   ret i32 %8

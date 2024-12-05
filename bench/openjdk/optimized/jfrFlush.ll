@@ -23,7 +23,7 @@ declare noundef ptr @_ZN10JfrStorage5flushEP9JfrBuffermmbP6Thread(ptr noundef, i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_Z20jfr_is_event_enabled10JfrEventId(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 3
+  %3 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 3
   %4 = load i8, ptr %3, align 1
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -32,7 +32,7 @@ define hidden noundef zeroext i1 @_Z20jfr_is_event_enabled10JfrEventId(i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_Z26jfr_has_stacktrace_enabled10JfrEventId(i32 noundef %0) local_unnamed_addr #2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 2
+  %3 = getelementptr inbounds nuw [164 x %struct.jfrNativeEventSetting], ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 0, i64 %2, i32 2
   %4 = load i8, ptr %3, align 8
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -40,20 +40,20 @@ define hidden noundef zeroext i1 @_Z26jfr_has_stacktrace_enabled10JfrEventId(i32
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_Z21jfr_conditional_flush10JfrEventIdmP6Thread(i32 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 600
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %_ZNK14JfrThreadLocal13native_bufferEv.exit
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load volatile ptr, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %15 = ptrtoint ptr %12 to i64
@@ -72,7 +72,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_Z19jfr_save_stacktraceP6Thread(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -1
   br i1 %.not, label %4, label %7
@@ -80,7 +80,7 @@ define hidden noundef zeroext i1 @_Z19jfr_save_stacktraceP6Thread(ptr noundef %0
 4:                                                ; preds = %1
   %5 = tail call noundef i64 @_ZN23JfrStackTraceRepository6recordEP6Threadil(ptr noundef nonnull %0, i32 noundef 0, i64 noundef -1) #4
   store i64 %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 712
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 0, ptr %6, align 8
   br label %7
 
@@ -92,9 +92,9 @@ declare noundef i64 @_ZN23JfrStackTraceRepository6recordEP6Threadil(ptr noundef,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_Z20jfr_clear_stacktraceP6Thread(ptr nocapture noundef writeonly initializes((704, 720)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i64 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 712
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 0, ptr %3, align 8
   ret void
 }

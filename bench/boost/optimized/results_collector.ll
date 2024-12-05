@@ -451,11 +451,11 @@ define void @_ZN5boost9unit_test19results_collector_t10test_startEmm(ptr nocaptu
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
@@ -493,18 +493,18 @@ define void @_ZN5boost9unit_test19results_collector_t15test_unit_startERKNS0_9te
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -514,7 +514,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
 
 14:                                               ; preds = %14, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %17 = icmp ult i64 %16, %13
@@ -526,7 +526,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %14, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %14
-  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -536,7 +536,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %22, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %19, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %11, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -583,18 +583,18 @@ define void @_ZN5boost9unit_test19results_collector_t16test_unit_finishERKNS0_9t
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %23
 
 23:                                               ; preds = %21
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %21, %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -604,7 +604,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %21, %23
 
 28:                                               ; preds = %28, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %28 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %28 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %30 = load i64, ptr %29, align 8, !tbaa !11
   %31 = icmp ult i64 %30, %27
@@ -616,7 +616,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %21, %23
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %28, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %28
-  %32 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %32 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %32, label %.critedge.i, label %33
 
 33:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -626,7 +626,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %36, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %33, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %33 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %33 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   store ptr %25, ptr %4, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #20
@@ -940,18 +940,18 @@ define void @_ZN5boost9unit_test19results_collector_t17test_unit_skippedERKNS0_9
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %11
 
 11:                                               ; preds = %9
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -961,7 +961,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %9, %11
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %16 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %16 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !11
   %19 = icmp ult i64 %18, %15
@@ -973,7 +973,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %3, %9, %11
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %16, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %16
-  %20 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %20 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %20, label %.critedge.i, label %21
 
 21:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -983,7 +983,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %24, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %21, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %21 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   store ptr %13, ptr %4, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #20
@@ -1040,18 +1040,18 @@ define void @_ZN5boost9unit_test19results_collector_t19test_unit_timed_outERKNS0
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -1061,7 +1061,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
 
 14:                                               ; preds = %14, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %17 = icmp ult i64 %16, %13
@@ -1073,7 +1073,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %14, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %14
-  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -1083,7 +1083,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %22, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %19, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %11, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -1114,11 +1114,11 @@ define void @_ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16as
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %10
 
 10:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
@@ -1127,13 +1127,13 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %12 = tail call noundef i64 @_ZN5boost9unit_test9framework20current_test_case_idEv()
   store i64 %12, ptr %5, align 8, !tbaa !11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %13, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %16 = icmp ult i64 %15, %12
@@ -1145,7 +1145,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %17, label %.critedge.i, label %18
 
 18:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -1155,7 +1155,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %21, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
 
 .critedge.i:                                      ; preds = %18, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %18 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %18 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %5, ptr %3, align 8, !tbaa !27, !alias.scope !112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -1172,7 +1172,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.ex
 
 switch.lookup:                                    ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
   %24 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 %switch.load
   %26 = load i64, ptr %25, align 8, !tbaa !14
@@ -1201,11 +1201,11 @@ define void @_ZN5boost9unit_test19results_collector_t16exception_caughtERKNS_19e
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %10
 
 10:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
@@ -1214,13 +1214,13 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %12 = tail call noundef i64 @_ZN5boost9unit_test9framework20current_test_case_idEv()
   store i64 %12, ptr %5, align 8, !tbaa !11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %13, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %16 = icmp ult i64 %15, %12
@@ -1232,7 +1232,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %17 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %17, label %.critedge.i, label %18
 
 18:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -1242,7 +1242,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %21, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
 
 .critedge.i:                                      ; preds = %18, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %18 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %18 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %5, ptr %3, align 8, !tbaa !27, !alias.scope !115
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -1285,18 +1285,18 @@ define void @_ZN5boost9unit_test19results_collector_t17test_unit_abortedERKNS0_9
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -1306,7 +1306,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
 
 14:                                               ; preds = %14, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %17 = icmp ult i64 %16, %13
@@ -1318,7 +1318,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %7, %9
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %14, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %14
-  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -1328,7 +1328,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %22, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %19, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %11, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -1360,17 +1360,17 @@ define noundef nonnull align 8 dereferenceable(107) ptr @_ZNK5boost9unit_test19r
   br i1 %.not.i, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, label %10
 
 10:                                               ; preds = %8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 40), align 8, !tbaa !24
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, ptr nonnull @__dso_handle) #20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst) #20
   br label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
 
 _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 16), align 8, !tbaa !21
   %.not10.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -1380,7 +1380,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
 
 14:                                               ; preds = %14, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %14 ]
-  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
+  %.0811.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %17 = icmp ult i64 %16, %13
@@ -1392,7 +1392,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %8, %10
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, label %14, !llvm.loop !28
 
 _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i: ; preds = %14
-  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
+  %18 = icmp eq ptr %.19.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8)
   br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i
@@ -1402,7 +1402,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_
   br i1 %22, label %.critedge.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEEixERS6_.exit
 
 .critedge.i:                                      ; preds = %19, %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i, %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst, i64 8), %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %5, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
@@ -1445,7 +1445,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test19results_collector_tD0Ev(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5boost9unit_test12_GLOBAL__N_122results_collector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %4
@@ -1500,9 +1500,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 define internal noundef zeroext i1 @_ZN5boost9unit_test12_GLOBAL__N_120clear_subtree_result5visitERKNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !125
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !21
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not10.i.i.i = icmp eq ptr %6, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
 
@@ -1537,7 +1537,7 @@ _ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE4findERS
 18:                                               ; preds = %_ZNSt3mapImN5boost9unit_test12test_resultsESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   %19 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 152) #21
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !24
   %22 = add i64 %21, -1
   store i64 %22, ptr %20, align 8, !tbaa !24
@@ -1557,7 +1557,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test17test_tree_visitor5visitERK
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test17test_tree_visitor16test_suite_startERKNS0_10test_suiteE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #8 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(280) %3)
@@ -1759,7 +1759,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test22results_coll
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !129
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i64, ptr %5, align 8, !tbaa !11
   %8 = load i64, ptr %6, align 8, !tbaa !11
   %9 = icmp eq i64 %7, %8
@@ -1895,7 +1895,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test17test_case_co
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !tbaa !108, !range !9, !noundef !10
   %5 = trunc nuw i8 %4 to i1
-  %6 = getelementptr inbounds i8, ptr %1, i64 228
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 1
   %9 = select i1 %5, i1 true, i1 %8
@@ -1961,7 +1961,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 
 26:                                               ; preds = %23
   %.not.i.i = icmp ne ptr %24, null
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = icmp eq ptr %25, %27
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %28
   br i1 %or.cond.i.i, label %.thread, label %29
@@ -1976,7 +1976,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 .thread:                                          ; preds = %26, %29
   %34 = phi i1 [ true, %26 ], [ %33, %29 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %34, ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(32) %27) #20
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !24
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8, !tbaa !24
@@ -1999,18 +1999,18 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #8 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8, !tbaa !11
@@ -2019,7 +2019,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
   br i1 %15, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8, !tbaa !27
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -2044,7 +2044,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %26
@@ -2074,7 +2074,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %41
@@ -2095,7 +2095,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !27
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
@@ -2139,7 +2139,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
   br i1 %62, label %63, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %67
@@ -2160,7 +2160,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !27
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
@@ -2181,7 +2181,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12t
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !22
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt4lessImESaIS5_EE24_M_get_insert_unique_posERS1_.exit, label %84
@@ -2233,7 +2233,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2264,7 +2264,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !140
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2287,7 +2287,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !143
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2308,7 +2308,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !146
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2371,7 +2371,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 
 26:                                               ; preds = %23
   %.not.i.i = icmp ne ptr %24, null
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = icmp eq ptr %25, %27
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %28
   br i1 %or.cond.i.i, label %.thread, label %29
@@ -2386,7 +2386,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 .thread:                                          ; preds = %26, %29
   %34 = phi i1 [ true, %26 ], [ %33, %29 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %34, ptr noundef nonnull %6, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(32) %27) #20
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !24
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8, !tbaa !24

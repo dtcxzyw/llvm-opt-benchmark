@@ -121,7 +121,7 @@ define noundef i32 @_ZN10open_spiel12chess_common24OffsetToDestinationIndexERKNS
   br label %_ZN10open_spiel12chess_common12_GLOBAL__N_128OffsetToDestinationIndexImplISt5arrayINS0_6OffsetELm8EEEEiRKS4_RKT_i.exit
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = tail call noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6OffsetEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull %34, ptr nonnull align 1 dereferenceable(2) %0)
   %.not.i = icmp eq ptr %35, %34
   br i1 %.not.i, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i, label %36
@@ -175,23 +175,23 @@ _ZN4absl7debian28AlphaNumC2Ei.exit38.i:           ; preds = %_ZN4absl7debian28Al
   store ptr @.str.13, ptr %4, align 8, !noalias !4
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 19, ptr %62, align 8, !noalias !4
-  %63 = getelementptr inbounds i8, ptr %4, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i5.i.i = load ptr, ptr %6, align 8, !noalias !4
   %.sroa.2.0.copyload.i7.i.i = load i64, ptr %51, align 8, !noalias !4
   store ptr %.sroa.0.0.copyload.i5.i.i, ptr %63, align 8, !noalias !4
-  %64 = getelementptr inbounds i8, ptr %4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i7.i.i, ptr %64, align 8, !noalias !4
-  %65 = getelementptr inbounds i8, ptr %4, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @.str.14, ptr %65, align 8, !noalias !4
-  %66 = getelementptr inbounds i8, ptr %4, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 2, ptr %66, align 8, !noalias !4
-  %67 = getelementptr inbounds i8, ptr %4, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %54, ptr %67, align 8, !noalias !4
-  %68 = getelementptr inbounds i8, ptr %4, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %58, ptr %68, align 8, !noalias !4
-  %69 = getelementptr inbounds i8, ptr %4, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @.str.15, ptr %69, align 8, !noalias !4
-  %70 = getelementptr inbounds i8, ptr %4, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 1, ptr %70, align 8, !noalias !4
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %4, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
@@ -287,10 +287,10 @@ define noundef i32 @_ZN10open_spiel12chess_common24OffsetToDestinationIndexERKNS
   br i1 %39, label %_ZSt9__find_ifIPKN10open_spiel12chess_common6OffsetEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.thread.i, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, %8
-  %44 = getelementptr inbounds i8, ptr %1, i64 3
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, %12
   %47 = select i1 %43, i1 %46, i1 false
@@ -344,23 +344,23 @@ _ZN4absl7debian28AlphaNumC2Ei.exit38.i:           ; preds = %_ZN4absl7debian28Al
   store ptr @.str.13, ptr %4, align 8, !noalias !7
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 19, ptr %71, align 8, !noalias !7
-  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.0.0.copyload.i5.i.i = load ptr, ptr %6, align 8, !noalias !7
   %.sroa.2.0.copyload.i7.i.i = load i64, ptr %60, align 8, !noalias !7
   store ptr %.sroa.0.0.copyload.i5.i.i, ptr %72, align 8, !noalias !7
-  %73 = getelementptr inbounds i8, ptr %4, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i7.i.i, ptr %73, align 8, !noalias !7
-  %74 = getelementptr inbounds i8, ptr %4, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @.str.14, ptr %74, align 8, !noalias !7
-  %75 = getelementptr inbounds i8, ptr %4, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 2, ptr %75, align 8, !noalias !7
-  %76 = getelementptr inbounds i8, ptr %4, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %63, ptr %76, align 8, !noalias !7
-  %77 = getelementptr inbounds i8, ptr %4, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %67, ptr %77, align 8, !noalias !7
-  %78 = getelementptr inbounds i8, ptr %4, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @.str.15, ptr %78, align 8, !noalias !7
-  %79 = getelementptr inbounds i8, ptr %4, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 1, ptr %79, align 8, !noalias !7
   call void @_ZN4absl7debian216strings_internal9CatPiecesB5cxx11ESt16initializer_listINS0_11string_viewEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull %4, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
@@ -483,9 +483,9 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds [8 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1
   br label %_ZN10open_spiel12chess_common12_GLOBAL__N_128DestinationIndexToOffsetImplISt5arrayINS0_6OffsetELm8EEEES4_iRKT_i.exit
 
@@ -647,9 +647,9 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds [2 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [2 x %"struct.open_spiel::chess_common::Offset"], ptr %1, i64 0, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 1
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1
   br label %_ZN10open_spiel12chess_common12_GLOBAL__N_128DestinationIndexToOffsetImplISt5arrayINS0_6OffsetELm2EEEES4_iRKT_i.exit
 
@@ -1132,37 +1132,37 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6Of
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.02946, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.02946, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, %9
-  %24 = getelementptr inbounds i8, ptr %.02946, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %.02946, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, %11
   %27 = select i1 %23, i1 %26, i1 false
   br i1 %27, label %.loopexit.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %.02946, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.02946, i64 4
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, %9
-  %32 = getelementptr inbounds i8, ptr %.02946, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %.02946, i64 5
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, %11
   %35 = select i1 %31, i1 %34, i1 false
   br i1 %35, label %.loopexit.loopexit.split.loop.exit60, label %36
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %.02946, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %.02946, i64 6
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, %9
-  %40 = getelementptr inbounds i8, ptr %.02946, i64 7
+  %40 = getelementptr inbounds nuw i8, ptr %.02946, i64 7
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, %11
   %43 = select i1 %39, i1 %42, i1 false
   br i1 %43, label %.loopexit.loopexit.split.loop.exit62, label %44
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %.02946, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.02946, i64 8
   %46 = add nsw i64 %.047, -1
   %47 = icmp sgt i64 %.047, 1
   br i1 %47, label %13, label %._crit_edge.loopexit, !llvm.loop !10
@@ -1207,7 +1207,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6Of
   br i1 %58, label %.loopexit, label %59
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %.029.lcssa, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 2
   br label %61
 
 61:                                               ; preds = %._crit_edge._crit_edge, %59
@@ -1223,7 +1223,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6Of
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %.1, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   br label %72
 
 72:                                               ; preds = %._crit_edge._crit_edge53, %70
@@ -1242,15 +1242,15 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN10open_spiel12chess_common6Of
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %20
-  %82 = getelementptr inbounds i8, ptr %.02946, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.02946, i64 2
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit60:             ; preds = %28
-  %83 = getelementptr inbounds i8, ptr %.02946, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.02946, i64 4
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit62:             ; preds = %36
-  %84 = getelementptr inbounds i8, ptr %.02946, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %.02946, i64 6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit60, %.loopexit.loopexit.split.loop.exit62, %72, %61, %49, %81

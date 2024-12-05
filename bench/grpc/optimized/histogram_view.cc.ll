@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView5CountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %num_buckets = getelementptr inbounds i8, ptr %this, i64 16
+  %num_buckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds i8, ptr %this, i64 24
+  %buckets = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -20,7 +20,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %sum.05 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
   %conv = uitofp i64 %2 to double
   %add = fadd double %sum.05, %conv
@@ -36,13 +36,13 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView22ThresholdForCountBelowEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %count_below) local_unnamed_addr #0 align 2 {
 entry:
-  %num_buckets = getelementptr inbounds i8, ptr %this, i64 16
+  %num_buckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets, align 8
   %cmp17 = icmp sgt i32 %0, 0
   br i1 %cmp17, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds i8, ptr %this, i64 24
+  %buckets = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -50,7 +50,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %count_so_far.018 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add, %for.inc ]
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx, align 8
   %conv = uitofp i64 %2 to double
   %add = fadd double %count_so_far.018, %conv
@@ -74,7 +74,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   br i1 %cmp3, label %for.cond6.preheader, label %if.else
 
 for.cond6.preheader:                              ; preds = %for.end
-  %buckets10 = getelementptr inbounds i8, ptr %this, i64 24
+  %buckets10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %buckets10, align 8
   %6 = add i32 %lower_idx.0.lcssa, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 %6)
@@ -88,19 +88,19 @@ for.cond6:                                        ; preds = %for.cond6.preheader
   br i1 %cmp8, label %for.body9, label %for.end17
 
 for.body9:                                        ; preds = %for.cond6
-  %arrayidx12 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.next27
+  %arrayidx12 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.next27
   %8 = load i64, ptr %arrayidx12, align 8
   %tobool.not = icmp eq i64 %8, 0
   br i1 %tobool.not, label %for.cond6, label %for.end17, !llvm.loop !7
 
 for.end17:                                        ; preds = %for.body9, %for.cond6
   %upper_idx.0.lcssa = phi i32 [ %7, %for.body9 ], [ %smax, %for.cond6 ]
-  %bucket_boundaries = getelementptr inbounds i8, ptr %this, i64 8
+  %bucket_boundaries = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load ptr, ptr %bucket_boundaries, align 8
-  %arrayidx19 = getelementptr inbounds i32, ptr %9, i64 %4
+  %arrayidx19 = getelementptr inbounds nuw i32, ptr %9, i64 %4
   %10 = load i32, ptr %arrayidx19, align 4
   %idxprom21 = zext nneg i32 %upper_idx.0.lcssa to i64
-  %arrayidx22 = getelementptr inbounds i32, ptr %9, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw i32, ptr %9, i64 %idxprom21
   %11 = load i32, ptr %arrayidx22, align 4
   %add23 = add nsw i32 %11, %10
   %conv24 = sitofp i32 %add23 to double
@@ -108,20 +108,20 @@ for.end17:                                        ; preds = %for.body9, %for.con
   br label %return
 
 if.else:                                          ; preds = %for.end
-  %bucket_boundaries25 = getelementptr inbounds i8, ptr %this, i64 8
+  %bucket_boundaries25 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %bucket_boundaries25, align 8
-  %arrayidx27 = getelementptr inbounds i32, ptr %12, i64 %4
+  %arrayidx27 = getelementptr inbounds nuw i32, ptr %12, i64 %4
   %13 = load i32, ptr %arrayidx27, align 4
   %conv28 = sitofp i32 %13 to double
-  %arrayidx32 = getelementptr inbounds i8, ptr %arrayidx27, i64 4
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 4
   %14 = load i32, ptr %arrayidx32, align 4
   %conv33 = sitofp i32 %14 to double
   %sub = fsub double %conv33, %conv28
   %sub34 = fsub double %count_so_far.1, %count_below
   %mul = fmul double %sub34, %sub
-  %buckets35 = getelementptr inbounds i8, ptr %this, i64 24
+  %buckets35 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load ptr, ptr %buckets35, align 8
-  %arrayidx37 = getelementptr inbounds i64, ptr %15, i64 %4
+  %arrayidx37 = getelementptr inbounds nuw i64, ptr %15, i64 %4
   %16 = load i64, ptr %arrayidx37, align 8
   %conv38 = uitofp i64 %16 to double
   %div39 = fdiv double %mul, %conv38
@@ -136,13 +136,13 @@ return:                                           ; preds = %if.else, %for.end17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK9grpc_core13HistogramView10PercentileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %p) local_unnamed_addr #0 align 2 {
 entry:
-  %num_buckets.i = getelementptr inbounds i8, ptr %this, i64 16
+  %num_buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %num_buckets.i, align 8
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %buckets.i = getelementptr inbounds i8, ptr %this, i64 24
+  %buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %buckets.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -150,7 +150,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.05.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %2 = load i64, ptr %arrayidx.i, align 8
   %conv.i = uitofp i64 %2 to double
   %add.i = fadd double %sum.05.i, %conv.i
@@ -170,7 +170,7 @@ if.end:                                           ; preds = %_ZNK9grpc_core13His
 for.body.i6:                                      ; preds = %for.inc.i, %if.end
   %indvars.iv.i7 = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i11, %for.inc.i ]
   %count_so_far.018.i = phi double [ 0.000000e+00, %if.end ], [ %add.i10, %for.inc.i ]
-  %arrayidx.i8 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i7
+  %arrayidx.i8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i7
   %3 = load i64, ptr %arrayidx.i8, align 8
   %conv.i9 = uitofp i64 %3 to double
   %add.i10 = fadd double %count_so_far.018.i, %conv.i9
@@ -206,19 +206,19 @@ for.cond6.i:                                      ; preds = %for.body9.i, %for.c
   br i1 %cmp8.i, label %for.body9.i, label %for.end17.i
 
 for.body9.i:                                      ; preds = %for.cond6.i
-  %arrayidx12.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next27.i
+  %arrayidx12.i = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next27.i
   %7 = load i64, ptr %arrayidx12.i, align 8
   %tobool.not.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i, label %for.cond6.i, label %for.end17.i, !llvm.loop !7
 
 for.end17.i:                                      ; preds = %for.body9.i, %for.cond6.i
   %upper_idx.0.lcssa.i = phi i32 [ %6, %for.body9.i ], [ %smax.i, %for.cond6.i ]
-  %bucket_boundaries.i = getelementptr inbounds i8, ptr %this, i64 8
+  %bucket_boundaries.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %bucket_boundaries.i, align 8
-  %arrayidx19.i = getelementptr inbounds i32, ptr %8, i64 %.pre-phi
+  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi
   %9 = load i32, ptr %arrayidx19.i, align 4
   %idxprom21.i = zext nneg i32 %upper_idx.0.lcssa.i to i64
-  %arrayidx22.i = getelementptr inbounds i32, ptr %8, i64 %idxprom21.i
+  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %8, i64 %idxprom21.i
   %10 = load i32, ptr %arrayidx22.i, align 4
   %add23.i = add nsw i32 %10, %9
   %conv24.i = sitofp i32 %add23.i to double
@@ -226,18 +226,18 @@ for.end17.i:                                      ; preds = %for.body9.i, %for.c
   br label %return
 
 if.else.i:                                        ; preds = %for.end.i
-  %bucket_boundaries25.i = getelementptr inbounds i8, ptr %this, i64 8
+  %bucket_boundaries25.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %bucket_boundaries25.i, align 8
-  %arrayidx27.i = getelementptr inbounds i32, ptr %11, i64 %.pre-phi
+  %arrayidx27.i = getelementptr inbounds nuw i32, ptr %11, i64 %.pre-phi
   %12 = load i32, ptr %arrayidx27.i, align 4
   %conv28.i = sitofp i32 %12 to double
-  %arrayidx32.i = getelementptr inbounds i8, ptr %arrayidx27.i, i64 4
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %arrayidx27.i, i64 4
   %13 = load i32, ptr %arrayidx32.i, align 4
   %conv33.i = sitofp i32 %13 to double
   %sub.i = fsub double %conv33.i, %conv28.i
   %sub34.i = fsub double %add.i10, %div
   %mul.i = fmul double %sub34.i, %sub.i
-  %arrayidx37.i = getelementptr inbounds i64, ptr %1, i64 %.pre-phi
+  %arrayidx37.i = getelementptr inbounds nuw i64, ptr %1, i64 %.pre-phi
   %14 = load i64, ptr %arrayidx37.i, align 8
   %conv38.i = uitofp i64 %14 to double
   %div39.i = fdiv double %mul.i, %conv38.i

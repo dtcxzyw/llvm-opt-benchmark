@@ -66,9 +66,9 @@ define dso_local noundef i64 @sampling_rate_store(ptr noundef %0, ptr nocapture 
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 140
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %7, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %.loopexit, label %.preheader
@@ -107,14 +107,14 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %10
 
 .thread:                                          ; preds = %13, %42, %20
@@ -148,9 +148,9 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_dbs to i64)
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %6, align 8
-  %32 = tail call i64 @get_cpu_idle_time(i32 noundef %22, ptr noundef %30, i32 noundef %31) #9
+  %32 = tail call i64 @get_cpu_idle_time(i32 noundef %22, ptr noundef nonnull %30, i32 noundef %31) #9
   store i64 %32, ptr %29, align 8
   %33 = load i32, ptr %7, align 8
   %34 = icmp eq i32 %33, 0
@@ -162,7 +162,7 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly %0) #0 align 16 
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %29, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 %40, ptr %41, align 8
   br label %42
 
@@ -182,18 +182,18 @@ declare dso_local i64 @get_cpu_idle_time(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 140
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 140
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %6, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %8, 0
   %17 = shl i32 %13, 1
@@ -225,7 +225,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   store i64 0, ptr %2, align 8, !annotation !5
   %36 = call i64 @get_cpu_idle_time(i32 noundef %28, ptr noundef nonnull %2, i32 noundef %15) #9
   %37 = load i64, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %37, %39
   %41 = trunc i64 %40 to i32
@@ -241,7 +241,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %35, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = sub i64 %49, %51
   %53 = udiv i64 %52, 1000
@@ -256,7 +256,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   br i1 %58, label %59, label %62, !prof !13
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %35, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %61 = load i32, ptr %60, align 8
   br label %81
 
@@ -265,7 +265,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %35, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %69, label %68, !prof !14
@@ -291,7 +291,7 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
 
 78:                                               ; preds = %75, %71
   %79 = phi i32 [ %74, %71 ], [ %77, %75 ]
-  %80 = getelementptr inbounds i8, ptr %35, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 %79, ptr %80, align 8
   br label %81
 
@@ -317,22 +317,22 @@ define dso_local i32 @dbs_update(ptr nocapture noundef readonly %0) #0 align 16 
 .thread:                                          ; preds = %18, %87, %26
   %.lcssa6 = phi i32 [ %21, %18 ], [ %88, %87 ], [ %21, %26 ]
   %.lcssa = phi i32 [ %20, %18 ], [ %89, %87 ], [ %20, %26 ]
-  %93 = getelementptr inbounds i8, ptr %4, i64 156
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store i32 %.lcssa6, ptr %93, align 4
   ret i32 %.lcssa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread10
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9() #9
   %11 = icmp eq ptr %10, null
@@ -340,25 +340,25 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 
 12:                                               ; preds = %7
   store ptr %0, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @__mutex_init(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @alloc_policy_dbs_info.__key) #9
-  %14 = getelementptr inbounds i8, ptr %10, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @__mutex_init(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @alloc_policy_dbs_info.__key) #9
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store volatile i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %10, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr @dbs_irq_work, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i64 68719476704, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store volatile ptr %19, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store volatile ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store ptr @dbs_work_handler, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 23:                                               ; preds = %12, %33
@@ -381,7 +381,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, ptrtoint (ptr @cpu_dbs to i64)
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %10, ptr %39, align 8
   %40 = add nuw nsw i64 %30, 1
   %41 = and i64 %40, 127
@@ -390,7 +390,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 
 .thread:                                          ; preds = %29, %33, %23
   tail call void @mutex_lock(ptr noundef nonnull @gov_dbs_data_mutex) #9
-  %43 = getelementptr inbounds i8, ptr %3, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %52, label %46
@@ -406,11 +406,11 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   br label %85
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %10, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr %44, ptr %50, align 8
   store ptr %10, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %10, i64 136
-  tail call void @gov_attr_set_get(ptr noundef nonnull %44, ptr noundef %51) #9
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  tail call void @gov_attr_set_get(ptr noundef nonnull %44, ptr noundef nonnull %51) #9
   br label %111
 
 52:                                               ; preds = %.thread
@@ -420,11 +420,11 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   br i1 %55, label %85, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %54, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 120
   store ptr %3, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 136
-  tail call void @gov_attr_set_init(ptr noundef nonnull %54, ptr noundef %58) #9
-  %59 = getelementptr inbounds i8, ptr %3, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  tail call void @gov_attr_set_init(ptr noundef nonnull %54, ptr noundef nonnull %58) #9
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 %60(ptr noundef nonnull %54) #9
   %62 = icmp eq i32 %61, 0
@@ -433,7 +433,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 63:                                               ; preds = %56
   %64 = tail call i32 @cpufreq_policy_transition_delay_us(ptr noundef %0) #9
   %65 = tail call i32 @llvm.umax.i32(i32 %64, i32 2000)
-  %66 = getelementptr inbounds i8, ptr %54, i64 140
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 140
   store i32 %65, ptr %66, align 4
   %67 = tail call zeroext i1 @have_governor_per_policy() #9
   br i1 %67, label %69, label %68
@@ -443,15 +443,15 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   br label %69
 
 69:                                               ; preds = %68, %63
-  %70 = getelementptr inbounds i8, ptr %10, i64 128
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr %54, ptr %70, align 8
   store ptr %10, ptr %4, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 104
-  %72 = getelementptr inbounds i8, ptr %3, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr @governor_sysfs_ops, ptr %72, align 8
   store ptr @cpufreq_dbs_data_release, ptr %71, align 8
   %73 = tail call ptr @get_governor_parent_kobj(ptr noundef %0) #9
-  %74 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %54, ptr noundef %71, ptr noundef %73, ptr noundef nonnull @.str.2, ptr noundef %3) #9
+  %74 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %54, ptr noundef nonnull %71, ptr noundef %73, ptr noundef nonnull @.str.2, ptr noundef %3) #9
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %111, label %76
 
@@ -467,7 +467,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   br label %80
 
 80:                                               ; preds = %79, %76
-  %81 = getelementptr inbounds i8, ptr %3, i64 192
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull %54) #9
   br label %83
@@ -484,7 +484,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 87:                                               ; preds = %85, %99
   %88 = phi i64 [ 0, %85 ], [ %107, %99 ]
   %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = shl nsw i64 -1, %88
   %93 = and i64 %91, %92
@@ -503,15 +503,15 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %102, ptrtoint (ptr @cpu_dbs to i64)
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %106 = add nuw nsw i64 %96, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   %107 = and i64 %106, 127
   %108 = icmp samesign ugt i64 %107, 63
   br i1 %108, label %.thread12, label %87, !prof !11, !llvm.loop !20
 
 .thread12:                                        ; preds = %87, %99, %95
-  %109 = getelementptr inbounds i8, ptr %3, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %110 = load ptr, ptr %109, align 8
   tail call void %110(ptr noundef nonnull %10) #9
   br label %111
@@ -540,9 +540,9 @@ declare dso_local i32 @cpufreq_policy_transition_delay_us(ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cpufreq_dbs_data_release(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #9
   tail call void @kfree(ptr noundef %0) #9
@@ -566,15 +566,15 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @cpufreq_dbs_governor_exit(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   tail call void @mutex_lock(ptr noundef nonnull @gov_dbs_data_mutex) #9
-  %8 = getelementptr inbounds i8, ptr %5, i64 136
-  %9 = tail call i32 @gov_attr_set_put(ptr noundef %7, ptr noundef %8) #9
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %9 = tail call i32 @gov_attr_set_put(ptr noundef %7, ptr noundef nonnull %8) #9
   store ptr null, ptr %4, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.preheader
@@ -584,7 +584,7 @@ define dso_local void @cpufreq_dbs_governor_exit(ptr nocapture noundef %0) #0 al
   br i1 %12, label %.preheader, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %3, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr null, ptr %14, align 8
   br label %.preheader
 
@@ -594,7 +594,7 @@ define dso_local void @cpufreq_dbs_governor_exit(ptr nocapture noundef %0) #0 al
 15:                                               ; preds = %.preheader, %27
   %16 = phi i64 [ %35, %27 ], [ 0, %.preheader ]
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = shl nsw i64 -1, %16
   %21 = and i64 %19, %20
@@ -613,15 +613,15 @@ define dso_local void @cpufreq_dbs_governor_exit(ptr nocapture noundef %0) #0 al
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @cpu_dbs to i64)
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = add nuw nsw i64 %24, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   %35 = and i64 %34, 127
   %36 = icmp samesign ugt i64 %35, 63
   br i1 %36, label %.thread, label %15, !prof !11, !llvm.loop !20
 
 .thread:                                          ; preds = %15, %27, %23
-  %37 = getelementptr inbounds i8, ptr %3, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef %5) #9
   tail call void @mutex_unlock(ptr noundef nonnull @gov_dbs_data_mutex) #9
@@ -633,32 +633,32 @@ declare dso_local i32 @gov_attr_set_put(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread7, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
   %13 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #13, !srcloc !21
   %14 = and i64 %13, 4294967294
   %15 = icmp ne i64 %14, 0
-  %16 = getelementptr inbounds i8, ptr %5, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %17 = zext i1 %15 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 140
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %24 = load i32, ptr %23, align 8
   %.fr8 = freeze i32 %22
   %25 = icmp eq i32 %.fr8, 0
@@ -684,10 +684,10 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, ptrtoint (ptr @cpu_dbs to i64)
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = tail call i64 @get_cpu_idle_time(i32 noundef %33, ptr noundef %41, i32 noundef %24) #9
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = tail call i64 @get_cpu_idle_time(i32 noundef %33, ptr noundef nonnull %41, i32 noundef %24) #9
   store i64 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i32 0, ptr %43, align 8
   %44 = add nuw nsw i64 %32, 1
   %45 = and i64 %44, 127
@@ -714,17 +714,17 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, ptrtoint (ptr @cpu_dbs to i64)
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = tail call i64 @get_cpu_idle_time(i32 noundef %54, ptr noundef %62, i32 noundef %24) #9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = tail call i64 @get_cpu_idle_time(i32 noundef %54, ptr noundef nonnull %62, i32 noundef %24) #9
   store i64 %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i32 0, ptr %64, align 8
   %65 = load i64, ptr %58, align 8
   %66 = add i64 %65, ptrtoint (ptr @kernel_cpustat to i64)
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %69, ptr %70, align 8
   %71 = add nuw nsw i64 %53, 1
   %72 = and i64 %71, 127
@@ -732,15 +732,15 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   br i1 %73, label %.thread, label %.split, !prof !11, !llvm.loop !22
 
 .thread:                                          ; preds = %52, %56, %.split, %.split.us, %31, %35
-  %74 = getelementptr inbounds i8, ptr %3, i64 200
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef %0) #9
   %76 = load ptr, ptr %5, align 8
   %77 = zext i32 %20 to i64
   %78 = mul nuw nsw i64 %77, 1000
-  %79 = getelementptr inbounds i8, ptr %5, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %5, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %80, align 8
   br label %81
 
@@ -764,8 +764,8 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, ptrtoint (ptr @cpu_dbs to i64)
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
-  tail call void @cpufreq_add_update_util_hook(i32 noundef %89, ptr noundef %97, ptr noundef nonnull @dbs_update_util_handler) #9
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  tail call void @cpufreq_add_update_util_hook(i32 noundef %89, ptr noundef nonnull %97, ptr noundef nonnull @dbs_update_util_handler) #9
   %98 = add nuw nsw i64 %88, 1
   %99 = and i64 %98, 127
   %100 = icmp samesign ugt i64 %99, 63
@@ -778,7 +778,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @cpufreq_dbs_governor_stop(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   br label %5
@@ -806,13 +806,13 @@ define dso_local void @cpufreq_dbs_governor_stop(ptr nocapture noundef readonly 
 
 .thread:                                          ; preds = %5, %15, %11
   tail call void @synchronize_rcu() #9
-  %19 = getelementptr inbounds i8, ptr %3, i64 64
-  tail call void @irq_work_sync(ptr noundef %19) #9
-  %20 = getelementptr inbounds i8, ptr %3, i64 96
-  %21 = tail call zeroext i1 @cancel_work_sync(ptr noundef %20) #9
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  tail call void @irq_work_sync(ptr noundef nonnull %19) #9
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %21 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %20) #9
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store volatile i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 161
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 161
   store i8 0, ptr %23, align 1
   ret void
 }
@@ -826,17 +826,17 @@ declare dso_local zeroext i1 @cancel_work_sync(ptr noundef) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @cpufreq_dbs_governor_limits(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @gov_dbs_data_mutex) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @mutex_lock(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @mutex_lock(ptr noundef nonnull %6) #9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %8, %10
   br i1 %11, label %12, label %14
@@ -846,7 +846,7 @@ define dso_local void @cpufreq_dbs_governor_limits(ptr noundef %0) #0 align 16 {
   br label %20
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = icmp ugt i32 %16, %10
   br i1 %17, label %18, label %20
@@ -856,9 +856,9 @@ define dso_local void @cpufreq_dbs_governor_limits(ptr noundef %0) #0 align 16 {
   br label %20
 
 20:                                               ; preds = %18, %14, %12
-  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 0, ptr %21, align 8
-  tail call void @mutex_unlock(ptr noundef %6) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #9
   br label %22
 
 22:                                               ; preds = %20, %1
@@ -882,11 +882,11 @@ define internal void @dbs_irq_work(ptr noundef %0) #0 align 16 {
 define internal void @dbs_work_handler(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 -88
   tail call void @mutex_lock(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %5, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %3) #9
   %10 = zext i32 %9 to i64
@@ -923,29 +923,29 @@ define internal void @dbs_update_util_handler(ptr nocapture noundef readonly %0,
   br i1 %7, label %8, label %.thread1
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 161
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 161
   %10 = load i8, ptr %9, align 1, !range !27, !noundef !28
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread1
 
 12:                                               ; preds = %8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !29
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = load volatile i64, ptr %13, align 8
   %15 = sub i64 %1, %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %15, %17
   br i1 %18, label %.thread1, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %5, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %21 = load i8, ptr %20, align 8, !range !27, !noundef !28
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %40, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load volatile i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %.thread1, label %.lr.ph, !prof !30
@@ -953,7 +953,7 @@ define internal void @dbs_update_util_handler(ptr nocapture noundef readonly %0,
 .lr.ph:                                           ; preds = %23, %33
   %27 = phi i32 [ %34, %33 ], [ %25, %23 ]
   %28 = add i32 %27, 1
-  %29 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 %28, ptr elementtype(i32) %24, i32 %27) #9, !srcloc !31
+  %29 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 %28, ptr nonnull elementtype(i32) %24, i32 %27) #9, !srcloc !31
   %30 = extractvalue { i8, i32 } %29, 0
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
@@ -977,8 +977,8 @@ define internal void @dbs_update_util_handler(ptr nocapture noundef readonly %0,
 40:                                               ; preds = %36, %19
   store i64 %1, ptr %13, align 8
   store i8 1, ptr %9, align 1
-  %41 = getelementptr inbounds i8, ptr %5, i64 64
-  %42 = tail call zeroext i1 @irq_work_queue(ptr noundef %41) #9
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %42 = tail call zeroext i1 @irq_work_queue(ptr noundef nonnull %41) #9
   br label %.thread1
 
 .thread1:                                         ; preds = %33, %23, %40, %39, %12, %8, %3

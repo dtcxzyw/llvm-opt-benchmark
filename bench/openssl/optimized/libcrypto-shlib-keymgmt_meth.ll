@@ -18,19 +18,19 @@ declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @keymgmt_from_algorithm(i32 noundef %name_id, ptr noundef %algodef, ptr noundef %prov) #0 {
 entry:
-  %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
+  %implementation = getelementptr inbounds nuw i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 232, ptr noundef nonnull @.str, i32 noundef 24) #4
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %name_id1 = getelementptr inbounds i8, ptr %call.i, i64 4
+  %name_id1 = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 %name_id, ptr %name_id1, align 4
   %call2 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #4
-  %type_name = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call2, ptr %type_name, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end.i151, label %if.end5
@@ -52,41 +52,41 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i151
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
   %2 = phi ptr [ null, %CRYPTO_DOWN_REF.exit.i ], [ %.pre164, %CRYPTO_DOWN_REF.exit.thread.i ]
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 262) #4
-  %prov.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %prov.i, align 8
   tail call void @ossl_provider_free(ptr noundef %3) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 265) #4
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %algorithm_description = getelementptr inbounds i8, ptr %algodef, i64 24
+  %algorithm_description = getelementptr inbounds nuw i8, ptr %algodef, i64 24
   %4 = load ptr, ptr %algorithm_description, align 8
-  %description = getelementptr inbounds i8, ptr %call.i, i64 16
+  %description = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %4, ptr %description, align 8
-  %export_types_ex = getelementptr inbounds i8, ptr %call.i, i64 216
-  %export_types = getelementptr inbounds i8, ptr %call.i, i64 208
-  %export = getelementptr inbounds i8, ptr %call.i, i64 200
-  %import_types_ex = getelementptr inbounds i8, ptr %call.i, i64 192
-  %import_types = getelementptr inbounds i8, ptr %call.i, i64 184
-  %import = getelementptr inbounds i8, ptr %call.i, i64 176
-  %match = getelementptr inbounds i8, ptr %call.i, i64 168
-  %validate = getelementptr inbounds i8, ptr %call.i, i64 160
-  %dup = getelementptr inbounds i8, ptr %call.i, i64 224
-  %has = getelementptr inbounds i8, ptr %call.i, i64 152
-  %query_operation_name = getelementptr inbounds i8, ptr %call.i, i64 144
-  %settable_params = getelementptr inbounds i8, ptr %call.i, i64 80
-  %set_params = getelementptr inbounds i8, ptr %call.i, i64 72
-  %gettable_params = getelementptr inbounds i8, ptr %call.i, i64 64
-  %get_params = getelementptr inbounds i8, ptr %call.i, i64 56
-  %load = getelementptr inbounds i8, ptr %call.i, i64 136
-  %free = getelementptr inbounds i8, ptr %call.i, i64 48
-  %gen_cleanup = getelementptr inbounds i8, ptr %call.i, i64 128
-  %gen = getelementptr inbounds i8, ptr %call.i, i64 120
-  %gen_settable_params = getelementptr inbounds i8, ptr %call.i, i64 112
-  %gen_set_params = getelementptr inbounds i8, ptr %call.i, i64 104
-  %gen_set_template = getelementptr inbounds i8, ptr %call.i, i64 96
-  %gen_init = getelementptr inbounds i8, ptr %call.i, i64 88
-  %new = getelementptr inbounds i8, ptr %call.i, i64 40
+  %export_types_ex = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %export_types = getelementptr inbounds nuw i8, ptr %call.i, i64 208
+  %export = getelementptr inbounds nuw i8, ptr %call.i, i64 200
+  %import_types_ex = getelementptr inbounds nuw i8, ptr %call.i, i64 192
+  %import_types = getelementptr inbounds nuw i8, ptr %call.i, i64 184
+  %import = getelementptr inbounds nuw i8, ptr %call.i, i64 176
+  %match = getelementptr inbounds nuw i8, ptr %call.i, i64 168
+  %validate = getelementptr inbounds nuw i8, ptr %call.i, i64 160
+  %dup = getelementptr inbounds nuw i8, ptr %call.i, i64 224
+  %has = getelementptr inbounds nuw i8, ptr %call.i, i64 152
+  %query_operation_name = getelementptr inbounds nuw i8, ptr %call.i, i64 144
+  %settable_params = getelementptr inbounds nuw i8, ptr %call.i, i64 80
+  %set_params = getelementptr inbounds nuw i8, ptr %call.i, i64 72
+  %gettable_params = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %get_params = getelementptr inbounds nuw i8, ptr %call.i, i64 56
+  %load = getelementptr inbounds nuw i8, ptr %call.i, i64 136
+  %free = getelementptr inbounds nuw i8, ptr %call.i, i64 48
+  %gen_cleanup = getelementptr inbounds nuw i8, ptr %call.i, i64 128
+  %gen = getelementptr inbounds nuw i8, ptr %call.i, i64 120
+  %gen_settable_params = getelementptr inbounds nuw i8, ptr %call.i, i64 112
+  %gen_set_params = getelementptr inbounds nuw i8, ptr %call.i, i64 104
+  %gen_set_template = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %gen_init = getelementptr inbounds nuw i8, ptr %call.i, i64 88
+  %new = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end5
@@ -423,7 +423,7 @@ for.inc:                                          ; preds = %for.cond, %if.then9
   %exportfncnt.3 = phi i32 [ %spec.select122, %if.then169 ], [ %exportfncnt.0, %sw.bb167 ], [ %spec.select121, %if.then158 ], [ %exportfncnt.0, %sw.bb156 ], [ %inc152, %if.then151 ], [ %exportfncnt.0, %sw.bb149 ], [ %exportfncnt.0, %if.then140 ], [ %exportfncnt.0, %sw.bb138 ], [ %exportfncnt.0, %if.then129 ], [ %exportfncnt.0, %sw.bb127 ], [ %exportfncnt.0, %if.then122 ], [ %exportfncnt.0, %sw.bb120 ], [ %exportfncnt.0, %if.then116 ], [ %exportfncnt.0, %sw.bb114 ], [ %exportfncnt.0, %if.then110 ], [ %exportfncnt.0, %sw.bb108 ], [ %exportfncnt.0, %if.then104 ], [ %exportfncnt.0, %sw.bb102 ], [ %exportfncnt.0, %if.then98 ], [ %exportfncnt.0, %sw.bb96 ], [ %exportfncnt.0, %if.then92 ], [ %exportfncnt.0, %sw.bb90 ], [ %exportfncnt.0, %if.then85 ], [ %exportfncnt.0, %sw.bb83 ], [ %exportfncnt.0, %if.then78 ], [ %exportfncnt.0, %sw.bb76 ], [ %exportfncnt.0, %if.then71 ], [ %exportfncnt.0, %sw.bb69 ], [ %exportfncnt.0, %if.then64 ], [ %exportfncnt.0, %sw.bb62 ], [ %exportfncnt.0, %if.then58 ], [ %exportfncnt.0, %sw.bb56 ], [ %exportfncnt.0, %if.then52 ], [ %exportfncnt.0, %sw.bb50 ], [ %exportfncnt.0, %if.then46 ], [ %exportfncnt.0, %sw.bb44 ], [ %exportfncnt.0, %if.then40 ], [ %exportfncnt.0, %sw.bb38 ], [ %exportfncnt.0, %if.then33 ], [ %exportfncnt.0, %sw.bb31 ], [ %exportfncnt.0, %if.then27 ], [ %exportfncnt.0, %sw.bb25 ], [ %exportfncnt.0, %if.then21 ], [ %exportfncnt.0, %sw.bb19 ], [ %exportfncnt.0, %if.then15 ], [ %exportfncnt.0, %sw.bb13 ], [ %exportfncnt.0, %if.then9 ], [ %exportfncnt.0, %sw.bb ], [ %exportfncnt.0, %for.cond ]
   %importtypesfncnt.1 = phi i32 [ %importtypesfncnt.0, %if.then169 ], [ %importtypesfncnt.0, %sw.bb167 ], [ %importtypesfncnt.0, %if.then158 ], [ %importtypesfncnt.0, %sw.bb156 ], [ %importtypesfncnt.0, %if.then151 ], [ %importtypesfncnt.0, %sw.bb149 ], [ %inc145, %if.then140 ], [ %importtypesfncnt.0, %sw.bb138 ], [ %inc134, %if.then129 ], [ %importtypesfncnt.0, %sw.bb127 ], [ %importtypesfncnt.0, %if.then122 ], [ %importtypesfncnt.0, %sw.bb120 ], [ %importtypesfncnt.0, %if.then116 ], [ %importtypesfncnt.0, %sw.bb114 ], [ %importtypesfncnt.0, %if.then110 ], [ %importtypesfncnt.0, %sw.bb108 ], [ %importtypesfncnt.0, %if.then104 ], [ %importtypesfncnt.0, %sw.bb102 ], [ %importtypesfncnt.0, %if.then98 ], [ %importtypesfncnt.0, %sw.bb96 ], [ %importtypesfncnt.0, %if.then92 ], [ %importtypesfncnt.0, %sw.bb90 ], [ %importtypesfncnt.0, %if.then85 ], [ %importtypesfncnt.0, %sw.bb83 ], [ %importtypesfncnt.0, %if.then78 ], [ %importtypesfncnt.0, %sw.bb76 ], [ %importtypesfncnt.0, %if.then71 ], [ %importtypesfncnt.0, %sw.bb69 ], [ %importtypesfncnt.0, %if.then64 ], [ %importtypesfncnt.0, %sw.bb62 ], [ %importtypesfncnt.0, %if.then58 ], [ %importtypesfncnt.0, %sw.bb56 ], [ %importtypesfncnt.0, %if.then52 ], [ %importtypesfncnt.0, %sw.bb50 ], [ %importtypesfncnt.0, %if.then46 ], [ %importtypesfncnt.0, %sw.bb44 ], [ %importtypesfncnt.0, %if.then40 ], [ %importtypesfncnt.0, %sw.bb38 ], [ %importtypesfncnt.0, %if.then33 ], [ %importtypesfncnt.0, %sw.bb31 ], [ %importtypesfncnt.0, %if.then27 ], [ %importtypesfncnt.0, %sw.bb25 ], [ %importtypesfncnt.0, %if.then21 ], [ %importtypesfncnt.0, %sw.bb19 ], [ %importtypesfncnt.0, %if.then15 ], [ %importtypesfncnt.0, %sw.bb13 ], [ %importtypesfncnt.0, %if.then9 ], [ %importtypesfncnt.0, %sw.bb ], [ %importtypesfncnt.0, %for.cond ]
   %exporttypesfncnt.1 = phi i32 [ %inc174, %if.then169 ], [ %exporttypesfncnt.0, %sw.bb167 ], [ %inc163, %if.then158 ], [ %exporttypesfncnt.0, %sw.bb156 ], [ %exporttypesfncnt.0, %if.then151 ], [ %exporttypesfncnt.0, %sw.bb149 ], [ %exporttypesfncnt.0, %if.then140 ], [ %exporttypesfncnt.0, %sw.bb138 ], [ %exporttypesfncnt.0, %if.then129 ], [ %exporttypesfncnt.0, %sw.bb127 ], [ %exporttypesfncnt.0, %if.then122 ], [ %exporttypesfncnt.0, %sw.bb120 ], [ %exporttypesfncnt.0, %if.then116 ], [ %exporttypesfncnt.0, %sw.bb114 ], [ %exporttypesfncnt.0, %if.then110 ], [ %exporttypesfncnt.0, %sw.bb108 ], [ %exporttypesfncnt.0, %if.then104 ], [ %exporttypesfncnt.0, %sw.bb102 ], [ %exporttypesfncnt.0, %if.then98 ], [ %exporttypesfncnt.0, %sw.bb96 ], [ %exporttypesfncnt.0, %if.then92 ], [ %exporttypesfncnt.0, %sw.bb90 ], [ %exporttypesfncnt.0, %if.then85 ], [ %exporttypesfncnt.0, %sw.bb83 ], [ %exporttypesfncnt.0, %if.then78 ], [ %exporttypesfncnt.0, %sw.bb76 ], [ %exporttypesfncnt.0, %if.then71 ], [ %exporttypesfncnt.0, %sw.bb69 ], [ %exporttypesfncnt.0, %if.then64 ], [ %exporttypesfncnt.0, %sw.bb62 ], [ %exporttypesfncnt.0, %if.then58 ], [ %exporttypesfncnt.0, %sw.bb56 ], [ %exporttypesfncnt.0, %if.then52 ], [ %exporttypesfncnt.0, %sw.bb50 ], [ %exporttypesfncnt.0, %if.then46 ], [ %exporttypesfncnt.0, %sw.bb44 ], [ %exporttypesfncnt.0, %if.then40 ], [ %exporttypesfncnt.0, %sw.bb38 ], [ %exporttypesfncnt.0, %if.then33 ], [ %exporttypesfncnt.0, %sw.bb31 ], [ %exporttypesfncnt.0, %if.then27 ], [ %exporttypesfncnt.0, %sw.bb25 ], [ %exporttypesfncnt.0, %if.then21 ], [ %exporttypesfncnt.0, %sw.bb19 ], [ %exporttypesfncnt.0, %if.then15 ], [ %exporttypesfncnt.0, %sw.bb13 ], [ %exporttypesfncnt.0, %if.then9 ], [ %exporttypesfncnt.0, %sw.bb ], [ %exporttypesfncnt.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -498,7 +498,7 @@ CRYPTO_DOWN_REF.exit.i157:                        ; preds = %if.end.i154
 if.end3.i159:                                     ; preds = %CRYPTO_DOWN_REF.exit.i157, %CRYPTO_DOWN_REF.exit.thread.i162
   %68 = phi ptr [ %call2, %CRYPTO_DOWN_REF.exit.i157 ], [ %.pre, %CRYPTO_DOWN_REF.exit.thread.i162 ]
   tail call void @CRYPTO_free(ptr noundef %68, ptr noundef nonnull @.str, i32 noundef 262) #4
-  %prov.i161 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov.i161 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %69 = load ptr, ptr %prov.i161, align 8
   tail call void @ossl_provider_free(ptr noundef %69) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 265) #4
@@ -511,7 +511,7 @@ EVP_KEYMGMT_free.exit163:                         ; preds = %CRYPTO_DOWN_REF.exi
   br label %return
 
 if.end220:                                        ; preds = %lor.lhs.false216, %lor.lhs.false210
-  %prov221 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov221 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %prov, ptr %prov221, align 8
   %cmp222.not = icmp eq ptr %prov, null
   br i1 %cmp222.not, label %return, label %if.then223
@@ -528,7 +528,7 @@ return:                                           ; preds = %entry, %if.end3.i, 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @EVP_KEYMGMT_up_ref(ptr nocapture noundef %keymgmt) #2 {
 entry:
-  %refcnt = getelementptr inbounds i8, ptr %keymgmt, i64 32
+  %refcnt = getelementptr inbounds nuw i8, ptr %keymgmt, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -540,7 +540,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds i8, ptr %keymgmt, i64 32
+  %refcnt = getelementptr inbounds nuw i8, ptr %keymgmt, i64 32
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -554,10 +554,10 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %type_name = getelementptr inbounds i8, ptr %keymgmt, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %keymgmt, i64 8
   %1 = load ptr, ptr %type_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 262) #4
-  %prov = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %2 = load ptr, ptr %prov, align 8
   tail call void @ossl_provider_free(ptr noundef %2) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %keymgmt, ptr noundef nonnull @.str, i32 noundef 265) #4
@@ -583,7 +583,7 @@ declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KEYMGMT_get0_provider(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov, align 8
   ret ptr %0
 }
@@ -591,7 +591,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_keymgmt_get_number(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
 entry:
-  %name_id = getelementptr inbounds i8, ptr %keymgmt, i64 4
+  %name_id = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %0 = load i32, ptr %name_id, align 4
   ret i32 %0
 }
@@ -599,7 +599,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KEYMGMT_get0_description(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
 entry:
-  %description = getelementptr inbounds i8, ptr %keymgmt, i64 16
+  %description = getelementptr inbounds nuw i8, ptr %keymgmt, i64 16
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }
@@ -607,7 +607,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_KEYMGMT_get0_name(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #3 {
 entry:
-  %type_name = getelementptr inbounds i8, ptr %keymgmt, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %keymgmt, i64 8
   %0 = load ptr, ptr %type_name, align 8
   ret ptr %0
 }
@@ -619,9 +619,9 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %prov = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov, align 8
-  %name_id = getelementptr inbounds i8, ptr %keymgmt, i64 4
+  %name_id = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %1 = load i32, ptr %name_id, align 4
   %call = tail call i32 @evp_is_a(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #4
   %tobool = icmp ne i32 %call, 0
@@ -647,13 +647,13 @@ declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_KEYMGMT_names_do_all(ptr nocapture noundef readonly %keymgmt, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name_id = getelementptr inbounds i8, ptr %keymgmt, i64 4
+  %name_id = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %1 = load i32, ptr %name_id, align 4
   %call = tail call i32 @evp_names_do_all(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #4
   br label %return
@@ -668,10 +668,10 @@ declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_newdata(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %new = getelementptr inbounds i8, ptr %keymgmt, i64 40
+  %new = getelementptr inbounds nuw i8, ptr %keymgmt, i64 40
   %1 = load ptr, ptr %new, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -690,7 +690,7 @@ declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @evp_keymgmt_freedata(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata) local_unnamed_addr #0 {
 entry:
-  %free = getelementptr inbounds i8, ptr %keymgmt, i64 48
+  %free = getelementptr inbounds nuw i8, ptr %keymgmt, i64 48
   %0 = load ptr, ptr %free, align 8
   tail call void %0(ptr noundef %keydata) #4
   ret void
@@ -699,10 +699,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_gen_init(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %gen_init = getelementptr inbounds i8, ptr %keymgmt, i64 88
+  %gen_init = getelementptr inbounds nuw i8, ptr %keymgmt, i64 88
   %1 = load ptr, ptr %gen_init, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -719,7 +719,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_gen_set_template(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %templ) local_unnamed_addr #0 {
 entry:
-  %gen_set_template = getelementptr inbounds i8, ptr %keymgmt, i64 96
+  %gen_set_template = getelementptr inbounds nuw i8, ptr %keymgmt, i64 96
   %0 = load ptr, ptr %gen_set_template, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -736,7 +736,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_gen_set_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %gen_set_params = getelementptr inbounds i8, ptr %keymgmt, i64 104
+  %gen_set_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 104
   %0 = load ptr, ptr %gen_set_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -753,10 +753,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KEYMGMT_gen_settable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %gen_settable_params = getelementptr inbounds i8, ptr %keymgmt, i64 112
+  %gen_settable_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 112
   %1 = load ptr, ptr %gen_settable_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -773,7 +773,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_gen(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %gen = getelementptr inbounds i8, ptr %keymgmt, i64 120
+  %gen = getelementptr inbounds nuw i8, ptr %keymgmt, i64 120
   %0 = load ptr, ptr %gen, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define void @evp_keymgmt_gen_cleanup(ptr nocapture noundef readonly %keymgmt, ptr noundef %genctx) local_unnamed_addr #0 {
 entry:
-  %gen_cleanup = getelementptr inbounds i8, ptr %keymgmt, i64 128
+  %gen_cleanup = getelementptr inbounds nuw i8, ptr %keymgmt, i64 128
   %0 = load ptr, ptr %gen_cleanup, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -810,7 +810,7 @@ entry:
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %load = getelementptr inbounds i8, ptr %keymgmt, i64 136
+  %load = getelementptr inbounds nuw i8, ptr %keymgmt, i64 136
   %0 = load ptr, ptr %load, align 8
   %cmp1 = icmp ne ptr %0, null
   %1 = zext i1 %cmp1 to i32
@@ -828,7 +828,7 @@ entry:
   br i1 %cmp.not.i, label %return, label %evp_keymgmt_has_load.exit
 
 evp_keymgmt_has_load.exit:                        ; preds = %entry
-  %load.i = getelementptr inbounds i8, ptr %keymgmt, i64 136
+  %load.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 136
   %0 = load ptr, ptr %load.i, align 8
   %cmp1.i.not = icmp eq ptr %0, null
   br i1 %cmp1.i.not, label %return, label %if.then
@@ -845,7 +845,7 @@ return:                                           ; preds = %entry, %evp_keymgmt
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_get_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %get_params = getelementptr inbounds i8, ptr %keymgmt, i64 56
+  %get_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 56
   %0 = load ptr, ptr %get_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -862,10 +862,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KEYMGMT_gettable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %gettable_params = getelementptr inbounds i8, ptr %keymgmt, i64 64
+  %gettable_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 64
   %1 = load ptr, ptr %gettable_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -882,7 +882,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_set_params(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %set_params = getelementptr inbounds i8, ptr %keymgmt, i64 72
+  %set_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 72
   %0 = load ptr, ptr %set_params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -899,10 +899,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_KEYMGMT_settable_params(ptr nocapture noundef readonly %keymgmt) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %settable_params = getelementptr inbounds i8, ptr %keymgmt, i64 80
+  %settable_params = getelementptr inbounds nuw i8, ptr %keymgmt, i64 80
   %1 = load ptr, ptr %settable_params, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -919,7 +919,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_has(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %has = getelementptr inbounds i8, ptr %keymgmt, i64 152
+  %has = getelementptr inbounds nuw i8, ptr %keymgmt, i64 152
   %0 = load ptr, ptr %has, align 8
   %call = tail call i32 %0(ptr noundef %keydata, i32 noundef %selection) #4
   ret i32 %call
@@ -928,7 +928,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_validate(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, i32 noundef %checktype) local_unnamed_addr #0 {
 entry:
-  %validate = getelementptr inbounds i8, ptr %keymgmt, i64 160
+  %validate = getelementptr inbounds nuw i8, ptr %keymgmt, i64 160
   %0 = load ptr, ptr %validate, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -945,7 +945,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_match(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata1, ptr noundef %keydata2, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %match = getelementptr inbounds i8, ptr %keymgmt, i64 168
+  %match = getelementptr inbounds nuw i8, ptr %keymgmt, i64 168
   %0 = load ptr, ptr %match, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_import(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %import = getelementptr inbounds i8, ptr %keymgmt, i64 176
+  %import = getelementptr inbounds nuw i8, ptr %keymgmt, i64 176
   %0 = load ptr, ptr %import, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -979,10 +979,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_import_types(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %import_types_ex = getelementptr inbounds i8, ptr %keymgmt, i64 192
+  %import_types_ex = getelementptr inbounds nuw i8, ptr %keymgmt, i64 192
   %1 = load ptr, ptr %import_types_ex, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -992,7 +992,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %import_types = getelementptr inbounds i8, ptr %keymgmt, i64 184
+  %import_types = getelementptr inbounds nuw i8, ptr %keymgmt, i64 184
   %2 = load ptr, ptr %import_types, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %if.end6
@@ -1009,7 +1009,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 ; Function Attrs: nounwind uwtable
 define i32 @evp_keymgmt_export(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata, i32 noundef %selection, ptr noundef %param_cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %export = getelementptr inbounds i8, ptr %keymgmt, i64 200
+  %export = getelementptr inbounds nuw i8, ptr %keymgmt, i64 200
   %0 = load ptr, ptr %export, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1026,10 +1026,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_export_types(ptr nocapture noundef readonly %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %prov.i = getelementptr inbounds i8, ptr %keymgmt, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 24
   %0 = load ptr, ptr %prov.i, align 8
   %call1 = tail call ptr @ossl_provider_ctx(ptr noundef %0) #4
-  %export_types_ex = getelementptr inbounds i8, ptr %keymgmt, i64 216
+  %export_types_ex = getelementptr inbounds nuw i8, ptr %keymgmt, i64 216
   %1 = load ptr, ptr %export_types_ex, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1039,7 +1039,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %export_types = getelementptr inbounds i8, ptr %keymgmt, i64 208
+  %export_types = getelementptr inbounds nuw i8, ptr %keymgmt, i64 208
   %2 = load ptr, ptr %export_types, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %if.end6
@@ -1056,7 +1056,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 ; Function Attrs: nounwind uwtable
 define ptr @evp_keymgmt_dup(ptr nocapture noundef readonly %keymgmt, ptr noundef %keydata_from, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %dup = getelementptr inbounds i8, ptr %keymgmt, i64 224
+  %dup = getelementptr inbounds nuw i8, ptr %keymgmt, i64 224
   %0 = load ptr, ptr %dup, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

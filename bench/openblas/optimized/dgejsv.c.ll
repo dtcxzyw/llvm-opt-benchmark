@@ -328,9 +328,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 200:                                              ; preds = %197, %.thread170
   store i32 0, ptr %17, align 4, !tbaa !3
-  %201 = getelementptr inbounds i8, ptr %17, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %201, align 4, !tbaa !3
-  %202 = getelementptr inbounds i8, ptr %17, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %202, align 4, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   br label %3108
@@ -465,7 +465,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %267 = phi i64 [ 1, %263 ], [ %281, %278 ]
   %268 = phi double [ 0.000000e+00, %263 ], [ %273, %278 ]
   %269 = phi double [ %213, %263 ], [ %280, %278 ]
-  %270 = getelementptr inbounds double, ptr %34, i64 %267
+  %270 = getelementptr inbounds nuw double, ptr %34, i64 %267
   %271 = load double, ptr %270, align 8, !tbaa !7
   %272 = fcmp oge double %268, %271
   %273 = select i1 %272, double %268, double %271
@@ -508,12 +508,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 289:                                              ; preds = %288, %287
   store double 1.000000e+00, ptr %15, align 8, !tbaa !7
-  %290 = getelementptr inbounds i8, ptr %15, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double 1.000000e+00, ptr %290, align 8, !tbaa !7
   br i1 %78, label %291, label %293
 
 291:                                              ; preds = %289
-  %292 = getelementptr inbounds i8, ptr %15, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 1.000000e+00, ptr %292, align 8, !tbaa !7
   br label %293
 
@@ -521,9 +521,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %179, label %294, label %297
 
 294:                                              ; preds = %293
-  %295 = getelementptr inbounds i8, ptr %15, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double 1.000000e+00, ptr %295, align 8, !tbaa !7
-  %296 = getelementptr inbounds i8, ptr %15, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store double 1.000000e+00, ptr %296, align 8, !tbaa !7
   br label %297
 
@@ -531,15 +531,15 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %111, label %300, label %298
 
 298:                                              ; preds = %297
-  %299 = getelementptr inbounds i8, ptr %15, i64 40
+  %299 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, i8 0, i64 16, i1 false)
   br label %300
 
 300:                                              ; preds = %298, %297
   store i32 0, ptr %17, align 4, !tbaa !3
-  %301 = getelementptr inbounds i8, ptr %17, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %301, align 4, !tbaa !3
-  %302 = getelementptr inbounds i8, ptr %17, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %302, align 4, !tbaa !3
   br label %3108
 
@@ -602,7 +602,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %334 = phi double [ 1.000000e+00, %331 ], [ %328, %326 ]
   %335 = fdiv double 1.000000e+00, %334
   store double %335, ptr %15, align 8, !tbaa !7
-  %336 = getelementptr inbounds i8, ptr %15, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double 1.000000e+00, ptr %336, align 8, !tbaa !7
   %337 = load double, ptr %10, align 8, !tbaa !7
   %338 = fcmp une double %337, 0.000000e+00
@@ -612,7 +612,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 1, ptr %17, align 4, !tbaa !3
   %340 = fdiv double %337, %334
   %341 = fcmp ult double %340, %211
-  %342 = getelementptr inbounds i8, ptr %17, i64 4
+  %342 = getelementptr inbounds nuw i8, ptr %17, i64 4
   br i1 %341, label %344, label %343
 
 343:                                              ; preds = %339
@@ -625,17 +625,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 345:                                              ; preds = %333
   store i32 0, ptr %17, align 4, !tbaa !3
-  %346 = getelementptr inbounds i8, ptr %17, i64 4
+  %346 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %346, align 4, !tbaa !3
   br label %347
 
 347:                                              ; preds = %345, %344, %343
-  %348 = getelementptr inbounds i8, ptr %17, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %348, align 4, !tbaa !3
   br i1 %78, label %349, label %351
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds i8, ptr %15, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 1.000000e+00, ptr %350, align 8, !tbaa !7
   br label %351
 
@@ -643,9 +643,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %179, label %352, label %355
 
 352:                                              ; preds = %351
-  %353 = getelementptr inbounds i8, ptr %15, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double 1.000000e+00, ptr %353, align 8, !tbaa !7
-  %354 = getelementptr inbounds i8, ptr %15, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store double 1.000000e+00, ptr %354, align 8, !tbaa !7
   br label %355
 
@@ -653,7 +653,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %111, label %3108, label %356
 
 356:                                              ; preds = %355
-  %357 = getelementptr inbounds i8, ptr %15, i64 40
+  %357 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, i8 0, i64 16, i1 false)
   br label %3108
 
@@ -944,7 +944,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 532:                                              ; preds = %532, %525
   %533 = phi i64 [ 1, %525 ], [ %542, %532 ]
-  %534 = getelementptr inbounds double, ptr %34, i64 %533
+  %534 = getelementptr inbounds nuw double, ptr %34, i64 %533
   %535 = load double, ptr %534, align 8, !tbaa !7
   %536 = trunc i64 %533 to i32
   %537 = add i32 %531, %536
@@ -1402,7 +1402,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %825 = fcmp oge double %824, 0.000000e+00
   %826 = fneg double %824
   %827 = select i1 %825, double %824, double %826
-  %828 = getelementptr inbounds i32, ptr %48, i64 %818
+  %828 = getelementptr inbounds nuw i32, ptr %48, i64 %818
   %829 = load i32, ptr %828, align 4, !tbaa !3
   %830 = sext i32 %829 to i64
   %831 = getelementptr inbounds double, ptr %34, i64 %830
@@ -1916,7 +1916,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgesvj_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %18) #6
   %1148 = load double, ptr %15, align 8, !tbaa !7
   store double %1148, ptr %32, align 8, !tbaa !7
-  %1149 = getelementptr inbounds i8, ptr %15, i64 8
+  %1149 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %1150 = load double, ptr %1149, align 8, !tbaa !7
   %1151 = fcmp ult double %1150, 0.000000e+00
   br i1 %1151, label %1155, label %1152
@@ -1991,7 +1991,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dgesvj_(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %18) #6
   %1192 = load double, ptr %15, align 8, !tbaa !7
   store double %1192, ptr %32, align 8, !tbaa !7
-  %1193 = getelementptr inbounds i8, ptr %15, i64 8
+  %1193 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %1194 = load double, ptr %1193, align 8, !tbaa !7
   %1195 = fcmp ult double %1194, 0.000000e+00
   br i1 %1195, label %1199, label %1196
@@ -3757,7 +3757,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2363 = phi i64 [ 1, %2353 ], [ %2371, %2362 ]
   %2364 = getelementptr double, ptr %2360, i64 %2363
   %2365 = load double, ptr %2364, align 8, !tbaa !7
-  %2366 = getelementptr inbounds i32, ptr %48, i64 %2363
+  %2366 = getelementptr inbounds nuw i32, ptr %48, i64 %2363
   %2367 = load i32, ptr %2366, align 4, !tbaa !3
   %2368 = add i32 %2361, %2367
   %2369 = sext i32 %2368 to i64
@@ -4685,7 +4685,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2966 = phi i64 [ 1, %2956 ], [ %2974, %2965 ]
   %2967 = getelementptr double, ptr %2963, i64 %2966
   %2968 = load double, ptr %2967, align 8, !tbaa !7
-  %2969 = getelementptr inbounds i32, ptr %48, i64 %2966
+  %2969 = getelementptr inbounds nuw i32, ptr %48, i64 %2966
   %2970 = load i32, ptr %2969, align 4, !tbaa !3
   %2971 = add i32 %2964, %2970
   %2972 = sext i32 %2971 to i64
@@ -4876,12 +4876,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %3091 = load double, ptr %32, align 8, !tbaa !7
   %3092 = fmul double %3083, %3091
   store double %3092, ptr %15, align 8, !tbaa !7
-  %3093 = getelementptr inbounds i8, ptr %15, i64 8
+  %3093 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double %3082, ptr %3093, align 8, !tbaa !7
   br i1 %78, label %3094, label %3096
 
 3094:                                             ; preds = %.loopexit604
-  %3095 = getelementptr inbounds i8, ptr %15, i64 16
+  %3095 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double %951, ptr %3095, align 8, !tbaa !7
   br label %3096
 
@@ -4890,9 +4890,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %3097, label %3098, label %3101
 
 3098:                                             ; preds = %3096
-  %3099 = getelementptr inbounds i8, ptr %15, i64 24
+  %3099 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double %3070, ptr %3099, align 8, !tbaa !7
-  %3100 = getelementptr inbounds i8, ptr %15, i64 32
+  %3100 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store double %3071, ptr %3100, align 8, !tbaa !7
   br label %3101
 
@@ -4900,17 +4900,17 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %547, label %3102, label %3105
 
 3102:                                             ; preds = %3101
-  %3103 = getelementptr inbounds i8, ptr %15, i64 40
+  %3103 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store double %548, ptr %3103, align 8, !tbaa !7
-  %3104 = getelementptr inbounds i8, ptr %15, i64 48
+  %3104 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store double %551, ptr %3104, align 8, !tbaa !7
   br label %3105
 
 3105:                                             ; preds = %3102, %3101
   store i32 %3084, ptr %17, align 4, !tbaa !3
-  %3106 = getelementptr inbounds i8, ptr %17, i64 4
+  %3106 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %3073, ptr %3106, align 4, !tbaa !3
-  %3107 = getelementptr inbounds i8, ptr %17, i64 8
+  %3107 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %305, ptr %3107, align 4, !tbaa !3
   br label %3108
 

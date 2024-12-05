@@ -73,7 +73,7 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %10 = getelementptr inbounds %struct.StratumTableRecord, ptr %7, i64 %indvars.iv, i32 1
+  %10 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %7, i64 %indvars.iv, i32 1
   %11 = load i32, ptr %10, align 8
   %gep = getelementptr %struct.StratumTableRecord, ptr %invariant.gep, i64 %indvars.iv
   %12 = load i32, ptr %gep, align 8
@@ -122,9 +122,9 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
 35:                                               ; preds = %29
   %36 = zext nneg i32 %33 to i64
   %.022.idx.i.i = zext i1 %.not.i.i to i64
-  %.022.i.i = getelementptr inbounds i8, ptr %2, i64 %.022.idx.i.i
+  %.022.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.022.idx.i.i
   %.021.idx.i.i = select i1 %.not.i.i, i64 %36, i64 0
-  %.021.i.i = getelementptr inbounds i8, ptr %16, i64 %.021.idx.i.i
+  %.021.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.021.idx.i.i
   %37 = sext i32 %30 to i64
   %38 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i.i, ptr noundef nonnull readonly %.021.i.i, i64 noundef %37) #10
   br label %patternMatch.exit.i
@@ -242,7 +242,7 @@ define internal fastcc void @loadDebugInfo(ptr noundef %0, ptr noundef %1) unnam
   unreachable
 
 sdeRead.exit.i:                                   ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %38, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %47, ptr @sdePos, align 8
   %.not.i = icmp eq i8 %39, 83
   br i1 %.not.i, label %48, label %decode.exit
@@ -264,7 +264,7 @@ sdeRead.exit.i:                                   ; preds = %37
   unreachable
 
 sdeRead.exit5.i:                                  ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %38, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store ptr %57, ptr @sdePos, align 8
   %.not1.i = icmp eq i8 %49, 77
   br i1 %.not1.i, label %58, label %decode.exit
@@ -286,7 +286,7 @@ sdeRead.exit5.i:                                  ; preds = %48
   unreachable
 
 sdeRead.exit6.i:                                  ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %38, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %38, i64 3
   store ptr %67, ptr @sdePos, align 8
   %.not2.i = icmp eq i8 %59, 65
   br i1 %.not2.i, label %68, label %decode.exit
@@ -308,7 +308,7 @@ sdeRead.exit6.i:                                  ; preds = %58
   unreachable
 
 sdeRead.exit7.i:                                  ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %38, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store ptr %77, ptr @sdePos, align 8
   %.not3.i = icmp eq i8 %69, 80
   br i1 %.not3.i, label %78, label %decode.exit
@@ -347,7 +347,7 @@ sdeRead.exit7.i:                                  ; preds = %68
 sdeRead.exit8.i:                                  ; preds = %78, %fileSection.exit.i
   %92 = phi i8 [ %222, %fileSection.exit.i ], [ %84, %78 ]
   %93 = phi ptr [ %223, %fileSection.exit.i ], [ %83, %78 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   store ptr %94, ptr @sdePos, align 8
   %.not4.i = icmp eq i8 %92, 42
   br i1 %.not4.i, label %102, label %95
@@ -382,7 +382,7 @@ sdeRead.exit8.i:                                  ; preds = %78, %fileSection.ex
   unreachable
 
 sdeRead.exit9.i:                                  ; preds = %102
-  %112 = getelementptr inbounds i8, ptr %93, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %93, i64 2
   store ptr %112, ptr @sdePos, align 8
   switch i8 %103, label %.preheader.i [
     i8 83, label %113
@@ -427,7 +427,7 @@ sdePeek.exit.i.i.i:                               ; preds = %116
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %sdePeek.exit.i.i.i
-  %128 = getelementptr inbounds i8, ptr %117, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store ptr %128, ptr @sdePos, align 8
   br label %129
 
@@ -491,7 +491,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   unreachable
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i8, ptr %147, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %147, i64 1
   store ptr %157, ptr @sdePos, align 8
   %158 = call fastcc i32 @readNumber()
   store i32 %158, ptr @currentFileId, align 4
@@ -520,7 +520,7 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   unreachable
 
 169:                                              ; preds = %159
-  %170 = getelementptr inbounds i8, ptr %161, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %161, i64 1
   store ptr %170, ptr @sdePos, align 8
   %171 = call fastcc i32 @readNumber()
   %.pre12.i.i.i = load ptr, ptr @sdePos, align 8
@@ -547,13 +547,13 @@ fileLine.exit.i.i:                                ; preds = %132, %129
   unreachable
 
 sdeRead.exit.i.i.i:                               ; preds = %172
-  %183 = getelementptr inbounds i8, ptr %174, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %174, i64 1
   store ptr %183, ptr @sdePos, align 8
   %.not.i.i.i = icmp eq i8 %173, 58
   br i1 %.not.i.i.i, label %192, label %184
 
 184:                                              ; preds = %sdeRead.exit.i.i.i
-  %185 = getelementptr inbounds i8, ptr %174, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %174, i64 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5)
   %186 = load ptr, ptr @sourceDebugExtension, align 8
   %187 = ptrtoint ptr %185 to i64
@@ -587,7 +587,7 @@ sdeRead.exit.i.i.i:                               ; preds = %172
   unreachable
 
 203:                                              ; preds = %192
-  %204 = getelementptr inbounds i8, ptr %194, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %194, i64 1
   store ptr %204, ptr @sdePos, align 8
   %205 = call fastcc i32 @readNumber()
   br label %lineLine.exit.i.i
@@ -668,7 +668,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr @gdata, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 528
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 528
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 8
   %.not39 = icmp eq i32 %19, 0
@@ -686,9 +686,9 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %21
   %22 = load ptr, ptr @stratumTable, align 8
   %23 = zext nneg i32 %11 to i64
-  %24 = getelementptr inbounds %struct.StratumTableRecord, ptr %22, i64 %23, i32 2
-  %25 = getelementptr inbounds %struct.StratumTableRecord, ptr %22, i64 %23
-  %26 = getelementptr inbounds i8, ptr %25, i64 28
+  %24 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23, i32 2
+  %25 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %22, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %27 = load ptr, ptr @lineTable, align 8
   %28 = load i32, ptr %24, align 4
   %29 = load i32, ptr %26, align 4
@@ -701,7 +701,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   %.03144 = phi ptr [ %.1, %stiLineTableIndex.exit.thread ], [ %5, %.lr.ph ]
   %.03343 = phi i32 [ %.134, %stiLineTableIndex.exit.thread ], [ 0, %.lr.ph ]
   %31 = add nsw i32 %.in, -1
-  %32 = getelementptr inbounds i8, ptr %.045, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = load i32, ptr %24, align 4
   %35 = load i32, ptr %26, align 4
@@ -720,7 +720,7 @@ define hidden void @convertLineNumberTable(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %39, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = load i32, ptr %42, align 4
   %.not14.i = icmp sgt i32 %33, %43
   br i1 %.not14.i, label %44, label %stiLineTableIndex.exit
@@ -737,14 +737,14 @@ stiLineTableIndex.exit:                           ; preds = %41
 
 46:                                               ; preds = %stiLineTableIndex.exit
   %47 = and i64 %indvars.iv.i, 4294967295
-  %48 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %47, i32 5
+  %48 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47, i32 5
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds %struct.LineTableRecord, ptr %27, i64 %47
-  %51 = getelementptr inbounds i8, ptr %50, i64 12
+  %50 = getelementptr inbounds nuw %struct.LineTableRecord, ptr %27, i64 %47
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %50, align 4
   %54 = sub nsw i32 %33, %53
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = sdiv i32 %54, %56
   %58 = shl i32 %49, 16
@@ -756,15 +756,15 @@ stiLineTableIndex.exit:                           ; preds = %41
 61:                                               ; preds = %46
   %62 = load i64, ptr %.045, align 8
   store i64 %62, ptr %.03144, align 8
-  %63 = getelementptr inbounds i8, ptr %.03144, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.03144, i64 8
   store i32 %60, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.03144, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.03144, i64 16
   br label %stiLineTableIndex.exit.thread
 
 stiLineTableIndex.exit.thread:                    ; preds = %44, %.lr.ph.split, %stiLineTableIndex.exit, %61, %46
   %.134 = phi i32 [ %60, %61 ], [ %.03343, %46 ], [ %.03343, %stiLineTableIndex.exit ], [ %.03343, %.lr.ph.split ], [ %.03343, %44 ]
   %.1 = phi ptr [ %64, %61 ], [ %.03144, %46 ], [ %.03144, %stiLineTableIndex.exit ], [ %.03144, %.lr.ph.split ], [ %.03144, %44 ]
-  %65 = getelementptr inbounds i8, ptr %.045, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   %66 = icmp sgt i32 %.in, 1
   br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
@@ -818,7 +818,7 @@ common.ret:                                       ; preds = %.loopexit.loopexit,
 
 14:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %15 = getelementptr inbounds %struct.StratumTableRecord, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.StratumTableRecord, ptr %6, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %0) #10
   %18 = icmp eq i32 %17, 0
@@ -900,7 +900,7 @@ define internal fastcc void @ignoreLine() unnamed_addr #0 {
   unreachable
 
 sdeRead.exit:                                     ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %15, ptr @sdePos, align 8
   switch i8 %6, label %4 [
     i8 13, label %16
@@ -927,7 +927,7 @@ sdeRead.exit:                                     ; preds = %4
   unreachable
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %5, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %36, %25
@@ -957,7 +957,7 @@ sdeRead.exit:                                     ; preds = %4
   unreachable
 
 36:                                               ; preds = %.loopexit, %.loopexit
-  %37 = getelementptr inbounds i8, ptr %27, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 1
   br label %.loopexit.sink.split, !llvm.loop !16
 
 ignoreWhite.exit:                                 ; preds = %.loopexit
@@ -994,7 +994,7 @@ define internal fastcc noundef ptr @readLine() unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %4, %4
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %15, ptr @sdePos, align 8
   br label %4, !llvm.loop !16
 
@@ -1020,13 +1020,13 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   unreachable
 
 25:                                               ; preds = %ignoreWhite.exit
-  %26 = getelementptr inbounds i8, ptr %17, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %26, ptr @sdePos, align 8
   %.pre = load i8, ptr %26, align 1
   br label %ignoreWhite.exit, !llvm.loop !17
 
 27:                                               ; preds = %ignoreWhite.exit, %ignoreWhite.exit
-  %28 = getelementptr inbounds i8, ptr %17, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %28, ptr @sdePos, align 8
   store i8 0, ptr %17, align 1
   %29 = icmp eq i8 %16, 13
@@ -1038,7 +1038,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %17, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %33
@@ -1068,7 +1068,7 @@ ignoreWhite.exit:                                 ; preds = %4, %25
   unreachable
 
 45:                                               ; preds = %35, %35
-  %46 = getelementptr inbounds i8, ptr %36, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 1
   br label %.sink.split, !llvm.loop !16
 
 ignoreWhite.exit4:                                ; preds = %35
@@ -1343,7 +1343,7 @@ define internal fastcc i32 @readNumber() unnamed_addr #0 {
   unreachable
 
 13:                                               ; preds = %4, %4
-  %14 = getelementptr inbounds i8, ptr %sdePos.promoted, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %sdePos.promoted, i64 1
   store ptr %14, ptr @sdePos, align 8
   br label %4, !llvm.loop !16
 
@@ -1369,7 +1369,7 @@ sdePeek.exit:                                     ; preds = %4, %ignoreWhite.exi
 
 ignoreWhite.exit:                                 ; preds = %sdePeek.exit
   %25 = zext nneg i8 %21 to i32
-  %26 = getelementptr inbounds i8, ptr %22, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %26, ptr @sdePos, align 8
   %27 = mul nsw i32 %.012, 10
   %28 = add i32 %27, -48
@@ -1400,7 +1400,7 @@ ignoreWhite.exit:                                 ; preds = %sdePeek.exit
   unreachable
 
 41:                                               ; preds = %.preheader, %.preheader
-  %42 = getelementptr inbounds i8, ptr %33, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %42, ptr @sdePos, align 8
   %.pre = load i8, ptr %42, align 1
   br label %.preheader, !llvm.loop !16

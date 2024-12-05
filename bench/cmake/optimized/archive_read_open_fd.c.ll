@@ -42,12 +42,12 @@ define dso_local i32 @archive_read_open_fd(ptr noundef %0, i32 noundef %1, i64 n
   br label %34
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %11, ptr %17, align 8
   store i32 %1, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 61440
   %21 = icmp eq i32 %20, 32768
@@ -55,10 +55,10 @@ define dso_local i32 @archive_read_open_fd(ptr noundef %0, i32 noundef %1, i64 n
 
 22:                                               ; preds = %15
   %23 = load i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8
   tail call void @archive_read_extract_set_skip_file(ptr noundef %0, i64 noundef %23, i64 noundef %25) #10
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 1, ptr %26, align 8
   br label %27
 
@@ -101,10 +101,10 @@ declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
 7:                                                ; preds = %13, %3
@@ -134,13 +134,13 @@ declare i32 @archive_read_set_skip_callback(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @file_skip(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %26, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = urem i64 %2, %8
   %10 = icmp eq i64 %2, %9
@@ -211,7 +211,7 @@ declare i32 @archive_read_set_close_callback(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @file_close(ptr nocapture readnone %0, ptr nocapture noundef %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #10
   tail call void @free(ptr noundef %1) #10

@@ -264,7 +264,7 @@ define hidden noundef range(i32 0, 6) i32 @_Z30G1SATBBufferSizeConstraintFuncmb(
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 23000
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 23000
   %9 = load ptr, ptr %8, align 8
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.14, ptr noundef %9, i64 noundef %0, i64 noundef 1, i64 noundef 4294967295) #4
   br label %_ZL29buffer_size_constraint_helper12JVMFlagsEnummb.exit
@@ -285,7 +285,7 @@ define hidden noundef range(i32 0, 6) i32 @_Z32G1UpdateBufferSizeConstraintFuncm
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 23096
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 23096
   %9 = load ptr, ptr %8, align 8
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.14, ptr noundef %9, i64 noundef %0, i64 noundef 1, i64 noundef 4294967295) #4
   br label %_ZL29buffer_size_constraint_helper12JVMFlagsEnummb.exit

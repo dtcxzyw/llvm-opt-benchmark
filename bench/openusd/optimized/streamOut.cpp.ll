@@ -20,7 +20,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %8 = load i8, ptr %7, align 1, !noalias !4
   %9 = icmp eq i8 %8, 42
   %.idx.i.i = zext i1 %9 to i64
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull %10)
   %11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %1)
@@ -122,19 +122,19 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly %1, ptr %2, ptr nocapture readonly %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData", align 8
-  %.ptr = getelementptr inbounds i8, ptr %1, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %.ptr, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit.thread", label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.lr.ph.i.preheader, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   %16 = select i1 %15, i64 16, i64 20
@@ -142,7 +142,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12V
 
 .lr.ph.i.preheader:                               ; preds = %12, %8
   %.add22.ph = phi i64 [ 12, %8 ], [ %16, %12 ]
-  %.ptr2426 = getelementptr inbounds i8, ptr %1, i64 %.add22.ph
+  %.ptr2426 = getelementptr inbounds nuw i8, ptr %1, i64 %.add22.ph
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -150,7 +150,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12V
   %.057.i = phi ptr [ %19, %.lr.ph.i ], [ %.ptr, %.lr.ph.i.preheader ]
   %17 = load i32, ptr %.057.i, align 4
   %18 = mul i32 %17, %.08.i
-  %19 = getelementptr inbounds i8, ptr %.057.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.057.i, i64 4
   %.not.i = icmp eq ptr %19, %.ptr2426
   br i1 %.not.i, label %"_ZSt10accumulateIPKjiZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS2_12Vt_ShapeDataENS2_13TfFunctionRefIFvS3_EEEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !7
 
@@ -187,13 +187,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %10, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeData7GetRankEv.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   %19 = select i1 %18, i64 2, i64 3

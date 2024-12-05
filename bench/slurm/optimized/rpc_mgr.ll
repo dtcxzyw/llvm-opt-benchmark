@@ -31,7 +31,7 @@ define dso_local noalias noundef ptr @rpc_mgr(ptr nocapture noundef readnone %0)
   %3 = tail call i64 @pthread_self() #6
   store i64 %3, ptr @master_thread_id, align 8
   %4 = load ptr, ptr @slurmdbd_conf, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load i16, ptr %5, align 8
   %7 = tail call i32 @slurm_init_msg_engine_port(i16 noundef zeroext %6) #7
   %8 = icmp eq i32 %7, -1
@@ -78,29 +78,29 @@ define dso_local noalias noundef ptr @rpc_mgr(ptr nocapture noundef readnone %0)
   %24 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @__func__.rpc_mgr) #7
   %25 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 104, ptr noundef nonnull @__func__.rpc_mgr) #7
   store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 60
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 60
   store i32 %15, ptr %26, align 4
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i16 1, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @proc_req, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr @_connection_fini_callback, ptr %32, align 8
   %33 = load ptr, ptr %24, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   store ptr @shutdown_time, ptr %34, align 8
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 160
   store i16 9984, ptr %36, align 8
   %37 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 46, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 111, ptr noundef nonnull @__func__.rpc_mgr) #7
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   store ptr %37, ptr %39, align 8
   %40 = load ptr, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   call void @slurm_get_ip_str(ptr noundef nonnull %2, ptr noundef %42, i32 noundef 46) #7
   %43 = load ptr, ptr %24, align 8
@@ -153,12 +153,12 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.slurmdb_cluster_rec, align 8
   store ptr %0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @slurm_persist_conn_destroy(ptr noundef %5) #7
   store ptr null, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i16, ptr %7, align 8
   %.not = icmp eq i16 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -170,33 +170,33 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
 
 11:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %3, i8 0, i64 312, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %16, ptr %17, align 8
   %18 = zext i16 %8 to i32
-  %19 = getelementptr inbounds i8, ptr %3, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %21 = load i16, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 296
   store i16 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 312
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %27 = load i16, ptr %26, align 8
   %28 = and i16 %27, 32
   %.not12 = icmp eq i16 %28, 0
   br i1 %.not12, label %31, label %29
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %3, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i32 4096, ptr %30, align 8
   br label %31
 
@@ -207,20 +207,20 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef %37) #7
   br label %38
 
 38:                                               ; preds = %34, %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @clusteracct_storage_g_fini_ctld(ptr noundef %40, ptr noundef nonnull %3) #7
   br label %46
 
 42:                                               ; preds = %9
   %43 = load ptr, ptr @slurmdbd_conf, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i16, ptr %44, align 8
   %.not13 = icmp ne i16 %45, 0
   br label %46
@@ -254,14 +254,14 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   unreachable
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @acct_storage_g_commit(ptr noundef %59, i1 noundef zeroext true) #7
   %61 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull %58) #7
   br label %72
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @acct_storage_g_commit(ptr noundef %64, i1 noundef zeroext true) #7
   %66 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull %63) #7
@@ -276,12 +276,12 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   unreachable
 
 .critedge:                                        ; preds = %1
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = tail call i32 @acct_storage_g_close_connection(ptr noundef nonnull %70) #7
   br label %72
 
 72:                                               ; preds = %57, %.critedge, %62
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @slurm_xfree(ptr noundef nonnull %73) #7
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   ret void

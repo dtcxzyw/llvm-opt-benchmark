@@ -40,7 +40,7 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %4, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %.loopexit [
     i32 2, label %9
@@ -48,7 +48,7 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 488
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 720), align 16
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17

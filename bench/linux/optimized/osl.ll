@@ -402,13 +402,13 @@ define dso_local ptr @acpi_os_get_iomem(i64 noundef %0, i32 noundef %1) #1 align
 
 .preheader:                                       ; preds = %2, %16
   %7 = phi ptr [ %17, %16 ], [ %5, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, %0
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %9
   %15 = icmp ugt i64 %4, %14
@@ -424,11 +424,11 @@ define dso_local ptr @acpi_os_get_iomem(i64 noundef %0, i32 noundef %1) #1 align
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = sub i64 %0, %9
   %25 = getelementptr i8, ptr %23, i64 %24
-  %26 = getelementptr inbounds i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -465,13 +465,13 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
 
 .preheader:                                       ; preds = %7, %20
   %11 = phi ptr [ %21, %20 ], [ %9, %7 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %13, %0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %13
   %19 = icmp ugt i64 %8, %18
@@ -487,7 +487,7 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %11, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -547,18 +547,18 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
   %reass.sub = sub i64 %56, %57
   %58 = add i64 %reass.sub, 1
   store volatile ptr %30, ptr %30, align 8
-  %59 = getelementptr inbounds i8, ptr %30, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store volatile ptr %30, ptr %59, align 8
   %60 = ptrtoint ptr %52 to i64
   %61 = and i64 %60, -4096
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %30, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %30, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %57, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %30, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 %58, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %30, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i64 1, ptr %66, align 8
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_ioremaps, i64 8), align 8
   store ptr @acpi_ioremaps, ptr %30, align 8
@@ -571,9 +571,9 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
 68:                                               ; preds = %54, %25
   %69 = phi ptr [ %11, %25 ], [ %30, %54 ]
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_ioremap_lock) #20
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %73 = load i64, ptr %72, align 8
   %74 = sub i64 %0, %73
   %75 = getelementptr i8, ptr %71, i64 %74
@@ -615,13 +615,13 @@ define dso_local void @acpi_os_unmap_iomem(ptr noundef %0, i64 noundef %1) #1 se
 
 .preheader:                                       ; preds = %6, %19
   %10 = phi ptr [ %20, %19 ], [ %8, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ugt ptr %12, %0
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr i8, ptr %12, i64 %16
   %18 = icmp ugt ptr %7, %17
@@ -647,7 +647,7 @@ define dso_local void @acpi_os_unmap_iomem(ptr noundef %0, i64 noundef %1) #1 se
   br label %40
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
@@ -655,22 +655,22 @@ define dso_local void @acpi_os_unmap_iomem(ptr noundef %0, i64 noundef %1) #1 se
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %31, ptr %33, align 8
   store volatile ptr %32, ptr %31, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %30, align 8
   store i64 68719476704, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store volatile ptr %34, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store volatile ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr @acpi_os_map_remove, ptr %36, align 8
   %37 = load ptr, ptr @system_wq, align 8
-  %38 = tail call zeroext i1 @queue_rcu_work(ptr noundef %37, ptr noundef %25) #20
+  %38 = tail call zeroext i1 @queue_rcu_work(ptr noundef %37, ptr noundef nonnull %25) #20
   br label %39
 
 39:                                               ; preds = %29, %24
@@ -700,13 +700,13 @@ define dso_local ptr @acpi_os_map_generic_address(ptr nocapture noundef readonly
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i64, ptr %5, align 1
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %16, label %12
@@ -729,13 +729,13 @@ define dso_local void @acpi_os_unmap_generic_address(ptr nocapture noundef reado
   br i1 %3, label %4, label %48
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i64, ptr %5, align 1
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %48, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %48, label %12
@@ -752,13 +752,13 @@ define dso_local void @acpi_os_unmap_generic_address(ptr nocapture noundef reado
 
 .preheader:                                       ; preds = %12, %28
   %19 = phi ptr [ %29, %28 ], [ %17, %12 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %21, %6
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %19, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %21
   %27 = icmp ugt i64 %16, %26
@@ -774,7 +774,7 @@ define dso_local void @acpi_os_unmap_generic_address(ptr nocapture noundef reado
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %19, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, -1
   store i64 %36, ptr %34, align 8
@@ -782,22 +782,22 @@ define dso_local void @acpi_os_unmap_generic_address(ptr nocapture noundef reado
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %19, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %40, ptr %42, align 8
   store volatile ptr %41, ptr %40, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %39, align 8
   store i64 68719476704, ptr %34, align 8
-  %43 = getelementptr inbounds i8, ptr %19, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store volatile ptr %43, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %19, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store volatile ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %19, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr @acpi_os_map_remove, ptr %45, align 8
   %46 = load ptr, ptr @system_wq, align 8
-  %47 = tail call zeroext i1 @queue_rcu_work(ptr noundef %46, ptr noundef %34) #20
+  %47 = tail call zeroext i1 @queue_rcu_work(ptr noundef %46, ptr noundef nonnull %34) #20
   br label %.thread
 
 .thread:                                          ; preds = %28, %12, %38, %33, %31
@@ -1129,13 +1129,13 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef
 
 .preheader:                                       ; preds = %3, %18
   %9 = phi ptr [ %19, %18 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %0
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %11
   %17 = icmp ugt i64 %6, %16
@@ -1151,7 +1151,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef
   br i1 %22, label %.thread8, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sub i64 %0, %11
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -1245,13 +1245,13 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_write_memory(i64 nounde
 
 .preheader:                                       ; preds = %3, %18
   %9 = phi ptr [ %19, %18 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %0
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %11
   %17 = icmp ugt i64 %6, %16
@@ -1267,7 +1267,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_write_memory(i64 nounde
   br i1 %22, label %.thread7, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sub i64 %0, %11
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -1357,14 +1357,14 @@ define dso_local range(i32 0, 4098) i32 @acpi_os_read_pci_configuration(ptr noca
   store i32 0, ptr %5, align 4, !annotation !5
   %12 = load i16, ptr %0, align 2
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i16, ptr %17, align 2
   %19 = shl i16 %18, 3
   %20 = and i16 %19, 248
-  %21 = getelementptr inbounds i8, ptr %0, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 7
   %24 = or disjoint i16 %20, %23
@@ -1404,14 +1404,14 @@ define dso_local range(i32 0, 2) i32 @acpi_os_write_pci_configuration(ptr nocapt
   %8 = phi i32 [ 4, %6 ], [ 2, %5 ], [ 1, %4 ]
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i16, ptr %14, align 2
   %16 = shl i16 %15, 3
   %17 = and i16 %16, 248
-  %18 = getelementptr inbounds i8, ptr %0, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 7
   %21 = or disjoint i16 %17, %20
@@ -1447,15 +1447,15 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_os_execute(i32 noundef %0, pt
 
 11:                                               ; preds = %7
   store ptr %1, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 68719476704, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @acpi_os_execute_deferred, ptr %16, align 8
   switch i32 %0, label %18 [
     i32 1, label %20
@@ -1473,7 +1473,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_os_execute(i32 noundef %0, pt
   %21 = phi ptr [ @kacpid_wq, %17 ], [ @kacpi_notify_wq, %11 ]
   %22 = phi i32 [ 0, %17 ], [ 64, %11 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = tail call zeroext i1 @queue_work_on(i32 noundef %22, ptr noundef %23, ptr noundef %13) #20
+  %24 = tail call zeroext i1 @queue_work_on(i32 noundef %22, ptr noundef %23, ptr noundef nonnull %13) #20
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %20
@@ -1536,15 +1536,15 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_hotplug_schedule(ptr noundef 
 
 6:                                                ; preds = %2
   store i64 68719476704, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %7, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @acpi_hotplug_work_fn, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %1, ptr %11, align 8
   %12 = load ptr, ptr @kacpi_hotplug_wq, align 8
   %13 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %12, ptr noundef nonnull %4) #20
@@ -1574,9 +1574,9 @@ acpi_os_wait_events_complete.exit:                ; preds = %1, %4
   tail call void @__flush_workqueue(ptr noundef %6) #20
   %7 = load ptr, ptr @kacpi_notify_wq, align 8
   tail call void @__flush_workqueue(ptr noundef %7) #20
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   tail call void @acpi_device_hotplug(ptr noundef %9, i32 noundef %11) #20
   tail call void @kfree(ptr noundef %0) #20
@@ -1607,12 +1607,12 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_os_create_semaphore(i32 nound
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %1, ptr %14, align 4
   store ptr %13, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %13, ptr %15, align 8
   store ptr %10, ptr %2, align 8
   br label %16
@@ -1628,7 +1628,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_os_delete_semaphore(ptr no
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %8, label %7, !prof !38
@@ -1833,7 +1833,7 @@ sub_0:                                            ; preds = %9
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 111, %16
@@ -1841,7 +1841,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not1, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 0, %20
@@ -1869,7 +1869,7 @@ define dso_local noundef range(i32 -16, 1) i32 @acpi_check_resource_conflict(ptr
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 256
   %8 = icmp eq i64 %7, 0
@@ -1883,7 +1883,7 @@ define dso_local noundef range(i32 -16, 1) i32 @acpi_check_resource_conflict(ptr
 12:                                               ; preds = %9, %4
   %13 = phi i8 [ 1, %4 ], [ 0, %9 ]
   %14 = load i64, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %reass.sub = sub i64 %16, %14
   %17 = add i64 %reass.sub, 1

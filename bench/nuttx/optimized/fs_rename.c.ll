@@ -35,10 +35,10 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 17:                                               ; preds = %14
   store ptr %0, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
-  %20 = getelementptr inbounds i8, ptr %9, i64 40
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   store i8 1, ptr %21, align 8
   %22 = call i32 @inode_find(ptr noundef nonnull %9) #6
@@ -47,7 +47,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 26
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 26
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 15
   %29 = icmp eq i16 %28, 3
@@ -64,18 +64,18 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   store ptr null, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 184
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %mountptrename.exit, label %39
 
 39:                                               ; preds = %33
   store ptr %1, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 40
-  %42 = getelementptr inbounds i8, ptr %6, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
   store i8 1, ptr %42, align 8
   %43 = call i32 @inode_find(ptr noundef nonnull %6) #6
@@ -83,7 +83,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %44, label %99, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %6, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %47 = load ptr, ptr %40, align 8
   %48 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %25, %47
@@ -96,7 +96,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %34, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 192
   %55 = load ptr, ptr %54, align 8
   %.not44.i = icmp eq ptr %55, null
   br i1 %.not44.i, label %.loopexit.i, label %.preheader.i
@@ -107,7 +107,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %57, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %59
 
 59:                                               ; preds = %76, %.lr.ph.i
@@ -148,7 +148,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 76:                                               ; preds = %74, %63
   %.2.i = phi ptr [ %75, %74 ], [ %64, %63 ]
   %77 = load ptr, ptr %34, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 192
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 192
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.2.i, ptr noundef nonnull %8) #6
   %81 = icmp sgt i32 %80, -1
@@ -156,7 +156,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 82:                                               ; preds = %59
   %83 = load ptr, ptr %34, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 192
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 192
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %85(ptr noundef nonnull %25, ptr noundef nonnull %31, ptr noundef nonnull %8) #6
   %87 = icmp slt i32 %86, 0
@@ -164,7 +164,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %34, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 160
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 160
   %91 = load ptr, ptr %90, align 8
   %.not45.i = icmp eq ptr %91, null
   br i1 %.not45.i, label %.loopexit.i, label %92
@@ -176,7 +176,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
 .loopexit.i:                                      ; preds = %76, %92, %88, %.preheader.i, %52
   %.034.i = phi ptr [ %.13.i, %92 ], [ %.13.i, %88 ], [ %48, %52 ], [ %48, %.preheader.i ], [ %.2.i, %76 ]
   %94 = load ptr, ptr %34, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 184
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 %96(ptr noundef nonnull %25, ptr noundef nonnull %31, ptr noundef %.034.i) #6
   br label %98
@@ -218,9 +218,9 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 8
-  %107 = getelementptr inbounds i8, ptr %3, i64 40
-  %108 = getelementptr inbounds i8, ptr %3, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %1, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, i8 0, i64 40, i1 false)
   store i8 1, ptr %108, align 8
@@ -240,7 +240,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br label %169
 
 114:                                              ; preds = %.lr.ph.i25
-  %115 = getelementptr inbounds i8, ptr %111, i64 26
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 26
   %116 = load i16, ptr %115, align 2
   %117 = and i16 %116, 15
   %118 = icmp eq i16 %117, 3
@@ -251,13 +251,13 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br label %169
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %111, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %111, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %126 = load ptr, ptr %125, align 8
   %.not.i26 = icmp eq ptr %126, null
   br i1 %.not.i26, label %142, label %127
@@ -318,21 +318,21 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   br i1 %148, label %168, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %25, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store ptr %151, ptr %153, align 8
   %154 = load i16, ptr %26, align 2
-  %155 = getelementptr inbounds i8, ptr %152, i64 26
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 26
   store i16 %154, ptr %155, align 2
-  %156 = getelementptr inbounds i8, ptr %25, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %152, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 32
   store ptr %157, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %25, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %152, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %152, i64 48
   store ptr %160, ptr %161, align 8
   %162 = call i32 @inode_remove(ptr noundef nonnull %0) #6
   %163 = icmp slt i32 %162, 0

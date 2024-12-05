@@ -123,7 +123,7 @@ test_carp_packet.exit:                            ; preds = %11
   br i1 %.not.i.not, label %17, label %test_carp_packet.exit.thread
 
 17:                                               ; preds = %test_carp_packet.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.33) #2
   %20 = load ptr, ptr %18, align 8
@@ -160,7 +160,7 @@ test_carp_packet.exit:                            ; preds = %11
   %49 = load i32, ptr @hf_carp_advbase, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %49, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
   %51 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %52 = getelementptr inbounds i8, ptr %1, i64 272
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %53 = load i32, ptr %52, align 8
   %.not75 = icmp eq i32 %53, 0
   br i1 %.not75, label %54, label %63
@@ -171,7 +171,7 @@ test_carp_packet.exit:                            ; preds = %11
   br i1 %.not76, label %63, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %51, ptr %57, align 8
   %58 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %51) #2
   store ptr %58, ptr %5, align 16

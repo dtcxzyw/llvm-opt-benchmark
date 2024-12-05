@@ -1321,7 +1321,7 @@ lor.lhs.false38:                                  ; preds = %_ZNSt10unique_ptrIh
   br i1 %cmp40.not, label %lor.lhs.false41, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 3
   %bcmp2 = call i32 @bcmp(ptr noundef nonnull dereferenceable(130) %add.ptr, ptr noundef nonnull dereferenceable(130) %call5.i.i.i.i1.i.i8, i64 130)
   %cmp44.not = icmp eq i32 %bcmp2, 0
   br i1 %cmp44.not, label %if.end46, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
@@ -1383,7 +1383,7 @@ lor.lhs.false68:                                  ; preds = %_ZNSt10unique_ptrIh
   br i1 %cmp70.not, label %lor.lhs.false71, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false68
-  %add.ptr72 = getelementptr inbounds i8, ptr %9, i64 4
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %bcmp4 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1000) %add.ptr72, ptr noundef nonnull dereferenceable(1000) %call5.i.i.i.i1.i.i8, i64 1000)
   %tobool75.not = icmp eq i32 %bcmp4, 0
   br i1 %tobool75.not, label %if.end77, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
@@ -1453,7 +1453,7 @@ lor.lhs.false103:                                 ; preds = %_ZNSt10unique_ptrIh
   br i1 %cmp105.not, label %lor.lhs.false106, label %_ZNSt6vectorIhSaIhEED2Ev.exit17
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false103
-  %add.ptr107 = getelementptr inbounds i8, ptr %12, i64 10
+  %add.ptr107 = getelementptr inbounds nuw i8, ptr %12, i64 10
   %bcmp7 = call i32 @bcmp(ptr noundef nonnull dereferenceable(100000) %add.ptr107, ptr noundef nonnull dereferenceable(100000) %call5.i.i.i.i1.i.i8, i64 100000)
   %tobool110.not = icmp eq i32 %bcmp7, 0
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit17
@@ -1529,16 +1529,16 @@ entry:
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, %entry
   %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
-  %__begin1.0.ptr16 = getelementptr inbounds i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx15
+  %__begin1.0.ptr16 = getelementptr inbounds nuw i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx15
   store ptr null, ptr %storage, align 8
   %0 = load ptr, ptr %__begin1.0.ptr16, align 8
-  %in_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 8
+  %in_len = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 8
   %1 = load i64, ptr %in_len, align 8
   call void @CBS_init(ptr noundef nonnull %in, ptr noundef %0, i64 noundef %1)
   %call = call i32 @CBS_get_asn1_implicit_string(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %storage, i32 noundef 128, i32 noundef 4)
   %2 = load ptr, ptr %storage, align 8
   %tobool = icmp ne i32 %call, 0
-  %ok2 = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 16
+  %ok2 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 16
   %3 = load i8, ptr %ok2, align 8
   %4 = trunc i8 %3 to i1
   %5 = xor i1 %tobool, %4
@@ -1571,7 +1571,7 @@ land.lhs.true:                                    ; preds = %if.end
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %land.lhs.true
-  %out_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 32
+  %out_len = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 32
   %8 = load i64, ptr %out_len, align 8
   %cmp11.not = icmp eq i64 %call10, %8
   br i1 %cmp11.not, label %lor.lhs.false, label %if.then18
@@ -1581,7 +1581,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont9
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %lor.lhs.false
-  %out14 = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 24
+  %out14 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr16, i64 24
   %9 = load ptr, ptr %out14, align 8
   %bcmp = call i32 @bcmp(ptr %call13, ptr %9, i64 %call10)
   %cmp17.not = icmp eq i32 %bcmp, 0
@@ -1630,10 +1630,10 @@ for.cond:                                         ; preds = %_ZNSt10unique_ptrIh
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.012 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012
-  %encoding = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012
+  %encoding = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %encoding, align 8
-  %encoding_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %encoding_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %encoding_len, align 8
   call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %0, i64 noundef %1)
   %call = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value)
@@ -1695,9 +1695,9 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup, %if.then.i
 
 for.body29:                                       ; preds = %for.cond, %for.body29
   %i26.013 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]
-  %arrayidx31 = getelementptr inbounds [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013
+  %arrayidx31 = getelementptr inbounds nuw [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013
   %6 = load ptr, ptr %arrayidx31, align 16
-  %encoding_len35 = getelementptr inbounds i8, ptr %arrayidx31, i64 8
+  %encoding_len35 = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 8
   %7 = load i64, ptr %encoding_len35, align 8
   call void @CBS_init(ptr noundef nonnull %cbs32, ptr noundef %6, i64 noundef %7)
   %call36 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs32, ptr noundef nonnull %value33)

@@ -41,19 +41,19 @@ define void @_ZN3zmq6peer_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 derefere
 entry:
   tail call void @_ZN3zmq8server_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(1932) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq6peer_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq6peer_tE, i64 392), ptr %add.ptr, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 1464
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq6peer_tE, i64 424), ptr %add.ptr2, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 1472
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq6peer_tE, i64 480), ptr %add.ptr3, align 8
-  %type = getelementptr inbounds i8, ptr %this, i64 332
+  %type = getelementptr inbounds nuw i8, ptr %this, i64 332
   store i8 19, ptr %type, align 4
-  %can_send_hello_msg = getelementptr inbounds i8, ptr %this, i64 1256
+  %can_send_hello_msg = getelementptr inbounds nuw i8, ptr %this, i64 1256
   store i8 1, ptr %can_send_hello_msg, align 8
-  %can_recv_disconnect_msg = getelementptr inbounds i8, ptr %this, i64 1288
+  %can_recv_disconnect_msg = getelementptr inbounds nuw i8, ptr %this, i64 1288
   store i8 1, ptr %can_recv_disconnect_msg, align 8
-  %can_recv_hiccup_msg = getelementptr inbounds i8, ptr %this, i64 1320
+  %can_recv_hiccup_msg = getelementptr inbounds nuw i8, ptr %this, i64 1320
   store i8 1, ptr %can_recv_hiccup_msg, align 8
   ret void
 }
@@ -64,7 +64,7 @@ declare void @_ZN3zmq8server_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 deref
 define noundef i32 @_ZN3zmq6peer_t12connect_peerEPKc(ptr noundef nonnull align 8 dereferenceable(1936) %this, ptr noundef %endpoint_uri_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sync_lock = alloca %"struct.zmq::scoped_optional_lock_t", align 8
-  %_sync = getelementptr inbounds i8, ptr %this, i64 1480
+  %_sync = getelementptr inbounds nuw i8, ptr %this, i64 1480
   store ptr %_sync, ptr %sync_lock, align 8
   %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %_sync) #10
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -80,7 +80,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit
 
 _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %entry, %if.then.i.i
-  %immediate = getelementptr inbounds i8, ptr %this, i64 388
+  %immediate = getelementptr inbounds nuw i8, ptr %this, i64 388
   %2 = load i32, ptr %immediate, align 4
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -105,7 +105,7 @@ lpad:                                             ; preds = %if.end
   resume { ptr, i32 } %3
 
 if.end5:                                          ; preds = %invoke.cont
-  %_peer_last_routing_id = getelementptr inbounds i8, ptr %this, i64 1932
+  %_peer_last_routing_id = getelementptr inbounds nuw i8, ptr %this, i64 1932
   %4 = load i32, ptr %_peer_last_routing_id, align 4
   br label %if.then.i
 
@@ -179,7 +179,7 @@ define void @_ZN3zmq6peer_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull ali
 entry:
   tail call void @_ZN3zmq8server_t12xattach_pipeEPNS_6pipe_tEbb(ptr noundef nonnull align 8 dereferenceable(1932) %this, ptr noundef %pipe_, i1 noundef zeroext %subscribe_to_all_, i1 noundef zeroext %locally_initiated_)
   %call = tail call noundef i32 @_ZNK3zmq6pipe_t28get_server_socket_routing_idEv(ptr noundef nonnull align 8 dereferenceable(328) %pipe_)
-  %_peer_last_routing_id = getelementptr inbounds i8, ptr %this, i64 1932
+  %_peer_last_routing_id = getelementptr inbounds nuw i8, ptr %this, i64 1932
   store i32 %call, ptr %_peer_last_routing_id, align 4
   ret void
 }

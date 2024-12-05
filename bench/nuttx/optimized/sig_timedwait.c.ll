@@ -33,12 +33,12 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   br i1 %.not60, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
   call void @nxsig_release_pendingsignal(ptr noundef %13) #5
@@ -57,7 +57,7 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
 23:                                               ; preds = %22
   %24 = load i64, ptr %2, align 8
   %25 = mul i64 %24, 1000000000
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 999
   %29 = add i64 %28, %25
@@ -66,18 +66,18 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
 
 30:                                               ; preds = %23
   %31 = udiv i64 %29, 1000
-  %32 = getelementptr inbounds i8, ptr %6, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %33 = load i64, ptr %0, align 4
   store i64 %33, ptr %32, align 16
-  %34 = getelementptr inbounds i8, ptr %6, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %35 = ptrtoint ptr %6 to i64
   %36 = call i32 @wd_start(ptr noundef nonnull %34, i64 noundef %31, ptr noundef nonnull @nxsig_timeout, i64 noundef %35) #5
   %37 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %6, i1 noundef zeroext true) #5
-  %38 = getelementptr inbounds i8, ptr %6, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %38, align 16
   store ptr null, ptr %6, align 8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr @g_waitingforsignal, align 8
   %.not64 = icmp eq ptr %41, null
@@ -105,15 +105,15 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   br label %up_irq_restore.exit
 
 49:                                               ; preds = %22
-  %50 = getelementptr inbounds i8, ptr %6, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %51 = load i64, ptr %0, align 4
   store i64 %51, ptr %50, align 16
   %52 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %6, i1 noundef zeroext true) #5
-  %53 = getelementptr inbounds i8, ptr %6, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 6, ptr %53, align 16
   store ptr null, ptr %6, align 8
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @g_waitingforsignal, i64 8), align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %55, align 8
   %56 = load ptr, ptr @g_waitingforsignal, align 8
   %.not62 = icmp eq ptr %56, null
@@ -128,9 +128,9 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   br label %59
 
 59:                                               ; preds = %49, %57, %44
-  %60 = getelementptr inbounds i8, ptr %6, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %61 = call i32 @sigemptyset(ptr noundef nonnull %60) #5
-  %62 = getelementptr inbounds i8, ptr %6, i64 184
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %63 = load i8, ptr %62, align 8
   %64 = icmp ult i8 %63, 64
   br i1 %64, label %65, label %73
@@ -189,26 +189,26 @@ declare i32 @wd_start(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal void @nxsig_timeout(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 16
   %5 = icmp eq i8 %4, 6
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @g_readytorun, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i8 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 185
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 185
   store i8 2, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 186
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 186
   store i8 110, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %2, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 204
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %15, null
@@ -222,7 +222,7 @@ define internal void @nxsig_timeout(i64 noundef %0) #0 {
   br label %20
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %19, align 8
   br label %20
 

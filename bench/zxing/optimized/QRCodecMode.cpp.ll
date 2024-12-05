@@ -86,11 +86,11 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
 
 22:                                               ; preds = %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(43) %21, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @.str, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i16 36, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 42
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 42
   store i8 1, ptr %25, align 2
   invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN5ZXing5ErrorE, ptr nonnull @_ZN5ZXing5ErrorD2Ev) #11
           to label %33 unwind label %26
@@ -117,7 +117,7 @@ switch.hole_check:                                ; preds = %18
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 
@@ -198,7 +198,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   %9 = alloca %"struct.std::array.5", align 4
   %10 = alloca %"struct.std::array.5", align 4
   %11 = load i32, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %13 = load i32, ptr %12, align 4
   switch i32 %13, label %67 [
     i32 2, label %14
@@ -216,11 +216,11 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 15:                                               ; preds = %14
   store i32 3, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 4, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 5, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %18, align 4
   %19 = add nsw i32 %11, -1
   %20 = sext i32 %19 to i64
@@ -230,9 +230,9 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 23:                                               ; preds = %14
   store i32 3, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 5, ptr %25, align 4
   %26 = add nsw i32 %11, -2
   %27 = sext i32 %26 to i64
@@ -242,7 +242,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 30:                                               ; preds = %14
   store i32 4, ptr %5, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 5, ptr %31, align 4
   %32 = add nsw i32 %11, -3
   %33 = sext i32 %32 to i64
@@ -252,7 +252,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 36:                                               ; preds = %14, %14
   store i32 3, ptr %6, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %37, align 4
   %38 = add nsw i32 %11, -3
   %39 = sext i32 %38 to i64
@@ -315,41 +315,41 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 70:                                               ; preds = %67
   store i32 10, ptr %7, align 4
-  %71 = getelementptr inbounds i8, ptr %7, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 12, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 14, ptr %72, align 4
-  %73 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %.0
+  %73 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %.0
   %74 = load i32, ptr %73, align 4
   br label %90
 
 75:                                               ; preds = %67
   store i32 9, ptr %8, align 4
-  %76 = getelementptr inbounds i8, ptr %8, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 11, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 13, ptr %77, align 4
-  %78 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %.0
+  %78 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %.0
   %79 = load i32, ptr %78, align 4
   br label %90
 
 80:                                               ; preds = %67
   store i32 8, ptr %9, align 4
-  %81 = getelementptr inbounds i8, ptr %9, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 16, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %9, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 16, ptr %82, align 4
-  %83 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %.0
+  %83 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %.0
   %84 = load i32, ptr %83, align 4
   br label %90
 
 85:                                               ; preds = %67, %67
   store i32 8, ptr %10, align 4
-  %86 = getelementptr inbounds i8, ptr %10, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 10, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %10, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 12, ptr %87, align 4
-  %88 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %.0
+  %88 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %.0
   %89 = load i32, ptr %88, align 4
   br label %90
 
@@ -360,7 +360,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZN5ZXing6QRCode19CodecModeBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
   %5 = load i32, ptr %0, align 8
@@ -373,7 +373,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN5ZXing6QRCode19CodecMo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing6QRCode20TerminatorBitsLengthERKNS0_7VersionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %9

@@ -929,13 +929,13 @@ entry:
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %type, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %type, i64 1
   %2 = load i8, ptr %1, align 1
   %.not7 = icmp eq i8 %2, 72
   br i1 %.not7, label %entry.tail, label %if.end
 
 entry.tail:                                       ; preds = %sub_1
-  %3 = getelementptr inbounds i8, ptr %type, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %type, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %if.then, label %if.end
@@ -2785,7 +2785,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false25
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false31
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds i8, ptr %0, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call40 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -2970,7 +2970,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   br label %land.end
 
 land.rhs:                                         ; preds = %if.then5
-  %keymgmt = getelementptr inbounds i8, ptr %call2, i64 96
+  %keymgmt = getelementptr inbounds nuw i8, ptr %call2, i64 96
   %3 = load ptr, ptr %keymgmt, align 8
   %cmp16 = icmp ne ptr %3, null
   %conv17 = zext i1 %cmp16 to i32
@@ -3206,13 +3206,13 @@ entry:
   br i1 %.not, label %sub_1, label %if.else
 
 sub_1:                                            ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %type, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %type, i64 1
   %2 = load i8, ptr %1, align 1
   %.not14 = icmp eq i8 %2, 72
   br i1 %.not14, label %entry.tail, label %if.else
 
 entry.tail:                                       ; preds = %sub_1
-  %3 = getelementptr inbounds i8, ptr %type, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %type, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %if.then16, label %if.else
@@ -3232,13 +3232,13 @@ sub_010:                                          ; preds = %if.else4
   br i1 %.not15, label %sub_111, label %if.end19
 
 sub_111:                                          ; preds = %sub_010
-  %6 = getelementptr inbounds i8, ptr %type, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %type, i64 1
   %7 = load i8, ptr %6, align 1
   %.not16 = icmp eq i8 %7, 67
   br i1 %.not16, label %if.end14.tail, label %if.end19
 
 if.end14.tail:                                    ; preds = %sub_111
-  %8 = getelementptr inbounds i8, ptr %type, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %type, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %if.then16, label %if.end19
@@ -3328,7 +3328,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false15
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call24 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7
@@ -3450,7 +3450,7 @@ if.end14:                                         ; preds = %if.else, %if.then3
 
 lor.lhs.false:                                    ; preds = %if.end14
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds i8, ptr %0, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call21 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -3544,7 +3544,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false17
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call26 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7

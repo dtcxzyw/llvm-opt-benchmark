@@ -26,7 +26,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %totalsize = getelementptr inbounds i8, ptr %fdt, i64 4
+  %totalsize = getelementptr inbounds nuw i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %0 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24

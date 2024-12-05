@@ -445,11 +445,11 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 .preheader35:                                     ; preds = %256, %.preheader35
   %259 = phi i64 [ %265, %.preheader35 ], [ 1, %256 ]
-  %260 = getelementptr inbounds double, ptr %49, i64 %259
-  %261 = getelementptr inbounds double, ptr %50, i64 %259
-  %262 = getelementptr inbounds double, ptr %51, i64 %259
+  %260 = getelementptr inbounds nuw double, ptr %49, i64 %259
+  %261 = getelementptr inbounds nuw double, ptr %50, i64 %259
+  %262 = getelementptr inbounds nuw double, ptr %51, i64 %259
   %263 = call i32 (ptr, ptr, ptr, ...) %3(ptr noundef nonnull %260, ptr noundef nonnull %261, ptr noundef nonnull %262) #6
-  %264 = getelementptr inbounds i32, ptr %57, i64 %259
+  %264 = getelementptr inbounds nuw i32, ptr %57, i64 %259
   store i32 %263, ptr %264, align 4, !tbaa !3
   %265 = add nuw nsw i64 %259, 1
   %266 = load i32, ptr %22, align 4, !tbaa !3
@@ -514,13 +514,13 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 297:                                              ; preds = %344, %288
   %298 = phi i64 [ 1, %288 ], [ %345, %344 ]
   %299 = trunc i64 %298 to i32
-  %300 = getelementptr inbounds double, ptr %50, i64 %298
+  %300 = getelementptr inbounds nuw double, ptr %50, i64 %298
   %301 = load double, ptr %300, align 8, !tbaa !7
   %302 = fcmp une double %301, 0.000000e+00
   br i1 %302, label %303, label %344
 
 303:                                              ; preds = %297
-  %304 = getelementptr inbounds double, ptr %49, i64 %298
+  %304 = getelementptr inbounds nuw double, ptr %49, i64 %298
   %305 = load double, ptr %304, align 8, !tbaa !7
   %306 = fdiv double %305, %289
   %307 = fcmp ogt double %306, %292
@@ -561,7 +561,7 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
   %333 = fneg double %.sink53
   %334 = select i1 %332, double %.sink53, double %333
   store double %334, ptr %17, align 8, !tbaa !7
-  %335 = getelementptr inbounds double, ptr %51, i64 %298
+  %335 = getelementptr inbounds nuw double, ptr %51, i64 %298
   %336 = load double, ptr %335, align 8, !tbaa !7
   %337 = fmul double %334, %336
   store double %337, ptr %335, align 8, !tbaa !7
@@ -602,13 +602,13 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 
 359:                                              ; preds = %391, %350
   %360 = phi i64 [ 1, %350 ], [ %392, %391 ]
-  %361 = getelementptr inbounds double, ptr %50, i64 %360
+  %361 = getelementptr inbounds nuw double, ptr %50, i64 %360
   %362 = load double, ptr %361, align 8, !tbaa !7
   %363 = fcmp une double %362, 0.000000e+00
   br i1 %363, label %364, label %391
 
 364:                                              ; preds = %359
-  %365 = getelementptr inbounds double, ptr %51, i64 %360
+  %365 = getelementptr inbounds nuw double, ptr %51, i64 %360
   %366 = load double, ptr %365, align 8, !tbaa !7
   %367 = fdiv double %366, %351
   %368 = fcmp ogt double %367, %354
@@ -632,7 +632,7 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
   %383 = fmul double %382, %381
   store double %383, ptr %365, align 8, !tbaa !7
   %384 = load double, ptr %17, align 8, !tbaa !7
-  %385 = getelementptr inbounds double, ptr %49, i64 %360
+  %385 = getelementptr inbounds nuw double, ptr %49, i64 %360
   %386 = load double, ptr %385, align 8, !tbaa !7
   %387 = fmul double %384, %386
   store double %387, ptr %385, align 8, !tbaa !7
@@ -679,9 +679,9 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
   %402 = phi i32 [ %432, %.thread28 ], [ 1, %398 ]
   %403 = phi i32 [ %433, %.thread28 ], [ 0, %398 ]
   %404 = phi i32 [ %434, %.thread28 ], [ 1, %398 ]
-  %405 = getelementptr inbounds double, ptr %49, i64 %401
-  %406 = getelementptr inbounds double, ptr %50, i64 %401
-  %407 = getelementptr inbounds double, ptr %51, i64 %401
+  %405 = getelementptr inbounds nuw double, ptr %49, i64 %401
+  %406 = getelementptr inbounds nuw double, ptr %50, i64 %401
+  %407 = getelementptr inbounds nuw double, ptr %51, i64 %401
   %408 = call i32 (ptr, ptr, ptr, ...) %3(ptr noundef nonnull %405, ptr noundef nonnull %406, ptr noundef nonnull %407) #6
   %409 = load double, ptr %406, align 8, !tbaa !7
   %410 = fcmp oeq double %409, 0.000000e+00

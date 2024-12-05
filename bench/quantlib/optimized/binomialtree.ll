@@ -90,7 +90,7 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !15
@@ -112,7 +112,7 @@ _ZN8QuantLib30EqualProbabilitiesBinomialTreeINS_10JarrowRuddEEC2ERKN5boost10shar
   %5 = phi double [ %call2.i.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i.i, %cond.false.i4.i.i ]
   %6 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i5.i.i, %cond.false.i4.i.i ]
   %vtable5.i.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 128
+  %vfn6.i.i = getelementptr inbounds nuw i8, ptr %vtable5.i.i, i64 128
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef 0.000000e+00, double noundef %5)
   %8 = load double, ptr %dt_.i.i, align 8, !tbaa !18
@@ -134,7 +134,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %11 = phi ptr [ %9, %_ZN8QuantLib30EqualProbabilitiesBinomialTreeINS_10JarrowRuddEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i, %cond.false.i ]
   %12 = load double, ptr %x0_.i.i, align 8, !tbaa !15
   %vtable = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %13 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 0.000000e+00, double noundef %12, double noundef %10)
   %up_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -172,7 +172,7 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !24
@@ -194,7 +194,7 @@ _ZN8QuantLib22EqualJumpsBinomialTreeINS_17CoxRossRubinsteinEEC2ERKN5boost10share
   %5 = phi double [ %call2.i.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i.i, %cond.false.i4.i.i ]
   %6 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i5.i.i, %cond.false.i4.i.i ]
   %vtable5.i.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 128
+  %vfn6.i.i = getelementptr inbounds nuw i8, ptr %vtable5.i.i, i64 128
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef 0.000000e+00, double noundef %5)
   %8 = load double, ptr %dt_.i.i, align 8, !tbaa !26
@@ -216,7 +216,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %11 = phi ptr [ %9, %_ZN8QuantLib22EqualJumpsBinomialTreeINS_17CoxRossRubinsteinEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i, %cond.false.i ]
   %12 = load double, ptr %x0_.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %13 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 0.000000e+00, double noundef %12, double noundef %10)
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -641,7 +641,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -654,7 +654,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -697,7 +697,7 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !42
@@ -719,7 +719,7 @@ _ZN8QuantLib30EqualProbabilitiesBinomialTreeINS_23AdditiveEQPBinomialTreeEEC2ERK
   %5 = phi double [ %call2.i.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i.i, %cond.false.i4.i.i ]
   %6 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i5.i.i, %cond.false.i4.i.i ]
   %vtable5.i.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 128
+  %vfn6.i.i = getelementptr inbounds nuw i8, ptr %vtable5.i.i, i64 128
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef 0.000000e+00, double noundef %5)
   %8 = load double, ptr %dt_.i.i, align 8, !tbaa !44
@@ -741,7 +741,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %11 = phi ptr [ %9, %_ZN8QuantLib30EqualProbabilitiesBinomialTreeINS_23AdditiveEQPBinomialTreeEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i, %cond.false.i ]
   %12 = load double, ptr %x0_.i.i, align 8, !tbaa !42
   %vtable = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %13 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 0.000000e+00, double noundef %12, double noundef %10)
   %14 = load double, ptr %driftPerStep_.i.i, align 8, !tbaa !45
@@ -793,7 +793,7 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !52
@@ -815,7 +815,7 @@ _ZN8QuantLib22EqualJumpsBinomialTreeINS_10TrigeorgisEEC2ERKN5boost10shared_ptrIN
   %5 = phi double [ %call2.i.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i.i, %cond.false.i4.i.i ]
   %6 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i ], [ %.pre.i5.i.i, %cond.false.i4.i.i ]
   %vtable5.i.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 128
+  %vfn6.i.i = getelementptr inbounds nuw i8, ptr %vtable5.i.i, i64 128
   %7 = load ptr, ptr %vfn6.i.i, align 8
   %call7.i.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef 0.000000e+00, double noundef %5)
   %8 = load double, ptr %dt_.i.i, align 8, !tbaa !54
@@ -837,7 +837,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %11 = phi ptr [ %9, %_ZN8QuantLib22EqualJumpsBinomialTreeINS_10TrigeorgisEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i, %cond.false.i ]
   %12 = load double, ptr %x0_.i.i, align 8, !tbaa !52
   %vtable = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %13 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 0.000000e+00, double noundef %12, double noundef %10)
   %14 = load double, ptr %driftPerStep_.i.i, align 8, !tbaa !55
@@ -1213,7 +1213,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !62
@@ -1235,7 +1235,7 @@ _ZN8QuantLib12BinomialTreeINS_4TianEEC2ERKN5boost10shared_ptrINS_19StochasticPro
   %5 = phi double [ %call2.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i, %cond.false.i4.i ]
   %6 = phi ptr [ %4, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i5.i, %cond.false.i4.i ]
   %vtable5.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 128
+  %vfn6.i = getelementptr inbounds nuw i8, ptr %vtable5.i, i64 128
   %7 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef 0.000000e+00, double noundef %5)
   %8 = load double, ptr %dt_.i, align 8, !tbaa !64
@@ -1257,7 +1257,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %11 = phi ptr [ %9, %_ZN8QuantLib12BinomialTreeINS_4TianEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i24, %cond.false.i ]
   %12 = load double, ptr %x0_.i, align 8, !tbaa !62
   %vtable = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %13 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 0.000000e+00, double noundef %12, double noundef %10)
   %call3 = tail call double @exp(double noundef %call2) #18, !tbaa !46
@@ -1647,7 +1647,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(144) %1)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !73
@@ -1669,7 +1669,7 @@ _ZN8QuantLib12BinomialTreeINS_12LeisenReimerEEC2ERKN5boost10shared_ptrINS_19Stoc
   %4 = phi double [ %call2.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i, %cond.false.i4.i ]
   %5 = phi ptr [ %3, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i5.i, %cond.false.i4.i ]
   %vtable5.i = load ptr, ptr %5, align 8, !tbaa !13
-  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 128
+  %vfn6.i = getelementptr inbounds nuw i8, ptr %vtable5.i, i64 128
   %6 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(144) %5, double noundef 0.000000e+00, double noundef %4)
   %7 = load double, ptr %dt_.i, align 8, !tbaa !75
@@ -1849,7 +1849,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %do
   %30 = phi ptr [ %29, %do.end ], [ %.pre.i35, %cond.false.i ]
   %31 = load double, ptr %x0_.i, align 8, !tbaa !73
   %vtable = load ptr, ptr %30, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %32 = load ptr, ptr %vfn, align 8
   %call34 = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(144) %30, double noundef 0.000000e+00, double noundef %31, double noundef %end)
   %33 = load double, ptr %driftPerStep_.i, align 8, !tbaa !76
@@ -2152,7 +2152,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(144) %1)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !84
@@ -2174,7 +2174,7 @@ _ZN8QuantLib12BinomialTreeINS_6Joshi4EEC2ERKN5boost10shared_ptrINS_19StochasticP
   %4 = phi double [ %call2.i, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i, %cond.false.i4.i ]
   %5 = phi ptr [ %3, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i ], [ %.pre.i5.i, %cond.false.i4.i ]
   %vtable5.i = load ptr, ptr %5, align 8, !tbaa !13
-  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 128
+  %vfn6.i = getelementptr inbounds nuw i8, ptr %vtable5.i, i64 128
   %6 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(144) %5, double noundef 0.000000e+00, double noundef %4)
   %7 = load double, ptr %dt_.i, align 8, !tbaa !86
@@ -2354,7 +2354,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %do
   %30 = phi ptr [ %29, %do.end ], [ %.pre.i35, %cond.false.i ]
   %31 = load double, ptr %x0_.i, align 8, !tbaa !84
   %vtable = load ptr, ptr %30, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %32 = load ptr, ptr %vfn, align 8
   %call34 = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(144) %30, double noundef 0.000000e+00, double noundef %31, double noundef %end)
   %33 = load double, ptr %driftPerStep_.i, align 8, !tbaa !87

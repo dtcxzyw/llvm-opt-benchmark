@@ -79,15 +79,15 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
-  %method = getelementptr inbounds i8, ptr %s, i64 24
+  %method = getelementptr inbounds nuw i8, ptr %s, i64 24
   %2 = load ptr, ptr %method, align 8
   call void @SSL_CONF_CTX_set_ssl(ptr noundef nonnull %call13, ptr noundef nonnull %s) #3
-  %ctx22 = getelementptr inbounds i8, ptr %s, i64 8
+  %ctx22 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %3 = load ptr, ptr %ctx22, align 8
   br label %if.end26
 
 if.else:                                          ; preds = %if.end16
-  %method24 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %method24 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %method24, align 8
   call void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef nonnull %call13, ptr noundef %ctx) #3
   br label %if.end26
@@ -96,12 +96,12 @@ if.end26:                                         ; preds = %if.else, %if.then21
   %meth.0 = phi ptr [ %2, %if.then21 ], [ %4, %if.else ]
   %libctx.0.in = phi ptr [ %3, %if.then21 ], [ %ctx, %if.else ]
   %libctx.0 = load ptr, ptr %libctx.0.in, align 8
-  %ssl_accept = getelementptr inbounds i8, ptr %meth.0, i64 64
+  %ssl_accept = getelementptr inbounds nuw i8, ptr %meth.0, i64 64
   %5 = load ptr, ptr %ssl_accept, align 8
   %cmp27.not = icmp eq ptr %5, @ssl_undefined_function
   %or29 = or disjoint i32 %spec.select, 8
   %spec.select25 = select i1 %cmp27.not, i32 %spec.select, i32 %or29
-  %ssl_connect = getelementptr inbounds i8, ptr %meth.0, i64 72
+  %ssl_connect = getelementptr inbounds nuw i8, ptr %meth.0, i64 72
   %6 = load ptr, ptr %ssl_connect, align 8
   %cmp31.not = icmp eq ptr %6, @ssl_undefined_function
   %or33 = or disjoint i32 %spec.select25, 4

@@ -164,7 +164,7 @@ define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr
 
 18:                                               ; preds = %.preheader
   store i8 0, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
   br label %20
 
 20:                                               ; preds = %18, %.preheader
@@ -180,7 +180,7 @@ define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr
 
 24:                                               ; preds = %22
   store i8 0, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %23, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -192,14 +192,14 @@ define dso_local range(i32 -30, 1) i32 @_archive_set_options(ptr noundef %0, ptr
 
 28:                                               ; preds = %26
   store i8 0, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %27, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1
   br label %parse_option.exit
 
 30:                                               ; preds = %26
   %31 = load i8, ptr %.033.i, align 1
   %32 = icmp eq i8 %31, 33
   %spec.select.idx.i = zext i1 %32 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.033.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 %spec.select.idx.i
   %spec.select44.i = select i1 %32, ptr null, ptr @.str.10
   br label %parse_option.exit
 

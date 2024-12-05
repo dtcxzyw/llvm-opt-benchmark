@@ -17,10 +17,10 @@ define ptr @memccpy(ptr noundef writeonly %0, ptr nocapture noundef readonly %1,
 
 7:                                                ; preds = %6
   %8 = add i64 %.09, -1
-  %9 = getelementptr inbounds i8, ptr %.0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %10 = load i8, ptr %.0, align 1
   store i8 %10, ptr %.08, align 1
-  %11 = getelementptr inbounds i8, ptr %.08, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %12 = icmp eq i8 %10, %5
   br i1 %12, label %13, label %6, !llvm.loop !6
 

@@ -183,7 +183,7 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
 
 11:                                               ; preds = %.preheader, %9
   %.068 = phi i64 [ %10, %9 ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds [12 x %struct.anon.0], ptr @__const.H5_init_library.initializer, i64 0, i64 %.068
+  %12 = getelementptr inbounds nuw [12 x %struct.anon.0], ptr @__const.H5_init_library.initializer, i64 0, i64 %.068
   %13 = load ptr, ptr %12, align 16
   %14 = tail call i32 %13() #21
   %15 = icmp slt i32 %14, 0
@@ -192,7 +192,7 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
 16:                                               ; preds = %11
   %17 = load i64, ptr @H5E_FUNC_g, align 8
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.H5_init_library, i32 noundef 270, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.31, ptr noundef %20) #21
   br label %24
@@ -234,10 +234,10 @@ define void @H5_term_library() #0 {
 .preheader:                                       ; preds = %6, %.preheader
   %.03557 = phi ptr [ %13, %.preheader ], [ %8, %6 ]
   %9 = load ptr, ptr %.03557, align 8
-  %10 = getelementptr inbounds i8, ptr %.03557, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.03557, i64 8
   %11 = load ptr, ptr %10, align 8
   call void %9(ptr noundef %11) #21
-  %12 = getelementptr inbounds i8, ptr %.03557, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.03557, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5_atclose_node_t_reg_free_list, ptr noundef nonnull %.03557) #21
   %.not47 = icmp eq ptr %13, null
@@ -262,8 +262,8 @@ define void @H5_term_library() #0 {
   %.13860 = phi i64 [ %.037, %17 ], [ %.2, %48 ]
   %.03959 = phi i64 [ 0, %17 ], [ %49, %48 ]
   %.14158 = phi ptr [ %.040, %17 ], [ %.242, %48 ]
-  %19 = getelementptr inbounds [26 x %struct.anon.1], ptr %3, i64 0, i64 %.03959
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %19 = getelementptr inbounds nuw [26 x %struct.anon.1], ptr %3, i64 0, i64 %.03959
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %48, label %23
@@ -273,7 +273,7 @@ define void @H5_term_library() #0 {
   br i1 %.not48, label %28, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %19, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 17
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %50, label %28
@@ -292,7 +292,7 @@ define void @H5_term_library() #0 {
   %34 = add nsw i32 %.061, 1
   %.not49 = icmp eq ptr %.14158, %1
   %35 = select i1 %.not49, ptr @.str.62, ptr @.str.61
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.14158, i64 noundef %.13860, ptr noundef nonnull @.str.60, ptr noundef nonnull %35, ptr noundef %37) #21
   %39 = icmp slt i32 %38, 0
@@ -319,7 +319,7 @@ define void @H5_term_library() #0 {
 
 45:                                               ; preds = %.thread
   %46 = sub nuw nsw i64 %.13860, %.pre-phi
-  %47 = getelementptr inbounds i8, ptr %.14158, i64 %.pre-phi
+  %47 = getelementptr inbounds nuw i8, ptr %.14158, i64 %.pre-phi
   br label %48
 
 48:                                               ; preds = %42, %.thread, %33, %18, %45, %32
@@ -363,7 +363,7 @@ define void @H5_term_library() #0 {
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @fclose(ptr noundef %64)
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
   call void @free(ptr noundef nonnull %63) #21
@@ -462,7 +462,7 @@ switch.early.test:                                ; preds = %6
 
 14:                                               ; preds = %switch.early.test, %switch.early.test, %6
   %15 = icmp ne i8 %5, 45
-  %16 = getelementptr inbounds i8, ptr %.079, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.079, i64 1
   %17 = icmp eq i8 %5, 43
   %spec.select = select i1 %17, ptr %16, ptr %.079
   %.1 = select i1 %15, ptr %spec.select, ptr %16
@@ -483,7 +483,7 @@ switch.early.test:                                ; preds = %6
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 %.04772
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %.04772
   store i8 %24, ptr %27, align 1
   %.pre = load ptr, ptr %7, align 8
   br label %28
@@ -491,7 +491,7 @@ switch.early.test:                                ; preds = %6
 28:                                               ; preds = %.lr.ph, %26
   %29 = phi ptr [ %23, %.lr.ph ], [ %.pre, %26 ]
   %30 = add i64 %.04772, 1
-  %31 = getelementptr inbounds i8, ptr %.273, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.273, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
   %34 = getelementptr inbounds i16, ptr %29, i64 %33
@@ -504,7 +504,7 @@ switch.early.test:                                ; preds = %6
   %.047.lcssa = phi i64 [ 0, %14 ], [ %30, %28 ]
   %.2.lcssa = phi ptr [ %.1, %14 ], [ %31, %28 ]
   %37 = call i64 @llvm.umin.i64(i64 %.047.lcssa, i64 31)
-  %38 = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 0, i64 %37
   store i8 0, ptr %38, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.88, i64 6)
   %.not59 = icmp eq i32 %bcmp, 0
@@ -550,7 +550,7 @@ switch.early.test:                                ; preds = %6
   %.14876 = phi i64 [ 0, %.preheader ], [ %51, %49 ]
   %.idx = shl nuw nsw i64 %.14876, 4
   %.offs = or disjoint i64 %.idx, 8
-  %50 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 %.offs
+  %50 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 %.offs
   store ptr %48, ptr %50, align 8
   %51 = add nuw nsw i64 %.14876, 1
   %exitcond87.not = icmp eq i64 %51, 20
@@ -563,7 +563,7 @@ switch.early.test:                                ; preds = %6
 
 .preheader69:                                     ; preds = %47, %52
   %.24975 = phi i64 [ %53, %52 ], [ 0, %47 ]
-  %54 = getelementptr inbounds [20 x %struct.anon], ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.24975
+  %54 = getelementptr inbounds nuw [20 x %struct.anon], ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.24975
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %2) #25
   %.not66 = icmp eq i32 %56, 0
@@ -571,7 +571,7 @@ switch.early.test:                                ; preds = %6
 
 57:                                               ; preds = %.preheader69
   %58 = select i1 %15, ptr %.04478, ptr null
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %58, ptr %59, align 8
   br label %.loopexit
 
@@ -605,7 +605,7 @@ switch.early.test:                                ; preds = %6
 75:                                               ; preds = %69
   store ptr %68, ptr %71, align 8
   %76 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %76, ptr %77, align 8
   store ptr %71, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
   br label %78
@@ -615,7 +615,7 @@ switch.early.test:                                ; preds = %6
   br label %.loopexit
 
 80:                                               ; preds = %63
-  %81 = getelementptr inbounds i8, ptr %.079, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.079, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %57, %78, %80, %39, %45, %60, %42
@@ -1187,10 +1187,10 @@ define range(i32 -1, 1) i32 @H5atclose(ptr noundef %0, ptr noundef %1) local_unn
 
 37:                                               ; preds = %29
   store ptr %0, ptr %30, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %1, ptr %38, align 8
   %39 = load ptr, ptr @H5_atclose_head, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %39, ptr %40, align 8
   store ptr %30, ptr @H5_atclose_head, align 8
   %41 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #21

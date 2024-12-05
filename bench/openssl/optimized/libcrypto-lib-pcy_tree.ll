@@ -14,14 +14,14 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %auth_policies = getelementptr inbounds i8, ptr %tree, i64 40
+  %auth_policies = getelementptr inbounds nuw i8, ptr %tree, i64 40
   %0 = load ptr, ptr %auth_policies, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %0) #2
-  %user_policies = getelementptr inbounds i8, ptr %tree, i64 48
+  %user_policies = getelementptr inbounds nuw i8, ptr %tree, i64 48
   %1 = load ptr, ptr %user_policies, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @exnode_free) #2
-  %levels = getelementptr inbounds i8, ptr %tree, i64 16
-  %nlevel = getelementptr inbounds i8, ptr %tree, i64 24
+  %levels = getelementptr inbounds nuw i8, ptr %tree, i64 16
+  %nlevel = getelementptr inbounds nuw i8, ptr %tree, i64 24
   %2 = load i32, ptr %nlevel, align 8
   %cmp12 = icmp sgt i32 %2, 0
   br i1 %cmp12, label %for.body.preheader, label %for.end
@@ -35,20 +35,20 @@ for.body:                                         ; preds = %for.body.preheader,
   %curr.013 = phi ptr [ %incdec.ptr, %for.body ], [ %3, %for.body.preheader ]
   %4 = load ptr, ptr %curr.013, align 8
   tail call void @X509_free(ptr noundef %4) #2
-  %nodes = getelementptr inbounds i8, ptr %curr.013, i64 8
+  %nodes = getelementptr inbounds nuw i8, ptr %curr.013, i64 8
   %5 = load ptr, ptr %nodes, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @ossl_policy_node_free) #2
-  %anyPolicy = getelementptr inbounds i8, ptr %curr.013, i64 16
+  %anyPolicy = getelementptr inbounds nuw i8, ptr %curr.013, i64 16
   %6 = load ptr, ptr %anyPolicy, align 8
   tail call void @ossl_policy_node_free(ptr noundef %6) #2
   %inc = add nuw nsw i32 %i.014, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.013, i64 32
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %curr.013, i64 32
   %7 = load i32, ptr %nlevel, align 8
   %cmp = icmp slt i32 %inc, %7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %if.end
-  %extra_data = getelementptr inbounds i8, ptr %tree, i64 32
+  %extra_data = getelementptr inbounds nuw i8, ptr %tree, i64 32
   %8 = load ptr, ptr %extra_data, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %8, ptr noundef nonnull @ossl_policy_data_free) #2
   %9 = load ptr, ptr %levels, align 8
@@ -155,7 +155,7 @@ if.end39.i:                                       ; preds = %for.body31.i
   br i1 %tobool42.not.i, label %if.end46.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end39.i
-  %data43.i = getelementptr inbounds i8, ptr %call40.i, i64 8
+  %data43.i = getelementptr inbounds nuw i8, ptr %call40.i, i64 8
   %1 = load ptr, ptr %data43.i, align 8
   %cmp44.i = icmp eq ptr %1, null
   %spec.select.i = select i1 %cmp44.i, i32 2, i32 %ret.089.i
@@ -170,7 +170,7 @@ if.then48.i:                                      ; preds = %if.end46.i
   %2 = and i32 %and49.i, 1
   %sext80.i = add nsw i32 %explicit_policy.087.i, -1
   %spec.select69.i = add nuw nsw i32 %sext80.i, %2
-  %explicit_skip.i = getelementptr inbounds i8, ptr %call40.i, i64 24
+  %explicit_skip.i = getelementptr inbounds nuw i8, ptr %call40.i, i64 24
   %3 = load i64, ptr %explicit_skip.i, align 8
   %cmp54.i = icmp sgt i64 %3, -1
   %conv.i = zext nneg i32 %spec.select69.i to i64
@@ -202,12 +202,12 @@ if.end75.i:                                       ; preds = %for.end66.i
   br i1 %cmp77.i, label %return, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.end75.i
-  %node_maximum.i = getelementptr inbounds i8, ptr %call76.i, i64 8
+  %node_maximum.i = getelementptr inbounds nuw i8, ptr %call76.i, i64 8
   store i64 1000, ptr %node_maximum.i, align 8
   %conv82.i = sext i32 %call1.i to i64
   %mul.i = shl nsw i64 %conv82.i, 5
   %call83.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 187) #2
-  %levels.i = getelementptr inbounds i8, ptr %call76.i, i64 16
+  %levels.i = getelementptr inbounds nuw i8, ptr %call76.i, i64 16
   store ptr %call83.i, ptr %levels.i, align 8
   %cmp84.i = icmp eq ptr %call83.i, null
   br i1 %cmp84.i, label %if.then86.i, label %if.end87.i
@@ -217,7 +217,7 @@ if.then86.i:                                      ; preds = %if.end80.i
   br label %return
 
 if.end87.i:                                       ; preds = %if.end80.i
-  %nlevel.i = getelementptr inbounds i8, ptr %call76.i, i64 24
+  %nlevel.i = getelementptr inbounds nuw i8, ptr %call76.i, i64 24
   store i32 %call1.i, ptr %nlevel.i, align 8
   %call90.i = tail call ptr @OBJ_nid2obj(i32 noundef 746) #2
   %call91.i = tail call ptr @ossl_policy_data_new(ptr noundef null, ptr noundef %call90.i, i32 noundef 0) #2
@@ -245,14 +245,14 @@ for.body105.i:                                    ; preds = %for.cond102.prehead
   %call110.i = tail call i32 @X509_get_extension_flags(ptr noundef %call108.i) #2
   %call111.i = tail call ptr @ossl_policy_cache_set(ptr noundef %call108.i) #2
   %call112.i = tail call i32 @X509_up_ref(ptr noundef %call108.i) #2
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %level.097.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %level.097.i, i64 32
   store ptr %call108.i, ptr %incdec.ptr.i, align 8
   %4 = load ptr, ptr %call111.i, align 8
   %tobool113.not.i = icmp eq ptr %4, null
   br i1 %tobool113.not.i, label %if.then114.i, label %if.end117.i
 
 if.then114.i:                                     ; preds = %for.body105.i
-  %flags115.i = getelementptr inbounds i8, ptr %level.097.i, i64 56
+  %flags115.i = getelementptr inbounds nuw i8, ptr %level.097.i, i64 56
   %5 = load i32, ptr %flags115.i, align 8
   %or116.i = or i32 %5, 512
   store i32 %or116.i, ptr %flags115.i, align 8
@@ -270,7 +270,7 @@ if.then120.i:                                     ; preds = %if.end117.i
   br i1 %or.cond.i, label %if.then125.i, label %if.end146.i
 
 if.then125.i:                                     ; preds = %if.then120.i
-  %flags126.i = getelementptr inbounds i8, ptr %level.097.i, i64 56
+  %flags126.i = getelementptr inbounds nuw i8, ptr %level.097.i, i64 56
   %6 = load i32, ptr %flags126.i, align 8
   %or127.i = or i32 %6, 512
   store i32 %or127.i, ptr %flags126.i, align 8
@@ -281,7 +281,7 @@ if.else.i:                                        ; preds = %if.end117.i
   %7 = and i32 %and129.i, 1
   %sext.i = add i32 %any_skip.094.i, -1
   %spec.select72.i = add nuw i32 %sext.i, %7
-  %any_skip134.i = getelementptr inbounds i8, ptr %call111.i, i64 16
+  %any_skip134.i = getelementptr inbounds nuw i8, ptr %call111.i, i64 16
   %8 = load i64, ptr %any_skip134.i, align 8
   %cmp135.i = icmp sgt i64 %8, -1
   %conv139.i = sext i32 %spec.select72.i to i64
@@ -297,7 +297,7 @@ if.end146.i:                                      ; preds = %if.else.i, %if.then
   br i1 %cmp147.i, label %if.then149.i, label %if.else152.i
 
 if.then149.i:                                     ; preds = %if.end146.i
-  %flags150.i = getelementptr inbounds i8, ptr %level.097.i, i64 56
+  %flags150.i = getelementptr inbounds nuw i8, ptr %level.097.i, i64 56
   %9 = load i32, ptr %flags150.i, align 8
   %or151.i = or i32 %9, 1024
   store i32 %or151.i, ptr %flags150.i, align 8
@@ -308,7 +308,7 @@ if.else152.i:                                     ; preds = %if.end146.i
   %10 = and i32 %and153.i, 1
   %sext79.i = add i32 %map_skip.095.i, -1
   %spec.select74.i = add nuw i32 %sext79.i, %10
-  %map_skip158.i = getelementptr inbounds i8, ptr %call111.i, i64 32
+  %map_skip158.i = getelementptr inbounds nuw i8, ptr %call111.i, i64 32
   %11 = load i64, ptr %map_skip158.i, align 8
   %cmp159.i = icmp sgt i64 %11, -1
   %conv163.i = sext i32 %spec.select74.i to i64
@@ -351,8 +351,8 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.else, %if.then2
-  %levels.i11 = getelementptr inbounds i8, ptr %tree.0, i64 16
-  %nlevel.i12 = getelementptr inbounds i8, ptr %tree.0, i64 24
+  %levels.i11 = getelementptr inbounds nuw i8, ptr %tree.0, i64 16
+  %nlevel.i12 = getelementptr inbounds nuw i8, ptr %tree.0, i64 24
   %12 = load i32, ptr %nlevel.i12, align 8
   %cmp50.i = icmp sgt i32 %12, 1
   %.pre = load ptr, ptr %levels.i11, align 8
@@ -361,18 +361,18 @@ if.end10:                                         ; preds = %if.else, %if.then2
 for.body.i14:                                     ; preds = %if.end10, %for.inc.i
   %i.052.i = phi i32 [ %inc.i, %for.inc.i ], [ 1, %if.end10 ]
   %.pn51.i = phi ptr [ %curr.053.i, %for.inc.i ], [ %.pre, %if.end10 ]
-  %curr.053.i = getelementptr inbounds i8, ptr %.pn51.i, i64 32
+  %curr.053.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 32
   %13 = load ptr, ptr %curr.053.i, align 8
   %call.i = tail call ptr @ossl_policy_cache_set(ptr noundef %13) #2
-  %data.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %14 = load ptr, ptr %data.i.i, align 8
   %call.i8.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #2
   %cmp9.i.i = icmp sgt i32 %call.i8.i.i, 0
   br i1 %cmp9.i.i, label %for.body.lr.ph.i.i, label %if.end.i15
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i14
-  %nodes.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 8
-  %anyPolicy.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 16
+  %nodes.i.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 8
+  %anyPolicy.i.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -385,7 +385,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp16.i.i.i, label %for.body.lr.ph.i.i.i, label %land.lhs.true.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body.i.i
-  %valid_policy.i.i.i = getelementptr inbounds i8, ptr %call.i4.i.i, i64 8
+  %valid_policy.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i.i, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
@@ -433,21 +433,21 @@ for.inc.i.i:                                      ; preds = %if.then12.i.i.i, %l
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end.i15, !llvm.loop !10
 
 if.end.i15:                                       ; preds = %for.inc.i.i, %for.body.i14
-  %flags.i = getelementptr inbounds i8, ptr %.pn51.i, i64 56
+  %flags.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 56
   %23 = load i32, ptr %flags.i, align 8
   %and.i16 = and i32 %23, 512
   %tobool2.not.i = icmp eq i32 %and.i16, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i18, label %do.body.i
 
 land.lhs.true.i18:                                ; preds = %if.end.i15
-  %nodes.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 8
+  %nodes.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 8
   %24 = load ptr, ptr %nodes.i.i, align 8
   %call116.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #2
   %cmp17.i.i = icmp sgt i32 %call116.i.i, 0
   br i1 %cmp17.i.i, label %for.body.lr.ph.i14.i, label %for.end.i.i
 
 for.body.lr.ph.i14.i:                             ; preds = %land.lhs.true.i18
-  %flags.i.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 24
+  %flags.i.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 24
   br label %for.body.i15.i
 
 for.body.i15.i:                                   ; preds = %for.inc.i18.i, %for.body.lr.ph.i14.i
@@ -467,14 +467,14 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i15.i
   br i1 %tobool3.not.i.i.i, label %if.then.i.i17.i, label %if.else.i.i.i
 
 if.then.i.i17.i:                                  ; preds = %lor.lhs.false.i.i.i, %for.body.i15.i
-  %nchild.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 16
+  %nchild.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 16
   %29 = load i32, ptr %nchild.i.i.i, align 8
   %tobool4.not.i.i.i = icmp eq i32 %29, 0
   br i1 %tobool4.not.i.i.i, label %if.end.i.i.i, label %for.inc.i18.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i17.i
   %.pre.i.i.i.i = load ptr, ptr %call4.i.i, align 8
-  %valid_policy.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 8
+  %valid_policy.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 8
   %30 = load ptr, ptr %valid_policy.i.i.i.i, align 8
   %31 = load i32, ptr %.pre.i.i.i.i, align 8
   %and.i.i.i.i = and i32 %31, 16
@@ -484,9 +484,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i17.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %32 = load ptr, ptr %call.i, align 8
-  %qualifier_set.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %qualifier_set.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   %33 = load ptr, ptr %qualifier_set.i.i.i.i, align 8
-  %qualifier_set6.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %qualifier_set6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %33, ptr %qualifier_set6.i.i.i.i, align 8
   %34 = load i32, ptr %call.i.i.i.i, align 8
   %or.i.i.i.i = or i32 %34, 4
@@ -496,9 +496,9 @@ if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i
   br i1 %cmp9.i.i.i.i, label %return.sink.split.i.i.i, label %for.inc.i18.i
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
-  %expected_policy_set.i.i.i = getelementptr inbounds i8, ptr %27, i64 24
+  %expected_policy_set.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   %35 = load ptr, ptr %expected_policy_set.i.i.i, align 8
-  %nchild10.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 16
+  %nchild10.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i, i64 16
   %36 = load i32, ptr %nchild10.i.i.i, align 8
   %call12.i.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %35) #2
   %cmp.i.i21.i = icmp eq i32 %36, %call12.i.i.i
@@ -522,7 +522,7 @@ if.end23.i.i.i:                                   ; preds = %for.body.i.i22.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end23.i.i.i
-  %valid_policy.i29.i.i.i = getelementptr inbounds i8, ptr %.pre.i17.i.i.i, i64 8
+  %valid_policy.i29.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i17.i.i.i, i64 8
   %37 = load ptr, ptr %valid_policy.i29.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -536,9 +536,9 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.end5.i21.i.i.i:                                ; preds = %if.end.i.i.i.i
   %39 = load ptr, ptr %call.i, align 8
-  %qualifier_set.i22.i.i.i = getelementptr inbounds i8, ptr %39, i64 16
+  %qualifier_set.i22.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   %40 = load ptr, ptr %qualifier_set.i22.i.i.i, align 8
-  %qualifier_set6.i23.i.i.i = getelementptr inbounds i8, ptr %call.i19.i.i.i, i64 16
+  %qualifier_set6.i23.i.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i.i.i, i64 16
   store ptr %40, ptr %qualifier_set6.i23.i.i.i, align 8
   %41 = load i32, ptr %call.i19.i.i.i, align 8
   %or.i24.i.i.i = or i32 %41, 4
@@ -566,7 +566,7 @@ for.inc.i18.i:                                    ; preds = %for.inc.i.i23.i, %f
   br i1 %cmp.i20.i, label %for.body.i15.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %for.inc.i18.i, %land.lhs.true.i18
-  %anyPolicy.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 16
+  %anyPolicy.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 16
   %43 = load ptr, ptr %anyPolicy.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %43, null
   br i1 %tobool6.not.i.i, label %do.body.i, label %land.lhs.true.i.i
@@ -578,7 +578,7 @@ land.lhs.true.i.i:                                ; preds = %for.end.i.i
   br i1 %cmp10.i.i, label %error, label %do.body.i
 
 do.body.i:                                        ; preds = %land.lhs.true.i.i, %for.end.i.i, %if.end.i15
-  %nodes1.i.i = getelementptr inbounds i8, ptr %.pn51.i, i64 40
+  %nodes1.i.i = getelementptr inbounds nuw i8, ptr %.pn51.i, i64 40
   %45 = load ptr, ptr %nodes1.i.i, align 8
   %46 = load i32, ptr %flags.i, align 8
   %and.i.i = and i32 %46, 1024
@@ -601,9 +601,9 @@ for.body.i28.i:                                   ; preds = %if.then.i.i, %for.i
   br i1 %tobool7.not.i.i, label %for.inc.i30.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %for.body.i28.i
-  %parent.i.i = getelementptr inbounds i8, ptr %call4.i29.i, i64 8
+  %parent.i.i = getelementptr inbounds nuw i8, ptr %call4.i29.i, i64 8
   %49 = load ptr, ptr %parent.i.i, align 8
-  %nchild.i.i = getelementptr inbounds i8, ptr %49, i64 16
+  %nchild.i.i = getelementptr inbounds nuw i8, ptr %49, i64 16
   %50 = load i32, ptr %nchild.i.i, align 8
   %dec.i.i = add nsw i32 %50, -1
   store i32 %dec.i.i, ptr %nchild.i.i, align 8
@@ -631,15 +631,15 @@ for.body20.i.i:                                   ; preds = %for.cond13.i.i, %fo
   %i.135.in.i.i = phi i32 [ %i.135.i.i, %for.inc32.i.i ], [ %call16.i.i, %for.cond13.i.i ]
   %i.135.i.i = add nsw i32 %i.135.in.i.i, -1
   %call22.i.i = tail call ptr @OPENSSL_sk_value(ptr noundef %51, i32 noundef %i.135.i.i) #2
-  %nchild23.i.i = getelementptr inbounds i8, ptr %call22.i.i, i64 16
+  %nchild23.i.i = getelementptr inbounds nuw i8, ptr %call22.i.i, i64 16
   %52 = load i32, ptr %nchild23.i.i, align 8
   %cmp24.i.i = icmp eq i32 %52, 0
   br i1 %cmp24.i.i, label %if.then25.i.i, label %for.inc32.i.i
 
 if.then25.i.i:                                    ; preds = %for.body20.i.i
-  %parent26.i.i = getelementptr inbounds i8, ptr %call22.i.i, i64 8
+  %parent26.i.i = getelementptr inbounds nuw i8, ptr %call22.i.i, i64 8
   %53 = load ptr, ptr %parent26.i.i, align 8
-  %nchild27.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  %nchild27.i.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   %54 = load i32, ptr %nchild27.i.i, align 8
   %dec28.i.i = add nsw i32 %54, -1
   store i32 %dec28.i.i, ptr %nchild27.i.i, align 8
@@ -658,19 +658,19 @@ for.end34.i.i:                                    ; preds = %for.inc32.i.i, %for
   br i1 %tobool35.not.i.i, label %if.end51.i.i, label %land.lhs.true.i27.i
 
 land.lhs.true.i27.i:                              ; preds = %for.end34.i.i
-  %nchild37.i.i = getelementptr inbounds i8, ptr %55, i64 16
+  %nchild37.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
   %56 = load i32, ptr %nchild37.i.i, align 8
   %tobool38.not.i.i = icmp eq i32 %56, 0
   br i1 %tobool38.not.i.i, label %if.then39.i.i, label %if.end51.i.thread.i
 
 if.then39.i.i:                                    ; preds = %land.lhs.true.i27.i
-  %parent41.i.i = getelementptr inbounds i8, ptr %55, i64 8
+  %parent41.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %parent41.i.i, align 8
   %tobool42.not.i.i = icmp eq ptr %57, null
   br i1 %tobool42.not.i.i, label %if.end48.i.i, label %if.then43.i.i
 
 if.then43.i.i:                                    ; preds = %if.then39.i.i
-  %nchild46.i.i = getelementptr inbounds i8, ptr %57, i64 16
+  %nchild46.i.i = getelementptr inbounds nuw i8, ptr %57, i64 16
   %58 = load i32, ptr %nchild46.i.i, align 8
   %dec47.i.i = add nsw i32 %58, -1
   store i32 %dec47.i.i, ptr %nchild46.i.i, align 8
@@ -715,7 +715,7 @@ if.end21:                                         ; preds = %for.inc.i, %if.end1
   %anyPolicy.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
   %65 = load ptr, ptr %anyPolicy.i, align 8
   %tobool.not.i21 = icmp eq ptr %65, null
-  %auth_policies5.i = getelementptr inbounds i8, ptr %tree.0, i64 40
+  %auth_policies5.i = getelementptr inbounds nuw i8, ptr %tree.0, i64 40
   br i1 %tobool.not.i21, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end21
@@ -754,14 +754,14 @@ for.body.preheader.i27:                           ; preds = %if.end6.i
 for.body.i28:                                     ; preds = %for.inc30.i, %for.body.preheader.i27
   %i.052.i29 = phi i32 [ %inc31.i, %for.inc30.i ], [ 1, %for.body.preheader.i27 ]
   %curr.051.i = phi ptr [ %incdec.ptr.i30, %for.inc30.i ], [ %70, %for.body.preheader.i27 ]
-  %anyPolicy9.i = getelementptr inbounds i8, ptr %curr.051.i, i64 16
+  %anyPolicy9.i = getelementptr inbounds nuw i8, ptr %curr.051.i, i64 16
   %71 = load ptr, ptr %anyPolicy9.i, align 8
   %cmp10.i = icmp eq ptr %71, null
   br i1 %cmp10.i, label %for.end32.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.body.i28
-  %incdec.ptr.i30 = getelementptr inbounds i8, ptr %curr.051.i, i64 32
-  %nodes.i = getelementptr inbounds i8, ptr %curr.051.i, i64 40
+  %incdec.ptr.i30 = getelementptr inbounds nuw i8, ptr %curr.051.i, i64 32
+  %nodes.i = getelementptr inbounds nuw i8, ptr %curr.051.i, i64 40
   %72 = load ptr, ptr %nodes.i, align 8
   %call1547.i = tail call i32 @OPENSSL_sk_num(ptr noundef %72) #2
   %cmp1648.i = icmp sgt i32 %call1547.i, 0
@@ -771,7 +771,7 @@ for.body17.i:                                     ; preds = %if.end12.i, %for.in
   %j.049.i = phi i32 [ %inc.i34, %for.inc.i33 ], [ 0, %if.end12.i ]
   %73 = load ptr, ptr %nodes.i, align 8
   %call20.i32 = tail call ptr @OPENSSL_sk_value(ptr noundef %73, i32 noundef %j.049.i) #2
-  %parent.i = getelementptr inbounds i8, ptr %call20.i32, i64 8
+  %parent.i = getelementptr inbounds nuw i8, ptr %call20.i32, i64 8
   %74 = load ptr, ptr %parent.i, align 8
   %cmp21.i = icmp eq ptr %74, %71
   br i1 %cmp21.i, label %land.lhs.true.i35, label %for.inc.i33
@@ -868,8 +868,8 @@ for.cond12.preheader.i:                           ; preds = %for.cond.i55, %if.e
 
 for.body16.lr.ph.i:                               ; preds = %for.cond12.preheader.i
   %tobool21.not.i = icmp eq ptr %.fr.i, null
-  %parent.i43 = getelementptr inbounds i8, ptr %.fr.i, i64 8
-  %user_policies.i = getelementptr inbounds i8, ptr %tree.0, i64 48
+  %parent.i43 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 8
+  %user_policies.i = getelementptr inbounds nuw i8, ptr %tree.0, i64 48
   br i1 %tobool21.not.i, label %for.body16.us.i, label %for.body16.i
 
 for.body16.us.i:                                  ; preds = %for.body16.lr.ph.i, %for.inc53.us.i
@@ -910,7 +910,7 @@ for.body.i54:                                     ; preds = %if.end.i39, %for.co
   br i1 %cmp9.i, label %if.then10.i, label %for.cond.i55
 
 if.then10.i:                                      ; preds = %for.body.i54
-  %flags.i57 = getelementptr inbounds i8, ptr %tree.0, i64 56
+  %flags.i57 = getelementptr inbounds nuw i8, ptr %tree.0, i64 56
   %91 = load i32, ptr %flags.i57, align 8
   %or.i58 = or i32 %91, 2
   store i32 %or.i58, ptr %flags.i57, align 8
@@ -933,9 +933,9 @@ if.then20.i:                                      ; preds = %for.body16.i
 
 if.end28.i:                                       ; preds = %if.then20.i
   %94 = load ptr, ptr %.fr.i, align 8
-  %qualifier_set.i = getelementptr inbounds i8, ptr %94, i64 16
+  %qualifier_set.i = getelementptr inbounds nuw i8, ptr %94, i64 16
   %95 = load ptr, ptr %qualifier_set.i, align 8
-  %qualifier_set30.i = getelementptr inbounds i8, ptr %call25.i, i64 16
+  %qualifier_set30.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 16
   store ptr %95, ptr %qualifier_set30.i, align 8
   store i32 12, ptr %call25.i, align 8
   %96 = load ptr, ptr %parent.i43, align 8

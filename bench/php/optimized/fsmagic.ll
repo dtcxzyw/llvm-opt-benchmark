@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %.fr112 = freeze i32 %5
   %6 = and i32 %.fr112, 1040
@@ -69,7 +69,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond.not, label %23, label %46
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 2048
   %.not79 = icmp eq i32 %26, 0
@@ -119,7 +119,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 46:                                               ; preds = %38, %41, %21
   %.073 = phi i32 [ 0, %21 ], [ %42, %41 ], [ %.2, %38 ]
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 61440
   %50 = add nsw i32 %49, -4096
@@ -244,7 +244,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %103, label %104, label %handle_mime.exit
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %2, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %106 = load i64, ptr %105, align 8
   %107 = icmp eq i64 %106, 0
   br i1 %107, label %108, label %handle_mime.exit

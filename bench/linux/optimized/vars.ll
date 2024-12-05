@@ -45,8 +45,8 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %13 = tail call i64 @ucs2_as_utf8(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %8) #14
   %14 = getelementptr i8, ptr %10, i64 %8
   store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %17
 
 17:                                               ; preds = %.thread6, %12
@@ -54,7 +54,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   %19 = phi ptr [ @.str.3, %12 ], [ %47, %.thread6 ]
   %20 = phi ptr [ @variable_validate, %12 ], [ %45, %.thread6 ]
   %21 = load i64, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -97,7 +97,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
   br i1 %39, label %.thread4, label %.thread6
 
 .thread4:                                         ; preds = %38, %.preheader
-  %40 = getelementptr inbounds i8, ptr %20, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit, label %.thread10
@@ -110,7 +110,7 @@ define dso_local zeroext i1 @efivar_validate(i64 %0, i64 %1, ptr noundef %2, ptr
 .thread6:                                         ; preds = %32, %30, %17, %38
   %44 = add nuw nsw i64 %18, 1
   %45 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 16
   %48 = icmp eq i64 %44, 16
   br i1 %48, label %.loopexit, label %17, !llvm.loop !7
@@ -143,8 +143,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = alloca %struct.guid_t, align 8
   %6 = alloca %struct.guid_t, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %9
 
 9:                                                ; preds = %.thread4, %4
@@ -153,7 +153,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
   %12 = phi ptr [ @.str.3, %4 ], [ %35, %.thread4 ]
   %13 = phi ptr [ @variable_validate, %4 ], [ %33, %.thread4 ]
   %14 = load i64, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -195,7 +195,7 @@ define dso_local zeroext i1 @efivar_variable_is_removable(i64 %0, i64 %1, ptr no
 .thread4:                                         ; preds = %25, %23, %30, %9
   %32 = add nuw nsw i64 %10, 1
   %33 = getelementptr [17 x %struct.variable_validate], ptr @variable_validate, i64 0, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 16
   %36 = load i8, ptr %35, align 1
   %37 = icmp ne i8 %36, 0
@@ -233,9 +233,9 @@ define dso_local i32 @efivar_init(ptr nocapture noundef readonly %0, ptr noundef
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %10, i64 -2
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %17, %.loopexit13.us
@@ -430,12 +430,12 @@ define dso_local i32 @efivar_entry_add(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2088
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store ptr %7, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 2096
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   store ptr %1, ptr %9, align 8
   store volatile ptr %6, ptr %1, align 8
   tail call void @efivar_unlock() #14
@@ -447,12 +447,12 @@ define dso_local i32 @efivar_entry_add(ptr noundef %0, ptr noundef %1) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local void @__efivar_entry_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store ptr %4, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 2096
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   store ptr %1, ptr %6, align 8
   store volatile ptr %3, ptr %1, align 8
   ret void
@@ -460,11 +460,11 @@ define dso_local void @__efivar_entry_add(ptr noundef %0, ptr noundef %1) local_
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local void @efivar_entry_remove(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2088
-  %3 = getelementptr inbounds i8, ptr %0, i64 2096
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
@@ -479,8 +479,8 @@ define dso_local i32 @efivar_entry_delete(ptr noundef %0) local_unnamed_addr #0 
   br i1 %3, label %4, label %15
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1024
-  %6 = tail call i64 @efivar_set_variable_locked(ptr noundef %0, ptr noundef %5, i32 noundef 0, i64 noundef 0, ptr noundef null, i1 noundef zeroext false) #14
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %6 = tail call i64 @efivar_set_variable_locked(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i64 noundef 0, ptr noundef null, i1 noundef zeroext false) #14
   switch i64 %6, label %7 [
     i64 -9223372036854775794, label %9
     i64 0, label %9
@@ -492,11 +492,11 @@ define dso_local i32 @efivar_entry_delete(ptr noundef %0) local_unnamed_addr #0 
   br label %15
 
 9:                                                ; preds = %4, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 2088
-  %11 = getelementptr inbounds i8, ptr %0, i64 2096
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   store volatile ptr %13, ptr %12, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
@@ -523,8 +523,8 @@ define dso_local i32 @efivar_entry_size(ptr noundef %0, ptr noundef initializes(
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
-  %7 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef %1, ptr noundef null) #14
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %7 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef %1, ptr noundef null) #14
   tail call void @efivar_unlock() #14
   %8 = icmp eq i64 %7, -9223372036854775803
   br i1 %8, label %11, label %9
@@ -543,8 +543,8 @@ declare dso_local i64 @efivar_get_variable(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__efivar_entry_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1024
-  %6 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %6 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
   %7 = tail call i32 @efi_status_to_err(i64 noundef %6) #14
   ret i32 %7
 }
@@ -556,8 +556,8 @@ define dso_local i32 @efivar_entry_get(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1024
-  %9 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %9 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
   %10 = tail call i32 @efi_status_to_err(i64 noundef %9) #14
   tail call void @efivar_unlock() #14
   br label %11
@@ -568,11 +568,11 @@ define dso_local i32 @efivar_entry_get(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i8 0, ptr %4, align 1
   %7 = load i64, ptr %2, align 8
   %8 = load i64, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1032
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %10 = load i64, ptr %9, align 4
   %11 = tail call zeroext i1 @efivar_validate(i64 %8, i64 %10, ptr noundef %0, ptr noundef %3, i64 noundef %7)
   br i1 %11, label %12, label %32
@@ -584,7 +584,7 @@ define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %12
   %16 = load i64, ptr %2, align 8
-  %17 = tail call i64 @efivar_set_variable_locked(ptr noundef %0, ptr noundef %6, i32 noundef %1, i64 noundef %16, ptr noundef %3, i1 noundef zeroext false) #14
+  %17 = tail call i64 @efivar_set_variable_locked(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %1, i64 noundef %16, ptr noundef %3, i1 noundef zeroext false) #14
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %21, label %19
 
@@ -596,16 +596,16 @@ define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, 
 21:                                               ; preds = %15
   store i8 1, ptr %4, align 1
   store i64 0, ptr %2, align 8
-  %22 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef %2, ptr noundef null) #14
+  %22 = tail call i64 @efivar_get_variable(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef %2, ptr noundef null) #14
   %23 = icmp eq i64 %22, -9223372036854775794
   br i1 %23, label %.thread, label %29
 
 .thread:                                          ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 2088
-  %25 = getelementptr inbounds i8, ptr %0, i64 2096
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
   store volatile ptr %27, ptr %26, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %24, align 8
@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   %53 = phi i64 [ 0, %50 ], [ %72, %71 ]
   %54 = phi i32 [ 0, %50 ], [ %65, %71 ]
   %55 = phi ptr [ %48, %50 ], [ %73, %71 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %57 = load i16, ptr %56, align 1
   %58 = icmp ult i16 %57, 4
   %59 = zext i16 %57 to i64
@@ -777,7 +777,7 @@ define internal noundef zeroext i1 @validate_load_option(ptr noundef %0, i32 nou
   ]
 
 67:                                               ; preds = %63, %63
-  %68 = getelementptr inbounds i8, ptr %55, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, -1
   br i1 %70, label %.loopexit, label %71
@@ -806,7 +806,7 @@ define internal noundef zeroext i1 @validate_device_path(ptr nocapture readnone 
   %9 = phi i64 [ 0, %6 ], [ %28, %27 ]
   %10 = phi i32 [ 0, %6 ], [ %21, %27 ]
   %11 = phi ptr [ %2, %6 ], [ %29, %27 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 1
   %14 = icmp ult i16 %13, 4
   %15 = zext i16 %13 to i64
@@ -825,7 +825,7 @@ define internal noundef zeroext i1 @validate_device_path(ptr nocapture readnone 
   ]
 
 23:                                               ; preds = %19, %19
-  %24 = getelementptr inbounds i8, ptr %11, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %.loopexit, label %27

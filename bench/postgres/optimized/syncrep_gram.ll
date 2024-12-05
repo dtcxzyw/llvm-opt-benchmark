@@ -335,13 +335,13 @@ define internal fastcc noundef ptr @create_syncrep_config(ptr nocapture noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph53, label %._crit_edge
 
 .lr.ph53:                                         ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
@@ -365,30 +365,30 @@ define internal fastcc noundef ptr @create_syncrep_config(ptr nocapture noundef 
   %17 = tail call ptr @palloc(i64 noundef %16) #7
   store i32 %.0.lcssa, ptr %17, align 4
   %18 = tail call i32 @atoi(ptr nocapture noundef %0) #8
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %2, ptr %20, align 4
   br i1 %.not, label %list_length.exit.thread, label %.lr.ph58
 
 list_length.exit.thread:                          ; preds = %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %17, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %21, align 4
   br label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %17, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i32, ptr %25, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph63.preheader, label %._crit_edge59
 
 .lr.ph63.preheader:                               ; preds = %.lr.ph58
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
@@ -399,8 +399,8 @@ list_length.exit.thread:                          ; preds = %._crit_edge
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0315662, ptr noundef nonnull dereferenceable(1) %32) #7
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #8
-  %35 = add i64 %34, 1
-  %36 = getelementptr i8, ptr %.0315662, i64 %35
+  %35 = getelementptr i8, ptr %.0315662, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %37 = load i32, ptr %25, align 4
   %38 = sext i32 %37 to i64

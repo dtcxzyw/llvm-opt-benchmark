@@ -15,15 +15,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %s = getelementptr inbounds i8, ptr %user_pwd, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %user_pwd, i64 8
   %0 = load ptr, ptr %s, align 8
   tail call void @BN_free(ptr noundef %0) #7
-  %v = getelementptr inbounds i8, ptr %user_pwd, i64 16
+  %v = getelementptr inbounds nuw i8, ptr %user_pwd, i64 16
   %1 = load ptr, ptr %v, align 8
   tail call void @BN_clear_free(ptr noundef %1) #7
   %2 = load ptr, ptr %user_pwd, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 185) #7
-  %info = getelementptr inbounds i8, ptr %user_pwd, i64 40
+  %info = getelementptr inbounds nuw i8, ptr %user_pwd, i64 40
   %3 = load ptr, ptr %info, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 186) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %user_pwd, ptr noundef nonnull @.str, i32 noundef 187) #7
@@ -59,9 +59,9 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SRP_user_pwd_set_gN(ptr nocapture noundef writeonly initializes((24, 40)) %vinfo, ptr noundef %g, ptr noundef %N) local_unnamed_addr #2 {
 entry:
-  %N1 = getelementptr inbounds i8, ptr %vinfo, i64 32
+  %N1 = getelementptr inbounds nuw i8, ptr %vinfo, i64 32
   store ptr %N, ptr %N1, align 8
-  %g2 = getelementptr inbounds i8, ptr %vinfo, i64 24
+  %g2 = getelementptr inbounds nuw i8, ptr %vinfo, i64 24
   store ptr %g, ptr %g2, align 8
   ret void
 }
@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @SRP_user_pwd_set1_ids(ptr nocapture noundef %vinfo, 
 entry:
   %0 = load ptr, ptr %vinfo, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 215) #7
-  %info2 = getelementptr inbounds i8, ptr %vinfo, i64 40
+  %info2 = getelementptr inbounds nuw i8, ptr %vinfo, i64 40
   %1 = load ptr, ptr %info2, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 216) #7
   %cmp.not = icmp eq ptr %id, null
@@ -104,10 +104,10 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SRP_user_pwd_set0_sv(ptr nocapture noundef %vinfo, ptr noundef %s, ptr noundef %v) local_unnamed_addr #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %vinfo, i64 8
+  %s1 = getelementptr inbounds nuw i8, ptr %vinfo, i64 8
   %0 = load ptr, ptr %s1, align 8
   tail call void @BN_free(ptr noundef %0) #7
-  %v2 = getelementptr inbounds i8, ptr %vinfo, i64 16
+  %v2 = getelementptr inbounds nuw i8, ptr %vinfo, i64 16
   %1 = load ptr, ptr %v2, align 8
   tail call void @BN_clear_free(ptr noundef %1) #7
   store ptr %v, ptr %v2, align 8
@@ -134,7 +134,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %call3 = tail call ptr @OPENSSL_sk_new_null() #7
-  %gN_cache = getelementptr inbounds i8, ptr %call, i64 8
+  %gN_cache = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call3, ptr %gN_cache, align 8
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %lor.lhs.false.if.then5_crit_edge, label %if.end8
@@ -144,7 +144,7 @@ lor.lhs.false.if.then5_crit_edge:                 ; preds = %lor.lhs.false
   br label %return.sink.split
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %seed_key9 = getelementptr inbounds i8, ptr %call, i64 16
+  %seed_key9 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %cmp10.not = icmp eq ptr %seed_key, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %seed_key9, i8 0, i64 24, i1 false)
   br i1 %cmp10.not, label %return, label %land.lhs.true
@@ -186,10 +186,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %vb, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @SRP_user_pwd_free) #7
-  %gN_cache = getelementptr inbounds i8, ptr %vb, i64 8
+  %gN_cache = getelementptr inbounds nuw i8, ptr %vb, i64 8
   %1 = load ptr, ptr %gN_cache, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %1) #7
-  %seed_key = getelementptr inbounds i8, ptr %vb, i64 16
+  %seed_key = getelementptr inbounds nuw i8, ptr %vb, i64 16
   %2 = load ptr, ptr %seed_key, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 306) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %vb, ptr noundef nonnull @.str, i32 noundef 307) #7
@@ -227,7 +227,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %cmp10, label %SRP_user_pwd_free.exit, label %if.end13
 
 if.end13:                                         ; preds = %if.end8
-  %seed_key = getelementptr inbounds i8, ptr %vb, i64 16
+  %seed_key = getelementptr inbounds nuw i8, ptr %vb, i64 16
   %0 = load ptr, ptr %seed_key, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end16, label %if.then14
@@ -239,14 +239,14 @@ if.then14:                                        ; preds = %if.end13
 
 if.end16:                                         ; preds = %if.then14, %if.end13
   %last_index.0 = phi ptr [ %1, %if.then14 ], [ null, %if.end13 ]
-  %data = getelementptr inbounds i8, ptr %call9, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %2 = load ptr, ptr %data, align 8
   %call.i102 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #7
   %cmp18103 = icmp sgt i32 %call.i102, 0
   br i1 %cmp18103, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end16
-  %gN_cache = getelementptr inbounds i8, ptr %vb, i64 8
+  %gN_cache = getelementptr inbounds nuw i8, ptr %vb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -268,7 +268,7 @@ if.then26:                                        ; preds = %for.body
   br i1 %cmp28, label %SRP_user_pwd_free.exit, label %if.end31
 
 if.end31:                                         ; preds = %if.then26
-  %arrayidx32 = getelementptr inbounds i8, ptr %call.i42, i64 24
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %call.i42, i64 24
   %6 = load ptr, ptr %arrayidx32, align 8
   %call33 = call noalias ptr @CRYPTO_strdup(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 435) #7
   store ptr %call33, ptr %call27, align 8
@@ -277,20 +277,20 @@ if.end31:                                         ; preds = %if.then26
 
 lor.lhs.false37:                                  ; preds = %if.end31
   %7 = load ptr, ptr %gN_cache, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %call.i42, i64 8
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %call.i42, i64 8
   %8 = load ptr, ptr %arrayidx38, align 8
   %call39 = call fastcc ptr @SRP_gN_place_bn(ptr noundef %7, ptr noundef %8)
-  %N = getelementptr inbounds i8, ptr %call27, i64 16
+  %N = getelementptr inbounds nuw i8, ptr %call27, i64 16
   store ptr %call39, ptr %N, align 8
   %cmp40 = icmp eq ptr %call39, null
   br i1 %cmp40, label %if.end117.thread, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false37
   %9 = load ptr, ptr %gN_cache, align 8
-  %arrayidx44 = getelementptr inbounds i8, ptr %call.i42, i64 16
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %call.i42, i64 16
   %10 = load ptr, ptr %arrayidx44, align 8
   %call45 = call fastcc ptr @SRP_gN_place_bn(ptr noundef %9, ptr noundef %10)
-  %g = getelementptr inbounds i8, ptr %call27, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %call27, i64 8
   store ptr %call45, ptr %g, align 8
   %cmp46 = icmp eq ptr %call45, null
   br i1 %cmp46, label %if.end117.thread, label %lor.lhs.false48
@@ -310,7 +310,7 @@ if.then59:                                        ; preds = %if.end55
   br label %for.inc
 
 if.then67:                                        ; preds = %for.body
-  %arrayidx68 = getelementptr inbounds i8, ptr %call.i42, i64 32
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %call.i42, i64 32
   %13 = load ptr, ptr %arrayidx68, align 8
   %call69 = call fastcc ptr @SRP_get_gN_by_id(ptr noundef %13, ptr noundef %call)
   %cmp70.not = icmp eq ptr %call69, null
@@ -323,20 +323,20 @@ if.then72:                                        ; preds = %if.then67
 
 if.end77:                                         ; preds = %if.then72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i43, i8 0, i64 48, i1 false)
-  %g78 = getelementptr inbounds i8, ptr %call69, i64 8
+  %g78 = getelementptr inbounds nuw i8, ptr %call69, i64 8
   %14 = load ptr, ptr %g78, align 8
-  %N79 = getelementptr inbounds i8, ptr %call69, i64 16
+  %N79 = getelementptr inbounds nuw i8, ptr %call69, i64 16
   %15 = load ptr, ptr %N79, align 8
-  %N1.i = getelementptr inbounds i8, ptr %call.i43, i64 32
+  %N1.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 32
   store ptr %15, ptr %N1.i, align 8
-  %g2.i = getelementptr inbounds i8, ptr %call.i43, i64 24
+  %g2.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 24
   store ptr %14, ptr %g2.i, align 8
-  %arrayidx80 = getelementptr inbounds i8, ptr %call.i42, i64 24
+  %arrayidx80 = getelementptr inbounds nuw i8, ptr %call.i42, i64 24
   %16 = load ptr, ptr %arrayidx80, align 8
-  %arrayidx81 = getelementptr inbounds i8, ptr %call.i42, i64 40
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %call.i42, i64 40
   %17 = load ptr, ptr %arrayidx81, align 8
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 215) #7
-  %info2.i = getelementptr inbounds i8, ptr %call.i43, i64 40
+  %info2.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 40
   %18 = load ptr, ptr %info2.i, align 8
   call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 216) #7
   %cmp.not.i = icmp eq ptr %16, null
@@ -359,13 +359,13 @@ SRP_user_pwd_set1_ids.exit:                       ; preds = %if.end.i45
   br i1 %cmp8.i.not, label %if.end.i56, label %if.end85
 
 if.end85:                                         ; preds = %if.end.i45, %SRP_user_pwd_set1_ids.exit
-  %arrayidx86 = getelementptr inbounds i8, ptr %call.i42, i64 16
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %call.i42, i64 16
   %19 = load ptr, ptr %arrayidx86, align 8
-  %arrayidx87 = getelementptr inbounds i8, ptr %call.i42, i64 8
+  %arrayidx87 = getelementptr inbounds nuw i8, ptr %call.i42, i64 8
   %20 = load ptr, ptr %arrayidx87, align 8
   call void @llvm.lifetime.start.p0(i64 2500, ptr nonnull %tmp.i)
-  %v1.i = getelementptr inbounds i8, ptr %call.i43, i64 16
-  %s2.i = getelementptr inbounds i8, ptr %call.i43, i64 8
+  %v1.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 16
+  %s2.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s2.i, i8 0, i64 16, i1 false)
   %call.i46 = call fastcc i32 @t_fromb64(ptr noundef %tmp.i, ptr noundef %20)
   %cmp.i47 = icmp slt i32 %call.i46, 0
@@ -449,13 +449,13 @@ SRP_get_gN_by_id.exit:                            ; preds = %for.inc.i, %if.then
 
 if.end109:                                        ; preds = %land.lhs.true.i53, %SRP_get_gN_by_id.exit
   %retval.0.i5066 = phi ptr [ %call11.i, %SRP_get_gN_by_id.exit ], [ %call4.i52, %land.lhs.true.i53 ]
-  %g110 = getelementptr inbounds i8, ptr %retval.0.i5066, i64 8
+  %g110 = getelementptr inbounds nuw i8, ptr %retval.0.i5066, i64 8
   %25 = load ptr, ptr %g110, align 8
-  %default_g = getelementptr inbounds i8, ptr %vb, i64 24
+  %default_g = getelementptr inbounds nuw i8, ptr %vb, i64 24
   store ptr %25, ptr %default_g, align 8
-  %N111 = getelementptr inbounds i8, ptr %retval.0.i5066, i64 16
+  %N111 = getelementptr inbounds nuw i8, ptr %retval.0.i5066, i64 16
   %26 = load ptr, ptr %N111, align 8
-  %default_N = getelementptr inbounds i8, ptr %vb, i64 32
+  %default_N = getelementptr inbounds nuw i8, ptr %vb, i64 32
   store ptr %26, ptr %default_N, align 8
   br label %SRP_user_pwd_free.exit
 
@@ -467,10 +467,10 @@ if.end117.thread:                                 ; preds = %if.end31, %lor.lhs.
 
 if.end.i56:                                       ; preds = %land.lhs.true.i, %SRP_user_pwd_set1_ids.exit, %if.end91, %SRP_user_pwd_set_sv.exit.thread
   %error_code.0.ph = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %land.lhs.true.i ], [ 2, %if.end91 ], [ 4, %SRP_user_pwd_set1_ids.exit ]
-  %s.i = getelementptr inbounds i8, ptr %call.i43, i64 8
+  %s.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 8
   %28 = load ptr, ptr %s.i, align 8
   call void @BN_free(ptr noundef %28) #7
-  %v.i = getelementptr inbounds i8, ptr %call.i43, i64 16
+  %v.i = getelementptr inbounds nuw i8, ptr %call.i43, i64 16
   %29 = load ptr, ptr %v.i, align 8
   call void @BN_clear_free(ptr noundef %29) #7
   %30 = load ptr, ptr %call.i43, align 8
@@ -526,7 +526,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp6, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
-  %bn = getelementptr inbounds i8, ptr %call4, i64 8
+  %bn = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %1 = load ptr, ptr %bn, align 8
   br label %return
 
@@ -549,7 +549,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.end4.i
   %call10.i = call ptr @BN_bin2bn(ptr noundef nonnull %tmp.i, i32 noundef %call1.i, ptr noundef null) #7
-  %bn.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %bn.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call10.i, ptr %bn.i, align 8
   %tobool.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool.not.i, label %if.end12.i, label %if.then10
@@ -727,19 +727,19 @@ if.then2:                                         ; preds = %for.body.i
 
 if.end3.i:                                        ; preds = %if.then2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i.i, i8 0, i64 48, i1 false)
-  %g.i = getelementptr inbounds i8, ptr %call5.i, i64 24
+  %g.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 24
   %4 = load ptr, ptr %g.i, align 8
-  %N.i = getelementptr inbounds i8, ptr %call5.i, i64 32
+  %N.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 32
   %5 = load ptr, ptr %N.i, align 8
-  %N1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %N1.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store ptr %5, ptr %N1.i.i, align 8
-  %g2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %g2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store ptr %4, ptr %g2.i.i, align 8
   %6 = load ptr, ptr %call5.i, align 8
-  %info.i = getelementptr inbounds i8, ptr %call5.i, i64 40
+  %info.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   %7 = load ptr, ptr %info.i, align 8
   tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 215) #7
-  %info2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %info2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 216) #7
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %if.end.i12.i, label %land.lhs.true.i.i
@@ -762,15 +762,15 @@ SRP_user_pwd_set1_ids.exit.i:                     ; preds = %if.end.i12.i
   br i1 %cmp8.i.not.i, label %SRP_user_pwd_free.exit.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %SRP_user_pwd_set1_ids.exit.i, %if.end.i12.i
-  %s.i = getelementptr inbounds i8, ptr %call5.i, i64 8
+  %s.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   %9 = load ptr, ptr %s.i, align 8
   %call5.i26 = tail call ptr @BN_dup(ptr noundef %9) #7
-  %v.i = getelementptr inbounds i8, ptr %call5.i, i64 16
+  %v.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 16
   %10 = load ptr, ptr %v.i, align 8
   %call6.i27 = tail call ptr @BN_dup(ptr noundef %10) #7
-  %s1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %s1.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @BN_free(ptr noundef null) #7
-  %v2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %v2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   tail call void @BN_clear_free(ptr noundef null) #7
   store ptr %call6.i27, ptr %v2.i.i, align 8
   store ptr %call5.i26, ptr %s1.i.i, align 8
@@ -792,19 +792,19 @@ SRP_user_pwd_free.exit.i:                         ; preds = %lor.lhs.false.i, %S
   br label %return
 
 if.end4:                                          ; preds = %for.cond.i, %for.cond.preheader.i
-  %seed_key = getelementptr inbounds i8, ptr %vb, i64 16
+  %seed_key = getelementptr inbounds nuw i8, ptr %vb, i64 16
   %15 = load ptr, ptr %seed_key, align 8
   %cmp5 = icmp eq ptr %15, null
   br i1 %cmp5, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %default_g = getelementptr inbounds i8, ptr %vb, i64 24
+  %default_g = getelementptr inbounds nuw i8, ptr %vb, i64 24
   %16 = load ptr, ptr %default_g, align 8
   %cmp6 = icmp eq ptr %16, null
   br i1 %cmp6, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %default_N = getelementptr inbounds i8, ptr %vb, i64 32
+  %default_N = getelementptr inbounds nuw i8, ptr %vb, i64 32
   %17 = load ptr, ptr %default_N, align 8
   %cmp8 = icmp eq ptr %17, null
   br i1 %cmp8, label %return, label %if.end10
@@ -818,12 +818,12 @@ if.end14:                                         ; preds = %if.end10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i, i8 0, i64 48, i1 false)
   %18 = load ptr, ptr %default_g, align 8
   %19 = load ptr, ptr %default_N, align 8
-  %N1.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %N1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %19, ptr %N1.i, align 8
-  %g2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %g2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %18, ptr %g2.i, align 8
   tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 215) #7
-  %info2.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %info2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 216) #7
   %cmp.not.i = icmp eq ptr %username, null
   br i1 %cmp.not.i, label %if.end19, label %land.lhs.true.i
@@ -886,10 +886,10 @@ SRP_user_pwd_free.exit:                           ; preds = %land.lhs.true.i, %i
   %md.0 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ %call24, %if.end27 ], [ null, %if.end48 ], [ %call24, %lor.lhs.false43 ], [ %call24, %lor.lhs.false39 ], [ %call24, %lor.lhs.false33 ], [ %call24, %lor.lhs.false30 ], [ null, %land.lhs.true.i ]
   call void @EVP_MD_free(ptr noundef %md.0) #7
   call void @EVP_MD_CTX_free(ptr noundef %ctxt.0) #7
-  %s.i35 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %s.i35 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %21 = load ptr, ptr %s.i35, align 8
   call void @BN_free(ptr noundef %21) #7
-  %v.i36 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %v.i36 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %22 = load ptr, ptr %v.i36, align 8
   call void @BN_clear_free(ptr noundef %22) #7
   %23 = load ptr, ptr %call.i, align 8
@@ -973,9 +973,9 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp26, label %err, label %if.end28
 
 if.end28:                                         ; preds = %if.else
-  %N29 = getelementptr inbounds i8, ptr %call25, i64 16
+  %N29 = getelementptr inbounds nuw i8, ptr %call25, i64 16
   %0 = load ptr, ptr %N29, align 8
-  %g30 = getelementptr inbounds i8, ptr %call25, i64 8
+  %g30 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   %1 = load ptr, ptr %g30, align 8
   %2 = load ptr, ptr %call25, align 8
   br label %if.end31
@@ -1101,7 +1101,7 @@ while.cond:                                       ; preds = %while.body, %entry
   ]
 
 while.body:                                       ; preds = %while.cond, %while.cond, %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.0, i64 1
   br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond
@@ -1161,7 +1161,7 @@ if.then42:                                        ; preds = %if.end36
   br i1 %cmp44.not, label %if.end47, label %err.sink.split
 
 if.end47:                                         ; preds = %if.then42
-  %add.ptr48 = getelementptr inbounds i8, ptr %a, i64 %and8
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %a, i64 %and8
   %conv49 = zext nneg i32 %add39 to i64
   %sub50 = sub nuw nsw i64 %conv49, %and8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %a, ptr nonnull align 1 %add.ptr48, i64 %sub50, i1 false)
@@ -1326,7 +1326,7 @@ if.end10:                                         ; preds = %if.end6
   br i1 %cmp1.not, label %return.sink.split, label %if.then16
 
 if.then16:                                        ; preds = %if.end10
-  %add.ptr17 = getelementptr inbounds i8, ptr %dst, i64 %conv
+  %add.ptr17 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv
   %conv18 = sext i32 %add13 to i64
   %sub19 = sub nsw i64 %conv18, %conv
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %dst, ptr nonnull align 1 %add.ptr17, i64 %sub19, i1 false)

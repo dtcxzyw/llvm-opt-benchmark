@@ -48,7 +48,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_up: ; .asciz
 define dso_local void @down(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i32 @__SCT__might_resched() #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7, !prof !6
@@ -83,7 +83,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 define dso_local noundef range(i32 -62, 1) i32 @down_interruptible(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i32 @__SCT__might_resched() #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7, !prof !6
@@ -107,7 +107,7 @@ define dso_local noundef range(i32 -62, 1) i32 @down_interruptible(ptr noundef %
 define dso_local noundef range(i32 -62, 1) i32 @down_killable(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i32 @__SCT__might_resched() #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7, !prof !6
@@ -130,7 +130,7 @@ define dso_local noundef range(i32 -62, 1) i32 @down_killable(ptr noundef %0) #0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @down_trylock(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
   %6 = icmp sgt i32 %5, -1
@@ -150,7 +150,7 @@ define dso_local range(i32 0, 2) i32 @down_trylock(ptr noundef %0) #0 section ".
 define dso_local noundef range(i32 -62, 1) i32 @down_timeout(ptr noundef %0, i64 noundef %1) #0 section ".sched.text" align 16 {
   %3 = tail call i32 @__SCT__might_resched() #7
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8, !prof !6
@@ -173,13 +173,13 @@ define dso_local noundef range(i32 -62, 1) i32 @down_timeout(ptr noundef %0, i64
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @up(ptr noundef %0) #0 section ".sched.text" align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %6, label %10, !prof !8
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 4
@@ -196,19 +196,19 @@ define dso_local void @up(ptr noundef %0) #0 section ".sched.text" align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__up(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".sched.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @wake_up_process(ptr noundef %10) #7
   ret void
@@ -240,7 +240,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @__SCT__tp_func_contention_begin(ptr noundef %16, ptr noundef %0, i32 noundef 0) #7
   br label %18
@@ -261,27 +261,27 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
 
 25:                                               ; preds = %22, %18, %5, %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %26, align 8, !annotation !17
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %4, ptr %28, align 8
   store ptr %27, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %30, align 8
   store volatile ptr %4, ptr %29, align 8
   %31 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !18
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %34, align 8
   %35 = trunc nuw nsw i64 %1 to i32
   %36 = and i32 %35, 257
   %37 = icmp eq i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %32, i64 1936
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1936
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br i1 %37, label %.critedge.us, label %.split
 
 .critedge.us:                                     ; preds = %25, %42
@@ -365,7 +365,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   %77 = phi i32 [ -62, %.critedge.us ], [ -62, %.critedge ], [ -4, %68 ], [ -62, %.critedge.us7 ], [ -4, %.split.split.us ], [ -4, %51 ]
   %78 = load ptr, ptr %30, align 8
   %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
   store volatile ptr %79, ptr %78, align 8
   br label %.loopexit
@@ -393,7 +393,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @__down_common(ptr noundef 
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = call i32 @__SCT__tp_func_contention_end(ptr noundef %93, ptr noundef %0, i32 noundef %81) #7
   br label %95

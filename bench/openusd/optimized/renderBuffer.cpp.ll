@@ -68,16 +68,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer4SyncEPNS_15Hd
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 312
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr dead_on_unwind nonnull writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdRenderBufferDescriptor") align 4 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %10)
   %14 = load i32, ptr %5, align 4
   %15 = icmp sgt i32 %14, -1
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, -1
   %or.cond = select i1 %15, i1 %18, i1 false
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
   %or.cond8 = select i1 %or.cond, i1 %21, i1 false
@@ -104,7 +104,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer4SyncEPNS_15Hd
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i32 noundef %30, i1 noundef zeroext %33)
   %.pre = load i32, ptr %3, align 4
@@ -127,7 +127,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderBuffer8FinalizeEPNS_13HdRenderParamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void

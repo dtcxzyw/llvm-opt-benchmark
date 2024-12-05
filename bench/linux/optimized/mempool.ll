@@ -56,16 +56,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mempool_free
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mempool_exit(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %10
 
 10:                                               ; preds = %25, %5
@@ -103,7 +103,7 @@ define dso_local void @mempool_exit(ptr nocapture noundef %0) #0 align 16 {
   br i1 %29, label %.loopexit, label %10, !llvm.loop !8
 
 .loopexit:                                        ; preds = %25, %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   tail call void @kfree(ptr noundef %31) #7
   store ptr null, ptr %30, align 8
@@ -115,9 +115,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @remove_element(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8
@@ -133,13 +133,13 @@ define internal fastcc ptr @remove_element(ptr nocapture noundef %0) unnamed_add
   %10 = zext nneg i32 %6 to i64
   %11 = getelementptr ptr, ptr %3, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @mempool_alloc_slab
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @kmem_cache_size(ptr noundef %18) #7
   br label %20
@@ -160,16 +160,16 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
   br i1 %2, label %34, label %3, !prof !5
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %12
 
 12:                                               ; preds = %27, %7
@@ -207,7 +207,7 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
   br i1 %31, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %27, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   tail call void @kfree(ptr noundef %33) #7
   store ptr null, ptr %32, align 8
@@ -221,21 +221,21 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef initializes((0, 8), (24, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @__init_waitqueue_head(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @mempool_init_node.__key) #7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %12, ptr noundef nonnull @.str, ptr noundef nonnull @mempool_init_node.__key) #7
   %13 = icmp slt i32 %1, 0
   br i1 %13, label %.thread, label %15, !prof !5
 
 .thread:                                          ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %14, align 8
   br label %.loopexit
 
@@ -243,13 +243,13 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef in
   %16 = zext nneg i32 %1 to i64
   %17 = shl nuw nsw i64 %16, 3
   %18 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %17, i32 noundef %5, i32 noundef %6) #8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr %8, align 4
   %25 = icmp slt i32 %23, %24
@@ -375,22 +375,22 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
 5:                                                ; preds = %2
   %6 = tail call i32 @__SCT__might_resched() #7
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, %1
   br i1 %10, label %40, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, %1
   br i1 %14, label %15, label %.loopexit8
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %20
 
 20:                                               ; preds = %33, %15
@@ -446,9 +446,9 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
   br label %.loopexit
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 3
@@ -461,8 +461,8 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
   br i1 %58, label %59, label %.loopexit7
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %62
 
 62:                                               ; preds = %73, %59
@@ -495,7 +495,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i
 
 81:                                               ; preds = %68
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %69) #7
-  %82 = getelementptr inbounds i8, ptr %0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %61, align 8
   tail call void %83(ptr noundef nonnull %66, ptr noundef %84) #7
@@ -529,8 +529,8 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
 8:                                                ; preds = %6, %2
   %9 = or i32 %1, 598016
   %10 = and i32 %9, -1089
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %11, align 8
   %14 = load ptr, ptr %12, align 8
   %15 = tail call ptr %13(i32 noundef %10, ptr noundef %14) #7
@@ -539,12 +539,12 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
 
 17:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !19
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %24
 
 24:                                               ; preds = %43, %17
@@ -569,10 +569,10 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   store volatile ptr %21, ptr %21, align 8
   store volatile ptr %21, ptr %22, align 8
   store i32 0, ptr %3, align 8
-  call void @prepare_to_wait(ptr noundef %23, ptr noundef nonnull %3, i32 noundef 2) #7
+  call void @prepare_to_wait(ptr noundef nonnull %23, ptr noundef nonnull %3, i32 noundef 2) #7
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %27) #7
   %34 = call i64 @io_schedule_timeout(i64 noundef 5000) #7
-  call void @finish_wait(ptr noundef %23, ptr noundef nonnull %3) #7
+  call void @finish_wait(ptr noundef nonnull %23, ptr noundef nonnull %3) #7
   %35 = load ptr, ptr %11, align 8
   %36 = load ptr, ptr %12, align 8
   %37 = call ptr %35(i32 noundef %9, ptr noundef %36) #7
@@ -628,13 +628,13 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias ptr @mempool_alloc_preallocated(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %24, label %6, !prof !5
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = add i32 %4, -1
   store i32 %9, ptr %3, align 8
@@ -650,13 +650,13 @@ define dso_local noalias ptr @mempool_alloc_preallocated(ptr noundef %0) #0 alig
   %13 = zext nneg i32 %9 to i64
   %14 = getelementptr ptr, ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, @mempool_alloc_slab
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @kmem_cache_size(ptr noundef %21) #7
   br label %23
@@ -682,9 +682,9 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
 
 4:                                                ; preds = %2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load volatile i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %10, label %24, !prof !5
@@ -697,7 +697,7 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %14, label %15, label %23, !prof !11
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i32 %12, 1
   store i32 %18, ptr %5, align 8
@@ -705,8 +705,8 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
   %20 = getelementptr ptr, ptr %17, i64 %19
   store ptr %0, ptr %20, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %11) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
-  %22 = tail call i32 @__wake_up(ptr noundef %21, i32 noundef 3, i32 noundef 1, ptr noundef null) #7
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %22 = tail call i32 @__wake_up(ptr noundef nonnull %21, i32 noundef 3, i32 noundef 1, ptr noundef null) #7
   br label %29
 
 23:                                               ; preds = %10
@@ -714,9 +714,9 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %24
 
 24:                                               ; preds = %23, %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %28) #7
   br label %29

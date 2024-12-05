@@ -88,18 +88,18 @@ _ZN7QStringD2Ev.exit13:                           ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 ptrtoint (ptr @_ZN17PathSelectionEdit11pathChangedE7QString to i64), ptr %5, align 8, !noalias !4
-  %.fca.1.gep14.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !4
   store i64 ptrtoint (ptr @_ZN21PathSelectionDelegate14pathHasChangedE7QString to i64), ptr %6, align 8, !noalias !4
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !4
   %20 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !4
   store i32 1, ptr %20, align 4, !noalias !4
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM21PathSelectionDelegateFv7QStringENS_4ListIJS2_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %21, align 8, !noalias !4
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 ptrtoint (ptr @_ZN21PathSelectionDelegate14pathHasChangedE7QString to i64), ptr %22, align 8, !noalias !4
-  %.repack7.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  %.repack7.i.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !4
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %20, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN17PathSelectionEdit16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -186,7 +186,7 @@ declare void @_ZN21QAbstractItemDelegate10commitDataEP7QWidget(ptr noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK21PathSelectionDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZN7QWidget11setGeometryERK5QRect(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 4 dereferenceable(16) %5)
   ret void
 }
@@ -199,11 +199,11 @@ define void @_ZNK21PathSelectionDelegate13setEditorDataEP7QWidgetRK11QModelIndex
   %5 = alloca %class.QVariant, align 8
   %6 = load i32, ptr %2, align 8
   %7 = icmp sgt i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, -1
   %or.cond.i = select i1 %7, i1 %10, i1 false
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   %or.cond = select i1 %or.cond.i, i1 %13, i1 false
@@ -223,14 +223,14 @@ define void @_ZNK21PathSelectionDelegate13setEditorDataEP7QWidgetRK11QModelIndex
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %18, align 8, !noalias !7
-  %21 = getelementptr inbounds i8, ptr %20, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %22 = load ptr, ptr %21, align 8, !noalias !7
   call void %22(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 0)
   br label %_ZNK11QModelIndex4dataEi.exit
 
 23:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !7
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !7
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -311,11 +311,11 @@ define void @_ZNK21PathSelectionDelegate12setModelDataEP7QWidgetP18QAbstractItem
   %6 = alloca %class.QString, align 8
   %7 = load i32, ptr %3, align 8
   %8 = icmp sgt i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
   %or.cond.i = select i1 %8, i1 %11, i1 false
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
   %or.cond = select i1 %or.cond.i, i1 %14, i1 false
@@ -334,7 +334,7 @@ define void @_ZNK21PathSelectionDelegate12setModelDataEP7QWidgetP18QAbstractItem
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2)
           to label %24 unwind label %31
@@ -424,9 +424,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM21PathSelectionDelegateFv7
   br label %53
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %11, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
@@ -451,12 +451,12 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM21PathSelectionDelegateFv7
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %25, null
@@ -511,11 +511,11 @@ _ZN9QtPrivate15FunctionPointerIM21PathSelectionDelegateFv7QStringEE4callINS_4Lis
 
 45:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %46, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %47 = icmp eq i64 %.unpack, %.unpack9
   %48 = icmp eq i64 %.unpack, 0

@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @tcg_gen_op1(i32 noundef %opc, i64 noundef %a1) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 1) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   ret void
 }
@@ -29,7 +29,7 @@ declare ptr @tcg_emit_op(i32 noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @tcg_gen_op2(i32 noundef %opc, i64 noundef %a1, i64 noundef %a2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 2) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   %arrayidx2 = getelementptr i8, ptr %call, i64 40
   store i64 %a2, ptr %arrayidx2, align 8
@@ -40,7 +40,7 @@ entry:
 define dso_local void @tcg_gen_op3(i32 noundef %opc, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 3) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   %arrayidx2 = getelementptr i8, ptr %call, i64 40
   store i64 %a2, ptr %arrayidx2, align 8
@@ -53,7 +53,7 @@ entry:
 define dso_local void @tcg_gen_op4(i32 noundef %opc, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 4) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   %arrayidx2 = getelementptr i8, ptr %call, i64 40
   store i64 %a2, ptr %arrayidx2, align 8
@@ -68,7 +68,7 @@ entry:
 define dso_local void @tcg_gen_op5(i32 noundef %opc, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 5) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   %arrayidx2 = getelementptr i8, ptr %call, i64 40
   store i64 %a2, ptr %arrayidx2, align 8
@@ -85,7 +85,7 @@ entry:
 define dso_local void @tcg_gen_op6(i32 noundef %opc, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5, i64 noundef %a6) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_emit_op(i32 noundef %opc, i32 noundef 6) #5
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %a1, ptr %args, align 8
   %arrayidx2 = getelementptr i8, ptr %call, i64 40
   store i64 %a2, ptr %arrayidx2, align 8
@@ -106,7 +106,7 @@ entry:
   store i8 1, ptr %l, align 8
   %0 = ptrtoint ptr %l to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 1, i32 noundef 1) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %0, ptr %args.i, align 8
   ret void
 }
@@ -116,13 +116,13 @@ define dso_local void @tcg_gen_br(ptr noundef %l) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %l to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 3, i32 noundef 1) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %0, ptr %args.i, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 16
-  %pool_end.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %pool_end.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %pool_end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -138,15 +138,15 @@ if.else.i.i:                                      ; preds = %entry
 add_last_as_label_use.exit:                       ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %3, %if.else.i.i ]
   %5 = load ptr, ptr %1, align 8
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %5, i64 29344
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %5, i64 29344
   %6 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %tql_prev1.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %tql_prev1.i.i, align 8
   %8 = load ptr, ptr %7, align 8
-  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %op.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store ptr %8, ptr %op.i, align 8
   store ptr null, ptr %retval.0.i.i, align 8
-  %sqh_last.i = getelementptr inbounds i8, ptr %l, i64 24
+  %sqh_last.i = getelementptr inbounds nuw i8, ptr %l, i64 24
   %9 = load ptr, ptr %sqh_last.i, align 8
   store ptr %retval.0.i.i, ptr %9, align 8
   store ptr %retval.0.i.i, ptr %sqh_last.i, align 8
@@ -158,9 +158,9 @@ define dso_local void @tcg_gen_mb(i32 noundef %mb_type) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %2, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %cflags, align 4
   %and = and i32 %3, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -169,7 +169,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = zext i32 %mb_type to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 4, i32 noundef 1) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %conv, ptr %args.i, align 8
   br label %if.end
 
@@ -187,7 +187,7 @@ entry:
   %conv1 = zext i32 %type to i64
   %conv2 = zext i32 %wr to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 133, i32 noundef 3) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %conv, ptr %args.i, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %conv1, ptr %arrayidx2.i, align 8
@@ -212,7 +212,7 @@ entry:
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
   %3 = ptrtoint ptr %add.ptr.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 0, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   ret void
 }
@@ -233,7 +233,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -260,7 +260,7 @@ if.then.i:                                        ; preds = %entry
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -287,7 +287,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 17, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -316,7 +316,7 @@ if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -336,7 +336,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 17, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %9, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8, align 8
@@ -363,7 +363,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 18, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -388,7 +388,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 54, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -408,7 +408,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 18, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %9, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8, align 8
@@ -432,7 +432,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 54, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -459,7 +459,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -480,7 +480,7 @@ if.else.i:                                        ; preds = %entry
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i6.i = tail call ptr @tcg_emit_op(i32 noundef 17, i32 noundef 3) #5
-  %args.i.i.i7.i = getelementptr inbounds i8, ptr %call.i.i.i6.i, i64 32
+  %args.i.i.i7.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6.i, i64 32
   store i64 %9, ptr %args.i.i.i7.i, align 8
   %arrayidx2.i.i.i8.i = getelementptr i8, ptr %call.i.i.i6.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8.i, align 8
@@ -507,7 +507,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 26, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -541,7 +541,7 @@ if.then.i.i:                                      ; preds = %sw.bb
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -561,7 +561,7 @@ if.then.i:                                        ; preds = %sw.bb1
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -577,7 +577,7 @@ sw.bb2:                                           ; preds = %entry
   %add.ptr.i.i1.i = getelementptr i8, ptr %13, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 49, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -593,7 +593,7 @@ sw.bb3:                                           ; preds = %entry
   %add.ptr.i.i1.i10 = getelementptr i8, ptr %19, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i1.i10 to i64
   %call.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 50, i32 noundef 2) #5
-  %args.i.i12 = getelementptr inbounds i8, ptr %call.i.i11, i64 32
+  %args.i.i12 = getelementptr inbounds nuw i8, ptr %call.i.i11, i64 32
   store i64 %21, ptr %args.i.i12, align 8
   %arrayidx2.i.i13 = getelementptr i8, ptr %call.i.i11, i64 40
   store i64 %23, ptr %arrayidx2.i.i13, align 8
@@ -613,7 +613,7 @@ sw.epilog:                                        ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %25, i64 %30
   %31 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i16 = tail call ptr @tcg_emit_op(i32 noundef 26, i32 noundef 3) #5
-  %args.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i16, i64 32
+  %args.i.i.i17 = getelementptr inbounds nuw i8, ptr %call.i.i.i16, i64 32
   store i64 %27, ptr %args.i.i.i17, align 8
   %arrayidx2.i.i.i18 = getelementptr i8, ptr %call.i.i.i16, i64 40
   store i64 %29, ptr %arrayidx2.i.i.i18, align 8
@@ -640,7 +640,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 27, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -672,7 +672,7 @@ if.then.i.i:                                      ; preds = %if.then
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -692,7 +692,7 @@ if.then.i:                                        ; preds = %if.then2
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -712,7 +712,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 27, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %15, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i10, align 8
@@ -739,7 +739,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 28, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -770,7 +770,7 @@ if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -786,7 +786,7 @@ if.then2:                                         ; preds = %entry
   %add.ptr.i.i1.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -806,7 +806,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i9 = tail call ptr @tcg_emit_op(i32 noundef 28, i32 noundef 3) #5
-  %args.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i.i9, i64 32
+  %args.i.i.i10 = getelementptr inbounds nuw i8, ptr %call.i.i.i9, i64 32
   store i64 %15, ptr %args.i.i.i10, align 8
   %arrayidx2.i.i.i11 = getelementptr i8, ptr %call.i.i.i9, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i11, align 8
@@ -830,7 +830,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -852,7 +852,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -883,7 +883,7 @@ if.then.i:                                        ; preds = %if.then3
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -903,7 +903,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -930,7 +930,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -961,7 +961,7 @@ if.then.i:                                        ; preds = %if.then3
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -981,7 +981,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -1008,7 +1008,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -1039,7 +1039,7 @@ if.then.i:                                        ; preds = %if.then3
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -1059,7 +1059,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -1082,13 +1082,13 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = ptrtoint ptr %l to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 3, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %0, ptr %args.i.i, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 16
-  %pool_end.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %pool_end.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %pool_end.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -1113,7 +1113,7 @@ if.then2:                                         ; preds = %entry
   %add.ptr.i.i1.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 38, i32 noundef 4) #5
-  %args.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 32
+  %args.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 32
   store i64 %9, ptr %args.i.i7, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i6, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -1124,7 +1124,7 @@ if.then2:                                         ; preds = %entry
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr i8, ptr %13, i64 16
-  %pool_end.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %pool_end.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %pool_end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1141,15 +1141,15 @@ if.end3.sink.split:                               ; preds = %if.else.i.i, %if.th
   %.sink14 = phi ptr [ %1, %if.then.i.i.i ], [ %1, %if.else.i.i.i ], [ %6, %if.then.i.i ], [ %6, %if.else.i.i ]
   %retval.0.i.i.sink12 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ], [ %call.i.i8, %if.then.i.i ], [ %13, %if.else.i.i ]
   %15 = load ptr, ptr %.sink14, align 8
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %15, i64 29344
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %15, i64 29344
   %16 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %tql_prev1.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %tql_prev1.i.i, align 8
   %18 = load ptr, ptr %17, align 8
-  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink12, i64 8
+  %op.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.sink12, i64 8
   store ptr %18, ptr %op.i, align 8
   store ptr null, ptr %retval.0.i.i.sink12, align 8
-  %sqh_last.i = getelementptr inbounds i8, ptr %l, i64 24
+  %sqh_last.i = getelementptr inbounds nuw i8, ptr %l, i64 24
   %19 = load ptr, ptr %sqh_last.i, align 8
   store ptr %retval.0.i.i.sink12, ptr %19, align 8
   store ptr %retval.0.i.i.sink12, ptr %sqh_last.i, align 8
@@ -1170,13 +1170,13 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = ptrtoint ptr %l to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 3, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %0, ptr %args.i.i, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 16
-  %pool_end.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %pool_end.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %pool_end.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -1192,15 +1192,15 @@ if.else.i.i.i:                                    ; preds = %if.then
 tcg_gen_br.exit:                                  ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ]
   %5 = load ptr, ptr %1, align 8
-  %tql_prev.i.i.i = getelementptr inbounds i8, ptr %5, i64 29344
+  %tql_prev.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 29344
   %6 = load ptr, ptr %tql_prev.i.i.i, align 8
-  %tql_prev1.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %tql_prev1.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %tql_prev1.i.i.i, align 8
   %8 = load ptr, ptr %7, align 8
-  %op.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %op.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store ptr %8, ptr %op.i.i, align 8
   store ptr null, ptr %retval.0.i.i.i, align 8
-  %sqh_last.i.i = getelementptr inbounds i8, ptr %l, i64 24
+  %sqh_last.i.i = getelementptr inbounds nuw i8, ptr %l, i64 24
   %9 = load ptr, ptr %sqh_last.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %9, align 8
   store ptr %retval.0.i.i.i, ptr %sqh_last.i.i, align 8
@@ -1238,7 +1238,7 @@ if.then.i.i:                                      ; preds = %if.then
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -1259,7 +1259,7 @@ if.then.i.i7:                                     ; preds = %if.then2
   %add.ptr.i.i1.i.i.i9 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9 to i64
   %call.i.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 32
+  %args.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10, i64 32
   store i64 %9, ptr %args.i.i.i.i11, align 8
   %arrayidx2.i.i.i.i12 = getelementptr i8, ptr %call.i.i.i.i10, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12, align 8
@@ -1279,7 +1279,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i2.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 6, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -1317,7 +1317,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %add.ptr.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i.i to i64
   %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i.i, align 8
   %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
@@ -1338,7 +1338,7 @@ if.then.i.i7.i:                                   ; preds = %if.then2.i
   %add.ptr.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9.i to i64
   %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  %args.i.i.i.i11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10.i, i64 32
   store i64 %9, ptr %args.i.i.i.i11.i, align 8
   %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
@@ -1358,7 +1358,7 @@ if.else3.i:                                       ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 6, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i, align 8
@@ -1395,7 +1395,7 @@ if.then.i.i:                                      ; preds = %if.then
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -1416,7 +1416,7 @@ if.then.i.i7:                                     ; preds = %if.then2
   %add.ptr.i.i1.i.i.i9 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9 to i64
   %call.i.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 32
+  %args.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10, i64 32
   store i64 %9, ptr %args.i.i.i.i11, align 8
   %arrayidx2.i.i.i.i12 = getelementptr i8, ptr %call.i.i.i.i10, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12, align 8
@@ -1436,7 +1436,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i2.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 7, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -1474,7 +1474,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   %add.ptr.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i.i to i64
   %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i.i, align 8
   %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
@@ -1495,7 +1495,7 @@ if.then.i.i7.i:                                   ; preds = %if.then2.i
   %add.ptr.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9.i to i64
   %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  %args.i.i.i.i11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10.i, i64 32
   store i64 %9, ptr %args.i.i.i.i11.i, align 8
   %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
@@ -1515,7 +1515,7 @@ if.else3.i:                                       ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 7, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i, align 8
@@ -1544,7 +1544,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 19, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -1574,7 +1574,7 @@ if.then.i.i:                                      ; preds = %if.then
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -1605,7 +1605,7 @@ if.then.i.i9:                                     ; preds = %if.then3.i
   %add.ptr.i.i1.i.i.i11 = getelementptr i8, ptr %9, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i1.i.i.i11 to i64
   %call.i.i.i.i12 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i.i12, i64 32
+  %args.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i12, i64 32
   store i64 %11, ptr %args.i.i.i.i13, align 8
   %arrayidx2.i.i.i.i14 = getelementptr i8, ptr %call.i.i.i.i12, i64 40
   store i64 %13, ptr %arrayidx2.i.i.i.i14, align 8
@@ -1625,7 +1625,7 @@ if.else.i:                                        ; preds = %if.then1
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %15, i64 %20
   %21 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %17, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
@@ -1647,7 +1647,7 @@ if.else3:                                         ; preds = %is_power_of_2.exit
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %23, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 19, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %25, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %27, ptr %arrayidx2.i.i.i, align 8
@@ -1676,7 +1676,7 @@ entry:
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -1694,7 +1694,7 @@ entry:
   %add.ptr.i.i4.i = getelementptr i8, ptr %8, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 24, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %10, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -1729,7 +1729,7 @@ entry:
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -1747,7 +1747,7 @@ entry:
   %add.ptr.i.i4.i = getelementptr i8, ptr %8, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 24, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -1784,7 +1784,7 @@ entry:
   %add.ptr.i.i4.i = getelementptr i8, ptr %1, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 25, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -1821,7 +1821,7 @@ entry:
   %add.ptr.i.i4.i = getelementptr i8, ptr %1, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 25, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -1856,7 +1856,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i2.i = getelementptr i8, ptr %2, i64 %7
   %8 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 55, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx2.i.i, align 8
@@ -1875,7 +1875,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %10, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %12, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx2.i.i.i, align 8
@@ -1889,7 +1889,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %15, i64 %11
   %20 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 26, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %17, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10, align 8
@@ -1917,7 +1917,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 28, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -1927,7 +1927,7 @@ entry:
   %add.ptr.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -1949,7 +1949,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 26, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -1959,7 +1959,7 @@ entry:
   %add.ptr.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -1981,7 +1981,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 27, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -1991,7 +1991,7 @@ entry:
   %add.ptr.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -2011,7 +2011,7 @@ entry:
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 53, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2025,7 +2025,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %6, i64 %2
   %11 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 27, i32 noundef 3) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %8, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %10, ptr %arrayidx2.i.i.i7, align 8
@@ -2050,7 +2050,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 60, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -2075,7 +2075,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 60, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2099,7 +2099,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 61, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -2124,7 +2124,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 61, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2150,7 +2150,7 @@ entry:
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -2162,7 +2162,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %8, i64 %4
   %10 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 28, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i, align 8
@@ -2176,7 +2176,7 @@ entry:
   %add.ptr.i.i2.i.i.i9 = getelementptr i8, ptr %11, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i2.i.i.i9 to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 60, i32 noundef 3) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %12, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %12, ptr %arrayidx2.i.i.i.i, align 8
@@ -2193,7 +2193,7 @@ entry:
   %add.ptr.i.i2.i.i.i.i = getelementptr i8, ptr %15, i64 %19
   %20 = ptrtoint ptr %add.ptr.i.i2.i.i.i.i to i64
   %call.i.i.i6.i.i = tail call ptr @tcg_emit_op(i32 noundef 17, i32 noundef 3) #5
-  %args.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i.i.i6.i.i, i64 32
+  %args.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6.i.i, i64 32
   store i64 %17, ptr %args.i.i.i7.i.i, align 8
   %arrayidx2.i.i.i8.i.i = getelementptr i8, ptr %call.i.i.i6.i.i, i64 40
   store i64 %18, ptr %arrayidx2.i.i.i8.i.i, align 8
@@ -2221,7 +2221,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i1.i = getelementptr i8, ptr %2, i64 %5
   %6 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 62, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx2.i.i, align 8
@@ -2251,7 +2251,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 100, i32 noundef 2) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx2.i, align 8
@@ -2276,7 +2276,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %2, i64 %5
   %6 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 122, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx2.i.i, align 8
@@ -2304,7 +2304,7 @@ entry:
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 101, i32 noundef 2) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx2.i, align 8
@@ -2328,7 +2328,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -2359,7 +2359,7 @@ if.then.i:                                        ; preds = %if.then3
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2379,7 +2379,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -2406,7 +2406,7 @@ entry:
   %add.ptr.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 33, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -2437,7 +2437,7 @@ if.then.i:                                        ; preds = %if.then3
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2458,7 +2458,7 @@ tcg_gen_rotli_i32.exit:                           ; preds = %entry
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -2497,7 +2497,7 @@ if.then.i:                                        ; preds = %if.then17
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2527,7 +2527,7 @@ if.then22:                                        ; preds = %land.lhs.true, %lan
   %add.ptr.i.i2.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 34, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -2566,7 +2566,7 @@ tcg_gen_shli_i32.exit:                            ; preds = %if.end24.thread, %i
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %15, i64 %20
   %21 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %17, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
@@ -2589,7 +2589,7 @@ tcg_gen_rotli_i32.exit:                           ; preds = %if.end24
   %add.ptr.i.i2.i.i.i55 = getelementptr i8, ptr %23, i64 %26
   %27 = ptrtoint ptr %add.ptr.i.i2.i.i.i55 to i64
   %call.i.i.i8.i56 = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i.i9.i57 = getelementptr inbounds i8, ptr %call.i.i.i8.i56, i64 32
+  %args.i.i.i9.i57 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i56, i64 32
   store i64 %25, ptr %args.i.i.i9.i57, align 8
   %arrayidx2.i.i.i10.i58 = getelementptr i8, ptr %call.i.i.i8.i56, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i10.i58, align 8
@@ -2611,7 +2611,7 @@ tcg_gen_shli_i32.exit87:                          ; preds = %if.end24.thread
   %add.ptr.i.i2.i.i.i74 = getelementptr i8, ptr %29, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i2.i.i.i74 to i64
   %call.i.i.i8.i75 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i76 = getelementptr inbounds i8, ptr %call.i.i.i8.i75, i64 32
+  %args.i.i.i9.i76 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i75, i64 32
   store i64 %31, ptr %args.i.i.i9.i76, align 8
   %arrayidx2.i.i.i10.i77 = getelementptr i8, ptr %call.i.i.i8.i75, i64 40
   store i64 %31, ptr %arrayidx2.i.i.i10.i77, align 8
@@ -2627,7 +2627,7 @@ tcg_gen_shli_i32.exit87:                          ; preds = %if.end24.thread
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %34, i64 %30
   %37 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i90 = tail call ptr @tcg_emit_op(i32 noundef 27, i32 noundef 3) #5
-  %args.i.i.i91 = getelementptr inbounds i8, ptr %call.i.i.i90, i64 32
+  %args.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i.i.i90, i64 32
   store i64 %36, ptr %args.i.i.i91, align 8
   %arrayidx2.i.i.i92 = getelementptr i8, ptr %call.i.i.i90, i64 40
   store i64 %36, ptr %arrayidx2.i.i.i92, align 8
@@ -2668,7 +2668,7 @@ if.then.i:                                        ; preds = %if.then2
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -2688,7 +2688,7 @@ if.then.i14:                                      ; preds = %if.then4
   %add.ptr.i.i1.i.i16 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i16 to i64
   %call.i.i.i17 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i17, i64 32
+  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store i64 %9, ptr %args.i.i.i18, align 8
   %arrayidx2.i.i.i19 = getelementptr i8, ptr %call.i.i.i17, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i19, align 8
@@ -2716,7 +2716,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %13, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i.i, align 8
@@ -2737,7 +2737,7 @@ tcg_gen_rotli_i32.exit.i:                         ; preds = %if.then7
   %add.ptr.i.i2.i.i.i.i = getelementptr i8, ptr %19, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i2.i.i.i.i to i64
   %call.i.i.i8.i.i = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i.i9.i.i = getelementptr inbounds i8, ptr %call.i.i.i8.i.i, i64 32
+  %args.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i.i, i64 32
   store i64 %21, ptr %args.i.i.i9.i.i, align 8
   %arrayidx2.i.i.i10.i.i = getelementptr i8, ptr %call.i.i.i8.i.i, i64 40
   store i64 %23, ptr %arrayidx2.i.i.i10.i.i, align 8
@@ -2759,7 +2759,7 @@ if.else8:                                         ; preds = %if.else5
   %add.ptr.i.i2.i = getelementptr i8, ptr %27, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i2.i to i64
   %call.i.i21 = tail call ptr @tcg_emit_op(i32 noundef 37, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i21, i64 32
   store i64 %29, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i21, i64 40
   store i64 %31, ptr %arrayidx2.i.i, align 8
@@ -2804,7 +2804,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -2824,7 +2824,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -2857,7 +2857,7 @@ tcg_gen_shli_i32.exit68:                          ; preds = %if.else27
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 50, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %17, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i, align 8
@@ -2869,7 +2869,7 @@ tcg_gen_shli_i32.exit68:                          ; preds = %if.else27
   %add.ptr.i.i2.i.i.i55 = getelementptr i8, ptr %20, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i2.i.i.i55 to i64
   %call.i.i.i8.i56 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i57 = getelementptr inbounds i8, ptr %call.i.i.i8.i56, i64 32
+  %args.i.i.i9.i57 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i56, i64 32
   store i64 %21, ptr %args.i.i.i9.i57, align 8
   %arrayidx2.i.i.i10.i58 = getelementptr i8, ptr %call.i.i.i8.i56, i64 40
   store i64 %21, ptr %arrayidx2.i.i.i10.i58, align 8
@@ -2887,7 +2887,7 @@ tcg_gen_shli_i32.exit93:                          ; preds = %if.else27
   %add.ptr.i.i1.i.i70 = getelementptr i8, ptr %25, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i1.i.i70 to i64
   %call.i.i.i71 = tail call ptr @tcg_emit_op(i32 noundef 49, i32 noundef 2) #5
-  %args.i.i.i72 = getelementptr inbounds i8, ptr %call.i.i.i71, i64 32
+  %args.i.i.i72 = getelementptr inbounds nuw i8, ptr %call.i.i.i71, i64 32
   store i64 %27, ptr %args.i.i.i72, align 8
   %arrayidx2.i.i.i73 = getelementptr i8, ptr %call.i.i.i71, i64 40
   store i64 %29, ptr %arrayidx2.i.i.i73, align 8
@@ -2899,7 +2899,7 @@ tcg_gen_shli_i32.exit93:                          ; preds = %if.else27
   %add.ptr.i.i2.i.i.i80 = getelementptr i8, ptr %30, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i2.i.i.i80 to i64
   %call.i.i.i8.i81 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i82 = getelementptr inbounds i8, ptr %call.i.i.i8.i81, i64 32
+  %args.i.i.i9.i82 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i81, i64 32
   store i64 %31, ptr %args.i.i.i9.i82, align 8
   %arrayidx2.i.i.i10.i83 = getelementptr i8, ptr %call.i.i.i8.i81, i64 40
   store i64 %31, ptr %arrayidx2.i.i.i10.i83, align 8
@@ -2927,7 +2927,7 @@ tcg_gen_shli_i32.exit113:                         ; preds = %sw.epilog
   %add.ptr.i.i2.i.i.i100 = getelementptr i8, ptr %35, i64 %40
   %41 = ptrtoint ptr %add.ptr.i.i2.i.i.i100 to i64
   %call.i.i.i8.i101 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i102 = getelementptr inbounds i8, ptr %call.i.i.i8.i101, i64 32
+  %args.i.i.i9.i102 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i101, i64 32
   store i64 %37, ptr %args.i.i.i9.i102, align 8
   %arrayidx2.i.i.i10.i103 = getelementptr i8, ptr %call.i.i.i8.i101, i64 40
   store i64 %39, ptr %arrayidx2.i.i.i10.i103, align 8
@@ -2937,7 +2937,7 @@ tcg_gen_shli_i32.exit113:                         ; preds = %sw.epilog
   %add.ptr.i.i.i.i114 = getelementptr i8, ptr %42, i64 %36
   %43 = ptrtoint ptr %add.ptr.i.i.i.i114 to i64
   %call.i.i.i116 = tail call ptr @tcg_emit_op(i32 noundef 50, i32 noundef 2) #5
-  %args.i.i.i117 = getelementptr inbounds i8, ptr %call.i.i.i116, i64 32
+  %args.i.i.i117 = getelementptr inbounds nuw i8, ptr %call.i.i.i116, i64 32
   store i64 %43, ptr %args.i.i.i117, align 8
   %arrayidx2.i.i.i118 = getelementptr i8, ptr %call.i.i.i116, i64 40
   store i64 %43, ptr %arrayidx2.i.i.i118, align 8
@@ -2957,7 +2957,7 @@ tcg_gen_shli_i32.exit138:                         ; preds = %sw.epilog
   %add.ptr.i.i2.i.i.i125 = getelementptr i8, ptr %45, i64 %50
   %51 = ptrtoint ptr %add.ptr.i.i2.i.i.i125 to i64
   %call.i.i.i8.i126 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i127 = getelementptr inbounds i8, ptr %call.i.i.i8.i126, i64 32
+  %args.i.i.i9.i127 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i126, i64 32
   store i64 %47, ptr %args.i.i.i9.i127, align 8
   %arrayidx2.i.i.i10.i128 = getelementptr i8, ptr %call.i.i.i8.i126, i64 40
   store i64 %49, ptr %arrayidx2.i.i.i10.i128, align 8
@@ -2967,7 +2967,7 @@ tcg_gen_shli_i32.exit138:                         ; preds = %sw.epilog
   %add.ptr.i.i.i.i139 = getelementptr i8, ptr %52, i64 %46
   %53 = ptrtoint ptr %add.ptr.i.i.i.i139 to i64
   %call.i.i.i141 = tail call ptr @tcg_emit_op(i32 noundef 49, i32 noundef 2) #5
-  %args.i.i.i142 = getelementptr inbounds i8, ptr %call.i.i.i141, i64 32
+  %args.i.i.i142 = getelementptr inbounds nuw i8, ptr %call.i.i.i141, i64 32
   store i64 %53, ptr %args.i.i.i142, align 8
   %arrayidx2.i.i.i143 = getelementptr i8, ptr %call.i.i.i141, i64 40
   store i64 %53, ptr %arrayidx2.i.i.i143, align 8
@@ -2987,7 +2987,7 @@ tcg_gen_shli_i32.exit163:                         ; preds = %sw.epilog
   %add.ptr.i.i2.i.i.i150 = getelementptr i8, ptr %55, i64 %58
   %59 = ptrtoint ptr %add.ptr.i.i2.i.i.i150 to i64
   %call.i.i.i8.i151 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i152 = getelementptr inbounds i8, ptr %call.i.i.i8.i151, i64 32
+  %args.i.i.i9.i152 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i151, i64 32
   store i64 %57, ptr %args.i.i.i9.i152, align 8
   %arrayidx2.i.i.i10.i153 = getelementptr i8, ptr %call.i.i.i8.i151, i64 40
   store i64 %57, ptr %arrayidx2.i.i.i10.i153, align 8
@@ -3011,7 +3011,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 50, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3030,7 +3030,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 49, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3068,7 +3068,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -3089,7 +3089,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -3123,7 +3123,7 @@ if.then26:                                        ; preds = %if.end23
   %add.ptr.i.i1.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 35, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %17, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i, align 8
@@ -3149,7 +3149,7 @@ tcg_gen_shri_i32.exit65:                          ; preds = %if.end28
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %21, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 50, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %23, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i, align 8
@@ -3161,7 +3161,7 @@ tcg_gen_shri_i32.exit65:                          ; preds = %if.end28
   %add.ptr.i.i2.i.i.i52 = getelementptr i8, ptr %26, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i2.i.i.i52 to i64
   %call.i.i.i8.i53 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i54 = getelementptr inbounds i8, ptr %call.i.i.i8.i53, i64 32
+  %args.i.i.i9.i54 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i53, i64 32
   store i64 %27, ptr %args.i.i.i9.i54, align 8
   %arrayidx2.i.i.i10.i55 = getelementptr i8, ptr %call.i.i.i8.i53, i64 40
   store i64 %27, ptr %arrayidx2.i.i.i10.i55, align 8
@@ -3179,7 +3179,7 @@ tcg_gen_shri_i32.exit90:                          ; preds = %if.end28
   %add.ptr.i.i1.i.i67 = getelementptr i8, ptr %31, i64 %34
   %35 = ptrtoint ptr %add.ptr.i.i1.i.i67 to i64
   %call.i.i.i68 = tail call ptr @tcg_emit_op(i32 noundef 49, i32 noundef 2) #5
-  %args.i.i.i69 = getelementptr inbounds i8, ptr %call.i.i.i68, i64 32
+  %args.i.i.i69 = getelementptr inbounds nuw i8, ptr %call.i.i.i68, i64 32
   store i64 %33, ptr %args.i.i.i69, align 8
   %arrayidx2.i.i.i70 = getelementptr i8, ptr %call.i.i.i68, i64 40
   store i64 %35, ptr %arrayidx2.i.i.i70, align 8
@@ -3191,7 +3191,7 @@ tcg_gen_shri_i32.exit90:                          ; preds = %if.end28
   %add.ptr.i.i2.i.i.i77 = getelementptr i8, ptr %36, i64 %38
   %39 = ptrtoint ptr %add.ptr.i.i2.i.i.i77 to i64
   %call.i.i.i8.i78 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i79 = getelementptr inbounds i8, ptr %call.i.i.i8.i78, i64 32
+  %args.i.i.i9.i79 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i78, i64 32
   store i64 %37, ptr %args.i.i.i9.i79, align 8
   %arrayidx2.i.i.i10.i80 = getelementptr i8, ptr %call.i.i.i8.i78, i64 40
   store i64 %37, ptr %arrayidx2.i.i.i10.i80, align 8
@@ -3226,7 +3226,7 @@ tcg_gen_shri_i32.exit110:                         ; preds = %sw.epilog, %sw.epil
   %add.ptr.i.i2.i.i.i97 = getelementptr i8, ptr %41, i64 %46
   %47 = ptrtoint ptr %add.ptr.i.i2.i.i.i97 to i64
   %call.i.i.i8.i98 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i99 = getelementptr inbounds i8, ptr %call.i.i.i8.i98, i64 32
+  %args.i.i.i9.i99 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i98, i64 32
   store i64 %43, ptr %args.i.i.i9.i99, align 8
   %arrayidx2.i.i.i10.i100 = getelementptr i8, ptr %call.i.i.i8.i98, i64 40
   store i64 %45, ptr %arrayidx2.i.i.i10.i100, align 8
@@ -3279,7 +3279,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
   %add.ptr.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -3300,7 +3300,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -3328,7 +3328,7 @@ sw.bb:                                            ; preds = %if.then21
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 48, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %17, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i, align 8
@@ -3344,7 +3344,7 @@ sw.bb22:                                          ; preds = %if.then21
   %add.ptr.i.i1.i.i52 = getelementptr i8, ptr %21, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i1.i.i52 to i64
   %call.i.i.i53 = tail call ptr @tcg_emit_op(i32 noundef 47, i32 noundef 2) #5
-  %args.i.i.i54 = getelementptr inbounds i8, ptr %call.i.i.i53, i64 32
+  %args.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i.i.i53, i64 32
   store i64 %23, ptr %args.i.i.i54, align 8
   %arrayidx2.i.i.i55 = getelementptr i8, ptr %call.i.i.i53, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i55, align 8
@@ -3366,7 +3366,7 @@ if.then26:                                        ; preds = %if.end23
   %add.ptr.i.i1.i = getelementptr i8, ptr %27, i64 %30
   %31 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 36, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %29, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %31, ptr %arrayidx2.i.i, align 8
@@ -3392,7 +3392,7 @@ sw.bb30:                                          ; preds = %if.end28
   %add.ptr.i.i1.i.i57 = getelementptr i8, ptr %33, i64 %36
   %37 = ptrtoint ptr %add.ptr.i.i1.i.i57 to i64
   %call.i.i.i58 = tail call ptr @tcg_emit_op(i32 noundef 48, i32 noundef 2) #5
-  %args.i.i.i59 = getelementptr inbounds i8, ptr %call.i.i.i58, i64 32
+  %args.i.i.i59 = getelementptr inbounds nuw i8, ptr %call.i.i.i58, i64 32
   store i64 %35, ptr %args.i.i.i59, align 8
   %arrayidx2.i.i.i60 = getelementptr i8, ptr %call.i.i.i58, i64 40
   store i64 %37, ptr %arrayidx2.i.i.i60, align 8
@@ -3407,7 +3407,7 @@ if.else.i63:                                      ; preds = %sw.bb30
   %add.ptr.i.i2.i.i.i67 = getelementptr i8, ptr %38, i64 %40
   %41 = ptrtoint ptr %add.ptr.i.i2.i.i.i67 to i64
   %call.i.i.i8.i68 = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i69 = getelementptr inbounds i8, ptr %call.i.i.i8.i68, i64 32
+  %args.i.i.i9.i69 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i68, i64 32
   store i64 %39, ptr %args.i.i.i9.i69, align 8
   %arrayidx2.i.i.i10.i70 = getelementptr i8, ptr %call.i.i.i8.i68, i64 40
   store i64 %39, ptr %arrayidx2.i.i.i10.i70, align 8
@@ -3425,7 +3425,7 @@ sw.bb31:                                          ; preds = %if.end28
   %add.ptr.i.i1.i.i82 = getelementptr i8, ptr %43, i64 %46
   %47 = ptrtoint ptr %add.ptr.i.i1.i.i82 to i64
   %call.i.i.i83 = tail call ptr @tcg_emit_op(i32 noundef 47, i32 noundef 2) #5
-  %args.i.i.i84 = getelementptr inbounds i8, ptr %call.i.i.i83, i64 32
+  %args.i.i.i84 = getelementptr inbounds nuw i8, ptr %call.i.i.i83, i64 32
   store i64 %45, ptr %args.i.i.i84, align 8
   %arrayidx2.i.i.i85 = getelementptr i8, ptr %call.i.i.i83, i64 40
   store i64 %47, ptr %arrayidx2.i.i.i85, align 8
@@ -3440,7 +3440,7 @@ if.else.i88:                                      ; preds = %sw.bb31
   %add.ptr.i.i2.i.i.i92 = getelementptr i8, ptr %48, i64 %50
   %51 = ptrtoint ptr %add.ptr.i.i2.i.i.i92 to i64
   %call.i.i.i8.i93 = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i94 = getelementptr inbounds i8, ptr %call.i.i.i8.i93, i64 32
+  %args.i.i.i9.i94 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i93, i64 32
   store i64 %49, ptr %args.i.i.i9.i94, align 8
   %arrayidx2.i.i.i10.i95 = getelementptr i8, ptr %call.i.i.i8.i93, i64 40
   store i64 %49, ptr %arrayidx2.i.i.i10.i95, align 8
@@ -3475,7 +3475,7 @@ if.then.i.i119:                                   ; preds = %if.then3.i117
   %add.ptr.i.i1.i.i.i121 = getelementptr i8, ptr %52, i64 %55
   %56 = ptrtoint ptr %add.ptr.i.i1.i.i.i121 to i64
   %call.i.i.i.i122 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i123 = getelementptr inbounds i8, ptr %call.i.i.i.i122, i64 32
+  %args.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i122, i64 32
   store i64 %54, ptr %args.i.i.i.i123, align 8
   %arrayidx2.i.i.i.i124 = getelementptr i8, ptr %call.i.i.i.i122, i64 40
   store i64 %56, ptr %arrayidx2.i.i.i.i124, align 8
@@ -3494,7 +3494,7 @@ if.else.i108:                                     ; preds = %sw.bb33
   %add.ptr.i.i2.i.i.i112 = getelementptr i8, ptr %57, i64 %62
   %63 = ptrtoint ptr %add.ptr.i.i2.i.i.i112 to i64
   %call.i.i.i8.i113 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i114 = getelementptr inbounds i8, ptr %call.i.i.i8.i113, i64 32
+  %args.i.i.i9.i114 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i113, i64 32
   store i64 %59, ptr %args.i.i.i9.i114, align 8
   %arrayidx2.i.i.i10.i115 = getelementptr i8, ptr %call.i.i.i8.i113, i64 40
   store i64 %61, ptr %arrayidx2.i.i.i10.i115, align 8
@@ -3508,7 +3508,7 @@ tcg_gen_shri_i32.exit:                            ; preds = %if.then3.i117.tcg_g
   %add.ptr.i.i.i.i125 = getelementptr i8, ptr %64, i64 %.pre-phi198
   %65 = ptrtoint ptr %add.ptr.i.i.i.i125 to i64
   %call.i.i.i127 = tail call ptr @tcg_emit_op(i32 noundef 48, i32 noundef 2) #5
-  %args.i.i.i128 = getelementptr inbounds i8, ptr %call.i.i.i127, i64 32
+  %args.i.i.i128 = getelementptr inbounds nuw i8, ptr %call.i.i.i127, i64 32
   store i64 %65, ptr %args.i.i.i128, align 8
   %arrayidx2.i.i.i129 = getelementptr i8, ptr %call.i.i.i127, i64 40
   store i64 %65, ptr %arrayidx2.i.i.i129, align 8
@@ -3535,7 +3535,7 @@ if.then.i.i143:                                   ; preds = %if.then3.i141
   %add.ptr.i.i1.i.i.i145 = getelementptr i8, ptr %66, i64 %69
   %70 = ptrtoint ptr %add.ptr.i.i1.i.i.i145 to i64
   %call.i.i.i.i146 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i147 = getelementptr inbounds i8, ptr %call.i.i.i.i146, i64 32
+  %args.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i146, i64 32
   store i64 %68, ptr %args.i.i.i.i147, align 8
   %arrayidx2.i.i.i.i148 = getelementptr i8, ptr %call.i.i.i.i146, i64 40
   store i64 %70, ptr %arrayidx2.i.i.i.i148, align 8
@@ -3554,7 +3554,7 @@ if.else.i132:                                     ; preds = %sw.bb34
   %add.ptr.i.i2.i.i.i136 = getelementptr i8, ptr %71, i64 %76
   %77 = ptrtoint ptr %add.ptr.i.i2.i.i.i136 to i64
   %call.i.i.i8.i137 = tail call ptr @tcg_emit_op(i32 noundef 30, i32 noundef 3) #5
-  %args.i.i.i9.i138 = getelementptr inbounds i8, ptr %call.i.i.i8.i137, i64 32
+  %args.i.i.i9.i138 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i137, i64 32
   store i64 %73, ptr %args.i.i.i9.i138, align 8
   %arrayidx2.i.i.i10.i139 = getelementptr i8, ptr %call.i.i.i8.i137, i64 40
   store i64 %75, ptr %arrayidx2.i.i.i10.i139, align 8
@@ -3568,7 +3568,7 @@ tcg_gen_shri_i32.exit149:                         ; preds = %if.then3.i141.tcg_g
   %add.ptr.i.i.i.i150 = getelementptr i8, ptr %78, i64 %.pre-phi202
   %79 = ptrtoint ptr %add.ptr.i.i.i.i150 to i64
   %call.i.i.i152 = tail call ptr @tcg_emit_op(i32 noundef 47, i32 noundef 2) #5
-  %args.i.i.i153 = getelementptr inbounds i8, ptr %call.i.i.i152, i64 32
+  %args.i.i.i153 = getelementptr inbounds nuw i8, ptr %call.i.i.i152, i64 32
   store i64 %79, ptr %args.i.i.i153, align 8
   %arrayidx2.i.i.i154 = getelementptr i8, ptr %call.i.i.i152, i64 40
   store i64 %79, ptr %arrayidx2.i.i.i154, align 8
@@ -3596,7 +3596,7 @@ if.then.i.i168:                                   ; preds = %if.then3.i166
   %add.ptr.i.i1.i.i.i170 = getelementptr i8, ptr %81, i64 %84
   %85 = ptrtoint ptr %add.ptr.i.i1.i.i.i170 to i64
   %call.i.i.i.i171 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i.i172 = getelementptr inbounds i8, ptr %call.i.i.i.i171, i64 32
+  %args.i.i.i.i172 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i171, i64 32
   store i64 %83, ptr %args.i.i.i.i172, align 8
   %arrayidx2.i.i.i.i173 = getelementptr i8, ptr %call.i.i.i.i171, i64 40
   store i64 %85, ptr %arrayidx2.i.i.i.i173, align 8
@@ -3616,7 +3616,7 @@ if.else.i157:                                     ; preds = %sw.epilog35
   %add.ptr.i.i2.i.i.i161 = getelementptr i8, ptr %87, i64 %92
   %93 = ptrtoint ptr %add.ptr.i.i2.i.i.i161 to i64
   %call.i.i.i8.i162 = tail call ptr @tcg_emit_op(i32 noundef 29, i32 noundef 3) #5
-  %args.i.i.i9.i163 = getelementptr inbounds i8, ptr %call.i.i.i8.i162, i64 32
+  %args.i.i.i9.i163 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i162, i64 32
   store i64 %89, ptr %args.i.i.i9.i163, align 8
   %arrayidx2.i.i.i10.i164 = getelementptr i8, ptr %call.i.i.i8.i162, i64 40
   store i64 %91, ptr %arrayidx2.i.i.i10.i164, align 8
@@ -3639,7 +3639,7 @@ if.else.i176:                                     ; preds = %tcg_gen_shli_i32.ex
   %add.ptr.i.i2.i.i.i180 = getelementptr i8, ptr %95, i64 %98
   %99 = ptrtoint ptr %add.ptr.i.i2.i.i.i180 to i64
   %call.i.i.i8.i181 = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i182 = getelementptr inbounds i8, ptr %call.i.i.i8.i181, i64 32
+  %args.i.i.i9.i182 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i181, i64 32
   store i64 %97, ptr %args.i.i.i9.i182, align 8
   %arrayidx2.i.i.i10.i183 = getelementptr i8, ptr %call.i.i.i8.i181, i64 40
   store i64 %97, ptr %arrayidx2.i.i.i10.i183, align 8
@@ -3663,7 +3663,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 48, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3682,7 +3682,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 47, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3711,7 +3711,7 @@ if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -3731,7 +3731,7 @@ if.then.i8:                                       ; preds = %if.then2
   %add.ptr.i.i1.i.i10 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i1.i.i10 to i64
   %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
-  %args.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
+  %args.i.i.i12 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
   store i64 %9, ptr %args.i.i.i12, align 8
   %arrayidx2.i.i.i13 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i13, align 8
@@ -3757,7 +3757,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i4.i = getelementptr i8, ptr %13, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 8, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -3799,7 +3799,7 @@ entry:
   %add.ptr.i.i5.i = getelementptr i8, ptr %1, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i5.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 39, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3838,7 +3838,7 @@ entry:
   %add.ptr.i.i5.i = getelementptr i8, ptr %1, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i5.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 40, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3871,7 +3871,7 @@ entry:
   %add.ptr.i.i3.i = getelementptr i8, ptr %1, i64 %8
   %9 = ptrtoint ptr %add.ptr.i.i3.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 41, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3900,7 +3900,7 @@ entry:
   %add.ptr.i.i3.i = getelementptr i8, ptr %1, i64 %8
   %9 = ptrtoint ptr %add.ptr.i.i3.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 42, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3925,7 +3925,7 @@ entry:
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 99, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -3937,7 +3937,7 @@ entry:
   %add.ptr.i.i.i8 = getelementptr i8, ptr %6, i64 %9
   %10 = ptrtoint ptr %add.ptr.i.i.i8 to i64
   %call.i.i9 = tail call ptr @tcg_emit_op(i32 noundef 100, i32 noundef 2) #5
-  %args.i.i10 = getelementptr inbounds i8, ptr %call.i.i9, i64 32
+  %args.i.i10 = getelementptr inbounds nuw i8, ptr %call.i.i9, i64 32
   store i64 %8, ptr %args.i.i10, align 8
   %arrayidx2.i.i11 = getelementptr i8, ptr %call.i.i9, i64 40
   store i64 %10, ptr %arrayidx2.i.i11, align 8
@@ -3947,7 +3947,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %11, i64 %7
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 80, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %12, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %12, ptr %arrayidx2.i.i.i, align 8
@@ -3960,7 +3960,7 @@ entry:
   %add.ptr.i.i.i.i.i13 = getelementptr i8, ptr %14, i64 %2
   %17 = ptrtoint ptr %add.ptr.i.i.i.i.i13 to i64
   %call.i.i.i14 = tail call ptr @tcg_emit_op(i32 noundef 101, i32 noundef 2) #5
-  %args.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 32
+  %args.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i.i14, i64 32
   store i64 %16, ptr %args.i.i.i15, align 8
   %arrayidx2.i.i.i16 = getelementptr i8, ptr %call.i.i.i14, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i16, align 8
@@ -3971,7 +3971,7 @@ entry:
   %add.ptr.i.i.i.i3.i = getelementptr i8, ptr %18, i64 %2
   %21 = ptrtoint ptr %add.ptr.i.i.i.i3.i to i64
   %call.i.i4.i = tail call ptr @tcg_emit_op(i32 noundef 102, i32 noundef 2) #5
-  %args.i.i5.i = getelementptr inbounds i8, ptr %call.i.i4.i, i64 32
+  %args.i.i5.i = getelementptr inbounds nuw i8, ptr %call.i.i4.i, i64 32
   store i64 %20, ptr %args.i.i5.i, align 8
   %arrayidx2.i.i6.i = getelementptr i8, ptr %call.i.i4.i, i64 40
   store i64 %21, ptr %arrayidx2.i.i6.i, align 8
@@ -3992,7 +3992,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 99, i32 noundef 2) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx2.i, align 8
@@ -4014,7 +4014,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 80, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4035,7 +4035,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 101, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4046,7 +4046,7 @@ entry:
   %add.ptr.i.i.i.i3 = getelementptr i8, ptr %6, i64 %4
   %9 = ptrtoint ptr %add.ptr.i.i.i.i3 to i64
   %call.i.i4 = tail call ptr @tcg_emit_op(i32 noundef 102, i32 noundef 2) #5
-  %args.i.i5 = getelementptr inbounds i8, ptr %call.i.i4, i64 32
+  %args.i.i5 = getelementptr inbounds nuw i8, ptr %call.i.i4, i64 32
   store i64 %8, ptr %args.i.i5, align 8
   %arrayidx2.i.i6 = getelementptr i8, ptr %call.i.i4, i64 40
   store i64 %9, ptr %arrayidx2.i.i6, align 8
@@ -4077,7 +4077,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 51, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4098,7 +4098,7 @@ entry:
   %add.ptr.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 52, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4123,7 +4123,7 @@ entry:
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 32, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -4147,7 +4147,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 8, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -4177,7 +4177,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 8, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -4207,7 +4207,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 8, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -4237,7 +4237,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 8, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -4269,7 +4269,7 @@ entry:
   %add.ptr.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 31, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -4284,7 +4284,7 @@ entry:
   %add.ptr.i.i2.i.i = getelementptr i8, ptr %8, i64 %2
   %12 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 28, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %10, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -4296,7 +4296,7 @@ entry:
   %add.ptr.i.i2.i.i9 = getelementptr i8, ptr %13, i64 %2
   %15 = ptrtoint ptr %add.ptr.i.i2.i.i9 to i64
   %call.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 18, i32 noundef 3) #5
-  %args.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 32
+  %args.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 32
   store i64 %14, ptr %args.i.i.i11, align 8
   %arrayidx2.i.i.i12 = getelementptr i8, ptr %call.i.i.i10, i64 40
   store i64 %14, ptr %arrayidx2.i.i.i12, align 8
@@ -4318,7 +4318,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 9, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4339,7 +4339,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 10, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4360,7 +4360,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 11, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4381,7 +4381,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 12, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4402,7 +4402,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 13, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4423,7 +4423,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 14, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4444,7 +4444,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 15, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4465,7 +4465,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 16, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4483,7 +4483,7 @@ entry:
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
   %3 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 0, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   ret void
 }
@@ -4504,7 +4504,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4531,7 +4531,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -4555,7 +4555,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 67, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4576,7 +4576,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 68, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4597,7 +4597,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 69, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4618,7 +4618,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 70, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4639,7 +4639,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 71, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4660,7 +4660,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 72, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4681,7 +4681,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 73, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4702,7 +4702,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 74, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4723,7 +4723,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 75, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4744,7 +4744,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 76, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4765,7 +4765,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 77, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4789,7 +4789,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 78, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4813,7 +4813,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 79, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4837,7 +4837,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4861,7 +4861,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4885,7 +4885,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 89, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4909,7 +4909,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4933,7 +4933,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4957,7 +4957,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -4986,7 +4986,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5006,7 +5006,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 78, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %9, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8, align 8
@@ -5034,7 +5034,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 114, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5054,7 +5054,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 79, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %9, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8, align 8
@@ -5078,7 +5078,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 114, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -5105,7 +5105,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -5126,7 +5126,7 @@ if.else.i:                                        ; preds = %entry
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i6.i = tail call ptr @tcg_emit_op(i32 noundef 78, i32 noundef 3) #5
-  %args.i.i.i7.i = getelementptr inbounds i8, ptr %call.i.i.i6.i, i64 32
+  %args.i.i.i7.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6.i, i64 32
   store i64 %9, ptr %args.i.i.i7.i, align 8
   %arrayidx2.i.i.i8.i = getelementptr i8, ptr %call.i.i.i6.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i8.i, align 8
@@ -5164,7 +5164,7 @@ if.end.i.i:                                       ; preds = %sw.bb
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -5184,7 +5184,7 @@ if.end.i:                                         ; preds = %sw.bb1
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -5200,7 +5200,7 @@ sw.bb2:                                           ; preds = %entry
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %13, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 107, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -5216,7 +5216,7 @@ sw.bb3:                                           ; preds = %entry
   %add.ptr.i.i.i1.i12 = getelementptr i8, ptr %19, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i.i1.i12 to i64
   %call.i.i13 = tail call ptr @tcg_emit_op(i32 noundef 108, i32 noundef 2) #5
-  %args.i.i14 = getelementptr inbounds i8, ptr %call.i.i13, i64 32
+  %args.i.i14 = getelementptr inbounds nuw i8, ptr %call.i.i13, i64 32
   store i64 %21, ptr %args.i.i14, align 8
   %arrayidx2.i.i15 = getelementptr i8, ptr %call.i.i13, i64 40
   store i64 %23, ptr %arrayidx2.i.i15, align 8
@@ -5232,7 +5232,7 @@ sw.bb4:                                           ; preds = %entry
   %add.ptr.i.i.i1.i17 = getelementptr i8, ptr %25, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i.i1.i17 to i64
   %call.i.i18 = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i19 = getelementptr inbounds i8, ptr %call.i.i18, i64 32
+  %args.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i18, i64 32
   store i64 %27, ptr %args.i.i19, align 8
   %arrayidx2.i.i20 = getelementptr i8, ptr %call.i.i18, i64 40
   store i64 %29, ptr %arrayidx2.i.i20, align 8
@@ -5252,7 +5252,7 @@ sw.epilog:                                        ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %31, i64 %36
   %37 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i23 = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i23, i64 32
+  %args.i.i.i24 = getelementptr inbounds nuw i8, ptr %call.i.i.i23, i64 32
   store i64 %33, ptr %args.i.i.i24, align 8
   %arrayidx2.i.i.i25 = getelementptr i8, ptr %call.i.i.i23, i64 40
   store i64 %35, ptr %arrayidx2.i.i.i25, align 8
@@ -5287,7 +5287,7 @@ if.end.i.i:                                       ; preds = %if.then
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -5307,7 +5307,7 @@ if.end.i:                                         ; preds = %if.then2
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -5327,7 +5327,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %15, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i10, align 8
@@ -5361,7 +5361,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5377,7 +5377,7 @@ if.then2:                                         ; preds = %entry
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -5397,7 +5397,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i9 = tail call ptr @tcg_emit_op(i32 noundef 89, i32 noundef 3) #5
-  %args.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i.i9, i64 32
+  %args.i.i.i10 = getelementptr inbounds nuw i8, ptr %call.i.i.i9, i64 32
   store i64 %15, ptr %args.i.i.i10, align 8
   %arrayidx2.i.i.i11 = getelementptr i8, ptr %call.i.i.i9, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i11, align 8
@@ -5431,7 +5431,7 @@ if.end.i:                                         ; preds = %if.then3
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5451,7 +5451,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -5485,7 +5485,7 @@ if.end.i:                                         ; preds = %if.then3
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5505,7 +5505,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -5539,7 +5539,7 @@ if.end.i:                                         ; preds = %if.then3
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -5559,7 +5559,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -5582,13 +5582,13 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = ptrtoint ptr %l to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 3, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %0, ptr %args.i.i, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 16
-  %pool_end.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %pool_end.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %pool_end.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %4
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -5613,7 +5613,7 @@ if.then2:                                         ; preds = %entry
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 103, i32 noundef 4) #5
-  %args.i.i6 = getelementptr inbounds i8, ptr %call.i.i5, i64 32
+  %args.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 32
   store i64 %9, ptr %args.i.i6, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i5, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -5624,7 +5624,7 @@ if.then2:                                         ; preds = %entry
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr i8, ptr %13, i64 16
-  %pool_end.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %pool_end.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %pool_end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -5641,15 +5641,15 @@ if.end3.sink.split:                               ; preds = %if.else.i.i, %if.th
   %.sink13 = phi ptr [ %1, %if.then.i.i.i ], [ %1, %if.else.i.i.i ], [ %6, %if.then.i.i ], [ %6, %if.else.i.i ]
   %retval.0.i.i.sink11 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ], [ %call.i.i7, %if.then.i.i ], [ %13, %if.else.i.i ]
   %15 = load ptr, ptr %.sink13, align 8
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %15, i64 29344
+  %tql_prev.i.i = getelementptr inbounds nuw i8, ptr %15, i64 29344
   %16 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %tql_prev1.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %tql_prev1.i.i, align 8
   %18 = load ptr, ptr %17, align 8
-  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink11, i64 8
+  %op.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.sink11, i64 8
   store ptr %18, ptr %op.i, align 8
   store ptr null, ptr %retval.0.i.i.sink11, align 8
-  %sqh_last.i = getelementptr inbounds i8, ptr %l, i64 24
+  %sqh_last.i = getelementptr inbounds nuw i8, ptr %l, i64 24
   %19 = load ptr, ptr %sqh_last.i, align 8
   store ptr %retval.0.i.i.sink11, ptr %19, align 8
   store ptr %retval.0.i.i.sink11, ptr %sqh_last.i, align 8
@@ -5690,7 +5690,7 @@ if.end.i.i:                                       ; preds = %if.then
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -5711,7 +5711,7 @@ if.end.i.i7:                                      ; preds = %if.then2
   %add.ptr.i.i.i1.i.i.i9 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9 to i64
   %call.i.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 32
+  %args.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10, i64 32
   store i64 %9, ptr %args.i.i.i.i11, align 8
   %arrayidx2.i.i.i.i12 = getelementptr i8, ptr %call.i.i.i.i10, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12, align 8
@@ -5731,7 +5731,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 64, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -5769,7 +5769,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   %add.ptr.i.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i.i to i64
   %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i.i, align 8
   %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
@@ -5790,7 +5790,7 @@ if.end.i.i7.i:                                    ; preds = %if.then2.i
   %add.ptr.i.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9.i to i64
   %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  %args.i.i.i.i11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10.i, i64 32
   store i64 %9, ptr %args.i.i.i.i11.i, align 8
   %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
@@ -5810,7 +5810,7 @@ if.else3.i:                                       ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 64, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i, align 8
@@ -5848,7 +5848,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   %add.ptr.i.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i.i to i64
   %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i.i, align 8
   %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
@@ -5869,7 +5869,7 @@ if.end.i.i7.i:                                    ; preds = %if.then2.i
   %add.ptr.i.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9.i to i64
   %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  %args.i.i.i.i11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10.i, i64 32
   store i64 %9, ptr %args.i.i.i.i11.i, align 8
   %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
@@ -5889,7 +5889,7 @@ if.else3.i:                                       ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 65, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i, align 8
@@ -5926,7 +5926,7 @@ if.end.i.i:                                       ; preds = %if.then
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -5947,7 +5947,7 @@ if.end.i.i7:                                      ; preds = %if.then2
   %add.ptr.i.i.i1.i.i.i9 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9 to i64
   %call.i.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i.i10, i64 32
+  %args.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i10, i64 32
   store i64 %9, ptr %args.i.i.i.i11, align 8
   %arrayidx2.i.i.i.i12 = getelementptr i8, ptr %call.i.i.i.i10, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i.i12, align 8
@@ -5967,7 +5967,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %13, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 65, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -6002,7 +6002,7 @@ if.end.i.i:                                       ; preds = %if.then
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -6032,7 +6032,7 @@ if.end.i.i9:                                      ; preds = %if.then3.i
   %add.ptr.i.i.i1.i.i.i11 = getelementptr i8, ptr %9, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i11 to i64
   %call.i.i.i.i12 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i.i.i12, i64 32
+  %args.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i12, i64 32
   store i64 %11, ptr %args.i.i.i.i13, align 8
   %arrayidx2.i.i.i.i14 = getelementptr i8, ptr %call.i.i.i.i12, i64 40
   store i64 %13, ptr %arrayidx2.i.i.i.i14, align 8
@@ -6052,7 +6052,7 @@ if.else.i:                                        ; preds = %if.then1
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %15, i64 %20
   %21 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %17, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6074,7 +6074,7 @@ if.else3:                                         ; preds = %is_power_of_2.exit
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %23, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 80, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %25, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %27, ptr %arrayidx2.i.i.i, align 8
@@ -6103,7 +6103,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6121,7 +6121,7 @@ entry:
   %add.ptr.i.i.i4.i = getelementptr i8, ptr %8, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 85, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %10, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -6152,7 +6152,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6170,7 +6170,7 @@ entry:
   %add.ptr.i.i.i4.i = getelementptr i8, ptr %8, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 85, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -6207,7 +6207,7 @@ entry:
   %add.ptr.i.i.i4.i = getelementptr i8, ptr %1, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 86, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6244,7 +6244,7 @@ entry:
   %add.ptr.i.i.i4.i = getelementptr i8, ptr %1, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 86, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6270,7 +6270,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 104, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6289,7 +6289,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 105, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6308,7 +6308,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 106, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6327,7 +6327,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 107, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6346,7 +6346,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 108, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6365,7 +6365,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6396,7 +6396,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 110, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6429,7 +6429,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 111, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6450,7 +6450,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 112, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6477,7 +6477,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6494,7 +6494,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i14 = getelementptr i8, ptr %8, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i14 to i64
   %call.i.i.i23.i = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i24.i = getelementptr inbounds i8, ptr %call.i.i.i23.i, i64 32
+  %args.i.i.i24.i = getelementptr inbounds nuw i8, ptr %call.i.i.i23.i, i64 32
   store i64 %10, ptr %args.i.i.i24.i, align 8
   %arrayidx2.i.i.i25.i = getelementptr i8, ptr %call.i.i.i23.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i25.i, align 8
@@ -6508,7 +6508,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i19 = getelementptr i8, ptr %14, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i19 to i64
   %call.i.i.i8.i20 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i21 = getelementptr inbounds i8, ptr %call.i.i.i8.i20, i64 32
+  %args.i.i.i9.i21 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i20, i64 32
   store i64 %15, ptr %args.i.i.i9.i21, align 8
   %arrayidx2.i.i.i10.i22 = getelementptr i8, ptr %call.i.i.i8.i20, i64 40
   store i64 %15, ptr %arrayidx2.i.i.i10.i22, align 8
@@ -6522,7 +6522,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i27 = getelementptr i8, ptr %18, i64 %20
   %21 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i27 to i64
   %call.i.i.i8.i28 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i29 = getelementptr inbounds i8, ptr %call.i.i.i8.i28, i64 32
+  %args.i.i.i9.i29 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i28, i64 32
   store i64 %19, ptr %args.i.i.i9.i29, align 8
   %arrayidx2.i.i.i10.i30 = getelementptr i8, ptr %call.i.i.i8.i28, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10.i30, align 8
@@ -6536,7 +6536,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i35 = getelementptr i8, ptr %22, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i35 to i64
   %call.i.i.i23.i36 = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i24.i37 = getelementptr inbounds i8, ptr %call.i.i.i23.i36, i64 32
+  %args.i.i.i24.i37 = getelementptr inbounds nuw i8, ptr %call.i.i.i23.i36, i64 32
   store i64 %23, ptr %args.i.i.i24.i37, align 8
   %arrayidx2.i.i.i25.i38 = getelementptr i8, ptr %call.i.i.i23.i36, i64 40
   store i64 %23, ptr %arrayidx2.i.i.i25.i38, align 8
@@ -6551,7 +6551,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %26, i64 %2
   %30 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %28, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %29, ptr %arrayidx2.i.i.i, align 8
@@ -6584,7 +6584,7 @@ if.end.i:                                         ; preds = %if.then3
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6604,7 +6604,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %9, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10, align 8
@@ -6632,7 +6632,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6653,7 +6653,7 @@ entry:
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6681,7 +6681,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %2, i64 %7
   %8 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 115, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx2.i.i, align 8
@@ -6700,7 +6700,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %10, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %12, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx2.i.i.i, align 8
@@ -6714,7 +6714,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %15, i64 %11
   %20 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i8 = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i.i8, i64 32
+  %args.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i.i8, i64 32
   store i64 %17, ptr %args.i.i.i9, align 8
   %arrayidx2.i.i.i10 = getelementptr i8, ptr %call.i.i.i8, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10, align 8
@@ -6742,7 +6742,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 89, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6752,7 +6752,7 @@ entry:
   %add.ptr.i.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -6774,7 +6774,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6784,7 +6784,7 @@ entry:
   %add.ptr.i.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -6806,7 +6806,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6816,7 +6816,7 @@ entry:
   %add.ptr.i.i.i.i.i3 = getelementptr i8, ptr %8, i64 %2
   %9 = ptrtoint ptr %add.ptr.i.i.i.i.i3 to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %9, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i7, align 8
@@ -6836,7 +6836,7 @@ entry:
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 113, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6850,7 +6850,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %6, i64 %2
   %11 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 32
+  %args.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i.i5, i64 32
   store i64 %8, ptr %args.i.i.i6, align 8
   %arrayidx2.i.i.i7 = getelementptr i8, ptr %call.i.i.i5, i64 40
   store i64 %10, ptr %arrayidx2.i.i.i7, align 8
@@ -6875,7 +6875,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 120, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6900,7 +6900,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 120, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6924,7 +6924,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 121, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -6949,7 +6949,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 121, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -6975,7 +6975,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -6987,7 +6987,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %8, i64 %4
   %10 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 89, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %9, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i, align 8
@@ -7001,7 +7001,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i9 = getelementptr i8, ptr %11, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i9 to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 120, i32 noundef 3) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %12, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %12, ptr %arrayidx2.i.i.i.i, align 8
@@ -7018,7 +7018,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i.i = getelementptr i8, ptr %15, i64 %19
   %20 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i.i to i64
   %call.i.i.i6.i.i = tail call ptr @tcg_emit_op(i32 noundef 78, i32 noundef 3) #5
-  %args.i.i.i7.i.i = getelementptr inbounds i8, ptr %call.i.i.i6.i.i, i64 32
+  %args.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6.i.i, i64 32
   store i64 %17, ptr %args.i.i.i7.i.i, align 8
   %arrayidx2.i.i.i8.i.i = getelementptr i8, ptr %call.i.i.i6.i.i, i64 40
   store i64 %18, ptr %arrayidx2.i.i.i8.i.i, align 8
@@ -7043,7 +7043,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -7067,7 +7067,7 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 94, i32 noundef 3) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -7098,7 +7098,7 @@ if.end.i:                                         ; preds = %if.then3
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -7119,7 +7119,7 @@ tcg_gen_rotli_i64.exit:                           ; preds = %entry
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -7158,7 +7158,7 @@ if.end.i:                                         ; preds = %if.then17
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -7188,7 +7188,7 @@ if.then22:                                        ; preds = %land.lhs.true, %lan
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 95, i32 noundef 5) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i, align 8
@@ -7228,7 +7228,7 @@ tcg_gen_shli_i64.exit:                            ; preds = %if.end24.thread, %i
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %15, i64 %20
   %21 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %17, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i10.i, align 8
@@ -7252,7 +7252,7 @@ tcg_gen_rotli_i64.exit:                           ; preds = %if.end24
   %add.ptr.i.i.i2.i.i.i55 = getelementptr i8, ptr %23, i64 %26
   %27 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i55 to i64
   %call.i.i.i8.i56 = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i57 = getelementptr inbounds i8, ptr %call.i.i.i8.i56, i64 32
+  %args.i.i.i9.i57 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i56, i64 32
   store i64 %25, ptr %args.i.i.i9.i57, align 8
   %arrayidx2.i.i.i10.i58 = getelementptr i8, ptr %call.i.i.i8.i56, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i10.i58, align 8
@@ -7276,7 +7276,7 @@ tcg_gen_shli_i64.exit87:                          ; preds = %if.end24.thread
   %add.ptr.i.i.i2.i.i.i74 = getelementptr i8, ptr %29, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i74 to i64
   %call.i.i.i8.i75 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i76 = getelementptr inbounds i8, ptr %call.i.i.i8.i75, i64 32
+  %args.i.i.i9.i76 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i75, i64 32
   store i64 %31, ptr %args.i.i.i9.i76, align 8
   %arrayidx2.i.i.i10.i77 = getelementptr i8, ptr %call.i.i.i8.i75, i64 40
   store i64 %31, ptr %arrayidx2.i.i.i10.i77, align 8
@@ -7292,7 +7292,7 @@ tcg_gen_shli_i64.exit87:                          ; preds = %if.end24.thread
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %34, i64 %30
   %37 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i90 = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i91 = getelementptr inbounds i8, ptr %call.i.i.i90, i64 32
+  %args.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i.i.i90, i64 32
   store i64 %36, ptr %args.i.i.i91, align 8
   %arrayidx2.i.i.i92 = getelementptr i8, ptr %call.i.i.i90, i64 40
   store i64 %36, ptr %arrayidx2.i.i.i92, align 8
@@ -7333,7 +7333,7 @@ if.end.i:                                         ; preds = %if.then2
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -7353,7 +7353,7 @@ if.end.i14:                                       ; preds = %if.then4
   %add.ptr.i.i.i1.i.i16 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i16 to i64
   %call.i.i.i17 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i17, i64 32
+  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i17, i64 32
   store i64 %9, ptr %args.i.i.i18, align 8
   %arrayidx2.i.i.i19 = getelementptr i8, ptr %call.i.i.i17, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i19, align 8
@@ -7381,7 +7381,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %13, i64 %16
   %17 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %15, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i.i, align 8
@@ -7403,7 +7403,7 @@ tcg_gen_rotli_i64.exit.i:                         ; preds = %if.then7
   %add.ptr.i.i.i2.i.i.i.i = getelementptr i8, ptr %19, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i.i to i64
   %call.i.i.i8.i.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i.i = getelementptr inbounds i8, ptr %call.i.i.i8.i.i, i64 32
+  %args.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i.i, i64 32
   store i64 %21, ptr %args.i.i.i9.i.i, align 8
   %arrayidx2.i.i.i10.i.i = getelementptr i8, ptr %call.i.i.i8.i.i, i64 40
   store i64 %23, ptr %arrayidx2.i.i.i10.i.i, align 8
@@ -7425,7 +7425,7 @@ if.else8:                                         ; preds = %if.else5
   %add.ptr.i.i.i2.i = getelementptr i8, ptr %27, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
   %call.i.i21 = tail call ptr @tcg_emit_op(i32 noundef 98, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i21, i64 32
   store i64 %29, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i21, i64 40
   store i64 %31, ptr %arrayidx2.i.i, align 8
@@ -7470,7 +7470,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -7491,7 +7491,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -7526,7 +7526,7 @@ tcg_gen_shli_i64.exit78:                          ; preds = %if.else32
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %17, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i, align 8
@@ -7539,7 +7539,7 @@ tcg_gen_shli_i64.exit78:                          ; preds = %if.else32
   %add.ptr.i.i.i2.i.i.i65 = getelementptr i8, ptr %20, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i65 to i64
   %call.i.i.i8.i66 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i67 = getelementptr inbounds i8, ptr %call.i.i.i8.i66, i64 32
+  %args.i.i.i9.i67 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i66, i64 32
   store i64 %21, ptr %args.i.i.i9.i67, align 8
   %arrayidx2.i.i.i10.i68 = getelementptr i8, ptr %call.i.i.i8.i66, i64 40
   store i64 %21, ptr %arrayidx2.i.i.i10.i68, align 8
@@ -7557,7 +7557,7 @@ tcg_gen_shli_i64.exit103:                         ; preds = %if.else32
   %add.ptr.i.i.i1.i.i80 = getelementptr i8, ptr %25, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i.i1.i.i80 to i64
   %call.i.i.i81 = tail call ptr @tcg_emit_op(i32 noundef 108, i32 noundef 2) #5
-  %args.i.i.i82 = getelementptr inbounds i8, ptr %call.i.i.i81, i64 32
+  %args.i.i.i82 = getelementptr inbounds nuw i8, ptr %call.i.i.i81, i64 32
   store i64 %27, ptr %args.i.i.i82, align 8
   %arrayidx2.i.i.i83 = getelementptr i8, ptr %call.i.i.i81, i64 40
   store i64 %29, ptr %arrayidx2.i.i.i83, align 8
@@ -7570,7 +7570,7 @@ tcg_gen_shli_i64.exit103:                         ; preds = %if.else32
   %add.ptr.i.i.i2.i.i.i90 = getelementptr i8, ptr %30, i64 %32
   %33 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i90 to i64
   %call.i.i.i8.i91 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i92 = getelementptr inbounds i8, ptr %call.i.i.i8.i91, i64 32
+  %args.i.i.i9.i92 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i91, i64 32
   store i64 %31, ptr %args.i.i.i9.i92, align 8
   %arrayidx2.i.i.i10.i93 = getelementptr i8, ptr %call.i.i.i8.i91, i64 40
   store i64 %31, ptr %arrayidx2.i.i.i10.i93, align 8
@@ -7588,7 +7588,7 @@ tcg_gen_shli_i64.exit128:                         ; preds = %if.else32
   %add.ptr.i.i.i1.i.i105 = getelementptr i8, ptr %35, i64 %38
   %39 = ptrtoint ptr %add.ptr.i.i.i1.i.i105 to i64
   %call.i.i.i106 = tail call ptr @tcg_emit_op(i32 noundef 107, i32 noundef 2) #5
-  %args.i.i.i107 = getelementptr inbounds i8, ptr %call.i.i.i106, i64 32
+  %args.i.i.i107 = getelementptr inbounds nuw i8, ptr %call.i.i.i106, i64 32
   store i64 %37, ptr %args.i.i.i107, align 8
   %arrayidx2.i.i.i108 = getelementptr i8, ptr %call.i.i.i106, i64 40
   store i64 %39, ptr %arrayidx2.i.i.i108, align 8
@@ -7601,7 +7601,7 @@ tcg_gen_shli_i64.exit128:                         ; preds = %if.else32
   %add.ptr.i.i.i2.i.i.i115 = getelementptr i8, ptr %40, i64 %42
   %43 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i115 to i64
   %call.i.i.i8.i116 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i117 = getelementptr inbounds i8, ptr %call.i.i.i8.i116, i64 32
+  %args.i.i.i9.i117 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i116, i64 32
   store i64 %41, ptr %args.i.i.i9.i117, align 8
   %arrayidx2.i.i.i10.i118 = getelementptr i8, ptr %call.i.i.i8.i116, i64 40
   store i64 %41, ptr %arrayidx2.i.i.i10.i118, align 8
@@ -7625,7 +7625,7 @@ sw.bb39:                                          ; preds = %sw.epilog
   %add.ptr.i.i.i.i.i129 = getelementptr i8, ptr %45, i64 %46
   %47 = ptrtoint ptr %add.ptr.i.i.i.i.i129 to i64
   %call.i.i.i131 = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i.i132 = getelementptr inbounds i8, ptr %call.i.i.i131, i64 32
+  %args.i.i.i132 = getelementptr inbounds nuw i8, ptr %call.i.i.i131, i64 32
   store i64 %47, ptr %args.i.i.i132, align 8
   %arrayidx2.i.i.i133 = getelementptr i8, ptr %call.i.i.i131, i64 40
   store i64 %47, ptr %arrayidx2.i.i.i133, align 8
@@ -7640,7 +7640,7 @@ sw.bb41:                                          ; preds = %sw.epilog
   %add.ptr.i.i.i.i.i134 = getelementptr i8, ptr %49, i64 %50
   %51 = ptrtoint ptr %add.ptr.i.i.i.i.i134 to i64
   %call.i.i.i136 = tail call ptr @tcg_emit_op(i32 noundef 108, i32 noundef 2) #5
-  %args.i.i.i137 = getelementptr inbounds i8, ptr %call.i.i.i136, i64 32
+  %args.i.i.i137 = getelementptr inbounds nuw i8, ptr %call.i.i.i136, i64 32
   store i64 %51, ptr %args.i.i.i137, align 8
   %arrayidx2.i.i.i138 = getelementptr i8, ptr %call.i.i.i136, i64 40
   store i64 %51, ptr %arrayidx2.i.i.i138, align 8
@@ -7655,7 +7655,7 @@ sw.bb43:                                          ; preds = %sw.epilog
   %add.ptr.i.i.i.i.i139 = getelementptr i8, ptr %53, i64 %54
   %55 = ptrtoint ptr %add.ptr.i.i.i.i.i139 to i64
   %call.i.i.i141 = tail call ptr @tcg_emit_op(i32 noundef 107, i32 noundef 2) #5
-  %args.i.i.i142 = getelementptr inbounds i8, ptr %call.i.i.i141, i64 32
+  %args.i.i.i142 = getelementptr inbounds nuw i8, ptr %call.i.i.i141, i64 32
   store i64 %55, ptr %args.i.i.i142, align 8
   %arrayidx2.i.i.i143 = getelementptr i8, ptr %call.i.i.i141, i64 40
   store i64 %55, ptr %arrayidx2.i.i.i143, align 8
@@ -7705,7 +7705,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -7727,7 +7727,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -7766,7 +7766,7 @@ if.then32:                                        ; preds = %if.end24
   %add.ptr.i.i.i1.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 96, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %17, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i, align 8
@@ -7793,7 +7793,7 @@ tcg_gen_shri_i64.exit72:                          ; preds = %if.end35
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %21, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %23, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i, align 8
@@ -7806,7 +7806,7 @@ tcg_gen_shri_i64.exit72:                          ; preds = %if.end35
   %add.ptr.i.i.i2.i.i.i59 = getelementptr i8, ptr %26, i64 %28
   %29 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i59 to i64
   %call.i.i.i8.i60 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i61 = getelementptr inbounds i8, ptr %call.i.i.i8.i60, i64 32
+  %args.i.i.i9.i61 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i60, i64 32
   store i64 %27, ptr %args.i.i.i9.i61, align 8
   %arrayidx2.i.i.i10.i62 = getelementptr i8, ptr %call.i.i.i8.i60, i64 40
   store i64 %27, ptr %arrayidx2.i.i.i10.i62, align 8
@@ -7824,7 +7824,7 @@ tcg_gen_shri_i64.exit97:                          ; preds = %if.end35
   %add.ptr.i.i.i1.i.i74 = getelementptr i8, ptr %31, i64 %34
   %35 = ptrtoint ptr %add.ptr.i.i.i1.i.i74 to i64
   %call.i.i.i75 = tail call ptr @tcg_emit_op(i32 noundef 108, i32 noundef 2) #5
-  %args.i.i.i76 = getelementptr inbounds i8, ptr %call.i.i.i75, i64 32
+  %args.i.i.i76 = getelementptr inbounds nuw i8, ptr %call.i.i.i75, i64 32
   store i64 %33, ptr %args.i.i.i76, align 8
   %arrayidx2.i.i.i77 = getelementptr i8, ptr %call.i.i.i75, i64 40
   store i64 %35, ptr %arrayidx2.i.i.i77, align 8
@@ -7837,7 +7837,7 @@ tcg_gen_shri_i64.exit97:                          ; preds = %if.end35
   %add.ptr.i.i.i2.i.i.i84 = getelementptr i8, ptr %36, i64 %38
   %39 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i84 to i64
   %call.i.i.i8.i85 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i86 = getelementptr inbounds i8, ptr %call.i.i.i8.i85, i64 32
+  %args.i.i.i9.i86 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i85, i64 32
   store i64 %37, ptr %args.i.i.i9.i86, align 8
   %arrayidx2.i.i.i10.i87 = getelementptr i8, ptr %call.i.i.i8.i85, i64 40
   store i64 %37, ptr %arrayidx2.i.i.i10.i87, align 8
@@ -7855,7 +7855,7 @@ tcg_gen_shri_i64.exit122:                         ; preds = %if.end35
   %add.ptr.i.i.i1.i.i99 = getelementptr i8, ptr %41, i64 %44
   %45 = ptrtoint ptr %add.ptr.i.i.i1.i.i99 to i64
   %call.i.i.i100 = tail call ptr @tcg_emit_op(i32 noundef 107, i32 noundef 2) #5
-  %args.i.i.i101 = getelementptr inbounds i8, ptr %call.i.i.i100, i64 32
+  %args.i.i.i101 = getelementptr inbounds nuw i8, ptr %call.i.i.i100, i64 32
   store i64 %43, ptr %args.i.i.i101, align 8
   %arrayidx2.i.i.i102 = getelementptr i8, ptr %call.i.i.i100, i64 40
   store i64 %45, ptr %arrayidx2.i.i.i102, align 8
@@ -7868,7 +7868,7 @@ tcg_gen_shri_i64.exit122:                         ; preds = %if.end35
   %add.ptr.i.i.i2.i.i.i109 = getelementptr i8, ptr %46, i64 %48
   %49 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i109 to i64
   %call.i.i.i8.i110 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i111 = getelementptr inbounds i8, ptr %call.i.i.i8.i110, i64 32
+  %args.i.i.i9.i111 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i110, i64 32
   store i64 %47, ptr %args.i.i.i9.i111, align 8
   %arrayidx2.i.i.i10.i112 = getelementptr i8, ptr %call.i.i.i8.i110, i64 40
   store i64 %47, ptr %arrayidx2.i.i.i10.i112, align 8
@@ -7905,7 +7905,7 @@ tcg_gen_shri_i64.exit142:                         ; preds = %sw.epilog, %sw.epil
   %add.ptr.i.i.i2.i.i.i129 = getelementptr i8, ptr %51, i64 %56
   %57 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i129 to i64
   %call.i.i.i8.i130 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i131 = getelementptr inbounds i8, ptr %call.i.i.i8.i130, i64 32
+  %args.i.i.i9.i131 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i130, i64 32
   store i64 %53, ptr %args.i.i.i9.i131, align 8
   %arrayidx2.i.i.i10.i132 = getelementptr i8, ptr %call.i.i.i8.i130, i64 40
   store i64 %55, ptr %arrayidx2.i.i.i10.i132, align 8
@@ -7961,7 +7961,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   %add.ptr.i.i.i1.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i.i, align 8
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i.i, align 8
@@ -7983,7 +7983,7 @@ if.else.i:                                        ; preds = %if.then18
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %7, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %9, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i10.i, align 8
@@ -8012,7 +8012,7 @@ sw.bb:                                            ; preds = %if.then22
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %15, i64 %18
   %19 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 106, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %17, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %19, ptr %arrayidx2.i.i.i, align 8
@@ -8028,7 +8028,7 @@ sw.bb23:                                          ; preds = %if.then22
   %add.ptr.i.i.i1.i.i56 = getelementptr i8, ptr %21, i64 %24
   %25 = ptrtoint ptr %add.ptr.i.i.i1.i.i56 to i64
   %call.i.i.i57 = tail call ptr @tcg_emit_op(i32 noundef 105, i32 noundef 2) #5
-  %args.i.i.i58 = getelementptr inbounds i8, ptr %call.i.i.i57, i64 32
+  %args.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i.i.i57, i64 32
   store i64 %23, ptr %args.i.i.i58, align 8
   %arrayidx2.i.i.i59 = getelementptr i8, ptr %call.i.i.i57, i64 40
   store i64 %25, ptr %arrayidx2.i.i.i59, align 8
@@ -8044,7 +8044,7 @@ sw.bb24:                                          ; preds = %if.then22
   %add.ptr.i.i.i1.i.i61 = getelementptr i8, ptr %27, i64 %30
   %31 = ptrtoint ptr %add.ptr.i.i.i1.i.i61 to i64
   %call.i.i.i62 = tail call ptr @tcg_emit_op(i32 noundef 104, i32 noundef 2) #5
-  %args.i.i.i63 = getelementptr inbounds i8, ptr %call.i.i.i62, i64 32
+  %args.i.i.i63 = getelementptr inbounds nuw i8, ptr %call.i.i.i62, i64 32
   store i64 %29, ptr %args.i.i.i63, align 8
   %arrayidx2.i.i.i64 = getelementptr i8, ptr %call.i.i.i62, i64 40
   store i64 %31, ptr %arrayidx2.i.i.i64, align 8
@@ -8067,7 +8067,7 @@ sw.bb27:                                          ; preds = %if.end25
   %add.ptr.i.i.i1.i.i66 = getelementptr i8, ptr %33, i64 %36
   %37 = ptrtoint ptr %add.ptr.i.i.i1.i.i66 to i64
   %call.i.i.i67 = tail call ptr @tcg_emit_op(i32 noundef 106, i32 noundef 2) #5
-  %args.i.i.i68 = getelementptr inbounds i8, ptr %call.i.i.i67, i64 32
+  %args.i.i.i68 = getelementptr inbounds nuw i8, ptr %call.i.i.i67, i64 32
   store i64 %35, ptr %args.i.i.i68, align 8
   %arrayidx2.i.i.i69 = getelementptr i8, ptr %call.i.i.i67, i64 40
   store i64 %37, ptr %arrayidx2.i.i.i69, align 8
@@ -8083,7 +8083,7 @@ if.else.i72:                                      ; preds = %sw.bb27
   %add.ptr.i.i.i2.i.i.i76 = getelementptr i8, ptr %38, i64 %40
   %41 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i76 to i64
   %call.i.i.i8.i77 = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i78 = getelementptr inbounds i8, ptr %call.i.i.i8.i77, i64 32
+  %args.i.i.i9.i78 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i77, i64 32
   store i64 %39, ptr %args.i.i.i9.i78, align 8
   %arrayidx2.i.i.i10.i79 = getelementptr i8, ptr %call.i.i.i8.i77, i64 40
   store i64 %39, ptr %arrayidx2.i.i.i10.i79, align 8
@@ -8101,7 +8101,7 @@ sw.bb29:                                          ; preds = %if.end25
   %add.ptr.i.i.i1.i.i91 = getelementptr i8, ptr %43, i64 %46
   %47 = ptrtoint ptr %add.ptr.i.i.i1.i.i91 to i64
   %call.i.i.i92 = tail call ptr @tcg_emit_op(i32 noundef 105, i32 noundef 2) #5
-  %args.i.i.i93 = getelementptr inbounds i8, ptr %call.i.i.i92, i64 32
+  %args.i.i.i93 = getelementptr inbounds nuw i8, ptr %call.i.i.i92, i64 32
   store i64 %45, ptr %args.i.i.i93, align 8
   %arrayidx2.i.i.i94 = getelementptr i8, ptr %call.i.i.i92, i64 40
   store i64 %47, ptr %arrayidx2.i.i.i94, align 8
@@ -8117,7 +8117,7 @@ if.else.i97:                                      ; preds = %sw.bb29
   %add.ptr.i.i.i2.i.i.i101 = getelementptr i8, ptr %48, i64 %50
   %51 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i101 to i64
   %call.i.i.i8.i102 = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i103 = getelementptr inbounds i8, ptr %call.i.i.i8.i102, i64 32
+  %args.i.i.i9.i103 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i102, i64 32
   store i64 %49, ptr %args.i.i.i9.i103, align 8
   %arrayidx2.i.i.i10.i104 = getelementptr i8, ptr %call.i.i.i8.i102, i64 40
   store i64 %49, ptr %arrayidx2.i.i.i10.i104, align 8
@@ -8135,7 +8135,7 @@ sw.bb31:                                          ; preds = %if.end25
   %add.ptr.i.i.i1.i.i116 = getelementptr i8, ptr %53, i64 %56
   %57 = ptrtoint ptr %add.ptr.i.i.i1.i.i116 to i64
   %call.i.i.i117 = tail call ptr @tcg_emit_op(i32 noundef 104, i32 noundef 2) #5
-  %args.i.i.i118 = getelementptr inbounds i8, ptr %call.i.i.i117, i64 32
+  %args.i.i.i118 = getelementptr inbounds nuw i8, ptr %call.i.i.i117, i64 32
   store i64 %55, ptr %args.i.i.i118, align 8
   %arrayidx2.i.i.i119 = getelementptr i8, ptr %call.i.i.i117, i64 40
   store i64 %57, ptr %arrayidx2.i.i.i119, align 8
@@ -8151,7 +8151,7 @@ if.else.i122:                                     ; preds = %sw.bb31
   %add.ptr.i.i.i2.i.i.i126 = getelementptr i8, ptr %58, i64 %60
   %61 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i126 to i64
   %call.i.i.i8.i127 = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i128 = getelementptr inbounds i8, ptr %call.i.i.i8.i127, i64 32
+  %args.i.i.i9.i128 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i127, i64 32
   store i64 %59, ptr %args.i.i.i9.i128, align 8
   %arrayidx2.i.i.i10.i129 = getelementptr i8, ptr %call.i.i.i8.i127, i64 40
   store i64 %59, ptr %arrayidx2.i.i.i10.i129, align 8
@@ -8187,7 +8187,7 @@ if.end.i.i153:                                    ; preds = %if.then3.i151
   %add.ptr.i.i.i1.i.i.i155 = getelementptr i8, ptr %62, i64 %65
   %66 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i155 to i64
   %call.i.i.i.i156 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i157 = getelementptr inbounds i8, ptr %call.i.i.i.i156, i64 32
+  %args.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i156, i64 32
   store i64 %64, ptr %args.i.i.i.i157, align 8
   %arrayidx2.i.i.i.i158 = getelementptr i8, ptr %call.i.i.i.i156, i64 40
   store i64 %66, ptr %arrayidx2.i.i.i.i158, align 8
@@ -8208,7 +8208,7 @@ if.else.i142:                                     ; preds = %sw.bb34
   %add.ptr.i.i.i2.i.i.i146 = getelementptr i8, ptr %68, i64 %73
   %74 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i146 to i64
   %call.i.i.i8.i147 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i148 = getelementptr inbounds i8, ptr %call.i.i.i8.i147, i64 32
+  %args.i.i.i9.i148 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i147, i64 32
   store i64 %70, ptr %args.i.i.i9.i148, align 8
   %arrayidx2.i.i.i10.i149 = getelementptr i8, ptr %call.i.i.i8.i147, i64 40
   store i64 %72, ptr %arrayidx2.i.i.i10.i149, align 8
@@ -8223,7 +8223,7 @@ tcg_gen_shri_i64.exit:                            ; preds = %if.then3.i151.tcg_g
   %add.ptr.i.i.i.i.i159 = getelementptr i8, ptr %75, i64 %.pre-phi254
   %76 = ptrtoint ptr %add.ptr.i.i.i.i.i159 to i64
   %call.i.i.i161 = tail call ptr @tcg_emit_op(i32 noundef 106, i32 noundef 2) #5
-  %args.i.i.i162 = getelementptr inbounds i8, ptr %call.i.i.i161, i64 32
+  %args.i.i.i162 = getelementptr inbounds nuw i8, ptr %call.i.i.i161, i64 32
   store i64 %76, ptr %args.i.i.i162, align 8
   %arrayidx2.i.i.i163 = getelementptr i8, ptr %call.i.i.i161, i64 40
   store i64 %76, ptr %arrayidx2.i.i.i163, align 8
@@ -8250,7 +8250,7 @@ if.end.i.i177:                                    ; preds = %if.then3.i175
   %add.ptr.i.i.i1.i.i.i179 = getelementptr i8, ptr %77, i64 %80
   %81 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i179 to i64
   %call.i.i.i.i180 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i181 = getelementptr inbounds i8, ptr %call.i.i.i.i180, i64 32
+  %args.i.i.i.i181 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i180, i64 32
   store i64 %79, ptr %args.i.i.i.i181, align 8
   %arrayidx2.i.i.i.i182 = getelementptr i8, ptr %call.i.i.i.i180, i64 40
   store i64 %81, ptr %arrayidx2.i.i.i.i182, align 8
@@ -8271,7 +8271,7 @@ if.else.i166:                                     ; preds = %sw.bb36
   %add.ptr.i.i.i2.i.i.i170 = getelementptr i8, ptr %83, i64 %88
   %89 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i170 to i64
   %call.i.i.i8.i171 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i172 = getelementptr inbounds i8, ptr %call.i.i.i8.i171, i64 32
+  %args.i.i.i9.i172 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i171, i64 32
   store i64 %85, ptr %args.i.i.i9.i172, align 8
   %arrayidx2.i.i.i10.i173 = getelementptr i8, ptr %call.i.i.i8.i171, i64 40
   store i64 %87, ptr %arrayidx2.i.i.i10.i173, align 8
@@ -8286,7 +8286,7 @@ tcg_gen_shri_i64.exit183:                         ; preds = %if.then3.i175.tcg_g
   %add.ptr.i.i.i.i.i184 = getelementptr i8, ptr %90, i64 %.pre-phi258
   %91 = ptrtoint ptr %add.ptr.i.i.i.i.i184 to i64
   %call.i.i.i186 = tail call ptr @tcg_emit_op(i32 noundef 105, i32 noundef 2) #5
-  %args.i.i.i187 = getelementptr inbounds i8, ptr %call.i.i.i186, i64 32
+  %args.i.i.i187 = getelementptr inbounds nuw i8, ptr %call.i.i.i186, i64 32
   store i64 %91, ptr %args.i.i.i187, align 8
   %arrayidx2.i.i.i188 = getelementptr i8, ptr %call.i.i.i186, i64 40
   store i64 %91, ptr %arrayidx2.i.i.i188, align 8
@@ -8313,7 +8313,7 @@ if.end.i.i202:                                    ; preds = %if.then3.i200
   %add.ptr.i.i.i1.i.i.i204 = getelementptr i8, ptr %92, i64 %95
   %96 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i204 to i64
   %call.i.i.i.i205 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i206 = getelementptr inbounds i8, ptr %call.i.i.i.i205, i64 32
+  %args.i.i.i.i206 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i205, i64 32
   store i64 %94, ptr %args.i.i.i.i206, align 8
   %arrayidx2.i.i.i.i207 = getelementptr i8, ptr %call.i.i.i.i205, i64 40
   store i64 %96, ptr %arrayidx2.i.i.i.i207, align 8
@@ -8334,7 +8334,7 @@ if.else.i191:                                     ; preds = %sw.bb38
   %add.ptr.i.i.i2.i.i.i195 = getelementptr i8, ptr %98, i64 %103
   %104 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i195 to i64
   %call.i.i.i8.i196 = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i197 = getelementptr inbounds i8, ptr %call.i.i.i8.i196, i64 32
+  %args.i.i.i9.i197 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i196, i64 32
   store i64 %100, ptr %args.i.i.i9.i197, align 8
   %arrayidx2.i.i.i10.i198 = getelementptr i8, ptr %call.i.i.i8.i196, i64 40
   store i64 %102, ptr %arrayidx2.i.i.i10.i198, align 8
@@ -8349,7 +8349,7 @@ tcg_gen_shri_i64.exit208:                         ; preds = %if.then3.i200.tcg_g
   %add.ptr.i.i.i.i.i209 = getelementptr i8, ptr %105, i64 %.pre-phi262
   %106 = ptrtoint ptr %add.ptr.i.i.i.i.i209 to i64
   %call.i.i.i211 = tail call ptr @tcg_emit_op(i32 noundef 104, i32 noundef 2) #5
-  %args.i.i.i212 = getelementptr inbounds i8, ptr %call.i.i.i211, i64 32
+  %args.i.i.i212 = getelementptr inbounds nuw i8, ptr %call.i.i.i211, i64 32
   store i64 %106, ptr %args.i.i.i212, align 8
   %arrayidx2.i.i.i213 = getelementptr i8, ptr %call.i.i.i211, i64 40
   store i64 %106, ptr %arrayidx2.i.i.i213, align 8
@@ -8377,7 +8377,7 @@ if.end.i.i227:                                    ; preds = %if.then3.i225
   %add.ptr.i.i.i1.i.i.i229 = getelementptr i8, ptr %108, i64 %111
   %112 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i229 to i64
   %call.i.i.i.i230 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i.i231 = getelementptr inbounds i8, ptr %call.i.i.i.i230, i64 32
+  %args.i.i.i.i231 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i230, i64 32
   store i64 %110, ptr %args.i.i.i.i231, align 8
   %arrayidx2.i.i.i.i232 = getelementptr i8, ptr %call.i.i.i.i230, i64 40
   store i64 %112, ptr %arrayidx2.i.i.i.i232, align 8
@@ -8398,7 +8398,7 @@ if.else.i216:                                     ; preds = %sw.epilog40
   %add.ptr.i.i.i2.i.i.i220 = getelementptr i8, ptr %114, i64 %119
   %120 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i220 to i64
   %call.i.i.i8.i221 = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i222 = getelementptr inbounds i8, ptr %call.i.i.i8.i221, i64 32
+  %args.i.i.i9.i222 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i221, i64 32
   store i64 %116, ptr %args.i.i.i9.i222, align 8
   %arrayidx2.i.i.i10.i223 = getelementptr i8, ptr %call.i.i.i8.i221, i64 40
   store i64 %118, ptr %arrayidx2.i.i.i10.i223, align 8
@@ -8422,7 +8422,7 @@ if.else.i235:                                     ; preds = %tcg_gen_shli_i64.ex
   %add.ptr.i.i.i2.i.i.i239 = getelementptr i8, ptr %122, i64 %125
   %126 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i239 to i64
   %call.i.i.i8.i240 = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i241 = getelementptr inbounds i8, ptr %call.i.i.i8.i240, i64 32
+  %args.i.i.i9.i241 = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i240, i64 32
   store i64 %124, ptr %args.i.i.i9.i241, align 8
   %arrayidx2.i.i.i10.i242 = getelementptr i8, ptr %call.i.i.i8.i240, i64 40
   store i64 %124, ptr %arrayidx2.i.i.i10.i242, align 8
@@ -8456,7 +8456,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8476,7 +8476,7 @@ if.end.i8:                                        ; preds = %if.then2
   %add.ptr.i.i.i1.i.i10 = getelementptr i8, ptr %7, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i10 to i64
   %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
+  %args.i.i.i12 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
   store i64 %9, ptr %args.i.i.i12, align 8
   %arrayidx2.i.i.i13 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i13, align 8
@@ -8502,7 +8502,7 @@ if.else3:                                         ; preds = %entry
   %add.ptr.i.i.i4.i = getelementptr i8, ptr %13, i64 %22
   %23 = ptrtoint ptr %add.ptr.i.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 66, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %15, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %arrayidx2.i.i, align 8
@@ -8544,7 +8544,7 @@ entry:
   %add.ptr.i.i.i5.i = getelementptr i8, ptr %1, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i5.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 123, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -8583,7 +8583,7 @@ entry:
   %add.ptr.i.i.i5.i = getelementptr i8, ptr %1, i64 %12
   %13 = ptrtoint ptr %add.ptr.i.i.i5.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 124, i32 noundef 6) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -8616,7 +8616,7 @@ entry:
   %add.ptr.i.i.i3.i = getelementptr i8, ptr %1, i64 %8
   %9 = ptrtoint ptr %add.ptr.i.i.i3.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 125, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -8645,7 +8645,7 @@ entry:
   %add.ptr.i.i.i3.i = getelementptr i8, ptr %1, i64 %8
   %9 = ptrtoint ptr %add.ptr.i.i.i3.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 126, i32 noundef 4) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -8677,7 +8677,7 @@ entry:
   %add.ptr.i.i.i3.i.i = getelementptr i8, ptr %1, i64 %8
   %9 = ptrtoint ptr %add.ptr.i.i.i3.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 125, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8696,7 +8696,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %10, i64 %14
   %15 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %12, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %13, ptr %arrayidx2.i.i.i10.i, align 8
@@ -8708,7 +8708,7 @@ entry:
   %add.ptr.i.i.i2.i.i13 = getelementptr i8, ptr %16, i64 %8
   %18 = ptrtoint ptr %add.ptr.i.i.i2.i.i13 to i64
   %call.i.i.i14 = tail call ptr @tcg_emit_op(i32 noundef 87, i32 noundef 3) #5
-  %args.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 32
+  %args.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i.i14, i64 32
   store i64 %17, ptr %args.i.i.i15, align 8
   %arrayidx2.i.i.i16 = getelementptr i8, ptr %call.i.i.i14, i64 40
   store i64 %17, ptr %arrayidx2.i.i.i16, align 8
@@ -8723,7 +8723,7 @@ entry:
   %add.ptr.i.i.i2.i.i20 = getelementptr i8, ptr %19, i64 %11
   %23 = ptrtoint ptr %add.ptr.i.i.i2.i.i20 to i64
   %call.i.i.i21 = tail call ptr @tcg_emit_op(i32 noundef 79, i32 noundef 3) #5
-  %args.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i.i21, i64 32
+  %args.i.i.i22 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 32
   store i64 %21, ptr %args.i.i.i22, align 8
   %arrayidx2.i.i.i23 = getelementptr i8, ptr %call.i.i.i21, i64 40
   store i64 %22, ptr %arrayidx2.i.i.i23, align 8
@@ -8740,7 +8740,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i.i1.i.i26 = getelementptr i8, ptr %24, i64 %2
   %27 = ptrtoint ptr %add.ptr.i.i.i1.i.i26 to i64
   %call.i.i.i27 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i28 = getelementptr inbounds i8, ptr %call.i.i.i27, i64 32
+  %args.i.i.i28 = getelementptr inbounds nuw i8, ptr %call.i.i.i27, i64 32
   store i64 %26, ptr %args.i.i.i28, align 8
   %arrayidx2.i.i.i29 = getelementptr i8, ptr %call.i.i.i27, i64 40
   store i64 %27, ptr %arrayidx2.i.i.i29, align 8
@@ -8768,7 +8768,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 66, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8798,7 +8798,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 66, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8828,7 +8828,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 66, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8858,7 +8858,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 66, i32 noundef 6) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -8890,7 +8890,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 92, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i, align 8
@@ -8905,7 +8905,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %8, i64 %2
   %12 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 89, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %10, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %11, ptr %arrayidx2.i.i.i, align 8
@@ -8917,7 +8917,7 @@ entry:
   %add.ptr.i.i.i2.i.i9 = getelementptr i8, ptr %13, i64 %2
   %15 = ptrtoint ptr %add.ptr.i.i.i2.i.i9 to i64
   %call.i.i.i10 = tail call ptr @tcg_emit_op(i32 noundef 79, i32 noundef 3) #5
-  %args.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i.i10, i64 32
+  %args.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 32
   store i64 %14, ptr %args.i.i.i11, align 8
   %arrayidx2.i.i.i12 = getelementptr i8, ptr %call.i.i.i10, i64 40
   store i64 %14, ptr %arrayidx2.i.i.i12, align 8
@@ -8939,7 +8939,7 @@ entry:
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 102, i32 noundef 2) #5
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx2.i, align 8
@@ -8959,7 +8959,7 @@ entry:
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 100, i32 noundef 2) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i, align 8
@@ -8971,7 +8971,7 @@ entry:
   %add.ptr.i.i.i8 = getelementptr i8, ptr %6, i64 %9
   %10 = ptrtoint ptr %add.ptr.i.i.i8 to i64
   %call.i.i9 = tail call ptr @tcg_emit_op(i32 noundef 100, i32 noundef 2) #5
-  %args.i.i10 = getelementptr inbounds i8, ptr %call.i.i9, i64 32
+  %args.i.i10 = getelementptr inbounds nuw i8, ptr %call.i.i9, i64 32
   store i64 %8, ptr %args.i.i10, align 8
   %arrayidx2.i.i11 = getelementptr i8, ptr %call.i.i9, i64 40
   store i64 %10, ptr %arrayidx2.i.i11, align 8
@@ -8983,7 +8983,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %11, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %12, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %12, ptr %arrayidx2.i.i.i10.i, align 8
@@ -8995,7 +8995,7 @@ entry:
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %15, i64 %2
   %17 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 88, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %16, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %16, ptr %arrayidx2.i.i.i, align 8
@@ -9017,7 +9017,7 @@ entry:
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 109, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -9032,7 +9032,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i = getelementptr i8, ptr %6, i64 %10
   %11 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i to i64
   %call.i.i.i8.i = tail call ptr @tcg_emit_op(i32 noundef 91, i32 noundef 3) #5
-  %args.i.i.i9.i = getelementptr inbounds i8, ptr %call.i.i.i8.i, i64 32
+  %args.i.i.i9.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i, i64 32
   store i64 %8, ptr %args.i.i.i9.i, align 8
   %arrayidx2.i.i.i10.i = getelementptr i8, ptr %call.i.i.i8.i, i64 40
   store i64 %9, ptr %arrayidx2.i.i.i10.i, align 8
@@ -9058,7 +9058,7 @@ entry:
   %add.ptr.i.i.i2.i.i.i.i = getelementptr i8, ptr %1, i64 %6
   %7 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i.i to i64
   %call.i.i.i8.i.i = tail call ptr @tcg_emit_op(i32 noundef 90, i32 noundef 3) #5
-  %args.i.i.i9.i.i = getelementptr inbounds i8, ptr %call.i.i.i8.i.i, i64 32
+  %args.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i.i, i64 32
   store i64 %3, ptr %args.i.i.i9.i.i, align 8
   %arrayidx2.i.i.i10.i.i = getelementptr i8, ptr %call.i.i.i8.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i10.i.i, align 8
@@ -9080,7 +9080,7 @@ if.then7.i:                                       ; preds = %entry
   %add.ptr.i.i.i2.i.i.i.i.i = getelementptr i8, ptr %8, i64 %13
   %14 = ptrtoint ptr %add.ptr.i.i.i2.i.i.i.i.i to i64
   %call.i.i.i8.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 93, i32 noundef 3) #5
-  %args.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i8.i.i.i, i64 32
+  %args.i.i.i9.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i8.i.i.i, i64 32
   store i64 %10, ptr %args.i.i.i9.i.i.i, align 8
   %arrayidx2.i.i.i10.i.i.i = getelementptr i8, ptr %call.i.i.i8.i.i.i, i64 40
   store i64 %12, ptr %arrayidx2.i.i.i10.i.i.i, align 8
@@ -9099,7 +9099,7 @@ if.else8.i:                                       ; preds = %entry
   %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %15, i64 %19
   %20 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
   %call.i.i21.i = tail call ptr @tcg_emit_op(i32 noundef 98, i32 noundef 4) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i21.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i21.i, i64 32
   store i64 %17, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i21.i, i64 40
   store i64 %18, ptr %arrayidx2.i.i.i, align 8
@@ -9134,7 +9134,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %0, i64 %3
   %4 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %2, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %4, ptr %arrayidx2.i.i.i, align 8
@@ -9157,7 +9157,7 @@ if.end.i3:                                        ; preds = %tcg_gen_mov_i64.exi
   %add.ptr.i.i.i.i.i4 = getelementptr i8, ptr %5, i64 %7
   %8 = ptrtoint ptr %add.ptr.i.i.i.i.i4 to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %8, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %arrayidx2.i.i.i8, align 8
@@ -9187,7 +9187,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %0, i64 %3
   %4 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %2, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %4, ptr %arrayidx2.i.i.i, align 8
@@ -9210,7 +9210,7 @@ if.end.i3:                                        ; preds = %tcg_gen_mov_i64.exi
   %add.ptr.i.i.i1.i.i5 = getelementptr i8, ptr %5, i64 %7
   %8 = ptrtoint ptr %add.ptr.i.i.i1.i.i5 to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %8, ptr %arrayidx2.i.i.i8, align 8
@@ -9236,7 +9236,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -9248,7 +9248,7 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i7 = ptrtoint ptr %add.ptr.i6 to i64
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %call.i.i.i14 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
-  %args.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 32
+  %args.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i.i14, i64 32
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i15, align 8
   %arrayidx2.i.i.i16 = getelementptr i8, ptr %call.i.i.i14, i64 40
   store i64 %sub.ptr.lhs.cast.i.i.i.i7, ptr %arrayidx2.i.i.i16, align 8
@@ -9270,7 +9270,7 @@ entry:
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 73, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -9284,7 +9284,7 @@ entry:
   %add.ptr.i.i.i1.i.i5 = getelementptr i8, ptr %6, i64 %4
   %7 = ptrtoint ptr %add.ptr.i.i.i1.i.i5 to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 73, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %7, ptr %arrayidx2.i.i.i8, align 8
@@ -9305,7 +9305,7 @@ entry:
   %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %1, i64 %4
   %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 77, i32 noundef 3) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %3, ptr %args.i.i.i, align 8
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
@@ -9319,7 +9319,7 @@ entry:
   %add.ptr.i.i.i1.i.i5 = getelementptr i8, ptr %6, i64 %4
   %7 = ptrtoint ptr %add.ptr.i.i.i1.i.i5 to i64
   %call.i.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 77, i32 noundef 3) #5
-  %args.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i6, i64 32
+  %args.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 32
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i7, align 8
   %arrayidx2.i.i.i8 = getelementptr i8, ptr %call.i.i.i6, i64 40
   store i64 %7, ptr %arrayidx2.i.i.i8, align 8
@@ -9353,7 +9353,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
   %conv = zext nneg i32 %idx to i64
   %add = add i64 %1, %conv
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 130, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %add, ptr %args.i.i, align 8
   ret void
 }
@@ -9363,9 +9363,9 @@ define dso_local void @tcg_gen_goto_tb(i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %2, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %cflags, align 4
   %and = and i32 %3, 512
   %tobool.not = icmp eq i32 %and, 0
@@ -9375,7 +9375,7 @@ entry:
   tail call void @plugin_gen_disable_mem_helpers() #5
   %conv = zext nneg i32 %idx to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 131, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %conv, ptr %args.i.i, align 8
   ret void
 }
@@ -9387,9 +9387,9 @@ define dso_local void @tcg_gen_lookup_and_goto_ptr() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %2, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %cflags, align 4
   %and = and i32 %3, 1024
   %tobool.not = icmp eq i32 %and, 0
@@ -9397,7 +9397,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 130, i32 noundef 1) #5
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 0, ptr %args.i.i.i, align 8
   br label %return
 
@@ -9415,7 +9415,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i.i.i3 = getelementptr i8, ptr %8, i64 %6
   %9 = ptrtoint ptr %add.ptr.i.i.i3 to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 132, i32 noundef 1) #5
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %9, ptr %args.i.i, align 8
   tail call void @tcg_temp_free_ptr(ptr noundef %call) #5
   br label %return

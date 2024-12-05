@@ -36,7 +36,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   %25 = fsub double %24, %23
   store double %25, ptr %1, align 8, !tbaa !7
   %26 = zext nneg i32 %16 to i64
-  %27 = getelementptr inbounds i32, ptr %11, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %26
   store i32 0, ptr %27, align 4, !tbaa !3
   %28 = load i32, ptr %0, align 4, !tbaa !3
   %29 = icmp eq i32 %28, 1
@@ -81,7 +81,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   %57 = load double, ptr %56, align 8, !tbaa !7
   %58 = fsub double %57, %54
   store double %58, ptr %56, align 8, !tbaa !7
-  %59 = getelementptr inbounds double, ptr %13, i64 %52
+  %59 = getelementptr inbounds nuw double, ptr %13, i64 %52
   %60 = load double, ptr %59, align 8, !tbaa !7
   %61 = fcmp oge double %60, 0.000000e+00
   %62 = fneg double %60
@@ -107,7 +107,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
 
 79:                                               ; preds = %72, %51
   %80 = phi double [ %78, %72 ], [ %67, %51 ]
-  %81 = getelementptr inbounds double, ptr %15, i64 %52
+  %81 = getelementptr inbounds nuw double, ptr %15, i64 %52
   %82 = load double, ptr %81, align 8, !tbaa !7
   %83 = fcmp oeq double %82, 0.000000e+00
   %84 = fcmp oge double %82, 0.000000e+00
@@ -119,7 +119,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %79
-  %91 = getelementptr inbounds i32, ptr %11, i64 %52
+  %91 = getelementptr inbounds nuw i32, ptr %11, i64 %52
   store i32 0, ptr %91, align 4, !tbaa !3
   %92 = load i32, ptr %0, align 4, !tbaa !3
   %93 = add nsw i32 %92, -1
@@ -128,15 +128,15 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %95, label %96, label %130
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds double, ptr %12, i64 %52
+  %97 = getelementptr inbounds nuw double, ptr %12, i64 %52
   store double 0.000000e+00, ptr %97, align 8, !tbaa !7
   br label %130
 
 98:                                               ; preds = %79
   %99 = fdiv double %63, %80
   %100 = fcmp ugt double %99, %88
-  %101 = getelementptr inbounds i32, ptr %11, i64 %52
-  %102 = getelementptr inbounds double, ptr %14, i64 %52
+  %101 = getelementptr inbounds nuw i32, ptr %11, i64 %52
+  %102 = getelementptr inbounds nuw double, ptr %14, i64 %52
   br i1 %100, label %115, label %103
 
 103:                                              ; preds = %98
@@ -155,7 +155,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %112, label %113, label %130
 
 113:                                              ; preds = %103
-  %114 = getelementptr inbounds double, ptr %12, i64 %52
+  %114 = getelementptr inbounds nuw double, ptr %12, i64 %52
   store double 0.000000e+00, ptr %114, align 8, !tbaa !7
   br label %130
 
@@ -176,7 +176,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
 124:                                              ; preds = %115
   %125 = getelementptr double, ptr %3, i64 %52
   %126 = load double, ptr %125, align 8, !tbaa !7
-  %127 = getelementptr inbounds double, ptr %12, i64 %52
+  %127 = getelementptr inbounds nuw double, ptr %12, i64 %52
   store double %126, ptr %127, align 8, !tbaa !7
   %128 = fmul double %126, %118
   store double %128, ptr %125, align 8, !tbaa !7

@@ -255,7 +255,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_fip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._fc_data, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.89) #2
   %9 = load ptr, ptr %7, align 8
@@ -335,7 +335,7 @@ define internal i32 @dissect_fip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %33
   %52 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_fip, i64 0, i64 %52
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_fip, i64 0, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %53
 
@@ -354,7 +354,7 @@ switch.lookup:                                    ; preds = %33
   br i1 %.not181187, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %64
 
 64:                                               ; preds = %.lr.ph, %fip_desc_fc4f.exit

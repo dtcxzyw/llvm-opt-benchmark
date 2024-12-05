@@ -34,7 +34,7 @@ declare dso_local void @netlbl_skbuff_err(ptr noundef, i16 noundef zeroext, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %43, label %5
@@ -46,7 +46,7 @@ define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0)
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @kfree(ptr noundef %11) #9
   %.pre.i = load i32, ptr %3, align 8
@@ -59,7 +59,7 @@ define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0)
   br i1 %15, label %.thread.i, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, i32 -1, ptr elementtype(i32) %18) #9, !srcloc !5
   %20 = icmp eq i32 %19, 1
@@ -75,13 +75,13 @@ define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0)
 
 24:                                               ; preds = %16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void %26(ptr noundef %30) #9
   br label %31
@@ -97,14 +97,14 @@ define dso_local void @selinux_netlbl_sk_security_free(ptr nocapture noundef %0)
   br i1 %34, label %netlbl_secattr_free.exit, label %35
 
 35:                                               ; preds = %.thread.i
-  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %netlbl_secattr_free.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %35, %.preheader.i
   %39 = phi ptr [ %41, %.preheader.i ], [ %37, %35 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   tail call void @kfree(ptr noundef nonnull %39) #9
   %42 = icmp eq ptr %41, null
@@ -174,7 +174,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
 27:                                               ; preds = %26, %24, %18, %15
   %28 = phi i32 [ %12, %26 ], [ %.pre4, %15 ], [ %.pre4, %18 ], [ %.pre, %24 ]
   %29 = phi i32 [ %10, %26 ], [ %16, %15 ], [ 0, %18 ], [ 0, %24 ]
-  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %2, align 4
   %32 = and i32 %28, 16777216
@@ -182,7 +182,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @kfree(ptr noundef %36) #9
   %.pre5 = load i32, ptr %5, align 8
@@ -195,7 +195,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %43, i32 -1, ptr elementtype(i32) %43) #9, !srcloc !5
   %45 = icmp eq i32 %44, 1
@@ -211,13 +211,13 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
 
 49:                                               ; preds = %41
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %50 = getelementptr inbounds i8, ptr %43, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %43, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %55 = load ptr, ptr %54, align 8
   call void %51(ptr noundef %55) #9
   br label %56
@@ -230,7 +230,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
   %57 = load i32, ptr %5, align 8
   %58 = and i32 %57, 8
   %59 = icmp eq i32 %58, 0
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   %63 = select i1 %59, i1 true, i1 %62
@@ -238,7 +238,7 @@ define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef z
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %64 = phi ptr [ %66, %.preheader ], [ %61, %.thread ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
   call void @kfree(ptr noundef nonnull %64) #9
   %67 = icmp eq ptr %66, null
@@ -270,33 +270,33 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   %4 = alloca %struct.netlbl_lsm_secattr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !annotation !11
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread12, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %10 = load volatile i8, ptr %9, align 2
   %11 = icmp eq i8 %10, 12
   br i1 %11, label %12, label %.thread9
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread12, label %.thread9
 
 .thread9:                                         ; preds = %8, %12
   %16 = phi ptr [ %14, %12 ], [ %6, %8 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 640
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 640
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %.thread9
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread12, label %25
@@ -308,7 +308,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %28, label %.thread12, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %2
   br i1 %32, label %36, label %.thread12
@@ -337,7 +337,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %.thread16
-  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load ptr, ptr %45, align 8
   call void @kfree(ptr noundef %46) #9
   %.pre = load i32, ptr %39, align 8
@@ -350,7 +350,7 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %50, label %.thread19, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 -1, ptr elementtype(i32) %53) #9, !srcloc !5
   %55 = icmp eq i32 %54, 1
@@ -366,13 +366,13 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
 
 59:                                               ; preds = %51
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %60 = getelementptr inbounds i8, ptr %53, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %53, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %65 = load ptr, ptr %64, align 8
   call void %61(ptr noundef %65) #9
   br label %66
@@ -388,14 +388,14 @@ define dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef %0, i16 noundef z
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %.thread19
-  %71 = getelementptr inbounds i8, ptr %39, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %70, %.preheader
   %74 = phi ptr [ %76, %.preheader ], [ %72, %70 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
   call void @kfree(ptr noundef nonnull %74) #9
   %77 = icmp eq ptr %76, null
@@ -419,14 +419,14 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
   %4 = alloca %struct.sockaddr_in, align 4
   %5 = alloca %struct.sockaddr_in6, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false), !annotation !11
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i16, ptr %10, align 8
   switch i16 %11, label %.loopexit [
     i16 2, label %12
@@ -436,16 +436,16 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
 12:                                               ; preds = %2, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 2088
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %14 = load i32, ptr %13, align 8
   %15 = call i32 @security_netlbl_sid_to_secattr(i32 noundef %14, ptr noundef nonnull %3) #9
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 180
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
@@ -458,17 +458,17 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
 
 26:                                               ; preds = %17
   store i16 2, ptr %4, align 4
-  %27 = getelementptr inbounds i8, ptr %23, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %28, ptr %29, align 4
   br label %33
 
 30:                                               ; preds = %17
   store i16 10, ptr %5, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %31, ptr noundef align 4 dereferenceable(16) %32, i64 16, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
   br label %33
 
 33:                                               ; preds = %26, %30
@@ -490,7 +490,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8
   call void @kfree(ptr noundef %45) #9
   %.pre = load i32, ptr %3, align 8
@@ -503,7 +503,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
   br i1 %49, label %.thread5, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52, i32 -1, ptr elementtype(i32) %52) #9, !srcloc !5
   %54 = icmp eq i32 %53, 1
@@ -519,13 +519,13 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
 
 58:                                               ; preds = %50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %59 = getelementptr inbounds i8, ptr %52, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %52, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %64 = load ptr, ptr %63, align 8
   call void %60(ptr noundef %64) #9
   br label %65
@@ -538,7 +538,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
   %66 = load i32, ptr %3, align 8
   %67 = and i32 %66, 8
   %68 = icmp eq i32 %67, 0
-  %69 = getelementptr inbounds i8, ptr %3, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   %72 = select i1 %68, i1 true, i1 %71
@@ -546,7 +546,7 @@ define dso_local i32 @selinux_netlbl_sctp_assoc_request(ptr nocapture noundef re
 
 .preheader:                                       ; preds = %.thread5, %.preheader
   %73 = phi ptr [ %75, %.preheader ], [ %70, %.thread5 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
   call void @kfree(ptr noundef nonnull %73) #9
   %76 = icmp eq ptr %75, null
@@ -576,7 +576,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
 
 6:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @security_netlbl_sid_to_secattr(i32 noundef %8, ptr noundef nonnull %3) #9
   %10 = icmp eq i32 %9, 0
@@ -594,7 +594,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
   call void @kfree(ptr noundef %20) #9
   %.pre = load i32, ptr %3, align 8
@@ -607,7 +607,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 -1, ptr elementtype(i32) %27) #9, !srcloc !5
   %29 = icmp eq i32 %28, 1
@@ -623,13 +623,13 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
 
 33:                                               ; preds = %25
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %27, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %39 = load ptr, ptr %38, align 8
   call void %35(ptr noundef %39) #9
   br label %40
@@ -642,7 +642,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
   %41 = load i32, ptr %3, align 8
   %42 = and i32 %41, 8
   %43 = icmp eq i32 %42, 0
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   %47 = select i1 %43, i1 true, i1 %46
@@ -650,7 +650,7 @@ define dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef %0, i16 nound
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %48 = phi ptr [ %50, %.preheader ], [ %45, %.thread ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   call void @kfree(ptr noundef nonnull %48) #9
   %51 = icmp eq ptr %50, null
@@ -667,7 +667,7 @@ declare dso_local i32 @netlbl_req_setattr(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @selinux_netlbl_inet_csk_clone(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i16 %1, 2
   %6 = select i1 %5, i32 2, i32 0
@@ -677,9 +677,9 @@ define dso_local void @selinux_netlbl_inet_csk_clone(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @selinux_netlbl_sctp_sk_clone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
   store i32 %7, ptr %6, align 8
@@ -688,14 +688,14 @@ define dso_local void @selinux_netlbl_sctp_sk_clone(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = and i16 %1, -9
   %6 = icmp eq i16 %5, 2
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %59
@@ -707,7 +707,7 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %17, ptr noundef nonnull %13) #9
   %19 = icmp eq i32 %18, 0
@@ -720,7 +720,7 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @kfree(ptr noundef %26) #9
   %.pre.i = load i32, ptr %13, align 8
@@ -733,7 +733,7 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
   br i1 %30, label %.thread.i, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %13, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33, i32 -1, ptr elementtype(i32) %33) #9, !srcloc !5
   %35 = icmp eq i32 %34, 1
@@ -749,13 +749,13 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
 
 39:                                               ; preds = %31
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %33, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %45 = load ptr, ptr %44, align 8
   tail call void %41(ptr noundef %45) #9
   br label %46
@@ -771,14 +771,14 @@ define dso_local noundef range(i32 -88, -89) i32 @selinux_netlbl_socket_post_cre
   br i1 %49, label %netlbl_secattr_free.exit, label %50
 
 50:                                               ; preds = %.thread.i
-  %51 = getelementptr inbounds i8, ptr %13, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %netlbl_secattr_free.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %50, %.preheader.i
   %54 = phi ptr [ %56, %.preheader.i ], [ %52, %50 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   tail call void @kfree(ptr noundef nonnull %54) #9
   %57 = icmp eq ptr %56, null
@@ -867,7 +867,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load ptr, ptr %33, align 8
   call void @kfree(ptr noundef %34) #9
   %.pre7 = load i32, ptr %6, align 8
@@ -880,7 +880,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41, i32 -1, ptr elementtype(i32) %41) #9, !srcloc !5
   %43 = icmp eq i32 %42, 1
@@ -896,13 +896,13 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
 
 47:                                               ; preds = %39
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %41, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %53 = load ptr, ptr %52, align 8
   call void %49(ptr noundef %53) #9
   br label %54
@@ -915,7 +915,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
   %55 = load i32, ptr %6, align 8
   %56 = and i32 %55, 8
   %57 = icmp eq i32 %56, 0
-  %58 = getelementptr inbounds i8, ptr %6, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   %61 = select i1 %57, i1 true, i1 %60
@@ -923,7 +923,7 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %62 = phi ptr [ %64, %.preheader ], [ %59, %.thread ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
   call void @kfree(ptr noundef nonnull %62) #9
   %65 = icmp eq ptr %64, null
@@ -934,8 +934,8 @@ define dso_local i32 @selinux_netlbl_sock_rcv_skb(ptr nocapture noundef readonly
   br i1 %66, label %67, label %79
 
 67:                                               ; preds = %.loopexit
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = load i32, ptr %5, align 4
   %72 = load i16, ptr %68, align 8
@@ -965,9 +965,9 @@ declare dso_local i32 @avc_has_perm(i32 noundef, i32 noundef, i16 noundef zeroex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.netlbl_lsm_secattr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
   %9 = icmp eq i32 %1, 0
@@ -1001,7 +1001,7 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef rea
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @kfree(ptr noundef %29) #9
   %.pre = load i32, ptr %4, align 8
@@ -1014,7 +1014,7 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef rea
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36, i32 -1, ptr elementtype(i32) %36) #9, !srcloc !5
   %38 = icmp eq i32 %37, 1
@@ -1030,13 +1030,13 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef rea
 
 42:                                               ; preds = %34
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %36, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %44(ptr noundef %48) #9
   br label %49
@@ -1049,7 +1049,7 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef rea
   %50 = load i32, ptr %4, align 8
   %51 = and i32 %50, 8
   %52 = icmp eq i32 %51, 0
-  %53 = getelementptr inbounds i8, ptr %4, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = select i1 %52, i1 true, i1 %55
@@ -1057,7 +1057,7 @@ define dso_local i32 @selinux_netlbl_socket_setsockopt(ptr nocapture noundef rea
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %57 = phi ptr [ %59, %.preheader ], [ %54, %.thread ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
   call void @kfree(ptr noundef nonnull %57) #9
   %60 = icmp eq ptr %59, null
@@ -1077,7 +1077,7 @@ declare dso_local void @release_sock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
@@ -1094,7 +1094,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br label %68
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %64
@@ -1106,7 +1106,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @security_netlbl_sid_to_secattr(i32 noundef %22, ptr noundef nonnull %18) #9
   %24 = icmp eq i32 %23, 0
@@ -1119,7 +1119,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %18, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @kfree(ptr noundef %31) #9
   %.pre.i = load i32, ptr %18, align 8
@@ -1132,7 +1132,7 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br i1 %35, label %.thread.i, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %18, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #9, !srcloc !5
   %40 = icmp eq i32 %39, 1
@@ -1148,13 +1148,13 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
 
 44:                                               ; preds = %36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %38, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %50 = load ptr, ptr %49, align 8
   tail call void %46(ptr noundef %50) #9
   br label %51
@@ -1170,14 +1170,14 @@ define dso_local i32 @selinux_netlbl_socket_connect_locked(ptr noundef %0, ptr n
   br i1 %54, label %netlbl_secattr_free.exit, label %55
 
 55:                                               ; preds = %.thread.i
-  %56 = getelementptr inbounds i8, ptr %18, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %netlbl_secattr_free.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %55, %.preheader.i
   %59 = phi ptr [ %61, %.preheader.i ], [ %57, %55 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
   tail call void @kfree(ptr noundef nonnull %59) #9
   %62 = icmp eq ptr %61, null

@@ -1354,16 +1354,16 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %13 = load i32, ptr @ett_ubertooth, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #2
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.530) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %517, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 348
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %21 = load i32, ptr %20, align 4
   %.not576 = icmp eq i32 %21, 0
   %22 = zext i1 %.not576 to i32
@@ -1373,22 +1373,22 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @col_add_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.831..str.830) #2
   %24 = load i16, ptr %3, align 8
   %25 = zext i16 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %3, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   store i32 %25, ptr %6, align 4
   store i32 %28, ptr %7, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %8, align 4
   store i32 1, ptr %5, align 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %7, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load i32, ptr %34, align 8
   %.not577 = icmp eq i32 %35, 0
   br i1 %.not577, label %267, label %36
@@ -1734,7 +1734,7 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   %231 = load i32, ptr @hf_afh_map, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %231, ptr noundef %0, i32 noundef %205, i32 noundef 10, i32 noundef 0) #2
   %233 = load ptr, ptr %15, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 408
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %235 = load ptr, ptr %234, align 8
   %236 = call ptr @tvb_bytes_to_str(ptr noundef %235, ptr noundef %0, i32 noundef %205, i32 noundef 10) #2
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %233, i32 noundef 25, ptr noundef nonnull @.str.836, ptr noundef %236) #2
@@ -1756,9 +1756,9 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
 
 245:                                              ; preds = %241, %238
   %.3 = phi i32 [ %244, %241 ], [ %.2571, %238 ]
-  %246 = getelementptr inbounds i8, ptr %1, i64 80
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 50
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 50
   %249 = load i16, ptr %248, align 2
   %250 = and i16 %249, 8
   %251 = icmp eq i16 %250, 0
@@ -1767,25 +1767,25 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %253, label %266
 
 253:                                              ; preds = %245
-  %254 = getelementptr inbounds i8, ptr %5, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %254, align 16
-  %255 = getelementptr inbounds i8, ptr %5, i64 40
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %8, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %5, i64 48
+  %256 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 0, ptr %256, align 16
-  %257 = getelementptr inbounds i8, ptr %5, i64 56
+  %257 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %257, align 8
   %258 = call ptr @wmem_file_scope() #2
   %259 = call noalias ptr @wmem_alloc(ptr noundef %258, i64 noundef 20) #2
   store i32 %25, ptr %259, align 4
-  %260 = getelementptr inbounds i8, ptr %259, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
   store i32 %28, ptr %260, align 4
-  %261 = getelementptr inbounds i8, ptr %259, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i8 %39, ptr %261, align 4
   %262 = load i32, ptr %29, align 4
-  %263 = getelementptr inbounds i8, ptr %259, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 12
   store i32 %262, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %259, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store i32 %.1591, ptr %264, align 4
   %265 = load ptr, ptr @command_info, align 8
   call void @wmem_tree_insert32_array(ptr noundef %265, ptr noundef nonnull %5, ptr noundef nonnull %259) #2
@@ -1796,9 +1796,9 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   br label %517
 
 267:                                              ; preds = %17
-  %268 = getelementptr inbounds i8, ptr %5, i64 32
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %268, align 16
-  %269 = getelementptr inbounds i8, ptr %5, i64 40
+  %269 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %269, align 8
   %270 = load ptr, ptr @command_info, align 8
   %271 = call ptr @wmem_tree_lookup32_array(ptr noundef %270, ptr noundef nonnull %5) #2
@@ -1821,10 +1821,10 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   br label %517
 
 280:                                              ; preds = %272
-  %281 = getelementptr inbounds i8, ptr %274, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %282 = load i8, ptr %281, align 4
   %283 = zext i8 %282 to i16
-  %284 = getelementptr inbounds i8, ptr %274, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %285 = load i32, ptr %284, align 4
   %286 = load ptr, ptr %15, align 8
   %287 = zext i8 %282 to i32
@@ -1838,13 +1838,13 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %proto_item_set_generated.exit, label %293
 
 293:                                              ; preds = %280
-  %294 = getelementptr inbounds i8, ptr %290, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %290, i64 32
   %295 = load ptr, ptr %294, align 8
   %.not5.i = icmp eq ptr %295, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %296
 
 296:                                              ; preds = %293
-  %297 = getelementptr inbounds i8, ptr %295, i64 28
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 28
   %298 = load i32, ptr %297, align 4
   %299 = or i32 %298, 2
   store i32 %299, ptr %297, align 4
@@ -1915,7 +1915,7 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   ]
 
 300:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
-  %301 = getelementptr inbounds i8, ptr %3, i64 12
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %302 = load i8, ptr %301, align 4
   %303 = icmp eq i8 %302, 3
   br i1 %303, label %.preheader, label %309
@@ -2000,7 +2000,7 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   br i1 %.not583, label %354, label %.loopexit
 
 354:                                              ; preds = %350
-  %355 = getelementptr inbounds i8, ptr %1, i64 408
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %356 = load ptr, ptr %355, align 8
   %357 = call noalias ptr @wmem_alloc(ptr noundef %356, i64 noundef 16) #2
   %358 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1) #2
@@ -2100,7 +2100,7 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   %425 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
   %426 = load i32, ptr @hf_firmware_revision, align 4
   %427 = zext i8 %425 to i32
-  %428 = getelementptr inbounds i8, ptr %1, i64 408
+  %428 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %429 = load ptr, ptr %428, align 8
   %430 = call ptr @proto_tree_add_item_ret_string(ptr noundef %14, i32 noundef %426, ptr noundef %0, i32 noundef 3, i32 noundef %427, i32 noundef 0, ptr noundef %429, ptr noundef nonnull %9) #2
   %431 = load ptr, ptr %15, align 8
@@ -2181,13 +2181,13 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   br i1 %.not.i586, label %proto_item_set_generated.exit588, label %479
 
 479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %478, i64 32
+  %480 = getelementptr inbounds nuw i8, ptr %478, i64 32
   %481 = load ptr, ptr %480, align 8
   %.not5.i587 = icmp eq ptr %481, null
   br i1 %.not5.i587, label %proto_item_set_generated.exit588, label %482
 
 482:                                              ; preds = %479
-  %483 = getelementptr inbounds i8, ptr %481, i64 28
+  %483 = getelementptr inbounds nuw i8, ptr %481, i64 28
   %484 = load i32, ptr %483, align 4
   %485 = or i32 %484, 2
   store i32 %485, ptr %483, align 4
@@ -2223,7 +2223,7 @@ proto_item_set_generated.exit588:                 ; preds = %476, %479, %482
   %502 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %503 = load i32, ptr @hf_firmware_compile_info, align 4
   %504 = zext i8 %502 to i32
-  %505 = getelementptr inbounds i8, ptr %1, i64 408
+  %505 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %506 = load ptr, ptr %505, align 8
   %507 = call ptr @proto_tree_add_item_ret_string(ptr noundef %14, i32 noundef %503, ptr noundef %0, i32 noundef 1, i32 noundef %504, i32 noundef 0, ptr noundef %506, ptr noundef nonnull %10) #2
   %508 = load ptr, ptr %15, align 8
@@ -2897,7 +2897,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %18 = load i32, ptr @hf_state, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %3, i32 noundef %15, i32 noundef 1, i32 noundef 0) #2
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %15) #2
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext i8 %20 to i32
   %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @usb_rx_packet_state_vals, ptr noundef nonnull @.str.834) #2
@@ -3061,18 +3061,18 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %132 = and i8 %131, %.
   %.0200.in = add nuw nsw i8 %132, 9
   %.0200 = zext nneg i8 %.0200.in to i32
-  %133 = getelementptr inbounds i8, ptr %2, i64 408
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 12) #2
   %136 = load i16, ptr %6, align 8
   store i16 %136, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %6, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %138 = load i16, ptr %137, align 2
-  %139 = getelementptr inbounds i8, ptr %135, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 2
   store i16 %138, ptr %139, align 2
-  %140 = getelementptr inbounds i8, ptr %135, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i32 %83, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %135, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i8 %76, ptr %141, align 4
   %142 = tail call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %99, i32 noundef %.0200) #2
   %143 = load ptr, ptr @bluetooth_ubertooth_handle, align 8

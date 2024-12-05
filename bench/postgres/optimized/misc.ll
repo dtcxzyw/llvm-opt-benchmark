@@ -135,7 +135,7 @@ define noundef zeroext i1 @ECPGstatus(i32 noundef %0, ptr noundef %1) local_unna
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
@@ -159,7 +159,7 @@ define i32 @ECPGtransactionStatus(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @PQtransactionStatus(ptr noundef %6) #16
   br label %8
@@ -184,7 +184,7 @@ define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef
 7:                                                ; preds = %6
   %8 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.4, i32 noundef %0, ptr noundef %2, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not29 = icmp eq ptr %10, null
   br i1 %.not29, label %38, label %11
@@ -195,7 +195,7 @@ define noundef zeroext i1 @ECPGtrans(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %32, label %18
@@ -314,9 +314,9 @@ ECPGget_sqlca.exit:                               ; preds = %1, %7, %10
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr @debugstream, align 8
-  %37 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.06.i, i64 248
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i, i64 248
   %40 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %38, ptr noundef nonnull %39) #16
   br label %41
 
@@ -438,7 +438,7 @@ define void @ECPGset_noind_null(i32 noundef %0, ptr nocapture noundef writeonly 
   br label %19
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 0, ptr %11, align 4
   store i32 0, ptr %1, align 4
   br label %19
@@ -449,13 +449,13 @@ define void @ECPGset_noind_null(i32 noundef %0, ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %1, i8 0, i64 52, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 61440, ptr %14, align 4
   br label %19
 
 15:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 61440, ptr %16, align 8
   br label %19
 
@@ -549,7 +549,7 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr nocapture nound
   br i1 %.not.i16, label %.preheader26, label %_check.exit, !llvm.loop !4
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 4
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %_check.exit, label %49
@@ -560,13 +560,13 @@ define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr nocapture nound
   br i1 %32, label %_check.exit, label %49
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 61440
   br i1 %36, label %_check.exit, label %49
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 61440
   br i1 %40, label %_check.exit, label %49
@@ -640,12 +640,12 @@ ECPGget_sqlca.exit:                               ; preds = %8
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.036, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   store ptr %1, ptr %18, align 8
   br label %44
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.036, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -679,12 +679,12 @@ ECPGget_sqlca.exit28:                             ; preds = %27
 
 33:                                               ; preds = %30, %22
   %.06.i27.ph = phi ptr [ %25, %22 ], [ %28, %30 ]
-  %34 = getelementptr inbounds i8, ptr %.06.i27.ph, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 16
   store i64 -12, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %.06.i27.ph, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %35, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 noundef 5, i1 false) #16
-  %36 = getelementptr inbounds i8, ptr %.06.i27.ph, i64 24
-  %37 = getelementptr inbounds i8, ptr %.06.i27.ph, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i27.ph, i64 28
   %38 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 150, ptr noundef nonnull @.str.15, i32 noundef %2) #16
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #18
   %40 = trunc i64 %39 to i32
@@ -694,9 +694,9 @@ ECPGget_sqlca.exit28:                             ; preds = %27
 
 41:                                               ; preds = %._crit_edge
   store i32 %0, ptr %21, align 8
-  %42 = getelementptr inbounds i8, ptr %21, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %21, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %.034, ptr %43, align 8
   store ptr %21, ptr @ivlist, align 8
   br label %44
@@ -723,13 +723,13 @@ define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #13 {
   br i1 %.not5, label %.critedge, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.010, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %.010, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %6 = load ptr, ptr %5, align 8
   br label %.critedge6
 

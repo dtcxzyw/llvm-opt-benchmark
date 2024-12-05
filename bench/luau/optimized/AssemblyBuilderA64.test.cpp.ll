@@ -491,11 +491,11 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_4Ev() #2 personality 
 
 70:                                               ; preds = %66
   store ptr %67, ptr %6, align 8
-  %71 = getelementptr inbounds i8, ptr %67, i64 4
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %71, ptr %72, align 8
   store i32 -889125920, ptr %67, align 4
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %71, ptr %73, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %74 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -516,14 +516,14 @@ define internal void @_ZN12_GLOBAL__N_119DOCTEST_ANON_FUNC_4Ev() #2 personality 
           to label %78 unwind label %99
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #16
   %80 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %7, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
@@ -563,7 +563,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %81, %78
 99:                                               ; preds = %77
   %100 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #16
   br label %102
 
@@ -574,7 +574,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %81, %78
   br i1 %.not.i.i.i66.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit67.i, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %7, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = ptrtoint ptr %103 to i64
@@ -633,11 +633,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %117, %88, %_ZNSt6ve
           to label %126 unwind label %123
 
 126:                                              ; preds = %125
-  %127 = getelementptr inbounds i8, ptr %1, i64 112
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %127) #16
-  %128 = getelementptr inbounds i8, ptr %1, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #16
-  %129 = getelementptr inbounds i8, ptr %1, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %129) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 73, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -660,11 +660,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %117, %88, %_ZNSt6ve
 
 135:                                              ; preds = %131
   store ptr %132, ptr %13, align 8
-  %136 = getelementptr inbounds i8, ptr %132, i64 4
-  %137 = getelementptr inbounds i8, ptr %13, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %136, ptr %137, align 8
   store i32 1258357728, ptr %132, align 4
-  %138 = getelementptr inbounds i8, ptr %13, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %136, ptr %138, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %139 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -685,14 +685,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %117, %88, %_ZNSt6ve
           to label %143 unwind label %165
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %10, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %144) #16
   %145 = load ptr, ptr %14, align 8
   %.not.i.i.i80.i = icmp eq ptr %145, null
   br i1 %.not.i.i.i80.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit81.i, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %14, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = ptrtoint ptr %148 to i64
   %150 = ptrtoint ptr %145 to i64
@@ -737,7 +737,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit81.i:                ; preds = %146, %143
 165:                                              ; preds = %142
   %166 = landingpad { ptr, i32 }
           catch ptr null
-  %167 = getelementptr inbounds i8, ptr %10, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #16
   br label %168
 
@@ -748,7 +748,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit81.i:                ; preds = %146, %143
   br i1 %.not.i.i.i85.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit86.i, label %170
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %14, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %172 to i64
   %174 = ptrtoint ptr %169 to i64
@@ -807,11 +807,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit84.i:                ; preds = %183, %153, %_ZNSt6v
           to label %192 unwind label %189
 
 192:                                              ; preds = %191
-  %193 = getelementptr inbounds i8, ptr %8, i64 112
+  %193 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %193) #16
-  %194 = getelementptr inbounds i8, ptr %8, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %194) #16
-  %195 = getelementptr inbounds i8, ptr %8, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %195) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -834,11 +834,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit84.i:                ; preds = %183, %153, %_ZNSt6v
 
 201:                                              ; preds = %197
   store ptr %198, ptr %20, align 8
-  %202 = getelementptr inbounds i8, ptr %198, i64 4
-  %203 = getelementptr inbounds i8, ptr %20, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %202, ptr %203, align 8
   store i32 -1440676896, ptr %198, align 4
-  %204 = getelementptr inbounds i8, ptr %20, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %202, ptr %204, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %205 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -859,14 +859,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit84.i:                ; preds = %183, %153, %_ZNSt6v
           to label %209 unwind label %231
 
 209:                                              ; preds = %208
-  %210 = getelementptr inbounds i8, ptr %17, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %210) #16
   %211 = load ptr, ptr %21, align 8
   %.not.i.i.i99.i = icmp eq ptr %211, null
   br i1 %.not.i.i.i99.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit100.i, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %21, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %214 = load ptr, ptr %213, align 8
   %215 = ptrtoint ptr %214 to i64
   %216 = ptrtoint ptr %211 to i64
@@ -911,7 +911,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit100.i:               ; preds = %212, %209
 231:                                              ; preds = %208
   %232 = landingpad { ptr, i32 }
           catch ptr null
-  %233 = getelementptr inbounds i8, ptr %17, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %233) #16
   br label %234
 
@@ -922,7 +922,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit100.i:               ; preds = %212, %209
   br i1 %.not.i.i.i104.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit105.i, label %236
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %21, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %238 = load ptr, ptr %237, align 8
   %239 = ptrtoint ptr %238 to i64
   %240 = ptrtoint ptr %235 to i64
@@ -981,11 +981,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit103.i:               ; preds = %249, %219, %_ZNSt6v
           to label %258 unwind label %255
 
 258:                                              ; preds = %257
-  %259 = getelementptr inbounds i8, ptr %15, i64 112
+  %259 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %259) #16
-  %260 = getelementptr inbounds i8, ptr %15, i64 72
+  %260 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %260) #16
-  %261 = getelementptr inbounds i8, ptr %15, i64 48
+  %261 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %261) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 76, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -1008,11 +1008,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit103.i:               ; preds = %249, %219, %_ZNSt6v
 
 267:                                              ; preds = %263
   store ptr %264, ptr %27, align 8
-  %268 = getelementptr inbounds i8, ptr %264, i64 4
-  %269 = getelementptr inbounds i8, ptr %27, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %264, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %268, ptr %269, align 8
   store i32 -624947168, ptr %264, align 4
-  %270 = getelementptr inbounds i8, ptr %27, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %268, ptr %270, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %271 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -1033,14 +1033,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit103.i:               ; preds = %249, %219, %_ZNSt6v
           to label %275 unwind label %297
 
 275:                                              ; preds = %274
-  %276 = getelementptr inbounds i8, ptr %24, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %276) #16
   %277 = load ptr, ptr %28, align 8
   %.not.i.i.i118.i = icmp eq ptr %277, null
   br i1 %.not.i.i.i118.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit119.i, label %278
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %28, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %280 = load ptr, ptr %279, align 8
   %281 = ptrtoint ptr %280 to i64
   %282 = ptrtoint ptr %277 to i64
@@ -1085,7 +1085,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit119.i:               ; preds = %278, %275
 297:                                              ; preds = %274
   %298 = landingpad { ptr, i32 }
           catch ptr null
-  %299 = getelementptr inbounds i8, ptr %24, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %299) #16
   br label %300
 
@@ -1096,7 +1096,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit119.i:               ; preds = %278, %275
   br i1 %.not.i.i.i123.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit124.i, label %302
 
 302:                                              ; preds = %300
-  %303 = getelementptr inbounds i8, ptr %28, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %304 = load ptr, ptr %303, align 8
   %305 = ptrtoint ptr %304 to i64
   %306 = ptrtoint ptr %301 to i64
@@ -1155,11 +1155,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122.i:               ; preds = %315, %285, %_ZNSt6v
           to label %324 unwind label %321
 
 324:                                              ; preds = %323
-  %325 = getelementptr inbounds i8, ptr %22, i64 112
+  %325 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %325) #16
-  %326 = getelementptr inbounds i8, ptr %22, i64 72
+  %326 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %326) #16
-  %327 = getelementptr inbounds i8, ptr %22, i64 48
+  %327 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %327) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -1182,11 +1182,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122.i:               ; preds = %315, %285, %_ZNSt6v
 
 333:                                              ; preds = %329
   store ptr %330, ptr %34, align 8
-  %334 = getelementptr inbounds i8, ptr %330, i64 4
-  %335 = getelementptr inbounds i8, ptr %34, i64 16
+  %334 = getelementptr inbounds nuw i8, ptr %330, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %334, ptr %335, align 8
   store i32 1522536480, ptr %330, align 4
-  %336 = getelementptr inbounds i8, ptr %34, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %334, ptr %336, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %337 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -1207,14 +1207,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122.i:               ; preds = %315, %285, %_ZNSt6v
           to label %341 unwind label %363
 
 341:                                              ; preds = %340
-  %342 = getelementptr inbounds i8, ptr %31, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %342) #16
   %343 = load ptr, ptr %35, align 8
   %.not.i.i.i137.i = icmp eq ptr %343, null
   br i1 %.not.i.i.i137.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit138.i, label %344
 
 344:                                              ; preds = %341
-  %345 = getelementptr inbounds i8, ptr %35, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %346 = load ptr, ptr %345, align 8
   %347 = ptrtoint ptr %346 to i64
   %348 = ptrtoint ptr %343 to i64
@@ -1259,7 +1259,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit138.i:               ; preds = %344, %341
 363:                                              ; preds = %340
   %364 = landingpad { ptr, i32 }
           catch ptr null
-  %365 = getelementptr inbounds i8, ptr %31, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %365) #16
   br label %366
 
@@ -1270,7 +1270,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit138.i:               ; preds = %344, %341
   br i1 %.not.i.i.i142.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit143.i, label %368
 
 368:                                              ; preds = %366
-  %369 = getelementptr inbounds i8, ptr %35, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %370 = load ptr, ptr %369, align 8
   %371 = ptrtoint ptr %370 to i64
   %372 = ptrtoint ptr %367 to i64
@@ -1329,11 +1329,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit141.i:               ; preds = %381, %351, %_ZNSt6v
           to label %390 unwind label %387
 
 390:                                              ; preds = %389
-  %391 = getelementptr inbounds i8, ptr %29, i64 112
+  %391 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %391) #16
-  %392 = getelementptr inbounds i8, ptr %29, i64 72
+  %392 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %392) #16
-  %393 = getelementptr inbounds i8, ptr %29, i64 48
+  %393 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %393) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 78, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -1356,11 +1356,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit141.i:               ; preds = %381, %351, %_ZNSt6v
 
 399:                                              ; preds = %395
   store ptr %396, ptr %41, align 8
-  %400 = getelementptr inbounds i8, ptr %396, i64 4
-  %401 = getelementptr inbounds i8, ptr %41, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %396, i64 4
+  %401 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %400, ptr %401, align 8
   store i32 -624951264, ptr %396, align 4
-  %402 = getelementptr inbounds i8, ptr %41, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %400, ptr %402, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %403 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -1381,14 +1381,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit141.i:               ; preds = %381, %351, %_ZNSt6v
           to label %407 unwind label %429
 
 407:                                              ; preds = %406
-  %408 = getelementptr inbounds i8, ptr %38, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %408) #16
   %409 = load ptr, ptr %42, align 8
   %.not.i.i.i156.i = icmp eq ptr %409, null
   br i1 %.not.i.i.i156.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit157.i, label %410
 
 410:                                              ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %42, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %412 = load ptr, ptr %411, align 8
   %413 = ptrtoint ptr %412 to i64
   %414 = ptrtoint ptr %409 to i64
@@ -1433,7 +1433,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit157.i:               ; preds = %410, %407
 429:                                              ; preds = %406
   %430 = landingpad { ptr, i32 }
           catch ptr null
-  %431 = getelementptr inbounds i8, ptr %38, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %431) #16
   br label %432
 
@@ -1444,7 +1444,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit157.i:               ; preds = %410, %407
   br i1 %.not.i.i.i161.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit162.i, label %434
 
 434:                                              ; preds = %432
-  %435 = getelementptr inbounds i8, ptr %42, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %436 = load ptr, ptr %435, align 8
   %437 = ptrtoint ptr %436 to i64
   %438 = ptrtoint ptr %433 to i64
@@ -1503,11 +1503,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit160.i:               ; preds = %447, %417, %_ZNSt6v
           to label %456 unwind label %453
 
 456:                                              ; preds = %455
-  %457 = getelementptr inbounds i8, ptr %36, i64 112
+  %457 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %457) #16
-  %458 = getelementptr inbounds i8, ptr %36, i64 72
+  %458 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %458) #16
-  %459 = getelementptr inbounds i8, ptr %36, i64 48
+  %459 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %459) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 79, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -1530,11 +1530,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit160.i:               ; preds = %447, %417, %_ZNSt6v
 
 465:                                              ; preds = %461
   store ptr %462, ptr %48, align 8
-  %466 = getelementptr inbounds i8, ptr %462, i64 4
-  %467 = getelementptr inbounds i8, ptr %48, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %462, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %466, ptr %467, align 8
   store i32 1522532384, ptr %462, align 4
-  %468 = getelementptr inbounds i8, ptr %48, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %466, ptr %468, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %469 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -1555,14 +1555,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit160.i:               ; preds = %447, %417, %_ZNSt6v
           to label %473 unwind label %495
 
 473:                                              ; preds = %472
-  %474 = getelementptr inbounds i8, ptr %45, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %474) #16
   %475 = load ptr, ptr %49, align 8
   %.not.i.i.i175.i = icmp eq ptr %475, null
   br i1 %.not.i.i.i175.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit176.i, label %476
 
 476:                                              ; preds = %473
-  %477 = getelementptr inbounds i8, ptr %49, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %478 = load ptr, ptr %477, align 8
   %479 = ptrtoint ptr %478 to i64
   %480 = ptrtoint ptr %475 to i64
@@ -1607,7 +1607,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit176.i:               ; preds = %476, %473
 495:                                              ; preds = %472
   %496 = landingpad { ptr, i32 }
           catch ptr null
-  %497 = getelementptr inbounds i8, ptr %45, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %497) #16
   br label %498
 
@@ -1618,7 +1618,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit176.i:               ; preds = %476, %473
   br i1 %.not.i.i.i180.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit181.i, label %500
 
 500:                                              ; preds = %498
-  %501 = getelementptr inbounds i8, ptr %49, i64 16
+  %501 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %502 = load ptr, ptr %501, align 8
   %503 = ptrtoint ptr %502 to i64
   %504 = ptrtoint ptr %499 to i64
@@ -1677,11 +1677,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit179.i:               ; preds = %513, %483, %_ZNSt6v
           to label %522 unwind label %519
 
 522:                                              ; preds = %521
-  %523 = getelementptr inbounds i8, ptr %43, i64 112
+  %523 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %523) #16
-  %524 = getelementptr inbounds i8, ptr %43, i64 72
+  %524 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %524) #16
-  %525 = getelementptr inbounds i8, ptr %43, i64 48
+  %525 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %525) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -1704,11 +1704,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit179.i:               ; preds = %513, %483, %_ZNSt6v
 
 531:                                              ; preds = %527
   store ptr %528, ptr %55, align 8
-  %532 = getelementptr inbounds i8, ptr %528, i64 4
-  %533 = getelementptr inbounds i8, ptr %55, i64 16
+  %532 = getelementptr inbounds nuw i8, ptr %528, i64 4
+  %533 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %532, ptr %533, align 8
   store i32 1522534432, ptr %528, align 4
-  %534 = getelementptr inbounds i8, ptr %55, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %532, ptr %534, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %535 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -1729,14 +1729,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit179.i:               ; preds = %513, %483, %_ZNSt6v
           to label %539 unwind label %561
 
 539:                                              ; preds = %538
-  %540 = getelementptr inbounds i8, ptr %52, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %540) #16
   %541 = load ptr, ptr %56, align 8
   %.not.i.i.i194.i = icmp eq ptr %541, null
   br i1 %.not.i.i.i194.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit195.i, label %542
 
 542:                                              ; preds = %539
-  %543 = getelementptr inbounds i8, ptr %56, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %544 = load ptr, ptr %543, align 8
   %545 = ptrtoint ptr %544 to i64
   %546 = ptrtoint ptr %541 to i64
@@ -1781,7 +1781,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit195.i:               ; preds = %542, %539
 561:                                              ; preds = %538
   %562 = landingpad { ptr, i32 }
           catch ptr null
-  %563 = getelementptr inbounds i8, ptr %52, i64 8
+  %563 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %563) #16
   br label %564
 
@@ -1792,7 +1792,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit195.i:               ; preds = %542, %539
   br i1 %.not.i.i.i199.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit200.i, label %566
 
 566:                                              ; preds = %564
-  %567 = getelementptr inbounds i8, ptr %56, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %568 = load ptr, ptr %567, align 8
   %569 = ptrtoint ptr %568 to i64
   %570 = ptrtoint ptr %565 to i64
@@ -1851,11 +1851,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit198.i:               ; preds = %579, %549, %_ZNSt6v
           to label %588 unwind label %585
 
 588:                                              ; preds = %587
-  %589 = getelementptr inbounds i8, ptr %50, i64 112
+  %589 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %589) #16
-  %590 = getelementptr inbounds i8, ptr %50, i64 72
+  %590 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %590) #16
-  %591 = getelementptr inbounds i8, ptr %50, i64 48
+  %591 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %591) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %57, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %58)
@@ -1878,11 +1878,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit198.i:               ; preds = %579, %549, %_ZNSt6v
 
 597:                                              ; preds = %593
   store ptr %594, ptr %62, align 8
-  %598 = getelementptr inbounds i8, ptr %594, i64 4
-  %599 = getelementptr inbounds i8, ptr %62, i64 16
+  %598 = getelementptr inbounds nuw i8, ptr %594, i64 4
+  %599 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %598, ptr %599, align 8
   store i32 -624948192, ptr %594, align 4
-  %600 = getelementptr inbounds i8, ptr %62, i64 8
+  %600 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %598, ptr %600, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   %601 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %62, ptr noundef nonnull %63, i32 noundef 0)
@@ -1903,14 +1903,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit198.i:               ; preds = %579, %549, %_ZNSt6v
           to label %605 unwind label %627
 
 605:                                              ; preds = %604
-  %606 = getelementptr inbounds i8, ptr %59, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %606) #16
   %607 = load ptr, ptr %63, align 8
   %.not.i.i.i213.i = icmp eq ptr %607, null
   br i1 %.not.i.i.i213.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit214.i, label %608
 
 608:                                              ; preds = %605
-  %609 = getelementptr inbounds i8, ptr %63, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %610 = load ptr, ptr %609, align 8
   %611 = ptrtoint ptr %610 to i64
   %612 = ptrtoint ptr %607 to i64
@@ -1955,7 +1955,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit214.i:               ; preds = %608, %605
 627:                                              ; preds = %604
   %628 = landingpad { ptr, i32 }
           catch ptr null
-  %629 = getelementptr inbounds i8, ptr %59, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %629) #16
   br label %630
 
@@ -1966,7 +1966,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit214.i:               ; preds = %608, %605
   br i1 %.not.i.i.i218.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit219.i, label %632
 
 632:                                              ; preds = %630
-  %633 = getelementptr inbounds i8, ptr %63, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %634 = load ptr, ptr %633, align 8
   %635 = ptrtoint ptr %634 to i64
   %636 = ptrtoint ptr %631 to i64
@@ -2041,11 +2041,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit217.i:               ; preds = %645, %615, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_31fEv.exit: ; preds = %653
-  %659 = getelementptr inbounds i8, ptr %57, i64 112
+  %659 = getelementptr inbounds nuw i8, ptr %57, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %659) #16
-  %660 = getelementptr inbounds i8, ptr %57, i64 72
+  %660 = getelementptr inbounds nuw i8, ptr %57, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %660) #16
-  %661 = getelementptr inbounds i8, ptr %57, i64 48
+  %661 = getelementptr inbounds nuw i8, ptr %57, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %661) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -2126,9 +2126,9 @@ declare noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8Tes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #16
   ret void
@@ -2196,11 +2196,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #2 personality
 
 21:                                               ; preds = %17
   store ptr %18, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %22, ptr %23, align 8
   store i32 -1960686560, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %22, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_91fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -2221,14 +2221,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_10Ev() #2 personality
           to label %29 unwind label %50
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
   %31 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
@@ -2268,7 +2268,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
 50:                                               ; preds = %28
   %51 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #16
   br label %53
 
@@ -2279,7 +2279,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
   br i1 %.not.i.i.i17.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit18.i, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
@@ -2338,11 +2338,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %77 unwind label %74
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %78) #16
-  %79 = getelementptr inbounds i8, ptr %1, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #16
-  %80 = getelementptr inbounds i8, ptr %1, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 117, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -2365,11 +2365,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
 
 86:                                               ; preds = %82
   store ptr %83, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
-  %88 = getelementptr inbounds i8, ptr %13, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %87, ptr %88, align 8
   store i32 -886944736, ptr %83, align 4
-  %89 = getelementptr inbounds i8, ptr %13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %87, ptr %89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %90 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_91fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -2390,14 +2390,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %94 unwind label %116
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %10, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %95) #16
   %96 = load ptr, ptr %14, align 8
   %.not.i.i.i31.i = icmp eq ptr %96, null
   br i1 %.not.i.i.i31.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit32.i, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %14, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -2442,7 +2442,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
 116:                                              ; preds = %93
   %117 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = getelementptr inbounds i8, ptr %10, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %118) #16
   br label %119
 
@@ -2453,7 +2453,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
   br i1 %.not.i.i.i36.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit37.i, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %14, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %120 to i64
@@ -2528,11 +2528,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit35.i:                ; preds = %134, %104, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_91fEv.exit: ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %8, i64 112
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %148) #16
-  %149 = getelementptr inbounds i8, ptr %8, i64 72
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #16
-  %150 = getelementptr inbounds i8, ptr %8, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -2694,11 +2694,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_16Ev() #2 personality
 
 63:                                               ; preds = %59
   store ptr %60, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 4
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %64, ptr %65, align 8
   store i32 -749006783, ptr %60, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %64, ptr %66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %67 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -2719,14 +2719,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_16Ev() #2 personality
           to label %71 unwind label %92
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #16
   %73 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %73 to i64
@@ -2766,7 +2766,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
 92:                                               ; preds = %70
   %93 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #16
   br label %95
 
@@ -2777,7 +2777,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
   br i1 %.not.i.i.i59.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit60.i, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %7, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -2836,11 +2836,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %119 unwind label %116
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %1, i64 112
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %120) #16
-  %121 = getelementptr inbounds i8, ptr %1, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %121) #16
-  %122 = getelementptr inbounds i8, ptr %1, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 151, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -2863,11 +2863,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
 
 128:                                              ; preds = %124
   store ptr %125, ptr %13, align 8
-  %129 = getelementptr inbounds i8, ptr %125, i64 4
-  %130 = getelementptr inbounds i8, ptr %13, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %129, ptr %130, align 8
   store i32 -748313535, ptr %125, align 4
-  %131 = getelementptr inbounds i8, ptr %13, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %129, ptr %131, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %132 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -2888,14 +2888,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %136 unwind label %158
 
 136:                                              ; preds = %135
-  %137 = getelementptr inbounds i8, ptr %10, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #16
   %138 = load ptr, ptr %14, align 8
   %.not.i.i.i73.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i73.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit74.i, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %14, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -2940,7 +2940,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
 158:                                              ; preds = %135
   %159 = landingpad { ptr, i32 }
           catch ptr null
-  %160 = getelementptr inbounds i8, ptr %10, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #16
   br label %161
 
@@ -2951,7 +2951,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
   br i1 %.not.i.i.i78.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit79.i, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %14, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %162 to i64
@@ -3010,11 +3010,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %185 unwind label %182
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %8, i64 112
+  %186 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %186) #16
-  %187 = getelementptr inbounds i8, ptr %8, i64 72
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #16
-  %188 = getelementptr inbounds i8, ptr %8, i64 48
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 152, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -3037,11 +3037,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
 
 194:                                              ; preds = %190
   store ptr %191, ptr %20, align 8
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
-  %196 = getelementptr inbounds i8, ptr %20, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %195, ptr %196, align 8
   store i32 -1822748607, ptr %191, align 4
-  %197 = getelementptr inbounds i8, ptr %20, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %195, ptr %197, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %198 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -3062,14 +3062,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %202 unwind label %224
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %17, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %203) #16
   %204 = load ptr, ptr %21, align 8
   %.not.i.i.i92.i = icmp eq ptr %204, null
   br i1 %.not.i.i.i92.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit93.i, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %21, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
@@ -3114,7 +3114,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
 224:                                              ; preds = %201
   %225 = landingpad { ptr, i32 }
           catch ptr null
-  %226 = getelementptr inbounds i8, ptr %17, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #16
   br label %227
 
@@ -3125,7 +3125,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
   br i1 %.not.i.i.i97.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit98.i, label %229
 
 229:                                              ; preds = %227
-  %230 = getelementptr inbounds i8, ptr %21, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = ptrtoint ptr %231 to i64
   %233 = ptrtoint ptr %228 to i64
@@ -3184,11 +3184,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %251 unwind label %248
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds i8, ptr %15, i64 112
+  %252 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %252) #16
-  %253 = getelementptr inbounds i8, ptr %15, i64 72
+  %253 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #16
-  %254 = getelementptr inbounds i8, ptr %15, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 153, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -3211,11 +3211,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
 
 260:                                              ; preds = %256
   store ptr %257, ptr %27, align 8
-  %261 = getelementptr inbounds i8, ptr %257, i64 4
-  %262 = getelementptr inbounds i8, ptr %27, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %261, ptr %262, align 8
   store i32 -1822055359, ptr %257, align 4
-  %263 = getelementptr inbounds i8, ptr %27, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %261, ptr %263, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %264 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -3236,14 +3236,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %268 unwind label %290
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds i8, ptr %24, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %269) #16
   %270 = load ptr, ptr %28, align 8
   %.not.i.i.i111.i = icmp eq ptr %270, null
   br i1 %.not.i.i.i111.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit112.i, label %271
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %28, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %270 to i64
@@ -3288,7 +3288,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
 290:                                              ; preds = %267
   %291 = landingpad { ptr, i32 }
           catch ptr null
-  %292 = getelementptr inbounds i8, ptr %24, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %292) #16
   br label %293
 
@@ -3299,7 +3299,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
   br i1 %.not.i.i.i116.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit117.i, label %295
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds i8, ptr %28, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = ptrtoint ptr %297 to i64
   %299 = ptrtoint ptr %294 to i64
@@ -3358,11 +3358,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %317 unwind label %314
 
 317:                                              ; preds = %316
-  %318 = getelementptr inbounds i8, ptr %22, i64 112
+  %318 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %318) #16
-  %319 = getelementptr inbounds i8, ptr %22, i64 72
+  %319 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #16
-  %320 = getelementptr inbounds i8, ptr %22, i64 48
+  %320 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 155, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -3385,11 +3385,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
 
 326:                                              ; preds = %322
   store ptr %323, ptr %34, align 8
-  %327 = getelementptr inbounds i8, ptr %323, i64 4
-  %328 = getelementptr inbounds i8, ptr %34, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %323, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %327, ptr %328, align 8
   store i32 1393496129, ptr %323, align 4
-  %329 = getelementptr inbounds i8, ptr %34, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %327, ptr %329, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %330 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -3410,14 +3410,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %334 unwind label %356
 
 334:                                              ; preds = %333
-  %335 = getelementptr inbounds i8, ptr %31, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #16
   %336 = load ptr, ptr %35, align 8
   %.not.i.i.i130.i = icmp eq ptr %336, null
   br i1 %.not.i.i.i130.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit131.i, label %337
 
 337:                                              ; preds = %334
-  %338 = getelementptr inbounds i8, ptr %35, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %336 to i64
@@ -3462,7 +3462,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
 356:                                              ; preds = %333
   %357 = landingpad { ptr, i32 }
           catch ptr null
-  %358 = getelementptr inbounds i8, ptr %31, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %358) #16
   br label %359
 
@@ -3473,7 +3473,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
   br i1 %.not.i.i.i135.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit136.i, label %361
 
 361:                                              ; preds = %359
-  %362 = getelementptr inbounds i8, ptr %35, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = ptrtoint ptr %363 to i64
   %365 = ptrtoint ptr %360 to i64
@@ -3532,11 +3532,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %383 unwind label %380
 
 383:                                              ; preds = %382
-  %384 = getelementptr inbounds i8, ptr %29, i64 112
+  %384 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %384) #16
-  %385 = getelementptr inbounds i8, ptr %29, i64 72
+  %385 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %385) #16
-  %386 = getelementptr inbounds i8, ptr %29, i64 48
+  %386 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 156, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -3559,11 +3559,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
 
 392:                                              ; preds = %388
   store ptr %389, ptr %41, align 8
-  %393 = getelementptr inbounds i8, ptr %389, i64 4
-  %394 = getelementptr inbounds i8, ptr %41, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %393, ptr %394, align 8
   store i32 1393644609, ptr %389, align 4
-  %395 = getelementptr inbounds i8, ptr %41, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %393, ptr %395, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %396 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -3584,14 +3584,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %400 unwind label %422
 
 400:                                              ; preds = %399
-  %401 = getelementptr inbounds i8, ptr %38, i64 8
+  %401 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %401) #16
   %402 = load ptr, ptr %42, align 8
   %.not.i.i.i149.i = icmp eq ptr %402, null
   br i1 %.not.i.i.i149.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit150.i, label %403
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %42, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %405 = load ptr, ptr %404, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = ptrtoint ptr %402 to i64
@@ -3636,7 +3636,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
 422:                                              ; preds = %399
   %423 = landingpad { ptr, i32 }
           catch ptr null
-  %424 = getelementptr inbounds i8, ptr %38, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %424) #16
   br label %425
 
@@ -3647,7 +3647,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
   br i1 %.not.i.i.i154.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit155.i, label %427
 
 427:                                              ; preds = %425
-  %428 = getelementptr inbounds i8, ptr %42, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %429 = load ptr, ptr %428, align 8
   %430 = ptrtoint ptr %429 to i64
   %431 = ptrtoint ptr %426 to i64
@@ -3706,11 +3706,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %449 unwind label %446
 
 449:                                              ; preds = %448
-  %450 = getelementptr inbounds i8, ptr %36, i64 112
+  %450 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %450) #16
-  %451 = getelementptr inbounds i8, ptr %36, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %451) #16
-  %452 = getelementptr inbounds i8, ptr %36, i64 48
+  %452 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %452) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 157, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -3733,11 +3733,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
 
 458:                                              ; preds = %454
   store ptr %455, ptr %48, align 8
-  %459 = getelementptr inbounds i8, ptr %455, i64 4
-  %460 = getelementptr inbounds i8, ptr %48, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %459, ptr %460, align 8
   store i32 319754305, ptr %455, align 4
-  %461 = getelementptr inbounds i8, ptr %48, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %459, ptr %461, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %462 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -3758,14 +3758,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %466 unwind label %488
 
 466:                                              ; preds = %465
-  %467 = getelementptr inbounds i8, ptr %45, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %467) #16
   %468 = load ptr, ptr %49, align 8
   %.not.i.i.i168.i = icmp eq ptr %468, null
   br i1 %.not.i.i.i168.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit169.i, label %469
 
 469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %49, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %471 = load ptr, ptr %470, align 8
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %468 to i64
@@ -3810,7 +3810,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
 488:                                              ; preds = %465
   %489 = landingpad { ptr, i32 }
           catch ptr null
-  %490 = getelementptr inbounds i8, ptr %45, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %490) #16
   br label %491
 
@@ -3821,7 +3821,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
   br i1 %.not.i.i.i173.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit174.i, label %493
 
 493:                                              ; preds = %491
-  %494 = getelementptr inbounds i8, ptr %49, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = ptrtoint ptr %495 to i64
   %497 = ptrtoint ptr %492 to i64
@@ -3880,11 +3880,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %515 unwind label %512
 
 515:                                              ; preds = %514
-  %516 = getelementptr inbounds i8, ptr %43, i64 112
+  %516 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %516) #16
-  %517 = getelementptr inbounds i8, ptr %43, i64 72
+  %517 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %517) #16
-  %518 = getelementptr inbounds i8, ptr %43, i64 48
+  %518 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %518) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 158, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -3907,11 +3907,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
 
 524:                                              ; preds = %520
   store ptr %521, ptr %55, align 8
-  %525 = getelementptr inbounds i8, ptr %521, i64 4
-  %526 = getelementptr inbounds i8, ptr %55, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %521, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %525, ptr %526, align 8
   store i32 319902785, ptr %521, align 4
-  %527 = getelementptr inbounds i8, ptr %55, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %525, ptr %527, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %528 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -3932,14 +3932,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %532 unwind label %554
 
 532:                                              ; preds = %531
-  %533 = getelementptr inbounds i8, ptr %52, i64 8
+  %533 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %533) #16
   %534 = load ptr, ptr %56, align 8
   %.not.i.i.i187.i = icmp eq ptr %534, null
   br i1 %.not.i.i.i187.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit188.i, label %535
 
 535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %56, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %537 = load ptr, ptr %536, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %534 to i64
@@ -3984,7 +3984,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
 554:                                              ; preds = %531
   %555 = landingpad { ptr, i32 }
           catch ptr null
-  %556 = getelementptr inbounds i8, ptr %52, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %556) #16
   br label %557
 
@@ -3995,7 +3995,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
   br i1 %.not.i.i.i192.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit193.i, label %559
 
 559:                                              ; preds = %557
-  %560 = getelementptr inbounds i8, ptr %56, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %561 = load ptr, ptr %560, align 8
   %562 = ptrtoint ptr %561 to i64
   %563 = ptrtoint ptr %558 to i64
@@ -4070,11 +4070,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit191.i:               ; preds = %572, %542, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEv.exit: ; preds = %580
-  %586 = getelementptr inbounds i8, ptr %50, i64 112
+  %586 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %586) #16
-  %587 = getelementptr inbounds i8, ptr %50, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %587) #16
-  %588 = getelementptr inbounds i8, ptr %50, i64 48
+  %588 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %588) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -4264,13 +4264,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #2 personality
 
 49:                                               ; preds = %45
   store ptr %46, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %50, ptr %51, align 8
   store i32 -1442774048, ptr %46, align 4
-  %.sroa.2153.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 4
+  %.sroa.2153.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 1426063328, ptr %.sroa.2153.0..sroa_idx.i, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %50, ptr %52, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %53 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -4291,14 +4291,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_28Ev() #2 personality
           to label %57 unwind label %78
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #16
   %59 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %7, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
@@ -4338,7 +4338,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %60, %57
 78:                                               ; preds = %56
   %79 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #16
   br label %81
 
@@ -4349,7 +4349,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %60, %57
   br i1 %.not.i.i.i45.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit46.i, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %7, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = ptrtoint ptr %85 to i64
   %87 = ptrtoint ptr %82 to i64
@@ -4408,11 +4408,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %96, %67, %_ZNSt6vec
           to label %105 unwind label %102
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds i8, ptr %1, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %106) #16
-  %107 = getelementptr inbounds i8, ptr %1, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %107) #16
-  %108 = getelementptr inbounds i8, ptr %1, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %108) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 286, ptr noundef nonnull @.str.168, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -4435,13 +4435,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %96, %67, %_ZNSt6vec
 
 114:                                              ; preds = %110
   store ptr %111, ptr %13, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 8
-  %116 = getelementptr inbounds i8, ptr %13, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %115, ptr %116, align 8
   store i32 1409286208, ptr %111, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %111, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 -1442774048, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %117 = getelementptr inbounds i8, ptr %13, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %115, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %118 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -4462,14 +4462,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %96, %67, %_ZNSt6vec
           to label %122 unwind label %144
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %10, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #16
   %124 = load ptr, ptr %14, align 8
   %.not.i.i.i59.i = icmp eq ptr %124, null
   br i1 %.not.i.i.i59.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit60.i, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %14, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %124 to i64
@@ -4514,7 +4514,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit60.i:                ; preds = %125, %122
 144:                                              ; preds = %121
   %145 = landingpad { ptr, i32 }
           catch ptr null
-  %146 = getelementptr inbounds i8, ptr %10, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %146) #16
   br label %147
 
@@ -4525,7 +4525,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit60.i:                ; preds = %125, %122
   br i1 %.not.i.i.i64.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit65.i, label %149
 
 149:                                              ; preds = %147
-  %150 = getelementptr inbounds i8, ptr %14, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %148 to i64
@@ -4584,11 +4584,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit63.i:                ; preds = %162, %132, %_ZNSt6v
           to label %171 unwind label %168
 
 171:                                              ; preds = %170
-  %172 = getelementptr inbounds i8, ptr %8, i64 112
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %172) #16
-  %173 = getelementptr inbounds i8, ptr %8, i64 72
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %173) #16
-  %174 = getelementptr inbounds i8, ptr %8, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %174) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 301, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -4611,11 +4611,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit63.i:                ; preds = %162, %132, %_ZNSt6v
 
 180:                                              ; preds = %176
   store ptr %177, ptr %20, align 8
-  %181 = getelementptr inbounds i8, ptr %177, i64 28
-  %182 = getelementptr inbounds i8, ptr %20, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 28
+  %182 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %181, ptr %182, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %177, ptr noundef nonnull align 4 dereferenceable(28) @constinit, i64 28, i1 false)
-  %183 = getelementptr inbounds i8, ptr %20, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %181, ptr %183, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %184 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -4636,14 +4636,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit63.i:                ; preds = %162, %132, %_ZNSt6v
           to label %188 unwind label %210
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %17, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %189) #16
   %190 = load ptr, ptr %21, align 8
   %.not.i.i.i78.i = icmp eq ptr %190, null
   br i1 %.not.i.i.i78.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit79.i, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %21, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = ptrtoint ptr %193 to i64
   %195 = ptrtoint ptr %190 to i64
@@ -4688,7 +4688,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit79.i:                ; preds = %191, %188
 210:                                              ; preds = %187
   %211 = landingpad { ptr, i32 }
           catch ptr null
-  %212 = getelementptr inbounds i8, ptr %17, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #16
   br label %213
 
@@ -4699,7 +4699,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit79.i:                ; preds = %191, %188
   br i1 %.not.i.i.i83.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit84.i, label %215
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %21, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = ptrtoint ptr %217 to i64
   %219 = ptrtoint ptr %214 to i64
@@ -4758,11 +4758,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit82.i:                ; preds = %228, %198, %_ZNSt6v
           to label %237 unwind label %234
 
 237:                                              ; preds = %236
-  %238 = getelementptr inbounds i8, ptr %15, i64 112
+  %238 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %238) #16
-  %239 = getelementptr inbounds i8, ptr %15, i64 72
+  %239 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %239) #16
-  %240 = getelementptr inbounds i8, ptr %15, i64 48
+  %240 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 304, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -4785,11 +4785,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit82.i:                ; preds = %228, %198, %_ZNSt6v
 
 246:                                              ; preds = %242
   store ptr %243, ptr %27, align 8
-  %247 = getelementptr inbounds i8, ptr %243, i64 4
-  %248 = getelementptr inbounds i8, ptr %27, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %247, ptr %248, align 8
   store i32 -702611456, ptr %243, align 4
-  %249 = getelementptr inbounds i8, ptr %27, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %247, ptr %249, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %250 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -4810,14 +4810,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit82.i:                ; preds = %228, %198, %_ZNSt6v
           to label %254 unwind label %276
 
 254:                                              ; preds = %253
-  %255 = getelementptr inbounds i8, ptr %24, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %255) #16
   %256 = load ptr, ptr %28, align 8
   %.not.i.i.i97.i = icmp eq ptr %256, null
   br i1 %.not.i.i.i97.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit98.i, label %257
 
 257:                                              ; preds = %254
-  %258 = getelementptr inbounds i8, ptr %28, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = ptrtoint ptr %259 to i64
   %261 = ptrtoint ptr %256 to i64
@@ -4862,7 +4862,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit98.i:                ; preds = %257, %254
 276:                                              ; preds = %253
   %277 = landingpad { ptr, i32 }
           catch ptr null
-  %278 = getelementptr inbounds i8, ptr %24, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #16
   br label %279
 
@@ -4873,7 +4873,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit98.i:                ; preds = %257, %254
   br i1 %.not.i.i.i102.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit103.i, label %281
 
 281:                                              ; preds = %279
-  %282 = getelementptr inbounds i8, ptr %28, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %283 = load ptr, ptr %282, align 8
   %284 = ptrtoint ptr %283 to i64
   %285 = ptrtoint ptr %280 to i64
@@ -4932,11 +4932,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit101.i:               ; preds = %294, %264, %_ZNSt6v
           to label %303 unwind label %300
 
 303:                                              ; preds = %302
-  %304 = getelementptr inbounds i8, ptr %22, i64 112
+  %304 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %304) #16
-  %305 = getelementptr inbounds i8, ptr %22, i64 72
+  %305 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %305) #16
-  %306 = getelementptr inbounds i8, ptr %22, i64 48
+  %306 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %306) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 305, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -4959,11 +4959,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit101.i:               ; preds = %294, %264, %_ZNSt6v
 
 312:                                              ; preds = %308
   store ptr %309, ptr %34, align 8
-  %313 = getelementptr inbounds i8, ptr %309, i64 4
-  %314 = getelementptr inbounds i8, ptr %34, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %309, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %313, ptr %314, align 8
   store i32 -700514304, ptr %309, align 4
-  %315 = getelementptr inbounds i8, ptr %34, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %313, ptr %315, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %316 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -4984,14 +4984,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit101.i:               ; preds = %294, %264, %_ZNSt6v
           to label %320 unwind label %342
 
 320:                                              ; preds = %319
-  %321 = getelementptr inbounds i8, ptr %31, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %321) #16
   %322 = load ptr, ptr %35, align 8
   %.not.i.i.i116.i = icmp eq ptr %322, null
   br i1 %.not.i.i.i116.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit117.i, label %323
 
 323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %35, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %325 = load ptr, ptr %324, align 8
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %322 to i64
@@ -5036,7 +5036,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit117.i:               ; preds = %323, %320
 342:                                              ; preds = %319
   %343 = landingpad { ptr, i32 }
           catch ptr null
-  %344 = getelementptr inbounds i8, ptr %31, i64 8
+  %344 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %344) #16
   br label %345
 
@@ -5047,7 +5047,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit117.i:               ; preds = %323, %320
   br i1 %.not.i.i.i121.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit122.i, label %347
 
 347:                                              ; preds = %345
-  %348 = getelementptr inbounds i8, ptr %35, i64 16
+  %348 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %349 = load ptr, ptr %348, align 8
   %350 = ptrtoint ptr %349 to i64
   %351 = ptrtoint ptr %346 to i64
@@ -5106,11 +5106,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit120.i:               ; preds = %360, %330, %_ZNSt6v
           to label %369 unwind label %366
 
 369:                                              ; preds = %368
-  %370 = getelementptr inbounds i8, ptr %29, i64 112
+  %370 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %370) #16
-  %371 = getelementptr inbounds i8, ptr %29, i64 72
+  %371 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %371) #16
-  %372 = getelementptr inbounds i8, ptr %29, i64 48
+  %372 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %372) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 306, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -5133,11 +5133,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit120.i:               ; preds = %360, %330, %_ZNSt6v
 
 378:                                              ; preds = %374
   store ptr %375, ptr %41, align 8
-  %379 = getelementptr inbounds i8, ptr %375, i64 4
-  %380 = getelementptr inbounds i8, ptr %41, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %375, i64 4
+  %380 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %379, ptr %380, align 8
   store i32 -698416192, ptr %375, align 4
-  %381 = getelementptr inbounds i8, ptr %41, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %379, ptr %381, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %382 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -5158,14 +5158,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit120.i:               ; preds = %360, %330, %_ZNSt6v
           to label %386 unwind label %408
 
 386:                                              ; preds = %385
-  %387 = getelementptr inbounds i8, ptr %38, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %387) #16
   %388 = load ptr, ptr %42, align 8
   %.not.i.i.i135.i = icmp eq ptr %388, null
   br i1 %.not.i.i.i135.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit136.i, label %389
 
 389:                                              ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %42, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %391 = load ptr, ptr %390, align 8
   %392 = ptrtoint ptr %391 to i64
   %393 = ptrtoint ptr %388 to i64
@@ -5210,7 +5210,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit136.i:               ; preds = %389, %386
 408:                                              ; preds = %385
   %409 = landingpad { ptr, i32 }
           catch ptr null
-  %410 = getelementptr inbounds i8, ptr %38, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %410) #16
   br label %411
 
@@ -5221,7 +5221,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit136.i:               ; preds = %389, %386
   br i1 %.not.i.i.i140.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit141.i, label %413
 
 413:                                              ; preds = %411
-  %414 = getelementptr inbounds i8, ptr %42, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %415 = load ptr, ptr %414, align 8
   %416 = ptrtoint ptr %415 to i64
   %417 = ptrtoint ptr %412 to i64
@@ -5296,11 +5296,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit139.i:               ; preds = %426, %396, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEv.exit: ; preds = %434
-  %440 = getelementptr inbounds i8, ptr %36, i64 112
+  %440 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %440) #16
-  %441 = getelementptr inbounds i8, ptr %36, i64 72
+  %441 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %441) #16
-  %442 = getelementptr inbounds i8, ptr %36, i64 48
+  %442 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %442) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -5483,11 +5483,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #2 personality
 
 63:                                               ; preds = %59
   store ptr %60, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 4
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %64, ptr %65, align 8
   store i32 -1862269984, ptr %60, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %64, ptr %66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %67 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -5508,14 +5508,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #2 personality
           to label %71 unwind label %92
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #16
   %73 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %73 to i64
@@ -5555,7 +5555,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
 92:                                               ; preds = %70
   %93 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #16
   br label %95
 
@@ -5566,7 +5566,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
   br i1 %.not.i.i.i59.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit60.i, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %7, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -5625,11 +5625,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %119 unwind label %116
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %1, i64 112
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %120) #16
-  %121 = getelementptr inbounds i8, ptr %1, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %121) #16
-  %122 = getelementptr inbounds i8, ptr %1, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 312, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -5652,11 +5652,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
 
 128:                                              ; preds = %124
   store ptr %125, ptr %13, align 8
-  %129 = getelementptr inbounds i8, ptr %125, i64 4
-  %130 = getelementptr inbounds i8, ptr %13, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %129, ptr %130, align 8
   store i32 -1862270945, ptr %125, align 4
-  %131 = getelementptr inbounds i8, ptr %13, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %129, ptr %131, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %132 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -5677,14 +5677,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %136 unwind label %158
 
 136:                                              ; preds = %135
-  %137 = getelementptr inbounds i8, ptr %10, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #16
   %138 = load ptr, ptr %14, align 8
   %.not.i.i.i73.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i73.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit74.i, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %14, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -5729,7 +5729,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
 158:                                              ; preds = %135
   %159 = landingpad { ptr, i32 }
           catch ptr null
-  %160 = getelementptr inbounds i8, ptr %10, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #16
   br label %161
 
@@ -5740,7 +5740,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
   br i1 %.not.i.i.i78.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit79.i, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %14, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %162 to i64
@@ -5799,11 +5799,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %185 unwind label %182
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %8, i64 112
+  %186 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %186) #16
-  %187 = getelementptr inbounds i8, ptr %8, i64 72
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #16
-  %188 = getelementptr inbounds i8, ptr %8, i64 48
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 314, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -5826,11 +5826,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
 
 194:                                              ; preds = %190
   store ptr %191, ptr %20, align 8
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
-  %196 = getelementptr inbounds i8, ptr %20, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %195, ptr %196, align 8
   store i32 -1862265857, ptr %191, align 4
-  %197 = getelementptr inbounds i8, ptr %20, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %195, ptr %197, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %198 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -5851,14 +5851,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %202 unwind label %224
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %17, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %203) #16
   %204 = load ptr, ptr %21, align 8
   %.not.i.i.i92.i = icmp eq ptr %204, null
   br i1 %.not.i.i.i92.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit93.i, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %21, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
@@ -5903,7 +5903,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
 224:                                              ; preds = %201
   %225 = landingpad { ptr, i32 }
           catch ptr null
-  %226 = getelementptr inbounds i8, ptr %17, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #16
   br label %227
 
@@ -5914,7 +5914,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
   br i1 %.not.i.i.i97.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit98.i, label %229
 
 229:                                              ; preds = %227
-  %230 = getelementptr inbounds i8, ptr %21, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = ptrtoint ptr %231 to i64
   %233 = ptrtoint ptr %228 to i64
@@ -5973,11 +5973,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %251 unwind label %248
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds i8, ptr %15, i64 112
+  %252 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %252) #16
-  %253 = getelementptr inbounds i8, ptr %15, i64 72
+  %253 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #16
-  %254 = getelementptr inbounds i8, ptr %15, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 315, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -6000,11 +6000,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
 
 260:                                              ; preds = %256
   store ptr %257, ptr %27, align 8
-  %261 = getelementptr inbounds i8, ptr %257, i64 4
-  %262 = getelementptr inbounds i8, ptr %27, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %261, ptr %262, align 8
   store i32 -788524033, ptr %257, align 4
-  %263 = getelementptr inbounds i8, ptr %27, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %261, ptr %263, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %264 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -6025,14 +6025,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %268 unwind label %290
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds i8, ptr %24, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %269) #16
   %270 = load ptr, ptr %28, align 8
   %.not.i.i.i111.i = icmp eq ptr %270, null
   br i1 %.not.i.i.i111.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit112.i, label %271
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %28, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %270 to i64
@@ -6077,7 +6077,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
 290:                                              ; preds = %267
   %291 = landingpad { ptr, i32 }
           catch ptr null
-  %292 = getelementptr inbounds i8, ptr %24, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %292) #16
   br label %293
 
@@ -6088,7 +6088,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
   br i1 %.not.i.i.i116.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit117.i, label %295
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds i8, ptr %28, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = ptrtoint ptr %297 to i64
   %299 = ptrtoint ptr %294 to i64
@@ -6147,11 +6147,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %317 unwind label %314
 
 317:                                              ; preds = %316
-  %318 = getelementptr inbounds i8, ptr %22, i64 112
+  %318 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %318) #16
-  %319 = getelementptr inbounds i8, ptr %22, i64 72
+  %319 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #16
-  %320 = getelementptr inbounds i8, ptr %22, i64 48
+  %320 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 317, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -6174,11 +6174,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
 
 326:                                              ; preds = %322
   store ptr %323, ptr %34, align 8
-  %327 = getelementptr inbounds i8, ptr %323, i64 4
-  %328 = getelementptr inbounds i8, ptr %34, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %323, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %327, ptr %328, align 8
   store i32 -1862265888, ptr %323, align 4
-  %329 = getelementptr inbounds i8, ptr %34, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %327, ptr %329, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %330 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -6199,14 +6199,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %334 unwind label %356
 
 334:                                              ; preds = %333
-  %335 = getelementptr inbounds i8, ptr %31, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #16
   %336 = load ptr, ptr %35, align 8
   %.not.i.i.i130.i = icmp eq ptr %336, null
   br i1 %.not.i.i.i130.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit131.i, label %337
 
 337:                                              ; preds = %334
-  %338 = getelementptr inbounds i8, ptr %35, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %336 to i64
@@ -6251,7 +6251,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
 356:                                              ; preds = %333
   %357 = landingpad { ptr, i32 }
           catch ptr null
-  %358 = getelementptr inbounds i8, ptr %31, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %358) #16
   br label %359
 
@@ -6262,7 +6262,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
   br i1 %.not.i.i.i135.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit136.i, label %361
 
 361:                                              ; preds = %359
-  %362 = getelementptr inbounds i8, ptr %35, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = ptrtoint ptr %363 to i64
   %365 = ptrtoint ptr %360 to i64
@@ -6321,11 +6321,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %383 unwind label %380
 
 383:                                              ; preds = %382
-  %384 = getelementptr inbounds i8, ptr %29, i64 112
+  %384 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %384) #16
-  %385 = getelementptr inbounds i8, ptr %29, i64 72
+  %385 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %385) #16
-  %386 = getelementptr inbounds i8, ptr %29, i64 48
+  %386 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 318, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -6348,11 +6348,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
 
 392:                                              ; preds = %388
   store ptr %389, ptr %41, align 8
-  %393 = getelementptr inbounds i8, ptr %389, i64 4
-  %394 = getelementptr inbounds i8, ptr %41, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %393, ptr %394, align 8
   store i32 -788525025, ptr %389, align 4
-  %395 = getelementptr inbounds i8, ptr %41, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %393, ptr %395, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %396 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -6373,14 +6373,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %400 unwind label %422
 
 400:                                              ; preds = %399
-  %401 = getelementptr inbounds i8, ptr %38, i64 8
+  %401 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %401) #16
   %402 = load ptr, ptr %42, align 8
   %.not.i.i.i149.i = icmp eq ptr %402, null
   br i1 %.not.i.i.i149.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit150.i, label %403
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %42, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %405 = load ptr, ptr %404, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = ptrtoint ptr %402 to i64
@@ -6425,7 +6425,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
 422:                                              ; preds = %399
   %423 = landingpad { ptr, i32 }
           catch ptr null
-  %424 = getelementptr inbounds i8, ptr %38, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %424) #16
   br label %425
 
@@ -6436,7 +6436,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
   br i1 %.not.i.i.i154.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit155.i, label %427
 
 427:                                              ; preds = %425
-  %428 = getelementptr inbounds i8, ptr %42, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %429 = load ptr, ptr %428, align 8
   %430 = ptrtoint ptr %429 to i64
   %431 = ptrtoint ptr %426 to i64
@@ -6495,11 +6495,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %449 unwind label %446
 
 449:                                              ; preds = %448
-  %450 = getelementptr inbounds i8, ptr %36, i64 112
+  %450 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %450) #16
-  %451 = getelementptr inbounds i8, ptr %36, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %451) #16
-  %452 = getelementptr inbounds i8, ptr %36, i64 48
+  %452 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %452) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 320, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -6522,11 +6522,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
 
 458:                                              ; preds = %454
   store ptr %455, ptr %48, align 8
-  %459 = getelementptr inbounds i8, ptr %455, i64 4
-  %460 = getelementptr inbounds i8, ptr %48, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %459, ptr %460, align 8
   store i32 -113244192, ptr %455, align 4
-  %461 = getelementptr inbounds i8, ptr %48, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %459, ptr %461, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %462 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -6547,14 +6547,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %466 unwind label %488
 
 466:                                              ; preds = %465
-  %467 = getelementptr inbounds i8, ptr %45, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %467) #16
   %468 = load ptr, ptr %49, align 8
   %.not.i.i.i168.i = icmp eq ptr %468, null
   br i1 %.not.i.i.i168.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit169.i, label %469
 
 469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %49, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %471 = load ptr, ptr %470, align 8
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %468 to i64
@@ -6599,7 +6599,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
 488:                                              ; preds = %465
   %489 = landingpad { ptr, i32 }
           catch ptr null
-  %490 = getelementptr inbounds i8, ptr %45, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %490) #16
   br label %491
 
@@ -6610,7 +6610,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
   br i1 %.not.i.i.i173.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit174.i, label %493
 
 493:                                              ; preds = %491
-  %494 = getelementptr inbounds i8, ptr %49, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = ptrtoint ptr %495 to i64
   %497 = ptrtoint ptr %492 to i64
@@ -6669,11 +6669,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %515 unwind label %512
 
 515:                                              ; preds = %514
-  %516 = getelementptr inbounds i8, ptr %43, i64 112
+  %516 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %516) #16
-  %517 = getelementptr inbounds i8, ptr %43, i64 72
+  %517 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %517) #16
-  %518 = getelementptr inbounds i8, ptr %43, i64 48
+  %518 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %518) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 321, ptr noundef nonnull @.str.180, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -6696,11 +6696,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
 
 524:                                              ; preds = %520
   store ptr %521, ptr %55, align 8
-  %525 = getelementptr inbounds i8, ptr %521, i64 4
-  %526 = getelementptr inbounds i8, ptr %55, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %521, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %525, ptr %526, align 8
   store i32 -117438496, ptr %521, align 4
-  %527 = getelementptr inbounds i8, ptr %55, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %525, ptr %527, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %528 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -6721,14 +6721,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %532 unwind label %554
 
 532:                                              ; preds = %531
-  %533 = getelementptr inbounds i8, ptr %52, i64 8
+  %533 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %533) #16
   %534 = load ptr, ptr %56, align 8
   %.not.i.i.i187.i = icmp eq ptr %534, null
   br i1 %.not.i.i.i187.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit188.i, label %535
 
 535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %56, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %537 = load ptr, ptr %536, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %534 to i64
@@ -6773,7 +6773,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
 554:                                              ; preds = %531
   %555 = landingpad { ptr, i32 }
           catch ptr null
-  %556 = getelementptr inbounds i8, ptr %52, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %556) #16
   br label %557
 
@@ -6784,7 +6784,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
   br i1 %.not.i.i.i192.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit193.i, label %559
 
 559:                                              ; preds = %557
-  %560 = getelementptr inbounds i8, ptr %56, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %561 = load ptr, ptr %560, align 8
   %562 = ptrtoint ptr %561 to i64
   %563 = ptrtoint ptr %558 to i64
@@ -6859,11 +6859,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit191.i:               ; preds = %572, %542, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_301fEv.exit: ; preds = %580
-  %586 = getelementptr inbounds i8, ptr %50, i64 112
+  %586 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %586) #16
-  %587 = getelementptr inbounds i8, ptr %50, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %587) #16
-  %588 = getelementptr inbounds i8, ptr %50, i64 48
+  %588 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %588) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -6962,15 +6962,15 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
 
 14:                                               ; preds = %10
   store ptr %11, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 12
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
   store i32 285212576, ptr %11, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 285212448, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 285212352, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %18 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
@@ -6983,11 +6983,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
 
 21:                                               ; preds = %14
   store ptr %18, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 32
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %22, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %18, ptr noundef nonnull align 1 dereferenceable(32) @constinit.182, i64 32, i1 false)
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %22, ptr %24, align 8
   %25 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_331fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
           to label %26 unwind label %47
@@ -7007,7 +7007,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #2 personality
           to label %29 unwind label %49
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
   %31 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %31, null
@@ -7053,7 +7053,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
 49:                                               ; preds = %28
   %50 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #16
   br label %52
 
@@ -7139,11 +7139,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %66, %38, %_ZNSt6vec
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_331fEv.exit: ; preds = %74
-  %80 = getelementptr inbounds i8, ptr %1, i64 112
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %80) #16
-  %81 = getelementptr inbounds i8, ptr %1, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %81) #16
-  %82 = getelementptr inbounds i8, ptr %1, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -7193,13 +7193,13 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #2 personality
 
 14:                                               ; preds = %10
   store ptr %11, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
   store i32 268435520, ptr %11, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 -1962934272, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %18 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_361fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -7220,14 +7220,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #2 personality
           to label %22 unwind label %43
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
   %24 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
@@ -7267,7 +7267,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %25, %22
 43:                                               ; preds = %21
   %44 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #16
   br label %46
 
@@ -7278,7 +7278,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %25, %22
   br i1 %.not.i.i.i10.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit11.i, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %47 to i64
@@ -7353,11 +7353,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %61, %32, %_ZNSt6vec
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_361fEv.exit: ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %1, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %75) #16
-  %76 = getelementptr inbounds i8, ptr %1, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #16
-  %77 = getelementptr inbounds i8, ptr %1, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -7421,11 +7421,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
 
 21:                                               ; preds = %17
   store ptr %18, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %22, ptr %23, align 8
   store i32 509624352, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %22, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_391fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -7446,14 +7446,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_40Ev() #2 personality
           to label %29 unwind label %50
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
   %31 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
@@ -7493,7 +7493,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
 50:                                               ; preds = %28
   %51 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #16
   br label %53
 
@@ -7504,7 +7504,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
   br i1 %.not.i.i.i17.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit18.i, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
@@ -7563,11 +7563,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %77 unwind label %74
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %78) #16
-  %79 = getelementptr inbounds i8, ptr %1, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #16
-  %80 = getelementptr inbounds i8, ptr %1, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 365, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -7590,11 +7590,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
 
 86:                                               ; preds = %82
   store ptr %83, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
-  %88 = getelementptr inbounds i8, ptr %13, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %87, ptr %88, align 8
   store i32 -1637416928, ptr %83, align 4
-  %89 = getelementptr inbounds i8, ptr %13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %87, ptr %89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %90 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_391fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -7615,14 +7615,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %94 unwind label %116
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %10, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %95) #16
   %96 = load ptr, ptr %14, align 8
   %.not.i.i.i31.i = icmp eq ptr %96, null
   br i1 %.not.i.i.i31.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit32.i, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %14, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -7667,7 +7667,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
 116:                                              ; preds = %93
   %117 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = getelementptr inbounds i8, ptr %10, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %118) #16
   br label %119
 
@@ -7678,7 +7678,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
   br i1 %.not.i.i.i36.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit37.i, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %14, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %120 to i64
@@ -7753,11 +7753,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit35.i:                ; preds = %134, %104, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_391fEv.exit: ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %8, i64 112
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %148) #16
-  %149 = getelementptr inbounds i8, ptr %8, i64 72
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #16
-  %150 = getelementptr inbounds i8, ptr %8, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -7870,11 +7870,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
 
 35:                                               ; preds = %31
   store ptr %32, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %36, ptr %37, align 8
   store i32 1310465597, ptr %32, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %36, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %39 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_481fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -7895,14 +7895,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_49Ev() #2 personality
           to label %43 unwind label %64
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #16
   %45 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %45 to i64
@@ -7942,7 +7942,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %46, %43
 64:                                               ; preds = %42
   %65 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #16
   br label %67
 
@@ -7953,7 +7953,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %46, %43
   br i1 %.not.i.i.i31.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit32.i, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %7, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %68 to i64
@@ -8012,11 +8012,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
           to label %91 unwind label %88
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %1, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %92) #16
-  %93 = getelementptr inbounds i8, ptr %1, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #16
-  %94 = getelementptr inbounds i8, ptr %1, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 439, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -8039,11 +8039,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
 
 100:                                              ; preds = %96
   store ptr %97, ptr %13, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 4
-  %102 = getelementptr inbounds i8, ptr %13, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %101, ptr %102, align 8
   store i32 1845757887, ptr %97, align 4
-  %103 = getelementptr inbounds i8, ptr %13, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %101, ptr %103, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %104 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_481fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -8064,14 +8064,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
           to label %108 unwind label %130
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %10, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #16
   %110 = load ptr, ptr %14, align 8
   %.not.i.i.i45.i = icmp eq ptr %110, null
   br i1 %.not.i.i.i45.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit46.i, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %14, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
@@ -8116,7 +8116,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %111, %108
 130:                                              ; preds = %107
   %131 = landingpad { ptr, i32 }
           catch ptr null
-  %132 = getelementptr inbounds i8, ptr %10, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #16
   br label %133
 
@@ -8127,7 +8127,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %111, %108
   br i1 %.not.i.i.i50.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit51.i, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %14, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = ptrtoint ptr %137 to i64
   %139 = ptrtoint ptr %134 to i64
@@ -8186,11 +8186,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
           to label %157 unwind label %154
 
 157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %8, i64 112
+  %158 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %158) #16
-  %159 = getelementptr inbounds i8, ptr %8, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #16
-  %160 = getelementptr inbounds i8, ptr %8, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 440, ptr noundef nonnull @.str.232, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -8213,11 +8213,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
 
 166:                                              ; preds = %162
   store ptr %163, ptr %20, align 8
-  %167 = getelementptr inbounds i8, ptr %163, i64 4
-  %168 = getelementptr inbounds i8, ptr %20, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %167, ptr %168, align 8
   store i32 1578371069, ptr %163, align 4
-  %169 = getelementptr inbounds i8, ptr %20, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %167, ptr %169, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %170 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_481fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -8238,14 +8238,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
           to label %174 unwind label %196
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %17, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %175) #16
   %176 = load ptr, ptr %21, align 8
   %.not.i.i.i64.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i64.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit65.i, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %21, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = ptrtoint ptr %179 to i64
   %181 = ptrtoint ptr %176 to i64
@@ -8290,7 +8290,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit65.i:                ; preds = %177, %174
 196:                                              ; preds = %173
   %197 = landingpad { ptr, i32 }
           catch ptr null
-  %198 = getelementptr inbounds i8, ptr %17, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
   br label %199
 
@@ -8301,7 +8301,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit65.i:                ; preds = %177, %174
   br i1 %.not.i.i.i69.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit70.i, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %21, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = ptrtoint ptr %203 to i64
   %205 = ptrtoint ptr %200 to i64
@@ -8360,11 +8360,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
           to label %223 unwind label %220
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %15, i64 112
+  %224 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %224) #16
-  %225 = getelementptr inbounds i8, ptr %15, i64 72
+  %225 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #16
-  %226 = getelementptr inbounds i8, ptr %15, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 441, ptr noundef nonnull @.str.233, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -8387,11 +8387,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
 
 232:                                              ; preds = %228
   store ptr %229, ptr %27, align 8
-  %233 = getelementptr inbounds i8, ptr %229, i64 4
-  %234 = getelementptr inbounds i8, ptr %27, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %233, ptr %234, align 8
   store i32 1308887005, ptr %229, align 4
-  %235 = getelementptr inbounds i8, ptr %27, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %233, ptr %235, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %236 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_481fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -8412,14 +8412,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
           to label %240 unwind label %262
 
 240:                                              ; preds = %239
-  %241 = getelementptr inbounds i8, ptr %24, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %241) #16
   %242 = load ptr, ptr %28, align 8
   %.not.i.i.i83.i = icmp eq ptr %242, null
   br i1 %.not.i.i.i83.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit84.i, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %28, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %245 = load ptr, ptr %244, align 8
   %246 = ptrtoint ptr %245 to i64
   %247 = ptrtoint ptr %242 to i64
@@ -8464,7 +8464,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %243, %240
 262:                                              ; preds = %239
   %263 = landingpad { ptr, i32 }
           catch ptr null
-  %264 = getelementptr inbounds i8, ptr %24, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %264) #16
   br label %265
 
@@ -8475,7 +8475,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %243, %240
   br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit89.i, label %267
 
 267:                                              ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %28, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %269 = load ptr, ptr %268, align 8
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %266 to i64
@@ -8550,11 +8550,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit87.i:                ; preds = %280, %250, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_481fEv.exit: ; preds = %288
-  %294 = getelementptr inbounds i8, ptr %22, i64 112
+  %294 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %294) #16
-  %295 = getelementptr inbounds i8, ptr %22, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #16
-  %296 = getelementptr inbounds i8, ptr %22, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -8639,11 +8639,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #2 personality
 
 21:                                               ; preds = %17
   store ptr %18, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %22, ptr %23, align 8
   store i32 509681664, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %22, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_511fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -8664,14 +8664,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_52Ev() #2 personality
           to label %29 unwind label %50
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #16
   %31 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
@@ -8711,7 +8711,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
 50:                                               ; preds = %28
   %51 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #16
   br label %53
 
@@ -8722,7 +8722,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %32, %29
   br i1 %.not.i.i.i17.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit18.i, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
@@ -8781,11 +8781,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %77 unwind label %74
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %78) #16
-  %79 = getelementptr inbounds i8, ptr %1, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #16
-  %80 = getelementptr inbounds i8, ptr %1, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %80) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 447, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -8808,11 +8808,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
 
 86:                                               ; preds = %82
   store ptr %83, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
-  %88 = getelementptr inbounds i8, ptr %13, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %87, ptr %88, align 8
   store i32 509616168, ptr %83, align 4
-  %89 = getelementptr inbounds i8, ptr %13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %87, ptr %89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %90 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_511fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -8833,14 +8833,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %68, %39, %_ZNSt6vec
           to label %94 unwind label %116
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %10, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %95) #16
   %96 = load ptr, ptr %14, align 8
   %.not.i.i.i31.i = icmp eq ptr %96, null
   br i1 %.not.i.i.i31.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit32.i, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %14, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -8885,7 +8885,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
 116:                                              ; preds = %93
   %117 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = getelementptr inbounds i8, ptr %10, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %118) #16
   br label %119
 
@@ -8896,7 +8896,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %97, %94
   br i1 %.not.i.i.i36.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit37.i, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %14, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %120 to i64
@@ -8971,11 +8971,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit35.i:                ; preds = %134, %104, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_511fEv.exit: ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %8, i64 112
+  %148 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %148) #16
-  %149 = getelementptr inbounds i8, ptr %8, i64 72
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #16
-  %150 = getelementptr inbounds i8, ptr %8, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -9150,11 +9150,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
 
 73:                                               ; preds = %69
   store ptr %70, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 4
-  %75 = getelementptr inbounds i8, ptr %6, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %74, ptr %75, align 8
   store i32 788587520, ptr %70, align 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %74, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %77 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -9175,14 +9175,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_55Ev() #2 personality
           to label %81 unwind label %102
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %82) #16
   %83 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %7, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
@@ -9222,7 +9222,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %84, %81
 102:                                              ; preds = %80
   %103 = landingpad { ptr, i32 }
           catch ptr null
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #16
   br label %105
 
@@ -9233,7 +9233,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %84, %81
   br i1 %.not.i.i.i69.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit70.i, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %7, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = ptrtoint ptr %109 to i64
   %111 = ptrtoint ptr %106 to i64
@@ -9292,11 +9292,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %120, %91, %_ZNSt6ve
           to label %129 unwind label %126
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %1, i64 112
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %130) #16
-  %131 = getelementptr inbounds i8, ptr %1, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #16
-  %132 = getelementptr inbounds i8, ptr %1, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 453, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -9319,11 +9319,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %120, %91, %_ZNSt6ve
 
 138:                                              ; preds = %134
   store ptr %135, ptr %13, align 8
-  %139 = getelementptr inbounds i8, ptr %135, i64 4
-  %140 = getelementptr inbounds i8, ptr %13, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %139, ptr %140, align 8
   store i32 510136320, ptr %135, align 4
-  %141 = getelementptr inbounds i8, ptr %13, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %139, ptr %141, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %142 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -9344,14 +9344,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %120, %91, %_ZNSt6ve
           to label %146 unwind label %168
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %10, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %147) #16
   %148 = load ptr, ptr %14, align 8
   %.not.i.i.i83.i = icmp eq ptr %148, null
   br i1 %.not.i.i.i83.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit84.i, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %14, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %148 to i64
@@ -9396,7 +9396,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %149, %146
 168:                                              ; preds = %145
   %169 = landingpad { ptr, i32 }
           catch ptr null
-  %170 = getelementptr inbounds i8, ptr %10, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %170) #16
   br label %171
 
@@ -9407,7 +9407,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %149, %146
   br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit89.i, label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %14, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %175 = load ptr, ptr %174, align 8
   %176 = ptrtoint ptr %175 to i64
   %177 = ptrtoint ptr %172 to i64
@@ -9466,11 +9466,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit87.i:                ; preds = %186, %156, %_ZNSt6v
           to label %195 unwind label %192
 
 195:                                              ; preds = %194
-  %196 = getelementptr inbounds i8, ptr %8, i64 112
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %196) #16
-  %197 = getelementptr inbounds i8, ptr %8, i64 72
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %197) #16
-  %198 = getelementptr inbounds i8, ptr %8, i64 48
+  %198 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 454, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -9493,11 +9493,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit87.i:                ; preds = %186, %156, %_ZNSt6v
 
 204:                                              ; preds = %200
   store ptr %201, ptr %20, align 8
-  %205 = getelementptr inbounds i8, ptr %201, i64 4
-  %206 = getelementptr inbounds i8, ptr %20, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %205, ptr %206, align 8
   store i32 511184896, ptr %201, align 4
-  %207 = getelementptr inbounds i8, ptr %20, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %205, ptr %207, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %208 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -9518,14 +9518,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit87.i:                ; preds = %186, %156, %_ZNSt6v
           to label %212 unwind label %234
 
 212:                                              ; preds = %211
-  %213 = getelementptr inbounds i8, ptr %17, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %213) #16
   %214 = load ptr, ptr %21, align 8
   %.not.i.i.i102.i = icmp eq ptr %214, null
   br i1 %.not.i.i.i102.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit103.i, label %215
 
 215:                                              ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %21, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = ptrtoint ptr %217 to i64
   %219 = ptrtoint ptr %214 to i64
@@ -9570,7 +9570,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit103.i:               ; preds = %215, %212
 234:                                              ; preds = %211
   %235 = landingpad { ptr, i32 }
           catch ptr null
-  %236 = getelementptr inbounds i8, ptr %17, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %236) #16
   br label %237
 
@@ -9581,7 +9581,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit103.i:               ; preds = %215, %212
   br i1 %.not.i.i.i107.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit108.i, label %239
 
 239:                                              ; preds = %237
-  %240 = getelementptr inbounds i8, ptr %21, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %241 = load ptr, ptr %240, align 8
   %242 = ptrtoint ptr %241 to i64
   %243 = ptrtoint ptr %238 to i64
@@ -9640,11 +9640,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106.i:               ; preds = %252, %222, %_ZNSt6v
           to label %261 unwind label %258
 
 261:                                              ; preds = %260
-  %262 = getelementptr inbounds i8, ptr %15, i64 112
+  %262 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %262) #16
-  %263 = getelementptr inbounds i8, ptr %15, i64 72
+  %263 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %263) #16
-  %264 = getelementptr inbounds i8, ptr %15, i64 48
+  %264 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %264) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 455, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -9667,11 +9667,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106.i:               ; preds = %252, %222, %_ZNSt6v
 
 270:                                              ; preds = %266
   store ptr %267, ptr %27, align 8
-  %271 = getelementptr inbounds i8, ptr %267, i64 4
-  %272 = getelementptr inbounds i8, ptr %27, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %271, ptr %272, align 8
   store i32 510652416, ptr %267, align 4
-  %273 = getelementptr inbounds i8, ptr %27, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %271, ptr %273, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %274 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -9692,14 +9692,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106.i:               ; preds = %252, %222, %_ZNSt6v
           to label %278 unwind label %300
 
 278:                                              ; preds = %277
-  %279 = getelementptr inbounds i8, ptr %24, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %279) #16
   %280 = load ptr, ptr %28, align 8
   %.not.i.i.i121.i = icmp eq ptr %280, null
   br i1 %.not.i.i.i121.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit122.i, label %281
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %28, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %283 = load ptr, ptr %282, align 8
   %284 = ptrtoint ptr %283 to i64
   %285 = ptrtoint ptr %280 to i64
@@ -9744,7 +9744,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit122.i:               ; preds = %281, %278
 300:                                              ; preds = %277
   %301 = landingpad { ptr, i32 }
           catch ptr null
-  %302 = getelementptr inbounds i8, ptr %24, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %302) #16
   br label %303
 
@@ -9755,7 +9755,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit122.i:               ; preds = %281, %278
   br i1 %.not.i.i.i126.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit127.i, label %305
 
 305:                                              ; preds = %303
-  %306 = getelementptr inbounds i8, ptr %28, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %307 = load ptr, ptr %306, align 8
   %308 = ptrtoint ptr %307 to i64
   %309 = ptrtoint ptr %304 to i64
@@ -9814,11 +9814,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit125.i:               ; preds = %318, %288, %_ZNSt6v
           to label %327 unwind label %324
 
 327:                                              ; preds = %326
-  %328 = getelementptr inbounds i8, ptr %22, i64 112
+  %328 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %328) #16
-  %329 = getelementptr inbounds i8, ptr %22, i64 72
+  %329 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #16
-  %330 = getelementptr inbounds i8, ptr %22, i64 48
+  %330 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %330) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 457, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -9841,11 +9841,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit125.i:               ; preds = %318, %288, %_ZNSt6v
 
 336:                                              ; preds = %332
   store ptr %333, ptr %34, align 8
-  %337 = getelementptr inbounds i8, ptr %333, i64 4
-  %338 = getelementptr inbounds i8, ptr %34, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %333, i64 4
+  %338 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %337, ptr %338, align 8
   store i32 1325401088, ptr %333, align 4
-  %339 = getelementptr inbounds i8, ptr %34, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %337, ptr %339, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %340 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -9866,14 +9866,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit125.i:               ; preds = %318, %288, %_ZNSt6v
           to label %344 unwind label %366
 
 344:                                              ; preds = %343
-  %345 = getelementptr inbounds i8, ptr %31, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %345) #16
   %346 = load ptr, ptr %35, align 8
   %.not.i.i.i140.i = icmp eq ptr %346, null
   br i1 %.not.i.i.i140.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit141.i, label %347
 
 347:                                              ; preds = %344
-  %348 = getelementptr inbounds i8, ptr %35, i64 16
+  %348 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %349 = load ptr, ptr %348, align 8
   %350 = ptrtoint ptr %349 to i64
   %351 = ptrtoint ptr %346 to i64
@@ -9918,7 +9918,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit141.i:               ; preds = %347, %344
 366:                                              ; preds = %343
   %367 = landingpad { ptr, i32 }
           catch ptr null
-  %368 = getelementptr inbounds i8, ptr %31, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %368) #16
   br label %369
 
@@ -9929,7 +9929,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit141.i:               ; preds = %347, %344
   br i1 %.not.i.i.i145.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit146.i, label %371
 
 371:                                              ; preds = %369
-  %372 = getelementptr inbounds i8, ptr %35, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %373 = load ptr, ptr %372, align 8
   %374 = ptrtoint ptr %373 to i64
   %375 = ptrtoint ptr %370 to i64
@@ -9988,11 +9988,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit144.i:               ; preds = %384, %354, %_ZNSt6v
           to label %393 unwind label %390
 
 393:                                              ; preds = %392
-  %394 = getelementptr inbounds i8, ptr %29, i64 112
+  %394 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %394) #16
-  %395 = getelementptr inbounds i8, ptr %29, i64 72
+  %395 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %395) #16
-  %396 = getelementptr inbounds i8, ptr %29, i64 48
+  %396 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %396) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 458, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -10015,11 +10015,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit144.i:               ; preds = %384, %354, %_ZNSt6v
 
 402:                                              ; preds = %398
   store ptr %399, ptr %41, align 8
-  %403 = getelementptr inbounds i8, ptr %399, i64 4
-  %404 = getelementptr inbounds i8, ptr %41, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %399, i64 4
+  %404 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %403, ptr %404, align 8
   store i32 1325593600, ptr %399, align 4
-  %405 = getelementptr inbounds i8, ptr %41, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %403, ptr %405, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %406 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -10040,14 +10040,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit144.i:               ; preds = %384, %354, %_ZNSt6v
           to label %410 unwind label %432
 
 410:                                              ; preds = %409
-  %411 = getelementptr inbounds i8, ptr %38, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %411) #16
   %412 = load ptr, ptr %42, align 8
   %.not.i.i.i159.i = icmp eq ptr %412, null
   br i1 %.not.i.i.i159.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit160.i, label %413
 
 413:                                              ; preds = %410
-  %414 = getelementptr inbounds i8, ptr %42, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %415 = load ptr, ptr %414, align 8
   %416 = ptrtoint ptr %415 to i64
   %417 = ptrtoint ptr %412 to i64
@@ -10092,7 +10092,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit160.i:               ; preds = %413, %410
 432:                                              ; preds = %409
   %433 = landingpad { ptr, i32 }
           catch ptr null
-  %434 = getelementptr inbounds i8, ptr %38, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %434) #16
   br label %435
 
@@ -10103,7 +10103,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit160.i:               ; preds = %413, %410
   br i1 %.not.i.i.i164.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit165.i, label %437
 
 437:                                              ; preds = %435
-  %438 = getelementptr inbounds i8, ptr %42, i64 16
+  %438 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %439 = load ptr, ptr %438, align 8
   %440 = ptrtoint ptr %439 to i64
   %441 = ptrtoint ptr %436 to i64
@@ -10162,11 +10162,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit163.i:               ; preds = %450, %420, %_ZNSt6v
           to label %459 unwind label %456
 
 459:                                              ; preds = %458
-  %460 = getelementptr inbounds i8, ptr %36, i64 112
+  %460 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %460) #16
-  %461 = getelementptr inbounds i8, ptr %36, i64 72
+  %461 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %461) #16
-  %462 = getelementptr inbounds i8, ptr %36, i64 48
+  %462 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %462) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 459, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -10189,11 +10189,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit163.i:               ; preds = %450, %420, %_ZNSt6v
 
 468:                                              ; preds = %464
   store ptr %465, ptr %48, align 8
-  %469 = getelementptr inbounds i8, ptr %465, i64 4
-  %470 = getelementptr inbounds i8, ptr %48, i64 16
+  %469 = getelementptr inbounds nuw i8, ptr %465, i64 4
+  %470 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %469, ptr %470, align 8
   store i32 1325855744, ptr %465, align 4
-  %471 = getelementptr inbounds i8, ptr %48, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %469, ptr %471, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %472 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -10214,14 +10214,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit163.i:               ; preds = %450, %420, %_ZNSt6v
           to label %476 unwind label %498
 
 476:                                              ; preds = %475
-  %477 = getelementptr inbounds i8, ptr %45, i64 8
+  %477 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %477) #16
   %478 = load ptr, ptr %49, align 8
   %.not.i.i.i178.i = icmp eq ptr %478, null
   br i1 %.not.i.i.i178.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit179.i, label %479
 
 479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %49, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %481 = load ptr, ptr %480, align 8
   %482 = ptrtoint ptr %481 to i64
   %483 = ptrtoint ptr %478 to i64
@@ -10266,7 +10266,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit179.i:               ; preds = %479, %476
 498:                                              ; preds = %475
   %499 = landingpad { ptr, i32 }
           catch ptr null
-  %500 = getelementptr inbounds i8, ptr %45, i64 8
+  %500 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %500) #16
   br label %501
 
@@ -10277,7 +10277,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit179.i:               ; preds = %479, %476
   br i1 %.not.i.i.i183.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit184.i, label %503
 
 503:                                              ; preds = %501
-  %504 = getelementptr inbounds i8, ptr %49, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %505 = load ptr, ptr %504, align 8
   %506 = ptrtoint ptr %505 to i64
   %507 = ptrtoint ptr %502 to i64
@@ -10336,11 +10336,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit182.i:               ; preds = %516, %486, %_ZNSt6v
           to label %525 unwind label %522
 
 525:                                              ; preds = %524
-  %526 = getelementptr inbounds i8, ptr %43, i64 112
+  %526 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %526) #16
-  %527 = getelementptr inbounds i8, ptr %43, i64 72
+  %527 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %527) #16
-  %528 = getelementptr inbounds i8, ptr %43, i64 48
+  %528 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %528) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 460, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -10363,11 +10363,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit182.i:               ; preds = %516, %486, %_ZNSt6v
 
 534:                                              ; preds = %530
   store ptr %531, ptr %55, align 8
-  %535 = getelementptr inbounds i8, ptr %531, i64 4
-  %536 = getelementptr inbounds i8, ptr %55, i64 16
+  %535 = getelementptr inbounds nuw i8, ptr %531, i64 4
+  %536 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %535, ptr %536, align 8
   store i32 1325660128, ptr %531, align 4
-  %537 = getelementptr inbounds i8, ptr %55, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %535, ptr %537, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %538 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -10388,14 +10388,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit182.i:               ; preds = %516, %486, %_ZNSt6v
           to label %542 unwind label %564
 
 542:                                              ; preds = %541
-  %543 = getelementptr inbounds i8, ptr %52, i64 8
+  %543 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %543) #16
   %544 = load ptr, ptr %56, align 8
   %.not.i.i.i197.i = icmp eq ptr %544, null
   br i1 %.not.i.i.i197.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit198.i, label %545
 
 545:                                              ; preds = %542
-  %546 = getelementptr inbounds i8, ptr %56, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %547 = load ptr, ptr %546, align 8
   %548 = ptrtoint ptr %547 to i64
   %549 = ptrtoint ptr %544 to i64
@@ -10440,7 +10440,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit198.i:               ; preds = %545, %542
 564:                                              ; preds = %541
   %565 = landingpad { ptr, i32 }
           catch ptr null
-  %566 = getelementptr inbounds i8, ptr %52, i64 8
+  %566 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %566) #16
   br label %567
 
@@ -10451,7 +10451,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit198.i:               ; preds = %545, %542
   br i1 %.not.i.i.i202.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit203.i, label %569
 
 569:                                              ; preds = %567
-  %570 = getelementptr inbounds i8, ptr %56, i64 16
+  %570 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %571 = load ptr, ptr %570, align 8
   %572 = ptrtoint ptr %571 to i64
   %573 = ptrtoint ptr %568 to i64
@@ -10510,11 +10510,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
           to label %591 unwind label %588
 
 591:                                              ; preds = %590
-  %592 = getelementptr inbounds i8, ptr %50, i64 112
+  %592 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %592) #16
-  %593 = getelementptr inbounds i8, ptr %50, i64 72
+  %593 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %593) #16
-  %594 = getelementptr inbounds i8, ptr %50, i64 48
+  %594 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %594) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %57, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 462, ptr noundef nonnull @.str.244, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %58)
@@ -10545,7 +10545,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
           to label %602 unwind label %609
 
 602:                                              ; preds = %601
-  %603 = getelementptr inbounds i8, ptr %59, i64 8
+  %603 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %603) #16
   br label %615
 
@@ -10568,7 +10568,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
 609:                                              ; preds = %601
   %610 = landingpad { ptr, i32 }
           catch ptr null
-  %611 = getelementptr inbounds i8, ptr %59, i64 8
+  %611 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %611) #16
   br label %612
 
@@ -10610,11 +10610,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
           to label %624 unwind label %621
 
 624:                                              ; preds = %623
-  %625 = getelementptr inbounds i8, ptr %57, i64 112
+  %625 = getelementptr inbounds nuw i8, ptr %57, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %625) #16
-  %626 = getelementptr inbounds i8, ptr %57, i64 72
+  %626 = getelementptr inbounds nuw i8, ptr %57, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %626) #16
-  %627 = getelementptr inbounds i8, ptr %57, i64 48
+  %627 = getelementptr inbounds nuw i8, ptr %57, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %627) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %62, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 463, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %63)
@@ -10645,7 +10645,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
           to label %635 unwind label %642
 
 635:                                              ; preds = %634
-  %636 = getelementptr inbounds i8, ptr %64, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %636) #16
   br label %648
 
@@ -10668,7 +10668,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
 642:                                              ; preds = %634
   %643 = landingpad { ptr, i32 }
           catch ptr null
-  %644 = getelementptr inbounds i8, ptr %64, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %644) #16
   br label %645
 
@@ -10726,11 +10726,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit201.i:               ; preds = %582, %552, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEv.exit: ; preds = %656
-  %662 = getelementptr inbounds i8, ptr %62, i64 112
+  %662 = getelementptr inbounds nuw i8, ptr %62, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %662) #16
-  %663 = getelementptr inbounds i8, ptr %62, i64 72
+  %663 = getelementptr inbounds nuw i8, ptr %62, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %663) #16
-  %664 = getelementptr inbounds i8, ptr %62, i64 48
+  %664 = getelementptr inbounds nuw i8, ptr %62, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %664) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -10937,11 +10937,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_58Ev() #2 personality
 
 63:                                               ; preds = %59
   store ptr %60, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 4
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %64, ptr %65, align 8
   store i32 -1186983904, ptr %60, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %64, ptr %66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %67 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -10962,14 +10962,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_58Ev() #2 personality
           to label %71 unwind label %92
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #16
   %73 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %73 to i64
@@ -11009,7 +11009,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
 92:                                               ; preds = %70
   %93 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = getelementptr inbounds i8, ptr %3, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #16
   br label %95
 
@@ -11020,7 +11020,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %74, %71
   br i1 %.not.i.i.i59.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit60.i, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %7, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -11079,11 +11079,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %119 unwind label %116
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %1, i64 112
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %120) #16
-  %121 = getelementptr inbounds i8, ptr %1, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %121) #16
-  %122 = getelementptr inbounds i8, ptr %1, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 469, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -11106,11 +11106,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
 
 128:                                              ; preds = %124
   store ptr %125, ptr %13, align 8
-  %129 = getelementptr inbounds i8, ptr %125, i64 4
-  %130 = getelementptr inbounds i8, ptr %13, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %129, ptr %130, align 8
   store i32 -113244128, ptr %125, align 4
-  %131 = getelementptr inbounds i8, ptr %13, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %129, ptr %131, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %132 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -11131,14 +11131,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %110, %81, %_ZNSt6ve
           to label %136 unwind label %158
 
 136:                                              ; preds = %135
-  %137 = getelementptr inbounds i8, ptr %10, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %137) #16
   %138 = load ptr, ptr %14, align 8
   %.not.i.i.i73.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i73.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit74.i, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %14, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -11183,7 +11183,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
 158:                                              ; preds = %135
   %159 = landingpad { ptr, i32 }
           catch ptr null
-  %160 = getelementptr inbounds i8, ptr %10, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #16
   br label %161
 
@@ -11194,7 +11194,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit74.i:                ; preds = %139, %136
   br i1 %.not.i.i.i78.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit79.i, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %14, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = ptrtoint ptr %162 to i64
@@ -11253,11 +11253,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %185 unwind label %182
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %8, i64 112
+  %186 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %186) #16
-  %187 = getelementptr inbounds i8, ptr %8, i64 72
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #16
-  %188 = getelementptr inbounds i8, ptr %8, i64 48
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 470, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -11280,11 +11280,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
 
 194:                                              ; preds = %190
   store ptr %191, ptr %20, align 8
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
-  %196 = getelementptr inbounds i8, ptr %20, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %195, ptr %196, align 8
   store i32 -46135264, ptr %191, align 4
-  %197 = getelementptr inbounds i8, ptr %20, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %195, ptr %197, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %198 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -11305,14 +11305,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit77.i:                ; preds = %176, %146, %_ZNSt6v
           to label %202 unwind label %224
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %17, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %203) #16
   %204 = load ptr, ptr %21, align 8
   %.not.i.i.i92.i = icmp eq ptr %204, null
   br i1 %.not.i.i.i92.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit93.i, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %21, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
@@ -11357,7 +11357,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
 224:                                              ; preds = %201
   %225 = landingpad { ptr, i32 }
           catch ptr null
-  %226 = getelementptr inbounds i8, ptr %17, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #16
   br label %227
 
@@ -11368,7 +11368,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit93.i:                ; preds = %205, %202
   br i1 %.not.i.i.i97.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit98.i, label %229
 
 229:                                              ; preds = %227
-  %230 = getelementptr inbounds i8, ptr %21, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = ptrtoint ptr %231 to i64
   %233 = ptrtoint ptr %228 to i64
@@ -11427,11 +11427,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %251 unwind label %248
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds i8, ptr %15, i64 112
+  %252 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %252) #16
-  %253 = getelementptr inbounds i8, ptr %15, i64 72
+  %253 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #16
-  %254 = getelementptr inbounds i8, ptr %15, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 471, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -11454,11 +11454,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
 
 260:                                              ; preds = %256
   store ptr %257, ptr %27, align 8
-  %261 = getelementptr inbounds i8, ptr %257, i64 4
-  %262 = getelementptr inbounds i8, ptr %27, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %261, ptr %262, align 8
   store i32 1035994144, ptr %257, align 4
-  %263 = getelementptr inbounds i8, ptr %27, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %261, ptr %263, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %264 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -11479,14 +11479,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit96.i:                ; preds = %242, %212, %_ZNSt6v
           to label %268 unwind label %290
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds i8, ptr %24, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %269) #16
   %270 = load ptr, ptr %28, align 8
   %.not.i.i.i111.i = icmp eq ptr %270, null
   br i1 %.not.i.i.i111.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit112.i, label %271
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %28, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %270 to i64
@@ -11531,7 +11531,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
 290:                                              ; preds = %267
   %291 = landingpad { ptr, i32 }
           catch ptr null
-  %292 = getelementptr inbounds i8, ptr %24, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %292) #16
   br label %293
 
@@ -11542,7 +11542,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit112.i:               ; preds = %271, %268
   br i1 %.not.i.i.i116.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit117.i, label %295
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds i8, ptr %28, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = ptrtoint ptr %297 to i64
   %299 = ptrtoint ptr %294 to i64
@@ -11601,11 +11601,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %317 unwind label %314
 
 317:                                              ; preds = %316
-  %318 = getelementptr inbounds i8, ptr %22, i64 112
+  %318 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %318) #16
-  %319 = getelementptr inbounds i8, ptr %22, i64 72
+  %319 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #16
-  %320 = getelementptr inbounds i8, ptr %22, i64 48
+  %320 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 473, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -11628,11 +11628,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
 
 326:                                              ; preds = %322
   store ptr %323, ptr %34, align 8
-  %327 = getelementptr inbounds i8, ptr %323, i64 4
-  %328 = getelementptr inbounds i8, ptr %34, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %323, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %327, ptr %328, align 8
   store i32 -1191178208, ptr %323, align 4
-  %329 = getelementptr inbounds i8, ptr %34, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %327, ptr %329, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %330 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -11653,14 +11653,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit115.i:               ; preds = %308, %278, %_ZNSt6v
           to label %334 unwind label %356
 
 334:                                              ; preds = %333
-  %335 = getelementptr inbounds i8, ptr %31, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %335) #16
   %336 = load ptr, ptr %35, align 8
   %.not.i.i.i130.i = icmp eq ptr %336, null
   br i1 %.not.i.i.i130.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit131.i, label %337
 
 337:                                              ; preds = %334
-  %338 = getelementptr inbounds i8, ptr %35, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %336 to i64
@@ -11705,7 +11705,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
 356:                                              ; preds = %333
   %357 = landingpad { ptr, i32 }
           catch ptr null
-  %358 = getelementptr inbounds i8, ptr %31, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %358) #16
   br label %359
 
@@ -11716,7 +11716,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit131.i:               ; preds = %337, %334
   br i1 %.not.i.i.i135.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit136.i, label %361
 
 361:                                              ; preds = %359
-  %362 = getelementptr inbounds i8, ptr %35, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = ptrtoint ptr %363 to i64
   %365 = ptrtoint ptr %360 to i64
@@ -11775,11 +11775,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %383 unwind label %380
 
 383:                                              ; preds = %382
-  %384 = getelementptr inbounds i8, ptr %29, i64 112
+  %384 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %384) #16
-  %385 = getelementptr inbounds i8, ptr %29, i64 72
+  %385 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %385) #16
-  %386 = getelementptr inbounds i8, ptr %29, i64 48
+  %386 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 474, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -11802,11 +11802,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
 
 392:                                              ; preds = %388
   store ptr %389, ptr %41, align 8
-  %393 = getelementptr inbounds i8, ptr %389, i64 4
-  %394 = getelementptr inbounds i8, ptr %41, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %393, ptr %394, align 8
   store i32 -117438432, ptr %389, align 4
-  %395 = getelementptr inbounds i8, ptr %41, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %393, ptr %395, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %396 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -11827,14 +11827,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit134.i:               ; preds = %374, %344, %_ZNSt6v
           to label %400 unwind label %422
 
 400:                                              ; preds = %399
-  %401 = getelementptr inbounds i8, ptr %38, i64 8
+  %401 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %401) #16
   %402 = load ptr, ptr %42, align 8
   %.not.i.i.i149.i = icmp eq ptr %402, null
   br i1 %.not.i.i.i149.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit150.i, label %403
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %42, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %405 = load ptr, ptr %404, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = ptrtoint ptr %402 to i64
@@ -11879,7 +11879,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
 422:                                              ; preds = %399
   %423 = landingpad { ptr, i32 }
           catch ptr null
-  %424 = getelementptr inbounds i8, ptr %38, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %424) #16
   br label %425
 
@@ -11890,7 +11890,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit150.i:               ; preds = %403, %400
   br i1 %.not.i.i.i154.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit155.i, label %427
 
 427:                                              ; preds = %425
-  %428 = getelementptr inbounds i8, ptr %42, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %429 = load ptr, ptr %428, align 8
   %430 = ptrtoint ptr %429 to i64
   %431 = ptrtoint ptr %426 to i64
@@ -11949,11 +11949,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %449 unwind label %446
 
 449:                                              ; preds = %448
-  %450 = getelementptr inbounds i8, ptr %36, i64 112
+  %450 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %450) #16
-  %451 = getelementptr inbounds i8, ptr %36, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %451) #16
-  %452 = getelementptr inbounds i8, ptr %36, i64 48
+  %452 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %452) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 475, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -11976,11 +11976,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
 
 458:                                              ; preds = %454
   store ptr %455, ptr %48, align 8
-  %459 = getelementptr inbounds i8, ptr %455, i64 4
-  %460 = getelementptr inbounds i8, ptr %48, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %459, ptr %460, align 8
   store i32 -50329568, ptr %455, align 4
-  %461 = getelementptr inbounds i8, ptr %48, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %459, ptr %461, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %462 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -12001,14 +12001,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit153.i:               ; preds = %440, %410, %_ZNSt6v
           to label %466 unwind label %488
 
 466:                                              ; preds = %465
-  %467 = getelementptr inbounds i8, ptr %45, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %467) #16
   %468 = load ptr, ptr %49, align 8
   %.not.i.i.i168.i = icmp eq ptr %468, null
   br i1 %.not.i.i.i168.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit169.i, label %469
 
 469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %49, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %471 = load ptr, ptr %470, align 8
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %468 to i64
@@ -12053,7 +12053,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
 488:                                              ; preds = %465
   %489 = landingpad { ptr, i32 }
           catch ptr null
-  %490 = getelementptr inbounds i8, ptr %45, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %490) #16
   br label %491
 
@@ -12064,7 +12064,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit169.i:               ; preds = %469, %466
   br i1 %.not.i.i.i173.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit174.i, label %493
 
 493:                                              ; preds = %491
-  %494 = getelementptr inbounds i8, ptr %49, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %495 = load ptr, ptr %494, align 8
   %496 = ptrtoint ptr %495 to i64
   %497 = ptrtoint ptr %492 to i64
@@ -12123,11 +12123,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %515 unwind label %512
 
 515:                                              ; preds = %514
-  %516 = getelementptr inbounds i8, ptr %43, i64 112
+  %516 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %516) #16
-  %517 = getelementptr inbounds i8, ptr %43, i64 72
+  %517 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %517) #16
-  %518 = getelementptr inbounds i8, ptr %43, i64 48
+  %518 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %518) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 476, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -12150,11 +12150,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
 
 524:                                              ; preds = %520
   store ptr %521, ptr %55, align 8
-  %525 = getelementptr inbounds i8, ptr %521, i64 4
-  %526 = getelementptr inbounds i8, ptr %55, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %521, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %525, ptr %526, align 8
   store i32 1031799840, ptr %521, align 4
-  %527 = getelementptr inbounds i8, ptr %55, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %525, ptr %527, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %528 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -12175,14 +12175,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit172.i:               ; preds = %506, %476, %_ZNSt6v
           to label %532 unwind label %554
 
 532:                                              ; preds = %531
-  %533 = getelementptr inbounds i8, ptr %52, i64 8
+  %533 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %533) #16
   %534 = load ptr, ptr %56, align 8
   %.not.i.i.i187.i = icmp eq ptr %534, null
   br i1 %.not.i.i.i187.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit188.i, label %535
 
 535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %56, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %537 = load ptr, ptr %536, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %534 to i64
@@ -12227,7 +12227,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
 554:                                              ; preds = %531
   %555 = landingpad { ptr, i32 }
           catch ptr null
-  %556 = getelementptr inbounds i8, ptr %52, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %556) #16
   br label %557
 
@@ -12238,7 +12238,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit188.i:               ; preds = %535, %532
   br i1 %.not.i.i.i192.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit193.i, label %559
 
 559:                                              ; preds = %557
-  %560 = getelementptr inbounds i8, ptr %56, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %561 = load ptr, ptr %560, align 8
   %562 = ptrtoint ptr %561 to i64
   %563 = ptrtoint ptr %558 to i64
@@ -12313,11 +12313,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit191.i:               ; preds = %572, %542, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_571fEv.exit: ; preds = %580
-  %586 = getelementptr inbounds i8, ptr %50, i64 112
+  %586 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %586) #16
-  %587 = getelementptr inbounds i8, ptr %50, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %587) #16
-  %588 = getelementptr inbounds i8, ptr %50, i64 48
+  %588 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %588) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -12458,11 +12458,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_61Ev() #2 personality
 
 35:                                               ; preds = %31
   store ptr %32, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %36, ptr %37, align 8
   store i32 -1702756320, ptr %32, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %36, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %39 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -12483,14 +12483,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_61Ev() #2 personality
           to label %43 unwind label %64
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #16
   %45 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %45 to i64
@@ -12530,7 +12530,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %46, %43
 64:                                               ; preds = %42
   %65 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #16
   br label %67
 
@@ -12541,7 +12541,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %46, %43
   br i1 %.not.i.i.i31.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit32.i, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %7, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %68 to i64
@@ -12600,11 +12600,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
           to label %91 unwind label %88
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %1, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %92) #16
-  %93 = getelementptr inbounds i8, ptr %1, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #16
-  %94 = getelementptr inbounds i8, ptr %1, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 482, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -12627,11 +12627,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
 
 100:                                              ; preds = %96
   store ptr %97, ptr %13, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 4
-  %102 = getelementptr inbounds i8, ptr %13, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %101, ptr %102, align 8
   store i32 444727328, ptr %97, align 4
-  %103 = getelementptr inbounds i8, ptr %13, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %101, ptr %103, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %104 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -12652,14 +12652,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %82, %53, %_ZNSt6vec
           to label %108 unwind label %130
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %10, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #16
   %110 = load ptr, ptr %14, align 8
   %.not.i.i.i45.i = icmp eq ptr %110, null
   br i1 %.not.i.i.i45.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit46.i, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %14, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
@@ -12704,7 +12704,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %111, %108
 130:                                              ; preds = %107
   %131 = landingpad { ptr, i32 }
           catch ptr null
-  %132 = getelementptr inbounds i8, ptr %10, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #16
   br label %133
 
@@ -12715,7 +12715,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit46.i:                ; preds = %111, %108
   br i1 %.not.i.i.i50.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit51.i, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %14, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = ptrtoint ptr %137 to i64
   %139 = ptrtoint ptr %134 to i64
@@ -12774,11 +12774,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
           to label %157 unwind label %154
 
 157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %8, i64 112
+  %158 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %158) #16
-  %159 = getelementptr inbounds i8, ptr %8, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %159) #16
-  %160 = getelementptr inbounds i8, ptr %8, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %160) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 483, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -12801,11 +12801,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
 
 166:                                              ; preds = %162
   store ptr %163, ptr %20, align 8
-  %167 = getelementptr inbounds i8, ptr %163, i64 4
-  %168 = getelementptr inbounds i8, ptr %20, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %167, ptr %168, align 8
   store i32 509742112, ptr %163, align 4
-  %169 = getelementptr inbounds i8, ptr %20, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %167, ptr %169, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %170 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -12826,14 +12826,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit49.i:                ; preds = %148, %118, %_ZNSt6v
           to label %174 unwind label %196
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %17, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %175) #16
   %176 = load ptr, ptr %21, align 8
   %.not.i.i.i64.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i64.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit65.i, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %21, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = ptrtoint ptr %179 to i64
   %181 = ptrtoint ptr %176 to i64
@@ -12878,7 +12878,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit65.i:                ; preds = %177, %174
 196:                                              ; preds = %173
   %197 = landingpad { ptr, i32 }
           catch ptr null
-  %198 = getelementptr inbounds i8, ptr %17, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
   br label %199
 
@@ -12889,7 +12889,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit65.i:                ; preds = %177, %174
   br i1 %.not.i.i.i69.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit70.i, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %21, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = ptrtoint ptr %203 to i64
   %205 = ptrtoint ptr %200 to i64
@@ -12948,11 +12948,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
           to label %223 unwind label %220
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %15, i64 112
+  %224 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %224) #16
-  %225 = getelementptr inbounds i8, ptr %15, i64 72
+  %225 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #16
-  %226 = getelementptr inbounds i8, ptr %15, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %226) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 485, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -12975,11 +12975,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
 
 232:                                              ; preds = %228
   store ptr %229, ptr %27, align 8
-  %233 = getelementptr inbounds i8, ptr %229, i64 4
-  %234 = getelementptr inbounds i8, ptr %27, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %233, ptr %234, align 8
   store i32 -1700812831, ptr %229, align 4
-  %235 = getelementptr inbounds i8, ptr %27, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %233, ptr %235, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %236 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -13000,14 +13000,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit68.i:                ; preds = %214, %184, %_ZNSt6v
           to label %240 unwind label %262
 
 240:                                              ; preds = %239
-  %241 = getelementptr inbounds i8, ptr %24, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %241) #16
   %242 = load ptr, ptr %28, align 8
   %.not.i.i.i83.i = icmp eq ptr %242, null
   br i1 %.not.i.i.i83.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit84.i, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %28, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %245 = load ptr, ptr %244, align 8
   %246 = ptrtoint ptr %245 to i64
   %247 = ptrtoint ptr %242 to i64
@@ -13052,7 +13052,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %243, %240
 262:                                              ; preds = %239
   %263 = landingpad { ptr, i32 }
           catch ptr null
-  %264 = getelementptr inbounds i8, ptr %24, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %264) #16
   br label %265
 
@@ -13063,7 +13063,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit84.i:                ; preds = %243, %240
   br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit89.i, label %267
 
 267:                                              ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %28, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %269 = load ptr, ptr %268, align 8
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %266 to i64
@@ -13138,11 +13138,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit87.i:                ; preds = %280, %250, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_601fEv.exit: ; preds = %288
-  %294 = getelementptr inbounds i8, ptr %22, i64 112
+  %294 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %294) #16
-  %295 = getelementptr inbounds i8, ptr %22, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #16
-  %296 = getelementptr inbounds i8, ptr %22, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -13213,11 +13213,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_64Ev() #2 personality
 
 14:                                               ; preds = %10
   store ptr %11, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
   store i32 0, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %18 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_631fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -13238,14 +13238,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_64Ev() #2 personality
           to label %22 unwind label %43
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
   %24 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
@@ -13285,7 +13285,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %25, %22
 43:                                               ; preds = %21
   %44 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #16
   br label %46
 
@@ -13296,7 +13296,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %25, %22
   br i1 %.not.i.i.i10.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit11.i, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %47 to i64
@@ -13371,11 +13371,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %61, %32, %_ZNSt6vec
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_631fEv.exit: ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %1, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %75) #16
-  %76 = getelementptr inbounds i8, ptr %1, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #16
-  %77 = getelementptr inbounds i8, ptr %1, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -13579,11 +13579,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_67Ev() #2 personality
 
 91:                                               ; preds = %87
   store ptr %88, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %88, i64 4
-  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %92, ptr %93, align 8
   store i32 -130019296, ptr %88, align 4
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %92, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %95 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -13604,14 +13604,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_67Ev() #2 personality
           to label %99 unwind label %120
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #16
   %101 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %7, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %101 to i64
@@ -13651,7 +13651,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %102, %99
 120:                                              ; preds = %98
   %121 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = getelementptr inbounds i8, ptr %3, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %122) #16
   br label %123
 
@@ -13662,7 +13662,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %102, %99
   br i1 %.not.i.i.i87.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit88.i, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %7, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %124 to i64
@@ -13721,11 +13721,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %138, %109, %_ZNSt6v
           to label %147 unwind label %144
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds i8, ptr %1, i64 112
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %148) #16
-  %149 = getelementptr inbounds i8, ptr %1, i64 72
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #16
-  %150 = getelementptr inbounds i8, ptr %1, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 496, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -13748,11 +13748,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %138, %109, %_ZNSt6v
 
 156:                                              ; preds = %152
   store ptr %153, ptr %13, align 8
-  %157 = getelementptr inbounds i8, ptr %153, i64 4
-  %158 = getelementptr inbounds i8, ptr %13, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %157, ptr %158, align 8
   store i32 -130016224, ptr %153, align 4
-  %159 = getelementptr inbounds i8, ptr %13, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %157, ptr %159, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %160 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -13773,14 +13773,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %138, %109, %_ZNSt6v
           to label %164 unwind label %186
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %10, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #16
   %166 = load ptr, ptr %14, align 8
   %.not.i.i.i101.i = icmp eq ptr %166, null
   br i1 %.not.i.i.i101.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit102.i, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %14, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %169 = load ptr, ptr %168, align 8
   %170 = ptrtoint ptr %169 to i64
   %171 = ptrtoint ptr %166 to i64
@@ -13825,7 +13825,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit102.i:               ; preds = %167, %164
 186:                                              ; preds = %163
   %187 = landingpad { ptr, i32 }
           catch ptr null
-  %188 = getelementptr inbounds i8, ptr %10, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %188) #16
   br label %189
 
@@ -13836,7 +13836,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit102.i:               ; preds = %167, %164
   br i1 %.not.i.i.i106.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit107.i, label %191
 
 191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %14, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %193 = load ptr, ptr %192, align 8
   %194 = ptrtoint ptr %193 to i64
   %195 = ptrtoint ptr %190 to i64
@@ -13895,11 +13895,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit105.i:               ; preds = %204, %174, %_ZNSt6v
           to label %213 unwind label %210
 
 213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %8, i64 112
+  %214 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %214) #16
-  %215 = getelementptr inbounds i8, ptr %8, i64 72
+  %215 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %215) #16
-  %216 = getelementptr inbounds i8, ptr %8, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %216) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 497, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -13922,11 +13922,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit105.i:               ; preds = %204, %174, %_ZNSt6v
 
 222:                                              ; preds = %218
   store ptr %219, ptr %20, align 8
-  %223 = getelementptr inbounds i8, ptr %219, i64 4
-  %224 = getelementptr inbounds i8, ptr %20, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %223, ptr %224, align 8
   store i32 -130018272, ptr %219, align 4
-  %225 = getelementptr inbounds i8, ptr %20, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %223, ptr %225, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %226 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -13947,14 +13947,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit105.i:               ; preds = %204, %174, %_ZNSt6v
           to label %230 unwind label %252
 
 230:                                              ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %17, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %231) #16
   %232 = load ptr, ptr %21, align 8
   %.not.i.i.i120.i = icmp eq ptr %232, null
   br i1 %.not.i.i.i120.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit121.i, label %233
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %21, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = ptrtoint ptr %235 to i64
   %237 = ptrtoint ptr %232 to i64
@@ -13999,7 +13999,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit121.i:               ; preds = %233, %230
 252:                                              ; preds = %229
   %253 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = getelementptr inbounds i8, ptr %17, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %254) #16
   br label %255
 
@@ -14010,7 +14010,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit121.i:               ; preds = %233, %230
   br i1 %.not.i.i.i125.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit126.i, label %257
 
 257:                                              ; preds = %255
-  %258 = getelementptr inbounds i8, ptr %21, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = ptrtoint ptr %259 to i64
   %261 = ptrtoint ptr %256 to i64
@@ -14069,11 +14069,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit124.i:               ; preds = %270, %240, %_ZNSt6v
           to label %279 unwind label %276
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds i8, ptr %15, i64 112
+  %280 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %280) #16
-  %281 = getelementptr inbounds i8, ptr %15, i64 72
+  %281 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %281) #16
-  %282 = getelementptr inbounds i8, ptr %15, i64 48
+  %282 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %282) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 499, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -14096,11 +14096,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit124.i:               ; preds = %270, %240, %_ZNSt6v
 
 288:                                              ; preds = %284
   store ptr %285, ptr %27, align 8
-  %289 = getelementptr inbounds i8, ptr %285, i64 4
-  %290 = getelementptr inbounds i8, ptr %27, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %289, ptr %290, align 8
   store i32 1019220000, ptr %285, align 4
-  %291 = getelementptr inbounds i8, ptr %27, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %289, ptr %291, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %292 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -14121,14 +14121,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit124.i:               ; preds = %270, %240, %_ZNSt6v
           to label %296 unwind label %318
 
 296:                                              ; preds = %295
-  %297 = getelementptr inbounds i8, ptr %24, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %297) #16
   %298 = load ptr, ptr %28, align 8
   %.not.i.i.i139.i = icmp eq ptr %298, null
   br i1 %.not.i.i.i139.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit140.i, label %299
 
 299:                                              ; preds = %296
-  %300 = getelementptr inbounds i8, ptr %28, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %301 = load ptr, ptr %300, align 8
   %302 = ptrtoint ptr %301 to i64
   %303 = ptrtoint ptr %298 to i64
@@ -14173,7 +14173,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit140.i:               ; preds = %299, %296
 318:                                              ; preds = %295
   %319 = landingpad { ptr, i32 }
           catch ptr null
-  %320 = getelementptr inbounds i8, ptr %24, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %320) #16
   br label %321
 
@@ -14184,7 +14184,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit140.i:               ; preds = %299, %296
   br i1 %.not.i.i.i144.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit145.i, label %323
 
 323:                                              ; preds = %321
-  %324 = getelementptr inbounds i8, ptr %28, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %325 = load ptr, ptr %324, align 8
   %326 = ptrtoint ptr %325 to i64
   %327 = ptrtoint ptr %322 to i64
@@ -14243,11 +14243,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit143.i:               ; preds = %336, %306, %_ZNSt6v
           to label %345 unwind label %342
 
 345:                                              ; preds = %344
-  %346 = getelementptr inbounds i8, ptr %22, i64 112
+  %346 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %346) #16
-  %347 = getelementptr inbounds i8, ptr %22, i64 72
+  %347 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %347) #16
-  %348 = getelementptr inbounds i8, ptr %22, i64 48
+  %348 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %348) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 500, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -14270,11 +14270,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit143.i:               ; preds = %336, %306, %_ZNSt6v
 
 354:                                              ; preds = %350
   store ptr %351, ptr %34, align 8
-  %355 = getelementptr inbounds i8, ptr %351, i64 4
-  %356 = getelementptr inbounds i8, ptr %34, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %351, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %355, ptr %356, align 8
   store i32 1019223072, ptr %351, align 4
-  %357 = getelementptr inbounds i8, ptr %34, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %355, ptr %357, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %358 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -14295,14 +14295,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit143.i:               ; preds = %336, %306, %_ZNSt6v
           to label %362 unwind label %384
 
 362:                                              ; preds = %361
-  %363 = getelementptr inbounds i8, ptr %31, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %363) #16
   %364 = load ptr, ptr %35, align 8
   %.not.i.i.i158.i = icmp eq ptr %364, null
   br i1 %.not.i.i.i158.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit159.i, label %365
 
 365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %35, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %367 = load ptr, ptr %366, align 8
   %368 = ptrtoint ptr %367 to i64
   %369 = ptrtoint ptr %364 to i64
@@ -14347,7 +14347,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit159.i:               ; preds = %365, %362
 384:                                              ; preds = %361
   %385 = landingpad { ptr, i32 }
           catch ptr null
-  %386 = getelementptr inbounds i8, ptr %31, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %386) #16
   br label %387
 
@@ -14358,7 +14358,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit159.i:               ; preds = %365, %362
   br i1 %.not.i.i.i163.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit164.i, label %389
 
 389:                                              ; preds = %387
-  %390 = getelementptr inbounds i8, ptr %35, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %391 = load ptr, ptr %390, align 8
   %392 = ptrtoint ptr %391 to i64
   %393 = ptrtoint ptr %388 to i64
@@ -14417,11 +14417,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit162.i:               ; preds = %402, %372, %_ZNSt6v
           to label %411 unwind label %408
 
 411:                                              ; preds = %410
-  %412 = getelementptr inbounds i8, ptr %29, i64 112
+  %412 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %412) #16
-  %413 = getelementptr inbounds i8, ptr %29, i64 72
+  %413 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %413) #16
-  %414 = getelementptr inbounds i8, ptr %29, i64 48
+  %414 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %414) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %36, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 501, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %37)
@@ -14444,11 +14444,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit162.i:               ; preds = %402, %372, %_ZNSt6v
 
 420:                                              ; preds = %416
   store ptr %417, ptr %41, align 8
-  %421 = getelementptr inbounds i8, ptr %417, i64 4
-  %422 = getelementptr inbounds i8, ptr %41, i64 16
+  %421 = getelementptr inbounds nuw i8, ptr %417, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %421, ptr %422, align 8
   store i32 1019221024, ptr %417, align 4
-  %423 = getelementptr inbounds i8, ptr %41, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %421, ptr %423, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %424 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 0)
@@ -14469,14 +14469,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit162.i:               ; preds = %402, %372, %_ZNSt6v
           to label %428 unwind label %450
 
 428:                                              ; preds = %427
-  %429 = getelementptr inbounds i8, ptr %38, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %429) #16
   %430 = load ptr, ptr %42, align 8
   %.not.i.i.i177.i = icmp eq ptr %430, null
   br i1 %.not.i.i.i177.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit178.i, label %431
 
 431:                                              ; preds = %428
-  %432 = getelementptr inbounds i8, ptr %42, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %433 = load ptr, ptr %432, align 8
   %434 = ptrtoint ptr %433 to i64
   %435 = ptrtoint ptr %430 to i64
@@ -14521,7 +14521,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit178.i:               ; preds = %431, %428
 450:                                              ; preds = %427
   %451 = landingpad { ptr, i32 }
           catch ptr null
-  %452 = getelementptr inbounds i8, ptr %38, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %452) #16
   br label %453
 
@@ -14532,7 +14532,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit178.i:               ; preds = %431, %428
   br i1 %.not.i.i.i182.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit183.i, label %455
 
 455:                                              ; preds = %453
-  %456 = getelementptr inbounds i8, ptr %42, i64 16
+  %456 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %457 = load ptr, ptr %456, align 8
   %458 = ptrtoint ptr %457 to i64
   %459 = ptrtoint ptr %454 to i64
@@ -14591,11 +14591,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit181.i:               ; preds = %468, %438, %_ZNSt6v
           to label %477 unwind label %474
 
 477:                                              ; preds = %476
-  %478 = getelementptr inbounds i8, ptr %36, i64 112
+  %478 = getelementptr inbounds nuw i8, ptr %36, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %478) #16
-  %479 = getelementptr inbounds i8, ptr %36, i64 72
+  %479 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %479) #16
-  %480 = getelementptr inbounds i8, ptr %36, i64 48
+  %480 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %480) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 503, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %44)
@@ -14618,11 +14618,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit181.i:               ; preds = %468, %438, %_ZNSt6v
 
 486:                                              ; preds = %482
   store ptr %483, ptr %48, align 8
-  %487 = getelementptr inbounds i8, ptr %483, i64 4
-  %488 = getelementptr inbounds i8, ptr %48, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %483, i64 4
+  %488 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %487, ptr %488, align 8
   store i32 -134213600, ptr %483, align 4
-  %489 = getelementptr inbounds i8, ptr %48, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %487, ptr %489, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %490 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 0)
@@ -14643,14 +14643,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit181.i:               ; preds = %468, %438, %_ZNSt6v
           to label %494 unwind label %516
 
 494:                                              ; preds = %493
-  %495 = getelementptr inbounds i8, ptr %45, i64 8
+  %495 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %495) #16
   %496 = load ptr, ptr %49, align 8
   %.not.i.i.i196.i = icmp eq ptr %496, null
   br i1 %.not.i.i.i196.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit197.i, label %497
 
 497:                                              ; preds = %494
-  %498 = getelementptr inbounds i8, ptr %49, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %499 = load ptr, ptr %498, align 8
   %500 = ptrtoint ptr %499 to i64
   %501 = ptrtoint ptr %496 to i64
@@ -14695,7 +14695,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit197.i:               ; preds = %497, %494
 516:                                              ; preds = %493
   %517 = landingpad { ptr, i32 }
           catch ptr null
-  %518 = getelementptr inbounds i8, ptr %45, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %518) #16
   br label %519
 
@@ -14706,7 +14706,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit197.i:               ; preds = %497, %494
   br i1 %.not.i.i.i201.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit202.i, label %521
 
 521:                                              ; preds = %519
-  %522 = getelementptr inbounds i8, ptr %49, i64 16
+  %522 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %523 = load ptr, ptr %522, align 8
   %524 = ptrtoint ptr %523 to i64
   %525 = ptrtoint ptr %520 to i64
@@ -14765,11 +14765,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit200.i:               ; preds = %534, %504, %_ZNSt6v
           to label %543 unwind label %540
 
 543:                                              ; preds = %542
-  %544 = getelementptr inbounds i8, ptr %43, i64 112
+  %544 = getelementptr inbounds nuw i8, ptr %43, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %544) #16
-  %545 = getelementptr inbounds i8, ptr %43, i64 72
+  %545 = getelementptr inbounds nuw i8, ptr %43, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %545) #16
-  %546 = getelementptr inbounds i8, ptr %43, i64 48
+  %546 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %546) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %50, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 504, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -14792,11 +14792,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit200.i:               ; preds = %534, %504, %_ZNSt6v
 
 552:                                              ; preds = %548
   store ptr %549, ptr %55, align 8
-  %553 = getelementptr inbounds i8, ptr %549, i64 4
-  %554 = getelementptr inbounds i8, ptr %55, i64 16
+  %553 = getelementptr inbounds nuw i8, ptr %549, i64 4
+  %554 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %553, ptr %554, align 8
   store i32 -134210528, ptr %549, align 4
-  %555 = getelementptr inbounds i8, ptr %55, i64 8
+  %555 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %553, ptr %555, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %556 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %55, ptr noundef nonnull %56, i32 noundef 0)
@@ -14817,14 +14817,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit200.i:               ; preds = %534, %504, %_ZNSt6v
           to label %560 unwind label %582
 
 560:                                              ; preds = %559
-  %561 = getelementptr inbounds i8, ptr %52, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %561) #16
   %562 = load ptr, ptr %56, align 8
   %.not.i.i.i215.i = icmp eq ptr %562, null
   br i1 %.not.i.i.i215.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit216.i, label %563
 
 563:                                              ; preds = %560
-  %564 = getelementptr inbounds i8, ptr %56, i64 16
+  %564 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %565 = load ptr, ptr %564, align 8
   %566 = ptrtoint ptr %565 to i64
   %567 = ptrtoint ptr %562 to i64
@@ -14869,7 +14869,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit216.i:               ; preds = %563, %560
 582:                                              ; preds = %559
   %583 = landingpad { ptr, i32 }
           catch ptr null
-  %584 = getelementptr inbounds i8, ptr %52, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %584) #16
   br label %585
 
@@ -14880,7 +14880,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit216.i:               ; preds = %563, %560
   br i1 %.not.i.i.i220.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit221.i, label %587
 
 587:                                              ; preds = %585
-  %588 = getelementptr inbounds i8, ptr %56, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %589 = load ptr, ptr %588, align 8
   %590 = ptrtoint ptr %589 to i64
   %591 = ptrtoint ptr %586 to i64
@@ -14939,11 +14939,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit219.i:               ; preds = %600, %570, %_ZNSt6v
           to label %609 unwind label %606
 
 609:                                              ; preds = %608
-  %610 = getelementptr inbounds i8, ptr %50, i64 112
+  %610 = getelementptr inbounds nuw i8, ptr %50, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %610) #16
-  %611 = getelementptr inbounds i8, ptr %50, i64 72
+  %611 = getelementptr inbounds nuw i8, ptr %50, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %611) #16
-  %612 = getelementptr inbounds i8, ptr %50, i64 48
+  %612 = getelementptr inbounds nuw i8, ptr %50, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %612) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %57, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 505, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %58)
@@ -14966,11 +14966,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit219.i:               ; preds = %600, %570, %_ZNSt6v
 
 618:                                              ; preds = %614
   store ptr %615, ptr %62, align 8
-  %619 = getelementptr inbounds i8, ptr %615, i64 4
-  %620 = getelementptr inbounds i8, ptr %62, i64 16
+  %619 = getelementptr inbounds nuw i8, ptr %615, i64 4
+  %620 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %619, ptr %620, align 8
   store i32 -134212576, ptr %615, align 4
-  %621 = getelementptr inbounds i8, ptr %62, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %619, ptr %621, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   %622 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %62, ptr noundef nonnull %63, i32 noundef 0)
@@ -14991,14 +14991,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit219.i:               ; preds = %600, %570, %_ZNSt6v
           to label %626 unwind label %648
 
 626:                                              ; preds = %625
-  %627 = getelementptr inbounds i8, ptr %59, i64 8
+  %627 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %627) #16
   %628 = load ptr, ptr %63, align 8
   %.not.i.i.i234.i = icmp eq ptr %628, null
   br i1 %.not.i.i.i234.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit235.i, label %629
 
 629:                                              ; preds = %626
-  %630 = getelementptr inbounds i8, ptr %63, i64 16
+  %630 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %631 = load ptr, ptr %630, align 8
   %632 = ptrtoint ptr %631 to i64
   %633 = ptrtoint ptr %628 to i64
@@ -15043,7 +15043,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit235.i:               ; preds = %629, %626
 648:                                              ; preds = %625
   %649 = landingpad { ptr, i32 }
           catch ptr null
-  %650 = getelementptr inbounds i8, ptr %59, i64 8
+  %650 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %650) #16
   br label %651
 
@@ -15054,7 +15054,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit235.i:               ; preds = %629, %626
   br i1 %.not.i.i.i239.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit240.i, label %653
 
 653:                                              ; preds = %651
-  %654 = getelementptr inbounds i8, ptr %63, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %655 = load ptr, ptr %654, align 8
   %656 = ptrtoint ptr %655 to i64
   %657 = ptrtoint ptr %652 to i64
@@ -15113,11 +15113,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit238.i:               ; preds = %666, %636, %_ZNSt6v
           to label %675 unwind label %672
 
 675:                                              ; preds = %674
-  %676 = getelementptr inbounds i8, ptr %57, i64 112
+  %676 = getelementptr inbounds nuw i8, ptr %57, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %676) #16
-  %677 = getelementptr inbounds i8, ptr %57, i64 72
+  %677 = getelementptr inbounds nuw i8, ptr %57, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %677) #16
-  %678 = getelementptr inbounds i8, ptr %57, i64 48
+  %678 = getelementptr inbounds nuw i8, ptr %57, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %678) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %64, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 507, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %65)
@@ -15140,11 +15140,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit238.i:               ; preds = %666, %636, %_ZNSt6v
 
 684:                                              ; preds = %680
   store ptr %681, ptr %69, align 8
-  %685 = getelementptr inbounds i8, ptr %681, i64 4
-  %686 = getelementptr inbounds i8, ptr %69, i64 16
+  %685 = getelementptr inbounds nuw i8, ptr %681, i64 4
+  %686 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %685, ptr %686, align 8
   store i32 1015025696, ptr %681, align 4
-  %687 = getelementptr inbounds i8, ptr %69, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %685, ptr %687, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   %688 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %69, ptr noundef nonnull %70, i32 noundef 0)
@@ -15165,14 +15165,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit238.i:               ; preds = %666, %636, %_ZNSt6v
           to label %692 unwind label %714
 
 692:                                              ; preds = %691
-  %693 = getelementptr inbounds i8, ptr %66, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %66, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %693) #16
   %694 = load ptr, ptr %70, align 8
   %.not.i.i.i253.i = icmp eq ptr %694, null
   br i1 %.not.i.i.i253.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit254.i, label %695
 
 695:                                              ; preds = %692
-  %696 = getelementptr inbounds i8, ptr %70, i64 16
+  %696 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %697 = load ptr, ptr %696, align 8
   %698 = ptrtoint ptr %697 to i64
   %699 = ptrtoint ptr %694 to i64
@@ -15217,7 +15217,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit254.i:               ; preds = %695, %692
 714:                                              ; preds = %691
   %715 = landingpad { ptr, i32 }
           catch ptr null
-  %716 = getelementptr inbounds i8, ptr %66, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %66, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %716) #16
   br label %717
 
@@ -15228,7 +15228,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit254.i:               ; preds = %695, %692
   br i1 %.not.i.i.i258.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit259.i, label %719
 
 719:                                              ; preds = %717
-  %720 = getelementptr inbounds i8, ptr %70, i64 16
+  %720 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %721 = load ptr, ptr %720, align 8
   %722 = ptrtoint ptr %721 to i64
   %723 = ptrtoint ptr %718 to i64
@@ -15287,11 +15287,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit257.i:               ; preds = %732, %702, %_ZNSt6v
           to label %741 unwind label %738
 
 741:                                              ; preds = %740
-  %742 = getelementptr inbounds i8, ptr %64, i64 112
+  %742 = getelementptr inbounds nuw i8, ptr %64, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %742) #16
-  %743 = getelementptr inbounds i8, ptr %64, i64 72
+  %743 = getelementptr inbounds nuw i8, ptr %64, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %743) #16
-  %744 = getelementptr inbounds i8, ptr %64, i64 48
+  %744 = getelementptr inbounds nuw i8, ptr %64, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %744) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %71, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 508, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %72)
@@ -15314,11 +15314,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit257.i:               ; preds = %732, %702, %_ZNSt6v
 
 750:                                              ; preds = %746
   store ptr %747, ptr %76, align 8
-  %751 = getelementptr inbounds i8, ptr %747, i64 4
-  %752 = getelementptr inbounds i8, ptr %76, i64 16
+  %751 = getelementptr inbounds nuw i8, ptr %747, i64 4
+  %752 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %751, ptr %752, align 8
   store i32 1015028768, ptr %747, align 4
-  %753 = getelementptr inbounds i8, ptr %76, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %751, ptr %753, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   %754 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %76, ptr noundef nonnull %77, i32 noundef 0)
@@ -15339,14 +15339,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit257.i:               ; preds = %732, %702, %_ZNSt6v
           to label %758 unwind label %780
 
 758:                                              ; preds = %757
-  %759 = getelementptr inbounds i8, ptr %73, i64 8
+  %759 = getelementptr inbounds nuw i8, ptr %73, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %759) #16
   %760 = load ptr, ptr %77, align 8
   %.not.i.i.i272.i = icmp eq ptr %760, null
   br i1 %.not.i.i.i272.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit273.i, label %761
 
 761:                                              ; preds = %758
-  %762 = getelementptr inbounds i8, ptr %77, i64 16
+  %762 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %763 = load ptr, ptr %762, align 8
   %764 = ptrtoint ptr %763 to i64
   %765 = ptrtoint ptr %760 to i64
@@ -15391,7 +15391,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit273.i:               ; preds = %761, %758
 780:                                              ; preds = %757
   %781 = landingpad { ptr, i32 }
           catch ptr null
-  %782 = getelementptr inbounds i8, ptr %73, i64 8
+  %782 = getelementptr inbounds nuw i8, ptr %73, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %782) #16
   br label %783
 
@@ -15402,7 +15402,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit273.i:               ; preds = %761, %758
   br i1 %.not.i.i.i277.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit278.i, label %785
 
 785:                                              ; preds = %783
-  %786 = getelementptr inbounds i8, ptr %77, i64 16
+  %786 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %787 = load ptr, ptr %786, align 8
   %788 = ptrtoint ptr %787 to i64
   %789 = ptrtoint ptr %784 to i64
@@ -15461,11 +15461,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit276.i:               ; preds = %798, %768, %_ZNSt6v
           to label %807 unwind label %804
 
 807:                                              ; preds = %806
-  %808 = getelementptr inbounds i8, ptr %71, i64 112
+  %808 = getelementptr inbounds nuw i8, ptr %71, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %808) #16
-  %809 = getelementptr inbounds i8, ptr %71, i64 72
+  %809 = getelementptr inbounds nuw i8, ptr %71, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %809) #16
-  %810 = getelementptr inbounds i8, ptr %71, i64 48
+  %810 = getelementptr inbounds nuw i8, ptr %71, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %810) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %78, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 509, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %79)
@@ -15488,11 +15488,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit276.i:               ; preds = %798, %768, %_ZNSt6v
 
 816:                                              ; preds = %812
   store ptr %813, ptr %83, align 8
-  %817 = getelementptr inbounds i8, ptr %813, i64 4
-  %818 = getelementptr inbounds i8, ptr %83, i64 16
+  %817 = getelementptr inbounds nuw i8, ptr %813, i64 4
+  %818 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %817, ptr %818, align 8
   store i32 1015026720, ptr %813, align 4
-  %819 = getelementptr inbounds i8, ptr %83, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %817, ptr %819, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   %820 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef 0)
@@ -15513,14 +15513,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit276.i:               ; preds = %798, %768, %_ZNSt6v
           to label %824 unwind label %846
 
 824:                                              ; preds = %823
-  %825 = getelementptr inbounds i8, ptr %80, i64 8
+  %825 = getelementptr inbounds nuw i8, ptr %80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %825) #16
   %826 = load ptr, ptr %84, align 8
   %.not.i.i.i291.i = icmp eq ptr %826, null
   br i1 %.not.i.i.i291.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit292.i, label %827
 
 827:                                              ; preds = %824
-  %828 = getelementptr inbounds i8, ptr %84, i64 16
+  %828 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %829 = load ptr, ptr %828, align 8
   %830 = ptrtoint ptr %829 to i64
   %831 = ptrtoint ptr %826 to i64
@@ -15565,7 +15565,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit292.i:               ; preds = %827, %824
 846:                                              ; preds = %823
   %847 = landingpad { ptr, i32 }
           catch ptr null
-  %848 = getelementptr inbounds i8, ptr %80, i64 8
+  %848 = getelementptr inbounds nuw i8, ptr %80, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %848) #16
   br label %849
 
@@ -15576,7 +15576,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit292.i:               ; preds = %827, %824
   br i1 %.not.i.i.i296.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit297.i, label %851
 
 851:                                              ; preds = %849
-  %852 = getelementptr inbounds i8, ptr %84, i64 16
+  %852 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %853 = load ptr, ptr %852, align 8
   %854 = ptrtoint ptr %853 to i64
   %855 = ptrtoint ptr %850 to i64
@@ -15651,11 +15651,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit295.i:               ; preds = %864, %834, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_661fEv.exit: ; preds = %872
-  %878 = getelementptr inbounds i8, ptr %78, i64 112
+  %878 = getelementptr inbounds nuw i8, ptr %78, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %878) #16
-  %879 = getelementptr inbounds i8, ptr %78, i64 72
+  %879 = getelementptr inbounds nuw i8, ptr %78, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %879) #16
-  %880 = getelementptr inbounds i8, ptr %78, i64 48
+  %880 = getelementptr inbounds nuw i8, ptr %78, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %880) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -15838,11 +15838,11 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_70Ev() #2 personality
 
 42:                                               ; preds = %38
   store ptr %39, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
-  %44 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %43, ptr %44, align 8
   store i32 1310905376, ptr %39, align 4
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %43, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %46 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
@@ -15863,14 +15863,14 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_70Ev() #2 personality
           to label %50 unwind label %71
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #16
   %52 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %52 to i64
@@ -15910,7 +15910,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %53, %50
 71:                                               ; preds = %49
   %72 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #16
   br label %74
 
@@ -15921,7 +15921,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %53, %50
   br i1 %.not.i.i.i38.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit39.i, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %7, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %75 to i64
@@ -15980,11 +15980,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %89, %60, %_ZNSt6vec
           to label %98 unwind label %95
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %1, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %99) #16
-  %100 = getelementptr inbounds i8, ptr %1, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %100) #16
-  %101 = getelementptr inbounds i8, ptr %1, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %101) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 515, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -16007,11 +16007,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %89, %60, %_ZNSt6vec
 
 107:                                              ; preds = %103
   store ptr %104, ptr %13, align 8
-  %108 = getelementptr inbounds i8, ptr %104, i64 4
-  %109 = getelementptr inbounds i8, ptr %13, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %108, ptr %109, align 8
   store i32 1319293984, ptr %104, align 4
-  %110 = getelementptr inbounds i8, ptr %13, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %108, ptr %110, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %111 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0)
@@ -16032,14 +16032,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %89, %60, %_ZNSt6vec
           to label %115 unwind label %137
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %10, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %116) #16
   %117 = load ptr, ptr %14, align 8
   %.not.i.i.i52.i = icmp eq ptr %117, null
   br i1 %.not.i.i.i52.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit53.i, label %118
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %14, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %120 = load ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
   %122 = ptrtoint ptr %117 to i64
@@ -16084,7 +16084,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i:                ; preds = %118, %115
 137:                                              ; preds = %114
   %138 = landingpad { ptr, i32 }
           catch ptr null
-  %139 = getelementptr inbounds i8, ptr %10, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %139) #16
   br label %140
 
@@ -16095,7 +16095,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i:                ; preds = %118, %115
   br i1 %.not.i.i.i57.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit58.i, label %142
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds i8, ptr %14, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = ptrtoint ptr %141 to i64
@@ -16154,11 +16154,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit56.i:                ; preds = %155, %125, %_ZNSt6v
           to label %164 unwind label %161
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %8, i64 112
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %165) #16
-  %166 = getelementptr inbounds i8, ptr %8, i64 72
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %166) #16
-  %167 = getelementptr inbounds i8, ptr %8, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %167) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 516, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -16181,11 +16181,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit56.i:                ; preds = %155, %125, %_ZNSt6v
 
 173:                                              ; preds = %169
   store ptr %170, ptr %20, align 8
-  %174 = getelementptr inbounds i8, ptr %170, i64 4
-  %175 = getelementptr inbounds i8, ptr %20, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %174, ptr %175, align 8
   store i32 1847778336, ptr %170, align 4
-  %176 = getelementptr inbounds i8, ptr %20, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %174, ptr %176, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %177 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0)
@@ -16206,14 +16206,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit56.i:                ; preds = %155, %125, %_ZNSt6v
           to label %181 unwind label %203
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds i8, ptr %17, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %182) #16
   %183 = load ptr, ptr %21, align 8
   %.not.i.i.i71.i = icmp eq ptr %183, null
   br i1 %.not.i.i.i71.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit72.i, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %21, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %186 = load ptr, ptr %185, align 8
   %187 = ptrtoint ptr %186 to i64
   %188 = ptrtoint ptr %183 to i64
@@ -16258,7 +16258,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit72.i:                ; preds = %184, %181
 203:                                              ; preds = %180
   %204 = landingpad { ptr, i32 }
           catch ptr null
-  %205 = getelementptr inbounds i8, ptr %17, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #16
   br label %206
 
@@ -16269,7 +16269,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit72.i:                ; preds = %184, %181
   br i1 %.not.i.i.i76.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit77.i, label %208
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %21, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = ptrtoint ptr %210 to i64
   %212 = ptrtoint ptr %207 to i64
@@ -16328,11 +16328,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75.i:                ; preds = %221, %191, %_ZNSt6v
           to label %230 unwind label %227
 
 230:                                              ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %15, i64 112
+  %231 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %231) #16
-  %232 = getelementptr inbounds i8, ptr %15, i64 72
+  %232 = getelementptr inbounds nuw i8, ptr %15, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %232) #16
-  %233 = getelementptr inbounds i8, ptr %15, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %233) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 517, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -16355,11 +16355,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75.i:                ; preds = %221, %191, %_ZNSt6v
 
 239:                                              ; preds = %235
   store ptr %236, ptr %27, align 8
-  %240 = getelementptr inbounds i8, ptr %236, i64 4
-  %241 = getelementptr inbounds i8, ptr %27, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %240, ptr %241, align 8
   store i32 1847786528, ptr %236, align 4
-  %242 = getelementptr inbounds i8, ptr %27, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %240, ptr %242, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %243 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 0)
@@ -16380,14 +16380,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit75.i:                ; preds = %221, %191, %_ZNSt6v
           to label %247 unwind label %269
 
 247:                                              ; preds = %246
-  %248 = getelementptr inbounds i8, ptr %24, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #16
   %249 = load ptr, ptr %28, align 8
   %.not.i.i.i90.i = icmp eq ptr %249, null
   br i1 %.not.i.i.i90.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit91.i, label %250
 
 250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %28, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = ptrtoint ptr %252 to i64
   %254 = ptrtoint ptr %249 to i64
@@ -16432,7 +16432,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit91.i:                ; preds = %250, %247
 269:                                              ; preds = %246
   %270 = landingpad { ptr, i32 }
           catch ptr null
-  %271 = getelementptr inbounds i8, ptr %24, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #16
   br label %272
 
@@ -16443,7 +16443,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit91.i:                ; preds = %250, %247
   br i1 %.not.i.i.i95.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit96.i, label %274
 
 274:                                              ; preds = %272
-  %275 = getelementptr inbounds i8, ptr %28, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %276 = load ptr, ptr %275, align 8
   %277 = ptrtoint ptr %276 to i64
   %278 = ptrtoint ptr %273 to i64
@@ -16502,11 +16502,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94.i:                ; preds = %287, %257, %_ZNSt6v
           to label %296 unwind label %293
 
 296:                                              ; preds = %295
-  %297 = getelementptr inbounds i8, ptr %22, i64 112
+  %297 = getelementptr inbounds nuw i8, ptr %22, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %297) #16
-  %298 = getelementptr inbounds i8, ptr %22, i64 72
+  %298 = getelementptr inbounds nuw i8, ptr %22, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %298) #16
-  %299 = getelementptr inbounds i8, ptr %22, i64 48
+  %299 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %299) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %29, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 518, ptr noundef nonnull @.str.271, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -16529,11 +16529,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94.i:                ; preds = %287, %257, %_ZNSt6v
 
 305:                                              ; preds = %301
   store ptr %302, ptr %34, align 8
-  %306 = getelementptr inbounds i8, ptr %302, i64 4
-  %307 = getelementptr inbounds i8, ptr %34, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %306, ptr %307, align 8
   store i32 1856043040, ptr %302, align 4
-  %308 = getelementptr inbounds i8, ptr %34, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %306, ptr %308, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %309 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %34, ptr noundef nonnull %35, i32 noundef 0)
@@ -16554,14 +16554,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94.i:                ; preds = %287, %257, %_ZNSt6v
           to label %313 unwind label %335
 
 313:                                              ; preds = %312
-  %314 = getelementptr inbounds i8, ptr %31, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #16
   %315 = load ptr, ptr %35, align 8
   %.not.i.i.i109.i = icmp eq ptr %315, null
   br i1 %.not.i.i.i109.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit110.i, label %316
 
 316:                                              ; preds = %313
-  %317 = getelementptr inbounds i8, ptr %35, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %318 = load ptr, ptr %317, align 8
   %319 = ptrtoint ptr %318 to i64
   %320 = ptrtoint ptr %315 to i64
@@ -16606,7 +16606,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit110.i:               ; preds = %316, %313
 335:                                              ; preds = %312
   %336 = landingpad { ptr, i32 }
           catch ptr null
-  %337 = getelementptr inbounds i8, ptr %31, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %337) #16
   br label %338
 
@@ -16617,7 +16617,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit110.i:               ; preds = %316, %313
   br i1 %.not.i.i.i114.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit115.i, label %340
 
 340:                                              ; preds = %338
-  %341 = getelementptr inbounds i8, ptr %35, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %342 = load ptr, ptr %341, align 8
   %343 = ptrtoint ptr %342 to i64
   %344 = ptrtoint ptr %339 to i64
@@ -16692,11 +16692,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit113.i:               ; preds = %353, %323, %_ZNSt6v
   unreachable
 
 _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_691fEv.exit: ; preds = %361
-  %367 = getelementptr inbounds i8, ptr %29, i64 112
+  %367 = getelementptr inbounds nuw i8, ptr %29, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %367) #16
-  %368 = getelementptr inbounds i8, ptr %29, i64 72
+  %368 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %368) #16
-  %369 = getelementptr inbounds i8, ptr %29, i64 48
+  %369 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %369) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -16802,7 +16802,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_72v() #2 personality ptr @__gxx_per
 
 23:                                               ; preds = %22
   store i32 0, ptr %2, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %24, align 4
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %25 unwind label %65
@@ -16941,7 +16941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %57 unwind label %73
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.274, ptr noundef nonnull align 8 dereferenceable(32) %58)
           to label %59 unwind label %73
 
@@ -16949,7 +16949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %60 = load i32, ptr %9, align 4, !noalias !88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %61 = getelementptr inbounds i8, ptr %8, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %60, ptr %61, align 8, !alias.scope !88
   invoke void @_ZN7doctest6detail14Expression_lhsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEeqIRS7_EEDTcmcvveqclL_ZNS0_7declvalIS7_EEOT_vEEclsr7doctest6detailE7declvalISC_EEtlNS0_6ResultEEESD_(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %62 unwind label %75
@@ -16959,7 +16959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %63 unwind label %77
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %64) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
@@ -17004,7 +17004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 77:                                               ; preds = %62
   %78 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = getelementptr inbounds i8, ptr %7, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #16
   br label %80
 
@@ -17052,11 +17052,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %93 unwind label %90
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %5, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %94) #16
-  %95 = getelementptr inbounds i8, ptr %5, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %95) #16
-  %96 = getelementptr inbounds i8, ptr %5, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %96) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev(ptr noundef nonnull align 8 dereferenceable(176) %1) #16
@@ -17109,14 +17109,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture
           to label %13 unwind label %34
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -17160,13 +17160,13 @@ _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %13, %_ZStneIjSaIjEE
   br label %59
 
 _ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.thread10: ; preds = %28, %_ZStneIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %6, align 8
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %3, align 8
   %47 = ptrtoint ptr %45 to i64
@@ -17228,7 +17228,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6
   %4 = alloca %"class.doctest::String", align 8
   %5 = alloca %"class.doctest::String", align 8
   %6 = load i8, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 8
   %10 = trunc i32 %9 to i8
@@ -17238,7 +17238,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6
 
 13:                                               ; preds = %2
   %14 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %15 = getelementptr inbounds i8, ptr %14, i64 108
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 108
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %._crit_edge, label %27
@@ -17317,11 +17317,11 @@ declare void @_ZNK7doctest6detail13ResultBuilder5reactEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   ret void
 }
@@ -17357,7 +17357,7 @@ define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIjSaIjEE(ptr 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %9, %10
@@ -17456,7 +17456,7 @@ define internal fastcc void @_ZL15bytecodeAsArrayB5cxx11RKSt6vectorIhSaIhEE(ptr 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %9, %10
@@ -17895,11 +17895,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEv(ptr nou
 
 161:                                              ; preds = %157
   store ptr %158, ptr %7, align 8
-  %162 = getelementptr inbounds i8, ptr %158, i64 4
-  %163 = getelementptr inbounds i8, ptr %7, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %162, ptr %163, align 8
   store i32 -1962803168, ptr %158, align 4
-  %164 = getelementptr inbounds i8, ptr %7, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %162, ptr %164, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %165 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -17920,14 +17920,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEv(ptr nou
           to label %169 unwind label %190
 
 169:                                              ; preds = %168
-  %170 = getelementptr inbounds i8, ptr %4, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %170) #16
   %171 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %8, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %171 to i64
@@ -17967,7 +17967,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %169, %172
 190:                                              ; preds = %168
   %191 = landingpad { ptr, i32 }
           catch ptr null
-  %192 = getelementptr inbounds i8, ptr %4, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %192) #16
   br label %193
 
@@ -17978,7 +17978,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %169, %172
   br i1 %.not.i.i.i157, label %_ZNSt6vectorIhSaIhEED2Ev.exit158, label %195
 
 195:                                              ; preds = %193
-  %196 = getelementptr inbounds i8, ptr %8, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %197 = load ptr, ptr %196, align 8
   %198 = ptrtoint ptr %197 to i64
   %199 = ptrtoint ptr %194 to i64
@@ -18037,11 +18037,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %179, %_ZNSt6vectorI
           to label %217 unwind label %214
 
 217:                                              ; preds = %216
-  %218 = getelementptr inbounds i8, ptr %2, i64 112
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %218) #16
-  %219 = getelementptr inbounds i8, ptr %2, i64 72
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %219) #16
-  %220 = getelementptr inbounds i8, ptr %2, i64 48
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 88, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -18064,11 +18064,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %179, %_ZNSt6vectorI
 
 226:                                              ; preds = %222
   store ptr %223, ptr %14, align 8
-  %227 = getelementptr inbounds i8, ptr %223, i64 4
-  %228 = getelementptr inbounds i8, ptr %14, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %227, ptr %228, align 8
   store i32 184680480, ptr %223, align 4
-  %229 = getelementptr inbounds i8, ptr %14, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %227, ptr %229, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %230 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -18089,14 +18089,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %179, %_ZNSt6vectorI
           to label %234 unwind label %256
 
 234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %11, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %235) #16
   %236 = load ptr, ptr %15, align 8
   %.not.i.i.i171 = icmp eq ptr %236, null
   br i1 %.not.i.i.i171, label %_ZNSt6vectorIhSaIhEED2Ev.exit172, label %237
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %15, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = ptrtoint ptr %239 to i64
   %241 = ptrtoint ptr %236 to i64
@@ -18141,7 +18141,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit172:                 ; preds = %234, %237
 256:                                              ; preds = %233
   %257 = landingpad { ptr, i32 }
           catch ptr null
-  %258 = getelementptr inbounds i8, ptr %11, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %258) #16
   br label %259
 
@@ -18152,7 +18152,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit172:                 ; preds = %234, %237
   br i1 %.not.i.i.i176, label %_ZNSt6vectorIhSaIhEED2Ev.exit177, label %261
 
 261:                                              ; preds = %259
-  %262 = getelementptr inbounds i8, ptr %15, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %263 = load ptr, ptr %262, align 8
   %264 = ptrtoint ptr %263 to i64
   %265 = ptrtoint ptr %260 to i64
@@ -18211,11 +18211,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit175:                 ; preds = %244, %_ZNSt6vectorI
           to label %283 unwind label %280
 
 283:                                              ; preds = %282
-  %284 = getelementptr inbounds i8, ptr %9, i64 112
+  %284 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %284) #16
-  %285 = getelementptr inbounds i8, ptr %9, i64 72
+  %285 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #16
-  %286 = getelementptr inbounds i8, ptr %9, i64 48
+  %286 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %286) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 89, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -18238,11 +18238,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit175:                 ; preds = %244, %_ZNSt6vectorI
 
 292:                                              ; preds = %288
   store ptr %289, ptr %21, align 8
-  %293 = getelementptr inbounds i8, ptr %289, i64 4
-  %294 = getelementptr inbounds i8, ptr %21, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %293, ptr %294, align 8
   store i32 -1962796000, ptr %289, align 4
-  %295 = getelementptr inbounds i8, ptr %21, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %293, ptr %295, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %296 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -18263,14 +18263,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit175:                 ; preds = %244, %_ZNSt6vectorI
           to label %300 unwind label %322
 
 300:                                              ; preds = %299
-  %301 = getelementptr inbounds i8, ptr %18, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %301) #16
   %302 = load ptr, ptr %22, align 8
   %.not.i.i.i190 = icmp eq ptr %302, null
   br i1 %.not.i.i.i190, label %_ZNSt6vectorIhSaIhEED2Ev.exit191, label %303
 
 303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %22, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %305 = load ptr, ptr %304, align 8
   %306 = ptrtoint ptr %305 to i64
   %307 = ptrtoint ptr %302 to i64
@@ -18315,7 +18315,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit191:                 ; preds = %300, %303
 322:                                              ; preds = %299
   %323 = landingpad { ptr, i32 }
           catch ptr null
-  %324 = getelementptr inbounds i8, ptr %18, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %324) #16
   br label %325
 
@@ -18326,7 +18326,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit191:                 ; preds = %300, %303
   br i1 %.not.i.i.i195, label %_ZNSt6vectorIhSaIhEED2Ev.exit196, label %327
 
 327:                                              ; preds = %325
-  %328 = getelementptr inbounds i8, ptr %22, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %329 = load ptr, ptr %328, align 8
   %330 = ptrtoint ptr %329 to i64
   %331 = ptrtoint ptr %326 to i64
@@ -18385,11 +18385,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit194:                 ; preds = %310, %_ZNSt6vectorI
           to label %349 unwind label %346
 
 349:                                              ; preds = %348
-  %350 = getelementptr inbounds i8, ptr %16, i64 112
+  %350 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %350) #16
-  %351 = getelementptr inbounds i8, ptr %16, i64 72
+  %351 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %351) #16
-  %352 = getelementptr inbounds i8, ptr %16, i64 48
+  %352 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %352) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -18412,11 +18412,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit194:                 ; preds = %310, %_ZNSt6vectorI
 
 358:                                              ; preds = %354
   store ptr %355, ptr %28, align 8
-  %359 = getelementptr inbounds i8, ptr %355, i64 4
-  %360 = getelementptr inbounds i8, ptr %28, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %359, ptr %360, align 8
   store i32 -1958601696, ptr %355, align 4
-  %361 = getelementptr inbounds i8, ptr %28, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %359, ptr %361, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %362 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -18437,14 +18437,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit194:                 ; preds = %310, %_ZNSt6vectorI
           to label %366 unwind label %388
 
 366:                                              ; preds = %365
-  %367 = getelementptr inbounds i8, ptr %25, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %367) #16
   %368 = load ptr, ptr %29, align 8
   %.not.i.i.i209 = icmp eq ptr %368, null
   br i1 %.not.i.i.i209, label %_ZNSt6vectorIhSaIhEED2Ev.exit210, label %369
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %29, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %371 = load ptr, ptr %370, align 8
   %372 = ptrtoint ptr %371 to i64
   %373 = ptrtoint ptr %368 to i64
@@ -18489,7 +18489,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit210:                 ; preds = %366, %369
 388:                                              ; preds = %365
   %389 = landingpad { ptr, i32 }
           catch ptr null
-  %390 = getelementptr inbounds i8, ptr %25, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %390) #16
   br label %391
 
@@ -18500,7 +18500,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit210:                 ; preds = %366, %369
   br i1 %.not.i.i.i214, label %_ZNSt6vectorIhSaIhEED2Ev.exit215, label %393
 
 393:                                              ; preds = %391
-  %394 = getelementptr inbounds i8, ptr %29, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %395 = load ptr, ptr %394, align 8
   %396 = ptrtoint ptr %395 to i64
   %397 = ptrtoint ptr %392 to i64
@@ -18559,11 +18559,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit213:                 ; preds = %376, %_ZNSt6vectorI
           to label %415 unwind label %412
 
 415:                                              ; preds = %414
-  %416 = getelementptr inbounds i8, ptr %23, i64 112
+  %416 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %416) #16
-  %417 = getelementptr inbounds i8, ptr %23, i64 72
+  %417 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %417) #16
-  %418 = getelementptr inbounds i8, ptr %23, i64 48
+  %418 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %418) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 91, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -18586,11 +18586,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit213:                 ; preds = %376, %_ZNSt6vectorI
 
 424:                                              ; preds = %420
   store ptr %421, ptr %35, align 8
-  %425 = getelementptr inbounds i8, ptr %421, i64 4
-  %426 = getelementptr inbounds i8, ptr %35, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %421, i64 4
+  %426 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %425, ptr %426, align 8
   store i32 -889061344, ptr %421, align 4
-  %427 = getelementptr inbounds i8, ptr %35, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %425, ptr %427, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %428 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -18611,14 +18611,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit213:                 ; preds = %376, %_ZNSt6vectorI
           to label %432 unwind label %454
 
 432:                                              ; preds = %431
-  %433 = getelementptr inbounds i8, ptr %32, i64 8
+  %433 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %433) #16
   %434 = load ptr, ptr %36, align 8
   %.not.i.i.i228 = icmp eq ptr %434, null
   br i1 %.not.i.i.i228, label %_ZNSt6vectorIhSaIhEED2Ev.exit229, label %435
 
 435:                                              ; preds = %432
-  %436 = getelementptr inbounds i8, ptr %36, i64 16
+  %436 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %437 = load ptr, ptr %436, align 8
   %438 = ptrtoint ptr %437 to i64
   %439 = ptrtoint ptr %434 to i64
@@ -18663,7 +18663,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit229:                 ; preds = %432, %435
 454:                                              ; preds = %431
   %455 = landingpad { ptr, i32 }
           catch ptr null
-  %456 = getelementptr inbounds i8, ptr %32, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %456) #16
   br label %457
 
@@ -18674,7 +18674,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit229:                 ; preds = %432, %435
   br i1 %.not.i.i.i233, label %_ZNSt6vectorIhSaIhEED2Ev.exit234, label %459
 
 459:                                              ; preds = %457
-  %460 = getelementptr inbounds i8, ptr %36, i64 16
+  %460 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %461 = load ptr, ptr %460, align 8
   %462 = ptrtoint ptr %461 to i64
   %463 = ptrtoint ptr %458 to i64
@@ -18733,11 +18733,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit232:                 ; preds = %442, %_ZNSt6vectorI
           to label %481 unwind label %478
 
 481:                                              ; preds = %480
-  %482 = getelementptr inbounds i8, ptr %30, i64 112
+  %482 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %482) #16
-  %483 = getelementptr inbounds i8, ptr %30, i64 72
+  %483 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %483) #16
-  %484 = getelementptr inbounds i8, ptr %30, i64 48
+  %484 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %484) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 92, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -18760,11 +18760,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit232:                 ; preds = %442, %_ZNSt6vectorI
 
 490:                                              ; preds = %486
   store ptr %487, ptr %42, align 8
-  %491 = getelementptr inbounds i8, ptr %487, i64 4
-  %492 = getelementptr inbounds i8, ptr %42, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %487, i64 4
+  %492 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %491, ptr %492, align 8
   store i32 -1979580384, ptr %487, align 4
-  %493 = getelementptr inbounds i8, ptr %42, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %491, ptr %493, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %494 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -18785,14 +18785,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit232:                 ; preds = %442, %_ZNSt6vectorI
           to label %498 unwind label %520
 
 498:                                              ; preds = %497
-  %499 = getelementptr inbounds i8, ptr %39, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %499) #16
   %500 = load ptr, ptr %43, align 8
   %.not.i.i.i247 = icmp eq ptr %500, null
   br i1 %.not.i.i.i247, label %_ZNSt6vectorIhSaIhEED2Ev.exit248, label %501
 
 501:                                              ; preds = %498
-  %502 = getelementptr inbounds i8, ptr %43, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %503 = load ptr, ptr %502, align 8
   %504 = ptrtoint ptr %503 to i64
   %505 = ptrtoint ptr %500 to i64
@@ -18837,7 +18837,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit248:                 ; preds = %498, %501
 520:                                              ; preds = %497
   %521 = landingpad { ptr, i32 }
           catch ptr null
-  %522 = getelementptr inbounds i8, ptr %39, i64 8
+  %522 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %522) #16
   br label %523
 
@@ -18848,7 +18848,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit248:                 ; preds = %498, %501
   br i1 %.not.i.i.i252, label %_ZNSt6vectorIhSaIhEED2Ev.exit253, label %525
 
 525:                                              ; preds = %523
-  %526 = getelementptr inbounds i8, ptr %43, i64 16
+  %526 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %527 = load ptr, ptr %526, align 8
   %528 = ptrtoint ptr %527 to i64
   %529 = ptrtoint ptr %524 to i64
@@ -18907,11 +18907,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit251:                 ; preds = %508, %_ZNSt6vectorI
           to label %547 unwind label %544
 
 547:                                              ; preds = %546
-  %548 = getelementptr inbounds i8, ptr %37, i64 112
+  %548 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %548) #16
-  %549 = getelementptr inbounds i8, ptr %37, i64 72
+  %549 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %549) #16
-  %550 = getelementptr inbounds i8, ptr %37, i64 48
+  %550 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %550) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 93, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -18934,11 +18934,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit251:                 ; preds = %508, %_ZNSt6vectorI
 
 556:                                              ; preds = %552
   store ptr %553, ptr %49, align 8
-  %557 = getelementptr inbounds i8, ptr %553, i64 4
-  %558 = getelementptr inbounds i8, ptr %49, i64 16
+  %557 = getelementptr inbounds nuw i8, ptr %553, i64 4
+  %558 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %557, ptr %558, align 8
   store i32 -1979573216, ptr %553, align 4
-  %559 = getelementptr inbounds i8, ptr %49, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %557, ptr %559, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %560 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -18959,14 +18959,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit251:                 ; preds = %508, %_ZNSt6vectorI
           to label %564 unwind label %586
 
 564:                                              ; preds = %563
-  %565 = getelementptr inbounds i8, ptr %46, i64 8
+  %565 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %565) #16
   %566 = load ptr, ptr %50, align 8
   %.not.i.i.i266 = icmp eq ptr %566, null
   br i1 %.not.i.i.i266, label %_ZNSt6vectorIhSaIhEED2Ev.exit267, label %567
 
 567:                                              ; preds = %564
-  %568 = getelementptr inbounds i8, ptr %50, i64 16
+  %568 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %569 = load ptr, ptr %568, align 8
   %570 = ptrtoint ptr %569 to i64
   %571 = ptrtoint ptr %566 to i64
@@ -19011,7 +19011,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit267:                 ; preds = %564, %567
 586:                                              ; preds = %563
   %587 = landingpad { ptr, i32 }
           catch ptr null
-  %588 = getelementptr inbounds i8, ptr %46, i64 8
+  %588 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %588) #16
   br label %589
 
@@ -19022,7 +19022,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit267:                 ; preds = %564, %567
   br i1 %.not.i.i.i271, label %_ZNSt6vectorIhSaIhEED2Ev.exit272, label %591
 
 591:                                              ; preds = %589
-  %592 = getelementptr inbounds i8, ptr %50, i64 16
+  %592 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %593 = load ptr, ptr %592, align 8
   %594 = ptrtoint ptr %593 to i64
   %595 = ptrtoint ptr %590 to i64
@@ -19081,11 +19081,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit270:                 ; preds = %574, %_ZNSt6vectorI
           to label %613 unwind label %610
 
 613:                                              ; preds = %612
-  %614 = getelementptr inbounds i8, ptr %44, i64 112
+  %614 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %614) #16
-  %615 = getelementptr inbounds i8, ptr %44, i64 72
+  %615 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %615) #16
-  %616 = getelementptr inbounds i8, ptr %44, i64 48
+  %616 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %616) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 94, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -19108,11 +19108,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit270:                 ; preds = %574, %_ZNSt6vectorI
 
 622:                                              ; preds = %618
   store ptr %619, ptr %56, align 8
-  %623 = getelementptr inbounds i8, ptr %619, i64 4
-  %624 = getelementptr inbounds i8, ptr %56, i64 16
+  %623 = getelementptr inbounds nuw i8, ptr %619, i64 4
+  %624 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %623, ptr %624, align 8
   store i32 -1975378912, ptr %619, align 4
-  %625 = getelementptr inbounds i8, ptr %56, i64 8
+  %625 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %623, ptr %625, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %626 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -19133,14 +19133,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit270:                 ; preds = %574, %_ZNSt6vectorI
           to label %630 unwind label %652
 
 630:                                              ; preds = %629
-  %631 = getelementptr inbounds i8, ptr %53, i64 8
+  %631 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %631) #16
   %632 = load ptr, ptr %57, align 8
   %.not.i.i.i285 = icmp eq ptr %632, null
   br i1 %.not.i.i.i285, label %_ZNSt6vectorIhSaIhEED2Ev.exit286, label %633
 
 633:                                              ; preds = %630
-  %634 = getelementptr inbounds i8, ptr %57, i64 16
+  %634 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %635 = load ptr, ptr %634, align 8
   %636 = ptrtoint ptr %635 to i64
   %637 = ptrtoint ptr %632 to i64
@@ -19185,7 +19185,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit286:                 ; preds = %630, %633
 652:                                              ; preds = %629
   %653 = landingpad { ptr, i32 }
           catch ptr null
-  %654 = getelementptr inbounds i8, ptr %53, i64 8
+  %654 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %654) #16
   br label %655
 
@@ -19196,7 +19196,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit286:                 ; preds = %630, %633
   br i1 %.not.i.i.i290, label %_ZNSt6vectorIhSaIhEED2Ev.exit291, label %657
 
 657:                                              ; preds = %655
-  %658 = getelementptr inbounds i8, ptr %57, i64 16
+  %658 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %659 = load ptr, ptr %658, align 8
   %660 = ptrtoint ptr %659 to i64
   %661 = ptrtoint ptr %656 to i64
@@ -19255,11 +19255,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit289:                 ; preds = %640, %_ZNSt6vectorI
           to label %679 unwind label %676
 
 679:                                              ; preds = %678
-  %680 = getelementptr inbounds i8, ptr %51, i64 112
+  %680 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %680) #16
-  %681 = getelementptr inbounds i8, ptr %51, i64 72
+  %681 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %681) #16
-  %682 = getelementptr inbounds i8, ptr %51, i64 48
+  %682 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %682) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 95, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -19282,11 +19282,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit289:                 ; preds = %640, %_ZNSt6vectorI
 
 688:                                              ; preds = %684
   store ptr %685, ptr %63, align 8
-  %689 = getelementptr inbounds i8, ptr %685, i64 4
-  %690 = getelementptr inbounds i8, ptr %63, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %685, i64 4
+  %690 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %689, ptr %690, align 8
   store i32 -1977483232, ptr %685, align 4
-  %691 = getelementptr inbounds i8, ptr %63, i64 8
+  %691 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %689, ptr %691, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %692 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -19307,14 +19307,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit289:                 ; preds = %640, %_ZNSt6vectorI
           to label %696 unwind label %718
 
 696:                                              ; preds = %695
-  %697 = getelementptr inbounds i8, ptr %60, i64 8
+  %697 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %697) #16
   %698 = load ptr, ptr %64, align 8
   %.not.i.i.i304 = icmp eq ptr %698, null
   br i1 %.not.i.i.i304, label %_ZNSt6vectorIhSaIhEED2Ev.exit305, label %699
 
 699:                                              ; preds = %696
-  %700 = getelementptr inbounds i8, ptr %64, i64 16
+  %700 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %701 = load ptr, ptr %700, align 8
   %702 = ptrtoint ptr %701 to i64
   %703 = ptrtoint ptr %698 to i64
@@ -19359,7 +19359,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit305:                 ; preds = %696, %699
 718:                                              ; preds = %695
   %719 = landingpad { ptr, i32 }
           catch ptr null
-  %720 = getelementptr inbounds i8, ptr %60, i64 8
+  %720 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %720) #16
   br label %721
 
@@ -19370,7 +19370,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit305:                 ; preds = %696, %699
   br i1 %.not.i.i.i309, label %_ZNSt6vectorIhSaIhEED2Ev.exit310, label %723
 
 723:                                              ; preds = %721
-  %724 = getelementptr inbounds i8, ptr %64, i64 16
+  %724 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %725 = load ptr, ptr %724, align 8
   %726 = ptrtoint ptr %725 to i64
   %727 = ptrtoint ptr %722 to i64
@@ -19429,11 +19429,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit308:                 ; preds = %706, %_ZNSt6vectorI
           to label %745 unwind label %742
 
 745:                                              ; preds = %744
-  %746 = getelementptr inbounds i8, ptr %58, i64 112
+  %746 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %746) #16
-  %747 = getelementptr inbounds i8, ptr %58, i64 72
+  %747 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %747) #16
-  %748 = getelementptr inbounds i8, ptr %58, i64 48
+  %748 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %748) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 96, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -19456,11 +19456,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit308:                 ; preds = %706, %_ZNSt6vectorI
 
 754:                                              ; preds = %750
   store ptr %751, ptr %70, align 8
-  %755 = getelementptr inbounds i8, ptr %751, i64 4
-  %756 = getelementptr inbounds i8, ptr %70, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %751, i64 4
+  %756 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %755, ptr %756, align 8
   store i32 -1442709472, ptr %751, align 4
-  %757 = getelementptr inbounds i8, ptr %70, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %755, ptr %757, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %758 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -19481,14 +19481,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit308:                 ; preds = %706, %_ZNSt6vectorI
           to label %762 unwind label %784
 
 762:                                              ; preds = %761
-  %763 = getelementptr inbounds i8, ptr %67, i64 8
+  %763 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %763) #16
   %764 = load ptr, ptr %71, align 8
   %.not.i.i.i323 = icmp eq ptr %764, null
   br i1 %.not.i.i.i323, label %_ZNSt6vectorIhSaIhEED2Ev.exit324, label %765
 
 765:                                              ; preds = %762
-  %766 = getelementptr inbounds i8, ptr %71, i64 16
+  %766 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %767 = load ptr, ptr %766, align 8
   %768 = ptrtoint ptr %767 to i64
   %769 = ptrtoint ptr %764 to i64
@@ -19533,7 +19533,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit324:                 ; preds = %762, %765
 784:                                              ; preds = %761
   %785 = landingpad { ptr, i32 }
           catch ptr null
-  %786 = getelementptr inbounds i8, ptr %67, i64 8
+  %786 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %786) #16
   br label %787
 
@@ -19544,7 +19544,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit324:                 ; preds = %762, %765
   br i1 %.not.i.i.i328, label %_ZNSt6vectorIhSaIhEED2Ev.exit329, label %789
 
 789:                                              ; preds = %787
-  %790 = getelementptr inbounds i8, ptr %71, i64 16
+  %790 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %791 = load ptr, ptr %790, align 8
   %792 = ptrtoint ptr %791 to i64
   %793 = ptrtoint ptr %788 to i64
@@ -19603,11 +19603,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit327:                 ; preds = %772, %_ZNSt6vectorI
           to label %811 unwind label %808
 
 811:                                              ; preds = %810
-  %812 = getelementptr inbounds i8, ptr %65, i64 112
+  %812 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %812) #16
-  %813 = getelementptr inbounds i8, ptr %65, i64 72
+  %813 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %813) #16
-  %814 = getelementptr inbounds i8, ptr %65, i64 48
+  %814 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %814) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -19630,11 +19630,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit327:                 ; preds = %772, %_ZNSt6vectorI
 
 820:                                              ; preds = %816
   store ptr %817, ptr %77, align 8
-  %821 = getelementptr inbounds i8, ptr %817, i64 4
-  %822 = getelementptr inbounds i8, ptr %77, i64 16
+  %821 = getelementptr inbounds nuw i8, ptr %817, i64 4
+  %822 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %821, ptr %822, align 8
   store i32 -905838560, ptr %817, align 4
-  %823 = getelementptr inbounds i8, ptr %77, i64 8
+  %823 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %821, ptr %823, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %824 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -19655,14 +19655,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit327:                 ; preds = %772, %_ZNSt6vectorI
           to label %828 unwind label %850
 
 828:                                              ; preds = %827
-  %829 = getelementptr inbounds i8, ptr %74, i64 8
+  %829 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %829) #16
   %830 = load ptr, ptr %78, align 8
   %.not.i.i.i342 = icmp eq ptr %830, null
   br i1 %.not.i.i.i342, label %_ZNSt6vectorIhSaIhEED2Ev.exit343, label %831
 
 831:                                              ; preds = %828
-  %832 = getelementptr inbounds i8, ptr %78, i64 16
+  %832 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %833 = load ptr, ptr %832, align 8
   %834 = ptrtoint ptr %833 to i64
   %835 = ptrtoint ptr %830 to i64
@@ -19707,7 +19707,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit343:                 ; preds = %828, %831
 850:                                              ; preds = %827
   %851 = landingpad { ptr, i32 }
           catch ptr null
-  %852 = getelementptr inbounds i8, ptr %74, i64 8
+  %852 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %852) #16
   br label %853
 
@@ -19718,7 +19718,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit343:                 ; preds = %828, %831
   br i1 %.not.i.i.i347, label %_ZNSt6vectorIhSaIhEED2Ev.exit348, label %855
 
 855:                                              ; preds = %853
-  %856 = getelementptr inbounds i8, ptr %78, i64 16
+  %856 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %857 = load ptr, ptr %856, align 8
   %858 = ptrtoint ptr %857 to i64
   %859 = ptrtoint ptr %854 to i64
@@ -19777,11 +19777,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit346:                 ; preds = %838, %_ZNSt6vectorI
           to label %877 unwind label %874
 
 877:                                              ; preds = %876
-  %878 = getelementptr inbounds i8, ptr %72, i64 112
+  %878 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %878) #16
-  %879 = getelementptr inbounds i8, ptr %72, i64 72
+  %879 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %879) #16
-  %880 = getelementptr inbounds i8, ptr %72, i64 48
+  %880 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %880) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 98, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -19804,11 +19804,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit346:                 ; preds = %838, %_ZNSt6vectorI
 
 886:                                              ; preds = %882
   store ptr %883, ptr %84, align 8
-  %887 = getelementptr inbounds i8, ptr %883, i64 4
-  %888 = getelementptr inbounds i8, ptr %84, i64 16
+  %887 = getelementptr inbounds nuw i8, ptr %883, i64 4
+  %888 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %887, ptr %888, align 8
   store i32 -1698553824, ptr %883, align 4
-  %889 = getelementptr inbounds i8, ptr %84, i64 8
+  %889 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %887, ptr %889, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %890 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -19829,14 +19829,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit346:                 ; preds = %838, %_ZNSt6vectorI
           to label %894 unwind label %916
 
 894:                                              ; preds = %893
-  %895 = getelementptr inbounds i8, ptr %81, i64 8
+  %895 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %895) #16
   %896 = load ptr, ptr %85, align 8
   %.not.i.i.i361 = icmp eq ptr %896, null
   br i1 %.not.i.i.i361, label %_ZNSt6vectorIhSaIhEED2Ev.exit362, label %897
 
 897:                                              ; preds = %894
-  %898 = getelementptr inbounds i8, ptr %85, i64 16
+  %898 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %899 = load ptr, ptr %898, align 8
   %900 = ptrtoint ptr %899 to i64
   %901 = ptrtoint ptr %896 to i64
@@ -19881,7 +19881,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit362:                 ; preds = %894, %897
 916:                                              ; preds = %893
   %917 = landingpad { ptr, i32 }
           catch ptr null
-  %918 = getelementptr inbounds i8, ptr %81, i64 8
+  %918 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %918) #16
   br label %919
 
@@ -19892,7 +19892,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit362:                 ; preds = %894, %897
   br i1 %.not.i.i.i366, label %_ZNSt6vectorIhSaIhEED2Ev.exit367, label %921
 
 921:                                              ; preds = %919
-  %922 = getelementptr inbounds i8, ptr %85, i64 16
+  %922 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %923 = load ptr, ptr %922, align 8
   %924 = ptrtoint ptr %923 to i64
   %925 = ptrtoint ptr %920 to i64
@@ -19951,11 +19951,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit365:                 ; preds = %904, %_ZNSt6vectorI
           to label %943 unwind label %940
 
 943:                                              ; preds = %942
-  %944 = getelementptr inbounds i8, ptr %79, i64 112
+  %944 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %944) #16
-  %945 = getelementptr inbounds i8, ptr %79, i64 72
+  %945 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %945) #16
-  %946 = getelementptr inbounds i8, ptr %79, i64 48
+  %946 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %946) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 99, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -19978,11 +19978,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit365:                 ; preds = %904, %_ZNSt6vectorI
 
 952:                                              ; preds = %948
   store ptr %949, ptr %91, align 8
-  %953 = getelementptr inbounds i8, ptr %949, i64 4
-  %954 = getelementptr inbounds i8, ptr %91, i64 16
+  %953 = getelementptr inbounds nuw i8, ptr %949, i64 4
+  %954 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %953, ptr %954, align 8
   store i32 448929824, ptr %949, align 4
-  %955 = getelementptr inbounds i8, ptr %91, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %953, ptr %955, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %956 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -20003,14 +20003,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit365:                 ; preds = %904, %_ZNSt6vectorI
           to label %960 unwind label %982
 
 960:                                              ; preds = %959
-  %961 = getelementptr inbounds i8, ptr %88, i64 8
+  %961 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %961) #16
   %962 = load ptr, ptr %92, align 8
   %.not.i.i.i380 = icmp eq ptr %962, null
   br i1 %.not.i.i.i380, label %_ZNSt6vectorIhSaIhEED2Ev.exit381, label %963
 
 963:                                              ; preds = %960
-  %964 = getelementptr inbounds i8, ptr %92, i64 16
+  %964 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %965 = load ptr, ptr %964, align 8
   %966 = ptrtoint ptr %965 to i64
   %967 = ptrtoint ptr %962 to i64
@@ -20055,7 +20055,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit381:                 ; preds = %960, %963
 982:                                              ; preds = %959
   %983 = landingpad { ptr, i32 }
           catch ptr null
-  %984 = getelementptr inbounds i8, ptr %88, i64 8
+  %984 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %984) #16
   br label %985
 
@@ -20066,7 +20066,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit381:                 ; preds = %960, %963
   br i1 %.not.i.i.i385, label %_ZNSt6vectorIhSaIhEED2Ev.exit386, label %987
 
 987:                                              ; preds = %985
-  %988 = getelementptr inbounds i8, ptr %92, i64 16
+  %988 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %989 = load ptr, ptr %988, align 8
   %990 = ptrtoint ptr %989 to i64
   %991 = ptrtoint ptr %986 to i64
@@ -20125,11 +20125,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit384:                 ; preds = %970, %_ZNSt6vectorI
           to label %1009 unwind label %1006
 
 1009:                                             ; preds = %1008
-  %1010 = getelementptr inbounds i8, ptr %86, i64 112
+  %1010 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1010) #16
-  %1011 = getelementptr inbounds i8, ptr %86, i64 72
+  %1011 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1011) #16
-  %1012 = getelementptr inbounds i8, ptr %86, i64 48
+  %1012 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1012) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 100, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -20152,11 +20152,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit384:                 ; preds = %970, %_ZNSt6vectorI
 
 1018:                                             ; preds = %1014
   store ptr %1015, ptr %98, align 8
-  %1019 = getelementptr inbounds i8, ptr %1015, i64 4
-  %1020 = getelementptr inbounds i8, ptr %98, i64 16
+  %1019 = getelementptr inbounds nuw i8, ptr %1015, i64 4
+  %1020 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1019, ptr %1020, align 8
   store i32 -1698552800, ptr %1015, align 4
-  %1021 = getelementptr inbounds i8, ptr %98, i64 8
+  %1021 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %1019, ptr %1021, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %1022 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -20177,14 +20177,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit384:                 ; preds = %970, %_ZNSt6vectorI
           to label %1026 unwind label %1048
 
 1026:                                             ; preds = %1025
-  %1027 = getelementptr inbounds i8, ptr %95, i64 8
+  %1027 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1027) #16
   %1028 = load ptr, ptr %99, align 8
   %.not.i.i.i399 = icmp eq ptr %1028, null
   br i1 %.not.i.i.i399, label %_ZNSt6vectorIhSaIhEED2Ev.exit400, label %1029
 
 1029:                                             ; preds = %1026
-  %1030 = getelementptr inbounds i8, ptr %99, i64 16
+  %1030 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1031 = load ptr, ptr %1030, align 8
   %1032 = ptrtoint ptr %1031 to i64
   %1033 = ptrtoint ptr %1028 to i64
@@ -20229,7 +20229,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit400:                 ; preds = %1026, %1029
 1048:                                             ; preds = %1025
   %1049 = landingpad { ptr, i32 }
           catch ptr null
-  %1050 = getelementptr inbounds i8, ptr %95, i64 8
+  %1050 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1050) #16
   br label %1051
 
@@ -20240,7 +20240,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit400:                 ; preds = %1026, %1029
   br i1 %.not.i.i.i404, label %_ZNSt6vectorIhSaIhEED2Ev.exit405, label %1053
 
 1053:                                             ; preds = %1051
-  %1054 = getelementptr inbounds i8, ptr %99, i64 16
+  %1054 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1055 = load ptr, ptr %1054, align 8
   %1056 = ptrtoint ptr %1055 to i64
   %1057 = ptrtoint ptr %1052 to i64
@@ -20299,11 +20299,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit403:                 ; preds = %1036, %_ZNSt6vector
           to label %1075 unwind label %1072
 
 1075:                                             ; preds = %1074
-  %1076 = getelementptr inbounds i8, ptr %93, i64 112
+  %1076 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1076) #16
-  %1077 = getelementptr inbounds i8, ptr %93, i64 72
+  %1077 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1077) #16
-  %1078 = getelementptr inbounds i8, ptr %93, i64 48
+  %1078 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1078) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %100, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 101, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %101)
@@ -20326,11 +20326,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit403:                 ; preds = %1036, %_ZNSt6vector
 
 1084:                                             ; preds = %1080
   store ptr %1081, ptr %105, align 8
-  %1085 = getelementptr inbounds i8, ptr %1081, i64 4
-  %1086 = getelementptr inbounds i8, ptr %105, i64 16
+  %1085 = getelementptr inbounds nuw i8, ptr %1081, i64 4
+  %1086 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %1085, ptr %1086, align 8
   store i32 -1698551776, ptr %1081, align 4
-  %1087 = getelementptr inbounds i8, ptr %105, i64 8
+  %1087 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1085, ptr %1087, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %1088 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE13_8__invokeES5_, ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef 0)
@@ -20351,14 +20351,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit403:                 ; preds = %1036, %_ZNSt6vector
           to label %1092 unwind label %1114
 
 1092:                                             ; preds = %1091
-  %1093 = getelementptr inbounds i8, ptr %102, i64 8
+  %1093 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1093) #16
   %1094 = load ptr, ptr %106, align 8
   %.not.i.i.i418 = icmp eq ptr %1094, null
   br i1 %.not.i.i.i418, label %_ZNSt6vectorIhSaIhEED2Ev.exit419, label %1095
 
 1095:                                             ; preds = %1092
-  %1096 = getelementptr inbounds i8, ptr %106, i64 16
+  %1096 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1097 = load ptr, ptr %1096, align 8
   %1098 = ptrtoint ptr %1097 to i64
   %1099 = ptrtoint ptr %1094 to i64
@@ -20403,7 +20403,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit419:                 ; preds = %1092, %1095
 1114:                                             ; preds = %1091
   %1115 = landingpad { ptr, i32 }
           catch ptr null
-  %1116 = getelementptr inbounds i8, ptr %102, i64 8
+  %1116 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1116) #16
   br label %1117
 
@@ -20414,7 +20414,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit419:                 ; preds = %1092, %1095
   br i1 %.not.i.i.i423, label %_ZNSt6vectorIhSaIhEED2Ev.exit424, label %1119
 
 1119:                                             ; preds = %1117
-  %1120 = getelementptr inbounds i8, ptr %106, i64 16
+  %1120 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1121 = load ptr, ptr %1120, align 8
   %1122 = ptrtoint ptr %1121 to i64
   %1123 = ptrtoint ptr %1118 to i64
@@ -20473,11 +20473,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit422:                 ; preds = %1102, %_ZNSt6vector
           to label %1141 unwind label %1138
 
 1141:                                             ; preds = %1140
-  %1142 = getelementptr inbounds i8, ptr %100, i64 112
+  %1142 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1142) #16
-  %1143 = getelementptr inbounds i8, ptr %100, i64 72
+  %1143 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1143) #16
-  %1144 = getelementptr inbounds i8, ptr %100, i64 48
+  %1144 = getelementptr inbounds nuw i8, ptr %100, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1144) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %107, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 102, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -20500,11 +20500,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit422:                 ; preds = %1102, %_ZNSt6vector
 
 1150:                                             ; preds = %1146
   store ptr %1147, ptr %112, align 8
-  %1151 = getelementptr inbounds i8, ptr %1147, i64 4
-  %1152 = getelementptr inbounds i8, ptr %112, i64 16
+  %1151 = getelementptr inbounds nuw i8, ptr %1147, i64 4
+  %1152 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %1151, ptr %1152, align 8
   store i32 -1698550752, ptr %1147, align 4
-  %1153 = getelementptr inbounds i8, ptr %112, i64 8
+  %1153 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %1151, ptr %1153, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %1154 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE14_8__invokeES5_, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef 0)
@@ -20525,14 +20525,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit422:                 ; preds = %1102, %_ZNSt6vector
           to label %1158 unwind label %1180
 
 1158:                                             ; preds = %1157
-  %1159 = getelementptr inbounds i8, ptr %109, i64 8
+  %1159 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1159) #16
   %1160 = load ptr, ptr %113, align 8
   %.not.i.i.i437 = icmp eq ptr %1160, null
   br i1 %.not.i.i.i437, label %_ZNSt6vectorIhSaIhEED2Ev.exit438, label %1161
 
 1161:                                             ; preds = %1158
-  %1162 = getelementptr inbounds i8, ptr %113, i64 16
+  %1162 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1163 = load ptr, ptr %1162, align 8
   %1164 = ptrtoint ptr %1163 to i64
   %1165 = ptrtoint ptr %1160 to i64
@@ -20577,7 +20577,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit438:                 ; preds = %1158, %1161
 1180:                                             ; preds = %1157
   %1181 = landingpad { ptr, i32 }
           catch ptr null
-  %1182 = getelementptr inbounds i8, ptr %109, i64 8
+  %1182 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1182) #16
   br label %1183
 
@@ -20588,7 +20588,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit438:                 ; preds = %1158, %1161
   br i1 %.not.i.i.i442, label %_ZNSt6vectorIhSaIhEED2Ev.exit443, label %1185
 
 1185:                                             ; preds = %1183
-  %1186 = getelementptr inbounds i8, ptr %113, i64 16
+  %1186 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1187 = load ptr, ptr %1186, align 8
   %1188 = ptrtoint ptr %1187 to i64
   %1189 = ptrtoint ptr %1184 to i64
@@ -20647,11 +20647,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit441:                 ; preds = %1168, %_ZNSt6vector
           to label %1207 unwind label %1204
 
 1207:                                             ; preds = %1206
-  %1208 = getelementptr inbounds i8, ptr %107, i64 112
+  %1208 = getelementptr inbounds nuw i8, ptr %107, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1208) #16
-  %1209 = getelementptr inbounds i8, ptr %107, i64 72
+  %1209 = getelementptr inbounds nuw i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1209) #16
-  %1210 = getelementptr inbounds i8, ptr %107, i64 48
+  %1210 = getelementptr inbounds nuw i8, ptr %107, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1210) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %114, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 103, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %115)
@@ -20674,11 +20674,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit441:                 ; preds = %1168, %_ZNSt6vector
 
 1216:                                             ; preds = %1212
   store ptr %1213, ptr %119, align 8
-  %1217 = getelementptr inbounds i8, ptr %1213, i64 4
-  %1218 = getelementptr inbounds i8, ptr %119, i64 16
+  %1217 = getelementptr inbounds nuw i8, ptr %1213, i64 4
+  %1218 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %1217, ptr %1218, align 8
   store i32 -352255969, ptr %1213, align 4
-  %1219 = getelementptr inbounds i8, ptr %119, i64 8
+  %1219 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %1217, ptr %1219, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %1220 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE15_8__invokeES5_, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef 0)
@@ -20699,14 +20699,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit441:                 ; preds = %1168, %_ZNSt6vector
           to label %1224 unwind label %1246
 
 1224:                                             ; preds = %1223
-  %1225 = getelementptr inbounds i8, ptr %116, i64 8
+  %1225 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1225) #16
   %1226 = load ptr, ptr %120, align 8
   %.not.i.i.i456 = icmp eq ptr %1226, null
   br i1 %.not.i.i.i456, label %_ZNSt6vectorIhSaIhEED2Ev.exit457, label %1227
 
 1227:                                             ; preds = %1224
-  %1228 = getelementptr inbounds i8, ptr %120, i64 16
+  %1228 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1229 = load ptr, ptr %1228, align 8
   %1230 = ptrtoint ptr %1229 to i64
   %1231 = ptrtoint ptr %1226 to i64
@@ -20751,7 +20751,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit457:                 ; preds = %1224, %1227
 1246:                                             ; preds = %1223
   %1247 = landingpad { ptr, i32 }
           catch ptr null
-  %1248 = getelementptr inbounds i8, ptr %116, i64 8
+  %1248 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1248) #16
   br label %1249
 
@@ -20762,7 +20762,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit457:                 ; preds = %1224, %1227
   br i1 %.not.i.i.i461, label %_ZNSt6vectorIhSaIhEED2Ev.exit462, label %1251
 
 1251:                                             ; preds = %1249
-  %1252 = getelementptr inbounds i8, ptr %120, i64 16
+  %1252 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1253 = load ptr, ptr %1252, align 8
   %1254 = ptrtoint ptr %1253 to i64
   %1255 = ptrtoint ptr %1250 to i64
@@ -20821,11 +20821,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit460:                 ; preds = %1234, %_ZNSt6vector
           to label %1273 unwind label %1270
 
 1273:                                             ; preds = %1272
-  %1274 = getelementptr inbounds i8, ptr %114, i64 112
+  %1274 = getelementptr inbounds nuw i8, ptr %114, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1274) #16
-  %1275 = getelementptr inbounds i8, ptr %114, i64 72
+  %1275 = getelementptr inbounds nuw i8, ptr %114, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1275) #16
-  %1276 = getelementptr inbounds i8, ptr %114, i64 48
+  %1276 = getelementptr inbounds nuw i8, ptr %114, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1276) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %121, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 104, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %122)
@@ -20848,11 +20848,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit460:                 ; preds = %1234, %_ZNSt6vector
 
 1282:                                             ; preds = %1278
   store ptr %1279, ptr %126, align 8
-  %1283 = getelementptr inbounds i8, ptr %1279, i64 4
-  %1284 = getelementptr inbounds i8, ptr %126, i64 16
+  %1283 = getelementptr inbounds nuw i8, ptr %1279, i64 4
+  %1284 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %1283, ptr %1284, align 8
   store i32 -369033185, ptr %1279, align 4
-  %1285 = getelementptr inbounds i8, ptr %126, i64 8
+  %1285 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %1283, ptr %1285, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %1286 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE16_8__invokeES5_, ptr noundef nonnull %126, ptr noundef nonnull %127, i32 noundef 0)
@@ -20873,14 +20873,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit460:                 ; preds = %1234, %_ZNSt6vector
           to label %1290 unwind label %1312
 
 1290:                                             ; preds = %1289
-  %1291 = getelementptr inbounds i8, ptr %123, i64 8
+  %1291 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1291) #16
   %1292 = load ptr, ptr %127, align 8
   %.not.i.i.i475 = icmp eq ptr %1292, null
   br i1 %.not.i.i.i475, label %_ZNSt6vectorIhSaIhEED2Ev.exit476, label %1293
 
 1293:                                             ; preds = %1290
-  %1294 = getelementptr inbounds i8, ptr %127, i64 16
+  %1294 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1295 = load ptr, ptr %1294, align 8
   %1296 = ptrtoint ptr %1295 to i64
   %1297 = ptrtoint ptr %1292 to i64
@@ -20925,7 +20925,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit476:                 ; preds = %1290, %1293
 1312:                                             ; preds = %1289
   %1313 = landingpad { ptr, i32 }
           catch ptr null
-  %1314 = getelementptr inbounds i8, ptr %123, i64 8
+  %1314 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1314) #16
   br label %1315
 
@@ -20936,7 +20936,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit476:                 ; preds = %1290, %1293
   br i1 %.not.i.i.i480, label %_ZNSt6vectorIhSaIhEED2Ev.exit481, label %1317
 
 1317:                                             ; preds = %1315
-  %1318 = getelementptr inbounds i8, ptr %127, i64 16
+  %1318 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1319 = load ptr, ptr %1318, align 8
   %1320 = ptrtoint ptr %1319 to i64
   %1321 = ptrtoint ptr %1316 to i64
@@ -20995,11 +20995,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit479:                 ; preds = %1300, %_ZNSt6vector
           to label %1339 unwind label %1336
 
 1339:                                             ; preds = %1338
-  %1340 = getelementptr inbounds i8, ptr %121, i64 112
+  %1340 = getelementptr inbounds nuw i8, ptr %121, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1340) #16
-  %1341 = getelementptr inbounds i8, ptr %121, i64 72
+  %1341 = getelementptr inbounds nuw i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1341) #16
-  %1342 = getelementptr inbounds i8, ptr %121, i64 48
+  %1342 = getelementptr inbounds nuw i8, ptr %121, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1342) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %128, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %129)
@@ -21022,11 +21022,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit479:                 ; preds = %1300, %_ZNSt6vector
 
 1348:                                             ; preds = %1344
   store ptr %1345, ptr %133, align 8
-  %1349 = getelementptr inbounds i8, ptr %1345, i64 4
-  %1350 = getelementptr inbounds i8, ptr %133, i64 16
+  %1349 = getelementptr inbounds nuw i8, ptr %1345, i64 4
+  %1350 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1349, ptr %1350, align 8
   store i32 -1862190877, ptr %1345, align 4
-  %1351 = getelementptr inbounds i8, ptr %133, i64 8
+  %1351 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %1349, ptr %1351, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   %1352 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE17_8__invokeES5_, ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef 0)
@@ -21047,14 +21047,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit479:                 ; preds = %1300, %_ZNSt6vector
           to label %1356 unwind label %1378
 
 1356:                                             ; preds = %1355
-  %1357 = getelementptr inbounds i8, ptr %130, i64 8
+  %1357 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1357) #16
   %1358 = load ptr, ptr %134, align 8
   %.not.i.i.i494 = icmp eq ptr %1358, null
   br i1 %.not.i.i.i494, label %_ZNSt6vectorIhSaIhEED2Ev.exit495, label %1359
 
 1359:                                             ; preds = %1356
-  %1360 = getelementptr inbounds i8, ptr %134, i64 16
+  %1360 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1361 = load ptr, ptr %1360, align 8
   %1362 = ptrtoint ptr %1361 to i64
   %1363 = ptrtoint ptr %1358 to i64
@@ -21099,7 +21099,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit495:                 ; preds = %1356, %1359
 1378:                                             ; preds = %1355
   %1379 = landingpad { ptr, i32 }
           catch ptr null
-  %1380 = getelementptr inbounds i8, ptr %130, i64 8
+  %1380 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1380) #16
   br label %1381
 
@@ -21110,7 +21110,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit495:                 ; preds = %1356, %1359
   br i1 %.not.i.i.i499, label %_ZNSt6vectorIhSaIhEED2Ev.exit500, label %1383
 
 1383:                                             ; preds = %1381
-  %1384 = getelementptr inbounds i8, ptr %134, i64 16
+  %1384 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1385 = load ptr, ptr %1384, align 8
   %1386 = ptrtoint ptr %1385 to i64
   %1387 = ptrtoint ptr %1382 to i64
@@ -21169,11 +21169,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit498:                 ; preds = %1366, %_ZNSt6vector
           to label %1405 unwind label %1402
 
 1405:                                             ; preds = %1404
-  %1406 = getelementptr inbounds i8, ptr %128, i64 112
+  %1406 = getelementptr inbounds nuw i8, ptr %128, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1406) #16
-  %1407 = getelementptr inbounds i8, ptr %128, i64 72
+  %1407 = getelementptr inbounds nuw i8, ptr %128, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1407) #16
-  %1408 = getelementptr inbounds i8, ptr %128, i64 48
+  %1408 = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1408) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %135, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 108, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %136)
@@ -21196,11 +21196,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit498:                 ; preds = %1366, %_ZNSt6vector
 
 1414:                                             ; preds = %1410
   store ptr %1411, ptr %140, align 8
-  %1415 = getelementptr inbounds i8, ptr %1411, i64 4
-  %1416 = getelementptr inbounds i8, ptr %140, i64 16
+  %1415 = getelementptr inbounds nuw i8, ptr %1411, i64 4
+  %1416 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %1415, ptr %1416, align 8
   store i32 285292771, ptr %1411, align 4
-  %1417 = getelementptr inbounds i8, ptr %140, i64 8
+  %1417 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %1415, ptr %1417, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %1418 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE18_8__invokeES5_, ptr noundef nonnull %140, ptr noundef nonnull %141, i32 noundef 0)
@@ -21221,14 +21221,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit498:                 ; preds = %1366, %_ZNSt6vector
           to label %1422 unwind label %1444
 
 1422:                                             ; preds = %1421
-  %1423 = getelementptr inbounds i8, ptr %137, i64 8
+  %1423 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1423) #16
   %1424 = load ptr, ptr %141, align 8
   %.not.i.i.i513 = icmp eq ptr %1424, null
   br i1 %.not.i.i.i513, label %_ZNSt6vectorIhSaIhEED2Ev.exit514, label %1425
 
 1425:                                             ; preds = %1422
-  %1426 = getelementptr inbounds i8, ptr %141, i64 16
+  %1426 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1427 = load ptr, ptr %1426, align 8
   %1428 = ptrtoint ptr %1427 to i64
   %1429 = ptrtoint ptr %1424 to i64
@@ -21273,7 +21273,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit514:                 ; preds = %1422, %1425
 1444:                                             ; preds = %1421
   %1445 = landingpad { ptr, i32 }
           catch ptr null
-  %1446 = getelementptr inbounds i8, ptr %137, i64 8
+  %1446 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1446) #16
   br label %1447
 
@@ -21284,7 +21284,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit514:                 ; preds = %1422, %1425
   br i1 %.not.i.i.i518, label %_ZNSt6vectorIhSaIhEED2Ev.exit519, label %1449
 
 1449:                                             ; preds = %1447
-  %1450 = getelementptr inbounds i8, ptr %141, i64 16
+  %1450 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1451 = load ptr, ptr %1450, align 8
   %1452 = ptrtoint ptr %1451 to i64
   %1453 = ptrtoint ptr %1448 to i64
@@ -21343,11 +21343,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit517:                 ; preds = %1432, %_ZNSt6vector
           to label %1471 unwind label %1468
 
 1471:                                             ; preds = %1470
-  %1472 = getelementptr inbounds i8, ptr %135, i64 112
+  %1472 = getelementptr inbounds nuw i8, ptr %135, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1472) #16
-  %1473 = getelementptr inbounds i8, ptr %135, i64 72
+  %1473 = getelementptr inbounds nuw i8, ptr %135, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1473) #16
-  %1474 = getelementptr inbounds i8, ptr %135, i64 48
+  %1474 = getelementptr inbounds nuw i8, ptr %135, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1474) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %142, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 109, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %143)
@@ -21370,11 +21370,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit517:                 ; preds = %1432, %_ZNSt6vector
 
 1480:                                             ; preds = %1476
   store ptr %1477, ptr %147, align 8
-  %1481 = getelementptr inbounds i8, ptr %1477, i64 4
-  %1482 = getelementptr inbounds i8, ptr %147, i64 16
+  %1481 = getelementptr inbounds nuw i8, ptr %1477, i64 4
+  %1482 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %1481, ptr %1482, align 8
   store i32 1359034595, ptr %1477, align 4
-  %1483 = getelementptr inbounds i8, ptr %147, i64 8
+  %1483 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %1481, ptr %1483, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
   %1484 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE19_8__invokeES5_, ptr noundef nonnull %147, ptr noundef nonnull %148, i32 noundef 0)
@@ -21395,14 +21395,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit517:                 ; preds = %1432, %_ZNSt6vector
           to label %1488 unwind label %1510
 
 1488:                                             ; preds = %1487
-  %1489 = getelementptr inbounds i8, ptr %144, i64 8
+  %1489 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1489) #16
   %1490 = load ptr, ptr %148, align 8
   %.not.i.i.i532 = icmp eq ptr %1490, null
   br i1 %.not.i.i.i532, label %_ZNSt6vectorIhSaIhEED2Ev.exit533, label %1491
 
 1491:                                             ; preds = %1488
-  %1492 = getelementptr inbounds i8, ptr %148, i64 16
+  %1492 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1493 = load ptr, ptr %1492, align 8
   %1494 = ptrtoint ptr %1493 to i64
   %1495 = ptrtoint ptr %1490 to i64
@@ -21447,7 +21447,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit533:                 ; preds = %1488, %1491
 1510:                                             ; preds = %1487
   %1511 = landingpad { ptr, i32 }
           catch ptr null
-  %1512 = getelementptr inbounds i8, ptr %144, i64 8
+  %1512 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1512) #16
   br label %1513
 
@@ -21458,7 +21458,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit533:                 ; preds = %1488, %1491
   br i1 %.not.i.i.i537, label %_ZNSt6vectorIhSaIhEED2Ev.exit538, label %1515
 
 1515:                                             ; preds = %1513
-  %1516 = getelementptr inbounds i8, ptr %148, i64 16
+  %1516 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1517 = load ptr, ptr %1516, align 8
   %1518 = ptrtoint ptr %1517 to i64
   %1519 = ptrtoint ptr %1514 to i64
@@ -21517,11 +21517,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit536:                 ; preds = %1498, %_ZNSt6vector
           to label %1537 unwind label %1534
 
 1537:                                             ; preds = %1536
-  %1538 = getelementptr inbounds i8, ptr %142, i64 112
+  %1538 = getelementptr inbounds nuw i8, ptr %142, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1538) #16
-  %1539 = getelementptr inbounds i8, ptr %142, i64 72
+  %1539 = getelementptr inbounds nuw i8, ptr %142, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1539) #16
-  %1540 = getelementptr inbounds i8, ptr %142, i64 48
+  %1540 = getelementptr inbounds nuw i8, ptr %142, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1540) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %149, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 110, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %150)
@@ -21544,11 +21544,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit536:                 ; preds = %1498, %_ZNSt6vector
 
 1546:                                             ; preds = %1542
   store ptr %1543, ptr %154, align 8
-  %1547 = getelementptr inbounds i8, ptr %1543, i64 4
-  %1548 = getelementptr inbounds i8, ptr %154, i64 16
+  %1547 = getelementptr inbounds nuw i8, ptr %1543, i64 4
+  %1548 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %1547, ptr %1548, align 8
   store i32 1895868447, ptr %1543, align 4
-  %1549 = getelementptr inbounds i8, ptr %154, i64 8
+  %1549 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %1547, ptr %1549, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
   %1550 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_120DOCTEST_ANON_CLASS_61fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE20_8__invokeES5_, ptr noundef nonnull %154, ptr noundef nonnull %155, i32 noundef 0)
@@ -21569,14 +21569,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit536:                 ; preds = %1498, %_ZNSt6vector
           to label %1554 unwind label %1576
 
 1554:                                             ; preds = %1553
-  %1555 = getelementptr inbounds i8, ptr %151, i64 8
+  %1555 = getelementptr inbounds nuw i8, ptr %151, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1555) #16
   %1556 = load ptr, ptr %155, align 8
   %.not.i.i.i551 = icmp eq ptr %1556, null
   br i1 %.not.i.i.i551, label %_ZNSt6vectorIhSaIhEED2Ev.exit552, label %1557
 
 1557:                                             ; preds = %1554
-  %1558 = getelementptr inbounds i8, ptr %155, i64 16
+  %1558 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %1559 = load ptr, ptr %1558, align 8
   %1560 = ptrtoint ptr %1559 to i64
   %1561 = ptrtoint ptr %1556 to i64
@@ -21621,7 +21621,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit552:                 ; preds = %1554, %1557
 1576:                                             ; preds = %1553
   %1577 = landingpad { ptr, i32 }
           catch ptr null
-  %1578 = getelementptr inbounds i8, ptr %151, i64 8
+  %1578 = getelementptr inbounds nuw i8, ptr %151, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1578) #16
   br label %1579
 
@@ -21632,7 +21632,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit552:                 ; preds = %1554, %1557
   br i1 %.not.i.i.i556, label %_ZNSt6vectorIhSaIhEED2Ev.exit557, label %1581
 
 1581:                                             ; preds = %1579
-  %1582 = getelementptr inbounds i8, ptr %155, i64 16
+  %1582 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %1583 = load ptr, ptr %1582, align 8
   %1584 = ptrtoint ptr %1583 to i64
   %1585 = ptrtoint ptr %1580 to i64
@@ -21691,11 +21691,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit555:                 ; preds = %1564, %_ZNSt6vector
           to label %1603 unwind label %1600
 
 1603:                                             ; preds = %1602
-  %1604 = getelementptr inbounds i8, ptr %149, i64 112
+  %1604 = getelementptr inbounds nuw i8, ptr %149, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1604) #16
-  %1605 = getelementptr inbounds i8, ptr %149, i64 72
+  %1605 = getelementptr inbounds nuw i8, ptr %149, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1605) #16
-  %1606 = getelementptr inbounds i8, ptr %149, i64 48
+  %1606 = getelementptr inbounds nuw i8, ptr %149, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1606) #16
   ret void
 
@@ -22046,11 +22046,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEv(ptr no
 
 140:                                              ; preds = %136
   store ptr %137, ptr %7, align 8
-  %141 = getelementptr inbounds i8, ptr %137, i64 4
-  %142 = getelementptr inbounds i8, ptr %7, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %141, ptr %142, align 8
   store i32 301989953, ptr %137, align 4
-  %143 = getelementptr inbounds i8, ptr %7, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %141, ptr %143, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %144 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -22071,14 +22071,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEv(ptr no
           to label %148 unwind label %169
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %4, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %149) #16
   %150 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %150, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %151
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %8, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %153 = load ptr, ptr %152, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = ptrtoint ptr %150 to i64
@@ -22118,7 +22118,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %148, %151
 169:                                              ; preds = %147
   %170 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = getelementptr inbounds i8, ptr %4, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %171) #16
   br label %172
 
@@ -22129,7 +22129,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %148, %151
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIhSaIhEED2Ev.exit137, label %174
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %8, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %173 to i64
@@ -22188,11 +22188,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %158, %_ZNSt6vectorI
           to label %196 unwind label %193
 
 196:                                              ; preds = %195
-  %197 = getelementptr inbounds i8, ptr %2, i64 112
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %197) #16
-  %198 = getelementptr inbounds i8, ptr %2, i64 72
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
-  %199 = getelementptr inbounds i8, ptr %2, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %199) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 124, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -22215,11 +22215,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %158, %_ZNSt6vectorI
 
 205:                                              ; preds = %201
   store ptr %202, ptr %14, align 8
-  %206 = getelementptr inbounds i8, ptr %202, i64 4
-  %207 = getelementptr inbounds i8, ptr %14, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %206, ptr %207, align 8
   store i32 838860865, ptr %202, align 4
-  %208 = getelementptr inbounds i8, ptr %14, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %206, ptr %208, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %209 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -22240,14 +22240,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %158, %_ZNSt6vectorI
           to label %213 unwind label %235
 
 213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %11, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %214) #16
   %215 = load ptr, ptr %15, align 8
   %.not.i.i.i150 = icmp eq ptr %215, null
   br i1 %.not.i.i.i150, label %_ZNSt6vectorIhSaIhEED2Ev.exit151, label %216
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds i8, ptr %15, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %218 = load ptr, ptr %217, align 8
   %219 = ptrtoint ptr %218 to i64
   %220 = ptrtoint ptr %215 to i64
@@ -22292,7 +22292,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit151:                 ; preds = %213, %216
 235:                                              ; preds = %212
   %236 = landingpad { ptr, i32 }
           catch ptr null
-  %237 = getelementptr inbounds i8, ptr %11, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %237) #16
   br label %238
 
@@ -22303,7 +22303,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit151:                 ; preds = %213, %216
   br i1 %.not.i.i.i155, label %_ZNSt6vectorIhSaIhEED2Ev.exit156, label %240
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds i8, ptr %15, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %242 = load ptr, ptr %241, align 8
   %243 = ptrtoint ptr %242 to i64
   %244 = ptrtoint ptr %239 to i64
@@ -22362,11 +22362,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit154:                 ; preds = %223, %_ZNSt6vectorI
           to label %262 unwind label %259
 
 262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %9, i64 112
+  %263 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %263) #16
-  %264 = getelementptr inbounds i8, ptr %9, i64 72
+  %264 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %264) #16
-  %265 = getelementptr inbounds i8, ptr %9, i64 48
+  %265 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %265) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 125, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -22389,11 +22389,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit154:                 ; preds = %223, %_ZNSt6vectorI
 
 271:                                              ; preds = %267
   store ptr %268, ptr %21, align 8
-  %272 = getelementptr inbounds i8, ptr %268, i64 4
-  %273 = getelementptr inbounds i8, ptr %21, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %272, ptr %273, align 8
   store i32 1375731777, ptr %268, align 4
-  %274 = getelementptr inbounds i8, ptr %21, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %272, ptr %274, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %275 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -22414,14 +22414,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit154:                 ; preds = %223, %_ZNSt6vectorI
           to label %279 unwind label %301
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds i8, ptr %18, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %280) #16
   %281 = load ptr, ptr %22, align 8
   %.not.i.i.i169 = icmp eq ptr %281, null
   br i1 %.not.i.i.i169, label %_ZNSt6vectorIhSaIhEED2Ev.exit170, label %282
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %22, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %284 = load ptr, ptr %283, align 8
   %285 = ptrtoint ptr %284 to i64
   %286 = ptrtoint ptr %281 to i64
@@ -22466,7 +22466,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit170:                 ; preds = %279, %282
 301:                                              ; preds = %278
   %302 = landingpad { ptr, i32 }
           catch ptr null
-  %303 = getelementptr inbounds i8, ptr %18, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %303) #16
   br label %304
 
@@ -22477,7 +22477,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit170:                 ; preds = %279, %282
   br i1 %.not.i.i.i174, label %_ZNSt6vectorIhSaIhEED2Ev.exit175, label %306
 
 306:                                              ; preds = %304
-  %307 = getelementptr inbounds i8, ptr %22, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %308 = load ptr, ptr %307, align 8
   %309 = ptrtoint ptr %308 to i64
   %310 = ptrtoint ptr %305 to i64
@@ -22536,11 +22536,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit173:                 ; preds = %289, %_ZNSt6vectorI
           to label %328 unwind label %325
 
 328:                                              ; preds = %327
-  %329 = getelementptr inbounds i8, ptr %16, i64 112
+  %329 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %329) #16
-  %330 = getelementptr inbounds i8, ptr %16, i64 72
+  %330 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %330) #16
-  %331 = getelementptr inbounds i8, ptr %16, i64 48
+  %331 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %331) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 126, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -22563,11 +22563,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit173:                 ; preds = %289, %_ZNSt6vectorI
 
 337:                                              ; preds = %333
   store ptr %334, ptr %28, align 8
-  %338 = getelementptr inbounds i8, ptr %334, i64 4
-  %339 = getelementptr inbounds i8, ptr %28, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %334, i64 4
+  %339 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %338, ptr %339, align 8
   store i32 1912602687, ptr %334, align 4
-  %340 = getelementptr inbounds i8, ptr %28, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %338, ptr %340, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %341 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -22588,14 +22588,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit173:                 ; preds = %289, %_ZNSt6vectorI
           to label %345 unwind label %367
 
 345:                                              ; preds = %344
-  %346 = getelementptr inbounds i8, ptr %25, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %346) #16
   %347 = load ptr, ptr %29, align 8
   %.not.i.i.i188 = icmp eq ptr %347, null
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIhSaIhEED2Ev.exit189, label %348
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %29, i64 16
+  %349 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %350 = load ptr, ptr %349, align 8
   %351 = ptrtoint ptr %350 to i64
   %352 = ptrtoint ptr %347 to i64
@@ -22640,7 +22640,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit189:                 ; preds = %345, %348
 367:                                              ; preds = %344
   %368 = landingpad { ptr, i32 }
           catch ptr null
-  %369 = getelementptr inbounds i8, ptr %25, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %369) #16
   br label %370
 
@@ -22651,7 +22651,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit189:                 ; preds = %345, %348
   br i1 %.not.i.i.i193, label %_ZNSt6vectorIhSaIhEED2Ev.exit194, label %372
 
 372:                                              ; preds = %370
-  %373 = getelementptr inbounds i8, ptr %29, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %374 = load ptr, ptr %373, align 8
   %375 = ptrtoint ptr %374 to i64
   %376 = ptrtoint ptr %371 to i64
@@ -22710,11 +22710,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit192:                 ; preds = %355, %_ZNSt6vectorI
           to label %394 unwind label %391
 
 394:                                              ; preds = %393
-  %395 = getelementptr inbounds i8, ptr %23, i64 112
+  %395 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %395) #16
-  %396 = getelementptr inbounds i8, ptr %23, i64 72
+  %396 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %396) #16
-  %397 = getelementptr inbounds i8, ptr %23, i64 48
+  %397 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %397) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 129, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -22737,11 +22737,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit192:                 ; preds = %355, %_ZNSt6vectorI
 
 403:                                              ; preds = %399
   store ptr %400, ptr %35, align 8
-  %404 = getelementptr inbounds i8, ptr %400, i64 4
-  %405 = getelementptr inbounds i8, ptr %35, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %400, i64 4
+  %405 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %404, ptr %405, align 8
   store i32 301989888, ptr %400, align 4
-  %406 = getelementptr inbounds i8, ptr %35, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %404, ptr %406, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %407 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -22762,14 +22762,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit192:                 ; preds = %355, %_ZNSt6vectorI
           to label %411 unwind label %433
 
 411:                                              ; preds = %410
-  %412 = getelementptr inbounds i8, ptr %32, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %412) #16
   %413 = load ptr, ptr %36, align 8
   %.not.i.i.i207 = icmp eq ptr %413, null
   br i1 %.not.i.i.i207, label %_ZNSt6vectorIhSaIhEED2Ev.exit208, label %414
 
 414:                                              ; preds = %411
-  %415 = getelementptr inbounds i8, ptr %36, i64 16
+  %415 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %416 = load ptr, ptr %415, align 8
   %417 = ptrtoint ptr %416 to i64
   %418 = ptrtoint ptr %413 to i64
@@ -22814,7 +22814,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit208:                 ; preds = %411, %414
 433:                                              ; preds = %410
   %434 = landingpad { ptr, i32 }
           catch ptr null
-  %435 = getelementptr inbounds i8, ptr %32, i64 8
+  %435 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %435) #16
   br label %436
 
@@ -22825,7 +22825,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit208:                 ; preds = %411, %414
   br i1 %.not.i.i.i212, label %_ZNSt6vectorIhSaIhEED2Ev.exit213, label %438
 
 438:                                              ; preds = %436
-  %439 = getelementptr inbounds i8, ptr %36, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %440 = load ptr, ptr %439, align 8
   %441 = ptrtoint ptr %440 to i64
   %442 = ptrtoint ptr %437 to i64
@@ -22884,11 +22884,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit211:                 ; preds = %421, %_ZNSt6vectorI
           to label %460 unwind label %457
 
 460:                                              ; preds = %459
-  %461 = getelementptr inbounds i8, ptr %30, i64 112
+  %461 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %461) #16
-  %462 = getelementptr inbounds i8, ptr %30, i64 72
+  %462 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %462) #16
-  %463 = getelementptr inbounds i8, ptr %30, i64 48
+  %463 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %463) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 130, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -22911,11 +22911,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit211:                 ; preds = %421, %_ZNSt6vectorI
 
 469:                                              ; preds = %465
   store ptr %466, ptr %42, align 8
-  %470 = getelementptr inbounds i8, ptr %466, i64 4
-  %471 = getelementptr inbounds i8, ptr %42, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %466, i64 4
+  %471 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %470, ptr %471, align 8
   store i32 301990912, ptr %466, align 4
-  %472 = getelementptr inbounds i8, ptr %42, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %470, ptr %472, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %473 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -22936,14 +22936,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit211:                 ; preds = %421, %_ZNSt6vectorI
           to label %477 unwind label %499
 
 477:                                              ; preds = %476
-  %478 = getelementptr inbounds i8, ptr %39, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %478) #16
   %479 = load ptr, ptr %43, align 8
   %.not.i.i.i226 = icmp eq ptr %479, null
   br i1 %.not.i.i.i226, label %_ZNSt6vectorIhSaIhEED2Ev.exit227, label %480
 
 480:                                              ; preds = %477
-  %481 = getelementptr inbounds i8, ptr %43, i64 16
+  %481 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %482 = load ptr, ptr %481, align 8
   %483 = ptrtoint ptr %482 to i64
   %484 = ptrtoint ptr %479 to i64
@@ -22988,7 +22988,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit227:                 ; preds = %477, %480
 499:                                              ; preds = %476
   %500 = landingpad { ptr, i32 }
           catch ptr null
-  %501 = getelementptr inbounds i8, ptr %39, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %501) #16
   br label %502
 
@@ -22999,7 +22999,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit227:                 ; preds = %477, %480
   br i1 %.not.i.i.i231, label %_ZNSt6vectorIhSaIhEED2Ev.exit232, label %504
 
 504:                                              ; preds = %502
-  %505 = getelementptr inbounds i8, ptr %43, i64 16
+  %505 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %506 = load ptr, ptr %505, align 8
   %507 = ptrtoint ptr %506 to i64
   %508 = ptrtoint ptr %503 to i64
@@ -23058,11 +23058,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit230:                 ; preds = %487, %_ZNSt6vectorI
           to label %526 unwind label %523
 
 526:                                              ; preds = %525
-  %527 = getelementptr inbounds i8, ptr %37, i64 112
+  %527 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %527) #16
-  %528 = getelementptr inbounds i8, ptr %37, i64 72
+  %528 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %528) #16
-  %529 = getelementptr inbounds i8, ptr %37, i64 48
+  %529 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %529) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 131, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -23085,11 +23085,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit230:                 ; preds = %487, %_ZNSt6vectorI
 
 535:                                              ; preds = %531
   store ptr %532, ptr %49, align 8
-  %536 = getelementptr inbounds i8, ptr %532, i64 4
-  %537 = getelementptr inbounds i8, ptr %49, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %532, i64 4
+  %537 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %536, ptr %537, align 8
   store i32 301991936, ptr %532, align 4
-  %538 = getelementptr inbounds i8, ptr %49, i64 8
+  %538 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %536, ptr %538, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %539 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -23110,14 +23110,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit230:                 ; preds = %487, %_ZNSt6vectorI
           to label %543 unwind label %565
 
 543:                                              ; preds = %542
-  %544 = getelementptr inbounds i8, ptr %46, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %544) #16
   %545 = load ptr, ptr %50, align 8
   %.not.i.i.i245 = icmp eq ptr %545, null
   br i1 %.not.i.i.i245, label %_ZNSt6vectorIhSaIhEED2Ev.exit246, label %546
 
 546:                                              ; preds = %543
-  %547 = getelementptr inbounds i8, ptr %50, i64 16
+  %547 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %548 = load ptr, ptr %547, align 8
   %549 = ptrtoint ptr %548 to i64
   %550 = ptrtoint ptr %545 to i64
@@ -23162,7 +23162,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit246:                 ; preds = %543, %546
 565:                                              ; preds = %542
   %566 = landingpad { ptr, i32 }
           catch ptr null
-  %567 = getelementptr inbounds i8, ptr %46, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %567) #16
   br label %568
 
@@ -23173,7 +23173,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit246:                 ; preds = %543, %546
   br i1 %.not.i.i.i250, label %_ZNSt6vectorIhSaIhEED2Ev.exit251, label %570
 
 570:                                              ; preds = %568
-  %571 = getelementptr inbounds i8, ptr %50, i64 16
+  %571 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %572 = load ptr, ptr %571, align 8
   %573 = ptrtoint ptr %572 to i64
   %574 = ptrtoint ptr %569 to i64
@@ -23232,11 +23232,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit249:                 ; preds = %553, %_ZNSt6vectorI
           to label %592 unwind label %589
 
 592:                                              ; preds = %591
-  %593 = getelementptr inbounds i8, ptr %44, i64 112
+  %593 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %593) #16
-  %594 = getelementptr inbounds i8, ptr %44, i64 72
+  %594 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %594) #16
-  %595 = getelementptr inbounds i8, ptr %44, i64 48
+  %595 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %595) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 132, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -23259,11 +23259,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit249:                 ; preds = %553, %_ZNSt6vectorI
 
 601:                                              ; preds = %597
   store ptr %598, ptr %56, align 8
-  %602 = getelementptr inbounds i8, ptr %598, i64 4
-  %603 = getelementptr inbounds i8, ptr %56, i64 16
+  %602 = getelementptr inbounds nuw i8, ptr %598, i64 4
+  %603 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %602, ptr %603, align 8
   store i32 302020608, ptr %598, align 4
-  %604 = getelementptr inbounds i8, ptr %56, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %602, ptr %604, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %605 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -23284,14 +23284,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit249:                 ; preds = %553, %_ZNSt6vectorI
           to label %609 unwind label %631
 
 609:                                              ; preds = %608
-  %610 = getelementptr inbounds i8, ptr %53, i64 8
+  %610 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %610) #16
   %611 = load ptr, ptr %57, align 8
   %.not.i.i.i264 = icmp eq ptr %611, null
   br i1 %.not.i.i.i264, label %_ZNSt6vectorIhSaIhEED2Ev.exit265, label %612
 
 612:                                              ; preds = %609
-  %613 = getelementptr inbounds i8, ptr %57, i64 16
+  %613 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %614 = load ptr, ptr %613, align 8
   %615 = ptrtoint ptr %614 to i64
   %616 = ptrtoint ptr %611 to i64
@@ -23336,7 +23336,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit265:                 ; preds = %609, %612
 631:                                              ; preds = %608
   %632 = landingpad { ptr, i32 }
           catch ptr null
-  %633 = getelementptr inbounds i8, ptr %53, i64 8
+  %633 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %633) #16
   br label %634
 
@@ -23347,7 +23347,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit265:                 ; preds = %609, %612
   br i1 %.not.i.i.i269, label %_ZNSt6vectorIhSaIhEED2Ev.exit270, label %636
 
 636:                                              ; preds = %634
-  %637 = getelementptr inbounds i8, ptr %57, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %638 = load ptr, ptr %637, align 8
   %639 = ptrtoint ptr %638 to i64
   %640 = ptrtoint ptr %635 to i64
@@ -23406,11 +23406,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit268:                 ; preds = %619, %_ZNSt6vectorI
           to label %658 unwind label %655
 
 658:                                              ; preds = %657
-  %659 = getelementptr inbounds i8, ptr %51, i64 112
+  %659 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %659) #16
-  %660 = getelementptr inbounds i8, ptr %51, i64 72
+  %660 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %660) #16
-  %661 = getelementptr inbounds i8, ptr %51, i64 48
+  %661 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %661) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 133, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -23433,11 +23433,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit268:                 ; preds = %619, %_ZNSt6vectorI
 
 667:                                              ; preds = %663
   store ptr %664, ptr %63, align 8
-  %668 = getelementptr inbounds i8, ptr %664, i64 4
-  %669 = getelementptr inbounds i8, ptr %63, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %664, i64 4
+  %669 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %668, ptr %669, align 8
   store i32 304022528, ptr %664, align 4
-  %670 = getelementptr inbounds i8, ptr %63, i64 8
+  %670 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %668, ptr %670, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %671 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -23458,14 +23458,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit268:                 ; preds = %619, %_ZNSt6vectorI
           to label %675 unwind label %697
 
 675:                                              ; preds = %674
-  %676 = getelementptr inbounds i8, ptr %60, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %676) #16
   %677 = load ptr, ptr %64, align 8
   %.not.i.i.i283 = icmp eq ptr %677, null
   br i1 %.not.i.i.i283, label %_ZNSt6vectorIhSaIhEED2Ev.exit284, label %678
 
 678:                                              ; preds = %675
-  %679 = getelementptr inbounds i8, ptr %64, i64 16
+  %679 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %680 = load ptr, ptr %679, align 8
   %681 = ptrtoint ptr %680 to i64
   %682 = ptrtoint ptr %677 to i64
@@ -23510,7 +23510,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit284:                 ; preds = %675, %678
 697:                                              ; preds = %674
   %698 = landingpad { ptr, i32 }
           catch ptr null
-  %699 = getelementptr inbounds i8, ptr %60, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %699) #16
   br label %700
 
@@ -23521,7 +23521,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit284:                 ; preds = %675, %678
   br i1 %.not.i.i.i288, label %_ZNSt6vectorIhSaIhEED2Ev.exit289, label %702
 
 702:                                              ; preds = %700
-  %703 = getelementptr inbounds i8, ptr %64, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %704 = load ptr, ptr %703, align 8
   %705 = ptrtoint ptr %704 to i64
   %706 = ptrtoint ptr %701 to i64
@@ -23580,11 +23580,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit287:                 ; preds = %685, %_ZNSt6vectorI
           to label %724 unwind label %721
 
 724:                                              ; preds = %723
-  %725 = getelementptr inbounds i8, ptr %58, i64 112
+  %725 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %725) #16
-  %726 = getelementptr inbounds i8, ptr %58, i64 72
+  %726 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %726) #16
-  %727 = getelementptr inbounds i8, ptr %58, i64 48
+  %727 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %727) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 134, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -23607,11 +23607,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit287:                 ; preds = %685, %_ZNSt6vectorI
 
 733:                                              ; preds = %729
   store ptr %730, ptr %70, align 8
-  %734 = getelementptr inbounds i8, ptr %730, i64 4
-  %735 = getelementptr inbounds i8, ptr %70, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %730, i64 4
+  %735 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %734, ptr %735, align 8
   store i32 303956992, ptr %730, align 4
-  %736 = getelementptr inbounds i8, ptr %70, i64 8
+  %736 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %734, ptr %736, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %737 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -23632,14 +23632,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit287:                 ; preds = %685, %_ZNSt6vectorI
           to label %741 unwind label %763
 
 741:                                              ; preds = %740
-  %742 = getelementptr inbounds i8, ptr %67, i64 8
+  %742 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %742) #16
   %743 = load ptr, ptr %71, align 8
   %.not.i.i.i302 = icmp eq ptr %743, null
   br i1 %.not.i.i.i302, label %_ZNSt6vectorIhSaIhEED2Ev.exit303, label %744
 
 744:                                              ; preds = %741
-  %745 = getelementptr inbounds i8, ptr %71, i64 16
+  %745 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %746 = load ptr, ptr %745, align 8
   %747 = ptrtoint ptr %746 to i64
   %748 = ptrtoint ptr %743 to i64
@@ -23684,7 +23684,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit303:                 ; preds = %741, %744
 763:                                              ; preds = %740
   %764 = landingpad { ptr, i32 }
           catch ptr null
-  %765 = getelementptr inbounds i8, ptr %67, i64 8
+  %765 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %765) #16
   br label %766
 
@@ -23695,7 +23695,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit303:                 ; preds = %741, %744
   br i1 %.not.i.i.i307, label %_ZNSt6vectorIhSaIhEED2Ev.exit308, label %768
 
 768:                                              ; preds = %766
-  %769 = getelementptr inbounds i8, ptr %71, i64 16
+  %769 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %770 = load ptr, ptr %769, align 8
   %771 = ptrtoint ptr %770 to i64
   %772 = ptrtoint ptr %767 to i64
@@ -23754,11 +23754,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit306:                 ; preds = %751, %_ZNSt6vectorI
           to label %790 unwind label %787
 
 790:                                              ; preds = %789
-  %791 = getelementptr inbounds i8, ptr %65, i64 112
+  %791 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %791) #16
-  %792 = getelementptr inbounds i8, ptr %65, i64 72
+  %792 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %792) #16
-  %793 = getelementptr inbounds i8, ptr %65, i64 48
+  %793 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %793) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 135, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -23781,11 +23781,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit306:                 ; preds = %751, %_ZNSt6vectorI
 
 799:                                              ; preds = %795
   store ptr %796, ptr %77, align 8
-  %800 = getelementptr inbounds i8, ptr %796, i64 4
-  %801 = getelementptr inbounds i8, ptr %77, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %796, i64 4
+  %801 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %800, ptr %801, align 8
   store i32 302055424, ptr %796, align 4
-  %802 = getelementptr inbounds i8, ptr %77, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %800, ptr %802, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %803 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -23806,14 +23806,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit306:                 ; preds = %751, %_ZNSt6vectorI
           to label %807 unwind label %829
 
 807:                                              ; preds = %806
-  %808 = getelementptr inbounds i8, ptr %74, i64 8
+  %808 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %808) #16
   %809 = load ptr, ptr %78, align 8
   %.not.i.i.i321 = icmp eq ptr %809, null
   br i1 %.not.i.i.i321, label %_ZNSt6vectorIhSaIhEED2Ev.exit322, label %810
 
 810:                                              ; preds = %807
-  %811 = getelementptr inbounds i8, ptr %78, i64 16
+  %811 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %812 = load ptr, ptr %811, align 8
   %813 = ptrtoint ptr %812 to i64
   %814 = ptrtoint ptr %809 to i64
@@ -23858,7 +23858,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit322:                 ; preds = %807, %810
 829:                                              ; preds = %806
   %830 = landingpad { ptr, i32 }
           catch ptr null
-  %831 = getelementptr inbounds i8, ptr %74, i64 8
+  %831 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %831) #16
   br label %832
 
@@ -23869,7 +23869,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit322:                 ; preds = %807, %810
   br i1 %.not.i.i.i326, label %_ZNSt6vectorIhSaIhEED2Ev.exit327, label %834
 
 834:                                              ; preds = %832
-  %835 = getelementptr inbounds i8, ptr %78, i64 16
+  %835 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %836 = load ptr, ptr %835, align 8
   %837 = ptrtoint ptr %836 to i64
   %838 = ptrtoint ptr %833 to i64
@@ -23928,11 +23928,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit325:                 ; preds = %817, %_ZNSt6vectorI
           to label %856 unwind label %853
 
 856:                                              ; preds = %855
-  %857 = getelementptr inbounds i8, ptr %72, i64 112
+  %857 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %857) #16
-  %858 = getelementptr inbounds i8, ptr %72, i64 72
+  %858 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %858) #16
-  %859 = getelementptr inbounds i8, ptr %72, i64 48
+  %859 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %859) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 138, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -23955,11 +23955,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit325:                 ; preds = %817, %_ZNSt6vectorI
 
 865:                                              ; preds = %861
   store ptr %862, ptr %84, align 8
-  %866 = getelementptr inbounds i8, ptr %862, i64 4
-  %867 = getelementptr inbounds i8, ptr %84, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %862, i64 4
+  %867 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %866, ptr %867, align 8
   store i32 1394571329, ptr %862, align 4
-  %868 = getelementptr inbounds i8, ptr %84, i64 8
+  %868 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %866, ptr %868, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %869 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -23980,14 +23980,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit325:                 ; preds = %817, %_ZNSt6vectorI
           to label %873 unwind label %895
 
 873:                                              ; preds = %872
-  %874 = getelementptr inbounds i8, ptr %81, i64 8
+  %874 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %874) #16
   %875 = load ptr, ptr %85, align 8
   %.not.i.i.i340 = icmp eq ptr %875, null
   br i1 %.not.i.i.i340, label %_ZNSt6vectorIhSaIhEED2Ev.exit341, label %876
 
 876:                                              ; preds = %873
-  %877 = getelementptr inbounds i8, ptr %85, i64 16
+  %877 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %878 = load ptr, ptr %877, align 8
   %879 = ptrtoint ptr %878 to i64
   %880 = ptrtoint ptr %875 to i64
@@ -24032,7 +24032,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit341:                 ; preds = %873, %876
 895:                                              ; preds = %872
   %896 = landingpad { ptr, i32 }
           catch ptr null
-  %897 = getelementptr inbounds i8, ptr %81, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %897) #16
   br label %898
 
@@ -24043,7 +24043,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit341:                 ; preds = %873, %876
   br i1 %.not.i.i.i345, label %_ZNSt6vectorIhSaIhEED2Ev.exit346, label %900
 
 900:                                              ; preds = %898
-  %901 = getelementptr inbounds i8, ptr %85, i64 16
+  %901 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %902 = load ptr, ptr %901, align 8
   %903 = ptrtoint ptr %902 to i64
   %904 = ptrtoint ptr %899 to i64
@@ -24102,11 +24102,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit344:                 ; preds = %883, %_ZNSt6vectorI
           to label %922 unwind label %919
 
 922:                                              ; preds = %921
-  %923 = getelementptr inbounds i8, ptr %79, i64 112
+  %923 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %923) #16
-  %924 = getelementptr inbounds i8, ptr %79, i64 72
+  %924 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %924) #16
-  %925 = getelementptr inbounds i8, ptr %79, i64 48
+  %925 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %925) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 139, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -24129,11 +24129,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit344:                 ; preds = %883, %_ZNSt6vectorI
 
 931:                                              ; preds = %927
   store ptr %928, ptr %91, align 8
-  %932 = getelementptr inbounds i8, ptr %928, i64 4
-  %933 = getelementptr inbounds i8, ptr %91, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %928, i64 4
+  %933 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %932, ptr %933, align 8
   store i32 -746588095, ptr %928, align 4
-  %934 = getelementptr inbounds i8, ptr %91, i64 8
+  %934 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %932, ptr %934, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %935 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -24154,14 +24154,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit344:                 ; preds = %883, %_ZNSt6vectorI
           to label %939 unwind label %961
 
 939:                                              ; preds = %938
-  %940 = getelementptr inbounds i8, ptr %88, i64 8
+  %940 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %940) #16
   %941 = load ptr, ptr %92, align 8
   %.not.i.i.i359 = icmp eq ptr %941, null
   br i1 %.not.i.i.i359, label %_ZNSt6vectorIhSaIhEED2Ev.exit360, label %942
 
 942:                                              ; preds = %939
-  %943 = getelementptr inbounds i8, ptr %92, i64 16
+  %943 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %944 = load ptr, ptr %943, align 8
   %945 = ptrtoint ptr %944 to i64
   %946 = ptrtoint ptr %941 to i64
@@ -24206,7 +24206,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit360:                 ; preds = %939, %942
 961:                                              ; preds = %938
   %962 = landingpad { ptr, i32 }
           catch ptr null
-  %963 = getelementptr inbounds i8, ptr %88, i64 8
+  %963 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %963) #16
   br label %964
 
@@ -24217,7 +24217,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit360:                 ; preds = %939, %942
   br i1 %.not.i.i.i364, label %_ZNSt6vectorIhSaIhEED2Ev.exit365, label %966
 
 966:                                              ; preds = %964
-  %967 = getelementptr inbounds i8, ptr %92, i64 16
+  %967 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %968 = load ptr, ptr %967, align 8
   %969 = ptrtoint ptr %968 to i64
   %970 = ptrtoint ptr %965 to i64
@@ -24276,11 +24276,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit363:                 ; preds = %949, %_ZNSt6vectorI
           to label %988 unwind label %985
 
 988:                                              ; preds = %987
-  %989 = getelementptr inbounds i8, ptr %86, i64 112
+  %989 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %989) #16
-  %990 = getelementptr inbounds i8, ptr %86, i64 72
+  %990 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %990) #16
-  %991 = getelementptr inbounds i8, ptr %86, i64 48
+  %991 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %991) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 140, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -24303,11 +24303,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit363:                 ; preds = %949, %_ZNSt6vectorI
 
 997:                                              ; preds = %993
   store ptr %994, ptr %98, align 8
-  %998 = getelementptr inbounds i8, ptr %994, i64 4
-  %999 = getelementptr inbounds i8, ptr %98, i64 16
+  %998 = getelementptr inbounds nuw i8, ptr %994, i64 4
+  %999 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %998, ptr %999, align 8
   store i32 1392606273, ptr %994, align 4
-  %1000 = getelementptr inbounds i8, ptr %98, i64 8
+  %1000 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %998, ptr %1000, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %1001 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -24328,14 +24328,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit363:                 ; preds = %949, %_ZNSt6vectorI
           to label %1005 unwind label %1027
 
 1005:                                             ; preds = %1004
-  %1006 = getelementptr inbounds i8, ptr %95, i64 8
+  %1006 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1006) #16
   %1007 = load ptr, ptr %99, align 8
   %.not.i.i.i378 = icmp eq ptr %1007, null
   br i1 %.not.i.i.i378, label %_ZNSt6vectorIhSaIhEED2Ev.exit379, label %1008
 
 1008:                                             ; preds = %1005
-  %1009 = getelementptr inbounds i8, ptr %99, i64 16
+  %1009 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1010 = load ptr, ptr %1009, align 8
   %1011 = ptrtoint ptr %1010 to i64
   %1012 = ptrtoint ptr %1007 to i64
@@ -24380,7 +24380,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit379:                 ; preds = %1005, %1008
 1027:                                             ; preds = %1004
   %1028 = landingpad { ptr, i32 }
           catch ptr null
-  %1029 = getelementptr inbounds i8, ptr %95, i64 8
+  %1029 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1029) #16
   br label %1030
 
@@ -24391,7 +24391,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit379:                 ; preds = %1005, %1008
   br i1 %.not.i.i.i383, label %_ZNSt6vectorIhSaIhEED2Ev.exit384, label %1032
 
 1032:                                             ; preds = %1030
-  %1033 = getelementptr inbounds i8, ptr %99, i64 16
+  %1033 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1034 = load ptr, ptr %1033, align 8
   %1035 = ptrtoint ptr %1034 to i64
   %1036 = ptrtoint ptr %1031 to i64
@@ -24450,11 +24450,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit382:                 ; preds = %1015, %_ZNSt6vector
           to label %1054 unwind label %1051
 
 1054:                                             ; preds = %1053
-  %1055 = getelementptr inbounds i8, ptr %93, i64 112
+  %1055 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1055) #16
-  %1056 = getelementptr inbounds i8, ptr %93, i64 72
+  %1056 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1056) #16
-  %1057 = getelementptr inbounds i8, ptr %93, i64 48
+  %1057 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1057) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %100, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 141, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %101)
@@ -24477,11 +24477,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit382:                 ; preds = %1015, %_ZNSt6vector
 
 1063:                                             ; preds = %1059
   store ptr %1060, ptr %105, align 8
-  %1064 = getelementptr inbounds i8, ptr %1060, i64 4
-  %1065 = getelementptr inbounds i8, ptr %105, i64 16
+  %1064 = getelementptr inbounds nuw i8, ptr %1060, i64 4
+  %1065 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %1064, ptr %1065, align 8
   store i32 -750650303, ptr %1060, align 4
-  %1066 = getelementptr inbounds i8, ptr %105, i64 8
+  %1066 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1064, ptr %1066, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %1067 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE13_8__invokeES5_, ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef 0)
@@ -24502,14 +24502,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit382:                 ; preds = %1015, %_ZNSt6vector
           to label %1071 unwind label %1093
 
 1071:                                             ; preds = %1070
-  %1072 = getelementptr inbounds i8, ptr %102, i64 8
+  %1072 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1072) #16
   %1073 = load ptr, ptr %106, align 8
   %.not.i.i.i397 = icmp eq ptr %1073, null
   br i1 %.not.i.i.i397, label %_ZNSt6vectorIhSaIhEED2Ev.exit398, label %1074
 
 1074:                                             ; preds = %1071
-  %1075 = getelementptr inbounds i8, ptr %106, i64 16
+  %1075 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1076 = load ptr, ptr %1075, align 8
   %1077 = ptrtoint ptr %1076 to i64
   %1078 = ptrtoint ptr %1073 to i64
@@ -24554,7 +24554,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit398:                 ; preds = %1071, %1074
 1093:                                             ; preds = %1070
   %1094 = landingpad { ptr, i32 }
           catch ptr null
-  %1095 = getelementptr inbounds i8, ptr %102, i64 8
+  %1095 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1095) #16
   br label %1096
 
@@ -24565,7 +24565,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit398:                 ; preds = %1071, %1074
   br i1 %.not.i.i.i402, label %_ZNSt6vectorIhSaIhEED2Ev.exit403, label %1098
 
 1098:                                             ; preds = %1096
-  %1099 = getelementptr inbounds i8, ptr %106, i64 16
+  %1099 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1100 = load ptr, ptr %1099, align 8
   %1101 = ptrtoint ptr %1100 to i64
   %1102 = ptrtoint ptr %1097 to i64
@@ -24624,11 +24624,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit401:                 ; preds = %1081, %_ZNSt6vector
           to label %1120 unwind label %1117
 
 1120:                                             ; preds = %1119
-  %1121 = getelementptr inbounds i8, ptr %100, i64 112
+  %1121 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1121) #16
-  %1122 = getelementptr inbounds i8, ptr %100, i64 72
+  %1122 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1122) #16
-  %1123 = getelementptr inbounds i8, ptr %100, i64 48
+  %1123 = getelementptr inbounds nuw i8, ptr %100, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1123) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %107, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 142, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -24651,11 +24651,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit401:                 ; preds = %1081, %_ZNSt6vector
 
 1129:                                             ; preds = %1125
   store ptr %1126, ptr %112, align 8
-  %1130 = getelementptr inbounds i8, ptr %1126, i64 4
-  %1131 = getelementptr inbounds i8, ptr %112, i64 16
+  %1130 = getelementptr inbounds nuw i8, ptr %1126, i64 4
+  %1131 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %1130, ptr %1131, align 8
   store i32 318864449, ptr %1126, align 4
-  %1132 = getelementptr inbounds i8, ptr %112, i64 8
+  %1132 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %1130, ptr %1132, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %1133 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE14_8__invokeES5_, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef 0)
@@ -24676,14 +24676,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit401:                 ; preds = %1081, %_ZNSt6vector
           to label %1137 unwind label %1159
 
 1137:                                             ; preds = %1136
-  %1138 = getelementptr inbounds i8, ptr %109, i64 8
+  %1138 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1138) #16
   %1139 = load ptr, ptr %113, align 8
   %.not.i.i.i416 = icmp eq ptr %1139, null
   br i1 %.not.i.i.i416, label %_ZNSt6vectorIhSaIhEED2Ev.exit417, label %1140
 
 1140:                                             ; preds = %1137
-  %1141 = getelementptr inbounds i8, ptr %113, i64 16
+  %1141 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1142 = load ptr, ptr %1141, align 8
   %1143 = ptrtoint ptr %1142 to i64
   %1144 = ptrtoint ptr %1139 to i64
@@ -24728,7 +24728,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit417:                 ; preds = %1137, %1140
 1159:                                             ; preds = %1136
   %1160 = landingpad { ptr, i32 }
           catch ptr null
-  %1161 = getelementptr inbounds i8, ptr %109, i64 8
+  %1161 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1161) #16
   br label %1162
 
@@ -24739,7 +24739,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit417:                 ; preds = %1137, %1140
   br i1 %.not.i.i.i421, label %_ZNSt6vectorIhSaIhEED2Ev.exit422, label %1164
 
 1164:                                             ; preds = %1162
-  %1165 = getelementptr inbounds i8, ptr %113, i64 16
+  %1165 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1166 = load ptr, ptr %1165, align 8
   %1167 = ptrtoint ptr %1166 to i64
   %1168 = ptrtoint ptr %1163 to i64
@@ -24798,11 +24798,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit420:                 ; preds = %1147, %_ZNSt6vector
           to label %1186 unwind label %1183
 
 1186:                                             ; preds = %1185
-  %1187 = getelementptr inbounds i8, ptr %107, i64 112
+  %1187 = getelementptr inbounds nuw i8, ptr %107, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1187) #16
-  %1188 = getelementptr inbounds i8, ptr %107, i64 72
+  %1188 = getelementptr inbounds nuw i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1188) #16
-  %1189 = getelementptr inbounds i8, ptr %107, i64 48
+  %1189 = getelementptr inbounds nuw i8, ptr %107, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1189) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %114, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 143, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %115)
@@ -24825,11 +24825,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit420:                 ; preds = %1147, %_ZNSt6vector
 
 1195:                                             ; preds = %1191
   store ptr %1192, ptr %119, align 8
-  %1196 = getelementptr inbounds i8, ptr %1192, i64 4
-  %1197 = getelementptr inbounds i8, ptr %119, i64 16
+  %1196 = getelementptr inbounds nuw i8, ptr %1192, i64 4
+  %1197 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %1196, ptr %1197, align 8
   store i32 -1824392127, ptr %1192, align 4
-  %1198 = getelementptr inbounds i8, ptr %119, i64 8
+  %1198 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %1196, ptr %1198, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %1199 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE15_8__invokeES5_, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef 0)
@@ -24850,14 +24850,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit420:                 ; preds = %1147, %_ZNSt6vector
           to label %1203 unwind label %1225
 
 1203:                                             ; preds = %1202
-  %1204 = getelementptr inbounds i8, ptr %116, i64 8
+  %1204 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1204) #16
   %1205 = load ptr, ptr %120, align 8
   %.not.i.i.i435 = icmp eq ptr %1205, null
   br i1 %.not.i.i.i435, label %_ZNSt6vectorIhSaIhEED2Ev.exit436, label %1206
 
 1206:                                             ; preds = %1203
-  %1207 = getelementptr inbounds i8, ptr %120, i64 16
+  %1207 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1208 = load ptr, ptr %1207, align 8
   %1209 = ptrtoint ptr %1208 to i64
   %1210 = ptrtoint ptr %1205 to i64
@@ -24902,7 +24902,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit436:                 ; preds = %1203, %1206
 1225:                                             ; preds = %1202
   %1226 = landingpad { ptr, i32 }
           catch ptr null
-  %1227 = getelementptr inbounds i8, ptr %116, i64 8
+  %1227 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1227) #16
   br label %1228
 
@@ -24913,7 +24913,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit436:                 ; preds = %1203, %1206
   br i1 %.not.i.i.i440, label %_ZNSt6vectorIhSaIhEED2Ev.exit441, label %1230
 
 1230:                                             ; preds = %1228
-  %1231 = getelementptr inbounds i8, ptr %120, i64 16
+  %1231 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1232 = load ptr, ptr %1231, align 8
   %1233 = ptrtoint ptr %1232 to i64
   %1234 = ptrtoint ptr %1229 to i64
@@ -24972,11 +24972,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit439:                 ; preds = %1213, %_ZNSt6vector
           to label %1252 unwind label %1249
 
 1252:                                             ; preds = %1251
-  %1253 = getelementptr inbounds i8, ptr %114, i64 112
+  %1253 = getelementptr inbounds nuw i8, ptr %114, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1253) #16
-  %1254 = getelementptr inbounds i8, ptr %114, i64 72
+  %1254 = getelementptr inbounds nuw i8, ptr %114, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1254) #16
-  %1255 = getelementptr inbounds i8, ptr %114, i64 48
+  %1255 = getelementptr inbounds nuw i8, ptr %114, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1255) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %121, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 144, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %122)
@@ -24999,11 +24999,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit439:                 ; preds = %1213, %_ZNSt6vector
 
 1261:                                             ; preds = %1257
   store ptr %1258, ptr %126, align 8
-  %1262 = getelementptr inbounds i8, ptr %1258, i64 4
-  %1263 = getelementptr inbounds i8, ptr %126, i64 16
+  %1262 = getelementptr inbounds nuw i8, ptr %1258, i64 4
+  %1263 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %1262, ptr %1263, align 8
   store i32 327287873, ptr %1258, align 4
-  %1264 = getelementptr inbounds i8, ptr %126, i64 8
+  %1264 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %1262, ptr %1264, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %1265 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE16_8__invokeES5_, ptr noundef nonnull %126, ptr noundef nonnull %127, i32 noundef 0)
@@ -25024,14 +25024,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit439:                 ; preds = %1213, %_ZNSt6vector
           to label %1269 unwind label %1291
 
 1269:                                             ; preds = %1268
-  %1270 = getelementptr inbounds i8, ptr %123, i64 8
+  %1270 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1270) #16
   %1271 = load ptr, ptr %127, align 8
   %.not.i.i.i454 = icmp eq ptr %1271, null
   br i1 %.not.i.i.i454, label %_ZNSt6vectorIhSaIhEED2Ev.exit455, label %1272
 
 1272:                                             ; preds = %1269
-  %1273 = getelementptr inbounds i8, ptr %127, i64 16
+  %1273 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1274 = load ptr, ptr %1273, align 8
   %1275 = ptrtoint ptr %1274 to i64
   %1276 = ptrtoint ptr %1271 to i64
@@ -25076,7 +25076,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit455:                 ; preds = %1269, %1272
 1291:                                             ; preds = %1268
   %1292 = landingpad { ptr, i32 }
           catch ptr null
-  %1293 = getelementptr inbounds i8, ptr %123, i64 8
+  %1293 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1293) #16
   br label %1294
 
@@ -25087,7 +25087,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit455:                 ; preds = %1269, %1272
   br i1 %.not.i.i.i459, label %_ZNSt6vectorIhSaIhEED2Ev.exit460, label %1296
 
 1296:                                             ; preds = %1294
-  %1297 = getelementptr inbounds i8, ptr %127, i64 16
+  %1297 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1298 = load ptr, ptr %1297, align 8
   %1299 = ptrtoint ptr %1298 to i64
   %1300 = ptrtoint ptr %1295 to i64
@@ -25146,11 +25146,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit458:                 ; preds = %1279, %_ZNSt6vector
           to label %1318 unwind label %1315
 
 1318:                                             ; preds = %1317
-  %1319 = getelementptr inbounds i8, ptr %121, i64 112
+  %1319 = getelementptr inbounds nuw i8, ptr %121, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1319) #16
-  %1320 = getelementptr inbounds i8, ptr %121, i64 72
+  %1320 = getelementptr inbounds nuw i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1320) #16
-  %1321 = getelementptr inbounds i8, ptr %121, i64 48
+  %1321 = getelementptr inbounds nuw i8, ptr %121, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1321) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %128, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 145, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %129)
@@ -25173,11 +25173,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit458:                 ; preds = %1279, %_ZNSt6vector
 
 1327:                                             ; preds = %1323
   store ptr %1324, ptr %133, align 8
-  %1328 = getelementptr inbounds i8, ptr %1324, i64 4
-  %1329 = getelementptr inbounds i8, ptr %133, i64 16
+  %1328 = getelementptr inbounds nuw i8, ptr %1324, i64 4
+  %1329 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1328, ptr %1329, align 8
   store i32 -1816001471, ptr %1324, align 4
-  %1330 = getelementptr inbounds i8, ptr %133, i64 8
+  %1330 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %1328, ptr %1330, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   %1331 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_121fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE17_8__invokeES5_, ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef 0)
@@ -25198,14 +25198,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit458:                 ; preds = %1279, %_ZNSt6vector
           to label %1335 unwind label %1357
 
 1335:                                             ; preds = %1334
-  %1336 = getelementptr inbounds i8, ptr %130, i64 8
+  %1336 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1336) #16
   %1337 = load ptr, ptr %134, align 8
   %.not.i.i.i473 = icmp eq ptr %1337, null
   br i1 %.not.i.i.i473, label %_ZNSt6vectorIhSaIhEED2Ev.exit474, label %1338
 
 1338:                                             ; preds = %1335
-  %1339 = getelementptr inbounds i8, ptr %134, i64 16
+  %1339 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1340 = load ptr, ptr %1339, align 8
   %1341 = ptrtoint ptr %1340 to i64
   %1342 = ptrtoint ptr %1337 to i64
@@ -25250,7 +25250,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit474:                 ; preds = %1335, %1338
 1357:                                             ; preds = %1334
   %1358 = landingpad { ptr, i32 }
           catch ptr null
-  %1359 = getelementptr inbounds i8, ptr %130, i64 8
+  %1359 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1359) #16
   br label %1360
 
@@ -25261,7 +25261,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit474:                 ; preds = %1335, %1338
   br i1 %.not.i.i.i478, label %_ZNSt6vectorIhSaIhEED2Ev.exit479, label %1362
 
 1362:                                             ; preds = %1360
-  %1363 = getelementptr inbounds i8, ptr %134, i64 16
+  %1363 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1364 = load ptr, ptr %1363, align 8
   %1365 = ptrtoint ptr %1364 to i64
   %1366 = ptrtoint ptr %1361 to i64
@@ -25320,11 +25320,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit477:                 ; preds = %1345, %_ZNSt6vector
           to label %1384 unwind label %1381
 
 1384:                                             ; preds = %1383
-  %1385 = getelementptr inbounds i8, ptr %128, i64 112
+  %1385 = getelementptr inbounds nuw i8, ptr %128, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1385) #16
-  %1386 = getelementptr inbounds i8, ptr %128, i64 72
+  %1386 = getelementptr inbounds nuw i8, ptr %128, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1386) #16
-  %1387 = getelementptr inbounds i8, ptr %128, i64 48
+  %1387 = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1387) #16
   ret void
 
@@ -25701,11 +25701,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEv(ptr no
 
 154:                                              ; preds = %150
   store ptr %151, ptr %7, align 8
-  %155 = getelementptr inbounds i8, ptr %151, i64 4
-  %156 = getelementptr inbounds i8, ptr %7, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %155, ptr %156, align 8
   store i32 -113246176, ptr %151, align 4
-  %157 = getelementptr inbounds i8, ptr %7, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %155, ptr %157, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %158 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -25726,14 +25726,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEv(ptr no
           to label %162 unwind label %183
 
 162:                                              ; preds = %161
-  %163 = getelementptr inbounds i8, ptr %4, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #16
   %164 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %164, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %165
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %8, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %167 = load ptr, ptr %166, align 8
   %168 = ptrtoint ptr %167 to i64
   %169 = ptrtoint ptr %164 to i64
@@ -25773,7 +25773,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %162, %165
 183:                                              ; preds = %161
   %184 = landingpad { ptr, i32 }
           catch ptr null
-  %185 = getelementptr inbounds i8, ptr %4, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #16
   br label %186
 
@@ -25784,7 +25784,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %162, %165
   br i1 %.not.i.i.i150, label %_ZNSt6vectorIhSaIhEED2Ev.exit151, label %188
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds i8, ptr %8, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %190 = load ptr, ptr %189, align 8
   %191 = ptrtoint ptr %190 to i64
   %192 = ptrtoint ptr %187 to i64
@@ -25843,11 +25843,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %172, %_ZNSt6vectorI
           to label %210 unwind label %207
 
 210:                                              ; preds = %209
-  %211 = getelementptr inbounds i8, ptr %2, i64 112
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %211) #16
-  %212 = getelementptr inbounds i8, ptr %2, i64 72
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %212) #16
-  %213 = getelementptr inbounds i8, ptr %2, i64 48
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %213) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 165, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -25870,11 +25870,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %172, %_ZNSt6vectorI
 
 219:                                              ; preds = %215
   store ptr %216, ptr %14, align 8
-  %220 = getelementptr inbounds i8, ptr %216, i64 4
-  %221 = getelementptr inbounds i8, ptr %14, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %220, ptr %221, align 8
   store i32 -113245152, ptr %216, align 4
-  %222 = getelementptr inbounds i8, ptr %14, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %220, ptr %222, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %223 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -25895,14 +25895,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %172, %_ZNSt6vectorI
           to label %227 unwind label %249
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %11, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %228) #16
   %229 = load ptr, ptr %15, align 8
   %.not.i.i.i164 = icmp eq ptr %229, null
   br i1 %.not.i.i.i164, label %_ZNSt6vectorIhSaIhEED2Ev.exit165, label %230
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %15, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
   %234 = ptrtoint ptr %229 to i64
@@ -25947,7 +25947,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit165:                 ; preds = %227, %230
 249:                                              ; preds = %226
   %250 = landingpad { ptr, i32 }
           catch ptr null
-  %251 = getelementptr inbounds i8, ptr %11, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %251) #16
   br label %252
 
@@ -25958,7 +25958,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit165:                 ; preds = %227, %230
   br i1 %.not.i.i.i169, label %_ZNSt6vectorIhSaIhEED2Ev.exit170, label %254
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds i8, ptr %15, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = ptrtoint ptr %256 to i64
   %258 = ptrtoint ptr %253 to i64
@@ -26017,11 +26017,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit168:                 ; preds = %237, %_ZNSt6vectorI
           to label %276 unwind label %273
 
 276:                                              ; preds = %275
-  %277 = getelementptr inbounds i8, ptr %9, i64 112
+  %277 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %277) #16
-  %278 = getelementptr inbounds i8, ptr %9, i64 72
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %278) #16
-  %279 = getelementptr inbounds i8, ptr %9, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %279) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 166, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -26044,11 +26044,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit168:                 ; preds = %237, %_ZNSt6vectorI
 
 285:                                              ; preds = %281
   store ptr %282, ptr %21, align 8
-  %286 = getelementptr inbounds i8, ptr %282, i64 4
-  %287 = getelementptr inbounds i8, ptr %21, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 4
+  %287 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %286, ptr %287, align 8
   store i32 -127440864, ptr %282, align 4
-  %288 = getelementptr inbounds i8, ptr %21, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %286, ptr %288, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %289 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -26069,14 +26069,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit168:                 ; preds = %237, %_ZNSt6vectorI
           to label %293 unwind label %315
 
 293:                                              ; preds = %292
-  %294 = getelementptr inbounds i8, ptr %18, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %294) #16
   %295 = load ptr, ptr %22, align 8
   %.not.i.i.i183 = icmp eq ptr %295, null
   br i1 %.not.i.i.i183, label %_ZNSt6vectorIhSaIhEED2Ev.exit184, label %296
 
 296:                                              ; preds = %293
-  %297 = getelementptr inbounds i8, ptr %22, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %298 = load ptr, ptr %297, align 8
   %299 = ptrtoint ptr %298 to i64
   %300 = ptrtoint ptr %295 to i64
@@ -26121,7 +26121,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit184:                 ; preds = %293, %296
 315:                                              ; preds = %292
   %316 = landingpad { ptr, i32 }
           catch ptr null
-  %317 = getelementptr inbounds i8, ptr %18, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %317) #16
   br label %318
 
@@ -26132,7 +26132,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit184:                 ; preds = %293, %296
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIhSaIhEED2Ev.exit189, label %320
 
 320:                                              ; preds = %318
-  %321 = getelementptr inbounds i8, ptr %22, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %322 = load ptr, ptr %321, align 8
   %323 = ptrtoint ptr %322 to i64
   %324 = ptrtoint ptr %319 to i64
@@ -26191,11 +26191,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit187:                 ; preds = %303, %_ZNSt6vectorI
           to label %342 unwind label %339
 
 342:                                              ; preds = %341
-  %343 = getelementptr inbounds i8, ptr %16, i64 112
+  %343 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %343) #16
-  %344 = getelementptr inbounds i8, ptr %16, i64 72
+  %344 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %344) #16
-  %345 = getelementptr inbounds i8, ptr %16, i64 48
+  %345 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %345) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 167, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -26218,11 +26218,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit187:                 ; preds = %303, %_ZNSt6vectorI
 
 351:                                              ; preds = %347
   store ptr %348, ptr %28, align 8
-  %352 = getelementptr inbounds i8, ptr %348, i64 4
-  %353 = getelementptr inbounds i8, ptr %28, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %348, i64 4
+  %353 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %352, ptr %353, align 8
   store i32 -127954912, ptr %348, align 4
-  %354 = getelementptr inbounds i8, ptr %28, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %352, ptr %354, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %355 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -26243,14 +26243,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit187:                 ; preds = %303, %_ZNSt6vectorI
           to label %359 unwind label %381
 
 359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %25, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %360) #16
   %361 = load ptr, ptr %29, align 8
   %.not.i.i.i202 = icmp eq ptr %361, null
   br i1 %.not.i.i.i202, label %_ZNSt6vectorIhSaIhEED2Ev.exit203, label %362
 
 362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %29, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %364 = load ptr, ptr %363, align 8
   %365 = ptrtoint ptr %364 to i64
   %366 = ptrtoint ptr %361 to i64
@@ -26295,7 +26295,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit203:                 ; preds = %359, %362
 381:                                              ; preds = %358
   %382 = landingpad { ptr, i32 }
           catch ptr null
-  %383 = getelementptr inbounds i8, ptr %25, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %383) #16
   br label %384
 
@@ -26306,7 +26306,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit203:                 ; preds = %359, %362
   br i1 %.not.i.i.i207, label %_ZNSt6vectorIhSaIhEED2Ev.exit208, label %386
 
 386:                                              ; preds = %384
-  %387 = getelementptr inbounds i8, ptr %29, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %388 = load ptr, ptr %387, align 8
   %389 = ptrtoint ptr %388 to i64
   %390 = ptrtoint ptr %385 to i64
@@ -26365,11 +26365,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit206:                 ; preds = %369, %_ZNSt6vectorI
           to label %408 unwind label %405
 
 408:                                              ; preds = %407
-  %409 = getelementptr inbounds i8, ptr %23, i64 112
+  %409 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %409) #16
-  %410 = getelementptr inbounds i8, ptr %23, i64 72
+  %410 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %410) #16
-  %411 = getelementptr inbounds i8, ptr %23, i64 48
+  %411 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %411) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 170, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -26392,11 +26392,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit206:                 ; preds = %369, %_ZNSt6vectorI
 
 417:                                              ; preds = %413
   store ptr %414, ptr %35, align 8
-  %418 = getelementptr inbounds i8, ptr %414, i64 4
-  %419 = getelementptr inbounds i8, ptr %35, i64 16
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 4
+  %419 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %418, ptr %419, align 8
   store i32 -113246176, ptr %414, align 4
-  %420 = getelementptr inbounds i8, ptr %35, i64 8
+  %420 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %418, ptr %420, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %421 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -26417,14 +26417,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit206:                 ; preds = %369, %_ZNSt6vectorI
           to label %425 unwind label %447
 
 425:                                              ; preds = %424
-  %426 = getelementptr inbounds i8, ptr %32, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %426) #16
   %427 = load ptr, ptr %36, align 8
   %.not.i.i.i221 = icmp eq ptr %427, null
   br i1 %.not.i.i.i221, label %_ZNSt6vectorIhSaIhEED2Ev.exit222, label %428
 
 428:                                              ; preds = %425
-  %429 = getelementptr inbounds i8, ptr %36, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %430 = load ptr, ptr %429, align 8
   %431 = ptrtoint ptr %430 to i64
   %432 = ptrtoint ptr %427 to i64
@@ -26469,7 +26469,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit222:                 ; preds = %425, %428
 447:                                              ; preds = %424
   %448 = landingpad { ptr, i32 }
           catch ptr null
-  %449 = getelementptr inbounds i8, ptr %32, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %449) #16
   br label %450
 
@@ -26480,7 +26480,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit222:                 ; preds = %425, %428
   br i1 %.not.i.i.i226, label %_ZNSt6vectorIhSaIhEED2Ev.exit227, label %452
 
 452:                                              ; preds = %450
-  %453 = getelementptr inbounds i8, ptr %36, i64 16
+  %453 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %454 = load ptr, ptr %453, align 8
   %455 = ptrtoint ptr %454 to i64
   %456 = ptrtoint ptr %451 to i64
@@ -26539,11 +26539,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit225:                 ; preds = %435, %_ZNSt6vectorI
           to label %474 unwind label %471
 
 474:                                              ; preds = %473
-  %475 = getelementptr inbounds i8, ptr %30, i64 112
+  %475 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %475) #16
-  %476 = getelementptr inbounds i8, ptr %30, i64 72
+  %476 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %476) #16
-  %477 = getelementptr inbounds i8, ptr %30, i64 48
+  %477 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %477) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -26566,11 +26566,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit225:                 ; preds = %435, %_ZNSt6vectorI
 
 483:                                              ; preds = %479
   store ptr %480, ptr %42, align 8
-  %484 = getelementptr inbounds i8, ptr %480, i64 4
-  %485 = getelementptr inbounds i8, ptr %42, i64 16
+  %484 = getelementptr inbounds nuw i8, ptr %480, i64 4
+  %485 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %484, ptr %485, align 8
   store i32 -1186988000, ptr %480, align 4
-  %486 = getelementptr inbounds i8, ptr %42, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %484, ptr %486, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %487 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -26591,14 +26591,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit225:                 ; preds = %435, %_ZNSt6vectorI
           to label %491 unwind label %513
 
 491:                                              ; preds = %490
-  %492 = getelementptr inbounds i8, ptr %39, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %492) #16
   %493 = load ptr, ptr %43, align 8
   %.not.i.i.i240 = icmp eq ptr %493, null
   br i1 %.not.i.i.i240, label %_ZNSt6vectorIhSaIhEED2Ev.exit241, label %494
 
 494:                                              ; preds = %491
-  %495 = getelementptr inbounds i8, ptr %43, i64 16
+  %495 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %496 = load ptr, ptr %495, align 8
   %497 = ptrtoint ptr %496 to i64
   %498 = ptrtoint ptr %493 to i64
@@ -26643,7 +26643,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit241:                 ; preds = %491, %494
 513:                                              ; preds = %490
   %514 = landingpad { ptr, i32 }
           catch ptr null
-  %515 = getelementptr inbounds i8, ptr %39, i64 8
+  %515 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %515) #16
   br label %516
 
@@ -26654,7 +26654,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit241:                 ; preds = %491, %494
   br i1 %.not.i.i.i245, label %_ZNSt6vectorIhSaIhEED2Ev.exit246, label %518
 
 518:                                              ; preds = %516
-  %519 = getelementptr inbounds i8, ptr %43, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %520 = load ptr, ptr %519, align 8
   %521 = ptrtoint ptr %520 to i64
   %522 = ptrtoint ptr %517 to i64
@@ -26713,11 +26713,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit244:                 ; preds = %501, %_ZNSt6vectorI
           to label %540 unwind label %537
 
 540:                                              ; preds = %539
-  %541 = getelementptr inbounds i8, ptr %37, i64 112
+  %541 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %541) #16
-  %542 = getelementptr inbounds i8, ptr %37, i64 72
+  %542 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %542) #16
-  %543 = getelementptr inbounds i8, ptr %37, i64 48
+  %543 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %543) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 172, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -26740,11 +26740,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit244:                 ; preds = %501, %_ZNSt6vectorI
 
 549:                                              ; preds = %545
   store ptr %546, ptr %49, align 8
-  %550 = getelementptr inbounds i8, ptr %546, i64 4
-  %551 = getelementptr inbounds i8, ptr %49, i64 16
+  %550 = getelementptr inbounds nuw i8, ptr %546, i64 4
+  %551 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %550, ptr %551, align 8
   store i32 960495648, ptr %546, align 4
-  %552 = getelementptr inbounds i8, ptr %49, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %550, ptr %552, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %553 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -26765,14 +26765,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit244:                 ; preds = %501, %_ZNSt6vectorI
           to label %557 unwind label %579
 
 557:                                              ; preds = %556
-  %558 = getelementptr inbounds i8, ptr %46, i64 8
+  %558 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %558) #16
   %559 = load ptr, ptr %50, align 8
   %.not.i.i.i259 = icmp eq ptr %559, null
   br i1 %.not.i.i.i259, label %_ZNSt6vectorIhSaIhEED2Ev.exit260, label %560
 
 560:                                              ; preds = %557
-  %561 = getelementptr inbounds i8, ptr %50, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %562 = load ptr, ptr %561, align 8
   %563 = ptrtoint ptr %562 to i64
   %564 = ptrtoint ptr %559 to i64
@@ -26817,7 +26817,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit260:                 ; preds = %557, %560
 579:                                              ; preds = %556
   %580 = landingpad { ptr, i32 }
           catch ptr null
-  %581 = getelementptr inbounds i8, ptr %46, i64 8
+  %581 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %581) #16
   br label %582
 
@@ -26828,7 +26828,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit260:                 ; preds = %557, %560
   br i1 %.not.i.i.i264, label %_ZNSt6vectorIhSaIhEED2Ev.exit265, label %584
 
 584:                                              ; preds = %582
-  %585 = getelementptr inbounds i8, ptr %50, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %586 = load ptr, ptr %585, align 8
   %587 = ptrtoint ptr %586 to i64
   %588 = ptrtoint ptr %583 to i64
@@ -26887,11 +26887,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit263:                 ; preds = %567, %_ZNSt6vectorI
           to label %606 unwind label %603
 
 606:                                              ; preds = %605
-  %607 = getelementptr inbounds i8, ptr %44, i64 112
+  %607 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %607) #16
-  %608 = getelementptr inbounds i8, ptr %44, i64 72
+  %608 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %608) #16
-  %609 = getelementptr inbounds i8, ptr %44, i64 48
+  %609 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %609) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 173, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -26914,11 +26914,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit263:                 ; preds = %567, %_ZNSt6vectorI
 
 615:                                              ; preds = %611
   store ptr %612, ptr %56, align 8
-  %616 = getelementptr inbounds i8, ptr %612, i64 4
-  %617 = getelementptr inbounds i8, ptr %56, i64 16
+  %616 = getelementptr inbounds nuw i8, ptr %612, i64 4
+  %617 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %616, ptr %617, align 8
   store i32 2034237472, ptr %612, align 4
-  %618 = getelementptr inbounds i8, ptr %56, i64 8
+  %618 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %616, ptr %618, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %619 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -26939,14 +26939,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit263:                 ; preds = %567, %_ZNSt6vectorI
           to label %623 unwind label %645
 
 623:                                              ; preds = %622
-  %624 = getelementptr inbounds i8, ptr %53, i64 8
+  %624 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %624) #16
   %625 = load ptr, ptr %57, align 8
   %.not.i.i.i278 = icmp eq ptr %625, null
   br i1 %.not.i.i.i278, label %_ZNSt6vectorIhSaIhEED2Ev.exit279, label %626
 
 626:                                              ; preds = %623
-  %627 = getelementptr inbounds i8, ptr %57, i64 16
+  %627 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %628 = load ptr, ptr %627, align 8
   %629 = ptrtoint ptr %628 to i64
   %630 = ptrtoint ptr %625 to i64
@@ -26991,7 +26991,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit279:                 ; preds = %623, %626
 645:                                              ; preds = %622
   %646 = landingpad { ptr, i32 }
           catch ptr null
-  %647 = getelementptr inbounds i8, ptr %53, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %647) #16
   br label %648
 
@@ -27002,7 +27002,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit279:                 ; preds = %623, %626
   br i1 %.not.i.i.i283, label %_ZNSt6vectorIhSaIhEED2Ev.exit284, label %650
 
 650:                                              ; preds = %648
-  %651 = getelementptr inbounds i8, ptr %57, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %652 = load ptr, ptr %651, align 8
   %653 = ptrtoint ptr %652 to i64
   %654 = ptrtoint ptr %649 to i64
@@ -27061,11 +27061,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit282:                 ; preds = %633, %_ZNSt6vectorI
           to label %672 unwind label %669
 
 672:                                              ; preds = %671
-  %673 = getelementptr inbounds i8, ptr %51, i64 112
+  %673 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %673) #16
-  %674 = getelementptr inbounds i8, ptr %51, i64 72
+  %674 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %674) #16
-  %675 = getelementptr inbounds i8, ptr %51, i64 48
+  %675 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %675) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 174, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -27088,11 +27088,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit282:                 ; preds = %633, %_ZNSt6vectorI
 
 681:                                              ; preds = %677
   store ptr %678, ptr %63, align 8
-  %682 = getelementptr inbounds i8, ptr %678, i64 4
-  %683 = getelementptr inbounds i8, ptr %63, i64 16
+  %682 = getelementptr inbounds nuw i8, ptr %678, i64 4
+  %683 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %682, ptr %683, align 8
   store i32 964689952, ptr %678, align 4
-  %684 = getelementptr inbounds i8, ptr %63, i64 8
+  %684 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %682, ptr %684, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %685 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -27113,14 +27113,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit282:                 ; preds = %633, %_ZNSt6vectorI
           to label %689 unwind label %711
 
 689:                                              ; preds = %688
-  %690 = getelementptr inbounds i8, ptr %60, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %690) #16
   %691 = load ptr, ptr %64, align 8
   %.not.i.i.i297 = icmp eq ptr %691, null
   br i1 %.not.i.i.i297, label %_ZNSt6vectorIhSaIhEED2Ev.exit298, label %692
 
 692:                                              ; preds = %689
-  %693 = getelementptr inbounds i8, ptr %64, i64 16
+  %693 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %694 = load ptr, ptr %693, align 8
   %695 = ptrtoint ptr %694 to i64
   %696 = ptrtoint ptr %691 to i64
@@ -27165,7 +27165,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit298:                 ; preds = %689, %692
 711:                                              ; preds = %688
   %712 = landingpad { ptr, i32 }
           catch ptr null
-  %713 = getelementptr inbounds i8, ptr %60, i64 8
+  %713 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %713) #16
   br label %714
 
@@ -27176,7 +27176,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit298:                 ; preds = %689, %692
   br i1 %.not.i.i.i302, label %_ZNSt6vectorIhSaIhEED2Ev.exit303, label %716
 
 716:                                              ; preds = %714
-  %717 = getelementptr inbounds i8, ptr %64, i64 16
+  %717 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %718 = load ptr, ptr %717, align 8
   %719 = ptrtoint ptr %718 to i64
   %720 = ptrtoint ptr %715 to i64
@@ -27235,11 +27235,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit301:                 ; preds = %699, %_ZNSt6vectorI
           to label %738 unwind label %735
 
 738:                                              ; preds = %737
-  %739 = getelementptr inbounds i8, ptr %58, i64 112
+  %739 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %739) #16
-  %740 = getelementptr inbounds i8, ptr %58, i64 72
+  %740 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %740) #16
-  %741 = getelementptr inbounds i8, ptr %58, i64 48
+  %741 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %741) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 175, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -27262,11 +27262,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit301:                 ; preds = %699, %_ZNSt6vectorI
 
 747:                                              ; preds = %743
   store ptr %744, ptr %70, align 8
-  %748 = getelementptr inbounds i8, ptr %744, i64 4
-  %749 = getelementptr inbounds i8, ptr %70, i64 16
+  %748 = getelementptr inbounds nuw i8, ptr %744, i64 4
+  %749 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %748, ptr %749, align 8
   store i32 968884256, ptr %744, align 4
-  %750 = getelementptr inbounds i8, ptr %70, i64 8
+  %750 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %748, ptr %750, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %751 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -27287,14 +27287,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit301:                 ; preds = %699, %_ZNSt6vectorI
           to label %755 unwind label %777
 
 755:                                              ; preds = %754
-  %756 = getelementptr inbounds i8, ptr %67, i64 8
+  %756 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %756) #16
   %757 = load ptr, ptr %71, align 8
   %.not.i.i.i316 = icmp eq ptr %757, null
   br i1 %.not.i.i.i316, label %_ZNSt6vectorIhSaIhEED2Ev.exit317, label %758
 
 758:                                              ; preds = %755
-  %759 = getelementptr inbounds i8, ptr %71, i64 16
+  %759 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %760 = load ptr, ptr %759, align 8
   %761 = ptrtoint ptr %760 to i64
   %762 = ptrtoint ptr %757 to i64
@@ -27339,7 +27339,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit317:                 ; preds = %755, %758
 777:                                              ; preds = %754
   %778 = landingpad { ptr, i32 }
           catch ptr null
-  %779 = getelementptr inbounds i8, ptr %67, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %779) #16
   br label %780
 
@@ -27350,7 +27350,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit317:                 ; preds = %755, %758
   br i1 %.not.i.i.i321, label %_ZNSt6vectorIhSaIhEED2Ev.exit322, label %782
 
 782:                                              ; preds = %780
-  %783 = getelementptr inbounds i8, ptr %71, i64 16
+  %783 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %784 = load ptr, ptr %783, align 8
   %785 = ptrtoint ptr %784 to i64
   %786 = ptrtoint ptr %781 to i64
@@ -27409,11 +27409,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit320:                 ; preds = %765, %_ZNSt6vectorI
           to label %804 unwind label %801
 
 804:                                              ; preds = %803
-  %805 = getelementptr inbounds i8, ptr %65, i64 112
+  %805 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %805) #16
-  %806 = getelementptr inbounds i8, ptr %65, i64 72
+  %806 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %806) #16
-  %807 = getelementptr inbounds i8, ptr %65, i64 48
+  %807 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %807) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 176, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -27436,11 +27436,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit320:                 ; preds = %765, %_ZNSt6vectorI
 
 813:                                              ; preds = %809
   store ptr %810, ptr %77, align 8
-  %814 = getelementptr inbounds i8, ptr %810, i64 4
-  %815 = getelementptr inbounds i8, ptr %77, i64 16
+  %814 = getelementptr inbounds nuw i8, ptr %810, i64 4
+  %815 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %814, ptr %815, align 8
   store i32 2038431776, ptr %810, align 4
-  %816 = getelementptr inbounds i8, ptr %77, i64 8
+  %816 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %814, ptr %816, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %817 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -27461,14 +27461,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit320:                 ; preds = %765, %_ZNSt6vectorI
           to label %821 unwind label %843
 
 821:                                              ; preds = %820
-  %822 = getelementptr inbounds i8, ptr %74, i64 8
+  %822 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %822) #16
   %823 = load ptr, ptr %78, align 8
   %.not.i.i.i335 = icmp eq ptr %823, null
   br i1 %.not.i.i.i335, label %_ZNSt6vectorIhSaIhEED2Ev.exit336, label %824
 
 824:                                              ; preds = %821
-  %825 = getelementptr inbounds i8, ptr %78, i64 16
+  %825 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %826 = load ptr, ptr %825, align 8
   %827 = ptrtoint ptr %826 to i64
   %828 = ptrtoint ptr %823 to i64
@@ -27513,7 +27513,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit336:                 ; preds = %821, %824
 843:                                              ; preds = %820
   %844 = landingpad { ptr, i32 }
           catch ptr null
-  %845 = getelementptr inbounds i8, ptr %74, i64 8
+  %845 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %845) #16
   br label %846
 
@@ -27524,7 +27524,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit336:                 ; preds = %821, %824
   br i1 %.not.i.i.i340, label %_ZNSt6vectorIhSaIhEED2Ev.exit341, label %848
 
 848:                                              ; preds = %846
-  %849 = getelementptr inbounds i8, ptr %78, i64 16
+  %849 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %850 = load ptr, ptr %849, align 8
   %851 = ptrtoint ptr %850 to i64
   %852 = ptrtoint ptr %847 to i64
@@ -27583,11 +27583,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit339:                 ; preds = %831, %_ZNSt6vectorI
           to label %870 unwind label %867
 
 870:                                              ; preds = %869
-  %871 = getelementptr inbounds i8, ptr %72, i64 112
+  %871 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %871) #16
-  %872 = getelementptr inbounds i8, ptr %72, i64 72
+  %872 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %872) #16
-  %873 = getelementptr inbounds i8, ptr %72, i64 48
+  %873 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %873) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 177, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -27610,11 +27610,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit339:                 ; preds = %831, %_ZNSt6vectorI
 
 879:                                              ; preds = %875
   store ptr %876, ptr %84, align 8
-  %880 = getelementptr inbounds i8, ptr %876, i64 4
-  %881 = getelementptr inbounds i8, ptr %84, i64 16
+  %880 = getelementptr inbounds nuw i8, ptr %876, i64 4
+  %881 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %880, ptr %881, align 8
   store i32 2042626080, ptr %876, align 4
-  %882 = getelementptr inbounds i8, ptr %84, i64 8
+  %882 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %880, ptr %882, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %883 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -27635,14 +27635,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit339:                 ; preds = %831, %_ZNSt6vectorI
           to label %887 unwind label %909
 
 887:                                              ; preds = %886
-  %888 = getelementptr inbounds i8, ptr %81, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %888) #16
   %889 = load ptr, ptr %85, align 8
   %.not.i.i.i354 = icmp eq ptr %889, null
   br i1 %.not.i.i.i354, label %_ZNSt6vectorIhSaIhEED2Ev.exit355, label %890
 
 890:                                              ; preds = %887
-  %891 = getelementptr inbounds i8, ptr %85, i64 16
+  %891 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %892 = load ptr, ptr %891, align 8
   %893 = ptrtoint ptr %892 to i64
   %894 = ptrtoint ptr %889 to i64
@@ -27687,7 +27687,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit355:                 ; preds = %887, %890
 909:                                              ; preds = %886
   %910 = landingpad { ptr, i32 }
           catch ptr null
-  %911 = getelementptr inbounds i8, ptr %81, i64 8
+  %911 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %911) #16
   br label %912
 
@@ -27698,7 +27698,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit355:                 ; preds = %887, %890
   br i1 %.not.i.i.i359, label %_ZNSt6vectorIhSaIhEED2Ev.exit360, label %914
 
 914:                                              ; preds = %912
-  %915 = getelementptr inbounds i8, ptr %85, i64 16
+  %915 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %916 = load ptr, ptr %915, align 8
   %917 = ptrtoint ptr %916 to i64
   %918 = ptrtoint ptr %913 to i64
@@ -27757,11 +27757,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %897, %_ZNSt6vectorI
           to label %936 unwind label %933
 
 936:                                              ; preds = %935
-  %937 = getelementptr inbounds i8, ptr %79, i64 112
+  %937 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %937) #16
-  %938 = getelementptr inbounds i8, ptr %79, i64 72
+  %938 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %938) #16
-  %939 = getelementptr inbounds i8, ptr %79, i64 48
+  %939 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %939) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 178, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -27784,11 +27784,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %897, %_ZNSt6vectorI
 
 945:                                              ; preds = %941
   store ptr %942, ptr %91, align 8
-  %946 = getelementptr inbounds i8, ptr %942, i64 4
-  %947 = getelementptr inbounds i8, ptr %91, i64 16
+  %946 = getelementptr inbounds nuw i8, ptr %942, i64 4
+  %947 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %946, ptr %947, align 8
   store i32 -1182793696, ptr %942, align 4
-  %948 = getelementptr inbounds i8, ptr %91, i64 8
+  %948 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %946, ptr %948, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %949 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -27809,14 +27809,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit358:                 ; preds = %897, %_ZNSt6vectorI
           to label %953 unwind label %975
 
 953:                                              ; preds = %952
-  %954 = getelementptr inbounds i8, ptr %88, i64 8
+  %954 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %954) #16
   %955 = load ptr, ptr %92, align 8
   %.not.i.i.i373 = icmp eq ptr %955, null
   br i1 %.not.i.i.i373, label %_ZNSt6vectorIhSaIhEED2Ev.exit374, label %956
 
 956:                                              ; preds = %953
-  %957 = getelementptr inbounds i8, ptr %92, i64 16
+  %957 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %958 = load ptr, ptr %957, align 8
   %959 = ptrtoint ptr %958 to i64
   %960 = ptrtoint ptr %955 to i64
@@ -27861,7 +27861,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit374:                 ; preds = %953, %956
 975:                                              ; preds = %952
   %976 = landingpad { ptr, i32 }
           catch ptr null
-  %977 = getelementptr inbounds i8, ptr %88, i64 8
+  %977 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %977) #16
   br label %978
 
@@ -27872,7 +27872,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit374:                 ; preds = %953, %956
   br i1 %.not.i.i.i378, label %_ZNSt6vectorIhSaIhEED2Ev.exit379, label %980
 
 980:                                              ; preds = %978
-  %981 = getelementptr inbounds i8, ptr %92, i64 16
+  %981 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %982 = load ptr, ptr %981, align 8
   %983 = ptrtoint ptr %982 to i64
   %984 = ptrtoint ptr %979 to i64
@@ -27931,11 +27931,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit377:                 ; preds = %963, %_ZNSt6vectorI
           to label %1002 unwind label %999
 
 1002:                                             ; preds = %1001
-  %1003 = getelementptr inbounds i8, ptr %86, i64 112
+  %1003 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1003) #16
-  %1004 = getelementptr inbounds i8, ptr %86, i64 72
+  %1004 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1004) #16
-  %1005 = getelementptr inbounds i8, ptr %86, i64 48
+  %1005 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1005) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 181, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -27958,11 +27958,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit377:                 ; preds = %963, %_ZNSt6vectorI
 
 1011:                                             ; preds = %1007
   store ptr %1008, ptr %98, align 8
-  %1012 = getelementptr inbounds i8, ptr %1008, i64 4
-  %1013 = getelementptr inbounds i8, ptr %98, i64 16
+  %1012 = getelementptr inbounds nuw i8, ptr %1008, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1012, ptr %1013, align 8
   store i32 -113245152, ptr %1008, align 4
-  %1014 = getelementptr inbounds i8, ptr %98, i64 8
+  %1014 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %1012, ptr %1014, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %1015 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -27983,14 +27983,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit377:                 ; preds = %963, %_ZNSt6vectorI
           to label %1019 unwind label %1041
 
 1019:                                             ; preds = %1018
-  %1020 = getelementptr inbounds i8, ptr %95, i64 8
+  %1020 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1020) #16
   %1021 = load ptr, ptr %99, align 8
   %.not.i.i.i392 = icmp eq ptr %1021, null
   br i1 %.not.i.i.i392, label %_ZNSt6vectorIhSaIhEED2Ev.exit393, label %1022
 
 1022:                                             ; preds = %1019
-  %1023 = getelementptr inbounds i8, ptr %99, i64 16
+  %1023 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1024 = load ptr, ptr %1023, align 8
   %1025 = ptrtoint ptr %1024 to i64
   %1026 = ptrtoint ptr %1021 to i64
@@ -28035,7 +28035,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit393:                 ; preds = %1019, %1022
 1041:                                             ; preds = %1018
   %1042 = landingpad { ptr, i32 }
           catch ptr null
-  %1043 = getelementptr inbounds i8, ptr %95, i64 8
+  %1043 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1043) #16
   br label %1044
 
@@ -28046,7 +28046,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit393:                 ; preds = %1019, %1022
   br i1 %.not.i.i.i397, label %_ZNSt6vectorIhSaIhEED2Ev.exit398, label %1046
 
 1046:                                             ; preds = %1044
-  %1047 = getelementptr inbounds i8, ptr %99, i64 16
+  %1047 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1048 = load ptr, ptr %1047, align 8
   %1049 = ptrtoint ptr %1048 to i64
   %1050 = ptrtoint ptr %1045 to i64
@@ -28105,11 +28105,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit396:                 ; preds = %1029, %_ZNSt6vector
           to label %1068 unwind label %1065
 
 1068:                                             ; preds = %1067
-  %1069 = getelementptr inbounds i8, ptr %93, i64 112
+  %1069 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1069) #16
-  %1070 = getelementptr inbounds i8, ptr %93, i64 72
+  %1070 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1070) #16
-  %1071 = getelementptr inbounds i8, ptr %93, i64 48
+  %1071 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1071) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %100, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 182, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %101)
@@ -28132,11 +28132,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit396:                 ; preds = %1029, %_ZNSt6vector
 
 1077:                                             ; preds = %1073
   store ptr %1074, ptr %105, align 8
-  %1078 = getelementptr inbounds i8, ptr %1074, i64 4
-  %1079 = getelementptr inbounds i8, ptr %105, i64 16
+  %1078 = getelementptr inbounds nuw i8, ptr %1074, i64 4
+  %1079 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %1078, ptr %1079, align 8
   store i32 -1186985952, ptr %1074, align 4
-  %1080 = getelementptr inbounds i8, ptr %105, i64 8
+  %1080 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1078, ptr %1080, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %1081 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE13_8__invokeES5_, ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef 0)
@@ -28157,14 +28157,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit396:                 ; preds = %1029, %_ZNSt6vector
           to label %1085 unwind label %1107
 
 1085:                                             ; preds = %1084
-  %1086 = getelementptr inbounds i8, ptr %102, i64 8
+  %1086 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1086) #16
   %1087 = load ptr, ptr %106, align 8
   %.not.i.i.i411 = icmp eq ptr %1087, null
   br i1 %.not.i.i.i411, label %_ZNSt6vectorIhSaIhEED2Ev.exit412, label %1088
 
 1088:                                             ; preds = %1085
-  %1089 = getelementptr inbounds i8, ptr %106, i64 16
+  %1089 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1090 = load ptr, ptr %1089, align 8
   %1091 = ptrtoint ptr %1090 to i64
   %1092 = ptrtoint ptr %1087 to i64
@@ -28209,7 +28209,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit412:                 ; preds = %1085, %1088
 1107:                                             ; preds = %1084
   %1108 = landingpad { ptr, i32 }
           catch ptr null
-  %1109 = getelementptr inbounds i8, ptr %102, i64 8
+  %1109 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1109) #16
   br label %1110
 
@@ -28220,7 +28220,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit412:                 ; preds = %1085, %1088
   br i1 %.not.i.i.i416, label %_ZNSt6vectorIhSaIhEED2Ev.exit417, label %1112
 
 1112:                                             ; preds = %1110
-  %1113 = getelementptr inbounds i8, ptr %106, i64 16
+  %1113 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1114 = load ptr, ptr %1113, align 8
   %1115 = ptrtoint ptr %1114 to i64
   %1116 = ptrtoint ptr %1111 to i64
@@ -28279,11 +28279,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit415:                 ; preds = %1095, %_ZNSt6vector
           to label %1134 unwind label %1131
 
 1134:                                             ; preds = %1133
-  %1135 = getelementptr inbounds i8, ptr %100, i64 112
+  %1135 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1135) #16
-  %1136 = getelementptr inbounds i8, ptr %100, i64 72
+  %1136 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1136) #16
-  %1137 = getelementptr inbounds i8, ptr %100, i64 48
+  %1137 = getelementptr inbounds nuw i8, ptr %100, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1137) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %107, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 183, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -28306,11 +28306,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit415:                 ; preds = %1095, %_ZNSt6vector
 
 1143:                                             ; preds = %1139
   store ptr %1140, ptr %112, align 8
-  %1144 = getelementptr inbounds i8, ptr %1140, i64 4
-  %1145 = getelementptr inbounds i8, ptr %112, i64 16
+  %1144 = getelementptr inbounds nuw i8, ptr %1140, i64 4
+  %1145 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %1144, ptr %1145, align 8
   store i32 960503840, ptr %1140, align 4
-  %1146 = getelementptr inbounds i8, ptr %112, i64 8
+  %1146 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %1144, ptr %1146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %1147 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE14_8__invokeES5_, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef 0)
@@ -28331,14 +28331,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit415:                 ; preds = %1095, %_ZNSt6vector
           to label %1151 unwind label %1173
 
 1151:                                             ; preds = %1150
-  %1152 = getelementptr inbounds i8, ptr %109, i64 8
+  %1152 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1152) #16
   %1153 = load ptr, ptr %113, align 8
   %.not.i.i.i430 = icmp eq ptr %1153, null
   br i1 %.not.i.i.i430, label %_ZNSt6vectorIhSaIhEED2Ev.exit431, label %1154
 
 1154:                                             ; preds = %1151
-  %1155 = getelementptr inbounds i8, ptr %113, i64 16
+  %1155 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1156 = load ptr, ptr %1155, align 8
   %1157 = ptrtoint ptr %1156 to i64
   %1158 = ptrtoint ptr %1153 to i64
@@ -28383,7 +28383,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit431:                 ; preds = %1151, %1154
 1173:                                             ; preds = %1150
   %1174 = landingpad { ptr, i32 }
           catch ptr null
-  %1175 = getelementptr inbounds i8, ptr %109, i64 8
+  %1175 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1175) #16
   br label %1176
 
@@ -28394,7 +28394,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit431:                 ; preds = %1151, %1154
   br i1 %.not.i.i.i435, label %_ZNSt6vectorIhSaIhEED2Ev.exit436, label %1178
 
 1178:                                             ; preds = %1176
-  %1179 = getelementptr inbounds i8, ptr %113, i64 16
+  %1179 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1180 = load ptr, ptr %1179, align 8
   %1181 = ptrtoint ptr %1180 to i64
   %1182 = ptrtoint ptr %1177 to i64
@@ -28453,11 +28453,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit434:                 ; preds = %1161, %_ZNSt6vector
           to label %1200 unwind label %1197
 
 1200:                                             ; preds = %1199
-  %1201 = getelementptr inbounds i8, ptr %107, i64 112
+  %1201 = getelementptr inbounds nuw i8, ptr %107, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1201) #16
-  %1202 = getelementptr inbounds i8, ptr %107, i64 72
+  %1202 = getelementptr inbounds nuw i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1202) #16
-  %1203 = getelementptr inbounds i8, ptr %107, i64 48
+  %1203 = getelementptr inbounds nuw i8, ptr %107, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1203) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %114, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 184, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %115)
@@ -28480,11 +28480,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit434:                 ; preds = %1161, %_ZNSt6vector
 
 1209:                                             ; preds = %1205
   store ptr %1206, ptr %119, align 8
-  %1210 = getelementptr inbounds i8, ptr %1206, i64 4
-  %1211 = getelementptr inbounds i8, ptr %119, i64 16
+  %1210 = getelementptr inbounds nuw i8, ptr %1206, i64 4
+  %1211 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %1210, ptr %1211, align 8
   store i32 2034241568, ptr %1206, align 4
-  %1212 = getelementptr inbounds i8, ptr %119, i64 8
+  %1212 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %1210, ptr %1212, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %1213 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE15_8__invokeES5_, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef 0)
@@ -28505,14 +28505,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit434:                 ; preds = %1161, %_ZNSt6vector
           to label %1217 unwind label %1239
 
 1217:                                             ; preds = %1216
-  %1218 = getelementptr inbounds i8, ptr %116, i64 8
+  %1218 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1218) #16
   %1219 = load ptr, ptr %120, align 8
   %.not.i.i.i449 = icmp eq ptr %1219, null
   br i1 %.not.i.i.i449, label %_ZNSt6vectorIhSaIhEED2Ev.exit450, label %1220
 
 1220:                                             ; preds = %1217
-  %1221 = getelementptr inbounds i8, ptr %120, i64 16
+  %1221 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1222 = load ptr, ptr %1221, align 8
   %1223 = ptrtoint ptr %1222 to i64
   %1224 = ptrtoint ptr %1219 to i64
@@ -28557,7 +28557,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit450:                 ; preds = %1217, %1220
 1239:                                             ; preds = %1216
   %1240 = landingpad { ptr, i32 }
           catch ptr null
-  %1241 = getelementptr inbounds i8, ptr %116, i64 8
+  %1241 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1241) #16
   br label %1242
 
@@ -28568,7 +28568,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit450:                 ; preds = %1217, %1220
   br i1 %.not.i.i.i454, label %_ZNSt6vectorIhSaIhEED2Ev.exit455, label %1244
 
 1244:                                             ; preds = %1242
-  %1245 = getelementptr inbounds i8, ptr %120, i64 16
+  %1245 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1246 = load ptr, ptr %1245, align 8
   %1247 = ptrtoint ptr %1246 to i64
   %1248 = ptrtoint ptr %1243 to i64
@@ -28627,11 +28627,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit453:                 ; preds = %1227, %_ZNSt6vector
           to label %1266 unwind label %1263
 
 1266:                                             ; preds = %1265
-  %1267 = getelementptr inbounds i8, ptr %114, i64 112
+  %1267 = getelementptr inbounds nuw i8, ptr %114, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1267) #16
-  %1268 = getelementptr inbounds i8, ptr %114, i64 72
+  %1268 = getelementptr inbounds nuw i8, ptr %114, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1268) #16
-  %1269 = getelementptr inbounds i8, ptr %114, i64 48
+  %1269 = getelementptr inbounds nuw i8, ptr %114, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1269) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %121, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 185, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %122)
@@ -28654,11 +28654,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit453:                 ; preds = %1227, %_ZNSt6vector
 
 1275:                                             ; preds = %1271
   store ptr %1272, ptr %126, align 8
-  %1276 = getelementptr inbounds i8, ptr %1272, i64 4
-  %1277 = getelementptr inbounds i8, ptr %126, i64 16
+  %1276 = getelementptr inbounds nuw i8, ptr %1272, i64 4
+  %1277 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %1276, ptr %1277, align 8
   store i32 968892448, ptr %1272, align 4
-  %1278 = getelementptr inbounds i8, ptr %126, i64 8
+  %1278 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %1276, ptr %1278, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %1279 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE16_8__invokeES5_, ptr noundef nonnull %126, ptr noundef nonnull %127, i32 noundef 0)
@@ -28679,14 +28679,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit453:                 ; preds = %1227, %_ZNSt6vector
           to label %1283 unwind label %1305
 
 1283:                                             ; preds = %1282
-  %1284 = getelementptr inbounds i8, ptr %123, i64 8
+  %1284 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1284) #16
   %1285 = load ptr, ptr %127, align 8
   %.not.i.i.i468 = icmp eq ptr %1285, null
   br i1 %.not.i.i.i468, label %_ZNSt6vectorIhSaIhEED2Ev.exit469, label %1286
 
 1286:                                             ; preds = %1283
-  %1287 = getelementptr inbounds i8, ptr %127, i64 16
+  %1287 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1288 = load ptr, ptr %1287, align 8
   %1289 = ptrtoint ptr %1288 to i64
   %1290 = ptrtoint ptr %1285 to i64
@@ -28731,7 +28731,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit469:                 ; preds = %1283, %1286
 1305:                                             ; preds = %1282
   %1306 = landingpad { ptr, i32 }
           catch ptr null
-  %1307 = getelementptr inbounds i8, ptr %123, i64 8
+  %1307 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1307) #16
   br label %1308
 
@@ -28742,7 +28742,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit469:                 ; preds = %1283, %1286
   br i1 %.not.i.i.i473, label %_ZNSt6vectorIhSaIhEED2Ev.exit474, label %1310
 
 1310:                                             ; preds = %1308
-  %1311 = getelementptr inbounds i8, ptr %127, i64 16
+  %1311 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1312 = load ptr, ptr %1311, align 8
   %1313 = ptrtoint ptr %1312 to i64
   %1314 = ptrtoint ptr %1309 to i64
@@ -28801,11 +28801,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit472:                 ; preds = %1293, %_ZNSt6vector
           to label %1332 unwind label %1329
 
 1332:                                             ; preds = %1331
-  %1333 = getelementptr inbounds i8, ptr %121, i64 112
+  %1333 = getelementptr inbounds nuw i8, ptr %121, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1333) #16
-  %1334 = getelementptr inbounds i8, ptr %121, i64 72
+  %1334 = getelementptr inbounds nuw i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1334) #16
-  %1335 = getelementptr inbounds i8, ptr %121, i64 48
+  %1335 = getelementptr inbounds nuw i8, ptr %121, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1335) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %128, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 186, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %129)
@@ -28828,11 +28828,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit472:                 ; preds = %1293, %_ZNSt6vector
 
 1341:                                             ; preds = %1337
   store ptr %1338, ptr %133, align 8
-  %1342 = getelementptr inbounds i8, ptr %1338, i64 4
-  %1343 = getelementptr inbounds i8, ptr %133, i64 16
+  %1342 = getelementptr inbounds nuw i8, ptr %1338, i64 4
+  %1343 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1342, ptr %1343, align 8
   store i32 2042630176, ptr %1338, align 4
-  %1344 = getelementptr inbounds i8, ptr %133, i64 8
+  %1344 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %1342, ptr %1344, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   %1345 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE17_8__invokeES5_, ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef 0)
@@ -28853,14 +28853,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit472:                 ; preds = %1293, %_ZNSt6vector
           to label %1349 unwind label %1371
 
 1349:                                             ; preds = %1348
-  %1350 = getelementptr inbounds i8, ptr %130, i64 8
+  %1350 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1350) #16
   %1351 = load ptr, ptr %134, align 8
   %.not.i.i.i487 = icmp eq ptr %1351, null
   br i1 %.not.i.i.i487, label %_ZNSt6vectorIhSaIhEED2Ev.exit488, label %1352
 
 1352:                                             ; preds = %1349
-  %1353 = getelementptr inbounds i8, ptr %134, i64 16
+  %1353 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1354 = load ptr, ptr %1353, align 8
   %1355 = ptrtoint ptr %1354 to i64
   %1356 = ptrtoint ptr %1351 to i64
@@ -28905,7 +28905,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit488:                 ; preds = %1349, %1352
 1371:                                             ; preds = %1348
   %1372 = landingpad { ptr, i32 }
           catch ptr null
-  %1373 = getelementptr inbounds i8, ptr %130, i64 8
+  %1373 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1373) #16
   br label %1374
 
@@ -28916,7 +28916,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit488:                 ; preds = %1349, %1352
   br i1 %.not.i.i.i492, label %_ZNSt6vectorIhSaIhEED2Ev.exit493, label %1376
 
 1376:                                             ; preds = %1374
-  %1377 = getelementptr inbounds i8, ptr %134, i64 16
+  %1377 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1378 = load ptr, ptr %1377, align 8
   %1379 = ptrtoint ptr %1378 to i64
   %1380 = ptrtoint ptr %1375 to i64
@@ -28975,11 +28975,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit491:                 ; preds = %1359, %_ZNSt6vector
           to label %1398 unwind label %1395
 
 1398:                                             ; preds = %1397
-  %1399 = getelementptr inbounds i8, ptr %128, i64 112
+  %1399 = getelementptr inbounds nuw i8, ptr %128, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1399) #16
-  %1400 = getelementptr inbounds i8, ptr %128, i64 72
+  %1400 = getelementptr inbounds nuw i8, ptr %128, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1400) #16
-  %1401 = getelementptr inbounds i8, ptr %128, i64 48
+  %1401 = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1401) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %135, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 189, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %136)
@@ -29002,11 +29002,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit491:                 ; preds = %1359, %_ZNSt6vector
 
 1407:                                             ; preds = %1403
   store ptr %1404, ptr %140, align 8
-  %1408 = getelementptr inbounds i8, ptr %1404, i64 4
-  %1409 = getelementptr inbounds i8, ptr %140, i64 16
+  %1408 = getelementptr inbounds nuw i8, ptr %1404, i64 4
+  %1409 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %1408, ptr %1409, align 8
   store i32 -1455389632, ptr %1404, align 4
-  %1410 = getelementptr inbounds i8, ptr %140, i64 8
+  %1410 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %1408, ptr %1410, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %1411 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE18_8__invokeES5_, ptr noundef nonnull %140, ptr noundef nonnull %141, i32 noundef 0)
@@ -29027,14 +29027,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit491:                 ; preds = %1359, %_ZNSt6vector
           to label %1415 unwind label %1437
 
 1415:                                             ; preds = %1414
-  %1416 = getelementptr inbounds i8, ptr %137, i64 8
+  %1416 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1416) #16
   %1417 = load ptr, ptr %141, align 8
   %.not.i.i.i506 = icmp eq ptr %1417, null
   br i1 %.not.i.i.i506, label %_ZNSt6vectorIhSaIhEED2Ev.exit507, label %1418
 
 1418:                                             ; preds = %1415
-  %1419 = getelementptr inbounds i8, ptr %141, i64 16
+  %1419 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1420 = load ptr, ptr %1419, align 8
   %1421 = ptrtoint ptr %1420 to i64
   %1422 = ptrtoint ptr %1417 to i64
@@ -29079,7 +29079,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit507:                 ; preds = %1415, %1418
 1437:                                             ; preds = %1414
   %1438 = landingpad { ptr, i32 }
           catch ptr null
-  %1439 = getelementptr inbounds i8, ptr %137, i64 8
+  %1439 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1439) #16
   br label %1440
 
@@ -29090,7 +29090,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit507:                 ; preds = %1415, %1418
   br i1 %.not.i.i.i511, label %_ZNSt6vectorIhSaIhEED2Ev.exit512, label %1442
 
 1442:                                             ; preds = %1440
-  %1443 = getelementptr inbounds i8, ptr %141, i64 16
+  %1443 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1444 = load ptr, ptr %1443, align 8
   %1445 = ptrtoint ptr %1444 to i64
   %1446 = ptrtoint ptr %1441 to i64
@@ -29149,11 +29149,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit510:                 ; preds = %1425, %_ZNSt6vector
           to label %1464 unwind label %1461
 
 1464:                                             ; preds = %1463
-  %1465 = getelementptr inbounds i8, ptr %135, i64 112
+  %1465 = getelementptr inbounds nuw i8, ptr %135, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1465) #16
-  %1466 = getelementptr inbounds i8, ptr %135, i64 72
+  %1466 = getelementptr inbounds nuw i8, ptr %135, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1466) #16
-  %1467 = getelementptr inbounds i8, ptr %135, i64 48
+  %1467 = getelementptr inbounds nuw i8, ptr %135, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1467) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %142, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 190, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %143)
@@ -29176,11 +29176,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit510:                 ; preds = %1425, %_ZNSt6vector
 
 1473:                                             ; preds = %1469
   store ptr %1470, ptr %147, align 8
-  %1474 = getelementptr inbounds i8, ptr %1470, i64 4
-  %1475 = getelementptr inbounds i8, ptr %147, i64 16
+  %1474 = getelementptr inbounds nuw i8, ptr %1470, i64 4
+  %1475 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %1474, ptr %1475, align 8
   store i32 696190016, ptr %1470, align 4
-  %1476 = getelementptr inbounds i8, ptr %147, i64 8
+  %1476 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %1474, ptr %1476, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
   %1477 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_181fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE19_8__invokeES5_, ptr noundef nonnull %147, ptr noundef nonnull %148, i32 noundef 0)
@@ -29201,14 +29201,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit510:                 ; preds = %1425, %_ZNSt6vector
           to label %1481 unwind label %1503
 
 1481:                                             ; preds = %1480
-  %1482 = getelementptr inbounds i8, ptr %144, i64 8
+  %1482 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1482) #16
   %1483 = load ptr, ptr %148, align 8
   %.not.i.i.i525 = icmp eq ptr %1483, null
   br i1 %.not.i.i.i525, label %_ZNSt6vectorIhSaIhEED2Ev.exit526, label %1484
 
 1484:                                             ; preds = %1481
-  %1485 = getelementptr inbounds i8, ptr %148, i64 16
+  %1485 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1486 = load ptr, ptr %1485, align 8
   %1487 = ptrtoint ptr %1486 to i64
   %1488 = ptrtoint ptr %1483 to i64
@@ -29253,7 +29253,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit526:                 ; preds = %1481, %1484
 1503:                                             ; preds = %1480
   %1504 = landingpad { ptr, i32 }
           catch ptr null
-  %1505 = getelementptr inbounds i8, ptr %144, i64 8
+  %1505 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1505) #16
   br label %1506
 
@@ -29264,7 +29264,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit526:                 ; preds = %1481, %1484
   br i1 %.not.i.i.i530, label %_ZNSt6vectorIhSaIhEED2Ev.exit531, label %1508
 
 1508:                                             ; preds = %1506
-  %1509 = getelementptr inbounds i8, ptr %148, i64 16
+  %1509 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1510 = load ptr, ptr %1509, align 8
   %1511 = ptrtoint ptr %1510 to i64
   %1512 = ptrtoint ptr %1507 to i64
@@ -29323,11 +29323,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit529:                 ; preds = %1491, %_ZNSt6vector
           to label %1530 unwind label %1527
 
 1530:                                             ; preds = %1529
-  %1531 = getelementptr inbounds i8, ptr %142, i64 112
+  %1531 = getelementptr inbounds nuw i8, ptr %142, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1531) #16
-  %1532 = getelementptr inbounds i8, ptr %142, i64 72
+  %1532 = getelementptr inbounds nuw i8, ptr %142, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1532) #16
-  %1533 = getelementptr inbounds i8, ptr %142, i64 48
+  %1533 = getelementptr inbounds nuw i8, ptr %142, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1533) #16
   ret void
 
@@ -29609,11 +29609,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEv(ptr no
 
 105:                                              ; preds = %101
   store ptr %102, ptr %7, align 8
-  %106 = getelementptr inbounds i8, ptr %102, i64 4
-  %107 = getelementptr inbounds i8, ptr %7, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %106, ptr %107, align 8
   store i32 -117440480, ptr %102, align 4
-  %108 = getelementptr inbounds i8, ptr %7, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %106, ptr %108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %109 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -29634,14 +29634,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEv(ptr no
           to label %113 unwind label %134
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %4, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #16
   %115 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %8, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = ptrtoint ptr %115 to i64
@@ -29681,7 +29681,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %113, %116
 134:                                              ; preds = %112
   %135 = landingpad { ptr, i32 }
           catch ptr null
-  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %136) #16
   br label %137
 
@@ -29692,7 +29692,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %113, %116
   br i1 %.not.i.i.i101, label %_ZNSt6vectorIhSaIhEED2Ev.exit102, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %8, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -29751,11 +29751,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
           to label %161 unwind label %158
 
 161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %2, i64 112
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %162) #16
-  %163 = getelementptr inbounds i8, ptr %2, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #16
-  %164 = getelementptr inbounds i8, ptr %2, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %164) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 197, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -29778,11 +29778,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
 
 170:                                              ; preds = %166
   store ptr %167, ptr %14, align 8
-  %171 = getelementptr inbounds i8, ptr %167, i64 4
-  %172 = getelementptr inbounds i8, ptr %14, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %171, ptr %172, align 8
   store i32 -117439456, ptr %167, align 4
-  %173 = getelementptr inbounds i8, ptr %14, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %171, ptr %173, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %174 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -29803,14 +29803,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
           to label %178 unwind label %200
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds i8, ptr %11, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #16
   %180 = load ptr, ptr %15, align 8
   %.not.i.i.i115 = icmp eq ptr %180, null
   br i1 %.not.i.i.i115, label %_ZNSt6vectorIhSaIhEED2Ev.exit116, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %15, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
   %185 = ptrtoint ptr %180 to i64
@@ -29855,7 +29855,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit116:                 ; preds = %178, %181
 200:                                              ; preds = %177
   %201 = landingpad { ptr, i32 }
           catch ptr null
-  %202 = getelementptr inbounds i8, ptr %11, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #16
   br label %203
 
@@ -29866,7 +29866,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit116:                 ; preds = %178, %181
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIhSaIhEED2Ev.exit121, label %205
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %15, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
@@ -29925,11 +29925,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
           to label %227 unwind label %224
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %9, i64 112
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %228) #16
-  %229 = getelementptr inbounds i8, ptr %9, i64 72
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #16
-  %230 = getelementptr inbounds i8, ptr %9, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 198, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -29952,11 +29952,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
 
 236:                                              ; preds = %232
   store ptr %233, ptr %21, align 8
-  %237 = getelementptr inbounds i8, ptr %233, i64 4
-  %238 = getelementptr inbounds i8, ptr %21, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %237, ptr %238, align 8
   store i32 -131635168, ptr %233, align 4
-  %239 = getelementptr inbounds i8, ptr %21, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %237, ptr %239, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %240 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -29977,14 +29977,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
           to label %244 unwind label %266
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %18, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #16
   %246 = load ptr, ptr %22, align 8
   %.not.i.i.i134 = icmp eq ptr %246, null
   br i1 %.not.i.i.i134, label %_ZNSt6vectorIhSaIhEED2Ev.exit135, label %247
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %22, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %249 = load ptr, ptr %248, align 8
   %250 = ptrtoint ptr %249 to i64
   %251 = ptrtoint ptr %246 to i64
@@ -30029,7 +30029,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit135:                 ; preds = %244, %247
 266:                                              ; preds = %243
   %267 = landingpad { ptr, i32 }
           catch ptr null
-  %268 = getelementptr inbounds i8, ptr %18, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %268) #16
   br label %269
 
@@ -30040,7 +30040,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit135:                 ; preds = %244, %247
   br i1 %.not.i.i.i139, label %_ZNSt6vectorIhSaIhEED2Ev.exit140, label %271
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds i8, ptr %22, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %270 to i64
@@ -30099,11 +30099,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
           to label %293 unwind label %290
 
 293:                                              ; preds = %292
-  %294 = getelementptr inbounds i8, ptr %16, i64 112
+  %294 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %294) #16
-  %295 = getelementptr inbounds i8, ptr %16, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #16
-  %296 = getelementptr inbounds i8, ptr %16, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 199, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -30126,11 +30126,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
 
 302:                                              ; preds = %298
   store ptr %299, ptr %28, align 8
-  %303 = getelementptr inbounds i8, ptr %299, i64 4
-  %304 = getelementptr inbounds i8, ptr %28, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %303, ptr %304, align 8
   store i32 2015334432, ptr %299, align 4
-  %305 = getelementptr inbounds i8, ptr %28, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %303, ptr %305, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %306 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -30151,14 +30151,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
           to label %310 unwind label %332
 
 310:                                              ; preds = %309
-  %311 = getelementptr inbounds i8, ptr %25, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #16
   %312 = load ptr, ptr %29, align 8
   %.not.i.i.i153 = icmp eq ptr %312, null
   br i1 %.not.i.i.i153, label %_ZNSt6vectorIhSaIhEED2Ev.exit154, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %29, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = ptrtoint ptr %315 to i64
   %317 = ptrtoint ptr %312 to i64
@@ -30203,7 +30203,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit154:                 ; preds = %310, %313
 332:                                              ; preds = %309
   %333 = landingpad { ptr, i32 }
           catch ptr null
-  %334 = getelementptr inbounds i8, ptr %25, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %334) #16
   br label %335
 
@@ -30214,7 +30214,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit154:                 ; preds = %310, %313
   br i1 %.not.i.i.i158, label %_ZNSt6vectorIhSaIhEED2Ev.exit159, label %337
 
 337:                                              ; preds = %335
-  %338 = getelementptr inbounds i8, ptr %29, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %336 to i64
@@ -30273,11 +30273,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
           to label %359 unwind label %356
 
 359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %23, i64 112
+  %360 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %360) #16
-  %361 = getelementptr inbounds i8, ptr %23, i64 72
+  %361 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %361) #16
-  %362 = getelementptr inbounds i8, ptr %23, i64 48
+  %362 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %362) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 202, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -30300,11 +30300,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
 
 368:                                              ; preds = %364
   store ptr %365, ptr %35, align 8
-  %369 = getelementptr inbounds i8, ptr %365, i64 4
-  %370 = getelementptr inbounds i8, ptr %35, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 4
+  %370 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %369, ptr %370, align 8
   store i32 -117440480, ptr %365, align 4
-  %371 = getelementptr inbounds i8, ptr %35, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %369, ptr %371, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %372 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -30325,14 +30325,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
           to label %376 unwind label %398
 
 376:                                              ; preds = %375
-  %377 = getelementptr inbounds i8, ptr %32, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %377) #16
   %378 = load ptr, ptr %36, align 8
   %.not.i.i.i172 = icmp eq ptr %378, null
   br i1 %.not.i.i.i172, label %_ZNSt6vectorIhSaIhEED2Ev.exit173, label %379
 
 379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %36, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = ptrtoint ptr %378 to i64
@@ -30377,7 +30377,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit173:                 ; preds = %376, %379
 398:                                              ; preds = %375
   %399 = landingpad { ptr, i32 }
           catch ptr null
-  %400 = getelementptr inbounds i8, ptr %32, i64 8
+  %400 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %400) #16
   br label %401
 
@@ -30388,7 +30388,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit173:                 ; preds = %376, %379
   br i1 %.not.i.i.i177, label %_ZNSt6vectorIhSaIhEED2Ev.exit178, label %403
 
 403:                                              ; preds = %401
-  %404 = getelementptr inbounds i8, ptr %36, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %405 = load ptr, ptr %404, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = ptrtoint ptr %402 to i64
@@ -30447,11 +30447,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
           to label %425 unwind label %422
 
 425:                                              ; preds = %424
-  %426 = getelementptr inbounds i8, ptr %30, i64 112
+  %426 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %426) #16
-  %427 = getelementptr inbounds i8, ptr %30, i64 72
+  %427 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %427) #16
-  %428 = getelementptr inbounds i8, ptr %30, i64 48
+  %428 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %428) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 203, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -30474,11 +30474,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
 
 434:                                              ; preds = %430
   store ptr %431, ptr %42, align 8
-  %435 = getelementptr inbounds i8, ptr %431, i64 4
-  %436 = getelementptr inbounds i8, ptr %42, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %431, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %435, ptr %436, align 8
   store i32 -1191182304, ptr %431, align 4
-  %437 = getelementptr inbounds i8, ptr %42, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %435, ptr %437, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %438 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -30499,14 +30499,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
           to label %442 unwind label %464
 
 442:                                              ; preds = %441
-  %443 = getelementptr inbounds i8, ptr %39, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %443) #16
   %444 = load ptr, ptr %43, align 8
   %.not.i.i.i191 = icmp eq ptr %444, null
   br i1 %.not.i.i.i191, label %_ZNSt6vectorIhSaIhEED2Ev.exit192, label %445
 
 445:                                              ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %43, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %447 = load ptr, ptr %446, align 8
   %448 = ptrtoint ptr %447 to i64
   %449 = ptrtoint ptr %444 to i64
@@ -30551,7 +30551,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %442, %445
 464:                                              ; preds = %441
   %465 = landingpad { ptr, i32 }
           catch ptr null
-  %466 = getelementptr inbounds i8, ptr %39, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %466) #16
   br label %467
 
@@ -30562,7 +30562,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %442, %445
   br i1 %.not.i.i.i196, label %_ZNSt6vectorIhSaIhEED2Ev.exit197, label %469
 
 469:                                              ; preds = %467
-  %470 = getelementptr inbounds i8, ptr %43, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %471 = load ptr, ptr %470, align 8
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %468 to i64
@@ -30621,11 +30621,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
           to label %491 unwind label %488
 
 491:                                              ; preds = %490
-  %492 = getelementptr inbounds i8, ptr %37, i64 112
+  %492 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %492) #16
-  %493 = getelementptr inbounds i8, ptr %37, i64 72
+  %493 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %493) #16
-  %494 = getelementptr inbounds i8, ptr %37, i64 48
+  %494 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %494) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 204, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -30648,11 +30648,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
 
 500:                                              ; preds = %496
   store ptr %497, ptr %49, align 8
-  %501 = getelementptr inbounds i8, ptr %497, i64 4
-  %502 = getelementptr inbounds i8, ptr %49, i64 16
+  %501 = getelementptr inbounds nuw i8, ptr %497, i64 4
+  %502 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %501, ptr %502, align 8
   store i32 956301344, ptr %497, align 4
-  %503 = getelementptr inbounds i8, ptr %49, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %501, ptr %503, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %504 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -30673,14 +30673,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
           to label %508 unwind label %530
 
 508:                                              ; preds = %507
-  %509 = getelementptr inbounds i8, ptr %46, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %509) #16
   %510 = load ptr, ptr %50, align 8
   %.not.i.i.i210 = icmp eq ptr %510, null
   br i1 %.not.i.i.i210, label %_ZNSt6vectorIhSaIhEED2Ev.exit211, label %511
 
 511:                                              ; preds = %508
-  %512 = getelementptr inbounds i8, ptr %50, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %513 = load ptr, ptr %512, align 8
   %514 = ptrtoint ptr %513 to i64
   %515 = ptrtoint ptr %510 to i64
@@ -30725,7 +30725,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit211:                 ; preds = %508, %511
 530:                                              ; preds = %507
   %531 = landingpad { ptr, i32 }
           catch ptr null
-  %532 = getelementptr inbounds i8, ptr %46, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %532) #16
   br label %533
 
@@ -30736,7 +30736,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit211:                 ; preds = %508, %511
   br i1 %.not.i.i.i215, label %_ZNSt6vectorIhSaIhEED2Ev.exit216, label %535
 
 535:                                              ; preds = %533
-  %536 = getelementptr inbounds i8, ptr %50, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %537 = load ptr, ptr %536, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %534 to i64
@@ -30795,11 +30795,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
           to label %557 unwind label %554
 
 557:                                              ; preds = %556
-  %558 = getelementptr inbounds i8, ptr %44, i64 112
+  %558 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %558) #16
-  %559 = getelementptr inbounds i8, ptr %44, i64 72
+  %559 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %559) #16
-  %560 = getelementptr inbounds i8, ptr %44, i64 48
+  %560 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %560) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 205, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -30822,11 +30822,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
 
 566:                                              ; preds = %562
   store ptr %563, ptr %56, align 8
-  %567 = getelementptr inbounds i8, ptr %563, i64 4
-  %568 = getelementptr inbounds i8, ptr %56, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %563, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %567, ptr %568, align 8
   store i32 2030043168, ptr %563, align 4
-  %569 = getelementptr inbounds i8, ptr %56, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %567, ptr %569, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %570 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -30847,14 +30847,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
           to label %574 unwind label %596
 
 574:                                              ; preds = %573
-  %575 = getelementptr inbounds i8, ptr %53, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %575) #16
   %576 = load ptr, ptr %57, align 8
   %.not.i.i.i229 = icmp eq ptr %576, null
   br i1 %.not.i.i.i229, label %_ZNSt6vectorIhSaIhEED2Ev.exit230, label %577
 
 577:                                              ; preds = %574
-  %578 = getelementptr inbounds i8, ptr %57, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %579 = load ptr, ptr %578, align 8
   %580 = ptrtoint ptr %579 to i64
   %581 = ptrtoint ptr %576 to i64
@@ -30899,7 +30899,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit230:                 ; preds = %574, %577
 596:                                              ; preds = %573
   %597 = landingpad { ptr, i32 }
           catch ptr null
-  %598 = getelementptr inbounds i8, ptr %53, i64 8
+  %598 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %598) #16
   br label %599
 
@@ -30910,7 +30910,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit230:                 ; preds = %574, %577
   br i1 %.not.i.i.i234, label %_ZNSt6vectorIhSaIhEED2Ev.exit235, label %601
 
 601:                                              ; preds = %599
-  %602 = getelementptr inbounds i8, ptr %57, i64 16
+  %602 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %603 = load ptr, ptr %602, align 8
   %604 = ptrtoint ptr %603 to i64
   %605 = ptrtoint ptr %600 to i64
@@ -30969,11 +30969,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
           to label %623 unwind label %620
 
 623:                                              ; preds = %622
-  %624 = getelementptr inbounds i8, ptr %51, i64 112
+  %624 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %624) #16
-  %625 = getelementptr inbounds i8, ptr %51, i64 72
+  %625 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %625) #16
-  %626 = getelementptr inbounds i8, ptr %51, i64 48
+  %626 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %626) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 208, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -30996,11 +30996,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
 
 632:                                              ; preds = %628
   store ptr %629, ptr %63, align 8
-  %633 = getelementptr inbounds i8, ptr %629, i64 4
-  %634 = getelementptr inbounds i8, ptr %63, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 4
+  %634 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %633, ptr %634, align 8
   store i32 -117439456, ptr %629, align 4
-  %635 = getelementptr inbounds i8, ptr %63, i64 8
+  %635 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %633, ptr %635, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %636 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -31021,14 +31021,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
           to label %640 unwind label %662
 
 640:                                              ; preds = %639
-  %641 = getelementptr inbounds i8, ptr %60, i64 8
+  %641 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %641) #16
   %642 = load ptr, ptr %64, align 8
   %.not.i.i.i248 = icmp eq ptr %642, null
   br i1 %.not.i.i.i248, label %_ZNSt6vectorIhSaIhEED2Ev.exit249, label %643
 
 643:                                              ; preds = %640
-  %644 = getelementptr inbounds i8, ptr %64, i64 16
+  %644 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %645 = load ptr, ptr %644, align 8
   %646 = ptrtoint ptr %645 to i64
   %647 = ptrtoint ptr %642 to i64
@@ -31073,7 +31073,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249:                 ; preds = %640, %643
 662:                                              ; preds = %639
   %663 = landingpad { ptr, i32 }
           catch ptr null
-  %664 = getelementptr inbounds i8, ptr %60, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %664) #16
   br label %665
 
@@ -31084,7 +31084,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249:                 ; preds = %640, %643
   br i1 %.not.i.i.i253, label %_ZNSt6vectorIhSaIhEED2Ev.exit254, label %667
 
 667:                                              ; preds = %665
-  %668 = getelementptr inbounds i8, ptr %64, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %669 = load ptr, ptr %668, align 8
   %670 = ptrtoint ptr %669 to i64
   %671 = ptrtoint ptr %666 to i64
@@ -31143,11 +31143,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
           to label %689 unwind label %686
 
 689:                                              ; preds = %688
-  %690 = getelementptr inbounds i8, ptr %58, i64 112
+  %690 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %690) #16
-  %691 = getelementptr inbounds i8, ptr %58, i64 72
+  %691 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %691) #16
-  %692 = getelementptr inbounds i8, ptr %58, i64 48
+  %692 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %692) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 209, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -31170,11 +31170,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
 
 698:                                              ; preds = %694
   store ptr %695, ptr %70, align 8
-  %699 = getelementptr inbounds i8, ptr %695, i64 4
-  %700 = getelementptr inbounds i8, ptr %70, i64 16
+  %699 = getelementptr inbounds nuw i8, ptr %695, i64 4
+  %700 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %699, ptr %700, align 8
   store i32 -1191180256, ptr %695, align 4
-  %701 = getelementptr inbounds i8, ptr %70, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %699, ptr %701, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %702 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -31195,14 +31195,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
           to label %706 unwind label %728
 
 706:                                              ; preds = %705
-  %707 = getelementptr inbounds i8, ptr %67, i64 8
+  %707 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %707) #16
   %708 = load ptr, ptr %71, align 8
   %.not.i.i.i267 = icmp eq ptr %708, null
   br i1 %.not.i.i.i267, label %_ZNSt6vectorIhSaIhEED2Ev.exit268, label %709
 
 709:                                              ; preds = %706
-  %710 = getelementptr inbounds i8, ptr %71, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %711 = load ptr, ptr %710, align 8
   %712 = ptrtoint ptr %711 to i64
   %713 = ptrtoint ptr %708 to i64
@@ -31247,7 +31247,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit268:                 ; preds = %706, %709
 728:                                              ; preds = %705
   %729 = landingpad { ptr, i32 }
           catch ptr null
-  %730 = getelementptr inbounds i8, ptr %67, i64 8
+  %730 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %730) #16
   br label %731
 
@@ -31258,7 +31258,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit268:                 ; preds = %706, %709
   br i1 %.not.i.i.i272, label %_ZNSt6vectorIhSaIhEED2Ev.exit273, label %733
 
 733:                                              ; preds = %731
-  %734 = getelementptr inbounds i8, ptr %71, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %735 = load ptr, ptr %734, align 8
   %736 = ptrtoint ptr %735 to i64
   %737 = ptrtoint ptr %732 to i64
@@ -31317,11 +31317,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
           to label %755 unwind label %752
 
 755:                                              ; preds = %754
-  %756 = getelementptr inbounds i8, ptr %65, i64 112
+  %756 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %756) #16
-  %757 = getelementptr inbounds i8, ptr %65, i64 72
+  %757 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %757) #16
-  %758 = getelementptr inbounds i8, ptr %65, i64 48
+  %758 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %758) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 210, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -31344,11 +31344,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
 
 764:                                              ; preds = %760
   store ptr %761, ptr %77, align 8
-  %765 = getelementptr inbounds i8, ptr %761, i64 4
-  %766 = getelementptr inbounds i8, ptr %77, i64 16
+  %765 = getelementptr inbounds nuw i8, ptr %761, i64 4
+  %766 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %765, ptr %766, align 8
   store i32 956309536, ptr %761, align 4
-  %767 = getelementptr inbounds i8, ptr %77, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %765, ptr %767, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %768 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -31369,14 +31369,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
           to label %772 unwind label %794
 
 772:                                              ; preds = %771
-  %773 = getelementptr inbounds i8, ptr %74, i64 8
+  %773 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %773) #16
   %774 = load ptr, ptr %78, align 8
   %.not.i.i.i286 = icmp eq ptr %774, null
   br i1 %.not.i.i.i286, label %_ZNSt6vectorIhSaIhEED2Ev.exit287, label %775
 
 775:                                              ; preds = %772
-  %776 = getelementptr inbounds i8, ptr %78, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %777 = load ptr, ptr %776, align 8
   %778 = ptrtoint ptr %777 to i64
   %779 = ptrtoint ptr %774 to i64
@@ -31421,7 +31421,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit287:                 ; preds = %772, %775
 794:                                              ; preds = %771
   %795 = landingpad { ptr, i32 }
           catch ptr null
-  %796 = getelementptr inbounds i8, ptr %74, i64 8
+  %796 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %796) #16
   br label %797
 
@@ -31432,7 +31432,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit287:                 ; preds = %772, %775
   br i1 %.not.i.i.i291, label %_ZNSt6vectorIhSaIhEED2Ev.exit292, label %799
 
 799:                                              ; preds = %797
-  %800 = getelementptr inbounds i8, ptr %78, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %801 = load ptr, ptr %800, align 8
   %802 = ptrtoint ptr %801 to i64
   %803 = ptrtoint ptr %798 to i64
@@ -31491,11 +31491,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
           to label %821 unwind label %818
 
 821:                                              ; preds = %820
-  %822 = getelementptr inbounds i8, ptr %72, i64 112
+  %822 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %822) #16
-  %823 = getelementptr inbounds i8, ptr %72, i64 72
+  %823 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %823) #16
-  %824 = getelementptr inbounds i8, ptr %72, i64 48
+  %824 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %824) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 211, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -31518,11 +31518,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
 
 830:                                              ; preds = %826
   store ptr %827, ptr %84, align 8
-  %831 = getelementptr inbounds i8, ptr %827, i64 4
-  %832 = getelementptr inbounds i8, ptr %84, i64 16
+  %831 = getelementptr inbounds nuw i8, ptr %827, i64 4
+  %832 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %831, ptr %832, align 8
   store i32 2030047264, ptr %827, align 4
-  %833 = getelementptr inbounds i8, ptr %84, i64 8
+  %833 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %831, ptr %833, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %834 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -31543,14 +31543,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
           to label %838 unwind label %860
 
 838:                                              ; preds = %837
-  %839 = getelementptr inbounds i8, ptr %81, i64 8
+  %839 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %839) #16
   %840 = load ptr, ptr %85, align 8
   %.not.i.i.i305 = icmp eq ptr %840, null
   br i1 %.not.i.i.i305, label %_ZNSt6vectorIhSaIhEED2Ev.exit306, label %841
 
 841:                                              ; preds = %838
-  %842 = getelementptr inbounds i8, ptr %85, i64 16
+  %842 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %843 = load ptr, ptr %842, align 8
   %844 = ptrtoint ptr %843 to i64
   %845 = ptrtoint ptr %840 to i64
@@ -31595,7 +31595,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit306:                 ; preds = %838, %841
 860:                                              ; preds = %837
   %861 = landingpad { ptr, i32 }
           catch ptr null
-  %862 = getelementptr inbounds i8, ptr %81, i64 8
+  %862 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %862) #16
   br label %863
 
@@ -31606,7 +31606,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit306:                 ; preds = %838, %841
   br i1 %.not.i.i.i310, label %_ZNSt6vectorIhSaIhEED2Ev.exit311, label %865
 
 865:                                              ; preds = %863
-  %866 = getelementptr inbounds i8, ptr %85, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %867 = load ptr, ptr %866, align 8
   %868 = ptrtoint ptr %867 to i64
   %869 = ptrtoint ptr %864 to i64
@@ -31665,11 +31665,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
           to label %887 unwind label %884
 
 887:                                              ; preds = %886
-  %888 = getelementptr inbounds i8, ptr %79, i64 112
+  %888 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %888) #16
-  %889 = getelementptr inbounds i8, ptr %79, i64 72
+  %889 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %889) #16
-  %890 = getelementptr inbounds i8, ptr %79, i64 48
+  %890 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %890) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 214, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -31692,11 +31692,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
 
 896:                                              ; preds = %892
   store ptr %893, ptr %91, align 8
-  %897 = getelementptr inbounds i8, ptr %893, i64 4
-  %898 = getelementptr inbounds i8, ptr %91, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %893, i64 4
+  %898 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %897, ptr %898, align 8
   store i32 -1459583936, ptr %893, align 4
-  %899 = getelementptr inbounds i8, ptr %91, i64 8
+  %899 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %897, ptr %899, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %900 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -31717,14 +31717,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
           to label %904 unwind label %926
 
 904:                                              ; preds = %903
-  %905 = getelementptr inbounds i8, ptr %88, i64 8
+  %905 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %905) #16
   %906 = load ptr, ptr %92, align 8
   %.not.i.i.i324 = icmp eq ptr %906, null
   br i1 %.not.i.i.i324, label %_ZNSt6vectorIhSaIhEED2Ev.exit325, label %907
 
 907:                                              ; preds = %904
-  %908 = getelementptr inbounds i8, ptr %92, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %909 = load ptr, ptr %908, align 8
   %910 = ptrtoint ptr %909 to i64
   %911 = ptrtoint ptr %906 to i64
@@ -31769,7 +31769,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit325:                 ; preds = %904, %907
 926:                                              ; preds = %903
   %927 = landingpad { ptr, i32 }
           catch ptr null
-  %928 = getelementptr inbounds i8, ptr %88, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %928) #16
   br label %929
 
@@ -31780,7 +31780,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit325:                 ; preds = %904, %907
   br i1 %.not.i.i.i329, label %_ZNSt6vectorIhSaIhEED2Ev.exit330, label %931
 
 931:                                              ; preds = %929
-  %932 = getelementptr inbounds i8, ptr %92, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %933 = load ptr, ptr %932, align 8
   %934 = ptrtoint ptr %933 to i64
   %935 = ptrtoint ptr %930 to i64
@@ -31839,11 +31839,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
           to label %953 unwind label %950
 
 953:                                              ; preds = %952
-  %954 = getelementptr inbounds i8, ptr %86, i64 112
+  %954 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %954) #16
-  %955 = getelementptr inbounds i8, ptr %86, i64 72
+  %955 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %955) #16
-  %956 = getelementptr inbounds i8, ptr %86, i64 48
+  %956 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %956) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 215, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -31866,11 +31866,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
 
 962:                                              ; preds = %958
   store ptr %959, ptr %98, align 8
-  %963 = getelementptr inbounds i8, ptr %959, i64 4
-  %964 = getelementptr inbounds i8, ptr %98, i64 16
+  %963 = getelementptr inbounds nuw i8, ptr %959, i64 4
+  %964 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %963, ptr %964, align 8
   store i32 691995712, ptr %959, align 4
-  %965 = getelementptr inbounds i8, ptr %98, i64 8
+  %965 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %963, ptr %965, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %966 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_211fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -31891,14 +31891,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
           to label %970 unwind label %992
 
 970:                                              ; preds = %969
-  %971 = getelementptr inbounds i8, ptr %95, i64 8
+  %971 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %971) #16
   %972 = load ptr, ptr %99, align 8
   %.not.i.i.i343 = icmp eq ptr %972, null
   br i1 %.not.i.i.i343, label %_ZNSt6vectorIhSaIhEED2Ev.exit344, label %973
 
 973:                                              ; preds = %970
-  %974 = getelementptr inbounds i8, ptr %99, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %975 = load ptr, ptr %974, align 8
   %976 = ptrtoint ptr %975 to i64
   %977 = ptrtoint ptr %972 to i64
@@ -31943,7 +31943,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit344:                 ; preds = %970, %973
 992:                                              ; preds = %969
   %993 = landingpad { ptr, i32 }
           catch ptr null
-  %994 = getelementptr inbounds i8, ptr %95, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %994) #16
   br label %995
 
@@ -31954,7 +31954,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit344:                 ; preds = %970, %973
   br i1 %.not.i.i.i348, label %_ZNSt6vectorIhSaIhEED2Ev.exit349, label %997
 
 997:                                              ; preds = %995
-  %998 = getelementptr inbounds i8, ptr %99, i64 16
+  %998 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %999 = load ptr, ptr %998, align 8
   %1000 = ptrtoint ptr %999 to i64
   %1001 = ptrtoint ptr %996 to i64
@@ -32013,11 +32013,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit347:                 ; preds = %980, %_ZNSt6vectorI
           to label %1019 unwind label %1016
 
 1019:                                             ; preds = %1018
-  %1020 = getelementptr inbounds i8, ptr %93, i64 112
+  %1020 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1020) #16
-  %1021 = getelementptr inbounds i8, ptr %93, i64 72
+  %1021 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1021) #16
-  %1022 = getelementptr inbounds i8, ptr %93, i64 48
+  %1022 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1022) #16
   ret void
 
@@ -32251,11 +32251,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEv(ptr no
 
 105:                                              ; preds = %101
   store ptr %102, ptr %7, align 8
-  %106 = getelementptr inbounds i8, ptr %102, i64 4
-  %107 = getelementptr inbounds i8, ptr %7, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %106, ptr %107, align 8
   store i32 -1442774048, ptr %102, align 4
-  %108 = getelementptr inbounds i8, ptr %7, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %106, ptr %108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %109 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -32276,14 +32276,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEv(ptr no
           to label %113 unwind label %134
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %4, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %114) #16
   %115 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %115, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %8, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = ptrtoint ptr %115 to i64
@@ -32323,7 +32323,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %113, %116
 134:                                              ; preds = %112
   %135 = landingpad { ptr, i32 }
           catch ptr null
-  %136 = getelementptr inbounds i8, ptr %4, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %136) #16
   br label %137
 
@@ -32334,7 +32334,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %113, %116
   br i1 %.not.i.i.i101, label %_ZNSt6vectorIhSaIhEED2Ev.exit102, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %8, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -32393,11 +32393,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
           to label %161 unwind label %158
 
 161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %2, i64 112
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %162) #16
-  %163 = getelementptr inbounds i8, ptr %2, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %163) #16
-  %164 = getelementptr inbounds i8, ptr %2, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %164) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 221, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -32420,11 +32420,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
 
 170:                                              ; preds = %166
   store ptr %167, ptr %14, align 8
-  %171 = getelementptr inbounds i8, ptr %167, i64 4
-  %172 = getelementptr inbounds i8, ptr %14, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %171, ptr %172, align 8
   store i32 704709600, ptr %167, align 4
-  %173 = getelementptr inbounds i8, ptr %14, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %171, ptr %173, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %174 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -32445,14 +32445,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %123, %_ZNSt6vectorI
           to label %178 unwind label %200
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds i8, ptr %11, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %179) #16
   %180 = load ptr, ptr %15, align 8
   %.not.i.i.i115 = icmp eq ptr %180, null
   br i1 %.not.i.i.i115, label %_ZNSt6vectorIhSaIhEED2Ev.exit116, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %15, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
   %185 = ptrtoint ptr %180 to i64
@@ -32497,7 +32497,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit116:                 ; preds = %178, %181
 200:                                              ; preds = %177
   %201 = landingpad { ptr, i32 }
           catch ptr null
-  %202 = getelementptr inbounds i8, ptr %11, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %202) #16
   br label %203
 
@@ -32508,7 +32508,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit116:                 ; preds = %178, %181
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIhSaIhEED2Ev.exit121, label %205
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %15, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = ptrtoint ptr %204 to i64
@@ -32567,11 +32567,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
           to label %227 unwind label %224
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %9, i64 112
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %228) #16
-  %229 = getelementptr inbounds i8, ptr %9, i64 72
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %229) #16
-  %230 = getelementptr inbounds i8, ptr %9, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 222, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -32594,11 +32594,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
 
 236:                                              ; preds = %232
   store ptr %233, ptr %21, align 8
-  %237 = getelementptr inbounds i8, ptr %233, i64 4
-  %238 = getelementptr inbounds i8, ptr %21, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %237, ptr %238, align 8
   store i32 1319181344, ptr %233, align 4
-  %239 = getelementptr inbounds i8, ptr %21, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %237, ptr %239, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %240 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -32619,14 +32619,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit119:                 ; preds = %188, %_ZNSt6vectorI
           to label %244 unwind label %266
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %18, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %245) #16
   %246 = load ptr, ptr %22, align 8
   %.not.i.i.i134 = icmp eq ptr %246, null
   br i1 %.not.i.i.i134, label %_ZNSt6vectorIhSaIhEED2Ev.exit135, label %247
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %22, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %249 = load ptr, ptr %248, align 8
   %250 = ptrtoint ptr %249 to i64
   %251 = ptrtoint ptr %246 to i64
@@ -32671,7 +32671,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit135:                 ; preds = %244, %247
 266:                                              ; preds = %243
   %267 = landingpad { ptr, i32 }
           catch ptr null
-  %268 = getelementptr inbounds i8, ptr %18, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %268) #16
   br label %269
 
@@ -32682,7 +32682,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit135:                 ; preds = %244, %247
   br i1 %.not.i.i.i139, label %_ZNSt6vectorIhSaIhEED2Ev.exit140, label %271
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds i8, ptr %22, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %270 to i64
@@ -32741,11 +32741,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
           to label %293 unwind label %290
 
 293:                                              ; preds = %292
-  %294 = getelementptr inbounds i8, ptr %16, i64 112
+  %294 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %294) #16
-  %295 = getelementptr inbounds i8, ptr %16, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %295) #16
-  %296 = getelementptr inbounds i8, ptr %16, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 224, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -32768,11 +32768,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
 
 302:                                              ; preds = %298
   store ptr %299, ptr %28, align 8
-  %303 = getelementptr inbounds i8, ptr %299, i64 4
-  %304 = getelementptr inbounds i8, ptr %28, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %303, ptr %304, align 8
   store i32 -763361984, ptr %299, align 4
-  %305 = getelementptr inbounds i8, ptr %28, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %303, ptr %305, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %306 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -32793,14 +32793,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit138:                 ; preds = %254, %_ZNSt6vectorI
           to label %310 unwind label %332
 
 310:                                              ; preds = %309
-  %311 = getelementptr inbounds i8, ptr %25, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %311) #16
   %312 = load ptr, ptr %29, align 8
   %.not.i.i.i153 = icmp eq ptr %312, null
   br i1 %.not.i.i.i153, label %_ZNSt6vectorIhSaIhEED2Ev.exit154, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %29, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = ptrtoint ptr %315 to i64
   %317 = ptrtoint ptr %312 to i64
@@ -32845,7 +32845,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit154:                 ; preds = %310, %313
 332:                                              ; preds = %309
   %333 = landingpad { ptr, i32 }
           catch ptr null
-  %334 = getelementptr inbounds i8, ptr %25, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %334) #16
   br label %335
 
@@ -32856,7 +32856,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit154:                 ; preds = %310, %313
   br i1 %.not.i.i.i158, label %_ZNSt6vectorIhSaIhEED2Ev.exit159, label %337
 
 337:                                              ; preds = %335
-  %338 = getelementptr inbounds i8, ptr %29, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %339 = load ptr, ptr %338, align 8
   %340 = ptrtoint ptr %339 to i64
   %341 = ptrtoint ptr %336 to i64
@@ -32915,11 +32915,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
           to label %359 unwind label %356
 
 359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %23, i64 112
+  %360 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %360) #16
-  %361 = getelementptr inbounds i8, ptr %23, i64 72
+  %361 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %361) #16
-  %362 = getelementptr inbounds i8, ptr %23, i64 48
+  %362 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %362) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 225, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -32942,11 +32942,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
 
 368:                                              ; preds = %364
   store ptr %365, ptr %35, align 8
-  %369 = getelementptr inbounds i8, ptr %365, i64 4
-  %370 = getelementptr inbounds i8, ptr %35, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 4
+  %370 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %369, ptr %370, align 8
   store i32 1384121664, ptr %365, align 4
-  %371 = getelementptr inbounds i8, ptr %35, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %369, ptr %371, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %372 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -32967,14 +32967,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit157:                 ; preds = %320, %_ZNSt6vectorI
           to label %376 unwind label %398
 
 376:                                              ; preds = %375
-  %377 = getelementptr inbounds i8, ptr %32, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %377) #16
   %378 = load ptr, ptr %36, align 8
   %.not.i.i.i172 = icmp eq ptr %378, null
   br i1 %.not.i.i.i172, label %_ZNSt6vectorIhSaIhEED2Ev.exit173, label %379
 
 379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %36, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = ptrtoint ptr %378 to i64
@@ -33019,7 +33019,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit173:                 ; preds = %376, %379
 398:                                              ; preds = %375
   %399 = landingpad { ptr, i32 }
           catch ptr null
-  %400 = getelementptr inbounds i8, ptr %32, i64 8
+  %400 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %400) #16
   br label %401
 
@@ -33030,7 +33030,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit173:                 ; preds = %376, %379
   br i1 %.not.i.i.i177, label %_ZNSt6vectorIhSaIhEED2Ev.exit178, label %403
 
 403:                                              ; preds = %401
-  %404 = getelementptr inbounds i8, ptr %36, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %405 = load ptr, ptr %404, align 8
   %406 = ptrtoint ptr %405 to i64
   %407 = ptrtoint ptr %402 to i64
@@ -33089,11 +33089,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
           to label %425 unwind label %422
 
 425:                                              ; preds = %424
-  %426 = getelementptr inbounds i8, ptr %30, i64 112
+  %426 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %426) #16
-  %427 = getelementptr inbounds i8, ptr %30, i64 72
+  %427 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %427) #16
-  %428 = getelementptr inbounds i8, ptr %30, i64 48
+  %428 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %428) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 226, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -33116,11 +33116,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
 
 434:                                              ; preds = %430
   store ptr %431, ptr %42, align 8
-  %435 = getelementptr inbounds i8, ptr %431, i64 4
-  %436 = getelementptr inbounds i8, ptr %42, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %431, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %435, ptr %436, align 8
   store i32 -1837103808, ptr %431, align 4
-  %437 = getelementptr inbounds i8, ptr %42, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %435, ptr %437, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %438 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -33141,14 +33141,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit176:                 ; preds = %386, %_ZNSt6vectorI
           to label %442 unwind label %464
 
 442:                                              ; preds = %441
-  %443 = getelementptr inbounds i8, ptr %39, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %443) #16
   %444 = load ptr, ptr %43, align 8
   %.not.i.i.i191 = icmp eq ptr %444, null
   br i1 %.not.i.i.i191, label %_ZNSt6vectorIhSaIhEED2Ev.exit192, label %445
 
 445:                                              ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %43, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %447 = load ptr, ptr %446, align 8
   %448 = ptrtoint ptr %447 to i64
   %449 = ptrtoint ptr %444 to i64
@@ -33193,7 +33193,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %442, %445
 464:                                              ; preds = %441
   %465 = landingpad { ptr, i32 }
           catch ptr null
-  %466 = getelementptr inbounds i8, ptr %39, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %466) #16
   br label %467
 
@@ -33204,7 +33204,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit192:                 ; preds = %442, %445
   br i1 %.not.i.i.i196, label %_ZNSt6vectorIhSaIhEED2Ev.exit197, label %469
 
 469:                                              ; preds = %467
-  %470 = getelementptr inbounds i8, ptr %43, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %471 = load ptr, ptr %470, align 8
   %472 = ptrtoint ptr %471 to i64
   %473 = ptrtoint ptr %468 to i64
@@ -33263,11 +33263,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
           to label %491 unwind label %488
 
 491:                                              ; preds = %490
-  %492 = getelementptr inbounds i8, ptr %37, i64 112
+  %492 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %492) #16
-  %493 = getelementptr inbounds i8, ptr %37, i64 72
+  %493 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %493) #16
-  %494 = getelementptr inbounds i8, ptr %37, i64 48
+  %494 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %494) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 227, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -33290,11 +33290,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
 
 500:                                              ; preds = %496
   store ptr %497, ptr %49, align 8
-  %501 = getelementptr inbounds i8, ptr %497, i64 4
-  %502 = getelementptr inbounds i8, ptr %49, i64 16
+  %501 = getelementptr inbounds nuw i8, ptr %497, i64 4
+  %502 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %501, ptr %502, align 8
   store i32 310379840, ptr %497, align 4
-  %503 = getelementptr inbounds i8, ptr %49, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %501, ptr %503, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %504 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -33315,14 +33315,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit195:                 ; preds = %452, %_ZNSt6vectorI
           to label %508 unwind label %530
 
 508:                                              ; preds = %507
-  %509 = getelementptr inbounds i8, ptr %46, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %509) #16
   %510 = load ptr, ptr %50, align 8
   %.not.i.i.i210 = icmp eq ptr %510, null
   br i1 %.not.i.i.i210, label %_ZNSt6vectorIhSaIhEED2Ev.exit211, label %511
 
 511:                                              ; preds = %508
-  %512 = getelementptr inbounds i8, ptr %50, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %513 = load ptr, ptr %512, align 8
   %514 = ptrtoint ptr %513 to i64
   %515 = ptrtoint ptr %510 to i64
@@ -33367,7 +33367,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit211:                 ; preds = %508, %511
 530:                                              ; preds = %507
   %531 = landingpad { ptr, i32 }
           catch ptr null
-  %532 = getelementptr inbounds i8, ptr %46, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %532) #16
   br label %533
 
@@ -33378,7 +33378,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit211:                 ; preds = %508, %511
   br i1 %.not.i.i.i215, label %_ZNSt6vectorIhSaIhEED2Ev.exit216, label %535
 
 535:                                              ; preds = %533
-  %536 = getelementptr inbounds i8, ptr %50, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %537 = load ptr, ptr %536, align 8
   %538 = ptrtoint ptr %537 to i64
   %539 = ptrtoint ptr %534 to i64
@@ -33437,11 +33437,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
           to label %557 unwind label %554
 
 557:                                              ; preds = %556
-  %558 = getelementptr inbounds i8, ptr %44, i64 112
+  %558 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %558) #16
-  %559 = getelementptr inbounds i8, ptr %44, i64 72
+  %559 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %559) #16
-  %560 = getelementptr inbounds i8, ptr %44, i64 48
+  %560 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %560) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 228, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -33464,11 +33464,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
 
 566:                                              ; preds = %562
   store ptr %563, ptr %56, align 8
-  %567 = getelementptr inbounds i8, ptr %563, i64 4
-  %568 = getelementptr inbounds i8, ptr %56, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %563, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %567, ptr %568, align 8
   store i32 -224393920, ptr %563, align 4
-  %569 = getelementptr inbounds i8, ptr %56, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %567, ptr %569, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %570 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -33489,14 +33489,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit214:                 ; preds = %518, %_ZNSt6vectorI
           to label %574 unwind label %596
 
 574:                                              ; preds = %573
-  %575 = getelementptr inbounds i8, ptr %53, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %575) #16
   %576 = load ptr, ptr %57, align 8
   %.not.i.i.i229 = icmp eq ptr %576, null
   br i1 %.not.i.i.i229, label %_ZNSt6vectorIhSaIhEED2Ev.exit230, label %577
 
 577:                                              ; preds = %574
-  %578 = getelementptr inbounds i8, ptr %57, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %579 = load ptr, ptr %578, align 8
   %580 = ptrtoint ptr %579 to i64
   %581 = ptrtoint ptr %576 to i64
@@ -33541,7 +33541,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit230:                 ; preds = %574, %577
 596:                                              ; preds = %573
   %597 = landingpad { ptr, i32 }
           catch ptr null
-  %598 = getelementptr inbounds i8, ptr %53, i64 8
+  %598 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %598) #16
   br label %599
 
@@ -33552,7 +33552,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit230:                 ; preds = %574, %577
   br i1 %.not.i.i.i234, label %_ZNSt6vectorIhSaIhEED2Ev.exit235, label %601
 
 601:                                              ; preds = %599
-  %602 = getelementptr inbounds i8, ptr %57, i64 16
+  %602 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %603 = load ptr, ptr %602, align 8
   %604 = ptrtoint ptr %603 to i64
   %605 = ptrtoint ptr %600 to i64
@@ -33611,11 +33611,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
           to label %623 unwind label %620
 
 623:                                              ; preds = %622
-  %624 = getelementptr inbounds i8, ptr %51, i64 112
+  %624 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %624) #16
-  %625 = getelementptr inbounds i8, ptr %51, i64 72
+  %625 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %625) #16
-  %626 = getelementptr inbounds i8, ptr %51, i64 48
+  %626 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %626) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 234, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -33638,11 +33638,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
 
 632:                                              ; preds = %628
   store ptr %629, ptr %63, align 8
-  %633 = getelementptr inbounds i8, ptr %629, i64 4
-  %634 = getelementptr inbounds i8, ptr %63, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 4
+  %634 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %633, ptr %634, align 8
   store i32 -763361984, ptr %629, align 4
-  %635 = getelementptr inbounds i8, ptr %63, i64 8
+  %635 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %633, ptr %635, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %636 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -33663,14 +33663,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit233:                 ; preds = %584, %_ZNSt6vectorI
           to label %640 unwind label %662
 
 640:                                              ; preds = %639
-  %641 = getelementptr inbounds i8, ptr %60, i64 8
+  %641 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %641) #16
   %642 = load ptr, ptr %64, align 8
   %.not.i.i.i248 = icmp eq ptr %642, null
   br i1 %.not.i.i.i248, label %_ZNSt6vectorIhSaIhEED2Ev.exit249, label %643
 
 643:                                              ; preds = %640
-  %644 = getelementptr inbounds i8, ptr %64, i64 16
+  %644 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %645 = load ptr, ptr %644, align 8
   %646 = ptrtoint ptr %645 to i64
   %647 = ptrtoint ptr %642 to i64
@@ -33715,7 +33715,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249:                 ; preds = %640, %643
 662:                                              ; preds = %639
   %663 = landingpad { ptr, i32 }
           catch ptr null
-  %664 = getelementptr inbounds i8, ptr %60, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %664) #16
   br label %665
 
@@ -33726,7 +33726,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit249:                 ; preds = %640, %643
   br i1 %.not.i.i.i253, label %_ZNSt6vectorIhSaIhEED2Ev.exit254, label %667
 
 667:                                              ; preds = %665
-  %668 = getelementptr inbounds i8, ptr %64, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %669 = load ptr, ptr %668, align 8
   %670 = ptrtoint ptr %669 to i64
   %671 = ptrtoint ptr %666 to i64
@@ -33785,11 +33785,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
           to label %689 unwind label %686
 
 689:                                              ; preds = %688
-  %690 = getelementptr inbounds i8, ptr %58, i64 112
+  %690 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %690) #16
-  %691 = getelementptr inbounds i8, ptr %58, i64 72
+  %691 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %691) #16
-  %692 = getelementptr inbounds i8, ptr %58, i64 48
+  %692 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %692) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 240, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -33812,13 +33812,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
 
 698:                                              ; preds = %694
   store ptr %695, ptr %70, align 8
-  %699 = getelementptr inbounds i8, ptr %695, i64 8
-  %700 = getelementptr inbounds i8, ptr %70, i64 16
+  %699 = getelementptr inbounds nuw i8, ptr %695, i64 8
+  %700 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %699, ptr %700, align 8
   store i32 -762370496, ptr %695, align 4
-  %.sroa.2361.0..sroa_idx = getelementptr inbounds i8, ptr %695, i64 4
+  %.sroa.2361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %695, i64 4
   store i32 -224395072, ptr %.sroa.2361.0..sroa_idx, align 4
-  %701 = getelementptr inbounds i8, ptr %70, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %699, ptr %701, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %702 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -33839,14 +33839,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit252:                 ; preds = %650, %_ZNSt6vectorI
           to label %706 unwind label %728
 
 706:                                              ; preds = %705
-  %707 = getelementptr inbounds i8, ptr %67, i64 8
+  %707 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %707) #16
   %708 = load ptr, ptr %71, align 8
   %.not.i.i.i267 = icmp eq ptr %708, null
   br i1 %.not.i.i.i267, label %_ZNSt6vectorIhSaIhEED2Ev.exit268, label %709
 
 709:                                              ; preds = %706
-  %710 = getelementptr inbounds i8, ptr %71, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %711 = load ptr, ptr %710, align 8
   %712 = ptrtoint ptr %711 to i64
   %713 = ptrtoint ptr %708 to i64
@@ -33891,7 +33891,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit268:                 ; preds = %706, %709
 728:                                              ; preds = %705
   %729 = landingpad { ptr, i32 }
           catch ptr null
-  %730 = getelementptr inbounds i8, ptr %67, i64 8
+  %730 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %730) #16
   br label %731
 
@@ -33902,7 +33902,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit268:                 ; preds = %706, %709
   br i1 %.not.i.i.i272, label %_ZNSt6vectorIhSaIhEED2Ev.exit273, label %733
 
 733:                                              ; preds = %731
-  %734 = getelementptr inbounds i8, ptr %71, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %735 = load ptr, ptr %734, align 8
   %736 = ptrtoint ptr %735 to i64
   %737 = ptrtoint ptr %732 to i64
@@ -33961,11 +33961,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
           to label %755 unwind label %752
 
 755:                                              ; preds = %754
-  %756 = getelementptr inbounds i8, ptr %65, i64 112
+  %756 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %756) #16
-  %757 = getelementptr inbounds i8, ptr %65, i64 72
+  %757 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %757) #16
-  %758 = getelementptr inbounds i8, ptr %65, i64 48
+  %758 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %758) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 246, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -33988,11 +33988,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
 
 764:                                              ; preds = %760
   store ptr %761, ptr %77, align 8
-  %765 = getelementptr inbounds i8, ptr %761, i64 4
-  %766 = getelementptr inbounds i8, ptr %77, i64 16
+  %765 = getelementptr inbounds nuw i8, ptr %761, i64 4
+  %766 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %765, ptr %766, align 8
   store i32 -1837103840, ptr %761, align 4
-  %767 = getelementptr inbounds i8, ptr %77, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %765, ptr %767, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %768 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -34013,14 +34013,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit271:                 ; preds = %716, %_ZNSt6vectorI
           to label %772 unwind label %794
 
 772:                                              ; preds = %771
-  %773 = getelementptr inbounds i8, ptr %74, i64 8
+  %773 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %773) #16
   %774 = load ptr, ptr %78, align 8
   %.not.i.i.i286 = icmp eq ptr %774, null
   br i1 %.not.i.i.i286, label %_ZNSt6vectorIhSaIhEED2Ev.exit287, label %775
 
 775:                                              ; preds = %772
-  %776 = getelementptr inbounds i8, ptr %78, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %777 = load ptr, ptr %776, align 8
   %778 = ptrtoint ptr %777 to i64
   %779 = ptrtoint ptr %774 to i64
@@ -34065,7 +34065,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit287:                 ; preds = %772, %775
 794:                                              ; preds = %771
   %795 = landingpad { ptr, i32 }
           catch ptr null
-  %796 = getelementptr inbounds i8, ptr %74, i64 8
+  %796 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %796) #16
   br label %797
 
@@ -34076,7 +34076,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit287:                 ; preds = %772, %775
   br i1 %.not.i.i.i291, label %_ZNSt6vectorIhSaIhEED2Ev.exit292, label %799
 
 799:                                              ; preds = %797
-  %800 = getelementptr inbounds i8, ptr %78, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %801 = load ptr, ptr %800, align 8
   %802 = ptrtoint ptr %801 to i64
   %803 = ptrtoint ptr %798 to i64
@@ -34135,11 +34135,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
           to label %821 unwind label %818
 
 821:                                              ; preds = %820
-  %822 = getelementptr inbounds i8, ptr %72, i64 112
+  %822 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %822) #16
-  %823 = getelementptr inbounds i8, ptr %72, i64 72
+  %823 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %823) #16
-  %824 = getelementptr inbounds i8, ptr %72, i64 48
+  %824 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %824) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 252, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -34162,13 +34162,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
 
 830:                                              ; preds = %826
   store ptr %827, ptr %84, align 8
-  %831 = getelementptr inbounds i8, ptr %827, i64 8
-  %832 = getelementptr inbounds i8, ptr %84, i64 16
+  %831 = getelementptr inbounds nuw i8, ptr %827, i64 8
+  %832 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %831, ptr %832, align 8
   store i32 -1836112352, ptr %827, align 4
-  %.sroa.2356.0..sroa_idx = getelementptr inbounds i8, ptr %827, i64 4
+  %.sroa.2356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %827, i64 4
   store i32 -222298336, ptr %.sroa.2356.0..sroa_idx, align 4
-  %833 = getelementptr inbounds i8, ptr %84, i64 8
+  %833 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %831, ptr %833, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %834 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -34189,14 +34189,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit290:                 ; preds = %782, %_ZNSt6vectorI
           to label %838 unwind label %860
 
 838:                                              ; preds = %837
-  %839 = getelementptr inbounds i8, ptr %81, i64 8
+  %839 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %839) #16
   %840 = load ptr, ptr %85, align 8
   %.not.i.i.i305 = icmp eq ptr %840, null
   br i1 %.not.i.i.i305, label %_ZNSt6vectorIhSaIhEED2Ev.exit306, label %841
 
 841:                                              ; preds = %838
-  %842 = getelementptr inbounds i8, ptr %85, i64 16
+  %842 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %843 = load ptr, ptr %842, align 8
   %844 = ptrtoint ptr %843 to i64
   %845 = ptrtoint ptr %840 to i64
@@ -34241,7 +34241,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit306:                 ; preds = %838, %841
 860:                                              ; preds = %837
   %861 = landingpad { ptr, i32 }
           catch ptr null
-  %862 = getelementptr inbounds i8, ptr %81, i64 8
+  %862 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %862) #16
   br label %863
 
@@ -34252,7 +34252,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit306:                 ; preds = %838, %841
   br i1 %.not.i.i.i310, label %_ZNSt6vectorIhSaIhEED2Ev.exit311, label %865
 
 865:                                              ; preds = %863
-  %866 = getelementptr inbounds i8, ptr %85, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %867 = load ptr, ptr %866, align 8
   %868 = ptrtoint ptr %867 to i64
   %869 = ptrtoint ptr %864 to i64
@@ -34311,11 +34311,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
           to label %887 unwind label %884
 
 887:                                              ; preds = %886
-  %888 = getelementptr inbounds i8, ptr %79, i64 112
+  %888 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %888) #16
-  %889 = getelementptr inbounds i8, ptr %79, i64 72
+  %889 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %889) #16
-  %890 = getelementptr inbounds i8, ptr %79, i64 48
+  %890 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %890) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -34338,11 +34338,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
 
 896:                                              ; preds = %892
   store ptr %893, ptr %91, align 8
-  %897 = getelementptr inbounds i8, ptr %893, i64 4
-  %898 = getelementptr inbounds i8, ptr %91, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %893, i64 4
+  %898 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %897, ptr %898, align 8
   store i32 -1835008032, ptr %893, align 4
-  %899 = getelementptr inbounds i8, ptr %91, i64 8
+  %899 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %897, ptr %899, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %900 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -34363,14 +34363,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit309:                 ; preds = %848, %_ZNSt6vectorI
           to label %904 unwind label %926
 
 904:                                              ; preds = %903
-  %905 = getelementptr inbounds i8, ptr %88, i64 8
+  %905 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %905) #16
   %906 = load ptr, ptr %92, align 8
   %.not.i.i.i324 = icmp eq ptr %906, null
   br i1 %.not.i.i.i324, label %_ZNSt6vectorIhSaIhEED2Ev.exit325, label %907
 
 907:                                              ; preds = %904
-  %908 = getelementptr inbounds i8, ptr %92, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %909 = load ptr, ptr %908, align 8
   %910 = ptrtoint ptr %909 to i64
   %911 = ptrtoint ptr %906 to i64
@@ -34415,7 +34415,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit325:                 ; preds = %904, %907
 926:                                              ; preds = %903
   %927 = landingpad { ptr, i32 }
           catch ptr null
-  %928 = getelementptr inbounds i8, ptr %88, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %928) #16
   br label %929
 
@@ -34426,7 +34426,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit325:                 ; preds = %904, %907
   br i1 %.not.i.i.i329, label %_ZNSt6vectorIhSaIhEED2Ev.exit330, label %931
 
 931:                                              ; preds = %929
-  %932 = getelementptr inbounds i8, ptr %92, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %933 = load ptr, ptr %932, align 8
   %934 = ptrtoint ptr %933 to i64
   %935 = ptrtoint ptr %930 to i64
@@ -34485,11 +34485,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
           to label %953 unwind label %950
 
 953:                                              ; preds = %952
-  %954 = getelementptr inbounds i8, ptr %86, i64 112
+  %954 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %954) #16
-  %955 = getelementptr inbounds i8, ptr %86, i64 72
+  %955 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %955) #16
-  %956 = getelementptr inbounds i8, ptr %86, i64 48
+  %956 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %956) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 264, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -34512,13 +34512,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
 
 962:                                              ; preds = %958
   store ptr %959, ptr %98, align 8
-  %963 = getelementptr inbounds i8, ptr %959, i64 8
-  %964 = getelementptr inbounds i8, ptr %98, i64 16
+  %963 = getelementptr inbounds nuw i8, ptr %959, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %963, ptr %964, align 8
   store i32 -1837105152, ptr %959, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %959, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %959, i64 4
   store i32 -222298176, ptr %.sroa.2.0..sroa_idx, align 4
-  %965 = getelementptr inbounds i8, ptr %98, i64 8
+  %965 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %963, ptr %965, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %966 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_241fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -34539,14 +34539,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit328:                 ; preds = %914, %_ZNSt6vectorI
           to label %970 unwind label %992
 
 970:                                              ; preds = %969
-  %971 = getelementptr inbounds i8, ptr %95, i64 8
+  %971 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %971) #16
   %972 = load ptr, ptr %99, align 8
   %.not.i.i.i343 = icmp eq ptr %972, null
   br i1 %.not.i.i.i343, label %_ZNSt6vectorIhSaIhEED2Ev.exit344, label %973
 
 973:                                              ; preds = %970
-  %974 = getelementptr inbounds i8, ptr %99, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %975 = load ptr, ptr %974, align 8
   %976 = ptrtoint ptr %975 to i64
   %977 = ptrtoint ptr %972 to i64
@@ -34591,7 +34591,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit344:                 ; preds = %970, %973
 992:                                              ; preds = %969
   %993 = landingpad { ptr, i32 }
           catch ptr null
-  %994 = getelementptr inbounds i8, ptr %95, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %994) #16
   br label %995
 
@@ -34602,7 +34602,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit344:                 ; preds = %970, %973
   br i1 %.not.i.i.i348, label %_ZNSt6vectorIhSaIhEED2Ev.exit349, label %997
 
 997:                                              ; preds = %995
-  %998 = getelementptr inbounds i8, ptr %99, i64 16
+  %998 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %999 = load ptr, ptr %998, align 8
   %1000 = ptrtoint ptr %999 to i64
   %1001 = ptrtoint ptr %996 to i64
@@ -34661,11 +34661,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit347:                 ; preds = %980, %_ZNSt6vectorI
           to label %1019 unwind label %1016
 
 1019:                                             ; preds = %1018
-  %1020 = getelementptr inbounds i8, ptr %93, i64 112
+  %1020 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1020) #16
-  %1021 = getelementptr inbounds i8, ptr %93, i64 72
+  %1021 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1021) #16
-  %1022 = getelementptr inbounds i8, ptr %93, i64 48
+  %1022 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1022) #16
   ret void
 
@@ -34801,7 +34801,7 @@ define internal void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7C
   %2 = alloca %"struct.Luau::CodeGen::Label", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %3, align 4
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i8 10)
@@ -34817,7 +34817,7 @@ define internal void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_271fEvENUlRN4Luau7C
   %2 = alloca %"struct.Luau::CodeGen::Label", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %3, align 4
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -34938,7 +34938,7 @@ define internal void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_361fEvENUlRN4Luau7C
   %2 = alloca %"struct.Luau::CodeGen::Label", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %3, align 4
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 2, i8 2, i8 2, i32 noundef 0)
@@ -35168,11 +35168,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv(ptr no
 
 189:                                              ; preds = %185
   store ptr %186, ptr %7, align 8
-  %190 = getelementptr inbounds i8, ptr %186, i64 4
-  %191 = getelementptr inbounds i8, ptr %7, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %190, ptr %191, align 8
   store i32 509657153, ptr %186, align 4
-  %192 = getelementptr inbounds i8, ptr %7, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %190, ptr %192, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %193 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -35193,14 +35193,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv(ptr no
           to label %197 unwind label %218
 
 197:                                              ; preds = %196
-  %198 = getelementptr inbounds i8, ptr %4, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
   %199 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %199, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %8, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = ptrtoint ptr %202 to i64
   %204 = ptrtoint ptr %199 to i64
@@ -35240,7 +35240,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %197, %200
 218:                                              ; preds = %196
   %219 = landingpad { ptr, i32 }
           catch ptr null
-  %220 = getelementptr inbounds i8, ptr %4, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #16
   br label %221
 
@@ -35251,7 +35251,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %197, %200
   br i1 %.not.i.i.i185, label %_ZNSt6vectorIhSaIhEED2Ev.exit186, label %223
 
 223:                                              ; preds = %221
-  %224 = getelementptr inbounds i8, ptr %8, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %225 = load ptr, ptr %224, align 8
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %222 to i64
@@ -35310,11 +35310,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %207, %_ZNSt6vectorI
           to label %245 unwind label %242
 
 245:                                              ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %2, i64 112
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %246) #16
-  %247 = getelementptr inbounds i8, ptr %2, i64 72
+  %247 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %247) #16
-  %248 = getelementptr inbounds i8, ptr %2, i64 48
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %248) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 371, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -35337,11 +35337,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %207, %_ZNSt6vectorI
 
 254:                                              ; preds = %250
   store ptr %251, ptr %14, align 8
-  %255 = getelementptr inbounds i8, ptr %251, i64 4
-  %256 = getelementptr inbounds i8, ptr %14, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %255, ptr %256, align 8
   store i32 509814849, ptr %251, align 4
-  %257 = getelementptr inbounds i8, ptr %14, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %255, ptr %257, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %258 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -35362,14 +35362,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %207, %_ZNSt6vectorI
           to label %262 unwind label %284
 
 262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %11, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %263) #16
   %264 = load ptr, ptr %15, align 8
   %.not.i.i.i199 = icmp eq ptr %264, null
   br i1 %.not.i.i.i199, label %_ZNSt6vectorIhSaIhEED2Ev.exit200, label %265
 
 265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %15, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %267 = load ptr, ptr %266, align 8
   %268 = ptrtoint ptr %267 to i64
   %269 = ptrtoint ptr %264 to i64
@@ -35414,7 +35414,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit200:                 ; preds = %262, %265
 284:                                              ; preds = %261
   %285 = landingpad { ptr, i32 }
           catch ptr null
-  %286 = getelementptr inbounds i8, ptr %11, i64 8
+  %286 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %286) #16
   br label %287
 
@@ -35425,7 +35425,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit200:                 ; preds = %262, %265
   br i1 %.not.i.i.i204, label %_ZNSt6vectorIhSaIhEED2Ev.exit205, label %289
 
 289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %15, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %291 = load ptr, ptr %290, align 8
   %292 = ptrtoint ptr %291 to i64
   %293 = ptrtoint ptr %288 to i64
@@ -35484,11 +35484,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit203:                 ; preds = %272, %_ZNSt6vectorI
           to label %311 unwind label %308
 
 311:                                              ; preds = %310
-  %312 = getelementptr inbounds i8, ptr %9, i64 112
+  %312 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %312) #16
-  %313 = getelementptr inbounds i8, ptr %9, i64 72
+  %313 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %313) #16
-  %314 = getelementptr inbounds i8, ptr %9, i64 48
+  %314 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %314) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 372, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -35511,11 +35511,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit203:                 ; preds = %272, %_ZNSt6vectorI
 
 320:                                              ; preds = %316
   store ptr %317, ptr %21, align 8
-  %321 = getelementptr inbounds i8, ptr %317, i64 4
-  %322 = getelementptr inbounds i8, ptr %21, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %317, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %321, ptr %322, align 8
   store i32 507259837, ptr %317, align 4
-  %323 = getelementptr inbounds i8, ptr %21, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %321, ptr %323, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %324 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -35536,14 +35536,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit203:                 ; preds = %272, %_ZNSt6vectorI
           to label %328 unwind label %350
 
 328:                                              ; preds = %327
-  %329 = getelementptr inbounds i8, ptr %18, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %329) #16
   %330 = load ptr, ptr %22, align 8
   %.not.i.i.i218 = icmp eq ptr %330, null
   br i1 %.not.i.i.i218, label %_ZNSt6vectorIhSaIhEED2Ev.exit219, label %331
 
 331:                                              ; preds = %328
-  %332 = getelementptr inbounds i8, ptr %22, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %333 = load ptr, ptr %332, align 8
   %334 = ptrtoint ptr %333 to i64
   %335 = ptrtoint ptr %330 to i64
@@ -35588,7 +35588,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit219:                 ; preds = %328, %331
 350:                                              ; preds = %327
   %351 = landingpad { ptr, i32 }
           catch ptr null
-  %352 = getelementptr inbounds i8, ptr %18, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %352) #16
   br label %353
 
@@ -35599,7 +35599,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit219:                 ; preds = %328, %331
   br i1 %.not.i.i.i223, label %_ZNSt6vectorIhSaIhEED2Ev.exit224, label %355
 
 355:                                              ; preds = %353
-  %356 = getelementptr inbounds i8, ptr %22, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %357 = load ptr, ptr %356, align 8
   %358 = ptrtoint ptr %357 to i64
   %359 = ptrtoint ptr %354 to i64
@@ -35658,11 +35658,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit222:                 ; preds = %338, %_ZNSt6vectorI
           to label %377 unwind label %374
 
 377:                                              ; preds = %376
-  %378 = getelementptr inbounds i8, ptr %16, i64 112
+  %378 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %378) #16
-  %379 = getelementptr inbounds i8, ptr %16, i64 72
+  %379 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %379) #16
-  %380 = getelementptr inbounds i8, ptr %16, i64 48
+  %380 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %380) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -35685,11 +35685,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit222:                 ; preds = %338, %_ZNSt6vectorI
 
 386:                                              ; preds = %382
   store ptr %383, ptr %28, align 8
-  %387 = getelementptr inbounds i8, ptr %383, i64 4
-  %388 = getelementptr inbounds i8, ptr %28, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %383, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %387, ptr %388, align 8
   store i32 509810753, ptr %383, align 4
-  %389 = getelementptr inbounds i8, ptr %28, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %387, ptr %389, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %390 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -35710,14 +35710,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit222:                 ; preds = %338, %_ZNSt6vectorI
           to label %394 unwind label %416
 
 394:                                              ; preds = %393
-  %395 = getelementptr inbounds i8, ptr %25, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %395) #16
   %396 = load ptr, ptr %29, align 8
   %.not.i.i.i237 = icmp eq ptr %396, null
   br i1 %.not.i.i.i237, label %_ZNSt6vectorIhSaIhEED2Ev.exit238, label %397
 
 397:                                              ; preds = %394
-  %398 = getelementptr inbounds i8, ptr %29, i64 16
+  %398 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %399 = load ptr, ptr %398, align 8
   %400 = ptrtoint ptr %399 to i64
   %401 = ptrtoint ptr %396 to i64
@@ -35762,7 +35762,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit238:                 ; preds = %394, %397
 416:                                              ; preds = %393
   %417 = landingpad { ptr, i32 }
           catch ptr null
-  %418 = getelementptr inbounds i8, ptr %25, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %418) #16
   br label %419
 
@@ -35773,7 +35773,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit238:                 ; preds = %394, %397
   br i1 %.not.i.i.i242, label %_ZNSt6vectorIhSaIhEED2Ev.exit243, label %421
 
 421:                                              ; preds = %419
-  %422 = getelementptr inbounds i8, ptr %29, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %423 = load ptr, ptr %422, align 8
   %424 = ptrtoint ptr %423 to i64
   %425 = ptrtoint ptr %420 to i64
@@ -35832,11 +35832,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit241:                 ; preds = %404, %_ZNSt6vectorI
           to label %443 unwind label %440
 
 443:                                              ; preds = %442
-  %444 = getelementptr inbounds i8, ptr %23, i64 112
+  %444 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %444) #16
-  %445 = getelementptr inbounds i8, ptr %23, i64 72
+  %445 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %445) #16
-  %446 = getelementptr inbounds i8, ptr %23, i64 48
+  %446 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %446) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 374, ptr noundef nonnull @.str.190, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -35859,11 +35859,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit241:                 ; preds = %404, %_ZNSt6vectorI
 
 452:                                              ; preds = %448
   store ptr %449, ptr %35, align 8
-  %453 = getelementptr inbounds i8, ptr %449, i64 4
-  %454 = getelementptr inbounds i8, ptr %35, i64 16
+  %453 = getelementptr inbounds nuw i8, ptr %449, i64 4
+  %454 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %453, ptr %454, align 8
   store i32 507255741, ptr %449, align 4
-  %455 = getelementptr inbounds i8, ptr %35, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %453, ptr %455, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %456 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -35884,14 +35884,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit241:                 ; preds = %404, %_ZNSt6vectorI
           to label %460 unwind label %482
 
 460:                                              ; preds = %459
-  %461 = getelementptr inbounds i8, ptr %32, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %461) #16
   %462 = load ptr, ptr %36, align 8
   %.not.i.i.i256 = icmp eq ptr %462, null
   br i1 %.not.i.i.i256, label %_ZNSt6vectorIhSaIhEED2Ev.exit257, label %463
 
 463:                                              ; preds = %460
-  %464 = getelementptr inbounds i8, ptr %36, i64 16
+  %464 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %465 = load ptr, ptr %464, align 8
   %466 = ptrtoint ptr %465 to i64
   %467 = ptrtoint ptr %462 to i64
@@ -35936,7 +35936,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit257:                 ; preds = %460, %463
 482:                                              ; preds = %459
   %483 = landingpad { ptr, i32 }
           catch ptr null
-  %484 = getelementptr inbounds i8, ptr %32, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %484) #16
   br label %485
 
@@ -35947,7 +35947,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit257:                 ; preds = %460, %463
   br i1 %.not.i.i.i261, label %_ZNSt6vectorIhSaIhEED2Ev.exit262, label %487
 
 487:                                              ; preds = %485
-  %488 = getelementptr inbounds i8, ptr %36, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %489 = load ptr, ptr %488, align 8
   %490 = ptrtoint ptr %489 to i64
   %491 = ptrtoint ptr %486 to i64
@@ -36006,11 +36006,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit260:                 ; preds = %470, %_ZNSt6vectorI
           to label %509 unwind label %506
 
 509:                                              ; preds = %508
-  %510 = getelementptr inbounds i8, ptr %30, i64 112
+  %510 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %510) #16
-  %511 = getelementptr inbounds i8, ptr %30, i64 72
+  %511 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %511) #16
-  %512 = getelementptr inbounds i8, ptr %30, i64 48
+  %512 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %512) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 375, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -36033,11 +36033,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit260:                 ; preds = %470, %_ZNSt6vectorI
 
 518:                                              ; preds = %514
   store ptr %515, ptr %42, align 8
-  %519 = getelementptr inbounds i8, ptr %515, i64 4
-  %520 = getelementptr inbounds i8, ptr %42, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %515, i64 4
+  %520 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %519, ptr %520, align 8
   store i32 509806657, ptr %515, align 4
-  %521 = getelementptr inbounds i8, ptr %42, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %519, ptr %521, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %522 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -36058,14 +36058,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit260:                 ; preds = %470, %_ZNSt6vectorI
           to label %526 unwind label %548
 
 526:                                              ; preds = %525
-  %527 = getelementptr inbounds i8, ptr %39, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %527) #16
   %528 = load ptr, ptr %43, align 8
   %.not.i.i.i275 = icmp eq ptr %528, null
   br i1 %.not.i.i.i275, label %_ZNSt6vectorIhSaIhEED2Ev.exit276, label %529
 
 529:                                              ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %43, i64 16
+  %530 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %531 = load ptr, ptr %530, align 8
   %532 = ptrtoint ptr %531 to i64
   %533 = ptrtoint ptr %528 to i64
@@ -36110,7 +36110,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit276:                 ; preds = %526, %529
 548:                                              ; preds = %525
   %549 = landingpad { ptr, i32 }
           catch ptr null
-  %550 = getelementptr inbounds i8, ptr %39, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %550) #16
   br label %551
 
@@ -36121,7 +36121,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit276:                 ; preds = %526, %529
   br i1 %.not.i.i.i280, label %_ZNSt6vectorIhSaIhEED2Ev.exit281, label %553
 
 553:                                              ; preds = %551
-  %554 = getelementptr inbounds i8, ptr %43, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %555 = load ptr, ptr %554, align 8
   %556 = ptrtoint ptr %555 to i64
   %557 = ptrtoint ptr %552 to i64
@@ -36180,11 +36180,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit279:                 ; preds = %536, %_ZNSt6vectorI
           to label %575 unwind label %572
 
 575:                                              ; preds = %574
-  %576 = getelementptr inbounds i8, ptr %37, i64 112
+  %576 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %576) #16
-  %577 = getelementptr inbounds i8, ptr %37, i64 72
+  %577 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %577) #16
-  %578 = getelementptr inbounds i8, ptr %37, i64 48
+  %578 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %578) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 376, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -36207,11 +36207,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit279:                 ; preds = %536, %_ZNSt6vectorI
 
 584:                                              ; preds = %580
   store ptr %581, ptr %49, align 8
-  %585 = getelementptr inbounds i8, ptr %581, i64 4
-  %586 = getelementptr inbounds i8, ptr %49, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %581, i64 4
+  %586 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %585, ptr %586, align 8
   store i32 507251645, ptr %581, align 4
-  %587 = getelementptr inbounds i8, ptr %49, i64 8
+  %587 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %585, ptr %587, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %588 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -36232,14 +36232,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit279:                 ; preds = %536, %_ZNSt6vectorI
           to label %592 unwind label %614
 
 592:                                              ; preds = %591
-  %593 = getelementptr inbounds i8, ptr %46, i64 8
+  %593 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %593) #16
   %594 = load ptr, ptr %50, align 8
   %.not.i.i.i294 = icmp eq ptr %594, null
   br i1 %.not.i.i.i294, label %_ZNSt6vectorIhSaIhEED2Ev.exit295, label %595
 
 595:                                              ; preds = %592
-  %596 = getelementptr inbounds i8, ptr %50, i64 16
+  %596 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %597 = load ptr, ptr %596, align 8
   %598 = ptrtoint ptr %597 to i64
   %599 = ptrtoint ptr %594 to i64
@@ -36284,7 +36284,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit295:                 ; preds = %592, %595
 614:                                              ; preds = %591
   %615 = landingpad { ptr, i32 }
           catch ptr null
-  %616 = getelementptr inbounds i8, ptr %46, i64 8
+  %616 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %616) #16
   br label %617
 
@@ -36295,7 +36295,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit295:                 ; preds = %592, %595
   br i1 %.not.i.i.i299, label %_ZNSt6vectorIhSaIhEED2Ev.exit300, label %619
 
 619:                                              ; preds = %617
-  %620 = getelementptr inbounds i8, ptr %50, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %621 = load ptr, ptr %620, align 8
   %622 = ptrtoint ptr %621 to i64
   %623 = ptrtoint ptr %618 to i64
@@ -36354,11 +36354,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit298:                 ; preds = %602, %_ZNSt6vectorI
           to label %641 unwind label %638
 
 641:                                              ; preds = %640
-  %642 = getelementptr inbounds i8, ptr %44, i64 112
+  %642 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %642) #16
-  %643 = getelementptr inbounds i8, ptr %44, i64 72
+  %643 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %643) #16
-  %644 = getelementptr inbounds i8, ptr %44, i64 48
+  %644 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %644) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 377, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -36381,11 +36381,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit298:                 ; preds = %602, %_ZNSt6vectorI
 
 650:                                              ; preds = %646
   store ptr %647, ptr %56, align 8
-  %651 = getelementptr inbounds i8, ptr %647, i64 4
-  %652 = getelementptr inbounds i8, ptr %56, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %647, i64 4
+  %652 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %651, ptr %652, align 8
   store i32 509689921, ptr %647, align 4
-  %653 = getelementptr inbounds i8, ptr %56, i64 8
+  %653 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %651, ptr %653, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %654 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -36406,14 +36406,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit298:                 ; preds = %602, %_ZNSt6vectorI
           to label %658 unwind label %680
 
 658:                                              ; preds = %657
-  %659 = getelementptr inbounds i8, ptr %53, i64 8
+  %659 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %659) #16
   %660 = load ptr, ptr %57, align 8
   %.not.i.i.i313 = icmp eq ptr %660, null
   br i1 %.not.i.i.i313, label %_ZNSt6vectorIhSaIhEED2Ev.exit314, label %661
 
 661:                                              ; preds = %658
-  %662 = getelementptr inbounds i8, ptr %57, i64 16
+  %662 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %663 = load ptr, ptr %662, align 8
   %664 = ptrtoint ptr %663 to i64
   %665 = ptrtoint ptr %660 to i64
@@ -36458,7 +36458,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit314:                 ; preds = %658, %661
 680:                                              ; preds = %657
   %681 = landingpad { ptr, i32 }
           catch ptr null
-  %682 = getelementptr inbounds i8, ptr %53, i64 8
+  %682 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %682) #16
   br label %683
 
@@ -36469,7 +36469,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit314:                 ; preds = %658, %661
   br i1 %.not.i.i.i318, label %_ZNSt6vectorIhSaIhEED2Ev.exit319, label %685
 
 685:                                              ; preds = %683
-  %686 = getelementptr inbounds i8, ptr %57, i64 16
+  %686 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %687 = load ptr, ptr %686, align 8
   %688 = ptrtoint ptr %687 to i64
   %689 = ptrtoint ptr %684 to i64
@@ -36528,11 +36528,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit317:                 ; preds = %668, %_ZNSt6vectorI
           to label %707 unwind label %704
 
 707:                                              ; preds = %706
-  %708 = getelementptr inbounds i8, ptr %51, i64 112
+  %708 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %708) #16
-  %709 = getelementptr inbounds i8, ptr %51, i64 72
+  %709 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %709) #16
-  %710 = getelementptr inbounds i8, ptr %51, i64 48
+  %710 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %710) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 378, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -36555,11 +36555,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit317:                 ; preds = %668, %_ZNSt6vectorI
 
 716:                                              ; preds = %712
   store ptr %713, ptr %63, align 8
-  %717 = getelementptr inbounds i8, ptr %713, i64 4
-  %718 = getelementptr inbounds i8, ptr %63, i64 16
+  %717 = getelementptr inbounds nuw i8, ptr %713, i64 4
+  %718 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %717, ptr %718, align 8
   store i32 505496542, ptr %713, align 4
-  %719 = getelementptr inbounds i8, ptr %63, i64 8
+  %719 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %717, ptr %719, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %720 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -36580,14 +36580,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit317:                 ; preds = %668, %_ZNSt6vectorI
           to label %724 unwind label %746
 
 724:                                              ; preds = %723
-  %725 = getelementptr inbounds i8, ptr %60, i64 8
+  %725 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %725) #16
   %726 = load ptr, ptr %64, align 8
   %.not.i.i.i332 = icmp eq ptr %726, null
   br i1 %.not.i.i.i332, label %_ZNSt6vectorIhSaIhEED2Ev.exit333, label %727
 
 727:                                              ; preds = %724
-  %728 = getelementptr inbounds i8, ptr %64, i64 16
+  %728 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %729 = load ptr, ptr %728, align 8
   %730 = ptrtoint ptr %729 to i64
   %731 = ptrtoint ptr %726 to i64
@@ -36632,7 +36632,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit333:                 ; preds = %724, %727
 746:                                              ; preds = %723
   %747 = landingpad { ptr, i32 }
           catch ptr null
-  %748 = getelementptr inbounds i8, ptr %60, i64 8
+  %748 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %748) #16
   br label %749
 
@@ -36643,7 +36643,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit333:                 ; preds = %724, %727
   br i1 %.not.i.i.i337, label %_ZNSt6vectorIhSaIhEED2Ev.exit338, label %751
 
 751:                                              ; preds = %749
-  %752 = getelementptr inbounds i8, ptr %64, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %753 = load ptr, ptr %752, align 8
   %754 = ptrtoint ptr %753 to i64
   %755 = ptrtoint ptr %750 to i64
@@ -36702,11 +36702,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit336:                 ; preds = %734, %_ZNSt6vectorI
           to label %773 unwind label %770
 
 773:                                              ; preds = %772
-  %774 = getelementptr inbounds i8, ptr %58, i64 112
+  %774 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %774) #16
-  %775 = getelementptr inbounds i8, ptr %58, i64 72
+  %775 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %775) #16
-  %776 = getelementptr inbounds i8, ptr %58, i64 48
+  %776 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %776) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 379, ptr noundef nonnull @.str.195, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -36729,11 +36729,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit336:                 ; preds = %734, %_ZNSt6vectorI
 
 782:                                              ; preds = %778
   store ptr %779, ptr %70, align 8
-  %783 = getelementptr inbounds i8, ptr %779, i64 4
-  %784 = getelementptr inbounds i8, ptr %70, i64 16
+  %783 = getelementptr inbounds nuw i8, ptr %779, i64 4
+  %784 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %783, ptr %784, align 8
   store i32 509722689, ptr %779, align 4
-  %785 = getelementptr inbounds i8, ptr %70, i64 8
+  %785 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %783, ptr %785, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %786 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -36754,14 +36754,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit336:                 ; preds = %734, %_ZNSt6vectorI
           to label %790 unwind label %812
 
 790:                                              ; preds = %789
-  %791 = getelementptr inbounds i8, ptr %67, i64 8
+  %791 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %791) #16
   %792 = load ptr, ptr %71, align 8
   %.not.i.i.i351 = icmp eq ptr %792, null
   br i1 %.not.i.i.i351, label %_ZNSt6vectorIhSaIhEED2Ev.exit352, label %793
 
 793:                                              ; preds = %790
-  %794 = getelementptr inbounds i8, ptr %71, i64 16
+  %794 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %795 = load ptr, ptr %794, align 8
   %796 = ptrtoint ptr %795 to i64
   %797 = ptrtoint ptr %792 to i64
@@ -36806,7 +36806,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit352:                 ; preds = %790, %793
 812:                                              ; preds = %789
   %813 = landingpad { ptr, i32 }
           catch ptr null
-  %814 = getelementptr inbounds i8, ptr %67, i64 8
+  %814 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %814) #16
   br label %815
 
@@ -36817,7 +36817,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit352:                 ; preds = %790, %793
   br i1 %.not.i.i.i356, label %_ZNSt6vectorIhSaIhEED2Ev.exit357, label %817
 
 817:                                              ; preds = %815
-  %818 = getelementptr inbounds i8, ptr %71, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %819 = load ptr, ptr %818, align 8
   %820 = ptrtoint ptr %819 to i64
   %821 = ptrtoint ptr %816 to i64
@@ -36876,11 +36876,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit355:                 ; preds = %800, %_ZNSt6vectorI
           to label %839 unwind label %836
 
 839:                                              ; preds = %838
-  %840 = getelementptr inbounds i8, ptr %65, i64 112
+  %840 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %840) #16
-  %841 = getelementptr inbounds i8, ptr %65, i64 72
+  %841 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %841) #16
-  %842 = getelementptr inbounds i8, ptr %65, i64 48
+  %842 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %842) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 380, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -36903,11 +36903,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit355:                 ; preds = %800, %_ZNSt6vectorI
 
 848:                                              ; preds = %844
   store ptr %845, ptr %77, align 8
-  %849 = getelementptr inbounds i8, ptr %845, i64 4
-  %850 = getelementptr inbounds i8, ptr %77, i64 16
+  %849 = getelementptr inbounds nuw i8, ptr %845, i64 4
+  %850 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %849, ptr %850, align 8
   store i32 509818945, ptr %845, align 4
-  %851 = getelementptr inbounds i8, ptr %77, i64 8
+  %851 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %849, ptr %851, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %852 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -36928,14 +36928,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit355:                 ; preds = %800, %_ZNSt6vectorI
           to label %856 unwind label %878
 
 856:                                              ; preds = %855
-  %857 = getelementptr inbounds i8, ptr %74, i64 8
+  %857 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %857) #16
   %858 = load ptr, ptr %78, align 8
   %.not.i.i.i370 = icmp eq ptr %858, null
   br i1 %.not.i.i.i370, label %_ZNSt6vectorIhSaIhEED2Ev.exit371, label %859
 
 859:                                              ; preds = %856
-  %860 = getelementptr inbounds i8, ptr %78, i64 16
+  %860 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %861 = load ptr, ptr %860, align 8
   %862 = ptrtoint ptr %861 to i64
   %863 = ptrtoint ptr %858 to i64
@@ -36980,7 +36980,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit371:                 ; preds = %856, %859
 878:                                              ; preds = %855
   %879 = landingpad { ptr, i32 }
           catch ptr null
-  %880 = getelementptr inbounds i8, ptr %74, i64 8
+  %880 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %880) #16
   br label %881
 
@@ -36991,7 +36991,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit371:                 ; preds = %856, %859
   br i1 %.not.i.i.i375, label %_ZNSt6vectorIhSaIhEED2Ev.exit376, label %883
 
 883:                                              ; preds = %881
-  %884 = getelementptr inbounds i8, ptr %78, i64 16
+  %884 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %885 = load ptr, ptr %884, align 8
   %886 = ptrtoint ptr %885 to i64
   %887 = ptrtoint ptr %882 to i64
@@ -37050,11 +37050,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit374:                 ; preds = %866, %_ZNSt6vectorI
           to label %905 unwind label %902
 
 905:                                              ; preds = %904
-  %906 = getelementptr inbounds i8, ptr %72, i64 112
+  %906 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %906) #16
-  %907 = getelementptr inbounds i8, ptr %72, i64 72
+  %907 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %907) #16
-  %908 = getelementptr inbounds i8, ptr %72, i64 48
+  %908 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %908) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 381, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -37077,11 +37077,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit374:                 ; preds = %866, %_ZNSt6vectorI
 
 914:                                              ; preds = %910
   store ptr %911, ptr %84, align 8
-  %915 = getelementptr inbounds i8, ptr %911, i64 4
-  %916 = getelementptr inbounds i8, ptr %84, i64 16
+  %915 = getelementptr inbounds nuw i8, ptr %911, i64 4
+  %916 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %915, ptr %916, align 8
   store i32 507263933, ptr %911, align 4
-  %917 = getelementptr inbounds i8, ptr %84, i64 8
+  %917 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %915, ptr %917, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %918 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -37102,14 +37102,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit374:                 ; preds = %866, %_ZNSt6vectorI
           to label %922 unwind label %944
 
 922:                                              ; preds = %921
-  %923 = getelementptr inbounds i8, ptr %81, i64 8
+  %923 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %923) #16
   %924 = load ptr, ptr %85, align 8
   %.not.i.i.i389 = icmp eq ptr %924, null
   br i1 %.not.i.i.i389, label %_ZNSt6vectorIhSaIhEED2Ev.exit390, label %925
 
 925:                                              ; preds = %922
-  %926 = getelementptr inbounds i8, ptr %85, i64 16
+  %926 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %927 = load ptr, ptr %926, align 8
   %928 = ptrtoint ptr %927 to i64
   %929 = ptrtoint ptr %924 to i64
@@ -37154,7 +37154,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit390:                 ; preds = %922, %925
 944:                                              ; preds = %921
   %945 = landingpad { ptr, i32 }
           catch ptr null
-  %946 = getelementptr inbounds i8, ptr %81, i64 8
+  %946 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %946) #16
   br label %947
 
@@ -37165,7 +37165,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit390:                 ; preds = %922, %925
   br i1 %.not.i.i.i394, label %_ZNSt6vectorIhSaIhEED2Ev.exit395, label %949
 
 949:                                              ; preds = %947
-  %950 = getelementptr inbounds i8, ptr %85, i64 16
+  %950 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %951 = load ptr, ptr %950, align 8
   %952 = ptrtoint ptr %951 to i64
   %953 = ptrtoint ptr %948 to i64
@@ -37224,11 +37224,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit393:                 ; preds = %932, %_ZNSt6vectorI
           to label %971 unwind label %968
 
 971:                                              ; preds = %970
-  %972 = getelementptr inbounds i8, ptr %79, i64 112
+  %972 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %972) #16
-  %973 = getelementptr inbounds i8, ptr %79, i64 72
+  %973 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %973) #16
-  %974 = getelementptr inbounds i8, ptr %79, i64 48
+  %974 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %974) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 383, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -37251,11 +37251,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit393:                 ; preds = %932, %_ZNSt6vectorI
 
 980:                                              ; preds = %976
   store ptr %977, ptr %91, align 8
-  %981 = getelementptr inbounds i8, ptr %977, i64 4
-  %982 = getelementptr inbounds i8, ptr %91, i64 16
+  %981 = getelementptr inbounds nuw i8, ptr %977, i64 4
+  %982 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %981, ptr %982, align 8
   store i32 510017601, ptr %977, align 4
-  %983 = getelementptr inbounds i8, ptr %91, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %981, ptr %983, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %984 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -37276,14 +37276,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit393:                 ; preds = %932, %_ZNSt6vectorI
           to label %988 unwind label %1010
 
 988:                                              ; preds = %987
-  %989 = getelementptr inbounds i8, ptr %88, i64 8
+  %989 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %989) #16
   %990 = load ptr, ptr %92, align 8
   %.not.i.i.i408 = icmp eq ptr %990, null
   br i1 %.not.i.i.i408, label %_ZNSt6vectorIhSaIhEED2Ev.exit409, label %991
 
 991:                                              ; preds = %988
-  %992 = getelementptr inbounds i8, ptr %92, i64 16
+  %992 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %993 = load ptr, ptr %992, align 8
   %994 = ptrtoint ptr %993 to i64
   %995 = ptrtoint ptr %990 to i64
@@ -37328,7 +37328,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit409:                 ; preds = %988, %991
 1010:                                             ; preds = %987
   %1011 = landingpad { ptr, i32 }
           catch ptr null
-  %1012 = getelementptr inbounds i8, ptr %88, i64 8
+  %1012 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1012) #16
   br label %1013
 
@@ -37339,7 +37339,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit409:                 ; preds = %988, %991
   br i1 %.not.i.i.i413, label %_ZNSt6vectorIhSaIhEED2Ev.exit414, label %1015
 
 1015:                                             ; preds = %1013
-  %1016 = getelementptr inbounds i8, ptr %92, i64 16
+  %1016 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %1017 = load ptr, ptr %1016, align 8
   %1018 = ptrtoint ptr %1017 to i64
   %1019 = ptrtoint ptr %1014 to i64
@@ -37398,11 +37398,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit412:                 ; preds = %998, %_ZNSt6vectorI
           to label %1037 unwind label %1034
 
 1037:                                             ; preds = %1036
-  %1038 = getelementptr inbounds i8, ptr %86, i64 112
+  %1038 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1038) #16
-  %1039 = getelementptr inbounds i8, ptr %86, i64 72
+  %1039 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1039) #16
-  %1040 = getelementptr inbounds i8, ptr %86, i64 48
+  %1040 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1040) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 384, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -37425,11 +37425,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit412:                 ; preds = %998, %_ZNSt6vectorI
 
 1046:                                             ; preds = %1042
   store ptr %1043, ptr %98, align 8
-  %1047 = getelementptr inbounds i8, ptr %1043, i64 4
-  %1048 = getelementptr inbounds i8, ptr %98, i64 16
+  %1047 = getelementptr inbounds nuw i8, ptr %1043, i64 4
+  %1048 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1047, ptr %1048, align 8
   store i32 509952065, ptr %1043, align 4
-  %1049 = getelementptr inbounds i8, ptr %98, i64 8
+  %1049 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %1047, ptr %1049, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %1050 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -37450,14 +37450,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit412:                 ; preds = %998, %_ZNSt6vectorI
           to label %1054 unwind label %1076
 
 1054:                                             ; preds = %1053
-  %1055 = getelementptr inbounds i8, ptr %95, i64 8
+  %1055 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1055) #16
   %1056 = load ptr, ptr %99, align 8
   %.not.i.i.i427 = icmp eq ptr %1056, null
   br i1 %.not.i.i.i427, label %_ZNSt6vectorIhSaIhEED2Ev.exit428, label %1057
 
 1057:                                             ; preds = %1054
-  %1058 = getelementptr inbounds i8, ptr %99, i64 16
+  %1058 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1059 = load ptr, ptr %1058, align 8
   %1060 = ptrtoint ptr %1059 to i64
   %1061 = ptrtoint ptr %1056 to i64
@@ -37502,7 +37502,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit428:                 ; preds = %1054, %1057
 1076:                                             ; preds = %1053
   %1077 = landingpad { ptr, i32 }
           catch ptr null
-  %1078 = getelementptr inbounds i8, ptr %95, i64 8
+  %1078 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1078) #16
   br label %1079
 
@@ -37513,7 +37513,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit428:                 ; preds = %1054, %1057
   br i1 %.not.i.i.i432, label %_ZNSt6vectorIhSaIhEED2Ev.exit433, label %1081
 
 1081:                                             ; preds = %1079
-  %1082 = getelementptr inbounds i8, ptr %99, i64 16
+  %1082 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1083 = load ptr, ptr %1082, align 8
   %1084 = ptrtoint ptr %1083 to i64
   %1085 = ptrtoint ptr %1080 to i64
@@ -37572,11 +37572,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit431:                 ; preds = %1064, %_ZNSt6vector
           to label %1103 unwind label %1100
 
 1103:                                             ; preds = %1102
-  %1104 = getelementptr inbounds i8, ptr %93, i64 112
+  %1104 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1104) #16
-  %1105 = getelementptr inbounds i8, ptr %93, i64 72
+  %1105 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1105) #16
-  %1106 = getelementptr inbounds i8, ptr %93, i64 48
+  %1106 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1106) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %100, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 385, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %101)
@@ -37599,11 +37599,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit431:                 ; preds = %1064, %_ZNSt6vector
 
 1112:                                             ; preds = %1108
   store ptr %1109, ptr %105, align 8
-  %1113 = getelementptr inbounds i8, ptr %1109, i64 4
-  %1114 = getelementptr inbounds i8, ptr %105, i64 16
+  %1113 = getelementptr inbounds nuw i8, ptr %1109, i64 4
+  %1114 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %1113, ptr %1114, align 8
   store i32 509919297, ptr %1109, align 4
-  %1115 = getelementptr inbounds i8, ptr %105, i64 8
+  %1115 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1113, ptr %1115, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %1116 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE13_8__invokeES5_, ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef 0)
@@ -37624,14 +37624,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit431:                 ; preds = %1064, %_ZNSt6vector
           to label %1120 unwind label %1142
 
 1120:                                             ; preds = %1119
-  %1121 = getelementptr inbounds i8, ptr %102, i64 8
+  %1121 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1121) #16
   %1122 = load ptr, ptr %106, align 8
   %.not.i.i.i446 = icmp eq ptr %1122, null
   br i1 %.not.i.i.i446, label %_ZNSt6vectorIhSaIhEED2Ev.exit447, label %1123
 
 1123:                                             ; preds = %1120
-  %1124 = getelementptr inbounds i8, ptr %106, i64 16
+  %1124 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1125 = load ptr, ptr %1124, align 8
   %1126 = ptrtoint ptr %1125 to i64
   %1127 = ptrtoint ptr %1122 to i64
@@ -37676,7 +37676,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit447:                 ; preds = %1120, %1123
 1142:                                             ; preds = %1119
   %1143 = landingpad { ptr, i32 }
           catch ptr null
-  %1144 = getelementptr inbounds i8, ptr %102, i64 8
+  %1144 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1144) #16
   br label %1145
 
@@ -37687,7 +37687,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit447:                 ; preds = %1120, %1123
   br i1 %.not.i.i.i451, label %_ZNSt6vectorIhSaIhEED2Ev.exit452, label %1147
 
 1147:                                             ; preds = %1145
-  %1148 = getelementptr inbounds i8, ptr %106, i64 16
+  %1148 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1149 = load ptr, ptr %1148, align 8
   %1150 = ptrtoint ptr %1149 to i64
   %1151 = ptrtoint ptr %1146 to i64
@@ -37746,11 +37746,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit450:                 ; preds = %1130, %_ZNSt6vector
           to label %1169 unwind label %1166
 
 1169:                                             ; preds = %1168
-  %1170 = getelementptr inbounds i8, ptr %100, i64 112
+  %1170 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1170) #16
-  %1171 = getelementptr inbounds i8, ptr %100, i64 72
+  %1171 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1171) #16
-  %1172 = getelementptr inbounds i8, ptr %100, i64 48
+  %1172 = getelementptr inbounds nuw i8, ptr %100, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1172) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %107, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 387, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -37773,11 +37773,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit450:                 ; preds = %1130, %_ZNSt6vector
 
 1178:                                             ; preds = %1174
   store ptr %1175, ptr %112, align 8
-  %1179 = getelementptr inbounds i8, ptr %1175, i64 4
-  %1180 = getelementptr inbounds i8, ptr %112, i64 16
+  %1179 = getelementptr inbounds nuw i8, ptr %1175, i64 4
+  %1180 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %1179, ptr %1180, align 8
   store i32 509755457, ptr %1175, align 4
-  %1181 = getelementptr inbounds i8, ptr %112, i64 8
+  %1181 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %1179, ptr %1181, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %1182 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE14_8__invokeES5_, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef 0)
@@ -37798,14 +37798,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit450:                 ; preds = %1130, %_ZNSt6vector
           to label %1186 unwind label %1208
 
 1186:                                             ; preds = %1185
-  %1187 = getelementptr inbounds i8, ptr %109, i64 8
+  %1187 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1187) #16
   %1188 = load ptr, ptr %113, align 8
   %.not.i.i.i465 = icmp eq ptr %1188, null
   br i1 %.not.i.i.i465, label %_ZNSt6vectorIhSaIhEED2Ev.exit466, label %1189
 
 1189:                                             ; preds = %1186
-  %1190 = getelementptr inbounds i8, ptr %113, i64 16
+  %1190 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1191 = load ptr, ptr %1190, align 8
   %1192 = ptrtoint ptr %1191 to i64
   %1193 = ptrtoint ptr %1188 to i64
@@ -37850,7 +37850,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit466:                 ; preds = %1186, %1189
 1208:                                             ; preds = %1185
   %1209 = landingpad { ptr, i32 }
           catch ptr null
-  %1210 = getelementptr inbounds i8, ptr %109, i64 8
+  %1210 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1210) #16
   br label %1211
 
@@ -37861,7 +37861,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit466:                 ; preds = %1186, %1189
   br i1 %.not.i.i.i470, label %_ZNSt6vectorIhSaIhEED2Ev.exit471, label %1213
 
 1213:                                             ; preds = %1211
-  %1214 = getelementptr inbounds i8, ptr %113, i64 16
+  %1214 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1215 = load ptr, ptr %1214, align 8
   %1216 = ptrtoint ptr %1215 to i64
   %1217 = ptrtoint ptr %1212 to i64
@@ -37920,11 +37920,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit469:                 ; preds = %1196, %_ZNSt6vector
           to label %1235 unwind label %1232
 
 1235:                                             ; preds = %1234
-  %1236 = getelementptr inbounds i8, ptr %107, i64 112
+  %1236 = getelementptr inbounds nuw i8, ptr %107, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1236) #16
-  %1237 = getelementptr inbounds i8, ptr %107, i64 72
+  %1237 = getelementptr inbounds nuw i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1237) #16
-  %1238 = getelementptr inbounds i8, ptr %107, i64 48
+  %1238 = getelementptr inbounds nuw i8, ptr %107, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1238) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %114, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 388, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %115)
@@ -37947,11 +37947,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit469:                 ; preds = %1196, %_ZNSt6vector
 
 1244:                                             ; preds = %1240
   store ptr %1241, ptr %119, align 8
-  %1245 = getelementptr inbounds i8, ptr %1241, i64 4
-  %1246 = getelementptr inbounds i8, ptr %119, i64 16
+  %1245 = getelementptr inbounds nuw i8, ptr %1241, i64 4
+  %1246 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %1245, ptr %1246, align 8
   store i32 505593921, ptr %1241, align 4
-  %1247 = getelementptr inbounds i8, ptr %119, i64 8
+  %1247 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %1245, ptr %1247, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %1248 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE15_8__invokeES5_, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef 0)
@@ -37972,14 +37972,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit469:                 ; preds = %1196, %_ZNSt6vector
           to label %1252 unwind label %1274
 
 1252:                                             ; preds = %1251
-  %1253 = getelementptr inbounds i8, ptr %116, i64 8
+  %1253 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1253) #16
   %1254 = load ptr, ptr %120, align 8
   %.not.i.i.i484 = icmp eq ptr %1254, null
   br i1 %.not.i.i.i484, label %_ZNSt6vectorIhSaIhEED2Ev.exit485, label %1255
 
 1255:                                             ; preds = %1252
-  %1256 = getelementptr inbounds i8, ptr %120, i64 16
+  %1256 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1257 = load ptr, ptr %1256, align 8
   %1258 = ptrtoint ptr %1257 to i64
   %1259 = ptrtoint ptr %1254 to i64
@@ -38024,7 +38024,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit485:                 ; preds = %1252, %1255
 1274:                                             ; preds = %1251
   %1275 = landingpad { ptr, i32 }
           catch ptr null
-  %1276 = getelementptr inbounds i8, ptr %116, i64 8
+  %1276 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1276) #16
   br label %1277
 
@@ -38035,7 +38035,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit485:                 ; preds = %1252, %1255
   br i1 %.not.i.i.i489, label %_ZNSt6vectorIhSaIhEED2Ev.exit490, label %1279
 
 1279:                                             ; preds = %1277
-  %1280 = getelementptr inbounds i8, ptr %120, i64 16
+  %1280 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1281 = load ptr, ptr %1280, align 8
   %1282 = ptrtoint ptr %1281 to i64
   %1283 = ptrtoint ptr %1278 to i64
@@ -38094,11 +38094,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit488:                 ; preds = %1262, %_ZNSt6vector
           to label %1301 unwind label %1298
 
 1301:                                             ; preds = %1300
-  %1302 = getelementptr inbounds i8, ptr %114, i64 112
+  %1302 = getelementptr inbounds nuw i8, ptr %114, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1302) #16
-  %1303 = getelementptr inbounds i8, ptr %114, i64 72
+  %1303 = getelementptr inbounds nuw i8, ptr %114, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1303) #16
-  %1304 = getelementptr inbounds i8, ptr %114, i64 48
+  %1304 = getelementptr inbounds nuw i8, ptr %114, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1304) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %121, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 390, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %122)
@@ -38121,11 +38121,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit488:                 ; preds = %1262, %_ZNSt6vector
 
 1310:                                             ; preds = %1306
   store ptr %1307, ptr %126, align 8
-  %1311 = getelementptr inbounds i8, ptr %1307, i64 4
-  %1312 = getelementptr inbounds i8, ptr %126, i64 16
+  %1311 = getelementptr inbounds nuw i8, ptr %1307, i64 4
+  %1312 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %1311, ptr %1312, align 8
   store i32 511180865, ptr %1307, align 4
-  %1313 = getelementptr inbounds i8, ptr %126, i64 8
+  %1313 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %1311, ptr %1313, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %1314 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE16_8__invokeES5_, ptr noundef nonnull %126, ptr noundef nonnull %127, i32 noundef 0)
@@ -38146,14 +38146,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit488:                 ; preds = %1262, %_ZNSt6vector
           to label %1318 unwind label %1340
 
 1318:                                             ; preds = %1317
-  %1319 = getelementptr inbounds i8, ptr %123, i64 8
+  %1319 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1319) #16
   %1320 = load ptr, ptr %127, align 8
   %.not.i.i.i503 = icmp eq ptr %1320, null
   br i1 %.not.i.i.i503, label %_ZNSt6vectorIhSaIhEED2Ev.exit504, label %1321
 
 1321:                                             ; preds = %1318
-  %1322 = getelementptr inbounds i8, ptr %127, i64 16
+  %1322 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1323 = load ptr, ptr %1322, align 8
   %1324 = ptrtoint ptr %1323 to i64
   %1325 = ptrtoint ptr %1320 to i64
@@ -38198,7 +38198,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit504:                 ; preds = %1318, %1321
 1340:                                             ; preds = %1317
   %1341 = landingpad { ptr, i32 }
           catch ptr null
-  %1342 = getelementptr inbounds i8, ptr %123, i64 8
+  %1342 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1342) #16
   br label %1343
 
@@ -38209,7 +38209,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit504:                 ; preds = %1318, %1321
   br i1 %.not.i.i.i508, label %_ZNSt6vectorIhSaIhEED2Ev.exit509, label %1345
 
 1345:                                             ; preds = %1343
-  %1346 = getelementptr inbounds i8, ptr %127, i64 16
+  %1346 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1347 = load ptr, ptr %1346, align 8
   %1348 = ptrtoint ptr %1347 to i64
   %1349 = ptrtoint ptr %1344 to i64
@@ -38268,11 +38268,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit507:                 ; preds = %1328, %_ZNSt6vector
           to label %1367 unwind label %1364
 
 1367:                                             ; preds = %1366
-  %1368 = getelementptr inbounds i8, ptr %121, i64 112
+  %1368 = getelementptr inbounds nuw i8, ptr %121, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1368) #16
-  %1369 = getelementptr inbounds i8, ptr %121, i64 72
+  %1369 = getelementptr inbounds nuw i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1369) #16
-  %1370 = getelementptr inbounds i8, ptr %121, i64 48
+  %1370 = getelementptr inbounds nuw i8, ptr %121, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1370) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %128, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 391, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %129)
@@ -38295,11 +38295,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit507:                 ; preds = %1328, %_ZNSt6vector
 
 1376:                                             ; preds = %1372
   store ptr %1373, ptr %133, align 8
-  %1377 = getelementptr inbounds i8, ptr %1373, i64 4
-  %1378 = getelementptr inbounds i8, ptr %133, i64 16
+  %1377 = getelementptr inbounds nuw i8, ptr %1373, i64 4
+  %1378 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1377, ptr %1378, align 8
   store i32 -1636302783, ptr %1373, align 4
-  %1379 = getelementptr inbounds i8, ptr %133, i64 8
+  %1379 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %1377, ptr %1379, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   %1380 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE17_8__invokeES5_, ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef 0)
@@ -38320,14 +38320,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit507:                 ; preds = %1328, %_ZNSt6vector
           to label %1384 unwind label %1406
 
 1384:                                             ; preds = %1383
-  %1385 = getelementptr inbounds i8, ptr %130, i64 8
+  %1385 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1385) #16
   %1386 = load ptr, ptr %134, align 8
   %.not.i.i.i522 = icmp eq ptr %1386, null
   br i1 %.not.i.i.i522, label %_ZNSt6vectorIhSaIhEED2Ev.exit523, label %1387
 
 1387:                                             ; preds = %1384
-  %1388 = getelementptr inbounds i8, ptr %134, i64 16
+  %1388 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1389 = load ptr, ptr %1388, align 8
   %1390 = ptrtoint ptr %1389 to i64
   %1391 = ptrtoint ptr %1386 to i64
@@ -38372,7 +38372,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit523:                 ; preds = %1384, %1387
 1406:                                             ; preds = %1383
   %1407 = landingpad { ptr, i32 }
           catch ptr null
-  %1408 = getelementptr inbounds i8, ptr %130, i64 8
+  %1408 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1408) #16
   br label %1409
 
@@ -38383,7 +38383,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit523:                 ; preds = %1384, %1387
   br i1 %.not.i.i.i527, label %_ZNSt6vectorIhSaIhEED2Ev.exit528, label %1411
 
 1411:                                             ; preds = %1409
-  %1412 = getelementptr inbounds i8, ptr %134, i64 16
+  %1412 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1413 = load ptr, ptr %1412, align 8
   %1414 = ptrtoint ptr %1413 to i64
   %1415 = ptrtoint ptr %1410 to i64
@@ -38442,11 +38442,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit526:                 ; preds = %1394, %_ZNSt6vector
           to label %1433 unwind label %1430
 
 1433:                                             ; preds = %1432
-  %1434 = getelementptr inbounds i8, ptr %128, i64 112
+  %1434 = getelementptr inbounds nuw i8, ptr %128, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1434) #16
-  %1435 = getelementptr inbounds i8, ptr %128, i64 72
+  %1435 = getelementptr inbounds nuw i8, ptr %128, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1435) #16
-  %1436 = getelementptr inbounds i8, ptr %128, i64 48
+  %1436 = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1436) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %135, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 392, ptr noundef nonnull @.str.205, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %136)
@@ -38469,11 +38469,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit526:                 ; preds = %1394, %_ZNSt6vector
 
 1442:                                             ; preds = %1438
   store ptr %1439, ptr %140, align 8
-  %1443 = getelementptr inbounds i8, ptr %1439, i64 4
-  %1444 = getelementptr inbounds i8, ptr %140, i64 16
+  %1443 = getelementptr inbounds nuw i8, ptr %1439, i64 4
+  %1444 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %1443, ptr %1444, align 8
   store i32 511246401, ptr %1439, align 4
-  %1445 = getelementptr inbounds i8, ptr %140, i64 8
+  %1445 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %1443, ptr %1445, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %1446 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE18_8__invokeES5_, ptr noundef nonnull %140, ptr noundef nonnull %141, i32 noundef 0)
@@ -38494,14 +38494,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit526:                 ; preds = %1394, %_ZNSt6vector
           to label %1450 unwind label %1472
 
 1450:                                             ; preds = %1449
-  %1451 = getelementptr inbounds i8, ptr %137, i64 8
+  %1451 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1451) #16
   %1452 = load ptr, ptr %141, align 8
   %.not.i.i.i541 = icmp eq ptr %1452, null
   br i1 %.not.i.i.i541, label %_ZNSt6vectorIhSaIhEED2Ev.exit542, label %1453
 
 1453:                                             ; preds = %1450
-  %1454 = getelementptr inbounds i8, ptr %141, i64 16
+  %1454 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1455 = load ptr, ptr %1454, align 8
   %1456 = ptrtoint ptr %1455 to i64
   %1457 = ptrtoint ptr %1452 to i64
@@ -38546,7 +38546,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit542:                 ; preds = %1450, %1453
 1472:                                             ; preds = %1449
   %1473 = landingpad { ptr, i32 }
           catch ptr null
-  %1474 = getelementptr inbounds i8, ptr %137, i64 8
+  %1474 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1474) #16
   br label %1475
 
@@ -38557,7 +38557,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit542:                 ; preds = %1450, %1453
   br i1 %.not.i.i.i546, label %_ZNSt6vectorIhSaIhEED2Ev.exit547, label %1477
 
 1477:                                             ; preds = %1475
-  %1478 = getelementptr inbounds i8, ptr %141, i64 16
+  %1478 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1479 = load ptr, ptr %1478, align 8
   %1480 = ptrtoint ptr %1479 to i64
   %1481 = ptrtoint ptr %1476 to i64
@@ -38616,11 +38616,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit545:                 ; preds = %1460, %_ZNSt6vector
           to label %1499 unwind label %1496
 
 1499:                                             ; preds = %1498
-  %1500 = getelementptr inbounds i8, ptr %135, i64 112
+  %1500 = getelementptr inbounds nuw i8, ptr %135, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1500) #16
-  %1501 = getelementptr inbounds i8, ptr %135, i64 72
+  %1501 = getelementptr inbounds nuw i8, ptr %135, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1501) #16
-  %1502 = getelementptr inbounds i8, ptr %135, i64 48
+  %1502 = getelementptr inbounds nuw i8, ptr %135, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1502) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %142, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 393, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %143)
@@ -38643,11 +38643,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit545:                 ; preds = %1460, %_ZNSt6vector
 
 1508:                                             ; preds = %1504
   store ptr %1505, ptr %147, align 8
-  %1509 = getelementptr inbounds i8, ptr %1505, i64 4
-  %1510 = getelementptr inbounds i8, ptr %147, i64 16
+  %1509 = getelementptr inbounds nuw i8, ptr %1505, i64 4
+  %1510 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %1509, ptr %1510, align 8
   store i32 -1636237247, ptr %1505, align 4
-  %1511 = getelementptr inbounds i8, ptr %147, i64 8
+  %1511 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %1509, ptr %1511, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
   %1512 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE19_8__invokeES5_, ptr noundef nonnull %147, ptr noundef nonnull %148, i32 noundef 0)
@@ -38668,14 +38668,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit545:                 ; preds = %1460, %_ZNSt6vector
           to label %1516 unwind label %1538
 
 1516:                                             ; preds = %1515
-  %1517 = getelementptr inbounds i8, ptr %144, i64 8
+  %1517 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1517) #16
   %1518 = load ptr, ptr %148, align 8
   %.not.i.i.i560 = icmp eq ptr %1518, null
   br i1 %.not.i.i.i560, label %_ZNSt6vectorIhSaIhEED2Ev.exit561, label %1519
 
 1519:                                             ; preds = %1516
-  %1520 = getelementptr inbounds i8, ptr %148, i64 16
+  %1520 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1521 = load ptr, ptr %1520, align 8
   %1522 = ptrtoint ptr %1521 to i64
   %1523 = ptrtoint ptr %1518 to i64
@@ -38720,7 +38720,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit561:                 ; preds = %1516, %1519
 1538:                                             ; preds = %1515
   %1539 = landingpad { ptr, i32 }
           catch ptr null
-  %1540 = getelementptr inbounds i8, ptr %144, i64 8
+  %1540 = getelementptr inbounds nuw i8, ptr %144, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1540) #16
   br label %1541
 
@@ -38731,7 +38731,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit561:                 ; preds = %1516, %1519
   br i1 %.not.i.i.i565, label %_ZNSt6vectorIhSaIhEED2Ev.exit566, label %1543
 
 1543:                                             ; preds = %1541
-  %1544 = getelementptr inbounds i8, ptr %148, i64 16
+  %1544 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %1545 = load ptr, ptr %1544, align 8
   %1546 = ptrtoint ptr %1545 to i64
   %1547 = ptrtoint ptr %1542 to i64
@@ -38790,11 +38790,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit564:                 ; preds = %1526, %_ZNSt6vector
           to label %1565 unwind label %1562
 
 1565:                                             ; preds = %1564
-  %1566 = getelementptr inbounds i8, ptr %142, i64 112
+  %1566 = getelementptr inbounds nuw i8, ptr %142, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1566) #16
-  %1567 = getelementptr inbounds i8, ptr %142, i64 72
+  %1567 = getelementptr inbounds nuw i8, ptr %142, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1567) #16
-  %1568 = getelementptr inbounds i8, ptr %142, i64 48
+  %1568 = getelementptr inbounds nuw i8, ptr %142, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1568) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %149, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 395, ptr noundef nonnull @.str.207, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %150)
@@ -38817,11 +38817,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit564:                 ; preds = %1526, %_ZNSt6vector
 
 1574:                                             ; preds = %1570
   store ptr %1571, ptr %154, align 8
-  %1575 = getelementptr inbounds i8, ptr %1571, i64 4
-  %1576 = getelementptr inbounds i8, ptr %154, i64 16
+  %1575 = getelementptr inbounds nuw i8, ptr %1571, i64 4
+  %1576 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %1575, ptr %1576, align 8
   store i32 509739073, ptr %1571, align 4
-  %1577 = getelementptr inbounds i8, ptr %154, i64 8
+  %1577 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %1575, ptr %1577, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
   %1578 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE20_8__invokeES5_, ptr noundef nonnull %154, ptr noundef nonnull %155, i32 noundef 0)
@@ -38842,14 +38842,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit564:                 ; preds = %1526, %_ZNSt6vector
           to label %1582 unwind label %1604
 
 1582:                                             ; preds = %1581
-  %1583 = getelementptr inbounds i8, ptr %151, i64 8
+  %1583 = getelementptr inbounds nuw i8, ptr %151, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1583) #16
   %1584 = load ptr, ptr %155, align 8
   %.not.i.i.i579 = icmp eq ptr %1584, null
   br i1 %.not.i.i.i579, label %_ZNSt6vectorIhSaIhEED2Ev.exit580, label %1585
 
 1585:                                             ; preds = %1582
-  %1586 = getelementptr inbounds i8, ptr %155, i64 16
+  %1586 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %1587 = load ptr, ptr %1586, align 8
   %1588 = ptrtoint ptr %1587 to i64
   %1589 = ptrtoint ptr %1584 to i64
@@ -38894,7 +38894,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit580:                 ; preds = %1582, %1585
 1604:                                             ; preds = %1581
   %1605 = landingpad { ptr, i32 }
           catch ptr null
-  %1606 = getelementptr inbounds i8, ptr %151, i64 8
+  %1606 = getelementptr inbounds nuw i8, ptr %151, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1606) #16
   br label %1607
 
@@ -38905,7 +38905,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit580:                 ; preds = %1582, %1585
   br i1 %.not.i.i.i584, label %_ZNSt6vectorIhSaIhEED2Ev.exit585, label %1609
 
 1609:                                             ; preds = %1607
-  %1610 = getelementptr inbounds i8, ptr %155, i64 16
+  %1610 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %1611 = load ptr, ptr %1610, align 8
   %1612 = ptrtoint ptr %1611 to i64
   %1613 = ptrtoint ptr %1608 to i64
@@ -38964,11 +38964,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit583:                 ; preds = %1592, %_ZNSt6vector
           to label %1631 unwind label %1628
 
 1631:                                             ; preds = %1630
-  %1632 = getelementptr inbounds i8, ptr %149, i64 112
+  %1632 = getelementptr inbounds nuw i8, ptr %149, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1632) #16
-  %1633 = getelementptr inbounds i8, ptr %149, i64 72
+  %1633 = getelementptr inbounds nuw i8, ptr %149, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1633) #16
-  %1634 = getelementptr inbounds i8, ptr %149, i64 48
+  %1634 = getelementptr inbounds nuw i8, ptr %149, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1634) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %157, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %156, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 396, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %157)
@@ -38991,11 +38991,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit583:                 ; preds = %1592, %_ZNSt6vector
 
 1640:                                             ; preds = %1636
   store ptr %1637, ptr %161, align 8
-  %1641 = getelementptr inbounds i8, ptr %1637, i64 4
-  %1642 = getelementptr inbounds i8, ptr %161, i64 16
+  %1641 = getelementptr inbounds nuw i8, ptr %1637, i64 4
+  %1642 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store ptr %1641, ptr %1642, align 8
   store i32 -1637744575, ptr %1637, align 4
-  %1643 = getelementptr inbounds i8, ptr %161, i64 8
+  %1643 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %1641, ptr %1643, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %162, i8 0, i64 24, i1 false)
   %1644 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE21_8__invokeES5_, ptr noundef nonnull %161, ptr noundef nonnull %162, i32 noundef 0)
@@ -39016,14 +39016,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit583:                 ; preds = %1592, %_ZNSt6vector
           to label %1648 unwind label %1670
 
 1648:                                             ; preds = %1647
-  %1649 = getelementptr inbounds i8, ptr %158, i64 8
+  %1649 = getelementptr inbounds nuw i8, ptr %158, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1649) #16
   %1650 = load ptr, ptr %162, align 8
   %.not.i.i.i598 = icmp eq ptr %1650, null
   br i1 %.not.i.i.i598, label %_ZNSt6vectorIhSaIhEED2Ev.exit599, label %1651
 
 1651:                                             ; preds = %1648
-  %1652 = getelementptr inbounds i8, ptr %162, i64 16
+  %1652 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %1653 = load ptr, ptr %1652, align 8
   %1654 = ptrtoint ptr %1653 to i64
   %1655 = ptrtoint ptr %1650 to i64
@@ -39068,7 +39068,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit599:                 ; preds = %1648, %1651
 1670:                                             ; preds = %1647
   %1671 = landingpad { ptr, i32 }
           catch ptr null
-  %1672 = getelementptr inbounds i8, ptr %158, i64 8
+  %1672 = getelementptr inbounds nuw i8, ptr %158, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1672) #16
   br label %1673
 
@@ -39079,7 +39079,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit599:                 ; preds = %1648, %1651
   br i1 %.not.i.i.i603, label %_ZNSt6vectorIhSaIhEED2Ev.exit604, label %1675
 
 1675:                                             ; preds = %1673
-  %1676 = getelementptr inbounds i8, ptr %162, i64 16
+  %1676 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %1677 = load ptr, ptr %1676, align 8
   %1678 = ptrtoint ptr %1677 to i64
   %1679 = ptrtoint ptr %1674 to i64
@@ -39138,11 +39138,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit602:                 ; preds = %1658, %_ZNSt6vector
           to label %1697 unwind label %1694
 
 1697:                                             ; preds = %1696
-  %1698 = getelementptr inbounds i8, ptr %156, i64 112
+  %1698 = getelementptr inbounds nuw i8, ptr %156, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1698) #16
-  %1699 = getelementptr inbounds i8, ptr %156, i64 72
+  %1699 = getelementptr inbounds nuw i8, ptr %156, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1699) #16
-  %1700 = getelementptr inbounds i8, ptr %156, i64 48
+  %1700 = getelementptr inbounds nuw i8, ptr %156, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1700) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %163, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 397, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %164)
@@ -39165,11 +39165,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit602:                 ; preds = %1658, %_ZNSt6vector
 
 1706:                                             ; preds = %1702
   store ptr %1703, ptr %168, align 8
-  %1707 = getelementptr inbounds i8, ptr %1703, i64 4
-  %1708 = getelementptr inbounds i8, ptr %168, i64 16
+  %1707 = getelementptr inbounds nuw i8, ptr %1703, i64 4
+  %1708 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %1707, ptr %1708, align 8
   store i32 509804609, ptr %1703, align 4
-  %1709 = getelementptr inbounds i8, ptr %168, i64 8
+  %1709 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store ptr %1707, ptr %1709, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %169, i8 0, i64 24, i1 false)
   %1710 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE22_8__invokeES5_, ptr noundef nonnull %168, ptr noundef nonnull %169, i32 noundef 0)
@@ -39190,14 +39190,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit602:                 ; preds = %1658, %_ZNSt6vector
           to label %1714 unwind label %1736
 
 1714:                                             ; preds = %1713
-  %1715 = getelementptr inbounds i8, ptr %165, i64 8
+  %1715 = getelementptr inbounds nuw i8, ptr %165, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1715) #16
   %1716 = load ptr, ptr %169, align 8
   %.not.i.i.i617 = icmp eq ptr %1716, null
   br i1 %.not.i.i.i617, label %_ZNSt6vectorIhSaIhEED2Ev.exit618, label %1717
 
 1717:                                             ; preds = %1714
-  %1718 = getelementptr inbounds i8, ptr %169, i64 16
+  %1718 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %1719 = load ptr, ptr %1718, align 8
   %1720 = ptrtoint ptr %1719 to i64
   %1721 = ptrtoint ptr %1716 to i64
@@ -39242,7 +39242,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit618:                 ; preds = %1714, %1717
 1736:                                             ; preds = %1713
   %1737 = landingpad { ptr, i32 }
           catch ptr null
-  %1738 = getelementptr inbounds i8, ptr %165, i64 8
+  %1738 = getelementptr inbounds nuw i8, ptr %165, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1738) #16
   br label %1739
 
@@ -39253,7 +39253,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit618:                 ; preds = %1714, %1717
   br i1 %.not.i.i.i622, label %_ZNSt6vectorIhSaIhEED2Ev.exit623, label %1741
 
 1741:                                             ; preds = %1739
-  %1742 = getelementptr inbounds i8, ptr %169, i64 16
+  %1742 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %1743 = load ptr, ptr %1742, align 8
   %1744 = ptrtoint ptr %1743 to i64
   %1745 = ptrtoint ptr %1740 to i64
@@ -39312,11 +39312,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit621:                 ; preds = %1724, %_ZNSt6vector
           to label %1763 unwind label %1760
 
 1763:                                             ; preds = %1762
-  %1764 = getelementptr inbounds i8, ptr %163, i64 112
+  %1764 = getelementptr inbounds nuw i8, ptr %163, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1764) #16
-  %1765 = getelementptr inbounds i8, ptr %163, i64 72
+  %1765 = getelementptr inbounds nuw i8, ptr %163, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1765) #16
-  %1766 = getelementptr inbounds i8, ptr %163, i64 48
+  %1766 = getelementptr inbounds nuw i8, ptr %163, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1766) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %170, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 398, ptr noundef nonnull @.str.210, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %171)
@@ -39339,11 +39339,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit621:                 ; preds = %1724, %_ZNSt6vector
 
 1772:                                             ; preds = %1768
   store ptr %1769, ptr %175, align 8
-  %1773 = getelementptr inbounds i8, ptr %1769, i64 4
-  %1774 = getelementptr inbounds i8, ptr %175, i64 16
+  %1773 = getelementptr inbounds nuw i8, ptr %1769, i64 4
+  %1774 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store ptr %1773, ptr %1774, align 8
   store i32 -1637679039, ptr %1769, align 4
-  %1775 = getelementptr inbounds i8, ptr %175, i64 8
+  %1775 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %1773, ptr %1775, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
   %1776 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE23_8__invokeES5_, ptr noundef nonnull %175, ptr noundef nonnull %176, i32 noundef 0)
@@ -39364,14 +39364,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit621:                 ; preds = %1724, %_ZNSt6vector
           to label %1780 unwind label %1802
 
 1780:                                             ; preds = %1779
-  %1781 = getelementptr inbounds i8, ptr %172, i64 8
+  %1781 = getelementptr inbounds nuw i8, ptr %172, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1781) #16
   %1782 = load ptr, ptr %176, align 8
   %.not.i.i.i636 = icmp eq ptr %1782, null
   br i1 %.not.i.i.i636, label %_ZNSt6vectorIhSaIhEED2Ev.exit637, label %1783
 
 1783:                                             ; preds = %1780
-  %1784 = getelementptr inbounds i8, ptr %176, i64 16
+  %1784 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %1785 = load ptr, ptr %1784, align 8
   %1786 = ptrtoint ptr %1785 to i64
   %1787 = ptrtoint ptr %1782 to i64
@@ -39416,7 +39416,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit637:                 ; preds = %1780, %1783
 1802:                                             ; preds = %1779
   %1803 = landingpad { ptr, i32 }
           catch ptr null
-  %1804 = getelementptr inbounds i8, ptr %172, i64 8
+  %1804 = getelementptr inbounds nuw i8, ptr %172, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1804) #16
   br label %1805
 
@@ -39427,7 +39427,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit637:                 ; preds = %1780, %1783
   br i1 %.not.i.i.i641, label %_ZNSt6vectorIhSaIhEED2Ev.exit642, label %1807
 
 1807:                                             ; preds = %1805
-  %1808 = getelementptr inbounds i8, ptr %176, i64 16
+  %1808 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %1809 = load ptr, ptr %1808, align 8
   %1810 = ptrtoint ptr %1809 to i64
   %1811 = ptrtoint ptr %1806 to i64
@@ -39486,11 +39486,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit640:                 ; preds = %1790, %_ZNSt6vector
           to label %1829 unwind label %1826
 
 1829:                                             ; preds = %1828
-  %1830 = getelementptr inbounds i8, ptr %170, i64 112
+  %1830 = getelementptr inbounds nuw i8, ptr %170, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1830) #16
-  %1831 = getelementptr inbounds i8, ptr %170, i64 72
+  %1831 = getelementptr inbounds nuw i8, ptr %170, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1831) #16
-  %1832 = getelementptr inbounds i8, ptr %170, i64 48
+  %1832 = getelementptr inbounds nuw i8, ptr %170, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1832) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %177, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 404, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %178)
@@ -39513,11 +39513,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit640:                 ; preds = %1790, %_ZNSt6vector
 
 1838:                                             ; preds = %1834
   store ptr %1835, ptr %182, align 8
-  %1839 = getelementptr inbounds i8, ptr %1835, i64 4
-  %1840 = getelementptr inbounds i8, ptr %182, i64 16
+  %1839 = getelementptr inbounds nuw i8, ptr %1835, i64 4
+  %1840 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr %1839, ptr %1840, align 8
   store i32 511574081, ptr %1835, align 4
-  %1841 = getelementptr inbounds i8, ptr %182, i64 8
+  %1841 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %1839, ptr %1841, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
   %1842 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE24_8__invokeES5_, ptr noundef nonnull %182, ptr noundef nonnull %183, i32 noundef 1)
@@ -39538,14 +39538,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit640:                 ; preds = %1790, %_ZNSt6vector
           to label %1846 unwind label %1868
 
 1846:                                             ; preds = %1845
-  %1847 = getelementptr inbounds i8, ptr %179, i64 8
+  %1847 = getelementptr inbounds nuw i8, ptr %179, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1847) #16
   %1848 = load ptr, ptr %183, align 8
   %.not.i.i.i655 = icmp eq ptr %1848, null
   br i1 %.not.i.i.i655, label %_ZNSt6vectorIhSaIhEED2Ev.exit656, label %1849
 
 1849:                                             ; preds = %1846
-  %1850 = getelementptr inbounds i8, ptr %183, i64 16
+  %1850 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %1851 = load ptr, ptr %1850, align 8
   %1852 = ptrtoint ptr %1851 to i64
   %1853 = ptrtoint ptr %1848 to i64
@@ -39590,7 +39590,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit656:                 ; preds = %1846, %1849
 1868:                                             ; preds = %1845
   %1869 = landingpad { ptr, i32 }
           catch ptr null
-  %1870 = getelementptr inbounds i8, ptr %179, i64 8
+  %1870 = getelementptr inbounds nuw i8, ptr %179, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1870) #16
   br label %1871
 
@@ -39601,7 +39601,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit656:                 ; preds = %1846, %1849
   br i1 %.not.i.i.i660, label %_ZNSt6vectorIhSaIhEED2Ev.exit661, label %1873
 
 1873:                                             ; preds = %1871
-  %1874 = getelementptr inbounds i8, ptr %183, i64 16
+  %1874 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %1875 = load ptr, ptr %1874, align 8
   %1876 = ptrtoint ptr %1875 to i64
   %1877 = ptrtoint ptr %1872 to i64
@@ -39660,11 +39660,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit659:                 ; preds = %1856, %_ZNSt6vector
           to label %1895 unwind label %1892
 
 1895:                                             ; preds = %1894
-  %1896 = getelementptr inbounds i8, ptr %177, i64 112
+  %1896 = getelementptr inbounds nuw i8, ptr %177, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1896) #16
-  %1897 = getelementptr inbounds i8, ptr %177, i64 72
+  %1897 = getelementptr inbounds nuw i8, ptr %177, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1897) #16
-  %1898 = getelementptr inbounds i8, ptr %177, i64 48
+  %1898 = getelementptr inbounds nuw i8, ptr %177, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1898) #16
   ret void
 
@@ -40036,11 +40036,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEv(ptr no
 
 147:                                              ; preds = %143
   store ptr %144, ptr %7, align 8
-  %148 = getelementptr inbounds i8, ptr %144, i64 4
-  %149 = getelementptr inbounds i8, ptr %7, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %148, ptr %149, align 8
   store i32 -46137312, ptr %144, align 4
-  %150 = getelementptr inbounds i8, ptr %7, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %148, ptr %150, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %151 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE_8__invokeES5_, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
@@ -40061,14 +40061,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEv(ptr no
           to label %155 unwind label %176
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %4, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %156) #16
   %157 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %8, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = ptrtoint ptr %160 to i64
   %162 = ptrtoint ptr %157 to i64
@@ -40108,7 +40108,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %155, %158
 176:                                              ; preds = %154
   %177 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = getelementptr inbounds i8, ptr %4, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %178) #16
   br label %179
 
@@ -40119,7 +40119,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %155, %158
   br i1 %.not.i.i.i143, label %_ZNSt6vectorIhSaIhEED2Ev.exit144, label %181
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %8, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %183 = load ptr, ptr %182, align 8
   %184 = ptrtoint ptr %183 to i64
   %185 = ptrtoint ptr %180 to i64
@@ -40178,11 +40178,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %165, %_ZNSt6vectorI
           to label %203 unwind label %200
 
 203:                                              ; preds = %202
-  %204 = getelementptr inbounds i8, ptr %2, i64 112
+  %204 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %204) #16
-  %205 = getelementptr inbounds i8, ptr %2, i64 72
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #16
-  %206 = getelementptr inbounds i8, ptr %2, i64 48
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %206) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 411, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -40205,11 +40205,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %165, %_ZNSt6vectorI
 
 212:                                              ; preds = %208
   store ptr %209, ptr %14, align 8
-  %213 = getelementptr inbounds i8, ptr %209, i64 4
-  %214 = getelementptr inbounds i8, ptr %14, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %213, ptr %214, align 8
   store i32 -46136288, ptr %209, align 4
-  %215 = getelementptr inbounds i8, ptr %14, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %213, ptr %215, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %216 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE0_8__invokeES5_, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 0)
@@ -40230,14 +40230,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %165, %_ZNSt6vectorI
           to label %220 unwind label %242
 
 220:                                              ; preds = %219
-  %221 = getelementptr inbounds i8, ptr %11, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %221) #16
   %222 = load ptr, ptr %15, align 8
   %.not.i.i.i157 = icmp eq ptr %222, null
   br i1 %.not.i.i.i157, label %_ZNSt6vectorIhSaIhEED2Ev.exit158, label %223
 
 223:                                              ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %15, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %225 = load ptr, ptr %224, align 8
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %222 to i64
@@ -40282,7 +40282,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit158:                 ; preds = %220, %223
 242:                                              ; preds = %219
   %243 = landingpad { ptr, i32 }
           catch ptr null
-  %244 = getelementptr inbounds i8, ptr %11, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %244) #16
   br label %245
 
@@ -40293,7 +40293,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit158:                 ; preds = %220, %223
   br i1 %.not.i.i.i162, label %_ZNSt6vectorIhSaIhEED2Ev.exit163, label %247
 
 247:                                              ; preds = %245
-  %248 = getelementptr inbounds i8, ptr %15, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %249 = load ptr, ptr %248, align 8
   %250 = ptrtoint ptr %249 to i64
   %251 = ptrtoint ptr %246 to i64
@@ -40352,11 +40352,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit161:                 ; preds = %230, %_ZNSt6vectorI
           to label %269 unwind label %266
 
 269:                                              ; preds = %268
-  %270 = getelementptr inbounds i8, ptr %9, i64 112
+  %270 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %270) #16
-  %271 = getelementptr inbounds i8, ptr %9, i64 72
+  %271 = getelementptr inbounds nuw i8, ptr %9, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %271) #16
-  %272 = getelementptr inbounds i8, ptr %9, i64 48
+  %272 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %272) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 412, ptr noundef nonnull @.str.214, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -40379,11 +40379,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit161:                 ; preds = %230, %_ZNSt6vectorI
 
 278:                                              ; preds = %274
   store ptr %275, ptr %21, align 8
-  %279 = getelementptr inbounds i8, ptr %275, i64 4
-  %280 = getelementptr inbounds i8, ptr %21, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %275, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %279, ptr %280, align 8
   store i32 -60332000, ptr %275, align 4
-  %281 = getelementptr inbounds i8, ptr %21, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %279, ptr %281, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %282 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE1_8__invokeES5_, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 0)
@@ -40404,14 +40404,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit161:                 ; preds = %230, %_ZNSt6vectorI
           to label %286 unwind label %308
 
 286:                                              ; preds = %285
-  %287 = getelementptr inbounds i8, ptr %18, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %287) #16
   %288 = load ptr, ptr %22, align 8
   %.not.i.i.i176 = icmp eq ptr %288, null
   br i1 %.not.i.i.i176, label %_ZNSt6vectorIhSaIhEED2Ev.exit177, label %289
 
 289:                                              ; preds = %286
-  %290 = getelementptr inbounds i8, ptr %22, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %291 = load ptr, ptr %290, align 8
   %292 = ptrtoint ptr %291 to i64
   %293 = ptrtoint ptr %288 to i64
@@ -40456,7 +40456,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit177:                 ; preds = %286, %289
 308:                                              ; preds = %285
   %309 = landingpad { ptr, i32 }
           catch ptr null
-  %310 = getelementptr inbounds i8, ptr %18, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %310) #16
   br label %311
 
@@ -40467,7 +40467,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit177:                 ; preds = %286, %289
   br i1 %.not.i.i.i181, label %_ZNSt6vectorIhSaIhEED2Ev.exit182, label %313
 
 313:                                              ; preds = %311
-  %314 = getelementptr inbounds i8, ptr %22, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = ptrtoint ptr %315 to i64
   %317 = ptrtoint ptr %312 to i64
@@ -40526,11 +40526,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit180:                 ; preds = %296, %_ZNSt6vectorI
           to label %335 unwind label %332
 
 335:                                              ; preds = %334
-  %336 = getelementptr inbounds i8, ptr %16, i64 112
+  %336 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %336) #16
-  %337 = getelementptr inbounds i8, ptr %16, i64 72
+  %337 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %337) #16
-  %338 = getelementptr inbounds i8, ptr %16, i64 48
+  %338 = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %338) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 413, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %24)
@@ -40553,11 +40553,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit180:                 ; preds = %296, %_ZNSt6vectorI
 
 344:                                              ; preds = %340
   store ptr %341, ptr %28, align 8
-  %345 = getelementptr inbounds i8, ptr %341, i64 4
-  %346 = getelementptr inbounds i8, ptr %28, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %341, i64 4
+  %346 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %345, ptr %346, align 8
   store i32 -60846048, ptr %341, align 4
-  %347 = getelementptr inbounds i8, ptr %28, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %345, ptr %347, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %348 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE2_8__invokeES5_, ptr noundef nonnull %28, ptr noundef nonnull %29, i32 noundef 0)
@@ -40578,14 +40578,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit180:                 ; preds = %296, %_ZNSt6vectorI
           to label %352 unwind label %374
 
 352:                                              ; preds = %351
-  %353 = getelementptr inbounds i8, ptr %25, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %353) #16
   %354 = load ptr, ptr %29, align 8
   %.not.i.i.i195 = icmp eq ptr %354, null
   br i1 %.not.i.i.i195, label %_ZNSt6vectorIhSaIhEED2Ev.exit196, label %355
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds i8, ptr %29, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %357 = load ptr, ptr %356, align 8
   %358 = ptrtoint ptr %357 to i64
   %359 = ptrtoint ptr %354 to i64
@@ -40630,7 +40630,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit196:                 ; preds = %352, %355
 374:                                              ; preds = %351
   %375 = landingpad { ptr, i32 }
           catch ptr null
-  %376 = getelementptr inbounds i8, ptr %25, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %376) #16
   br label %377
 
@@ -40641,7 +40641,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit196:                 ; preds = %352, %355
   br i1 %.not.i.i.i200, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, label %379
 
 379:                                              ; preds = %377
-  %380 = getelementptr inbounds i8, ptr %29, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = ptrtoint ptr %378 to i64
@@ -40700,11 +40700,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit199:                 ; preds = %362, %_ZNSt6vectorI
           to label %401 unwind label %398
 
 401:                                              ; preds = %400
-  %402 = getelementptr inbounds i8, ptr %23, i64 112
+  %402 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %402) #16
-  %403 = getelementptr inbounds i8, ptr %23, i64 72
+  %403 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %403) #16
-  %404 = getelementptr inbounds i8, ptr %23, i64 48
+  %404 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %404) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %30, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 414, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -40727,11 +40727,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit199:                 ; preds = %362, %_ZNSt6vectorI
 
 410:                                              ; preds = %406
   store ptr %407, ptr %35, align 8
-  %411 = getelementptr inbounds i8, ptr %407, i64 4
-  %412 = getelementptr inbounds i8, ptr %35, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %407, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %411, ptr %412, align 8
   store i32 -50331616, ptr %407, align 4
-  %413 = getelementptr inbounds i8, ptr %35, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %411, ptr %413, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %414 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE3_8__invokeES5_, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0)
@@ -40752,14 +40752,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit199:                 ; preds = %362, %_ZNSt6vectorI
           to label %418 unwind label %440
 
 418:                                              ; preds = %417
-  %419 = getelementptr inbounds i8, ptr %32, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %419) #16
   %420 = load ptr, ptr %36, align 8
   %.not.i.i.i214 = icmp eq ptr %420, null
   br i1 %.not.i.i.i214, label %_ZNSt6vectorIhSaIhEED2Ev.exit215, label %421
 
 421:                                              ; preds = %418
-  %422 = getelementptr inbounds i8, ptr %36, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %423 = load ptr, ptr %422, align 8
   %424 = ptrtoint ptr %423 to i64
   %425 = ptrtoint ptr %420 to i64
@@ -40804,7 +40804,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit215:                 ; preds = %418, %421
 440:                                              ; preds = %417
   %441 = landingpad { ptr, i32 }
           catch ptr null
-  %442 = getelementptr inbounds i8, ptr %32, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %442) #16
   br label %443
 
@@ -40815,7 +40815,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit215:                 ; preds = %418, %421
   br i1 %.not.i.i.i219, label %_ZNSt6vectorIhSaIhEED2Ev.exit220, label %445
 
 445:                                              ; preds = %443
-  %446 = getelementptr inbounds i8, ptr %36, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %447 = load ptr, ptr %446, align 8
   %448 = ptrtoint ptr %447 to i64
   %449 = ptrtoint ptr %444 to i64
@@ -40874,11 +40874,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit218:                 ; preds = %428, %_ZNSt6vectorI
           to label %467 unwind label %464
 
 467:                                              ; preds = %466
-  %468 = getelementptr inbounds i8, ptr %30, i64 112
+  %468 = getelementptr inbounds nuw i8, ptr %30, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %468) #16
-  %469 = getelementptr inbounds i8, ptr %30, i64 72
+  %469 = getelementptr inbounds nuw i8, ptr %30, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %469) #16
-  %470 = getelementptr inbounds i8, ptr %30, i64 48
+  %470 = getelementptr inbounds nuw i8, ptr %30, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %470) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %37, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 415, ptr noundef nonnull @.str.217, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -40901,11 +40901,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit218:                 ; preds = %428, %_ZNSt6vectorI
 
 476:                                              ; preds = %472
   store ptr %473, ptr %42, align 8
-  %477 = getelementptr inbounds i8, ptr %473, i64 4
-  %478 = getelementptr inbounds i8, ptr %42, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %473, i64 4
+  %478 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %477, ptr %478, align 8
   store i32 -50330592, ptr %473, align 4
-  %479 = getelementptr inbounds i8, ptr %42, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %477, ptr %479, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %480 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE4_8__invokeES5_, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 0)
@@ -40926,14 +40926,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit218:                 ; preds = %428, %_ZNSt6vectorI
           to label %484 unwind label %506
 
 484:                                              ; preds = %483
-  %485 = getelementptr inbounds i8, ptr %39, i64 8
+  %485 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %485) #16
   %486 = load ptr, ptr %43, align 8
   %.not.i.i.i233 = icmp eq ptr %486, null
   br i1 %.not.i.i.i233, label %_ZNSt6vectorIhSaIhEED2Ev.exit234, label %487
 
 487:                                              ; preds = %484
-  %488 = getelementptr inbounds i8, ptr %43, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %489 = load ptr, ptr %488, align 8
   %490 = ptrtoint ptr %489 to i64
   %491 = ptrtoint ptr %486 to i64
@@ -40978,7 +40978,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit234:                 ; preds = %484, %487
 506:                                              ; preds = %483
   %507 = landingpad { ptr, i32 }
           catch ptr null
-  %508 = getelementptr inbounds i8, ptr %39, i64 8
+  %508 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %508) #16
   br label %509
 
@@ -40989,7 +40989,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit234:                 ; preds = %484, %487
   br i1 %.not.i.i.i238, label %_ZNSt6vectorIhSaIhEED2Ev.exit239, label %511
 
 511:                                              ; preds = %509
-  %512 = getelementptr inbounds i8, ptr %43, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %513 = load ptr, ptr %512, align 8
   %514 = ptrtoint ptr %513 to i64
   %515 = ptrtoint ptr %510 to i64
@@ -41048,11 +41048,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit237:                 ; preds = %494, %_ZNSt6vectorI
           to label %533 unwind label %530
 
 533:                                              ; preds = %532
-  %534 = getelementptr inbounds i8, ptr %37, i64 112
+  %534 = getelementptr inbounds nuw i8, ptr %37, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %534) #16
-  %535 = getelementptr inbounds i8, ptr %37, i64 72
+  %535 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %535) #16
-  %536 = getelementptr inbounds i8, ptr %37, i64 48
+  %536 = getelementptr inbounds nuw i8, ptr %37, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %536) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %44, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 416, ptr noundef nonnull @.str.218, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -41075,11 +41075,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit237:                 ; preds = %494, %_ZNSt6vectorI
 
 542:                                              ; preds = %538
   store ptr %539, ptr %49, align 8
-  %543 = getelementptr inbounds i8, ptr %539, i64 4
-  %544 = getelementptr inbounds i8, ptr %49, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %539, i64 4
+  %544 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %543, ptr %544, align 8
   store i32 -64526304, ptr %539, align 4
-  %545 = getelementptr inbounds i8, ptr %49, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %543, ptr %545, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %546 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE5_8__invokeES5_, ptr noundef nonnull %49, ptr noundef nonnull %50, i32 noundef 0)
@@ -41100,14 +41100,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit237:                 ; preds = %494, %_ZNSt6vectorI
           to label %550 unwind label %572
 
 550:                                              ; preds = %549
-  %551 = getelementptr inbounds i8, ptr %46, i64 8
+  %551 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %551) #16
   %552 = load ptr, ptr %50, align 8
   %.not.i.i.i252 = icmp eq ptr %552, null
   br i1 %.not.i.i.i252, label %_ZNSt6vectorIhSaIhEED2Ev.exit253, label %553
 
 553:                                              ; preds = %550
-  %554 = getelementptr inbounds i8, ptr %50, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %555 = load ptr, ptr %554, align 8
   %556 = ptrtoint ptr %555 to i64
   %557 = ptrtoint ptr %552 to i64
@@ -41152,7 +41152,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit253:                 ; preds = %550, %553
 572:                                              ; preds = %549
   %573 = landingpad { ptr, i32 }
           catch ptr null
-  %574 = getelementptr inbounds i8, ptr %46, i64 8
+  %574 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %574) #16
   br label %575
 
@@ -41163,7 +41163,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit253:                 ; preds = %550, %553
   br i1 %.not.i.i.i257, label %_ZNSt6vectorIhSaIhEED2Ev.exit258, label %577
 
 577:                                              ; preds = %575
-  %578 = getelementptr inbounds i8, ptr %50, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %579 = load ptr, ptr %578, align 8
   %580 = ptrtoint ptr %579 to i64
   %581 = ptrtoint ptr %576 to i64
@@ -41222,11 +41222,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit256:                 ; preds = %560, %_ZNSt6vectorI
           to label %599 unwind label %596
 
 599:                                              ; preds = %598
-  %600 = getelementptr inbounds i8, ptr %44, i64 112
+  %600 = getelementptr inbounds nuw i8, ptr %44, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %600) #16
-  %601 = getelementptr inbounds i8, ptr %44, i64 72
+  %601 = getelementptr inbounds nuw i8, ptr %44, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %601) #16
-  %602 = getelementptr inbounds i8, ptr %44, i64 48
+  %602 = getelementptr inbounds nuw i8, ptr %44, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %602) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %51, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 417, ptr noundef nonnull @.str.219, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -41249,11 +41249,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit256:                 ; preds = %560, %_ZNSt6vectorI
 
 608:                                              ; preds = %604
   store ptr %605, ptr %56, align 8
-  %609 = getelementptr inbounds i8, ptr %605, i64 4
-  %610 = getelementptr inbounds i8, ptr %56, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %605, i64 4
+  %610 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %609, ptr %610, align 8
   store i32 -65040352, ptr %605, align 4
-  %611 = getelementptr inbounds i8, ptr %56, i64 8
+  %611 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %609, ptr %611, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %612 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE6_8__invokeES5_, ptr noundef nonnull %56, ptr noundef nonnull %57, i32 noundef 0)
@@ -41274,14 +41274,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit256:                 ; preds = %560, %_ZNSt6vectorI
           to label %616 unwind label %638
 
 616:                                              ; preds = %615
-  %617 = getelementptr inbounds i8, ptr %53, i64 8
+  %617 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %617) #16
   %618 = load ptr, ptr %57, align 8
   %.not.i.i.i271 = icmp eq ptr %618, null
   br i1 %.not.i.i.i271, label %_ZNSt6vectorIhSaIhEED2Ev.exit272, label %619
 
 619:                                              ; preds = %616
-  %620 = getelementptr inbounds i8, ptr %57, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %621 = load ptr, ptr %620, align 8
   %622 = ptrtoint ptr %621 to i64
   %623 = ptrtoint ptr %618 to i64
@@ -41326,7 +41326,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit272:                 ; preds = %616, %619
 638:                                              ; preds = %615
   %639 = landingpad { ptr, i32 }
           catch ptr null
-  %640 = getelementptr inbounds i8, ptr %53, i64 8
+  %640 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %640) #16
   br label %641
 
@@ -41337,7 +41337,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit272:                 ; preds = %616, %619
   br i1 %.not.i.i.i276, label %_ZNSt6vectorIhSaIhEED2Ev.exit277, label %643
 
 643:                                              ; preds = %641
-  %644 = getelementptr inbounds i8, ptr %57, i64 16
+  %644 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %645 = load ptr, ptr %644, align 8
   %646 = ptrtoint ptr %645 to i64
   %647 = ptrtoint ptr %642 to i64
@@ -41396,11 +41396,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit275:                 ; preds = %626, %_ZNSt6vectorI
           to label %665 unwind label %662
 
 665:                                              ; preds = %664
-  %666 = getelementptr inbounds i8, ptr %51, i64 112
+  %666 = getelementptr inbounds nuw i8, ptr %51, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %666) #16
-  %667 = getelementptr inbounds i8, ptr %51, i64 72
+  %667 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %667) #16
-  %668 = getelementptr inbounds i8, ptr %51, i64 48
+  %668 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %668) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %58, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 420, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %59)
@@ -41423,11 +41423,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit275:                 ; preds = %626, %_ZNSt6vectorI
 
 674:                                              ; preds = %670
   store ptr %671, ptr %63, align 8
-  %675 = getelementptr inbounds i8, ptr %671, i64 4
-  %676 = getelementptr inbounds i8, ptr %63, i64 16
+  %675 = getelementptr inbounds nuw i8, ptr %671, i64 4
+  %676 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %675, ptr %676, align 8
   store i32 -1119879136, ptr %671, align 4
-  %677 = getelementptr inbounds i8, ptr %63, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %675, ptr %677, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   %678 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE7_8__invokeES5_, ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef 0)
@@ -41448,14 +41448,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit275:                 ; preds = %626, %_ZNSt6vectorI
           to label %682 unwind label %704
 
 682:                                              ; preds = %681
-  %683 = getelementptr inbounds i8, ptr %60, i64 8
+  %683 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %683) #16
   %684 = load ptr, ptr %64, align 8
   %.not.i.i.i290 = icmp eq ptr %684, null
   br i1 %.not.i.i.i290, label %_ZNSt6vectorIhSaIhEED2Ev.exit291, label %685
 
 685:                                              ; preds = %682
-  %686 = getelementptr inbounds i8, ptr %64, i64 16
+  %686 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %687 = load ptr, ptr %686, align 8
   %688 = ptrtoint ptr %687 to i64
   %689 = ptrtoint ptr %684 to i64
@@ -41500,7 +41500,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit291:                 ; preds = %682, %685
 704:                                              ; preds = %681
   %705 = landingpad { ptr, i32 }
           catch ptr null
-  %706 = getelementptr inbounds i8, ptr %60, i64 8
+  %706 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %706) #16
   br label %707
 
@@ -41511,7 +41511,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit291:                 ; preds = %682, %685
   br i1 %.not.i.i.i295, label %_ZNSt6vectorIhSaIhEED2Ev.exit296, label %709
 
 709:                                              ; preds = %707
-  %710 = getelementptr inbounds i8, ptr %64, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %711 = load ptr, ptr %710, align 8
   %712 = ptrtoint ptr %711 to i64
   %713 = ptrtoint ptr %708 to i64
@@ -41570,11 +41570,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit294:                 ; preds = %692, %_ZNSt6vectorI
           to label %731 unwind label %728
 
 731:                                              ; preds = %730
-  %732 = getelementptr inbounds i8, ptr %58, i64 112
+  %732 = getelementptr inbounds nuw i8, ptr %58, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %732) #16
-  %733 = getelementptr inbounds i8, ptr %58, i64 72
+  %733 = getelementptr inbounds nuw i8, ptr %58, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %733) #16
-  %734 = getelementptr inbounds i8, ptr %58, i64 48
+  %734 = getelementptr inbounds nuw i8, ptr %58, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %734) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %65, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 421, ptr noundef nonnull @.str.212, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -41597,11 +41597,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit294:                 ; preds = %692, %_ZNSt6vectorI
 
 740:                                              ; preds = %736
   store ptr %737, ptr %70, align 8
-  %741 = getelementptr inbounds i8, ptr %737, i64 4
-  %742 = getelementptr inbounds i8, ptr %70, i64 16
+  %741 = getelementptr inbounds nuw i8, ptr %737, i64 4
+  %742 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %741, ptr %742, align 8
   store i32 -46137312, ptr %737, align 4
-  %743 = getelementptr inbounds i8, ptr %70, i64 8
+  %743 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %741, ptr %743, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %744 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE8_8__invokeES5_, ptr noundef nonnull %70, ptr noundef nonnull %71, i32 noundef 0)
@@ -41622,14 +41622,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit294:                 ; preds = %692, %_ZNSt6vectorI
           to label %748 unwind label %770
 
 748:                                              ; preds = %747
-  %749 = getelementptr inbounds i8, ptr %67, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %749) #16
   %750 = load ptr, ptr %71, align 8
   %.not.i.i.i309 = icmp eq ptr %750, null
   br i1 %.not.i.i.i309, label %_ZNSt6vectorIhSaIhEED2Ev.exit310, label %751
 
 751:                                              ; preds = %748
-  %752 = getelementptr inbounds i8, ptr %71, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %753 = load ptr, ptr %752, align 8
   %754 = ptrtoint ptr %753 to i64
   %755 = ptrtoint ptr %750 to i64
@@ -41674,7 +41674,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit310:                 ; preds = %748, %751
 770:                                              ; preds = %747
   %771 = landingpad { ptr, i32 }
           catch ptr null
-  %772 = getelementptr inbounds i8, ptr %67, i64 8
+  %772 = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %772) #16
   br label %773
 
@@ -41685,7 +41685,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit310:                 ; preds = %748, %751
   br i1 %.not.i.i.i314, label %_ZNSt6vectorIhSaIhEED2Ev.exit315, label %775
 
 775:                                              ; preds = %773
-  %776 = getelementptr inbounds i8, ptr %71, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %777 = load ptr, ptr %776, align 8
   %778 = ptrtoint ptr %777 to i64
   %779 = ptrtoint ptr %774 to i64
@@ -41744,11 +41744,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit313:                 ; preds = %758, %_ZNSt6vectorI
           to label %797 unwind label %794
 
 797:                                              ; preds = %796
-  %798 = getelementptr inbounds i8, ptr %65, i64 112
+  %798 = getelementptr inbounds nuw i8, ptr %65, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %798) #16
-  %799 = getelementptr inbounds i8, ptr %65, i64 72
+  %799 = getelementptr inbounds nuw i8, ptr %65, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %799) #16
-  %800 = getelementptr inbounds i8, ptr %65, i64 48
+  %800 = getelementptr inbounds nuw i8, ptr %65, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %800) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %72, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 422, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %73)
@@ -41771,11 +41771,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit313:                 ; preds = %758, %_ZNSt6vectorI
 
 806:                                              ; preds = %802
   store ptr %803, ptr %77, align 8
-  %807 = getelementptr inbounds i8, ptr %803, i64 4
-  %808 = getelementptr inbounds i8, ptr %77, i64 16
+  %807 = getelementptr inbounds nuw i8, ptr %803, i64 4
+  %808 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %807, ptr %808, align 8
   store i32 1035993120, ptr %803, align 4
-  %809 = getelementptr inbounds i8, ptr %77, i64 8
+  %809 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %807, ptr %809, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   %810 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE9_8__invokeES5_, ptr noundef nonnull %77, ptr noundef nonnull %78, i32 noundef 0)
@@ -41796,14 +41796,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit313:                 ; preds = %758, %_ZNSt6vectorI
           to label %814 unwind label %836
 
 814:                                              ; preds = %813
-  %815 = getelementptr inbounds i8, ptr %74, i64 8
+  %815 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %815) #16
   %816 = load ptr, ptr %78, align 8
   %.not.i.i.i328 = icmp eq ptr %816, null
   br i1 %.not.i.i.i328, label %_ZNSt6vectorIhSaIhEED2Ev.exit329, label %817
 
 817:                                              ; preds = %814
-  %818 = getelementptr inbounds i8, ptr %78, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %819 = load ptr, ptr %818, align 8
   %820 = ptrtoint ptr %819 to i64
   %821 = ptrtoint ptr %816 to i64
@@ -41848,7 +41848,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit329:                 ; preds = %814, %817
 836:                                              ; preds = %813
   %837 = landingpad { ptr, i32 }
           catch ptr null
-  %838 = getelementptr inbounds i8, ptr %74, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %838) #16
   br label %839
 
@@ -41859,7 +41859,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit329:                 ; preds = %814, %817
   br i1 %.not.i.i.i333, label %_ZNSt6vectorIhSaIhEED2Ev.exit334, label %841
 
 841:                                              ; preds = %839
-  %842 = getelementptr inbounds i8, ptr %78, i64 16
+  %842 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %843 = load ptr, ptr %842, align 8
   %844 = ptrtoint ptr %843 to i64
   %845 = ptrtoint ptr %840 to i64
@@ -41918,11 +41918,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit332:                 ; preds = %824, %_ZNSt6vectorI
           to label %863 unwind label %860
 
 863:                                              ; preds = %862
-  %864 = getelementptr inbounds i8, ptr %72, i64 112
+  %864 = getelementptr inbounds nuw i8, ptr %72, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %864) #16
-  %865 = getelementptr inbounds i8, ptr %72, i64 72
+  %865 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %865) #16
-  %866 = getelementptr inbounds i8, ptr %72, i64 48
+  %866 = getelementptr inbounds nuw i8, ptr %72, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %866) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 423, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %80)
@@ -41945,11 +41945,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit332:                 ; preds = %824, %_ZNSt6vectorI
 
 872:                                              ; preds = %868
   store ptr %869, ptr %84, align 8
-  %873 = getelementptr inbounds i8, ptr %869, i64 4
-  %874 = getelementptr inbounds i8, ptr %84, i64 16
+  %873 = getelementptr inbounds nuw i8, ptr %869, i64 4
+  %874 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %873, ptr %874, align 8
   store i32 -1124073440, ptr %869, align 4
-  %875 = getelementptr inbounds i8, ptr %84, i64 8
+  %875 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %873, ptr %875, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %876 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE10_8__invokeES5_, ptr noundef nonnull %84, ptr noundef nonnull %85, i32 noundef 0)
@@ -41970,14 +41970,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit332:                 ; preds = %824, %_ZNSt6vectorI
           to label %880 unwind label %902
 
 880:                                              ; preds = %879
-  %881 = getelementptr inbounds i8, ptr %81, i64 8
+  %881 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %881) #16
   %882 = load ptr, ptr %85, align 8
   %.not.i.i.i347 = icmp eq ptr %882, null
   br i1 %.not.i.i.i347, label %_ZNSt6vectorIhSaIhEED2Ev.exit348, label %883
 
 883:                                              ; preds = %880
-  %884 = getelementptr inbounds i8, ptr %85, i64 16
+  %884 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %885 = load ptr, ptr %884, align 8
   %886 = ptrtoint ptr %885 to i64
   %887 = ptrtoint ptr %882 to i64
@@ -42022,7 +42022,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit348:                 ; preds = %880, %883
 902:                                              ; preds = %879
   %903 = landingpad { ptr, i32 }
           catch ptr null
-  %904 = getelementptr inbounds i8, ptr %81, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %81, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %904) #16
   br label %905
 
@@ -42033,7 +42033,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit348:                 ; preds = %880, %883
   br i1 %.not.i.i.i352, label %_ZNSt6vectorIhSaIhEED2Ev.exit353, label %907
 
 907:                                              ; preds = %905
-  %908 = getelementptr inbounds i8, ptr %85, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %909 = load ptr, ptr %908, align 8
   %910 = ptrtoint ptr %909 to i64
   %911 = ptrtoint ptr %906 to i64
@@ -42092,11 +42092,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit351:                 ; preds = %890, %_ZNSt6vectorI
           to label %929 unwind label %926
 
 929:                                              ; preds = %928
-  %930 = getelementptr inbounds i8, ptr %79, i64 112
+  %930 = getelementptr inbounds nuw i8, ptr %79, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %930) #16
-  %931 = getelementptr inbounds i8, ptr %79, i64 72
+  %931 = getelementptr inbounds nuw i8, ptr %79, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %931) #16
-  %932 = getelementptr inbounds i8, ptr %79, i64 48
+  %932 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %932) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %86, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 424, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %87)
@@ -42119,11 +42119,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit351:                 ; preds = %890, %_ZNSt6vectorI
 
 938:                                              ; preds = %934
   store ptr %935, ptr %91, align 8
-  %939 = getelementptr inbounds i8, ptr %935, i64 4
-  %940 = getelementptr inbounds i8, ptr %91, i64 16
+  %939 = getelementptr inbounds nuw i8, ptr %935, i64 4
+  %940 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %939, ptr %940, align 8
   store i32 -50331616, ptr %935, align 4
-  %941 = getelementptr inbounds i8, ptr %91, i64 8
+  %941 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %939, ptr %941, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   %942 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE11_8__invokeES5_, ptr noundef nonnull %91, ptr noundef nonnull %92, i32 noundef 0)
@@ -42144,14 +42144,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit351:                 ; preds = %890, %_ZNSt6vectorI
           to label %946 unwind label %968
 
 946:                                              ; preds = %945
-  %947 = getelementptr inbounds i8, ptr %88, i64 8
+  %947 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %947) #16
   %948 = load ptr, ptr %92, align 8
   %.not.i.i.i366 = icmp eq ptr %948, null
   br i1 %.not.i.i.i366, label %_ZNSt6vectorIhSaIhEED2Ev.exit367, label %949
 
 949:                                              ; preds = %946
-  %950 = getelementptr inbounds i8, ptr %92, i64 16
+  %950 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %951 = load ptr, ptr %950, align 8
   %952 = ptrtoint ptr %951 to i64
   %953 = ptrtoint ptr %948 to i64
@@ -42196,7 +42196,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit367:                 ; preds = %946, %949
 968:                                              ; preds = %945
   %969 = landingpad { ptr, i32 }
           catch ptr null
-  %970 = getelementptr inbounds i8, ptr %88, i64 8
+  %970 = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %970) #16
   br label %971
 
@@ -42207,7 +42207,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit367:                 ; preds = %946, %949
   br i1 %.not.i.i.i371, label %_ZNSt6vectorIhSaIhEED2Ev.exit372, label %973
 
 973:                                              ; preds = %971
-  %974 = getelementptr inbounds i8, ptr %92, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %975 = load ptr, ptr %974, align 8
   %976 = ptrtoint ptr %975 to i64
   %977 = ptrtoint ptr %972 to i64
@@ -42266,11 +42266,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit370:                 ; preds = %956, %_ZNSt6vectorI
           to label %995 unwind label %992
 
 995:                                              ; preds = %994
-  %996 = getelementptr inbounds i8, ptr %86, i64 112
+  %996 = getelementptr inbounds nuw i8, ptr %86, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %996) #16
-  %997 = getelementptr inbounds i8, ptr %86, i64 72
+  %997 = getelementptr inbounds nuw i8, ptr %86, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %997) #16
-  %998 = getelementptr inbounds i8, ptr %86, i64 48
+  %998 = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %998) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %93, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 425, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %94)
@@ -42293,11 +42293,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit370:                 ; preds = %956, %_ZNSt6vectorI
 
 1004:                                             ; preds = %1000
   store ptr %1001, ptr %98, align 8
-  %1005 = getelementptr inbounds i8, ptr %1001, i64 4
-  %1006 = getelementptr inbounds i8, ptr %98, i64 16
+  %1005 = getelementptr inbounds nuw i8, ptr %1001, i64 4
+  %1006 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1005, ptr %1006, align 8
   store i32 1031798816, ptr %1001, align 4
-  %1007 = getelementptr inbounds i8, ptr %98, i64 8
+  %1007 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %1005, ptr %1007, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   %1008 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE12_8__invokeES5_, ptr noundef nonnull %98, ptr noundef nonnull %99, i32 noundef 0)
@@ -42318,14 +42318,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit370:                 ; preds = %956, %_ZNSt6vectorI
           to label %1012 unwind label %1034
 
 1012:                                             ; preds = %1011
-  %1013 = getelementptr inbounds i8, ptr %95, i64 8
+  %1013 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1013) #16
   %1014 = load ptr, ptr %99, align 8
   %.not.i.i.i385 = icmp eq ptr %1014, null
   br i1 %.not.i.i.i385, label %_ZNSt6vectorIhSaIhEED2Ev.exit386, label %1015
 
 1015:                                             ; preds = %1012
-  %1016 = getelementptr inbounds i8, ptr %99, i64 16
+  %1016 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1017 = load ptr, ptr %1016, align 8
   %1018 = ptrtoint ptr %1017 to i64
   %1019 = ptrtoint ptr %1014 to i64
@@ -42370,7 +42370,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit386:                 ; preds = %1012, %1015
 1034:                                             ; preds = %1011
   %1035 = landingpad { ptr, i32 }
           catch ptr null
-  %1036 = getelementptr inbounds i8, ptr %95, i64 8
+  %1036 = getelementptr inbounds nuw i8, ptr %95, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1036) #16
   br label %1037
 
@@ -42381,7 +42381,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit386:                 ; preds = %1012, %1015
   br i1 %.not.i.i.i390, label %_ZNSt6vectorIhSaIhEED2Ev.exit391, label %1039
 
 1039:                                             ; preds = %1037
-  %1040 = getelementptr inbounds i8, ptr %99, i64 16
+  %1040 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %1041 = load ptr, ptr %1040, align 8
   %1042 = ptrtoint ptr %1041 to i64
   %1043 = ptrtoint ptr %1038 to i64
@@ -42440,11 +42440,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit389:                 ; preds = %1022, %_ZNSt6vector
           to label %1061 unwind label %1058
 
 1061:                                             ; preds = %1060
-  %1062 = getelementptr inbounds i8, ptr %93, i64 112
+  %1062 = getelementptr inbounds nuw i8, ptr %93, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1062) #16
-  %1063 = getelementptr inbounds i8, ptr %93, i64 72
+  %1063 = getelementptr inbounds nuw i8, ptr %93, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1063) #16
-  %1064 = getelementptr inbounds i8, ptr %93, i64 48
+  %1064 = getelementptr inbounds nuw i8, ptr %93, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1064) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %100, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 428, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %101)
@@ -42467,11 +42467,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit389:                 ; preds = %1022, %_ZNSt6vector
 
 1070:                                             ; preds = %1066
   store ptr %1067, ptr %105, align 8
-  %1071 = getelementptr inbounds i8, ptr %1067, i64 4
-  %1072 = getelementptr inbounds i8, ptr %105, i64 16
+  %1071 = getelementptr inbounds nuw i8, ptr %1067, i64 4
+  %1072 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %1071, ptr %1072, align 8
   store i32 1035994144, ptr %1067, align 4
-  %1073 = getelementptr inbounds i8, ptr %105, i64 8
+  %1073 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1071, ptr %1073, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   %1074 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE13_8__invokeES5_, ptr noundef nonnull %105, ptr noundef nonnull %106, i32 noundef 0)
@@ -42492,14 +42492,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit389:                 ; preds = %1022, %_ZNSt6vector
           to label %1078 unwind label %1100
 
 1078:                                             ; preds = %1077
-  %1079 = getelementptr inbounds i8, ptr %102, i64 8
+  %1079 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1079) #16
   %1080 = load ptr, ptr %106, align 8
   %.not.i.i.i404 = icmp eq ptr %1080, null
   br i1 %.not.i.i.i404, label %_ZNSt6vectorIhSaIhEED2Ev.exit405, label %1081
 
 1081:                                             ; preds = %1078
-  %1082 = getelementptr inbounds i8, ptr %106, i64 16
+  %1082 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1083 = load ptr, ptr %1082, align 8
   %1084 = ptrtoint ptr %1083 to i64
   %1085 = ptrtoint ptr %1080 to i64
@@ -42544,7 +42544,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit405:                 ; preds = %1078, %1081
 1100:                                             ; preds = %1077
   %1101 = landingpad { ptr, i32 }
           catch ptr null
-  %1102 = getelementptr inbounds i8, ptr %102, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1102) #16
   br label %1103
 
@@ -42555,7 +42555,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit405:                 ; preds = %1078, %1081
   br i1 %.not.i.i.i409, label %_ZNSt6vectorIhSaIhEED2Ev.exit410, label %1105
 
 1105:                                             ; preds = %1103
-  %1106 = getelementptr inbounds i8, ptr %106, i64 16
+  %1106 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %1107 = load ptr, ptr %1106, align 8
   %1108 = ptrtoint ptr %1107 to i64
   %1109 = ptrtoint ptr %1104 to i64
@@ -42614,11 +42614,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit408:                 ; preds = %1088, %_ZNSt6vector
           to label %1127 unwind label %1124
 
 1127:                                             ; preds = %1126
-  %1128 = getelementptr inbounds i8, ptr %100, i64 112
+  %1128 = getelementptr inbounds nuw i8, ptr %100, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1128) #16
-  %1129 = getelementptr inbounds i8, ptr %100, i64 72
+  %1129 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1129) #16
-  %1130 = getelementptr inbounds i8, ptr %100, i64 48
+  %1130 = getelementptr inbounds nuw i8, ptr %100, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1130) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %107, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 429, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -42641,11 +42641,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit408:                 ; preds = %1088, %_ZNSt6vector
 
 1136:                                             ; preds = %1132
   store ptr %1133, ptr %112, align 8
-  %1137 = getelementptr inbounds i8, ptr %1133, i64 4
-  %1138 = getelementptr inbounds i8, ptr %112, i64 16
+  %1137 = getelementptr inbounds nuw i8, ptr %1133, i64 4
+  %1138 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %1137, ptr %1138, align 8
   store i32 -46135264, ptr %1133, align 4
-  %1139 = getelementptr inbounds i8, ptr %112, i64 8
+  %1139 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %1137, ptr %1139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
   %1140 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE14_8__invokeES5_, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef 0)
@@ -42666,14 +42666,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit408:                 ; preds = %1088, %_ZNSt6vector
           to label %1144 unwind label %1166
 
 1144:                                             ; preds = %1143
-  %1145 = getelementptr inbounds i8, ptr %109, i64 8
+  %1145 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1145) #16
   %1146 = load ptr, ptr %113, align 8
   %.not.i.i.i423 = icmp eq ptr %1146, null
   br i1 %.not.i.i.i423, label %_ZNSt6vectorIhSaIhEED2Ev.exit424, label %1147
 
 1147:                                             ; preds = %1144
-  %1148 = getelementptr inbounds i8, ptr %113, i64 16
+  %1148 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1149 = load ptr, ptr %1148, align 8
   %1150 = ptrtoint ptr %1149 to i64
   %1151 = ptrtoint ptr %1146 to i64
@@ -42718,7 +42718,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit424:                 ; preds = %1144, %1147
 1166:                                             ; preds = %1143
   %1167 = landingpad { ptr, i32 }
           catch ptr null
-  %1168 = getelementptr inbounds i8, ptr %109, i64 8
+  %1168 = getelementptr inbounds nuw i8, ptr %109, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1168) #16
   br label %1169
 
@@ -42729,7 +42729,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit424:                 ; preds = %1144, %1147
   br i1 %.not.i.i.i428, label %_ZNSt6vectorIhSaIhEED2Ev.exit429, label %1171
 
 1171:                                             ; preds = %1169
-  %1172 = getelementptr inbounds i8, ptr %113, i64 16
+  %1172 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %1173 = load ptr, ptr %1172, align 8
   %1174 = ptrtoint ptr %1173 to i64
   %1175 = ptrtoint ptr %1170 to i64
@@ -42788,11 +42788,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit427:                 ; preds = %1154, %_ZNSt6vector
           to label %1193 unwind label %1190
 
 1193:                                             ; preds = %1192
-  %1194 = getelementptr inbounds i8, ptr %107, i64 112
+  %1194 = getelementptr inbounds nuw i8, ptr %107, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1194) #16
-  %1195 = getelementptr inbounds i8, ptr %107, i64 72
+  %1195 = getelementptr inbounds nuw i8, ptr %107, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1195) #16
-  %1196 = getelementptr inbounds i8, ptr %107, i64 48
+  %1196 = getelementptr inbounds nuw i8, ptr %107, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1196) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %114, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 430, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %115)
@@ -42815,11 +42815,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit427:                 ; preds = %1154, %_ZNSt6vector
 
 1202:                                             ; preds = %1198
   store ptr %1199, ptr %119, align 8
-  %1203 = getelementptr inbounds i8, ptr %1199, i64 4
-  %1204 = getelementptr inbounds i8, ptr %119, i64 16
+  %1203 = getelementptr inbounds nuw i8, ptr %1199, i64 4
+  %1204 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %1203, ptr %1204, align 8
   store i32 -1119875040, ptr %1199, align 4
-  %1205 = getelementptr inbounds i8, ptr %119, i64 8
+  %1205 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %1203, ptr %1205, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   %1206 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE15_8__invokeES5_, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef 0)
@@ -42840,14 +42840,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit427:                 ; preds = %1154, %_ZNSt6vector
           to label %1210 unwind label %1232
 
 1210:                                             ; preds = %1209
-  %1211 = getelementptr inbounds i8, ptr %116, i64 8
+  %1211 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1211) #16
   %1212 = load ptr, ptr %120, align 8
   %.not.i.i.i442 = icmp eq ptr %1212, null
   br i1 %.not.i.i.i442, label %_ZNSt6vectorIhSaIhEED2Ev.exit443, label %1213
 
 1213:                                             ; preds = %1210
-  %1214 = getelementptr inbounds i8, ptr %120, i64 16
+  %1214 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1215 = load ptr, ptr %1214, align 8
   %1216 = ptrtoint ptr %1215 to i64
   %1217 = ptrtoint ptr %1212 to i64
@@ -42892,7 +42892,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit443:                 ; preds = %1210, %1213
 1232:                                             ; preds = %1209
   %1233 = landingpad { ptr, i32 }
           catch ptr null
-  %1234 = getelementptr inbounds i8, ptr %116, i64 8
+  %1234 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1234) #16
   br label %1235
 
@@ -42903,7 +42903,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit443:                 ; preds = %1210, %1213
   br i1 %.not.i.i.i447, label %_ZNSt6vectorIhSaIhEED2Ev.exit448, label %1237
 
 1237:                                             ; preds = %1235
-  %1238 = getelementptr inbounds i8, ptr %120, i64 16
+  %1238 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %1239 = load ptr, ptr %1238, align 8
   %1240 = ptrtoint ptr %1239 to i64
   %1241 = ptrtoint ptr %1236 to i64
@@ -42962,11 +42962,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit446:                 ; preds = %1220, %_ZNSt6vector
           to label %1259 unwind label %1256
 
 1259:                                             ; preds = %1258
-  %1260 = getelementptr inbounds i8, ptr %114, i64 112
+  %1260 = getelementptr inbounds nuw i8, ptr %114, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1260) #16
-  %1261 = getelementptr inbounds i8, ptr %114, i64 72
+  %1261 = getelementptr inbounds nuw i8, ptr %114, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1261) #16
-  %1262 = getelementptr inbounds i8, ptr %114, i64 48
+  %1262 = getelementptr inbounds nuw i8, ptr %114, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1262) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %121, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 431, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %122)
@@ -42989,11 +42989,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit446:                 ; preds = %1220, %_ZNSt6vector
 
 1268:                                             ; preds = %1264
   store ptr %1265, ptr %126, align 8
-  %1269 = getelementptr inbounds i8, ptr %1265, i64 4
-  %1270 = getelementptr inbounds i8, ptr %126, i64 16
+  %1269 = getelementptr inbounds nuw i8, ptr %1265, i64 4
+  %1270 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %1269, ptr %1270, align 8
   store i32 1031799840, ptr %1265, align 4
-  %1271 = getelementptr inbounds i8, ptr %126, i64 8
+  %1271 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %1269, ptr %1271, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %1272 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE16_8__invokeES5_, ptr noundef nonnull %126, ptr noundef nonnull %127, i32 noundef 0)
@@ -43014,14 +43014,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit446:                 ; preds = %1220, %_ZNSt6vector
           to label %1276 unwind label %1298
 
 1276:                                             ; preds = %1275
-  %1277 = getelementptr inbounds i8, ptr %123, i64 8
+  %1277 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1277) #16
   %1278 = load ptr, ptr %127, align 8
   %.not.i.i.i461 = icmp eq ptr %1278, null
   br i1 %.not.i.i.i461, label %_ZNSt6vectorIhSaIhEED2Ev.exit462, label %1279
 
 1279:                                             ; preds = %1276
-  %1280 = getelementptr inbounds i8, ptr %127, i64 16
+  %1280 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1281 = load ptr, ptr %1280, align 8
   %1282 = ptrtoint ptr %1281 to i64
   %1283 = ptrtoint ptr %1278 to i64
@@ -43066,7 +43066,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit462:                 ; preds = %1276, %1279
 1298:                                             ; preds = %1275
   %1299 = landingpad { ptr, i32 }
           catch ptr null
-  %1300 = getelementptr inbounds i8, ptr %123, i64 8
+  %1300 = getelementptr inbounds nuw i8, ptr %123, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1300) #16
   br label %1301
 
@@ -43077,7 +43077,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit462:                 ; preds = %1276, %1279
   br i1 %.not.i.i.i466, label %_ZNSt6vectorIhSaIhEED2Ev.exit467, label %1303
 
 1303:                                             ; preds = %1301
-  %1304 = getelementptr inbounds i8, ptr %127, i64 16
+  %1304 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %1305 = load ptr, ptr %1304, align 8
   %1306 = ptrtoint ptr %1305 to i64
   %1307 = ptrtoint ptr %1302 to i64
@@ -43136,11 +43136,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit465:                 ; preds = %1286, %_ZNSt6vector
           to label %1325 unwind label %1322
 
 1325:                                             ; preds = %1324
-  %1326 = getelementptr inbounds i8, ptr %121, i64 112
+  %1326 = getelementptr inbounds nuw i8, ptr %121, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1326) #16
-  %1327 = getelementptr inbounds i8, ptr %121, i64 72
+  %1327 = getelementptr inbounds nuw i8, ptr %121, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1327) #16
-  %1328 = getelementptr inbounds i8, ptr %121, i64 48
+  %1328 = getelementptr inbounds nuw i8, ptr %121, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1328) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %128, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 432, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %129)
@@ -43163,11 +43163,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit465:                 ; preds = %1286, %_ZNSt6vector
 
 1334:                                             ; preds = %1330
   store ptr %1331, ptr %133, align 8
-  %1335 = getelementptr inbounds i8, ptr %1331, i64 4
-  %1336 = getelementptr inbounds i8, ptr %133, i64 16
+  %1335 = getelementptr inbounds nuw i8, ptr %1331, i64 4
+  %1336 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1335, ptr %1336, align 8
   store i32 -50329568, ptr %1331, align 4
-  %1337 = getelementptr inbounds i8, ptr %133, i64 8
+  %1337 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %1335, ptr %1337, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   %1338 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE17_8__invokeES5_, ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef 0)
@@ -43188,14 +43188,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit465:                 ; preds = %1286, %_ZNSt6vector
           to label %1342 unwind label %1364
 
 1342:                                             ; preds = %1341
-  %1343 = getelementptr inbounds i8, ptr %130, i64 8
+  %1343 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1343) #16
   %1344 = load ptr, ptr %134, align 8
   %.not.i.i.i480 = icmp eq ptr %1344, null
   br i1 %.not.i.i.i480, label %_ZNSt6vectorIhSaIhEED2Ev.exit481, label %1345
 
 1345:                                             ; preds = %1342
-  %1346 = getelementptr inbounds i8, ptr %134, i64 16
+  %1346 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1347 = load ptr, ptr %1346, align 8
   %1348 = ptrtoint ptr %1347 to i64
   %1349 = ptrtoint ptr %1344 to i64
@@ -43240,7 +43240,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit481:                 ; preds = %1342, %1345
 1364:                                             ; preds = %1341
   %1365 = landingpad { ptr, i32 }
           catch ptr null
-  %1366 = getelementptr inbounds i8, ptr %130, i64 8
+  %1366 = getelementptr inbounds nuw i8, ptr %130, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1366) #16
   br label %1367
 
@@ -43251,7 +43251,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit481:                 ; preds = %1342, %1345
   br i1 %.not.i.i.i485, label %_ZNSt6vectorIhSaIhEED2Ev.exit486, label %1369
 
 1369:                                             ; preds = %1367
-  %1370 = getelementptr inbounds i8, ptr %134, i64 16
+  %1370 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %1371 = load ptr, ptr %1370, align 8
   %1372 = ptrtoint ptr %1371 to i64
   %1373 = ptrtoint ptr %1368 to i64
@@ -43310,11 +43310,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit484:                 ; preds = %1352, %_ZNSt6vector
           to label %1391 unwind label %1388
 
 1391:                                             ; preds = %1390
-  %1392 = getelementptr inbounds i8, ptr %128, i64 112
+  %1392 = getelementptr inbounds nuw i8, ptr %128, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1392) #16
-  %1393 = getelementptr inbounds i8, ptr %128, i64 72
+  %1393 = getelementptr inbounds nuw i8, ptr %128, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1393) #16
-  %1394 = getelementptr inbounds i8, ptr %128, i64 48
+  %1394 = getelementptr inbounds nuw i8, ptr %128, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1394) #16
   call void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull @.str)
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %135, i32 noundef 10, ptr noundef nonnull @.str.4, i32 noundef 433, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %136)
@@ -43337,11 +43337,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit484:                 ; preds = %1352, %_ZNSt6vector
 
 1400:                                             ; preds = %1396
   store ptr %1397, ptr %140, align 8
-  %1401 = getelementptr inbounds i8, ptr %1397, i64 4
-  %1402 = getelementptr inbounds i8, ptr %140, i64 16
+  %1401 = getelementptr inbounds nuw i8, ptr %1397, i64 4
+  %1402 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %1401, ptr %1402, align 8
   store i32 -1124069344, ptr %1397, align 4
-  %1403 = getelementptr inbounds i8, ptr %140, i64 8
+  %1403 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %1401, ptr %1403, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %1404 = invoke noundef zeroext i1 @_ZN25AssemblyBuilderA64Fixture5checkEPFvRN4Luau7CodeGen3A6418AssemblyBuilderA64EESt6vectorIjSaIjEES7_IhSaIhEEj(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_451fEvENUlRN4Luau7CodeGen3A6418AssemblyBuilderA64EE18_8__invokeES5_, ptr noundef nonnull %140, ptr noundef nonnull %141, i32 noundef 0)
@@ -43362,14 +43362,14 @@ _ZNSt6vectorIjSaIjEED2Ev.exit484:                 ; preds = %1352, %_ZNSt6vector
           to label %1408 unwind label %1430
 
 1408:                                             ; preds = %1407
-  %1409 = getelementptr inbounds i8, ptr %137, i64 8
+  %1409 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1409) #16
   %1410 = load ptr, ptr %141, align 8
   %.not.i.i.i499 = icmp eq ptr %1410, null
   br i1 %.not.i.i.i499, label %_ZNSt6vectorIhSaIhEED2Ev.exit500, label %1411
 
 1411:                                             ; preds = %1408
-  %1412 = getelementptr inbounds i8, ptr %141, i64 16
+  %1412 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1413 = load ptr, ptr %1412, align 8
   %1414 = ptrtoint ptr %1413 to i64
   %1415 = ptrtoint ptr %1410 to i64
@@ -43414,7 +43414,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit500:                 ; preds = %1408, %1411
 1430:                                             ; preds = %1407
   %1431 = landingpad { ptr, i32 }
           catch ptr null
-  %1432 = getelementptr inbounds i8, ptr %137, i64 8
+  %1432 = getelementptr inbounds nuw i8, ptr %137, i64 8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1432) #16
   br label %1433
 
@@ -43425,7 +43425,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit500:                 ; preds = %1408, %1411
   br i1 %.not.i.i.i504, label %_ZNSt6vectorIhSaIhEED2Ev.exit505, label %1435
 
 1435:                                             ; preds = %1433
-  %1436 = getelementptr inbounds i8, ptr %141, i64 16
+  %1436 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %1437 = load ptr, ptr %1436, align 8
   %1438 = ptrtoint ptr %1437 to i64
   %1439 = ptrtoint ptr %1434 to i64
@@ -43484,11 +43484,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit503:                 ; preds = %1418, %_ZNSt6vector
           to label %1457 unwind label %1454
 
 1457:                                             ; preds = %1456
-  %1458 = getelementptr inbounds i8, ptr %135, i64 112
+  %1458 = getelementptr inbounds nuw i8, ptr %135, i64 112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %1458) #16
-  %1459 = getelementptr inbounds i8, ptr %135, i64 72
+  %1459 = getelementptr inbounds nuw i8, ptr %135, i64 72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1459) #16
-  %1460 = getelementptr inbounds i8, ptr %135, i64 48
+  %1460 = getelementptr inbounds nuw i8, ptr %135, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1460) #16
   ret void
 
@@ -43958,7 +43958,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsINSt7__cxx
   br i1 %8, label %12, label %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge
 
 ._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge: ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 256
   %.not = icmp eq i32 %11, 0
@@ -43972,7 +43972,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsINSt7__cxx
   br i1 %16, label %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge13, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 ._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge13: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 256
   %.not16 = icmp eq i32 %19, 0
@@ -43981,7 +43981,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsINSt7__cxx
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %12
   %bcmp.i = tail call i32 @bcmp(ptr %13, ptr %14, i64 %15)
   %20 = icmp eq i32 %bcmp.i, 0
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 256
   %24 = icmp ne i32 %23, 0
@@ -43990,7 +43990,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 25:                                               ; preds = %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge13, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %26 = tail call noundef ptr @_ZN7doctest17getContextOptionsEv()
-  %27 = getelementptr inbounds i8, ptr %26, i64 108
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 108
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %33
@@ -44264,9 +44264,9 @@ common.resume:                                    ; preds = %314, %316, %303, %3
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.3.exit:                     ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %48, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #16
-  %66 = getelementptr inbounds i8, ptr %48, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %48) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #16
@@ -44299,9 +44299,9 @@ __cxx_global_var_init.3.exit:                     ; preds = %59
   br label %common.resume
 
 __cxx_global_var_init.6.exit:                     ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %46, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %46, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %76) #16
-  %77 = getelementptr inbounds i8, ptr %46, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %46, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %46) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #16
@@ -44334,9 +44334,9 @@ __cxx_global_var_init.6.exit:                     ; preds = %70
   br label %common.resume
 
 __cxx_global_var_init.8.exit:                     ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %44, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %44, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %87) #16
-  %88 = getelementptr inbounds i8, ptr %44, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %44, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %88) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %44) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #16
@@ -44369,9 +44369,9 @@ __cxx_global_var_init.8.exit:                     ; preds = %81
   br label %common.resume
 
 __cxx_global_var_init.10.exit:                    ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %42, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %42, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #16
-  %99 = getelementptr inbounds i8, ptr %42, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %42, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %99) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %42) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #16
@@ -44404,9 +44404,9 @@ __cxx_global_var_init.10.exit:                    ; preds = %92
   br label %common.resume
 
 __cxx_global_var_init.12.exit:                    ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %40, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %40, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #16
-  %110 = getelementptr inbounds i8, ptr %40, i64 88
+  %110 = getelementptr inbounds nuw i8, ptr %40, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %110) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %40) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #16
@@ -44439,9 +44439,9 @@ __cxx_global_var_init.12.exit:                    ; preds = %103
   br label %common.resume
 
 __cxx_global_var_init.14.exit:                    ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %38, i64 120
+  %120 = getelementptr inbounds nuw i8, ptr %38, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %120) #16
-  %121 = getelementptr inbounds i8, ptr %38, i64 88
+  %121 = getelementptr inbounds nuw i8, ptr %38, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %121) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %38) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #16
@@ -44474,9 +44474,9 @@ __cxx_global_var_init.14.exit:                    ; preds = %114
   br label %common.resume
 
 __cxx_global_var_init.16.exit:                    ; preds = %125
-  %131 = getelementptr inbounds i8, ptr %36, i64 120
+  %131 = getelementptr inbounds nuw i8, ptr %36, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %131) #16
-  %132 = getelementptr inbounds i8, ptr %36, i64 88
+  %132 = getelementptr inbounds nuw i8, ptr %36, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %36) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #16
@@ -44509,9 +44509,9 @@ __cxx_global_var_init.16.exit:                    ; preds = %125
   br label %common.resume
 
 __cxx_global_var_init.18.exit:                    ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %34, i64 120
+  %142 = getelementptr inbounds nuw i8, ptr %34, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %142) #16
-  %143 = getelementptr inbounds i8, ptr %34, i64 88
+  %143 = getelementptr inbounds nuw i8, ptr %34, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %143) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %34) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #16
@@ -44544,9 +44544,9 @@ __cxx_global_var_init.18.exit:                    ; preds = %136
   br label %common.resume
 
 __cxx_global_var_init.20.exit:                    ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %32, i64 120
+  %153 = getelementptr inbounds nuw i8, ptr %32, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %153) #16
-  %154 = getelementptr inbounds i8, ptr %32, i64 88
+  %154 = getelementptr inbounds nuw i8, ptr %32, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %154) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %32) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #16
@@ -44579,9 +44579,9 @@ __cxx_global_var_init.20.exit:                    ; preds = %147
   br label %common.resume
 
 __cxx_global_var_init.22.exit:                    ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %30, i64 120
+  %164 = getelementptr inbounds nuw i8, ptr %30, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %164) #16
-  %165 = getelementptr inbounds i8, ptr %30, i64 88
+  %165 = getelementptr inbounds nuw i8, ptr %30, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %165) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %30) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #16
@@ -44614,9 +44614,9 @@ __cxx_global_var_init.22.exit:                    ; preds = %158
   br label %common.resume
 
 __cxx_global_var_init.24.exit:                    ; preds = %169
-  %175 = getelementptr inbounds i8, ptr %28, i64 120
+  %175 = getelementptr inbounds nuw i8, ptr %28, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %175) #16
-  %176 = getelementptr inbounds i8, ptr %28, i64 88
+  %176 = getelementptr inbounds nuw i8, ptr %28, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %176) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %28) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #16
@@ -44649,9 +44649,9 @@ __cxx_global_var_init.24.exit:                    ; preds = %169
   br label %common.resume
 
 __cxx_global_var_init.26.exit:                    ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %26, i64 120
+  %186 = getelementptr inbounds nuw i8, ptr %26, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %186) #16
-  %187 = getelementptr inbounds i8, ptr %26, i64 88
+  %187 = getelementptr inbounds nuw i8, ptr %26, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %187) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %26) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #16
@@ -44684,9 +44684,9 @@ __cxx_global_var_init.26.exit:                    ; preds = %180
   br label %common.resume
 
 __cxx_global_var_init.28.exit:                    ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %24, i64 120
+  %197 = getelementptr inbounds nuw i8, ptr %24, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %197) #16
-  %198 = getelementptr inbounds i8, ptr %24, i64 88
+  %198 = getelementptr inbounds nuw i8, ptr %24, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %198) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %24) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
@@ -44719,9 +44719,9 @@ __cxx_global_var_init.28.exit:                    ; preds = %191
   br label %common.resume
 
 __cxx_global_var_init.30.exit:                    ; preds = %202
-  %208 = getelementptr inbounds i8, ptr %22, i64 120
+  %208 = getelementptr inbounds nuw i8, ptr %22, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #16
-  %209 = getelementptr inbounds i8, ptr %22, i64 88
+  %209 = getelementptr inbounds nuw i8, ptr %22, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %209) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %22) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
@@ -44754,9 +44754,9 @@ __cxx_global_var_init.30.exit:                    ; preds = %202
   br label %common.resume
 
 __cxx_global_var_init.32.exit:                    ; preds = %213
-  %219 = getelementptr inbounds i8, ptr %20, i64 120
+  %219 = getelementptr inbounds nuw i8, ptr %20, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %219) #16
-  %220 = getelementptr inbounds i8, ptr %20, i64 88
+  %220 = getelementptr inbounds nuw i8, ptr %20, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %220) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %20) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #16
@@ -44789,9 +44789,9 @@ __cxx_global_var_init.32.exit:                    ; preds = %213
   br label %common.resume
 
 __cxx_global_var_init.34.exit:                    ; preds = %224
-  %230 = getelementptr inbounds i8, ptr %18, i64 120
+  %230 = getelementptr inbounds nuw i8, ptr %18, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %230) #16
-  %231 = getelementptr inbounds i8, ptr %18, i64 88
+  %231 = getelementptr inbounds nuw i8, ptr %18, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %231) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %18) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
@@ -44824,9 +44824,9 @@ __cxx_global_var_init.34.exit:                    ; preds = %224
   br label %common.resume
 
 __cxx_global_var_init.36.exit:                    ; preds = %235
-  %241 = getelementptr inbounds i8, ptr %16, i64 120
+  %241 = getelementptr inbounds nuw i8, ptr %16, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %241) #16
-  %242 = getelementptr inbounds i8, ptr %16, i64 88
+  %242 = getelementptr inbounds nuw i8, ptr %16, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %242) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %16) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
@@ -44859,9 +44859,9 @@ __cxx_global_var_init.36.exit:                    ; preds = %235
   br label %common.resume
 
 __cxx_global_var_init.38.exit:                    ; preds = %246
-  %252 = getelementptr inbounds i8, ptr %14, i64 120
+  %252 = getelementptr inbounds nuw i8, ptr %14, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %252) #16
-  %253 = getelementptr inbounds i8, ptr %14, i64 88
+  %253 = getelementptr inbounds nuw i8, ptr %14, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %253) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %14) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #16
@@ -44894,9 +44894,9 @@ __cxx_global_var_init.38.exit:                    ; preds = %246
   br label %common.resume
 
 __cxx_global_var_init.40.exit:                    ; preds = %257
-  %263 = getelementptr inbounds i8, ptr %12, i64 120
+  %263 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %263) #16
-  %264 = getelementptr inbounds i8, ptr %12, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %264) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #16
@@ -44929,9 +44929,9 @@ __cxx_global_var_init.40.exit:                    ; preds = %257
   br label %common.resume
 
 __cxx_global_var_init.42.exit:                    ; preds = %268
-  %274 = getelementptr inbounds i8, ptr %10, i64 120
+  %274 = getelementptr inbounds nuw i8, ptr %10, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %274) #16
-  %275 = getelementptr inbounds i8, ptr %10, i64 88
+  %275 = getelementptr inbounds nuw i8, ptr %10, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %275) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %10) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
@@ -44964,9 +44964,9 @@ __cxx_global_var_init.42.exit:                    ; preds = %268
   br label %common.resume
 
 __cxx_global_var_init.44.exit:                    ; preds = %279
-  %285 = getelementptr inbounds i8, ptr %8, i64 120
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %285) #16
-  %286 = getelementptr inbounds i8, ptr %8, i64 88
+  %286 = getelementptr inbounds nuw i8, ptr %8, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %286) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %8) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
@@ -44999,9 +44999,9 @@ __cxx_global_var_init.44.exit:                    ; preds = %279
   br label %common.resume
 
 __cxx_global_var_init.46.exit:                    ; preds = %290
-  %296 = getelementptr inbounds i8, ptr %6, i64 120
+  %296 = getelementptr inbounds nuw i8, ptr %6, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #16
-  %297 = getelementptr inbounds i8, ptr %6, i64 88
+  %297 = getelementptr inbounds nuw i8, ptr %6, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %297) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %6) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
@@ -45034,9 +45034,9 @@ __cxx_global_var_init.46.exit:                    ; preds = %290
   br label %common.resume
 
 __cxx_global_var_init.48.exit:                    ; preds = %301
-  %307 = getelementptr inbounds i8, ptr %4, i64 120
+  %307 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %307) #16
-  %308 = getelementptr inbounds i8, ptr %4, i64 88
+  %308 = getelementptr inbounds nuw i8, ptr %4, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %308) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -45069,9 +45069,9 @@ __cxx_global_var_init.48.exit:                    ; preds = %301
   br label %common.resume
 
 __cxx_global_var_init.50.exit:                    ; preds = %312
-  %318 = getelementptr inbounds i8, ptr %2, i64 120
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %318) #16
-  %319 = getelementptr inbounds i8, ptr %2, i64 88
+  %319 = getelementptr inbounds nuw i8, ptr %2, i64 88
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %319) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #16
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16

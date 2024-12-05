@@ -82,12 +82,12 @@ define internal noundef i64 @udp_connect(i64 noundef %0, i64 noundef %1, i64 nou
   %4 = alloca %struct.udp_arg, align 8
   %5 = tail call i64 @rb_io_taint_check(i64 noundef %0) #4
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
   tail call void @rb_io_check_closed(ptr noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @rsock_fd_family(i32 noundef %11) #4
   %13 = tail call ptr @rsock_addrinfo(i64 noundef %1, i64 noundef %2, i32 noundef %12, i32 noundef 2, i32 noundef 0) #4
@@ -111,12 +111,12 @@ define internal noundef i64 @udp_bind(i64 noundef %0, i64 noundef %1, i64 nounde
   %4 = alloca %struct.udp_arg, align 8
   %5 = tail call i64 @rb_io_taint_check(i64 noundef %0) #4
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
   tail call void @rb_io_check_closed(ptr noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @rsock_fd_family(i32 noundef %11) #4
   %13 = tail call ptr @rsock_addrinfo(i64 noundef %1, i64 noundef %2, i32 noundef %12, i32 noundef 2, i32 noundef 0) #4
@@ -150,19 +150,19 @@ define internal i64 @udp_send(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   br label %45
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %15 = call i64 @rb_string_value(ptr noundef nonnull %13) #4
   %16 = call i64 @rb_io_taint_check(i64 noundef %2) #4
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8
   call void @rb_io_check_closed(ptr noundef %19) #4
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %12, align 8
   %24 = load i64, ptr %4, align 8
@@ -181,12 +181,12 @@ define internal i64 @udp_send(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
 rb_num2int_inline.exit:                           ; preds = %26, %28
   %.0.i = phi i64 [ %27, %26 ], [ %29, %28 ]
   %30 = trunc i64 %.0.i to i32
-  %31 = getelementptr inbounds i8, ptr %7, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %30, ptr %31, align 4
   %32 = load i64, ptr %5, align 8
   %33 = load i64, ptr %6, align 8
   %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = call i32 @rsock_fd_family(i32 noundef %36) #4
   %38 = call ptr @rsock_addrinfo(i64 noundef %32, i64 noundef %33, i32 noundef %37, i32 noundef 2, i32 noundef 0) #4
@@ -242,10 +242,10 @@ declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @udp_connect_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @rb_io_check_closed(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
   %.010 = load ptr, ptr %7, align 8
@@ -253,16 +253,16 @@ define internal range(i64 0, 21) i64 @udp_connect_internal(i64 noundef %0) #0 {
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.012, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %1, %8
   %.012 = phi ptr [ %.0, %8 ], [ %.010, %1 ]
-  %10 = getelementptr inbounds i8, ptr %.012, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.012, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @rsock_connect(i32 noundef %6, ptr noundef %11, i32 noundef %13, i32 noundef 0, ptr noundef null) #4
   %15 = icmp sgt i32 %14, -1
@@ -283,10 +283,10 @@ declare i32 @rsock_connect(i32 noundef, ptr noundef, i32 noundef, i32 noundef, p
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @udp_bind_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @rb_io_check_closed(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
   %.0910 = load ptr, ptr %7, align 8
@@ -294,16 +294,16 @@ define internal range(i64 0, 21) i64 @udp_bind_internal(i64 noundef %0) #0 {
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.0912, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 40
   %.09 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.09, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %1, %8
   %.0912 = phi ptr [ %.09, %8 ], [ %.0910, %1 ]
-  %10 = getelementptr inbounds i8, ptr %.0912, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0912, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @bind(i32 noundef %6, ptr %11, i32 noundef %13) #4
   %15 = icmp slt i32 %14, 0
@@ -324,7 +324,7 @@ declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @rb_io_check_closed(ptr noundef %4) #4
   %5 = load ptr, ptr %2, align 8
@@ -333,16 +333,16 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br i1 %.not21, label %rb_ll2num_inline.exit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %30
   %.01622 = phi ptr [ %.01620, %.preheader.lr.ph ], [ %.016, %30 ]
-  %10 = getelementptr inbounds i8, ptr %.01622, i64 24
-  %11 = getelementptr inbounds i8, ptr %.01622, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01622, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.01622, i64 16
   br label %12
 
 12:                                               ; preds = %.preheader, %25
@@ -378,7 +378,7 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br i1 %.not18, label %30, label %12
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.01622, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.01622, i64 40
   %.016 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.016, null
   br i1 %.not, label %rb_ll2num_inline.exit, label %.preheader, !llvm.loop !9

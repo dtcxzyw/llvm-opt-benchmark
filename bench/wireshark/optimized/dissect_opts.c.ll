@@ -103,25 +103,25 @@ sub_0:                                            ; preds = %12, %22
   ]
 
 .tail:                                            ; preds = %sub_0
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.sink.split, label %.tail57.thread
 
 .tail53:                                          ; preds = %sub_0
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %.sink.split, label %sub_159
 
 sub_159:                                          ; preds = %.tail53
-  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %31 = load i8, ptr %30, align 1
   %.not93 = icmp eq i8 %31, 100
   br i1 %.not93, label %.tail57, label %.tail57.thread
 
 .tail57:                                          ; preds = %sub_159
-  %32 = getelementptr inbounds i8, ptr %1, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.sink.split, label %.thread
@@ -144,43 +144,43 @@ sub_062:                                          ; preds = %.tail57.thread
   ]
 
 .tail61:                                          ; preds = %sub_062
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.sink.split, label %sub_167
 
 sub_167:                                          ; preds = %.tail61
-  %42 = getelementptr inbounds i8, ptr %1, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %43 = load i8, ptr %42, align 1
   %.not96 = icmp eq i8 %43, 100
   br i1 %.not96, label %.tail65, label %.tail78.thread
 
 .tail65:                                          ; preds = %sub_167
-  %44 = getelementptr inbounds i8, ptr %1, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %.sink.split, label %.tail78.thread
 
 .tail70:                                          ; preds = %sub_062
-  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %.sink.split, label %.tail78.thread
 
 .tail74:                                          ; preds = %sub_062
-  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %.sink.split, label %sub_180
 
 sub_180:                                          ; preds = %.tail74
-  %53 = getelementptr inbounds i8, ptr %1, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %54 = load i8, ptr %53, align 1
   %.not100 = icmp eq i8 %54, 100
   br i1 %.not100, label %.tail78, label %.tail78.thread
 
 .tail78:                                          ; preds = %sub_180
-  %55 = getelementptr inbounds i8, ptr %1, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %.sink.split, label %.tail78.thread
@@ -222,7 +222,7 @@ sub_084:                                          ; preds = %2
   br i1 %.not89, label %.tail83, label %.tail83.thread
 
 .tail83:                                          ; preds = %sub_084
-  %66 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %69, label %.tail83.thread
@@ -394,7 +394,7 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
 .loopexit.i:                                      ; preds = %13, %7, %5
   %.330.i = phi i32 [ %.02739.i, %5 ], [ 0, %7 ], [ %.229.i, %13 ]
   %.3.i = phi i8 [ %.040.i, %5 ], [ %.040.i, %7 ], [ %.2.i, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.03238.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.03238.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %process_enable_disable_list.exit, label %.lr.ph.i, !llvm.loop !7
@@ -461,7 +461,7 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
 .loopexit.i20:                                    ; preds = %32, %26, %24
   %.330.i21 = phi i32 [ %.02739.i8, %24 ], [ 0, %26 ], [ %.229.i18, %32 ]
   %.3.i22 = phi i8 [ %.040.i7, %24 ], [ %.040.i7, %26 ], [ %.2.i16, %32 ]
-  %37 = getelementptr inbounds i8, ptr %.03238.i9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.03238.i9, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i23 = icmp eq ptr %38, null
   br i1 %.not.i23, label %process_enable_disable_list.exit26, label %.lr.ph.i6, !llvm.loop !7
@@ -528,7 +528,7 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
 .loopexit.i42:                                    ; preds = %51, %45, %43
   %.330.i43 = phi i32 [ %.02739.i30, %43 ], [ 0, %45 ], [ %.229.i40, %51 ]
   %.3.i44 = phi i8 [ %.040.i29, %43 ], [ %.040.i29, %45 ], [ %.2.i38, %51 ]
-  %56 = getelementptr inbounds i8, ptr %.03238.i31, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.03238.i31, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i45 = icmp eq ptr %57, null
   br i1 %.not.i45, label %process_enable_disable_list.exit48, label %.lr.ph.i28, !llvm.loop !7
@@ -595,7 +595,7 @@ process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %pro
 .loopexit.i64:                                    ; preds = %70, %64, %62
   %.330.i65 = phi i32 [ %.02739.i52, %62 ], [ 0, %64 ], [ %.229.i62, %70 ]
   %.3.i66 = phi i8 [ %.040.i51, %62 ], [ %.040.i51, %64 ], [ %.2.i60, %70 ]
-  %75 = getelementptr inbounds i8, ptr %.03238.i53, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.03238.i53, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i67 = icmp eq ptr %76, null
   br i1 %.not.i67, label %process_enable_disable_list.exit70, label %.lr.ph.i50, !llvm.loop !7

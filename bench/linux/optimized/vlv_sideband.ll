@@ -30,21 +30,21 @@ define dso_local void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef %1) local_unn
 
 5:                                                ; preds = %2
   tail call void @iosf_mbi_punit_acquire() #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 7184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 2097152
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 7976
-  tail call void @cpu_latency_qos_update_request(ptr noundef %11, i32 noundef 0) #7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 7976
+  tail call void @cpu_latency_qos_update_request(ptr noundef nonnull %11, i32 noundef 0) #7
   tail call void @on_each_cpu_cond_mask(ptr noundef null, ptr noundef nonnull @ping, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull @__cpu_online_mask) #7
   br label %12
 
 12:                                               ; preds = %10, %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_lock(ptr noundef %13) #7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %13) #7
   ret void
 }
 
@@ -53,22 +53,22 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_unlock(ptr noundef %3) #7
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_unlock(ptr noundef nonnull %3) #7
   %4 = and i64 %1, 128
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 7184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 2097152
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 7976
-  tail call void @cpu_latency_qos_update_request(ptr noundef %12, i32 noundef -1) #7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 7976
+  tail call void @cpu_latency_qos_update_request(ptr noundef nonnull %12, i32 noundef -1) #7
   br label %13
 
 13:                                               ; preds = %11, %6
@@ -98,7 +98,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr noundef %0, i32 noundef range(i32 3, 170) %1, i32 noundef range(i32 0, 8) %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 7368
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %7 = icmp eq i32 %2, 0
   %8 = icmp eq i32 %2, 6
   %9 = or i1 %7, %8
@@ -110,7 +110,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
   br label %12
 
 12:                                               ; preds = %11, %5
-  %13 = tail call i32 @__intel_wait_for_register(ptr noundef %6, i32 1581312, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 5, ptr noundef null) #7
+  %13 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %6, i32 1581312, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 5, ptr noundef null) #7
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %23, label %15
 
@@ -119,7 +119,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -156,7 +156,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr i8, ptr %36, i64 1581312
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %37) #7, !srcloc !8
-  %38 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %6, i32 1581312, i32 noundef 1, i32 noundef 0, i32 noundef 10000, i32 noundef 0, ptr noundef null) #7
+  %38 = tail call i32 @__intel_wait_for_register_fw(ptr noundef nonnull %6, i32 1581312, i32 noundef 1, i32 noundef 0, i32 noundef 10000, i32 noundef 0, ptr noundef null) #7
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %45
 
@@ -178,7 +178,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %50
 
@@ -291,7 +291,7 @@ define dso_local void @vlv_ccu_write(ptr noundef %0, i32 noundef %1, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vlv_dpio_read(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 7184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 16777216
   %8 = icmp eq i32 %7, 0
@@ -307,11 +307,11 @@ define dso_local i32 @vlv_dpio_read(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 15:                                               ; preds = %3
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #7, !srcloc !15
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @dev_driver_string(ptr noundef %17) #7
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
@@ -344,7 +344,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 define dso_local void @vlv_dpio_write(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 7184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 16777216
   %9 = icmp eq i32 %8, 0

@@ -330,7 +330,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [9 x i8], align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.86) #4
   %8 = load ptr, ptr %6, align 8
@@ -362,7 +362,7 @@ define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = load i32, ptr @hf_zrtp_msg_length, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
   %35 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 16, i64 noundef 8) #4
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %36, align 1
   %37 = load i32, ptr @hf_zrtp_msg_type, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %37, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0) #4
@@ -470,7 +470,7 @@ check_valid_version.exit.i:                       ; preds = %55, %52
 
 .lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph181.i
   %.lcssa175.i = phi ptr [ @zrtp_hash_type_vals, %.lr.ph181.i ], [ %97, %.lr.ph.i.i ]
-  %100 = getelementptr inbounds i8, ptr %.lcssa175.i, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.lcssa175.i, i64 8
   %101 = load ptr, ptr %100, align 8
   br label %key_to_val.exit.i
 
@@ -521,7 +521,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
 
 .lr.ph.i140._crit_edge.i:                         ; preds = %.lr.ph.i140.i, %.lr.ph191.i
   %.lcssa173.i = phi ptr [ @zrtp_cipher_type_vals, %.lr.ph191.i ], [ %115, %.lr.ph.i140.i ]
-  %118 = getelementptr inbounds i8, ptr %.lcssa173.i, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.lcssa173.i, i64 8
   %119 = load ptr, ptr %118, align 8
   br label %key_to_val.exit146.i
 
@@ -572,7 +572,7 @@ key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i,
 
 .lr.ph.i147._crit_edge.i:                         ; preds = %.lr.ph.i147.i, %.lr.ph202.i
   %.lcssa171.i = phi ptr [ @zrtp_auth_tag_vals, %.lr.ph202.i ], [ %133, %.lr.ph.i147.i ]
-  %136 = getelementptr inbounds i8, ptr %.lcssa171.i, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.lcssa171.i, i64 8
   %137 = load ptr, ptr %136, align 8
   br label %key_to_val.exit153.i
 
@@ -623,7 +623,7 @@ key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i,
 
 .lr.ph.i154._crit_edge.i:                         ; preds = %.lr.ph.i154.i, %.lr.ph213.i
   %.lcssa169.i = phi ptr [ @zrtp_key_agreement_vals, %.lr.ph213.i ], [ %151, %.lr.ph.i154.i ]
-  %154 = getelementptr inbounds i8, ptr %.lcssa169.i, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.lcssa169.i, i64 8
   %155 = load ptr, ptr %154, align 8
   br label %key_to_val.exit160.i
 
@@ -674,7 +674,7 @@ key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i,
 
 .lr.ph.i161._crit_edge.i:                         ; preds = %.lr.ph.i161.i, %.lr.ph224.i
   %.lcssa.i = phi ptr [ @zrtp_sas_type_vals, %.lr.ph224.i ], [ %169, %.lr.ph.i161.i ]
-  %172 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 8
   %173 = load ptr, ptr %172, align 8
   br label %key_to_val.exit167.i
 
@@ -746,7 +746,7 @@ dissect_Hello.exit:                               ; preds = %key_to_val.exit167.
 
 .lr.ph.i._crit_edge.i195:                         ; preds = %.lr.ph.i.i192, %184
   %.lcssa8.i = phi ptr [ @zrtp_hash_type_vals, %184 ], [ %198, %.lr.ph.i.i192 ]
-  %201 = getelementptr inbounds i8, ptr %.lcssa8.i, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %.lcssa8.i, i64 8
   %202 = load ptr, ptr %201, align 8
   br label %key_to_val.exit.i196
 
@@ -780,7 +780,7 @@ key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200,
 
 .lr.ph.i62._crit_edge.i:                          ; preds = %.lr.ph.i62.i, %key_to_val.exit.i196
   %.lcssa6.i = phi ptr [ @zrtp_cipher_type_vals, %key_to_val.exit.i196 ], [ %210, %.lr.ph.i62.i ]
-  %213 = getelementptr inbounds i8, ptr %.lcssa6.i, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.lcssa6.i, i64 8
   %214 = load ptr, ptr %213, align 8
   br label %key_to_val.exit68.i
 
@@ -814,7 +814,7 @@ key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, 
 
 .lr.ph.i69._crit_edge.i:                          ; preds = %.lr.ph.i69.i, %key_to_val.exit68.i
   %.lcssa4.i = phi ptr [ @zrtp_auth_tag_vals, %key_to_val.exit68.i ], [ %222, %.lr.ph.i69.i ]
-  %225 = getelementptr inbounds i8, ptr %.lcssa4.i, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.lcssa4.i, i64 8
   %226 = load ptr, ptr %225, align 8
   br label %key_to_val.exit75.i
 
@@ -848,7 +848,7 @@ key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, 
 
 .lr.ph.i76._crit_edge.i:                          ; preds = %.lr.ph.i76.i, %key_to_val.exit75.i
   %.lcssa2.i = phi ptr [ @zrtp_key_agreement_vals, %key_to_val.exit75.i ], [ %234, %.lr.ph.i76.i ]
-  %237 = getelementptr inbounds i8, ptr %.lcssa2.i, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %.lcssa2.i, i64 8
   %238 = load ptr, ptr %237, align 8
   br label %key_to_val.exit82.i
 
@@ -894,7 +894,7 @@ key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, 
 
 .lr.ph.i83._crit_edge.i:                          ; preds = %.lr.ph.i83.i, %245
   %.lcssa.i199 = phi ptr [ @zrtp_sas_type_vals, %245 ], [ %250, %.lr.ph.i83.i ]
-  %253 = getelementptr inbounds i8, ptr %.lcssa.i199, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.lcssa.i199, i64 8
   %254 = load ptr, ptr %253, align 8
   br label %key_to_val.exit89.i
 
@@ -1194,21 +1194,21 @@ define internal fastcc void @dissect_Conf2ACK(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #4
   %3 = tail call noalias ptr @wmem_alloc0(ptr noundef %2, i64 noundef 16) #4
   store i32 2, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
-  %8 = getelementptr inbounds i8, ptr %0, i64 284
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   tail call void @srtp_add_address(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %9, i32 noundef %11, ptr noundef nonnull @.str.86, i32 noundef %13, i32 noundef 1, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #4
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %10, align 8
   %16 = load i32, ptr %8, align 4
   %17 = load i32, ptr %12, align 4
@@ -1225,7 +1225,7 @@ define internal fastcc void @dissect_Conf2ACK(ptr noundef %0) unnamed_addr #0 {
   %26 = add i32 %25, 1
   %27 = load i32, ptr %12, align 4
   tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.86, i32 noundef %27, ptr noundef nonnull %3) #4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.217) #4
   ret void

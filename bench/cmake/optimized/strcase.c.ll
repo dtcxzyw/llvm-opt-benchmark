@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local signext i8 @Curl_raw_toupper(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   ret i8 %4
 }
@@ -17,7 +17,7 @@ define dso_local signext i8 @Curl_raw_toupper(i8 noundef signext %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local signext i8 @Curl_raw_tolower(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [256 x i8], ptr @tolowermap, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @tolowermap, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   ret i8 %4
 }
@@ -44,17 +44,17 @@ define dso_local range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly %0, ptr
 
 9:                                                ; preds = %.lr.ph.i
   %10 = zext i8 %7 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %.not13.i = icmp eq i8 %12, %15
   br i1 %.not13.i, label %16, label %casecompare.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %.0817.i, i64 1
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %19 = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %19, 0
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !5
@@ -104,18 +104,18 @@ define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly %0, pt
 
 12:                                               ; preds = %.lr.ph.i
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %9 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %.not15.i = icmp eq i8 %15, %18
   br i1 %.not15.i, label %19, label %ncasecompare.exit
 
 19:                                               ; preds = %12
   %20 = add i64 %.022.i, -1
-  %21 = getelementptr inbounds i8, ptr %.01320.i, i64 1
-  %22 = getelementptr inbounds i8, ptr %.01221.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 1
   %23 = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
@@ -135,11 +135,11 @@ define dso_local range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly %0, pt
   br i1 %25, label %ncasecompare.exit, label %26
 
 26:                                               ; preds = %.critedge.i
-  %27 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %.lcssa.i
+  %27 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %.lcssa.i
   %28 = load i8, ptr %27, align 1
   %29 = load i8, ptr %.012.lcssa.i, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %28, %32
   br label %ncasecompare.exit
@@ -169,13 +169,13 @@ define dso_local void @Curl_strntoupper(ptr nocapture noundef writeonly %0, ptr 
   %.0 = phi i64 [ %12, %.preheader ], [ %2, %3 ]
   %5 = load i8, ptr %.04, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @touppermap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @touppermap, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   store i8 %8, ptr %.05, align 1
   %9 = load i8, ptr %.04, align 1
   %.not = icmp eq i8 %9, 0
-  %10 = getelementptr inbounds i8, ptr %.04, i64 1
-  %11 = getelementptr inbounds i8, ptr %.05, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.04, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %12 = add i64 %.0, -1
   %.not8 = icmp eq i64 %12, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not8
@@ -196,13 +196,13 @@ define dso_local void @Curl_strntolower(ptr nocapture noundef writeonly %0, ptr 
   %.0 = phi i64 [ %12, %.preheader ], [ %2, %3 ]
   %5 = load i8, ptr %.04, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @tolowermap, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @tolowermap, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   store i8 %8, ptr %.05, align 1
   %9 = load i8, ptr %.04, align 1
   %.not = icmp eq i8 %9, 0
-  %10 = getelementptr inbounds i8, ptr %.04, i64 1
-  %11 = getelementptr inbounds i8, ptr %.05, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.04, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %12 = add i64 %.0, -1
   %.not8 = icmp eq i64 %12, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not8
@@ -247,9 +247,9 @@ define dso_local i32 @Curl_timestrcmp(ptr noundef readonly %0, ptr noundef reado
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %.016 = phi i32 [ %11, %.preheader ], [ 0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = xor i8 %8, %6
   %10 = sext i8 %9 to i32

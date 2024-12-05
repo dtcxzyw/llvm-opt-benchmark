@@ -77,7 +77,7 @@ define hidden void @_ZN16JfrChunkRotation8evaluateERK14JfrChunkWriter(ptr nounde
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %11, i64 1092
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1092
   store volatile i32 6, ptr %14, align 4
   br i1 %13, label %16, label %15
 
@@ -87,7 +87,7 @@ define hidden void @_ZN16JfrChunkRotation8evaluateERK14JfrChunkWriter(ptr nounde
   br label %16
 
 16:                                               ; preds = %15, %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1096
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1096
   %18 = load volatile i64, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %19 = and i64 %18, 1
@@ -99,7 +99,7 @@ define hidden void @_ZN16JfrChunkRotation8evaluateERK14JfrChunkWriter(ptr nounde
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; preds = %20, %16
-  %21 = getelementptr inbounds i8, ptr %11, i64 1088
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 1088
   %22 = load volatile i32, ptr %21, align 8
   %23 = and i32 %22, 12
   %.not.i.i.i.i = icmp eq i32 %23, 0
@@ -123,7 +123,7 @@ _ZL17get_chunk_monitorP10JavaThread.exit.i:       ; preds = %_ZN20ThreadInVMfrom
   store i8 12, ptr %3, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePKcS3_S3_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(300) %4, ptr noundef nonnull %3, ptr noundef nonnull @_ZZL21install_chunk_monitorP10JavaThreadE5klass, ptr noundef nonnull @_ZZL21install_chunk_monitorP10JavaThreadE5field, ptr noundef nonnull @_ZZL21install_chunk_monitorP10JavaThreadE9signature, ptr noundef nonnull %11) #9
   call void @_ZN14JfrJavaSupport20get_field_global_refEP16JfrJavaArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef nonnull %11) #9
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr @_ZL13chunk_monitor, align 8
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #9
@@ -134,7 +134,7 @@ _ZL17get_chunk_monitorP10JavaThread.exit.i:       ; preds = %_ZN20ThreadInVMfrom
   br i1 %28, label %29, label %_ZL17get_chunk_monitorP10JavaThread.exit.thread.i
 
 29:                                               ; preds = %_ZL17get_chunk_monitorP10JavaThread.exit.i
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZL6notifyv.exit, label %31
 
@@ -148,7 +148,7 @@ _ZL17get_chunk_monitorP10JavaThread.exit.thread.i: ; preds = %_ZL17get_chunk_mon
   br label %_ZL6notifyv.exit
 
 _ZL6notifyv.exit:                                 ; preds = %29, %31, %_ZL17get_chunk_monitorP10JavaThread.exit.thread.i
-  %33 = getelementptr inbounds i8, ptr %11, i64 928
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %33) #9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   store volatile i32 4, ptr %14, align 4

@@ -303,11 +303,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16OffsetCameraStepC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, ptr nocapture noundef readonly %vtt, float noundef %eye_offset) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %this, align 8, !tbaa !12
-  %3 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %4 = load ptr, ptr %3, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -40
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
@@ -315,7 +315,7 @@ invoke.cont3:
   store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !12
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %this, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %vtt, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %vtt, i64 32
   %7 = load ptr, ptr %6, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %5, i64 -40
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -323,33 +323,33 @@ invoke.cont3:
   store ptr %7, ptr %add.ptr.i, align 8, !tbaa !12
   %8 = load ptr, ptr %vtt, align 8
   store ptr %8, ptr %this, align 8, !tbaa !12
-  %9 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %10 = load ptr, ptr %9, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %8, i64 -40
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %10, ptr %add.ptr, align 8, !tbaa !12
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = getelementptr inbounds i8, ptr %this, i64 12
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 56, i1 false)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %arrayidx4.i.i, align 8, !tbaa !14
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4, !tbaa !14
   store float 1.000000e+00, ptr %base_transform, align 8, !tbaa !14
-  %12 = getelementptr inbounds i8, ptr %this, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 44, i1 false)
-  %arrayidx.i.i9 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 132
   store float 1.000000e+00, ptr %arrayidx.i.i9, align 4, !tbaa !14
-  %arrayidx4.i.i10 = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx4.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store float 1.000000e+00, ptr %arrayidx4.i.i10, align 8, !tbaa !14
-  %arrayidx6.i.i11 = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx6.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i11, align 4, !tbaa !14
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store float %eye_offset, ptr %arrayidx.i, align 8, !tbaa !14
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   store <2 x float> zeroinitializer, ptr %arrayidx3.i, align 4, !tbaa !14
   ret void
 }
@@ -358,27 +358,27 @@ invoke.cont3:
 define dso_local void @_ZN16OffsetCameraStepC1Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, float noundef %eye_offset) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 12
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %arrayidx4.i.i, align 8, !tbaa !14
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4, !tbaa !14
   store float 1.000000e+00, ptr %base_transform, align 8, !tbaa !14
-  %1 = getelementptr inbounds i8, ptr %this, i64 76
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 44, i1 false)
-  %arrayidx.i.i9 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 132
   store float 1.000000e+00, ptr %arrayidx.i.i9, align 4, !tbaa !14
-  %arrayidx4.i.i10 = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx4.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store float 1.000000e+00, ptr %arrayidx4.i.i10, align 8, !tbaa !14
-  %arrayidx6.i.i11 = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx6.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i11, align 4, !tbaa !14
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store float %eye_offset, ptr %arrayidx.i, align 8, !tbaa !14
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   store <2 x float> zeroinitializer, ptr %arrayidx3.i, align 4, !tbaa !14
   ret void
 }
@@ -388,11 +388,11 @@ define dso_local void @_ZN16OffsetCameraStepC2Eb(ptr nocapture noundef nonnull w
 invoke.cont3:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %this, align 8, !tbaa !12
-  %3 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %4 = load ptr, ptr %3, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -40
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
@@ -400,7 +400,7 @@ invoke.cont3:
   store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !12
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %this, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %vtt, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %vtt, i64 32
   %7 = load ptr, ptr %6, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %5, i64 -40
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -408,33 +408,33 @@ invoke.cont3:
   store ptr %7, ptr %add.ptr.i, align 8, !tbaa !12
   %8 = load ptr, ptr %vtt, align 8
   store ptr %8, ptr %this, align 8, !tbaa !12
-  %9 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %10 = load ptr, ptr %9, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %8, i64 -40
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %10, ptr %add.ptr, align 8, !tbaa !12
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %11 = getelementptr inbounds i8, ptr %this, i64 12
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 56, i1 false)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %arrayidx4.i.i, align 8, !tbaa !14
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4, !tbaa !14
   store float 1.000000e+00, ptr %base_transform, align 8, !tbaa !14
-  %12 = getelementptr inbounds i8, ptr %this, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 56, i1 false)
-  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 132
   store float 1.000000e+00, ptr %arrayidx.i.i24, align 4, !tbaa !14
-  %arrayidx4.i.i25 = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx4.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store float 1.000000e+00, ptr %arrayidx4.i.i25, align 8, !tbaa !14
-  %arrayidx6.i.i26 = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx6.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i26, align 4, !tbaa !14
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %13 = load ptr, ptr @g_settings, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
-  %14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %14, ptr %ref.tmp, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #20
   store i64 19, ptr %__dnew.i.i, align 8, !tbaa !18
@@ -443,7 +443,7 @@ invoke.cont3:
   %15 = load i64, ptr %__dnew.i.i, align 8, !tbaa !18
   store i64 %15, ptr %14, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i11.i27, ptr noundef nonnull align 1 dereferenceable(19) @.str.14, i64 19, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %15, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %16 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %16, i64 %15
@@ -472,9 +472,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %19 = fneg nsz float %mul
   %mul9 = select nsz i1 %right_eye, float %mul, float %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store float %mul9, ptr %arrayidx.i, align 8, !tbaa !14
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   store <2 x float> zeroinitializer, ptr %arrayidx3.i, align 4, !tbaa !14
   ret void
 
@@ -508,27 +508,27 @@ invoke.cont2:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 12
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float 1.000000e+00, ptr %arrayidx4.i.i, align 8, !tbaa !14
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store float 1.000000e+00, ptr %arrayidx6.i.i, align 4, !tbaa !14
   store float 1.000000e+00, ptr %base_transform, align 8, !tbaa !14
-  %1 = getelementptr inbounds i8, ptr %this, i64 76
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
-  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 132
   store float 1.000000e+00, ptr %arrayidx.i.i24, align 4, !tbaa !14
-  %arrayidx4.i.i25 = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx4.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 112
   store float 1.000000e+00, ptr %arrayidx4.i.i25, align 8, !tbaa !14
-  %arrayidx6.i.i26 = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx6.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i26, align 4, !tbaa !14
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %2 = load ptr, ptr @g_settings, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %3, ptr %ref.tmp, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #20
   store i64 19, ptr %__dnew.i.i, align 8, !tbaa !18
@@ -537,7 +537,7 @@ invoke.cont2:
   %4 = load i64, ptr %__dnew.i.i, align 8, !tbaa !18
   store i64 %4, ptr %3, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i11.i27, ptr noundef nonnull align 1 dereferenceable(19) @.str.14, i64 19, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -566,9 +566,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %8 = fneg nsz float %mul
   %mul8 = select nsz i1 %right_eye, float %mul, float %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store float %mul8, ptr %arrayidx.i, align 8, !tbaa !14
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   store <2 x float> zeroinitializer, ptr %arrayidx3.i, align 4, !tbaa !14
   ret void
 
@@ -599,17 +599,17 @@ define dso_local void @_ZN16OffsetCameraStep5resetER15PipelineContext(ptr nocapt
 entry:
   %ref.tmp = alloca %"class.irr::core::CMatrix4", align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #20
-  %client = getelementptr inbounds i8, ptr %context, i64 8
+  %client = getelementptr inbounds nuw i8, ptr %context, i64 8
   %0 = load ptr, ptr %client, align 8, !tbaa !20
-  %m_camera.i = getelementptr inbounds i8, ptr %0, i64 632
+  %m_camera.i = getelementptr inbounds nuw i8, ptr %0, i64 632
   %1 = load ptr, ptr %m_camera.i, align 8, !tbaa !26
-  %m_cameranode.i = getelementptr inbounds i8, ptr %1, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !141
   %vtable = load ptr, ptr %2, align 8, !tbaa !12
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(222) %2)
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %base_transform, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, i64 64, i1 false), !tbaa.struct !164
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp) #20
   ret void
@@ -627,17 +627,17 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i) #20
-  %client.i = getelementptr inbounds i8, ptr %context, i64 8
+  %client.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %4 = load ptr, ptr %client.i, align 8, !tbaa !20
-  %m_camera.i.i = getelementptr inbounds i8, ptr %4, i64 632
+  %m_camera.i.i = getelementptr inbounds nuw i8, ptr %4, i64 632
   %5 = load ptr, ptr %m_camera.i.i, align 8, !tbaa !26
-  %m_cameranode.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %m_cameranode.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %m_cameranode.i.i, align 8, !tbaa !141
   %vtable.i = load ptr, ptr %6, align 8, !tbaa !12
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %7 = load ptr, ptr %vfn.i, align 8
   call void %7(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(222) %6)
-  %base_transform.i = getelementptr inbounds i8, ptr %3, i64 8
+  %base_transform.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %base_transform.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.i, i64 64, i1 false), !tbaa.struct !164
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i) #20
   ret void
@@ -647,32 +647,32 @@ entry:
 define dso_local void @_ZN16OffsetCameraStep3runER15PipelineContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #10 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
-  %client = getelementptr inbounds i8, ptr %context, i64 8
+  %client = getelementptr inbounds nuw i8, ptr %context, i64 8
   %0 = load ptr, ptr %client, align 8, !tbaa !20
-  %m_camera.i = getelementptr inbounds i8, ptr %0, i64 632
+  %m_camera.i = getelementptr inbounds nuw i8, ptr %0, i64 632
   %1 = load ptr, ptr %m_camera.i, align 8, !tbaa !26
-  %m_cameranode.i = getelementptr inbounds i8, ptr %1, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !141
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #20
-  %base_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx2.i = getelementptr inbounds i8, ptr %this, i64 24
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 40
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 56
-  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 16
+  %base_transform = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %arrayidx20.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load float, ptr %arrayidx22.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load float, ptr %arrayidx25.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load float, ptr %arrayidx27.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx.i340.i = getelementptr inbounds i8, ptr %this, i64 120
+  %arrayidx.i340.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %7 = load float, ptr %arrayidx.i340.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx.i341.i = getelementptr inbounds i8, ptr %this, i64 124
+  %arrayidx.i341.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %8 = load float, ptr %arrayidx.i341.i, align 4, !tbaa !14, !noalias !165
-  %arrayidx.i342.i = getelementptr inbounds i8, ptr %this, i64 128
+  %arrayidx.i342.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %9 = load float, ptr %arrayidx.i342.i, align 8, !tbaa !14, !noalias !165
-  %arrayidx.i343.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx.i343.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %10 = load float, ptr %arrayidx.i343.i, align 4, !tbaa !14, !noalias !165
   %11 = load <2 x float>, ptr %base_transform, align 8, !tbaa !14, !noalias !165
   %12 = load <2 x float>, ptr %arrayidx2.i, align 8, !tbaa !14, !noalias !165
@@ -695,10 +695,10 @@ entry:
   %28 = tail call nsz float @llvm.fmuladd.f32(float %5, float %9, float %27)
   %29 = tail call nsz float @llvm.fmuladd.f32(float %6, float %10, float %28)
   store <2 x float> %26, ptr %ref.tmp, align 8
-  %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store float %29, ptr %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx, align 8
   %vtable = load ptr, ptr %2, align 8, !tbaa !12
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %30 = load ptr, ptr %vfn, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(222) %2, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp) #20
@@ -797,7 +797,7 @@ entry:
 
 _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !12
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %if.end

@@ -78,7 +78,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %10, i32 noundef 1)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -115,7 +115,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %28)
           to label %35 unwind label %95
@@ -190,7 +190,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %72)
           to label %79 unwind label %84
@@ -251,7 +251,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
   invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef %104)
           to label %215 unwind label %110
@@ -270,7 +270,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 113:                                              ; preds = %87
   %114 = load i32, ptr %9, align 8
   %115 = load ptr, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %114, i32 noundef 1)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -307,7 +307,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 133:                                              ; preds = %129
   %134 = load ptr, ptr %131, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
   invoke void %136(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef %132)
           to label %139 unwind label %197
@@ -382,7 +382,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 177:                                              ; preds = %173
   %178 = load ptr, ptr %175, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8
   invoke void %180(ptr noundef nonnull align 8 dereferenceable(8) %175, ptr noundef %176)
           to label %183 unwind label %186
@@ -439,7 +439,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn9LayerNorm10load_modelERKN
 
 207:                                              ; preds = %203
   %208 = load ptr, ptr %205, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %210 = load ptr, ptr %209, align 8
   invoke void %210(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef %206)
           to label %215 unwind label %212
@@ -498,7 +498,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0276361 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %12 = getelementptr inbounds float, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
   %14 = fadd fast float %13, %.0276361
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -514,7 +514,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph365:                                        ; preds = %._crit_edge, %.lr.ph365
   %indvars.iv448 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next449, %.lr.ph365 ]
   %.0278363 = phi float [ 0.000000e+00, %._crit_edge ], [ %21, %.lr.ph365 ]
-  %17 = getelementptr inbounds float, ptr %9, i64 %indvars.iv448
+  %17 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv448
   %18 = load float, ptr %17, align 4
   %19 = fsub fast float %18, %16
   %20 = fmul fast float %19, %19
@@ -558,16 +558,16 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 36:                                               ; preds = %.lr.ph369, %36
   %indvars.iv453 = phi i64 [ 0, %.lr.ph369 ], [ %indvars.iv.next454, %36 ]
-  %37 = getelementptr inbounds float, ptr %9, i64 %indvars.iv453
+  %37 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv453
   %38 = load float, ptr %37, align 4
   %39 = fmul fast float %38, %29
   %40 = fadd fast float %39, %31
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds float, ptr %41, i64 %indvars.iv453
+  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv453
   %43 = load float, ptr %42, align 4
   %44 = fmul fast float %40, %43
   %45 = load ptr, ptr %35, align 8
-  %46 = getelementptr inbounds float, ptr %45, i64 %indvars.iv453
+  %46 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv453
   %47 = load float, ptr %46, align 4
   %48 = fadd fast float %47, %44
   store float %48, ptr %37, align 4
@@ -577,7 +577,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph371:                                        ; preds = %.lr.ph371.preheader, %.lr.ph371
   %indvars.iv458 = phi i64 [ 0, %.lr.ph371.preheader ], [ %indvars.iv.next459, %.lr.ph371 ]
-  %49 = getelementptr inbounds float, ptr %9, i64 %indvars.iv458
+  %49 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv458
   %50 = load float, ptr %49, align 4
   %51 = fmul fast float %50, %29
   %52 = fadd fast float %51, %31
@@ -626,7 +626,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph375:                                        ; preds = %68, %.lr.ph375
   %indvars.iv463 = phi i64 [ %indvars.iv.next464, %.lr.ph375 ], [ 0, %68 ]
   %.0296373 = phi float [ %78, %.lr.ph375 ], [ 0.000000e+00, %68 ]
-  %76 = getelementptr inbounds float, ptr %75, i64 %indvars.iv463
+  %76 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv463
   %77 = load float, ptr %76, align 4
   %78 = fadd fast float %77, %.0296373
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
@@ -640,7 +640,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph381:                                        ; preds = %._crit_edge376, %.lr.ph381
   %indvars.iv468 = phi i64 [ %indvars.iv.next469, %.lr.ph381 ], [ 0, %._crit_edge376 ]
   %.0297379 = phi float [ %84, %.lr.ph381 ], [ 0.000000e+00, %._crit_edge376 ]
-  %80 = getelementptr inbounds float, ptr %75, i64 %indvars.iv468
+  %80 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv468
   %81 = load float, ptr %80, align 4
   %82 = fsub fast float %81, %79
   %83 = fmul fast float %82, %82
@@ -671,16 +671,16 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph385:                                        ; preds = %.preheader354, %.lr.ph385
   %indvars.iv473 = phi i64 [ %indvars.iv.next474, %.lr.ph385 ], [ 0, %.preheader354 ]
-  %92 = getelementptr inbounds float, ptr %75, i64 %indvars.iv473
+  %92 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv473
   %93 = load float, ptr %92, align 4
   %94 = fmul fast float %93, %89
   %95 = fadd fast float %94, %90
   %96 = load ptr, ptr %65, align 8
-  %97 = getelementptr inbounds float, ptr %96, i64 %indvars.iv473
+  %97 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv473
   %98 = load float, ptr %97, align 4
   %99 = fmul fast float %95, %98
   %100 = load ptr, ptr %66, align 8
-  %101 = getelementptr inbounds float, ptr %100, i64 %indvars.iv473
+  %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv473
   %102 = load float, ptr %101, align 4
   %103 = fadd fast float %102, %99
   store float %103, ptr %92, align 4
@@ -690,7 +690,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph387:                                        ; preds = %.preheader352, %.lr.ph387
   %indvars.iv478 = phi i64 [ %indvars.iv.next479, %.lr.ph387 ], [ 0, %.preheader352 ]
-  %104 = getelementptr inbounds float, ptr %75, i64 %indvars.iv478
+  %104 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv478
   %105 = load float, ptr %104, align 4
   %106 = fmul fast float %105, %89
   %107 = fadd fast float %106, %90
@@ -810,16 +810,16 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph425.us:                                     ; preds = %.preheader341.us, %.lr.ph425.us
   %indvars.iv523 = phi i64 [ %indvars.iv.next524, %.lr.ph425.us ], [ 0, %.preheader341.us ]
-  %162 = getelementptr inbounds float, ptr %153, i64 %indvars.iv523
+  %162 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv523
   %163 = load float, ptr %162, align 4
   %164 = fmul fast float %163, %159
   %165 = fadd fast float %164, %160
   %166 = load ptr, ptr %139, align 8
-  %167 = getelementptr inbounds float, ptr %166, i64 %indvars.iv523
+  %167 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv523
   %168 = load float, ptr %167, align 4
   %169 = fmul fast float %165, %168
   %170 = load ptr, ptr %140, align 8
-  %171 = getelementptr inbounds float, ptr %170, i64 %indvars.iv523
+  %171 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv523
   %172 = load float, ptr %171, align 4
   %173 = fadd fast float %172, %169
   store float %173, ptr %162, align 4
@@ -834,7 +834,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph427.us:                                     ; preds = %.preheader.us, %.lr.ph427.us
   %indvars.iv528 = phi i64 [ %indvars.iv.next529, %.lr.ph427.us ], [ 0, %.preheader.us ]
-  %174 = getelementptr inbounds float, ptr %153, i64 %indvars.iv528
+  %174 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv528
   %175 = load float, ptr %174, align 4
   %176 = fmul fast float %175, %159
   %177 = fadd fast float %176, %160
@@ -846,7 +846,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph421.us:                                     ; preds = %._crit_edge416.us, %.lr.ph421.us
   %indvars.iv518 = phi i64 [ %indvars.iv.next519, %.lr.ph421.us ], [ 0, %._crit_edge416.us ]
   %.0291418.us = phi float [ %182, %.lr.ph421.us ], [ 0.000000e+00, %._crit_edge416.us ]
-  %178 = getelementptr inbounds float, ptr %153, i64 %indvars.iv518
+  %178 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv518
   %179 = load float, ptr %178, align 4
   %180 = fsub fast float %179, %154
   %181 = fmul fast float %180, %180
@@ -858,7 +858,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph415.us:                                     ; preds = %142, %.lr.ph415.us
   %indvars.iv513 = phi i64 [ %indvars.iv.next514, %.lr.ph415.us ], [ 0, %142 ]
   %.0292412.us = phi float [ %185, %.lr.ph415.us ], [ 0.000000e+00, %142 ]
-  %183 = getelementptr inbounds float, ptr %153, i64 %indvars.iv513
+  %183 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv513
   %184 = load float, ptr %183, align 4
   %185 = fadd fast float %184, %.0292412.us
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
@@ -889,7 +889,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph395:                                        ; preds = %186, %.lr.ph395
   %indvars.iv488 = phi i64 [ %indvars.iv.next489, %.lr.ph395 ], [ 0, %186 ]
   %.0281392 = phi float [ %195, %.lr.ph395 ], [ 0.000000e+00, %186 ]
-  %193 = getelementptr inbounds float, ptr %192, i64 %indvars.iv488
+  %193 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv488
   %194 = load float, ptr %193, align 4
   %195 = fadd fast float %194, %.0281392
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
@@ -903,7 +903,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 .lr.ph401:                                        ; preds = %._crit_edge396, %.lr.ph401
   %indvars.iv493 = phi i64 [ %indvars.iv.next494, %.lr.ph401 ], [ 0, %._crit_edge396 ]
   %.0280398 = phi float [ %201, %.lr.ph401 ], [ 0.000000e+00, %._crit_edge396 ]
-  %197 = getelementptr inbounds float, ptr %192, i64 %indvars.iv493
+  %197 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv493
   %198 = load float, ptr %197, align 4
   %199 = fsub fast float %198, %196
   %200 = fmul fast float %199, %199
@@ -934,16 +934,16 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph405:                                        ; preds = %.preheader348, %.lr.ph405
   %indvars.iv498 = phi i64 [ %indvars.iv.next499, %.lr.ph405 ], [ 0, %.preheader348 ]
-  %209 = getelementptr inbounds float, ptr %192, i64 %indvars.iv498
+  %209 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv498
   %210 = load float, ptr %209, align 4
   %211 = fmul fast float %210, %206
   %212 = fadd fast float %211, %207
   %213 = load ptr, ptr %128, align 8
-  %214 = getelementptr inbounds float, ptr %213, i64 %indvars.iv498
+  %214 = getelementptr inbounds nuw float, ptr %213, i64 %indvars.iv498
   %215 = load float, ptr %214, align 4
   %216 = fmul fast float %212, %215
   %217 = load ptr, ptr %129, align 8
-  %218 = getelementptr inbounds float, ptr %217, i64 %indvars.iv498
+  %218 = getelementptr inbounds nuw float, ptr %217, i64 %indvars.iv498
   %219 = load float, ptr %218, align 4
   %220 = fadd fast float %219, %216
   store float %220, ptr %209, align 4
@@ -953,7 +953,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph407:                                        ; preds = %.preheader346, %.lr.ph407
   %indvars.iv503 = phi i64 [ %indvars.iv.next504, %.lr.ph407 ], [ 0, %.preheader346 ]
-  %221 = getelementptr inbounds float, ptr %192, i64 %indvars.iv503
+  %221 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv503
   %222 = load float, ptr %221, align 4
   %223 = fmul fast float %222, %206
   %224 = fadd fast float %223, %207
@@ -997,7 +997,7 @@ define linkonce_odr hidden void @_ZN4ncnn9LayerNormD2Ev(ptr noundef nonnull alig
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -1043,7 +1043,7 @@ define linkonce_odr hidden void @_ZN4ncnn9LayerNormD2Ev(ptr noundef nonnull alig
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %43

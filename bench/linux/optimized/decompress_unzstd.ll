@@ -82,9 +82,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
 
 33:                                               ; preds = %29
   store ptr %25, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %30, ptr %35, align 8
   %36 = icmp ne ptr %3, null
   br i1 %36, label %37, label %41
@@ -103,9 +103,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   %43 = phi i64 [ %12, %33 ], [ 131072, %37 ]
   %44 = phi ptr [ null, %33 ], [ %38, %37 ]
   store ptr %42, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %43, ptr %46, align 8
   %47 = call i64 @zstd_get_frame_header(ptr noundef nonnull %10, ptr noundef nonnull %25, i64 noundef %30) #6
   %48 = call fastcc i32 @handle_zstd_error(i64 noundef %47, ptr noundef %6) #5, !range !5
@@ -121,7 +121,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @__unzstd(ptr noundef %0, i6
   br label %.loopexit
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = icmp ugt i64 %55, -2147483648
   br i1 %56, label %57, label %58

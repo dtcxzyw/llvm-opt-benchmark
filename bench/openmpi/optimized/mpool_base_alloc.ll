@@ -27,9 +27,9 @@ define ptr @mca_mpool_base_alloc(i64 noundef %0, ptr noundef %1, ptr noundef %2)
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 25
   %14 = call i64 @atoll(ptr nocapture noundef nonnull %13) #6
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i8, ptr @opal_uses_threads, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %21
@@ -53,7 +53,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %18, %21
 
 26:                                               ; preds = %opal_thread_add_fetch_32.exit
   %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %.not6.i = icmp eq ptr %30, null
@@ -63,7 +63,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %18, %21
   %31 = phi ptr [ %33, %.lr.ph.i ], [ %30, %26 ]
   %.07.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %26 ]
   call void %31(ptr noundef nonnull %12) #5
-  %32 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -84,16 +84,16 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 36:                                               ; preds = %35, %8, %7
   %.027 = phi i64 [ 16, %8 ], [ 16, %7 ], [ %spec.select, %35 ]
-  %37 = getelementptr inbounds i8, ptr %6, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store i8 0, ptr %38, align 8
   %39 = call ptr @mca_mpool_base_module_lookup(ptr noundef %2) #5
   %.not35 = icmp eq ptr %39, null
   br i1 %.not35, label %.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr %42(ptr noundef nonnull %39, i64 noundef %0, i64 noundef %.027, i32 noundef 0) #5
   %44 = icmp eq ptr %43, null
@@ -101,16 +101,16 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 .thread:                                          ; preds = %36, %40
   %45 = load ptr, ptr @mca_mpool_base_default_module, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef %45, i64 noundef %0, i64 noundef %.027, i32 noundef 0) #5
   call void @mca_mpool_base_tree_item_put(ptr noundef nonnull %6) #5
   br label %53
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %6, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %39, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %43, ptr %51, align 8
   %52 = call i32 @mca_mpool_base_tree_insert(ptr noundef nonnull %6) #5
   br label %53
@@ -148,7 +148,7 @@ define i32 @mca_mpool_base_free(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @mca_mpool_base_default_module, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %5, ptr noundef nonnull %0) #5
   br label %16
@@ -163,7 +163,7 @@ define i32 @mca_mpool_base_free(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %3, i64 72
   %.val12 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.val12, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef %.val12, ptr noundef %.val) #5
   tail call void @mca_mpool_base_tree_item_put(ptr noundef nonnull %3) #5

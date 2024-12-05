@@ -68,9 +68,9 @@ define noundef i32 @H5T__print_path_stats(ptr nocapture noundef readnone %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5T_debug(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %22 [
     i32 -1, label %7
@@ -113,7 +113,7 @@ define range(i32 -1, 1) i32 @H5T_debug(ptr nocapture noundef readonly %0, ptr no
   br label %23
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 1
   %.str.6..str.11 = select i1 %21, ptr @.str.6, ptr @.str.11
@@ -124,31 +124,31 @@ define range(i32 -1, 1) i32 @H5T_debug(ptr nocapture noundef readonly %0, ptr no
 
 23:                                               ; preds = %18, %2, %22, %17, %16, %15, %14, %13, %12, %11
   %.0107 = phi ptr [ @.str, %22 ], [ @.str.10, %17 ], [ @.str.9, %16 ], [ @.str.8, %15 ], [ @.str.7, %14 ], [ @.str.6, %13 ], [ @.str.5, %12 ], [ @.str.4, %11 ], [ @.str.3, %2 ], [ %.str.6..str.11, %18 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp ult i32 %25, 5
   br i1 %26, label %switch.lookup, label %28
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.H5T_debug, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.H5T_debug, i64 0, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %28
 
 28:                                               ; preds = %switch.lookup, %23
   %.0108 = phi ptr [ @.str, %23 ], [ %switch.load, %switch.lookup ]
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0107, ptr noundef nonnull %.0108, i64 noundef %30) #5
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %.off = add i32 %34, -5
   %switch = icmp ult i32 %.off, 6
   br i1 %switch, label %115, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %32, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %37 = load i32, ptr %36, align 8
   switch i32 %37, label %45 [
     i32 -1, label %38
@@ -180,7 +180,7 @@ switch.lookup:                                    ; preds = %23
   %.1 = phi ptr [ @.str.23, %45 ], [ @.str.22, %44 ], [ @.str.21, %43 ], [ @.str.20, %42 ], [ @.str.19, %35 ]
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.1) #5
   %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load i64, ptr %49, align 8
   %.not = icmp eq i64 %50, 0
   br i1 %.not, label %53, label %51
@@ -192,9 +192,9 @@ switch.lookup:                                    ; preds = %23
 
 53:                                               ; preds = %51, %46
   %54 = phi ptr [ %.pre, %51 ], [ %48, %46 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %58 = load i64, ptr %57, align 8
   %59 = shl i64 %58, 3
   %.not119 = icmp eq i64 %56, %59
@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %23
 
 62:                                               ; preds = %60, %53
   %63 = phi ptr [ %.pre148, %60 ], [ %54, %53 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %64, align 4
   switch i32 %65, label %220 [
     i32 -1, label %66
@@ -222,7 +222,7 @@ switch.lookup:                                    ; preds = %23
   br label %221
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %63, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %72 = load i32, ptr %71, align 8
   switch i32 %72, label %77 [
     i32 -1, label %73
@@ -245,7 +245,7 @@ switch.lookup:                                    ; preds = %23
   br label %220
 
 80:                                               ; preds = %62
-  %81 = getelementptr inbounds i8, ptr %63, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %82 = load i32, ptr %81, align 8
   switch i32 %82, label %89 [
     i32 -1, label %83
@@ -271,23 +271,23 @@ switch.lookup:                                    ; preds = %23
 
 90:                                               ; preds = %80, %89, %88, %87
   %.3 = phi ptr [ @.str.34, %89 ], [ @.str.33, %88 ], [ @.str.32, %87 ], [ @.str.31, %80 ]
-  %91 = getelementptr inbounds i8, ptr %63, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %92 = load i64, ptr %91, align 8
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %92) #5
   %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %94, i64 120
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 120
   %98 = load i64, ptr %97, align 8
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i64 noundef %96, i64 noundef %98, ptr noundef nonnull %.3) #5
   %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 88
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %100, i64 96
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 96
   %104 = load i64, ptr %103, align 8
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i64 noundef %102, i64 noundef %104) #5
   %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load i64, ptr %107, align 8
   %.not120 = icmp ult i64 %108, 4294967296
   br i1 %.not120, label %113, label %109
@@ -311,7 +311,7 @@ switch.lookup:                                    ; preds = %23
   ]
 
 .preheader:                                       ; preds = %115
-  %116 = getelementptr inbounds i8, ptr %32, i64 52
+  %116 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %117 = load i32, ptr %116, align 4
   %.not139 = icmp eq i32 %117, 0
   br i1 %.not139, label %._crit_edge, label %.lr.ph
@@ -319,23 +319,23 @@ switch.lookup:                                    ; preds = %23
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.lr.ph ], [ 0, %.preheader ]
   %118 = phi ptr [ %132, %.lr.ph ], [ %32, %.preheader ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %120, i64 %indvars.iv145
+  %121 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %120, i64 %indvars.iv145
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = load i64, ptr %123, align 8
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, ptr noundef %122, i64 noundef %124) #5
   %fputc126 = tail call i32 @fputc(i32 32, ptr %1)
   %126 = load ptr, ptr %3, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 64
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %128, i64 %indvars.iv145, i32 3
+  %129 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %128, i64 %indvars.iv145, i32 3
   %130 = load ptr, ptr %129, align 8
   %131 = tail call i32 @H5T_debug(ptr noundef %130, ptr noundef %1)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 52
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 52
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64
   %136 = icmp samesign ult i64 %indvars.iv.next146, %135
@@ -346,7 +346,7 @@ switch.lookup:                                    ; preds = %23
   br label %220
 
 137:                                              ; preds = %115
-  %138 = getelementptr inbounds i8, ptr %32, i64 52
+  %138 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %139 = load i32, ptr %138, align 4
   switch i32 %139, label %148 [
     i32 0, label %140
@@ -374,13 +374,13 @@ switch.lookup:                                    ; preds = %23
 
 150:                                              ; preds = %148, %146, %144
   %151 = load ptr, ptr %3, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 12
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, 9
   br i1 %154, label %155, label %161
 
 155:                                              ; preds = %150
-  %156 = getelementptr inbounds i8, ptr %151, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 48
   %157 = load i32, ptr %156, align 8
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %159, label %161
@@ -392,7 +392,7 @@ switch.lookup:                                    ; preds = %23
 161:                                              ; preds = %155, %150
   %162 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 6, i64 1, ptr %1)
   %163 = load ptr, ptr %3, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = load ptr, ptr %164, align 8
   %166 = tail call i32 @H5T_debug(ptr noundef %165, ptr noundef %1)
   %fputc123 = tail call i32 @fputc(i32 10, ptr %1)
@@ -401,18 +401,18 @@ switch.lookup:                                    ; preds = %23
 167:                                              ; preds = %115
   %fputc = tail call i32 @fputc(i32 32, ptr %1)
   %168 = load ptr, ptr %3, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load ptr, ptr %169, align 8
   %171 = tail call i32 @H5T_debug(ptr noundef %170, ptr noundef %1)
   %172 = load ptr, ptr %3, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i64, ptr %177, align 8
   %.fr137 = freeze i64 %178
-  %179 = getelementptr inbounds i8, ptr %172, i64 52
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 52
   %180 = load i32, ptr %179, align 4
   %.not136 = icmp eq i32 %180, 0
   br i1 %.not136, label %._crit_edge134, label %.lr.ph133
@@ -424,9 +424,9 @@ switch.lookup:                                    ; preds = %23
 .lr.ph.us:                                        ; preds = %.lr.ph133, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph133 ]
   %181 = phi ptr [ %198, %._crit_edge.us ], [ %172, %.lr.ph133 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 72
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 72
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds ptr, ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8
   %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef %185) #5
   %187 = mul i64 %.fr137, %indvars.iv
@@ -435,7 +435,7 @@ switch.lookup:                                    ; preds = %23
 188:                                              ; preds = %.lr.ph.us, %188
   %.0130.us = phi i64 [ 0, %.lr.ph.us ], [ %197, %188 ]
   %189 = load ptr, ptr %3, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 64
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 64
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 %187
   %193 = getelementptr inbounds i8, ptr %192, i64 %.0130.us
@@ -449,7 +449,7 @@ switch.lookup:                                    ; preds = %23
 ._crit_edge.us:                                   ; preds = %188
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 52
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 52
   %200 = load i32, ptr %199, align 4
   %201 = zext i32 %200 to i64
   %202 = icmp samesign ult i64 %indvars.iv.next, %201
@@ -458,14 +458,14 @@ switch.lookup:                                    ; preds = %23
 .lr.ph133.split:                                  ; preds = %.lr.ph133, %.lr.ph133.split
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph133.split ], [ 0, %.lr.ph133 ]
   %203 = phi ptr [ %209, %.lr.ph133.split ], [ %172, %.lr.ph133 ]
-  %204 = getelementptr inbounds i8, ptr %203, i64 72
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 72
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds ptr, ptr %205, i64 %indvars.iv142
+  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv142
   %207 = load ptr, ptr %206, align 8
   %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef %207) #5
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %209 = load ptr, ptr %3, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 52
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 52
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
   %213 = icmp samesign ult i64 %indvars.iv.next143, %212
@@ -476,7 +476,7 @@ switch.lookup:                                    ; preds = %23
   br label %220
 
 214:                                              ; preds = %115
-  %215 = getelementptr inbounds i8, ptr %32, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %216 = load ptr, ptr %215, align 8
   %217 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.51, ptr noundef %216) #5
   br label %220

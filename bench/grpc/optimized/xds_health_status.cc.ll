@@ -32,10 +32,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %status to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %status to i64
-  %switch.gep4 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1, i64 0, i64 %2
+  %switch.gep4 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1, i64 0, i64 %2
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %3 = or disjoint i64 %switch.load5, %switch.load
   br label %return
@@ -87,7 +87,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK9grpc_core15XdsHealthStatus8ToStringEv, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core15XdsHealthStatus8ToStringEv, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

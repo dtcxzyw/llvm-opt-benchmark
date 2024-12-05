@@ -2631,7 +2631,7 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   br label %93
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %19, i64 noundef 33) #5
   %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
@@ -2785,12 +2785,12 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
 
 86:                                               ; preds = %85
   store i32 %9, ptr %12, align 8
-  %87 = getelementptr inbounds i8, ptr %12, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %10, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %12, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %52, ptr %88, align 8
   %89 = add i32 %.6, -1
-  %90 = getelementptr inbounds i8, ptr %12, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %89, ptr %90, align 8
   %91 = add i32 %.1102, -2
   tail call void @dissect_e164_number(ptr noundef %0, ptr noundef %55, i32 noundef 2, i32 noundef %91, ptr noundef nonnull byval(%struct.e164_info_t) align 8 %12) #5
@@ -3305,7 +3305,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 9:                                                ; preds = %4
   store i1 true, ptr @isup_standard, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.1638) #5
   %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #5
@@ -3356,7 +3356,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i1 false, ptr @isup_standard, align 4
   %33 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #5
   %34 = and i16 %33, 4095
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   switch i8 %6, label %44 [
     i8 1, label %37
@@ -3397,7 +3397,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0 = phi ptr [ @isup_message_type_value_acro_ext, %44 ], [ @japan_isup_message_type_value_acro_ext, %41 ], [ @japan_isup_message_type_value_acro_ext, %40 ], [ @russian_isup_message_type_value_acro_ext, %39 ], [ @israeli_isup_message_type_value_acro_ext, %38 ], [ @french_isup_message_type_value_acro_ext, %37 ]
   %46 = load i32, ptr @isup_show_cic_in_info, align 4
   %.not = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = zext i8 %7 to i32
   %50 = tail call ptr @val_to_str_ext_const(i32 noundef %49, ptr noundef nonnull %.0, ptr noundef nonnull @.str.1120) #5
@@ -3463,7 +3463,7 @@ declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @msg_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = load i8, ptr %6, align 1
   %switch.tableidx = add i8 %7, -1
   %8 = icmp ult i8 %switch.tableidx, 5
@@ -3471,7 +3471,7 @@ define internal noundef i32 @msg_stats_tree_packet(ptr noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -3480,9 +3480,9 @@ switch.lookup:                                    ; preds = %5
   %11 = load i8, ptr %3, align 8
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @val_to_str_ext_const(i32 noundef %12, ptr noundef nonnull %.0, ptr noundef nonnull @.str.1120) #5
-  %14 = getelementptr inbounds i8, ptr %1, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %15 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %14) #5
-  %16 = getelementptr inbounds i8, ptr %1, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %17 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %16) #5
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1861, ptr noundef %15, ptr noundef %17) #5
   tail call void @wmem_free(ptr noundef null, ptr noundef %15) #5
@@ -3528,13 +3528,13 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %53, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not63 = icmp eq ptr %7, null
   br i1 %.not63, label %53, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @ws_find_media_type_parameter(ptr noundef %10, ptr noundef nonnull %7, ptr noundef nonnull @.str.1864) #5
   %12 = load ptr, ptr %9, align 8
@@ -3575,7 +3575,7 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 
 30:                                               ; preds = %27, %23, %19, %15
   store i1 true, ptr @isup_standard, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_append_str(ptr noundef %32, i32 noundef 34, ptr noundef nonnull @.str.1868) #5
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
@@ -3624,7 +3624,7 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
   %.05271 = phi i8 [ 1, %52 ], [ 0, %4 ], [ 0, %5 ], [ 0, %48 ], [ 0, %49 ]
   store i1 false, ptr @isup_standard, align 4
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void @col_append_str(ptr noundef %56, i32 noundef 34, ptr noundef nonnull %.str.1873.sink) #5
   %57 = load ptr, ptr %55, align 8
@@ -3679,23 +3679,23 @@ define internal i32 @dissect_bicc(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_bicc, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %8
+  %switch.gep37 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %8
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %9
 
 9:                                                ; preds = %4, %switch.lookup
   %.str.1886.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1886, %4 ]
   %.0 = phi ptr [ %switch.load38, %switch.lookup ], [ @isup_message_type_value_acro_ext, %4 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull %.str.1886.sink) #5
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #5
   tail call void @conversation_set_elements_by_id(ptr noundef nonnull %1, i32 noundef 25, i32 noundef %13) #5
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_clear(ptr noundef %15, i32 noundef 25) #5
   %16 = load i32, ptr @isup_show_cic_in_info, align 4
@@ -3794,14 +3794,14 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %7 = zext i8 %5 to i32
   %8 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @ansi_isup_message_type_value_ext, ptr noundef nonnull @.str.1120) #5
   %9 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %7, ptr noundef nonnull @.str.1653, ptr noundef %8, i32 noundef %7) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 32) #5
   store i8 %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 %3, ptr %15, align 4
   %16 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #5
@@ -4041,12 +4041,12 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
 
 78:                                               ; preds = %.thread189, %75
   %79 = phi ptr [ %77, %75 ], [ %74, %.thread189 ]
-  %80 = getelementptr inbounds i8, ptr %12, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %79, ptr %80, align 8
   %81 = load ptr, ptr @tap_called_number, align 8
   store ptr %81, ptr %14, align 8
   %82 = load i8, ptr @tap_cause_value, align 1
-  %83 = getelementptr inbounds i8, ptr %12, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i8 %82, ptr %83, align 8
   %84 = load i32, ptr @isup_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %84, ptr noundef nonnull %1, ptr noundef nonnull %12) #5
@@ -4065,7 +4065,7 @@ define internal fastcc void @dissect_isup_message(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_isup_message, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_isup_message, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = load i32, ptr @hf_isup_message_type, align 4
   %11 = zext i8 %7 to i32
@@ -4075,14 +4075,14 @@ switch.lookup:                                    ; preds = %5
 
 14:                                               ; preds = %5, %switch.lookup
   %.0 = phi ptr [ null, %5 ], [ %13, %switch.lookup ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #5
   store i8 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %3, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 %4, ptr %20, align 4
   %21 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #5
@@ -4394,12 +4394,12 @@ switch.lookup:                                    ; preds = %5
 
 110:                                              ; preds = %.thread252, %107
   %111 = phi ptr [ %109, %107 ], [ %106, %.thread252 ]
-  %112 = getelementptr inbounds i8, ptr %17, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %111, ptr %112, align 8
   %113 = load ptr, ptr @tap_called_number, align 8
   store ptr %113, ptr %19, align 8
   %114 = load i8, ptr @tap_cause_value, align 1
-  %115 = getelementptr inbounds i8, ptr %17, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 %114, ptr %115, align 8
   %116 = load i32, ptr @isup_tap, align 4
   call void @tap_queue_packet(i32 noundef %116, ptr noundef nonnull %1, ptr noundef nonnull %17) #5
@@ -5117,7 +5117,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
@@ -6302,7 +6302,7 @@ define internal fastcc void @dissect_isup_closed_user_group_interlock_code_param
   %12 = or disjoint i8 %10, 48
   %13 = add nuw nsw i8 %10, 55
   %.0.i12 = select i1 %11, i8 %12, i8 %13
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %.0.i12, ptr %14, align 1
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %16 = lshr i8 %15, 4
@@ -6310,16 +6310,16 @@ define internal fastcc void @dissect_isup_closed_user_group_interlock_code_param
   %18 = or disjoint i8 %16, 48
   %19 = add nuw nsw i8 %16, 55
   %.0.i13 = select i1 %17, i8 %18, i8 %19
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %.0.i13, ptr %20, align 1
   %21 = and i8 %15, 15
   %22 = icmp samesign ult i8 %21, 10
   %23 = or disjoint i8 %21, 48
   %24 = add nuw nsw i8 %21, 55
   %.0.i14 = select i1 %22, i8 %23, i8 %24
-  %25 = getelementptr inbounds i8, ptr %4, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %.0.i14, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %26, align 1
   %27 = load i32, ptr @hf_isup_network_identity, align 4
   %28 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %4) #5
@@ -6403,7 +6403,7 @@ define internal fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef 
   %16 = or disjoint i8 %14, 48
   %17 = add nuw nsw i8 %14, 55
   %.0.i17 = select i1 %15, i8 %16, i8 %17
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %.0.i17, ptr %18, align 1
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %20 = lshr i8 %19, 4
@@ -6411,16 +6411,16 @@ define internal fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef 
   %22 = or disjoint i8 %20, 48
   %23 = add nuw nsw i8 %20, 55
   %.0.i18 = select i1 %21, i8 %22, i8 %23
-  %24 = getelementptr inbounds i8, ptr %4, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %.0.i18, ptr %24, align 1
   %25 = and i8 %19, 15
   %26 = icmp samesign ult i8 %25, 10
   %27 = or disjoint i8 %25, 48
   %28 = add nuw nsw i8 %25, 55
   %.0.i19 = select i1 %26, i8 %27, i8 %28
-  %29 = getelementptr inbounds i8, ptr %4, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %.0.i19, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %30, align 1
   %31 = load i32, ptr @hf_isup_network_identity, align 4
   %32 = call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4) #5
@@ -6586,7 +6586,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   br i1 %or.cond154, label %87, label %.thread
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %1, i64 272
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %89 = load i32, ptr %88, align 8
   store i32 1, ptr %88, align 8
   %90 = icmp ne i8 %29, 0
@@ -6607,7 +6607,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
 96:                                               ; preds = %94, %87
   %97 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.2, ptr noundef nonnull %1, ptr noundef nonnull @.str.1787, ptr noundef %92, ptr noundef nonnull @isup_apm_msg_frag_items, ptr noundef null, ptr noundef %2) #5
   %.not151 = icmp eq ptr %92, null
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8
   %.str.1789..str.1788 = select i1 %.not151, ptr @.str.1789, ptr @.str.1788
   tail call void @col_append_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull %.str.1789..str.1788) #5
@@ -8523,7 +8523,7 @@ define internal fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %6, i64 noundef 33) #5
   %8 = load i32, ptr @hf_isup_carrier_info_poi_entry_HEI, align 4
@@ -8632,7 +8632,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   br i1 %14, label %.lr.ph177, label %.loopexit151
 
 .lr.ph177:                                        ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %18
 
 16:                                               ; preds = %4
@@ -8938,7 +8938,7 @@ define internal fastcc void @dissect_japan_isup_contractor_number(ptr noundef %0
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
   %13 = load i32, ptr @hf_japan_isup_contractor_number, align 4
   %14 = add i32 %6, -2
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef %14, i32 noundef -2147483580, ptr noundef %16, ptr noundef nonnull %5) #5
   %18 = load ptr, ptr %5, align 8
@@ -8972,7 +8972,7 @@ define internal fastcc void @dissect_japan_chg_inf_param(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %6, i64 noundef 33) #5
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5

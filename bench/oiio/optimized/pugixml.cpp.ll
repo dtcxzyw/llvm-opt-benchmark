@@ -24,9 +24,9 @@ $_ZN18OpenImageIO_v2_6_04pugi4impl38xml_memory_management_function_storageIiE10d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18OpenImageIO_v2_6_04pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds i8, ptr %this, i64 24
+  %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds i8, ptr %this, i64 8
+  %_storage = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -77,9 +77,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define internal void @_GLOBAL__sub_I_pugixml.cpp() #5 section ".text.startup" {
 entry:
   store i32 0, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, i64 32), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi14xpath_node_setD2Ev, ptr nonnull @_ZN18OpenImageIO_v2_6_04pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #8
   ret void
 }

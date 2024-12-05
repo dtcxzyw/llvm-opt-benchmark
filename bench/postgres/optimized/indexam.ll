@@ -53,9 +53,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_open(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @relation_open(i32 noundef %0, i32 noundef %1) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 115
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 115
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %8 [
     i8 105, label %validate_relation_kind.exit
@@ -67,7 +67,7 @@ define dso_local ptr @index_open(i32 noundef %0, i32 noundef %1) local_unnamed_a
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 151027844) #5
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %12) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.validate_relation_kind) #5
   unreachable
@@ -85,9 +85,9 @@ define dso_local ptr @try_index_open(i32 noundef %0, i32 noundef %1) local_unnam
   br i1 %.not, label %validate_relation_kind.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 115
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 115
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %9 [
     i8 105, label %validate_relation_kind.exit
@@ -99,7 +99,7 @@ define dso_local ptr @try_index_open(i32 noundef %0, i32 noundef %1) local_unnam
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 @errcode(i32 noundef 151027844) #5
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %13) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.validate_relation_kind) #5
   unreachable
@@ -113,7 +113,7 @@ declare ptr @try_relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_close(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.LockRelId, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i64, ptr %4, align 4
   store i64 %5, ptr %3, align 8
   tail call void @RelationClose(ptr noundef %0) #5
@@ -134,7 +134,7 @@ declare void @UnlockRelationId(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %10) #5
   br i1 %11, label %12, label %19
@@ -143,17 +143,17 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 1088) #5
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %17) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 227, ptr noundef nonnull @__func__.index_insert) #5
   unreachable
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 344
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %31
@@ -161,15 +161,15 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
 25:                                               ; preds = %19
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %29) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__func__.index_insert) #5
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %21, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   br i1 %34, label %36, label %35
@@ -177,7 +177,7 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
 35:                                               ; preds = %31
   tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #5
   %.pre = load ptr, ptr %20, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
   br label %36
 
@@ -204,7 +204,7 @@ declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_insert_cleanup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #5
   br i1 %5, label %6, label %13
@@ -213,23 +213,23 @@ define dso_local void @index_insert_cleanup(ptr nocapture noundef readonly %0, p
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 1088) #5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.index_insert_cleanup) #5
   unreachable
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %20 = load ptr, ptr %19, align 8
   %.not6 = icmp eq ptr %20, null
   br i1 %.not6, label %22, label %21
@@ -246,21 +246,21 @@ define dso_local void @index_insert_cleanup(ptr nocapture noundef readonly %0, p
 define dso_local noundef ptr @index_beginscan(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @index_beginscan_internal(ptr noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef %2, ptr noundef null, i1 noundef zeroext false)
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef %0) #5
-  %13 = getelementptr inbounds i8, ptr %6, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %12, ptr %13, align 8
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %8) #5
   br i1 %9, label %10, label %17
@@ -269,17 +269,17 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 @errcode(i32 noundef 1088) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %15) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @__func__.index_beginscan_internal) #5
   unreachable
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %29
@@ -287,15 +287,15 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
 23:                                               ; preds = %17
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16, ptr noundef nonnull %27) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.index_beginscan_internal) #5
   unreachable
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %19, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %34, label %33
@@ -308,12 +308,12 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
   %35 = zext i1 %5 to i8
   tail call void @RelationIncrementReferenceCount(ptr noundef nonnull %0) #5
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #5
-  %40 = getelementptr inbounds i8, ptr %39, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 144
   store ptr %4, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 49
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 49
   store i8 %35, ptr %41, align 1
   ret ptr %39
 }
@@ -321,18 +321,18 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_beginscan_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef %2, i32 noundef 0, ptr noundef %1, ptr noundef null, i1 noundef zeroext false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %5, align 8
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 344
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %20
@@ -341,24 +341,24 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %14)
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.index_rescan) #5
   unreachable
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %22) #5
   %.pre = load ptr, ptr %6, align 8
@@ -366,13 +366,13 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 29:                                               ; preds = %23, %20
   %30 = phi ptr [ %.pre, %23 ], [ %7, %20 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 0, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 102
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i8 0, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %30, i64 344
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 344
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #5
   ret void
@@ -380,11 +380,11 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %16
@@ -393,31 +393,31 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.index_endscan) #5
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 312
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %18) #5
   store ptr null, ptr %17, align 8
   %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 344
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 344
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %.pre11, i64 168
+  %.phi.trans.insert12 = getelementptr inbounds nuw i8, ptr %.pre11, i64 168
   %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
   br label %25
 
@@ -426,13 +426,13 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %26(ptr noundef nonnull %0) #5
   %27 = load ptr, ptr %2, align 8
   tail call void @RelationDecrementReferenceCount(ptr noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %0, i64 49
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   tail call void @UnregisterSnapshot(ptr noundef %33) #5
   br label %34
@@ -450,11 +450,11 @@ declare void @IndexScanEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_markpos(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %16
@@ -463,9 +463,9 @@ define dso_local void @index_markpos(ptr noundef %0) local_unnamed_addr #0 {
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 417, ptr noundef nonnull @__func__.index_markpos) #5
   unreachable
@@ -477,11 +477,11 @@ define dso_local void @index_markpos(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %16
@@ -490,24 +490,24 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef nonnull %14) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 443, ptr noundef nonnull @__func__.index_restrpos) #5
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 312
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %18) #5
   %.pre = load ptr, ptr %2, align 8
@@ -515,13 +515,13 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %19, %16
   %26 = phi ptr [ %.pre, %19 ], [ %3, %16 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 50
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 0, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 102
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i8 0, ptr %28, align 2
-  %29 = getelementptr inbounds i8, ptr %26, i64 344
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 344
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %0) #5
   ret void
@@ -529,7 +529,7 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @index_parallelscan_estimate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #5
   br i1 %5, label %6, label %13
@@ -538,9 +538,9 @@ define dso_local i64 @index_parallelscan_estimate(ptr nocapture noundef readonly
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 1088) #5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 469, ptr noundef nonnull @__func__.index_parallelscan_estimate) #5
   unreachable
@@ -550,9 +550,9 @@ define dso_local i64 @index_parallelscan_estimate(ptr nocapture noundef readonly
   %15 = tail call i64 @add_size(i64 noundef 16, i64 noundef %14) #5
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %25, label %22
@@ -573,7 +573,7 @@ declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_parallelscan_initialize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #5
   br i1 %7, label %8, label %15
@@ -582,9 +582,9 @@ define dso_local void @index_parallelscan_initialize(ptr nocapture noundef reado
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 1088) #5
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %13) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 505, ptr noundef nonnull @__func__.index_parallelscan_initialize) #5
   unreachable
@@ -594,19 +594,19 @@ define dso_local void @index_parallelscan_initialize(ptr nocapture noundef reado
   %17 = tail call i64 @add_size(i64 noundef 16, i64 noundef %16) #5
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %3, align 8
   %22 = load i32, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @SerializeSnapshot(ptr noundef %2, ptr noundef nonnull %25) #5
-  %26 = getelementptr inbounds i8, ptr %1, i64 344
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 200
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %32, label %30
@@ -624,26 +624,26 @@ declare void @SerializeSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_parallelrescan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %3) #5
   br label %10
 
 10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 344
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 208
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %16 = load ptr, ptr %15, align 8
   %.not6 = icmp eq ptr %16, null
   br i1 %.not6, label %18, label %17
@@ -658,19 +658,19 @@ define dso_local void @index_parallelrescan(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @index_beginscan_parallel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = tail call ptr @RestoreSnapshot(ptr noundef nonnull %6) #5
   %8 = tail call ptr @RegisterSnapshot(ptr noundef %7) #5
   %9 = tail call fastcc ptr @index_beginscan_internal(ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %7, ptr noundef %4, i1 noundef zeroext true)
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %0) #5
-  %16 = getelementptr inbounds i8, ptr %9, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %15, ptr %16, align 8
   ret ptr %9
 }
@@ -681,11 +681,11 @@ declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %17
@@ -694,45 +694,45 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %11)
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull %15) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__func__.index_getnext_tid) #5
   unreachable
 
 17:                                               ; preds = %2
   %18 = tail call zeroext i1 %8(ptr noundef nonnull %0, i32 noundef %1) #5
-  %19 = getelementptr inbounds i8, ptr %0, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 102
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i8 0, ptr %20, align 2
   br i1 %18, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %46, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 312
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 312
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %23) #5
   br label %46
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 472
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 472
   %33 = load ptr, ptr %32, align 8
   %.not17 = icmp eq ptr %33, null
   br i1 %.not17, label %34, label %39
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 468
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 468
   %36 = load i8, ptr %35, align 4
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %44
@@ -740,20 +740,20 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
 38:                                               ; preds = %34
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %31) #5
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 472
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
   br label %39
 
 39:                                               ; preds = %30, %38
   %40 = phi ptr [ %33, %30 ], [ %.pre18, %38 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %41, align 8
   br label %44
 
 44:                                               ; preds = %39, %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %46
 
 46:                                               ; preds = %21, %24, %44
@@ -782,30 +782,30 @@ define dso_local noundef zeroext i1 @index_fetch_heap(ptr noundef %0, ptr nounde
   unreachable
 
 table_index_fetch_tuple.exit:                     ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 102
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 102
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 312
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i1 %21(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %3) #5
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %table_index_fetch_tuple.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 472
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 472
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %33
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %25, i64 468
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 468
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %38
@@ -813,27 +813,27 @@ table_index_fetch_tuple.exit:                     ; preds = %2
 32:                                               ; preds = %28
   call void @pgstat_assoc_relation(ptr noundef nonnull %25) #5
   %.pre = load ptr, ptr %24, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 472
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
   br label %33
 
 33:                                               ; preds = %23, %32
   %34 = phi ptr [ %27, %23 ], [ %.pre12, %32 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
   br label %38
 
 38:                                               ; preds = %28, %33, %table_index_fetch_tuple.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
   %43 = load i8, ptr %3, align 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 50
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %45 = and i8 %43, 1
   store i8 %45, ptr %44, align 2
   br label %46
@@ -844,7 +844,7 @@ table_index_fetch_tuple.exit:                     ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @index_getnext_slot(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 102
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 102
   br label %5
 
 5:                                                ; preds = %11, %3
@@ -868,11 +868,11 @@ define dso_local noundef zeroext i1 @index_getnext_slot(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %17
@@ -881,28 +881,28 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %11)
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef nonnull %15) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__.index_getbitmap) #5
   unreachable
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 0, ptr %18, align 2
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 160
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 %21(ptr noundef nonnull %0, ptr noundef %1) #5
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 472
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 472
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %23, i64 468
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 468
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %36
@@ -910,13 +910,13 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
 30:                                               ; preds = %26
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %23) #5
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 472
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
   br label %31
 
 31:                                               ; preds = %17, %30
   %32 = phi ptr [ %25, %17 ], [ %.pre11, %30 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %22
   store i64 %35, ptr %33, align 8
@@ -929,7 +929,7 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %7) #5
   br i1 %8, label %9, label %16
@@ -938,17 +938,17 @@ define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 @errcode(i32 noundef 1088) #5
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %14) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @__func__.index_bulk_delete) #5
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %5, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %28
@@ -956,9 +956,9 @@ define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noun
 22:                                               ; preds = %16
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, ptr noundef nonnull %26) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 764, ptr noundef nonnull @__func__.index_bulk_delete) #5
   unreachable
@@ -971,7 +971,7 @@ define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %5) #5
   br i1 %6, label %7, label %14
@@ -980,17 +980,17 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 @errcode(i32 noundef 1088) #5
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %12) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.index_vacuum_cleanup) #5
   unreachable
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %3, i64 344
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
@@ -998,9 +998,9 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
 20:                                               ; preds = %14
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 783, ptr noundef nonnull @__func__.index_vacuum_cleanup) #5
   unreachable
@@ -1012,7 +1012,7 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #5
   br i1 %5, label %6, label %13
@@ -1021,17 +1021,17 @@ define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) lo
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 1088) #5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 798, ptr noundef nonnull @__func__.index_can_return) #5
   unreachable
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -1047,9 +1047,9 @@ define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @index_getprocid(ptr nocapture noundef readonly %0, i16 noundef signext %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = sext i16 %1 to i64
@@ -1058,7 +1058,7 @@ define dso_local i32 @index_getprocid(ptr nocapture noundef readonly %0, i16 nou
   %12 = zext i16 %2 to i64
   %13 = add nuw nsw i64 %12, 4294967295
   %14 = add nuw nsw i64 %13, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 368
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %16 = load ptr, ptr %15, align 8
   %sext = shl i64 %14, 32
   %17 = ashr exact i64 %sext, 30
@@ -1069,12 +1069,12 @@ define dso_local i32 @index_getprocid(ptr nocapture noundef readonly %0, i16 nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = sext i16 %1 to i32
   %12 = add nsw i32 %11, -1
@@ -1082,17 +1082,17 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
   %14 = zext i16 %2 to i32
   %15 = add nsw i32 %14, -1
   %16 = add i32 %15, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 376
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %16 to i64
   %20 = getelementptr %struct.FmgrInfo, ptr %18, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %45
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 368
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i32, ptr %26, i64 %19
   %28 = load i32, ptr %27, align 4
@@ -1102,15 +1102,15 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
 29:                                               ; preds = %24
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef %11, ptr noundef nonnull %33) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 908, ptr noundef nonnull @__func__.index_getprocinfo) #5
   unreachable
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %0, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %37 = load ptr, ptr %36, align 8
   tail call void @fmgr_info_cxt(i32 noundef %28, ptr noundef %20, ptr noundef %37) #5
   %.not27 = icmp eq i16 %2, %10
@@ -1141,17 +1141,17 @@ declare void @set_fn_opclass_options(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_store_float8_orderby_distances(ptr nocapture noundef initializes((136, 137)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %.not = icmp eq ptr %2, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %20
@@ -1194,7 +1194,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
 
 28:                                               ; preds = %.lr.ph.split.split
   %29 = getelementptr %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %.sink.split55, label %33
@@ -1205,7 +1205,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
 
 35:                                               ; preds = %.lr.ph.split.split
   %36 = getelementptr %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %.sink.split55, label %40
@@ -1255,15 +1255,15 @@ define dso_local void @index_store_float8_orderby_distances(ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.local_relopts, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 344
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i16, ptr %8, align 8
   %.not = icmp eq i16 %9, 0
   br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
   %14 = sext i16 %1 to i64
@@ -1272,7 +1272,7 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
   %17 = zext i16 %9 to i64
   %18 = add nuw nsw i64 %17, 4294967295
   %19 = add nuw nsw i64 %18, %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 368
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %21 = load ptr, ptr %20, align 8
   %sext.i = shl i64 %19, 32
   %22 = ashr exact i64 %sext.i, 30
@@ -1286,11 +1286,11 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
   br i1 %.not20, label %45, label %26
 
 26:                                               ; preds = %.critedge
-  %27 = getelementptr inbounds i8, ptr %0, i64 328
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef %28, i16 noundef signext 18) #5
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = sext i16 %1 to i64
   %33 = add nsw i64 %32, -1
   %34 = getelementptr [0 x i32], ptr %31, i64 0, i64 %33

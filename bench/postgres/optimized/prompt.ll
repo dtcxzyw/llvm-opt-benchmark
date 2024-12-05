@@ -58,7 +58,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br i1 %.not96, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.not77 = icmp eq ptr %1, null
   br label %14
 

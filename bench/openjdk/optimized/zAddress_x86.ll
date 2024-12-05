@@ -44,7 +44,7 @@ define hidden void @_ZN16ZGlobalsPointers17pd_set_good_masksEv() local_unnamed_a
   %1 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %2 = lshr i64 %1, 12
   %3 = and i64 %2, 15
-  %4 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   store i64 %6, ptr @ZPointerLoadShift, align 8

@@ -247,7 +247,7 @@ define internal i32 @dissect_nano(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %12, label %138, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.66) #4
   %16 = load ptr, ptr %14, align 8
@@ -272,7 +272,7 @@ define internal i32 @dissect_nano(ptr noundef %0, ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8)
   %23 = load i32, ptr @ett_nano_peers, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 144, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.106) #4
-  %25 = getelementptr inbounds i8, ptr %6, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %26
 
 26:                                               ; preds = %46, %22
@@ -487,16 +487,16 @@ define internal i32 @dissect_nano_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 208
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
-  %12 = getelementptr inbounds i8, ptr %1, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %13) #4
-  %15 = getelementptr inbounds i8, ptr %1, i64 284
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %18 = load i32, ptr %17, align 8
   %19 = tail call nonnull ptr @conversation_new(i32 noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 0) #4
   br label %20
@@ -512,9 +512,9 @@ define internal i32 @dissect_nano_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %24 = tail call ptr @wmem_file_scope() #4
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 8) #4
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 292
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr @proto_nano, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.038, i32 noundef %29, ptr noundef nonnull %25) #4
@@ -544,7 +544,7 @@ define internal i32 @dissect_nano_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %42
 
 42:                                               ; preds = %40, %34
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @col_set_str(ptr noundef %44, i32 noundef 34, ptr noundef nonnull @.str.122) #4
   %45 = load ptr, ptr %43, align 8
@@ -553,9 +553,9 @@ define internal i32 @dissect_nano_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %48 = load i32, ptr @ett_nano, align 4
   %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #4
-  %50 = getelementptr inbounds i8, ptr %1, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.0, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %51, %53
   br i1 %54, label %55, label %56
@@ -592,9 +592,9 @@ define internal range(i32 0, 2) i32 @dissect_nano_heur_tcp(ptr noundef %0, ptr n
   %12 = tail call ptr @wmem_file_scope() #4
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 8) #4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %15, ptr %16, align 4
   %17 = load i32, ptr @proto_nano, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %7, i32 noundef %17, ptr noundef nonnull %13) #4
@@ -623,7 +623,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 define internal fastcc void @dissect_nano_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr @ett_nano_header, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.98) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %11 = load i32, ptr @hf_nano_magic_number, align 4
@@ -802,13 +802,13 @@ define internal i32 @get_nano_tcp_client_message_len(ptr nocapture readnone %0, 
 
 switch.lookup:                                    ; preds = %7
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.get_nano_tcp_server_message_len, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.get_nano_tcp_server_message_len, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %26
 
 switch.lookup14:                                  ; preds = %17
   %25 = zext nneg i8 %switch.tableidx15 to i64
-  %switch.gep16 = getelementptr inbounds [4 x i32], ptr @switch.table.get_nano_tcp_client_message_len.2, i64 0, i64 %25
+  %switch.gep16 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.get_nano_tcp_client_message_len.2, i64 0, i64 %25
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   br label %26
 
@@ -827,7 +827,7 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   br i1 %9, label %10, label %66
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.123) #4
   %13 = load i32, ptr @hf_nano_bulk_push_block_type, align 4
@@ -918,7 +918,7 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   ]
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8
   call void @col_set_str(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.124) #4
   %71 = load i32, ptr @ett_nano_bulk_pull, align 4
@@ -930,13 +930,13 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   br label %104
 
 77:                                               ; preds = %66
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   call void @col_set_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.125) #4
   br label %104
 
 80:                                               ; preds = %66
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   call void @col_set_str(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.126) #4
   %83 = load i32, ptr @ett_nano_frontier_req, align 4
@@ -950,7 +950,7 @@ define internal i32 @dissect_nano_tcp_client_message(ptr noundef %0, ptr nocaptu
   br label %104
 
 91:                                               ; preds = %66
-  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = load ptr, ptr %92, align 8
   call void @col_set_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.127) #4
   %94 = load i32, ptr @ett_nano_frontier_req, align 4
@@ -997,7 +997,7 @@ define internal i32 @get_nano_tcp_server_message_len(ptr nocapture readnone %0, 
 
 switch.lookup:                                    ; preds = %6
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.get_nano_tcp_server_message_len, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.get_nano_tcp_server_message_len, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %16
 
@@ -1017,7 +1017,7 @@ define internal i32 @dissect_nano_tcp_server_message(ptr noundef %0, ptr nocaptu
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq i32 %6, 6
   %11 = select i1 %10, ptr @.str.129, ptr @.str.130
@@ -1103,7 +1103,7 @@ define internal i32 @dissect_nano_tcp_server_message(ptr noundef %0, ptr nocaptu
   br label %78
 
 67:                                               ; preds = %4
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   tail call void @col_set_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.131) #4
   %70 = load i32, ptr @ett_nano_frontier, align 4

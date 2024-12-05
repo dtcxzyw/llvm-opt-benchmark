@@ -56,7 +56,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
 
 21:                                               ; preds = %17
   %22 = load i16, ptr %6, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 142
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 142
   store i16 %22, ptr %23, align 2
   %24 = call i32 @slurm_job_step_create(ptr noundef %0, ptr noundef nonnull %4) #8
   %25 = icmp slt i32 %24, 0
@@ -73,7 +73,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   %32 = load i32, ptr %27, align 4
   %33 = load i32, ptr %5, align 4
   store i32 %33, ptr %7, align 4
-  %34 = getelementptr inbounds i8, ptr %7, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 1, ptr %34, align 4
   %35 = call i32 @xsignal_unblock(ptr noundef nonnull @step_signals) #8
   %36 = load i32, ptr @step_signals, align 16
@@ -89,7 +89,7 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   %38 = phi i32 [ %41, %.lr.ph ], [ %36, %30 ]
   %39 = call ptr @xsignal(i32 noundef %38, ptr noundef nonnull @_signal_while_allocating) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds [10 x i32], ptr @step_signals, i64 0, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [10 x i32], ptr @step_signals, i64 0, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4
   %.not47 = icmp eq i32 %41, 0
   br i1 %.not47, label %.preheader, label %.lr.ph, !llvm.loop !7
@@ -165,35 +165,35 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
 
 72:                                               ; preds = %67
   %73 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 204, ptr noundef nonnull @__func__.step_ctx_create_timeout) #8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr null, ptr %74, align 8
   store i16 -14429, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 160
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %73, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %76, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %73, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 168
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, -2
   %.pre56.pre = load ptr, ptr %4, align 8
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %72
-  %83 = getelementptr inbounds i8, ptr %.pre56.pre, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.pre56.pre, i64 8
   %84 = load i32, ptr %83, align 8
   store i32 %84, ptr %79, align 8
   br label %85
 
 85:                                               ; preds = %82, %72
-  %86 = getelementptr inbounds i8, ptr %0, i64 172
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %87 = load i32, ptr %86, align 4
   %.not46 = icmp eq i32 %87, -2
   br i1 %.not46, label %91, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %.pre56.pre, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.pre56.pre, i64 4
   %90 = load i32, ptr %89, align 4
   store i32 %90, ptr %75, align 8
   store i32 %90, ptr %77, align 4
@@ -202,12 +202,12 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
 
 91:                                               ; preds = %88, %85
   %92 = phi ptr [ %.pre, %88 ], [ %.pre56.pre, %85 ]
-  %93 = getelementptr inbounds i8, ptr %73, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %92, ptr %93, align 8
   %94 = call ptr @step_launch_state_create(ptr noundef nonnull %73) #8
   store ptr %94, ptr %74, align 8
   %95 = load i32, ptr %5, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 176
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 176
   store i32 %95, ptr %96, align 8
   br label %97
 
@@ -295,22 +295,22 @@ define dso_local noundef ptr @step_ctx_create_no_alloc(ptr noundef %0, i32 nound
 
 9:                                                ; preds = %2
   %10 = load i16, ptr %4, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 142
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 142
   store i16 %10, ptr %11, align 2
   %12 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 258, ptr noundef nonnull @__func__.step_ctx_create_no_alloc) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i32, ptr %17, align 8
   %19 = call ptr @fake_slurm_step_layout_create(ptr noundef %14, ptr noundef null, ptr noundef null, i32 noundef %16, i32 noundef %18, i16 noundef zeroext 0) #8
-  %20 = getelementptr inbounds i8, ptr %12, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = call i32 @switch_g_alloc_jobinfo(ptr noundef nonnull %21, i32 noundef %23, i32 noundef %25) #8
   %27 = icmp slt i32 %26, 0
@@ -334,15 +334,15 @@ define dso_local noundef ptr @step_ctx_create_no_alloc(ptr noundef %0, i32 nound
 35:                                               ; preds = %29
   store i32 %1, ptr %24, align 8
   %36 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.step_ctx_create_no_alloc) #8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr null, ptr %37, align 8
   store i16 -14429, ptr %36, align 8
   %38 = load i32, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, -2
   br i1 %43, label %44, label %46
@@ -353,83 +353,83 @@ define dso_local noundef ptr @step_ctx_create_no_alloc(ptr noundef %0, i32 nound
   br label %46
 
 46:                                               ; preds = %44, %35
-  %47 = getelementptr inbounds i8, ptr %36, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %12, ptr %47, align 8
   %48 = call ptr @step_launch_state_create(ptr noundef nonnull %36) #8
   store ptr %48, ptr %37, align 8
   %49 = load i32, ptr %3, align 4
-  %50 = getelementptr inbounds i8, ptr %48, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 176
   store i32 %49, ptr %50, align 8
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load i32, ptr %54, align 8
   %56 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__func__._job_fake_cred) #8
   %57 = load ptr, ptr %40, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 160
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %58, i64 12, i1 false)
   %59 = call i32 @getuid() #8
-  %60 = getelementptr inbounds i8, ptr %56, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %56, i64 188
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 188
   store i32 %55, ptr %61, align 4
   %62 = load ptr, ptr %47, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %56, i64 152
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 152
   store ptr %66, ptr %67, align 8
   %68 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 95, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %69 = getelementptr inbounds i8, ptr %56, i64 168
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 168
   store ptr %68, ptr %69, align 8
   store i64 0, ptr %68, align 8
   %70 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 97, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %71 = getelementptr inbounds i8, ptr %56, i64 176
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 176
   store ptr %70, ptr %71, align 8
   store i32 %55, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %56, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 184
   store i32 1, ptr %72, align 8
   %73 = load ptr, ptr %40, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 128
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %56, i64 296
+  %76 = getelementptr inbounds nuw i8, ptr %56, i64 296
   store ptr %75, ptr %76, align 8
   %77 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 102, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %78 = getelementptr inbounds i8, ptr %56, i64 304
+  %78 = getelementptr inbounds nuw i8, ptr %56, i64 304
   store ptr %77, ptr %78, align 8
   store i64 0, ptr %77, align 8
   %79 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 104, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %80 = getelementptr inbounds i8, ptr %56, i64 312
+  %80 = getelementptr inbounds nuw i8, ptr %56, i64 312
   store ptr %79, ptr %80, align 8
   store i32 %55, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %56, i64 320
+  %81 = getelementptr inbounds nuw i8, ptr %56, i64 320
   store i32 1, ptr %81, align 8
   %82 = zext i32 %55 to i64
   %83 = call ptr @bit_alloc(i64 noundef %82) #8
-  %84 = getelementptr inbounds i8, ptr %56, i64 120
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %83, ptr %84, align 8
   call void @bit_set_all(ptr noundef %83) #8
   %85 = call ptr @bit_alloc(i64 noundef %82) #8
-  %86 = getelementptr inbounds i8, ptr %56, i64 288
+  %86 = getelementptr inbounds nuw i8, ptr %56, i64 288
   store ptr %85, ptr %86, align 8
   call void @bit_set_all(ptr noundef %85) #8
   %87 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %88 = getelementptr inbounds i8, ptr %56, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store ptr %87, ptr %88, align 8
   store i16 1, ptr %87, align 2
   %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 115, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %90 = getelementptr inbounds i8, ptr %56, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store ptr %89, ptr %90, align 8
   store i16 1, ptr %89, align 2
   %91 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @__func__._job_fake_cred) #8
-  %92 = getelementptr inbounds i8, ptr %56, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %56, i64 56
   store ptr %91, ptr %92, align 8
   store i32 %55, ptr %91, align 4
   %93 = call ptr @slurm_cred_faker(ptr noundef %56) #8
   %94 = load ptr, ptr %47, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr %93, ptr %95, align 8
   store ptr null, ptr %67, align 8
   store ptr null, ptr %76, align 8
@@ -467,13 +467,13 @@ define dso_local range(i32 -1, 1) i32 @step_ctx_destroy(ptr noundef %0) local_un
   br label %14
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @slurm_free_job_step_create_request_msg(ptr noundef %9) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @slurm_free_job_step_create_response_msg(ptr noundef %11) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void @step_launch_state_destroy(ptr noundef %13) #8
   call void @slurm_xfree(ptr noundef nonnull %2) #8

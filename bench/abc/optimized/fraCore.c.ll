@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %.critedge.thread
@@ -30,7 +30,7 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly
   br i1 %7, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val36 = load ptr, ptr %10, align 8
@@ -39,7 +39,7 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly
   %12 = ptrtoint ptr %.val38 to i64
   %13 = xor i64 %12, 1
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %0, i64 108
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %16
 
@@ -47,7 +47,7 @@ define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
   %.02445 = phi i32 [ 0, %.lr.ph ], [ %.125, %46 ]
-  %17 = getelementptr inbounds ptr, ptr %.val36, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 8
   %.val37 = load ptr, ptr %19, align 8
@@ -129,7 +129,7 @@ define range(i32 -2147483648, 2147483647) i32 @Fra_FraigMiterAssertedOutput(ptr 
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 8
   %.val18 = load ptr, ptr %8, align 8
@@ -143,7 +143,7 @@ define range(i32 -2147483648, 2147483647) i32 @Fra_FraigMiterAssertedOutput(ptr 
 
 13:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %14 = getelementptr inbounds ptr, ptr %.val18, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val19 = load ptr, ptr %16, align 8
@@ -158,7 +158,7 @@ define range(i32 -2147483648, 2147483647) i32 @Fra_FraigMiterAssertedOutput(ptr 
   %21 = ptrtoint ptr %.val19 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = lshr i32 %26, 3
@@ -189,16 +189,16 @@ define range(i32 -2147483648, 2147483647) i32 @Fra_FraigMiterAssertedOutput(ptr 
 ; Function Attrs: nofree nounwind uwtable
 define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
 .critedge:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 48
   %.val91 = load ptr, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.val91, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.val91, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 32
   store i64 %7, ptr %5, align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val93110 = load i32, ptr %11, align 4
@@ -211,7 +211,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge2.preheader:                             ; preds = %19, %.critedge
   %14 = phi ptr [ %8, %.critedge ], [ %33, %19 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val94112 = load i32, ptr %17, align 4
@@ -223,12 +223,12 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %20 = phi ptr [ %10, %.lr.ph ], [ %35, %19 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val89 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.val99 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i32, ptr %.val99, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %.val99, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = shl i32 %25, 5
   %29 = and i32 %28, 32
@@ -238,7 +238,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   store i64 %32, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val93 = load i32, ptr %36, align 4
@@ -248,7 +248,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %39 = phi ptr [ %14, %.critedge2.preheader ], [ %83, %.critedge2 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val95115 = load i32, ptr %42, align 4
@@ -261,7 +261,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %45 = phi ptr [ %85, %.critedge2 ], [ %16, %.critedge2.preheader ]
   %46 = getelementptr i8, ptr %45, i64 8
   %.val88 = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val88, i64 %indvars.iv132
+  %47 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv132
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.critedge2, label %50
@@ -281,7 +281,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %57 = ptrtoint ptr %.val101 to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = trunc i64 %61 to i32
   %63 = lshr i32 %62, 5
@@ -292,7 +292,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %67 = ptrtoint ptr %.val105 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
   %73 = lshr i32 %72, 5
@@ -312,7 +312,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 .critedge2:                                       ; preds = %55, %50, %.lr.ph114
   %83 = phi ptr [ %.pre, %55 ], [ %44, %50 ], [ %44, %.lr.ph114 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 4
   %.val94 = load i32, ptr %86, align 4
@@ -321,9 +321,9 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   br i1 %88, label %.lr.ph114, label %.critedge4.preheader, !llvm.loop !8
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
-  %89 = getelementptr inbounds i8, ptr %0, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 4
   %.val96118 = load i32, ptr %93, align 4
@@ -335,16 +335,16 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %95 = phi ptr [ %113, %.critedge4 ], [ %41, %.critedge4.preheader ]
   %96 = getelementptr i8, ptr %95, i64 8
   %.val87 = load ptr, ptr %96, align 8
-  %97 = getelementptr inbounds ptr, ptr %.val87, i64 %indvars.iv135
+  %97 = getelementptr inbounds nuw ptr, ptr %.val87, i64 %indvars.iv135
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr i8, ptr %98, i64 8
   %.val102 = load ptr, ptr %99, align 8
   %100 = ptrtoint ptr %.val102 to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %98, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %106 = load i64, ptr %105, align 8
   %107 = shl i64 %100, 5
   %.mask107 = xor i64 %107, %104
@@ -354,7 +354,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   store i64 %110, ptr %105, align 8
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %111 = load ptr, ptr %2, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr i8, ptr %113, i64 4
   %.val95 = load i32, ptr %114, align 4
@@ -364,7 +364,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %117 = phi ptr [ %90, %.critedge6.preheader ], [ %138, %.critedge6 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr i8, ptr %119, i64 4
   %.val97124 = load i32, ptr %120, align 4
@@ -377,9 +377,9 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %123 = phi ptr [ %140, %.critedge6 ], [ %92, %.critedge6.preheader ]
   %124 = getelementptr i8, ptr %123, i64 8
   %.val86 = load ptr, ptr %124, align 8
-  %125 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv138
+  %125 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv138
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load i64, ptr %127, align 8
   %129 = trunc i64 %128 to i32
   %130 = lshr i32 %129, 3
@@ -390,7 +390,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not83, label %.critedge6, label %134
 
 134:                                              ; preds = %.lr.ph120
-  %135 = getelementptr inbounds i8, ptr %126, i64 36
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 36
   %136 = load i32, ptr %135, align 4
   %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %136)
   %.pre150 = load ptr, ptr %89, align 8
@@ -399,7 +399,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 .critedge6:                                       ; preds = %.lr.ph120, %134
   %138 = phi ptr [ %122, %.lr.ph120 ], [ %.pre150, %134 ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr i8, ptr %140, i64 4
   %.val96 = load i32, ptr %141, align 4
@@ -409,7 +409,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge10.preheader:                            ; preds = %.critedge8, %.critedge8.preheader
   %144 = load ptr, ptr %2, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %146, i64 4
   %.val98127 = load i32, ptr %147, align 4
@@ -422,9 +422,9 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %150 = phi ptr [ %179, %.critedge8 ], [ %119, %.critedge8.preheader ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val85 = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds ptr, ptr %.val85, i64 %indvars.iv144
+  %152 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv144
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not121 = icmp eq ptr %155, null
   br i1 %.not121, label %.critedge8, label %.lr.ph123
@@ -433,9 +433,9 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %174 ], [ 1, %.lr.ph126 ]
   %156 = phi ptr [ %176, %174 ], [ %155, %.lr.ph126 ]
   %157 = load ptr, ptr %153, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %156, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %161 = load i64, ptr %160, align 8
   %162 = xor i64 %161, %159
   %163 = trunc i64 %162 to i32
@@ -447,16 +447,16 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not82, label %174, label %168
 
 168:                                              ; preds = %.lr.ph123
-  %169 = getelementptr inbounds i8, ptr %157, i64 36
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 36
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds i8, ptr %156, i64 36
+  %171 = getelementptr inbounds nuw i8, ptr %156, i64 36
   %172 = load i32, ptr %171, align 4
   %173 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %170, i32 noundef %172)
   br label %174
 
 174:                                              ; preds = %.lr.ph123, %168
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %175 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv.next142
+  %175 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv.next142
   %176 = load ptr, ptr %175, align 8
   %.not = icmp eq ptr %176, null
   br i1 %.not, label %.critedge8.loopexit, label %.lr.ph123, !llvm.loop !11
@@ -468,7 +468,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.lr.ph126
   %177 = phi ptr [ %.pre151, %.critedge8.loopexit ], [ %149, %.lr.ph126 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %178 = getelementptr inbounds i8, ptr %177, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr i8, ptr %179, i64 4
   %.val97 = load i32, ptr %180, align 4
@@ -482,13 +482,13 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
   %184 = phi ptr [ %195, %.critedge10 ], [ %146, %.critedge10.preheader ]
   %185 = getelementptr i8, ptr %184, i64 8
   %.val = load ptr, ptr %185, align 8
-  %186 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv147
+  %186 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv147
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
   br i1 %188, label %.critedge10, label %189
 
 189:                                              ; preds = %.lr.ph129
-  %190 = getelementptr inbounds i8, ptr %187, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %191 = load i64, ptr %190, align 8
   %192 = and i64 %191, -33
   store i64 %192, ptr %190, align 8
@@ -498,7 +498,7 @@ define void @Fra_FraigVerifyCounterEx(ptr nocapture noundef readonly %0, ptr noc
 .critedge10:                                      ; preds = %189, %.lr.ph129
   %193 = phi ptr [ %.pre152, %189 ], [ %183, %.lr.ph129 ]
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %194 = getelementptr inbounds i8, ptr %193, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr i8, ptr %195, i64 4
   %.val98 = load i32, ptr %196, align 4
@@ -515,14 +515,14 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 136
   %.val72 = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %3, i64 104
   %.val = load i32, ptr %5, align 8
   %6 = sub nsw i32 %.val72, %.val
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val7085 = load i32, ptr %9, align 4
@@ -530,7 +530,7 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = sext i32 %6 to i64
   br label %13
 
@@ -544,14 +544,14 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %17 = load ptr, ptr %16, align 8
   tail call fastcc void @Fra_FraigNode(ptr noundef nonnull %0, ptr noundef %17)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 100
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %20 = load i32, ptr %19, align 4
   %.not66 = icmp eq i32 %20, 0
   br i1 %.not66, label %26, label %21
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @Fra_ImpCheckForNode(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %17, i32 noundef %.087) #10
   br label %26
@@ -560,7 +560,7 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %.1 = phi i32 [ %25, %21 ], [ %.087, %13 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   %.val70 = load i32, ptr %30, align 4
@@ -572,15 +572,15 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %33 = phi ptr [ %3, %1 ], [ %27, %26 ]
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %26 ]
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load i32, ptr %35, align 8
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %37, label %173
 
 37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds i8, ptr %34, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val6988 = load i32, ptr %42, align 4
@@ -588,8 +588,8 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %43, label %.lr.ph91, label %.critedge2
 
 .lr.ph91:                                         ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %46
 
 46:                                               ; preds = %.lr.ph91, %152
@@ -598,7 +598,7 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
   %.290 = phi i32 [ %.0.lcssa, %.lr.ph91 ], [ %.3, %152 ]
   %48 = getelementptr i8, ptr %47, i64 8
   %.val67 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds ptr, ptr %.val67, i64 %indvars.iv93
+  %49 = getelementptr inbounds nuw ptr, ptr %.val67, i64 %indvars.iv93
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %152, label %52
@@ -615,7 +615,7 @@ define void @Fra_FraigSweep(ptr noundef %0) local_unnamed_addr #3 {
 57:                                               ; preds = %52
   %58 = load ptr, ptr %44, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr i8, ptr %50, i64 8
   %.val78 = load ptr, ptr %62, align 8
@@ -679,7 +679,7 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   %99 = phi ptr [ %98, %84 ], [ null, %Fra_ObjChild0Fra.exit ]
   %100 = tail call ptr @Aig_And(ptr noundef %58, ptr noundef %80, ptr noundef %99) #10
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load i32, ptr %102, align 8
   %104 = getelementptr i8, ptr %50, i64 36
   %.val73 = load i32, ptr %104, align 4
@@ -697,17 +697,17 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   %112 = ptrtoint ptr %100 to i64
   %113 = and i64 %112, -2
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %114, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store ptr %0, ptr %115, align 8
   %116 = load ptr, ptr %44, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 296
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 296
   %118 = load ptr, ptr %117, align 8
   %.not62 = icmp eq ptr %118, null
   br i1 %.not62, label %119, label %152
 
 119:                                              ; preds = %Fra_ObjChild1Fra.exit
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 72
   %122 = load i32, ptr %121, align 8
   %.not63 = icmp eq i32 %122, 0
   br i1 %.not63, label %131, label %123
@@ -721,14 +721,14 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %120, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %120, i64 64
   store i32 5, ptr %130, align 8
   br label %131
 
 131:                                              ; preds = %129, %123, %119
   tail call fastcc void @Fra_FraigNode(ptr noundef nonnull %0, ptr noundef nonnull %50)
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %134 = load i32, ptr %133, align 8
   %.not64 = icmp eq i32 %134, 0
   br i1 %.not64, label %143, label %135
@@ -742,21 +742,21 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds i8, ptr %132, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 64
   store i32 %39, ptr %142, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %143
 
 143:                                              ; preds = %141, %135, %131
   %144 = phi ptr [ %.pre, %141 ], [ %132, %135 ], [ %132, %131 ]
-  %145 = getelementptr inbounds i8, ptr %144, i64 100
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 100
   %146 = load i32, ptr %145, align 4
   %.not65 = icmp eq i32 %146, 0
   br i1 %.not65, label %152, label %147
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %45, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 80
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 80
   %150 = load ptr, ptr %149, align 8
   %151 = tail call i32 @Fra_ImpCheckForNode(ptr noundef nonnull %0, ptr noundef %150, ptr noundef nonnull %50, i32 noundef %.290) #10
   br label %152
@@ -765,7 +765,7 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
   %.3 = phi i32 [ %.290, %46 ], [ %.290, %Fra_ObjChild1Fra.exit ], [ %151, %147 ], [ %.290, %143 ], [ %.290, %52 ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %153 = load ptr, ptr %2, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr i8, ptr %155, i64 4
   %.val69 = load i32, ptr %156, align 4
@@ -779,24 +779,24 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %37
   %159 = phi ptr [ %.pre96, %.critedge2.loopexit ], [ %34, %37 ]
-  %160 = getelementptr inbounds i8, ptr %0, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr i8, ptr %161, i64 148
   %.val76 = load i32, ptr %162, align 4
   %163 = getelementptr i8, ptr %161, i64 152
   %.val77 = load i32, ptr %163, align 8
   %164 = add nsw i32 %.val77, %.val76
-  %165 = getelementptr inbounds i8, ptr %0, i64 180
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %164, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %159, i64 100
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 100
   %167 = load i32, ptr %166, align 4
   %.not60 = icmp eq i32 %167, 0
   br i1 %.not60, label %173, label %168
 
 168:                                              ; preds = %.critedge2
-  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 80
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 80
   %172 = load ptr, ptr %171, align 8
   tail call void @Fra_ImpCompactArray(ptr noundef %172) #10
   br label %173
@@ -824,13 +824,13 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 48
   %.val = load ptr, ptr %19, align 8
@@ -838,7 +838,7 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   br i1 %20, label %223, label %21
 
 21:                                               ; preds = %16, %12
-  %22 = getelementptr inbounds i8, ptr %13, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr i8, ptr %.val54, i64 24
   %.val58.val = load i32, ptr %24, align 8
@@ -872,7 +872,7 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %21
-  %48 = getelementptr inbounds i8, ptr %0, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %49 = load i32, ptr %48, align 8
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 8
@@ -886,9 +886,9 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   ]
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %10, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, %55
   %59 = lshr i64 %58, 3
@@ -896,7 +896,7 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   %61 = xor i64 %60, %43
   %62 = inttoptr i64 %61 to ptr
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %65 = load i32, ptr %64, align 8
   %.val63 = load i32, ptr %4, align 4
   %.val64 = load ptr, ptr %5, align 8
@@ -912,35 +912,35 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   br label %223
 
 72:                                               ; preds = %51
-  %73 = getelementptr inbounds i8, ptr %0, i64 168
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread, label %81
 
 .thread:                                          ; preds = %72
   %76 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 0, ptr %77, align 4
   store i32 100, ptr %76, align 8
   %78 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #11
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %78, ptr %79, align 8
   store ptr %76, ptr %73, align 8
-  %80 = getelementptr inbounds i8, ptr %76, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 4
   br label %.Vec_PtrGrow.exit11_crit_edge.i
 
 81:                                               ; preds = %72
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %74, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %74, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre77 = load i32, ptr %74, align 8
-  %82 = getelementptr inbounds i8, ptr %74, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %83 = icmp eq i32 %.pre, %.pre77
   br i1 %83, label %86, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.thread, %81
   %84 = phi ptr [ %80, %.thread ], [ %82, %81 ]
   %85 = phi ptr [ %76, %.thread ], [ %74, %81 ]
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %85, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -949,7 +949,7 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   br i1 %87, label %88, label %96
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %74, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not9.i.i = icmp eq ptr %90, null
   br i1 %.not9.i.i, label %93, label %91
@@ -970,7 +970,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %93, %91
 
 96:                                               ; preds = %86
   %97 = shl nuw nsw i32 %.pre77, 1
-  %98 = getelementptr inbounds i8, ptr %74, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %99 = load ptr, ptr %98, align 8
   %.not9.i10.i = icmp eq ptr %99, null
   %100 = zext nneg i32 %97 to i64
@@ -1001,26 +1001,26 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %113 = getelementptr inbounds ptr, ptr %109, i64 %112
   store ptr %1, ptr %113, align 8
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 44
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 44
   %116 = load i32, ptr %115, align 4
   %.not52 = icmp eq i32 %116, 0
   br i1 %.not52, label %223, label %117
 
 117:                                              ; preds = %Vec_PtrPush.exit
-  %118 = getelementptr inbounds i8, ptr %0, i64 232
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %119 = load i32, ptr %118, align 8
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %10, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %124 = load i64, ptr %123, align 8
   %125 = xor i64 %124, %122
   %126 = lshr i64 %125, 3
   %127 = and i64 %126, 1
   %128 = xor i64 %127, %43
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %114, i64 80
+  %130 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %131 = load i32, ptr %130, align 8
   %.val65 = load i32, ptr %4, align 4
   %.val66 = load ptr, ptr %5, align 8
@@ -1034,7 +1034,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %137 = getelementptr inbounds ptr, ptr %.val66.val67, i64 %136
   store ptr %129, ptr %137, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  %138 = getelementptr inbounds i8, ptr %0, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr @Aig_ManExtractMiter(ptr noundef %139, ptr noundef %42, ptr noundef %45) #10
   %141 = load i32, ptr @Fra_FraigNodeSpeculate.Counter, align 4
@@ -1050,7 +1050,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %146, ptr noundef nonnull %3)
   call void @Aig_ManStop(ptr noundef %140) #10
   %148 = load ptr, ptr %138, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr i8, ptr %150, i64 4
   %.val141.i = load i32, ptr %151, align 4
@@ -1063,13 +1063,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %154 = phi ptr [ %164, %161 ], [ %150, %117 ]
   %155 = getelementptr i8, ptr %154, i64 8
   %.val.i = load ptr, ptr %155, align 8
-  %156 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
   br i1 %158, label %161, label %159
 
 159:                                              ; preds = %.lr.ph.i
-  %160 = getelementptr inbounds i8, ptr %157, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 40
   store ptr %0, ptr %160, align 8
   %.pre.i69 = load ptr, ptr %138, align 8
   br label %161
@@ -1077,7 +1077,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 161:                                              ; preds = %159, %.lr.ph.i
   %162 = phi ptr [ %.pre.i69, %159 ], [ %153, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %163 = getelementptr inbounds i8, ptr %162, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr i8, ptr %164, i64 4
   %.val14.i = load i32, ptr %165, align 4
@@ -1090,24 +1090,24 @@ Fra_FraigNodeSpeculate.exit:                      ; preds = %161, %117
   br label %223
 
 168:                                              ; preds = %51
-  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 76
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 76
   store i32 1, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %0, i64 168
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %173 = load ptr, ptr %172, align 8
   %.not49 = icmp eq ptr %173, null
   br i1 %.not49, label %206, label %174
 
 174:                                              ; preds = %168
-  %175 = getelementptr inbounds i8, ptr %173, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = load i32, ptr %173, align 8
   %178 = icmp eq i32 %176, %177
   br i1 %178, label %179, label %.Vec_PtrGrow.exit11_crit_edge.i70
 
 .Vec_PtrGrow.exit11_crit_edge.i70:                ; preds = %174
-  %.phi.trans.insert.i71 = getelementptr inbounds i8, ptr %173, i64 8
+  %.phi.trans.insert.i71 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.pre.i72 = load ptr, ptr %.phi.trans.insert.i71, align 8
   br label %Vec_PtrPush.exit76
 
@@ -1116,7 +1116,7 @@ Fra_FraigNodeSpeculate.exit:                      ; preds = %161, %117
   br i1 %180, label %181, label %189
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %173, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %183 = load ptr, ptr %182, align 8
   %.not9.i.i74 = icmp eq ptr %183, null
   br i1 %.not9.i.i74, label %186, label %184
@@ -1137,7 +1137,7 @@ Vec_PtrGrow.exit.i75:                             ; preds = %186, %184
 
 189:                                              ; preds = %179
   %190 = shl nuw nsw i32 %176, 1
-  %191 = getelementptr inbounds i8, ptr %173, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not9.i10.i73 = icmp eq ptr %192, null
   %193 = zext nneg i32 %190 to i64
@@ -1170,16 +1170,16 @@ Vec_PtrPush.exit76:                               ; preds = %.Vec_PtrGrow.exit11
 
 206:                                              ; preds = %Vec_PtrPush.exit76, %168
   tail call void @Fra_SmlResimulate(ptr noundef nonnull %0) #10
-  %207 = getelementptr inbounds i8, ptr %0, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 296
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 296
   %210 = load ptr, ptr %209, align 8
   %.not50 = icmp eq ptr %210, null
   br i1 %.not50, label %211, label %223
 
 211:                                              ; preds = %206
   %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 80
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 80
   %214 = load i32, ptr %213, align 8
   %.not51 = icmp eq i32 %214, 0
   br i1 %.not51, label %215, label %223
@@ -1238,7 +1238,7 @@ define ptr @Fra_FraigPerform(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 16:                                               ; preds = %13
   %17 = load i64, ptr %6, align 8
   %.neg72 = mul i64 %17, -1000000
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i64, ptr %18, align 8
   %.neg71 = sdiv i64 %19, -1000
   %.neg73 = add i64 %.neg71, %.neg72
@@ -1249,29 +1249,29 @@ Abc_Clock.exit:                                   ; preds = %13, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %20 = call ptr @Fra_ManStart(ptr noundef nonnull %0, ptr noundef %1) #10
   %21 = call ptr @Fra_ManPrepareComb(ptr noundef %20) #10
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr %1, align 8
   %24 = call ptr @Fra_SmlStart(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef %23) #10
-  %25 = getelementptr inbounds i8, ptr %20, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %24, ptr %25, align 8
   call void @Fra_SmlSimulate(ptr noundef %20, i32 noundef 0) #10
-  %26 = getelementptr inbounds i8, ptr %20, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @Fra_ClassesCountLits(ptr noundef %27) #10
-  %29 = getelementptr inbounds i8, ptr %20, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 184
   store i32 %28, ptr %29, align 8
   %.val58 = load i32, ptr %7, align 4
   %.val59 = load i32, ptr %8, align 8
   %30 = add nsw i32 %.val59, %.val58
-  %31 = getelementptr inbounds i8, ptr %20, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 192
   store i32 %30, ptr %31, align 8
   %32 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 200
   store i32 %.val, ptr %33, align 8
   %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
   %36 = load i32, ptr %35, align 4
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %39, label %37
@@ -1283,13 +1283,13 @@ Abc_Clock.exit:                                   ; preds = %13, %16
 
 39:                                               ; preds = %37, %Abc_Clock.exit
   call void @Fra_FraigSweep(ptr noundef nonnull %20)
-  %40 = getelementptr inbounds i8, ptr %0, i64 336
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %41 = load ptr, ptr %40, align 8
   %.not54 = icmp eq ptr %41, null
   br i1 %.not54, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 344
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %44 = load ptr, ptr %43, align 8
   call void %41(ptr noundef nonnull %20, ptr noundef %44) #10
   br label %45
@@ -1297,7 +1297,7 @@ Abc_Clock.exit:                                   ; preds = %13, %16
 45:                                               ; preds = %42, %39
   call void @Fra_ManFinalizeComb(ptr noundef nonnull %20) #10
   %46 = load ptr, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %.not55 = icmp eq i32 %48, 0
   br i1 %.not55, label %79, label %49
@@ -1311,7 +1311,7 @@ Abc_Clock.exit:                                   ; preds = %13, %16
 52:                                               ; preds = %49
   %53 = load i64, ptr %5, align 8
   %.neg69 = mul i64 %53, -1000000
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8
   %.neg = sdiv i64 %55, -1000
   %.neg70 = add i64 %.neg, %.neg69
@@ -1321,10 +1321,10 @@ Abc_Clock.exit64:                                 ; preds = %49, %52
   %.0.i63.neg = phi i64 [ %.neg70, %52 ], [ 1, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %56 = load ptr, ptr %26, align 8
-  %57 = getelementptr inbounds i8, ptr %20, i64 168
+  %57 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %58 = load ptr, ptr %57, align 8
   call void @Fra_ClassesCopyReprs(ptr noundef %56, ptr noundef %58) #10
-  %59 = getelementptr inbounds i8, ptr %20, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @Aig_ManDupRepr(ptr noundef %60, i32 noundef 1) #10
   %62 = getelementptr i8, ptr %61, i64 32
@@ -1346,7 +1346,7 @@ Abc_Clock.exit64:                                 ; preds = %49, %52
 68:                                               ; preds = %Abc_Clock.exit64
   %69 = load i64, ptr %4, align 8
   %70 = mul nsw i64 %69, 1000000
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = sdiv i64 %72, 1000
   %74 = add nsw i64 %73, %70
@@ -1356,7 +1356,7 @@ Abc_Clock.exit66:                                 ; preds = %Abc_Clock.exit64, %
   %.0.i65 = phi i64 [ %74, %68 ], [ -1, %Abc_Clock.exit64 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %75 = add i64 %.0.i65, %.0.i63.neg
-  %76 = getelementptr inbounds i8, ptr %20, i64 264
+  %76 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %77 = load i64, ptr %76, align 8
   %78 = add nsw i64 %75, %77
   store i64 %78, ptr %76, align 8
@@ -1364,7 +1364,7 @@ Abc_Clock.exit66:                                 ; preds = %Abc_Clock.exit64, %
 
 79:                                               ; preds = %45
   %80 = load ptr, ptr %26, align 8
-  %81 = getelementptr inbounds i8, ptr %20, i64 168
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %82 = load ptr, ptr %81, align 8
   call void @Fra_ClassesCopyReprs(ptr noundef %80, ptr noundef %82) #10
   %83 = load ptr, ptr %22, align 8
@@ -1383,7 +1383,7 @@ Abc_Clock.exit66:                                 ; preds = %Abc_Clock.exit64, %
 89:                                               ; preds = %86
   %90 = load i64, ptr %3, align 8
   %91 = mul nsw i64 %90, 1000000
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = sdiv i64 %93, 1000
   %95 = add nsw i64 %94, %91
@@ -1393,22 +1393,22 @@ Abc_Clock.exit68:                                 ; preds = %86, %89
   %.0.i67 = phi i64 [ %95, %89 ], [ -1, %86 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %96 = add i64 %.0.i67, %.0.i.neg
-  %97 = getelementptr inbounds i8, ptr %20, i64 320
+  %97 = getelementptr inbounds nuw i8, ptr %20, i64 320
   store i64 %96, ptr %97, align 8
   %98 = load ptr, ptr %26, align 8
   %99 = call i32 @Fra_ClassesCountLits(ptr noundef %98) #10
-  %100 = getelementptr inbounds i8, ptr %20, i64 188
+  %100 = getelementptr inbounds nuw i8, ptr %20, i64 188
   store i32 %99, ptr %100, align 4
   %101 = getelementptr i8, ptr %.052, i64 148
   %.052.val56 = load i32, ptr %101, align 4
   %102 = getelementptr i8, ptr %.052, i64 152
   %.052.val57 = load i32, ptr %102, align 8
   %103 = add nsw i32 %.052.val57, %.052.val56
-  %104 = getelementptr inbounds i8, ptr %20, i64 196
+  %104 = getelementptr inbounds nuw i8, ptr %20, i64 196
   store i32 %103, ptr %104, align 4
   %105 = getelementptr i8, ptr %.052, i64 104
   %.052.val = load i32, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %20, i64 204
+  %106 = getelementptr inbounds nuw i8, ptr %20, i64 204
   store i32 %.052.val, ptr %106, align 4
   call void @Fra_ManStop(ptr noundef nonnull %20) #10
   br label %107
@@ -1454,21 +1454,21 @@ declare void @Fra_ManStop(ptr noundef) local_unnamed_addr #4
 define ptr @Fra_FraigChoice(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.Fra_Par_t_, align 8
   call void @Fra_ParamsDefault(ptr noundef nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %2, ptr %12, align 8
   %13 = call ptr @Fra_FraigPerform(ptr noundef %0, ptr noundef nonnull %4)
   ret ptr %13
@@ -1480,19 +1480,19 @@ declare void @Fra_ParamsDefault(ptr noundef) local_unnamed_addr #4
 define ptr @Fra_FraigEquivence(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.Fra_Par_t_, align 8
   call void @Fra_ParamsDefault(ptr noundef nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 1, ptr %11, align 8
   %12 = call ptr @Fra_FraigPerform(ptr noundef %0, ptr noundef nonnull %4)
   ret ptr %12

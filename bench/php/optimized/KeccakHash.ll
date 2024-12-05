@@ -14,9 +14,9 @@ define hidden i32 @Keccak_HashInitialize(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 212
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i8 %4, ptr %11, align 8
   br label %12
 
@@ -39,9 +39,9 @@ define hidden i32 @Keccak_HashUpdate(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %or.cond, label %10, label %25
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i16
   %16 = trunc nuw nsw i64 %5 to i16
@@ -73,14 +73,14 @@ declare i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef, ptr noundef, i64 noundef)
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Keccak_HashFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i8, ptr %3, align 8
   %5 = tail call i32 @KeccakWidth1600_SpongeAbsorbLastFewBits(ptr noundef %0, i8 noundef zeroext %4) #2
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 212
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 3
   %11 = zext nneg i32 %10 to i64

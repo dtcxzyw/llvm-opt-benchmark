@@ -28,22 +28,22 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 115
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 115
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 112
   br i1 %.not, label %7, label %240
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %240
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = tail call ptr @SearchSysCache1(i32 noundef 43, i64 noundef %14) #6
@@ -62,23 +62,23 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   %21 = load ptr, ptr @CurTransactionContext, align 8
   %22 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = tail call ptr @MemoryContextStrdup(ptr noundef %22, ptr noundef nonnull %24) #6
   tail call void @MemoryContextSetIdentifier(ptr noundef %22, ptr noundef %25) #6
   %26 = tail call ptr @MemoryContextAllocZero(ptr noundef %22, i64 noundef 104) #6
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 22
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 22
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i64
   %32 = getelementptr i8, ptr %28, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = sext i8 %34 to i32
   store i32 %35, ptr %26, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %37 = load i16, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %26, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i16 %37, ptr %38, align 4
   switch i8 %34, label %39 [
     i8 108, label %43
@@ -95,7 +95,7 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   unreachable
 
 43:                                               ; preds = %20, %20, %20
-  %44 = getelementptr inbounds i8, ptr %32, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %45 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 43, ptr noundef nonnull %15, i16 noundef signext 6) #6
   %46 = inttoptr i64 %45 to ptr
   %47 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 43, ptr noundef nonnull %15, i16 noundef signext 7) #6
@@ -119,7 +119,7 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   %57 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
   %58 = call ptr @copyObjectImpl(ptr noundef %56) #6
-  %59 = getelementptr inbounds i8, ptr %26, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %58, ptr %59, align 8
   br label %60
 
@@ -130,65 +130,65 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   %63 = sext i16 %62 to i64
   %64 = shl nsw i64 %63, 1
   %65 = call ptr @palloc0(i64 noundef %64) #6
-  %66 = getelementptr inbounds i8, ptr %26, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %65, ptr %66, align 8
   %67 = load i16, ptr %38, align 4
   %68 = sext i16 %67 to i64
   %69 = shl nsw i64 %68, 2
   %70 = call ptr @palloc0(i64 noundef %69) #6
-  %71 = getelementptr inbounds i8, ptr %26, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %70, ptr %71, align 8
   %72 = load i16, ptr %38, align 4
   %73 = sext i16 %72 to i64
   %74 = shl nsw i64 %73, 2
   %75 = call ptr @palloc0(i64 noundef %74) #6
-  %76 = getelementptr inbounds i8, ptr %26, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %75, ptr %76, align 8
   %77 = load i16, ptr %38, align 4
   %78 = sext i16 %77 to i64
   %79 = mul nsw i64 %78, 48
   %80 = call ptr @palloc0(i64 noundef %79) #6
-  %81 = getelementptr inbounds i8, ptr %26, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %80, ptr %81, align 8
   %82 = load i16, ptr %38, align 4
   %83 = sext i16 %82 to i64
   %84 = shl nsw i64 %83, 2
   %85 = call ptr @palloc0(i64 noundef %84) #6
-  %86 = getelementptr inbounds i8, ptr %26, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %85, ptr %86, align 8
   %87 = load i16, ptr %38, align 4
   %88 = sext i16 %87 to i64
   %89 = shl nsw i64 %88, 2
   %90 = call ptr @palloc0(i64 noundef %89) #6
-  %91 = getelementptr inbounds i8, ptr %26, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store ptr %90, ptr %91, align 8
   %92 = load i16, ptr %38, align 4
   %93 = sext i16 %92 to i64
   %94 = shl nsw i64 %93, 2
   %95 = call ptr @palloc0(i64 noundef %94) #6
-  %96 = getelementptr inbounds i8, ptr %26, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr %95, ptr %96, align 8
   %97 = load i16, ptr %38, align 4
   %98 = sext i16 %97 to i64
   %99 = shl nsw i64 %98, 1
   %100 = call ptr @palloc0(i64 noundef %99) #6
-  %101 = getelementptr inbounds i8, ptr %26, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store ptr %100, ptr %101, align 8
   %102 = load i16, ptr %38, align 4
   %103 = sext i16 %102 to i64
   %104 = call ptr @palloc0(i64 noundef %103) #6
-  %105 = getelementptr inbounds i8, ptr %26, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %26, i64 80
   store ptr %104, ptr %105, align 8
   %106 = load i16, ptr %38, align 4
   %107 = sext i16 %106 to i64
   %108 = call ptr @palloc0(i64 noundef %107) #6
-  %109 = getelementptr inbounds i8, ptr %26, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store ptr %108, ptr %109, align 8
   %110 = load i16, ptr %38, align 4
   %111 = sext i16 %110 to i64
   %112 = shl nsw i64 %111, 2
   %113 = call ptr @palloc0(i64 noundef %112) #6
-  %114 = getelementptr inbounds i8, ptr %26, i64 96
+  %114 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store ptr %113, ptr %114, align 8
   store ptr %61, ptr @CurrentMemoryContext, align 8
   %115 = load i32, ptr %26, align 8
@@ -199,13 +199,13 @@ define dso_local ptr @RelationGetPartitionKey(ptr nocapture noundef %0) local_un
   %120 = sext i16 %119 to i64
   %121 = shl nsw i64 %120, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %118, ptr nonnull align 2 %44, i64 %121, i1 false)
-  %122 = getelementptr inbounds i8, ptr %26, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %123 = load ptr, ptr %122, align 8
   %.not.i.i = icmp eq ptr %123, null
   br i1 %.not.i.i, label %list_head.exit.i, label %124
 
 124:                                              ; preds = %60
-  %125 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %126 = load ptr, ptr %125, align 8
   br label %list_head.exit.i
 
@@ -216,9 +216,9 @@ list_head.exit.i:                                 ; preds = %124, %60
   br i1 %129, label %.lr.ph.i, label %RelationBuildPartitionKey.exit
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
-  %130 = getelementptr inbounds i8, ptr %46, i64 24
-  %131 = getelementptr inbounds i8, ptr %48, i64 24
-  %132 = getelementptr inbounds i8, ptr %0, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %133
 
 133:                                              ; preds = %225, %.lr.ph.i
@@ -244,18 +244,18 @@ list_head.exit.i:                                 ; preds = %124, %60
   unreachable
 
 146:                                              ; preds = %133
-  %147 = getelementptr inbounds i8, ptr %140, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 22
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 22
   %150 = load i8, ptr %149, align 2
   %151 = zext i8 %150 to i64
   %152 = getelementptr i8, ptr %148, i64 %151
-  %153 = getelementptr inbounds i8, ptr %152, i64 80
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 80
   %154 = load i32, ptr %153, align 4
   %155 = load ptr, ptr %71, align 8
   %156 = getelementptr i32, ptr %155, i64 %indvars.iv.i
   store i32 %154, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %152, i64 84
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 84
   %158 = load i32, ptr %157, align 4
   %159 = load ptr, ptr %76, align 8
   %160 = getelementptr i32, ptr %159, i64 %indvars.iv.i
@@ -266,11 +266,11 @@ list_head.exit.i:                                 ; preds = %124, %60
   br i1 %.not144.i, label %163, label %175
 
 163:                                              ; preds = %146
-  %164 = getelementptr inbounds i8, ptr %152, i64 84
+  %164 = getelementptr inbounds nuw i8, ptr %152, i64 84
   %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %165)
   %166 = call i32 @errcode(i32 noundef 117833860) #6
-  %167 = getelementptr inbounds i8, ptr %152, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %168 = load i32, ptr %26, align 8
   %169 = icmp eq i32 %168, 104
   %170 = select i1 %169, ptr @.str.6, ptr @.str.7
@@ -296,20 +296,20 @@ list_head.exit.i:                                 ; preds = %124, %60
 182:                                              ; preds = %175
   %183 = sext i16 %136 to i64
   %184 = load ptr, ptr %132, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = add nsw i64 %183, -1
   %187 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %185, i64 0, i64 %186
-  %188 = getelementptr inbounds i8, ptr %187, i64 68
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 68
   %189 = load i32, ptr %188, align 4
   %190 = load ptr, ptr %91, align 8
   %191 = getelementptr i32, ptr %190, i64 %indvars.iv.i
   store i32 %189, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %187, i64 80
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 80
   %193 = load i32, ptr %192, align 4
   %194 = load ptr, ptr %96, align 8
   %195 = getelementptr i32, ptr %194, i64 %indvars.iv.i
   store i32 %193, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %187, i64 100
+  %196 = getelementptr inbounds nuw i8, ptr %187, i64 100
   %197 = load i32, ptr %196, align 4
   %198 = load ptr, ptr %114, align 8
   %199 = getelementptr i32, ptr %198, i64 %indvars.iv.i
@@ -378,7 +378,7 @@ RelationBuildPartitionKey.exit:                   ; preds = %225, %list_head.exi
   call void @ReleaseSysCache(ptr noundef nonnull %15) #6
   %238 = load ptr, ptr @CacheMemoryContext, align 8
   call void @MemoryContextSetParent(ptr noundef %22, ptr noundef %238) #6
-  %239 = getelementptr inbounds i8, ptr %0, i64 144
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %22, ptr %239, align 8
   store ptr %26, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -391,9 +391,9 @@ RelationBuildPartitionKey.exit:                   ; preds = %225, %list_head.exi
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RelationGetPartitionQual(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 127
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 127
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %9
@@ -411,19 +411,19 @@ define dso_local ptr @RelationGetPartitionQual(ptr noundef %0) local_unnamed_add
 define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   tail call void @check_stack_depth() #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @copyObjectImpl(ptr noundef %8) #6
   br label %55
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @get_partition_parent(i32 noundef %12, i1 noundef zeroext true) #6
   %14 = tail call ptr @relation_open(i32 noundef %13, i32 noundef 1) #6
@@ -457,9 +457,9 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 31:                                               ; preds = %26, %22
   %.032 = phi ptr [ null, %22 ], [ %30, %26 ]
   call void @ReleaseSysCache(ptr noundef nonnull %17) #6
-  %32 = getelementptr inbounds i8, ptr %14, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 127
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 127
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %40
@@ -478,11 +478,11 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 42:                                               ; preds = %40
   %43 = load ptr, ptr @CacheMemoryContext, align 8
   %44 = call ptr @AllocSetContextCreateInternal(ptr noundef %43, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
-  %45 = getelementptr inbounds i8, ptr %0, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = call ptr @MemoryContextStrdup(ptr noundef %44, ptr noundef nonnull %48) #6
   call void @MemoryContextSetIdentifier(ptr noundef %44, ptr noundef %49) #6
   %50 = load ptr, ptr %45, align 8
@@ -494,7 +494,7 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 
 53:                                               ; preds = %40, %42
   %.sink = phi ptr [ %52, %42 ], [ null, %40 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %.sink, ptr %54, align 8
   store i8 1, ptr %3, align 8
   call void @relation_close(ptr noundef nonnull %14, i32 noundef 0) #6

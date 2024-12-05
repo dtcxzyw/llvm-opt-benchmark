@@ -76,12 +76,12 @@ entry:
   %conv = zext i32 %groupIndices to i64
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue216ReferenceVisitorE, i64 16), ptr %vis, align 8
-  %num_ids.i = getelementptr inbounds i8, ptr %vis, i64 8
+  %num_ids.i = getelementptr inbounds nuw i8, ptr %vis, i64 8
   store i64 %conv, ptr %num_ids.i, align 8
-  %names.i = getelementptr inbounds i8, ptr %vis, i64 16
+  %names.i = getelementptr inbounds nuw i8, ptr %vis, i64 16
   store ptr %groupNames, ptr %names.i, align 8
   %vtable = load ptr, ptr %root, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %root, ptr noundef nonnull align 8 dereferenceable(8) %vis)
           to label %invoke.cont unwind label %lpad
@@ -110,14 +110,14 @@ declare void @_ZN3ue228DefaultConstComponentVisitor3preERKNS_20ComponentAtomicGr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3ue216ReferenceVisitor3preERKNS_22ComponentBackReferenceE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %c) unnamed_addr #3 comdat align 2 {
 entry:
-  %ref_id = getelementptr inbounds i8, ptr %c, i64 48
+  %ref_id = getelementptr inbounds nuw i8, ptr %c, i64 48
   %0 = load i32, ptr %ref_id, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %conv = zext i32 %0 to i64
-  %num_ids = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ids = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %num_ids, align 8
   %cmp.not = icmp ugt i64 %1, %conv
   br i1 %cmp.not, label %if.end8, label %if.then3
@@ -127,9 +127,9 @@ if.then3:                                         ; preds = %if.then
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %names = getelementptr inbounds i8, ptr %this, i64 16
+  %names = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %names, align 8
-  %name = getelementptr inbounds i8, ptr %c, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %c, i64 16
   %call = tail call noundef zeroext i1 @_ZN3ue28containsINS_8flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEEEbRKT_RKNSC_8key_typeE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(32) %name)
   br i1 %call, label %if.end8, label %if.then5
 
@@ -148,7 +148,7 @@ declare void @_ZN3ue228DefaultConstComponentVisitor3preERKNS_13ComponentByteE(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3ue216ReferenceVisitor3preERKNS_22ComponentCondReferenceE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(137) %c) unnamed_addr #3 comdat align 2 {
 entry:
-  %kind = getelementptr inbounds i8, ptr %c, i64 88
+  %kind = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %kind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -156,10 +156,10 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ref_id = getelementptr inbounds i8, ptr %c, i64 92
+  %ref_id = getelementptr inbounds nuw i8, ptr %c, i64 92
   %1 = load i32, ptr %ref_id, align 4
   %conv = zext i32 %1 to i64
-  %num_ids = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ids = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %num_ids, align 8
   %cmp.not = icmp ugt i64 %2, %conv
   br i1 %cmp.not, label %sw.epilog, label %if.then
@@ -169,13 +169,13 @@ if.then:                                          ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %ref_name = getelementptr inbounds i8, ptr %c, i64 96
+  %ref_name = getelementptr inbounds nuw i8, ptr %c, i64 96
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref_name, ptr noundef nonnull @.str.7) #8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %sw.epilog, label %if.end5
 
 if.end5:                                          ; preds = %sw.bb3
-  %names = getelementptr inbounds i8, ptr %this, i64 16
+  %names = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %names, align 8
   %call7 = tail call noundef zeroext i1 @_ZN3ue28containsINS_8flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEEEbRKT_RKNSC_8key_typeE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(32) %ref_name)
   br i1 %call7, label %sw.epilog, label %if.then8
@@ -337,7 +337,7 @@ unreachable:                                      ; preds = %invoke.cont13
 define linkonce_odr hidden noundef zeroext i1 @_ZN3ue28containsINS_8flat_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEEEbRKT_RKNSC_8key_typeE(ptr noundef nonnull align 8 dereferenceable(56) %container, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %container, align 8, !noalias !5
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %container, i64 8
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %container, i64 8
   %1 = load i64, ptr %m_size.i.i.i, align 8, !noalias !10
   %cmp8.i.i.i = icmp sgt i64 %1, 0
   br i1 %cmp8.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit.i
@@ -346,7 +346,7 @@ while.body.i.i.i:                                 ; preds = %entry, %_ZN9__gnu_c
   %agg.tmp.sroa.0.0.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i ], [ %0, %entry ]
   %__len.09.i.i.i = phi i64 [ %__len.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i ], [ %1, %entry ]
   %shr.i.i.i = lshr i64 %__len.09.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.sroa.0.0.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %agg.tmp.sroa.0.0.i.i, i64 %shr.i.i.i
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !15
 
@@ -359,7 +359,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 32
   %4 = xor i64 %shr.i.i.i, -1
   %sub6.i.i.i = add nsw i64 %__len.09.i.i.i, %4
   %agg.tmp.sroa.0.1.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %agg.tmp.sroa.0.0.i.i

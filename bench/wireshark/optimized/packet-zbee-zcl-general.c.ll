@@ -2753,19 +2753,19 @@ define internal i32 @dissect_zbee_zcl_basic(ptr noundef %0, ptr nocapture nounde
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %12 to i32
   %16 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @zbee_zcl_basic_srv_rx_cmd_names, ptr noundef nonnull @.str.1185) #8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1184, ptr noundef %16, i32 noundef %19) #8
@@ -3145,15 +3145,15 @@ define internal i32 @dissect_zbee_zcl_identify(ptr noundef %0, ptr nocapture nou
   br i1 %5, label %51, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %35
 
 16:                                               ; preds = %6
@@ -3268,15 +3268,15 @@ define internal i32 @dissect_zbee_zcl_groups(ptr noundef %0, ptr nocapture nound
   br i1 %5, label %124, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %71
 
 16:                                               ; preds = %6
@@ -3528,15 +3528,15 @@ define internal i32 @dissect_zbee_zcl_scenes(ptr noundef %0, ptr nocapture nound
   br i1 %6, label %97, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %9 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %12, label %17, label %39
 
 17:                                               ; preds = %7
@@ -3757,19 +3757,19 @@ define internal i32 @dissect_zbee_zcl_on_off(ptr noundef %0, ptr nocapture nound
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %48
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %12 to i32
   %16 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @zbee_zcl_on_off_srv_rx_cmd_names, ptr noundef nonnull @.str.1185) #8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1184, ptr noundef %16, i32 noundef %19) #8
@@ -3979,15 +3979,15 @@ define internal i32 @dissect_zbee_zcl_alarms(ptr noundef %0, ptr nocapture nound
   br i1 %5, label %61, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %32
 
 16:                                               ; preds = %6
@@ -4147,19 +4147,19 @@ define internal i32 @dissect_zbee_zcl_level_control(ptr noundef %0, ptr nocaptur
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %44
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %12 to i32
   %16 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @zbee_zcl_level_control_srv_rx_cmd_names, ptr noundef nonnull @.str.1185) #8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1184, ptr noundef %16, i32 noundef %19) #8
@@ -4304,15 +4304,15 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr nocaptur
   br i1 %6, label %173, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %9 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %12, label %17, label %37
 
 17:                                               ; preds = %7
@@ -5391,15 +5391,15 @@ define internal i32 @dissect_zbee_zcl_commissioning(ptr noundef %0, ptr nocaptur
   br i1 %5, label %62, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %46
 
 16:                                               ; preds = %6
@@ -5572,15 +5572,15 @@ define internal i32 @dissect_zbee_zcl_part(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %7, label %100, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %10 to i32
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %13, label %18, label %54
 
 18:                                               ; preds = %8
@@ -5838,15 +5838,15 @@ define internal i32 @dissect_zbee_zcl_ota(ptr noundef %0, ptr nocapture noundef 
   br i1 %5, label %212, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %116
 
 16:                                               ; preds = %6
@@ -6306,15 +6306,15 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr nocapture nou
   br i1 %6, label %134, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %9 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %12, label %17, label %42
 
 17:                                               ; preds = %7
@@ -6637,15 +6637,15 @@ define internal i32 @dissect_zbee_zcl_appl_ctrl(ptr noundef %0, ptr nocapture no
   br i1 %6, label %90, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %9 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %12, label %17, label %70
 
 17:                                               ; preds = %7
@@ -6827,15 +6827,15 @@ define internal i32 @dissect_zbee_zcl_poll_ctrl(ptr noundef %0, ptr nocapture no
   br i1 %5, label %41, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %11, label %16, label %33
 
 16:                                               ; preds = %6
@@ -6921,15 +6921,15 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %6, label %390, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %9 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %12, label %17, label %261
 
 17:                                               ; preds = %7
@@ -7776,19 +7776,19 @@ define internal range(i32 3, 1) i32 @dissect_zbee_zcl_touchlink(ptr noundef %0, 
   br i1 %5, label %201, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   %zbee_zcl_touchlink_rx_cmd_names.zbee_zcl_touchlink_tx_cmd_names = select i1 %11, ptr @zbee_zcl_touchlink_rx_cmd_names, ptr @zbee_zcl_touchlink_tx_cmd_names
   %hf_zbee_zcl_touchlink_rx_cmd_id.val = load i32, ptr @hf_zbee_zcl_touchlink_rx_cmd_id, align 4
   %hf_zbee_zcl_touchlink_tx_cmd_id.val = load i32, ptr @hf_zbee_zcl_touchlink_tx_cmd_id, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
   %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull %zbee_zcl_touchlink_rx_cmd_names.zbee_zcl_touchlink_tx_cmd_names, ptr noundef nonnull @.str.1185) #8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 4
   %18 = zext i8 %17 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1184, ptr noundef %15, i32 noundef %18) #8
@@ -8729,7 +8729,7 @@ define internal fastcc i32 @dissect_zbee_zcl_gp_payload(ptr noundef %0, ptr noun
 13:                                               ; preds = %4
   %14 = zext i8 %8 to i32
   %15 = tail call ptr @tvb_new_composite() #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @col_get_writable(ptr noundef %17, i32 noundef 25) #8
   %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef 1) #8

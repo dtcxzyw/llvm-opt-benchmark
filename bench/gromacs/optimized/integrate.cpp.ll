@@ -47,7 +47,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   br i1 %.not44.us, label %15, label %8
 
 8:                                                ; preds = %.lr.ph.split.us
-  %9 = getelementptr inbounds float, ptr %3, i64 %indvars.iv65
+  %9 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv65
   %10 = load float, ptr %9, align 4
   %11 = getelementptr i8, ptr %9, i64 -4
   %12 = load float, ptr %11, align 4
@@ -69,7 +69,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %30
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %30 ], [ 0, %.lr.ph.split ]
   %.03445.us48 = phi float [ %.135.us50, %30 ], [ 0.000000e+00, %.lr.ph.split ]
-  %17 = getelementptr inbounds float, ptr %3, i64 %indvars.iv60
+  %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv60
   %18 = load float, ptr %17, align 4
   %19 = trunc nuw nsw i64 %indvars.iv60 to i32
   %20 = uitofp nneg i32 %19 to float
@@ -96,7 +96,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph.split ]
   %.03445 = phi float [ %.135, %48 ], [ 0.000000e+00, %.lr.ph.split ]
-  %31 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %32 = load float, ptr %31, align 4
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = srem i32 %33, %5
@@ -152,7 +152,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %53 = uitofp nneg i32 %52 to float
   %54 = fmul float %2, %53
   %55 = fpext float %54 to double
-  %56 = getelementptr inbounds float, ptr %4, i64 %indvars.iv75
+  %56 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv75
   %57 = load float, ptr %56, align 4
   %58 = fpext float %57 to double
   %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %55, double noundef %58) #12
@@ -171,7 +171,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %0,
   %64 = uitofp nneg i32 %60 to float
   %65 = fmul float %2, %64
   %66 = fpext float %65 to double
-  %67 = getelementptr inbounds float, ptr %4, i64 %indvars.iv70
+  %67 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv70
   %68 = load float, ptr %67, align 4
   %69 = fpext float %68 to double
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %66, double noundef %69) #12
@@ -223,7 +223,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %.not.us.us, label %20, label %12
 
 12:                                               ; preds = %.preheader.split.us.split.us
-  %13 = getelementptr inbounds float, ptr %1, i64 %indvars.iv113
+  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv113
   %14 = load float, ptr %13, align 4
   %15 = getelementptr i8, ptr %13, i64 -4
   %16 = load float, ptr %15, align 4
@@ -235,7 +235,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 20:                                               ; preds = %12, %.preheader.split.us.split.us
   %.055.us.us = phi double [ %19, %12 ], [ 0.000000e+00, %.preheader.split.us.split.us ]
   %21 = icmp samesign ult i64 %indvars.iv113, %11
-  %22 = getelementptr inbounds float, ptr %1, i64 %indvars.iv113
+  %22 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv113
   br i1 %21, label %23, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %20
@@ -243,7 +243,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br label %30
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load float, ptr %24, align 4
   %26 = load float, ptr %22, align 4
   %27 = fsub float %25, %26
@@ -254,7 +254,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 30:                                               ; preds = %._crit_edge118, %23
   %31 = phi float [ %26, %23 ], [ %.pre120, %._crit_edge118 ]
   %.156.us.us = phi double [ %29, %23 ], [ %.055.us.us, %._crit_edge118 ]
-  %32 = getelementptr inbounds float, ptr %2, i64 %indvars.iv113
+  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv113
   %33 = load float, ptr %32, align 4
   %34 = fpext float %33 to double
   %35 = tail call double @llvm.fmuladd.f64(double %.156.us.us, double %34, double %.067.us.us)
@@ -278,7 +278,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %.not.us, label %47, label %39
 
 39:                                               ; preds = %.preheader.split.us.split
-  %40 = getelementptr inbounds float, ptr %1, i64 %indvars.iv108
+  %40 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
   %41 = load float, ptr %40, align 4
   %42 = getelementptr i8, ptr %40, i64 -4
   %43 = load float, ptr %42, align 4
@@ -290,7 +290,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 47:                                               ; preds = %39, %.preheader.split.us.split
   %.055.us = phi double [ %46, %39 ], [ 0.000000e+00, %.preheader.split.us.split ]
   %48 = icmp samesign ult i64 %indvars.iv108, %11
-  %49 = getelementptr inbounds float, ptr %1, i64 %indvars.iv108
+  %49 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
   br i1 %48, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47
@@ -298,7 +298,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br label %57
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load float, ptr %51, align 4
   %53 = load float, ptr %49, align 4
   %54 = fsub float %52, %53
@@ -309,11 +309,11 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 57:                                               ; preds = %._crit_edge, %50
   %58 = phi float [ %53, %50 ], [ %.pre, %._crit_edge ]
   %.156.us = phi double [ %56, %50 ], [ %.055.us, %._crit_edge ]
-  %59 = getelementptr inbounds float, ptr %2, i64 %indvars.iv108
+  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv108
   %60 = load float, ptr %59, align 4
   %61 = fpext float %60 to double
   %62 = tail call double @llvm.fmuladd.f64(double %.156.us, double %61, double %.067.us)
-  %63 = getelementptr inbounds float, ptr %3, i64 %indvars.iv108
+  %63 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv108
   %64 = load float, ptr %63, align 4
   %65 = fpext float %64 to double
   %66 = fmul double %.156.us, %65
@@ -347,7 +347,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %.not.us75, label %84, label %76
 
 76:                                               ; preds = %.preheader.split.split.us
-  %77 = getelementptr inbounds float, ptr %1, i64 %indvars.iv103
+  %77 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
   %78 = load float, ptr %77, align 4
   %79 = getelementptr i8, ptr %77, i64 -4
   %80 = load float, ptr %79, align 4
@@ -362,8 +362,8 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds float, ptr %1, i64 %indvars.iv103
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %87 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load float, ptr %88, align 4
   %90 = load float, ptr %87, align 4
   %91 = fsub float %89, %90
@@ -373,7 +373,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 94:                                               ; preds = %86, %84
   %.156.us77 = phi double [ %93, %86 ], [ %.055.us76, %84 ]
-  %95 = getelementptr inbounds float, ptr %2, i64 %indvars.iv103
+  %95 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv103
   %96 = load float, ptr %95, align 4
   %97 = fpext float %96 to double
   %98 = tail call double @llvm.fmuladd.f64(double %.156.us77, double %97, double %.067.us72)
@@ -403,7 +403,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %.not, label %111, label %103
 
 103:                                              ; preds = %.preheader.split.split
-  %104 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %105 = load float, ptr %104, align 4
   %106 = getelementptr i8, ptr %104, i64 -4
   %107 = load float, ptr %106, align 4
@@ -418,8 +418,8 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %114 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load float, ptr %115, align 4
   %117 = load float, ptr %114, align 4
   %118 = fsub float %116, %117
@@ -429,11 +429,11 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 
 121:                                              ; preds = %113, %111
   %.156 = phi double [ %120, %113 ], [ %.055, %111 ]
-  %122 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %123 = load float, ptr %122, align 4
   %124 = fpext float %123 to double
   %125 = tail call double @llvm.fmuladd.f64(double %.156, double %124, double %.067)
-  %126 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %127 = load float, ptr %126, align 4
   %128 = fpext float %127 to double
   %129 = fmul double %.156, %128
@@ -488,7 +488,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #12
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -496,7 +496,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -547,7 +547,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

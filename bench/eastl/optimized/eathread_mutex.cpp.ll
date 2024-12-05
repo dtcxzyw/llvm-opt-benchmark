@@ -26,7 +26,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN11EAMutexData12SimulateLockEb(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i1 noundef zeroext %bLock) local_unnamed_addr #2 align 2 {
 entry:
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
   %. = select i1 %bLock, i32 1, i32 -1
   %dec = add nsw i32 %0, %.
@@ -53,7 +53,7 @@ entry:
 
 _ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit: ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
-  %mnLockCount.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnLockCount.i, align 8
   %call.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #11
   %call2.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i, i32 noundef 1) #11
@@ -72,7 +72,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6)
-  %mnLockCount.i9 = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount.i9 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnLockCount.i9, align 8
   %call.i10 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i6) #11
   %call2.i11 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i6, i32 noundef 1) #11
@@ -94,7 +94,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnLockCount, align 8
   %call = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr) #11
   %call2 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr, i32 noundef 1) #11
@@ -141,7 +141,7 @@ declare i32 @pthread_mutexattr_destroy(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #3 align 2 {
 entry:
-  %tv_nsec.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %timeoutAbsolute, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %cmp.i = icmp eq i64 %0, 2147483647
   %1 = load i64, ptr %timeoutAbsolute, align 8
@@ -181,7 +181,7 @@ if.end23:                                         ; preds = %if.else15
   br label %return
 
 if.end26:                                         ; preds = %if.else15, %if.then5, %if.then
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i32, ptr %mnLockCount, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %mnLockCount, align 8
@@ -204,7 +204,7 @@ declare i32 @pthread_mutex_timedlock(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %mnLockCount, align 8
@@ -220,7 +220,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK2EA6Thread5Mutex12GetLockCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
   ret i32 %0
 }
@@ -228,7 +228,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK2EA6Thread5Mutex7HasLockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %mnLockCount = getelementptr inbounds i8, ptr %this, i64 40
+  %mnLockCount = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %mnLockCount, align 8
   %cmp = icmp sgt i32 %0, 0
   ret i1 %cmp
@@ -245,12 +245,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 48, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i)
-  %mnLockCount.i9.i = getelementptr inbounds i8, ptr %call, i64 40
+  %mnLockCount.i9.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %mnLockCount.i9.i, align 8
   %call.i10.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i6.i) #11
   %call2.i11.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i6.i, i32 noundef 1) #11
@@ -264,7 +264,7 @@ if.else:                                          ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i1)
-  %mnLockCount.i9.i2 = getelementptr inbounds i8, ptr %call1, i64 40
+  %mnLockCount.i9.i2 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i32 0, ptr %mnLockCount.i9.i2, align 8
   %call.i10.i3 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i6.i1) #11
   %call2.i11.i4 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i6.i1, i32 noundef 1) #11
@@ -298,7 +298,7 @@ if.then:                                          ; preds = %entry
   %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(48) %pMutex) #11
   %1 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %pMutex, i64 noundef 0)
   br label %if.end
@@ -328,7 +328,7 @@ entry:
   %attr.i6.i = alloca %union.pthread_mutexattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i6.i)
-  %mnLockCount.i9.i = getelementptr inbounds i8, ptr %pMemory, i64 40
+  %mnLockCount.i9.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 40
   store i32 0, ptr %mnLockCount.i9.i, align 8
   %call.i10.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i6.i) #11
   %call2.i11.i = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr.i6.i, i32 noundef 1) #11

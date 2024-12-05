@@ -176,7 +176,7 @@ _ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EE5
 _ZN4llvm8CallBase16getArgOperandUseEj.exit:       ; preds = %65, %68
   %73 = phi ptr [ %67, %65 ], [ %72, %68 ]
   %74 = zext i1 %.not to i64
-  %75 = getelementptr inbounds %"class.llvm::Use", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw %"class.llvm::Use", ptr %73, i64 %74
   store ptr %75, ptr %3, align 8
   br label %.critedge12
 
@@ -289,7 +289,7 @@ _ZN4llvm12PatternMatch5matchINS_13IntrinsicInstENS0_16match_combine_orINS0_17Int
   br i1 %53, label %.critedge.sink.split, label %54
 
 54:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_13IntrinsicInstENS0_16match_combine_orINS0_17IntrinsicID_matchES4_EEEEbPT_RKT0_.exit.thread21
-  %55 = getelementptr inbounds i8, ptr %50, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %52
   br i1 %57, label %.critedge.sink.split, label %.critedge

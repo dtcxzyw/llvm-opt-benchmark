@@ -26,14 +26,14 @@ define i32 @mca_coll_monitoring_bcast(ptr noundef %0, i32 noundef %1, ptr nounde
   %16 = add nsw i32 %.val.val, -1
   %17 = sext i32 %16 to i64
   %18 = mul i64 %12, %17
-  %19 = getelementptr inbounds i8, ptr %5, i64 1704
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1704
   %20 = load ptr, ptr %19, align 8
   tail call void @mca_common_monitoring_coll_o2a(i64 noundef %18, ptr noundef %20) #3
   %21 = icmp sgt i32 %.val.val, 0
   br i1 %21, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %4, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %23 = zext i32 %3 to i64
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %24
@@ -46,9 +46,9 @@ define i32 @mca_coll_monitoring_bcast(ptr noundef %0, i32 noundef %1, ptr nounde
 26:                                               ; preds = %24
   %27 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
@@ -62,14 +62,14 @@ define i32 @mca_coll_monitoring_bcast(ptr noundef %0, i32 noundef %1, ptr nounde
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %36, %37
   %38 = call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i) #3
   %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = ptrtoint ptr %38 to i64
   %42 = cmpxchg volatile ptr %40, i64 %32, i64 %41 acquire monotonic, align 8
   %43 = extractvalue { i64, i1 } %42, 1
   br i1 %43, label %44, label %ompi_group_get_proc_ptr.exit.i
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %46 = load i8, ptr @opal_uses_threads, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %50
@@ -100,7 +100,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %50, %48, %34, %26
   br label %61
 
 59:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %60 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %60, align 8
   br label %61
 
@@ -128,9 +128,9 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %61
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !4
 
 .loopexit:                                        ; preds = %68, %15, %6
-  %69 = getelementptr inbounds i8, ptr %5, i64 704
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 712
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 712
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 %70(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %72) #3
   ret i32 %73
@@ -160,14 +160,14 @@ define i32 @mca_coll_monitoring_ibcast(ptr noundef %0, i32 noundef %1, ptr nound
   %17 = add nsw i32 %.val.val, -1
   %18 = sext i32 %17 to i64
   %19 = mul i64 %13, %18
-  %20 = getelementptr inbounds i8, ptr %6, i64 1704
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1704
   %21 = load ptr, ptr %20, align 8
   tail call void @mca_common_monitoring_coll_o2a(i64 noundef %19, ptr noundef %21) #3
   %22 = icmp sgt i32 %.val.val, 0
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %4, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %24 = zext i32 %3 to i64
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %25
@@ -180,9 +180,9 @@ define i32 @mca_coll_monitoring_ibcast(ptr noundef %0, i32 noundef %1, ptr nound
 27:                                               ; preds = %25
   %28 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 1
@@ -196,14 +196,14 @@ define i32 @mca_coll_monitoring_ibcast(ptr noundef %0, i32 noundef %1, ptr nound
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %37, %38
   %39 = call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i) #3
   %40 = load ptr, ptr %29, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = ptrtoint ptr %39 to i64
   %43 = cmpxchg volatile ptr %41, i64 %33, i64 %42 acquire monotonic, align 8
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %45, label %ompi_group_get_proc_ptr.exit.i
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %39, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %47 = load i8, ptr @opal_uses_threads, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %51
@@ -234,7 +234,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %51, %49, %35, %27
   br label %62
 
 60:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %61 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %61, align 8
   br label %62
 
@@ -262,9 +262,9 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %62
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !6
 
 .loopexit:                                        ; preds = %69, %16, %7
-  %70 = getelementptr inbounds i8, ptr %6, i64 976
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 976
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 984
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 984
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 %71(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %73) #3
   ret i32 %74

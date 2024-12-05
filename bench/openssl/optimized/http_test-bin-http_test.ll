@@ -627,7 +627,7 @@ if.end19:                                         ; preds = %lor.lhs.false10, %i
   %.sink = phi ptr [ null, %if.else ], [ @.str.87, %if.then15 ], [ @.str.87, %lor.lhs.false10 ]
   %content_type.0 = phi ptr [ @.str.89, %if.else ], [ @.str.86, %if.then15 ], [ @.str.86, %lor.lhs.false10 ]
   %req.1 = phi ptr [ %call17, %if.else ], [ null, %if.then15 ], [ %call6, %lor.lhs.false10 ]
-  %txt18 = getelementptr inbounds i8, ptr %mock_args, i64 16
+  %txt18 = getelementptr inbounds nuw i8, ptr %mock_args, i64 16
   store ptr %.sink, ptr %txt18, align 8
   %cmp20 = icmp eq ptr %call1, null
   %cmp23 = icmp eq ptr %call3, null
@@ -638,7 +638,7 @@ if.end19:                                         ; preds = %lor.lhs.false10, %i
 
 if.end29:                                         ; preds = %if.end19
   store ptr %call3, ptr %mock_args, align 8
-  %content_type30 = getelementptr inbounds i8, ptr %mock_args, i64 8
+  %content_type30 = getelementptr inbounds nuw i8, ptr %mock_args, i64 8
   store ptr %content_type.0, ptr %content_type30, align 8
   tail call void @BIO_set_callback_ex(ptr noundef nonnull %call1, ptr noundef nonnull @http_bio_cb_ex) #7
   call void @BIO_set_callback_arg(ptr noundef nonnull %call1, ptr noundef nonnull %mock_args) #7
@@ -736,13 +736,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %call, align 8
-  %version = getelementptr inbounds i8, ptr %call, i64 24
+  %version = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load i8, ptr %version, align 8
-  %keep_alive = getelementptr inbounds i8, ptr %call, i64 28
+  %keep_alive = getelementptr inbounds nuw i8, ptr %call, i64 28
   %2 = load i32, ptr %keep_alive, align 4
-  %content_type = getelementptr inbounds i8, ptr %call, i64 8
+  %content_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load ptr, ptr %content_type, align 8
-  %txt = getelementptr inbounds i8, ptr %call, i64 16
+  %txt = getelementptr inbounds nuw i8, ptr %call, i64 16
   %4 = load ptr, ptr %txt, align 8
   %5 = load ptr, ptr @x509, align 8
   %6 = load ptr, ptr @x509_it, align 8
@@ -755,7 +755,7 @@ if.then:                                          ; preds = %entry
 land.end.i:                                       ; preds = %if.then
   %call1.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(5) @.str.104, i64 noundef 4) #8
   %cmp2.i = icmp eq i32 %call1.i, 0
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %cmp2.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.end.i
@@ -766,7 +766,7 @@ land.rhs5.i:                                      ; preds = %land.lhs.true.i
   %call6.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.106, i64 noundef 5) #8
   %cmp7.i = icmp eq i32 %call6.i, 0
   %spec.select45.idx.i = select i1 %cmp7.i, i64 5, i64 0
-  %spec.select45.i = getelementptr inbounds i8, ptr %7, i64 %spec.select45.idx.i
+  %spec.select45.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select45.idx.i
   %8 = zext i1 %cmp7.i to i32
   br label %land.end14.i
 
@@ -785,13 +785,13 @@ if.end.i:                                         ; preds = %land.end14.i, %land
   br i1 %cmp20.i, label %mock_http_server.exit, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call19.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 1
   %call26.i = call i32 @test_strn_eq(ptr noundef nonnull @.str.14, i32 noundef 57, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, ptr noundef nonnull %incdec.ptr.i, i64 noundef 7, ptr noundef nonnull @.str.109, i64 noundef 7) #7
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %mock_http_server.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end23.i
-  %add.ptr30.i = getelementptr inbounds i8, ptr %call19.i, i64 8
+  %add.ptr30.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 8
   %10 = load i8, ptr %add.ptr30.i, align 1
   %call31.i = call i32 @test_char_le(ptr noundef nonnull @.str.14, i32 noundef 61, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i8 noundef signext 48, i8 noundef signext %10) #7
   %tobool32.not.i = icmp eq i32 %call31.i, 0
@@ -804,15 +804,15 @@ lor.lhs.false.i:                                  ; preds = %if.end29.i
   br i1 %tobool35.not.i, label %mock_http_server.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %lor.lhs.false.i
-  %incdec.ptr33.i = getelementptr inbounds i8, ptr %call19.i, i64 9
+  %incdec.ptr33.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 9
   %12 = load i8, ptr %incdec.ptr33.i, align 1
   %call39.i = call i32 @test_char_eq(ptr noundef nonnull @.str.14, i32 noundef 63, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.114, i8 noundef signext %12, i8 noundef signext 13) #7
   %tobool40.not.i = icmp eq i32 %call39.i, 0
   br i1 %tobool40.not.i, label %mock_http_server.exit, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %if.end37.i
-  %incdec.ptr38.i = getelementptr inbounds i8, ptr %call19.i, i64 10
-  %incdec.ptr42.i = getelementptr inbounds i8, ptr %call19.i, i64 11
+  %incdec.ptr38.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 10
+  %incdec.ptr42.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 11
   %13 = load i8, ptr %incdec.ptr38.i, align 1
   %call43.i = call i32 @test_char_eq(ptr noundef nonnull @.str.14, i32 noundef 63, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.115, i8 noundef signext %13, i8 noundef signext 10) #7
   %tobool44.not.i = icmp eq i32 %call43.i, 0
@@ -900,13 +900,13 @@ if.else112.i:                                     ; preds = %if.end87.i
   br i1 %cmp114.i, label %cond.true116.i, label %if.end126.i
 
 cond.true116.i:                                   ; preds = %if.else112.i
-  %add.ptr117.i = getelementptr inbounds i8, ptr %call19.i, i64 23
+  %add.ptr117.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 23
   %call120.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr117.i, ptr noundef nonnull dereferenceable(1) @.str.123) #8
   %cmp121.i = icmp eq ptr %call120.i, null
   br i1 %cmp121.i, label %mock_http_server.exit, label %if.end124.i
 
 if.end124.i:                                      ; preds = %cond.true116.i
-  %add.ptr125.i = getelementptr inbounds i8, ptr %call120.i, i64 2
+  %add.ptr125.i = getelementptr inbounds nuw i8, ptr %call120.i, i64 2
   br label %if.end126.i
 
 if.end126.i:                                      ; preds = %if.end124.i, %if.else112.i
@@ -993,11 +993,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %call3, ptr %mock_args, align 8
-  %content_type5 = getelementptr inbounds i8, ptr %mock_args, i64 8
+  %content_type5 = getelementptr inbounds nuw i8, ptr %mock_args, i64 8
   store ptr @.str.89, ptr %content_type5, align 8
-  %version6 = getelementptr inbounds i8, ptr %mock_args, i64 24
+  %version6 = getelementptr inbounds nuw i8, ptr %mock_args, i64 24
   store i8 %version, ptr %version6, align 8
-  %keep_alive7 = getelementptr inbounds i8, ptr %mock_args, i64 28
+  %keep_alive7 = getelementptr inbounds nuw i8, ptr %mock_args, i64 28
   store i32 %kept_alive, ptr %keep_alive7, align 4
   tail call void @BIO_set_callback_ex(ptr noundef nonnull %call1, ptr noundef nonnull @http_bio_cb_ex) #7
   call void @BIO_set_callback_arg(ptr noundef nonnull %call1, ptr noundef nonnull %mock_args) #7

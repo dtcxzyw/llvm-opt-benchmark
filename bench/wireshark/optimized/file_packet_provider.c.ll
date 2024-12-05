@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -18,7 +18,7 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %5, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not21 = icmp eq ptr %10, null
   br i1 %.not21, label %14, label %11
@@ -29,7 +29,7 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %11, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %20, label %17
@@ -40,7 +40,7 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %17, %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %.thread29, label %23
@@ -52,11 +52,11 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
 
 .thread:                                          ; preds = %17, %11, %5, %23
   %.028 = phi ptr [ %24, %23 ], [ %16, %17 ], [ %10, %11 ], [ %4, %5 ]
-  %25 = getelementptr inbounds i8, ptr %.028, i64 50
+  %25 = getelementptr inbounds nuw i8, ptr %.028, i64 50
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 128
   %.not25 = icmp eq i16 %27, 0
-  %28 = getelementptr inbounds i8, ptr %.028, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.028, i64 56
   %spec.select = select i1 %.not25, ptr null, ptr %28
   br label %.thread29
 
@@ -75,7 +75,7 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %8, %11
   br i1 %12, label %13, label %.thread
@@ -139,7 +139,7 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture nou
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %8, %11
   br i1 %12, label %13, label %.thread
@@ -171,7 +171,7 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cap_file_provider_get_modified_block(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -189,7 +189,7 @@ declare ptr @g_tree_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cap_file_provider_set_modified_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -202,7 +202,7 @@ define hidden void @cap_file_provider_set_modified_block(ptr nocapture noundef %
 8:                                                ; preds = %6, %3
   %9 = phi ptr [ %7, %6 ], [ %5, %3 ]
   tail call void @g_tree_replace(ptr noundef %9, ptr noundef %1, ptr noundef %2) #4
-  %10 = getelementptr inbounds i8, ptr %1, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = or i16 %11, 256
   store i16 %12, ptr %10, align 2

@@ -400,13 +400,13 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   %9 = alloca i64, align 8
   store i32 0, ptr %8, align 4
   %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %2) #4
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 27
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 453, ptr noundef %16) #5
   unreachable
@@ -493,7 +493,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   %.sink = phi i32 [ -2147483644, %56 ], [ 0, %50 ]
   %.sink77 = phi i32 [ 4, %56 ], [ 0, %50 ]
   %57 = call ptr @proto_tree_add_item_ret_length(ptr noundef %27, i32 noundef %2, ptr noundef %0, i32 noundef %54, i32 noundef -1, i32 noundef %.sink, ptr noundef nonnull %8) #4
-  %58 = getelementptr inbounds i8, ptr %3, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %8, align 4
   %61 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %60, i32 noundef %.sink77) #4

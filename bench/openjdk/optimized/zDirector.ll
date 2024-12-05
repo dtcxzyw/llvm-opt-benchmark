@@ -130,10 +130,10 @@ $_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLeve
 define hidden void @_ZN9ZDirectorC2Ev(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #11
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV9ZDirector, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 1008
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store i8 0, ptr %3, align 8
   store ptr %0, ptr @_ZN9ZDirector9_directorE, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str) #11
@@ -152,10 +152,10 @@ declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr nou
 define hidden void @_ZN9ZDirector14evaluate_rulesEv() local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %0 = load ptr, ptr @_ZN9ZDirector9_directorE, align 8
-  %1 = getelementptr inbounds i8, ptr %0, i64 920
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   %3 = load ptr, ptr @_ZN9ZDirector9_directorE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 960
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 960
   %5 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #11
   %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   ret void
@@ -163,9 +163,9 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9ZDirector13wait_for_tickEv(ptr noundef nonnull align 8 dereferenceable(1009) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 1008
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %7
@@ -196,62 +196,62 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %11 = alloca %struct.ZStatHeapStats, align 8
   %12 = alloca %struct.ZStatHeapStats, align 8
   %13 = alloca %struct.ZDirectorStats, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 920
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %14) #11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1008
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
-  %20 = getelementptr inbounds i8, ptr %10, i64 40
-  %21 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.2.0..sroa_idx31.i = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.332.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 40
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
-  %23 = getelementptr inbounds i8, ptr %13, i64 152
-  %.sroa.329.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 160
-  %24 = getelementptr inbounds i8, ptr %13, i64 168
-  %.sroa.321.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 169
-  %.sroa.322.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 176
-  %.sroa.423.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 184
-  %.sroa.524.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 192
-  %.sroa.625.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 196
-  %25 = getelementptr inbounds i8, ptr %13, i64 200
-  %26 = getelementptr inbounds i8, ptr %13, i64 224
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 232
-  %27 = getelementptr inbounds i8, ptr %13, i64 240
-  %28 = getelementptr inbounds i8, ptr %13, i64 344
-  %.sroa.327.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 352
-  %29 = getelementptr inbounds i8, ptr %13, i64 360
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 361
-  %.sroa.319.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 368
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 376
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 384
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 388
-  %30 = getelementptr inbounds i8, ptr %13, i64 392
-  %31 = getelementptr inbounds i8, ptr %13, i64 416
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 424
-  %32 = getelementptr inbounds i8, ptr %13, i64 264
-  %33 = getelementptr inbounds i8, ptr %13, i64 248
-  %34 = getelementptr inbounds i8, ptr %13, i64 400
-  %35 = getelementptr inbounds i8, ptr %13, i64 296
-  %36 = getelementptr inbounds i8, ptr %13, i64 304
-  %37 = getelementptr inbounds i8, ptr %13, i64 312
-  %38 = getelementptr inbounds i8, ptr %13, i64 320
-  %39 = getelementptr inbounds i8, ptr %13, i64 104
-  %40 = getelementptr inbounds i8, ptr %13, i64 112
-  %41 = getelementptr inbounds i8, ptr %13, i64 120
-  %42 = getelementptr inbounds i8, ptr %13, i64 128
-  %43 = getelementptr inbounds i8, ptr %13, i64 72
-  %44 = getelementptr inbounds i8, ptr %13, i64 256
-  %.sroa.29.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %45 = getelementptr inbounds i8, ptr %13, i64 216
-  %46 = getelementptr inbounds i8, ptr %13, i64 408
-  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sroa.2.0..sroa_idx31.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.332.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %.sroa.329.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 168
+  %.sroa.321.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 169
+  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %.sroa.423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 184
+  %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %.sroa.625.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 196
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 224
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 344
+  %.sroa.327.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 352
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 360
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 361
+  %.sroa.319.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 368
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 376
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 384
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 388
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 392
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 416
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 424
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 264
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 248
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 400
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 296
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 304
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 312
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 320
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 256
+  %.sroa.29.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 216
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 408
+  %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %47
 
 47:                                               ; preds = %.lr.ph, %_ZL8start_gcRK14ZDirectorStats.exit
@@ -272,17 +272,17 @@ define hidden void @_ZN9ZDirector10run_threadEv(ptr noundef nonnull align 8 dere
   %53 = call noundef ptr @_ZN14ZCollectedHeap4heapEv() #11, !noalias !9
   %54 = call noundef i64 @_ZNK5ZHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %52) #11, !noalias !9
   %55 = call noundef i64 @_ZNK5ZHeap4usedEv(ptr noundef nonnull align 64 dereferenceable(15937) %52) #11, !noalias !9
-  %56 = getelementptr inbounds i8, ptr %53, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %57 = load i32, ptr %56, align 8, !noalias !9
-  %58 = getelementptr inbounds i8, ptr %50, i64 3712
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 3712
   call void @_ZN10ZStatCycle5statsEv(ptr dead_on_unwind nonnull writable sret(%struct.ZStatCycleStats) align 8 %9, ptr noundef nonnull align 8 dereferenceable(376) %58) #11, !noalias !6
-  %59 = getelementptr inbounds i8, ptr %51, i64 3712
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 3712
   call void @_ZN10ZStatCycle5statsEv(ptr dead_on_unwind nonnull writable sret(%struct.ZStatCycleStats) align 8 %10, ptr noundef nonnull align 8 dereferenceable(376) %59) #11, !noalias !6
-  %60 = getelementptr inbounds i8, ptr %50, i64 4088
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 4088
   %61 = call { double, double } @_ZN12ZStatWorkers5statsEv(ptr noundef nonnull align 8 dereferenceable(96) %60) #11, !noalias !6
   %62 = extractvalue { double, double } %61, 0
   %63 = extractvalue { double, double } %61, 1
-  %64 = getelementptr inbounds i8, ptr %51, i64 4088
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 4088
   %65 = call { double, double } @_ZN12ZStatWorkers5statsEv(ptr noundef nonnull align 8 dereferenceable(96) %64) #11, !noalias !6
   %66 = extractvalue { double, double } %65, 0
   %67 = extractvalue { double, double } %65, 1
@@ -358,9 +358,9 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i16.i:            ; preds = %83, %_ZL26sample_wo
   br label %_ZL12sample_statsv.exit
 
 _ZL12sample_statsv.exit:                          ; preds = %91, %92
-  %94 = getelementptr inbounds i8, ptr %50, i64 3224
+  %94 = getelementptr inbounds nuw i8, ptr %50, i64 3224
   call void @_ZN9ZStatHeap5statsEv(ptr dead_on_unwind nonnull writable sret(%struct.ZStatHeapStats) align 8 %11, ptr noundef nonnull align 8 dereferenceable(488) %94) #11, !noalias !6
-  %95 = getelementptr inbounds i8, ptr %51, i64 3224
+  %95 = getelementptr inbounds nuw i8, ptr %51, i64 3224
   call void @_ZN9ZStatHeap5statsEv(ptr dead_on_unwind nonnull writable sret(%struct.ZStatHeapStats) align 8 %12, ptr noundef nonnull align 8 dereferenceable(488) %95) #11, !noalias !6
   %96 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8, !noalias !6
   %97 = call noundef i64 @_ZNK5ZHeap10used_youngEv(ptr noundef nonnull align 64 dereferenceable(15937) %96) #11, !noalias !6
@@ -414,7 +414,7 @@ _ZL12sample_statsv.exit:                          ; preds = %91, %92
 106:                                              ; preds = %103
   %.val.i.i = load double, ptr %32, align 8
   %107 = fsub double %104, %.val.i.i
-  %108 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %108 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i.i2 = icmp eq ptr %108, null
   br i1 %.not.i.i.i2, label %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i, label %109
 
@@ -446,7 +446,7 @@ _ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_ma
   %123 = uitofp i64 %117 to double
   %124 = fmul double %122, %123
   %125 = fptoui double %124 to i64
-  %126 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %126 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i3.i.i = icmp eq ptr %126, null
   br i1 %.not.i3.i.i, label %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, label %127
 
@@ -495,7 +495,7 @@ _ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_m
   br i1 %or.cond.i.i.i, label %150, label %156
 
 150:                                              ; preds = %139
-  %151 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %151 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not38.i.i.i = icmp eq ptr %151, null
   br i1 %.not38.i.i.i, label %179, label %152
 
@@ -525,7 +525,7 @@ _ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_m
   %172 = fmul double %171, 4.900000e+01
   %173 = fsub double %172, %147
   %.fr.i.i = freeze double %173
-  %174 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %174 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6.i.i = icmp eq ptr %174, null
   br i1 %.not.i6.i.i, label %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, label %175
 
@@ -573,7 +573,7 @@ _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major
 191:                                              ; preds = %188
   %.val.i16.i = load double, ptr %43, align 8
   %192 = fsub double %189, %.val.i16.i
-  %193 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %193 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i17.i = icmp eq ptr %193, null
   br i1 %.not.i.i17.i, label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i, label %194
 
@@ -672,7 +672,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i: ; preds = %
   %241 = fdiv double %238, %240
   %242 = fadd double %235, %241
   %243 = fsub double %232, %242
-  %244 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %244 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i.i.i, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, label %245
 
@@ -724,7 +724,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i: ; preds = %245, %222
   %267 = fmul double %266, 1.000000e+02
   %268 = select i1 %.not.i.i14.i.i.i, double 0.000000e+00, double %267
   %.fr.i13.i = freeze double %268
-  %269 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %269 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i13.i.i.i.i = icmp eq ptr %269, null
   br i1 %.not.i13.i.i.i.i, label %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, label %270
 
@@ -782,7 +782,7 @@ _ZL29calculate_extra_young_gc_timeRK14ZDirectorStats.exit.i.i: ; preds = %275
   %300 = sub i32 %298, %299
   %301 = sitofp i32 %300 to double
   %302 = fmul double %297, %301
-  %303 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %303 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i19.i = icmp eq ptr %303, null
   br i1 %.not.i19.i, label %305, label %304
 
@@ -1024,11 +1024,11 @@ _ZL8start_gcRK14ZDirectorStats.exit:              ; preds = %_ZL14start_minor_gc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9ZDirector9terminateEv(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #0 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 920
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 1008
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 960
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %5 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %4) #11
   %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %1) #11
   ret void
@@ -1042,7 +1042,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9ZDirectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV9ZDirector, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #11
   ret void
@@ -1051,7 +1051,7 @@ define linkonce_odr hidden void @_ZN9ZDirectorD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9ZDirectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1009) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV9ZDirector, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1009) %0) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #11
@@ -1141,7 +1141,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.21, ptr %3
@@ -1360,13 +1360,13 @@ define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelec
   br label %22
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext false, i64 noundef %12)
   %.fca.0.extract1 = extractvalue { i64, i32 } %13, 0
   %.fca.1.extract2 = extractvalue { i64, i32 } %13, 1
   store i64 %.fca.0.extract1, ptr %3, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.fca.1.extract2, ptr %.sroa.24.0..sroa_idx, align 8
   %14 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %15 = tail call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %14) #11
@@ -1374,7 +1374,7 @@ define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelec
   %.fca.0.extract = extractvalue { i64, i32 } %16, 0
   %.fca.1.extract = extractvalue { i64, i32 } %16, 1
   store i64 %.fca.0.extract, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %17 = call noundef i32 @_ZNK14ZDriverRequest14young_nworkersEv(ptr noundef nonnull align 4 dereferenceable(12) %3) #11
   %18 = call noundef i32 @_ZNK14ZDriverRequest14young_nworkersEv(ptr noundef nonnull align 4 dereferenceable(12) %4) #11
@@ -1404,9 +1404,9 @@ declare noundef i32 @_ZNK14ZDriverRequest14young_nworkersEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc i64 @_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWorkerSelectionType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %9 = tail call noundef zeroext i1 @_ZNK14ZPageAllocator17is_alloc_stallingEv(ptr noundef nonnull align 64 dereferenceable(15937) %8) #11
@@ -1424,37 +1424,37 @@ define internal fastcc i64 @_ZL21select_worker_threadsRK14ZDirectorStatsj20ZWork
   br i1 %16, label %61, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit
 
 21:                                               ; preds = %17
-  %.sroa.113.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.113.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.113.0.copyload.i = load double, ptr %.sroa.113.0..sroa_idx.i, align 8
-  %.sroa.214.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.214.0.copyload.i = load double, ptr %.sroa.214.0..sroa_idx.i, align 8
-  %.sroa.315.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 120
+  %.sroa.315.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.315.0.copyload.i = load double, ptr %.sroa.315.0..sroa_idx.i, align 8
-  %.sroa.416.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 128
+  %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.416.0.copyload.i = load double, ptr %.sroa.416.0..sroa_idx.i, align 8
   %22 = tail call double @llvm.fmuladd.f64(double %.sroa.214.0.copyload.i, double 0x400A52FFD1DCD706, double %.sroa.113.0.copyload.i)
   %23 = tail call double @llvm.fmuladd.f64(double %.sroa.416.0.copyload.i, double 0x400A52FFD1DCD706, double %.sroa.315.0.copyload.i)
   %24 = fadd double %22, %23
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.sroa.1.0.copyload.i = load double, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 304
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 312
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 320
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %.sroa.2.0.copyload.i, double 0x400A52FFD1DCD706, double %.sroa.1.0.copyload.i)
   %26 = tail call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.i, double 0x400A52FFD1DCD706, double %.sroa.3.0.copyload.i)
   %27 = fadd double %25, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %31 = load i64, ptr %30, align 8
   %32 = uitofp i64 %29 to double
   %33 = fdiv double %32, %24
@@ -1510,7 +1510,7 @@ _ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit: ; preds = %17, 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %class.ZDriverRequest, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %10, label %8
@@ -1521,15 +1521,15 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   br label %105
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %12)
   %14 = tail call noundef i64 @_ZN11ZHeuristics19relocation_headroomEv() #11
   %15 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 %14)
   %.sroa.031.0.copyload = load double, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %16 = fadd double %.sroa.031.0.copyload, 1.000000e+00
   %17 = fdiv double %.sroa.4.0.copyload, %16
@@ -1544,19 +1544,19 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   %26 = fdiv double %25, %24
   %27 = fadd double %17, 1.000000e+00
   %28 = fdiv double %26, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load double, ptr %31, align 8
   %33 = tail call double @llvm.fmuladd.f64(double %32, double 0x400A52FFD1DCD706, double %30)
   %34 = tail call noundef double @llvm.fabs.f64(double %33)
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load double, ptr %37, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %38, double 0x400A52FFD1DCD706, double %36)
   %40 = tail call noundef double @llvm.fabs.f64(double %39)
-  %41 = getelementptr inbounds i8, ptr %0, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -1564,7 +1564,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
 44:                                               ; preds = %10
   %45 = load i32, ptr @ZYoungGCThreads, align 4
   %46 = uitofp i32 %45 to double
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit, label %48
 
@@ -1582,7 +1582,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   %56 = load i32, ptr @ZYoungGCThreads, align 4
   %57 = tail call noundef i32 @llvm.umax.i32(i32 %55, i32 1)
   %58 = tail call noundef i32 @llvm.umin.i32(i32 %57, i32 %56)
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load double, ptr %59, align 8
   %61 = uitofp i32 %58 to double
   %62 = fcmp ogt double %60, %61
@@ -1592,7 +1592,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   %64 = fdiv double %40, %61
   %65 = fdiv double %40, %60
   %66 = fsub double %64, %65
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load double, ptr %67, align 8
   %69 = fsub double %68, %66
   %70 = fadd double %28, %69
@@ -1605,7 +1605,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   %77 = select i1 %76, double %75, double %61
   %78 = fcmp olt double %77, %60
   %79 = select i1 %78, double %77, double %60
-  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %80 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not37.i = icmp eq ptr %80, null
   br i1 %.not37.i, label %_ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit, label %81
 
@@ -1614,7 +1614,7 @@ define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14
   br label %_ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit
 
 82:                                               ; preds = %49
-  %83 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not36.i = icmp eq ptr %83, null
   br i1 %.not36.i, label %_ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit, label %84
 
@@ -1633,7 +1633,7 @@ _ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit: ; preds = %44, %48, %63
   %91 = fdiv double %40, %90
   %92 = fadd double %34, %91
   %93 = fsub double %28, %92
-  %94 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %94 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %94, null
   br i1 %.not, label %100, label %95
 
@@ -1660,7 +1660,7 @@ _ZL23select_young_gc_workersRK14ZDirectorStatsdddd.exit: ; preds = %44, %48, %63
 
 105:                                              ; preds = %104, %103, %8
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload, 1

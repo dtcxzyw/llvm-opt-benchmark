@@ -55,11 +55,11 @@ $_ZTI16btPointCollector = comdat any
 define dso_local void @_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %convexA, ptr noundef %convexB, ptr noundef %simplexSolver) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btGjkConvexCast, i64 16), ptr %this, align 8
-  %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 8
+  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
-  %m_convexA = getelementptr inbounds i8, ptr %this, i64 16
+  %m_convexA = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %convexA, ptr %m_convexA, align 8
-  %m_convexB = getelementptr inbounds i8, ptr %this, i64 24
+  %m_convexB = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %convexB, ptr %m_convexB, align 8
   ret void
 }
@@ -71,99 +71,99 @@ entry:
   %pointCollector = alloca %struct.btPointCollector, align 8
   %gjk = alloca %class.btGjkPairDetector, align 8
   %input = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
-  %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 8
+  %m_simplexSolver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_simplexSolver, align 8
   tail call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %0)
-  %m_origin.i = getelementptr inbounds i8, ptr %toA, i64 48
-  %m_origin.i28 = getelementptr inbounds i8, ptr %fromA, i64 48
+  %m_origin.i = getelementptr inbounds nuw i8, ptr %toA, i64 48
+  %m_origin.i28 = getelementptr inbounds nuw i8, ptr %fromA, i64 48
   %1 = load float, ptr %m_origin.i, align 4
   %2 = load float, ptr %m_origin.i28, align 4
   %sub.i = fsub float %1, %2
-  %arrayidx5.i = getelementptr inbounds i8, ptr %toA, i64 52
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %toA, i64 52
   %3 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %fromA, i64 52
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %fromA, i64 52
   %4 = load float, ptr %arrayidx7.i, align 4
   %sub8.i = fsub float %3, %4
-  %arrayidx11.i = getelementptr inbounds i8, ptr %toA, i64 56
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %toA, i64 56
   %5 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds i8, ptr %fromA, i64 56
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %fromA, i64 56
   %6 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %5, %6
-  %m_origin.i29 = getelementptr inbounds i8, ptr %toB, i64 48
-  %m_origin.i30 = getelementptr inbounds i8, ptr %fromB, i64 48
+  %m_origin.i29 = getelementptr inbounds nuw i8, ptr %toB, i64 48
+  %m_origin.i30 = getelementptr inbounds nuw i8, ptr %fromB, i64 48
   %7 = load float, ptr %m_origin.i29, align 4
   %8 = load float, ptr %m_origin.i30, align 4
   %sub.i31 = fsub float %7, %8
-  %arrayidx5.i32 = getelementptr inbounds i8, ptr %toB, i64 52
+  %arrayidx5.i32 = getelementptr inbounds nuw i8, ptr %toB, i64 52
   %9 = load float, ptr %arrayidx5.i32, align 4
-  %arrayidx7.i33 = getelementptr inbounds i8, ptr %fromB, i64 52
+  %arrayidx7.i33 = getelementptr inbounds nuw i8, ptr %fromB, i64 52
   %10 = load float, ptr %arrayidx7.i33, align 4
   %sub8.i34 = fsub float %9, %10
-  %arrayidx11.i35 = getelementptr inbounds i8, ptr %toB, i64 56
+  %arrayidx11.i35 = getelementptr inbounds nuw i8, ptr %toB, i64 56
   %11 = load float, ptr %arrayidx11.i35, align 4
-  %arrayidx13.i36 = getelementptr inbounds i8, ptr %fromB, i64 56
+  %arrayidx13.i36 = getelementptr inbounds nuw i8, ptr %fromB, i64 56
   %12 = load float, ptr %arrayidx13.i36, align 4
   %sub14.i37 = fsub float %11, %12
   %sub.i48 = fsub float %sub.i, %sub.i31
   %sub8.i51 = fsub float %sub8.i, %sub8.i34
   %sub14.i54 = fsub float %sub14.i, %sub14.i37
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %pointCollector, align 8
-  %m_distance.i = getelementptr inbounds i8, ptr %pointCollector, i64 40
+  %m_distance.i = getelementptr inbounds nuw i8, ptr %pointCollector, i64 40
   store float 0x43ABC16D60000000, ptr %m_distance.i, align 8
-  %m_hasResult.i = getelementptr inbounds i8, ptr %pointCollector, i64 44
+  %m_hasResult.i = getelementptr inbounds nuw i8, ptr %pointCollector, i64 44
   store i8 0, ptr %m_hasResult.i, align 4
-  %m_convexA = getelementptr inbounds i8, ptr %this, i64 16
+  %m_convexA = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load ptr, ptr %m_convexA, align 8
-  %m_convexB = getelementptr inbounds i8, ptr %this, i64 24
+  %m_convexB = getelementptr inbounds nuw i8, ptr %this, i64 24
   %14 = load ptr, ptr %m_convexB, align 8
   %15 = load ptr, ptr %m_simplexSolver, align 8
   call void @_ZN17btGjkPairDetectorC1EPK13btConvexShapeS2_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef null)
-  %m_maximumDistanceSquared.i = getelementptr inbounds i8, ptr %input, i64 128
+  %m_maximumDistanceSquared.i = getelementptr inbounds nuw i8, ptr %input, i64 128
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %fromA, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %fromA, i64 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %fromA, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %fromA, i64 32
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %input, i64 32
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %fromA, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %input, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin3.i = getelementptr inbounds i8, ptr %input, i64 48
+  %m_origin3.i = getelementptr inbounds nuw i8, ptr %input, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i28, i64 16, i1 false)
-  %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
+  %m_transformB = getelementptr inbounds nuw i8, ptr %input, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %fromB, i64 16, i1 false)
-  %arrayidx5.i.i61 = getelementptr inbounds i8, ptr %fromB, i64 16
-  %arrayidx7.i.i62 = getelementptr inbounds i8, ptr %input, i64 80
+  %arrayidx5.i.i61 = getelementptr inbounds nuw i8, ptr %fromB, i64 16
+  %arrayidx7.i.i62 = getelementptr inbounds nuw i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i62, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i61, i64 16, i1 false)
-  %arrayidx9.i.i63 = getelementptr inbounds i8, ptr %fromB, i64 32
-  %arrayidx11.i.i64 = getelementptr inbounds i8, ptr %input, i64 96
+  %arrayidx9.i.i63 = getelementptr inbounds nuw i8, ptr %fromB, i64 32
+  %arrayidx11.i.i64 = getelementptr inbounds nuw i8, ptr %input, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i64, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i63, i64 16, i1 false)
-  %m_origin3.i66 = getelementptr inbounds i8, ptr %input, i64 112
+  %m_origin3.i66 = getelementptr inbounds nuw i8, ptr %input, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i66, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i30, i64 16, i1 false)
   call void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(100) %gjk, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %pointCollector, ptr noundef null, i1 noundef zeroext false)
   %16 = load i8, ptr %m_hasResult.i, align 4
   %tobool = trunc i8 %16 to i1
-  %m_pointInWorld = getelementptr inbounds i8, ptr %pointCollector, i64 24
+  %m_pointInWorld = getelementptr inbounds nuw i8, ptr %pointCollector, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
   br i1 %tobool, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %entry
   %17 = load float, ptr %m_distance.i, align 8
-  %m_normalOnBInWorld = getelementptr inbounds i8, ptr %pointCollector, i64 8
+  %m_normalOnBInWorld = getelementptr inbounds nuw i8, ptr %pointCollector, i64 8
   %n.sroa.0.0.copyload = load float, ptr %m_normalOnBInWorld, align 8
-  %n.sroa.8.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds i8, ptr %pointCollector, i64 12
+  %n.sroa.8.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 12
   %n.sroa.8.0.copyload = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
-  %n.sroa.11.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds i8, ptr %pointCollector, i64 16
+  %n.sroa.11.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 16
   %n.sroa.11.0.copyload = load float, ptr %n.sroa.11.0.m_normalOnBInWorld.sroa_idx, align 8
-  %n.sroa.14.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds i8, ptr %pointCollector, i64 20
+  %n.sroa.14.0.m_normalOnBInWorld.sroa_idx = getelementptr inbounds nuw i8, ptr %pointCollector, i64 20
   %n.sroa.14.0.copyload = load float, ptr %n.sroa.14.0.m_normalOnBInWorld.sroa_idx, align 4
   %cmp135 = fcmp ogt float %17, 0x3F50624DE0000000
   br i1 %cmp135, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %arrayidx13.i74 = getelementptr inbounds i8, ptr %input, i64 52
-  %arrayidx20.i = getelementptr inbounds i8, ptr %input, i64 56
-  %arrayidx13.i83 = getelementptr inbounds i8, ptr %input, i64 116
-  %arrayidx20.i87 = getelementptr inbounds i8, ptr %input, i64 120
+  %arrayidx13.i74 = getelementptr inbounds nuw i8, ptr %input, i64 52
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %input, i64 56
+  %arrayidx13.i83 = getelementptr inbounds nuw i8, ptr %input, i64 116
+  %arrayidx20.i87 = getelementptr inbounds nuw i8, ptr %input, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end65
@@ -236,7 +236,7 @@ if.then59:                                        ; preds = %if.end38
   br i1 %cmp61, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %if.then59
-  %m_fraction = getelementptr inbounds i8, ptr %result, i64 168
+  %m_fraction = getelementptr inbounds nuw i8, ptr %result, i64 168
   store float %sub, ptr %m_fraction, align 8
   %n.sroa.0.0.copyload100 = load float, ptr %m_normalOnBInWorld, align 8
   %n.sroa.8.0.copyload105 = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
@@ -265,14 +265,14 @@ while.end:                                        ; preds = %while.end.loopexit,
   %mul8.i90 = fmul float %sub8.i51, %n.sroa.8.0.lcssa
   %41 = call float @llvm.fmuladd.f32(float %n.sroa.0.0.lcssa, float %sub.i48, float %mul8.i90)
   %42 = call noundef float @llvm.fmuladd.f32(float %n.sroa.11.0.lcssa, float %sub14.i54, float %41)
-  %m_allowedPenetration = getelementptr inbounds i8, ptr %result, i64 184
+  %m_allowedPenetration = getelementptr inbounds nuw i8, ptr %result, i64 184
   %43 = load float, ptr %m_allowedPenetration, align 8
   %fneg = fneg float %43
   %cmp72 = fcmp ult float %42, %fneg
   br i1 %cmp72, label %if.end74, label %cleanup
 
 if.end74:                                         ; preds = %while.end
-  %m_fraction75 = getelementptr inbounds i8, ptr %result, i64 168
+  %m_fraction75 = getelementptr inbounds nuw i8, ptr %result, i64 168
   store float %lambda.0.lcssa, ptr %m_fraction75, align 8
   br label %cleanup.sink.split
 
@@ -282,15 +282,15 @@ cleanup.sink.split:                               ; preds = %if.then62, %if.end7
   %n.sroa.11.0.lcssa.sink = phi float [ %n.sroa.11.0.lcssa, %if.end74 ], [ %n.sroa.11.0.copyload112, %if.then62 ]
   %n.sroa.14.0.lcssa.sink = phi float [ %n.sroa.14.0.lcssa, %if.end74 ], [ %n.sroa.14.0.copyload119, %if.then62 ]
   %c.sroa.0.sink = phi ptr [ %c.sroa.0, %if.end74 ], [ %m_pointInWorld, %if.then62 ]
-  %m_normal76 = getelementptr inbounds i8, ptr %result, i64 136
+  %m_normal76 = getelementptr inbounds nuw i8, ptr %result, i64 136
   store float %n.sroa.0.0.lcssa.sink, ptr %m_normal76, align 8
-  %n.sroa.8.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 140
+  %n.sroa.8.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 140
   store float %n.sroa.8.0.lcssa.sink, ptr %n.sroa.8.0.m_normal76.sroa_idx, align 4
-  %n.sroa.11.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 144
+  %n.sroa.11.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 144
   store float %n.sroa.11.0.lcssa.sink, ptr %n.sroa.11.0.m_normal76.sroa_idx, align 8
-  %n.sroa.14.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 148
+  %n.sroa.14.0.m_normal76.sroa_idx = getelementptr inbounds nuw i8, ptr %result, i64 148
   store float %n.sroa.14.0.lcssa.sink, ptr %n.sroa.14.0.m_normal76.sroa_idx, align 4
-  %m_hitPoint77 = getelementptr inbounds i8, ptr %result, i64 152
+  %m_hitPoint77 = getelementptr inbounds nuw i8, ptr %result, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint77, ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0.sink, i64 16, i1 false)
   br label %cleanup
 
@@ -353,17 +353,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btPointCollector15addContactPointERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, float noundef %depth) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_distance = getelementptr inbounds i8, ptr %this, i64 40
+  %m_distance = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load float, ptr %m_distance, align 8
   %cmp = fcmp olt float %depth, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_hasResult = getelementptr inbounds i8, ptr %this, i64 44
+  %m_hasResult = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i8 1, ptr %m_hasResult, align 4
-  %m_normalOnBInWorld = getelementptr inbounds i8, ptr %this, i64 8
+  %m_normalOnBInWorld = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normalOnBInWorld, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, i64 16, i1 false)
-  %m_pointInWorld = getelementptr inbounds i8, ptr %this, i64 24
+  %m_pointInWorld = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, i64 16, i1 false)
   store float %depth, ptr %m_distance, align 8
   br label %if.end

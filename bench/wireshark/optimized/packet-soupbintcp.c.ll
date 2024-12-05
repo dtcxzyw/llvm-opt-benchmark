@@ -178,7 +178,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
   %11 = zext i8 %10 to i32
   %12 = tail call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @pkt_type_val, ptr noundef nonnull @.str.57) #3
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.37) #3
   %15 = load ptr, ptr %13, align 8
@@ -189,29 +189,29 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   ]
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not.i = icmp eq i16 %21, 0
   br i1 %.not.i, label %22, label %70
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @tvb_get_string_enc(ptr noundef %24, ptr noundef %0, i32 noundef 13, i32 noundef 20, i32 noundef 0) #3
   %26 = call zeroext i1 @ws_strtou32(ptr noundef %25, ptr noundef null, ptr noundef nonnull %6) #3
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 208
-  %30 = getelementptr inbounds i8, ptr %1, i64 232
-  %31 = getelementptr inbounds i8, ptr %1, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %32 = load i32, ptr %31, align 8
   %33 = call i32 @conversation_pt_to_conversation_type(i32 noundef %32) #3
-  %34 = getelementptr inbounds i8, ptr %1, i64 284
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 288
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %37 = load i32, ptr %36, align 8
   %38 = call nonnull ptr @conversation_new(i32 noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %30, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef 0) #3
   %39 = call ptr @wmem_file_scope() #3
@@ -223,9 +223,9 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 43:                                               ; preds = %4
-  %44 = getelementptr inbounds i8, ptr %1, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 50
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 50
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 8
   %.not120.i = icmp eq i16 %48, 0
@@ -313,7 +313,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
 86:                                               ; preds = %72
   %87 = load i32, ptr @hf_soupbintcp_session, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %87, ptr noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0) #3
-  %89 = getelementptr inbounds i8, ptr %1, i64 408
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @tvb_get_string_enc(ptr noundef %90, ptr noundef %0, i32 noundef 13, i32 noundef 20, i32 noundef 0) #3
   %92 = call zeroext i1 @ws_strtoi32(ptr noundef %91, ptr noundef null, ptr noundef nonnull %5) #3
@@ -344,7 +344,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   %107 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %106, ptr noundef %0, i32 noundef 9, i32 noundef 10, i32 noundef 0) #3
   %108 = load i32, ptr @hf_soupbintcp_session, align 4
   %109 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %108, ptr noundef %0, i32 noundef 19, i32 noundef 10, i32 noundef 0) #3
-  %110 = getelementptr inbounds i8, ptr %1, i64 408
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr @tvb_get_string_enc(ptr noundef %111, ptr noundef %0, i32 noundef 29, i32 noundef 20, i32 noundef 0) #3
   %113 = call zeroext i1 @ws_strtoi32(ptr noundef %112, ptr noundef null, ptr noundef nonnull %5) #3

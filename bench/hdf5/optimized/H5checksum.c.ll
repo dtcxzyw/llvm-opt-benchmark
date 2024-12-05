@@ -32,12 +32,12 @@ define i32 @H5_checksum_fletcher32(ptr nocapture noundef readonly %0, i64 nounde
   %7 = load i8, ptr %.138, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 8
-  %10 = getelementptr inbounds i8, ptr %.138, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
   %14 = add i32 %13, %.134
-  %15 = getelementptr inbounds i8, ptr %.138, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.138, i64 2
   %16 = add i32 %14, %.1
   %17 = add i64 %.0, -1
   %.not40 = icmp eq i64 %17, 0
@@ -112,7 +112,7 @@ define i32 @H5_checksum_crc(ptr nocapture noundef readonly %0, i64 noundef %1) l
   br i1 %exitcond.not.i.i, label %9, label %4
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
   store i32 %.1.i.i, ptr %10, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond16.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -134,7 +134,7 @@ H5__checksum_crc_make_table.exit.i:               ; preds = %9
   %.07.tr.i = trunc i32 %.079.i to i8
   %.narrow.i = xor i8 %13, %.07.tr.i
   %14 = zext i8 %.narrow.i to i64
-  %15 = getelementptr inbounds [256 x i32], ptr @H5_crc_table, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %.079.i, 8
   %18 = xor i32 %16, %17
@@ -168,55 +168,55 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   %8 = load i8, ptr %.0146149, align 1
   %9 = zext i8 %8 to i32
   %10 = add i32 %.0141150, %9
-  %11 = getelementptr inbounds i8, ptr %.0146149, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0146149, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
   %15 = add i32 %10, %14
-  %16 = getelementptr inbounds i8, ptr %.0146149, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0146149, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %18, 16
   %20 = add i32 %15, %19
-  %21 = getelementptr inbounds i8, ptr %.0146149, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.0146149, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw i32 %23, 24
   %25 = add i32 %20, %24
-  %26 = getelementptr inbounds i8, ptr %.0146149, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.0146149, i64 4
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = add i32 %.0132151, %28
-  %30 = getelementptr inbounds i8, ptr %.0146149, i64 5
+  %30 = getelementptr inbounds nuw i8, ptr %.0146149, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 8
   %34 = add i32 %29, %33
-  %35 = getelementptr inbounds i8, ptr %.0146149, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %.0146149, i64 6
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = add i32 %34, %38
-  %40 = getelementptr inbounds i8, ptr %.0146149, i64 7
+  %40 = getelementptr inbounds nuw i8, ptr %.0146149, i64 7
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw i32 %42, 24
   %44 = add i32 %39, %43
-  %45 = getelementptr inbounds i8, ptr %.0146149, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0146149, i64 8
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = add i32 %.0152, %47
-  %49 = getelementptr inbounds i8, ptr %.0146149, i64 9
+  %49 = getelementptr inbounds nuw i8, ptr %.0146149, i64 9
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = shl nuw nsw i32 %51, 8
   %53 = add i32 %48, %52
-  %54 = getelementptr inbounds i8, ptr %.0146149, i64 10
+  %54 = getelementptr inbounds nuw i8, ptr %.0146149, i64 10
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 16
   %58 = add i32 %53, %57
-  %59 = getelementptr inbounds i8, ptr %.0146149, i64 11
+  %59 = getelementptr inbounds nuw i8, ptr %.0146149, i64 11
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw i32 %61, 24
@@ -246,7 +246,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   %86 = xor i32 %84, %85
   %87 = add i32 %82, %83
   %88 = add i64 %.0147148, -12
-  %89 = getelementptr inbounds i8, ptr %.0146149, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.0146149, i64 12
   %90 = icmp ugt i64 %88, 12
   br i1 %90, label %.lr.ph, label %._crit_edge
 
@@ -273,7 +273,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   ]
 
 91:                                               ; preds = %._crit_edge
-  %92 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 11
+  %92 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 11
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = shl nuw i32 %94, 24
@@ -282,7 +282,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 
 97:                                               ; preds = %91, %._crit_edge
   %.1 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %96, %91 ]
-  %98 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 10
+  %98 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 10
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = shl nuw nsw i32 %100, 16
@@ -291,7 +291,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 
 103:                                              ; preds = %97, %._crit_edge
   %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %102, %97 ]
-  %104 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 9
+  %104 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 9
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = shl nuw nsw i32 %106, 8
@@ -300,7 +300,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 
 109:                                              ; preds = %103, %._crit_edge
   %.3 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %108, %103 ]
-  %110 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 8
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = add i32 %.3, %112
@@ -308,7 +308,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 
 114:                                              ; preds = %109, %._crit_edge
   %.4 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %113, %109 ]
-  %115 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 7
+  %115 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 7
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = shl nuw i32 %117, 24
@@ -318,7 +318,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 120:                                              ; preds = %114, %._crit_edge
   %.1133 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %119, %114 ]
   %.5 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.4, %114 ]
-  %121 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 6
+  %121 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 6
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 16
@@ -328,7 +328,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 126:                                              ; preds = %120, %._crit_edge
   %.2134 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %125, %120 ]
   %.6 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.5, %120 ]
-  %127 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 5
+  %127 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 5
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 8
@@ -338,7 +338,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 132:                                              ; preds = %126, %._crit_edge
   %.3135 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %131, %126 ]
   %.7 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.6, %126 ]
-  %133 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 4
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = add i32 %.3135, %135
@@ -347,7 +347,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
 137:                                              ; preds = %132, %._crit_edge
   %.4136 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %136, %132 ]
   %.8 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.7, %132 ]
-  %138 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 3
+  %138 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 3
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
   %141 = shl nuw i32 %140, 24
@@ -358,7 +358,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   %.1142 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %142, %137 ]
   %.5137 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.4136, %137 ]
   %.9 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.8, %137 ]
-  %144 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 2
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = shl nuw nsw i32 %146, 16
@@ -369,7 +369,7 @@ define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %
   %.2143 = phi i32 [ %.0141.lcssa, %._crit_edge ], [ %148, %143 ]
   %.6138 = phi i32 [ %.0132.lcssa, %._crit_edge ], [ %.5137, %143 ]
   %.10 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.9, %143 ]
-  %150 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.0146.lcssa, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = shl nuw nsw i32 %152, 8
@@ -431,7 +431,7 @@ define i32 @H5_hash_string(ptr nocapture noundef readonly %0) local_unnamed_addr
   %.08 = phi ptr [ %5, %.lr.ph ], [ %0, %1 ]
   %.047 = phi i32 [ %7, %.lr.ph ], [ 5381, %1 ]
   %4 = sext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %.08, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %6 = mul i32 %.047, 33
   %7 = add i32 %6, %4
   %8 = load i8, ptr %5, align 1

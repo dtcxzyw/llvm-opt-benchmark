@@ -243,7 +243,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.114) #2
   %12 = load i32, ptr @proto_png, align 4
@@ -257,7 +257,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %21
 
 21:                                               ; preds = %.lr.ph, %dissect_png_bkgd.exit

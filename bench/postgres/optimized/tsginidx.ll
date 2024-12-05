@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
@@ -30,8 +30,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = icmp eq i8 %10, 1
   br i1 %16, label %17, label %25
@@ -67,8 +67,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %36 = zext i8 %35 to i32
   %37 = and i32 %36, 1
   %.not33 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %9, i64 1
-  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %40 = select i1 %.not33, ptr %39, ptr %38
   %41 = icmp eq i8 %35, 1
   br i1 %41, label %42, label %50
@@ -133,7 +133,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
@@ -145,8 +145,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noca
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = icmp eq i8 %10, 1
   br i1 %16, label %17, label %25
@@ -182,8 +182,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noca
   %36 = zext i8 %35 to i32
   %37 = and i32 %36, 1
   %.not34 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %9, i64 1
-  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %40 = select i1 %.not34, ptr %39, ptr %38
   %41 = icmp eq i8 %35, 1
   br i1 %41, label %42, label %50
@@ -244,21 +244,21 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #6
   %6 = getelementptr i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = zext nneg i32 %10 to i64
   %15 = shl nuw nsw i64 %14, 3
   %16 = tail call ptr @palloc(i64 noundef %15) #6
@@ -311,7 +311,7 @@ declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -326,7 +326,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   %14 = getelementptr i8, ptr %0, i64 128
   %15 = load i64, ptr %14, align 8
   store i32 0, ptr %7, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %.loopexit
@@ -388,7 +388,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   %45 = sext i32 %40 to i64
   %46 = mul nsw i64 %45, 12
   %47 = getelementptr i8, ptr %21, i64 %46
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 12
   %51 = zext nneg i32 %50 to i64
@@ -399,7 +399,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   %56 = sext i32 %.259 to i64
   %57 = getelementptr i64, ptr %31, i64 %56
   store i64 %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %41, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %59 = load i8, ptr %58, align 2
   %60 = getelementptr i8, ptr %32, i64 %56
   %61 = and i8 %59, 1
@@ -443,7 +443,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
@@ -454,7 +454,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr nocapture nound
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %26
@@ -464,10 +464,10 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr nocapture nound
   %18 = inttoptr i64 %4 to ptr
   %19 = getelementptr i8, ptr %7, i64 8
   store ptr %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %22, align 8
   %23 = call i32 @TS_execute_ternary(ptr noundef %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
   switch i32 %23, label %26 [
@@ -491,7 +491,7 @@ declare i32 @TS_execute_ternary(ptr noundef, ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %1 to i64
@@ -500,7 +500,7 @@ define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture nound
   %10 = sdiv exact i64 %9, 3
   %11 = getelementptr i8, ptr %5, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %12 to i64
   %16 = getelementptr i8, ptr %14, i64 %15
@@ -509,7 +509,7 @@ define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture nound
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp ne i8 %21, 0
   %23 = icmp ne ptr %2, null
@@ -529,7 +529,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr nocaptu
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %23
@@ -538,15 +538,15 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr nocaptu
   %10 = getelementptr i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr i8, ptr %5, i64 8
   store ptr %16, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %18, ptr %19, align 8
   %20 = call i32 @TS_execute_ternary(ptr noundef %16, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
   %21 = zext i32 %20 to i64
@@ -561,7 +561,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 30
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %3 = load i16, ptr %2, align 2
   %4 = icmp slt i16 %3, 3
   br i1 %4, label %5, label %8
@@ -574,21 +574,21 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly 
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #6
   %13 = getelementptr i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %.loopexit.i
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = zext nneg i32 %17 to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = tail call ptr @palloc(i64 noundef %22) #6
@@ -644,7 +644,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_tsquery_5args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 30
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %3 = load i16, ptr %2, align 2
   %4 = icmp slt i16 %3, 7
   br i1 %4, label %5, label %8
@@ -664,7 +664,7 @@ define dso_local i64 @gin_extract_tsquery_5args(ptr nocapture noundef readonly %
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 30
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %4 = load i16, ptr %3, align 2
   %5 = icmp slt i16 %4, 8
   br i1 %5, label %6, label %9
@@ -678,7 +678,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr nocapture
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8
@@ -689,7 +689,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr nocapture
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %14, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %gin_tsquery_consistent.exit
@@ -699,10 +699,10 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr nocapture
   %25 = inttoptr i64 %11 to ptr
   %26 = getelementptr i8, ptr %14, i64 8
   store ptr %26, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %25, ptr %27, align 8
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %28, ptr %29, align 8
   %30 = call i32 @TS_execute_ternary(ptr noundef %26, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
   switch i32 %30, label %gin_tsquery_consistent.exit [
@@ -733,7 +733,7 @@ define dso_local i64 @gin_extract_tsquery_oldsig(ptr nocapture noundef readonly 
 define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
@@ -744,7 +744,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr nocaptur
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %gin_tsquery_consistent.exit
@@ -754,10 +754,10 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr nocaptur
   %18 = inttoptr i64 %4 to ptr
   %19 = getelementptr i8, ptr %7, i64 8
   store ptr %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %22, align 8
   %23 = call i32 @TS_execute_ternary(ptr noundef %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
   switch i32 %23, label %gin_tsquery_consistent.exit [

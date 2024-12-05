@@ -59,18 +59,18 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %12, label %copy_hostent.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %.not99.i = icmp eq ptr %24, null
@@ -80,8 +80,8 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0102.i = phi ptr [ %26, %.lr.ph.i ], [ %20, %13 ]
   %.068101.i = phi ptr [ %25, %.lr.ph.i ], [ %23, %13 ]
   %.072100.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %13 ]
-  %25 = getelementptr inbounds i8, ptr %.068101.i, i64 8
-  %26 = getelementptr inbounds i8, ptr %.0102.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.068101.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 8
   %27 = add nuw nsw i32 %.072100.i, 1
   %28 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %28, null
@@ -101,10 +101,10 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %31, label %copy_hostent.exit, label %32
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %.not86104.i = icmp eq ptr %37, null
@@ -114,8 +114,8 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %.1107.i = phi ptr [ %39, %.lr.ph109.i ], [ %33, %32 ]
   %.169106.i = phi ptr [ %38, %.lr.ph109.i ], [ %36, %32 ]
   %.173105.i = phi i32 [ %40, %.lr.ph109.i ], [ 0, %32 ]
-  %38 = getelementptr inbounds i8, ptr %.169106.i, i64 8
-  %39 = getelementptr inbounds i8, ptr %.1107.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.169106.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.1107.i, i64 8
   %40 = add nuw nsw i32 %.173105.i, 1
   %41 = load ptr, ptr %38, align 8
   %.not86.i = icmp eq ptr %41, null
@@ -135,11 +135,11 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .thread.i:                                        ; preds = %._crit_edge110.thread.i
   %.neg91145.i = add nsw i32 %30, -8
-  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   br label %._crit_edge120.i
 
 47:                                               ; preds = %._crit_edge110.i
-  %48 = getelementptr inbounds i8, ptr %.1107.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.1107.i, i64 16
   %.pre.i = load i32, ptr %17, align 4
   br label %.lr.ph119.i
 
@@ -161,8 +161,8 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %55 = load i32, ptr %17, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %.077114.i, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.270116.i, i64 8
-  %59 = getelementptr inbounds i8, ptr %.2117.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.270116.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.2117.i, i64 8
   %60 = load ptr, ptr %58, align 8
   %.not87.i = icmp eq ptr %60, null
   br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !9
@@ -196,8 +196,8 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
 71:                                               ; preds = %.lr.ph130.i
   %72 = sext i32 %68 to i64
   %73 = getelementptr inbounds i8, ptr %.178125.i, i64 %72
-  %74 = getelementptr inbounds i8, ptr %.371127.i, i64 8
-  %75 = getelementptr inbounds i8, ptr %.3128.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.371127.i, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.3128.i, i64 8
   %76 = load ptr, ptr %74, align 8
   %.not88.i = icmp eq ptr %76, null
   br i1 %.not88.i, label %._crit_edge131.i, label %.lr.ph130.i, !llvm.loop !10
@@ -345,7 +345,7 @@ define ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %2, %10
   %.sink = phi i32 [ 10, %10 ], [ 2, %2 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sink, ptr %11, align 4
   br label %12
 
@@ -368,7 +368,7 @@ define ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not32 = icmp eq ptr %.1, null
   %spec.select35 = select i1 %.not32, i32 1057, i32 1059
   store i32 %spec.select35, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %17, align 8
   %18 = call i32 @getaddrinfo(ptr noundef %.1, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
   switch i32 %18, label %29 [
@@ -519,13 +519,13 @@ define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not46, label %36, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = icmp sgt i64 %20, %11
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @xstrdup(ptr noundef %24) #13
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @getnameinfo_cache_lock) #13
@@ -584,14 +584,14 @@ define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .thread55:                                        ; preds = %.thread, %43
   %46 = phi ptr [ %37, %43 ], [ %38, %.thread ]
   %.036 = phi ptr [ %44, %43 ], [ %17, %.thread ]
-  %47 = getelementptr inbounds i8, ptr %.036, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %47) #13
   %48 = tail call ptr @xstrdup(ptr noundef nonnull %46) #13
   store ptr %48, ptr %47, align 8
   %49 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 382), align 2
   %50 = zext i16 %49 to i64
   %51 = add nsw i64 %11, %50
-  %52 = getelementptr inbounds i8, ptr %.036, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.036, i64 32
   store i64 %51, ptr %52, align 8
   %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %54 = and i64 %53, 1024
@@ -681,7 +681,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 define internal void @_getnameinfo_cache_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %3) #13
   tail call void @slurm_xfree(ptr noundef %0) #13
   call void @slurm_xfree(ptr noundef nonnull %2) #13
@@ -705,16 +705,16 @@ define internal range(i32 0, 2) i32 @_name_cache_find(ptr nocapture noundef read
   ]
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %.not17 = icmp eq i32 %9, %11
   br i1 %.not17, label %15, label %16
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %13, ptr noundef nonnull dereferenceable(16) %14, i64 16)
   %.not16 = icmp eq i32 %bcmp, 0
   br i1 %.not16, label %16, label %15

@@ -114,7 +114,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb1:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp, ptr noundef nonnull align 8 dereferenceable(56) %tm, i64 56, i1 false)
-  %tm_isdst = getelementptr inbounds i8, ptr %tmp, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %tmp, i64 32
   store i32 -1, ptr %tm_isdst, align 8
   %call2 = call i64 @mktime(ptr noundef nonnull %tmp) #10
   br label %sw.epilog
@@ -179,11 +179,11 @@ if.then9:                                         ; preds = %if.else
 if.else10:                                        ; preds = %if.else
   store i32 2, ptr @rtc_base_type, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %tm_year.i = getelementptr inbounds i8, ptr %tm.i, i64 20
-  %tm_mon.i = getelementptr inbounds i8, ptr %tm.i, i64 16
-  %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
-  %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
-  %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
+  %tm_year.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 20
+  %tm_mon.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 16
+  %tm_mday.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 12
+  %tm_hour.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 8
+  %tm_min.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 4
   %call.i17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %call3, ptr noundef nonnull @.str.17, ptr noundef nonnull %tm_year.i, ptr noundef nonnull %tm_mon.i, ptr noundef nonnull %tm_mday.i, ptr noundef nonnull %tm_hour.i, ptr noundef nonnull %tm_min.i, ptr noundef nonnull %tm.i) #10
   %cmp.i = icmp eq i32 %call.i17, 6
   br i1 %cmp.i, label %if.end11.i, label %if.else.i
@@ -243,25 +243,25 @@ sub_0:                                            ; preds = %if.then15
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %4 = getelementptr inbounds i8, ptr %call13, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %call13, i64 1
   %5 = load i8, ptr %4, align 1
   %.not22 = icmp eq i8 %5, 116
   br i1 %.not22, label %if.else19.tail, label %if.else27
 
 if.else19.tail:                                   ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %call13, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %call13, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %if.end31.sink.split, label %if.else27
 
 sub_119:                                          ; preds = %sub_0
-  %9 = getelementptr inbounds i8, ptr %call13, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %call13, i64 1
   %10 = load i8, ptr %9, align 1
   %.not24 = icmp eq i8 %10, 109
   br i1 %.not24, label %if.else23.tail, label %if.else27
 
 if.else23.tail:                                   ; preds = %sub_119
-  %11 = getelementptr inbounds i8, ptr %call13, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %call13, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %if.end31.sink.split, label %if.else27

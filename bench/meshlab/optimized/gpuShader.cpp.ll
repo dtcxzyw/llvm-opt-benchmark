@@ -82,17 +82,17 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9GPUShaderC2E11SHADER_TYPERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(42) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i1 %3 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %5, ptr %8, align 8
   %9 = invoke noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull align 8 dereferenceable(42) %0)
           to label %10 unwind label %21
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 41
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %12 = zext i1 %9 to i8
   store i8 %12, ptr %11, align 1
   br i1 %9, label %13, label %_ZN9GPUShader14loadAndCompileEv.exit
@@ -133,7 +133,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %12 [
     i32 0, label %4
@@ -167,7 +167,7 @@ define noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull ali
   %.sink4 = phi i32 [ 35633, %4 ], [ 35632, %8 ], [ 36313, %1 ]
   %15 = load ptr, ptr @__glewCreateShader, align 8
   %16 = tail call i32 %15(i32 noundef %.sink4)
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %16, ptr %17, align 4
   %18 = icmp eq i32 %16, 0
   br i1 %18, label %19, label %24
@@ -192,7 +192,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 41
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN9GPUShader7compileEv.exit
@@ -203,10 +203,10 @@ define noundef zeroext i1 @_ZN9GPUShader14loadAndCompileEv(ptr noundef nonnull a
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @__glewCompileShader, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i32, ptr %9, align 4
   tail call void %8(i32 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %_ZN9GPUShader7compileEv.exit
@@ -225,14 +225,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9GPUShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 41
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @__glewDeleteShader, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   invoke void %6(i32 noundef %8)
           to label %9 unwind label %10
@@ -392,7 +392,7 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %38, %_ZN9QtPrivate8
   %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
   store ptr %46, ptr %8, align 8
   %47 = load ptr, ptr @__glewShaderSource, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %49 = load i32, ptr %48, align 4
   invoke void %47(i32 noundef %49, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null)
           to label %50 unwind label %53
@@ -506,10 +506,10 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noalias !5
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !5
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !5
   %11 = sext i32 %10 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13, !noalias !5
@@ -605,10 +605,10 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9GPUShader7compileEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @__glewCompileShader, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   tail call void %2(i32 noundef %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %9
@@ -628,7 +628,7 @@ define void @_ZN9GPUShader12printInfoLogEv(ptr noundef nonnull align 8 dereferen
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr @__glewGetObjectParameterivARB, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   call void %4(i32 noundef %6, i32 noundef 35716, ptr noundef nonnull %2)
   %7 = load i32, ptr %2, align 4

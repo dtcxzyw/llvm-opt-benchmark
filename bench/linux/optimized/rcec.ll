@@ -11,21 +11,21 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @pcie_link_rcec(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.walk_rcec_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %8, align 8
   call void @pci_walk_bus(ptr noundef %9, ptr noundef nonnull @link_rcec_helper, ptr noundef nonnull %2) #6
   %10 = load ptr, ptr %3, align 8
   %11 = load i8, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %11, -1
   %15 = icmp eq i8 %13, 0
@@ -42,14 +42,14 @@ define dso_local void @pcie_link_rcec(ptr noundef %0) local_unnamed_addr #0 alig
 22:                                               ; preds = %36, %19
   %23 = phi i32 [ %37, %36 ], [ %20, %19 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 216
   %26 = load i8, ptr %25, align 8
   %27 = zext i8 %26 to i32
   %28 = icmp eq i32 %23, %27
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %24, i64 200
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = call ptr @pci_find_bus(i32 noundef %32, i32 noundef %23) #6
@@ -79,31 +79,31 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
 define internal noundef i32 @link_rcec_helper(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 106
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 240
   %7 = icmp eq i16 %6, 144
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %17 = load i8, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %17, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %25
 
 25:                                               ; preds = %37, %23
@@ -133,7 +133,7 @@ define internal noundef i32 @link_rcec_helper(ptr nocapture noundef %0, ptr noca
   br i1 %41, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %8
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %43, align 8
   br label %.thread
 
@@ -148,23 +148,23 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @pcie_walk_rcec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.walk_rcec_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @pci_walk_bus(ptr noundef %12, ptr noundef nonnull @walk_rcec_helper, ptr noundef nonnull %4) #6
   %13 = load ptr, ptr %5, align 8
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %14, -1
   %18 = icmp eq i8 %16, 0
@@ -181,14 +181,14 @@ define dso_local void @pcie_walk_rcec(ptr noundef %0, ptr noundef %1, ptr nounde
 25:                                               ; preds = %39, %22
   %26 = phi i32 [ %40, %39 ], [ %23, %22 ]
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
   %31 = icmp eq i32 %26, %30
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %27, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 200
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   %36 = call ptr @pci_find_bus(i32 noundef %35, i32 noundef %26) #6
@@ -211,7 +211,7 @@ define dso_local void @pcie_walk_rcec(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 106
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 240
   %6 = icmp eq i16 %5, 144
@@ -219,24 +219,24 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr nocapture noun
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %17 = load i8, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %17, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %25
 
 25:                                               ; preds = %37, %23
@@ -266,9 +266,9 @@ define internal noundef i32 @walk_rcec_helper(ptr noundef %0, ptr nocapture noun
   br i1 %41, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %7
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %44(ptr noundef %0, ptr noundef %46) #6
   br label %.thread
@@ -283,7 +283,7 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 106
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 240
   %7 = icmp eq i16 %6, 160
@@ -305,8 +305,8 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   store i32 0, ptr %2, align 4, !annotation !11
   store i32 0, ptr %3, align 4, !annotation !11
   %17 = add nuw nsw i32 %10, 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
-  %19 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %17, ptr noundef %18) #6
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %19 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %18) #6
   %20 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2) #6
   %21 = load i32, ptr %2, align 4
   %22 = and i32 %21, 917504
@@ -327,9 +327,9 @@ define dso_local void @pci_rcec_init(ptr noundef %0) local_unnamed_addr #0 align
   %.sink = phi i8 [ %29, %24 ], [ -1, %16 ]
   %33 = phi i8 [ %31, %24 ], [ 0, %16 ]
   store i8 %.sink, ptr %14, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %33, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %14, ptr %35, align 8
   br label %36
 
@@ -347,7 +347,7 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_rcec_exit(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #6
   store ptr null, ptr %2, align 8

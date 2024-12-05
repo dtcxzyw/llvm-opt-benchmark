@@ -269,7 +269,7 @@ define internal i32 @dissect_slimp3(ptr noundef %0, ptr nocapture noundef readon
   br i1 %11, label %303, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.56) #3
   %15 = load ptr, ptr %13, align 8
@@ -280,32 +280,32 @@ define internal i32 @dissect_slimp3(ptr noundef %0, ptr nocapture noundef readon
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
   %20 = load i32, ptr @hf_slimp3_opcode, align 4
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %9) #3
-  %22 = getelementptr inbounds i8, ptr %1, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %23 = load i32, ptr %22, align 8
   %.not331 = icmp eq i32 %23, 3483
   br i1 %.not331, label %24, label %addresses_equal.exit
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 3483
   br i1 %27, label %28, label %addresses_equal.exitthread-pre-split
 
 28:                                               ; preds = %24
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 12, i32 noundef 6) #3
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 6
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %39 = load ptr, ptr %38, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %29, ptr noundef nonnull dereferenceable(6) %39, i64 6)
   %40 = icmp eq i32 %bcmp.i, 0
@@ -326,7 +326,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %addresses_equal.exit
-  %45 = getelementptr inbounds i8, ptr %1, i64 284
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %46 = load i32, ptr %45, align 4
   %47 = icmp ne i32 %46, 1069
   %not. = xor i1 %47, true
@@ -732,7 +732,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
 
 272:                                              ; preds = %267, %266
   %273 = load ptr, ptr %13, align 8
-  %274 = getelementptr inbounds i8, ptr %1, i64 408
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %275 = load ptr, ptr %274, align 8
   %276 = tail call ptr @tvb_address_to_str(ptr noundef %275, ptr noundef %0, i32 noundef 2, i32 noundef 2) #3
   %277 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #3

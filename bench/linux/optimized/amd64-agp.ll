@@ -208,17 +208,17 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   br i1 %17, label %219, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = load i16, ptr %19, align 4
   %21 = icmp eq i16 %20, 4130
-  %22 = getelementptr inbounds i8, ptr %0, i64 62
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %23 = load i16, ptr %22, align 2
   %24 = icmp eq i16 %23, 29780
   %or.cond = select i1 %21, i1 %24, i1 false
   br i1 %or.cond, label %25, label %._crit_edge
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load i8, ptr %26, align 8
   switch i8 %27, label %33 [
     i8 1, label %34
@@ -249,38 +249,38 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 34:                                               ; preds = %33, %32, %31, %30, %29, %28, %25
   %35 = phi ptr [ @.str.11, %33 ], [ @.str.10, %32 ], [ @.str.9, %31 ], [ @.str.8, %30 ], [ @.str.7, %29 ], [ @.str.6, %28 ], [ @.str.5, %25 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.12, ptr noundef nonnull %35) #7
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.12, ptr noundef nonnull %35) #7
   %37 = load i8, ptr %26, align 8
   %38 = icmp ult i8 %37, 19
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.13) #7
-  %40 = getelementptr inbounds i8, ptr %16, i64 152
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.13) #7
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i8 3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %16, i64 153
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 153
   store i8 0, ptr %41, align 1
   br label %45
 
 ._crit_edge:                                      ; preds = %18
-  %42 = getelementptr inbounds i8, ptr %0, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %43 = zext i16 %20 to i32
   %44 = zext i16 %23 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %42, ptr noundef nonnull @.str.4, i32 noundef %43, i32 noundef %44) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %42, ptr noundef nonnull @.str.4, i32 noundef %43, i32 noundef %44) #7
   br label %45
 
 45:                                               ; preds = %._crit_edge, %39, %34
-  %46 = getelementptr inbounds i8, ptr %16, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @amd_8151_driver, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %16, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %0, ptr %47, align 8
   %48 = zext i8 %13 to i32
-  %49 = getelementptr inbounds i8, ptr %16, i64 144
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i32 %48, ptr %49, align 8
   %50 = add nuw nsw i32 %48, 4
-  %51 = getelementptr inbounds i8, ptr %16, i64 112
-  %52 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %50, ptr noundef %51) #6
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %52 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %50, ptr noundef nonnull %51) #6
   %53 = tail call zeroext i16 @amd_nb_num() #6
   %54 = icmp eq i16 %53, 0
   br i1 %54, label %.loopexit22, label %55
@@ -296,9 +296,9 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 60:                                               ; preds = %57
   %61 = add nuw nsw i32 %48, 20
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = getelementptr inbounds i8, ptr %0, i64 920
-  %64 = getelementptr inbounds i8, ptr %0, i64 184
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %70
 
 .critedge:                                        ; preds = %115, %126
@@ -317,7 +317,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 70:                                               ; preds = %65, %60
   %71 = phi i32 [ 0, %60 ], [ %66, %65 ]
   %72 = call ptr @node_to_amd_nb(i32 noundef %71) #6
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
   store i32 0, ptr %7, align 4, !annotation !10
@@ -362,7 +362,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !10
   %99 = load ptr, ptr %62, align 8
-  call void @pcibios_resource_to_bus(ptr noundef %99, ptr noundef nonnull %6, ptr noundef %63) #6
+  call void @pcibios_resource_to_bus(ptr noundef %99, ptr noundef nonnull %6, ptr noundef nonnull %63) #6
   %100 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   %101 = icmp sgt i32 %98, -1
@@ -378,7 +378,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 108:                                              ; preds = %102
   %109 = shl i32 32, %98
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.17, i32 noundef %109) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %64, ptr noundef nonnull @.str.17, i32 noundef %109) #7
   %110 = load i32, ptr %7, align 4
   br label %111
 
@@ -396,7 +396,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
 
 119:                                              ; preds = %115, %111
   %120 = shl i32 32, %112
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.18, i64 noundef %100, i32 noundef %120) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %64, ptr noundef nonnull @.str.18, i64 noundef %100, i32 noundef %120) #7
   %121 = icmp slt i32 %112, 0
   br i1 %121, label %.critedge17, label %122
 
@@ -421,9 +421,9 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   br label %.loopexit21
 
 .loopexit21:                                      ; preds = %86, %.critedge17
-  %132 = getelementptr inbounds i8, ptr %74, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %132, ptr noundef nonnull @.str.15) #7
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %132, ptr noundef nonnull @.str.16) #7
+  %132 = getelementptr inbounds nuw i8, ptr %74, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %132, ptr noundef nonnull @.str.15) #7
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %132, ptr noundef nonnull @.str.16) #7
   call void @agp_put_bridge(ptr noundef nonnull %16) #6
   br label %219
 
@@ -458,7 +458,7 @@ thread-pre-split:                                 ; preds = %135
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 0, ptr %3, align 4, !annotation !10
   %143 = call ptr @node_to_amd_nb(i32 noundef 0) #6
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.loopexit20, label %147
@@ -468,9 +468,9 @@ thread-pre-split:                                 ; preds = %135
   %149 = load i32, ptr %3, align 4
   %150 = and i32 %149, 14
   %151 = load ptr, ptr @agp_bridge, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %157, label %.loopexit20
@@ -482,18 +482,18 @@ thread-pre-split:                                 ; preds = %135
 159:                                              ; preds = %171, %157
   %160 = phi i64 [ 0, %157 ], [ %172, %171 ]
   %161 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %160
-  %162 = getelementptr inbounds i8, ptr %161, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %150, %163
   br i1 %164, label %165, label %171
 
 165:                                              ; preds = %159
   %166 = trunc i64 %160 to i32
-  %167 = getelementptr inbounds i8, ptr %151, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %151, i64 32
   store ptr %161, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %151, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store ptr %161, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %151, i64 140
+  %169 = getelementptr inbounds nuw i8, ptr %151, i64 140
   store i32 %166, ptr %169, align 4
   %170 = load i32, ptr %161, align 4
   br label %.loopexit20
@@ -506,16 +506,16 @@ thread-pre-split:                                 ; preds = %135
 .loopexit20:                                      ; preds = %171, %165, %147, %142
   %174 = phi i32 [ %170, %165 ], [ 0, %142 ], [ 0, %147 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  %175 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.28) #7
-  %176 = getelementptr inbounds i8, ptr %0, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %175, ptr noundef nonnull @.str.28) #7
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %177 = load ptr, ptr %176, align 8
   %178 = call ptr @pci_get_slot(ptr noundef %177, i32 noundef 0) #6
   %179 = icmp eq ptr %178, null
   br i1 %179, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %.loopexit20
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.29) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %175, ptr noundef nonnull @.str.29) #7
   br label %211
 
 .preheader:                                       ; preds = %.loopexit20, %184
@@ -536,12 +536,12 @@ thread-pre-split:                                 ; preds = %135
   br i1 %189, label %.loopexit, label %190
 
 .loopexit:                                        ; preds = %184, %187
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.30, i32 noundef %174) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %175, ptr noundef nonnull @.str.30, i32 noundef %174) #7
   br label %.thread18
 
 190:                                              ; preds = %187
   %191 = call ptr @node_to_amd_nb(i32 noundef 0) #6
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = call i32 @pci_read_config_dword(ptr noundef %193, i32 noundef 148, ptr noundef nonnull %4) #6
   %195 = load i32, ptr %4, align 4
@@ -581,7 +581,7 @@ thread-pre-split:                                 ; preds = %135
   br label %219
 
 212:                                              ; preds = %.thread19, %139
-  %213 = getelementptr inbounds i8, ptr %0, i64 304
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %16, ptr %213, align 8
   %214 = call i32 @agp_add_bridge(ptr noundef nonnull %16) #6
   %215 = icmp slt i32 %214, 0
@@ -600,9 +600,9 @@ thread-pre-split:                                 ; preds = %135
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @agp_amd64_remove(ptr nocapture noundef readonly %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = add i64 %6, 2147483648
@@ -612,7 +612,7 @@ define internal void @agp_amd64_remove(ptr nocapture noundef readonly %0) #4 ali
   %11 = sub i64 -2147483648, %10
   %12 = select i1 %8, i64 %9, i64 %11
   %13 = add i64 %7, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr [7 x %struct.aper_size_info_32], ptr @amd64_aperture_sizes, i64 0, i64 %16
@@ -657,7 +657,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   store i32 0, ptr %2, align 4, !annotation !10
   %6 = tail call ptr @node_to_amd_nb(i32 noundef 0) #6
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -667,9 +667,9 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   %12 = load i32, ptr %2, align 4
   %13 = and i32 %12, 14
   %14 = load ptr, ptr @agp_bridge, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %.loopexit
@@ -681,18 +681,18 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 22:                                               ; preds = %34, %20
   %23 = phi i64 [ 0, %20 ], [ %35, %34 ]
   %24 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %13, %26
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %22
   %29 = trunc i64 %23 to i32
-  %30 = getelementptr inbounds i8, ptr %14, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %24, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %24, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 140
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store i32 %29, ptr %32, align 4
   %33 = load i32, ptr %24, align 4
   br label %.loopexit
@@ -705,16 +705,16 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 .loopexit:                                        ; preds = %34, %28, %10, %1
   %37 = phi i32 [ %33, %28 ], [ 0, %1 ], [ 0, %10 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  %38 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.24) #7
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.24) #7
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @pci_get_slot(ptr noundef %40, i32 noundef 88) #6
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %.preheader
 
 43:                                               ; preds = %.loopexit
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.25) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.25) #7
   br label %89
 
 .preheader:                                       ; preds = %.loopexit, %48
@@ -735,7 +735,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   br i1 %53, label %.thread, label %54
 
 .thread:                                          ; preds = %48, %51
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.26, i32 noundef %37) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.26, i32 noundef %37) #7
   br label %87
 
 54:                                               ; preds = %51
@@ -748,7 +748,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   store i32 %60, ptr %3, align 4
   %61 = call i32 @pci_write_config_dword(ptr noundef nonnull %41, i32 noundef 168, i32 noundef %60) #6
   %62 = call ptr @node_to_amd_nb(i32 noundef 0) #6
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @pci_read_config_dword(ptr noundef %64, i32 noundef 148, ptr noundef nonnull %4) #6
   %66 = load i32, ptr %4, align 4
@@ -757,7 +757,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %54
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.27) #7
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.27) #7
   br label %87
 
 70:                                               ; preds = %54
@@ -802,7 +802,7 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
   %2 = tail call ptr @node_to_amd_nb(i32 noundef 0) #6
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -813,9 +813,9 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
   %8 = load i32, ptr %1, align 4
   %9 = and i32 %8, 14
   %10 = load ptr, ptr @agp_bridge, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.preheader.preheader, label %.loopexit
@@ -827,18 +827,18 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
 .preheader:                                       ; preds = %.preheader.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %27 ]
   %17 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %9, %19
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %.preheader
   %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %23 = getelementptr inbounds i8, ptr %10, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %17, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 140
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %22, ptr %25, align 4
   %26 = load i32, ptr %17, align 4
   br label %.loopexit
@@ -859,7 +859,7 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @agp_bridge, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = add i64 %6, 2147483648
@@ -886,7 +886,7 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
 22:                                               ; preds = %22, %18
   %23 = phi i32 [ 0, %18 ], [ %39, %22 ]
   %24 = call ptr @node_to_amd_nb(i32 noundef %23) #6
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
   store i32 0, ptr %2, align 4, !annotation !10
@@ -906,7 +906,7 @@ define internal noundef i32 @amd_8151_configure() #4 align 16 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   %37 = load ptr, ptr @agp_bridge, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   store i64 %30, ptr %38, align 8
   %39 = add nuw nsw i32 %23, 1
   %40 = call zeroext i16 @amd_nb_num() #6
@@ -944,7 +944,7 @@ define internal void @amd64_cleanup() #4 align 16 {
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %6 = phi i32 [ %14, %.preheader ], [ 0, %.preheader.preheader ]
   %7 = call ptr @node_to_amd_nb(i32 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @pci_read_config_dword(ptr noundef %9, i32 noundef 144, ptr noundef nonnull %1) #6
   %11 = load i32, ptr %1, align 4
@@ -982,25 +982,25 @@ declare dso_local i32 @agp_generic_free_gatt_table(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @agp_num_entries() #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %10, label %.loopexit5
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %5, i32 noundef %2) #6
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.loopexit5
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %1
   %21 = sext i32 %6 to i64
@@ -1018,7 +1018,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
   %28 = phi i64 [ %49, %47 ], [ %26, %23 ]
   %29 = phi i32 [ %48, %47 ], [ %24, %23 ]
   %30 = load ptr, ptr @agp_bridge, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i32, ptr %32, i64 %28
   %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #6, !srcloc !19
@@ -1027,13 +1027,13 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
 
 36:                                               ; preds = %.preheader
   %37 = load ptr, ptr @agp_bridge, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i32, ptr %39, i64 %28
   %41 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40) #6, !srcloc !19
   %42 = zext i32 %41 to i64
   %43 = load ptr, ptr @agp_bridge, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, %42
   br i1 %46, label %47, label %.loopexit5
@@ -1048,7 +1048,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
 
 .loopexit6:                                       ; preds = %47, %23
   %53 = phi i64 [ %19, %23 ], [ %50, %47 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 65
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %55 = load i8, ptr %54, align 1, !range !5, !noundef !6
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %58
@@ -1065,7 +1065,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %63
 
 63:                                               ; preds = %83, %61
@@ -1073,9 +1073,9 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
   %65 = phi i32 [ %24, %61 ], [ %100, %83 ]
   %66 = phi i32 [ 0, %61 ], [ %99, %83 ]
   %67 = load ptr, ptr @agp_bridge, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %62, align 8
   %73 = getelementptr ptr, ptr %72, i64 %64
@@ -1101,13 +1101,13 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture
   %87 = trunc i64 %86 to i32
   %88 = or i32 %87, 3
   %89 = load ptr, ptr @agp_bridge, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = sext i32 %65 to i64
   %93 = getelementptr i32, ptr %91, i64 %92
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(i32) %93) #6, !srcloc !24
   %94 = load ptr, ptr @agp_bridge, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i32, ptr %96, i64 %92
   %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97) #6, !srcloc !19

@@ -18,16 +18,16 @@ define hidden void @_cmsAllocInterpPluginChunk(ptr nocapture noundef initializes
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   br label %6
 
 6:                                                ; preds = %2, %3
   %.0 = phi ptr [ %5, %3 ], [ @_cmsAllocInterpPluginChunk.InterpPluginChunk, %2 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @_cmsSubAllocDup(ptr noundef %8, ptr noundef %.0, i32 noundef 8) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %10, align 8
   ret void
 }
@@ -41,7 +41,7 @@ define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef 
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -56,18 +56,18 @@ declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr nocapture noundef initializes((208, 216)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr %5(i32 noundef %8, i32 noundef %10, i32 noundef %12) #8
   store ptr %13, ptr %4, align 8
@@ -75,11 +75,11 @@ define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, p
   br i1 %14, label %.thread, label %48
 
 .thread:                                          ; preds = %2, %6
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 1
   %22 = and i32 %20, 256
@@ -228,44 +228,44 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %2, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store ptr %4, ptr %16, align 8
   store ptr %0, ptr %10, align 8
   %.not55 = icmp eq i32 %2, 0
   br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 140
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %3, ptr %17, align 4
   br label %._crit_edge54
 
 .lr.ph:                                           ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %10, i64 20
-  %19 = getelementptr inbounds i8, ptr %10, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds [15 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [15 x i32], ptr %18, i64 0, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %24 = add i32 %22, -1
-  %25 = getelementptr inbounds [15 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [15 x i32], ptr %19, i64 0, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %10, i64 140
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %3, ptr %26, align 4
   %.not62 = icmp eq i32 %2, 1
   br i1 %.not62, label %._crit_edge54, label %.lr.ph53.preheader
@@ -278,10 +278,10 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture nound
   %28 = phi i32 [ %3, %.lr.ph53.preheader ], [ %32, %.lr.ph53 ]
   %indvars.iv57 = phi i64 [ 1, %.lr.ph53.preheader ], [ %indvars.iv.next58, %.lr.ph53 ]
   %29 = sub nuw nsw i64 %27, %indvars.iv57
-  %30 = getelementptr inbounds i32, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = mul i32 %31, %28
-  %33 = getelementptr inbounds [15 x i32], ptr %26, i64 0, i64 %indvars.iv57
+  %33 = getelementptr inbounds nuw [15 x i32], ptr %26, i64 0, i64 %indvars.iv57
   store i32 %32, ptr %33, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %27
@@ -315,7 +315,7 @@ define hidden ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %1, i32 n
 
 8:                                                ; preds = %6, %8
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [15 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [15 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %1, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -342,7 +342,7 @@ define hidden void @_cmsFreeInterpParams(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
   %7 = fcmp olt float %6, 0x3E112E0BE0000000
@@ -352,7 +352,7 @@ define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr noca
   %10 = select i1 %9, float 1.000000e+00, float %6
   %11 = select i1 %or.cond.i, float 0.000000e+00, float %10
   %12 = fcmp oeq float %11, 1.000000e+00
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %12, label %._crit_edge, label %14
 
@@ -366,7 +366,7 @@ define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr noca
 
 16:                                               ; preds = %._crit_edge, %14
   %17 = phi i64 [ %13, %._crit_edge ], [ 0, %14 ]
-  %18 = getelementptr inbounds float, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw float, ptr %5, i64 %17
   %19 = load float, ptr %18, align 4
   br label %38
 
@@ -398,12 +398,12 @@ define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef readonly %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
   %7 = zext i16 %6 to i32
   %8 = icmp eq i16 %6, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %8, label %._crit_edge, label %10
 
@@ -417,7 +417,7 @@ define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture
 
 12:                                               ; preds = %._crit_edge, %10
   %13 = phi i64 [ %9, %._crit_edge ], [ 0, %10 ]
-  %14 = getelementptr inbounds i16, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr %5, i64 %13
   %15 = load i16, ptr %14, align 2
   br label %36
 
@@ -451,7 +451,7 @@ define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
   %7 = fcmp olt float %6, 0x3E112E0BE0000000
@@ -461,7 +461,7 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %10 = select i1 %9, float 1.000000e+00, float %6
   %11 = select i1 %or.cond.i, float 0.000000e+00, float %10
   %12 = fcmp oeq float %11, 1.000000e+00
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %12, label %._crit_edge, label %13
 
@@ -471,10 +471,10 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
 
 ._crit_edge:                                      ; preds = %3, %13
   %15 = phi i32 [ 0, %13 ], [ %.pre, %3 ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %17 = load i32, ptr %16, align 4
   %18 = mul i32 %17, %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i32, ptr %19, align 8
   %.not43 = icmp eq i32 %20, 0
   br i1 %.not43, label %.loopexit, label %.lr.ph42
@@ -484,9 +484,9 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %21 = trunc nuw i64 %indvars.iv46 to i32
   %22 = add i32 %18, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds float, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw float, ptr %5, i64 %23
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds float, ptr %1, i64 %indvars.iv46
+  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv46
   store float %25, ptr %26, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %27 = load i32, ptr %19, align 8
@@ -504,11 +504,11 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %37 = fptosi double %36 to i32
   %38 = sitofp i32 %35 to float
   %39 = fsub float %32, %38
-  %40 = getelementptr inbounds i8, ptr %2, i64 140
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %41 = load i32, ptr %40, align 4
   %42 = mul i32 %41, %35
   %43 = mul i32 %41, %37
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i32, ptr %44, align 8
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -518,15 +518,15 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
   %46 = trunc nuw i64 %indvars.iv to i32
   %47 = add i32 %42, %46
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %5, i64 %48
+  %49 = getelementptr inbounds nuw float, ptr %5, i64 %48
   %50 = load float, ptr %49, align 4
   %51 = add i32 %43, %46
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds float, ptr %5, i64 %52
+  %53 = getelementptr inbounds nuw float, ptr %5, i64 %52
   %54 = load float, ptr %53, align 4
   %55 = fsub float %54, %50
   %56 = tail call float @llvm.fmuladd.f32(float %55, float %39, float %50)
-  %57 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %56, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %44, align 8
@@ -540,12 +540,12 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
   %7 = zext i16 %6 to i32
   %8 = icmp eq i16 %6, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %8, label %._crit_edge, label %9
 
@@ -555,10 +555,10 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ._crit_edge:                                      ; preds = %3, %9
   %11 = phi i32 [ 0, %9 ], [ %.pre, %3 ]
-  %12 = getelementptr inbounds i8, ptr %2, i64 140
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %13 = load i32, ptr %12, align 4
   %14 = mul i32 %13, %11
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i32, ptr %15, align 8
   %.not41 = icmp eq i32 %16, 0
   br i1 %.not41, label %.loopexit, label %.lr.ph40
@@ -568,9 +568,9 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %17 = trunc nuw i64 %indvars.iv44 to i32
   %18 = add i32 %14, %17
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw i16, ptr %5, i64 %19
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv44
+  %22 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv44
   store i16 %21, ptr %22, align 2
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %23 = load i32, ptr %15, align 8
@@ -586,11 +586,11 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %31 = ashr i32 %30, 16
   %32 = and i32 %30, 65535
   %33 = add nsw i32 %31, 1
-  %34 = getelementptr inbounds i8, ptr %2, i64 140
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %35 = load i32, ptr %34, align 4
   %36 = mul i32 %35, %31
   %37 = mul i32 %35, %33
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i32, ptr %38, align 8
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -600,12 +600,12 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %40 = trunc nuw i64 %indvars.iv to i32
   %41 = add i32 %36, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw i16, ptr %5, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
   %46 = add i32 %37, %40
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %5, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %5, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = sub nsw i32 %50, %45
@@ -614,7 +614,7 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
   %54 = lshr i32 %53, 16
   %55 = trunc nuw i32 %54 to i16
   %56 = add i16 %44, %55
-  %57 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %56, ptr %57, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %38, align 8
@@ -628,7 +628,7 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load float, ptr %0, align 4
   %7 = fcmp olt float %6, 0x3E112E0BE0000000
@@ -637,11 +637,11 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
   %9 = fcmp ogt float %6, 1.000000e+00
   %10 = select i1 %9, float 1.000000e+00, float %6
   %11 = select i1 %or.cond.i, float 0.000000e+00, float %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = uitofp i32 %13 to float
   %15 = fmul float %11, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %17, 0x3E112E0BE0000000
   %19 = fcmp uno float %17, 0.000000e+00
@@ -649,7 +649,7 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
   %20 = fcmp ogt float %17, 1.000000e+00
   %21 = select i1 %20, float 1.000000e+00, float %17
   %22 = select i1 %or.cond.i55, float 0.000000e+00, float %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %24 = load i32, ptr %23, align 4
   %25 = uitofp i32 %24 to float
   %26 = fmul float %22, %25
@@ -665,15 +665,15 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %36 = getelementptr inbounds i8, ptr %2, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 140
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %39 = load i32, ptr %38, align 4
   %40 = mul i32 %39, %32
   %41 = fcmp ult float %22, 1.000000e+00
   %42 = select i1 %41, i32 %39, i32 0
   %43 = add i32 %40, %42
-  %44 = getelementptr inbounds i8, ptr %2, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %45 = load i32, ptr %44, align 4
   %46 = mul i32 %45, %28
   %47 = fcmp ult float %11, 1.000000e+00
@@ -710,7 +710,7 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %30, float %60)
   %67 = fsub float %66, %64
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %34, float %64)
-  %69 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %68, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -722,21 +722,21 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %7
   %11 = add nsw i32 %10, 32767
   %12 = sdiv i32 %11, 65535
   %13 = add nsw i32 %12, %10
   %14 = and i32 %13, 65535
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %2, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = mul i32 %19, %17
   %21 = add nsw i32 %20, 32767
@@ -747,17 +747,17 @@ define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr no
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %2, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %27 = load ptr, ptr %26, align 8
   %28 = ashr i32 %23, 16
-  %29 = getelementptr inbounds i8, ptr %2, i64 140
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %30 = load i32, ptr %29, align 4
   %31 = mul i32 %28, %30
   %32 = icmp eq i16 %16, -1
   %33 = select i1 %32, i32 0, i32 %30
   %34 = add i32 %31, %33
   %35 = ashr i32 %13, 16
-  %36 = getelementptr inbounds i8, ptr %2, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %37 = load i32, ptr %36, align 4
   %38 = mul i32 %35, %37
   %39 = icmp eq i16 %6, -1
@@ -812,7 +812,7 @@ define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr no
   %75 = lshr i32 %74, 16
   %76 = trunc nuw i32 %75 to i16
   %77 = add i16 %63, %76
-  %78 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %77, ptr %78, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -824,7 +824,7 @@ define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load float, ptr %0, align 4
   %7 = fcmp olt float %6, 0x3E112E0BE0000000
@@ -833,11 +833,11 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
   %9 = fcmp ogt float %6, 1.000000e+00
   %10 = select i1 %9, float 1.000000e+00, float %6
   %11 = select i1 %or.cond.i, float 0.000000e+00, float %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = uitofp i32 %13 to float
   %15 = fmul float %11, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %17, 0x3E112E0BE0000000
   %19 = fcmp uno float %17, 0.000000e+00
@@ -845,11 +845,11 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
   %20 = fcmp ogt float %17, 1.000000e+00
   %21 = select i1 %20, float 1.000000e+00, float %17
   %22 = select i1 %or.cond.i105, float 0.000000e+00, float %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %24 = load i32, ptr %23, align 4
   %25 = uitofp i32 %24 to float
   %26 = fmul float %22, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %28, 0x3E112E0BE0000000
   %30 = fcmp uno float %28, 0.000000e+00
@@ -857,7 +857,7 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
   %31 = fcmp ogt float %28, 1.000000e+00
   %32 = select i1 %31, float 1.000000e+00, float %28
   %33 = select i1 %or.cond.i106, float 0.000000e+00, float %32
-  %34 = getelementptr inbounds i8, ptr %2, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %35 = load i32, ptr %34, align 8
   %36 = uitofp i32 %35 to float
   %37 = fmul float %33, %36
@@ -877,21 +877,21 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %51 = getelementptr inbounds i8, ptr %2, i64 200
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 140
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %54 = load i32, ptr %53, align 4
   %55 = mul i32 %54, %47
   %56 = fcmp ult float %33, 1.000000e+00
   %57 = select i1 %56, i32 %54, i32 0
   %58 = add i32 %55, %57
-  %59 = getelementptr inbounds i8, ptr %2, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, %43
   %62 = fcmp ult float %22, 1.000000e+00
   %63 = select i1 %62, i32 %60, i32 0
   %64 = add i32 %61, %63
-  %65 = getelementptr inbounds i8, ptr %2, i64 148
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %39
   %68 = fcmp ult float %11, 1.000000e+00
@@ -960,7 +960,7 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
   %111 = tail call float @llvm.fmuladd.f32(float %110, float %45, float %103)
   %112 = fsub float %111, %109
   %113 = tail call float @llvm.fmuladd.f32(float %112, float %49, float %109)
-  %114 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %113, ptr %114, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -972,31 +972,31 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %7
   %11 = add nsw i32 %10, 32767
   %12 = sdiv i32 %11, 65535
   %13 = add nsw i32 %12, %10
   %14 = and i32 %13, 65535
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %2, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = mul i32 %19, %17
   %21 = add nsw i32 %20, 32767
   %22 = sdiv i32 %21, 65535
   %23 = add nsw i32 %22, %20
   %24 = and i32 %23, 65535
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %29 = load i32, ptr %28, align 8
   %30 = mul i32 %29, %27
   %31 = add nsw i32 %30, 32767
@@ -1007,23 +1007,23 @@ define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr n
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %36 = getelementptr inbounds i8, ptr %2, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %37 = load ptr, ptr %36, align 8
   %38 = ashr i32 %33, 16
-  %39 = getelementptr inbounds i8, ptr %2, i64 140
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %40 = load i32, ptr %39, align 4
   %41 = mul i32 %38, %40
   %42 = icmp eq i16 %26, -1
   %43 = select i1 %42, i32 0, i32 %40
   %44 = add i32 %41, %43
   %45 = ashr i32 %23, 16
-  %46 = getelementptr inbounds i8, ptr %2, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %47 = load i32, ptr %46, align 4
   %48 = mul i32 %45, %47
   %49 = icmp eq i16 %16, -1
   %50 = select i1 %49, i32 0, i32 %47
   %51 = add i32 %48, %50
-  %52 = getelementptr inbounds i8, ptr %2, i64 148
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %53 = load i32, ptr %52, align 4
   %54 = ashr i32 %13, 16
   %55 = mul i32 %53, %54
@@ -1135,7 +1135,7 @@ define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr n
   %140 = lshr i32 %139, 16
   %141 = trunc nuw i32 %140 to i16
   %142 = add i16 %128, %141
-  %143 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %142, ptr %143, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1147,9 +1147,9 @@ define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = load float, ptr %0, align 4
   %9 = fcmp olt float %8, 0x3E112E0BE0000000
@@ -1158,11 +1158,11 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %11 = fcmp ogt float %8, 1.000000e+00
   %12 = select i1 %11, float 1.000000e+00, float %8
   %13 = select i1 %or.cond.i, float 0.000000e+00, float %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = load i32, ptr %14, align 8
   %16 = uitofp i32 %15 to float
   %17 = fmul float %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fcmp olt float %19, 0x3E112E0BE0000000
   %21 = fcmp uno float %19, 0.000000e+00
@@ -1170,11 +1170,11 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %22 = fcmp ogt float %19, 1.000000e+00
   %23 = select i1 %22, float 1.000000e+00, float %19
   %24 = select i1 %or.cond.i244, float 0.000000e+00, float %23
-  %25 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %26 = load i32, ptr %25, align 4
   %27 = uitofp i32 %26 to float
   %28 = fmul float %24, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, 0x3E112E0BE0000000
   %32 = fcmp uno float %30, 0.000000e+00
@@ -1182,7 +1182,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %33 = fcmp ogt float %30, 1.000000e+00
   %34 = select i1 %33, float 1.000000e+00, float %30
   %35 = select i1 %or.cond.i245, float 0.000000e+00, float %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %37 = load i32, ptr %36, align 8
   %38 = uitofp i32 %37 to float
   %39 = fmul float %35, %38
@@ -1202,19 +1202,19 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %53 = getelementptr inbounds i8, ptr %2, i64 140
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %54 = load i32, ptr %53, align 4
   %55 = mul i32 %54, %49
   %56 = fcmp ult float %35, 1.000000e+00
   %57 = select i1 %56, i32 %54, i32 0
   %58 = add i32 %55, %57
-  %59 = getelementptr inbounds i8, ptr %2, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, %45
   %62 = fcmp ult float %24, 1.000000e+00
   %63 = select i1 %62, i32 %60, i32 0
   %64 = add i32 %61, %63
-  %65 = getelementptr inbounds i8, ptr %2, i64 148
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %66 = load i32, ptr %65, align 4
   %67 = mul i32 %66, %41
   %68 = fcmp ult float %13, 1.000000e+00
@@ -1345,7 +1345,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %114 = tail call float @llvm.fmuladd.f32(float %43, float 0.000000e+00, float %113)
   %115 = tail call float @llvm.fmuladd.f32(float %47, float 0.000000e+00, float %114)
   %116 = tail call float @llvm.fmuladd.f32(float %51, float 0.000000e+00, float %115)
-  %117 = getelementptr inbounds float, ptr %1, i64 %indvars.iv282
+  %117 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv282
   store float %116, ptr %117, align 4
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond286.not = icmp eq i64 %indvars.iv.next283, %wide.trip.count285
@@ -1367,7 +1367,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %125 = tail call float @llvm.fmuladd.f32(float %121, float %43, float %118)
   %126 = tail call float @llvm.fmuladd.f32(float %123, float %47, float %125)
   %127 = tail call float @llvm.fmuladd.f32(float %124, float %51, float %126)
-  %128 = getelementptr inbounds float, ptr %1, i64 %indvars.iv277
+  %128 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv277
   store float %127, ptr %128, align 4
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count280
@@ -1389,7 +1389,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %136 = tail call float @llvm.fmuladd.f32(float %132, float %43, float %129)
   %137 = tail call float @llvm.fmuladd.f32(float %134, float %47, float %136)
   %138 = tail call float @llvm.fmuladd.f32(float %135, float %51, float %137)
-  %139 = getelementptr inbounds float, ptr %1, i64 %indvars.iv272
+  %139 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv272
   store float %138, ptr %139, align 4
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
@@ -1411,7 +1411,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %147 = tail call float @llvm.fmuladd.f32(float %143, float %43, float %140)
   %148 = tail call float @llvm.fmuladd.f32(float %144, float %47, float %147)
   %149 = tail call float @llvm.fmuladd.f32(float %146, float %51, float %148)
-  %150 = getelementptr inbounds float, ptr %1, i64 %indvars.iv267
+  %150 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv267
   store float %149, ptr %150, align 4
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
@@ -1433,7 +1433,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %158 = tail call float @llvm.fmuladd.f32(float %154, float %43, float %151)
   %159 = tail call float @llvm.fmuladd.f32(float %156, float %47, float %158)
   %160 = tail call float @llvm.fmuladd.f32(float %157, float %51, float %159)
-  %161 = getelementptr inbounds float, ptr %1, i64 %indvars.iv262
+  %161 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv262
   store float %160, ptr %161, align 4
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
@@ -1455,7 +1455,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %169 = tail call float @llvm.fmuladd.f32(float %164, float %43, float %162)
   %170 = tail call float @llvm.fmuladd.f32(float %167, float %47, float %169)
   %171 = tail call float @llvm.fmuladd.f32(float %168, float %51, float %170)
-  %172 = getelementptr inbounds float, ptr %1, i64 %indvars.iv257
+  %172 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv257
   store float %171, ptr %172, align 4
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
@@ -1477,7 +1477,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
   %180 = tail call float @llvm.fmuladd.f32(float %175, float %43, float %173)
   %181 = tail call float @llvm.fmuladd.f32(float %177, float %47, float %180)
   %182 = tail call float @llvm.fmuladd.f32(float %179, float %51, float %181)
-  %183 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %182, ptr %183, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1489,31 +1489,31 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = load i16, ptr %0, align 2
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = mul i32 %11, %9
   %13 = add nsw i32 %12, 32767
   %14 = sdiv i32 %13, 65535
   %15 = add nsw i32 %14, %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %2, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, %18
   %22 = add nsw i32 %21, 32767
   %23 = sdiv i32 %22, 65535
   %24 = add nsw i32 %23, %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %29 = load i32, ptr %28, align 8
   %30 = mul i32 %29, %27
   %31 = add nsw i32 %30, 32767
@@ -1525,13 +1525,13 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %37 = and i32 %15, 65535
   %38 = and i32 %24, 65535
   %39 = and i32 %33, 65535
-  %40 = getelementptr inbounds i8, ptr %2, i64 140
-  %41 = getelementptr inbounds i8, ptr %2, i64 148
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 140
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %42 = load i32, ptr %41, align 4
   %43 = mul i32 %42, %34
   %44 = icmp eq i16 %8, -1
   %spec.select = select i1 %44, i32 0, i32 %42
-  %45 = getelementptr inbounds i8, ptr %2, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %46 = load i32, ptr %45, align 4
   %47 = mul i32 %35, %46
   %48 = icmp eq i16 %17, -1
@@ -1543,7 +1543,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %54 = add i32 %47, %43
   %55 = add i32 %54, %51
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %5, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr %5, i64 %56
   %.not = icmp samesign ult i32 %37, %38
   br i1 %.not, label %165, label %58
 
@@ -1567,16 +1567,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.0251 = phi i32 [ %7, %.lr.ph ], [ %93, %65 ]
   %.0213250 = phi ptr [ %1, %.lr.ph ], [ %92, %65 ]
   %.0219249 = phi ptr [ %57, %.lr.ph ], [ %75, %65 ]
-  %66 = getelementptr inbounds i16, ptr %.0219249, i64 %62
+  %66 = getelementptr inbounds nuw i16, ptr %.0219249, i64 %62
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
-  %69 = getelementptr inbounds i16, ptr %.0219249, i64 %63
+  %69 = getelementptr inbounds nuw i16, ptr %.0219249, i64 %63
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds i16, ptr %.0219249, i64 %64
+  %72 = getelementptr inbounds nuw i16, ptr %.0219249, i64 %64
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %.0219249, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.0219249, i64 2
   %76 = load i16, ptr %.0219249, align 2
   %77 = zext i16 %76 to i32
   %78 = sub nsw i32 %74, %71
@@ -1593,7 +1593,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %89 = lshr i32 %88, 16
   %90 = trunc nuw i32 %89 to i16
   %91 = add i16 %76, %90
-  %92 = getelementptr inbounds i8, ptr %.0213250, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.0213250, i64 2
   store i16 %91, ptr %.0213250, align 2
   %93 = add i32 %.0251, -1
   %.not242 = icmp eq i32 %93, 0
@@ -1619,16 +1619,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.1255 = phi i32 [ %7, %.lr.ph256 ], [ %129, %101 ]
   %.1214254 = phi ptr [ %1, %.lr.ph256 ], [ %128, %101 ]
   %.1220253 = phi ptr [ %57, %.lr.ph256 ], [ %111, %101 ]
-  %102 = getelementptr inbounds i16, ptr %.1220253, i64 %98
+  %102 = getelementptr inbounds nuw i16, ptr %.1220253, i64 %98
   %103 = load i16, ptr %102, align 2
   %104 = zext i16 %103 to i32
-  %105 = getelementptr inbounds i16, ptr %.1220253, i64 %99
+  %105 = getelementptr inbounds nuw i16, ptr %.1220253, i64 %99
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
-  %108 = getelementptr inbounds i16, ptr %.1220253, i64 %100
+  %108 = getelementptr inbounds nuw i16, ptr %.1220253, i64 %100
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %.1220253, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.1220253, i64 2
   %112 = load i16, ptr %.1220253, align 2
   %113 = zext i16 %112 to i32
   %114 = sub nsw i32 %107, %104
@@ -1645,7 +1645,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %125 = lshr i32 %124, 16
   %126 = trunc nuw i32 %125 to i16
   %127 = add i16 %112, %126
-  %128 = getelementptr inbounds i8, ptr %.1214254, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %.1214254, i64 2
   store i16 %127, ptr %.1214254, align 2
   %129 = add i32 %.1255, -1
   %.not241 = icmp eq i32 %129, 0
@@ -1666,16 +1666,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.2260 = phi i32 [ %7, %.lr.ph261 ], [ %164, %136 ]
   %.2215259 = phi ptr [ %1, %.lr.ph261 ], [ %163, %136 ]
   %.2221258 = phi ptr [ %57, %.lr.ph261 ], [ %146, %136 ]
-  %137 = getelementptr inbounds i16, ptr %.2221258, i64 %133
+  %137 = getelementptr inbounds nuw i16, ptr %.2221258, i64 %133
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
-  %140 = getelementptr inbounds i16, ptr %.2221258, i64 %134
+  %140 = getelementptr inbounds nuw i16, ptr %.2221258, i64 %134
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %141 to i32
-  %143 = getelementptr inbounds i16, ptr %.2221258, i64 %135
+  %143 = getelementptr inbounds nuw i16, ptr %.2221258, i64 %135
   %144 = load i16, ptr %143, align 2
   %145 = zext i16 %144 to i32
-  %146 = getelementptr inbounds i8, ptr %.2221258, i64 2
+  %146 = getelementptr inbounds nuw i8, ptr %.2221258, i64 2
   %147 = load i16, ptr %.2221258, align 2
   %148 = zext i16 %147 to i32
   %149 = sub nsw i32 %142, %145
@@ -1692,7 +1692,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %160 = lshr i32 %159, 16
   %161 = trunc nuw i32 %160 to i16
   %162 = add i16 %147, %161
-  %163 = getelementptr inbounds i8, ptr %.2215259, i64 2
+  %163 = getelementptr inbounds nuw i8, ptr %.2215259, i64 2
   store i16 %162, ptr %.2215259, align 2
   %164 = add i32 %.2260, -1
   %.not240 = icmp eq i32 %164, 0
@@ -1718,16 +1718,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.3265 = phi i32 [ %7, %.lr.ph266 ], [ %200, %172 ]
   %.3216264 = phi ptr [ %1, %.lr.ph266 ], [ %199, %172 ]
   %.3222263 = phi ptr [ %57, %.lr.ph266 ], [ %182, %172 ]
-  %173 = getelementptr inbounds i16, ptr %.3222263, i64 %169
+  %173 = getelementptr inbounds nuw i16, ptr %.3222263, i64 %169
   %174 = load i16, ptr %173, align 2
   %175 = zext i16 %174 to i32
-  %176 = getelementptr inbounds i16, ptr %.3222263, i64 %170
+  %176 = getelementptr inbounds nuw i16, ptr %.3222263, i64 %170
   %177 = load i16, ptr %176, align 2
   %178 = zext i16 %177 to i32
-  %179 = getelementptr inbounds i16, ptr %.3222263, i64 %171
+  %179 = getelementptr inbounds nuw i16, ptr %.3222263, i64 %171
   %180 = load i16, ptr %179, align 2
   %181 = zext i16 %180 to i32
-  %182 = getelementptr inbounds i8, ptr %.3222263, i64 2
+  %182 = getelementptr inbounds nuw i8, ptr %.3222263, i64 2
   %183 = load i16, ptr %.3222263, align 2
   %184 = zext i16 %183 to i32
   %185 = sub nsw i32 %181, %175
@@ -1744,7 +1744,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %196 = lshr i32 %195, 16
   %197 = trunc nuw i32 %196 to i16
   %198 = add i16 %183, %197
-  %199 = getelementptr inbounds i8, ptr %.3216264, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %.3216264, i64 2
   store i16 %198, ptr %.3216264, align 2
   %200 = add i32 %.3265, -1
   %.not237 = icmp eq i32 %200, 0
@@ -1770,16 +1770,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.4270 = phi i32 [ %7, %.lr.ph271 ], [ %236, %208 ]
   %.4217269 = phi ptr [ %1, %.lr.ph271 ], [ %235, %208 ]
   %.4223268 = phi ptr [ %57, %.lr.ph271 ], [ %218, %208 ]
-  %209 = getelementptr inbounds i16, ptr %.4223268, i64 %205
+  %209 = getelementptr inbounds nuw i16, ptr %.4223268, i64 %205
   %210 = load i16, ptr %209, align 2
   %211 = zext i16 %210 to i32
-  %212 = getelementptr inbounds i16, ptr %.4223268, i64 %206
+  %212 = getelementptr inbounds nuw i16, ptr %.4223268, i64 %206
   %213 = load i16, ptr %212, align 2
   %214 = zext i16 %213 to i32
-  %215 = getelementptr inbounds i16, ptr %.4223268, i64 %207
+  %215 = getelementptr inbounds nuw i16, ptr %.4223268, i64 %207
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i32
-  %218 = getelementptr inbounds i8, ptr %.4223268, i64 2
+  %218 = getelementptr inbounds nuw i8, ptr %.4223268, i64 2
   %219 = load i16, ptr %.4223268, align 2
   %220 = zext i16 %219 to i32
   %221 = sub nsw i32 %211, %217
@@ -1796,7 +1796,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %232 = lshr i32 %231, 16
   %233 = trunc nuw i32 %232 to i16
   %234 = add i16 %219, %233
-  %235 = getelementptr inbounds i8, ptr %.4217269, i64 2
+  %235 = getelementptr inbounds nuw i8, ptr %.4217269, i64 2
   store i16 %234, ptr %.4217269, align 2
   %236 = add i32 %.4270, -1
   %.not236 = icmp eq i32 %236, 0
@@ -1817,16 +1817,16 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %.5275 = phi i32 [ %7, %.lr.ph276 ], [ %271, %243 ]
   %.5218274 = phi ptr [ %1, %.lr.ph276 ], [ %270, %243 ]
   %.5224273 = phi ptr [ %57, %.lr.ph276 ], [ %253, %243 ]
-  %244 = getelementptr inbounds i16, ptr %.5224273, i64 %240
+  %244 = getelementptr inbounds nuw i16, ptr %.5224273, i64 %240
   %245 = load i16, ptr %244, align 2
   %246 = zext i16 %245 to i32
-  %247 = getelementptr inbounds i16, ptr %.5224273, i64 %241
+  %247 = getelementptr inbounds nuw i16, ptr %.5224273, i64 %241
   %248 = load i16, ptr %247, align 2
   %249 = zext i16 %248 to i32
-  %250 = getelementptr inbounds i16, ptr %.5224273, i64 %242
+  %250 = getelementptr inbounds nuw i16, ptr %.5224273, i64 %242
   %251 = load i16, ptr %250, align 2
   %252 = zext i16 %251 to i32
-  %253 = getelementptr inbounds i8, ptr %.5224273, i64 2
+  %253 = getelementptr inbounds nuw i8, ptr %.5224273, i64 2
   %254 = load i16, ptr %.5224273, align 2
   %255 = zext i16 %254 to i32
   %256 = sub nsw i32 %246, %249
@@ -1843,7 +1843,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
   %267 = lshr i32 %266, 16
   %268 = trunc nuw i32 %267 to i16
   %269 = add i16 %254, %268
-  %270 = getelementptr inbounds i8, ptr %.5218274, i64 2
+  %270 = getelementptr inbounds nuw i8, ptr %.5218274, i64 2
   store i16 %269, ptr %.5218274, align 2
   %271 = add i32 %.5275, -1
   %.not235 = icmp eq i32 %271, 0
@@ -1858,7 +1858,7 @@ define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -1867,7 +1867,7 @@ define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -1875,40 +1875,40 @@ define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @TetrahedralInterpFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @TetrahedralInterpFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -1926,34 +1926,34 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %5 = alloca [128 x i16], align 16
   %6 = load i16, ptr %0, align 2
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %7
   %11 = add nsw i32 %10, 32767
   %12 = sdiv i32 %11, 65535
   %13 = add nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %18 = load i32, ptr %17, align 4
   %19 = mul i32 %18, %16
   %20 = add nsw i32 %19, 32767
   %21 = sdiv i32 %20, 65535
   %22 = add nsw i32 %21, %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %2, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %27 = load i32, ptr %26, align 8
   %28 = mul i32 %27, %25
   %29 = add nsw i32 %28, 32767
   %30 = sdiv i32 %29, 65535
   %31 = add nsw i32 %30, %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %2, i64 92
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %34
   %38 = add nsw i32 %37, 32767
@@ -1967,20 +1967,20 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %46 = and i32 %22, 65535
   %47 = and i32 %31, 65535
   %48 = and i32 %40, 65535
-  %49 = getelementptr inbounds i8, ptr %2, i64 140
-  %50 = getelementptr inbounds i8, ptr %2, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 140
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %51 = load i32, ptr %50, align 4
   %52 = mul i32 %51, %41
   %53 = icmp eq i16 %6, -1
   %spec.select = select i1 %53, i32 0, i32 %51
   %54 = add i32 %52, %spec.select
-  %55 = getelementptr inbounds i8, ptr %2, i64 148
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %56 = load i32, ptr %55, align 4
   %57 = mul i32 %56, %42
   %58 = icmp eq i16 %15, -1
   %59 = select i1 %58, i32 0, i32 %56
   %60 = add i32 %57, %59
-  %61 = getelementptr inbounds i8, ptr %2, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %62 = load i32, ptr %61, align 4
   %63 = mul i32 %62, %43
   %64 = icmp eq i16 %24, -1
@@ -1991,11 +1991,11 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %69 = icmp eq i16 %33, -1
   %70 = select i1 %69, i32 0, i32 %67
   %71 = add i32 %68, %70
-  %72 = getelementptr inbounds i8, ptr %2, i64 200
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %73 = load ptr, ptr %72, align 8
   %74 = sext i32 %52 to i64
   %75 = getelementptr inbounds i16, ptr %73, i64 %74
-  %76 = getelementptr inbounds i8, ptr %2, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %77 = load i32, ptr %76, align 8
   %.not489 = icmp eq i32 %77, 0
   br i1 %.not489, label %._crit_edge488, label %.lr.ph
@@ -2047,7 +2047,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %94 = trunc nuw i64 %indvars.iv506 to i32
   %95 = add i32 %79, %94
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i16, ptr %75, i64 %96
+  %97 = getelementptr inbounds nuw i16, ptr %75, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   br i1 %brmerge470, label %119, label %100
@@ -2055,19 +2055,19 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 100:                                              ; preds = %.lr.ph.split.us.split.us.split.us
   %101 = add i32 %83, %94
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds i16, ptr %75, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %75, i64 %102
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
   %106 = add i32 %90, %94
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds i16, ptr %75, i64 %107
+  %108 = getelementptr inbounds nuw i16, ptr %75, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
   %111 = sub nsw i32 %105, %110
   %112 = sub nsw i32 %110, %99
   %113 = add i32 %84, %94
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i16, ptr %75, i64 %114
+  %115 = getelementptr inbounds nuw i16, ptr %75, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i32
   %118 = sub nsw i32 %117, %105
@@ -2079,18 +2079,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 120:                                              ; preds = %119
   %121 = add i32 %84, %94
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %75, i64 %122
+  %123 = getelementptr inbounds nuw i16, ptr %75, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   %126 = add i32 %91, %94
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds i16, ptr %75, i64 %127
+  %128 = getelementptr inbounds nuw i16, ptr %75, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
   %131 = sub nsw i32 %125, %130
   %132 = add i32 %90, %94
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds i16, ptr %75, i64 %133
+  %134 = getelementptr inbounds nuw i16, ptr %75, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = zext i16 %135 to i32
   %137 = sub nsw i32 %136, %99
@@ -2103,18 +2103,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 140:                                              ; preds = %139
   %141 = add i32 %84, %94
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds i16, ptr %75, i64 %142
+  %143 = getelementptr inbounds nuw i16, ptr %75, i64 %142
   %144 = load i16, ptr %143, align 2
   %145 = zext i16 %144 to i32
   %146 = add i32 %93, %94
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds i16, ptr %75, i64 %147
+  %148 = getelementptr inbounds nuw i16, ptr %75, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
   %151 = sub nsw i32 %145, %150
   %152 = add i32 %88, %94
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds i16, ptr %75, i64 %153
+  %154 = getelementptr inbounds nuw i16, ptr %75, i64 %153
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i32
   %157 = sub nsw i32 %150, %156
@@ -2137,7 +2137,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %169 = lshr i32 %168, 16
   %170 = trunc nuw i32 %169 to i16
   %171 = add i16 %98, %170
-  %172 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv506
+  %172 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv506
   store i16 %171, ptr %172, align 2
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %exitcond510.not = icmp eq i64 %indvars.iv.next507, %wide.trip.count509
@@ -2148,23 +2148,23 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %173 = trunc nuw i64 %indvars.iv501 to i32
   %174 = add i32 %79, %173
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds i16, ptr %75, i64 %175
+  %176 = getelementptr inbounds nuw i16, ptr %75, i64 %175
   %177 = load i16, ptr %176, align 2
   %178 = zext i16 %177 to i32
   %179 = add i32 %87, %173
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds i16, ptr %75, i64 %180
+  %181 = getelementptr inbounds nuw i16, ptr %75, i64 %180
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i32
   %184 = add i32 %88, %173
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds i16, ptr %75, i64 %185
+  %186 = getelementptr inbounds nuw i16, ptr %75, i64 %185
   %187 = load i16, ptr %186, align 2
   %188 = zext i16 %187 to i32
   %189 = sub nsw i32 %183, %188
   %190 = add i32 %84, %173
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds i16, ptr %75, i64 %191
+  %192 = getelementptr inbounds nuw i16, ptr %75, i64 %191
   %193 = load i16, ptr %192, align 2
   %194 = zext i16 %193 to i32
   %195 = sub nsw i32 %194, %183
@@ -2181,7 +2181,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %206 = lshr i32 %205, 16
   %207 = trunc nuw i32 %206 to i16
   %208 = add i16 %177, %207
-  %209 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv501
+  %209 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv501
   store i16 %208, ptr %209, align 2
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count509
@@ -2192,23 +2192,23 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %210 = trunc nuw i64 %indvars.iv496 to i32
   %211 = add i32 %79, %210
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds i16, ptr %75, i64 %212
+  %213 = getelementptr inbounds nuw i16, ptr %75, i64 %212
   %214 = load i16, ptr %213, align 2
   %215 = zext i16 %214 to i32
   %216 = add i32 %81, %210
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds i16, ptr %75, i64 %217
+  %218 = getelementptr inbounds nuw i16, ptr %75, i64 %217
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i32
   %221 = sub nsw i32 %220, %215
   %222 = add i32 %84, %210
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds i16, ptr %75, i64 %223
+  %224 = getelementptr inbounds nuw i16, ptr %75, i64 %223
   %225 = load i16, ptr %224, align 2
   %226 = zext i16 %225 to i32
   %227 = add i32 %85, %210
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds i16, ptr %75, i64 %228
+  %229 = getelementptr inbounds nuw i16, ptr %75, i64 %228
   %230 = load i16, ptr %229, align 2
   %231 = zext i16 %230 to i32
   %232 = sub nsw i32 %226, %231
@@ -2225,7 +2225,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %243 = lshr i32 %242, 16
   %244 = trunc nuw i32 %243 to i16
   %245 = add i16 %214, %244
-  %246 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv496
+  %246 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv496
   store i16 %245, ptr %246, align 2
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count509
@@ -2236,24 +2236,24 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %247 = trunc nuw i64 %indvars.iv to i32
   %248 = add i32 %79, %247
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds i16, ptr %75, i64 %249
+  %250 = getelementptr inbounds nuw i16, ptr %75, i64 %249
   %251 = load i16, ptr %250, align 2
   %252 = zext i16 %251 to i32
   %253 = add i32 %81, %247
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds i16, ptr %75, i64 %254
+  %255 = getelementptr inbounds nuw i16, ptr %75, i64 %254
   %256 = load i16, ptr %255, align 2
   %257 = zext i16 %256 to i32
   %258 = sub nsw i32 %257, %252
   %259 = add i32 %83, %247
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds i16, ptr %75, i64 %260
+  %261 = getelementptr inbounds nuw i16, ptr %75, i64 %260
   %262 = load i16, ptr %261, align 2
   %263 = zext i16 %262 to i32
   %264 = sub nsw i32 %263, %257
   %265 = add i32 %84, %247
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds i16, ptr %75, i64 %266
+  %267 = getelementptr inbounds nuw i16, ptr %75, i64 %266
   %268 = load i16, ptr %267, align 2
   %269 = zext i16 %268 to i32
   %270 = sub nsw i32 %269, %263
@@ -2269,7 +2269,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %280 = lshr i32 %279, 16
   %281 = trunc nuw i32 %280 to i16
   %282 = add i16 %251, %281
-  %283 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %283 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   store i16 %282, ptr %283, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2314,7 +2314,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %303 = trunc nuw i64 %indvars.iv511 to i32
   %304 = add i32 %287, %303
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds i16, ptr %285, i64 %305
+  %306 = getelementptr inbounds nuw i16, ptr %285, i64 %305
   %307 = load i16, ptr %306, align 2
   %308 = zext i16 %307 to i32
   br i1 %or.cond473, label %328, label %309
@@ -2322,19 +2322,19 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 309:                                              ; preds = %302
   %310 = add i32 %289, %303
   %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds i16, ptr %285, i64 %311
+  %312 = getelementptr inbounds nuw i16, ptr %285, i64 %311
   %313 = load i16, ptr %312, align 2
   %314 = zext i16 %313 to i32
   %315 = sub nsw i32 %314, %308
   %316 = add i32 %291, %303
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds i16, ptr %285, i64 %317
+  %318 = getelementptr inbounds nuw i16, ptr %285, i64 %317
   %319 = load i16, ptr %318, align 2
   %320 = zext i16 %319 to i32
   %321 = sub nsw i32 %320, %314
   %322 = add i32 %292, %303
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds i16, ptr %285, i64 %323
+  %324 = getelementptr inbounds nuw i16, ptr %285, i64 %323
   %325 = load i16, ptr %324, align 2
   %326 = zext i16 %325 to i32
   %327 = sub nsw i32 %326, %320
@@ -2346,18 +2346,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 329:                                              ; preds = %328
   %330 = add i32 %289, %303
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds i16, ptr %285, i64 %331
+  %332 = getelementptr inbounds nuw i16, ptr %285, i64 %331
   %333 = load i16, ptr %332, align 2
   %334 = zext i16 %333 to i32
   %335 = sub nsw i32 %334, %308
   %336 = add i32 %292, %303
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds i16, ptr %285, i64 %337
+  %338 = getelementptr inbounds nuw i16, ptr %285, i64 %337
   %339 = load i16, ptr %338, align 2
   %340 = zext i16 %339 to i32
   %341 = add i32 %293, %303
   %342 = zext i32 %341 to i64
-  %343 = getelementptr inbounds i16, ptr %285, i64 %342
+  %343 = getelementptr inbounds nuw i16, ptr %285, i64 %342
   %344 = load i16, ptr %343, align 2
   %345 = zext i16 %344 to i32
   %346 = sub nsw i32 %340, %345
@@ -2370,18 +2370,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 349:                                              ; preds = %348
   %350 = add i32 %295, %303
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds i16, ptr %285, i64 %351
+  %352 = getelementptr inbounds nuw i16, ptr %285, i64 %351
   %353 = load i16, ptr %352, align 2
   %354 = zext i16 %353 to i32
   %355 = add i32 %296, %303
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds i16, ptr %285, i64 %356
+  %357 = getelementptr inbounds nuw i16, ptr %285, i64 %356
   %358 = load i16, ptr %357, align 2
   %359 = zext i16 %358 to i32
   %360 = sub nsw i32 %354, %359
   %361 = add i32 %292, %303
   %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds i16, ptr %285, i64 %362
+  %363 = getelementptr inbounds nuw i16, ptr %285, i64 %362
   %364 = load i16, ptr %363, align 2
   %365 = zext i16 %364 to i32
   %366 = sub nsw i32 %365, %354
@@ -2394,19 +2394,19 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 369:                                              ; preds = %368
   %370 = add i32 %291, %303
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds i16, ptr %285, i64 %371
+  %372 = getelementptr inbounds nuw i16, ptr %285, i64 %371
   %373 = load i16, ptr %372, align 2
   %374 = zext i16 %373 to i32
   %375 = add i32 %298, %303
   %376 = zext i32 %375 to i64
-  %377 = getelementptr inbounds i16, ptr %285, i64 %376
+  %377 = getelementptr inbounds nuw i16, ptr %285, i64 %376
   %378 = load i16, ptr %377, align 2
   %379 = zext i16 %378 to i32
   %380 = sub nsw i32 %374, %379
   %381 = sub nsw i32 %379, %308
   %382 = add i32 %292, %303
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds i16, ptr %285, i64 %383
+  %384 = getelementptr inbounds nuw i16, ptr %285, i64 %383
   %385 = load i16, ptr %384, align 2
   %386 = zext i16 %385 to i32
   %387 = sub nsw i32 %386, %374
@@ -2418,18 +2418,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 389:                                              ; preds = %388
   %390 = add i32 %292, %303
   %391 = zext i32 %390 to i64
-  %392 = getelementptr inbounds i16, ptr %285, i64 %391
+  %392 = getelementptr inbounds nuw i16, ptr %285, i64 %391
   %393 = load i16, ptr %392, align 2
   %394 = zext i16 %393 to i32
   %395 = add i32 %299, %303
   %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds i16, ptr %285, i64 %396
+  %397 = getelementptr inbounds nuw i16, ptr %285, i64 %396
   %398 = load i16, ptr %397, align 2
   %399 = zext i16 %398 to i32
   %400 = sub nsw i32 %394, %399
   %401 = add i32 %298, %303
   %402 = zext i32 %401 to i64
-  %403 = getelementptr inbounds i16, ptr %285, i64 %402
+  %403 = getelementptr inbounds nuw i16, ptr %285, i64 %402
   %404 = load i16, ptr %403, align 2
   %405 = zext i16 %404 to i32
   %406 = sub nsw i32 %405, %308
@@ -2442,18 +2442,18 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 409:                                              ; preds = %408
   %410 = add i32 %292, %303
   %411 = zext i32 %410 to i64
-  %412 = getelementptr inbounds i16, ptr %285, i64 %411
+  %412 = getelementptr inbounds nuw i16, ptr %285, i64 %411
   %413 = load i16, ptr %412, align 2
   %414 = zext i16 %413 to i32
   %415 = add i32 %301, %303
   %416 = zext i32 %415 to i64
-  %417 = getelementptr inbounds i16, ptr %285, i64 %416
+  %417 = getelementptr inbounds nuw i16, ptr %285, i64 %416
   %418 = load i16, ptr %417, align 2
   %419 = zext i16 %418 to i32
   %420 = sub nsw i32 %414, %419
   %421 = add i32 %296, %303
   %422 = zext i32 %421 to i64
-  %423 = getelementptr inbounds i16, ptr %285, i64 %422
+  %423 = getelementptr inbounds nuw i16, ptr %285, i64 %422
   %424 = load i16, ptr %423, align 2
   %425 = zext i16 %424 to i32
   %426 = sub nsw i32 %419, %425
@@ -2476,7 +2476,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %438 = lshr i32 %437, 16
   %439 = trunc nuw i32 %438 to i16
   %440 = add i16 %307, %439
-  %441 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv511
+  %441 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv511
   store i16 %440, ptr %441, align 2
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %exitcond515.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count514
@@ -2484,10 +2484,10 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph487:                                        ; preds = %428, %.lr.ph487
   %indvars.iv516 = phi i64 [ %indvars.iv.next517, %.lr.ph487 ], [ 0, %428 ]
-  %442 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv516
+  %442 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv516
   %443 = load i16, ptr %442, align 2
   %444 = zext i16 %443 to i32
-  %445 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv516
+  %445 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv516
   %446 = load i16, ptr %445, align 2
   %447 = zext i16 %446 to i32
   %448 = sub nsw i32 %447, %444
@@ -2496,7 +2496,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %451 = lshr i32 %450, 16
   %452 = trunc nuw i32 %451 to i16
   %453 = add i16 %443, %452
-  %454 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv516
+  %454 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv516
   store i16 %453, ptr %454, align 2
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
   %455 = load i32, ptr %76, align 8
@@ -2518,7 +2518,7 @@ define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -2527,7 +2527,7 @@ define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -2535,26 +2535,26 @@ define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 156
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 96
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 152
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 152
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -2576,27 +2576,27 @@ define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.80..sroa_idx, i64 12, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 96
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 152
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 156
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.14.0..sroa_idx63, ptr noundef nonnull align 4 dereferenceable(44) %28, i64 44, i1 false)
-  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx71 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.80..sroa_idx, i64 12, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1465.0..sroa_idx66, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @TetrahedralInterpFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -2611,13 +2611,13 @@ define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -2633,21 +2633,21 @@ Eval4InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.80..sroa_idx, i64 12, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 96
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 152
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx64 = getelementptr inbounds i8, ptr %6, i64 156
+  %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.14.0..sroa_idx64, ptr noundef nonnull align 4 dereferenceable(44) %28, i64 44, i1 false)
-  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.80..sroa_idx, i64 12, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -2670,13 +2670,13 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -2690,13 +2690,13 @@ Eval4InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval4InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval4InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2713,11 +2713,11 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -2725,7 +2725,7 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 156
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -2733,30 +2733,30 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval4Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval4Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -2765,7 +2765,7 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
@@ -2782,7 +2782,7 @@ define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -2791,7 +2791,7 @@ define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -2799,40 +2799,40 @@ define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(20) %30, i64 20, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval5InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @Eval5InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -2854,11 +2854,11 @@ define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x i16], align 16
   %11 = alloca [128 x i16], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %0, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
   %19 = add nsw i32 %18, 32767
@@ -2866,27 +2866,27 @@ define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = add nsw i32 %20, %18
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
-  %24 = getelementptr inbounds i8, ptr %2, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
   %28 = add nsw i32 %22, %27
   %29 = mul i32 %28, %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 100
-  %.sroa.1252.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 156
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %.sroa.1252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 156
   %.sroa.1252.0.copyload = load i32, ptr %.sroa.1252.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.742.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -2904,27 +2904,27 @@ define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %43 = add nsw i32 %39, %42
   %44 = mul i32 %43, %.sroa.1252.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.7.0..sroa_idx40 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.742.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.80..sroa_idx, i64 16, i1 false)
-  %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %9, i64 100
+  %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 156
+  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 156
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx53, align 4
-  %.sroa.14.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 160
+  %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.0..sroa_idx58, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false)
-  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.742.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.80..sroa_idx, i64 16, i1 false)
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds i16, ptr %31, i64 %45
   store ptr %46, ptr %.sroa.1460.0..sroa_idx61, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval4Inputs(ptr noundef nonnull readonly %47, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i16, ptr %31, i64 %48
@@ -2939,10 +2939,10 @@ define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -2951,7 +2951,7 @@ define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %60 = lshr i32 %59, 16
   %61 = trunc nuw i32 %60 to i16
   %62 = add i16 %52, %61
-  %63 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -2967,21 +2967,21 @@ Eval5Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.7.0..sroa_idx41 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx45 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx49 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.742.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.0..sroa_idx49, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.80..sroa_idx, i64 16, i1 false)
-  %.sroa.12.0..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 100
+  %.sroa.12.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx51, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds i8, ptr %6, i64 156
+  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 156
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx55, align 4
-  %.sroa.14.0..sroa_idx59 = getelementptr inbounds i8, ptr %6, i64 160
+  %.sroa.14.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false)
-  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.742.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.10.80..sroa_idx, i64 16, i1 false)
   %66 = getelementptr inbounds i16, ptr %65, i64 %45
@@ -3004,10 +3004,10 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -3016,7 +3016,7 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
   %78 = lshr i32 %77, 16
   %79 = trunc nuw i32 %78 to i16
   %80 = add i16 %70, %79
-  %81 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i30
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
@@ -3030,10 +3030,10 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
 
 .lr.ph:                                           ; preds = %Eval5Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval5Inputs.exit32 ]
-  %82 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -3042,7 +3042,7 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   %93 = add i16 %83, %92
-  %94 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3064,7 +3064,7 @@ define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -3073,7 +3073,7 @@ define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -3081,26 +3081,26 @@ define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 164
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 104
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 160
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -3122,27 +3122,27 @@ define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.80..sroa_idx, i64 20, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 104
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 160
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 164
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.14.0..sroa_idx63, ptr noundef nonnull align 4 dereferenceable(36) %28, i64 36, i1 false)
-  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx71 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.80..sroa_idx, i64 20, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1465.0..sroa_idx66, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @Eval5InputsFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -3157,13 +3157,13 @@ define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -3179,21 +3179,21 @@ Eval6InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.80..sroa_idx, i64 20, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 104
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 160
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx64 = getelementptr inbounds i8, ptr %6, i64 164
+  %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.14.0..sroa_idx64, ptr noundef nonnull align 4 dereferenceable(36) %28, i64 36, i1 false)
-  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.10.80..sroa_idx, i64 20, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -3216,13 +3216,13 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -3236,13 +3236,13 @@ Eval6InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval6InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval6InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3259,11 +3259,11 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -3271,7 +3271,7 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 164
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -3279,30 +3279,30 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 4 dereferenceable(24) %26, i64 24, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval6Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval6Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -3311,7 +3311,7 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
@@ -3328,7 +3328,7 @@ define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -3337,7 +3337,7 @@ define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -3345,40 +3345,40 @@ define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef nonnull align 4 dereferenceable(28) %30, i64 28, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval7InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @Eval7InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -3400,11 +3400,11 @@ define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x i16], align 16
   %11 = alloca [128 x i16], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %0, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
   %19 = add nsw i32 %18, 32767
@@ -3412,27 +3412,27 @@ define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %21 = add nsw i32 %20, %18
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
-  %24 = getelementptr inbounds i8, ptr %2, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
   %28 = add nsw i32 %22, %27
   %29 = mul i32 %28, %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 108
-  %.sroa.1252.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 164
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %.sroa.1252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 164
   %.sroa.1252.0.copyload = load i32, ptr %.sroa.1252.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.742.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -3450,27 +3450,27 @@ define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %43 = add nsw i32 %39, %42
   %44 = mul i32 %43, %.sroa.1252.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.7.0..sroa_idx40 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.742.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.80..sroa_idx, i64 24, i1 false)
-  %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %9, i64 108
+  %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 164
+  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 164
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx53, align 4
-  %.sroa.14.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 168
+  %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14.0..sroa_idx58, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
-  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.742.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.80..sroa_idx, i64 24, i1 false)
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds i16, ptr %31, i64 %45
   store ptr %46, ptr %.sroa.1460.0..sroa_idx61, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval6Inputs(ptr noundef nonnull readonly %47, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i16, ptr %31, i64 %48
@@ -3485,10 +3485,10 @@ define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -3497,7 +3497,7 @@ define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %60 = lshr i32 %59, 16
   %61 = trunc nuw i32 %60 to i16
   %62 = add i16 %52, %61
-  %63 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -3513,21 +3513,21 @@ Eval7Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.7.0..sroa_idx41 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx45 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx49 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.742.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.0..sroa_idx49, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.80..sroa_idx, i64 24, i1 false)
-  %.sroa.12.0..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 108
+  %.sroa.12.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx51, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds i8, ptr %6, i64 164
+  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 164
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx55, align 4
-  %.sroa.14.0..sroa_idx59 = getelementptr inbounds i8, ptr %6, i64 168
+  %.sroa.14.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
-  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.742.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.10.80..sroa_idx, i64 24, i1 false)
   %66 = getelementptr inbounds i16, ptr %65, i64 %45
@@ -3550,10 +3550,10 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -3562,7 +3562,7 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
   %78 = lshr i32 %77, 16
   %79 = trunc nuw i32 %78 to i16
   %80 = add i16 %70, %79
-  %81 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i30
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
@@ -3576,10 +3576,10 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
 
 .lr.ph:                                           ; preds = %Eval7Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval7Inputs.exit32 ]
-  %82 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -3588,7 +3588,7 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   %93 = add i16 %83, %92
-  %94 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3610,7 +3610,7 @@ define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -3619,7 +3619,7 @@ define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -3627,26 +3627,26 @@ define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 172
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 172
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 112
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 168
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 168
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -3668,27 +3668,27 @@ define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr no
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.80..sroa_idx, i64 28, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 112
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 168
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 168
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 172
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx63, ptr noundef nonnull align 4 dereferenceable(28) %28, i64 28, i1 false)
-  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx71 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.80..sroa_idx, i64 28, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1465.0..sroa_idx66, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @Eval7InputsFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -3703,13 +3703,13 @@ define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -3725,21 +3725,21 @@ Eval8InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.80..sroa_idx, i64 28, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 112
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 168
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx64 = getelementptr inbounds i8, ptr %6, i64 172
+  %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14.0..sroa_idx64, ptr noundef nonnull align 4 dereferenceable(28) %28, i64 28, i1 false)
-  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.80..sroa_idx, i64 28, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -3762,13 +3762,13 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -3782,13 +3782,13 @@ Eval8InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval8InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval8InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -3805,11 +3805,11 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -3817,7 +3817,7 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 172
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 172
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -3825,30 +3825,30 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 4 dereferenceable(32) %26, i64 32, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval8Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval8Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -3857,7 +3857,7 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
@@ -3874,7 +3874,7 @@ define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -3883,7 +3883,7 @@ define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -3891,40 +3891,40 @@ define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef nonnull align 4 dereferenceable(36) %30, i64 36, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval9InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @Eval9InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -3946,11 +3946,11 @@ define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x i16], align 16
   %11 = alloca [128 x i16], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %0, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
   %19 = add nsw i32 %18, 32767
@@ -3958,27 +3958,27 @@ define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = add nsw i32 %20, %18
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
-  %24 = getelementptr inbounds i8, ptr %2, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
   %28 = add nsw i32 %22, %27
   %29 = mul i32 %28, %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 116
-  %.sroa.1252.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 172
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 116
+  %.sroa.1252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 172
   %.sroa.1252.0.copyload = load i32, ptr %.sroa.1252.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.742.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -3996,27 +3996,27 @@ define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %43 = add nsw i32 %39, %42
   %44 = mul i32 %43, %.sroa.1252.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.7.0..sroa_idx40 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.742.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.80..sroa_idx, i64 32, i1 false)
-  %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %9, i64 116
+  %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 172
+  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 172
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx53, align 4
-  %.sroa.14.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 176
+  %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx58, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.742.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.80..sroa_idx, i64 32, i1 false)
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds i16, ptr %31, i64 %45
   store ptr %46, ptr %.sroa.1460.0..sroa_idx61, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval8Inputs(ptr noundef nonnull readonly %47, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i16, ptr %31, i64 %48
@@ -4031,10 +4031,10 @@ define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -4043,7 +4043,7 @@ define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %60 = lshr i32 %59, 16
   %61 = trunc nuw i32 %60 to i16
   %62 = add i16 %52, %61
-  %63 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -4059,21 +4059,21 @@ Eval9Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.7.0..sroa_idx41 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx45 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx49 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.742.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.0..sroa_idx49, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.80..sroa_idx, i64 32, i1 false)
-  %.sroa.12.0..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 116
+  %.sroa.12.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx51, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds i8, ptr %6, i64 172
+  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 172
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx55, align 4
-  %.sroa.14.0..sroa_idx59 = getelementptr inbounds i8, ptr %6, i64 176
+  %.sroa.14.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.742.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.10.80..sroa_idx, i64 32, i1 false)
   %66 = getelementptr inbounds i16, ptr %65, i64 %45
@@ -4096,10 +4096,10 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -4108,7 +4108,7 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
   %78 = lshr i32 %77, 16
   %79 = trunc nuw i32 %78 to i16
   %80 = add i16 %70, %79
-  %81 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i30
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
@@ -4122,10 +4122,10 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
 
 .lr.ph:                                           ; preds = %Eval9Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval9Inputs.exit32 ]
-  %82 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -4134,7 +4134,7 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   %93 = add i16 %83, %92
-  %94 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -4156,7 +4156,7 @@ define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -4165,7 +4165,7 @@ define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -4173,26 +4173,26 @@ define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 180
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 180
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 120
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 176
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -4214,27 +4214,27 @@ define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.80..sroa_idx, i64 36, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 120
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 176
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 180
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.14.0..sroa_idx63, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
-  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx71 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.80..sroa_idx, i64 36, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1465.0..sroa_idx66, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @Eval9InputsFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -4249,13 +4249,13 @@ define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -4271,21 +4271,21 @@ Eval10InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.80..sroa_idx, i64 36, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 120
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 176
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx64 = getelementptr inbounds i8, ptr %6, i64 180
+  %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.14.0..sroa_idx64, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
-  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.10.80..sroa_idx, i64 36, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -4308,13 +4308,13 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -4328,13 +4328,13 @@ Eval10InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval10InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval10InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -4351,11 +4351,11 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -4363,7 +4363,7 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 180
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 180
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -4371,30 +4371,30 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 4 dereferenceable(40) %26, i64 40, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval10Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval10Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -4403,7 +4403,7 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
@@ -4420,7 +4420,7 @@ define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -4429,7 +4429,7 @@ define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -4437,40 +4437,40 @@ define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, ptr noundef nonnull align 4 dereferenceable(44) %30, i64 44, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval11InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @Eval11InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -4492,11 +4492,11 @@ define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x i16], align 16
   %11 = alloca [128 x i16], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %0, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
   %19 = add nsw i32 %18, 32767
@@ -4504,27 +4504,27 @@ define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = add nsw i32 %20, %18
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
-  %24 = getelementptr inbounds i8, ptr %2, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
   %28 = add nsw i32 %22, %27
   %29 = mul i32 %28, %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 124
-  %.sroa.1252.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 180
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 124
+  %.sroa.1252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 180
   %.sroa.1252.0.copyload = load i32, ptr %.sroa.1252.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.742.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -4542,27 +4542,27 @@ define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %43 = add nsw i32 %39, %42
   %44 = mul i32 %43, %.sroa.1252.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.7.0..sroa_idx40 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.742.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.80..sroa_idx, i64 40, i1 false)
-  %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %9, i64 124
+  %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 180
+  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 180
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx53, align 4
-  %.sroa.14.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 184
+  %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx58, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.742.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.80..sroa_idx, i64 40, i1 false)
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds i16, ptr %31, i64 %45
   store ptr %46, ptr %.sroa.1460.0..sroa_idx61, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval10Inputs(ptr noundef nonnull readonly %47, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i16, ptr %31, i64 %48
@@ -4577,10 +4577,10 @@ define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -4589,7 +4589,7 @@ define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %60 = lshr i32 %59, 16
   %61 = trunc nuw i32 %60 to i16
   %62 = add i16 %52, %61
-  %63 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -4605,21 +4605,21 @@ Eval11Inputs.exit:                                ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.7.0..sroa_idx41 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx45 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx49 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.742.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.0..sroa_idx49, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.80..sroa_idx, i64 40, i1 false)
-  %.sroa.12.0..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 124
+  %.sroa.12.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx51, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds i8, ptr %6, i64 180
+  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 180
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx55, align 4
-  %.sroa.14.0..sroa_idx59 = getelementptr inbounds i8, ptr %6, i64 184
+  %.sroa.14.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1460.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.742.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.10.80..sroa_idx, i64 40, i1 false)
   %66 = getelementptr inbounds i16, ptr %65, i64 %45
@@ -4642,10 +4642,10 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -4654,7 +4654,7 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
   %78 = lshr i32 %77, 16
   %79 = trunc nuw i32 %78 to i16
   %80 = add i16 %70, %79
-  %81 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i30
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
@@ -4668,10 +4668,10 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
 
 .lr.ph:                                           ; preds = %Eval11Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval11Inputs.exit32 ]
-  %82 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -4680,7 +4680,7 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   %93 = add i16 %83, %92
-  %94 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -4702,7 +4702,7 @@ define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -4711,7 +4711,7 @@ define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -4719,26 +4719,26 @@ define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 188
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 128
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 184
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 184
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -4760,27 +4760,27 @@ define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.80..sroa_idx, i64 44, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 128
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 184
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 184
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 188
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14.0..sroa_idx63, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
-  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx71 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.80..sroa_idx, i64 44, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1465.0..sroa_idx66, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @Eval11InputsFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -4795,13 +4795,13 @@ define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -4817,21 +4817,21 @@ Eval12InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.80..sroa_idx, i64 44, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 128
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 184
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx64 = getelementptr inbounds i8, ptr %6, i64 188
+  %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %6, i64 188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14.0..sroa_idx64, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
-  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1465.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.10.80..sroa_idx, i64 44, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -4854,13 +4854,13 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -4874,13 +4874,13 @@ Eval12InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval12InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval12InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -4897,11 +4897,11 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -4909,7 +4909,7 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 188
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -4917,30 +4917,30 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 4 dereferenceable(48) %26, i64 48, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval12Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval12Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -4949,7 +4949,7 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8
@@ -4966,7 +4966,7 @@ define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load float, ptr %0, align 4
   %10 = fcmp olt float %9, 0x3E112E0BE0000000
@@ -4975,7 +4975,7 @@ define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %12 = fcmp ogt float %9, 1.000000e+00
   %13 = select i1 %12, float 1.000000e+00, float %9
   %14 = select i1 %or.cond.i, float 0.000000e+00, float %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = uitofp i32 %16 to float
   %18 = fmul float %14, %17
@@ -4983,40 +4983,40 @@ define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %20 = fptosi float %19 to i32
   %21 = sitofp i32 %20 to float
   %22 = fsub float %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %24, %20
   %26 = fcmp ult float %14, 1.000000e+00
   %27 = select i1 %26, i32 %24, i32 0
   %28 = add i32 %25, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
-  %30 = getelementptr inbounds i8, ptr %2, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %29, ptr noundef nonnull align 4 dereferenceable(52) %30, i64 52, i1 false)
   %31 = sext i32 %25 to i64
   %32 = getelementptr inbounds float, ptr %8, i64 %31
-  %33 = getelementptr inbounds i8, ptr %6, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval13InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %35 = sext i32 %28 to i64
   %36 = getelementptr inbounds float, ptr %8, i64 %35
   store ptr %36, ptr %33, align 8
   call void @Eval13InputsFloat(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %39 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv
   %42 = load float, ptr %41, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %22, float %40)
-  %45 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %44, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %37, align 8
@@ -5038,11 +5038,11 @@ define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x i16], align 16
   %11 = alloca [128 x i16], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %0, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
   %19 = add nsw i32 %18, 32767
@@ -5050,28 +5050,28 @@ define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %21 = add nsw i32 %20, %18
   %22 = ashr i32 %21, 16
   %23 = and i32 %21, 65535
-  %24 = getelementptr inbounds i8, ptr %2, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %22, %25
   %.not = icmp ne i16 %14, -1
   %27 = zext i1 %.not to i32
   %28 = add nsw i32 %22, %27
   %29 = mul i32 %28, %25
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 132
-  %.sroa.1252.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 188
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 132
+  %.sroa.1252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 188
   %.sroa.1252.0.copyload = load i32, ptr %.sroa.1252.0..sroa_idx, align 4
   %.sroa.14.0.copyload = load i64, ptr %24, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.742.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = sext i32 %26 to i64
   %31 = getelementptr inbounds i16, ptr %13, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -5089,27 +5089,27 @@ define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %43 = add nsw i32 %39, %42
   %44 = mul i32 %43, %.sroa.1252.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.7.0..sroa_idx40 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx40, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx43 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.742.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.80..sroa_idx, i64 48, i1 false)
-  %.sroa.12.0..sroa_idx50 = getelementptr inbounds i8, ptr %9, i64 132
+  %.sroa.12.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %9, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 188
+  %.sroa.1252.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 188
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx53, align 4
-  %.sroa.14.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 192
+  %.sroa.14.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 192
   store i64 %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx58, align 8
-  %.sroa.1462.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx68 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1462.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx68, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.742.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.80..sroa_idx, i64 48, i1 false)
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds i16, ptr %31, i64 %45
   store ptr %46, ptr %.sroa.1462.0..sroa_idx63, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @Eval12Inputs(ptr noundef nonnull readonly %47, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %48 = sext i32 %44 to i64
   %49 = getelementptr inbounds i16, ptr %31, i64 %48
@@ -5124,10 +5124,10 @@ define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %51 = getelementptr inbounds [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [128 x i16], ptr %7, i64 0, i64 %indvars.iv.i
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
-  %54 = getelementptr inbounds [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %indvars.iv.i
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = sub nsw i32 %56, %53
@@ -5136,7 +5136,7 @@ define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %60 = lshr i32 %59, 16
   %61 = trunc nuw i32 %60 to i16
   %62 = add i16 %52, %61
-  %63 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -5152,21 +5152,21 @@ Eval13Inputs.exit:                                ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx35 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx35, align 8
-  %.sroa.7.0..sroa_idx41 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.742.0..sroa_idx45 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx49 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.742.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.0..sroa_idx49, ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.80..sroa_idx, i64 48, i1 false)
-  %.sroa.12.0..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 132
+  %.sroa.12.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %6, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx51, ptr noundef nonnull align 4 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds i8, ptr %6, i64 188
+  %.sroa.1252.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %6, i64 188
   store i32 %.sroa.1252.0.copyload, ptr %.sroa.1252.0..sroa_idx55, align 4
-  %.sroa.14.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 192
+  %.sroa.14.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i64 %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx60, align 8
-  %.sroa.1462.0..sroa_idx65 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx70 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1462.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx70, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.742.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(48) %.sroa.10.80..sroa_idx, i64 48, i1 false)
   %66 = getelementptr inbounds i16, ptr %65, i64 %45
@@ -5189,10 +5189,10 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29.preheader, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.i29 ], [ 0, %.lr.ph.i29.preheader ]
-  %69 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
+  %69 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv.i30
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
+  %72 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv.i30
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %71
@@ -5201,7 +5201,7 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
   %78 = lshr i32 %77, 16
   %79 = trunc nuw i32 %78 to i16
   %80 = add i16 %70, %79
-  %81 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i30
+  %81 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i30
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next.i31, %68
@@ -5215,10 +5215,10 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
 
 .lr.ph:                                           ; preds = %Eval13Inputs.exit32, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval13Inputs.exit32 ]
-  %82 = getelementptr inbounds [128 x i16], ptr %10, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [128 x i16], ptr %10, i64 0, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
-  %85 = getelementptr inbounds [128 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [128 x i16], ptr %11, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = sub nsw i32 %87, %84
@@ -5227,7 +5227,7 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
   %91 = lshr i32 %90, 16
   %92 = trunc nuw i32 %91 to i16
   %93 = add i16 %83, %92
-  %94 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %93, ptr %94, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -5249,7 +5249,7 @@ define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %9 = alloca %struct._cms_interp_struc, align 8
   %10 = alloca [128 x float], align 16
   %11 = alloca [128 x float], align 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = load float, ptr %0, align 4
   %15 = fcmp olt float %14, 0x3E112E0BE0000000
@@ -5258,7 +5258,7 @@ define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %17 = fcmp ogt float %14, 1.000000e+00
   %18 = select i1 %17, float 1.000000e+00, float %14
   %19 = select i1 %or.cond.i, float 0.000000e+00, float %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = uitofp i32 %21 to float
   %23 = fmul float %19, %22
@@ -5266,26 +5266,26 @@ define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = fsub float %23, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 196
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 196
   %29 = load i32, ptr %28, align 4
   %30 = mul i32 %29, %25
   %31 = fcmp ult float %19, 1.000000e+00
   %32 = select i1 %31, i32 %29, i32 0
   %33 = add i32 %30, %32
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 136
-  %.sroa.1257.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 192
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %.sroa.1257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 192
   %.sroa.1257.0.copyload = load i32, ptr %.sroa.1257.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 208
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.747.80.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.10.80..sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
+  %.sroa.10.80..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds float, ptr %13, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -5307,27 +5307,27 @@ define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr n
   %51 = select i1 %50, i32 %.sroa.1257.0.copyload, i32 0
   %52 = add i32 %49, %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx38 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx38, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx45, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx48 = getelementptr inbounds i8, ptr %9, i64 80
-  %.sroa.10.0..sroa_idx53 = getelementptr inbounds i8, ptr %9, i64 84
+  %.sroa.747.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.10.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.0..sroa_idx53, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.80..sroa_idx, i64 52, i1 false)
-  %.sroa.12.0..sroa_idx55 = getelementptr inbounds i8, ptr %9, i64 136
+  %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %9, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx55, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds i8, ptr %9, i64 192
+  %.sroa.1257.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %9, i64 192
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx58, align 8
-  %.sroa.14.0..sroa_idx63 = getelementptr inbounds i8, ptr %9, i64 196
+  %.sroa.14.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %9, i64 196
   store i32 %29, ptr %.sroa.14.0..sroa_idx63, align 4
-  %.sroa.1467.0..sroa_idx68 = getelementptr inbounds i8, ptr %9, i64 200
-  %.sroa.18.0..sroa_idx73 = getelementptr inbounds i8, ptr %9, i64 208
+  %.sroa.1467.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %.sroa.18.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.747.0..sroa_idx48, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.80..sroa_idx, i64 52, i1 false)
   %53 = sext i32 %49 to i64
   %54 = getelementptr inbounds float, ptr %35, i64 %53
   store ptr %54, ptr %.sroa.1467.0..sroa_idx68, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @Eval13InputsFloat(ptr noundef nonnull readonly %55, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds float, ptr %35, i64 %56
@@ -5342,13 +5342,13 @@ define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %59 = getelementptr inbounds [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [128 x float], ptr %7, i64 0, i64 %indvars.iv.i
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [128 x float], ptr %8, i64 0, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fsub float %62, %60
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %48, float %60)
-  %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
@@ -5364,21 +5364,21 @@ Eval14InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %.sroa.3.0..sroa_idx40 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx40, align 8
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx46, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.7.0..sroa_idx, i64 60, i1 false)
-  %.sroa.747.0..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 80
-  %.sroa.10.0..sroa_idx54 = getelementptr inbounds i8, ptr %6, i64 84
+  %.sroa.747.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.sroa.10.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.80..sroa_idx, i64 52, i1 false)
-  %.sroa.12.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 136
+  %.sroa.12.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.12.0..sroa_idx, i64 56, i1 false)
-  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds i8, ptr %6, i64 192
+  %.sroa.1257.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i32 %.sroa.1257.0.copyload, ptr %.sroa.1257.0..sroa_idx60, align 8
-  %.sroa.14.0..sroa_idx65 = getelementptr inbounds i8, ptr %6, i64 196
+  %.sroa.14.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %6, i64 196
   store i32 %29, ptr %.sroa.14.0..sroa_idx65, align 4
-  %.sroa.1467.0..sroa_idx70 = getelementptr inbounds i8, ptr %6, i64 200
-  %.sroa.18.0..sroa_idx75 = getelementptr inbounds i8, ptr %6, i64 208
+  %.sroa.1467.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %.sroa.18.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %.sroa.18.0.copyload, ptr %.sroa.18.0..sroa_idx75, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.747.0..sroa_idx50, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.10.80..sroa_idx, i64 52, i1 false)
   %68 = getelementptr inbounds float, ptr %67, i64 %53
@@ -5401,13 +5401,13 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i34 ], [ 0, %.lr.ph.i34.preheader ]
-  %71 = getelementptr inbounds [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
+  %71 = getelementptr inbounds nuw [128 x float], ptr %4, i64 0, i64 %indvars.iv.i35
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
+  %73 = getelementptr inbounds nuw [128 x float], ptr %5, i64 0, i64 %indvars.iv.i35
   %74 = load float, ptr %73, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %48, float %72)
-  %77 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i35
+  %77 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i35
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next.i36, %70
@@ -5421,13 +5421,13 @@ Eval14InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 
 .lr.ph:                                           ; preds = %Eval14InputsFloat.exit37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Eval14InputsFloat.exit37 ]
-  %78 = getelementptr inbounds [128 x float], ptr %10, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [128 x float], ptr %10, i64 0, i64 %indvars.iv
   %79 = load float, ptr %78, align 4
-  %80 = getelementptr inbounds [128 x float], ptr %11, i64 0, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [128 x float], ptr %11, i64 0, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %79
   %83 = tail call float @llvm.fmuladd.f32(float %82, float %27, float %79)
-  %84 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
@@ -5444,11 +5444,11 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = load i16, ptr %0, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %12, %10
   %14 = add nsw i32 %13, 32767
@@ -5456,7 +5456,7 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %16 = add nsw i32 %15, %13
   %17 = ashr i32 %16, 16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds i8, ptr %2, i64 196
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 196
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %17, %20
   %.not = icmp ne i16 %9, -1
@@ -5464,30 +5464,30 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %23 = add nsw i32 %17, %22
   %24 = mul i32 %23, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 216, i1 false)
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %2, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 4 dereferenceable(56) %26, i64 56, i1 false)
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @Eval14Inputs(ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %8, i64 %31
   store ptr %32, ptr %29, align 8
   call void @Eval14Inputs(ptr noundef nonnull %30, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %35 = getelementptr inbounds [128 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i16], ptr %4, i64 0, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds [128 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [128 x i16], ptr %5, i64 0, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = sub nsw i32 %40, %37
@@ -5496,7 +5496,7 @@ define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapt
   %44 = lshr i32 %43, 16
   %45 = trunc nuw i32 %44 to i16
   %46 = add i16 %36, %45
-  %47 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %33, align 8

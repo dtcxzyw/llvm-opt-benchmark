@@ -224,7 +224,7 @@ define dso_local void @native_send_call_func_ipi(ptr noundef %0) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @apic_send_nmi_to_offline_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @apic, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 8
   %6 = icmp eq i8 %5, 0
@@ -252,7 +252,7 @@ define dso_local void @apic_send_nmi_to_offline_cpu(i32 noundef %0) local_unname
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr @apic, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   tail call void %17(i32 noundef %0, i32 noundef 2) #6
   br label %18

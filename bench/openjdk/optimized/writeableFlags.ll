@@ -70,7 +70,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOri
   br i1 %11, label %12, label %25
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.thread
@@ -84,7 +84,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOri
   br i1 %19, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %22 = load i32, ptr %21, align 4
   %.not.i.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i.i, label %23, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -114,7 +114,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %31, label %32, label %.thread16
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %.thread16
@@ -128,7 +128,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %39, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit15, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %38, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %42 = load i32, ptr %41, align 4
   %.not.i.i.i13 = icmp eq i32 %42, 0
   br i1 %.not.i.i.i13, label %43, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit15
@@ -183,7 +183,7 @@ define hidden noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOrig
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 1
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -228,7 +228,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOri
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 2
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -270,7 +270,7 @@ define hidden noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOri
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 3
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -312,7 +312,7 @@ define hidden noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOr
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 4
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -354,7 +354,7 @@ define hidden noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFla
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 5
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -388,7 +388,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi5E
   br i1 %8, label %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %11 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %11, 5
   br i1 %.not.i.i, label %12, label %_ZN13JVMFlagAccess3setImLi5EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
@@ -421,7 +421,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagO
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 6
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -455,7 +455,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implImLi6E
   br i1 %8, label %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %11 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %11, 6
   br i1 %.not.i.i, label %12, label %_ZN13JVMFlagAccess3setImLi6EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
@@ -488,7 +488,7 @@ define hidden noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagO
   br i1 %13, label %_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 7
   br i1 %.not.i.i.i, label %17, label %_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -522,7 +522,7 @@ define linkonce_odr hidden noundef i32 @_ZN14WriteableFlags13set_flag_implIdLi7E
   br i1 %8, label %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %11 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %11, 7
   br i1 %.not.i.i, label %12, label %_ZN13JVMFlagAccess3setIdLi7EEEN7JVMFlag5ErrorEPS1_PT_13JVMFlagOrigin.exit
@@ -558,7 +558,7 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
   br i1 %6, label %79, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %10 = icmp ne i32 %0, 1
@@ -628,7 +628,7 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
   br i1 %.not.i.i.i.i, label %_ZL31print_flag_error_message_boundsPK7JVMFlagPc.exit, label %46
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds i8, ptr %45, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 1
   %.not7.i.i.i.i = icmp eq i8 %49, 0
@@ -657,7 +657,7 @@ define internal fastcc void @_ZL34print_flag_error_message_if_neededN7JVMFlag5Er
   ]
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds i8, ptr %5, i64 %.01621.i
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 %.01621.i
   store i8 %58, ptr %60, align 1
   %61 = add nuw nsw i64 %.01621.i, 1
   br label %62
@@ -723,7 +723,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcS1_13JVMFlagOriginR12
   br i1 %.not.i, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %.not18.i = icmp eq i32 %14, 0
@@ -770,7 +770,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKcPKvPFN7JVMFlag5ErrorE
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 32
   %.not18 = icmp eq i32 %17, 0
@@ -804,7 +804,7 @@ define hidden noundef i32 @_ZN14WriteableFlags18set_flag_from_charEP7JVMFlagPKv1
   br label %51
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %43 [
     i32 0, label %11
@@ -818,49 +818,49 @@ define hidden noundef i32 @_ZN14WriteableFlags18set_flag_from_charEP7JVMFlagPKv1
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZN14WriteableFlags13set_bool_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %13, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZN14WriteableFlags12set_int_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %17, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 @_ZN14WriteableFlags13set_uint_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %21, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 @_ZN14WriteableFlags13set_intx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %25, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 @_ZN14WriteableFlags14set_uintx_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %29, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 31:                                               ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 @_ZN14WriteableFlags17set_uint64_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %33, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 35:                                               ; preds = %8
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 @_ZN14WriteableFlags15set_size_t_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %37, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
 
 39:                                               ; preds = %8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i32 @_ZN14WriteableFlags15set_double_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %41, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
@@ -871,7 +871,7 @@ define hidden noundef i32 @_ZN14WriteableFlags18set_flag_from_charEP7JVMFlagPKv1
   br i1 %spec.select.i, label %45, label %49
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 @_ZN14WriteableFlags14set_ccstr_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %47, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %51
@@ -905,7 +905,7 @@ define hidden noundef i32 @_ZN14WriteableFlags8set_flagEPKc6jvalue13JVMFlagOrigi
   br i1 %.not.i, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %.not18.i = icmp eq i32 %14, 0
@@ -937,7 +937,7 @@ define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPK
   %9 = alloca i8, align 1
   %10 = alloca %class.ResourceMark, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %86 [
     i32 0, label %13
@@ -953,7 +953,7 @@ define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPK
 13:                                               ; preds = %4
   %14 = and i64 %.sroa.0.0.copyload, 255
   %15 = icmp eq i64 %14, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   %18 = zext i1 %15 to i8
@@ -964,7 +964,7 @@ define hidden noundef i32 @_ZN14WriteableFlags20set_flag_from_jvalueEP7JVMFlagPK
   br i1 %21, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %22
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %20, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i.i, label %25, label %_ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -981,7 +981,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 
 27:                                               ; preds = %4
   %28 = trunc i64 %.sroa.0.0.copyload to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %28, ptr %8, align 4
@@ -991,7 +991,7 @@ _ZN14WriteableFlags13set_flag_implIbLi0EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %33, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %32, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %36 = load i32, ptr %35, align 4
   %.not.i.i.i58 = icmp eq i32 %36, 1
   br i1 %.not.i.i.i58, label %37, label %_ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -1008,7 +1008,7 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 
 39:                                               ; preds = %4
   %40 = trunc i64 %.sroa.0.0.copyload to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %40, ptr %7, align 4
@@ -1018,7 +1018,7 @@ _ZN14WriteableFlags13set_flag_implIiLi1EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %45, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %44, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %48 = load i32, ptr %47, align 4
   %.not.i.i.i60 = icmp eq i32 %48, 2
   br i1 %.not.i.i.i60, label %49, label %_ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -1034,7 +1034,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %116
 
 51:                                               ; preds = %4
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.0.0.copyload, ptr %6, align 8
@@ -1044,7 +1044,7 @@ _ZN14WriteableFlags13set_flag_implIjLi2EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %56, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %55, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %59 = load i32, ptr %58, align 4
   %.not.i.i.i62 = icmp eq i32 %59, 3
   br i1 %.not.i.i.i62, label %60, label %_ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -1060,7 +1060,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %116
 
 62:                                               ; preds = %4
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
@@ -1070,7 +1070,7 @@ _ZN14WriteableFlags13set_flag_implIlLi3EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br i1 %67, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %66, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 20
   %70 = load i32, ptr %69, align 4
   %.not.i.i.i64 = icmp eq i32 %70, 4
   br i1 %.not.i.i.i64, label %71, label %_ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE.exit
@@ -1086,20 +1086,20 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
   br label %116
 
 73:                                               ; preds = %4
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implImLi5EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %75, i64 noundef %.sroa.0.0.copyload, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %116
 
 77:                                               ; preds = %4
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implImLi6EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %79, i64 noundef %.sroa.0.0.copyload, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %116
 
 81:                                               ; preds = %4
   %82 = bitcast i64 %.sroa.0.0.copyload to double
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 @_ZN14WriteableFlags13set_flag_implIdLi7EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %84, double noundef %82, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   br label %116
@@ -1122,27 +1122,27 @@ _ZN14WriteableFlags13set_flag_implImLi4EEEN7JVMFlag5ErrorEPKcT_13JVMFlagOriginR1
 93:                                               ; preds = %88
   %94 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 800
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 800
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %10, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %100 = load ptr, ptr %99, align 8
   store ptr %100, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %10, i64 16
-  %102 = getelementptr inbounds i8, ptr %97, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %10, i64 24
-  %105 = getelementptr inbounds i8, ptr %97, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %106 = load ptr, ptr %105, align 8
   store ptr %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %10, i64 32
-  %108 = getelementptr inbounds i8, ptr %97, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %109 = load i64, ptr %108, align 8
   store i64 %109, ptr %107, align 8
   %110 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %90) #13
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = tail call noundef i32 @_ZN14WriteableFlags14set_ccstr_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef %112, ptr noundef %110, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
@@ -1169,14 +1169,14 @@ declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %8) #13
   %9 = load ptr, ptr %3, align 8
@@ -1184,22 +1184,22 @@ define linkonce_odr hidden void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not8.i.i.i = icmp eq ptr %12, %14
   br i1 %.not8.i.i.i, label %_ZN16ResourceMarkImplD2Ev.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %13, align 8
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %20, ptr %21, align 8
   br label %_ZN16ResourceMarkImplD2Ev.exit
 

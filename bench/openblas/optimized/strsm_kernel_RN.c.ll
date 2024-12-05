@@ -53,7 +53,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %36 = phi i64 [ 1, %32 ], [ %73, %.split45.us ]
   %37 = phi ptr [ %33, %32 ], [ %.us-phi, %.split45.us ]
   %38 = phi ptr [ %25, %32 ], [ %72, %.split45.us ]
-  %39 = getelementptr inbounds float, ptr %38, i64 %35
+  %39 = getelementptr inbounds nuw float, ptr %38, i64 %35
   %40 = load float, ptr %39, align 4, !tbaa !3
   %41 = mul nsw i64 %35, %7
   %42 = icmp samesign ult i64 %35, 3
@@ -62,7 +62,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .split.us:                                        ; preds = %34, %.loopexit30.us
   %43 = phi i64 [ %61, %.loopexit30.us ], [ 0, %34 ]
   %44 = phi ptr [ %60, %.loopexit30.us ], [ %37, %34 ]
-  %45 = getelementptr inbounds float, ptr %28, i64 %43
+  %45 = getelementptr inbounds nuw float, ptr %28, i64 %43
   %46 = getelementptr inbounds float, ptr %45, i64 %41
   %47 = load float, ptr %46, align 4, !tbaa !3
   %48 = fmul float %40, %47
@@ -73,7 +73,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 50:                                               ; preds = %50, %.split.us
   %51 = phi i64 [ %36, %.split.us ], [ %58, %50 ]
-  %52 = getelementptr inbounds float, ptr %38, i64 %51
+  %52 = getelementptr inbounds nuw float, ptr %38, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !3
   %54 = mul nsw i64 %51, %7
   %55 = getelementptr inbounds float, ptr %45, i64 %54
@@ -85,7 +85,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %59, label %.loopexit30.us, label %50, !llvm.loop !7
 
 .loopexit30.us:                                   ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %44, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %61 = add nuw nsw i64 %43, 1
   %62 = icmp eq i64 %61, 16
   br i1 %62, label %.split45.us, label %.split.us, !llvm.loop !10
@@ -102,7 +102,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %67 = fmul float %40, %66
   store float %67, ptr %65, align 4, !tbaa !3
   store float %67, ptr %gep, align 4, !tbaa !3
-  %68 = getelementptr inbounds i8, ptr %65, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = add nuw nsw i64 %64, 1
   %70 = icmp eq i64 %69, 16
   br i1 %70, label %.split45.us, label %63, !llvm.loop !10
@@ -110,14 +110,14 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .split45.us:                                      ; preds = %63, %.loopexit30.us
   %.us-phi = phi ptr [ %60, %.loopexit30.us ], [ %68, %63 ]
   %71 = add nuw nsw i64 %35, 1
-  %72 = getelementptr inbounds i8, ptr %38, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %73 = add nuw nsw i64 %36, 1
   %74 = icmp eq i64 %71, 4
   br i1 %74, label %75, label %34, !llvm.loop !11
 
 75:                                               ; preds = %.split45.us
   %76 = getelementptr inbounds i8, ptr %27, i64 %.idx19
-  %77 = getelementptr inbounds i8, ptr %28, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %78 = add nsw i64 %29, -1
   %79 = icmp sgt i64 %29, 1
   br i1 %79, label %26, label %.loopexit32, !llvm.loop !12
@@ -158,7 +158,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %99 = phi i64 [ 1, %94 ], [ %136, %.split48.us ]
   %100 = phi ptr [ %96, %94 ], [ %.us-phi49, %.split48.us ]
   %101 = phi ptr [ %84, %94 ], [ %134, %.split48.us ]
-  %102 = getelementptr inbounds float, ptr %101, i64 %98
+  %102 = getelementptr inbounds nuw float, ptr %101, i64 %98
   %103 = load float, ptr %102, align 4, !tbaa !3
   %104 = mul nsw i64 %98, %7
   %105 = icmp samesign ult i64 %98, 3
@@ -167,7 +167,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .split46.us:                                      ; preds = %97, %.loopexit29.us
   %106 = phi i64 [ %124, %.loopexit29.us ], [ 0, %97 ]
   %107 = phi ptr [ %123, %.loopexit29.us ], [ %100, %97 ]
-  %108 = getelementptr inbounds float, ptr %87, i64 %106
+  %108 = getelementptr inbounds nuw float, ptr %87, i64 %106
   %109 = getelementptr inbounds float, ptr %108, i64 %104
   %110 = load float, ptr %109, align 4, !tbaa !3
   %111 = fmul float %103, %110
@@ -178,7 +178,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 113:                                              ; preds = %113, %.split46.us
   %114 = phi i64 [ %99, %.split46.us ], [ %121, %113 ]
-  %115 = getelementptr inbounds float, ptr %101, i64 %114
+  %115 = getelementptr inbounds nuw float, ptr %101, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !3
   %117 = mul nsw i64 %114, %7
   %118 = getelementptr inbounds float, ptr %108, i64 %117
@@ -190,7 +190,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %122, label %.loopexit29.us, label %113, !llvm.loop !7
 
 .loopexit29.us:                                   ; preds = %113
-  %123 = getelementptr inbounds i8, ptr %107, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %124 = add nuw nsw i64 %106, 1
   %125 = icmp eq i64 %124, %86
   br i1 %125, label %.split48.us, label %.split46.us, !llvm.loop !10
@@ -207,14 +207,14 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %130 = fmul float %103, %129
   store float %130, ptr %128, align 4, !tbaa !3
   store float %130, ptr %gep51, align 4, !tbaa !3
-  %131 = getelementptr inbounds i8, ptr %128, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %132 = add nuw nsw i64 %127, 1
   %133 = icmp eq i64 %132, %86
   br i1 %133, label %.split48.us, label %126, !llvm.loop !10
 
 .split48.us:                                      ; preds = %126, %.loopexit29.us
   %.us-phi49 = phi ptr [ %123, %.loopexit29.us ], [ %131, %126 ]
-  %134 = getelementptr inbounds i8, ptr %101, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %135 = add nuw nsw i64 %98, 1
   %136 = add nuw nsw i64 %99, 1
   %137 = icmp eq i64 %135, 4
@@ -223,7 +223,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 138:                                              ; preds = %.split48.us
   %139 = mul nsw i64 %86, %2
   %140 = getelementptr inbounds float, ptr %88, i64 %139
-  %141 = getelementptr inbounds float, ptr %87, i64 %86
+  %141 = getelementptr inbounds nuw float, ptr %87, i64 %86
   br label %142
 
 142:                                              ; preds = %138, %85
@@ -295,7 +295,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %184 = phi i64 [ 1, %180 ], [ %221, %.split54.us ]
   %185 = phi ptr [ %181, %180 ], [ %.us-phi55, %.split54.us ]
   %186 = phi ptr [ %173, %180 ], [ %220, %.split54.us ]
-  %187 = getelementptr inbounds float, ptr %186, i64 %183
+  %187 = getelementptr inbounds nuw float, ptr %186, i64 %183
   %188 = load float, ptr %187, align 4, !tbaa !3
   %189 = mul nuw nsw i64 %183, %7
   %190 = add nuw nsw i64 %183, 1
@@ -305,7 +305,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .split52.us:                                      ; preds = %182, %.loopexit25.us
   %192 = phi i64 [ %210, %.loopexit25.us ], [ 0, %182 ]
   %193 = phi ptr [ %209, %.loopexit25.us ], [ %185, %182 ]
-  %194 = getelementptr inbounds float, ptr %176, i64 %192
+  %194 = getelementptr inbounds nuw float, ptr %176, i64 %192
   %195 = getelementptr inbounds float, ptr %194, i64 %189
   %196 = load float, ptr %195, align 4, !tbaa !3
   %197 = fmul float %188, %196
@@ -316,7 +316,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 199:                                              ; preds = %199, %.split52.us
   %200 = phi i64 [ %184, %.split52.us ], [ %207, %199 ]
-  %201 = getelementptr inbounds float, ptr %186, i64 %200
+  %201 = getelementptr inbounds nuw float, ptr %186, i64 %200
   %202 = load float, ptr %201, align 4, !tbaa !3
   %203 = mul nsw i64 %200, %7
   %204 = getelementptr inbounds float, ptr %194, i64 %203
@@ -328,7 +328,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %208, label %.loopexit25.us, label %199, !llvm.loop !7
 
 .loopexit25.us:                                   ; preds = %199
-  %209 = getelementptr inbounds i8, ptr %193, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %210 = add nuw nsw i64 %192, 1
   %211 = icmp eq i64 %210, 16
   br i1 %211, label %.split54.us, label %.split52.us, !llvm.loop !10
@@ -345,21 +345,21 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %216 = fmul float %188, %215
   store float %216, ptr %214, align 4, !tbaa !3
   store float %216, ptr %gep57, align 4, !tbaa !3
-  %217 = getelementptr inbounds i8, ptr %214, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %218 = add nuw nsw i64 %213, 1
   %219 = icmp eq i64 %218, 16
   br i1 %219, label %.split54.us, label %212, !llvm.loop !10
 
 .split54.us:                                      ; preds = %212, %.loopexit25.us
   %.us-phi55 = phi ptr [ %209, %.loopexit25.us ], [ %217, %212 ]
-  %220 = getelementptr inbounds float, ptr %186, i64 %163
+  %220 = getelementptr inbounds nuw float, ptr %186, i64 %163
   %221 = add nuw nsw i64 %184, 1
   %222 = icmp eq i64 %190, %163
   br i1 %222, label %223, label %182, !llvm.loop !11
 
 223:                                              ; preds = %.split54.us
   %224 = getelementptr inbounds i8, ptr %177, i64 %.idx24
-  %225 = getelementptr inbounds i8, ptr %176, i64 64
+  %225 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %226 = add nsw i64 %175, -1
   %227 = icmp sgt i64 %175, 1
   br i1 %227, label %174, label %.loopexit27, !llvm.loop !15
@@ -400,7 +400,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %248 = phi i64 [ 1, %243 ], [ %285, %.split60.us ]
   %249 = phi ptr [ %245, %243 ], [ %.us-phi61, %.split60.us ]
   %250 = phi ptr [ %233, %243 ], [ %284, %.split60.us ]
-  %251 = getelementptr inbounds float, ptr %250, i64 %247
+  %251 = getelementptr inbounds nuw float, ptr %250, i64 %247
   %252 = load float, ptr %251, align 4, !tbaa !3
   %253 = mul nuw nsw i64 %247, %7
   %254 = add nuw nsw i64 %247, 1
@@ -410,7 +410,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 .split58.us:                                      ; preds = %246, %.loopexit.us
   %256 = phi i64 [ %274, %.loopexit.us ], [ 0, %246 ]
   %257 = phi ptr [ %273, %.loopexit.us ], [ %249, %246 ]
-  %258 = getelementptr inbounds float, ptr %236, i64 %256
+  %258 = getelementptr inbounds nuw float, ptr %236, i64 %256
   %259 = getelementptr inbounds float, ptr %258, i64 %253
   %260 = load float, ptr %259, align 4, !tbaa !3
   %261 = fmul float %252, %260
@@ -421,7 +421,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 263:                                              ; preds = %263, %.split58.us
   %264 = phi i64 [ %248, %.split58.us ], [ %271, %263 ]
-  %265 = getelementptr inbounds float, ptr %250, i64 %264
+  %265 = getelementptr inbounds nuw float, ptr %250, i64 %264
   %266 = load float, ptr %265, align 4, !tbaa !3
   %267 = mul nsw i64 %264, %7
   %268 = getelementptr inbounds float, ptr %258, i64 %267
@@ -433,7 +433,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %272, label %.loopexit.us, label %263, !llvm.loop !7
 
 .loopexit.us:                                     ; preds = %263
-  %273 = getelementptr inbounds i8, ptr %257, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %257, i64 4
   %274 = add nuw nsw i64 %256, 1
   %275 = icmp eq i64 %274, %235
   br i1 %275, label %.split60.us, label %.split58.us, !llvm.loop !10
@@ -450,14 +450,14 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %280 = fmul float %252, %279
   store float %280, ptr %278, align 4, !tbaa !3
   store float %280, ptr %gep63, align 4, !tbaa !3
-  %281 = getelementptr inbounds i8, ptr %278, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %278, i64 4
   %282 = add nuw nsw i64 %277, 1
   %283 = icmp eq i64 %282, %235
   br i1 %283, label %.split60.us, label %276, !llvm.loop !10
 
 .split60.us:                                      ; preds = %276, %.loopexit.us
   %.us-phi61 = phi ptr [ %273, %.loopexit.us ], [ %281, %276 ]
-  %284 = getelementptr inbounds float, ptr %250, i64 %163
+  %284 = getelementptr inbounds nuw float, ptr %250, i64 %163
   %285 = add nuw nsw i64 %248, 1
   %286 = icmp eq i64 %254, %163
   br i1 %286, label %287, label %246, !llvm.loop !11
@@ -465,7 +465,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
 287:                                              ; preds = %.split60.us
   %288 = mul nsw i64 %235, %2
   %289 = getelementptr inbounds float, ptr %237, i64 %288
-  %290 = getelementptr inbounds float, ptr %236, i64 %235
+  %290 = getelementptr inbounds nuw float, ptr %236, i64 %235
   br label %291
 
 291:                                              ; preds = %287, %234

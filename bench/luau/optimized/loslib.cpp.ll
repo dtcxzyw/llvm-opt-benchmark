@@ -72,7 +72,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
 
 19:                                               ; preds = %15
   %20 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
-  %21 = getelementptr inbounds i8, ptr %7, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %26
 
 22:                                               ; preds = %15
@@ -99,13 +99,13 @@ sub_0:                                            ; preds = %26
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %29 = getelementptr inbounds i8, ptr %.0, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %30 = load i8, ptr %29, align 1
   %.not43 = icmp eq i8 %30, 116
   br i1 %.not43, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %31 = getelementptr inbounds i8, ptr %.0, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.tail.thread
@@ -115,39 +115,39 @@ sub_1:                                            ; preds = %sub_0
   %35 = load i32, ptr %.037, align 8
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %35)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.7)
-  %36 = getelementptr inbounds i8, ptr %.037, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %37 = load i32, ptr %36, align 4
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %37)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.8)
-  %38 = getelementptr inbounds i8, ptr %.037, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %39 = load i32, ptr %38, align 8
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %39)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.9)
-  %40 = getelementptr inbounds i8, ptr %.037, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %.037, i64 12
   %41 = load i32, ptr %40, align 4
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %41)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.10)
-  %42 = getelementptr inbounds i8, ptr %.037, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %44)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11)
-  %45 = getelementptr inbounds i8, ptr %.037, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %.037, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %46, 1900
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %47)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.12)
-  %48 = getelementptr inbounds i8, ptr %.037, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.037, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = add nsw i32 %49, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %50)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.13)
-  %51 = getelementptr inbounds i8, ptr %.037, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.037, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = add nsw i32 %52, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %53)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.14)
-  %54 = getelementptr inbounds i8, ptr %.037, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %55 = load i32, ptr %54, align 8
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %_ZL12setboolfieldP9lua_StatePKci.exit, label %57
@@ -159,11 +159,11 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   store i8 37, ptr %4, align 1
-  %58 = getelementptr inbounds i8, ptr %4, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %58, align 1
   call void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef %0, ptr noundef nonnull %5)
-  %59 = getelementptr inbounds i8, ptr %4, i64 1
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %61
 
 61:                                               ; preds = %83, %.tail.thread
@@ -175,7 +175,7 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %.1, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %77
@@ -195,7 +195,7 @@ sub_1:                                            ; preds = %sub_0
 73:                                               ; preds = %71, %67
   %74 = phi ptr [ %.pre44, %71 ], [ %68, %67 ]
   %75 = phi i8 [ %.pre, %71 ], [ %62, %67 ]
-  %76 = getelementptr inbounds i8, ptr %74, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store ptr %76, ptr %5, align 8
   store i8 %75, ptr %74, align 1
   br label %83
@@ -218,7 +218,7 @@ sub_1:                                            ; preds = %sub_0
 
 83:                                               ; preds = %73, %81
   %.2 = phi ptr [ %.1, %73 ], [ %64, %81 ]
-  %84 = getelementptr inbounds i8, ptr %.2, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %61, !llvm.loop !5
 
 85:                                               ; preds = %61

@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @nextGraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
@@ -35,7 +35,7 @@ define ptr @nextGraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.lr.ph.preheader
@@ -48,7 +48,7 @@ define ptr @nextGraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %13, %17
   %18 = phi ptr [ %.pre, %17 ], [ %15, %13 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
@@ -83,7 +83,7 @@ define ptr @nextGraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
 define internal fastcc void @nextFile(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 8
@@ -97,7 +97,7 @@ define internal fastcc void @nextFile(ptr nocapture noundef %0) unnamed_addr #0 
   br i1 %.not25, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %13
 
 11:                                               ; preds = %1
@@ -147,7 +147,7 @@ select.unfold:                                    ; preds = %13
 
 .thread21:                                        ; preds = %17, %11, %select.unfold
   %.024 = phi ptr [ %.0.old, %select.unfold ], [ %.0, %11 ], [ %18, %17 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %37 = load i32, ptr %36, align 4
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %fileName.exit
@@ -158,7 +158,7 @@ select.unfold:                                    ; preds = %13
   br i1 %.not10.i, label %fileName.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %.not11.i = icmp eq i32 %42, 0
   br i1 %.not11.i, label %fileName.exit, label %43
@@ -180,7 +180,7 @@ fileName.exit:                                    ; preds = %.thread21, %38, %40
 
 .thread:                                          ; preds = %19, %.preheader, %11, %fileName.exit, %select.unfold
   %.020 = phi ptr [ %.024, %fileName.exit ], [ null, %select.unfold ], [ null, %11 ], [ null, %.preheader ], [ null, %19 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.020, ptr %50, align 8
   ret void
 }
@@ -206,16 +206,16 @@ define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 9:                                                ; preds = %4, %3
   %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
   %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.sink31.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 32
   store i8 %.sink29.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink31.i, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 12
   store i32 0, ptr %11, align 4
   store ptr %1, ptr %.sink31.i, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink31.i, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 36
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.sink31.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 16
   store ptr null, ptr %14, align 8
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
@@ -233,7 +233,7 @@ define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %.sink31.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 24
   store ptr %2, ptr %21, align 8
   br label %new_ing.exit
 
@@ -260,18 +260,18 @@ define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 9:                                                ; preds = %4, %3
   %.sink31.i = phi ptr [ %5, %4 ], [ %0, %3 ]
   %.sink29.i = phi i8 [ 1, %4 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %.sink31.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 32
   store i8 %.sink29.i, ptr %10, align 8
   %.not27.i = icmp ne ptr %1, null
   %.sink.i = zext i1 %.not27.i to i32
-  %11 = getelementptr inbounds i8, ptr %.sink31.i, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 12
   store i32 %.sink.i, ptr %11, align 4
   store ptr %1, ptr %.sink31.i, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink31.i, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 36
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.sink31.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 16
   store ptr null, ptr %14, align 8
   %.not28.i = icmp eq ptr %2, null
   br i1 %.not28.i, label %15, label %20
@@ -289,7 +289,7 @@ define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %new_ing.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %.sink31.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 24
   store ptr %2, ptr %21, align 8
   br label %new_ing.exit
 
@@ -316,18 +316,18 @@ define noundef ptr @newIngraph(ptr noundef writeonly %0, ptr noundef %1) local_u
 8:                                                ; preds = %3, %2
   %.sink31.i.i = phi ptr [ %4, %3 ], [ %0, %2 ]
   %.sink29.i.i = phi i8 [ 1, %3 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 32
   store i8 %.sink29.i.i, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 12
   store i32 0, ptr %10, align 4
   store ptr %1, ptr %.sink31.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 36
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.sink31.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 24
   store ptr @dflt_read, ptr %14, align 8
   br label %newIng.exit
 
@@ -344,7 +344,7 @@ define internal ptr @dflt_read(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @closeIngraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %11
@@ -355,7 +355,7 @@ define void @closeIngraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %11, label %9
@@ -365,7 +365,7 @@ define void @closeIngraph(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %6, %4, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %16
@@ -383,7 +383,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @fileName(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
@@ -394,7 +394,7 @@ define ptr @fileName(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   br i1 %.not10, label %16, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %16, label %9

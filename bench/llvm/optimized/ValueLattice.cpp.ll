@@ -681,7 +681,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %8, ptr noundef nonnull align 1 dereferenceable(7) @.str, i64 7, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 7
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -703,7 +703,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %22, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5
   store ptr %31, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -725,7 +725,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 43:                                               ; preds = %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %36, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 11
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 11
   store ptr %45, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -747,7 +747,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 57:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %50, ptr noundef nonnull align 1 dereferenceable(12) @.str.3, i64 12, i1 false)
   %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store ptr %59, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit28
 
@@ -770,7 +770,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %55, %57
 69:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28
   store i8 62, ptr %65, align 1
   %70 = load ptr, ptr %64, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %71, ptr %64, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -792,7 +792,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %55, %57
 83:                                               ; preds = %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %76, ptr noundef nonnull align 1 dereferenceable(27) @.str.5, i64 27, i1 false)
   %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 27
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 27
   store ptr %85, ptr %75, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit34
 
@@ -817,7 +817,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %81, %83
 97:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34
   store i16 8236, ptr %90, align 1
   %98 = load ptr, ptr %89, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 2
   store ptr %99, ptr %89, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit37
 
@@ -839,7 +839,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %95, %97
 108:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit37
   store i8 62, ptr %104, align 1
   %109 = load ptr, ptr %103, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1
   store ptr %110, ptr %103, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

@@ -10,13 +10,13 @@ define i32 @pthread_rwlock_trywrlock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %13
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %11, label %10
@@ -46,7 +46,7 @@ define i32 @pthread_rwlock_clockwrlock(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %5, label %30
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %28, label %9
@@ -54,10 +54,10 @@ define i32 @pthread_rwlock_clockwrlock(ptr noundef %0, i32 noundef %1, ptr nound
 9:                                                ; preds = %5
   %10 = add nuw i32 %7, 1
   store i32 %10, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.not27 = icmp eq ptr %2, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not27, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %9, %.critedge.us
@@ -137,7 +137,7 @@ define i32 @pthread_rwlock_wrlock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %3, label %pthread_rwlock_clockwrlock.exit
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %21, label %7
@@ -145,9 +145,9 @@ define i32 @pthread_rwlock_wrlock(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %3
   %8 = add nuw i32 %5, 1
   store i32 %8, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %.critedge.us.i, %7

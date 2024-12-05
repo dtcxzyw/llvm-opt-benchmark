@@ -129,21 +129,21 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
 
 28:                                               ; preds = %28, %27
   %.01.i = phi i64 [ 0, %27 ], [ %43, %28 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 %.01.i
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.01.i
   %30 = load i8, ptr %29, align 1
   %31 = lshr i8 %30, 4
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = shl nuw nsw i64 %.01.i, 1
-  %36 = getelementptr inbounds i8, ptr @zend_system_id, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @zend_system_id, i64 %35
   store i8 %34, ptr %36, align 2
   %37 = and i8 %30, 15
   %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr inbounds [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds i8, ptr @zend_system_id, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr @zend_system_id, i64 %41
   store i8 %40, ptr %42, align 1
   %43 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %43, 16

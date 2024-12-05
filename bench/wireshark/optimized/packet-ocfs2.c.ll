@@ -433,7 +433,7 @@ define internal i32 @dissect_ocfs2_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %10, label %93, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.170) #4
   %14 = load ptr, ptr %12, align 8

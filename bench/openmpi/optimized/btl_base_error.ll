@@ -52,7 +52,7 @@ define void @mca_btl_base_error_no_nics(ptr noundef %0, ptr noundef %1) local_un
 5:                                                ; preds = %2
   %6 = load ptr, ptr @opal_process_name_print, align 8
   %7 = tail call ptr @opal_proc_local_get() #9
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = tail call ptr %6(i64 %9) #9
   %11 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef %10) #9

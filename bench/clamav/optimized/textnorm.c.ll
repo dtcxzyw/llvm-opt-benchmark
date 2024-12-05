@@ -12,11 +12,11 @@ define range(i32 0, 3) i32 @text_normalize_init(ptr noundef writeonly %0, ptr no
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %7, align 8
   br label %8
 
@@ -27,9 +27,9 @@ define range(i32 0, 3) i32 @text_normalize_init(ptr noundef writeonly %0, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @text_normalize_reset(ptr nocapture noundef writeonly initializes((16, 28)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   ret void
 }
@@ -37,10 +37,10 @@ define void @text_normalize_reset(ptr nocapture noundef writeonly initializes((1
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = icmp eq ptr %1, null
   br i1 %9, label %41, label %10
 
@@ -53,7 +53,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %17
 
 17:                                               ; preds = %.lr.ph, %32
@@ -62,7 +62,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   %18 = getelementptr inbounds i8, ptr %1, i64 %.02628
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds [256 x i32], ptr @char_action, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i32], ptr @char_action, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %32 [
     i32 0, label %30
@@ -76,7 +76,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   br i1 %.not, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.02429, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02429, i64 1
   store i8 32, ptr %.02429, align 1
   br label %27
 
@@ -92,7 +92,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
 30:                                               ; preds = %17, %28
   %.0 = phi i8 [ %29, %28 ], [ %19, %17 ]
   store i32 0, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %.02429, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.02429, i64 1
   store i8 %.0, ptr %.02429, align 1
   br label %32
 
@@ -125,16 +125,16 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %7, 4294967295
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = sub i64 %5, %2
   %.5152 = tail call i64 @llvm.umin.i64(i64 %10, i64 %14)
   %.53 = tail call i64 @llvm.umin.i64(i64 %.5152, i64 %9)
@@ -168,7 +168,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   %25 = getelementptr inbounds i8, ptr %16, i64 %.02628.i
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i32], ptr @char_action, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i32], ptr @char_action, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   switch i32 %29, label %39 [
     i32 0, label %37
@@ -182,7 +182,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br i1 %.not.i, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.02429.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.02429.i, i64 1
   store i8 32, ptr %.02429.i, align 1
   br label %34
 
@@ -198,7 +198,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
 37:                                               ; preds = %35, %24
   %.0.i = phi i8 [ %36, %35 ], [ %26, %24 ]
   store i32 0, ptr %13, align 8
-  %38 = getelementptr inbounds i8, ptr %.02429.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.02429.i, i64 1
   store i8 %.0.i, ptr %.02429.i, align 1
   br label %39
 

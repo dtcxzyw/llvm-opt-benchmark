@@ -125,7 +125,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i
   br i1 %25, label %26, label %49
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, -1
   %30 = icmp eq i32 %28, %17
@@ -133,17 +133,17 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = xor i32 %34, %8
-  %36 = getelementptr inbounds i8, ptr %20, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %35, %37
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %20, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %42 = load i32, ptr %41, align 16
   %43 = and i32 %42, 3
   %44 = icmp eq i32 %43, 3
@@ -164,7 +164,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i
   %50 = add i32 %21, 1
   %51 = sext i32 %50 to i64
   %52 = getelementptr [12 x %struct.chipset], ptr @early_qrk, i64 0, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit, label %18, !llvm.loop !10
@@ -373,13 +373,13 @@ define internal void @intel_graphics_quirks(i32 noundef %0, i32 noundef %1, i32 
 17:                                               ; preds = %14, %8
   %18 = phi i64 [ 0, %8 ], [ %15, %14 ]
   %19 = getelementptr [333 x %struct.pci_device_id], ptr @intel_early_ids, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %13
   br i1 %22, label %23, label %14
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
   tail call fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %26) #5
@@ -521,7 +521,7 @@ declare dso_local void @write_pci_config_byte(i8 noundef zeroext, i8 noundef zer
 define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = tail call i64 %5(i32 noundef %0, i32 noundef %1, i32 noundef %2) #4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %6) #4
   %10 = icmp ne i64 %6, 0

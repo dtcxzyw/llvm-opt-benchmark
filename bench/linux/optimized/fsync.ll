@@ -33,14 +33,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 560
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 560
   %13 = load volatile i64, ptr %12, align 8
   %14 = and i64 %13, 2
   %15 = icmp eq i64 %14, 0
@@ -49,7 +49,7 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 16:                                               ; preds = %4
   %17 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !7
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 2104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2104
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22, !prof !6
@@ -81,7 +81,7 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @__SCT__tp_func_ext4_sync_file_enter(ptr noundef %36, ptr noundef %0, i32 noundef %3) #8
   br label %38
@@ -102,7 +102,7 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 
 45:                                               ; preds = %42, %38, %25, %24
   %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load i64, ptr %47, align 16
   %49 = and i64 %48, 1
   %50 = icmp eq i64 %49, 0
@@ -111,9 +111,9 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 51:                                               ; preds = %45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 872
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 872
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 560
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 560
   %56 = load volatile i64, ptr %55, align 8
   %57 = and i64 %56, 2
   %58 = icmp eq i64 %57, 0
@@ -121,15 +121,15 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
   br label %142
 
 60:                                               ; preds = %45
-  %61 = getelementptr inbounds i8, ptr %46, i64 872
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 872
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 552
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 552
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %111
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %0, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %68 = load ptr, ptr %67, align 8
   %69 = icmp ne i32 %3, 0
   %70 = tail call i32 @generic_buffers_fsync_noflush(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %69) #8
@@ -162,9 +162,9 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %87, i32 -33, ptr elementtype(i8) %87) #8, !srcloc !19
   %88 = tail call ptr @dget_parent(ptr noundef %81) #8
   tail call void @dput(ptr noundef %81) #8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @sync_mapping_buffers(ptr noundef %92) #8
   %94 = icmp eq i32 %93, 0
@@ -183,11 +183,11 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 
 101:                                              ; preds = %98, %77, %72, %66
   %102 = phi i32 [ %70, %66 ], [ %100, %98 ], [ 0, %72 ], [ 0, %77 ]
-  %103 = getelementptr inbounds i8, ptr %68, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 872
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 872
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 120
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 120
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, 131072
   %110 = icmp eq i32 %109, 0
@@ -201,9 +201,9 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 114:                                              ; preds = %111
   %115 = icmp eq i32 %3, 0
   %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 872
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 872
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 552
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 552
   %120 = load ptr, ptr %119, align 8
   %121 = select i1 %115, i64 808, i64 812
   %122 = getelementptr i8, ptr %7, i64 %121
@@ -235,7 +235,7 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
 .thread7:                                         ; preds = %101, %132
   %135 = phi i32 [ %134, %132 ], [ %102, %101 ]
   %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 200
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 200
   %138 = load ptr, ptr %137, align 8
   %139 = tail call i32 @blkdev_issue_flush(ptr noundef %138) #8
   %140 = icmp eq i32 %135, 0
@@ -267,7 +267,7 @@ define dso_local i32 @ext4_sync_file(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %155, label %160, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = tail call i32 @__SCT__tp_func_ext4_sync_file_exit(ptr noundef %158, ptr noundef %7, i32 noundef %146) #8
   br label %160

@@ -18,14 +18,14 @@ do.body:                                          ; preds = %do.body.preheader, 
   %d.1 = phi ptr [ %incdec.ptr2, %do.cond ], [ %dst, %do.body.preheader ]
   %s.1 = phi ptr [ %incdec.ptr, %do.cond ], [ %src, %do.body.preheader ]
   %n.1 = phi i64 [ %dec6, %do.cond ], [ %dec, %do.body.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.1, i64 1
   %0 = load i8, ptr %s.1, align 1
   store i8 %0, ptr %d.1, align 1
   %cmp3 = icmp eq i8 %0, 0
   br i1 %cmp3, label %if.end18, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %d.1, i64 1
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %d.1, i64 1
   %dec6 = add i64 %n.1, -1
   %cmp7.not = icmp eq i64 %dec6, 0
   br i1 %cmp7.not, label %if.then12, label %do.body, !llvm.loop !5
@@ -44,7 +44,7 @@ while.cond.preheader:                             ; preds = %if.then15, %if.then
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
   %s.3 = phi ptr [ %incdec.ptr17, %while.cond ], [ %s.0.ph, %while.cond.preheader ]
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %s.3, i64 1
+  %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %s.3, i64 1
   %1 = load i8, ptr %s.3, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end18, label %while.cond, !llvm.loop !7

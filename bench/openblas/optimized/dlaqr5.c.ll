@@ -71,7 +71,7 @@ define void @dlaqr5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 63:                                               ; preds = %83, %60
   %64 = phi i64 [ 1, %60 ], [ %.pre-phi92, %83 ]
-  %65 = getelementptr inbounds double, ptr %35, i64 %64
+  %65 = getelementptr inbounds nuw double, ptr %35, i64 %64
   %66 = load double, ptr %65, align 8, !tbaa !7
   %67 = getelementptr double, ptr %8, i64 %64
   %68 = load double, ptr %67, align 8, !tbaa !7
@@ -84,20 +84,20 @@ define void @dlaqr5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %83
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds double, ptr %34, i64 %64
+  %72 = getelementptr inbounds nuw double, ptr %34, i64 %64
   %73 = load double, ptr %72, align 8, !tbaa !7
   %74 = getelementptr double, ptr %7, i64 %64
   %75 = load double, ptr %74, align 8, !tbaa !7
   store double %75, ptr %72, align 8, !tbaa !7
   %76 = add nuw nsw i64 %64, 2
-  %77 = getelementptr inbounds double, ptr %34, i64 %76
+  %77 = getelementptr inbounds nuw double, ptr %34, i64 %76
   %78 = load double, ptr %77, align 8, !tbaa !7
   store double %78, ptr %74, align 8, !tbaa !7
   store double %73, ptr %77, align 8, !tbaa !7
   %79 = load double, ptr %65, align 8, !tbaa !7
   %80 = load double, ptr %67, align 8, !tbaa !7
   store double %80, ptr %65, align 8, !tbaa !7
-  %81 = getelementptr inbounds double, ptr %35, i64 %76
+  %81 = getelementptr inbounds nuw double, ptr %35, i64 %76
   %82 = load double, ptr %81, align 8, !tbaa !7
   store double %82, ptr %67, align 8, !tbaa !7
   store double %79, ptr %81, align 8, !tbaa !7
@@ -151,8 +151,8 @@ define void @dlaqr5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %113 = add i32 %93, -1
   %114 = icmp ult i32 %113, 2
   %115 = add i32 %36, 1
-  %116 = getelementptr inbounds i8, ptr %30, i64 8
-  %117 = getelementptr inbounds i8, ptr %30, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %118 = add i32 %48, 1
   %119 = sub i32 %95, %107
   %120 = sext i32 %36 to i64

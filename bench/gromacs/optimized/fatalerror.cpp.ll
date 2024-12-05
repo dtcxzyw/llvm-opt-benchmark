@@ -367,15 +367,15 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 .preheader.i:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %11
   %.011.idx14.i = phi i64 [ %.011.add.i, %11 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %.011.ptr15.i = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
+  %.011.ptr15.i = getelementptr inbounds nuw i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
   %12 = load ptr, ptr %.011.ptr15.i, align 16
   %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #19
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.preheader.i
-  %.011.ptr15.i.le = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
-  %16 = getelementptr inbounds i8, ptr %.011.ptr15.i.le, i64 8
+  %.011.ptr15.i.le = getelementptr inbounds nuw i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
+  %16 = getelementptr inbounds nuw i8, ptr %.011.ptr15.i.le, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %_ZL12gmx_strerrorPKc.exit
 

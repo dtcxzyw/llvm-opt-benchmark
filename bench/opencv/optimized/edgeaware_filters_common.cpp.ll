@@ -47,8 +47,8 @@ _ZN2cv3PtrINS_8ximgproc11DTFilterCPUEED2Ev.exit:
   call void @_ZN2cv8ximgproc11DTFilterCPU8createRFERKNS_11_InputArrayES4_ddi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.0") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, double noundef %4, i32 noundef %5)
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   ret void
@@ -127,9 +127,9 @@ define hidden noundef i32 @_ZN2cv8ximgproc24getTotalNumberOfChannelsERKNS_11_Inp
   br i1 %33, label %34, label %54
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %36, align 8
   %40 = ptrtoint ptr %38 to i64
@@ -143,7 +143,7 @@ define hidden noundef i32 @_ZN2cv8ximgproc24getTotalNumberOfChannelsERKNS_11_Inp
   %44 = phi i64 [ %52, %.lr.ph41 ], [ 0, %34 ]
   %.02940 = phi i32 [ %51, %.lr.ph41 ], [ 0, %34 ]
   %.03139 = phi i32 [ %50, %.lr.ph41 ], [ 0, %34 ]
-  %45 = getelementptr inbounds %"class.cv::Mat", ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw %"class.cv::Mat", ptr %39, i64 %44
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 3
   %48 = and i32 %47, 511
@@ -160,9 +160,9 @@ define hidden noundef i32 @_ZN2cv8ximgproc24getTotalNumberOfChannelsERKNS_11_Inp
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %59, align 8
   %63 = ptrtoint ptr %61 to i64
@@ -176,7 +176,7 @@ define hidden noundef i32 @_ZN2cv8ximgproc24getTotalNumberOfChannelsERKNS_11_Inp
   %67 = phi i64 [ %75, %.lr.ph ], [ 0, %57 ]
   %.038 = phi i32 [ %74, %.lr.ph ], [ 0, %57 ]
   %.02837 = phi i32 [ %73, %.lr.ph ], [ 0, %57 ]
-  %68 = getelementptr inbounds %"class.cv::UMat", ptr %62, i64 %67
+  %68 = getelementptr inbounds nuw %"class.cv::UMat", ptr %62, i64 %67
   %69 = load i32, ptr %68, align 8
   %70 = lshr i32 %69, 3
   %71 = and i32 %70, 511
@@ -319,9 +319,9 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
   br i1 %58, label %59, label %119
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %61, align 8
   %65 = ptrtoint ptr %63 to i64
@@ -333,7 +333,7 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
 
 .lr.ph112:                                        ; preds = %59
   %69 = load i32, ptr %64, align 8
-  %70 = getelementptr inbounds i8, ptr %64, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 64
   br label %82
 
 71:                                               ; preds = %59
@@ -368,7 +368,7 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
 82:                                               ; preds = %.lr.ph112, %78
   %83 = phi i64 [ 0, %.lr.ph112 ], [ %80, %78 ]
   %.056111 = phi i32 [ 0, %.lr.ph112 ], [ %79, %78 ]
-  %84 = getelementptr inbounds %"class.cv::Mat", ptr %64, i64 %83
+  %84 = getelementptr inbounds nuw %"class.cv::Mat", ptr %64, i64 %83
   %85 = load i32, ptr %84, align 8
   %86 = xor i32 %69, %85
   %87 = and i32 %86, 7
@@ -399,13 +399,13 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
   br label %183
 
 96:                                               ; preds = %82
-  %97 = getelementptr inbounds i8, ptr %84, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = load i32, ptr %98, align 4
   %102 = load ptr, ptr %70, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = load i32, ptr %102, align 4
   %106 = icmp eq i32 %100, %104
@@ -453,9 +453,9 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
   br i1 %121, label %122, label %182
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %124, align 8
   %128 = ptrtoint ptr %126 to i64
@@ -467,7 +467,7 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
 
 .lr.ph:                                           ; preds = %122
   %132 = load i32, ptr %127, align 8
-  %133 = getelementptr inbounds i8, ptr %127, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 48
   br label %145
 
 134:                                              ; preds = %122
@@ -502,7 +502,7 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
 145:                                              ; preds = %.lr.ph, %141
   %146 = phi i64 [ 0, %.lr.ph ], [ %143, %141 ]
   %.046110 = phi i32 [ 0, %.lr.ph ], [ %142, %141 ]
-  %147 = getelementptr inbounds %"class.cv::UMat", ptr %127, i64 %146
+  %147 = getelementptr inbounds nuw %"class.cv::UMat", ptr %127, i64 %146
   %148 = load i32, ptr %147, align 8
   %149 = xor i32 %132, %148
   %150 = and i32 %149, 7
@@ -533,13 +533,13 @@ define hidden void @_ZN2cv8ximgproc21checkSameSizeAndDepthERKNS_11_InputArrayERN
   br label %183
 
 159:                                              ; preds = %145
-  %160 = getelementptr inbounds i8, ptr %147, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %147, i64 48
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
   %164 = load i32, ptr %161, align 4
   %165 = load ptr, ptr %133, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = load i32, ptr %165, align 4
   %169 = icmp eq i32 %163, %167
@@ -613,9 +613,9 @@ define hidden void @_ZN2cv8ximgproc10intrinsics4add_EPfS2_i(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = fadd float %6, %8
   store float %9, ptr %7, align 4
@@ -638,12 +638,12 @@ define hidden void @_ZN2cv8ximgproc10intrinsics3mulEPfS2_S2_i(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fmul float %7, %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -664,10 +664,10 @@ define hidden void @_ZN2cv8ximgproc10intrinsics3mulEPfS2_fi(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
   %8 = fmul float %2, %7
-  %9 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -688,10 +688,10 @@ define hidden void @_ZN2cv8ximgproc10intrinsics3madEPfS2_ffi(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = tail call float @llvm.fmuladd.f32(float %2, float %8, float %3)
-  %10 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -715,10 +715,10 @@ define hidden void @_ZN2cv8ximgproc10intrinsics4sqr_EPfS2_i(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
   %7 = fmul float %6, %6
-  %8 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %7, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -739,13 +739,13 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7sqr_difEPfS2_S2_i(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fsub float %7, %9
   %11 = fmul float %10, %10
-  %12 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -766,11 +766,11 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7add_mulEPfS2_S2_i(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = tail call float @llvm.fmuladd.f32(float %7, float %9, float %11)
   store float %12, ptr %10, align 4
@@ -793,9 +793,9 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7add_sqrEPfS2_i(ptr nocapture nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %8)
   store float %9, ptr %7, align 4
@@ -818,12 +818,12 @@ define hidden void @_ZN2cv8ximgproc10intrinsics11add_sqr_difEPfS2_S2_i(ptr nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fsub float %7, %9
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
   %13 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %12)
   store float %13, ptr %11, align 4
@@ -846,11 +846,11 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7sub_mulEPfS2_S2_i(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = fneg float %7
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %9, float %11)
@@ -874,12 +874,12 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7sub_madEPfS2_S2_fi(ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %8, float %10, float %3)
-  %12 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
   %14 = fsub float %13, %11
   store float %14, ptr %12, align 4
@@ -902,18 +902,18 @@ define hidden void @_ZN2cv8ximgproc10intrinsics7det_2x2EPfS2_S2_S2_S2_i(ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %15 = load float, ptr %14, align 4
   %16 = fneg float %15
   %17 = fmul float %13, %16
   %18 = tail call float @llvm.fmuladd.f32(float %9, float %11, float %17)
-  %19 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -934,11 +934,11 @@ define hidden void @_ZN2cv8ximgproc10intrinsics11div_det_2x2EPfS2_S2_i(ptr nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = fneg float %11
   %13 = fmul float %11, %12
@@ -971,9 +971,9 @@ define hidden void @_ZN2cv8ximgproc10intrinsics6div_1xEPfS2_i(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = fdiv float %8, %6
   store float %9, ptr %7, align 4
@@ -996,7 +996,7 @@ define hidden void @_ZN2cv8ximgproc10intrinsics8inv_selfEPfi(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
   %6 = fdiv float 1.000000e+00, %5
   store float %6, ptr %4, align 4
@@ -1019,10 +1019,10 @@ define hidden void @_ZN2cv8ximgproc10intrinsics5sqrt_EPfS2_i(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
   %7 = tail call noundef float @sqrtf(float noundef %6) #10
-  %8 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %7, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1043,13 +1043,13 @@ define hidden void @_ZN2cv8ximgproc10intrinsics4min_EPfS2_S2_i(ptr nocapture nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
-  %7 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = load float, ptr %6, align 4
   %10 = fcmp olt float %8, %9
   %11 = select i1 %10, float %8, float %9
-  %12 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1070,9 +1070,9 @@ define hidden void @_ZN2cv8ximgproc10intrinsics16rf_vert_row_passEPfS2_fi(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fsub float %7, %9
   %11 = tail call float @llvm.fmuladd.f32(float %2, float %10, float %9)

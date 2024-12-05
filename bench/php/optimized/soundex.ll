@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [5 x i8], align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %7, label %.thread167
@@ -19,8 +19,8 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread179
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread, label %13
@@ -40,9 +40,9 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
 
 15:                                               ; preds = %._crit_edge194, %.thread
   %16 = phi ptr [ %.pre, %._crit_edge194 ], [ %12, %.thread ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %.lr.ph190.preheader, label %.lr.ph
 
@@ -108,7 +108,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
 
 45:                                               ; preds = %42
   %46 = add nuw nsw i64 %.0142186, 1
-  %47 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %.0142186
+  %47 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %.0142186
   store i8 %40, ptr %47, align 1
   br label %48
 
@@ -125,19 +125,19 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
 ._crit_edge:                                      ; preds = %.preheader, %.lr.ph190.preheader
   %54 = call noalias ptr @_emalloc_32() #4
   store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 22, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 4, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %59 = load i32, ptr %4, align 4
   store i32 %59, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 28
   store i8 0, ptr %60, align 1
   store ptr %54, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %61, align 8
   br label %62
 

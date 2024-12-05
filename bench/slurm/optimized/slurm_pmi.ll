@@ -103,9 +103,9 @@ _set_pmi_time.exit:                               ; preds = %18, %27, %.sink.spl
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #11
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %5, i32 noundef -1) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @srun_addr, i64 128, i1 false)
-  %32 = getelementptr inbounds i8, ptr %5, i64 204
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 7201, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %0, ptr %33, align 8
   call fastcc void @_delay_rpc(i32 noundef %1, i32 noundef %2)
   %34 = icmp sgt i32 %2, 4000
@@ -238,8 +238,8 @@ define internal fastcc void @_delay_rpc(i32 noundef %0, i32 noundef %1) unnamed_
 
 _set_pmi_time.exit:                               ; preds = %7, %16, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %51, %_set_pmi_time.exit
@@ -442,23 +442,23 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br label %59
 
 59:                                               ; preds = %57, %55
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %60, align 8
   store i32 %1, ptr %11, align 8
-  %61 = getelementptr inbounds i8, ptr %11, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %61, align 4
   %62 = call zeroext i16 @slurm_get_port(ptr noundef nonnull %8) #11
-  %63 = getelementptr inbounds i8, ptr %11, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i16 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %11, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %64, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %6) #11
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %6, i32 noundef -1) #11
   call void @slurm_msg_t_init(ptr noundef nonnull %7) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) @srun_addr, i64 128, i1 false)
-  %65 = getelementptr inbounds i8, ptr %6, i64 204
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 204
   store i16 7203, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 192
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %11, ptr %66, align 8
   call fastcc void @_delay_rpc(i32 noundef %1, i32 noundef %2)
   %67 = icmp sgt i32 %2, 4000
@@ -572,7 +572,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br label %145
 
 124:                                              ; preds = %.preheader
-  %125 = getelementptr inbounds i8, ptr %7, i64 128
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %126 = load ptr, ptr %125, align 8
   %.not35 = icmp eq ptr %126, null
   br i1 %.not35, label %128, label %127
@@ -582,7 +582,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   br label %128
 
 128:                                              ; preds = %127, %124
-  %129 = getelementptr inbounds i8, ptr %7, i64 204
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 204
   %130 = load i16, ptr %129, align 4
   %.not36 = icmp eq i16 %130, 7204
   br i1 %.not36, label %135, label %131
@@ -604,7 +604,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
 
 140:                                              ; preds = %138, %135
   %141 = call i32 @close(i32 noundef %109) #11
-  %142 = getelementptr inbounds i8, ptr %7, i64 192
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %143 = load ptr, ptr %142, align 8
   store ptr %143, ptr %0, align 8
   %144 = call fastcc i32 @_forward_comm_set(ptr noundef %143)
@@ -656,9 +656,9 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 204
-  %7 = getelementptr inbounds i8, ptr %2, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 204
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %wide.trip.count = zext i16 %4 to i64
   br label %8
 
@@ -666,7 +666,7 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.01920 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.kvs_hosts, ptr %9, i64 %indvars.iv, i32 1
+  %10 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %9, i64 %indvars.iv, i32 1
   %11 = load i16, ptr %10, align 4
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %32, label %13
@@ -677,10 +677,10 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
   store i16 7204, ptr %6, align 4
   store ptr %0, ptr %7, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.kvs_hosts, ptr %14, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %15 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @slurm_set_addr(ptr noundef nonnull %2, i16 noundef zeroext %17, ptr noundef %19) #11
   %20 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #11
@@ -693,7 +693,7 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.kvs_hosts, ptr %23, i64 %indvars.iv, i32 2
+  %24 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %23, i64 %indvars.iv, i32 2
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %25) #11
   store i32 1, ptr %3, align 4
@@ -703,7 +703,7 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
   %28 = phi i32 [ %.pre, %._crit_edge23 ], [ 1, %22 ]
   %29 = call i32 @llvm.smax.i32(i32 %.01920, i32 %28)
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.kvs_hosts, ptr %30, i64 %indvars.iv, i32 2
+  %31 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %30, i64 %indvars.iv, i32 2
   call void @slurm_xfree(ptr noundef nonnull %31) #11
   br label %32
 
@@ -715,7 +715,7 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %32, %1
   %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %32 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @slurm_xfree(ptr noundef nonnull %33) #11
   ret i32 %.019.lcssa
 }

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9context_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #9
   store ptr %3, ptr %2, align 8
@@ -31,9 +31,9 @@ define void @_ZN9context_t7wrapperEjj(i32 noundef %0, i32 noundef %1) #0 align 2
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
   %10 = load ptr, ptr %9, align 8
   store ptr %8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @swapcontext(ptr noundef %12, ptr noundef %14) #10
   %.not.i = icmp eq i32 %15, 0
@@ -44,9 +44,9 @@ define void @_ZN9context_t7wrapperEjj(i32 noundef %0, i32 noundef %1) #0 align 2
   unreachable
 
 _ZN9context_t9switch_toEv.exit:                   ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void %18(ptr noundef %20)
   ret void
@@ -57,9 +57,9 @@ define void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceab
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
   %3 = load ptr, ptr %2, align 8
   store ptr %0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @swapcontext(ptr noundef %5, ptr noundef %7) #10
   %.not = icmp eq i32 %8, 0
@@ -75,30 +75,30 @@ define void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8
   %6 = call noundef ptr @_ZN9context_t7currentEv()
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @getcontext(ptr noundef %8) #12
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %12, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 1048576, ptr %16, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, -8
   %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #9
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %21, ptr %22, align 8
   %23 = ptrtoint ptr %0 to i64
   %24 = lshr i64 %23, 32
@@ -109,7 +109,7 @@ define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenc
   %28 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL3cur)
   %29 = load ptr, ptr %28, align 8
   store ptr %0, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %7, align 8
   %33 = call i32 @swapcontext(ptr noundef %31, ptr noundef %32) #10
@@ -138,7 +138,7 @@ define noundef ptr @_ZN9context_t7currentEv() local_unnamed_addr #0 align 2 pers
 
 6:                                                ; preds = %4
   store ptr %5, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @getcontext(ptr noundef %8) #12
   %.pre = load ptr, ptr %1, align 8
@@ -166,7 +166,7 @@ declare void @makecontext(ptr noundef, ptr noundef, i32 noundef, ...) local_unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9context_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI10ucontext_tSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI10ucontext_tEclEPS0_.exit.i

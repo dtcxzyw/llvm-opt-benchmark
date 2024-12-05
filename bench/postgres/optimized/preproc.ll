@@ -1464,7 +1464,7 @@ sub_0:                                            ; preds = %19, %17
   br i1 %.not6, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %23 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %31, label %.tail.thread
@@ -1702,15 +1702,15 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %103 = sub nsw i64 1, %102
   %104 = getelementptr %union.YYSTYPE, ptr %.24599, i64 %103
   %.sroa.0312.0.copyload = load ptr, ptr %104, align 8
-  %.sroa.3585.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 8
+  %.sroa.3585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.3585.0.copyload = load ptr, ptr %.sroa.3585.0..sroa_idx, align 8
-  %.sroa.3645.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 16
+  %.sroa.3645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   %.sroa.3645.0.copyload = load ptr, ptr %.sroa.3645.0..sroa_idx, align 8
-  %.sroa.3688.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 24
+  %.sroa.3688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 24
   %.sroa.3688.0.copyload = load ptr, ptr %.sroa.3688.0..sroa_idx, align 8
-  %.sroa.3714.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 32
+  %.sroa.3714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 32
   %.sroa.3714.0.copyload = load ptr, ptr %.sroa.3714.0..sroa_idx, align 8
-  %.sroa.3740.0..sroa_idx = getelementptr inbounds i8, ptr %104, i64 40
+  %.sroa.3740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 40
   %.sroa.3740.0.copyload = load ptr, ptr %.sroa.3740.0..sroa_idx, align 8
   %.not4713 = icmp eq i8 %101, 0
   %105 = sub nsw i64 0, %102
@@ -5979,7 +5979,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 314:                                              ; preds = %98
   %315 = load ptr, ptr %.24599, align 8
   call fastcc void @check_declared_list(ptr noundef %315)
-  %316 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
   br i1 %318, label %321, label %319
@@ -6097,14 +6097,14 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 371:                                              ; preds = %98
   %372 = load ptr, ptr %.24599, align 8
   call fastcc void @check_declared_list(ptr noundef %372)
-  %373 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %374 = load ptr, ptr %373, align 8
   %375 = icmp eq ptr %374, null
   br i1 %375, label %376, label %380
 
 376:                                              ; preds = %371
   %377 = load ptr, ptr %.24599, align 8
-  %378 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %379 = load ptr, ptr %378, align 8
   call void @output_prepare_statement(ptr noundef %377, ptr noundef %379) #17
   br label %.loopexit4901
@@ -6116,7 +6116,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 382:                                              ; preds = %380
   %383 = call ptr @mm_strdup(ptr noundef nonnull @.str.12) #17
-  %384 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %385 = load ptr, ptr %384, align 8
   %386 = call ptr @mm_strdup(ptr noundef nonnull @.str.12) #17
   %387 = call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %383, ptr noundef %385, ptr noundef %386)
@@ -6156,7 +6156,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %408 = call ptr @mm_strdup(ptr noundef nonnull @.str.11) #17
   %409 = load ptr, ptr %373, align 8
   %410 = call ptr @mm_strdup(ptr noundef nonnull @.str.14) #17
-  %411 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %412 = load ptr, ptr %411, align 8
   %413 = call ptr (i32, ...) @cat_str(i32 noundef 5, ptr noundef %407, ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef %412)
   call void @output_statement(ptr noundef %413, i32 noundef 0, i32 noundef 4) #17
@@ -6329,7 +6329,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %.loopexit4901
 
 490:                                              ; preds = %98
-  %491 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %491 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %492 = load ptr, ptr %491, align 8
   call fastcc void @check_declared_list(ptr noundef %492)
   %493 = load ptr, ptr @base_yyout, align 8
@@ -6414,7 +6414,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %.loopexit4901
 
 538:                                              ; preds = %98
-  %539 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %540 = load ptr, ptr %539, align 8
   %541 = load ptr, ptr @connection, align 8
   %542 = call ptr @lookup_descriptor(ptr noundef %540, ptr noundef %541) #17
@@ -6444,7 +6444,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br i1 %.not4793, label %.loopexit4901, label %556
 
 556:                                              ; preds = %553
-  %557 = getelementptr inbounds i8, ptr %555, i64 24
+  %557 = getelementptr inbounds nuw i8, ptr %555, i64 24
   %558 = load ptr, ptr %557, align 8
   %.not4794 = icmp eq ptr %558, null
   br i1 %.not4794, label %561, label %559
@@ -6456,11 +6456,11 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 561:                                              ; preds = %556, %559
   %562 = phi ptr [ %560, %559 ], [ null, %556 ]
   store ptr %562, ptr @connection, align 8
-  %563 = getelementptr inbounds i8, ptr %555, i64 16
+  %563 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %564 = load ptr, ptr %563, align 8
   %565 = call ptr @mm_strdup(ptr noundef %564) #17
   call void @output_statement(ptr noundef %565, i32 noundef 0, i32 noundef 0) #17
-  %566 = getelementptr inbounds i8, ptr %555, i64 32
+  %566 = getelementptr inbounds nuw i8, ptr %555, i64 32
   store i8 1, ptr %566, align 8
   br label %.loopexit4901
 
@@ -6495,7 +6495,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %.loopexit4901
 
 582:                                              ; preds = %98
-  %583 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %584 = load ptr, ptr %583, align 8
   %585 = load ptr, ptr @connection, align 8
   %586 = call ptr @lookup_descriptor(ptr noundef %584, ptr noundef %585) #17
@@ -8305,7 +8305,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br i1 %1795, label %1796, label %1801
 
 1796:                                             ; preds = %1792
-  %1797 = getelementptr inbounds i8, ptr %.046274946, i64 24
+  %1797 = getelementptr inbounds nuw i8, ptr %.046274946, i64 24
   %1798 = load ptr, ptr %1797, align 8
   %.not4787 = icmp eq ptr %1798, null
   br i1 %.not4787, label %.loopexit, label %1799
@@ -8316,7 +8316,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 1801:                                             ; preds = %1792
-  %1802 = getelementptr inbounds i8, ptr %.046274946, i64 72
+  %1802 = getelementptr inbounds nuw i8, ptr %.046274946, i64 72
   %.04627 = load ptr, ptr %1802, align 8
   %.not4786 = icmp eq ptr %.04627, null
   br i1 %.not4786, label %.loopexit, label %1792, !llvm.loop !5
@@ -12462,7 +12462,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4753 = phi ptr [ %.pre5007, %4750 ], [ %4747, %4745 ]
   %4754 = phi ptr [ %4751, %4750 ], [ %4747, %4745 ]
   %4755 = call fastcc ptr @add_additional_variables(ptr noundef %4753, i1 noundef zeroext false)
-  %4756 = getelementptr inbounds i8, ptr %4755, i64 24
+  %4756 = getelementptr inbounds nuw i8, ptr %4755, i64 24
   %4757 = load ptr, ptr %4756, align 8
   %.not4785 = icmp eq ptr %4757, null
   br i1 %.not4785, label %4760, label %4758
@@ -12493,7 +12493,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4771 = phi ptr [ %.pre5006, %4768 ], [ %4765, %4763 ]
   %4772 = phi ptr [ %4769, %4768 ], [ %4765, %4763 ]
   %4773 = call fastcc ptr @add_additional_variables(ptr noundef %4771, i1 noundef zeroext false)
-  %4774 = getelementptr inbounds i8, ptr %4773, i64 24
+  %4774 = getelementptr inbounds nuw i8, ptr %4773, i64 24
   %4775 = load ptr, ptr %4774, align 8
   %.not4784 = icmp eq ptr %4775, null
   br i1 %.not4784, label %4778, label %4776
@@ -12524,7 +12524,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4789 = phi ptr [ %.pre5005, %4786 ], [ %4783, %4781 ]
   %4790 = phi ptr [ %4787, %4786 ], [ %4783, %4781 ]
   %4791 = call fastcc ptr @add_additional_variables(ptr noundef %4789, i1 noundef zeroext false)
-  %4792 = getelementptr inbounds i8, ptr %4791, i64 24
+  %4792 = getelementptr inbounds nuw i8, ptr %4791, i64 24
   %4793 = load ptr, ptr %4792, align 8
   %.not4783 = icmp eq ptr %4793, null
   br i1 %.not4783, label %4796, label %4794
@@ -12555,7 +12555,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4807 = phi ptr [ %.pre5004, %4804 ], [ %4801, %4799 ]
   %4808 = phi ptr [ %4805, %4804 ], [ %4801, %4799 ]
   %4809 = call fastcc ptr @add_additional_variables(ptr noundef %4807, i1 noundef zeroext false)
-  %4810 = getelementptr inbounds i8, ptr %4809, i64 24
+  %4810 = getelementptr inbounds nuw i8, ptr %4809, i64 24
   %4811 = load ptr, ptr %4810, align 8
   %.not4782 = icmp eq ptr %4811, null
   br i1 %.not4782, label %4814, label %4812
@@ -12585,7 +12585,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4824 = phi ptr [ %.pre5003, %4821 ], [ %4818, %4817 ]
   %4825 = phi ptr [ %4822, %4821 ], [ %4818, %4817 ]
   %4826 = call fastcc ptr @add_additional_variables(ptr noundef %4824, i1 noundef zeroext false)
-  %4827 = getelementptr inbounds i8, ptr %4826, i64 24
+  %4827 = getelementptr inbounds nuw i8, ptr %4826, i64 24
   %4828 = load ptr, ptr %4827, align 8
   %.not4781 = icmp eq ptr %4828, null
   br i1 %.not4781, label %4831, label %4829
@@ -12615,7 +12615,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4841 = phi ptr [ %.pre5002, %4838 ], [ %4835, %4834 ]
   %4842 = phi ptr [ %4839, %4838 ], [ %4835, %4834 ]
   %4843 = call fastcc ptr @add_additional_variables(ptr noundef %4841, i1 noundef zeroext false)
-  %4844 = getelementptr inbounds i8, ptr %4843, i64 24
+  %4844 = getelementptr inbounds nuw i8, ptr %4843, i64 24
   %4845 = load ptr, ptr %4844, align 8
   %.not4780 = icmp eq ptr %4845, null
   br i1 %.not4780, label %4848, label %4846
@@ -12645,7 +12645,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4858 = phi ptr [ %.pre5001, %4855 ], [ %4852, %4851 ]
   %4859 = phi ptr [ %4856, %4855 ], [ %4852, %4851 ]
   %4860 = call fastcc ptr @add_additional_variables(ptr noundef %4858, i1 noundef zeroext false)
-  %4861 = getelementptr inbounds i8, ptr %4860, i64 24
+  %4861 = getelementptr inbounds nuw i8, ptr %4860, i64 24
   %4862 = load ptr, ptr %4861, align 8
   %.not4779 = icmp eq ptr %4862, null
   br i1 %.not4779, label %4865, label %4863
@@ -12675,7 +12675,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %4875 = phi ptr [ %.pre5000, %4872 ], [ %4869, %4868 ]
   %4876 = phi ptr [ %4873, %4872 ], [ %4869, %4868 ]
   %4877 = call fastcc ptr @add_additional_variables(ptr noundef %4875, i1 noundef zeroext false)
-  %4878 = getelementptr inbounds i8, ptr %4877, i64 24
+  %4878 = getelementptr inbounds nuw i8, ptr %4877, i64 24
   %4879 = load ptr, ptr %4878, align 8
   %.not4778 = icmp eq ptr %4879, null
   br i1 %.not4778, label %4882, label %4880
@@ -12693,7 +12693,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4885:                                             ; preds = %98
   %4886 = load ptr, ptr %.24599, align 8
   %4887 = call fastcc ptr @add_additional_variables(ptr noundef %4886, i1 noundef zeroext false)
-  %4888 = getelementptr inbounds i8, ptr %4887, i64 24
+  %4888 = getelementptr inbounds nuw i8, ptr %4887, i64 24
   %4889 = load ptr, ptr %4888, align 8
   %.not4777 = icmp eq ptr %4889, null
   br i1 %.not4777, label %4892, label %4890
@@ -12718,7 +12718,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4898:                                             ; preds = %98
   %4899 = load ptr, ptr %.24599, align 8
   %4900 = call fastcc ptr @add_additional_variables(ptr noundef %4899, i1 noundef zeroext false)
-  %4901 = getelementptr inbounds i8, ptr %4900, i64 24
+  %4901 = getelementptr inbounds nuw i8, ptr %4900, i64 24
   %4902 = load ptr, ptr %4901, align 8
   %.not4776 = icmp eq ptr %4902, null
   br i1 %.not4776, label %4905, label %4903
@@ -12750,7 +12750,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4916:                                             ; preds = %98
   %4917 = load ptr, ptr %.24599, align 8
   %4918 = call fastcc ptr @add_additional_variables(ptr noundef %4917, i1 noundef zeroext false)
-  %4919 = getelementptr inbounds i8, ptr %4918, i64 24
+  %4919 = getelementptr inbounds nuw i8, ptr %4918, i64 24
   %4920 = load ptr, ptr %4919, align 8
   %.not4775 = icmp eq ptr %4920, null
   br i1 %.not4775, label %4923, label %4921
@@ -12783,7 +12783,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4935:                                             ; preds = %98
   %4936 = load ptr, ptr %.24599, align 8
   %4937 = call fastcc ptr @add_additional_variables(ptr noundef %4936, i1 noundef zeroext false)
-  %4938 = getelementptr inbounds i8, ptr %4937, i64 24
+  %4938 = getelementptr inbounds nuw i8, ptr %4937, i64 24
   %4939 = load ptr, ptr %4938, align 8
   %.not4774 = icmp eq ptr %4939, null
   br i1 %.not4774, label %4942, label %4940
@@ -12816,7 +12816,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4954:                                             ; preds = %98
   %4955 = load ptr, ptr %.24599, align 8
   %4956 = call fastcc ptr @add_additional_variables(ptr noundef %4955, i1 noundef zeroext false)
-  %4957 = getelementptr inbounds i8, ptr %4956, i64 24
+  %4957 = getelementptr inbounds nuw i8, ptr %4956, i64 24
   %4958 = load ptr, ptr %4957, align 8
   %.not4773 = icmp eq ptr %4958, null
   br i1 %.not4773, label %4961, label %4959
@@ -12849,7 +12849,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4973:                                             ; preds = %98
   %4974 = load ptr, ptr %.24599, align 8
   %4975 = call fastcc ptr @add_additional_variables(ptr noundef %4974, i1 noundef zeroext false)
-  %4976 = getelementptr inbounds i8, ptr %4975, i64 24
+  %4976 = getelementptr inbounds nuw i8, ptr %4975, i64 24
   %4977 = load ptr, ptr %4976, align 8
   %.not4772 = icmp eq ptr %4977, null
   br i1 %.not4772, label %4980, label %4978
@@ -12882,7 +12882,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 4992:                                             ; preds = %98
   %4993 = load ptr, ptr %.24599, align 8
   %4994 = call fastcc ptr @add_additional_variables(ptr noundef %4993, i1 noundef zeroext false)
-  %4995 = getelementptr inbounds i8, ptr %4994, i64 24
+  %4995 = getelementptr inbounds nuw i8, ptr %4994, i64 24
   %4996 = load ptr, ptr %4995, align 8
   %.not4771 = icmp eq ptr %4996, null
   br i1 %.not4771, label %4999, label %4997
@@ -12929,7 +12929,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5019:                                             ; preds = %98
   %5020 = load ptr, ptr %.24599, align 8
   %5021 = call fastcc ptr @add_additional_variables(ptr noundef %5020, i1 noundef zeroext false)
-  %5022 = getelementptr inbounds i8, ptr %5021, i64 24
+  %5022 = getelementptr inbounds nuw i8, ptr %5021, i64 24
   %5023 = load ptr, ptr %5022, align 8
   %.not4770 = icmp eq ptr %5023, null
   br i1 %.not4770, label %5026, label %5024
@@ -12976,7 +12976,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5046:                                             ; preds = %98
   %5047 = load ptr, ptr %.24599, align 8
   %5048 = call fastcc ptr @add_additional_variables(ptr noundef %5047, i1 noundef zeroext false)
-  %5049 = getelementptr inbounds i8, ptr %5048, i64 24
+  %5049 = getelementptr inbounds nuw i8, ptr %5048, i64 24
   %5050 = load ptr, ptr %5049, align 8
   %.not4769 = icmp eq ptr %5050, null
   br i1 %.not4769, label %5053, label %5051
@@ -13024,7 +13024,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5073:                                             ; preds = %98
   %5074 = load ptr, ptr %.24599, align 8
   %5075 = call fastcc ptr @add_additional_variables(ptr noundef %5074, i1 noundef zeroext false)
-  %5076 = getelementptr inbounds i8, ptr %5075, i64 24
+  %5076 = getelementptr inbounds nuw i8, ptr %5075, i64 24
   %5077 = load ptr, ptr %5076, align 8
   %.not4768 = icmp eq ptr %5077, null
   br i1 %.not4768, label %5080, label %5078
@@ -13057,7 +13057,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5092:                                             ; preds = %98
   %5093 = load ptr, ptr %.24599, align 8
   %5094 = call fastcc ptr @add_additional_variables(ptr noundef %5093, i1 noundef zeroext false)
-  %5095 = getelementptr inbounds i8, ptr %5094, i64 24
+  %5095 = getelementptr inbounds nuw i8, ptr %5094, i64 24
   %5096 = load ptr, ptr %5095, align 8
   %.not4767 = icmp eq ptr %5096, null
   br i1 %.not4767, label %5099, label %5097
@@ -13104,7 +13104,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5119:                                             ; preds = %98
   %5120 = load ptr, ptr %.24599, align 8
   %5121 = call fastcc ptr @add_additional_variables(ptr noundef %5120, i1 noundef zeroext false)
-  %5122 = getelementptr inbounds i8, ptr %5121, i64 24
+  %5122 = getelementptr inbounds nuw i8, ptr %5121, i64 24
   %5123 = load ptr, ptr %5122, align 8
   %.not4766 = icmp eq ptr %5123, null
   br i1 %.not4766, label %5126, label %5124
@@ -13137,7 +13137,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5138:                                             ; preds = %98
   %5139 = load ptr, ptr %.24599, align 8
   %5140 = call fastcc ptr @add_additional_variables(ptr noundef %5139, i1 noundef zeroext false)
-  %5141 = getelementptr inbounds i8, ptr %5140, i64 24
+  %5141 = getelementptr inbounds nuw i8, ptr %5140, i64 24
   %5142 = load ptr, ptr %5141, align 8
   %.not4765 = icmp eq ptr %5142, null
   br i1 %.not4765, label %5145, label %5143
@@ -13184,7 +13184,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 5165:                                             ; preds = %98
   %5166 = load ptr, ptr %.24599, align 8
   %5167 = call fastcc ptr @add_additional_variables(ptr noundef %5166, i1 noundef zeroext false)
-  %5168 = getelementptr inbounds i8, ptr %5167, i64 24
+  %5168 = getelementptr inbounds nuw i8, ptr %5167, i64 24
   %5169 = load ptr, ptr %5168, align 8
   %.not4764 = icmp eq ptr %5169, null
   br i1 %.not4764, label %5172, label %5170
@@ -18066,7 +18066,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %8695
 
 8695:                                             ; preds = %.lr.ph4942, %8694, %8692
-  %8696 = getelementptr inbounds i8, ptr %.046284940, i64 72
+  %8696 = getelementptr inbounds nuw i8, ptr %.046284940, i64 72
   %.04628 = load ptr, ptr %8696, align 8
   %.not4760 = icmp eq ptr %.04628, null
   br i1 %.not4760, label %._crit_edge4943, label %.lr.ph4942, !llvm.loop !8
@@ -18074,7 +18074,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 ._crit_edge4943:                                  ; preds = %8695, %8683
   %8697 = call ptr @mm_alloc(i64 noundef 80) #17
   %8698 = load ptr, ptr @cur, align 8
-  %8699 = getelementptr inbounds i8, ptr %8697, i64 72
+  %8699 = getelementptr inbounds nuw i8, ptr %8697, i64 72
   store ptr %8698, ptr %8699, align 8
   %8700 = load ptr, ptr %8666, align 8
   store ptr %8700, ptr %8697, align 8
@@ -18088,7 +18088,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 8704:                                             ; preds = %._crit_edge4943, %8702
   %8705 = phi ptr [ %8703, %8702 ], [ null, %._crit_edge4943 ]
-  %8706 = getelementptr inbounds i8, ptr %8697, i64 8
+  %8706 = getelementptr inbounds nuw i8, ptr %8697, i64 8
   store ptr %8705, ptr %8706, align 8
   %8707 = load ptr, ptr @connection, align 8
   %.not4762 = icmp eq ptr %8707, null
@@ -18100,9 +18100,9 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 
 8710:                                             ; preds = %8704, %8708
   %8711 = phi ptr [ %8709, %8708 ], [ null, %8704 ]
-  %8712 = getelementptr inbounds i8, ptr %8697, i64 24
+  %8712 = getelementptr inbounds nuw i8, ptr %8697, i64 24
   store ptr %8711, ptr %8712, align 8
-  %8713 = getelementptr inbounds i8, ptr %8697, i64 32
+  %8713 = getelementptr inbounds nuw i8, ptr %8697, i64 32
   store i8 0, ptr %8713, align 8
   %8714 = call ptr @mm_strdup(ptr noundef nonnull @.str.750) #17
   %8715 = getelementptr i8, ptr %.24599, i64 -192
@@ -18113,17 +18113,17 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %8720 = call ptr @mm_strdup(ptr noundef nonnull @.str.376) #17
   %8721 = load ptr, ptr %.24599, align 8
   %8722 = call ptr (i32, ...) @cat_str(i32 noundef 7, ptr noundef %8714, ptr noundef %8670, ptr noundef %8716, ptr noundef %8717, ptr noundef %8719, ptr noundef %8720, ptr noundef %8721)
-  %8723 = getelementptr inbounds i8, ptr %8697, i64 16
+  %8723 = getelementptr inbounds nuw i8, ptr %8697, i64 16
   store ptr %8722, ptr %8723, align 8
   %8724 = load ptr, ptr @argsinsert, align 8
-  %8725 = getelementptr inbounds i8, ptr %8697, i64 40
+  %8725 = getelementptr inbounds nuw i8, ptr %8697, i64 40
   store ptr %8724, ptr %8725, align 8
-  %8726 = getelementptr inbounds i8, ptr %8697, i64 48
+  %8726 = getelementptr inbounds nuw i8, ptr %8697, i64 48
   store ptr null, ptr %8726, align 8
   %8727 = load ptr, ptr @argsresult, align 8
-  %8728 = getelementptr inbounds i8, ptr %8697, i64 56
+  %8728 = getelementptr inbounds nuw i8, ptr %8697, i64 56
   store ptr %8727, ptr %8728, align 8
-  %8729 = getelementptr inbounds i8, ptr %8697, i64 64
+  %8729 = getelementptr inbounds nuw i8, ptr %8697, i64 64
   store ptr null, ptr %8729, align 8
   store ptr null, ptr @argsresult, align 8
   store ptr null, ptr @argsinsert, align 8
@@ -19636,7 +19636,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
 9766:                                             ; preds = %98
   %9767 = getelementptr i8, ptr %.24599, i64 -48
   %9768 = load ptr, ptr %9767, align 8
-  %9769 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %9769 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %9770 = load ptr, ptr %9769, align 8
   %9771 = call fastcc ptr @cat2_str(ptr noundef %9768, ptr noundef %9770)
   br label %.loopexit4901
@@ -19645,7 +19645,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %9773 = call ptr @mm_strdup(ptr noundef nonnull @.str.553) #17
   %9774 = getelementptr i8, ptr %.24599, i64 -48
   %9775 = load ptr, ptr %9774, align 8
-  %9776 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %9776 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %9777 = load ptr, ptr %9776, align 8
   %9778 = call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %9773, ptr noundef %9775, ptr noundef %9777)
   br label %.loopexit4901
@@ -19696,13 +19696,13 @@ sub_0:                                            ; preds = %98
   br i1 %.not4964, label %sub_1, label %sub_04854
 
 sub_1:                                            ; preds = %sub_0
-  %9812 = getelementptr inbounds i8, ptr %9808, i64 1
+  %9812 = getelementptr inbounds nuw i8, ptr %9808, i64 1
   %9813 = load i8, ptr %9812, align 1
   %.not4965 = icmp eq i8 %9813, 49
   br i1 %.not4965, label %.tail, label %sub_04854
 
 .tail:                                            ; preds = %sub_1
-  %9814 = getelementptr inbounds i8, ptr %9808, i64 2
+  %9814 = getelementptr inbounds nuw i8, ptr %9808, i64 2
   %9815 = load i8, ptr %9814, align 1
   %9816 = icmp eq i8 %9815, 0
   br i1 %9816, label %9817, label %sub_04854
@@ -19717,13 +19717,13 @@ sub_04854:                                        ; preds = %sub_1, %sub_0, %.ta
   br i1 %.not4966, label %sub_14855, label %.tail4853.thread
 
 sub_14855:                                        ; preds = %sub_04854
-  %9820 = getelementptr inbounds i8, ptr %9810, i64 1
+  %9820 = getelementptr inbounds nuw i8, ptr %9810, i64 1
   %9821 = load i8, ptr %9820, align 1
   %.not4967 = icmp eq i8 %9821, 49
   br i1 %.not4967, label %.tail4853, label %.tail4853.thread
 
 .tail4853:                                        ; preds = %sub_14855
-  %9822 = getelementptr inbounds i8, ptr %9810, i64 2
+  %9822 = getelementptr inbounds nuw i8, ptr %9810, i64 2
   %9823 = load i8, ptr %9822, align 1
   %9824 = icmp eq i8 %9823, 0
   br i1 %9824, label %9825, label %.tail4853.thread
@@ -19751,13 +19751,13 @@ sub_04859:                                        ; preds = %98
   br i1 %.not4960, label %sub_14860, label %sub_04864
 
 sub_14860:                                        ; preds = %sub_04859
-  %9836 = getelementptr inbounds i8, ptr %9832, i64 1
+  %9836 = getelementptr inbounds nuw i8, ptr %9832, i64 1
   %9837 = load i8, ptr %9836, align 1
   %.not4961 = icmp eq i8 %9837, 49
   br i1 %.not4961, label %.tail4858, label %sub_04864
 
 .tail4858:                                        ; preds = %sub_14860
-  %9838 = getelementptr inbounds i8, ptr %9832, i64 2
+  %9838 = getelementptr inbounds nuw i8, ptr %9832, i64 2
   %9839 = load i8, ptr %9838, align 1
   %9840 = icmp eq i8 %9839, 0
   br i1 %9840, label %9841, label %sub_04864
@@ -19774,13 +19774,13 @@ sub_04864:                                        ; preds = %sub_14860, %sub_048
   br i1 %.not4962, label %sub_14865, label %.tail4863.thread
 
 sub_14865:                                        ; preds = %sub_04864
-  %9846 = getelementptr inbounds i8, ptr %9834, i64 1
+  %9846 = getelementptr inbounds nuw i8, ptr %9834, i64 1
   %9847 = load i8, ptr %9846, align 1
   %.not4963 = icmp eq i8 %9847, 49
   br i1 %.not4963, label %.tail4863, label %.tail4863.thread
 
 .tail4863:                                        ; preds = %sub_14865
-  %9848 = getelementptr inbounds i8, ptr %9834, i64 2
+  %9848 = getelementptr inbounds nuw i8, ptr %9834, i64 2
   %9849 = load i8, ptr %9848, align 1
   %9850 = icmp eq i8 %9849, 0
   br i1 %9850, label %9851, label %.tail4863.thread
@@ -26698,7 +26698,7 @@ sub_04869:                                        ; preds = %13880, %13878, %138
   br i1 %.not4959, label %.tail4868, label %.tail4868.thread
 
 .tail4868:                                        ; preds = %sub_04869
-  %13884 = getelementptr inbounds i8, ptr %13882, i64 1
+  %13884 = getelementptr inbounds nuw i8, ptr %13882, i64 1
   %13885 = load i8, ptr %13884, align 1
   %13886 = icmp eq i8 %13885, 47
   br i1 %13886, label %13887, label %.tail4868.thread
@@ -26819,19 +26819,19 @@ sub_04873:                                        ; preds = %98
   ]
 
 .tail4872:                                        ; preds = %sub_04873
-  %13948 = getelementptr inbounds i8, ptr %13946, i64 1
+  %13948 = getelementptr inbounds nuw i8, ptr %13946, i64 1
   %13949 = load i8, ptr %13948, align 1
   %13950 = icmp eq i8 %13949, 0
   br i1 %13950, label %13956, label %.tail4876.thread
 
 sub_14878:                                        ; preds = %sub_04873
-  %13951 = getelementptr inbounds i8, ptr %13946, i64 1
+  %13951 = getelementptr inbounds nuw i8, ptr %13946, i64 1
   %13952 = load i8, ptr %13951, align 1
   %.not4958 = icmp eq i8 %13952, 47
   br i1 %.not4958, label %.tail4876, label %.tail4876.thread
 
 .tail4876:                                        ; preds = %sub_14878
-  %13953 = getelementptr inbounds i8, ptr %13946, i64 2
+  %13953 = getelementptr inbounds nuw i8, ptr %13946, i64 2
   %13954 = load i8, ptr %13953, align 1
   %13955 = icmp eq i8 %13954, 0
   br i1 %13955, label %13956, label %.tail4876.thread
@@ -26957,14 +26957,14 @@ sub_14878:                                        ; preds = %sub_04873
 14029:                                            ; preds = %98
   %14030 = load ptr, ptr @argsinsert, align 8
   %14031 = load ptr, ptr %14030, align 8
-  %14032 = getelementptr inbounds i8, ptr %14031, i64 8
+  %14032 = getelementptr inbounds nuw i8, ptr %14031, i64 8
   %14033 = load ptr, ptr %14032, align 8
   %14034 = load i32, ptr %14033, align 8
   %14035 = icmp eq i32 %14034, 21
   br i1 %14035, label %14036, label %14040
 
 14036:                                            ; preds = %14029
-  %14037 = getelementptr inbounds i8, ptr %14033, i64 32
+  %14037 = getelementptr inbounds nuw i8, ptr %14033, i64 32
   %14038 = load ptr, ptr %14037, align 8
   %14039 = load i32, ptr %14038, align 8
   br label %14040
@@ -26984,9 +26984,9 @@ sub_14878:                                        ; preds = %sub_04873
 14047:                                            ; preds = %98
   %14048 = load ptr, ptr %.24599, align 8
   %14049 = call ptr @find_variable(ptr noundef %14048) #17
-  %14050 = getelementptr inbounds i8, ptr %14049, i64 8
+  %14050 = getelementptr inbounds nuw i8, ptr %14049, i64 8
   %14051 = load ptr, ptr %14050, align 8
-  %14052 = getelementptr inbounds i8, ptr %14051, i64 16
+  %14052 = getelementptr inbounds nuw i8, ptr %14051, i64 16
   %14053 = load ptr, ptr %14052, align 8
   %14054 = call i64 @atol(ptr nocapture noundef %14053) #20
   %14055 = icmp eq i64 %14054, 1
@@ -27002,7 +27002,7 @@ sub_14878:                                        ; preds = %sub_04873
   br i1 %14059, label %14060, label %14064
 
 14060:                                            ; preds = %14057
-  %14061 = getelementptr inbounds i8, ptr %14051, i64 32
+  %14061 = getelementptr inbounds nuw i8, ptr %14051, i64 32
   %14062 = load ptr, ptr %14061, align 8
   %14063 = load i32, ptr %14062, align 8
   br label %14064
@@ -27051,7 +27051,7 @@ sub_04882:                                        ; preds = %14077, %14073
   br i1 %.not4955, label %.tail4881, label %.tail4881.thread
 
 .tail4881:                                        ; preds = %sub_04882
-  %14080 = getelementptr inbounds i8, ptr %14079, i64 1
+  %14080 = getelementptr inbounds nuw i8, ptr %14079, i64 1
   %14081 = load i8, ptr %14080, align 1
   %14082 = icmp eq i8 %14081, 0
   br i1 %14082, label %14083, label %.tail4881.thread
@@ -27097,7 +27097,7 @@ sub_04886:                                        ; preds = %14098, %14094
   br i1 %.not4954, label %.tail4885, label %.tail4885.thread
 
 .tail4885:                                        ; preds = %sub_04886
-  %14101 = getelementptr inbounds i8, ptr %14100, i64 1
+  %14101 = getelementptr inbounds nuw i8, ptr %14100, i64 1
   %14102 = load i8, ptr %14101, align 1
   %14103 = icmp eq i8 %14102, 0
   br i1 %14103, label %14104, label %.tail4885.thread
@@ -27197,7 +27197,7 @@ sub_04886:                                        ; preds = %14098, %14094
   br label %14158
 
 14158:                                            ; preds = %14152, %14157
-  %14159 = getelementptr inbounds i8, ptr %.046324931, i64 16
+  %14159 = getelementptr inbounds nuw i8, ptr %.046324931, i64 16
   %.04632 = load ptr, ptr %14159, align 8
   %.not4735 = icmp eq ptr %.04632, null
   br i1 %.not4735, label %._crit_edge4933, label %14152, !llvm.loop !10
@@ -27221,10 +27221,10 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14167:                                            ; preds = %14161, %14165
   %.sink = phi ptr [ %14166, %14165 ], [ null, %14161 ]
-  %14168 = getelementptr inbounds i8, ptr %14160, i64 8
+  %14168 = getelementptr inbounds nuw i8, ptr %14160, i64 8
   store ptr %.sink, ptr %14168, align 8
   %14169 = load ptr, ptr @g_declared_list, align 8
-  %14170 = getelementptr inbounds i8, ptr %14160, i64 16
+  %14170 = getelementptr inbounds nuw i8, ptr %14160, i64 16
   store ptr %14169, ptr %14170, align 8
   store ptr %14160, ptr @g_declared_list, align 8
   br label %14171
@@ -27301,7 +27301,7 @@ sub_04886:                                        ; preds = %14098, %14094
   br label %14213
 
 14213:                                            ; preds = %.lr.ph4927, %14212, %14210
-  %14214 = getelementptr inbounds i8, ptr %.046334925, i64 72
+  %14214 = getelementptr inbounds nuw i8, ptr %.046334925, i64 72
   %.04633 = load ptr, ptr %14214, align 8
   %.not4732 = icmp eq ptr %.04633, null
   br i1 %.not4732, label %._crit_edge4928, label %.lr.ph4927, !llvm.loop !11
@@ -27309,7 +27309,7 @@ sub_04886:                                        ; preds = %14098, %14094
 ._crit_edge4928:                                  ; preds = %14213, %14198
   %14215 = call ptr @mm_alloc(i64 noundef 80) #17
   %14216 = load ptr, ptr @cur, align 8
-  %14217 = getelementptr inbounds i8, ptr %14215, i64 72
+  %14217 = getelementptr inbounds nuw i8, ptr %14215, i64 72
   store ptr %14216, ptr %14217, align 8
   %14218 = load ptr, ptr %14179, align 8
   store ptr %14218, ptr %14215, align 8
@@ -27323,7 +27323,7 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14222:                                            ; preds = %._crit_edge4928, %14220
   %14223 = phi ptr [ %14221, %14220 ], [ null, %._crit_edge4928 ]
-  %14224 = getelementptr inbounds i8, ptr %14215, i64 8
+  %14224 = getelementptr inbounds nuw i8, ptr %14215, i64 8
   store ptr %14223, ptr %14224, align 8
   %14225 = load ptr, ptr @connection, align 8
   %.not4734 = icmp eq ptr %14225, null
@@ -27335,7 +27335,7 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14228:                                            ; preds = %14222, %14226
   %14229 = phi ptr [ %14227, %14226 ], [ null, %14222 ]
-  %14230 = getelementptr inbounds i8, ptr %14215, i64 24
+  %14230 = getelementptr inbounds nuw i8, ptr %14215, i64 24
   store ptr %14229, ptr %14230, align 8
   %14231 = call ptr @mm_strdup(ptr noundef nonnull @.str.750) #17
   %14232 = getelementptr i8, ptr %.24599, i64 -192
@@ -27345,15 +27345,15 @@ sub_04886:                                        ; preds = %14098, %14094
   %14236 = load ptr, ptr %14235, align 8
   %14237 = call ptr @mm_strdup(ptr noundef nonnull @.str.1196) #17
   %14238 = call ptr (i32, ...) @cat_str(i32 noundef 6, ptr noundef %14231, ptr noundef %14183, ptr noundef %14233, ptr noundef %14234, ptr noundef %14236, ptr noundef %14237)
-  %14239 = getelementptr inbounds i8, ptr %14215, i64 16
+  %14239 = getelementptr inbounds nuw i8, ptr %14215, i64 16
   store ptr %14238, ptr %14239, align 8
-  %14240 = getelementptr inbounds i8, ptr %14215, i64 56
-  %14241 = getelementptr inbounds i8, ptr %14190, i64 8
+  %14240 = getelementptr inbounds nuw i8, ptr %14215, i64 56
+  %14241 = getelementptr inbounds nuw i8, ptr %14190, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14240, i8 0, i64 16, i1 false)
   store ptr @ecpg_query, ptr %14241, align 8
-  %14242 = getelementptr inbounds i8, ptr %14190, i64 16
+  %14242 = getelementptr inbounds nuw i8, ptr %14190, i64 16
   store i32 0, ptr %14242, align 8
-  %14243 = getelementptr inbounds i8, ptr %14190, i64 24
+  %14243 = getelementptr inbounds nuw i8, ptr %14190, i64 24
   store ptr null, ptr %14243, align 8
   %14244 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14201) #20
   %14245 = add i64 %14244, 37
@@ -27364,7 +27364,7 @@ sub_04886:                                        ; preds = %14098, %14094
   store ptr %14249, ptr %14190, align 8
   %14250 = load ptr, ptr %.24599, align 8
   %14251 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %14249, ptr noundef nonnull @.str.1197, ptr noundef nonnull %14201, ptr noundef %14250) #17
-  %14252 = getelementptr inbounds i8, ptr %14215, i64 40
+  %14252 = getelementptr inbounds nuw i8, ptr %14215, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14252, i8 0, i64 16, i1 false)
   %14253 = load ptr, ptr %14179, align 8
   %14254 = load i8, ptr %14253, align 1
@@ -27537,23 +27537,23 @@ sub_04886:                                        ; preds = %14098, %14094
   %14357 = sext i32 %14356 to i64
   %14358 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357
   store ptr %14355, ptr %14358, align 16
-  %14359 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %14359 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %14360 = load i32, ptr %14359, align 8
   %14361 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357, i32 1
   store i32 %14360, ptr %14361, align 8
-  %14362 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %14362 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %14363 = load ptr, ptr %14362, align 8
   %14364 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357, i32 2
   store ptr %14363, ptr %14364, align 16
-  %14365 = getelementptr inbounds i8, ptr %.24599, i64 24
+  %14365 = getelementptr inbounds nuw i8, ptr %.24599, i64 24
   %14366 = load ptr, ptr %14365, align 8
   %14367 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357, i32 3
   store ptr %14366, ptr %14367, align 8
-  %14368 = getelementptr inbounds i8, ptr %.24599, i64 32
+  %14368 = getelementptr inbounds nuw i8, ptr %.24599, i64 32
   %14369 = load ptr, ptr %14368, align 8
   %14370 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357, i32 4
   store ptr %14369, ptr %14370, align 16
-  %14371 = getelementptr inbounds i8, ptr %.24599, i64 40
+  %14371 = getelementptr inbounds nuw i8, ptr %.24599, i64 40
   %14372 = load ptr, ptr %14371, align 8
   %14373 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14357, i32 5
   store ptr %14372, ptr %14373, align 8
@@ -27585,23 +27585,23 @@ sub_04886:                                        ; preds = %14098, %14094
   %14394 = sext i32 %14393 to i64
   %14395 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394
   store ptr %14392, ptr %14395, align 16
-  %14396 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %14396 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %14397 = load i32, ptr %14396, align 8
   %14398 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394, i32 1
   store i32 %14397, ptr %14398, align 8
-  %14399 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %14399 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %14400 = load ptr, ptr %14399, align 8
   %14401 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394, i32 2
   store ptr %14400, ptr %14401, align 16
-  %14402 = getelementptr inbounds i8, ptr %.24599, i64 24
+  %14402 = getelementptr inbounds nuw i8, ptr %.24599, i64 24
   %14403 = load ptr, ptr %14402, align 8
   %14404 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394, i32 3
   store ptr %14403, ptr %14404, align 8
-  %14405 = getelementptr inbounds i8, ptr %.24599, i64 32
+  %14405 = getelementptr inbounds nuw i8, ptr %.24599, i64 32
   %14406 = load ptr, ptr %14405, align 8
   %14407 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394, i32 4
   store ptr %14406, ptr %14407, align 16
-  %14408 = getelementptr inbounds i8, ptr %.24599, i64 40
+  %14408 = getelementptr inbounds nuw i8, ptr %.24599, i64 40
   %14409 = load ptr, ptr %14408, align 8
   %14410 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14394, i32 5
   store ptr %14409, ptr %14410, align 8
@@ -28031,9 +28031,9 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14660:                                            ; preds = %14651, %14648
   %14661 = call ptr @get_typedef(ptr noundef %14558, i1 noundef zeroext false) #17
-  %14662 = getelementptr inbounds i8, ptr %14661, i64 8
+  %14662 = getelementptr inbounds nuw i8, ptr %14661, i64 8
   %14663 = load ptr, ptr %14662, align 8
-  %14664 = getelementptr inbounds i8, ptr %14663, i64 8
+  %14664 = getelementptr inbounds nuw i8, ptr %14663, i64 8
   %14665 = load i32, ptr %14664, align 8
   switch i32 %14665, label %14666 [
     i32 14, label %14668
@@ -28048,18 +28048,18 @@ sub_04886:                                        ; preds = %14098, %14094
   %.sink5048 = phi ptr [ %14667, %14666 ], [ @.str.36, %14660 ], [ @.str.36, %14660 ]
   %14669 = call ptr @mm_strdup(ptr noundef %.sink5048) #17
   %14670 = load ptr, ptr %14662, align 8
-  %14671 = getelementptr inbounds i8, ptr %14670, i64 8
+  %14671 = getelementptr inbounds nuw i8, ptr %14670, i64 8
   %14672 = load i32, ptr %14671, align 8
   %14673 = ptrtoint ptr %.sroa.3585.0.copyload to i64
   %.sroa.3585.0.insert.ext404 = zext i32 %14672 to i64
   %.sroa.3585.0.insert.mask405 = and i64 %14673, -4294967296
   %.sroa.3585.0.insert.insert406 = or disjoint i64 %.sroa.3585.0.insert.mask405, %.sroa.3585.0.insert.ext404
   %14674 = inttoptr i64 %.sroa.3585.0.insert.insert406 to ptr
-  %14675 = getelementptr inbounds i8, ptr %14670, i64 24
+  %14675 = getelementptr inbounds nuw i8, ptr %14670, i64 24
   %14676 = load ptr, ptr %14675, align 8
-  %14677 = getelementptr inbounds i8, ptr %14670, i64 32
+  %14677 = getelementptr inbounds nuw i8, ptr %14670, i64 32
   %14678 = load ptr, ptr %14677, align 8
-  %14679 = getelementptr inbounds i8, ptr %14670, i64 40
+  %14679 = getelementptr inbounds nuw i8, ptr %14670, i64 40
   %14680 = load ptr, ptr %14679, align 8
   %.not4726 = icmp eq ptr %14680, null
   br i1 %.not4726, label %14682, label %14681
@@ -28079,7 +28079,7 @@ sub_04886:                                        ; preds = %14098, %14094
 
 14688:                                            ; preds = %14681, %14682
   %.sroa.3740.1 = phi ptr [ %14687, %14682 ], [ %14680, %14681 ]
-  %14689 = getelementptr inbounds i8, ptr %14661, i64 16
+  %14689 = getelementptr inbounds nuw i8, ptr %14661, i64 16
   %14690 = load ptr, ptr %14689, align 8
   %14691 = call ptr @ECPGstruct_member_dup(ptr noundef %14690) #17
   %14692 = load i32, ptr @struct_level, align 4
@@ -28091,7 +28091,7 @@ sub_04886:                                        ; preds = %14098, %14094
 14695:                                            ; preds = %98
   %14696 = load ptr, ptr @forward_name, align 8
   %.not4722 = icmp eq ptr %14696, null
-  %.phi.trans.insert4991 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %.phi.trans.insert4991 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %.pre4992 = load ptr, ptr %.phi.trans.insert4991, align 8
   br i1 %.not4722, label %.thread, label %14697
 
@@ -28117,22 +28117,22 @@ sub_04886:                                        ; preds = %14098, %14094
   %14709 = call ptr @get_typedef(ptr noundef %14708, i1 noundef zeroext false) #17
   %14710 = load ptr, ptr %14709, align 8
   %14711 = call ptr @mm_strdup(ptr noundef %14710) #17
-  %14712 = getelementptr inbounds i8, ptr %14709, i64 8
+  %14712 = getelementptr inbounds nuw i8, ptr %14709, i64 8
   %14713 = load ptr, ptr %14712, align 8
-  %14714 = getelementptr inbounds i8, ptr %14713, i64 8
+  %14714 = getelementptr inbounds nuw i8, ptr %14713, i64 8
   %14715 = load i32, ptr %14714, align 8
   %14716 = ptrtoint ptr %.sroa.3585.0.copyload to i64
   %.sroa.3585.0.insert.ext408 = zext i32 %14715 to i64
   %.sroa.3585.0.insert.mask409 = and i64 %14716, -4294967296
   %.sroa.3585.0.insert.insert410 = or disjoint i64 %.sroa.3585.0.insert.mask409, %.sroa.3585.0.insert.ext408
   %14717 = inttoptr i64 %.sroa.3585.0.insert.insert410 to ptr
-  %14718 = getelementptr inbounds i8, ptr %14713, i64 24
+  %14718 = getelementptr inbounds nuw i8, ptr %14713, i64 24
   %14719 = load ptr, ptr %14718, align 8
-  %14720 = getelementptr inbounds i8, ptr %14713, i64 32
+  %14720 = getelementptr inbounds nuw i8, ptr %14713, i64 32
   %14721 = load ptr, ptr %14720, align 8
-  %14722 = getelementptr inbounds i8, ptr %14713, i64 40
+  %14722 = getelementptr inbounds nuw i8, ptr %14713, i64 40
   %14723 = load ptr, ptr %14722, align 8
-  %14724 = getelementptr inbounds i8, ptr %14709, i64 16
+  %14724 = getelementptr inbounds nuw i8, ptr %14709, i64 16
   %14725 = load ptr, ptr %14724, align 8
   %14726 = call ptr @ECPGstruct_member_dup(ptr noundef %14725) #17
   %14727 = load i32, ptr @struct_level, align 4
@@ -28199,7 +28199,7 @@ sub_04886:                                        ; preds = %14098, %14094
   br label %14766
 
 14766:                                            ; preds = %14765, %14759
-  %14767 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %14767 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %14768 = load ptr, ptr %14767, align 8
   %14769 = call ptr @mm_strdup(ptr noundef %14768) #17
   store ptr %14769, ptr @forward_name, align 8
@@ -28244,7 +28244,7 @@ sub_04886:                                        ; preds = %14098, %14094
   br label %14791
 
 14791:                                            ; preds = %.lr.ph, %14790
-  %14792 = getelementptr inbounds i8, ptr %.046264922, i64 32
+  %14792 = getelementptr inbounds nuw i8, ptr %.046264922, i64 32
   %.04626 = load ptr, ptr %14792, align 8
   %.not4721 = icmp eq ptr %.04626, null
   br i1 %.not4721, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -28252,39 +28252,39 @@ sub_04886:                                        ; preds = %14098, %14094
 ._crit_edge:                                      ; preds = %14791, %14770
   %14793 = call ptr @mm_alloc(i64 noundef 40) #17
   %14794 = load ptr, ptr @types, align 8
-  %14795 = getelementptr inbounds i8, ptr %14793, i64 32
+  %14795 = getelementptr inbounds nuw i8, ptr %14793, i64 32
   store ptr %14794, ptr %14795, align 8
   %14796 = call ptr @mm_strdup(ptr noundef %14785) #17
   store ptr %14796, ptr %14793, align 8
   %14797 = load i32, ptr @braces_open, align 4
-  %14798 = getelementptr inbounds i8, ptr %14793, i64 24
+  %14798 = getelementptr inbounds nuw i8, ptr %14793, i64 24
   store i32 %14797, ptr %14798, align 8
   %14799 = call ptr @mm_alloc(i64 noundef 48) #17
-  %14800 = getelementptr inbounds i8, ptr %14793, i64 8
+  %14800 = getelementptr inbounds nuw i8, ptr %14793, i64 8
   store ptr %14799, ptr %14800, align 8
-  %14801 = getelementptr inbounds i8, ptr %14799, i64 8
+  %14801 = getelementptr inbounds nuw i8, ptr %14799, i64 8
   store i32 %., ptr %14801, align 8
   %14802 = call ptr @mm_strdup(ptr noundef %14785) #17
   %14803 = load ptr, ptr %14800, align 8
-  %14804 = getelementptr inbounds i8, ptr %14803, i64 16
+  %14804 = getelementptr inbounds nuw i8, ptr %14803, i64 16
   store ptr %14802, ptr %14804, align 8
   %14805 = call ptr @mm_strdup(ptr noundef nonnull @.str.810) #17
   %14806 = load ptr, ptr %14800, align 8
-  %14807 = getelementptr inbounds i8, ptr %14806, i64 24
+  %14807 = getelementptr inbounds nuw i8, ptr %14806, i64 24
   store ptr %14805, ptr %14807, align 8
   %14808 = call ptr @mm_strdup(ptr noundef nonnull @.str.810) #17
   %14809 = load ptr, ptr %14800, align 8
-  %14810 = getelementptr inbounds i8, ptr %14809, i64 32
+  %14810 = getelementptr inbounds nuw i8, ptr %14809, i64 32
   store ptr %14808, ptr %14810, align 8
   %14811 = load ptr, ptr @ECPGstruct_sizeof, align 8
   %14812 = load ptr, ptr %14800, align 8
-  %14813 = getelementptr inbounds i8, ptr %14812, i64 40
+  %14813 = getelementptr inbounds nuw i8, ptr %14812, i64 40
   store ptr %14811, ptr %14813, align 8
   %14814 = load i32, ptr @struct_level, align 4
   %14815 = sext i32 %14814 to i64
   %14816 = getelementptr [128 x ptr], ptr @struct_member_list, i64 0, i64 %14815
   %14817 = load ptr, ptr %14816, align 8
-  %14818 = getelementptr inbounds i8, ptr %14793, i64 16
+  %14818 = getelementptr inbounds nuw i8, ptr %14793, i64 16
   store ptr %14817, ptr %14818, align 8
   store ptr %14793, ptr @types, align 8
   %14819 = call ptr @mm_strdup(ptr noundef nonnull @.str.1163) #17
@@ -28556,11 +28556,11 @@ sub_04886:                                        ; preds = %14098, %14094
   %14960 = load i32, ptr @struct_level, align 4
   %14961 = sext i32 %14960 to i64
   %14962 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14961
-  %14963 = getelementptr inbounds i8, ptr %14962, i64 8
+  %14963 = getelementptr inbounds nuw i8, ptr %14962, i64 8
   %14964 = load i32, ptr %14963, align 8
-  %14965 = getelementptr inbounds i8, ptr %14962, i64 24
+  %14965 = getelementptr inbounds nuw i8, ptr %14962, i64 24
   %14966 = load ptr, ptr %14965, align 8
-  %14967 = getelementptr inbounds i8, ptr %14962, i64 32
+  %14967 = getelementptr inbounds nuw i8, ptr %14962, i64 32
   %14968 = load ptr, ptr %14967, align 16
   %14969 = getelementptr i8, ptr %.24599, i64 -192
   %14970 = load ptr, ptr %14969, align 8
@@ -28588,9 +28588,9 @@ sub_04886:                                        ; preds = %14098, %14094
   %14981 = getelementptr [128 x ptr], ptr @struct_member_list, i64 0, i64 %14974
   %14982 = load ptr, ptr %14981, align 8
   %14983 = getelementptr [128 x %struct.this_type], ptr @actual_type, i64 0, i64 %14974
-  %14984 = getelementptr inbounds i8, ptr %14983, i64 16
+  %14984 = getelementptr inbounds nuw i8, ptr %14983, i64 16
   %14985 = load ptr, ptr %14984, align 16
-  %14986 = getelementptr inbounds i8, ptr %14983, i64 40
+  %14986 = getelementptr inbounds nuw i8, ptr %14983, i64 40
   %14987 = load ptr, ptr %14986, align 8
   %14988 = call ptr @ECPGmake_struct_type(ptr noundef %14982, i32 noundef %14976, ptr noundef %14985, ptr noundef %14987) #17
   br i1 %14980, label %14992, label %14989
@@ -28639,7 +28639,7 @@ sub_04890:                                        ; preds = %15003, %15011
   br i1 %.not4949, label %.tail4889, label %.tail4889.thread
 
 .tail4889:                                        ; preds = %sub_04890
-  %15016 = getelementptr inbounds i8, ptr %15014, i64 1
+  %15016 = getelementptr inbounds nuw i8, ptr %15014, i64 1
   %15017 = load i8, ptr %15016, align 1
   %15018 = icmp eq i8 %15017, 0
   br i1 %15018, label %15022, label %.tail4889.thread
@@ -28675,7 +28675,7 @@ sub_04894:                                        ; preds = %15030
   br i1 %.not4950, label %.tail4893, label %sub_04898
 
 .tail4893:                                        ; preds = %sub_04894
-  %15035 = getelementptr inbounds i8, ptr %15031, i64 1
+  %15035 = getelementptr inbounds nuw i8, ptr %15031, i64 1
   %15036 = load i8, ptr %15035, align 1
   %15037 = icmp eq i8 %15036, 0
   br i1 %15037, label %15038, label %sub_04898
@@ -28694,7 +28694,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
   br i1 %.not4951, label %.tail4897, label %.tail4897.thread
 
 .tail4897:                                        ; preds = %sub_04898
-  %15044 = getelementptr inbounds i8, ptr %15042, i64 1
+  %15044 = getelementptr inbounds nuw i8, ptr %15042, i64 1
   %15045 = load i8, ptr %15044, align 1
   %15046 = icmp eq i8 %15045, 0
   br i1 %15046, label %15047, label %.tail4897.thread
@@ -29573,7 +29573,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 
 15573:                                            ; preds = %.sink.split, %15564, %15553, %15547, %15534
   %.04590 = phi ptr [ %15546, %15534 ], [ %15552, %15547 ], [ %15558, %15553 ], [ %15570, %15564 ], [ %15572, %.sink.split ]
-  %15574 = getelementptr inbounds i8, ptr %15513, i64 8
+  %15574 = getelementptr inbounds nuw i8, ptr %15513, i64 8
   %15575 = load ptr, ptr %15574, align 8
   call void @ECPGfree_type(ptr noundef %15575) #17
   store ptr %.04590, ptr %15574, align 8
@@ -29598,11 +29598,11 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15590:                                            ; preds = %98
   %15591 = load i32, ptr %.24599, align 8
   store i32 %15591, ptr @when_error, align 8
-  %15592 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %15592 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15593 = load ptr, ptr %15592, align 8
   store ptr %15593, ptr getelementptr inbounds (i8, ptr @when_error, i64 8), align 8
   %15594 = call ptr @mm_strdup(ptr noundef nonnull @.str.1241) #17
-  %15595 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %15595 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15596 = load ptr, ptr %15595, align 8
   %15597 = call ptr @mm_strdup(ptr noundef nonnull @.str.1242) #17
   %15598 = call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %15594, ptr noundef %15596, ptr noundef %15597)
@@ -29611,11 +29611,11 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15599:                                            ; preds = %98
   %15600 = load i32, ptr %.24599, align 8
   store i32 %15600, ptr @when_nf, align 8
-  %15601 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %15601 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15602 = load ptr, ptr %15601, align 8
   store ptr %15602, ptr getelementptr inbounds (i8, ptr @when_nf, i64 8), align 8
   %15603 = call ptr @mm_strdup(ptr noundef nonnull @.str.1243) #17
-  %15604 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %15604 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15605 = load ptr, ptr %15604, align 8
   %15606 = call ptr @mm_strdup(ptr noundef nonnull @.str.1242) #17
   %15607 = call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %15603, ptr noundef %15605, ptr noundef %15606)
@@ -29624,11 +29624,11 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15608:                                            ; preds = %98
   %15609 = load i32, ptr %.24599, align 8
   store i32 %15609, ptr @when_warn, align 8
-  %15610 = getelementptr inbounds i8, ptr %.24599, i64 8
+  %15610 = getelementptr inbounds nuw i8, ptr %.24599, i64 8
   %15611 = load ptr, ptr %15610, align 8
   store ptr %15611, ptr getelementptr inbounds (i8, ptr @when_warn, i64 8), align 8
   %15612 = call ptr @mm_strdup(ptr noundef nonnull @.str.1244) #17
-  %15613 = getelementptr inbounds i8, ptr %.24599, i64 16
+  %15613 = getelementptr inbounds nuw i8, ptr %.24599, i64 16
   %15614 = load ptr, ptr %15613, align 8
   %15615 = call ptr @mm_strdup(ptr noundef nonnull @.str.1242) #17
   %15616 = call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %15612, ptr noundef %15614, ptr noundef %15615)
@@ -30151,7 +30151,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15890:                                            ; preds = %98
   %15891 = load ptr, ptr %.24599, align 8
   %15892 = call ptr @find_variable(ptr noundef %15891) #17
-  %15893 = getelementptr inbounds i8, ptr %15892, i64 8
+  %15893 = getelementptr inbounds nuw i8, ptr %15892, i64 8
   %15894 = load ptr, ptr %15893, align 8
   %15895 = load i32, ptr %15894, align 8
   %15896 = icmp eq i32 %15895, 21
@@ -30201,7 +30201,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15919:                                            ; preds = %98
   %15920 = load ptr, ptr %.24599, align 8
   %15921 = call ptr @find_variable(ptr noundef %15920) #17
-  %15922 = getelementptr inbounds i8, ptr %15921, i64 8
+  %15922 = getelementptr inbounds nuw i8, ptr %15921, i64 8
   %15923 = load ptr, ptr %15922, align 8
   call void @check_indicator(ptr noundef %15923) #17
   %15924 = load ptr, ptr %.24599, align 8
@@ -30210,7 +30210,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15925:                                            ; preds = %98
   %15926 = load ptr, ptr %.24599, align 8
   %15927 = call ptr @find_variable(ptr noundef %15926) #17
-  %15928 = getelementptr inbounds i8, ptr %15927, i64 8
+  %15928 = getelementptr inbounds nuw i8, ptr %15927, i64 8
   %15929 = load ptr, ptr %15928, align 8
   call void @check_indicator(ptr noundef %15929) #17
   %15930 = load ptr, ptr %.24599, align 8
@@ -30219,7 +30219,7 @@ sub_04898:                                        ; preds = %sub_04894, %15038, 
 15931:                                            ; preds = %98
   %15932 = load ptr, ptr %.24599, align 8
   %15933 = call ptr @find_variable(ptr noundef %15932) #17
-  %15934 = getelementptr inbounds i8, ptr %15933, i64 8
+  %15934 = getelementptr inbounds nuw i8, ptr %15933, i64 8
   %15935 = load ptr, ptr %15934, align 8
   call void @check_indicator(ptr noundef %15935) #17
   %15936 = load ptr, ptr %.24599, align 8
@@ -30967,7 +30967,7 @@ define internal fastcc void @check_declared_list(ptr noundef %0) unnamed_addr #0
 
 .lr.ph:                                           ; preds = %1, %17
   %.021 = phi ptr [ %.0, %17 ], [ %.019, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.021, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not13 = icmp eq ptr %3, null
   br i1 %.not13, label %17, label %4
@@ -30979,7 +30979,7 @@ define internal fastcc void @check_declared_list(ptr noundef %0) unnamed_addr #0
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %10 = load ptr, ptr @connection, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %14, label %11
@@ -31001,7 +31001,7 @@ define internal fastcc void @check_declared_list(ptr noundef %0) unnamed_addr #0
   br label %.loopexit
 
 17:                                               ; preds = %4, %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.021, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %.0 = load ptr, ptr %18, align 8
   %.not.not = icmp eq ptr %.0, null
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -31036,7 +31036,7 @@ define internal noundef ptr @cat_str(i32 noundef range(i32 2, 19) %0, ...) unnam
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 16
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr i8, ptr %7, i64 %8
@@ -31045,7 +31045,7 @@ define internal noundef ptr @cat_str(i32 noundef range(i32 2, 19) %0, ...) unnam
   br label %15
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 8
   store ptr %14, ptr %12, align 8
@@ -31054,8 +31054,8 @@ define internal noundef ptr @cat_str(i32 noundef range(i32 2, 19) %0, ...) unnam
 15:                                               ; preds = %11, %5
   %16 = phi ptr [ %9, %5 ], [ %13, %11 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %20
 
 20:                                               ; preds = %15, %31
@@ -31125,7 +31125,7 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.03041, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %.03041, i64 72
   %.030 = load ptr, ptr %12, align 8
   %cond = icmp eq ptr %.030, null
   br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -31138,7 +31138,7 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
   br i1 %1, label %14, label %.loopexit37
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.03041, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.03041, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -31152,7 +31152,7 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
 
 22:                                               ; preds = %18, %14
   %.sink = phi i64 [ 40, %14 ], [ %spec.select, %18 ]
-  %23 = getelementptr inbounds i8, ptr %.03041, i64 %.sink
+  %23 = getelementptr inbounds nuw i8, ptr %.03041, i64 %.sink
   %.02942 = load ptr, ptr %23, align 8
   %.not3443 = icmp eq ptr %.02942, null
   br i1 %.not3443, label %.loopexit37, label %.lr.ph46
@@ -31160,16 +31160,16 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
 .lr.ph46:                                         ; preds = %22, %.lr.ph46
   %.02944 = phi ptr [ %.029, %.lr.ph46 ], [ %.02942, %22 ]
   %24 = load ptr, ptr %.02944, align 8
-  %25 = getelementptr inbounds i8, ptr %.02944, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.02944, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @add_variable_to_tail(ptr noundef nonnull @argsinsert, ptr noundef %24, ptr noundef %26) #17
-  %27 = getelementptr inbounds i8, ptr %.02944, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02944, i64 16
   %.029 = load ptr, ptr %27, align 8
   %.not34 = icmp eq ptr %.029, null
   br i1 %.not34, label %.loopexit37, label %.lr.ph46, !llvm.loop !17
 
 .loopexit37:                                      ; preds = %.lr.ph46, %22, %13
-  %28 = getelementptr inbounds i8, ptr %.03041, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.03041, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %31
@@ -31183,7 +31183,7 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
 
 35:                                               ; preds = %31, %.loopexit37
   %.sink54 = phi i64 [ 56, %.loopexit37 ], [ %spec.select55, %31 ]
-  %36 = getelementptr inbounds i8, ptr %.03041, i64 %.sink54
+  %36 = getelementptr inbounds nuw i8, ptr %.03041, i64 %.sink54
   %.147 = load ptr, ptr %36, align 8
   %.not3648 = icmp eq ptr %.147, null
   br i1 %.not3648, label %.loopexit, label %.lr.ph51
@@ -31191,10 +31191,10 @@ define internal fastcc noundef ptr @add_additional_variables(ptr noundef %0, i1 
 .lr.ph51:                                         ; preds = %35, %.lr.ph51
   %.149 = phi ptr [ %.1, %.lr.ph51 ], [ %.147, %35 ]
   %37 = load ptr, ptr %.149, align 8
-  %38 = getelementptr inbounds i8, ptr %.149, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.149, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @add_variable_to_tail(ptr noundef nonnull @argsresult, ptr noundef %37, ptr noundef %39) #17
-  %40 = getelementptr inbounds i8, ptr %.149, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.149, i64 16
   %.1 = load ptr, ptr %40, align 8
   %.not36 = icmp eq ptr %.1, null
   br i1 %.not36, label %.loopexit, label %.lr.ph51, !llvm.loop !18
@@ -31246,7 +31246,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %2 = alloca ptr, align 8
   %3 = alloca [20 x i8], align 16
   %4 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.36) #17
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %6
 
 6:                                                ; preds = %384, %1
@@ -31255,7 +31255,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   store ptr null, ptr %2, align 8
   %.not = icmp eq i32 %.0112144, 0
   %.in.v = select i1 %.not, i64 56, i64 40
-  %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %.0109135 = load ptr, ptr %.in, align 8
   %.not120136 = icmp eq ptr %.0109135, null
   br i1 %.not120136, label %._crit_edge, label %.lr.ph
@@ -31268,13 +31268,13 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %9 = load i32, ptr @ecpg_internal_var, align 4
   %10 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1314, i32 noundef %9) #17
   %11 = load ptr, ptr %.0109143, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %213, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %.thread [
@@ -31293,7 +31293,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   br i1 %22, label %213, label %.thread
 
 .thread:                                          ; preds = %15, %19
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @atoi(ptr nocapture noundef %24) #20
   %26 = icmp sgt i32 %25, 1
@@ -31302,9 +31302,9 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 27:                                               ; preds = %.thread
   %28 = call ptr @mm_strdup(ptr noundef nonnull @.str.103) #17
   %29 = load ptr, ptr %.0109143, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
   %35 = call ptr @ecpg_type_name(i32 noundef %34) #17
@@ -31313,24 +31313,24 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %38 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %39 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %28, ptr noundef %36, ptr noundef %37, ptr noundef %38)
   %40 = load ptr, ptr %.0109143, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   %46 = call ptr @mm_strdup(ptr noundef nonnull @.str.1229) #17
   %47 = load ptr, ptr %.0109143, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = call ptr @ECPGmake_simple_type(i32 noundef %45, ptr noundef %46, i32 noundef %53) #17
   %55 = load ptr, ptr %.0109143, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @ECPGmake_array_type(ptr noundef %54, ptr noundef %59) #17
   %61 = call ptr @new_variable(ptr noundef %39, ptr noundef %60, i32 noundef 0) #17
@@ -31347,7 +31347,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   ]
 
 63:                                               ; preds = %62, %62, %62, %15, %15, %15, %15, %15
-  %64 = getelementptr inbounds i8, ptr %17, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @atoi(ptr nocapture noundef %65) #20
   %67 = icmp sgt i32 %66, 1
@@ -31356,7 +31356,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 68:                                               ; preds = %63
   %69 = call ptr @mm_strdup(ptr noundef nonnull @.str.103) #17
   %70 = load ptr, ptr %.0109143, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %72, align 8
   %74 = call ptr @ecpg_type_name(i32 noundef %73) #17
@@ -31365,17 +31365,17 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %77 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %78 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %69, ptr noundef %75, ptr noundef %76, ptr noundef %77)
   %79 = load ptr, ptr %.0109143, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %81, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %86 = load i32, ptr %85, align 8
   %87 = call ptr @ECPGmake_simple_type(i32 noundef %82, ptr noundef %84, i32 noundef %86) #17
   %88 = call ptr @new_variable(ptr noundef %78, ptr noundef %87, i32 noundef 0) #17
   %89 = load ptr, ptr %.0109143, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr %91, align 8
   switch i32 %92, label %204 [
@@ -31396,9 +31396,9 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 95:                                               ; preds = %62, %62, %94, %94
   %96 = call ptr @mm_strdup(ptr noundef nonnull @.str.1317) #17
   %97 = load ptr, ptr %.0109143, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr @mm_strdup(ptr noundef %101) #17
   %103 = call ptr @mm_strdup(ptr noundef nonnull @.str.1316) #17
@@ -31406,21 +31406,21 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %105 = call ptr @mm_strdup(ptr noundef nonnull @.str.104) #17
   %106 = call ptr (i32, ...) @cat_str(i32 noundef 5, ptr noundef %96, ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105)
   %107 = load ptr, ptr %.0109143, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %109, align 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %109, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = call ptr @ECPGmake_struct_type(ptr noundef %111, i32 noundef %112, ptr noundef %114, ptr noundef %116) #17
   %118 = call ptr @new_variable(ptr noundef %106, ptr noundef %117, i32 noundef 0) #17
   br label %204
 
 119:                                              ; preds = %62, %94
-  %120 = getelementptr inbounds i8, ptr %17, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %121, align 8
   %123 = and i32 %122, -2
@@ -31430,11 +31430,11 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 124:                                              ; preds = %119
   %125 = call ptr @mm_strdup(ptr noundef nonnull @.str.1317) #17
   %126 = load ptr, ptr %.0109143, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @mm_strdup(ptr noundef %132) #17
   %134 = call ptr @mm_strdup(ptr noundef nonnull @.str.1316) #17
@@ -31442,16 +31442,16 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %136 = call ptr @mm_strdup(ptr noundef nonnull @.str.104) #17
   %137 = call ptr (i32, ...) @cat_str(i32 noundef 5, ptr noundef %125, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136)
   %138 = load ptr, ptr %.0109143, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %142, align 8
-  %146 = getelementptr inbounds i8, ptr %142, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %142, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = call ptr @ECPGmake_struct_type(ptr noundef %144, i32 noundef %145, ptr noundef %147, ptr noundef %149) #17
   %151 = call ptr @new_variable(ptr noundef %137, ptr noundef %150, i32 noundef 0) #17
@@ -31460,9 +31460,9 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 152:                                              ; preds = %119
   %153 = call ptr @mm_strdup(ptr noundef nonnull @.str.103) #17
   %154 = load ptr, ptr %.0109143, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8
   %159 = load i32, ptr %158, align 8
   %160 = call ptr @ecpg_type_name(i32 noundef %159) #17
@@ -31471,20 +31471,20 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %163 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %164 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %153, ptr noundef %161, ptr noundef %162, ptr noundef %163)
   %165 = load ptr, ptr %.0109143, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load ptr, ptr %168, align 8
   %170 = load i32, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %169, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %169, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %174 = load i32, ptr %173, align 8
   %175 = call ptr @ECPGmake_simple_type(i32 noundef %170, ptr noundef %172, i32 noundef %174) #17
   %176 = load ptr, ptr %.0109143, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = call ptr @ECPGmake_array_type(ptr noundef %175, ptr noundef %180) #17
   %182 = call ptr @new_variable(ptr noundef %164, ptr noundef %181, i32 noundef 0) #17
@@ -31493,7 +31493,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 183:                                              ; preds = %62, %94
   %184 = call ptr @mm_strdup(ptr noundef nonnull @.str.1318) #17
   %185 = load ptr, ptr %.0109143, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = load i32, ptr %187, align 8
   %189 = call ptr @ecpg_type_name(i32 noundef %188) #17
@@ -31502,12 +31502,12 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %192 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %193 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %184, ptr noundef %190, ptr noundef %191, ptr noundef %192)
   %194 = load ptr, ptr %.0109143, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = load i32, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %196, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %196, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %201 = load i32, ptr %200, align 8
   %202 = call ptr @ECPGmake_simple_type(i32 noundef %197, ptr noundef %199, i32 noundef %201) #17
   %203 = call ptr @new_variable(ptr noundef %193, ptr noundef %202, i32 noundef 0) #17
@@ -31530,16 +31530,16 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 213:                                              ; preds = %.lr.ph, %19, %204
   %.0108133 = phi ptr [ %.0108.ph, %204 ], [ %11, %.lr.ph ], [ %11, %19 ]
   %.2 = phi ptr [ %212, %204 ], [ %.1111137, %.lr.ph ], [ %.1111137, %19 ]
-  %214 = getelementptr inbounds i8, ptr %.0109143, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %.0109143, i64 8
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   %218 = load i32, ptr %217, align 8
   %219 = icmp eq i32 %218, 29
   br i1 %219, label %382, label %220
 
 220:                                              ; preds = %213
-  %221 = getelementptr inbounds i8, ptr %215, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %222 = load i32, ptr %221, align 8
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %382, label %224
@@ -31549,7 +31549,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %226 = load i32, ptr @ecpg_internal_var, align 4
   %227 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1314, i32 noundef %226) #17
   %228 = load ptr, ptr %214, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %230, align 8
   switch i32 %231, label %320 [
@@ -31561,9 +31561,9 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 232:                                              ; preds = %224, %224
   %233 = call ptr @mm_strdup(ptr noundef nonnull @.str.1317) #17
   %234 = load ptr, ptr %214, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = call ptr @mm_strdup(ptr noundef %238) #17
   %240 = call ptr @mm_strdup(ptr noundef nonnull @.str.1316) #17
@@ -31571,21 +31571,21 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %242 = call ptr @mm_strdup(ptr noundef nonnull @.str.104) #17
   %243 = call ptr (i32, ...) @cat_str(i32 noundef 5, ptr noundef %233, ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242)
   %244 = load ptr, ptr %214, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 32
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 32
   %248 = load ptr, ptr %247, align 8
   %249 = load i32, ptr %246, align 8
-  %250 = getelementptr inbounds i8, ptr %246, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %246, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %253 = load ptr, ptr %252, align 8
   %254 = call ptr @ECPGmake_struct_type(ptr noundef %248, i32 noundef %249, ptr noundef %251, ptr noundef %253) #17
   %255 = call ptr @new_variable(ptr noundef %243, ptr noundef %254, i32 noundef 0) #17
   br label %373
 
 256:                                              ; preds = %224
-  %257 = getelementptr inbounds i8, ptr %230, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr %258, align 8
   %260 = and i32 %259, -2
@@ -31595,11 +31595,11 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 261:                                              ; preds = %256
   %262 = call ptr @mm_strdup(ptr noundef nonnull @.str.1317) #17
   %263 = load ptr, ptr %214, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 32
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load ptr, ptr %268, align 8
   %270 = call ptr @mm_strdup(ptr noundef %269) #17
   %271 = call ptr @mm_strdup(ptr noundef nonnull @.str.1316) #17
@@ -31607,16 +31607,16 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %273 = call ptr @mm_strdup(ptr noundef nonnull @.str.104) #17
   %274 = call ptr (i32, ...) @cat_str(i32 noundef 5, ptr noundef %262, ptr noundef %270, ptr noundef %271, ptr noundef %272, ptr noundef %273)
   %275 = load ptr, ptr %214, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 32
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 32
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 32
   %281 = load ptr, ptr %280, align 8
   %282 = load i32, ptr %279, align 8
-  %283 = getelementptr inbounds i8, ptr %279, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %279, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %286 = load ptr, ptr %285, align 8
   %287 = call ptr @ECPGmake_struct_type(ptr noundef %281, i32 noundef %282, ptr noundef %284, ptr noundef %286) #17
   %288 = call ptr @new_variable(ptr noundef %274, ptr noundef %287, i32 noundef 0) #17
@@ -31625,9 +31625,9 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 289:                                              ; preds = %256
   %290 = call ptr @mm_strdup(ptr noundef nonnull @.str.103) #17
   %291 = load ptr, ptr %214, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 32
   %295 = load ptr, ptr %294, align 8
   %296 = load i32, ptr %295, align 8
   %297 = call ptr @ecpg_type_name(i32 noundef %296) #17
@@ -31636,27 +31636,27 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %300 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %301 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %290, ptr noundef %298, ptr noundef %299, ptr noundef %300)
   %302 = load ptr, ptr %214, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 32
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 32
   %306 = load ptr, ptr %305, align 8
   %307 = load i32, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %306, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %306, i64 40
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %311 = load i32, ptr %310, align 8
   %312 = call ptr @ECPGmake_simple_type(i32 noundef %307, ptr noundef %309, i32 noundef %311) #17
   %313 = load ptr, ptr %214, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %317 = load ptr, ptr %316, align 8
   %318 = call ptr @ECPGmake_array_type(ptr noundef %312, ptr noundef %317) #17
   %319 = call ptr @new_variable(ptr noundef %301, ptr noundef %318, i32 noundef 0) #17
   br label %373
 
 320:                                              ; preds = %224
-  %321 = getelementptr inbounds i8, ptr %230, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %322 = load ptr, ptr %321, align 8
   %323 = call i32 @atoi(ptr nocapture noundef %322) #20
   %324 = icmp sgt i32 %323, 1
@@ -31665,7 +31665,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 325:                                              ; preds = %320
   %326 = call ptr @mm_strdup(ptr noundef nonnull @.str.103) #17
   %327 = load ptr, ptr %214, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %329 = load ptr, ptr %328, align 8
   %330 = load i32, ptr %329, align 8
   %331 = call ptr @ecpg_type_name(i32 noundef %330) #17
@@ -31674,15 +31674,15 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %334 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %335 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %326, ptr noundef %332, ptr noundef %333, ptr noundef %334)
   %336 = load ptr, ptr %214, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = load i32, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %338, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %341 = load ptr, ptr %340, align 8
   %342 = load ptr, ptr %.0109143, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 40
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 40
   %346 = load i32, ptr %345, align 8
   %347 = call ptr @ECPGmake_simple_type(i32 noundef %339, ptr noundef %341, i32 noundef %346) #17
   %348 = call ptr @new_variable(ptr noundef %335, ptr noundef %347, i32 noundef 0) #17
@@ -31691,7 +31691,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
 349:                                              ; preds = %320
   %350 = call ptr @mm_strdup(ptr noundef nonnull @.str.1318) #17
   %351 = load ptr, ptr %214, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = load i32, ptr %353, align 8
   %355 = call ptr @ecpg_type_name(i32 noundef %354) #17
@@ -31700,15 +31700,15 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %358 = call ptr @mm_strdup(ptr noundef nonnull %3) #17
   %359 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %350, ptr noundef %356, ptr noundef %357, ptr noundef %358)
   %360 = load ptr, ptr %214, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %362 = load ptr, ptr %361, align 8
   %363 = load i32, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %362, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %362, i64 16
   %365 = load ptr, ptr %364, align 8
   %366 = load ptr, ptr %.0109143, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 40
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 40
   %370 = load i32, ptr %369, align 8
   %371 = call ptr @ECPGmake_simple_type(i32 noundef %363, ptr noundef %365, i32 noundef %370) #17
   %372 = call ptr @new_variable(ptr noundef %359, ptr noundef %371, i32 noundef 0) #17
@@ -31732,7 +31732,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   %.3 = phi ptr [ %381, %373 ], [ %.2, %220 ], [ %.2, %213 ]
   %.0106 = phi ptr [ %.1107, %373 ], [ %215, %220 ], [ %215, %213 ]
   call void @add_variable_to_tail(ptr noundef nonnull %2, ptr noundef %.0108133, ptr noundef %.0106) #17
-  %383 = getelementptr inbounds i8, ptr %.0109143, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %.0109143, i64 16
   %.0109 = load ptr, ptr %383, align 8
   %.not120 = icmp eq ptr %.0109, null
   br i1 %.not120, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -31748,7 +31748,7 @@ define internal fastcc ptr @adjust_outofscope_cursor_vars(ptr nocapture noundef 
   br label %6, !llvm.loop !20
 
 387:                                              ; preds = %._crit_edge
-  %388 = getelementptr inbounds i8, ptr %0, i64 64
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %389 = load ptr, ptr %2, align 8
   store ptr %389, ptr %388, align 8
   ret ptr %.1111.lcssa
@@ -31848,7 +31848,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
   br label %26
 
 26:                                               ; preds = %.lr.ph, %25
-  %27 = getelementptr inbounds i8, ptr %.051, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.051, i64 32
   %.0 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -31857,32 +31857,32 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
   call void @adjust_array(i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %5, i32 noundef %7, i1 noundef zeroext true) #17
   %28 = call ptr @mm_alloc(i64 noundef 40) #17
   %29 = load ptr, ptr @types, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %29, ptr %30, align 8
   store ptr %0, ptr %28, align 8
   %31 = load i32, ptr @braces_open, align 4
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %31, ptr %32, align 8
   %33 = call ptr @mm_alloc(i64 noundef 48) #17
-  %34 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %3, ptr %35, align 8
   %36 = call ptr @mm_strdup(ptr noundef %0) #17
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %9, align 8
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %39, ptr %41, align 8
   %42 = load ptr, ptr %10, align 8
   %43 = load ptr, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %42, ptr %44, align 8
   %45 = load ptr, ptr @ECPGstruct_sizeof, align 8
   %46 = load ptr, ptr %34, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store ptr %45, ptr %47, align 8
   br i1 %or.cond, label %48, label %54
 
@@ -31896,7 +31896,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
 
 54:                                               ; preds = %._crit_edge, %48
   %55 = phi ptr [ %53, %48 ], [ null, %._crit_edge ]
-  %56 = getelementptr inbounds i8, ptr %28, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %55, ptr %56, align 8
   switch i32 %3, label %57 [
     i32 32, label %64
@@ -31908,7 +31908,7 @@ define internal fastcc void @add_typedef(ptr noundef %0, ptr noundef %1, ptr nou
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %34, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @atoi(ptr nocapture noundef %60) #20
   %62 = icmp sgt i32 %61, -1
@@ -31966,14 +31966,14 @@ declare void @ECPGfree_type(ptr noundef) local_unnamed_addr #4
 define internal fastcc noundef ptr @create_questionmarks(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @find_variable(ptr noundef %0) #17
   %3 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.36) #17
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 22
   br i1 %7, label %8, label %.lr.ph26.preheader
 
 8:                                                ; preds = %1
-  %.0.in = getelementptr inbounds i8, ptr %5, i64 32
+  %.0.in = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.120 = load ptr, ptr %.0.in, align 8
   %.not21 = icmp eq ptr %.120, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -31981,7 +31981,7 @@ define internal fastcc noundef ptr @create_questionmarks(ptr noundef %0) unnamed
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.123 = phi ptr [ %.1, %.lr.ph ], [ %.120, %8 ]
   %.01722 = phi i32 [ %10, %.lr.ph ], [ 0, %8 ]
-  %9 = getelementptr inbounds i8, ptr %.123, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.123, i64 16
   %10 = add i32 %.01722, 1
   %.1 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.1, null
@@ -32012,8 +32012,8 @@ define internal fastcc noundef ptr @create_questionmarks(ptr noundef %0) unnamed
 ._crit_edge:                                      ; preds = %.lr.ph26, %8, %.loopexit
   %.016.lcssa = phi ptr [ %3, %.loopexit ], [ %3, %8 ], [ %17, %.lr.ph26 ]
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016.lcssa) #20
-  %21 = add i64 %20, -3
-  %22 = getelementptr i8, ptr %.016.lcssa, i64 %21
+  %21 = getelementptr i8, ptr %.016.lcssa, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -3
   store i8 0, ptr %22, align 1
   ret ptr %.016.lcssa
 }

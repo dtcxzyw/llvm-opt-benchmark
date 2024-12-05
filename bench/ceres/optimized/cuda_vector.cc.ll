@@ -60,15 +60,15 @@ $_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal10CudaVectorC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 40)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %6, align 8
   %7 = sext i32 %2 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %8, align 8
   invoke void @_ZN5ceres8internal10CudaVector6ResizeEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %2)
           to label %11 unwind label %9
@@ -101,12 +101,12 @@ define hidden void @_ZN5ceres8internal10CudaVector6ResizeEi(ptr noundef nonnull 
   %3 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %4 = alloca %"struct.google::CheckOpString", align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %7)
   store i32 %1, ptr %0, align 8
   tail call void @_ZN5ceres8internal10CudaVector17DestroyDescriptorEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8
@@ -248,25 +248,25 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 define hidden void @_ZN5ceres8internal10CudaVectorC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 4), (8, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   store i32 0, ptr %1, align 8
@@ -282,8 +282,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5ceres8interna
 3:                                                ; preds = %2
   %4 = load i32, ptr %1, align 8
   tail call void @_ZN5ceres8internal10CudaVector6ResizeEi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %0, align 8
   %9 = sext i32 %8 to i64
@@ -302,9 +302,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal10CudaBufferIdE16CopyFromGPUA
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2)
   %7 = load ptr, ptr %0, align 8
   %8 = shl i64 %2, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @cudaMemcpyAsync(ptr noundef %7, ptr noundef %1, i64 noundef %8, i32 noundef 3, ptr noundef %12)
   %14 = icmp eq i32 %13, 0
@@ -366,7 +366,7 @@ define hidden void @_ZN5ceres8internal10CudaVector17DestroyDescriptorEv(ptr noca
   %2 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %3 = alloca %"struct.google::CheckOpString", align 8
   %4 = alloca %"class.google::LogMessageFatal", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %24, label %7
@@ -439,7 +439,7 @@ define hidden void @_ZN5ceres8internal10CudaVectorD2Ev(ptr noundef nonnull align
           to label %2 unwind label %4
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5ceres8internal10CudaBufferIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 
@@ -471,7 +471,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"struct.google::CheckOpString", align 8
   %8 = alloca %"class.google::LogMessageFatal", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %1, %10
   br i1 %11, label %12, label %54
@@ -619,14 +619,14 @@ define hidden noundef double @_ZNK5ceres8internal10CudaVector3DotERKS1_(ptr noca
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
   store double 0.000000e+00, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @cublasDdot_v2(ptr noundef %10, i32 noundef %11, ptr noundef %13, i32 noundef 1, ptr noundef %15, i32 noundef 1, ptr noundef nonnull %4)
   %17 = icmp eq i32 %16, 0
@@ -697,12 +697,12 @@ define hidden noundef double @_ZNK5ceres8internal10CudaVector4NormEv(ptr nocaptu
   %4 = alloca %"struct.google::CheckOpString", align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   store double 0.000000e+00, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @cublasDnrm2_v2(ptr noundef %9, i32 noundef %10, ptr noundef %12, i32 noundef 1, ptr noundef nonnull %3)
   %14 = icmp eq i32 %13, 0
@@ -768,7 +768,7 @@ declare i32 @cublasDnrm2_v2(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal10CudaVector11CopyFromCpuEPKd(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE11CopyFromCpuEPKdm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %1, i64 noundef %5)
@@ -783,9 +783,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal10CudaBufferIdE11CopyFromCpuE
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2)
   %7 = load ptr, ptr %0, align 8
   %8 = shl i64 %2, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @cudaMemcpyAsync(ptr noundef %7, ptr noundef %1, i64 noundef %8, i32 noundef 1, ptr noundef %12)
   %14 = icmp eq i32 %13, 0
@@ -844,7 +844,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal10CudaVector11CopyFromCpuERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %5 to i64
@@ -861,7 +861,7 @@ define hidden void @_ZN5ceres8internal10CudaVector11CopyFromCpuERKN5Eigen6Matrix
 9:                                                ; preds = %7, %2
   %.pre-phi = phi i64 [ %.pre4, %7 ], [ %6, %2 ]
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5ceres8internal10CudaBufferIdE11CopyFromCpuEPKdm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %10, i64 noundef %.pre-phi)
   ret void
 }
@@ -895,7 +895,7 @@ define hidden void @_ZNK5ceres8internal10CudaVector6CopyToEPN5Eigen6MatrixIdLin1
   %11 = load i32, ptr %0, align 8
   %12 = sext i32 %11 to i64
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %12, i64 noundef %12, i64 noundef 1)
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %1, align 8
   %15 = load i32, ptr %0, align 8
   %16 = sext i32 %15 to i64
@@ -937,9 +937,9 @@ define linkonce_odr hidden void @_ZNK5ceres8internal10CudaBufferIdE9CopyToCpuEPd
 
 .critedge:                                        ; preds = %3
   %19 = shl i64 %2, 3
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @cudaMemcpyAsync(ptr noundef %1, ptr noundef nonnull %11, i64 noundef %19, i32 noundef 2, ptr noundef %23)
   %25 = icmp eq i32 %24, 0
@@ -999,7 +999,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %.critedge, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 264
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 264
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @cudaStreamSynchronize(ptr noundef %42)
   %44 = icmp eq i32 %43, 0
@@ -1081,7 +1081,7 @@ define hidden void @_ZNK5ceres8internal10CudaVector6CopyToEPd(ptr noundef nonnul
   unreachable
 
 .critedge:                                        ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %0, align 8
   %13 = sext i32 %12 to i64
   tail call void @_ZNK5ceres8internal10CudaBufferIdE9CopyToCpuEPdm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %1, i64 noundef %13)
@@ -1096,7 +1096,7 @@ define hidden void @_ZN5ceres8internal10CudaVector7SetZeroEv(ptr nocapture nound
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %.critedge
@@ -1121,9 +1121,9 @@ define hidden void @_ZN5ceres8internal10CudaVector7SetZeroEv(ptr nocapture nound
   unreachable
 
 .critedge:                                        ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZN5ceres8internal15CudaSetZeroFP64EPdiP11CUstream_st(ptr noundef nonnull %7, i32 noundef %3, ptr noundef %18)
   br label %19
@@ -1220,12 +1220,12 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread: ; preds = %19, %_ZN6google12C
   br i1 %37, label %38, label %_ZN6google12Check_EQImplI14cublasStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
 
 38:                                               ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 256
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @cublasDscal_v2(ptr noundef %42, i32 noundef %43, ptr noundef nonnull %9, ptr noundef %45, i32 noundef 1)
   %47 = icmp eq i32 %46, 0
@@ -1282,14 +1282,14 @@ _ZN6google12Check_EQImplI14cublasStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11ch
   unreachable
 
 _ZN6google12Check_EQImplI14cublasStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %38, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread, %_ZN6google12Check_EQImplI14cublasStatus_tS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 256
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 256
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @cublasDaxpy_v2(ptr noundef %67, i32 noundef %68, ptr noundef nonnull %8, ptr noundef %70, i32 noundef 1, ptr noundef %72, i32 noundef 1)
   %74 = icmp eq i32 %73, 0
@@ -1356,12 +1356,12 @@ define hidden void @_ZN5ceres8internal10CudaVector5ScaleEd(ptr nocapture noundef
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
   store double %1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @cublasDscal_v2(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %4, ptr noundef %13, i32 noundef 1)
   %15 = icmp eq i32 %14, 0
@@ -1428,16 +1428,16 @@ declare i32 @cublasDaxpy_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal10CudaVector6DtDxpyERKS1_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN5ceres8internal10CudaDtDxpyEPdPKdS3_iP11CUstream_st(ptr noundef %5, ptr noundef %7, ptr noundef %9, i32 noundef %10, ptr noundef %14)
   ret void
@@ -1466,7 +1466,7 @@ declare i32 @cudaMalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7

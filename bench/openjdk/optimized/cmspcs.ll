@@ -18,10 +18,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @cmsXYZ2xyY(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fadd double %3, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fadd double %6, %8
   %10 = fdiv double 1.000000e+00, %9
@@ -29,10 +29,10 @@ define hidden void @cmsXYZ2xyY(ptr nocapture noundef writeonly initializes((0, 2
   store double %11, ptr %0, align 8
   %12 = load double, ptr %4, align 8
   %13 = fmul double %12, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %13, ptr %14, align 8
   %15 = load double, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %15, ptr %16, align 8
   ret void
 }
@@ -40,15 +40,15 @@ define hidden void @cmsXYZ2xyY(ptr nocapture noundef writeonly initializes((0, 2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @cmsxyY2XYZ(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fdiv double %3, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fmul double %6, %8
   store double %9, ptr %0, align 8
   %10 = load double, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %10, ptr %11, align 8
   %12 = load double, ptr %1, align 8
   %13 = fsub double 1.000000e+00, %12
@@ -56,7 +56,7 @@ define hidden void @cmsxyY2XYZ(ptr nocapture noundef writeonly initializes((0, 2
   %15 = fsub double %13, %14
   %16 = fdiv double %15, %14
   %17 = fmul double %10, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %17, ptr %18, align 8
   ret void
 }
@@ -88,9 +88,9 @@ define hidden void @cmsXYZ2Lab(ptr noundef readonly %0, ptr nocapture noundef wr
 
 f.exit:                                           ; preds = %12, %14
   %.0.i = phi double [ %13, %12 ], [ %15, %14 ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fdiv double %17, %19
   %21 = fcmp ugt double %20, 0x3F822354D28F7CD6
@@ -106,9 +106,9 @@ f.exit:                                           ; preds = %12, %14
 
 f.exit17:                                         ; preds = %22, %24
   %.0.i16 = phi double [ %23, %22 ], [ %25, %24 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %29 = load double, ptr %28, align 8
   %30 = fdiv double %27, %29
   %31 = fcmp ugt double %30, 0x3F822354D28F7CD6
@@ -128,11 +128,11 @@ f.exit19:                                         ; preds = %32, %34
   store double %36, ptr %1, align 8
   %37 = fsub double %.0.i, %.0.i16
   %38 = fmul double %37, 5.000000e+02
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %38, ptr %39, align 8
   %40 = fsub double %.0.i16, %.0.i18
   %41 = fmul double %40, 2.000000e+02
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %41, ptr %42, align 8
   ret void
 }
@@ -156,10 +156,10 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr nocapture noundef wr
   %8 = load double, ptr %2, align 8
   %9 = fadd double %8, 1.600000e+01
   %10 = fdiv double %9, 1.160000e+02
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load double, ptr %11, align 8
   %13 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e-03, double %10)
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load double, ptr %14, align 8
   %16 = tail call double @llvm.fmuladd.f64(double %15, double -5.000000e-03, double %10)
   %17 = fcmp ugt double %13, 0x3FCA7B9611A7B961
@@ -177,10 +177,10 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr nocapture noundef wr
   %27 = fmul double %10, %10
   %28 = fmul double %10, %27
   %.0.i16 = select i1 %24, double %28, double %26
-  %29 = getelementptr inbounds i8, ptr %.0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fmul double %.0.i16, %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %31, ptr %32, align 8
   %33 = fcmp ugt double %16, 0x3FCA7B9611A7B961
   %34 = fadd double %16, 0xBFC1A7B9611A7B96
@@ -188,10 +188,10 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly %0, ptr nocapture noundef wr
   %36 = fmul double %16, %16
   %37 = fmul double %16, %36
   %.0.i17 = select i1 %33, double %37, double %35
-  %38 = getelementptr inbounds i8, ptr %.0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %39 = load double, ptr %38, align 8
   %40 = fmul double %.0.i17, %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %40, ptr %41, align 8
   ret void
 }
@@ -202,19 +202,19 @@ define hidden void @cmsLabEncoded2FloatV2(ptr nocapture noundef writeonly initia
   %4 = uitofp i16 %3 to double
   %5 = fdiv double %4, 6.528000e+02
   store double %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = uitofp i16 %7 to double
   %9 = fmul double %8, 3.906250e-03
   %10 = fadd double %9, -1.280000e+02
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
   %15 = fmul double %14, 3.906250e-03
   %16 = fadd double %15, -1.280000e+02
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %16, ptr %17, align 8
   ret void
 }
@@ -225,19 +225,19 @@ define hidden void @cmsLabEncoded2Float(ptr nocapture noundef writeonly initiali
   %4 = uitofp i16 %3 to double
   %5 = fdiv double %4, 6.553500e+02
   store double %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = uitofp i16 %7 to double
   %9 = fdiv double %8, 2.570000e+02
   %10 = fadd double %9, -1.280000e+02
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
   %15 = fdiv double %14, 2.570000e+02
   %16 = fadd double %15, -1.280000e+02
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %16, ptr %17, align 8
   ret void
 }
@@ -249,13 +249,13 @@ define hidden void @cmsFloat2LabEncodedV2(ptr nocapture noundef writeonly initia
   %.0.i = select i1 %4, double 0.000000e+00, double %3
   %5 = fcmp ogt double %.0.i, 0x4059190000000000
   %.1.i = select i1 %5, double 0x4059190000000000, double %.0.i
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, -1.280000e+02
   %.0.i6 = select i1 %8, double -1.280000e+02, double %7
   %9 = fcmp ogt double %.0.i6, 0x405FFFC000000000
   %.1.i7 = select i1 %9, double 0x405FFFC000000000, double %.0.i6
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fcmp olt double %11, -1.280000e+02
   %.0.i8 = select i1 %12, double -1.280000e+02, double %11
@@ -301,7 +301,7 @@ L2Fix2.exit:                                      ; preds = %2, %17, %19
 
 ab2Fix2.exit:                                     ; preds = %L2Fix2.exit, %29, %31
   %.0.i.i10 = phi i16 [ %36, %31 ], [ 0, %L2Fix2.exit ], [ -1, %29 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.0.i.i10, ptr %37, align 2
   %38 = fadd double %.1.i9, 1.280000e+02
   %39 = fmul double %38, 2.560000e+02
@@ -323,7 +323,7 @@ ab2Fix2.exit:                                     ; preds = %L2Fix2.exit, %29, %
 
 ab2Fix2.exit12:                                   ; preds = %ab2Fix2.exit, %42, %44
   %.0.i.i11 = phi i16 [ %49, %44 ], [ 0, %ab2Fix2.exit ], [ -1, %42 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.0.i.i11, ptr %50, align 2
   ret void
 }
@@ -335,13 +335,13 @@ define hidden void @cmsFloat2LabEncoded(ptr nocapture noundef writeonly initiali
   %.0.i = select i1 %4, double 0.000000e+00, double %3
   %5 = fcmp ogt double %.0.i, 1.000000e+02
   %.1.i = select i1 %5, double 1.000000e+02, double %.0.i
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, -1.280000e+02
   %.0.i6 = select i1 %8, double -1.280000e+02, double %7
   %9 = fcmp ogt double %.0.i6, 1.270000e+02
   %.1.i7 = select i1 %9, double 1.270000e+02, double %.0.i6
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fcmp olt double %11, -1.280000e+02
   %.0.i8 = select i1 %12, double -1.280000e+02, double %11
@@ -387,7 +387,7 @@ L2Fix4.exit:                                      ; preds = %2, %17, %19
 
 ab2Fix4.exit:                                     ; preds = %L2Fix4.exit, %29, %31
   %.0.i.i10 = phi i16 [ %36, %31 ], [ 0, %L2Fix4.exit ], [ -1, %29 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.0.i.i10, ptr %37, align 2
   %38 = fadd double %.1.i9, 1.280000e+02
   %39 = fmul double %38, 2.570000e+02
@@ -409,7 +409,7 @@ ab2Fix4.exit:                                     ; preds = %L2Fix4.exit, %29, %
 
 ab2Fix4.exit12:                                   ; preds = %ab2Fix4.exit, %42, %44
   %.0.i.i11 = phi i16 [ %49, %44 ], [ 0, %ab2Fix4.exit ], [ -1, %42 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.0.i.i11, ptr %50, align 2
   ret void
 }
@@ -418,15 +418,15 @@ ab2Fix4.exit12:                                   ; preds = %ab2Fix4.exit, %42, 
 define hidden void @cmsLab2LCh(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fmul double %8, %8
   %10 = fadd double %6, %9
   %11 = tail call double @pow(double noundef %10, double noundef 5.000000e-01) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
   %13 = load double, ptr %7, align 8
   %14 = load double, ptr %4, align 8
@@ -460,7 +460,7 @@ define hidden void @cmsLab2LCh(ptr nocapture noundef writeonly initializes((0, 1
 
 atan2deg.exit:                                    ; preds = %.lr.ph13.i, %2, %.preheader.i
   %.2.lcssa.i = phi double [ %.1.lcssa.i, %.preheader.i ], [ 0.000000e+00, %2 ], [ %24, %.lr.ph13.i ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.2.lcssa.i, ptr %26, align 8
   ret void
 }
@@ -470,22 +470,22 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @cmsLCh2Lab(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 0x400921FB54442D18
   %6 = fdiv double %5, 1.800000e+02
   %7 = load double, ptr %1, align 8
   store double %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = tail call double @cos(double noundef %6) #10
   %11 = fmul double %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
   %13 = load double, ptr %8, align 8
   %14 = tail call double @sin(double noundef %6) #10
   %15 = fmul double %13, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %15, ptr %16, align 8
   ret void
 }
@@ -499,9 +499,9 @@ declare double @sin(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @cmsFloat2XYZEncoded(ptr nocapture noundef writeonly initializes((0, 6)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fcmp ugt double %5, 0.000000e+00
   %.sroa.15.0 = select i1 %8, double %7, double 0.000000e+00
@@ -556,7 +556,7 @@ XYZ2Fix.exit:                                     ; preds = %2, %17, %19
 
 XYZ2Fix.exit14:                                   ; preds = %XYZ2Fix.exit, %28, %30
   %.0.i.i13 = phi i16 [ %35, %30 ], [ 0, %XYZ2Fix.exit ], [ -1, %28 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.0.i.i13, ptr %36, align 2
   %37 = fmul double %.sroa.15.2, 3.276800e+04
   %38 = fadd double %37, 5.000000e-01
@@ -577,7 +577,7 @@ XYZ2Fix.exit14:                                   ; preds = %XYZ2Fix.exit, %28, 
 
 XYZ2Fix.exit16:                                   ; preds = %XYZ2Fix.exit14, %40, %42
   %.0.i.i15 = phi i16 [ %47, %42 ], [ 0, %XYZ2Fix.exit14 ], [ -1, %40 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.0.i.i15, ptr %48, align 2
   ret void
 }
@@ -589,19 +589,19 @@ define hidden void @cmsXYZEncoded2Float(ptr nocapture noundef writeonly initiali
   %5 = shl nuw nsw i32 %4, 1
   %6 = tail call double @_cms15Fixed16toDouble(i32 noundef %5) #10
   store double %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 1
   %11 = tail call double @_cms15Fixed16toDouble(i32 noundef %10) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = shl nuw nsw i32 %15, 1
   %17 = tail call double @_cms15Fixed16toDouble(i32 noundef %16) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %17, ptr %18, align 8
   ret void
 }
@@ -611,14 +611,14 @@ define hidden double @cmsDeltaE(ptr nocapture noundef readonly %0, ptr nocapture
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fsub double %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fsub double %12, %14
   %16 = fmul double %5, %5
@@ -638,10 +638,10 @@ define hidden double @cmsCIE94DeltaE(ptr nocapture noundef readonly %0, ptr noca
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, %10
   %12 = fadd double %8, %11
@@ -658,10 +658,10 @@ define hidden double @cmsCIE94DeltaE(ptr nocapture noundef readonly %0, ptr noca
   br label %cmsLab2LCh.exit
 
 cmsLab2LCh.exit:                                  ; preds = %18, %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fmul double %21, %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, %24
   %26 = fadd double %22, %25
@@ -768,10 +768,10 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %.0.i61 = fmul double %.0.in.i60, 1.000000e+02
   %21 = fadd double %.0.i61, 1.500000e+00
   %22 = tail call double @log(double noundef %21) #10
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load double, ptr %26, align 8
   %28 = fmul double %27, %27
   %29 = fadd double %25, %28
@@ -808,10 +808,10 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
 
 cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %ComputeLBFD.exit62, %.preheader.i.i
   %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %ComputeLBFD.exit62 ], [ %42, %.lr.ph13.i.i ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fmul double %45, %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load double, ptr %47, align 8
   %49 = fmul double %48, %48
   %50 = fadd double %46, %49
@@ -977,10 +977,10 @@ define hidden double @cmsCMCdeltaE(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %9, label %109, label %10
 
 10:                                               ; preds = %7, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8
   %13 = fmul double %12, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fmul double %15, %15
   %17 = fadd double %13, %16
@@ -1017,10 +1017,10 @@ define hidden double @cmsCMCdeltaE(ptr nocapture noundef readonly %0, ptr nocapt
 
 cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %10, %.preheader.i.i
   %.2.lcssa.i.i = phi double [ %.1.lcssa.i.i, %.preheader.i.i ], [ 0.000000e+00, %10 ], [ %30, %.lr.ph13.i.i ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load double, ptr %32, align 8
   %34 = fmul double %33, %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load double, ptr %35, align 8
   %37 = fmul double %36, %36
   %38 = fadd double %34, %37
@@ -1121,18 +1121,18 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden double @cmsCIE2000DeltaE(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
   %6 = load double, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fmul double %8, %8
   %12 = fmul double %10, %10
   %13 = fadd double %11, %12
   %sqrt98 = tail call double @llvm.sqrt.f64(double %13)
   %14 = load double, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load double, ptr %17, align 8
   %19 = fmul double %16, %16
   %20 = fmul double %18, %18
@@ -1527,7 +1527,7 @@ define hidden range(i32 0, 1501067553) i32 @_cmsICCcolorSpace(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table._cmsICCcolorSpace, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table._cmsICCcolorSpace, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

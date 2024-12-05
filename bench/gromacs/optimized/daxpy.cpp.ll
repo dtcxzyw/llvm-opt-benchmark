@@ -73,30 +73,30 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %39 = load double, ptr %38, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %8, double %37, double %39)
   store double %40, ptr %38, align 8
   %41 = or disjoint i64 %indvars.iv, 1
-  %42 = getelementptr inbounds double, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw double, ptr %2, i64 %41
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %4, i64 %41
+  %44 = getelementptr inbounds nuw double, ptr %4, i64 %41
   %45 = load double, ptr %44, align 8
   %46 = tail call double @llvm.fmuladd.f64(double %8, double %43, double %45)
   store double %46, ptr %44, align 8
   %47 = or disjoint i64 %indvars.iv, 2
-  %48 = getelementptr inbounds double, ptr %2, i64 %47
+  %48 = getelementptr inbounds nuw double, ptr %2, i64 %47
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds double, ptr %4, i64 %47
+  %50 = getelementptr inbounds nuw double, ptr %4, i64 %47
   %51 = load double, ptr %50, align 8
   %52 = tail call double @llvm.fmuladd.f64(double %8, double %49, double %51)
   store double %52, ptr %50, align 8
   %53 = or disjoint i64 %indvars.iv, 3
-  %54 = getelementptr inbounds double, ptr %2, i64 %53
+  %54 = getelementptr inbounds nuw double, ptr %2, i64 %53
   %55 = load double, ptr %54, align 8
-  %56 = getelementptr inbounds double, ptr %4, i64 %53
+  %56 = getelementptr inbounds nuw double, ptr %4, i64 %53
   %57 = load double, ptr %56, align 8
   %58 = tail call double @llvm.fmuladd.f64(double %8, double %55, double %57)
   store double %58, ptr %56, align 8
@@ -106,9 +106,9 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv74 = phi i64 [ %35, %.lr.ph67.preheader ], [ %indvars.iv.next75, %.lr.ph67 ]
-  %60 = getelementptr inbounds double, ptr %2, i64 %indvars.iv74
+  %60 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv74
   %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds double, ptr %4, i64 %indvars.iv74
+  %62 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv74
   %63 = load double, ptr %62, align 8
   %64 = tail call double @llvm.fmuladd.f64(double %8, double %61, double %63)
   store double %64, ptr %62, align 8

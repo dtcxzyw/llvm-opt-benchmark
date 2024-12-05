@@ -31,7 +31,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetName(ptr noundef %
 
 9:                                                ; preds = %8, %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1336
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %4) #3
   ret ptr %13
@@ -54,7 +54,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVendor(ptr noundef
 
 9:                                                ; preds = %8, %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1336
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %4) #3
   ret ptr %13
@@ -77,7 +77,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetDescription(ptr no
 
 9:                                                ; preds = %8, %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1336
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %4) #3
   ret ptr %13
@@ -100,7 +100,7 @@ define ptr @Java_com_sun_media_sound_MidiInDeviceProvider_nGetVersion(ptr nounde
 
 9:                                                ; preds = %8, %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1336
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %4) #3
   ret ptr %13

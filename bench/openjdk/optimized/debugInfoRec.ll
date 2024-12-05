@@ -24,7 +24,7 @@ $_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE9expand_toEi = 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorderC2EP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(76) initializes((8, 9), (56, 76)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr @_ZN11JvmtiExport33_should_post_compiled_method_loadE, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %9
@@ -41,22 +41,22 @@ define hidden void @_ZN24DebugInformationRecorderC2EP11OopRecorder(ptr noundef n
 _ZL32compute_recording_non_safepointsv.exit:      ; preds = %7, %9
   %.0.i = phi i8 [ %11, %9 ], [ 1, %7 ]
   store i8 %.0.i, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 100, ptr %12, align 8
   %13 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1600, i32 noundef 0) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1, ptr %16, align 8
   %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #12
   tail call void @_ZN20DebugInfoWriteStreamC1EP24DebugInformationRecorderi(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %0, i32 noundef 10240) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %22 = load i32, ptr %21, align 4
   %.not.i.i = icmp slt i32 %20, %22
   br i1 %.not.i.i, label %_ZN21CompressedWriteStream10write_byteEa.exit, label %23
@@ -74,21 +74,21 @@ _ZN21CompressedWriteStream10write_byteEa.exit:    ; preds = %_ZL32compute_record
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
   store i8 -1, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %29, align 8
   %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #12
   %31 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 300, i32 noundef 8) #12
   store i32 0, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %30, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 300, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %31, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2400) %31, i8 0, i64 2400, i1 false)
-  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %30, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %37 = load i32, ptr %15, align 4
@@ -108,8 +108,8 @@ _ZN21CompressedWriteStream10write_byteEa.exit:    ; preds = %_ZL32compute_record
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %40 ]
   %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds %class.PcDesc, ptr %47, i64 %indvars.iv.i
-  %49 = getelementptr inbounds %class.PcDesc, ptr %44, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw %class.PcDesc, ptr %47, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw %class.PcDesc, ptr %44, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %48, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = load i32, ptr %15, align 4
@@ -142,9 +142,9 @@ declare void @_ZN20DebugInfoWriteStreamC1EP24DebugInformationRecorderi(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %25
@@ -159,14 +159,14 @@ define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nocap
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %class.PcDesc, ptr %18, i64 %indvars.iv
-  %20 = getelementptr inbounds %class.PcDesc, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %class.PcDesc, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %class.PcDesc, ptr %13, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %4, align 4
@@ -176,13 +176,13 @@ define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nocap
 
 ._crit_edge:                                      ; preds = %17, %9
   store i32 %10, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %._crit_edge, %2
   call void @_ZN6PcDescC1Eiii(ptr noundef nonnull align 4 dereferenceable(16) %3, i32 noundef %1, i32 noundef 0, i32 noundef 0) #12
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %4, align 4
   %29 = add nsw i32 %28, 1
@@ -208,9 +208,9 @@ define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr n
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1, ptr noundef %2) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %_ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit
@@ -225,14 +225,14 @@ define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr n
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %class.PcDesc, ptr %21, i64 %indvars.iv.i
-  %23 = getelementptr inbounds %class.PcDesc, ptr %16, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw %class.PcDesc, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw %class.PcDesc, ptr %16, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = load i32, ptr %7, align 4
@@ -242,13 +242,13 @@ define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr n
 
 ._crit_edge.i:                                    ; preds = %20, %12
   store i32 %13, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %16, ptr %27, align 8
   br label %_ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit
 
 _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %3, %._crit_edge.i
   call void @_ZN6PcDescC1Eiii(ptr noundef nonnull align 4 dereferenceable(16) %4, i32 noundef %1, i32 noundef 0, i32 noundef 0) #12
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %7, align 4
   %31 = add nsw i32 %30, 1
@@ -264,9 +264,9 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %3, %._crit_e
 define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %_ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit
@@ -281,14 +281,14 @@ define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr nocap
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %class.PcDesc, ptr %18, i64 %indvars.iv.i
-  %20 = getelementptr inbounds %class.PcDesc, ptr %13, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw %class.PcDesc, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw %class.PcDesc, ptr %13, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %4, align 4
@@ -298,13 +298,13 @@ define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr nocap
 
 ._crit_edge.i:                                    ; preds = %17, %9
   store i32 %10, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %24, align 8
   br label %_ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit
 
 _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %2, %._crit_edge.i
   call void @_ZN6PcDescC1Eiii(ptr noundef nonnull align 4 dereferenceable(16) %3, i32 noundef %1, i32 noundef 0, i32 noundef 0) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %4, align 4
   %28 = add nsw i32 %27, 1
@@ -333,11 +333,11 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder24serialize_monitor_valu
   br i1 %7, label %96, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %12, 5
   %.not.i.i.i = icmp sgt i32 %15, %14
@@ -423,13 +423,13 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN21CompressedWriteStream9write_intEj.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
   tail call void @_ZN12MonitorValue8write_onEP20DebugInfoWriteStream(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr noundef %53) #12
@@ -442,24 +442,24 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 ._crit_edge:                                      ; preds = %49, %_ZN21CompressedWriteStream9write_intEj.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load ptr, ptr %62, align 8
   %.not.i.i18 = icmp ult ptr %61, %63
   br i1 %.not.i.i18, label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i, label %64
 
 64:                                               ; preds = %._crit_edge
   %65 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2400, i32 noundef 0) #12
-  %66 = getelementptr inbounds i8, ptr %65, i64 2400
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 2400
   store ptr %66, ptr %62, align 8
   br label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
 
 _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %64, %._crit_edge
   %67 = phi ptr [ %65, %64 ], [ %61, %._crit_edge ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %68, ptr %60, align 8
   %69 = icmp eq ptr %67, null
   br i1 %69, label %87, label %70
@@ -467,9 +467,9 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %64, %._crit_edge
 70:                                               ; preds = %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   %71 = sub nsw i32 %59, %12
   store i32 %12, ptr %67, align 8
-  %72 = getelementptr inbounds i8, ptr %67, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %71, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %0, ptr %73, align 8
   %74 = load ptr, ptr %9, align 8
   %75 = load ptr, ptr %74, align 8
@@ -489,7 +489,7 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %64, %._crit_edge
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01415.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %85, %.lr.ph.i.i ]
   %81 = mul i32 %.01415.i.i, 127
-  %82 = getelementptr inbounds i8, ptr %77, i64 %indvars.iv.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.i.i
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = add i32 %81, %84
@@ -499,13 +499,13 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %64, %._crit_edge
 
 _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %70
   %.014.lcssa.i.i = phi i32 [ 0, %70 ], [ %85, %.lr.ph.i.i ]
-  %86 = getelementptr inbounds i8, ptr %67, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 %.014.lcssa.i.i, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %_ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i, %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   store ptr %67, ptr %3, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_sortedIXadL_ZNS0_7compareERKS1_S7_EEEES1_S7_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %91 = load ptr, ptr %3, align 8
@@ -525,7 +525,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %87
 
 93:                                               ; preds = %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
   %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %12, ptr %95, align 8
   br label %96
 
@@ -539,26 +539,26 @@ declare void @_ZN12MonitorValue8write_onEP20DebugInfoWriteStream(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp ult ptr %9, %11
   br i1 %.not.i, label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit, label %12
 
 12:                                               ; preds = %2
   %13 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2400, i32 noundef 0) #12
-  %14 = getelementptr inbounds i8, ptr %13, i64 2400
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2400
   store ptr %14, ptr %10, align 8
   br label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit
 
 _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit: ; preds = %2, %12
   %15 = phi ptr [ %13, %12 ], [ %9, %2 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %16, ptr %8, align 8
   %17 = icmp eq ptr %15, null
   br i1 %17, label %35, label %18
@@ -566,9 +566,9 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit: ; preds = %2, %12
 18:                                               ; preds = %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit
   %19 = sub nsw i32 %7, %1
   store i32 %1, ptr %15, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %0, ptr %21, align 8
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %22, align 8
@@ -588,7 +588,7 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit: ; preds = %2, %12
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01415.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %33, %.lr.ph.i ]
   %29 = mul i32 %.01415.i, 127
-  %30 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = add i32 %29, %32
@@ -598,13 +598,13 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit: ; preds = %2, %12
 
 _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit: ; preds = %.lr.ph.i, %18
   %.014.lcssa.i = phi i32 [ 0, %18 ], [ %33, %.lr.ph.i ]
-  %34 = getelementptr inbounds i8, ptr %15, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %.014.lcssa.i, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %_ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit, %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit
   store ptr %15, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_sortedIXadL_ZNS0_7compareERKS1_S7_EEEES1_S7_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %39 = load ptr, ptr %3, align 8
@@ -633,11 +633,11 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder22serialize_scope_values
   br i1 %7, label %99, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %12, 5
   %.not.i.i.i = icmp sgt i32 %15, %14
@@ -723,17 +723,17 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN21CompressedWriteStream9write_intEj.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
   %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef %53) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -745,24 +745,24 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 ._crit_edge:                                      ; preds = %49, %_ZN21CompressedWriteStream9write_intEj.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8
   %.not.i.i18 = icmp ult ptr %64, %66
   br i1 %.not.i.i18, label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i, label %67
 
 67:                                               ; preds = %._crit_edge
   %68 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2400, i32 noundef 0) #12
-  %69 = getelementptr inbounds i8, ptr %68, i64 2400
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2400
   store ptr %69, ptr %65, align 8
   br label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
 
 _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %67, %._crit_edge
   %70 = phi ptr [ %68, %67 ], [ %64, %._crit_edge ]
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %71, ptr %63, align 8
   %72 = icmp eq ptr %70, null
   br i1 %72, label %90, label %73
@@ -770,9 +770,9 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %67, %._crit_edge
 73:                                               ; preds = %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   %74 = sub nsw i32 %62, %12
   store i32 %12, ptr %70, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %70, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %0, ptr %76, align 8
   %77 = load ptr, ptr %9, align 8
   %78 = load ptr, ptr %77, align 8
@@ -792,7 +792,7 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %67, %._crit_edge
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01415.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %88, %.lr.ph.i.i ]
   %84 = mul i32 %.01415.i.i, 127
-  %85 = getelementptr inbounds i8, ptr %80, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv.i.i
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = add i32 %84, %87
@@ -802,13 +802,13 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %67, %._crit_edge
 
 _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %73
   %.014.lcssa.i.i = phi i32 [ 0, %73 ], [ %88, %.lr.ph.i.i ]
-  %89 = getelementptr inbounds i8, ptr %70, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %.014.lcssa.i.i, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %_ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i, %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   store ptr %70, ptr %3, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_sortedIXadL_ZNS0_7compareERKS1_S7_EEEES1_S7_(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %94 = load ptr, ptr %3, align 8
@@ -828,7 +828,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %90
 
 96:                                               ; preds = %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 %12, ptr %98, align 8
   br label %99
 
@@ -845,13 +845,13 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Ch
 
 .lr.ph.i:                                         ; preds = %2
   %4 = add nsw i32 %3, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %12
 
 12:                                               ; preds = %47, %.lr.ph.i
@@ -860,9 +860,9 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Ch
   %13 = add i32 %.01627.i, %.01528.i
   %14 = lshr i32 %13, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, %9
   br i1 %20, label %_ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i, label %21
@@ -872,7 +872,7 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Ch
   br i1 %22, label %.thread.i, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %17, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %10, align 4
   %27 = icmp sgt i32 %25, %26
@@ -884,7 +884,7 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Ch
 
 _ZN9DIR_Chunk7compareERKPS_S2_.exit.i:            ; preds = %28
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %17, align 8
@@ -918,7 +918,7 @@ _ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i:     ; preds = %_ZN9DIR_Chunk7compa
 
 .loopexit:                                        ; preds = %47, %2
   %.0.i.ph = phi i32 [ 0, %2 ], [ %.1.i, %47 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %3, %49
   br i1 %50, label %51, label %59
@@ -947,7 +947,7 @@ _ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i:     ; preds = %_ZN9DIR_Chunk7compa
   br label %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 .lr.ph.i4:                                        ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = sext i32 %60 to i64
   %63 = zext nneg i32 %.0.i.ph to i64
   br label %64
@@ -973,9 +973,9 @@ _ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeE
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %0, align 8
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre-phi.i
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi.i
   store ptr %71, ptr %74, align 8
   %.pre = load ptr, ptr %72, align 8
   br label %_ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit
@@ -984,7 +984,7 @@ _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7c
   %75 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %44 ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %14, %44 ]
   %76 = zext nneg i32 %.0.i8 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   ret ptr %78
 }
@@ -992,7 +992,7 @@ _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 align 2 {
   %15 = alloca ptr, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %_ZN24DebugInformationRecorder7last_pcEv.exit, label %19
@@ -1004,15 +1004,15 @@ define hidden void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHan
   unreachable
 
 _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %17 to i64
   %24 = getelementptr %class.PcDesc, ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -12
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %25, align 4
   %31 = getelementptr i8, ptr %24, i64 -4
@@ -1032,8 +1032,8 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %14
   %39 = or i32 %38, %33
   store i32 %39, ptr %31, align 4
   %40 = load ptr, ptr %27, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %43 = load i32, ptr %41, align 4
   %44 = load i32, ptr %42, align 4
   %45 = add nsw i32 %43, 5
@@ -1116,12 +1116,12 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %storemerge.i.i.i = add nsw i32 %.sink35.i.i.i, 1
   store i32 %storemerge.i.i.i, ptr %41, align 4
   %.not = icmp eq ptr %3, null
-  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.0.in = select i1 %.not, ptr %2, ptr %76
   %.0 = load ptr, ptr %.0.in, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = tail call noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %79, ptr noundef %.0) #12
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %_ZN11OopRecorder10find_indexEP8Metadata.exit
@@ -1133,8 +1133,8 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %_ZN21CompressedWriteStream9write_intEj.exit, %82
   %.0.i.i = phi i32 [ %83, %82 ], [ %80, %_ZN21CompressedWriteStream9write_intEj.exit ]
   %84 = load ptr, ptr %27, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
-  %86 = getelementptr inbounds i8, ptr %84, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %87 = load i32, ptr %85, align 4
   %88 = load i32, ptr %86, align 4
   %89 = add nsw i32 %87, 5
@@ -1218,8 +1218,8 @@ _ZN21CompressedWriteStream9write_intEj.exit62:    ; preds = %_ZN9UNSIGNED513fits
   store i32 %storemerge.i.i.i51, ptr %85, align 4
   %120 = load ptr, ptr %27, align 8
   %121 = add nsw i32 %4, 1
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
-  %123 = getelementptr inbounds i8, ptr %120, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 12
   %124 = load i32, ptr %122, align 4
   %125 = load i32, ptr %123, align 4
   %126 = add nsw i32 %124, 5
@@ -1304,8 +1304,8 @@ _ZN20DebugInfoWriteStream9write_bciEi.exit:       ; preds = %_ZN9UNSIGNED513fits
   %157 = load ptr, ptr %27, align 8
   %158 = ptrtoint ptr %11 to i64
   %159 = trunc i64 %158 to i32
-  %160 = getelementptr inbounds i8, ptr %157, i64 8
-  %161 = getelementptr inbounds i8, ptr %157, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 12
   %162 = load i32, ptr %160, align 4
   %163 = load i32, ptr %161, align 4
   %164 = add nsw i32 %162, 5
@@ -1390,8 +1390,8 @@ _ZN21CompressedWriteStream9write_intEj.exit88:    ; preds = %_ZN9UNSIGNED513fits
   %195 = load ptr, ptr %27, align 8
   %196 = ptrtoint ptr %12 to i64
   %197 = trunc i64 %196 to i32
-  %198 = getelementptr inbounds i8, ptr %195, i64 8
-  %199 = getelementptr inbounds i8, ptr %195, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 12
   %200 = load i32, ptr %198, align 4
   %201 = load i32, ptr %199, align 4
   %202 = add nsw i32 %200, 5
@@ -1476,8 +1476,8 @@ _ZN21CompressedWriteStream9write_intEj.exit112:   ; preds = %_ZN9UNSIGNED513fits
   %233 = load ptr, ptr %27, align 8
   %234 = ptrtoint ptr %13 to i64
   %235 = trunc i64 %234 to i32
-  %236 = getelementptr inbounds i8, ptr %233, i64 8
-  %237 = getelementptr inbounds i8, ptr %233, i64 12
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %238 = load i32, ptr %236, align 4
   %239 = load i32, ptr %237, align 4
   %240 = add nsw i32 %238, 5
@@ -1561,24 +1561,24 @@ _ZN21CompressedWriteStream9write_intEj.exit136:   ; preds = %_ZN9UNSIGNED513fits
   store i32 %storemerge.i.i.i125, ptr %236, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %271 = load ptr, ptr %27, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 40
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %0, i64 48
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %277 = load ptr, ptr %276, align 8
   %.not.i.i137 = icmp ult ptr %275, %277
   br i1 %.not.i.i137, label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i, label %278
 
 278:                                              ; preds = %_ZN21CompressedWriteStream9write_intEj.exit136
   %279 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2400, i32 noundef 0) #12
-  %280 = getelementptr inbounds i8, ptr %279, i64 2400
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 2400
   store ptr %280, ptr %276, align 8
   br label %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
 
 _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %278, %_ZN21CompressedWriteStream9write_intEj.exit136
   %281 = phi ptr [ %279, %278 ], [ %275, %_ZN21CompressedWriteStream9write_intEj.exit136 ]
-  %282 = getelementptr inbounds i8, ptr %281, i64 24
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 24
   store ptr %282, ptr %274, align 8
   %283 = icmp eq ptr %281, null
   br i1 %283, label %301, label %284
@@ -1586,9 +1586,9 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %278, %_ZN21Compr
 284:                                              ; preds = %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   %285 = sub nsw i32 %273, %30
   store i32 %30, ptr %281, align 8
-  %286 = getelementptr inbounds i8, ptr %281, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %281, i64 4
   store i32 %285, ptr %286, align 4
-  %287 = getelementptr inbounds i8, ptr %281, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store ptr %0, ptr %287, align 8
   %288 = load ptr, ptr %27, align 8
   %289 = load ptr, ptr %288, align 8
@@ -1608,7 +1608,7 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %278, %_ZN21Compr
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01415.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %299, %.lr.ph.i.i ]
   %295 = mul i32 %.01415.i.i, 127
-  %296 = getelementptr inbounds i8, ptr %291, i64 %indvars.iv.i.i
+  %296 = getelementptr inbounds nuw i8, ptr %291, i64 %indvars.iv.i.i
   %297 = load i8, ptr %296, align 1
   %298 = zext i8 %297 to i32
   %299 = add i32 %295, %298
@@ -1618,13 +1618,13 @@ _ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i: ; preds = %278, %_ZN21Compr
 
 _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %284
   %.014.lcssa.i.i = phi i32 [ 0, %284 ], [ %299, %.lr.ph.i.i ]
-  %300 = getelementptr inbounds i8, ptr %281, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store i32 %.014.lcssa.i.i, ptr %300, align 8
   br label %301
 
 301:                                              ; preds = %_ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i, %_ZN9DIR_ChunknwEmP24DebugInformationRecorder.exit.i
   store ptr %281, ptr %15, align 8
-  %302 = getelementptr inbounds i8, ptr %0, i64 32
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %303 = load ptr, ptr %302, align 8
   %304 = call noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_sortedIXadL_ZNS0_7compareERKS1_S7_EEEES1_S7_(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %305 = load ptr, ptr %15, align 8
@@ -1644,7 +1644,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %30
 
 307:                                              ; preds = %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
   %308 = load ptr, ptr %27, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i32 %30, ptr %309, align 8
   store i32 %306, ptr %25, align 4
   br label %310
@@ -1655,7 +1655,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %30
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableArrayIP10ScopeValueE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %8, label %6
@@ -1667,7 +1667,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %11
@@ -1678,7 +1678,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
   br i1 %13, label %.lr.ph, label %.split9
 
 .lr.ph:                                           ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = zext nneg i32 %12 to i64
   br label %17
 
@@ -1690,9 +1690,9 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i8 0, ptr %21, align 8
   %22 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %22, label %17, label %.split9, !llvm.loop !15
@@ -1711,24 +1711,24 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN24DebugInformationRecorder10end_scopesEib(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %_ZN24DebugInformationRecorder7prev_pcEv.exit, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
 _ZN24DebugInformationRecorder7prev_pcEv.exit:     ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %5 to i64
   %14 = getelementptr %class.PcDesc, ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -32
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %15, align 4
   %19 = icmp slt i32 %17, %18
@@ -1769,7 +1769,7 @@ _ZN6PcDesc12is_same_infoEPKS_.exit.thread:        ; preds = %20, %26, %_ZN24Debu
   br i1 %2, label %40, label %42
 
 40:                                               ; preds = %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %41, align 8
   br label %42
 
@@ -1795,9 +1795,9 @@ define hidden noundef ptr @_ZN24DebugInformationRecorder21create_monitor_valuesE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   ret i32 %5
 }
@@ -1805,7 +1805,7 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, -15) i32 @_ZN24DebugInformationRecorder8pcs_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.PcDesc, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %_ZN24DebugInformationRecorder7last_pcEv.exit, label %6
@@ -1817,7 +1817,7 @@ define hidden noundef range(i32 0, -15) i32 @_ZN24DebugInformationRecorder8pcs_s
   unreachable
 
 _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %4 to i64
   %11 = getelementptr %class.PcDesc, ptr %9, i64 %10
@@ -1828,7 +1828,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
 
 14:                                               ; preds = %_ZN24DebugInformationRecorder7last_pcEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %4, %16
   br i1 %17, label %18, label %_ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit
@@ -1845,8 +1845,8 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %18 ]
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %class.PcDesc, ptr %25, i64 %indvars.iv.i
-  %27 = getelementptr inbounds %class.PcDesc, ptr %22, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw %class.PcDesc, ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw %class.PcDesc, ptr %22, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %3, align 4
@@ -1880,15 +1880,15 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %14, %._crit_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorder7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   tail call void @_ZN7nmethod16copy_scopes_dataEPhi(ptr noundef nonnull align 8 dereferenceable(214) %1, ptr noundef %5, i32 noundef %7) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   tail call void @_ZN7nmethod15copy_scopes_pcsEP6PcDesci(ptr noundef nonnull align 8 dereferenceable(214) %1, ptr noundef %9, i32 noundef %11) #12
   ret void
@@ -1924,9 +1924,9 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -1958,7 +1958,7 @@ _ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit:  ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -1977,9 +1977,9 @@ _ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit:  ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1989,14 +1989,14 @@ _ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit:  ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP9DIR_ChunkE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

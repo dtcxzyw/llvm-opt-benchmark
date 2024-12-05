@@ -254,7 +254,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %spec.select, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %spec.select, ptr noundef nonnull align 8 dereferenceable(8) %channel_args)
   br i1 %call1, label %return, label %if.end3
@@ -283,29 +283,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core28AddClientCallTracerToContextEP25grpc_call_context_elementPNS_16ClientCallTracerE(ptr nocapture noundef %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %call_context, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call_context, i64 32
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store ptr %tracer, ptr %arrayidx, align 8
-  %destroy = getelementptr inbounds i8, ptr %call_context, i64 40
+  %destroy = getelementptr inbounds nuw i8, ptr %call_context, i64 40
   store ptr null, ptr %destroy, align 8
   br label %if.end12
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.then6, label %if.else7
 
 if.then6:                                         ; preds = %if.else
-  %tracers_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -313,7 +313,7 @@ if.then6:                                         ; preds = %if.else
 if.then.i.i:                                      ; preds = %if.then6
   store ptr %tracer, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end12
 
@@ -326,7 +326,7 @@ if.else.i.i:                                      ; preds = %if.then6
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
   unreachable
 
 _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
@@ -336,39 +336,32 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 3
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %tracer, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
-_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
+_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %tracers_.i, align 8
+  store ptr %call5.i.i.i.i.i.i, ptr %tracers_.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end12
 
@@ -379,19 +372,19 @@ if.else7:                                         ; preds = %if.else
   br i1 %cmp.not.i, label %if.then.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
 
 if.then.i:                                        ; preds = %if.else7
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #18
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #19
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %if.else7
   %9 = atomicrmw add ptr %8, i64 48 monotonic, align 8
   %add2.i.i.i = add i64 %9, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %initial_zone_size_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %initial_zone_size_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %10
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 48
+  %add.ptr.i.i.i8 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i8, i64 %9
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
 
@@ -401,22 +394,22 @@ if.else.i.i.i:                                    ; preds = %_ZN9grpc_core10GetC
 
 _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
-  %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
+  %t.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t.i.i.i.i, align 8
-  %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
+  %tracers_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracers_.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
   store ptr %call5.i.i.i.i2.i.i1.i.i.i.i, ptr %tracers_.i.i.i.i.i, align 8
-  %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, i64 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
+  %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, i64 8
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 40
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   store ptr %0, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 32
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %8, i64 32
+  %managed_new_head_.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   store ptr %t.i.i.i.i, ptr %arrayidx, align 8
   %11 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
@@ -427,7 +420,7 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCa
 if.then.i.i13:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingClientCallTracerEJRPNS_16ClientCallTracerEEEEPT_DpOT0_.exit
   store ptr %tracer, ptr %11, align 8
   %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %13, i64 8
+  %incdec.ptr.i.i14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i14, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %if.end12
 
@@ -437,10 +430,10 @@ if.else.i.i15:                                    ; preds = %_ZN9grpc_core5Arena
   %sub.ptr.rhs.cast.i.i.i.i.i17 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i16, %sub.ptr.rhs.cast.i.i.i.i.i17
   %cmp.i.i.i.i19 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i18, 9223372036854775800
-  br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i42, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i38, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
 
-if.then.i.i.i.i42:                                ; preds = %if.else.i.i15
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
+if.then.i.i.i.i38:                                ; preds = %if.else.i.i15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
   unreachable
 
 _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20: ; preds = %if.else.i.i15
@@ -450,74 +443,67 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %cmp7.i.i.i.i24 = icmp ult i64 %add.i.i.i.i23, %sub.ptr.div.i.i.i.i.i21
   %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i23, i64 1152921504606846975)
   %cond.i.i.i.i25 = select i1 %cmp7.i.i.i.i24, i64 1152921504606846975, i64 %15
-  %cmp.not.i.i.i.i26 = icmp eq i64 %cond.i.i.i.i25, 0
-  br i1 %cmp.not.i.i.i.i26, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30, label %cond.true.i.i.i.i27
+  %cmp.not.i.i.i.i26 = icmp ne i64 %cond.i.i.i.i25, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i26)
+  %mul.i.i.i.i.i.i27 = shl nuw nsw i64 %cond.i.i.i.i25, 3
+  %call5.i.i.i.i.i.i28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i27) #20
+  %add.ptr.i.i.i29 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i28, i64 %sub.ptr.sub.i.i.i.i.i18
+  store ptr %tracer, ptr %add.ptr.i.i.i29, align 8
+  %cmp.i.i.i.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i18, 0
+  br i1 %cmp.i.i.i.i.i.i30, label %if.then.i.i.i.i.i.i37, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i31
 
-cond.true.i.i.i.i27:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %mul.i.i.i.i.i.i28 = shl nuw nsw i64 %cond.i.i.i.i25, 3
-  %call5.i.i.i.i.i.i29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i28) #19
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
+if.then.i.i.i.i.i.i37:                            ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i28, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i18, i1 false)
+  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i31
 
-_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30: ; preds = %cond.true.i.i.i.i27, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %cond.i10.i.i.i31 = phi ptr [ %call5.i.i.i.i.i.i29, %cond.true.i.i.i.i27 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20 ]
-  %add.ptr.i.i.i32 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i31, i64 %sub.ptr.div.i.i.i.i.i21
-  store ptr %tracer, ptr %add.ptr.i.i.i32, align 8
-  %cmp.i.i.i.i.i.i33 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i18, 0
-  br i1 %cmp.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i41, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
+_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i31: ; preds = %if.then.i.i.i.i.i.i37, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i20
+  %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i29, i64 8
+  %tobool.not.i.i.i.i33 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i.i33, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35, label %if.then.i18.i.i.i34
 
-if.then.i.i.i.i.i.i41:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i31, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i18, i1 false)
-  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
+if.then.i18.i.i.i34:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i31
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #21
+  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35
 
-_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34: ; preds = %if.then.i.i.i.i.i.i41, %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i30
-  %add.ptr.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %cond.i10.i.i.i31, i64 %sub.ptr.sub.i.i.i.i.i18
-  %incdec.ptr.i.i.i36 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i35, i64 8
-  %tobool.not.i.i.i.i37 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i37, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, label %if.then.i18.i.i.i38
-
-if.then.i18.i.i.i38:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #20
-  br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39
-
-_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39: ; preds = %if.then.i18.i.i.i38, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i34
-  store ptr %cond.i10.i.i.i31, ptr %tracers_.i.i.i.i.i, align 8
-  store ptr %incdec.ptr.i.i.i36, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr19.i.i.i40 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i31, i64 %cond.i.i.i.i25
-  store ptr %add.ptr19.i.i.i40, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35: ; preds = %if.then.i18.i.i.i34, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i31
+  store ptr %call5.i.i.i.i.i.i28, ptr %tracers_.i.i.i.i.i, align 8
+  store ptr %incdec.ptr.i.i.i32, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %add.ptr19.i.i.i36 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i28, i64 %cond.i.i.i.i25
+  store ptr %add.ptr19.i.i.i36, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, %if.then.i.i13, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
+if.end12:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i35, %if.then.i.i13, %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core28AddServerCallTracerToContextEP25grpc_call_context_elementPNS_16ServerCallTracerE(ptr nocapture noundef %call_context, ptr noundef %tracer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %call_context, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call_context, i64 32
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store ptr %tracer, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %call_context, i64 48
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %call_context, i64 48
   store ptr %tracer, ptr %arrayidx3, align 8
-  %destroy = getelementptr inbounds i8, ptr %call_context, i64 40
+  %destroy = getelementptr inbounds nuw i8, ptr %call_context, i64 40
   store ptr null, ptr %destroy, align 8
   br label %if.end16
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %call, label %if.then8, label %if.else9
 
 if.then8:                                         ; preds = %if.else
-  %tracers_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -525,7 +511,7 @@ if.then8:                                         ; preds = %if.else
 if.then.i.i:                                      ; preds = %if.then8
   store ptr %tracer, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end16
 
@@ -538,7 +524,7 @@ if.else.i.i:                                      ; preds = %if.then8
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
   unreachable
 
 _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
@@ -548,39 +534,32 @@ _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %6 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %6
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 3
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %tracer, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
-_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
+_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
   br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %tracers_.i, align 8
+  store ptr %call5.i.i.i.i.i.i, ptr %tracers_.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end16
 
@@ -591,19 +570,19 @@ if.else9:                                         ; preds = %if.else
   br i1 %cmp.not.i, label %if.then.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
 
 if.then.i:                                        ; preds = %if.else9
-  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #18
+  tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #19
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %if.else9
   %9 = atomicrmw add ptr %8, i64 48 monotonic, align 8
   %add2.i.i.i = add i64 %9, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %initial_zone_size_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %initial_zone_size_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %10
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit
-  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %8, i64 48
+  %add.ptr.i.i.i12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i12, i64 %9
   br label %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
 
@@ -613,25 +592,25 @@ if.else.i.i.i:                                    ; preds = %_ZN9grpc_core10GetC
 
 _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i, %if.else.i.i.i ]
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
-  %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
+  %t.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t.i.i.i.i, align 8
-  %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
+  %tracers_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracers_.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
+  %call5.i.i.i.i2.i.i1.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
   store ptr %call5.i.i.i.i2.i.i1.i.i.i.i, ptr %tracers_.i.i.i.i.i, align 8
-  %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, i64 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
+  %add.ptr.i1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, i64 8
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 40
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   store ptr %0, ptr %call5.i.i.i.i2.i.i1.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 32
   store ptr %add.ptr.i1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %8, i64 32
+  %managed_new_head_.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   store ptr %t.i.i.i.i, ptr %arrayidx, align 8
-  %arrayidx14 = getelementptr inbounds i8, ptr %call_context, i64 48
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %call_context, i64 48
   store ptr %t.i.i.i.i, ptr %arrayidx14, align 8
   %11 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
@@ -641,7 +620,7 @@ _ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCa
 if.then.i.i17:                                    ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_26DelegatingServerCallTracerEJRPNS_16ServerCallTracerEEEEPT_DpOT0_.exit
   store ptr %tracer, ptr %11, align 8
   %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %13, i64 8
+  %incdec.ptr.i.i18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i18, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   br label %if.end16
 
@@ -651,10 +630,10 @@ if.else.i.i19:                                    ; preds = %_ZN9grpc_core5Arena
   %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast.i.i.i.i.i21
   %cmp.i.i.i.i23 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i22, 9223372036854775800
-  br i1 %cmp.i.i.i.i23, label %if.then.i.i.i.i46, label %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  br i1 %cmp.i.i.i.i23, label %if.then.i.i.i.i42, label %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
 
-if.then.i.i.i.i46:                                ; preds = %if.else.i.i19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
+if.then.i.i.i.i42:                                ; preds = %if.else.i.i19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
   unreachable
 
 _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24: ; preds = %if.else.i.i19
@@ -664,43 +643,36 @@ _ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %cmp7.i.i.i.i28 = icmp ult i64 %add.i.i.i.i27, %sub.ptr.div.i.i.i.i.i25
   %15 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i27, i64 1152921504606846975)
   %cond.i.i.i.i29 = select i1 %cmp7.i.i.i.i28, i64 1152921504606846975, i64 %15
-  %cmp.not.i.i.i.i30 = icmp eq i64 %cond.i.i.i.i29, 0
-  br i1 %cmp.not.i.i.i.i30, label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34, label %cond.true.i.i.i.i31
+  %cmp.not.i.i.i.i30 = icmp ne i64 %cond.i.i.i.i29, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i30)
+  %mul.i.i.i.i.i.i31 = shl nuw nsw i64 %cond.i.i.i.i29, 3
+  %call5.i.i.i.i.i.i32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i31) #20
+  %add.ptr.i.i.i33 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i32, i64 %sub.ptr.sub.i.i.i.i.i22
+  store ptr %tracer, ptr %add.ptr.i.i.i33, align 8
+  %cmp.i.i.i.i.i.i34 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i22, 0
+  br i1 %cmp.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i41, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
 
-cond.true.i.i.i.i31:                              ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
-  %mul.i.i.i.i.i.i32 = shl nuw nsw i64 %cond.i.i.i.i29, 3
-  %call5.i.i.i.i.i.i33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i32) #19
-  br label %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
+if.then.i.i.i.i.i.i41:                            ; preds = %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i32, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
+  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
 
-_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34: ; preds = %cond.true.i.i.i.i31, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
-  %cond.i10.i.i.i35 = phi ptr [ %call5.i.i.i.i.i.i33, %cond.true.i.i.i.i31 ], [ null, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24 ]
-  %add.ptr.i.i.i36 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i35, i64 %sub.ptr.div.i.i.i.i.i25
-  store ptr %tracer, ptr %add.ptr.i.i.i36, align 8
-  %cmp.i.i.i.i.i.i37 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i22, 0
-  br i1 %cmp.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i45, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
+_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35: ; preds = %if.then.i.i.i.i.i.i41, %_ZNKSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i24
+  %incdec.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i33, i64 8
+  %tobool.not.i.i.i.i37 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i.i37, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, label %if.then.i18.i.i.i38
 
-if.then.i.i.i.i.i.i45:                            ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i35, ptr align 8 %14, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
-  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
+if.then.i18.i.i.i38:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #21
+  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39
 
-_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38: ; preds = %if.then.i.i.i.i.i.i45, %_ZNSt12_Vector_baseIPN9grpc_core16ServerCallTracerESaIS2_EE11_M_allocateEm.exit.i.i.i34
-  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %cond.i10.i.i.i35, i64 %sub.ptr.sub.i.i.i.i.i22
-  %incdec.ptr.i.i.i40 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i39, i64 8
-  %tobool.not.i.i.i.i41 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i41, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43, label %if.then.i18.i.i.i42
-
-if.then.i18.i.i.i42:                              ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #20
-  br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43
-
-_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43: ; preds = %if.then.i18.i.i.i42, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i38
-  store ptr %cond.i10.i.i.i35, ptr %tracers_.i.i.i.i.i, align 8
-  store ptr %incdec.ptr.i.i.i40, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr19.i.i.i44 = getelementptr inbounds ptr, ptr %cond.i10.i.i.i35, i64 %cond.i.i.i.i29
-  store ptr %add.ptr19.i.i.i44, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39: ; preds = %if.then.i18.i.i.i38, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i35
+  store ptr %call5.i.i.i.i.i.i32, ptr %tracers_.i.i.i.i.i, align 8
+  store ptr %incdec.ptr.i.i.i36, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %add.ptr19.i.i.i40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i32, i64 %cond.i.i.i.i29
+  store ptr %add.ptr19.i.i.i40, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43, %if.then.i.i17, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
+if.end16:                                         ; preds = %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39, %if.then.i.i17, %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i, %if.then
   ret void
 }
 
@@ -724,8 +696,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
@@ -765,15 +737,15 @@ declare noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %this, align 8
-  %t = getelementptr inbounds i8, ptr %this, i64 16
+  %t = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -784,19 +756,19 @@ _ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit: ; preds = %entry, %if.then.i
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, i64 16), ptr %this, align 8
-  %t.i = getelementptr inbounds i8, ptr %this, i64 16
+  %t.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %t.i, align 8
-  %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev.exit
 
 _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
@@ -804,13 +776,13 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev.exit: 
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %this, align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
@@ -821,26 +793,26 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracerESaIS2_EED2Ev.exit: ; preds = %entry,
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracerE, i64 16), ptr %this, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingClientCallTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer16RecordAnnotationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %annotation.coerce0, ptr %annotation.coerce1) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -849,10 +821,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %annotation.coerce0, ptr %annotation.coerce1)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -863,9 +835,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer16RecordAnnotationERKNS_29CallTracerAnnotationInterface10AnnotationE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %annotation) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -874,10 +846,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(12) %annotation)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -888,11 +860,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer7TraceIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -901,11 +873,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer6SpanIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -914,11 +886,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingClientCallTracer9IsSampledEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret i1 %call2
@@ -933,8 +905,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN9grpc_core26DelegatingClientCallTracer15StartNewAttemptEb(ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext %is_transparent_retry) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %tracers_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -944,7 +916,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -952,8 +924,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp3.i.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end.i
-  %call5.i.i.i.i2 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #19
-  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2, i64 %sub.ptr.sub.i
+  %call5.i.i.i.i2 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #20
+  %add.ptr21.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2, i64 %sub.ptr.sub.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -963,7 +935,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %attempt_tracers.sroa.16.055 = phi ptr [ %attempt_tracers.sroa.16.2, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
   %2 = load ptr, ptr %__begin2.sroa.0.056, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   %call9 = invoke noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %is_transparent_retry)
           to label %invoke.cont8 unwind label %lpad.loopexit
@@ -984,7 +956,7 @@ if.else.i:                                        ; preds = %invoke.cont8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
           to label %.noexc8 unwind label %lpad.loopexit.split-lp
 
 .noexc8:                                          ; preds = %if.then.i.i.i
@@ -997,48 +969,44 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_che
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %4
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
-          to label %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit
+  %call5.i.i.i.i.i9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i9, %cond.true.i.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i9, i64 %sub.ptr.sub.i.i.i.i
   store ptr %call9, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %attempt_tracers.sroa.0.158, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i9, ptr align 8 %attempt_tracers.sroa.0.158, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
+_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %call5.i.i.i.i.i.noexc
   %tobool.not.i.i.i = icmp eq ptr %attempt_tracers.sroa.0.158, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %attempt_tracers.sroa.0.158) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %attempt_tracers.sroa.0.158) #21
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i9, i64 %cond.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i6
   %attempt_tracers.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.16.055, %if.then.i6 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.9.057, %if.then.i6 ]
-  %attempt_tracers.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.0.158, %if.then.i6 ]
-  %attempt_tracers.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %__begin2.sroa.0.056, i64 8
+  %add.ptr.i.i.pn = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.9.057, %if.then.i6 ]
+  %attempt_tracers.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i9, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.0.158, %if.then.i6 ]
+  %attempt_tracers.sroa.9.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn, i64 8
+  %incdec.ptr.i10 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.056, i64 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i10, %0
   br i1 %cmp.i4.not, label %for.end, label %for.body
 
-lpad.loopexit:                                    ; preds = %for.body, %cond.true.i.i.i
+lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit44 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1056,7 +1024,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %attempt_tracers.sroa.0.148) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %attempt_tracers.sroa.0.148) #21
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i12
@@ -1072,7 +1040,7 @@ for.end:                                          ; preds = %for.inc, %if.end.i
   br i1 %cmp.not.i13, label %if.then.i14, label %invoke.cont12
 
 if.then.i14:                                      ; preds = %for.end
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #18
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.3, i32 noundef 80, ptr noundef nonnull @.str.4) #19
           to label %.noexc15 unwind label %lpad.loopexit.split-lp
 
 .noexc15:                                         ; preds = %if.then.i14
@@ -1081,13 +1049,13 @@ if.then.i14:                                      ; preds = %for.end
 invoke.cont12:                                    ; preds = %for.end
   %7 = atomicrmw add ptr %6, i64 48 monotonic, align 8
   %add2.i.i.i = add i64 %7, 48
-  %initial_zone_size_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %initial_zone_size_.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %initial_zone_size_.i.i.i, align 8
   %cmp.not.i.i.i16 = icmp ugt i64 %add2.i.i.i, %8
   br i1 %cmp.not.i.i.i16, label %if.else.i.i.i, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %invoke.cont12
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %7
   br label %_ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEEJSt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS9_EEEEEPT_DpOT0_.exit.i
 
@@ -1097,18 +1065,18 @@ if.else.i.i.i:                                    ; preds = %invoke.cont12
 
 _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEEJSt6vectorIPNS_16ClientCallTracer17CallAttemptTracerESaIS9_EEEEEPT_DpOT0_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i17
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i17 ], [ %call4.i.i.i18, %if.else.i.i.i ]
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %retval.0.i.i.i, align 8
-  %t.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
+  %t.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t.i.i.i.i, align 8
-  %tracers_.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
+  %tracers_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   store ptr %attempt_tracers.sroa.0.1.lcssa, ptr %tracers_.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 32
   store ptr %attempt_tracers.sroa.9.0.lcssa, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 40
   store ptr %attempt_tracers.sroa.16.0.lcssa, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  %managed_new_head_.i = getelementptr inbounds i8, ptr %6, i64 32
+  %managed_new_head_.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, ptr noundef nonnull %managed_new_head_.i)
   ret ptr %t.i.i.i.i
 }
@@ -1117,15 +1085,15 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33De
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %this, align 8
-  %t = getelementptr inbounds i8, ptr %this, i64 16
+  %t = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -1136,19 +1104,19 @@ _ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEEE, i64 16), ptr %this, align 8
-  %t.i = getelementptr inbounds i8, ptr %this, i64 16
+  %t.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %t.i, align 8
-  %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev.exit
 
 _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
@@ -1156,13 +1124,13 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingC
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %this, align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
@@ -1173,26 +1141,26 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %this, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer16RecordAnnotationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %annotation.coerce0, ptr %annotation.coerce1) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1201,10 +1169,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %annotation.coerce0, ptr %annotation.coerce1)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1215,9 +1183,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer16RecordAnnotationERKNS_29CallTracerAnnotationInterface10AnnotationE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %annotation) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1226,10 +1194,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(12) %annotation)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1240,11 +1208,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer7TraceIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -1253,11 +1221,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer6SpanIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -1266,11 +1234,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer9IsSampledEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret i1 %call2
@@ -1285,9 +1253,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer25RecordSendInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %send_initial_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1296,10 +1264,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %send_initial_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1310,9 +1278,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer26RecordSendTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %send_trailing_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1321,10 +1289,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %send_trailing_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1335,9 +1303,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer17RecordSendMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %send_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1346,10 +1314,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %send_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1360,9 +1328,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer27RecordSendCompressedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %send_compressed_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1371,10 +1339,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %send_compressed_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1385,9 +1353,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer29RecordReceivedInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %recv_initial_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1396,10 +1364,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %recv_initial_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1410,9 +1378,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer21RecordReceivedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %recv_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1421,10 +1389,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %recv_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1435,9 +1403,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer33RecordReceivedDecompressedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %recv_decompressed_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1446,10 +1414,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %recv_decompressed_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1461,9 +1429,9 @@ for.end:                                          ; preds = %for.body, %entry
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer12RecordCancelEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %cancel_error) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
@@ -1485,7 +1453,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1504,18 +1472,18 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #22
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #21
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #22
   resume { ptr, i32 } %10
 
 for.end:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %entry
@@ -1533,9 +1501,9 @@ entry:
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer30RecordReceivedTrailingMetadataEN4absl12lts_202308026StatusEP19grpc_metadata_batchPK27grpc_transport_stream_stats(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %status, ptr noundef %recv_trailing_metadata, ptr noundef %transport_stream_stats) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
@@ -1557,7 +1525,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %agg.tmp, ptr noundef %recv_trailing_metadata, ptr noundef %transport_stream_stats)
           to label %invoke.cont unwind label %lpad
@@ -1576,18 +1544,18 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #22
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #21
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #22
   resume { ptr, i32 } %10
 
 for.end:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %entry
@@ -1597,9 +1565,9 @@ for.end:                                          ; preds = %_ZN4absl12lts_20230
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer9RecordEndERK12gpr_timespec(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %latency) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1608,10 +1576,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %latency)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1638,7 +1606,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #22
+  tail call void @__clang_call_terminate(ptr %2) #23
   unreachable
 }
 
@@ -1648,15 +1616,15 @@ declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) loca
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %this, align 8
-  %t = getelementptr inbounds i8, ptr %this, i64 16
+  %t = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -1667,19 +1635,19 @@ _ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit: ; preds = %entry, %if.then.i
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEEE, i64 16), ptr %this, align 8
-  %t.i = getelementptr inbounds i8, ptr %this, i64 16
+  %t.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %t.i, align 8
-  %tracers_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %tracers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %tracers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev.exit
 
 _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
@@ -1687,13 +1655,13 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingServerCallTracerEED2Ev.exit: 
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %this, align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
@@ -1704,26 +1672,26 @@ _ZNSt6vectorIPN9grpc_core16ServerCallTracerESaIS2_EED2Ev.exit: ; preds = %entry,
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core26DelegatingServerCallTracerE, i64 16), ptr %this, align 8
-  %tracers_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %_ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit
 
 _ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnotationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %annotation.coerce0, ptr %annotation.coerce1) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1732,10 +1700,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %annotation.coerce0, ptr %annotation.coerce1)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1746,9 +1714,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnotationERKNS_29CallTracerAnnotationInterface10AnnotationE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %annotation) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1757,10 +1725,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(12) %annotation)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1771,11 +1739,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer7TraceIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -1784,11 +1752,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer6SpanIdB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -1797,11 +1765,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingServerCallTracer9IsSampledEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret i1 %call2
@@ -1816,9 +1784,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer25RecordSendInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %send_initial_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1827,10 +1795,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %send_initial_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1841,9 +1809,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer26RecordSendTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %send_trailing_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1852,10 +1820,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %send_trailing_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1866,9 +1834,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer17RecordSendMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %send_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1877,10 +1845,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %send_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1891,9 +1859,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer27RecordSendCompressedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %send_compressed_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1902,10 +1870,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %send_compressed_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1916,9 +1884,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer29RecordReceivedInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %recv_initial_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1927,10 +1895,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %recv_initial_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1941,9 +1909,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer21RecordReceivedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %recv_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1952,10 +1920,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %recv_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1966,9 +1934,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer33RecordReceivedDecompressedMessageERKNS_11SliceBufferE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(264) %recv_decompressed_message) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1977,10 +1945,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(264) %recv_decompressed_message)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1992,9 +1960,9 @@ for.end:                                          ; preds = %for.body, %entry
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer12RecordCancelEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %cancel_error) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
@@ -2016,7 +1984,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %for.body, %if.then.i.i
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2035,18 +2003,18 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i4
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #22
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #21
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #22
   resume { ptr, i32 } %10
 
 for.end:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %entry
@@ -2063,9 +2031,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer30RecordReceivedTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %recv_trailing_metadata) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -2074,10 +2042,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %recv_trailing_metadata)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2088,9 +2056,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer9RecordEndEPK20grpc_call_final_info(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %final_info) unnamed_addr #3 comdat align 2 {
 entry:
-  %tracers_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %tracers_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -2099,10 +2067,10 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %final_info)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2114,7 +2082,7 @@ for.end:                                          ; preds = %for.body, %entry
 define internal void @_GLOBAL__sub_I_call_tracer.cc() #16 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
@@ -2123,6 +2091,9 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2142,11 +2113,12 @@ attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { nounwind }
+attributes #23 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

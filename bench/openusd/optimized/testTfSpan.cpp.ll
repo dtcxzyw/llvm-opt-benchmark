@@ -86,21 +86,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %18 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfSpan.1", align 8
   %19 = tail call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #11
   store ptr %19, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %20, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %.sink315.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink315.sroa.gep316 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink315.sroa.gep318 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink315.sroa.gep319 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink315.sroa.gep321 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink315.sroa.gep322 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink315.sroa.gep324 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink315.sroa.gep325 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sink315.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink315.sroa.gep316 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink315.sroa.gep318 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink315.sroa.gep319 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink315.sroa.gep321 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink315.sroa.gep322 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink315.sroa.gep324 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink315.sroa.gep325 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sink315.sroa.gep327 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.sink315.sroa.gep328 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %23 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #11
@@ -109,7 +109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit43
   store ptr %23, ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %26, ptr %27, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
@@ -253,7 +253,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 92:                                               ; preds = %75
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %.sroa.015.0.i = getelementptr inbounds i8, ptr %76, i64 8
+  %.sroa.015.0.i = getelementptr inbounds nuw i8, ptr %76, i64 8
   %93 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #11
           to label %95 unwind label %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i60
 
@@ -264,9 +264,9 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i60:         ; preds = %92
 
 95:                                               ; preds = %92
   store i32 3, ptr %93, align 4
-  %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 4
+  %.sroa.2236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 4, ptr %.sroa.2236.0..sroa_idx, align 4
-  %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 8
+  %.sroa.3237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 5, ptr %.sroa.3237.0..sroa_idx, align 4
   %.not.i.i.i.i64 = icmp eq ptr %77, %.sroa.015.0.i
   br i1 %.not.i.i.i.i64, label %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit.thread, label %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
@@ -285,13 +285,13 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 98:                                               ; preds = %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
   store ptr @.str, ptr %6, align 8
-  %.sroa.2230.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__.main, ptr %.sroa.2230.0..sroa_idx, align 8
-  %.sroa.3231.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 123, ptr %.sroa.3231.0..sroa_idx, align 8
-  %.sroa.4232.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.4232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4232.0..sroa_idx, align 8
-  %.sroa.5233.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.5233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.5233.0..sroa_idx, align 8
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %99, align 8
@@ -313,7 +313,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71:         ; preds = %100
 
 103:                                              ; preds = %100
   store i32 3, ptr %101, align 4
-  %.sroa.2217.0..sroa_idx = getelementptr inbounds i8, ptr %101, i64 4
+  %.sroa.2217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 4, ptr %.sroa.2217.0..sroa_idx, align 4
   %bcmp.i.i.i.i76 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.015.0.i, ptr noundef nonnull dereferenceable(8) %101, i64 8)
   %.not7.i.i.i.i77 = icmp eq i32 %bcmp.i.i.i.i76, 0
@@ -322,13 +322,13 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i71:         ; preds = %100
 
 104:                                              ; preds = %103
   store ptr @.str, ptr %5, align 8
-  %.sroa.2211.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__.main, ptr %.sroa.2211.0..sroa_idx, align 8
-  %.sroa.3212.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.3212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 129, ptr %.sroa.3212.0..sroa_idx, align 8
-  %.sroa.4213.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4213.0..sroa_idx, align 8
-  %.sroa.5214.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.5214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.5214.0..sroa_idx, align 8
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %105, align 8
@@ -350,7 +350,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83:         ; preds = %106
 
 109:                                              ; preds = %106
   store i32 1, ptr %107, align 4
-  %.sroa.2198.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 4
+  %.sroa.2198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 2, ptr %.sroa.2198.0..sroa_idx, align 4
   %bcmp.i.i.i.i88 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %76, ptr noundef nonnull dereferenceable(8) %107, i64 8)
   %.not7.i.i.i.i89 = icmp eq i32 %bcmp.i.i.i.i88, 0
@@ -359,13 +359,13 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i83:         ; preds = %106
 
 110:                                              ; preds = %109
   store ptr @.str, ptr %4, align 8
-  %.sroa.2192.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__.main, ptr %.sroa.2192.0..sroa_idx, align 8
-  %.sroa.3193.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 135, ptr %.sroa.3193.0..sroa_idx, align 8
-  %.sroa.4194.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4194.0..sroa_idx, align 8
-  %.sroa.5195.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.5195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.5195.0..sroa_idx, align 8
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %111, align 8
@@ -388,7 +388,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97:         ; preds = %112
 115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %81, i64 -8
   store i32 4, ptr %113, align 4
-  %.sroa.2179.0..sroa_idx = getelementptr inbounds i8, ptr %113, i64 4
+  %.sroa.2179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 5, ptr %.sroa.2179.0..sroa_idx, align 4
   %bcmp.i.i.i.i102 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %116, ptr noundef nonnull dereferenceable(8) %113, i64 8)
   %.not7.i.i.i.i103 = icmp eq i32 %bcmp.i.i.i.i102, 0
@@ -397,13 +397,13 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i97:         ; preds = %112
 
 117:                                              ; preds = %115
   store ptr @.str, ptr %3, align 8
-  %.sroa.2173.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__.main, ptr %.sroa.2173.0..sroa_idx, align 8
-  %.sroa.3174.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 141, ptr %.sroa.3174.0..sroa_idx, align 8
-  %.sroa.4175.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4175.0..sroa_idx, align 8
-  %.sroa.5176.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5176.0..sroa_idx, align 8
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %118, align 8
@@ -509,13 +509,13 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_
 
 144:                                              ; preds = %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS1_IPKiS5_EEEbT_SA_T0_.exit
   store ptr @.str, ptr %2, align 8
-  %.sroa.2162.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__.main, ptr %.sroa.2162.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 153, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %145, align 8
@@ -614,13 +614,13 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
 
 11:                                               ; preds = %2
   store ptr @.str, ptr %7, align 8
-  %.sroa.266.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.266.0..sroa_idx, align 8
-  %.sroa.367.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 25, ptr %.sroa.367.0..sroa_idx, align 8
-  %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.468.0..sroa_idx, align 8
-  %.sroa.569.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.569.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
@@ -643,13 +643,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   store ptr @.str, ptr %6, align 8
-  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.260.0..sroa_idx, align 8
-  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 26, ptr %.sroa.361.0..sroa_idx, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.563.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %23, align 8
@@ -671,13 +671,13 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 25:                                               ; preds = %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.254.0..sroa_idx, align 8
-  %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 27, ptr %.sroa.355.0..sroa_idx, align 8
-  %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.456.0..sroa_idx, align 8
-  %.sroa.557.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.557.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %26, align 8
@@ -705,13 +705,13 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 34:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @.str, ptr %4, align 8
-  %.sroa.239.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.239.0..sroa_idx, align 8
-  %.sroa.340.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 29, ptr %.sroa.340.0..sroa_idx, align 8
-  %.sroa.441.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.441.0..sroa_idx, align 8
-  %.sroa.542.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.542.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %35, align 8
@@ -735,13 +735,13 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 43:                                               ; preds = %.lr.ph.i.i.i.i29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 30, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %44, align 8
@@ -767,13 +767,13 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
 
 11:                                               ; preds = %2
   store ptr @.str, ptr %7, align 8
-  %.sroa.265.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.265.0..sroa_idx, align 8
-  %.sroa.366.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 25, ptr %.sroa.366.0..sroa_idx, align 8
-  %.sroa.467.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEES3_EvRKT_RKT0_, ptr %.sroa.467.0..sroa_idx, align 8
-  %.sroa.568.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.568.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
@@ -792,13 +792,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   store ptr @.str, ptr %6, align 8
-  %.sroa.259.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.259.0..sroa_idx, align 8
-  %.sroa.360.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 26, ptr %.sroa.360.0..sroa_idx, align 8
-  %.sroa.461.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEES3_EvRKT_RKT0_, ptr %.sroa.461.0..sroa_idx, align 8
-  %.sroa.562.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.562.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %19, align 8
@@ -820,13 +820,13 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 
 21:                                               ; preds = %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.253.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.253.0..sroa_idx, align 8
-  %.sroa.354.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 27, ptr %.sroa.354.0..sroa_idx, align 8
-  %.sroa.455.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEES3_EvRKT_RKT0_, ptr %.sroa.455.0..sroa_idx, align 8
-  %.sroa.556.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.556.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %22, align 8
@@ -855,13 +855,13 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 31:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @.str, ptr %4, align 8
-  %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.238.0..sroa_idx, align 8
-  %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 29, ptr %.sroa.339.0..sroa_idx, align 8
-  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEES3_EvRKT_RKT0_, ptr %.sroa.440.0..sroa_idx, align 8
-  %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.541.0..sroa_idx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %32, align 8
@@ -885,13 +885,13 @@ _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0
 40:                                               ; preds = %.lr.ph.i.i.i.i28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 30, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEES3_EvRKT_RKT0_, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %41, align 8
@@ -917,13 +917,13 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
 
 11:                                               ; preds = %2
   store ptr @.str, ptr %7, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.264.0..sroa_idx, align 8
-  %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 25, ptr %.sroa.365.0..sroa_idx, align 8
-  %.sroa.466.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.466.0..sroa_idx, align 8
-  %.sroa.567.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.567.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
@@ -946,13 +946,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   store ptr @.str, ptr %6, align 8
-  %.sroa.258.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.258.0..sroa_idx, align 8
-  %.sroa.359.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 26, ptr %.sroa.359.0..sroa_idx, align 8
-  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.460.0..sroa_idx, align 8
-  %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.561.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %23, align 8
@@ -974,13 +974,13 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
 
 25:                                               ; preds = %_ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.252.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.252.0..sroa_idx, align 8
-  %.sroa.353.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 27, ptr %.sroa.353.0..sroa_idx, align 8
-  %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.454.0..sroa_idx, align 8
-  %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.555.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %26, align 8
@@ -1008,13 +1008,13 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
 34:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @.str, ptr %4, align 8
-  %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.237.0..sroa_idx, align 8
-  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 29, ptr %.sroa.338.0..sroa_idx, align 8
-  %.sroa.439.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.439.0..sroa_idx, align 8
-  %.sroa.540.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.540.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %35, align 8
@@ -1038,13 +1038,13 @@ _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exi
 43:                                               ; preds = %.lr.ph.i.i.i.i28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 30, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %44, align 8
@@ -1070,13 +1070,13 @@ define linkonce_odr dso_local void @_Z27Tf_TestSpanMatchesContainerIN32pxrIntern
 
 11:                                               ; preds = %2
   store ptr @.str, ptr %7, align 8
-  %.sroa.263.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.263.0..sroa_idx, align 8
-  %.sroa.364.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 25, ptr %.sroa.364.0..sroa_idx, align 8
-  %.sroa.465.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_, ptr %.sroa.465.0..sroa_idx, align 8
-  %.sroa.566.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.566.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %12, align 8
@@ -1095,13 +1095,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   store ptr @.str, ptr %6, align 8
-  %.sroa.257.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.257.0..sroa_idx, align 8
-  %.sroa.358.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 26, ptr %.sroa.358.0..sroa_idx, align 8
-  %.sroa.459.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_, ptr %.sroa.459.0..sroa_idx, align 8
-  %.sroa.560.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.560.0..sroa_idx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %19, align 8
@@ -1123,13 +1123,13 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 
 21:                                               ; preds = %_ZSt5equalIPKiPiEbT_S3_T0_.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.251.0..sroa_idx, align 8
-  %.sroa.352.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 27, ptr %.sroa.352.0..sroa_idx, align 8
-  %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_, ptr %.sroa.453.0..sroa_idx, align 8
-  %.sroa.554.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.554.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %22, align 8
@@ -1158,13 +1158,13 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 31:                                               ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @.str, ptr %4, align 8
-  %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.236.0..sroa_idx, align 8
-  %.sroa.337.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 29, ptr %.sroa.337.0..sroa_idx, align 8
-  %.sroa.438.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_, ptr %.sroa.438.0..sroa_idx, align 8
-  %.sroa.539.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.539.0..sroa_idx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %32, align 8
@@ -1188,13 +1188,13 @@ _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0
 40:                                               ; preds = %.lr.ph.i.i.i.i27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEESt6vectorIiSaIiEEEvRKT_RKT0_, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 30, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._Z27Tf_TestSpanMatchesContainerIN32pxrInternal_v0_24__pxrReserved__6TfSpanIKiEENS1_IiEEEvRKT_RKT0_, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %41, align 8

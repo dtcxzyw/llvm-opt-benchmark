@@ -22,19 +22,19 @@ $_ZTI7b2Shape = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN11b2EdgeShape11SetOneSidedERK6b2Vec2S2_S2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v3) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertex0 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_vertex0 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %v0, align 4
   store i64 %0, ptr %m_vertex0, align 8
-  %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %v1, align 4
   store i64 %1, ptr %m_vertex1, align 8
-  %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %v2, align 4
   store i64 %2, ptr %m_vertex2, align 8
-  %m_vertex3 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_vertex3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %v3, align 4
   store i64 %3, ptr %m_vertex3, align 8
-  %m_oneSided = getelementptr inbounds i8, ptr %this, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_oneSided, align 8
   ret void
 }
@@ -45,13 +45,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN11b2EdgeShape11SetTwoSidedERK6b2Vec2S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 32), (48, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %v1, align 4
   store i64 %0, ptr %m_vertex1, align 8
-  %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %v2, align 4
   store i64 %1, ptr %m_vertex2, align 8
-  %m_oneSided = getelementptr inbounds i8, ptr %this, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %m_oneSided, align 8
   ret void
 }
@@ -61,17 +61,17 @@ define noundef ptr @_ZNK11b2EdgeShape5CloneEP16b2BlockAllocator(ptr nocapture no
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 56)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11b2EdgeShape, i64 16), ptr %call, align 8
-  %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_type.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 1, ptr %m_type.i, align 8
-  %m_radius.i = getelementptr inbounds i8, ptr %call, i64 12
+  %m_radius.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store float 0x3F847AE140000000, ptr %m_radius.i, align 4
-  %m_vertex02.i = getelementptr inbounds i8, ptr %call, i64 32
+  %m_vertex02.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_vertex02.i, i8 0, i64 17, i1 false)
-  %m_type2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_type2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_type2.i.i, align 8
   store i64 %0, ptr %m_type.i, align 8
-  %m_vertex1.i = getelementptr inbounds i8, ptr %call, i64 16
-  %m_vertex12.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertex1.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %m_vertex12.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_vertex1.i, ptr noundef nonnull align 8 dereferenceable(33) %m_vertex12.i, i64 33, i1 false)
   ret ptr %call
 }
@@ -93,16 +93,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
 entry:
-  %q = getelementptr inbounds i8, ptr %xf, i64 8
+  %q = getelementptr inbounds nuw i8, ptr %xf, i64 8
   %0 = load float, ptr %input, align 4
   %1 = load float, ptr %xf, align 4
   %sub.i = fsub float %0, %1
-  %y.i = getelementptr inbounds i8, ptr %input, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %input, i64 4
   %2 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %xf, i64 4
+  %y2.i = getelementptr inbounds nuw i8, ptr %xf, i64 4
   %3 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %2, %3
-  %c.i = getelementptr inbounds i8, ptr %xf, i64 12
+  %c.i = getelementptr inbounds nuw i8, ptr %xf, i64 12
   %4 = load float, ptr %c.i, align 4
   %5 = load float, ptr %q, align 4
   %mul1.i = fmul float %sub3.i, %5
@@ -110,10 +110,10 @@ entry:
   %fneg.i = fneg float %5
   %mul6.i = fmul float %4, %sub3.i
   %7 = tail call float @llvm.fmuladd.f32(float %fneg.i, float %sub.i, float %mul6.i)
-  %p26 = getelementptr inbounds i8, ptr %input, i64 8
+  %p26 = getelementptr inbounds nuw i8, ptr %input, i64 8
   %8 = load float, ptr %p26, align 4
   %sub.i23 = fsub float %8, %1
-  %y.i24 = getelementptr inbounds i8, ptr %input, i64 12
+  %y.i24 = getelementptr inbounds nuw i8, ptr %input, i64 12
   %9 = load float, ptr %y.i24, align 4
   %sub3.i26 = fsub float %9, %3
   %mul1.i31 = fmul float %5, %sub3.i26
@@ -122,13 +122,13 @@ entry:
   %11 = tail call float @llvm.fmuladd.f32(float %fneg.i, float %sub.i23, float %mul6.i33)
   %sub.i36 = fsub float %10, %6
   %sub3.i39 = fsub float %11, %7
-  %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load float, ptr %m_vertex1, align 8
-  %m_vertex1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 20
+  %m_vertex1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 20
   %13 = load float, ptr %m_vertex1.sroa_idx, align 4
-  %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %14 = load float, ptr %m_vertex2, align 8
-  %m_vertex2.sroa_idx = getelementptr inbounds i8, ptr %this, i64 28
+  %m_vertex2.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 28
   %15 = load float, ptr %m_vertex2.sroa_idx, align 4
   %sub.i42 = fsub float %14, %12
   %sub3.i45 = fsub float %15, %13
@@ -146,7 +146,7 @@ entry:
   %sub3.i52 = fsub float %13, %7
   %mul3.i = fmul float %sub3.i52, %normal.sroa.7.0
   %17 = tail call noundef float @llvm.fmuladd.f32(float %normal.sroa.0.0, float %sub.i49, float %mul3.i)
-  %m_oneSided = getelementptr inbounds i8, ptr %this, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %this, i64 48
   %18 = load i8, ptr %m_oneSided, align 8
   %tobool = trunc i8 %18 to i1
   %cmp = fcmp ogt float %17, 0.000000e+00
@@ -162,7 +162,7 @@ if.end:                                           ; preds = %entry
 if.end19:                                         ; preds = %if.end
   %div = fdiv float %17, %19
   %cmp20 = fcmp olt float %div, 0.000000e+00
-  %maxFraction = getelementptr inbounds i8, ptr %input, i64 16
+  %maxFraction = getelementptr inbounds nuw i8, ptr %input, i64 16
   %20 = load float, ptr %maxFraction, align 4
   %cmp21 = fcmp olt float %20, %div
   %or.cond19 = select i1 %cmp20, i1 true, i1 %cmp21
@@ -190,7 +190,7 @@ if.end32:                                         ; preds = %if.end23
   br i1 %or.cond1, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end32
-  %fraction = getelementptr inbounds i8, ptr %output, i64 8
+  %fraction = getelementptr inbounds nuw i8, ptr %output, i64 8
   store float %div, ptr %fraction, align 4
   %23 = load float, ptr %c.i, align 4
   %24 = load float, ptr %q, align 4
@@ -216,13 +216,13 @@ return:                                           ; preds = %if.end32, %if.end23
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
 entry:
-  %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
-  %q.i = getelementptr inbounds i8, ptr %xf, i64 8
-  %c.i = getelementptr inbounds i8, ptr %xf, i64 12
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %q.i = getelementptr inbounds nuw i8, ptr %xf, i64 8
+  %c.i = getelementptr inbounds nuw i8, ptr %xf, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_vertex1, align 8
   %2 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -231,12 +231,12 @@ entry:
   %add.i = fadd float %6, %5
   %mul12.i = fmul float %0, %3
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul12.i)
-  %y14.i = getelementptr inbounds i8, ptr %xf, i64 4
+  %y14.i = getelementptr inbounds nuw i8, ptr %xf, i64 4
   %8 = load float, ptr %y14.i, align 4
   %add15.i = fadd float %7, %8
-  %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load float, ptr %m_vertex2, align 8
-  %y.i5 = getelementptr inbounds i8, ptr %this, i64 28
+  %y.i5 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %10 = load float, ptr %y.i5, align 4
   %11 = fneg float %10
   %neg.i6 = fmul float %2, %11
@@ -253,7 +253,7 @@ entry:
   %cond.i.i17 = select i1 %cmp.i.i16, float %add.i, float %add.i7
   %cmp.i3.i20 = fcmp ogt float %add15.i, %add15.i10
   %cond.i4.i21 = select i1 %cmp.i3.i20, float %add15.i, float %add15.i10
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %14 = load float, ptr %m_radius, align 4
   %sub.i = fsub float %cond.i.i, %14
   %sub3.i = fsub float %cond.i4.i, %14
@@ -264,7 +264,7 @@ entry:
   %add3.i = fadd float %14, %cond.i4.i21
   %retval.sroa.0.0.vec.insert.i32 = insertelement <2 x float> poison, float %add.i29, i64 0
   %retval.sroa.0.4.vec.insert.i33 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i32, float %add3.i, i64 1
-  %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
+  %upperBound = getelementptr inbounds nuw i8, ptr %aabb, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i33, ptr %upperBound, align 4
   ret void
 }
@@ -273,23 +273,23 @@ entry:
 define void @_ZNK11b2EdgeShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float %density) unnamed_addr #5 align 2 {
 entry:
   store float 0.000000e+00, ptr %massData, align 4
-  %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
-  %m_vertex2 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load float, ptr %m_vertex1, align 8
   %1 = load float, ptr %m_vertex2, align 8
   %add.i = fadd float %0, %1
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load float, ptr %y2.i, align 4
   %add3.i = fadd float %2, %3
   %mul.i = fmul float %add.i, 5.000000e-01
   %mul1.i = fmul float %add3.i, 5.000000e-01
   %retval.sroa.0.0.vec.insert.i4 = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i5 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i4, float %mul1.i, i64 1
-  %center = getelementptr inbounds i8, ptr %massData, i64 4
+  %center = getelementptr inbounds nuw i8, ptr %massData, i64 4
   store <2 x float> %retval.sroa.0.4.vec.insert.i5, ptr %center, align 4
-  %I = getelementptr inbounds i8, ptr %massData, i64 12
+  %I = getelementptr inbounds nuw i8, ptr %massData, i64 12
   store float 0.000000e+00, ptr %I, align 4
   ret void
 }

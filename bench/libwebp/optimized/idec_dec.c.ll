@@ -22,21 +22,21 @@ define internal fastcc ptr @NewDecoder(ptr noundef %0, ptr noundef %1) unnamed_a
 
 5:                                                ; preds = %2
   store i32 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 296
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %10 = getelementptr inbounds i8, ptr %3, i64 352
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %11 = tail call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %10, i32 noundef 521) #7
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %14 = tail call i32 @VP8InitIoInternal(ptr noundef nonnull %13, i32 noundef 521) #7
   %.not28 = icmp eq i32 %14, 0
   br i1 %.not28, label %15, label %16
@@ -46,21 +46,21 @@ define internal fastcc ptr @NewDecoder(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %27
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @WebPResetDecParams(ptr noundef nonnull %17) #7
   %18 = icmp eq ptr %0, null
   br i1 %18, label %.thread, label %20
 
 .thread:                                          ; preds = %16
   store ptr %10, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 472
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store ptr null, ptr %19, align 8
   br label %26
 
 20:                                               ; preds = %16
   %21 = tail call i32 @WebPAvoidSlowMemory(ptr noundef nonnull %0, ptr noundef %1) #7
   %.not29 = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %3, i64 472
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 472
   br i1 %.not29, label %25, label %23
 
 23:                                               ; preds = %20
@@ -108,14 +108,14 @@ define ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_un
   br label %20
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = call fastcc ptr @NewDecoder(ptr noundef nonnull %14, ptr noundef nonnull %2)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 160
-  %19 = getelementptr inbounds i8, ptr %15, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %18, ptr %19, align 8
   br label %20
 
@@ -133,13 +133,13 @@ define void @WebPIDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %28, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i32, ptr %7, align 8
   %.not12 = icmp eq i32 %8, 0
   br i1 %.not12, label %9, label %17
@@ -150,7 +150,7 @@ define void @WebPIDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %5, ptr noundef nonnull %13) #7
   %.pre = load ptr, ptr %4, align 8
   br label %15
@@ -165,22 +165,22 @@ define void @WebPIDelete(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %15, %17, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %ClearMemBuffer.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = load ptr, ptr %23, align 8
   tail call void @WebPSafeFree(ptr noundef %24) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 344
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %26 = load ptr, ptr %25, align 8
   tail call void @WebPSafeFree(ptr noundef %26) #7
   br label %ClearMemBuffer.exit
 
 ClearMemBuffer.exit:                              ; preds = %18, %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 352
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 352
   tail call void @WebPFreeDecBuffer(ptr noundef nonnull %27) #7
   tail call void @WebPSafeFree(ptr noundef nonnull %0) #7
   br label %28
@@ -223,15 +223,15 @@ define ptr @WebPINewRGB(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noun
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 352
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 352
   store i32 %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 364
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 364
   store i32 %5, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 368
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 368
   store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 376
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 376
   store i32 %.019, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 384
   store i64 %.018, ptr %19, align 8
   br label %20
 
@@ -296,33 +296,33 @@ define ptr @WebPINewYUVA(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nou
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 352
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 352
   store i32 %.0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 364
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 364
   store i32 %13, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %30, i64 368
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 368
   store ptr %0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 400
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 400
   store i32 %.066, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 416
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 416
   store i64 %.056, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 376
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 376
   store ptr %.065, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 404
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 404
   store i32 %.063, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %30, i64 424
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 424
   store i64 %.064, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %30, i64 384
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 384
   store ptr %.062, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 408
   store i32 %.060, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %30, i64 432
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 432
   store i64 %.061, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %30, i64 392
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 392
   store ptr %.059, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %30, i64 412
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 412
   store i32 %.057, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %30, i64 440
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 440
   store i64 %.058, ptr %46, align 8
   br label %47
 
@@ -374,33 +374,33 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   br i1 %24, label %WebPINewYUVA.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 352
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 352
   store i32 %.0.i, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 364
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 364
   store i32 %10, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %23, i64 368
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 368
   store ptr %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 400
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 400
   store i32 %.066.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 416
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 416
   store i64 %.056.i, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %23, i64 376
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 376
   store ptr %.065.i, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 404
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 404
   store i32 %.063.i, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %23, i64 424
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 424
   store i64 %.064.i, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 384
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 384
   store ptr %.062.i, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %23, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 408
   store i32 %.060.i, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 432
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 432
   store i64 %.061.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %23, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 392
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 412
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 412
   store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %23, i64 440
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 440
   store i64 0, ptr %39, align 8
   br label %WebPINewYUVA.exit
 
@@ -426,7 +426,7 @@ define i32 @WebPIAppend(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2)
   br i1 %.not, label %7, label %CheckMemBufferMode.exit.thread
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %CheckMemBufferMode.exit.thread [
     i32 0, label %10
@@ -438,38 +438,38 @@ define i32 @WebPIAppend(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2)
   br label %CheckMemBufferMode.exit
 
 CheckMemBufferMode.exit:                          ; preds = %7, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq i32 %.val, 0
   br i1 %13, label %NeedCompressedAlpha.exit.i, label %14
 
 14:                                               ; preds = %CheckMemBufferMode.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %NeedCompressedAlpha.exit.i
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 2968
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 2968
   %19 = load ptr, ptr %18, align 8
   %.not5.i.i = icmp eq ptr %19, null
   br i1 %.not5.i.i, label %NeedCompressedAlpha.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %12, i64 2984
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 2984
   %22 = load i32, ptr %21, align 8
   %.not6.i.i = icmp ne i32 %22, 0
   br label %NeedCompressedAlpha.exit.i
 
 NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %CheckMemBufferMode.exit
   %.0.i.i = phi i1 [ true, %CheckMemBufferMode.exit ], [ true, %14 ], [ true, %17 ], [ %.not6.i.i, %20 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %NeedCompressedAlpha.exit.i
-  %27 = getelementptr inbounds i8, ptr %0, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
   br label %30
@@ -479,7 +479,7 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   br i1 %.0.i.i, label %35, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %12, i64 2968
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 2968
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -492,7 +492,7 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   %39 = getelementptr i8, ptr %0, i64 312
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %2
-  %42 = getelementptr inbounds i8, ptr %0, i64 320
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %43 = load i64, ptr %42, align 8
   %44 = icmp ugt i64 %41, %43
   %45 = ptrtoint ptr %31 to i64
@@ -538,7 +538,7 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   %66 = add i64 %65, %2
   store i64 %66, ptr %39, align 8
   %67 = load ptr, ptr %23, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 304
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %67, i64 %69
   %71 = ptrtoint ptr %70 to i64
@@ -564,18 +564,18 @@ define internal fastcc i32 @IDecode(ptr noundef nonnull %0) unnamed_addr #0 {
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   %13 = getelementptr i8, ptr %0, i64 312
   %.val28.i = load i64, ptr %13, align 8
   %14 = sub i64 %.val28.i, %11
   store ptr %12, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %16, align 8
   %17 = call i32 @WebPParseHeaders(ptr noundef nonnull %4) #7
   switch i32 %17, label %18 [
@@ -589,9 +589,9 @@ define internal fastcc i32 @IDecode(ptr noundef nonnull %0) unnamed_addr #0 {
   br i1 %20, label %21, label %IDecError.exit.i
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %25 = call i32 @VP8ExitCritical(ptr noundef %23, ptr noundef nonnull %24) #7
   br label %IDecError.exit.i
 
@@ -600,13 +600,13 @@ IDecError.exit.i:                                 ; preds = %21, %18
   br label %DecodeWebPHeaders.exit
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %4, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %31, ptr %32, align 8
   %.not27.i = icmp eq i32 %31, 0
   br i1 %.not27.i, label %33, label %54
@@ -617,19 +617,19 @@ IDecError.exit.i:                                 ; preds = %21, %18
   br i1 %35, label %DecodeWebPHeaders.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 64
   store i32 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %34, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 2968
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 2968
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %34, i64 2976
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 2976
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %46 = load i64, ptr %45, align 8
   store i32 1, ptr %0, align 8
   %47 = load i64, ptr %10, align 8
@@ -637,11 +637,11 @@ IDecError.exit.i:                                 ; preds = %21, %18
   store i64 %48, ptr %10, align 8
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %50, ptr %51, align 8
   %.val9.i.i = load i64, ptr %13, align 8
   %52 = sub i64 %.val9.i.i, %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 232
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %52, ptr %53, align 8
   br label %DecodeWebPHeaders.exit
 
@@ -651,9 +651,9 @@ IDecError.exit.i:                                 ; preds = %21, %18
   br i1 %56, label %DecodeWebPHeaders.exit, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %60 = load i64, ptr %59, align 8
   store i32 4, ptr %0, align 8
   %61 = load i64, ptr %10, align 8
@@ -661,11 +661,11 @@ IDecError.exit.i:                                 ; preds = %21, %18
   store i64 %62, ptr %10, align 8
   %63 = load ptr, ptr %8, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 240
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %64, ptr %65, align 8
   %.val9.i29.i = load i64, ptr %13, align 8
   %66 = sub i64 %.val9.i29.i, %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 232
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %66, ptr %67, align 8
   br label %DecodeWebPHeaders.exit
 
@@ -676,7 +676,7 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
   br label %72
 
 68:                                               ; preds = %1
-  %69 = getelementptr inbounds i8, ptr %0, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %DecodeVP8LData.exit, label %72
@@ -690,9 +690,9 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %76 = getelementptr inbounds i8, ptr %0, i64 328
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 304
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %77, i64 %79
   %81 = getelementptr i8, ptr %0, i64 312
@@ -702,7 +702,7 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
   br i1 %83, label %DecodeVP8FrameHeader.exit, label %84
 
 84:                                               ; preds = %75
-  %85 = getelementptr inbounds i8, ptr %0, i64 480
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %86 = load i64, ptr %85, align 8
   %87 = call i32 @VP8GetInfo(ptr noundef %80, i64 noundef %82, i64 noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %.not.i = icmp eq i32 %87, 0
@@ -714,16 +714,16 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
   br i1 %90, label %91, label %.sink.split.i
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %0, i64 128
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 136
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %95 = call i32 @VP8ExitCritical(ptr noundef %93, ptr noundef nonnull %94) #7
   br label %.sink.split.i
 
 96:                                               ; preds = %84
   %97 = load i16, ptr %80, align 1
   %98 = zext i16 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %80, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw nsw i32 %101, 16
@@ -731,11 +731,11 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
   %104 = lshr i32 %103, 5
   %105 = add nuw nsw i32 %104, 10
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %0, i64 336
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 240
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %80, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 232
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %82, ptr %109, align 8
   br label %.sink.split.i
 
@@ -759,18 +759,18 @@ DecodeVP8FrameHeader.exit:                        ; preds = %75, %.sink.split.i
   br i1 %112, label %113, label %DecodePartition0.exit
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 136
-  %117 = getelementptr inbounds i8, ptr %0, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 296
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %120 = getelementptr i8, ptr %0, i64 304
   %.val.i = load i64, ptr %120, align 8
   %121 = getelementptr i8, ptr %0, i64 312
   %.val49.i = load i64, ptr %121, align 8
   %122 = sub i64 %.val49.i, %.val.i
-  %123 = getelementptr inbounds i8, ptr %0, i64 336
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %124 = load i64, ptr %123, align 8
   %125 = icmp ult i64 %122, %124
   br i1 %125, label %DecodeVP8LHeader.exit, label %126
@@ -793,9 +793,9 @@ DecodeVP8FrameHeader.exit:                        ; preds = %75, %.sink.split.i
 
 133:                                              ; preds = %126
   %134 = load i32, ptr %116, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 140
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 @WebPAllocateDecBuffer(i32 noundef %134, i32 noundef %136, ptr noundef %138, ptr noundef %118) #7
   store i32 %139, ptr %115, align 8
@@ -812,15 +812,15 @@ DecodeVP8FrameHeader.exit:                        ; preds = %75, %.sink.split.i
   %145 = load i32, ptr %116, align 8
   %146 = load i32, ptr %135, align 4
   %147 = call i32 @VP8GetThreadMethod(ptr noundef %144, ptr noundef null, i32 noundef %145, i32 noundef %146) #7
-  %148 = getelementptr inbounds i8, ptr %115, i64 200
+  %148 = getelementptr inbounds nuw i8, ptr %115, i64 200
   store i32 %147, ptr %148, align 8
   %149 = load ptr, ptr %137, align 8
   call void @VP8InitDithering(ptr noundef %149, ptr noundef nonnull %115) #7
   %150 = load ptr, ptr %114, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
-  %152 = getelementptr inbounds i8, ptr %150, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %150, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %155 = load ptr, ptr %154, align 8
   %156 = ptrtoint ptr %153 to i64
   %157 = ptrtoint ptr %155 to i64
@@ -841,7 +841,7 @@ DecodeVP8FrameHeader.exit:                        ; preds = %75, %.sink.split.i
 166:                                              ; preds = %163
   %167 = load ptr, ptr %154, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %164, ptr align 1 %167, i64 %158, i1 false)
-  %168 = getelementptr inbounds i8, ptr %0, i64 344
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %164, ptr %168, align 8
   call void @VP8BitReaderSetBuffer(ptr noundef nonnull %151, ptr noundef nonnull %164, i64 noundef %158) #7
   br label %172
@@ -898,36 +898,36 @@ DecodePartition0.exit:                            ; preds = %180, %128, %110
   br i1 %187, label %188, label %321
 
 188:                                              ; preds = %DecodePartition0.exit
-  %189 = getelementptr inbounds i8, ptr %0, i64 128
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, null
   br i1 %191, label %DecodeVP8LData.exit, label %192
 
 192:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.4.i)
-  %193 = getelementptr inbounds i8, ptr %0, i64 136
-  %194 = getelementptr inbounds i8, ptr %190, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %195 = load i32, ptr %194, align 4
   %.not.i22 = icmp eq i32 %195, 0
   br i1 %.not.i22, label %IDecError.exit.i27, label %.preheader.i
 
 .preheader.i:                                     ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %190, i64 2908
-  %197 = getelementptr inbounds i8, ptr %190, i64 412
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 2908
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 412
   %198 = load i32, ptr %196, align 4
   %199 = load i32, ptr %197, align 4
   %200 = icmp slt i32 %198, %199
   br i1 %200, label %.lr.ph65.i, label %._crit_edge66.i
 
 .lr.ph65.i:                                       ; preds = %.preheader.i
-  %201 = getelementptr inbounds i8, ptr %0, i64 488
-  %202 = getelementptr inbounds i8, ptr %190, i64 16
-  %203 = getelementptr inbounds i8, ptr %190, i64 2904
-  %204 = getelementptr inbounds i8, ptr %190, i64 408
-  %205 = getelementptr inbounds i8, ptr %190, i64 440
-  %206 = getelementptr inbounds i8, ptr %190, i64 432
-  %207 = getelementptr inbounds i8, ptr %190, i64 2832
-  %208 = getelementptr inbounds i8, ptr %0, i64 328
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %190, i64 2904
+  %204 = getelementptr inbounds nuw i8, ptr %190, i64 408
+  %205 = getelementptr inbounds nuw i8, ptr %190, i64 440
+  %206 = getelementptr inbounds nuw i8, ptr %190, i64 432
+  %207 = getelementptr inbounds nuw i8, ptr %190, i64 2832
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %209 = getelementptr i8, ptr %0, i64 304
   br label %211
 
@@ -978,7 +978,7 @@ IDecError.exit54.i:                               ; preds = %219, %216
   %230 = load i32, ptr %206, align 8
   %231 = and i32 %230, %229
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds [8 x %struct.VP8BitReader], ptr %205, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %205, i64 0, i64 %232
   %234 = load ptr, ptr %207, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 -2
   %236 = load i16, ptr %235, align 1
@@ -1018,16 +1018,16 @@ IDecError.exit55.i:                               ; preds = %251, %248
   br label %DecodeRemaining.exit
 
 254:                                              ; preds = %244, %243
-  %255 = getelementptr inbounds i8, ptr %190, i64 200
+  %255 = getelementptr inbounds nuw i8, ptr %190, i64 200
   %256 = load i32, ptr %255, align 8
   %257 = icmp sgt i32 %256, 0
   br i1 %257, label %258, label %270
 
 258:                                              ; preds = %254
   %259 = call ptr @WebPGetWorkerInterface() #7
-  %260 = getelementptr inbounds i8, ptr %259, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %190, i64 152
+  %262 = getelementptr inbounds nuw i8, ptr %190, i64 152
   %263 = call i32 %261(ptr noundef nonnull %262) #7
   %.not52.i = icmp eq i32 %263, 0
   br i1 %.not52.i, label %264, label %270
@@ -1062,7 +1062,7 @@ IDecError.exit56.i:                               ; preds = %267, %264
   br i1 %242, label %278, label %285
 
 278:                                              ; preds = %277
-  %279 = getelementptr inbounds i8, ptr %233, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr %208, align 8
   %282 = ptrtoint ptr %280 to i64
@@ -1118,8 +1118,8 @@ IDecError.exit58.i:                               ; preds = %._crit_edge66.i
 
 303:                                              ; preds = %._crit_edge66.i
   store i32 0, ptr %194, align 4
-  %304 = getelementptr inbounds i8, ptr %0, i64 8
-  %305 = getelementptr inbounds i8, ptr %0, i64 48
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %306 = load ptr, ptr %305, align 8
   %307 = load ptr, ptr %304, align 8
   store i32 6, ptr %0, align 8
@@ -1127,7 +1127,7 @@ IDecError.exit58.i:                               ; preds = %._crit_edge66.i
   br i1 %.not.i.i, label %313, label %308
 
 308:                                              ; preds = %303
-  %309 = getelementptr inbounds i8, ptr %306, i64 48
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 48
   %310 = load i32, ptr %309, align 4
   %.not21.i.i = icmp eq i32 %310, 0
   br i1 %.not21.i.i, label %313, label %311
@@ -1138,14 +1138,14 @@ IDecError.exit58.i:                               ; preds = %._crit_edge66.i
   br i1 %.not22.i.i, label %313, label %DecodeRemaining.exit
 
 313:                                              ; preds = %311, %308, %303
-  %314 = getelementptr inbounds i8, ptr %0, i64 472
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %315 = load ptr, ptr %314, align 8
   %.not23.i.i = icmp eq ptr %315, null
   br i1 %.not23.i.i, label %DecodeRemaining.exit, label %316
 
 316:                                              ; preds = %313
   %317 = call i32 @WebPCopyDecBufferPixels(ptr noundef %307, ptr noundef nonnull %315) #7
-  %318 = getelementptr inbounds i8, ptr %0, i64 352
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 352
   call void @WebPFreeDecBuffer(ptr noundef nonnull %318) #7
   %.not24.i.i = icmp eq i32 %317, 0
   br i1 %.not24.i.i, label %319, label %DecodeRemaining.exit
@@ -1169,17 +1169,17 @@ DecodeRemaining.exit:                             ; preds = %IDecError.exit.i27,
   br i1 %323, label %324, label %DecodeVP8LHeader.exit
 
 324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %0, i64 136
-  %326 = getelementptr inbounds i8, ptr %0, i64 128
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %0, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr i8, ptr %0, i64 304
   %.val.i28 = load i64, ptr %330, align 8
   %331 = getelementptr i8, ptr %0, i64 312
   %.val30.i = load i64, ptr %331, align 8
   %332 = sub i64 %.val30.i, %.val.i28
-  %333 = getelementptr inbounds i8, ptr %0, i64 480
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %334 = load i64, ptr %333, align 8
   %335 = lshr i64 %334, 3
   %336 = icmp ult i64 %332, %335
@@ -1221,9 +1221,9 @@ IDecError.exit.i.i:                               ; preds = %349, %.thread32.i
 
 352:                                              ; preds = %337
   %353 = load i32, ptr %325, align 8
-  %354 = getelementptr inbounds i8, ptr %0, i64 140
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %355 = load i32, ptr %354, align 4
-  %356 = getelementptr inbounds i8, ptr %0, i64 48
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %357 = load ptr, ptr %356, align 8
   %358 = call i32 @WebPAllocateDecBuffer(i32 noundef %353, i32 noundef %355, ptr noundef %357, ptr noundef %329) #7
   store i32 %358, ptr %327, align 8
@@ -1259,18 +1259,18 @@ DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.ex
   br i1 %365, label %366, label %DecodeVP8LData.exit
 
 366:                                              ; preds = %DecodeVP8LHeader.exit.thread49, %DecodeVP8LHeader.exit
-  %367 = getelementptr inbounds i8, ptr %0, i64 128
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr i8, ptr %0, i64 304
   %.val.i32 = load i64, ptr %369, align 8
   %370 = getelementptr i8, ptr %0, i64 312
   %.val12.i = load i64, ptr %370, align 8
   %371 = sub i64 %.val12.i, %.val.i32
-  %372 = getelementptr inbounds i8, ptr %0, i64 480
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %373 = load i64, ptr %372, align 8
   %374 = icmp ult i64 %371, %373
   %375 = zext i1 %374 to i32
-  %376 = getelementptr inbounds i8, ptr %368, i64 80
+  %376 = getelementptr inbounds nuw i8, ptr %368, i64 80
   store i32 %375, ptr %376, align 8
   %377 = call i32 @VP8LDecodeImage(ptr noundef %368) #7
   %.not.i33 = icmp eq i32 %377, 0
@@ -1289,7 +1289,7 @@ DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.ex
 
 384:                                              ; preds = %381
   %385 = load ptr, ptr %367, align 8
-  %386 = getelementptr inbounds i8, ptr %0, i64 136
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %387 = call i32 @VP8ExitCritical(ptr noundef %385, ptr noundef nonnull %386) #7
   br label %IDecError.exit.i.i41
 
@@ -1302,8 +1302,8 @@ IDecError.exit.i.i41:                             ; preds = %384, %381
   br i1 %389, label %DecodeVP8LData.exit, label %390
 
 390:                                              ; preds = %388
-  %391 = getelementptr inbounds i8, ptr %0, i64 8
-  %392 = getelementptr inbounds i8, ptr %0, i64 48
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %393 = load ptr, ptr %392, align 8
   %394 = load ptr, ptr %391, align 8
   store i32 6, ptr %0, align 8
@@ -1311,7 +1311,7 @@ IDecError.exit.i.i41:                             ; preds = %384, %381
   br i1 %.not.i.i34, label %400, label %395
 
 395:                                              ; preds = %390
-  %396 = getelementptr inbounds i8, ptr %393, i64 48
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 48
   %397 = load i32, ptr %396, align 4
   %.not21.i.i35 = icmp eq i32 %397, 0
   br i1 %.not21.i.i35, label %400, label %398
@@ -1322,14 +1322,14 @@ IDecError.exit.i.i41:                             ; preds = %384, %381
   br i1 %.not22.i.i36, label %400, label %DecodeVP8LData.exit
 
 400:                                              ; preds = %398, %395, %390
-  %401 = getelementptr inbounds i8, ptr %0, i64 472
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %402 = load ptr, ptr %401, align 8
   %.not23.i.i38 = icmp eq ptr %402, null
   br i1 %.not23.i.i38, label %DecodeVP8LData.exit, label %403
 
 403:                                              ; preds = %400
   %404 = call i32 @WebPCopyDecBufferPixels(ptr noundef %394, ptr noundef nonnull %402) #7
-  %405 = getelementptr inbounds i8, ptr %0, i64 352
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 352
   call void @WebPFreeDecBuffer(ptr noundef nonnull %405) #7
   %.not24.i.i39 = icmp eq i32 %404, 0
   br i1 %.not24.i.i39, label %406, label %DecodeVP8LData.exit
@@ -1362,7 +1362,7 @@ define i32 @WebPIUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   br i1 %.not, label %7, label %CheckMemBufferMode.exit.thread
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %CheckMemBufferMode.exit.thread [
     i32 0, label %10
@@ -1374,13 +1374,13 @@ define i32 @WebPIUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   br label %CheckMemBufferMode.exit
 
 CheckMemBufferMode.exit:                          ; preds = %7, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %CheckMemBufferMode.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   %18 = ptrtoint ptr %17 to i64
@@ -1388,7 +1388,7 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
 
 19:                                               ; preds = %14, %CheckMemBufferMode.exit
   %20 = phi i64 [ %18, %14 ], [ 0, %CheckMemBufferMode.exit ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %2, %22
   br i1 %23, label %CheckMemBufferMode.exit.thread, label %24
@@ -1396,9 +1396,9 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
 24:                                               ; preds = %19
   store ptr %1, ptr %11, align 8
   store i64 %2, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 304
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = ptrtoint ptr %28 to i64
@@ -1418,7 +1418,7 @@ define ptr @WebPIDecodedArea(ptr noundef readonly %0, ptr noundef writeonly %1, 
   br i1 %6, label %GetOutputBuffer.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %GetOutputBuffer.exit, label %11
@@ -1429,13 +1429,13 @@ define ptr @WebPIDecodedArea(ptr noundef readonly %0, ptr noundef writeonly %1, 
   br i1 %13, label %GetOutputBuffer.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %GetOutputBuffer.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %GetOutputBuffer.exit
 
@@ -1465,7 +1465,7 @@ GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %1
   br i1 %.not24, label %28, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %3, align 4
   br label %28
@@ -1475,7 +1475,7 @@ GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %1
   br i1 %.not27, label %35, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   br label %.sink.split
 
@@ -1505,7 +1505,7 @@ define ptr @WebPIDecGetRGB(ptr noundef readonly %0, ptr noundef writeonly %1, pt
   br i1 %6, label %GetOutputBuffer.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %GetOutputBuffer.exit.thread, label %11
@@ -1516,13 +1516,13 @@ define ptr @WebPIDecGetRGB(ptr noundef readonly %0, ptr noundef writeonly %1, pt
   br i1 %13, label %GetOutputBuffer.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %GetOutputBuffer.exit, label %GetOutputBuffer.exit.thread
 
 GetOutputBuffer.exit:                             ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %GetOutputBuffer.exit.thread, label %20
@@ -1537,7 +1537,7 @@ GetOutputBuffer.exit:                             ; preds = %14
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr %1, align 4
   br label %27
@@ -1547,7 +1547,7 @@ GetOutputBuffer.exit:                             ; preds = %14
   br i1 %.not22, label %31, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %18, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 4
   br label %31
@@ -1557,7 +1557,7 @@ GetOutputBuffer.exit:                             ; preds = %14
   br i1 %.not23, label %35, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %18, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %34 = load i32, ptr %33, align 8
   store i32 %34, ptr %3, align 4
   br label %35
@@ -1567,13 +1567,13 @@ GetOutputBuffer.exit:                             ; preds = %14
   br i1 %.not24, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %18, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %4, align 4
   br label %39
 
 39:                                               ; preds = %36, %35
-  %40 = getelementptr inbounds i8, ptr %18, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %41 = load ptr, ptr %40, align 8
   br label %GetOutputBuffer.exit.thread
 
@@ -1588,7 +1588,7 @@ define ptr @WebPIDecGetYUVA(ptr noundef readonly %0, ptr noundef writeonly %1, p
   br i1 %11, label %GetOutputBuffer.exit.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %GetOutputBuffer.exit.thread, label %16
@@ -1599,13 +1599,13 @@ define ptr @WebPIDecGetYUVA(ptr noundef readonly %0, ptr noundef writeonly %1, p
   br i1 %18, label %GetOutputBuffer.exit.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 472
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %GetOutputBuffer.exit, label %GetOutputBuffer.exit.thread
 
 GetOutputBuffer.exit:                             ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %GetOutputBuffer.exit.thread, label %25
@@ -1620,7 +1620,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %1, align 4
   br label %32
@@ -1630,7 +1630,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not42, label %36, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %23, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %2, align 8
   br label %36
@@ -1640,7 +1640,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not43, label %40, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %23, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %3, align 8
   br label %40
@@ -1650,7 +1650,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not44, label %44, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %23, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %4, align 8
   br label %44
@@ -1660,7 +1660,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not45, label %48, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %23, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %5, align 4
   br label %48
@@ -1670,7 +1670,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not46, label %52, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %23, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %51 = load i32, ptr %50, align 8
   store i32 %51, ptr %6, align 4
   br label %52
@@ -1680,7 +1680,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not47, label %56, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %23, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %55 = load i32, ptr %54, align 8
   store i32 %55, ptr %7, align 4
   br label %56
@@ -1690,7 +1690,7 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not48, label %60, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %23, i64 52
+  %58 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %8, align 4
   br label %60
@@ -1700,13 +1700,13 @@ GetOutputBuffer.exit:                             ; preds = %19
   br i1 %.not49, label %64, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %23, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %9, align 4
   br label %64
 
 64:                                               ; preds = %61, %60
-  %65 = getelementptr inbounds i8, ptr %23, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %66 = load ptr, ptr %65, align 8
   br label %GetOutputBuffer.exit.thread
 
@@ -1726,13 +1726,13 @@ define hidden range(i32 0, 2) i32 @WebPISetIOHooks(ptr noundef %0, ptr noundef %
   br i1 %.not, label %9, label %14
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %4, ptr %13, align 8
   br label %14
 
@@ -1762,44 +1762,44 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DoRemap(ptr nocapture noundef nonnull initializes((232, 248)) %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 296
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %8, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 312
   %.val55 = load i64, ptr %10, align 8
   %11 = sub i64 %.val55, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %NeedCompressedAlpha.exit.thread, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i32, ptr %16, align 8
   %.not47 = icmp eq i32 %17, 0
   br i1 %.not47, label %18, label %72
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %14, i64 432
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 432
   %20 = load i32, ptr %19, align 8
   %.not48 = icmp eq i64 %1, 0
   br i1 %.not48, label %31, label %.preheader
 
 .preheader:                                       ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %14, i64 440
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 440
   br label %22
 
 22:                                               ; preds = %.preheader, %22
   %.058 = phi i32 [ 0, %.preheader ], [ %25, %22 ]
   %23 = zext i32 %.058 to i64
-  %24 = getelementptr inbounds %struct.VP8BitReader, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %21, i64 %23
   tail call void @VP8RemapBitReader(ptr noundef nonnull %24, i64 noundef %1) #7
   %25 = add i32 %.058, 1
   %.not49 = icmp ugt i32 %25, %20
@@ -1811,15 +1811,15 @@ define internal fastcc void @DoRemap(ptr nocapture noundef nonnull initializes((
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %14, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @VP8RemapBitReader(ptr noundef nonnull %30, i64 noundef %1) #7
   br label %31
 
 31:                                               ; preds = %26, %29, %18
-  %32 = getelementptr inbounds i8, ptr %14, i64 440
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %33 = zext i32 %20 to i64
-  %34 = getelementptr inbounds [8 x %struct.VP8BitReader], ptr %32, i64 0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %34 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %32, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %4, align 8
   %38 = load i64, ptr %10, align 8
@@ -1839,21 +1839,21 @@ define internal fastcc void @DoRemap(ptr nocapture noundef nonnull initializes((
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 2968
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2968
   %50 = load ptr, ptr %49, align 8
   %.not5.i = icmp eq ptr %50, null
   br i1 %.not5.i, label %NeedCompressedAlpha.exit.thread, label %NeedCompressedAlpha.exit
 
 NeedCompressedAlpha.exit:                         ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 2984
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 2984
   %52 = load i32, ptr %51, align 8
   %.not6.i.not = icmp eq i32 %52, 0
   br i1 %.not6.i.not, label %53, label %NeedCompressedAlpha.exit.thread
 
 53:                                               ; preds = %NeedCompressedAlpha.exit
-  %54 = getelementptr inbounds i8, ptr %14, i64 2960
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 2960
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %14, i64 2968
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 2968
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %1
   store ptr %58, ptr %56, align 8
@@ -1861,28 +1861,28 @@ NeedCompressedAlpha.exit:                         ; preds = %47
   br i1 %.not51, label %NeedCompressedAlpha.exit.thread, label %59
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %NeedCompressedAlpha.exit.thread, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %55, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %NeedCompressedAlpha.exit.thread
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %61, i64 40
-  %68 = getelementptr inbounds i8, ptr %58, i64 1
-  %69 = getelementptr inbounds i8, ptr %14, i64 2976
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 2976
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, -1
   tail call void @VP8LBitReaderSetBuffer(ptr noundef nonnull %67, ptr noundef nonnull %68, i64 noundef %71) #7
   br label %NeedCompressedAlpha.exit.thread
 
 72:                                               ; preds = %15
-  %73 = getelementptr inbounds i8, ptr %14, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @VP8LBitReaderSetBuffer(ptr noundef nonnull %73, ptr noundef %8, i64 noundef %11) #7
   br label %NeedCompressedAlpha.exit.thread
 

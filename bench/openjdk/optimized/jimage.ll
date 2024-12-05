@@ -51,7 +51,7 @@ define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr noc
 13:                                               ; preds = %5
   %14 = add i64 %7, 1
   store i8 47, ptr %6, align 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %1, i64 %7, i1 false)
   %16 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %14
   store i8 47, ptr %16, align 1
@@ -88,33 +88,33 @@ declare void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %class.ImageLocation, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %8)
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %17)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
@@ -122,16 +122,16 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef reado
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %22, align 8
   %30 = zext i32 %.025 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef %32)
   %.not.i.i = icmp eq i32 %36, 0
   %37 = load ptr, ptr %23, align 8
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = select i1 %.not.i.i, ptr null, ptr %39
   call void @_ZN13ImageLocation10clear_dataEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   call void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %40)
@@ -141,7 +141,7 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef reado
   br i1 %43, label %64, label %44
 
 44:                                               ; preds = %.backedge
-  %45 = getelementptr inbounds i8, ptr %14, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 %42
   %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(8) @.str) #4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %64, label %48
@@ -154,13 +154,13 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr nocapture noundef reado
 51:                                               ; preds = %48
   %52 = load i64, ptr %25, align 8
   %53 = and i64 %52, 4294967295
-  %54 = getelementptr inbounds i8, ptr %14, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 %53
   %55 = load i64, ptr %26, align 8
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds i8, ptr %14, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 %56
   %58 = load i64, ptr %27, align 8
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds i8, ptr %14, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 %59
   %61 = call noundef zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef nonnull @.str.2, ptr noundef %54, ptr noundef %57, ptr noundef %60, ptr noundef %2)
   %62 = add nuw i32 %.025, 1
   %63 = icmp ult i32 %62, %12

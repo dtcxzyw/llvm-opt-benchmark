@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @BN_GENCB_set(ptr nocapture noundef writeonly initializes((0, 16)) %callback, ptr noundef %f, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %callback1 = getelementptr inbounds i8, ptr %callback, i64 8
+  %callback1 = getelementptr inbounds nuw i8, ptr %callback, i64 8
   store ptr %f, ptr %callback1, align 8
   store ptr %arg, ptr %callback, align 8
   ret void
@@ -22,7 +22,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %callback1 = getelementptr inbounds i8, ptr %callback, i64 8
+  %callback1 = getelementptr inbounds nuw i8, ptr %callback, i64 8
   %0 = load ptr, ptr %callback1, align 8
   %call = tail call i32 %0(i32 noundef %event, i32 noundef %n, ptr noundef nonnull %callback) #5
   br label %return
@@ -119,9 +119,9 @@ loop.preheader:                                   ; preds = %if.end54
   %cmp12.i = icmp eq i32 %bits, 64
   %sh_prom.i = zext nneg i32 %bits to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %top.i33.i = getelementptr inbounds i8, ptr %ret, i64 8
+  %top.i33.i = getelementptr inbounds nuw i8, ptr %ret, i64 8
   %tobool.not.i81 = icmp eq ptr %cb, null
-  %callback1.i = getelementptr inbounds i8, ptr %cb, i64 8
+  %callback1.i = getelementptr inbounds nuw i8, ptr %cb, i64 8
   br label %loop
 
 loop:                                             ; preds = %loop.backedge, %loop.preheader
@@ -140,12 +140,12 @@ for.cond.preheader.i:                             ; preds = %if.then60, %again.b
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv5.i = zext i16 %0 to i64
   %call6.i = tail call i64 @BN_mod_word(ptr noundef %ret, i64 noundef %conv5.i) #5
   %conv7.i = trunc i64 %call6.i to i16
-  %arrayidx9.i = getelementptr inbounds [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds nuw [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv.i
   store i16 %conv7.i, ptr %arrayidx9.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
@@ -208,14 +208,14 @@ for.cond29.us.i:                                  ; preds = %for.body37.us.i
 
 land.rhs.us.i:                                    ; preds = %for.cond29.us.i, %get_word.exit42.us.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %for.cond29.us.i ], [ 1, %get_word.exit42.us.i ]
-  %arrayidx33.us.i = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv64.i
+  %arrayidx33.us.i = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv64.i
   %10 = load i16, ptr %arrayidx33.us.i, align 2
   %conv34.us.i = zext i16 %10 to i64
   %cmp35.us.i = icmp ugt i64 %retval.0.i40.us.i, %conv34.us.i
   br i1 %cmp35.us.i, label %for.body37.us.i, label %if.end81.i
 
 for.body37.us.i:                                  ; preds = %land.rhs.us.i
-  %arrayidx39.us.i = getelementptr inbounds [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv64.i
+  %arrayidx39.us.i = getelementptr inbounds nuw [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv64.i
   %11 = load i16, ptr %arrayidx39.us.i, align 2
   %conv40.us.i = zext i16 %11 to i64
   %add.us.i = add i64 %delta.0.us.i, %conv40.us.i
@@ -239,11 +239,11 @@ for.cond57.i:                                     ; preds = %for.body60.i
 
 for.body60.i:                                     ; preds = %for.cond57.i, %loop.i
   %indvars.iv60.i = phi i64 [ 1, %loop.i ], [ %indvars.iv.next61.i, %for.cond57.i ]
-  %arrayidx62.i = getelementptr inbounds [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv60.i
+  %arrayidx62.i = getelementptr inbounds nuw [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv60.i
   %12 = load i16, ptr %arrayidx62.i, align 2
   %conv63.i = zext i16 %12 to i64
   %add64.i = add i64 %delta.0.i, %conv63.i
-  %arrayidx66.i = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv60.i
+  %arrayidx66.i = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv60.i
   %13 = load i16, ptr %arrayidx66.i, align 2
   %conv67.i = zext i16 %13 to i64
   %rem68.i = urem i64 %add64.i, %conv67.i
@@ -351,7 +351,7 @@ for.body.i55.backedge:                            ; preds = %for.cond.i, %if.end
 
 for.body.i55:                                     ; preds = %if.end36.i, %for.body.i55.backedge
   %indvars.iv.i56 = phi i64 [ %indvars.iv.i56.be, %for.body.i55.backedge ], [ 1, %if.end36.i ]
-  %arrayidx.i57 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i56
+  %arrayidx.i57 = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i56
   %14 = load i16, ptr %arrayidx.i57, align 2
   %conv.i = zext i16 %14 to i64
   %call42.i = tail call i64 @BN_mod_word(ptr noundef %ret, i64 noundef %conv.i) #5
@@ -427,7 +427,7 @@ for.body.i68.backedge:                            ; preds = %for.cond.i73, %if.t
 
 for.body.i68:                                     ; preds = %for.body.i68.backedge, %for.body.i68.preheader
   %indvars.iv.i69 = phi i64 [ 1, %for.body.i68.preheader ], [ %indvars.iv.i69.be, %for.body.i68.backedge ]
-  %arrayidx.i70 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i69
   %15 = load i16, ptr %arrayidx.i70, align 2
   %conv.i71 = zext i16 %15 to i64
   %call24.i72 = tail call i64 @BN_mod_word(ptr noundef %ret, i64 noundef %conv.i71) #5
@@ -615,7 +615,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.end67, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 1, %if.end67 ]
-  %arrayidx = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i64
   %call71 = tail call i64 @BN_mod_word(ptr noundef %a, i64 noundef %conv) #5
@@ -627,7 +627,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %tobool.not.i, label %if.end80, label %BN_GENCB_call.exit
 
 BN_GENCB_call.exit:                               ; preds = %for.end
-  %callback1.i = getelementptr inbounds i8, ptr %cb, i64 8
+  %callback1.i = getelementptr inbounds nuw i8, ptr %cb, i64 8
   %1 = load ptr, ptr %callback1.i, align 8
   %call.i = tail call i32 %1(i32 noundef 1, i32 noundef -1, ptr noundef nonnull %cb) #5
   %tobool77.not = icmp eq i32 %call.i, 0
@@ -645,7 +645,7 @@ if.else:                                          ; preds = %if.end80
 if.end89:                                         ; preds = %if.end80, %if.else
   %ctx.1 = phi ptr [ %call84, %if.else ], [ %ctx_passed, %if.end80 ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.1) #5
-  %neg = getelementptr inbounds i8, ptr %a, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load i32, ptr %neg, align 8
   %tobool90.not = icmp eq i32 %2, 0
   br i1 %tobool90.not, label %if.end101, label %if.then91
@@ -661,7 +661,7 @@ lor.lhs.false:                                    ; preds = %if.then91
   br i1 %tobool96.not, label %if.then166, label %if.end98
 
 if.end98:                                         ; preds = %lor.lhs.false
-  %neg99 = getelementptr inbounds i8, ptr %call92, i64 16
+  %neg99 = getelementptr inbounds nuw i8, ptr %call92, i64 16
   store i32 0, ptr %neg99, align 8
   br label %if.end101
 
@@ -716,7 +716,7 @@ for.cond137.preheader:                            ; preds = %if.end132
 
 for.body140.lr.ph:                                ; preds = %for.cond137.preheader
   %tobool.not.i59 = icmp eq ptr %cb, null
-  %callback1.i61 = getelementptr inbounds i8, ptr %cb, i64 8
+  %callback1.i61 = getelementptr inbounds nuw i8, ptr %cb, i64 8
   br i1 %tobool.not.i59, label %for.body140.us, label %for.body140
 
 for.body140.us:                                   ; preds = %for.body140.lr.ph, %if.end156.us

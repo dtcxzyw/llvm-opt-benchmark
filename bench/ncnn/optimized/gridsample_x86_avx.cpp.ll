@@ -99,7 +99,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
   %6 = alloca %"class.ncnn::Mat", align 8
   %7 = alloca %"class.ncnn::Mat", align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i32, ptr %11, align 8
@@ -127,7 +127,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %26, i8 0, i64 28, i1 false)
   %34 = load i32, ptr %33, align 8
@@ -158,7 +158,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %44)
           to label %51 unwind label %53
@@ -191,7 +191,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
   br i1 %57, label %94, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %8, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %60 = load ptr, ptr %59, align 8
   %.not241 = icmp eq ptr %60, null
   br i1 %.not241, label %.thread284, label %61
@@ -215,7 +215,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %68)
           to label %.thread284 unwind label %36
@@ -233,30 +233,30 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18GridSample_x86_avx7forw
   store ptr %75, ptr %7, align 8
   %76 = load ptr, ptr %59, align 8
   store ptr %76, ptr %23, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %78 = load i64, ptr %77, align 8
   store i64 %78, ptr %24, align 8
   %79 = load i32, ptr %33, align 8
   store i32 %79, ptr %25, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %81 = load ptr, ptr %80, align 8
   store ptr %81, ptr %26, align 8
-  %82 = getelementptr inbounds i8, ptr %8, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %83 = load i32, ptr %82, align 8
   store i32 %83, ptr %27, align 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 116
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 116
   %85 = load i32, ptr %84, align 4
   store i32 %85, ptr %28, align 4
-  %86 = getelementptr inbounds i8, ptr %8, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %87 = load i32, ptr %86, align 8
   store i32 %87, ptr %29, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 124
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %89 = load i32, ptr %88, align 4
   store i32 %89, ptr %30, align 4
-  %90 = getelementptr inbounds i8, ptr %8, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %91 = load i32, ptr %90, align 8
   store i32 %91, ptr %31, align 8
-  %92 = getelementptr inbounds i8, ptr %8, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %93 = load i64, ptr %92, align 8
   store i64 %93, ptr %32, align 8
   br label %94
@@ -928,53 +928,53 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %.01253.us.i = phi ptr [ %426, %.lr.ph.us.i ], [ %478, %463 ]
   %.01262.us.i = phi ptr [ %427, %.lr.ph.us.i ], [ %479, %463 ]
   %.01271.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %480, %463 ]
-  %429 = getelementptr inbounds i8, ptr %.01262.us.i, i64 16
+  %429 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 16
   %430 = load i32, ptr %.01262.us.i, align 4
   %431 = icmp sgt i32 %430, -1
   br i1 %431, label %432, label %436
 
 432:                                              ; preds = %428
   %433 = zext nneg i32 %430 to i64
-  %434 = getelementptr inbounds float, ptr %420, i64 %433
+  %434 = getelementptr inbounds nuw float, ptr %420, i64 %433
   %435 = load float, ptr %434, align 4
   br label %436
 
 436:                                              ; preds = %432, %428
   %437 = phi fast float [ %435, %432 ], [ 0.000000e+00, %428 ]
-  %438 = getelementptr inbounds i8, ptr %.01262.us.i, i64 4
+  %438 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 4
   %439 = load i32, ptr %438, align 4
   %440 = icmp sgt i32 %439, -1
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %436
   %442 = zext nneg i32 %439 to i64
-  %443 = getelementptr inbounds float, ptr %420, i64 %442
+  %443 = getelementptr inbounds nuw float, ptr %420, i64 %442
   %444 = load float, ptr %443, align 4
   br label %445
 
 445:                                              ; preds = %441, %436
   %446 = phi fast float [ %444, %441 ], [ 0.000000e+00, %436 ]
-  %447 = getelementptr inbounds i8, ptr %.01262.us.i, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 8
   %448 = load i32, ptr %447, align 4
   %449 = icmp sgt i32 %448, -1
   br i1 %449, label %450, label %454
 
 450:                                              ; preds = %445
   %451 = zext nneg i32 %448 to i64
-  %452 = getelementptr inbounds float, ptr %420, i64 %451
+  %452 = getelementptr inbounds nuw float, ptr %420, i64 %451
   %453 = load float, ptr %452, align 4
   br label %454
 
 454:                                              ; preds = %450, %445
   %455 = phi fast float [ %453, %450 ], [ 0.000000e+00, %445 ]
-  %456 = getelementptr inbounds i8, ptr %.01262.us.i, i64 12
+  %456 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 12
   %457 = load i32, ptr %456, align 4
   %458 = icmp sgt i32 %457, -1
   br i1 %458, label %459, label %463
 
 459:                                              ; preds = %454
   %460 = zext nneg i32 %457 to i64
-  %461 = getelementptr inbounds float, ptr %420, i64 %460
+  %461 = getelementptr inbounds nuw float, ptr %420, i64 %460
   %462 = load float, ptr %461, align 4
   br label %463
 
@@ -988,14 +988,14 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %470 = fmul fast float %466, %455
   %471 = fmul fast float %465, %464
   %472 = fadd fast float %470, %471
-  %473 = getelementptr inbounds i8, ptr %.01262.us.i, i64 20
+  %473 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 20
   %474 = load float, ptr %473, align 4
   %475 = fsub fast float %472, %469
   %476 = fmul fast float %475, %474
   %477 = fadd fast float %476, %469
   store float %477, ptr %.01253.us.i, align 4
-  %478 = getelementptr inbounds i8, ptr %.01253.us.i, i64 4
-  %479 = getelementptr inbounds i8, ptr %.01262.us.i, i64 24
+  %478 = getelementptr inbounds nuw i8, ptr %.01253.us.i, i64 4
+  %479 = getelementptr inbounds nuw i8, ptr %.01262.us.i, i64 24
   %480 = add nuw nsw i32 %.01271.us.i, 1
   %exitcond.not.i = icmp eq i32 %480, %409
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %428, !llvm.loop !4
@@ -1057,15 +1057,15 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
 
 513:                                              ; preds = %510
   %514 = zext nneg i32 %511 to i64
-  %515 = getelementptr inbounds float, ptr %502, i64 %514
+  %515 = getelementptr inbounds nuw float, ptr %502, i64 %514
   %516 = load float, ptr %515, align 4
   br label %517
 
 517:                                              ; preds = %513, %510
   %518 = phi fast float [ %516, %513 ], [ 0.000000e+00, %510 ]
   store float %518, ptr %.01051.us.i, align 4
-  %519 = getelementptr inbounds i8, ptr %.01042.us.i, i64 4
-  %520 = getelementptr inbounds i8, ptr %.01051.us.i, i64 4
+  %519 = getelementptr inbounds nuw i8, ptr %.01042.us.i, i64 4
+  %520 = getelementptr inbounds nuw i8, ptr %.01051.us.i, i64 4
   %521 = add nuw nsw i32 %.03.us.i, 1
   %exitcond.not.i267 = icmp eq i32 %521, %491
   br i1 %exitcond.not.i267, label %._crit_edge.us.i268, label %510, !llvm.loop !7
@@ -1092,9 +1092,9 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %532 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %533 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %534 = icmp sgt i32 %529, 0
-  %535 = getelementptr inbounds i8, ptr %5, i64 4
-  %536 = getelementptr inbounds i8, ptr %5, i64 8
-  %537 = getelementptr inbounds i8, ptr %5, i64 12
+  %535 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %536 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br i1 %534, label %.lr.ph.us.preheader.i271, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i271:                         ; preds = %.lr.ph20.i
@@ -1144,7 +1144,7 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %568 = fadd fast float %567, 1.000000e+00
   %569 = fadd fast float %563, %567
   %570 = fadd fast float %569, %560
-  %571 = getelementptr inbounds i8, ptr %.013615.us.i, i64 4
+  %571 = getelementptr inbounds nuw i8, ptr %.013615.us.i, i64 4
   %572 = load float, ptr %571, align 4
   %573 = fadd fast float %572, 1.000000e+00
   %574 = fsub fast float 1.000000e+00, %572
@@ -1158,7 +1158,7 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %580 = fmul fast float %574, 1.250000e+00
   %581 = fadd fast float %580, -2.250000e+00
   %582 = fmul fast float %579, %581
-  %583 = getelementptr inbounds i8, ptr %.013615.us.i, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %.013615.us.i, i64 8
   br label %607
 
 584:                                              ; preds = %641
@@ -1183,8 +1183,8 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %602 = fmul fast float %592, %601
   %603 = fsub fast float %600, %602
   store float %603, ptr %.013217.us.i, align 4
-  %604 = getelementptr inbounds i8, ptr %.013217.us.i, i64 4
-  %605 = getelementptr inbounds i8, ptr %.013615.us.i, i64 72
+  %604 = getelementptr inbounds nuw i8, ptr %.013217.us.i, i64 4
+  %605 = getelementptr inbounds nuw i8, ptr %.013615.us.i, i64 72
   %606 = add nuw nsw i32 %.013516.us.i, 1
   %exitcond24.not.i = icmp eq i32 %606, %529
   br i1 %exitcond24.not.i, label %._crit_edge.us.i277, label %551, !llvm.loop !9
@@ -1198,53 +1198,53 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
 
 610:                                              ; preds = %607
   %611 = zext nneg i32 %608 to i64
-  %612 = getelementptr inbounds float, ptr %543, i64 %611
+  %612 = getelementptr inbounds nuw float, ptr %543, i64 %611
   %613 = load float, ptr %612, align 4
   br label %614
 
 614:                                              ; preds = %610, %607
   %615 = phi fast float [ %613, %610 ], [ 0.000000e+00, %607 ]
-  %616 = getelementptr inbounds i8, ptr %.013413.us.i, i64 4
+  %616 = getelementptr inbounds nuw i8, ptr %.013413.us.i, i64 4
   %617 = load i32, ptr %616, align 4
   %618 = icmp sgt i32 %617, -1
   br i1 %618, label %619, label %623
 
 619:                                              ; preds = %614
   %620 = zext nneg i32 %617 to i64
-  %621 = getelementptr inbounds float, ptr %543, i64 %620
+  %621 = getelementptr inbounds nuw float, ptr %543, i64 %620
   %622 = load float, ptr %621, align 4
   br label %623
 
 623:                                              ; preds = %619, %614
   %624 = phi fast float [ %622, %619 ], [ 0.000000e+00, %614 ]
-  %625 = getelementptr inbounds i8, ptr %.013413.us.i, i64 8
+  %625 = getelementptr inbounds nuw i8, ptr %.013413.us.i, i64 8
   %626 = load i32, ptr %625, align 4
   %627 = icmp sgt i32 %626, -1
   br i1 %627, label %628, label %632
 
 628:                                              ; preds = %623
   %629 = zext nneg i32 %626 to i64
-  %630 = getelementptr inbounds float, ptr %543, i64 %629
+  %630 = getelementptr inbounds nuw float, ptr %543, i64 %629
   %631 = load float, ptr %630, align 4
   br label %632
 
 632:                                              ; preds = %628, %623
   %633 = phi fast float [ %631, %628 ], [ 0.000000e+00, %623 ]
-  %634 = getelementptr inbounds i8, ptr %.013413.us.i, i64 12
+  %634 = getelementptr inbounds nuw i8, ptr %.013413.us.i, i64 12
   %635 = load i32, ptr %634, align 4
   %636 = icmp sgt i32 %635, -1
   br i1 %636, label %637, label %641
 
 637:                                              ; preds = %632
   %638 = zext nneg i32 %635 to i64
-  %639 = getelementptr inbounds float, ptr %543, i64 %638
+  %639 = getelementptr inbounds nuw float, ptr %543, i64 %638
   %640 = load float, ptr %639, align 4
   br label %641
 
 641:                                              ; preds = %637, %632
   %642 = phi fast float [ %640, %637 ], [ 0.000000e+00, %632 ]
   %643 = fmul fast float %615, %560
-  %644 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv.i274
+  %644 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i274
   %645 = fmul fast float %624, %563
   %646 = fadd fast float %645, %643
   %647 = fmul fast float %633, %568
@@ -1252,7 +1252,7 @@ thread-pre-split278:                              ; preds = %309, %308, %315, %3
   %649 = fmul fast float %570, %642
   %650 = fsub fast float %648, %649
   store float %650, ptr %644, align 4
-  %651 = getelementptr inbounds i8, ptr %.013413.us.i, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %.013413.us.i, i64 16
   %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i274, 1
   %exitcond.not.i276 = icmp eq i64 %indvars.iv.next.i275, 4
   br i1 %exitcond.not.i276, label %584, label %607, !llvm.loop !10
@@ -1304,7 +1304,7 @@ _ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6O
 
 665:                                              ; preds = %662
   %666 = load ptr, ptr %663, align 8
-  %667 = getelementptr inbounds i8, ptr %666, i64 24
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 24
   %668 = load ptr, ptr %667, align 8
   invoke void %668(ptr noundef nonnull align 8 dereferenceable(8) %663, ptr noundef %664)
           to label %671 unwind label %673
@@ -1345,7 +1345,7 @@ _ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6O
 
 682:                                              ; preds = %679
   %683 = load ptr, ptr %680, align 8
-  %684 = getelementptr inbounds i8, ptr %683, i64 24
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 24
   %685 = load ptr, ptr %684, align 8
   invoke void %685(ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef %681)
           to label %688 unwind label %689
@@ -1381,7 +1381,7 @@ _ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6O
 
 698:                                              ; preds = %695
   %699 = load ptr, ptr %696, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 24
+  %700 = getelementptr inbounds nuw i8, ptr %699, i64 24
   %701 = load ptr, ptr %700, align 8
   invoke void %701(ptr noundef nonnull align 8 dereferenceable(8) %696, ptr noundef %697)
           to label %704 unwind label %705
@@ -1463,7 +1463,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471664 = phi ptr [ %125, %.lr.ph1666 ], [ %28, %22 ]
   %.014491663 = phi i32 [ %127, %.lr.ph1666 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471664, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471664, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471664, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -1553,18 +1553,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %118 = shufflevector <8 x float> %109, <8 x float> %111, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %119 = shufflevector <8 x float> %112, <8 x float> %113, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %114, ptr %.11665, align 1
-  %120 = getelementptr inbounds i8, ptr %.11665, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.11665, i64 32
   store <8 x float> %115, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %.11665, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %.11665, i64 64
   store <8 x float> %116, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %.11665, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %.11665, i64 96
   store <8 x float> %117, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %.11665, i64 128
+  %123 = getelementptr inbounds nuw i8, ptr %.11665, i64 128
   store <8 x float> %118, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %.11665, i64 160
+  %124 = getelementptr inbounds nuw i8, ptr %.11665, i64 160
   store <8 x float> %119, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %.014471664, i64 64
-  %126 = getelementptr inbounds i8, ptr %.11665, i64 192
+  %125 = getelementptr inbounds nuw i8, ptr %.014471664, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %.11665, i64 192
   %127 = add nuw nsw i32 %.014491663, 16
   %128 = or disjoint i32 %127, 15
   %129 = icmp slt i32 %128, %9
@@ -1575,7 +1575,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481671 = phi ptr [ %209, %201 ], [ %.01447.lcssa, %.preheader ]
   %.114501670 = phi i32 [ %211, %201 ], [ %.01449.lcssa, %.preheader ]
   %130 = load float, ptr %.114481671, align 4
-  %131 = getelementptr inbounds i8, ptr %.114481671, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.114481671, i64 4
   %132 = load float, ptr %131, align 4
   %133 = load i32, ptr %18, align 4
   %134 = sitofp i32 %133 to float
@@ -1619,7 +1619,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %169, 0
   %170 = and i32 %168, %166
   %.not1647 = icmp eq i32 %170, 0
-  %171 = getelementptr inbounds i8, ptr %.21672, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %.21672, i64 16
   %172 = mul nsw i32 %133, %148
   %173 = add nsw i32 %172, %146
   %174 = load i32, ptr %20, align 8
@@ -1638,7 +1638,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 183:                                              ; preds = %.lr.ph1673, %177
   %184 = phi i32 [ %182, %177 ], [ -1, %.lr.ph1673 ]
-  %185 = getelementptr inbounds i8, ptr %.21672, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.21672, i64 4
   store i32 %184, ptr %185, align 4
   br i1 %.not1646, label %192, label %186
 
@@ -1652,7 +1652,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 192:                                              ; preds = %183, %186
   %193 = phi i32 [ %191, %186 ], [ -1, %183 ]
-  %194 = getelementptr inbounds i8, ptr %.21672, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.21672, i64 8
   store i32 %193, ptr %194, align 4
   br i1 %.not1647, label %201, label %195
 
@@ -1666,17 +1666,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 201:                                              ; preds = %192, %195
   %202 = phi i32 [ %200, %195 ], [ -1, %192 ]
-  %203 = getelementptr inbounds i8, ptr %.21672, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %.21672, i64 12
   store i32 %202, ptr %203, align 4
   %204 = sitofp i32 %146 to float
   %205 = fsub fast float %138, %204
   store float %205, ptr %171, align 4
   %206 = sitofp i32 %148 to float
   %207 = fsub fast float %144, %206
-  %208 = getelementptr inbounds i8, ptr %.21672, i64 20
+  %208 = getelementptr inbounds nuw i8, ptr %.21672, i64 20
   store float %207, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %.114481671, i64 8
-  %210 = getelementptr inbounds i8, ptr %.21672, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %.114481671, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.21672, i64 24
   %211 = add nuw nsw i32 %.114501670, 2
   %212 = icmp slt i32 %211, %9
   br i1 %212, label %.lr.ph1673, label %._crit_edge, !llvm.loop !13
@@ -1812,19 +1812,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %317 = shufflevector <8 x float> %308, <8 x float> %310, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %318 = shufflevector <8 x float> %311, <8 x float> %312, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %313, ptr %.31654, align 1
-  %319 = getelementptr inbounds i8, ptr %.31654, i64 32
+  %319 = getelementptr inbounds nuw i8, ptr %.31654, i64 32
   store <8 x float> %314, ptr %319, align 1
-  %320 = getelementptr inbounds i8, ptr %.31654, i64 64
+  %320 = getelementptr inbounds nuw i8, ptr %.31654, i64 64
   store <8 x float> %315, ptr %320, align 1
-  %321 = getelementptr inbounds i8, ptr %.31654, i64 96
+  %321 = getelementptr inbounds nuw i8, ptr %.31654, i64 96
   store <8 x float> %316, ptr %321, align 1
-  %322 = getelementptr inbounds i8, ptr %.31654, i64 128
+  %322 = getelementptr inbounds nuw i8, ptr %.31654, i64 128
   store <8 x float> %317, ptr %322, align 1
-  %323 = getelementptr inbounds i8, ptr %.31654, i64 160
+  %323 = getelementptr inbounds nuw i8, ptr %.31654, i64 160
   store <8 x float> %318, ptr %323, align 1
-  %324 = getelementptr inbounds i8, ptr %.014511653, i64 32
-  %325 = getelementptr inbounds i8, ptr %.014531652, i64 32
-  %326 = getelementptr inbounds i8, ptr %.31654, i64 192
+  %324 = getelementptr inbounds nuw i8, ptr %.014511653, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %.014531652, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %.31654, i64 192
   %327 = add nuw nsw i32 %.014551651, 8
   %328 = or disjoint i32 %327, 7
   %329 = icmp slt i32 %328, %9
@@ -1879,7 +1879,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %369, 0
   %370 = and i32 %368, %366
   %.not1643 = icmp eq i32 %370, 0
-  %371 = getelementptr inbounds i8, ptr %.41661, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.41661, i64 16
   %372 = mul nsw i32 %333, %348
   %373 = add nsw i32 %372, %346
   %374 = load i32, ptr %232, align 8
@@ -1898,7 +1898,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 383:                                              ; preds = %330, %377
   %384 = phi i32 [ %382, %377 ], [ -1, %330 ]
-  %385 = getelementptr inbounds i8, ptr %.41661, i64 4
+  %385 = getelementptr inbounds nuw i8, ptr %.41661, i64 4
   store i32 %384, ptr %385, align 4
   br i1 %.not1642, label %392, label %386
 
@@ -1912,7 +1912,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 392:                                              ; preds = %383, %386
   %393 = phi i32 [ %391, %386 ], [ -1, %383 ]
-  %394 = getelementptr inbounds i8, ptr %.41661, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %.41661, i64 8
   store i32 %393, ptr %394, align 4
   br i1 %.not1643, label %401, label %395
 
@@ -1926,18 +1926,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 401:                                              ; preds = %392, %395
   %402 = phi i32 [ %400, %395 ], [ -1, %392 ]
-  %403 = getelementptr inbounds i8, ptr %.41661, i64 12
+  %403 = getelementptr inbounds nuw i8, ptr %.41661, i64 12
   store i32 %402, ptr %403, align 4
   %404 = sitofp i32 %346 to float
   %405 = fsub fast float %338, %404
   store float %405, ptr %371, align 4
   %406 = sitofp i32 %348 to float
   %407 = fsub fast float %344, %406
-  %408 = getelementptr inbounds i8, ptr %.41661, i64 20
+  %408 = getelementptr inbounds nuw i8, ptr %.41661, i64 20
   store float %407, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %.114521660, i64 4
-  %410 = getelementptr inbounds i8, ptr %.114541659, i64 4
-  %411 = getelementptr inbounds i8, ptr %.41661, i64 24
+  %409 = getelementptr inbounds nuw i8, ptr %.114521660, i64 4
+  %410 = getelementptr inbounds nuw i8, ptr %.114541659, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %.41661, i64 24
   %412 = add nuw nsw i32 %.114561658, 1
   %exitcond.not = icmp eq i32 %412, %9
   br i1 %exitcond.not, label %.loopexit, label %330, !llvm.loop !16
@@ -1996,7 +1996,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471664 = phi ptr [ %125, %.lr.ph1666 ], [ %28, %22 ]
   %.014491663 = phi i32 [ %127, %.lr.ph1666 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471664, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471664, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471664, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -2086,18 +2086,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %118 = shufflevector <8 x float> %109, <8 x float> %111, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %119 = shufflevector <8 x float> %112, <8 x float> %113, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %114, ptr %.11665, align 1
-  %120 = getelementptr inbounds i8, ptr %.11665, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.11665, i64 32
   store <8 x float> %115, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %.11665, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %.11665, i64 64
   store <8 x float> %116, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %.11665, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %.11665, i64 96
   store <8 x float> %117, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %.11665, i64 128
+  %123 = getelementptr inbounds nuw i8, ptr %.11665, i64 128
   store <8 x float> %118, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %.11665, i64 160
+  %124 = getelementptr inbounds nuw i8, ptr %.11665, i64 160
   store <8 x float> %119, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %.014471664, i64 64
-  %126 = getelementptr inbounds i8, ptr %.11665, i64 192
+  %125 = getelementptr inbounds nuw i8, ptr %.014471664, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %.11665, i64 192
   %127 = add nuw nsw i32 %.014491663, 16
   %128 = or disjoint i32 %127, 15
   %129 = icmp slt i32 %128, %9
@@ -2108,7 +2108,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481671 = phi ptr [ %209, %201 ], [ %.01447.lcssa, %.preheader ]
   %.114501670 = phi i32 [ %211, %201 ], [ %.01449.lcssa, %.preheader ]
   %130 = load float, ptr %.114481671, align 4
-  %131 = getelementptr inbounds i8, ptr %.114481671, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.114481671, i64 4
   %132 = load float, ptr %131, align 4
   %133 = load i32, ptr %18, align 4
   %134 = fmul fast float %130, 5.000000e-01
@@ -2152,7 +2152,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %169, 0
   %170 = and i32 %168, %166
   %.not1647 = icmp eq i32 %170, 0
-  %171 = getelementptr inbounds i8, ptr %.21672, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %.21672, i64 16
   %172 = mul nsw i32 %133, %148
   %173 = add nsw i32 %172, %146
   %174 = load i32, ptr %20, align 8
@@ -2171,7 +2171,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 183:                                              ; preds = %.lr.ph1673, %177
   %184 = phi i32 [ %182, %177 ], [ -1, %.lr.ph1673 ]
-  %185 = getelementptr inbounds i8, ptr %.21672, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.21672, i64 4
   store i32 %184, ptr %185, align 4
   br i1 %.not1646, label %192, label %186
 
@@ -2185,7 +2185,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 192:                                              ; preds = %183, %186
   %193 = phi i32 [ %191, %186 ], [ -1, %183 ]
-  %194 = getelementptr inbounds i8, ptr %.21672, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.21672, i64 8
   store i32 %193, ptr %194, align 4
   br i1 %.not1647, label %201, label %195
 
@@ -2199,17 +2199,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 201:                                              ; preds = %192, %195
   %202 = phi i32 [ %200, %195 ], [ -1, %192 ]
-  %203 = getelementptr inbounds i8, ptr %.21672, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %.21672, i64 12
   store i32 %202, ptr %203, align 4
   %204 = sitofp i32 %146 to float
   %205 = fsub fast float %138, %204
   store float %205, ptr %171, align 4
   %206 = sitofp i32 %148 to float
   %207 = fsub fast float %144, %206
-  %208 = getelementptr inbounds i8, ptr %.21672, i64 20
+  %208 = getelementptr inbounds nuw i8, ptr %.21672, i64 20
   store float %207, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %.114481671, i64 8
-  %210 = getelementptr inbounds i8, ptr %.21672, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %.114481671, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.21672, i64 24
   %211 = add nuw nsw i32 %.114501670, 2
   %212 = icmp slt i32 %211, %9
   br i1 %212, label %.lr.ph1673, label %._crit_edge, !llvm.loop !18
@@ -2345,19 +2345,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %317 = shufflevector <8 x float> %308, <8 x float> %310, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %318 = shufflevector <8 x float> %311, <8 x float> %312, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %313, ptr %.31654, align 1
-  %319 = getelementptr inbounds i8, ptr %.31654, i64 32
+  %319 = getelementptr inbounds nuw i8, ptr %.31654, i64 32
   store <8 x float> %314, ptr %319, align 1
-  %320 = getelementptr inbounds i8, ptr %.31654, i64 64
+  %320 = getelementptr inbounds nuw i8, ptr %.31654, i64 64
   store <8 x float> %315, ptr %320, align 1
-  %321 = getelementptr inbounds i8, ptr %.31654, i64 96
+  %321 = getelementptr inbounds nuw i8, ptr %.31654, i64 96
   store <8 x float> %316, ptr %321, align 1
-  %322 = getelementptr inbounds i8, ptr %.31654, i64 128
+  %322 = getelementptr inbounds nuw i8, ptr %.31654, i64 128
   store <8 x float> %317, ptr %322, align 1
-  %323 = getelementptr inbounds i8, ptr %.31654, i64 160
+  %323 = getelementptr inbounds nuw i8, ptr %.31654, i64 160
   store <8 x float> %318, ptr %323, align 1
-  %324 = getelementptr inbounds i8, ptr %.014511653, i64 32
-  %325 = getelementptr inbounds i8, ptr %.014531652, i64 32
-  %326 = getelementptr inbounds i8, ptr %.31654, i64 192
+  %324 = getelementptr inbounds nuw i8, ptr %.014511653, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %.014531652, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %.31654, i64 192
   %327 = add nuw nsw i32 %.014551651, 8
   %328 = or disjoint i32 %327, 7
   %329 = icmp slt i32 %328, %9
@@ -2412,7 +2412,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %369, 0
   %370 = and i32 %368, %366
   %.not1643 = icmp eq i32 %370, 0
-  %371 = getelementptr inbounds i8, ptr %.41661, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.41661, i64 16
   %372 = mul nsw i32 %333, %348
   %373 = add nsw i32 %372, %346
   %374 = load i32, ptr %232, align 8
@@ -2431,7 +2431,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 383:                                              ; preds = %330, %377
   %384 = phi i32 [ %382, %377 ], [ -1, %330 ]
-  %385 = getelementptr inbounds i8, ptr %.41661, i64 4
+  %385 = getelementptr inbounds nuw i8, ptr %.41661, i64 4
   store i32 %384, ptr %385, align 4
   br i1 %.not1642, label %392, label %386
 
@@ -2445,7 +2445,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 392:                                              ; preds = %383, %386
   %393 = phi i32 [ %391, %386 ], [ -1, %383 ]
-  %394 = getelementptr inbounds i8, ptr %.41661, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %.41661, i64 8
   store i32 %393, ptr %394, align 4
   br i1 %.not1643, label %401, label %395
 
@@ -2459,18 +2459,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 401:                                              ; preds = %392, %395
   %402 = phi i32 [ %400, %395 ], [ -1, %392 ]
-  %403 = getelementptr inbounds i8, ptr %.41661, i64 12
+  %403 = getelementptr inbounds nuw i8, ptr %.41661, i64 12
   store i32 %402, ptr %403, align 4
   %404 = sitofp i32 %346 to float
   %405 = fsub fast float %338, %404
   store float %405, ptr %371, align 4
   %406 = sitofp i32 %348 to float
   %407 = fsub fast float %344, %406
-  %408 = getelementptr inbounds i8, ptr %.41661, i64 20
+  %408 = getelementptr inbounds nuw i8, ptr %.41661, i64 20
   store float %407, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %.114521660, i64 4
-  %410 = getelementptr inbounds i8, ptr %.114541659, i64 4
-  %411 = getelementptr inbounds i8, ptr %.41661, i64 24
+  %409 = getelementptr inbounds nuw i8, ptr %.114521660, i64 4
+  %410 = getelementptr inbounds nuw i8, ptr %.114541659, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %.41661, i64 24
   %412 = add nuw nsw i32 %.114561658, 1
   %exitcond.not = icmp eq i32 %412, %9
   br i1 %exitcond.not, label %.loopexit, label %330, !llvm.loop !21
@@ -2529,7 +2529,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471670 = phi ptr [ %131, %.lr.ph1672 ], [ %28, %22 ]
   %.014491669 = phi i32 [ %133, %.lr.ph1672 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471670, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471670, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471670, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -2625,18 +2625,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %124 = shufflevector <8 x float> %115, <8 x float> %117, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %125 = shufflevector <8 x float> %118, <8 x float> %119, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %120, ptr %.11671, align 1
-  %126 = getelementptr inbounds i8, ptr %.11671, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %.11671, i64 32
   store <8 x float> %121, ptr %126, align 1
-  %127 = getelementptr inbounds i8, ptr %.11671, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %.11671, i64 64
   store <8 x float> %122, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %.11671, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %.11671, i64 96
   store <8 x float> %123, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %.11671, i64 128
+  %129 = getelementptr inbounds nuw i8, ptr %.11671, i64 128
   store <8 x float> %124, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %.11671, i64 160
+  %130 = getelementptr inbounds nuw i8, ptr %.11671, i64 160
   store <8 x float> %125, ptr %130, align 1
-  %131 = getelementptr inbounds i8, ptr %.014471670, i64 64
-  %132 = getelementptr inbounds i8, ptr %.11671, i64 192
+  %131 = getelementptr inbounds nuw i8, ptr %.014471670, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %.11671, i64 192
   %133 = add nuw nsw i32 %.014491669, 16
   %134 = or disjoint i32 %133, 15
   %135 = icmp slt i32 %134, %9
@@ -2647,7 +2647,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481677 = phi ptr [ %221, %213 ], [ %.01447.lcssa, %.preheader ]
   %.114501676 = phi i32 [ %223, %213 ], [ %.01449.lcssa, %.preheader ]
   %136 = load float, ptr %.114481677, align 4
-  %137 = getelementptr inbounds i8, ptr %.114481677, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.114481677, i64 4
   %138 = load float, ptr %137, align 4
   %139 = load i32, ptr %18, align 4
   %140 = sitofp i32 %139 to float
@@ -2701,7 +2701,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %181, 0
   %182 = and i32 %180, %178
   %.not1647 = icmp eq i32 %182, 0
-  %183 = getelementptr inbounds i8, ptr %.21678, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.21678, i64 16
   %184 = mul nsw i32 %139, %160
   %185 = add nsw i32 %184, %158
   %186 = load i32, ptr %20, align 8
@@ -2720,7 +2720,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 195:                                              ; preds = %.lr.ph1679, %189
   %196 = phi i32 [ %194, %189 ], [ -1, %.lr.ph1679 ]
-  %197 = getelementptr inbounds i8, ptr %.21678, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %.21678, i64 4
   store i32 %196, ptr %197, align 4
   br i1 %.not1646, label %204, label %198
 
@@ -2734,7 +2734,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 204:                                              ; preds = %195, %198
   %205 = phi i32 [ %203, %198 ], [ -1, %195 ]
-  %206 = getelementptr inbounds i8, ptr %.21678, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.21678, i64 8
   store i32 %205, ptr %206, align 4
   br i1 %.not1647, label %213, label %207
 
@@ -2748,17 +2748,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 213:                                              ; preds = %204, %207
   %214 = phi i32 [ %212, %207 ], [ -1, %204 ]
-  %215 = getelementptr inbounds i8, ptr %.21678, i64 12
+  %215 = getelementptr inbounds nuw i8, ptr %.21678, i64 12
   store i32 %214, ptr %215, align 4
   %216 = sitofp i32 %158 to float
   %217 = fsub fast float %.sroa.speculated.i, %216
   store float %217, ptr %183, align 4
   %218 = sitofp i32 %160 to float
   %219 = fsub fast float %.sroa.speculated.i1649, %218
-  %220 = getelementptr inbounds i8, ptr %.21678, i64 20
+  %220 = getelementptr inbounds nuw i8, ptr %.21678, i64 20
   store float %219, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %.114481677, i64 8
-  %222 = getelementptr inbounds i8, ptr %.21678, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.114481677, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.21678, i64 24
   %223 = add nuw nsw i32 %.114501676, 2
   %224 = icmp slt i32 %223, %9
   br i1 %224, label %.lr.ph1679, label %._crit_edge, !llvm.loop !23
@@ -2900,19 +2900,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %335 = shufflevector <8 x float> %326, <8 x float> %328, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %336 = shufflevector <8 x float> %329, <8 x float> %330, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %331, ptr %.31660, align 1
-  %337 = getelementptr inbounds i8, ptr %.31660, i64 32
+  %337 = getelementptr inbounds nuw i8, ptr %.31660, i64 32
   store <8 x float> %332, ptr %337, align 1
-  %338 = getelementptr inbounds i8, ptr %.31660, i64 64
+  %338 = getelementptr inbounds nuw i8, ptr %.31660, i64 64
   store <8 x float> %333, ptr %338, align 1
-  %339 = getelementptr inbounds i8, ptr %.31660, i64 96
+  %339 = getelementptr inbounds nuw i8, ptr %.31660, i64 96
   store <8 x float> %334, ptr %339, align 1
-  %340 = getelementptr inbounds i8, ptr %.31660, i64 128
+  %340 = getelementptr inbounds nuw i8, ptr %.31660, i64 128
   store <8 x float> %335, ptr %340, align 1
-  %341 = getelementptr inbounds i8, ptr %.31660, i64 160
+  %341 = getelementptr inbounds nuw i8, ptr %.31660, i64 160
   store <8 x float> %336, ptr %341, align 1
-  %342 = getelementptr inbounds i8, ptr %.014511659, i64 32
-  %343 = getelementptr inbounds i8, ptr %.014531658, i64 32
-  %344 = getelementptr inbounds i8, ptr %.31660, i64 192
+  %342 = getelementptr inbounds nuw i8, ptr %.014511659, i64 32
+  %343 = getelementptr inbounds nuw i8, ptr %.014531658, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %.31660, i64 192
   %345 = add nuw nsw i32 %.014551657, 8
   %346 = or disjoint i32 %345, 7
   %347 = icmp slt i32 %346, %9
@@ -2977,7 +2977,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %393, 0
   %394 = and i32 %392, %390
   %.not1643 = icmp eq i32 %394, 0
-  %395 = getelementptr inbounds i8, ptr %.41667, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %.41667, i64 16
   %396 = mul nsw i32 %351, %372
   %397 = add nsw i32 %396, %370
   %398 = load i32, ptr %244, align 8
@@ -2996,7 +2996,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 407:                                              ; preds = %348, %401
   %408 = phi i32 [ %406, %401 ], [ -1, %348 ]
-  %409 = getelementptr inbounds i8, ptr %.41667, i64 4
+  %409 = getelementptr inbounds nuw i8, ptr %.41667, i64 4
   store i32 %408, ptr %409, align 4
   br i1 %.not1642, label %416, label %410
 
@@ -3010,7 +3010,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 416:                                              ; preds = %407, %410
   %417 = phi i32 [ %415, %410 ], [ -1, %407 ]
-  %418 = getelementptr inbounds i8, ptr %.41667, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %.41667, i64 8
   store i32 %417, ptr %418, align 4
   br i1 %.not1643, label %425, label %419
 
@@ -3024,18 +3024,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 425:                                              ; preds = %416, %419
   %426 = phi i32 [ %424, %419 ], [ -1, %416 ]
-  %427 = getelementptr inbounds i8, ptr %.41667, i64 12
+  %427 = getelementptr inbounds nuw i8, ptr %.41667, i64 12
   store i32 %426, ptr %427, align 4
   %428 = sitofp i32 %370 to float
   %429 = fsub fast float %.sroa.speculated.i1651, %428
   store float %429, ptr %395, align 4
   %430 = sitofp i32 %372 to float
   %431 = fsub fast float %.sroa.speculated.i1653, %430
-  %432 = getelementptr inbounds i8, ptr %.41667, i64 20
+  %432 = getelementptr inbounds nuw i8, ptr %.41667, i64 20
   store float %431, ptr %432, align 4
-  %433 = getelementptr inbounds i8, ptr %.114521666, i64 4
-  %434 = getelementptr inbounds i8, ptr %.114541665, i64 4
-  %435 = getelementptr inbounds i8, ptr %.41667, i64 24
+  %433 = getelementptr inbounds nuw i8, ptr %.114521666, i64 4
+  %434 = getelementptr inbounds nuw i8, ptr %.114541665, i64 4
+  %435 = getelementptr inbounds nuw i8, ptr %.41667, i64 24
   %436 = add nuw nsw i32 %.114561664, 1
   %exitcond.not = icmp eq i32 %436, %9
   br i1 %exitcond.not, label %.loopexit, label %348, !llvm.loop !26
@@ -3094,7 +3094,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471670 = phi ptr [ %129, %.lr.ph1672 ], [ %28, %22 ]
   %.014491669 = phi i32 [ %131, %.lr.ph1672 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471670, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471670, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471670, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -3188,18 +3188,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %122 = shufflevector <8 x float> %113, <8 x float> %115, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %123 = shufflevector <8 x float> %116, <8 x float> %117, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %118, ptr %.11671, align 1
-  %124 = getelementptr inbounds i8, ptr %.11671, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %.11671, i64 32
   store <8 x float> %119, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %.11671, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %.11671, i64 64
   store <8 x float> %120, ptr %125, align 1
-  %126 = getelementptr inbounds i8, ptr %.11671, i64 96
+  %126 = getelementptr inbounds nuw i8, ptr %.11671, i64 96
   store <8 x float> %121, ptr %126, align 1
-  %127 = getelementptr inbounds i8, ptr %.11671, i64 128
+  %127 = getelementptr inbounds nuw i8, ptr %.11671, i64 128
   store <8 x float> %122, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %.11671, i64 160
+  %128 = getelementptr inbounds nuw i8, ptr %.11671, i64 160
   store <8 x float> %123, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %.014471670, i64 64
-  %130 = getelementptr inbounds i8, ptr %.11671, i64 192
+  %129 = getelementptr inbounds nuw i8, ptr %.014471670, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %.11671, i64 192
   %131 = add nuw nsw i32 %.014491669, 16
   %132 = or disjoint i32 %131, 15
   %133 = icmp slt i32 %132, %9
@@ -3210,7 +3210,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481677 = phi ptr [ %221, %213 ], [ %.01447.lcssa, %.preheader ]
   %.114501676 = phi i32 [ %223, %213 ], [ %.01449.lcssa, %.preheader ]
   %134 = load float, ptr %.114481677, align 4
-  %135 = getelementptr inbounds i8, ptr %.114481677, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %.114481677, i64 4
   %136 = load float, ptr %135, align 4
   %137 = load i32, ptr %18, align 4
   %138 = fmul fast float %134, 5.000000e-01
@@ -3266,7 +3266,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %181, 0
   %182 = and i32 %180, %178
   %.not1647 = icmp eq i32 %182, 0
-  %183 = getelementptr inbounds i8, ptr %.21678, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.21678, i64 16
   %184 = mul nsw i32 %137, %160
   %185 = add nsw i32 %184, %158
   %186 = load i32, ptr %20, align 8
@@ -3285,7 +3285,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 195:                                              ; preds = %.lr.ph1679, %189
   %196 = phi i32 [ %194, %189 ], [ -1, %.lr.ph1679 ]
-  %197 = getelementptr inbounds i8, ptr %.21678, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %.21678, i64 4
   store i32 %196, ptr %197, align 4
   br i1 %.not1646, label %204, label %198
 
@@ -3299,7 +3299,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 204:                                              ; preds = %195, %198
   %205 = phi i32 [ %203, %198 ], [ -1, %195 ]
-  %206 = getelementptr inbounds i8, ptr %.21678, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.21678, i64 8
   store i32 %205, ptr %206, align 4
   br i1 %.not1647, label %213, label %207
 
@@ -3313,17 +3313,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 213:                                              ; preds = %204, %207
   %214 = phi i32 [ %212, %207 ], [ -1, %204 ]
-  %215 = getelementptr inbounds i8, ptr %.21678, i64 12
+  %215 = getelementptr inbounds nuw i8, ptr %.21678, i64 12
   store i32 %214, ptr %215, align 4
   %216 = sitofp i32 %158 to float
   %217 = fsub fast float %.sroa.speculated.i, %216
   store float %217, ptr %183, align 4
   %218 = sitofp i32 %160 to float
   %219 = fsub fast float %.sroa.speculated.i1649, %218
-  %220 = getelementptr inbounds i8, ptr %.21678, i64 20
+  %220 = getelementptr inbounds nuw i8, ptr %.21678, i64 20
   store float %219, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %.114481677, i64 8
-  %222 = getelementptr inbounds i8, ptr %.21678, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.114481677, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.21678, i64 24
   %223 = add nuw nsw i32 %.114501676, 2
   %224 = icmp slt i32 %223, %9
   br i1 %224, label %.lr.ph1679, label %._crit_edge, !llvm.loop !28
@@ -3463,19 +3463,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %333 = shufflevector <8 x float> %324, <8 x float> %326, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %334 = shufflevector <8 x float> %327, <8 x float> %328, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %329, ptr %.31660, align 1
-  %335 = getelementptr inbounds i8, ptr %.31660, i64 32
+  %335 = getelementptr inbounds nuw i8, ptr %.31660, i64 32
   store <8 x float> %330, ptr %335, align 1
-  %336 = getelementptr inbounds i8, ptr %.31660, i64 64
+  %336 = getelementptr inbounds nuw i8, ptr %.31660, i64 64
   store <8 x float> %331, ptr %336, align 1
-  %337 = getelementptr inbounds i8, ptr %.31660, i64 96
+  %337 = getelementptr inbounds nuw i8, ptr %.31660, i64 96
   store <8 x float> %332, ptr %337, align 1
-  %338 = getelementptr inbounds i8, ptr %.31660, i64 128
+  %338 = getelementptr inbounds nuw i8, ptr %.31660, i64 128
   store <8 x float> %333, ptr %338, align 1
-  %339 = getelementptr inbounds i8, ptr %.31660, i64 160
+  %339 = getelementptr inbounds nuw i8, ptr %.31660, i64 160
   store <8 x float> %334, ptr %339, align 1
-  %340 = getelementptr inbounds i8, ptr %.014511659, i64 32
-  %341 = getelementptr inbounds i8, ptr %.014531658, i64 32
-  %342 = getelementptr inbounds i8, ptr %.31660, i64 192
+  %340 = getelementptr inbounds nuw i8, ptr %.014511659, i64 32
+  %341 = getelementptr inbounds nuw i8, ptr %.014531658, i64 32
+  %342 = getelementptr inbounds nuw i8, ptr %.31660, i64 192
   %343 = add nuw nsw i32 %.014551657, 8
   %344 = or disjoint i32 %343, 7
   %345 = icmp slt i32 %344, %9
@@ -3542,7 +3542,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %393, 0
   %394 = and i32 %392, %390
   %.not1643 = icmp eq i32 %394, 0
-  %395 = getelementptr inbounds i8, ptr %.41667, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %.41667, i64 16
   %396 = mul nsw i32 %349, %372
   %397 = add nsw i32 %396, %370
   %398 = load i32, ptr %244, align 8
@@ -3561,7 +3561,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 407:                                              ; preds = %346, %401
   %408 = phi i32 [ %406, %401 ], [ -1, %346 ]
-  %409 = getelementptr inbounds i8, ptr %.41667, i64 4
+  %409 = getelementptr inbounds nuw i8, ptr %.41667, i64 4
   store i32 %408, ptr %409, align 4
   br i1 %.not1642, label %416, label %410
 
@@ -3575,7 +3575,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 416:                                              ; preds = %407, %410
   %417 = phi i32 [ %415, %410 ], [ -1, %407 ]
-  %418 = getelementptr inbounds i8, ptr %.41667, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %.41667, i64 8
   store i32 %417, ptr %418, align 4
   br i1 %.not1643, label %425, label %419
 
@@ -3589,18 +3589,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 425:                                              ; preds = %416, %419
   %426 = phi i32 [ %424, %419 ], [ -1, %416 ]
-  %427 = getelementptr inbounds i8, ptr %.41667, i64 12
+  %427 = getelementptr inbounds nuw i8, ptr %.41667, i64 12
   store i32 %426, ptr %427, align 4
   %428 = sitofp i32 %370 to float
   %429 = fsub fast float %.sroa.speculated.i1651, %428
   store float %429, ptr %395, align 4
   %430 = sitofp i32 %372 to float
   %431 = fsub fast float %.sroa.speculated.i1653, %430
-  %432 = getelementptr inbounds i8, ptr %.41667, i64 20
+  %432 = getelementptr inbounds nuw i8, ptr %.41667, i64 20
   store float %431, ptr %432, align 4
-  %433 = getelementptr inbounds i8, ptr %.114521666, i64 4
-  %434 = getelementptr inbounds i8, ptr %.114541665, i64 4
-  %435 = getelementptr inbounds i8, ptr %.41667, i64 24
+  %433 = getelementptr inbounds nuw i8, ptr %.114521666, i64 4
+  %434 = getelementptr inbounds nuw i8, ptr %.114541665, i64 4
+  %435 = getelementptr inbounds nuw i8, ptr %.41667, i64 24
   %436 = add nuw nsw i32 %.114561664, 1
   %exitcond.not = icmp eq i32 %436, %9
   br i1 %exitcond.not, label %.loopexit, label %346, !llvm.loop !31
@@ -3659,7 +3659,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471673 = phi ptr [ %139, %.lr.ph1675 ], [ %28, %22 ]
   %.014491672 = phi i32 [ %141, %.lr.ph1675 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471673, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471673, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471673, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -3763,18 +3763,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %132 = shufflevector <8 x float> %123, <8 x float> %125, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %133 = shufflevector <8 x float> %126, <8 x float> %127, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %128, ptr %.11674, align 1
-  %134 = getelementptr inbounds i8, ptr %.11674, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %.11674, i64 32
   store <8 x float> %129, ptr %134, align 1
-  %135 = getelementptr inbounds i8, ptr %.11674, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %.11674, i64 64
   store <8 x float> %130, ptr %135, align 1
-  %136 = getelementptr inbounds i8, ptr %.11674, i64 96
+  %136 = getelementptr inbounds nuw i8, ptr %.11674, i64 96
   store <8 x float> %131, ptr %136, align 1
-  %137 = getelementptr inbounds i8, ptr %.11674, i64 128
+  %137 = getelementptr inbounds nuw i8, ptr %.11674, i64 128
   store <8 x float> %132, ptr %137, align 1
-  %138 = getelementptr inbounds i8, ptr %.11674, i64 160
+  %138 = getelementptr inbounds nuw i8, ptr %.11674, i64 160
   store <8 x float> %133, ptr %138, align 1
-  %139 = getelementptr inbounds i8, ptr %.014471673, i64 64
-  %140 = getelementptr inbounds i8, ptr %.11674, i64 192
+  %139 = getelementptr inbounds nuw i8, ptr %.014471673, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %.11674, i64 192
   %141 = add nuw nsw i32 %.014491672, 16
   %142 = or disjoint i32 %141, 15
   %143 = icmp slt i32 %142, %9
@@ -3785,7 +3785,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481680 = phi ptr [ %237, %229 ], [ %.01447.lcssa, %.preheader ]
   %.114501679 = phi i32 [ %239, %229 ], [ %.01449.lcssa, %.preheader ]
   %144 = load float, ptr %.114481680, align 4
-  %145 = getelementptr inbounds i8, ptr %.114481680, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.114481680, i64 4
   %146 = load float, ptr %145, align 4
   %147 = load i32, ptr %18, align 4
   %148 = sitofp i32 %147 to float
@@ -3847,7 +3847,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %197, 0
   %198 = and i32 %196, %194
   %.not1647 = icmp eq i32 %198, 0
-  %199 = getelementptr inbounds i8, ptr %.21681, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.21681, i64 16
   %200 = mul nsw i32 %147, %176
   %201 = add nsw i32 %200, %174
   %202 = load i32, ptr %20, align 8
@@ -3866,7 +3866,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 211:                                              ; preds = %.lr.ph1682, %205
   %212 = phi i32 [ %210, %205 ], [ -1, %.lr.ph1682 ]
-  %213 = getelementptr inbounds i8, ptr %.21681, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %.21681, i64 4
   store i32 %212, ptr %213, align 4
   br i1 %.not1646, label %220, label %214
 
@@ -3880,7 +3880,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 220:                                              ; preds = %211, %214
   %221 = phi i32 [ %219, %214 ], [ -1, %211 ]
-  %222 = getelementptr inbounds i8, ptr %.21681, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.21681, i64 8
   store i32 %221, ptr %222, align 4
   br i1 %.not1647, label %229, label %223
 
@@ -3894,17 +3894,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 229:                                              ; preds = %220, %223
   %230 = phi i32 [ %228, %223 ], [ -1, %220 ]
-  %231 = getelementptr inbounds i8, ptr %.21681, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %.21681, i64 12
   store i32 %230, ptr %231, align 4
   %232 = sitofp i32 %174 to float
   %233 = fsub fast float %.sroa.speculated.i, %232
   store float %233, ptr %199, align 4
   %234 = sitofp i32 %176 to float
   %235 = fsub fast float %.sroa.speculated.i1649, %234
-  %236 = getelementptr inbounds i8, ptr %.21681, i64 20
+  %236 = getelementptr inbounds nuw i8, ptr %.21681, i64 20
   store float %235, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %.114481680, i64 8
-  %238 = getelementptr inbounds i8, ptr %.21681, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %.114481680, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %.21681, i64 24
   %239 = add nuw nsw i32 %.114501679, 2
   %240 = icmp slt i32 %239, %9
   br i1 %240, label %.lr.ph1682, label %._crit_edge, !llvm.loop !33
@@ -4054,19 +4054,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %359 = shufflevector <8 x float> %350, <8 x float> %352, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %360 = shufflevector <8 x float> %353, <8 x float> %354, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %355, ptr %.31663, align 1
-  %361 = getelementptr inbounds i8, ptr %.31663, i64 32
+  %361 = getelementptr inbounds nuw i8, ptr %.31663, i64 32
   store <8 x float> %356, ptr %361, align 1
-  %362 = getelementptr inbounds i8, ptr %.31663, i64 64
+  %362 = getelementptr inbounds nuw i8, ptr %.31663, i64 64
   store <8 x float> %357, ptr %362, align 1
-  %363 = getelementptr inbounds i8, ptr %.31663, i64 96
+  %363 = getelementptr inbounds nuw i8, ptr %.31663, i64 96
   store <8 x float> %358, ptr %363, align 1
-  %364 = getelementptr inbounds i8, ptr %.31663, i64 128
+  %364 = getelementptr inbounds nuw i8, ptr %.31663, i64 128
   store <8 x float> %359, ptr %364, align 1
-  %365 = getelementptr inbounds i8, ptr %.31663, i64 160
+  %365 = getelementptr inbounds nuw i8, ptr %.31663, i64 160
   store <8 x float> %360, ptr %365, align 1
-  %366 = getelementptr inbounds i8, ptr %.014511662, i64 32
-  %367 = getelementptr inbounds i8, ptr %.014531661, i64 32
-  %368 = getelementptr inbounds i8, ptr %.31663, i64 192
+  %366 = getelementptr inbounds nuw i8, ptr %.014511662, i64 32
+  %367 = getelementptr inbounds nuw i8, ptr %.014531661, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %.31663, i64 192
   %369 = add nuw nsw i32 %.014551660, 8
   %370 = or disjoint i32 %369, 7
   %371 = icmp slt i32 %370, %9
@@ -4139,7 +4139,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %425, 0
   %426 = and i32 %424, %422
   %.not1643 = icmp eq i32 %426, 0
-  %427 = getelementptr inbounds i8, ptr %.41670, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %.41670, i64 16
   %428 = mul nsw i32 %375, %404
   %429 = add nsw i32 %428, %402
   %430 = load i32, ptr %260, align 8
@@ -4158,7 +4158,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 439:                                              ; preds = %372, %433
   %440 = phi i32 [ %438, %433 ], [ -1, %372 ]
-  %441 = getelementptr inbounds i8, ptr %.41670, i64 4
+  %441 = getelementptr inbounds nuw i8, ptr %.41670, i64 4
   store i32 %440, ptr %441, align 4
   br i1 %.not1642, label %448, label %442
 
@@ -4172,7 +4172,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 448:                                              ; preds = %439, %442
   %449 = phi i32 [ %447, %442 ], [ -1, %439 ]
-  %450 = getelementptr inbounds i8, ptr %.41670, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %.41670, i64 8
   store i32 %449, ptr %450, align 4
   br i1 %.not1643, label %457, label %451
 
@@ -4186,18 +4186,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 457:                                              ; preds = %448, %451
   %458 = phi i32 [ %456, %451 ], [ -1, %448 ]
-  %459 = getelementptr inbounds i8, ptr %.41670, i64 12
+  %459 = getelementptr inbounds nuw i8, ptr %.41670, i64 12
   store i32 %458, ptr %459, align 4
   %460 = sitofp i32 %402 to float
   %461 = fsub fast float %.sroa.speculated.i1651, %460
   store float %461, ptr %427, align 4
   %462 = sitofp i32 %404 to float
   %463 = fsub fast float %.sroa.speculated.i1653, %462
-  %464 = getelementptr inbounds i8, ptr %.41670, i64 20
+  %464 = getelementptr inbounds nuw i8, ptr %.41670, i64 20
   store float %463, ptr %464, align 4
-  %465 = getelementptr inbounds i8, ptr %.114521669, i64 4
-  %466 = getelementptr inbounds i8, ptr %.114541668, i64 4
-  %467 = getelementptr inbounds i8, ptr %.41670, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %.114521669, i64 4
+  %466 = getelementptr inbounds nuw i8, ptr %.114541668, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %.41670, i64 24
   %468 = add nuw nsw i32 %.114561667, 1
   %exitcond.not = icmp eq i32 %468, %9
   br i1 %exitcond.not, label %.loopexit, label %372, !llvm.loop !36
@@ -4256,7 +4256,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.014471670 = phi ptr [ %133, %.lr.ph1672 ], [ %28, %22 ]
   %.014491669 = phi i32 [ %135, %.lr.ph1672 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.014471670, align 1
-  %31 = getelementptr inbounds i8, ptr %.014471670, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.014471670, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -4354,18 +4354,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %126 = shufflevector <8 x float> %117, <8 x float> %119, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %127 = shufflevector <8 x float> %120, <8 x float> %121, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %122, ptr %.11671, align 1
-  %128 = getelementptr inbounds i8, ptr %.11671, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %.11671, i64 32
   store <8 x float> %123, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %.11671, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %.11671, i64 64
   store <8 x float> %124, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %.11671, i64 96
+  %130 = getelementptr inbounds nuw i8, ptr %.11671, i64 96
   store <8 x float> %125, ptr %130, align 1
-  %131 = getelementptr inbounds i8, ptr %.11671, i64 128
+  %131 = getelementptr inbounds nuw i8, ptr %.11671, i64 128
   store <8 x float> %126, ptr %131, align 1
-  %132 = getelementptr inbounds i8, ptr %.11671, i64 160
+  %132 = getelementptr inbounds nuw i8, ptr %.11671, i64 160
   store <8 x float> %127, ptr %132, align 1
-  %133 = getelementptr inbounds i8, ptr %.014471670, i64 64
-  %134 = getelementptr inbounds i8, ptr %.11671, i64 192
+  %133 = getelementptr inbounds nuw i8, ptr %.014471670, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %.11671, i64 192
   %135 = add nuw nsw i32 %.014491669, 16
   %136 = or disjoint i32 %135, 15
   %137 = icmp slt i32 %136, %9
@@ -4376,7 +4376,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.114481677 = phi ptr [ %233, %225 ], [ %.01447.lcssa, %.preheader ]
   %.114501676 = phi i32 [ %235, %225 ], [ %.01449.lcssa, %.preheader ]
   %138 = load float, ptr %.114481677, align 4
-  %139 = getelementptr inbounds i8, ptr %.114481677, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %.114481677, i64 4
   %140 = load float, ptr %139, align 4
   %141 = load i32, ptr %18, align 4
   %142 = fmul fast float %138, 5.000000e-01
@@ -4440,7 +4440,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1646 = icmp eq i32 %193, 0
   %194 = and i32 %192, %190
   %.not1647 = icmp eq i32 %194, 0
-  %195 = getelementptr inbounds i8, ptr %.21678, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %.21678, i64 16
   %196 = mul nsw i32 %141, %172
   %197 = add nsw i32 %196, %170
   %198 = load i32, ptr %20, align 8
@@ -4459,7 +4459,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 207:                                              ; preds = %.lr.ph1679, %201
   %208 = phi i32 [ %206, %201 ], [ -1, %.lr.ph1679 ]
-  %209 = getelementptr inbounds i8, ptr %.21678, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %.21678, i64 4
   store i32 %208, ptr %209, align 4
   br i1 %.not1646, label %216, label %210
 
@@ -4473,7 +4473,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 216:                                              ; preds = %207, %210
   %217 = phi i32 [ %215, %210 ], [ -1, %207 ]
-  %218 = getelementptr inbounds i8, ptr %.21678, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.21678, i64 8
   store i32 %217, ptr %218, align 4
   br i1 %.not1647, label %225, label %219
 
@@ -4487,17 +4487,17 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 225:                                              ; preds = %216, %219
   %226 = phi i32 [ %224, %219 ], [ -1, %216 ]
-  %227 = getelementptr inbounds i8, ptr %.21678, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %.21678, i64 12
   store i32 %226, ptr %227, align 4
   %228 = sitofp i32 %170 to float
   %229 = fsub fast float %.sroa.speculated.i, %228
   store float %229, ptr %195, align 4
   %230 = sitofp i32 %172 to float
   %231 = fsub fast float %.sroa.speculated.i1649, %230
-  %232 = getelementptr inbounds i8, ptr %.21678, i64 20
+  %232 = getelementptr inbounds nuw i8, ptr %.21678, i64 20
   store float %231, ptr %232, align 4
-  %233 = getelementptr inbounds i8, ptr %.114481677, i64 8
-  %234 = getelementptr inbounds i8, ptr %.21678, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %.114481677, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %.21678, i64 24
   %235 = add nuw nsw i32 %.114501676, 2
   %236 = icmp slt i32 %235, %9
   br i1 %236, label %.lr.ph1679, label %._crit_edge, !llvm.loop !38
@@ -4641,19 +4641,19 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %349 = shufflevector <8 x float> %340, <8 x float> %342, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %350 = shufflevector <8 x float> %343, <8 x float> %344, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %345, ptr %.31660, align 1
-  %351 = getelementptr inbounds i8, ptr %.31660, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %.31660, i64 32
   store <8 x float> %346, ptr %351, align 1
-  %352 = getelementptr inbounds i8, ptr %.31660, i64 64
+  %352 = getelementptr inbounds nuw i8, ptr %.31660, i64 64
   store <8 x float> %347, ptr %352, align 1
-  %353 = getelementptr inbounds i8, ptr %.31660, i64 96
+  %353 = getelementptr inbounds nuw i8, ptr %.31660, i64 96
   store <8 x float> %348, ptr %353, align 1
-  %354 = getelementptr inbounds i8, ptr %.31660, i64 128
+  %354 = getelementptr inbounds nuw i8, ptr %.31660, i64 128
   store <8 x float> %349, ptr %354, align 1
-  %355 = getelementptr inbounds i8, ptr %.31660, i64 160
+  %355 = getelementptr inbounds nuw i8, ptr %.31660, i64 160
   store <8 x float> %350, ptr %355, align 1
-  %356 = getelementptr inbounds i8, ptr %.014511659, i64 32
-  %357 = getelementptr inbounds i8, ptr %.014531658, i64 32
-  %358 = getelementptr inbounds i8, ptr %.31660, i64 192
+  %356 = getelementptr inbounds nuw i8, ptr %.014511659, i64 32
+  %357 = getelementptr inbounds nuw i8, ptr %.014531658, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %.31660, i64 192
   %359 = add nuw nsw i32 %.014551657, 8
   %360 = or disjoint i32 %359, 7
   %361 = icmp slt i32 %360, %9
@@ -4728,7 +4728,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
   %.not1642 = icmp eq i32 %417, 0
   %418 = and i32 %416, %414
   %.not1643 = icmp eq i32 %418, 0
-  %419 = getelementptr inbounds i8, ptr %.41667, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.41667, i64 16
   %420 = mul nsw i32 %365, %396
   %421 = add nsw i32 %420, %394
   %422 = load i32, ptr %256, align 8
@@ -4747,7 +4747,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 431:                                              ; preds = %362, %425
   %432 = phi i32 [ %430, %425 ], [ -1, %362 ]
-  %433 = getelementptr inbounds i8, ptr %.41667, i64 4
+  %433 = getelementptr inbounds nuw i8, ptr %.41667, i64 4
   store i32 %432, ptr %433, align 4
   br i1 %.not1642, label %440, label %434
 
@@ -4761,7 +4761,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 440:                                              ; preds = %431, %434
   %441 = phi i32 [ %439, %434 ], [ -1, %431 ]
-  %442 = getelementptr inbounds i8, ptr %.41667, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %.41667, i64 8
   store i32 %441, ptr %442, align 4
   br i1 %.not1643, label %449, label %443
 
@@ -4775,18 +4775,18 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_2d_bilinear_compute_blobIL
 
 449:                                              ; preds = %440, %443
   %450 = phi i32 [ %448, %443 ], [ -1, %440 ]
-  %451 = getelementptr inbounds i8, ptr %.41667, i64 12
+  %451 = getelementptr inbounds nuw i8, ptr %.41667, i64 12
   store i32 %450, ptr %451, align 4
   %452 = sitofp i32 %394 to float
   %453 = fsub fast float %.sroa.speculated.i1651, %452
   store float %453, ptr %419, align 4
   %454 = sitofp i32 %396 to float
   %455 = fsub fast float %.sroa.speculated.i1653, %454
-  %456 = getelementptr inbounds i8, ptr %.41667, i64 20
+  %456 = getelementptr inbounds nuw i8, ptr %.41667, i64 20
   store float %455, ptr %456, align 4
-  %457 = getelementptr inbounds i8, ptr %.114521666, i64 4
-  %458 = getelementptr inbounds i8, ptr %.114541665, i64 4
-  %459 = getelementptr inbounds i8, ptr %.41667, i64 24
+  %457 = getelementptr inbounds nuw i8, ptr %.114521666, i64 4
+  %458 = getelementptr inbounds nuw i8, ptr %.114541665, i64 4
+  %459 = getelementptr inbounds nuw i8, ptr %.41667, i64 24
   %460 = add nuw nsw i32 %.114561664, 1
   %exitcond.not = icmp eq i32 %460, %9
   br i1 %exitcond.not, label %.loopexit, label %362, !llvm.loop !41
@@ -4850,7 +4850,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728878.us = phi ptr [ %60, %.lr.ph880.us ], [ %105, %..preheader_crit_edge.us ]
   %.1730877.us = phi i32 [ %62, %.lr.ph880.us ], [ %21, %..preheader_crit_edge.us ]
   %32 = load float, ptr %.1728878.us, align 4
-  %33 = getelementptr inbounds i8, ptr %.1728878.us, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.1728878.us, i64 4
   %34 = load float, ptr %33, align 4
   %35 = load i32, ptr %18, align 4
   %36 = sitofp i32 %35 to float
@@ -4878,8 +4878,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %58 = mul nsw i32 %56, %57
   %59 = select i1 %54, i32 %58, i32 -1
   store i32 %59, ptr %.2879.us, align 4
-  %60 = getelementptr inbounds i8, ptr %.1728878.us, i64 8
-  %61 = getelementptr inbounds i8, ptr %.2879.us, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.1728878.us, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.2879.us, i64 4
   %62 = add nuw nsw i32 %.1730877.us, 2
   %63 = icmp slt i32 %62, %9
   br i1 %63, label %.lr.ph880.us, label %._crit_edge.us, !llvm.loop !43
@@ -4889,7 +4889,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727871.us = phi ptr [ %28, %.lr.ph873.us ], [ %105, %64 ]
   %.0729870.us = phi i32 [ 0, %.lr.ph873.us ], [ %107, %64 ]
   %65 = load <8 x float>, ptr %.0727871.us, align 1
-  %66 = getelementptr inbounds i8, ptr %.0727871.us, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.0727871.us, i64 32
   %67 = load <8 x float>, ptr %66, align 1
   %68 = shufflevector <8 x float> %65, <8 x float> %67, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %69 = shufflevector <8 x float> %65, <8 x float> %67, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -4929,8 +4929,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %103 = bitcast <8 x i32> %102 to <8 x float>
   %104 = select <8 x i1> %94, <8 x float> %103, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %104, ptr %.1872.us, align 1
-  %105 = getelementptr inbounds i8, ptr %.0727871.us, i64 64
-  %106 = getelementptr inbounds i8, ptr %.1872.us, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.0727871.us, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %.1872.us, i64 32
   %107 = add nuw nsw i32 %.0729870.us, 16
   %108 = or disjoint i32 %107, 15
   %109 = icmp slt i32 %108, %9
@@ -4959,7 +4959,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728878.us890 = phi ptr [ %116, %.preheader.us885 ], [ %146, %117 ]
   %.1730877.us891 = phi i32 [ 0, %.preheader.us885 ], [ %148, %117 ]
   %118 = load float, ptr %.1728878.us890, align 4
-  %119 = getelementptr inbounds i8, ptr %.1728878.us890, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.1728878.us890, i64 4
   %120 = load float, ptr %119, align 4
   %121 = load i32, ptr %18, align 4
   %122 = sitofp i32 %121 to float
@@ -4987,8 +4987,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %144 = mul nsw i32 %142, %143
   %145 = select i1 %140, i32 %144, i32 -1
   store i32 %145, ptr %.2879.us889, align 4
-  %146 = getelementptr inbounds i8, ptr %.1728878.us890, i64 8
-  %147 = getelementptr inbounds i8, ptr %.2879.us889, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.1728878.us890, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.2879.us889, i64 4
   %148 = add nuw nsw i32 %.1730877.us891, 2
   %149 = icmp slt i32 %148, %9
   br i1 %149, label %117, label %._crit_edge.us893, !llvm.loop !43
@@ -5073,9 +5073,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %204 = bitcast <8 x i32> %203 to <8 x float>
   %205 = select <8 x i1> %195, <8 x float> %204, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %205, ptr %.3861, align 1
-  %206 = getelementptr inbounds i8, ptr %.0735858, i64 32
-  %207 = getelementptr inbounds i8, ptr %.0733859, i64 32
-  %208 = getelementptr inbounds i8, ptr %.3861, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %.0735858, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.0733859, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %.3861, i64 32
   %209 = add nuw nsw i32 %.0731860, 8
   %210 = or disjoint i32 %209, 7
   %211 = icmp slt i32 %210, %9
@@ -5114,9 +5114,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %238 = mul nsw i32 %236, %237
   %239 = select i1 %234, i32 %238, i32 -1
   store i32 %239, ptr %.4868, align 4
-  %240 = getelementptr inbounds i8, ptr %.1736865, i64 4
-  %241 = getelementptr inbounds i8, ptr %.1734866, i64 4
-  %242 = getelementptr inbounds i8, ptr %.4868, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %.1736865, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %.1734866, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %.4868, i64 4
   %243 = add nuw nsw i32 %.1732867, 1
   %exitcond.not = icmp eq i32 %243, %9
   br i1 %exitcond.not, label %.loopexit, label %212, !llvm.loop !46
@@ -5175,7 +5175,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727871 = phi ptr [ %74, %.lr.ph873 ], [ %28, %22 ]
   %.0729870 = phi i32 [ %76, %.lr.ph873 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.0727871, align 1
-  %31 = getelementptr inbounds i8, ptr %.0727871, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0727871, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -5219,8 +5219,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %72 = bitcast <8 x i32> %71 to <8 x float>
   %73 = select <8 x i1> %63, <8 x float> %72, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %73, ptr %.1872, align 1
-  %74 = getelementptr inbounds i8, ptr %.0727871, i64 64
-  %75 = getelementptr inbounds i8, ptr %.1872, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.0727871, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %.1872, i64 32
   %76 = add nuw nsw i32 %.0729870, 16
   %77 = or disjoint i32 %76, 15
   %78 = icmp slt i32 %77, %9
@@ -5231,7 +5231,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728878 = phi ptr [ %111, %.lr.ph880 ], [ %.0727.lcssa, %.preheader ]
   %.1730877 = phi i32 [ %113, %.lr.ph880 ], [ %.0729.lcssa, %.preheader ]
   %79 = load float, ptr %.1728878, align 4
-  %80 = getelementptr inbounds i8, ptr %.1728878, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.1728878, i64 4
   %81 = load float, ptr %80, align 4
   %82 = load i32, ptr %18, align 4
   %83 = fmul fast float %79, 5.000000e-01
@@ -5263,8 +5263,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %109 = mul nsw i32 %107, %108
   %110 = select i1 %105, i32 %109, i32 -1
   store i32 %110, ptr %.2879, align 4
-  %111 = getelementptr inbounds i8, ptr %.1728878, i64 8
-  %112 = getelementptr inbounds i8, ptr %.2879, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.1728878, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.2879, i64 4
   %113 = add nuw nsw i32 %.1730877, 2
   %114 = icmp slt i32 %113, %9
   br i1 %114, label %.lr.ph880, label %._crit_edge, !llvm.loop !48
@@ -5354,9 +5354,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %173 = bitcast <8 x i32> %172 to <8 x float>
   %174 = select <8 x i1> %164, <8 x float> %173, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %174, ptr %.3861, align 1
-  %175 = getelementptr inbounds i8, ptr %.0735858, i64 32
-  %176 = getelementptr inbounds i8, ptr %.0733859, i64 32
-  %177 = getelementptr inbounds i8, ptr %.3861, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %.0735858, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %.0733859, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %.3861, i64 32
   %178 = add nuw nsw i32 %.0731860, 8
   %179 = or disjoint i32 %178, 7
   %180 = icmp slt i32 %179, %9
@@ -5399,9 +5399,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %211 = mul nsw i32 %209, %210
   %212 = select i1 %207, i32 %211, i32 -1
   store i32 %212, ptr %.4868, align 4
-  %213 = getelementptr inbounds i8, ptr %.1736865, i64 4
-  %214 = getelementptr inbounds i8, ptr %.1734866, i64 4
-  %215 = getelementptr inbounds i8, ptr %.4868, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %.1736865, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %.1734866, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %.4868, i64 4
   %216 = add nuw nsw i32 %.1732867, 1
   %exitcond.not = icmp eq i32 %216, %9
   br i1 %exitcond.not, label %.loopexit, label %181, !llvm.loop !51
@@ -5460,7 +5460,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727877 = phi ptr [ %80, %.lr.ph879 ], [ %28, %22 ]
   %.0729876 = phi i32 [ %82, %.lr.ph879 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.0727877, align 1
-  %31 = getelementptr inbounds i8, ptr %.0727877, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0727877, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -5510,8 +5510,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %78 = bitcast <8 x i32> %77 to <8 x float>
   %79 = select <8 x i1> %69, <8 x float> %78, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %79, ptr %.1878, align 1
-  %80 = getelementptr inbounds i8, ptr %.0727877, i64 64
-  %81 = getelementptr inbounds i8, ptr %.1878, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.0727877, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %.1878, i64 32
   %82 = add nuw nsw i32 %.0729876, 16
   %83 = or disjoint i32 %82, 15
   %84 = icmp slt i32 %83, %9
@@ -5522,7 +5522,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728884 = phi ptr [ %123, %.lr.ph886 ], [ %.0727.lcssa, %.preheader ]
   %.1730883 = phi i32 [ %125, %.lr.ph886 ], [ %.0729.lcssa, %.preheader ]
   %85 = load float, ptr %.1728884, align 4
-  %86 = getelementptr inbounds i8, ptr %.1728884, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.1728884, i64 4
   %87 = load float, ptr %86, align 4
   %88 = load i32, ptr %18, align 4
   %89 = sitofp i32 %88 to float
@@ -5564,8 +5564,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %121 = mul nsw i32 %119, %120
   %122 = select i1 %117, i32 %121, i32 -1
   store i32 %122, ptr %.2885, align 4
-  %123 = getelementptr inbounds i8, ptr %.1728884, i64 8
-  %124 = getelementptr inbounds i8, ptr %.2885, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.1728884, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.2885, i64 4
   %125 = add nuw nsw i32 %.1730883, 2
   %126 = icmp slt i32 %125, %9
   br i1 %126, label %.lr.ph886, label %._crit_edge, !llvm.loop !53
@@ -5661,9 +5661,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %191 = bitcast <8 x i32> %190 to <8 x float>
   %192 = select <8 x i1> %182, <8 x float> %191, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %192, ptr %.3867, align 1
-  %193 = getelementptr inbounds i8, ptr %.0735864, i64 32
-  %194 = getelementptr inbounds i8, ptr %.0733865, i64 32
-  %195 = getelementptr inbounds i8, ptr %.3867, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %.0735864, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %.0733865, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %.3867, i64 32
   %196 = add nuw nsw i32 %.0731866, 8
   %197 = or disjoint i32 %196, 7
   %198 = icmp slt i32 %197, %9
@@ -5716,9 +5716,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %235 = mul nsw i32 %233, %234
   %236 = select i1 %231, i32 %235, i32 -1
   store i32 %236, ptr %.4874, align 4
-  %237 = getelementptr inbounds i8, ptr %.1736871, i64 4
-  %238 = getelementptr inbounds i8, ptr %.1734872, i64 4
-  %239 = getelementptr inbounds i8, ptr %.4874, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %.1736871, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %.1734872, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %.4874, i64 4
   %240 = add nuw nsw i32 %.1732873, 1
   %exitcond.not = icmp eq i32 %240, %9
   br i1 %exitcond.not, label %.loopexit, label %199, !llvm.loop !56
@@ -5777,7 +5777,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727877 = phi ptr [ %78, %.lr.ph879 ], [ %28, %22 ]
   %.0729876 = phi i32 [ %80, %.lr.ph879 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.0727877, align 1
-  %31 = getelementptr inbounds i8, ptr %.0727877, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0727877, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -5825,8 +5825,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %76 = bitcast <8 x i32> %75 to <8 x float>
   %77 = select <8 x i1> %67, <8 x float> %76, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %77, ptr %.1878, align 1
-  %78 = getelementptr inbounds i8, ptr %.0727877, i64 64
-  %79 = getelementptr inbounds i8, ptr %.1878, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.0727877, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %.1878, i64 32
   %80 = add nuw nsw i32 %.0729876, 16
   %81 = or disjoint i32 %80, 15
   %82 = icmp slt i32 %81, %9
@@ -5837,7 +5837,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728884 = phi ptr [ %123, %.lr.ph886 ], [ %.0727.lcssa, %.preheader ]
   %.1730883 = phi i32 [ %125, %.lr.ph886 ], [ %.0729.lcssa, %.preheader ]
   %83 = load float, ptr %.1728884, align 4
-  %84 = getelementptr inbounds i8, ptr %.1728884, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.1728884, i64 4
   %85 = load float, ptr %84, align 4
   %86 = load i32, ptr %18, align 4
   %87 = fmul fast float %83, 5.000000e-01
@@ -5881,8 +5881,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %121 = mul nsw i32 %119, %120
   %122 = select i1 %117, i32 %121, i32 -1
   store i32 %122, ptr %.2885, align 4
-  %123 = getelementptr inbounds i8, ptr %.1728884, i64 8
-  %124 = getelementptr inbounds i8, ptr %.2885, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.1728884, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.2885, i64 4
   %125 = add nuw nsw i32 %.1730883, 2
   %126 = icmp slt i32 %125, %9
   br i1 %126, label %.lr.ph886, label %._crit_edge, !llvm.loop !58
@@ -5976,9 +5976,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %189 = bitcast <8 x i32> %188 to <8 x float>
   %190 = select <8 x i1> %180, <8 x float> %189, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %190, ptr %.3867, align 1
-  %191 = getelementptr inbounds i8, ptr %.0735864, i64 32
-  %192 = getelementptr inbounds i8, ptr %.0733865, i64 32
-  %193 = getelementptr inbounds i8, ptr %.3867, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %.0735864, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %.0733865, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %.3867, i64 32
   %194 = add nuw nsw i32 %.0731866, 8
   %195 = or disjoint i32 %194, 7
   %196 = icmp slt i32 %195, %9
@@ -6033,9 +6033,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %235 = mul nsw i32 %233, %234
   %236 = select i1 %231, i32 %235, i32 -1
   store i32 %236, ptr %.4874, align 4
-  %237 = getelementptr inbounds i8, ptr %.1736871, i64 4
-  %238 = getelementptr inbounds i8, ptr %.1734872, i64 4
-  %239 = getelementptr inbounds i8, ptr %.4874, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %.1736871, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %.1734872, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %.4874, i64 4
   %240 = add nuw nsw i32 %.1732873, 1
   %exitcond.not = icmp eq i32 %240, %9
   br i1 %exitcond.not, label %.loopexit, label %197, !llvm.loop !61
@@ -6094,7 +6094,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727880 = phi ptr [ %88, %.lr.ph882 ], [ %28, %22 ]
   %.0729879 = phi i32 [ %90, %.lr.ph882 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.0727880, align 1
-  %31 = getelementptr inbounds i8, ptr %.0727880, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0727880, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -6152,8 +6152,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %86 = bitcast <8 x i32> %85 to <8 x float>
   %87 = select <8 x i1> %77, <8 x float> %86, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %87, ptr %.1881, align 1
-  %88 = getelementptr inbounds i8, ptr %.0727880, i64 64
-  %89 = getelementptr inbounds i8, ptr %.1881, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.0727880, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %.1881, i64 32
   %90 = add nuw nsw i32 %.0729879, 16
   %91 = or disjoint i32 %90, 15
   %92 = icmp slt i32 %91, %9
@@ -6164,7 +6164,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728887 = phi ptr [ %139, %.lr.ph889 ], [ %.0727.lcssa, %.preheader ]
   %.1730886 = phi i32 [ %141, %.lr.ph889 ], [ %.0729.lcssa, %.preheader ]
   %93 = load float, ptr %.1728887, align 4
-  %94 = getelementptr inbounds i8, ptr %.1728887, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.1728887, i64 4
   %95 = load float, ptr %94, align 4
   %96 = load i32, ptr %18, align 4
   %97 = sitofp i32 %96 to float
@@ -6214,8 +6214,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %137 = mul nsw i32 %135, %136
   %138 = select i1 %133, i32 %137, i32 -1
   store i32 %138, ptr %.2888, align 4
-  %139 = getelementptr inbounds i8, ptr %.1728887, i64 8
-  %140 = getelementptr inbounds i8, ptr %.2888, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %.1728887, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.2888, i64 4
   %141 = add nuw nsw i32 %.1730886, 2
   %142 = icmp slt i32 %141, %9
   br i1 %142, label %.lr.ph889, label %._crit_edge, !llvm.loop !63
@@ -6319,9 +6319,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %215 = bitcast <8 x i32> %214 to <8 x float>
   %216 = select <8 x i1> %206, <8 x float> %215, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %216, ptr %.3870, align 1
-  %217 = getelementptr inbounds i8, ptr %.0735867, i64 32
-  %218 = getelementptr inbounds i8, ptr %.0733868, i64 32
-  %219 = getelementptr inbounds i8, ptr %.3870, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %.0735867, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %.0733868, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.3870, i64 32
   %220 = add nuw nsw i32 %.0731869, 8
   %221 = or disjoint i32 %220, 7
   %222 = icmp slt i32 %221, %9
@@ -6382,9 +6382,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %267 = mul nsw i32 %265, %266
   %268 = select i1 %263, i32 %267, i32 -1
   store i32 %268, ptr %.4877, align 4
-  %269 = getelementptr inbounds i8, ptr %.1736874, i64 4
-  %270 = getelementptr inbounds i8, ptr %.1734875, i64 4
-  %271 = getelementptr inbounds i8, ptr %.4877, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %.1736874, i64 4
+  %270 = getelementptr inbounds nuw i8, ptr %.1734875, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %.4877, i64 4
   %272 = add nuw nsw i32 %.1732876, 1
   %exitcond.not = icmp eq i32 %272, %9
   br i1 %exitcond.not, label %.loopexit, label %223, !llvm.loop !66
@@ -6443,7 +6443,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.0727880 = phi ptr [ %82, %.lr.ph882 ], [ %28, %22 ]
   %.0729879 = phi i32 [ %84, %.lr.ph882 ], [ 0, %22 ]
   %30 = load <8 x float>, ptr %.0727880, align 1
-  %31 = getelementptr inbounds i8, ptr %.0727880, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0727880, i64 32
   %32 = load <8 x float>, ptr %31, align 1
   %33 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %34 = shufflevector <8 x float> %30, <8 x float> %32, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -6495,8 +6495,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %80 = bitcast <8 x i32> %79 to <8 x float>
   %81 = select <8 x i1> %71, <8 x float> %80, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %81, ptr %.1881, align 1
-  %82 = getelementptr inbounds i8, ptr %.0727880, i64 64
-  %83 = getelementptr inbounds i8, ptr %.1881, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.0727880, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %.1881, i64 32
   %84 = add nuw nsw i32 %.0729879, 16
   %85 = or disjoint i32 %84, 15
   %86 = icmp slt i32 %85, %9
@@ -6507,7 +6507,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %.1728887 = phi ptr [ %135, %.lr.ph889 ], [ %.0727.lcssa, %.preheader ]
   %.1730886 = phi i32 [ %137, %.lr.ph889 ], [ %.0729.lcssa, %.preheader ]
   %87 = load float, ptr %.1728887, align 4
-  %88 = getelementptr inbounds i8, ptr %.1728887, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.1728887, i64 4
   %89 = load float, ptr %88, align 4
   %90 = load i32, ptr %18, align 4
   %91 = fmul fast float %87, 5.000000e-01
@@ -6559,8 +6559,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %133 = mul nsw i32 %131, %132
   %134 = select i1 %129, i32 %133, i32 -1
   store i32 %134, ptr %.2888, align 4
-  %135 = getelementptr inbounds i8, ptr %.1728887, i64 8
-  %136 = getelementptr inbounds i8, ptr %.2888, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %.1728887, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.2888, i64 4
   %137 = add nuw nsw i32 %.1730886, 2
   %138 = icmp slt i32 %137, %9
   br i1 %138, label %.lr.ph889, label %._crit_edge, !llvm.loop !68
@@ -6658,9 +6658,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %205 = bitcast <8 x i32> %204 to <8 x float>
   %206 = select <8 x i1> %196, <8 x float> %205, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %206, ptr %.3870, align 1
-  %207 = getelementptr inbounds i8, ptr %.0735867, i64 32
-  %208 = getelementptr inbounds i8, ptr %.0733868, i64 32
-  %209 = getelementptr inbounds i8, ptr %.3870, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.0735867, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %.0733868, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %.3870, i64 32
   %210 = add nuw nsw i32 %.0731869, 8
   %211 = or disjoint i32 %210, 7
   %212 = icmp slt i32 %211, %9
@@ -6723,9 +6723,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_nearest_compute_blobILN
   %259 = mul nsw i32 %257, %258
   %260 = select i1 %255, i32 %259, i32 -1
   store i32 %260, ptr %.4877, align 4
-  %261 = getelementptr inbounds i8, ptr %.1736874, i64 4
-  %262 = getelementptr inbounds i8, ptr %.1734875, i64 4
-  %263 = getelementptr inbounds i8, ptr %.4877, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %.1736874, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %.1734875, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %.4877, i64 4
   %264 = add nuw nsw i32 %.1732876, 1
   %exitcond.not = icmp eq i32 %264, %9
   br i1 %exitcond.not, label %.loopexit, label %213, !llvm.loop !71
@@ -6766,18 +6766,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -6804,7 +6804,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811834 = phi ptr [ %218, %217 ], [ %48, %42 ]
   %.016851833 = phi i32 [ %219, %217 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811834, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811834, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811834, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -6864,16 +6864,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %105 = fmul fast <8 x float> %101, %60
   %106 = fadd fast <8 x float> %105, %76
   %107 = fmul fast <8 x float> %94, %106
-  %108 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1874
+  %108 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1874
   %109 = fadd fast <8 x float> %105, %73
   %110 = fmul fast <8 x float> %94, %109
-  %111 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1874
+  %111 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1874
   %112 = fadd fast <8 x float> %105, %77
   %113 = fmul fast <8 x float> %94, %112
-  %114 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1874
+  %114 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1874
   %115 = fadd fast <8 x float> %105, %78
   %116 = fmul fast <8 x float> %94, %115
-  %117 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1874
+  %117 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1874
   %118 = and <8 x i1> %81, %104
   %119 = select <8 x i1> %118, <8 x float> %107, <8 x float> splat (float -1.000000e+00)
   %120 = and <8 x i1> %84, %104
@@ -6983,36 +6983,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %201 = shufflevector <8 x float> %182, <8 x float> %183, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %201, ptr %40, align 32
   store <8 x float> %184, ptr %.11835, align 1
-  %202 = getelementptr inbounds i8, ptr %.11835, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %.11835, i64 32
   store <8 x float> %185, ptr %202, align 1
-  %203 = getelementptr inbounds i8, ptr %.11835, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %.11835, i64 64
   br label %204
 
 204:                                              ; preds = %130, %204
   %indvars.iv1878 = phi i64 [ 0, %130 ], [ %indvars.iv.next1879, %204 ]
   %.21832 = phi ptr [ %203, %130 ], [ %216, %204 ]
-  %205 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1878
+  %205 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1878
   %206 = load <8 x float>, ptr %205, align 32
   store <8 x float> %206, ptr %.21832, align 1
-  %207 = getelementptr inbounds i8, ptr %.21832, i64 32
-  %208 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1878
+  %207 = getelementptr inbounds nuw i8, ptr %.21832, i64 32
+  %208 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1878
   %209 = load <8 x float>, ptr %208, align 32
   store <8 x float> %209, ptr %207, align 1
-  %210 = getelementptr inbounds i8, ptr %.21832, i64 64
-  %211 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1878
+  %210 = getelementptr inbounds nuw i8, ptr %.21832, i64 64
+  %211 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1878
   %212 = load <8 x float>, ptr %211, align 32
   store <8 x float> %212, ptr %210, align 1
-  %213 = getelementptr inbounds i8, ptr %.21832, i64 96
-  %214 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1878
+  %213 = getelementptr inbounds nuw i8, ptr %.21832, i64 96
+  %214 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1878
   %215 = load <8 x float>, ptr %214, align 32
   store <8 x float> %215, ptr %213, align 1
-  %216 = getelementptr inbounds i8, ptr %.21832, i64 128
+  %216 = getelementptr inbounds nuw i8, ptr %.21832, i64 128
   %indvars.iv.next1879 = add nuw nsw i64 %indvars.iv1878, 1
   %exitcond1881.not = icmp eq i64 %indvars.iv.next1879, 4
   br i1 %exitcond1881.not, label %217, label %204, !llvm.loop !73
 
 217:                                              ; preds = %204
-  %218 = getelementptr inbounds i8, ptr %.016811834, i64 64
+  %218 = getelementptr inbounds nuw i8, ptr %.016811834, i64 64
   %219 = add nuw nsw i32 %.016851833, 16
   %220 = or disjoint i32 %219, 15
   %221 = icmp slt i32 %220, %17
@@ -7023,7 +7023,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821848 = phi ptr [ %331, %.split1845.us ], [ %.01681.lcssa, %.preheader ]
   %.116861847 = phi i32 [ %333, %.split1845.us ], [ %.01685.lcssa, %.preheader ]
   %222 = load float, ptr %.116821848, align 4
-  %223 = getelementptr inbounds i8, ptr %.116821848, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.116821848, i64 4
   %224 = load float, ptr %223, align 4
   %225 = load i32, ptr %26, align 4
   %226 = sitofp i32 %225 to float
@@ -7049,7 +7049,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %245, ptr %.31849, align 4
   %246 = sitofp i32 %240 to float
   %247 = fsub fast float %236, %246
-  %248 = getelementptr inbounds i8, ptr %.31849, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %.31849, i64 4
   store float %247, ptr %248, align 4
   %249 = sitofp i32 %241 to float
   %250 = fptosi float %249 to i32
@@ -7070,7 +7070,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %265 = icmp sgt i32 %254, -1
   %266 = icmp sgt i32 %256, %254
   %267 = and i1 %265, %266
-  %268 = getelementptr inbounds i8, ptr %.31849, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.31849, i64 8
   %269 = add i32 %240, -1
   %.fr1846 = freeze i1 %261
   br i1 %.fr1846, label %.split1843, label %.split1843.us
@@ -7095,21 +7095,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %283 = load i32, ptr %28, align 8
   %284 = mul nsw i32 %283, %282
   %285 = select i1 %279, i32 %284, i32 -1
-  %286 = getelementptr inbounds i8, ptr %.016911841.us, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 4
   store i32 %285, ptr %286, align 4
   %287 = add nsw i32 %274, %252
   %288 = load i32, ptr %28, align 8
   %289 = mul nsw i32 %288, %287
   %290 = select i1 %280, i32 %289, i32 -1
-  %291 = getelementptr inbounds i8, ptr %.016911841.us, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 8
   store i32 %290, ptr %291, align 4
   %292 = add nsw i32 %274, %254
   %293 = load i32, ptr %28, align 8
   %294 = mul nsw i32 %293, %292
   %295 = select i1 %281, i32 %294, i32 -1
-  %296 = getelementptr inbounds i8, ptr %.016911841.us, i64 12
+  %296 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 12
   store i32 %295, ptr %296, align 4
-  %297 = getelementptr inbounds i8, ptr %.016911841.us, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 16
   %298 = add nuw nsw i32 %.016921840.us, 1
   %exitcond1882.not = icmp eq i32 %298, 4
   br i1 %exitcond1882.not, label %.split1845.us, label %.split1843.us, !llvm.loop !75
@@ -7138,28 +7138,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %315 = load i32, ptr %28, align 8
   %316 = mul nsw i32 %315, %314
   %317 = select i1 %308, i32 %316, i32 -1
-  %318 = getelementptr inbounds i8, ptr %.016911841, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %.016911841, i64 4
   store i32 %317, ptr %318, align 4
   %319 = add nsw i32 %303, %252
   %320 = load i32, ptr %28, align 8
   %321 = mul nsw i32 %320, %319
   %322 = select i1 %309, i32 %321, i32 -1
-  %323 = getelementptr inbounds i8, ptr %.016911841, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.016911841, i64 8
   store i32 %322, ptr %323, align 4
   %324 = add nsw i32 %303, %254
   %325 = load i32, ptr %28, align 8
   %326 = mul nsw i32 %325, %324
   %327 = select i1 %310, i32 %326, i32 -1
-  %328 = getelementptr inbounds i8, ptr %.016911841, i64 12
+  %328 = getelementptr inbounds nuw i8, ptr %.016911841, i64 12
   store i32 %327, ptr %328, align 4
-  %329 = getelementptr inbounds i8, ptr %.016911841, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.016911841, i64 16
   %330 = add nuw nsw i32 %.016921840, 1
   %exitcond1883.not = icmp eq i32 %330, 4
   br i1 %exitcond1883.not, label %.split1845.us, label %.split1843, !llvm.loop !75
 
 .split1845.us:                                    ; preds = %.split1843.us, %.split1843
-  %331 = getelementptr inbounds i8, ptr %.116821848, i64 8
-  %332 = getelementptr inbounds i8, ptr %.31849, i64 72
+  %331 = getelementptr inbounds nuw i8, ptr %.116821848, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %.31849, i64 72
   %333 = add nuw nsw i32 %.116861847, 2
   %334 = icmp slt i32 %333, %17
   br i1 %334, label %.lr.ph1850, label %._crit_edge, !llvm.loop !76
@@ -7187,18 +7187,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %350 = getelementptr inbounds i8, ptr %9, i64 32
-  %351 = getelementptr inbounds i8, ptr %10, i64 32
-  %352 = getelementptr inbounds i8, ptr %11, i64 32
-  %353 = getelementptr inbounds i8, ptr %12, i64 32
-  %354 = getelementptr inbounds i8, ptr %9, i64 64
-  %355 = getelementptr inbounds i8, ptr %10, i64 64
-  %356 = getelementptr inbounds i8, ptr %11, i64 64
-  %357 = getelementptr inbounds i8, ptr %12, i64 64
-  %358 = getelementptr inbounds i8, ptr %9, i64 96
-  %359 = getelementptr inbounds i8, ptr %10, i64 96
-  %360 = getelementptr inbounds i8, ptr %11, i64 96
-  %361 = getelementptr inbounds i8, ptr %12, i64 96
+  %350 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %355 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %356 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %357 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %358 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %359 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %360 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %361 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %362 = and i32 %17, 2147483640
   br label %367
 
@@ -7277,16 +7277,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %418 = fmul fast <8 x float> %414, %373
   %419 = fadd fast <8 x float> %418, %389
   %420 = fmul fast <8 x float> %407, %419
-  %421 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %421 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %422 = fadd fast <8 x float> %418, %386
   %423 = fmul fast <8 x float> %407, %422
-  %424 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %424 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %425 = fadd fast <8 x float> %418, %390
   %426 = fmul fast <8 x float> %407, %425
-  %427 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %427 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %428 = fadd fast <8 x float> %418, %391
   %429 = fmul fast <8 x float> %407, %428
-  %430 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %430 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %431 = and <8 x i1> %394, %417
   %432 = select <8 x i1> %431, <8 x float> %420, <8 x float> splat (float -1.000000e+00)
   %433 = and <8 x i1> %397, %417
@@ -7396,37 +7396,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %514 = shufflevector <8 x float> %495, <8 x float> %496, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %514, ptr %361, align 32
   store <8 x float> %497, ptr %.41817, align 1
-  %515 = getelementptr inbounds i8, ptr %.41817, i64 32
+  %515 = getelementptr inbounds nuw i8, ptr %.41817, i64 32
   store <8 x float> %498, ptr %515, align 1
-  %516 = getelementptr inbounds i8, ptr %.41817, i64 64
+  %516 = getelementptr inbounds nuw i8, ptr %.41817, i64 64
   br label %517
 
 517:                                              ; preds = %443, %517
   %indvars.iv1867 = phi i64 [ 0, %443 ], [ %indvars.iv.next1868, %517 ]
   %.51813 = phi ptr [ %516, %443 ], [ %529, %517 ]
-  %518 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1867
+  %518 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1867
   %519 = load <8 x float>, ptr %518, align 32
   store <8 x float> %519, ptr %.51813, align 1
-  %520 = getelementptr inbounds i8, ptr %.51813, i64 32
-  %521 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1867
+  %520 = getelementptr inbounds nuw i8, ptr %.51813, i64 32
+  %521 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1867
   %522 = load <8 x float>, ptr %521, align 32
   store <8 x float> %522, ptr %520, align 1
-  %523 = getelementptr inbounds i8, ptr %.51813, i64 64
-  %524 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1867
+  %523 = getelementptr inbounds nuw i8, ptr %.51813, i64 64
+  %524 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1867
   %525 = load <8 x float>, ptr %524, align 32
   store <8 x float> %525, ptr %523, align 1
-  %526 = getelementptr inbounds i8, ptr %.51813, i64 96
-  %527 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1867
+  %526 = getelementptr inbounds nuw i8, ptr %.51813, i64 96
+  %527 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1867
   %528 = load <8 x float>, ptr %527, align 32
   store <8 x float> %528, ptr %526, align 1
-  %529 = getelementptr inbounds i8, ptr %.51813, i64 128
+  %529 = getelementptr inbounds nuw i8, ptr %.51813, i64 128
   %indvars.iv.next1868 = add nuw nsw i64 %indvars.iv1867, 1
   %exitcond1870.not = icmp eq i64 %indvars.iv.next1868, 4
   br i1 %exitcond1870.not, label %530, label %517, !llvm.loop !79
 
 530:                                              ; preds = %517
-  %531 = getelementptr inbounds i8, ptr %.016931816, i64 32
-  %532 = getelementptr inbounds i8, ptr %.016951815, i64 32
+  %531 = getelementptr inbounds nuw i8, ptr %.016931816, i64 32
+  %532 = getelementptr inbounds nuw i8, ptr %.016951815, i64 32
   %533 = add nuw nsw i32 %.016971814, 8
   %534 = or disjoint i32 %533, 7
   %535 = icmp slt i32 %534, %17
@@ -7463,7 +7463,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %559, ptr %.61828, align 4
   %560 = sitofp i32 %554 to float
   %561 = fsub fast float %550, %560
-  %562 = getelementptr inbounds i8, ptr %.61828, i64 4
+  %562 = getelementptr inbounds nuw i8, ptr %.61828, i64 4
   store float %561, ptr %562, align 4
   %563 = sitofp i32 %555 to float
   %564 = fptosi float %563 to i32
@@ -7484,7 +7484,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %579 = icmp sgt i32 %568, -1
   %580 = icmp sgt i32 %570, %568
   %581 = and i1 %579, %580
-  %582 = getelementptr inbounds i8, ptr %.61828, i64 8
+  %582 = getelementptr inbounds nuw i8, ptr %.61828, i64 8
   %583 = add i32 %554, -1
   %.fr = freeze i1 %575
   br i1 %.fr, label %.split, label %.split.us
@@ -7509,21 +7509,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %597 = load i32, ptr %366, align 8
   %598 = mul nsw i32 %597, %596
   %599 = select i1 %593, i32 %598, i32 -1
-  %600 = getelementptr inbounds i8, ptr %.016841821.us, i64 4
+  %600 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 4
   store i32 %599, ptr %600, align 4
   %601 = add nsw i32 %588, %566
   %602 = load i32, ptr %366, align 8
   %603 = mul nsw i32 %602, %601
   %604 = select i1 %594, i32 %603, i32 -1
-  %605 = getelementptr inbounds i8, ptr %.016841821.us, i64 8
+  %605 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 8
   store i32 %604, ptr %605, align 4
   %606 = add nsw i32 %588, %568
   %607 = load i32, ptr %366, align 8
   %608 = mul nsw i32 %607, %606
   %609 = select i1 %595, i32 %608, i32 -1
-  %610 = getelementptr inbounds i8, ptr %.016841821.us, i64 12
+  %610 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 12
   store i32 %609, ptr %610, align 4
-  %611 = getelementptr inbounds i8, ptr %.016841821.us, i64 16
+  %611 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 16
   %612 = add nuw nsw i32 %.016831822.us, 1
   %exitcond1871.not = icmp eq i32 %612, 4
   br i1 %exitcond1871.not, label %.split1824.us, label %.split.us, !llvm.loop !81
@@ -7552,29 +7552,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %629 = load i32, ptr %366, align 8
   %630 = mul nsw i32 %629, %628
   %631 = select i1 %622, i32 %630, i32 -1
-  %632 = getelementptr inbounds i8, ptr %.016841821, i64 4
+  %632 = getelementptr inbounds nuw i8, ptr %.016841821, i64 4
   store i32 %631, ptr %632, align 4
   %633 = add nsw i32 %617, %566
   %634 = load i32, ptr %366, align 8
   %635 = mul nsw i32 %634, %633
   %636 = select i1 %623, i32 %635, i32 -1
-  %637 = getelementptr inbounds i8, ptr %.016841821, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %.016841821, i64 8
   store i32 %636, ptr %637, align 4
   %638 = add nsw i32 %617, %568
   %639 = load i32, ptr %366, align 8
   %640 = mul nsw i32 %639, %638
   %641 = select i1 %624, i32 %640, i32 -1
-  %642 = getelementptr inbounds i8, ptr %.016841821, i64 12
+  %642 = getelementptr inbounds nuw i8, ptr %.016841821, i64 12
   store i32 %641, ptr %642, align 4
-  %643 = getelementptr inbounds i8, ptr %.016841821, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %.016841821, i64 16
   %644 = add nuw nsw i32 %.016831822, 1
   %exitcond1872.not = icmp eq i32 %644, 4
   br i1 %exitcond1872.not, label %.split1824.us, label %.split, !llvm.loop !81
 
 .split1824.us:                                    ; preds = %.split.us, %.split
-  %645 = getelementptr inbounds i8, ptr %.116941827, i64 4
-  %646 = getelementptr inbounds i8, ptr %.116961826, i64 4
-  %647 = getelementptr inbounds i8, ptr %.61828, i64 72
+  %645 = getelementptr inbounds nuw i8, ptr %.116941827, i64 4
+  %646 = getelementptr inbounds nuw i8, ptr %.116961826, i64 4
+  %647 = getelementptr inbounds nuw i8, ptr %.61828, i64 72
   %648 = add nuw nsw i32 %.116981825, 1
   %exitcond1873.not = icmp eq i32 %648, %17
   br i1 %exitcond1873.not, label %.loopexit, label %536, !llvm.loop !82
@@ -7615,18 +7615,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -7653,7 +7653,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811834 = phi ptr [ %218, %217 ], [ %48, %42 ]
   %.016851833 = phi i32 [ %219, %217 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811834, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811834, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811834, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -7713,16 +7713,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %105 = fmul fast <8 x float> %101, %60
   %106 = fadd fast <8 x float> %105, %76
   %107 = fmul fast <8 x float> %94, %106
-  %108 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1874
+  %108 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1874
   %109 = fadd fast <8 x float> %105, %73
   %110 = fmul fast <8 x float> %94, %109
-  %111 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1874
+  %111 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1874
   %112 = fadd fast <8 x float> %105, %77
   %113 = fmul fast <8 x float> %94, %112
-  %114 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1874
+  %114 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1874
   %115 = fadd fast <8 x float> %105, %78
   %116 = fmul fast <8 x float> %94, %115
-  %117 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1874
+  %117 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1874
   %118 = and <8 x i1> %81, %104
   %119 = select <8 x i1> %118, <8 x float> %107, <8 x float> splat (float -1.000000e+00)
   %120 = and <8 x i1> %84, %104
@@ -7832,36 +7832,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %201 = shufflevector <8 x float> %182, <8 x float> %183, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %201, ptr %40, align 32
   store <8 x float> %184, ptr %.11835, align 1
-  %202 = getelementptr inbounds i8, ptr %.11835, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %.11835, i64 32
   store <8 x float> %185, ptr %202, align 1
-  %203 = getelementptr inbounds i8, ptr %.11835, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %.11835, i64 64
   br label %204
 
 204:                                              ; preds = %130, %204
   %indvars.iv1878 = phi i64 [ 0, %130 ], [ %indvars.iv.next1879, %204 ]
   %.21832 = phi ptr [ %203, %130 ], [ %216, %204 ]
-  %205 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1878
+  %205 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1878
   %206 = load <8 x float>, ptr %205, align 32
   store <8 x float> %206, ptr %.21832, align 1
-  %207 = getelementptr inbounds i8, ptr %.21832, i64 32
-  %208 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1878
+  %207 = getelementptr inbounds nuw i8, ptr %.21832, i64 32
+  %208 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1878
   %209 = load <8 x float>, ptr %208, align 32
   store <8 x float> %209, ptr %207, align 1
-  %210 = getelementptr inbounds i8, ptr %.21832, i64 64
-  %211 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1878
+  %210 = getelementptr inbounds nuw i8, ptr %.21832, i64 64
+  %211 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1878
   %212 = load <8 x float>, ptr %211, align 32
   store <8 x float> %212, ptr %210, align 1
-  %213 = getelementptr inbounds i8, ptr %.21832, i64 96
-  %214 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1878
+  %213 = getelementptr inbounds nuw i8, ptr %.21832, i64 96
+  %214 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1878
   %215 = load <8 x float>, ptr %214, align 32
   store <8 x float> %215, ptr %213, align 1
-  %216 = getelementptr inbounds i8, ptr %.21832, i64 128
+  %216 = getelementptr inbounds nuw i8, ptr %.21832, i64 128
   %indvars.iv.next1879 = add nuw nsw i64 %indvars.iv1878, 1
   %exitcond1881.not = icmp eq i64 %indvars.iv.next1879, 4
   br i1 %exitcond1881.not, label %217, label %204, !llvm.loop !84
 
 217:                                              ; preds = %204
-  %218 = getelementptr inbounds i8, ptr %.016811834, i64 64
+  %218 = getelementptr inbounds nuw i8, ptr %.016811834, i64 64
   %219 = add nuw nsw i32 %.016851833, 16
   %220 = or disjoint i32 %219, 15
   %221 = icmp slt i32 %220, %17
@@ -7872,7 +7872,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821848 = phi ptr [ %331, %.split1845.us ], [ %.01681.lcssa, %.preheader ]
   %.116861847 = phi i32 [ %333, %.split1845.us ], [ %.01685.lcssa, %.preheader ]
   %222 = load float, ptr %.116821848, align 4
-  %223 = getelementptr inbounds i8, ptr %.116821848, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.116821848, i64 4
   %224 = load float, ptr %223, align 4
   %225 = load i32, ptr %26, align 4
   %226 = fmul fast float %222, 5.000000e-01
@@ -7898,7 +7898,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %245, ptr %.31849, align 4
   %246 = sitofp i32 %240 to float
   %247 = fsub fast float %236, %246
-  %248 = getelementptr inbounds i8, ptr %.31849, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %.31849, i64 4
   store float %247, ptr %248, align 4
   %249 = sitofp i32 %241 to float
   %250 = fptosi float %249 to i32
@@ -7919,7 +7919,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %265 = icmp sgt i32 %254, -1
   %266 = icmp sgt i32 %256, %254
   %267 = and i1 %265, %266
-  %268 = getelementptr inbounds i8, ptr %.31849, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.31849, i64 8
   %269 = add i32 %240, -1
   %.fr1846 = freeze i1 %261
   br i1 %.fr1846, label %.split1843, label %.split1843.us
@@ -7944,21 +7944,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %283 = load i32, ptr %28, align 8
   %284 = mul nsw i32 %283, %282
   %285 = select i1 %279, i32 %284, i32 -1
-  %286 = getelementptr inbounds i8, ptr %.016911841.us, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 4
   store i32 %285, ptr %286, align 4
   %287 = add nsw i32 %274, %252
   %288 = load i32, ptr %28, align 8
   %289 = mul nsw i32 %288, %287
   %290 = select i1 %280, i32 %289, i32 -1
-  %291 = getelementptr inbounds i8, ptr %.016911841.us, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 8
   store i32 %290, ptr %291, align 4
   %292 = add nsw i32 %274, %254
   %293 = load i32, ptr %28, align 8
   %294 = mul nsw i32 %293, %292
   %295 = select i1 %281, i32 %294, i32 -1
-  %296 = getelementptr inbounds i8, ptr %.016911841.us, i64 12
+  %296 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 12
   store i32 %295, ptr %296, align 4
-  %297 = getelementptr inbounds i8, ptr %.016911841.us, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.016911841.us, i64 16
   %298 = add nuw nsw i32 %.016921840.us, 1
   %exitcond1882.not = icmp eq i32 %298, 4
   br i1 %exitcond1882.not, label %.split1845.us, label %.split1843.us, !llvm.loop !86
@@ -7987,28 +7987,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %315 = load i32, ptr %28, align 8
   %316 = mul nsw i32 %315, %314
   %317 = select i1 %308, i32 %316, i32 -1
-  %318 = getelementptr inbounds i8, ptr %.016911841, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %.016911841, i64 4
   store i32 %317, ptr %318, align 4
   %319 = add nsw i32 %303, %252
   %320 = load i32, ptr %28, align 8
   %321 = mul nsw i32 %320, %319
   %322 = select i1 %309, i32 %321, i32 -1
-  %323 = getelementptr inbounds i8, ptr %.016911841, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.016911841, i64 8
   store i32 %322, ptr %323, align 4
   %324 = add nsw i32 %303, %254
   %325 = load i32, ptr %28, align 8
   %326 = mul nsw i32 %325, %324
   %327 = select i1 %310, i32 %326, i32 -1
-  %328 = getelementptr inbounds i8, ptr %.016911841, i64 12
+  %328 = getelementptr inbounds nuw i8, ptr %.016911841, i64 12
   store i32 %327, ptr %328, align 4
-  %329 = getelementptr inbounds i8, ptr %.016911841, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.016911841, i64 16
   %330 = add nuw nsw i32 %.016921840, 1
   %exitcond1883.not = icmp eq i32 %330, 4
   br i1 %exitcond1883.not, label %.split1845.us, label %.split1843, !llvm.loop !86
 
 .split1845.us:                                    ; preds = %.split1843.us, %.split1843
-  %331 = getelementptr inbounds i8, ptr %.116821848, i64 8
-  %332 = getelementptr inbounds i8, ptr %.31849, i64 72
+  %331 = getelementptr inbounds nuw i8, ptr %.116821848, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %.31849, i64 72
   %333 = add nuw nsw i32 %.116861847, 2
   %334 = icmp slt i32 %333, %17
   br i1 %334, label %.lr.ph1850, label %._crit_edge, !llvm.loop !87
@@ -8036,18 +8036,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %350 = getelementptr inbounds i8, ptr %9, i64 32
-  %351 = getelementptr inbounds i8, ptr %10, i64 32
-  %352 = getelementptr inbounds i8, ptr %11, i64 32
-  %353 = getelementptr inbounds i8, ptr %12, i64 32
-  %354 = getelementptr inbounds i8, ptr %9, i64 64
-  %355 = getelementptr inbounds i8, ptr %10, i64 64
-  %356 = getelementptr inbounds i8, ptr %11, i64 64
-  %357 = getelementptr inbounds i8, ptr %12, i64 64
-  %358 = getelementptr inbounds i8, ptr %9, i64 96
-  %359 = getelementptr inbounds i8, ptr %10, i64 96
-  %360 = getelementptr inbounds i8, ptr %11, i64 96
-  %361 = getelementptr inbounds i8, ptr %12, i64 96
+  %350 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %355 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %356 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %357 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %358 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %359 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %360 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %361 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %362 = and i32 %17, 2147483640
   br label %367
 
@@ -8126,16 +8126,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %418 = fmul fast <8 x float> %414, %373
   %419 = fadd fast <8 x float> %418, %389
   %420 = fmul fast <8 x float> %407, %419
-  %421 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %421 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %422 = fadd fast <8 x float> %418, %386
   %423 = fmul fast <8 x float> %407, %422
-  %424 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %424 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %425 = fadd fast <8 x float> %418, %390
   %426 = fmul fast <8 x float> %407, %425
-  %427 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %427 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %428 = fadd fast <8 x float> %418, %391
   %429 = fmul fast <8 x float> %407, %428
-  %430 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %430 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %431 = and <8 x i1> %394, %417
   %432 = select <8 x i1> %431, <8 x float> %420, <8 x float> splat (float -1.000000e+00)
   %433 = and <8 x i1> %397, %417
@@ -8245,37 +8245,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %514 = shufflevector <8 x float> %495, <8 x float> %496, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %514, ptr %361, align 32
   store <8 x float> %497, ptr %.41817, align 1
-  %515 = getelementptr inbounds i8, ptr %.41817, i64 32
+  %515 = getelementptr inbounds nuw i8, ptr %.41817, i64 32
   store <8 x float> %498, ptr %515, align 1
-  %516 = getelementptr inbounds i8, ptr %.41817, i64 64
+  %516 = getelementptr inbounds nuw i8, ptr %.41817, i64 64
   br label %517
 
 517:                                              ; preds = %443, %517
   %indvars.iv1867 = phi i64 [ 0, %443 ], [ %indvars.iv.next1868, %517 ]
   %.51813 = phi ptr [ %516, %443 ], [ %529, %517 ]
-  %518 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1867
+  %518 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1867
   %519 = load <8 x float>, ptr %518, align 32
   store <8 x float> %519, ptr %.51813, align 1
-  %520 = getelementptr inbounds i8, ptr %.51813, i64 32
-  %521 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1867
+  %520 = getelementptr inbounds nuw i8, ptr %.51813, i64 32
+  %521 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1867
   %522 = load <8 x float>, ptr %521, align 32
   store <8 x float> %522, ptr %520, align 1
-  %523 = getelementptr inbounds i8, ptr %.51813, i64 64
-  %524 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1867
+  %523 = getelementptr inbounds nuw i8, ptr %.51813, i64 64
+  %524 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1867
   %525 = load <8 x float>, ptr %524, align 32
   store <8 x float> %525, ptr %523, align 1
-  %526 = getelementptr inbounds i8, ptr %.51813, i64 96
-  %527 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1867
+  %526 = getelementptr inbounds nuw i8, ptr %.51813, i64 96
+  %527 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1867
   %528 = load <8 x float>, ptr %527, align 32
   store <8 x float> %528, ptr %526, align 1
-  %529 = getelementptr inbounds i8, ptr %.51813, i64 128
+  %529 = getelementptr inbounds nuw i8, ptr %.51813, i64 128
   %indvars.iv.next1868 = add nuw nsw i64 %indvars.iv1867, 1
   %exitcond1870.not = icmp eq i64 %indvars.iv.next1868, 4
   br i1 %exitcond1870.not, label %530, label %517, !llvm.loop !90
 
 530:                                              ; preds = %517
-  %531 = getelementptr inbounds i8, ptr %.016931816, i64 32
-  %532 = getelementptr inbounds i8, ptr %.016951815, i64 32
+  %531 = getelementptr inbounds nuw i8, ptr %.016931816, i64 32
+  %532 = getelementptr inbounds nuw i8, ptr %.016951815, i64 32
   %533 = add nuw nsw i32 %.016971814, 8
   %534 = or disjoint i32 %533, 7
   %535 = icmp slt i32 %534, %17
@@ -8312,7 +8312,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %559, ptr %.61828, align 4
   %560 = sitofp i32 %554 to float
   %561 = fsub fast float %550, %560
-  %562 = getelementptr inbounds i8, ptr %.61828, i64 4
+  %562 = getelementptr inbounds nuw i8, ptr %.61828, i64 4
   store float %561, ptr %562, align 4
   %563 = sitofp i32 %555 to float
   %564 = fptosi float %563 to i32
@@ -8333,7 +8333,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %579 = icmp sgt i32 %568, -1
   %580 = icmp sgt i32 %570, %568
   %581 = and i1 %579, %580
-  %582 = getelementptr inbounds i8, ptr %.61828, i64 8
+  %582 = getelementptr inbounds nuw i8, ptr %.61828, i64 8
   %583 = add i32 %554, -1
   %.fr = freeze i1 %575
   br i1 %.fr, label %.split, label %.split.us
@@ -8358,21 +8358,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %597 = load i32, ptr %366, align 8
   %598 = mul nsw i32 %597, %596
   %599 = select i1 %593, i32 %598, i32 -1
-  %600 = getelementptr inbounds i8, ptr %.016841821.us, i64 4
+  %600 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 4
   store i32 %599, ptr %600, align 4
   %601 = add nsw i32 %588, %566
   %602 = load i32, ptr %366, align 8
   %603 = mul nsw i32 %602, %601
   %604 = select i1 %594, i32 %603, i32 -1
-  %605 = getelementptr inbounds i8, ptr %.016841821.us, i64 8
+  %605 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 8
   store i32 %604, ptr %605, align 4
   %606 = add nsw i32 %588, %568
   %607 = load i32, ptr %366, align 8
   %608 = mul nsw i32 %607, %606
   %609 = select i1 %595, i32 %608, i32 -1
-  %610 = getelementptr inbounds i8, ptr %.016841821.us, i64 12
+  %610 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 12
   store i32 %609, ptr %610, align 4
-  %611 = getelementptr inbounds i8, ptr %.016841821.us, i64 16
+  %611 = getelementptr inbounds nuw i8, ptr %.016841821.us, i64 16
   %612 = add nuw nsw i32 %.016831822.us, 1
   %exitcond1871.not = icmp eq i32 %612, 4
   br i1 %exitcond1871.not, label %.split1824.us, label %.split.us, !llvm.loop !92
@@ -8401,29 +8401,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %629 = load i32, ptr %366, align 8
   %630 = mul nsw i32 %629, %628
   %631 = select i1 %622, i32 %630, i32 -1
-  %632 = getelementptr inbounds i8, ptr %.016841821, i64 4
+  %632 = getelementptr inbounds nuw i8, ptr %.016841821, i64 4
   store i32 %631, ptr %632, align 4
   %633 = add nsw i32 %617, %566
   %634 = load i32, ptr %366, align 8
   %635 = mul nsw i32 %634, %633
   %636 = select i1 %623, i32 %635, i32 -1
-  %637 = getelementptr inbounds i8, ptr %.016841821, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %.016841821, i64 8
   store i32 %636, ptr %637, align 4
   %638 = add nsw i32 %617, %568
   %639 = load i32, ptr %366, align 8
   %640 = mul nsw i32 %639, %638
   %641 = select i1 %624, i32 %640, i32 -1
-  %642 = getelementptr inbounds i8, ptr %.016841821, i64 12
+  %642 = getelementptr inbounds nuw i8, ptr %.016841821, i64 12
   store i32 %641, ptr %642, align 4
-  %643 = getelementptr inbounds i8, ptr %.016841821, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %.016841821, i64 16
   %644 = add nuw nsw i32 %.016831822, 1
   %exitcond1872.not = icmp eq i32 %644, 4
   br i1 %exitcond1872.not, label %.split1824.us, label %.split, !llvm.loop !92
 
 .split1824.us:                                    ; preds = %.split.us, %.split
-  %645 = getelementptr inbounds i8, ptr %.116941827, i64 4
-  %646 = getelementptr inbounds i8, ptr %.116961826, i64 4
-  %647 = getelementptr inbounds i8, ptr %.61828, i64 72
+  %645 = getelementptr inbounds nuw i8, ptr %.116941827, i64 4
+  %646 = getelementptr inbounds nuw i8, ptr %.116961826, i64 4
+  %647 = getelementptr inbounds nuw i8, ptr %.61828, i64 72
   %648 = add nuw nsw i32 %.116981825, 1
   %exitcond1873.not = icmp eq i32 %648, %17
   br i1 %exitcond1873.not, label %.loopexit, label %536, !llvm.loop !93
@@ -8464,18 +8464,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -8502,7 +8502,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811852 = phi ptr [ %230, %229 ], [ %48, %42 ]
   %.016851851 = phi i32 [ %231, %229 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811852, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811852, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811852, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -8574,16 +8574,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %117 = fmul fast <8 x float> %113, %60
   %118 = fadd fast <8 x float> %117, %81
   %119 = fmul fast <8 x float> %104, %118
-  %120 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1892
+  %120 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1892
   %121 = fadd fast <8 x float> %117, %83
   %122 = fmul fast <8 x float> %104, %121
-  %123 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1892
+  %123 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1892
   %124 = fadd fast <8 x float> %117, %85
   %125 = fmul fast <8 x float> %104, %124
-  %126 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1892
+  %126 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1892
   %127 = fadd fast <8 x float> %117, %87
   %128 = fmul fast <8 x float> %104, %127
-  %129 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1892
+  %129 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1892
   %130 = and <8 x i1> %90, %116
   %131 = select <8 x i1> %130, <8 x float> %119, <8 x float> splat (float -1.000000e+00)
   %132 = and <8 x i1> %93, %116
@@ -8693,36 +8693,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %213 = shufflevector <8 x float> %194, <8 x float> %195, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %213, ptr %40, align 32
   store <8 x float> %196, ptr %.11853, align 1
-  %214 = getelementptr inbounds i8, ptr %.11853, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %.11853, i64 32
   store <8 x float> %197, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %.11853, i64 64
+  %215 = getelementptr inbounds nuw i8, ptr %.11853, i64 64
   br label %216
 
 216:                                              ; preds = %142, %216
   %indvars.iv1896 = phi i64 [ 0, %142 ], [ %indvars.iv.next1897, %216 ]
   %.21850 = phi ptr [ %215, %142 ], [ %228, %216 ]
-  %217 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1896
+  %217 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1896
   %218 = load <8 x float>, ptr %217, align 32
   store <8 x float> %218, ptr %.21850, align 1
-  %219 = getelementptr inbounds i8, ptr %.21850, i64 32
-  %220 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1896
+  %219 = getelementptr inbounds nuw i8, ptr %.21850, i64 32
+  %220 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1896
   %221 = load <8 x float>, ptr %220, align 32
   store <8 x float> %221, ptr %219, align 1
-  %222 = getelementptr inbounds i8, ptr %.21850, i64 64
-  %223 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1896
+  %222 = getelementptr inbounds nuw i8, ptr %.21850, i64 64
+  %223 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1896
   %224 = load <8 x float>, ptr %223, align 32
   store <8 x float> %224, ptr %222, align 1
-  %225 = getelementptr inbounds i8, ptr %.21850, i64 96
-  %226 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1896
+  %225 = getelementptr inbounds nuw i8, ptr %.21850, i64 96
+  %226 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1896
   %227 = load <8 x float>, ptr %226, align 32
   store <8 x float> %227, ptr %225, align 1
-  %228 = getelementptr inbounds i8, ptr %.21850, i64 128
+  %228 = getelementptr inbounds nuw i8, ptr %.21850, i64 128
   %indvars.iv.next1897 = add nuw nsw i64 %indvars.iv1896, 1
   %exitcond1899.not = icmp eq i64 %indvars.iv.next1897, 4
   br i1 %exitcond1899.not, label %229, label %216, !llvm.loop !95
 
 229:                                              ; preds = %216
-  %230 = getelementptr inbounds i8, ptr %.016811852, i64 64
+  %230 = getelementptr inbounds nuw i8, ptr %.016811852, i64 64
   %231 = add nuw nsw i32 %.016851851, 16
   %232 = or disjoint i32 %231, 15
   %233 = icmp slt i32 %232, %17
@@ -8733,7 +8733,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821866 = phi ptr [ %362, %.split1863.us ], [ %.01681.lcssa, %.preheader ]
   %.116861865 = phi i32 [ %364, %.split1863.us ], [ %.01685.lcssa, %.preheader ]
   %234 = load float, ptr %.116821866, align 4
-  %235 = getelementptr inbounds i8, ptr %.116821866, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.116821866, i64 4
   %236 = load float, ptr %235, align 4
   %237 = load i32, ptr %26, align 4
   %238 = sitofp i32 %237 to float
@@ -8759,7 +8759,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %257, ptr %.31867, align 4
   %258 = sitofp i32 %252 to float
   %259 = fsub fast float %248, %258
-  %260 = getelementptr inbounds i8, ptr %.31867, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %.31867, i64 4
   store float %259, ptr %260, align 4
   %261 = load i32, ptr %26, align 4
   %262 = sitofp i32 %261 to float
@@ -8799,7 +8799,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %288 = icmp sgt i32 %278, -1
   %289 = icmp sgt i32 %261, %278
   %290 = and i1 %288, %289
-  %291 = getelementptr inbounds i8, ptr %.31867, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.31867, i64 8
   %292 = add i32 %252, -1
   %.fr1864 = freeze i1 %284
   br i1 %.fr1864, label %.split1861, label %.split1861.us
@@ -8830,21 +8830,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %310 = load i32, ptr %28, align 8
   %311 = mul nsw i32 %309, %310
   %312 = select i1 %306, i32 %311, i32 -1
-  %313 = getelementptr inbounds i8, ptr %.016911859.us, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 4
   store i32 %312, ptr %313, align 4
   %314 = add nsw i32 %302, %274
   %315 = load i32, ptr %28, align 8
   %316 = mul nsw i32 %314, %315
   %317 = select i1 %307, i32 %316, i32 -1
-  %318 = getelementptr inbounds i8, ptr %.016911859.us, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 8
   store i32 %317, ptr %318, align 4
   %319 = add nsw i32 %302, %278
   %320 = load i32, ptr %28, align 8
   %321 = mul nsw i32 %320, %319
   %322 = select i1 %308, i32 %321, i32 -1
-  %323 = getelementptr inbounds i8, ptr %.016911859.us, i64 12
+  %323 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 12
   store i32 %322, ptr %323, align 4
-  %324 = getelementptr inbounds i8, ptr %.016911859.us, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 16
   %325 = add nuw nsw i32 %.016921858.us, 1
   %exitcond1900.not = icmp eq i32 %325, 4
   br i1 %exitcond1900.not, label %.split1863.us, label %.split1861.us, !llvm.loop !97
@@ -8879,28 +8879,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %346 = load i32, ptr %28, align 8
   %347 = mul nsw i32 %345, %346
   %348 = select i1 %339, i32 %347, i32 -1
-  %349 = getelementptr inbounds i8, ptr %.016911859, i64 4
+  %349 = getelementptr inbounds nuw i8, ptr %.016911859, i64 4
   store i32 %348, ptr %349, align 4
   %350 = add nsw i32 %335, %274
   %351 = load i32, ptr %28, align 8
   %352 = mul nsw i32 %350, %351
   %353 = select i1 %340, i32 %352, i32 -1
-  %354 = getelementptr inbounds i8, ptr %.016911859, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %.016911859, i64 8
   store i32 %353, ptr %354, align 4
   %355 = add nsw i32 %335, %278
   %356 = load i32, ptr %28, align 8
   %357 = mul nsw i32 %356, %355
   %358 = select i1 %341, i32 %357, i32 -1
-  %359 = getelementptr inbounds i8, ptr %.016911859, i64 12
+  %359 = getelementptr inbounds nuw i8, ptr %.016911859, i64 12
   store i32 %358, ptr %359, align 4
-  %360 = getelementptr inbounds i8, ptr %.016911859, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.016911859, i64 16
   %361 = add nuw nsw i32 %.016921858, 1
   %exitcond1901.not = icmp eq i32 %361, 4
   br i1 %exitcond1901.not, label %.split1863.us, label %.split1861, !llvm.loop !97
 
 .split1863.us:                                    ; preds = %.split1861.us, %.split1861
-  %362 = getelementptr inbounds i8, ptr %.116821866, i64 8
-  %363 = getelementptr inbounds i8, ptr %.31867, i64 72
+  %362 = getelementptr inbounds nuw i8, ptr %.116821866, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.31867, i64 72
   %364 = add nuw nsw i32 %.116861865, 2
   %365 = icmp slt i32 %364, %17
   br i1 %365, label %.lr.ph1868, label %._crit_edge, !llvm.loop !98
@@ -8928,18 +8928,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %381 = getelementptr inbounds i8, ptr %9, i64 32
-  %382 = getelementptr inbounds i8, ptr %10, i64 32
-  %383 = getelementptr inbounds i8, ptr %11, i64 32
-  %384 = getelementptr inbounds i8, ptr %12, i64 32
-  %385 = getelementptr inbounds i8, ptr %9, i64 64
-  %386 = getelementptr inbounds i8, ptr %10, i64 64
-  %387 = getelementptr inbounds i8, ptr %11, i64 64
-  %388 = getelementptr inbounds i8, ptr %12, i64 64
-  %389 = getelementptr inbounds i8, ptr %9, i64 96
-  %390 = getelementptr inbounds i8, ptr %10, i64 96
-  %391 = getelementptr inbounds i8, ptr %11, i64 96
-  %392 = getelementptr inbounds i8, ptr %12, i64 96
+  %381 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %384 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %386 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %387 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %388 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %389 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %390 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %391 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %392 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %393 = and i32 %17, 2147483640
   br label %398
 
@@ -9030,16 +9030,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %461 = fmul fast <8 x float> %457, %404
   %462 = fadd fast <8 x float> %461, %425
   %463 = fmul fast <8 x float> %448, %462
-  %464 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %464 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %465 = fadd fast <8 x float> %461, %427
   %466 = fmul fast <8 x float> %448, %465
-  %467 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %467 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %468 = fadd fast <8 x float> %461, %429
   %469 = fmul fast <8 x float> %448, %468
-  %470 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %470 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %471 = fadd fast <8 x float> %461, %431
   %472 = fmul fast <8 x float> %448, %471
-  %473 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %473 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %474 = and <8 x i1> %434, %460
   %475 = select <8 x i1> %474, <8 x float> %463, <8 x float> splat (float -1.000000e+00)
   %476 = and <8 x i1> %437, %460
@@ -9149,37 +9149,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %557 = shufflevector <8 x float> %538, <8 x float> %539, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %557, ptr %392, align 32
   store <8 x float> %540, ptr %.41835, align 1
-  %558 = getelementptr inbounds i8, ptr %.41835, i64 32
+  %558 = getelementptr inbounds nuw i8, ptr %.41835, i64 32
   store <8 x float> %541, ptr %558, align 1
-  %559 = getelementptr inbounds i8, ptr %.41835, i64 64
+  %559 = getelementptr inbounds nuw i8, ptr %.41835, i64 64
   br label %560
 
 560:                                              ; preds = %486, %560
   %indvars.iv1885 = phi i64 [ 0, %486 ], [ %indvars.iv.next1886, %560 ]
   %.51831 = phi ptr [ %559, %486 ], [ %572, %560 ]
-  %561 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1885
+  %561 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1885
   %562 = load <8 x float>, ptr %561, align 32
   store <8 x float> %562, ptr %.51831, align 1
-  %563 = getelementptr inbounds i8, ptr %.51831, i64 32
-  %564 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1885
+  %563 = getelementptr inbounds nuw i8, ptr %.51831, i64 32
+  %564 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1885
   %565 = load <8 x float>, ptr %564, align 32
   store <8 x float> %565, ptr %563, align 1
-  %566 = getelementptr inbounds i8, ptr %.51831, i64 64
-  %567 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1885
+  %566 = getelementptr inbounds nuw i8, ptr %.51831, i64 64
+  %567 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1885
   %568 = load <8 x float>, ptr %567, align 32
   store <8 x float> %568, ptr %566, align 1
-  %569 = getelementptr inbounds i8, ptr %.51831, i64 96
-  %570 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1885
+  %569 = getelementptr inbounds nuw i8, ptr %.51831, i64 96
+  %570 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1885
   %571 = load <8 x float>, ptr %570, align 32
   store <8 x float> %571, ptr %569, align 1
-  %572 = getelementptr inbounds i8, ptr %.51831, i64 128
+  %572 = getelementptr inbounds nuw i8, ptr %.51831, i64 128
   %indvars.iv.next1886 = add nuw nsw i64 %indvars.iv1885, 1
   %exitcond1888.not = icmp eq i64 %indvars.iv.next1886, 4
   br i1 %exitcond1888.not, label %573, label %560, !llvm.loop !101
 
 573:                                              ; preds = %560
-  %574 = getelementptr inbounds i8, ptr %.016931834, i64 32
-  %575 = getelementptr inbounds i8, ptr %.016951833, i64 32
+  %574 = getelementptr inbounds nuw i8, ptr %.016931834, i64 32
+  %575 = getelementptr inbounds nuw i8, ptr %.016951833, i64 32
   %576 = add nuw nsw i32 %.016971832, 8
   %577 = or disjoint i32 %576, 7
   %578 = icmp slt i32 %577, %17
@@ -9216,7 +9216,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %602, ptr %.61846, align 4
   %603 = sitofp i32 %597 to float
   %604 = fsub fast float %593, %603
-  %605 = getelementptr inbounds i8, ptr %.61846, i64 4
+  %605 = getelementptr inbounds nuw i8, ptr %.61846, i64 4
   store float %604, ptr %605, align 4
   %606 = load i32, ptr %395, align 4
   %607 = sitofp i32 %606 to float
@@ -9256,7 +9256,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %633 = icmp sgt i32 %623, -1
   %634 = icmp sgt i32 %606, %623
   %635 = and i1 %633, %634
-  %636 = getelementptr inbounds i8, ptr %.61846, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %.61846, i64 8
   %637 = add i32 %597, -1
   %.fr = freeze i1 %629
   br i1 %.fr, label %.split, label %.split.us
@@ -9287,21 +9287,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %655 = load i32, ptr %397, align 8
   %656 = mul nsw i32 %654, %655
   %657 = select i1 %651, i32 %656, i32 -1
-  %658 = getelementptr inbounds i8, ptr %.016841839.us, i64 4
+  %658 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 4
   store i32 %657, ptr %658, align 4
   %659 = add nsw i32 %647, %619
   %660 = load i32, ptr %397, align 8
   %661 = mul nsw i32 %659, %660
   %662 = select i1 %652, i32 %661, i32 -1
-  %663 = getelementptr inbounds i8, ptr %.016841839.us, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 8
   store i32 %662, ptr %663, align 4
   %664 = add nsw i32 %647, %623
   %665 = load i32, ptr %397, align 8
   %666 = mul nsw i32 %665, %664
   %667 = select i1 %653, i32 %666, i32 -1
-  %668 = getelementptr inbounds i8, ptr %.016841839.us, i64 12
+  %668 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 12
   store i32 %667, ptr %668, align 4
-  %669 = getelementptr inbounds i8, ptr %.016841839.us, i64 16
+  %669 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 16
   %670 = add nuw nsw i32 %.016831840.us, 1
   %exitcond1889.not = icmp eq i32 %670, 4
   br i1 %exitcond1889.not, label %.split1842.us, label %.split.us, !llvm.loop !103
@@ -9336,29 +9336,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %691 = load i32, ptr %397, align 8
   %692 = mul nsw i32 %690, %691
   %693 = select i1 %684, i32 %692, i32 -1
-  %694 = getelementptr inbounds i8, ptr %.016841839, i64 4
+  %694 = getelementptr inbounds nuw i8, ptr %.016841839, i64 4
   store i32 %693, ptr %694, align 4
   %695 = add nsw i32 %680, %619
   %696 = load i32, ptr %397, align 8
   %697 = mul nsw i32 %695, %696
   %698 = select i1 %685, i32 %697, i32 -1
-  %699 = getelementptr inbounds i8, ptr %.016841839, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %.016841839, i64 8
   store i32 %698, ptr %699, align 4
   %700 = add nsw i32 %680, %623
   %701 = load i32, ptr %397, align 8
   %702 = mul nsw i32 %701, %700
   %703 = select i1 %686, i32 %702, i32 -1
-  %704 = getelementptr inbounds i8, ptr %.016841839, i64 12
+  %704 = getelementptr inbounds nuw i8, ptr %.016841839, i64 12
   store i32 %703, ptr %704, align 4
-  %705 = getelementptr inbounds i8, ptr %.016841839, i64 16
+  %705 = getelementptr inbounds nuw i8, ptr %.016841839, i64 16
   %706 = add nuw nsw i32 %.016831840, 1
   %exitcond1890.not = icmp eq i32 %706, 4
   br i1 %exitcond1890.not, label %.split1842.us, label %.split, !llvm.loop !103
 
 .split1842.us:                                    ; preds = %.split.us, %.split
-  %707 = getelementptr inbounds i8, ptr %.116941845, i64 4
-  %708 = getelementptr inbounds i8, ptr %.116961844, i64 4
-  %709 = getelementptr inbounds i8, ptr %.61846, i64 72
+  %707 = getelementptr inbounds nuw i8, ptr %.116941845, i64 4
+  %708 = getelementptr inbounds nuw i8, ptr %.116961844, i64 4
+  %709 = getelementptr inbounds nuw i8, ptr %.61846, i64 72
   %710 = add nuw nsw i32 %.116981843, 1
   %exitcond1891.not = icmp eq i32 %710, %17
   br i1 %exitcond1891.not, label %.loopexit, label %579, !llvm.loop !104
@@ -9399,18 +9399,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -9437,7 +9437,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811852 = phi ptr [ %228, %227 ], [ %48, %42 ]
   %.016851851 = phi i32 [ %229, %227 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811852, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811852, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811852, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -9507,16 +9507,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %115 = fmul fast <8 x float> %111, %60
   %116 = fadd fast <8 x float> %115, %80
   %117 = fmul fast <8 x float> %102, %116
-  %118 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1892
+  %118 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1892
   %119 = fadd fast <8 x float> %115, %82
   %120 = fmul fast <8 x float> %102, %119
-  %121 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1892
+  %121 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1892
   %122 = fadd fast <8 x float> %115, %84
   %123 = fmul fast <8 x float> %102, %122
-  %124 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1892
+  %124 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1892
   %125 = fadd fast <8 x float> %115, %86
   %126 = fmul fast <8 x float> %102, %125
-  %127 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1892
+  %127 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1892
   %128 = and <8 x i1> %89, %114
   %129 = select <8 x i1> %128, <8 x float> %117, <8 x float> splat (float -1.000000e+00)
   %130 = and <8 x i1> %92, %114
@@ -9626,36 +9626,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %211 = shufflevector <8 x float> %192, <8 x float> %193, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %211, ptr %40, align 32
   store <8 x float> %194, ptr %.11853, align 1
-  %212 = getelementptr inbounds i8, ptr %.11853, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %.11853, i64 32
   store <8 x float> %195, ptr %212, align 1
-  %213 = getelementptr inbounds i8, ptr %.11853, i64 64
+  %213 = getelementptr inbounds nuw i8, ptr %.11853, i64 64
   br label %214
 
 214:                                              ; preds = %140, %214
   %indvars.iv1896 = phi i64 [ 0, %140 ], [ %indvars.iv.next1897, %214 ]
   %.21850 = phi ptr [ %213, %140 ], [ %226, %214 ]
-  %215 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1896
+  %215 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1896
   %216 = load <8 x float>, ptr %215, align 32
   store <8 x float> %216, ptr %.21850, align 1
-  %217 = getelementptr inbounds i8, ptr %.21850, i64 32
-  %218 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1896
+  %217 = getelementptr inbounds nuw i8, ptr %.21850, i64 32
+  %218 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1896
   %219 = load <8 x float>, ptr %218, align 32
   store <8 x float> %219, ptr %217, align 1
-  %220 = getelementptr inbounds i8, ptr %.21850, i64 64
-  %221 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1896
+  %220 = getelementptr inbounds nuw i8, ptr %.21850, i64 64
+  %221 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1896
   %222 = load <8 x float>, ptr %221, align 32
   store <8 x float> %222, ptr %220, align 1
-  %223 = getelementptr inbounds i8, ptr %.21850, i64 96
-  %224 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1896
+  %223 = getelementptr inbounds nuw i8, ptr %.21850, i64 96
+  %224 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1896
   %225 = load <8 x float>, ptr %224, align 32
   store <8 x float> %225, ptr %223, align 1
-  %226 = getelementptr inbounds i8, ptr %.21850, i64 128
+  %226 = getelementptr inbounds nuw i8, ptr %.21850, i64 128
   %indvars.iv.next1897 = add nuw nsw i64 %indvars.iv1896, 1
   %exitcond1899.not = icmp eq i64 %indvars.iv.next1897, 4
   br i1 %exitcond1899.not, label %227, label %214, !llvm.loop !106
 
 227:                                              ; preds = %214
-  %228 = getelementptr inbounds i8, ptr %.016811852, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %.016811852, i64 64
   %229 = add nuw nsw i32 %.016851851, 16
   %230 = or disjoint i32 %229, 15
   %231 = icmp slt i32 %230, %17
@@ -9666,7 +9666,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821866 = phi ptr [ %360, %.split1863.us ], [ %.01681.lcssa, %.preheader ]
   %.116861865 = phi i32 [ %362, %.split1863.us ], [ %.01685.lcssa, %.preheader ]
   %232 = load float, ptr %.116821866, align 4
-  %233 = getelementptr inbounds i8, ptr %.116821866, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %.116821866, i64 4
   %234 = load float, ptr %233, align 4
   %235 = load i32, ptr %26, align 4
   %236 = fmul fast float %232, 5.000000e-01
@@ -9692,7 +9692,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %255, ptr %.31867, align 4
   %256 = sitofp i32 %250 to float
   %257 = fsub fast float %246, %256
-  %258 = getelementptr inbounds i8, ptr %.31867, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %.31867, i64 4
   store float %257, ptr %258, align 4
   %259 = load i32, ptr %26, align 4
   %260 = sitofp i32 %259 to float
@@ -9732,7 +9732,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %286 = icmp sgt i32 %276, -1
   %287 = icmp sgt i32 %259, %276
   %288 = and i1 %286, %287
-  %289 = getelementptr inbounds i8, ptr %.31867, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.31867, i64 8
   %290 = add i32 %250, -1
   %.fr1864 = freeze i1 %282
   br i1 %.fr1864, label %.split1861, label %.split1861.us
@@ -9763,21 +9763,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %308 = load i32, ptr %28, align 8
   %309 = mul nsw i32 %307, %308
   %310 = select i1 %304, i32 %309, i32 -1
-  %311 = getelementptr inbounds i8, ptr %.016911859.us, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 4
   store i32 %310, ptr %311, align 4
   %312 = add nsw i32 %300, %272
   %313 = load i32, ptr %28, align 8
   %314 = mul nsw i32 %312, %313
   %315 = select i1 %305, i32 %314, i32 -1
-  %316 = getelementptr inbounds i8, ptr %.016911859.us, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 8
   store i32 %315, ptr %316, align 4
   %317 = add nsw i32 %300, %276
   %318 = load i32, ptr %28, align 8
   %319 = mul nsw i32 %318, %317
   %320 = select i1 %306, i32 %319, i32 -1
-  %321 = getelementptr inbounds i8, ptr %.016911859.us, i64 12
+  %321 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 12
   store i32 %320, ptr %321, align 4
-  %322 = getelementptr inbounds i8, ptr %.016911859.us, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %.016911859.us, i64 16
   %323 = add nuw nsw i32 %.016921858.us, 1
   %exitcond1900.not = icmp eq i32 %323, 4
   br i1 %exitcond1900.not, label %.split1863.us, label %.split1861.us, !llvm.loop !108
@@ -9812,28 +9812,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %344 = load i32, ptr %28, align 8
   %345 = mul nsw i32 %343, %344
   %346 = select i1 %337, i32 %345, i32 -1
-  %347 = getelementptr inbounds i8, ptr %.016911859, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %.016911859, i64 4
   store i32 %346, ptr %347, align 4
   %348 = add nsw i32 %333, %272
   %349 = load i32, ptr %28, align 8
   %350 = mul nsw i32 %348, %349
   %351 = select i1 %338, i32 %350, i32 -1
-  %352 = getelementptr inbounds i8, ptr %.016911859, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.016911859, i64 8
   store i32 %351, ptr %352, align 4
   %353 = add nsw i32 %333, %276
   %354 = load i32, ptr %28, align 8
   %355 = mul nsw i32 %354, %353
   %356 = select i1 %339, i32 %355, i32 -1
-  %357 = getelementptr inbounds i8, ptr %.016911859, i64 12
+  %357 = getelementptr inbounds nuw i8, ptr %.016911859, i64 12
   store i32 %356, ptr %357, align 4
-  %358 = getelementptr inbounds i8, ptr %.016911859, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %.016911859, i64 16
   %359 = add nuw nsw i32 %.016921858, 1
   %exitcond1901.not = icmp eq i32 %359, 4
   br i1 %exitcond1901.not, label %.split1863.us, label %.split1861, !llvm.loop !108
 
 .split1863.us:                                    ; preds = %.split1861.us, %.split1861
-  %360 = getelementptr inbounds i8, ptr %.116821866, i64 8
-  %361 = getelementptr inbounds i8, ptr %.31867, i64 72
+  %360 = getelementptr inbounds nuw i8, ptr %.116821866, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %.31867, i64 72
   %362 = add nuw nsw i32 %.116861865, 2
   %363 = icmp slt i32 %362, %17
   br i1 %363, label %.lr.ph1868, label %._crit_edge, !llvm.loop !109
@@ -9861,18 +9861,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %379 = getelementptr inbounds i8, ptr %9, i64 32
-  %380 = getelementptr inbounds i8, ptr %10, i64 32
-  %381 = getelementptr inbounds i8, ptr %11, i64 32
-  %382 = getelementptr inbounds i8, ptr %12, i64 32
-  %383 = getelementptr inbounds i8, ptr %9, i64 64
-  %384 = getelementptr inbounds i8, ptr %10, i64 64
-  %385 = getelementptr inbounds i8, ptr %11, i64 64
-  %386 = getelementptr inbounds i8, ptr %12, i64 64
-  %387 = getelementptr inbounds i8, ptr %9, i64 96
-  %388 = getelementptr inbounds i8, ptr %10, i64 96
-  %389 = getelementptr inbounds i8, ptr %11, i64 96
-  %390 = getelementptr inbounds i8, ptr %12, i64 96
+  %379 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %380 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %384 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %385 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %386 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %387 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %388 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %389 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %390 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %391 = and i32 %17, 2147483640
   br label %396
 
@@ -9961,16 +9961,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %457 = fmul fast <8 x float> %453, %402
   %458 = fadd fast <8 x float> %457, %422
   %459 = fmul fast <8 x float> %444, %458
-  %460 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %460 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %461 = fadd fast <8 x float> %457, %424
   %462 = fmul fast <8 x float> %444, %461
-  %463 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %463 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %464 = fadd fast <8 x float> %457, %426
   %465 = fmul fast <8 x float> %444, %464
-  %466 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %466 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %467 = fadd fast <8 x float> %457, %428
   %468 = fmul fast <8 x float> %444, %467
-  %469 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %469 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %470 = and <8 x i1> %431, %456
   %471 = select <8 x i1> %470, <8 x float> %459, <8 x float> splat (float -1.000000e+00)
   %472 = and <8 x i1> %434, %456
@@ -10080,37 +10080,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %553 = shufflevector <8 x float> %534, <8 x float> %535, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %553, ptr %390, align 32
   store <8 x float> %536, ptr %.41835, align 1
-  %554 = getelementptr inbounds i8, ptr %.41835, i64 32
+  %554 = getelementptr inbounds nuw i8, ptr %.41835, i64 32
   store <8 x float> %537, ptr %554, align 1
-  %555 = getelementptr inbounds i8, ptr %.41835, i64 64
+  %555 = getelementptr inbounds nuw i8, ptr %.41835, i64 64
   br label %556
 
 556:                                              ; preds = %482, %556
   %indvars.iv1885 = phi i64 [ 0, %482 ], [ %indvars.iv.next1886, %556 ]
   %.51831 = phi ptr [ %555, %482 ], [ %568, %556 ]
-  %557 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1885
+  %557 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1885
   %558 = load <8 x float>, ptr %557, align 32
   store <8 x float> %558, ptr %.51831, align 1
-  %559 = getelementptr inbounds i8, ptr %.51831, i64 32
-  %560 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1885
+  %559 = getelementptr inbounds nuw i8, ptr %.51831, i64 32
+  %560 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1885
   %561 = load <8 x float>, ptr %560, align 32
   store <8 x float> %561, ptr %559, align 1
-  %562 = getelementptr inbounds i8, ptr %.51831, i64 64
-  %563 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1885
+  %562 = getelementptr inbounds nuw i8, ptr %.51831, i64 64
+  %563 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1885
   %564 = load <8 x float>, ptr %563, align 32
   store <8 x float> %564, ptr %562, align 1
-  %565 = getelementptr inbounds i8, ptr %.51831, i64 96
-  %566 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1885
+  %565 = getelementptr inbounds nuw i8, ptr %.51831, i64 96
+  %566 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1885
   %567 = load <8 x float>, ptr %566, align 32
   store <8 x float> %567, ptr %565, align 1
-  %568 = getelementptr inbounds i8, ptr %.51831, i64 128
+  %568 = getelementptr inbounds nuw i8, ptr %.51831, i64 128
   %indvars.iv.next1886 = add nuw nsw i64 %indvars.iv1885, 1
   %exitcond1888.not = icmp eq i64 %indvars.iv.next1886, 4
   br i1 %exitcond1888.not, label %569, label %556, !llvm.loop !112
 
 569:                                              ; preds = %556
-  %570 = getelementptr inbounds i8, ptr %.016931834, i64 32
-  %571 = getelementptr inbounds i8, ptr %.016951833, i64 32
+  %570 = getelementptr inbounds nuw i8, ptr %.016931834, i64 32
+  %571 = getelementptr inbounds nuw i8, ptr %.016951833, i64 32
   %572 = add nuw nsw i32 %.016971832, 8
   %573 = or disjoint i32 %572, 7
   %574 = icmp slt i32 %573, %17
@@ -10147,7 +10147,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %598, ptr %.61846, align 4
   %599 = sitofp i32 %593 to float
   %600 = fsub fast float %589, %599
-  %601 = getelementptr inbounds i8, ptr %.61846, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %.61846, i64 4
   store float %600, ptr %601, align 4
   %602 = load i32, ptr %393, align 4
   %603 = sitofp i32 %602 to float
@@ -10187,7 +10187,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %629 = icmp sgt i32 %619, -1
   %630 = icmp sgt i32 %602, %619
   %631 = and i1 %629, %630
-  %632 = getelementptr inbounds i8, ptr %.61846, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %.61846, i64 8
   %633 = add i32 %593, -1
   %.fr = freeze i1 %625
   br i1 %.fr, label %.split, label %.split.us
@@ -10218,21 +10218,21 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %651 = load i32, ptr %395, align 8
   %652 = mul nsw i32 %650, %651
   %653 = select i1 %647, i32 %652, i32 -1
-  %654 = getelementptr inbounds i8, ptr %.016841839.us, i64 4
+  %654 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 4
   store i32 %653, ptr %654, align 4
   %655 = add nsw i32 %643, %615
   %656 = load i32, ptr %395, align 8
   %657 = mul nsw i32 %655, %656
   %658 = select i1 %648, i32 %657, i32 -1
-  %659 = getelementptr inbounds i8, ptr %.016841839.us, i64 8
+  %659 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 8
   store i32 %658, ptr %659, align 4
   %660 = add nsw i32 %643, %619
   %661 = load i32, ptr %395, align 8
   %662 = mul nsw i32 %661, %660
   %663 = select i1 %649, i32 %662, i32 -1
-  %664 = getelementptr inbounds i8, ptr %.016841839.us, i64 12
+  %664 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 12
   store i32 %663, ptr %664, align 4
-  %665 = getelementptr inbounds i8, ptr %.016841839.us, i64 16
+  %665 = getelementptr inbounds nuw i8, ptr %.016841839.us, i64 16
   %666 = add nuw nsw i32 %.016831840.us, 1
   %exitcond1889.not = icmp eq i32 %666, 4
   br i1 %exitcond1889.not, label %.split1842.us, label %.split.us, !llvm.loop !114
@@ -10267,29 +10267,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %687 = load i32, ptr %395, align 8
   %688 = mul nsw i32 %686, %687
   %689 = select i1 %680, i32 %688, i32 -1
-  %690 = getelementptr inbounds i8, ptr %.016841839, i64 4
+  %690 = getelementptr inbounds nuw i8, ptr %.016841839, i64 4
   store i32 %689, ptr %690, align 4
   %691 = add nsw i32 %676, %615
   %692 = load i32, ptr %395, align 8
   %693 = mul nsw i32 %691, %692
   %694 = select i1 %681, i32 %693, i32 -1
-  %695 = getelementptr inbounds i8, ptr %.016841839, i64 8
+  %695 = getelementptr inbounds nuw i8, ptr %.016841839, i64 8
   store i32 %694, ptr %695, align 4
   %696 = add nsw i32 %676, %619
   %697 = load i32, ptr %395, align 8
   %698 = mul nsw i32 %697, %696
   %699 = select i1 %682, i32 %698, i32 -1
-  %700 = getelementptr inbounds i8, ptr %.016841839, i64 12
+  %700 = getelementptr inbounds nuw i8, ptr %.016841839, i64 12
   store i32 %699, ptr %700, align 4
-  %701 = getelementptr inbounds i8, ptr %.016841839, i64 16
+  %701 = getelementptr inbounds nuw i8, ptr %.016841839, i64 16
   %702 = add nuw nsw i32 %.016831840, 1
   %exitcond1890.not = icmp eq i32 %702, 4
   br i1 %exitcond1890.not, label %.split1842.us, label %.split, !llvm.loop !114
 
 .split1842.us:                                    ; preds = %.split.us, %.split
-  %703 = getelementptr inbounds i8, ptr %.116941845, i64 4
-  %704 = getelementptr inbounds i8, ptr %.116961844, i64 4
-  %705 = getelementptr inbounds i8, ptr %.61846, i64 72
+  %703 = getelementptr inbounds nuw i8, ptr %.116941845, i64 4
+  %704 = getelementptr inbounds nuw i8, ptr %.116961844, i64 4
+  %705 = getelementptr inbounds nuw i8, ptr %.61846, i64 72
   %706 = add nuw nsw i32 %.116981843, 1
   %exitcond1891.not = icmp eq i32 %706, %17
   br i1 %exitcond1891.not, label %.loopexit, label %575, !llvm.loop !115
@@ -10330,18 +10330,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -10368,7 +10368,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811851 = phi ptr [ %252, %251 ], [ %48, %42 ]
   %.016851850 = phi i32 [ %253, %251 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811851, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811851, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811851, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -10463,16 +10463,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %139 = fmul fast <8 x float> %135, %60
   %140 = fadd fast <8 x float> %139, %84
   %141 = fmul fast <8 x float> %123, %140
-  %142 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1882
+  %142 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1882
   %143 = fadd fast <8 x float> %139, %91
   %144 = fmul fast <8 x float> %123, %143
-  %145 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1882
+  %145 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1882
   %146 = fadd fast <8 x float> %139, %98
   %147 = fmul fast <8 x float> %123, %146
-  %148 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1882
+  %148 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1882
   %149 = fadd fast <8 x float> %139, %105
   %150 = fmul fast <8 x float> %123, %149
-  %151 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1882
+  %151 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1882
   %152 = and <8 x i1> %108, %138
   %153 = select <8 x i1> %152, <8 x float> %141, <8 x float> splat (float -1.000000e+00)
   %154 = and <8 x i1> %111, %138
@@ -10582,36 +10582,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %235 = shufflevector <8 x float> %216, <8 x float> %217, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %235, ptr %40, align 32
   store <8 x float> %218, ptr %.11852, align 1
-  %236 = getelementptr inbounds i8, ptr %.11852, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %.11852, i64 32
   store <8 x float> %219, ptr %236, align 1
-  %237 = getelementptr inbounds i8, ptr %.11852, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %.11852, i64 64
   br label %238
 
 238:                                              ; preds = %164, %238
   %indvars.iv1886 = phi i64 [ 0, %164 ], [ %indvars.iv.next1887, %238 ]
   %.21849 = phi ptr [ %237, %164 ], [ %250, %238 ]
-  %239 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1886
+  %239 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1886
   %240 = load <8 x float>, ptr %239, align 32
   store <8 x float> %240, ptr %.21849, align 1
-  %241 = getelementptr inbounds i8, ptr %.21849, i64 32
-  %242 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1886
+  %241 = getelementptr inbounds nuw i8, ptr %.21849, i64 32
+  %242 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1886
   %243 = load <8 x float>, ptr %242, align 32
   store <8 x float> %243, ptr %241, align 1
-  %244 = getelementptr inbounds i8, ptr %.21849, i64 64
-  %245 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1886
+  %244 = getelementptr inbounds nuw i8, ptr %.21849, i64 64
+  %245 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1886
   %246 = load <8 x float>, ptr %245, align 32
   store <8 x float> %246, ptr %244, align 1
-  %247 = getelementptr inbounds i8, ptr %.21849, i64 96
-  %248 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1886
+  %247 = getelementptr inbounds nuw i8, ptr %.21849, i64 96
+  %248 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1886
   %249 = load <8 x float>, ptr %248, align 32
   store <8 x float> %249, ptr %247, align 1
-  %250 = getelementptr inbounds i8, ptr %.21849, i64 128
+  %250 = getelementptr inbounds nuw i8, ptr %.21849, i64 128
   %indvars.iv.next1887 = add nuw nsw i64 %indvars.iv1886, 1
   %exitcond1889.not = icmp eq i64 %indvars.iv.next1887, 4
   br i1 %exitcond1889.not, label %251, label %238, !llvm.loop !117
 
 251:                                              ; preds = %238
-  %252 = getelementptr inbounds i8, ptr %.016811851, i64 64
+  %252 = getelementptr inbounds nuw i8, ptr %.016811851, i64 64
   %253 = add nuw nsw i32 %.016851850, 16
   %254 = or disjoint i32 %253, 15
   %255 = icmp slt i32 %254, %17
@@ -10622,7 +10622,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821860 = phi ptr [ %385, %384 ], [ %.01681.lcssa, %.preheader ]
   %.116861859 = phi i32 [ %387, %384 ], [ %.01685.lcssa, %.preheader ]
   %256 = load float, ptr %.116821860, align 4
-  %257 = getelementptr inbounds i8, ptr %.116821860, i64 4
+  %257 = getelementptr inbounds nuw i8, ptr %.116821860, i64 4
   %258 = load float, ptr %257, align 4
   %259 = load i32, ptr %26, align 4
   %260 = sitofp i32 %259 to float
@@ -10648,7 +10648,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %279, ptr %.31861, align 4
   %280 = sitofp i32 %274 to float
   %281 = fsub fast float %270, %280
-  %282 = getelementptr inbounds i8, ptr %.31861, i64 4
+  %282 = getelementptr inbounds nuw i8, ptr %.31861, i64 4
   store float %281, ptr %282, align 4
   %283 = load i32, ptr %26, align 4
   %284 = fadd fast float %278, 5.000000e-01
@@ -10712,7 +10712,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %334 = icmp sgt i32 %324, -1
   %335 = icmp sgt i32 %283, %324
   %336 = and i1 %334, %335
-  %337 = getelementptr inbounds i8, ptr %.31861, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %.31861, i64 8
   %338 = add i32 %274, -1
   br label %339
 
@@ -10753,28 +10753,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %368 = load i32, ptr %28, align 8
   %369 = mul nsw i32 %367, %368
   %370 = select i1 %360, i32 %369, i32 -1
-  %371 = getelementptr inbounds i8, ptr %.016911858, i64 4
+  %371 = getelementptr inbounds nuw i8, ptr %.016911858, i64 4
   store i32 %370, ptr %371, align 4
   %372 = add nsw i32 %355, %314
   %373 = load i32, ptr %28, align 8
   %374 = mul nsw i32 %372, %373
   %375 = select i1 %361, i32 %374, i32 -1
-  %376 = getelementptr inbounds i8, ptr %.016911858, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %.016911858, i64 8
   store i32 %375, ptr %376, align 4
   %377 = add nsw i32 %355, %324
   %378 = load i32, ptr %28, align 8
   %379 = mul nsw i32 %377, %378
   %380 = select i1 %362, i32 %379, i32 -1
-  %381 = getelementptr inbounds i8, ptr %.016911858, i64 12
+  %381 = getelementptr inbounds nuw i8, ptr %.016911858, i64 12
   store i32 %380, ptr %381, align 4
-  %382 = getelementptr inbounds i8, ptr %.016911858, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %.016911858, i64 16
   %383 = add nuw nsw i32 %.016921857, 1
   %exitcond1890.not = icmp eq i32 %383, 4
   br i1 %exitcond1890.not, label %384, label %339, !llvm.loop !119
 
 384:                                              ; preds = %339
-  %385 = getelementptr inbounds i8, ptr %.116821860, i64 8
-  %386 = getelementptr inbounds i8, ptr %.31861, i64 72
+  %385 = getelementptr inbounds nuw i8, ptr %.116821860, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %.31861, i64 72
   %387 = add nuw nsw i32 %.116861859, 2
   %388 = icmp slt i32 %387, %17
   br i1 %388, label %.lr.ph1862, label %._crit_edge, !llvm.loop !120
@@ -10802,18 +10802,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %404 = getelementptr inbounds i8, ptr %9, i64 32
-  %405 = getelementptr inbounds i8, ptr %10, i64 32
-  %406 = getelementptr inbounds i8, ptr %11, i64 32
-  %407 = getelementptr inbounds i8, ptr %12, i64 32
-  %408 = getelementptr inbounds i8, ptr %9, i64 64
-  %409 = getelementptr inbounds i8, ptr %10, i64 64
-  %410 = getelementptr inbounds i8, ptr %11, i64 64
-  %411 = getelementptr inbounds i8, ptr %12, i64 64
-  %412 = getelementptr inbounds i8, ptr %9, i64 96
-  %413 = getelementptr inbounds i8, ptr %10, i64 96
-  %414 = getelementptr inbounds i8, ptr %11, i64 96
-  %415 = getelementptr inbounds i8, ptr %12, i64 96
+  %404 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %405 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %406 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %408 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %409 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %410 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %411 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %412 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %413 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %414 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %415 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %416 = and i32 %17, 2147483640
   br label %421
 
@@ -10927,16 +10927,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %506 = fmul fast <8 x float> %502, %427
   %507 = fadd fast <8 x float> %506, %451
   %508 = fmul fast <8 x float> %490, %507
-  %509 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %509 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %510 = fadd fast <8 x float> %506, %458
   %511 = fmul fast <8 x float> %490, %510
-  %512 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %512 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %513 = fadd fast <8 x float> %506, %465
   %514 = fmul fast <8 x float> %490, %513
-  %515 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %515 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %516 = fadd fast <8 x float> %506, %472
   %517 = fmul fast <8 x float> %490, %516
-  %518 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %518 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %519 = and <8 x i1> %475, %505
   %520 = select <8 x i1> %519, <8 x float> %508, <8 x float> splat (float -1.000000e+00)
   %521 = and <8 x i1> %478, %505
@@ -11046,37 +11046,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %602 = shufflevector <8 x float> %583, <8 x float> %584, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %602, ptr %415, align 32
   store <8 x float> %585, ptr %.41836, align 1
-  %603 = getelementptr inbounds i8, ptr %.41836, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %.41836, i64 32
   store <8 x float> %586, ptr %603, align 1
-  %604 = getelementptr inbounds i8, ptr %.41836, i64 64
+  %604 = getelementptr inbounds nuw i8, ptr %.41836, i64 64
   br label %605
 
 605:                                              ; preds = %531, %605
   %indvars.iv1876 = phi i64 [ 0, %531 ], [ %indvars.iv.next1877, %605 ]
   %.51832 = phi ptr [ %604, %531 ], [ %617, %605 ]
-  %606 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1876
+  %606 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1876
   %607 = load <8 x float>, ptr %606, align 32
   store <8 x float> %607, ptr %.51832, align 1
-  %608 = getelementptr inbounds i8, ptr %.51832, i64 32
-  %609 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1876
+  %608 = getelementptr inbounds nuw i8, ptr %.51832, i64 32
+  %609 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1876
   %610 = load <8 x float>, ptr %609, align 32
   store <8 x float> %610, ptr %608, align 1
-  %611 = getelementptr inbounds i8, ptr %.51832, i64 64
-  %612 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1876
+  %611 = getelementptr inbounds nuw i8, ptr %.51832, i64 64
+  %612 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1876
   %613 = load <8 x float>, ptr %612, align 32
   store <8 x float> %613, ptr %611, align 1
-  %614 = getelementptr inbounds i8, ptr %.51832, i64 96
-  %615 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1876
+  %614 = getelementptr inbounds nuw i8, ptr %.51832, i64 96
+  %615 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1876
   %616 = load <8 x float>, ptr %615, align 32
   store <8 x float> %616, ptr %614, align 1
-  %617 = getelementptr inbounds i8, ptr %.51832, i64 128
+  %617 = getelementptr inbounds nuw i8, ptr %.51832, i64 128
   %indvars.iv.next1877 = add nuw nsw i64 %indvars.iv1876, 1
   %exitcond1879.not = icmp eq i64 %indvars.iv.next1877, 4
   br i1 %exitcond1879.not, label %618, label %605, !llvm.loop !123
 
 618:                                              ; preds = %605
-  %619 = getelementptr inbounds i8, ptr %.016931835, i64 32
-  %620 = getelementptr inbounds i8, ptr %.016951834, i64 32
+  %619 = getelementptr inbounds nuw i8, ptr %.016931835, i64 32
+  %620 = getelementptr inbounds nuw i8, ptr %.016951834, i64 32
   %621 = add nuw nsw i32 %.016971833, 8
   %622 = or disjoint i32 %621, 7
   %623 = icmp slt i32 %622, %17
@@ -11113,7 +11113,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %647, ptr %.61845, align 4
   %648 = sitofp i32 %642 to float
   %649 = fsub fast float %638, %648
-  %650 = getelementptr inbounds i8, ptr %.61845, i64 4
+  %650 = getelementptr inbounds nuw i8, ptr %.61845, i64 4
   store float %649, ptr %650, align 4
   %651 = load i32, ptr %418, align 4
   %652 = fadd fast float %646, 5.000000e-01
@@ -11177,7 +11177,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %702 = icmp sgt i32 %692, -1
   %703 = icmp sgt i32 %651, %692
   %704 = and i1 %702, %703
-  %705 = getelementptr inbounds i8, ptr %.61845, i64 8
+  %705 = getelementptr inbounds nuw i8, ptr %.61845, i64 8
   %706 = add i32 %642, -1
   br label %707
 
@@ -11218,29 +11218,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %736 = load i32, ptr %420, align 8
   %737 = mul nsw i32 %735, %736
   %738 = select i1 %728, i32 %737, i32 -1
-  %739 = getelementptr inbounds i8, ptr %.016841840, i64 4
+  %739 = getelementptr inbounds nuw i8, ptr %.016841840, i64 4
   store i32 %738, ptr %739, align 4
   %740 = add nsw i32 %723, %682
   %741 = load i32, ptr %420, align 8
   %742 = mul nsw i32 %740, %741
   %743 = select i1 %729, i32 %742, i32 -1
-  %744 = getelementptr inbounds i8, ptr %.016841840, i64 8
+  %744 = getelementptr inbounds nuw i8, ptr %.016841840, i64 8
   store i32 %743, ptr %744, align 4
   %745 = add nsw i32 %723, %692
   %746 = load i32, ptr %420, align 8
   %747 = mul nsw i32 %745, %746
   %748 = select i1 %730, i32 %747, i32 -1
-  %749 = getelementptr inbounds i8, ptr %.016841840, i64 12
+  %749 = getelementptr inbounds nuw i8, ptr %.016841840, i64 12
   store i32 %748, ptr %749, align 4
-  %750 = getelementptr inbounds i8, ptr %.016841840, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %.016841840, i64 16
   %751 = add nuw nsw i32 %.016831841, 1
   %exitcond1880.not = icmp eq i32 %751, 4
   br i1 %exitcond1880.not, label %752, label %707, !llvm.loop !125
 
 752:                                              ; preds = %707
-  %753 = getelementptr inbounds i8, ptr %.116941844, i64 4
-  %754 = getelementptr inbounds i8, ptr %.116961843, i64 4
-  %755 = getelementptr inbounds i8, ptr %.61845, i64 72
+  %753 = getelementptr inbounds nuw i8, ptr %.116941844, i64 4
+  %754 = getelementptr inbounds nuw i8, ptr %.116961843, i64 4
+  %755 = getelementptr inbounds nuw i8, ptr %.61845, i64 72
   %756 = add nuw nsw i32 %.116981842, 1
   %exitcond1881.not = icmp eq i32 %756, %17
   br i1 %exitcond1881.not, label %.loopexit, label %624, !llvm.loop !126
@@ -11281,18 +11281,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
-  %35 = getelementptr inbounds i8, ptr %7, i64 64
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
-  %37 = getelementptr inbounds i8, ptr %5, i64 96
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %41 = and i32 %17, -16
   br label %42
 
@@ -11319,7 +11319,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.016811850 = phi ptr [ %238, %237 ], [ %48, %42 ]
   %.016851849 = phi i32 [ %239, %237 ], [ 0, %42 ]
   %50 = load <8 x float>, ptr %.016811850, align 1
-  %51 = getelementptr inbounds i8, ptr %.016811850, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.016811850, i64 32
   %52 = load <8 x float>, ptr %51, align 1
   %53 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %54 = shufflevector <8 x float> %50, <8 x float> %52, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -11399,16 +11399,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %125 = fmul fast <8 x float> %121, %60
   %126 = fadd fast <8 x float> %125, %82
   %127 = fmul fast <8 x float> %110, %126
-  %128 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1881
+  %128 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1881
   %129 = fadd fast <8 x float> %125, %86
   %130 = fmul fast <8 x float> %110, %129
-  %131 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1881
+  %131 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1881
   %132 = fadd fast <8 x float> %125, %90
   %133 = fmul fast <8 x float> %110, %132
-  %134 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1881
+  %134 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1881
   %135 = fadd fast <8 x float> %125, %94
   %136 = fmul fast <8 x float> %110, %135
-  %137 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1881
+  %137 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1881
   %138 = and <8 x i1> %97, %124
   %139 = select <8 x i1> %138, <8 x float> %127, <8 x float> splat (float -1.000000e+00)
   %140 = and <8 x i1> %100, %124
@@ -11518,36 +11518,36 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %221 = shufflevector <8 x float> %202, <8 x float> %203, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %221, ptr %40, align 32
   store <8 x float> %204, ptr %.11851, align 1
-  %222 = getelementptr inbounds i8, ptr %.11851, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %.11851, i64 32
   store <8 x float> %205, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.11851, i64 64
+  %223 = getelementptr inbounds nuw i8, ptr %.11851, i64 64
   br label %224
 
 224:                                              ; preds = %150, %224
   %indvars.iv1885 = phi i64 [ 0, %150 ], [ %indvars.iv.next1886, %224 ]
   %.21848 = phi ptr [ %223, %150 ], [ %236, %224 ]
-  %225 = getelementptr inbounds [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1885
+  %225 = getelementptr inbounds nuw [4 x <8 x float>], ptr %5, i64 0, i64 %indvars.iv1885
   %226 = load <8 x float>, ptr %225, align 32
   store <8 x float> %226, ptr %.21848, align 1
-  %227 = getelementptr inbounds i8, ptr %.21848, i64 32
-  %228 = getelementptr inbounds [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1885
+  %227 = getelementptr inbounds nuw i8, ptr %.21848, i64 32
+  %228 = getelementptr inbounds nuw [4 x <8 x float>], ptr %6, i64 0, i64 %indvars.iv1885
   %229 = load <8 x float>, ptr %228, align 32
   store <8 x float> %229, ptr %227, align 1
-  %230 = getelementptr inbounds i8, ptr %.21848, i64 64
-  %231 = getelementptr inbounds [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1885
+  %230 = getelementptr inbounds nuw i8, ptr %.21848, i64 64
+  %231 = getelementptr inbounds nuw [4 x <8 x float>], ptr %7, i64 0, i64 %indvars.iv1885
   %232 = load <8 x float>, ptr %231, align 32
   store <8 x float> %232, ptr %230, align 1
-  %233 = getelementptr inbounds i8, ptr %.21848, i64 96
-  %234 = getelementptr inbounds [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1885
+  %233 = getelementptr inbounds nuw i8, ptr %.21848, i64 96
+  %234 = getelementptr inbounds nuw [4 x <8 x float>], ptr %8, i64 0, i64 %indvars.iv1885
   %235 = load <8 x float>, ptr %234, align 32
   store <8 x float> %235, ptr %233, align 1
-  %236 = getelementptr inbounds i8, ptr %.21848, i64 128
+  %236 = getelementptr inbounds nuw i8, ptr %.21848, i64 128
   %indvars.iv.next1886 = add nuw nsw i64 %indvars.iv1885, 1
   %exitcond1888.not = icmp eq i64 %indvars.iv.next1886, 4
   br i1 %exitcond1888.not, label %237, label %224, !llvm.loop !128
 
 237:                                              ; preds = %224
-  %238 = getelementptr inbounds i8, ptr %.016811850, i64 64
+  %238 = getelementptr inbounds nuw i8, ptr %.016811850, i64 64
   %239 = add nuw nsw i32 %.016851849, 16
   %240 = or disjoint i32 %239, 15
   %241 = icmp slt i32 %240, %17
@@ -11558,7 +11558,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %.116821859 = phi ptr [ %365, %364 ], [ %.01681.lcssa, %.preheader ]
   %.116861858 = phi i32 [ %367, %364 ], [ %.01685.lcssa, %.preheader ]
   %242 = load float, ptr %.116821859, align 4
-  %243 = getelementptr inbounds i8, ptr %.116821859, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %.116821859, i64 4
   %244 = load float, ptr %243, align 4
   %245 = load i32, ptr %26, align 4
   %246 = fmul fast float %242, 5.000000e-01
@@ -11584,7 +11584,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %265, ptr %.31860, align 4
   %266 = sitofp i32 %260 to float
   %267 = fsub fast float %256, %266
-  %268 = getelementptr inbounds i8, ptr %.31860, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %.31860, i64 4
   store float %267, ptr %268, align 4
   %269 = load i32, ptr %26, align 4
   %270 = tail call fast noundef float @llvm.fabs.f32(float %264)
@@ -11642,7 +11642,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %314 = icmp sgt i32 %304, -1
   %315 = icmp sgt i32 %269, %304
   %316 = and i1 %314, %315
-  %317 = getelementptr inbounds i8, ptr %.31860, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.31860, i64 8
   %318 = add i32 %260, -1
   br label %319
 
@@ -11683,28 +11683,28 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %348 = load i32, ptr %28, align 8
   %349 = mul nsw i32 %347, %348
   %350 = select i1 %340, i32 %349, i32 -1
-  %351 = getelementptr inbounds i8, ptr %.016911857, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %.016911857, i64 4
   store i32 %350, ptr %351, align 4
   %352 = add nsw i32 %335, %296
   %353 = load i32, ptr %28, align 8
   %354 = mul nsw i32 %352, %353
   %355 = select i1 %341, i32 %354, i32 -1
-  %356 = getelementptr inbounds i8, ptr %.016911857, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %.016911857, i64 8
   store i32 %355, ptr %356, align 4
   %357 = add nsw i32 %335, %304
   %358 = load i32, ptr %28, align 8
   %359 = mul nsw i32 %357, %358
   %360 = select i1 %342, i32 %359, i32 -1
-  %361 = getelementptr inbounds i8, ptr %.016911857, i64 12
+  %361 = getelementptr inbounds nuw i8, ptr %.016911857, i64 12
   store i32 %360, ptr %361, align 4
-  %362 = getelementptr inbounds i8, ptr %.016911857, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %.016911857, i64 16
   %363 = add nuw nsw i32 %.016921856, 1
   %exitcond1889.not = icmp eq i32 %363, 4
   br i1 %exitcond1889.not, label %364, label %319, !llvm.loop !130
 
 364:                                              ; preds = %319
-  %365 = getelementptr inbounds i8, ptr %.116821859, i64 8
-  %366 = getelementptr inbounds i8, ptr %.31860, i64 72
+  %365 = getelementptr inbounds nuw i8, ptr %.116821859, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %.31860, i64 72
   %367 = add nuw nsw i32 %.116861858, 2
   %368 = icmp slt i32 %367, %17
   br i1 %368, label %.lr.ph1861, label %._crit_edge, !llvm.loop !131
@@ -11732,18 +11732,18 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %384 = getelementptr inbounds i8, ptr %9, i64 32
-  %385 = getelementptr inbounds i8, ptr %10, i64 32
-  %386 = getelementptr inbounds i8, ptr %11, i64 32
-  %387 = getelementptr inbounds i8, ptr %12, i64 32
-  %388 = getelementptr inbounds i8, ptr %9, i64 64
-  %389 = getelementptr inbounds i8, ptr %10, i64 64
-  %390 = getelementptr inbounds i8, ptr %11, i64 64
-  %391 = getelementptr inbounds i8, ptr %12, i64 64
-  %392 = getelementptr inbounds i8, ptr %9, i64 96
-  %393 = getelementptr inbounds i8, ptr %10, i64 96
-  %394 = getelementptr inbounds i8, ptr %11, i64 96
-  %395 = getelementptr inbounds i8, ptr %12, i64 96
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %386 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %387 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %388 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %389 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %390 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %391 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %392 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %393 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %394 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %395 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %396 = and i32 %17, 2147483640
   br label %401
 
@@ -11842,16 +11842,16 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %472 = fmul fast <8 x float> %468, %407
   %473 = fadd fast <8 x float> %472, %429
   %474 = fmul fast <8 x float> %457, %473
-  %475 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
+  %475 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv
   %476 = fadd fast <8 x float> %472, %433
   %477 = fmul fast <8 x float> %457, %476
-  %478 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
+  %478 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv
   %479 = fadd fast <8 x float> %472, %437
   %480 = fmul fast <8 x float> %457, %479
-  %481 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
+  %481 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv
   %482 = fadd fast <8 x float> %472, %441
   %483 = fmul fast <8 x float> %457, %482
-  %484 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
+  %484 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv
   %485 = and <8 x i1> %444, %471
   %486 = select <8 x i1> %485, <8 x float> %474, <8 x float> splat (float -1.000000e+00)
   %487 = and <8 x i1> %447, %471
@@ -11961,37 +11961,37 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %568 = shufflevector <8 x float> %549, <8 x float> %550, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x float> %568, ptr %395, align 32
   store <8 x float> %551, ptr %.41835, align 1
-  %569 = getelementptr inbounds i8, ptr %.41835, i64 32
+  %569 = getelementptr inbounds nuw i8, ptr %.41835, i64 32
   store <8 x float> %552, ptr %569, align 1
-  %570 = getelementptr inbounds i8, ptr %.41835, i64 64
+  %570 = getelementptr inbounds nuw i8, ptr %.41835, i64 64
   br label %571
 
 571:                                              ; preds = %497, %571
   %indvars.iv1875 = phi i64 [ 0, %497 ], [ %indvars.iv.next1876, %571 ]
   %.51831 = phi ptr [ %570, %497 ], [ %583, %571 ]
-  %572 = getelementptr inbounds [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1875
+  %572 = getelementptr inbounds nuw [4 x <8 x float>], ptr %9, i64 0, i64 %indvars.iv1875
   %573 = load <8 x float>, ptr %572, align 32
   store <8 x float> %573, ptr %.51831, align 1
-  %574 = getelementptr inbounds i8, ptr %.51831, i64 32
-  %575 = getelementptr inbounds [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1875
+  %574 = getelementptr inbounds nuw i8, ptr %.51831, i64 32
+  %575 = getelementptr inbounds nuw [4 x <8 x float>], ptr %10, i64 0, i64 %indvars.iv1875
   %576 = load <8 x float>, ptr %575, align 32
   store <8 x float> %576, ptr %574, align 1
-  %577 = getelementptr inbounds i8, ptr %.51831, i64 64
-  %578 = getelementptr inbounds [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1875
+  %577 = getelementptr inbounds nuw i8, ptr %.51831, i64 64
+  %578 = getelementptr inbounds nuw [4 x <8 x float>], ptr %11, i64 0, i64 %indvars.iv1875
   %579 = load <8 x float>, ptr %578, align 32
   store <8 x float> %579, ptr %577, align 1
-  %580 = getelementptr inbounds i8, ptr %.51831, i64 96
-  %581 = getelementptr inbounds [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1875
+  %580 = getelementptr inbounds nuw i8, ptr %.51831, i64 96
+  %581 = getelementptr inbounds nuw [4 x <8 x float>], ptr %12, i64 0, i64 %indvars.iv1875
   %582 = load <8 x float>, ptr %581, align 32
   store <8 x float> %582, ptr %580, align 1
-  %583 = getelementptr inbounds i8, ptr %.51831, i64 128
+  %583 = getelementptr inbounds nuw i8, ptr %.51831, i64 128
   %indvars.iv.next1876 = add nuw nsw i64 %indvars.iv1875, 1
   %exitcond1878.not = icmp eq i64 %indvars.iv.next1876, 4
   br i1 %exitcond1878.not, label %584, label %571, !llvm.loop !134
 
 584:                                              ; preds = %571
-  %585 = getelementptr inbounds i8, ptr %.016931834, i64 32
-  %586 = getelementptr inbounds i8, ptr %.016951833, i64 32
+  %585 = getelementptr inbounds nuw i8, ptr %.016931834, i64 32
+  %586 = getelementptr inbounds nuw i8, ptr %.016951833, i64 32
   %587 = add nuw nsw i32 %.016971832, 8
   %588 = or disjoint i32 %587, 7
   %589 = icmp slt i32 %588, %17
@@ -12028,7 +12028,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   store float %613, ptr %.61844, align 4
   %614 = sitofp i32 %608 to float
   %615 = fsub fast float %604, %614
-  %616 = getelementptr inbounds i8, ptr %.61844, i64 4
+  %616 = getelementptr inbounds nuw i8, ptr %.61844, i64 4
   store float %615, ptr %616, align 4
   %617 = load i32, ptr %398, align 4
   %618 = tail call fast noundef float @llvm.fabs.f32(float %612)
@@ -12086,7 +12086,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %662 = icmp sgt i32 %652, -1
   %663 = icmp sgt i32 %617, %652
   %664 = and i1 %662, %663
-  %665 = getelementptr inbounds i8, ptr %.61844, i64 8
+  %665 = getelementptr inbounds nuw i8, ptr %.61844, i64 8
   %666 = add i32 %608, -1
   br label %667
 
@@ -12127,29 +12127,29 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_2d_bicubic_compute_blobILN
   %696 = load i32, ptr %400, align 8
   %697 = mul nsw i32 %695, %696
   %698 = select i1 %688, i32 %697, i32 -1
-  %699 = getelementptr inbounds i8, ptr %.016841839, i64 4
+  %699 = getelementptr inbounds nuw i8, ptr %.016841839, i64 4
   store i32 %698, ptr %699, align 4
   %700 = add nsw i32 %683, %644
   %701 = load i32, ptr %400, align 8
   %702 = mul nsw i32 %700, %701
   %703 = select i1 %689, i32 %702, i32 -1
-  %704 = getelementptr inbounds i8, ptr %.016841839, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %.016841839, i64 8
   store i32 %703, ptr %704, align 4
   %705 = add nsw i32 %683, %652
   %706 = load i32, ptr %400, align 8
   %707 = mul nsw i32 %705, %706
   %708 = select i1 %690, i32 %707, i32 -1
-  %709 = getelementptr inbounds i8, ptr %.016841839, i64 12
+  %709 = getelementptr inbounds nuw i8, ptr %.016841839, i64 12
   store i32 %708, ptr %709, align 4
-  %710 = getelementptr inbounds i8, ptr %.016841839, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %.016841839, i64 16
   %711 = add nuw nsw i32 %.016831840, 1
   %exitcond1879.not = icmp eq i32 %711, 4
   br i1 %exitcond1879.not, label %712, label %667, !llvm.loop !136
 
 712:                                              ; preds = %667
-  %713 = getelementptr inbounds i8, ptr %.116941843, i64 4
-  %714 = getelementptr inbounds i8, ptr %.116961842, i64 4
-  %715 = getelementptr inbounds i8, ptr %.61844, i64 72
+  %713 = getelementptr inbounds nuw i8, ptr %.116941843, i64 4
+  %714 = getelementptr inbounds nuw i8, ptr %.116961842, i64 4
+  %715 = getelementptr inbounds nuw i8, ptr %.61844, i64 72
   %716 = add nuw nsw i32 %.116981841, 1
   %exitcond1880.not = icmp eq i32 %716, %17
   br i1 %exitcond1880.not, label %.loopexit, label %590, !llvm.loop !137
@@ -12218,9 +12218,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433144 = phi ptr [ %217, %.lr.ph3146 ], [ %35, %29 ]
   %.027453143 = phi i32 [ %219, %.lr.ph3146 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433144, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433144, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433144, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433144, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433144, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -12388,28 +12388,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %205 = shufflevector <8 x float> %191, <8 x float> %192, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %206 = shufflevector <8 x float> %194, <8 x float> %195, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %196, ptr %.13145, align 1
-  %207 = getelementptr inbounds i8, ptr %.13145, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.13145, i64 32
   store <8 x float> %197, ptr %207, align 1
-  %208 = getelementptr inbounds i8, ptr %.13145, i64 64
+  %208 = getelementptr inbounds nuw i8, ptr %.13145, i64 64
   store <8 x float> %198, ptr %208, align 1
-  %209 = getelementptr inbounds i8, ptr %.13145, i64 96
+  %209 = getelementptr inbounds nuw i8, ptr %.13145, i64 96
   store <8 x float> %199, ptr %209, align 1
-  %210 = getelementptr inbounds i8, ptr %.13145, i64 128
+  %210 = getelementptr inbounds nuw i8, ptr %.13145, i64 128
   store <8 x float> %200, ptr %210, align 1
-  %211 = getelementptr inbounds i8, ptr %.13145, i64 160
+  %211 = getelementptr inbounds nuw i8, ptr %.13145, i64 160
   store <8 x float> %201, ptr %211, align 1
-  %212 = getelementptr inbounds i8, ptr %.13145, i64 192
+  %212 = getelementptr inbounds nuw i8, ptr %.13145, i64 192
   store <8 x float> %202, ptr %212, align 1
-  %213 = getelementptr inbounds i8, ptr %.13145, i64 224
+  %213 = getelementptr inbounds nuw i8, ptr %.13145, i64 224
   store <8 x float> %203, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %.13145, i64 256
+  %214 = getelementptr inbounds nuw i8, ptr %.13145, i64 256
   store <8 x float> %204, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %.13145, i64 288
+  %215 = getelementptr inbounds nuw i8, ptr %.13145, i64 288
   store <8 x float> %205, ptr %215, align 1
-  %216 = getelementptr inbounds i8, ptr %.13145, i64 320
+  %216 = getelementptr inbounds nuw i8, ptr %.13145, i64 320
   store <8 x float> %206, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.027433144, i64 96
-  %218 = getelementptr inbounds i8, ptr %.13145, i64 352
+  %217 = getelementptr inbounds nuw i8, ptr %.027433144, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %.13145, i64 352
   %219 = add nuw nsw i32 %.027453143, 24
   %220 = add nuw nsw i32 %.027453143, 47
   %221 = icmp slt i32 %220, %.fr3168
@@ -12420,9 +12420,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443151 = phi ptr [ %376, %365 ], [ %.02743.lcssa, %.preheader ]
   %.127463150 = phi i32 [ %378, %365 ], [ %.02745.lcssa, %.preheader ]
   %222 = load float, ptr %.127443151, align 4
-  %223 = getelementptr inbounds i8, ptr %.127443151, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.127443151, i64 4
   %224 = load float, ptr %223, align 4
-  %225 = getelementptr inbounds i8, ptr %.127443151, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.127443151, i64 8
   %226 = load float, ptr %225, align 4
   %227 = load i32, ptr %21, align 4
   %228 = sitofp i32 %227 to float
@@ -12495,7 +12495,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %288, 0
   %289 = and i32 %279, %285
   %.not3094 = icmp eq i32 %289, 0
-  %290 = getelementptr inbounds i8, ptr %.23152, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %.23152, i64 32
   br i1 %.not3087, label %296, label %291
 
 291:                                              ; preds = %.lr.ph3153
@@ -12525,7 +12525,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 305:                                              ; preds = %296, %298
   %306 = phi i32 [ %304, %298 ], [ -1, %296 ]
-  %307 = getelementptr inbounds i8, ptr %.23152, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.23152, i64 4
   store i32 %306, ptr %307, align 4
   br i1 %.not3089, label %315, label %308
 
@@ -12542,7 +12542,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 315:                                              ; preds = %305, %308
   %316 = phi i32 [ %314, %308 ], [ -1, %305 ]
-  %317 = getelementptr inbounds i8, ptr %.23152, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.23152, i64 8
   store i32 %316, ptr %317, align 4
   br i1 %.not3090, label %325, label %318
 
@@ -12559,7 +12559,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 325:                                              ; preds = %315, %318
   %326 = phi i32 [ %324, %318 ], [ -1, %315 ]
-  %327 = getelementptr inbounds i8, ptr %.23152, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %.23152, i64 12
   store i32 %326, ptr %327, align 4
   br i1 %.not3091, label %335, label %328
 
@@ -12576,7 +12576,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 335:                                              ; preds = %325, %328
   %336 = phi i32 [ %334, %328 ], [ -1, %325 ]
-  %337 = getelementptr inbounds i8, ptr %.23152, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.23152, i64 16
   store i32 %336, ptr %337, align 4
   br i1 %.not3092, label %345, label %338
 
@@ -12593,7 +12593,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 345:                                              ; preds = %335, %338
   %346 = phi i32 [ %344, %338 ], [ -1, %335 ]
-  %347 = getelementptr inbounds i8, ptr %.23152, i64 20
+  %347 = getelementptr inbounds nuw i8, ptr %.23152, i64 20
   store i32 %346, ptr %347, align 4
   br i1 %.not3093, label %355, label %348
 
@@ -12610,7 +12610,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 355:                                              ; preds = %345, %348
   %356 = phi i32 [ %354, %348 ], [ -1, %345 ]
-  %357 = getelementptr inbounds i8, ptr %.23152, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %.23152, i64 24
   store i32 %356, ptr %357, align 4
   br i1 %.not3094, label %365, label %358
 
@@ -12627,21 +12627,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 365:                                              ; preds = %355, %358
   %366 = phi i32 [ %364, %358 ], [ -1, %355 ]
-  %367 = getelementptr inbounds i8, ptr %.23152, i64 28
+  %367 = getelementptr inbounds nuw i8, ptr %.23152, i64 28
   store i32 %366, ptr %367, align 4
   %368 = sitofp i32 %246 to float
   %369 = fsub fast float %232, %368
   store float %369, ptr %290, align 4
   %370 = sitofp i32 %248 to float
   %371 = fsub fast float %238, %370
-  %372 = getelementptr inbounds i8, ptr %.23152, i64 36
+  %372 = getelementptr inbounds nuw i8, ptr %.23152, i64 36
   store float %371, ptr %372, align 4
   %373 = sitofp i32 %250 to float
   %374 = fsub fast float %244, %373
-  %375 = getelementptr inbounds i8, ptr %.23152, i64 40
+  %375 = getelementptr inbounds nuw i8, ptr %.23152, i64 40
   store float %374, ptr %375, align 4
-  %376 = getelementptr inbounds i8, ptr %.127443151, i64 12
-  %377 = getelementptr inbounds i8, ptr %.23152, i64 44
+  %376 = getelementptr inbounds nuw i8, ptr %.127443151, i64 12
+  %377 = getelementptr inbounds nuw i8, ptr %.23152, i64 44
   %378 = add nuw nsw i32 %.127463150, 3
   %379 = icmp slt i32 %378, %.fr3168
   br i1 %379, label %.lr.ph3153, label %._crit_edge, !llvm.loop !139
@@ -12859,30 +12859,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %564 = shufflevector <8 x float> %550, <8 x float> %551, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %565 = shufflevector <8 x float> %553, <8 x float> %554, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %555, ptr %.33132, align 1
-  %566 = getelementptr inbounds i8, ptr %.33132, i64 32
+  %566 = getelementptr inbounds nuw i8, ptr %.33132, i64 32
   store <8 x float> %556, ptr %566, align 1
-  %567 = getelementptr inbounds i8, ptr %.33132, i64 64
+  %567 = getelementptr inbounds nuw i8, ptr %.33132, i64 64
   store <8 x float> %557, ptr %567, align 1
-  %568 = getelementptr inbounds i8, ptr %.33132, i64 96
+  %568 = getelementptr inbounds nuw i8, ptr %.33132, i64 96
   store <8 x float> %558, ptr %568, align 1
-  %569 = getelementptr inbounds i8, ptr %.33132, i64 128
+  %569 = getelementptr inbounds nuw i8, ptr %.33132, i64 128
   store <8 x float> %559, ptr %569, align 1
-  %570 = getelementptr inbounds i8, ptr %.33132, i64 160
+  %570 = getelementptr inbounds nuw i8, ptr %.33132, i64 160
   store <8 x float> %560, ptr %570, align 1
-  %571 = getelementptr inbounds i8, ptr %.33132, i64 192
+  %571 = getelementptr inbounds nuw i8, ptr %.33132, i64 192
   store <8 x float> %561, ptr %571, align 1
-  %572 = getelementptr inbounds i8, ptr %.33132, i64 224
+  %572 = getelementptr inbounds nuw i8, ptr %.33132, i64 224
   store <8 x float> %562, ptr %572, align 1
-  %573 = getelementptr inbounds i8, ptr %.33132, i64 256
+  %573 = getelementptr inbounds nuw i8, ptr %.33132, i64 256
   store <8 x float> %563, ptr %573, align 1
-  %574 = getelementptr inbounds i8, ptr %.33132, i64 288
+  %574 = getelementptr inbounds nuw i8, ptr %.33132, i64 288
   store <8 x float> %564, ptr %574, align 1
-  %575 = getelementptr inbounds i8, ptr %.33132, i64 320
+  %575 = getelementptr inbounds nuw i8, ptr %.33132, i64 320
   store <8 x float> %565, ptr %575, align 1
-  %576 = getelementptr inbounds i8, ptr %.027473131, i64 32
-  %577 = getelementptr inbounds i8, ptr %.027493130, i64 32
-  %578 = getelementptr inbounds i8, ptr %.027513129, i64 32
-  %579 = getelementptr inbounds i8, ptr %.33132, i64 352
+  %576 = getelementptr inbounds nuw i8, ptr %.027473131, i64 32
+  %577 = getelementptr inbounds nuw i8, ptr %.027493130, i64 32
+  %578 = getelementptr inbounds nuw i8, ptr %.027513129, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %.33132, i64 352
   %580 = add nuw nsw i32 %.027533128, 8
   %581 = or disjoint i32 %580, 7
   %582 = icmp slt i32 %581, %.fr3168
@@ -12968,7 +12968,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %648, 0
   %649 = and i32 %639, %645
   %.not3086 = icmp eq i32 %649, 0
-  %650 = getelementptr inbounds i8, ptr %.43141, i64 32
+  %650 = getelementptr inbounds nuw i8, ptr %.43141, i64 32
   br i1 %.not, label %656, label %651
 
 651:                                              ; preds = %583
@@ -12998,7 +12998,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 665:                                              ; preds = %656, %658
   %666 = phi i32 [ %664, %658 ], [ -1, %656 ]
-  %667 = getelementptr inbounds i8, ptr %.43141, i64 4
+  %667 = getelementptr inbounds nuw i8, ptr %.43141, i64 4
   store i32 %666, ptr %667, align 4
   br i1 %.not3081, label %675, label %668
 
@@ -13015,7 +13015,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 675:                                              ; preds = %665, %668
   %676 = phi i32 [ %674, %668 ], [ -1, %665 ]
-  %677 = getelementptr inbounds i8, ptr %.43141, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %.43141, i64 8
   store i32 %676, ptr %677, align 4
   br i1 %.not3082, label %685, label %678
 
@@ -13032,7 +13032,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 685:                                              ; preds = %675, %678
   %686 = phi i32 [ %684, %678 ], [ -1, %675 ]
-  %687 = getelementptr inbounds i8, ptr %.43141, i64 12
+  %687 = getelementptr inbounds nuw i8, ptr %.43141, i64 12
   store i32 %686, ptr %687, align 4
   br i1 %.not3083, label %695, label %688
 
@@ -13049,7 +13049,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 695:                                              ; preds = %685, %688
   %696 = phi i32 [ %694, %688 ], [ -1, %685 ]
-  %697 = getelementptr inbounds i8, ptr %.43141, i64 16
+  %697 = getelementptr inbounds nuw i8, ptr %.43141, i64 16
   store i32 %696, ptr %697, align 4
   br i1 %.not3084, label %705, label %698
 
@@ -13066,7 +13066,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 705:                                              ; preds = %695, %698
   %706 = phi i32 [ %704, %698 ], [ -1, %695 ]
-  %707 = getelementptr inbounds i8, ptr %.43141, i64 20
+  %707 = getelementptr inbounds nuw i8, ptr %.43141, i64 20
   store i32 %706, ptr %707, align 4
   br i1 %.not3085, label %715, label %708
 
@@ -13083,7 +13083,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 715:                                              ; preds = %705, %708
   %716 = phi i32 [ %714, %708 ], [ -1, %705 ]
-  %717 = getelementptr inbounds i8, ptr %.43141, i64 24
+  %717 = getelementptr inbounds nuw i8, ptr %.43141, i64 24
   store i32 %716, ptr %717, align 4
   br i1 %.not3086, label %725, label %718
 
@@ -13100,23 +13100,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 725:                                              ; preds = %715, %718
   %726 = phi i32 [ %724, %718 ], [ -1, %715 ]
-  %727 = getelementptr inbounds i8, ptr %.43141, i64 28
+  %727 = getelementptr inbounds nuw i8, ptr %.43141, i64 28
   store i32 %726, ptr %727, align 4
   %728 = sitofp i32 %606 to float
   %729 = fsub fast float %592, %728
   store float %729, ptr %650, align 4
   %730 = sitofp i32 %608 to float
   %731 = fsub fast float %598, %730
-  %732 = getelementptr inbounds i8, ptr %.43141, i64 36
+  %732 = getelementptr inbounds nuw i8, ptr %.43141, i64 36
   store float %731, ptr %732, align 4
   %733 = sitofp i32 %610 to float
   %734 = fsub fast float %604, %733
-  %735 = getelementptr inbounds i8, ptr %.43141, i64 40
+  %735 = getelementptr inbounds nuw i8, ptr %.43141, i64 40
   store float %734, ptr %735, align 4
-  %736 = getelementptr inbounds i8, ptr %.127483140, i64 4
-  %737 = getelementptr inbounds i8, ptr %.127503139, i64 4
-  %738 = getelementptr inbounds i8, ptr %.127523138, i64 4
-  %739 = getelementptr inbounds i8, ptr %.43141, i64 44
+  %736 = getelementptr inbounds nuw i8, ptr %.127483140, i64 4
+  %737 = getelementptr inbounds nuw i8, ptr %.127503139, i64 4
+  %738 = getelementptr inbounds nuw i8, ptr %.127523138, i64 4
+  %739 = getelementptr inbounds nuw i8, ptr %.43141, i64 44
   %740 = add nuw nsw i32 %.127543137, 1
   %exitcond.not = icmp eq i32 %740, %.fr3168
   br i1 %exitcond.not, label %.loopexit, label %583, !llvm.loop !142
@@ -13183,9 +13183,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433144 = phi ptr [ %217, %.lr.ph3146 ], [ %35, %29 ]
   %.027453143 = phi i32 [ %219, %.lr.ph3146 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433144, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433144, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433144, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433144, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433144, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -13353,28 +13353,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %205 = shufflevector <8 x float> %191, <8 x float> %192, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %206 = shufflevector <8 x float> %194, <8 x float> %195, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %196, ptr %.13145, align 1
-  %207 = getelementptr inbounds i8, ptr %.13145, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.13145, i64 32
   store <8 x float> %197, ptr %207, align 1
-  %208 = getelementptr inbounds i8, ptr %.13145, i64 64
+  %208 = getelementptr inbounds nuw i8, ptr %.13145, i64 64
   store <8 x float> %198, ptr %208, align 1
-  %209 = getelementptr inbounds i8, ptr %.13145, i64 96
+  %209 = getelementptr inbounds nuw i8, ptr %.13145, i64 96
   store <8 x float> %199, ptr %209, align 1
-  %210 = getelementptr inbounds i8, ptr %.13145, i64 128
+  %210 = getelementptr inbounds nuw i8, ptr %.13145, i64 128
   store <8 x float> %200, ptr %210, align 1
-  %211 = getelementptr inbounds i8, ptr %.13145, i64 160
+  %211 = getelementptr inbounds nuw i8, ptr %.13145, i64 160
   store <8 x float> %201, ptr %211, align 1
-  %212 = getelementptr inbounds i8, ptr %.13145, i64 192
+  %212 = getelementptr inbounds nuw i8, ptr %.13145, i64 192
   store <8 x float> %202, ptr %212, align 1
-  %213 = getelementptr inbounds i8, ptr %.13145, i64 224
+  %213 = getelementptr inbounds nuw i8, ptr %.13145, i64 224
   store <8 x float> %203, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %.13145, i64 256
+  %214 = getelementptr inbounds nuw i8, ptr %.13145, i64 256
   store <8 x float> %204, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %.13145, i64 288
+  %215 = getelementptr inbounds nuw i8, ptr %.13145, i64 288
   store <8 x float> %205, ptr %215, align 1
-  %216 = getelementptr inbounds i8, ptr %.13145, i64 320
+  %216 = getelementptr inbounds nuw i8, ptr %.13145, i64 320
   store <8 x float> %206, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.027433144, i64 96
-  %218 = getelementptr inbounds i8, ptr %.13145, i64 352
+  %217 = getelementptr inbounds nuw i8, ptr %.027433144, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %.13145, i64 352
   %219 = add nuw nsw i32 %.027453143, 24
   %220 = add nuw nsw i32 %.027453143, 47
   %221 = icmp slt i32 %220, %.fr3168
@@ -13385,9 +13385,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443151 = phi ptr [ %376, %365 ], [ %.02743.lcssa, %.preheader ]
   %.127463150 = phi i32 [ %378, %365 ], [ %.02745.lcssa, %.preheader ]
   %222 = load float, ptr %.127443151, align 4
-  %223 = getelementptr inbounds i8, ptr %.127443151, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %.127443151, i64 4
   %224 = load float, ptr %223, align 4
-  %225 = getelementptr inbounds i8, ptr %.127443151, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.127443151, i64 8
   %226 = load float, ptr %225, align 4
   %227 = load i32, ptr %21, align 4
   %228 = fmul fast float %222, 5.000000e-01
@@ -13460,7 +13460,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %288, 0
   %289 = and i32 %279, %285
   %.not3094 = icmp eq i32 %289, 0
-  %290 = getelementptr inbounds i8, ptr %.23152, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %.23152, i64 32
   br i1 %.not3087, label %296, label %291
 
 291:                                              ; preds = %.lr.ph3153
@@ -13490,7 +13490,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 305:                                              ; preds = %296, %298
   %306 = phi i32 [ %304, %298 ], [ -1, %296 ]
-  %307 = getelementptr inbounds i8, ptr %.23152, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.23152, i64 4
   store i32 %306, ptr %307, align 4
   br i1 %.not3089, label %315, label %308
 
@@ -13507,7 +13507,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 315:                                              ; preds = %305, %308
   %316 = phi i32 [ %314, %308 ], [ -1, %305 ]
-  %317 = getelementptr inbounds i8, ptr %.23152, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.23152, i64 8
   store i32 %316, ptr %317, align 4
   br i1 %.not3090, label %325, label %318
 
@@ -13524,7 +13524,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 325:                                              ; preds = %315, %318
   %326 = phi i32 [ %324, %318 ], [ -1, %315 ]
-  %327 = getelementptr inbounds i8, ptr %.23152, i64 12
+  %327 = getelementptr inbounds nuw i8, ptr %.23152, i64 12
   store i32 %326, ptr %327, align 4
   br i1 %.not3091, label %335, label %328
 
@@ -13541,7 +13541,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 335:                                              ; preds = %325, %328
   %336 = phi i32 [ %334, %328 ], [ -1, %325 ]
-  %337 = getelementptr inbounds i8, ptr %.23152, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.23152, i64 16
   store i32 %336, ptr %337, align 4
   br i1 %.not3092, label %345, label %338
 
@@ -13558,7 +13558,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 345:                                              ; preds = %335, %338
   %346 = phi i32 [ %344, %338 ], [ -1, %335 ]
-  %347 = getelementptr inbounds i8, ptr %.23152, i64 20
+  %347 = getelementptr inbounds nuw i8, ptr %.23152, i64 20
   store i32 %346, ptr %347, align 4
   br i1 %.not3093, label %355, label %348
 
@@ -13575,7 +13575,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 355:                                              ; preds = %345, %348
   %356 = phi i32 [ %354, %348 ], [ -1, %345 ]
-  %357 = getelementptr inbounds i8, ptr %.23152, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %.23152, i64 24
   store i32 %356, ptr %357, align 4
   br i1 %.not3094, label %365, label %358
 
@@ -13592,21 +13592,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 365:                                              ; preds = %355, %358
   %366 = phi i32 [ %364, %358 ], [ -1, %355 ]
-  %367 = getelementptr inbounds i8, ptr %.23152, i64 28
+  %367 = getelementptr inbounds nuw i8, ptr %.23152, i64 28
   store i32 %366, ptr %367, align 4
   %368 = sitofp i32 %246 to float
   %369 = fsub fast float %232, %368
   store float %369, ptr %290, align 4
   %370 = sitofp i32 %248 to float
   %371 = fsub fast float %238, %370
-  %372 = getelementptr inbounds i8, ptr %.23152, i64 36
+  %372 = getelementptr inbounds nuw i8, ptr %.23152, i64 36
   store float %371, ptr %372, align 4
   %373 = sitofp i32 %250 to float
   %374 = fsub fast float %244, %373
-  %375 = getelementptr inbounds i8, ptr %.23152, i64 40
+  %375 = getelementptr inbounds nuw i8, ptr %.23152, i64 40
   store float %374, ptr %375, align 4
-  %376 = getelementptr inbounds i8, ptr %.127443151, i64 12
-  %377 = getelementptr inbounds i8, ptr %.23152, i64 44
+  %376 = getelementptr inbounds nuw i8, ptr %.127443151, i64 12
+  %377 = getelementptr inbounds nuw i8, ptr %.23152, i64 44
   %378 = add nuw nsw i32 %.127463150, 3
   %379 = icmp slt i32 %378, %.fr3168
   br i1 %379, label %.lr.ph3153, label %._crit_edge, !llvm.loop !144
@@ -13824,30 +13824,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %564 = shufflevector <8 x float> %550, <8 x float> %551, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %565 = shufflevector <8 x float> %553, <8 x float> %554, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %555, ptr %.33132, align 1
-  %566 = getelementptr inbounds i8, ptr %.33132, i64 32
+  %566 = getelementptr inbounds nuw i8, ptr %.33132, i64 32
   store <8 x float> %556, ptr %566, align 1
-  %567 = getelementptr inbounds i8, ptr %.33132, i64 64
+  %567 = getelementptr inbounds nuw i8, ptr %.33132, i64 64
   store <8 x float> %557, ptr %567, align 1
-  %568 = getelementptr inbounds i8, ptr %.33132, i64 96
+  %568 = getelementptr inbounds nuw i8, ptr %.33132, i64 96
   store <8 x float> %558, ptr %568, align 1
-  %569 = getelementptr inbounds i8, ptr %.33132, i64 128
+  %569 = getelementptr inbounds nuw i8, ptr %.33132, i64 128
   store <8 x float> %559, ptr %569, align 1
-  %570 = getelementptr inbounds i8, ptr %.33132, i64 160
+  %570 = getelementptr inbounds nuw i8, ptr %.33132, i64 160
   store <8 x float> %560, ptr %570, align 1
-  %571 = getelementptr inbounds i8, ptr %.33132, i64 192
+  %571 = getelementptr inbounds nuw i8, ptr %.33132, i64 192
   store <8 x float> %561, ptr %571, align 1
-  %572 = getelementptr inbounds i8, ptr %.33132, i64 224
+  %572 = getelementptr inbounds nuw i8, ptr %.33132, i64 224
   store <8 x float> %562, ptr %572, align 1
-  %573 = getelementptr inbounds i8, ptr %.33132, i64 256
+  %573 = getelementptr inbounds nuw i8, ptr %.33132, i64 256
   store <8 x float> %563, ptr %573, align 1
-  %574 = getelementptr inbounds i8, ptr %.33132, i64 288
+  %574 = getelementptr inbounds nuw i8, ptr %.33132, i64 288
   store <8 x float> %564, ptr %574, align 1
-  %575 = getelementptr inbounds i8, ptr %.33132, i64 320
+  %575 = getelementptr inbounds nuw i8, ptr %.33132, i64 320
   store <8 x float> %565, ptr %575, align 1
-  %576 = getelementptr inbounds i8, ptr %.027473131, i64 32
-  %577 = getelementptr inbounds i8, ptr %.027493130, i64 32
-  %578 = getelementptr inbounds i8, ptr %.027513129, i64 32
-  %579 = getelementptr inbounds i8, ptr %.33132, i64 352
+  %576 = getelementptr inbounds nuw i8, ptr %.027473131, i64 32
+  %577 = getelementptr inbounds nuw i8, ptr %.027493130, i64 32
+  %578 = getelementptr inbounds nuw i8, ptr %.027513129, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %.33132, i64 352
   %580 = add nuw nsw i32 %.027533128, 8
   %581 = or disjoint i32 %580, 7
   %582 = icmp slt i32 %581, %.fr3168
@@ -13933,7 +13933,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %648, 0
   %649 = and i32 %639, %645
   %.not3086 = icmp eq i32 %649, 0
-  %650 = getelementptr inbounds i8, ptr %.43141, i64 32
+  %650 = getelementptr inbounds nuw i8, ptr %.43141, i64 32
   br i1 %.not, label %656, label %651
 
 651:                                              ; preds = %583
@@ -13963,7 +13963,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 665:                                              ; preds = %656, %658
   %666 = phi i32 [ %664, %658 ], [ -1, %656 ]
-  %667 = getelementptr inbounds i8, ptr %.43141, i64 4
+  %667 = getelementptr inbounds nuw i8, ptr %.43141, i64 4
   store i32 %666, ptr %667, align 4
   br i1 %.not3081, label %675, label %668
 
@@ -13980,7 +13980,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 675:                                              ; preds = %665, %668
   %676 = phi i32 [ %674, %668 ], [ -1, %665 ]
-  %677 = getelementptr inbounds i8, ptr %.43141, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %.43141, i64 8
   store i32 %676, ptr %677, align 4
   br i1 %.not3082, label %685, label %678
 
@@ -13997,7 +13997,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 685:                                              ; preds = %675, %678
   %686 = phi i32 [ %684, %678 ], [ -1, %675 ]
-  %687 = getelementptr inbounds i8, ptr %.43141, i64 12
+  %687 = getelementptr inbounds nuw i8, ptr %.43141, i64 12
   store i32 %686, ptr %687, align 4
   br i1 %.not3083, label %695, label %688
 
@@ -14014,7 +14014,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 695:                                              ; preds = %685, %688
   %696 = phi i32 [ %694, %688 ], [ -1, %685 ]
-  %697 = getelementptr inbounds i8, ptr %.43141, i64 16
+  %697 = getelementptr inbounds nuw i8, ptr %.43141, i64 16
   store i32 %696, ptr %697, align 4
   br i1 %.not3084, label %705, label %698
 
@@ -14031,7 +14031,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 705:                                              ; preds = %695, %698
   %706 = phi i32 [ %704, %698 ], [ -1, %695 ]
-  %707 = getelementptr inbounds i8, ptr %.43141, i64 20
+  %707 = getelementptr inbounds nuw i8, ptr %.43141, i64 20
   store i32 %706, ptr %707, align 4
   br i1 %.not3085, label %715, label %708
 
@@ -14048,7 +14048,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 715:                                              ; preds = %705, %708
   %716 = phi i32 [ %714, %708 ], [ -1, %705 ]
-  %717 = getelementptr inbounds i8, ptr %.43141, i64 24
+  %717 = getelementptr inbounds nuw i8, ptr %.43141, i64 24
   store i32 %716, ptr %717, align 4
   br i1 %.not3086, label %725, label %718
 
@@ -14065,23 +14065,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 725:                                              ; preds = %715, %718
   %726 = phi i32 [ %724, %718 ], [ -1, %715 ]
-  %727 = getelementptr inbounds i8, ptr %.43141, i64 28
+  %727 = getelementptr inbounds nuw i8, ptr %.43141, i64 28
   store i32 %726, ptr %727, align 4
   %728 = sitofp i32 %606 to float
   %729 = fsub fast float %592, %728
   store float %729, ptr %650, align 4
   %730 = sitofp i32 %608 to float
   %731 = fsub fast float %598, %730
-  %732 = getelementptr inbounds i8, ptr %.43141, i64 36
+  %732 = getelementptr inbounds nuw i8, ptr %.43141, i64 36
   store float %731, ptr %732, align 4
   %733 = sitofp i32 %610 to float
   %734 = fsub fast float %604, %733
-  %735 = getelementptr inbounds i8, ptr %.43141, i64 40
+  %735 = getelementptr inbounds nuw i8, ptr %.43141, i64 40
   store float %734, ptr %735, align 4
-  %736 = getelementptr inbounds i8, ptr %.127483140, i64 4
-  %737 = getelementptr inbounds i8, ptr %.127503139, i64 4
-  %738 = getelementptr inbounds i8, ptr %.127523138, i64 4
-  %739 = getelementptr inbounds i8, ptr %.43141, i64 44
+  %736 = getelementptr inbounds nuw i8, ptr %.127483140, i64 4
+  %737 = getelementptr inbounds nuw i8, ptr %.127503139, i64 4
+  %738 = getelementptr inbounds nuw i8, ptr %.127523138, i64 4
+  %739 = getelementptr inbounds nuw i8, ptr %.43141, i64 44
   %740 = add nuw nsw i32 %.127543137, 1
   %exitcond.not = icmp eq i32 %740, %.fr3168
   br i1 %exitcond.not, label %.loopexit, label %583, !llvm.loop !147
@@ -14148,9 +14148,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433154 = phi ptr [ %226, %.lr.ph3156 ], [ %35, %29 ]
   %.027453153 = phi i32 [ %228, %.lr.ph3156 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433154, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433154, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433154, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433154, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433154, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -14327,28 +14327,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %214 = shufflevector <8 x float> %200, <8 x float> %201, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %215 = shufflevector <8 x float> %203, <8 x float> %204, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %205, ptr %.13155, align 1
-  %216 = getelementptr inbounds i8, ptr %.13155, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %.13155, i64 32
   store <8 x float> %206, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.13155, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %.13155, i64 64
   store <8 x float> %207, ptr %217, align 1
-  %218 = getelementptr inbounds i8, ptr %.13155, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %.13155, i64 96
   store <8 x float> %208, ptr %218, align 1
-  %219 = getelementptr inbounds i8, ptr %.13155, i64 128
+  %219 = getelementptr inbounds nuw i8, ptr %.13155, i64 128
   store <8 x float> %209, ptr %219, align 1
-  %220 = getelementptr inbounds i8, ptr %.13155, i64 160
+  %220 = getelementptr inbounds nuw i8, ptr %.13155, i64 160
   store <8 x float> %210, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %.13155, i64 192
+  %221 = getelementptr inbounds nuw i8, ptr %.13155, i64 192
   store <8 x float> %211, ptr %221, align 1
-  %222 = getelementptr inbounds i8, ptr %.13155, i64 224
+  %222 = getelementptr inbounds nuw i8, ptr %.13155, i64 224
   store <8 x float> %212, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.13155, i64 256
+  %223 = getelementptr inbounds nuw i8, ptr %.13155, i64 256
   store <8 x float> %213, ptr %223, align 1
-  %224 = getelementptr inbounds i8, ptr %.13155, i64 288
+  %224 = getelementptr inbounds nuw i8, ptr %.13155, i64 288
   store <8 x float> %214, ptr %224, align 1
-  %225 = getelementptr inbounds i8, ptr %.13155, i64 320
+  %225 = getelementptr inbounds nuw i8, ptr %.13155, i64 320
   store <8 x float> %215, ptr %225, align 1
-  %226 = getelementptr inbounds i8, ptr %.027433154, i64 96
-  %227 = getelementptr inbounds i8, ptr %.13155, i64 352
+  %226 = getelementptr inbounds nuw i8, ptr %.027433154, i64 96
+  %227 = getelementptr inbounds nuw i8, ptr %.13155, i64 352
   %228 = add nuw nsw i32 %.027453153, 24
   %229 = add nuw nsw i32 %.027453153, 47
   %230 = icmp slt i32 %229, %.fr3178
@@ -14359,9 +14359,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443161 = phi ptr [ %394, %383 ], [ %.02743.lcssa, %.preheader ]
   %.127463160 = phi i32 [ %396, %383 ], [ %.02745.lcssa, %.preheader ]
   %231 = load float, ptr %.127443161, align 4
-  %232 = getelementptr inbounds i8, ptr %.127443161, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %.127443161, i64 4
   %233 = load float, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %.127443161, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %.127443161, i64 8
   %235 = load float, ptr %234, align 4
   %236 = load i32, ptr %21, align 4
   %237 = sitofp i32 %236 to float
@@ -14449,7 +14449,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %306, 0
   %307 = and i32 %297, %303
   %.not3094 = icmp eq i32 %307, 0
-  %308 = getelementptr inbounds i8, ptr %.23162, i64 32
+  %308 = getelementptr inbounds nuw i8, ptr %.23162, i64 32
   br i1 %.not3087, label %314, label %309
 
 309:                                              ; preds = %.lr.ph3163
@@ -14479,7 +14479,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 323:                                              ; preds = %314, %316
   %324 = phi i32 [ %322, %316 ], [ -1, %314 ]
-  %325 = getelementptr inbounds i8, ptr %.23162, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %.23162, i64 4
   store i32 %324, ptr %325, align 4
   br i1 %.not3089, label %333, label %326
 
@@ -14496,7 +14496,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 333:                                              ; preds = %323, %326
   %334 = phi i32 [ %332, %326 ], [ -1, %323 ]
-  %335 = getelementptr inbounds i8, ptr %.23162, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %.23162, i64 8
   store i32 %334, ptr %335, align 4
   br i1 %.not3090, label %343, label %336
 
@@ -14513,7 +14513,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 343:                                              ; preds = %333, %336
   %344 = phi i32 [ %342, %336 ], [ -1, %333 ]
-  %345 = getelementptr inbounds i8, ptr %.23162, i64 12
+  %345 = getelementptr inbounds nuw i8, ptr %.23162, i64 12
   store i32 %344, ptr %345, align 4
   br i1 %.not3091, label %353, label %346
 
@@ -14530,7 +14530,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 353:                                              ; preds = %343, %346
   %354 = phi i32 [ %352, %346 ], [ -1, %343 ]
-  %355 = getelementptr inbounds i8, ptr %.23162, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %.23162, i64 16
   store i32 %354, ptr %355, align 4
   br i1 %.not3092, label %363, label %356
 
@@ -14547,7 +14547,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 363:                                              ; preds = %353, %356
   %364 = phi i32 [ %362, %356 ], [ -1, %353 ]
-  %365 = getelementptr inbounds i8, ptr %.23162, i64 20
+  %365 = getelementptr inbounds nuw i8, ptr %.23162, i64 20
   store i32 %364, ptr %365, align 4
   br i1 %.not3093, label %373, label %366
 
@@ -14564,7 +14564,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 373:                                              ; preds = %363, %366
   %374 = phi i32 [ %372, %366 ], [ -1, %363 ]
-  %375 = getelementptr inbounds i8, ptr %.23162, i64 24
+  %375 = getelementptr inbounds nuw i8, ptr %.23162, i64 24
   store i32 %374, ptr %375, align 4
   br i1 %.not3094, label %383, label %376
 
@@ -14581,21 +14581,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 383:                                              ; preds = %373, %376
   %384 = phi i32 [ %382, %376 ], [ -1, %373 ]
-  %385 = getelementptr inbounds i8, ptr %.23162, i64 28
+  %385 = getelementptr inbounds nuw i8, ptr %.23162, i64 28
   store i32 %384, ptr %385, align 4
   %386 = sitofp i32 %264 to float
   %387 = fsub fast float %.sroa.speculated.i, %386
   store float %387, ptr %308, align 4
   %388 = sitofp i32 %266 to float
   %389 = fsub fast float %.sroa.speculated.i3096, %388
-  %390 = getelementptr inbounds i8, ptr %.23162, i64 36
+  %390 = getelementptr inbounds nuw i8, ptr %.23162, i64 36
   store float %389, ptr %390, align 4
   %391 = sitofp i32 %268 to float
   %392 = fsub fast float %.sroa.speculated.i3098, %391
-  %393 = getelementptr inbounds i8, ptr %.23162, i64 40
+  %393 = getelementptr inbounds nuw i8, ptr %.23162, i64 40
   store float %392, ptr %393, align 4
-  %394 = getelementptr inbounds i8, ptr %.127443161, i64 12
-  %395 = getelementptr inbounds i8, ptr %.23162, i64 44
+  %394 = getelementptr inbounds nuw i8, ptr %.127443161, i64 12
+  %395 = getelementptr inbounds nuw i8, ptr %.23162, i64 44
   %396 = add nuw nsw i32 %.127463160, 3
   %397 = icmp slt i32 %396, %.fr3178
   br i1 %397, label %.lr.ph3163, label %._crit_edge, !llvm.loop !149
@@ -14822,30 +14822,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %591 = shufflevector <8 x float> %577, <8 x float> %578, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %592 = shufflevector <8 x float> %580, <8 x float> %581, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %582, ptr %.33142, align 1
-  %593 = getelementptr inbounds i8, ptr %.33142, i64 32
+  %593 = getelementptr inbounds nuw i8, ptr %.33142, i64 32
   store <8 x float> %583, ptr %593, align 1
-  %594 = getelementptr inbounds i8, ptr %.33142, i64 64
+  %594 = getelementptr inbounds nuw i8, ptr %.33142, i64 64
   store <8 x float> %584, ptr %594, align 1
-  %595 = getelementptr inbounds i8, ptr %.33142, i64 96
+  %595 = getelementptr inbounds nuw i8, ptr %.33142, i64 96
   store <8 x float> %585, ptr %595, align 1
-  %596 = getelementptr inbounds i8, ptr %.33142, i64 128
+  %596 = getelementptr inbounds nuw i8, ptr %.33142, i64 128
   store <8 x float> %586, ptr %596, align 1
-  %597 = getelementptr inbounds i8, ptr %.33142, i64 160
+  %597 = getelementptr inbounds nuw i8, ptr %.33142, i64 160
   store <8 x float> %587, ptr %597, align 1
-  %598 = getelementptr inbounds i8, ptr %.33142, i64 192
+  %598 = getelementptr inbounds nuw i8, ptr %.33142, i64 192
   store <8 x float> %588, ptr %598, align 1
-  %599 = getelementptr inbounds i8, ptr %.33142, i64 224
+  %599 = getelementptr inbounds nuw i8, ptr %.33142, i64 224
   store <8 x float> %589, ptr %599, align 1
-  %600 = getelementptr inbounds i8, ptr %.33142, i64 256
+  %600 = getelementptr inbounds nuw i8, ptr %.33142, i64 256
   store <8 x float> %590, ptr %600, align 1
-  %601 = getelementptr inbounds i8, ptr %.33142, i64 288
+  %601 = getelementptr inbounds nuw i8, ptr %.33142, i64 288
   store <8 x float> %591, ptr %601, align 1
-  %602 = getelementptr inbounds i8, ptr %.33142, i64 320
+  %602 = getelementptr inbounds nuw i8, ptr %.33142, i64 320
   store <8 x float> %592, ptr %602, align 1
-  %603 = getelementptr inbounds i8, ptr %.027473141, i64 32
-  %604 = getelementptr inbounds i8, ptr %.027493140, i64 32
-  %605 = getelementptr inbounds i8, ptr %.027513139, i64 32
-  %606 = getelementptr inbounds i8, ptr %.33142, i64 352
+  %603 = getelementptr inbounds nuw i8, ptr %.027473141, i64 32
+  %604 = getelementptr inbounds nuw i8, ptr %.027493140, i64 32
+  %605 = getelementptr inbounds nuw i8, ptr %.027513139, i64 32
+  %606 = getelementptr inbounds nuw i8, ptr %.33142, i64 352
   %607 = add nuw nsw i32 %.027533138, 8
   %608 = or disjoint i32 %607, 7
   %609 = icmp slt i32 %608, %.fr3178
@@ -14946,7 +14946,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %684, 0
   %685 = and i32 %675, %681
   %.not3086 = icmp eq i32 %685, 0
-  %686 = getelementptr inbounds i8, ptr %.43151, i64 32
+  %686 = getelementptr inbounds nuw i8, ptr %.43151, i64 32
   br i1 %.not, label %692, label %687
 
 687:                                              ; preds = %610
@@ -14976,7 +14976,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 701:                                              ; preds = %692, %694
   %702 = phi i32 [ %700, %694 ], [ -1, %692 ]
-  %703 = getelementptr inbounds i8, ptr %.43151, i64 4
+  %703 = getelementptr inbounds nuw i8, ptr %.43151, i64 4
   store i32 %702, ptr %703, align 4
   br i1 %.not3081, label %711, label %704
 
@@ -14993,7 +14993,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 711:                                              ; preds = %701, %704
   %712 = phi i32 [ %710, %704 ], [ -1, %701 ]
-  %713 = getelementptr inbounds i8, ptr %.43151, i64 8
+  %713 = getelementptr inbounds nuw i8, ptr %.43151, i64 8
   store i32 %712, ptr %713, align 4
   br i1 %.not3082, label %721, label %714
 
@@ -15010,7 +15010,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 721:                                              ; preds = %711, %714
   %722 = phi i32 [ %720, %714 ], [ -1, %711 ]
-  %723 = getelementptr inbounds i8, ptr %.43151, i64 12
+  %723 = getelementptr inbounds nuw i8, ptr %.43151, i64 12
   store i32 %722, ptr %723, align 4
   br i1 %.not3083, label %731, label %724
 
@@ -15027,7 +15027,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 731:                                              ; preds = %721, %724
   %732 = phi i32 [ %730, %724 ], [ -1, %721 ]
-  %733 = getelementptr inbounds i8, ptr %.43151, i64 16
+  %733 = getelementptr inbounds nuw i8, ptr %.43151, i64 16
   store i32 %732, ptr %733, align 4
   br i1 %.not3084, label %741, label %734
 
@@ -15044,7 +15044,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 741:                                              ; preds = %731, %734
   %742 = phi i32 [ %740, %734 ], [ -1, %731 ]
-  %743 = getelementptr inbounds i8, ptr %.43151, i64 20
+  %743 = getelementptr inbounds nuw i8, ptr %.43151, i64 20
   store i32 %742, ptr %743, align 4
   br i1 %.not3085, label %751, label %744
 
@@ -15061,7 +15061,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 751:                                              ; preds = %741, %744
   %752 = phi i32 [ %750, %744 ], [ -1, %741 ]
-  %753 = getelementptr inbounds i8, ptr %.43151, i64 24
+  %753 = getelementptr inbounds nuw i8, ptr %.43151, i64 24
   store i32 %752, ptr %753, align 4
   br i1 %.not3086, label %761, label %754
 
@@ -15078,23 +15078,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 761:                                              ; preds = %751, %754
   %762 = phi i32 [ %760, %754 ], [ -1, %751 ]
-  %763 = getelementptr inbounds i8, ptr %.43151, i64 28
+  %763 = getelementptr inbounds nuw i8, ptr %.43151, i64 28
   store i32 %762, ptr %763, align 4
   %764 = sitofp i32 %642 to float
   %765 = fsub fast float %.sroa.speculated.i3100, %764
   store float %765, ptr %686, align 4
   %766 = sitofp i32 %644 to float
   %767 = fsub fast float %.sroa.speculated.i3102, %766
-  %768 = getelementptr inbounds i8, ptr %.43151, i64 36
+  %768 = getelementptr inbounds nuw i8, ptr %.43151, i64 36
   store float %767, ptr %768, align 4
   %769 = sitofp i32 %646 to float
   %770 = fsub fast float %.sroa.speculated.i3104, %769
-  %771 = getelementptr inbounds i8, ptr %.43151, i64 40
+  %771 = getelementptr inbounds nuw i8, ptr %.43151, i64 40
   store float %770, ptr %771, align 4
-  %772 = getelementptr inbounds i8, ptr %.127483150, i64 4
-  %773 = getelementptr inbounds i8, ptr %.127503149, i64 4
-  %774 = getelementptr inbounds i8, ptr %.127523148, i64 4
-  %775 = getelementptr inbounds i8, ptr %.43151, i64 44
+  %772 = getelementptr inbounds nuw i8, ptr %.127483150, i64 4
+  %773 = getelementptr inbounds nuw i8, ptr %.127503149, i64 4
+  %774 = getelementptr inbounds nuw i8, ptr %.127523148, i64 4
+  %775 = getelementptr inbounds nuw i8, ptr %.43151, i64 44
   %776 = add nuw nsw i32 %.127543147, 1
   %exitcond.not = icmp eq i32 %776, %.fr3178
   br i1 %exitcond.not, label %.loopexit, label %610, !llvm.loop !152
@@ -15161,9 +15161,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433154 = phi ptr [ %223, %.lr.ph3156 ], [ %35, %29 ]
   %.027453153 = phi i32 [ %225, %.lr.ph3156 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433154, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433154, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433154, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433154, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433154, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -15337,28 +15337,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %211 = shufflevector <8 x float> %197, <8 x float> %198, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %212 = shufflevector <8 x float> %200, <8 x float> %201, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %202, ptr %.13155, align 1
-  %213 = getelementptr inbounds i8, ptr %.13155, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %.13155, i64 32
   store <8 x float> %203, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %.13155, i64 64
+  %214 = getelementptr inbounds nuw i8, ptr %.13155, i64 64
   store <8 x float> %204, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %.13155, i64 96
+  %215 = getelementptr inbounds nuw i8, ptr %.13155, i64 96
   store <8 x float> %205, ptr %215, align 1
-  %216 = getelementptr inbounds i8, ptr %.13155, i64 128
+  %216 = getelementptr inbounds nuw i8, ptr %.13155, i64 128
   store <8 x float> %206, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.13155, i64 160
+  %217 = getelementptr inbounds nuw i8, ptr %.13155, i64 160
   store <8 x float> %207, ptr %217, align 1
-  %218 = getelementptr inbounds i8, ptr %.13155, i64 192
+  %218 = getelementptr inbounds nuw i8, ptr %.13155, i64 192
   store <8 x float> %208, ptr %218, align 1
-  %219 = getelementptr inbounds i8, ptr %.13155, i64 224
+  %219 = getelementptr inbounds nuw i8, ptr %.13155, i64 224
   store <8 x float> %209, ptr %219, align 1
-  %220 = getelementptr inbounds i8, ptr %.13155, i64 256
+  %220 = getelementptr inbounds nuw i8, ptr %.13155, i64 256
   store <8 x float> %210, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %.13155, i64 288
+  %221 = getelementptr inbounds nuw i8, ptr %.13155, i64 288
   store <8 x float> %211, ptr %221, align 1
-  %222 = getelementptr inbounds i8, ptr %.13155, i64 320
+  %222 = getelementptr inbounds nuw i8, ptr %.13155, i64 320
   store <8 x float> %212, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.027433154, i64 96
-  %224 = getelementptr inbounds i8, ptr %.13155, i64 352
+  %223 = getelementptr inbounds nuw i8, ptr %.027433154, i64 96
+  %224 = getelementptr inbounds nuw i8, ptr %.13155, i64 352
   %225 = add nuw nsw i32 %.027453153, 24
   %226 = add nuw nsw i32 %.027453153, 47
   %227 = icmp slt i32 %226, %.fr3178
@@ -15369,9 +15369,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443161 = phi ptr [ %394, %383 ], [ %.02743.lcssa, %.preheader ]
   %.127463160 = phi i32 [ %396, %383 ], [ %.02745.lcssa, %.preheader ]
   %228 = load float, ptr %.127443161, align 4
-  %229 = getelementptr inbounds i8, ptr %.127443161, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %.127443161, i64 4
   %230 = load float, ptr %229, align 4
-  %231 = getelementptr inbounds i8, ptr %.127443161, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %.127443161, i64 8
   %232 = load float, ptr %231, align 4
   %233 = load i32, ptr %21, align 4
   %234 = fmul fast float %228, 5.000000e-01
@@ -15462,7 +15462,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %306, 0
   %307 = and i32 %297, %303
   %.not3094 = icmp eq i32 %307, 0
-  %308 = getelementptr inbounds i8, ptr %.23162, i64 32
+  %308 = getelementptr inbounds nuw i8, ptr %.23162, i64 32
   br i1 %.not3087, label %314, label %309
 
 309:                                              ; preds = %.lr.ph3163
@@ -15492,7 +15492,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 323:                                              ; preds = %314, %316
   %324 = phi i32 [ %322, %316 ], [ -1, %314 ]
-  %325 = getelementptr inbounds i8, ptr %.23162, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %.23162, i64 4
   store i32 %324, ptr %325, align 4
   br i1 %.not3089, label %333, label %326
 
@@ -15509,7 +15509,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 333:                                              ; preds = %323, %326
   %334 = phi i32 [ %332, %326 ], [ -1, %323 ]
-  %335 = getelementptr inbounds i8, ptr %.23162, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %.23162, i64 8
   store i32 %334, ptr %335, align 4
   br i1 %.not3090, label %343, label %336
 
@@ -15526,7 +15526,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 343:                                              ; preds = %333, %336
   %344 = phi i32 [ %342, %336 ], [ -1, %333 ]
-  %345 = getelementptr inbounds i8, ptr %.23162, i64 12
+  %345 = getelementptr inbounds nuw i8, ptr %.23162, i64 12
   store i32 %344, ptr %345, align 4
   br i1 %.not3091, label %353, label %346
 
@@ -15543,7 +15543,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 353:                                              ; preds = %343, %346
   %354 = phi i32 [ %352, %346 ], [ -1, %343 ]
-  %355 = getelementptr inbounds i8, ptr %.23162, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %.23162, i64 16
   store i32 %354, ptr %355, align 4
   br i1 %.not3092, label %363, label %356
 
@@ -15560,7 +15560,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 363:                                              ; preds = %353, %356
   %364 = phi i32 [ %362, %356 ], [ -1, %353 ]
-  %365 = getelementptr inbounds i8, ptr %.23162, i64 20
+  %365 = getelementptr inbounds nuw i8, ptr %.23162, i64 20
   store i32 %364, ptr %365, align 4
   br i1 %.not3093, label %373, label %366
 
@@ -15577,7 +15577,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 373:                                              ; preds = %363, %366
   %374 = phi i32 [ %372, %366 ], [ -1, %363 ]
-  %375 = getelementptr inbounds i8, ptr %.23162, i64 24
+  %375 = getelementptr inbounds nuw i8, ptr %.23162, i64 24
   store i32 %374, ptr %375, align 4
   br i1 %.not3094, label %383, label %376
 
@@ -15594,21 +15594,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 383:                                              ; preds = %373, %376
   %384 = phi i32 [ %382, %376 ], [ -1, %373 ]
-  %385 = getelementptr inbounds i8, ptr %.23162, i64 28
+  %385 = getelementptr inbounds nuw i8, ptr %.23162, i64 28
   store i32 %384, ptr %385, align 4
   %386 = sitofp i32 %264 to float
   %387 = fsub fast float %.sroa.speculated.i, %386
   store float %387, ptr %308, align 4
   %388 = sitofp i32 %266 to float
   %389 = fsub fast float %.sroa.speculated.i3096, %388
-  %390 = getelementptr inbounds i8, ptr %.23162, i64 36
+  %390 = getelementptr inbounds nuw i8, ptr %.23162, i64 36
   store float %389, ptr %390, align 4
   %391 = sitofp i32 %268 to float
   %392 = fsub fast float %.sroa.speculated.i3098, %391
-  %393 = getelementptr inbounds i8, ptr %.23162, i64 40
+  %393 = getelementptr inbounds nuw i8, ptr %.23162, i64 40
   store float %392, ptr %393, align 4
-  %394 = getelementptr inbounds i8, ptr %.127443161, i64 12
-  %395 = getelementptr inbounds i8, ptr %.23162, i64 44
+  %394 = getelementptr inbounds nuw i8, ptr %.127443161, i64 12
+  %395 = getelementptr inbounds nuw i8, ptr %.23162, i64 44
   %396 = add nuw nsw i32 %.127463160, 3
   %397 = icmp slt i32 %396, %.fr3178
   br i1 %397, label %.lr.ph3163, label %._crit_edge, !llvm.loop !154
@@ -15832,30 +15832,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %588 = shufflevector <8 x float> %574, <8 x float> %575, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %589 = shufflevector <8 x float> %577, <8 x float> %578, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %579, ptr %.33142, align 1
-  %590 = getelementptr inbounds i8, ptr %.33142, i64 32
+  %590 = getelementptr inbounds nuw i8, ptr %.33142, i64 32
   store <8 x float> %580, ptr %590, align 1
-  %591 = getelementptr inbounds i8, ptr %.33142, i64 64
+  %591 = getelementptr inbounds nuw i8, ptr %.33142, i64 64
   store <8 x float> %581, ptr %591, align 1
-  %592 = getelementptr inbounds i8, ptr %.33142, i64 96
+  %592 = getelementptr inbounds nuw i8, ptr %.33142, i64 96
   store <8 x float> %582, ptr %592, align 1
-  %593 = getelementptr inbounds i8, ptr %.33142, i64 128
+  %593 = getelementptr inbounds nuw i8, ptr %.33142, i64 128
   store <8 x float> %583, ptr %593, align 1
-  %594 = getelementptr inbounds i8, ptr %.33142, i64 160
+  %594 = getelementptr inbounds nuw i8, ptr %.33142, i64 160
   store <8 x float> %584, ptr %594, align 1
-  %595 = getelementptr inbounds i8, ptr %.33142, i64 192
+  %595 = getelementptr inbounds nuw i8, ptr %.33142, i64 192
   store <8 x float> %585, ptr %595, align 1
-  %596 = getelementptr inbounds i8, ptr %.33142, i64 224
+  %596 = getelementptr inbounds nuw i8, ptr %.33142, i64 224
   store <8 x float> %586, ptr %596, align 1
-  %597 = getelementptr inbounds i8, ptr %.33142, i64 256
+  %597 = getelementptr inbounds nuw i8, ptr %.33142, i64 256
   store <8 x float> %587, ptr %597, align 1
-  %598 = getelementptr inbounds i8, ptr %.33142, i64 288
+  %598 = getelementptr inbounds nuw i8, ptr %.33142, i64 288
   store <8 x float> %588, ptr %598, align 1
-  %599 = getelementptr inbounds i8, ptr %.33142, i64 320
+  %599 = getelementptr inbounds nuw i8, ptr %.33142, i64 320
   store <8 x float> %589, ptr %599, align 1
-  %600 = getelementptr inbounds i8, ptr %.027473141, i64 32
-  %601 = getelementptr inbounds i8, ptr %.027493140, i64 32
-  %602 = getelementptr inbounds i8, ptr %.027513139, i64 32
-  %603 = getelementptr inbounds i8, ptr %.33142, i64 352
+  %600 = getelementptr inbounds nuw i8, ptr %.027473141, i64 32
+  %601 = getelementptr inbounds nuw i8, ptr %.027493140, i64 32
+  %602 = getelementptr inbounds nuw i8, ptr %.027513139, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %.33142, i64 352
   %604 = add nuw nsw i32 %.027533138, 8
   %605 = or disjoint i32 %604, 7
   %606 = icmp slt i32 %605, %.fr3178
@@ -15959,7 +15959,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %684, 0
   %685 = and i32 %675, %681
   %.not3086 = icmp eq i32 %685, 0
-  %686 = getelementptr inbounds i8, ptr %.43151, i64 32
+  %686 = getelementptr inbounds nuw i8, ptr %.43151, i64 32
   br i1 %.not, label %692, label %687
 
 687:                                              ; preds = %607
@@ -15989,7 +15989,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 701:                                              ; preds = %692, %694
   %702 = phi i32 [ %700, %694 ], [ -1, %692 ]
-  %703 = getelementptr inbounds i8, ptr %.43151, i64 4
+  %703 = getelementptr inbounds nuw i8, ptr %.43151, i64 4
   store i32 %702, ptr %703, align 4
   br i1 %.not3081, label %711, label %704
 
@@ -16006,7 +16006,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 711:                                              ; preds = %701, %704
   %712 = phi i32 [ %710, %704 ], [ -1, %701 ]
-  %713 = getelementptr inbounds i8, ptr %.43151, i64 8
+  %713 = getelementptr inbounds nuw i8, ptr %.43151, i64 8
   store i32 %712, ptr %713, align 4
   br i1 %.not3082, label %721, label %714
 
@@ -16023,7 +16023,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 721:                                              ; preds = %711, %714
   %722 = phi i32 [ %720, %714 ], [ -1, %711 ]
-  %723 = getelementptr inbounds i8, ptr %.43151, i64 12
+  %723 = getelementptr inbounds nuw i8, ptr %.43151, i64 12
   store i32 %722, ptr %723, align 4
   br i1 %.not3083, label %731, label %724
 
@@ -16040,7 +16040,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 731:                                              ; preds = %721, %724
   %732 = phi i32 [ %730, %724 ], [ -1, %721 ]
-  %733 = getelementptr inbounds i8, ptr %.43151, i64 16
+  %733 = getelementptr inbounds nuw i8, ptr %.43151, i64 16
   store i32 %732, ptr %733, align 4
   br i1 %.not3084, label %741, label %734
 
@@ -16057,7 +16057,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 741:                                              ; preds = %731, %734
   %742 = phi i32 [ %740, %734 ], [ -1, %731 ]
-  %743 = getelementptr inbounds i8, ptr %.43151, i64 20
+  %743 = getelementptr inbounds nuw i8, ptr %.43151, i64 20
   store i32 %742, ptr %743, align 4
   br i1 %.not3085, label %751, label %744
 
@@ -16074,7 +16074,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 751:                                              ; preds = %741, %744
   %752 = phi i32 [ %750, %744 ], [ -1, %741 ]
-  %753 = getelementptr inbounds i8, ptr %.43151, i64 24
+  %753 = getelementptr inbounds nuw i8, ptr %.43151, i64 24
   store i32 %752, ptr %753, align 4
   br i1 %.not3086, label %761, label %754
 
@@ -16091,23 +16091,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 761:                                              ; preds = %751, %754
   %762 = phi i32 [ %760, %754 ], [ -1, %751 ]
-  %763 = getelementptr inbounds i8, ptr %.43151, i64 28
+  %763 = getelementptr inbounds nuw i8, ptr %.43151, i64 28
   store i32 %762, ptr %763, align 4
   %764 = sitofp i32 %642 to float
   %765 = fsub fast float %.sroa.speculated.i3100, %764
   store float %765, ptr %686, align 4
   %766 = sitofp i32 %644 to float
   %767 = fsub fast float %.sroa.speculated.i3102, %766
-  %768 = getelementptr inbounds i8, ptr %.43151, i64 36
+  %768 = getelementptr inbounds nuw i8, ptr %.43151, i64 36
   store float %767, ptr %768, align 4
   %769 = sitofp i32 %646 to float
   %770 = fsub fast float %.sroa.speculated.i3104, %769
-  %771 = getelementptr inbounds i8, ptr %.43151, i64 40
+  %771 = getelementptr inbounds nuw i8, ptr %.43151, i64 40
   store float %770, ptr %771, align 4
-  %772 = getelementptr inbounds i8, ptr %.127483150, i64 4
-  %773 = getelementptr inbounds i8, ptr %.127503149, i64 4
-  %774 = getelementptr inbounds i8, ptr %.127523148, i64 4
-  %775 = getelementptr inbounds i8, ptr %.43151, i64 44
+  %772 = getelementptr inbounds nuw i8, ptr %.127483150, i64 4
+  %773 = getelementptr inbounds nuw i8, ptr %.127503149, i64 4
+  %774 = getelementptr inbounds nuw i8, ptr %.127523148, i64 4
+  %775 = getelementptr inbounds nuw i8, ptr %.43151, i64 44
   %776 = add nuw nsw i32 %.127543147, 1
   %exitcond.not = icmp eq i32 %776, %.fr3178
   br i1 %exitcond.not, label %.loopexit, label %607, !llvm.loop !157
@@ -16174,9 +16174,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433159 = phi ptr [ %238, %.lr.ph3161 ], [ %35, %29 ]
   %.027453158 = phi i32 [ %240, %.lr.ph3161 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433159, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433159, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433159, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433159, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433159, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -16365,28 +16365,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %226 = shufflevector <8 x float> %212, <8 x float> %213, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %227 = shufflevector <8 x float> %215, <8 x float> %216, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %217, ptr %.13160, align 1
-  %228 = getelementptr inbounds i8, ptr %.13160, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %.13160, i64 32
   store <8 x float> %218, ptr %228, align 1
-  %229 = getelementptr inbounds i8, ptr %.13160, i64 64
+  %229 = getelementptr inbounds nuw i8, ptr %.13160, i64 64
   store <8 x float> %219, ptr %229, align 1
-  %230 = getelementptr inbounds i8, ptr %.13160, i64 96
+  %230 = getelementptr inbounds nuw i8, ptr %.13160, i64 96
   store <8 x float> %220, ptr %230, align 1
-  %231 = getelementptr inbounds i8, ptr %.13160, i64 128
+  %231 = getelementptr inbounds nuw i8, ptr %.13160, i64 128
   store <8 x float> %221, ptr %231, align 1
-  %232 = getelementptr inbounds i8, ptr %.13160, i64 160
+  %232 = getelementptr inbounds nuw i8, ptr %.13160, i64 160
   store <8 x float> %222, ptr %232, align 1
-  %233 = getelementptr inbounds i8, ptr %.13160, i64 192
+  %233 = getelementptr inbounds nuw i8, ptr %.13160, i64 192
   store <8 x float> %223, ptr %233, align 1
-  %234 = getelementptr inbounds i8, ptr %.13160, i64 224
+  %234 = getelementptr inbounds nuw i8, ptr %.13160, i64 224
   store <8 x float> %224, ptr %234, align 1
-  %235 = getelementptr inbounds i8, ptr %.13160, i64 256
+  %235 = getelementptr inbounds nuw i8, ptr %.13160, i64 256
   store <8 x float> %225, ptr %235, align 1
-  %236 = getelementptr inbounds i8, ptr %.13160, i64 288
+  %236 = getelementptr inbounds nuw i8, ptr %.13160, i64 288
   store <8 x float> %226, ptr %236, align 1
-  %237 = getelementptr inbounds i8, ptr %.13160, i64 320
+  %237 = getelementptr inbounds nuw i8, ptr %.13160, i64 320
   store <8 x float> %227, ptr %237, align 1
-  %238 = getelementptr inbounds i8, ptr %.027433159, i64 96
-  %239 = getelementptr inbounds i8, ptr %.13160, i64 352
+  %238 = getelementptr inbounds nuw i8, ptr %.027433159, i64 96
+  %239 = getelementptr inbounds nuw i8, ptr %.13160, i64 352
   %240 = add nuw nsw i32 %.027453158, 24
   %241 = add nuw nsw i32 %.027453158, 47
   %242 = icmp slt i32 %241, %.fr3183
@@ -16397,9 +16397,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443166 = phi ptr [ %418, %407 ], [ %.02743.lcssa, %.preheader ]
   %.127463165 = phi i32 [ %420, %407 ], [ %.02745.lcssa, %.preheader ]
   %243 = load float, ptr %.127443166, align 4
-  %244 = getelementptr inbounds i8, ptr %.127443166, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.127443166, i64 4
   %245 = load float, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %.127443166, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %.127443166, i64 8
   %247 = load float, ptr %246, align 4
   %248 = load i32, ptr %21, align 4
   %249 = sitofp i32 %248 to float
@@ -16499,7 +16499,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %330, 0
   %331 = and i32 %321, %327
   %.not3094 = icmp eq i32 %331, 0
-  %332 = getelementptr inbounds i8, ptr %.23167, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %.23167, i64 32
   br i1 %.not3087, label %338, label %333
 
 333:                                              ; preds = %.lr.ph3168
@@ -16529,7 +16529,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 347:                                              ; preds = %338, %340
   %348 = phi i32 [ %346, %340 ], [ -1, %338 ]
-  %349 = getelementptr inbounds i8, ptr %.23167, i64 4
+  %349 = getelementptr inbounds nuw i8, ptr %.23167, i64 4
   store i32 %348, ptr %349, align 4
   br i1 %.not3089, label %357, label %350
 
@@ -16546,7 +16546,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 357:                                              ; preds = %347, %350
   %358 = phi i32 [ %356, %350 ], [ -1, %347 ]
-  %359 = getelementptr inbounds i8, ptr %.23167, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %.23167, i64 8
   store i32 %358, ptr %359, align 4
   br i1 %.not3090, label %367, label %360
 
@@ -16563,7 +16563,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 367:                                              ; preds = %357, %360
   %368 = phi i32 [ %366, %360 ], [ -1, %357 ]
-  %369 = getelementptr inbounds i8, ptr %.23167, i64 12
+  %369 = getelementptr inbounds nuw i8, ptr %.23167, i64 12
   store i32 %368, ptr %369, align 4
   br i1 %.not3091, label %377, label %370
 
@@ -16580,7 +16580,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 377:                                              ; preds = %367, %370
   %378 = phi i32 [ %376, %370 ], [ -1, %367 ]
-  %379 = getelementptr inbounds i8, ptr %.23167, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %.23167, i64 16
   store i32 %378, ptr %379, align 4
   br i1 %.not3092, label %387, label %380
 
@@ -16597,7 +16597,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 387:                                              ; preds = %377, %380
   %388 = phi i32 [ %386, %380 ], [ -1, %377 ]
-  %389 = getelementptr inbounds i8, ptr %.23167, i64 20
+  %389 = getelementptr inbounds nuw i8, ptr %.23167, i64 20
   store i32 %388, ptr %389, align 4
   br i1 %.not3093, label %397, label %390
 
@@ -16614,7 +16614,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 397:                                              ; preds = %387, %390
   %398 = phi i32 [ %396, %390 ], [ -1, %387 ]
-  %399 = getelementptr inbounds i8, ptr %.23167, i64 24
+  %399 = getelementptr inbounds nuw i8, ptr %.23167, i64 24
   store i32 %398, ptr %399, align 4
   br i1 %.not3094, label %407, label %400
 
@@ -16631,21 +16631,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 407:                                              ; preds = %397, %400
   %408 = phi i32 [ %406, %400 ], [ -1, %397 ]
-  %409 = getelementptr inbounds i8, ptr %.23167, i64 28
+  %409 = getelementptr inbounds nuw i8, ptr %.23167, i64 28
   store i32 %408, ptr %409, align 4
   %410 = sitofp i32 %288 to float
   %411 = fsub fast float %.sroa.speculated.i, %410
   store float %411, ptr %332, align 4
   %412 = sitofp i32 %290 to float
   %413 = fsub fast float %.sroa.speculated.i3096, %412
-  %414 = getelementptr inbounds i8, ptr %.23167, i64 36
+  %414 = getelementptr inbounds nuw i8, ptr %.23167, i64 36
   store float %413, ptr %414, align 4
   %415 = sitofp i32 %292 to float
   %416 = fsub fast float %.sroa.speculated.i3098, %415
-  %417 = getelementptr inbounds i8, ptr %.23167, i64 40
+  %417 = getelementptr inbounds nuw i8, ptr %.23167, i64 40
   store float %416, ptr %417, align 4
-  %418 = getelementptr inbounds i8, ptr %.127443166, i64 12
-  %419 = getelementptr inbounds i8, ptr %.23167, i64 44
+  %418 = getelementptr inbounds nuw i8, ptr %.127443166, i64 12
+  %419 = getelementptr inbounds nuw i8, ptr %.23167, i64 44
   %420 = add nuw nsw i32 %.127463165, 3
   %421 = icmp slt i32 %420, %.fr3183
   br i1 %421, label %.lr.ph3168, label %._crit_edge, !llvm.loop !159
@@ -16884,30 +16884,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %627 = shufflevector <8 x float> %613, <8 x float> %614, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %628 = shufflevector <8 x float> %616, <8 x float> %617, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %618, ptr %.33147, align 1
-  %629 = getelementptr inbounds i8, ptr %.33147, i64 32
+  %629 = getelementptr inbounds nuw i8, ptr %.33147, i64 32
   store <8 x float> %619, ptr %629, align 1
-  %630 = getelementptr inbounds i8, ptr %.33147, i64 64
+  %630 = getelementptr inbounds nuw i8, ptr %.33147, i64 64
   store <8 x float> %620, ptr %630, align 1
-  %631 = getelementptr inbounds i8, ptr %.33147, i64 96
+  %631 = getelementptr inbounds nuw i8, ptr %.33147, i64 96
   store <8 x float> %621, ptr %631, align 1
-  %632 = getelementptr inbounds i8, ptr %.33147, i64 128
+  %632 = getelementptr inbounds nuw i8, ptr %.33147, i64 128
   store <8 x float> %622, ptr %632, align 1
-  %633 = getelementptr inbounds i8, ptr %.33147, i64 160
+  %633 = getelementptr inbounds nuw i8, ptr %.33147, i64 160
   store <8 x float> %623, ptr %633, align 1
-  %634 = getelementptr inbounds i8, ptr %.33147, i64 192
+  %634 = getelementptr inbounds nuw i8, ptr %.33147, i64 192
   store <8 x float> %624, ptr %634, align 1
-  %635 = getelementptr inbounds i8, ptr %.33147, i64 224
+  %635 = getelementptr inbounds nuw i8, ptr %.33147, i64 224
   store <8 x float> %625, ptr %635, align 1
-  %636 = getelementptr inbounds i8, ptr %.33147, i64 256
+  %636 = getelementptr inbounds nuw i8, ptr %.33147, i64 256
   store <8 x float> %626, ptr %636, align 1
-  %637 = getelementptr inbounds i8, ptr %.33147, i64 288
+  %637 = getelementptr inbounds nuw i8, ptr %.33147, i64 288
   store <8 x float> %627, ptr %637, align 1
-  %638 = getelementptr inbounds i8, ptr %.33147, i64 320
+  %638 = getelementptr inbounds nuw i8, ptr %.33147, i64 320
   store <8 x float> %628, ptr %638, align 1
-  %639 = getelementptr inbounds i8, ptr %.027473146, i64 32
-  %640 = getelementptr inbounds i8, ptr %.027493145, i64 32
-  %641 = getelementptr inbounds i8, ptr %.027513144, i64 32
-  %642 = getelementptr inbounds i8, ptr %.33147, i64 352
+  %639 = getelementptr inbounds nuw i8, ptr %.027473146, i64 32
+  %640 = getelementptr inbounds nuw i8, ptr %.027493145, i64 32
+  %641 = getelementptr inbounds nuw i8, ptr %.027513144, i64 32
+  %642 = getelementptr inbounds nuw i8, ptr %.33147, i64 352
   %643 = add nuw nsw i32 %.027533143, 8
   %644 = or disjoint i32 %643, 7
   %645 = icmp slt i32 %644, %.fr3183
@@ -17020,7 +17020,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %732, 0
   %733 = and i32 %723, %729
   %.not3086 = icmp eq i32 %733, 0
-  %734 = getelementptr inbounds i8, ptr %.43156, i64 32
+  %734 = getelementptr inbounds nuw i8, ptr %.43156, i64 32
   br i1 %.not, label %740, label %735
 
 735:                                              ; preds = %646
@@ -17050,7 +17050,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 749:                                              ; preds = %740, %742
   %750 = phi i32 [ %748, %742 ], [ -1, %740 ]
-  %751 = getelementptr inbounds i8, ptr %.43156, i64 4
+  %751 = getelementptr inbounds nuw i8, ptr %.43156, i64 4
   store i32 %750, ptr %751, align 4
   br i1 %.not3081, label %759, label %752
 
@@ -17067,7 +17067,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 759:                                              ; preds = %749, %752
   %760 = phi i32 [ %758, %752 ], [ -1, %749 ]
-  %761 = getelementptr inbounds i8, ptr %.43156, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %.43156, i64 8
   store i32 %760, ptr %761, align 4
   br i1 %.not3082, label %769, label %762
 
@@ -17084,7 +17084,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 769:                                              ; preds = %759, %762
   %770 = phi i32 [ %768, %762 ], [ -1, %759 ]
-  %771 = getelementptr inbounds i8, ptr %.43156, i64 12
+  %771 = getelementptr inbounds nuw i8, ptr %.43156, i64 12
   store i32 %770, ptr %771, align 4
   br i1 %.not3083, label %779, label %772
 
@@ -17101,7 +17101,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 779:                                              ; preds = %769, %772
   %780 = phi i32 [ %778, %772 ], [ -1, %769 ]
-  %781 = getelementptr inbounds i8, ptr %.43156, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %.43156, i64 16
   store i32 %780, ptr %781, align 4
   br i1 %.not3084, label %789, label %782
 
@@ -17118,7 +17118,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 789:                                              ; preds = %779, %782
   %790 = phi i32 [ %788, %782 ], [ -1, %779 ]
-  %791 = getelementptr inbounds i8, ptr %.43156, i64 20
+  %791 = getelementptr inbounds nuw i8, ptr %.43156, i64 20
   store i32 %790, ptr %791, align 4
   br i1 %.not3085, label %799, label %792
 
@@ -17135,7 +17135,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 799:                                              ; preds = %789, %792
   %800 = phi i32 [ %798, %792 ], [ -1, %789 ]
-  %801 = getelementptr inbounds i8, ptr %.43156, i64 24
+  %801 = getelementptr inbounds nuw i8, ptr %.43156, i64 24
   store i32 %800, ptr %801, align 4
   br i1 %.not3086, label %809, label %802
 
@@ -17152,23 +17152,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 809:                                              ; preds = %799, %802
   %810 = phi i32 [ %808, %802 ], [ -1, %799 ]
-  %811 = getelementptr inbounds i8, ptr %.43156, i64 28
+  %811 = getelementptr inbounds nuw i8, ptr %.43156, i64 28
   store i32 %810, ptr %811, align 4
   %812 = sitofp i32 %690 to float
   %813 = fsub fast float %.sroa.speculated.i3100, %812
   store float %813, ptr %734, align 4
   %814 = sitofp i32 %692 to float
   %815 = fsub fast float %.sroa.speculated.i3102, %814
-  %816 = getelementptr inbounds i8, ptr %.43156, i64 36
+  %816 = getelementptr inbounds nuw i8, ptr %.43156, i64 36
   store float %815, ptr %816, align 4
   %817 = sitofp i32 %694 to float
   %818 = fsub fast float %.sroa.speculated.i3104, %817
-  %819 = getelementptr inbounds i8, ptr %.43156, i64 40
+  %819 = getelementptr inbounds nuw i8, ptr %.43156, i64 40
   store float %818, ptr %819, align 4
-  %820 = getelementptr inbounds i8, ptr %.127483155, i64 4
-  %821 = getelementptr inbounds i8, ptr %.127503154, i64 4
-  %822 = getelementptr inbounds i8, ptr %.127523153, i64 4
-  %823 = getelementptr inbounds i8, ptr %.43156, i64 44
+  %820 = getelementptr inbounds nuw i8, ptr %.127483155, i64 4
+  %821 = getelementptr inbounds nuw i8, ptr %.127503154, i64 4
+  %822 = getelementptr inbounds nuw i8, ptr %.127523153, i64 4
+  %823 = getelementptr inbounds nuw i8, ptr %.43156, i64 44
   %824 = add nuw nsw i32 %.127543152, 1
   %exitcond.not = icmp eq i32 %824, %.fr3183
   br i1 %exitcond.not, label %.loopexit, label %646, !llvm.loop !162
@@ -17235,9 +17235,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.027433154 = phi ptr [ %229, %.lr.ph3156 ], [ %35, %29 ]
   %.027453153 = phi i32 [ %231, %.lr.ph3156 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.027433154, align 1
-  %38 = getelementptr inbounds i8, ptr %.027433154, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.027433154, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.027433154, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.027433154, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -17417,28 +17417,28 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %217 = shufflevector <8 x float> %203, <8 x float> %204, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %218 = shufflevector <8 x float> %206, <8 x float> %207, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %208, ptr %.13155, align 1
-  %219 = getelementptr inbounds i8, ptr %.13155, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.13155, i64 32
   store <8 x float> %209, ptr %219, align 1
-  %220 = getelementptr inbounds i8, ptr %.13155, i64 64
+  %220 = getelementptr inbounds nuw i8, ptr %.13155, i64 64
   store <8 x float> %210, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %.13155, i64 96
+  %221 = getelementptr inbounds nuw i8, ptr %.13155, i64 96
   store <8 x float> %211, ptr %221, align 1
-  %222 = getelementptr inbounds i8, ptr %.13155, i64 128
+  %222 = getelementptr inbounds nuw i8, ptr %.13155, i64 128
   store <8 x float> %212, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.13155, i64 160
+  %223 = getelementptr inbounds nuw i8, ptr %.13155, i64 160
   store <8 x float> %213, ptr %223, align 1
-  %224 = getelementptr inbounds i8, ptr %.13155, i64 192
+  %224 = getelementptr inbounds nuw i8, ptr %.13155, i64 192
   store <8 x float> %214, ptr %224, align 1
-  %225 = getelementptr inbounds i8, ptr %.13155, i64 224
+  %225 = getelementptr inbounds nuw i8, ptr %.13155, i64 224
   store <8 x float> %215, ptr %225, align 1
-  %226 = getelementptr inbounds i8, ptr %.13155, i64 256
+  %226 = getelementptr inbounds nuw i8, ptr %.13155, i64 256
   store <8 x float> %216, ptr %226, align 1
-  %227 = getelementptr inbounds i8, ptr %.13155, i64 288
+  %227 = getelementptr inbounds nuw i8, ptr %.13155, i64 288
   store <8 x float> %217, ptr %227, align 1
-  %228 = getelementptr inbounds i8, ptr %.13155, i64 320
+  %228 = getelementptr inbounds nuw i8, ptr %.13155, i64 320
   store <8 x float> %218, ptr %228, align 1
-  %229 = getelementptr inbounds i8, ptr %.027433154, i64 96
-  %230 = getelementptr inbounds i8, ptr %.13155, i64 352
+  %229 = getelementptr inbounds nuw i8, ptr %.027433154, i64 96
+  %230 = getelementptr inbounds nuw i8, ptr %.13155, i64 352
   %231 = add nuw nsw i32 %.027453153, 24
   %232 = add nuw nsw i32 %.027453153, 47
   %233 = icmp slt i32 %232, %.fr3178
@@ -17449,9 +17449,9 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.127443161 = phi ptr [ %412, %401 ], [ %.02743.lcssa, %.preheader ]
   %.127463160 = phi i32 [ %414, %401 ], [ %.02745.lcssa, %.preheader ]
   %234 = load float, ptr %.127443161, align 4
-  %235 = getelementptr inbounds i8, ptr %.127443161, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.127443161, i64 4
   %236 = load float, ptr %235, align 4
-  %237 = getelementptr inbounds i8, ptr %.127443161, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %.127443161, i64 8
   %238 = load float, ptr %237, align 4
   %239 = load i32, ptr %21, align 4
   %240 = fmul fast float %234, 5.000000e-01
@@ -17554,7 +17554,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3093 = icmp eq i32 %324, 0
   %325 = and i32 %315, %321
   %.not3094 = icmp eq i32 %325, 0
-  %326 = getelementptr inbounds i8, ptr %.23162, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %.23162, i64 32
   br i1 %.not3087, label %332, label %327
 
 327:                                              ; preds = %.lr.ph3163
@@ -17584,7 +17584,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 341:                                              ; preds = %332, %334
   %342 = phi i32 [ %340, %334 ], [ -1, %332 ]
-  %343 = getelementptr inbounds i8, ptr %.23162, i64 4
+  %343 = getelementptr inbounds nuw i8, ptr %.23162, i64 4
   store i32 %342, ptr %343, align 4
   br i1 %.not3089, label %351, label %344
 
@@ -17601,7 +17601,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 351:                                              ; preds = %341, %344
   %352 = phi i32 [ %350, %344 ], [ -1, %341 ]
-  %353 = getelementptr inbounds i8, ptr %.23162, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %.23162, i64 8
   store i32 %352, ptr %353, align 4
   br i1 %.not3090, label %361, label %354
 
@@ -17618,7 +17618,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 361:                                              ; preds = %351, %354
   %362 = phi i32 [ %360, %354 ], [ -1, %351 ]
-  %363 = getelementptr inbounds i8, ptr %.23162, i64 12
+  %363 = getelementptr inbounds nuw i8, ptr %.23162, i64 12
   store i32 %362, ptr %363, align 4
   br i1 %.not3091, label %371, label %364
 
@@ -17635,7 +17635,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 371:                                              ; preds = %361, %364
   %372 = phi i32 [ %370, %364 ], [ -1, %361 ]
-  %373 = getelementptr inbounds i8, ptr %.23162, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %.23162, i64 16
   store i32 %372, ptr %373, align 4
   br i1 %.not3092, label %381, label %374
 
@@ -17652,7 +17652,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 381:                                              ; preds = %371, %374
   %382 = phi i32 [ %380, %374 ], [ -1, %371 ]
-  %383 = getelementptr inbounds i8, ptr %.23162, i64 20
+  %383 = getelementptr inbounds nuw i8, ptr %.23162, i64 20
   store i32 %382, ptr %383, align 4
   br i1 %.not3093, label %391, label %384
 
@@ -17669,7 +17669,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 391:                                              ; preds = %381, %384
   %392 = phi i32 [ %390, %384 ], [ -1, %381 ]
-  %393 = getelementptr inbounds i8, ptr %.23162, i64 24
+  %393 = getelementptr inbounds nuw i8, ptr %.23162, i64 24
   store i32 %392, ptr %393, align 4
   br i1 %.not3094, label %401, label %394
 
@@ -17686,21 +17686,21 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 401:                                              ; preds = %391, %394
   %402 = phi i32 [ %400, %394 ], [ -1, %391 ]
-  %403 = getelementptr inbounds i8, ptr %.23162, i64 28
+  %403 = getelementptr inbounds nuw i8, ptr %.23162, i64 28
   store i32 %402, ptr %403, align 4
   %404 = sitofp i32 %282 to float
   %405 = fsub fast float %.sroa.speculated.i, %404
   store float %405, ptr %326, align 4
   %406 = sitofp i32 %284 to float
   %407 = fsub fast float %.sroa.speculated.i3096, %406
-  %408 = getelementptr inbounds i8, ptr %.23162, i64 36
+  %408 = getelementptr inbounds nuw i8, ptr %.23162, i64 36
   store float %407, ptr %408, align 4
   %409 = sitofp i32 %286 to float
   %410 = fsub fast float %.sroa.speculated.i3098, %409
-  %411 = getelementptr inbounds i8, ptr %.23162, i64 40
+  %411 = getelementptr inbounds nuw i8, ptr %.23162, i64 40
   store float %410, ptr %411, align 4
-  %412 = getelementptr inbounds i8, ptr %.127443161, i64 12
-  %413 = getelementptr inbounds i8, ptr %.23162, i64 44
+  %412 = getelementptr inbounds nuw i8, ptr %.127443161, i64 12
+  %413 = getelementptr inbounds nuw i8, ptr %.23162, i64 44
   %414 = add nuw nsw i32 %.127463160, 3
   %415 = icmp slt i32 %414, %.fr3178
   br i1 %415, label %.lr.ph3163, label %._crit_edge, !llvm.loop !164
@@ -17930,30 +17930,30 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %612 = shufflevector <8 x float> %598, <8 x float> %599, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %613 = shufflevector <8 x float> %601, <8 x float> %602, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   store <8 x i32> %603, ptr %.33142, align 1
-  %614 = getelementptr inbounds i8, ptr %.33142, i64 32
+  %614 = getelementptr inbounds nuw i8, ptr %.33142, i64 32
   store <8 x float> %604, ptr %614, align 1
-  %615 = getelementptr inbounds i8, ptr %.33142, i64 64
+  %615 = getelementptr inbounds nuw i8, ptr %.33142, i64 64
   store <8 x float> %605, ptr %615, align 1
-  %616 = getelementptr inbounds i8, ptr %.33142, i64 96
+  %616 = getelementptr inbounds nuw i8, ptr %.33142, i64 96
   store <8 x float> %606, ptr %616, align 1
-  %617 = getelementptr inbounds i8, ptr %.33142, i64 128
+  %617 = getelementptr inbounds nuw i8, ptr %.33142, i64 128
   store <8 x float> %607, ptr %617, align 1
-  %618 = getelementptr inbounds i8, ptr %.33142, i64 160
+  %618 = getelementptr inbounds nuw i8, ptr %.33142, i64 160
   store <8 x float> %608, ptr %618, align 1
-  %619 = getelementptr inbounds i8, ptr %.33142, i64 192
+  %619 = getelementptr inbounds nuw i8, ptr %.33142, i64 192
   store <8 x float> %609, ptr %619, align 1
-  %620 = getelementptr inbounds i8, ptr %.33142, i64 224
+  %620 = getelementptr inbounds nuw i8, ptr %.33142, i64 224
   store <8 x float> %610, ptr %620, align 1
-  %621 = getelementptr inbounds i8, ptr %.33142, i64 256
+  %621 = getelementptr inbounds nuw i8, ptr %.33142, i64 256
   store <8 x float> %611, ptr %621, align 1
-  %622 = getelementptr inbounds i8, ptr %.33142, i64 288
+  %622 = getelementptr inbounds nuw i8, ptr %.33142, i64 288
   store <8 x float> %612, ptr %622, align 1
-  %623 = getelementptr inbounds i8, ptr %.33142, i64 320
+  %623 = getelementptr inbounds nuw i8, ptr %.33142, i64 320
   store <8 x float> %613, ptr %623, align 1
-  %624 = getelementptr inbounds i8, ptr %.027473141, i64 32
-  %625 = getelementptr inbounds i8, ptr %.027493140, i64 32
-  %626 = getelementptr inbounds i8, ptr %.027513139, i64 32
-  %627 = getelementptr inbounds i8, ptr %.33142, i64 352
+  %624 = getelementptr inbounds nuw i8, ptr %.027473141, i64 32
+  %625 = getelementptr inbounds nuw i8, ptr %.027493140, i64 32
+  %626 = getelementptr inbounds nuw i8, ptr %.027513139, i64 32
+  %627 = getelementptr inbounds nuw i8, ptr %.33142, i64 352
   %628 = add nuw nsw i32 %.027533138, 8
   %629 = or disjoint i32 %628, 7
   %630 = icmp slt i32 %629, %.fr3178
@@ -18069,7 +18069,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
   %.not3085 = icmp eq i32 %720, 0
   %721 = and i32 %711, %717
   %.not3086 = icmp eq i32 %721, 0
-  %722 = getelementptr inbounds i8, ptr %.43151, i64 32
+  %722 = getelementptr inbounds nuw i8, ptr %.43151, i64 32
   br i1 %.not, label %728, label %723
 
 723:                                              ; preds = %631
@@ -18099,7 +18099,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 737:                                              ; preds = %728, %730
   %738 = phi i32 [ %736, %730 ], [ -1, %728 ]
-  %739 = getelementptr inbounds i8, ptr %.43151, i64 4
+  %739 = getelementptr inbounds nuw i8, ptr %.43151, i64 4
   store i32 %738, ptr %739, align 4
   br i1 %.not3081, label %747, label %740
 
@@ -18116,7 +18116,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 747:                                              ; preds = %737, %740
   %748 = phi i32 [ %746, %740 ], [ -1, %737 ]
-  %749 = getelementptr inbounds i8, ptr %.43151, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %.43151, i64 8
   store i32 %748, ptr %749, align 4
   br i1 %.not3082, label %757, label %750
 
@@ -18133,7 +18133,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 757:                                              ; preds = %747, %750
   %758 = phi i32 [ %756, %750 ], [ -1, %747 ]
-  %759 = getelementptr inbounds i8, ptr %.43151, i64 12
+  %759 = getelementptr inbounds nuw i8, ptr %.43151, i64 12
   store i32 %758, ptr %759, align 4
   br i1 %.not3083, label %767, label %760
 
@@ -18150,7 +18150,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 767:                                              ; preds = %757, %760
   %768 = phi i32 [ %766, %760 ], [ -1, %757 ]
-  %769 = getelementptr inbounds i8, ptr %.43151, i64 16
+  %769 = getelementptr inbounds nuw i8, ptr %.43151, i64 16
   store i32 %768, ptr %769, align 4
   br i1 %.not3084, label %777, label %770
 
@@ -18167,7 +18167,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 777:                                              ; preds = %767, %770
   %778 = phi i32 [ %776, %770 ], [ -1, %767 ]
-  %779 = getelementptr inbounds i8, ptr %.43151, i64 20
+  %779 = getelementptr inbounds nuw i8, ptr %.43151, i64 20
   store i32 %778, ptr %779, align 4
   br i1 %.not3085, label %787, label %780
 
@@ -18184,7 +18184,7 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 787:                                              ; preds = %777, %780
   %788 = phi i32 [ %786, %780 ], [ -1, %777 ]
-  %789 = getelementptr inbounds i8, ptr %.43151, i64 24
+  %789 = getelementptr inbounds nuw i8, ptr %.43151, i64 24
   store i32 %788, ptr %789, align 4
   br i1 %.not3086, label %797, label %790
 
@@ -18201,23 +18201,23 @@ define linkonce_odr hidden void @_ZN4ncnn35gridsample_3d_bilinear_compute_blobIL
 
 797:                                              ; preds = %787, %790
   %798 = phi i32 [ %796, %790 ], [ -1, %787 ]
-  %799 = getelementptr inbounds i8, ptr %.43151, i64 28
+  %799 = getelementptr inbounds nuw i8, ptr %.43151, i64 28
   store i32 %798, ptr %799, align 4
   %800 = sitofp i32 %678 to float
   %801 = fsub fast float %.sroa.speculated.i3100, %800
   store float %801, ptr %722, align 4
   %802 = sitofp i32 %680 to float
   %803 = fsub fast float %.sroa.speculated.i3102, %802
-  %804 = getelementptr inbounds i8, ptr %.43151, i64 36
+  %804 = getelementptr inbounds nuw i8, ptr %.43151, i64 36
   store float %803, ptr %804, align 4
   %805 = sitofp i32 %682 to float
   %806 = fsub fast float %.sroa.speculated.i3104, %805
-  %807 = getelementptr inbounds i8, ptr %.43151, i64 40
+  %807 = getelementptr inbounds nuw i8, ptr %.43151, i64 40
   store float %806, ptr %807, align 4
-  %808 = getelementptr inbounds i8, ptr %.127483150, i64 4
-  %809 = getelementptr inbounds i8, ptr %.127503149, i64 4
-  %810 = getelementptr inbounds i8, ptr %.127523148, i64 4
-  %811 = getelementptr inbounds i8, ptr %.43151, i64 44
+  %808 = getelementptr inbounds nuw i8, ptr %.127483150, i64 4
+  %809 = getelementptr inbounds nuw i8, ptr %.127503149, i64 4
+  %810 = getelementptr inbounds nuw i8, ptr %.127523148, i64 4
+  %811 = getelementptr inbounds nuw i8, ptr %.43151, i64 44
   %812 = add nuw nsw i32 %.127543147, 1
   %exitcond.not = icmp eq i32 %812, %.fr3178
   br i1 %exitcond.not, label %.loopexit, label %631, !llvm.loop !167
@@ -18284,9 +18284,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751273 = phi ptr [ %95, %.lr.ph1275 ], [ %35, %29 ]
   %.010771272 = phi i32 [ %97, %.lr.ph1275 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751273, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751273, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751273, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751273, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751273, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -18344,8 +18344,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %93 = bitcast <8 x i32> %92 to <8 x float>
   %94 = select <8 x i1> %84, <8 x float> %93, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %94, ptr %.11274, align 1
-  %95 = getelementptr inbounds i8, ptr %.010751273, i64 96
-  %96 = getelementptr inbounds i8, ptr %.11274, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %.010751273, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %.11274, i64 32
   %97 = add nuw nsw i32 %.010771272, 24
   %98 = add nuw nsw i32 %.010771272, 47
   %99 = icmp slt i32 %98, %.fr1297
@@ -18356,9 +18356,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761280 = phi ptr [ %143, %141 ], [ %.01075.lcssa, %.preheader ]
   %.110781279 = phi i32 [ %145, %141 ], [ %.01077.lcssa, %.preheader ]
   %100 = load float, ptr %.110761280, align 4
-  %101 = getelementptr inbounds i8, ptr %.110761280, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.110761280, i64 4
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %.110761280, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.110761280, i64 8
   %104 = load float, ptr %103, align 4
   %105 = load i32, ptr %21, align 4
   %106 = sitofp i32 %105 to float
@@ -18405,8 +18405,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 141:                                              ; preds = %.lr.ph1282, %136
   %142 = phi i32 [ %140, %136 ], [ -1, %.lr.ph1282 ]
   store i32 %142, ptr %.21281, align 4
-  %143 = getelementptr inbounds i8, ptr %.110761280, i64 12
-  %144 = getelementptr inbounds i8, ptr %.21281, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.110761280, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %.21281, i64 4
   %145 = add nuw nsw i32 %.110781279, 3
   %146 = icmp slt i32 %145, %.fr1297
   br i1 %146, label %.lr.ph1282, label %._crit_edge, !llvm.loop !169
@@ -18514,10 +18514,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %219 = bitcast <8 x i32> %218 to <8 x float>
   %220 = select <8 x i1> %210, <8 x float> %219, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %220, ptr %.31261, align 1
-  %221 = getelementptr inbounds i8, ptr %.010791260, i64 32
-  %222 = getelementptr inbounds i8, ptr %.010851257, i64 32
-  %223 = getelementptr inbounds i8, ptr %.010831258, i64 32
-  %224 = getelementptr inbounds i8, ptr %.31261, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %.010791260, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %.010851257, i64 32
+  %223 = getelementptr inbounds nuw i8, ptr %.010831258, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %.31261, i64 32
   %225 = add nuw nsw i32 %.010811259, 8
   %226 = or disjoint i32 %225, 7
   %227 = icmp slt i32 %226, %.fr1297
@@ -18577,10 +18577,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 268:                                              ; preds = %228, %263
   %269 = phi i32 [ %267, %263 ], [ -1, %228 ]
   store i32 %269, ptr %.41270, align 4
-  %270 = getelementptr inbounds i8, ptr %.110801269, i64 4
-  %271 = getelementptr inbounds i8, ptr %.110861266, i64 4
-  %272 = getelementptr inbounds i8, ptr %.110841267, i64 4
-  %273 = getelementptr inbounds i8, ptr %.41270, i64 4
+  %270 = getelementptr inbounds nuw i8, ptr %.110801269, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %.110861266, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %.110841267, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %.41270, i64 4
   %274 = add nuw nsw i32 %.110821268, 1
   %exitcond.not = icmp eq i32 %274, %.fr1297
   br i1 %exitcond.not, label %.loopexit, label %228, !llvm.loop !172
@@ -18647,9 +18647,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751273 = phi ptr [ %101, %.lr.ph1275 ], [ %35, %29 ]
   %.010771272 = phi i32 [ %103, %.lr.ph1275 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751273, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751273, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751273, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751273, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751273, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -18713,8 +18713,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %99 = bitcast <8 x i32> %98 to <8 x float>
   %100 = select <8 x i1> %90, <8 x float> %99, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %100, ptr %.11274, align 1
-  %101 = getelementptr inbounds i8, ptr %.010751273, i64 96
-  %102 = getelementptr inbounds i8, ptr %.11274, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.010751273, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %.11274, i64 32
   %103 = add nuw nsw i32 %.010771272, 24
   %104 = add nuw nsw i32 %.010771272, 47
   %105 = icmp slt i32 %104, %.fr1297
@@ -18725,9 +18725,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761280 = phi ptr [ %155, %153 ], [ %.01075.lcssa, %.preheader ]
   %.110781279 = phi i32 [ %157, %153 ], [ %.01077.lcssa, %.preheader ]
   %106 = load float, ptr %.110761280, align 4
-  %107 = getelementptr inbounds i8, ptr %.110761280, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.110761280, i64 4
   %108 = load float, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %.110761280, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.110761280, i64 8
   %110 = load float, ptr %109, align 4
   %111 = load i32, ptr %21, align 4
   %112 = fmul fast float %106, 5.000000e-01
@@ -18780,8 +18780,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 153:                                              ; preds = %.lr.ph1282, %148
   %154 = phi i32 [ %152, %148 ], [ -1, %.lr.ph1282 ]
   store i32 %154, ptr %.21281, align 4
-  %155 = getelementptr inbounds i8, ptr %.110761280, i64 12
-  %156 = getelementptr inbounds i8, ptr %.21281, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %.110761280, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %.21281, i64 4
   %157 = add nuw nsw i32 %.110781279, 3
   %158 = icmp slt i32 %157, %.fr1297
   br i1 %158, label %.lr.ph1282, label %._crit_edge, !llvm.loop !174
@@ -18895,10 +18895,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %237 = bitcast <8 x i32> %236 to <8 x float>
   %238 = select <8 x i1> %228, <8 x float> %237, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %238, ptr %.31261, align 1
-  %239 = getelementptr inbounds i8, ptr %.010791260, i64 32
-  %240 = getelementptr inbounds i8, ptr %.010851257, i64 32
-  %241 = getelementptr inbounds i8, ptr %.010831258, i64 32
-  %242 = getelementptr inbounds i8, ptr %.31261, i64 32
+  %239 = getelementptr inbounds nuw i8, ptr %.010791260, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.010851257, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %.010831258, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %.31261, i64 32
   %243 = add nuw nsw i32 %.010811259, 8
   %244 = or disjoint i32 %243, 7
   %245 = icmp slt i32 %244, %.fr1297
@@ -18964,10 +18964,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 292:                                              ; preds = %246, %287
   %293 = phi i32 [ %291, %287 ], [ -1, %246 ]
   store i32 %293, ptr %.41270, align 4
-  %294 = getelementptr inbounds i8, ptr %.110801269, i64 4
-  %295 = getelementptr inbounds i8, ptr %.110861266, i64 4
-  %296 = getelementptr inbounds i8, ptr %.110841267, i64 4
-  %297 = getelementptr inbounds i8, ptr %.41270, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %.110801269, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %.110861266, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %.110841267, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %.41270, i64 4
   %298 = add nuw nsw i32 %.110821268, 1
   %exitcond.not = icmp eq i32 %298, %.fr1297
   br i1 %exitcond.not, label %.loopexit, label %246, !llvm.loop !177
@@ -19034,9 +19034,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751283 = phi ptr [ %110, %.lr.ph1285 ], [ %35, %29 ]
   %.010771282 = phi i32 [ %112, %.lr.ph1285 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751283, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751283, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751283, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751283, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751283, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -19109,8 +19109,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %108 = bitcast <8 x i32> %107 to <8 x float>
   %109 = select <8 x i1> %99, <8 x float> %108, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %109, ptr %.11284, align 1
-  %110 = getelementptr inbounds i8, ptr %.010751283, i64 96
-  %111 = getelementptr inbounds i8, ptr %.11284, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.010751283, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %.11284, i64 32
   %112 = add nuw nsw i32 %.010771282, 24
   %113 = add nuw nsw i32 %.010771282, 47
   %114 = icmp slt i32 %113, %.fr1307
@@ -19121,9 +19121,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761290 = phi ptr [ %173, %171 ], [ %.01075.lcssa, %.preheader ]
   %.110781289 = phi i32 [ %175, %171 ], [ %.01077.lcssa, %.preheader ]
   %115 = load float, ptr %.110761290, align 4
-  %116 = getelementptr inbounds i8, ptr %.110761290, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %.110761290, i64 4
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %.110761290, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.110761290, i64 8
   %119 = load float, ptr %118, align 4
   %120 = load i32, ptr %21, align 4
   %121 = sitofp i32 %120 to float
@@ -19191,8 +19191,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 171:                                              ; preds = %.lr.ph1292, %166
   %172 = phi i32 [ %170, %166 ], [ -1, %.lr.ph1292 ]
   store i32 %172, ptr %.21291, align 4
-  %173 = getelementptr inbounds i8, ptr %.110761290, i64 12
-  %174 = getelementptr inbounds i8, ptr %.21291, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.110761290, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %.21291, i64 4
   %175 = add nuw nsw i32 %.110781289, 3
   %176 = icmp slt i32 %175, %.fr1307
   br i1 %176, label %.lr.ph1292, label %._crit_edge, !llvm.loop !179
@@ -19315,10 +19315,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %264 = bitcast <8 x i32> %263 to <8 x float>
   %265 = select <8 x i1> %255, <8 x float> %264, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %265, ptr %.31271, align 1
-  %266 = getelementptr inbounds i8, ptr %.010791270, i64 32
-  %267 = getelementptr inbounds i8, ptr %.010851267, i64 32
-  %268 = getelementptr inbounds i8, ptr %.010831268, i64 32
-  %269 = getelementptr inbounds i8, ptr %.31271, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %.010791270, i64 32
+  %267 = getelementptr inbounds nuw i8, ptr %.010851267, i64 32
+  %268 = getelementptr inbounds nuw i8, ptr %.010831268, i64 32
+  %269 = getelementptr inbounds nuw i8, ptr %.31271, i64 32
   %270 = add nuw nsw i32 %.010811269, 8
   %271 = or disjoint i32 %270, 7
   %272 = icmp slt i32 %271, %.fr1307
@@ -19399,10 +19399,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 328:                                              ; preds = %273, %323
   %329 = phi i32 [ %327, %323 ], [ -1, %273 ]
   store i32 %329, ptr %.41280, align 4
-  %330 = getelementptr inbounds i8, ptr %.110801279, i64 4
-  %331 = getelementptr inbounds i8, ptr %.110861276, i64 4
-  %332 = getelementptr inbounds i8, ptr %.110841277, i64 4
-  %333 = getelementptr inbounds i8, ptr %.41280, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %.110801279, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %.110861276, i64 4
+  %332 = getelementptr inbounds nuw i8, ptr %.110841277, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %.41280, i64 4
   %334 = add nuw nsw i32 %.110821278, 1
   %exitcond.not = icmp eq i32 %334, %.fr1307
   br i1 %exitcond.not, label %.loopexit, label %273, !llvm.loop !182
@@ -19469,9 +19469,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751283 = phi ptr [ %107, %.lr.ph1285 ], [ %35, %29 ]
   %.010771282 = phi i32 [ %109, %.lr.ph1285 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751283, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751283, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751283, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751283, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751283, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -19541,8 +19541,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %105 = bitcast <8 x i32> %104 to <8 x float>
   %106 = select <8 x i1> %96, <8 x float> %105, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %106, ptr %.11284, align 1
-  %107 = getelementptr inbounds i8, ptr %.010751283, i64 96
-  %108 = getelementptr inbounds i8, ptr %.11284, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.010751283, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %.11284, i64 32
   %109 = add nuw nsw i32 %.010771282, 24
   %110 = add nuw nsw i32 %.010771282, 47
   %111 = icmp slt i32 %110, %.fr1307
@@ -19553,9 +19553,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761290 = phi ptr [ %173, %171 ], [ %.01075.lcssa, %.preheader ]
   %.110781289 = phi i32 [ %175, %171 ], [ %.01077.lcssa, %.preheader ]
   %112 = load float, ptr %.110761290, align 4
-  %113 = getelementptr inbounds i8, ptr %.110761290, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.110761290, i64 4
   %114 = load float, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %.110761290, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.110761290, i64 8
   %116 = load float, ptr %115, align 4
   %117 = load i32, ptr %21, align 4
   %118 = fmul fast float %112, 5.000000e-01
@@ -19626,8 +19626,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 171:                                              ; preds = %.lr.ph1292, %166
   %172 = phi i32 [ %170, %166 ], [ -1, %.lr.ph1292 ]
   store i32 %172, ptr %.21291, align 4
-  %173 = getelementptr inbounds i8, ptr %.110761290, i64 12
-  %174 = getelementptr inbounds i8, ptr %.21291, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.110761290, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %.21291, i64 4
   %175 = add nuw nsw i32 %.110781289, 3
   %176 = icmp slt i32 %175, %.fr1307
   br i1 %176, label %.lr.ph1292, label %._crit_edge, !llvm.loop !184
@@ -19747,10 +19747,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %261 = bitcast <8 x i32> %260 to <8 x float>
   %262 = select <8 x i1> %252, <8 x float> %261, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %262, ptr %.31271, align 1
-  %263 = getelementptr inbounds i8, ptr %.010791270, i64 32
-  %264 = getelementptr inbounds i8, ptr %.010851267, i64 32
-  %265 = getelementptr inbounds i8, ptr %.010831268, i64 32
-  %266 = getelementptr inbounds i8, ptr %.31271, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %.010791270, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %.010851267, i64 32
+  %265 = getelementptr inbounds nuw i8, ptr %.010831268, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %.31271, i64 32
   %267 = add nuw nsw i32 %.010811269, 8
   %268 = or disjoint i32 %267, 7
   %269 = icmp slt i32 %268, %.fr1307
@@ -19834,10 +19834,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 328:                                              ; preds = %270, %323
   %329 = phi i32 [ %327, %323 ], [ -1, %270 ]
   store i32 %329, ptr %.41280, align 4
-  %330 = getelementptr inbounds i8, ptr %.110801279, i64 4
-  %331 = getelementptr inbounds i8, ptr %.110861276, i64 4
-  %332 = getelementptr inbounds i8, ptr %.110841277, i64 4
-  %333 = getelementptr inbounds i8, ptr %.41280, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %.110801279, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %.110861276, i64 4
+  %332 = getelementptr inbounds nuw i8, ptr %.110841277, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %.41280, i64 4
   %334 = add nuw nsw i32 %.110821278, 1
   %exitcond.not = icmp eq i32 %334, %.fr1307
   br i1 %exitcond.not, label %.loopexit, label %270, !llvm.loop !187
@@ -19904,9 +19904,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751288 = phi ptr [ %122, %.lr.ph1290 ], [ %35, %29 ]
   %.010771287 = phi i32 [ %124, %.lr.ph1290 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751288, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751288, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751288, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751288, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751288, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -19991,8 +19991,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %120 = bitcast <8 x i32> %119 to <8 x float>
   %121 = select <8 x i1> %111, <8 x float> %120, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %121, ptr %.11289, align 1
-  %122 = getelementptr inbounds i8, ptr %.010751288, i64 96
-  %123 = getelementptr inbounds i8, ptr %.11289, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %.010751288, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %.11289, i64 32
   %124 = add nuw nsw i32 %.010771287, 24
   %125 = add nuw nsw i32 %.010771287, 47
   %126 = icmp slt i32 %125, %.fr1312
@@ -20003,9 +20003,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761295 = phi ptr [ %197, %195 ], [ %.01075.lcssa, %.preheader ]
   %.110781294 = phi i32 [ %199, %195 ], [ %.01077.lcssa, %.preheader ]
   %127 = load float, ptr %.110761295, align 4
-  %128 = getelementptr inbounds i8, ptr %.110761295, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.110761295, i64 4
   %129 = load float, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %.110761295, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.110761295, i64 8
   %131 = load float, ptr %130, align 4
   %132 = load i32, ptr %21, align 4
   %133 = sitofp i32 %132 to float
@@ -20085,8 +20085,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 195:                                              ; preds = %.lr.ph1297, %190
   %196 = phi i32 [ %194, %190 ], [ -1, %.lr.ph1297 ]
   store i32 %196, ptr %.21296, align 4
-  %197 = getelementptr inbounds i8, ptr %.110761295, i64 12
-  %198 = getelementptr inbounds i8, ptr %.21296, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %.110761295, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %.21296, i64 4
   %199 = add nuw nsw i32 %.110781294, 3
   %200 = icmp slt i32 %199, %.fr1312
   br i1 %200, label %.lr.ph1297, label %._crit_edge, !llvm.loop !189
@@ -20221,10 +20221,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %300 = bitcast <8 x i32> %299 to <8 x float>
   %301 = select <8 x i1> %291, <8 x float> %300, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %301, ptr %.31276, align 1
-  %302 = getelementptr inbounds i8, ptr %.010791275, i64 32
-  %303 = getelementptr inbounds i8, ptr %.010851272, i64 32
-  %304 = getelementptr inbounds i8, ptr %.010831273, i64 32
-  %305 = getelementptr inbounds i8, ptr %.31276, i64 32
+  %302 = getelementptr inbounds nuw i8, ptr %.010791275, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %.010851272, i64 32
+  %304 = getelementptr inbounds nuw i8, ptr %.010831273, i64 32
+  %305 = getelementptr inbounds nuw i8, ptr %.31276, i64 32
   %306 = add nuw nsw i32 %.010811274, 8
   %307 = or disjoint i32 %306, 7
   %308 = icmp slt i32 %307, %.fr1312
@@ -20317,10 +20317,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 376:                                              ; preds = %309, %371
   %377 = phi i32 [ %375, %371 ], [ -1, %309 ]
   store i32 %377, ptr %.41285, align 4
-  %378 = getelementptr inbounds i8, ptr %.110801284, i64 4
-  %379 = getelementptr inbounds i8, ptr %.110861281, i64 4
-  %380 = getelementptr inbounds i8, ptr %.110841282, i64 4
-  %381 = getelementptr inbounds i8, ptr %.41285, i64 4
+  %378 = getelementptr inbounds nuw i8, ptr %.110801284, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %.110861281, i64 4
+  %380 = getelementptr inbounds nuw i8, ptr %.110841282, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %.41285, i64 4
   %382 = add nuw nsw i32 %.110821283, 1
   %exitcond.not = icmp eq i32 %382, %.fr1312
   br i1 %exitcond.not, label %.loopexit, label %309, !llvm.loop !192
@@ -20387,9 +20387,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.010751288 = phi ptr [ %113, %.lr.ph1290 ], [ %35, %29 ]
   %.010771287 = phi i32 [ %115, %.lr.ph1290 ], [ 0, %29 ]
   %37 = load <8 x float>, ptr %.010751288, align 1
-  %38 = getelementptr inbounds i8, ptr %.010751288, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.010751288, i64 32
   %39 = load <8 x float>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %.010751288, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.010751288, i64 64
   %41 = load <8 x float>, ptr %40, align 1
   %42 = shufflevector <8 x float> %37, <8 x float> %39, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
   %43 = shufflevector <8 x float> %37, <8 x float> %41, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
@@ -20465,8 +20465,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %111 = bitcast <8 x i32> %110 to <8 x float>
   %112 = select <8 x i1> %102, <8 x float> %111, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %112, ptr %.11289, align 1
-  %113 = getelementptr inbounds i8, ptr %.010751288, i64 96
-  %114 = getelementptr inbounds i8, ptr %.11289, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %.010751288, i64 96
+  %114 = getelementptr inbounds nuw i8, ptr %.11289, i64 32
   %115 = add nuw nsw i32 %.010771287, 24
   %116 = add nuw nsw i32 %.010771287, 47
   %117 = icmp slt i32 %116, %.fr1312
@@ -20477,9 +20477,9 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %.110761295 = phi ptr [ %191, %189 ], [ %.01075.lcssa, %.preheader ]
   %.110781294 = phi i32 [ %193, %189 ], [ %.01077.lcssa, %.preheader ]
   %118 = load float, ptr %.110761295, align 4
-  %119 = getelementptr inbounds i8, ptr %.110761295, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.110761295, i64 4
   %120 = load float, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %.110761295, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.110761295, i64 8
   %122 = load float, ptr %121, align 4
   %123 = load i32, ptr %21, align 4
   %124 = fmul fast float %118, 5.000000e-01
@@ -20562,8 +20562,8 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 189:                                              ; preds = %.lr.ph1297, %184
   %190 = phi i32 [ %188, %184 ], [ -1, %.lr.ph1297 ]
   store i32 %190, ptr %.21296, align 4
-  %191 = getelementptr inbounds i8, ptr %.110761295, i64 12
-  %192 = getelementptr inbounds i8, ptr %.21296, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.110761295, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %.21296, i64 4
   %193 = add nuw nsw i32 %.110781294, 3
   %194 = icmp slt i32 %193, %.fr1312
   br i1 %194, label %.lr.ph1297, label %._crit_edge, !llvm.loop !194
@@ -20689,10 +20689,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
   %285 = bitcast <8 x i32> %284 to <8 x float>
   %286 = select <8 x i1> %276, <8 x float> %285, <8 x float> splat (float -1.000000e+00)
   store <8 x float> %286, ptr %.31276, align 1
-  %287 = getelementptr inbounds i8, ptr %.010791275, i64 32
-  %288 = getelementptr inbounds i8, ptr %.010851272, i64 32
-  %289 = getelementptr inbounds i8, ptr %.010831273, i64 32
-  %290 = getelementptr inbounds i8, ptr %.31276, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %.010791275, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %.010851272, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %.010831273, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %.31276, i64 32
   %291 = add nuw nsw i32 %.010811274, 8
   %292 = or disjoint i32 %291, 7
   %293 = icmp slt i32 %292, %.fr1312
@@ -20788,10 +20788,10 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 364:                                              ; preds = %294, %359
   %365 = phi i32 [ %363, %359 ], [ -1, %294 ]
   store i32 %365, ptr %.41285, align 4
-  %366 = getelementptr inbounds i8, ptr %.110801284, i64 4
-  %367 = getelementptr inbounds i8, ptr %.110861281, i64 4
-  %368 = getelementptr inbounds i8, ptr %.110841282, i64 4
-  %369 = getelementptr inbounds i8, ptr %.41285, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %.110801284, i64 4
+  %367 = getelementptr inbounds nuw i8, ptr %.110861281, i64 4
+  %368 = getelementptr inbounds nuw i8, ptr %.110841282, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %.41285, i64 4
   %370 = add nuw nsw i32 %.110821283, 1
   %exitcond.not = icmp eq i32 %370, %.fr1312
   br i1 %exitcond.not, label %.loopexit, label %294, !llvm.loop !197
@@ -20845,53 +20845,53 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %.06.us = phi i32 [ 0, %.lr.ph.us ], [ %83, %65 ]
   %.02665.us = phi ptr [ %29, %.lr.ph.us ], [ %82, %65 ]
   %.02674.us = phi ptr [ %28, %.lr.ph.us ], [ %81, %65 ]
-  %31 = getelementptr inbounds i8, ptr %.02665.us, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 16
   %32 = load i32, ptr %.02665.us, align 4
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = zext nneg i32 %32 to i64
-  %36 = getelementptr inbounds float, ptr %22, i64 %35
+  %36 = getelementptr inbounds nuw float, ptr %22, i64 %35
   %37 = load <8 x float>, ptr %36, align 1
   br label %38
 
 38:                                               ; preds = %34, %30
   %39 = phi fast <8 x float> [ %37, %34 ], [ zeroinitializer, %30 ]
-  %40 = getelementptr inbounds i8, ptr %.02665.us, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %38
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds float, ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %22, i64 %44
   %46 = load <8 x float>, ptr %45, align 1
   br label %47
 
 47:                                               ; preds = %43, %38
   %48 = phi fast <8 x float> [ %46, %43 ], [ zeroinitializer, %38 ]
-  %49 = getelementptr inbounds i8, ptr %.02665.us, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %47
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds float, ptr %22, i64 %53
+  %54 = getelementptr inbounds nuw float, ptr %22, i64 %53
   %55 = load <8 x float>, ptr %54, align 1
   br label %56
 
 56:                                               ; preds = %52, %47
   %57 = phi fast <8 x float> [ %55, %52 ], [ zeroinitializer, %47 ]
-  %58 = getelementptr inbounds i8, ptr %.02665.us, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %56
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds float, ptr %22, i64 %62
+  %63 = getelementptr inbounds nuw float, ptr %22, i64 %62
   %64 = load <8 x float>, ptr %63, align 1
   br label %65
 
@@ -20907,7 +20907,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %74 = fsub fast <8 x float> %66, %57
   %reass.mul.us = fmul fast <8 x float> %74, %69
   %75 = fadd fast <8 x float> %reass.mul.us, %57
-  %76 = getelementptr inbounds i8, ptr %.02665.us, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 20
   %77 = load float, ptr %76, align 4
   %78 = insertelement <8 x float> poison, float %77, i64 0
   %79 = shufflevector <8 x float> %78, <8 x float> poison, <8 x i32> zeroinitializer
@@ -20915,8 +20915,8 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %reass.mul3.us = fmul fast <8 x float> %reass.add2.us, %79
   %80 = fadd fast <8 x float> %reass.mul3.us, %73
   store <8 x float> %80, ptr %.02674.us, align 1
-  %81 = getelementptr inbounds i8, ptr %.02674.us, i64 32
-  %82 = getelementptr inbounds i8, ptr %.02665.us, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.02674.us, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.02665.us, i64 24
   %83 = add nuw nsw i32 %.06.us, 1
   %exitcond.not = icmp eq i32 %83, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !198
@@ -20984,15 +20984,15 @@ define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds float, ptr %25, i64 %37
+  %38 = getelementptr inbounds nuw float, ptr %25, i64 %37
   %39 = load <8 x float>, ptr %38, align 1
   br label %40
 
 40:                                               ; preds = %36, %33
   %41 = phi fast <8 x float> [ %39, %36 ], [ zeroinitializer, %33 ]
-  %42 = getelementptr inbounds i8, ptr %.01252.us, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.01252.us, i64 4
   store <8 x float> %41, ptr %.01261.us, align 1
-  %43 = getelementptr inbounds i8, ptr %.01261.us, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.01261.us, i64 32
   %44 = add nuw nsw i32 %.03.us, 1
   %exitcond.not = icmp eq i32 %44, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !200
@@ -21025,9 +21025,9 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = icmp sgt i32 %11, 0
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
-  %19 = getelementptr inbounds i8, ptr %4, i64 64
-  %20 = getelementptr inbounds i8, ptr %4, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
   br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge23
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph22
@@ -21080,7 +21080,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %56 = fadd fast <8 x float> %55, splat (float 1.000000e+00)
   %57 = fadd fast <8 x float> %51, %55
   %58 = fadd fast <8 x float> %57, %45
-  %59 = getelementptr inbounds i8, ptr %.028118.us, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.028118.us, i64 4
   %60 = load float, ptr %59, align 4
   %61 = insertelement <8 x float> poison, float %60, i64 0
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <8 x i32> zeroinitializer
@@ -21103,7 +21103,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %78 = fmul fast <8 x float> %64, %64
   %79 = fmul fast <8 x float> %78, %77
   %80 = fadd fast <8 x float> %75, %79
-  %81 = getelementptr inbounds i8, ptr %.028118.us, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.028118.us, i64 8
   br label %100
 
 82:                                               ; preds = %134
@@ -21122,8 +21122,8 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %95 = fmul fast <8 x float> %85, %94
   %96 = fsub fast <8 x float> %93, %95
   store <8 x float> %96, ptr %.028217.us, align 1
-  %97 = getelementptr inbounds i8, ptr %.028217.us, i64 32
-  %98 = getelementptr inbounds i8, ptr %.028118.us, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %.028217.us, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %.028118.us, i64 72
   %99 = add nuw nsw i32 %.028019.us, 1
   %exitcond26.not = icmp eq i32 %99, %11
   br i1 %exitcond26.not, label %._crit_edge.us, label %34, !llvm.loop !202
@@ -21137,53 +21137,53 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 
 103:                                              ; preds = %100
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds float, ptr %26, i64 %104
+  %105 = getelementptr inbounds nuw float, ptr %26, i64 %104
   %106 = load <8 x float>, ptr %105, align 1
   br label %107
 
 107:                                              ; preds = %103, %100
   %108 = phi fast <8 x float> [ %106, %103 ], [ zeroinitializer, %100 ]
-  %109 = getelementptr inbounds i8, ptr %.027915.us, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.027915.us, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp sgt i32 %110, -1
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %107
   %113 = zext nneg i32 %110 to i64
-  %114 = getelementptr inbounds float, ptr %26, i64 %113
+  %114 = getelementptr inbounds nuw float, ptr %26, i64 %113
   %115 = load <8 x float>, ptr %114, align 1
   br label %116
 
 116:                                              ; preds = %112, %107
   %117 = phi fast <8 x float> [ %115, %112 ], [ zeroinitializer, %107 ]
-  %118 = getelementptr inbounds i8, ptr %.027915.us, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.027915.us, i64 8
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, -1
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %116
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds float, ptr %26, i64 %122
+  %123 = getelementptr inbounds nuw float, ptr %26, i64 %122
   %124 = load <8 x float>, ptr %123, align 1
   br label %125
 
 125:                                              ; preds = %121, %116
   %126 = phi fast <8 x float> [ %124, %121 ], [ zeroinitializer, %116 ]
-  %127 = getelementptr inbounds i8, ptr %.027915.us, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %.027915.us, i64 12
   %128 = load i32, ptr %127, align 4
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %125
   %131 = zext nneg i32 %128 to i64
-  %132 = getelementptr inbounds float, ptr %26, i64 %131
+  %132 = getelementptr inbounds nuw float, ptr %26, i64 %131
   %133 = load <8 x float>, ptr %132, align 1
   br label %134
 
 134:                                              ; preds = %130, %125
   %135 = phi fast <8 x float> [ %133, %130 ], [ zeroinitializer, %125 ]
   %136 = fmul fast <8 x float> %108, %45
-  %137 = getelementptr inbounds [4 x <8 x float>], ptr %4, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x <8 x float>], ptr %4, i64 0, i64 %indvars.iv
   %138 = fmul fast <8 x float> %117, %51
   %139 = fadd fast <8 x float> %138, %136
   %140 = fmul fast <8 x float> %126, %56
@@ -21191,7 +21191,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %142 = fmul fast <8 x float> %58, %135
   %143 = fsub fast <8 x float> %141, %142
   store <8 x float> %143, ptr %137, align 32
-  %144 = getelementptr inbounds i8, ptr %.027915.us, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.027915.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %82, label %100, !llvm.loop !203
@@ -21253,105 +21253,105 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %.012.us = phi i32 [ 0, %.lr.ph.us ], [ %137, %104 ]
   %.042611.us = phi ptr [ %32, %.lr.ph.us ], [ %136, %104 ]
   %.042710.us = phi ptr [ %31, %.lr.ph.us ], [ %135, %104 ]
-  %34 = getelementptr inbounds i8, ptr %.042611.us, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 32
   %35 = load i32, ptr %.042611.us, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds float, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw float, ptr %25, i64 %38
   %40 = load <8 x float>, ptr %39, align 1
   br label %41
 
 41:                                               ; preds = %37, %33
   %42 = phi fast <8 x float> [ %40, %37 ], [ zeroinitializer, %33 ]
-  %43 = getelementptr inbounds i8, ptr %.042611.us, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds float, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %25, i64 %47
   %49 = load <8 x float>, ptr %48, align 1
   br label %50
 
 50:                                               ; preds = %46, %41
   %51 = phi fast <8 x float> [ %49, %46 ], [ zeroinitializer, %41 ]
-  %52 = getelementptr inbounds i8, ptr %.042611.us, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds float, ptr %25, i64 %56
+  %57 = getelementptr inbounds nuw float, ptr %25, i64 %56
   %58 = load <8 x float>, ptr %57, align 1
   br label %59
 
 59:                                               ; preds = %55, %50
   %60 = phi fast <8 x float> [ %58, %55 ], [ zeroinitializer, %50 ]
-  %61 = getelementptr inbounds i8, ptr %.042611.us, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds float, ptr %25, i64 %65
+  %66 = getelementptr inbounds nuw float, ptr %25, i64 %65
   %67 = load <8 x float>, ptr %66, align 1
   br label %68
 
 68:                                               ; preds = %64, %59
   %69 = phi fast <8 x float> [ %67, %64 ], [ zeroinitializer, %59 ]
-  %70 = getelementptr inbounds i8, ptr %.042611.us, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %68
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds float, ptr %25, i64 %74
+  %75 = getelementptr inbounds nuw float, ptr %25, i64 %74
   %76 = load <8 x float>, ptr %75, align 1
   br label %77
 
 77:                                               ; preds = %73, %68
   %78 = phi fast <8 x float> [ %76, %73 ], [ zeroinitializer, %68 ]
-  %79 = getelementptr inbounds i8, ptr %.042611.us, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %77
   %83 = zext nneg i32 %80 to i64
-  %84 = getelementptr inbounds float, ptr %25, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr %25, i64 %83
   %85 = load <8 x float>, ptr %84, align 1
   br label %86
 
 86:                                               ; preds = %82, %77
   %87 = phi fast <8 x float> [ %85, %82 ], [ zeroinitializer, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.042611.us, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 24
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %86
   %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr inbounds float, ptr %25, i64 %92
+  %93 = getelementptr inbounds nuw float, ptr %25, i64 %92
   %94 = load <8 x float>, ptr %93, align 1
   br label %95
 
 95:                                               ; preds = %91, %86
   %96 = phi fast <8 x float> [ %94, %91 ], [ zeroinitializer, %86 ]
-  %97 = getelementptr inbounds i8, ptr %.042611.us, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %95
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds float, ptr %25, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %25, i64 %101
   %103 = load <8 x float>, ptr %102, align 1
   br label %104
 
@@ -21374,7 +21374,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %119 = fsub fast <8 x float> %105, %96
   %reass.mul5.us = fmul fast <8 x float> %119, %108
   %120 = fadd fast <8 x float> %reass.mul5.us, %96
-  %121 = getelementptr inbounds i8, ptr %.042611.us, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 36
   %122 = load float, ptr %121, align 4
   %123 = insertelement <8 x float> poison, float %122, i64 0
   %124 = shufflevector <8 x float> %123, <8 x float> poison, <8 x i32> zeroinitializer
@@ -21385,7 +21385,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %reass.add6.us = fsub fast <8 x float> %120, %118
   %reass.mul7.us = fmul fast <8 x float> %reass.add6.us, %124
   %129 = fadd fast <8 x float> %reass.mul7.us, %118
-  %130 = getelementptr inbounds i8, ptr %.042611.us, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 40
   %131 = load float, ptr %130, align 4
   %132 = insertelement <8 x float> poison, float %131, i64 0
   %133 = shufflevector <8 x float> %132, <8 x float> poison, <8 x i32> zeroinitializer
@@ -21393,8 +21393,8 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %reass.mul9.us = fmul fast <8 x float> %reass.add8.us, %133
   %134 = fadd fast <8 x float> %reass.mul9.us, %128
   store <8 x float> %134, ptr %.042710.us, align 1
-  %135 = getelementptr inbounds i8, ptr %.042710.us, i64 32
-  %136 = getelementptr inbounds i8, ptr %.042611.us, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %.042710.us, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %.042611.us, i64 44
   %137 = add nuw nsw i32 %.012.us, 1
   %exitcond.not = icmp eq i32 %137, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !205
@@ -21453,53 +21453,53 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %.06.us = phi i32 [ 0, %.lr.ph.us ], [ %83, %65 ]
   %.01945.us = phi ptr [ %29, %.lr.ph.us ], [ %82, %65 ]
   %.01954.us = phi ptr [ %28, %.lr.ph.us ], [ %81, %65 ]
-  %31 = getelementptr inbounds i8, ptr %.01945.us, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 16
   %32 = load i32, ptr %.01945.us, align 4
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = zext nneg i32 %32 to i64
-  %36 = getelementptr inbounds float, ptr %22, i64 %35
+  %36 = getelementptr inbounds nuw float, ptr %22, i64 %35
   %37 = load <4 x float>, ptr %36, align 1
   br label %38
 
 38:                                               ; preds = %34, %30
   %39 = phi fast <4 x float> [ %37, %34 ], [ zeroinitializer, %30 ]
-  %40 = getelementptr inbounds i8, ptr %.01945.us, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %38
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds float, ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %22, i64 %44
   %46 = load <4 x float>, ptr %45, align 1
   br label %47
 
 47:                                               ; preds = %43, %38
   %48 = phi fast <4 x float> [ %46, %43 ], [ zeroinitializer, %38 ]
-  %49 = getelementptr inbounds i8, ptr %.01945.us, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %47
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds float, ptr %22, i64 %53
+  %54 = getelementptr inbounds nuw float, ptr %22, i64 %53
   %55 = load <4 x float>, ptr %54, align 1
   br label %56
 
 56:                                               ; preds = %52, %47
   %57 = phi fast <4 x float> [ %55, %52 ], [ zeroinitializer, %47 ]
-  %58 = getelementptr inbounds i8, ptr %.01945.us, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %56
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds float, ptr %22, i64 %62
+  %63 = getelementptr inbounds nuw float, ptr %22, i64 %62
   %64 = load <4 x float>, ptr %63, align 1
   br label %65
 
@@ -21515,7 +21515,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %74 = fsub fast <4 x float> %66, %57
   %reass.mul.us = fmul fast <4 x float> %74, %69
   %75 = fadd fast <4 x float> %reass.mul.us, %57
-  %76 = getelementptr inbounds i8, ptr %.01945.us, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 20
   %77 = load float, ptr %76, align 4
   %78 = insertelement <4 x float> poison, float %77, i64 0
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21523,8 +21523,8 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
   %reass.mul3.us = fmul fast <4 x float> %reass.add2.us, %79
   %80 = fadd fast <4 x float> %reass.mul3.us, %73
   store <4 x float> %80, ptr %.01954.us, align 1
-  %81 = getelementptr inbounds i8, ptr %.01954.us, i64 16
-  %82 = getelementptr inbounds i8, ptr %.01945.us, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.01954.us, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.01945.us, i64 24
   %83 = add nuw nsw i32 %.06.us, 1
   %exitcond.not = icmp eq i32 %83, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !207
@@ -21592,15 +21592,15 @@ define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds float, ptr %25, i64 %37
+  %38 = getelementptr inbounds nuw float, ptr %25, i64 %37
   %39 = load <4 x float>, ptr %38, align 1
   br label %40
 
 40:                                               ; preds = %36, %33
   %41 = phi fast <4 x float> [ %39, %36 ], [ zeroinitializer, %33 ]
-  %42 = getelementptr inbounds i8, ptr %.01132.us, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.01132.us, i64 4
   store <4 x float> %41, ptr %.01141.us, align 1
-  %43 = getelementptr inbounds i8, ptr %.01141.us, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.01141.us, i64 16
   %44 = add nuw nsw i32 %.03.us, 1
   %exitcond.not = icmp eq i32 %44, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !209
@@ -21633,9 +21633,9 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = icmp sgt i32 %11, 0
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge23
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph22
@@ -21688,7 +21688,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %56 = fadd fast <4 x float> %55, splat (float 1.000000e+00)
   %57 = fadd fast <4 x float> %51, %55
   %58 = fadd fast <4 x float> %57, %45
-  %59 = getelementptr inbounds i8, ptr %.021118.us, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.021118.us, i64 4
   %60 = load float, ptr %59, align 4
   %61 = insertelement <4 x float> poison, float %60, i64 0
   %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21711,7 +21711,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %78 = fmul fast <4 x float> %64, %64
   %79 = fmul fast <4 x float> %78, %77
   %80 = fadd fast <4 x float> %75, %79
-  %81 = getelementptr inbounds i8, ptr %.021118.us, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.021118.us, i64 8
   br label %100
 
 82:                                               ; preds = %134
@@ -21730,8 +21730,8 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %95 = fmul fast <4 x float> %85, %94
   %96 = fsub fast <4 x float> %93, %95
   store <4 x float> %96, ptr %.021217.us, align 1
-  %97 = getelementptr inbounds i8, ptr %.021217.us, i64 16
-  %98 = getelementptr inbounds i8, ptr %.021118.us, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %.021217.us, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.021118.us, i64 72
   %99 = add nuw nsw i32 %.021019.us, 1
   %exitcond26.not = icmp eq i32 %99, %11
   br i1 %exitcond26.not, label %._crit_edge.us, label %34, !llvm.loop !211
@@ -21745,53 +21745,53 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 
 103:                                              ; preds = %100
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds float, ptr %26, i64 %104
+  %105 = getelementptr inbounds nuw float, ptr %26, i64 %104
   %106 = load <4 x float>, ptr %105, align 1
   br label %107
 
 107:                                              ; preds = %103, %100
   %108 = phi fast <4 x float> [ %106, %103 ], [ zeroinitializer, %100 ]
-  %109 = getelementptr inbounds i8, ptr %.020915.us, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.020915.us, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp sgt i32 %110, -1
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %107
   %113 = zext nneg i32 %110 to i64
-  %114 = getelementptr inbounds float, ptr %26, i64 %113
+  %114 = getelementptr inbounds nuw float, ptr %26, i64 %113
   %115 = load <4 x float>, ptr %114, align 1
   br label %116
 
 116:                                              ; preds = %112, %107
   %117 = phi fast <4 x float> [ %115, %112 ], [ zeroinitializer, %107 ]
-  %118 = getelementptr inbounds i8, ptr %.020915.us, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.020915.us, i64 8
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, -1
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %116
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds float, ptr %26, i64 %122
+  %123 = getelementptr inbounds nuw float, ptr %26, i64 %122
   %124 = load <4 x float>, ptr %123, align 1
   br label %125
 
 125:                                              ; preds = %121, %116
   %126 = phi fast <4 x float> [ %124, %121 ], [ zeroinitializer, %116 ]
-  %127 = getelementptr inbounds i8, ptr %.020915.us, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %.020915.us, i64 12
   %128 = load i32, ptr %127, align 4
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %125
   %131 = zext nneg i32 %128 to i64
-  %132 = getelementptr inbounds float, ptr %26, i64 %131
+  %132 = getelementptr inbounds nuw float, ptr %26, i64 %131
   %133 = load <4 x float>, ptr %132, align 1
   br label %134
 
 134:                                              ; preds = %130, %125
   %135 = phi fast <4 x float> [ %133, %130 ], [ zeroinitializer, %125 ]
   %136 = fmul fast <4 x float> %108, %45
-  %137 = getelementptr inbounds [4 x <4 x float>], ptr %4, i64 0, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x <4 x float>], ptr %4, i64 0, i64 %indvars.iv
   %138 = fmul fast <4 x float> %117, %51
   %139 = fadd fast <4 x float> %138, %136
   %140 = fmul fast <4 x float> %126, %56
@@ -21799,7 +21799,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
   %142 = fmul fast <4 x float> %58, %135
   %143 = fsub fast <4 x float> %141, %142
   store <4 x float> %143, ptr %137, align 16
-  %144 = getelementptr inbounds i8, ptr %.020915.us, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.020915.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %82, label %100, !llvm.loop !212
@@ -21861,105 +21861,105 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %.012.us = phi i32 [ 0, %.lr.ph.us ], [ %137, %104 ]
   %.029411.us = phi ptr [ %32, %.lr.ph.us ], [ %136, %104 ]
   %.029510.us = phi ptr [ %31, %.lr.ph.us ], [ %135, %104 ]
-  %34 = getelementptr inbounds i8, ptr %.029411.us, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 32
   %35 = load i32, ptr %.029411.us, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds float, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw float, ptr %25, i64 %38
   %40 = load <4 x float>, ptr %39, align 1
   br label %41
 
 41:                                               ; preds = %37, %33
   %42 = phi fast <4 x float> [ %40, %37 ], [ zeroinitializer, %33 ]
-  %43 = getelementptr inbounds i8, ptr %.029411.us, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds float, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %25, i64 %47
   %49 = load <4 x float>, ptr %48, align 1
   br label %50
 
 50:                                               ; preds = %46, %41
   %51 = phi fast <4 x float> [ %49, %46 ], [ zeroinitializer, %41 ]
-  %52 = getelementptr inbounds i8, ptr %.029411.us, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds float, ptr %25, i64 %56
+  %57 = getelementptr inbounds nuw float, ptr %25, i64 %56
   %58 = load <4 x float>, ptr %57, align 1
   br label %59
 
 59:                                               ; preds = %55, %50
   %60 = phi fast <4 x float> [ %58, %55 ], [ zeroinitializer, %50 ]
-  %61 = getelementptr inbounds i8, ptr %.029411.us, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds float, ptr %25, i64 %65
+  %66 = getelementptr inbounds nuw float, ptr %25, i64 %65
   %67 = load <4 x float>, ptr %66, align 1
   br label %68
 
 68:                                               ; preds = %64, %59
   %69 = phi fast <4 x float> [ %67, %64 ], [ zeroinitializer, %59 ]
-  %70 = getelementptr inbounds i8, ptr %.029411.us, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %68
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds float, ptr %25, i64 %74
+  %75 = getelementptr inbounds nuw float, ptr %25, i64 %74
   %76 = load <4 x float>, ptr %75, align 1
   br label %77
 
 77:                                               ; preds = %73, %68
   %78 = phi fast <4 x float> [ %76, %73 ], [ zeroinitializer, %68 ]
-  %79 = getelementptr inbounds i8, ptr %.029411.us, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %77
   %83 = zext nneg i32 %80 to i64
-  %84 = getelementptr inbounds float, ptr %25, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr %25, i64 %83
   %85 = load <4 x float>, ptr %84, align 1
   br label %86
 
 86:                                               ; preds = %82, %77
   %87 = phi fast <4 x float> [ %85, %82 ], [ zeroinitializer, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.029411.us, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 24
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %86
   %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr inbounds float, ptr %25, i64 %92
+  %93 = getelementptr inbounds nuw float, ptr %25, i64 %92
   %94 = load <4 x float>, ptr %93, align 1
   br label %95
 
 95:                                               ; preds = %91, %86
   %96 = phi fast <4 x float> [ %94, %91 ], [ zeroinitializer, %86 ]
-  %97 = getelementptr inbounds i8, ptr %.029411.us, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %95
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds float, ptr %25, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %25, i64 %101
   %103 = load <4 x float>, ptr %102, align 1
   br label %104
 
@@ -21982,7 +21982,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %119 = fsub fast <4 x float> %105, %96
   %reass.mul5.us = fmul fast <4 x float> %119, %108
   %120 = fadd fast <4 x float> %reass.mul5.us, %96
-  %121 = getelementptr inbounds i8, ptr %.029411.us, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 36
   %122 = load float, ptr %121, align 4
   %123 = insertelement <4 x float> poison, float %122, i64 0
   %124 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> zeroinitializer
@@ -21993,7 +21993,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %reass.add6.us = fsub fast <4 x float> %120, %118
   %reass.mul7.us = fmul fast <4 x float> %reass.add6.us, %124
   %129 = fadd fast <4 x float> %reass.mul7.us, %118
-  %130 = getelementptr inbounds i8, ptr %.029411.us, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 40
   %131 = load float, ptr %130, align 4
   %132 = insertelement <4 x float> poison, float %131, i64 0
   %133 = shufflevector <4 x float> %132, <4 x float> poison, <4 x i32> zeroinitializer
@@ -22001,8 +22001,8 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %reass.mul9.us = fmul fast <4 x float> %reass.add8.us, %133
   %134 = fadd fast <4 x float> %reass.mul9.us, %128
   store <4 x float> %134, ptr %.029510.us, align 1
-  %135 = getelementptr inbounds i8, ptr %.029510.us, i64 16
-  %136 = getelementptr inbounds i8, ptr %.029411.us, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %.029510.us, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.029411.us, i64 44
   %137 = add nuw nsw i32 %.012.us, 1
   %exitcond.not = icmp eq i32 %137, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !214
@@ -22070,15 +22070,15 @@ define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds float, ptr %25, i64 %37
+  %38 = getelementptr inbounds nuw float, ptr %25, i64 %37
   %39 = load float, ptr %38, align 4
   br label %40
 
 40:                                               ; preds = %36, %33
   %41 = phi fast float [ %39, %36 ], [ 0.000000e+00, %33 ]
   store float %41, ptr %.01051.us, align 4
-  %42 = getelementptr inbounds i8, ptr %.01042.us, i64 4
-  %43 = getelementptr inbounds i8, ptr %.01051.us, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.01042.us, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.01051.us, i64 4
   %44 = add nuw nsw i32 %.03.us, 1
   %exitcond.not = icmp eq i32 %44, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !7
@@ -22140,105 +22140,105 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %.01553.us = phi ptr [ %31, %.lr.ph.us ], [ %134, %104 ]
   %.01562.us = phi ptr [ %32, %.lr.ph.us ], [ %135, %104 ]
   %.01571.us = phi i32 [ 0, %.lr.ph.us ], [ %136, %104 ]
-  %34 = getelementptr inbounds i8, ptr %.01562.us, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 32
   %35 = load i32, ptr %.01562.us, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds float, ptr %25, i64 %38
+  %39 = getelementptr inbounds nuw float, ptr %25, i64 %38
   %40 = load float, ptr %39, align 4
   br label %41
 
 41:                                               ; preds = %37, %33
   %42 = phi fast float [ %40, %37 ], [ 0.000000e+00, %33 ]
-  %43 = getelementptr inbounds i8, ptr %.01562.us, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds float, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %25, i64 %47
   %49 = load float, ptr %48, align 4
   br label %50
 
 50:                                               ; preds = %46, %41
   %51 = phi fast float [ %49, %46 ], [ 0.000000e+00, %41 ]
-  %52 = getelementptr inbounds i8, ptr %.01562.us, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds float, ptr %25, i64 %56
+  %57 = getelementptr inbounds nuw float, ptr %25, i64 %56
   %58 = load float, ptr %57, align 4
   br label %59
 
 59:                                               ; preds = %55, %50
   %60 = phi fast float [ %58, %55 ], [ 0.000000e+00, %50 ]
-  %61 = getelementptr inbounds i8, ptr %.01562.us, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %59
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds float, ptr %25, i64 %65
+  %66 = getelementptr inbounds nuw float, ptr %25, i64 %65
   %67 = load float, ptr %66, align 4
   br label %68
 
 68:                                               ; preds = %64, %59
   %69 = phi fast float [ %67, %64 ], [ 0.000000e+00, %59 ]
-  %70 = getelementptr inbounds i8, ptr %.01562.us, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %68
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds float, ptr %25, i64 %74
+  %75 = getelementptr inbounds nuw float, ptr %25, i64 %74
   %76 = load float, ptr %75, align 4
   br label %77
 
 77:                                               ; preds = %73, %68
   %78 = phi fast float [ %76, %73 ], [ 0.000000e+00, %68 ]
-  %79 = getelementptr inbounds i8, ptr %.01562.us, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %77
   %83 = zext nneg i32 %80 to i64
-  %84 = getelementptr inbounds float, ptr %25, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr %25, i64 %83
   %85 = load float, ptr %84, align 4
   br label %86
 
 86:                                               ; preds = %82, %77
   %87 = phi fast float [ %85, %82 ], [ 0.000000e+00, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.01562.us, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 24
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %86
   %92 = zext nneg i32 %89 to i64
-  %93 = getelementptr inbounds float, ptr %25, i64 %92
+  %93 = getelementptr inbounds nuw float, ptr %25, i64 %92
   %94 = load float, ptr %93, align 4
   br label %95
 
 95:                                               ; preds = %91, %86
   %96 = phi fast float [ %94, %91 ], [ 0.000000e+00, %86 ]
-  %97 = getelementptr inbounds i8, ptr %.01562.us, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %95
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds float, ptr %25, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %25, i64 %101
   %103 = load float, ptr %102, align 4
   br label %104
 
@@ -22258,7 +22258,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %117 = fmul fast float %107, %96
   %118 = fmul fast float %106, %105
   %119 = fadd fast float %117, %118
-  %120 = getelementptr inbounds i8, ptr %.01562.us, i64 36
+  %120 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 36
   %121 = load float, ptr %120, align 4
   %122 = fsub fast float 1.000000e+00, %121
   %123 = fmul fast float %110, %122
@@ -22267,14 +22267,14 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
   %126 = fmul fast float %116, %122
   %127 = fmul fast float %119, %121
   %128 = fadd fast float %126, %127
-  %129 = getelementptr inbounds i8, ptr %.01562.us, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 40
   %130 = load float, ptr %129, align 4
   %131 = fsub fast float %128, %125
   %132 = fmul fast float %131, %130
   %133 = fadd fast float %132, %125
   store float %133, ptr %.01553.us, align 4
-  %134 = getelementptr inbounds i8, ptr %.01553.us, i64 4
-  %135 = getelementptr inbounds i8, ptr %.01562.us, i64 44
+  %134 = getelementptr inbounds nuw i8, ptr %.01553.us, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %.01562.us, i64 44
   %136 = add nuw nsw i32 %.01571.us, 1
   %exitcond.not = icmp eq i32 %136, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !216

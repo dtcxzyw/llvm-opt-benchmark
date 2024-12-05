@@ -115,7 +115,7 @@ define dso_local noalias ptr @flow_rule_alloc(i32 noundef %0) #0 align 16 {
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %0, ptr %8, align 8
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit, label %.preheader
@@ -154,7 +154,7 @@ define dso_local noalias ptr @offload_action_alloc(i32 noundef %0) local_unnamed
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %0, ptr %8, align 8
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %.loopexit, label %.preheader
@@ -180,19 +180,19 @@ define dso_local noalias ptr @offload_action_alloc(i32 noundef %0) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_meta(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 58
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -200,19 +200,19 @@ define dso_local void @flow_rule_match_meta(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_basic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 10
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -220,19 +220,19 @@ define dso_local void @flow_rule_match_basic(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -240,19 +240,19 @@ define dso_local void @flow_rule_match_control(ptr nocapture noundef readonly %0
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_eth_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 22
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -260,19 +260,19 @@ define dso_local void @flow_rule_match_eth_addrs(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_vlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 28
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -280,19 +280,19 @@ define dso_local void @flow_rule_match_vlan(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_cvlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 52
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -300,19 +300,19 @@ define dso_local void @flow_rule_match_cvlan(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_arp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 26
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -320,19 +320,19 @@ define dso_local void @flow_rule_match_arp(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 12
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -340,19 +340,19 @@ define dso_local void @flow_rule_match_ipv4_addrs(ptr nocapture noundef readonly
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 14
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -360,19 +360,19 @@ define dso_local void @flow_rule_match_ipv6_addrs(ptr nocapture noundef readonly
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -380,19 +380,19 @@ define dso_local void @flow_rule_match_ip(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 16
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -400,19 +400,19 @@ define dso_local void @flow_rule_match_ports(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ports_range(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 18
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -420,19 +420,19 @@ define dso_local void @flow_rule_match_ports_range(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_tcp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 48
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -440,19 +440,19 @@ define dso_local void @flow_rule_match_tcp(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ipsec(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 72
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -460,19 +460,19 @@ define dso_local void @flow_rule_match_ipsec(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_icmp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 20
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -480,19 +480,19 @@ define dso_local void @flow_rule_match_icmp(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_mpls(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 46
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -500,19 +500,19 @@ define dso_local void @flow_rule_match_mpls(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 42
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -520,19 +520,19 @@ define dso_local void @flow_rule_match_enc_control(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 38
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -540,19 +540,19 @@ define dso_local void @flow_rule_match_enc_ipv4_addrs(ptr nocapture noundef read
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 40
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -560,19 +560,19 @@ define dso_local void @flow_rule_match_enc_ipv6_addrs(ptr nocapture noundef read
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 54
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -580,19 +580,19 @@ define dso_local void @flow_rule_match_enc_ip(ptr nocapture noundef readonly %0,
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 44
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -600,19 +600,19 @@ define dso_local void @flow_rule_match_enc_ports(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_keyid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 36
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -620,19 +620,19 @@ define dso_local void @flow_rule_match_enc_keyid(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_enc_opts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 56
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -647,8 +647,8 @@ define dso_local noalias ptr @flow_action_cookie_create(ptr nocapture noundef re
 
 8:                                                ; preds = %3
   store i32 %1, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 1 %0, i64 %4, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %9, ptr align 1 %0, i64 %4, i1 false)
   br label %10
 
 10:                                               ; preds = %8, %3
@@ -670,19 +670,19 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 60
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -690,19 +690,19 @@ define dso_local void @flow_rule_match_ct(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_pppoe(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 66
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -710,19 +710,19 @@ define dso_local void @flow_rule_match_pppoe(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @flow_rule_match_l2tpv3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 68
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   store ptr %9, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %6, align 2
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -735,13 +735,13 @@ define dso_local noundef ptr @flow_block_cb_alloc(ptr noundef %0, ptr noundef %1
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %3, ptr %12, align 8
   br label %13
 
@@ -752,13 +752,13 @@ define dso_local noundef ptr @flow_block_cb_alloc(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @flow_block_cb_free(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void %3(ptr noundef %7) #13
   br label %8
@@ -803,14 +803,14 @@ define dso_local ptr @flow_block_cb_lookup(ptr noundef readonly %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @flow_block_cb_priv(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @flow_block_cb_incref(ptr nocapture noundef %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -819,7 +819,7 @@ define dso_local void @flow_block_cb_incref(ptr nocapture noundef %0) #7 align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local i32 @flow_block_cb_decref(ptr nocapture noundef %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -834,13 +834,13 @@ define dso_local noundef zeroext i1 @flow_block_cb_is_busy(ptr noundef readnone 
 
 .preheader:                                       ; preds = %3, %13
   %5 = phi ptr [ %14, %13 ], [ %4, %3 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %13
@@ -860,13 +860,13 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   br i1 %5, label %7, label %11
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %.thread12
 
 11:                                               ; preds = %7, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %12, align 8
   %13 = load i32, ptr %0, align 8
   switch i32 %13, label %.thread12 [
@@ -881,13 +881,13 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
 
 .preheader:                                       ; preds = %14, %24
   %16 = phi ptr [ %25, %24 ], [ %15, %14 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %3
   br i1 %23, label %.thread12, label %24
@@ -904,13 +904,13 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %.critedge
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr null, ptr %33, align 8
   %34 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
   br i1 %34, label %.thread, label %38
@@ -922,26 +922,26 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   br label %.thread12
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %27, i64 16
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   store ptr %39, ptr %41, align 8
   store ptr %40, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %27, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %42, ptr %43, align 8
   store volatile ptr %39, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   store ptr %27, ptr %44, align 8
   store ptr %1, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %27, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %45, ptr %46, align 8
   store volatile ptr %27, ptr %45, align 8
   br label %.thread12
 
 47:                                               ; preds = %11
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
@@ -971,15 +971,15 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   br i1 %65, label %.thread12, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = getelementptr i8, ptr %52, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %52, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %69, ptr %71, align 8
   store volatile ptr %70, ptr %69, align 8
   %72 = load ptr, ptr %67, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %52, ptr %73, align 8
   store ptr %72, ptr %52, align 8
   store ptr %67, ptr %68, align 8
@@ -987,7 +987,7 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
   %74 = getelementptr i8, ptr %52, i64 -8
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %64, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %75, ptr %77, align 8
   store volatile ptr %76, ptr %75, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %64, align 8
@@ -1009,20 +1009,20 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 
 .preheader:                                       ; preds = %2, %25
   %6 = phi ptr [ %26, %25 ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 1, ptr elementtype(i32) %15) #13, !srcloc !11
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 1, ptr nonnull elementtype(i32) %15) #13, !srcloc !11
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %22, label %18, !prof !12
 
@@ -1034,7 +1034,7 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 
 22:                                               ; preds = %18, %14
   %23 = phi i32 [ 2, %14 ], [ 1, %18 ]
-  tail call void @refcount_warn_saturate(ptr noundef %15, i32 noundef %23) #13
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef %23) #13
   br label %24
 
 24:                                               ; preds = %22, %18
@@ -1057,17 +1057,17 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
   br label %75
 
 32:                                               ; preds = %.loopexit8
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store volatile i32 1, ptr %35, align 8
   %36 = load ptr, ptr @flow_block_indr_dev_list, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %29, ptr %37, align 8
   store ptr %36, ptr %29, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @flow_block_indr_dev_list, ptr %38, align 8
   store volatile ptr %29, ptr @flow_block_indr_dev_list, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
@@ -1076,9 +1076,9 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %32
-  %42 = getelementptr inbounds i8, ptr %3, i64 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
-  %44 = getelementptr inbounds i8, ptr %3, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %45
 
 45:                                               ; preds = %71, %41
@@ -1112,11 +1112,11 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 66:                                               ; preds = %45
   %67 = load ptr, ptr %63, align 8
   %68 = load ptr, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %63, ptr %69, align 8
   store ptr %64, ptr %63, align 8
   store ptr %67, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %68, ptr %70, align 8
   br label %71
 
@@ -1150,7 +1150,7 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   store ptr %4, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %5, align 8
   call void @mutex_lock(ptr noundef nonnull @flow_indr_block_lock) #13
   %6 = load ptr, ptr @flow_block_indr_dev_list, align 8
@@ -1160,20 +1160,20 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
 .preheader11:                                     ; preds = %3, %.thread
   %8 = phi ptr [ %9, %.thread ], [ %6, %3 ]
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %.preheader11
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %8, i64 32
-  %19 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, i32 -1, ptr elementtype(i32) %18) #13, !srcloc !16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %19 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, i32 -1, ptr nonnull elementtype(i32) %18) #13, !srcloc !16
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %25, label %21
 
@@ -1182,7 +1182,7 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
   br i1 %22, label %.thread, label %23, !prof !13
 
 23:                                               ; preds = %21
-  call void @refcount_warn_saturate(ptr noundef %18, i32 noundef 3) #13
+  call void @refcount_warn_saturate(ptr noundef nonnull %18, i32 noundef 3) #13
   br label %.thread
 
 .thread:                                          ; preds = %21, %23, %13, %.preheader11
@@ -1191,10 +1191,10 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %17
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %27, ptr %29, align 8
   store volatile ptr %28, ptr %27, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
@@ -1226,13 +1226,13 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %34, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %45, ptr %46, align 8
   store volatile ptr %35, ptr %45, align 8
   %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %34, ptr %48, align 8
   store ptr %47, ptr %34, align 8
   store ptr %4, ptr %44, align 8
@@ -1254,9 +1254,9 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
   %54 = phi ptr [ %56, %.preheader ], [ %52, %.loopexit10 ]
   %55 = getelementptr i8, ptr %54, i64 -64
   %56 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %58, ptr %59, align 8
   store volatile ptr %56, ptr %58, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %54, align 8
@@ -1287,38 +1287,38 @@ define dso_local noundef ptr @flow_indr_block_cb_alloc(ptr noundef %0, ptr nound
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %3, ptr %18, align 8
   %19 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store ptr %7, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr %8, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr %5, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %6, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store ptr %9, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %30 = load ptr, ptr @flow_block_indr_list, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   store ptr %30, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr @flow_block_indr_list, ptr %32, align 8
   store volatile ptr %29, ptr @flow_block_indr_list, align 8
   br label %.thread
@@ -1366,31 +1366,31 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %.loopexit7
   store ptr %3, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %5, ptr %27, align 8
   %28 = load i32, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %21, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 60
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %21, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %21, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %37 = load ptr, ptr @flow_indir_dev_list, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %36, ptr %38, align 8
   store ptr %37, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %21, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr @flow_indir_dev_list, ptr %39, align 8
   store volatile ptr %36, ptr @flow_indir_dev_list, align 8
   br label %.thread
@@ -1416,7 +1416,7 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   %51 = getelementptr i8, ptr %41, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %41, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %52, ptr %54, align 8
   store volatile ptr %53, ptr %52, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %41, align 8
@@ -1432,9 +1432,9 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
 .preheader:                                       ; preds = %.thread, %.preheader
   %57 = phi ptr [ %67, %.preheader ], [ %55, %.thread ]
   %58 = phi i32 [ %66, %.preheader ], [ 0, %.thread ]
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %60(ptr noundef %0, ptr noundef %1, ptr noundef %62, i32 noundef %2, ptr noundef %4, ptr noundef %3, ptr noundef %5) #13
   %64 = icmp eq i32 %63, 0
@@ -1450,7 +1450,7 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   br i1 %7, label %74, label %70
 
 70:                                               ; preds = %.loopexit
-  %71 = getelementptr inbounds i8, ptr %4, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %72 = load volatile ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %71
   br i1 %73, label %75, label %74

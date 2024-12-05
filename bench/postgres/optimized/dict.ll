@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.DictSubState, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr i8, ptr %0, i64 48
@@ -17,15 +17,15 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %10 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %5) #3
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = load i8, ptr %9, align 1
   %16 = and i8 %15, 1
   %.not = icmp eq i8 %16, 0
-  %17 = getelementptr inbounds i8, ptr %9, i64 1
-  %18 = getelementptr inbounds i8, ptr %9, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %19 = select i1 %.not, ptr %18, ptr %17
   %20 = ptrtoint ptr %19 to i64
   %21 = zext i8 %15 to i32
@@ -65,7 +65,7 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %43 = ptrtoint ptr %2 to i64
   %44 = call i64 @FunctionCall4Coll(ptr noundef nonnull %11, i32 noundef 0, i64 noundef %14, i64 noundef %20, i64 noundef %42, i64 noundef %43) #3
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %2, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %80
@@ -125,13 +125,13 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not68, label %81, label %.preheader
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %82, align 4
   br label %121
 
 .preheader:                                       ; preds = %80, %.preheader
   %.056 = phi ptr [ %85, %.preheader ], [ %.057, %80 ]
-  %83 = getelementptr inbounds i8, ptr %.056, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not69 = icmp eq ptr %84, null
   %85 = getelementptr i8, ptr %.056, i64 16
@@ -143,7 +143,7 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 1
   %91 = call ptr @palloc(i64 noundef %90) #3
-  %92 = getelementptr inbounds i8, ptr %.057, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not7075 = icmp eq ptr %93, null
   br i1 %.not7075, label %._crit_edge, label %.lr.ph

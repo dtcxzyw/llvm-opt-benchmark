@@ -64,7 +64,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h7734e51215033
   store i8 %15, ptr %4, align 4, !alias.scope !6
   %16 = trunc i32 %1 to i8
   %17 = and i8 %16, 63
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %19 = or disjoint i8 %17, -128
   store i8 %19, ptr %18, align 1, !alias.scope !6
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -77,12 +77,12 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h7734e51215033
   %24 = lshr i32 %1, 6
   %25 = trunc i32 %24 to i8
   %26 = and i8 %25, 63
-  %27 = getelementptr inbounds i8, ptr %4, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %28 = or disjoint i8 %26, -128
   store i8 %28, ptr %27, align 1, !alias.scope !6
   %29 = trunc i32 %1 to i8
   %30 = and i8 %29, 63
-  %31 = getelementptr inbounds i8, ptr %4, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %32 = or disjoint i8 %30, -128
   store i8 %32, ptr %31, align 2, !alias.scope !6
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -96,18 +96,18 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h7734e51215033
   %38 = lshr i32 %1, 12
   %39 = trunc i32 %38 to i8
   %40 = and i8 %39, 63
-  %41 = getelementptr inbounds i8, ptr %4, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %42 = or disjoint i8 %40, -128
   store i8 %42, ptr %41, align 1, !alias.scope !6
   %43 = lshr i32 %1, 6
   %44 = trunc i32 %43 to i8
   %45 = and i8 %44, 63
-  %46 = getelementptr inbounds i8, ptr %4, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %47 = or disjoint i8 %45, -128
   store i8 %47, ptr %46, align 2, !alias.scope !6
   %48 = trunc i32 %1 to i8
   %49 = and i8 %48, 63
-  %50 = getelementptr inbounds i8, ptr %4, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %51 = or disjoint i8 %49, -128
   store i8 %51, ptr %50, align 1, !alias.scope !6
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
@@ -118,7 +118,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %53 = load ptr, ptr %0, align 8, !alias.scope !15, !noalias !16, !nonnull !4, !align !5, !noundef !4
   %54 = call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %52), !noalias !15
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %56 = icmp ne ptr %54, null
   br i1 %56, label %57, label %"_ZN93_$LT$crossterm..command..write_command_ansi..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17ha02a4864ae452b45E.exit"
@@ -141,7 +141,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   br i1 %switch.not.i.i.i.i.i.i.i.i, label %62, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i.i"
 
 62:                                               ; preds = %.noexc.i.i.i
-  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %63)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i.i" unwind label %64, !noalias !37
 
@@ -182,26 +182,26 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.22828
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.2, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.5) #6
   unreachable
 
 15:                                               ; preds = %5
   store ptr %1, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %19, align 8
   ret void
 }
@@ -222,7 +222,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$crossterm..command..write_c
   br i1 %switch.not.i.i.i.i.i, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !45
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
@@ -250,7 +250,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$crossterm..command..write_c
   br i1 %switch.not.i.i.i.i.i, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !58
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
@@ -278,7 +278,7 @@ define hidden void @"_ZN4core3ptr147drop_in_place$LT$crossterm..command..write_c
   br i1 %switch.not.i.i.i.i.i, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !71
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
@@ -308,7 +308,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
   br i1 %switch.not.i.i.i.i, label %8, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit"
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9), !noalias !81
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit"
 
@@ -334,19 +334,19 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07cd1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.18.llvm.228285666965895176, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 26, ptr %10, align 8
   store ptr %4, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %11, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %6, align 8, !alias.scope !91, !noalias !94
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 2, ptr %12, align 8, !alias.scope !91, !noalias !94
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %13, align 8, !alias.scope !91, !noalias !94
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %14, align 8, !alias.scope !91, !noalias !94
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %15, align 8, !alias.scope !91, !noalias !94
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -366,7 +366,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07cd1
   br i1 %switch.not.i.i.i.i.i.i, label %18, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19), !noalias !97
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
@@ -392,19 +392,19 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h623bc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.21.llvm.228285666965895176, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 25, ptr %10, align 8
   store ptr %4, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %11, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %6, align 8, !alias.scope !111, !noalias !114
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 2, ptr %12, align 8, !alias.scope !111, !noalias !114
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %13, align 8, !alias.scope !111, !noalias !114
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %14, align 8, !alias.scope !111, !noalias !114
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %15, align 8, !alias.scope !111, !noalias !114
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -424,7 +424,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h623bc
   br i1 %switch.not.i.i.i.i.i.i, label %18, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19), !noalias !117
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
@@ -450,19 +450,19 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8a86a
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.22.llvm.228285666965895176, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 25, ptr %10, align 8
   store ptr %4, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %11, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %6, align 8, !alias.scope !131, !noalias !134
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 2, ptr %12, align 8, !alias.scope !131, !noalias !134
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %13, align 8, !alias.scope !131, !noalias !134
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %14, align 8, !alias.scope !131, !noalias !134
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %15, align 8, !alias.scope !131, !noalias !134
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -482,7 +482,7 @@ define hidden noundef ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8a86a
   br i1 %switch.not.i.i.i.i.i.i, label %18, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19), !noalias !137
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
@@ -515,7 +515,7 @@ define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err1
   br i1 %switch.not.i.i.i.i.i.i, label %10, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i"
 
 10:                                               ; preds = %.noexc.i
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i" unwind label %12, !noalias !151
 
@@ -549,7 +549,7 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$crossterm..command..write_command_a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %5 = load ptr, ptr %0, align 8, !alias.scope !168, !noalias !171, !nonnull !4, !align !5, !noundef !4
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !168
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %8 = icmp ne ptr %6, null
   br i1 %8, label %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb7cdc0fa3d5a69aeE.llvm.228285666965895176.exit"
@@ -572,7 +572,7 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$crossterm..command..write_command_a
   br i1 %switch.not.i.i.i.i.i.i.i, label %14, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i"
 
 14:                                               ; preds = %.noexc.i.i
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i" unwind label %16, !noalias !190
 
@@ -613,7 +613,7 @@ define hidden void @"_ZN93_$LT$crossterm..command..write_command_ansi..Adapter$L
   br i1 %switch.not.i.i.i.i.i, label %8, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i"
 
 8:                                                ; preds = %.noexc
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i" unwind label %10
 
@@ -638,7 +638,7 @@ switch.lookup:
   %2 = alloca { ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = sext i8 %1 to i64
   %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN9crossterm7command18write_command_ansi17h0afe50089e379d58E, i64 0, i64 %4
@@ -682,21 +682,21 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17hc669f4c9f
   store i16 %1, ptr %10, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %0, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !207
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !207
   store ptr %10, ptr %7, align 8, !noalias !207
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$3fmt17ha5ee9d959567b999E", ptr %12, align 8, !noalias !207
   store ptr @anon.bfefb9a4c2df72a054720e9de596f40f.16.llvm.17524819724888147029, ptr %8, align 8, !alias.scope !211, !noalias !214
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %13, align 8, !alias.scope !211, !noalias !214
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %14, align 8, !alias.scope !211, !noalias !214
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %15, align 8, !alias.scope !211, !noalias !214
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %16, align 8, !alias.scope !211, !noalias !214
   %17 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
           to label %18 unwind label %32
@@ -716,19 +716,19 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17hc669f4c9f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.22.llvm.228285666965895176, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 25, ptr %22, align 8
   store ptr %4, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %23, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %6, align 8, !alias.scope !217, !noalias !220
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 2, ptr %24, align 8, !alias.scope !217, !noalias !220
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %25, align 8, !alias.scope !217, !noalias !220
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %26, align 8, !alias.scope !217, !noalias !220
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %27, align 8, !alias.scope !217, !noalias !220
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -744,7 +744,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17hc669f4c9f
   br i1 %switch.not.i.i.i.i.i.i.i, label %29, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i"
 
 29:                                               ; preds = %.noexc1
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i"
 
@@ -786,7 +786,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   %12 = alloca { ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !237
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !237
@@ -797,20 +797,20 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   %15 = add i16 %1, 1
   store i16 %15, ptr %8, align 2, !noalias !237
   store ptr %9, ptr %10, align 8, !noalias !237
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$3fmt17ha5ee9d959567b999E", ptr %16, align 8, !noalias !237
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %8, ptr %17, align 8, !noalias !237
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$3fmt17ha5ee9d959567b999E", ptr %18, align 8, !noalias !237
   store ptr @anon.bfefb9a4c2df72a054720e9de596f40f.14.llvm.17524819724888147029, ptr %11, align 8, !alias.scope !241, !noalias !244
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 3, ptr %19, align 8, !alias.scope !241, !noalias !244
-  %20 = getelementptr inbounds i8, ptr %11, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %20, align 8, !alias.scope !241, !noalias !244
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %21, align 8, !alias.scope !241, !noalias !244
-  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 2, ptr %22, align 8, !alias.scope !241, !noalias !244
   %23 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
           to label %24 unwind label %38
@@ -832,19 +832,19 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.21.llvm.228285666965895176, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 25, ptr %28, align 8
   store ptr %5, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %29, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %7, align 8, !alias.scope !247, !noalias !250
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %30, align 8, !alias.scope !247, !noalias !250
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %31, align 8, !alias.scope !247, !noalias !250
-  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %32, align 8, !alias.scope !247, !noalias !250
-  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %33, align 8, !alias.scope !247, !noalias !250
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -860,7 +860,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   br i1 %switch.not.i.i.i.i.i.i.i, label %35, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i"
 
 35:                                               ; preds = %.noexc1
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6c3412748d78d9f4E.llvm.12264918056830672218"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4e046b8c386c6496E.exit.i.i.i"
 
@@ -902,19 +902,19 @@ define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.18.llvm.228285666965895176, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 26, ptr %7, align 8
   store ptr %2, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %8, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %4, align 8, !alias.scope !267, !noalias !270
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %9, align 8, !alias.scope !267, !noalias !270
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8, !alias.scope !267, !noalias !270
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8, !alias.scope !267, !noalias !270
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !267, !noalias !270
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -936,19 +936,19 @@ define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.21.llvm.228285666965895176, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 25, ptr %7, align 8
   store ptr %2, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %8, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %4, align 8, !alias.scope !273, !noalias !276
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %9, align 8, !alias.scope !273, !noalias !276
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8, !alias.scope !273, !noalias !276
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8, !alias.scope !273, !noalias !276
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !273, !noalias !276
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable
@@ -970,19 +970,19 @@ define hidden noundef nonnull ptr @"_ZN9crossterm7command18write_command_ansi28_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.22.llvm.228285666965895176, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 25, ptr %7, align 8
   store ptr %2, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h888ba8adb392253aE", ptr %8, align 8
   store ptr @anon.bfd385161d0471b6c80ea7dc24a36135.17.llvm.228285666965895176, ptr %4, align 8, !alias.scope !279, !noalias !282
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %9, align 8, !alias.scope !279, !noalias !282
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8, !alias.scope !279, !noalias !282
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %11, align 8, !alias.scope !279, !noalias !282
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !279, !noalias !282
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.20.llvm.228285666965895176) #6
   unreachable

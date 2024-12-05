@@ -92,12 +92,12 @@ if.end3:                                          ; preds = %if.end
   br i1 %call4, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %singlestep = getelementptr inbounds i8, ptr %obj, i64 1
+  %singlestep = getelementptr inbounds nuw i8, ptr %obj, i64 1
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %singlestep, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %status = getelementptr inbounds i8, ptr %obj, i64 4
+  %status = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %status, align 4
   store i32 %0, ptr %value.i, align 4
@@ -192,7 +192,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %reason = getelementptr inbounds i8, ptr %obj, i64 4
+  %reason = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %reason, align 4
   store i32 %0, ptr %value.i, align 4
@@ -215,7 +215,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %reason = getelementptr inbounds i8, ptr %obj, i64 4
+  %reason = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %reason, align 4
   store i32 %0, ptr %value.i, align 4
@@ -317,7 +317,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %reboot = getelementptr inbounds i8, ptr %obj, i64 4
+  %reboot = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %reboot, align 4
   store i32 %0, ptr %value.i, align 4
@@ -328,12 +328,12 @@ if.then:                                          ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_shutdown = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_shutdown = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_shutdown) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %shutdown = getelementptr inbounds i8, ptr %obj, i64 12
+  %shutdown = getelementptr inbounds nuw i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i18)
   %2 = load i32, ptr %shutdown, align 4
   store i32 %2, ptr %value.i18, align 4
@@ -344,12 +344,12 @@ if.then5:                                         ; preds = %if.end3
   br i1 %call.i19, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_panic = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_panic = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_panic) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %panic = getelementptr inbounds i8, ptr %obj, i64 20
+  %panic = getelementptr inbounds nuw i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i20)
   %4 = load i32, ptr %panic, align 4
   store i32 %4, ptr %value.i20, align 4
@@ -360,12 +360,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call.i21, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_watchdog = getelementptr inbounds i8, ptr %obj, i64 24
+  %has_watchdog = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_watchdog) #5
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %watchdog = getelementptr inbounds i8, ptr %obj, i64 28
+  %watchdog = getelementptr inbounds nuw i8, ptr %obj, i64 28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i22)
   %6 = load i32, ptr %watchdog, align 4
   store i32 %6, ptr %value.i22, align 4
@@ -390,7 +390,7 @@ define dso_local noundef zeroext i1 @visit_type_q_obj_GUEST_PANICKED_arg_members
 entry:
   %value.i = alloca i32, align 4
   %has_info = alloca i8, align 1
-  %info = getelementptr inbounds i8, ptr %obj, i64 8
+  %info = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %info, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -488,7 +488,7 @@ define dso_local noundef zeroext i1 @visit_type_q_obj_GUEST_CRASHLOADED_arg_memb
 entry:
   %value.i = alloca i32, align 4
   %has_info = alloca i8, align 1
-  %info = getelementptr inbounds i8, ptr %obj, i64 8
+  %info = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %info, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -565,47 +565,47 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb
-  %arg2.i = getelementptr inbounds i8, ptr %obj, i64 16
+  %arg2.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call1.i = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %arg2.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %arg3.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %arg3.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call4.i = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %arg3.i, ptr noundef %errp) #5
   br i1 %call4.i, label %if.end6.i, label %return
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %arg4.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %arg4.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call7.i = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %arg4.i, ptr noundef %errp) #5
   br i1 %call7.i, label %if.end9.i, label %return
 
 if.end9.i:                                        ; preds = %if.end6.i
-  %arg5.i = getelementptr inbounds i8, ptr %obj, i64 40
+  %arg5.i = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call10.i = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %arg5.i, ptr noundef %errp) #5
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i9 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br i1 %call.i9, label %if.end.i11, label %return
 
 if.end.i11:                                       ; preds = %sw.bb2
-  %psw_mask.i = getelementptr inbounds i8, ptr %obj, i64 16
+  %psw_mask.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call1.i12 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %psw_mask.i, ptr noundef %errp) #5
   br i1 %call1.i12, label %if.end3.i13, label %return
 
 if.end3.i13:                                      ; preds = %if.end.i11
-  %psw_addr.i = getelementptr inbounds i8, ptr %obj, i64 24
+  %psw_addr.i = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call4.i14 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %psw_addr.i, ptr noundef %errp) #5
   br i1 %call4.i14, label %if.end6.i15, label %return
 
 if.end6.i15:                                      ; preds = %if.end3.i13
-  %reason.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %reason.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i8)
   %2 = load i32, ptr %reason.i, align 4
   store i32 %2, ptr %value.i.i8, align 4
@@ -631,22 +631,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %arg2 = getelementptr inbounds i8, ptr %obj, i64 8
+  %arg2 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %arg2, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %arg3 = getelementptr inbounds i8, ptr %obj, i64 16
+  %arg3 = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %arg3, ptr noundef %errp) #5
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %arg4 = getelementptr inbounds i8, ptr %obj, i64 24
+  %arg4 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %arg4, ptr noundef %errp) #5
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %arg5 = getelementptr inbounds i8, ptr %obj, i64 32
+  %arg5 = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %arg5, ptr noundef %errp) #5
   br label %return
 
@@ -663,17 +663,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %psw_mask = getelementptr inbounds i8, ptr %obj, i64 8
+  %psw_mask = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %psw_mask, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %psw_addr = getelementptr inbounds i8, ptr %obj, i64 16
+  %psw_addr = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %psw_addr, ptr noundef %errp) #5
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %reason = getelementptr inbounds i8, ptr %obj, i64 24
+  %reason = getelementptr inbounds nuw i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %reason, align 4
   store i32 %0, ptr %value.i, align 4
@@ -723,22 +723,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %arg2.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %arg2.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %arg3.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg3.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %arg3.i, ptr noundef %errp) #5
   br i1 %call4.i, label %if.end6.i, label %out_obj.thread
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %arg4.i = getelementptr inbounds i8, ptr %0, i64 24
+  %arg4.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %arg4.i, ptr noundef %errp) #5
   br i1 %call7.i, label %visit_type_GuestPanicInformationHyperV_members.exit, label %out_obj.thread
 
 visit_type_GuestPanicInformationHyperV_members.exit: ; preds = %if.end6.i
-  %arg5.i = getelementptr inbounds i8, ptr %0, i64 32
+  %arg5.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call10.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %arg5.i, ptr noundef %errp) #5
   br i1 %call10.i, label %out_obj, label %out_obj.thread
 
@@ -811,17 +811,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %psw_mask.i = getelementptr inbounds i8, ptr %0, i64 8
+  %psw_mask.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %psw_mask.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %psw_addr.i = getelementptr inbounds i8, ptr %0, i64 16
+  %psw_addr.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %psw_addr.i, ptr noundef %errp) #5
   br i1 %call4.i, label %visit_type_GuestPanicInformationS390_members.exit, label %out_obj.thread
 
 visit_type_GuestPanicInformationS390_members.exit: ; preds = %if.end3.i
-  %reason.i = getelementptr inbounds i8, ptr %0, i64 24
+  %reason.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %reason.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -872,7 +872,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %action = getelementptr inbounds i8, ptr %obj, i64 4
+  %action = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i7)
   %2 = load i32, ptr %action, align 4
   store i32 %2, ptr %value.i7, align 4
@@ -883,7 +883,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i8, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %flags = getelementptr inbounds i8, ptr %obj, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call4 = call zeroext i1 @visit_type_MemoryFailureFlags(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %flags, ptr noundef %errp)
   br label %return
 
@@ -944,7 +944,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_MemoryFailureFlags_members.exit, label %out_obj.thread
 
 visit_type_MemoryFailureFlags_members.exit:       ; preds = %if.end5
-  %recursive.i = getelementptr inbounds i8, ptr %0, i64 1
+  %recursive.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %recursive.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -979,7 +979,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %recursive = getelementptr inbounds i8, ptr %obj, i64 1
+  %recursive = getelementptr inbounds nuw i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %recursive, ptr noundef %errp) #5
   br label %return
 

@@ -42,16 +42,16 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   %7 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !6
-  %8 = getelementptr inbounds i8, ptr %1, i64 8416
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8416
   store ptr %8, ptr %6, align 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 8432
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8432
   store ptr %11, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %13, align 8
   %14 = icmp eq ptr %0, null
   br i1 %14, label %15, label %17
@@ -82,7 +82,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @__SCT__tp_func_i915_gem_shrink(ptr noundef %30, ptr noundef %1, i64 noundef %2, i32 noundef %4) #11
   br label %32
@@ -107,8 +107,8 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 8928
-  %44 = tail call i64 @intel_runtime_pm_get_if_in_use(ptr noundef %43) #11
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8928
+  %44 = tail call i64 @intel_runtime_pm_get_if_in_use(ptr noundef nonnull %43) #11
   %45 = icmp eq i64 %44, 0
   %46 = and i32 %4, -3
   %47 = select i1 %45, i32 %46, i32 %4
@@ -119,10 +119,10 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   %50 = zext i32 %49 to i64
   %51 = and i64 %50, 4
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.loopexit33, label %53
+  br i1 %52, label %.loopexit29, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %1, i64 9304
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 9304
   br label %55
 
 55:                                               ; preds = %63, %53
@@ -138,17 +138,17 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %63
 
 63:                                               ; preds = %61, %55
-  br i1 %56, label %55, label %.loopexit33, !llvm.loop !16
+  br i1 %56, label %55, label %.loopexit29, !llvm.loop !16
 
-.loopexit33:                                      ; preds = %63, %48
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8408
+.loopexit29:                                      ; preds = %63, %48
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8408
   %66 = and i64 %50, 8
   %67 = icmp eq i64 %66, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 48
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = lshr i64 %50, 2
   %73 = and i64 %72, 1
   %74 = shl nuw nsw i64 %50, 1
@@ -171,14 +171,14 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   %89 = getelementptr i8, ptr %93, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.loopexit29, label %92, !llvm.loop !19
+  br i1 %91, label %276, label %92, !llvm.loop !19
 
-92:                                               ; preds = %86, %.loopexit33
-  %93 = phi ptr [ %6, %.loopexit33 ], [ %89, %86 ]
-  %94 = phi i64 [ 0, %.loopexit33 ], [ %87, %86 ]
-  %95 = phi i64 [ 0, %.loopexit33 ], [ %88, %86 ]
+92:                                               ; preds = %86, %.loopexit29
+  %93 = phi ptr [ %6, %.loopexit29 ], [ %89, %86 ]
+  %94 = phi i64 [ 0, %.loopexit29 ], [ %87, %86 ]
+  %95 = phi i64 [ 0, %.loopexit29 ], [ %88, %86 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  %96 = getelementptr inbounds i8, ptr %93, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, %49
   %99 = icmp eq i32 %98, 0
@@ -191,7 +191,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 100:                                              ; preds = %92
   store volatile ptr %7, ptr %7, align 8
   store volatile ptr %7, ptr %64, align 8
-  %101 = call i64 @_raw_spin_lock_irqsave(ptr noundef %65) #11
+  %101 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %65) #11
   br label %102
 
 102:                                              ; preds = %.thread20, %100
@@ -199,12 +199,12 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   %104 = phi i64 [ %253, %.thread20 ], [ %95, %100 ]
   %105 = phi i64 [ %254, %.thread20 ], [ %94, %100 ]
   %106 = icmp ult i64 %105, %2
-  %.pre.pre62 = load ptr, ptr %93, align 8
+  %.pre.pre58 = load ptr, ptr %93, align 8
   br i1 %106, label %.preheader23, label %.loopexit
 
 .preheader23:                                     ; preds = %102
-  %107 = load volatile ptr, ptr %.pre.pre62, align 8
-  %108 = icmp eq ptr %107, %.pre.pre62
+  %107 = load volatile ptr, ptr %.pre.pre58, align 8
+  %108 = icmp eq ptr %107, %.pre.pre58
   %109 = getelementptr i8, ptr %107, i64 -896
   %110 = icmp eq ptr %109, null
   %111 = or i1 %108, %110
@@ -213,10 +213,10 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 .lr.ph:                                           ; preds = %.preheader23, %123
   %112 = phi ptr [ %127, %123 ], [ %109, %.preheader23 ]
   %113 = phi ptr [ %125, %123 ], [ %107, %.preheader23 ]
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %113, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %115, ptr %117, align 8
   store volatile ptr %116, ptr %115, align 8
   %118 = load ptr, ptr %64, align 8
@@ -314,7 +314,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 
 172:                                              ; preds = %170
   %173 = getelementptr i8, ptr %113, i64 -432
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %65, i64 noundef %103) #11
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %65, i64 noundef %103) #11
   br i1 %14, label %174, label %179
 
 174:                                              ; preds = %172
@@ -410,7 +410,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %173, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, null
   br i1 %227, label %.critedge, label %228
@@ -433,7 +433,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 
 237:                                              ; preds = %235
   %238 = load ptr, ptr %173, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 80
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 80
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %243, label %242
@@ -477,29 +477,29 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.thread20
 
 .thread20:                                        ; preds = %257, %259, %260
-  %261 = call i64 @_raw_spin_lock_irqsave(ptr noundef %65) #11
+  %261 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %65) #11
   %262 = icmp eq i32 %252, 0
-  br i1 %262, label %102, label %.thread20..loopexit.loopexit48_crit_edge, !llvm.loop !20
+  br i1 %262, label %102, label %.thread20..loopexit.loopexit44_crit_edge, !llvm.loop !20
 
-.thread20..loopexit.loopexit48_crit_edge:         ; preds = %.thread20
+.thread20..loopexit.loopexit44_crit_edge:         ; preds = %.thread20
   %.pre.pre = load ptr, ptr %93, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %102, %.preheader23, %123, %.thread20..loopexit.loopexit48_crit_edge
-  %263 = phi ptr [ %.pre.pre, %.thread20..loopexit.loopexit48_crit_edge ], [ %124, %123 ], [ %.pre.pre62, %.preheader23 ], [ %.pre.pre62, %102 ]
-  %264 = phi i64 [ %261, %.thread20..loopexit.loopexit48_crit_edge ], [ %103, %123 ], [ %103, %.preheader23 ], [ %103, %102 ]
-  %265 = phi i32 [ %252, %.thread20..loopexit.loopexit48_crit_edge ], [ 0, %123 ], [ 0, %.preheader23 ], [ 0, %102 ]
-  %266 = phi i64 [ %253, %.thread20..loopexit.loopexit48_crit_edge ], [ %104, %123 ], [ %104, %.preheader23 ], [ %104, %102 ]
-  %267 = phi i64 [ %254, %.thread20..loopexit.loopexit48_crit_edge ], [ %105, %123 ], [ %105, %.preheader23 ], [ %105, %102 ]
+.loopexit:                                        ; preds = %102, %.preheader23, %123, %.thread20..loopexit.loopexit44_crit_edge
+  %263 = phi ptr [ %.pre.pre, %.thread20..loopexit.loopexit44_crit_edge ], [ %124, %123 ], [ %.pre.pre58, %.preheader23 ], [ %.pre.pre58, %102 ]
+  %264 = phi i64 [ %261, %.thread20..loopexit.loopexit44_crit_edge ], [ %103, %123 ], [ %103, %.preheader23 ], [ %103, %102 ]
+  %265 = phi i32 [ %252, %.thread20..loopexit.loopexit44_crit_edge ], [ 0, %123 ], [ 0, %.preheader23 ], [ 0, %102 ]
+  %266 = phi i64 [ %253, %.thread20..loopexit.loopexit44_crit_edge ], [ %104, %123 ], [ %104, %.preheader23 ], [ %104, %102 ]
+  %267 = phi i64 [ %254, %.thread20..loopexit.loopexit44_crit_edge ], [ %105, %123 ], [ %105, %.preheader23 ], [ %105, %102 ]
   %268 = load volatile ptr, ptr %7, align 8
   %269 = icmp eq ptr %268, %7
   br i1 %269, label %275, label %270
 
 270:                                              ; preds = %.loopexit
-  %271 = getelementptr inbounds i8, ptr %263, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %64, align 8
-  %274 = getelementptr inbounds i8, ptr %268, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %272, ptr %274, align 8
   store ptr %268, ptr %272, align 8
   store ptr %263, ptr %273, align 8
@@ -507,46 +507,46 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %275
 
 275:                                              ; preds = %.loopexit, %270
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %65, i64 noundef %264) #11
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %65, i64 noundef %264) #11
   %.not22 = icmp eq i32 %265, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  br i1 %.not22, label %86, label %.loopexit29
+  br i1 %.not22, label %86, label %276
 
-.loopexit29:                                      ; preds = %275, %86
-  %.ph30 = phi i32 [ 0, %86 ], [ %265, %275 ]
-  %.ph31 = phi i64 [ %88, %86 ], [ %266, %275 ]
-  %.ph32 = phi i64 [ %87, %86 ], [ %267, %275 ]
-  %276 = and i64 %50, 2
-  %277 = icmp eq i64 %276, 0
-  br i1 %277, label %280, label %278
-
-278:                                              ; preds = %.loopexit29
-  %279 = getelementptr inbounds i8, ptr %1, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %279) #11
-  br label %280
-
-280:                                              ; preds = %278, %.loopexit29
-  %281 = icmp eq i32 %.ph30, 0
+276:                                              ; preds = %275, %86
+  %277 = phi i64 [ %267, %275 ], [ %87, %86 ]
+  %278 = phi i64 [ %266, %275 ], [ %88, %86 ]
+  %279 = phi i32 [ %265, %275 ], [ 0, %86 ]
+  %280 = and i64 %50, 2
+  %281 = icmp eq i64 %280, 0
   br i1 %281, label %284, label %282
 
-282:                                              ; preds = %280
-  %283 = sext i32 %.ph30 to i64
-  br label %289
+282:                                              ; preds = %276
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %283) #11
+  br label %284
 
-284:                                              ; preds = %280
-  %285 = icmp eq ptr %3, null
-  br i1 %285, label %289, label %286
+284:                                              ; preds = %282, %276
+  %285 = icmp eq i32 %279, 0
+  br i1 %285, label %288, label %286
 
 286:                                              ; preds = %284
-  %287 = load i64, ptr %3, align 8
-  %288 = add i64 %287, %.ph31
-  store i64 %288, ptr %3, align 8
-  br label %289
+  %287 = sext i32 %279 to i64
+  br label %293
 
-289:                                              ; preds = %286, %284, %282
-  %290 = phi i64 [ %283, %282 ], [ %.ph32, %286 ], [ %.ph32, %284 ]
+288:                                              ; preds = %284
+  %289 = icmp eq ptr %3, null
+  br i1 %289, label %293, label %290
+
+290:                                              ; preds = %288
+  %291 = load i64, ptr %3, align 8
+  %292 = add i64 %291, %278
+  store i64 %292, ptr %3, align 8
+  br label %293
+
+293:                                              ; preds = %290, %288, %286
+  %294 = phi i64 [ %287, %286 ], [ %277, %290 ], [ %277, %288 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
-  ret i64 %290
+  ret i64 %294
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -575,14 +575,14 @@ declare dso_local i32 @__i915_gem_object_put_pages(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @i915_gem_shrink_all(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8928
-  %3 = tail call i64 @intel_runtime_pm_get(ptr noundef %2) #11
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8928
+  %3 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %2) #11
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i64 @i915_gem_shrink(ptr noundef null, ptr noundef %0, i64 noundef -1, ptr noundef null, i32 noundef 3)
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %2) #11
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %2) #11
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -596,18 +596,18 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_driver_register__shrinker(ptr noundef initializes((8608, 8616)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr (i32, ptr, ...) @shrinker_alloc(i32 noundef 0, ptr noundef nonnull @.str) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 8608
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8608
   store ptr %2, ptr %3, align 8
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #11, !srcloc !29
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dev_driver_string(ptr noundef %7) #11
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -626,34 +626,34 @@ define dso_local void @i915_gem_driver_register__shrinker(ptr noundef initialize
   br label %25
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @i915_gem_shrinker_scan, ptr %18, align 8
   %19 = load ptr, ptr %3, align 8
   store ptr @i915_gem_shrinker_count, ptr %19, align 8
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 4096, ptr %21, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store ptr %0, ptr %23, align 8
   %24 = load ptr, ptr %3, align 8
   tail call void @shrinker_register(ptr noundef %24) #11
   br label %25
 
 25:                                               ; preds = %17, %15
-  %26 = getelementptr inbounds i8, ptr %0, i64 8560
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8560
   store ptr @i915_gem_shrinker_oom, ptr %26, align 8
-  %27 = tail call i32 @register_oom_notifier(ptr noundef %26) #11
+  %27 = tail call i32 @register_oom_notifier(ptr noundef nonnull %26) #11
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %41, label %29, !prof !14
 
 29:                                               ; preds = %25
   tail call void asm sideeffect "906: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 906b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 906) #11, !srcloc !34
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @dev_driver_string(ptr noundef %31) #11
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
@@ -672,19 +672,19 @@ define dso_local void @i915_gem_driver_register__shrinker(ptr noundef initialize
   br label %41
 
 41:                                               ; preds = %39, %25
-  %42 = getelementptr inbounds i8, ptr %0, i64 8584
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8584
   store ptr @i915_gem_shrinker_vmap, ptr %42, align 8
-  %43 = tail call i32 @register_vmap_purge_notifier(ptr noundef %42) #11
+  %43 = tail call i32 @register_vmap_purge_notifier(ptr noundef nonnull %42) #11
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %57, label %45, !prof !14
 
 45:                                               ; preds = %41
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #11, !srcloc !39
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @dev_driver_string(ptr noundef %47) #11
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %55
@@ -717,13 +717,13 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @i915_gem_shrink(ptr noundef null, ptr noundef %4, i64 noundef %7, ptr noundef %5, i32 noundef 3)
+  %8 = tail call i64 @i915_gem_shrink(ptr noundef null, ptr noundef %4, i64 noundef %7, ptr noundef nonnull %5, i32 noundef 3)
   %9 = load i64, ptr %5, align 8
   %10 = load i64, ptr %6, align 8
   %11 = icmp ult i64 %9, %10
@@ -732,15 +732,15 @@ define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, p
 12:                                               ; preds = %2
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !44
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 131072
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %4, i64 8928
-  %21 = tail call i64 @intel_runtime_pm_get(ptr noundef %20) #11
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8928
+  %21 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %20) #11
   %22 = icmp eq i64 %21, 0
   %.pre1 = load i64, ptr %5, align 8
   br i1 %22, label %28, label %23
@@ -748,9 +748,9 @@ define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, p
 23:                                               ; preds = %19
   %24 = load i64, ptr %6, align 8
   %25 = sub i64 %24, %.pre1
-  %26 = tail call i64 @i915_gem_shrink(ptr noundef null, ptr noundef %4, i64 noundef %25, ptr noundef %5, i32 noundef 23)
+  %26 = tail call i64 @i915_gem_shrink(ptr noundef null, ptr noundef %4, i64 noundef %25, ptr noundef nonnull %5, i32 noundef 23)
   %27 = add i64 %26, %8
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %20) #11
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %20) #11
   %.pre = load i64, ptr %5, align 8
   br label %28
 
@@ -764,12 +764,12 @@ define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8624
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8624
   %6 = load volatile i64, ptr %5, align 8
   %7 = lshr i64 %6, 12
-  %8 = getelementptr inbounds i8, ptr %4, i64 8632
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8632
   %9 = load volatile i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %22, label %11
@@ -778,9 +778,9 @@ define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr 
   %12 = zext i32 %9 to i64
   %13 = shl nuw nsw i64 %7, 1
   %14 = udiv i64 %13, %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 8608
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8608
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %14
   %20 = lshr i64 %19, 1
@@ -912,12 +912,12 @@ define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr 
   br i1 %19, label %75, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 384
-  tail call void @mutex_lock(ptr noundef %23) #11
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 384
+  tail call void @mutex_lock(ptr noundef nonnull %23) #11
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 504
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %25
   br i1 %27, label %.loopexit, label %.preheader
@@ -949,7 +949,7 @@ define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr 
   br i1 %48, label %49, label %67
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %41, i64 248
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 248
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @ww_mutex_trylock(ptr noundef %51, ptr noundef null) #11
   %53 = icmp eq i32 %52, 0
@@ -960,9 +960,9 @@ define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr 
   %56 = icmp eq i32 %55, 0
   %57 = select i1 %56, i64 %39, i64 0
   %58 = add i64 %57, %29
-  %59 = getelementptr inbounds i8, ptr %41, i64 464
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 464
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %65, label %64
@@ -979,15 +979,15 @@ define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr 
 67:                                               ; preds = %65, %49, %45, %.preheader
   %68 = phi i64 [ %58, %65 ], [ %29, %45 ], [ %29, %.preheader ], [ %29, %49 ]
   %69 = load ptr, ptr %21, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 504
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 504
   %71 = icmp eq ptr %31, %70
   br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %67, %20
   %72 = phi i64 [ %16, %20 ], [ %68, %67 ]
   %73 = phi ptr [ %24, %20 ], [ %69, %67 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 384
-  tail call void @mutex_unlock(ptr noundef %74) #11
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 384
+  tail call void @mutex_unlock(ptr noundef nonnull %74) #11
   br label %75
 
 75:                                               ; preds = %.loopexit, %13
@@ -1006,18 +1006,18 @@ declare dso_local i32 @register_vmap_purge_notifier(ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_driver_unregister__shrinker(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8584
-  %3 = tail call i32 @unregister_vmap_purge_notifier(ptr noundef %2) #11
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8584
+  %3 = tail call i32 @unregister_vmap_purge_notifier(ptr noundef nonnull %2) #11
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %17, label %5, !prof !14
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "914: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 914b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 914) #11, !srcloc !48
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dev_driver_string(ptr noundef %7) #11
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -1036,18 +1036,18 @@ define dso_local void @i915_gem_driver_unregister__shrinker(ptr noundef %0) loca
   br label %17
 
 17:                                               ; preds = %15, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8560
-  %19 = tail call i32 @unregister_oom_notifier(ptr noundef %18) #11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8560
+  %19 = tail call i32 @unregister_oom_notifier(ptr noundef nonnull %18) #11
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %33, label %21, !prof !14
 
 21:                                               ; preds = %17
   tail call void asm sideeffect "918: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 918b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 918) #11, !srcloc !53
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @dev_driver_string(ptr noundef %23) #11
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
@@ -1066,7 +1066,7 @@ define dso_local void @i915_gem_driver_unregister__shrinker(ptr noundef %0) loca
   br label %33
 
 33:                                               ; preds = %31, %17
-  %34 = getelementptr inbounds i8, ptr %0, i64 8608
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8608
   %35 = load ptr, ptr %34, align 8
   tail call void @shrinker_free(ptr noundef %35) #11
   ret void
@@ -1088,9 +1088,9 @@ define dso_local void @i915_gem_shrinker_taints_mutex(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 676
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %._crit_edge, label %.lr.ph, !prof !58
@@ -1098,7 +1098,7 @@ define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %1, %13
   %7 = phi i32 [ %14, %13 ], [ %5, %1 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #11, !srcloc !21
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %8, ptr nonnull elementtype(i32) %4, i32 %7) #11, !srcloc !21
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -1111,40 +1111,40 @@ define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_u
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !59, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %13, %1
-  %16 = getelementptr inbounds i8, ptr %3, i64 8408
-  %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %16) #11
-  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #11, !srcloc !26
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8408
+  %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %16) #11
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 1, ptr nonnull elementtype(i32) %4) #11, !srcloc !26
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %0, i64 896
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21
   br i1 %23, label %36, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 904
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   store volatile ptr %22, ptr %26, align 8
   store volatile ptr %21, ptr %21, align 8
   store volatile ptr %21, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8632
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8632
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, -1
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8624
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8624
   %34 = load i64, ptr %33, align 8
   %35 = sub i64 %34, %32
   store i64 %35, ptr %33, align 8
   br label %36
 
 36:                                               ; preds = %24, %20, %._crit_edge
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %17) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %16, i64 noundef %17) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %36
@@ -1153,10 +1153,10 @@ define dso_local void @i915_gem_object_make_unshrinkable(ptr noundef %0) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8432
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
@@ -1164,7 +1164,7 @@ define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_u
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 676
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %._crit_edge, label %.lr.ph, !prof !58
@@ -1172,7 +1172,7 @@ define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %15, ptr nonnull elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1185,37 +1185,37 @@ define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_u
   br i1 %22, label %._crit_edge, label %.lr.ph, !prof !59, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %20, %10
-  %23 = getelementptr inbounds i8, ptr %3, i64 8408
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %23) #11
-  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, ptr elementtype(i32) %11) #11, !srcloc !61
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8408
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %23) #11
+  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, ptr nonnull elementtype(i32) %11) #11, !srcloc !61
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 896
-  %30 = getelementptr inbounds i8, ptr %3, i64 8440
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8440
   %31 = load ptr, ptr %30, align 8
   store ptr %29, ptr %30, align 8
   store ptr %4, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 904
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %31, ptr %32, align 8
   store volatile ptr %29, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8632
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8632
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8624
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8624
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
   br label %41
 
 41:                                               ; preds = %28, %._crit_edge
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %23, i64 noundef %24) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %24) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %1
@@ -1224,10 +1224,10 @@ define dso_local void @__i915_gem_object_make_shrinkable(ptr noundef %0) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8416
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
@@ -1235,7 +1235,7 @@ define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_un
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 676
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %._crit_edge, label %.lr.ph, !prof !58
@@ -1243,7 +1243,7 @@ define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_un
 .lr.ph:                                           ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %15, ptr nonnull elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1256,37 +1256,37 @@ define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_un
   br i1 %22, label %._crit_edge, label %.lr.ph, !prof !59, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %20, %10
-  %23 = getelementptr inbounds i8, ptr %3, i64 8408
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %23) #11
-  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, ptr elementtype(i32) %11) #11, !srcloc !61
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8408
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %23) #11
+  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, ptr nonnull elementtype(i32) %11) #11, !srcloc !61
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 896
-  %30 = getelementptr inbounds i8, ptr %3, i64 8424
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8424
   %31 = load ptr, ptr %30, align 8
   store ptr %29, ptr %30, align 8
   store ptr %4, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 904
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %31, ptr %32, align 8
   store volatile ptr %29, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8632
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8632
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8624
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8624
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
   br label %41
 
 41:                                               ; preds = %28, %._crit_edge
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %23, i64 noundef %24) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %24) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %41, %1
@@ -1295,10 +1295,10 @@ define dso_local void @__i915_gem_object_make_purgeable(ptr noundef %0) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_object_make_shrinkable(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8432
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
@@ -1306,7 +1306,7 @@ define dso_local void @i915_gem_object_make_shrinkable(ptr noundef %0) local_unn
   br i1 %9, label %__i915_gem_object_make_shrinkable.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 676
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %._crit_edge.i, label %.lr.ph.i, !prof !58
@@ -1314,7 +1314,7 @@ define dso_local void @i915_gem_object_make_shrinkable(ptr noundef %0) local_unn
 .lr.ph.i:                                         ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %15, ptr nonnull elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1327,37 +1327,37 @@ define dso_local void @i915_gem_object_make_shrinkable(ptr noundef %0) local_unn
   br i1 %22, label %._crit_edge.i, label %.lr.ph.i, !prof !59, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %20, %10
-  %23 = getelementptr inbounds i8, ptr %3, i64 8408
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %23) #11
-  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, ptr elementtype(i32) %11) #11, !srcloc !61
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8408
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %23) #11
+  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, ptr nonnull elementtype(i32) %11) #11, !srcloc !61
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 896
-  %30 = getelementptr inbounds i8, ptr %3, i64 8440
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8440
   %31 = load ptr, ptr %30, align 8
   store ptr %29, ptr %30, align 8
   store ptr %4, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 904
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %31, ptr %32, align 8
   store volatile ptr %29, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8632
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8632
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8624
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8624
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
   br label %41
 
 41:                                               ; preds = %28, %._crit_edge.i
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %23, i64 noundef %24) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %24) #11
   br label %__i915_gem_object_make_shrinkable.exit
 
 __i915_gem_object_make_shrinkable.exit:           ; preds = %.lr.ph.i, %1, %41
@@ -1366,10 +1366,10 @@ __i915_gem_object_make_shrinkable.exit:           ; preds = %.lr.ph.i, %1, %41
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_object_make_purgeable(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8416
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
@@ -1377,7 +1377,7 @@ define dso_local void @i915_gem_object_make_purgeable(ptr noundef %0) local_unna
   br i1 %9, label %__i915_gem_object_make_purgeable.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 676
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %._crit_edge.i, label %.lr.ph.i, !prof !58
@@ -1385,7 +1385,7 @@ define dso_local void @i915_gem_object_make_purgeable(ptr noundef %0) local_unna
 .lr.ph.i:                                         ; preds = %10, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %10 ]
   %15 = add i32 %14, -1
-  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 %15, ptr elementtype(i32) %11, i32 %14) #11, !srcloc !21
+  %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %15, ptr nonnull elementtype(i32) %11, i32 %14) #11, !srcloc !21
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -1398,37 +1398,37 @@ define dso_local void @i915_gem_object_make_purgeable(ptr noundef %0) local_unna
   br i1 %22, label %._crit_edge.i, label %.lr.ph.i, !prof !59, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %20, %10
-  %23 = getelementptr inbounds i8, ptr %3, i64 8408
-  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %23) #11
-  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, ptr elementtype(i32) %11) #11, !srcloc !61
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8408
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %23) #11
+  %25 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, ptr nonnull elementtype(i32) %11) #11, !srcloc !61
   %26 = icmp ult i8 %25, 2
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i8 %25, 0
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 896
-  %30 = getelementptr inbounds i8, ptr %3, i64 8424
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8424
   %31 = load ptr, ptr %30, align 8
   store ptr %29, ptr %30, align 8
   store ptr %4, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 904
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %31, ptr %32, align 8
   store volatile ptr %29, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8632
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8632
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8624
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8624
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
   br label %41
 
 41:                                               ; preds = %28, %._crit_edge.i
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %23, i64 noundef %24) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %24) #11
   br label %__i915_gem_object_make_purgeable.exit
 
 __i915_gem_object_make_purgeable.exit:            ; preds = %.lr.ph.i, %1, %41

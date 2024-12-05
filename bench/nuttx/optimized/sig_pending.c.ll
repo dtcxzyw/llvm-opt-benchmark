@@ -18,7 +18,7 @@ define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly %0) local_unnamed_
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %5 = load ptr, ptr @g_readytorun, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 16
   %8 = call i32 @sigemptyset(ptr noundef nonnull %3) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -26,14 +26,14 @@ define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly %0) local_unnamed_
   %9 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %10 = getelementptr inbounds i8, ptr %7, i64 880
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 880
   %.068.i = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %.068.i, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.0610.i = phi ptr [ %.06.i, %.lr.ph.i ], [ %.068.i, %4 ]
-  %11 = getelementptr inbounds i8, ptr %.0610.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = call i32 @nxsig_addset(ptr noundef nonnull %3, i32 noundef %13) #3
@@ -68,7 +68,7 @@ define i64 @nxsig_pendingset(ptr noundef readonly %0) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = load ptr, ptr @g_readytorun, align 8
   %spec.select = select i1 %4, ptr %5, ptr %0
-  %6 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %7 = load ptr, ptr %6, align 16
   %8 = call i32 @sigemptyset(ptr noundef nonnull %3) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -76,14 +76,14 @@ define i64 @nxsig_pendingset(ptr noundef readonly %0) local_unnamed_addr #0 {
   %9 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %10 = getelementptr inbounds i8, ptr %7, i64 880
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 880
   %.068 = load ptr, ptr %10, align 8
   %.not9 = icmp eq ptr %.068, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.0610 = phi ptr [ %.06, %.lr.ph ], [ %.068, %1 ]
-  %11 = getelementptr inbounds i8, ptr %.0610, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0610, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = call i32 @nxsig_addset(ptr noundef nonnull %3, i32 noundef %13) #3

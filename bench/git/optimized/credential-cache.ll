@@ -55,35 +55,35 @@ entry:
   store i32 900, ptr %timeout, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_credential_cache.usage, i64 16, i1 false)
   store i32 11, ptr %options, align 16
-  %short_name = getelementptr inbounds i8, ptr %options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %options, i64 16
   store ptr %timeout, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %options, i64 24
   store ptr @.str.2, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %options, i64 32
   store ptr @.str.3, ptr %help, align 16
-  %flags = getelementptr inbounds i8, ptr %options, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %options, i64 40
   store i32 0, ptr %flags, align 8
-  %callback = getelementptr inbounds i8, ptr %options, i64 48
-  %arrayinit.element = getelementptr inbounds i8, ptr %options, i64 88
+  %callback = getelementptr inbounds nuw i8, ptr %options, i64 48
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 10, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds i8, ptr %options, i64 92
+  %short_name2 = getelementptr inbounds nuw i8, ptr %options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds i8, ptr %options, i64 96
+  %long_name3 = getelementptr inbounds nuw i8, ptr %options, i64 96
   store ptr @.str.4, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds i8, ptr %options, i64 104
+  %value4 = getelementptr inbounds nuw i8, ptr %options, i64 104
   store ptr %socket_path, ptr %value4, align 8
-  %argh5 = getelementptr inbounds i8, ptr %options, i64 112
+  %argh5 = getelementptr inbounds nuw i8, ptr %options, i64 112
   store ptr @.str.5, ptr %argh5, align 16
-  %help6 = getelementptr inbounds i8, ptr %options, i64 120
+  %help6 = getelementptr inbounds nuw i8, ptr %options, i64 120
   store ptr @.str.6, ptr %help6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %options, i64 128
+  %flags7 = getelementptr inbounds nuw i8, ptr %options, i64 128
   store i32 0, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds i8, ptr %options, i64 136
+  %callback8 = getelementptr inbounds nuw i8, ptr %options, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callback8, i8 0, i64 128, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull %usage, i32 noundef 0) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -111,7 +111,7 @@ land.lhs.true.i:                                  ; preds = %if.then30
   br i1 %tobool2.not.i, label %land.lhs.true3.i, label %if.else.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %st_mode.i = getelementptr inbounds i8, ptr %sb.i, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %2, 61440
   %cmp.i = icmp eq i32 %and.i, 16384
@@ -264,11 +264,11 @@ if.then13:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %daemon.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.spawn_daemon.daemon, i64 120, i1 false)
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %daemon.i, ptr noundef nonnull @.str.21, ptr noundef %socket, ptr noundef null) #12
-  %git_cmd.i = getelementptr inbounds i8, ptr %daemon.i, i64 104
+  %git_cmd.i = getelementptr inbounds nuw i8, ptr %daemon.i, i64 104
   %bf.load.i = load i16, ptr %git_cmd.i, align 8
   %bf.set3.i = or i16 %bf.load.i, 9
   store i16 %bf.set3.i, ptr %git_cmd.i, align 8
-  %out.i = getelementptr inbounds i8, ptr %daemon.i, i64 84
+  %out.i = getelementptr inbounds nuw i8, ptr %daemon.i, i64 84
   store i32 -1, ptr %out.i, align 4
   %call.i = call i32 @start_command(ptr noundef nonnull %daemon.i) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -348,9 +348,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %out, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %out, i64 16
   %0 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %out, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %out, i64 8
   %1 = load i64, ptr %len, align 8
   %call1 = tail call i64 @write_in_full(i32 noundef %call, ptr noundef %0, i64 noundef %1) #12
   %cmp2 = icmp slt i64 %call1, 0

@@ -35,35 +35,35 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %22 = load double, ptr %19, align 8, !tbaa !3
   store double %22, ptr %21, align 8, !tbaa !3
   %23 = load double, ptr %20, align 8, !tbaa !3
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store double %23, ptr %24, align 8, !tbaa !3
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load double, ptr %25, align 8, !tbaa !3
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double %26, ptr %27, align 8, !tbaa !3
-  %28 = getelementptr inbounds i8, ptr %20, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %29 = load double, ptr %28, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %21, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store double %29, ptr %30, align 8, !tbaa !3
-  %31 = getelementptr inbounds i8, ptr %19, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load double, ptr %31, align 8, !tbaa !3
-  %33 = getelementptr inbounds i8, ptr %21, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store double %32, ptr %33, align 8, !tbaa !3
-  %34 = getelementptr inbounds i8, ptr %20, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %35 = load double, ptr %34, align 8, !tbaa !3
-  %36 = getelementptr inbounds i8, ptr %21, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store double %35, ptr %36, align 8, !tbaa !3
-  %37 = getelementptr inbounds i8, ptr %19, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %38 = load double, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds i8, ptr %21, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store double %38, ptr %39, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %20, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %41 = load double, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr inbounds i8, ptr %21, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store double %41, ptr %42, align 8, !tbaa !3
-  %43 = getelementptr inbounds i8, ptr %19, i64 32
-  %44 = getelementptr inbounds i8, ptr %20, i64 32
-  %45 = getelementptr inbounds i8, ptr %21, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %46 = add nsw i64 %18, -1
   %47 = icmp samesign ugt i64 %18, 1
   br i1 %47, label %17, label %.loopexit10.us.us, !llvm.loop !7
@@ -89,35 +89,35 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %60 = load double, ptr %57, align 8, !tbaa !3
   store double %60, ptr %59, align 8, !tbaa !3
   %61 = load double, ptr %58, align 8, !tbaa !3
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store double %61, ptr %62, align 8, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load double, ptr %63, align 8, !tbaa !3
-  %65 = getelementptr inbounds i8, ptr %59, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store double %64, ptr %65, align 8, !tbaa !3
-  %66 = getelementptr inbounds i8, ptr %58, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %67 = load double, ptr %66, align 8, !tbaa !3
-  %68 = getelementptr inbounds i8, ptr %59, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store double %67, ptr %68, align 8, !tbaa !3
-  %69 = getelementptr inbounds i8, ptr %57, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %70 = load double, ptr %69, align 8, !tbaa !3
-  %71 = getelementptr inbounds i8, ptr %59, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store double %70, ptr %71, align 8, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %58, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %73 = load double, ptr %72, align 8, !tbaa !3
-  %74 = getelementptr inbounds i8, ptr %59, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store double %73, ptr %74, align 8, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %57, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %76 = load double, ptr %75, align 8, !tbaa !3
-  %77 = getelementptr inbounds i8, ptr %59, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store double %76, ptr %77, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %58, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %79 = load double, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds i8, ptr %59, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store double %79, ptr %80, align 8, !tbaa !3
-  %81 = getelementptr inbounds i8, ptr %57, i64 32
-  %82 = getelementptr inbounds i8, ptr %58, i64 32
-  %83 = getelementptr inbounds i8, ptr %59, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %84 = add nsw i64 %56, -1
   %85 = icmp samesign ugt i64 %56, 1
   br i1 %85, label %55, label %.loopexit10.us, !llvm.loop !7
@@ -130,11 +130,11 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %90 = load double, ptr %87, align 8, !tbaa !3
   store double %90, ptr %89, align 8, !tbaa !3
   %91 = load double, ptr %88, align 8, !tbaa !3
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store double %91, ptr %92, align 8, !tbaa !3
-  %93 = getelementptr inbounds i8, ptr %87, i64 8
-  %94 = getelementptr inbounds i8, ptr %88, i64 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = add nsw i64 %86, -1
   %97 = icmp sgt i64 %86, 1
   br i1 %97, label %.loopexit10.us, label %.loopexit8.us, !llvm.loop !11
@@ -169,11 +169,11 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %112 = load double, ptr %109, align 8, !tbaa !3
   store double %112, ptr %111, align 8, !tbaa !3
   %113 = load double, ptr %110, align 8, !tbaa !3
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store double %113, ptr %114, align 8, !tbaa !3
-  %115 = getelementptr inbounds i8, ptr %109, i64 8
-  %116 = getelementptr inbounds i8, ptr %110, i64 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %118 = add nsw i64 %108, -1
   %119 = icmp sgt i64 %108, 1
   br i1 %119, label %107, label %.loopexit8, !llvm.loop !11
@@ -202,36 +202,36 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %132 = phi ptr [ %156, %.preheader5 ], [ %124, %127 ]
   %133 = load double, ptr %131, align 8, !tbaa !3
   store double %133, ptr %132, align 8, !tbaa !3
-  %134 = getelementptr inbounds i8, ptr %131, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %135 = load double, ptr %134, align 8, !tbaa !3
-  %136 = getelementptr inbounds i8, ptr %132, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store double %135, ptr %136, align 8, !tbaa !3
-  %137 = getelementptr inbounds i8, ptr %131, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %138 = load double, ptr %137, align 8, !tbaa !3
-  %139 = getelementptr inbounds i8, ptr %132, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double %138, ptr %139, align 8, !tbaa !3
-  %140 = getelementptr inbounds i8, ptr %131, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %141 = load double, ptr %140, align 8, !tbaa !3
-  %142 = getelementptr inbounds i8, ptr %132, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store double %141, ptr %142, align 8, !tbaa !3
-  %143 = getelementptr inbounds i8, ptr %131, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %144 = load double, ptr %143, align 8, !tbaa !3
-  %145 = getelementptr inbounds i8, ptr %132, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store double %144, ptr %145, align 8, !tbaa !3
-  %146 = getelementptr inbounds i8, ptr %131, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %147 = load double, ptr %146, align 8, !tbaa !3
-  %148 = getelementptr inbounds i8, ptr %132, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %132, i64 40
   store double %147, ptr %148, align 8, !tbaa !3
-  %149 = getelementptr inbounds i8, ptr %131, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %131, i64 48
   %150 = load double, ptr %149, align 8, !tbaa !3
-  %151 = getelementptr inbounds i8, ptr %132, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %132, i64 48
   store double %150, ptr %151, align 8, !tbaa !3
-  %152 = getelementptr inbounds i8, ptr %131, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %153 = load double, ptr %152, align 8, !tbaa !3
-  %154 = getelementptr inbounds i8, ptr %132, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %132, i64 56
   store double %153, ptr %154, align 8, !tbaa !3
-  %155 = getelementptr inbounds i8, ptr %131, i64 64
-  %156 = getelementptr inbounds i8, ptr %132, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %132, i64 64
   %157 = add nsw i64 %130, -1
   %158 = icmp samesign ugt i64 %130, 1
   br i1 %158, label %.preheader5, label %.loopexit6, !llvm.loop !12
@@ -249,8 +249,8 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %165 = phi ptr [ %168, %.preheader ], [ %160, %.loopexit6 ]
   %166 = load double, ptr %164, align 8, !tbaa !3
   store double %166, ptr %165, align 8, !tbaa !3
-  %167 = getelementptr inbounds i8, ptr %164, i64 8
-  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %169 = add nsw i64 %163, -1
   %170 = icmp samesign ugt i64 %163, 1
   br i1 %170, label %.preheader, label %.loopexit, !llvm.loop !13

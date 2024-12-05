@@ -93,13 +93,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %.not, label %sub_1, label %lor.lhs.false.thread319
 
 sub_1:                                            ; preds = %for.body
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not184 = icmp eq i8 %3, 118
   br i1 %.not184, label %for.body.tail, label %lor.lhs.false
 
 for.body.tail:                                    ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %for.inc, label %lor.lhs.false.thread
@@ -120,13 +120,13 @@ lor.lhs.false.thread:                             ; preds = %for.body.tail
   br i1 %cmp3211, label %for.inc, label %sub_1100
 
 sub_1100:                                         ; preds = %lor.lhs.false, %lor.lhs.false.thread
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %.not186 = icmp eq i8 %8, 104
   br i1 %.not186, label %if.else.tail, label %lor.lhs.false6
 
 if.else.tail:                                     ; preds = %sub_1100
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %for.inc, label %lor.lhs.false6.thread
@@ -147,13 +147,13 @@ lor.lhs.false6.thread:                            ; preds = %if.else.tail
   br i1 %cmp8214, label %for.inc, label %sub_1104
 
 sub_1104:                                         ; preds = %lor.lhs.false6, %lor.lhs.false6.thread
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %.not188 = icmp eq i8 %13, 117
   br i1 %.not188, label %if.else10.tail, label %lor.lhs.false13.thread327
 
 if.else10.tail:                                   ; preds = %sub_1104
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %for.inc, label %lor.lhs.false13.thread
@@ -174,13 +174,13 @@ lor.lhs.false13.thread:                           ; preds = %if.else10.tail
   br i1 %cmp15217, label %for.inc, label %sub_1108
 
 sub_1108:                                         ; preds = %lor.lhs.false13.thread327, %lor.lhs.false13.thread
-  %17 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1
   %.not190 = icmp eq i8 %18, 102
   br i1 %.not190, label %if.else17.tail, label %lor.lhs.false20
 
 if.else17.tail:                                   ; preds = %sub_1108
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %for.inc, label %lor.lhs.false20.thread
@@ -201,13 +201,13 @@ lor.lhs.false20.thread:                           ; preds = %if.else17.tail
   br i1 %cmp22220, label %for.inc, label %sub_1112
 
 sub_1112:                                         ; preds = %lor.lhs.false20, %lor.lhs.false20.thread
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1
   %.not192 = icmp eq i8 %23, 108
   br i1 %.not192, label %if.else24.tail, label %lor.lhs.false27.thread335
 
 if.else24.tail:                                   ; preds = %sub_1112
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %for.inc, label %lor.lhs.false27.thread
@@ -231,13 +231,13 @@ sub_0115:                                         ; preds = %lor.lhs.false27
   br i1 %.not, label %sub_1116, label %lor.lhs.false34.thread339
 
 sub_1116:                                         ; preds = %lor.lhs.false27.thread335, %lor.lhs.false27.thread, %sub_0115
-  %27 = getelementptr inbounds i8, ptr %0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
   %.not194 = icmp eq i8 %28, 109
   br i1 %.not194, label %if.else31.tail, label %lor.lhs.false34
 
 if.else31.tail:                                   ; preds = %sub_1116
-  %29 = getelementptr inbounds i8, ptr %0, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %for.inc, label %lor.lhs.false34.thread
@@ -261,13 +261,13 @@ sub_0119:                                         ; preds = %lor.lhs.false34
   br i1 %.not, label %sub_1120, label %lor.lhs.false41
 
 sub_1120:                                         ; preds = %lor.lhs.false34.thread, %sub_0119
-  %32 = getelementptr inbounds i8, ptr %0, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %33 = load i8, ptr %32, align 1
   %.not196 = icmp eq i8 %33, 115
   br i1 %.not196, label %if.else38.tail, label %lor.lhs.false41.thread343
 
 if.else38.tail:                                   ; preds = %sub_1120
-  %34 = getelementptr inbounds i8, ptr %0, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %for.inc, label %lor.lhs.false41.thread
@@ -291,13 +291,13 @@ sub_0123:                                         ; preds = %lor.lhs.false41
   br i1 %.not, label %sub_1124, label %lor.lhs.false48.thread347
 
 sub_1124:                                         ; preds = %lor.lhs.false41.thread343, %lor.lhs.false41.thread, %sub_0123
-  %37 = getelementptr inbounds i8, ptr %0, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %38 = load i8, ptr %37, align 1
   %.not198 = icmp eq i8 %38, 70
   br i1 %.not198, label %if.else45.tail, label %lor.lhs.false48
 
 if.else45.tail:                                   ; preds = %sub_1124
-  %39 = getelementptr inbounds i8, ptr %0, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %if.then51, label %lor.lhs.false48.thread
@@ -332,13 +332,13 @@ sub_0127:                                         ; preds = %lor.lhs.false48
   br i1 %.not, label %sub_1128, label %for.end
 
 sub_1128:                                         ; preds = %lor.lhs.false48.thread, %sub_0127
-  %43 = getelementptr inbounds i8, ptr %0, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %44 = load i8, ptr %43, align 1
   %.not200 = icmp eq i8 %44, 114
   br i1 %.not200, label %if.else56.tail, label %sub_1132
 
 if.else56.tail:                                   ; preds = %sub_1128
-  %45 = getelementptr inbounds i8, ptr %0, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %if.then59, label %sub_1132
@@ -355,13 +355,13 @@ if.then62:                                        ; preds = %if.then59
   br label %for.inc
 
 sub_1132:                                         ; preds = %if.else56.tail, %sub_1128
-  %49 = getelementptr inbounds i8, ptr %0, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %50 = load i8, ptr %49, align 1
   %.not202 = icmp eq i8 %50, 82
   br i1 %.not202, label %if.else67.tail, label %sub_1136
 
 if.else67.tail:                                   ; preds = %sub_1132
-  %51 = getelementptr inbounds i8, ptr %0, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %if.then70, label %sub_1136
@@ -378,13 +378,13 @@ if.then73:                                        ; preds = %if.then70
   br label %for.inc
 
 sub_1136:                                         ; preds = %if.else67.tail, %sub_1132
-  %55 = getelementptr inbounds i8, ptr %0, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %56 = load i8, ptr %55, align 1
   %.not204 = icmp eq i8 %56, 80
   br i1 %.not204, label %if.else78.tail, label %sub_1140
 
 if.else78.tail:                                   ; preds = %sub_1136
-  %57 = getelementptr inbounds i8, ptr %0, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %if.then81, label %sub_1140
@@ -401,13 +401,13 @@ if.then84:                                        ; preds = %if.then81
   br label %for.inc
 
 sub_1140:                                         ; preds = %if.else78.tail, %sub_1136
-  %61 = getelementptr inbounds i8, ptr %0, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %62 = load i8, ptr %61, align 1
   %.not206 = icmp eq i8 %62, 76
   br i1 %.not206, label %if.else89.tail, label %sub_1144
 
 if.else89.tail:                                   ; preds = %sub_1140
-  %63 = getelementptr inbounds i8, ptr %0, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %if.then92, label %sub_1144
@@ -424,19 +424,19 @@ if.then95:                                        ; preds = %if.then92
   br label %for.inc
 
 sub_1144:                                         ; preds = %if.else89.tail, %sub_1140
-  %67 = getelementptr inbounds i8, ptr %0, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %68 = load i8, ptr %67, align 1
   %.not208 = icmp eq i8 %68, 45
   br i1 %.not208, label %if.else100.tail, label %if.then108
 
 if.else100.tail:                                  ; preds = %sub_1144
-  %69 = getelementptr inbounds i8, ptr %0, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %for.end, label %if.then108
 
 if.then108:                                       ; preds = %if.else100.tail, %sub_1144
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
   %call109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %add.ptr)
   br label %for.inc
 
@@ -578,7 +578,7 @@ sub_0.i:                                          ; preds = %if.then6.i
   br i1 %.not.i, label %if.then8.tail.i, label %if.then23.i
 
 if.then8.tail.i:                                  ; preds = %sub_0.i
-  %81 = getelementptr inbounds i8, ptr %format.0.lcssa.ph, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %format.0.lcssa.ph, i64 1
   %82 = load i8, ptr %81, align 1
   switch i8 %82, label %if.then23.i [
     i8 0, label %if.then10.i
@@ -591,7 +591,7 @@ if.then10.i:                                      ; preds = %if.then8.tail.i
   br label %getWhen.exit
 
 if.else12.tail.i:                                 ; preds = %if.then8.tail.i
-  %84 = getelementptr inbounds i8, ptr %format.0.lcssa.ph, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %format.0.lcssa.ph, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %if.then15.i, label %if.then23.i
@@ -728,7 +728,7 @@ sub_0.i76:                                        ; preds = %if.end.i74
   br i1 %.not.i77, label %if.then2.tail.i, label %if.then14.i
 
 if.then2.tail.i:                                  ; preds = %sub_0.i76
-  %101 = getelementptr inbounds i8, ptr %spec.select, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %if.then14.i [
     i8 0, label %if.then3.i
@@ -740,7 +740,7 @@ if.then3.i:                                       ; preds = %if.then2.tail.i
   br label %date.exit
 
 if.else.tail.i:                                   ; preds = %if.then2.tail.i
-  %103 = getelementptr inbounds i8, ptr %spec.select, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %spec.select, i64 2
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %if.then7.i, label %if.then14.i

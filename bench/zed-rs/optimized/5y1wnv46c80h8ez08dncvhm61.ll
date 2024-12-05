@@ -179,7 +179,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf7150e80fac7305fE.llvm.4491288516430033680"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = icmp eq ptr %4, %3
@@ -250,7 +250,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %47 = alloca [24 x i8], align 8
   %48 = alloca [80 x i8], align 8
   %49 = alloca [24 x i8], align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 183
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 183
   %51 = load i8, ptr %50, align 1, !range !5, !noundef !4
   store i8 0, ptr %50, align 1
   %52 = load i64, ptr %2, align 8, !range !6, !noundef !4
@@ -299,20 +299,20 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 65:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false)
-  %66 = getelementptr inbounds i8, ptr %1, i64 186
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %67 = load i8, ptr %66, align 2, !range !7, !noundef !4
   %68 = icmp eq i8 %67, 0
-  %69 = getelementptr inbounds i8, ptr %1, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 176
   br i1 %68, label %82, label %87
 
 70:                                               ; preds = %4
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %71, i64 40, i1 false)
   br label %225
 
 72:                                               ; preds = %4
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
-  %74 = getelementptr inbounds i8, ptr %38, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %38, align 8
   br label %225
@@ -320,7 +320,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 75:                                               ; preds = %4
   %76 = trunc nuw i8 %51 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
-  %77 = getelementptr inbounds i8, ptr %2, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
   %.pr.pre = load i64, ptr %39, align 8
   br i1 %76, label %786, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdd378ed46f238510E.exit"
@@ -334,13 +334,13 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %225
 
 80:                                               ; preds = %4
-  %81 = getelementptr inbounds i8, ptr %2, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %49)
           to label %953 unwind label %62
 
 82:                                               ; preds = %65
-  %83 = getelementptr inbounds i8, ptr %1, i64 178
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 178
   %84 = load i8, ptr %83, align 2, !range !5, !noundef !4
   %85 = trunc nuw i8 %84 to i1
   %86 = invoke { i1, i8 } @_ZN9html5ever12tree_builder4data24doctype_error_and_quirks17ha4a5627e7dcabdcdE(ptr noundef nonnull align 8 %48, i1 noundef zeroext %85)
@@ -358,29 +358,29 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 93:                                               ; preds = %106, %90
   %.sroa.0.0.copyload = load i64, ptr %48, align 8
-  %.sroa.5.0..sroa_idx305 = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.5.0..sroa_idx305 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx305, align 8
-  %.sroa.6.0..sroa_idx308 = getelementptr inbounds i8, ptr %48, i64 16
+  %.sroa.6.0..sroa_idx308 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx308, align 8
-  %.sroa.6311.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 20
+  %.sroa.6311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.sroa.6311.0.copyload = load i32, ptr %.sroa.6311.0..sroa_idx, align 4
-  %94 = getelementptr inbounds i8, ptr %48, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.sroa.0314.0.copyload = load i64, ptr %94, align 8
-  %.sroa.6316.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 32
+  %.sroa.6316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
   %.sroa.6316.0.copyload = load i64, ptr %.sroa.6316.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx319 = getelementptr inbounds i8, ptr %48, i64 40
+  %.sroa.7.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx319, align 8
-  %.sroa.7322.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 44
+  %.sroa.7322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 44
   %.sroa.7322.0.copyload = load i32, ptr %.sroa.7322.0..sroa_idx, align 4
-  %95 = getelementptr inbounds i8, ptr %48, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %.sroa.0325.0.copyload = load i64, ptr %95, align 8
-  %.sroa.6327.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 56
+  %.sroa.6327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 56
   %.sroa.6327.0.copyload = load i64, ptr %.sroa.6327.0..sroa_idx, align 8
-  %.sroa.7330.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 64
+  %.sroa.7330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 64
   %.sroa.7330.0.copyload = load i32, ptr %.sroa.7330.0..sroa_idx, align 8
-  %.sroa.7333.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 68
+  %.sroa.7333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 68
   %.sroa.7333.0.copyload = load i32, ptr %.sroa.7333.0..sroa_idx, align 4
-  %96 = getelementptr inbounds i8, ptr %1, i64 179
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 179
   %97 = load i8, ptr %96, align 1, !range !5, !noundef !4
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %121, label %108
@@ -391,9 +391,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %101, label %105, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %47, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.3, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %47, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 11, ptr %104, align 8
   store i64 -9223372036854775808, ptr %47, align 8
   br label %106
@@ -401,17 +401,17 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 105:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   store ptr %48, ptr %45, align 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @"_ZN77_$LT$html5ever..tokenizer..interface..Doctype$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d33eff4b5081442E", ptr %.sroa.426.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35), !noalias !8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.5, ptr %35, align 8, !noalias !15
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !15
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %45, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !15
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !15
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !15
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %46, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %35)
           to label %107 unwind label %.critedge
@@ -429,7 +429,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 108:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   %trunc = trunc nuw i64 %.sroa.0.0.copyload to i1
-  %.sroa.4348.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
+  %.sroa.4348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   br i1 %trunc, label %110, label %109
 
 109:                                              ; preds = %108
@@ -438,7 +438,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 110:                                              ; preds = %108
   store i32 %.sroa.6.0.copyload, ptr %.sroa.4348.0..sroa_idx, align 8
-  %.sroa.5349.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 12
+  %.sroa.5349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %.sroa.6311.0.copyload, ptr %.sroa.5349.0..sroa_idx, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 15, i32 0)
   br label %111
@@ -448,7 +448,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   store i64 %.sink, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   %trunc36 = trunc nuw i64 %.sroa.0314.0.copyload to i1
-  %.sroa.4351.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   br i1 %trunc36, label %113, label %112
 
 112:                                              ; preds = %111
@@ -457,7 +457,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 113:                                              ; preds = %111
   store i32 %.sroa.7.0.copyload, ptr %.sroa.4351.0..sroa_idx, align 8
-  %.sroa.5352.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 12
+  %.sroa.5352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 %.sroa.7322.0.copyload, ptr %.sroa.5352.0..sroa_idx, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 15, i32 0)
   br label %114
@@ -466,7 +466,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.sink353 = phi i64 [ %.sroa.6316.0.copyload, %113 ], [ 15, %112 ]
   store i64 %.sink353, ptr %43, align 8
   %trunc37 = trunc nuw i64 %.sroa.0325.0.copyload to i1
-  %.sroa.6345.8..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.6345.8..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   br i1 %trunc37, label %116, label %115
 
 115:                                              ; preds = %114
@@ -475,7 +475,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 116:                                              ; preds = %114
   store i32 %.sroa.7330.0.copyload, ptr %.sroa.6345.8..sroa_idx, align 8
-  %.sroa.7346.8..sroa_idx = getelementptr inbounds i8, ptr %37, i64 12
+  %.sroa.7346.8..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %.sroa.7333.0.copyload, ptr %.sroa.7346.8..sroa_idx, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 15, i32 0)
   br label %117
@@ -498,9 +498,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.critedge56
 
 121:                                              ; preds = %93
-  %122 = getelementptr inbounds i8, ptr %1, i64 185
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 185
   store i8 %92, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %1, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 %92, ptr %123, align 8, !alias.scope !16
   store i8 1, ptr %66, align 2
   store i8 0, ptr %0, align 8
@@ -522,7 +522,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %128, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %.sroa.02.0.i11.i.i.i = load i32, ptr %132, align 4, !noalias !19, !noundef !4
   %133 = load i64, ptr %128, align 8, !noalias !26, !noundef !4
   %134 = add i64 %133, -1
@@ -542,9 +542,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 136:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
-  %137 = getelementptr inbounds i8, ptr %1, i64 185
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 185
   store i8 %92, ptr %137, align 1
-  %138 = getelementptr inbounds i8, ptr %1, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 %92, ptr %138, align 8, !alias.scope !27
   store i8 1, ptr %66, align 2
   store i8 0, ptr %0, align 8
@@ -569,7 +569,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i85
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %144, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %.sroa.02.0.i11.i.i.i84 = load i32, ptr %148, align 4, !noalias !29, !noundef !4
   %149 = load i64, ptr %144, align 8, !noalias !36, !noundef !4
   %150 = add i64 %149, -1
@@ -605,7 +605,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i97
 
 160:                                              ; preds = %155
-  %161 = getelementptr inbounds i8, ptr %157, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %.sroa.02.0.i11.i.i.i96 = load i32, ptr %161, align 4, !noalias !37, !noundef !4
   %162 = load i64, ptr %157, align 8, !noalias !44, !noundef !4
   %163 = add i64 %162, -1
@@ -623,9 +623,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit142"
 
 165:                                              ; preds = %87
-  %166 = getelementptr inbounds i8, ptr %42, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.7, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %42, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 15, ptr %167, align 8
   store i64 -9223372036854775808, ptr %42, align 8
   br label %.invoke
@@ -633,17 +633,17 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 168:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   store ptr %66, ptr %40, align 8
-  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @"_ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", ptr %.sroa.432.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34), !noalias !45
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.9, ptr %34, align 8, !noalias !52
-  %.sroa.4176.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.4176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 1, ptr %.sroa.4176.0..sroa_idx, align 8, !noalias !52
-  %.sroa.5177.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
+  %.sroa.5177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %40, ptr %.sroa.5177.0..sroa_idx, align 8, !noalias !52
-  %.sroa.6178.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 24
+  %.sroa.6178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 1, ptr %.sroa.6178.0..sroa_idx, align 8, !noalias !52
-  %.sroa.7179.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 32
+  %.sroa.7179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %.sroa.7179.0..sroa_idx, align 8, !noalias !52
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %41, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %34)
           to label %185 unwind label %.critedge
@@ -656,9 +656,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %170, label %186, label %171
 
 171:                                              ; preds = %.thread230
-  %172 = getelementptr inbounds i8, ptr %48, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.val.i107 = load i64, ptr %172, align 8, !range !57, !alias.scope !58, !noundef !4
-  %173 = getelementptr inbounds i8, ptr %48, i64 20
+  %173 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %.val1.i108 = load i32, ptr %173, align 4, !alias.scope !53
   %174 = icmp ult i64 %.val.i107, 16
   br i1 %174, label %186, label %175
@@ -676,7 +676,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i111
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds i8, ptr %177, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %.sroa.02.0.i11.i.i.i110 = load i32, ptr %181, align 4, !noalias !61, !noundef !4
   %182 = load i64, ptr %177, align 8, !noalias !66, !noundef !4
   %183 = add i64 %182, -1
@@ -704,16 +704,16 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
           to label %.thread230 unwind label %.critedge
 
 186:                                              ; preds = %.thread230, %171, %180, %.sink.split.i.i.i111
-  %187 = getelementptr inbounds i8, ptr %48, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %188 = load i64, ptr %187, align 8, !range !56, !alias.scope !67, !noundef !4
   %189 = icmp eq i64 %188, 0
   br i1 %189, label %.thread233, label %190
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i8, ptr %48, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %.val.i119 = load i64, ptr %191, align 8, !range !57, !alias.scope !70, !noundef !4
-  %192 = getelementptr inbounds i8, ptr %48, i64 44
+  %192 = getelementptr inbounds nuw i8, ptr %48, i64 44
   %.val1.i120 = load i32, ptr %192, align 4, !alias.scope !67
   %193 = icmp ult i64 %.val.i119, 16
   br i1 %193, label %.thread233, label %194
@@ -731,7 +731,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i123
 
 199:                                              ; preds = %194
-  %200 = getelementptr inbounds i8, ptr %196, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %.sroa.02.0.i11.i.i.i122 = load i32, ptr %200, align 4, !noalias !73, !noundef !4
   %201 = load i64, ptr %196, align 8, !noalias !78, !noundef !4
   %202 = add i64 %201, -1
@@ -753,16 +753,16 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %221
 
 .thread233:                                       ; preds = %186, %190, %199, %.sink.split.i.i.i123
-  %204 = getelementptr inbounds i8, ptr %48, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %48, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %205 = load i64, ptr %204, align 8, !range !56, !alias.scope !79, !noundef !4
   %206 = icmp eq i64 %205, 0
   br i1 %206, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit142", label %207
 
 207:                                              ; preds = %.thread233
-  %208 = getelementptr inbounds i8, ptr %48, i64 56
+  %208 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %.val.i131 = load i64, ptr %208, align 8, !range !57, !alias.scope !82, !noundef !4
-  %209 = getelementptr inbounds i8, ptr %48, i64 68
+  %209 = getelementptr inbounds nuw i8, ptr %48, i64 68
   %.val1.i132 = load i32, ptr %209, align 4, !alias.scope !79
   %210 = icmp ult i64 %.val.i131, 16
   br i1 %210, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E.exit142", label %211
@@ -780,7 +780,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i135
 
 216:                                              ; preds = %211
-  %217 = getelementptr inbounds i8, ptr %213, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.sroa.02.0.i11.i.i.i134 = load i32, ptr %217, align 4, !noalias !85, !noundef !4
   %218 = load i64, ptr %213, align 8, !noalias !90, !noundef !4
   %219 = add i64 %218, -1
@@ -804,9 +804,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %222 = landingpad { ptr, i32 }
           cleanup
   call void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #17
-  %223 = getelementptr inbounds i8, ptr %48, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %223) #17
-  %224 = getelementptr inbounds i8, ptr %48, i64 48
+  %224 = getelementptr inbounds nuw i8, ptr %48, i64 48
   call void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$$GT$17h00ef5c05c1ca02d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %224) #17
   br label %.critedge56
 
@@ -818,47 +818,47 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !98
-  %226 = getelementptr inbounds i8, ptr %33, i64 16
-  %227 = getelementptr inbounds i8, ptr %33, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 0, ptr %33, align 8, !noalias !98
-  %228 = getelementptr inbounds i8, ptr %33, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %226, i8 0, i64 16, i1 false), !noalias !98
   store ptr inttoptr (i64 8 to ptr), ptr %228, align 8, !noalias !98
-  %229 = getelementptr inbounds i8, ptr %1, i64 104
-  %230 = getelementptr inbounds i8, ptr %38, i64 33
-  %231 = getelementptr inbounds i8, ptr %38, i64 32
-  %232 = getelementptr inbounds i8, ptr %1, i64 160
-  %233 = getelementptr inbounds i8, ptr %1, i64 96
-  %234 = getelementptr inbounds i8, ptr %38, i64 24
-  %235 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %236 = getelementptr inbounds i8, ptr %31, i64 8
-  %237 = getelementptr inbounds i8, ptr %1, i64 182
-  %238 = getelementptr inbounds i8, ptr %12, i64 8
-  %239 = getelementptr inbounds i8, ptr %11, i64 8
-  %240 = getelementptr inbounds i8, ptr %31, i64 32
-  %241 = getelementptr inbounds i8, ptr %31, i64 24
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 16
-  %.sroa.5.0..sroa_idx68.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  %.sroa.6.0..sroa_idx72.i.i = getelementptr inbounds i8, ptr %21, i64 16
-  %.sroa.7.0..sroa_idx75.i.i = getelementptr inbounds i8, ptr %21, i64 24
-  %.sroa.5.0..sroa_idx66.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  %.sroa.6.0..sroa_idx70.i.i = getelementptr inbounds i8, ptr %20, i64 16
-  %.sroa.7.0..sroa_idx74.i.i = getelementptr inbounds i8, ptr %20, i64 24
-  %242 = getelementptr inbounds i8, ptr %19, i64 8
-  %243 = getelementptr inbounds i8, ptr %19, i64 40
-  %244 = getelementptr inbounds i8, ptr %17, i64 24
-  %245 = getelementptr inbounds i8, ptr %1, i64 186
-  %246 = getelementptr inbounds i8, ptr %32, i64 8
-  %247 = getelementptr inbounds i8, ptr %32, i64 40
-  %248 = getelementptr inbounds i8, ptr %28, i64 12
-  %249 = getelementptr inbounds i8, ptr %28, i64 8
-  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds i8, ptr %38, i64 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 16
-  %250 = getelementptr inbounds i8, ptr %27, i64 24
-  %251 = getelementptr inbounds i8, ptr %27, i64 8
-  %252 = getelementptr inbounds i8, ptr %29, i64 8
-  %253 = getelementptr inbounds i8, ptr %29, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %230 = getelementptr inbounds nuw i8, ptr %38, i64 33
+  %231 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %234 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 182
+  %238 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sroa.5.0..sroa_idx68.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.6.0..sroa_idx72.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sroa.7.0..sroa_idx75.i.i = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.sroa.5.0..sroa_idx66.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.6.0..sroa_idx70.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sroa.7.0..sroa_idx74.i.i = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 186
+  %246 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %248 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %249 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br label %254
 
 254:                                              ; preds = %707, %225
@@ -1208,13 +1208,13 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 .lr.ph.i.i.i:                                     ; preds = %330, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$12step_foreign28_$u7b$$u7b$closure$u7d$$u7d$17h42b4c4833ceedb70E.exit.i.i.i"
   %332 = phi ptr [ %333, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$12step_foreign28_$u7b$$u7b$closure$u7d$$u7d$17h42b4c4833ceedb70E.exit.i.i.i" ], [ %.sroa.5.0.copyload.i.i, %330 ]
-  %333 = getelementptr inbounds i8, ptr %332, i64 40
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 40
   %334 = load i64, ptr %332, align 8, !noalias !143, !noundef !4
   %335 = icmp eq i64 %334, 25769803778
   br i1 %335, label %336, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$12step_foreign28_$u7b$$u7b$closure$u7d$$u7d$17h42b4c4833ceedb70E.exit.i.i.i"
 
 336:                                              ; preds = %.lr.ph.i.i.i
-  %337 = getelementptr inbounds i8, ptr %332, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %338 = load i64, ptr %337, align 8, !noalias !143, !noundef !4
   switch i64 %338, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$12step_foreign28_$u7b$$u7b$closure$u7d$$u7d$17h42b4c4833ceedb70E.exit.i.i.i" [
     i64 1357209665538, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h7012729c097ff39cE.exit.i.i"
@@ -1308,7 +1308,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %351 = landingpad { ptr, i32 }
           cleanup
   %.val.i.i = load i64, ptr %24, align 8, !range !57, !alias.scope !153, !noalias !133, !noundef !4
-  %352 = getelementptr inbounds i8, ptr %24, i64 12
+  %352 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %.val21.i.i = load i32, ptr %352, align 4, !noalias !133
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val.i.i, i32 %.val21.i.i) #17, !noalias !134
   br label %.body.i
@@ -1316,13 +1316,13 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 353:                                              ; preds = %325
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !133
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.93, ptr %14, align 8, !noalias !133
-  %354 = getelementptr inbounds i8, ptr %14, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %354, align 8, !noalias !133
-  %355 = getelementptr inbounds i8, ptr %14, i64 32
+  %355 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %355, align 8, !noalias !133
-  %356 = getelementptr inbounds i8, ptr %14, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %356, align 8, !noalias !133
-  %357 = getelementptr inbounds i8, ptr %14, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %357, align 8, !noalias !133
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.94) #18
           to label %380 unwind label %.thread158.i, !noalias !134
@@ -1480,12 +1480,12 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %409, label %410, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i.i.i"
 
 410:                                              ; preds = %.lr.ph.i.i.i.i
-  %411 = getelementptr inbounds i8, ptr %406, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %406, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %411)
           to label %.noexc.i.i.i.i unwind label %420, !noalias !173
 
 .noexc.i.i.i.i:                                   ; preds = %410
-  %412 = getelementptr inbounds i8, ptr %406, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %413 = load i64, ptr %412, align 8, !noalias !172, !noundef !4
   %414 = add i64 %413, -1
   store i64 %414, ptr %412, align 8, !noalias !172
@@ -1615,7 +1615,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %449, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i": ; preds = %448
-  %450 = getelementptr inbounds i8, ptr %249, i64 %446
+  %450 = getelementptr inbounds nuw i8, ptr %249, i64 %446
   br label %462
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i": ; preds = %448
@@ -1626,11 +1626,11 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %454 = load i32, ptr %248, align 4, !alias.scope !180, !noalias !184
   %455 = zext i32 %454 to i64
   %.sroa.03.0.i.i.i.i = select i1 %.not.i.i.i.i144, i64 0, i64 %455
-  %456 = getelementptr inbounds i8, ptr %452, i64 16
+  %456 = getelementptr inbounds nuw i8, ptr %452, i64 16
   %457 = load i32, ptr %249, align 8, !alias.scope !180, !noalias !184, !noundef !4
   %458 = zext i32 %457 to i64
-  %459 = getelementptr inbounds i8, ptr %456, i64 %.sroa.03.0.i.i.i.i
-  %460 = getelementptr inbounds i8, ptr %459, i64 %458
+  %459 = getelementptr inbounds nuw i8, ptr %456, i64 %.sroa.03.0.i.i.i.i
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 %458
   %461 = icmp eq i32 %457, 0
   br i1 %461, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$18pop_front_char_run17h27b203df2d5dd9b4E.exit.i", label %462
 
@@ -1639,7 +1639,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.sroa.0.0.i68.i.i = phi ptr [ %249, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i" ], [ %459, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
   %.sroa.4.0.i67.i.i = phi i64 [ %446, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i" ], [ %458, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
   %464 = ptrtoint ptr %.sroa.0.0.i68.i.i to i64
-  %465 = getelementptr inbounds i8, ptr %.sroa.0.0.i68.i.i, i64 1
+  %465 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 1
   %466 = load i8, ptr %.sroa.0.0.i68.i.i, align 1, !noalias !186, !noundef !4
   %467 = icmp sgt i8 %466, -1
   br i1 %467, label %478, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i"
@@ -1649,7 +1649,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %469 = zext nneg i8 %468 to i32
   %470 = icmp ne i64 %.sroa.4.0.i67.i.i, 1
   call void @llvm.assume(i1 %470)
-  %471 = getelementptr inbounds i8, ptr %.sroa.0.0.i68.i.i, i64 2
+  %471 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 2
   %472 = load i8, ptr %465, align 1, !noalias !186, !noundef !4
   %473 = shl nuw nsw i32 %469, 6
   %474 = and i8 %472, 63
@@ -1665,7 +1665,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i"
   %480 = icmp ne i64 %.sroa.4.0.i67.i.i, 2
   call void @llvm.assume(i1 %480)
-  %481 = getelementptr inbounds i8, ptr %.sroa.0.0.i68.i.i, i64 3
+  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 3
   %482 = load i8, ptr %471, align 1, !noalias !186, !noundef !4
   %483 = shl nuw nsw i32 %475, 6
   %484 = and i8 %482, 63
@@ -1679,7 +1679,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i"
   %490 = icmp ne i64 %.sroa.4.0.i67.i.i, 3
   call void @llvm.assume(i1 %490)
-  %491 = getelementptr inbounds i8, ptr %.sroa.0.0.i68.i.i, i64 4
+  %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 4
   %492 = load i8, ptr %481, align 1, !noalias !186, !noundef !4
   %493 = shl nuw nsw i32 %469, 18
   %494 = and i32 %493, 1835008
@@ -1720,7 +1720,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %509, label %553, label %510
 
 510:                                              ; preds = %505
-  %511 = getelementptr inbounds i8, ptr %507, i64 1
+  %511 = getelementptr inbounds nuw i8, ptr %507, i64 1
   %512 = load i8, ptr %507, align 1, !noalias !191, !noundef !4
   %513 = icmp sgt i8 %512, -1
   br i1 %513, label %524, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i.i.i"
@@ -1730,7 +1730,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %515 = zext nneg i8 %514 to i32
   %516 = icmp ne ptr %511, %463
   call void @llvm.assume(i1 %516)
-  %517 = getelementptr inbounds i8, ptr %507, i64 2
+  %517 = getelementptr inbounds nuw i8, ptr %507, i64 2
   %518 = load i8, ptr %511, align 1, !noalias !191, !noundef !4
   %519 = shl nuw nsw i32 %515, 6
   %520 = and i8 %518, 63
@@ -1746,7 +1746,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i.i.i"
   %526 = icmp ne ptr %517, %463
   call void @llvm.assume(i1 %526)
-  %527 = getelementptr inbounds i8, ptr %507, i64 3
+  %527 = getelementptr inbounds nuw i8, ptr %507, i64 3
   %528 = load i8, ptr %517, align 1, !noalias !191, !noundef !4
   %529 = shl nuw nsw i32 %521, 6
   %530 = and i8 %528, 63
@@ -1760,7 +1760,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i.i.i"
   %536 = icmp ne ptr %527, %463
   call void @llvm.assume(i1 %536)
-  %537 = getelementptr inbounds i8, ptr %507, i64 4
+  %537 = getelementptr inbounds nuw i8, ptr %507, i64 4
   %538 = load i8, ptr %527, align 1, !noalias !191, !noundef !4
   %539 = shl nuw nsw i32 %515, 18
   %540 = and i32 %539, 1835008
@@ -1812,7 +1812,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 558:                                              ; preds = %555
   %559 = inttoptr i64 %446 to ptr
   %560 = load i32, ptr %248, align 4, !alias.scope !180, !noalias !201, !noundef !4
-  %561 = getelementptr inbounds i8, ptr %559, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store i32 %560, ptr %561, align 8, !noalias !204
   %562 = or disjoint i64 %446, 1
   store i64 %562, ptr %28, align 8, !alias.scope !180, !noalias !201
@@ -1865,7 +1865,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i"
 
 578:                                              ; preds = %572
-  %579 = getelementptr inbounds i8, ptr %574, i64 8
+  %579 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %.sroa.02.0.i11.i.i.i.i.i = load i32, ptr %579, align 4, !noalias !211, !noundef !4
   %580 = load i64, ptr %574, align 8, !noalias !216, !noundef !4
   %581 = add i64 %580, -1
@@ -1899,7 +1899,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 589:                                              ; preds = %586
   %590 = inttoptr i64 %446 to ptr
   %591 = load i32, ptr %248, align 4, !alias.scope !180, !noalias !217, !noundef !4
-  %592 = getelementptr inbounds i8, ptr %590, i64 8
+  %592 = getelementptr inbounds nuw i8, ptr %590, i64 8
   store i32 %591, ptr %592, align 8, !noalias !220
   %593 = or disjoint i64 %446, 1
   store i64 %593, ptr %28, align 8, !alias.scope !180, !noalias !217
@@ -1937,8 +1937,8 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %608 = load i32, ptr %248, align 4, !alias.scope !180, !noalias !184
   %609 = zext i32 %608 to i64
   %.sroa.03.0.i.i.i.i.i = select i1 %.not.i.i.i20.i.i, i64 0, i64 %609
-  %610 = getelementptr inbounds i8, ptr %606, i64 16
-  %611 = getelementptr inbounds i8, ptr %610, i64 %.sroa.03.0.i.i.i.i.i
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 16
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 %.sroa.03.0.i.i.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i.i": ; preds = %604, %603
@@ -1988,7 +1988,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 627:                                              ; preds = %624
   %628 = inttoptr i64 %614 to ptr
-  %629 = getelementptr inbounds i8, ptr %628, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store i32 %.pre153.i, ptr %629, align 8, !noalias !233
   %630 = or disjoint i64 %614, 1
   store i64 %630, ptr %28, align 8, !alias.scope !232, !noalias !184
@@ -2015,8 +2015,8 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.not.i.i.i24.i.i = icmp eq i64 %640, 0
   %641 = zext i32 %.val3.i.i.pre.i to i64
   %.sroa.03.0.i.i.i25.i.i = select i1 %.not.i.i.i24.i.i, i64 0, i64 %641
-  %642 = getelementptr inbounds i8, ptr %639, i64 16
-  %643 = getelementptr inbounds i8, ptr %642, i64 %.sroa.03.0.i.i.i25.i.i
+  %642 = getelementptr inbounds nuw i8, ptr %639, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %642, i64 %.sroa.03.0.i.i.i25.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i26.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i26.i.i": ; preds = %637, %636, %.thread.i.i.i
@@ -2025,7 +2025,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.sroa.0.0.i.i27.i.i = phi ptr [ %643, %637 ], [ inttoptr (i64 1 to ptr), %.thread.i.i.i ], [ %249, %636 ]
   %645 = and i64 %506, 4294967295
   %646 = zext nneg i32 %644 to i64
-  %647 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i27.i.i, i64 %645
+  %647 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i27.i.i, i64 %645
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i21.i.i)
   %648 = icmp eq i32 %644, 0
   %..i.i28.i.i = select i1 %648, i64 15, i64 %646
@@ -2049,7 +2049,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i32.i.i
 
 655:                                              ; preds = %650
-  %656 = getelementptr inbounds i8, ptr %652, i64 8
+  %656 = getelementptr inbounds nuw i8, ptr %652, i64 8
   %.sroa.02.0.i11.i.i.i30.i.i = load i32, ptr %656, align 4, !noalias !239, !noundef !4
   %657 = load i64, ptr %652, align 8, !noalias !244, !noundef !4
   %658 = add i64 %657, -1
@@ -2156,7 +2156,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %693
 
 692:                                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hac87ad8590d1a518E.exit40.i"
-  %.sroa.7.0..sroa_idx59.i = getelementptr inbounds i8, ptr %690, i64 8
+  %.sroa.7.0..sroa_idx59.i = getelementptr inbounds nuw i8, ptr %690, i64 8
   store i64 %.sroa.0.0.copyload58.i, ptr %38, align 8, !alias.scope !96, !noalias !100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i143, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx59.i, i64 32, i1 false), !noalias !91
   br label %707
@@ -2221,7 +2221,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %693
 
 717:                                              ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hac87ad8590d1a518E.exit.i"
-  %.sroa.763.0..sroa_idx64.i = getelementptr inbounds i8, ptr %715, i64 8
+  %.sroa.763.0..sroa_idx64.i = getelementptr inbounds nuw i8, ptr %715, i64 8
   store i64 %.sroa.061.0.copyload62.i, ptr %38, align 8, !alias.scope !96, !noalias !100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i143, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.763.0..sroa_idx64.i, i64 32, i1 false), !noalias !91
   br label %707
@@ -2240,7 +2240,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i.i147
 
 721:                                              ; preds = %719
-  %722 = getelementptr inbounds i8, ptr %452, i64 8
+  %722 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %.sroa.02.0.i11.i.i.i146 = load i32, ptr %722, align 4, !noalias !278, !noundef !4
   %723 = load i64, ptr %452, align 8, !noalias !283, !noundef !4
   %724 = add i64 %723, -1
@@ -2302,7 +2302,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %.sink.split.i.i46.i
 
 740:                                              ; preds = %735
-  %741 = getelementptr inbounds i8, ptr %737, i64 8
+  %741 = getelementptr inbounds nuw i8, ptr %737, i64 8
   %.sroa.02.0.i11.i.i45.i = load i32, ptr %741, align 4, !noalias !284, !noundef !4
   %742 = load i64, ptr %737, align 8, !noalias !289, !noundef !4
   %743 = add i64 %742, -1
@@ -2385,7 +2385,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   unreachable
 
 766:                                              ; preds = %668
-  %767 = getelementptr inbounds i8, ptr %0, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %669, ptr %767, align 8, !alias.scope !91, !noalias !183
   store i8 1, ptr %0, align 8, !alias.scope !91, !noalias !183
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26), !noalias !98
@@ -2418,7 +2418,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 774:                                              ; preds = %675
   %775 = load i8, ptr %246, align 8, !range !299, !noalias !98, !noundef !4
-  %776 = getelementptr inbounds i8, ptr %0, i64 1
+  %776 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %775, ptr %776, align 1, !alias.scope !91, !noalias !183
   store i8 3, ptr %0, align 8, !alias.scope !91, !noalias !183
   br label %693
@@ -2445,7 +2445,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 781:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdd378ed46f238510E.exit"
   %782 = icmp ugt i64 %779, 8
-  %783 = getelementptr inbounds i8, ptr %39, i64 8
+  %783 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %784 = load i32, ptr %783, align 8
   %785 = icmp eq i32 %784, 0
   %or.cond = select i1 %782, i1 %785, i1 false
@@ -2457,7 +2457,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 788:                                              ; preds = %786
   %789 = icmp ult i64 %.pr.pre, 9
-  %790 = getelementptr inbounds i8, ptr %39, i64 8
+  %790 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br i1 %789, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03f50a86ba599f47E.exit", label %791
 
 791:                                              ; preds = %788
@@ -2469,7 +2469,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %794 = landingpad { ptr, i32 }
           cleanup
   %.val66 = load i64, ptr %39, align 8, !range !57, !alias.scope !300, !noundef !4
-  %795 = getelementptr inbounds i8, ptr %39, i64 12
+  %795 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.val67 = load i32, ptr %795, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val66, i32 %.val67) #17
   br label %.critedge56
@@ -2482,20 +2482,20 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03f50a86ba599f47E.exit.thread": ; preds = %791
   %797 = and i64 %.pr.pre, -2
   %798 = inttoptr i64 %797 to ptr
-  %799 = getelementptr inbounds i8, ptr %798, i64 16
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
   %800 = and i64 %.pr.pre, 1
   %.not.i.i154 = icmp eq i64 %800, 0
-  %801 = getelementptr inbounds i8, ptr %39, i64 12
+  %801 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %802 = load i32, ptr %801, align 4
   %803 = zext i32 %802 to i64
   %.sroa.03.0.i.i155 = select i1 %.not.i.i154, i64 0, i64 %803
-  %804 = getelementptr inbounds i8, ptr %799, i64 %.sroa.03.0.i.i155
+  %804 = getelementptr inbounds nuw i8, ptr %799, i64 %.sroa.03.0.i.i155
   %rhsc358 = load i8, ptr %804, align 1
   %805 = icmp eq i8 %rhsc358, 10
   br i1 %805, label %806, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdd378ed46f238510E.exit"
 
 806:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03f50a86ba599f47E.exit.thread"
-  %807 = getelementptr inbounds i8, ptr %39, i64 8
+  %807 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %808 = load i32, ptr %807, align 8, !alias.scope !303, !noundef !4
   %809 = icmp eq i32 %808, 0
   br i1 %809, label %.loopexit, label %810
@@ -2505,18 +2505,18 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %812 = inttoptr i64 %811 to ptr
   %813 = and i64 %.pr.pre, 1
   %.not.i.i.i159 = icmp eq i64 %813, 0
-  %814 = getelementptr inbounds i8, ptr %39, i64 12
+  %814 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %815 = load i32, ptr %814, align 4, !alias.scope !303
   %816 = zext i32 %815 to i64
   %.sroa.03.0.i.i.i = select i1 %.not.i.i.i159, i64 0, i64 %816
-  %817 = getelementptr inbounds i8, ptr %812, i64 16
-  %818 = getelementptr inbounds i8, ptr %817, i64 %.sroa.03.0.i.i.i
+  %817 = getelementptr inbounds nuw i8, ptr %812, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %817, i64 %.sroa.03.0.i.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i"
 
 819:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h03f50a86ba599f47E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %820 = trunc nuw nsw i64 %.pr.pre to i32
-  %821 = getelementptr inbounds i8, ptr %39, i64 8
+  %821 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i": ; preds = %819, %810
@@ -2524,7 +2524,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.sroa.0.0.i.i = phi ptr [ %821, %819 ], [ %818, %810 ]
   %822 = add i32 %.in.i, -1
   %823 = zext i32 %822 to i64
-  %824 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 1
+  %824 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
   %825 = icmp eq i32 %822, 0
   br i1 %825, label %.thread17.i, label %826
 
@@ -2557,7 +2557,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %838, label %835, label %.loopexit
 
 839:                                              ; preds = %835
-  %840 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 2
+  %840 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 2
   %841 = getelementptr i8, ptr %824, i64 %.sroa.5.0.i.i.i
   %842 = icmp ne ptr %841, null
   call void @llvm.assume(i1 %842)
@@ -2569,7 +2569,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %845, label %848, label %846
 
 846:                                              ; preds = %843
-  %847 = getelementptr inbounds i8, ptr %844, i64 1
+  %847 = getelementptr inbounds nuw i8, ptr %844, i64 1
   %.val.i.i.i.i = load i8, ptr %844, align 1, !alias.scope !306, !noalias !313, !noundef !4
   %cond.i.i.i.i.i = icmp slt i8 %.val.i.i.i.i, -64
   br i1 %cond.i.i.i.i.i, label %843, label %.loopexit
@@ -2613,12 +2613,12 @@ default.unreachable:                              ; preds = %848
   %869 = shl nuw nsw i32 %868, 18
   %870 = shl nuw nsw i32 %851, 12
   %871 = or disjoint i32 %870, %869
-  %872 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 3
+  %872 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 3
   %873 = load i8, ptr %872, align 1, !alias.scope !316, !noalias !319, !noundef !4
   %874 = and i8 %873, 63
   %875 = zext nneg i8 %874 to i32
   %876 = shl nuw nsw i32 %875, 6
-  %877 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 4
+  %877 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 4
   %878 = load i8, ptr %877, align 1, !alias.scope !316, !noalias !319, !noundef !4
   %879 = and i8 %878, 63
   %880 = zext nneg i8 %879 to i32
@@ -2628,7 +2628,7 @@ default.unreachable:                              ; preds = %848
   br i1 %883, label %.loopexit, label %"_ZN59_$LT$tendril..fmt..UTF8$u20$as$u20$tendril..fmt..Format$GT$15validate_suffix17h31f360bbbdf8cc56E.exit.i"
 
 884:                                              ; preds = %858
-  %885 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 3
+  %885 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 3
   %886 = load i8, ptr %885, align 1, !alias.scope !316, !noalias !319, !noundef !4
   %887 = and i8 %886, 63
   %888 = zext nneg i8 %887 to i32
@@ -2651,7 +2651,7 @@ default.unreachable:                              ; preds = %848
 
 .thread17.i:                                      ; preds = %895, %826, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i"
   %896 = trunc nuw nsw i64 %.pr.pre to i32
-  %897 = getelementptr inbounds i8, ptr %39, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %898 = load i32, ptr %897, align 8, !alias.scope !324
   %.sroa.0.0.i6.i = select i1 %789, i32 %896, i32 %898
   %899 = add i32 %.sroa.0.0.i6.i, -1
@@ -2664,16 +2664,16 @@ default.unreachable:                              ; preds = %848
   br i1 %903, label %905, label %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i_crit_edge.i"
 
 "._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i_crit_edge.i": ; preds = %901
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %39, i64 12
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.pre.i161 = load i32, ptr %.phi.trans.insert.i, align 4, !alias.scope !324
   %904 = add i32 %.pre.i161, 1
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i.i"
 
 905:                                              ; preds = %901
   %906 = inttoptr i64 %.pr.pre to ptr
-  %907 = getelementptr inbounds i8, ptr %39, i64 12
+  %907 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %908 = load i32, ptr %907, align 4, !alias.scope !324, !noundef !4
-  %909 = getelementptr inbounds i8, ptr %906, i64 8
+  %909 = getelementptr inbounds nuw i8, ptr %906, i64 8
   store i32 %908, ptr %909, align 8, !noalias !321
   %910 = or disjoint i64 %.pr.pre, 1
   store i64 %910, ptr %39, align 8, !alias.scope !324
@@ -2682,7 +2682,7 @@ default.unreachable:                              ; preds = %848
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i.i": ; preds = %905, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i_crit_edge.i"
   %.pr355 = phi i64 [ %.pr.pre, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i_crit_edge.i" ], [ %910, %905 ]
   %911 = phi i32 [ %904, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i_crit_edge.i" ], [ 1, %905 ]
-  %912 = getelementptr inbounds i8, ptr %39, i64 12
+  %912 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %911, ptr %912, align 4, !alias.scope !324
   %913 = add i32 %898, -1
   store i32 %913, ptr %897, align 8, !alias.scope !324
@@ -2692,7 +2692,7 @@ default.unreachable:                              ; preds = %848
   br i1 %789, label %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i_crit_edge.i", label %915
 
 "._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i_crit_edge.i": ; preds = %914
-  %.phi.trans.insert18.i = getelementptr inbounds i8, ptr %39, i64 12
+  %.phi.trans.insert18.i = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.val3.i.pre.i = load i32, ptr %.phi.trans.insert18.i, align 4, !alias.scope !324
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i164"
 
@@ -2701,19 +2701,19 @@ default.unreachable:                              ; preds = %848
   %917 = inttoptr i64 %916 to ptr
   %918 = and i64 %.pr.pre, 1
   %.not.i.i.i.i162 = icmp eq i64 %918, 0
-  %919 = getelementptr inbounds i8, ptr %39, i64 12
+  %919 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %920 = load i32, ptr %919, align 4, !alias.scope !324
   %921 = zext i32 %920 to i64
   %.sroa.03.0.i.i.i.i163 = select i1 %.not.i.i.i.i162, i64 0, i64 %921
-  %922 = getelementptr inbounds i8, ptr %917, i64 16
-  %923 = getelementptr inbounds i8, ptr %922, i64 %.sroa.03.0.i.i.i.i163
+  %922 = getelementptr inbounds nuw i8, ptr %917, i64 16
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 %.sroa.03.0.i.i.i.i163
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i164"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i164": ; preds = %915, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i_crit_edge.i"
   %.val3.i.i = phi i32 [ %920, %915 ], [ %.val3.i.pre.i, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i_crit_edge.i" ]
   %.sroa.0.0.i.i.i165 = phi ptr [ %923, %915 ], [ %897, %"._ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i_crit_edge.i" ]
   %924 = zext nneg i32 %899 to i64
-  %925 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i165, i64 1
+  %925 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i165, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   %926 = icmp eq i32 %899, 0
   %..i.i.i = select i1 %926, i64 15, i64 %924
@@ -2737,7 +2737,7 @@ default.unreachable:                              ; preds = %848
   br label %.sink.split.i.i.i.i
 
 933:                                              ; preds = %928
-  %934 = getelementptr inbounds i8, ptr %930, i64 8
+  %934 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %.sroa.02.0.i11.i.i.i.i = load i32, ptr %934, align 4, !noalias !330, !noundef !4
   %935 = load i64, ptr %930, align 8, !noalias !335, !noundef !4
   %936 = add i64 %935, -1
@@ -2771,7 +2771,7 @@ default.unreachable:                              ; preds = %848
 
 938:                                              ; preds = %781
   store i8 0, ptr %0, align 8
-  %939 = getelementptr inbounds i8, ptr %39, i64 12
+  %939 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %.val69 = load i32, ptr %939, align 4
   %940 = icmp ult i64 %779, 16
   br i1 %940, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %941
@@ -2789,7 +2789,7 @@ default.unreachable:                              ; preds = %848
   br label %.sink.split.i.i
 
 946:                                              ; preds = %941
-  %947 = getelementptr inbounds i8, ptr %943, i64 8
+  %947 = getelementptr inbounds nuw i8, ptr %943, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %947, align 4, !noalias !336, !noundef !4
   %948 = load i64, ptr %943, align 8, !noalias !341, !noundef !4
   %949 = add i64 %948, -1
@@ -2807,9 +2807,9 @@ default.unreachable:                              ; preds = %848
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 .thread249:                                       ; preds = %781
-  %951 = getelementptr inbounds i8, ptr %38, i64 8
+  %951 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %951, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
-  %952 = getelementptr inbounds i8, ptr %38, i64 24
+  %952 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i8 0, ptr %952, align 8
   store i64 -9223372036854775807, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
@@ -2824,9 +2824,9 @@ default.unreachable:                              ; preds = %848
   br label %221
 
 .sink.split:                                      ; preds = %960, %959
-  %954 = getelementptr inbounds i8, ptr %2, i64 8
+  %954 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val70 = load i64, ptr %954, align 8, !range !57, !alias.scope !300, !noundef !4
-  %955 = getelementptr inbounds i8, ptr %2, i64 20
+  %955 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.val71 = load i32, ptr %955, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val70, i32 %.val71) #17
   br label %956
@@ -2854,12 +2854,12 @@ default.unreachable:                              ; preds = %848
           to label %956 unwind label %118
 
 963:                                              ; preds = %958
-  %964 = getelementptr inbounds i8, ptr %2, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @"_ZN4core3ptr57drop_in_place$LT$html5ever..tokenizer..interface..Tag$GT$17h7e1885c0c2f7ca0fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %964) #17
           to label %956 unwind label %118
 
 965:                                              ; preds = %961
-  %966 = getelementptr inbounds i8, ptr %2, i64 8
+  %966 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E"(ptr noalias noundef align 8 dereferenceable(24) %966) #17
           to label %956 unwind label %118
 }
@@ -2867,28 +2867,28 @@ default.unreachable:                              ; preds = %848
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C$Sink$GT$$u20$as$u20$html5ever..tokenizer..interface..TokenSink$GT$3end17h264310aa13f647aaE"(ptr noalias noundef align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [40 x i8], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8, !alias.scope !342, !noalias !345, !noundef !4
   %6 = tail call { i64, i64 } @_ZN4core5slice5index5range17hba8b6f87b521165fE(i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be6788e079eb89b34141c2560f30d116.27.llvm.204215390286363894), !noalias !347
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   store i64 %7, ptr %4, align 8, !alias.scope !342, !noalias !345
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !alias.scope !342, !noalias !345, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds ptr, ptr %10, i64 %7
   %12 = sub i64 %5, %8
   %13 = getelementptr inbounds ptr, ptr %10, i64 %8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   store ptr %11, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %13, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %8, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %12, ptr %.sroa.57.0..sroa_idx, align 8
   %14 = icmp eq i64 %7, %8
   br i1 %14, label %._crit_edge, label %.lr.ph
@@ -2916,12 +2916,12 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %22, label %23, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %24)
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !351, !noundef !4
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !noalias !351
@@ -2950,18 +2950,18 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C$Sink$GT$$u20$as$u20$html5ever..tokenizer..interface..TokenSink$GT$55adjusted_current_node_present_but_not_in_html_namespace17h112a4dd858e3f86fE"(ptr noalias noundef readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %17, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680.exit"
 
 "_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680.exit": ; preds = %1
   %5 = icmp ne i64 %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8, !alias.scope !356
   %8 = icmp eq ptr %7, null
   %or.cond.i = select i1 %5, i1 true, i1 %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !nonnull !4
   %11 = add i64 %3, -1
   %12 = getelementptr inbounds [0 x ptr], ptr %10, i64 0, i64 %11
@@ -2987,9 +2987,9 @@ define internal void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$t
   ret void
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %5, align 8, !range !57, !alias.scope !300, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.val1 = load i32, ptr %6, align 4
   %7 = icmp ult i64 %.val, 16
   br i1 %7, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %8
@@ -3007,7 +3007,7 @@ define internal void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$t
   br label %.sink.split.i.i
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %14, align 4, !noalias !359, !noundef !4
   %15 = load i64, ptr %10, align 8, !noalias !364, !noundef !4
   %16 = add i64 %15, -1
@@ -3038,13 +3038,13 @@ define internal fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..option..Opti
 
 4:                                                ; preds = %0
   %5 = inttoptr i64 %.0.val to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = atomicrmw sub ptr %6, i64 1 seq_cst, align 8
   %8 = icmp eq i64 %7, 1
   br i1 %8, label %9, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 9:                                                ; preds = %4
-  %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !365
+  %10 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !365
   %.not.i.i.i.i = icmp eq ptr %10, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %11
 
@@ -3067,7 +3067,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_bu
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
   %5 = load ptr, ptr %4, align 8, !alias.scope !375, !nonnull !4, !noundef !4
@@ -3078,12 +3078,12 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_bu
   br i1 %8, label %9, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %10)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !375, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8, !noalias !375
@@ -3134,9 +3134,9 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$html5ever..tree_bu
   ret void
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %7, align 8, !range !57, !alias.scope !300, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.val1 = load i32, ptr %8, align 4
   %9 = icmp ult i64 %.val, 16
   br i1 %9, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %10
@@ -3154,7 +3154,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$html5ever..tree_bu
   br label %.sink.split.i.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %16, align 4, !noalias !376, !noundef !4
   %17 = load i64, ptr %12, align 8, !noalias !381, !noundef !4
   %18 = add i64 %17, -1
@@ -3176,12 +3176,12 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$html5ever..tree_bu
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @"_ZN4core3ptr58drop_in_place$LT$html5ever..tree_builder..types..Token$GT$17hf02e02e7ec432e71E"(ptr noalias noundef align 8 dereferenceable(40) %22)
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   %25 = load ptr, ptr %24, align 8, !alias.scope !388, !nonnull !4, !noundef !4
@@ -3192,9 +3192,9 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$html5ever..tree_bu
   br i1 %28, label %29, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !388
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !388, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !388
@@ -3209,7 +3209,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$html5ever..tree_bu
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_builder..types..InsertionPoint$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h289a151bad2bebf8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !389, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %2, label %4 [
     i64 0, label %16
     i64 1, label %27
@@ -3226,12 +3226,12 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
   br i1 %8, label %9, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %10)
           to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !396, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8, !noalias !396
@@ -3253,9 +3253,9 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
   br i1 %20, label %21, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit1"
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %22), !noalias !403
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !403, !noundef !4
   %25 = add i64 %24, -1
   store i64 %25, ptr %23, align 8, !noalias !403
@@ -3273,9 +3273,9 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
   br i1 %31, label %32, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit1"
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %33), !noalias !410
-  %34 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %35 = load i64, ptr %34, align 8, !noalias !410, !noundef !4
   %36 = add i64 %35, -1
   store i64 %36, ptr %34, align 8, !noalias !410
@@ -3293,12 +3293,12 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %40) #17
           to label %54 unwind label %52
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit": ; preds = %15, %.noexc, %4
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
   %42 = load ptr, ptr %41, align 8, !alias.scope !417, !nonnull !4, !noundef !4
@@ -3309,9 +3309,9 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
   br i1 %45, label %46, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit1"
 
 46:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %47), !noalias !417
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !417, !noundef !4
   %50 = add i64 %49, -1
   store i64 %50, ptr %48, align 8, !noalias !417
@@ -3332,7 +3332,7 @@ define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$html5ever..tree_bu
 define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..interface..tree_builder..NodeOrText$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hc193bbbcfda4e95dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !56, !noundef !4
   %3 = icmp eq i64 %2, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %5, label %17
 
 5:                                                ; preds = %1
@@ -3346,9 +3346,9 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..inter
   br i1 %9, label %10, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %11), !noalias !424
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !424, !noundef !4
   %14 = add i64 %13, -1
   store i64 %14, ptr %12, align 8, !noalias !424
@@ -3361,7 +3361,7 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..inter
 
 17:                                               ; preds = %1
   %.val = load i64, ptr %4, align 8, !range !57, !alias.scope !300, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.val1 = load i32, ptr %18, align 4
   %19 = icmp ult i64 %.val, 16
   br i1 %19, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit", label %20
@@ -3379,7 +3379,7 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$markup5ever..inter
   br label %.sink.split.i.i
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %26, align 4, !noalias !425, !noundef !4
   %27 = load i64, ptr %22, align 8, !noalias !430, !noundef !4
   %28 = add i64 %27, -1
@@ -3418,7 +3418,7 @@ define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$html5ever..tre
   br label %.sink.split.i.i
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %8, align 4, !noalias !431, !noundef !4
   %9 = load i64, ptr %4, align 8, !noalias !436, !noundef !4
   %10 = add i64 %9, -1
@@ -3452,13 +3452,13 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !437
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9d8c47219b0efa9cE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !368, !noalias !437, !noundef !4
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc1d49382fbafdeaE.exit", label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !437, !noundef !4
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc1d49382fbafdeaE.exit", label %14
@@ -3493,9 +3493,9 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$html5ever..tree_bui
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %8, align 8, !range !57, !alias.scope !300, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.val1 = load i32, ptr %9, align 4
   %10 = icmp ult i64 %.val, 16
   br i1 %10, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %11
@@ -3513,7 +3513,7 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$html5ever..tree_bui
   br label %.sink.split.i.i
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %17, align 4, !noalias !446, !noundef !4
   %18 = load i64, ptr %13, align 8, !noalias !451, !noundef !4
   %19 = add i64 %18, -1
@@ -3531,9 +3531,9 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$html5ever..tree_bui
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %22, align 8, !range !57, !alias.scope !300, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.val3 = load i32, ptr %23, align 4
   %24 = icmp ult i64 %.val2, 16
   br i1 %24, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %25
@@ -3551,7 +3551,7 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$html5ever..tree_bui
   br label %.sink.split.i.i6
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.02.0.i11.i.i5 = load i32, ptr %31, align 4, !noalias !452, !noundef !4
   %32 = load i64, ptr %27, align 8, !noalias !457, !noundef !4
   %33 = add i64 %32, -1
@@ -3587,7 +3587,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   br label %.sink.split.i
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.02.0.i11.i = load i32, ptr %8, align 4, !noalias !458, !noundef !4
   %9 = load i64, ptr %4, align 8, !noalias !300, !noundef !4
   %10 = add i64 %9, -1
@@ -3616,13 +3616,13 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom.
 
 3:                                                ; preds = %0
   %4 = inttoptr i64 %.0.val to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = atomicrmw sub ptr %5, i64 1 seq_cst, align 8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4614dd60a95d956E.exit"
 
 8:                                                ; preds = %3
-  %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !461
+  %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !461
   %.not.i.i.i = icmp eq ptr %9, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i", label %10
 
@@ -3651,13 +3651,13 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$
 
 5:                                                ; preds = %1
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = atomicrmw sub ptr %7, i64 1 seq_cst, align 8, !noalias !464
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbda98ad534eae5b8E.llvm.4491288516430033680.exit"
 
 10:                                               ; preds = %5
-  %11 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !467
+  %11 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !467
   %.not.i.i.i = icmp eq ptr %11, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6bbec80388182355E.exit.i", label %12
 
@@ -3692,9 +3692,9 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Optio
   br i1 %5, label %6, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.0.val, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %7), !noalias !470
-  %8 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !470, !noundef !4
   %10 = add i64 %9, -1
   store i64 %10, ptr %8, align 8, !noalias !470
@@ -3710,7 +3710,7 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Optio
 define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347e1c1eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = icmp eq i64 %5, %6
@@ -3721,7 +3721,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347
           to label %9 unwind label %14
 
 9:                                                ; preds = %2, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds ptr, ptr %11, i64 %5
   store ptr %1, ptr %12, align 8
@@ -3747,7 +3747,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a8e5efE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = icmp eq i64 %4, %5
@@ -3758,7 +3758,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a
           to label %8 unwind label %13
 
 8:                                                ; preds = %2, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { i64, [5 x i64] }, ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -3784,7 +3784,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca62d68a8d498813E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = icmp eq i64 %4, %5
@@ -3795,7 +3795,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca62d68a8d4
           to label %8 unwind label %13
 
 8:                                                ; preds = %2, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { i8, [7 x i8], { i64, { { [2 x i32] } }, {}, {} } }, ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -3806,9 +3806,9 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca62d68a8d4
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i64, ptr %15, align 8, !range !57, !alias.scope !300, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.val2 = load i32, ptr %16, align 4
   tail call fastcc void @"_ZN4core3ptr126drop_in_place$LT$$LP$html5ever..tree_builder..types..SplitStatus$C$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$RP$$GT$17h4b1f5a54c2eef4dfE"(i64 %.val, i32 %.val2) #17
   resume { ptr, i32 } %14
@@ -3816,9 +3816,9 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca62d68a8d4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h69b42876f6df0e06E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfaf1f4787fff8097E"(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %7
@@ -3837,7 +3837,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %3, align 8
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.32, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -3869,36 +3869,36 @@ switch.lookup:
   %6 = load i64, ptr %0, align 8, !range !57, !noundef !4
   %7 = and i64 %6, 3
   %8 = and i64 %6, 3
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ca59590b29f8b05E", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ca59590b29f8b05E", i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep8 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ca59590b29f8b05E.112", i64 0, i64 %7
+  %switch.gep8 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ca59590b29f8b05E.112", i64 0, i64 %7
   %switch.load9 = load i64, ptr %switch.gep8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8
   store i64 %switch.load9, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   store ptr %3, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf4da79dd5b86120aE", ptr %.sroa.42.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %10, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h10682567d08779a7E", ptr %.sroa.46.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val7 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !475
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.41, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 3, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %13 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !475
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !475
@@ -3911,10 +3911,10 @@ switch.lookup:
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN77_$LT$html5ever..tokenizer..interface..Doctype$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d33eff4b5081442E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %6, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17hd819415f03a2bc8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.45, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.46, i64 noundef 4, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.43, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.47, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.43, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.48, i64 noundef 9, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.43, ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.49, i64 noundef 12, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -3930,7 +3930,7 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
 
 5:                                                ; preds = %1
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = atomicrmw sub ptr %7, i64 1 seq_cst, align 8
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %11, label %10
@@ -3939,7 +3939,7 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
   ret void
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !478
+  %12 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !478
   %.not.i.i = icmp eq ptr %12, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6bbec80388182355E.exit", label %13
 
@@ -3960,10 +3960,10 @@ define internal noundef zeroext i1 @"_ZN82_$LT$html5ever..tree_builder..types..I
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !7, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @"switch.table._ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [23 x i64], ptr @"switch.table._ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [23 x ptr], ptr @"switch.table._ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E.113", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [23 x ptr], ptr @"switch.table._ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E.113", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -3971,7 +3971,7 @@ switch.lookup:
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h404c21b0520fe0c6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !481, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !481
   %.not = icmp eq ptr %.promoted, %3
@@ -3979,7 +3979,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 .lr.ph:                                           ; preds = %1, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17h9c67a553b57d4151E.exit.backedge"
   %4 = phi ptr [ %5, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17h9c67a553b57d4151E.exit.backedge" ], [ %.promoted, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %0, align 8, !alias.scope !481
   %6 = load i8, ptr %4, align 8, !range !484, !noundef !4
   switch i8 %6, label %default.unreachable [
@@ -3992,7 +3992,7 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = tail call noundef zeroext i1 @_ZN9html5ever12tree_builder18any_not_whitespace17ha03ee58dcb8bc0eaE(ptr noundef nonnull align 8 %8)
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74af658b58c3b81bE.exit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17h9c67a553b57d4151E.exit.backedge"
 
@@ -4013,15 +4013,15 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !4
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.84, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 16, ptr %15, align 8
   store i64 -9223372036854775808, ptr %9, align 8
   br label %19
@@ -4031,23 +4031,23 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN9html5ever4util3str17to_escaped_string17hfa4ee3f8adf9528eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
-  %17 = getelementptr inbounds i8, ptr %1, i64 186
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store ptr %6, ptr %7, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h69b42876f6df0e06E", ptr %.sroa.42.0..sroa_idx, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %17, ptr %18, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !485
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.86, ptr %5, align 8, !noalias !492
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !492
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !492
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !492
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !492
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
           to label %22 unwind label %20
@@ -4070,13 +4070,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %22
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i64, ptr %23, align 8, !range !368, !noalias !493, !noundef !4
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %.noexc
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i64, ptr %27, align 8, !noalias !493, !noundef !4
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %34, label %30
@@ -4119,15 +4119,15 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !4
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.84, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 16, ptr %15, align 8
   store i64 -9223372036854775808, ptr %9, align 8
   br label %19
@@ -4137,23 +4137,23 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN9html5ever4util3str17to_escaped_string17h56efe5aeead7f3ccE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 %2)
-  %17 = getelementptr inbounds i8, ptr %1, i64 186
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store ptr %6, ptr %7, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h69b42876f6df0e06E", ptr %.sroa.42.0..sroa_idx, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %17, ptr %18, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !502
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.86, ptr %5, align 8, !noalias !509
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !509
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !509
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !509
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !509
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
           to label %22 unwind label %20
@@ -4176,13 +4176,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %22
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i64, ptr %23, align 8, !range !368, !noalias !510, !noundef !4
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %.noexc
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i64, ptr %27, align 8, !noalias !510, !noundef !4
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %34, label %30
@@ -4225,10 +4225,10 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %6 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %7, align 8
   store i64 30064771074, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 3723736645634, ptr %8, align 8
   %9 = call noundef nonnull ptr @_ZN11markup5ever9interface12tree_builder14create_element17h5e7a82bc94c55c1cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   store ptr %9, ptr %6, align 8
@@ -4246,11 +4246,11 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit": ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !519)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !noalias !519
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i64, ptr %15, align 8, !alias.scope !519, !noundef !4
   %17 = load i64, ptr %14, align 8, !alias.scope !519, !noundef !4
   %18 = icmp eq i64 %16, %17
@@ -4273,16 +4273,16 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 24:                                               ; preds = %19, %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit"
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8, !alias.scope !519, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds ptr, ptr %26, i64 %16
   store ptr %9, ptr %27, align 8
   %28 = add i64 %16, 1
   store i64 %28, ptr %15, align 8, !alias.scope !519
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %0, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %30, align 8
   store i64 0, ptr %4, align 8
   call void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6append17hbae684412cf1b336E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
@@ -4332,9 +4332,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %6 = alloca [24 x i8], align 8
   %7 = alloca [8 x i8], align 8
   store i64 %3, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert18 = getelementptr inbounds i8, ptr %2, i64 16
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val6.pre = load i64, ptr %.phi.trans.insert18, align 8
   switch i64 %3, label %._crit_edge [
     i64 4294967298, label %8
@@ -4354,10 +4354,10 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %._crit_edge unwind label %36
 
 10:                                               ; preds = %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %2, i64 33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %12 = load i8, ptr %11, align 1, !range !5, !noundef !4
   %13 = trunc nuw i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i64, ptr %14, align 8, !range !57, !noundef !4
   br i1 %13, label %21, label %16
 
@@ -4384,9 +4384,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %25, label %.noexc11, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 .noexc:                                           ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %26)
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !522, !noundef !4
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8, !noalias !522
@@ -4405,9 +4405,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   ret void
 
 .noexc11:                                         ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %31)
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %33 = load i64, ptr %32, align 8, !noalias !527, !noundef !4
   %34 = add i64 %33, -1
   store i64 %34, ptr %32, align 8, !noalias !527
@@ -4427,7 +4427,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load i64, ptr %40, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val) #17
           to label %.critedge unwind label %37
@@ -4447,7 +4447,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %6 = alloca [24 x i8], align 8
   %7 = tail call noundef nonnull ptr @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$14create_comment17hcffc2439f65f9edeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %8, align 8
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -4486,21 +4486,21 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %3 = alloca [16 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14check_body_end11body_end_ok17hb15854ac06b068adE.exit"
   %.sroa.0.013 = phi ptr [ %7, %.lr.ph ], [ %14, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14check_body_end11body_end_ok17hb15854ac06b068adE.exit" ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %15 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.013)
   %16 = extractvalue { ptr, ptr } %15, 0
@@ -4536,7 +4536,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   ret void
 
 20:                                               ; preds = %19, %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !4
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %28, label %25
@@ -4547,9 +4547,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %24, label %.loopexit, label %13
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.95, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 34, ptr %27, align 8
   store i64 -9223372036854775808, ptr %4, align 8
   br label %29
@@ -4557,17 +4557,17 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 28:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$as$u20$core..fmt..Debug$GT$3fmt17h63682fe7b803af75E", ptr %.sroa.45.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !538
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.98, ptr %2, align 8, !noalias !545
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !545
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !545
-  %.sroa.69.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 1, ptr %.sroa.69.0..sroa_idx, align 8, !noalias !545
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !545
   call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !538
@@ -4586,14 +4586,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %3 = alloca [24 x i8], align 8
   tail call fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17hf86f619de92a8dc8E"(ptr noalias noundef align 8 dereferenceable(192) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8, !alias.scope !546, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9pop_until17hcdf1e79a0c562d17E.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %9
 
 9:                                                ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i", %.lr.ph.i
@@ -4643,9 +4643,9 @@ _ZN4core3ops8function2Fn4call17hdb87773c0c23169fE.exit.thread.i: ; preds = %_ZN4
   br i1 %28, label %29, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 29:                                               ; preds = %_ZN4core3ops8function2Fn4call17hdb87773c0c23169fE.exit.thread.i
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !555
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !555, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !555
@@ -4674,9 +4674,9 @@ _ZN4core3ops8function2Fn4call17hdb87773c0c23169fE.exit.thread.i: ; preds = %_ZN4
   br i1 %43, label %44, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit7.i"
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %45), !noalias !562
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load i64, ptr %46, align 8, !noalias !562, !noundef !4
   %48 = add i64 %47, -1
   store i64 %48, ptr %46, align 8, !noalias !562
@@ -4707,9 +4707,9 @@ _ZN4core3ops8function2Fn4call17hdb87773c0c23169fE.exit.thread.i: ; preds = %_ZN4
 
 56:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9pop_until17hcdf1e79a0c562d17E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.99, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %3, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 40, ptr %58, align 8
   store i64 -9223372036854775808, ptr %3, align 8
   call void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
@@ -4725,9 +4725,9 @@ _ZN4core3ops8function2Fn4call17hdb87773c0c23169fE.exit.thread.i: ; preds = %_ZN4
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named17h203a18ad192d471cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !alias.scope !563, !noalias !566, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !alias.scope !563, !noalias !566, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17hd24e937828370c5dE.exit", label %.lr.ph.i
@@ -4737,7 +4737,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   %10 = and i64 %1, 3
   %11 = icmp eq i64 %10, 0
   %12 = inttoptr i64 %1 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %11, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i
@@ -4770,12 +4770,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %24, label %25, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h5fc21010a4fc783aE.exit.us.i"
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %26)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !578, !noundef !4
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8, !noalias !578
@@ -4886,12 +4886,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i: ; preds = %38, %37,
   br i1 %52, label %53, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h5fc21010a4fc783aE.exit.i"
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %54)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !578, !noundef !4
   %57 = add i64 %56, -1
   store i64 %57, ptr %55, align 8, !noalias !578
@@ -4983,13 +4983,13 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %68, %67, %6
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17hd24e937828370c5dE.exit.thread": ; preds = %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %36, %36, %36, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h5fc21010a4fc783aE.exit.us.i", %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17hd24e937828370c5dE.exit"
   %.sroa.0.0.i16 = phi i1 [ false, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17hd24e937828370c5dE.exit" ], [ %19, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h5fc21010a4fc783aE.exit.us.i" ], [ %19, %36 ], [ %19, %36 ], [ %19, %36 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.us.i ]
   %71 = inttoptr i64 %1 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = atomicrmw sub ptr %72, i64 1 seq_cst, align 8
   %74 = icmp eq i64 %73, 1
   br i1 %74, label %75, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 75:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17hd24e937828370c5dE.exit.thread"
-  %76 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !584
+  %76 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !584
   %.not.i.i.i.i = icmp eq ptr %76, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %77
 
@@ -5022,9 +5022,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %68, %67, %6
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named17h4cf4c8a62cb3cb45E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !587)
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !alias.scope !587, !noalias !590, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8, !alias.scope !587, !noalias !590, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit", label %.lr.ph.i
@@ -5072,12 +5072,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %19, label %20, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17had9957b81ebc278aE.exit.i"
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %21)
           to label %.noexc3 unwind label %41
 
 .noexc3:                                          ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !602, !noundef !4
   %24 = add i64 %23, -1
   store i64 %24, ptr %22, align 8, !noalias !602
@@ -5182,9 +5182,9 @@ _ZN4core3ops8function2Fn4call17h0a40d1f15792a0b4E.exit.i: ; preds = %39, %38, %3
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named17h55f75b18fae70a9aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !alias.scope !603, !noalias !606, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !alias.scope !603, !noalias !606, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h7e05387436977f0dE.exit", label %.lr.ph.i
@@ -5194,7 +5194,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   %10 = and i64 %1, 3
   %11 = icmp eq i64 %10, 0
   %12 = inttoptr i64 %1 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %11, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i
@@ -5227,12 +5227,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %24, label %25, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17hd271d5f4b985c666E.exit.us.i"
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %26)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !618, !noundef !4
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8, !noalias !618
@@ -5345,12 +5345,12 @@ _ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i: ; preds = %38, %37,
   br i1 %52, label %53, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17hd271d5f4b985c666E.exit.i"
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %54)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i64, ptr %55, align 8, !noalias !618, !noundef !4
   %57 = add i64 %56, -1
   store i64 %57, ptr %55, align 8, !noalias !618
@@ -5444,13 +5444,13 @@ _ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.i: ; preds = %68, %67, %6
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h7e05387436977f0dE.exit.thread": ; preds = %_ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %36, %36, %36, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17hd271d5f4b985c666E.exit.us.i", %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h7e05387436977f0dE.exit"
   %.sroa.0.0.i16 = phi i1 [ false, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h7e05387436977f0dE.exit" ], [ %19, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17hd271d5f4b985c666E.exit.us.i" ], [ %19, %36 ], [ %19, %36 ], [ %19, %36 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %37 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %38 ], [ %19, %_ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.us.i ]
   %71 = inttoptr i64 %1 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = atomicrmw sub ptr %72, i64 1 seq_cst, align 8
   %74 = icmp eq i64 %73, 1
   br i1 %74, label %75, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 75:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h7e05387436977f0dE.exit.thread"
-  %76 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !619
+  %76 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !619
   %.not.i.i.i.i = icmp eq ptr %76, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %77
 
@@ -5483,9 +5483,9 @@ _ZN4core3ops8function2Fn4call17hbf6822db916f92f4E.exit.i: ; preds = %68, %67, %6
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named17habc7af83856d57dbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !622)
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !alias.scope !622, !noalias !625, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8, !alias.scope !622, !noalias !625, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit", label %.lr.ph.i
@@ -5533,12 +5533,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %19, label %20, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17he864c6e70ca55233E.exit.i"
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %21)
           to label %.noexc3 unwind label %35
 
 .noexc3:                                          ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !637, !noundef !4
   %24 = add i64 %23, -1
   store i64 %24, ptr %22, align 8, !noalias !637
@@ -5609,9 +5609,9 @@ _ZN4core3ops8function2Fn4call17h0c732d32e393fbf3E.exit.i: ; preds = %.noexc4
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named17he5a8056360f6bdefE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !638)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !alias.scope !638, !noalias !641, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !alias.scope !638, !noalias !641, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit", label %.lr.ph.i
@@ -5621,7 +5621,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   %10 = and i64 %1, 3
   %11 = icmp eq i64 %10, 0
   %12 = inttoptr i64 %1 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %11, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i
@@ -5654,12 +5654,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %24, label %25, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h73f5be57da5fa46cE.exit.us.i"
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %26)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !653, !noundef !4
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8, !noalias !653
@@ -5745,12 +5745,12 @@ _ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i: ; preds = %36, %.no
   br i1 %51, label %52, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h73f5be57da5fa46cE.exit.i"
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %53)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %55 = load i64, ptr %54, align 8, !noalias !653, !noundef !4
   %56 = add i64 %55, -1
   store i64 %56, ptr %54, align 8, !noalias !653
@@ -5817,13 +5817,13 @@ _ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.i: ; preds = %65, %.noexc
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit.thread": ; preds = %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i, %36, %36, %36, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h73f5be57da5fa46cE.exit.us.i", %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit"
   %.sroa.0.0.i16 = phi i1 [ false, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit" ], [ %19, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14in_scope_named28_$u7b$$u7b$closure$u7d$$u7d$17h73f5be57da5fa46cE.exit.us.i" ], [ %19, %36 ], [ %19, %36 ], [ %19, %36 ], [ %19, %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.us.i ]
   %69 = inttoptr i64 %1 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = atomicrmw sub ptr %70, i64 1 seq_cst, align 8
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %73, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 73:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h6931a6e9c029e621E.exit.thread"
-  %74 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !654
+  %74 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !654
   %.not.i.i.i.i = icmp eq ptr %74, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %75
 
@@ -5863,10 +5863,10 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   %12 = alloca [8 x i8], align 8
   %13 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %14, align 8
   store i64 %2, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %3, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -5878,7 +5878,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 18:                                               ; preds = %5
   %19 = inttoptr i64 %2 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = atomicrmw add ptr %20, i64 1 seq_cst, align 8, !noalias !662
   %.pre = load i64, ptr %15, align 8, !range !57, !alias.scope !660, !noalias !657
   br label %22
@@ -5891,7 +5891,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 26:                                               ; preds = %22
   %27 = inttoptr i64 %23 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = atomicrmw add ptr %28, i64 1 seq_cst, align 8, !noalias !662
   br label %31
 
@@ -5901,14 +5901,14 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
           to label %172 unwind label %120
 
 31:                                               ; preds = %26, %22
-  %32 = getelementptr inbounds i8, ptr %11, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %32, align 8, !alias.scope !657, !noalias !660
   store i64 %2, ptr %11, align 8, !alias.scope !657, !noalias !660
-  %33 = getelementptr inbounds i8, ptr %11, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %23, ptr %33, align 8, !alias.scope !657, !noalias !660
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8, !alias.scope !663, !noalias !666, !nonnull !4, !noundef !4
   %37 = load i64, ptr %34, align 8, !alias.scope !663, !noalias !666, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he2817477af474896E.llvm.204215390286363894"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 %36, i64 noundef %37)
@@ -5941,7 +5941,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 44:                                               ; preds = %41
   %45 = load i64, ptr %9, align 8, !range !389, !noundef !4
-  %46 = getelementptr inbounds i8, ptr %9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %switch = icmp samesign ult i64 %45, 2
   %.sroa.04.0.val = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   %.val.i.i30 = load i64, ptr %.sroa.04.0.val, align 8, !noundef !4
@@ -5983,7 +5983,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %57, label %63, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4854f4336bc64f13E.exit"
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit": ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %9, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.val26 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
   %.val.i.i32 = load i64, ptr %.val26, align 8, !noundef !4
   %59 = icmp ne i64 %.val.i.i32, 0
@@ -6011,15 +6011,15 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   ]
 
 65:                                               ; preds = %63, %63, %63, %63, %63, %63, %63, %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 152
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %67 = load ptr, ptr %66, align 8, !noundef !4
   %68 = icmp eq ptr %67, null
   br i1 %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4854f4336bc64f13E.exit", label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %0, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %71 = load ptr, ptr %70, align 8, !alias.scope !668, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds i8, ptr %0, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %73 = load i64, ptr %72, align 8, !alias.scope !668, !noundef !4
   %74 = getelementptr inbounds ptr, ptr %71, i64 %73
   %.not.not.i.not.not.not.i.not68 = icmp eq i64 %73, 0
@@ -6043,7 +6043,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %84, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4854f4336bc64f13E.exit", label %.backedge
 
 .backedge:                                        ; preds = %77, %81
-  %.be = getelementptr inbounds i8, ptr %75, i64 8
+  %.be = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.not.not.i.not.not.not.i.not = icmp eq ptr %.be, %74
   br i1 %.not.not.i.not.not.not.i.not, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18in_html_elem_named17hcb1e6bbd6a7c7669E.exit.loopexit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18in_html_elem_named28_$u7b$$u7b$closure$u7d$$u7d$17h0e1178ba1ca9582bE.exit.i.i"
 
@@ -6101,13 +6101,13 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 .lr.ph.i:                                         ; preds = %96, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element28_$u7b$$u7b$closure$u7d$$u7d$17h072067e3d057dd7dE.exit.backedge.i"
   %100 = phi ptr [ %101, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element28_$u7b$$u7b$closure$u7d$$u7d$17h072067e3d057dd7dE.exit.backedge.i" ], [ %97, %96 ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load i64, ptr %100, align 8, !range !57, !noalias !671, !noundef !4
   %103 = icmp eq i64 %102, 25769803778
   br i1 %103, label %104, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element28_$u7b$$u7b$closure$u7d$$u7d$17h072067e3d057dd7dE.exit.backedge.i"
 
 104:                                              ; preds = %.lr.ph.i
-  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %106 = load i64, ptr %105, align 8, !range !57, !noalias !671, !noundef !4
   %107 = icmp eq i64 %106, 4110283702274
   br i1 %107, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4854f4336bc64f13E.exit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element28_$u7b$$u7b$closure$u7d$$u7d$17h072067e3d057dd7dE.exit.backedge.i"
@@ -6166,7 +6166,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br label %.body
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit35": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4854f4336bc64f13E.exit"
-  %124 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %40, ptr %124, align 8
   store i64 0, ptr %7, align 8
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9insert_at17ha9c043e1991bdbccE"(ptr noalias noundef align 8 dereferenceable(192) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %7)
@@ -6201,12 +6201,12 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %136, label %137, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %138)
           to label %.noexc40 unwind label %159
 
 .noexc40:                                         ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 8
   %140 = load i64, ptr %139, align 8, !noalias !679, !noundef !4
   %141 = add i64 %140, -1
   store i64 %141, ptr %139, align 8, !noalias !679
@@ -6218,11 +6218,11 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit39": ; preds = %126
-  %144 = getelementptr inbounds i8, ptr %0, i64 88
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %40, ptr %6, align 8, !noalias !684
-  %145 = getelementptr inbounds i8, ptr %0, i64 104
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %146 = load i64, ptr %145, align 8, !alias.scope !684, !noundef !4
   %147 = load i64, ptr %144, align 8, !alias.scope !684, !noundef !4
   %148 = icmp eq i64 %146, %147
@@ -6245,7 +6245,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347e1c1eE.exit": ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit39", %149
-  %154 = getelementptr inbounds i8, ptr %0, i64 96
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %155 = load ptr, ptr %154, align 8, !alias.scope !684, !nonnull !4, !noundef !4
   %156 = getelementptr inbounds ptr, ptr %155, i64 %146
   store ptr %40, ptr %156, align 8
@@ -6277,12 +6277,12 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %164, label %165, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit45"
 
 165:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
-  %166 = getelementptr inbounds i8, ptr %161, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %166)
           to label %.noexc44 unwind label %.thread
 
 .noexc44:                                         ; preds = %165
-  %167 = getelementptr inbounds i8, ptr %161, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %168 = load i64, ptr %167, align 8, !noalias !693, !noundef !4
   %169 = add i64 %168, -1
   store i64 %169, ptr %167, align 8, !noalias !693
@@ -6348,13 +6348,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 
 .lr.ph.i:                                         ; preds = %0, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden28_$u7b$$u7b$closure$u7d$$u7d$17hd728b9b4f3c8f8f0E.exit.backedge.i"
   %8 = phi ptr [ %9, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden28_$u7b$$u7b$closure$u7d$$u7d$17hd728b9b4f3c8f8f0E.exit.backedge.i" ], [ %.8.val, %0 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i64, ptr %8, align 8, !range !57, !noalias !694, !noundef !4
   %11 = icmp eq i64 %10, 25769803778
   br i1 %11, label %12, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden28_$u7b$$u7b$closure$u7d$$u7d$17hd728b9b4f3c8f8f0E.exit.backedge.i"
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8, !range !57, !noalias !694, !noundef !4
   %15 = icmp eq i64 %14, 2667174690818
   br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hdc97de088082a6aeE.exit", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden28_$u7b$$u7b$closure$u7d$$u7d$17hd728b9b4f3c8f8f0E.exit.backedge.i"
@@ -6364,7 +6364,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %16, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hdc97de088082a6aeE.exit": ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = load i64, ptr %17, align 8, !range !57, !noundef !4
   %19 = icmp eq i64 %18, 15
   br i1 %19, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit", label %20
@@ -6381,22 +6381,22 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %.not.i.i, label %32, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %8, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %28 = load i32, ptr %27, align 4, !noalias !697, !noundef !4
   %29 = zext i32 %28 to i64
   br label %32
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %8, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit"
 
 32:                                               ; preds = %26, %22
   %.sroa.03.0.i.i = phi i64 [ %29, %26 ], [ 0, %22 ]
-  %33 = getelementptr inbounds i8, ptr %24, i64 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %35 = load i32, ptr %34, align 4, !noundef !4
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %33, i64 %.sroa.03.0.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.03.0.i.i
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit": ; preds = %30, %32
@@ -6406,14 +6406,14 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %38, label %39, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h3051414c5fb1eb32E.exit"
 
 39:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit"
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.0.i3, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i3, i64 6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !700
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !700
   store ptr %.sroa.0.0.i3, ptr %4, align 8, !noalias !707
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %40, ptr %41, align 8, !noalias !707
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.101, ptr %3, align 8, !noalias !707
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.101, i64 6), ptr %42, align 8, !noalias !707
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !710
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha596e70cc956de22E.llvm.8537221261273048587"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4), !noalias !713
@@ -6460,7 +6460,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14parse_raw_data17h81acbc5d39d921c1E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i8 noundef range(i8 2, 4) %3) unnamed_addr #2 {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %8 = call fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %7, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
@@ -6471,9 +6471,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %11, label %12, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %13), !noalias !720
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !720, !noundef !4
   %16 = add i64 %15, -1
   store i64 %16, ptr %14, align 8, !noalias !720
@@ -6485,12 +6485,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit": ; preds = %4, %12, %18
-  %19 = getelementptr inbounds i8, ptr %1, i64 186
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %20 = load i8, ptr %19, align 2, !range !7, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 187
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 187
   store i8 %20, ptr %21, align 1
   store i8 7, ptr %19, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %22, align 8
   store i64 -9223372036854775797, ptr %0, align 8
   ret void
@@ -6546,13 +6546,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 43:                                               ; preds = %2
   %44 = inttoptr i64 %1 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = atomicrmw add ptr %45, i64 1 seq_cst, align 8
   br label %47
 
 47:                                               ; preds = %2, %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %49 = load i64, ptr %48, align 8, !alias.scope !725, !noundef !4
   %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %50, label %51
@@ -6562,7 +6562,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %57 unwind label %58, !noalias !725
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %53 = load ptr, ptr %52, align 8, !alias.scope !725, !nonnull !4, !noundef !4
   %54 = add i64 %49, -1
   %55 = getelementptr inbounds [0 x ptr], ptr %53, i64 0, i64 %54
@@ -6603,36 +6603,36 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %.not, label %89, label %90
 
 64:                                               ; preds = %109, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18current_node_named17hdbaec90ae6563dabE.exit"
-  %65 = getelementptr inbounds i8, ptr %0, i64 112
-  %66 = getelementptr inbounds i8, ptr %0, i64 120
-  %67 = getelementptr inbounds i8, ptr %0, i64 128
-  %.sroa.8417.16..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 24
-  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 32
-  %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 33
-  %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 34
-  %68 = getelementptr inbounds i8, ptr %0, i64 88
-  %69 = getelementptr inbounds i8, ptr %35, i64 8
-  %70 = getelementptr inbounds i8, ptr %35, i64 16
-  %71 = getelementptr inbounds i8, ptr %31, i64 8
-  %72 = getelementptr inbounds i8, ptr %27, i64 32
-  %73 = getelementptr inbounds i8, ptr %27, i64 24
-  %74 = getelementptr inbounds i8, ptr %27, i64 33
-  %75 = getelementptr inbounds i8, ptr %24, i64 16
-  %76 = getelementptr inbounds i8, ptr %24, i64 8
-  %77 = getelementptr inbounds i8, ptr %27, i64 16
-  %78 = getelementptr inbounds i8, ptr %27, i64 8
-  %79 = getelementptr inbounds i8, ptr %21, i64 40
-  %80 = getelementptr inbounds i8, ptr %20, i64 8
-  %81 = getelementptr inbounds i8, ptr %28, i64 40
-  %82 = getelementptr inbounds i8, ptr %19, i64 8
-  %83 = getelementptr inbounds i8, ptr %17, i64 16
-  %84 = getelementptr inbounds i8, ptr %17, i64 8
-  %85 = getelementptr inbounds i8, ptr %40, i64 16
-  %86 = getelementptr inbounds i8, ptr %15, i64 40
-  %87 = getelementptr inbounds i8, ptr %14, i64 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.sroa.8417.16..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 33
+  %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 34
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  %75 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %122
 
 89:                                               ; preds = %62
@@ -6642,9 +6642,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 90:                                               ; preds = %62
   %91 = load ptr, ptr %52, align 8, !nonnull !4, !noundef !4
   %92 = add i64 %63, -1
-  %93 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %94 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
-  %95 = getelementptr inbounds i8, ptr %0, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %96 = load i64, ptr %95, align 8, !noundef !4
   %97 = getelementptr inbounds { i64, [5 x i64] }, ptr %94, i64 %96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
@@ -6664,7 +6664,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 100:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i", %.lr.ph.i
   %.sroa.02.014.i = phi i64 [ 0, %.lr.ph.i ], [ %106, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i" ]
   %101 = phi ptr [ %94, %.lr.ph.i ], [ %102, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i" ]
-  %102 = getelementptr inbounds i8, ptr %101, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %.val8.i = load i64, ptr %101, align 8, !range !368, !noalias !736, !noundef !4
   %103 = icmp eq i64 %.val8.i, -9223372036854775808
   br i1 %103, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i"
@@ -6693,13 +6693,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 112:                                              ; preds = %111
   %113 = inttoptr i64 %1 to ptr
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = atomicrmw sub ptr %114, i64 1 seq_cst, align 8
   %116 = icmp eq i64 %115, 1
   br i1 %116, label %117, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 117:                                              ; preds = %112
-  %118 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !737
+  %118 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !737
   %.not.i.i.i.i = icmp eq ptr %118, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %119
 
@@ -6774,7 +6774,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 150:                                              ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit.i"
   %151 = inttoptr i64 %147 to ptr
-  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = atomicrmw add ptr %152, i64 1 seq_cst, align 8, !noalias !761
   br label %154
 
@@ -6824,16 +6824,16 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 .thread476:                                       ; preds = %167, %127, %130
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
-  %169 = getelementptr inbounds i8, ptr %39, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 1, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %39, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 %1, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %39, i64 33
+  %171 = getelementptr inbounds nuw i8, ptr %39, i64 33
   store i8 0, ptr %171, align 1
   store i64 0, ptr %39, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 0, ptr %.sroa.59.0..sroa_idx, align 8
   call fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$23process_end_tag_in_body17h57e90dce2d01ac34E"(ptr noalias noundef align 8 dereferenceable(192) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %39)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
@@ -6900,9 +6900,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %186 = sub nuw i64 %184, %185
   %187 = udiv exact i64 %186, 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
-  %188 = getelementptr inbounds i8, ptr %38, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.104, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %38, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 27, ptr %189, align 8
   store i64 -9223372036854775808, ptr %38, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %38)
@@ -7001,7 +7001,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %211 = load ptr, ptr %66, align 8, !alias.scope !780, !noalias !783, !nonnull !4, !noundef !4
   %212 = getelementptr inbounds i8, ptr %211, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %212, i64 48, i1 false), !noalias !786
-  %213 = getelementptr inbounds i8, ptr %212, i64 48
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 48
   %214 = xor i64 %187, -1
   %215 = add i64 %206, %214
   %216 = mul i64 %215, 48
@@ -7014,7 +7014,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %.not.i206, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit", label %219
 
 219:                                              ; preds = %210
-  %220 = getelementptr inbounds i8, ptr %37, i64 40
+  %220 = getelementptr inbounds nuw i8, ptr %37, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !791)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   %221 = load ptr, ptr %220, align 8, !alias.scope !797, !nonnull !4, !noundef !4
@@ -7025,12 +7025,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %224, label %225, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 225:                                              ; preds = %219
-  %226 = getelementptr inbounds i8, ptr %221, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %221, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %226)
           to label %.noexc.i unwind label %232, !noalias !788
 
 .noexc.i:                                         ; preds = %225
-  %227 = getelementptr inbounds i8, ptr %221, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %228 = load i64, ptr %227, align 8, !noalias !797, !noundef !4
   %229 = add i64 %228, -1
   store i64 %229, ptr %227, align 8, !noalias !797
@@ -7067,9 +7067,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 237:                                              ; preds = %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i, %202, %202, %202, %202, %202, %201, %201, %201, %201, %201, %201, %201, %201, %201, %203, %203, %203
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  %238 = getelementptr inbounds i8, ptr %36, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.106, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %36, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 31, ptr %239, align 8
   store i64 -9223372036854775808, ptr %36, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %36)
@@ -7133,7 +7133,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %256, label %.loopexit633, label %257
 
 257:                                              ; preds = %._crit_edge.i
-  %258 = getelementptr inbounds i8, ptr %255, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %259 = invoke { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %255)
           to label %.noexc213 unwind label %.loopexit634
 
@@ -7151,7 +7151,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %265 = add i64 %.sroa.03.0.i, -2
   %.not.i.not.i.i = icmp ult i64 %265, %251
   %266 = getelementptr inbounds ptr, ptr %252, i64 %265
-  %267 = getelementptr inbounds i8, ptr %266, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   br i1 %.not.i.not.i.i, label %._crit_edge.i.preheader, label %.loopexit646
 
 268:                                              ; preds = %.noexc214
@@ -7212,12 +7212,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %294, label %295, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i"
 
 295:                                              ; preds = %.lr.ph.i.i
-  %296 = getelementptr inbounds i8, ptr %291, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %291, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %296)
           to label %.noexc.i.i unwind label %305, !noalias !812
 
 .noexc.i.i:                                       ; preds = %295
-  %297 = getelementptr inbounds i8, ptr %291, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %298 = load i64, ptr %297, align 8, !noalias !811, !noundef !4
   %299 = add i64 %298, -1
   store i64 %299, ptr %297, align 8, !noalias !811
@@ -7274,7 +7274,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %317 = load ptr, ptr %66, align 8, !alias.scope !813, !noalias !816, !nonnull !4, !noundef !4
   %318 = getelementptr inbounds i8, ptr %317, i64 %281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %318, i64 48, i1 false), !noalias !819
-  %319 = getelementptr inbounds i8, ptr %318, i64 48
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 48
   %320 = xor i64 %282, -1
   %321 = add i64 %315, %320
   %322 = mul i64 %321, 48
@@ -7287,7 +7287,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %.not.i221, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit228", label %325
 
 325:                                              ; preds = %316
-  %326 = getelementptr inbounds i8, ptr %33, i64 40
+  %326 = getelementptr inbounds nuw i8, ptr %33, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !824)
   call void @llvm.experimental.noalias.scope.decl(metadata !827)
   %327 = load ptr, ptr %326, align 8, !alias.scope !830, !nonnull !4, !noundef !4
@@ -7298,12 +7298,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %330, label %331, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i222"
 
 331:                                              ; preds = %325
-  %332 = getelementptr inbounds i8, ptr %327, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %327, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %332)
           to label %.noexc.i223 unwind label %338, !noalias !821
 
 .noexc.i223:                                      ; preds = %331
-  %333 = getelementptr inbounds i8, ptr %327, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %334 = load i64, ptr %333, align 8, !noalias !830, !noundef !4
   %335 = add i64 %334, -1
   store i64 %335, ptr %333, align 8, !noalias !830
@@ -7353,12 +7353,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %348, label %349, label %356
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %168, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %168, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %350)
           to label %.noexc229 unwind label %.thread448.loopexit.split-lp
 
 .noexc229:                                        ; preds = %349
-  %351 = getelementptr inbounds i8, ptr %168, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %352 = load i64, ptr %351, align 8, !noalias !831, !noundef !4
   %353 = add i64 %352, -1
   store i64 %353, ptr %351, align 8, !noalias !831
@@ -7523,12 +7523,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %394, label %395, label %404
 
 395:                                              ; preds = %390
-  %396 = getelementptr inbounds i8, ptr %391, i64 16
+  %396 = getelementptr inbounds nuw i8, ptr %391, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %396)
           to label %.noexc238 unwind label %402
 
 .noexc238:                                        ; preds = %395
-  %397 = getelementptr inbounds i8, ptr %391, i64 8
+  %397 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %398 = load i64, ptr %397, align 8, !noalias !842, !noundef !4
   %399 = add i64 %398, -1
   store i64 %399, ptr %397, align 8, !noalias !842
@@ -7569,7 +7569,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 .lr.ph.i240:                                      ; preds = %409, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i246"
   %.sroa.02.014.i242 = phi i64 [ %419, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i246" ], [ 0, %409 ]
   %414 = phi ptr [ %415, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i246" ], [ %410, %409 ]
-  %415 = getelementptr inbounds i8, ptr %414, i64 48
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 48
   %.val8.i243 = load i64, ptr %414, align 8, !range !368, !noalias !843, !noundef !4
   %416 = icmp eq i64 %.val8.i243, -9223372036854775808
   br i1 %416, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i246", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i244"
@@ -7596,7 +7596,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 .lr.ph.i251:                                      ; preds = %421, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i257"
   %.sroa.02.014.i253 = phi i64 [ %431, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i257" ], [ 0, %421 ]
   %426 = phi ptr [ %427, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i257" ], [ %422, %421 ]
-  %427 = getelementptr inbounds i8, ptr %426, i64 48
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 48
   %.val8.i254 = load i64, ptr %426, align 8, !range !368, !noalias !847, !noundef !4
   %428 = icmp eq i64 %.val8.i254, -9223372036854775808
   br i1 %428, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i257", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i255"
@@ -7622,7 +7622,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %435 = icmp ult i64 %.sroa.02.014.i242, %411
   call void @llvm.assume(i1 %435)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
-  %436 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %410, i64 0, i64 %.sroa.02.014.i242
+  %436 = getelementptr inbounds nuw [0 x { i64, [5 x i64] }], ptr %410, i64 0, i64 %.sroa.02.014.i242
   %437 = load i64, ptr %436, align 8, !range !368, !noundef !4
   %438 = icmp eq i64 %437, -9223372036854775808
   br i1 %438, label %461, label %466
@@ -7631,7 +7631,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %440 = load ptr, ptr %52, align 8, !alias.scope !851, !noalias !854, !nonnull !4, !noundef !4
   %441 = getelementptr inbounds ptr, ptr %440, i64 %382
   %442 = load ptr, ptr %441, align 8, !noalias !856, !nonnull !4, !noundef !4
-  %443 = getelementptr inbounds i8, ptr %441, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %444 = sub i64 %433, %.sroa.089.01395
   %445 = shl i64 %444, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %441, ptr nonnull align 8 %443, i64 %445, i1 false), !noalias !856
@@ -7644,12 +7644,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %449, label %450, label %.backedge
 
 450:                                              ; preds = %439
-  %451 = getelementptr inbounds i8, ptr %442, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %442, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %451)
           to label %.noexc264 unwind label %.loopexit632
 
 .noexc264:                                        ; preds = %450
-  %452 = getelementptr inbounds i8, ptr %442, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %442, i64 8
   %453 = load i64, ptr %452, align 8, !noalias !857, !noundef !4
   %454 = add i64 %453, -1
   store i64 %454, ptr %452, align 8, !noalias !857
@@ -7670,19 +7670,19 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 461:                                              ; preds = %434
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.119, ptr %26, align 8
-  %462 = getelementptr inbounds i8, ptr %26, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 1, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %26, i64 32
+  %463 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %463, align 8
-  %464 = getelementptr inbounds i8, ptr %26, i64 16
+  %464 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %26, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 0, ptr %465, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.120) #18
           to label %108 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 466:                                              ; preds = %434
-  %467 = getelementptr inbounds i8, ptr %436, i64 40
+  %467 = getelementptr inbounds nuw i8, ptr %436, i64 40
   %.val180 = load ptr, ptr %467, align 8, !nonnull !4, !noundef !4
   %468 = icmp eq ptr %.val180, %.val171
   br i1 %468, label %470, label %469
@@ -7694,9 +7694,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 470:                                              ; preds = %466
   call void @llvm.experimental.noalias.scope.decl(metadata !862)
   call void @llvm.experimental.noalias.scope.decl(metadata !865)
-  %471 = getelementptr inbounds i8, ptr %436, i64 32
+  %471 = getelementptr inbounds nuw i8, ptr %436, i64 32
   %472 = load i8, ptr %471, align 8, !range !5, !alias.scope !865, !noalias !862, !noundef !4
-  %473 = getelementptr inbounds i8, ptr %436, i64 24
+  %473 = getelementptr inbounds nuw i8, ptr %436, i64 24
   %474 = load i64, ptr %473, align 8, !range !57, !alias.scope !865, !noalias !862, !noundef !4
   %475 = and i64 %474, 3
   %476 = icmp eq i64 %475, 0
@@ -7704,16 +7704,16 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 477:                                              ; preds = %470
   %478 = inttoptr i64 %474 to ptr
-  %479 = getelementptr inbounds i8, ptr %478, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
   %480 = atomicrmw add ptr %479, i64 1 seq_cst, align 8, !noalias !867
   br label %481
 
 481:                                              ; preds = %477, %470
-  %482 = getelementptr inbounds i8, ptr %436, i64 33
+  %482 = getelementptr inbounds nuw i8, ptr %436, i64 33
   %483 = load i8, ptr %482, align 1, !range !5, !alias.scope !865, !noalias !862, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !867
-  %484 = getelementptr inbounds i8, ptr %436, i64 16
-  %485 = getelementptr inbounds i8, ptr %436, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %436, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %486 = load ptr, ptr %485, align 8, !alias.scope !868, !noalias !871, !nonnull !4, !noundef !4
   %487 = load i64, ptr %484, align 8, !alias.scope !868, !noalias !871, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he2817477af474896E.llvm.204215390286363894"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 %486, i64 noundef %487)
@@ -7743,7 +7743,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 493:                                              ; preds = %492
   %494 = inttoptr i64 %474 to ptr
-  %495 = getelementptr inbounds i8, ptr %494, i64 16
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 16
   %496 = atomicrmw add ptr %495, i64 1 seq_cst, align 8
   br label %497
 
@@ -7807,12 +7807,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %517, label %518, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit272"
 
 518:                                              ; preds = %511
-  %519 = getelementptr inbounds i8, ptr %514, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %514, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %519)
           to label %.noexc271 unwind label %.thread537
 
 .noexc271:                                        ; preds = %518
-  %520 = getelementptr inbounds i8, ptr %514, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %521 = load i64, ptr %520, align 8, !noalias !884, !noundef !4
   %522 = add i64 %521, -1
   store i64 %522, ptr %520, align 8, !noalias !884
@@ -7858,14 +7858,14 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 532:                                              ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit274"
   %533 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %534 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %533, i64 0, i64 %.sroa.02.014.i242
+  %534 = getelementptr inbounds nuw [0 x { i64, [5 x i64] }], ptr %533, i64 0, i64 %.sroa.02.014.i242
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
   %535 = load i64, ptr %534, align 8, !range !368, !alias.scope !885, !noundef !4
   %.not.i275 = icmp eq i64 %535, -9223372036854775808
   br i1 %.not.i275, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit281", label %536
 
 536:                                              ; preds = %532
-  %537 = getelementptr inbounds i8, ptr %534, i64 40
+  %537 = getelementptr inbounds nuw i8, ptr %534, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !888)
   call void @llvm.experimental.noalias.scope.decl(metadata !891)
   %538 = load ptr, ptr %537, align 8, !alias.scope !894, !nonnull !4, !noundef !4
@@ -7876,12 +7876,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %541, label %542, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i276"
 
 542:                                              ; preds = %536
-  %543 = getelementptr inbounds i8, ptr %538, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %538, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %543)
           to label %.noexc.i277 unwind label %549, !noalias !885
 
 .noexc.i277:                                      ; preds = %542
-  %544 = getelementptr inbounds i8, ptr %538, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %545 = load i64, ptr %544, align 8, !noalias !894, !noundef !4
   %546 = add i64 %545, -1
   store i64 %546, ptr %544, align 8, !noalias !894
@@ -7935,12 +7935,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %559, label %560, label %569
 
 560:                                              ; preds = %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit281"
-  %561 = getelementptr inbounds i8, ptr %556, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %556, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %561)
           to label %.noexc282 unwind label %567
 
 .noexc282:                                        ; preds = %560
-  %562 = getelementptr inbounds i8, ptr %556, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %563 = load i64, ptr %562, align 8, !noalias !901, !noundef !4
   %564 = add i64 %563, -1
   store i64 %564, ptr %562, align 8, !noalias !901
@@ -7995,12 +7995,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %580, label %582, label %"_ZN4core3ptr106drop_in_place$LT$html5ever..tree_builder..Bookmark$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h3bdcf84da5910f6dE.exit"
 
 582:                                              ; preds = %581
-  %583 = getelementptr inbounds i8, ptr %.val189, i64 16
+  %583 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %583)
           to label %.noexc287 unwind label %595
 
 .noexc287:                                        ; preds = %582
-  %584 = getelementptr inbounds i8, ptr %.val189, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %.val189, i64 8
   %585 = load i64, ptr %584, align 8, !noalias !902, !noundef !4
   %586 = add i64 %585, -1
   store i64 %586, ptr %584, align 8, !noalias !902
@@ -8011,12 +8011,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %580, label %589, label %"_ZN4core3ptr106drop_in_place$LT$html5ever..tree_builder..Bookmark$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h3bdcf84da5910f6dE.exit"
 
 589:                                              ; preds = %588
-  %590 = getelementptr inbounds i8, ptr %.val189, i64 16
+  %590 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %590)
           to label %.noexc288 unwind label %595
 
 .noexc288:                                        ; preds = %589
-  %591 = getelementptr inbounds i8, ptr %.val189, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %.val189, i64 8
   %592 = load i64, ptr %591, align 8, !noalias !907, !noundef !4
   %593 = add i64 %592, -1
   store i64 %593, ptr %591, align 8, !noalias !907
@@ -8086,12 +8086,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %610, label %611, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit294"
 
 611:                                              ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit292"
-  %612 = getelementptr inbounds i8, ptr %607, i64 16
+  %612 = getelementptr inbounds nuw i8, ptr %607, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %612)
           to label %.noexc293 unwind label %618
 
 .noexc293:                                        ; preds = %611
-  %613 = getelementptr inbounds i8, ptr %607, i64 8
+  %613 = getelementptr inbounds nuw i8, ptr %607, i64 8
   %614 = load i64, ptr %613, align 8, !noalias !918, !noundef !4
   %615 = add i64 %614, -1
   store i64 %615, ptr %613, align 8, !noalias !918
@@ -8157,9 +8157,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   call void @llvm.assume(i1 %631)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !919)
-  %632 = getelementptr inbounds { i64, [5 x i64] }, ptr %422, i64 %.sroa.02.014.i253
+  %632 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %422, i64 %.sroa.02.014.i253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %632, i64 48, i1 false), !noalias !922
-  %633 = getelementptr inbounds i8, ptr %632, i64 48
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 48
   %634 = xor i64 %.sroa.02.014.i253, -1
   %635 = add i64 %423, %634
   %636 = mul i64 %635, 48
@@ -8189,12 +8189,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %644, label %645, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i298"
 
 645:                                              ; preds = %640
-  %646 = getelementptr inbounds i8, ptr %641, i64 16
+  %646 = getelementptr inbounds nuw i8, ptr %641, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %646)
           to label %.noexc.i.i299 unwind label %652, !noalias !940
 
 .noexc.i.i299:                                    ; preds = %645
-  %647 = getelementptr inbounds i8, ptr %641, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %641, i64 8
   %648 = load i64, ptr %647, align 8, !noalias !939, !noundef !4
   %649 = add i64 %648, -1
   store i64 %649, ptr %647, align 8, !noalias !939
@@ -8241,7 +8241,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   %660 = load ptr, ptr %52, align 8, !alias.scope !941, !noalias !944, !nonnull !4, !noundef !4
   %661 = getelementptr inbounds ptr, ptr %660, i64 %382
   %662 = load ptr, ptr %661, align 8, !noalias !946, !nonnull !4, !noundef !4
-  %663 = getelementptr inbounds i8, ptr %661, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %661, i64 8
   %664 = sub i64 %656, %.sroa.089.01395
   %665 = shl i64 %664, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %661, ptr nonnull align 8 %663, i64 %665, i1 false), !noalias !946
@@ -8254,12 +8254,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %669, label %670, label %.backedge
 
 670:                                              ; preds = %659
-  %671 = getelementptr inbounds i8, ptr %662, i64 16
+  %671 = getelementptr inbounds nuw i8, ptr %662, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %671)
           to label %.noexc308 unwind label %.loopexit632
 
 .noexc308:                                        ; preds = %670
-  %672 = getelementptr inbounds i8, ptr %662, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %662, i64 8
   %673 = load i64, ptr %672, align 8, !noalias !947, !noundef !4
   %674 = add i64 %673, -1
   store i64 %674, ptr %672, align 8, !noalias !947
@@ -8324,7 +8324,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 692:                                              ; preds = %688
   %693 = inttoptr i64 %689 to ptr
-  %694 = getelementptr inbounds i8, ptr %693, i64 16
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 16
   %695 = atomicrmw add ptr %694, i64 1 seq_cst, align 8
   br label %696
 
@@ -8443,7 +8443,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 .lr.ph.i323:                                      ; preds = %715, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i329"
   %.sroa.02.014.i325 = phi i64 [ %726, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i329" ], [ 0, %715 ]
   %721 = phi ptr [ %722, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i329" ], [ %717, %715 ]
-  %722 = getelementptr inbounds i8, ptr %721, i64 48
+  %722 = getelementptr inbounds nuw i8, ptr %721, i64 48
   %.val8.i326 = load i64, ptr %721, align 8, !range !368, !noalias !963, !noundef !4
   %723 = icmp eq i64 %.val8.i326, -9223372036854775808
   br i1 %723, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i329", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i327"
@@ -8472,7 +8472,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 .lr.ph.i334:                                      ; preds = %728, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i340"
   %.sroa.02.014.i336 = phi i64 [ %739, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i340" ], [ 0, %728 ]
   %734 = phi ptr [ %735, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i340" ], [ %730, %728 ]
-  %735 = getelementptr inbounds i8, ptr %734, i64 48
+  %735 = getelementptr inbounds nuw i8, ptr %734, i64 48
   %.val8.i337 = load i64, ptr %734, align 8, !range !368, !noalias !967, !noundef !4
   %736 = icmp eq i64 %.val8.i337, -9223372036854775808
   br i1 %736, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i340", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i338"
@@ -8506,14 +8506,14 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 744:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i327"
   %745 = icmp ult i64 %.sroa.02.014.i325, %718
   call void @llvm.assume(i1 %745)
-  %746 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %717, i64 0, i64 %.sroa.02.014.i325
+  %746 = getelementptr inbounds nuw [0 x { i64, [5 x i64] }], ptr %717, i64 0, i64 %.sroa.02.014.i325
   call void @llvm.experimental.noalias.scope.decl(metadata !971)
   %747 = load i64, ptr %746, align 8, !range !368, !alias.scope !971, !noundef !4
   %.not.i345 = icmp eq i64 %747, -9223372036854775808
   br i1 %.not.i345, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit351", label %748
 
 748:                                              ; preds = %744
-  %749 = getelementptr inbounds i8, ptr %746, i64 40
+  %749 = getelementptr inbounds nuw i8, ptr %746, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
   call void @llvm.experimental.noalias.scope.decl(metadata !977)
   %750 = load ptr, ptr %749, align 8, !alias.scope !980, !nonnull !4, !noundef !4
@@ -8524,12 +8524,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %753, label %754, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i346"
 
 754:                                              ; preds = %748
-  %755 = getelementptr inbounds i8, ptr %750, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %750, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %755)
           to label %.noexc.i347 unwind label %761, !noalias !971
 
 .noexc.i347:                                      ; preds = %754
-  %756 = getelementptr inbounds i8, ptr %750, i64 8
+  %756 = getelementptr inbounds nuw i8, ptr %750, i64 8
   %757 = load i64, ptr %756, align 8, !noalias !980, !noundef !4
   %758 = add i64 %757, -1
   store i64 %758, ptr %756, align 8, !noalias !980
@@ -8575,12 +8575,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %769, label %770, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit353"
 
 770:                                              ; preds = %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit351"
-  %771 = getelementptr inbounds i8, ptr %716, i64 16
+  %771 = getelementptr inbounds nuw i8, ptr %716, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %771)
           to label %.noexc352 unwind label %.body387.thread.thread.loopexit.split.loop.exit
 
 .noexc352:                                        ; preds = %770
-  %772 = getelementptr inbounds i8, ptr %716, i64 8
+  %772 = getelementptr inbounds nuw i8, ptr %716, i64 8
   %773 = load i64, ptr %772, align 8, !noalias !981, !noundef !4
   %774 = add i64 %773, -1
   store i64 %774, ptr %772, align 8, !noalias !981
@@ -8623,7 +8623,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   call void @llvm.experimental.noalias.scope.decl(metadata !998)
   %790 = getelementptr inbounds ptr, ptr %779, i64 %787
   %791 = load ptr, ptr %790, align 8, !noalias !1001, !nonnull !4, !noundef !4
-  %792 = getelementptr inbounds i8, ptr %790, i64 8
+  %792 = getelementptr inbounds nuw i8, ptr %790, i64 8
   %793 = sub i64 %780, %.sroa.03.0.i.i
   %794 = shl i64 %793, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %790, ptr nonnull align 8 %792, i64 %794, i1 false), !noalias !1001
@@ -8636,12 +8636,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %798, label %799, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17remove_from_stack17hd82ea4ec9f5cac68E.exit"
 
 799:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h2ca6d0f7d4ad0587E.exit.i"
-  %800 = getelementptr inbounds i8, ptr %791, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %791, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %800)
           to label %.noexc355 unwind label %.body387.thread.thread.loopexit.split.loop.exit.split-lp.split.loop.exit.split-lp
 
 .noexc355:                                        ; preds = %799
-  %801 = getelementptr inbounds i8, ptr %791, i64 8
+  %801 = getelementptr inbounds nuw i8, ptr %791, i64 8
   %802 = load i64, ptr %801, align 8, !noalias !1005, !noundef !4
   %803 = add i64 %802, -1
   store i64 %803, ptr %801, align 8, !noalias !1005
@@ -8704,7 +8704,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
           to label %.body356 unwind label %821
 
 817:                                              ; preds = %812
-  %818 = getelementptr inbounds i8, ptr %814, i64 48
+  %818 = getelementptr inbounds nuw i8, ptr %814, i64 48
   %819 = sub nuw i64 %731, %808
   %820 = mul i64 %819, 48
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %818, ptr nonnull align 8 %814, i64 %820, i1 false), !noalias !1013
@@ -8734,7 +8734,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 828:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i364", %.lr.ph.i358
   %.sroa.02.014.i360 = phi i64 [ 0, %.lr.ph.i358 ], [ %834, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i364" ]
   %829 = phi ptr [ %825, %.lr.ph.i358 ], [ %830, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i364" ]
-  %830 = getelementptr inbounds i8, ptr %829, i64 48
+  %830 = getelementptr inbounds nuw i8, ptr %829, i64 48
   %.val8.i361 = load i64, ptr %829, align 8, !range !368, !noalias !1020, !noundef !4
   %831 = icmp eq i64 %.val8.i361, -9223372036854775808
   br i1 %831, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i364", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i362"
@@ -8759,9 +8759,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   call void @llvm.assume(i1 %837)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !1021)
-  %838 = getelementptr inbounds { i64, [5 x i64] }, ptr %825, i64 %.sroa.02.014.i360
+  %838 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %825, i64 %.sroa.02.014.i360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %838, i64 48, i1 false), !noalias !1024
-  %839 = getelementptr inbounds i8, ptr %838, i64 48
+  %839 = getelementptr inbounds nuw i8, ptr %838, i64 48
   %840 = sub i64 %731, %.sroa.02.014.i360
   %841 = mul i64 %840, 48
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %838, ptr nonnull align 8 %839, i64 %841, i1 false), !noalias !1026
@@ -8782,12 +8782,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %847, label %848, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i373"
 
 848:                                              ; preds = %843
-  %849 = getelementptr inbounds i8, ptr %844, i64 16
+  %849 = getelementptr inbounds nuw i8, ptr %844, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %849)
           to label %.noexc.i374 unwind label %855, !noalias !1029
 
 .noexc.i374:                                      ; preds = %848
-  %850 = getelementptr inbounds i8, ptr %844, i64 8
+  %850 = getelementptr inbounds nuw i8, ptr %844, i64 8
   %851 = load i64, ptr %850, align 8, !noalias !1038, !noundef !4
   %852 = add i64 %851, -1
   store i64 %852, ptr %850, align 8, !noalias !1038
@@ -8823,12 +8823,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %861, label %862, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit381"
 
 862:                                              ; preds = %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit379"
-  %863 = getelementptr inbounds i8, ptr %729, i64 16
+  %863 = getelementptr inbounds nuw i8, ptr %729, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %863)
           to label %.noexc380 unwind label %.body387.thread.thread.loopexit.split.loop.exit.split-lp.split.loop.exit
 
 .noexc380:                                        ; preds = %862
-  %864 = getelementptr inbounds i8, ptr %729, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %729, i64 8
   %865 = load i64, ptr %864, align 8, !noalias !1039, !noundef !4
   %866 = add i64 %865, -1
   store i64 %866, ptr %864, align 8, !noalias !1039
@@ -8863,7 +8863,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %875, label %880, label %876
 
 876:                                              ; preds = %873
-  %877 = getelementptr inbounds i8, ptr %874, i64 8
+  %877 = getelementptr inbounds nuw i8, ptr %874, i64 8
   %878 = add nuw nsw i64 %.sroa.02.011.i, 1
   %879 = icmp eq ptr %877, %871
   br i1 %879, label %.loopexit628, label %873
@@ -8906,7 +8906,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
           to label %.body266 unwind label %896
 
 892:                                              ; preds = %887
-  %893 = getelementptr inbounds i8, ptr %889, i64 8
+  %893 = getelementptr inbounds nuw i8, ptr %889, i64 8
   %894 = sub nuw i64 %870, %882
   %895 = shl i64 %894, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %893, ptr nonnull align 8 %889, i64 %895, i1 false)
@@ -8935,12 +8935,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %903, label %904, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit390"
 
 904:                                              ; preds = %898
-  %905 = getelementptr inbounds i8, ptr %900, i64 16
+  %905 = getelementptr inbounds nuw i8, ptr %900, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %905)
           to label %.noexc389 unwind label %.thread511
 
 .noexc389:                                        ; preds = %904
-  %906 = getelementptr inbounds i8, ptr %900, i64 8
+  %906 = getelementptr inbounds nuw i8, ptr %900, i64 8
   %907 = load i64, ptr %906, align 8, !noalias !1059, !noundef !4
   %908 = add i64 %907, -1
   store i64 %908, ptr %906, align 8, !noalias !1059
@@ -8963,12 +8963,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %914, label %915, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit392"
 
 915:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit390"
-  %916 = getelementptr inbounds i8, ptr %911, i64 16
+  %916 = getelementptr inbounds nuw i8, ptr %911, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %916)
           to label %.noexc391 unwind label %925
 
 .noexc391:                                        ; preds = %915
-  %917 = getelementptr inbounds i8, ptr %911, i64 8
+  %917 = getelementptr inbounds nuw i8, ptr %911, i64 8
   %918 = load i64, ptr %917, align 8, !noalias !1066, !noundef !4
   %919 = add i64 %918, -1
   store i64 %919, ptr %917, align 8, !noalias !1066
@@ -9009,12 +9009,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %930, label %931, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit394"
 
 931:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit392"
-  %932 = getelementptr inbounds i8, ptr %927, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %927, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %932)
           to label %.noexc393 unwind label %.loopexit.split-lp635.loopexit.split-lp.loopexit
 
 .noexc393:                                        ; preds = %931
-  %933 = getelementptr inbounds i8, ptr %927, i64 8
+  %933 = getelementptr inbounds nuw i8, ptr %927, i64 8
   %934 = load i64, ptr %933, align 8, !noalias !1073, !noundef !4
   %935 = add i64 %934, -1
   store i64 %935, ptr %933, align 8, !noalias !1073
@@ -9035,12 +9035,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %940, label %941, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit396"
 
 941:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit394"
-  %942 = getelementptr inbounds i8, ptr %778, i64 16
+  %942 = getelementptr inbounds nuw i8, ptr %778, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %942)
           to label %.noexc395 unwind label %.thread448.loopexit
 
 .noexc395:                                        ; preds = %941
-  %943 = getelementptr inbounds i8, ptr %778, i64 8
+  %943 = getelementptr inbounds nuw i8, ptr %778, i64 8
   %944 = load i64, ptr %943, align 8, !noalias !1074, !noundef !4
   %945 = add i64 %944, -1
   store i64 %945, ptr %943, align 8, !noalias !1074
@@ -9107,7 +9107,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 .loopexit674:                                     ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i", %..loopexit674_crit_edge
   %955 = phi ptr [ %.pre2250, %..loopexit674_crit_edge ], [ %.val1.i.i, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  %956 = getelementptr inbounds i8, ptr %0, i64 88
+  %956 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %92, ptr %48, align 8, !alias.scope !731
   %957 = load i64, ptr %956, align 8, !alias.scope !731, !noundef !4
   %958 = icmp ult i64 %92, %957
@@ -9119,12 +9119,12 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
   br i1 %961, label %962, label %.critedge
 
 962:                                              ; preds = %.loopexit674
-  %963 = getelementptr inbounds i8, ptr %955, i64 16
+  %963 = getelementptr inbounds nuw i8, ptr %955, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %963)
           to label %.noexc397 unwind label %.thread448.loopexit.split-lp
 
 .noexc397:                                        ; preds = %962
-  %964 = getelementptr inbounds i8, ptr %955, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %955, i64 8
   %965 = load i64, ptr %964, align 8, !noalias !1079, !noundef !4
   %966 = add i64 %965, -1
   store i64 %966, ptr %964, align 8, !noalias !1079
@@ -9140,13 +9140,13 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 969:                                              ; preds = %356, %.critedge
   %970 = inttoptr i64 %1 to ptr
-  %971 = getelementptr inbounds i8, ptr %970, i64 16
+  %971 = getelementptr inbounds nuw i8, ptr %970, i64 16
   %972 = atomicrmw sub ptr %971, i64 1 seq_cst, align 8
   %973 = icmp eq i64 %972, 1
   br i1 %973, label %974, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 974:                                              ; preds = %969
-  %975 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1084
+  %975 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1084
   %.not.i.i.i.i399 = icmp eq ptr %975, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i399, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i400", label %976
 
@@ -9172,7 +9172,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15current_node_in17h3aaced54d7fcb852E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -9182,7 +9182,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = add i64 %3, -1
   %9 = getelementptr inbounds [0 x ptr], ptr %7, i64 0, i64 %8
@@ -9226,7 +9226,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 10:                                               ; preds = %2
   %11 = inttoptr i64 %1 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = atomicrmw add ptr %12, i64 1 seq_cst, align 8
   br label %14
 
@@ -9246,7 +9246,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !4
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %40, label %37
@@ -9259,13 +9259,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 27:                                               ; preds = %24
   %28 = inttoptr i64 %.val to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = atomicrmw sub ptr %29, i64 1 seq_cst, align 8
   %31 = icmp eq i64 %30, 1
   br i1 %31, label %32, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 32:                                               ; preds = %27
-  %33 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1087
+  %33 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1087
   %.not.i.i.i.i = icmp eq ptr %33, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %34
 
@@ -9284,9 +9284,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   ret void
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.132, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 23, ptr %39, align 8
   store i64 -9223372036854775808, ptr %6, align 8
   br label %41
@@ -9294,17 +9294,17 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 40:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN75_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ca59590b29f8b05E", ptr %.sroa.42.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !1090
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.134, ptr %3, align 8, !noalias !1097
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1097
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1097
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !1097
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1097
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
           to label %42 unwind label %16
@@ -9354,13 +9354,13 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 
 14:                                               ; preds = %11
   %15 = inttoptr i64 %2 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = atomicrmw sub ptr %16, i64 1 seq_cst, align 8
   %18 = icmp eq i64 %17, 1
   br i1 %18, label %19, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 19:                                               ; preds = %14
-  %20 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1098
+  %20 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1098
   %.not.i.i.i.i11 = icmp eq ptr %20, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i11, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %21
 
@@ -9398,14 +9398,14 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 define internal fastcc noundef i64 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named17hdbcce072678326baE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1101)
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8, !alias.scope !1101, !noalias !1104, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9pop_until17hea5f7a30a37a3215E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %9
 
 9:                                                ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i", %.lr.ph.i
@@ -9453,12 +9453,12 @@ define internal fastcc noundef i64 @"_ZN9html5ever12tree_builder32TreeBuilder$LT
   br i1 %30, label %31, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 31:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15pop_until_named28_$u7b$$u7b$closure$u7d$$u7d$17hb1795f02cee533b5E.exit.thread.i"
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %32)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8, !noalias !1117, !noundef !4
   %35 = add i64 %34, -1
   store i64 %35, ptr %33, align 8, !noalias !1117
@@ -9487,12 +9487,12 @@ define internal fastcc noundef i64 @"_ZN9html5ever12tree_builder32TreeBuilder$LT
   br i1 %45, label %46, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit7.i"
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %47)
           to label %.noexc2 unwind label %.loopexit.split-lp
 
 .noexc2:                                          ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !1125, !noundef !4
   %50 = add i64 %49, -1
   store i64 %50, ptr %48, align 8, !noalias !1125
@@ -9536,13 +9536,13 @@ define internal fastcc noundef i64 @"_ZN9html5ever12tree_builder32TreeBuilder$LT
 
 58:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9pop_until17hea5f7a30a37a3215E.exit"
   %59 = inttoptr i64 %1 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = atomicrmw sub ptr %60, i64 1 seq_cst, align 8
   %62 = icmp eq i64 %61, 1
   br i1 %62, label %63, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 63:                                               ; preds = %58
-  %64 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1126
+  %64 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1126
   %.not.i.i.i.i = icmp eq ptr %64, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %65
 
@@ -9580,8 +9580,8 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit": ; preds = %0, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread"
   %.sroa.0.013 = phi ptr [ %4, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread" ], [ %.8.val, %0 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 40
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %6 = load i64, ptr %5, align 8, !range !57, !noundef !4
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
@@ -9592,7 +9592,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 9:                                                ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit"
   %10 = inttoptr i64 %6 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = atomicrmw add ptr %11, i64 1 seq_cst, align 8
   %13 = icmp eq i64 %6, 3818225926146
   br i1 %13, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit", label %15
@@ -9607,7 +9607,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %17, label %18, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread"
 
 18:                                               ; preds = %15
-  %19 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1132
+  %19 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1132
   %.not.i.i.i.i.i = icmp eq ptr %19, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i", label %20
 
@@ -9631,14 +9631,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           cleanup
   store i64 25769803778, ptr %.sroa.0.013, align 8
   store i64 4655744548866, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.013, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx, align 8
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit"
   store i64 25769803778, ptr %.sroa.0.013, align 8
   store i64 4655744548866, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx6, align 8
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread"
 
@@ -9657,8 +9657,8 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit": ; preds = %0, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjust_svg_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h0eaf0026a3dd26efE.exit"
   %.sroa.0.019 = phi ptr [ %4, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjust_svg_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h0eaf0026a3dd26efE.exit" ], [ %.8.val, %0 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 40
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 8
   %6 = load i64, ptr %5, align 8, !range !57, !noundef !4
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
@@ -9669,7 +9669,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 9:                                                ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit"
   %10 = inttoptr i64 %6 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = atomicrmw add ptr %11, i64 1 seq_cst, align 8
   br label %13
 
@@ -9911,13 +9911,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 72:                                               ; preds = %71
   %73 = inttoptr i64 %6 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = atomicrmw sub ptr %74, i64 1 seq_cst, align 8
   %76 = icmp eq i64 %75, 1
   br i1 %76, label %77, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjust_svg_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h0eaf0026a3dd26efE.exit"
 
 77:                                               ; preds = %72
-  %78 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1135
+  %78 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1135
   %.not.i.i.i.i.i = icmp eq ptr %78, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i", label %79
 
@@ -9942,14 +9942,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           cleanup
   store i64 25769803778, ptr %.sroa.0.019, align 8
   store i64 %.sroa.63.1.ph, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.019, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx, align 8
   resume { ptr, i32 } %84
 
 85:                                               ; preds = %82
   store i64 25769803778, ptr %.sroa.0.019, align 8
   store i64 %.sroa.63.1.ph, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx6, align 8
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjust_svg_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h0eaf0026a3dd26efE.exit"
 
@@ -9968,8 +9968,8 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit": ; preds = %0, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$25adjust_foreign_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h6b7bd02e7aedfaa4E.exit"
   %.sroa.0.019 = phi ptr [ %4, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$25adjust_foreign_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h6b7bd02e7aedfaa4E.exit" ], [ %.8.val, %0 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 40
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 8
   %6 = load i64, ptr %5, align 8, !range !57, !noundef !4
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
@@ -9980,7 +9980,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 9:                                                ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit"
   %10 = inttoptr i64 %6 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = atomicrmw add ptr %11, i64 1 seq_cst, align 8
   br label %13
 
@@ -10034,13 +10034,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 25:                                               ; preds = %24
   %26 = inttoptr i64 %6 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = atomicrmw sub ptr %27, i64 1 seq_cst, align 8, !noalias !1141
   %29 = icmp eq i64 %28, 1
   br i1 %29, label %30, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$25adjust_foreign_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h6b7bd02e7aedfaa4E.exit"
 
 30:                                               ; preds = %25
-  %31 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1144
+  %31 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1144
   %.not.i.i.i.i.i = icmp eq ptr %31, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i", label %32
 
@@ -10067,14 +10067,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           cleanup
   store i64 %.sroa.01.0.ph, ptr %.sroa.0.019, align 8
   store i64 %.sroa.16.1.ph, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.019, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 16
   store i64 %.sroa.27.1.ph, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx, align 8
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %35
   store i64 %.sroa.01.0.ph, ptr %.sroa.0.019, align 8
   store i64 %.sroa.16.1.ph, ptr %5, align 8
-  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 16
+  %.sroa.4.0..sroa.0.0.i.sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 16
   store i64 %.sroa.27.1.ph, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx6, align 8
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$25adjust_foreign_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h6b7bd02e7aedfaa4E.exit"
 
@@ -10089,10 +10089,10 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %5 = alloca [24 x i8], align 8
   %6 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %8 = load i64, ptr %7, align 8, !alias.scope !1147, !noundef !4
   %9 = icmp ne i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %11 = load ptr, ptr %10, align 8, !alias.scope !1147
   %12 = icmp eq ptr %11, null
   %or.cond.i = select i1 %9, i1 true, i1 %12
@@ -10110,7 +10110,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load ptr, ptr %16, align 8, !alias.scope !1147, !nonnull !4, !noundef !4
   %18 = add i64 %8, -1
   %19 = getelementptr inbounds [0 x ptr], ptr %17, i64 0, i64 %18
@@ -10135,7 +10135,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 27:                                               ; preds = %22
   %28 = inttoptr i64 %24 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = atomicrmw add ptr %29, i64 1 seq_cst, align 8
   br label %31
 
@@ -10147,9 +10147,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   ]
 
 ._crit_edge:                                      ; preds = %31
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val6.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1150
-  %.phi.trans.insert31 = getelementptr inbounds i8, ptr %2, i64 16
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val7.pre = load i64, ptr %.phi.trans.insert31, align 8, !alias.scope !1150
   br label %32
 
@@ -10160,15 +10160,15 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %77 unwind label %103
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8 = load ptr, ptr %34, align 8, !alias.scope !1153, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val9 = load i64, ptr %35, align 8, !alias.scope !1153, !noundef !4
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E"(ptr nonnull %.val8, i64 %.val9)
           to label %32 unwind label %103
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %38 = load i64, ptr %37, align 8, !alias.scope !1156, !noundef !4
   switch i64 %38, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit" [
     i64 455266533378, label %.sink.split.i
@@ -10324,18 +10324,18 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br label %.sink.split.i
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit": ; preds = %.sink.split.i, %36
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val10 = load ptr, ptr %75, align 8, !alias.scope !1159, !nonnull !4, !noundef !4
-  %76 = getelementptr inbounds i8, ptr %2, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val11 = load i64, ptr %76, align 8, !alias.scope !1159, !noundef !4
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h43d21c4c0c3e6b8dE"(ptr nonnull %.val10, i64 %.val11)
           to label %32 unwind label %103
 
 77:                                               ; preds = %32
-  %78 = getelementptr inbounds i8, ptr %2, i64 33
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %79 = load i8, ptr %78, align 1, !range !5, !noundef !4
   %80 = trunc nuw i8 %79 to i1
-  %81 = getelementptr inbounds i8, ptr %2, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %82 = load i64, ptr %81, align 8, !range !57, !noundef !4
   br i1 %80, label %88, label %83
 
@@ -10362,9 +10362,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %92, label %.noexc13, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 .noexc12:                                         ; preds = %83
-  %93 = getelementptr inbounds i8, ptr %84, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %93)
-  %94 = getelementptr inbounds i8, ptr %84, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %95 = load i64, ptr %94, align 8, !noalias !1162, !noundef !4
   %96 = add i64 %95, -1
   store i64 %96, ptr %94, align 8, !noalias !1162
@@ -10384,9 +10384,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   ret void
 
 .noexc13:                                         ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %89, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %98)
-  %99 = getelementptr inbounds i8, ptr %89, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %100 = load i64, ptr %99, align 8, !noalias !1167, !noundef !4
   %101 = add i64 %100, -1
   store i64 %101, ptr %99, align 8, !noalias !1167
@@ -10407,7 +10407,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 .thread27:                                        ; preds = %103, %.thread
   %.pn19 = phi { ptr, i32 } [ %20, %.thread ], [ %lpad.thr_comm.split-lp, %103 ]
-  %106 = getelementptr inbounds i8, ptr %2, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load i64, ptr %106, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val) #17
           to label %.thread23 unwind label %104
@@ -10422,14 +10422,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17pop_until_current17h038b1cf7b3de6aa3E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !alias.scope !1172, !noundef !4
   %.not.i4 = icmp eq i64 %3, 0
   br i1 %.not.i4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 ._crit_edge:                                      ; preds = %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit", %1
@@ -10481,9 +10481,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %28, label %29, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !1177
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !1177, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !1177
@@ -10502,14 +10502,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17pop_until_current17h673e04559f122f6aE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !alias.scope !1184, !noundef !4
   %.not.i4 = icmp eq i64 %3, 0
   br i1 %.not.i4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 ._crit_edge:                                      ; preds = %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit", %1
@@ -10561,9 +10561,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %28, label %29, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !1189
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !1189, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !1189
@@ -10582,14 +10582,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17pop_until_current17h8bd0c57e53b3dfccE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !alias.scope !1196, !noundef !4
   %.not.i4 = icmp eq i64 %3, 0
   br i1 %.not.i4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 ._crit_edge:                                      ; preds = %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit", %1
@@ -10643,9 +10643,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %28, label %29, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE.exit"
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !1201
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !1201, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !1201
@@ -10664,9 +10664,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17remove_from_stack17hd82ea4ec9f5cac68E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0, ptr readnone %.0.val) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   br label %7
@@ -10690,7 +10690,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1209)
   %15 = getelementptr inbounds ptr, ptr %3, i64 %12
   %16 = load ptr, ptr %15, align 8, !noalias !1212, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = sub i64 %5, %.sroa.03.0.i
   %19 = shl i64 %18, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 8 %17, i64 %19, i1 false), !noalias !1212
@@ -10703,9 +10703,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %23, label %24, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 24:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h2ca6d0f7d4ad0587E.exit"
-  %25 = getelementptr inbounds i8, ptr %16, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %25), !noalias !1215
-  %26 = getelementptr inbounds i8, ptr %16, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !1215, !noundef !4
   %28 = add i64 %27, -1
   store i64 %28, ptr %26, align 8, !noalias !1215
@@ -10722,7 +10722,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18current_node_named17hdbaec90ae6563dabE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8, !noundef !4
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %6
@@ -10732,7 +10732,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
           to label %12 unwind label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = add i64 %4, -1
   %10 = getelementptr inbounds [0 x ptr], ptr %8, i64 0, i64 %9
@@ -10761,9 +10761,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18in_html_elem_named17hcb1e6bbd6a7c7669E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
 .split.i:
-  %1 = getelementptr inbounds i8, ptr %0, i64 96
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds ptr, ptr %2, i64 %4
   br label %6
@@ -10778,7 +10778,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
           to label %.noexc3 unwind label %10
 
 .noexc3:                                          ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18in_html_elem_named28_$u7b$$u7b$closure$u7d$$u7d$17h0e1178ba1ca9582bE.exit.i"
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %8, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit", label %6
 
 10:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18in_html_elem_named28_$u7b$$u7b$closure$u7d$$u7d$17h0e1178ba1ca9582bE.exit.i"
@@ -10802,14 +10802,14 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17h9bb64d0e659f1d98E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not4 = icmp eq i64 %3, 0
   br i1 %.not4, label %_ZN4core3ops8function2Fn4call17h8e1c516a085dc761E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
@@ -10876,9 +10876,9 @@ _ZN4core3ops8function2Fn4call17h8e1c516a085dc761E.exit: ; preds = %14, %14, %14,
   br i1 %27, label %28, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 28:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$3pop17hd31d27c8f210272eE.exit"
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %29), !noalias !1223
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !1223, !noundef !4
   %32 = add i64 %31, -1
   store i64 %32, ptr %30, align 8, !noalias !1223
@@ -10897,14 +10897,14 @@ _ZN4core3ops8function2Fn4call17h8e1c516a085dc761E.exit: ; preds = %14, %14, %14,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17hf4842574cb7e8081E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not4 = icmp eq i64 %3, 0
   br i1 %.not4, label %_ZN4core3ops8function2Fn4call17hf0734bd378634f41E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
@@ -10964,9 +10964,9 @@ _ZN4core3ops8function2Fn4call17hf0734bd378634f41E.exit: ; preds = %16, %16, %16,
   br i1 %28, label %29, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 29:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$3pop17hd31d27c8f210272eE.exit"
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !1231
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !1231, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !1231
@@ -10985,14 +10985,14 @@ _ZN4core3ops8function2Fn4call17hf0734bd378634f41E.exit: ; preds = %16, %16, %16,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17hf86f619de92a8dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not4 = icmp eq i64 %3, 0
   br i1 %.not4, label %_ZN4core3ops8function2Fn4call17h561277568c242dc7E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 6:                                                ; preds = %.lr.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
@@ -11051,9 +11051,9 @@ _ZN4core3ops8function2Fn4call17h561277568c242dc7E.exit: ; preds = %14, %14, %14,
   br i1 %27, label %28, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 28:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$3pop17hd31d27c8f210272eE.exit"
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %29), !noalias !1239
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !1239, !noundef !4
   %32 = add i64 %31, -1
   store i64 %32, ptr %30, align 8, !noalias !1239
@@ -11102,16 +11102,16 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20reset_insertion_mode17h2fec8686aa34a21aE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds ptr, ptr %3, i64 %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
@@ -11196,7 +11196,7 @@ define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder3
   br label %.loopexit
 
 36:                                               ; preds = %18
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load i64, ptr %37, align 8, !noundef !4
   %.not = icmp eq i64 %38, 0
   br i1 %.not, label %63, label %64
@@ -11211,7 +11211,7 @@ define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder3
   br label %.loopexit
 
 42:                                               ; preds = %18
-  %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = load ptr, ptr %43, align 8, !noundef !4
   %45 = icmp eq ptr %44, null
   %. = select i1 %45, i8 2, i8 5
@@ -11254,7 +11254,7 @@ define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder3
   unreachable
 
 64:                                               ; preds = %36
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
   %67 = add i64 %38, -1
   %68 = getelementptr inbounds [0 x i8], ptr %66, i64 0, i64 %67
@@ -11264,10 +11264,10 @@ define internal fastcc noundef range(i8 0, 23) i8 @"_ZN9html5ever12tree_builder3
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680"(ptr noalias noundef readonly align 8 dereferenceable(192) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp ne i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %or.cond = select i1 %4, i1 true, i1 %7
@@ -11286,7 +11286,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9html5ever12tr
   unreachable
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = add i64 %3, -1
   %15 = getelementptr inbounds [0 x ptr], ptr %13, i64 0, i64 %14
@@ -11297,9 +11297,9 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9html5ever12tr
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21append_comment_to_doc17hca4379609f23c589E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call noundef nonnull ptr @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$14create_comment17hcffc2439f65f9edeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2)
-  %6 = getelementptr inbounds i8, ptr %1, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   store i64 0, ptr %4, align 8
   call void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6append17hbae684412cf1b336E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
@@ -11322,13 +11322,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.140, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %14 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.141)
@@ -11336,13 +11336,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 15:                                               ; preds = %9
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.78, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 23, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.78, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 23, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %14, ptr %19, align 8
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5, ptr noalias noundef readonly align 16 null, i64 undef)
           to label %20 unwind label %24
@@ -11353,7 +11353,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br label %21
 
 21:                                               ; preds = %3, %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i8 1, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -11382,20 +11382,20 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$22append_comment_to_html17h1ab043579ecb0fe9E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [16 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load i64, ptr %6, align 8, !noundef !4
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %11 = call noundef nonnull ptr @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$14create_comment17hcffc2439f65f9edeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   store i64 0, ptr %4, align 8
   call void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6append17hbae684412cf1b336E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
@@ -11414,7 +11414,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.val = load i64, ptr %2, align 8, !range !57, !alias.scope !300, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.val2 = load i32, ptr %16, align 4
   tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val, i32 %.val2) #17
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -11429,7 +11429,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %8 = alloca [16 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = load i64, ptr %11, align 8, !alias.scope !1247, !noundef !4
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %13, label %14
@@ -11442,7 +11442,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %16 = load ptr, ptr %15, align 8, !alias.scope !1247, !nonnull !4, !noundef !4
   %17 = add i64 %12, -1
   %18 = getelementptr inbounds [0 x ptr], ptr %16, i64 0, i64 %17
@@ -11472,21 +11472,21 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br label %.thread
 
 24:                                               ; preds = %22, %.noexc7
-  %25 = getelementptr inbounds i8, ptr %1, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %26 = load i8, ptr %25, align 8, !range !5, !noundef !4
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %34, label %31
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15current_node_in17h310e13b6ae852f24E.exit": ; preds = %22, %22, %22, %22, %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = load i64, ptr %28, align 8, !noundef !4
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %56, label %61
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.148, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 30, ptr %33, align 8
   store i64 -9223372036854775808, ptr %10, align 8
   br label %35
@@ -11504,17 +11504,17 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 36:                                               ; preds = %34
   store ptr %7, ptr %8, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h69b42876f6df0e06E", ptr %.sroa.44.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1250
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.151, ptr %5, align 8, !noalias !1257
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1257
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1257
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !1257
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1257
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
           to label %39 unwind label %37
@@ -11532,13 +11532,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %39
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load i64, ptr %40, align 8, !range !368, !noalias !1258, !noundef !4
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %.noexc9
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load i64, ptr %44, align 8, !noalias !1258, !noundef !4
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %51, label %47
@@ -11579,12 +11579,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 56:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15current_node_in17h310e13b6ae852f24E.exit"
-  %57 = getelementptr inbounds i8, ptr %1, i64 186
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %58 = load i8, ptr %57, align 2, !range !7, !noundef !4
-  %59 = getelementptr inbounds i8, ptr %1, i64 187
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 187
   store i8 %58, ptr %59, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 9, ptr %60, align 8
   br label %53
 
@@ -11612,8 +11612,8 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %5 = alloca [8 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i64, ptr %9, align 8, !noundef !4
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17is_marker_or_open17h0980fb8307e0fa3eE.exit.thread", label %11
@@ -11622,9 +11622,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %12 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %13 = add i64 %10, -1
   %14 = getelementptr inbounds [0 x { i64, [5 x i64] }], ptr %12, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val30 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val31 = load i64, ptr %16, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
   %17 = load i64, ptr %14, align 8, !range !368, !alias.scope !1267, !noundef !4
@@ -11632,7 +11632,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %18, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17is_marker_or_open17h0980fb8307e0fa3eE.exit.thread", label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %21 = icmp ne ptr %.val30, null
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds ptr, ptr %.val30, i64 %.val31
@@ -11677,16 +11677,16 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %33, label %.lr.ph89, label %._crit_edge
 
 .lr.ph89:                                         ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %7, i64 32
-  %35 = getelementptr inbounds i8, ptr %7, i64 24
-  %36 = getelementptr inbounds i8, ptr %7, i64 33
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %46
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %30, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %.val1.i.i.i.i32 = load ptr, ptr %41, align 8, !alias.scope !1274, !nonnull !4
   br label %42
 
@@ -11718,9 +11718,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 51:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1284)
-  %52 = getelementptr inbounds i8, ptr %48, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %53 = load i8, ptr %52, align 8, !range !5, !alias.scope !1284, !noalias !1281, !noundef !4
-  %54 = getelementptr inbounds i8, ptr %48, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %55 = load i64, ptr %54, align 8, !range !57, !alias.scope !1284, !noalias !1281, !noundef !4
   %56 = and i64 %55, 3
   %57 = icmp eq i64 %56, 0
@@ -11728,16 +11728,16 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 58:                                               ; preds = %51
   %59 = inttoptr i64 %55 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = atomicrmw add ptr %60, i64 1 seq_cst, align 8, !noalias !1286
   br label %62
 
 62:                                               ; preds = %58, %51
-  %63 = getelementptr inbounds i8, ptr %48, i64 33
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 33
   %64 = load i8, ptr %63, align 1, !range !5, !alias.scope !1284, !noalias !1281, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1286
-  %65 = getelementptr inbounds i8, ptr %48, i64 16
-  %66 = getelementptr inbounds i8, ptr %48, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !1287, !noalias !1290, !nonnull !4, !noundef !4
   %68 = load i64, ptr %65, align 8, !alias.scope !1287, !noalias !1290, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he2817477af474896E.llvm.204215390286363894"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 %67, i64 noundef %68)
@@ -11772,20 +11772,20 @@ common.resume:                                    ; preds = %130, %.thread42, %1
 73:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.158, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %77, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.159) #18
   unreachable
 
 78:                                               ; preds = %"_ZN75_$LT$html5ever..tokenizer..interface..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h8cc0abc4a6adbb98E.exit"
   %79 = inttoptr i64 %55 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = atomicrmw add ptr %80, i64 1 seq_cst, align 8
   br label %82
 
@@ -11825,7 +11825,7 @@ common.resume:                                    ; preds = %130, %.thread42, %1
   br i1 %.not.i, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit", label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %93, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1300)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1303)
   %97 = load ptr, ptr %96, align 8, !alias.scope !1306, !nonnull !4, !noundef !4
@@ -11836,12 +11836,12 @@ common.resume:                                    ; preds = %130, %.thread42, %1
   br i1 %100, label %101, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %97, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %102)
           to label %.noexc.i unwind label %108, !noalias !1297
 
 .noexc.i:                                         ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %97, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %104 = load i64, ptr %103, align 8, !noalias !1306, !noundef !4
   %105 = add i64 %104, -1
   store i64 %105, ptr %103, align 8, !noalias !1306
@@ -11938,9 +11938,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %4 = alloca [48 x i8], align 8
   %5 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit", label %.lr.ph.i.preheader
@@ -12028,7 +12028,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 .lr.ph.i18:                                       ; preds = %36, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i"
   %.sroa.02.014.i = phi i64 [ %46, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i" ], [ 0, %36 ]
   %41 = phi ptr [ %42, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i" ], [ %37, %36 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %.val8.i = load i64, ptr %41, align 8, !range !368, !noalias !1319, !noundef !4
   %43 = icmp eq i64 %.val8.i, -9223372036854775808
   br i1 %43, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.i"
@@ -12048,9 +12048,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %49 = icmp ult i64 %.sroa.02.014.i, %38
   call void @llvm.assume(i1 %49)
   call void @llvm.experimental.noalias.scope.decl(metadata !1323)
-  %50 = getelementptr inbounds { i64, [5 x i64] }, ptr %37, i64 %.sroa.02.014.i
+  %50 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %37, i64 %.sroa.02.014.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false)
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = xor i64 %.sroa.02.014.i, -1
   %53 = add i64 %38, %52
   %54 = mul i64 %53, 48
@@ -12068,7 +12068,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %.not.i.i, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4250528eb6f4914eE.exit", label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %3, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !1336)
   call void @llvm.experimental.noalias.scope.decl(metadata !1339)
   %60 = load ptr, ptr %59, align 8, !alias.scope !1342, !nonnull !4, !noundef !4
@@ -12079,12 +12079,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %63, label %64, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i"
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %60, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %65)
           to label %.noexc.i.i unwind label %71, !noalias !1343
 
 .noexc.i.i:                                       ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %60, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %67 = load i64, ptr %66, align 8, !noalias !1342, !noundef !4
   %68 = add i64 %67, -1
   store i64 %68, ptr %66, align 8, !noalias !1342
@@ -12114,9 +12114,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 "_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4250528eb6f4914eE.exit": ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$29position_in_active_formatting28_$u7b$$u7b$closure$u7d$$u7d$17h153c47366512fb12E.exit.thread.i", %36, %57, %48, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !1344)
-  %75 = getelementptr inbounds i8, ptr %0, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %76 = load ptr, ptr %75, align 8, !alias.scope !1344, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds i8, ptr %0, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %78 = load i64, ptr %77, align 8, !alias.scope !1344, !noundef !4
   %79 = getelementptr inbounds ptr, ptr %76, i64 %78
   br label %80
@@ -12140,7 +12140,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   call void @llvm.experimental.noalias.scope.decl(metadata !1351)
   %88 = getelementptr inbounds ptr, ptr %76, i64 %85
   %89 = load ptr, ptr %88, align 8, !noalias !1354, !nonnull !4, !noundef !4
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = sub i64 %78, %.sroa.03.0.i.i
   %92 = shl i64 %91, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %90, i64 %92, i1 false), !noalias !1354
@@ -12153,12 +12153,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %96, label %97, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17remove_from_stack17hd82ea4ec9f5cac68E.exit"
 
 97:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h2ca6d0f7d4ad0587E.exit.i"
-  %98 = getelementptr inbounds i8, ptr %89, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %98)
           to label %.noexc20 unwind label %32
 
 .noexc20:                                         ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %89, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %100 = load i64, ptr %99, align 8, !noalias !1358, !noundef !4
   %101 = add i64 %100, -1
   store i64 %101, ptr %99, align 8, !noalias !1358
@@ -12177,9 +12177,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %106, label %107, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 107:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17remove_from_stack17hd82ea4ec9f5cac68E.exit"
-  %108 = getelementptr inbounds i8, ptr %..val, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %..val, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %108), !noalias !1363
-  %109 = getelementptr inbounds i8, ptr %..val, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %..val, i64 8
   %110 = load i64, ptr %109, align 8, !noalias !1363, !noundef !4
   %111 = add i64 %110, -1
   store i64 %111, ptr %109, align 8, !noalias !1363
@@ -12205,12 +12205,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %12
 
 12:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17h33fd25875dddb919E.exit", %2
@@ -12255,7 +12255,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 22:                                               ; preds = %15
   %23 = inttoptr i64 %17 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = atomicrmw add ptr %24, i64 1 seq_cst, align 8
   br label %26
 
@@ -12291,9 +12291,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 42:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17h33fd25875dddb919E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.161, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 43, ptr %44, align 8
   store i64 -9223372036854775808, ptr %5, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
@@ -12309,7 +12309,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 46:                                               ; preds = %34
   %47 = inttoptr i64 %39 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = atomicrmw add ptr %48, i64 1 seq_cst, align 8
   br label %50
 
@@ -12357,12 +12357,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %68, label %69, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i.i"
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds i8, ptr %65, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %70)
           to label %.noexc.i.i unwind label %79, !noalias !1382
 
 .noexc.i.i:                                       ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %65, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %72 = load i64, ptr %71, align 8, !noalias !1381, !noundef !4
   %73 = add i64 %72, -1
   store i64 %73, ptr %71, align 8, !noalias !1381
@@ -12420,14 +12420,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$27generate_implied_end_except17h821635a795d6b234E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8, !alias.scope !1383, !noalias !1386, !noundef !4
   %.not5.i = icmp eq i64 %4, 0
   br i1 %.not5.i, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17h7a2dc8631f07f6d0E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %7
 
 7:                                                ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i", %.lr.ph.i
@@ -12493,12 +12493,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %30, label %31, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 31:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$3pop17hd31d27c8f210272eE.exit.i"
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %32)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8, !noalias !1396, !noundef !4
   %35 = add i64 %34, -1
   store i64 %35, ptr %33, align 8, !noalias !1396
@@ -12536,13 +12536,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 42:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20generate_implied_end17h7a2dc8631f07f6d0E.exit"
   %43 = inttoptr i64 %1 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = atomicrmw sub ptr %44, i64 1 seq_cst, align 8
   %46 = icmp eq i64 %45, 1
   br i1 %46, label %47, label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 47:                                               ; preds = %42
-  %48 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1401
+  %48 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2), !noalias !1401
   %.not.i.i.i.i = icmp eq ptr %48, inttoptr (i64 2 to ptr)
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i", label %49
 
@@ -12577,10 +12577,10 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = alloca [48 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %._crit_edge.thread, label %.lr.ph
@@ -12625,7 +12625,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 30064771074, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !range !57, !noundef !4
   %25 = and i64 %24, 3
   %26 = icmp eq i64 %25, 0
@@ -12658,7 +12658,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 33:                                               ; preds = %30
   %34 = getelementptr inbounds { i64, [5 x i64] }, ptr %10, i64 %.sroa.3.0.lcssa.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 48, i1 false), !noalias !1411
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = xor i64 %.sroa.3.0.lcssa.ph, -1
   %37 = add i64 %12, %36
   %38 = mul i64 %37, 48
@@ -12671,7 +12671,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %.not.i17, label %"_ZN4core3ptr116drop_in_place$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h55dea538c53e7d70E.exit", label %41
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %7, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1422)
   %43 = load ptr, ptr %42, align 8, !alias.scope !1425, !nonnull !4, !noundef !4
@@ -12682,12 +12682,12 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   br i1 %46, label %47, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.i"
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %48)
           to label %.noexc.i unwind label %54, !noalias !1416
 
 .noexc.i:                                         ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load i64, ptr %49, align 8, !noalias !1425, !noundef !4
   %51 = add i64 %50, -1
   store i64 %51, ptr %49, align 8, !noalias !1425
@@ -12720,14 +12720,14 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 58:                                               ; preds = %._crit_edge.thread
   %59 = inttoptr i64 %24 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = atomicrmw add ptr %60, i64 1 seq_cst, align 8
   br label %62
 
 62:                                               ; preds = %._crit_edge.thread, %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8, !alias.scope !1426, !noalias !1429, !nonnull !4, !noundef !4
   %66 = load i64, ptr %63, align 8, !alias.scope !1426, !noalias !1429, !noundef !4
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he2817477af474896E.llvm.204215390286363894"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 %65, i64 noundef %66)
@@ -12766,7 +12766,7 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit": ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %76 = getelementptr inbounds i8, ptr %3, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %70, ptr %76, align 8
   %77 = load i64, ptr %11, align 8, !alias.scope !1431, !noalias !1434, !noundef !4
   %78 = load i64, ptr %8, align 8, !alias.scope !1431, !noalias !1434, !noundef !4
@@ -12845,7 +12845,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %6, label %7, label %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit"
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %9 = load i64, ptr %8, align 8, !noundef !4
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %10, label %11
@@ -12855,7 +12855,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = add i64 %9, -1
   %15 = getelementptr inbounds [0 x ptr], ptr %13, i64 0, i64 %14
@@ -12875,7 +12875,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit": ; preds = %11, %3
   %storemerge = phi ptr [ %2, %3 ], [ %.val12, %11 ]
   store ptr %storemerge, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %30, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17hf1725660d78501d6E.exit.thread"
@@ -12927,9 +12927,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br label %.body
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17hf1725660d78501d6E.exit": ; preds = %34, %34, %34, %34, %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %39 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds i8, ptr %1, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %41 = load i64, ptr %40, align 8, !noundef !4
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit21._crit_edge.thread", label %.lr.ph.preheader
@@ -12946,7 +12946,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread": ; preds = %24, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit"
   %47 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %48, align 8
   store i64 0, ptr %0, align 8
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit28"
@@ -12956,7 +12956,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %51 unwind label %36
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %52, align 8
   store i64 0, ptr %0, align 8
   br label %102
@@ -13067,9 +13067,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit25": ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.05.0.val, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.val11, ptr %97, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -13082,7 +13082,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 100:                                              ; preds = %77
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %78, ptr %101, align 8
   store i64 0, ptr %0, align 8
   br label %102
@@ -13098,9 +13098,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %106, label %107, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit28"
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %103, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %108), !noalias !1442
-  %109 = getelementptr inbounds i8, ptr %103, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %110 = load i64, ptr %109, align 8, !noalias !1442, !noundef !4
   %111 = add i64 %110, -1
   store i64 %111, ptr %109, align 8, !noalias !1442
@@ -13135,7 +13135,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %95 unwind label %36
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit27": ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val, ptr %120, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1443)
@@ -13148,9 +13148,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %124, label %125, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit28"
 
 125:                                              ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit27"
-  %126 = getelementptr inbounds i8, ptr %121, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %126), !noalias !1449
-  %127 = getelementptr inbounds i8, ptr %121, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %128 = load i64, ptr %127, align 8, !noalias !1449, !noundef !4
   %129 = add i64 %128, -1
   store i64 %129, ptr %127, align 8, !noalias !1449
@@ -13182,18 +13182,18 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$33clear_active_formatting_to_marker17h88fce365a6cdc1cbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [48 x i8], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.promoted = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   %4 = icmp eq i64 %.promoted, 0
   br i1 %4, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4250528eb6f4914eE.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4250528eb6f4914eE.exit5"
@@ -13225,12 +13225,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %19, label %20, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$html5ever..tree_builder..types..FormatEntry$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$$GT$17h4250528eb6f4914eE.exit5"
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %21)
           to label %.noexc.i.i4 unwind label %27, !noalias !1463
 
 .noexc.i.i4:                                      ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !1462, !noundef !4
   %24 = add i64 %23, -1
   store i64 %24, ptr %22, align 8, !noalias !1462
@@ -13278,14 +13278,14 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 7:                                                ; preds = %6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %1, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %9 = load i64, ptr %8, align 8, !alias.scope !1464, !noundef !4
   %.not.i10 = icmp eq i64 %9, 0
   br i1 %.not.i10, label %.invoke, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   br label %12
 
 12:                                               ; preds = %.lr.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
@@ -13339,7 +13339,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   unreachable
 
 "_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680.exit3.i.i": ; preds = %22, %22, %22, %.noexc2, %20, %20, %20, %20, %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 186
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %28 = load i8, ptr %27, align 2, !range !7, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -13363,12 +13363,12 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %38, label %39, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %40)
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !1473, !noundef !4
   %43 = add i64 %42, -1
   store i64 %43, ptr %41, align 8, !noalias !1473
@@ -13425,49 +13425,49 @@ define hidden void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$G
   %.sroa.03.5.extract.trunc = trunc nuw i48 %.sroa.03.5.extract.shift to i8
   %.sroa.03.0.extract.trunc = trunc i48 %2 to i40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i40 %.sroa.03.0.extract.trunc, ptr %8, align 8
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 181
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 181
   store i8 %.sroa.03.5.extract.trunc, ptr %.sroa.2.0..sroa_idx1, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 186
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 187
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 187
   store i8 23, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.54.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %.sroa.57.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 185
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 %.sroa.03.5.extract.trunc, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %14, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.49.0..sroa_idx, align 8
-  %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
-  %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.412.0..sroa_idx, align 8
-  %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %.sroa.513.0..sroa_idx, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
-  %16 = getelementptr inbounds i8, ptr %0, i64 182
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 182
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i8 1, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 183
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 183
   store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 1, ptr %20, align 8
   ret void
 
@@ -13483,7 +13483,7 @@ define hidden void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$G
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$3pop17hd31d27c8f210272eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
@@ -13493,13 +13493,13 @@ define internal fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBu
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = add i64 %3, -1
   store i64 %8, ptr %2, align 8
   %9 = load i64, ptr %7, align 8, !noundef !4
   %10 = icmp ult i64 %8, %9
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds ptr, ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
@@ -13902,20 +13902,20 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 .noexc542:                                        ; preds = %375
   store ptr %9, ptr %10, align 8
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h69b42876f6df0e06E", ptr %.sroa.46.0..sroa_idx.i, align 8
-  %376 = getelementptr inbounds i8, ptr %10, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %12, ptr %376, align 8
-  %.sroa.410.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @"_ZN82_$LT$html5ever..tree_builder..types..InsertionMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h2154e13eeeaae692E", ptr %.sroa.410.0..sroa_idx.i, align 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.81, ptr %11, align 8
-  %377 = getelementptr inbounds i8, ptr %11, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 2, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %11, i64 32
+  %378 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %378, align 8
-  %379 = getelementptr inbounds i8, ptr %11, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %379, align 8
-  %380 = getelementptr inbounds i8, ptr %11, i64 24
+  %380 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 2, ptr %380, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %381 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.83)
@@ -13929,13 +13929,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 384:                                              ; preds = %.noexc542
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.78, ptr %8, align 8
-  %385 = getelementptr inbounds i8, ptr %8, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 23, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %8, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.78, ptr %386, align 8
-  %387 = getelementptr inbounds i8, ptr %8, i64 24
+  %387 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 23, ptr %387, align 8
-  %388 = getelementptr inbounds i8, ptr %8, i64 32
+  %388 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %381, ptr %388, align 8
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, ptr noalias noundef readonly align 16 null, i64 undef)
           to label %389 unwind label %382
@@ -13948,13 +13948,13 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           to label %.noexc543 unwind label %402
 
 .noexc543:                                        ; preds = %389
-  %390 = getelementptr inbounds i8, ptr %7, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %391 = load i64, ptr %390, align 8, !range !368, !noalias !1478, !noundef !4
   %392 = icmp eq i64 %391, 0
   br i1 %392, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc1d49382fbafdeaE.exit.i", label %393
 
 393:                                              ; preds = %.noexc543
-  %394 = getelementptr inbounds i8, ptr %7, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %395 = load i64, ptr %394, align 8, !noalias !1478, !noundef !4
   %396 = icmp eq i64 %395, 0
   br i1 %396, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc1d49382fbafdeaE.exit.i", label %397
@@ -14271,13 +14271,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 511:                                              ; preds = %515, %406
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %366)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %366, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %512 = getelementptr inbounds i8, ptr %1, i64 178
+  %512 = getelementptr inbounds nuw i8, ptr %1, i64 178
   %513 = load i8, ptr %512, align 2, !range !5, !noundef !4
   %514 = trunc nuw i8 %513 to i1
   br i1 %514, label %523, label %522
 
 515:                                              ; preds = %406
-  %516 = getelementptr inbounds i8, ptr %3, i64 24
+  %516 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %517 = load i8, ptr %516, align 8, !range !484, !noundef !4
   switch i8 %517, label %default.unreachable1101 [
     i8 0, label %518
@@ -14286,8 +14286,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   ]
 
 518:                                              ; preds = %515
-  %519 = getelementptr inbounds i8, ptr %3, i64 8
-  %520 = getelementptr inbounds i8, ptr %0, i64 8
+  %519 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %519, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -14303,7 +14303,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 523:                                              ; preds = %528, %511
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %366, i64 40, i1 false)
-  %524 = getelementptr inbounds i8, ptr %0, i64 40
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %524, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %366)
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
@@ -14320,9 +14320,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 528:                                              ; preds = %527
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %365)
-  %529 = getelementptr inbounds i8, ptr %1, i64 185
+  %529 = getelementptr inbounds nuw i8, ptr %1, i64 185
   store i8 0, ptr %529, align 1
-  %530 = getelementptr inbounds i8, ptr %1, i64 32
+  %530 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %530, align 8, !alias.scope !1487
   br label %523
 
@@ -14333,29 +14333,29 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   unreachable
 
 533:                                              ; preds = %535, %541, %411
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.35.0.copyload = load i64, ptr %.sroa.35.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 33
   %534 = icmp sgt i64 %412, -9223372036854775805
   %trunc343 = trunc i8 %.sroa.4.0.copyload to i1
   %or.cond353 = select i1 %534, i1 %trunc343, i1 false
   br i1 %or.cond353, label %554, label %556
 
 535:                                              ; preds = %411
-  %536 = getelementptr inbounds i8, ptr %3, i64 32
+  %536 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %537 = load i8, ptr %536, align 8, !range !5, !noundef !4
   %trunc342 = trunc nuw i8 %537 to i1
-  %538 = getelementptr inbounds i8, ptr %3, i64 24
+  %538 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %539 = load i64, ptr %538, align 8
   %540 = icmp ne i64 %539, 3723736645634
   %or.cond.not = select i1 %trunc342, i1 true, i1 %540
   br i1 %or.cond.not, label %533, label %544
 
 541:                                              ; preds = %411
-  %542 = getelementptr inbounds i8, ptr %3, i64 24
+  %542 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %543 = load i8, ptr %542, align 8, !range !484, !noundef !4
   switch i8 %543, label %default.unreachable1101 [
     i8 0, label %550
@@ -14377,7 +14377,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 547:                                              ; preds = %544
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %363)
-  %548 = getelementptr inbounds i8, ptr %1, i64 186
+  %548 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 2, ptr %548, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %.invoke1130
@@ -14388,8 +14388,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2794 unwind label %402
 
 550:                                              ; preds = %541
-  %551 = getelementptr inbounds i8, ptr %3, i64 8
-  %552 = getelementptr inbounds i8, ptr %0, i64 8
+  %551 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %552, ptr noundef nonnull align 8 dereferenceable(16) %551, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -14413,15 +14413,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.011.0 = phi i8 [ 0, %555 ], [ 1, %554 ], [ 1, %533 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %362)
   store i8 %.sroa.011.0, ptr %362, align 8
-  %557 = getelementptr inbounds i8, ptr %362, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store i64 %412, ptr %557, align 8
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %362, i64 16
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %362, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
-  %.sroa.35.0..sroa_idx6 = getelementptr inbounds i8, ptr %362, i64 32
+  %.sroa.35.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %362, i64 32
   store i64 %.sroa.35.0.copyload, ptr %.sroa.35.0..sroa_idx6, align 8
-  %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %362, i64 40
+  %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %362, i64 40
   store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx8, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %362, i64 41
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %362, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
   %558 = trunc nuw i8 %.sroa.011.0 to i1
   %or.cond355 = and i1 %534, %558
@@ -14433,9 +14433,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %360, ptr noundef nonnull align 8 dereferenceable(40) %557, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %359)
   store i64 0, ptr %359, align 8
-  %561 = getelementptr inbounds i8, ptr %359, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %359, i64 16
+  %562 = getelementptr inbounds nuw i8, ptr %359, i64 16
   store i64 0, ptr %562, align 8
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$11create_root17h7a262e90521028e4E"(ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %359)
           to label %.critedge unwind label %575
@@ -14482,7 +14482,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .critedge:                                        ; preds = %560
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %359)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %557, i64 40, i1 false)
-  %577 = getelementptr inbounds i8, ptr %0, i64 40
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 2, ptr %577, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %360)
   br label %578
@@ -14500,25 +14500,25 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 581:                                              ; preds = %583, %589, %586, %416
-  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.318.0.copyload = load i64, ptr %.sroa.318.0..sroa_idx, align 8
-  %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.421.0.copyload = load i8, ptr %.sroa.421.0..sroa_idx, align 8
-  %.sroa.524.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 33
   %582 = icmp sgt i64 %417, -9223372036854775805
   %trunc337 = trunc i8 %.sroa.421.0.copyload to i1
   %or.cond364 = select i1 %582, i1 %trunc337, i1 false
   br i1 %or.cond364, label %606, label %608
 
 583:                                              ; preds = %416
-  %584 = getelementptr inbounds i8, ptr %3, i64 32
+  %584 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %585 = load i8, ptr %584, align 8, !range !5, !noundef !4
   %trunc336 = trunc nuw i8 %585 to i1
   br i1 %trunc336, label %581, label %589
 
 586:                                              ; preds = %416
-  %587 = getelementptr inbounds i8, ptr %3, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %588 = load i8, ptr %587, align 8, !range !484, !noundef !4
   switch i8 %588, label %default.unreachable1101 [
     i8 0, label %602
@@ -14527,7 +14527,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   ]
 
 589:                                              ; preds = %583
-  %590 = getelementptr inbounds i8, ptr %3, i64 24
+  %590 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %591 = load i64, ptr %590, align 8, !noundef !4
   switch i64 %591, label %581 [
     i64 3723736645634, label %592
@@ -14550,7 +14550,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 596:                                              ; preds = %593
-  %597 = getelementptr inbounds i8, ptr %1, i64 144
+  %597 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val532 = load ptr, ptr %597, align 8, !noundef !4
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE"(ptr %.val532)
           to label %600 unwind label %598
@@ -14563,14 +14563,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 600:                                              ; preds = %596
   store ptr %594, ptr %597, align 8
-  %601 = getelementptr inbounds i8, ptr %1, i64 186
+  %601 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 3, ptr %601, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
 
 602:                                              ; preds = %586
-  %603 = getelementptr inbounds i8, ptr %3, i64 8
-  %604 = getelementptr inbounds i8, ptr %0, i64 8
+  %603 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %604, ptr noundef nonnull align 8 dereferenceable(16) %603, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -14594,15 +14594,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.026.0 = phi i8 [ 0, %607 ], [ 1, %606 ], [ 1, %581 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %356)
   store i8 %.sroa.026.0, ptr %356, align 8
-  %609 = getelementptr inbounds i8, ptr %356, i64 8
+  %609 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i64 %417, ptr %609, align 8
-  %.sroa.316.0..sroa_idx17 = getelementptr inbounds i8, ptr %356, i64 16
+  %.sroa.316.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %356, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.316.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.316.0..sroa_idx, i64 16, i1 false)
-  %.sroa.318.0..sroa_idx19 = getelementptr inbounds i8, ptr %356, i64 32
+  %.sroa.318.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %356, i64 32
   store i64 %.sroa.318.0.copyload, ptr %.sroa.318.0..sroa_idx19, align 8
-  %.sroa.421.0..sroa_idx22 = getelementptr inbounds i8, ptr %356, i64 40
+  %.sroa.421.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %356, i64 40
   store i8 %.sroa.421.0.copyload, ptr %.sroa.421.0..sroa_idx22, align 8
-  %.sroa.524.0..sroa_idx25 = getelementptr inbounds i8, ptr %356, i64 41
+  %.sroa.524.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %356, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.524.0..sroa_idx25, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.524.0..sroa_idx, i64 7, i1 false)
   %610 = trunc nuw i8 %.sroa.026.0 to i1
   %or.cond366 = and i1 %582, %610
@@ -14614,9 +14614,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %354, ptr noundef nonnull align 8 dereferenceable(40) %609, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65)
   store i64 0, ptr %65, align 8
-  %613 = getelementptr inbounds i8, ptr %65, i64 8
+  %613 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %613, align 8
-  %614 = getelementptr inbounds i8, ptr %65, i64 16
+  %614 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i64 0, ptr %614, align 8
   %615 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 1872605741058, ptr noalias nocapture noundef align 8 dereferenceable(24) %65)
           to label %631 unwind label %629
@@ -14666,7 +14666,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 631:                                              ; preds = %612
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65)
-  %632 = getelementptr inbounds i8, ptr %1, i64 144
+  %632 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val531 = load ptr, ptr %632, align 8, !noundef !4
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hecd02d53a0da715dE"(ptr %.val531)
           to label %.critedge370 unwind label %633
@@ -14680,7 +14680,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .critedge370:                                     ; preds = %631
   store ptr %615, ptr %632, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %609, i64 40, i1 false)
-  %635 = getelementptr inbounds i8, ptr %0, i64 40
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 3, ptr %635, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %354)
   br label %636
@@ -14698,27 +14698,27 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 639:                                              ; preds = %650, %649, %646, %421
-  %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.334.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.334.0.copyload = load i64, ptr %.sroa.334.0..sroa_idx, align 8
-  %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.437.0.copyload = load i8, ptr %.sroa.437.0..sroa_idx, align 8
-  %.sroa.540.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 33
   %640 = icmp sgt i64 %422, -9223372036854775805
   %trunc332 = trunc i8 %.sroa.437.0.copyload to i1
   %or.cond377 = select i1 %640, i1 %trunc332, i1 false
   br i1 %or.cond377, label %757, label %759
 
 641:                                              ; preds = %421
-  %642 = getelementptr inbounds i8, ptr %3, i64 32
+  %642 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %643 = load i8, ptr %642, align 8, !range !5, !noundef !4
   %trunc329 = trunc nuw i8 %643 to i1
-  %644 = getelementptr inbounds i8, ptr %3, i64 24
+  %644 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %645 = load i64, ptr %644, align 8, !noundef !4
   br i1 %trunc329, label %650, label %649
 
 646:                                              ; preds = %421
-  %647 = getelementptr inbounds i8, ptr %3, i64 24
+  %647 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %648 = load i8, ptr %647, align 8, !range !484, !noundef !4
   switch i8 %648, label %default.unreachable1101 [
     i8 0, label %750
@@ -14764,10 +14764,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %345, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %347)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %346)
-  %654 = getelementptr inbounds i8, ptr %346, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %346, i64 16
   store i64 0, ptr %654, align 8
   store i64 30064771074, ptr %346, align 8
-  %655 = getelementptr inbounds i8, ptr %346, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i64 85899345922, ptr %655, align 8
   %656 = invoke noundef nonnull ptr @_ZN11markup5ever9interface12tree_builder14create_element17h5e7a82bc94c55c1cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %346, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %345)
           to label %685 unwind label %683
@@ -14801,13 +14801,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 664:                                              ; preds = %649, %649, %649
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %349)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %349, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %665 = getelementptr inbounds i8, ptr %1, i64 177
+  %665 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %666 = load i8, ptr %665, align 1, !range !5, !noundef !4
   %667 = trunc nuw i8 %666 to i1
   br i1 %667, label %672, label %668
 
 668:                                              ; preds = %664
-  %669 = getelementptr inbounds i8, ptr %349, i64 24
+  %669 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %670 = load i64, ptr %669, align 8, !range !57, !noundef !4
   %671 = icmp eq i64 %670, 1563368095746
   br i1 %671, label %674, label %673
@@ -14842,7 +14842,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 678:                                              ; preds = %677
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %348)
-  %679 = getelementptr inbounds i8, ptr %1, i64 186
+  %679 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 4, ptr %679, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %680
@@ -14890,7 +14890,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   unreachable
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit": ; preds = %685
-  %692 = getelementptr inbounds i8, ptr %344, i64 8
+  %692 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr %656, ptr %692, align 8
   store i64 0, ptr %344, align 8
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20insert_appropriately17hca73dfcef86f1f83E"(ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %344, ptr noundef null)
@@ -14898,17 +14898,17 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 693:                                              ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %344)
-  %694 = getelementptr inbounds i8, ptr %1, i64 88
+  %694 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347e1c1eE"(ptr noalias noundef align 8 dereferenceable(24) %694, ptr noundef nonnull %656)
           to label %695 unwind label %689
 
 695:                                              ; preds = %693
-  %696 = getelementptr inbounds i8, ptr %1, i64 186
+  %696 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %697 = load i8, ptr %696, align 2, !range !7, !noundef !4
-  %698 = getelementptr inbounds i8, ptr %1, i64 187
+  %698 = getelementptr inbounds nuw i8, ptr %1, i64 187
   store i8 %697, ptr %698, align 1
   store i8 7, ptr %696, align 2
-  %699 = getelementptr inbounds i8, ptr %0, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 4, ptr %699, align 8
   store i64 -9223372036854775797, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %347)
@@ -14927,7 +14927,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 703:                                              ; preds = %702
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %342)
-  %704 = getelementptr inbounds i8, ptr %1, i64 112
+  %704 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %341)
   store i64 -9223372036854775808, ptr %341, align 8
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a8e5efE"(ptr noalias noundef align 8 dereferenceable(24) %704, ptr noalias nocapture noundef align 8 dereferenceable(48) %341)
@@ -14935,12 +14935,12 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 705:                                              ; preds = %703
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %341)
-  %706 = getelementptr inbounds i8, ptr %1, i64 182
+  %706 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %706, align 2
-  %707 = getelementptr inbounds i8, ptr %1, i64 186
+  %707 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 17, ptr %707, align 2
-  %708 = getelementptr inbounds i8, ptr %1, i64 40
-  %709 = getelementptr inbounds i8, ptr %1, i64 56
+  %708 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %709 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %710 = load i64, ptr %709, align 8, !alias.scope !1490, !noundef !4
   %711 = load i64, ptr %708, align 8, !alias.scope !1490, !noundef !4
   %712 = icmp eq i64 %710, %711
@@ -14951,7 +14951,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %714 unwind label %402
 
 714:                                              ; preds = %705, %713
-  %715 = getelementptr inbounds i8, ptr %1, i64 48
+  %715 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %716 = load ptr, ptr %715, align 8, !alias.scope !1490, !nonnull !4, !noundef !4
   %717 = getelementptr inbounds i8, ptr %716, i64 %710
   store i8 17, ptr %717, align 1
@@ -14978,7 +14978,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 724:                                              ; preds = %723
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %343)
-  %725 = getelementptr inbounds i8, ptr %1, i64 186
+  %725 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 5, ptr %725, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
@@ -15023,13 +15023,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %736 unwind label %726
 
 736:                                              ; preds = %735
-  %737 = getelementptr inbounds i8, ptr %1, i64 56
+  %737 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %738 = load i64, ptr %737, align 8, !noundef !4
   %739 = icmp eq i64 %738, 0
   br i1 %739, label %745, label %740
 
 740:                                              ; preds = %736
-  %741 = getelementptr inbounds i8, ptr %1, i64 40
+  %741 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %742 = add i64 %738, -1
   store i64 %742, ptr %737, align 8
   %743 = load i64, ptr %741, align 8, !noundef !4
@@ -15042,7 +15042,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %747 unwind label %726, !range !7
 
 747:                                              ; preds = %745
-  %748 = getelementptr inbounds i8, ptr %1, i64 186
+  %748 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 %746, ptr %748, align 2
   br label %733
 
@@ -15051,15 +15051,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %2794
 
 750:                                              ; preds = %646
-  %751 = getelementptr inbounds i8, ptr %3, i64 8
-  %752 = getelementptr inbounds i8, ptr %0, i64 8
+  %751 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %752, ptr noundef nonnull align 8 dereferenceable(16) %751, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
 
 753:                                              ; preds = %646
-  %754 = getelementptr inbounds i8, ptr %3, i64 8
-  %755 = getelementptr inbounds i8, ptr %64, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %755 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %755, ptr noundef nonnull align 8 dereferenceable(16) %754, i64 16, i1 false)
   store i64 1, ptr %64, align 8
@@ -15085,15 +15085,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.042.0 = phi i8 [ 0, %758 ], [ 1, %757 ], [ 1, %639 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %338)
   store i8 %.sroa.042.0, ptr %338, align 8
-  %760 = getelementptr inbounds i8, ptr %338, i64 8
+  %760 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store i64 %422, ptr %760, align 8
-  %.sroa.332.0..sroa_idx33 = getelementptr inbounds i8, ptr %338, i64 16
+  %.sroa.332.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %338, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.332.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.332.0..sroa_idx, i64 16, i1 false)
-  %.sroa.334.0..sroa_idx35 = getelementptr inbounds i8, ptr %338, i64 32
+  %.sroa.334.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %338, i64 32
   store i64 %.sroa.334.0.copyload, ptr %.sroa.334.0..sroa_idx35, align 8
-  %.sroa.437.0..sroa_idx38 = getelementptr inbounds i8, ptr %338, i64 40
+  %.sroa.437.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %338, i64 40
   store i8 %.sroa.437.0.copyload, ptr %.sroa.437.0..sroa_idx38, align 8
-  %.sroa.540.0..sroa_idx41 = getelementptr inbounds i8, ptr %338, i64 41
+  %.sroa.540.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %338, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.540.0..sroa_idx41, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.540.0..sroa_idx, i64 7, i1 false)
   %761 = trunc nuw i8 %.sroa.042.0 to i1
   %or.cond379 = and i1 %640, %761
@@ -15154,7 +15154,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .critedge383:                                     ; preds = %779
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %335)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %760, i64 40, i1 false)
-  %780 = getelementptr inbounds i8, ptr %0, i64 40
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 5, ptr %780, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %336)
   br label %781
@@ -15172,16 +15172,16 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 784:                                              ; preds = %799, %798, %795, %426
-  %.sroa.345.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.345.0..sroa_idx46 = getelementptr inbounds i8, ptr %329, i64 16
+  %.sroa.345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.345.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %329, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %329)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.0..sroa_idx46, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.0..sroa_idx, i64 16, i1 false)
-  %.sroa.347.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.347.0.copyload = load i64, ptr %.sroa.347.0..sroa_idx, align 8
-  %.sroa.450.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.450.0.copyload = load i8, ptr %.sroa.450.0..sroa_idx, align 8
-  %.sroa.553.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 33
-  %.sroa.553.0..sroa_idx54 = getelementptr inbounds i8, ptr %329, i64 41
+  %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 33
+  %.sroa.553.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %329, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.553.0..sroa_idx54, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.553.0..sroa_idx, i64 7, i1 false)
   %785 = icmp sgt i64 %427, -9223372036854775805
   %trunc325 = trunc i8 %.sroa.450.0.copyload to i1
@@ -15191,21 +15191,21 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %narrow = select i1 %not.or.cond390, i1 true, i1 %786
   %.sroa.055.0 = zext i1 %narrow to i8
   store i8 %.sroa.055.0, ptr %329, align 8
-  %787 = getelementptr inbounds i8, ptr %329, i64 8
+  %787 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i64 %427, ptr %787, align 8
-  %.sroa.347.0..sroa_idx48 = getelementptr inbounds i8, ptr %329, i64 32
+  %.sroa.347.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %329, i64 32
   store i64 %.sroa.347.0.copyload, ptr %.sroa.347.0..sroa_idx48, align 8
-  %.sroa.450.0..sroa_idx51 = getelementptr inbounds i8, ptr %329, i64 40
+  %.sroa.450.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %329, i64 40
   store i8 %.sroa.450.0.copyload, ptr %.sroa.450.0..sroa_idx51, align 8
   %or.cond392 = and i1 %785, %narrow
   %788 = select i1 %or.cond392, i1 %trunc325, i1 false
   br i1 %788, label %817, label %816
 
 789:                                              ; preds = %426
-  %790 = getelementptr inbounds i8, ptr %3, i64 32
+  %790 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %791 = load i8, ptr %790, align 8, !range !5, !noundef !4
   %trunc324 = trunc nuw i8 %791 to i1
-  %792 = getelementptr inbounds i8, ptr %3, i64 24
+  %792 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %793 = load i64, ptr %792, align 8, !noundef !4
   br i1 %trunc324, label %799, label %798
 
@@ -15216,7 +15216,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %810 unwind label %402
 
 795:                                              ; preds = %426
-  %796 = getelementptr inbounds i8, ptr %3, i64 24
+  %796 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %797 = load i8, ptr %796, align 8, !range !484, !noundef !4
   switch i8 %797, label %default.unreachable1101 [
     i8 0, label %811
@@ -15273,7 +15273,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 808:                                              ; preds = %807
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %333)
-  %809 = getelementptr inbounds i8, ptr %1, i64 186
+  %809 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 3, ptr %809, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
@@ -15283,8 +15283,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 811:                                              ; preds = %795
-  %812 = getelementptr inbounds i8, ptr %3, i64 8
-  %813 = getelementptr inbounds i8, ptr %0, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %813, ptr noundef nonnull align 8 dereferenceable(16) %812, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -15363,7 +15363,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .critedge396:                                     ; preds = %834
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %325)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %327, i64 40, i1 false)
-  %835 = getelementptr inbounds i8, ptr %0, i64 40
+  %835 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 3, ptr %835, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %327)
   br label %836
@@ -15381,27 +15381,27 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 839:                                              ; preds = %850, %849, %846, %431
-  %.sroa.360.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.362.0.copyload = load i64, ptr %.sroa.362.0..sroa_idx, align 8
-  %.sroa.465.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.465.0.copyload = load i8, ptr %.sroa.465.0..sroa_idx, align 8
-  %.sroa.568.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 33
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 33
   %840 = icmp sgt i64 %432, -9223372036854775805
   %trunc320 = trunc i8 %.sroa.465.0.copyload to i1
   %or.cond403 = select i1 %840, i1 %trunc320, i1 false
   br i1 %or.cond403, label %899, label %901
 
 841:                                              ; preds = %431
-  %842 = getelementptr inbounds i8, ptr %3, i64 32
+  %842 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %843 = load i8, ptr %842, align 8, !range !5, !noundef !4
   %trunc317 = trunc nuw i8 %843 to i1
-  %844 = getelementptr inbounds i8, ptr %3, i64 24
+  %844 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %845 = load i64, ptr %844, align 8, !noundef !4
   br i1 %trunc317, label %850, label %849
 
 846:                                              ; preds = %431
-  %847 = getelementptr inbounds i8, ptr %3, i64 24
+  %847 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %848 = load i8, ptr %847, align 8, !range !484, !noundef !4
   switch i8 %848, label %default.unreachable1101 [
     i8 0, label %892
@@ -15465,9 +15465,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 860:                                              ; preds = %859
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %322)
-  %861 = getelementptr inbounds i8, ptr %1, i64 182
+  %861 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %861, align 2
-  %862 = getelementptr inbounds i8, ptr %1, i64 186
+  %862 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 6, ptr %862, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
@@ -15479,7 +15479,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 864:                                              ; preds = %863
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %321)
-  %865 = getelementptr inbounds i8, ptr %1, i64 186
+  %865 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 19, ptr %865, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
@@ -15491,7 +15491,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 867:                                              ; preds = %866
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %320)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %319)
-  %868 = getelementptr inbounds i8, ptr %1, i64 144
+  %868 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %869 = load ptr, ptr %868, align 8, !noundef !4
   %870 = icmp eq ptr %869, null
   br i1 %870, label %.invoke1119, label %871
@@ -15536,7 +15536,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %880
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit548": ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit546"
-  %883 = getelementptr inbounds i8, ptr %1, i64 88
+  %883 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e6b8119347e1c1eE"(ptr noalias noundef align 8 dereferenceable(24) %883, ptr noundef nonnull %869)
           to label %884 unwind label %881
 
@@ -15580,15 +15580,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 892:                                              ; preds = %846
-  %893 = getelementptr inbounds i8, ptr %3, i64 8
-  %894 = getelementptr inbounds i8, ptr %0, i64 8
+  %893 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %894 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %894, ptr noundef nonnull align 8 dereferenceable(16) %893, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
 
 895:                                              ; preds = %846
-  %896 = getelementptr inbounds i8, ptr %3, i64 8
-  %897 = getelementptr inbounds i8, ptr %63, i64 8
+  %896 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %63, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %897, ptr noundef nonnull align 8 dereferenceable(16) %896, i64 16, i1 false)
   store i64 1, ptr %63, align 8
@@ -15614,15 +15614,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.070.0 = phi i8 [ 0, %900 ], [ 1, %899 ], [ 1, %839 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %315)
   store i8 %.sroa.070.0, ptr %315, align 8
-  %902 = getelementptr inbounds i8, ptr %315, i64 8
+  %902 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i64 %432, ptr %902, align 8
-  %.sroa.360.0..sroa_idx61 = getelementptr inbounds i8, ptr %315, i64 16
+  %.sroa.360.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %315, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.360.0..sroa_idx61, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.360.0..sroa_idx, i64 16, i1 false)
-  %.sroa.362.0..sroa_idx63 = getelementptr inbounds i8, ptr %315, i64 32
+  %.sroa.362.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %315, i64 32
   store i64 %.sroa.362.0.copyload, ptr %.sroa.362.0..sroa_idx63, align 8
-  %.sroa.465.0..sroa_idx66 = getelementptr inbounds i8, ptr %315, i64 40
+  %.sroa.465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %315, i64 40
   store i8 %.sroa.465.0.copyload, ptr %.sroa.465.0..sroa_idx66, align 8
-  %.sroa.568.0..sroa_idx69 = getelementptr inbounds i8, ptr %315, i64 41
+  %.sroa.568.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %315, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.568.0..sroa_idx69, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.568.0..sroa_idx, i64 7, i1 false)
   %903 = trunc nuw i8 %.sroa.070.0 to i1
   %or.cond405 = and i1 %840, %903
@@ -15635,9 +15635,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %312)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
   store i64 0, ptr %62, align 8
-  %906 = getelementptr inbounds i8, ptr %62, i64 8
+  %906 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %906, align 8
-  %907 = getelementptr inbounds i8, ptr %62, i64 16
+  %907 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 0, ptr %907, align 8
   %908 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 2366526980098, ptr noalias nocapture noundef align 8 dereferenceable(24) %62)
           to label %923 unwind label %921
@@ -15690,7 +15690,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .critedge409:                                     ; preds = %923
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %312)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %902, i64 40, i1 false)
-  %924 = getelementptr inbounds i8, ptr %0, i64 40
+  %924 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 6, ptr %924, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %313)
   br label %925
@@ -15708,22 +15708,22 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 928:                                              ; preds = %436
-  %929 = getelementptr inbounds i8, ptr %3, i64 32
+  %929 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %930 = load i8, ptr %929, align 8, !range !5, !noundef !4
   %trunc294 = trunc nuw i8 %930 to i1
-  %931 = getelementptr inbounds i8, ptr %3, i64 24
+  %931 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %932 = load i64, ptr %931, align 8, !noundef !4
   br i1 %trunc294, label %940, label %939
 
 933:                                              ; preds = %436
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %311)
-  %934 = getelementptr inbounds i8, ptr %3, i64 8
+  %934 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %311, ptr noundef nonnull align 8 dereferenceable(16) %934, i64 16, i1 false)
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$22reconstruct_formatting17h7da4c29a92771f54E"(ptr noalias noundef align 8 dereferenceable(192) %1)
           to label %1702 unwind label %1710
 
 935:                                              ; preds = %436
-  %936 = getelementptr inbounds i8, ptr %1, i64 56
+  %936 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %937 = load i64, ptr %936, align 8, !noundef !4
   %938 = icmp eq i64 %937, 0
   br i1 %938, label %1712, label %1713
@@ -15902,7 +15902,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   ]
 
 941:                                              ; preds = %940, %939
-  %942 = getelementptr inbounds i8, ptr %211, i64 8
+  %942 = getelementptr inbounds nuw i8, ptr %211, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %211)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %942, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store i8 1, ptr %211, align 8
@@ -15946,7 +15946,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 950:                                              ; preds = %939
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %284)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %284, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %951 = getelementptr inbounds i8, ptr %1, i64 152
+  %951 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %952 = load ptr, ptr %951, align 8, !noundef !4
   %.not304 = icmp eq ptr %952, null
   br i1 %.not304, label %1120, label %1121
@@ -15978,7 +15978,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 958:                                              ; preds = %939
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %242)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %242, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %959 = getelementptr inbounds i8, ptr %1, i64 185
+  %959 = getelementptr inbounds nuw i8, ptr %1, i64 185
   %960 = load i8, ptr %959, align 1, !range !484, !noundef !4
   %.not298 = icmp eq i8 %960, 0
   br i1 %.not298, label %1280, label %1284
@@ -15998,9 +15998,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 963:                                              ; preds = %939
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %229, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %964 = getelementptr inbounds i8, ptr %1, i64 183
+  %964 = getelementptr inbounds nuw i8, ptr %1, i64 183
   store i8 1, ptr %964, align 1
-  %965 = getelementptr inbounds i8, ptr %1, i64 182
+  %965 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %965, align 2
   br label %.invoke1121
 
@@ -16012,7 +16012,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 967:                                              ; preds = %939
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %968 = getelementptr inbounds i8, ptr %1, i64 182
+  %968 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %968, align 2
   br label %.invoke1121
 
@@ -16051,7 +16051,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.0121.0 = phi i1 [ false, %986 ], [ true, %989 ], [ true, %980 ], [ true, %979 ], [ true, %945 ]
   %977 = landingpad { ptr, i32 }
           cleanup
-  %978 = getelementptr inbounds i8, ptr %309, i64 24
+  %978 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %.val520 = load i64, ptr %978, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val520) #17
           to label %999 unwind label %531
@@ -16069,13 +16069,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %981, label %991, label %983
 
 983:                                              ; preds = %982
-  %984 = getelementptr inbounds i8, ptr %1, i64 104
+  %984 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %985 = load i64, ptr %984, align 8, !noundef !4
   %.not313 = icmp eq i64 %985, 0
   br i1 %.not313, label %989, label %986
 
 986:                                              ; preds = %983
-  %987 = getelementptr inbounds i8, ptr %1, i64 96
+  %987 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %988 = load ptr, ptr %987, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %307)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %307, ptr noundef nonnull align 8 dereferenceable(24) %309, i64 24, i1 false)
@@ -16092,7 +16092,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 991:                                              ; preds = %982, %990
   store i64 -9223372036854775804, ptr %0, align 8
-  %992 = getelementptr inbounds i8, ptr %309, i64 24
+  %992 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %.val519 = load i64, ptr %992, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val519)
           to label %995 unwind label %993
@@ -16127,7 +16127,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1001:                                             ; preds = %1021, %1003
   %.sroa.0124.1 = phi i8 [ %.sroa.0124.0, %1003 ], [ %.sroa.0124.3, %1021 ]
   %.pn311 = phi { ptr, i32 } [ %1004, %1003 ], [ %1022, %1021 ]
-  %1002 = getelementptr inbounds i8, ptr %305, i64 24
+  %1002 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %.val518 = load i64, ptr %1002, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val518) #17
           to label %1037 unwind label %531
@@ -16172,7 +16172,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit550": ; preds = %1010
   store ptr %.val493, ptr %303, align 8
-  %1015 = getelementptr inbounds i8, ptr %1, i64 104
+  %1015 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %1016 = load i64, ptr %1015, align 8
   %1017 = icmp eq i64 %1016, 1
   br i1 %1017, label %1018, label %1019
@@ -16199,7 +16199,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %1020, label %1018, label %1024
 
 1024:                                             ; preds = %1023
-  %1025 = getelementptr inbounds i8, ptr %1, i64 182
+  %1025 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1025, align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %302)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %302, ptr noundef nonnull align 8 dereferenceable(24) %305, i64 24, i1 false)
@@ -16213,7 +16213,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1027:                                             ; preds = %1018
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %303)
   store i64 -9223372036854775804, ptr %0, align 8
-  %1028 = getelementptr inbounds i8, ptr %305, i64 24
+  %1028 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %.val517 = load i64, ptr %1028, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val517)
           to label %1032 unwind label %1029
@@ -16267,7 +16267,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1043:                                             ; preds = %1042
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %300)
-  %1044 = getelementptr inbounds i8, ptr %1, i64 182
+  %1044 = getelementptr inbounds nuw i8, ptr %1, i64 182
   %1045 = load i8, ptr %1044, align 2, !range !5, !noundef !4
   %1046 = trunc nuw i8 %1045 to i1
   br i1 %1046, label %1048, label %1047
@@ -16330,13 +16330,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1040 unwind label %531
 
 1065:                                             ; preds = %"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit552"
-  %1066 = getelementptr inbounds i8, ptr %1, i64 88
+  %1066 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h1d961b6b829894abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1066, i64 noundef 1)
           to label %1067 unwind label %1063
 
 1067:                                             ; preds = %1065
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %298)
-  %1068 = getelementptr inbounds i8, ptr %301, i64 24
+  %1068 = getelementptr inbounds nuw i8, ptr %301, i64 24
   %1069 = load i64, ptr %1068, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %301, i64 24, i1 false)
   %1070 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1069, ptr noalias nocapture noundef align 8 dereferenceable(24) %49)
@@ -16349,7 +16349,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1072:                                             ; preds = %1071
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %298)
-  %1073 = getelementptr inbounds i8, ptr %1, i64 186
+  %1073 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 19, ptr %1073, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %299)
@@ -16378,7 +16378,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1077:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %293)
-  %1078 = getelementptr inbounds i8, ptr %294, i64 24
+  %1078 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %1079 = load i64, ptr %1078, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %294, i64 24, i1 false)
   %1080 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1079, ptr noalias nocapture noundef align 8 dereferenceable(24) %48)
@@ -16408,7 +16408,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1084:                                             ; preds = %949
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %291)
-  %1085 = getelementptr inbounds i8, ptr %292, i64 24
+  %1085 = getelementptr inbounds nuw i8, ptr %292, i64 24
   %1086 = load i64, ptr %1085, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %292, i64 24, i1 false)
   %1087 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1086, ptr noalias nocapture noundef align 8 dereferenceable(24) %47)
@@ -16451,9 +16451,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1096:                                             ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %289)
-  %1097 = getelementptr inbounds i8, ptr %289, i64 8
+  %1097 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.170, ptr %1097, align 8
-  %1098 = getelementptr inbounds i8, ptr %289, i64 16
+  %1098 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i64 19, ptr %1098, align 8
   store i64 -9223372036854775808, ptr %289, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %289)
@@ -16461,7 +16461,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1099:                                             ; preds = %1095, %1106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %287)
-  %1100 = getelementptr inbounds i8, ptr %290, i64 24
+  %1100 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %1101 = load i64, ptr %1100, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %290, i64 24, i1 false)
   %1102 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1101, ptr noalias nocapture noundef align 8 dereferenceable(24) %46)
@@ -16512,7 +16512,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1111:                                             ; preds = %1110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %285)
-  %1112 = getelementptr inbounds i8, ptr %286, i64 24
+  %1112 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %1113 = load i64, ptr %1112, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %286, i64 24, i1 false)
   %1114 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1113, ptr noalias nocapture noundef align 8 dereferenceable(24) %45)
@@ -16525,9 +16525,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1116:                                             ; preds = %1115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %285)
-  %1117 = getelementptr inbounds i8, ptr %1, i64 183
+  %1117 = getelementptr inbounds nuw i8, ptr %1, i64 183
   store i8 1, ptr %1117, align 1
-  %1118 = getelementptr inbounds i8, ptr %1, i64 182
+  %1118 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1118, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %286)
@@ -16557,9 +16557,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1125:                                             ; preds = %1124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %283)
-  %1126 = getelementptr inbounds i8, ptr %283, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.171, ptr %1126, align 8
-  %1127 = getelementptr inbounds i8, ptr %283, i64 16
+  %1127 = getelementptr inbounds nuw i8, ptr %283, i64 16
   store i64 12, ptr %1127, align 8
   store i64 -9223372036854775808, ptr %283, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %283)
@@ -16573,7 +16573,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1129:                                             ; preds = %1120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %282)
-  %1130 = getelementptr inbounds i8, ptr %284, i64 24
+  %1130 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %1131 = load i64, ptr %1130, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %284, i64 24, i1 false)
   %1132 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1131, ptr noalias nocapture noundef align 8 dereferenceable(24) %44)
@@ -16630,7 +16630,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1144:                                             ; preds = %939, %939, %939
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %281)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %281, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1145 = getelementptr inbounds i8, ptr %281, i64 24
+  %1145 = getelementptr inbounds nuw i8, ptr %281, i64 24
   %1146 = load i64, ptr %1145, align 8, !noundef !4
   switch i64 %1146, label %1147 [
     i64 2379411881986, label %.split.us.preheader
@@ -16643,21 +16643,21 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %876 unwind label %1216
 
 .split.preheader:                                 ; preds = %1144, %1144
-  %1148 = getelementptr inbounds i8, ptr %1, i64 182
+  %1148 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1148, align 2
-  %1149 = getelementptr inbounds i8, ptr %1, i64 96
+  %1149 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %1150 = load ptr, ptr %1149, align 8, !nonnull !4, !noundef !4
-  %1151 = getelementptr inbounds i8, ptr %1, i64 104
+  %1151 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %1152 = load i64, ptr %1151, align 8, !noundef !4
   %1153 = getelementptr inbounds ptr, ptr %1150, i64 %1152
   br label %.split
 
 .split.us.preheader:                              ; preds = %1144
-  %1154 = getelementptr inbounds i8, ptr %1, i64 182
+  %1154 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1154, align 2
-  %1155 = getelementptr inbounds i8, ptr %1, i64 96
+  %1155 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %1156 = load ptr, ptr %1155, align 8, !nonnull !4, !noundef !4
-  %1157 = getelementptr inbounds i8, ptr %1, i64 104
+  %1157 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %1158 = load i64, ptr %1157, align 8, !noundef !4
   %1159 = getelementptr inbounds ptr, ptr %1156, i64 %1158
   br label %.split.us
@@ -16754,7 +16754,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1189:                                             ; preds = %.split1092.us
   %1190 = inttoptr i64 %1184 to ptr
-  %1191 = getelementptr inbounds i8, ptr %1190, i64 16
+  %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 16
   %1192 = atomicrmw add ptr %1191, i64 1 seq_cst, align 8
   br label %.split1092.us.thread
 
@@ -16780,7 +16780,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1199:                                             ; preds = %1198
   %1200 = inttoptr i64 %1194 to ptr
-  %1201 = getelementptr inbounds i8, ptr %1200, i64 16
+  %1201 = getelementptr inbounds nuw i8, ptr %1200, i64 16
   %1202 = atomicrmw add ptr %1201, i64 1 seq_cst, align 8
   br label %1203
 
@@ -16845,7 +16845,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1218:                                             ; preds = %953
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %278)
-  %1219 = getelementptr inbounds i8, ptr %279, i64 24
+  %1219 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %1220 = load i64, ptr %1219, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %279, i64 24, i1 false)
   %1221 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1220, ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
@@ -16878,9 +16878,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1227:                                             ; preds = %1226
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %276)
-  %1228 = getelementptr inbounds i8, ptr %276, i64 8
+  %1228 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.174, ptr %1228, align 8
-  %1229 = getelementptr inbounds i8, ptr %276, i64 16
+  %1229 = getelementptr inbounds nuw i8, ptr %276, i64 16
   store i64 14, ptr %1229, align 8
   store i64 -9223372036854775808, ptr %276, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %276)
@@ -16901,7 +16901,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1234:                                             ; preds = %1230
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %275)
-  %1235 = getelementptr inbounds i8, ptr %277, i64 24
+  %1235 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %1236 = load i64, ptr %1235, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %277, i64 24, i1 false)
   %1237 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1236, ptr noalias nocapture noundef align 8 dereferenceable(24) %41)
@@ -16914,7 +16914,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1239:                                             ; preds = %1238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %275)
-  %1240 = getelementptr inbounds i8, ptr %1, i64 182
+  %1240 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1240, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %277)
@@ -17010,9 +17010,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1259:                                             ; preds = %1258
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %251)
-  %1260 = getelementptr inbounds i8, ptr %251, i64 8
+  %1260 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.175, ptr %1260, align 8
-  %1261 = getelementptr inbounds i8, ptr %251, i64 16
+  %1261 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 13, ptr %1261, align 8
   store i64 -9223372036854775808, ptr %251, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %251)
@@ -17065,7 +17065,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1270:                                             ; preds = %1269
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %246)
-  %1271 = getelementptr inbounds i8, ptr %247, i64 24
+  %1271 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %1272 = load i64, ptr %1271, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %247, i64 24, i1 false)
   %1273 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1272, ptr noalias nocapture noundef align 8 dereferenceable(24) %40)
@@ -17078,7 +17078,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1275:                                             ; preds = %1274
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %246)
-  %1276 = getelementptr inbounds i8, ptr %1, i64 112
+  %1276 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %245)
   store i64 -9223372036854775808, ptr %245, align 8
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a8e5efE"(ptr noalias noundef align 8 dereferenceable(24) %1276, ptr noalias nocapture noundef align 8 dereferenceable(48) %245)
@@ -17086,7 +17086,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1277:                                             ; preds = %1275
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %245)
-  %1278 = getelementptr inbounds i8, ptr %1, i64 182
+  %1278 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1278, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %247)
@@ -17100,7 +17100,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1280:                                             ; preds = %1284, %958
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %241)
-  %1281 = getelementptr inbounds i8, ptr %242, i64 24
+  %1281 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %1282 = load i64, ptr %1281, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %242, i64 24, i1 false)
   %1283 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1282, ptr noalias nocapture noundef align 8 dereferenceable(24) %39)
@@ -17122,9 +17122,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1286:                                             ; preds = %1285
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %241)
-  %1287 = getelementptr inbounds i8, ptr %1, i64 182
+  %1287 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1287, align 2
-  %1288 = getelementptr inbounds i8, ptr %1, i64 186
+  %1288 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 8, ptr %1288, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %242)
@@ -17139,15 +17139,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1290:                                             ; preds = %939, %939, %939, %939, %939, %939, %939
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %237)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %237, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1291 = getelementptr inbounds i8, ptr %237, i64 24
+  %1291 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %1292 = load i64, ptr %1291, align 8, !noundef !4
   %1293 = icmp eq i64 %1292, 3607772528642
   br i1 %1293, label %1294, label %1299
 
 1294:                                             ; preds = %1290
-  %1295 = getelementptr inbounds i8, ptr %237, i64 8
+  %1295 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %.val540 = load ptr, ptr %1295, align 8, !nonnull !4, !noundef !4
-  %1296 = getelementptr inbounds i8, ptr %237, i64 16
+  %1296 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %.val541 = load i64, ptr %1296, align 8, !noundef !4
   %1297 = invoke fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden17h22f24890750f64fdE"(ptr nonnull %.val540, i64 %.val541)
           to label %1299 unwind label %1307
@@ -17178,7 +17178,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %.sroa.094.0, label %1306, label %1304
 
 1304:                                             ; preds = %1303
-  %1305 = getelementptr inbounds i8, ptr %1, i64 182
+  %1305 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1305, align 2
   br label %1306
 
@@ -17216,7 +17216,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1312:                                             ; preds = %961
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %233)
-  %1313 = getelementptr inbounds i8, ptr %234, i64 24
+  %1313 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %1314 = load i64, ptr %1313, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %234, i64 24, i1 false)
   %1315 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext true, i64 noundef 30064771074, i64 noundef %1314, ptr noalias nocapture noundef align 8 dereferenceable(24) %37)
@@ -17229,7 +17229,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1317:                                             ; preds = %1316
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %233)
-  %1318 = getelementptr inbounds i8, ptr %1, i64 182
+  %1318 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1318, align 2
   store i64 -9223372036854775803, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %234)
@@ -17245,7 +17245,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.0178.0 = phi i1 [ false, %1324 ], [ true, %1323 ], [ true, %962 ]
   %1321 = landingpad { ptr, i32 }
           cleanup
-  %1322 = getelementptr inbounds i8, ptr %232, i64 24
+  %1322 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %.val514 = load i64, ptr %1322, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val514) #17
           to label %1332 unwind label %531
@@ -17257,23 +17257,23 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1324:                                             ; preds = %1323
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %231)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %230)
-  %1325 = getelementptr inbounds i8, ptr %232, i64 32
+  %1325 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %1326 = load i8, ptr %1325, align 8, !range !5, !noundef !4
-  %1327 = getelementptr inbounds i8, ptr %232, i64 33
+  %1327 = getelementptr inbounds nuw i8, ptr %232, i64 33
   %1328 = load i8, ptr %1327, align 1, !range !5, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, ptr noundef nonnull align 8 dereferenceable(24) %232, i64 24, i1 false)
-  %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 24
+  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 24
   store i64 2272037699586, ptr %.sroa.496.0..sroa_idx, align 8
-  %.sroa.597.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 32
+  %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 32
   store i8 %1326, ptr %.sroa.597.0..sroa_idx, align 8
-  %.sroa.698.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 33
+  %.sroa.698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 33
   store i8 %1328, ptr %.sroa.698.0..sroa_idx, align 1
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step17h2d317a7008a30f48E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, i8 noundef 6, ptr noalias nocapture noundef align 8 dereferenceable(40) %230)
           to label %1329 unwind label %1320
 
 1329:                                             ; preds = %1324
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %230)
-  %1330 = getelementptr inbounds i8, ptr %232, i64 24
+  %1330 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %.val513 = load i64, ptr %1330, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val513)
           to label %1331 unwind label %402
@@ -17299,7 +17299,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1336 unwind label %1339
 
 1336:                                             ; preds = %1335
-  %1337 = getelementptr inbounds i8, ptr %1, i64 182
+  %1337 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1337, align 2
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14parse_raw_data17h81acbc5d39d921c1E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %228, i8 noundef 3)
           to label %1338 unwind label %1334
@@ -17321,7 +17321,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1340:                                             ; preds = %972
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %224)
-  %1341 = getelementptr inbounds i8, ptr %225, i64 24
+  %1341 = getelementptr inbounds nuw i8, ptr %225, i64 24
   %1342 = load i64, ptr %1341, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %225, i64 24, i1 false)
   %1343 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1342, ptr noalias nocapture noundef align 8 dereferenceable(24) %36)
@@ -17334,9 +17334,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1345:                                             ; preds = %1344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %224)
-  %1346 = getelementptr inbounds i8, ptr %1, i64 182
+  %1346 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1346, align 2
-  %1347 = getelementptr inbounds i8, ptr %1, i64 186
+  %1347 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %1348 = load i8, ptr %1347, align 2, !range !7, !noundef !4
   %switch.tableidx = add nsw i8 %1348, -8
   %1349 = icmp ult i8 %switch.tableidx, 7
@@ -17390,7 +17390,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1360:                                             ; preds = %1357
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %221)
-  %1361 = getelementptr inbounds i8, ptr %223, i64 24
+  %1361 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %1362 = load i64, ptr %1361, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %223, i64 24, i1 false)
   %1363 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1362, ptr noalias nocapture noundef align 8 dereferenceable(24) %35)
@@ -17453,7 +17453,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1378:                                             ; preds = %1374, %1377
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %218)
-  %1379 = getelementptr inbounds i8, ptr %220, i64 24
+  %1379 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %1380 = load i64, ptr %1379, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %220, i64 24, i1 false)
   %1381 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1380, ptr noalias nocapture noundef align 8 dereferenceable(24) %34)
@@ -17523,7 +17523,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1399:                                             ; preds = %1395, %1392, %1398
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %215)
-  %1400 = getelementptr inbounds i8, ptr %217, i64 24
+  %1400 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %1401 = load i64, ptr %1400, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %217, i64 24, i1 false)
   %1402 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1401, ptr noalias nocapture noundef align 8 dereferenceable(24) %33)
@@ -17587,9 +17587,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1419:                                             ; preds = %1418
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %296)
-  %1420 = getelementptr inbounds i8, ptr %296, i64 8
+  %1420 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.176, ptr %1420, align 8
-  %1421 = getelementptr inbounds i8, ptr %296, i64 16
+  %1421 = getelementptr inbounds nuw i8, ptr %296, i64 16
   store i64 31, ptr %1421, align 8
   store i64 -9223372036854775808, ptr %296, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %296)
@@ -17608,7 +17608,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %2794
 
 1425:                                             ; preds = %1422
-  %1426 = getelementptr inbounds i8, ptr %1, i64 186
+  %1426 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 18, ptr %1426, align 2
   br label %1424
 
@@ -17617,9 +17617,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1428:                                             ; preds = %1427
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %295)
-  %1429 = getelementptr inbounds i8, ptr %295, i64 8
+  %1429 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.177, ptr %1429, align 8
-  %1430 = getelementptr inbounds i8, ptr %295, i64 16
+  %1430 = getelementptr inbounds nuw i8, ptr %295, i64 16
   store i64 31, ptr %1430, align 8
   store i64 -9223372036854775808, ptr %295, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %295)
@@ -17636,14 +17636,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1433:                                             ; preds = %1431
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1434 = getelementptr inbounds i8, ptr %0, i64 40
+  %1434 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 18, ptr %1434, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 1435:                                             ; preds = %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %274)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %274, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1436 = getelementptr inbounds i8, ptr %274, i64 24
+  %1436 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %1437 = load i64, ptr %1436, align 8, !range !57, !noundef !4
   %1438 = and i64 %1437, 3
   %1439 = icmp eq i64 %1438, 0
@@ -17651,7 +17651,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1440:                                             ; preds = %1435
   %1441 = inttoptr i64 %1437 to ptr
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 16
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 16
   %1443 = atomicrmw add ptr %1442, i64 1 seq_cst, align 8
   br label %1444
 
@@ -17727,7 +17727,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1461:                                             ; preds = %1460
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %272)
-  %1462 = getelementptr inbounds i8, ptr %1, i64 152
+  %1462 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1463 = load ptr, ptr %1462, align 8, !noundef !4
   store ptr null, ptr %1462, align 8
   %1464 = icmp eq ptr %1463, null
@@ -17739,9 +17739,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1467:                                             ; preds = %1461
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %271)
-  %1468 = getelementptr inbounds i8, ptr %271, i64 8
+  %1468 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.178, ptr %1468, align 8
-  %1469 = getelementptr inbounds i8, ptr %271, i64 16
+  %1469 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store i64 36, ptr %1469, align 8
   store i64 -9223372036854775808, ptr %271, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %271)
@@ -17776,9 +17776,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1478:                                             ; preds = %1477
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %270)
-  %1479 = getelementptr inbounds i8, ptr %270, i64 8
+  %1479 = getelementptr inbounds nuw i8, ptr %270, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.179, ptr %1479, align 8
-  %1480 = getelementptr inbounds i8, ptr %270, i64 16
+  %1480 = getelementptr inbounds nuw i8, ptr %270, i64 16
   store i64 36, ptr %1480, align 8
   store i64 -9223372036854775808, ptr %270, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %270)
@@ -17796,7 +17796,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1483:                                             ; preds = %1481
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %269)
-  %1484 = getelementptr inbounds i8, ptr %1, i64 104
+  %1484 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %1485 = load i64, ptr %1484, align 8, !noundef !4
   %.not295 = icmp eq i64 %1485, 0
   br i1 %.not295, label %1486, label %1487
@@ -17806,7 +17806,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %876 unwind label %1475
 
 1487:                                             ; preds = %1483
-  %1488 = getelementptr inbounds i8, ptr %1, i64 96
+  %1488 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %1489 = load ptr, ptr %1488, align 8, !nonnull !4, !noundef !4
   %1490 = add i64 %1485, -1
   %1491 = getelementptr inbounds [0 x ptr], ptr %1489, i64 0, i64 %1490
@@ -17842,9 +17842,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1500:                                             ; preds = %1498
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %268)
-  %1501 = getelementptr inbounds i8, ptr %268, i64 8
+  %1501 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.180, ptr %1501, align 8
-  %1502 = getelementptr inbounds i8, ptr %268, i64 16
+  %1502 = getelementptr inbounds nuw i8, ptr %268, i64 16
   store i64 27, ptr %1502, align 8
   store i64 -9223372036854775808, ptr %268, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %268)
@@ -17876,9 +17876,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1509:                                             ; preds = %1508
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %267)
-  %1510 = getelementptr inbounds i8, ptr %267, i64 8
+  %1510 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.179, ptr %1510, align 8
-  %1511 = getelementptr inbounds i8, ptr %267, i64 16
+  %1511 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store i64 36, ptr %1511, align 8
   store i64 -9223372036854775808, ptr %267, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %267)
@@ -17902,9 +17902,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1517:                                             ; preds = %1516
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %266)
-  %1518 = getelementptr inbounds i8, ptr %266, i64 8
+  %1518 = getelementptr inbounds nuw i8, ptr %266, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.180, ptr %1518, align 8
-  %1519 = getelementptr inbounds i8, ptr %266, i64 16
+  %1519 = getelementptr inbounds nuw i8, ptr %266, i64 16
   store i64 27, ptr %1519, align 8
   store i64 -9223372036854775808, ptr %266, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %266)
@@ -17923,9 +17923,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1524:                                             ; preds = %1523
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %265)
-  %1525 = getelementptr inbounds i8, ptr %265, i64 8
+  %1525 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.181, ptr %1525, align 8
-  %1526 = getelementptr inbounds i8, ptr %265, i64 16
+  %1526 = getelementptr inbounds nuw i8, ptr %265, i64 16
   store i64 19, ptr %1526, align 8
   store i64 -9223372036854775808, ptr %265, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %265)
@@ -17936,9 +17936,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %264)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   store i64 0, ptr %60, align 8
-  %1528 = getelementptr inbounds i8, ptr %60, i64 8
+  %1528 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %1528, align 8
-  %1529 = getelementptr inbounds i8, ptr %60, i64 16
+  %1529 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 0, ptr %1529, align 8
   %1530 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 4243427688450, ptr noalias nocapture noundef align 8 dereferenceable(24) %60)
           to label %1531 unwind label %402
@@ -17968,7 +17968,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1536:                                             ; preds = %940, %940, %940
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %263)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %263, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1537 = getelementptr inbounds i8, ptr %263, i64 24
+  %1537 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %1538 = load i64, ptr %1537, align 8, !range !57, !noundef !4
   %1539 = icmp eq i64 %1538, 2379411881986
   br i1 %1539, label %1541, label %1540
@@ -17994,7 +17994,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1547:                                             ; preds = %1543
   %1548 = inttoptr i64 %1544 to ptr
-  %1549 = getelementptr inbounds i8, ptr %1548, i64 16
+  %1549 = getelementptr inbounds nuw i8, ptr %1548, i64 16
   %1550 = atomicrmw add ptr %1549, i64 1 seq_cst, align 8
   br label %1551
 
@@ -18014,7 +18014,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1558:                                             ; preds = %1554
   %1559 = inttoptr i64 %1555 to ptr
-  %1560 = getelementptr inbounds i8, ptr %1559, i64 16
+  %1560 = getelementptr inbounds nuw i8, ptr %1559, i64 16
   %1561 = atomicrmw add ptr %1560, i64 1 seq_cst, align 8
   br label %1562
 
@@ -18024,9 +18024,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1564:                                             ; preds = %1553
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %262)
-  %1565 = getelementptr inbounds i8, ptr %262, i64 8
+  %1565 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.182, ptr %1565, align 8
-  %1566 = getelementptr inbounds i8, ptr %262, i64 16
+  %1566 = getelementptr inbounds nuw i8, ptr %262, i64 16
   store i64 24, ptr %1566, align 8
   store i64 -9223372036854775808, ptr %262, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %262)
@@ -18040,7 +18040,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1571:                                             ; preds = %1567
   %1572 = inttoptr i64 %1568 to ptr
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 16
+  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 16
   %1574 = atomicrmw add ptr %1573, i64 1 seq_cst, align 8
   br label %1575
 
@@ -18106,9 +18106,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1589:                                             ; preds = %1588
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %259)
-  %1590 = getelementptr inbounds i8, ptr %259, i64 8
+  %1590 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.183, ptr %1590, align 8
-  %1591 = getelementptr inbounds i8, ptr %259, i64 16
+  %1591 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store i64 23, ptr %1591, align 8
   store i64 -9223372036854775808, ptr %259, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %259)
@@ -18119,7 +18119,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1593 unwind label %1610
 
 1593:                                             ; preds = %1592
-  %1594 = getelementptr inbounds i8, ptr %261, i64 24
+  %1594 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %1595 = load i64, ptr %1594, align 8, !range !57, !noundef !4
   %1596 = invoke fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$18current_node_named17hdbaec90ae6563dabE"(ptr noalias noundef readonly align 8 dereferenceable(192) %1, i64 noundef %1595)
           to label %1597 unwind label %1587
@@ -18129,9 +18129,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1598:                                             ; preds = %1597
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %260)
-  %1599 = getelementptr inbounds i8, ptr %260, i64 8
+  %1599 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.184, ptr %1599, align 8
-  %1600 = getelementptr inbounds i8, ptr %260, i64 16
+  %1600 = getelementptr inbounds nuw i8, ptr %260, i64 16
   store i64 25, ptr %1600, align 8
   store i64 -9223372036854775808, ptr %260, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %260)
@@ -18156,7 +18156,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1604:                                             ; preds = %1589
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %259)
   store i64 -9223372036854775804, ptr %0, align 8
-  %1605 = getelementptr inbounds i8, ptr %261, i64 24
+  %1605 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %.val506 = load i64, ptr %1605, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val506)
           to label %1603 unwind label %1606
@@ -18179,7 +18179,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1610:                                             ; preds = %1592, %1589, %1585
   %lpad.thr_comm892 = landingpad { ptr, i32 }
           cleanup
-  %1611 = getelementptr inbounds i8, ptr %261, i64 24
+  %1611 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %.val505 = load i64, ptr %1611, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val505) #17
           to label %1609 unwind label %531
@@ -18187,7 +18187,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1612:                                             ; preds = %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940, %940
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %248)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %248, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1613 = getelementptr inbounds i8, ptr %248, i64 24
+  %1613 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %1614 = load i64, ptr %1613, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15adoption_agency17h0c6a8caa644304b5E"(ptr noalias noundef align 8 dereferenceable(192) %1, i64 noundef %1614)
           to label %1617 unwind label %1615
@@ -18210,7 +18210,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1619:                                             ; preds = %940, %940, %940
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %244)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %244, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1620 = getelementptr inbounds i8, ptr %244, i64 24
+  %1620 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %1621 = load i64, ptr %1620, align 8, !range !57, !noundef !4
   %1622 = and i64 %1621, 3
   %1623 = icmp eq i64 %1622, 0
@@ -18218,7 +18218,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1624:                                             ; preds = %1619
   %1625 = inttoptr i64 %1621 to ptr
-  %1626 = getelementptr inbounds i8, ptr %1625, i64 16
+  %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 16
   %1627 = atomicrmw add ptr %1626, i64 1 seq_cst, align 8
   br label %1628
 
@@ -18305,20 +18305,20 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1647:                                             ; preds = %1646
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %239)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %238)
-  %1648 = getelementptr inbounds i8, ptr %240, i64 24
+  %1648 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %1649 = load i64, ptr %1648, align 8, !range !57, !noundef !4
-  %1650 = getelementptr inbounds i8, ptr %240, i64 33
+  %1650 = getelementptr inbounds nuw i8, ptr %240, i64 33
   %1651 = load i8, ptr %1650, align 1, !range !5, !noundef !4
   store i64 0, ptr %238, align 8
-  %.sroa.088.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 8
+  %.sroa.088.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.088.sroa.4.0..sroa_idx, align 8
-  %.sroa.088.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 16
+  %.sroa.088.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 16
   store i64 0, ptr %.sroa.088.sroa.5.0..sroa_idx, align 8
-  %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 24
+  %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 24
   store i64 %1649, ptr %.sroa.489.0..sroa_idx, align 8
-  %.sroa.590.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 32
+  %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 32
   store i8 0, ptr %.sroa.590.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %238, i64 33
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 33
   store i8 %1651, ptr %.sroa.6.0..sroa_idx, align 1
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step17h2d317a7008a30f48E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, i8 noundef 6, ptr noalias nocapture noundef align 8 dereferenceable(40) %238)
           to label %1652 unwind label %1645
@@ -18340,7 +18340,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1655:                                             ; preds = %1646, %1416
   %lpad.thr_comm912 = landingpad { ptr, i32 }
           cleanup
-  %1656 = getelementptr inbounds i8, ptr %240, i64 24
+  %1656 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %.val502 = load i64, ptr %1656, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val502) #17
           to label %1654 unwind label %531
@@ -18348,19 +18348,19 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1657:                                             ; preds = %941
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %207)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.186, ptr %207, align 8
-  %1658 = getelementptr inbounds i8, ptr %207, i64 8
+  %1658 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store i64 1, ptr %1658, align 8
-  %1659 = getelementptr inbounds i8, ptr %207, i64 32
+  %1659 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store ptr null, ptr %1659, align 8
-  %1660 = getelementptr inbounds i8, ptr %207, i64 16
+  %1660 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1660, align 8
-  %1661 = getelementptr inbounds i8, ptr %207, i64 24
+  %1661 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i64 0, ptr %1661, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.187) #18
           to label %876 unwind label %1693
 
 1662:                                             ; preds = %941
-  %1663 = getelementptr inbounds i8, ptr %211, i64 40
+  %1663 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %1664 = load i8, ptr %1663, align 8, !range !5, !noundef !4
   %trunc314 = trunc nuw i8 %1664 to i1
   br i1 %trunc314, label %1669, label %1665
@@ -18368,7 +18368,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1665:                                             ; preds = %1662
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %210)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %210, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1666 = getelementptr inbounds i8, ptr %1, i64 177
+  %1666 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %1667 = load i8, ptr %1666, align 1, !range !5, !noundef !4
   %1668 = trunc nuw i8 %1667 to i1
   br i1 %1668, label %1671, label %1670
@@ -18383,7 +18383,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1678 unwind label %1692
 
 1671:                                             ; preds = %1665
-  %1672 = getelementptr inbounds i8, ptr %210, i64 24
+  %1672 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %1673 = load i64, ptr %1672, align 8, !range !57, !noundef !4
   %1674 = icmp eq i64 %1673, 1563368095746
   br i1 %1674, label %1676, label %1675
@@ -18403,7 +18403,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1678:                                             ; preds = %1670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %209)
-  %1679 = getelementptr inbounds i8, ptr %210, i64 24
+  %1679 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %1680 = load i64, ptr %1679, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %210, i64 24, i1 false)
   %1681 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1680, ptr noalias nocapture noundef align 8 dereferenceable(24) %32)
@@ -18485,12 +18485,12 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %1703, label %1705, label %1707
 
 1705:                                             ; preds = %1704
-  %1706 = getelementptr inbounds i8, ptr %1, i64 182
+  %1706 = getelementptr inbounds nuw i8, ptr %1, i64 182
   store i8 0, ptr %1706, align 2
   br label %1707
 
 1707:                                             ; preds = %1704, %1705
-  %1708 = getelementptr inbounds i8, ptr %61, i64 8
+  %1708 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1708, ptr noundef nonnull align 8 dereferenceable(16) %311, i64 16, i1 false)
   store i64 1, ptr %61, align 8
@@ -18507,7 +18507,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %lpad.thr_comm929 = landingpad { ptr, i32 }
           cleanup
   %.val489 = load i64, ptr %311, align 8, !range !57, !alias.scope !300, !noundef !4
-  %1711 = getelementptr inbounds i8, ptr %311, i64 12
+  %1711 = getelementptr inbounds nuw i8, ptr %311, i64 12
   %.val490 = load i32, ptr %1711, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val489, i32 %.val490) #17
   br label %.thread
@@ -18531,7 +18531,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 1716:                                             ; preds = %441
-  %1717 = getelementptr inbounds i8, ptr %204, i64 8
+  %1717 = getelementptr inbounds nuw i8, ptr %204, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %204)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1717, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store i8 1, ptr %204, align 8
@@ -18540,8 +18540,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %1719, label %1749, label %1744
 
 1720:                                             ; preds = %441
-  %1721 = getelementptr inbounds i8, ptr %3, i64 8
-  %1722 = getelementptr inbounds i8, ptr %59, i64 8
+  %1721 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1722 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1722, ptr noundef nonnull align 8 dereferenceable(16) %1721, i64 16, i1 false)
   store i64 1, ptr %59, align 8
@@ -18568,7 +18568,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1728 unwind label %402
 
 1728:                                             ; preds = %1726
-  %1729 = getelementptr inbounds i8, ptr %1, i64 104
+  %1729 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %1730 = load i64, ptr %1729, align 8
   %.not288 = icmp eq i64 %1730, 0
   %or.cond1086 = select i1 %1727, i1 %.not288, i1 false
@@ -18596,7 +18596,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1737:                                             ; preds = %1736
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %205)
-  %1738 = getelementptr inbounds i8, ptr %1, i64 187
+  %1738 = getelementptr inbounds nuw i8, ptr %1, i64 187
   %1739 = load i8, ptr %1738, align 1, !range !1493, !noundef !4
   store i8 23, ptr %1738, align 1
   %1740 = icmp eq i8 %1739, 23
@@ -18608,26 +18608,26 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1742:                                             ; preds = %1737
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1743 = getelementptr inbounds i8, ptr %0, i64 40
+  %1743 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %1739, ptr %1743, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 1744:                                             ; preds = %1749, %1716
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %201)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.192, ptr %201, align 8
-  %1745 = getelementptr inbounds i8, ptr %201, i64 8
+  %1745 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i64 1, ptr %1745, align 8
-  %1746 = getelementptr inbounds i8, ptr %201, i64 32
+  %1746 = getelementptr inbounds nuw i8, ptr %201, i64 32
   store ptr null, ptr %1746, align 8
-  %1747 = getelementptr inbounds i8, ptr %201, i64 16
+  %1747 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1747, align 8
-  %1748 = getelementptr inbounds i8, ptr %201, i64 24
+  %1748 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i64 0, ptr %1748, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.193) #18
           to label %876 unwind label %1773
 
 1749:                                             ; preds = %1716
-  %1750 = getelementptr inbounds i8, ptr %204, i64 40
+  %1750 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %1751 = load i8, ptr %1750, align 8, !range !5, !noundef !4
   %trunc289 = trunc nuw i8 %1751 to i1
   br i1 %trunc289, label %1752, label %1744
@@ -18651,7 +18651,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1757:                                             ; preds = %1752
   store ptr %1753, ptr %202, align 8
-  %1758 = getelementptr inbounds i8, ptr %1, i64 187
+  %1758 = getelementptr inbounds nuw i8, ptr %1, i64 187
   %1759 = load i8, ptr %1758, align 1, !range !1493, !noundef !4
   store i8 23, ptr %1758, align 1
   %1760 = icmp eq i8 %1759, 23
@@ -18662,9 +18662,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %876 unwind label %1767
 
 1762:                                             ; preds = %1757
-  %1763 = getelementptr inbounds i8, ptr %1, i64 186
+  %1763 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 %1759, ptr %1763, align 2
-  %1764 = getelementptr inbounds i8, ptr %203, i64 24
+  %1764 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %1765 = load i64, ptr %1764, align 8, !range !57, !noundef !4
   %1766 = icmp eq i64 %1765, 85899345922
   br i1 %1766, label %1770, label %1769
@@ -18722,7 +18722,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1784:                                             ; preds = %1770
   %1785 = load ptr, ptr %202, align 8, !nonnull !4, !noundef !4
-  %1786 = getelementptr inbounds i8, ptr %0, i64 8
+  %1786 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1785, ptr %1786, align 8
   store i64 -9223372036854775799, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202)
@@ -18763,10 +18763,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 1796:                                             ; preds = %446
-  %1797 = getelementptr inbounds i8, ptr %3, i64 32
+  %1797 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %1798 = load i8, ptr %1797, align 8, !range !5, !noundef !4
   %trunc284 = trunc nuw i8 %1798 to i1
-  %1799 = getelementptr inbounds i8, ptr %3, i64 24
+  %1799 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %1800 = load i64, ptr %1799, align 8, !noundef !4
   br i1 %trunc284, label %1805, label %1804
 
@@ -18882,7 +18882,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %.thread
 
 1816:                                             ; preds = %1807
-  %1817 = getelementptr inbounds i8, ptr %1, i64 112
+  %1817 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %196)
   store i64 -9223372036854775808, ptr %196, align 8
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a8e5efE"(ptr noalias noundef align 8 dereferenceable(24) %1817, ptr noalias nocapture noundef align 8 dereferenceable(48) %196)
@@ -18891,7 +18891,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1818:                                             ; preds = %1816
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %196)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %195)
-  %1819 = getelementptr inbounds i8, ptr %197, i64 24
+  %1819 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %1820 = load i64, ptr %1819, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %197, i64 24, i1 false)
   %1821 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1820, ptr noalias nocapture noundef align 8 dereferenceable(24) %31)
@@ -18904,7 +18904,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1823:                                             ; preds = %1822
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %195)
-  %1824 = getelementptr inbounds i8, ptr %1, i64 186
+  %1824 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 10, ptr %1824, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %197)
@@ -18923,7 +18923,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1826:                                             ; preds = %1808
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %193)
-  %1827 = getelementptr inbounds i8, ptr %194, i64 24
+  %1827 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %1828 = load i64, ptr %1827, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %194, i64 24, i1 false)
   %1829 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1828, ptr noalias nocapture noundef align 8 dereferenceable(24) %30)
@@ -18936,7 +18936,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1831:                                             ; preds = %1830
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193)
-  %1832 = getelementptr inbounds i8, ptr %1, i64 186
+  %1832 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 11, ptr %1832, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %194)
@@ -18952,9 +18952,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %192)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   store i64 0, ptr %58, align 8
-  %1835 = getelementptr inbounds i8, ptr %58, i64 8
+  %1835 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %1835, align 8
-  %1836 = getelementptr inbounds i8, ptr %58, i64 16
+  %1836 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 0, ptr %1836, align 8
   %1837 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 373662154754, ptr noalias nocapture noundef align 8 dereferenceable(24) %58)
           to label %1838 unwind label %402
@@ -18968,7 +18968,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1839:                                             ; preds = %1838
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1840 = getelementptr inbounds i8, ptr %0, i64 40
+  %1840 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 11, ptr %1840, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -18985,7 +18985,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1842:                                             ; preds = %1841
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190)
-  %1843 = getelementptr inbounds i8, ptr %191, i64 24
+  %1843 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %1844 = load i64, ptr %1843, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %191, i64 24, i1 false)
   %1845 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %1844, ptr noalias nocapture noundef align 8 dereferenceable(24) %29)
@@ -18998,7 +18998,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1847:                                             ; preds = %1846
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190)
-  %1848 = getelementptr inbounds i8, ptr %1, i64 186
+  %1848 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 12, ptr %1848, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %191)
@@ -19014,9 +19014,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %189)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   store i64 0, ptr %57, align 8
-  %1851 = getelementptr inbounds i8, ptr %57, i64 8
+  %1851 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %1851, align 8
-  %1852 = getelementptr inbounds i8, ptr %57, i64 16
+  %1852 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %1852, align 8
   %1853 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 3813930958850, ptr noalias nocapture noundef align 8 dereferenceable(24) %57)
           to label %1854 unwind label %402
@@ -19030,7 +19030,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1855:                                             ; preds = %1854
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %189)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1856 = getelementptr inbounds i8, ptr %0, i64 40
+  %1856 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 12, ptr %1856, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -19060,7 +19060,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1866:                                             ; preds = %1864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %1867 = getelementptr inbounds i8, ptr %0, i64 40
+  %1867 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %1865, ptr %1867, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -19075,9 +19075,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1870:                                             ; preds = %1869
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %184)
-  %1871 = getelementptr inbounds i8, ptr %185, i64 8
+  %1871 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %.val538 = load ptr, ptr %1871, align 8, !nonnull !4, !noundef !4
-  %1872 = getelementptr inbounds i8, ptr %185, i64 16
+  %1872 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %.val539 = load i64, ptr %1872, align 8, !noundef !4
   %1873 = invoke fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14is_type_hidden17h22f24890750f64fdE"(ptr nonnull %.val538, i64 %.val539)
           to label %1874 unwind label %1884
@@ -19093,7 +19093,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1876:                                             ; preds = %1874
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %183)
-  %1877 = getelementptr inbounds i8, ptr %185, i64 24
+  %1877 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %1878 = load i64, ptr %1877, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %185, i64 24, i1 false)
   %1879 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext true, i64 noundef 30064771074, i64 noundef %1878, ptr noalias nocapture noundef align 8 dereferenceable(24) %28)
@@ -19141,13 +19141,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %1888, label %.critedge430, label %1890
 
 1890:                                             ; preds = %1889
-  %1891 = getelementptr inbounds i8, ptr %1, i64 152
+  %1891 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %1892 = load ptr, ptr %1891, align 8, !noundef !4
   %.not285 = icmp eq ptr %1892, null
   br i1 %.not285, label %1893, label %.critedge430
 
 1893:                                             ; preds = %1890
-  %1894 = getelementptr inbounds i8, ptr %181, i64 24
+  %1894 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %1895 = load i64, ptr %1894, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %181, i64 24, i1 false)
   %1896 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext true, i64 noundef 30064771074, i64 noundef %1895, ptr noalias nocapture noundef align 8 dereferenceable(24) %27)
@@ -19217,7 +19217,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %1913 unwind label %402, !range !7
 
 1913:                                             ; preds = %1911
-  %1914 = getelementptr inbounds i8, ptr %1, i64 186
+  %1914 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 %1912, ptr %1914, align 2
   br label %1910
 
@@ -19260,33 +19260,33 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %174)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %174, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %173)
-  %1923 = getelementptr inbounds i8, ptr %1, i64 64
+  %1923 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %1923, i64 24, i1 false)
   store i64 0, ptr %1923, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
+  %.sroa.3210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %.sroa.3210.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %172)
-  %1924 = getelementptr inbounds i8, ptr %173, i64 8
+  %1924 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %1925 = load ptr, ptr %1924, align 8, !nonnull !4, !noundef !4
-  %1926 = getelementptr inbounds i8, ptr %173, i64 16
+  %1926 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %1927 = load i64, ptr %1926, align 8, !noundef !4
   %1928 = getelementptr inbounds { i8, [7 x i8], { i64, { { [2 x i32] } }, {}, {} } }, ptr %1925, i64 %1927
   store ptr %1925, ptr %172, align 8
-  %1929 = getelementptr inbounds i8, ptr %172, i64 8
+  %1929 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store ptr %1928, ptr %1929, align 8
   %1930 = invoke fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h404c21b0520fe0c6E"(ptr noalias noundef align 8 dereferenceable(16) %172)
           to label %1938 unwind label %1996
 
 1931:                                             ; preds = %451
-  %1932 = getelementptr inbounds i8, ptr %3, i64 24
+  %1932 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %1933 = load i8, ptr %1932, align 8, !range !484, !noundef !4
-  %1934 = getelementptr inbounds i8, ptr %3, i64 8
-  %1935 = getelementptr inbounds i8, ptr %175, i64 8
+  %1934 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1935 = getelementptr inbounds nuw i8, ptr %175, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %175)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1935, ptr noundef nonnull align 8 dereferenceable(16) %1934, i64 16, i1 false)
-  %1936 = getelementptr inbounds i8, ptr %1, i64 64
+  %1936 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i8 %1933, ptr %175, align 8
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca62d68a8d498813E"(ptr noalias noundef align 8 dereferenceable(24) %1936, ptr noalias nocapture noundef align 8 dereferenceable(24) %175)
           to label %1937 unwind label %402
@@ -19307,9 +19307,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1939:                                             ; preds = %1938
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %171)
-  %1940 = getelementptr inbounds i8, ptr %171, i64 8
+  %1940 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.194, ptr %1940, align 8
-  %1941 = getelementptr inbounds i8, ptr %171, i64 16
+  %1941 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store i64 20, ptr %1941, align 8
   store i64 -9223372036854775808, ptr %171, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$11parse_error17h3c6ed3c2ba13bfdaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %171)
@@ -19319,17 +19319,17 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.0617.0.copyload = load i64, ptr %173, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
   store ptr %1925, ptr %166, align 8
-  %.sroa.2614.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 8
+  %.sroa.2614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
   store ptr %1925, ptr %.sroa.2614.0..sroa_idx, align 8
-  %.sroa.3615.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 16
+  %.sroa.3615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 16
   store i64 %.sroa.0617.0.copyload, ptr %.sroa.3615.0..sroa_idx, align 8
-  %.sroa.4616.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 24
+  %.sroa.4616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 24
   store ptr %1928, ptr %.sroa.4616.0..sroa_idx, align 8
   %1943 = icmp eq i64 %1927, 0
   br i1 %1943, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit.lr.ph"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit.lr.ph": ; preds = %1942
-  %1944 = getelementptr inbounds i8, ptr %56, i64 8
+  %1944 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit"
 
 1945:                                             ; preds = %1952, %1961
@@ -19345,7 +19345,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit.lr.ph", %1962
   %1947 = phi ptr [ %1925, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit.lr.ph" ], [ %1964, %1962 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1494)
-  %1948 = getelementptr inbounds i8, ptr %1947, i64 24
+  %1948 = getelementptr inbounds nuw i8, ptr %1947, i64 24
   store ptr %1948, ptr %.sroa.2614.0..sroa_idx, align 8, !alias.scope !1494, !noalias !1497
   %.sroa.0620.0.copyload = load i8, ptr %1947, align 8, !noalias !1494
   %1949 = icmp eq i8 %.sroa.0620.0.copyload, 3
@@ -19356,7 +19356,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %"_ZN4core3ptr165drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$html5ever..tree_builder..types..SplitStatus$C$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$RP$$GT$$GT$17hcfeb329643315df0E.exit557" unwind label %.thread1002
 
 1950:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit"
-  %1951 = getelementptr inbounds i8, ptr %1947, i64 8
+  %1951 = getelementptr inbounds nuw i8, ptr %1947, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1944, ptr noundef nonnull align 1 dereferenceable(16) %1951, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %165)
@@ -19388,7 +19388,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %1957
 
 1957:                                             ; preds = %"_ZN4core3ptr165drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$html5ever..tree_builder..types..SplitStatus$C$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$RP$$GT$$GT$17hcfeb329643315df0E.exit570", %"_ZN4core3ptr165drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$html5ever..tree_builder..types..SplitStatus$C$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$RP$$GT$$GT$17hcfeb329643315df0E.exit557"
-  %1958 = getelementptr inbounds i8, ptr %1, i64 187
+  %1958 = getelementptr inbounds nuw i8, ptr %1, i64 187
   %1959 = load i8, ptr %1958, align 1, !range !1493, !noundef !4
   store i8 23, ptr %1958, align 1
   %1960 = icmp eq i8 %1959, 23
@@ -19414,18 +19414,18 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   %.sroa.0608.0.copyload = load i64, ptr %173, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170)
   store ptr %1925, ptr %170, align 8
-  %.sroa.2.0..sroa_idx605 = getelementptr inbounds i8, ptr %170, i64 8
+  %.sroa.2.0..sroa_idx605 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %1925, ptr %.sroa.2.0..sroa_idx605, align 8
-  %.sroa.3606.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 16
+  %.sroa.3606.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 16
   store i64 %.sroa.0608.0.copyload, ptr %.sroa.3606.0..sroa_idx, align 8
-  %.sroa.4607.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 24
+  %.sroa.4607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %170, i64 24
   store ptr %1928, ptr %.sroa.4607.0..sroa_idx, align 8
   %1967 = icmp eq i64 %1927, 0
   br i1 %1967, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566.lr.ph"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566.lr.ph": ; preds = %1966
-  %1968 = getelementptr inbounds i8, ptr %168, i64 24
-  %1969 = getelementptr inbounds i8, ptr %168, i64 8
+  %1968 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %1969 = getelementptr inbounds nuw i8, ptr %168, i64 8
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566"
 
 1970:                                             ; preds = %1994, %1971
@@ -19441,7 +19441,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566.lr.ph", %1990
   %1973 = phi ptr [ %1925, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566.lr.ph" ], [ %1992, %1990 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1507)
-  %1974 = getelementptr inbounds i8, ptr %1973, i64 24
+  %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 24
   store ptr %1974, ptr %.sroa.2.0..sroa_idx605, align 8, !alias.scope !1507, !noalias !1510
   %.sroa.0611.0.copyload = load i8, ptr %1973, align 8, !noalias !1507
   %1975 = icmp eq i8 %.sroa.0611.0.copyload, 3
@@ -19452,7 +19452,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %"_ZN4core3ptr165drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$html5ever..tree_builder..types..SplitStatus$C$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$RP$$GT$$GT$17hcfeb329643315df0E.exit570" unwind label %.thread1002
 
 1976:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h96e09646754beb66E.exit566"
-  %1977 = getelementptr inbounds i8, ptr %1973, i64 8
+  %1977 = getelementptr inbounds nuw i8, ptr %1973, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %168)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1969, ptr noundef nonnull align 1 dereferenceable(16) %1977, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %169)
@@ -19471,7 +19471,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 1979:                                             ; preds = %1957
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %174, i64 40, i1 false)
-  %1980 = getelementptr inbounds i8, ptr %0, i64 40
+  %1980 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %1959, ptr %1980, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %173)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %174)
@@ -19490,13 +19490,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 1985:                                             ; preds = %1981
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %167)
   store ptr @anon.b244ddacf973f5fee137b0ea6cb9ab8a.197, ptr %167, align 8
-  %1986 = getelementptr inbounds i8, ptr %167, i64 8
+  %1986 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i64 1, ptr %1986, align 8
-  %1987 = getelementptr inbounds i8, ptr %167, i64 32
+  %1987 = getelementptr inbounds nuw i8, ptr %167, i64 32
   store ptr null, ptr %1987, align 8
-  %1988 = getelementptr inbounds i8, ptr %167, i64 16
+  %1988 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %1988, align 8
-  %1989 = getelementptr inbounds i8, ptr %167, i64 24
+  %1989 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store i64 0, ptr %1989, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %167, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.198) #18
           to label %876 unwind label %1994
@@ -19526,10 +19526,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread994 unwind label %531
 
 1997:                                             ; preds = %456
-  %1998 = getelementptr inbounds i8, ptr %3, i64 32
+  %1998 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %1999 = load i8, ptr %1998, align 8, !range !5, !noundef !4
   %trunc278 = trunc nuw i8 %1999 to i1
-  %2000 = getelementptr inbounds i8, ptr %3, i64 24
+  %2000 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2001 = load i64, ptr %2000, align 8, !noundef !4
   br i1 %trunc278, label %2003, label %2002
 
@@ -19603,10 +19603,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2015 unwind label %2006
 
 2015:                                             ; preds = %2014
-  %2016 = getelementptr inbounds i8, ptr %164, i64 32
+  %2016 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %2017 = load i8, ptr %2016, align 8, !range !5, !noundef !4
   %trunc279 = trunc nuw i8 %2017 to i1
-  %2018 = getelementptr inbounds i8, ptr %164, i64 24
+  %2018 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %2019 = load i64, ptr %2018, align 8
   %2020 = icmp eq i64 %2019, 1559073128450
   %or.cond439 = select i1 %trunc279, i1 %2020, i1 false
@@ -19614,12 +19614,12 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 .critedge434:                                     ; preds = %2015
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %164, i64 40, i1 false)
-  %2021 = getelementptr inbounds i8, ptr %0, i64 40
+  %2021 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 8, ptr %2021, align 8
   br label %2024
 
 2022:                                             ; preds = %2015
-  %2023 = getelementptr inbounds i8, ptr %1, i64 186
+  %2023 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 8, ptr %2023, align 2
   br label %2025
 
@@ -19633,15 +19633,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2024 unwind label %402
 
 2026:                                             ; preds = %459
-  %2027 = getelementptr inbounds i8, ptr %3, i64 32
+  %2027 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2028 = load i8, ptr %2027, align 8, !range !5, !noundef !4
   %trunc277 = trunc nuw i8 %2028 to i1
-  %2029 = getelementptr inbounds i8, ptr %3, i64 24
+  %2029 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2030 = load i64, ptr %2029, align 8, !noundef !4
   br i1 %trunc277, label %2038, label %2037
 
 2031:                                             ; preds = %459
-  %2032 = getelementptr inbounds i8, ptr %3, i64 24
+  %2032 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2033 = load i8, ptr %2032, align 8, !range !484, !noundef !4
   switch i8 %2033, label %default.unreachable1101 [
     i8 0, label %2059
@@ -19743,7 +19743,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2056:                                             ; preds = %2055
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158)
-  %2057 = getelementptr inbounds i8, ptr %1, i64 186
+  %2057 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 8, ptr %2057, align 2
   br label %2054
 
@@ -19752,15 +19752,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2059:                                             ; preds = %2031
-  %2060 = getelementptr inbounds i8, ptr %3, i64 8
-  %2061 = getelementptr inbounds i8, ptr %0, i64 8
+  %2060 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2061 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2061, ptr noundef nonnull align 8 dereferenceable(16) %2060, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
 
 2062:                                             ; preds = %2031
-  %2063 = getelementptr inbounds i8, ptr %3, i64 8
-  %2064 = getelementptr inbounds i8, ptr %55, i64 8
+  %2063 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2064 = getelementptr inbounds nuw i8, ptr %55, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2064, ptr noundef nonnull align 8 dereferenceable(16) %2063, i64 16, i1 false)
   store i64 1, ptr %55, align 8
@@ -19802,7 +19802,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 .thread1007:                                      ; preds = %2073
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %154, i64 40, i1 false)
-  %2074 = getelementptr inbounds i8, ptr %0, i64 40
+  %2074 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 8, ptr %2074, align 8
   br label %2075
 
@@ -19815,10 +19815,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2075 unwind label %402
 
 2077:                                             ; preds = %464
-  %2078 = getelementptr inbounds i8, ptr %3, i64 32
+  %2078 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2079 = load i8, ptr %2078, align 8, !range !5, !noundef !4
   %trunc276 = trunc nuw i8 %2079 to i1
-  %2080 = getelementptr inbounds i8, ptr %3, i64 24
+  %2080 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2081 = load i64, ptr %2080, align 8, !noundef !4
   br i1 %trunc276, label %2083, label %2082
 
@@ -19873,7 +19873,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2088:                                             ; preds = %2084
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151)
-  %2089 = getelementptr inbounds i8, ptr %152, i64 24
+  %2089 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %2090 = load i64, ptr %2089, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
   %2091 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %2090, ptr noalias nocapture noundef align 8 dereferenceable(24) %26)
@@ -19886,7 +19886,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2093:                                             ; preds = %2092
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151)
-  %2094 = getelementptr inbounds i8, ptr %1, i64 186
+  %2094 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 13, ptr %2094, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %152)
@@ -19911,9 +19911,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
   store i64 0, ptr %54, align 8
-  %2099 = getelementptr inbounds i8, ptr %54, i64 8
+  %2099 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2099, align 8
-  %2100 = getelementptr inbounds i8, ptr %54, i64 16
+  %2100 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 0, ptr %2100, align 8
   %2101 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef 1185410973698, ptr noalias nocapture noundef align 8 dereferenceable(24) %54)
           to label %2102 unwind label %402
@@ -19927,14 +19927,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2103:                                             ; preds = %2102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2104 = getelementptr inbounds i8, ptr %0, i64 40
+  %2104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 13, ptr %2104, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2105:                                             ; preds = %2083, %2083, %2083
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %148)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2106 = getelementptr inbounds i8, ptr %148, i64 24
+  %2106 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %2107 = load i64, ptr %2106, align 8, !range !57, !noundef !4
   %2108 = and i64 %2107, 3
   %2109 = icmp eq i64 %2108, 0
@@ -19942,7 +19942,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2110:                                             ; preds = %2105
   %2111 = inttoptr i64 %2107 to ptr
-  %2112 = getelementptr inbounds i8, ptr %2111, i64 16
+  %2112 = getelementptr inbounds nuw i8, ptr %2111, i64 16
   %2113 = atomicrmw add ptr %2112, i64 1 seq_cst, align 8
   br label %2114
 
@@ -19993,7 +19993,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2127:                                             ; preds = %2126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147)
-  %2128 = getelementptr inbounds i8, ptr %1, i64 186
+  %2128 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 8, ptr %2128, align 2
   br label %2123
 
@@ -20021,15 +20021,15 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2135:                                             ; preds = %2134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2136 = getelementptr inbounds i8, ptr %0, i64 40
+  %2136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 8, ptr %2136, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2137:                                             ; preds = %467
-  %2138 = getelementptr inbounds i8, ptr %3, i64 32
+  %2138 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2139 = load i8, ptr %2138, align 8, !range !5, !noundef !4
   %trunc273 = trunc nuw i8 %2139 to i1
-  %2140 = getelementptr inbounds i8, ptr %3, i64 24
+  %2140 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2141 = load i64, ptr %2140, align 8, !noundef !4
   br i1 %trunc273, label %2143, label %2142
 
@@ -20079,7 +20079,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2147:                                             ; preds = %2146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142)
-  %2148 = getelementptr inbounds i8, ptr %143, i64 24
+  %2148 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %2149 = load i64, ptr %2148, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %143, i64 24, i1 false)
   %2150 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %2149, ptr noalias nocapture noundef align 8 dereferenceable(24) %25)
@@ -20092,9 +20092,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2152:                                             ; preds = %2151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142)
-  %2153 = getelementptr inbounds i8, ptr %1, i64 186
+  %2153 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 14, ptr %2153, align 2
-  %2154 = getelementptr inbounds i8, ptr %1, i64 112
+  %2154 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %141)
   store i64 -9223372036854775808, ptr %141, align 8
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e0c74e06a8e5efE"(ptr noalias noundef align 8 dereferenceable(24) %2154, ptr noalias nocapture noundef align 8 dereferenceable(48) %141)
@@ -20157,7 +20157,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread unwind label %531
 
 2170:                                             ; preds = %2167
-  %2171 = getelementptr inbounds i8, ptr %1, i64 186
+  %2171 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 12, ptr %2171, align 2
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %140)
           to label %2172 unwind label %402
@@ -20191,7 +20191,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2180:                                             ; preds = %2177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2181 = getelementptr inbounds i8, ptr %0, i64 40
+  %2181 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 12, ptr %2181, align 8
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %138)
           to label %2182 unwind label %402
@@ -20203,7 +20203,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2183:                                             ; preds = %2143, %2143, %2143
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %137)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2184 = getelementptr inbounds i8, ptr %137, i64 24
+  %2184 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %2185 = load i64, ptr %2184, align 8, !range !57, !noundef !4
   %2186 = and i64 %2185, 3
   %2187 = icmp eq i64 %2186, 0
@@ -20211,7 +20211,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2188:                                             ; preds = %2183
   %2189 = inttoptr i64 %2185 to ptr
-  %2190 = getelementptr inbounds i8, ptr %2189, i64 16
+  %2190 = getelementptr inbounds nuw i8, ptr %2189, i64 16
   %2191 = atomicrmw add ptr %2190, i64 1 seq_cst, align 8
   br label %2192
 
@@ -20269,7 +20269,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2207:                                             ; preds = %2204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %137, i64 40, i1 false)
-  %2208 = getelementptr inbounds i8, ptr %0, i64 40
+  %2208 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 12, ptr %2208, align 8
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %136)
           to label %.critedge447 unwind label %2194
@@ -20292,10 +20292,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread unwind label %531
 
 2211:                                             ; preds = %470
-  %2212 = getelementptr inbounds i8, ptr %3, i64 32
+  %2212 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2213 = load i8, ptr %2212, align 8, !range !5, !noundef !4
   %trunc272 = trunc nuw i8 %2213 to i1
-  %2214 = getelementptr inbounds i8, ptr %3, i64 24
+  %2214 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2215 = load i64, ptr %2214, align 8, !noundef !4
   br i1 %trunc272, label %2217, label %2216
 
@@ -20341,14 +20341,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2222:                                             ; preds = %2221
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2223 = getelementptr inbounds i8, ptr %0, i64 40
+  %2223 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 13, ptr %2223, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2224:                                             ; preds = %2217, %2217
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %134)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %134, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2225 = getelementptr inbounds i8, ptr %134, i64 24
+  %2225 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %2226 = load i64, ptr %2225, align 8, !range !57, !noundef !4
   %2227 = and i64 %2226, 3
   %2228 = icmp eq i64 %2227, 0
@@ -20356,7 +20356,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2229:                                             ; preds = %2224
   %2230 = inttoptr i64 %2226 to ptr
-  %2231 = getelementptr inbounds i8, ptr %2230, i64 16
+  %2231 = getelementptr inbounds nuw i8, ptr %2230, i64 16
   %2232 = atomicrmw add ptr %2231, i64 1 seq_cst, align 8
   br label %2233
 
@@ -20395,7 +20395,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread1042 unwind label %2235
 
 .thread1042:                                      ; preds = %2242
-  %2243 = getelementptr inbounds i8, ptr %1, i64 186
+  %2243 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 13, ptr %2243, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2244
@@ -20436,7 +20436,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2251:                                             ; preds = %2217, %2217, %2217, %2217, %2217
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %132)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2252 = getelementptr inbounds i8, ptr %132, i64 24
+  %2252 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %2253 = load i64, ptr %2252, align 8, !range !57, !noundef !4
   %2254 = and i64 %2253, 3
   %2255 = icmp eq i64 %2254, 0
@@ -20444,7 +20444,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2256:                                             ; preds = %2251
   %2257 = inttoptr i64 %2253 to ptr
-  %2258 = getelementptr inbounds i8, ptr %2257, i64 16
+  %2258 = getelementptr inbounds nuw i8, ptr %2257, i64 16
   %2259 = atomicrmw add ptr %2258, i64 1 seq_cst, align 8
   br label %2260
 
@@ -20471,7 +20471,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 .thread1043:                                      ; preds = %2266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %132, i64 40, i1 false)
-  %2267 = getelementptr inbounds i8, ptr %0, i64 40
+  %2267 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 13, ptr %2267, align 8
   br label %2268
 
@@ -20484,16 +20484,16 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2268 unwind label %402
 
 2270:                                             ; preds = %473
-  %2271 = getelementptr inbounds i8, ptr %3, i64 32
+  %2271 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2272 = load i8, ptr %2271, align 8, !range !5, !noundef !4
   %trunc271 = trunc nuw i8 %2272 to i1
-  %2273 = getelementptr inbounds i8, ptr %3, i64 24
+  %2273 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2274 = load i64, ptr %2273, align 8, !noundef !4
   br i1 %trunc271, label %2280, label %2279
 
 2275:                                             ; preds = %473
-  %2276 = getelementptr inbounds i8, ptr %3, i64 8
-  %2277 = getelementptr inbounds i8, ptr %53, i64 8
+  %2276 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2277 = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2277, ptr noundef nonnull align 8 dereferenceable(16) %2276, i64 16, i1 false)
   store i64 1, ptr %53, align 8
@@ -20592,7 +20592,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2296:                                             ; preds = %2293, %2301
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126)
-  %2297 = getelementptr inbounds i8, ptr %128, i64 24
+  %2297 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %2298 = load i64, ptr %2297, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
   %2299 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %2298, ptr noalias nocapture noundef align 8 dereferenceable(24) %24)
@@ -20660,7 +20660,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2316:                                             ; preds = %2313, %2321
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122)
-  %2317 = getelementptr inbounds i8, ptr %125, i64 24
+  %2317 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %2318 = load i64, ptr %2317, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
   %2319 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %2318, ptr noalias nocapture noundef align 8 dereferenceable(24) %23)
@@ -20728,7 +20728,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2336:                                             ; preds = %2333, %2341
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118)
-  %2337 = getelementptr inbounds i8, ptr %121, i64 24
+  %2337 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %2338 = load i64, ptr %2337, align 8, !range !57, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false)
   %2339 = invoke fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef 30064771074, i64 noundef %2338, ptr noalias nocapture noundef align 8 dereferenceable(24) %22)
@@ -20803,12 +20803,12 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2359:                                             ; preds = %2357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2360 = getelementptr inbounds i8, ptr %0, i64 40
+  %2360 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2358, ptr %2360, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2361:                                             ; preds = %2280
-  %2362 = getelementptr inbounds i8, ptr %1, i64 104
+  %2362 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2363 = load i64, ptr %2362, align 8, !noundef !4
   %2364 = icmp ugt i64 %2363, 1
   br i1 %2364, label %2367, label %2369
@@ -20835,7 +20835,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %2375, label %2376, label %2381
 
 2376:                                             ; preds = %2372
-  %2377 = getelementptr inbounds i8, ptr %1, i64 96
+  %2377 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2378 = load ptr, ptr %2377, align 8, !nonnull !4, !noundef !4
   %2379 = getelementptr inbounds [0 x ptr], ptr %2378, i64 0, i64 %2374
   %2380 = invoke fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E"(ptr noalias noundef readonly align 8 dereferenceable(192) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2379, i64 noundef 1924145348610)
@@ -20937,7 +20937,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread unwind label %531
 
 2407:                                             ; preds = %2348
-  %2408 = getelementptr inbounds i8, ptr %111, i64 32
+  %2408 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %2409 = load i8, ptr %2408, align 8, !range !5
   %2410 = icmp ne i8 %2409, 0
   %or.cond455.not = select i1 %2349, i1 %2410, i1 false
@@ -20973,7 +20973,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2420 unwind label %2405, !range !7
 
 2420:                                             ; preds = %2418
-  %2421 = getelementptr inbounds i8, ptr %1, i64 186
+  %2421 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 %2419, ptr %2421, align 2
   br label %2415
 
@@ -21009,10 +21009,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2430:                                             ; preds = %478
-  %2431 = getelementptr inbounds i8, ptr %3, i64 32
+  %2431 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2432 = load i8, ptr %2431, align 8, !range !5, !noundef !4
   %trunc270 = trunc nuw i8 %2432 to i1
-  %2433 = getelementptr inbounds i8, ptr %3, i64 24
+  %2433 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2434 = load i64, ptr %2433, align 8, !noundef !4
   br i1 %trunc270, label %2437, label %2436
 
@@ -21067,7 +21067,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2444:                                             ; preds = %2442
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2445 = getelementptr inbounds i8, ptr %0, i64 40
+  %2445 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2443, ptr %2445, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21090,7 +21090,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2450:                                             ; preds = %2449
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %103)
-  %2451 = getelementptr inbounds i8, ptr %104, i64 24
+  %2451 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %2452 = load i64, ptr %2451, align 8, !range !57, !noundef !4
   %2453 = and i64 %2452, 3
   %2454 = icmp eq i64 %2453, 0
@@ -21098,7 +21098,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2455:                                             ; preds = %2450
   %2456 = inttoptr i64 %2452 to ptr
-  %2457 = getelementptr inbounds i8, ptr %2456, i64 16
+  %2457 = getelementptr inbounds nuw i8, ptr %2456, i64 16
   %2458 = atomicrmw add ptr %2457, i64 1 seq_cst, align 8
   br label %2459
 
@@ -21119,7 +21119,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 .thread1068:                                      ; preds = %2464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %104, i64 40, i1 false)
-  %2466 = getelementptr inbounds i8, ptr %0, i64 40
+  %2466 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2465, ptr %2466, align 8
   br label %2467
 
@@ -21133,10 +21133,10 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2467 unwind label %402
 
 2469:                                             ; preds = %481
-  %2470 = getelementptr inbounds i8, ptr %3, i64 32
+  %2470 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2471 = load i8, ptr %2470, align 8, !range !5, !noundef !4
   %trunc267 = trunc nuw i8 %2471 to i1
-  %2472 = getelementptr inbounds i8, ptr %3, i64 24
+  %2472 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2473 = load i64, ptr %2472, align 8, !noundef !4
   br i1 %trunc267, label %2485, label %2484
 
@@ -21157,13 +21157,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2563 unwind label %402
 
 2478:                                             ; preds = %2485, %2484, %481
-  %2479 = getelementptr inbounds i8, ptr %97, i64 8
+  %2479 = getelementptr inbounds nuw i8, ptr %97, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %97)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2479, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store i8 1, ptr %97, align 8
   %2480 = load i64, ptr %2479, align 8, !range !99, !noundef !4
   %2481 = icmp slt i64 %2480, -9223372036854775804
-  %2482 = getelementptr inbounds i8, ptr %97, i64 40
+  %2482 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %2483 = load i8, ptr %2482, align 8, !range !5
   %trunc268 = trunc nuw i8 %2483 to i1
   %or.cond463.not = select i1 %2481, i1 true, i1 %trunc268
@@ -21203,32 +21203,32 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2560 unwind label %402
 
 2488:                                             ; preds = %2484, %2484, %2484, %2484, %2484
-  %2489 = getelementptr inbounds i8, ptr %1, i64 40
-  %2490 = getelementptr inbounds i8, ptr %1, i64 56
+  %2489 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2490 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2491 = load i64, ptr %2490, align 8, !noundef !4
   %2492 = icmp eq i64 %2491, 0
   %.pre1099 = load i64, ptr %2489, align 8, !alias.scope !1514
   br i1 %2492, label %2511, label %2508
 
 2493:                                             ; preds = %2484
-  %2494 = getelementptr inbounds i8, ptr %1, i64 40
-  %2495 = getelementptr inbounds i8, ptr %1, i64 56
+  %2494 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2495 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2496 = load i64, ptr %2495, align 8, !noundef !4
   %2497 = icmp eq i64 %2496, 0
   %.pre1098 = load i64, ptr %2494, align 8, !alias.scope !1517
   br i1 %2497, label %2524, label %2521
 
 2498:                                             ; preds = %2484
-  %2499 = getelementptr inbounds i8, ptr %1, i64 40
-  %2500 = getelementptr inbounds i8, ptr %1, i64 56
+  %2499 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2500 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2501 = load i64, ptr %2500, align 8, !noundef !4
   %2502 = icmp eq i64 %2501, 0
   %.pre1097 = load i64, ptr %2499, align 8, !alias.scope !1520
   br i1 %2502, label %2537, label %2534
 
 2503:                                             ; preds = %2484, %2484
-  %2504 = getelementptr inbounds i8, ptr %1, i64 40
-  %2505 = getelementptr inbounds i8, ptr %1, i64 56
+  %2504 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2505 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2506 = load i64, ptr %2505, align 8, !noundef !4
   %2507 = icmp eq i64 %2506, 0
   %.pre = load i64, ptr %2504, align 8, !alias.scope !1523
@@ -21251,14 +21251,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2515 unwind label %402
 
 2515:                                             ; preds = %2511, %2514
-  %2516 = getelementptr inbounds i8, ptr %1, i64 48
+  %2516 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2517 = load ptr, ptr %2516, align 8, !alias.scope !1514, !nonnull !4, !noundef !4
   %2518 = getelementptr inbounds i8, ptr %2517, i64 %2512
   store i8 8, ptr %2518, align 1
   %2519 = add nuw i64 %2512, 1
   store i64 %2519, ptr %2490, align 8, !alias.scope !1514
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2520 = getelementptr inbounds i8, ptr %0, i64 40
+  %2520 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 8, ptr %2520, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21279,14 +21279,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2528 unwind label %402
 
 2528:                                             ; preds = %2524, %2527
-  %2529 = getelementptr inbounds i8, ptr %1, i64 48
+  %2529 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2530 = load ptr, ptr %2529, align 8, !alias.scope !1517, !nonnull !4, !noundef !4
   %2531 = getelementptr inbounds i8, ptr %2530, i64 %2525
   store i8 11, ptr %2531, align 1
   %2532 = add nuw i64 %2525, 1
   store i64 %2532, ptr %2495, align 8, !alias.scope !1517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2533 = getelementptr inbounds i8, ptr %0, i64 40
+  %2533 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 11, ptr %2533, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21307,14 +21307,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2541 unwind label %402
 
 2541:                                             ; preds = %2537, %2540
-  %2542 = getelementptr inbounds i8, ptr %1, i64 48
+  %2542 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2543 = load ptr, ptr %2542, align 8, !alias.scope !1520, !nonnull !4, !noundef !4
   %2544 = getelementptr inbounds i8, ptr %2543, i64 %2538
   store i8 12, ptr %2544, align 1
   %2545 = add nuw i64 %2538, 1
   store i64 %2545, ptr %2500, align 8, !alias.scope !1520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2546 = getelementptr inbounds i8, ptr %0, i64 40
+  %2546 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 12, ptr %2546, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21335,14 +21335,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2554 unwind label %402
 
 2554:                                             ; preds = %2550, %2553
-  %2555 = getelementptr inbounds i8, ptr %1, i64 48
+  %2555 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2556 = load ptr, ptr %2555, align 8, !alias.scope !1523, !nonnull !4, !noundef !4
   %2557 = getelementptr inbounds i8, ptr %2556, i64 %2551
   store i8 13, ptr %2557, align 1
   %2558 = add nuw i64 %2551, 1
   store i64 %2558, ptr %2505, align 8, !alias.scope !1523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2559 = getelementptr inbounds i8, ptr %0, i64 40
+  %2559 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 13, ptr %2559, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21384,13 +21384,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2570 unwind label %402
 
 2570:                                             ; preds = %2569
-  %2571 = getelementptr inbounds i8, ptr %1, i64 56
+  %2571 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2572 = load i64, ptr %2571, align 8, !noundef !4
   %2573 = icmp eq i64 %2572, 0
   br i1 %2573, label %2579, label %2574
 
 2574:                                             ; preds = %2570
-  %2575 = getelementptr inbounds i8, ptr %1, i64 40
+  %2575 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2576 = add i64 %2572, -1
   store i64 %2576, ptr %2571, align 8
   %2577 = load i64, ptr %2575, align 8, !noundef !4
@@ -21403,14 +21403,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2581 unwind label %402, !range !7
 
 2581:                                             ; preds = %2579
-  %2582 = getelementptr inbounds i8, ptr %1, i64 186
+  %2582 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 %2580, ptr %2582, align 2
   %2583 = invoke fastcc noundef i8 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$20reset_insertion_mode17h2fec8686aa34a21aE"(ptr noalias noundef align 8 dereferenceable(192) %1)
           to label %2584 unwind label %402, !range !7
 
 2584:                                             ; preds = %2581
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2585 = getelementptr inbounds i8, ptr %0, i64 40
+  %2585 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %2583, ptr %2585, align 8
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
@@ -21423,8 +21423,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2587:                                             ; preds = %2478
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %96)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %2588 = getelementptr inbounds i8, ptr %1, i64 40
-  %2589 = getelementptr inbounds i8, ptr %1, i64 56
+  %2588 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %2589 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2590 = load i64, ptr %2589, align 8, !noundef !4
   %2591 = icmp eq i64 %2590, 0
   %.pre1100 = load i64, ptr %2588, align 8, !alias.scope !1526
@@ -21453,14 +21453,14 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2609 unwind label %531
 
 2601:                                             ; preds = %2595, %2598
-  %2602 = getelementptr inbounds i8, ptr %1, i64 48
+  %2602 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2603 = load ptr, ptr %2602, align 8, !alias.scope !1526, !nonnull !4, !noundef !4
   %2604 = getelementptr inbounds i8, ptr %2603, i64 %2596
   store i8 6, ptr %2604, align 1
   %2605 = add nuw i64 %2596, 1
   store i64 %2605, ptr %2589, align 8, !alias.scope !1526
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %96, i64 40, i1 false)
-  %2606 = getelementptr inbounds i8, ptr %0, i64 40
+  %2606 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 6, ptr %2606, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %96)
   %2607 = load i64, ptr %2479, align 8, !range !99, !noundef !4
@@ -21496,22 +21496,22 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %.thread634 unwind label %531
 
 2617:                                             ; preds = %486
-  %2618 = getelementptr inbounds i8, ptr %3, i64 32
+  %2618 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2619 = load i8, ptr %2618, align 8, !range !5, !noundef !4
   %trunc265 = trunc nuw i8 %2619 to i1
-  %2620 = getelementptr inbounds i8, ptr %3, i64 24
+  %2620 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2621 = load i64, ptr %2620, align 8, !noundef !4
   %2622 = icmp eq i64 %2621, 3723736645634
   br i1 %trunc265, label %2631, label %2630
 
 2623:                                             ; preds = %486
-  %2624 = getelementptr inbounds i8, ptr %3, i64 8
+  %2624 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %2624, i64 16, i1 false)
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$22append_comment_to_html17h1ab043579ecb0fe9E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %93)
           to label %2794 unwind label %402
 
 2625:                                             ; preds = %486
-  %2626 = getelementptr inbounds i8, ptr %3, i64 24
+  %2626 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2627 = load i8, ptr %2626, align 8, !range !484, !noundef !4
   switch i8 %2627, label %default.unreachable1101 [
     i8 0, label %2643
@@ -21547,13 +21547,13 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2634:                                             ; preds = %2631
-  %2635 = getelementptr inbounds i8, ptr %1, i64 160
+  %2635 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2636 = load ptr, ptr %2635, align 8, !noundef !4
   %.not266 = icmp eq ptr %2636, null
   br i1 %.not266, label %2637, label %2639
 
 2637:                                             ; preds = %2634
-  %2638 = getelementptr inbounds i8, ptr %1, i64 186
+  %2638 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 21, ptr %2638, align 2
   br label %2640
 
@@ -21575,8 +21575,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %2640
 
 2643:                                             ; preds = %2625
-  %2644 = getelementptr inbounds i8, ptr %3, i64 8
-  %2645 = getelementptr inbounds i8, ptr %0, i64 8
+  %2644 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2645 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2645, ptr noundef nonnull align 8 dereferenceable(16) %2644, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -21604,21 +21604,21 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2651:                                             ; preds = %2650
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %89)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %90, i64 40, i1 false)
-  %2652 = getelementptr inbounds i8, ptr %0, i64 40
+  %2652 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 6, ptr %2652, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %90)
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2653:                                             ; preds = %491
-  %2654 = getelementptr inbounds i8, ptr %3, i64 32
+  %2654 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2655 = load i8, ptr %2654, align 8, !range !5, !noundef !4
   %trunc264 = trunc nuw i8 %2655 to i1
-  %2656 = getelementptr inbounds i8, ptr %3, i64 24
+  %2656 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2657 = load i64, ptr %2656, align 8, !noundef !4
   br i1 %trunc264, label %2667, label %2666
 
 2658:                                             ; preds = %491
-  %2659 = getelementptr inbounds i8, ptr %3, i64 24
+  %2659 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2660 = load i8, ptr %2659, align 8, !range !484, !noundef !4
   switch i8 %2660, label %default.unreachable1101 [
     i8 0, label %2700
@@ -21627,7 +21627,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   ]
 
 2661:                                             ; preds = %491
-  %2662 = getelementptr inbounds i8, ptr %1, i64 104
+  %2662 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2663 = load i64, ptr %2662, align 8, !noundef !4
   %2664 = icmp eq i64 %2663, 1
   br i1 %2664, label %2708, label %2707
@@ -21703,7 +21703,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2681:                                             ; preds = %2667
-  %2682 = getelementptr inbounds i8, ptr %1, i64 104
+  %2682 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %2683 = load i64, ptr %2682, align 8, !noundef !4
   %2684 = icmp eq i64 %2683, 1
   br i1 %2684, label %2685, label %2686
@@ -21737,7 +21737,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 2692:                                             ; preds = %2691
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
-  %2693 = getelementptr inbounds i8, ptr %1, i64 160
+  %2693 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2694 = load ptr, ptr %2693, align 8, !noundef !4
   %.not = icmp eq ptr %2694, null
   br i1 %.not, label %2695, label %2690
@@ -21750,20 +21750,20 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br i1 %2696, label %2690, label %2698
 
 2698:                                             ; preds = %2697
-  %2699 = getelementptr inbounds i8, ptr %1, i64 186
+  %2699 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 20, ptr %2699, align 2
   br label %2690
 
 2700:                                             ; preds = %2658
-  %2701 = getelementptr inbounds i8, ptr %3, i64 8
-  %2702 = getelementptr inbounds i8, ptr %0, i64 8
+  %2701 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2702 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2702, ptr noundef nonnull align 8 dereferenceable(16) %2701, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
 
 2703:                                             ; preds = %2658
-  %2704 = getelementptr inbounds i8, ptr %3, i64 8
-  %2705 = getelementptr inbounds i8, ptr %52, i64 8
+  %2704 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2705 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2705, ptr noundef nonnull align 8 dereferenceable(16) %2704, i64 16, i1 false)
   store i64 1, ptr %52, align 8
@@ -21807,22 +21807,22 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2715:                                             ; preds = %496
-  %2716 = getelementptr inbounds i8, ptr %3, i64 32
+  %2716 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2717 = load i8, ptr %2716, align 8, !range !5, !noundef !4
   %trunc263 = trunc nuw i8 %2717 to i1
-  %2718 = getelementptr inbounds i8, ptr %3, i64 24
+  %2718 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2719 = load i64, ptr %2718, align 8, !noundef !4
   br i1 %trunc263, label %2727, label %2726
 
 .invoke1116:                                      ; preds = %496, %491, %473, %459, %446, %436, %431, %421, %416
   %.sink1123 = phi ptr [ %358, %416 ], [ %353, %421 ], [ %324, %431 ], [ %310, %436 ], [ %198, %446 ], [ %161, %459 ], [ %130, %473 ], [ %88, %491 ], [ %79, %496 ]
-  %2720 = getelementptr inbounds i8, ptr %3, i64 8
+  %2720 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink1123, ptr noundef nonnull align 8 dereferenceable(16) %2720, i64 16, i1 false)
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14append_comment17h9a87f7b07b2c68dfE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %.sink1123)
           to label %2794 unwind label %402
 
 2721:                                             ; preds = %496
-  %2722 = getelementptr inbounds i8, ptr %3, i64 24
+  %2722 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2723 = load i8, ptr %2722, align 8, !range !484, !noundef !4
   switch i8 %2723, label %default.unreachable1101 [
     i8 0, label %2735
@@ -21871,21 +21871,21 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2733:                                             ; preds = %2727
-  %2734 = getelementptr inbounds i8, ptr %1, i64 186
+  %2734 = getelementptr inbounds nuw i8, ptr %1, i64 186
   store i8 22, ptr %2734, align 2
   store i64 -9223372036854775804, ptr %0, align 8
   br label %2794
 
 2735:                                             ; preds = %2721
-  %2736 = getelementptr inbounds i8, ptr %3, i64 8
-  %2737 = getelementptr inbounds i8, ptr %0, i64 8
+  %2736 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2737 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2737, ptr noundef nonnull align 8 dereferenceable(16) %2736, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
 
 2738:                                             ; preds = %2721
-  %2739 = getelementptr inbounds i8, ptr %3, i64 8
-  %2740 = getelementptr inbounds i8, ptr %51, i64 8
+  %2739 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2740 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2740, ptr noundef nonnull align 8 dereferenceable(16) %2739, i64 16, i1 false)
   store i64 1, ptr %51, align 8
@@ -21912,17 +21912,17 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2746:                                             ; preds = %501
-  %2747 = getelementptr inbounds i8, ptr %3, i64 32
+  %2747 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2748 = load i8, ptr %2747, align 8, !range !5, !noundef !4
   %trunc262 = trunc nuw i8 %2748 to i1
-  %2749 = getelementptr inbounds i8, ptr %3, i64 24
+  %2749 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2750 = load i64, ptr %2749, align 8
   %2751 = icmp ne i64 %2750, 3723736645634
   %or.cond478.not = select i1 %trunc262, i1 true, i1 %2751
   br i1 %or.cond478.not, label %2756, label %2757
 
 2752:                                             ; preds = %501
-  %2753 = getelementptr inbounds i8, ptr %3, i64 24
+  %2753 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2754 = load i8, ptr %2753, align 8, !range !484, !noundef !4
   switch i8 %2754, label %default.unreachable1101 [
     i8 0, label %2759
@@ -21952,8 +21952,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2759:                                             ; preds = %2752
-  %2760 = getelementptr inbounds i8, ptr %3, i64 8
-  %2761 = getelementptr inbounds i8, ptr %0, i64 8
+  %2760 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2761 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2761, ptr noundef nonnull align 8 dereferenceable(16) %2760, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -21981,26 +21981,26 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 2767:                                             ; preds = %2766
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %71)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %72, i64 40, i1 false)
-  %2768 = getelementptr inbounds i8, ptr %0, i64 40
+  %2768 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 6, ptr %2768, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72)
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2769:                                             ; preds = %506
-  %2770 = getelementptr inbounds i8, ptr %3, i64 32
+  %2770 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2771 = load i8, ptr %2770, align 8, !range !5, !noundef !4
   %trunc = trunc nuw i8 %2771 to i1
   br i1 %trunc, label %2777, label %2778
 
 .invoke:                                          ; preds = %506, %501, %411, %406
   %.sink1125 = phi ptr [ %367, %406 ], [ %364, %411 ], [ %74, %501 ], [ %69, %506 ]
-  %2772 = getelementptr inbounds i8, ptr %3, i64 8
+  %2772 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink1125, ptr noundef nonnull align 8 dereferenceable(16) %2772, i64 16, i1 false)
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21append_comment_to_doc17hca4379609f23c589E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(192) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %.sink1125)
           to label %2794 unwind label %402
 
 2773:                                             ; preds = %506
-  %2774 = getelementptr inbounds i8, ptr %3, i64 24
+  %2774 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2775 = load i8, ptr %2774, align 8, !range !484, !noundef !4
   switch i8 %2775, label %default.unreachable1101 [
     i8 0, label %2785
@@ -22019,7 +22019,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
           to label %2792 unwind label %2790
 
 2778:                                             ; preds = %2769
-  %2779 = getelementptr inbounds i8, ptr %3, i64 24
+  %2779 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %2780 = load i64, ptr %2779, align 8, !noundef !4
   switch i64 %2780, label %2777 [
     i64 3723736645634, label %2781
@@ -22047,8 +22047,8 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2785:                                             ; preds = %2773
-  %2786 = getelementptr inbounds i8, ptr %3, i64 8
-  %2787 = getelementptr inbounds i8, ptr %0, i64 8
+  %2786 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2787 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2787, ptr noundef nonnull align 8 dereferenceable(16) %2786, i64 16, i1 false)
   store i64 -9223372036854775802, ptr %0, align 8
   br label %2794
@@ -22100,9 +22100,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 2802:                                             ; preds = %2800
-  %2803 = getelementptr inbounds i8, ptr %3, i64 8
+  %2803 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val487 = load i64, ptr %2803, align 8, !range !57, !alias.scope !300, !noundef !4
-  %2804 = getelementptr inbounds i8, ptr %3, i64 20
+  %2804 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.val488 = load i32, ptr %2804, align 4
   %2805 = icmp ult i64 %.val487, 16
   br i1 %2805, label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit", label %2806
@@ -22120,7 +22120,7 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %.sink.split.i.i
 
 2811:                                             ; preds = %2806
-  %2812 = getelementptr inbounds i8, ptr %2808, i64 8
+  %2812 = getelementptr inbounds nuw i8, ptr %2808, i64 8
   %.sroa.02.0.i11.i.i = load i32, ptr %2812, align 4, !noalias !1529, !noundef !4
   %2813 = load i64, ptr %2808, align 8, !noalias !1534, !noundef !4
   %2814 = add i64 %2813, -1
@@ -22138,9 +22138,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
   br label %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit"
 
 .thread634.sink.split:                            ; preds = %2826, %2824
-  %2816 = getelementptr inbounds i8, ptr %3, i64 8
+  %2816 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val485 = load i64, ptr %2816, align 8, !range !57, !alias.scope !300, !noundef !4
-  %2817 = getelementptr inbounds i8, ptr %3, i64 20
+  %2817 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.val486 = load i32, ptr %2817, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE"(i64 %.val485, i32 %.val486) #17
   br label %.thread634
@@ -22183,9 +22183,9 @@ default.unreachable1101:                          ; preds = %2773, %2752, %2721,
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h4dc0416ccfb6e77eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.thread, label %.lr.ph
@@ -22266,9 +22266,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit: ; preds = %19, %20, %15,
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h63310967648d9d67E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %_ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.thread, label %.lr.ph.preheader
@@ -22335,9 +22335,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %25, label %26, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17he6e9b1d2b462b6b1E.exit"
 
 26:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17h49228b39412e66d6E.exit.i"
-  %27 = getelementptr inbounds i8, ptr %.val, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %27), !noalias !1540
-  %28 = getelementptr inbounds i8, ptr %.val, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %29 = load i64, ptr %28, align 8, !noalias !1540, !noundef !4
   %30 = add i64 %29, -1
   store i64 %30, ptr %28, align 8, !noalias !1540
@@ -22414,9 +22414,9 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit: ; preds = %40, %41, %36,
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17h935c58ad11ac1c68E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.thread, label %.lr.ph.preheader
@@ -22476,9 +22476,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %24, label %25, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17h05949e215d90cb11E.exit"
 
 25:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17he4db25b25b4fc58bE.exit.i"
-  %26 = getelementptr inbounds i8, ptr %.val, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %26), !noalias !1545
-  %27 = getelementptr inbounds i8, ptr %.val, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !1545, !noundef !4
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8, !noalias !1545
@@ -22530,9 +22530,9 @@ _ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit: ; preds = %35, %39
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$8in_scope17he223fc187bb9a4c7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %_ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit.thread, label %.lr.ph.preheader
@@ -22596,9 +22596,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
   br i1 %25, label %26, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$4step28_$u7b$$u7b$closure$u7d$$u7d$17h1c31a7b208e7f74dE.exit"
 
 26:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$7elem_in17h5e26c806d4e9653eE.exit.i"
-  %27 = getelementptr inbounds i8, ptr %.val, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %27), !noalias !1550
-  %28 = getelementptr inbounds i8, ptr %.val, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %29 = load i64, ptr %28, align 8, !noalias !1550, !noundef !4
   %30 = add i64 %29, -1
   store i64 %30, ptr %28, align 8, !noalias !1550
@@ -22649,15 +22649,15 @@ _ZN4core3ops8function2Fn4call17h027c3db8f1d10e3eE.exit: ; preds = %36, %40
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9body_elem17hcc72ac31dba6c266E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = icmp ult i64 %3, 2
   br i1 %4, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15html_elem_named17h363f1592e1b13660E.exit.thread", label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = load i64, ptr %10, align 8, !range !57, !noundef !4
@@ -22683,7 +22683,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = load i64, ptr %1, align 8, !range !389, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %8, label %default.unreachable6 [
     i64 0, label %10
     i64 1, label %12
@@ -22712,7 +22712,7 @@ default.unreachable6:                             ; preds = %3
   %15 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   store ptr %15, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   store ptr %17, ptr %4, align 8
   invoke void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$27append_based_on_parent_node17h0c0859f864449f82E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
@@ -22732,9 +22732,9 @@ default.unreachable6:                             ; preds = %3
   br i1 %23, label %24, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %25), !noalias !1555
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load i64, ptr %26, align 8, !noalias !1555, !noundef !4
   %28 = add i64 %27, -1
   store i64 %28, ptr %26, align 8, !noalias !1555
@@ -22776,9 +22776,9 @@ default.unreachable6:                             ; preds = %3
   br i1 %40, label %41, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit3"
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %42), !noalias !1560
-  %43 = getelementptr inbounds i8, ptr %13, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !1560, !noundef !4
   %45 = add i64 %44, -1
   store i64 %45, ptr %43, align 8, !noalias !1560
@@ -22807,12 +22807,12 @@ default.unreachable6:                             ; preds = %3
   br i1 %53, label %54, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit4"
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %17, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 16
   invoke void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %55)
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %17, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %57 = load i64, ptr %56, align 8, !noalias !1565, !noundef !4
   %58 = add i64 %57, -1
   store i64 %58, ptr %56, align 8, !noalias !1565
@@ -22845,9 +22845,9 @@ default.unreachable6:                             ; preds = %3
   br i1 %67, label %68, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit5"
 
 68:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit4"
-  %69 = getelementptr inbounds i8, ptr %64, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %69), !noalias !1576
-  %70 = getelementptr inbounds i8, ptr %64, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !1576, !noundef !4
   %72 = add i64 %71, -1
   store i64 %72, ptr %70, align 8, !noalias !1576
@@ -22866,14 +22866,14 @@ default.unreachable6:                             ; preds = %3
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$9pop_until17h636350adb11a1c6fE"(ptr noalias noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %8
 
 8:                                                ; preds = %.lr.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
@@ -22929,9 +22929,9 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   br i1 %28, label %29, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %30), !noalias !1583
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !1583, !noundef !4
   %33 = add i64 %32, -1
   store i64 %33, ptr %31, align 8, !noalias !1583
@@ -22959,9 +22959,9 @@ _ZN4core3ops8function2Fn4call17h91a449b7d656fea5E.exit: ; preds = %22, %22, %22,
   br i1 %41, label %42, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit7"
 
 42:                                               ; preds = %_ZN4core3ops8function2Fn4call17h91a449b7d656fea5E.exit
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %43), !noalias !1590
-  %44 = getelementptr inbounds i8, ptr %38, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = load i64, ptr %44, align 8, !noalias !1590, !noundef !4
   %46 = add i64 %45, -1
   store i64 %46, ptr %44, align 8, !noalias !1590

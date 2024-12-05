@@ -133,7 +133,7 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   %70 = sext i32 %.0104 to i64
   %71 = getelementptr inbounds i32, ptr %0, i64 %70
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %72, ptr %73, align 4
   %74 = add nsw i32 %.0104, 1
   br label %140
@@ -146,7 +146,7 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %76, label %80, label %83
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %79, ptr %81, align 4
   %82 = add nsw i32 %.068102, 1
   br label %140
@@ -246,13 +246,13 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %135, label %.lr.ph83.i73, label %.loopexit, !llvm.loop !6
 
 compare_index.exit92:                             ; preds = %128, %114
-  %136 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %86, ptr %136, align 4
   %137 = add nsw i32 %.0104, 1
   br label %140
 
 .loopexit:                                        ; preds = %122, %133, %.lr.ph.i87
-  %138 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %79, ptr %138, align 4
   %139 = add nsw i32 %.068102, 1
   br label %140
@@ -314,7 +314,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %19, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -328,7 +328,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 .lr.ph190:                                        ; preds = %._crit_edge, %69
   %indvars.iv216 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next217, %69 ]
-  %20 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv216
+  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv216
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %.preheader139.preheader, label %69
@@ -397,12 +397,12 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
   %37 = add nuw nsw i32 %.0118151.us, %22
   %38 = urem i32 %37, %1
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add nuw nsw i32 %27, %.0118151.us
   %43 = srem i32 %42, %1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %44
   %46 = load i32, ptr %45, align 4
   %.not132.us = icmp eq i32 %41, %46
   br i1 %.not132.us, label %28, label %.split.us
@@ -472,7 +472,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 .lr.ph194:                                        ; preds = %._crit_edge191, %73
   %indvars.iv221 = phi i64 [ 0, %._crit_edge191 ], [ %indvars.iv.next222, %73 ]
-  %70 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv221
+  %70 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv221
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %._crit_edge195.split.loop.exit256, label %73
@@ -495,14 +495,14 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 
 .lr.ph201:                                        ; preds = %._crit_edge195, %.lr.ph201
   %indvars.iv226 = phi i64 [ 0, %._crit_edge195 ], [ %indvars.iv.next227, %.lr.ph201 ]
-  %75 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv226
+  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv226
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %76, 1
   %spec.select137 = select i1 %77, i32 %1, i32 %76
   %78 = sext i32 %spec.select137 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %78
   %79 = load i32, ptr %gep, align 4
-  %80 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv226
+  %80 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv226
   store i32 %79, ptr %80, align 4
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
@@ -547,16 +547,16 @@ define void @Ptngc_comp_from_bwt(ptr nocapture noundef readonly %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %16 = load i32, ptr %10, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %5, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -574,7 +574,7 @@ define void @Ptngc_comp_from_bwt(ptr nocapture noundef readonly %0, i32 noundef 
 .preheader39:                                     ; preds = %.preheader39.preheader, %.preheader39
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.preheader39 ], [ 0, %.preheader39.preheader ]
   %.042 = phi i32 [ %24, %.preheader39 ], [ 0, %.preheader39.preheader ]
-  %22 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv47
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv47
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, %.042
   store i32 %.042, ptr %22, align 4
@@ -589,12 +589,12 @@ define void @Ptngc_comp_from_bwt(ptr nocapture noundef readonly %0, i32 noundef 
   %25 = sext i32 %.03644 to i64
   %26 = getelementptr inbounds i32, ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next52
+  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next52
   store i32 %27, ptr %28, align 4
   %29 = getelementptr inbounds i32, ptr %8, i64 %25
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds i32, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %30
   %35 = icmp samesign ugt i64 %indvars.iv51, 1

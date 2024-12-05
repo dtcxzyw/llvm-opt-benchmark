@@ -689,7 +689,7 @@ lor.rhs:                                          ; preds = %land.lhs.true, %if.
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true
-  %arrayidx18 = getelementptr inbounds i8, ptr %call12, i64 1
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %call12, i64 1
   %4 = load i8, ptr %arrayidx18, align 1, !tbaa !11
   switch i8 %4, label %cleanup [
     i8 110, label %sw.bb

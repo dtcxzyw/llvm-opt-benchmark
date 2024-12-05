@@ -102,9 +102,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -1371,9 +1371,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -2689,9 +2689,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -7019,9 +7019,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -16124,9 +16124,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -25288,9 +25288,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -30349,9 +30349,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -37340,9 +37340,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -44374,9 +44374,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50409,7 +50409,7 @@ entry:
   %ref.tmp1500 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call1 = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %0 = load ptr, ptr %sv_t, align 8
-  %d_kind.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %d_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bf.load.i.i.i.i = load i16, ptr %d_kind.i.i.i.i, align 8
   %bf.clear.i.i.i.i = and i16 %bf.load.i.i.i.i, 1023
   %bf.cast.i.i.i.i = zext nneg i16 %bf.clear.i.i.i.i to i32
@@ -50417,7 +50417,7 @@ entry:
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 -1, i32 %bf.cast.i.i.i.i
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i)
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %bf.load.i.i = load i32, ptr %d_nchildren.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 67108863
   %sub.i.i = sext i1 %cmp.i.i to i32
@@ -50448,9 +50448,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50480,9 +50480,9 @@ init.i.i304:                                      ; preds = %init.check.i.i302
 
 invoke.cont.i.i307:                               ; preds = %init.i.i304
   store i64 1152920405095219200, ptr %call.i.i305, align 8
-  %d_kind.i.i.i308 = getelementptr inbounds i8, ptr %call.i.i305, i64 8
+  %d_kind.i.i.i308 = getelementptr inbounds nuw i8, ptr %call.i.i305, i64 8
   store i16 0, ptr %d_kind.i.i.i308, align 8
-  %d_nchildren.i.i.i309 = getelementptr inbounds i8, ptr %call.i.i305, i64 12
+  %d_nchildren.i.i.i309 = getelementptr inbounds nuw i8, ptr %call.i.i305, i64 12
   store i32 0, ptr %d_nchildren.i.i.i309, align 4
   store ptr %call.i.i305, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50512,9 +50512,9 @@ init.i.i315:                                      ; preds = %init.check.i.i313
 
 invoke.cont.i.i318:                               ; preds = %init.i.i315
   store i64 1152920405095219200, ptr %call.i.i316, align 8
-  %d_kind.i.i.i319 = getelementptr inbounds i8, ptr %call.i.i316, i64 8
+  %d_kind.i.i.i319 = getelementptr inbounds nuw i8, ptr %call.i.i316, i64 8
   store i16 0, ptr %d_kind.i.i.i319, align 8
-  %d_nchildren.i.i.i320 = getelementptr inbounds i8, ptr %call.i.i316, i64 12
+  %d_nchildren.i.i.i320 = getelementptr inbounds nuw i8, ptr %call.i.i316, i64 12
   store i32 0, ptr %d_nchildren.i.i.i320, align 4
   store ptr %call.i.i316, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50544,9 +50544,9 @@ init.i.i326:                                      ; preds = %init.check.i.i324
 
 invoke.cont.i.i329:                               ; preds = %init.i.i326
   store i64 1152920405095219200, ptr %call.i.i327, align 8
-  %d_kind.i.i.i330 = getelementptr inbounds i8, ptr %call.i.i327, i64 8
+  %d_kind.i.i.i330 = getelementptr inbounds nuw i8, ptr %call.i.i327, i64 8
   store i16 0, ptr %d_kind.i.i.i330, align 8
-  %d_nchildren.i.i.i331 = getelementptr inbounds i8, ptr %call.i.i327, i64 12
+  %d_nchildren.i.i.i331 = getelementptr inbounds nuw i8, ptr %call.i.i327, i64 12
   store i32 0, ptr %d_nchildren.i.i.i331, align 4
   store ptr %call.i.i327, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50576,9 +50576,9 @@ init.i.i337:                                      ; preds = %init.check.i.i335
 
 invoke.cont.i.i340:                               ; preds = %init.i.i337
   store i64 1152920405095219200, ptr %call.i.i338, align 8
-  %d_kind.i.i.i341 = getelementptr inbounds i8, ptr %call.i.i338, i64 8
+  %d_kind.i.i.i341 = getelementptr inbounds nuw i8, ptr %call.i.i338, i64 8
   store i16 0, ptr %d_kind.i.i.i341, align 8
-  %d_nchildren.i.i.i342 = getelementptr inbounds i8, ptr %call.i.i338, i64 12
+  %d_nchildren.i.i.i342 = getelementptr inbounds nuw i8, ptr %call.i.i338, i64 12
   store i32 0, ptr %d_nchildren.i.i.i342, align 4
   store ptr %call.i.i338, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50608,9 +50608,9 @@ init.i.i348:                                      ; preds = %init.check.i.i346
 
 invoke.cont.i.i351:                               ; preds = %init.i.i348
   store i64 1152920405095219200, ptr %call.i.i349, align 8
-  %d_kind.i.i.i352 = getelementptr inbounds i8, ptr %call.i.i349, i64 8
+  %d_kind.i.i.i352 = getelementptr inbounds nuw i8, ptr %call.i.i349, i64 8
   store i16 0, ptr %d_kind.i.i.i352, align 8
-  %d_nchildren.i.i.i353 = getelementptr inbounds i8, ptr %call.i.i349, i64 12
+  %d_nchildren.i.i.i353 = getelementptr inbounds nuw i8, ptr %call.i.i349, i64 12
   store i32 0, ptr %d_nchildren.i.i.i353, align 4
   store ptr %call.i.i349, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50640,9 +50640,9 @@ init.i.i359:                                      ; preds = %init.check.i.i357
 
 invoke.cont.i.i362:                               ; preds = %init.i.i359
   store i64 1152920405095219200, ptr %call.i.i360, align 8
-  %d_kind.i.i.i363 = getelementptr inbounds i8, ptr %call.i.i360, i64 8
+  %d_kind.i.i.i363 = getelementptr inbounds nuw i8, ptr %call.i.i360, i64 8
   store i16 0, ptr %d_kind.i.i.i363, align 8
-  %d_nchildren.i.i.i364 = getelementptr inbounds i8, ptr %call.i.i360, i64 12
+  %d_nchildren.i.i.i364 = getelementptr inbounds nuw i8, ptr %call.i.i360, i64 12
   store i32 0, ptr %d_nchildren.i.i.i364, align 4
   store ptr %call.i.i360, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -50665,7 +50665,7 @@ invoke.cont23:                                    ; preds = %invoke.cont.i.i362,
 if.then25:                                        ; preds = %invoke.cont23
   call void @llvm.experimental.noalias.scope.decl(metadata !1363)
   %31 = load ptr, ptr %sv_t, align 8, !noalias !1363
-  %d_kind.i.i.i.i367 = getelementptr inbounds i8, ptr %31, i64 8
+  %d_kind.i.i.i.i367 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %bf.load.i.i.i.i368 = load i16, ptr %d_kind.i.i.i.i367, align 8, !noalias !1363
   %bf.clear.i.i.i.i369 = and i16 %bf.load.i.i.i.i368, 1023
   %bf.cast.i.i.i.i370 = zext nneg i16 %bf.clear.i.i.i.i369 to i32
@@ -50676,9 +50676,9 @@ if.then25:                                        ; preds = %invoke.cont23
 
 call2.i.i.i373.noexc:                             ; preds = %if.then25
   %cmp.i.i374 = icmp eq i32 %call2.i.i.i373375, 2
-  %d_children.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %d_children.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %idxprom.i.i = zext i1 %cmp.i.i374 to i64
-  %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
   %32 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !1363
   store ptr %32, ptr %ref.tmp, align 8, !alias.scope !1363
   %bf.load.i.i.i = load i64, ptr %32, align 8, !noalias !1363
@@ -50813,7 +50813,7 @@ for.body:                                         ; preds = %invoke.cont23, %_ZN
   %i.04822 = phi i32 [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit427 ], [ 0, %invoke.cont23 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1366)
   %42 = load ptr, ptr %sv_t, align 8, !noalias !1366
-  %d_kind.i.i.i.i389 = getelementptr inbounds i8, ptr %42, i64 8
+  %d_kind.i.i.i.i389 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %bf.load.i.i.i.i390 = load i16, ptr %d_kind.i.i.i.i389, align 8, !noalias !1366
   %bf.clear.i.i.i.i391 = and i16 %bf.load.i.i.i.i390, 1023
   %bf.cast.i.i.i.i392 = zext nneg i16 %bf.clear.i.i.i.i391 to i32
@@ -50826,7 +50826,7 @@ call2.i.i.i395.noexc:                             ; preds = %for.body
   %cmp.i.i396 = icmp eq i32 %call2.i.i.i395414, 2
   %inc.i.i397 = zext i1 %cmp.i.i396 to i32
   %spec.select.i.i = add nuw nsw i32 %i.04822, %inc.i.i397
-  %d_children.i.i398 = getelementptr inbounds i8, ptr %42, i64 16
+  %d_children.i.i398 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %idxprom.i.i399 = sext i32 %spec.select.i.i to i64
   %arrayidx.i.i400 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i398, i64 0, i64 %idxprom.i.i399
   %43 = load ptr, ptr %arrayidx.i.i400, align 8, !noalias !1366
@@ -51206,7 +51206,7 @@ for.cond93.preheader:                             ; preds = %if.then80
 if.then83:                                        ; preds = %if.then80
   call void @llvm.experimental.noalias.scope.decl(metadata !1370)
   %83 = load ptr, ptr %sv_t, align 8, !noalias !1370
-  %d_kind.i.i.i.i545 = getelementptr inbounds i8, ptr %83, i64 8
+  %d_kind.i.i.i.i545 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %bf.load.i.i.i.i546 = load i16, ptr %d_kind.i.i.i.i545, align 8, !noalias !1370
   %bf.clear.i.i.i.i547 = and i16 %bf.load.i.i.i.i546, 1023
   %bf.cast.i.i.i.i548 = zext nneg i16 %bf.clear.i.i.i.i547 to i32
@@ -51219,7 +51219,7 @@ call2.i.i.i551.noexc:                             ; preds = %if.then83
   %cmp.i.i552 = icmp eq i32 %call2.i.i.i551571, 2
   %inc.i.i553 = zext i1 %cmp.i.i552 to i32
   %spec.select.i.i554 = add nsw i32 %sub78, %inc.i.i553
-  %d_children.i.i555 = getelementptr inbounds i8, ptr %83, i64 16
+  %d_children.i.i555 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %idxprom.i.i556 = sext i32 %spec.select.i.i554 to i64
   %arrayidx.i.i557 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i555, i64 0, i64 %idxprom.i.i556
   %84 = load ptr, ptr %arrayidx.i.i557, align 8, !noalias !1370
@@ -51347,7 +51347,7 @@ for.body95:                                       ; preds = %for.cond93.preheade
   %i92.04825 = phi i32 [ %i92.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit652 ], [ %i92.04823, %for.cond93.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1373)
   %95 = load ptr, ptr %sv_t, align 8, !noalias !1373
-  %d_kind.i.i.i.i613 = getelementptr inbounds i8, ptr %95, i64 8
+  %d_kind.i.i.i.i613 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %bf.load.i.i.i.i614 = load i16, ptr %d_kind.i.i.i.i613, align 8, !noalias !1373
   %bf.clear.i.i.i.i615 = and i16 %bf.load.i.i.i.i614, 1023
   %bf.cast.i.i.i.i616 = zext nneg i16 %bf.clear.i.i.i.i615 to i32
@@ -51360,7 +51360,7 @@ call2.i.i.i619.noexc:                             ; preds = %for.body95
   %cmp.i.i620 = icmp eq i32 %call2.i.i.i619639, 2
   %inc.i.i621 = zext i1 %cmp.i.i620 to i32
   %spec.select.i.i622 = add nuw nsw i32 %i92.04825, %inc.i.i621
-  %d_children.i.i623 = getelementptr inbounds i8, ptr %95, i64 16
+  %d_children.i.i623 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %idxprom.i.i624 = sext i32 %spec.select.i.i622 to i64
   %arrayidx.i.i625 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i623, i64 0, i64 %idxprom.i.i624
   %96 = load ptr, ptr %arrayidx.i.i625, align 8, !noalias !1373
@@ -51656,9 +51656,9 @@ init.i.i734:                                      ; preds = %init.check.i.i732
 
 invoke.cont.i.i737:                               ; preds = %init.i.i734
   store i64 1152920405095219200, ptr %call.i.i735, align 8
-  %d_kind.i.i.i738 = getelementptr inbounds i8, ptr %call.i.i735, i64 8
+  %d_kind.i.i.i738 = getelementptr inbounds nuw i8, ptr %call.i.i735, i64 8
   store i16 0, ptr %d_kind.i.i.i738, align 8
-  %d_nchildren.i.i.i739 = getelementptr inbounds i8, ptr %call.i.i735, i64 12
+  %d_nchildren.i.i.i739 = getelementptr inbounds nuw i8, ptr %call.i.i735, i64 12
   store i32 0, ptr %d_nchildren.i.i.i739, align 4
   store ptr %call.i.i735, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -51876,9 +51876,9 @@ init.i.i823:                                      ; preds = %init.check.i.i821
 
 invoke.cont.i.i826:                               ; preds = %init.i.i823
   store i64 1152920405095219200, ptr %call.i.i824, align 8
-  %d_kind.i.i.i827 = getelementptr inbounds i8, ptr %call.i.i824, i64 8
+  %d_kind.i.i.i827 = getelementptr inbounds nuw i8, ptr %call.i.i824, i64 8
   store i16 0, ptr %d_kind.i.i.i827, align 8
-  %d_nchildren.i.i.i828 = getelementptr inbounds i8, ptr %call.i.i824, i64 12
+  %d_nchildren.i.i.i828 = getelementptr inbounds nuw i8, ptr %call.i.i824, i64 12
   store i32 0, ptr %d_nchildren.i.i.i828, align 4
   store ptr %call.i.i824, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -52402,9 +52402,9 @@ init.i.i1016:                                     ; preds = %init.check.i.i1014
 
 invoke.cont.i.i1019:                              ; preds = %init.i.i1016
   store i64 1152920405095219200, ptr %call.i.i1017, align 8
-  %d_kind.i.i.i1020 = getelementptr inbounds i8, ptr %call.i.i1017, i64 8
+  %d_kind.i.i.i1020 = getelementptr inbounds nuw i8, ptr %call.i.i1017, i64 8
   store i16 0, ptr %d_kind.i.i.i1020, align 8
-  %d_nchildren.i.i.i1021 = getelementptr inbounds i8, ptr %call.i.i1017, i64 12
+  %d_nchildren.i.i.i1021 = getelementptr inbounds nuw i8, ptr %call.i.i1017, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1021, align 4
   store ptr %call.i.i1017, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -53039,9 +53039,9 @@ init.i.i1233:                                     ; preds = %init.check.i.i1231
 
 invoke.cont.i.i1236:                              ; preds = %init.i.i1233
   store i64 1152920405095219200, ptr %call.i.i1234, align 8
-  %d_kind.i.i.i1237 = getelementptr inbounds i8, ptr %call.i.i1234, i64 8
+  %d_kind.i.i.i1237 = getelementptr inbounds nuw i8, ptr %call.i.i1234, i64 8
   store i16 0, ptr %d_kind.i.i.i1237, align 8
-  %d_nchildren.i.i.i1238 = getelementptr inbounds i8, ptr %call.i.i1234, i64 12
+  %d_nchildren.i.i.i1238 = getelementptr inbounds nuw i8, ptr %call.i.i1234, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1238, align 4
   store ptr %call.i.i1234, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -54899,9 +54899,9 @@ init.i.i1838:                                     ; preds = %init.check.i.i1836
 
 invoke.cont.i.i1841:                              ; preds = %init.i.i1838
   store i64 1152920405095219200, ptr %call.i.i1839, align 8
-  %d_kind.i.i.i1842 = getelementptr inbounds i8, ptr %call.i.i1839, i64 8
+  %d_kind.i.i.i1842 = getelementptr inbounds nuw i8, ptr %call.i.i1839, i64 8
   store i16 0, ptr %d_kind.i.i.i1842, align 8
-  %d_nchildren.i.i.i1843 = getelementptr inbounds i8, ptr %call.i.i1839, i64 12
+  %d_nchildren.i.i.i1843 = getelementptr inbounds nuw i8, ptr %call.i.i1839, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1843, align 4
   store ptr %call.i.i1839, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -55536,9 +55536,9 @@ init.i.i2055:                                     ; preds = %init.check.i.i2053
 
 invoke.cont.i.i2058:                              ; preds = %init.i.i2055
   store i64 1152920405095219200, ptr %call.i.i2056, align 8
-  %d_kind.i.i.i2059 = getelementptr inbounds i8, ptr %call.i.i2056, i64 8
+  %d_kind.i.i.i2059 = getelementptr inbounds nuw i8, ptr %call.i.i2056, i64 8
   store i16 0, ptr %d_kind.i.i.i2059, align 8
-  %d_nchildren.i.i.i2060 = getelementptr inbounds i8, ptr %call.i.i2056, i64 12
+  %d_nchildren.i.i.i2060 = getelementptr inbounds nuw i8, ptr %call.i.i2056, i64 12
   store i32 0, ptr %d_nchildren.i.i.i2060, align 4
   store ptr %call.i.i2056, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -57396,9 +57396,9 @@ init.i.i2667:                                     ; preds = %init.check.i.i2665
 
 invoke.cont.i.i2670:                              ; preds = %init.i.i2667
   store i64 1152920405095219200, ptr %call.i.i2668, align 8
-  %d_kind.i.i.i2671 = getelementptr inbounds i8, ptr %call.i.i2668, i64 8
+  %d_kind.i.i.i2671 = getelementptr inbounds nuw i8, ptr %call.i.i2668, i64 8
   store i16 0, ptr %d_kind.i.i.i2671, align 8
-  %d_nchildren.i.i.i2672 = getelementptr inbounds i8, ptr %call.i.i2668, i64 12
+  %d_nchildren.i.i.i2672 = getelementptr inbounds nuw i8, ptr %call.i.i2668, i64 12
   store i32 0, ptr %d_nchildren.i.i.i2672, align 4
   store ptr %call.i.i2668, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -58033,9 +58033,9 @@ init.i.i2884:                                     ; preds = %init.check.i.i2882
 
 invoke.cont.i.i2887:                              ; preds = %init.i.i2884
   store i64 1152920405095219200, ptr %call.i.i2885, align 8
-  %d_kind.i.i.i2888 = getelementptr inbounds i8, ptr %call.i.i2885, i64 8
+  %d_kind.i.i.i2888 = getelementptr inbounds nuw i8, ptr %call.i.i2885, i64 8
   store i16 0, ptr %d_kind.i.i.i2888, align 8
-  %d_nchildren.i.i.i2889 = getelementptr inbounds i8, ptr %call.i.i2885, i64 12
+  %d_nchildren.i.i.i2889 = getelementptr inbounds nuw i8, ptr %call.i.i2885, i64 12
   store i32 0, ptr %d_nchildren.i.i.i2889, align 4
   store ptr %call.i.i2885, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -59893,9 +59893,9 @@ init.i.i3496:                                     ; preds = %init.check.i.i3494
 
 invoke.cont.i.i3499:                              ; preds = %init.i.i3496
   store i64 1152920405095219200, ptr %call.i.i3497, align 8
-  %d_kind.i.i.i3500 = getelementptr inbounds i8, ptr %call.i.i3497, i64 8
+  %d_kind.i.i.i3500 = getelementptr inbounds nuw i8, ptr %call.i.i3497, i64 8
   store i16 0, ptr %d_kind.i.i.i3500, align 8
-  %d_nchildren.i.i.i3501 = getelementptr inbounds i8, ptr %call.i.i3497, i64 12
+  %d_nchildren.i.i.i3501 = getelementptr inbounds nuw i8, ptr %call.i.i3497, i64 12
   store i32 0, ptr %d_nchildren.i.i.i3501, align 4
   store ptr %call.i.i3497, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -60530,9 +60530,9 @@ init.i.i3713:                                     ; preds = %init.check.i.i3711
 
 invoke.cont.i.i3716:                              ; preds = %init.i.i3713
   store i64 1152920405095219200, ptr %call.i.i3714, align 8
-  %d_kind.i.i.i3717 = getelementptr inbounds i8, ptr %call.i.i3714, i64 8
+  %d_kind.i.i.i3717 = getelementptr inbounds nuw i8, ptr %call.i.i3714, i64 8
   store i16 0, ptr %d_kind.i.i.i3717, align 8
-  %d_nchildren.i.i.i3718 = getelementptr inbounds i8, ptr %call.i.i3714, i64 12
+  %d_nchildren.i.i.i3718 = getelementptr inbounds nuw i8, ptr %call.i.i3714, i64 12
   store i32 0, ptr %d_nchildren.i.i.i3718, align 4
   store ptr %call.i.i3714, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -62393,9 +62393,9 @@ init.i.i4325:                                     ; preds = %init.check.i.i4323
 
 invoke.cont.i.i4328:                              ; preds = %init.i.i4325
   store i64 1152920405095219200, ptr %call.i.i4326, align 8
-  %d_kind.i.i.i4329 = getelementptr inbounds i8, ptr %call.i.i4326, i64 8
+  %d_kind.i.i.i4329 = getelementptr inbounds nuw i8, ptr %call.i.i4326, i64 8
   store i16 0, ptr %d_kind.i.i.i4329, align 8
-  %d_nchildren.i.i.i4330 = getelementptr inbounds i8, ptr %call.i.i4326, i64 12
+  %d_nchildren.i.i.i4330 = getelementptr inbounds nuw i8, ptr %call.i.i4326, i64 12
   store i32 0, ptr %d_nchildren.i.i.i4330, align 4
   store ptr %call.i.i4326, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -62545,9 +62545,9 @@ init.i.i4391:                                     ; preds = %init.check.i.i4389
 
 invoke.cont.i.i4394:                              ; preds = %init.i.i4391
   store i64 1152920405095219200, ptr %call.i.i4392, align 8
-  %d_kind.i.i.i4395 = getelementptr inbounds i8, ptr %call.i.i4392, i64 8
+  %d_kind.i.i.i4395 = getelementptr inbounds nuw i8, ptr %call.i.i4392, i64 8
   store i16 0, ptr %d_kind.i.i.i4395, align 8
-  %d_nchildren.i.i.i4396 = getelementptr inbounds i8, ptr %call.i.i4392, i64 12
+  %d_nchildren.i.i.i4396 = getelementptr inbounds nuw i8, ptr %call.i.i4392, i64 12
   store i32 0, ptr %d_nchildren.i.i.i4396, align 4
   store ptr %call.i.i4392, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11
@@ -63335,9 +63335,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11

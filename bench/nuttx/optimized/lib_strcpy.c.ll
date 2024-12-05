@@ -10,9 +10,9 @@ define noundef ptr @strcpy(ptr noundef returned writeonly %0, ptr nocapture noun
 3:                                                ; preds = %3, %2
   %.04 = phi ptr [ %1, %2 ], [ %4, %3 ]
   %.0 = phi ptr [ %0, %2 ], [ %6, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.04, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.04, i64 1
   %5 = load i8, ptr %.04, align 1
-  %6 = getelementptr inbounds i8, ptr %.0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %5, ptr %.0, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %7, label %3, !llvm.loop !6

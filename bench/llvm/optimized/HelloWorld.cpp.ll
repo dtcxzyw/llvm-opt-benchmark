@@ -65,7 +65,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %17, %19, %20
   %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i8 10, ptr %23, align 1
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %32, ptr %30, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

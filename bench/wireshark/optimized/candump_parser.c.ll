@@ -21,15 +21,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @CandumpParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %0, align 8
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %4, align 1
   %5 = getelementptr i8, ptr %0, i64 10320
-  %6 = getelementptr inbounds i8, ptr %0, i64 10424
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10424
   store ptr %5, ptr %6, align 8
   ret void
 }
@@ -41,15 +41,15 @@ define hidden ptr @CandumpParserAlloc(ptr nocapture noundef readonly %0) local_u
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %2, align 8
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 25
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 0, ptr %6, align 1
   %7 = getelementptr i8, ptr %2, i64 10320
-  %8 = getelementptr inbounds i8, ptr %2, i64 10424
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 10424
   store ptr %7, ptr %8, align 8
   br label %9
 
@@ -59,7 +59,7 @@ define hidden ptr @CandumpParserAlloc(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @CandumpParserFinalize(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2
   br i1 %3, label %.lr.ph, label %7
@@ -84,7 +84,7 @@ define hidden void @CandumpParserFree(ptr noundef %0, ptr nocapture noundef read
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i = load ptr, ptr %0, align 8
   %6 = icmp ugt ptr %.promoted.i, %5
   br i1 %6, label %.lr.ph.i, label %CandumpParserFinalize.exit
@@ -110,7 +110,7 @@ CandumpParserFinalize.exit:                       ; preds = %4, %._crit_edge.i
 ; Function Attrs: nounwind uwtable
 define hidden void @CandumpParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %union.YYMINORTYPE, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %7, align 8
   %8 = icmp eq i32 %1, 0
   %9 = load ptr, ptr %0, align 8
@@ -118,17 +118,17 @@ define hidden void @CandumpParser(ptr noundef initializes((16, 24)) %0, i32 noun
   %11 = trunc i32 %1 to i8
   %.mask = and i32 %1, 255
   %12 = zext nneg i32 %.mask to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 10424
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 20
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  %22 = getelementptr inbounds i8, ptr %6, i64 25
-  %23 = getelementptr inbounds i8, ptr %6, i64 26
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10424
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 26
   br label %24
 
 24:                                               ; preds = %yy_reduce.exit, %5
@@ -181,7 +181,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   br i1 %.not, label %53, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = icmp ugt ptr %45, %48
   br i1 %49, label %.lr.ph.i, label %yyStackOverflow.exit
 
@@ -228,8 +228,8 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %57, ptr noundef nonnull align 8 dereferenceable(96) %58, i64 96, i1 false)
   store i32 1, ptr %56, align 8
   br label %yy_reduce.exit
@@ -242,7 +242,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %62 = load i32, ptr %61, align 8
   %63 = or i32 %62, 1073741824
   store i32 %63, ptr %20, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = trunc i64 %65 to i8
   store i8 %66, ptr %22, align 1
@@ -257,7 +257,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %69 = getelementptr i8, ptr %54, i64 -96
   %70 = load i32, ptr %69, align 8
   store i32 %70, ptr %20, align 8
-  %71 = getelementptr inbounds i8, ptr %54, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %71, i64 65, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   br label %yy_reduce.exit
@@ -272,16 +272,16 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %76 = getelementptr i8, ptr %54, i64 -96
   %77 = load i8, ptr %76, align 8
   store i8 %77, ptr %21, align 8
-  %78 = getelementptr inbounds i8, ptr %54, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %78, i64 65, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   br label %yy_reduce.exit
 
 79:                                               ; preds = %53
-  %80 = getelementptr inbounds i8, ptr %54, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %81 = load i64, ptr %80, align 8
   store i64 %81, ptr %6, align 8
-  %82 = getelementptr inbounds i8, ptr %54, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = trunc i64 %83 to i32
   %85 = mul i32 %84, 1000
@@ -290,14 +290,14 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   br label %yy_reduce.exit
 
 86:                                               ; preds = %53
-  %87 = getelementptr inbounds i8, ptr %54, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
   store i32 %89, ptr %87, align 8
   br label %yy_reduce.exit
 
 90:                                               ; preds = %53
-  %91 = getelementptr inbounds i8, ptr %54, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
   %94 = shl i32 %93, 2
@@ -308,7 +308,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   br label %yy_reduce.exit
 
 97:                                               ; preds = %53, %53
-  %98 = getelementptr inbounds i8, ptr %54, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i8
   store i8 %100, ptr %98, align 8
@@ -321,7 +321,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
 
 103:                                              ; preds = %53
   store i8 1, ptr %6, align 8
-  %104 = getelementptr inbounds i8, ptr %54, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %105 = load i8, ptr %104, align 8
   store i8 %105, ptr %14, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %104, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
@@ -332,7 +332,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %107 = getelementptr i8, ptr %54, i64 -96
   %108 = load i8, ptr %107, align 8
   store i8 %108, ptr %14, align 1
-  %109 = getelementptr inbounds i8, ptr %54, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %110 = load i8, ptr %109, align 8
   store i8 %110, ptr %15, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %107, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
@@ -346,7 +346,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %114 = getelementptr i8, ptr %54, i64 -96
   %115 = load i8, ptr %114, align 8
   store i8 %115, ptr %15, align 2
-  %116 = getelementptr inbounds i8, ptr %54, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %117 = load i8, ptr %116, align 8
   store i8 %117, ptr %16, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %112, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
@@ -363,7 +363,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %123 = getelementptr i8, ptr %54, i64 -96
   %124 = load i8, ptr %123, align 8
   store i8 %124, ptr %16, align 1
-  %125 = getelementptr inbounds i8, ptr %54, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %126 = load i8, ptr %125, align 8
   store i8 %126, ptr %17, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %119, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
@@ -371,7 +371,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
 
 127:                                              ; preds = %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53
   %128 = getelementptr i8, ptr %54, i64 -96
-  %129 = getelementptr inbounds i8, ptr %54, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %130 = load i8, ptr %128, align 1
   %131 = load i8, ptr %129, align 1
   %132 = add i8 %131, %130
@@ -380,7 +380,7 @@ yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %134 = zext i8 %130 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %133, i64 %134, i1 false)
   %135 = getelementptr [64 x i8], ptr %14, i64 0, i64 %134
-  %136 = getelementptr inbounds i8, ptr %54, i64 9
+  %136 = getelementptr inbounds nuw i8, ptr %54, i64 9
   %137 = zext i8 %131 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr nonnull readonly align 1 %136, i64 %137, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %128, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
@@ -425,7 +425,7 @@ yy_reduce.exit:                                   ; preds = %53, %55, %59, %67, 
 
 163:                                              ; preds = %158
   store ptr %159, ptr %0, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %165 = icmp ugt ptr %159, %164
   br i1 %165, label %.lr.ph.i.i, label %yy_shift.exit
 
@@ -453,7 +453,7 @@ yy_reduce.exit:                                   ; preds = %53, %55, %59, %67, 
   br label %yy_shift.exit
 
 yy_shift.exit:                                    ; preds = %163, %._crit_edge.i.i, %169
-  %174 = getelementptr inbounds i8, ptr %0, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = load i32, ptr %174, align 8
   %176 = add i32 %175, -1
   store i32 %176, ptr %174, align 8
@@ -467,19 +467,19 @@ yy_shift.exit:                                    ; preds = %163, %._crit_edge.i
   %180 = load ptr, ptr %0, align 8
   %181 = getelementptr i8, ptr %180, i64 -104
   store ptr %181, ptr %0, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %182, align 8
   br label %yyStackOverflow.exit
 
 183:                                              ; preds = %177
-  %184 = getelementptr inbounds i8, ptr %0, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = icmp slt i32 %185, 1
   br i1 %186, label %187, label %192
 
 187:                                              ; preds = %183
   %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 136
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 136
   %190 = load ptr, ptr %189, align 8
   tail call void @g_free(ptr noundef %190) #10
   %191 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str) #10
@@ -493,7 +493,7 @@ yy_shift.exit:                                    ; preds = %163, %._crit_edge.i
 
 193:                                              ; preds = %192
   %194 = load ptr, ptr %7, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i38 = load ptr, ptr %0, align 8
   %196 = icmp ugt ptr %.promoted.i38, %195
   br i1 %196, label %.lr.ph.i39, label %yy_parse_failed.exit
@@ -509,7 +509,7 @@ yy_shift.exit:                                    ; preds = %163, %._crit_edge.i
   br label %yy_parse_failed.exit
 
 yy_parse_failed.exit:                             ; preds = %193, %._crit_edge.i40
-  %200 = getelementptr inbounds i8, ptr %194, i64 136
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 136
   %201 = load ptr, ptr %200, align 8
   tail call void @g_free(ptr noundef %201) #10
   %202 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #10
@@ -533,10 +533,10 @@ define hidden noundef i32 @CandumpParserFallback(i32 noundef %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @run_candump_parser(ptr noundef initializes((120, 124), (128, 144)) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %8 = call i32 @candump_lex_init_extra(ptr noundef %0, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %8, 0
@@ -557,21 +557,21 @@ define hidden range(i32 0, 2) i32 @run_candump_parser(ptr noundef initializes((1
   br i1 %.not.i, label %CandumpParserAlloc.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %18, ptr %15, align 8
   store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 25
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 25
   store i8 0, ptr %19, align 1
   %20 = getelementptr i8, ptr %15, i64 10320
-  %21 = getelementptr inbounds i8, ptr %15, i64 10424
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 10424
   store ptr %20, ptr %21, align 8
   br label %CandumpParserAlloc.exit
 
 CandumpParserAlloc.exit:                          ; preds = %14, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %24
 
 24:                                               ; preds = %32, %CandumpParserAlloc.exit
@@ -600,7 +600,7 @@ CandumpParserAlloc.exit:                          ; preds = %14, %16
   br i1 %.not.i, label %CandumpParserFree.exit, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %15, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.promoted.i.i = load ptr, ptr %15, align 8
   %39 = icmp ugt ptr %.promoted.i.i, %38
   br i1 %39, label %.lr.ph.i.i, label %CandumpParserFinalize.exit.i

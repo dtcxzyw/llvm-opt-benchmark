@@ -19,9 +19,9 @@ define hidden void @_ZN3std2fs16symlink_metadata17h7f4ac47d5718ef43E(ptr noalias
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4dE.llvm.886730116821800918.exit"
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !7, !noalias !4, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !alias.scope !4, !noalias !7
   store i64 2, ptr %0, align 8, !alias.scope !4, !noalias !7
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4dE.llvm.886730116821800918.exit"
@@ -53,9 +53,9 @@ define hidden void @_ZN3std2fs8metadata17h6eaac3c086c5bff1E(ptr noalias nocaptur
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4dE.llvm.886730116821800918.exit"
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !15, !noalias !12, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !alias.scope !12, !noalias !15
   store i64 2, ptr %0, align 8, !alias.scope !12, !noalias !15
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4dE.llvm.886730116821800918.exit"
@@ -89,9 +89,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4d
   br label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !10, !noundef !10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   store i64 2, ptr %0, align 8
   br label %10
@@ -103,7 +103,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7f79abf3d5cc0c4d
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h975b55137fb95c39E.llvm.886730116821800918"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !22, !noundef !10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !10
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1

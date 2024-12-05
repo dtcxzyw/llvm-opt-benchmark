@@ -141,7 +141,7 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.pre-phi = phi i32 [ %.pre, %19 ], [ %17, %14 ]
   %.094.neg111 = phi i32 [ 0, %19 ], [ %.neg, %14 ]
   %.093 = phi i32 [ %22, %19 ], [ %15, %14 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.42) #2
   %26 = load ptr, ptr %24, align 8
@@ -201,21 +201,21 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.090116 = phi ptr [ %33, %.thread ], [ null, %53 ]
   %58 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.) #2
   store i16 %58, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.090116, ptr %60, align 8
   %61 = load i32, ptr @hf_macsec_eth_padding, align 4
-  %62 = getelementptr inbounds i8, ptr %5, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %63, align 4
   %64 = add nuw nsw i32 %., 2
   %65 = add i32 %.093, -2
   %66 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %64, i32 noundef %65) #2
-  %67 = getelementptr inbounds i8, ptr %1, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %.neg108 = add nsw i32 %..neg110, -18
   %.neg109 = add i32 %.neg108, %.094.neg111
@@ -224,7 +224,7 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %72 = load ptr, ptr @ethertype_handle, align 8
   %73 = call i32 @call_dissector_with_data(ptr noundef %72, ptr noundef %66, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #2
   %74 = load ptr, ptr %67, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %70, ptr %75, align 4
   %76 = load i32, ptr @hf_macsec_ICV, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %.090116, i32 noundef %76, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 16, i32 noundef 0) #2

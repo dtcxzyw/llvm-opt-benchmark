@@ -98,7 +98,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_skcipher_all
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %103, label %6
@@ -109,7 +109,7 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 
 8:                                                ; preds = %6
   %9 = sub i32 %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = sub i32 %11, %9
   br label %13
@@ -117,7 +117,7 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 13:                                               ; preds = %8, %6
   %14 = phi i32 [ %9, %8 ], [ %4, %6 ]
   %15 = phi i32 [ %12, %8 ], [ 0, %6 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 132
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 15
   %19 = icmp eq i32 %18, 0
@@ -134,11 +134,11 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
   br i1 %25, label %49, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 288230376151711740
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i32, ptr %31, align 8
   %33 = load i64, ptr @vmemmap_base, align 8
   %34 = lshr i32 %32, 6
@@ -153,9 +153,9 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
   %42 = and i32 %32, 4095
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = zext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %47, i64 %48, i1 false)
@@ -179,16 +179,16 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
   %57 = phi i32 [ %14, %26 ], [ 0, %54 ], [ %14, %49 ], [ %14, %52 ], [ %14, %13 ], [ %14, %20 ]
   %58 = phi i32 [ %15, %26 ], [ %15, %54 ], [ %15, %49 ], [ 0, %52 ], [ %15, %13 ], [ %15, %20 ]
   %59 = tail call i32 @llvm.smin.i32(i32 %56, i32 0)
-  %60 = getelementptr inbounds i8, ptr %0, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %58, ptr %60, align 8
   store i32 0, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = add i32 %63, %57
   store i32 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
-  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, %57
   store i32 %68, ptr %66, align 8
@@ -197,9 +197,9 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 
 70:                                               ; preds = %55
   %71 = load ptr, ptr %61, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, %73
   %77 = icmp ult i32 %64, %76
@@ -208,7 +208,7 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 78:                                               ; preds = %70
   %79 = tail call ptr @sg_next(ptr noundef %71) #9
   store ptr %79, ptr %61, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8
   store i32 %81, ptr %62, align 8
   %.pre = load i32, ptr %66, align 8
@@ -217,9 +217,9 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 82:                                               ; preds = %70, %78
   %83 = phi i32 [ %68, %70 ], [ %.pre, %78 ]
   %84 = load ptr, ptr %65, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %84, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %86
   %90 = icmp ult i32 %83, %89
@@ -228,7 +228,7 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 91:                                               ; preds = %82
   %92 = tail call ptr @sg_next(ptr noundef %84) #9
   store ptr %92, ptr %65, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %66, align 8
   br label %95
@@ -249,9 +249,9 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
 
 103:                                              ; preds = %55, %2
   %104 = phi i32 [ %1, %2 ], [ %59, %55 ]
-  %105 = getelementptr inbounds i8, ptr %0, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 96
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %106, null
   %110 = icmp eq ptr %108, null
@@ -259,22 +259,22 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
   br i1 %111, label %137, label %112
 
 112:                                              ; preds = %103
-  %113 = getelementptr inbounds i8, ptr %0, i64 132
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 1
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %137
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %0, i64 120
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 112
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %119, %121
   br i1 %122, label %127, label %123
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %0, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %125 = load i32, ptr %124, align 8
   %126 = zext i32 %125 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr align 1 %119, i64 %126, i1 false)
@@ -316,10 +316,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @skcipher_done_slow(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   %9 = zext i32 %8 to i64
@@ -336,51 +336,51 @@ define internal fastcc void @skcipher_done_slow(ptr noundef %0, i32 noundef %1) 
   %20 = inttoptr i64 %19 to ptr
   %21 = icmp ult ptr %20, %14
   %22 = select i1 %21, ptr %14, ptr %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  %24 = getelementptr inbounds i8, ptr %0, i64 132
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %27 = add nuw nsw i32 %26, 1
-  tail call void @scatterwalk_copychunks(ptr noundef %22, ptr noundef %23, i64 noundef %15, i32 noundef %27) #9
+  tail call void @scatterwalk_copychunks(ptr noundef %22, ptr noundef nonnull %23, i64 noundef %15, i32 noundef %27) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -15
   store i32 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @llvm.umax.i32(i32 %6, i32 %10)
   %12 = tail call i32 @llvm.umin.i32(i32 %8, i32 %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = sub i32 %19, %21
   %23 = and i32 %21, 4095
   %24 = sub nuw nsw i32 4096, %23
   %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 %22)
   %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 %6)
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = sub i32 %33, %35
   %37 = and i32 %35, 4095
@@ -404,14 +404,14 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
 
 48:                                               ; preds = %1
   %49 = or i32 %35, %21
-  %50 = getelementptr inbounds i8, ptr %0, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, %49
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %76, label %54, !prof !5
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %65
@@ -438,7 +438,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %70 = and i32 %69, 4095
   %71 = sub nuw nsw i32 4096, %70
   %72 = tail call i32 @llvm.umin.i32(i32 %40, i32 %71)
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %72, ptr %73, align 8
   %74 = or i32 %66, 4
   store i32 %74, ptr %2, align 4
@@ -446,7 +446,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   br label %121
 
 76:                                               ; preds = %48
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %40, ptr %77, align 8
   %78 = load i64, ptr %14, align 8
   %79 = and i64 %78, -4
@@ -456,7 +456,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %83 = getelementptr %struct.page, ptr %80, i64 %82
   store ptr %83, ptr %0, align 8
   %84 = zext nneg i32 %23 to i64
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %84, ptr %85, align 8
   %86 = load i64, ptr %28, align 8
   %87 = and i64 %86, -4
@@ -464,10 +464,10 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %89 = lshr i32 %35, 12
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr %struct.page, ptr %88, i64 %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %91, ptr %92, align 8
   %93 = zext nneg i32 %37 to i64
-  %94 = getelementptr inbounds i8, ptr %0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %93, ptr %94, align 8
   %95 = and i32 %3, 1
   %96 = icmp eq i32 %95, 0
@@ -521,7 +521,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
 128:                                              ; preds = %124
   %129 = load i64, ptr @vmemmap_base, align 8
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %0, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = ptrtoint ptr %132 to i64
   %134 = add i64 %133, 2147483648
@@ -536,8 +536,8 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   store ptr %142, ptr %0, align 8
   %143 = load i64, ptr @vmemmap_base, align 8
   %144 = inttoptr i64 %143 to ptr
-  %145 = getelementptr inbounds i8, ptr %0, i64 16
-  %146 = getelementptr inbounds i8, ptr %0, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %147 = load ptr, ptr %146, align 8
   %148 = ptrtoint ptr %147 to i64
   %149 = add i64 %148, 2147483648
@@ -572,27 +572,27 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
-  %9 = getelementptr inbounds i8, ptr %0, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %6, %52
   %10 = phi ptr [ %11, %52 ], [ %4, %6 ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %35
 
 15:                                               ; preds = %.split.us
-  %16 = getelementptr inbounds i8, ptr %10, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %17 = ptrtoint ptr %16 to i64
   %18 = load i32, ptr %8, align 8
   %19 = add i32 %18, 1
@@ -615,11 +615,11 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
 
 35:                                               ; preds = %15, %.split.us
   %36 = phi ptr [ %13, %.split.us ], [ %34, %15 ]
-  %37 = getelementptr inbounds i8, ptr %10, i64 16
-  %38 = getelementptr inbounds i8, ptr %10, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  tail call void @scatterwalk_copychunks(ptr noundef %36, ptr noundef %37, i64 noundef %40, i32 noundef 1) #9
+  tail call void @scatterwalk_copychunks(ptr noundef %36, ptr noundef nonnull %37, i64 noundef %40, i32 noundef 1) #9
   %41 = load ptr, ptr %12, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 4095
@@ -637,10 +637,10 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   br label %52
 
 52:                                               ; preds = %51, %35
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %54, ptr %56, align 8
   store volatile ptr %55, ptr %54, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
@@ -652,9 +652,9 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
 .split:                                           ; preds = %6, %.split
   %58 = phi ptr [ %59, %.split ], [ %4, %6 ]
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %61, ptr %62, align 8
   store volatile ptr %59, ptr %61, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %58, align 8
@@ -668,24 +668,24 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %.loopexit
-  %66 = getelementptr inbounds i8, ptr %0, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %67, %69
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %0, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %67, i64 %74, i1 false)
   br label %75
 
 75:                                               ; preds = %71, %65, %.loopexit
-  %76 = getelementptr inbounds i8, ptr %0, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %77, %79
   br i1 %80, label %82, label %81
@@ -714,7 +714,7 @@ declare dso_local void @scatterwalk_copychunks(ptr noundef, ptr noundef, i64 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
@@ -725,7 +725,7 @@ define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 
   br label %10
 
 10:                                               ; preds = %8, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, -2
   store i32 %13, ptr %11, align 4
@@ -739,70 +739,70 @@ define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %11, ptr %13, align 8
   %14 = icmp eq i32 %7, 0
   br i1 %14, label %70, label %15, !prof !6
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 132
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, -17
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %32 = load i32, ptr %31, align 8
   %33 = lshr i32 %32, 5
   %34 = and i32 %33, 16
   %35 = or disjoint i32 %34, %30
   store i32 %35, ptr %28, align 4
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %38, ptr %39, align 8
   %40 = load ptr, ptr %5, align 8
   %41 = getelementptr i8, ptr %40, i64 -16
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %42, ptr %43, align 8
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %6, i64 312
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, @crypto_skcipher_type
-  %51 = getelementptr inbounds i8, ptr %0, i64 140
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %.v = select i1 %50, i64 -32, i64 -12
   %52 = getelementptr i8, ptr %6, i64 %.v
   %53 = load i32, ptr %52, align 4
@@ -819,7 +819,7 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
   br label %70
 
 58:                                               ; preds = %15
-  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %59, align 8
   %60 = ptrtoint ptr %11 to i64
   %61 = zext i32 %46 to i64
@@ -833,7 +833,7 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %64, %58
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %68, align 8
   %69 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
   br label %70
@@ -845,13 +845,13 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store volatile ptr %6, ptr %7, align 8
   %8 = tail call fastcc i32 @skcipher_walk_skcipher(ptr noundef %0, ptr noundef %1)
   ret i32 %8
@@ -859,9 +859,9 @@ define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %5, ptr %6, align 8
   %7 = tail call fastcc i32 @skcipher_walk_aead_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   ret i32 %7
@@ -869,49 +869,49 @@ define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((48, 52), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %109, label %14, !prof !6
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 132
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, -2
   store i32 %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  tail call void @scatterwalk_copychunks(ptr noundef null, ptr noundef %18, i64 noundef %32, i32 noundef 2) #9
+  tail call void @scatterwalk_copychunks(ptr noundef null, ptr noundef nonnull %18, i64 noundef %32, i32 noundef 2) #9
   %33 = load i32, ptr %30, align 8
   %34 = zext i32 %33 to i64
-  tail call void @scatterwalk_copychunks(ptr noundef null, ptr noundef %24, i64 noundef %34, i32 noundef 2) #9
+  tail call void @scatterwalk_copychunks(ptr noundef null, ptr noundef nonnull %24, i64 noundef %34, i32 noundef 2) #9
   %35 = load i32, ptr %11, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.thread, label %37
@@ -919,9 +919,9 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 37:                                               ; preds = %14
   %38 = load i32, ptr %23, align 8
   %39 = load ptr, ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, %41
   %45 = icmp ult i32 %38, %44
@@ -930,7 +930,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 46:                                               ; preds = %37
   %47 = tail call ptr @sg_next(ptr noundef %39) #9
   store ptr %47, ptr %18, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   store i32 %49, ptr %23, align 8
   %.pr.pre = load i32, ptr %11, align 8
@@ -940,9 +940,9 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 .thread2:                                         ; preds = %37, %46
   %51 = load i32, ptr %29, align 8
   %52 = load ptr, ptr %24, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, %54
   %58 = icmp ult i32 %51, %57
@@ -951,13 +951,13 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 59:                                               ; preds = %.thread2
   %60 = tail call ptr @sg_next(ptr noundef %52) #9
   store ptr %60, ptr %24, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
   store i32 %62, ptr %29, align 8
   br label %.thread
 
 .thread:                                          ; preds = %14, %59, %.thread2, %46
-  %63 = getelementptr inbounds i8, ptr %1, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = load i32, ptr %15, align 4
   %66 = and i32 %65, -17
@@ -967,24 +967,24 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   store i32 %69, ptr %15, align 4
   %70 = getelementptr i8, ptr %5, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 136
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %73, ptr %74, align 8
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 140
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %77, ptr %78, align 4
   %79 = load ptr, ptr %70, align 8
   %80 = getelementptr i8, ptr %79, i64 -16
   %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %81, ptr %82, align 8
   %83 = load ptr, ptr %70, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 44
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 144
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %85, ptr %86, align 8
   %87 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
   %88 = and i32 %87, 983040
@@ -998,7 +998,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   br label %104
 
 91:                                               ; preds = %.thread
-  %92 = getelementptr inbounds i8, ptr %0, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %92, align 8
   %93 = load ptr, ptr %9, align 8
   %94 = ptrtoint ptr %93 to i64
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %98, %91
-  %102 = getelementptr inbounds i8, ptr %0, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %102, align 8
   %103 = tail call fastcc i32 @skcipher_walk_next(ptr noundef %0)
   br label %104
@@ -1035,14 +1035,14 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %6, align 8
   %10 = sub i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %10, ptr %11, align 8
   %12 = tail call fastcc i32 @skcipher_walk_aead_common(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   ret i32 %12
@@ -1050,10 +1050,10 @@ define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef initializes((48, 52
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_skcipher_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -88
-  %7 = getelementptr inbounds i8, ptr %5, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = getelementptr i8, ptr %5, i64 312
@@ -1062,17 +1062,17 @@ define dso_local i32 @crypto_skcipher_setkey(ptr noundef %0, ptr noundef %1, i32
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, -1048321
   store i32 %18, ptr %16, align 4
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 1048320
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, %22
   store i32 %25, ptr %23, align 4
@@ -1136,14 +1136,14 @@ define dso_local i32 @crypto_skcipher_setkey(ptr noundef %0, ptr noundef %1, i32
   br i1 %63, label %72, label %64
 
 64:                                               ; preds = %.thread
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, 1
   store i32 %67, ptr %65, align 4
   br label %72
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds i8, ptr %0, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, -2
   store i32 %71, ptr %69, align 4
@@ -1159,7 +1159,7 @@ declare dso_local i32 @crypto_lskcipher_setkey(ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_skcipher_encrypt(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1195,7 +1195,7 @@ declare dso_local i32 @crypto_lskcipher_encrypt_sg(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_skcipher_decrypt(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1231,7 +1231,7 @@ declare dso_local i32 @crypto_lskcipher_decrypt_sg(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_skcipher_export(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1241,9 +1241,9 @@ define dso_local i32 @crypto_skcipher_export(ptr noundef %0, ptr noundef %1) #0 
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %6, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   %16 = zext i32 %15 to i64
@@ -1275,7 +1275,7 @@ define dso_local i32 @crypto_skcipher_export(ptr noundef %0, ptr noundef %1) #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_skcipher_import(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1285,9 +1285,9 @@ define dso_local i32 @crypto_skcipher_import(ptr noundef %0, ptr noundef %1) #0 
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %6, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   %16 = zext i32 %15 to i64
@@ -1319,7 +1319,7 @@ define dso_local i32 @crypto_skcipher_import(ptr noundef %0, ptr noundef %1) #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_grab_skcipher(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @crypto_skcipher_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   ret i32 %7
@@ -1350,8 +1350,8 @@ define dso_local ptr @crypto_alloc_sync_skcipher(ptr noundef %0, i32 noundef %1,
   tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #9, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 921, i32 2305, i64 12) #9, !srcloc !17
   tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !18
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %5, ptr noundef %11) #9
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %5, ptr noundef nonnull %11) #9
   br label %12
 
 12:                                               ; preds = %10, %7, %3
@@ -1370,19 +1370,19 @@ declare dso_local i32 @crypto_type_has_alg(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef range(i32 -22, 1) i32 @skcipher_prepare_alg_common(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 512
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 512
   br i1 %8, label %25, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %11, 2048
   %13 = add nuw nsw i32 %11, %3
@@ -1395,13 +1395,13 @@ define dso_local noundef range(i32 -22, 1) i32 @skcipher_prepare_alg_common(ptr 
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %6, align 4
   br label %21
 
 21:                                               ; preds = %18, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -16
   store i32 %24, ptr %22, align 8
@@ -1414,19 +1414,19 @@ define dso_local noundef range(i32 -22, 1) i32 @skcipher_prepare_alg_common(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_register_skcipher(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 512
   br i1 %4, label %.thread5, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 512
   br i1 %8, label %.thread5, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %11, 2048
   %13 = add nuw nsw i32 %11, %3
@@ -1439,18 +1439,18 @@ define dso_local i32 @crypto_register_skcipher(ptr noundef %0) #0 align 16 {
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 124
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %6, align 4
   br label %21
 
 21:                                               ; preds = %18, %16
   %22 = phi i32 [ %20, %18 ], [ %7, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, -16
   store i32 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i32, ptr %26, align 8
   %28 = icmp ugt i32 %27, 512
   br i1 %28, label %.thread5, label %29
@@ -1465,12 +1465,12 @@ define dso_local i32 @crypto_register_skcipher(ptr noundef %0) #0 align 16 {
 
 32:                                               ; preds = %31, %29
   %33 = icmp eq i32 %11, 0
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %33, label %35, label %37
 
 35:                                               ; preds = %32
   store ptr @skcipher_noimport, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @skcipher_noexport, ptr %36, align 8
   br label %44
 
@@ -1480,18 +1480,18 @@ define dso_local i32 @crypto_register_skcipher(ptr noundef %0) #0 align 16 {
   br i1 %39, label %.thread5, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread5, label %44
 
 44:                                               ; preds = %40, %35
-  %45 = getelementptr inbounds i8, ptr %0, i64 400
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @crypto_skcipher_type, ptr %45, align 8
   %46 = or disjoint i32 %25, 5
   store i32 %46, ptr %23, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
-  %48 = tail call i32 @crypto_register_alg(ptr noundef %47) #9
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %48 = tail call i32 @crypto_register_alg(ptr noundef nonnull %47) #9
   br label %.thread5
 
 .thread5:                                         ; preds = %1, %5, %9, %37, %40, %21, %44
@@ -1504,8 +1504,8 @@ declare dso_local i32 @crypto_register_alg(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_unregister_skcipher(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @crypto_unregister_alg(ptr noundef %2) #9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @crypto_unregister_alg(ptr noundef nonnull %2) #9
   ret void
 }
 
@@ -1525,19 +1525,19 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
   %indvars.iv = phi i32 [ %indvars.iv.next, %62 ], [ -1, %4 ]
   %7 = phi i64 [ %63, %62 ], [ 0, %4 ]
   %8 = getelementptr %struct.skcipher_alg, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 512
   br i1 %11, label %.thread10, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 76
   %14 = load i32, ptr %13, align 4
   %15 = icmp ugt i32 %14, 512
   br i1 %15, label %.thread10, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %18, 2048
   %20 = add nuw nsw i32 %18, %10
@@ -1550,18 +1550,18 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %8, i64 124
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %13, align 4
   br label %28
 
 28:                                               ; preds = %25, %23
   %29 = phi i32 [ %27, %25 ], [ %14, %23 ]
-  %30 = getelementptr inbounds i8, ptr %8, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, -16
   store i32 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 512
   br i1 %35, label %.thread10, label %36
@@ -1576,12 +1576,12 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
 
 39:                                               ; preds = %38, %36
   %40 = icmp eq i32 %18, 0
-  %41 = getelementptr inbounds i8, ptr %8, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %39
   store ptr @skcipher_noimport, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @skcipher_noexport, ptr %43, align 8
   br label %51
 
@@ -1591,18 +1591,18 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
   br i1 %46, label %.thread10, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread10, label %51
 
 51:                                               ; preds = %42, %47
-  %52 = getelementptr inbounds i8, ptr %8, i64 400
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 400
   store ptr @crypto_skcipher_type, ptr %52, align 8
   %53 = or disjoint i32 %32, 5
   store i32 %53, ptr %30, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 88
-  %55 = tail call i32 @crypto_register_alg(ptr noundef %54) #9
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %55 = tail call i32 @crypto_register_alg(ptr noundef nonnull %54) #9
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %62, label %.thread10
 
@@ -1671,19 +1671,19 @@ define dso_local i32 @skcipher_register_instance(ptr noundef %0, ptr noundef %1)
   br label %.thread5
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 512
   br i1 %9, label %.thread5, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %12, 512
   br i1 %13, label %.thread5, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load i32, ptr %15, align 8
   %17 = icmp ugt i32 %16, 2048
   %18 = add nuw nsw i32 %16, %8
@@ -1696,18 +1696,18 @@ define dso_local i32 @skcipher_register_instance(ptr noundef %0, ptr noundef %1)
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 132
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %11, align 4
   br label %26
 
 26:                                               ; preds = %23, %21
   %27 = phi i32 [ %25, %23 ], [ %12, %21 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -16
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load i32, ptr %31, align 8
   %33 = icmp ugt i32 %32, 512
   br i1 %33, label %.thread5, label %34
@@ -1722,12 +1722,12 @@ define dso_local i32 @skcipher_register_instance(ptr noundef %0, ptr noundef %1)
 
 37:                                               ; preds = %36, %34
   %38 = icmp eq i32 %16, 0
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br i1 %38, label %40, label %42
 
 40:                                               ; preds = %37
   store ptr @skcipher_noimport, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @skcipher_noexport, ptr %41, align 8
   br label %49
 
@@ -1737,18 +1737,18 @@ define dso_local i32 @skcipher_register_instance(ptr noundef %0, ptr noundef %1)
   br i1 %44, label %.thread5, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.thread5, label %49
 
 49:                                               ; preds = %45, %40
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   store ptr @crypto_skcipher_type, ptr %50, align 8
   %51 = or disjoint i32 %30, 5
   store i32 %51, ptr %28, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 96
-  %53 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef %52) #9
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %53 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef nonnull %52) #9
   br label %.thread5
 
 .thread5:                                         ; preds = %6, %10, %14, %42, %45, %26, %49, %5
@@ -1780,63 +1780,63 @@ define dso_local ptr @skcipher_alloc_instance_simple(ptr noundef %0, ptr noundef
   br i1 %12, label %55, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 536
-  %15 = getelementptr inbounds i8, ptr %11, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 536
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %16 = getelementptr i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @crypto_attr_alg_name(ptr noundef %17) #9
   %19 = load i32, ptr %3, align 4
   %20 = or i32 %19, 15
-  %21 = call i32 @crypto_grab_spawn(ptr noundef %14, ptr noundef %15, ptr noundef %18, i32 noundef 1, i32 noundef %20) #9
+  %21 = call i32 @crypto_grab_spawn(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %18, i32 noundef 1, i32 noundef %20) #9
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %51
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %11, i64 552
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 552
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = call i32 @crypto_inst_setname(ptr noundef %15, ptr noundef %26, ptr noundef %25) #9
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = call i32 @crypto_inst_setname(ptr noundef nonnull %15, ptr noundef nonnull %26, ptr noundef %25) #9
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %51
 
 29:                                               ; preds = %23
   store ptr @skcipher_free_instance_simple, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 72
-  %34 = getelementptr inbounds i8, ptr %11, i64 132
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 132
   store i32 %31, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %25, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %11, i64 140
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 140
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %25, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 144
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %25, i64 320
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 320
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %25, i64 324
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 324
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %11, i64 76
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 %44, ptr %45, align 4
   %46 = load i32, ptr %30, align 4
-  %47 = getelementptr inbounds i8, ptr %11, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 136
   store i32 8, ptr %48, align 8
   store ptr @skcipher_setkey_simple, ptr %32, align 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr @skcipher_init_tfm_simple, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %11, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr @skcipher_exit_tfm_simple, ptr %50, align 8
   br label %55
 
 51:                                               ; preds = %23, %13
   %52 = phi i32 [ %21, %13 ], [ %27, %23 ]
-  call void @crypto_drop_spawn(ptr noundef %14) #9
+  call void @crypto_drop_spawn(ptr noundef nonnull %14) #9
   call void @kfree(ptr noundef nonnull %11) #9
   %53 = sext i32 %52 to i64
   %54 = inttoptr i64 %53 to ptr
@@ -1859,21 +1859,21 @@ declare dso_local i32 @crypto_inst_setname(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @skcipher_free_instance_simple(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 536
-  tail call void @crypto_drop_spawn(ptr noundef %2) #9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %2) #9
   tail call void @kfree(ptr noundef %0) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @skcipher_setkey_simple(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -1048321
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 1048320
   %12 = or disjoint i32 %11, %8
@@ -1884,7 +1884,7 @@ define internal i32 @skcipher_setkey_simple(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm(ptr noundef %4, i32 noundef 1, i32 noundef 15) #9
@@ -1897,7 +1897,7 @@ define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align
   br label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -1908,7 +1908,7 @@ define internal i32 @skcipher_init_tfm_simple(ptr nocapture noundef %0) #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @skcipher_exit_tfm_simple(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #9
   ret void
@@ -1922,22 +1922,22 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   br i1 %6, label %9, label %17
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %10, align 8
   %16 = icmp eq ptr %15, null
@@ -1968,24 +1968,24 @@ define internal fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %1) u
   br i1 %6, label %44, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %30, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %37, ptr noundef align 8 dereferenceable(16) %38, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   store ptr %30, ptr %40, align 8
   store ptr %39, ptr %30, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %41, ptr %42, align 8
   store volatile ptr %30, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %30, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 48
   br label %.thread
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %30, ptr %45, align 8
   br label %.thread
 
@@ -1999,7 +1999,7 @@ define internal fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %1) u
   %52 = sub nsw i64 0, %49
   %53 = and i64 %51, %52
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = zext i32 %1 to i64
   %57 = getelementptr i8, ptr %54, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -1
@@ -2009,11 +2009,11 @@ define internal fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %1) u
   %62 = icmp ult ptr %61, %54
   %63 = select i1 %62, ptr %54, ptr %61
   store ptr %63, ptr %55, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @scatterwalk_copychunks(ptr noundef %63, ptr noundef %65, i64 noundef %56, i32 noundef 0) #9
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @scatterwalk_copychunks(ptr noundef %63, ptr noundef nonnull %65, i64 noundef %56, i32 noundef 0) #9
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %66, align 8
   %67 = load i32, ptr %3, align 4
   %68 = or i32 %67, 2
@@ -2030,13 +2030,13 @@ declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr noundef initializes((8, 16), (24, 32)) %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 288230376151711740
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = load i64, ptr @vmemmap_base, align 8
   %11 = lshr i32 %9, 6
@@ -2051,16 +2051,16 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr nou
   %19 = and i32 %9, 4095
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %21, i64 %25, i1 false)
   store ptr %3, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 132
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 1
   %30 = icmp eq i32 %29, 0
@@ -2077,20 +2077,20 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr nou
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %39, ptr %40, align 8
   %41 = load i32, ptr %23, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 16
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %43, ptr noundef align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   store ptr %36, ptr %46, align 8
   store ptr %45, ptr %36, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %47, ptr %48, align 8
   store volatile ptr %36, ptr %47, align 8
   %49 = load ptr, ptr %2, align 8
@@ -2099,7 +2099,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr nou
   %52 = load i32, ptr %23, align 8
   %53 = zext i32 %52 to i64
   %54 = add nuw nsw i64 %51, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 140
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   %58 = add nuw nsw i64 %54, %57
@@ -2125,18 +2125,18 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocapture noundef initializes((104, 112)) %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 140
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %3, 1
   %9 = add i32 %7, %3
   %10 = xor i32 %3, -1
   %11 = and i32 %9, %10
   %12 = and i32 %3, -8
-  %13 = getelementptr inbounds i8, ptr %0, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, 0
@@ -2162,7 +2162,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocap
   %30 = select i1 %29, i32 2080, i32 3264
   %31 = zext i32 %27 to i64
   %32 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %31, i32 noundef %30) #11
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %57, label %35
@@ -2185,7 +2185,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocap
   %50 = select i1 %49, ptr %42, ptr %48
   %51 = zext i32 %11 to i64
   %52 = getelementptr i8, ptr %50, i64 %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %4, align 8
   %56 = zext i32 %55 to i64
@@ -2203,7 +2203,7 @@ declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_skcipher_extsize(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @crypto_skcipher_type
   br i1 %4, label %5, label %7
@@ -2235,13 +2235,13 @@ define internal i32 @crypto_skcipher_init_tfm(ptr noundef %0) #0 align 16 {
   br label %12
 
 12:                                               ; preds = %8, %1
-  %13 = getelementptr inbounds i8, ptr %4, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @crypto_skcipher_type
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, -8
   %20 = getelementptr i8, ptr %4, i64 -16
@@ -2283,13 +2283,13 @@ define internal i32 @crypto_skcipher_init_tfm(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_skcipher_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3) #9
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr @.str.6, ptr @.str.5
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i32, ptr %8, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %9) #9
   %10 = getelementptr i8, ptr %1, i64 -24

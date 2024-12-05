@@ -128,7 +128,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %36 = or disjoint i32 %spec.select48, 32768
   %.2 = select i1 %.not45, i32 %35, i32 %36
   %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03757, i32 noundef %.2) #8
-  %38 = getelementptr inbounds i8, ptr %1, i64 308
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 308
   store i32 0, ptr %38, align 4
   br label %39
 
@@ -157,7 +157,7 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
   br i1 %.not16, label %11, label %31
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = trunc i32 %13 to i16
   %trunc = and i16 %14, -4096
@@ -237,13 +237,13 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.termios, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 308
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %53, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %5, 0
   %11 = icmp ne i32 %1, 0
@@ -251,7 +251,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   br i1 %or.cond, label %.preheader, label %27
 
 .preheader:                                       ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %13
 
 13:                                               ; preds = %.preheader, %16
@@ -295,7 +295,7 @@ uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedg
   br label %27
 
 27:                                               ; preds = %26, %7
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %28, i64 60, i1 false)
   switch i32 %1, label %.preheader30 [
     i32 2, label %43
@@ -306,21 +306,21 @@ uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedg
   %30 = load i32, ptr %3, align 4
   %31 = and i32 %30, -1331
   store i32 %31, ptr %3, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 4
   store i32 %34, ptr %32, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, 48
   store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, -32780
   store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 23
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 1, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %3, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i8 0, ptr %42, align 2
   br label %.preheader30
 
@@ -365,7 +365,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.winsize, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %6
 
 6:                                                ; preds = %10, %3
@@ -385,7 +385,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr
   br label %20
 
 .critedge5:                                       ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   store i32 %17, ptr %1, align 4

@@ -124,7 +124,7 @@ define dso_local void @PgArchShmemInit() local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.loopexit.sink.split, %15
   %24 = load ptr, ptr @PgArch, align 8
   store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store volatile i32 0, ptr %25, align 4
   br label %26
 
@@ -174,7 +174,7 @@ define dso_local void @PgArchiverMain() local_unnamed_addr #4 {
   store i32 %10, ptr %11, align 4
   %12 = tail call ptr @palloc(i64 noundef 3152) #18
   store ptr %12, ptr @arch_files, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %13, align 8
   %14 = tail call ptr @binaryheap_allocate(i32 noundef 64, ptr noundef nonnull @ready_file_comparator, ptr noundef null) #18
   %15 = load ptr, ptr @arch_files, align 8
@@ -308,7 +308,7 @@ define internal fastcc void @LoadArchiveLibrary() unnamed_addr #0 {
   %.07 = phi ptr [ %12, %11 ], [ @shell_archive_init, %0 ]
   %17 = tail call ptr %.07() #18
   store ptr %17, ptr @ArchiveCallbacks, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %24
@@ -386,7 +386,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
   %28 = load ptr, ptr @arch_files, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 0, ptr %29, align 8
   br label %30
 
@@ -396,14 +396,14 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %8)
   %31 = load ptr, ptr @PgArch, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = atomicrmw volatile xchg ptr %32, i32 0 seq_cst, align 4
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %.preheader
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr @arch_files, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 0, ptr %37, align 8
   br label %.preheader
 
@@ -412,7 +412,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
 
 38:                                               ; preds = %.preheader, %52
   %39 = load ptr, ptr @arch_files, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %59
@@ -420,7 +420,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
 43:                                               ; preds = %38
   %44 = add nsw i32 %41, -1
   store i32 %44, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %46 = zext nneg i32 %44 to i64
   %47 = getelementptr [64 x ptr], ptr %45, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
@@ -454,7 +454,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
 
 .lr.ph.i.i:                                       ; preds = %59, %.backedge.i.i
   %64 = phi ptr [ %107, %.backedge.i.i ], [ %63, %59 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 19
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 19
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #20
   %67 = trunc i64 %66 to i32
   %68 = add i32 %67, -47
@@ -485,7 +485,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   br i1 %82, label %83, label %95
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %79, i64 528
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 528
   %85 = sext i32 %81 to i64
   %86 = getelementptr [64 x [41 x i8]], ptr %84, i64 0, i64 %85
   %87 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %8) #18
@@ -544,7 +544,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge.i.i
   br i1 %114, label %116, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %113
-  %115 = getelementptr inbounds i8, ptr %109, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 %111, ptr %115, align 8
   br label %.lr.ph45.i.i.preheader
 
@@ -553,7 +553,7 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge.i.i
   %.pre.i.i = load ptr, ptr @arch_files, align 8
   %.pre57.i.i = load ptr, ptr %.pre.i.i, align 8
   %.pre58.i.i = load i32, ptr %.pre57.i.i, align 8
-  %117 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store i32 %.pre58.i.i, ptr %117, align 8
   %118 = icmp sgt i32 %.pre58.i.i, 0
   br i1 %118, label %.lr.ph45.i.i.preheader, label %._crit_edge46.i.i
@@ -569,11 +569,11 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge.i.i
   %121 = call i64 @binaryheap_remove_first(ptr noundef %120) #18
   %122 = inttoptr i64 %121 to ptr
   %123 = load ptr, ptr @arch_files, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = getelementptr [64 x ptr], ptr %124, i64 0, i64 %indvars.iv.i.i
   store ptr %122, ptr %125, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next.i.i, %128
@@ -582,10 +582,10 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge.i.i
 ._crit_edge46.i.i:                                ; preds = %.lr.ph45.i.i, %116
   %.lcssa42.i.i = phi ptr [ %.pre.i.i, %116 ], [ %123, %.lr.ph45.i.i ]
   %.lcssa.i.i = phi i32 [ %.pre58.i.i, %116 ], [ %127, %.lr.ph45.i.i ]
-  %130 = getelementptr inbounds i8, ptr %.lcssa42.i.i, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.lcssa42.i.i, i64 8
   %131 = add i32 %.lcssa.i.i, -1
   store i32 %131, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.lcssa42.i.i, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.lcssa42.i.i, i64 16
   %133 = sext i32 %131 to i64
   %134 = getelementptr [64 x ptr], ptr %132, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8
@@ -621,7 +621,7 @@ PostmasterIsAlive.exit.i:                         ; preds = %138
 PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.exit.i, %138
   call fastcc void @HandlePgArchInterrupts()
   %141 = load ptr, ptr @ArchiveCallbacks, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
   %.not6.i = icmp eq ptr %143, null
   br i1 %.not6.i, label %151, label %144
@@ -695,7 +695,7 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
   %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
   call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %177) #18
   %178 = load ptr, ptr @ArchiveCallbacks, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr @archive_module_state, align 8
   %182 = call zeroext i1 %180(ptr noundef %181, ptr noundef nonnull %9, ptr noundef nonnull %3) #18
@@ -801,7 +801,7 @@ declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local void @PgArchForceDirScan() local_unnamed_addr #8 {
   %1 = load ptr, ptr @PgArch, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = atomicrmw volatile xchg ptr %2, i32 1 seq_cst, align 4
   ret void
 }
@@ -973,7 +973,7 @@ declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @pgarch_call_module_shutdown_cb(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @ArchiveCallbacks, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6

@@ -24,14 +24,14 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i32 9, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, align 8
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8
-  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8
-  store i8 101, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8
-  store i32 -6, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 32), align 8
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 36), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8
+  store i8 101, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8
+  store i32 -6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 32), align 8
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 36), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #12
   br label %init.end
 
@@ -55,7 +55,7 @@ entry:
   br i1 %1, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
-  %infinity_symbol_ = getelementptr inbounds i8, ptr %this, i64 8
+  %infinity_symbol_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %infinity_symbol_, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -65,7 +65,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp3, label %if.then4, label %return.sink.split
 
 if.then4:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %3 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -78,7 +78,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %entry
   %5 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_ = getelementptr inbounds i8, ptr %this, i64 16
+  %nan_symbol_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %nan_symbol_, align 8
   %cmp10 = icmp eq ptr %6, null
   %or.cond = select i1 %5, i1 true, i1 %cmp10
@@ -88,7 +88,7 @@ return.sink.split:                                ; preds = %if.end7, %if.end, %
   %.sink18 = phi ptr [ %.pre, %if.then4 ], [ %2, %if.end ], [ %6, %if.end7 ]
   %call.i.i4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18) #13
   %conv.i.i5 = trunc i64 %call.i.i4 to i32
-  %position_.i.i6 = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i6 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %7 = load i32, ptr %position_.i.i6, align 8
   %8 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7 = sext i32 %7 to i64
@@ -111,7 +111,7 @@ define void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponential
 entry:
   %buffer = alloca [6 x i8], align 1
   %0 = load i8, ptr %decimal_digits, align 1
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %1 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -160,7 +160,7 @@ if.else:                                          ; preds = %entry
   %idxprom.i.i31 = sext i32 %7 to i64
   %arrayidx.i.i32 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i31
   store i8 46, ptr %arrayidx.i.i32, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %decimal_digits, i64 1
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %decimal_digits, i64 1
   %sub = add nsw i32 %length, -1
   %9 = load i32, ptr %position_.i, align 8
   %10 = load ptr, ptr %result_builder, align 8
@@ -175,7 +175,7 @@ if.else:                                          ; preds = %entry
 
 if.end10:                                         ; preds = %if.then, %if.then7, %if.then3, %if.else
   %12 = phi i32 [ %.pre68, %if.then ], [ %.pre, %if.then7 ], [ %.pre69, %if.then3 ], [ %add.i, %if.else ]
-  %exponent_character_ = getelementptr inbounds i8, ptr %this, i64 24
+  %exponent_character_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load i8, ptr %exponent_character_, align 8
   %inc.i37 = add nsw i32 %12, 1
   store i32 %inc.i37, ptr %position_.i, align 8
@@ -195,7 +195,7 @@ if.end20.thread:                                  ; preds = %if.end10
   %arrayidx.i.i43 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i42
   store i8 45, ptr %arrayidx.i.i43, align 1
   %sub13 = sub nsw i32 0, %exponent
-  %arrayidx2171 = getelementptr inbounds i8, ptr %buffer, i64 5
+  %arrayidx2171 = getelementptr inbounds nuw i8, ptr %buffer, i64 5
   store i8 0, ptr %arrayidx2171, align 1
   br label %while.body.preheader
 
@@ -220,13 +220,13 @@ if.then18:                                        ; preds = %if.else14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else14, %if.then18
-  %arrayidx21 = getelementptr inbounds i8, ptr %buffer, i64 5
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %buffer, i64 5
   store i8 0, ptr %arrayidx21, align 1
   %cmp22 = icmp eq i32 %exponent, 0
   br i1 %cmp22, label %if.then23, label %while.body.preheader
 
 if.then23:                                        ; preds = %if.end20
-  %arrayidx24 = getelementptr inbounds i8, ptr %buffer, i64 4
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %buffer, i64 4
   store i8 48, ptr %arrayidx24, align 1
   br label %if.end30
 
@@ -249,7 +249,7 @@ if.end30.loopexit:                                ; preds = %while.body
 
 if.end30:                                         ; preds = %if.end30.loopexit, %if.then23
   %first_char_pos.0 = phi i32 [ 4, %if.then23 ], [ %21, %if.end30.loopexit ]
-  %min_exponent_width_ = getelementptr inbounds i8, ptr %this, i64 44
+  %min_exponent_width_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   %22 = load i32, ptr %min_exponent_width_, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 5)
   %sub3257 = sub nsw i32 5, %first_char_pos.0
@@ -306,7 +306,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %0 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -372,7 +372,7 @@ for.body.i48:                                     ; preds = %_ZN17double_convers
 
 if.else:                                          ; preds = %entry
   %cmp7.not = icmp slt i32 %decimal_point, %length
-  %position_.i87 = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i87 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i87, align 8
   %12 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i88 = sext i32 %11 to i64
@@ -440,7 +440,7 @@ if.else13:                                        ; preds = %if.else
   %idxprom.i.i94 = sext i32 %add.i91 to i64
   %arrayidx.i.i95 = getelementptr inbounds i8, ptr %21, i64 %idxprom.i.i94
   store i8 46, ptr %arrayidx.i.i95, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %decimal_digits, i64 %conv.i90
+  %arrayidx = getelementptr inbounds nuw i8, ptr %decimal_digits, i64 %conv.i90
   %sub14 = sub nsw i32 %length, %decimal_point
   %22 = load i32, ptr %position_.i87, align 8
   %23 = load ptr, ptr %result_builder, align 8
@@ -479,7 +479,7 @@ if.then21:                                        ; preds = %if.end19
   br i1 %cmp22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.then21
-  %position_.i112 = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i112 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %28 = load i32, ptr %position_.i112, align 8
   %inc.i113 = add nsw i32 %28, 1
   store i32 %inc.i113, ptr %position_.i112, align 8
@@ -497,7 +497,7 @@ if.end24:                                         ; preds = %if.then23, %if.then
   br i1 %cmp27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
-  %position_.i116 = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i116 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %31 = load i32, ptr %position_.i116, align 8
   %inc.i117 = add nsw i32 %31, 1
   store i32 %inc.i117, ptr %position_.i116, align 8
@@ -527,7 +527,7 @@ if.then:                                          ; preds = %entry
   br i1 %1, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i10 = icmp eq ptr %2, null
   br i1 %cmp.i10, label %return, label %if.end.i
@@ -537,7 +537,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %3 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %3, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -549,7 +549,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.then
-  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %5, null
   br i1 %cmp10.i, label %return, label %return.sink.split.i
@@ -558,7 +558,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %2, %if.end.i ], [ %5, %if.end7.i ]
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %6 = load i32, ptr %position_.i.i6.i, align 8
   %7 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %6 to i64
@@ -584,7 +584,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond9, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %11 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -596,10 +596,10 @@ if.then5:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then5, %if.end
   %13 = load i32, ptr %decimal_point, align 4
-  %decimal_in_shortest_low_ = getelementptr inbounds i8, ptr %this, i64 28
+  %decimal_in_shortest_low_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %14 = load i32, ptr %decimal_in_shortest_low_, align 4
   %cmp7.not.not = icmp sge i32 %14, %13
-  %decimal_in_shortest_high_ = getelementptr inbounds i8, ptr %this, i64 32
+  %decimal_in_shortest_high_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %15 = load i32, ptr %decimal_in_shortest_high_, align 8
   %cmp9.not = icmp sgt i32 %13, %15
   %or.cond = select i1 %cmp7.not.not, i1 true, i1 %cmp9.not
@@ -647,7 +647,7 @@ if.end5:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.end5
   store i8 48, ptr %buffer, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %buffer, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   store i8 0, ptr %arrayidx.i, align 1
   store i32 1, ptr %length, align 4
   store i32 1, ptr %point, align 4
@@ -710,7 +710,7 @@ if.then:                                          ; preds = %entry
   br i1 %2, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i12 = icmp eq ptr %3, null
   br i1 %cmp.i12, label %return, label %if.end.i
@@ -720,7 +720,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %4 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %4, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -733,7 +733,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.then
   %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %7, null
   %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
@@ -743,7 +743,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i6.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %8 to i64
@@ -769,7 +769,7 @@ if.end8:                                          ; preds = %if.end
 
 if.then7.i:                                       ; preds = %if.end8
   store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %decimal_rep, i64 1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
   store i8 0, ptr %arrayidx.i.i, align 1
   store i32 1, ptr %decimal_rep_length, align 4
   store i32 1, ptr %decimal_point, align 4
@@ -798,7 +798,7 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   br i1 %or.cond11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %14 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -836,7 +836,7 @@ if.then:                                          ; preds = %entry
   br i1 %2, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i15 = icmp eq ptr %3, null
   br i1 %cmp.i15, label %return, label %if.end.i
@@ -846,7 +846,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %4 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %4, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -859,7 +859,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.then
   %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %7, null
   %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
@@ -869,7 +869,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i6.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %8 to i64
@@ -898,7 +898,7 @@ if.then9:                                         ; preds = %if.end7
 
 if.then7.i:                                       ; preds = %if.then9
   store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %decimal_rep, i64 1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
   store i8 0, ptr %arrayidx.i.i, align 1
   store i32 1, ptr %decimal_rep_length, align 4
   store i32 1, ptr %decimal_point, align 4
@@ -924,7 +924,7 @@ if.else:                                          ; preds = %if.end7
 
 if.then7.i25:                                     ; preds = %if.else
   store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i26 = getelementptr inbounds i8, ptr %decimal_rep, i64 1
+  %arrayidx.i.i26 = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
   store i8 0, ptr %arrayidx.i.i26, align 1
   store i32 1, ptr %decimal_point, align 4
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
@@ -974,7 +974,7 @@ if.end14:                                         ; preds = %_ZN17double_convers
   br i1 %or.cond14, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %20 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -1013,7 +1013,7 @@ if.then:                                          ; preds = %entry
   br i1 %2, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %infinity_symbol_.i, align 8
   %cmp.i13 = icmp eq ptr %3, null
   br i1 %cmp.i13, label %return, label %if.end.i
@@ -1023,7 +1023,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %4 = load i32, ptr %position_.i.i, align 8
   %inc.i.i = add nsw i32 %4, 1
   store i32 %inc.i.i, ptr %position_.i.i, align 8
@@ -1036,7 +1036,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.then
   %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %nan_symbol_.i, align 8
   %cmp10.i = icmp eq ptr %7, null
   %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
@@ -1046,7 +1046,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %if.then
   %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
   %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %8 = load i32, ptr %position_.i.i6.i, align 8
   %9 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i.i7.i = sext i32 %8 to i64
@@ -1071,7 +1071,7 @@ if.end5.i:                                        ; preds = %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
   store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %decimal_rep, i64 1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
   store i8 0, ptr %arrayidx.i.i, align 1
   store i32 1, ptr %decimal_rep_length, align 4
   store i32 1, ptr %decimal_point, align 4
@@ -1100,7 +1100,7 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   br i1 %or.cond12, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
+  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
   %14 = load i32, ptr %position_.i, align 8
   %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %position_.i, align 8
@@ -1114,7 +1114,7 @@ if.end11:                                         ; preds = %if.then10, %_ZN17do
   %16 = load i32, ptr %decimal_point, align 4
   %sub = add nsw i32 %16, -1
   %add = sub i32 1, %16
-  %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 36
+  %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   %17 = load i32, ptr %max_leading_padding_zeroes_in_precision_mode_, align 4
   %cmp16 = icmp sgt i32 %add, %17
   %18 = load i32, ptr %this, align 8
@@ -1125,7 +1125,7 @@ lor.end:                                          ; preds = %if.end11
   %and13.lobit = and i32 %and13, 1
   %sub17 = sub i32 %16, %precision
   %add18 = add nsw i32 %sub17, %and13.lobit
-  %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 40
+  %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %19 = load i32, ptr %max_trailing_padding_zeroes_in_precision_mode_, align 8
   %cmp19 = icmp sgt i32 %add18, %19
   %and22 = and i32 %18, 16

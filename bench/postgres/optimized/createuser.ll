@@ -437,15 +437,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %110 = icmp eq i32 %.0101, 0
   %spec.store.select3 = select i1 %110, i32 2, i32 %.0101
   store ptr null, ptr %7, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.091, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.093, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %7, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.095, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %7, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %.0123, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %7, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %115, align 8
   %116 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %7, ptr noundef %12, i1 noundef zeroext %.0121) #9
   call void @initPQExpBuffer(ptr noundef nonnull %9) #9
@@ -601,7 +601,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.089194 = phi ptr [ %.089, %158 ], [ %.089192, %152 ]
   %153 = load ptr, ptr %.089194, align 8
   %.not143 = icmp eq ptr %153, null
-  %154 = getelementptr inbounds i8, ptr %.089194, i64 9
+  %154 = getelementptr inbounds nuw i8, ptr %.089194, i64 9
   %155 = call ptr @fmtId(ptr noundef nonnull %154) #9
   br i1 %.not143, label %157, label %156
 
@@ -633,7 +633,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.088197 = phi ptr [ %.088, %166 ], [ %.088195, %160 ]
   %161 = load ptr, ptr %.088197, align 8
   %.not142 = icmp eq ptr %161, null
-  %162 = getelementptr inbounds i8, ptr %.088197, i64 9
+  %162 = getelementptr inbounds nuw i8, ptr %.088197, i64 9
   %163 = call ptr @fmtId(ptr noundef nonnull %162) #9
   br i1 %.not142, label %165, label %164
 
@@ -665,7 +665,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.0201 = phi ptr [ %.0, %174 ], [ %.0199, %168 ]
   %169 = load ptr, ptr %.0201, align 8
   %.not141 = icmp eq ptr %169, null
-  %170 = getelementptr inbounds i8, ptr %.0201, i64 9
+  %170 = getelementptr inbounds nuw i8, ptr %.0201, i64 9
   %171 = call ptr @fmtId(ptr noundef nonnull %170) #9
   br i1 %.not141, label %173, label %172
 

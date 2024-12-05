@@ -104,7 +104,7 @@ define void @PQupheap(i32 noundef %0) local_unnamed_addr #5 {
   %13 = sext i32 %.016 to i64
   %14 = getelementptr inbounds ptr, ptr %2, i64 %13
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.016, ptr %15, align 4
   %.014 = sdiv i32 %.01417, 2
   %16 = sext i32 %.014 to i64
@@ -123,7 +123,7 @@ define void @PQupheap(i32 noundef %0) local_unnamed_addr #5 {
   %.0.lcssa = phi i32 [ %.01417, %._crit_edge.loopexit ], [ %0, %1 ]
   %21 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0.lcssa, ptr %22, align 4
   ret void
 }
@@ -162,7 +162,7 @@ define range(i32 0, 2) i32 @PQ_insert(ptr noundef %0) local_unnamed_addr #6 {
   %19 = sext i32 %.016.i to i64
   %20 = getelementptr inbounds ptr, ptr %9, i64 %19
   store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %.016.i, ptr %21, align 4
   %.014.i = sdiv i32 %.01417.i, 2
   %22 = sext i32 %.014.i to i64
@@ -181,7 +181,7 @@ PQupheap.exit:                                    ; preds = %7, %._crit_edge.loo
   %.0.lcssa.i = phi i32 [ %.01417.i, %._crit_edge.loopexit.i ], [ %8, %7 ]
   %27 = getelementptr inbounds ptr, ptr %9, i64 %.pre-phi.i
   store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.lcssa.i, ptr %28, align 4
   br label %29
 
@@ -237,7 +237,7 @@ define void @PQdownheap(i32 noundef %0) local_unnamed_addr #5 {
   %25 = sext i32 %.02328 to i64
   %26 = getelementptr inbounds ptr, ptr %2, i64 %25
   store ptr %.022, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.022, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   store i32 %.02328, ptr %27, align 4
   %.not = icmp sgt i32 %.0, %8
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -252,7 +252,7 @@ define void @PQdownheap(i32 noundef %0) local_unnamed_addr #5 {
   %.023.lcssa = phi i32 [ %.023.lcssa.ph, %._crit_edge.loopexit ], [ %0, %1 ]
   %28 = getelementptr inbounds ptr, ptr %2, i64 %.pre-phi
   store ptr %5, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.023.lcssa, ptr %29, align 4
   ret void
 }
@@ -265,7 +265,7 @@ define ptr @PQremove() local_unnamed_addr #5 {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @pq, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
@@ -315,7 +315,7 @@ define ptr @PQremove() local_unnamed_addr #5 {
   %29 = sext i32 %.02328.i to i64
   %30 = getelementptr inbounds ptr, ptr %3, i64 %29
   store ptr %.022.i, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.022.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.022.i, i64 4
   store i32 %.02328.i, ptr %31, align 4
   %.not.i = icmp sgt i32 %.0.i, %12
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -330,7 +330,7 @@ PQdownheap.exit:                                  ; preds = %10, %._crit_edge.lo
   %.023.lcssa.i = phi i32 [ %.023.lcssa.ph.i, %._crit_edge.loopexit.i ], [ 1, %10 ]
   %32 = getelementptr inbounds ptr, ptr %3, i64 %.pre-phi.i
   store ptr %8, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.023.lcssa.i, ptr %33, align 4
   br label %34
 
@@ -342,7 +342,7 @@ PQdownheap.exit:                                  ; preds = %10, %._crit_edge.lo
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @PQupdate(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 {
   store i32 %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr @pq, align 8
   %6 = sext i32 %4 to i64
@@ -364,7 +364,7 @@ define void @PQupdate(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef 
   %16 = sext i32 %.016.i to i64
   %17 = getelementptr inbounds ptr, ptr %5, i64 %16
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %.016.i, ptr %18, align 4
   %.014.i = sdiv i32 %.01417.i, 2
   %19 = sext i32 %.014.i to i64
@@ -383,7 +383,7 @@ PQupheap.exit:                                    ; preds = %2, %._crit_edge.loo
   %.0.lcssa.i = phi i32 [ %.01417.i, %._crit_edge.loopexit.i ], [ %4, %2 ]
   %24 = getelementptr inbounds ptr, ptr %5, i64 %.pre-phi.i
   store ptr %8, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.0.lcssa.i, ptr %25, align 4
   ret void
 }
@@ -399,12 +399,12 @@ define void @PQprint() local_unnamed_addr #8 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %0 ]
   %4 = load ptr, ptr @pq, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @stderr, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %6, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef %9, i32 noundef %11, i32 noundef %12) #15

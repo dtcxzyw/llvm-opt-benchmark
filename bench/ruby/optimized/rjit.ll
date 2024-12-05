@@ -140,7 +140,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
 20:                                               ; preds = %15
   %21 = getelementptr i8, ptr %0, i64 14
   %22 = tail call i32 @atoi(ptr nocapture noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %22, ptr %23, align 4
   br label %128
 
@@ -177,7 +177,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
 39:                                               ; preds = %34
   %40 = getelementptr i8, ptr %0, i64 15
   %41 = tail call i32 @atoi(ptr nocapture noundef %40) #14
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %41, ptr %42, align 4
   br label %128
 
@@ -212,7 +212,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %57
 
 57:                                               ; preds = %53, %56
-  %58 = getelementptr inbounds i8, ptr %1, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 1, ptr %58, align 4
   br label %128
 
@@ -247,7 +247,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %74
 
 74:                                               ; preds = %70, %73
-  %75 = getelementptr inbounds i8, ptr %1, i64 13
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 1, ptr %75, align 1
   br label %128
 
@@ -280,7 +280,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %89
 
 89:                                               ; preds = %85, %88
-  %90 = getelementptr inbounds i8, ptr %1, i64 14
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i8 1, ptr %90, align 2
   br label %128
 
@@ -321,7 +321,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %105
 
 105:                                              ; preds = %101, %104
-  %106 = getelementptr inbounds i8, ptr %1, i64 15
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 1, ptr %106, align 1
   br label %128
 
@@ -347,7 +347,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %114
 
 114:                                              ; preds = %110, %113
-  %115 = getelementptr inbounds i8, ptr %1, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %115, align 4
   br label %128
 
@@ -373,7 +373,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %125
 
 125:                                              ; preds = %121, %124
-  %126 = getelementptr inbounds i8, ptr %1, i64 17
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 17
   store i8 1, ptr %126, align 1
   br label %128
 
@@ -471,9 +471,9 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 48
   %.val = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds i8, ptr %.val, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
   %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -481,7 +481,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %rb_ec_ractor_hooks.exit
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
@@ -541,7 +541,7 @@ rb_ull2num_inline.exit:                           ; preds = %32, %35
 
 44:                                               ; preds = %rb_ull2num_inline.exit
   %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %.0, ptr %47, align 8
   br label %50
@@ -631,9 +631,9 @@ rb_vm_lock_enter.exit:                            ; preds = %10, %12
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 48
   %.val = load ptr, ptr %16, align 8, !nonnull !7, !noundef !7
-  %17 = getelementptr inbounds i8, ptr %.val, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @rb_rjit_global_events, align 4
   %21 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -641,7 +641,7 @@ rb_vm_lock_enter.exit:                            ; preds = %10, %12
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %rb_vm_lock_enter.exit
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
@@ -701,7 +701,7 @@ rb_ull2num_inline.exit:                           ; preds = %36, %39
 
 48:                                               ; preds = %rb_ull2num_inline.exit
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   store ptr %.0, ptr %51, align 8
   br label %54
@@ -763,9 +763,9 @@ rb_vm_lock_enter.exit:                            ; preds = %12, %14
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 48
   %.val = load ptr, ptr %18, align 8, !nonnull !7, !noundef !7
-  %19 = getelementptr inbounds i8, ptr %.val, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr @rb_rjit_global_events, align 4
   %23 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -773,7 +773,7 @@ rb_vm_lock_enter.exit:                            ; preds = %12, %14
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %rb_vm_lock_enter.exit
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
@@ -851,7 +851,7 @@ rb_ull2num_inline.exit15:                         ; preds = %45, %48
 
 60:                                               ; preds = %rb_ull2num_inline.exit15
   %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   store ptr %.0, ptr %63, align 8
   br label %66
@@ -914,9 +914,9 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 48
   %.val = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds i8, ptr %.val, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
   %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -924,7 +924,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %rb_ec_ractor_hooks.exit
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
@@ -972,7 +972,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
 
 40:                                               ; preds = %rbimpl_intern_const.exit
   %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   store ptr %.0, ptr %43, align 8
   br label %46
@@ -1001,7 +1001,7 @@ define hidden void @rb_rjit_iseq_update_references(ptr nocapture noundef %0) loc
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %9, label %7
@@ -1126,9 +1126,9 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 48
   %.val = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %9 = getelementptr inbounds i8, ptr %.val, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr @rb_rjit_global_events, align 4
   %13 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -1136,7 +1136,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %rb_vm_lock_enter.exit
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   br label %20
@@ -1194,7 +1194,7 @@ rb_ull2num_inline.exit:                           ; preds = %28, %31
 rbimpl_intern_const.exit20:                       ; preds = %.lr.ph.i18, %rb_ull2num_inline.exit
   %.lcssa.i17 = phi i64 [ %.pr.i15, %rb_ull2num_inline.exit ], [ %35, %.lr.ph.i18 ]
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = icmp ult ptr %38, inttoptr (i64 4611686018427387904 to ptr)
@@ -1241,7 +1241,7 @@ rbimpl_intern_const.exit28:                       ; preds = %.lr.ph.i26, %rb_ull
 
 56:                                               ; preds = %rbimpl_intern_const.exit28
   %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   store ptr %.0, ptr %59, align 8
   br label %62
@@ -1287,15 +1287,15 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   call void @rb_vm_barrier() #17
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call i64 @rb_gc_disable() #17
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr i8, ptr %10, i64 48
   %.val = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds i8, ptr %.val, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr @rb_rjit_global_events, align 4
   %16 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -1303,7 +1303,7 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %4
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %rb_vm_lock_enter.exit
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   br label %23
@@ -1376,7 +1376,7 @@ rbimpl_intern_const.exit20:                       ; preds = %.lr.ph.i18, %rb_ull
 
 46:                                               ; preds = %rbimpl_intern_const.exit20
   %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   store ptr %.0, ptr %49, align 8
   br label %52
@@ -1437,9 +1437,9 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   call void @rb_vm_barrier() #17
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %1 to i64
   %14 = getelementptr i64, ptr %12, i64 %13
@@ -1448,9 +1448,9 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr i8, ptr %16, i64 48
   %.val = load ptr, ptr %17, align 8, !nonnull !7, !noundef !7
-  %18 = getelementptr inbounds i8, ptr %.val, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr @rb_rjit_global_events, align 4
   %22 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -1458,7 +1458,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %6
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %rb_vm_lock_enter.exit
-  %25 = getelementptr inbounds i8, ptr %16, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
@@ -1534,7 +1534,7 @@ rbimpl_intern_const.exit26:                       ; preds = %.lr.ph.i24, %rb_ull
 
 53:                                               ; preds = %rbimpl_intern_const.exit26
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   store ptr %.0, ptr %56, align 8
   br label %59
@@ -1800,9 +1800,9 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 48
   %.val = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds i8, ptr %.val, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr @rb_rjit_global_events, align 4
   %17 = load i8, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 14), align 2
@@ -1810,7 +1810,7 @@ rb_ec_ractor_hooks.exit:                          ; preds = %4
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %rb_ec_ractor_hooks.exit
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
@@ -1855,7 +1855,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
 
 37:                                               ; preds = %rbimpl_intern_const.exit
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   store ptr %.0, ptr %40, align 8
   br label %43

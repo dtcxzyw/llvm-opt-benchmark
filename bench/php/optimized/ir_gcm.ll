@@ -24,22 +24,22 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._ir_list, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 2
   %9 = tail call noalias ptr @_emalloc(i64 noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %87
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -51,7 +51,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %21 = getelementptr inbounds %struct._ir_insn, ptr %19, i64 %20
   %22 = getelementptr inbounds i32, ptr %4, i64 %20
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = icmp ugt i16 %24, 1
   br i1 %25, label %26, label %30
@@ -59,31 +59,31 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 26:                                               ; preds = %18
   %27 = add i32 %.sroa.15.0, 1
   %28 = zext i32 %.sroa.15.0 to i64
-  %29 = getelementptr inbounds i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %28
   store i32 %.0373, ptr %29, align 4
   br label %30
 
 30:                                               ; preds = %26, %18
   %.sroa.15.1 = phi i32 [ %27, %26 ], [ %.sroa.15.0, %18 ]
-  %31 = getelementptr inbounds i8, ptr %21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %32 = load i32, ptr %31, align 4
   %.not421 = icmp eq i32 %32, 1
   br i1 %.not421, label %33, label %18
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph479.preheader, label %.preheader
 
 .lr.ph479.preheader:                              ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %41, i64 %44
@@ -109,7 +109,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %52 = icmp eq i8 %50, 63
   %53 = select i1 %52, i32 4096, i32 8192
   %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 52
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 52
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, %53
   store i32 %57, ptr %55, align 4
@@ -119,7 +119,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 
 59:                                               ; preds = %.lr.ph479, %51
   %60 = add nsw i32 %.0376476, -1
-  %61 = getelementptr inbounds i8, ptr %.0374477, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0374477, i64 4
   %62 = icmp sgt i32 %.0376476, 1
   br i1 %62, label %.lr.ph479, label %.preheader
 
@@ -132,12 +132,12 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.15.2488 = phi i32 [ %.sroa.15.3.lcssa, %.loopexit ], [ %.sroa.15.1, %.preheader ]
   %63 = add i32 %.sroa.15.2488, -1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %9, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %9, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load ptr, ptr %0, align 8
   %68 = sext i32 %66 to i64
   %69 = getelementptr inbounds %struct._ir_insn, ptr %67, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %71 = load i16, ptr %70, align 2
   %.not491 = icmp eq i16 %71, 0
   br i1 %.not491, label %.loopexit, label %.lr.ph485.preheader
@@ -150,14 +150,14 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %.1375483.pn = phi ptr [ %.1375483, %84 ], [ %69, %.lr.ph485.preheader ]
   %.1377482 = phi i32 [ %85, %84 ], [ %72, %.lr.ph485.preheader ]
   %.sroa.15.3481 = phi i32 [ %.sroa.15.4, %84 ], [ %63, %.lr.ph485.preheader ]
-  %.1375483 = getelementptr inbounds i8, ptr %.1375483.pn, i64 4
+  %.1375483 = getelementptr inbounds nuw i8, ptr %.1375483.pn, i64 4
   %73 = load i32, ptr %.1375483, align 4
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %.lr.ph485
   %76 = zext nneg i32 %73 to i64
-  %77 = getelementptr inbounds i32, ptr %4, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %4, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %84
@@ -166,7 +166,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   store i32 1, ptr %77, align 4
   %81 = add i32 %.sroa.15.3481, 1
   %82 = zext i32 %.sroa.15.3481 to i64
-  %83 = getelementptr inbounds i32, ptr %9, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %9, i64 %82
   store i32 %73, ptr %83, align 4
   br label %84
 
@@ -182,16 +182,16 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %90 = shl nuw nsw i64 %89, 2
   %91 = tail call noalias ptr @_emalloc(i64 noundef %90) #9
   %92 = load i32, ptr %10, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %94 = icmp sgt i32 %92, 0
   br i1 %94, label %.lr.ph453, label %._crit_edge454
 
 .lr.ph453:                                        ; preds = %87
   %95 = load ptr, ptr %93, align 8
   %96 = zext nneg i32 %92 to i64
-  %97 = getelementptr inbounds %struct._ir_block, ptr %95, i64 %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 72
-  %99 = getelementptr inbounds i8, ptr %0, i64 80
+  %97 = getelementptr inbounds nuw %struct._ir_block, ptr %95, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %100
 
 100:                                              ; preds = %.lr.ph453, %.loopexit428
@@ -199,14 +199,14 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %.0372450 = phi ptr [ %97, %.lr.ph453 ], [ %189, %.loopexit428 ]
   %.sroa.15.5449 = phi i32 [ 0, %.lr.ph453 ], [ %.sroa.15.11, %.loopexit428 ]
   %.sroa.10.0448 = phi i32 [ 0, %.lr.ph453 ], [ %.sroa.10.5, %.loopexit428 ]
-  %101 = getelementptr inbounds i8, ptr %.0372450, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0372450, i64 8
   %102 = load i32, ptr %101, align 4
   %103 = load ptr, ptr %0, align 8
   %104 = sext i32 %102 to i64
   %105 = getelementptr inbounds %struct._ir_insn, ptr %103, i64 %104
   %106 = getelementptr inbounds i32, ptr %4, i64 %104
   store i32 %.0451, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %105, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %108 = load i16, ptr %107, align 2
   %109 = icmp ugt i16 %108, 1
   br i1 %109, label %110, label %114
@@ -214,14 +214,14 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 110:                                              ; preds = %100
   %111 = add i32 %.sroa.15.5449, 1
   %112 = zext i32 %.sroa.15.5449 to i64
-  %113 = getelementptr inbounds i32, ptr %9, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %9, i64 %112
   store i32 %102, ptr %113, align 4
   br label %114
 
 114:                                              ; preds = %110, %100
   %.sroa.15.6 = phi i32 [ %111, %110 ], [ %.sroa.15.5449, %100 ]
-  %115 = getelementptr inbounds i8, ptr %.0372450, i64 4
-  %.1.in436 = getelementptr inbounds i8, ptr %105, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %.0372450, i64 4
+  %.1.in436 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %.1437 = load i32, ptr %.1.in436, align 4
   %116 = load i32, ptr %115, align 4
   %.not438 = icmp eq i32 %.1437, %116
@@ -236,7 +236,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %119 = getelementptr inbounds %struct._ir_insn, ptr %117, i64 %118
   %120 = getelementptr inbounds i32, ptr %4, i64 %118
   store i32 %.0451, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %119, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 2
   %122 = load i16, ptr %121, align 2
   %123 = icmp ugt i16 %122, 1
   br i1 %123, label %124, label %128
@@ -244,13 +244,13 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 124:                                              ; preds = %.lr.ph
   %125 = add i32 %.sroa.15.7440, 1
   %126 = zext i32 %.sroa.15.7440 to i64
-  %127 = getelementptr inbounds i32, ptr %9, i64 %126
+  %127 = getelementptr inbounds nuw i32, ptr %9, i64 %126
   store i32 %.1441, ptr %127, align 4
   br label %128
 
 128:                                              ; preds = %124, %.lr.ph
   %.sroa.15.8 = phi i32 [ %125, %124 ], [ %.sroa.15.7440, %.lr.ph ]
-  %129 = getelementptr inbounds i8, ptr %119, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 1
   %130 = load i8, ptr %129, align 1
   %.not420 = icmp eq i8 %130, 0
   br i1 %.not420, label %135, label %131
@@ -258,13 +258,13 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 131:                                              ; preds = %128
   %132 = add i32 %.sroa.10.1439, 1
   %133 = zext i32 %.sroa.10.1439 to i64
-  %134 = getelementptr inbounds i32, ptr %91, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr %91, i64 %133
   store i32 %.1441, ptr %134, align 4
   br label %135
 
 135:                                              ; preds = %131, %128
   %.sroa.10.2 = phi i32 [ %132, %131 ], [ %.sroa.10.1439, %128 ]
-  %.1.in = getelementptr inbounds i8, ptr %119, i64 4
+  %.1.in = getelementptr inbounds nuw i8, ptr %119, i64 4
   %.1 = load i32, ptr %.1.in, align 4
   %136 = load i32, ptr %115, align 4
   %.not = icmp eq i32 %.1, %136
@@ -279,7 +279,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   store i32 %.0451, ptr %138, align 4
   %139 = load ptr, ptr %98, align 8
   %140 = getelementptr inbounds %struct._ir_use_list, ptr %139, i64 %137
-  %141 = getelementptr inbounds i8, ptr %140, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = icmp sgt i32 %142, 1
   br i1 %143, label %144, label %.loopexit428
@@ -325,7 +325,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   store i32 %.0451, ptr %164, align 4
   %165 = add i32 %.sroa.15.9445, 1
   %166 = zext i32 %.sroa.15.9445 to i64
-  %167 = getelementptr inbounds i32, ptr %9, i64 %166
+  %167 = getelementptr inbounds nuw i32, ptr %9, i64 %166
   store i32 %150, ptr %167, align 4
   br label %.sink.split
 
@@ -357,7 +357,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.15.10.ph = phi i32 [ %165, %163 ], [ %.sroa.15.9445, %168 ], [ %.sroa.15.9445, %175 ]
   %182 = add i32 %.sroa.10.3444, 1
   %183 = zext i32 %.sroa.10.3444 to i64
-  %184 = getelementptr inbounds i32, ptr %91, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %91, i64 %183
   store i32 %150, ptr %184, align 4
   br label %185
 
@@ -365,7 +365,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.10.4 = phi i32 [ %.sroa.10.3444, %155 ], [ %.sroa.10.3444, %168 ], [ %.sroa.10.3444, %175 ], [ %.sroa.10.3444, %149 ], [ %182, %.sink.split ]
   %.sroa.15.10 = phi i32 [ %.sroa.15.9445, %155 ], [ %.sroa.15.9445, %168 ], [ %.sroa.15.9445, %175 ], [ %.sroa.15.9445, %149 ], [ %.sroa.15.10.ph, %.sink.split ]
   %186 = add nsw i32 %.2378446, -1
-  %187 = getelementptr inbounds i8, ptr %.2447, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %.2447, i64 4
   %188 = icmp sgt i32 %.2378446, 1
   br i1 %188, label %149, label %.loopexit428
 
@@ -385,9 +385,9 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   %194 = shl nuw nsw i64 %193, 2
   %195 = tail call noalias ptr @_emalloc(i64 noundef %194) #9
   store ptr %195, ptr %2, align 8
-  %196 = getelementptr inbounds i8, ptr %2, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %192, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %2, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %197, align 8
   %198 = icmp sgt i32 %.sroa.15.5.lcssa, 0
   br i1 %198, label %.lr.ph464.preheader, label %.preheader426
@@ -405,26 +405,26 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %201, label %.lr.ph470, label %._crit_edge471
 
 .lr.ph470:                                        ; preds = %.preheader426
-  %202 = getelementptr inbounds i8, ptr %0, i64 72
-  %203 = getelementptr inbounds i8, ptr %0, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %204 = zext nneg i32 %.sroa.10.0.lcssa to i64
   br label %228
 
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %.loopexit427
   %indvars.iv = phi i64 [ %199, %.lr.ph464.preheader ], [ %indvars.iv.next, %.loopexit427 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %205 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
+  %205 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   %206 = load i32, ptr %205, align 4
   %207 = load ptr, ptr %0, align 8
   %208 = sext i32 %206 to i64
   %209 = getelementptr inbounds %struct._ir_insn, ptr %207, i64 %208
-  %210 = getelementptr inbounds i8, ptr %209, i64 2
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 2
   %211 = load i16, ptr %210, align 2
   %212 = icmp ugt i16 %211, 1
   br i1 %212, label %.lr.ph461.preheader, label %.loopexit427
 
 .lr.ph461.preheader:                              ; preds = %.lr.ph464
-  %213 = getelementptr inbounds i8, ptr %209, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %214 = zext i16 %211 to i32
   br label %.lr.ph461
 
@@ -438,7 +438,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 
 217:                                              ; preds = %.lr.ph461
   %218 = zext nneg i32 %215 to i64
-  %219 = getelementptr inbounds i32, ptr %4, i64 %218
+  %219 = getelementptr inbounds nuw i32, ptr %4, i64 %218
   %220 = load i32, ptr %219, align 4
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %224
@@ -448,7 +448,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br label %224
 
 224:                                              ; preds = %.lr.ph461, %217, %222
-  %225 = getelementptr inbounds i8, ptr %.3458, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %.3458, i64 4
   %226 = icmp samesign ugt i32 %.0381459.in, 2
   br i1 %226, label %.lr.ph461, label %.loopexit427
 
@@ -459,12 +459,12 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 228:                                              ; preds = %.lr.ph470, %.loopexit425
   %indvars.iv502 = phi i64 [ %204, %.lr.ph470 ], [ %indvars.iv.next503, %.loopexit425 ]
   %indvars.iv.next503 = add nsw i64 %indvars.iv502, -1
-  %229 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv.next503
+  %229 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.next503
   %230 = load i32, ptr %229, align 4
   %231 = load ptr, ptr %202, align 8
   %232 = sext i32 %230 to i64
   %233 = getelementptr inbounds %struct._ir_use_list, ptr %231, i64 %232
-  %234 = getelementptr inbounds i8, ptr %233, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = load i32, ptr %234, align 4
   %236 = icmp sgt i32 %235, 0
   br i1 %236, label %.lr.ph468.preheader, label %.loopexit425
@@ -491,7 +491,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br label %247
 
 247:                                              ; preds = %.lr.ph468, %246
-  %248 = getelementptr inbounds i8, ptr %.4466, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %.4466, i64 4
   %249 = add nsw i32 %.1382465, -1
   %250 = icmp sgt i32 %.1382465, 1
   br i1 %250, label %.lr.ph468, label %.loopexit425
@@ -503,15 +503,15 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %252, label %.lr.ph474, label %._crit_edge475
 
 .lr.ph474:                                        ; preds = %._crit_edge471
-  %253 = getelementptr inbounds i8, ptr %0, i64 72
-  %254 = getelementptr inbounds i8, ptr %0, i64 80
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %255 = zext nneg i32 %251 to i64
   br label %256
 
 256:                                              ; preds = %.lr.ph474, %ir_gcm_schedule_rest.exit
   %indvars.iv505 = phi i64 [ %255, %.lr.ph474 ], [ %indvars.iv.next506, %ir_gcm_schedule_rest.exit ]
   %indvars.iv.next506 = add nsw i64 %indvars.iv505, -1
-  %257 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv.next506
+  %257 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv.next506
   %258 = load i32, ptr %257, align 4
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds i32, ptr %4, i64 %259
@@ -520,7 +520,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   store i32 %262, ptr %260, align 4
   %263 = load ptr, ptr %253, align 8
   %264 = getelementptr inbounds %struct._ir_use_list, ptr %263, i64 %259
-  %265 = getelementptr inbounds i8, ptr %264, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
   %266 = load i32, ptr %265, align 4
   %.not.i = icmp eq i32 %266, 0
   br i1 %.not.i, label %ir_gcm_schedule_rest.exit, label %267
@@ -565,18 +565,18 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %286, label %287, label %336
 
 287:                                              ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %284, i64 2
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 2
   %289 = load i16, ptr %288, align 2
   %290 = icmp ugt i16 %289, 1
   br i1 %290, label %.lr.ph.preheader.i, label %ir_gcm_find_lca.exit83.i
 
 .lr.ph.preheader.i:                               ; preds = %287
   %291 = zext i16 %289 to i32
-  %292 = getelementptr inbounds i8, ptr %284, i64 4
+  %292 = getelementptr inbounds nuw i8, ptr %284, i64 4
   %293 = load i32, ptr %292, align 4
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds %struct._ir_insn, ptr %283, i64 %294, i32 0, i32 1
-  %296 = getelementptr inbounds i8, ptr %284, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %284, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ir_gcm_find_lca.exit.i, %.lr.ph.preheader.i
@@ -653,8 +653,8 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 
 ir_gcm_find_lca.exit.i:                           ; preds = %.lr.ph8.i.i, %.preheader.i.i, %299, %.lr.ph.i
   %.3.i = phi i32 [ %.293.i, %.lr.ph.i ], [ %303, %299 ], [ %.020.lcssa.i.i, %.preheader.i.i ], [ %329, %.lr.ph8.i.i ]
-  %333 = getelementptr inbounds i8, ptr %.05994.i, i64 4
-  %334 = getelementptr inbounds i8, ptr %.05895.i, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %.05994.i, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %.05895.i, i64 4
   %335 = icmp sgt i32 %.096.in.i, 2
   br i1 %335, label %.lr.ph.i, label %ir_gcm_find_lca.exit83.i
 
@@ -718,7 +718,7 @@ ir_gcm_find_lca.exit.i:                           ; preds = %.lr.ph8.i.i, %.preh
 
 ir_gcm_find_lca.exit83.i:                         ; preds = %.lr.ph8.i76.i, %ir_gcm_find_lca.exit.i, %.preheader.i73.i, %336, %287, %273
   %.1.i = phi i32 [ %.06199.i, %273 ], [ %.060.i, %336 ], [ %.020.lcssa.i71.i, %.preheader.i73.i ], [ %.06199.i, %287 ], [ %.3.i, %ir_gcm_find_lca.exit.i ], [ %362, %.lr.ph8.i76.i ]
-  %366 = getelementptr inbounds i8, ptr %.06397.i, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %.06397.i, i64 4
   %367 = add nsw i32 %.06298.i, -1
   %368 = icmp sgt i32 %.06298.i, 1
   br i1 %368, label %273, label %._crit_edge.i
@@ -758,20 +758,20 @@ ir_gcm_schedule_rest.exit:                        ; preds = %256, %._crit_edge.i
 define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 2
+  %7 = getelementptr inbounds nuw %struct._ir_insn, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2
   %.not = icmp eq i16 %9, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %4
-  %10 = getelementptr inbounds i32, ptr %1, i64 %6
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %6
   store i32 -1, ptr %10, align 4
   br label %35
 
 .lr.ph:                                           ; preds = %4
   %11 = zext i16 %9 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -780,14 +780,14 @@ define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr 
   %.03652 = phi i32 [ 1, %.lr.ph ], [ %.2, %30 ]
   %.03951 = phi i32 [ 0, %.lr.ph ], [ %.241, %30 ]
   %.04250 = phi i32 [ %11, %.lr.ph ], [ %31, %30 ]
-  %.04354 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %.04354 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %14 = load i32, ptr %.04354, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %13
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds i32, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -804,7 +804,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr 
   %.038 = phi i32 [ %22, %21 ], [ %spec.select, %23 ]
   %25 = load ptr, ptr %12, align 8
   %26 = zext nneg i32 %.038 to i64
-  %27 = getelementptr inbounds %struct._ir_block, ptr %25, i64 %26, i32 8
+  %27 = getelementptr inbounds nuw %struct._ir_block, ptr %25, i64 %26, i32 8
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %.03951, %28
   %spec.select47 = tail call i32 @llvm.umax.i32(i32 %.03951, i32 %28)
@@ -821,19 +821,19 @@ define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr 
 
 ._crit_edge:                                      ; preds = %30
   %33 = sub nsw i32 0, %.2
-  %34 = getelementptr inbounds i32, ptr %1, i64 %6
+  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %6
   store i32 %33, ptr %34, align 4
   br i1 %.1, label %35, label %42
 
 35:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.036.lcssa59 = phi i32 [ 1, %._crit_edge.thread ], [ %.2, %._crit_edge ]
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
   store i32 %2, ptr %41, align 4
   br label %42
 
@@ -849,16 +849,16 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   %6 = load i32, ptr %5, align 4
   %7 = sub nsw i32 0, %6
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds %struct._ir_use_list, ptr %9, i64 %4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %199, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph183, label %._crit_edge
 
@@ -899,18 +899,18 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
   br i1 %34, label %35, label %84
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %32, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = icmp ugt i16 %37, 1
   br i1 %38, label %.lr.ph.preheader, label %ir_gcm_find_lca.exit166
 
 .lr.ph.preheader:                                 ; preds = %35
   %39 = zext i16 %37 to i32
-  %40 = getelementptr inbounds i8, ptr %32, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds %struct._ir_insn, ptr %31, i64 %42, i32 0, i32 1
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ir_gcm_find_lca.exit
@@ -987,8 +987,8 @@ define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly
 
 ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.preheader.i, %47, %.lr.ph
   %.3123 = phi i32 [ %.2122176, %.lr.ph ], [ %51, %47 ], [ %.020.lcssa.i, %.preheader.i ], [ %77, %.lr.ph8.i ]
-  %81 = getelementptr inbounds i8, ptr %.0117177, i64 4
-  %82 = getelementptr inbounds i8, ptr %.0116178, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.0117177, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.0116178, i64 4
   %83 = icmp sgt i32 %.0115179.in, 2
   br i1 %83, label %.lr.ph, label %ir_gcm_find_lca.exit166
 
@@ -1052,7 +1052,7 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
 
 ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_gcm_find_lca.exit, %35, %.preheader.i156, %84, %21
   %.1121 = phi i32 [ %.0120182, %21 ], [ %.0118, %84 ], [ %.020.lcssa.i154, %.preheader.i156 ], [ %.0120182, %35 ], [ %.3123, %ir_gcm_find_lca.exit ], [ %110, %.lr.ph8.i159 ]
-  %114 = getelementptr inbounds i8, ptr %.0124181, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %.0124181, i64 4
   %115 = add nsw i32 %.0125180, -1
   %116 = icmp sgt i32 %.0125180, 1
   br i1 %116, label %21, label %._crit_edge.loopexit
@@ -1068,11 +1068,11 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
   br i1 %.not133, label %199, label %118
 
 118:                                              ; preds = %._crit_edge
-  %119 = getelementptr inbounds i8, ptr %0, i64 104
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %120 = load ptr, ptr %119, align 8
   %121 = sext i32 %.0120.lcssa to i64
   %122 = getelementptr inbounds %struct._ir_block, ptr %120, i64 %121
-  %123 = getelementptr inbounds i8, ptr %122, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
   %124 = load i32, ptr %123, align 4
   %.not134 = icmp eq i32 %124, 0
   br i1 %.not134, label %.loopexit, label %125
@@ -1080,7 +1080,7 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
 125:                                              ; preds = %118
   %126 = load ptr, ptr %8, align 8
   %127 = getelementptr inbounds %struct._ir_use_list, ptr %126, i64 %4
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %129, 1
   br i1 %130, label %131, label %142
@@ -1112,10 +1112,10 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
   br i1 %.not135, label %145, label %151
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %122, i64 44
+  %146 = getelementptr inbounds nuw i8, ptr %122, i64 44
   %147 = load i32, ptr %146, align 4
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds %struct._ir_block, ptr %120, i64 %148
+  %149 = getelementptr inbounds nuw %struct._ir_block, ptr %120, i64 %148
   %150 = load i32, ptr %149, align 4
   br label %151
 
@@ -1126,7 +1126,7 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
   br i1 %.not136, label %160, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %0, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %156 = load ptr, ptr %155, align 8
   %.not137 = icmp eq ptr %156, null
   br i1 %.not137, label %.loopexit, label %157
@@ -1138,19 +1138,19 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
   br i1 %.not139, label %.loopexit, label %160
 
 160:                                              ; preds = %157, %151
-  %161 = getelementptr inbounds i8, ptr %0, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %162
 
 162:                                              ; preds = %189, %160
   %.2 = phi i32 [ %.0120.lcssa, %160 ], [ %.3, %189 ]
   %.0114 = phi ptr [ %122, %160 ], [ %167, %189 ]
   %.0 = phi i32 [ %124, %160 ], [ %.1, %189 ]
-  %163 = getelementptr inbounds i8, ptr %.0114, i64 28
+  %163 = getelementptr inbounds nuw i8, ptr %.0114, i64 28
   %164 = load i32, ptr %163, align 4
   %165 = load ptr, ptr %119, align 8
   %166 = sext i32 %164 to i64
   %167 = getelementptr inbounds %struct._ir_block, ptr %165, i64 %166
-  %168 = getelementptr inbounds i8, ptr %167, i64 48
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %169 = load i32, ptr %168, align 4
   %170 = icmp ult i32 %169, %.0
   br i1 %170, label %171, label %189
@@ -1166,10 +1166,10 @@ ir_gcm_find_lca.exit166:                          ; preds = %.lr.ph8.i159, %ir_g
   br i1 %.not142, label %175, label %181
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %167, i64 44
+  %176 = getelementptr inbounds nuw i8, ptr %167, i64 44
   %177 = load i32, ptr %176, align 4
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds %struct._ir_block, ptr %165, i64 %178
+  %179 = getelementptr inbounds nuw %struct._ir_block, ptr %165, i64 %178
   %180 = load i32, ptr %179, align 4
   br label %181
 
@@ -1229,9 +1229,9 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
@@ -1240,13 +1240,13 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
   %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #9
-  %19 = getelementptr inbounds i8, ptr %9, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %18, i64 %26
@@ -1256,7 +1256,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %14, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %30, align 4
   br label %._crit_edge824
 
@@ -1269,7 +1269,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.0686816 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1687, %79 ]
   %.0712815 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1713, %79 ]
   %.0720814 = phi i32 [ %20, %.lr.ph.preheader ], [ %.1721, %79 ]
-  %31 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %.0720814
   %34 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1279,7 +1279,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %36 = sext i32 %.0686816 to i64
   %37 = getelementptr inbounds i32, ptr %14, i64 %36
   store i32 %34, ptr %37, align 4
-  %38 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %.0686816, ptr %38, align 4
   br label %79
 
@@ -1289,15 +1289,15 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %39
   %42 = zext i32 %32 to i64
-  %43 = getelementptr inbounds %struct._ir_block, ptr %23, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %43 = getelementptr inbounds nuw %struct._ir_block, ptr %23, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp eq i64 %indvars.iv, %46
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i32, ptr %18, i64 %51
@@ -1305,12 +1305,12 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %53 = sext i32 %.0686816 to i64
   %54 = getelementptr inbounds i32, ptr %14, i64 %53
   store i32 %34, ptr %54, align 4
-  %55 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %.0686816, ptr %55, align 4
   br label %79
 
 56:                                               ; preds = %41
-  %57 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   store i32 %.0712815, ptr %57, align 4
   br label %79
 
@@ -1320,7 +1320,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %58
   %60 = zext i32 %32 to i64
-  %61 = getelementptr inbounds %struct._ir_block, ptr %23, i64 %60, i32 2
+  %61 = getelementptr inbounds nuw %struct._ir_block, ptr %23, i64 %60, i32 2
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %18, i64 %63
@@ -1331,7 +1331,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 66:                                               ; preds = %59
   %67 = add i32 %32, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds %struct._ir_block, ptr %23, i64 %68, i32 1
+  %69 = getelementptr inbounds nuw %struct._ir_block, ptr %23, i64 %68, i32 1
   %70 = load i32, ptr %69, align 4
   %.pre = sext i32 %70 to i64
   %.phi.trans.insert = getelementptr inbounds i32, ptr %18, i64 %.pre
@@ -1343,9 +1343,9 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.pre-phi = phi i64 [ %63, %59 ], [ %.pre, %66 ]
   %.0689 = phi i32 [ %62, %59 ], [ %70, %66 ]
   %73 = getelementptr inbounds i32, ptr %18, i64 %.pre-phi
-  %74 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %72, ptr %74, align 4
-  %75 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   store i32 %.0689, ptr %75, align 4
   %76 = load i32, ptr %73, align 4
   %77 = sext i32 %76 to i64
@@ -1377,8 +1377,8 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %85 = getelementptr inbounds i32, ptr %9, i64 %82
   %86 = load i32, ptr %85, align 4
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds %struct._ir_block, ptr %23, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %88 = getelementptr inbounds nuw %struct._ir_block, ptr %23, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i32, ptr %14, i64 %91
@@ -1429,7 +1429,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge824, label %.lr.ph823
 
 ._crit_edge824:                                   ; preds = %.loopexit806, %._crit_edge.thread, %._crit_edge
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load i32, ptr %107, align 8
   %109 = add nsw i32 %108, %28
   %110 = sext i32 %109 to i64
@@ -1444,7 +1444,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %117 = getelementptr inbounds i8, ptr %114, i64 -4
   store i32 -1, ptr %117, align 4
   store i32 0, ptr %114, align 4
-  %118 = getelementptr inbounds i8, ptr %0, i64 92
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %119 = load i32, ptr %118, align 4
   %.not768876 = icmp eq i32 %119, 0
   br i1 %.not768876, label %._crit_edge884, label %.lr.ph883.preheader
@@ -1458,8 +1458,8 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.0722879 = phi i32 [ %263, %262 ], [ 1, %.lr.ph883.preheader ]
   %.0728878 = phi i32 [ %.10, %262 ], [ 4, %.lr.ph883.preheader ]
   %.0736877 = phi i32 [ %244, %262 ], [ 1, %.lr.ph883.preheader ]
-  %.0711881 = getelementptr inbounds i8, ptr %.pn788880, i64 52
-  %121 = getelementptr inbounds i8, ptr %.pn788880, i64 56
+  %.0711881 = getelementptr inbounds nuw i8, ptr %.pn788880, i64 52
+  %121 = getelementptr inbounds nuw i8, ptr %.pn788880, i64 56
   %122 = load i32, ptr %121, align 4
   store i32 %.0736877, ptr %121, align 4
   %123 = sext i32 %122 to i64
@@ -1472,7 +1472,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %128, label %129, label %138
 
 129:                                              ; preds = %.lr.ph883
-  %130 = getelementptr inbounds i8, ptr %126, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i32, ptr %114, i64 %132
@@ -1491,7 +1491,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 138:                                              ; preds = %136, %.lr.ph883
   %.1729 = phi i32 [ %137, %136 ], [ %.0728878, %.lr.ph883 ]
-  %139 = getelementptr inbounds i8, ptr %126, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %126, i64 2
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = lshr i32 %141, 2
@@ -1533,7 +1533,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %155 = sext i32 %.3835.us to i64
   %156 = getelementptr inbounds i32, ptr %114, i64 %155
   store i32 %.3739832.us, ptr %156, align 4
-  %157 = getelementptr inbounds i8, ptr %.3707834.us, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.3707834.us, i64 8
   br label %158
 
 158:                                              ; preds = %.lr.ph829.us, %168
@@ -1562,7 +1562,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 168:                                              ; preds = %166, %158
   %.5733.us = phi i32 [ %167, %166 ], [ %.4732825.us, %158 ]
-  %169 = getelementptr inbounds i8, ptr %.0695827.us, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %.0695827.us, i64 4
   %170 = add nsw i32 %.0696826.us, -1
   %171 = icmp sgt i32 %.0696826.us, 1
   br i1 %171, label %158, label %._crit_edge830.us
@@ -1608,7 +1608,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.2730 = phi i32 [ %.1729, %138 ], [ %.1729, %.lr.ph836.split ], [ %.5733.us, %._crit_edge830.us ], [ %.1729, %.preheader805 ]
   %.1705 = phi ptr [ %148, %138 ], [ %191, %.lr.ph836.split ], [ %176, %._crit_edge830.us ], [ %.2706, %.preheader805 ]
   %.1 = phi i32 [ %146, %138 ], [ %189, %.lr.ph836.split ], [ %174, %._crit_edge830.us ], [ %.2, %.preheader805 ]
-  %193 = getelementptr inbounds i8, ptr %.pn788880, i64 60
+  %193 = getelementptr inbounds nuw i8, ptr %.pn788880, i64 60
   %194 = load i32, ptr %193, align 4
   %.not786865 = icmp eq i32 %.1, %194
   br i1 %.not786865, label %.loopexit804.._crit_edge870_crit_edge, label %.preheader802
@@ -1622,7 +1622,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.4708868 = phi ptr [ %241, %._crit_edge850 ], [ %.1705, %.loopexit804 ]
   %.6734867 = phi i32 [ %.8.lcssa, %._crit_edge850 ], [ %.2730, %.loopexit804 ]
   %.4740866 = phi i32 [ %237, %._crit_edge850 ], [ %.1737, %.loopexit804 ]
-  %195 = getelementptr inbounds i8, ptr %.4708868, i64 2
+  %195 = getelementptr inbounds nuw i8, ptr %.4708868, i64 2
   %196 = load i16, ptr %195, align 2
   %.not917 = icmp eq i16 %196, 0
   br i1 %.not917, label %._crit_edge850, label %.lr.ph849
@@ -1639,7 +1639,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.pn.pn = phi ptr [ %.pn, %.lr.ph849 ], [ %.0684847, %230 ]
   %.0685846 = phi i32 [ %197, %.lr.ph849 ], [ %231, %230 ]
   %.8845 = phi i32 [ %.7735859, %.lr.ph849 ], [ %.9, %230 ]
-  %.0684847 = getelementptr inbounds i8, ptr %.pn.pn, i64 4
+  %.0684847 = getelementptr inbounds nuw i8, ptr %.pn.pn, i64 4
   %199 = load i32, ptr %.0684847, align 4
   %200 = sext i32 %199 to i64
   %201 = getelementptr inbounds i32, ptr %114, i64 %200
@@ -1652,15 +1652,15 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %204, label %205, label %226
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i32, ptr %9, i64 %200
+  %206 = getelementptr inbounds nuw i32, ptr %9, i64 %200
   %207 = load i32, ptr %206, align 4
   %208 = icmp eq i32 %207, %.0722879
   br i1 %208, label %209, label %230
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i32, ptr %18, i64 %200
+  %210 = getelementptr inbounds nuw i32, ptr %18, i64 %200
   %211 = load i32, ptr %210, align 4
-  %212 = getelementptr inbounds i32, ptr %14, i64 %200
+  %212 = getelementptr inbounds nuw i32, ptr %14, i64 %200
   %213 = load i32, ptr %212, align 4
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i32, ptr %18, i64 %214
@@ -1677,8 +1677,8 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %222 = getelementptr inbounds i32, ptr %14, i64 %221
   store i32 %199, ptr %222, align 4
   store i32 %199, ptr %219, align 4
-  %223 = getelementptr inbounds %struct._ir_insn, ptr %125, i64 %200
-  %224 = getelementptr inbounds i8, ptr %223, i64 2
+  %223 = getelementptr inbounds nuw %struct._ir_insn, ptr %125, i64 %200
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %225 = load i16, ptr %224, align 2
   %.not918 = icmp eq i16 %225, 0
   br i1 %.not918, label %._crit_edge850, label %.lr.ph849
@@ -1730,14 +1730,14 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %244 = add nsw i32 %.4740.lcssa, 1
   %245 = load i8, ptr %.4708.lcssa, align 8
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = and i32 %248, 3
   %250 = icmp eq i32 %249, 2
   br i1 %250, label %251, label %262
 
 251:                                              ; preds = %._crit_edge870
-  %252 = getelementptr inbounds i8, ptr %.4708.lcssa, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.4708.lcssa, i64 8
   %253 = load i32, ptr %252, align 8
   %254 = icmp slt i32 %253, -3
   br i1 %254, label %255, label %262
@@ -1801,9 +1801,9 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %278 = getelementptr inbounds i32, ptr %114, i64 %277
   tail call void @_efree(ptr noundef nonnull %278) #10
   tail call void @_efree(ptr noundef nonnull %14) #10
-  %279 = getelementptr inbounds i8, ptr %0, i64 240
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %18, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %0, i64 28
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %281 = load i32, ptr %280, align 4
   %282 = or i32 %281, 32
   store i32 %282, ptr %280, align 4
@@ -1812,58 +1812,58 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit801:                                     ; preds = %.preheader800, %267, %._crit_edge884
   tail call void @_efree(ptr noundef %18) #10
-  %283 = getelementptr inbounds i8, ptr %0, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %284 = load i32, ptr %283, align 8
   call void @ir_init(ptr noundef nonnull %2, i32 noundef %284, i32 noundef %.0728.lcssa, i32 noundef %.0736.lcssa) #10
-  %285 = getelementptr inbounds i8, ptr %2, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.0736.lcssa, ptr %285, align 8
-  %286 = getelementptr inbounds i8, ptr %0, i64 28
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %287 = load i32, ptr %286, align 4
-  %288 = getelementptr inbounds i8, ptr %2, i64 28
+  %288 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %287, ptr %288, align 4
-  %289 = getelementptr inbounds i8, ptr %0, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %290 = load i32, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %2, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %290, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %0, i64 36
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %2, i64 36
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %293, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %0, i64 148
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %296 = load i32, ptr %295, align 4
-  %297 = getelementptr inbounds i8, ptr %2, i64 148
+  %297 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %296, ptr %297, align 4
-  %298 = getelementptr inbounds i8, ptr %0, i64 160
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %299 = load i32, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %2, i64 160
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 %299, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %0, i64 164
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %302 = load i32, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %2, i64 164
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i32 %302, ptr %303, align 4
-  %304 = getelementptr inbounds i8, ptr %0, i64 168
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %305 = load i32, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %2, i64 168
+  %306 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 %305, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %0, i64 152
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %308 = load i64, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %2, i64 152
+  %309 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 %308, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 176
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %311 = load i64, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %2, i64 176
+  %312 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store i64 %311, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %0, i64 296
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %314 = load i32, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %2, i64 296
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 296
   store i32 %314, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %0, i64 328
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %2, i64 328
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 328
   store ptr %317, ptr %318, align 8
   %319 = load i32, ptr %107, align 8
   %320 = icmp eq i32 %.0728.lcssa, %319
-  %321 = getelementptr inbounds i8, ptr %2, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %320, label %322, label %369
 
 322:                                              ; preds = %.loopexit801
@@ -1878,7 +1878,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %330 = sext i32 %329 to i64
   %331 = shl nsw i64 %330, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %328, ptr align 8 %326, i64 %331, i1 false)
-  %332 = getelementptr inbounds i8, ptr %0, i64 336
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %333 = load ptr, ptr %332, align 8
   %334 = icmp ne ptr %333, null
   %335 = icmp ne i32 %.0728.lcssa, 4
@@ -1897,7 +1897,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 337:                                              ; preds = %.preheader
-  %338 = getelementptr inbounds i8, ptr %.0701, i64 2
+  %338 = getelementptr inbounds nuw i8, ptr %.0701, i64 2
   %339 = load i16, ptr %338, align 2
   %.not775 = icmp eq i16 %339, 0
   br i1 %.not775, label %366, label %340
@@ -1912,13 +1912,13 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br label %366
 
 346:                                              ; preds = %.preheader
-  %347 = getelementptr inbounds i8, ptr %.0701, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.0701, i64 8
   %348 = load i32, ptr %347, align 8
   %349 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %348) #10
   %350 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %349) #10
   %351 = sext i32 %350 to i64
   store i64 %351, ptr %347, align 8
-  %352 = getelementptr inbounds i8, ptr %.0701, i64 2
+  %352 = getelementptr inbounds nuw i8, ptr %.0701, i64 2
   %353 = load i16, ptr %352, align 2
   %.not774 = icmp eq i16 %353, 0
   br i1 %.not774, label %366, label %354
@@ -1933,7 +1933,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br label %366
 
 360:                                              ; preds = %.preheader, %.preheader
-  %361 = getelementptr inbounds i8, ptr %.0701, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %.0701, i64 8
   %362 = load i32, ptr %361, align 8
   %363 = call ptr @ir_get_str(ptr noundef %0, i32 noundef %362) #10
   %364 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %363) #10
@@ -1942,7 +1942,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br label %366
 
 366:                                              ; preds = %.preheader, %354, %346, %360, %337, %340
-  %367 = getelementptr inbounds i8, ptr %.0701, i64 16
+  %367 = getelementptr inbounds nuw i8, ptr %.0701, i64 16
   %368 = add nsw i32 %.0715, 1
   %.old3.not = icmp eq i32 %368, -3
   br i1 %.old3.not, label %.loopexit799, label %.preheader
@@ -1975,7 +1975,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 381:                                              ; preds = %.lr.ph893
   %382 = load i32, ptr %.6710890, align 8
   store i32 %382, ptr %.1702891, align 8
-  %383 = getelementptr inbounds i8, ptr %.1702891, i64 4
+  %383 = getelementptr inbounds nuw i8, ptr %.1702891, i64 4
   store i32 0, ptr %383, align 4
   %384 = load i8, ptr %.6710890, align 8
   switch i8 %384, label %425 [
@@ -1986,11 +1986,11 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 385:                                              ; preds = %381
-  %386 = getelementptr inbounds i8, ptr %.6710890, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %.6710890, i64 8
   %387 = load i64, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %.1702891, i64 8
+  %388 = getelementptr inbounds nuw i8, ptr %.1702891, i64 8
   store i64 %387, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %.6710890, i64 2
+  %389 = getelementptr inbounds nuw i8, ptr %.6710890, i64 2
   %390 = load i16, ptr %389, align 2
   %.not773 = icmp eq i16 %390, 0
   br i1 %.not773, label %398, label %391
@@ -2001,24 +2001,24 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %394 = load i64, ptr %5, align 8
   %395 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %393, i64 noundef %394) #10
   %396 = trunc i32 %395 to i16
-  %397 = getelementptr inbounds i8, ptr %.1702891, i64 2
+  %397 = getelementptr inbounds nuw i8, ptr %.1702891, i64 2
   store i16 %396, ptr %397, align 2
   br label %429
 
 398:                                              ; preds = %385
-  %399 = getelementptr inbounds i8, ptr %.1702891, i64 2
+  %399 = getelementptr inbounds nuw i8, ptr %.1702891, i64 2
   store i16 0, ptr %399, align 2
   br label %429
 
 400:                                              ; preds = %381
-  %401 = getelementptr inbounds i8, ptr %.6710890, i64 8
+  %401 = getelementptr inbounds nuw i8, ptr %.6710890, i64 8
   %402 = load i32, ptr %401, align 8
   %403 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %402) #10
   %404 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %403) #10
   %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds i8, ptr %.1702891, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %.1702891, i64 8
   store i64 %405, ptr %406, align 8
-  %407 = getelementptr inbounds i8, ptr %.6710890, i64 2
+  %407 = getelementptr inbounds nuw i8, ptr %.6710890, i64 2
   %408 = load i16, ptr %407, align 2
   %.not772 = icmp eq i16 %408, 0
   br i1 %.not772, label %416, label %409
@@ -2029,29 +2029,29 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %412 = load i64, ptr %6, align 8
   %413 = call i32 @ir_strl(ptr noundef nonnull %2, ptr noundef %411, i64 noundef %412) #10
   %414 = trunc i32 %413 to i16
-  %415 = getelementptr inbounds i8, ptr %.1702891, i64 2
+  %415 = getelementptr inbounds nuw i8, ptr %.1702891, i64 2
   store i16 %414, ptr %415, align 2
   br label %429
 
 416:                                              ; preds = %400
-  %417 = getelementptr inbounds i8, ptr %.1702891, i64 2
+  %417 = getelementptr inbounds nuw i8, ptr %.1702891, i64 2
   store i16 0, ptr %417, align 2
   br label %429
 
 418:                                              ; preds = %381, %381
-  %419 = getelementptr inbounds i8, ptr %.6710890, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %.6710890, i64 8
   %420 = load i32, ptr %419, align 8
   %421 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %420) #10
   %422 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %421) #10
   %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds i8, ptr %.1702891, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %.1702891, i64 8
   store i64 %423, ptr %424, align 8
   br label %429
 
 425:                                              ; preds = %381
-  %426 = getelementptr inbounds i8, ptr %.6710890, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %.6710890, i64 8
   %427 = load i64, ptr %426, align 8
-  %428 = getelementptr inbounds i8, ptr %.1702891, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %.1702891, i64 8
   store i64 %427, ptr %428, align 8
   br label %429
 
@@ -2083,26 +2083,26 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %439 = load i32, ptr %10, align 8
   %440 = sext i32 %439 to i64
   %441 = call noalias ptr @_ecalloc(i64 noundef %440, i64 noundef 4) #11
-  %442 = getelementptr inbounds i8, ptr %2, i64 120
+  %442 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr %441, ptr %442, align 8
   %443 = sext i32 %.0736.lcssa to i64
   %444 = shl nsw i64 %443, 2
   %445 = call noalias ptr @_emalloc(i64 noundef %444) #9
-  %446 = getelementptr inbounds i8, ptr %2, i64 240
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store ptr %445, ptr %446, align 8
   %447 = shl nsw i64 %443, 3
   %448 = call noalias ptr @_emalloc(i64 noundef %447) #9
-  %449 = getelementptr inbounds i8, ptr %2, i64 72
+  %449 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %448, ptr %449, align 8
-  %450 = getelementptr inbounds i8, ptr %0, i64 88
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %451 = load i32, ptr %450, align 8
   %452 = sext i32 %451 to i64
   %453 = shl nsw i64 %452, 2
   %454 = call noalias ptr @_emalloc(i64 noundef %453) #9
-  %455 = getelementptr inbounds i8, ptr %2, i64 80
+  %455 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %454, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %0, i64 72
-  %457 = getelementptr inbounds i8, ptr %0, i64 80
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %458
 
 458:                                              ; preds = %.loopexit799, %.loopexit797
@@ -2123,7 +2123,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %.0741909, ptr %467, align 4
   %468 = load ptr, ptr %456, align 8
   %469 = getelementptr inbounds %struct._ir_use_list, ptr %468, i64 %459
-  %470 = getelementptr inbounds i8, ptr %469, i64 4
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 4
   %471 = load i32, ptr %470, align 4
   switch i32 %471, label %.lr.ph901.preheader [
     i32 1, label %472
@@ -2144,7 +2144,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 481:                                              ; preds = %472
   store i32 %480, ptr %.0723911, align 4
-  %482 = getelementptr inbounds i8, ptr %.0723911, i64 4
+  %482 = getelementptr inbounds nuw i8, ptr %.0723911, i64 4
   br label %.loopexit798
 
 .lr.ph901.preheader:                              ; preds = %458
@@ -2169,14 +2169,14 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 492:                                              ; preds = %.lr.ph901
   store i32 %491, ptr %.2725897, align 4
-  %493 = getelementptr inbounds i8, ptr %.2725897, i64 4
+  %493 = getelementptr inbounds nuw i8, ptr %.2725897, i64 4
   %494 = add nsw i32 %.4693899, 1
   br label %495
 
 495:                                              ; preds = %492, %.lr.ph901
   %.3726 = phi ptr [ %493, %492 ], [ %.2725897, %.lr.ph901 ]
   %.5694 = phi i32 [ %494, %492 ], [ %.4693899, %.lr.ph901 ]
-  %496 = getelementptr inbounds i8, ptr %.0698898, i64 4
+  %496 = getelementptr inbounds nuw i8, ptr %.0698898, i64 4
   %.not780 = icmp eq i32 %487, 0
   br i1 %.not780, label %.loopexit798, label %.lr.ph901
 
@@ -2186,7 +2186,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %497 = getelementptr inbounds %struct._ir_use_list, ptr %448, i64 %465
   store i32 %.0727910, ptr %497, align 4
   %498 = add nsw i32 %.3692, %.0727910
-  %499 = getelementptr inbounds i8, ptr %497, i64 4
+  %499 = getelementptr inbounds nuw i8, ptr %497, i64 4
   store i32 %.3692, ptr %499, align 4
   %500 = load ptr, ptr %0, align 8
   %501 = getelementptr inbounds %struct._ir_insn, ptr %500, i64 %459
@@ -2205,24 +2205,24 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 508:                                              ; preds = %.loopexit798
-  %509 = getelementptr inbounds i8, ptr %501, i64 4
+  %509 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %510 = load i32, ptr %509, align 4
-  %511 = getelementptr inbounds i8, ptr %503, i64 4
+  %511 = getelementptr inbounds nuw i8, ptr %503, i64 4
   store i32 %510, ptr %511, align 4
-  %512 = getelementptr inbounds i8, ptr %501, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %513 = load i32, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %503, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store i32 %513, ptr %514, align 8
-  %515 = getelementptr inbounds i8, ptr %501, i64 12
+  %515 = getelementptr inbounds nuw i8, ptr %501, i64 12
   br label %.loopexit797.sink.split
 
 516:                                              ; preds = %.loopexit798
-  %517 = getelementptr inbounds i8, ptr %501, i64 4
+  %517 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %518 = load i32, ptr %517, align 4
   %519 = sext i32 %518 to i64
   %520 = getelementptr inbounds i32, ptr %114, i64 %519
   %521 = load i32, ptr %520, align 4
-  %522 = getelementptr inbounds i8, ptr %503, i64 4
+  %522 = getelementptr inbounds nuw i8, ptr %503, i64 4
   store i32 %521, ptr %522, align 4
   %523 = icmp eq i8 %507, 63
   br i1 %523, label %527, label %524
@@ -2233,7 +2233,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %526, label %527, label %532
 
 527:                                              ; preds = %524, %516
-  %528 = getelementptr inbounds i8, ptr %501, i64 8
+  %528 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %529 = load i32, ptr %528, align 8
   %530 = call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %529) #10
   %531 = call i32 @ir_str(ptr noundef nonnull %2, ptr noundef %530) #10
@@ -2241,7 +2241,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 532:                                              ; preds = %524
   %533 = icmp eq i8 %507, 38
-  %534 = getelementptr inbounds i8, ptr %501, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %535 = load i32, ptr %534, align 8
   br i1 %533, label %536, label %540
 
@@ -2253,45 +2253,45 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 540:                                              ; preds = %532, %536, %527
   %.sink = phi i32 [ %539, %536 ], [ %531, %527 ], [ %535, %532 ]
-  %541 = getelementptr inbounds i8, ptr %503, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store i32 %.sink, ptr %541, align 8
-  %542 = getelementptr inbounds i8, ptr %501, i64 12
+  %542 = getelementptr inbounds nuw i8, ptr %501, i64 12
   br label %.loopexit797.sink.split
 
 543:                                              ; preds = %.loopexit798
-  %544 = getelementptr inbounds i8, ptr %501, i64 4
+  %544 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %545 = load i32, ptr %544, align 4
   %546 = sext i32 %545 to i64
   %547 = getelementptr inbounds i32, ptr %114, i64 %546
   %548 = load i32, ptr %547, align 4
-  %549 = getelementptr inbounds i8, ptr %503, i64 4
+  %549 = getelementptr inbounds nuw i8, ptr %503, i64 4
   store i32 %548, ptr %549, align 4
-  %550 = getelementptr inbounds i8, ptr %501, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %551 = load i32, ptr %550, align 8
   %552 = sext i32 %551 to i64
   %553 = getelementptr inbounds i32, ptr %114, i64 %552
   %554 = load i32, ptr %553, align 4
-  %555 = getelementptr inbounds i8, ptr %503, i64 8
+  %555 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store i32 %554, ptr %555, align 8
-  %556 = getelementptr inbounds i8, ptr %501, i64 12
+  %556 = getelementptr inbounds nuw i8, ptr %501, i64 12
   br label %.loopexit797.sink.split
 
 557:                                              ; preds = %.loopexit798
-  %558 = getelementptr inbounds i8, ptr %501, i64 4
+  %558 = getelementptr inbounds nuw i8, ptr %501, i64 4
   %559 = load i32, ptr %558, align 4
   %560 = sext i32 %559 to i64
   %561 = getelementptr inbounds i32, ptr %114, i64 %560
   %562 = load i32, ptr %561, align 4
-  %563 = getelementptr inbounds i8, ptr %503, i64 4
+  %563 = getelementptr inbounds nuw i8, ptr %503, i64 4
   store i32 %562, ptr %563, align 4
-  %564 = getelementptr inbounds i8, ptr %501, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %565 = load i32, ptr %564, align 8
   %566 = sext i32 %565 to i64
   %567 = getelementptr inbounds i32, ptr %114, i64 %566
   %568 = load i32, ptr %567, align 4
-  %569 = getelementptr inbounds i8, ptr %503, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store i32 %568, ptr %569, align 8
-  %570 = getelementptr inbounds i8, ptr %501, i64 12
+  %570 = getelementptr inbounds nuw i8, ptr %501, i64 12
   %571 = load i32, ptr %570, align 4
   %572 = sext i32 %571 to i64
   %573 = getelementptr inbounds i32, ptr %114, i64 %572
@@ -2305,8 +2305,8 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.2688906 = phi i32 [ %579, %.lr.ph908 ], [ %505, %574 ]
   %.pn905 = phi ptr [ %.1699, %.lr.ph908 ], [ %501, %574 ]
   %.pn783904 = phi ptr [ %.0700, %.lr.ph908 ], [ %503, %574 ]
-  %.0700 = getelementptr inbounds i8, ptr %.pn783904, i64 4
-  %.1699 = getelementptr inbounds i8, ptr %.pn905, i64 4
+  %.0700 = getelementptr inbounds nuw i8, ptr %.pn783904, i64 4
+  %.1699 = getelementptr inbounds nuw i8, ptr %.pn905, i64 4
   %575 = load i32, ptr %.1699, align 4
   %576 = sext i32 %575 to i64
   %577 = getelementptr inbounds i32, ptr %114, i64 %576
@@ -2319,7 +2319,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit797.sink.split:                          ; preds = %557, %543, %540, %508
   %.sink978.in = phi ptr [ %515, %508 ], [ %542, %540 ], [ %556, %543 ], [ %573, %557 ]
   %.sink978 = load i32, ptr %.sink978.in, align 4
-  %581 = getelementptr inbounds i8, ptr %503, i64 12
+  %581 = getelementptr inbounds nuw i8, ptr %503, i64 12
   store i32 %.sink978, ptr %581, align 4
   br label %.loopexit797
 
@@ -2331,7 +2331,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 584:                                              ; preds = %.loopexit797
   %585 = load ptr, ptr %2, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 20
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 20
   %587 = load i32, ptr %586, align 4
   %.not777 = icmp eq i32 %587, 0
   br i1 %.not777, label %.loopexit, label %588
@@ -2343,7 +2343,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %591, ptr %586, align 4
   %592 = sext i32 %591 to i64
   %593 = getelementptr inbounds %struct._ir_insn, ptr %585, i64 %592, i32 1
-  %594 = getelementptr inbounds i8, ptr %593, i64 4
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 4
   %595 = load i32, ptr %594, align 4
   %.not778913 = icmp eq i32 %595, 0
   br i1 %.not778913, label %.loopexit, label %.lr.ph915
@@ -2358,26 +2358,26 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %601 = load ptr, ptr %2, align 8
   %602 = sext i32 %600 to i64
   %603 = getelementptr inbounds %struct._ir_insn, ptr %601, i64 %602, i32 1
-  %604 = getelementptr inbounds i8, ptr %603, i64 4
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 4
   %605 = load i32, ptr %604, align 4
   %.not778 = icmp eq i32 %605, 0
   br i1 %.not778, label %.loopexit, label %.lr.ph915
 
 .loopexit:                                        ; preds = %.lr.ph915, %588, %584
-  %606 = getelementptr inbounds i8, ptr %2, i64 88
+  %606 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %498, ptr %606, align 8
   %607 = load ptr, ptr %455, align 8
   %608 = sext i32 %498 to i64
   %609 = shl nsw i64 %608, 2
   %610 = call ptr @_erealloc(ptr noundef %607, i64 noundef %609) #12
   store ptr %610, ptr %455, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 64
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %612 = load ptr, ptr %611, align 8
   %.not779 = icmp eq ptr %612, null
   br i1 %.not779, label %656, label %613
 
 613:                                              ; preds = %.loopexit
-  %614 = getelementptr inbounds i8, ptr %612, i64 8
+  %614 = getelementptr inbounds nuw i8, ptr %612, i64 8
   %615 = load i32, ptr %614, align 8
   %616 = sub nsw i32 0, %615
   %617 = load ptr, ptr %612, align 8
@@ -2386,7 +2386,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %620 = sub nsw i64 0, %619
   %621 = getelementptr inbounds i8, ptr %617, i64 %620
   call void @llvm.memset.p0.i64(ptr align 1 %621, i8 -1, i64 %619, i1 false)
-  %622 = getelementptr inbounds i8, ptr %612, i64 16
+  %622 = getelementptr inbounds nuw i8, ptr %612, i64 16
   %623 = load i32, ptr %622, align 8
   %.not1.i = icmp eq i32 %623, 0
   br i1 %.not1.i, label %ir_xlat_binding.exit, label %.lr.ph.preheader.i
@@ -2410,20 +2410,20 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
 
 629:                                              ; preds = %.lr.ph.i
   store i32 %628, ptr %.0374.i, align 4
-  %630 = getelementptr inbounds i8, ptr %.0393.i, i64 4
+  %630 = getelementptr inbounds nuw i8, ptr %.0393.i, i64 4
   %631 = load i32, ptr %630, align 4
   %632 = icmp sgt i32 %631, 0
   br i1 %632, label %633, label %637
 
 633:                                              ; preds = %629
   %634 = zext nneg i32 %631 to i64
-  %635 = getelementptr inbounds i32, ptr %114, i64 %634
+  %635 = getelementptr inbounds nuw i32, ptr %114, i64 %634
   %636 = load i32, ptr %635, align 4
   br label %637
 
 637:                                              ; preds = %633, %629
   %.sink.i = phi i32 [ %636, %633 ], [ %631, %629 ]
-  %638 = getelementptr inbounds i8, ptr %.0374.i, i64 4
+  %638 = getelementptr inbounds nuw i8, ptr %.0374.i, i64 4
   store i32 %.sink.i, ptr %638, align 4
   %639 = load i32, ptr %614, align 8
   %640 = or i32 %639, %628
@@ -2431,13 +2431,13 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %642 = sext i32 %640 to i64
   %643 = getelementptr inbounds i32, ptr %641, i64 %642
   %644 = load i32, ptr %643, align 4
-  %645 = getelementptr inbounds i8, ptr %.0374.i, i64 8
+  %645 = getelementptr inbounds nuw i8, ptr %.0374.i, i64 8
   store i32 %644, ptr %645, align 4
   %646 = load ptr, ptr %612, align 8
   %647 = getelementptr inbounds i32, ptr %646, i64 %642
   store i32 %.0402.i, ptr %647, align 4
   %648 = add i32 %.0402.i, 12
-  %649 = getelementptr inbounds i8, ptr %.0374.i, i64 12
+  %649 = getelementptr inbounds nuw i8, ptr %.0374.i, i64 12
   %650 = add i32 %.0365.i, 1
   br label %651
 
@@ -2445,7 +2445,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.141.i = phi i32 [ %648, %637 ], [ %.0402.i, %.lr.ph.i ]
   %.138.i = phi ptr [ %649, %637 ], [ %.0374.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %650, %637 ], [ %.0365.i, %.lr.ph.i ]
-  %652 = getelementptr inbounds i8, ptr %.0393.i, i64 12
+  %652 = getelementptr inbounds nuw i8, ptr %.0393.i, i64 12
   %653 = add i32 %.06.i, -1
   %.not.i = icmp eq i32 %653, 0
   br i1 %.not.i, label %ir_xlat_binding.exit, label %.lr.ph.i
@@ -2454,7 +2454,7 @@ ir_xlat_binding.exit:                             ; preds = %651, %613
   %.036.lcssa.i = phi i32 [ 0, %613 ], [ %.1.i, %651 ]
   store i32 %.036.lcssa.i, ptr %622, align 8
   %654 = load ptr, ptr %611, align 8
-  %655 = getelementptr inbounds i8, ptr %2, i64 64
+  %655 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %654, ptr %655, align 8
   store ptr null, ptr %611, align 8
   br label %656
@@ -2466,18 +2466,18 @@ ir_xlat_binding.exit:                             ; preds = %651, %613
   %660 = getelementptr inbounds i32, ptr %114, i64 %659
   call void @_efree(ptr noundef nonnull %660) #10
   %661 = load i32, ptr %118, align 4
-  %662 = getelementptr inbounds i8, ptr %2, i64 92
+  %662 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %661, ptr %662, align 4
-  %663 = getelementptr inbounds i8, ptr %0, i64 96
+  %663 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %664 = load i32, ptr %663, align 8
-  %665 = getelementptr inbounds i8, ptr %2, i64 96
+  %665 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %664, ptr %665, align 8
   %666 = load ptr, ptr %22, align 8
-  %667 = getelementptr inbounds i8, ptr %2, i64 104
+  %667 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %666, ptr %667, align 8
-  %668 = getelementptr inbounds i8, ptr %0, i64 112
+  %668 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %669 = load ptr, ptr %668, align 8
-  %670 = getelementptr inbounds i8, ptr %2, i64 112
+  %670 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %669, ptr %670, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call void @ir_free(ptr noundef nonnull %0) #10
@@ -2522,20 +2522,20 @@ declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 248)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4
   %.not70 = icmp eq i32 %9, 0
   br i1 %.not70, label %._crit_edge77, label %.lr.ph76.preheader
 
 .lr.ph76.preheader:                               ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
   br label %.lr.ph76
 
@@ -2543,11 +2543,11 @@ define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 2
   %.06073 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph76.preheader ]
   %.06172 = phi i32 [ %34, %._crit_edge ], [ 1, %.lr.ph76.preheader ]
   %.pn71 = phi ptr [ %.06374, %._crit_edge ], [ %11, %.lr.ph76.preheader ]
-  %.06374 = getelementptr inbounds i8, ptr %.pn71, i64 52
-  %12 = getelementptr inbounds i8, ptr %.pn71, i64 56
+  %.06374 = getelementptr inbounds nuw i8, ptr %.pn71, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %.pn71, i64 56
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %.pn71, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %.pn71, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %13, %16
   br i1 %17, label %.lr.ph.preheader, label %._crit_edge
@@ -2565,14 +2565,14 @@ define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 2
   %21 = sext i32 %.06265 to i64
   %22 = getelementptr inbounds i32, ptr %20, i64 %21
   store i32 %.166, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.067, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.067, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = lshr i16 %24, 2
   %narrow = add nuw nsw i16 %25, 1
   %26 = zext nneg i16 %narrow to i32
   %27 = add nsw i32 %.06265, %26
   %28 = zext nneg i16 %narrow to i64
-  %29 = getelementptr inbounds %struct._ir_insn, ptr %.067, i64 %28
+  %29 = getelementptr inbounds nuw %struct._ir_insn, ptr %.067, i64 %28
   %30 = load i32, ptr %15, align 4
   %31 = icmp slt i32 %27, %30
   br i1 %31, label %.lr.ph, label %._crit_edge.loopexit

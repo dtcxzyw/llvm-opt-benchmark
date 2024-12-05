@@ -605,7 +605,7 @@ if.end14:                                         ; preds = %os_overcommits_proc
 
 do.body.i.i12:                                    ; preds = %if.end14, %if.end3.i.i14
   %bytes_read.0.i.i = phi i64 [ %add.i.i, %if.end3.i.i14 ], [ 0, %if.end14 ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %buf.i8, i64 %bytes_read.0.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %buf.i8, i64 %bytes_read.0.i.i
   %sub.i.i = sub nuw nsw i64 24, %bytes_read.0.i.i
   %call.i.i.i13 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i10, ptr noundef nonnull %arrayidx.i.i, i64 noundef range(i64 -22, 25) %sub.i.i) #8
   %cmp.i.i = icmp slt i64 %call.i.i.i13, 0

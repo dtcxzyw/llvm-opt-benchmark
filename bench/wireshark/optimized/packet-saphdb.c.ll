@@ -710,7 +710,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_add_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.129) #3
   %8 = load ptr, ptr %6, align 8
@@ -928,7 +928,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
   %32 = load i32, ptr @hf_saphdb_segment_segmentkind, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef -2147483648) #3
   %34 = add i32 %3, 13
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = sext i8 %31 to i32
   %38 = tail call ptr @val_to_str_const(i32 noundef %37, ptr noundef nonnull @saphdb_segment_segmentkind_vals, ptr noundef nonnull @.str.330) #3
@@ -1483,7 +1483,7 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
 
 .lr.ph139:                                        ; preds = %7
   %.not.i = icmp eq ptr %6, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = add i32 %3, 1
   %11 = zext i8 %5 to i32
   br label %12
@@ -1517,7 +1517,7 @@ define internal fastcc i32 @dissect_saphdb_part_options_data(ptr noundef %0, ptr
   %23 = add i32 %.02.i135, 1
   %24 = sext i32 %23 to i64
   %25 = getelementptr %struct._option_part_definition, ptr %6, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not12.i = icmp eq ptr %27, null
   br i1 %.not12.i, label %opv_to_opi.exit, label %.lr.ph.i, !llvm.loop !10
@@ -1547,7 +1547,7 @@ opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph, 
   %39 = add i32 %.013.i, 1
   %40 = sext i32 %39 to i64
   %41 = getelementptr %struct._option_part_definition, ptr %6, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not10.i = icmp eq ptr %43, null
   br i1 %.not10.i, label %opv_to_opt.exit, label %.lr.ph.i117, !llvm.loop !11
@@ -1560,7 +1560,7 @@ opv_to_opi.exit:                                  ; preds = %.lr.ph.i, %.lr.ph, 
   br i1 %46, label %47, label %38
 
 47:                                               ; preds = %.lr.ph.i117
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load i8, ptr %48, align 8
   br label %opv_to_opt.exit
 
@@ -1590,7 +1590,7 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
   %60 = add i32 %.013.i122, 1
   %61 = sext i32 %60 to i64
   %62 = getelementptr %struct._option_part_definition, ptr %6, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not10.i123 = icmp eq ptr %64, null
   br i1 %.not10.i123, label %opv_to_opt.exit125, label %.lr.ph.i121, !llvm.loop !11
@@ -1603,7 +1603,7 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
   br i1 %67, label %68, label %59
 
 68:                                               ; preds = %.lr.ph.i121
-  %69 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %70 = load i8, ptr %69, align 8
   %71 = sext i8 %70 to i32
   br label %opv_to_opt.exit125

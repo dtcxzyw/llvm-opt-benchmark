@@ -24,22 +24,22 @@ declare i32 @pmix_util_keyval_parse(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) #0 {
   %5 = load ptr, ptr @_param_list, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 240
-  %7 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %.01522 = load ptr, ptr %6, align 8
   %.not.not23 = icmp eq ptr %.01522, %7
   br i1 %.not.not23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %16
   %.01524 = phi ptr [ %.015, %16 ], [ %.01522, %4 ]
-  %8 = getelementptr inbounds i8, ptr %.01524, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %.01524, i64 144
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %9) #9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.01524, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %.01524, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %47, label %15
@@ -49,7 +49,7 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
   br label %47
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.01524, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %.01524, i64 120
   %.015 = load ptr, ptr %17, align 8
   %.not.not = icmp eq ptr %.015, %7
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
@@ -72,15 +72,15 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
 
 24:                                               ; preds = %23
   %25 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %19, ptr noundef null) #8
-  %26 = getelementptr inbounds i8, ptr %19, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr @pmix_mca_base_var_file_value_t_class, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 56
-  %29 = getelementptr inbounds i8, ptr %19, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit.thread20, label %.lr.ph.i.i
@@ -89,27 +89,27 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
   %32 = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %24 ]
   %.07.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %30, %24 ]
   tail call void %32(ptr noundef nonnull %19) #8
-  %33 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit.thread20, label %.lr.ph.i.i, !llvm.loop !6
 
 pmix_obj_new_tma.exit.thread20:                   ; preds = %.lr.ph.i.i, %24
   %35 = tail call noalias ptr @strdup(ptr noundef %2) #8
-  %36 = getelementptr inbounds i8, ptr %19, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr @_param_list, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 120
-  %39 = getelementptr inbounds i8, ptr %37, i64 248
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 248
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 128
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store volatile ptr %19, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %19, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store ptr %38, ptr %43, align 8
   store ptr %19, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 264
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 264
   %45 = load volatile i64, ptr %44, align 8
   %46 = add i64 %45, 1
   store volatile i64 %46, ptr %44, align 8
@@ -126,13 +126,13 @@ pmix_obj_new_tma.exit.thread20:                   ; preds = %.lr.ph.i.i, %24
 
 50:                                               ; preds = %47, %48
   %51 = phi ptr [ %49, %48 ], [ null, %47 ]
-  %52 = getelementptr inbounds i8, ptr %.1, i64 152
+  %52 = getelementptr inbounds nuw i8, ptr %.1, i64 152
   store ptr %51, ptr %52, align 8
   %53 = load ptr, ptr @file_being_read, align 8
-  %54 = getelementptr inbounds i8, ptr %.1, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %.1, i64 160
   store ptr %53, ptr %54, align 8
   %55 = load i32, ptr @pmix_util_keyval_parse_lineno, align 4
-  %56 = getelementptr inbounds i8, ptr %.1, i64 168
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 168
   store i32 %55, ptr %56, align 8
   br label %pmix_obj_new_tma.exit.thread
 

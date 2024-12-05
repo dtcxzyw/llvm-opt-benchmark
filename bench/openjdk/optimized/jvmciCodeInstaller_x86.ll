@@ -84,11 +84,11 @@ define hidden noundef i32 @_ZN13CodeInstaller14pd_next_offsetEP17NativeInstructi
   br label %53
 
 .thread5.i:                                       ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   switch i8 %5, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread [
     i8 -43, label %11
     i8 73, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZN13CodeInstaller14pd_next_offsetEP17NativeInstructi
   ]
 
 switch.edge.thread.i:                             ; preds = %11, %11, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread5.i, %switch.edge.thread.i
@@ -118,7 +118,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread5.i, %sw
   %18 = icmp eq i8 %5, -43
   %19 = select i1 %18, i32 11, i32 10
   %20 = add nsw i32 %19, %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %20 to i64
@@ -128,7 +128,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread5.i, %sw
   %28 = zext i1 %27 to i32
   %.026 = add nsw i32 %20, %28
   %.025.idx = zext i1 %27 to i64
-  %.025 = getelementptr inbounds i8, ptr %25, i64 %.025.idx
+  %.025 = getelementptr inbounds nuw i8, ptr %25, i64 %.025.idx
   %29 = load i8, ptr %.025, align 1
   %30 = icmp eq i8 %29, -43
   %31 = add nsw i32 %.026, 2
@@ -141,7 +141,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %_ZN17NativeIn
   br i1 %33, label %_ZN17NativeInstruction11is_call_regEv.exit.thread, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %9, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %34 = getelementptr inbounds i8, ptr %1, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, -1
   %37 = and i8 %5, -2
@@ -189,7 +189,7 @@ declare void @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr noundef nonnull align 8 de
 define hidden void @_ZN13CodeInstaller20pd_patch_OopConstantEiR6HandlebP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i1 noundef zeroext %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.RelocationHolder, align 8
   %7 = alloca %class.RelocationHolder, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
@@ -209,9 +209,9 @@ _ZNK6HandleclEv.exit:                             ; preds = %5, %15
 
 19:                                               ; preds = %_ZNK6HandleclEv.exit
   %20 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %12, i32 noundef 3) #5
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %27, label %25
@@ -232,12 +232,12 @@ _ZNK6HandleclEv.exit:                             ; preds = %5, %15
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30
   %32 = phi i32 [ %26, %25 ], [ %31, %30 ], [ %28, %27 ]
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %34, align 8, !alias.scope !6
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %35, align 8, !alias.scope !6
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %6, align 8, !alias.scope !6
-  %36 = getelementptr inbounds i8, ptr %6, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %32, ptr %36, align 4, !alias.scope !6
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 3) #5
   %37 = load i64, ptr @JVMCITraceLevel, align 8
@@ -251,12 +251,12 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30
   %42 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %12, i32 noundef 0) #5
   store ptr %18, ptr %42, align 8
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %44, align 8, !alias.scope !11
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %45, align 8, !alias.scope !11
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %7, align 8, !alias.scope !11
-  %46 = getelementptr inbounds i8, ptr %7, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %46, align 4, !alias.scope !11
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %43, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0) #5
   %47 = load i64, ptr @JVMCITraceLevel, align 8
@@ -288,7 +288,7 @@ declare void @_ZN5JVMCI6event3EPKcz(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13CodeInstaller26pd_patch_MetaspaceConstantEiP25HotSpotCompiledCodeStreamhP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
@@ -351,14 +351,14 @@ declare noundef ptr @_ZN13CodeInstaller25record_metadata_referenceEP11CodeSectio
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13CodeInstaller29pd_patch_DataSectionReferenceEiiP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.RelocationHolder, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %10, i32 noundef 1) #5
   %12 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %10) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %2 to i64
@@ -369,13 +369,13 @@ define hidden void @_ZN13CodeInstaller29pd_patch_DataSectionReferenceEiiP8JVMCIE
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %11, align 4
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %23, align 8, !alias.scope !16
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 9, ptr %24, align 8, !alias.scope !16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %17, ptr %25, align 8, !alias.scope !16
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %26, align 8, !alias.scope !16
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr %5, align 8, !alias.scope !16
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #5
@@ -409,7 +409,7 @@ define hidden void @_ZN13CodeInstaller23pd_relocate_ForeignCallEP17NativeInstruc
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %2, %12
   %14 = add i64 %13, 2147483648
@@ -424,25 +424,25 @@ define hidden void @_ZN13CodeInstaller23pd_relocate_ForeignCallEP17NativeInstruc
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
   %18 = trunc i64 %13 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i32 %18, ptr %19, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef 1) #5
-  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %22, align 8, !alias.scope !21
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 6, ptr %23, align 8, !alias.scope !21
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %5, align 8, !alias.scope !21
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 2) #5
   br label %74
 
 .thread5.i:                                       ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 25:                                               ; preds = %4
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   switch i8 %9, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
     i8 -43, label %27
     i8 73, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
@@ -457,7 +457,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
   ]
 
 switch.edge.thread.i:                             ; preds = %27, %27, %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread5.i, %25, %switch.edge.thread.i
@@ -471,14 +471,14 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread5.i, %25, %s
   %34 = icmp eq i8 %9, -43
   %35 = select i1 %34, i32 3, i32 2
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
   store i64 %2, ptr %37, align 8
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %35) #5
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %40, align 8, !alias.scope !26
-  %41 = getelementptr inbounds i8, ptr %6, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 6, ptr %41, align 8, !alias.scope !26
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !26
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0) #5
@@ -490,20 +490,20 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %25, %_ZN17Nat
   br i1 %spec.select.i, label %43, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
 
 43:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %44 = getelementptr inbounds i8, ptr %1, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %2, %45
   %47 = icmp eq i64 %2, -1
   %48 = trunc i64 %46 to i32
   %49 = select i1 %47, i32 -5, i32 %48
-  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i32 %49, ptr %50, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef 1) #5
-  %51 = getelementptr inbounds i8, ptr %0, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %53, align 8, !alias.scope !31
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 6, ptr %54, align 8, !alias.scope !31
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !31
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 2) #5
@@ -527,11 +527,11 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %27, %_
   %67 = trunc i64 %65 to i32
   %68 = add i32 %66, %67
   store i32 %68, ptr %63, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %71, align 8, !alias.scope !36
-  %72 = getelementptr inbounds i8, ptr %8, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 6, ptr %72, align 8, !alias.scope !36
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !36
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2) #5
@@ -563,7 +563,7 @@ declare noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13CodeInstaller22pd_relocate_JavaMethodER10CodeBufferR12methodHandleiP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.RelocationHolder, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %81 [
     i32 12, label %94
@@ -574,17 +574,17 @@ define hidden void @_ZN13CodeInstaller22pd_relocate_JavaMethodER10CodeBufferR12m
   ]
 
 9:                                                ; preds = %5, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load ptr, ptr @_ZN13SharedRuntime26_resolve_virtual_call_blobE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 5
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -600,36 +600,36 @@ define hidden void @_ZN13CodeInstaller22pd_relocate_JavaMethodER10CodeBufferR12m
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   %28 = trunc i64 %23 to i32
-  %29 = getelementptr inbounds i8, ptr %14, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i32 %28, ptr %29, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef 1) #5
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %33, align 8, !alias.scope !41
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2, ptr %34, align 8, !alias.scope !41
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !41
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %32, ptr %35, align 8, !alias.scope !41
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %36, align 8, !alias.scope !41
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 2) #5
   br label %82
 
 37:                                               ; preds = %5
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %3 to i64
   %42 = getelementptr inbounds i8, ptr %40, i64 %41
   %43 = load ptr, ptr @_ZN13SharedRuntime25_resolve_static_call_blobE, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds i8, ptr %42, i64 5
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 5
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
@@ -645,7 +645,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
 
 _ZN10NativeCall15set_destinationEPh.exit18:       ; preds = %37
   %56 = trunc i64 %51 to i32
-  %57 = getelementptr inbounds i8, ptr %42, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i32 %56, ptr %57, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %42, i32 noundef 1) #5
   %58 = load ptr, ptr %38, align 8
@@ -653,17 +653,17 @@ _ZN10NativeCall15set_destinationEPh.exit18:       ; preds = %37
   br label %82
 
 59:                                               ; preds = %5
-  %60 = getelementptr inbounds i8, ptr %0, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %3 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %65 = load ptr, ptr @_ZN13SharedRuntime30_resolve_opt_virtual_call_blobE, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds i8, ptr %64, i64 5
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 5
   %71 = ptrtoint ptr %69 to i64
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
@@ -679,7 +679,7 @@ _ZN10NativeCall15set_destinationEPh.exit18:       ; preds = %37
 
 _ZN10NativeCall15set_destinationEPh.exit19:       ; preds = %59
   %78 = trunc i64 %73 to i32
-  %79 = getelementptr inbounds i8, ptr %64, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i32 %78, ptr %79, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %64, i32 noundef 1) #5
   %80 = load ptr, ptr %60, align 8
@@ -704,7 +704,7 @@ _ZN10NativeCall15set_destinationEPh.exit19:       ; preds = %59
   br i1 %86, label %87, label %94
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.0, i64 5
+  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 5
   %89 = load i32, ptr %88, align 4
   %.not = icmp eq i32 %89, 8658703
   br i1 %.not, label %91, label %90
@@ -714,7 +714,7 @@ _ZN10NativeCall15set_destinationEPh.exit19:       ; preds = %59
   br label %94
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %0, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %93 = load ptr, ptr %92, align 8
   call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %93, ptr noundef nonnull %88, i32 noundef 16, i32 noundef 0, i32 noundef 0) #5
   br label %94
@@ -753,89 +753,89 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   ]
 
 11:                                               ; preds = %3, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %1, i32 noundef 10, i32 noundef 0, i32 noundef 0) #5
   br label %52
 
 14:                                               ; preds = %3, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %1, i32 noundef 11, i32 noundef 0, i32 noundef 0) #5
   br label %52
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %20, align 8, !alias.scope !46
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 18, ptr %21, align 8, !alias.scope !46
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !46
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #5
   br label %52
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %25, align 8, !alias.scope !51
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 18, ptr %26, align 8, !alias.scope !51
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !51
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #5
   br label %52
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %30, align 8, !alias.scope !56
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 18, ptr %31, align 8, !alias.scope !56
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !56
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 2) #5
   br label %52
 
 32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %0, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %35, align 8, !alias.scope !61
-  %36 = getelementptr inbounds i8, ptr %7, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 18, ptr %36, align 8, !alias.scope !61
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !61
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3) #5
   br label %52
 
 37:                                               ; preds = %3
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %40, align 8, !alias.scope !66
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 18, ptr %41, align 8, !alias.scope !66
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !66
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 4) #5
   br label %52
 
 42:                                               ; preds = %3
-  %43 = getelementptr inbounds i8, ptr %0, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %45, align 8, !alias.scope !71
-  %46 = getelementptr inbounds i8, ptr %9, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 18, ptr %46, align 8, !alias.scope !71
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %9, align 8, !alias.scope !71
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %44, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 5) #5
   br label %52
 
 47:                                               ; preds = %3
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %50, align 8, !alias.scope !76
-  %51 = getelementptr inbounds i8, ptr %10, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 18, ptr %51, align 8, !alias.scope !76
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %10, align 8, !alias.scope !76
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 6) #5

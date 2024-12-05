@@ -125,7 +125,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -190,11 +190,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL62initializeX86SpeculativeExecutionSideEffectSuppressionPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr @.str.15, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 49, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 9, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_144X86SpeculativeExecutionSideEffectSuppression2IDE, ptr %4, align 8
@@ -234,19 +234,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_144X86SpeculativeExecutionSideEff
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -323,14 +323,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_144X86SpeculativeExecutionSi
   br i1 %.not81, label %.loopexit, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %8, i64 616
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 616
   br label %28
 
 28:                                               ; preds = %.lr.ph85, %_ZN4llvm8DebugLocD2Ev.exit53
   %.sroa.057.083 = phi ptr [ %.sroa.057.080, %.lr.ph85 ], [ %.sroa.057.0, %_ZN4llvm8DebugLocD2Ev.exit53 ]
   %.03282 = phi i1 [ false, %.lr.ph85 ], [ %.5, %_ZN4llvm8DebugLocD2Ev.exit53 ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.057.083, i64 56
-  %30 = getelementptr inbounds i8, ptr %.sroa.057.083, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.057.083, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.057.083, i64 48
   %.sroa.054.073 = load ptr, ptr %29, align 8
   %.not6174 = icmp eq ptr %.sroa.054.073, %30
   br i1 %.not6174, label %_ZN4llvm8DebugLocD2Ev.exit53, label %.lr.ph
@@ -353,7 +353,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_144X86SpeculativeExecutionSi
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.054.078, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 8
   %.not.i.i = icmp eq i64 %41, 0
@@ -395,7 +395,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_Z
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.054.078, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 16
   %.not.i5.i = icmp eq i64 %62, 0
@@ -559,12 +559,12 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %_ZNK4llvm12Mac
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.054.078) #14
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %141, i64 %143
   %145 = load ptr, ptr %140, align 8
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.054.078, i64 40
   %147 = load i24, ptr %146, align 8
   %148 = zext i24 %147 to i64
-  %149 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %145, i64 %148
+  %149 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %145, i64 %148
   %.not13.i = icmp eq ptr %144, %149
   br i1 %.not13.i, label %_ZL25hasConstantAddressingModeRKN4llvm12MachineInstrE.exit.thread, label %.lr.ph.i
 
@@ -582,7 +582,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %_ZNK4llvm12Mac
   br i1 %.not11.i, label %.critedge.i, label %_ZL25hasConstantAddressingModeRKN4llvm12MachineInstrE.exit
 
 .critedge.i:                                      ; preds = %153, %.lr.ph.i
-  %156 = getelementptr inbounds i8, ptr %.01014.i, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %.01014.i, i64 32
   %.not.i46 = icmp eq ptr %156, %149
   br i1 %.not.i46, label %_ZL25hasConstantAddressingModeRKN4llvm12MachineInstrE.exit.thread, label %.lr.ph.i
 
@@ -870,7 +870,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1010,9 +1010,9 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL47EnableSpeculativeExecutionSideEffectSuppression) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 152), align 8
@@ -1021,7 +1021,7 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL47EnableSpeculativeExecutionSideEffectSuppression, ptr nonnull align 1 dereferenceable(33) @.str.4, i64 32) #14
   store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 32), align 8
-  store i64 144, ptr getelementptr inbounds (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 40), align 8
+  store i64 144, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL47EnableSpeculativeExecutionSideEffectSuppression, ptr noundef nonnull align 1 dereferenceable(1) %4) #14
   %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL47EnableSpeculativeExecutionSideEffectSuppression, i64 10), align 2
   %6 = and i16 %5, -97
@@ -1033,9 +1033,9 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 0, ptr %3, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL22OneLFENCEPerBasicBlock, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL22OneLFENCEPerBasicBlock, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL22OneLFENCEPerBasicBlock) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 152), align 8
@@ -1044,7 +1044,7 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 176), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL22OneLFENCEPerBasicBlock, ptr nonnull align 1 dereferenceable(28) @.str.7, i64 27) #14
   store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 32), align 8
-  store i64 68, ptr getelementptr inbounds (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 40), align 8
+  store i64 68, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL22OneLFENCEPerBasicBlock, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL22OneLFENCEPerBasicBlock, i64 10), align 2
   %10 = and i16 %9, -97
@@ -1056,9 +1056,9 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL18OnlyLFENCENonConst, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18OnlyLFENCENonConst, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL18OnlyLFENCENonConst, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL18OnlyLFENCENonConst, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL18OnlyLFENCENonConst, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL18OnlyLFENCENonConst) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 152), align 8
@@ -1067,7 +1067,7 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 176), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL18OnlyLFENCENonConst, ptr nonnull align 1 dereferenceable(32) @.str.10, i64 31) #14
   store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 32), align 8
-  store i64 150, ptr getelementptr inbounds (i8, ptr @_ZL18OnlyLFENCENonConst, i64 40), align 8
+  store i64 150, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL18OnlyLFENCENonConst, ptr noundef nonnull align 1 dereferenceable(1) %2) #14
   %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL18OnlyLFENCENonConst, i64 10), align 2
   %14 = and i16 %13, -97
@@ -1079,9 +1079,9 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17OmitBranchLFENCEs, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL17OmitBranchLFENCEs, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL17OmitBranchLFENCEs, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL17OmitBranchLFENCEs, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17OmitBranchLFENCEs, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17OmitBranchLFENCEs) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 152), align 8
@@ -1090,7 +1090,7 @@ define internal void @_GLOBAL__sub_I_X86SpeculativeExecutionSideEffectSuppressio
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 176), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17OmitBranchLFENCEs, ptr nonnull align 1 dereferenceable(30) @.str.13, i64 29) #14
   store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 32), align 8
-  store i64 44, ptr getelementptr inbounds (i8, ptr @_ZL17OmitBranchLFENCEs, i64 40), align 8
+  store i64 44, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17OmitBranchLFENCEs, ptr noundef nonnull align 1 dereferenceable(1) %1) #14
   %17 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL17OmitBranchLFENCEs, i64 10), align 2
   %18 = and i16 %17, -97

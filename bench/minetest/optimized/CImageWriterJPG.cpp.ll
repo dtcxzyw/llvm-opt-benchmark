@@ -72,9 +72,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3irr5video15CImageWriterJPGC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #2 align 2 {
 entry:
-  %DebugName.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %DebugName.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !3
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video15CImageWriterJPGE, i64 16), ptr %this, align 8, !tbaa !10
   ret void
@@ -87,42 +87,42 @@ entry:
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
   %ref.tmp3 = alloca %"class.irr::core::string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #11
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !12
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   store i8 0, ptr %0, align 8, !tbaa !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 3, i8 noundef signext 0) #11
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
   store i8 106, ptr %1, align 1, !tbaa !17
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
-  %arrayidx.i.i.i.1 = getelementptr inbounds i8, ptr %2, i64 1
+  %arrayidx.i.i.i.1 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 112, ptr %arrayidx.i.i.i.1, align 1, !tbaa !17
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
-  %arrayidx.i.i.i.2 = getelementptr inbounds i8, ptr %3, i64 2
+  %arrayidx.i.i.i.2 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 103, ptr %arrayidx.i.i.i.2, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #11
-  %4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store ptr %4, ptr %ref.tmp2, align 8, !tbaa !12
-  %_M_string_length.i.i.i.i4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !14
   store i8 0, ptr %4, align 8, !tbaa !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 4, i8 noundef signext 0) #11
   %5 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
   store i8 106, ptr %5, align 1, !tbaa !17
   %6 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
-  %arrayidx.i.i.i11.1 = getelementptr inbounds i8, ptr %6, i64 1
+  %arrayidx.i.i.i11.1 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 112, ptr %arrayidx.i.i.i11.1, align 1, !tbaa !17
   %7 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
-  %arrayidx.i.i.i11.2 = getelementptr inbounds i8, ptr %7, i64 2
+  %arrayidx.i.i.i11.2 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 101, ptr %arrayidx.i.i.i11.2, align 1, !tbaa !17
   %8 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
-  %arrayidx.i.i.i11.3 = getelementptr inbounds i8, ptr %8, i64 3
+  %arrayidx.i.i.i11.3 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 103, ptr %arrayidx.i.i.i11.3, align 1, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #11
-  %9 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store ptr %9, ptr %ref.tmp3, align 8, !tbaa !12
-  %_M_string_length.i.i.i.i15 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %_M_string_length.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i15, align 8, !tbaa !14
   store i8 0, ptr %9, align 8, !tbaa !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, i8 noundef signext 0) #11
@@ -191,35 +191,35 @@ entry:
   %cinfo.i = alloca %struct.jpeg_compress_struct, align 8
   %jerr.i = alloca %struct.jpeg_error_mgr, align 8
   %row_pointer.i = alloca [1 x ptr], align 8
-  %Format.i.i = getelementptr inbounds i8, ptr %image, i64 8
+  %Format.i.i = getelementptr inbounds nuw i8, ptr %image, i64 8
   %0 = load i32, ptr %Format.i.i, align 8, !tbaa !19
   %1 = icmp ult i32 %0, 4
   %2 = zext i32 %0 to i64
   br i1 %1, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
-  %arrayidx.i = getelementptr inbounds [19 x ptr], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 0, i64 %2
+  %arrayidx.i = getelementptr inbounds nuw [19 x ptr], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 0, i64 %2
   %3 = load ptr, ptr %arrayidx.i, align 8, !tbaa !24
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, ptr noundef %3, i32 noundef 2) #11
   br label %_ZN3irr5videoL13writeJPEGFileEPNS_2io10IWriteFileEPNS0_6IImageEj.exit
 
 switch.lookup:                                    ; preds = %entry
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK3irr5video15CImageWriterJPG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK3irr5video15CImageWriterJPG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %Size.i.i = getelementptr inbounds i8, ptr %image, i64 12
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %image, i64 12
   %4 = load <2 x i32>, ptr %Size.i.i, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %cinfo.i) #11
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %jerr.i) #11
   %call6.i = call ptr @jpeg_std_error(ptr noundef nonnull %jerr.i) #11
   store ptr %call6.i, ptr %cinfo.i, align 8, !tbaa !26
   call void @jpeg_CreateCompress(ptr noundef nonnull %cinfo.i, i32 noundef 62, i64 noundef 520) #11
-  %dest.i.i = getelementptr inbounds i8, ptr %cinfo.i, i64 40
+  %dest.i.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 40
   %5 = load ptr, ptr %dest.i.i, align 8, !tbaa !32
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3irr5videoL14jpeg_file_destEP20jpeg_compress_structPNS_2io10IWriteFileE.exit.i
 
 if.then.i.i:                                      ; preds = %switch.lookup
-  %mem.i.i = getelementptr inbounds i8, ptr %cinfo.i, i64 8
+  %mem.i.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 8
   %6 = load ptr, ptr %mem.i.i, align 8, !tbaa !33
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %call.i.i = call noundef ptr %7(ptr noundef nonnull %cinfo.i, i32 noundef 0, i64 noundef 4144) #11
@@ -228,20 +228,20 @@ if.then.i.i:                                      ; preds = %switch.lookup
 
 _ZN3irr5videoL14jpeg_file_destEP20jpeg_compress_structPNS_2io10IWriteFileE.exit.i: ; preds = %if.then.i.i, %switch.lookup
   %8 = phi ptr [ %call.i.i, %if.then.i.i ], [ %5, %switch.lookup ]
-  %init_destination.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %init_destination.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZN3irr5videoL21jpeg_init_destinationEP20jpeg_compress_struct, ptr %init_destination.i.i, align 8, !tbaa !36
-  %empty_output_buffer.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %empty_output_buffer.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @_ZN3irr5videoL24jpeg_empty_output_bufferEP20jpeg_compress_struct, ptr %empty_output_buffer.i.i, align 8, !tbaa !39
-  %term_destination.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %term_destination.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @_ZN3irr5videoL21jpeg_term_destinationEP20jpeg_compress_struct, ptr %term_destination.i.i, align 8, !tbaa !40
-  %file6.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %file6.i.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %file, ptr %file6.i.i, align 8, !tbaa !41
-  %image_width.i = getelementptr inbounds i8, ptr %cinfo.i, i64 48
-  %image_height.i = getelementptr inbounds i8, ptr %cinfo.i, i64 52
+  %image_width.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 48
+  %image_height.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 52
   store <2 x i32> %4, ptr %image_width.i, align 8, !tbaa !25
-  %input_components.i = getelementptr inbounds i8, ptr %cinfo.i, i64 56
+  %input_components.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 56
   store i32 3, ptr %input_components.i, align 8, !tbaa !42
-  %in_color_space.i = getelementptr inbounds i8, ptr %cinfo.i, i64 60
+  %in_color_space.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 60
   store i32 2, ptr %in_color_space.i, align 4, !tbaa !43
   call void @jpeg_set_defaults(ptr noundef nonnull %cinfo.i) #11
   %cmp7.i = icmp eq i32 %quality, 0
@@ -252,18 +252,18 @@ _ZN3irr5videoL14jpeg_file_destEP20jpeg_compress_structPNS_2io10IWriteFileE.exit.
   %mul.i = mul i32 %9, 3
   %conv.i = zext i32 %mul.i to i64
   %call11.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
-  %Pitch.i.i = getelementptr inbounds i8, ptr %image, i64 44
+  %Pitch.i.i = getelementptr inbounds nuw i8, ptr %image, i64 44
   %10 = load i32, ptr %Pitch.i.i, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %row_pointer.i) #11
   store ptr %call11.i, ptr %row_pointer.i, align 8, !tbaa !24
-  %next_scanline.i = getelementptr inbounds i8, ptr %cinfo.i, i64 304
+  %next_scanline.i = getelementptr inbounds nuw i8, ptr %cinfo.i, i64 304
   %11 = load i32, ptr %next_scanline.i, align 8, !tbaa !45
   %12 = load i32, ptr %image_height.i, align 4, !tbaa !46
   %cmp1741.i = icmp ult i32 %11, %12
   br i1 %cmp1741.i, label %while.body.lr.ph.i, label %delete.notnull.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN3irr5videoL14jpeg_file_destEP20jpeg_compress_structPNS_2io10IWriteFileE.exit.i
-  %Data.i.i = getelementptr inbounds i8, ptr %image, i64 24
+  %Data.i.i = getelementptr inbounds nuw i8, ptr %image, i64 24
   %13 = load ptr, ptr %Data.i.i, align 8, !tbaa !47
   %idx.ext.i = zext i32 %10 to i64
   br label %while.body.i
@@ -271,7 +271,7 @@ while.body.lr.ph.i:                               ; preds = %_ZN3irr5videoL14jpe
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %src.042.i = phi ptr [ %13, %while.body.lr.ph.i ], [ %add.ptr.i, %while.body.i ]
   call void %switch.load(ptr noundef %src.042.i, i32 noundef %9, ptr noundef nonnull %call11.i) #11, !callees !48
-  %add.ptr.i = getelementptr inbounds i8, ptr %src.042.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %src.042.i, i64 %idx.ext.i
   %call19.i = call i32 @jpeg_write_scanlines(ptr noundef nonnull %cinfo.i, ptr noundef nonnull %row_pointer.i, i32 noundef 1) #11
   %14 = load i32, ptr %next_scanline.i, align 8, !tbaa !45
   %15 = load i32, ptr %image_height.i, align 4, !tbaa !46
@@ -317,7 +317,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add nuw nsw i32 %conv.i4.i, 1
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %filename, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %filename, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %conv.i.i = trunc i64 %0 to i32
   %add.i = add i32 %conv.i.i, 1
@@ -327,7 +327,7 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %1 = load ptr, ptr %filename, align 8, !tbaa !18
   %idxprom49.i = zext nneg i32 %add to i64
-  %arrayidx50.i = getelementptr inbounds i8, ptr %1, i64 %idxprom49.i
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom49.i
   %2 = load i8, ptr %arrayidx50.i, align 1, !tbaa !17
   %tobool.not51.i = icmp eq i8 %2, 0
   %.pre.i = load ptr, ptr %ext0, align 8, !tbaa !18
@@ -337,7 +337,7 @@ land.rhs.i:                                       ; preds = %if.end.i, %for.inc.
   %3 = phi i8 [ %7, %for.inc.i ], [ %2, %if.end.i ]
   %i.052.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
   %conv.i40.i = zext i32 %i.052.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre.i, i64 %conv.i40.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %conv.i40.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !17
   %tobool5.not.i = icmp eq i8 %4, 0
   br i1 %tobool5.not.i, label %if.end.i22, label %for.body.i
@@ -360,7 +360,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add i32 %i.052.i, 1
   %add3.i = add i32 %inc.i, %add
   %idxprom.i = zext i32 %add3.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !51
@@ -371,7 +371,7 @@ land.rhs21.loopexit.i:                            ; preds = %for.inc.i
 
 _ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit: ; preds = %land.rhs21.loopexit.i, %if.end.i
   %i.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %8, %land.rhs21.loopexit.i ]
-  %arrayidx.i.i47.i = getelementptr inbounds i8, ptr %.pre.i, i64 %i.0.lcssa.i
+  %arrayidx.i.i47.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %i.0.lcssa.i
   %9 = load i8, ptr %arrayidx.i.i47.i, align 1, !tbaa !17
   %cmp24.i = icmp eq i8 %9, 0
   br i1 %cmp24.i, label %cleanup, label %if.end.i22
@@ -384,7 +384,7 @@ land.rhs.i27:                                     ; preds = %if.end.i22, %for.in
   %10 = phi i8 [ %14, %for.inc.i42 ], [ %2, %if.end.i22 ]
   %i.052.i28 = phi i32 [ %inc.i43, %for.inc.i42 ], [ 0, %if.end.i22 ]
   %conv.i40.i29 = zext i32 %i.052.i28 to i64
-  %arrayidx.i.i.i30 = getelementptr inbounds i8, ptr %.pre.i26, i64 %conv.i40.i29
+  %arrayidx.i.i.i30 = getelementptr inbounds nuw i8, ptr %.pre.i26, i64 %conv.i40.i29
   %11 = load i8, ptr %arrayidx.i.i.i30, align 1, !tbaa !17
   %tobool5.not.i31 = icmp eq i8 %11, 0
   br i1 %tobool5.not.i31, label %if.end.i59, label %for.body.i32
@@ -407,7 +407,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %inc.i43 = add i32 %i.052.i28, 1
   %add3.i44 = add i32 %inc.i43, %add
   %idxprom.i45 = zext i32 %add3.i44 to i64
-  %arrayidx.i46 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i45
+  %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !17
   %tobool.not.i47 = icmp eq i8 %14, 0
   br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !51
@@ -418,7 +418,7 @@ land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
 
 _ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit53: ; preds = %land.rhs21.loopexit.i48, %if.end.i22
   %i.0.lcssa.i50 = phi i64 [ 0, %if.end.i22 ], [ %15, %land.rhs21.loopexit.i48 ]
-  %arrayidx.i.i47.i51 = getelementptr inbounds i8, ptr %.pre.i26, i64 %i.0.lcssa.i50
+  %arrayidx.i.i47.i51 = getelementptr inbounds nuw i8, ptr %.pre.i26, i64 %i.0.lcssa.i50
   %16 = load i8, ptr %arrayidx.i.i47.i51, align 1, !tbaa !17
   %cmp24.i52 = icmp eq i8 %16, 0
   br i1 %cmp24.i52, label %cleanup, label %if.end.i59
@@ -431,7 +431,7 @@ land.rhs.i64:                                     ; preds = %if.end.i59, %for.in
   %17 = phi i8 [ %21, %for.inc.i79 ], [ %2, %if.end.i59 ]
   %i.052.i65 = phi i32 [ %inc.i80, %for.inc.i79 ], [ 0, %if.end.i59 ]
   %conv.i40.i66 = zext i32 %i.052.i65 to i64
-  %arrayidx.i.i.i67 = getelementptr inbounds i8, ptr %.pre.i63, i64 %conv.i40.i66
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw i8, ptr %.pre.i63, i64 %conv.i40.i66
   %18 = load i8, ptr %arrayidx.i.i.i67, align 1, !tbaa !17
   %tobool5.not.i68 = icmp eq i8 %18, 0
   br i1 %tobool5.not.i68, label %cleanup, label %for.body.i69
@@ -454,7 +454,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %inc.i80 = add i32 %i.052.i65, 1
   %add3.i81 = add i32 %inc.i80, %add
   %idxprom.i82 = zext i32 %add3.i81 to i64
-  %arrayidx.i83 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i82
+  %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !17
   %tobool.not.i84 = icmp eq i8 %21, 0
   br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !51
@@ -465,7 +465,7 @@ land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
 
 _ZNK3irr4core6stringIcE28equals_substring_ignore_caseERKS2_j.exit90: ; preds = %land.rhs21.loopexit.i85, %if.end.i59
   %i.0.lcssa.i87 = phi i64 [ 0, %if.end.i59 ], [ %22, %land.rhs21.loopexit.i85 ]
-  %arrayidx.i.i47.i88 = getelementptr inbounds i8, ptr %.pre.i63, i64 %i.0.lcssa.i87
+  %arrayidx.i.i47.i88 = getelementptr inbounds nuw i8, ptr %.pre.i63, i64 %i.0.lcssa.i87
   %23 = load i8, ptr %arrayidx.i.i47.i88, align 1, !tbaa !17
   %.fr = freeze i8 %23
   %cmp24.i89 = icmp eq i8 %.fr, 0
@@ -515,11 +515,11 @@ declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN3irr5videoL21jpeg_init_destinationEP20jpeg_compress_struct(ptr nocapture noundef readonly %cinfo) #8 {
 entry:
-  %dest1 = getelementptr inbounds i8, ptr %cinfo, i64 40
+  %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32
-  %buffer = getelementptr inbounds i8, ptr %0, i64 48
+  %buffer = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %buffer, ptr %0, align 8, !tbaa !52
-  %free_in_buffer = getelementptr inbounds i8, ptr %0, i64 8
+  %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4096, ptr %free_in_buffer, align 8, !tbaa !53
   ret void
 }
@@ -527,11 +527,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN3irr5videoL24jpeg_empty_output_bufferEP20jpeg_compress_struct(ptr noundef %cinfo) #0 {
 entry:
-  %dest1 = getelementptr inbounds i8, ptr %cinfo, i64 40
+  %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32
-  %file = getelementptr inbounds i8, ptr %0, i64 40
+  %file = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %file, align 8, !tbaa !41
-  %buffer = getelementptr inbounds i8, ptr %0, i64 48
+  %buffer = getelementptr inbounds nuw i8, ptr %0, i64 48
   %vtable = load ptr, ptr %1, align 8, !tbaa !10
   %2 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %buffer, i64 noundef 4096) #11
@@ -540,7 +540,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %cinfo, align 8, !tbaa !26
-  %msg_code = getelementptr inbounds i8, ptr %3, i64 40
+  %msg_code = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 37, ptr %msg_code, align 8, !tbaa !54
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   tail call void %4(ptr noundef nonnull %cinfo) #11
@@ -548,7 +548,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr %buffer, ptr %0, align 8, !tbaa !52
-  %free_in_buffer = getelementptr inbounds i8, ptr %0, i64 8
+  %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4096, ptr %free_in_buffer, align 8, !tbaa !53
   ret i32 1
 }
@@ -556,14 +556,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3irr5videoL21jpeg_term_destinationEP20jpeg_compress_struct(ptr noundef %cinfo) #0 {
 entry:
-  %dest1 = getelementptr inbounds i8, ptr %cinfo, i64 40
+  %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32
-  %free_in_buffer = getelementptr inbounds i8, ptr %0, i64 8
+  %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %free_in_buffer, align 8, !tbaa !53
   %sub = sub i64 4096, %1
-  %file = getelementptr inbounds i8, ptr %0, i64 40
+  %file = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load ptr, ptr %file, align 8, !tbaa !41
-  %buffer = getelementptr inbounds i8, ptr %0, i64 48
+  %buffer = getelementptr inbounds nuw i8, ptr %0, i64 48
   %vtable = load ptr, ptr %2, align 8, !tbaa !10
   %3 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %buffer, i64 noundef %sub) #11
@@ -572,7 +572,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %cinfo, align 8, !tbaa !26
-  %msg_code = getelementptr inbounds i8, ptr %4, i64 40
+  %msg_code = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 37, ptr %msg_code, align 8, !tbaa !54
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   tail call void %5(ptr noundef nonnull %cinfo) #11

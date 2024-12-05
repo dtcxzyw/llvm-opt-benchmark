@@ -49,16 +49,16 @@ declare void @_Z12pj_wkt_errorP20pj_wkt_parse_contextPKc(ptr noundef, ptr nounde
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z13pj_wkt1_parseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.pj_wkt1_parse_context, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   store ptr %5, ptr %3, align 8
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
   %10 = invoke i32 @pj_wkt1_parse(ptr noundef nonnull %3)
           to label %11 unwind label %13
@@ -100,7 +100,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   br label %5
 
@@ -115,11 +115,11 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   ]
 
 .critedge:                                        ; preds = %5, %5, %5, %5
-  %7 = getelementptr inbounds i8, ptr %.0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %5, !llvm.loop !4
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.0, ptr %9, align 8
   %10 = load i8, ptr %.0, align 1
   %11 = icmp eq i8 %10, 0
@@ -137,7 +137,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .preheader125:                                    ; preds = %13, %29
   %.087132 = phi i64 [ %30, %29 ], [ 0, %13 ]
-  %16 = getelementptr inbounds [26 x %struct.osr_cs_wkt_tokens], ptr @_ZL6tokens, i64 0, i64 %.087132
+  %16 = getelementptr inbounds nuw [26 x %struct.osr_cs_wkt_tokens], ptr @_ZL6tokens, i64 0, i64 %.087132
   %17 = load ptr, ptr %16, align 16
   %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0, ptr noundef %17) #7
   br i1 %18, label %19, label %29
@@ -154,7 +154,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %.0, i64 %20
   store ptr %26, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %16, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load i32, ptr %27, align 8
   br label %71
 
@@ -177,7 +177,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .preheader124:                                    ; preds = %.loopexit, %.preheader124
   %.0.pn107 = phi ptr [ %.1, %.preheader124 ], [ %.0, %.loopexit ]
-  %.1 = getelementptr inbounds i8, ptr %.0.pn107, i64 1
+  %.1 = getelementptr inbounds nuw i8, ptr %.0.pn107, i64 1
   %32 = load i8, ptr %.1, align 1
   switch i8 %32, label %.preheader124 [
     i8 0, label %33
@@ -189,12 +189,12 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   br label %71
 
 34:                                               ; preds = %.preheader124
-  %35 = getelementptr inbounds i8, ptr %.0.pn107, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.0.pn107, i64 2
   store ptr %35, ptr %3, align 8
   br label %71
 
 36:                                               ; preds = %.loopexit, %.loopexit
-  %37 = getelementptr inbounds i8, ptr %.0, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = add i8 %38, -48
   %or.cond = icmp ult i8 %39, 10
@@ -212,7 +212,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   ]
 
 43:                                               ; preds = %42, %42
-  %44 = getelementptr inbounds i8, ptr %.0, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader153
 
 .preheader153:                                    ; preds = %42, %43
@@ -224,7 +224,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   %46 = load i8, ptr %.3, align 1
   %47 = add i8 %46, -48
   %or.cond110 = icmp ult i8 %47, 10
-  %48 = getelementptr inbounds i8, ptr %.3, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   br i1 %or.cond110, label %45, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %45
@@ -233,7 +233,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .preheader:                                       ; preds = %.critedge4, %.preheader
   %.3.pn = phi ptr [ %.5, %.preheader ], [ %.3, %.critedge4 ]
-  %.5 = getelementptr inbounds i8, ptr %.3.pn, i64 1
+  %.5 = getelementptr inbounds nuw i8, ptr %.3.pn, i64 1
   %50 = load i8, ptr %.5, align 1
   %51 = add i8 %50, -48
   %or.cond111 = icmp ult i8 %51, 10
@@ -248,7 +248,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   ]
 
 53:                                               ; preds = %.critedge6, %.critedge6
-  %54 = getelementptr inbounds i8, ptr %.4, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %.preheader152 [
     i8 45, label %56
@@ -256,7 +256,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   ]
 
 56:                                               ; preds = %53, %53
-  %57 = getelementptr inbounds i8, ptr %.4, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   br label %.preheader152
 
 .preheader152:                                    ; preds = %53, %56
@@ -268,7 +268,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   %59 = load i8, ptr %.8, align 1
   %60 = add i8 %59, -48
   %or.cond112 = icmp ult i8 %60, 10
-  %61 = getelementptr inbounds i8, ptr %.8, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   br i1 %or.cond112, label %58, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %58, %.critedge6
@@ -284,7 +284,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .critedge10:                                      ; preds = %62, %.critedge10
   %.0.pn = phi ptr [ %.9, %.critedge10 ], [ %.0, %62 ]
-  %.9 = getelementptr inbounds i8, ptr %.0.pn, i64 1
+  %.9 = getelementptr inbounds nuw i8, ptr %.0.pn, i64 1
   %65 = load i8, ptr %.9, align 1
   %66 = and i8 %65, -33
   %67 = add i8 %66, -65
@@ -296,7 +296,7 @@ define hidden i32 @pj_wkt1_lex(ptr nocapture noundef readnone %0, ptr nocapture 
   br label %71
 
 .thread120:                                       ; preds = %62, %36
-  %68 = getelementptr inbounds i8, ptr %.0, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store ptr %68, ptr %3, align 8
   %69 = load i8, ptr %.0, align 1
   %70 = sext i8 %69 to i32

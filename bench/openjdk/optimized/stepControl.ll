@@ -84,14 +84,14 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br label %14
 
 14:                                               ; preds = %11, %4
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i8, ptr %15, align 8
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %completeStep.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @gdata, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 528
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 16
   %.not69 = icmp eq i32 %21, 0
@@ -103,7 +103,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br label %23
 
 23:                                               ; preds = %17, %22
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %36
@@ -115,7 +115,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @gdata, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 528
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 528
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 16
   %.not88 = icmp eq i32 %34, 0
@@ -127,14 +127,14 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br label %.thread
 
 36:                                               ; preds = %27, %23
-  %37 = getelementptr inbounds i8, ptr %9, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %38 = load i8, ptr %37, align 1
   %.not70 = icmp eq i8 %38, 0
   br i1 %.not70, label %45, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @gdata, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 528
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 528
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 16
   %.not87 = icmp eq i32 %43, 0
@@ -147,14 +147,14 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 45:                                               ; preds = %36
   %46 = tail call fastcc i32 @getFrameCount(ptr noundef %1)
-  %47 = getelementptr inbounds i8, ptr %9, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, %46
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr @gdata, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 528
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 528
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 16
   %.not86 = icmp eq i32 %54, 0
@@ -175,7 +175,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br i1 %60, label %61, label %74
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %9, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @getClassname(ptr noundef %2) #4
   %65 = tail call zeroext i8 @eventFilter_predictFiltering(ptr noundef %63, ptr noundef %2, ptr noundef %64) #4
@@ -189,7 +189,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr @gdata, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 528
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 528
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 16
   %.not82 = icmp eq i32 %72, 0
@@ -209,7 +209,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 77:                                               ; preds = %74
   %78 = tail call ptr @eventHandler_createInternalThreadOnly(i32 noundef 13, ptr noundef nonnull @handleMethodEnterEvent, ptr noundef %1) #4
-  %79 = getelementptr inbounds i8, ptr %9, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %78, ptr %79, align 8
   %80 = icmp eq ptr %78, null
   br i1 %80, label %81, label %84
@@ -223,7 +223,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 84:                                               ; preds = %77, %81, %74
   %85 = load ptr, ptr @gdata, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 528
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 528
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 16
   %.not83 = icmp eq i32 %88, 0
@@ -233,7 +233,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   tail call void @log_message_begin(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 614) #4
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.12, i32 noundef %48, i32 noundef %46) #4
   %.pre102 = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre102, i64 528
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre102, i64 528
   %.pre103 = load i32, ptr %.phi.trans.insert, align 8
   br label %90
 
@@ -254,7 +254,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %96 = phi ptr [ %92, %90 ], [ %.pre104, %94 ]
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 152
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 152
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 %100(ptr noundef nonnull %97, ptr noundef %1, i32 noundef 0) #4
   switch i32 %101, label %102 [
@@ -282,7 +282,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 109:                                              ; preds = %106
   %110 = load ptr, ptr @gdata, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 528
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 528
   %112 = load i32, ptr %111, align 8
   %113 = and i32 %112, 16
   %.not78 = icmp eq i32 %113, 0
@@ -294,7 +294,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br label %180
 
 115:                                              ; preds = %106
-  %116 = getelementptr inbounds i8, ptr %9, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %117 = load i32, ptr %116, align 8
   %.not71 = icmp eq i32 %117, -1
   br i1 %.not71, label %174, label %118
@@ -328,14 +328,14 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 128:                                              ; preds = %122, %125
   %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds i8, ptr %9, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %129, %131
   br i1 %132, label %133, label %findLineNumber.exit
 
 133:                                              ; preds = %128
   %134 = load ptr, ptr @gdata, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 528
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 528
   %136 = load i32, ptr %135, align 8
   %137 = and i32 %136, 16
   %.not74 = icmp eq i32 %137, 0
@@ -352,9 +352,9 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   %141 = load i64, ptr %5, align 8
   call void @log_debugee_location(ptr noundef nonnull @.str.20, ptr noundef %1, ptr noundef %140, i64 noundef %141) #4
   %142 = load i64, ptr %5, align 8
-  %143 = getelementptr inbounds i8, ptr %9, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %9, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %146 = load i32, ptr %145, align 8
   %147 = icmp ne i64 %142, -1
   %148 = icmp sgt i32 %146, 0
@@ -371,7 +371,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
 
 .lr.ph.i:                                         ; preds = %153, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %153 ]
-  %150 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %144, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw %struct.jvmtiLineNumberEntry, ptr %144, i64 %indvars.iv.i
   %151 = load i64, ptr %150, align 8
   %152 = icmp slt i64 %142, %151
   br i1 %152, label %._crit_edge.loopexit.split.loop.exit.i, label %153
@@ -400,7 +400,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
   br i1 %.not75, label %163, label %158
 
 158:                                              ; preds = %findLineNumber.exit
-  %159 = getelementptr inbounds i8, ptr %.pre101, i64 528
+  %159 = getelementptr inbounds nuw i8, ptr %.pre101, i64 528
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 16
   %.not76 = icmp eq i32 %161, 0
@@ -415,7 +415,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
 163:                                              ; preds = %162, %158, %findLineNumber.exit
   %164 = phi ptr [ %.pre100, %162 ], [ %.pre101, %158 ], [ %.pre101, %findLineNumber.exit ]
   %.3 = phi i8 [ 1, %162 ], [ 1, %158 ], [ 0, %findLineNumber.exit ]
-  %165 = getelementptr inbounds i8, ptr %164, i64 528
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 528
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 2
   %.not77 = icmp eq i32 %167, 0
@@ -428,14 +428,14 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
 
 169:                                              ; preds = %163, %168
   %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 160
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 160
   %172 = load ptr, ptr %171, align 8
   %173 = call ptr %172(ptr noundef nonnull %0, ptr noundef null) #4
   br label %180
 
 174:                                              ; preds = %115
   %175 = load ptr, ptr @gdata, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 528
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 528
   %177 = load i32, ptr %176, align 8
   %178 = and i32 %177, 16
   %.not72 = icmp eq i32 %178, 0
@@ -449,7 +449,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
 180:                                              ; preds = %169, %174, %179, %114, %109
   %.2 = phi i8 [ 1, %114 ], [ 1, %109 ], [ %.3, %169 ], [ 1, %179 ], [ 1, %174 ]
   %181 = load ptr, ptr @gdata, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 528
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 528
   %183 = load i32, ptr %182, align 8
   %184 = and i32 %183, 16
   %.not79 = icmp eq i32 %184, 0
@@ -467,7 +467,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
 
 .thread:                                          ; preds = %50, %55, %39, %44, %30, %35, %186
   %187 = load ptr, ptr @gdata, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 528
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 528
   %189 = load i32, ptr %188, align 8
   %190 = and i32 %189, 16
   %.not.i = icmp eq i32 %190, 0
@@ -479,7 +479,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
   br label %192
 
 192:                                              ; preds = %191, %.thread
-  %193 = getelementptr inbounds i8, ptr %9, i64 72
+  %193 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %194 = load ptr, ptr %193, align 8
   %.not11.i = icmp eq ptr %194, null
   br i1 %.not11.i, label %197, label %195
@@ -532,7 +532,7 @@ define internal fastcc i32 @getFrameCount(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
@@ -548,7 +548,7 @@ define internal fastcc i32 @getFrameCount(ptr noundef %0) unnamed_addr #0 {
   %9 = phi ptr [ %3, %1 ], [ %.pre, %7 ]
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %10, ptr noundef %0, ptr noundef nonnull %2) #4
   %.not4 = icmp eq i32 %14, 0
@@ -587,7 +587,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @hasLineNumbers(ptr noundef %0)
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @gdata, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 4
   %.not9.i = icmp eq i32 %11, 0
@@ -603,7 +603,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @hasLineNumbers(ptr noundef %0)
   %14 = phi ptr [ %8, %7 ], [ %.pre.i, %12 ]
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 552
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 552
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef nonnull %15, ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %.not10.i = icmp ne i32 %19, 0
@@ -625,7 +625,7 @@ getLineNumberTable.exit.thread2:                  ; preds = %13, %5, %1, %21
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @disableStepping(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
@@ -656,7 +656,7 @@ declare ptr @eventHandler_createInternalThreadOnly(i32 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @stepLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %7) #4
@@ -672,14 +672,14 @@ define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr noca
   br label %13
 
 13:                                               ; preds = %10, %4
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i8, ptr %14, align 8
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %52, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @gdata, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 528
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 16
   %.not21 = icmp eq i32 %20, 0
@@ -691,9 +691,9 @@ define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr noca
   br label %22
 
 22:                                               ; preds = %16, %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @getClassname(ptr noundef %24) #4
   %28 = load ptr, ptr @gdata, align 8
@@ -701,13 +701,13 @@ define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr noca
   br i1 %.not22, label %37, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %28, i64 17
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 17
   %31 = load i8, ptr %30, align 1
   %.not23 = icmp eq i8 %31, 0
   br i1 %.not23, label %37, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %37, label %36
@@ -717,7 +717,7 @@ define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr noca
   br label %37
 
 37:                                               ; preds = %22, %29, %32, %36
-  %38 = getelementptr inbounds i8, ptr %8, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i8 @eventFilter_predictFiltering(ptr noundef %39, ptr noundef %24, ptr noundef %27) #4
   %.not24 = icmp eq i8 %40, 0
@@ -735,7 +735,7 @@ define internal void @handleMethodEnterEvent(ptr nocapture readnone %0, ptr noca
 
 46:                                               ; preds = %44, %41
   tail call fastcc void @enableStepping(ptr noundef %6)
-  %47 = getelementptr inbounds i8, ptr %8, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %48 = load ptr, ptr %47, align 8
   %.not26 = icmp eq ptr %48, null
   br i1 %.not26, label %51, label %49
@@ -765,7 +765,7 @@ define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef nonnull
   store ptr null, ptr %2, align 8
   store i64 -1, ptr %3, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 4
   %.not = icmp eq i32 %8, 0
@@ -781,7 +781,7 @@ define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef nonnull
   %11 = phi ptr [ %5, %4 ], [ %.pre, %9 ]
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %12, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %17 = icmp eq i32 %16, 0
@@ -829,7 +829,7 @@ define hidden void @stepControl_reset() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define hidden void @stepControl_resetRequest(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
@@ -880,14 +880,14 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %2, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 0, ptr %9, align 1
   %10 = tail call fastcc i32 @getFrameCount(ptr noundef %1)
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %10, ptr %11, align 4
   %12 = icmp slt i32 %10, 1
   br i1 %12, label %13, label %14
@@ -898,7 +898,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @gdata, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 528
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 528
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 4
   %.not = icmp eq i32 %18, 0
@@ -914,7 +914,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = phi ptr [ %15, %14 ], [ %.pre, %19 ]
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %22, ptr noundef %1, i32 noundef 0) #4
   switch i32 %26, label %117 [
@@ -929,7 +929,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
 
 28:                                               ; preds = %20, %20, %27
   %29 = load ptr, ptr @gdata, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 528
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 528
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 16
   %.not42 = icmp eq i32 %32, 0
@@ -948,7 +948,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @gdata, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 528
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 16
   %.not43 = icmp eq i32 %42, 0
@@ -965,7 +965,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr null, ptr %5, align 8
   store i64 -1, ptr %6, align 8
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 528
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 528
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 4
   %.not.i = icmp eq i32 %48, 0
@@ -981,7 +981,7 @@ define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr nounde
   %51 = phi ptr [ %45, %44 ], [ %.pre.i, %49 ]
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 144
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef nonnull %52, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %57 = icmp eq i32 %56, 0
@@ -1003,15 +1003,15 @@ getFrameLocation.exit.getFrameLocation.exit.thread_crit_edge: ; preds = %getFram
 
 getFrameLocation.exit.thread:                     ; preds = %getFrameLocation.exit.getFrameLocation.exit.thread_crit_edge, %58
   %62 = phi ptr [ %.pre56, %getFrameLocation.exit.getFrameLocation.exit.thread_crit_edge ], [ null, %58 ]
-  %63 = getelementptr inbounds i8, ptr %2, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not44 = icmp eq ptr %62, %64
   br i1 %.not44, label %91, label %65
 
 65:                                               ; preds = %getFrameLocation.exit.thread
-  %66 = getelementptr inbounds i8, ptr %2, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %68 = load ptr, ptr %67, align 8
   %.not45 = icmp eq ptr %68, null
   br i1 %.not45, label %70, label %69
@@ -1037,7 +1037,7 @@ getFrameLocation.exit.thread:                     ; preds = %getFrameLocation.ex
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @gdata, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 528
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 528
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 4
   %.not9.i = icmp eq i32 %79, 0
@@ -1053,7 +1053,7 @@ getFrameLocation.exit.thread:                     ; preds = %getFrameLocation.ex
   %82 = phi ptr [ %76, %75 ], [ %.pre.i48, %80 ]
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 552
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 552
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 %86(ptr noundef nonnull %83, ptr noundef %71, ptr noundef nonnull %66, ptr noundef nonnull %67) #4
   %.not10.i = icmp eq i32 %87, 0
@@ -1075,9 +1075,9 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
 
 91:                                               ; preds = %getLineNumberTable.exit.thread, %getLineNumberTable.exit, %89, %getFrameLocation.exit.thread
   %92 = load i64, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %2, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %96 = load i32, ptr %95, align 8
   %97 = icmp ne i64 %92, -1
   %98 = icmp sgt i32 %96, 0
@@ -1094,7 +1094,7 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
 
 .lr.ph.i:                                         ; preds = %103, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %103 ]
-  %100 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %94, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw %struct.jvmtiLineNumberEntry, ptr %94, i64 %indvars.iv.i
   %101 = load i64, ptr %100, align 8
   %102 = icmp slt i64 %92, %101
   br i1 %102, label %._crit_edge.loopexit.split.loop.exit.i, label %103
@@ -1123,7 +1123,7 @@ findLineNumber.exit:                              ; preds = %91, %._crit_edge.i
 getFrameLocation.exit.thread52:                   ; preds = %50, %findLineNumber.exit, %getFrameLocation.exit
   %.0.i50 = phi i32 [ 0, %findLineNumber.exit ], [ %60, %getFrameLocation.exit ], [ %56, %50 ]
   %107 = load ptr, ptr @gdata, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 528
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 528
   %109 = load i32, ptr %108, align 8
   %110 = and i32 %109, 2
   %.not46 = icmp eq i32 %110, 0
@@ -1136,7 +1136,7 @@ getFrameLocation.exit.thread52:                   ; preds = %50, %findLineNumber
 
 112:                                              ; preds = %getFrameLocation.exit.thread52, %111
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 160
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 160
   %115 = load ptr, ptr %114, align 8
   %116 = call ptr %115(ptr noundef nonnull %0, ptr noundef null) #4
   br label %117
@@ -1149,7 +1149,7 @@ getFrameLocation.exit.thread52:                   ; preds = %50, %findLineNumber
 ; Function Attrs: nounwind uwtable
 define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
@@ -1175,11 +1175,11 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
 
 18:                                               ; preds = %15
   store i32 %2, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 56
-  %21 = getelementptr inbounds i8, ptr %13, i64 64
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store ptr %4, ptr %22, align 8
   %23 = tail call fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13)
@@ -1192,7 +1192,7 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %13, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %50
@@ -1205,7 +1205,7 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not.i, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 17
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 17
   %37 = load i8, ptr %36, align 1
   %.not18.i = icmp eq i8 %37, 0
   br i1 %.not18.i, label %42, label %38
@@ -1248,13 +1248,13 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
   br label %initEvents.exit
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %13, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %initEvents.exit
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %13, i64 10
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %59 = load i8, ptr %58, align 2
   %.not20.i = icmp eq i8 %59, 0
   br i1 %.not20.i, label %60, label %initEvents.exit
@@ -1264,13 +1264,13 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
   br label %initEvents.exit
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %13, i64 10
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %63 = load i8, ptr %62, align 2
   %.not19.i = icmp eq i8 %63, 0
   br i1 %.not19.i, label %initEvents.exit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %13, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %initEvents.exit
@@ -1285,7 +1285,7 @@ define hidden i32 @stepControl_beginStep(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not21.i, label %initEvents.exit, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %70, i64 17
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 17
   %73 = load i8, ptr %72, align 1
   %.not22.i = icmp eq i8 %73, 0
   br i1 %.not22.i, label %initEvents.exit, label %74
@@ -1303,7 +1303,7 @@ initEvents.exit:                                  ; preds = %74, %71, %69, %68, 
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %initEvents.exit
-  %79 = getelementptr inbounds i8, ptr %13, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 1, ptr %79, align 8
   br label %83
 
@@ -1333,7 +1333,7 @@ declare void @eventHandler_unlock() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @stepControl_endStep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
@@ -1353,14 +1353,14 @@ define hidden noundef i32 @stepControl_endStep(ptr noundef %0) local_unnamed_add
   br i1 %.not5, label %clearStep.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i8, ptr %11, align 8
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %clearStep.exit, label %13
 
 13:                                               ; preds = %10
   tail call fastcc void @disableStepping(ptr noundef %0)
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %.not14.i = icmp eq ptr %15, null
   br i1 %.not14.i, label %18, label %16
@@ -1371,7 +1371,7 @@ define hidden noundef i32 @stepControl_endStep(ptr noundef %0) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %16, %13
-  %19 = getelementptr inbounds i8, ptr %9, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not15.i = icmp eq ptr %20, null
   br i1 %.not15.i, label %23, label %21
@@ -1382,7 +1382,7 @@ define hidden noundef i32 @stepControl_endStep(ptr noundef %0) local_unnamed_add
   br label %23
 
 23:                                               ; preds = %21, %18
-  %24 = getelementptr inbounds i8, ptr %9, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not16.i = icmp eq ptr %25, null
   br i1 %.not16.i, label %28, label %26
@@ -1406,7 +1406,7 @@ clearStep.exit:                                   ; preds = %28, %10, %7
 ; Function Attrs: nounwind uwtable
 define hidden void @stepControl_clearRequest(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16
   %.not = icmp eq i32 %6, 0
@@ -1418,14 +1418,14 @@ define hidden void @stepControl_clearRequest(ptr noundef %0, ptr nocapture nound
   br label %8
 
 8:                                                ; preds = %2, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i8, ptr %9, align 8
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %clearStep.exit, label %11
 
 11:                                               ; preds = %8
   tail call fastcc void @disableStepping(ptr noundef %0)
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not14.i = icmp eq ptr %13, null
   br i1 %.not14.i, label %16, label %14
@@ -1436,7 +1436,7 @@ define hidden void @stepControl_clearRequest(ptr noundef %0, ptr nocapture nound
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %21, label %19
@@ -1447,7 +1447,7 @@ define hidden void @stepControl_clearRequest(ptr noundef %0, ptr nocapture nound
   br label %21
 
 21:                                               ; preds = %19, %16
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not16.i = icmp eq ptr %23, null
   br i1 %.not16.i, label %26, label %24
@@ -1478,7 +1478,7 @@ declare void @jdiAssertionFailed(ptr noundef, i32 noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @enableStepping(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
@@ -1513,7 +1513,7 @@ declare void @convertLineNumberTable(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @handleExceptionCatchEvent(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @stepLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %7) #4
@@ -1529,17 +1529,17 @@ define internal void @handleExceptionCatchEvent(ptr nocapture readnone %0, ptr n
   br label %13
 
 13:                                               ; preds = %10, %4
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i8, ptr %14, align 8
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %43, label %16
 
 16:                                               ; preds = %13
   %17 = tail call fastcc i32 @getFrameCount(ptr noundef %6)
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr @gdata, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 528
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 528
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 16
   %.not24 = icmp eq i32 %23, 0
@@ -1555,12 +1555,12 @@ define internal void @handleExceptionCatchEvent(ptr nocapture readnone %0, ptr n
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %8, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 1, ptr %28, align 1
   br label %29
 
 29:                                               ; preds = %27, %25
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp ne i32 %31, 1
   %.not25 = icmp slt i32 %19, %17
@@ -1581,7 +1581,7 @@ define internal void @handleExceptionCatchEvent(ptr nocapture readnone %0, ptr n
   br label %43
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %39 = load ptr, ptr %38, align 8
   %.not26 = icmp eq ptr %39, null
   %or.cond30 = select i1 %.not26, i1 true, i1 %.not25
@@ -1602,7 +1602,7 @@ define internal void @handleExceptionCatchEvent(ptr nocapture readnone %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @stepLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %7) #4
@@ -1618,18 +1618,18 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
   br label %13
 
 13:                                               ; preds = %10, %4
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i8, ptr %14, align 8
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %75, label %16
 
 16:                                               ; preds = %13
   %17 = tail call fastcc i32 @getFrameCount(ptr noundef %6)
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %17, -1
   %21 = load ptr, ptr @gdata, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 528
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 16
   %.not35 = icmp eq i32 %24, 0
@@ -1645,12 +1645,12 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
   br i1 %.not36, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %8, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 1, ptr %28, align 1
   br label %29
 
 29:                                               ; preds = %27, %26
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %31 = load i32, ptr %30, align 4
   switch i32 %31, label %47 [
     i32 1, label %32
@@ -1659,7 +1659,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @gdata, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 528
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 16
   %.not44 = icmp eq i32 %36, 0
@@ -1679,7 +1679,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @gdata, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 528
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 528
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 16
   %.not43 = icmp eq i32 %44, 0
@@ -1695,7 +1695,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
   br label %69
 
 47:                                               ; preds = %29, %39
-  %48 = getelementptr inbounds i8, ptr %8, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %49 = load ptr, ptr %48, align 8
   %.not37 = icmp eq ptr %49, null
   br i1 %.not37, label %69, label %50
@@ -1706,7 +1706,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
   br i1 %.not38, label %57, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %51, i64 17
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 17
   %54 = load i8, ptr %53, align 1
   %.not39 = icmp eq i8 %54, 0
   %55 = icmp eq i32 %31, 0
@@ -1720,7 +1720,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
 57:                                               ; preds = %50, %52, %56
   %.not40 = icmp slt i32 %19, %20
   %58 = load ptr, ptr @gdata, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 528
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 528
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 16
   %.not41 = icmp eq i32 %61, 0
@@ -1751,7 +1751,7 @@ define internal void @handleFramePopEvent(ptr nocapture readnone %0, ptr nocaptu
 
 69:                                               ; preds = %46, %64, %67, %68, %47, %38
   %70 = load ptr, ptr @gdata, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 528
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 528
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 16
   %.not45 = icmp eq i32 %73, 0

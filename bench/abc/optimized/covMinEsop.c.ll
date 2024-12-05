@@ -9,14 +9,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Min_EsopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 3
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load ptr, ptr %6, align 8
   br label %7
 
@@ -29,7 +29,7 @@ define void @Min_EsopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %5, align 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 4194303
   store i32 %16, ptr %14, align 8
@@ -37,12 +37,12 @@ define void @Min_EsopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exit234.i.backedge, %7
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 22
   %21 = load ptr, ptr %5, align 8
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   br label %24
 
 24:                                               ; preds = %24, %Min_EsopAddCube.exit234.i
@@ -75,13 +75,13 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 33:                                               ; preds = %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.next.i
   %36 = load ptr, ptr %35, align 8
   %.not157.i = icmp eq ptr %36, null
   br i1 %.not157.i, label %32, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %33
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.next.i
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.next.i
   %38 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %39
 
@@ -94,8 +94,8 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br i1 %cond330.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39
-  %40 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %41 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   br label %42
 
 42:                                               ; preds = %Min_CubesDistTwo.exit.i, %.lr.ph.i
@@ -108,7 +108,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   br i1 %.not67.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0146332.i, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %.0146332.i, i64 12
   %wide.trip.count.i.i = zext nneg i32 %45 to i64
   br label %47
 
@@ -116,9 +116,9 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
   %.065.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.04364.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.144.i.i, %.loopexit.i.i ]
-  %48 = getelementptr inbounds [1 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [1 x i32], ptr %41, i64 0, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds [1 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [1 x i32], ptr %46, i64 0, i64 %indvars.iv.i.i
   %51 = load i32, ptr %50, align 4
   %52 = xor i32 %51, %49
   %53 = icmp eq i32 %49, %51
@@ -229,8 +229,8 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br i1 %.not160334.i, label %.thread272.i, label %.lr.ph338.i
 
 .lr.ph338.i:                                      ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %96 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   br label %97
 
 97:                                               ; preds = %Min_CubesDistTwo.exit199.i, %.lr.ph338.i
@@ -243,7 +243,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   br i1 %.not67.i172.i, label %.thread.i195.i, label %.lr.ph.i173.i
 
 .lr.ph.i173.i:                                    ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %.2336.i, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %.2336.i, i64 12
   %wide.trip.count.i174.i = zext nneg i32 %100 to i64
   br label %102
 
@@ -251,9 +251,9 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   %indvars.iv.i175.i = phi i64 [ 0, %.lr.ph.i173.i ], [ %indvars.iv.next.i190.i, %.loopexit.i187.i ]
   %.065.i176.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.1.i189.i, %.loopexit.i187.i ]
   %.04364.i177.i = phi i32 [ -1, %.lr.ph.i173.i ], [ %.144.i188.i, %.loopexit.i187.i ]
-  %103 = getelementptr inbounds [1 x i32], ptr %96, i64 0, i64 %indvars.iv.i175.i
+  %103 = getelementptr inbounds nuw [1 x i32], ptr %96, i64 0, i64 %indvars.iv.i175.i
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds [1 x i32], ptr %101, i64 0, i64 %indvars.iv.i175.i
+  %105 = getelementptr inbounds nuw [1 x i32], ptr %101, i64 0, i64 %indvars.iv.i175.i
   %106 = load i32, ptr %105, align 4
   %107 = xor i32 %106, %104
   %108 = icmp eq i32 %104, %106
@@ -369,8 +369,8 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br i1 %.not162340.i, label %.thread290.i, label %.lr.ph344.i
 
 .lr.ph344.i:                                      ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %152 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  %151 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   br label %153
 
 153:                                              ; preds = %Min_CubesDistTwo.exit227.i, %.lr.ph344.i
@@ -383,7 +383,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   br i1 %.not67.i200.i, label %.thread.i223.i, label %.lr.ph.i201.i
 
 .lr.ph.i201.i:                                    ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.4342.i, i64 12
+  %157 = getelementptr inbounds nuw i8, ptr %.4342.i, i64 12
   %wide.trip.count.i202.i = zext nneg i32 %156 to i64
   br label %158
 
@@ -391,9 +391,9 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   %indvars.iv.i203.i = phi i64 [ 0, %.lr.ph.i201.i ], [ %indvars.iv.next.i218.i, %.loopexit.i215.i ]
   %.065.i204.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.1.i217.i, %.loopexit.i215.i ]
   %.04364.i205.i = phi i32 [ -1, %.lr.ph.i201.i ], [ %.144.i216.i, %.loopexit.i215.i ]
-  %159 = getelementptr inbounds [1 x i32], ptr %152, i64 0, i64 %indvars.iv.i203.i
+  %159 = getelementptr inbounds nuw [1 x i32], ptr %152, i64 0, i64 %indvars.iv.i203.i
   %160 = load i32, ptr %159, align 4
-  %161 = getelementptr inbounds [1 x i32], ptr %157, i64 0, i64 %indvars.iv.i203.i
+  %161 = getelementptr inbounds nuw [1 x i32], ptr %157, i64 0, i64 %indvars.iv.i203.i
   %162 = load i32, ptr %161, align 4
   %163 = xor i32 %162, %160
   %164 = icmp eq i32 %160, %162
@@ -495,10 +495,10 @@ Min_CubesDistTwo.exit227.i:                       ; preds = %171, %165, %184, %.
   store ptr %199, ptr %200, align 8
   %201 = load ptr, ptr %6, align 8
   store ptr %201, ptr %.1.i, align 8
-  %202 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, -4194304
-  %205 = getelementptr inbounds i8, ptr %201, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = and i32 %206, 4194303
   %208 = or disjoint i32 %207, %204
@@ -519,11 +519,11 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   store ptr %210, ptr %.1145.i, align 8
   %211 = load ptr, ptr %.1.i, align 8
   store ptr %211, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %213 = load i32, ptr %212, align 8
   %214 = and i32 %213, -4194304
   %215 = load ptr, ptr %6, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i32, ptr %216, align 8
   %218 = and i32 %217, 4194303
   %219 = or disjoint i32 %218, %214
@@ -531,11 +531,11 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   %220 = load i32, ptr %2, align 8
   %221 = add nsw i32 %220, -2
   store i32 %221, ptr %2, align 8
-  %222 = getelementptr inbounds i8, ptr %.1.i, i64 12
+  %222 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %223 = shl nuw nsw i32 %.5254305.i, 1
   %224 = lshr i32 %.5254305.i, 4
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds [1 x i32], ptr %222, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw [1 x i32], ptr %222, i64 0, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = and i32 %223, 30
   %229 = lshr i32 %227, %228
@@ -543,17 +543,17 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   %231 = shl nuw nsw i32 %.5306.i, 1
   %232 = lshr i32 %.5306.i, 4
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds [1 x i32], ptr %222, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [1 x i32], ptr %222, i64 0, i64 %233
   %235 = load i32, ptr %234, align 4
   %236 = and i32 %231, 30
   %237 = lshr i32 %235, %236
   %238 = and i32 %237, 3
-  %239 = getelementptr inbounds i8, ptr %.3308.i, i64 12
-  %240 = getelementptr inbounds [1 x i32], ptr %239, i64 0, i64 %225
+  %239 = getelementptr inbounds nuw i8, ptr %.3308.i, i64 12
+  %240 = getelementptr inbounds nuw [1 x i32], ptr %239, i64 0, i64 %225
   %241 = load i32, ptr %240, align 4
   %242 = lshr i32 %241, %228
   %243 = and i32 %242, 3
-  %244 = getelementptr inbounds [1 x i32], ptr %239, i64 0, i64 %233
+  %244 = getelementptr inbounds nuw [1 x i32], ptr %239, i64 0, i64 %233
   %245 = load i32, ptr %244, align 4
   %246 = lshr i32 %245, %236
   %247 = and i32 %246, 3
@@ -577,7 +577,7 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   %260 = xor i32 %259, %258
   store i32 %260, ptr %244, align 4
   %.not171.i = icmp eq i32 %247, 3
-  %261 = getelementptr inbounds i8, ptr %.3308.i, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.3308.i, i64 8
   %262 = load i32, ptr %261, align 8
   %.neg164.i = select i1 %.not171.i, i32 0, i32 -4194304
   %263 = xor i32 %247, %238
@@ -612,14 +612,14 @@ Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exi
   %278 = load i32, ptr %261, align 8
   %279 = lshr i32 %278, 22
   %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds ptr, ptr %277, i64 %280
+  %281 = getelementptr inbounds nuw ptr, ptr %277, i64 %280
   store ptr %276, ptr %281, align 8
   %282 = load ptr, ptr %.1.i, align 8
   %283 = load ptr, ptr %5, align 8
   %284 = load i32, ptr %212, align 8
   %285 = lshr i32 %284, 22
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds ptr, ptr %283, i64 %286
+  %287 = getelementptr inbounds nuw ptr, ptr %283, i64 %286
   store ptr %282, ptr %287, align 8
   %288 = load i32, ptr %2, align 8
   %289 = add nsw i32 %288, -2
@@ -687,19 +687,19 @@ Min_EsopRewrite.exit:                             ; preds = %32
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Min_EsopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 22
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %8
   %.082140 = load ptr, ptr %9, align 8
   %.not141 = icmp eq ptr %.082140, null
   br i1 %.not141, label %Min_CubesAreEqual.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = lshr i32 %6, 10
   %12 = and i32 %11, 4095
   %.not11.i = icmp eq i32 %12, 0
@@ -714,7 +714,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
 .lr.ph.i:                                         ; preds = %.lr.ph, %Min_CubesAreEqual.exit.loopexit
   %.082143 = phi ptr [ %.082, %Min_CubesAreEqual.exit.loopexit ], [ %.082140, %.lr.ph ]
   %.0142 = phi ptr [ %.082143, %Min_CubesAreEqual.exit.loopexit ], [ %9, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.082143, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %.082143, i64 12
   br label %15
 
 14:                                               ; preds = %15
@@ -724,9 +724,9 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %16 = getelementptr inbounds [1 x i32], ptr %10, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [1 x i32], ptr %10, i64 0, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 0, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %17, %19
   br i1 %.not.i, label %14, label %Min_CubesAreEqual.exit.loopexit
@@ -749,8 +749,8 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
   br i1 %23, label %24, label %.loopexit123
 
 24:                                               ; preds = %Min_CubesAreEqual.exit._crit_edge
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %27
 
 27:                                               ; preds = %28, %24
@@ -776,22 +776,22 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
 
 .lr.ph.i102:                                      ; preds = %31
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 12
-  %38 = getelementptr inbounds i8, ptr %.183, i64 12
-  %39 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %.183, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %wide.trip.count.i103 = zext nneg i32 %35 to i64
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i102
   %indvars.iv.i104 = phi i64 [ 0, %.lr.ph.i102 ], [ %indvars.iv.next.i105, %40 ]
-  %41 = getelementptr inbounds [1 x i32], ptr %37, i64 0, i64 %indvars.iv.i104
+  %41 = getelementptr inbounds nuw [1 x i32], ptr %37, i64 0, i64 %indvars.iv.i104
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds [1 x i32], ptr %38, i64 0, i64 %indvars.iv.i104
+  %43 = getelementptr inbounds nuw [1 x i32], ptr %38, i64 0, i64 %indvars.iv.i104
   %44 = load i32, ptr %43, align 4
   %45 = xor i32 %44, %42
   store i32 %45, ptr %41, align 4
   %46 = load i32, ptr %43, align 4
-  %47 = getelementptr inbounds [1 x i32], ptr %39, i64 0, i64 %indvars.iv.i104
+  %47 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %indvars.iv.i104
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %48, -1
   %50 = and i32 %46, %49
@@ -822,8 +822,8 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
 .loopexit123:                                     ; preds = %.loopexit123.loopexit, %Min_CubesAreEqual.exit._crit_edge
   %.pre-phi159 = phi i64 [ %.pre158, %.loopexit123.loopexit ], [ %8, %Min_CubesAreEqual.exit._crit_edge ]
   %57 = phi ptr [ %.pre, %.loopexit123.loopexit ], [ %4, %Min_CubesAreEqual.exit._crit_edge ]
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %.pre-phi159
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.pre-phi159
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %60
 
 60:                                               ; preds = %61, %.loopexit123
@@ -849,22 +849,22 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
 
 .lr.ph.i108:                                      ; preds = %64
   %69 = load ptr, ptr %59, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 12
-  %71 = getelementptr inbounds i8, ptr %.284, i64 12
-  %72 = getelementptr inbounds i8, ptr %69, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.284, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %wide.trip.count.i109 = zext nneg i32 %68 to i64
   br label %73
 
 73:                                               ; preds = %73, %.lr.ph.i108
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i111, %73 ]
-  %74 = getelementptr inbounds [1 x i32], ptr %70, i64 0, i64 %indvars.iv.i110
+  %74 = getelementptr inbounds nuw [1 x i32], ptr %70, i64 0, i64 %indvars.iv.i110
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds [1 x i32], ptr %71, i64 0, i64 %indvars.iv.i110
+  %76 = getelementptr inbounds nuw [1 x i32], ptr %71, i64 0, i64 %indvars.iv.i110
   %77 = load i32, ptr %76, align 4
   %78 = xor i32 %77, %75
   store i32 %78, ptr %74, align 4
   %79 = load i32, ptr %76, align 4
-  %80 = getelementptr inbounds [1 x i32], ptr %72, i64 0, i64 %indvars.iv.i110
+  %80 = getelementptr inbounds nuw [1 x i32], ptr %72, i64 0, i64 %indvars.iv.i110
   %81 = load i32, ptr %80, align 4
   %82 = xor i32 %81, -1
   %83 = and i32 %79, %82
@@ -921,22 +921,22 @@ Min_CubesTransform.exit113:                       ; preds = %73, %64
 
 .lr.ph.i115:                                      ; preds = %101
   %106 = load ptr, ptr %59, align 8
-  %107 = getelementptr inbounds i8, ptr %1, i64 12
-  %108 = getelementptr inbounds i8, ptr %.385, i64 12
-  %109 = getelementptr inbounds i8, ptr %106, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %.385, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 12
   %wide.trip.count.i116 = zext nneg i32 %105 to i64
   br label %110
 
 110:                                              ; preds = %110, %.lr.ph.i115
   %indvars.iv.i117 = phi i64 [ 0, %.lr.ph.i115 ], [ %indvars.iv.next.i118, %110 ]
-  %111 = getelementptr inbounds [1 x i32], ptr %107, i64 0, i64 %indvars.iv.i117
+  %111 = getelementptr inbounds nuw [1 x i32], ptr %107, i64 0, i64 %indvars.iv.i117
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds [1 x i32], ptr %108, i64 0, i64 %indvars.iv.i117
+  %113 = getelementptr inbounds nuw [1 x i32], ptr %108, i64 0, i64 %indvars.iv.i117
   %114 = load i32, ptr %113, align 4
   %115 = xor i32 %114, %112
   store i32 %115, ptr %111, align 4
   %116 = load i32, ptr %113, align 4
-  %117 = getelementptr inbounds [1 x i32], ptr %109, i64 0, i64 %indvars.iv.i117
+  %117 = getelementptr inbounds nuw [1 x i32], ptr %109, i64 0, i64 %indvars.iv.i117
   %118 = load i32, ptr %117, align 4
   %119 = xor i32 %118, -1
   %120 = and i32 %116, %119
@@ -962,18 +962,18 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
   %124 = phi ptr [ %.pre154, %.loopexit.loopexit ], [ %.pre155, %90 ]
   %125 = lshr i32 %123, 22
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8
   store ptr %128, ptr %1, align 8
   %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %126
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %126
   store ptr %1, ptr %130, align 8
   br label %131
 
 131:                                              ; preds = %.loopexit, %Min_CubesTransform.exit120, %Min_CubesTransform.exit113, %Min_CubesTransform.exit, %.loopexit124
   %.sink170 = phi i32 [ 1, %.loopexit ], [ -1, %Min_CubesTransform.exit120 ], [ -1, %Min_CubesTransform.exit113 ], [ -1, %Min_CubesTransform.exit ], [ -1, %.loopexit124 ]
   %.086 = phi i32 [ 0, %.loopexit ], [ 1, %Min_CubesTransform.exit120 ], [ 1, %Min_CubesTransform.exit113 ], [ 1, %Min_CubesTransform.exit ], [ 0, %.loopexit124 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 80
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %133 = load i32, ptr %132, align 8
   %134 = add nsw i32 %133, %.sink170
   store i32 %134, ptr %132, align 8
@@ -982,17 +982,17 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4193280
   %.not43 = icmp eq i32 %6, 0
   br i1 %.not43, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.not30 = icmp eq ptr %2, null
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br i1 %.not30, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph
@@ -1004,9 +1004,9 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %25
   %indvars.iv47 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next48, %25 ]
   %.034.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %.1.us.us, %25 ]
-  %13 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %indvars.iv47
+  %13 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv47
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %indvars.iv47
+  %15 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv47
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, %14
   %18 = icmp eq i32 %14, %16
@@ -1033,9 +1033,9 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
 .lr.ph.split.split:                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.lr.ph ]
   %.034 = phi i32 [ %.1, %41 ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = xor i32 %30, %28
   %32 = icmp eq i32 %28, %30
@@ -1060,7 +1060,7 @@ define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr
 41:                                               ; preds = %.lr.ph.split.split, %39
   %.sink = phi i32 [ %40, %39 ], [ 0, %.lr.ph.split.split ]
   %.1 = phi i32 [ 1, %39 ], [ %.034, %.lr.ph.split.split ]
-  %42 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [1 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %.sink, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %4, align 8

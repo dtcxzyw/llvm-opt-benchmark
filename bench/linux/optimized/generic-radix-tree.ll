@@ -201,7 +201,7 @@ define dso_local ptr @__genradix_iter_peek(ptr nocapture noundef %0, ptr noundef
   br i1 %8, label %.loopexit5, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 11:                                               ; preds = %56
@@ -303,7 +303,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr nocapture noundef %0, ptr no
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
 12:                                               ; preds = %66

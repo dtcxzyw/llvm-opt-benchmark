@@ -29,7 +29,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define range(i32 -1, 1) i32 @H5VL__native_token_to_str(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = load i64, ptr %2, align 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 1
   %9 = call i32 @H5VL_native_token_to_addr(ptr noundef %0, i32 noundef %1, i64 %6, i64 %8, ptr noundef nonnull %5) #9
   %10 = icmp slt i32 %9, 0

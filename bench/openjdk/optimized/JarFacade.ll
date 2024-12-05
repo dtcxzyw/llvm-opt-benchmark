@@ -20,11 +20,11 @@ define hidden ptr @readAttributes(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %6 ]
-  %7 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %.07.i, align 8
   call void @free(ptr noundef %9) #10
-  %10 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %11) #10
   call void @free(ptr noundef nonnull %.07.i) #10
@@ -61,7 +61,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
   %.0 = phi ptr [ %11, %.preheader ], [ %1, %5 ]
   %9 = load i8, ptr %.0, align 1
   %10 = icmp eq i8 %9, 32
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %10, label %.preheader, label %12, !llvm.loop !8
 
 12:                                               ; preds = %.preheader
@@ -95,7 +95,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
   %26 = sub i64 %24, %25
   %27 = add i64 %26, 1
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #11
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %32
@@ -109,7 +109,7 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
   %33 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef nonnull %.0, i64 noundef %26) #10
   %34 = getelementptr inbounds i8, ptr %28, i64 %26
   store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %2, align 8
   %37 = icmp eq ptr %36, null
@@ -120,14 +120,14 @@ define internal void @doAttribute(ptr nocapture noundef readonly %0, ptr noundef
   br label %43
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %4, ptr %42, align 8
   br label %43
 
 43:                                               ; preds = %39, %38
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %44, align 8
   br label %45
 
@@ -142,11 +142,11 @@ define hidden void @freeAttributes(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.07, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %.07, align 8
   tail call void @free(ptr noundef %4) #10
-  %5 = getelementptr inbounds i8, ptr %.07, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #10
   tail call void @free(ptr noundef nonnull %.07) #10
@@ -173,12 +173,12 @@ define hidden ptr @getAttribute(ptr noundef readonly %0, ptr nocapture noundef r
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.069, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.069, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.069, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10

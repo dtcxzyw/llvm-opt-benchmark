@@ -671,9 +671,8 @@ _mpd_shortmul.exit123:                            ; preds = %for.body.i77, %_mpd
 
 for.body.lr.ph:                                   ; preds = %_mpd_shortmul.exit123
   %arrayidx21 = getelementptr i64, ptr %v.0, i64 %sub
-  %arrayidx23 = getelementptr inbounds i8, ptr %w2, i64 8
-  %add37 = add i64 %n, -2
-  %arrayidx30 = getelementptr i64, ptr %v.0, i64 %add37
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %w2, i64 8
+  %arrayidx30 = getelementptr i8, ptr %arrayidx4.i122, i64 -16
   %11 = load i64, ptr @mprime_rdx, align 8
   %conv.i.i.i148 = zext i64 %11 to i128
   %12 = add i64 %n, 1
@@ -722,8 +721,7 @@ _mpd_shortdiv.exit:                               ; preds = %for.body.i125
   %mul = mul i64 %16, -8446744073709551616
   %17 = load i64, ptr %w2, align 16
   %add25 = add i64 %mul, %17
-  %sub38 = add i64 %add37, %j.0232
-  %arrayidx39 = getelementptr i64, ptr %u.0, i64 %sub38
+  %arrayidx39 = getelementptr i8, ptr %add.ptr18, i64 -16
   br label %while.body
 
 while.body:                                       ; preds = %if.end44, %_mpd_shortdiv.exit
@@ -850,15 +848,14 @@ for.body58:                                       ; preds = %while.end, %for.bod
   %sub12.i = add i64 %sub11.i, %sub4.i.neg233
   %and13.i = and i64 %sub11.i, -8446744073709551616
   %add14.i = add i64 %and13.i, %add5.i
-  %add64 = add i64 %i.0230, %j.0232
-  %arrayidx65 = getelementptr i64, ptr %u.0, i64 %add64
-  %23 = load i64, ptr %arrayidx65, align 8
+  %gep = getelementptr i64, ptr %add.ptr, i64 %i.0230
+  %23 = load i64, ptr %gep, align 8
   %sub66 = sub i64 %23, %add14.i
   %cmp69 = icmp ult i64 %23, %add14.i
   %conv70 = zext i1 %cmp69 to i64
   %add71 = add i64 %sub66, -8446744073709551616
   %cond = select i1 %cmp69, i64 %add71, i64 %sub66
-  store i64 %cond, ptr %arrayidx65, align 8
+  store i64 %cond, ptr %gep, align 8
   %add74 = add i64 %sub12.i, %conv70
   %inc75 = add nuw i64 %i.0230, 1
   %exitcond = icmp eq i64 %inc75, %umax

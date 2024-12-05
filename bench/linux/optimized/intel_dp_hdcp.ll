@@ -52,20 +52,20 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_dp_hdcp_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = tail call zeroext i1 @is_hdcp_supported(ptr noundef %3, i32 noundef %5) #7
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 2424
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2424
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @intel_dp_is_edp(ptr noundef %6) #7
+  %13 = tail call zeroext i1 @intel_dp_is_edp(ptr noundef nonnull %6) #7
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12, %8
@@ -99,8 +99,8 @@ define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1)
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, i8 0, i64 5, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  %6 = tail call i64 @drm_dp_dpcd_write(ptr noundef %5, i32 noundef 425996, ptr noundef %1, i64 noundef 8) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %6 = tail call i64 @drm_dp_dpcd_write(ptr noundef nonnull %5, i32 noundef 425996, ptr noundef %1, i64 noundef 8) #7
   %7 = icmp eq i64 %6, 8
   br i1 %7, label %18, label %8
 
@@ -109,7 +109,7 @@ define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1)
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -122,7 +122,7 @@ define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1)
   br label %31
 
 18:                                               ; preds = %2
-  %19 = call i64 @drm_dp_dpcd_write(ptr noundef %5, i32 noundef 425991, ptr noundef nonnull %3, i64 noundef 5) #7
+  %19 = call i64 @drm_dp_dpcd_write(ptr noundef nonnull %5, i32 noundef 425991, ptr noundef nonnull %3, i64 noundef 5) #7
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %31, label %21
 
@@ -131,7 +131,7 @@ define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1)
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -152,8 +152,8 @@ define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_hdcp_read_bksv(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
-  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 425984, ptr noundef %1, i64 noundef 5) #7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef nonnull %4, i32 noundef 425984, ptr noundef %1, i64 noundef 5) #7
   %6 = icmp eq i64 %5, 5
   br i1 %6, label %17, label %7
 
@@ -162,7 +162,7 @@ define internal i32 @intel_dp_hdcp_read_bksv(ptr noundef %0, ptr noundef %1) #0 
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -182,8 +182,8 @@ define internal i32 @intel_dp_hdcp_read_bksv(ptr noundef %0, ptr noundef %1) #0 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_hdcp_read_bstatus(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
-  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 426026, ptr noundef %1, i64 noundef 2) #7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef nonnull %4, i32 noundef 426026, ptr noundef %1, i64 noundef 2) #7
   %6 = icmp eq i64 %5, 2
   br i1 %6, label %17, label %7
 
@@ -192,7 +192,7 @@ define internal i32 @intel_dp_hdcp_read_bstatus(ptr noundef %0, ptr noundef %1) 
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -215,8 +215,8 @@ define internal i32 @intel_dp_hdcp_repeater_present(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  %6 = call i64 @drm_dp_dpcd_read(ptr noundef %5, i32 noundef 426024, ptr noundef nonnull %3, i64 noundef 1) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %6 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %5, i32 noundef 426024, ptr noundef nonnull %3, i64 noundef 1) #7
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %.thread, label %8
 
@@ -225,7 +225,7 @@ define internal i32 @intel_dp_hdcp_repeater_present(ptr noundef %0, ptr nocaptur
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -256,8 +256,8 @@ define internal i32 @intel_dp_hdcp_repeater_present(ptr noundef %0, ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_hdcp_read_ri_prime(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
-  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef %4, i32 noundef 425989, ptr noundef %1, i64 noundef 2) #7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %5 = tail call i64 @drm_dp_dpcd_read(ptr noundef nonnull %4, i32 noundef 425989, ptr noundef %1, i64 noundef 2) #7
   %6 = icmp eq i64 %5, 2
   br i1 %6, label %17, label %7
 
@@ -266,7 +266,7 @@ define internal i32 @intel_dp_hdcp_read_ri_prime(ptr noundef %0, ptr noundef %1)
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -289,8 +289,8 @@ define internal i32 @intel_dp_hdcp_read_ksv_ready(ptr noundef %0, ptr nocapture 
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  %6 = call i64 @drm_dp_dpcd_read(ptr noundef %5, i32 noundef 426025, ptr noundef nonnull %3, i64 noundef 1) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %6 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %5, i32 noundef 426025, ptr noundef nonnull %3, i64 noundef 1) #7
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %18, label %8
 
@@ -299,7 +299,7 @@ define internal i32 @intel_dp_hdcp_read_ksv_ready(ptr noundef %0, ptr nocapture 
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -330,9 +330,9 @@ define internal i32 @intel_dp_hdcp_read_ksv_fifo(ptr noundef %0, i32 noundef %1,
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 616
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %8 = icmp eq ptr %6, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %13
 
 10:                                               ; preds = %13
@@ -349,7 +349,7 @@ define internal i32 @intel_dp_hdcp_read_ksv_fifo(ptr noundef %0, i32 noundef %1,
   %19 = mul i32 %14, 5
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %2, i64 %20
-  %22 = tail call i64 @drm_dp_dpcd_read(ptr noundef %7, i32 noundef 426028, ptr noundef %21, i64 noundef %18) #7
+  %22 = tail call i64 @drm_dp_dpcd_read(ptr noundef nonnull %7, i32 noundef 426028, ptr noundef %21, i64 noundef %18) #7
   %23 = icmp eq i64 %22, %18
   br i1 %23, label %10, label %24
 
@@ -380,10 +380,10 @@ define internal i32 @intel_dp_hdcp_read_v_prime_part(ptr noundef %0, i32 noundef
   br i1 %5, label %22, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 616
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %8 = shl i32 %1, 2
   %9 = add i32 %8, 426004
-  %10 = tail call i64 @drm_dp_dpcd_read(ptr noundef %7, i32 noundef %9, ptr noundef %2, i64 noundef 4) #7
+  %10 = tail call i64 @drm_dp_dpcd_read(ptr noundef nonnull %7, i32 noundef %9, ptr noundef %2, i64 noundef 4) #7
   %11 = icmp eq i64 %10, 4
   br i1 %11, label %22, label %12
 
@@ -392,7 +392,7 @@ define internal i32 @intel_dp_hdcp_read_v_prime_part(ptr noundef %0, i32 noundef
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -416,9 +416,9 @@ define internal noundef i32 @intel_dp_hdcp_toggle_signalling(ptr nocapture readn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %14 [
     i32 10, label %15
@@ -429,12 +429,12 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   ]
 
 .thread:                                          ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 132
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 132
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 2716
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2716
   %13 = load i32, ptr %12, align 4
   br label %23
 
@@ -444,9 +444,9 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
 15:                                               ; preds = %14, %2, %2, %2, %2
   %16 = phi ptr [ %4, %2 ], [ %4, %2 ], [ %4, %2 ], [ %4, %2 ], [ null, %14 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 132
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 2716
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2716
   %21 = load i32, ptr %20, align 4
   switch i32 %6, label %22 [
     i32 10, label %23
@@ -457,7 +457,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   ]
 
 ._crit_edge:                                      ; preds = %15
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 392
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 392
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %23
 
@@ -478,7 +478,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -507,7 +507,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
 
 42:                                               ; preds = %41, %40, %39, %38
   %.ph = phi i32 [ -2147483648, %38 ], [ 1073741824, %39 ], [ 536870912, %40 ], [ 268435456, %41 ]
-  %43 = getelementptr inbounds i8, ptr %26, i64 7176
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 7176
   %44 = load i8, ptr %43, align 8
   %45 = icmp ugt i8 %44, 11
   br i1 %45, label %46, label %49
@@ -527,8 +527,8 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
 54:                                               ; preds = %49, %46
   %55 = phi i32 [ %48, %46 ], [ %53, %49 ]
   %56 = select i1 %1, i32 %.ph, i32 0
-  %57 = getelementptr inbounds i8, ptr %26, i64 7368
-  %58 = tail call i32 @__intel_wait_for_register(ptr noundef %57, i32 %55, i32 noundef %.ph, i32 noundef %56, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 7368
+  %58 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %57, i32 %55, i32 noundef %.ph, i32 noundef %56, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %72, label %60
 
@@ -537,7 +537,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %26, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %64 = load ptr, ptr %63, align 8
   br label %65
 
@@ -579,8 +579,8 @@ define internal zeroext i1 @intel_dp_hdcp_check_link(ptr noundef %0, ptr nocaptu
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  %6 = call i64 @drm_dp_dpcd_read(ptr noundef %5, i32 noundef 426025, ptr noundef nonnull %3, i64 noundef 1) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %6 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %5, i32 noundef 426025, ptr noundef nonnull %3, i64 noundef 1) #7
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %15, label %8
 
@@ -589,7 +589,7 @@ define internal zeroext i1 @intel_dp_hdcp_check_link(ptr noundef %0, ptr nocaptu
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -616,8 +616,8 @@ define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 616
-  %6 = call i64 @drm_dp_dpcd_read(ptr noundef %5, i32 noundef 426024, ptr noundef nonnull %3, i64 noundef 1) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %6 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %5, i32 noundef 426024, ptr noundef nonnull %3, i64 noundef 1) #7
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %.thread, label %8
 
@@ -626,7 +626,7 @@ define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -657,9 +657,9 @@ define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef
 define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 align 16 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
     i32 10, label %.thread1
@@ -673,21 +673,21 @@ define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture nounde
   br label %.thread1
 
 .thread:                                          ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 2416
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %14
 
 .thread1:                                         ; preds = %8, %2, %2, %2, %2
   %12 = phi ptr [ null, %8 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 616
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 616
   br label %14
 
 14:                                               ; preds = %.thread1, %.thread
   %15 = phi ptr [ %11, %.thread ], [ %13, %.thread1 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
   store i8 0, ptr %1, align 1
-  %16 = call i64 @drm_dp_dpcd_read(ptr noundef %15, i32 noundef 430621, ptr noundef nonnull %3, i64 noundef 3) #7
+  %16 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %15, i32 noundef 430621, ptr noundef nonnull %3, i64 noundef 3) #7
   %17 = trunc i64 %16 to i32
   %18 = icmp eq i32 %17, 3
   br i1 %18, label %22, label %19
@@ -703,7 +703,7 @@ define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture nounde
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %3, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 2
   %29 = icmp eq i8 %28, 0
@@ -741,11 +741,11 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr nocapture noundef readonly %0,
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 1976
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %22 [
     i32 10, label %.thread6
@@ -759,14 +759,14 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr nocapture noundef readonly %0,
   br label %.thread6
 
 .thread5:                                         ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 2416
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   br label %28
 
 .thread6:                                         ; preds = %22, %15, %15, %15, %15
   %26 = phi ptr [ null, %22 ], [ %19, %15 ], [ %19, %15 ], [ %19, %15 ], [ %19, %15 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 616
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 616
   br label %28
 
 28:                                               ; preds = %.thread6, %.thread5
@@ -784,7 +784,7 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr nocapture noundef readonly %0,
   %36 = phi ptr [ %45, %43 ], [ %33, %32 ]
   %37 = phi i32 [ %47, %43 ], [ %17, %32 ]
   %38 = tail call i64 @llvm.smin.i64(i64 %35, i64 16)
-  %39 = tail call i64 @drm_dp_dpcd_write(ptr noundef %29, i32 noundef %37, ptr noundef %36, i64 noundef %38) #7
+  %39 = tail call i64 @drm_dp_dpcd_write(ptr noundef nonnull %29, i32 noundef %37, ptr noundef %36, i64 noundef %38) #7
   %40 = icmp slt i64 %39, 0
   br i1 %40, label %41, label %43
 
@@ -813,9 +813,9 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr nocapture noundef readonly %0,
 define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.wait_queue_entry, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1976
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %14 [
     i32 10, label %15
@@ -826,7 +826,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   ]
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 392
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 392
   %13 = load ptr, ptr %12, align 8
   br label %15
 
@@ -855,7 +855,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %23, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %30 = load i32, ptr %29, align 4
   switch i32 %10, label %31 [
     i32 10, label %.thread20
@@ -869,14 +869,14 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %.thread20
 
 .thread19:                                        ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 2416
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   br label %37
 
 .thread20:                                        ; preds = %31, %28, %28, %28, %28
   %35 = phi ptr [ null, %31 ], [ %8, %28 ], [ %8, %28 ], [ %8, %28 ], [ %8, %28 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 616
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 616
   br label %37
 
 37:                                               ; preds = %.thread20, %.thread19
@@ -886,7 +886,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 2668
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2668
   %43 = load i8, ptr %42, align 4, !range !11, !noundef !12
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %46, label %45
@@ -896,9 +896,9 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 46:                                               ; preds = %45, %41
   %47 = phi i64 [ 12, %45 ], [ 16, %41 ]
-  %48 = getelementptr inbounds i8, ptr %23, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %23, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %51 = load i8, ptr %50, align 4, !range !11, !noundef !12
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %61
@@ -921,9 +921,9 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 61:                                               ; preds = %46
   %62 = tail call i64 @__msecs_to_jiffies(i32 noundef %49) #7
   %63 = tail call i32 @__SCT__might_resched() #7
-  %64 = getelementptr inbounds i8, ptr %0, i64 2708
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2708
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 2704
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %67 = load volatile i32, ptr %66, align 4
   %68 = icmp ne i32 %65, %67
   %69 = icmp eq i64 %62, 0
@@ -938,8 +938,8 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
   %75 = tail call i64 @__msecs_to_jiffies(i32 noundef %49) #7
   call void @init_wait_entry(ptr noundef nonnull %6, i32 noundef 0) #7
-  %76 = getelementptr inbounds i8, ptr %0, i64 2680
-  %77 = call i64 @prepare_to_wait_event(ptr noundef %76, ptr noundef nonnull %6, i32 noundef 1) #7
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2680
+  %77 = call i64 @prepare_to_wait_event(ptr noundef nonnull %76, ptr noundef nonnull %6, i32 noundef 1) #7
   %78 = load i32, ptr %64, align 4
   %79 = load volatile i32, ptr %66, align 4
   %80 = icmp ne i32 %78, %79
@@ -958,7 +958,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 89:                                               ; preds = %.lr.ph
   %90 = call i64 @schedule_timeout(i64 noundef %86) #7
-  %91 = call i64 @prepare_to_wait_event(ptr noundef %76, ptr noundef nonnull %6, i32 noundef 1) #7
+  %91 = call i64 @prepare_to_wait_event(ptr noundef nonnull %76, ptr noundef nonnull %6, i32 noundef 1) #7
   %92 = load i32, ptr %64, align 4
   %93 = load volatile i32, ptr %66, align 4
   %94 = icmp ne i32 %92, %93
@@ -971,7 +971,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 ._crit_edge:                                      ; preds = %89, %74
   %.lcssa45 = phi i64 [ %83, %74 ], [ %97, %89 ]
-  call void @finish_wait(ptr noundef %76, ptr noundef nonnull %6) #7
+  call void @finish_wait(ptr noundef nonnull %76, ptr noundef nonnull %6) #7
   br label %.thread22
 
 .thread22:                                        ; preds = %.lr.ph, %._crit_edge
@@ -993,7 +993,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   store i8 0, ptr %5, align 1, !annotation !5
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 128
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 128
   %109 = load i32, ptr %108, align 8
   switch i32 %109, label %110 [
     i32 10, label %.thread25
@@ -1007,19 +1007,19 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %.thread25
 
 .thread23:                                        ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %0, i64 2416
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
   br label %116
 
 .thread25:                                        ; preds = %110, %105, %105, %105, %105
   %114 = phi ptr [ null, %110 ], [ %107, %105 ], [ %107, %105 ], [ %107, %105 ], [ %107, %105 ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 616
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 616
   br label %116
 
 116:                                              ; preds = %.thread25, %.thread23
   %117 = phi ptr [ %113, %.thread23 ], [ %115, %.thread25 ]
-  %118 = call i64 @drm_dp_dpcd_read(ptr noundef %117, i32 noundef 431251, ptr noundef nonnull %5, i64 noundef 1) #7
+  %118 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %117, i32 noundef 431251, ptr noundef nonnull %5, i64 noundef 1) #7
   %119 = icmp eq i64 %118, 1
   br i1 %119, label %.thread27, label %120
 
@@ -1028,7 +1028,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br i1 %121, label %125, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %106, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %124 = load ptr, ptr %123, align 8
   br label %125
 
@@ -1082,7 +1082,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br i1 %142, label %.thread33, label %143
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %39, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %145 = load ptr, ptr %144, align 8
   br label %.thread33
 
@@ -1093,9 +1093,9 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %.thread
 
 .loopexit41:                                      ; preds = %57, %138, %53
-  %148 = getelementptr inbounds i8, ptr %0, i64 2704
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %149 = load volatile i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %0, i64 2708
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 2708
   store i32 %149, ptr %150, align 4
   %151 = getelementptr i8, ptr %2, i64 1
   %152 = zext i8 %1 to i32
@@ -1104,7 +1104,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 154:                                              ; preds = %.loopexit41
   %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 128
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 128
   %157 = load i32, ptr %156, align 8
   switch i32 %157, label %158 [
     i32 10, label %.thread36
@@ -1118,19 +1118,19 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %.thread36
 
 .thread34:                                        ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %0, i64 2416
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 48
   br label %164
 
 .thread36:                                        ; preds = %158, %154, %154, %154, %154
   %162 = phi ptr [ null, %158 ], [ %155, %154 ], [ %155, %154 ], [ %155, %154 ], [ %155, %154 ]
-  %163 = getelementptr inbounds i8, ptr %162, i64 616
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 616
   br label %164
 
 164:                                              ; preds = %.thread36, %.thread34
   %165 = phi ptr [ %161, %.thread34 ], [ %163, %.thread36 ]
-  %166 = call i64 @drm_dp_dpcd_read(ptr noundef %165, i32 noundef 430896, ptr noundef %151, i64 noundef 2) #7
+  %166 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %165, i32 noundef 430896, ptr noundef %151, i64 noundef 2) #7
   %167 = icmp eq i64 %166, 2
   br i1 %167, label %171, label %select.unfold37
 
@@ -1164,8 +1164,8 @@ select.unfold37:                                  ; preds = %164
   br i1 %189, label %.loopexit, label %190
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %23, i64 20
-  %192 = getelementptr inbounds i8, ptr %0, i64 2416
+  %191 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   br label %193
 
 193:                                              ; preds = %235, %190
@@ -1184,7 +1184,7 @@ select.unfold37:                                  ; preds = %164
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 128
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 128
   %206 = load i32, ptr %205, align 8
   %207 = icmp eq i32 %206, 11
   %208 = call i64 @ktime_get_raw() #7
@@ -1192,9 +1192,9 @@ select.unfold37:                                  ; preds = %164
 
 209:                                              ; preds = %203
   %210 = load ptr, ptr %192, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 1352
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 1352
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 36
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 36
   %214 = load i32, ptr %213, align 4
   %215 = mul i32 %214, %201
   %216 = zext i32 %215 to i64
@@ -1210,7 +1210,7 @@ select.unfold37:                                  ; preds = %164
 
 223:                                              ; preds = %219, %209, %200, %193
   %224 = phi i64 [ %218, %209 ], [ %222, %219 ], [ %194, %200 ], [ %194, %193 ]
-  %225 = call i64 @drm_dp_dpcd_read(ptr noundef %38, i32 noundef %197, ptr noundef %196, i64 noundef %198) #7
+  %225 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %38, i32 noundef %197, ptr noundef %196, i64 noundef %198) #7
   %226 = icmp slt i64 %225, 0
   br i1 %226, label %227, label %235
 
@@ -1219,7 +1219,7 @@ select.unfold37:                                  ; preds = %164
   br i1 %228, label %232, label %229
 
 229:                                              ; preds = %227
-  %230 = getelementptr inbounds i8, ptr %17, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %231 = load ptr, ptr %230, align 8
   br label %232
 
@@ -1239,7 +1239,7 @@ select.unfold37:                                  ; preds = %164
 
 .loopexit:                                        ; preds = %235, %184
   %241 = phi i64 [ 0, %184 ], [ %224, %235 ]
-  %242 = getelementptr inbounds i8, ptr %23, i64 20
+  %242 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %243 = load i32, ptr %242, align 4
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %255, label %245
@@ -1254,7 +1254,7 @@ select.unfold37:                                  ; preds = %164
   br i1 %249, label %253, label %250
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %17, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %252 = load ptr, ptr %251, align 8
   br label %253
 
@@ -1281,11 +1281,11 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
 
 5:                                                ; preds = %3
   store i16 50, ptr %4, align 2, !annotation !5
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %2, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1976
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %11 [
     i32 10, label %.thread2
@@ -1299,14 +1299,14 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
   br label %.thread2
 
 .thread:                                          ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 2416
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %17
 
 .thread2:                                         ; preds = %11, %5, %5, %5, %5
   %15 = phi ptr [ null, %11 ], [ %8, %5 ], [ %8, %5 ], [ %8, %5 ], [ %8, %5 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 616
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 616
   br label %17
 
 17:                                               ; preds = %.thread2, %.thread
@@ -1318,7 +1318,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
   %21 = phi ptr [ %30, %28 ], [ %6, %17 ]
   %22 = phi i32 [ %32, %28 ], [ 431252, %17 ]
   %23 = call i64 @llvm.smin.i64(i64 %20, i64 16)
-  %24 = call i64 @drm_dp_dpcd_write(ptr noundef %18, i32 noundef %22, ptr noundef %21, i64 noundef %23) #7
+  %24 = call i64 @drm_dp_dpcd_write(ptr noundef nonnull %18, i32 noundef %22, ptr noundef %21, i64 noundef %23) #7
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %26, label %28
 
@@ -1348,9 +1348,9 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca [4 x i32], align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -1361,7 +1361,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -1371,27 +1371,27 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 12:                                               ; preds = %11, %8, %2, %2, %2, %2
   %13 = phi ptr [ %10, %8 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ], [ %5, %2 ], [ null, %11 ]
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 2716
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2716
   %16 = load i32, ptr %15, align 4
   br i1 %1, label %17, label %49
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %13, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 132
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 7176
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 7176
   %21 = load i8, ptr %20, align 8
   %22 = icmp ugt i8 %21, 11
   %23 = select i1 %22, i32 %16, i32 %19
   %24 = shl i32 %23, 2
   %25 = add i32 %24, 421632
-  %26 = getelementptr inbounds i8, ptr %14, i64 7368
-  %27 = getelementptr inbounds i8, ptr %14, i64 7512
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 7368
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 7512
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(ptr noundef %26, i32 %25, i1 noundef zeroext true) #7
+  %29 = tail call i32 %28(ptr noundef nonnull %26, i32 %25, i1 noundef zeroext true) #7
   %30 = lshr i32 %29, 31
-  %31 = getelementptr inbounds i8, ptr %13, i64 4000
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 4000
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp eq i32 %30, %35
@@ -1399,11 +1399,11 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 
 37:                                               ; preds = %17
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !16
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @dev_driver_string(ptr noundef %39) #7
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
@@ -1423,7 +1423,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 
 49:                                               ; preds = %47, %17, %12
   %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %52 = load i32, ptr %51, align 8
   switch i32 %52, label %56 [
     i32 10, label %57
@@ -1434,7 +1434,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
   ]
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %50, i64 392
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 392
   %55 = load ptr, ptr %54, align 8
   br label %57
 
@@ -1454,7 +1454,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %59, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %67 = load ptr, ptr %66, align 8
   br label %68
 
@@ -1465,7 +1465,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
   br label %108
 
 71:                                               ; preds = %57
-  %72 = getelementptr inbounds i8, ptr %14, i64 7176
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 7176
   %73 = load i8, ptr %72, align 8
   %74 = icmp ugt i8 %73, 11
   br i1 %74, label %75, label %78
@@ -1477,11 +1477,11 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 
 78:                                               ; preds = %71
   store i32 420032, ptr %3, align 4
-  %79 = getelementptr inbounds i8, ptr %3, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 419264, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 419520, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %3, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 419776, ptr %81, align 4
   %82 = sext i32 %16 to i64
   %83 = getelementptr [4 x i32], ptr %3, i64 0, i64 %82
@@ -1491,8 +1491,8 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 85:                                               ; preds = %78, %75
   %86 = phi i32 [ %77, %75 ], [ %84, %78 ]
   %87 = select i1 %1, i32 -2147483648, i32 0
-  %88 = getelementptr inbounds i8, ptr %14, i64 7368
-  %89 = tail call i32 @__intel_wait_for_register(ptr noundef %88, i32 %86, i32 noundef -2147483648, i32 noundef %87, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 7368
+  %89 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %88, i32 %86, i32 noundef -2147483648, i32 noundef %87, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %108, label %91
 
@@ -1501,7 +1501,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %14, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %95 = load ptr, ptr %94, align 8
   br label %96
 
@@ -1552,7 +1552,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_mst_hdcp2_check_link(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 2669
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2669
   %5 = load i8, ptr %4, align 1, !range !11, !noundef !12
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %43, label %7
@@ -1560,9 +1560,9 @@ define internal i32 @intel_dp_mst_hdcp2_check_link(ptr nocapture readnone %0, pt
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 1976
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1976
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %13 [
     i32 10, label %.thread3.i
@@ -1576,20 +1576,20 @@ define internal i32 @intel_dp_mst_hdcp2_check_link(ptr nocapture readnone %0, pt
   br label %.thread3.i
 
 .thread.i:                                        ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 2416
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2416
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   br label %19
 
 .thread3.i:                                       ; preds = %13, %7, %7, %7, %7
   %17 = phi ptr [ null, %13 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ], [ %10, %7 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 616
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 616
   br label %19
 
 19:                                               ; preds = %.thread3.i, %.thread.i
   %20 = phi ptr [ %16, %.thread.i ], [ %18, %.thread3.i ]
   store i8 0, ptr %3, align 1, !annotation !5
-  %21 = call i64 @drm_dp_dpcd_read(ptr noundef %20, i32 noundef 431251, ptr noundef nonnull %3, i64 noundef 1) #7
+  %21 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %20, i32 noundef 431251, ptr noundef nonnull %3, i64 noundef 1) #7
   %22 = icmp eq i64 %21, 1
   br i1 %22, label %.thread4.i, label %23
 
@@ -1598,7 +1598,7 @@ define internal i32 @intel_dp_mst_hdcp2_check_link(ptr nocapture readnone %0, pt
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -1706,9 +1706,9 @@ define internal i32 @intel_dp_hdcp2_check_link(ptr nocapture readnone %0, ptr no
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 1976
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1976
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %9 [
     i32 10, label %.thread3
@@ -1722,20 +1722,20 @@ define internal i32 @intel_dp_hdcp2_check_link(ptr nocapture readnone %0, ptr no
   br label %.thread3
 
 .thread:                                          ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 2416
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2416
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   br label %15
 
 .thread3:                                         ; preds = %9, %2, %2, %2, %2
   %13 = phi ptr [ null, %9 ], [ %6, %2 ], [ %6, %2 ], [ %6, %2 ], [ %6, %2 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 616
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 616
   br label %15
 
 15:                                               ; preds = %.thread3, %.thread
   %16 = phi ptr [ %12, %.thread ], [ %14, %.thread3 ]
   store i8 0, ptr %3, align 1, !annotation !5
-  %17 = call i64 @drm_dp_dpcd_read(ptr noundef %16, i32 noundef 431251, ptr noundef nonnull %3, i64 noundef 1) #7
+  %17 = call i64 @drm_dp_dpcd_read(ptr noundef nonnull %16, i32 noundef 431251, ptr noundef nonnull %3, i64 noundef 1) #7
   %18 = icmp eq i64 %17, 1
   br i1 %18, label %.thread4, label %19
 
@@ -1744,7 +1744,7 @@ define internal i32 @intel_dp_hdcp2_check_link(ptr nocapture readnone %0, ptr no
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %24
 

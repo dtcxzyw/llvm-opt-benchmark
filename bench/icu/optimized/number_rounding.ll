@@ -73,11 +73,11 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -85,11 +85,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -150,7 +150,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -160,7 +160,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -172,7 +172,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -185,7 +185,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -209,7 +209,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -240,21 +240,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -277,11 +277,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -289,7 +289,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -300,20 +300,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -341,7 +341,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -357,7 +357,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -389,7 +389,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -401,7 +401,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -416,7 +416,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -430,7 +430,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
@@ -447,9 +447,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -467,7 +467,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -479,7 +479,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -495,7 +495,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -519,7 +519,7 @@ entry:
   %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
   %localStatus = alloca i32, align 4
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-  %len.i = getelementptr inbounds i8, ptr %buffer, i64 56
+  %len.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %buffer, align 8
   store i8 0, ptr %0, align 1
@@ -528,7 +528,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fUnion.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %1 = load i16, ptr %fUnion.i, align 8
   %2 = and i16 %1, 17
   %tobool.not.i = icmp eq i16 %2, 0
@@ -540,11 +540,11 @@ if.else.i:                                        ; preds = %invoke.cont
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 10
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 24
+  %fArray.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -662,7 +662,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx.i.i, align 1
   %cmp44 = icmp eq i8 %17, 46
   br i1 %cmp44, label %if.then45, label %for.inc
@@ -705,13 +705,13 @@ invoke.cont57:                                    ; preds = %if.then.i, %invoke.
   %switch.select3.sink.i = phi i32 [ %switch.select3.i, %if.then.i ], [ 9, %invoke.cont54 ]
   %ref.tmp53.sroa.219.sroa.0.0.insert.insert = phi i64 [ %call55, %if.then.i ], [ 65810, %invoke.cont54 ]
   store i32 %switch.select3.sink.i, ptr %outPrecision, align 8
-  %ref.tmp53.sroa.219.0.outPrecision.sroa_idx = getelementptr inbounds i8, ptr %outPrecision, i64 8
+  %ref.tmp53.sroa.219.0.outPrecision.sroa_idx = getelementptr inbounds nuw i8, ptr %outPrecision, i64 8
   store i64 %ref.tmp53.sroa.219.sroa.0.0.insert.insert, ptr %ref.tmp53.sroa.219.0.outPrecision.sroa_idx, align 8
-  %ref.tmp53.sroa.4.0.outPrecision.sroa_idx = getelementptr inbounds i8, ptr %outPrecision, i64 16
+  %ref.tmp53.sroa.4.0.outPrecision.sroa_idx = getelementptr inbounds nuw i8, ptr %outPrecision, i64 16
   store i16 %conv56, ptr %ref.tmp53.sroa.4.0.outPrecision.sroa_idx, align 8
-  %ref.tmp53.sroa.5.0.outPrecision.sroa_idx = getelementptr inbounds i8, ptr %outPrecision, i64 18
+  %ref.tmp53.sroa.5.0.outPrecision.sroa_idx = getelementptr inbounds nuw i8, ptr %outPrecision, i64 18
   store i16 %ref.tmp53.sroa.5.0, ptr %ref.tmp53.sroa.5.0.outPrecision.sroa_idx, align 2
-  %ref.tmp53.sroa.620.0.outPrecision.sroa_idx = getelementptr inbounds i8, ptr %outPrecision, i64 24
+  %ref.tmp53.sroa.620.0.outPrecision.sroa_idx = getelementptr inbounds nuw i8, ptr %outPrecision, i64 24
   store i32 0, ptr %ref.tmp53.sroa.620.0.outPrecision.sroa_idx, align 8
   br label %cleanup
 
@@ -763,9 +763,9 @@ if.then:                                          ; preds = %entry
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
   %switch.selectcmp2 = icmp eq i64 %mantissa, 1
   %switch.select3 = select i1 %switch.selectcmp2, i32 6, i32 %switch.select
-  %union_.sroa.5.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 18
-  %union_.sroa.4.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %union_.sroa.5.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 18
+  %union_.sroa.4.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %fUnion.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %cmp.i = icmp sgt i16 %magnitude, 0
   %sub.i = sub i16 0, %magnitude
   %conv2.i = select i1 %cmp.i, i16 0, i16 %sub.i
@@ -775,14 +775,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %switch.select3.sink = phi i32 [ 9, %if.else ], [ %switch.select3, %if.then ]
   store i32 %switch.select3.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -812,8 +812,8 @@ declare void @llvm.trap() #11
 define void @_ZN6icu_756number9Precision9unlimitedEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 21), (24, 28)) %agg.result) local_unnamed_addr #8 align 2 {
 entry:
   store i32 1, ptr %agg.result, align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %fUnion.i, i8 0, i64 13, i1 false)
   ret void
@@ -823,15 +823,15 @@ entry:
 define void @_ZN6icu_756number9Precision7integerEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 16), (24, 28)) %agg.result) local_unnamed_addr #8 align 2 {
 entry:
   store i32 2, ptr %agg.result, align 8, !alias.scope !10
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 0, ptr %fUnion.i.i.i, align 8, !alias.scope !10
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 0, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !10
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !10
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !10
-  %fTrailingZeroDisplay.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i.i, align 8, !alias.scope !10
   ret void
 }
@@ -842,15 +842,15 @@ entry:
   %conv = trunc i32 %minFrac to i16
   %conv1 = trunc i32 %maxFrac to i16
   store i32 2, ptr %agg.result, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 %conv, ptr %fUnion.i.i, align 8
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 %conv1, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx, align 2
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx, align 4
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx, align 2
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8
   ret void
 }
@@ -863,25 +863,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i = trunc nuw i32 %minMaxFractionPlaces to i16
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 %conv.i, ptr %fUnion.i.i.i, align 8, !alias.scope !13
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 %conv.i, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !13
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !13
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !13
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 2, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -894,25 +894,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i = trunc nuw i32 %minFractionPlaces to i16
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 %conv.i, ptr %fUnion.i.i.i, align 8, !alias.scope !16
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !16
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !16
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !16
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 2, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -925,25 +925,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv1.i = trunc nuw i32 %maxFractionPlaces to i16
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 0, ptr %fUnion.i.i.i, align 8, !alias.scope !19
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 %conv1.i, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !19
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !19
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !19
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 2, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -961,25 +961,25 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = trunc i32 %minFractionPlaces to i16
   %conv1.i = trunc i32 %maxFractionPlaces to i16
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 %conv.i, ptr %fUnion.i.i.i, align 8, !alias.scope !22
-  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 %conv1.i, ptr %union_.sroa.2.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !22
-  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %union_.sroa.3.0.fUnion.i.i.sroa_idx.i, align 4, !alias.scope !22
-  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.i.sroa_idx.i, align 2, !alias.scope !22
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 9, %if.else ], [ 2, %if.then ]
   store i32 %.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -993,25 +993,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i = trunc nuw i32 %minMaxSignificantDigits to i16
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !25
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !25
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !25
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv.i, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !25
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 3, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %1, align 8
   ret void
 }
@@ -1022,15 +1022,15 @@ entry:
   %conv = trunc i32 %minSig to i16
   %conv1 = trunc i32 %maxSig to i16
   store i32 3, ptr %agg.result, align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i, align 8
-  %union_.sroa.2.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx, align 2
-  %union_.sroa.3.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv, ptr %union_.sroa.3.0.fUnion.i.sroa_idx, align 4
-  %union_.sroa.4.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1, ptr %union_.sroa.4.0.fUnion.i.sroa_idx, align 2
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
   ret void
 }
@@ -1044,25 +1044,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i = trunc nuw i32 %minSignificantDigits to i16
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !28
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !28
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !28
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !28
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 3, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %1, align 8
   ret void
 }
@@ -1076,25 +1076,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv1.i = trunc nuw i32 %maxSignificantDigits to i16
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !31
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !31
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 1, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !31
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1.i, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !31
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 3, %if.then ], [ 9, %if.else ]
   store i32 %.sink, ptr %agg.result, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %1, align 8
   ret void
 }
@@ -1112,25 +1112,25 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = trunc i32 %minSignificantDigits to i16
   %conv1.i = trunc i32 %maxSignificantDigits to i16
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 -1, ptr %fUnion.i.i, align 8, !alias.scope !34
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 10
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 10
   store i16 -1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !34
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !34
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1.i, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !34
   br label %return
 
 if.else:                                          ; preds = %entry
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 9, %if.else ], [ 3, %if.then ]
   store i32 %.sink, ptr %agg.result, align 8
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -1139,7 +1139,7 @@ return:                                           ; preds = %if.else, %if.then
 define void @_ZNK6icu_756number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %trailingZeroDisplay) local_unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
-  %fTrailingZeroDisplay = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %trailingZeroDisplay, ptr %fTrailingZeroDisplay, align 8
   ret void
 }
@@ -1174,10 +1174,10 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
   %switch.selectcmp2 = icmp eq i64 %call5, 1
   %switch.select3 = select i1 %switch.selectcmp2, i32 6, i32 %switch.select
-  %fTrailingZeroDisplay.i.i8.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %union_.sroa.5.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 18
-  %union_.sroa.4.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fTrailingZeroDisplay.i.i8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %union_.sroa.5.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 18
+  %union_.sroa.4.0.fUnion.i.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %fUnion.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %cmp.i = icmp sgt i16 %conv, 0
   %sub.i = sub i16 0, %conv
   %conv2.i = select i1 %cmp.i, i16 0, i16 %sub.i
@@ -1197,9 +1197,9 @@ lpad:                                             ; preds = %invoke.cont2, %invo
 
 if.else:                                          ; preds = %entry
   store i32 9, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i.i, align 8
   br label %return
 
@@ -1218,10 +1218,10 @@ entry:
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
   %switch.selectcmp17 = icmp eq i64 %increment, 1
   %switch.select18 = select i1 %switch.selectcmp17, i32 6, i32 %switch.select
-  %fTrailingZeroDisplay.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %union_.sroa.5.0.fUnion.i.i7.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 18
-  %union_.sroa.4.0.fUnion.i.i7.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %fUnion.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fTrailingZeroDisplay.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %union_.sroa.5.0.fUnion.i.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 18
+  %union_.sroa.4.0.fUnion.i.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %fUnion.i.i7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %cmp = icmp sgt i16 %magnitude, 0
   %sub = sub i16 0, %magnitude
   %conv2 = select i1 %cmp, i16 0, i16 %sub
@@ -1237,9 +1237,9 @@ entry:
 define void @_ZN6icu_756number9Precision8currencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %currencyUsage) local_unnamed_addr #8 align 2 {
 entry:
   store i32 8, ptr %agg.result, align 8, !alias.scope !40
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %currencyUsage, ptr %fUnion.i.i.i, align 8, !alias.scope !40
-  %fTrailingZeroDisplay.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i.i, align 8, !alias.scope !40
   ret void
 }
@@ -1248,9 +1248,9 @@ entry:
 define void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %usage) local_unnamed_addr #8 align 2 {
 entry:
   store i32 8, ptr %agg.result, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %usage, ptr %fUnion.i.i, align 8
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8
   ret void
 }
@@ -1278,33 +1278,33 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then6:                                         ; preds = %land.lhs.true
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %fUnion.i, align 8, !noalias !43
-  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 21
+  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 21
   %conv.i = trunc i32 %minSignificantDigits to i16
   %conv1.i = trunc i32 %maxSignificantDigits to i16
   store i32 4, ptr %agg.result, align 8, !alias.scope !43
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %1, ptr %fUnion.i.i, align 8, !alias.scope !43
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv.i, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !43
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !43
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %priority, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 8, !alias.scope !43
-  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i8 0, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !43
-  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
+  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !43
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
   store i32 9, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
@@ -1316,25 +1316,25 @@ return:                                           ; preds = %if.else, %if.then6,
 define void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %base, i32 noundef %minSig, i32 noundef %maxSig, i32 noundef %priority, i1 noundef zeroext %retain) local_unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %retain to i8
-  %fUnion = getelementptr inbounds i8, ptr %base, i64 8
+  %fUnion = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load i32, ptr %fUnion, align 8
-  %settings.sroa.6.0.fUnion.sroa_idx = getelementptr inbounds i8, ptr %base, i64 21
+  %settings.sroa.6.0.fUnion.sroa_idx = getelementptr inbounds nuw i8, ptr %base, i64 21
   %conv = trunc i32 %minSig to i16
   %conv1 = trunc i32 %maxSig to i16
   store i32 4, ptr %agg.result, align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %0, ptr %fUnion.i, align 8
-  %union_.sroa.2.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.2.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %conv, ptr %union_.sroa.2.0.fUnion.i.sroa_idx, align 4
-  %union_.sroa.3.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.3.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1, ptr %union_.sroa.3.0.fUnion.i.sroa_idx, align 2
-  %union_.sroa.4.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %union_.sroa.4.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %priority, ptr %union_.sroa.4.0.fUnion.i.sroa_idx, align 8
-  %union_.sroa.5.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %union_.sroa.5.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i8 %frombool, ptr %union_.sroa.5.0.fUnion.i.sroa_idx, align 4
-  %union_.sroa.6.0.fUnion.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 21
+  %union_.sroa.6.0.fUnion.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx, i64 3, i1 false)
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
   ret void
 }
@@ -1357,32 +1357,32 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !46
-  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 21
+  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 21
   %conv1.i = trunc nuw i32 %minSignificantDigits to i16
   store i32 4, ptr %agg.result, align 8, !alias.scope !46
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %2, ptr %fUnion.i.i, align 8, !alias.scope !46
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !46
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !46
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 0, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 8, !alias.scope !46
-  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i8 1, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !46
-  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
+  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !46
   br label %return
 
 if.else:                                          ; preds = %if.end
   store i32 9, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
@@ -1408,32 +1408,32 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !49
-  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 21
+  %settings.sroa.6.0.fUnion.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 21
   %conv1.i = trunc nuw i32 %maxSignificantDigits to i16
   store i32 4, ptr %agg.result, align 8, !alias.scope !49
-  %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %2, ptr %fUnion.i.i, align 8, !alias.scope !49
-  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %union_.sroa.2.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 1, ptr %union_.sroa.2.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !49
-  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %union_.sroa.3.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %conv1.i, ptr %union_.sroa.3.0.fUnion.i.sroa_idx.i, align 2, !alias.scope !49
-  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %union_.sroa.4.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 1, ptr %union_.sroa.4.0.fUnion.i.sroa_idx.i, align 8, !alias.scope !49
-  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %union_.sroa.5.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i8 1, ptr %union_.sroa.5.0.fUnion.i.sroa_idx.i, align 4, !alias.scope !49
-  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 21
+  %union_.sroa.6.0.fUnion.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %union_.sroa.6.0.fUnion.i.sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %settings.sroa.6.0.fUnion.sroa_idx.i, i64 3, i1 false)
-  %fTrailingZeroDisplay.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i.i, align 8, !alias.scope !49
   br label %return
 
 if.else:                                          ; preds = %if.end
   store i32 9, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
@@ -1454,8 +1454,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %isoCode.i = getelementptr inbounds i8, ptr %currency, i64 20
-  %fUnion = getelementptr inbounds i8, ptr %this, i64 8
+  %isoCode.i = getelementptr inbounds nuw i8, ptr %currency, i64 20
+  %fUnion = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %fUnion, align 8
   %call2 = tail call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i, i32 noundef %1, ptr noundef nonnull %status)
   %2 = load i32, ptr %fUnion, align 8
@@ -1472,22 +1472,22 @@ cond.false:                                       ; preds = %if.end
   %or.cond.i = icmp ult i32 %call4, 1000
   %.sink.i = select i1 %or.cond.i, i32 2, i32 9
   store i32 %.sink.i, ptr %agg.result, align 8
-  %ref.tmp6.sroa.24.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp6.sroa.24.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %3 = shl i32 %call4, 16
   %4 = and i32 %call4, 65535
   %5 = or disjoint i32 %3, %4
   %ref.tmp6.sroa.24.sroa.0.0.insert.insert = select i1 %or.cond.i, i32 %5, i32 65810
   store i32 %ref.tmp6.sroa.24.sroa.0.0.insert.insert, ptr %ref.tmp6.sroa.24.0.agg.result.sroa_idx, align 8
-  %ref.tmp6.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %ref.tmp6.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 -1, ptr %ref.tmp6.sroa.5.0.agg.result.sroa_idx, align 4
-  %ref.tmp6.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %ref.tmp6.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 -1, ptr %ref.tmp6.sroa.6.0.agg.result.sroa_idx, align 2
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %fTrailingZeroDisplay = getelementptr inbounds i8, ptr %this, i64 24
+  %fTrailingZeroDisplay = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load i32, ptr %fTrailingZeroDisplay, align 8
-  %fTrailingZeroDisplay7 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %6, ptr %fTrailingZeroDisplay7, align 8
   br label %return
 
@@ -1511,23 +1511,23 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %result.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4
+  %result.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %result.sroa.4.0.copyload6 = load i32, ptr %result.sroa.4.0.this.sroa_idx, align 4
-  %result.sroa.47.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %result.sroa.47.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %result.sroa.47.0.copyload9 = load i32, ptr %result.sroa.47.0.this.sroa_idx, align 8
-  %result.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
+  %result.sroa.5.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 12
   %result.sroa.5.0.copyload11 = load i16, ptr %result.sroa.5.0.this.sroa_idx, align 4
-  %result.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 14
+  %result.sroa.6.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 14
   %result.sroa.6.0.copyload13 = load i16, ptr %result.sroa.6.0.this.sroa_idx, align 2
-  %result.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %result.sroa.7.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %result.sroa.7.0.copyload15 = load i64, ptr %result.sroa.7.0.this.sroa_idx, align 8
-  %result.sroa.8.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 28
+  %result.sroa.8.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 28
   %result.sroa.8.0.copyload20 = load i32, ptr %result.sroa.8.0.this.sroa_idx, align 4
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %isoCode.i.i = getelementptr inbounds i8, ptr %currency, i64 20
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %isoCode.i.i = getelementptr inbounds nuw i8, ptr %currency, i64 20
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %fUnion.i, align 8, !noalias !52
   %call2.i = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %localStatus), !noalias !52
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !52
@@ -1538,17 +1538,17 @@ if.end.i:                                         ; preds = %entry
 cond.true.i:                                      ; preds = %if.end.i
   call void @_ZN6icu_756number9Precision9incrementEd(ptr nonnull sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp.i, double noundef %call2.i), !noalias !52
   %result.sroa.0.0.copyload3 = load i32, ptr %ref.tmp.i, align 8
-  %result.sroa.4.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %result.sroa.4.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   %result.sroa.4.0.copyload5 = load i32, ptr %result.sroa.4.0.ref.tmp.i.sroa_idx, align 4
-  %result.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %result.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %result.sroa.47.0.copyload8 = load i32, ptr %result.sroa.47.0.ref.tmp.i.sroa_idx, align 8
-  %result.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
+  %result.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 12
   %result.sroa.5.0.copyload10 = load i16, ptr %result.sroa.5.0.ref.tmp.i.sroa_idx, align 4
-  %result.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 14
+  %result.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 14
   %result.sroa.6.0.copyload12 = load i16, ptr %result.sroa.6.0.ref.tmp.i.sroa_idx, align 2
-  %result.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %result.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %result.sroa.7.0.copyload14 = load i64, ptr %result.sroa.7.0.ref.tmp.i.sroa_idx, align 8
-  %result.sroa.8.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 28
+  %result.sroa.8.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 28
   %result.sroa.8.0.copyload19 = load i32, ptr %result.sroa.8.0.ref.tmp.i.sroa_idx, align 4
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
@@ -1569,7 +1569,7 @@ _ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
   %result.sroa.47.1 = phi i32 [ %result.sroa.47.0.copyload9, %if.then.i ], [ %result.sroa.47.0.copyload8, %cond.true.i ], [ %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i, %cond.false.i ]
   %result.sroa.4.1 = phi i32 [ %result.sroa.4.0.copyload6, %if.then.i ], [ %result.sroa.4.0.copyload5, %cond.true.i ], [ undef, %cond.false.i ]
   %result.sroa.0.1 = phi i32 [ 9, %if.then.i ], [ %result.sroa.0.0.copyload3, %cond.true.i ], [ %.sink.i.i, %cond.false.i ]
-  %result.sroa.716.0.in = getelementptr inbounds i8, ptr %this, i64 24
+  %result.sroa.716.0.in = getelementptr inbounds nuw i8, ptr %this, i64 24
   %result.sroa.716.0 = load i32, ptr %result.sroa.716.0.in, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %6 = load i32, ptr %localStatus, align 4
@@ -1577,15 +1577,15 @@ _ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
   br i1 %cmp.i1, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
-  %result.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %result.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 %result.sroa.4.1, ptr %result.sroa.4.0.agg.result.sroa_idx, align 4
-  %result.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %result.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i16 %result.sroa.5.1, ptr %result.sroa.5.0.agg.result.sroa_idx, align 4
-  %result.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 14
+  %result.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 14
   store i16 %result.sroa.6.1, ptr %result.sroa.6.0.agg.result.sroa_idx, align 2
-  %result.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %result.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 %result.sroa.7.1, ptr %result.sroa.7.0.agg.result.sroa_idx, align 8
-  %result.sroa.8.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %result.sroa.8.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 %result.sroa.8.1, ptr %result.sroa.8.0.agg.result.sroa_idx, align 4
   br label %return
 
@@ -1594,9 +1594,9 @@ return:                                           ; preds = %_ZNK6icu_756number9
   %.sink21 = phi i32 [ %result.sroa.47.1, %if.end ], [ %6, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
   %.sink = phi i32 [ %result.sroa.716.0, %if.end ], [ 0, %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit ]
   store i32 %.sink22, ptr %agg.result, align 8
-  %7 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %.sink21, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 %.sink, ptr %8, align 8
   ret void
 }
@@ -1617,20 +1617,20 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %copy.sroa.3.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 20
+  %copy.sroa.3.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 20
   %conv = trunc nuw nsw i32 %minFrac to i16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %this, i64 18, i1 false)
-  %copy.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 18
+  %copy.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 18
   store i16 %conv, ptr %copy.sroa.2.0.agg.result.sroa_idx, align 2
-  %copy.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %copy.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %copy.sroa.3.0.agg.result.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %copy.sroa.3.0.this1.sroa_idx, i64 12, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end
   store i32 9, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 65810, ptr %fUnion2.i, align 8
   br label %return
 
@@ -1643,9 +1643,9 @@ define void @_ZN6icu_756number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFo
 entry:
   %ref.tmp.i = alloca %"class.icu_75::number::IncrementPrecision", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %precision, i64 32, i1 false)
-  %fRoundingMode = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %roundingMode, ptr %fRoundingMode, align 8
-  %fPassThrough = getelementptr inbounds i8, ptr %this, i64 36
+  %fPassThrough = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i8 0, ptr %fPassThrough, align 4
   %0 = load i32, ptr %precision, align 8
   %cmp = icmp eq i32 %0, 8
@@ -1653,8 +1653,8 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %isoCode.i.i = getelementptr inbounds i8, ptr %currency, i64 20
-  %fUnion.i = getelementptr inbounds i8, ptr %precision, i64 8
+  %isoCode.i.i = getelementptr inbounds nuw i8, ptr %currency, i64 20
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %precision, i64 8
   %1 = load i32, ptr %fUnion.i, align 8, !noalias !55
   %call2.i = tail call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef nonnull %isoCode.i.i, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !55
   %2 = load i32, ptr %fUnion.i, align 8, !noalias !55
@@ -1665,15 +1665,15 @@ if.end.i:                                         ; preds = %entry
 cond.true.i:                                      ; preds = %if.end.i
   call void @_ZN6icu_756number9Precision9incrementEd(ptr nonnull sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp.i, double noundef %call2.i), !noalias !55
   %ref.tmp.sroa.0.0.copyload = load i32, ptr %ref.tmp.i, align 8
-  %ref.tmp.sroa.4.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %ref.tmp.sroa.4.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   %ref.tmp.sroa.4.0.copyload = load i32, ptr %ref.tmp.sroa.4.0.ref.tmp.i.sroa_idx, align 4
-  %ref.tmp.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.sroa.47.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %ref.tmp.sroa.47.0.copyload = load i32, ptr %ref.tmp.sroa.47.0.ref.tmp.i.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
+  %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 12
   %ref.tmp.sroa.5.0.copyload = load i16, ptr %ref.tmp.sroa.5.0.ref.tmp.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 14
+  %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 14
   %ref.tmp.sroa.6.0.copyload = load i16, ptr %ref.tmp.sroa.6.0.ref.tmp.i.sroa_idx, align 2
-  %ref.tmp.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %ref.tmp.sroa.7.0.ref.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %ref.tmp.sroa.7.0.copyload = load i64, ptr %ref.tmp.sroa.7.0.ref.tmp.i.sroa_idx, align 8
   br label %_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exit
 
@@ -1693,21 +1693,21 @@ _ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode.exi
   %ref.tmp.sroa.47.0 = phi i32 [ %ref.tmp.sroa.47.0.copyload, %cond.true.i ], [ %ref.tmp6.sroa.24.sroa.0.0.insert.insert.i, %cond.false.i ]
   %ref.tmp.sroa.4.0 = phi i32 [ %ref.tmp.sroa.4.0.copyload, %cond.true.i ], [ undef, %cond.false.i ]
   %ref.tmp.sroa.0.0 = phi i32 [ %ref.tmp.sroa.0.0.copyload, %cond.true.i ], [ %.sink.i.i, %cond.false.i ]
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %precision, i64 24
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %precision, i64 24
   %6 = load i32, ptr %fTrailingZeroDisplay.i, align 8, !noalias !55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   store i32 %ref.tmp.sroa.0.0, ptr %this, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %ref.tmp.sroa.4.0, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.47.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.47.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %ref.tmp.sroa.47.0, ptr %ref.tmp.sroa.47.0.this.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
+  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i16 %ref.tmp.sroa.5.0, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 14
+  %ref.tmp.sroa.6.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 14
   store i16 %ref.tmp.sroa.6.0, ptr %ref.tmp.sroa.6.0.this.sroa_idx, align 2
-  %ref.tmp.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.7.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %ref.tmp.sroa.7.0, ptr %ref.tmp.sroa.7.0.this.sroa_idx, align 8
-  %ref.tmp.sroa.716.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %ref.tmp.sroa.716.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %6, ptr %ref.tmp.sroa.716.0.this.sroa_idx, align 8
   br label %if.end
 
@@ -1718,7 +1718,7 @@ if.end:                                           ; preds = %_ZNK6icu_756number9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::impl::RoundingImpl") align 8 initializes((0, 40)) %agg.result) local_unnamed_addr #8 align 2 {
 entry:
-  %fPassThrough.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %fPassThrough.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 40, i1 false)
   store i8 1, ptr %fPassThrough.i, align 4
   ret void
@@ -1740,7 +1740,7 @@ define noundef i32 @_ZN6icu_756number4impl12RoundingImpl24chooseMultiplierAndApp
 entry:
   %call = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %input)
   %vtable = load ptr, ptr %producer, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %producer, i32 noundef %call)
   %call3 = tail call noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %input, i32 noundef %call2)
@@ -1760,7 +1760,7 @@ if.end:                                           ; preds = %entry
 if.end8:                                          ; preds = %if.end
   %add9 = add nsw i32 %call, 1
   %vtable10 = load ptr, ptr %producer, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
   %2 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %producer, i32 noundef %add9)
   %cmp13 = icmp eq i32 %call2, %call12
@@ -1787,7 +1787,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end134
 
 if.end:                                           ; preds = %entry
-  %fPassThrough = getelementptr inbounds i8, ptr %this, i64 36
+  %fPassThrough = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i8, ptr %fPassThrough, align 4
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.end134, label %if.end4
@@ -1816,14 +1816,14 @@ sw.bb5:                                           ; preds = %if.end4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end4
-  %fUnion = getelementptr inbounds i8, ptr %this, i64 8
-  %fMaxFrac = getelementptr inbounds i8, ptr %this, i64 10
+  %fUnion = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fMaxFrac = getelementptr inbounds nuw i8, ptr %this, i64 10
   %3 = load i16, ptr %fMaxFrac, align 2
   %conv = sext i16 %3 to i32
   %cmp.i40 = icmp eq i16 %3, -1
   %sub.i = sub nsw i32 0, %conv
   %retval.0.i = select i1 %cmp.i40, i32 -2147483648, i32 %sub.i
-  %fRoundingMode = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i32, ptr %fRoundingMode, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i16, ptr %fUnion, align 8
@@ -1834,7 +1834,7 @@ sw.bb6:                                           ; preds = %if.end4
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end4
-  %fMaxSig = getelementptr inbounds i8, ptr %this, i64 14
+  %fMaxSig = getelementptr inbounds nuw i8, ptr %this, i64 14
   %6 = load i16, ptr %fMaxSig, align 2
   %conv17 = sext i16 %6 to i32
   %cmp.i44 = icmp eq i16 %6, -1
@@ -1856,10 +1856,10 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 
 _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit: ; preds = %sw.bb14, %cond.end.i
   %retval.0.i45 = phi i32 [ %add.i, %cond.end.i ], [ -2147483648, %sw.bb14 ]
-  %fRoundingMode19 = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode19 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = load i32, ptr %fRoundingMode19, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %retval.0.i45, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fMinSig = getelementptr inbounds i8, ptr %this, i64 12
+  %fMinSig = getelementptr inbounds nuw i8, ptr %this, i64 12
   %8 = load i16, ptr %fMinSig, align 4
   %conv22 = sext i16 %8 to i32
   %call.i46 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
@@ -1885,14 +1885,14 @@ if.then31:                                        ; preds = %_ZN12_GLOBAL__N_130
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end4
-  %fUnion35 = getelementptr inbounds i8, ptr %this, i64 8
-  %fMaxFrac36 = getelementptr inbounds i8, ptr %this, i64 10
+  %fUnion35 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fMaxFrac36 = getelementptr inbounds nuw i8, ptr %this, i64 10
   %11 = load i16, ptr %fMaxFrac36, align 2
   %conv37 = sext i16 %11 to i32
   %cmp.i53 = icmp eq i16 %11, -1
   %sub.i54 = sub nsw i32 0, %conv37
   %retval.0.i55 = select i1 %cmp.i53, i32 -2147483648, i32 %sub.i54
-  %fMaxSig41 = getelementptr inbounds i8, ptr %this, i64 14
+  %fMaxSig41 = getelementptr inbounds nuw i8, ptr %this, i64 14
   %12 = load i16, ptr %fMaxSig41, align 2
   %conv42 = sext i16 %12 to i32
   %cmp.i56 = icmp eq i16 %12, -1
@@ -1914,7 +1914,7 @@ cond.end.i61:                                     ; preds = %cond.false.i59, %if
 
 _ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit66: ; preds = %sw.bb33, %cond.end.i61
   %retval.0.i65 = phi i32 [ %add.i64, %cond.end.i61 ], [ -2147483648, %sw.bb33 ]
-  %fPriority = getelementptr inbounds i8, ptr %this, i64 16
+  %fPriority = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i32, ptr %fPriority, align 8
   %cmp46 = icmp eq i32 %13, 0
   br i1 %cmp46, label %if.then47, label %if.else
@@ -1934,7 +1934,7 @@ if.end50:                                         ; preds = %if.else, %if.then47
 
 if.then52:                                        ; preds = %if.end50
   %call53 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
-  %fRoundingMode54 = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode54 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %14 = load i32, ptr %fRoundingMode54, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %roundingMag.0, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call55 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
@@ -1956,7 +1956,7 @@ if.end63:                                         ; preds = %land.lhs.true56, %i
   %cmp.i67 = icmp eq i16 %15, 0
   %sub.i68 = sub nsw i32 0, %conv67
   %retval.0.i69 = select i1 %cmp.i67, i32 2147483647, i32 %sub.i68
-  %fMinSig71 = getelementptr inbounds i8, ptr %this, i64 12
+  %fMinSig71 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %16 = load i16, ptr %fMinSig71, align 4
   %conv72 = sext i16 %16 to i32
   %call.i70 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
@@ -1970,7 +1970,7 @@ _ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15Decima
   %cond.i74 = phi i32 [ %call1.i72, %cond.false.i71 ], [ 0, %if.end63 ]
   %reass.sub.i75 = sub i32 %cond.i74, %conv72
   %add.i76 = add i32 %reass.sub.i75, 1
-  %fRetain = getelementptr inbounds i8, ptr %this, i64 20
+  %fRetain = getelementptr inbounds nuw i8, ptr %this, i64 20
   %17 = load i8, ptr %fRetain, align 4
   %tobool76 = trunc i8 %17 to i1
   br i1 %tobool76, label %if.then77, label %if.else79
@@ -2000,38 +2000,38 @@ if.end95:                                         ; preds = %if.else89, %if.then
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %if.end4
-  %fUnion100 = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion100 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %19 = load i64, ptr %fUnion100, align 8
-  %fIncrementMagnitude = getelementptr inbounds i8, ptr %this, i64 16
+  %fIncrementMagnitude = getelementptr inbounds nuw i8, ptr %this, i64 16
   %20 = load i16, ptr %fIncrementMagnitude, align 8
-  %fRoundingMode103 = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode103 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %21 = load i32, ptr %fRoundingMode103, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i64 noundef %19, i16 noundef signext %20, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fMinFrac106 = getelementptr inbounds i8, ptr %this, i64 18
+  %fMinFrac106 = getelementptr inbounds nuw i8, ptr %this, i64 18
   %22 = load i16, ptr %fMinFrac106, align 2
   %conv107 = sext i16 %22 to i32
   br label %sw.epilog
 
 sw.bb108:                                         ; preds = %if.end4
-  %fIncrementMagnitude111 = getelementptr inbounds i8, ptr %this, i64 16
+  %fIncrementMagnitude111 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %23 = load i16, ptr %fIncrementMagnitude111, align 8
   %conv112 = sext i16 %23 to i32
-  %fRoundingMode113 = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode113 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %24 = load i32, ptr %fRoundingMode113, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv112, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fMinFrac116 = getelementptr inbounds i8, ptr %this, i64 18
+  %fMinFrac116 = getelementptr inbounds nuw i8, ptr %this, i64 18
   %25 = load i16, ptr %fMinFrac116, align 2
   %conv117 = sext i16 %25 to i32
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %if.end4
-  %fIncrementMagnitude121 = getelementptr inbounds i8, ptr %this, i64 16
+  %fIncrementMagnitude121 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %26 = load i16, ptr %fIncrementMagnitude121, align 8
   %conv122 = sext i16 %26 to i32
-  %fRoundingMode123 = getelementptr inbounds i8, ptr %this, i64 32
+  %fRoundingMode123 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %27 = load i32, ptr %fRoundingMode123, align 8
   tail call void @_ZN6icu_756number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %conv122, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fMinFrac126 = getelementptr inbounds i8, ptr %this, i64 18
+  %fMinFrac126 = getelementptr inbounds nuw i8, ptr %this, i64 18
   %28 = load i16, ptr %fMinFrac126, align 2
   %conv127 = sext i16 %28 to i32
   br label %sw.epilog
@@ -2046,14 +2046,14 @@ sw.default:                                       ; preds = %if.end4
 
 sw.epilog:                                        ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit, %if.then31, %sw.bb118, %sw.bb108, %sw.bb98, %if.end95, %sw.bb6, %sw.bb5, %sw.bb
   %resolvedMinFraction.0 = phi i32 [ %conv127, %sw.bb118 ], [ %conv117, %sw.bb108 ], [ %conv107, %sw.bb98 ], [ %call97, %if.end95 ], [ %call25, %if.then31 ], [ %call25, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi.exit ], [ %call13, %sw.bb6 ], [ 0, %sw.bb5 ], [ 0, %sw.bb ]
-  %fTrailingZeroDisplay = getelementptr inbounds i8, ptr %this, i64 24
+  %fTrailingZeroDisplay = getelementptr inbounds nuw i8, ptr %this, i64 24
   %29 = load i32, ptr %fTrailingZeroDisplay, align 8
   %cmp130 = icmp eq i32 %29, 0
   br i1 %cmp130, label %if.then133, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.epilog
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %30 = load ptr, ptr %vfn, align 8
   %call131 = tail call noundef double %30(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef 3)
   %cmp132 = fcmp une double %call131, 0.000000e+00
@@ -2089,7 +2089,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %minInt, i32 noundef %0) local_unnamed_addr #1 align 2 {
 entry:
-  %fMinSig = getelementptr inbounds i8, ptr %this, i64 12
+  %fMinSig = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i16, ptr %fMinSig, align 4
   %conv = sext i16 %1 to i32
   %sub = sub nsw i32 %conv, %minInt

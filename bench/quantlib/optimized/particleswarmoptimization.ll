@@ -567,7 +567,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -580,7 +580,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -627,7 +627,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -640,7 +640,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i
@@ -672,7 +672,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -685,7 +685,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i
@@ -1196,7 +1196,7 @@ _ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization8TopologyEEptEv.exit
   %M_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %45 = load i64, ptr %M_, align 8, !tbaa !6
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %46 = load ptr, ptr %vfn, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %45)
   %47 = load ptr, ptr %inertia_, align 8, !tbaa !30
@@ -1215,7 +1215,7 @@ _ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization7InertiaEEptEv.exit:
   %c0_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %51 = load double, ptr %c0_, align 8, !tbaa !38
   %vtable74 = load ptr, ptr %48, align 8, !tbaa !3
-  %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 16
+  %vfn75 = getelementptr inbounds nuw i8, ptr %vtable74, i64 16
   %52 = load ptr, ptr %vfn75, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(80) %48, i64 noundef %49, i64 noundef %50, double noundef %51, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria)
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1934,7 +1934,7 @@ invoke.cont157:                                   ; preds = %_ZNSt16allocator_tr
   store i32 %inc.i298, ptr %functionEvaluation_.i, align 8, !tbaa !96
   %165 = load ptr, ptr %P, align 8, !tbaa !97
   %vtable.i = load ptr, ptr %165, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %166 = load ptr, ptr %vfn.i, align 8
   %call.i299300 = invoke noundef double %166(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i297)
           to label %invoke.cont160 unwind label %lpad156
@@ -1984,7 +1984,7 @@ cond.false.i303:                                  ; preds = %invoke.cont174
 invoke.cont178:                                   ; preds = %.noexc305, %invoke.cont174
   %172 = phi ptr [ %171, %invoke.cont174 ], [ %.pre.i304, %.noexc305 ]
   %vtable180 = load ptr, ptr %172, align 8, !tbaa !3
-  %vfn181 = getelementptr inbounds i8, ptr %vtable180, i64 32
+  %vfn181 = getelementptr inbounds nuw i8, ptr %vtable180, i64 32
   %173 = load ptr, ptr %vfn181, align 8
   invoke void %173(ptr noundef nonnull align 8 dereferenceable(80) %172, ptr noundef nonnull %this)
           to label %invoke.cont182 unwind label %lpad173
@@ -2133,7 +2133,7 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib10Constraint4ImplEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %1, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr dead_on_unwind writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %params)
   %n_.i = getelementptr inbounds nuw i8, ptr %params, i64 8
@@ -2367,7 +2367,7 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib10Constraint4ImplEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %1, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr dead_on_unwind writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %params)
   %n_.i = getelementptr inbounds nuw i8, ptr %params, i64 8
@@ -3157,7 +3157,7 @@ cond.false.i:                                     ; preds = %if.end42
 _ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization8TopologyEEptEv.exit: ; preds = %if.end42, %cond.false.i
   %27 = phi ptr [ %26, %if.end42 ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %27, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %28 = load ptr, ptr %vfn, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(64) %27)
   %29 = load ptr, ptr %inertia_, align 8, !tbaa !30
@@ -3172,7 +3172,7 @@ cond.false.i80:                                   ; preds = %_ZNK5boost10shared_
 _ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization7InertiaEEptEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization8TopologyEEptEv.exit, %cond.false.i80
   %30 = phi ptr [ %29, %_ZNK5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization8TopologyEEptEv.exit ], [ %.pre.i81, %cond.false.i80 ]
   %vtable45 = load ptr, ptr %30, align 8, !tbaa !3
-  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 24
+  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 24
   %31 = load ptr, ptr %vfn46, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(80) %30)
   %32 = load i64, ptr %M_, align 8, !tbaa !6
@@ -3206,7 +3206,7 @@ for.cond.cleanup59:                               ; preds = %for.inc94, %for.bod
   store i32 %inc.i, ptr %functionEvaluation_.i, align 8, !tbaa !96
   %39 = load ptr, ptr %P, align 8, !tbaa !97
   %vtable.i = load ptr, ptr %39, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %40 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %41 = load ptr, ptr %pBF_98, align 8, !tbaa !41
@@ -4588,11 +4588,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %3, i64 %idx.neg.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #24
   store ptr null, ptr %__first.addr.04.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i
@@ -4724,11 +4724,11 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %13, i64 %idx.neg.i.i.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i.i.i
@@ -4772,11 +4772,11 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %17, i64 %idx.neg.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i
@@ -4914,11 +4914,11 @@ if.then.i.i.i.i.i.i.i.i.i55:                      ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i64, ptr %35, i64 %idx.neg.i.i.i.i.i.i.i.i.i61
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i62, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i59) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i53, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i63, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i64, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i53, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i65, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i56, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i.i.i66
@@ -4962,11 +4962,11 @@ if.then.i.i.i.i.i.i.i81:                          ; preds = %for.body.i.i.i.i78
   %add.ptr.i.i.i.i.i.i.i88 = getelementptr inbounds i64, ptr %39, i64 %idx.neg.i.i.i.i.i.i.i87
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i88, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i85) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i79, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i89 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i79, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i79, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i89, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i79, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i90 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i79, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i90, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i79, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i79, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i91, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i82, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i92
@@ -5248,11 +5248,11 @@ if.then.i.i.i.i.i.i.i.i.i206:                     ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i213 = getelementptr inbounds i64, ptr %79, i64 %idx.neg.i.i.i.i.i.i.i.i.i212
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i213, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i210) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i204, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i214 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i214, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i215 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i215, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i216 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i204, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i216, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i207, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i.i.i217
@@ -5296,11 +5296,11 @@ if.then.i.i.i.i.i.i.i232:                         ; preds = %for.body.i.i.i.i229
   %add.ptr.i.i.i.i.i.i.i239 = getelementptr inbounds i64, ptr %83, i64 %idx.neg.i.i.i.i.i.i.i238
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i239, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i236) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i230, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i230, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i230, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i240, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i241 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i230, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i230, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i241, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i242 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i230, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i242 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i230, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i242, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i233, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i243
@@ -5438,11 +5438,11 @@ if.then.i.i.i.i.i.i.i.i.i300:                     ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i307 = getelementptr inbounds i64, ptr %101, i64 %idx.neg.i.i.i.i.i.i.i.i.i306
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i.i.i307, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i304) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i298, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i308 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i308 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i308, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i309 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i309 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i309, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i310 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i310 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i298, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i310, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i301, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i.i.i311
@@ -5486,11 +5486,11 @@ if.then.i.i.i.i.i.i.i326:                         ; preds = %for.body.i.i.i.i323
   %add.ptr.i.i.i.i.i.i.i333 = getelementptr inbounds i64, ptr %105, i64 %idx.neg.i.i.i.i.i.i.i332
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i333, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i330) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i324, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i334 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i324, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i334 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i324, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i334, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i335 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i324, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i335 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i324, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i335, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i336 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i324, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i336 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i324, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i336, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i327, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i337
@@ -5709,11 +5709,11 @@ if.then.i:                                        ; preds = %entry
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #24
   store ptr null, ptr %this, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont
@@ -6833,7 +6833,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -6846,7 +6846,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization7InertiaEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -6872,7 +6872,7 @@ if.then.i.i3:                                     ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i3
   %vtable.i.i.i7 = load ptr, ptr %7, align 8, !tbaa !3
-  %vfn.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i7, i64 16
+  %vfn.i.i.i8 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i7, i64 16
   %9 = load ptr, ptr %vfn.i.i.i8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %.noexc.i.i10 unwind label %terminate.lpad.i.i9
@@ -6885,7 +6885,7 @@ if.then.i.i.i6:                                   ; preds = %if.then.i.i3
 
 if.then.i.i.i.i13:                                ; preds = %.noexc.i.i10
   %vtable.i.i.i.i14 = load ptr, ptr %7, align 8, !tbaa !3
-  %vfn.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i14, i64 24
+  %vfn.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i14, i64 24
   %11 = load ptr, ptr %vfn.i.i.i.i15, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN5boost10shared_ptrIN8QuantLib25ParticleSwarmOptimization8TopologyEED2Ev.exit unwind label %terminate.lpad.i.i9
@@ -7179,11 +7179,11 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %idx.neg.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i
@@ -7236,11 +7236,11 @@ if.then.i.i.i.i.i.i.i19:                          ; preds = %for.body.i.i.i.i16
   %add.ptr.i.i.i.i.i.i.i26 = getelementptr inbounds i64, ptr %13, i64 %idx.neg.i.i.i.i.i.i.i25
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i.i.i.i26, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i23) #24
   store ptr null, ptr %__first.addr.04.i.i.i.i17, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i17, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i17, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i27, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i17, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i17, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i.i.i.i28, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i17, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i17, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i.i.i29, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i20, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i.i.i.i30
@@ -7362,7 +7362,6 @@ _ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entr
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -7373,7 +7372,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8Qua
 
 _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %cond.i17, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i17, i64 %sub.ptr.sub.i
   %3 = load i64, ptr %__args, align 8, !tbaa !43
   %4 = load double, ptr %__args1, align 8, !tbaa !93
   %cmp.not.i.i.i = icmp eq i64 %3, 0
@@ -7549,7 +7548,6 @@ _ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %entr
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -7560,7 +7558,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8Qua
 
 _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8QuantLib5ArrayESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %cond.i17, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i17, i64 %sub.ptr.sub.i
   %n_.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %3 = load i64, ptr %n_.i.i.i, align 8, !tbaa !49
   %cmp.not.i.i.i = icmp eq i64 %3, 0
@@ -7724,11 +7722,11 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i) #24
   store ptr null, ptr %__first.addr.04.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
+  %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 16
   store ptr null, ptr %ref.tmp.sroa.51.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 24
+  %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZSt8_DestroyISt6vectorIbSaIbEEEvPT_.exit.i

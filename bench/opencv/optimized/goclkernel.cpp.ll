@@ -105,7 +105,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext5inMatEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_any_cast", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -146,7 +146,7 @@ _ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2
   resume { ptr, i32 } %19
 
 _ZN2cv11GOCLContext5inArgINS_4UMatEEERKT_i.exit:  ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %20
 }
@@ -155,13 +155,13 @@ _ZN2cv11GOCLContext5inArgINS_4UMatEEERKT_i.exit:  ; preds = %_ZN2cv4util8any_cas
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outMatREi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_variant_access", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.not.i.i.i, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -171,14 +171,14 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outM
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %4
   br i1 %13, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %9, !llvm.loop !4
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8
@@ -189,7 +189,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outM
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, %4
   br i1 %26, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i
@@ -205,7 +205,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outM
   br i1 %.not16.i.i.i.i.i, label %.loopexit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %32, %17
   %.not17.i.i.i.i.i = icmp eq i64 %33, %18
@@ -217,7 +217,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext7outM
 
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp eq i64 %35, 0
@@ -238,7 +238,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
   resume { ptr, i32 } %39
 
 _ZN2cv4util3getIPNS_4UMatEJS3_PNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
-  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %41 = load ptr, ptr %40, align 8
   ret ptr %41
@@ -248,7 +248,7 @@ _ZN2cv4util3getIPNS_4UMatEJS3_PNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFram
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext5inValEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_any_cast", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -289,7 +289,7 @@ _ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i: ; preds =
   resume { ptr, i32 } %19
 
 _ZN2cv11GOCLContext5inArgINS_7Scalar_IdEEEERKT_i.exit: ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %20
 }
@@ -298,13 +298,13 @@ _ZN2cv11GOCLContext5inArgINS_7Scalar_IdEEEERKT_i.exit: ; preds = %_ZN2cv4util8an
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outValREi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_variant_access", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.not.i.i.i, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -314,14 +314,14 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outV
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %4
   br i1 %13, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %9, !llvm.loop !4
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8
@@ -332,7 +332,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outV
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, %4
   br i1 %26, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i
@@ -348,7 +348,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outV
   br i1 %.not16.i.i.i.i.i, label %.loopexit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %32, %17
   %.not17.i.i.i.i.i = icmp eq i64 %33, %18
@@ -360,7 +360,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext7outV
 
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp eq i64 %35, 3
@@ -381,7 +381,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
   resume { ptr, i32 } %39
 
 _ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
-  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %41 = load ptr, ptr %40, align 8
   ret ptr %41
@@ -391,13 +391,13 @@ _ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFram
 define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outVecRefEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_variant_access", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.not.i.i.i, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -407,14 +407,14 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outV
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %4
   br i1 %13, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %9, !llvm.loop !4
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8
@@ -425,7 +425,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outV
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, %4
   br i1 %26, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i
@@ -441,7 +441,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outV
   br i1 %.not16.i.i.i.i.i, label %.loopexit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %32, %17
   %.not17.i.i.i.i.i = icmp eq i64 %33, %18
@@ -453,7 +453,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext9outV
 
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp eq i64 %35, 5
@@ -474,7 +474,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
   resume { ptr, i32 } %39
 
 _ZN2cv4util3getINS_6detail9VectorRefEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameES3_NS2_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
-  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %40
 }
@@ -483,13 +483,13 @@ _ZN2cv4util3getINS_6detail9VectorRefEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_I
 define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12outOpaqueRefEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::util::bad_variant_access", align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %.not.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.not.i.i.i, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %10, %7
@@ -499,14 +499,14 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12out
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %4
   br i1 %13, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %9, !llvm.loop !4
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = urem i64 %4, %17
   %19 = load ptr, ptr %15, align 8
@@ -517,7 +517,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12out
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, %4
   br i1 %26, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i
@@ -533,7 +533,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12out
   br i1 %.not16.i.i.i.i.i, label %.loopexit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = urem i64 %32, %17
   %.not17.i.i.i.i.i = icmp eq i64 %33, %18
@@ -545,7 +545,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GOCLContext12out
 
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %35 = load i64, ptr %34, align 8
   %.not.i = icmp eq i64 %35, 6
@@ -566,7 +566,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
   resume { ptr, i32 } %39
 
 _ZN2cv4util3getINS_6detail9OpaqueRefEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS2_9VectorRefES3_EEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
-  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %40
 }
@@ -579,9 +579,9 @@ define void @_ZN2cv10GOCLKernelC2Ev(ptr nocapture noundef nonnull writeonly alig
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv10GOCLKernelC2ERKSt8functionIFvRNS_11GOCLContextEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not.i = icmp eq ptr %6, null
@@ -592,7 +592,7 @@ define void @_ZN2cv10GOCLKernelC2ERKSt8functionIFvRNS_11GOCLContextEEE(ptr nound
           to label %9 unwind label %13
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
@@ -628,7 +628,7 @@ _ZNSt8functionIFvRN2cv11GOCLContextEEEC2ERKS4_.exit: ; preds = %2, %9
 define void @_ZN2cv10GOCLKernel5applyERNS_11GOCLContextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.not = icmp eq ptr %6, null
   br i1 %.not.i.i.not, label %7, label %_ZNKSt8functionIFvRN2cv11GOCLContextEEEclES2_.exit
@@ -662,7 +662,7 @@ define void @_ZN2cv10GOCLKernel5applyERNS_11GOCLContextE(ptr noundef nonnull ali
   resume { ptr, i32 } %.pn
 
 _ZNKSt8functionIFvRN2cv11GOCLContextEEEclES2_.exit: ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void

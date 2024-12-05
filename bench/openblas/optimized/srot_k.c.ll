@@ -11,7 +11,7 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %9 = alloca float, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   store float %5, ptr %8, align 4, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %6, ptr %10, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   %11 = icmp eq i64 %2, 0
@@ -58,24 +58,24 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 38:                                               ; preds = %38, %33
   %39 = phi i64 [ 0, %33 ], [ %75, %38 ]
-  %40 = getelementptr inbounds float, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw float, ptr %1, i64 %39
   %41 = load <16 x float>, ptr %40, align 1, !tbaa !7
   %42 = or disjoint i64 %39, 16
-  %43 = getelementptr inbounds float, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw float, ptr %1, i64 %42
   %44 = load <16 x float>, ptr %43, align 1, !tbaa !7
   %45 = or disjoint i64 %39, 32
-  %46 = getelementptr inbounds float, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw float, ptr %1, i64 %45
   %47 = load <16 x float>, ptr %46, align 1, !tbaa !7
   %48 = or disjoint i64 %39, 48
-  %49 = getelementptr inbounds float, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw float, ptr %1, i64 %48
   %50 = load <16 x float>, ptr %49, align 1, !tbaa !7
-  %51 = getelementptr inbounds float, ptr %3, i64 %39
+  %51 = getelementptr inbounds nuw float, ptr %3, i64 %39
   %52 = load <16 x float>, ptr %51, align 1, !tbaa !7
-  %53 = getelementptr inbounds float, ptr %3, i64 %42
+  %53 = getelementptr inbounds nuw float, ptr %3, i64 %42
   %54 = load <16 x float>, ptr %53, align 1, !tbaa !7
-  %55 = getelementptr inbounds float, ptr %3, i64 %45
+  %55 = getelementptr inbounds nuw float, ptr %3, i64 %45
   %56 = load <16 x float>, ptr %55, align 1, !tbaa !7
-  %57 = getelementptr inbounds float, ptr %3, i64 %48
+  %57 = getelementptr inbounds nuw float, ptr %3, i64 %48
   %58 = load <16 x float>, ptr %57, align 1, !tbaa !7
   %59 = fmul <16 x float> %29, %52
   %60 = fmul <16 x float> %29, %54
@@ -107,9 +107,9 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 77:                                               ; preds = %77, %36
   %78 = phi i64 [ %31, %36 ], [ %87, %77 ]
-  %79 = getelementptr inbounds float, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw float, ptr %1, i64 %78
   %80 = load <16 x float>, ptr %79, align 1, !tbaa !7
-  %81 = getelementptr inbounds float, ptr %3, i64 %78
+  %81 = getelementptr inbounds nuw float, ptr %3, i64 %78
   %82 = load <16 x float>, ptr %81, align 1, !tbaa !7
   %83 = fmul <16 x float> %29, %82
   %84 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %27, <16 x float> %80, <16 x float> %83)
@@ -131,10 +131,10 @@ define noundef i32 @srot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %93 = sub nuw nsw i32 16, %92
   %94 = lshr i32 65535, %93
   %95 = trunc nuw nsw i32 %94 to i16
-  %96 = getelementptr inbounds float, ptr %1, i64 %30
+  %96 = getelementptr inbounds nuw float, ptr %1, i64 %30
   %97 = bitcast i16 %95 to <16 x i1>
   %98 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %96, i32 1, <16 x i1> %97, <16 x float> zeroinitializer)
-  %99 = getelementptr inbounds float, ptr %3, i64 %30
+  %99 = getelementptr inbounds nuw float, ptr %3, i64 %30
   %100 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %99, i32 1, <16 x i1> %97, <16 x float> zeroinitializer)
   %101 = fmul <16 x float> %29, %100
   %102 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %27, <16 x float> %98, <16 x float> %101)
@@ -183,19 +183,19 @@ declare i32 @blas_level1_thread(i32 noundef, i64 noundef, i64 noundef, i64 nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !tbaa !13
   %4 = load ptr, ptr %0, align 8, !tbaa !17
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8, !tbaa !18
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !19
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8, !tbaa !20
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = load float, ptr %12, align 4, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !3
   %16 = icmp slt i64 %3, 1
   br i1 %16, label %rot_compute.exit, label %17
@@ -230,24 +230,24 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
 
 34:                                               ; preds = %34, %29
   %35 = phi i64 [ 0, %29 ], [ %71, %34 ]
-  %36 = getelementptr inbounds float, ptr %4, i64 %35
+  %36 = getelementptr inbounds nuw float, ptr %4, i64 %35
   %37 = load <16 x float>, ptr %36, align 1, !tbaa !7
   %38 = or disjoint i64 %35, 16
-  %39 = getelementptr inbounds float, ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw float, ptr %4, i64 %38
   %40 = load <16 x float>, ptr %39, align 1, !tbaa !7
   %41 = or disjoint i64 %35, 32
-  %42 = getelementptr inbounds float, ptr %4, i64 %41
+  %42 = getelementptr inbounds nuw float, ptr %4, i64 %41
   %43 = load <16 x float>, ptr %42, align 1, !tbaa !7
   %44 = or disjoint i64 %35, 48
-  %45 = getelementptr inbounds float, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %4, i64 %44
   %46 = load <16 x float>, ptr %45, align 1, !tbaa !7
-  %47 = getelementptr inbounds float, ptr %8, i64 %35
+  %47 = getelementptr inbounds nuw float, ptr %8, i64 %35
   %48 = load <16 x float>, ptr %47, align 1, !tbaa !7
-  %49 = getelementptr inbounds float, ptr %8, i64 %38
+  %49 = getelementptr inbounds nuw float, ptr %8, i64 %38
   %50 = load <16 x float>, ptr %49, align 1, !tbaa !7
-  %51 = getelementptr inbounds float, ptr %8, i64 %41
+  %51 = getelementptr inbounds nuw float, ptr %8, i64 %41
   %52 = load <16 x float>, ptr %51, align 1, !tbaa !7
-  %53 = getelementptr inbounds float, ptr %8, i64 %44
+  %53 = getelementptr inbounds nuw float, ptr %8, i64 %44
   %54 = load <16 x float>, ptr %53, align 1, !tbaa !7
   %55 = fmul <16 x float> %25, %48
   %56 = fmul <16 x float> %25, %50
@@ -279,9 +279,9 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
 
 73:                                               ; preds = %73, %32
   %74 = phi i64 [ %27, %32 ], [ %83, %73 ]
-  %75 = getelementptr inbounds float, ptr %4, i64 %74
+  %75 = getelementptr inbounds nuw float, ptr %4, i64 %74
   %76 = load <16 x float>, ptr %75, align 1, !tbaa !7
-  %77 = getelementptr inbounds float, ptr %8, i64 %74
+  %77 = getelementptr inbounds nuw float, ptr %8, i64 %74
   %78 = load <16 x float>, ptr %77, align 1, !tbaa !7
   %79 = fmul <16 x float> %25, %78
   %80 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %23, <16 x float> %76, <16 x float> %79)
@@ -303,10 +303,10 @@ define internal noundef i32 @rot_thread_function(ptr nocapture noundef readonly 
   %89 = sub nuw nsw i32 16, %88
   %90 = lshr i32 65535, %89
   %91 = trunc nuw nsw i32 %90 to i16
-  %92 = getelementptr inbounds float, ptr %4, i64 %26
+  %92 = getelementptr inbounds nuw float, ptr %4, i64 %26
   %93 = bitcast i16 %91 to <16 x i1>
   %94 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %92, i32 1, <16 x i1> %93, <16 x float> zeroinitializer)
-  %95 = getelementptr inbounds float, ptr %8, i64 %26
+  %95 = getelementptr inbounds nuw float, ptr %8, i64 %26
   %96 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr %95, i32 1, <16 x i1> %93, <16 x float> zeroinitializer)
   %97 = fmul <16 x float> %25, %96
   %98 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %23, <16 x float> %94, <16 x float> %97)

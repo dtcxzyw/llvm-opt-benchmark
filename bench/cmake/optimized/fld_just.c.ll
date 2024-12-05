@@ -14,7 +14,7 @@ define dso_local i32 @set_field_just(ptr noundef %0, i32 noundef %1) local_unnam
   %.not = icmp eq ptr %0, null
   %4 = load ptr, ptr @_nc_Default_Field, align 8
   %5 = select i1 %.not, ptr %4, ptr %0
-  %6 = getelementptr inbounds i8, ptr %5, i64 30
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 30
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
   %.not17 = icmp eq i32 %1, %8
@@ -43,7 +43,7 @@ define dso_local range(i32 -32768, 32768) i32 @field_just(ptr noundef readonly %
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Field, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 30
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   ret i32 %6

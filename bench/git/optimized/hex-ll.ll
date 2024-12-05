@@ -17,14 +17,14 @@ for.body:                                         ; preds = %entry, %if.end
   %binary.addr.09 = phi ptr [ %incdec.ptr, %if.end ], [ %binary, %entry ]
   %0 = load i8, ptr %hex.addr.010, align 1
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %1 to i32
   %shl = shl nsw i32 %conv.i, 4
-  %arrayidx1 = getelementptr inbounds i8, ptr %hex.addr.010, i64 1
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %hex.addr.010, i64 1
   %2 = load i8, ptr %arrayidx1, align 1
   %idxprom.i5 = zext i8 %2 to i64
-  %arrayidx.i6 = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i5
+  %arrayidx.i6 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i5
   %3 = load i8, ptr %arrayidx.i6, align 1
   %conv.i7 = sext i8 %3 to i32
   %or = or i32 %shl, %conv.i7
@@ -33,10 +33,10 @@ for.body:                                         ; preds = %entry, %if.end
 
 if.end:                                           ; preds = %for.body
   %conv = trunc nuw i32 %or to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %binary.addr.09, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %binary.addr.09, i64 1
   store i8 %conv, ptr %binary.addr.09, align 1
   %dec = add i64 %len.addr.011, -1
-  %add.ptr = getelementptr inbounds i8, ptr %hex.addr.010, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %hex.addr.010, i64 2
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
 

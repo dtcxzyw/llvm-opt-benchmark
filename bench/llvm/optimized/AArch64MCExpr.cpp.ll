@@ -109,7 +109,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   br label %_ZnwmRN4llvm9MCContextEm.exit
 
 _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %16, %.critedge.i.i.i.i
@@ -120,13 +120,13 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %16, %.critedge.i.i.
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %_ZnwmRN4llvm9MCContextEm.exit
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 9
   %29 = load i32, ptr %28, align 1
   %30 = and i32 %29, -16777216
   store i32 %30, ptr %28, align 1
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store ptr null, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm13AArch64MCExprE, i64 16), ptr %.0.i.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
@@ -410,7 +410,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13AArch64MCExpr25evaluateAsRelocat
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %10, ptr %.sroa.4.0..sroa_idx, align 8
   br label %11
 
@@ -509,7 +509,7 @@ define dso_local noundef ptr @_ZN4llvm17AArch64AuthMCExpr6createEPKNS_6MCExprEtN
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   br label %_ZnwmRN4llvm9MCContextEm.exit
 
 _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %18, %.critedge.i.i.i.i
@@ -521,13 +521,13 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %18, %.critedge.i.i.
 
 28:                                               ; preds = %_ZnwmRN4llvm9MCContextEm.exit
   %29 = select i1 %3, i32 11, i32 10
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 9
   %32 = load i32, ptr %31, align 1
   %33 = and i32 %32, -16777216
   store i32 %33, ptr %31, align 1
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %0, ptr %35, align 8
@@ -565,7 +565,7 @@ define dso_local void @_ZNK4llvm17AArch64AuthMCExpr9printImplERNS_11raw_ostreamE
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %10, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %16, ptr %9, align 8
   store i8 40, ptr %10, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -583,7 +583,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %13, %15
   br label %_ZN4llvm11raw_ostreamlsEc.exit11
 
 22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %23 = getelementptr inbounds i8, ptr %18, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %23, ptr %9, align 8
   store i8 41, ptr %18, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit11
@@ -610,7 +610,7 @@ _ZN4llvm11raw_ostreamlsEc.exit11:                 ; preds = %22, %20, %.critedge
 34:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %27, ptr noundef nonnull align 1 dereferenceable(6) @.str.47, i64 6, i1 false)
   %35 = load ptr, ptr %26, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store ptr %36, ptr %26, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -641,7 +641,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
   %51 = load i16, ptr %switch.load, align 1
   store i16 %51, ptr %43, align 1
   %52 = load ptr, ptr %42, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
   store ptr %53, ptr %42, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -659,7 +659,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %48, %50
 
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 32
-  %61 = getelementptr inbounds i8, ptr %54, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %61, ptr %60, align 8
   store i8 44, ptr %54, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit16
@@ -692,7 +692,7 @@ _ZN4llvm11raw_ostreamlsEc.exit16:                 ; preds = %57, %59
 77:                                               ; preds = %69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.pre24, ptr noundef nonnull align 1 dereferenceable(5) @.str.48, i64 5, i1 false)
   %78 = load ptr, ptr %26, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 5
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 5
   store ptr %79, ptr %26, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
@@ -707,7 +707,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %77, %75, %_ZN4llvm1
   br label %_ZN4llvm11raw_ostreamlsEc.exit22
 
 84:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19
-  %85 = getelementptr inbounds i8, ptr %80, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store ptr %85, ptr %26, align 8
   store i8 41, ptr %80, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit22
@@ -749,7 +749,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17AArch64AuthMCExpr25evaluateAsRel
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %14, ptr %.sroa.4.0..sroa_idx, align 8
   br label %15
 
@@ -811,7 +811,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #8
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -825,7 +825,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #8
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

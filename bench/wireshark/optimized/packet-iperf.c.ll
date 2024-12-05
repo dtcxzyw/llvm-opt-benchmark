@@ -464,7 +464,7 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   %9 = alloca %struct.nstime_t, align 8
   %10 = alloca %struct.nstime_t, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.212) #5
   %14 = load ptr, ptr %12, align 8
@@ -475,10 +475,10 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
 
 17:                                               ; preds = %4
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %19 = getelementptr inbounds i8, ptr %1, i64 332
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %18, ptr %19, align 4
   %20 = sub i32 24, %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %20, ptr %21, align 8
   %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   br label %274
@@ -489,7 +489,7 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 24, i32 noundef 0) #5
   %27 = load i32, ptr @ett_iperf2_tcp, align 4
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #5
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @tvbparse_init(ptr noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 10, ptr noundef null, ptr noundef null) #5
   %32 = load ptr, ptr @want, align 8
@@ -550,10 +550,10 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
 68:                                               ; preds = %54, %23
   %69 = and i32 %24, 8388608
   %.not132 = icmp eq i32 %69, 0
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
-  %73 = getelementptr inbounds i8, ptr %10, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %74 = and i32 %24, 1073741824
   %.not133 = icmp eq i32 %74, 0
   br i1 %.not132, label %.split.us, label %.split
@@ -788,13 +788,13 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %167
 
 167:                                              ; preds = %128
-  %168 = getelementptr inbounds i8, ptr %166, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %169 = load ptr, ptr %168, align 8
   %.not5.i.i = icmp eq ptr %169, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %170
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %169, i64 28
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 28
   %172 = load i32, ptr %171, align 4
   %173 = or i32 %172, 2
   store i32 %173, ptr %171, align 4
@@ -821,13 +821,13 @@ proto_item_set_generated.exit.i:                  ; preds = %170, %167, %128
   br i1 %.not.i100.i, label %proto_item_set_generated.exit102.i, label %188
 
 188:                                              ; preds = %proto_item_set_generated.exit.i
-  %189 = getelementptr inbounds i8, ptr %187, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %190 = load ptr, ptr %189, align 8
   %.not5.i101.i = icmp eq ptr %190, null
   br i1 %.not5.i101.i, label %proto_item_set_generated.exit102.i, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %190, i64 28
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 28
   %193 = load i32, ptr %192, align 4
   %194 = or i32 %193, 2
   store i32 %194, ptr %192, align 4
@@ -854,13 +854,13 @@ proto_item_set_generated.exit102.i:               ; preds = %191, %188, %proto_i
   br i1 %.not.i103.i, label %proto_item_set_generated.exit105.i, label %209
 
 209:                                              ; preds = %proto_item_set_generated.exit102.i
-  %210 = getelementptr inbounds i8, ptr %208, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %211 = load ptr, ptr %210, align 8
   %.not5.i104.i = icmp eq ptr %211, null
   br i1 %.not5.i104.i, label %proto_item_set_generated.exit105.i, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %211, i64 28
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 28
   %214 = load i32, ptr %213, align 4
   %215 = or i32 %214, 2
   store i32 %215, ptr %213, align 4
@@ -892,13 +892,13 @@ proto_item_set_generated.exit105.i:               ; preds = %212, %209, %proto_i
   br i1 %.not.i106.i, label %242, label %235
 
 235:                                              ; preds = %proto_item_set_generated.exit105.i
-  %236 = getelementptr inbounds i8, ptr %234, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %237 = load ptr, ptr %236, align 8
   %.not5.i107.i = icmp eq ptr %237, null
   br i1 %.not5.i107.i, label %242, label %238
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %237, i64 28
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 28
   %240 = load i32, ptr %239, align 4
   %241 = or i32 %240, 2
   store i32 %241, ptr %239, align 4
@@ -934,10 +934,10 @@ proto_item_set_generated.exit105.i:               ; preds = %212, %209, %proto_i
   %.us-phi186 = phi i32 [ %.2127168.us, %.thread163.us ], [ %.0125177, %.thread163 ]
   %252 = call i32 @tvb_reported_length(ptr noundef %0) #5
   %253 = add i32 %252, %.us-phi186
-  %254 = getelementptr inbounds i8, ptr %1, i64 332
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %253, ptr %254, align 4
   %255 = sub i32 %.us-phi, %253
-  %256 = getelementptr inbounds i8, ptr %1, i64 336
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %255, ptr %256, align 8
   %257 = call i32 @tvb_reported_length(ptr noundef %0) #5
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %257) #5
@@ -987,7 +987,7 @@ define internal i32 @dissect_iperf2_udp(ptr noundef %0, ptr nocapture noundef re
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %struct.nstime_t, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.212) #5
   %13 = load ptr, ptr %11, align 8
@@ -1011,7 +1011,7 @@ define internal i32 @dissect_iperf2_udp(ptr noundef %0, ptr nocapture noundef re
   store i64 %27, ptr %10, align 8
   %28 = load i32, ptr %9, align 4
   %29 = mul i32 %28, 1000
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %29, ptr %30, align 8
   %31 = load i32, ptr @hf_iperf2_timestamp, align 4
   %32 = call ptr @proto_tree_add_time(ptr noundef %19, i32 noundef %31, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %10) #5
@@ -1019,13 +1019,13 @@ define internal i32 @dissect_iperf2_udp(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not.i, label %proto_item_set_generated.exit, label %33
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i = icmp eq ptr %35, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, 2
   store i32 %39, ptr %37, align 4
@@ -1069,7 +1069,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %33, %36
   store i64 %63, ptr %5, align 8
   %64 = load i32, ptr %7, align 4
   %65 = mul i32 %64, 1000
-  %66 = getelementptr inbounds i8, ptr %5, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %65, ptr %66, align 8
   %67 = load i32, ptr @hf_iperf2_isoch_start_ts, align 4
   %68 = call ptr @proto_tree_add_time(ptr noundef %53, i32 noundef %67, ptr noundef %0, i32 noundef %56, i32 noundef 8, ptr noundef nonnull %5) #5
@@ -1077,13 +1077,13 @@ proto_item_set_generated.exit:                    ; preds = %4, %33, %36
   br i1 %.not.i.i, label %dissect_iperf2_isoch_payload_header.exit, label %69
 
 69:                                               ; preds = %49
-  %70 = getelementptr inbounds i8, ptr %68, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not5.i.i = icmp eq ptr %71, null
   br i1 %.not5.i.i, label %dissect_iperf2_isoch_payload_header.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = or i32 %74, 2
   store i32 %75, ptr %73, align 4
@@ -1266,13 +1266,13 @@ define internal fastcc i32 @dissect_iperf2_extended_header(ptr noundef %0, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i = icmp eq ptr %30, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 2
   store i32 %34, ptr %32, align 4
@@ -1352,7 +1352,7 @@ define internal fastcc noundef i32 @dissect_iperf2_fq_start_time_header(ptr noun
   store i64 %18, ptr %6, align 8
   %19 = load i32, ptr %5, align 4
   %20 = mul i32 %19, 1000
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %20, ptr %21, align 8
   %22 = load i32, ptr @hf_iperf2_start_tv, align 4
   %23 = call ptr @proto_tree_add_time(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %11, i32 noundef 8, ptr noundef nonnull %6) #5
@@ -1360,13 +1360,13 @@ define internal fastcc noundef i32 @dissect_iperf2_fq_start_time_header(ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4

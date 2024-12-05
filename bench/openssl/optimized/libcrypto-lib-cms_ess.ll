@@ -172,33 +172,33 @@ if.else:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.else
   %1 = load ptr, ptr %call1.i, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %call8 = tail call i32 @RAND_bytes_ex(ptr noundef %libctx, ptr noundef %2, i64 noundef 32, i32 noundef 0) #4
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end6, %if.then1
-  %receiptsTo13 = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %receiptsTo13 = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %3 = load ptr, ptr %receiptsTo13, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %3, ptr noundef nonnull @GENERAL_NAMES_free) #4
   store ptr %receiptsTo, ptr %receiptsTo13, align 8
   %cmp17.not = icmp eq ptr %receiptList, null
-  %receiptsFrom21 = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %receiptsFrom21 = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %receiptsFrom21, align 8
   br i1 %cmp17.not, label %if.else20, label %if.then18
 
 if.then18:                                        ; preds = %if.end12
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %receiptsFrom21, align 8
-  %d = getelementptr inbounds i8, ptr %5, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %receiptList, ptr %d, align 8
   br label %return
 
 if.else20:                                        ; preds = %if.end12
   store i32 0, ptr %4, align 8
   %6 = load ptr, ptr %receiptsFrom21, align 8
-  %d24 = getelementptr inbounds i8, ptr %6, i64 8
+  %d24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %allorfirst, ptr %d24, align 8
   br label %return
 
@@ -289,7 +289,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %receiptsFrom = getelementptr inbounds i8, ptr %rr, i64 8
+  %receiptsFrom = getelementptr inbounds nuw i8, ptr %rr, i64 8
   %1 = load ptr, ptr %receiptsFrom, align 8
   %2 = load i32, ptr %1, align 8
   %cmp1 = icmp eq i32 %2, 0
@@ -300,7 +300,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %d = getelementptr inbounds i8, ptr %1, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %d, align 8
   store i32 %3, ptr %pallorfirst, align 4
   br label %if.end6
@@ -322,7 +322,7 @@ if.end12:                                         ; preds = %if.then11, %if.else
 
 if.then14:                                        ; preds = %if.end12
   %4 = load ptr, ptr %receiptsFrom, align 8
-  %d16 = getelementptr inbounds i8, ptr %4, i64 8
+  %d16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %d16, align 8
   br label %if.end18.sink.split
 
@@ -336,7 +336,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %receiptsTo = getelementptr inbounds i8, ptr %rr, i64 16
+  %receiptsTo = getelementptr inbounds nuw i8, ptr %rr, i64 16
   %6 = load ptr, ptr %receiptsTo, align 8
   store ptr %6, ptr %prto, align 8
   br label %if.end21
@@ -376,7 +376,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef nonnull %dig, ptr noundef nonnull %diglen) unnamed_addr #0 {
 entry:
-  %digestAlgorithm = getelementptr inbounds i8, ptr %si, i64 16
+  %digestAlgorithm = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %digestAlgorithm, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #4
@@ -387,9 +387,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @CMS_Attributes_Verify_it() #4
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %2 = load ptr, ptr %signedAttrs, align 8
-  %cms_ctx = getelementptr inbounds i8, ptr %si, i64 88
+  %cms_ctx = getelementptr inbounds nuw i8, ptr %si, i64 88
   %3 = load ptr, ptr %cms_ctx, align 8
   %call4 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %3) #4
   %4 = load ptr, ptr %cms_ctx, align 8
@@ -469,7 +469,7 @@ for.cond.preheader:                               ; preds = %if.end17
   br i1 %cmp2525, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %originatorSignatureValue = getelementptr inbounds i8, ptr %call19, i64 24
+  %originatorSignatureValue = getelementptr inbounds nuw i8, ptr %call19, i64 24
   br label %for.body
 
 if.then21:                                        ; preds = %if.end17
@@ -481,7 +481,7 @@ if.then21:                                        ; preds = %if.end17
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.026) #4
-  %signature = getelementptr inbounds i8, ptr %call27, i64 40
+  %signature = getelementptr inbounds nuw i8, ptr %call27, i64 40
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %originatorSignatureValue, align 8
   %call28 = tail call i32 @ASN1_STRING_cmp(ptr noundef %1, ptr noundef %2) #4
@@ -544,7 +544,7 @@ if.then49:                                        ; preds = %if.end47
   br label %err
 
 if.end50:                                         ; preds = %if.end47
-  %data = getelementptr inbounds i8, ptr %call40, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call40, i64 8
   %5 = load ptr, ptr %data, align 8
   %conv = zext i32 %3 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %dig, ptr %5, i64 %conv)
@@ -570,7 +570,7 @@ if.then59:                                        ; preds = %if.end55
   br label %err
 
 if.end60:                                         ; preds = %if.end55
-  %contentType = getelementptr inbounds i8, ptr %call19, i64 8
+  %contentType = getelementptr inbounds nuw i8, ptr %call19, i64 8
   %6 = load ptr, ptr %contentType, align 8
   %call61 = call i32 @OBJ_cmp(ptr noundef nonnull %call57, ptr noundef %6) #4
   %tobool62.not = icmp eq i32 %call61, 0
@@ -596,7 +596,7 @@ if.then68:                                        ; preds = %if.end64
 if.end69:                                         ; preds = %if.end64
   %7 = load ptr, ptr %rr, align 8
   %8 = load ptr, ptr %7, align 8
-  %signedContentIdentifier70 = getelementptr inbounds i8, ptr %call19, i64 16
+  %signedContentIdentifier70 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   %9 = load ptr, ptr %signedContentIdentifier70, align 8
   %call71 = call i32 @ASN1_STRING_cmp(ptr noundef %8, ptr noundef %9) #4
   %tobool72.not = icmp eq i32 %call71, 0
@@ -672,14 +672,14 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   store i32 1, ptr %rct, align 8
-  %contentType = getelementptr inbounds i8, ptr %rct, i64 8
+  %contentType = getelementptr inbounds nuw i8, ptr %rct, i64 8
   store ptr %call2, ptr %contentType, align 8
   %0 = load ptr, ptr %call6.i, align 8
-  %signedContentIdentifier5 = getelementptr inbounds i8, ptr %rct, i64 16
+  %signedContentIdentifier5 = getelementptr inbounds nuw i8, ptr %rct, i64 16
   store ptr %0, ptr %signedContentIdentifier5, align 8
-  %signature = getelementptr inbounds i8, ptr %si, i64 40
+  %signature = getelementptr inbounds nuw i8, ptr %si, i64 40
   %1 = load ptr, ptr %signature, align 8
-  %originatorSignatureValue = getelementptr inbounds i8, ptr %rct, i64 24
+  %originatorSignatureValue = getelementptr inbounds nuw i8, ptr %rct, i64 24
   store ptr %1, ptr %originatorSignatureValue, align 8
   %call6 = tail call ptr @CMS_Receipt_it() #4
   %call7 = call ptr @ASN1_item_pack(ptr noundef nonnull %rct, ptr noundef %call6, ptr noundef null) #4

@@ -38,15 +38,15 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1368
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1368
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %6) #4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1368
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1368
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1368
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1368
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %5) #4
   %34 = icmp slt i32 %25, %7
@@ -62,9 +62,9 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   br i1 %38, label %132, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %45, label %44
@@ -81,7 +81,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 48:                                               ; preds = %45
   call void @GrPrim_Sg2dGetClip(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12) #4
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %37, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 52
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, 32
   %53 = call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef nonnull %12, i32 noundef %52) #4
@@ -90,7 +90,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1776
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1776
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null) #4
   %.not137 = icmp eq ptr %59, null
@@ -107,7 +107,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.1120193 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %61 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = call i32 @llvm.smax.i32(i32 %62, i32 0)
   %spec.select = add nuw nsw i32 %63, %.1120193
@@ -124,10 +124,10 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   br i1 %or.cond149, label %67, label %74
 
 67:                                               ; preds = %._crit_edge
-  %68 = getelementptr inbounds i8, ptr %66, i64 1784
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 1784
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %59, i32 noundef 2) #4
-  %70 = getelementptr inbounds i8, ptr %46, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %71 = load ptr, ptr %70, align 8
   %.not148 = icmp eq ptr %71, null
   br i1 %.not148, label %73, label %72
@@ -141,7 +141,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
   br label %132
 
 74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %66, i64 1776
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 1776
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr %76(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #4
   %.not139 = icmp eq ptr %77, null
@@ -149,7 +149,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1776
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1776
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr %81(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #4
   %.not141 = icmp eq ptr %82, null
@@ -161,50 +161,50 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 85:                                               ; preds = %83
   call fastcc void @RefineBounds(ptr noundef %12, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, i32 noundef %.1120.lcssa)
-  %86 = getelementptr inbounds i8, ptr %12, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %12, align 8
   %89 = icmp sle i32 %87, %88
-  %90 = getelementptr inbounds i8, ptr %12, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %12, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = icmp sle i32 %91, %93
   %.not192 = select i1 %89, i1 true, i1 %94
   br i1 %.not192, label %.thread172, label %.thread164
 
 .thread164:                                       ; preds = %83, %85
-  %95 = getelementptr inbounds i8, ptr %46, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef nonnull %12) #4
-  %97 = getelementptr inbounds i8, ptr %12, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %98 = load ptr, ptr %97, align 8
   %.not143 = icmp eq ptr %98, null
   br i1 %.not143, label %113, label %99
 
 99:                                               ; preds = %.thread164
-  %100 = getelementptr inbounds i8, ptr %12, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = load i32, ptr %12, align 8
   %103 = icmp sgt i32 %101, %102
   br i1 %103, label %104, label %113
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %12, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %12, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = icmp sgt i32 %106, %108
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %37, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %112 = load ptr, ptr %111, align 8
   call fastcc void @ProcessPoly(ptr noundef %12, ptr noundef %112, ptr noundef %37, ptr noundef %13, i32 noundef %14, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %77, ptr noundef nonnull %82, ptr noundef nonnull %59, i32 noundef %7, i8 noundef zeroext %10)
   br label %113
 
 113:                                              ; preds = %.thread164, %99, %104, %110
-  %114 = getelementptr inbounds i8, ptr %46, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %115 = load ptr, ptr %114, align 8
   %.not144 = icmp eq ptr %115, null
   br i1 %.not144, label %.thread172, label %116
@@ -216,7 +216,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 .thread172:                                       ; preds = %78, %74, %85, %113, %116
   %.0122156177 = phi ptr [ %82, %85 ], [ %82, %113 ], [ %82, %116 ], [ null, %74 ], [ null, %78 ]
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 1784
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1784
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %59, i32 noundef 2) #4
   %.not145 = icmp eq ptr %77, null
@@ -224,7 +224,7 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 120:                                              ; preds = %.thread172
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 1784
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1784
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %77, i32 noundef 2) #4
   br label %124
@@ -235,13 +235,13 @@ define void @Java_sun_java2d_loops_DrawPolygons_DrawPolygons(ptr noundef %0, ptr
 
 125:                                              ; preds = %124
   %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1784
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1784
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.0122156177, i32 noundef 2) #4
   br label %.thread187
 
 .thread187:                                       ; preds = %55, %124, %125
-  %129 = getelementptr inbounds i8, ptr %46, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %130 = load ptr, ptr %129, align 8
   %.not147 = icmp eq ptr %130, null
   br i1 %.not147, label %132, label %131
@@ -290,8 +290,8 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
   %.05468 = phi i32 [ %spec.select, %.lr.ph ], [ %10, %8 ]
   %.05667 = phi i32 [ %13, %.lr.ph ], [ %5, %8 ]
   %13 = add nsw i32 %.05667, -1
-  %.0 = getelementptr inbounds i8, ptr %.pn73, i64 4
-  %.047 = getelementptr inbounds i8, ptr %.pn6572, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn73, i64 4
+  %.047 = getelementptr inbounds nuw i8, ptr %.pn6572, i64 4
   %14 = load i32, ptr %.0, align 4
   %15 = add nsw i32 %14, %1
   %16 = load i32, ptr %.047, align 4
@@ -323,7 +323,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
   br label %26
 
 26:                                               ; preds = %25, %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %28, %.052.lcssa
   br i1 %29, label %30, label %31
@@ -333,7 +333,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
   br label %31
 
 31:                                               ; preds = %30, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, %spec.select66
   br i1 %34, label %35, label %36
@@ -343,7 +343,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
   br label %36
 
 36:                                               ; preds = %35, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, %.2
   br i1 %39, label %40, label %47
@@ -354,11 +354,11 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
 
 41:                                               ; preds = %6
   %42 = load i32, ptr %0, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %45, ptr %46, align 4
   br label %47
 
@@ -389,9 +389,9 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %12
   %30 = icmp ne i8 %11, 0
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.not = icmp eq i8 %11, 0
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %34
@@ -400,7 +400,7 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %161 ]
   %.0182257 = phi ptr [ %7, %.lr.ph ], [ %.2184, %161 ]
   %.0185256 = phi ptr [ %8, %.lr.ph ], [ %.2187, %161 ]
-  %35 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 1
   br i1 %37, label %38, label %156
@@ -410,8 +410,8 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
   %40 = add nsw i32 %39, %5
   %41 = load i32, ptr %.0185256, align 4
   %42 = add nsw i32 %41, %6
-  %.1186247 = getelementptr inbounds i8, ptr %.0185256, i64 4
-  %.1183248 = getelementptr inbounds i8, ptr %.0182257, i64 4
+  %.1186247 = getelementptr inbounds nuw i8, ptr %.0185256, i64 4
+  %.1183248 = getelementptr inbounds nuw i8, ptr %.0182257, i64 4
   br label %43
 
 43:                                               ; preds = %38, %104
@@ -532,8 +532,8 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
   br label %104
 
 104:                                              ; preds = %56, %68, %53, %51, %90, %95, %71, %73, %88, %76
-  %.1186 = getelementptr inbounds i8, ptr %.1186253, i64 4
-  %.1183 = getelementptr inbounds i8, ptr %.1183254, i64 4
+  %.1186 = getelementptr inbounds nuw i8, ptr %.1186253, i64 4
+  %.1183 = getelementptr inbounds nuw i8, ptr %.1183254, i64 4
   %105 = icmp samesign ugt i32 %.0192249, 2
   br i1 %105, label %43, label %106, !llvm.loop !9
 
@@ -649,8 +649,8 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %.0182257, i64 4
-  %160 = getelementptr inbounds i8, ptr %.0185256, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.0182257, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %.0185256, i64 4
   br label %161
 
 161:                                              ; preds = %107, %132, %142, %129, %127, %147, %144, %109, %111, %124, %114, %106, %158, %156

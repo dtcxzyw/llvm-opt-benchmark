@@ -32,11 +32,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN11ZMarkStripeC2Em(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %1, ptr %4, align 64
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %5, align 8
   ret void
 }
@@ -54,20 +54,20 @@ define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 derefer
 
 3:                                                ; preds = %3, %2
   %.idx = phi i64 [ 64, %2 ], [ %.add, %3 ]
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i64 0, ptr %.ptr, align 64
-  %4 = getelementptr inbounds i8, ptr %.ptr, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.ptr, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %.ptr, i64 64
   store i64 0, ptr %5, align 64
-  %6 = getelementptr inbounds i8, ptr %.ptr, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr, i64 72
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %6, align 8
   %.add = add nuw nsw i64 %.idx, 128
   %7 = icmp eq i64 %.add, 2112
   br i1 %7, label %.preheader.preheader, label %3
 
 .preheader.preheader:                             ; preds = %3
-  %.ptr5 = getelementptr inbounds i8, ptr %0, i64 64
+  %.ptr5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -76,21 +76,21 @@ define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 derefer
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.2, align 8
   store i64 %1, ptr %.sroa.36, align 64
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.4, align 8
-  %8 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %.ptr5, i64 0, i64 %.07
+  %8 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %.ptr5, i64 0, i64 %.07
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload = load volatile i64, ptr %.sroa.0, align 64
   store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload, ptr %8, align 64
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload = load volatile ptr, ptr %.sroa.2, align 8
   store volatile ptr %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.3.0..sroa_idx, ptr nonnull align 16 %.sroa.3, i64 48, i1 true)
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 64
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.36.0..sroa.36.0..sroa.36.0..sroa.36.0.copyload = load volatile i64, ptr %.sroa.36, align 64
   store volatile i64 %.sroa.36.0..sroa.36.0..sroa.36.0..sroa.36.0.copyload, ptr %.sroa.36.0..sroa_idx, align 64
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 72
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 72
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload = load volatile ptr, ptr %.sroa.4, align 8
   store volatile ptr %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.5.0..sroa_idx, ptr nonnull align 16 %.sroa.5, i64 48, i1 true)
   %9 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %9, 16
@@ -107,7 +107,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN14ZMarkStripeSet12set_nstripesEm(ptr noundef nonnull align 64 dereferenceable(2112) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = add i64 %1, -1
   store volatile i64 %3, ptr %0, align 64
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -137,7 +137,7 @@ define hidden noundef i64 @_ZNK14ZMarkStripeSet8nstripesEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef nonnull align 64 dereferenceable(2112) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %5
 
 3:                                                ; preds = %_ZNK11ZMarkStripe8is_emptyEv.exit
@@ -147,8 +147,8 @@ define hidden noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef no
 
 5:                                                ; preds = %1, %3
   %.05 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %6 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %2, i64 0, i64 %.05
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %2, i64 0, i64 %.05
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = lshr i64 %9, 32
@@ -160,8 +160,8 @@ define hidden noundef zeroext i1 @_ZNK14ZMarkStripeSet8is_emptyEv(ptr noundef no
   br i1 %14, label %_ZNK11ZMarkStripe8is_emptyEv.exit, label %_ZNK11ZMarkStripe8is_emptyEv.exit.thread
 
 _ZNK11ZMarkStripe8is_emptyEv.exit:                ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %6, i64 64
-  %16 = getelementptr inbounds i8, ptr %6, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %17 = load volatile ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = lshr i64 %18, 32
@@ -204,7 +204,7 @@ define hidden noundef nonnull ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr
 
 21:                                               ; preds = %13, %11
   %.0 = phi i64 [ %12, %11 ], [ %20, %13 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %22, i64 0, i64 %.0
   ret ptr %23
 }
@@ -217,12 +217,12 @@ define hidden void @_ZN22ZMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK22ZMarkThreadLocalStacks8is_emptyEPK14ZMarkStripeSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
   %.056 = phi i64 [ 0, %2 ], [ %7, %4 ]
-  %5 = getelementptr inbounds [16 x ptr], ptr %3, i64 0, i64 %.056
+  %5 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %.056
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = add nuw nsw i64 %.056, 1
@@ -253,7 +253,7 @@ define hidden noundef ptr @_ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkS
   br i1 %.not, label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit, label %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE3popERS2_.exit.thread: ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = add i64 %10, -1
   store i64 %12, ptr %9, align 8
   %13 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %12
@@ -293,7 +293,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us: ; preds = %.lr.p
   br label %10
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread: ; preds = %.lr.ph.split.us
-  %7 = getelementptr inbounds i8, ptr %.pr, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %8 = add i64 %5, 1
   store i64 %8, ptr %.pr, align 8
   %9 = getelementptr inbounds [15 x ptr], ptr %7, i64 0, i64 %5
@@ -344,7 +344,7 @@ _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit.thread16
   br label %25
 
 _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit: ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = add i64 %19, -1
   store i64 %21, ptr %18, align 8
   %22 = getelementptr inbounds [15 x ptr], ptr %20, i64 0, i64 %21
@@ -360,7 +360,7 @@ _ZN22ZMarkThreadLocalStacks14allocate_stackEP19ZMarkStackAllocator.exit: ; preds
   br i1 %.not, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread
 
 _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread: ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %.1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %28 = add i64 %26, 1
   store i64 %28, ptr %.1, align 8
   %29 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %27, i64 0, i64 %26
@@ -382,9 +382,9 @@ define linkonce_odr hidden void @_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMar
   br i1 %3, label %5, label %40
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = icmp eq ptr %1, null
   %10 = ptrtoint ptr %1 to i64
   br i1 %9, label %.split.us.i, label %.split.i
@@ -431,10 +431,10 @@ define linkonce_odr hidden void @_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMar
   br i1 %39, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i, !llvm.loop !12
 
 40:                                               ; preds = %4
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load volatile ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = icmp eq ptr %1, null
   %46 = ptrtoint ptr %1 to i64
   br i1 %45, label %.split.us.i7, label %.split.i4
@@ -481,9 +481,9 @@ define linkonce_odr hidden void @_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMar
   br i1 %75, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i4, !llvm.loop !12
 
 _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.split.i4, %.split.us.i7, %.split.i, %.split.us.i
-  %76 = getelementptr inbounds i8, ptr %2, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %77 = load volatile i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %2, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %79 = load volatile i32, ptr %78, align 4
   %80 = add i32 %79, %77
   %81 = load volatile i32, ptr %2, align 4
@@ -493,7 +493,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.sp
   br i1 %or.cond.i, label %_ZN14ZMarkTerminate7wake_upEv.exit, label %84
 
 84:                                               ; preds = %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit
-  %85 = getelementptr inbounds i8, ptr %2, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %86 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %85) #11
   %87 = load volatile i32, ptr %76, align 4
   %88 = load volatile i32, ptr %78, align 8
@@ -506,7 +506,7 @@ _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.sp
   %92 = load volatile i32, ptr %78, align 8
   %93 = add i32 %92, 1
   store volatile i32 %93, ptr %78, align 4
-  %94 = getelementptr inbounds i8, ptr %2, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %95 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %94) #11
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i
 
@@ -521,9 +521,9 @@ _ZN14ZMarkTerminate7wake_upEv.exit:               ; preds = %_ZN10ZStackListI6ZS
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks8pop_slowEP19ZMarkStackAllocatorP11ZMarkStripePP6ZStackI15ZMarkStackEntryLm254EERS5_(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit, %5
@@ -549,7 +549,7 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks8pop_slowEP19ZMarkS
 
 23:                                               ; preds = %14
   %24 = inttoptr i64 %20 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = add i64 %15, 1
   %28 = icmp eq ptr %26, null
@@ -583,7 +583,7 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks8pop_slowEP19ZMarkS
 
 49:                                               ; preds = %40
   %50 = inttoptr i64 %46 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = add i64 %41, 1
   %54 = icmp eq ptr %52, null
@@ -615,7 +615,7 @@ _ZN11ZMarkStripe11steal_stackEv.exit:             ; preds = %40
   br i1 %.not, label %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit, label %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread
 
 _ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread: ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %.1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %67 = add i64 %65, -1
   store i64 %67, ptr %.1, align 8
   %68 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %66, i64 0, i64 %67
@@ -643,7 +643,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = %.lr.ph.split.us.i
-  %73 = getelementptr inbounds i8, ptr %.pr.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %74 = add i64 %71, 1
   store i64 %74, ptr %.pr.i, align 8
   %75 = getelementptr inbounds [15 x ptr], ptr %73, i64 0, i64 %71
@@ -661,19 +661,19 @@ _ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks5flushEP19ZMarkStackAllocatorP14ZMarkStripeSetP14ZMarkTerminate(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %11
 
 11:                                               ; preds = %4, %65
   %.018 = phi i1 [ false, %4 ], [ %.1, %65 ]
   %.01517 = phi i64 [ 0, %4 ], [ %66, %65 ]
-  %12 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %5, i64 0, i64 %.01517
-  %13 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %.01517
+  %12 = getelementptr inbounds nuw [16 x %class.ZMarkStripe], ptr %5, i64 0, i64 %.01517
+  %13 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %.01517
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %65, label %16
@@ -703,7 +703,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.us.i: ; preds = %.lr
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
 _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = %.lr.ph.split.us.i
-  %23 = getelementptr inbounds i8, ptr %.pr.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %24 = add i64 %21, 1
   store i64 %24, ptr %.pr.i, align 8
   %25 = getelementptr inbounds [15 x ptr], ptr %23, i64 0, i64 %21
@@ -711,9 +711,9 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   br label %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load volatile ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = ptrtoint ptr %14 to i64
   br label %.split.i.i
 

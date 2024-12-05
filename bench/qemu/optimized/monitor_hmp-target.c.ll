@@ -844,24 +844,24 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %f
   br i1 %cmp7.i, label %for.inc, label %for.cond.i
 
 if.then7:                                         ; preds = %land.lhs.true.i
-  %get_value = getelementptr inbounds i8, ptr %md.025, i64 16
+  %get_value = getelementptr inbounds nuw i8, ptr %md.025, i64 16
   %3 = load ptr, ptr %get_value, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %offset = getelementptr inbounds i8, ptr %md.025, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %md.025, i64 8
   %4 = load i32, ptr %offset, align 8
   %call11 = tail call i64 %3(ptr noundef %mon, ptr noundef nonnull %md.025, i32 noundef %4) #11
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then7
   %call12 = tail call ptr @mon_get_cpu_env(ptr noundef %mon) #11
-  %offset13 = getelementptr inbounds i8, ptr %md.025, i64 8
+  %offset13 = getelementptr inbounds nuw i8, ptr %md.025, i64 8
   %5 = load i32, ptr %offset13, align 8
   %idx.ext = sext i32 %5 to i64
   %add.ptr = getelementptr i8, ptr %call12, i64 %idx.ext
-  %type = getelementptr inbounds i8, ptr %md.025, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %md.025, i64 24
   %6 = load i32, ptr %type, align 8
   switch i32 %6, label %return.sink.split [
     i32 1, label %sw.bb
@@ -946,13 +946,13 @@ while.body:                                       ; preds = %entry, %if.end9
   br i1 %cmp3, label %do.body, label %if.end9
 
 do.body:                                          ; preds = %while.body
-  %cmd4 = getelementptr inbounds i8, ptr %table.08, i64 40
+  %cmd4 = getelementptr inbounds nuw i8, ptr %table.08, i64 40
   %2 = load ptr, ptr %cmd4, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.body
-  %cmd_info_hrt = getelementptr inbounds i8, ptr %table.08, i64 48
+  %cmd_info_hrt = getelementptr inbounds nuw i8, ptr %table.08, i64 48
   %3 = load ptr, ptr %cmd_info_hrt, align 8
   %cmp6 = icmp eq ptr %3, null
   br i1 %cmp6, label %do.end, label %if.else
@@ -997,13 +997,13 @@ while.body:                                       ; preds = %entry, %if.end8
   br i1 %cmp3, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %while.body
-  %cmd = getelementptr inbounds i8, ptr %table.08, i64 40
+  %cmd = getelementptr inbounds nuw i8, ptr %table.08, i64 40
   %2 = load ptr, ptr %cmd, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.body
-  %cmd_info_hrt = getelementptr inbounds i8, ptr %table.08, i64 48
+  %cmd_info_hrt = getelementptr inbounds nuw i8, ptr %table.08, i64 48
   %3 = load ptr, ptr %cmd_info_hrt, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %do.end, label %if.else

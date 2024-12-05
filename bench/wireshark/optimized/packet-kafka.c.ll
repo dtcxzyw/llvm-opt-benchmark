@@ -963,9 +963,9 @@ define hidden void @proto_register_kafka() local_unnamed_addr #0 {
   %4 = sext i16 %3 to i32
   %5 = getelementptr [49 x %struct._value_string], ptr @kafka_api_names, i64 0, i64 %indvars.iv.i
   store i32 %4, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 48
@@ -1034,7 +1034,7 @@ define internal i32 @get_kafka_pdu_len(ptr nocapture readnone %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str) #6
   %7 = load ptr, ptr %5, align 8
@@ -1046,9 +1046,9 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #6
   %13 = load i32, ptr @hf_kafka_len, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 292
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
   br i1 %19, label %20, label %262
@@ -1060,15 +1060,15 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #6
   store i16 %24, ptr %23, align 4
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #6
-  %26 = getelementptr inbounds i8, ptr %23, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 %25, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %21, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %31, align 4
   %32 = load i16, ptr %23, align 4
   %or.cond.i.i = icmp ugt i16 %32, 47
@@ -1079,7 +1079,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %kafka_is_api_version_flexible.exit, label %35
 
 35:                                               ; preds = %20
-  %36 = getelementptr inbounds i8, ptr %34, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %37 = load i16, ptr %36, align 4
   %38 = icmp ne i16 %37, -1
   %39 = icmp sge i16 %25, %37
@@ -1089,7 +1089,7 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 kafka_is_api_version_flexible.exit:               ; preds = %20, %35
   %41 = phi i32 [ 0, %20 ], [ %40, %35 ]
-  %42 = getelementptr inbounds i8, ptr %23, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %41, ptr %42, align 4
   %43 = load ptr, ptr %5, align 8
   %44 = sext i16 %32 to i32
@@ -1109,13 +1109,13 @@ kafka_is_api_version_flexible.exit:               ; preds = %20, %35
   br i1 %.not.i622, label %proto_item_set_hidden.exit, label %55
 
 55:                                               ; preds = %kafka_is_api_version_flexible.exit
-  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %57 = load ptr, ptr %56, align 8
   %.not5.i623 = icmp eq ptr %57, null
   br i1 %.not5.i623, label %proto_item_set_hidden.exit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, 1
   store i32 %61, ptr %59, align 4
@@ -1148,13 +1148,13 @@ kafka_check_supported_api_key.exit:               ; preds = %proto_item_set_hidd
   br i1 %.not.i625, label %proto_item_set_hidden.exit627, label %77
 
 77:                                               ; preds = %kafka_check_supported_api_key.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i626 = icmp eq ptr %79, null
   br i1 %.not5.i626, label %proto_item_set_hidden.exit627, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -1550,7 +1550,7 @@ dissect_kafka_lookup_match.exit:                  ; preds = %262, %270
   %.0.i.i631 = phi ptr [ %272, %270 ], [ %268, %262 ]
   %274 = zext i32 %263 to i64
   %275 = inttoptr i64 %274 to ptr
-  %276 = getelementptr inbounds i8, ptr %1, i64 20
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %277 = load i32, ptr %276, align 4
   %278 = tail call ptr @wmem_multimap_lookup32_le(ptr noundef %.0.i.i631, ptr noundef %275, i32 noundef %277) #6
   %279 = icmp eq ptr %278, null
@@ -1567,7 +1567,7 @@ dissect_kafka_lookup_match.exit:                  ; preds = %262, %270
   %285 = load i16, ptr %278, align 4
   %286 = sext i16 %285 to i32
   %287 = tail call ptr @val_to_str(i32 noundef %286, ptr noundef nonnull @kafka_api_names, ptr noundef nonnull @.str.535) #6
-  %288 = getelementptr inbounds i8, ptr %278, i64 2
+  %288 = getelementptr inbounds nuw i8, ptr %278, i64 2
   %289 = load i16, ptr %288, align 2
   %290 = sext i16 %289 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %280, i32 noundef 25, ptr noundef nonnull @.str.533, ptr noundef %287, i32 noundef %290) #6
@@ -1578,20 +1578,20 @@ dissect_kafka_lookup_match.exit:                  ; preds = %262, %270
   %295 = sext i16 %294 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.534, ptr noundef %293, i32 noundef %295) #6
   %296 = load i32, ptr @hf_kafka_request_frame, align 4
-  %297 = getelementptr inbounds i8, ptr %278, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %298 = load i32, ptr %297, align 4
   %299 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %296, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %298) #6
   %.not.i632 = icmp eq ptr %299, null
   br i1 %.not.i632, label %proto_item_set_generated.exit, label %300
 
 300:                                              ; preds = %284
-  %301 = getelementptr inbounds i8, ptr %299, i64 32
+  %301 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %302 = load ptr, ptr %301, align 8
   %.not5.i633 = icmp eq ptr %302, null
   br i1 %.not5.i633, label %proto_item_set_generated.exit, label %303
 
 303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %302, i64 28
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 28
   %305 = load i32, ptr %304, align 4
   %306 = or i32 %305, 2
   store i32 %306, ptr %304, align 4
@@ -1606,13 +1606,13 @@ proto_item_set_generated.exit:                    ; preds = %284, %300, %303
   br i1 %.not.i634, label %proto_item_set_hidden.exit639, label %311
 
 311:                                              ; preds = %proto_item_set_generated.exit
-  %312 = getelementptr inbounds i8, ptr %310, i64 32
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %313 = load ptr, ptr %312, align 8
   %.not5.i635 = icmp eq ptr %313, null
   br i1 %.not5.i635, label %proto_item_set_hidden.exit639, label %314
 
 314:                                              ; preds = %311
-  %315 = getelementptr inbounds i8, ptr %313, i64 28
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 28
   %316 = load i32, ptr %315, align 4
   %317 = or i32 %316, 2
   store i32 %317, ptr %315, align 4
@@ -1621,7 +1621,7 @@ proto_item_set_generated.exit:                    ; preds = %284, %300, %303
   br i1 %.not5.i638, label %proto_item_set_hidden.exit639, label %318
 
 318:                                              ; preds = %314
-  %319 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %319 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %320 = load i32, ptr %319, align 4
   %321 = or i32 %320, 1
   store i32 %321, ptr %319, align 4
@@ -1636,13 +1636,13 @@ proto_item_set_hidden.exit639:                    ; preds = %311, %proto_item_se
   br i1 %.not.i640, label %proto_item_set_generated.exit642, label %326
 
 326:                                              ; preds = %proto_item_set_hidden.exit639
-  %327 = getelementptr inbounds i8, ptr %325, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %328 = load ptr, ptr %327, align 8
   %.not5.i641 = icmp eq ptr %328, null
   br i1 %.not5.i641, label %proto_item_set_generated.exit642, label %329
 
 329:                                              ; preds = %326
-  %330 = getelementptr inbounds i8, ptr %328, i64 28
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 28
   %331 = load i32, ptr %330, align 4
   %332 = or i32 %331, 2
   store i32 %332, ptr %330, align 4
@@ -1675,13 +1675,13 @@ kafka_check_supported_api_key.exit644:            ; preds = %proto_item_set_gene
   br i1 %.not.i645, label %proto_item_set_generated.exit647, label %348
 
 348:                                              ; preds = %kafka_check_supported_api_key.exit644
-  %349 = getelementptr inbounds i8, ptr %347, i64 32
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 32
   %350 = load ptr, ptr %349, align 8
   %.not5.i646 = icmp eq ptr %350, null
   br i1 %.not5.i646, label %proto_item_set_generated.exit647, label %351
 
 351:                                              ; preds = %348
-  %352 = getelementptr inbounds i8, ptr %350, i64 28
+  %352 = getelementptr inbounds nuw i8, ptr %350, i64 28
   %353 = load i32, ptr %352, align 4
   %354 = or i32 %353, 2
   store i32 %354, ptr %352, align 4
@@ -1694,7 +1694,7 @@ proto_item_set_generated.exit647:                 ; preds = %kafka_check_support
   br i1 %356, label %.thread, label %357
 
 357:                                              ; preds = %proto_item_set_generated.exit647
-  %358 = getelementptr inbounds i8, ptr %278, i64 20
+  %358 = getelementptr inbounds nuw i8, ptr %278, i64 20
   %359 = load i32, ptr %358, align 4
   %.not = icmp eq i32 %359, 0
   br i1 %.not, label %362, label %360
@@ -2035,9 +2035,9 @@ define internal fastcc void @kafka_check_supported_api_version(ptr noundef %0, p
   br i1 %.not, label %38, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %9 = load i16, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i16, ptr %10, align 8
   %12 = icmp eq i16 %11, -1
   %13 = icmp slt i16 %9, %11
@@ -2045,19 +2045,19 @@ define internal fastcc void @kafka_check_supported_api_version(ptr noundef %0, p
   br i1 %or.cond.i22, label %kafka_is_api_version_supported.exit.thread, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %6, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %15 = load i16, ptr %14, align 2
   %.not25 = icmp sgt i16 %9, %15
   br i1 %.not25, label %kafka_is_api_version_supported.exit.thread.thread, label %38
 
 kafka_is_api_version_supported.exit.thread.thread: ; preds = %kafka_is_api_version_supported.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.538) #6
   br label %25
 
 kafka_is_api_version_supported.exit.thread:       ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.538) #6
   br i1 %12, label %20, label %25
@@ -2070,7 +2070,7 @@ kafka_is_api_version_supported.exit.thread:       ; preds = %7
   br label %38
 
 25:                                               ; preds = %kafka_is_api_version_supported.exit.thread.thread, %kafka_is_api_version_supported.exit.thread
-  %26 = getelementptr inbounds i8, ptr %6, i64 18
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %27 = load i16, ptr %26, align 2
   %28 = icmp eq i16 %11, %27
   %29 = load i16, ptr %2, align 4
@@ -2140,7 +2140,7 @@ define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1,
 kafka_tvb_get_string.exit.i:                      ; preds = %23
   %27 = add nuw nsw i32 %13, 2
   %28 = add i32 %4, 2
-  %29 = getelementptr inbounds i8, ptr %3, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @tvb_get_string_enc(ptr noundef %30, ptr noundef %2, i32 noundef %28, i32 noundef %13, i32 noundef 2) #6
   %32 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef %27, ptr noundef %31) #6
@@ -2306,7 +2306,7 @@ define internal fastcc noundef i32 @dissect_kafka_produce_request(ptr noundef %0
   br i1 %28, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_produce_request_topic.exit
@@ -2839,7 +2839,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %25
 
 38:                                               ; preds = %dissect_kafka_array.exit.thread, %36, %dissect_kafka_array.exit
   %.2 = phi i32 [ %37, %36 ], [ %35, %dissect_kafka_array.exit ], [ %32, %dissect_kafka_array.exit.thread ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.580, i32 noundef %6) #6
   ret i32 %.2
@@ -2893,7 +2893,7 @@ define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, p
   br i1 %37, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %.lr.ph.i.i19.i
@@ -2946,7 +2946,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %33
 
 64:                                               ; preds = %62, %dissect_kafka_array.exit
   %.2 = phi i32 [ %63, %62 ], [ %.sink49, %dissect_kafka_array.exit ]
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.580, i32 noundef %10) #6
   ret i32 %.2
@@ -3038,7 +3038,7 @@ define internal fastcc i32 @dissect_kafka_controlled_shutdown_request(ptr nounde
 
 .thread:                                          ; preds = %5, %15, %11
   %.1 = phi i32 [ %16, %15 ], [ %14, %11 ], [ %9, %5 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.600, i32 noundef %6) #6
   ret i32 %.1
@@ -3097,9 +3097,9 @@ define internal fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, 
 
 34:                                               ; preds = %.thread54, %.thread52, %32, %28
   %.4 = phi i32 [ %33, %32 ], [ %31, %28 ], [ %27, %.thread52 ], [ %13, %.thread54 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %6, align 4
   %40 = load i32, ptr %7, align 4
@@ -3172,9 +3172,9 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %
 .thread:                                          ; preds = %5
   %9 = load i32, ptr @hf_kafka_consumer_group, align 4
   %10 = call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %9, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %6, align 4
   %16 = load i32, ptr %7, align 4
@@ -3246,9 +3246,9 @@ define internal fastcc i32 @dissect_kafka_join_group_request(ptr noundef %0, ptr
   %36 = call fastcc i32 @dissect_kafka_array(ptr noundef %35, ptr noundef %0, ptr noundef %1, i32 noundef %33, i32 noundef %13, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_join_group_request_group_protocols, ptr noundef null)
   %37 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %37, ptr noundef %0, i32 noundef %36) #6
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load i32, ptr %8, align 4
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %kafka_tvb_get_string.exit
@@ -3310,9 +3310,9 @@ define internal fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr 
 
 23:                                               ; preds = %20, %5
   %.0 = phi i32 [ %22, %20 ], [ %18, %5 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %6, align 4
   %29 = load i32, ptr %7, align 4
@@ -3350,9 +3350,9 @@ define internal fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, pt
 15:                                               ; preds = %5
   %16 = load i32, ptr @hf_kafka_member_id, align 4
   %17 = call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %16, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %6, align 4
   %23 = load i32, ptr %7, align 4
@@ -3374,9 +3374,9 @@ define internal fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, pt
   %34 = call fastcc i32 @dissect_kafka_array(ptr noundef %33, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %13, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_leave_group_request_member, ptr noundef null)
   %35 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %34) #6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %6, align 4
   %41 = load i32, ptr %7, align 4
@@ -3440,9 +3440,9 @@ define internal fastcc noundef i32 @dissect_kafka_sync_group_request(ptr noundef
   %.3 = phi i32 [ %34, %33 ], [ %32, %.thread52 ]
   %36 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %36, ptr noundef %0, i32 noundef %.3) #6
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %7, align 4
   %42 = load i32, ptr %8, align 4
@@ -3720,7 +3720,7 @@ define internal fastcc noundef i32 @dissect_kafka_delete_records_request(ptr nou
   br i1 %20, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_delete_records_request_topic.exit
@@ -3901,7 +3901,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %29
   %31 = icmp sgt i16 %4, 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_offset_for_leader_epoch_request_topic.exit
@@ -4040,7 +4040,7 @@ define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_request(
   br i1 %27, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_add_partitions_to_txn_request_topic.exit
@@ -4164,7 +4164,7 @@ define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_request(ptr 
   br i1 %21, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_write_txn_markers_request_marker.exit
@@ -4608,7 +4608,7 @@ define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_request
   br i1 %21, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_alter_replica_log_dirs_request_log_dir.exit
@@ -4732,7 +4732,7 @@ define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_request(ptr 
   br i1 %19, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_describe_log_dirs_request_topic.exit
@@ -5375,7 +5375,7 @@ define internal fastcc noundef i32 @dissect_kafka_produce_response(ptr noundef %
   br i1 %17, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = icmp sgt i16 %4, 1
   %20 = icmp samesign ugt i16 %4, 4
   %21 = icmp samesign ugt i16 %4, 7
@@ -5566,7 +5566,7 @@ define internal fastcc noundef i32 @dissect_kafka_fetch_response(ptr noundef %0,
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = sext i16 %17 to i32
   %24 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -5597,7 +5597,7 @@ dissect_kafka_error.exit:                         ; preds = %16, %20
   br i1 %36, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = icmp sgt i16 %4, 3
   %.not55.i.i = icmp eq i16 %4, 4
   %39 = icmp sgt i16 %4, 10
@@ -5788,7 +5788,7 @@ define internal fastcc noundef i32 @dissect_kafka_offsets_response(ptr noundef %
   br i1 %21, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = icmp eq i16 %4, 0
   %24 = icmp sgt i16 %4, 0
   %25 = icmp sgt i16 %4, 3
@@ -6004,7 +6004,7 @@ define internal fastcc i32 @dissect_kafka_leader_and_isr_response(ptr noundef %0
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6036,7 +6036,7 @@ define internal fastcc i32 @dissect_kafka_stop_replica_response(ptr noundef %0, 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6068,7 +6068,7 @@ define internal fastcc i32 @dissect_kafka_update_metadata_response(ptr noundef %
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6098,7 +6098,7 @@ define internal fastcc i32 @dissect_kafka_controlled_shutdown_response(ptr nound
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6185,7 +6185,7 @@ define internal fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, 
   br i1 %.not.i.i, label %32, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = sext i16 %24 to i32
   %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6228,7 +6228,7 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = sext i16 %15 to i32
   %22 = tail call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6272,7 +6272,7 @@ dissect_kafka_error.exit:                         ; preds = %14, %18
   br i1 %45, label %47, label %53
 
 47:                                               ; preds = %29
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %7, align 4
   %51 = load i32, ptr %8, align 4
@@ -6323,7 +6323,7 @@ define internal fastcc i32 @dissect_kafka_join_group_response(ptr noundef %0, pt
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = sext i16 %15 to i32
   %22 = tail call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6358,9 +6358,9 @@ dissect_kafka_error.exit:                         ; preds = %14, %18
   %42 = call fastcc i32 @dissect_kafka_array(ptr noundef %41, ptr noundef %0, ptr noundef %1, i32 noundef %39, i32 noundef %34, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_join_group_response_member, ptr noundef null)
   %43 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %43, ptr noundef %0, i32 noundef %42) #6
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %7, align 4
   %49 = load i32, ptr %8, align 4
@@ -6397,7 +6397,7 @@ define internal fastcc i32 @dissect_kafka_heartbeat_response(ptr noundef %0, ptr
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6439,7 +6439,7 @@ define internal fastcc i32 @dissect_kafka_leave_group_response(ptr noundef %0, p
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6491,7 +6491,7 @@ define internal fastcc i32 @dissect_kafka_sync_group_response(ptr noundef %0, pt
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6575,7 +6575,7 @@ define internal fastcc i32 @dissect_kafka_list_groups_response(ptr noundef %0, p
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6612,7 +6612,7 @@ define internal fastcc noundef i32 @dissect_kafka_sasl_handshake_response(ptr no
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6662,7 +6662,7 @@ define internal fastcc i32 @dissect_kafka_api_versions_response(ptr noundef %0, 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6784,7 +6784,7 @@ define internal fastcc noundef i32 @dissect_kafka_delete_records_response(ptr no
   br i1 %23, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_delete_records_response_topic.exit
@@ -6893,7 +6893,7 @@ define internal fastcc i32 @dissect_kafka_init_producer_id_response(ptr noundef 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %9 to i32
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -6957,7 +6957,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_respon
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %26
   %28 = icmp sgt i16 %4, 0
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_offset_for_leader_epoch_response_topic.exit
@@ -7091,7 +7091,7 @@ define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_response
   br i1 %23, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_add_partitions_to_txn_response_topic.exit
@@ -7196,7 +7196,7 @@ define internal fastcc noundef i32 @dissect_kafka_add_offsets_to_txn_response(pt
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i16 %8 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -7220,7 +7220,7 @@ define internal fastcc noundef i32 @dissect_kafka_end_txn_response(ptr noundef %
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i16 %8 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -7262,7 +7262,7 @@ define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_response(ptr
   br i1 %25, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_write_txn_markers_response_marker.exit
@@ -7433,7 +7433,7 @@ define internal fastcc noundef i32 @dissect_kafka_describe_acls_response(ptr nou
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i16 %10 to i32
   %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -7541,10 +7541,10 @@ define internal fastcc noundef i32 @dissect_kafka_describe_configs_response(ptr 
   br i1 %26, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = icmp eq i16 %4, 0
   %29 = icmp sgt i16 %4, 0
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_describe_configs_response_resource.exit
@@ -7794,7 +7794,7 @@ define internal fastcc noundef i32 @dissect_kafka_alter_configs_response(ptr nou
   br i1 %19, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_alter_configs_response_resource.exit
@@ -7867,8 +7867,8 @@ define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_respons
   br i1 %23, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_alter_replica_log_dirs_response_topic.exit
@@ -7989,8 +7989,8 @@ define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_response(ptr
   br i1 %27, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_describe_log_dirs_response_log_dir.exit
@@ -8166,7 +8166,7 @@ define internal fastcc i32 @dissect_kafka_sasl_authenticate_response(ptr noundef
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8208,7 +8208,7 @@ define internal fastcc i32 @dissect_kafka_create_delegation_token_response(ptr n
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8259,7 +8259,7 @@ define internal fastcc i32 @dissect_kafka_renew_delegation_token_response(ptr no
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8295,7 +8295,7 @@ define internal fastcc i32 @dissect_kafka_expire_delegation_token_response(ptr n
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i16 %6 to i32
   %13 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8332,7 +8332,7 @@ define internal fastcc i32 @dissect_kafka_describe_delegation_token_response(ptr
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i16 %7 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8403,7 +8403,7 @@ define internal fastcc i32 @dissect_kafka_elect_leaders_response(ptr noundef %0,
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8474,7 +8474,7 @@ define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8502,7 +8502,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %15
   br i1 %32, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_alter_partition_reassignments_response_topic.exit
@@ -8598,7 +8598,7 @@ define internal fastcc noundef i32 @dissect_kafka_list_partition_reassignments_r
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8626,7 +8626,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %16
   br i1 %33, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_list_partition_reassignments_response_topic.exit
@@ -8810,7 +8810,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_delete_response(ptr nou
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %9 to i32
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -8839,7 +8839,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %12
   br i1 %30, label %.lr.ph.i.i19.i.preheader, label %dissect_kafka_array.exit
 
 .lr.ph.i.i19.i.preheader:                         ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_offset_delete_response_topic.exit
@@ -8974,7 +8974,7 @@ define internal fastcc i32 @dissect_kafka_compact_string(ptr noundef %0, i32 nou
 
 30:                                               ; preds = %24
   %31 = add i32 %9, %4
-  %32 = getelementptr inbounds i8, ptr %3, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %2, i32 noundef %31, i32 noundef %28, i32 noundef 2) #6
   br label %kafka_tvb_get_string.exit
@@ -9167,8 +9167,8 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %18, i64 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %37
 
 37:                                               ; preds = %.lr.ph, %dissect_kafka_message.exit
@@ -9293,13 +9293,13 @@ define internal fastcc noundef i32 @dissect_kafka_message_set(ptr noundef %0, pt
   br i1 %.not.i.i.i27, label %show_compression_reduction.exit.i29, label %116
 
 116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load ptr, ptr %117, align 8
   %.not5.i.i.i28 = icmp eq ptr %118, null
   br i1 %.not5.i.i.i28, label %show_compression_reduction.exit.i29, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 2
   store i32 %122, ptr %120, align 4
@@ -9427,13 +9427,13 @@ dissect_kafka_message_old.exit:                   ; preds = %91, %98, %129
   br i1 %.not.i.i.i, label %show_compression_reduction.exit.i, label %204
 
 204:                                              ; preds = %198
-  %205 = getelementptr inbounds i8, ptr %203, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %206 = load ptr, ptr %205, align 8
   %.not5.i.i.i = icmp eq ptr %206, null
   br i1 %.not5.i.i.i, label %show_compression_reduction.exit.i, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %206, i64 28
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 28
   %209 = load i32, ptr %208, align 4
   %210 = or i32 %209, 2
   store i32 %210, ptr %208, align 4
@@ -9831,7 +9831,7 @@ define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr nound
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %3 to i64
   %27 = tail call ptr @tvb_memdup(ptr noundef %25, ptr noundef %0, i32 noundef %2, i64 noundef %26) #6
@@ -9972,7 +9972,7 @@ define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr nound
   br label %decompress_snappy.exit
 
 .thread96.i:                                      ; preds = %84, %83, %71, %69
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load ptr, ptr %90, align 8
   call void @col_append_str(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.560) #6
   br label %decompress_snappy.exit
@@ -9992,7 +9992,7 @@ decompress_snappy.exit:                           ; preds = %.thread86.i, %85, %
   store ptr null, ptr %8, align 8
   store i64 0, ptr %10, align 8
   store i64 0, ptr %11, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 408
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %94 = load ptr, ptr %93, align 8
   %95 = zext nneg i32 %3 to i64
   %96 = tail call ptr @tvb_memdup(ptr noundef %94, ptr noundef %0, i32 noundef %2, i64 noundef %95) #6
@@ -10087,9 +10087,9 @@ XXH32.exit.i:                                     ; preds = %.lr.ph82.i.i.i, %.p
 
 switch.lookup:                                    ; preds = %142
   %145 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.decompress, i64 0, i64 %145
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.decompress, i64 0, i64 %145
   %switch.load = load i64, ptr %switch.gep, align 8
-  %146 = getelementptr inbounds i8, ptr %9, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %147 = load i64, ptr %146, align 8
   %.not53.not.i = icmp eq i64 %147, 0
   %148 = call i64 @llvm.umin.i64(i64 %147, i64 %switch.load)
@@ -10205,7 +10205,7 @@ switch.lookup:                                    ; preds = %142
 
 192:                                              ; preds = %.sink.split, %185
   %.0436367.i = phi i32 [ %.043.i52, %185 ], [ 0, %.sink.split ]
-  %193 = getelementptr inbounds i8, ptr %1, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %194 = load ptr, ptr %193, align 8
   call void @col_append_str(ptr noundef %194, i32 noundef 25, ptr noundef nonnull @.str.561) #6
   br label %decompress_lz4.exit
@@ -10228,7 +10228,7 @@ decompress_lz4.exit:                              ; preds = %189, %192
   br i1 %.not.i41, label %198, label %decompress_zstd.exit
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %1, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %200 = load ptr, ptr %199, align 8
   tail call void @col_append_str(ptr noundef %200, i32 noundef 25, ptr noundef nonnull @.str.562) #6
   br label %decompress_zstd.exit
@@ -10242,7 +10242,7 @@ decompress_lz4.exit:                              ; preds = %189, %192
   br i1 %.not.i43, label %204, label %decompress_zstd.exit
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %1, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %206 = load ptr, ptr %205, align 8
   tail call void @col_append_str(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.563) #6
   br label %decompress_zstd.exit
@@ -10253,7 +10253,7 @@ decompress_lz4.exit:                              ; preds = %189, %192
   br label %decompress_zstd.exit
 
 208:                                              ; preds = %22
-  %209 = getelementptr inbounds i8, ptr %1, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %210 = load ptr, ptr %209, align 8
   tail call void @col_append_str(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.556) #6
   br label %decompress_zstd.exit
@@ -10801,7 +10801,7 @@ dissect_kafka_array.exit143:                      ; preds = %.lr.ph.i.i19.i139, 
 210:                                              ; preds = %.thread153, %208
   %.4156 = phi i32 [ %.2, %.thread153 ], [ %205, %208 ]
   %211 = load ptr, ptr %10, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 408
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %213 = load ptr, ptr %212, align 8
   %214 = load i32, ptr %12, align 4
   %215 = load i32, ptr %13, align 4
@@ -10841,7 +10841,7 @@ define internal i32 @dissect_kafka_leader_and_isr_request_topic_state(ptr nounde
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %15, %5 ]
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %7, align 4
   %23 = load i32, ptr %8, align 4
@@ -10880,7 +10880,7 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_live_leader(pt
   %26 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %26, ptr noundef %0, i32 noundef %.0) #6
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %7, align 4
   %31 = load i32, ptr %8, align 4
@@ -10998,7 +10998,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   %60 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %60, ptr noundef %0, i32 noundef %.0) #6
   %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %9, align 4
   %65 = load i32, ptr %10, align 4
@@ -11030,7 +11030,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_topic(ptr nou
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0) #6
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load i32, ptr %8, align 4
@@ -11339,7 +11339,7 @@ dissect_kafka_array.exit104:                      ; preds = %.lr.ph.i.i19.i100, 
 
 162:                                              ; preds = %157
   %163 = load ptr, ptr %9, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 408
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %165 = load ptr, ptr %164, align 8
   %166 = load i32, ptr %11, align 4
   %167 = load i32, ptr %12, align 4
@@ -11374,7 +11374,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   %21 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #6
   %22 = add i32 %18, 4
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %8, align 4
@@ -11458,7 +11458,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_endpoint(ptr 
   %32 = load ptr, ptr %6, align 8
   %33 = sext i16 %25 to i32
   %34 = call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @kafka_security_protocol_types, ptr noundef nonnull @.str.599) #6
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %7, align 4
   %38 = load i32, ptr %8, align 4
@@ -11490,7 +11490,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_topic(ptr nound
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0) #6
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load i32, ptr %8, align 4
@@ -11658,7 +11658,7 @@ dissect_kafka_array.exit.thread:                  ; preds = %43, %46, %52, %diss
   %54 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %54, ptr noundef %0, i32 noundef %.0) #6
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %8, align 4
   %59 = load i32, ptr %9, align 4
@@ -11691,7 +11691,7 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %20, ptr noundef %0, i32 noundef %.0) #6
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -11791,7 +11791,7 @@ define internal noundef i32 @dissect_kafka_leave_group_request_member(ptr nounde
   %23 = load i32, ptr %10, align 4
   %24 = icmp sgt i32 %23, -1
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %7, align 4
   %29 = load i32, ptr %8, align 4
@@ -11838,7 +11838,7 @@ define internal noundef i32 @dissect_kafka_sync_group_request_group_assignment(p
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %20, ptr noundef %0, i32 noundef %.0) #6
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -11886,7 +11886,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_create_topic_re
   %33 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %33, ptr noundef %0, i32 noundef %.0) #6
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %8, align 4
   %38 = load i32, ptr %9, align 4
@@ -12020,7 +12020,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_config(ptr noun
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %.0) #6
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %8, align 4
@@ -12063,7 +12063,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_topic(ptr n
   %23 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %23, ptr noundef %0, i32 noundef %.0) #6
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %6, align 4
   %28 = load i32, ptr %7, align 4
@@ -12317,7 +12317,7 @@ dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %di
   %63 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %63, ptr noundef %0, i32 noundef %.0) #6
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 408
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %9, align 4
   %68 = load i32, ptr %10, align 4
@@ -12590,7 +12590,7 @@ define internal i32 @dissect_kafka_metadata_broker(ptr noundef %0, ptr noundef %
 .thread:                                          ; preds = %5, %27, %24
   %.1 = phi i32 [ %28, %27 ], [ %26, %24 ], [ %22, %5 ]
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %7, align 4
   %33 = load i32, ptr %8, align 4
@@ -12615,7 +12615,7 @@ define internal noundef i32 @dissect_kafka_metadata_topic(ptr noundef %0, ptr no
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i16 %11 to i32
   %18 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -12629,7 +12629,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %14
   %22 = zext i1 %21 to i32
   %23 = call fastcc i32 @dissect_kafka_string(ptr noundef %10, i32 noundef %20, ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %7, align 4
   %28 = load i32, ptr %8, align 4
@@ -12683,7 +12683,7 @@ define internal noundef i32 @dissect_kafka_metadata_partition(ptr noundef %0, pt
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -12995,7 +12995,7 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_response_partition(ptr
   br i1 %.not.i, label %dissect_kafka_error_ret.exit, label %22
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i16 %19 to i32
   %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13015,7 +13015,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %22
   %31 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %.0) #6
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %7, align 4
   %36 = load i32, ptr %8, align 4
@@ -13048,7 +13048,7 @@ define internal noundef i32 @dissect_kafka_stop_replica_response_partition(ptr n
   br i1 %.not.i, label %dissect_kafka_error_ret.exit, label %22
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i16 %19 to i32
   %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13068,7 +13068,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %22
   %31 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %.0) #6
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %7, align 4
   %36 = load i32, ptr %8, align 4
@@ -13105,7 +13105,7 @@ define internal noundef i32 @dissect_kafka_controlled_shutdown_response_partitio
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %.0) #6
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %8, align 4
@@ -13137,7 +13137,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_response_response(ptr n
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0) #6
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load i32, ptr %8, align 4
@@ -13162,7 +13162,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_response_partition_resp
   br i1 %.not.i, label %dissect_kafka_error_ret.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13214,7 +13214,7 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_topic(ptr nound
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %20, ptr noundef %0, i32 noundef %.0) #6
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -13259,7 +13259,7 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_partition(ptr n
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = sext i16 %27 to i32
   %34 = call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13329,7 +13329,7 @@ define internal noundef i32 @dissect_kafka_join_group_response_member(ptr nounde
   %26 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %26, ptr noundef %0, i32 noundef %.1) #6
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %7, align 4
   %31 = load i32, ptr %8, align 4
@@ -13360,7 +13360,7 @@ define internal noundef i32 @dissect_kafka_leave_group_response_member(ptr nound
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %22
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i16 %19 to i32
   %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13382,7 +13382,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %22
   %32 = load i32, ptr %10, align 4
   %33 = icmp sgt i32 %32, -1
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %7, align 4
   %38 = load i32, ptr %8, align 4
@@ -13420,7 +13420,7 @@ define internal noundef i32 @dissect_kafka_describe_groups_response_group(ptr no
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13468,7 +13468,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
 
 46:                                               ; preds = %.thread
   %47 = load i32, ptr %8, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef %44, i32 noundef 2) #6
   br label %kafka_tvb_get_string.exit
@@ -13534,7 +13534,7 @@ define internal i32 @dissect_kafka_describe_groups_response_member(ptr noundef %
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %7, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @tvb_get_string_enc(ptr noundef %41, ptr noundef %0, i32 noundef %39, i32 noundef %36, i32 noundef 2) #6
   br label %kafka_tvb_get_string.exit
@@ -13547,7 +13547,7 @@ kafka_tvb_get_string.exit:                        ; preds = %34, %38
 43:                                               ; preds = %.thread, %32
   %.154 = phi i32 [ %30, %.thread ], [ %29, %32 ]
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = load i32, ptr %8, align 4
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %48, label %kafka_tvb_get_string.exit49
@@ -13606,7 +13606,7 @@ define internal noundef i32 @dissect_kafka_list_groups_response_group(ptr nounde
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %.0) #6
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %8, align 4
@@ -13672,7 +13672,7 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
   br label %69
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %32, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %42 = load i16, ptr %41, align 8
   %43 = icmp eq i16 %42, -1
   %44 = icmp slt i16 %13, %42
@@ -13680,7 +13680,7 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
   br i1 %or.cond.i71, label %49, label %kafka_is_api_version_supported.exit
 
 kafka_is_api_version_supported.exit:              ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %32, i64 18
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 18
   %46 = load i16, ptr %45, align 2
   %.not76 = icmp sgt i16 %13, %46
   %47 = icmp slt i16 %17, %42
@@ -13693,7 +13693,7 @@ kafka_is_api_version_supported.exit:              ; preds = %40
   br i1 %43, label %50, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %49
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %32, i64 18
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %32, i64 18
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %.thread
 
@@ -13760,7 +13760,7 @@ define internal noundef i32 @dissect_kafka_create_topics_response_topic(ptr noun
   br i1 %.not.i, label %dissect_kafka_error_ret.exit, label %19
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i16 %16 to i32
   %23 = call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13803,7 +13803,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %19
 
 45:                                               ; preds = %.thread56
   %46 = load i32, ptr %8, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %0, i32 noundef %46, i32 noundef %43, i32 noundef 2) #6
   br label %kafka_tvb_get_string.exit
@@ -13860,7 +13860,7 @@ define internal noundef i32 @dissect_kafka_delete_topics_response_topic_error_co
   br i1 %.not.i, label %dissect_kafka_error_ret.exit, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = sext i16 %15 to i32
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -13880,7 +13880,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %18
   %27 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %.0) #6
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %7, align 4
   %32 = load i32, ptr %8, align 4
@@ -13919,7 +13919,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_topic(ptr 
   %23 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %23, ptr noundef %0, i32 noundef %.0) #6
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %6, align 4
   %28 = load i32, ptr %7, align 4
@@ -14052,7 +14052,7 @@ define internal noundef i32 @dissect_kafka_create_acls_response_creation(ptr nou
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %9 to i32
   %16 = call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14091,7 +14091,7 @@ define internal noundef i32 @dissect_kafka_delete_acls_response_filter(ptr nound
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = sext i16 %10 to i32
   %17 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14134,7 +14134,7 @@ define internal noundef i32 @dissect_kafka_delete_acls_response_match(ptr nounde
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %9 to i32
   %16 = call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14204,7 +14204,7 @@ define internal noundef i32 @dissect_kafka_create_partitions_response_topic(ptr 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = sext i16 %15 to i32
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14226,7 +14226,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %18
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0) #6
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %7, align 4
   %34 = load i32, ptr %8, align 4
@@ -14318,7 +14318,7 @@ define internal noundef i32 @dissect_kafka_delete_groups_response_group(ptr noun
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i16 %13 to i32
   %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14383,7 +14383,7 @@ define internal noundef i32 @dissect_kafka_elect_leaders_response_partition(ptr 
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i16 %12 to i32
   %19 = call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6
@@ -14421,7 +14421,7 @@ define internal noundef i32 @dissect_kafka_inc_alter_configs_response_resource(p
   br i1 %.not.i.i, label %dissect_kafka_error.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %9 to i32
   %16 = call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.535) #6

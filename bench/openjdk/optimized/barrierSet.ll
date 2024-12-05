@@ -26,7 +26,7 @@ define hidden void @_ZN10BarrierSet15set_barrier_setEPS_(ptr noundef %0) local_u
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3) #4
   ret void
@@ -35,22 +35,22 @@ define hidden void @_ZN10BarrierSet15set_barrier_setEPS_(ptr noundef %0) local_u
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %6) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10BarrierSet, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %13, label %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit
 
 13:                                               ; preds = %7
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17BarrierSetNMethod, i64 16), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1, ptr %15, align 8
   br label %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit
 
@@ -67,7 +67,7 @@ _ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit: ; preds = %7, %13
 
 _ZL30select_barrier_set_stack_chunkP20BarrierSetStackChunk.exit: ; preds = %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit, %16
   %.0.i8 = phi ptr [ %17, %16 ], [ %5, %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0.i8, ptr %18, align 8
   ret void
 }
@@ -77,7 +77,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10BarrierSet16on_thread_attachEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -85,7 +85,7 @@ define hidden void @_ZN10BarrierSet16on_thread_attachEP6Thread(ptr nocapture nou
 5:                                                ; preds = %2
   %6 = tail call noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %7, ptr %8, align 8
   br label %9
 
@@ -98,10 +98,10 @@ declare noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_Z21gc_barrier_stubs_initv() local_unnamed_addr #0 {
   %1 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   ret void

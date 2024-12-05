@@ -47,7 +47,7 @@ define void @Abc_NtkAutoPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %19 = add i32 %.val50.val, -1
   %or.cond.i = icmp ult i32 %19, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val50.val
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %20, align 4
   store i32 %spec.store.select.i, ptr %18, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -61,7 +61,7 @@ define void @Abc_NtkAutoPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 Vec_PtrAlloc.exit:                                ; preds = %9, %21
   %25 = phi ptr [ %24, %21 ], [ null, %9 ]
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %25, ptr %26, align 8
   %27 = icmp sgt i32 %.val50.val, 0
   br i1 %27, label %.lr.ph, label %.critedge
@@ -71,7 +71,7 @@ Vec_PtrAlloc.exit:                                ; preds = %9, %21
   %.val5263 = phi ptr [ %.val52, %Vec_PtrPush.exit ], [ %.val50, %Vec_PtrAlloc.exit ]
   %28 = getelementptr i8, ptr %.val5263, i64 8
   %.val54.val = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val54.val, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %.val54.val, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %.val55 = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %30, i64 16
@@ -95,7 +95,7 @@ Vec_PtrAlloc.exit:                                ; preds = %9, %21
   br i1 %.not.i.i.i, label %41, label %Vec_AttGrow.exit.i.i
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.val55.val.val.val, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not13.i.i.i = icmp eq ptr %43, null
   %44 = sext i32 %40 to i64
@@ -125,7 +125,7 @@ Vec_PtrAlloc.exit:                                ; preds = %9, %21
   br label %Vec_AttGrow.exit.i.i
 
 Vec_AttGrow.exit.i.i:                             ; preds = %50, %36, %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.val55.val.val.val, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %.val56 to i64
   %61 = getelementptr inbounds ptr, ptr %59, i64 %60
@@ -134,13 +134,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %50, %36, %.lr.ph
   br i1 %63, label %64, label %Abc_ObjGlobalBdd.exit
 
 64:                                               ; preds = %Vec_AttGrow.exit.i.i
-  %65 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.val55.val.val.val, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not18.i.i = icmp eq ptr %66, null
   br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.val55.val.val.val, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.val55.val.val.val, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr %66(ptr noundef %69) #11
   %71 = load ptr, ptr %58, align 8
@@ -265,7 +265,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 120:                                              ; preds = %117
   %121 = load i64, ptr %6, align 8
   %.neg1.i = mul i64 %121, -1000000
-  %122 = getelementptr inbounds i8, ptr %6, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %123 = load i64, ptr %122, align 8
   %.neg.i = sdiv i64 %123, -1000
   %.neg2.i = add i64 %.neg.i, %.neg1.i
@@ -287,7 +287,7 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   %.0655.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.166.i, %144 ]
   %.0674.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.168.i, %144 ]
   %.0693.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.170.i, %144 ]
-  %124 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv.i
   %125 = load ptr, ptr %124, align 8
   %126 = call ptr @Extra_bddSpaceFromFunction(ptr noundef %.val53.val.val.val, ptr noundef %125, ptr noundef %125) #11
   call void @Cudd_Ref(ptr noundef %126) #11
@@ -361,7 +361,7 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
 154:                                              ; preds = %._crit_edge.i
   %155 = load i64, ptr %5, align 8
   %156 = mul nsw i64 %155, 1000000
-  %157 = getelementptr inbounds i8, ptr %5, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %158 = load i64, ptr %157, align 8
   %159 = sdiv i64 %158, 1000
   %160 = add nsw i64 %159, %156

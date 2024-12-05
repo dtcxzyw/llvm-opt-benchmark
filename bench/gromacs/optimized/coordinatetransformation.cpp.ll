@@ -48,8 +48,8 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVector
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -59,16 +59,16 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVector
   %9 = fmul float %7, %8
   store float %9, ptr %.sroa.0.012, align 4
   %10 = load float, ptr %4, align 4
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fmul float %10, %12
   store float %13, ptr %11, align 4
   %14 = load float, ptr %5, align 4
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 8
   %16 = load float, ptr %15, align 4
   %17 = fmul float %14, %16
   store float %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 12
   %.not = icmp eq ptr %18, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -87,20 +87,20 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8Array
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = load float, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load float, ptr %8, align 4
   br label %17
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [3 x float], ptr %0, i64 0, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
   %13 = fcmp une float %12, 0.000000e+00
   %14 = fdiv float 1.000000e+00, %12
   %15 = select i1 %13, float %14, float 1.000000e+00
-  %16 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
   store float %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -111,15 +111,15 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8Array
   %18 = load float, ptr %.sroa.0.017, align 4
   %19 = fmul float %5, %18
   store float %19, ptr %.sroa.0.017, align 4
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fmul float %7, %21
   store float %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 8
   %24 = load float, ptr %23, align 4
   %25 = fmul float %9, %24
   store float %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.017, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 12
   %.not = icmp eq ptr %26, %2
   br i1 %.not, label %._crit_edge, label %17
 
@@ -159,8 +159,8 @@ define void @_ZNK3gmx16ScaleCoordinatesclENS_8ArrayRefINS_11BasicVectorIfEEEE(pt
   br i1 %.not11.i, label %_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
@@ -170,16 +170,16 @@ define void @_ZNK3gmx16ScaleCoordinatesclENS_8ArrayRefINS_11BasicVectorIfEEEE(pt
   %10 = fmul float %8, %9
   store float %10, ptr %.sroa.0.012.i, align 4
   %11 = load float, ptr %5, align 4
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.012.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fmul float %11, %13
   store float %14, ptr %12, align 4
   %15 = load float, ptr %6, align 4
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.012.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 8
   %17 = load float, ptr %16, align 4
   %18 = fmul float %15, %17
   store float %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.012.i, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 12
   %.not.i = icmp eq ptr %19, %2
   br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %7
 
@@ -191,19 +191,19 @@ _ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: 
 define void @_ZNK3gmx16ScaleCoordinatesclEPNS_11BasicVectorIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1) local_unnamed_addr #7 align 2 {
 .lr.ph.i:
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load float, ptr %2, align 4
   %6 = load float, ptr %1, align 4
   %7 = fmul float %5, %6
   store float %7, ptr %1, align 4
   %8 = load float, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load float, ptr %9, align 4
   %11 = fmul float %8, %10
   store float %11, ptr %9, align 4
   %12 = load float, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load float, ptr %13, align 4
   %15 = fmul float %12, %14
   store float %15, ptr %13, align 4
@@ -223,20 +223,20 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefIN
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %6 = load float, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load float, ptr %9, align 4
   br label %18
 
 11:                                               ; preds = %11, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fcmp une float %13, 0.000000e+00
   %15 = fdiv float 1.000000e+00, %13
   %16 = select i1 %14, float %15, float 1.000000e+00
-  %17 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
   store float %16, ptr %17, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -247,15 +247,15 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefIN
   %19 = load float, ptr %.sroa.0.017.i, align 4
   %20 = fmul float %6, %19
   store float %20, ptr %.sroa.0.017.i, align 4
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.017.i, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fmul float %8, %22
   store float %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.017.i, i64 8
   %25 = load float, ptr %24, align 4
   %26 = fmul float %10, %25
   store float %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.017.i, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.017.i, i64 12
   %.not.i = icmp eq ptr %27, %2
   br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %18
 
@@ -273,18 +273,18 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVec
 
 .lr.ph.i:                                         ; preds = %18
   %5 = load float, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load float, ptr %8, align 4
   %10 = load float, ptr %1, align 4
   %11 = fmul float %5, %10
   store float %11, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fmul float %7, %13
   store float %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load float, ptr %15, align 4
   %17 = fmul float %9, %16
   store float %17, ptr %15, align 4
@@ -293,12 +293,12 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVec
 
 18:                                               ; preds = %18, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %20, 0.000000e+00
   %22 = fdiv float 1.000000e+00, %20
   %23 = select i1 %21, float %22, float 1.000000e+00
-  %24 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv.i
   store float %23, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -365,7 +365,7 @@ _ZNSt10unique_ptrIN3gmx16ScaleCoordinates4ImplESt14default_deleteIS2_EEaSEOS5_.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx17TranslateAndScale4ImplC2ERKNS_11BasicVectorIfEES5_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   ret void
 }
@@ -376,11 +376,11 @@ define void @_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicV
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -388,11 +388,11 @@ define void @_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicV
   %10 = load float, ptr %.sroa.0.013, align 4
   %11 = load float, ptr %4, align 4
   %12 = fadd float %10, %11
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 4
   %14 = load float, ptr %13, align 4
   %15 = load float, ptr %5, align 4
   %16 = fadd float %14, %15
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %18 = load float, ptr %17, align 4
   %19 = load float, ptr %6, align 4
   %20 = fadd float %18, %19
@@ -409,7 +409,7 @@ define void @_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicV
   %25 = load float, ptr %8, align 4
   %26 = fmul float %20, %25
   store float %26, ptr %17, align 4
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 12
   %.not = icmp eq ptr %27, %2
   br i1 %.not, label %._crit_edge, label %9
 
@@ -441,11 +441,11 @@ define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(p
   br i1 %.not12.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i
@@ -453,11 +453,11 @@ define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(p
   %11 = load float, ptr %.sroa.0.013.i, align 4
   %12 = load float, ptr %5, align 4
   %13 = fadd float %11, %12
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 4
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %6, align 4
   %17 = fadd float %15, %16
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 8
   %19 = load float, ptr %18, align 4
   %20 = load float, ptr %7, align 4
   %21 = fadd float %19, %20
@@ -474,7 +474,7 @@ define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(p
   %26 = load float, ptr %9, align 4
   %27 = fmul float %21, %26
   store float %27, ptr %18, align 4
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 12
   %.not.i = icmp eq ptr %28, %2
   br i1 %.not.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %10
 
@@ -486,19 +486,19 @@ _ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.e
 define void @_ZNK3gmx17TranslateAndScaleclEPNS_11BasicVectorIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1) local_unnamed_addr #12 align 2 {
 .lr.ph.i:
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 20
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load float, ptr %1, align 4
   %9 = load float, ptr %3, align 4
   %10 = fadd float %8, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = load float, ptr %4, align 4
   %14 = fadd float %12, %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load float, ptr %15, align 4
   %17 = load float, ptr %5, align 4
   %18 = fadd float %16, %17
@@ -585,9 +585,9 @@ _ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EEaSEOS5_.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN3gmx20AffineTransformationC2ENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS2_EEEERKNS_11BasicVectorIfEE(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 36)) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   br label %.lr.ph.i.i.i.i.i
 
@@ -597,8 +597,8 @@ define void @_ZN3gmx20AffineTransformationC2ENS_12basic_mdspanIKfNS_7extentsIJLl
   %.sroa.0.07.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %0, %3 ]
   %6 = load float, ptr %.058.i.i.i.i.i, align 4
   store float %6, ptr %.sroa.0.07.i.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 4
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %9 = add nsw i64 %.09.i.i.i.i.i, -1
   %10 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %10, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit, !llvm.loop !7
@@ -616,9 +616,9 @@ define void @_ZNK3gmx20AffineTransformationclENS_8ArrayRefINS_11BasicVectorIfEEE
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -627,11 +627,11 @@ define void @_ZNK3gmx20AffineTransformationclENS_8ArrayRefINS_11BasicVectorIfEEE
   %8 = load float, ptr %.sroa.0.012, align 4
   %9 = load float, ptr %4, align 8
   %10 = fadd float %8, %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 4
   %12 = load float, ptr %11, align 4
   %13 = load float, ptr %5, align 4
   %14 = fadd float %12, %13
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 8
   %16 = load float, ptr %15, align 4
   %17 = load float, ptr %6, align 8
   %18 = fadd float %16, %17
@@ -639,7 +639,7 @@ define void @_ZNK3gmx20AffineTransformationclENS_8ArrayRefINS_11BasicVectorIfEEE
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %14, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %.sroa.0.012, align 4
   store float %18, ptr %15, align 4
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 12
   %.not = icmp eq ptr %19, %2
   br i1 %.not, label %._crit_edge, label %7
 
@@ -652,18 +652,18 @@ declare void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx20AffineTransformationclEPNS_11BasicVectorIfEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
 .lr.ph.i:
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1)
   %5 = load float, ptr %1, align 4
   %6 = load float, ptr %2, align 8
   %7 = fadd float %5, %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %10 = load float, ptr %3, align 4
   %11 = fadd float %9, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4
   %14 = load float, ptr %4, align 8
   %15 = fadd float %13, %14

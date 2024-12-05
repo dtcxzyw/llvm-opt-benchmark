@@ -35,7 +35,7 @@ declare void @llvm.trap() #0
 define void @_ZN6Assimp11BaseProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11BaseProcessE, i64 16), ptr %this, align 8
-  %shared = getelementptr inbounds i8, ptr %this, i64 8
+  %shared = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shared, i8 0, i64 16, i1 false)
   ret void
 }
@@ -61,28 +61,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pImp, align 8
-  %mScene = getelementptr inbounds i8, ptr %0, i64 80
+  %mScene = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %mScene, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %try.cont, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call noundef ptr @_ZNK6Assimp8Importer18GetProgressHandlerEv(ptr noundef nonnull align 8 dereferenceable(8) %pImp)
-  %progress = getelementptr inbounds i8, ptr %this, i64 16
+  %progress = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5, ptr %progress, align 8
   %cmp7 = icmp eq ptr %call5, null
   br i1 %cmp7, label %try.cont, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %pImp)
   %3 = load ptr, ptr %pImp, align 8
-  %mScene11 = getelementptr inbounds i8, ptr %3, i64 80
+  %mScene11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load ptr, ptr %mScene11, align 8
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 40
   %5 = load ptr, ptr %vfn13, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %4)
           to label %try.cont unwind label %lpad
@@ -99,11 +99,11 @@ catch:                                            ; preds = %lpad
   %9 = extractvalue { ptr, i32 } %6, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #13
   %vtable15 = load ptr, ptr %10, align 8
-  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
+  %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 16
   %11 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   %12 = load ptr, ptr %pImp, align 8
-  %mErrorString = getelementptr inbounds i8, ptr %12, i64 88
+  %mErrorString = getelementptr inbounds nuw i8, ptr %12, i64 88
   %call22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mErrorString, ptr noundef %call17)
           to label %invoke.cont21 unwind label %lpad18
 
@@ -113,13 +113,13 @@ invoke.cont21:                                    ; preds = %catch
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   %13 = load ptr, ptr %pImp, align 8
-  %mErrorString27 = getelementptr inbounds i8, ptr %13, i64 88
+  %mErrorString27 = getelementptr inbounds nuw i8, ptr %13, i64 88
   invoke void @_ZN6Assimp6Logger5errorIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call24, ptr noundef nonnull align 8 dereferenceable(32) %mErrorString27)
           to label %invoke.cont28 unwind label %lpad18
 
 invoke.cont28:                                    ; preds = %invoke.cont23
   %14 = load ptr, ptr %pImp, align 8
-  %mScene31 = getelementptr inbounds i8, ptr %14, i64 80
+  %mScene31 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %15 = load ptr, ptr %mScene31, align 8
   %isnull = icmp eq ptr %15, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -132,7 +132,7 @@ delete.notnull:                                   ; preds = %invoke.cont28
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont28
   %16 = phi ptr [ %.pre, %delete.notnull ], [ %14, %invoke.cont28 ]
-  %mScene34 = getelementptr inbounds i8, ptr %16, i64 80
+  %mScene34 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr null, ptr %mScene34, align 8
   tail call void @__cxa_end_catch()
   br label %try.cont

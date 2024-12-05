@@ -583,7 +583,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not56 = icmp eq ptr %8, null
   br i1 %.not56, label %9, label %10
@@ -593,7 +593,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
 
 10:                                               ; preds = %9, %6
   %.0 = phi ptr [ %3, %6 ], [ null, %9 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_append_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.190) #2
   %13 = load i32, ptr @dissect_bssmap_le.tap_current, align 4
@@ -613,7 +613,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not57, label %29, label %22
 
 22:                                               ; preds = %10
-  %23 = getelementptr inbounds i8, ptr %.0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not58 = icmp eq ptr %24, null
   br i1 %.not58, label %25, label %29
@@ -653,7 +653,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   %.051 = phi ptr [ %35, %32 ], [ %42, %36 ]
   %47 = load ptr, ptr @dissect_bssmap_le.tap_p, align 8
   store i8 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 %19, ptr %48, align 1
   %49 = load i32, ptr @gsm_a_tap, align 4
   call void @tap_queue_packet(i32 noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %47) #2

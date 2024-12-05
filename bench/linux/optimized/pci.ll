@@ -451,7 +451,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @pci_reset_supported(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load i8, ptr %2, align 8
   %4 = icmp ne i8 %3, 0
   ret i1 %4
@@ -485,10 +485,10 @@ define internal noundef i32 @pcie_port_pm_setup(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local zeroext i8 @pci_bus_max_busnr(ptr noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %.loopexit, label %.preheader
@@ -553,22 +553,22 @@ declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 536871424
   %9 = icmp eq i64 %8, 512
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.55, i32 noundef %1, ptr noundef %5) #28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.55, i32 noundef %1, ptr noundef %5) #28
   br label %19
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %5, align 8
   %16 = add i64 %14, 1
@@ -583,22 +583,22 @@ define dso_local ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef %1) #5 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_ioremap_wc_bar(ptr noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 536871424
   %9 = icmp eq i64 %8, 512
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.55, i32 noundef %1, ptr noundef %5) #28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.55, i32 noundef %1, ptr noundef %5) #28
   br label %19
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %5, align 8
   %16 = add i64 %14, 1
@@ -615,9 +615,9 @@ define dso_local ptr @pci_ioremap_wc_bar(ptr noundef %0, i32 noundef %1) #5 alig
 define dso_local zeroext i8 @pci_find_next_capability(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #5 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = add i8 %1, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -673,11 +673,11 @@ define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly 
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 73
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %11 = load i8, ptr %10, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #27
   store i16 0, ptr %5, align 2, !annotation !8
@@ -854,7 +854,7 @@ declare dso_local i32 @pci_bus_read_config_byte(ptr noundef, i32 noundef, i32 no
 define dso_local zeroext i16 @pci_find_next_ext_capability(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #5 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
-  %5 = getelementptr inbounds i8, ptr %0, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 257
   br i1 %7, label %.loopexit, label %8
@@ -912,7 +912,7 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 define dso_local zeroext range(i16 0, 4093) i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 257
   br i1 %6, label %.loopexit, label %7
@@ -966,7 +966,7 @@ define dso_local i64 @pci_get_dsn(ptr noundef %0) #5 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 257
   br i1 %6, label %.thread, label %7
@@ -1053,9 +1053,9 @@ define internal fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 nou
   %9 = and i32 %2, -33
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %10, i32 224, i32 248
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %1, ptr %6, align 1
@@ -1180,11 +1180,11 @@ define internal fastcc zeroext i8 @__pci_find_next_ht_cap(ptr noundef %0, i8 nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i8 @pci_find_ht_capability(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 73
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %9 = load i8, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
   store i16 0, ptr %3, align 2, !annotation !8
@@ -1224,13 +1224,13 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_vsec_capability(ptr no
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
-  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i16, ptr %6, align 4
   %8 = icmp eq i16 %7, %1
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 912
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 912
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   store i32 0, ptr %4, align 4, !annotation !8
   %11 = load i32, ptr %10, align 8
@@ -1323,7 +1323,7 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_dvsec_capability(ptr n
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
-  %8 = getelementptr inbounds i8, ptr %0, i64 912
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 257
   br i1 %10, label %.thread, label %11
@@ -1459,12 +1459,12 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_dvsec_capability(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_find_parent_resource(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @pci_bus_resource_n(ptr noundef %4, i32 noundef 0) #27
   %6 = icmp eq ptr %5, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %39, %2
@@ -1474,7 +1474,7 @@ define dso_local ptr @pci_find_parent_resource(ptr nocapture noundef readonly %0
   br i1 %10, label %39, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %7, align 8
   %17 = xor i64 %16, %15
@@ -1492,7 +1492,7 @@ define dso_local ptr @pci_find_parent_resource(ptr nocapture noundef readonly %0
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = load i64, ptr %8, align 8
   %31 = icmp ult i64 %29, %30
@@ -1525,9 +1525,9 @@ declare dso_local ptr @pci_bus_resource_n(ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 6:                                                ; preds = %9, %14, %24, %27
@@ -1543,7 +1543,7 @@ define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr noc
   br i1 %13, label %6, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %4, align 8
   %18 = xor i64 %17, %16
@@ -1560,7 +1560,7 @@ define dso_local noundef ptr @pci_find_resource(ptr noundef readonly %0, ptr noc
   br i1 %26, label %6, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = load i64, ptr %5, align 8
   %31 = icmp ult i64 %29, %30
@@ -1577,7 +1577,7 @@ define dso_local ptr @pci_resource_name(ptr nocapture noundef readonly %0, i32 n
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 73
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 2
   %8 = select i1 %7, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
@@ -1644,12 +1644,12 @@ define dso_local void @pci_update_current_state(ptr noundef %0, i32 noundef %1) 
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 4, ptr %7, align 8
   br label %24
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %22, label %12
@@ -1665,13 +1665,13 @@ define dso_local void @pci_update_current_state(ptr noundef %0, i32 noundef %1) 
   %18 = and i16 %16, 3
   %19 = select i1 %17, i16 4, i16 %18
   %20 = zext nneg i16 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
   br label %24
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %1, ptr %23, align 8
   br label %24
 
@@ -1683,7 +1683,7 @@ define dso_local void @pci_update_current_state(ptr noundef %0, i32 noundef %1) 
 define dso_local void @pci_refresh_power_state(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
   tail call void @acpi_pci_refresh_power_state(ptr noundef %0) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @acpi_pci_get_power_state(ptr noundef %0) #27
   %6 = icmp eq i32 %5, 4
@@ -1694,7 +1694,7 @@ define dso_local void @pci_refresh_power_state(ptr noundef %0) local_unnamed_add
   br label %22
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %21, label %12
@@ -1735,12 +1735,12 @@ define dso_local i32 @pci_platform_power_transition(ptr noundef %0, i32 noundef 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 4, ptr %10, align 8
   br label %33
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 156
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %25, label %15
@@ -1756,24 +1756,24 @@ define dso_local i32 @pci_platform_power_transition(ptr noundef %0, i32 noundef 
   %21 = and i16 %19, 3
   %22 = select i1 %20, i16 4, i16 %21
   %23 = zext nneg i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
   br label %33
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %1, ptr %26, align 8
   br label %33
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 156
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %29 = load i8, ptr %28, align 4
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %32, align 8
   br label %33
 
@@ -1799,8 +1799,8 @@ declare dso_local void @pci_walk_bus(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pci_resume_one(ptr noundef %0, ptr nocapture readnone %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = tail call i32 @__pm_runtime_resume(ptr noundef %3, i32 noundef 1) #27
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %3, i32 noundef 1) #27
   ret i32 0
 }
 
@@ -1809,7 +1809,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
   %3 = tail call i32 @acpi_pci_set_power_state(ptr noundef %0, i32 noundef 0) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %13
@@ -1817,7 +1817,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
 7:                                                ; preds = %1
   %8 = tail call i32 @acpi_pci_get_power_state(ptr noundef %0) #27
   %9 = icmp eq i32 %8, 5
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %7
@@ -1838,14 +1838,14 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   %24 = sext i32 %23 to i64
   %25 = getelementptr [0 x ptr], ptr @pci_power_names, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %20, ptr noundef nonnull @.str.17, ptr noundef %26) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %20, ptr noundef nonnull @.str.17, ptr noundef %26) #28
   store i32 4, ptr %21, align 8
   br label %66
 
@@ -1855,7 +1855,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 2
   br i1 %33, label %34, label %38
@@ -1879,7 +1879,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   br i1 %29, label %46, label %61
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %48 = load i32, ptr %47, align 8
   %49 = load i32, ptr @pci_pm_d3hot_delay, align 4
   %50 = call i32 @llvm.umax.i32(i32 %48, i32 %49)
@@ -1907,7 +1907,7 @@ define dso_local range(i32 -5, 2) i32 @pci_power_up(ptr noundef %0) local_unname
   br label %64
 
 64:                                               ; preds = %63, %61, %52, %46, %38
-  %65 = getelementptr inbounds i8, ptr %0, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %65, align 8
   br label %66
 
@@ -1941,7 +1941,7 @@ define dso_local void @pci_bus_set_current_state(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @__pci_dev_set_current_state(ptr nocapture noundef writeonly initializes((152, 156)) %0, ptr nocapture noundef readonly %1) #10 align 16 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %3, ptr %4, align 8
   ret i32 0
 }
@@ -1971,15 +1971,15 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %18, i64 157
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 157
   %22 = load i24, ptr %21, align 1
   %23 = and i24 %22, 512
   %24 = icmp ne i24 %23, 0
@@ -1987,7 +1987,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
 
 25:                                               ; preds = %20, %14
   %26 = phi i1 [ %24, %20 ], [ false, %14 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 157
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %28 = load i24, ptr %27, align 1
   %29 = and i24 %28, 512
   %30 = icmp ne i24 %29, 0
@@ -1995,19 +1995,19 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %31, label %.thread14, label %32
 
 32:                                               ; preds = %25, %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %.thread14, label %42
 
 .thread15:                                        ; preds = %9
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.thread14, label %.thread16
 
 .thread:                                          ; preds = %3
-  %39 = getelementptr inbounds i8, ptr %0, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 4
   br i1 %41, label %.thread14, label %.thread8.thread
@@ -2031,7 +2031,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br label %82
 
 51:                                               ; preds = %.thread16
-  %52 = getelementptr inbounds i8, ptr %0, i64 156
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %54, 4
@@ -2049,13 +2049,13 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %66 = load i32, ptr %44, align 8
   %67 = add i32 %66, 1
   %68 = sext i32 %67 to i64
   %69 = getelementptr [0 x ptr], ptr @pci_power_names, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %65, ptr noundef nonnull @.str.56, ptr noundef %70) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %65, ptr noundef nonnull @.str.56, ptr noundef %70) #28
   br label %.loopexit
 
 71:                                               ; preds = %51
@@ -2070,9 +2070,9 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %71, %64, %61
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %82, label %81
@@ -2091,14 +2091,14 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %85, label %.thread8, label %.thread9
 
 .thread8:                                         ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 1694
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, 2
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %94, label %.thread14
 
 .thread8.thread:                                  ; preds = %.thread
-  %90 = getelementptr inbounds i8, ptr %0, i64 1694
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 2
   %93 = icmp eq i16 %92, 0
@@ -2121,13 +2121,13 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br i1 %102, label %.thread12.sink.split, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 156
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %105 = load i8, ptr %104, align 4
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %.thread12.sink.split, label %112
 
 107:                                              ; preds = %.thread17
-  %108 = getelementptr inbounds i8, ptr %0, i64 156
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %111, label %.thread14
@@ -2156,7 +2156,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br label %.thread12
 
 .thread12:                                        ; preds = %.thread12.sink.split, %112
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load ptr, ptr %121, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 4, ptr %4, align 4
@@ -2194,7 +2194,7 @@ __pci_bus_set_current_state.exit:                 ; preds = %.thread12, %125, %1
   br label %.thread14
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %0, i64 156
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %136 = load i8, ptr %135, align 4
   %137 = icmp eq i8 %136, 0
   br i1 %137, label %147, label %138
@@ -2219,7 +2219,7 @@ __pci_bus_set_current_state.exit:                 ; preds = %.thread12, %125, %1
   br label %.thread14
 
 148:                                              ; preds = %.thread9
-  %149 = getelementptr inbounds i8, ptr %0, i64 156
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %150 = load i8, ptr %149, align 4
   %151 = icmp eq i8 %150, 0
   br i1 %151, label %152, label %.thread14
@@ -2242,20 +2242,20 @@ define dso_local range(i32 -22, 1) i32 @pci_set_power_state_locked(ptr noundef %
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @pci_find_saved_cap(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #11 align 16 {
   %3 = zext i8 %1 to i16
-  %4 = getelementptr inbounds i8, ptr %0, i64 1768
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %15
   %7 = phi ptr [ %16, %15 ], [ %5, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 18
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %9 = load i8, ptr %8, align 2, !range !21, !noundef !22
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i16, ptr %12, align 8
   %14 = icmp eq i16 %13, %3
   br i1 %14, label %.loopexit, label %15
@@ -2272,20 +2272,20 @@ define dso_local ptr @pci_find_saved_cap(ptr nocapture noundef readonly %0, i8 n
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @pci_find_saved_ext_cap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #11 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1768
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %14
   %6 = phi ptr [ %15, %14 ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %8 = load i8, ptr %7, align 2, !range !21, !noundef !22
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, %1
   br i1 %13, label %.loopexit, label %14
@@ -2304,21 +2304,21 @@ define dso_local ptr @pci_find_saved_ext_cap(ptr nocapture noundef readonly %0, 
 define dso_local void @pci_bridge_reconfigure_ltr(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 178
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 178
   %14 = load i8, ptr %13, align 2
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
@@ -2347,7 +2347,7 @@ declare dso_local i32 @pcie_capability_read_dword(ptr noundef, i32 noundef, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1704
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %4
 
 4:                                                ; preds = %4, %1
@@ -2361,30 +2361,30 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   br i1 %11, label %12, label %4, !llvm.loop !24
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1689
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %14 = load i40, ptr %13, align 1
   %15 = or i40 %14, 2097152
   store i40 %15, ptr %13, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 100
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %17 = load i8, ptr %16, align 4
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %50, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 1768
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit25, label %.preheader24
 
 .preheader24:                                     ; preds = %19, %31
   %23 = phi ptr [ %32, %31 ], [ %21, %19 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 18
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 18
   %25 = load i8, ptr %24, align 2, !range !21, !noundef !22
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.preheader24
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load i16, ptr %28, align 8
   %30 = icmp eq i16 %29, 16
   br i1 %30, label %34, label %31
@@ -2395,8 +2395,8 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   br i1 %33, label %.loopexit25, label %.preheader24, !llvm.loop !23
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %23, i64 24
-  %36 = tail call i32 @pcie_capability_read_word(ptr noundef %0, i32 noundef 8, ptr noundef %35) #27
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %36 = tail call i32 @pcie_capability_read_word(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %35) #27
   %37 = getelementptr i8, ptr %23, i64 26
   %38 = tail call i32 @pcie_capability_read_word(ptr noundef %0, i32 noundef 16, ptr noundef %37) #27
   %39 = getelementptr i8, ptr %23, i64 28
@@ -2412,8 +2412,8 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   br label %50
 
 .loopexit25:                                      ; preds = %31, %19
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %49, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.pci_save_pcie_state) #28
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %49, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.pci_save_pcie_state) #28
   br label %128
 
 50:                                               ; preds = %34, %12
@@ -2423,20 +2423,20 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   br i1 %53, label %74, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 1768
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit23, label %.preheader22
 
 .preheader22:                                     ; preds = %54, %66
   %58 = phi ptr [ %67, %66 ], [ %56, %54 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 18
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 18
   %60 = load i8, ptr %59, align 2, !range !21, !noundef !22
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.preheader22
-  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %64 = load i16, ptr %63, align 8
   %65 = icmp eq i16 %64, 7
   br i1 %65, label %69, label %66
@@ -2448,13 +2448,13 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
 
 69:                                               ; preds = %62
   %70 = add nuw nsw i32 %52, 2
-  %71 = getelementptr inbounds i8, ptr %58, i64 24
-  %72 = tail call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %70, ptr noundef %71) #27
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %72 = tail call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %70, ptr noundef nonnull %71) #27
   br label %74
 
 .loopexit23:                                      ; preds = %66, %54
-  %73 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %73, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.pci_save_pcix_state) #28
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %73, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.pci_save_pcix_state) #28
   br label %128
 
 74:                                               ; preds = %69, %50
@@ -2465,7 +2465,7 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   store i32 0, ptr %2, align 4, !annotation !8
-  %78 = getelementptr inbounds i8, ptr %0, i64 912
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %79 = load i32, ptr %78, align 8
   %80 = icmp slt i32 %79, 257
   br i1 %80, label %.thread18, label %81
@@ -2512,20 +2512,20 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
 
 106:                                              ; preds = %91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
-  %107 = getelementptr inbounds i8, ptr %0, i64 1768
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %106, %118
   %110 = phi ptr [ %119, %118 ], [ %108, %106 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 18
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 18
   %112 = load i8, ptr %111, align 2, !range !21, !noundef !22
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %118, label %114
 
 114:                                              ; preds = %.preheader
-  %115 = getelementptr inbounds i8, ptr %110, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %116 = load i16, ptr %115, align 8
   %117 = icmp eq i16 %116, 24
   br i1 %117, label %122, label %118
@@ -2536,15 +2536,15 @@ define dso_local i32 @pci_save_state(ptr noundef %0) #5 align 16 {
   br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %118, %106
-  %121 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %121, ptr noundef nonnull @.str.60) #28
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %121, ptr noundef nonnull @.str.60) #28
   br label %126
 
 122:                                              ; preds = %114
-  %123 = getelementptr inbounds i8, ptr %110, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %narrow = add nuw nsw i16 %88, 4
   %124 = zext nneg i16 %narrow to i32
-  %125 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %124, ptr noundef %123) #27
+  %125 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %124, ptr noundef nonnull %123) #27
   br label %126
 
 126:                                              ; preds = %.thread18, %122, %.loopexit, %74
@@ -2572,27 +2572,27 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1689
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %14 = load i40, ptr %13, align 1
   %15 = and i40 %14, 2097152
   %16 = icmp eq i40 %15, 0
   br i1 %16, label %312, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 1768
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit45, label %.preheader44
 
 .preheader44:                                     ; preds = %17, %29
   %21 = phi ptr [ %30, %29 ], [ %19, %17 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 18
   %23 = load i8, ptr %22, align 2, !range !21, !noundef !22
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.preheader44
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = icmp eq i16 %27, 24
   br i1 %28, label %.loopexit45, label %29
@@ -2606,7 +2606,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
   %32 = phi ptr [ null, %17 ], [ null, %29 ], [ %21, %25 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #27
   store i32 0, ptr %12, align 4, !annotation !8
-  %33 = getelementptr inbounds i8, ptr %0, i64 912
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %34 = load i32, ptr %33, align 8
   %35 = icmp slt i32 %34, 257
   br i1 %35, label %.thread, label %36
@@ -2657,7 +2657,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
   br i1 %.not, label %67, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %32, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %narrow = add nuw nsw i16 %43, 4
   %64 = zext nneg i16 %narrow to i32
   %65 = load i32, ptr %63, align 4
@@ -2671,13 +2671,13 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 
 .preheader42:                                     ; preds = %67, %78
   %70 = phi ptr [ %79, %78 ], [ %68, %67 ]
-  %71 = getelementptr inbounds i8, ptr %70, i64 18
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 18
   %72 = load i8, ptr %71, align 2, !range !21, !noundef !22
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %.preheader42
-  %75 = getelementptr inbounds i8, ptr %70, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %76 = load i16, ptr %75, align 8
   %77 = icmp eq i16 %76, 16
   br i1 %77, label %81, label %78
@@ -2690,21 +2690,21 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 81:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #27
   store i32 0, ptr %11, align 4, !annotation !8
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.thread26, label %87
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %83, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.thread26, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %89, i64 178
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 178
   %93 = load i8, ptr %92, align 2
   %94 = and i8 %93, 1
   %95 = icmp eq i8 %94, 0
@@ -2723,7 +2723,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 
 .thread26:                                        ; preds = %81, %101, %96, %91, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #27
-  %103 = getelementptr inbounds i8, ptr %70, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %104 = load i16, ptr %103, align 2
   %105 = call i32 @pcie_capability_write_word(ptr noundef %0, i32 noundef 8, i16 noundef zeroext %104) #27
   %106 = getelementptr i8, ptr %70, i64 26
@@ -2811,7 +2811,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
   br i1 %158, label %.loopexit40, label %159
 
 159:                                              ; preds = %151
-  %160 = getelementptr inbounds i8, ptr %0, i64 920
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %161
 
 161:                                              ; preds = %161, %159
@@ -2824,7 +2824,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr %struct.resource, ptr %160, i64 %168
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %172 = load i64, ptr %171, align 8
   %173 = sub i64 %172, %170
   %174 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %173, i32 -1) #29, !srcloc !25
@@ -2846,9 +2846,9 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 
 .loopexit40:                                      ; preds = %161, %.thread28, %151
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
-  %188 = getelementptr inbounds i8, ptr %0, i64 73
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %189 = load i8, ptr %188, align 1
-  %190 = getelementptr inbounds i8, ptr %0, i64 1704
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   switch i8 %189, label %.preheader29 [
     i8 0, label %.preheader35
     i8 1, label %.preheader39
@@ -3028,13 +3028,13 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 
 .preheader:                                       ; preds = %.loopexit30, %295
   %287 = phi ptr [ %296, %295 ], [ %285, %.loopexit30 ]
-  %288 = getelementptr inbounds i8, ptr %287, i64 18
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 18
   %289 = load i8, ptr %288, align 2, !range !21, !noundef !22
   %290 = icmp eq i8 %289, 0
   br i1 %290, label %291, label %295
 
 291:                                              ; preds = %.preheader
-  %292 = getelementptr inbounds i8, ptr %287, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %293 = load i16, ptr %292, align 8
   %294 = icmp eq i16 %293, 7
   br i1 %294, label %.loopexit, label %295
@@ -3054,7 +3054,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #5 align 16 {
 
 303:                                              ; preds = %.loopexit
   %304 = zext i8 %299 to i32
-  %305 = getelementptr inbounds i8, ptr %298, i64 24
+  %305 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %306 = add nuw nsw i32 %304, 2
   %307 = load i16, ptr %305, align 2
   %308 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef %306, i16 noundef zeroext %307) #27
@@ -3106,7 +3106,7 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
   store i16 0, ptr %4, align 2, !annotation !8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #27
   store i16 0, ptr %5, align 2, !annotation !8
-  %11 = getelementptr inbounds i8, ptr %0, i64 2034
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 0
   br i1 %13, label %36, label %14
@@ -3126,7 +3126,7 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %0, i64 1689
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %27 = load i40, ptr %26, align 1
   %28 = and i40 %27, 402653184
   %29 = icmp eq i40 %28, 0
@@ -3203,14 +3203,14 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
   br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 2034
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %68, ptr noundef nonnull @.str.62) #28
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %68, ptr noundef nonnull @.str.62) #28
   br label %.critedge
 
 69:                                               ; preds = %63
@@ -3221,8 +3221,8 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
   %74 = and i16 %73, -45
   store i16 %74, ptr %3, align 2
   %75 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef %71, i16 noundef zeroext %74) #27
-  %76 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %76, ptr noundef nonnull @.str.63) #28
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %76, ptr noundef nonnull @.str.63) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %56, %46, %48, %40, %69, %67, %60, %37
@@ -3233,14 +3233,14 @@ define internal fastcc void @pci_enable_acs(ptr noundef %0) unnamed_addr #5 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias ptr @pci_store_saved_state(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1689
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 2097152
   %5 = icmp eq i40 %4, 0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1768
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit3, label %.preheader
@@ -3248,7 +3248,7 @@ define dso_local noalias ptr @pci_store_saved_state(ptr nocapture noundef readon
 .preheader:                                       ; preds = %6, %.preheader
   %10 = phi ptr [ %17, %.preheader ], [ %8, %6 ]
   %11 = phi i64 [ %16, %.preheader ], [ 72, %6 ]
-  %12 = getelementptr inbounds i8, ptr %10, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = add i64 %11, 8
@@ -3264,25 +3264,25 @@ define dso_local noalias ptr @pci_store_saved_state(ptr nocapture noundef readon
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.loopexit3
-  %23 = getelementptr inbounds i8, ptr %0, i64 1704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef align 8 dereferenceable(64) %23, i64 64, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
   %24 = load ptr, ptr %7, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 64
   br label %28
 
 28:                                               ; preds = %28, %26
   %29 = phi ptr [ %37, %28 ], [ %24, %26 ]
   %30 = phi ptr [ %36, %28 ], [ %27, %26 ]
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
-  %32 = getelementptr inbounds i8, ptr %29, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 %30, ptr noundef align 8 %31, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 %30, ptr noundef nonnull align 8 dereferenceable(1) %31, i64 %35, i1 false)
   %36 = getelementptr i8, ptr %30, i64 %35
   %37 = load ptr, ptr %29, align 8
   %38 = icmp eq ptr %37, null
@@ -3298,7 +3298,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocapture noundef %0, ptr noundef readonly %1) #13 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1689
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %4 = load i40, ptr %3, align 1
   %5 = and i40 %4, -2097153
   store i40 %5, ptr %3, align 1
@@ -3306,16 +3306,16 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocaptu
   br i1 %6, label %.thread7, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 1768
-  %10 = getelementptr inbounds i8, ptr %1, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
@@ -3328,19 +3328,19 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocaptu
   br i1 %19, label %.thread7, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %16, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %22 = load i8, ptr %21, align 2, !range !21, !noundef !22
   br label %23
 
 23:                                               ; preds = %32, %20
   %24 = phi ptr [ %18, %20 ], [ %33, %32 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 18
   %26 = load i8, ptr %25, align 2, !range !21, !noundef !22
   %27 = icmp eq i8 %26, %22
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i16, ptr %29, align 8
   %31 = icmp eq i16 %30, %17
   br i1 %31, label %35, label %32
@@ -3351,20 +3351,20 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocaptu
   br i1 %34, label %.thread7, label %23, !llvm.loop !23
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %24, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %14
   br i1 %38, label %39, label %.thread7
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %24, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %41 = getelementptr i8, ptr %16, i64 8
   %42 = zext i32 %14 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 4 %41, i64 %42, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 4 %41, i64 %42, i1 false)
   %43 = load i32, ptr %15, align 4
   %44 = zext i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
@@ -3387,7 +3387,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_saved_state(ptr nocaptu
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(ptr nocapture noundef %0, ptr nocapture noundef %1) #5 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1689
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %5 = load i40, ptr %4, align 1
   %6 = and i40 %5, -2097153
   store i40 %6, ptr %4, align 1
@@ -3395,16 +3395,16 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   br i1 %7, label %.thread7, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 1768
-  %11 = getelementptr inbounds i8, ptr %3, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %3, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
@@ -3417,19 +3417,19 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   br i1 %20, label %.thread7, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %17, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %23 = load i8, ptr %22, align 2, !range !21, !noundef !22
   br label %24
 
 24:                                               ; preds = %33, %21
   %25 = phi ptr [ %19, %21 ], [ %34, %33 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 18
   %27 = load i8, ptr %26, align 2, !range !21, !noundef !22
   %28 = icmp eq i8 %27, %23
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load i16, ptr %30, align 8
   %32 = icmp eq i16 %31, %18
   br i1 %32, label %36, label %33
@@ -3440,20 +3440,20 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_load_and_free_saved_state(pt
   br i1 %35, label %.thread7, label %24, !llvm.loop !23
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %25, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %15
   br i1 %39, label %40, label %.thread7
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %25, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %42 = getelementptr i8, ptr %17, i64 8
   %43 = zext i32 %15 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 4 %42, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 4 %42, i64 %43, i1 false)
   %44 = load i32, ptr %16, align 4
   %45 = zext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
@@ -3490,7 +3490,7 @@ declare dso_local i32 @pci_enable_resources(ptr noundef, i32 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @pci_reenable_device(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %7, label %5
@@ -3517,15 +3517,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @do_pci_enable_device(ptr n
   br i1 %8, label %39, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -3541,7 +3541,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @do_pci_enable_device(ptr n
 
 22:                                               ; preds = %.thread
   tail call void @pci_fixup_device(i32 noundef 3, ptr noundef %0) #27
-  %23 = getelementptr inbounds i8, ptr %0, i64 1689
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %24 = load i40, ptr %23, align 1
   %25 = and i40 %24, 12288
   %26 = icmp eq i40 %25, 0
@@ -3583,7 +3583,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pci_enable_device_io(ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(ptr noundef %0, i64 noundef range(i64 256, 769) %1) unnamed_addr #5 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @acpi_pci_get_power_state(ptr noundef %0) #27
   %7 = icmp eq i32 %6, 4
@@ -3594,7 +3594,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br label %23
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %22, label %13
@@ -3619,22 +3619,22 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br label %23
 
 23:                                               ; preds = %22, %13, %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1696
-  %25 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 1, ptr elementtype(i32) %24) #27, !srcloc !35
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %25 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #27, !srcloc !35
   %26 = add i32 %25, 1
   %27 = icmp sgt i32 %26, 1
   br i1 %27, label %69, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
@@ -3644,7 +3644,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br label %.thread
 
 .thread:                                          ; preds = %28, %38, %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 920
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %40
 
 40:                                               ; preds = %40, %.thread
@@ -3687,7 +3687,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %65
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, ptr elementtype(i32) %24) #27, !srcloc !38
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, ptr nonnull elementtype(i32) %24) #27, !srcloc !38
   br label %69
 
 69:                                               ; preds = %68, %65, %23
@@ -3709,8 +3709,8 @@ define dso_local range(i32 -2147483648, 1) i32 @pci_enable_device(ptr noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @pcim_enable_device(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
-  %3 = tail call ptr @devres_find(ptr noundef %2, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %3 = tail call ptr @devres_find(ptr noundef nonnull %2, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.thread4
 
@@ -3720,7 +3720,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcim_enable_device(ptr noundef %
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @devres_get(ptr noundef %2, ptr noundef nonnull %6, ptr noundef null, ptr noundef null) #27
+  %9 = tail call ptr @devres_get(ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef null, ptr noundef null) #27
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %.thread4, !prof !39
 
@@ -3737,7 +3737,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcim_enable_device(ptr noundef %
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 1689
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %20 = load i40, ptr %19, align 1
   %21 = or i40 %20, 262144
   store i40 %21, ptr %19, align 1
@@ -3753,15 +3753,15 @@ define dso_local range(i32 -2147483648, 1) i32 @pcim_enable_device(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcim_pin_device(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1689
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 262144
   %5 = icmp eq i40 %4, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = tail call ptr @devres_find(ptr noundef %7, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = tail call ptr @devres_find(ptr noundef nonnull %7, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
@@ -3817,7 +3817,7 @@ define weak dso_local void @pcibios_penalize_isa_irq(i32 noundef %0, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_disable_enabled_device(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 1696
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %15, label %6
@@ -3849,15 +3849,15 @@ define dso_local void @pci_disable_enabled_device(ptr noundef %0) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_disable_device(ptr noundef %0) #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 1689
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %4 = load i40, ptr %3, align 1
   %5 = and i40 %4, 262144
   %6 = icmp eq i40 %5, 0
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
-  %9 = tail call ptr @devres_find(ptr noundef %8, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %9 = tail call ptr @devres_find(ptr noundef nonnull %8, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
 
@@ -3868,7 +3868,7 @@ define dso_local void @pci_disable_device(ptr noundef %0) #5 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %1, %11, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 1696
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %15 = load volatile i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   %17 = load i1, ptr @pci_disable_device.__already_done, align 1
@@ -3878,9 +3878,9 @@ define dso_local void @pci_disable_device(ptr noundef %0) #5 align 16 {
 19:                                               ; preds = %.thread
   store i1 true, ptr @pci_disable_device.__already_done, align 1
   tail call void asm sideeffect "408: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 408b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 408) #27, !srcloc !44
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
-  %21 = tail call ptr @dev_driver_string(ptr noundef %20) #27
-  %22 = getelementptr inbounds i8, ptr %0, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %21 = tail call ptr @dev_driver_string(ptr noundef nonnull %20) #27
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -3899,7 +3899,7 @@ define dso_local void @pci_disable_device(ptr noundef %0) #5 align 16 {
   br label %29
 
 29:                                               ; preds = %27, %.thread
-  %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 -1, ptr elementtype(i32) %14) #27, !srcloc !35
+  %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #27, !srcloc !35
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %43
 
@@ -3957,7 +3957,7 @@ define dso_local void @pcie_clear_root_pme_status(ptr noundef %0) local_unnamed_
 define dso_local zeroext i1 @pci_check_pme_status(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %17, label %6
@@ -4005,7 +4005,7 @@ define internal noundef i32 @pci_pme_wakeup(ptr noundef %0, ptr noundef readnone
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 157
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %7 = load i24, ptr %6, align 1
   %8 = and i24 %7, 64
   %9 = icmp eq i24 %8, 0
@@ -4019,7 +4019,7 @@ define internal noundef i32 @pci_pme_wakeup(ptr noundef %0, ptr noundef readnone
 12:                                               ; preds = %10, %5, %2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
   store i16 0, ptr %3, align 2, !annotation !8
-  %13 = getelementptr inbounds i8, ptr %0, i64 156
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %30, label %16
@@ -4042,9 +4042,9 @@ define internal noundef i32 @pci_pme_wakeup(ptr noundef %0, ptr noundef readnone
   br i1 %24, label %31, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
-  call void @pm_wakeup_dev_event(ptr noundef %28, i32 noundef 100, i1 noundef zeroext false) #27
-  %29 = call i32 @__pm_runtime_resume(ptr noundef %28, i32 noundef 1) #27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void @pm_wakeup_dev_event(ptr noundef nonnull %28, i32 noundef 100, i1 noundef zeroext false) #27
+  %29 = call i32 @__pm_runtime_resume(ptr noundef nonnull %28, i32 noundef 1) #27
   br label %31
 
 30:                                               ; preds = %16, %12
@@ -4057,13 +4057,13 @@ define internal noundef i32 @pci_pme_wakeup(ptr noundef %0, ptr noundef readnone
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @pci_pme_capable(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 157
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %8 = load i24, ptr %7, align 1
   %9 = lshr i24 %8, 1
   %10 = and i24 %9, 31
@@ -4082,7 +4082,7 @@ define dso_local zeroext i1 @pci_pme_capable(ptr nocapture noundef readonly %0, 
 define dso_local void @pci_pme_restore(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 157
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %4 = load i24, ptr %3, align 1
   %5 = and i24 %4, 62
   %6 = icmp eq i24 %5, 0
@@ -4090,7 +4090,7 @@ define dso_local void @pci_pme_restore(ptr noundef %0) local_unnamed_addr #5 ali
 
 7:                                                ; preds = %1
   store i16 0, ptr %2, align 2, !annotation !8
-  %8 = getelementptr inbounds i8, ptr %0, i64 156
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %9 = load i8, ptr %8, align 4
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 4
@@ -4119,14 +4119,14 @@ define dso_local void @pci_pme_active(ptr noundef %0, i1 noundef zeroext %1) #5 
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
   store i16 0, ptr %3, align 2, !annotation !8
-  %4 = getelementptr inbounds i8, ptr %0, i64 157
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %5 = load i24, ptr %4, align 1
   %6 = and i24 %5, 62
   %7 = icmp eq i24 %6, 0
   br i1 %7, label %22, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %10 = load i8, ptr %9, align 4
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 4
@@ -4160,19 +4160,19 @@ define dso_local void @pci_pme_active(ptr noundef %0, i1 noundef zeroext %1) #5 
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %32, ptr noundef nonnull @.str.20) #28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %32, ptr noundef nonnull @.str.20) #28
   br label %61
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %0, ptr %34, align 8
   call void @mutex_lock(ptr noundef nonnull @pci_pme_list_mutex) #27
   %35 = load ptr, ptr @pci_pme_list, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %29, ptr %36, align 8
   store ptr %35, ptr %29, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @pci_pme_list, ptr %37, align 8
   store volatile ptr %29, ptr @pci_pme_list, align 8
   %38 = load volatile ptr, ptr @pci_pme_list, align 8
@@ -4202,16 +4202,16 @@ define dso_local void @pci_pme_active(ptr noundef %0, i1 noundef zeroext %1) #5 
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %0
   br i1 %55, label %56, label %48, !llvm.loop !49
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %50, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %50, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %58, ptr %60, align 8
   store volatile ptr %59, ptr %58, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %50, align 8
@@ -4241,14 +4241,14 @@ define dso_local i32 @pci_enable_wake(ptr noundef %0, i32 noundef %1, i1 noundef
   br i1 %2, label %4, label %13
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 404
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
@@ -4264,10 +4264,10 @@ define dso_local i32 @pci_enable_wake(ptr noundef %0, i32 noundef %1, i1 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 157
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 157
   %.pre = load i24, ptr %.phi.trans.insert, align 1
   %7 = and i24 %.pre, 2048
   %8 = icmp eq i24 %7, 0
@@ -4275,7 +4275,7 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
   br i1 %or.cond4, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 157
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %10 = and i24 %.pre, 16384
   %11 = icmp eq i24 %10, 0
   %12 = xor i1 %2, %11
@@ -4285,7 +4285,7 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
   br i1 %2, label %14, label %34
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 156
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %16 = load i8, ptr %15, align 4
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %28, label %18
@@ -4336,13 +4336,13 @@ define internal fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %1, i1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_wake_from_d3(ptr noundef %0, i1 noundef zeroext %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %21, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 157
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %8 = load i24, ptr %7, align 1
   %9 = and i24 %8, 32
   %10 = icmp eq i24 %9, 0
@@ -4352,14 +4352,14 @@ define dso_local i32 @pci_wake_from_d3(ptr noundef %0, i1 noundef zeroext %1) #5
   br i1 %1, label %12, label %31
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 404
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 1
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 464
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %34, label %31
@@ -4368,14 +4368,14 @@ define dso_local i32 @pci_wake_from_d3(ptr noundef %0, i1 noundef zeroext %1) #5
   br i1 %1, label %22, label %31
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 404
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, 1
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 464
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
@@ -4392,14 +4392,14 @@ define dso_local i32 @pci_wake_from_d3(ptr noundef %0, i1 noundef zeroext %1) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 404
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 1
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   %10 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext %9)
@@ -4438,10 +4438,10 @@ define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #5 
   br i1 %28, label %42, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %31, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 157
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 157
   %.pre = load i24, ptr %.phi.trans.insert, align 1
   %33 = and i24 %.pre, 2048
   %34 = icmp eq i24 %33, 0
@@ -4452,7 +4452,7 @@ define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #5 
   br i1 %or.cond5, label %42, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %0, i64 157
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %39 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext false) #27
   tail call void @pci_pme_active(ptr noundef %0, i1 noundef zeroext false)
   %40 = load i24, ptr %38, align 1
@@ -4480,15 +4480,15 @@ define internal fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext 
   ]
 
 6:                                                ; preds = %4, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 157
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 157
   %14 = load i24, ptr %13, align 1
   %15 = and i24 %14, 512
   %16 = icmp ne i24 %15, 0
@@ -4496,7 +4496,7 @@ define internal fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext 
 
 17:                                               ; preds = %12, %6
   %18 = phi i1 [ %16, %12 ], [ false, %6 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 157
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %20 = load i24, ptr %19, align 1
   %21 = and i24 %20, 512
   %22 = icmp ne i24 %21, 0
@@ -4507,13 +4507,13 @@ define internal fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext 
   br label %.thread
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 156
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %31 = load i8, ptr %30, align 4
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.thread, label %33
@@ -4522,7 +4522,7 @@ define internal fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %34, label %54
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 157
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %36 = load i24, ptr %35, align 1
   %37 = and i24 %36, 62
   %38 = icmp eq i24 %37, 0
@@ -4566,10 +4566,10 @@ define dso_local range(i32 -22, 1) i32 @pci_back_from_sleep(ptr noundef %0) #5 a
   br i1 %3, label %4, label %17
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 157
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 157
   %.pre = load i24, ptr %.phi.trans.insert, align 1
   %8 = and i24 %.pre, 2048
   %9 = icmp eq i24 %8, 0
@@ -4580,7 +4580,7 @@ define dso_local range(i32 -22, 1) i32 @pci_back_from_sleep(ptr noundef %0) #5 a
   br i1 %or.cond3, label %17, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 157
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %14 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext false) #27
   tail call void @pci_pme_active(ptr noundef %0, i1 noundef zeroext false)
   %15 = load i24, ptr %13, align 1
@@ -4594,7 +4594,7 @@ define dso_local range(i32 -22, 1) i32 @pci_back_from_sleep(ptr noundef %0) #5 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 404
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 1
   %5 = icmp ne i16 %4, 0
@@ -4603,9 +4603,9 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
   br i1 %7, label %68, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 157
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %12 = load i24, ptr %11, align 1
   %13 = and i24 %12, 62
   %14 = icmp eq i24 %13, 0
@@ -4613,7 +4613,7 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
 
 15:                                               ; preds = %8
   %16 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext true)
-  %17 = getelementptr inbounds i8, ptr %0, i64 156
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.loopexit, label %20
@@ -4636,28 +4636,28 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
 
 .preheader:                                       ; preds = %28, %36
   %32 = phi ptr [ %34, %36 ], [ %10, %28 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %32, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 404
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 404
   %40 = load i16, ptr %39, align 4
   %41 = and i16 %40, 1
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !51
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %32, i64 272
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 272
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 220
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 220
   %49 = load i16, ptr %48, align 4
   %50 = and i16 %49, 1
   %51 = icmp ne i16 %50, 0
@@ -4671,7 +4671,7 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
   br i1 %55, label %68, label %56
 
 56:                                               ; preds = %.loopexit
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ne ptr %58, null
   %.pre = load i24, ptr %11, align 1
@@ -4698,9 +4698,9 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 157
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %5 = load i24, ptr %4, align 1
   %6 = and i24 %5, 62
   %7 = icmp eq i24 %6, 0
@@ -4708,7 +4708,7 @@ define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #5 align 16 {
 
 8:                                                ; preds = %1
   %9 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext true)
-  %10 = getelementptr inbounds i8, ptr %0, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.loopexit, label %13
@@ -4724,7 +4724,7 @@ define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #5 align 16 {
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 404
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 1
   %25 = icmp eq i16 %24, 0
@@ -4732,28 +4732,28 @@ define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #5 align 16 {
 
 .preheader:                                       ; preds = %21, %30
   %26 = phi ptr [ %28, %30 ], [ %3, %21 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %26, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 404
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 404
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, 1
   %36 = icmp eq i16 %35, 0
   br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !51
 
 37:                                               ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %26, i64 272
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 272
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 220
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 220
   %43 = load i16, ptr %42, align 4
   %44 = and i16 %43, 1
   %45 = icmp ne i16 %44, 0
@@ -4766,13 +4766,13 @@ define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @pci_dev_need_resume(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 636
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 624
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 7
   %9 = icmp eq i16 %8, 0
@@ -4783,14 +4783,14 @@ define dso_local zeroext i1 @pci_dev_need_resume(ptr noundef %0) local_unnamed_a
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 404
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 1
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 464
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
   br label %21
@@ -4798,7 +4798,7 @@ define dso_local zeroext i1 @pci_dev_need_resume(ptr noundef %0) local_unnamed_a
 21:                                               ; preds = %17, %12
   %22 = phi i1 [ false, %12 ], [ %20, %17 ]
   %23 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext %22)
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load i32, ptr %24, align 8
   %26 = icmp ne i32 %23, %25
   %27 = icmp ne i32 %23, 4
@@ -4815,35 +4815,35 @@ define dso_local zeroext i1 @pci_dev_need_resume(ptr noundef %0) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_dev_adjust_pme(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 412
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 636
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #27
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %44
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 624
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 7
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %44
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 404
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 1
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 464
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %44
 
 21:                                               ; preds = %17, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %23, 4
   br i1 %24, label %25, label %44
@@ -4851,14 +4851,14 @@ define dso_local void @pci_dev_adjust_pme(ptr noundef %0) local_unnamed_addr #5 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
   store i16 0, ptr %2, align 2, !annotation !8
-  %26 = getelementptr inbounds i8, ptr %0, i64 157
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %27 = load i24, ptr %26, align 1
   %28 = and i24 %27, 62
   %29 = icmp eq i24 %28, 0
   br i1 %29, label %43, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 156
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %32 = load i8, ptr %31, align 4
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 4
@@ -4878,16 +4878,16 @@ define dso_local void @pci_dev_adjust_pme(ptr noundef %0) local_unnamed_addr #5 
   br label %44
 
 44:                                               ; preds = %43, %21, %17, %7, %1
-  call void @_raw_spin_unlock_irq(ptr noundef %3) #27
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #27
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 157
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %6 = load i24, ptr %5, align 1
   %7 = and i24 %6, 62
   %8 = icmp eq i24 %7, 0
@@ -4895,7 +4895,7 @@ define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_add
 
 9:                                                ; preds = %1
   %10 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext true)
-  %11 = getelementptr inbounds i8, ptr %0, i64 156
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %77, label %14
@@ -4911,7 +4911,7 @@ define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_add
   br i1 %21, label %77, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 404
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %24 = load i16, ptr %23, align 4
   %25 = and i16 %24, 1
   %26 = icmp eq i16 %25, 0
@@ -4919,50 +4919,50 @@ define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_add
 
 .preheader:                                       ; preds = %22, %31
   %27 = phi ptr [ %29, %31 ], [ %4, %22 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %27, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 404
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 404
   %35 = load i16, ptr %34, align 4
   %36 = and i16 %35, 1
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !51
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %27, i64 272
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 272
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %77, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %40, i64 220
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 220
   %44 = load i16, ptr %43, align 4
   %45 = and i16 %44, 1
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %77, label %.loopexit
 
 .loopexit:                                        ; preds = %31, %42, %22
-  %47 = getelementptr inbounds i8, ptr %0, i64 412
-  tail call void @_raw_spin_lock_irq(ptr noundef %47) #27
-  %48 = getelementptr inbounds i8, ptr %0, i64 636
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %47) #27
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 2
   br i1 %50, label %51, label %76
 
 51:                                               ; preds = %.loopexit
-  %52 = getelementptr inbounds i8, ptr %0, i64 624
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %53 = load i16, ptr %52, align 8
   %54 = and i16 %53, 7
   %55 = icmp eq i16 %54, 0
   br i1 %55, label %56, label %76
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 152
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %58 = load i32, ptr %57, align 8
   %59 = icmp slt i32 %58, 4
   br i1 %59, label %60, label %76
@@ -4994,7 +4994,7 @@ define dso_local void @pci_dev_complete_resume(ptr noundef %0) local_unnamed_add
   br label %76
 
 76:                                               ; preds = %75, %56, %51, %.loopexit
-  call void @_raw_spin_unlock_irq(ptr noundef %47) #27
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %47) #27
   br label %77
 
 77:                                               ; preds = %76, %42, %38, %14, %9, %1
@@ -5020,15 +5020,15 @@ define dso_local range(i32 0, -1) i32 @pci_choose_state(ptr noundef %0, i32 %1) 
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %12, i64 157
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 157
   %16 = load i24, ptr %15, align 1
   %17 = and i24 %16, 512
   %18 = icmp ne i24 %17, 0
@@ -5036,7 +5036,7 @@ define dso_local range(i32 0, -1) i32 @pci_choose_state(ptr noundef %0, i32 %1) 
 
 19:                                               ; preds = %14, %8
   %20 = phi i1 [ %18, %14 ], [ false, %8 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 157
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %22 = load i24, ptr %21, align 1
   %23 = and i24 %22, 512
   %24 = icmp ne i24 %23, 0
@@ -5047,13 +5047,13 @@ define dso_local range(i32 0, -1) i32 @pci_choose_state(ptr noundef %0, i32 %1) 
   br label %36
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 4
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 156
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %33 = load i8, ptr %32, align 4
   %34 = icmp eq i8 %33, 0
   %35 = select i1 %34, i32 0, i32 3
@@ -5066,8 +5066,8 @@ define dso_local range(i32 0, -1) i32 @pci_choose_state(ptr noundef %0, i32 %1) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_config_pm_runtime_get(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -5077,16 +5077,16 @@ define dso_local void @pci_config_pm_runtime_get(ptr noundef %0) local_unnamed_a
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, ptr elementtype(i32) %9) #27, !srcloc !52
-  %10 = tail call i32 @pm_runtime_barrier(ptr noundef %2) #27
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, ptr nonnull elementtype(i32) %9) #27, !srcloc !52
+  %10 = tail call i32 @pm_runtime_barrier(ptr noundef nonnull %2) #27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
-  %15 = tail call i32 @__pm_runtime_resume(ptr noundef %2, i32 noundef 0) #27
+  %15 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %2, i32 noundef 0) #27
   br label %16
 
 16:                                               ; preds = %14, %8
@@ -5098,10 +5098,10 @@ declare dso_local i32 @pm_runtime_barrier(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_config_pm_runtime_put(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @__pm_runtime_idle(ptr noundef %2, i32 noundef 5) #27
+  %5 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %2, i32 noundef 5) #27
   %6 = icmp eq ptr %4, null
   br i1 %6, label %9, label %7
 
@@ -5115,13 +5115,13 @@ define dso_local void @pci_config_pm_runtime_put(ptr noundef %0) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 100
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %40, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 106
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 4
   %9 = and i16 %8, 15
@@ -5134,7 +5134,7 @@ define dso_local noundef zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) loca
   br i1 %13, label %40, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 1689
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %16 = load i40, ptr %15, align 1
   %17 = and i40 %16, 16777216
   %18 = icmp eq i40 %17, 0
@@ -5194,21 +5194,21 @@ declare dso_local i32 @dmi_get_bios_year() local_unnamed_addr #6
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 244
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 2
   %6 = icmp eq i8 %5, 0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #27
   store i8 1, ptr %2, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %8, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -5221,34 +5221,34 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
   br i1 %6, label %19, label %24
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 157
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 157
   %21 = load i24, ptr %20, align 1
   %22 = and i24 %21, 2048
   %23 = icmp eq i24 %22, 0
   br i1 %23, label %52, label %.thread
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 157
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %26 = load i24, ptr %25, align 1
   %27 = and i24 %26, 5120
   %28 = icmp eq i24 %27, 4096
   br i1 %28, label %29, label %.thread2
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 404
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 1
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %45, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 464
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %45, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 156
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %40 = load i8, ptr %39, align 4
   %41 = icmp eq i8 %40, 0
   %42 = and i24 %26, 32
@@ -5257,7 +5257,7 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
   br i1 %44, label %.thread2, label %45
 
 45:                                               ; preds = %38, %34, %29
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   %49 = and i24 %26, 2048
@@ -5270,14 +5270,14 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
   br label %60
 
 52:                                               ; preds = %19, %45
-  %53 = getelementptr inbounds i8, ptr %14, i64 157
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 157
   %54 = load i24, ptr %53, align 1
   %55 = and i24 %54, 2048
   %56 = icmp eq i24 %55, 0
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %14, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %59 = load ptr, ptr %58, align 8
   call void @pci_walk_bus(ptr noundef %59, ptr noundef nonnull @pci_dev_check_d3cold, ptr noundef nonnull %2) #27
   %.pre = load i8, ptr %2, align 1, !range !21
@@ -5285,7 +5285,7 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
 
 60:                                               ; preds = %.thread2, %57, %52
   %61 = phi i8 [ 0, %.thread2 ], [ %.pre, %57 ], [ 1, %52 ]
-  %62 = getelementptr inbounds i8, ptr %14, i64 157
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 157
   %63 = load i24, ptr %62, align 1
   %64 = lshr i24 %63, 11
   %65 = and i24 %64, 1
@@ -5308,27 +5308,27 @@ define dso_local void @pci_bridge_d3_update(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #10 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 157
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %4 = load i24, ptr %3, align 1
   %5 = and i24 %4, 5120
   %6 = icmp eq i24 %5, 4096
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 404
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 1
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 464
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 156
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 0
   %20 = and i24 %4, 32
@@ -5337,7 +5337,7 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr nocapture noundef 
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %16, %12, %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = and i24 %4, 2048
@@ -5362,7 +5362,7 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_d3cold_enable(ptr nocapture noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 157
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 1024
   %5 = icmp eq i24 %4, 0
@@ -5380,7 +5380,7 @@ define dso_local void @pci_d3cold_enable(ptr nocapture noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_d3cold_disable(ptr nocapture noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 157
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 1024
   %5 = icmp eq i24 %4, 0
@@ -5402,11 +5402,11 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @pm_runtime_forbid(ptr noundef %4) #27
-  %5 = tail call i32 @__pm_runtime_set_status(ptr noundef %4, i32 noundef 0) #27
-  tail call void @pm_runtime_enable(ptr noundef %4) #27
-  %6 = getelementptr inbounds i8, ptr %0, i64 404
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @pm_runtime_forbid(ptr noundef nonnull %4) #27
+  %5 = tail call i32 @__pm_runtime_set_status(ptr noundef nonnull %4, i32 noundef 0) #27
+  tail call void @pm_runtime_enable(ptr noundef nonnull %4) #27
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 8
   %9 = icmp eq i16 %8, 0
@@ -5418,9 +5418,9 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br label %12
 
 12:                                               ; preds = %10, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 157
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %14 = load i24, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 156
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %15, align 4
   %16 = and i24 %14, -16447
   store i24 %16, ptr %13, align 1
@@ -5441,14 +5441,14 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
 
 26:                                               ; preds = %19
   %27 = zext nneg i16 %24 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.21, i32 noundef %27) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, i32 noundef %27) #28
   br label %107
 
 28:                                               ; preds = %19
   store i8 %17, ptr %15, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 10, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 164
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 100, ptr %30, align 4
   %31 = call zeroext i1 @pci_bridge_d3_possible(ptr noundef %0)
   %32 = load i24, ptr %13, align 1
@@ -5457,15 +5457,15 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %35 = or disjoint i24 %34, %33
   %36 = or disjoint i24 %35, 4096
   store i24 %36, ptr %13, align 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %28
-  %43 = getelementptr inbounds i8, ptr %40, i64 157
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 157
   %44 = load i24, ptr %43, align 1
   %45 = and i24 %44, 512
   %46 = icmp ne i24 %45, 0
@@ -5507,7 +5507,7 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %68 = icmp eq i24 %67, 0
   %69 = select i1 %68, ptr @.str.24, ptr @.str.23
   %70 = select i1 %66, ptr @.str.24, ptr @.str.25
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %69, ptr noundef nonnull %70) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %69, ptr noundef nonnull %70) #28
   %.pre = load i16, ptr %3, align 2
   br label %71
 
@@ -5534,7 +5534,7 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %88 = select i1 %87, ptr @.str.24, ptr @.str.28
   %89 = icmp sgt i16 %72, -1
   %90 = select i1 %89, ptr @.str.24, ptr @.str.29
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %4, ptr noundef nonnull @.str.26, ptr noundef nonnull %79, ptr noundef nonnull %82, ptr noundef nonnull %85, ptr noundef nonnull %88, ptr noundef nonnull %90) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, ptr noundef nonnull %79, ptr noundef nonnull %82, ptr noundef nonnull %85, ptr noundef nonnull %88, ptr noundef nonnull %90) #28
   %91 = load i16, ptr %3, align 2
   %92 = load i24, ptr %13, align 1
   %93 = lshr i16 %91, 10
@@ -5544,7 +5544,7 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %97 = or disjoint i24 %96, %95
   %98 = or disjoint i24 %97, 64
   store i24 %98, ptr %13, align 1
-  call void @device_set_wakeup_capable(ptr noundef %4, i1 noundef zeroext true) #27
+  call void @device_set_wakeup_capable(ptr noundef nonnull %4, i1 noundef zeroext true) #27
   call void @pci_pme_active(ptr noundef %0, i1 noundef zeroext false)
   br label %99
 
@@ -5595,16 +5595,16 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
 10:                                               ; preds = %1
   store i8 0, ptr %7, align 1, !annotation !8
   %11 = zext i8 %8 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = add nuw nsw i32 %11, 2
   %17 = call i32 @pci_bus_read_config_byte(ptr noundef %13, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %7) #27
   %18 = load i8, ptr %7, align 1
   %19 = and i8 %18, 63
   store i8 %19, ptr %7, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 73
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %21 = icmp eq i8 %19, 0
   br i1 %21, label %.loopexit, label %22
 
@@ -5613,10 +5613,10 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   %24 = icmp eq i8 %23, 1
   %25 = select i1 %24, i32 8, i32 4
   %26 = add nuw nsw i32 %25, %11
-  %27 = getelementptr inbounds i8, ptr %0, i64 920
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %28 = getelementptr i8, ptr %0, i64 1304
-  %29 = getelementptr inbounds i8, ptr %0, i64 184
-  %30 = getelementptr inbounds i8, ptr %0, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %31
 
 31:                                               ; preds = %146, %22
@@ -5678,7 +5678,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %70
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.75, i32 noundef %43) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.75, i32 noundef %43) #28
   br label %146
 
 74:                                               ; preds = %70
@@ -5697,7 +5697,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br label %78
 
 77:                                               ; preds = %74
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.76, i32 noundef %51) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.76, i32 noundef %51) #28
   br label %146
 
 78:                                               ; preds = %74, %74, %75, %76
@@ -5760,7 +5760,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %115
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.77) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.77) #28
   br label %146
 
 121:                                              ; preds = %115
@@ -5769,7 +5769,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %121
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.78, i32 noundef %39, i32 noundef %122) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.78, i32 noundef %39, i32 noundef %122) #28
   br label %146
 
 125:                                              ; preds = %121
@@ -5783,18 +5783,18 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
 
 130:                                              ; preds = %128, %125
   %131 = phi ptr [ %129, %128 ], [ %126, %125 ]
-  %132 = getelementptr inbounds i8, ptr %62, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %131, ptr %132, align 8
   store i64 %99, ptr %62, align 8
-  %133 = getelementptr inbounds i8, ptr %62, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %117, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %62, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store i64 %118, ptr %134, align 8
   %135 = icmp samesign ult i32 %43, 6
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %130
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
   br label %146
 
 137:                                              ; preds = %130
@@ -5802,7 +5802,7 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %137
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
   br label %146
 
 140:                                              ; preds = %137
@@ -5812,11 +5812,11 @@ define dso_local void @pci_ea_init(ptr noundef %0) local_unnamed_addr #5 align 1
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %140
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.79, ptr noundef %71, ptr noundef nonnull %62, i32 noundef %51) #28
   br label %146
 
 145:                                              ; preds = %140
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.80, i32 noundef %43, ptr noundef nonnull %62, i32 noundef %51) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %29, ptr noundef nonnull @.str.80, i32 noundef %43, ptr noundef nonnull %62, i32 noundef %51) #28
   br label %146
 
 146:                                              ; preds = %145, %144, %139, %136, %124, %120, %77, %73, %41, %31
@@ -5851,26 +5851,26 @@ define dso_local noundef range(i32 -12, 1) i32 @pci_add_cap_save_buffer(ptr noun
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %11, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %2, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 1768
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %18 = load ptr, ptr %17, align 8
   store volatile ptr %18, ptr %11, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store volatile ptr %11, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %20, %13
   store volatile ptr %11, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr %17, ptr %23, align 8
   br label %24
 
@@ -5883,7 +5883,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pci_add_cap_save_buffer(ptr noun
 define dso_local noundef range(i32 -12, 1) i32 @pci_add_ext_cap_save_buffer(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
-  %5 = getelementptr inbounds i8, ptr %0, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 257
   br i1 %7, label %.loopexit, label %8
@@ -5934,26 +5934,26 @@ define dso_local noundef range(i32 -12, 1) i32 @pci_add_ext_cap_save_buffer(ptr 
   br i1 %37, label %49, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i16 %1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 18
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 18
   store i8 1, ptr %40, align 2
-  %41 = getelementptr inbounds i8, ptr %36, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 %2, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 1768
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %43 = load ptr, ptr %42, align 8
   store volatile ptr %43, ptr %36, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store volatile ptr %36, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %45, %38
   store volatile ptr %36, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store volatile ptr %42, ptr %48, align 8
   br label %49
 
@@ -5979,32 +5979,32 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 16, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 18
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 14, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1768
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %13 = load ptr, ptr %12, align 8
   store volatile ptr %13, ptr %6, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store volatile ptr %6, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %15, %8
   store volatile ptr %6, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile ptr %12, ptr %18, align 8
   br label %21
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %20, ptr noundef nonnull @.str.30) #28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %20, ptr noundef nonnull @.str.30) #28
   br label %21
 
 21:                                               ; preds = %19, %17, %1
@@ -6019,32 +6019,32 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
   br i1 %27, label %39, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i16 7, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 18
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 18
   store i8 0, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %26, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 2, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 1768
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %33 = load ptr, ptr %32, align 8
   store volatile ptr %33, ptr %26, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store volatile ptr %26, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %35, %28
   store volatile ptr %26, ptr %32, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store volatile ptr %32, ptr %38, align 8
   br label %41
 
 39:                                               ; preds = %24
-  %40 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.31) #28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %40, ptr noundef nonnull @.str.31) #28
   br label %41
 
 41:                                               ; preds = %39, %37, %21
@@ -6053,8 +6053,8 @@ define dso_local void @pci_allocate_cap_save_buffers(ptr noundef %0) local_unnam
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %45, ptr noundef nonnull @.str.32) #28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %45, ptr noundef nonnull @.str.32) #28
   br label %46
 
 46:                                               ; preds = %44, %41
@@ -6067,7 +6067,7 @@ declare dso_local void @pci_allocate_vc_save_buffers(ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_free_cap_save_buffers(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1768
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -6092,21 +6092,21 @@ define dso_local void @pci_configure_ari(ptr noundef %0) local_unnamed_addr #5 a
   br i1 %4, label %62, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %7 = load i8, ptr %6, align 4
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %62, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %62
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %62, label %19
@@ -6122,7 +6122,7 @@ define dso_local void @pci_configure_ari(ptr noundef %0) local_unnamed_addr #5 a
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   store i32 0, ptr %2, align 4, !annotation !8
-  %25 = getelementptr inbounds i8, ptr %0, i64 912
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %26, 257
   br i1 %27, label %.loopexit, label %28
@@ -6166,7 +6166,7 @@ define dso_local void @pci_configure_ari(ptr noundef %0) local_unnamed_addr #5 a
 53:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   %54 = call i32 @pcie_capability_clear_and_set_word_unlocked(ptr noundef nonnull %17, i32 noundef 40, i16 noundef zeroext 0, i16 noundef zeroext 32) #27
-  %55 = getelementptr inbounds i8, ptr %17, i64 1689
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 1689
   %56 = load i40, ptr %55, align 1
   %57 = or i40 %56, 16384
   store i40 %57, ptr %55, align 1
@@ -6175,7 +6175,7 @@ define dso_local void @pci_configure_ari(ptr noundef %0) local_unnamed_addr #5 a
 .loopexit:                                        ; preds = %46, %44, %.preheader, %28, %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   %58 = call i32 @pcie_capability_clear_and_set_word_unlocked(ptr noundef nonnull %17, i32 noundef 40, i16 noundef zeroext 32, i16 noundef zeroext 0) #27
-  %59 = getelementptr inbounds i8, ptr %17, i64 1689
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 1689
   %60 = load i40, ptr %59, align 1
   %61 = and i40 %60, -16385
   store i40 %61, ptr %59, align 1
@@ -6201,13 +6201,13 @@ define dso_local zeroext i1 @pci_acs_enabled(ptr noundef %0, i16 noundef zeroext
   br label %62
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %62, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 106
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %17 = load i16, ptr %16, align 2
   %18 = lshr i16 %17, 4
   %19 = and i16 %18, 15
@@ -6228,7 +6228,7 @@ define dso_local zeroext i1 @pci_acs_enabled(ptr noundef %0, i16 noundef zeroext
   store i16 0, ptr %5, align 2, !annotation !8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #27
   store i16 0, ptr %6, align 2, !annotation !8
-  %21 = getelementptr inbounds i8, ptr %0, i64 2034
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   %22 = load i16, ptr %21, align 2
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %36, label %24
@@ -6254,7 +6254,7 @@ define dso_local zeroext i1 @pci_acs_enabled(ptr noundef %0, i16 noundef zeroext
   br label %62
 
 38:                                               ; preds = %15, %15, %15, %15
-  %39 = getelementptr inbounds i8, ptr %0, i64 1689
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %40 = load i40, ptr %39, align 1
   %41 = and i40 %40, 16
   %42 = icmp eq i40 %41, 0
@@ -6265,7 +6265,7 @@ define dso_local zeroext i1 @pci_acs_enabled(ptr noundef %0, i16 noundef zeroext
   store i16 0, ptr %3, align 2, !annotation !8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #27
   store i16 0, ptr %4, align 2, !annotation !8
-  %44 = getelementptr inbounds i8, ptr %0, i64 2034
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   %45 = load i16, ptr %44, align 2
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %59, label %47
@@ -6311,9 +6311,9 @@ define dso_local noundef zeroext i1 @pci_acs_path_enabled(ptr noundef %0, ptr no
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -6323,7 +6323,7 @@ define dso_local noundef zeroext i1 @pci_acs_path_enabled(ptr noundef %0, ptr no
   br label %.loopexit
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %9, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %5, %1
   br i1 %18, label %.loopexit, label %4, !llvm.loop !56
@@ -6338,7 +6338,7 @@ define dso_local void @pci_acs_init(ptr noundef %0) local_unnamed_addr #5 align 
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   store i32 0, ptr %2, align 4, !annotation !8
-  %3 = getelementptr inbounds i8, ptr %0, i64 912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 257
   br i1 %5, label %.loopexit, label %6
@@ -6382,7 +6382,7 @@ define dso_local void @pci_acs_init(ptr noundef %0) local_unnamed_addr #5 align 
 .loopexit:                                        ; preds = %24, %22, %16, %.preheader, %6, %1
   %31 = phi i16 [ 0, %1 ], [ 0, %6 ], [ 0, %.preheader ], [ 0, %22 ], [ 0, %24 ], [ %13, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
-  %32 = getelementptr inbounds i8, ptr %0, i64 2034
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2034
   store i16 %31, ptr %32, align 2
   call fastcc void @pci_enable_acs(ptr noundef %0)
   ret void
@@ -6403,13 +6403,13 @@ define dso_local range(i32 0, 1048576) i32 @pci_rebar_get_possible_sizes(ptr nou
   %9 = load i32, ptr %3, align 4
   %10 = lshr i32 %9, 4
   %11 = and i32 %10, 1048575
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i16, ptr %12, align 4
   %14 = icmp eq i16 %13, 4098
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 62
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 29471
   %19 = icmp eq i32 %1, 0
@@ -6433,7 +6433,7 @@ define internal fastcc range(i32 1, 0) i32 @pci_rebar_find_pos(ptr noundef %0, i
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
-  %5 = getelementptr inbounds i8, ptr %0, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 257
   br i1 %7, label %.thread, label %8
@@ -6569,24 +6569,24 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
-  %7 = getelementptr inbounds i8, ptr %0, i64 1689
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %8 = load i40, ptr %7, align 1
   %9 = and i40 %8, 8388608
   %10 = icmp eq i40 %9, 0
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 106
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %17 = load i16, ptr %16, align 2
   %18 = lshr i16 %17, 4
   %19 = and i16 %18, 15
@@ -6599,7 +6599,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(pt
 20:                                               ; preds = %15, %15, %15
   store i32 0, ptr %3, align 4, !annotation !8
   store i32 0, ptr %4, align 4, !annotation !8
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit1, label %.preheader
@@ -6607,10 +6607,10 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(pt
 .preheader:                                       ; preds = %20, %.thread
   %24 = phi ptr [ %49, %.thread ], [ %21, %20 ]
   %25 = phi ptr [ %48, %.thread ], [ %6, %20 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @pcie_capability_read_dword(ptr noundef %27, i32 noundef 36, ptr noundef nonnull %3) #27
-  %29 = getelementptr inbounds i8, ptr %27, i64 106
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 106
   %30 = load i16, ptr %29, align 2
   %31 = lshr i16 %30, 4
   %32 = and i16 %31, 15
@@ -6645,7 +6645,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(pt
 
 .thread:                                          ; preds = %37, %43, %41, %.preheader
   %48 = load ptr, ptr %24, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit1, label %.preheader, !llvm.loop !58
@@ -6663,22 +6663,22 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_atomic_ops_to_root(pt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext range(i8 0, 5) i8 @pci_swizzle_interrupt_pin(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 1689
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1689
   %10 = load i40, ptr %9, align 1
   %11 = and i40 %10, 16384
   %12 = icmp eq i40 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %8, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 3
   %17 = and i32 %16, 31
@@ -6698,15 +6698,15 @@ define dso_local zeroext range(i8 0, 5) i8 @pci_swizzle_interrupt_pin(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 105
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %43, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -6715,20 +6715,20 @@ define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, p
   %12 = phi ptr [ %36, %27 ], [ %8, %6 ]
   %13 = phi i8 [ %34, %27 ], [ %4, %6 ]
   %14 = phi ptr [ %16, %27 ], [ %0, %6 ]
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %16, i64 1689
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 1689
   %20 = load i40, ptr %19, align 1
   %21 = and i40 %20, 16384
   %22 = icmp eq i40 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %18, %.preheader
-  %24 = getelementptr inbounds i8, ptr %14, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = lshr i32 %25, 3
   br label %27
@@ -6741,9 +6741,9 @@ define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, p
   %32 = trunc i32 %31 to i8
   %33 = and i8 %32, 3
   %34 = add nuw nsw i8 %33, 1
-  %35 = getelementptr inbounds i8, ptr %16, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !59
@@ -6763,9 +6763,9 @@ define dso_local range(i32 -1, 256) i32 @pci_get_interrupt_pin(ptr noundef %0, p
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 align 16 {
   %3 = load i8, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -6774,20 +6774,20 @@ define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture no
   %9 = phi ptr [ %34, %25 ], [ %5, %2 ]
   %10 = phi i8 [ %32, %25 ], [ %3, %2 ]
   %11 = phi ptr [ %13, %25 ], [ %0, %2 ]
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %13, i64 1689
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1689
   %17 = load i40, ptr %16, align 1
   %18 = and i40 %17, 16384
   %19 = icmp eq i40 %18, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15, %.preheader
-  %21 = getelementptr inbounds i8, ptr %11, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = lshr i32 %22, 3
   %24 = and i32 %23, 31
@@ -6802,9 +6802,9 @@ define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture no
   %30 = srem i16 %.lhs.trunc, 4
   %31 = trunc nsw i16 %30 to i8
   %32 = add nsw i8 %31, 1
-  %33 = getelementptr inbounds i8, ptr %13, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !60
@@ -6813,7 +6813,7 @@ define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture no
   %38 = phi ptr [ %0, %2 ], [ %13, %25 ]
   %39 = phi i8 [ %3, %2 ], [ %32, %25 ]
   store i8 %39, ptr %1, align 1
-  %40 = getelementptr inbounds i8, ptr %38, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = trunc i32 %41 to i8
   %43 = lshr i8 %42, 3
@@ -6822,10 +6822,10 @@ define dso_local zeroext range(i8 0, 32) i8 @pci_common_swizzle(ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_release_region(ptr noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %.thread, label %9
@@ -6838,7 +6838,7 @@ define dso_local void @pci_release_region(ptr noundef %0, i32 noundef %1) #5 ali
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 256
   %18 = icmp eq i64 %17, 0
@@ -6855,22 +6855,22 @@ define dso_local void @pci_release_region(ptr noundef %0, i32 noundef %1) #5 ali
   br label %24
 
 24:                                               ; preds = %22, %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1689
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %26 = load i40, ptr %25, align 1
   %27 = and i40 %26, 262144
   %28 = icmp eq i40 %27, 0
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 184
-  %31 = tail call ptr @devres_find(ptr noundef %30, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %31 = tail call ptr @devres_find(ptr noundef nonnull %30, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
   %34 = shl nuw i32 1, %1
   %35 = xor i32 %34, -1
-  %36 = getelementptr inbounds i8, ptr %31, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, %35
   store i32 %38, ptr %36, align 4
@@ -6891,10 +6891,10 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_region(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 134217729) %3) unnamed_addr #5 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.thread, label %11
@@ -6907,7 +6907,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr n
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 256
   %20 = icmp eq i64 %19, 0
@@ -6929,29 +6929,29 @@ define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr n
   br i1 %29, label %44, label %30
 
 30:                                               ; preds = %27, %24, %21
-  %31 = getelementptr inbounds i8, ptr %0, i64 1689
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %32 = load i40, ptr %31, align 1
   %33 = and i40 %32, 262144
   %34 = icmp eq i40 %33, 0
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 184
-  %37 = tail call ptr @devres_find(ptr noundef %36, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %37 = tail call ptr @devres_find(ptr noundef nonnull %36, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
   %40 = shl nuw i32 1, %1
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, %40
   store i32 %43, ptr %41, align 4
   br label %.thread
 
 44:                                               ; preds = %27, %21
-  %45 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %45, ptr noundef nonnull @.str.81, i32 noundef %1, ptr noundef %7) #28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %45, ptr noundef nonnull @.str.81, i32 noundef %1, ptr noundef %7) #28
   br label %.thread
 
 .thread:                                          ; preds = %30, %44, %39, %35, %11, %4
@@ -6961,9 +6961,9 @@ define internal fastcc noundef range(i32 -16, 1) i32 @__pci_request_region(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_release_selected_regions(ptr noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
-  %4 = getelementptr inbounds i8, ptr %0, i64 1689
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %6
 
 6:                                                ; preds = %pci_release_region.exit, %2
@@ -6976,7 +6976,7 @@ define dso_local void @pci_release_selected_regions(ptr noundef %0, i32 noundef 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
   %13 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %pci_release_region.exit, label %17
@@ -6989,7 +6989,7 @@ define dso_local void @pci_release_selected_regions(ptr noundef %0, i32 noundef 
   br i1 %21, label %pci_release_region.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 256
   %26 = icmp eq i64 %25, 0
@@ -7012,13 +7012,13 @@ define dso_local void @pci_release_selected_regions(ptr noundef %0, i32 noundef 
   br i1 %35, label %pci_release_region.exit, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call ptr @devres_find(ptr noundef %5, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %37 = tail call ptr @devres_find(ptr noundef nonnull %5, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %38 = icmp eq ptr %37, null
   br i1 %38, label %pci_release_region.exit, label %39
 
 39:                                               ; preds = %36
   %40 = xor i32 %8, -1
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, %40
   store i32 %43, ptr %41, align 4
@@ -7054,9 +7054,9 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions(ptr
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 920
-  %15 = getelementptr inbounds i8, ptr %0, i64 1689
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %20
 
 17:                                               ; preds = %9, %4
@@ -7075,7 +7075,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions(ptr
 26:                                               ; preds = %20
   %27 = sext i32 %22 to i64
   %28 = getelementptr [11 x %struct.resource], ptr %14, i64 0, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %pci_release_region.exit, label %32
@@ -7088,7 +7088,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions(ptr
   br i1 %36, label %pci_release_region.exit, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %28, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 256
   %41 = icmp eq i64 %40, 0
@@ -7111,13 +7111,13 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions(ptr
   br i1 %50, label %pci_release_region.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call ptr @devres_find(ptr noundef %16, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %52 = tail call ptr @devres_find(ptr noundef nonnull %16, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %53 = icmp eq ptr %52, null
   br i1 %53, label %pci_release_region.exit, label %54
 
 54:                                               ; preds = %51
   %55 = xor i32 %23, -1
-  %56 = getelementptr inbounds i8, ptr %52, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, %55
   store i32 %58, ptr %56, align 4
@@ -7153,9 +7153,9 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions_exc
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 920
-  %15 = getelementptr inbounds i8, ptr %0, i64 1689
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %20
 
 17:                                               ; preds = %9, %4
@@ -7174,7 +7174,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions_exc
 26:                                               ; preds = %20
   %27 = sext i32 %22 to i64
   %28 = getelementptr [11 x %struct.resource], ptr %14, i64 0, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %pci_release_region.exit, label %32
@@ -7187,7 +7187,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions_exc
   br i1 %36, label %pci_release_region.exit, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %28, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 256
   %41 = icmp eq i64 %40, 0
@@ -7210,13 +7210,13 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_selected_regions_exc
   br i1 %50, label %pci_release_region.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call ptr @devres_find(ptr noundef %16, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %52 = tail call ptr @devres_find(ptr noundef nonnull %16, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %53 = icmp eq ptr %52, null
   br i1 %53, label %pci_release_region.exit, label %54
 
 54:                                               ; preds = %51
   %55 = xor i32 %23, -1
-  %56 = getelementptr inbounds i8, ptr %52, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, %55
   store i32 %58, ptr %56, align 4
@@ -7233,16 +7233,16 @@ pci_release_region.exit:                          ; preds = %54, %51, %47, %32, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_release_regions(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
-  %3 = getelementptr inbounds i8, ptr %0, i64 1689
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %5
 
 5:                                                ; preds = %pci_release_region.exit, %1
   %6 = phi i32 [ 0, %1 ], [ %40, %pci_release_region.exit ]
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr [11 x %struct.resource], ptr %2, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %pci_release_region.exit, label %12
@@ -7255,7 +7255,7 @@ define dso_local void @pci_release_regions(ptr noundef %0) #5 align 16 {
   br i1 %16, label %pci_release_region.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 256
   %21 = icmp eq i64 %20, 0
@@ -7278,14 +7278,14 @@ define dso_local void @pci_release_regions(ptr noundef %0) #5 align 16 {
   br i1 %30, label %pci_release_region.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call ptr @devres_find(ptr noundef %4, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %32 = tail call ptr @devres_find(ptr noundef nonnull %4, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %33 = icmp eq ptr %32, null
   br i1 %33, label %pci_release_region.exit, label %34
 
 34:                                               ; preds = %31
   %35 = shl nuw i32 1, %6
   %36 = xor i32 %35, -1
-  %37 = getelementptr inbounds i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, %36
   store i32 %39, ptr %37, align 4
@@ -7315,9 +7315,9 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 920
-  %10 = getelementptr inbounds i8, ptr %0, i64 1689
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %15
 
 12:                                               ; preds = %3
@@ -7330,7 +7330,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   %17 = add nsw i32 %16, -1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %pci_release_region.exit, label %23
@@ -7343,7 +7343,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   br i1 %27, label %pci_release_region.exit, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 256
   %32 = icmp eq i64 %31, 0
@@ -7366,14 +7366,14 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions(ptr noundef 
   br i1 %41, label %pci_release_region.exit, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %43 = tail call ptr @devres_find(ptr noundef nonnull %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %44 = icmp eq ptr %43, null
   br i1 %44, label %pci_release_region.exit, label %45
 
 45:                                               ; preds = %42
   %46 = shl nuw nsw i32 1, %17
   %47 = xor i32 %46, -1
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, %47
   store i32 %50, ptr %48, align 4
@@ -7403,9 +7403,9 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 920
-  %10 = getelementptr inbounds i8, ptr %0, i64 1689
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1689
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %15
 
 12:                                               ; preds = %3
@@ -7418,7 +7418,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   %17 = add nsw i32 %16, -1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr [11 x %struct.resource], ptr %9, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %pci_release_region.exit, label %23
@@ -7431,7 +7431,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   br i1 %27, label %pci_release_region.exit, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 256
   %32 = icmp eq i64 %31, 0
@@ -7454,14 +7454,14 @@ define dso_local noundef range(i32 -16, 1) i32 @pci_request_regions_exclusive(pt
   br i1 %41, label %pci_release_region.exit, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @devres_find(ptr noundef %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %43 = tail call ptr @devres_find(ptr noundef nonnull %11, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %44 = icmp eq ptr %43, null
   br i1 %44, label %pci_release_region.exit, label %45
 
 45:                                               ; preds = %42
   %46 = shl nuw nsw i32 1, %17
   %47 = xor i32 %46, -1
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, %47
   store i32 %50, ptr %48, align 4
@@ -7603,7 +7603,7 @@ define dso_local ptr @devm_pci_remap_cfg_resource(ptr noundef %0, ptr noundef %1
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 7936
   %11 = icmp eq i64 %10, 512
@@ -7614,15 +7614,15 @@ define dso_local ptr @devm_pci_remap_cfg_resource(ptr noundef %0, ptr noundef %1
   br label %56
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %1, align 8
   %17 = add i64 %15, 1
   %18 = sub i64 %17, %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %21, label %31, label %25
@@ -7718,7 +7718,7 @@ define weak dso_local ptr @pcibios_setup(ptr noundef %0) local_unnamed_addr #17 
 define weak dso_local void @pcibios_set_master(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %19
@@ -7776,7 +7776,7 @@ define dso_local void @pci_set_master(ptr noundef %0) #5 align 16 {
   br label %9
 
 9:                                                ; preds = %7, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 1689
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %11 = load i40, ptr %10, align 1
   %12 = or i40 %11, 32
   store i40 %12, ptr %10, align 1
@@ -7801,7 +7801,7 @@ define dso_local void @pci_clear_master(ptr noundef %0) #5 align 16 {
   br label %9
 
 9:                                                ; preds = %7, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 1689
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %11 = load i40, ptr %10, align 1
   %12 = and i40 %11, -33
   store i40 %12, ptr %10, align 1
@@ -7903,15 +7903,15 @@ select.unfold:                                    ; preds = %14, %11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @pcim_set_mwi(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1689
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 262144
   %5 = icmp eq i40 %4, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = tail call ptr @devres_find(ptr noundef %7, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = tail call ptr @devres_find(ptr noundef nonnull %7, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
@@ -7993,15 +7993,15 @@ define dso_local void @pci_intx(ptr noundef %0, i32 noundef %1) #5 align 16 {
 
 11:                                               ; preds = %2
   %12 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %9) #27
-  %13 = getelementptr inbounds i8, ptr %0, i64 1689
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %14 = load i40, ptr %13, align 1
   %15 = and i40 %14, 262144
   %16 = icmp eq i40 %15, 0
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
-  %19 = call ptr @devres_find(ptr noundef %18, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %19 = call ptr @devres_find(ptr noundef nonnull %18, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
@@ -8026,16 +8026,16 @@ define dso_local void @pci_intx(ptr noundef %0, i32 noundef %1) #5 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   store i32 0, ptr %2, align 4, !annotation !8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_lock) #27
-  %6 = getelementptr inbounds i8, ptr %4, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = call i32 %9(ptr noundef %4, i32 noundef %11, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %2) #27
   %13 = load i32, ptr %2, align 4
@@ -8052,7 +8052,7 @@ define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr nocapture nound
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %10, align 8
   %26 = call i32 %24(ptr noundef %4, i32 noundef %25, i32 noundef 4, i32 noundef 2, i32 noundef %19) #27
@@ -8067,16 +8067,16 @@ define dso_local noundef zeroext i1 @pci_check_and_mask_intx(ptr nocapture nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   store i32 0, ptr %2, align 4, !annotation !8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_lock) #27
-  %6 = getelementptr inbounds i8, ptr %4, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = call i32 %9(ptr noundef %4, i32 noundef %11, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %2) #27
   %13 = load i32, ptr %2, align 4
@@ -8087,7 +8087,7 @@ define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr nocapture nou
 15:                                               ; preds = %1
   %16 = and i32 %13, 64511
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %10, align 8
   %21 = call i32 %19(ptr noundef %4, i32 noundef %20, i32 noundef 4, i32 noundef 2, i32 noundef %16) #27
@@ -8104,7 +8104,7 @@ define dso_local noundef zeroext i1 @pci_check_and_unmask_intx(ptr nocapture nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @pci_wait_for_pending_transaction(ptr noundef %0) #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit, label %6
@@ -8148,7 +8148,7 @@ define dso_local noundef range(i32 0, 2) i32 @pci_wait_for_pending_transaction(p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -25, 1) i32 @pcie_flr(ptr noundef %0) #5 align 16 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit, label %6
@@ -8185,13 +8185,13 @@ define dso_local noundef range(i32 -25, 1) i32 @pcie_flr(ptr noundef %0) #5 alig
   br i1 %22, label %.loopexit, label %9
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.40) #28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %24, ptr noundef nonnull @.str.40) #28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %23, %1
   %25 = call i32 @pcie_capability_clear_and_set_word_unlocked(ptr noundef %0, i32 noundef 8, i16 noundef zeroext 0, i16 noundef zeroext -32768) #27
-  %26 = getelementptr inbounds i8, ptr %0, i64 157
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %27 = load i24, ptr %26, align 1
   %28 = and i24 %27, 1
   %29 = icmp eq i24 %28, 0
@@ -8210,21 +8210,21 @@ define dso_local noundef range(i32 -25, 1) i32 @pcie_flr(ptr noundef %0) #5 alig
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147482647, 60001) %2) unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -8237,7 +8237,7 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 21:                                               ; preds = %17, %3
   %22 = phi i8 [ 0, %3 ], [ %20, %17 ]
   %23 = phi ptr [ null, %3 ], [ %18, %17 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   store i32 0, ptr %4, align 4, !annotation !8
   %25 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4) #27
@@ -8257,7 +8257,7 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 
 .thread4:                                         ; preds = %.lr.ph
   %31 = add nsw i32 %29, -1
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %24, ptr noundef nonnull @.str.82, i32 noundef %31, ptr noundef %1) #28
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %24, ptr noundef nonnull @.str.82, i32 noundef %31, ptr noundef %1) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
   br label %52
 
@@ -8277,7 +8277,7 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 39:                                               ; preds = %37, %34
   %40 = phi i8 [ 0, %37 ], [ %28, %34 ]
   %41 = add nsw i32 %29, -1
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.83, i32 noundef %41, ptr noundef %1) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.83, i32 noundef %41, ptr noundef %1) #28
   br label %42
 
 42:                                               ; preds = %39, %32
@@ -8304,7 +8304,7 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 
 50:                                               ; preds = %._crit_edge
   %51 = add nsw i32 %.ph, -1
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.84, i32 noundef %51, ptr noundef %1) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %24, ptr noundef nonnull @.str.84, i32 noundef %51, ptr noundef %1) #28
   br label %52
 
 52:                                               ; preds = %._crit_edge.thread, %.thread4, %50, %._crit_edge
@@ -8314,14 +8314,14 @@ define internal fastcc noundef range(i32 -25, 1) i32 @pci_dev_wait(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -25, 1) i32 @pcie_reset_flr(ptr noundef %0, i1 noundef zeroext %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1694
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 1024
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 268435456
   %11 = icmp eq i32 %10, 0
@@ -8372,7 +8372,7 @@ define dso_local noundef range(i32 -110, 1) i32 @pcie_retrain_link(ptr noundef %
 19:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #27
   %20 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %0, i32 noundef 16, i16 noundef zeroext 0, i16 noundef zeroext 32) #27
-  %21 = getelementptr inbounds i8, ptr %0, i64 157
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %22 = load i24, ptr %21, align 1
   %23 = and i24 %22, 262144
   %24 = icmp eq i24 %23, 0
@@ -8417,7 +8417,7 @@ define dso_local noundef range(i32 -110, 1) i32 @pcie_retrain_link(ptr noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @pcie_wait_for_link(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1689
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %5 = load i40, ptr %4, align 1
   %6 = and i40 %5, 17179869184
   %7 = icmp eq i40 %6, 0
@@ -8478,7 +8478,7 @@ pcie_wait_for_link_delay.exit:                    ; preds = %23, %.thread.i, %24
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @pcie_wait_for_link_delay(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #5 align 16 {
   %4 = alloca i16, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1689
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %6 = load i40, ptr %5, align 1
   %7 = and i40 %6, 17179869184
   %8 = icmp eq i40 %7, 0
@@ -8543,13 +8543,13 @@ define internal fastcc noundef zeroext i1 @pcie_wait_for_link_delay(ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bus(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 180
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %75, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 73
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, -1
   %11 = icmp ult i8 %10, 2
@@ -8557,13 +8557,13 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
 
 12:                                               ; preds = %7
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #27
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %20, label %.preheader
@@ -8576,7 +8576,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
   %21 = phi ptr [ %28, %.preheader ], [ %18, %16 ]
   %22 = phi i32 [ %26, %.preheader ], [ 100, %16 ]
   %23 = phi i32 [ %27, %.preheader ], [ 0, %16 ]
-  %24 = getelementptr inbounds i8, ptr %21, i64 164
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 164
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 %22)
   %27 = tail call i32 @llvm.umax.i32(i32 %25, i32 %23)
@@ -8591,7 +8591,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
   br i1 %32, label %75, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 100
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %35 = load i8, ptr %34, align 4
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %39
@@ -8602,7 +8602,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
   br label %75
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 106
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 208
   %43 = icmp eq i16 %42, 64
@@ -8626,7 +8626,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
   br i1 %53, label %66, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 1689
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %56 = load i40, ptr %55, align 1
   %57 = and i40 %56, 17179869184
   %58 = icmp eq i40 %57, 0
@@ -8653,8 +8653,8 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_wait_for_secondary_bu
   br i1 %69, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %71, ptr noundef nonnull @.str.42) #28
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %71, ptr noundef nonnull @.str.42) #28
   br label %75
 
 72:                                               ; preds = %68
@@ -8784,8 +8784,8 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bridge_secondary_bus_reset(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_dev_lock(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
-  tail call void @mutex_lock(ptr noundef %2) #27
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  tail call void @mutex_lock(ptr noundef nonnull %2) #27
   tail call void @pci_cfg_access_lock(ptr noundef %0) #27
   ret void
 }
@@ -8795,8 +8795,8 @@ declare dso_local void @pci_cfg_access_lock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @pci_dev_trylock(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
-  %3 = tail call i32 @mutex_trylock(ptr noundef %2) #27
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %3 = tail call i32 @mutex_trylock(ptr noundef nonnull %2) #27
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
 
@@ -8805,7 +8805,7 @@ define dso_local noundef range(i32 0, 2) i32 @pci_dev_trylock(ptr noundef %0) #5
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @mutex_unlock(ptr noundef %2) #27
+  tail call void @mutex_unlock(ptr noundef nonnull %2) #27
   br label %8
 
 8:                                                ; preds = %7, %5, %1
@@ -8819,8 +8819,8 @@ declare dso_local zeroext i1 @pci_cfg_access_trylock(ptr noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_dev_unlock(ptr noundef %0) #5 align 16 {
   tail call void @pci_cfg_access_unlock(ptr noundef %0) #27
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
-  tail call void @mutex_unlock(ptr noundef %2) #27
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %2) #27
   ret void
 }
 
@@ -8835,7 +8835,7 @@ define internal zeroext i16 @pci_dev_reset_method_attr_is_visible(ptr nocapture 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i16, ptr %8, align 8
   br label %10
 
@@ -8847,7 +8847,7 @@ define internal zeroext i16 @pci_dev_reset_method_attr_is_visible(ptr nocapture 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__pci_reset_function_locked(ptr noundef %0) #5 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 2072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   br label %4
 
 4:                                                ; preds = %15, %1
@@ -8878,7 +8878,7 @@ define dso_local noundef i32 @__pci_reset_function_locked(ptr noundef %0) #5 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_init_reset_methods(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 2072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   br label %4
 
 4:                                                ; preds = %15, %1
@@ -8916,28 +8916,28 @@ define dso_local void @pci_init_reset_methods(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @pci_reset_function(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %51, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
-  tail call void @mutex_lock(ptr noundef %6) #27
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  tail call void @mutex_lock(ptr noundef nonnull %6) #27
   tail call void @pci_cfg_access_lock(ptr noundef %0) #27
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -8984,14 +8984,14 @@ define dso_local noundef i32 @pci_reset_function(ptr noundef %0) #5 align 16 {
   br label %50
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %43 = load ptr, ptr %42, align 8
   tail call void @pci_restore_state(ptr noundef %0)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %43, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %49
@@ -9002,7 +9002,7 @@ define dso_local noundef i32 @pci_reset_function(ptr noundef %0) #5 align 16 {
 
 50:                                               ; preds = %.thread9, %49, %45, %41
   tail call void @pci_cfg_access_unlock(ptr noundef %0) #27
-  tail call void @mutex_unlock(ptr noundef %6) #27
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #27
   br label %51
 
 51:                                               ; preds = %50, %1
@@ -9012,25 +9012,25 @@ define dso_local noundef i32 @pci_reset_function(ptr noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @pci_reset_function_locked(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %49, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
@@ -9077,14 +9077,14 @@ define dso_local noundef i32 @pci_reset_function_locked(ptr noundef %0) #5 align
   br label %49
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %38, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %42 = load ptr, ptr %41, align 8
   tail call void @pci_restore_state(ptr noundef %0)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -9100,14 +9100,14 @@ define dso_local noundef i32 @pci_reset_function_locked(ptr noundef %0) #5 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %58, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
-  %7 = tail call i32 @mutex_trylock(ptr noundef %6) #27
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %7 = tail call i32 @mutex_trylock(ptr noundef nonnull %6) #27
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %58, label %9
 
@@ -9116,19 +9116,19 @@ define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #5 align 16
   br i1 %10, label %11, label %56
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread, label %23
@@ -9175,14 +9175,14 @@ define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #5 align 16
   br label %55
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %48 = load ptr, ptr %47, align 8
   tail call void @pci_restore_state(ptr noundef %0)
   %49 = icmp eq ptr %48, null
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %48, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -9197,7 +9197,7 @@ define dso_local noundef i32 @pci_try_reset_function(ptr noundef %0) #5 align 16
 
 56:                                               ; preds = %55, %9
   %57 = phi i32 [ %43, %55 ], [ -11, %9 ]
-  tail call void @mutex_unlock(ptr noundef %6) #27
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #27
   br label %58
 
 58:                                               ; preds = %56, %5, %1
@@ -9218,40 +9218,40 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 1694
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1694
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 64
   %13 = icmp eq i16 %12, 0
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %9, %4
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %15
   br i1 %17, label %.thread13, label %.preheader15
 
 .preheader15:                                     ; preds = %14, %33
   %18 = phi ptr [ %34, %33 ], [ %16, %14 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %.preheader15
-  %23 = getelementptr inbounds i8, ptr %18, i64 1694
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 1694
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 64
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %18, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %33, label %31
@@ -9270,16 +9270,16 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 
 .preheader14:                                     ; preds = %36, %47
   %37 = phi ptr [ %48, %47 ], [ %16, %36 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %0
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %.preheader14
-  %42 = getelementptr inbounds i8, ptr %37, i64 312
-  tail call void @mutex_lock(ptr noundef %42) #27
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 312
+  tail call void @mutex_lock(ptr noundef nonnull %42) #27
   tail call void @pci_cfg_access_lock(ptr noundef %37) #27
-  %43 = getelementptr inbounds i8, ptr %37, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %47, label %46
@@ -9291,26 +9291,26 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 47:                                               ; preds = %46, %41, %.preheader14
   %48 = load ptr, ptr %37, align 8
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = icmp eq ptr %48, %50
   br i1 %51, label %.thread13, label %.preheader14, !llvm.loop !79
 
 .thread13:                                        ; preds = %47, %36, %14
   %52 = tail call i32 @__SCT__might_resched() #27
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %70, label %56
 
 56:                                               ; preds = %.thread13
-  %57 = getelementptr inbounds i8, ptr %54, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = tail call zeroext i1 @try_module_get(ptr noundef %58) #27
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %54, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %67, label %65
@@ -9331,7 +9331,7 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %74
   br i1 %76, label %.loopexit, label %.preheader
@@ -9339,13 +9339,13 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 .preheader:                                       ; preds = %72, %89
   %77 = phi ptr [ %90, %89 ], [ %73, %72 ]
   %78 = phi ptr [ %91, %89 ], [ %75, %72 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, %0
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %.preheader
-  %83 = getelementptr inbounds i8, ptr %78, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %87, label %86
@@ -9356,15 +9356,15 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 
 87:                                               ; preds = %86, %82
   tail call void @pci_cfg_access_unlock(ptr noundef %78) #27
-  %88 = getelementptr inbounds i8, ptr %78, i64 312
-  tail call void @mutex_unlock(ptr noundef %88) #27
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %88) #27
   %.pre = load ptr, ptr %0, align 8
   br label %89
 
 89:                                               ; preds = %87, %.preheader
   %90 = phi ptr [ %.pre, %87 ], [ %77, %.preheader ]
   %91 = load ptr, ptr %78, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %93 = icmp eq ptr %91, %92
   br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !80
 
@@ -9375,14 +9375,14 @@ define internal fastcc i32 @pci_slot_reset(ptr noundef readonly %0, i1 noundef z
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -25, 1) i32 @pci_bus_error_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @pci_slot_mutex) #27
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %.loopexit, label %.preheader4
@@ -9418,7 +9418,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bus_error_reset(ptr nocaptur
 .loopexit:                                        ; preds = %12, %19, %5
   tail call void @mutex_unlock(ptr noundef nonnull @pci_slot_mutex) #27
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %34, label %28
@@ -9443,7 +9443,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_bus_error_reset(ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef range(i32 -25, 1) i32 @pci_probe_reset_bus(ptr noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -9460,7 +9460,7 @@ define dso_local noundef range(i32 -25, 1) i32 @pci_probe_reset_bus(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @pci_slot_reset(ptr noundef %3, i1 noundef zeroext true)
   %5 = icmp eq i32 %4, 0
@@ -9474,14 +9474,14 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %.loopexit36, label %.preheader33
 
 .preheader33:                                     ; preds = %10, %35
   %15 = phi ptr [ %36, %35 ], [ %13, %10 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   %19 = icmp eq ptr %17, %7
@@ -9489,8 +9489,8 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %.preheader33
-  %22 = getelementptr inbounds i8, ptr %15, i64 312
-  %23 = tail call i32 @mutex_trylock(ptr noundef %22) #27
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 312
+  %23 = tail call i32 @mutex_trylock(ptr noundef nonnull %22) #27
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit34, label %25
 
@@ -9499,7 +9499,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %26, label %27, label %.loopexit35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %15, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %35, label %31
@@ -9516,32 +9516,32 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 35:                                               ; preds = %31, %27, %.preheader33
   %36 = load ptr, ptr %15, align 8
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = icmp eq ptr %36, %38
   br i1 %39, label %.loopexit36.loopexit, label %.preheader33, !llvm.loop !84
 
 .loopexit35:                                      ; preds = %25, %34
-  tail call void @mutex_unlock(ptr noundef %22) #27
+  tail call void @mutex_unlock(ptr noundef nonnull %22) #27
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %21, %.loopexit35
-  %40 = getelementptr inbounds i8, ptr %15, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = icmp eq ptr %41, %43
   br i1 %44, label %.thread27, label %.preheader31
 
 .preheader31:                                     ; preds = %.loopexit34, %57
   %45 = phi ptr [ %58, %57 ], [ %42, %.loopexit34 ]
   %46 = phi ptr [ %60, %57 ], [ %41, %.loopexit34 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.preheader31
-  %51 = getelementptr inbounds i8, ptr %46, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -9552,16 +9552,16 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 
 55:                                               ; preds = %54, %50
   tail call void @pci_cfg_access_unlock(ptr noundef %46) #27
-  %56 = getelementptr inbounds i8, ptr %46, i64 312
-  tail call void @mutex_unlock(ptr noundef %56) #27
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %56) #27
   %.pre = load ptr, ptr %7, align 8
   br label %57
 
 57:                                               ; preds = %55, %.preheader31
   %58 = phi ptr [ %.pre, %55 ], [ %45, %.preheader31 ]
-  %59 = getelementptr inbounds i8, ptr %46, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %.thread27, label %.preheader31, !llvm.loop !85
 
@@ -9572,13 +9572,13 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %10
   %63 = phi ptr [ %.pre50, %.loopexit36.loopexit ], [ %13, %10 ]
   %64 = phi ptr [ %37, %.loopexit36.loopexit ], [ %11, %10 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = icmp eq ptr %63, %65
   br i1 %66, label %.loopexit30, label %.preheader29
 
 .preheader29:                                     ; preds = %.loopexit36, %93
   %67 = phi ptr [ %94, %93 ], [ %63, %.loopexit36 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = icmp ne ptr %69, null
   %71 = icmp eq ptr %69, %7
@@ -9586,19 +9586,19 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %72, label %73, label %93
 
 73:                                               ; preds = %.preheader29
-  %74 = getelementptr inbounds i8, ptr %67, i64 120
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %75, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 80
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.thread, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %79, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.thread, label %85
@@ -9611,7 +9611,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   %86 = tail call fastcc i32 @__pci_set_power_state(ptr noundef %67, i32 noundef 0, i1 noundef zeroext false), !range !17
   %87 = tail call i32 @pci_save_state(ptr noundef %67)
   %88 = tail call i32 @pci_write_config_word(ptr noundef %67, i32 noundef 4, i16 noundef zeroext 1024) #27
-  %89 = getelementptr inbounds i8, ptr %67, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %93, label %92
@@ -9623,26 +9623,26 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 93:                                               ; preds = %92, %.thread, %.preheader29
   %94 = load ptr, ptr %67, align 8
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = icmp eq ptr %94, %96
   br i1 %97, label %.loopexit30, label %.preheader29, !llvm.loop !86
 
 .loopexit30:                                      ; preds = %93, %.loopexit36
   %98 = tail call i32 @__SCT__might_resched() #27
-  %99 = getelementptr inbounds i8, ptr %7, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %116, label %102
 
 102:                                              ; preds = %.loopexit30
-  %103 = getelementptr inbounds i8, ptr %100, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = tail call zeroext i1 @try_module_get(ptr noundef %104) #27
   br i1 %105, label %106, label %116
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %100, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 64
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %113, label %111
@@ -9660,14 +9660,14 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 116:                                              ; preds = %113, %102, %.loopexit30
   %117 = phi i32 [ %114, %113 ], [ -25, %102 ], [ -25, %.loopexit30 ]
   %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, %119
   br i1 %121, label %.loopexit, label %.preheader28
 
 .preheader28:                                     ; preds = %116, %146
   %122 = phi ptr [ %147, %146 ], [ %120, %116 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
   %124 = load ptr, ptr %123, align 8
   %125 = icmp ne ptr %124, null
   %126 = icmp eq ptr %124, %7
@@ -9675,7 +9675,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %127, label %128, label %146
 
 128:                                              ; preds = %.preheader28
-  %129 = getelementptr inbounds i8, ptr %122, i64 120
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 120
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.thread26, label %132
@@ -9685,14 +9685,14 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br label %141
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %130, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 80
   %134 = load ptr, ptr %133, align 8
   tail call void @pci_restore_state(ptr noundef %122)
   %135 = icmp eq ptr %134, null
   br i1 %135, label %141, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %134, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, null
   br i1 %139, label %141, label %140
@@ -9702,7 +9702,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br label %141
 
 141:                                              ; preds = %.thread26, %140, %136, %132
-  %142 = getelementptr inbounds i8, ptr %122, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %146, label %145
@@ -9714,7 +9714,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 146:                                              ; preds = %145, %141, %.preheader28
   %147 = load ptr, ptr %122, align 8
   %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %150 = icmp eq ptr %147, %149
   br i1 %150, label %.loopexit.loopexit, label %.preheader28, !llvm.loop !87
 
@@ -9725,14 +9725,14 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %116
   %151 = phi ptr [ %.pre51, %.loopexit.loopexit ], [ %120, %116 ]
   %152 = phi ptr [ %148, %.loopexit.loopexit ], [ %118, %116 ]
-  %153 = getelementptr inbounds i8, ptr %152, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = icmp eq ptr %151, %153
   br i1 %154, label %.thread27, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %169
   %155 = phi ptr [ %170, %169 ], [ %152, %.loopexit ]
   %156 = phi ptr [ %171, %169 ], [ %151, %.loopexit ]
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = icmp ne ptr %158, null
   %160 = icmp eq ptr %158, %7
@@ -9740,7 +9740,7 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
   br i1 %161, label %162, label %169
 
 162:                                              ; preds = %.preheader
-  %163 = getelementptr inbounds i8, ptr %156, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %167, label %166
@@ -9751,22 +9751,22 @@ define dso_local i32 @pci_reset_bus(ptr nocapture noundef readonly %0) #5 align 
 
 167:                                              ; preds = %166, %162
   tail call void @pci_cfg_access_unlock(ptr noundef %156) #27
-  %168 = getelementptr inbounds i8, ptr %156, i64 312
-  tail call void @mutex_unlock(ptr noundef %168) #27
+  %168 = getelementptr inbounds nuw i8, ptr %156, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %168) #27
   %.pre52 = load ptr, ptr %7, align 8
   br label %169
 
 169:                                              ; preds = %167, %.preheader
   %170 = phi ptr [ %.pre52, %167 ], [ %155, %.preheader ]
   %171 = load ptr, ptr %156, align 8
-  %172 = getelementptr inbounds i8, ptr %170, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 40
   %173 = icmp eq ptr %171, %172
   br i1 %173, label %.thread27, label %.preheader, !llvm.loop !80
 
 174:                                              ; preds = %1
-  %175 = getelementptr inbounds i8, ptr %0, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 56
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, null
   br i1 %179, label %.thread27, label %180
@@ -9909,9 +9909,9 @@ define dso_local noundef range(i32 -22, 1) i32 @pcix_set_mmrbc(ptr noundef %0, i
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 270
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 270
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 2
   %43 = icmp eq i16 %42, 0
@@ -9957,7 +9957,7 @@ define dso_local range(i32 128, 16385) i32 @pcie_get_readrq(ptr noundef %0) #5 a
 define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @pci_find_host_bridge(ptr noundef %6) #27
   %8 = add i32 %1, -128
@@ -9992,7 +9992,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, 
   %28 = shl i16 %27, 12
   %29 = add i16 %28, 4096
   %30 = and i16 %29, 28672
-  %31 = getelementptr inbounds i8, ptr %7, i64 832
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 832
   %32 = load i16, ptr %31, align 64
   %33 = and i16 %32, 4
   %34 = icmp eq i16 %33, 0
@@ -10012,8 +10012,8 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, 
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %44, ptr noundef nonnull @.str.44, i32 noundef %25, i32 noundef %41) #28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %44, ptr noundef nonnull @.str.44, i32 noundef %25, i32 noundef %41) #28
   br label %55
 
 45:                                               ; preds = %35, %24
@@ -10085,7 +10085,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_mps(ptr noundef %0, i32
   %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 -1) #29, !srcloc !89
   %10 = trunc i32 %9 to i16
   %11 = add i16 %10, -7
-  %12 = getelementptr inbounds i8, ptr %0, i64 103
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 103
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 7
   %15 = zext nneg i8 %14 to i16
@@ -10271,15 +10271,15 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
 
 44:                                               ; preds = %43, %42, %34
   %45 = phi i32 [ %36, %43 ], [ %36, %42 ], [ %16, %34 ]
-  %46 = getelementptr inbounds i8, ptr %15, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %47, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread, label %.split.us, !llvm.loop !90
@@ -10342,15 +10342,15 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
 
 81:                                               ; preds = %80, %79, %73
   %82 = phi i32 [ %75, %80 ], [ %75, %79 ], [ %56, %73 ]
-  %83 = getelementptr inbounds i8, ptr %55, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.thread, label %88
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %84, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.thread, label %.split.split.us, !llvm.loop !90
@@ -10411,15 +10411,15 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
 
 118:                                              ; preds = %117, %111
   %119 = phi i32 [ %113, %117 ], [ %93, %111 ]
-  %120 = getelementptr inbounds i8, ptr %92, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread, label %125
 
 125:                                              ; preds = %118
-  %126 = getelementptr inbounds i8, ptr %121, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %.thread, label %.split.split.split.us, !llvm.loop !90
@@ -10478,15 +10478,15 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
 
 155:                                              ; preds = %154, %148
   %156 = phi i32 [ %150, %154 ], [ %130, %148 ]
-  %157 = getelementptr inbounds i8, ptr %129, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.thread, label %162
 
 162:                                              ; preds = %155
-  %163 = getelementptr inbounds i8, ptr %158, i64 56
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %.thread, label %.split.split.split, !llvm.loop !90
@@ -10695,15 +10695,15 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %39 = phi i32 [ %9, %30 ], [ %19, %36 ]
   %40 = phi ptr [ %10, %30 ], [ %11, %36 ]
   %41 = phi i32 [ %12, %30 ], [ %32, %36 ]
-  %42 = getelementptr inbounds i8, ptr %11, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %43, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread, label %.preheader, !llvm.loop !90
@@ -10719,20 +10719,20 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %.thread
-  %58 = getelementptr inbounds i8, ptr %0, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %59 = udiv i32 %6, 1000
   %60 = urem i32 %6, 1000
   %61 = load i32, ptr %5, align 4
   %62 = call ptr @pci_speed_string(i32 noundef %61) #27
   %63 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %58, ptr noundef nonnull @.str.45, i32 noundef %59, i32 noundef %60, ptr noundef %62, i32 noundef %63) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %58, ptr noundef nonnull @.str.45, i32 noundef %59, i32 noundef %60, ptr noundef %62, i32 noundef %63) #28
   br label %85
 
 64:                                               ; preds = %.thread
   br i1 %55, label %85, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 184
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.frozen25 = freeze i32 %54
   %67 = udiv i32 %.frozen25, 1000
   %68 = mul i32 %67, 1000
@@ -10742,13 +10742,13 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   br i1 %70, label %78, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %53, i64 264
+  %72 = getelementptr inbounds nuw i8, ptr %53, i64 264
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %53, i64 184
+  %76 = getelementptr inbounds nuw i8, ptr %53, i64 184
   %77 = load ptr, ptr %76, align 8
   br label %78
 
@@ -10761,7 +10761,7 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %82 = load i32, ptr %5, align 4
   %83 = call ptr @pci_speed_string(i32 noundef %82) #27
   %84 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %66, ptr noundef nonnull @.str.46, i32 noundef %67, i32 noundef %.decomposed26, ptr noundef %69, i32 noundef %51, ptr noundef %79, i32 noundef %80, i32 noundef %.decomposed, ptr noundef %83, i32 noundef %84) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %66, ptr noundef nonnull @.str.46, i32 noundef %67, i32 noundef %.decomposed26, ptr noundef %69, i32 noundef %51, ptr noundef %79, i32 noundef %80, i32 noundef %.decomposed, ptr noundef %83, i32 noundef %84) #28
   br label %85
 
 85:                                               ; preds = %78, %64, %57
@@ -10858,7 +10858,7 @@ define dso_local i32 @pci_set_vga_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %33
@@ -10869,7 +10869,7 @@ define dso_local i32 @pci_set_vga_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 35:                                               ; preds = %46, %33
   %36 = phi ptr [ %31, %33 ], [ %48, %46 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %46, label %40
@@ -10884,7 +10884,7 @@ define dso_local i32 @pci_set_vga_state(ptr noundef %0, i1 noundef zeroext %1, i
   br label %46
 
 46:                                               ; preds = %40, %35
-  %47 = getelementptr inbounds i8, ptr %36, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %35, !llvm.loop !95
@@ -10902,7 +10902,7 @@ define dso_local zeroext i1 @pci_pr3_present(ptr nocapture noundef readonly %0) 
   br i1 %3, label %4, label %20
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 816
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %6) #27
   %8 = getelementptr i8, ptr %6, i64 -16
@@ -10941,7 +10941,7 @@ define dso_local void @pci_add_dma_alias(ptr noundef %0, i8 noundef zeroext %1, 
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 %2)
   %7 = add nsw i32 %4, -1
   %8 = add nsw i32 %7, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.thread
@@ -10953,8 +10953,8 @@ define dso_local void @pci_add_dma_alias(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %16, ptr noundef nonnull @.str.49) #28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %16, ptr noundef nonnull @.str.49) #28
   br label %32
 
 .thread:                                          ; preds = %3, %12
@@ -10964,10 +10964,10 @@ define dso_local void @pci_add_dma_alias(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.thread
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %21 = lshr i32 %4, 3
   %22 = and i32 %4, 7
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %20, ptr noundef nonnull @.str.50, i32 noundef %21, i32 noundef %22) #28
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %20, ptr noundef nonnull @.str.50, i32 noundef %21, i32 noundef %22) #28
   br label %32
 
 23:                                               ; preds = %.thread
@@ -10975,13 +10975,13 @@ define dso_local void @pci_add_dma_alias(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %27 = lshr i32 %4, 3
   %28 = and i32 %4, 7
   %29 = lshr i32 %8, 3
   %30 = and i32 %29, 31
   %31 = and i32 %8, 7
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.51, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31) #28
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %26, ptr noundef nonnull @.str.51, i32 noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31) #28
   br label %32
 
 32:                                               ; preds = %25, %23, %19, %15
@@ -10993,13 +10993,13 @@ declare dso_local ptr @bitmap_zalloc(i32 noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @pci_devs_are_dma_aliases(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %9) #27, !srcloc !96
@@ -11009,13 +11009,13 @@ define dso_local zeroext i1 @pci_devs_are_dma_aliases(ptr noundef %0, ptr nounde
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %6, %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %15, i64 %20) #27, !srcloc !96
@@ -11048,16 +11048,16 @@ define weak dso_local ptr @pci_real_dma_dev(ptr noundef %0) local_unnamed_addr #
 define dso_local zeroext i1 @pci_device_is_present(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
-  %3 = getelementptr inbounds i8, ptr %0, i64 180
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4, !annotation !8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = call zeroext i1 @pci_bus_read_dev_vendor_id(ptr noundef %8, i32 noundef %10, ptr noundef nonnull %2, i32 noundef 0) #27
   br label %12
@@ -11073,11 +11073,11 @@ declare dso_local zeroext i1 @pci_bus_read_dev_vendor_id(ptr noundef, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @pci_ignore_hotplug(ptr nocapture noundef %0) #19 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 157
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %7 = load i24, ptr %6, align 1
   %8 = or i24 %7, 65536
   store i24 %8, ptr %6, align 1
@@ -11085,7 +11085,7 @@ define dso_local void @pci_ignore_hotplug(ptr nocapture noundef %0) #19 align 16
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 157
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 157
   %12 = load i24, ptr %11, align 1
   %13 = or i24 %12, 65536
   store i24 %13, ptr %11, align 1
@@ -11104,7 +11104,7 @@ define weak dso_local i64 @pcibios_default_alignment() local_unnamed_addr #5 ali
 define weak dso_local void @pci_resource_to_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 align 16 {
   %6 = load i64, ptr %2, align 8
   store i64 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %4, align 8
   ret void
@@ -11117,7 +11117,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #27
-  %6 = getelementptr inbounds i8, ptr %0, i64 1689
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %7 = load i40, ptr %6, align 1
   %8 = and i40 %7, 8388608
   %9 = icmp eq i40 %8, 0
@@ -11247,21 +11247,21 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 61:                                               ; preds = %.thread7, %.loopexit
   %62 = phi i64 [ %48, %.thread7 ], [ %11, %.loopexit ]
   %63 = phi i1 [ false, %.thread7 ], [ true, %.loopexit ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 73
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, -256
   %71 = icmp eq i32 %70, 393216
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %73, ptr noundef nonnull @.str.52) #28
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %73, ptr noundef nonnull @.str.52) #28
   br label %156
 
 74:                                               ; preds = %67, %61
@@ -11270,8 +11270,8 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %77 = and i16 %76, -3
   store i16 %77, ptr %5, align 2
   %78 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %77) #27
-  %79 = getelementptr inbounds i8, ptr %0, i64 920
-  %80 = getelementptr inbounds i8, ptr %0, i64 184
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %invariant.op = add i64 %62, -1
   br i1 %63, label %.split.us, label %.split
 
@@ -11283,7 +11283,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %85 = select i1 %84, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
   %86 = getelementptr [10 x ptr], ptr %85, i64 0, i64 %81
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %82, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %89 = load i64, ptr %88, align 8
   %90 = and i64 %89, 512
   %91 = icmp eq i64 %90, 0
@@ -11295,11 +11295,11 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %92
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %80, ptr noundef nonnull @.str.108, ptr noundef %87, ptr noundef %82, i64 noundef %62) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %80, ptr noundef nonnull @.str.108, ptr noundef %87, ptr noundef %82, i64 noundef %62) #28
   br label %107
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %82, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = load i64, ptr %82, align 8
   %100 = add i64 %98, 1
@@ -11308,7 +11308,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %96
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %80, ptr noundef nonnull @.str.109, ptr noundef %87, ptr noundef %82, i64 noundef %62) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %80, ptr noundef nonnull @.str.109, ptr noundef %87, ptr noundef %82, i64 noundef %62) #28
   %104 = load i64, ptr %88, align 8
   %105 = and i64 %104, -537657345
   store i64 %62, ptr %82, align 8
@@ -11331,7 +11331,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   %114 = select i1 %113, ptr @pci_resource_name.cardbus_name, ptr @pci_resource_name.bar_name
   %115 = getelementptr [10 x ptr], ptr %114, i64 0, i64 %110
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, 512
   %120 = icmp eq i64 %119, 0
@@ -11343,11 +11343,11 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %121
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %80, ptr noundef nonnull @.str.108, ptr noundef %116, ptr noundef %111, i64 noundef %62) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %80, ptr noundef nonnull @.str.108, ptr noundef %116, ptr noundef %111, i64 noundef %62) #28
   br label %135
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %111, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %127 = load i64, ptr %126, align 8
   %128 = load i64, ptr %111, align 8
   %129 = add i64 %127, 1
@@ -11356,7 +11356,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %125
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %80, ptr noundef nonnull @.str.109, ptr noundef %116, ptr noundef %111, i64 noundef %62) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %80, ptr noundef nonnull @.str.109, ptr noundef %116, ptr noundef %111, i64 noundef %62) #28
   store i64 0, ptr %111, align 8
   store i64 %invariant.op, ptr %126, align 8
   %133 = load i64, ptr %117, align 8
@@ -11377,7 +11377,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 .preheader:                                       ; preds = %.split11.us, %152
   %140 = phi i64 [ %153, %152 ], [ 7, %.split11.us ]
   %141 = getelementptr [11 x %struct.resource], ptr %79, i64 0, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, 512
   %145 = icmp eq i64 %144, 0
@@ -11386,7 +11386,7 @@ define dso_local void @pci_reassigndev_resource_alignment(ptr noundef %0) local_
 146:                                              ; preds = %.preheader
   %147 = or i64 %143, 536870912
   store i64 %147, ptr %142, align 8
-  %148 = getelementptr inbounds i8, ptr %141, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %149 = load i64, ptr %148, align 8
   %150 = load i64, ptr %141, align 8
   %151 = sub i64 %149, %150
@@ -11741,13 +11741,13 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(ptr noundef %0, i32 noundef range(i32 1, 4) %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #27
-  %5 = getelementptr inbounds i8, ptr %0, i64 156
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %98, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %10, 5
   %12 = icmp sgt i32 %10, %1
@@ -11761,14 +11761,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   ]
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 157
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %17 = load i24, ptr %16, align 1
   %18 = and i24 %17, 128
   %19 = icmp eq i24 %18, 0
   br i1 %19, label %98, label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 157
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %22 = load i24, ptr %21, align 1
   %23 = and i24 %22, 256
   %24 = icmp eq i24 %23, 0
@@ -11785,7 +11785,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %0, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %33 = load i32, ptr %9, align 8
   %34 = add i32 %33, 1
   %35 = sext i32 %34 to i64
@@ -11795,7 +11795,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr [0 x ptr], ptr @pci_power_names, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %32, ptr noundef nonnull @.str.57, ptr noundef %37, ptr noundef %41) #28
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.57, ptr noundef %37, ptr noundef %41) #28
   store i32 4, ptr %9, align 8
   br label %98
 
@@ -11812,7 +11812,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   br i1 %50, label %51, label %66
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %53 = load i32, ptr %52, align 8
   %54 = load i32, ptr @pci_pm_d3hot_delay, align 4
   %55 = call i32 @llvm.umax.i32(i32 %53, i32 %54)
@@ -11856,7 +11856,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   br i1 %79, label %91, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 184
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %82 = load i32, ptr %9, align 8
   %83 = add i32 %82, 1
   %84 = sext i32 %83 to i64
@@ -11866,13 +11866,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @pci_set_low_power_state(pt
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr [0 x ptr], ptr @pci_power_names, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %81, ptr noundef nonnull @.str.58, ptr noundef %86, ptr noundef %90) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %81, ptr noundef nonnull @.str.58, ptr noundef %86, ptr noundef %90) #28
   br label %91
 
 91:                                               ; preds = %80, %77, %68
-  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %98, label %97
@@ -11956,7 +11956,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %32 = load i16, ptr %31, align 4
   %33 = icmp eq i16 %28, %32
   br i1 %33, label %34, label %123
@@ -11967,7 +11967,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 62
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %35, %39
   br i1 %40, label %41, label %123
@@ -11978,7 +11978,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i16, ptr %45, align 8
   %47 = icmp eq i16 %42, %46
   br i1 %47, label %48, label %123
@@ -11989,7 +11989,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %50, label %121, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 66
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %53 = load i16, ptr %52, align 2
   %54 = icmp eq i16 %49, %53
   br i1 %54, label %121, label %123
@@ -12034,7 +12034,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %68, label %69, label %.loopexit
 
 69:                                               ; preds = %.preheader
-  %70 = getelementptr inbounds i8, ptr %66, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = load i32, ptr %6, align 4
   %73 = shl i32 %72, 3
@@ -12046,15 +12046,15 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br i1 %78, label %79, label %.thread12
 
 79:                                               ; preds = %69
-  %80 = getelementptr inbounds i8, ptr %66, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.thread12, label %85
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %81, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.thread12, label %89
@@ -12079,9 +12079,9 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
 
 98:                                               ; preds = %95, %.loopexit14
   %99 = load i32, ptr %4, align 4
-  %100 = getelementptr inbounds i8, ptr %92, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 200
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 200
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %99, %104
@@ -12089,7 +12089,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
 
 106:                                              ; preds = %98
   %107 = load i32, ptr %5, align 4
-  %108 = getelementptr inbounds i8, ptr %101, i64 216
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 216
   %109 = load i8, ptr %108, align 8
   %110 = zext i8 %109 to i32
   %111 = icmp eq i32 %107, %110
@@ -12114,7 +12114,7 @@ define internal fastcc range(i32 -22, 2) i32 @pci_dev_str_match(ptr nocapture no
   br label %123
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %92, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %114 = load i32, ptr %113, align 8
   %115 = load i32, ptr %6, align 4
   %116 = shl i32 %115, 3
@@ -12182,15 +12182,15 @@ declare dso_local void @pci_fixup_device(i32 noundef, ptr noundef) local_unnamed
 define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_addr #5 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
@@ -12200,13 +12200,13 @@ define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %1, %13, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 1696
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %15 = load volatile i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %32, label %17
 
 17:                                               ; preds = %.thread
-  %18 = getelementptr inbounds i8, ptr %0, i64 1689
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %19 = load i40, ptr %18, align 1
   %20 = and i40 %19, 32
   %21 = icmp eq i40 %20, 0
@@ -12238,8 +12238,8 @@ define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_a
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.70, i32 noundef %33) #28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %36, ptr noundef nonnull @.str.70, i32 noundef %33) #28
   br label %37
 
 37:                                               ; preds = %35, %32
@@ -12256,7 +12256,7 @@ define internal fastcc void @pci_enable_bridge(ptr noundef nonnull %0) unnamed_a
   br label %44
 
 44:                                               ; preds = %42, %37
-  %45 = getelementptr inbounds i8, ptr %0, i64 1689
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %46 = load i40, ptr %45, align 1
   %47 = or i40 %46, 32
   store i40 %47, ptr %45, align 1
@@ -12278,7 +12278,7 @@ declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal void @pcim_release(ptr noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = getelementptr i8, ptr %0, i64 736
   %7 = getelementptr i8, ptr %0, i64 1505
   br label %8
@@ -12294,7 +12294,7 @@ define internal void @pcim_release(ptr noundef %0, ptr nocapture noundef readonl
 14:                                               ; preds = %8
   %15 = zext nneg i32 %9 to i64
   %16 = getelementptr [11 x %struct.resource], ptr %6, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %pci_release_region.exit, label %20
@@ -12307,7 +12307,7 @@ define internal void @pcim_release(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %24, label %pci_release_region.exit, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 256
   %29 = icmp eq i64 %28, 0
@@ -12330,13 +12330,13 @@ define internal void @pcim_release(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %38, label %pci_release_region.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call ptr @devres_find(ptr noundef %0, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
+  %40 = tail call ptr @devres_find(ptr noundef nonnull %0, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %41 = icmp eq ptr %40, null
   br i1 %41, label %pci_release_region.exit, label %42
 
 42:                                               ; preds = %39
   %43 = xor i32 %11, -1
-  %44 = getelementptr inbounds i8, ptr %40, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, %43
   store i32 %46, ptr %44, align 4
@@ -12464,129 +12464,128 @@ define internal void @pci_pme_list_scan(ptr nocapture readnone %0) #5 align 16 {
   %4 = icmp eq ptr %3, @pci_pme_list
   br i1 %4, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %71
-  %5 = phi ptr [ %6, %71 ], [ %3, %1 ]
+.preheader:                                       ; preds = %1, %70
+  %5 = phi ptr [ %6, %70 ], [ %3, %1 ]
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 157
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 157
   %10 = load i24, ptr %9, align 1
   %11 = and i24 %10, 64
   %12 = icmp eq i24 %11, 0
-  br i1 %12, label %67, label %13
+  br i1 %12, label %66, label %13
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %19 = icmp eq ptr %17, null
-  %20 = getelementptr inbounds i8, ptr %17, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 184
   %21 = select i1 %19, ptr null, ptr %20
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %30, label %23
+  br i1 %19, label %29, label %22
 
-23:                                               ; preds = %13
-  %24 = call i32 @pm_runtime_get_if_active(ptr noundef nonnull %21, i1 noundef zeroext true) #27
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %71, label %26
+22:                                               ; preds = %13
+  %23 = call i32 @pm_runtime_get_if_active(ptr noundef nonnull %20, i1 noundef zeroext true) #27
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %70, label %25
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %17, i64 152
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %62
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 152
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %61
 
-30:                                               ; preds = %26, %13
-  %31 = phi i32 [ %24, %26 ], [ 0, %13 ]
-  %32 = getelementptr inbounds i8, ptr %8, i64 636
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %62
+29:                                               ; preds = %25, %13
+  %30 = phi i32 [ %23, %25 ], [ 0, %13 ]
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 636
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 2
+  br i1 %33, label %34, label %61
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %8, i64 624
-  %37 = load i16, ptr %36, align 8
-  %38 = and i16 %37, 7
-  %39 = icmp eq i16 %38, 0
-  br i1 %39, label %40, label %62
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 624
+  %36 = load i16, ptr %35, align 8
+  %37 = and i16 %36, 7
+  %38 = icmp eq i16 %37, 0
+  br i1 %38, label %39, label %61
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %8, i64 152
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 4
-  br i1 %43, label %62, label %44
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp eq i32 %41, 4
+  br i1 %42, label %61, label %43
 
-44:                                               ; preds = %40
+43:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #27
   store i16 0, ptr %2, align 2, !annotation !8
-  %45 = getelementptr inbounds i8, ptr %8, i64 156
-  %46 = load i8, ptr %45, align 4
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %61, label %48
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 156
+  %45 = load i8, ptr %44, align 4
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %60, label %47
 
-48:                                               ; preds = %44
-  %49 = zext i8 %46 to i32
-  %50 = add nuw nsw i32 %49, 4
-  %51 = call i32 @pci_read_config_word(ptr noundef %8, i32 noundef %50, ptr noundef nonnull %2) #27
-  %52 = load i16, ptr %2, align 2
-  %53 = icmp sgt i16 %52, -1
-  br i1 %53, label %61, label %54
+47:                                               ; preds = %43
+  %48 = zext i8 %45 to i32
+  %49 = add nuw nsw i32 %48, 4
+  %50 = call i32 @pci_read_config_word(ptr noundef %8, i32 noundef %49, ptr noundef nonnull %2) #27
+  %51 = load i16, ptr %2, align 2
+  %52 = icmp sgt i16 %51, -1
+  br i1 %52, label %60, label %53
 
-54:                                               ; preds = %48
-  %55 = and i16 %52, 256
-  %56 = icmp eq i16 %55, 0
-  %57 = and i16 %52, -257
-  store i16 %57, ptr %2, align 2
-  %58 = call i32 @pci_write_config_word(ptr noundef %8, i32 noundef %50, i16 noundef zeroext %57) #27
+53:                                               ; preds = %47
+  %54 = and i16 %51, 256
+  %55 = icmp eq i16 %54, 0
+  %56 = and i16 %51, -257
+  store i16 %56, ptr %2, align 2
+  %57 = call i32 @pci_write_config_word(ptr noundef %8, i32 noundef %49, i16 noundef zeroext %56) #27
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #27
-  br i1 %56, label %62, label %59
+  br i1 %55, label %61, label %58
 
-59:                                               ; preds = %54
-  call void @pm_wakeup_dev_event(ptr noundef %18, i32 noundef 100, i1 noundef zeroext false) #27
-  %60 = call i32 @__pm_runtime_resume(ptr noundef %18, i32 noundef 1) #27
-  br label %62
+58:                                               ; preds = %53
+  call void @pm_wakeup_dev_event(ptr noundef nonnull %18, i32 noundef 100, i1 noundef zeroext false) #27
+  %59 = call i32 @__pm_runtime_resume(ptr noundef nonnull %18, i32 noundef 1) #27
+  br label %61
 
-61:                                               ; preds = %48, %44
+60:                                               ; preds = %47, %43
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #27
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %59, %54, %40, %35, %30, %26
-  %63 = phi i32 [ %24, %26 ], [ %31, %40 ], [ %31, %35 ], [ %31, %54 ], [ %31, %59 ], [ %31, %61 ], [ %31, %30 ]
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %65, label %71
+61:                                               ; preds = %60, %58, %53, %39, %34, %29, %25
+  %62 = phi i32 [ %23, %25 ], [ %30, %39 ], [ %30, %34 ], [ %30, %53 ], [ %30, %58 ], [ %30, %60 ], [ %30, %29 ]
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %64, label %70
 
-65:                                               ; preds = %62
-  %66 = call i32 @__pm_runtime_idle(ptr noundef %21, i32 noundef 5) #27
-  br label %71
+64:                                               ; preds = %61
+  %65 = call i32 @__pm_runtime_idle(ptr noundef %21, i32 noundef 5) #27
+  br label %70
 
-67:                                               ; preds = %.preheader
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %69, ptr %70, align 8
-  store volatile ptr %6, ptr %69, align 8
+66:                                               ; preds = %.preheader
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %68, ptr %69, align 8
+  store volatile ptr %6, ptr %68, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %68, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %67, align 8
   call void @kfree(ptr noundef %5) #27
-  br label %71
+  br label %70
 
-71:                                               ; preds = %67, %65, %62, %23
-  %72 = icmp eq ptr %6, @pci_pme_list
-  br i1 %72, label %.loopexit, label %.preheader, !llvm.loop !103
+70:                                               ; preds = %66, %64, %61, %22
+  %71 = icmp eq ptr %6, @pci_pme_list
+  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !103
 
-.loopexit:                                        ; preds = %71, %1
-  %73 = load volatile ptr, ptr @pci_pme_list, align 8
-  %74 = icmp eq ptr %73, @pci_pme_list
-  br i1 %74, label %78, label %75
+.loopexit:                                        ; preds = %70, %1
+  %72 = load volatile ptr, ptr @pci_pme_list, align 8
+  %73 = icmp eq ptr %72, @pci_pme_list
+  br i1 %73, label %77, label %74
 
-75:                                               ; preds = %.loopexit
-  %76 = load ptr, ptr @system_freezable_wq, align 8
-  %77 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %76, ptr noundef nonnull @pci_pme_work, i64 noundef 1000) #27
-  br label %78
+74:                                               ; preds = %.loopexit
+  %75 = load ptr, ptr @system_freezable_wq, align 8
+  %76 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %75, ptr noundef nonnull @pci_pme_work, i64 noundef 1000) #27
+  br label %77
 
-78:                                               ; preds = %75, %.loopexit
+77:                                               ; preds = %74, %.loopexit
   call void @mutex_unlock(ptr noundef nonnull @pci_pme_list_mutex) #27
   ret void
 }
@@ -12881,7 +12880,7 @@ define internal range(i32 -25, 1) i32 @pci_af_flr(ptr noundef %0, i1 noundef zer
   br i1 %7, label %48, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1694
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 1024
   %12 = icmp eq i16 %11, 0
@@ -12930,13 +12929,13 @@ define internal range(i32 -25, 1) i32 @pci_af_flr(ptr noundef %0, i1 noundef zer
   br i1 %33, label %40, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.101) #28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %39, ptr noundef nonnull @.str.101) #28
   br label %40
 
 40:                                               ; preds = %38, %37
   %41 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %22, i8 noundef zeroext 1) #27
-  %42 = getelementptr inbounds i8, ptr %0, i64 157
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %43 = load i24, ptr %42, align 1
   %44 = and i24 %43, 1
   %45 = icmp eq i24 %44, 0
@@ -12957,13 +12956,13 @@ define internal range(i32 -25, 1) i32 @pci_af_flr(ptr noundef %0, i1 noundef zer
 define internal range(i32 -25, 1) i32 @pci_pm_reset(ptr noundef %0, i1 noundef zeroext %1) #5 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
-  %4 = getelementptr inbounds i8, ptr %0, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %67, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1694
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 128
   %11 = icmp eq i16 %10, 0
@@ -12982,7 +12981,7 @@ define internal range(i32 -25, 1) i32 @pci_pm_reset(ptr noundef %0, i1 noundef z
   br i1 %19, label %67, label %21
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %67
@@ -12994,7 +12993,7 @@ define internal range(i32 -25, 1) i32 @pci_pm_reset(ptr noundef %0, i1 noundef z
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 4
   %30 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef %29, i16 noundef zeroext %26) #27
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load i32, ptr %31, align 8
   %33 = load i32, ptr @pci_pm_d3hot_delay, align 4
   %34 = call i32 @llvm.umax.i32(i32 %32, i32 %33)
@@ -13051,46 +13050,46 @@ define internal range(i32 -25, 1) i32 @pci_pm_reset(ptr noundef %0, i1 noundef z
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_reset_bus_function(ptr noundef readonly %0, i1 noundef zeroext %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1689
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %4 = load i40, ptr %3, align 1
   %5 = and i40 %4, 16
   %6 = icmp eq i40 %5, 0
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1694
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 64
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %13, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @try_module_get(ptr noundef %26) #27
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.thread6, label %34
@@ -13108,34 +13107,34 @@ define internal i32 @pci_reset_bus_function(ptr noundef readonly %0, i1 noundef 
   br i1 %37, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %20, %24, %2, %7, %11, %15, %.thread6, %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.loopexit
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %39, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 1694
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 64
   %55 = icmp eq i16 %54, 0
   br i1 %55, label %56, label %.loopexit
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %39, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 40
   br label %58
 
 58:                                               ; preds = %62, %56
@@ -13169,34 +13168,34 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal fastcc noundef zeroext i1 @pci_bus_resettable(ptr noundef readonly %0) unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 1694
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1694
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 64
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %5, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10, %25
   %14 = phi ptr [ %26, %25 ], [ %12, %10 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 1694
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1694
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 64
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %23
@@ -13217,17 +13216,17 @@ define internal fastcc noundef zeroext i1 @pci_bus_resettable(ptr noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pci_bus_lock(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %11
   %5 = phi ptr [ %12, %11 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 312
-  tail call void @mutex_lock(ptr noundef %6) #27
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  tail call void @mutex_lock(ptr noundef nonnull %6) #27
   tail call void @pci_cfg_access_lock(ptr noundef %5) #27
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -13247,14 +13246,14 @@ define internal fastcc void @pci_bus_lock(ptr noundef readonly %0) unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pci_bus_unlock(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %10
   %5 = phi ptr [ %12, %10 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -13265,8 +13264,8 @@ define internal fastcc void @pci_bus_unlock(ptr noundef readonly %0) unnamed_add
 
 10:                                               ; preds = %9, %.preheader
   tail call void @pci_cfg_access_unlock(ptr noundef %5) #27
-  %11 = getelementptr inbounds i8, ptr %5, i64 312
-  tail call void @mutex_unlock(ptr noundef %11) #27
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %11) #27
   %12 = load ptr, ptr %5, align 8
   %13 = icmp eq ptr %12, %2
   br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !110
@@ -13277,15 +13276,15 @@ define internal fastcc void @pci_bus_unlock(ptr noundef readonly %0) unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @pci_bus_trylock(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader6
 
 .preheader6:                                      ; preds = %1, %19
   %5 = phi ptr [ %20, %19 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 312
-  %7 = tail call i32 @mutex_trylock(ptr noundef %6) #27
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %7 = tail call i32 @mutex_trylock(ptr noundef nonnull %6) #27
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit7, label %9
 
@@ -13294,7 +13293,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_bus_trylock(ptr noundef 
   br i1 %10, label %11, label %.loopexit8
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -13314,18 +13313,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_bus_trylock(ptr noundef 
   br i1 %21, label %.loopexit, label %.preheader6, !llvm.loop !111
 
 .loopexit8:                                       ; preds = %9, %18
-  tail call void @mutex_unlock(ptr noundef %6) #27
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #27
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.preheader6, %.loopexit8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %2
   br i1 %24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit7, %30
   %25 = phi ptr [ %33, %30 ], [ %23, %.loopexit7 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -13336,9 +13335,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_bus_trylock(ptr noundef 
 
 30:                                               ; preds = %29, %.preheader
   tail call void @pci_cfg_access_unlock(ptr noundef %25) #27
-  %31 = getelementptr inbounds i8, ptr %25, i64 312
-  tail call void @mutex_unlock(ptr noundef %31) #27
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 312
+  tail call void @mutex_unlock(ptr noundef nonnull %31) #27
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %2
   br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !112
@@ -13350,26 +13349,26 @@ define internal fastcc noundef range(i32 0, 2) i32 @pci_bus_trylock(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pci_bus_save_and_disable_locked(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %25
   %5 = phi ptr [ %26, %25 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
@@ -13382,7 +13381,7 @@ define internal fastcc void @pci_bus_save_and_disable_locked(ptr noundef readonl
   %18 = tail call fastcc i32 @__pci_set_power_state(ptr noundef %5, i32 noundef 0, i1 noundef zeroext false), !range !17
   %19 = tail call i32 @pci_save_state(ptr noundef %5)
   %20 = tail call i32 @pci_write_config_word(ptr noundef %5, i32 noundef 4, i16 noundef zeroext 1024) #27
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -13402,14 +13401,14 @@ define internal fastcc void @pci_bus_save_and_disable_locked(ptr noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pci_bus_restore_locked(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %23
   %5 = phi ptr [ %24, %23 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -13419,14 +13418,14 @@ define internal fastcc void @pci_bus_restore_locked(ptr noundef readonly %0) unn
   br label %18
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load ptr, ptr %10, align 8
   tail call void @pci_restore_state(ptr noundef %5)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -13436,7 +13435,7 @@ define internal fastcc void @pci_bus_restore_locked(ptr noundef readonly %0) unn
   br label %18
 
 18:                                               ; preds = %.thread, %17, %13, %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22

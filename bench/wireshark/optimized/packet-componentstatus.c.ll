@@ -155,7 +155,7 @@ define internal void @componentstatusprotocol_stat_init(ptr noundef %0) #0 {
   br i1 %.not, label %.loopexit.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %.loopexit, label %7
@@ -168,18 +168,18 @@ define internal void @componentstatusprotocol_stat_init(ptr noundef %0) #0 {
   %8 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.2, i32 noundef 10, i32 noundef 0, ptr noundef null) #4
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %8) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %2, i8 0, i64 240, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 48
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
-  %13 = getelementptr inbounds i8, ptr %2, i64 72
-  %14 = getelementptr inbounds i8, ptr %2, i64 96
-  %15 = getelementptr inbounds i8, ptr %2, i64 104
-  %16 = getelementptr inbounds i8, ptr %2, i64 128
-  %17 = getelementptr inbounds i8, ptr %2, i64 152
-  %18 = getelementptr inbounds i8, ptr %2, i64 176
-  %19 = getelementptr inbounds i8, ptr %2, i64 200
-  %20 = getelementptr inbounds i8, ptr %2, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store i32 3, ptr %2, align 16
   store ptr @.str.8, ptr %9, align 8
   store i32 1, ptr %10, align 8
@@ -202,7 +202,7 @@ define internal void @componentstatusprotocol_stat_init(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @str_to_val_idx(ptr noundef %7, ptr noundef nonnull @message_type_values) #4
   %9 = icmp slt i32 %8, 0
@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -218,12 +218,12 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   %17 = add i64 %16, 1
   store i64 %17, ptr @componentstatusprotocol_total_msgs, align 8
   %18 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 1) #4
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 1, ptr noundef %18) #4
-  %22 = getelementptr inbounds i8, ptr %3, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
   %25 = load i64, ptr @componentstatusprotocol_total_bytes, align 8
@@ -232,16 +232,16 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   %27 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 3) #4
   %28 = load i16, ptr %22, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
   store i32 %32, ptr %30, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 3, ptr noundef %27) #4
   %33 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 1) #4
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 3) #4
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 2) #4
   store i32 4, ptr %39, align 8
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   %42 = load i64, ptr @componentstatusprotocol_total_msgs, align 8
   %43 = uitofp i64 %42 to double
   %44 = fdiv double %41, %43
-  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store double %44, ptr %45, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %39) #4
   %46 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 4) #4
@@ -260,10 +260,10 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
   %49 = load i64, ptr @componentstatusprotocol_total_bytes, align 8
   %50 = uitofp i64 %49 to double
   %51 = fdiv double %48, %50
-  %52 = getelementptr inbounds i8, ptr %46, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double %51, ptr %52, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %46) #4
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 1
   %.not107 = icmp eq i32 %55, 0
@@ -272,9 +272,9 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
 56:                                               ; preds = %10
   %57 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 5) #4
   store i32 4, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = tail call double @nstime_to_sec(ptr noundef nonnull %60) #4
   %62 = fcmp olt double %59, %61
   br i1 %62, label %63, label %65
@@ -299,9 +299,9 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
 70:                                               ; preds = %67
   %71 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 6) #4
   store i32 4, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %75 = tail call double @nstime_to_sec(ptr noundef nonnull %74) #4
   %76 = fcmp ogt double %73, %75
   br i1 %76, label %77, label %79
@@ -330,21 +330,21 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
 85:                                               ; preds = %.thread
   %86 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 7) #4
   store i32 4, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store double %83, ptr %87, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 7, ptr noundef nonnull %86) #4
   %88 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 8) #4
   store i32 4, ptr %88, align 8
   %89 = uitofp i32 %21 to double
   %90 = fdiv double %89, %83
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store double %90, ptr %91, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 8, ptr noundef nonnull %88) #4
   %92 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 9) #4
   store i32 4, ptr %92, align 8
   %93 = uitofp i32 %32 to double
   %94 = fdiv double %93, %83
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store double %94, ptr %95, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 9, ptr noundef nonnull %92) #4
   br label %96
@@ -356,7 +356,7 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal void @componentstatusprotocol_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -364,46 +364,46 @@ define internal void @componentstatusprotocol_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.063 = phi i32 [ %22, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 1) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 1, ptr noundef %4) #4
   %6 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 2) #4
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double -1.000000e+00, ptr %7, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 2, ptr noundef nonnull %6) #4
   %8 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 3) #4
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 3, ptr noundef %8) #4
   %10 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 4) #4
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double -1.000000e+00, ptr %11, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 4, ptr noundef nonnull %10) #4
   %12 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 5) #4
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %13, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 5, ptr noundef nonnull %12) #4
   %14 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 6) #4
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double 0x10000000000000, ptr %15, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 6, ptr noundef nonnull %14) #4
   %16 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 7) #4
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store double -1.000000e+00, ptr %17, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 7, ptr noundef nonnull %16) #4
   %18 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 8) #4
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double -1.000000e+00, ptr %19, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 8, ptr noundef nonnull %18) #4
   %20 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 9) #4
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double -1.000000e+00, ptr %21, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 9, ptr noundef nonnull %20) #4
   %22 = add nuw i32 %.063, 1
@@ -447,7 +447,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   br i1 %.not13, label %14, label %132
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.6) #4
   %17 = load i32, ptr @proto_componentstatusprotocol, align 4
@@ -455,17 +455,17 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   %19 = load i32, ptr @ett_componentstatusprotocol, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_alloc0(ptr noundef %22, i64 noundef 16) #4
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   store i8 %24, ptr %23, align 8
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %26 = getelementptr inbounds i8, ptr %23, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 %25, ptr %26, align 2
   %27 = zext i8 %24 to i32
   %28 = tail call ptr @val_to_str_const(i32 noundef %27, ptr noundef nonnull @message_type_values, ptr noundef nonnull @.str.69) #4
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr @tap_componentstatusprotocol, align 4
   tail call void @tap_queue_packet(i32 noundef %30, ptr noundef %1, ptr noundef nonnull %23) #4
@@ -496,7 +496,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   %53 = add i64 %.neg.i, %51
   %54 = trunc i64 %53 to i32
   %55 = mul i32 %54, 1000
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %55, ptr %56, align 8
   %57 = load i32, ptr @hf_message_sender_timestamp, align 4
   %58 = call ptr @proto_tree_add_time(ptr noundef %20, i32 noundef %57, ptr noundef %0, i32 noundef 16, i32 noundef 8, ptr noundef nonnull %7) #4
@@ -513,7 +513,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   %64 = mul i32 %62, -1000000
   %65 = add i32 %64, %61
   %66 = mul i32 %65, 1000
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %66, ptr %67, align 8
   %68 = load i32, ptr @hf_cspreport_report_interval, align 4
   %69 = call ptr @proto_tree_add_time(ptr noundef %20, i32 noundef %68, ptr noundef %0, i32 noundef 24, i32 noundef 4, ptr noundef nonnull %6) #4
@@ -548,7 +548,7 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
   br i1 %90, label %.lr.ph.i.i, label %dissect_componentstatusprotocol_cspreport_message.exit.i
 
 .lr.ph.i.i:                                       ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %5, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %92
 
 92:                                               ; preds = %dissect_componentstatusprotocol_cspreport_association.exit.i.i, %.lr.ph.i.i

@@ -13,11 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN9metaspace10CommitMaskC2EPKP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = lshr i64 %2, 13
   tail call void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %4, i8 noundef zeroext 24, i1 noundef zeroext true) #2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 8192, ptr %7, align 8
   ret void
 }
@@ -26,11 +26,11 @@ declare void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace10CommitMask8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %5) #2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not7 = icmp eq i64 %7, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -39,7 +39,7 @@ define hidden void @_ZNK9metaspace10CommitMask8print_onEP12outputStream(ptr noca
   %.06 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %8 = load ptr, ptr %0, align 8
   %9 = lshr i64 %.06, 6
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %.06, 63
   %13 = shl nuw i64 1, %12

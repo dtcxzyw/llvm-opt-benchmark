@@ -48,7 +48,7 @@ define internal noalias ptr @H5HF__huge_bt2_crt_context(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #6
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %9, ptr %10, align 1
   %11 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   store i8 %11, ptr %2, align 1
@@ -72,9 +72,9 @@ define internal noundef i32 @H5HF__huge_bt2_indir_store(ptr nocapture noundef wr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5HF__huge_bt2_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = trunc i64 %8 to i32
@@ -86,7 +86,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_compare(ptr nocapture noundef 
 define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = load i64, ptr %1, align 8
@@ -99,27 +99,27 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   ]
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i8
   %14 = load ptr, ptr %4, align 8
   store i8 %13, ptr %14, align 1
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %11, align 8
   %18 = lshr i64 %17, 8
   %19 = trunc i64 %18 to i8
   store i8 %19, ptr %16, align 1
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %4, align 8
   %22 = load i64, ptr %11, align 8
   %23 = lshr i64 %22, 16
   %24 = trunc i64 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %4, align 8
   %27 = load i64, ptr %11, align 8
   %28 = lshr i64 %27, 24
@@ -128,7 +128,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   br label %thread-pre-split
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   br label %34
@@ -138,7 +138,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   %.04044 = phi i64 [ 0, %30 ], [ %37, %34 ]
   %.04243 = phi i64 [ %32, %30 ], [ %38, %34 ]
   %35 = trunc i64 %.04243 to i8
-  %36 = getelementptr inbounds i8, ptr %.03845, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.03845, i64 1
   store i8 %35, ptr %.03845, align 1
   %37 = add nuw nsw i64 %.04044, 1
   %38 = lshr i64 %.04243, 8
@@ -146,13 +146,13 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   br i1 %exitcond.not, label %thread-pre-split, label %34
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i8
   %43 = load ptr, ptr %4, align 8
   store i8 %42, ptr %43, align 1
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %4, align 8
   %46 = load i64, ptr %40, align 8
   %47 = lshr i64 %46, 8
@@ -163,7 +163,7 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
 thread-pre-split:                                 ; preds = %34, %10, %39
   %.sink51 = phi i64 [ 1, %10 ], [ 1, %39 ], [ 8, %34 ]
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %.sink51
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.sink51
   store ptr %50, ptr %4, align 8
   %.pr = load i8, ptr %2, align 1
   br label %51
@@ -177,27 +177,27 @@ thread-pre-split:                                 ; preds = %34, %10, %39
   ]
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = trunc i64 %55 to i8
   %57 = load ptr, ptr %4, align 8
   store i8 %56, ptr %57, align 1
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %4, align 8
   %60 = load i64, ptr %54, align 8
   %61 = lshr i64 %60, 8
   %62 = trunc i64 %61 to i8
   store i8 %62, ptr %59, align 1
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %64, ptr %4, align 8
   %65 = load i64, ptr %54, align 8
   %66 = lshr i64 %65, 16
   %67 = trunc i64 %66 to i8
   store i8 %67, ptr %64, align 1
   %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i64, ptr %54, align 8
   %71 = lshr i64 %70, 24
   %72 = trunc i64 %71 to i8
@@ -205,7 +205,7 @@ thread-pre-split:                                 ; preds = %34, %10, %39
   br label %.loopexit
 
 73:                                               ; preds = %51
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = load ptr, ptr %4, align 8
   br label %77
@@ -215,7 +215,7 @@ thread-pre-split:                                 ; preds = %34, %10, %39
   %.03547 = phi i64 [ 0, %73 ], [ %80, %77 ]
   %.03746 = phi i64 [ %75, %73 ], [ %81, %77 ]
   %78 = trunc i64 %.03746 to i8
-  %79 = getelementptr inbounds i8, ptr %.048, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.048, i64 1
   store i8 %78, ptr %.048, align 1
   %80 = add nuw nsw i64 %.03547, 1
   %81 = lshr i64 %.03746, 8
@@ -223,13 +223,13 @@ thread-pre-split:                                 ; preds = %34, %10, %39
   br i1 %exitcond49.not, label %.loopexit, label %77
 
 82:                                               ; preds = %51
-  %83 = getelementptr inbounds i8, ptr %1, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = trunc i64 %84 to i8
   %86 = load ptr, ptr %4, align 8
   store i8 %85, ptr %86, align 1
   %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %89 = load i64, ptr %83, align 8
   %90 = lshr i64 %89, 8
   %91 = trunc i64 %90 to i8
@@ -244,7 +244,7 @@ thread-pre-split:                                 ; preds = %34, %10, %39
 define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   call void @H5F_addr_decode_len(i64 noundef %7, ptr noundef nonnull %4, ptr noundef %1) #6
@@ -259,37 +259,37 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   %10 = load ptr, ptr %4, align 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %14, ptr %4, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 8
   %18 = or disjoint i64 %17, %12
   store i64 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   store i64 %23, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store ptr %24, ptr %4, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 24
   %28 = or disjoint i64 %27, %23
   store i64 %28, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %thread-pre-split
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %31, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %34
 
 34:                                               ; preds = %30, %34
@@ -308,23 +308,23 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   br i1 %exitcond.not, label %43, label %34
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %36, i64 7
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 7
   br label %thread-pre-split
 
 45:                                               ; preds = %3
   %46 = load ptr, ptr %4, align 8
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
   %54 = or disjoint i64 %53, %48
   store i64 %54, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 2
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %9, %43, %45
@@ -345,23 +345,23 @@ thread-pre-split:                                 ; preds = %9, %43, %45
   %59 = load ptr, ptr %4, align 8
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %63, ptr %4, align 8
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   %66 = shl nuw nsw i64 %65, 8
   %67 = or disjoint i64 %66, %61
   store i64 %67, ptr %62, align 8
-  %68 = getelementptr inbounds i8, ptr %59, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 2
   store ptr %68, ptr %4, align 8
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 16
   %72 = or disjoint i64 %71, %67
   store i64 %72, ptr %62, align 8
-  %73 = getelementptr inbounds i8, ptr %59, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 3
   store ptr %73, ptr %4, align 8
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i64
@@ -371,10 +371,10 @@ thread-pre-split:                                 ; preds = %9, %43, %45
   br label %.loopexit
 
 78:                                               ; preds = %56
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %79, align 8
   %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   br label %82
 
 82:                                               ; preds = %78, %82
@@ -396,9 +396,9 @@ thread-pre-split:                                 ; preds = %9, %43, %45
   %92 = load ptr, ptr %4, align 8
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %1, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %92, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store ptr %96, ptr %4, align 8
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
@@ -414,9 +414,9 @@ thread-pre-split:                                 ; preds = %9, %43, %45
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5HF__huge_bt2_indir_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %1, ptr noundef nonnull @.str.9, i32 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %6, i64 noundef %8, i64 noundef %10) #6
   ret i32 0
@@ -430,9 +430,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_store(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5HF__huge_bt2_filt_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %9 = trunc i64 %8 to i32
@@ -444,7 +444,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_compare(ptr nocapture nou
 define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = load i64, ptr %1, align 8
@@ -461,39 +461,39 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   br label %56
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i8
   %14 = load ptr, ptr %4, align 8
   store i8 %13, ptr %14, align 1
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %11, align 8
   %18 = lshr i64 %17, 8
   %19 = trunc i64 %18 to i8
   store i8 %19, ptr %16, align 1
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %4, align 8
   %22 = load i64, ptr %11, align 8
   %23 = lshr i64 %22, 16
   %24 = trunc i64 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %4, align 8
   %27 = load i64, ptr %11, align 8
   %28 = lshr i64 %27, 24
   %29 = trunc i64 %28 to i8
   store i8 %29, ptr %26, align 1
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %4, align 8
   br label %56
 
 32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load ptr, ptr %4, align 8
   br label %36
@@ -503,7 +503,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %.06569 = phi i64 [ 0, %32 ], [ %39, %36 ]
   %.06768 = phi i64 [ %34, %32 ], [ %40, %36 ]
   %37 = trunc i64 %.06768 to i8
-  %38 = getelementptr inbounds i8, ptr %.06370, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.06370, i64 1
   store i8 %37, ptr %.06370, align 1
   %39 = add nuw nsw i64 %.06569, 1
   %40 = lshr i64 %.06768, 8
@@ -512,57 +512,57 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %43, ptr %4, align 8
   br label %56
 
 44:                                               ; preds = %3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i8
   %48 = load ptr, ptr %4, align 8
   store i8 %47, ptr %48, align 1
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i64, ptr %45, align 8
   %52 = lshr i64 %51, 8
   %53 = trunc i64 %52 to i8
   store i8 %53, ptr %50, align 1
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %4, align 8
   br label %56
 
 56:                                               ; preds = %._crit_edge, %44, %41, %10
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %55, %44 ], [ %43, %41 ], [ %31, %10 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = trunc i32 %59 to i8
   store i8 %60, ptr %57, align 1
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %4, align 8
   %63 = load i32, ptr %58, align 8
   %64 = lshr i32 %63, 8
   %65 = trunc i32 %64 to i8
   store i8 %65, ptr %62, align 1
   %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   store ptr %67, ptr %4, align 8
   %68 = load i32, ptr %58, align 8
   %69 = lshr i32 %68, 16
   %70 = trunc i32 %69 to i8
   store i8 %70, ptr %67, align 1
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %4, align 8
   %73 = load i32, ptr %58, align 8
   %74 = lshr i32 %73, 24
   %75 = trunc nuw i32 %74 to i8
   store i8 %75, ptr %72, align 1
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %77, ptr %4, align 8
   %78 = load i8, ptr %2, align 1
   switch i8 %78, label %117 [
@@ -572,26 +572,26 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   ]
 
 79:                                               ; preds = %56
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = trunc i64 %81 to i8
   store i8 %82, ptr %77, align 1
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %4, align 8
   %85 = load i64, ptr %80, align 8
   %86 = lshr i64 %85, 8
   %87 = trunc i64 %86 to i8
   store i8 %87, ptr %84, align 1
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store ptr %89, ptr %4, align 8
   %90 = load i64, ptr %80, align 8
   %91 = lshr i64 %90, 16
   %92 = trunc i64 %91 to i8
   store i8 %92, ptr %89, align 1
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   store ptr %94, ptr %4, align 8
   %95 = load i64, ptr %80, align 8
   %96 = lshr i64 %95, 24
@@ -600,7 +600,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   br label %thread-pre-split
 
 98:                                               ; preds = %56
-  %99 = getelementptr inbounds i8, ptr %1, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %100 = load i64, ptr %99, align 8
   br label %101
 
@@ -609,7 +609,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %.06072 = phi i64 [ 0, %98 ], [ %104, %101 ]
   %.06271 = phi i64 [ %100, %98 ], [ %105, %101 ]
   %102 = trunc i64 %.06271 to i8
-  %103 = getelementptr inbounds i8, ptr %.05873, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.05873, i64 1
   store i8 %102, ptr %.05873, align 1
   %104 = add nuw nsw i64 %.06072, 1
   %105 = lshr i64 %.06271, 8
@@ -617,12 +617,12 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   br i1 %exitcond77.not, label %thread-pre-split, label %101
 
 106:                                              ; preds = %56
-  %107 = getelementptr inbounds i8, ptr %1, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i8
   store i8 %109, ptr %77, align 1
   %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   store ptr %111, ptr %4, align 8
   %112 = load i64, ptr %107, align 8
   %113 = lshr i64 %112, 8
@@ -633,7 +633,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
 thread-pre-split:                                 ; preds = %101, %79, %106
   %.sink80 = phi i64 [ 1, %79 ], [ 1, %106 ], [ 8, %101 ]
   %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 %.sink80
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.sink80
   store ptr %116, ptr %4, align 8
   %.pr = load i8, ptr %2, align 1
   br label %117
@@ -648,26 +648,26 @@ thread-pre-split:                                 ; preds = %101, %79, %106
   ]
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %1, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i8
   store i8 %123, ptr %118, align 1
   %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   store ptr %125, ptr %4, align 8
   %126 = load i64, ptr %121, align 8
   %127 = lshr i64 %126, 8
   %128 = trunc i64 %127 to i8
   store i8 %128, ptr %125, align 1
   %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
   store ptr %130, ptr %4, align 8
   %131 = load i64, ptr %121, align 8
   %132 = lshr i64 %131, 16
   %133 = trunc i64 %132 to i8
   store i8 %133, ptr %130, align 1
   %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 1
   %136 = load i64, ptr %121, align 8
   %137 = lshr i64 %136, 24
   %138 = trunc i64 %137 to i8
@@ -675,7 +675,7 @@ thread-pre-split:                                 ; preds = %101, %79, %106
   br label %.loopexit
 
 139:                                              ; preds = %117
-  %140 = getelementptr inbounds i8, ptr %1, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %141 = load i64, ptr %140, align 8
   br label %142
 
@@ -684,7 +684,7 @@ thread-pre-split:                                 ; preds = %101, %79, %106
   %.05575 = phi i64 [ 0, %139 ], [ %145, %142 ]
   %.05774 = phi i64 [ %141, %139 ], [ %146, %142 ]
   %143 = trunc i64 %.05774 to i8
-  %144 = getelementptr inbounds i8, ptr %.076, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %.076, i64 1
   store i8 %143, ptr %.076, align 1
   %145 = add nuw nsw i64 %.05575, 1
   %146 = lshr i64 %.05774, 8
@@ -692,12 +692,12 @@ thread-pre-split:                                 ; preds = %101, %79, %106
   br i1 %exitcond78.not, label %.loopexit, label %142
 
 147:                                              ; preds = %117
-  %148 = getelementptr inbounds i8, ptr %1, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %149 = load i64, ptr %148, align 8
   %150 = trunc i64 %149 to i8
   store i8 %150, ptr %118, align 1
   %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1
   %153 = load i64, ptr %148, align 8
   %154 = lshr i64 %153, 8
   %155 = trunc i64 %154 to i8
@@ -712,7 +712,7 @@ thread-pre-split:                                 ; preds = %101, %79, %106
 define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   call void @H5F_addr_decode_len(i64 noundef %7, ptr noundef nonnull %4, ptr noundef %1) #6
@@ -731,38 +731,38 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %10 = load ptr, ptr %4, align 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %14, ptr %4, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 8
   %18 = or disjoint i64 %17, %12
   store i64 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   store i64 %23, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store ptr %24, ptr %4, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 24
   %28 = or disjoint i64 %27, %23
   store i64 %28, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %29, ptr %4, align 8
   br label %56
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %31, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %34
 
 34:                                               ; preds = %30, %34
@@ -781,7 +781,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   br i1 %exitcond.not, label %43, label %34
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %36, i64 7
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 7
   store ptr %44, ptr %4, align 8
   br label %56
 
@@ -789,16 +789,16 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %46 = load ptr, ptr %4, align 8
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
   %54 = or disjoint i64 %53, %48
   store i64 %54, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store ptr %55, ptr %4, align 8
   br label %56
 
@@ -806,30 +806,30 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %55, %45 ], [ %44, %43 ], [ %29, %9 ]
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %61, ptr %4, align 8
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 8
   %65 = or disjoint i32 %64, %59
   store i32 %65, ptr %60, align 8
-  %66 = getelementptr inbounds i8, ptr %57, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store ptr %66, ptr %4, align 8
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
   %70 = or disjoint i32 %69, %65
   store i32 %70, ptr %60, align 8
-  %71 = getelementptr inbounds i8, ptr %57, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 3
   store ptr %71, ptr %4, align 8
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw i32 %73, 24
   %75 = or disjoint i32 %74, %70
   store i32 %75, ptr %60, align 8
-  %76 = getelementptr inbounds i8, ptr %57, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store ptr %76, ptr %4, align 8
   %77 = load i8, ptr %2, align 1
   switch i8 %77, label %122 [
@@ -841,36 +841,36 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
 78:                                               ; preds = %56
   %79 = load i8, ptr %76, align 1
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %57, i64 5
+  %82 = getelementptr inbounds nuw i8, ptr %57, i64 5
   store ptr %82, ptr %4, align 8
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
   %85 = shl nuw nsw i64 %84, 8
   %86 = or disjoint i64 %85, %80
   store i64 %86, ptr %81, align 8
-  %87 = getelementptr inbounds i8, ptr %57, i64 6
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 6
   store ptr %87, ptr %4, align 8
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = shl nuw nsw i64 %89, 16
   %91 = or disjoint i64 %90, %86
   store i64 %91, ptr %81, align 8
-  %92 = getelementptr inbounds i8, ptr %57, i64 7
+  %92 = getelementptr inbounds nuw i8, ptr %57, i64 7
   store ptr %92, ptr %4, align 8
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
   %95 = shl nuw nsw i64 %94, 24
   %96 = or disjoint i64 %95, %91
   store i64 %96, ptr %81, align 8
-  %97 = getelementptr inbounds i8, ptr %57, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %57, i64 8
   br label %thread-pre-split
 
 98:                                               ; preds = %56
-  %99 = getelementptr inbounds i8, ptr %1, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %57, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %57, i64 12
   br label %101
 
 101:                                              ; preds = %98, %101
@@ -889,22 +889,22 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   br i1 %exitcond53.not, label %110, label %101
 
 110:                                              ; preds = %101
-  %111 = getelementptr inbounds i8, ptr %103, i64 7
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 7
   br label %thread-pre-split
 
 112:                                              ; preds = %56
   %113 = load i8, ptr %76, align 1
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %1, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %57, i64 5
+  %116 = getelementptr inbounds nuw i8, ptr %57, i64 5
   store ptr %116, ptr %4, align 8
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i64
   %119 = shl nuw nsw i64 %118, 8
   %120 = or disjoint i64 %119, %114
   store i64 %120, ptr %115, align 8
-  %121 = getelementptr inbounds i8, ptr %57, i64 6
+  %121 = getelementptr inbounds nuw i8, ptr %57, i64 6
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %78, %110, %112
@@ -925,23 +925,23 @@ thread-pre-split:                                 ; preds = %78, %110, %112
 125:                                              ; preds = %122
   %126 = load i8, ptr %123, align 1
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %1, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 1
   store ptr %129, ptr %4, align 8
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i64
   %132 = shl nuw nsw i64 %131, 8
   %133 = or disjoint i64 %132, %127
   store i64 %133, ptr %128, align 8
-  %134 = getelementptr inbounds i8, ptr %123, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 2
   store ptr %134, ptr %4, align 8
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i64
   %137 = shl nuw nsw i64 %136, 16
   %138 = or disjoint i64 %137, %133
   store i64 %138, ptr %128, align 8
-  %139 = getelementptr inbounds i8, ptr %123, i64 3
+  %139 = getelementptr inbounds nuw i8, ptr %123, i64 3
   store ptr %139, ptr %4, align 8
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i64
@@ -951,9 +951,9 @@ thread-pre-split:                                 ; preds = %78, %110, %112
   br label %.loopexit
 
 144:                                              ; preds = %122
-  %145 = getelementptr inbounds i8, ptr %1, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %123, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %123, i64 8
   br label %147
 
 147:                                              ; preds = %144, %147
@@ -974,9 +974,9 @@ thread-pre-split:                                 ; preds = %78, %110, %112
 156:                                              ; preds = %122
   %157 = load i8, ptr %123, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %1, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %158, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %123, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %123, i64 1
   store ptr %160, ptr %4, align 8
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
@@ -992,13 +992,13 @@ thread-pre-split:                                 ; preds = %78, %110, %112
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5HF__huge_bt2_filt_indir_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %1, ptr noundef nonnull @.str.9, i32 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %6, i64 noundef %8, i32 noundef %10, i64 noundef %12, i64 noundef %14) #6
   ret i32 0
@@ -1022,9 +1022,9 @@ define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr nocapture noundef re
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %17, label %15
@@ -1044,7 +1044,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr nocapture noundef re
 define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = load i64, ptr %1, align 8
@@ -1057,27 +1057,27 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
   ]
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i8
   %14 = load ptr, ptr %4, align 8
   store i8 %13, ptr %14, align 1
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %11, align 8
   %18 = lshr i64 %17, 8
   %19 = trunc i64 %18 to i8
   store i8 %19, ptr %16, align 1
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %4, align 8
   %22 = load i64, ptr %11, align 8
   %23 = lshr i64 %22, 16
   %24 = trunc i64 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %27 = load i64, ptr %11, align 8
   %28 = lshr i64 %27, 24
   %29 = trunc i64 %28 to i8
@@ -1085,7 +1085,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
   br label %.loopexit
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   br label %34
@@ -1095,7 +1095,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
   %.01923 = phi i64 [ 0, %30 ], [ %37, %34 ]
   %.02122 = phi i64 [ %32, %30 ], [ %38, %34 ]
   %35 = trunc i64 %.02122 to i8
-  %36 = getelementptr inbounds i8, ptr %.024, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   store i8 %35, ptr %.024, align 1
   %37 = add nuw nsw i64 %.01923, 1
   %38 = lshr i64 %.02122, 8
@@ -1103,13 +1103,13 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
   br i1 %exitcond.not, label %.loopexit, label %34
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i8
   %43 = load ptr, ptr %4, align 8
   store i8 %42, ptr %43, align 1
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i64, ptr %40, align 8
   %47 = lshr i64 %46, 8
   %48 = trunc i64 %47 to i8
@@ -1124,7 +1124,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
 define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   call void @H5F_addr_decode_len(i64 noundef %7, ptr noundef nonnull %4, ptr noundef %1) #6
@@ -1139,23 +1139,23 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   %10 = load ptr, ptr %4, align 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %14, ptr %4, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 8
   %18 = or disjoint i64 %17, %12
   store i64 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   store i64 %23, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store ptr %24, ptr %4, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
@@ -1165,10 +1165,10 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   br label %.loopexit
 
 29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %30, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br label %33
 
 33:                                               ; preds = %29, %33
@@ -1190,9 +1190,9 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   %43 = load ptr, ptr %4, align 8
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %47, ptr %4, align 8
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
@@ -1208,7 +1208,7 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5HF__huge_bt2_dir_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.9, i32 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %6, i64 noundef %8) #6
   ret i32 0
@@ -1232,9 +1232,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr nocapture nound
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %17, label %15
@@ -1254,7 +1254,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr nocapture nound
 define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = load i64, ptr %1, align 8
@@ -1271,39 +1271,39 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   br label %56
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i8
   %14 = load ptr, ptr %4, align 8
   store i8 %13, ptr %14, align 1
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %11, align 8
   %18 = lshr i64 %17, 8
   %19 = trunc i64 %18 to i8
   store i8 %19, ptr %16, align 1
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %4, align 8
   %22 = load i64, ptr %11, align 8
   %23 = lshr i64 %22, 16
   %24 = trunc i64 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %4, align 8
   %27 = load i64, ptr %11, align 8
   %28 = lshr i64 %27, 24
   %29 = trunc i64 %28 to i8
   store i8 %29, ptr %26, align 1
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %4, align 8
   br label %56
 
 32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load ptr, ptr %4, align 8
   br label %36
@@ -1313,7 +1313,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   %.04448 = phi i64 [ 0, %32 ], [ %39, %36 ]
   %.04647 = phi i64 [ %34, %32 ], [ %40, %36 ]
   %37 = trunc i64 %.04647 to i8
-  %38 = getelementptr inbounds i8, ptr %.04249, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.04249, i64 1
   store i8 %37, ptr %.04249, align 1
   %39 = add nuw nsw i64 %.04448, 1
   %40 = lshr i64 %.04647, 8
@@ -1322,57 +1322,57 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %43, ptr %4, align 8
   br label %56
 
 44:                                               ; preds = %3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i8
   %48 = load ptr, ptr %4, align 8
   store i8 %47, ptr %48, align 1
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i64, ptr %45, align 8
   %52 = lshr i64 %51, 8
   %53 = trunc i64 %52 to i8
   store i8 %53, ptr %50, align 1
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %4, align 8
   br label %56
 
 56:                                               ; preds = %._crit_edge, %44, %41, %10
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %55, %44 ], [ %43, %41 ], [ %31, %10 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = trunc i32 %59 to i8
   store i8 %60, ptr %57, align 1
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %4, align 8
   %63 = load i32, ptr %58, align 8
   %64 = lshr i32 %63, 8
   %65 = trunc i32 %64 to i8
   store i8 %65, ptr %62, align 1
   %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   store ptr %67, ptr %4, align 8
   %68 = load i32, ptr %58, align 8
   %69 = lshr i32 %68, 16
   %70 = trunc i32 %69 to i8
   store i8 %70, ptr %67, align 1
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %4, align 8
   %73 = load i32, ptr %58, align 8
   %74 = lshr i32 %73, 24
   %75 = trunc nuw i32 %74 to i8
   store i8 %75, ptr %72, align 1
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %77, ptr %4, align 8
   %78 = load i8, ptr %2, align 1
   switch i8 %78, label %.loopexit [
@@ -1382,26 +1382,26 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   ]
 
 79:                                               ; preds = %56
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = trunc i64 %81 to i8
   store i8 %82, ptr %77, align 1
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %4, align 8
   %85 = load i64, ptr %80, align 8
   %86 = lshr i64 %85, 8
   %87 = trunc i64 %86 to i8
   store i8 %87, ptr %84, align 1
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store ptr %89, ptr %4, align 8
   %90 = load i64, ptr %80, align 8
   %91 = lshr i64 %90, 16
   %92 = trunc i64 %91 to i8
   store i8 %92, ptr %89, align 1
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %95 = load i64, ptr %80, align 8
   %96 = lshr i64 %95, 24
   %97 = trunc i64 %96 to i8
@@ -1409,7 +1409,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   br label %.loopexit
 
 98:                                               ; preds = %56
-  %99 = getelementptr inbounds i8, ptr %1, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %100 = load i64, ptr %99, align 8
   br label %101
 
@@ -1418,7 +1418,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   %.03951 = phi i64 [ 0, %98 ], [ %104, %101 ]
   %.04150 = phi i64 [ %100, %98 ], [ %105, %101 ]
   %102 = trunc i64 %.04150 to i8
-  %103 = getelementptr inbounds i8, ptr %.052, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.052, i64 1
   store i8 %102, ptr %.052, align 1
   %104 = add nuw nsw i64 %.03951, 1
   %105 = lshr i64 %.04150, 8
@@ -1426,12 +1426,12 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   br i1 %exitcond53.not, label %.loopexit, label %101
 
 106:                                              ; preds = %56
-  %107 = getelementptr inbounds i8, ptr %1, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i8
   store i8 %109, ptr %77, align 1
   %110 = load ptr, ptr %4, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %112 = load i64, ptr %107, align 8
   %113 = lshr i64 %112, 8
   %114 = trunc i64 %113 to i8
@@ -1446,7 +1446,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
 define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   call void @H5F_addr_decode_len(i64 noundef %7, ptr noundef nonnull %4, ptr noundef %1) #6
@@ -1465,38 +1465,38 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %10 = load ptr, ptr %4, align 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %14, ptr %4, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 8
   %18 = or disjoint i64 %17, %12
   store i64 %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   store i64 %23, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store ptr %24, ptr %4, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 24
   %28 = or disjoint i64 %27, %23
   store i64 %28, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %29, ptr %4, align 8
   br label %56
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %31, align 8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %34
 
 34:                                               ; preds = %30, %34
@@ -1515,7 +1515,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   br i1 %exitcond.not, label %43, label %34
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %36, i64 7
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 7
   store ptr %44, ptr %4, align 8
   br label %56
 
@@ -1523,16 +1523,16 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %46 = load ptr, ptr %4, align 8
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
   %54 = or disjoint i64 %53, %48
   store i64 %54, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store ptr %55, ptr %4, align 8
   br label %56
 
@@ -1540,30 +1540,30 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %55, %45 ], [ %44, %43 ], [ %29, %9 ]
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %61, ptr %4, align 8
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 8
   %65 = or disjoint i32 %64, %59
   store i32 %65, ptr %60, align 8
-  %66 = getelementptr inbounds i8, ptr %57, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store ptr %66, ptr %4, align 8
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
   %70 = or disjoint i32 %69, %65
   store i32 %70, ptr %60, align 8
-  %71 = getelementptr inbounds i8, ptr %57, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 3
   store ptr %71, ptr %4, align 8
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw i32 %73, 24
   %75 = or disjoint i32 %74, %70
   store i32 %75, ptr %60, align 8
-  %76 = getelementptr inbounds i8, ptr %57, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store ptr %76, ptr %4, align 8
   %77 = load i8, ptr %2, align 1
   switch i8 %77, label %.loopexit [
@@ -1575,23 +1575,23 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
 78:                                               ; preds = %56
   %79 = load i8, ptr %76, align 1
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %57, i64 5
+  %82 = getelementptr inbounds nuw i8, ptr %57, i64 5
   store ptr %82, ptr %4, align 8
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
   %85 = shl nuw nsw i64 %84, 8
   %86 = or disjoint i64 %85, %80
   store i64 %86, ptr %81, align 8
-  %87 = getelementptr inbounds i8, ptr %57, i64 6
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 6
   store ptr %87, ptr %4, align 8
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = shl nuw nsw i64 %89, 16
   %91 = or disjoint i64 %90, %86
   store i64 %91, ptr %81, align 8
-  %92 = getelementptr inbounds i8, ptr %57, i64 7
+  %92 = getelementptr inbounds nuw i8, ptr %57, i64 7
   store ptr %92, ptr %4, align 8
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
@@ -1601,9 +1601,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   br label %.loopexit
 
 97:                                               ; preds = %56
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %57, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %57, i64 12
   br label %100
 
 100:                                              ; preds = %97, %100
@@ -1624,9 +1624,9 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
 109:                                              ; preds = %56
   %110 = load i8, ptr %76, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %1, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %111, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %57, i64 5
+  %113 = getelementptr inbounds nuw i8, ptr %57, i64 5
   store ptr %113, ptr %4, align 8
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
@@ -1642,11 +1642,11 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5HF__huge_bt2_filt_dir_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef nonnull @.str.9, i32 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %6, i64 noundef %8, i32 noundef %10, i64 noundef %12) #6
   ret i32 0
@@ -1664,10 +1664,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__huge_bt2_indir_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5MF_xfree(ptr noundef %5, i32 noundef 3, i64 noundef %6, i64 noundef %8) #6
   %10 = icmp slt i32 %9, 0
@@ -1681,7 +1681,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_indir_remove(ptr nocapture noundef r
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %16, ptr %17, align 8
   br label %18
 
@@ -1703,10 +1703,10 @@ define noundef i32 @H5HF__huge_bt2_filt_indir_found(ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_indir_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5MF_xfree(ptr noundef %5, i32 noundef 3, i64 noundef %6, i64 noundef %8) #6
   %10 = icmp slt i32 %9, 0
@@ -1719,9 +1719,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_indir_remove(ptr nocapture noun
   br label %19
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %17, ptr %18, align 8
   br label %19
 
@@ -1733,10 +1733,10 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_indir_remove(ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__huge_bt2_dir_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5MF_xfree(ptr noundef %5, i32 noundef 3, i64 noundef %6, i64 noundef %8) #6
   %10 = icmp slt i32 %9, 0
@@ -1750,7 +1750,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_dir_remove(ptr nocapture noundef rea
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %16, ptr %17, align 8
   br label %18
 
@@ -1768,10 +1768,10 @@ define noundef i32 @H5HF__huge_bt2_filt_dir_found(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_dir_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5MF_xfree(ptr noundef %5, i32 noundef 3, i64 noundef %6, i64 noundef %8) #6
   %10 = icmp slt i32 %9, 0
@@ -1784,9 +1784,9 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_filt_dir_remove(ptr nocapture nounde
   br label %19
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %17, ptr %18, align 8
   br label %19
 

@@ -57,16 +57,16 @@ _ZL18raw_checked_mallocm.exit:                    ; preds = %1
 
 _ZN20NMTPreInitAllocationnwEm.exit:               ; preds = %_ZL18raw_checked_mallocm.exit
   store ptr null, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %9, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocation13do_reallocateEPS_m(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %1) #14
   %6 = icmp eq ptr %5, null
@@ -87,9 +87,9 @@ _ZL19raw_checked_reallocPvm.exit:                 ; preds = %2
 
 11:                                               ; preds = %_ZL19raw_checked_reallocPvm.exit
   store ptr null, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %13, align 8
   tail call void @free(ptr noundef nonnull %0) #13
   ret ptr %8
@@ -97,7 +97,7 @@ _ZL19raw_checked_reallocPvm.exit:                 ; preds = %2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @_ZN20NMTPreInitAllocation7do_freeEPS_(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
   tail call void @free(ptr noundef nonnull %0) #13
@@ -126,7 +126,7 @@ define hidden void @_ZN25NMTPreInitAllocationTabledlEPv(ptr nocapture noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65532) initializes((0, 65532)) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 65528
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 65528
   store i32 -1, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65528) %0, i8 0, i64 65528, i1 false)
   ret void
@@ -141,7 +141,7 @@ define hidden void @_ZN25NMTPreInitAllocationTableD2Ev(ptr nocapture noundef non
 
 2:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %3 = getelementptr inbounds [8191 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8191 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -172,7 +172,7 @@ define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream
   %.02336 = phi i32 [ 0, %2 ], [ %11, %._crit_edge ]
   %.02435 = phi i32 [ 0, %2 ], [ %spec.select, %._crit_edge ]
   %.02634 = phi i32 [ 0, %2 ], [ %10, %._crit_edge ]
-  %4 = getelementptr inbounds [8191 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8191 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %.028 = load ptr, ptr %4, align 8
   %.not29 = icmp eq ptr %.028, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -182,7 +182,7 @@ define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream
   %.02031 = phi i32 [ %5, %.lr.ph ], [ 0, %3 ]
   %.130 = phi i64 [ %8, %.lr.ph ], [ %.02237, %3 ]
   %5 = add nuw nsw i32 %.02031, 1
-  %6 = getelementptr inbounds i8, ptr %.032, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %.130
   %.0 = load ptr, ptr %.032, align 8
@@ -220,7 +220,7 @@ define hidden void @_ZN10NMTPreInit12create_tableEv() local_unnamed_addr #0 alig
   unreachable
 
 _ZN25NMTPreInitAllocationTablenwEm.exit:          ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 65528
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 65528
   store i32 -1, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65532) %1, i8 0, i64 65528, i1 false)
   store ptr %1, ptr @_ZN10NMTPreInit6_tableE, align 8
@@ -246,7 +246,7 @@ define hidden void @_ZN10NMTPreInit11pre_to_postEb(i1 noundef zeroext %0) local_
 
 .preheader:                                       ; preds = %2, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds [8191 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8191 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not8.i = icmp eq ptr %6, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
@@ -287,7 +287,7 @@ define hidden void @_ZN10NMTPreInit11print_stateEP12outputStream(ptr noundef %0)
   %.02336.i = phi i32 [ %10, %._crit_edge.i ], [ 0, %1 ]
   %.02435.i = phi i32 [ %spec.select.i, %._crit_edge.i ], [ 0, %1 ]
   %.02634.i = phi i32 [ %9, %._crit_edge.i ], [ 0, %1 ]
-  %3 = getelementptr inbounds [8191 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8191 x ptr], ptr %2, i64 0, i64 %indvars.iv.i
   %.028.i = load ptr, ptr %3, align 8
   %.not29.i = icmp eq ptr %.028.i, null
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i
@@ -297,7 +297,7 @@ define hidden void @_ZN10NMTPreInit11print_stateEP12outputStream(ptr noundef %0)
   %.02031.i = phi i32 [ %4, %.lr.ph.i ], [ 0, %.preheader ]
   %.130.i = phi i64 [ %7, %.lr.ph.i ], [ %.02237.i, %.preheader ]
   %4 = add nuw nsw i32 %.02031.i, 1
-  %5 = getelementptr inbounds i8, ptr %.032.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %.130.i
   %.0.i = load ptr, ptr %.032.i, align 8

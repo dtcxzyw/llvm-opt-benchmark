@@ -86,22 +86,22 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noun
   %9 = alloca [59 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
   %10 = icmp ult i32 %1, 3
-  %11 = getelementptr inbounds i8, ptr %6, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 59, ptr nonnull %9) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(59) %9, i8 0, i64 59, i1 false), !annotation !8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = zext i1 %10 to i32
   %.offs2 = select i1 %10, i64 92, i64 36
   %15 = getelementptr i8, ptr %13, i64 %.offs2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef align 4 dereferenceable(16) %15, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %6, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %17 = load i16, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i16 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 188
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 188
   store i32 %14, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr @nf_nat_follow_master, ptr %20, align 8
   %21 = tail call i16 @llvm.bswap.i16(i16 %17)
   %22 = tail call zeroext i16 @nf_nat_exp_find_port(ptr noundef %6, i16 noundef zeroext %21) #10
@@ -124,13 +124,13 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noun
 27:                                               ; preds = %26, %26
   %28 = load i8, ptr %8, align 4
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %8, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %8, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %34 = load i8, ptr %33, align 2
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %8, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = zext i16 %22 to i32
@@ -140,7 +140,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noun
   br label %55
 
 43:                                               ; preds = %26
-  %44 = getelementptr inbounds i8, ptr %12, i64 50
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 50
   %45 = load i16, ptr %44, align 2
   %46 = icmp eq i16 %45, 2
   %47 = zext i16 %22 to i32

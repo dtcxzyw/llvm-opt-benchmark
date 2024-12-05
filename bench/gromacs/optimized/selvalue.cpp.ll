@@ -20,14 +20,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z19_gmx_selvalue_clearP18gmx_ana_selvalue_t(ptr nocapture noundef writeonly initializes((4, 20)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %21
@@ -35,7 +35,7 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr nocapture noundef %
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   br i1 %7, label %10, label %20
 
@@ -69,7 +69,7 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr nocapture noundef %
   br label %21
 
 21:                                               ; preds = %20, %.loopexit, %10, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %22, align 8
   store i32 0, ptr %2, align 8
   ret void
@@ -85,13 +85,13 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %9 = icmp slt i32 %4, %1
@@ -158,7 +158,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture nound
   %37 = select i1 %35, i64 -1, i64 %36
   %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #13
   store i64 %29, ptr %38, align 16
-  %.ptr36 = getelementptr inbounds i8, ptr %38, i64 8
+  %.ptr36 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = icmp eq i32 %1, 0
   br i1 %39, label %.loopexit.sink.split, label %40
 
@@ -168,13 +168,13 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr nocapture nound
 
 42:                                               ; preds = %43, %40
   %.idx = phi i64 [ 8, %40 ], [ %.add, %43 ]
-  %.ptr.ptr = getelementptr inbounds i8, ptr %38, i64 %.idx
+  %.ptr.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr.ptr)
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
   %.add = add nuw nsw i64 %.idx, 152
-  %.ptr35 = getelementptr inbounds i8, ptr %38, i64 %.add
+  %.ptr35 = getelementptr inbounds nuw i8, ptr %38, i64 %.add
   %44 = icmp eq ptr %.ptr35, %41
   br i1 %44, label %.loopexit.sink.split, label %42
 
@@ -253,10 +253,10 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %2, align 4
   store ptr null, ptr %4, align 8
@@ -266,20 +266,20 @@ define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %.not = icmp ne ptr %1, null
   %4 = sext i1 %.not to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z28_gmx_selvalue_setstore_allocP18gmx_ana_selvalue_tPvi(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8
   ret void
 }

@@ -86,9 +86,9 @@ target triple = "x86_64-pc-linux-gnu"
 define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @PQntuples(ptr noundef %0) #14
   %6 = tail call i32 @PQftype(ptr noundef %0, i32 noundef %1) #14
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %322
@@ -100,9 +100,9 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not154.i, label %ecpg_is_type_an_array.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 16, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 4, ptr %17, align 4
   %18 = load ptr, ptr %9, align 8
   store ptr %18, ptr %14, align 8
@@ -114,10 +114,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not155.i, label %ecpg_is_type_an_array.exit.thread, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 17, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 4, ptr %25, align 4
   %26 = load ptr, ptr %23, align 8
   store ptr %26, ptr %21, align 8
@@ -129,10 +129,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not156.i, label %ecpg_is_type_an_array.exit.thread, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 18, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 4, ptr %33, align 4
   %34 = load ptr, ptr %31, align 8
   store ptr %34, ptr %29, align 8
@@ -144,10 +144,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not157.i, label %ecpg_is_type_an_array.exit.thread, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 19, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 4, ptr %41, align 4
   %42 = load ptr, ptr %39, align 8
   store ptr %42, ptr %37, align 8
@@ -159,10 +159,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not158.i, label %ecpg_is_type_an_array.exit.thread, label %46
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %43, i64 24
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 20, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 4, ptr %49, align 4
   %50 = load ptr, ptr %47, align 8
   store ptr %50, ptr %45, align 8
@@ -174,10 +174,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not159.i, label %ecpg_is_type_an_array.exit.thread, label %54
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %51, i64 24
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 21, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 4, ptr %57, align 4
   %58 = load ptr, ptr %55, align 8
   store ptr %58, ptr %53, align 8
@@ -189,10 +189,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not160.i, label %ecpg_is_type_an_array.exit.thread, label %62
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %59, i64 24
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 22, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 3, ptr %65, align 4
   %66 = load ptr, ptr %63, align 8
   store ptr %66, ptr %61, align 8
@@ -204,10 +204,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not161.i, label %ecpg_is_type_an_array.exit.thread, label %70
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %67, i64 24
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 23, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 4, ptr %73, align 4
   %74 = load ptr, ptr %71, align 8
   store ptr %74, ptr %69, align 8
@@ -219,10 +219,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not162.i, label %ecpg_is_type_an_array.exit.thread, label %78
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %75, i64 24
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i32 24, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 4, ptr %81, align 4
   %82 = load ptr, ptr %79, align 8
   store ptr %82, ptr %77, align 8
@@ -234,10 +234,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not163.i, label %ecpg_is_type_an_array.exit.thread, label %86
 
 86:                                               ; preds = %78
-  %87 = getelementptr inbounds i8, ptr %83, i64 24
-  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 25, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %85, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i32 4, ptr %89, align 4
   %90 = load ptr, ptr %87, align 8
   store ptr %90, ptr %85, align 8
@@ -249,10 +249,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not164.i, label %ecpg_is_type_an_array.exit.thread, label %94
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %91, i64 24
-  %96 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 26, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %93, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i32 4, ptr %97, align 4
   %98 = load ptr, ptr %95, align 8
   store ptr %98, ptr %93, align 8
@@ -264,10 +264,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not165.i, label %ecpg_is_type_an_array.exit.thread, label %102
 
 102:                                              ; preds = %94
-  %103 = getelementptr inbounds i8, ptr %99, i64 24
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 27, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 4, ptr %105, align 4
   %106 = load ptr, ptr %103, align 8
   store ptr %106, ptr %101, align 8
@@ -279,10 +279,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not166.i, label %ecpg_is_type_an_array.exit.thread, label %110
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds i8, ptr %107, i64 24
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 28, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 4, ptr %113, align 4
   %114 = load ptr, ptr %111, align 8
   store ptr %114, ptr %109, align 8
@@ -294,10 +294,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not167.i, label %ecpg_is_type_an_array.exit.thread, label %118
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %115, i64 24
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 29, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %117, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 4, ptr %121, align 4
   %122 = load ptr, ptr %119, align 8
   store ptr %122, ptr %117, align 8
@@ -309,10 +309,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not168.i, label %ecpg_is_type_an_array.exit.thread, label %126
 
 126:                                              ; preds = %118
-  %127 = getelementptr inbounds i8, ptr %123, i64 24
-  %128 = getelementptr inbounds i8, ptr %125, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 30, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %125, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 12
   store i32 3, ptr %129, align 4
   %130 = load ptr, ptr %127, align 8
   store ptr %130, ptr %125, align 8
@@ -324,10 +324,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not169.i, label %ecpg_is_type_an_array.exit.thread, label %134
 
 134:                                              ; preds = %126
-  %135 = getelementptr inbounds i8, ptr %131, i64 24
-  %136 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i32 600, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %133, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 12
   store i32 3, ptr %137, align 4
   %138 = load ptr, ptr %135, align 8
   store ptr %138, ptr %133, align 8
@@ -339,10 +339,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not170.i, label %ecpg_is_type_an_array.exit.thread, label %142
 
 142:                                              ; preds = %134
-  %143 = getelementptr inbounds i8, ptr %139, i64 24
-  %144 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i32 601, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %141, i64 12
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 12
   store i32 3, ptr %145, align 4
   %146 = load ptr, ptr %143, align 8
   store ptr %146, ptr %141, align 8
@@ -354,10 +354,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not171.i, label %ecpg_is_type_an_array.exit.thread, label %150
 
 150:                                              ; preds = %142
-  %151 = getelementptr inbounds i8, ptr %147, i64 24
-  %152 = getelementptr inbounds i8, ptr %149, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 602, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %149, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 12
   store i32 4, ptr %153, align 4
   %154 = load ptr, ptr %151, align 8
   store ptr %154, ptr %149, align 8
@@ -369,10 +369,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not172.i, label %ecpg_is_type_an_array.exit.thread, label %158
 
 158:                                              ; preds = %150
-  %159 = getelementptr inbounds i8, ptr %155, i64 24
-  %160 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i32 603, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %157, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 12
   store i32 3, ptr %161, align 4
   %162 = load ptr, ptr %159, align 8
   store ptr %162, ptr %157, align 8
@@ -384,10 +384,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not173.i, label %ecpg_is_type_an_array.exit.thread, label %166
 
 166:                                              ; preds = %158
-  %167 = getelementptr inbounds i8, ptr %163, i64 24
-  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i32 604, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %165, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 12
   store i32 4, ptr %169, align 4
   %170 = load ptr, ptr %167, align 8
   store ptr %170, ptr %165, align 8
@@ -399,10 +399,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not174.i, label %ecpg_is_type_an_array.exit.thread, label %174
 
 174:                                              ; preds = %166
-  %175 = getelementptr inbounds i8, ptr %171, i64 24
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store i32 628, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %173, i64 12
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 12
   store i32 3, ptr %177, align 4
   %178 = load ptr, ptr %175, align 8
   store ptr %178, ptr %173, align 8
@@ -414,10 +414,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not175.i, label %ecpg_is_type_an_array.exit.thread, label %182
 
 182:                                              ; preds = %174
-  %183 = getelementptr inbounds i8, ptr %179, i64 24
-  %184 = getelementptr inbounds i8, ptr %181, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 700, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %181, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store i32 4, ptr %185, align 4
   %186 = load ptr, ptr %183, align 8
   store ptr %186, ptr %181, align 8
@@ -429,10 +429,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not176.i, label %ecpg_is_type_an_array.exit.thread, label %190
 
 190:                                              ; preds = %182
-  %191 = getelementptr inbounds i8, ptr %187, i64 24
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 701, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %189, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 12
   store i32 4, ptr %193, align 4
   %194 = load ptr, ptr %191, align 8
   store ptr %194, ptr %189, align 8
@@ -444,10 +444,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not177.i, label %ecpg_is_type_an_array.exit.thread, label %198
 
 198:                                              ; preds = %190
-  %199 = getelementptr inbounds i8, ptr %195, i64 24
-  %200 = getelementptr inbounds i8, ptr %197, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i32 705, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %197, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %197, i64 12
   store i32 4, ptr %201, align 4
   %202 = load ptr, ptr %199, align 8
   store ptr %202, ptr %197, align 8
@@ -459,10 +459,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not178.i, label %ecpg_is_type_an_array.exit.thread, label %206
 
 206:                                              ; preds = %198
-  %207 = getelementptr inbounds i8, ptr %203, i64 24
-  %208 = getelementptr inbounds i8, ptr %205, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
   store i32 718, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %205, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 12
   store i32 4, ptr %209, align 4
   %210 = load ptr, ptr %207, align 8
   store ptr %210, ptr %205, align 8
@@ -474,10 +474,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not179.i, label %ecpg_is_type_an_array.exit.thread, label %214
 
 214:                                              ; preds = %206
-  %215 = getelementptr inbounds i8, ptr %211, i64 24
-  %216 = getelementptr inbounds i8, ptr %213, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i32 790, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %213, i64 12
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 4, ptr %217, align 4
   %218 = load ptr, ptr %215, align 8
   store ptr %218, ptr %213, align 8
@@ -489,10 +489,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not180.i, label %ecpg_is_type_an_array.exit.thread, label %222
 
 222:                                              ; preds = %214
-  %223 = getelementptr inbounds i8, ptr %219, i64 24
-  %224 = getelementptr inbounds i8, ptr %221, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i32 869, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %221, i64 12
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 12
   store i32 4, ptr %225, align 4
   %226 = load ptr, ptr %223, align 8
   store ptr %226, ptr %221, align 8
@@ -504,10 +504,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not181.i, label %ecpg_is_type_an_array.exit.thread, label %230
 
 230:                                              ; preds = %222
-  %231 = getelementptr inbounds i8, ptr %227, i64 24
-  %232 = getelementptr inbounds i8, ptr %229, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 650, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %229, i64 12
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 12
   store i32 4, ptr %233, align 4
   %234 = load ptr, ptr %231, align 8
   store ptr %234, ptr %229, align 8
@@ -519,10 +519,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not182.i, label %ecpg_is_type_an_array.exit.thread, label %238
 
 238:                                              ; preds = %230
-  %239 = getelementptr inbounds i8, ptr %235, i64 24
-  %240 = getelementptr inbounds i8, ptr %237, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i32 1042, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %237, i64 12
+  %241 = getelementptr inbounds nuw i8, ptr %237, i64 12
   store i32 4, ptr %241, align 4
   %242 = load ptr, ptr %239, align 8
   store ptr %242, ptr %237, align 8
@@ -534,10 +534,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not183.i, label %ecpg_is_type_an_array.exit.thread, label %246
 
 246:                                              ; preds = %238
-  %247 = getelementptr inbounds i8, ptr %243, i64 24
-  %248 = getelementptr inbounds i8, ptr %245, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 1043, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %245, i64 12
+  %249 = getelementptr inbounds nuw i8, ptr %245, i64 12
   store i32 4, ptr %249, align 4
   %250 = load ptr, ptr %247, align 8
   store ptr %250, ptr %245, align 8
@@ -549,10 +549,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not184.i, label %ecpg_is_type_an_array.exit.thread, label %254
 
 254:                                              ; preds = %246
-  %255 = getelementptr inbounds i8, ptr %251, i64 24
-  %256 = getelementptr inbounds i8, ptr %253, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i32 1082, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %253, i64 12
+  %257 = getelementptr inbounds nuw i8, ptr %253, i64 12
   store i32 4, ptr %257, align 4
   %258 = load ptr, ptr %255, align 8
   store ptr %258, ptr %253, align 8
@@ -564,10 +564,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not185.i, label %ecpg_is_type_an_array.exit.thread, label %262
 
 262:                                              ; preds = %254
-  %263 = getelementptr inbounds i8, ptr %259, i64 24
-  %264 = getelementptr inbounds i8, ptr %261, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i32 1083, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %261, i64 12
+  %265 = getelementptr inbounds nuw i8, ptr %261, i64 12
   store i32 4, ptr %265, align 4
   %266 = load ptr, ptr %263, align 8
   store ptr %266, ptr %261, align 8
@@ -579,10 +579,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not186.i, label %ecpg_is_type_an_array.exit.thread, label %270
 
 270:                                              ; preds = %262
-  %271 = getelementptr inbounds i8, ptr %267, i64 24
-  %272 = getelementptr inbounds i8, ptr %269, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 8
   store i32 1114, ptr %272, align 8
-  %273 = getelementptr inbounds i8, ptr %269, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %269, i64 12
   store i32 4, ptr %273, align 4
   %274 = load ptr, ptr %271, align 8
   store ptr %274, ptr %269, align 8
@@ -594,10 +594,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not187.i, label %ecpg_is_type_an_array.exit.thread, label %278
 
 278:                                              ; preds = %270
-  %279 = getelementptr inbounds i8, ptr %275, i64 24
-  %280 = getelementptr inbounds i8, ptr %277, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %275, i64 24
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 8
   store i32 1184, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %277, i64 12
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 12
   store i32 4, ptr %281, align 4
   %282 = load ptr, ptr %279, align 8
   store ptr %282, ptr %277, align 8
@@ -609,10 +609,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not188.i, label %ecpg_is_type_an_array.exit.thread, label %286
 
 286:                                              ; preds = %278
-  %287 = getelementptr inbounds i8, ptr %283, i64 24
-  %288 = getelementptr inbounds i8, ptr %285, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 24
+  %288 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 1186, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %285, i64 12
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 12
   store i32 4, ptr %289, align 4
   %290 = load ptr, ptr %287, align 8
   store ptr %290, ptr %285, align 8
@@ -624,10 +624,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not189.i, label %ecpg_is_type_an_array.exit.thread, label %294
 
 294:                                              ; preds = %286
-  %295 = getelementptr inbounds i8, ptr %291, i64 24
-  %296 = getelementptr inbounds i8, ptr %293, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store i32 1266, ptr %296, align 8
-  %297 = getelementptr inbounds i8, ptr %293, i64 12
+  %297 = getelementptr inbounds nuw i8, ptr %293, i64 12
   store i32 4, ptr %297, align 4
   %298 = load ptr, ptr %295, align 8
   store ptr %298, ptr %293, align 8
@@ -639,10 +639,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not190.i, label %ecpg_is_type_an_array.exit.thread, label %302
 
 302:                                              ; preds = %294
-  %303 = getelementptr inbounds i8, ptr %299, i64 24
-  %304 = getelementptr inbounds i8, ptr %301, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 24
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store i32 1560, ptr %304, align 8
-  %305 = getelementptr inbounds i8, ptr %301, i64 12
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 12
   store i32 4, ptr %305, align 4
   %306 = load ptr, ptr %303, align 8
   store ptr %306, ptr %301, align 8
@@ -654,10 +654,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not191.i, label %ecpg_is_type_an_array.exit.thread, label %310
 
 310:                                              ; preds = %302
-  %311 = getelementptr inbounds i8, ptr %307, i64 24
-  %312 = getelementptr inbounds i8, ptr %309, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %307, i64 24
+  %312 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i32 1562, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %309, i64 12
+  %313 = getelementptr inbounds nuw i8, ptr %309, i64 12
   store i32 4, ptr %313, align 4
   %314 = load ptr, ptr %311, align 8
   store ptr %314, ptr %309, align 8
@@ -669,10 +669,10 @@ define zeroext i1 @ecpg_store_result(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not192.i, label %ecpg_is_type_an_array.exit.thread, label %ecpg_type_infocache_push.exit152.thread.i
 
 ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
-  %318 = getelementptr inbounds i8, ptr %315, i64 24
-  %319 = getelementptr inbounds i8, ptr %317, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %315, i64 24
+  %319 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store i32 1700, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %317, i64 12
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 12
   store i32 4, ptr %320, align 4
   %321 = load ptr, ptr %318, align 8
   store ptr %321, ptr %317, align 8
@@ -682,7 +682,7 @@ ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
 
 322:                                              ; preds = %ecpg_type_infocache_push.exit152.thread.i, %4
   %323 = phi ptr [ %.pre.i, %ecpg_type_infocache_push.exit152.thread.i ], [ %8, %4 ]
-  %324 = getelementptr inbounds i8, ptr %323, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
   br label %325
 
 325:                                              ; preds = %326, %322
@@ -692,13 +692,13 @@ ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
   br i1 %.not.i, label %333, label %326
 
 326:                                              ; preds = %325
-  %327 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %328 = load i32, ptr %327, align 8
   %329 = icmp eq i32 %328, %6
   br i1 %329, label %330, label %325, !llvm.loop !4
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %331 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %332 = load i32, ptr %331, align 4
   br label %ecpg_is_type_an_array.exit
 
@@ -711,15 +711,15 @@ ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
 337:                                              ; preds = %333
   %338 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %335, ptr noundef nonnull @.str.58, i32 noundef %6) #14
   %339 = load ptr, ptr %7, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %341 = load ptr, ptr %340, align 8
   %342 = tail call ptr @PQexec(ptr noundef %341, ptr noundef nonnull %335) #14
   tail call void @ecpg_free(ptr noundef nonnull %335) #14
   %343 = load i32, ptr %2, align 8
   %344 = load ptr, ptr %7, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %2, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %348 = load i32, ptr %347, align 8
   %349 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %342, i32 noundef %343, ptr noundef %346, i32 noundef %348) #14
   br i1 %349, label %350, label %ecpg_is_type_an_array.exit.thread
@@ -761,10 +761,10 @@ ecpg_type_infocache_push.exit152.thread.i:        ; preds = %310
   br i1 %.not193.i, label %ecpg_type_infocache_push.exit153.i, label %371
 
 371:                                              ; preds = %367
-  %372 = getelementptr inbounds i8, ptr %368, i64 24
-  %373 = getelementptr inbounds i8, ptr %370, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %368, i64 24
+  %373 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store i32 %6, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %370, i64 12
+  %374 = getelementptr inbounds nuw i8, ptr %370, i64 12
   store i32 %.0113.i, ptr %374, align 4
   %375 = load ptr, ptr %372, align 8
   store ptr %375, ptr %370, align 8
@@ -793,7 +793,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %575
 
 382:                                              ; preds = %ecpg_is_type_an_array.exit
-  %383 = getelementptr inbounds i8, ptr %3, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %384 = load i64, ptr %383, align 8
   %385 = icmp sgt i64 %384, 0
   %386 = sext i32 %5 to i64
@@ -802,7 +802,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %or.cond, label %393, label %388
 
 388:                                              ; preds = %382
-  %389 = getelementptr inbounds i8, ptr %3, i64 80
+  %389 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %390 = load i64, ptr %389, align 8
   %391 = icmp sgt i64 %390, 0
   %392 = icmp slt i64 %390, %386
@@ -813,7 +813,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %394 = load i32, ptr %2, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %394, i32 noundef %5, i64 noundef %384) #14
   %395 = load i32, ptr %2, align 8
-  %396 = getelementptr inbounds i8, ptr %2, i64 32
+  %396 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %397 = load i32, ptr %396, align 8
   %398 = add i32 %397, -1
   %399 = icmp ult i32 %398, 2
@@ -822,13 +822,13 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %575
 
 401:                                              ; preds = %ecpg_is_type_an_array.exit
-  %402 = getelementptr inbounds i8, ptr %3, i64 32
+  %402 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %403 = load i64, ptr %402, align 8
   %404 = icmp eq i64 %403, 0
   br i1 %404, label %406, label %.thread
 
 .thread:                                          ; preds = %401
-  %405 = getelementptr inbounds i8, ptr %3, i64 32
+  %405 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %411
 
 406:                                              ; preds = %401
@@ -837,20 +837,20 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %575
 
 408:                                              ; preds = %388
-  %409 = getelementptr inbounds i8, ptr %3, i64 32
+  %409 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %410 = icmp eq i64 %384, 0
   br i1 %410, label %416, label %411
 
 411:                                              ; preds = %.thread, %408
   %412 = phi ptr [ %405, %.thread ], [ %409, %408 ]
-  %413 = getelementptr inbounds i8, ptr %3, i64 24
+  %413 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %414 = load i64, ptr %413, align 8
   %415 = icmp eq i64 %414, 0
   br i1 %415, label %416, label %484
 
 416:                                              ; preds = %411, %408
   %417 = phi ptr [ %412, %411 ], [ %409, %408 ]
-  %418 = getelementptr inbounds i8, ptr %3, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = icmp eq ptr %419, null
   br i1 %420, label %421, label %484
@@ -874,7 +874,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   ]
 
 426:                                              ; preds = %424, %424, %424
-  %427 = getelementptr inbounds i8, ptr %3, i64 24
+  %427 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %428 = load i64, ptr %427, align 8
   %.not162 = icmp eq i64 %428, 0
   br i1 %.not162, label %429, label %445
@@ -902,7 +902,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader
   %.0149.lcssa = phi i32 [ 0, %.preheader ], [ %436, %.lr.ph183 ]
-  %438 = getelementptr inbounds i8, ptr %3, i64 40
+  %438 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %439 = load i64, ptr %438, align 8
   %440 = trunc i64 %439 to i32
   %441 = mul i32 %.0149.lcssa, %440
@@ -939,7 +939,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 
 ._crit_edge:                                      ; preds = %454, %445
   %457 = phi i64 [ 0, %445 ], [ %455, %454 ]
-  %458 = getelementptr inbounds i8, ptr %3, i64 40
+  %458 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %459 = load i64, ptr %458, align 8
   %460 = mul i64 %459, %457
   store i64 %460, ptr %458, align 8
@@ -948,7 +948,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %.loopexit175
 
 463:                                              ; preds = %424
-  %464 = getelementptr inbounds i8, ptr %3, i64 24
+  %464 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %465 = load i64, ptr %464, align 8
   %466 = trunc i64 %465 to i32
   %467 = add i32 %466, 4
@@ -956,7 +956,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %.loopexit175
 
 469:                                              ; preds = %424
-  %470 = getelementptr inbounds i8, ptr %3, i64 40
+  %470 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %471 = load i64, ptr %470, align 8
   %472 = trunc i64 %471 to i32
   %473 = mul i32 %5, %472
@@ -983,38 +983,38 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %.not164, label %575, label %481
 
 481:                                              ; preds = %.loopexit175
-  %482 = getelementptr inbounds i8, ptr %3, i64 16
+  %482 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %483 = load ptr, ptr %482, align 8
   store ptr %480, ptr %483, align 8
   br label %484
 
 484:                                              ; preds = %481, %416, %411
   %485 = phi ptr [ %417, %481 ], [ %417, %416 ], [ %412, %411 ]
-  %486 = getelementptr inbounds i8, ptr %3, i64 80
+  %486 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %487 = load i64, ptr %486, align 8
   %488 = icmp eq i64 %487, 0
   br i1 %488, label %493, label %489
 
 489:                                              ; preds = %484
-  %490 = getelementptr inbounds i8, ptr %3, i64 72
+  %490 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %491 = load i64, ptr %490, align 8
   %492 = icmp eq i64 %491, 0
   br i1 %492, label %493, label %510
 
 493:                                              ; preds = %489, %484
-  %494 = getelementptr inbounds i8, ptr %3, i64 56
+  %494 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %495 = load ptr, ptr %494, align 8
   %496 = icmp eq ptr %495, null
   br i1 %496, label %497, label %510
 
 497:                                              ; preds = %493
-  %498 = getelementptr inbounds i8, ptr %3, i64 64
+  %498 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %499 = load ptr, ptr %498, align 8
   %.not165 = icmp eq ptr %499, null
   br i1 %.not165, label %510, label %500
 
 500:                                              ; preds = %497
-  %501 = getelementptr inbounds i8, ptr %3, i64 88
+  %501 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %502 = load i64, ptr %501, align 8
   %503 = trunc i64 %502 to i32
   %504 = mul i32 %5, %503
@@ -1031,7 +1031,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br label %510
 
 510:                                              ; preds = %508, %497, %493, %489
-  %511 = getelementptr inbounds i8, ptr %3, i64 24
+  %511 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %512 = load i64, ptr %511, align 8
   %.not167 = icmp eq i64 %512, 0
   br i1 %.not167, label %513, label %548
@@ -1050,7 +1050,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   ]
 
 517:                                              ; preds = %515, %515, %515
-  %518 = getelementptr inbounds i8, ptr %3, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %519 = load ptr, ptr %518, align 8
   %520 = icmp sgt i32 %5, 0
   br i1 %520, label %.lr.ph191, label %._crit_edge192
@@ -1059,11 +1059,11 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %521 = add nuw i32 %5, 1
   %522 = sext i32 %521 to i64
   %523 = getelementptr ptr, ptr %519, i64 %522
-  %524 = getelementptr inbounds i8, ptr %3, i64 48
-  %525 = getelementptr inbounds i8, ptr %3, i64 56
-  %526 = getelementptr inbounds i8, ptr %3, i64 88
-  %527 = getelementptr inbounds i8, ptr %2, i64 32
-  %528 = getelementptr inbounds i8, ptr %2, i64 36
+  %524 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %525 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %526 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %527 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %528 = getelementptr inbounds nuw i8, ptr %2, i64 36
   br label %529
 
 529:                                              ; preds = %.lr.ph191, %543
@@ -1105,13 +1105,13 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %549, label %.lr.ph198, label %.loopexit
 
 .lr.ph198:                                        ; preds = %548
-  %550 = getelementptr inbounds i8, ptr %3, i64 48
-  %551 = getelementptr inbounds i8, ptr %3, i64 8
-  %552 = getelementptr inbounds i8, ptr %3, i64 56
-  %553 = getelementptr inbounds i8, ptr %3, i64 40
-  %554 = getelementptr inbounds i8, ptr %3, i64 88
-  %555 = getelementptr inbounds i8, ptr %2, i64 32
-  %556 = getelementptr inbounds i8, ptr %2, i64 36
+  %550 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %551 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %553 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %554 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %555 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %556 = getelementptr inbounds nuw i8, ptr %2, i64 36
   br label %557
 
 557:                                              ; preds = %.lr.ph198, %557
@@ -1170,7 +1170,7 @@ declare zeroext i1 @ecpg_get_data(ptr noundef, i32 noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   store ptr @.str.5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %.thread510 [
     i32 3, label %8
@@ -1185,7 +1185,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   ]
 
 8:                                                ; preds = %5, %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
   %12 = icmp slt i16 %11, 0
@@ -1196,7 +1196,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %.thread
 
 14:                                               ; preds = %5, %5
-  %15 = getelementptr inbounds i8, ptr %2, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %17, 0
@@ -1207,7 +1207,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %.thread
 
 20:                                               ; preds = %5, %5
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %23, 0
@@ -1218,7 +1218,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %.thread
 
 26:                                               ; preds = %5, %5
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 0
@@ -1233,7 +1233,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 33:                                               ; preds = %32
   %34 = load i32, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef %34, ptr noundef %36) #14
   br i1 %37, label %38, label %39
@@ -1248,7 +1248,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br i1 %40, label %.thread, label %.thread510
 
 .thread510:                                       ; preds = %8, %14, %20, %26, %32, %5, %39
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %42 = load i64, ptr %41, align 8
   %.not455 = icmp eq i64 %42, 0
   %43 = trunc i64 %42 to i32
@@ -1295,7 +1295,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 51:                                               ; preds = %49
   store i16 123, ptr %48, align 1
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count670 = zext nneg i32 %spec.select to i64
   br label %53
 
@@ -1320,7 +1320,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %71
 
 65:                                               ; preds = %49
-  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
@@ -1344,7 +1344,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 78:                                               ; preds = %76
   store i16 123, ptr %75, align 1
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count665 = zext nneg i32 %spec.select to i64
   br label %80
 
@@ -1368,7 +1368,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %96
 
 91:                                               ; preds = %76
-  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %93, align 4
   %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %75, ptr noundef nonnull @.str.11, i32 noundef %94) #14
@@ -1391,7 +1391,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 103:                                              ; preds = %101
   store i16 123, ptr %100, align 1
-  %104 = getelementptr inbounds i8, ptr %2, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count660 = zext nneg i32 %spec.select to i64
   br label %105
 
@@ -1416,7 +1416,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %123
 
 117:                                              ; preds = %101
-  %118 = getelementptr inbounds i8, ptr %2, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i32
@@ -1440,7 +1440,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 130:                                              ; preds = %128
   store i16 123, ptr %127, align 1
-  %131 = getelementptr inbounds i8, ptr %2, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count655 = zext nneg i32 %spec.select to i64
   br label %132
 
@@ -1464,7 +1464,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %148
 
 143:                                              ; preds = %128
-  %144 = getelementptr inbounds i8, ptr %2, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %145, align 4
   %147 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %127, ptr noundef nonnull @.str.15, i32 noundef %146) #14
@@ -1487,7 +1487,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 155:                                              ; preds = %153
   store i16 123, ptr %152, align 1
-  %156 = getelementptr inbounds i8, ptr %2, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count650 = zext nneg i32 %spec.select to i64
   br label %157
 
@@ -1511,7 +1511,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %173
 
 168:                                              ; preds = %153
-  %169 = getelementptr inbounds i8, ptr %2, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = load i64, ptr %170, align 8
   %172 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %152, ptr noundef nonnull @.str.17, i64 noundef %171) #14
@@ -1534,7 +1534,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 180:                                              ; preds = %178
   store i16 123, ptr %177, align 1
-  %181 = getelementptr inbounds i8, ptr %2, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count645 = zext nneg i32 %spec.select to i64
   br label %182
 
@@ -1558,7 +1558,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %198
 
 193:                                              ; preds = %178
-  %194 = getelementptr inbounds i8, ptr %2, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = load i64, ptr %195, align 8
   %197 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %177, ptr noundef nonnull @.str.19, i64 noundef %196) #14
@@ -1581,7 +1581,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 205:                                              ; preds = %203
   store i16 123, ptr %202, align 1
-  %206 = getelementptr inbounds i8, ptr %2, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count640 = zext nneg i32 %spec.select to i64
   br label %207
 
@@ -1605,7 +1605,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %223
 
 218:                                              ; preds = %203
-  %219 = getelementptr inbounds i8, ptr %2, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %220 = load ptr, ptr %219, align 8
   %221 = load i64, ptr %220, align 8
   %222 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %202, ptr noundef nonnull @.str.21, i64 noundef %221) #14
@@ -1628,7 +1628,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 230:                                              ; preds = %228
   store i16 123, ptr %227, align 1
-  %231 = getelementptr inbounds i8, ptr %2, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count635 = zext nneg i32 %spec.select to i64
   br label %232
 
@@ -1652,7 +1652,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
   br label %248
 
 243:                                              ; preds = %228
-  %244 = getelementptr inbounds i8, ptr %2, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %245 = load ptr, ptr %244, align 8
   %246 = load i64, ptr %245, align 8
   %247 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %227, ptr noundef nonnull @.str.23, i64 noundef %246) #14
@@ -1675,7 +1675,7 @@ define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %
 
 255:                                              ; preds = %253
   store i16 123, ptr %252, align 1
-  %256 = getelementptr inbounds i8, ptr %2, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count630 = zext nneg i32 %spec.select to i64
   br label %257
 
@@ -1728,7 +1728,7 @@ sprintf_float_value.exit:                         ; preds = %264, %271, %273, %2
   br label %286
 
 282:                                              ; preds = %253
-  %283 = getelementptr inbounds i8, ptr %2, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %284 = load ptr, ptr %283, align 8
   %285 = load float, ptr %284, align 4
   tail call fastcc void @sprintf_float_value(ptr noundef nonnull %252, float noundef %285, ptr noundef nonnull @.str.5)
@@ -1751,7 +1751,7 @@ sprintf_float_value.exit:                         ; preds = %264, %271, %273, %2
 
 293:                                              ; preds = %291
   store i16 123, ptr %290, align 1
-  %294 = getelementptr inbounds i8, ptr %2, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count625 = zext nneg i32 %spec.select to i64
   br label %295
 
@@ -1803,7 +1803,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br label %323
 
 319:                                              ; preds = %291
-  %320 = getelementptr inbounds i8, ptr %2, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = load double, ptr %321, align 8
   tail call fastcc void @sprintf_double_value(ptr noundef nonnull %290, double noundef %322, ptr noundef nonnull @.str.5)
@@ -1830,7 +1830,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br i1 %331, label %.lr.ph567, label %._crit_edge568
 
 .lr.ph567:                                        ; preds = %330
-  %332 = getelementptr inbounds i8, ptr %2, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count620 = zext nneg i32 %spec.select to i64
   br label %333
 
@@ -1856,7 +1856,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br label %361
 
 345:                                              ; preds = %327
-  %346 = getelementptr inbounds i8, ptr %2, i64 40
+  %346 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %347 = load i64, ptr %346, align 8
   switch i64 %347, label %360 [
     i64 1, label %348
@@ -1864,7 +1864,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   ]
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %2, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %350 = load ptr, ptr %349, align 8
   %351 = load i8, ptr %350, align 1
   %.not488 = icmp eq i8 %351, 0
@@ -1873,7 +1873,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br label %361
 
 354:                                              ; preds = %345
-  %355 = getelementptr inbounds i8, ptr %2, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %356 = load ptr, ptr %355, align 8
   %357 = load i32, ptr %356, align 4
   %.not487 = icmp eq i32 %357, 0
@@ -1890,13 +1890,13 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br label %.thread
 
 362:                                              ; preds = %.thread510, %.thread510, %.thread510
-  %363 = getelementptr inbounds i8, ptr %2, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %364 = load i64, ptr %363, align 8
   %365 = icmp eq i64 %364, 0
   br i1 %365, label %366, label %370
 
 366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %2, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %368 = load ptr, ptr %367, align 8
   %369 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %368) #15
   br label %370
@@ -1911,7 +1911,7 @@ sprintf_double_value.exit:                        ; preds = %302, %309, %311, %3
   br i1 %.not483, label %.thread, label %375
 
 375:                                              ; preds = %370
-  %376 = getelementptr inbounds i8, ptr %2, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %377 = load ptr, ptr %376, align 8
   %378 = ashr exact i64 %372, 32
   %379 = tail call ptr @strncpy(ptr noundef nonnull %374, ptr noundef %377, i64 noundef %378) #14
@@ -1969,7 +1969,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %.thread
 
 402:                                              ; preds = %.thread510, %.thread510
-  %403 = getelementptr inbounds i8, ptr %2, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %404 = load ptr, ptr %403, align 8
   %405 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %404) #15
   %406 = shl i64 %405, 32
@@ -1989,7 +1989,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %.thread
 
 414:                                              ; preds = %.thread510
-  %415 = getelementptr inbounds i8, ptr %2, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = load i32, ptr %416, align 4
   %418 = sext i32 %417 to i64
@@ -1998,7 +1998,7 @@ quote_postgres.exit:                              ; preds = %381
   br i1 %.not478, label %.thread, label %420
 
 420:                                              ; preds = %414
-  %421 = getelementptr inbounds i8, ptr %416, i64 4
+  %421 = getelementptr inbounds nuw i8, ptr %416, i64 4
   %422 = load i32, ptr %416, align 4
   %423 = sext i32 %422 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %419, ptr nonnull align 4 %421, i64 %423, i1 false)
@@ -2006,7 +2006,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %.thread
 
 424:                                              ; preds = %.thread510
-  %425 = getelementptr inbounds i8, ptr %2, i64 8
+  %425 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %426 = load ptr, ptr %425, align 8
   %427 = load i32, ptr %426, align 4
   %428 = add i32 %427, 1
@@ -2016,7 +2016,7 @@ quote_postgres.exit:                              ; preds = %381
   br i1 %.not476, label %.thread, label %431
 
 431:                                              ; preds = %424
-  %432 = getelementptr inbounds i8, ptr %426, i64 4
+  %432 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %433 = load i32, ptr %426, align 4
   %434 = sext i32 %433 to i64
   %435 = tail call ptr @strncpy(ptr noundef nonnull %430, ptr noundef nonnull %432, i64 noundef %434) #14
@@ -2048,7 +2048,7 @@ quote_postgres.exit:                              ; preds = %381
   br i1 %445, label %.lr.ph562, label %._crit_edge563
 
 .lr.ph562:                                        ; preds = %.preheader
-  %446 = getelementptr inbounds i8, ptr %2, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count615 = zext nneg i32 %spec.select to i64
   br label %447
 
@@ -2090,7 +2090,7 @@ quote_postgres.exit:                              ; preds = %381
   br label %.thread
 
 462:                                              ; preds = %460
-  %463 = getelementptr inbounds i8, ptr %448, i64 12
+  %463 = getelementptr inbounds nuw i8, ptr %448, i64 12
   %464 = load i32, ptr %463, align 4
   %465 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef nonnull %448, i32 noundef %464) #14
   %466 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %465) #15
@@ -2160,7 +2160,7 @@ quote_postgres.exit:                              ; preds = %381
   br i1 %493, label %.lr.ph557, label %._crit_edge558
 
 .lr.ph557:                                        ; preds = %.preheader533
-  %494 = getelementptr inbounds i8, ptr %2, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count610 = zext nneg i32 %spec.select to i64
   br label %495
 
@@ -2288,7 +2288,7 @@ quote_postgres.exit501.thread:                    ; preds = %499, %quote_postgre
   br i1 %546, label %.lr.ph552, label %._crit_edge553
 
 .lr.ph552:                                        ; preds = %.preheader534
-  %547 = getelementptr inbounds i8, ptr %2, i64 8
+  %547 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count605 = zext nneg i32 %spec.select to i64
   br label %548
 
@@ -2417,7 +2417,7 @@ quote_postgres.exit504.thread:                    ; preds = %553, %quote_postgre
   br i1 %600, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader535
-  %601 = getelementptr inbounds i8, ptr %2, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %602
 
@@ -2703,15 +2703,15 @@ declare ptr @ecpg_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ecpg_free_params(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %1, label %.lr.ph.split.us, label %print_param_value.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %print_param_value.exit.us
@@ -2782,13 +2782,13 @@ print_param_value.exit:                           ; preds = %.lr.ph, %print_para
   br i1 %44, label %print_param_value.exit, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %print_param_value.exit, %print_param_value.exit.us, %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load ptr, ptr %45, align 8
   tail call void @ecpg_free(ptr noundef %46) #14
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = load ptr, ptr %47, align 8
   tail call void @ecpg_free(ptr noundef %48) #14
-  %49 = getelementptr inbounds i8, ptr %0, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = load ptr, ptr %49, align 8
   tail call void @ecpg_free(ptr noundef %50) #14
   store i32 0, ptr %3, align 8
@@ -2802,9 +2802,9 @@ define noundef zeroext i1 @ecpg_build_params(ptr noundef %0) local_unnamed_addr 
   %3 = alloca ptr, align 8
   %4 = alloca %struct.variable, align 8
   %5 = alloca %struct.variable, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @PQparameterStatus(ptr noundef %9, ptr noundef nonnull @.str.28) #14
   %.not = icmp eq ptr %10, null
@@ -2816,67 +2816,67 @@ sub_0:                                            ; preds = %1
   br i1 %.not295, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1
   %.not296 = icmp eq i8 %13, 110
   br i1 %.not296, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %14 = getelementptr inbounds i8, ptr %10, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br label %.tail
 
 .tail:                                            ; preds = %sub_2, %sub_1, %sub_0, %1
   %.0177 = phi i1 [ false, %1 ], [ false, %sub_0 ], [ false, %sub_1 ], [ %16, %sub_2 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not201290 = icmp eq ptr %18, null
   br i1 %.not201290, label %._crit_edge, label %.lr.ph294
 
 .lr.ph294:                                        ; preds = %.tail
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
-  %24 = getelementptr inbounds i8, ptr %5, i64 40
-  %25 = getelementptr inbounds i8, ptr %5, i64 48
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
-  %27 = getelementptr inbounds i8, ptr %5, i64 64
-  %28 = getelementptr inbounds i8, ptr %5, i64 80
-  %29 = getelementptr inbounds i8, ptr %5, i64 72
-  %30 = getelementptr inbounds i8, ptr %5, i64 88
-  %31 = getelementptr inbounds i8, ptr %0, i64 36
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
-  %36 = getelementptr inbounds i8, ptr %4, i64 40
-  %37 = getelementptr inbounds i8, ptr %4, i64 48
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
-  %39 = getelementptr inbounds i8, ptr %4, i64 64
-  %40 = getelementptr inbounds i8, ptr %4, i64 80
-  %41 = getelementptr inbounds i8, ptr %4, i64 72
-  %42 = getelementptr inbounds i8, ptr %4, i64 88
-  %43 = getelementptr inbounds i8, ptr %2, i64 24
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
-  %47 = getelementptr inbounds i8, ptr %2, i64 40
-  %48 = getelementptr inbounds i8, ptr %2, i64 48
-  %49 = getelementptr inbounds i8, ptr %2, i64 56
-  %50 = getelementptr inbounds i8, ptr %2, i64 64
-  %51 = getelementptr inbounds i8, ptr %2, i64 88
-  %52 = getelementptr inbounds i8, ptr %2, i64 80
-  %53 = getelementptr inbounds i8, ptr %2, i64 72
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 44
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
-  %59 = getelementptr inbounds i8, ptr %0, i64 88
-  %60 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %61
 
 61:                                               ; preds = %.lr.ph294, %383
@@ -2892,7 +2892,7 @@ sub_2:                                            ; preds = %sub_1
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %.0171293, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0171293, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr @ecpg_find_desc(i32 noundef %64, ptr noundef %66) #14
   %68 = icmp eq ptr %67, null
@@ -2900,7 +2900,7 @@ sub_2:                                            ; preds = %sub_1
 
 69:                                               ; preds = %63
   %70 = add i32 %.0172292, 1
-  %71 = getelementptr inbounds i8, ptr %67, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %.0184286 = load ptr, ptr %71, align 8
   %.not207287 = icmp eq ptr %.0184286, null
   br i1 %.not207287, label %.loopexit, label %.lr.ph289
@@ -2913,13 +2913,13 @@ sub_2:                                            ; preds = %sub_1
 
 73:                                               ; preds = %.lr.ph289
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2)
-  %74 = getelementptr inbounds i8, ptr %.0184288, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %.0184288, i64 36
   %75 = load i8, ptr %74, align 4
   %76 = trunc i8 %75 to i1
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %.0184288, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %.0184288, i64 40
   %79 = load i32, ptr %78, align 8
   %80 = sext i32 %79 to i64
   %81 = load i32, ptr %0, align 8
@@ -2933,7 +2933,7 @@ store_input_from_desc.exit.thread249:             ; preds = %77
   br label %.loopexit253
 
 store_input_from_desc.exit.thread:                ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %.0184288, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.0184288, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %78, align 8
   %86 = sext i32 %85 to i64
@@ -2943,7 +2943,7 @@ store_input_from_desc.exit.thread:                ; preds = %77
 
 87:                                               ; preds = %73
   store i32 1, ptr %2, align 8
-  %88 = getelementptr inbounds i8, ptr %.0184288, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0184288, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #15
   store i64 %90, ptr %43, align 8
@@ -2951,7 +2951,7 @@ store_input_from_desc.exit.thread:                ; preds = %77
   store ptr %88, ptr %45, align 8
   store i64 1, ptr %46, align 8
   store i64 0, ptr %47, align 8
-  %91 = getelementptr inbounds i8, ptr %.0184288, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.0184288, i64 16
   %92 = load i32, ptr %91, align 8
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %93, label %94
@@ -2985,12 +2985,12 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   br i1 %101, label %102, label %.loopexit
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.0184288, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %.0184288, i64 40
   %104 = load i32, ptr %103, align 8
   br label %.loopexit
 
 105:                                              ; preds = %.lr.ph289
-  %106 = getelementptr inbounds i8, ptr %.0184288, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %.0184288, i64 48
   %.0184 = load ptr, ptr %106, align 8
   %.not207 = icmp eq ptr %.0184, null
   br i1 %.not207, label %.loopexit, label %.lr.ph289, !llvm.loop !27
@@ -2998,7 +2998,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 .loopexit:                                        ; preds = %105, %69, %99, %102
   %.0181 = phi i32 [ %104, %102 ], [ 0, %99 ], [ 0, %69 ], [ 0, %105 ]
   %.0178 = phi i1 [ true, %102 ], [ false, %99 ], [ false, %69 ], [ false, %105 ]
-  %107 = getelementptr inbounds i8, ptr %67, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, %70
   %spec.store.select = select i1 %109, i32 0, i32 %70
@@ -3008,7 +3008,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   %111 = load i32, ptr %19, align 8
   %.off = add i32 %111, -1
   %switch = icmp ult i32 %.off, 2
-  %112 = getelementptr inbounds i8, ptr %.0171293, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.0171293, i64 16
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
@@ -3028,7 +3028,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   br i1 %or.cond, label %.loopexit251, label %123
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %114, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = zext nneg i32 %.0172292 to i64
   %127 = getelementptr %struct.sqlvar_compat, ptr %125, i64 %126
@@ -3110,7 +3110,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 
 152:                                              ; preds = %151
   %153 = add i32 %.0172292, 1
-  %154 = getelementptr inbounds i8, ptr %114, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %155 = load i16, ptr %154, align 8
   %156 = sext i16 %155 to i32
   %157 = icmp slt i16 %155, 1
@@ -3120,13 +3120,13 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   br i1 %or.cond337, label %.loopexit252, label %159
 
 159:                                              ; preds = %152
-  %160 = getelementptr inbounds i8, ptr %114, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %161 = zext nneg i32 %.0172292 to i64
   %162 = getelementptr [1 x %struct.sqlvar_struct], ptr %160, i64 0, i64 %161
   %163 = load i16, ptr %162, align 8
   %164 = sext i16 %163 to i32
   store i32 %164, ptr %5, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %166 = load ptr, ptr %165, align 8
   store ptr %166, ptr %20, align 8
   store ptr %165, ptr %21, align 8
@@ -3144,7 +3144,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   store i64 %storemerge, ptr %22, align 8
   store i64 1, ptr %23, align 8
   store i64 0, ptr %24, align 8
-  %170 = getelementptr inbounds i8, ptr %162, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %171 = load ptr, ptr %170, align 8
   %.not203 = icmp eq ptr %171, null
   br i1 %.not203, label %177, label %172
@@ -3205,7 +3205,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   br i1 %191, label %192, label %196
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %.0171293, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %.0171293, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = load i32, ptr %194, align 4
   br label %196
@@ -3580,7 +3580,7 @@ ecpg_free_params.exit242:                         ; preds = %print_param_value.e
   br i1 %379, label %380, label %383
 
 380:                                              ; preds = %378
-  %381 = getelementptr inbounds i8, ptr %.0171293, i64 96
+  %381 = getelementptr inbounds nuw i8, ptr %.0171293, i64 96
   %382 = load ptr, ptr %381, align 8
   br label %383
 
@@ -3591,15 +3591,15 @@ ecpg_free_params.exit242:                         ; preds = %print_param_value.e
 
 ._crit_edge:                                      ; preds = %383, %.tail
   %.0174.lcssa = phi i32 [ 0, %.tail ], [ %201, %383 ]
-  %384 = getelementptr inbounds i8, ptr %0, i64 40
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %385 = load i32, ptr %384, align 8
   %.not202 = icmp eq i32 %385, 4
   br i1 %.not202, label %.loopexit253, label %386
 
 386:                                              ; preds = %._crit_edge
-  %387 = getelementptr inbounds i8, ptr %0, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %0, i64 44
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %390 = load i8, ptr %389, align 4
   %391 = trunc i8 %390 to i1
   %392 = call fastcc i32 @next_insert(ptr noundef %388, i32 noundef %.0174.lcssa, i1 noundef zeroext %391, i1 noundef zeroext %.0177)
@@ -3609,13 +3609,13 @@ ecpg_free_params.exit242:                         ; preds = %print_param_value.e
 394:                                              ; preds = %386
   %395 = load i32, ptr %0, align 8
   call void @ecpg_raise(i32 noundef %395, i32 noundef -202, ptr noundef nonnull @.str.30, ptr noundef null) #14
-  %396 = getelementptr inbounds i8, ptr %0, i64 72
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %397 = load i32, ptr %396, align 8
   %398 = icmp sgt i32 %397, 0
   br i1 %398, label %.lr.ph.i243, label %ecpg_free_params.exit247
 
 .lr.ph.i243:                                      ; preds = %394
-  %399 = getelementptr inbounds i8, ptr %0, i64 80
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %print_param_value.exit.i244
 
 print_param_value.exit.i244:                      ; preds = %print_param_value.exit.i244, %.lr.ph.i243
@@ -3631,13 +3631,13 @@ print_param_value.exit.i244:                      ; preds = %print_param_value.e
   br i1 %405, label %print_param_value.exit.i244, label %ecpg_free_params.exit247, !llvm.loop !26
 
 ecpg_free_params.exit247:                         ; preds = %print_param_value.exit.i244, %394
-  %406 = getelementptr inbounds i8, ptr %0, i64 80
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %407 = load ptr, ptr %406, align 8
   call void @ecpg_free(ptr noundef %407) #14
-  %408 = getelementptr inbounds i8, ptr %0, i64 88
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %409 = load ptr, ptr %408, align 8
   call void @ecpg_free(ptr noundef %409) #14
-  %410 = getelementptr inbounds i8, ptr %0, i64 96
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %411 = load ptr, ptr %410, align 8
   call void @ecpg_free(ptr noundef %411) #14
   store i32 0, ptr %396, align 8
@@ -3953,7 +3953,7 @@ define internal fastcc i32 @next_insert(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @insert_tobeinserted(i32 noundef range(i32 1, 0) %0, i32 noundef range(i32 1, 3) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
@@ -3991,9 +3991,9 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_autostart_transaction(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @PQtransactionStatus(ptr noundef %5) #14
   %7 = icmp eq i32 %6, 0
@@ -4001,34 +4001,34 @@ define noundef zeroext i1 @ecpg_autostart_transaction(ptr nocapture noundef %0) 
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %44, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @PQexec(ptr noundef %15, ptr noundef nonnull @.str.33) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %16, ptr %17, align 8
   %18 = load i32, ptr %0, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %16, i32 noundef %18, ptr noundef %21, i32 noundef %23) #14
   br i1 %24, label %42, label %25
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.i, label %ecpg_free_params.exit
 
 .lr.ph.i:                                         ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %print_param_value.exit.i
 
 print_param_value.exit.i:                         ; preds = %print_param_value.exit.i, %.lr.ph.i
@@ -4044,13 +4044,13 @@ print_param_value.exit.i:                         ; preds = %print_param_value.e
   br i1 %35, label %print_param_value.exit.i, label %ecpg_free_params.exit, !llvm.loop !26
 
 ecpg_free_params.exit:                            ; preds = %print_param_value.exit.i, %25
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load ptr, ptr %36, align 8
   tail call void @ecpg_free(ptr noundef %37) #14
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load ptr, ptr %38, align 8
   tail call void @ecpg_free(ptr noundef %39) #14
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load ptr, ptr %40, align 8
   tail call void @ecpg_free(ptr noundef %41) #14
   store i32 0, ptr %26, align 8
@@ -4079,34 +4079,34 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.34, i32 noundef %2, ptr noundef %4, i32 noundef %6, ptr noundef %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @PQexecPrepared(ptr noundef %16, ptr noundef %18, i32 noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25, i32 noundef 0) #14
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %26, ptr %27, align 8
   %28 = load i32, ptr %0, align 8
   %29 = load ptr, ptr %3, align 8
@@ -4117,7 +4117,7 @@ define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_un
   %31 = load i32, ptr %5, align 8
   %32 = icmp eq i32 %31, 0
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %3, align 8
   br i1 %32, label %37, label %39
@@ -4127,11 +4127,11 @@ define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_un
   br label %47
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @PQexecParams(ptr noundef %35, ptr noundef %36, i32 noundef %31, ptr noundef null, ptr noundef %41, ptr noundef %43, ptr noundef %45, i32 noundef 0) #14
   br label %47
@@ -4139,7 +4139,7 @@ define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_un
 47:                                               ; preds = %39, %37
   %.sink = phi ptr [ %46, %39 ], [ %38, %37 ]
   %.str.37.sink = phi ptr [ @.str.37, %39 ], [ @.str.36, %37 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %.sink, ptr %48, align 8
   %49 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull %.str.37.sink, i32 noundef %49) #14
@@ -4157,13 +4157,13 @@ define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_un
 
 55:                                               ; preds = %47, %52, %13
   tail call void @ecpg_free_params(ptr noundef nonnull %0, i1 noundef zeroext true)
-  %56 = getelementptr inbounds i8, ptr %0, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %0, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = tail call zeroext i1 @ecpg_check_PQresult(ptr noundef %57, i32 noundef %58, ptr noundef %61, i32 noundef %63) #14
   br label %65
@@ -4192,9 +4192,9 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %207
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @PQresultStatus(ptr noundef %12) #14
   switch i32 %13, label %170 [
@@ -4243,14 +4243,14 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @ecpg_find_desc(i32 noundef %32, ptr noundef %34) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit.sink.split, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @PQclear(ptr noundef %39) #14
   %40 = load ptr, ptr %11, align 8
@@ -4262,11 +4262,11 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %.loopexit.sink.split
 
 44:                                               ; preds = %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load i32, ptr %45, align 8
   %.off = add i32 %46, -1
   %switch = icmp ult i32 %.off, 2
-  %47 = getelementptr inbounds i8, ptr %10, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %.not190219 = icmp eq ptr %49, null
@@ -4277,7 +4277,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .lr.ph222:                                        ; preds = %50, %.lr.ph222
   %.0162220 = phi ptr [ %52, %.lr.ph222 ], [ %49, %50 ]
-  %51 = getelementptr inbounds i8, ptr %.0162220, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.0162220, i64 40
   %52 = load ptr, ptr %51, align 8
   tail call void @free(ptr noundef nonnull %.0162220) #14
   %.not190 = icmp eq ptr %52, null
@@ -4304,7 +4304,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .lr.ph231:                                        ; preds = %.preheader, %.lr.ph231
   %.2164230 = phi ptr [ %58, %.lr.ph231 ], [ %.1163225, %.preheader ]
-  %57 = getelementptr inbounds i8, ptr %.2164230, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.2164230, i64 40
   %58 = load ptr, ptr %57, align 8
   tail call void @free(ptr noundef nonnull %.2164230) #14
   %.not192 = icmp eq ptr %58, null
@@ -4322,7 +4322,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %65 = load ptr, ptr %11, align 8
   %66 = tail call i32 @PQnfields(ptr noundef %65) #14
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.44, i32 noundef %64, i32 noundef %66) #14
-  %67 = getelementptr inbounds i8, ptr %56, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store ptr %.1163225, ptr %67, align 8
   %68 = icmp sgt i32 %.0161226.in, 1
   br i1 %68, label %.lr.ph228, label %.loopexit.sink.split, !llvm.loop !33
@@ -4332,7 +4332,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .lr.ph208:                                        ; preds = %69, %.lr.ph208
   %.0157206 = phi ptr [ %71, %.lr.ph208 ], [ %49, %69 ]
-  %70 = getelementptr inbounds i8, ptr %.0157206, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.0157206, i64 24
   %71 = load ptr, ptr %70, align 8
   tail call void @free(ptr noundef nonnull %.0157206) #14
   %.not187 = icmp eq ptr %71, null
@@ -4359,7 +4359,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .lr.ph217:                                        ; preds = %.preheader198, %.lr.ph217
   %.2216 = phi ptr [ %77, %.lr.ph217 ], [ %.1211, %.preheader198 ]
-  %76 = getelementptr inbounds i8, ptr %.2216, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.2216, i64 24
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef nonnull %.2216) #14
   %.not189 = icmp eq ptr %77, null
@@ -4377,7 +4377,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %84 = load ptr, ptr %11, align 8
   %85 = tail call i32 @PQnfields(ptr noundef %84) #14
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.44, i32 noundef %83, i32 noundef %85) #14
-  %86 = getelementptr inbounds i8, ptr %75, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %.1211, ptr %86, align 8
   %87 = icmp sgt i32 %.0156212.in, 1
   br i1 %87, label %.lr.ph214, label %.loopexit.sink.split, !llvm.loop !36
@@ -4393,7 +4393,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %89, label %.lr.ph236, label %.loopexit
 
 .lr.ph236:                                        ; preds = %.critedge
-  %90 = getelementptr inbounds i8, ptr %0, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %91
 
 91:                                               ; preds = %.lr.ph236, %102
@@ -4407,7 +4407,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %93 = load ptr, ptr %11, align 8
   %94 = tail call zeroext i1 @ecpg_store_result(ptr noundef %93, i32 noundef %.0171233, ptr noundef nonnull %0, ptr noundef nonnull %.1166235)
   %95 = zext i1 %94 to i8
-  %96 = getelementptr inbounds i8, ptr %.1166235, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %.1166235, i64 96
   %97 = load ptr, ptr %96, align 8
   br label %102
 
@@ -4434,7 +4434,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 .loopexit.sink.split:                             ; preds = %78, %59, %.loopexit197.sink.split, %37, %31
   %.2170.ph = phi i8 [ 1, %37 ], [ 0, %31 ], [ 0, %.loopexit197.sink.split ], [ 1, %59 ], [ 1, %78 ]
   %.2160.ph = phi i1 [ false, %37 ], [ %1, %31 ], [ %1, %.loopexit197.sink.split ], [ %1, %59 ], [ %1, %78 ]
-  %107 = getelementptr inbounds i8, ptr %10, i64 96
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %108 = load ptr, ptr %107, align 8
   br label %.loopexit
 
@@ -4467,7 +4467,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   store i64 %122, ptr %123, align 8
   %124 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.46, i32 noundef %124, ptr noundef %115) #14
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = load i32, ptr %125, align 8
   %.not = icmp eq i32 %126, 2
   br i1 %.not, label %180, label %127
@@ -4500,9 +4500,9 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 140:                                              ; preds = %8
   %141 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.50, i32 noundef %141) #14
-  %142 = getelementptr inbounds i8, ptr %0, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = call i32 @PQgetCopyData(ptr noundef %145, ptr noundef nonnull %3, i32 noundef 0) #14
   %147 = icmp sgt i32 %146, 0
@@ -4514,7 +4514,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %150 = load ptr, ptr %3, align 8
   call void @PQfreemem(ptr noundef %150) #14
   %151 = load ptr, ptr %142, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 @PQgetCopyData(ptr noundef %153, ptr noundef nonnull %3, i32 noundef 0) #14
   %155 = icmp sgt i32 %154, 0
@@ -4529,7 +4529,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %158 = load ptr, ptr %11, align 8
   call void @PQclear(ptr noundef %158) #14
   %159 = load ptr, ptr %142, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = call ptr @PQgetResult(ptr noundef %161) #14
   store ptr %162, ptr %11, align 8
@@ -4553,11 +4553,11 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.54, i32 noundef %171) #14
   %172 = load i32, ptr %0, align 8
   %173 = load ptr, ptr %11, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %179 = load i32, ptr %178, align 8
   tail call void @ecpg_raise_backend(i32 noundef %172, ptr noundef %173, ptr noundef %177, i32 noundef %179) #14
   br i1 %1, label %181, label %183
@@ -4576,13 +4576,13 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 183:                                              ; preds = %111, %26, %138, %167, %166, %170, %181, %180
   %.0168247 = phi i8 [ 0, %170 ], [ %.0168248, %181 ], [ %.0168, %180 ], [ 0, %166 ], [ 0, %167 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
-  %184 = getelementptr inbounds i8, ptr %0, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = call i32 @PQconsumeInput(ptr noundef %187) #14
   %189 = load ptr, ptr %184, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = call ptr @PQnotifies(ptr noundef %191) #14
   %.not194239 = icmp eq ptr %192, null
@@ -4592,16 +4592,16 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %193 = phi ptr [ %205, %.lr.ph241 ], [ %192, %183 ]
   %194 = load i32, ptr %0, align 8
   %195 = load ptr, ptr %193, align 8
-  %196 = getelementptr inbounds i8, ptr %193, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %197 = load i32, ptr %196, align 8
   call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.55, i32 noundef %194, ptr noundef %195, i32 noundef %197) #14
   call void @PQfreemem(ptr noundef nonnull %193) #14
   %198 = load ptr, ptr %184, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
   %201 = call i32 @PQconsumeInput(ptr noundef %200) #14
   %202 = load ptr, ptr %184, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load ptr, ptr %203, align 8
   %205 = call ptr @PQnotifies(ptr noundef %204) #14
   %.not194 = icmp eq ptr %205, null
@@ -4687,7 +4687,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @ecpg_clocale, align 8
   %21 = tail call ptr @uselocale(ptr noundef %20) #14
-  %22 = getelementptr inbounds i8, ptr %17, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %25
@@ -4710,17 +4710,17 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 
 .thread:                                          ; preds = %27
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %17, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %17, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %32, align 8
   br label %38
 
 33:                                               ; preds = %25
   %34 = tail call ptr @ecpg_strdup(ptr noundef nonnull %6, i32 noundef %0) #14
-  %35 = getelementptr inbounds i8, ptr %17, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %36, align 8
   %37 = icmp eq i32 %5, 1
   br i1 %37, label %38, label %47
@@ -4728,7 +4728,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 38:                                               ; preds = %.thread, %33
   %39 = phi ptr [ %30, %.thread ], [ %34, %33 ]
   %40 = phi ptr [ %32, %.thread ], [ %36, %33 ]
-  %41 = getelementptr inbounds i8, ptr %17, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %42 = call ptr @ecpg_prepared(ptr noundef %39, ptr noundef %14) #14
   %.not158 = icmp eq ptr %42, null
   %43 = load ptr, ptr %41, align 8
@@ -4748,26 +4748,26 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 47:                                               ; preds = %44, %33
   %48 = phi ptr [ %40, %44 ], [ %36, %33 ]
   %.0133170 = phi i32 [ 1, %44 ], [ %5, %33 ]
-  %49 = getelementptr inbounds i8, ptr %17, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %14, ptr %49, align 8
   store i32 %0, ptr %17, align 8
-  %50 = getelementptr inbounds i8, ptr %17, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %1, ptr %50, align 8
   %51 = icmp ne i32 %2, 0
-  %52 = getelementptr inbounds i8, ptr %17, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %53 = zext i1 %51 to i8
   store i8 %53, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %17, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 44
   store i8 %11, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %17, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %.0133170, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %17, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %57 = load i32, ptr %7, align 8
   %58 = icmp ult i32 %57, 41
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %47
-  %60 = getelementptr inbounds i8, ptr %7, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = zext nneg i32 %57 to i64
   %63 = getelementptr i8, ptr %61, i64 %62
@@ -4776,7 +4776,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br label %69
 
 65:                                               ; preds = %47
-  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 8
   store ptr %68, ptr %66, align 8
@@ -4784,9 +4784,9 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 
 69:                                               ; preds = %65, %59
   %70 = phi ptr [ %63, %59 ], [ %67, %65 ]
-  %71 = getelementptr inbounds i8, ptr %17, i64 56
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
-  %73 = getelementptr inbounds i8, ptr %7, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %74
 
 74:                                               ; preds = %.backedge, %69
@@ -4831,7 +4831,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 89:                                               ; preds = %86, %81
   %90 = phi ptr [ %84, %81 ], [ %87, %86 ]
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %76, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %91, ptr %92, align 8
   %93 = load i32, ptr %7, align 8
   %94 = icmp ult i32 %93, 41
@@ -4854,7 +4854,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 103:                                              ; preds = %100, %95
   %104 = phi ptr [ %98, %95 ], [ %101, %100 ]
   %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %76, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i64 %105, ptr %106, align 8
   %107 = load i32, ptr %7, align 8
   %108 = icmp ult i32 %107, 41
@@ -4877,7 +4877,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 117:                                              ; preds = %114, %109
   %118 = phi ptr [ %112, %109 ], [ %115, %114 ]
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %76, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store i64 %119, ptr %120, align 8
   %121 = load i32, ptr %7, align 8
   %122 = icmp ult i32 %121, 41
@@ -4900,7 +4900,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 131:                                              ; preds = %128, %123
   %132 = phi ptr [ %126, %123 ], [ %129, %128 ]
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %76, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %76, i64 40
   store i64 %133, ptr %134, align 8
   %135 = load i64, ptr %120, align 8
   %136 = icmp eq i64 %135, 0
@@ -4926,7 +4926,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 146:                                              ; preds = %137, %140, %144
   %.sink.in = phi ptr [ %145, %144 ], [ %92, %140 ], [ %92, %137 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %147 = getelementptr inbounds i8, ptr %76, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %.sink, ptr %147, align 8
   %148 = icmp slt i64 %135, 0
   br i1 %148, label %149, label %150
@@ -4945,7 +4945,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br label %154
 
 154:                                              ; preds = %153, %150
-  %155 = getelementptr inbounds i8, ptr %76, i64 96
+  %155 = getelementptr inbounds nuw i8, ptr %76, i64 96
   store ptr null, ptr %155, align 8
   %156 = load i32, ptr %7, align 8
   %157 = icmp ult i32 %156, 41
@@ -4968,7 +4968,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 166:                                              ; preds = %163, %158
   %167 = phi ptr [ %161, %158 ], [ %164, %163 ]
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds i8, ptr %76, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store i32 %168, ptr %169, align 8
   %170 = load i32, ptr %7, align 8
   %171 = icmp ult i32 %170, 41
@@ -4991,7 +4991,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 180:                                              ; preds = %177, %172
   %181 = phi ptr [ %175, %172 ], [ %178, %177 ]
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %76, i64 64
+  %183 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store ptr %182, ptr %183, align 8
   %184 = load i32, ptr %7, align 8
   %185 = icmp ult i32 %184, 41
@@ -5014,7 +5014,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 194:                                              ; preds = %191, %186
   %195 = phi ptr [ %189, %186 ], [ %192, %191 ]
   %196 = load i64, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %76, i64 72
+  %197 = getelementptr inbounds nuw i8, ptr %76, i64 72
   store i64 %196, ptr %197, align 8
   %198 = load i32, ptr %7, align 8
   %199 = icmp ult i32 %198, 41
@@ -5037,7 +5037,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 208:                                              ; preds = %205, %200
   %209 = phi ptr [ %203, %200 ], [ %206, %205 ]
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %76, i64 80
+  %211 = getelementptr inbounds nuw i8, ptr %76, i64 80
   store i64 %210, ptr %211, align 8
   %212 = load i32, ptr %7, align 8
   %213 = icmp ult i32 %212, 41
@@ -5060,7 +5060,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 222:                                              ; preds = %219, %214
   %223 = phi ptr [ %217, %214 ], [ %220, %219 ]
   %224 = load i64, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %76, i64 88
+  %225 = getelementptr inbounds nuw i8, ptr %76, i64 88
   store i64 %224, ptr %225, align 8
   %226 = load i32, ptr %169, align 8
   %.not164 = icmp eq i32 %226, 29
@@ -5083,7 +5083,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
 234:                                              ; preds = %222, %229, %232
   %.sink185.in = phi ptr [ %233, %232 ], [ %183, %229 ], [ %183, %222 ]
   %.sink185 = load ptr, ptr %.sink185.in, align 8
-  %235 = getelementptr inbounds i8, ptr %76, i64 56
+  %235 = getelementptr inbounds nuw i8, ptr %76, i64 56
   store ptr %.sink185, ptr %235, align 8
   %236 = icmp slt i64 %.pre.pre, 0
   br i1 %236, label %237, label %238
@@ -5122,7 +5122,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br i1 %cond, label %252, label %249
 
 249:                                              ; preds = %248
-  %250 = getelementptr inbounds i8, ptr %.0, i64 96
+  %250 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   %251 = load ptr, ptr %250, align 8
   %.not166 = icmp eq ptr %251, null
   br i1 %.not166, label %.critedge, label %248, !llvm.loop !40
@@ -5132,7 +5132,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br label %254
 
 .critedge:                                        ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %.0, i64 96
+  %253 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   store ptr %76, ptr %253, align 8
   br label %254
 
@@ -5146,7 +5146,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br i1 %258, label %259, label %263
 
 259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %76, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %261 = load ptr, ptr %260, align 8
   %262 = call ptr @ecpg_strdup(ptr noundef %261, i32 noundef %0) #14
   store ptr %262, ptr %48, align 8
@@ -5182,7 +5182,7 @@ define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 
   br i1 %cond168, label %281, label %275
 
 275:                                              ; preds = %274
-  %276 = getelementptr inbounds i8, ptr %14, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %277 = load ptr, ptr %276, align 8
   %278 = icmp eq ptr %277, null
   br i1 %278, label %279, label %283
@@ -5237,7 +5237,7 @@ define void @ecpg_do_epilogue(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -5247,38 +5247,38 @@ define void @ecpg_do_epilogue(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not4.i.i = icmp eq ptr %10, null
   br i1 %.not4.i.i, label %free_variable.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %.05.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %10, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.05.i.i, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 96
   %12 = load ptr, ptr %11, align 8
   tail call void @ecpg_free(ptr noundef nonnull %.05.i.i) #14
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %free_variable.exit.i, label %.lr.ph.i.i, !llvm.loop !42
 
 free_variable.exit.i:                             ; preds = %.lr.ph.i.i, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not4.i6.i = icmp eq ptr %14, null
   br i1 %.not4.i6.i, label %free_statement.exit, label %.lr.ph.i7.i
 
 .lr.ph.i7.i:                                      ; preds = %free_variable.exit.i, %.lr.ph.i7.i
   %.05.i8.i = phi ptr [ %16, %.lr.ph.i7.i ], [ %14, %free_variable.exit.i ]
-  %15 = getelementptr inbounds i8, ptr %.05.i8.i, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i8.i, i64 96
   %16 = load ptr, ptr %15, align 8
   tail call void @ecpg_free(ptr noundef nonnull %.05.i8.i) #14
   %.not.i9.i = icmp eq ptr %16, null
   br i1 %.not.i9.i, label %free_statement.exit, label %.lr.ph.i7.i, !llvm.loop !42
 
 free_statement.exit:                              ; preds = %.lr.ph.i7.i, %free_variable.exit.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @ecpg_free(ptr noundef %18) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @ecpg_free(ptr noundef %20) #14
   tail call void @ecpg_free(ptr noundef nonnull %0) #14

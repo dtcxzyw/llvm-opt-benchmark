@@ -85,26 +85,26 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 12), (16, 32)) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 -1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %10, align 8
   store volatile i64 %12, ptr %11, align 8
   %cond.i = icmp eq i8 %1, 2
   br i1 %cond.i, label %_ZNK5ZPage16object_max_countEv.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %12
   switch i8 %1, label %19 [
@@ -132,17 +132,17 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i:      ; preds = %17, %13
 
 _ZNK5ZPage16object_max_countEv.exit:              ; preds = %4, %_ZNK5ZPage22object_alignment_shiftEv.exit.i
   %.0.i = phi i32 [ %22, %_ZNK5ZPage22object_alignment_shiftEv.exit.i ], [ 1, %4 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN8ZLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %23, i32 noundef %.0.i) #13
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN14ZRememberedSetC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN15ZPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  %27 = getelementptr inbounds i8, ptr %0, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %27, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %27, ptr %28, align 8
   ret void
 }
@@ -160,28 +160,28 @@ declare void @_ZN15ZPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenc
 define hidden noundef ptr @_ZNK5ZPage13clone_limitedEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 5, i32 noundef 0) #13
   %3 = load i8, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %3, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 -1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i64, ptr %10, align 8
   store volatile i64 %12, ptr %11, align 8
   %cond.i.i = icmp eq i8 %3, 2
   br i1 %cond.i.i, label %_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %12
   switch i8 %3, label %19 [
@@ -209,18 +209,18 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i.i:    ; preds = %17, %13
 
 _ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit: ; preds = %1, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i
   %.0.i.i = phi i32 [ %22, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i ], [ 1, %1 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN8ZLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %.0.i.i) #13
-  %25 = getelementptr inbounds i8, ptr %2, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @_ZN14ZRememberedSetC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #13
-  %26 = getelementptr inbounds i8, ptr %2, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 160
   tail call void @_ZN15ZPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %23) #13
-  %28 = getelementptr inbounds i8, ptr %2, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %28, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store ptr %28, ptr %29, align 8
   ret ptr %2
 }
@@ -229,28 +229,28 @@ _ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit: ; preds = %1, 
 define hidden noundef ptr @_ZNK5ZPage29clone_limited_promote_flippedEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 5, i32 noundef 0) #13
   %3 = load i8, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %3, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 -1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i64, ptr %10, align 8
   store volatile i64 %12, ptr %11, align 8
   %cond.i.i = icmp eq i8 %3, 2
   br i1 %cond.i.i, label %_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %12
   switch i8 %3, label %19 [
@@ -278,20 +278,20 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i.i:    ; preds = %17, %13
 
 _ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit: ; preds = %1, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i
   %.0.i.i = phi i32 [ %22, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i ], [ 1, %1 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN8ZLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %.0.i.i) #13
-  %25 = getelementptr inbounds i8, ptr %2, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @_ZN14ZRememberedSetC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #13
-  %26 = getelementptr inbounds i8, ptr %2, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 160
   tail call void @_ZN15ZPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %23) #13
-  %28 = getelementptr inbounds i8, ptr %2, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %28, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load volatile i64, ptr %30, align 8
   store volatile i64 %31, ptr %11, align 8
   ret ptr %2
@@ -299,7 +299,7 @@ _ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit: ; preds = %1, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN5ZPage10generationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   %_ZN11ZGeneration6_youngE.val.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
@@ -310,7 +310,7 @@ define hidden noundef ptr @_ZN5ZPage10generationEv(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK5ZPage10generationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   %_ZN11ZGeneration6_youngE.val.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
@@ -321,21 +321,21 @@ define hidden noundef ptr @_ZNK5ZPage10generationEv(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN5ZPage12reset_seqnumEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
   %_ZN11ZGeneration6_youngE.val.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i = select i1 %.not, ptr %_ZN11ZGeneration6_youngE.val.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i
-  %5 = getelementptr inbounds i8, ptr %.0.i.i, i64 3220
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 3220
   %6 = load i32, ptr %5, align 4
   store volatile i32 %6, ptr %2, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_ZN11ZGeneration6_youngE.val.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i = select i1 %.not, ptr %_ZN11ZGeneration4_oldE.val.i, ptr %_ZN11ZGeneration6_youngE.val.i
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 3220
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3220
   %9 = load i32, ptr %8, align 4
   store volatile i32 %9, ptr %7, align 8
   ret void
@@ -343,7 +343,7 @@ define hidden void @_ZN5ZPage12reset_seqnumEv(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage12remset_clearEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN14ZRememberedSet9clear_allEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret void
 }
@@ -367,7 +367,7 @@ define hidden void @_ZN5ZPage25verify_remset_after_resetE8ZPageAge14ZPageResetTy
   br i1 %12, label %13, label %_ZNK5ZPage30verify_remset_cleared_previousEv.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet19is_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #13
   br i1 %15, label %._ZNK5ZPage30verify_remset_cleared_previousEv.exit_crit_edge, label %16
 
@@ -381,7 +381,7 @@ define hidden void @_ZN5ZPage25verify_remset_after_resetE8ZPageAge14ZPageResetTy
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.7)
   %17 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %9, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %19 = load ptr, ptr %18, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %19) #12
   unreachable
@@ -392,7 +392,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %21, label %22, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit
 
 22:                                               ; preds = %_ZNK5ZPage30verify_remset_cleared_previousEv.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #13
   br i1 %24, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %25
 
@@ -402,7 +402,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.6)
   %26 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %28 = load ptr, ptr %27, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %28) #12
   unreachable
@@ -417,9 +417,9 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
 30:                                               ; preds = %29
   %31 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %32 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 3220
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 3220
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %31, i64 6692
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 6692
   %36 = load i32, ptr %35, align 4
   %37 = sub i32 %34, %36
   %38 = and i32 %37, 1
@@ -432,7 +432,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %41, label %43, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %45 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet19is_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %44) #13
   br i1 %45, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %46
 
@@ -442,7 +442,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.7)
   %47 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %7, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %49 = load ptr, ptr %48, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %49) #12
   unreachable
@@ -451,7 +451,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %41, label %51, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %53 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %52) #13
   br i1 %53, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %54
 
@@ -461,7 +461,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.6)
   %55 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %6, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %57 = load ptr, ptr %56, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %57) #12
   unreachable
@@ -478,7 +478,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %62, label %63, label %_ZNK5ZPage30verify_remset_cleared_previousEv.exit4
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 104
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %65 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet19is_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %64) #13
   br i1 %65, label %._ZNK5ZPage30verify_remset_cleared_previousEv.exit4_crit_edge, label %66
 
@@ -492,7 +492,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %67 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %5, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %69 = load ptr, ptr %68, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %69) #12
   unreachable
@@ -503,7 +503,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit4: ; preds = %._ZNK5ZPage30veri
   br i1 %71, label %72, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit
 
 72:                                               ; preds = %_ZNK5ZPage30verify_remset_cleared_previousEv.exit4
-  %73 = getelementptr inbounds i8, ptr %0, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %74 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %73) #13
   br i1 %74, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %75
 
@@ -513,7 +513,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit4: ; preds = %._ZNK5ZPage30veri
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.6)
   %76 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %4, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %78 = load ptr, ptr %77, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %78) #12
   unreachable
@@ -530,7 +530,7 @@ define hidden void @_ZNK5ZPage30verify_remset_cleared_previousEv(ptr noundef non
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet19is_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   br i1 %7, label %12, label %8
 
@@ -540,7 +540,7 @@ define hidden void @_ZNK5ZPage30verify_remset_cleared_previousEv(ptr noundef non
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.7)
   %9 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %11 = load ptr, ptr %10, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %11) #12
   unreachable
@@ -557,7 +557,7 @@ define hidden void @_ZNK5ZPage29verify_remset_cleared_currentEv(ptr noundef nonn
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   br i1 %7, label %12, label %8
 
@@ -567,7 +567,7 @@ define hidden void @_ZNK5ZPage29verify_remset_cleared_currentEv(ptr noundef nonn
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.6)
   %9 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %11 = load ptr, ptr %10, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %11) #12
   unreachable
@@ -581,19 +581,19 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage20reset_remembered_setEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #13
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %9, align 8
   %13 = sub i64 %11, %12
@@ -610,27 +610,27 @@ declare void @_ZN14ZRememberedSet10initializeEm(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) initializes((1, 2), (152, 160)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2
   store i8 %1, ptr %4, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %6, align 8
   %7 = icmp eq i8 %1, 15
   %8 = zext i1 %7 to i8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %8, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i = select i1 %7, ptr %_ZN11ZGeneration4_oldE.val.i.i.i, ptr %_ZN11ZGeneration6_youngE.val.i.i.i
-  %11 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 3220
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 3220
   %12 = load i32, ptr %11, align 4
   store volatile i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_ZN11ZGeneration6_youngE.val.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i = select i1 %7, ptr %_ZN11ZGeneration6_youngE.val.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i
-  %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 3220
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 3220
   %15 = load i32, ptr %14, align 4
   store volatile i32 %15, ptr %13, align 8
   %.not = icmp eq i32 %2, 2
@@ -640,13 +640,13 @@ define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnul
   br i1 %7, label %16, label %.thread
 
 16:                                               ; preds = %.split
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #13
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %20, align 8
   %24 = sub i64 %22, %23
@@ -658,19 +658,19 @@ define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnul
   br label %38
 
 .split10:                                         ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i64 %26, ptr %27, align 8
   br i1 %7, label %28, label %36
 
 28:                                               ; preds = %.split10
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr noundef nonnull align 8 dereferenceable(48) %29) #13
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = load i64, ptr %25, align 8
   %35 = sub i64 %33, %34
@@ -686,7 +686,7 @@ define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnul
   br i1 %or.cond12, label %38, label %40
 
 38:                                               ; preds = %.thread, %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 0, ptr %39, align 8
   br label %40
 
@@ -696,7 +696,7 @@ define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN5ZPage38finalize_reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 0, ptr %2, align 8
   ret void
 }
@@ -708,8 +708,8 @@ define hidden void @_ZN5ZPage19reset_type_and_sizeE9ZPageType(ptr noundef nonnul
   br i1 %cond.i, label %_ZNK5ZPage16object_max_countEv.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = sub i64 %6, %7
@@ -738,11 +738,11 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i:      ; preds = %9, %3
 
 _ZNK5ZPage16object_max_countEv.exit:              ; preds = %2, %_ZNK5ZPage22object_alignment_shiftEv.exit.i
   %.0.i = phi i32 [ %14, %_ZNK5ZPage22object_alignment_shiftEv.exit.i ], [ 1, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN8ZLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef %.0.i) #13
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %17, align 8
   %21 = sub i64 %19, %20
@@ -761,8 +761,8 @@ define hidden noundef nonnull ptr @_ZN5ZPage6retypeE9ZPageType(ptr noundef nonnu
   br i1 %cond.i.i, label %_ZN5ZPage19reset_type_and_sizeE9ZPageType.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = sub i64 %6, %7
@@ -791,11 +791,11 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i.i:    ; preds = %9, %3
 
 _ZN5ZPage19reset_type_and_sizeE9ZPageType.exit:   ; preds = %2, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i
   %.0.i.i = phi i32 [ %14, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i ], [ 1, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN8ZLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef %.0.i.i) #13
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %17, align 8
   %21 = sub i64 %19, %20
@@ -812,17 +812,17 @@ define hidden noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 derefer
   %..i = select i1 %6, i8 1, i8 2
   %.0.i = select i1 %4, i8 0, i8 %..i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind nonnull writable sret(%class.ZPhysicalMemory) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %1) #13
   %8 = call noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %3)
   store i32 0, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN5ZPage5splitE9ZPageTypem.exit, label %.loopexit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %9, align 4
   %.not.i.i.i.i.i = icmp eq ptr %13, null
@@ -840,17 +840,17 @@ _ZN5ZPage5splitE9ZPageTypem.exit:                 ; preds = %2, %.loopexit.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5ZPage5splitE9ZPageTypem(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ZPhysicalMemory, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind nonnull writable sret(%class.ZPhysicalMemory) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %2) #13
   %6 = call noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i32 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN15ZPhysicalMemoryD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   store i32 0, ptr %7, align 4
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -866,12 +866,12 @@ _ZN15ZPhysicalMemoryD2Ev.exit:                    ; preds = %.loopexit.i.i.i.i, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 1)) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %6 = load i64, ptr %4, align 8
   %7 = add i64 %6, %5
   store i64 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %9, %7
   %11 = icmp eq i64 %10, 2097152
@@ -894,37 +894,37 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i.i:    ; preds = %3
 
 _ZN5ZPage19reset_type_and_sizeE9ZPageType.exit:   ; preds = %3, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i
   %.0.i.i = phi i32 [ %16, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i ], [ 1, %3 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN8ZLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %.0.i.i) #13
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i64, ptr %8, align 8
   %20 = load i64, ptr %4, align 8
   %21 = sub i64 %19, %20
   tail call void @_ZN14ZRememberedSet6resizeEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %21) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = load i8, ptr %22, align 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %24, align 8
   %25 = icmp eq i8 %23, 15
   %26 = zext i1 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %26, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i.i = select i1 %25, ptr %_ZN11ZGeneration4_oldE.val.i.i.i.i, ptr %_ZN11ZGeneration6_youngE.val.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 3220
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 3220
   %30 = load i32, ptr %29, align 4
   store volatile i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i = select i1 %25, ptr %_ZN11ZGeneration6_youngE.val.i.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i.i
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 3220
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 3220
   %33 = load i32, ptr %32, align 4
   store volatile i32 %33, ptr %31, align 8
   %34 = load i64, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i64 %34, ptr %35, align 8
   br i1 %25, label %36, label %_ZN5ZPage5resetE8ZPageAge14ZPageResetType.exit
 
@@ -942,7 +942,7 @@ _ZN5ZPage19reset_type_and_sizeE9ZPageType.exit:   ; preds = %3, %_ZNK5ZPage22obj
 _ZN5ZPage5resetE8ZPageAge14ZPageResetType.exit:   ; preds = %_ZN5ZPage19reset_type_and_sizeE9ZPageType.exit, %36, %38
   tail call void @_ZN5ZPage25verify_remset_after_resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %23, i32 noundef 3)
   store volatile i32 0, ptr %17, align 8
-  %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %45, label %43
 
@@ -954,21 +954,21 @@ _ZN5ZPage5resetE8ZPageAge14ZPageResetType.exit:   ; preds = %_ZN5ZPage19reset_ty
 45:                                               ; preds = %_ZN5ZPage5resetE8ZPageAge14ZPageResetType.exit, %43
   %46 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 5, i32 noundef 0) #13
   store i8 %1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store i8 0, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store i8 0, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %46, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 3
   store i8 -1, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %46, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %6, ptr %52, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
-  %53 = getelementptr inbounds i8, ptr %46, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store volatile i64 %6, ptr %53, align 8
   switch i8 %1, label %56 [
     i8 2, label %_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit
@@ -996,17 +996,17 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i.i7:   ; preds = %45, %54
 
 _ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory.exit: ; preds = %45, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i7
   %.0.i.i11 = phi i32 [ %59, %_ZNK5ZPage22object_alignment_shiftEv.exit.i.i7 ], [ 1, %45 ]
-  %60 = getelementptr inbounds i8, ptr %46, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 40
   tail call void @_ZN8ZLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %60, i32 noundef %.0.i.i11) #13
-  %61 = getelementptr inbounds i8, ptr %46, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 104
   tail call void @_ZN14ZRememberedSetC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %61) #13
-  %62 = getelementptr inbounds i8, ptr %46, i64 152
+  %62 = getelementptr inbounds nuw i8, ptr %46, i64 152
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %46, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 160
   tail call void @_ZN15ZPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %2) #13
-  %64 = getelementptr inbounds i8, ptr %46, i64 176
+  %64 = getelementptr inbounds nuw i8, ptr %46, i64 176
   store ptr %64, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 184
   store ptr %64, ptr %65, align 8
   ret ptr %46
 }
@@ -1027,7 +1027,7 @@ declare void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind writable sret(%cla
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5ZPage15split_committedEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ZPhysicalMemory, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZN15ZPhysicalMemory15split_committedEv(ptr dead_on_unwind nonnull writable sret(%class.ZPhysicalMemory) align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 0
@@ -1046,13 +1046,13 @@ define hidden noundef ptr @_ZN5ZPage15split_committedEv(ptr noundef nonnull alig
 12:                                               ; preds = %1, %6
   %.0 = phi ptr [ %11, %6 ], [ null, %1 ]
   store i32 0, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN15ZPhysicalMemoryD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   store i32 0, ptr %13, align 4
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -1070,7 +1070,7 @@ declare void @_ZN15ZPhysicalMemory15split_committedEv(ptr dead_on_unwind writabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK5ZPage25is_remset_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret i1 %3
 }
@@ -1079,7 +1079,7 @@ declare noundef zeroext i1 @_ZNK14ZRememberedSet18is_cleared_currentEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK5ZPage26is_remset_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = tail call noundef zeroext i1 @_ZNK14ZRememberedSet19is_cleared_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret i1 %3
 }
@@ -1093,7 +1093,7 @@ define hidden void @_ZNK5ZPage9fatal_msgEPKc(ptr noundef nonnull align 8 derefer
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %3, ptr noundef %1)
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load ptr, ptr %5, align 8
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 316, ptr noundef nonnull @.str.18, ptr noundef %6) #12
   unreachable
@@ -1101,7 +1101,7 @@ define hidden void @_ZNK5ZPage9fatal_msgEPKc(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage20clear_remset_currentEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN14ZRememberedSet13clear_currentEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret void
 }
@@ -1110,7 +1110,7 @@ declare void @_ZN14ZRememberedSet13clear_currentEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage21clear_remset_previousEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN14ZRememberedSet14clear_previousEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret void
 }
@@ -1119,7 +1119,7 @@ declare void @_ZN14ZRememberedSet14clear_previousEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZPage19swap_remset_bitmapsEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN14ZRememberedSet19swap_remset_bitmapsEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   ret void
 }
@@ -1128,7 +1128,7 @@ declare void @_ZN14ZRememberedSet19swap_remset_bitmapsEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef nonnull ptr @_ZN5ZPage14remset_currentEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %2, i64 0, i64 %4
@@ -1149,24 +1149,24 @@ define hidden void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonn
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load volatile i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   %.str.9..str.10 = select i1 %17, ptr @.str.9, ptr @.str.10
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i = select i1 %17, ptr %_ZN11ZGeneration6_youngE.val.i.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i.i
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 3220
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 3220
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %19, %21
   %23 = select i1 %22, ptr @.str.11, ptr @.str.12
@@ -1194,24 +1194,24 @@ define hidden void @_ZNK5ZPage8print_onEP12outputStream(ptr noundef nonnull alig
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load volatile i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   %.str.9..str.10.i = select i1 %16, ptr @.str.9, ptr @.str.10
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i.i = select i1 %16, ptr %_ZN11ZGeneration6_youngE.val.i.i.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i.i.i
-  %19 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 3220
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 3220
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
   %22 = select i1 %21, ptr @.str.11, ptr @.str.12
@@ -1236,24 +1236,24 @@ define hidden void @_ZNK5ZPage5printEv(ptr noundef nonnull align 8 dereferenceab
 switch.lookup:                                    ; preds = %1
   %6 = load ptr, ptr @tty, align 8
   %7 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5ZPage5printEv, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load volatile i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   %.str.9..str.10.i.i = select i1 %16, ptr @.str.9, ptr @.str.10
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %_ZN11ZGeneration6_youngE.val.i.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %.0.i.i.i.i.i = select i1 %16, ptr %_ZN11ZGeneration6_youngE.val.i.i.i.i.i, ptr %_ZN11ZGeneration4_oldE.val.i.i.i.i.i
-  %19 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 3220
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 3220
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
   %22 = select i1 %21, ptr @.str.11, ptr @.str.12
@@ -1265,7 +1265,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5ZPage11verify_liveEjmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load volatile i32, ptr %5, align 4
   %7 = icmp eq i32 %1, %6
   br i1 %7, label %10, label %8
@@ -1277,7 +1277,7 @@ define hidden void @_ZNK5ZPage11verify_liveEjmb(ptr noundef nonnull align 8 dere
   unreachable
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load volatile i64, ptr %11, align 8
   %13 = icmp eq i64 %2, %12
   br i1 %13, label %16, label %14

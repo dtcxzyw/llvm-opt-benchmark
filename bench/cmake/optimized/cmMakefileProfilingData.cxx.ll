@@ -87,7 +87,7 @@ define dso_local void @_ZN23cmMakefileProfilingDataC2ERKNSt7__cxx1112basic_strin
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr null, ptr %7, align 8
   %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %8, i32 noundef 48)
@@ -109,7 +109,7 @@ define dso_local void @_ZN23cmMakefileProfilingDataC2ERKNSt7__cxx1112basic_strin
 
 _ZNKSt14default_deleteIN4Json12StreamWriterEEclEPS1_.exit.i.i.i.i: ; preds = %12
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   br label %_ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit
@@ -205,7 +205,7 @@ _ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 _ZNKSt14default_deleteIN4Json12StreamWriterEEclEPS1_.exit.i19: ; preds = %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %45) #13
   br label %_ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit20
@@ -335,14 +335,14 @@ define dso_local void @_ZN23cmMakefileProfilingDataD2Ev(ptr noundef nonnull alig
           to label %19 unwind label %25
 
 19:                                               ; preds = %12, %18, %9
-  %20 = getelementptr inbounds i8, ptr %0, i64 512
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4Json12StreamWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4Json12StreamWriterEEclEPS1_.exit.i: ; preds = %19
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #13
   br label %_ZNSt10unique_ptrIN4Json12StreamWriterESt14default_deleteIS1_EED2Ev.exit
@@ -494,7 +494,7 @@ define dso_local void @_ZN23cmMakefileProfilingData10StartEntryERKNSt7__cxx1112b
 61:                                               ; preds = %59
   %62 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(40) %12) #13
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #13
-  %63 = getelementptr inbounds i8, ptr %3, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %64 = load i8, ptr %63, align 8
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %86
@@ -562,10 +562,10 @@ define dso_local void @_ZN23cmMakefileProfilingData10StartEntryERKNSt7__cxx1112b
   br label %94
 
 86:                                               ; preds = %68, %61
-  %87 = getelementptr inbounds i8, ptr %0, i64 512
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = invoke noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %0)
           to label %93 unwind label %72
@@ -596,7 +596,7 @@ define dso_local void @_ZN23cmMakefileProfilingData10StartEntryERKNSt7__cxx1112b
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(32) %99) #13
   store ptr %104, ptr %16, align 8
@@ -711,17 +711,17 @@ _ZZ8cmStrCatIRA38_KcPS0_JEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEO
   %3 = alloca [2 x %"struct.std::pair"], align 8
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   store i64 %4, ptr %3, align 8, !alias.scope !5
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !5
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8, !alias.scope !5
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %2, align 8
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   store i64 %8, ptr %6, align 8, !alias.scope !8
-  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %.sroa.2.0..sroa_idx.i5, align 8, !alias.scope !8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %9, align 8, !alias.scope !8
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 2)
   ret void
@@ -806,10 +806,10 @@ define dso_local void @_ZN23cmMakefileProfilingData9StopEntryEv(ptr noundef nonn
 41:                                               ; preds = %39
   %42 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
-  %43 = getelementptr inbounds i8, ptr %0, i64 512
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = invoke noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %0)
           to label %49 unwind label %54
@@ -886,7 +886,7 @@ define dso_local void @_ZN23cmMakefileProfilingData9StopEntryEv(ptr noundef nonn
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(32) %69) #13
   store ptr %74, ptr %11, align 8
@@ -971,17 +971,17 @@ _ZZ8cmStrCatIRA37_KcPS0_JEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEO
   %3 = alloca [2 x %"struct.std::pair"], align 8
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   store i64 %4, ptr %3, align 8, !alias.scope !11
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !11
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8, !alias.scope !11
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %2, align 8
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   store i64 %8, ptr %6, align 8, !alias.scope !14
-  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %.sroa.2.0..sroa_idx.i5, align 8, !alias.scope !14
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %9, align 8, !alias.scope !14
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %3, i64 2)
   ret void
@@ -991,8 +991,8 @@ _ZZ8cmStrCatIRA37_KcPS0_JEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEO
 define dso_local void @_ZN23cmMakefileProfilingData4RAIIC2ERS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St8optionalIN4Json5ValueEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::optional", align 8
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %8, align 8
   %9 = load i8, ptr %7, align 8
   %10 = trunc i8 %9 to i1

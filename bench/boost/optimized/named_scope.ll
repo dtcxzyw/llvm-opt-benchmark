@@ -427,7 +427,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2Ev(ptr nocaptu
   br i1 %.not.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = atomicrmw add ptr %5, i32 1 acq_rel, align 4
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit
 
@@ -448,7 +448,7 @@ _ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEE
   br i1 %.not.i.not, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %6
 
 6:                                                ; preds = %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit
 
@@ -477,7 +477,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scope10push_scopeERKN
           to label %.noexc2 unwind label %22
 
 .noexc2:                                          ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !17
@@ -552,7 +552,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scope9pop_scopeEv() l
           to label %.noexc1 unwind label %23
 
 .noexc1:                                          ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !17
@@ -621,7 +621,7 @@ define noundef nonnull align 8 dereferenceable(25) ptr @_ZN5boost3log11v2_mt_pos
 6:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %7, ptr %9, align 8, !tbaa !17
@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix10attributes11named_s
 
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEEC2EPS5_b.exit.i: ; preds = %5, %3, %0
   %7 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix9attribute4implnwEm(i64 noundef 24)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 4, !tbaa !45
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes11named_scope4implE, i64 16), ptr %7, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -760,14 +760,14 @@ _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEEC2E
   br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEE5resetEPS5_.exit, label %12
 
 12:                                               ; preds = %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEEC2EPS5_b.exit.i
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = atomicrmw add ptr %13, i32 -1 acq_rel, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEE5resetEPS5_.exit
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %11, align 8, !tbaa !48
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %11) #19
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEE5resetEPS5_.exit
@@ -794,14 +794,14 @@ define linkonce_odr hidden void @_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10
   br i1 %.not, label %_ZN5boost12sp_adl_block21intrusive_ptr_releaseINS_3log11v2_mt_posix9attribute4implENS0_19thread_safe_counterEEEvPKNS0_21intrusive_ref_counterIT_T0_EE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = atomicrmw add ptr %4, i32 -1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %_ZN5boost12sp_adl_block21intrusive_ptr_releaseINS_3log11v2_mt_posix9attribute4implENS0_19thread_safe_counterEEEvPKNS0_21intrusive_ref_counterIT_T0_EE.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8, !tbaa !48
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   br label %_ZN5boost12sp_adl_block21intrusive_ptr_releaseINS_3log11v2_mt_posix9attribute4implENS0_19thread_safe_counterEEEvPKNS0_21intrusive_ref_counterIT_T0_EE.exit
@@ -865,7 +865,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix10attributes11named_s
           to label %.noexc2 unwind label %20
 
 .noexc2:                                          ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !17
@@ -896,7 +896,7 @@ _ZNSt10unique_ptrIN5boost3log11v2_mt_posix10attributes9anonymous26writeable_name
 
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit: ; preds = %.noexc, %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix10attributes9anonymous26writeable_named_scope_listESt14default_deleteIS5_EED2Ev.exit.i
   %.05.i = phi ptr [ %6, %.noexc ], [ %8, %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix10attributes9anonymous26writeable_named_scope_listESt14default_deleteIS5_EED2Ev.exit.i ]
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %16, align 4, !tbaa !45
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes9anonymous17named_scope_valueE, i64 16), ptr %4, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -986,7 +986,7 @@ _ZN5boost3log11v2_mt_posix10attributes9anonymous17named_scope_valueD2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15attribute_value4impl9get_valueEv(ptr dead_on_unwind noalias writable sret(%"class.boost::log::v2_mt_posix::attribute_value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit:
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = atomicrmw add ptr %2, i32 1 acq_rel, align 4
   store ptr %1, ptr %0, align 8, !tbaa !59
   ret void
@@ -1029,7 +1029,7 @@ _ZN5boost8optionalINS_3log11v2_mt_posix10attributes16named_scope_listEEaSIRS4_EE
 
 9:                                                ; preds = %_ZN5boost8optionalINS_3log11v2_mt_posix10attributes16named_scope_listEEaSIRS4_EENS_9enable_ifINS_7is_sameIS4_NS_5decayIT_E4typeEEERS5_E4typeEOSB_.exit, %2
   store ptr %1, ptr %0, align 8, !tbaa !59
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = atomicrmw add ptr %10, i32 1 acq_rel, align 4
   ret void
 }

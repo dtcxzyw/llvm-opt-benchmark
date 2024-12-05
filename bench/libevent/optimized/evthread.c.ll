@@ -72,8 +72,8 @@ if.then2:                                         ; preds = %entry
 
 if.end3:                                          ; preds = %entry
   %tobool4.not = icmp eq ptr %cbs, null
-  %.val30 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 8), align 8
-  %.val31 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 8), align 8
+  %.val30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 8), align 8
+  %.val31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 8), align 8
   %3 = select i1 %tobool.not.i, ptr %.val30, ptr %.val31
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.then5, label %if.end9
@@ -99,43 +99,43 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %if.then12
-  %.val22 = load i32, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 4), align 4
-  %.val23 = load i32, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 4), align 4
+  %.val22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 4), align 4
+  %.val23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 4), align 4
   %6 = select i1 %tobool.not.i, i32 %.val22, i32 %.val23
-  %supported_locktypes14 = getelementptr inbounds i8, ptr %cbs, i64 4
+  %supported_locktypes14 = getelementptr inbounds nuw i8, ptr %cbs, i64 4
   %7 = load i32, ptr %supported_locktypes14, align 4
   %cmp15 = icmp eq i32 %6, %7
   br i1 %cmp15, label %land.lhs.true16, label %if.end30
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
-  %alloc18 = getelementptr inbounds i8, ptr %cbs, i64 8
+  %alloc18 = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %8 = load ptr, ptr %alloc18, align 8
   %cmp19 = icmp eq ptr %3, %8
   br i1 %cmp19, label %land.lhs.true20, label %if.end30
 
 land.lhs.true20:                                  ; preds = %land.lhs.true16
-  %.val24 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %.val25 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 16), align 8
+  %.val24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %.val25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 16), align 8
   %9 = select i1 %tobool.not.i, ptr %.val24, ptr %.val25
-  %free21 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %free21 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   %10 = load ptr, ptr %free21, align 8
   %cmp22 = icmp eq ptr %9, %10
   br i1 %cmp22, label %land.lhs.true23, label %if.end30
 
 land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %.val26 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
-  %.val27 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 24), align 8
+  %.val26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
+  %.val27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 24), align 8
   %11 = select i1 %tobool.not.i, ptr %.val26, ptr %.val27
-  %lock24 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %lock24 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   %12 = load ptr, ptr %lock24, align 8
   %cmp25 = icmp eq ptr %11, %12
   br i1 %cmp25, label %land.lhs.true26, label %if.end30
 
 land.lhs.true26:                                  ; preds = %land.lhs.true23
-  %.val28 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %.val29 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 32), align 8
+  %.val28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %.val29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_lock_fns_, i64 32), align 8
   %13 = select i1 %tobool.not.i, ptr %.val28, ptr %.val29
-  %unlock27 = getelementptr inbounds i8, ptr %cbs, i64 32
+  %unlock27 = getelementptr inbounds nuw i8, ptr %cbs, i64 32
   %14 = load ptr, ptr %unlock27, align 8
   %cmp28 = icmp eq ptr %13, %14
   br i1 %cmp28, label %return, label %if.end30
@@ -145,25 +145,25 @@ if.end30:                                         ; preds = %land.lhs.true26, %l
   br label %return
 
 if.end31:                                         ; preds = %if.end9
-  %alloc32 = getelementptr inbounds i8, ptr %cbs, i64 8
+  %alloc32 = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %15 = load ptr, ptr %alloc32, align 8
   %tobool33.not = icmp eq ptr %15, null
   br i1 %tobool33.not, label %return, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %free35 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %free35 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   %16 = load ptr, ptr %free35, align 8
   %tobool36.not = icmp eq ptr %16, null
   br i1 %tobool36.not, label %return, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %lock38 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %lock38 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   %17 = load ptr, ptr %lock38, align 8
   %tobool39.not = icmp eq ptr %17, null
   br i1 %tobool39.not, label %return, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %land.lhs.true37
-  %unlock41 = getelementptr inbounds i8, ptr %cbs, i64 32
+  %unlock41 = getelementptr inbounds nuw i8, ptr %cbs, i64 32
   %18 = load ptr, ptr %unlock41, align 8
   %tobool42.not = icmp eq ptr %18, null
   br i1 %tobool42.not, label %return, label %if.then43
@@ -210,8 +210,8 @@ if.then2:                                         ; preds = %entry
 
 if.end3:                                          ; preds = %entry
   %tobool4.not = icmp eq ptr %cbs, null
-  %.val29 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 8), align 8
-  %.val30 = load ptr, ptr getelementptr inbounds (i8, ptr @original_cond_fns_, i64 8), align 8
+  %.val29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_cond_fns_, i64 8), align 8
+  %.val30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_cond_fns_, i64 8), align 8
   %3 = select i1 %tobool.not.i, ptr %.val29, ptr %.val30
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.then5, label %if.end9
@@ -237,34 +237,34 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.then12
-  %alloc_condition15 = getelementptr inbounds i8, ptr %cbs, i64 8
+  %alloc_condition15 = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %6 = load ptr, ptr %alloc_condition15, align 8
   %cmp16 = icmp eq ptr %3, %6
   br i1 %cmp16, label %land.lhs.true17, label %if.end27
 
 land.lhs.true17:                                  ; preds = %land.lhs.true
-  %.val23 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 16), align 8
-  %.val24 = load ptr, ptr getelementptr inbounds (i8, ptr @original_cond_fns_, i64 16), align 8
+  %.val23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_cond_fns_, i64 16), align 8
+  %.val24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_cond_fns_, i64 16), align 8
   %7 = select i1 %tobool.not.i, ptr %.val23, ptr %.val24
-  %free_condition18 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %free_condition18 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   %8 = load ptr, ptr %free_condition18, align 8
   %cmp19 = icmp eq ptr %7, %8
   br i1 %cmp19, label %land.lhs.true20, label %if.end27
 
 land.lhs.true20:                                  ; preds = %land.lhs.true17
-  %.val25 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 24), align 8
-  %.val26 = load ptr, ptr getelementptr inbounds (i8, ptr @original_cond_fns_, i64 24), align 8
+  %.val25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_cond_fns_, i64 24), align 8
+  %.val26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_cond_fns_, i64 24), align 8
   %9 = select i1 %tobool.not.i, ptr %.val25, ptr %.val26
-  %signal_condition21 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %signal_condition21 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   %10 = load ptr, ptr %signal_condition21, align 8
   %cmp22 = icmp eq ptr %9, %10
   br i1 %cmp22, label %land.lhs.true23, label %if.end27
 
 land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %.val27 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 32), align 8
-  %.val28 = load ptr, ptr getelementptr inbounds (i8, ptr @original_cond_fns_, i64 32), align 8
+  %.val27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_cond_fns_, i64 32), align 8
+  %.val28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @original_cond_fns_, i64 32), align 8
   %11 = select i1 %tobool.not.i, ptr %.val27, ptr %.val28
-  %wait_condition24 = getelementptr inbounds i8, ptr %cbs, i64 32
+  %wait_condition24 = getelementptr inbounds nuw i8, ptr %cbs, i64 32
   %12 = load ptr, ptr %wait_condition24, align 8
   %cmp25 = icmp eq ptr %11, %12
   br i1 %cmp25, label %return, label %if.end27
@@ -274,25 +274,25 @@ if.end27:                                         ; preds = %land.lhs.true23, %l
   br label %return
 
 if.end28:                                         ; preds = %if.end9
-  %alloc_condition29 = getelementptr inbounds i8, ptr %cbs, i64 8
+  %alloc_condition29 = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   %13 = load ptr, ptr %alloc_condition29, align 8
   %tobool30.not = icmp eq ptr %13, null
   br i1 %tobool30.not, label %if.end41, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %if.end28
-  %free_condition32 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %free_condition32 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   %14 = load ptr, ptr %free_condition32, align 8
   %tobool33.not = icmp eq ptr %14, null
   br i1 %tobool33.not, label %if.end41, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true31
-  %signal_condition35 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %signal_condition35 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   %15 = load ptr, ptr %signal_condition35, align 8
   %tobool36.not = icmp eq ptr %15, null
   br i1 %tobool36.not, label %if.end41, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %wait_condition38 = getelementptr inbounds i8, ptr %cbs, i64 32
+  %wait_condition38 = getelementptr inbounds nuw i8, ptr %cbs, i64 32
   %16 = load ptr, ptr %wait_condition38, align 8
   %tobool39.not = icmp eq ptr %16, null
   br i1 %tobool39.not, label %if.end41, label %if.then40
@@ -307,10 +307,10 @@ if.end41:                                         ; preds = %if.then40, %land.lh
 if.then43:                                        ; preds = %if.end41
   %17 = load ptr, ptr %alloc_condition29, align 8
   store ptr %17, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 8), align 8
-  %free_condition45 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %free_condition45 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   %18 = load ptr, ptr %free_condition45, align 8
   store ptr %18, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 16), align 8
-  %signal_condition46 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %signal_condition46 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   %19 = load ptr, ptr %signal_condition46, align 8
   store ptr %19, ptr getelementptr inbounds (i8, ptr @evthread_cond_fns_, i64 24), align 8
   br label %return
@@ -375,7 +375,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %or = or i32 %locktype, 1
   %call3 = tail call ptr %0(i32 noundef %or) #9
-  %lock = getelementptr inbounds i8, ptr %call, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call3, ptr %lock, align 8
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.then5, label %if.end8
@@ -385,17 +385,17 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %lock7 = getelementptr inbounds i8, ptr %call, i64 24
+  %lock7 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %lock7, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then2, %if.else
   store i32 -558845684, ptr %call, align 8
-  %locktype9 = getelementptr inbounds i8, ptr %call, i64 4
+  %locktype9 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %locktype, ptr %locktype9, align 4
-  %count = getelementptr inbounds i8, ptr %call, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %count, align 8
-  %held_by = getelementptr inbounds i8, ptr %call, i64 8
+  %held_by = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 0, ptr %held_by, align 8
   br label %return
 
@@ -412,18 +412,18 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %lock5 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock5 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %1 = load ptr, ptr %lock5, align 8
-  %locktype6 = getelementptr inbounds i8, ptr %lock_, i64 4
+  %locktype6 = getelementptr inbounds nuw i8, ptr %lock_, i64 4
   %2 = load i32, ptr %locktype6, align 4
   %or = or i32 %2, 1
   tail call void %0(ptr noundef %1, i32 noundef %or) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %lock7 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock7 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   store ptr null, ptr %lock7, align 8
-  %count = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   store i32 -100, ptr %count, align 8
   store i32 305139674, ptr %lock_, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %lock_) #9
@@ -438,14 +438,14 @@ entry:
   br i1 %tobool3.not, label %if.then8, label %if.end6
 
 if.end6:                                          ; preds = %entry
-  %lock5 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock5 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %1 = load ptr, ptr %lock5, align 8
   %call = tail call i32 %0(i32 noundef %mode, ptr noundef %1) #9
   %tobool7.not = icmp eq i32 %call, 0
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %entry, %if.end6
-  %count.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %2 = load i32, ptr %count.i, align 8
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %count.i, align 8
@@ -455,7 +455,7 @@ if.then8:                                         ; preds = %entry, %if.end6
 
 if.then4.i:                                       ; preds = %if.then8
   %call.i = tail call i64 %3() #9
-  %held_by.i = getelementptr inbounds i8, ptr %lock_, i64 8
+  %held_by.i = getelementptr inbounds nuw i8, ptr %lock_, i64 8
   store i64 %call.i, ptr %held_by.i, align 8
   br label %if.end9
 
@@ -472,25 +472,25 @@ entry:
   br i1 %tobool5.not.i, label %entry.if.end11_crit_edge.i, label %if.then6.i
 
 entry.if.end11_crit_edge.i:                       ; preds = %entry
-  %count12.phi.trans.insert.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count12.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %.pre.i = load i32, ptr %count12.phi.trans.insert.i, align 8
   br label %evthread_debug_lock_mark_unlocked.exit
 
 if.then6.i:                                       ; preds = %entry
   %call.i = tail call i64 %0() #9
-  %count.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %1 = load i32, ptr %count.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %if.then9.i, label %evthread_debug_lock_mark_unlocked.exit
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %held_by.i = getelementptr inbounds i8, ptr %lock_, i64 8
+  %held_by.i = getelementptr inbounds nuw i8, ptr %lock_, i64 8
   store i64 0, ptr %held_by.i, align 8
   br label %evthread_debug_lock_mark_unlocked.exit
 
 evthread_debug_lock_mark_unlocked.exit:           ; preds = %entry.if.end11_crit_edge.i, %if.then6.i, %if.then9.i
   %2 = phi i32 [ %.pre.i, %entry.if.end11_crit_edge.i ], [ %1, %if.then6.i ], [ 1, %if.then9.i ]
-  %count12.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count12.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %count12.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 32), align 8
@@ -498,7 +498,7 @@ evthread_debug_lock_mark_unlocked.exit:           ; preds = %entry.if.end11_crit
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %evthread_debug_lock_mark_unlocked.exit
-  %lock1 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock1 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %4 = load ptr, ptr %lock1, align 8
   %call = tail call i32 %3(i32 noundef %mode, ptr noundef %4) #9
   br label %if.end
@@ -516,29 +516,29 @@ entry:
   br i1 %tobool5.not.i, label %entry.if.end11_crit_edge.i, label %if.then6.i
 
 entry.if.end11_crit_edge.i:                       ; preds = %entry
-  %count12.phi.trans.insert.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count12.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %.pre.i = load i32, ptr %count12.phi.trans.insert.i, align 8
   br label %evthread_debug_lock_mark_unlocked.exit
 
 if.then6.i:                                       ; preds = %entry
   %call.i = tail call i64 %0() #9
-  %count.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %1 = load i32, ptr %count.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %if.then9.i, label %evthread_debug_lock_mark_unlocked.exit
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %held_by.i = getelementptr inbounds i8, ptr %lock_, i64 8
+  %held_by.i = getelementptr inbounds nuw i8, ptr %lock_, i64 8
   store i64 0, ptr %held_by.i, align 8
   br label %evthread_debug_lock_mark_unlocked.exit
 
 evthread_debug_lock_mark_unlocked.exit:           ; preds = %entry.if.end11_crit_edge.i, %if.then6.i, %if.then9.i
   %2 = phi i32 [ %.pre.i, %entry.if.end11_crit_edge.i ], [ %1, %if.then6.i ], [ 1, %if.then9.i ]
-  %count12.i = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count12.i = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %dec.i = add nsw i32 %2, -1
   store i32 %dec.i, ptr %count12.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @original_cond_fns_, i64 32), align 8
-  %lock8 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock8 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %4 = load ptr, ptr %lock8, align 8
   %call = tail call i32 %3(ptr noundef %cond_, ptr noundef %4, ptr noundef %tv) #9
   %5 = load i32, ptr %count12.i, align 8
@@ -550,7 +550,7 @@ evthread_debug_lock_mark_unlocked.exit:           ; preds = %entry.if.end11_crit
 
 if.then4.i:                                       ; preds = %evthread_debug_lock_mark_unlocked.exit
   %call.i5 = tail call i64 %6() #9
-  %held_by.i6 = getelementptr inbounds i8, ptr %lock_, i64 8
+  %held_by.i6 = getelementptr inbounds nuw i8, ptr %lock_, i64 8
   store i64 %call.i5, ptr %held_by.i6, align 8
   br label %evthread_debug_lock_mark_locked.exit
 
@@ -561,7 +561,7 @@ evthread_debug_lock_mark_locked.exit:             ; preds = %evthread_debug_lock
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @evthread_is_debug_lock_held_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #2 {
 entry:
-  %count = getelementptr inbounds i8, ptr %lock_, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %lock_, i64 16
   %0 = load i32, ptr %count, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -573,7 +573,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %call = tail call i64 %1() #9
-  %held_by = getelementptr inbounds i8, ptr %lock_, i64 8
+  %held_by = getelementptr inbounds nuw i8, ptr %lock_, i64 8
   %2 = load i64, ptr %held_by, align 8
   %cmp.not = icmp eq i64 %2, %call
   br i1 %cmp.not, label %if.end5, label %return
@@ -589,7 +589,7 @@ return:                                           ; preds = %if.then2, %entry, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @evthread_debug_get_real_lock_(ptr nocapture noundef readonly %lock_) local_unnamed_addr #7 {
 entry:
-  %lock1 = getelementptr inbounds i8, ptr %lock_, i64 24
+  %lock1 = getelementptr inbounds nuw i8, ptr %lock_, i64 24
   %0 = load ptr, ptr %lock1, align 8
   ret ptr %0
 }
@@ -616,7 +616,7 @@ if.end.i:                                         ; preds = %do.end
 if.then2.i:                                       ; preds = %if.end.i
   %or.i = or i32 %locktype, 1
   %call3.i = tail call ptr %1(i32 noundef %or.i) #9
-  %lock.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %lock.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call3.i, ptr %lock.i, align 8
   %tobool4.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end8.i
@@ -626,17 +626,17 @@ if.then5.i:                                       ; preds = %if.then2.i
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
-  %lock7.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %lock7.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr null, ptr %lock7.i, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then2.i
   store i32 -558845684, ptr %call.i, align 8
-  %locktype9.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %locktype9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 %locktype, ptr %locktype9.i, align 4
-  %count.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i32 0, ptr %count.i, align 8
-  %held_by.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %held_by.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 0, ptr %held_by.i, align 8
   br label %return
 
@@ -665,7 +665,7 @@ if.end.i31:                                       ; preds = %if.then8
 if.then2.i33:                                     ; preds = %if.end.i31
   %or.i34 = or disjoint i32 %locktype, 1
   %call3.i35 = tail call ptr %3(i32 noundef %or.i34) #9
-  %lock.i36 = getelementptr inbounds i8, ptr %call.i29, i64 24
+  %lock.i36 = getelementptr inbounds nuw i8, ptr %call.i29, i64 24
   store ptr %call3.i35, ptr %lock.i36, align 8
   %tobool4.not.i37 = icmp eq ptr %call3.i35, null
   br i1 %tobool4.not.i37, label %if.then5.i43, label %if.end8.i38
@@ -675,17 +675,17 @@ if.then5.i43:                                     ; preds = %if.then2.i33
   br label %return
 
 if.else.i44:                                      ; preds = %if.end.i31
-  %lock7.i45 = getelementptr inbounds i8, ptr %call.i29, i64 24
+  %lock7.i45 = getelementptr inbounds nuw i8, ptr %call.i29, i64 24
   store ptr null, ptr %lock7.i45, align 8
   br label %if.end8.i38
 
 if.end8.i38:                                      ; preds = %if.else.i44, %if.then2.i33
   store i32 -558845684, ptr %call.i29, align 8
-  %locktype9.i39 = getelementptr inbounds i8, ptr %call.i29, i64 4
+  %locktype9.i39 = getelementptr inbounds nuw i8, ptr %call.i29, i64 4
   store i32 %locktype, ptr %locktype9.i39, align 4
-  %count.i40 = getelementptr inbounds i8, ptr %call.i29, i64 16
+  %count.i40 = getelementptr inbounds nuw i8, ptr %call.i29, i64 16
   store i32 0, ptr %count.i40, align 8
-  %held_by.i41 = getelementptr inbounds i8, ptr %call.i29, i64 8
+  %held_by.i41 = getelementptr inbounds nuw i8, ptr %call.i29, i64 8
   store i64 0, ptr %held_by.i41, align 8
   br label %return
 
@@ -700,13 +700,13 @@ if.then12:                                        ; preds = %if.end
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %lock14 = getelementptr inbounds i8, ptr %call10, i64 24
+  %lock14 = getelementptr inbounds nuw i8, ptr %call10, i64 24
   store ptr %lock_, ptr %lock14, align 8
-  %locktype15 = getelementptr inbounds i8, ptr %call10, i64 4
+  %locktype15 = getelementptr inbounds nuw i8, ptr %call10, i64 4
   store i32 %locktype, ptr %locktype15, align 4
-  %count = getelementptr inbounds i8, ptr %call10, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %call10, i64 16
   store i32 0, ptr %count, align 8
-  %held_by = getelementptr inbounds i8, ptr %call10, i64 8
+  %held_by = getelementptr inbounds nuw i8, ptr %call10, i64 8
   store i64 0, ptr %held_by, align 8
   br label %return
 
@@ -738,7 +738,7 @@ if.end.i49:                                       ; preds = %cond.false
 if.then2.i51:                                     ; preds = %if.end.i49
   %or.i52 = or i32 %locktype, 1
   %call3.i53 = tail call ptr %7(i32 noundef %or.i52) #9
-  %lock.i54 = getelementptr inbounds i8, ptr %call.i47, i64 24
+  %lock.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
   store ptr %call3.i53, ptr %lock.i54, align 8
   %tobool4.not.i55 = icmp eq ptr %call3.i53, null
   br i1 %tobool4.not.i55, label %if.then5.i61, label %if.end8.i56
@@ -748,23 +748,23 @@ if.then5.i61:                                     ; preds = %if.then2.i51
   br label %cond.end
 
 if.else.i62:                                      ; preds = %if.end.i49
-  %lock7.i63 = getelementptr inbounds i8, ptr %call.i47, i64 24
+  %lock7.i63 = getelementptr inbounds nuw i8, ptr %call.i47, i64 24
   store ptr null, ptr %lock7.i63, align 8
   br label %if.end8.i56
 
 if.end8.i56:                                      ; preds = %if.else.i62, %if.then2.i51
   store i32 -558845684, ptr %call.i47, align 8
-  %locktype9.i57 = getelementptr inbounds i8, ptr %call.i47, i64 4
+  %locktype9.i57 = getelementptr inbounds nuw i8, ptr %call.i47, i64 4
   store i32 %locktype, ptr %locktype9.i57, align 4
-  %count.i58 = getelementptr inbounds i8, ptr %call.i47, i64 16
+  %count.i58 = getelementptr inbounds nuw i8, ptr %call.i47, i64 16
   store i32 0, ptr %count.i58, align 8
-  %held_by.i59 = getelementptr inbounds i8, ptr %call.i47, i64 8
+  %held_by.i59 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
   store i64 0, ptr %held_by.i59, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end8.i56, %if.then5.i61, %cond.false, %if.else24
   %cond = phi ptr [ %lock_, %if.else24 ], [ %call.i47, %if.end8.i56 ], [ null, %if.then5.i61 ], [ null, %cond.false ]
-  %lock32 = getelementptr inbounds i8, ptr %cond, i64 24
+  %lock32 = getelementptr inbounds nuw i8, ptr %cond, i64 24
   %8 = load ptr, ptr %lock32, align 8
   %tobool33.not = icmp eq ptr %8, null
   br i1 %tobool33.not, label %if.then34, label %return
@@ -778,7 +778,7 @@ if.then34:                                        ; preds = %cond.end
   br i1 %tobool38.not, label %if.then39, label %return
 
 if.then39:                                        ; preds = %if.then34
-  %count40 = getelementptr inbounds i8, ptr %cond, i64 16
+  %count40 = getelementptr inbounds nuw i8, ptr %cond, i64 16
   store i32 -200, ptr %count40, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %cond) #9
   br label %return

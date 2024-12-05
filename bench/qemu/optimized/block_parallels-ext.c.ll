@@ -42,9 +42,9 @@ entry:
   %eh.i = alloca %struct.ParallelsFormatExtensionHeader, align 8
   %hash.i = alloca ptr, align 8
   %hash_len.i = alloca i64, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_size = getelementptr inbounds i8, ptr %0, i64 144
+  %cluster_size = getelementptr inbounds nuw i8, ptr %0, i64 144
   %1 = load i32, ptr %cluster_size, align 8
   %conv = zext i32 %1 to i64
   %call = tail call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef %conv) #8
@@ -56,7 +56,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %3 = load i32, ptr %cluster_size, align 8
   %conv3 = zext i32 %3 to i64
@@ -74,7 +74,7 @@ if.end8:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hash.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hash_len.i)
   %4 = load ptr, ptr %opaque, align 8
-  %cluster_size.i = getelementptr inbounds i8, ptr %4, i64 144
+  %cluster_size.i = getelementptr inbounds nuw i8, ptr %4, i64 144
   %5 = load i32, ptr %cluster_size.i, align 8
   store ptr null, ptr %hash.i, align 8
   store i64 0, ptr %hash_len.i, align 8
@@ -102,7 +102,7 @@ if.end11.i:                                       ; preds = %if.end.i
 
 lor.lhs.false.i:                                  ; preds = %if.end11.i
   %8 = load ptr, ptr %hash.i, align 8
-  %check_sum.i = getelementptr inbounds i8, ptr %eh.i, i64 8
+  %check_sum.i = getelementptr inbounds nuw i8, ptr %eh.i, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %check_sum.i, i64 16)
   %cmp15.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp15.not.i, label %while.cond.preheader.i, label %if.then17.i
@@ -112,7 +112,7 @@ while.cond.preheader.i:                           ; preds = %lor.lhs.false.i
   br i1 %cmp20101.i, label %if.then22.i, label %if.end23.lr.ph.i
 
 if.end23.lr.ph.i:                                 ; preds = %while.cond.preheader.i
-  %total_sectors.i.i = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors.i.i = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call to i64
   br label %if.end23.i
 
@@ -131,9 +131,9 @@ if.end23.i:                                       ; preds = %parallels_load_bitm
   %pos.0103.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %parallels_load_bitmap.exit.i ]
   %bitmaps.1102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
   %fh.sroa.0.0.copyload.i = load i64, ptr %pos.0103.i, align 1
-  %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0103.i, i64 8
+  %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pos.0103.i, i64 8
   %fh.sroa.5.0.copyload.i = load i64, ptr %fh.sroa.5.0..sroa_idx.i, align 1
-  %fh.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0103.i, i64 16
+  %fh.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pos.0103.i, i64 16
   %fh.sroa.8.0.copyload.i = load i32, ptr %fh.sroa.8.0..sroa_idx.i, align 1
   %add.ptr24.i = getelementptr i8, ptr %pos.0103.i, i64 24
   %sub26.i = add i32 %remaining.0104.i, -24
@@ -225,7 +225,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   %10 = load ptr, ptr %opaque, align 8
   %call.i.i.i = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call20.i.i) #8
   %call1.i.i.i = call i64 @bdrv_dirty_bitmap_serialization_size(ptr noundef nonnull %call20.i.i, i64 noundef 0, i64 noundef %call.i.i.i) #8
-  %cluster_size.i.i.i = getelementptr inbounds i8, ptr %10, i64 144
+  %cluster_size.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 144
   %11 = load i32, ptr %cluster_size.i.i.i, align 8
   %conv.i.i.i = zext i32 %11 to i64
   %add.i.i.i = add i64 %call1.i.i.i, -1
@@ -342,7 +342,7 @@ for.body.i:                                       ; preds = %fail.i, %for.body.i
   %el.0107.i = phi ptr [ %18, %for.body.i ], [ %bitmaps.0.i, %fail.i ]
   %17 = load ptr, ptr %el.0107.i, align 8
   call void @bdrv_release_dirty_bitmap(ptr noundef %17) #8
-  %next.i = getelementptr inbounds i8, ptr %el.0107.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %el.0107.i, i64 8
   %18 = load ptr, ptr %next.i, align 8
   %tobool57.not.i = icmp eq ptr %18, null
   br i1 %tobool57.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8

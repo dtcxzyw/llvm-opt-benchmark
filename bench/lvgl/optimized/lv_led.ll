@@ -65,7 +65,7 @@ define internal void @lv_led_event(ptr nocapture readnone %0, ptr noundef %1) #0
   %.0.copyload59 = load i24, ptr %14, align 8
   %21 = call i24 @lv_color_mix(i24 %.0.copyload59, i24 %19, i8 noundef zeroext %20) #5
   store i24 %21, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 61
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %23 = call i24 @lv_color_black() #5
   %.0.copyload54 = load i24, ptr %22, align 1
   %24 = call zeroext i8 @lv_color_brightness(i24 %.0.copyload54) #5

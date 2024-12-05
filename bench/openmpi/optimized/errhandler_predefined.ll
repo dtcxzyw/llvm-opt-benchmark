@@ -78,7 +78,7 @@ define void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef readonly %0, ptr
   br i1 %.not10, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -120,7 +120,7 @@ define void @ompi_mpi_errors_are_fatal_file_handler(ptr noundef readonly %0, ptr
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -162,7 +162,7 @@ define void @ompi_mpi_errors_are_fatal_win_handler(ptr noundef readonly %0, ptr 
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -207,7 +207,7 @@ define void @ompi_mpi_errors_abort_comm_handler(ptr noundef readonly %0, ptr nou
   br i1 %.not10, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -252,9 +252,9 @@ define void @ompi_mpi_errors_abort_file_handler(ptr noundef readonly %0, ptr nou
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -299,7 +299,7 @@ define void @ompi_mpi_errors_abort_win_handler(ptr noundef readonly %0, ptr noun
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -340,7 +340,7 @@ define void @ompi_mpi_errors_are_fatal_instance_handler(ptr noundef readonly %0,
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 164
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 164
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -381,7 +381,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2)
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %7 to i64
   %13 = getelementptr i8, ptr %11, i64 %12
@@ -390,7 +390,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2)
   br label %19
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 8
   store ptr %18, ptr %16, align 8
@@ -450,7 +450,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2)
   %45 = phi i8 [ %40, %39 ], [ %.pre.i.i, %42 ]
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %47 = zext nneg i32 %31 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = trunc i8 %45 to i1
   br i1 %50, label %51, label %ompi_mpi_errnum_get_string.exit
@@ -462,7 +462,7 @@ define internal fastcc void @backend_abort_aggregate(i32 noundef range(i32 0, 2)
 ompi_mpi_errnum_get_string.exit:                  ; preds = %36, %44, %51
   %.0.i = phi ptr [ null, %36 ], [ %49, %44 ], [ %49, %51 ]
   %.not.i = icmp eq ptr %.0.i, null
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %.04.i = select i1 %.not.i, ptr @.str.19, ptr %53
   br label %54
 
@@ -516,7 +516,7 @@ define internal fastcc void @backend_abort_no_aggregate(i32 noundef range(i32 0,
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %12 to i64
   %18 = getelementptr i8, ptr %16, i64 %17
@@ -525,7 +525,7 @@ define internal fastcc void @backend_abort_no_aggregate(i32 noundef range(i32 0,
   br label %24
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 8
   store ptr %23, ptr %21, align 8
@@ -819,7 +819,7 @@ out.exit69:                                       ; preds = %141, %139, %136, %1
   %158 = phi i8 [ %153, %152 ], [ %.pre.i.i, %155 ]
   %159 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %160 = zext nneg i32 %144 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = trunc i8 %158 to i1
   br i1 %163, label %164, label %166
@@ -831,7 +831,7 @@ out.exit69:                                       ; preds = %141, %139, %136, %1
 166:                                              ; preds = %164, %157, %149
   %.0.i = phi ptr [ null, %149 ], [ %162, %157 ], [ %162, %164 ]
   %.not.i74 = icmp eq ptr %.0.i, null
-  %167 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %.04.i = select i1 %.not.i74, ptr @.str.19, ptr %167
   %168 = load volatile i8, ptr @ompi_rte_initialized, align 1
   %169 = trunc i8 %168 to i1

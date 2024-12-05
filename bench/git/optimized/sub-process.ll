@@ -34,9 +34,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @cmd2process_cmp(ptr nocapture noundef readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture noundef readnone %keydata) local_unnamed_addr #0 {
 entry:
-  %cmd = getelementptr inbounds i8, ptr %eptr, i64 16
+  %cmd = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %cmd, align 8
-  %cmd2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
+  %cmd2 = getelementptr inbounds nuw i8, ptr %entry_or_key, i64 16
   %1 = load ptr, ptr %cmd2, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #11
   ret i32 %call
@@ -50,10 +50,10 @@ define dso_local ptr @subprocess_find_entry(ptr noundef %hashmap, ptr noundef %c
 entry:
   %key = alloca %struct.subprocess_entry, align 8
   %call = tail call i32 @strhash(ptr noundef %cmd) #12
-  %hash1.i = getelementptr inbounds i8, ptr %key, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i32 %call, ptr %hash1.i, align 8
   store ptr null, ptr %key, align 8
-  %cmd1 = getelementptr inbounds i8, ptr %key, i64 16
+  %cmd1 = getelementptr inbounds nuw i8, ptr %key, i64 16
   store ptr %cmd, ptr %cmd1, align 8
   %call3 = call ptr @hashmap_get(ptr noundef %hashmap, ptr noundef nonnull %key, ptr noundef null) #12
   ret ptr %call3
@@ -75,8 +75,8 @@ entry:
   br i1 %or.cond13, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %len2.i = getelementptr inbounds i8, ptr %status, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %status, i64 16
+  %len2.i = getelementptr inbounds nuw i8, ptr %status, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %status, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end16
@@ -88,19 +88,19 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %tobool2.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %len4 = getelementptr inbounds i8, ptr %2, i64 8
+  %len4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %len4, align 8
   %tobool5.not = icmp eq i64 %3, 0
   br i1 %tobool5.not, label %if.end16, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %arrayidx7 = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %buf = getelementptr inbounds i8, ptr %2, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %buf, align 8
   %call11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(8) @.str) #11
   %tobool12.not = icmp eq i32 %call11, 0
@@ -149,12 +149,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %process = getelementptr inbounds i8, ptr %entry1, i64 24
-  %clean_on_exit = getelementptr inbounds i8, ptr %entry1, i64 128
+  %process = getelementptr inbounds nuw i8, ptr %entry1, i64 24
+  %clean_on_exit = getelementptr inbounds nuw i8, ptr %entry1, i64 128
   %bf.load = load i16, ptr %clean_on_exit, align 8
   %bf.clear = and i16 %bf.load, -257
   store i16 %bf.clear, ptr %clean_on_exit, align 8
-  %pid = getelementptr inbounds i8, ptr %entry1, i64 72
+  %pid = getelementptr inbounds nuw i8, ptr %entry1, i64 72
   %0 = load i32, ptr %pid, align 8
   %call = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #12
   %call4 = tail call i32 @finish_command(ptr noundef nonnull %process) #12
@@ -175,22 +175,22 @@ declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef initializes((16, 24)) %entry1, ptr noundef %cmd, ptr nocapture noundef readonly %startfn) local_unnamed_addr #2 {
 entry:
-  %cmd2 = getelementptr inbounds i8, ptr %entry1, i64 16
+  %cmd2 = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   store ptr %cmd, ptr %cmd2, align 8
-  %process3 = getelementptr inbounds i8, ptr %entry1, i64 24
+  %process3 = getelementptr inbounds nuw i8, ptr %entry1, i64 24
   tail call void @child_process_init(ptr noundef nonnull %process3) #12
   %call = tail call ptr @strvec_push(ptr noundef nonnull %process3, ptr noundef %cmd) #12
-  %use_shell = getelementptr inbounds i8, ptr %entry1, i64 128
+  %use_shell = getelementptr inbounds nuw i8, ptr %entry1, i64 128
   %bf.load = load i16, ptr %use_shell, align 8
-  %in = getelementptr inbounds i8, ptr %entry1, i64 104
+  %in = getelementptr inbounds nuw i8, ptr %entry1, i64 104
   store i32 -1, ptr %in, align 8
-  %out = getelementptr inbounds i8, ptr %entry1, i64 108
+  %out = getelementptr inbounds nuw i8, ptr %entry1, i64 108
   store i32 -1, ptr %out, align 4
   %bf.set6 = or i16 %bf.load, 288
   store i16 %bf.set6, ptr %use_shell, align 8
-  %clean_on_exit_handler = getelementptr inbounds i8, ptr %entry1, i64 136
+  %clean_on_exit_handler = getelementptr inbounds nuw i8, ptr %entry1, i64 136
   store ptr @subprocess_exit_handler, ptr %clean_on_exit_handler, align 8
-  %trace2_child_class = getelementptr inbounds i8, ptr %entry1, i64 88
+  %trace2_child_class = getelementptr inbounds nuw i8, ptr %entry1, i64 88
   store ptr @.str.1, ptr %trace2_child_class, align 8
   %call7 = tail call i32 @start_command(ptr noundef nonnull %process3) #12
   %tobool.not = icmp eq i32 %call7, 0
@@ -202,7 +202,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call10 = tail call i32 @strhash(ptr noundef %cmd) #12
-  %hash1.i = getelementptr inbounds i8, ptr %entry1, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   store i32 %call10, ptr %hash1.i, align 8
   store ptr null, ptr %entry1, align 8
   %call11 = tail call i32 %startfn(ptr noundef nonnull %entry1) #12
@@ -214,7 +214,7 @@ subprocess_stop.exit:                             ; preds = %if.end
   %bf.load.i = load i16, ptr %use_shell, align 8
   %bf.clear.i = and i16 %bf.load.i, -257
   store i16 %bf.clear.i, ptr %use_shell, align 8
-  %pid.i = getelementptr inbounds i8, ptr %entry1, i64 72
+  %pid.i = getelementptr inbounds nuw i8, ptr %entry1, i64 72
   %0 = load i32, ptr %pid.i, align 8
   %call.i = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #12
   %call4.i = tail call i32 @finish_command(ptr noundef nonnull %process3) #12
@@ -238,10 +238,10 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal void @subprocess_exit_handler(ptr noundef %process) #2 {
 entry:
   %call = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
-  %in = getelementptr inbounds i8, ptr %process, i64 80
+  %in = getelementptr inbounds nuw i8, ptr %process, i64 80
   %0 = load i32, ptr %in, align 8
   %call1 = tail call i32 @close(i32 noundef %0) #12
-  %out = getelementptr inbounds i8, ptr %process, i64 84
+  %out = getelementptr inbounds nuw i8, ptr %process, i64 84
   %1 = load i32, ptr %out, align 4
   %call2 = tail call i32 @close(i32 noundef %1) #12
   %call3 = tail call i32 @sigchain_pop(i32 noundef 13) #12
@@ -263,7 +263,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %version_scratch.i)
   %tobool.not.i = icmp eq ptr %chosen_version, null
   %spec.select.i = select i1 %tobool.not.i, ptr %version_scratch.i, ptr %chosen_version
-  %in.i = getelementptr inbounds i8, ptr %entry1, i64 104
+  %in.i = getelementptr inbounds nuw i8, ptr %entry1, i64 104
   %0 = load i32, ptr %in.i, align 8
   %call.i = tail call i32 (i32, ptr, ...) @packet_write_fmt_gently(i32 noundef %0, ptr noundef nonnull @.str.6, ptr noundef %welcome_prefix) #12
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -280,7 +280,7 @@ if.then2.i:                                       ; preds = %entry
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %versions, i64 %indvars.iv.next.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %tobool6.not.i = icmp eq i32 %2, 0
   br i1 %tobool6.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
@@ -308,7 +308,7 @@ if.then19.i:                                      ; preds = %for.end.i
   br label %handshake_version.exit.thread
 
 if.end22.i:                                       ; preds = %for.end.i
-  %out.i = getelementptr inbounds i8, ptr %entry1, i64 108
+  %out.i = getelementptr inbounds nuw i8, ptr %entry1, i64 108
   %6 = load i32, ptr %out.i, align 4
   %call23.i = tail call ptr @packet_read_line(i32 noundef %6, ptr noundef null) #12
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -322,9 +322,9 @@ do.body.i.i:                                      ; preds = %if.end22.i, %do.con
   br i1 %tobool.not.i.i, label %lor.lhs.false26.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %8 = load i8, ptr %str.addr.0.i.i, align 1
-  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds nuw i8, ptr %prefix.addr.0.i.i, i64 1
   %cmp.i.i = icmp eq i8 %8, %7
   br i1 %cmp.i.i, label %do.body.i.i, label %if.then29.i, !llvm.loop !7
 
@@ -355,9 +355,9 @@ do.body.i28.i:                                    ; preds = %do.cond.i32.i, %do.
   br i1 %exitcond.i, label %lor.lhs.false39.i, label %do.cond.i32.i
 
 do.cond.i32.i:                                    ; preds = %do.body.i28.i
-  %prefix.addr.0.i30.ptr.i = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.i30.idx.i
+  %prefix.addr.0.i30.ptr.i = getelementptr inbounds nuw i8, ptr @.str.14, i64 %prefix.addr.0.i30.idx.i
   %10 = load i8, ptr %prefix.addr.0.i30.ptr.i, align 1
-  %incdec.ptr.i33.i = getelementptr inbounds i8, ptr %str.addr.0.i29.i, i64 1
+  %incdec.ptr.i33.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i29.i, i64 1
   %11 = load i8, ptr %str.addr.0.i29.i, align 1
   %prefix.addr.0.i30.add.i = add nuw nsw i64 %prefix.addr.0.i30.idx.i, 1
   %cmp.i35.i = icmp eq i8 %11, %10
@@ -391,7 +391,7 @@ if.then54.i:                                      ; preds = %if.end50.i
 
 for.cond58.i:                                     ; preds = %for.body62.i
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %arrayidx60.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next53.i
+  %arrayidx60.i = getelementptr inbounds nuw i32, ptr %versions, i64 %indvars.iv.next53.i
   %14 = load i32, ptr %arrayidx60.i, align 4
   %tobool61.not.i = icmp eq i32 %14, 0
   br i1 %tobool61.not.i, label %if.then73.i, label %for.body62.i, !llvm.loop !8
@@ -418,7 +418,7 @@ lor.rhs:                                          ; preds = %for.body62.i
 
 for.cond.i7:                                      ; preds = %for.body.i3
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i4, 1
-  %arrayidx.i9 = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next.i8
+  %arrayidx.i9 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next.i8
   %17 = load ptr, ptr %arrayidx.i9, align 8
   %tobool.not.i10 = icmp eq ptr %17, null
   br i1 %tobool.not.i10, label %for.end.i11, label %for.body.i3, !llvm.loop !9
@@ -456,13 +456,13 @@ do.body.i.preheader.us.i:                         ; preds = %do.body.i.preheader
 do.body.i.us.i:                                   ; preds = %do.cond.i.us.i, %do.body.i.preheader.us.i
   %str.addr.0.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %do.cond.i.us.i ], [ %call1429.us.i, %do.body.i.preheader.us.i ]
   %prefix.addr.0.i.us.idx.i = phi i64 [ %prefix.addr.0.i.us.add.i, %do.cond.i.us.i ], [ 0, %do.body.i.preheader.us.i ]
-  %prefix.addr.0.i.us.ptr.i = getelementptr inbounds i8, ptr @.str.20, i64 %prefix.addr.0.i.us.idx.i
+  %prefix.addr.0.i.us.ptr.i = getelementptr inbounds nuw i8, ptr @.str.20, i64 %prefix.addr.0.i.us.idx.i
   %22 = load i8, ptr %prefix.addr.0.i.us.ptr.i, align 1
   %exitcond50.i = icmp eq i64 %prefix.addr.0.i.us.idx.i, 11
   br i1 %exitcond50.i, label %skip_prefix.exit.us.i, label %do.cond.i.us.i
 
 do.cond.i.us.i:                                   ; preds = %do.body.i.us.i
-  %incdec.ptr.i.us.i = getelementptr inbounds i8, ptr %str.addr.0.i.us.i, i64 1
+  %incdec.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.us.i, i64 1
   %23 = load i8, ptr %str.addr.0.i.us.i, align 1
   %prefix.addr.0.i.us.add.i = add nuw nsw i64 %prefix.addr.0.i.us.idx.i, 1
   %cmp.i.us.i = icmp eq i8 %23, %22
@@ -475,7 +475,7 @@ skip_prefix.exit.us.i:                            ; preds = %do.cond.i.us.i, %do
 
 for.cond19.us.i:                                  ; preds = %land.rhs.lr.ph.us.i, %land.rhs.us.i
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %land.rhs.us.i ], [ 1, %land.rhs.lr.ph.us.i ]
-  %arrayidx21.us.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv51.i
+  %arrayidx21.us.i = getelementptr inbounds nuw %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv51.i
   %24 = load ptr, ptr %arrayidx21.us.i, align 8
   %tobool23.not.us.i = icmp eq ptr %24, null
   br i1 %tobool23.not.us.i, label %if.else.i, label %land.rhs.us.i, !llvm.loop !10
@@ -511,13 +511,13 @@ do.body.i.preheader.i:                            ; preds = %do.body.i.preheader
 do.body.i.i14:                                    ; preds = %do.cond.i.i17, %do.body.i.preheader.i
   %str.addr.0.i.i15 = phi ptr [ %incdec.ptr.i.i18, %do.cond.i.i17 ], [ %call1429.i, %do.body.i.preheader.i ]
   %prefix.addr.0.i.idx.i = phi i64 [ %prefix.addr.0.i.add.i, %do.cond.i.i17 ], [ 0, %do.body.i.preheader.i ]
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.20, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.20, i64 %prefix.addr.0.i.idx.i
   %27 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
   %exitcond.i16 = icmp eq i64 %prefix.addr.0.i.idx.i, 11
   br i1 %exitcond.i16, label %skip_prefix.exit.i, label %do.cond.i.i17
 
 do.cond.i.i17:                                    ; preds = %do.body.i.i14
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %str.addr.0.i.i15, i64 1
+  %incdec.ptr.i.i18 = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i15, i64 1
   %28 = load i8, ptr %str.addr.0.i.i15, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i19 = icmp eq i8 %28, %27
@@ -535,7 +535,7 @@ for.cond19.preheader.i:                           ; preds = %skip_prefix.exit.i
 
 for.cond19.i:                                     ; preds = %land.rhs.i
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %arrayidx21.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next47.i
+  %arrayidx21.i = getelementptr inbounds nuw %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next47.i
   %30 = load ptr, ptr %arrayidx21.i, align 8
   %tobool23.not.i = icmp eq ptr %30, null
   br i1 %tobool23.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !10
@@ -548,7 +548,7 @@ land.rhs.i:                                       ; preds = %for.cond19.preheade
   br i1 %tobool28.not.i21, label %if.then37.i, label %for.cond19.i
 
 if.then37.i:                                      ; preds = %land.rhs.i
-  %flag.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv46.i, i32 1
+  %flag.i = getelementptr inbounds nuw %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv46.i, i32 1
   %32 = load i32, ptr %flag.i, align 8
   %33 = load i32, ptr %supported_capabilities, align 4
   %or.i = or i32 %33, %32
@@ -557,7 +557,7 @@ if.then37.i:                                      ; preds = %land.rhs.i
 
 if.else.i:                                        ; preds = %for.cond19.preheader.i, %for.cond19.i, %for.cond19.preheader.us.i, %for.cond19.us.i
   %p.1.lcssa.i = phi ptr [ %p.1.us.i, %for.cond19.us.i ], [ %p.1.us.i, %for.cond19.preheader.us.i ], [ %p.1.i, %for.cond19.i ], [ %p.1.i, %for.cond19.preheader.i ]
-  %process3 = getelementptr inbounds i8, ptr %entry1, i64 24
+  %process3 = getelementptr inbounds nuw i8, ptr %entry1, i64 24
   %34 = load ptr, ptr %process3, align 8
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef %p.1.lcssa.i) #13

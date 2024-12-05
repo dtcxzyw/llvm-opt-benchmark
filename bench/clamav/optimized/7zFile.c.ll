@@ -157,7 +157,7 @@ define void @FileSeqInStream_CreateVTable(ptr nocapture noundef writeonly initia
 
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 9) i32 @FileSeqInStream_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %File_Read.exit.thread, label %7
@@ -186,14 +186,14 @@ File_Read.exit.thread:                            ; preds = %7, %3, %File_Read.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @FileInStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
   store ptr @FileInStream_Read, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @FileInStream_Seek, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 9) i32 @FileInStream_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %File_Read.exit.thread, label %7
@@ -225,7 +225,7 @@ define internal noundef i32 @FileInStream_Seek(ptr nocapture noundef readonly %0
   br i1 %switch.i, label %4, label %File_Seek.exit
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
   %8 = tail call i32 @fseek(ptr noundef %6, i64 noundef %7, i32 noundef %2)
@@ -247,7 +247,7 @@ define void @FileOutStream_CreateVTable(ptr nocapture noundef writeonly initiali
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i64 @FileOutStream_Write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %File_Write.exit, label %6
 

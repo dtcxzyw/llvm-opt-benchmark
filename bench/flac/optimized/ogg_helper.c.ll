@@ -25,7 +25,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %body = getelementptr inbounds i8, ptr %page, i64 16
+  %body = getelementptr inbounds nuw i8, ptr %page, i64 16
   %1 = load ptr, ptr %body, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -117,25 +117,25 @@ full_read_.exit.thread:                           ; preds = %while.body.i, %retu
 if.end16:                                         ; preds = %sw.epilog.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes_read.i)
   %5 = load ptr, ptr %page, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 26
+  %arrayidx = getelementptr inbounds nuw i8, ptr %5, i64 26
   %6 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %6 to i64
   %add = add nuw nsw i64 %conv, 27
-  %header_len = getelementptr inbounds i8, ptr %page, i64 8
+  %header_len = getelementptr inbounds nuw i8, ptr %page, i64 8
   store i64 %add, ptr %header_len, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %5, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %tobool21.not = icmp eq i32 %bcmp, 0
   br i1 %tobool21.not, label %lor.lhs.false, label %if.then36
 
 lor.lhs.false:                                    ; preds = %if.end16
-  %arrayidx23 = getelementptr inbounds i8, ptr %5, i64 5
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %7 = load i8, ptr %arrayidx23, align 1
   %8 = and i8 %7, 1
   %tobool25.not = icmp eq i8 %8, 0
   br i1 %tobool25.not, label %lor.lhs.false26, label %if.then36
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 6
   %bcmp40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %add.ptr, ptr noundef nonnull dereferenceable(8) @.str.1, i64 8)
   %tobool29.not = icmp eq i32 %bcmp40, 0
   br i1 %tobool29.not, label %lor.lhs.false30, label %if.then36
@@ -151,7 +151,7 @@ if.then36:                                        ; preds = %lor.lhs.false30, %l
   br label %return
 
 if.end39:                                         ; preds = %lor.lhs.false30
-  %add.ptr41 = getelementptr inbounds i8, ptr %5, i64 27
+  %add.ptr41 = getelementptr inbounds nuw i8, ptr %5, i64 27
   %conv44 = zext i8 %9 to i64
   %call45 = call fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef nonnull %add.ptr41, i64 noundef %conv44, ptr noundef %read_callback, ptr noundef %client_data)
   %tobool46.not = icmp eq i32 %call45, 0
@@ -159,7 +159,7 @@ if.end39:                                         ; preds = %lor.lhs.false30
 
 for.cond.preheader:                               ; preds = %if.end39
   %11 = load ptr, ptr %page, align 8
-  %arrayidx50 = getelementptr inbounds i8, ptr %11, i64 26
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %11, i64 26
   %12 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %12 to i32
   %sub = add nsw i32 %conv51, -1
@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %add55 = add nuw i64 %indvars.iv, 27
   %idxprom = and i64 %add55, 4294967295
-  %arrayidx56 = getelementptr inbounds i8, ptr %11, i64 %idxprom
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %11, i64 %idxprom
   %14 = load i8, ptr %arrayidx56, align 1
   %cmp58.not = icmp eq i8 %14, -1
   br i1 %cmp58.not, label %for.inc, label %if.then60
@@ -195,16 +195,16 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %mul = mul nsw i32 %i.0.lcssa, 255
   %add65 = add nsw i32 %i.0.lcssa, 27
   %idxprom66 = zext i32 %add65 to i64
-  %arrayidx67 = getelementptr inbounds i8, ptr %11, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds nuw i8, ptr %11, i64 %idxprom66
   %16 = load i8, ptr %arrayidx67, align 1
   %conv68 = zext i8 %16 to i32
   %add69 = add nsw i32 %mul, %conv68
   %conv70 = zext i32 %add69 to i64
-  %body_len = getelementptr inbounds i8, ptr %page, i64 24
+  %body_len = getelementptr inbounds nuw i8, ptr %page, i64 24
   store i64 %conv70, ptr %body_len, align 8
   %spec.select.i = call i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %conv70, i64 1)
   %call.i43 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #11
-  %body = getelementptr inbounds i8, ptr %page, i64 16
+  %body = getelementptr inbounds nuw i8, ptr %page, i64 16
   store ptr %call.i43, ptr %body, align 8
   %cmp73 = icmp eq ptr %call.i43, null
   br i1 %cmp73, label %if.then75, label %if.end78
@@ -221,12 +221,12 @@ if.end78:                                         ; preds = %for.end
 
 if.end84:                                         ; preds = %if.end78
   %18 = load ptr, ptr %page, align 8
-  %add.ptr86 = getelementptr inbounds i8, ptr %18, i64 22
+  %add.ptr86 = getelementptr inbounds nuw i8, ptr %18, i64 22
   %19 = load i32, ptr %add.ptr86, align 1
   store i32 %19, ptr %crc, align 4
   call void @ogg_page_checksum_set(ptr noundef nonnull %page) #10
   %20 = load ptr, ptr %page, align 8
-  %add.ptr89 = getelementptr inbounds i8, ptr %20, i64 22
+  %add.ptr89 = getelementptr inbounds nuw i8, ptr %20, i64 22
   %bcmp41 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %crc, ptr noundef nonnull dereferenceable(4) %add.ptr89, i64 4)
   %tobool91.not = icmp eq i32 %bcmp41, 0
   br i1 %tobool91.not, label %return, label %if.then92
@@ -304,16 +304,16 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   tail call void @ogg_page_checksum_set(ptr noundef %page) #10
   %0 = load ptr, ptr %page, align 8
-  %header_len = getelementptr inbounds i8, ptr %page, i64 8
+  %header_len = getelementptr inbounds nuw i8, ptr %page, i64 8
   %1 = load i64, ptr %header_len, align 8
   %call7 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end12, label %return.sink.split
 
 if.end12:                                         ; preds = %if.end6
-  %body = getelementptr inbounds i8, ptr %page, i64 16
+  %body = getelementptr inbounds nuw i8, ptr %page, i64 16
   %2 = load ptr, ptr %body, align 8
-  %body_len = getelementptr inbounds i8, ptr %page, i64 24
+  %body_len = getelementptr inbounds nuw i8, ptr %page, i64 24
   %3 = load i64, ptr %body_len, align 8
   %call13 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %2, i64 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp14.not = icmp eq i32 %call13, 0

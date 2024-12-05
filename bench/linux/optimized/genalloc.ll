@@ -68,16 +68,16 @@ define dso_local noundef ptr @gen_pool_create(i32 noundef %0, i32 noundef %1) #0
 
 6:                                                ; preds = %2
   store i32 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %7, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @gen_pool_first_fit, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %12
 
 12:                                               ; preds = %6, %2
@@ -98,7 +98,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @gen_pool_add_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %3, %9
@@ -111,27 +111,27 @@ define dso_local noundef range(i32 -12, 1) i32 @gen_pool_add_owner(ptr noundef %
   br i1 %16, label %29, label %17, !prof !5
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 %1, ptr %19, align 8
   %20 = add i64 %1, -1
   %21 = add i64 %20, %3
-  %22 = getelementptr inbounds i8, ptr %15, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store volatile i64 %3, ptr %24, align 8
   tail call void @_raw_spin_lock(ptr noundef %0) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %25, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   store volatile ptr %15, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %15, ptr %28, align 8
   tail call void @_raw_spin_unlock(ptr noundef %0) #12
   br label %29
@@ -147,26 +147,26 @@ declare dso_local noalias ptr @vzalloc_node(i64 noundef, i32 noundef) local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_virt_to_phys(ptr noundef %0, i64 noundef %1) #0 align 16 {
   tail call void @__rcu_read_lock() #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %19
   %6 = phi ptr [ %20, %19 ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, %1
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %1
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %1, %8
   %18 = add i64 %17, %16
@@ -191,13 +191,13 @@ define internal fastcc void @rcu_read_unlock() unnamed_addr #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @gen_pool_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = zext nneg i32 %7 to i64
   br label %9
@@ -205,22 +205,22 @@ define dso_local void @gen_pool_destroy(ptr noundef %0) #0 align 16 {
 9:                                                ; preds = %26, %5
   %10 = phi ptr [ %3, %5 ], [ %11, %26 ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   store volatile ptr %11, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %16, 1
   %20 = sub i64 %19, %18
   %21 = lshr i64 %20, %8
-  %22 = getelementptr inbounds i8, ptr %10, i64 56
-  %23 = tail call i64 @_find_first_bit(ptr noundef %22, i64 noundef %21) #12
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %23 = tail call i64 @_find_first_bit(ptr noundef nonnull %22, i64 noundef %21) #12
   %24 = icmp ult i64 %23, %21
   br i1 %24, label %25, label %26, !prof !5
 
@@ -235,7 +235,7 @@ define dso_local void @gen_pool_destroy(ptr noundef %0) #0 align 16 {
   br i1 %27, label %.loopexit, label %9, !llvm.loop !12
 
 .loopexit:                                        ; preds = %26, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8
   tail call void @kfree_const(ptr noundef %29) #12
   tail call void @kfree(ptr noundef %0) #12
@@ -253,7 +253,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq ptr %4, null
   br i1 %8, label %10, label %9
@@ -273,7 +273,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
   %16 = add i64 %15, %14
   %17 = lshr i64 %16, %13
   tail call void @__rcu_read_lock() #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %.loopexit36, label %21
@@ -284,26 +284,26 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
 
 23:                                               ; preds = %.loopexit33, %21
   %24 = phi ptr [ %19, %21 ], [ %158, %.loopexit33 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load volatile i64, ptr %25, align 8
   %27 = icmp ult i64 %26, %1
   br i1 %27, label %.loopexit33, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %24, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %30, 1
   %34 = sub i64 %33, %32
   %35 = lshr i64 %34, %13
-  %36 = getelementptr inbounds i8, ptr %24, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 56
   br label %37
 
 37:                                               ; preds = %.loopexit, %28
   %38 = phi i64 [ 0, %28 ], [ %40, %.loopexit ]
   %39 = load i64, ptr %31, align 8
-  %40 = tail call i64 %2(ptr noundef %36, i64 noundef %35, i64 noundef %38, i32 noundef %22, ptr noundef %3, ptr noundef %0, i64 noundef %39) #12
+  %40 = tail call i64 %2(ptr noundef nonnull %36, i64 noundef %35, i64 noundef %38, i32 noundef %22, ptr noundef %3, ptr noundef %0, i64 noundef %39) #12
   %41 = icmp ult i64 %40, %35
   br i1 %41, label %42, label %.loopexit33
 
@@ -482,16 +482,16 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
   unreachable
 
 .thread:                                          ; preds = %.loopexit32, %.loopexit24, %.preheader29
-  %150 = getelementptr inbounds i8, ptr %24, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %151 = load i64, ptr %31, align 8
   %152 = shl i64 %40, %13
   %153 = add i64 %151, %152
   %154 = shl i64 %17, %13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %150, i64 %154, ptr elementtype(i64) %150) #12, !srcloc !23
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %150, i64 %154, ptr nonnull elementtype(i64) %150) #12, !srcloc !23
   br i1 %8, label %.loopexit36, label %155
 
 155:                                              ; preds = %.thread
-  %156 = getelementptr inbounds i8, ptr %24, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %157 = load ptr, ptr %156, align 8
   store ptr %157, ptr %4, align 8
   br label %.loopexit36
@@ -517,9 +517,9 @@ define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %4, label %37, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @gen_pool_alloc_algo_owner(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %9, ptr noundef %7, ptr noundef null)
   %11 = icmp eq i64 %10, 0
@@ -531,26 +531,26 @@ define dso_local ptr @gen_pool_dma_alloc(ptr noundef %0, i64 noundef %1, ptr nou
 
 14:                                               ; preds = %12
   tail call void @__rcu_read_lock() #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %15
   br i1 %17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %31
   %18 = phi ptr [ %32, %31 ], [ %16, %14 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %10
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %10
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %10, %20
   %30 = add i64 %29, %28
@@ -592,26 +592,26 @@ define dso_local ptr @gen_pool_dma_alloc_algo(ptr noundef %0, i64 noundef %1, pt
 
 12:                                               ; preds = %10
   tail call void @__rcu_read_lock() #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %29
   %16 = phi ptr [ %30, %29 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %8
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %8
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %8, %18
   %28 = add i64 %27, %26
@@ -656,26 +656,26 @@ define dso_local ptr @gen_pool_dma_alloc_align(ptr noundef %0, i64 noundef %1, p
 
 12:                                               ; preds = %10
   call void @__rcu_read_lock() #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %29
   %16 = phi ptr [ %30, %29 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %8
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %8
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %8, %18
   %28 = add i64 %27, %26
@@ -707,7 +707,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_first_fit_align(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i64 noundef %6) #0 align 16 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
@@ -731,9 +731,9 @@ define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @gen_pool_alloc_algo_owner(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %9, ptr noundef %7, ptr noundef null)
   %11 = icmp eq i64 %10, 0
@@ -745,26 +745,26 @@ define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr no
 
 14:                                               ; preds = %12
   tail call void @__rcu_read_lock() #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %15
   br i1 %17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %31
   %18 = phi ptr [ %32, %31 ], [ %16, %14 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %10
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %10
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %10, %20
   %30 = add i64 %29, %28
@@ -807,26 +807,26 @@ define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, p
 
 12:                                               ; preds = %10
   tail call void @__rcu_read_lock() #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %29
   %16 = phi ptr [ %30, %29 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %8
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %8
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %8, %18
   %28 = add i64 %27, %26
@@ -872,26 +872,26 @@ define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, 
 
 12:                                               ; preds = %10
   call void @__rcu_read_lock() #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %29
   %16 = phi ptr [ %30, %29 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %8
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, %8
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %8, %18
   %28 = add i64 %27, %26
@@ -921,7 +921,7 @@ define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq ptr %3, null
   br i1 %7, label %9, label %8
@@ -937,20 +937,20 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
   %13 = add i64 %11, %12
   %14 = lshr i64 %13, %10
   tail call void @__rcu_read_lock() #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %15
   br i1 %17, label %.loopexit17, label %.preheader16
 
 .preheader16:                                     ; preds = %9, %98
   %18 = phi ptr [ %99, %98 ], [ %16, %9 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %1
   br i1 %21, label %98, label %22
 
 22:                                               ; preds = %.preheader16
-  %23 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %1
   br i1 %25, label %98, label %26
@@ -968,7 +968,7 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
 30:                                               ; preds = %26
   %31 = sub i64 %1, %20
   %32 = lshr i64 %31, %10
-  %33 = getelementptr inbounds i8, ptr %18, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %34 = lshr i64 %32, 6
   %35 = getelementptr i64, ptr %33, i64 %34
   %36 = add i64 %14, %32
@@ -1064,12 +1064,12 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
 
 .thread14:                                        ; preds = %79, %.loopexit, %90
   %92 = shl i64 %14, %10
-  %93 = getelementptr inbounds i8, ptr %18, i64 16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %93, i64 %92, ptr elementtype(i64) %93) #12, !srcloc !29
+  %93 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %93, i64 %92, ptr nonnull elementtype(i64) %93) #12, !srcloc !29
   br i1 %7, label %97, label %94
 
 94:                                               ; preds = %.thread14
-  %95 = getelementptr inbounds i8, ptr %18, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %3, align 8
   br label %97
@@ -1093,7 +1093,7 @@ define dso_local void @gen_pool_free_owner(ptr noundef %0, i64 noundef %1, i64 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @gen_pool_for_each_chunk(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %.loopexit, label %.preheader
@@ -1115,7 +1115,7 @@ define dso_local noundef zeroext i1 @gen_pool_has_addr(ptr noundef %0, i64 nound
   %4 = add i64 %1, -1
   %5 = add i64 %4, %2
   tail call void @__rcu_read_lock() #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i64 @llvm.umax.i64(i64 %1, i64 %5)
   %8 = load volatile ptr, ptr %6, align 8
   %.not = icmp eq ptr %8, %6
@@ -1123,13 +1123,13 @@ define dso_local noundef zeroext i1 @gen_pool_has_addr(ptr noundef %0, i64 nound
 
 .preheader:                                       ; preds = %3, %17
   %9 = phi ptr [ %18, %17 ], [ %8, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %9, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = icmp ult i64 %15, %7
   br i1 %16, label %17, label %.loopexit
@@ -1148,7 +1148,7 @@ define dso_local noundef zeroext i1 @gen_pool_has_addr(ptr noundef %0, i64 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_avail(ptr noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -1156,7 +1156,7 @@ define dso_local i64 @gen_pool_avail(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi ptr [ %10, %.preheader ], [ %3, %1 ]
   %6 = phi i64 [ %9, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load volatile i64, ptr %7, align 8
   %9 = add i64 %8, %6
   %10 = load volatile ptr, ptr %5, align 8
@@ -1172,7 +1172,7 @@ define dso_local i64 @gen_pool_avail(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_size(ptr noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -1180,9 +1180,9 @@ define dso_local i64 @gen_pool_size(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi ptr [ %14, %.preheader ], [ %3, %1 ]
   %6 = phi i64 [ %13, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %6, 1
   %12 = add i64 %11, %8
@@ -1202,9 +1202,9 @@ define dso_local void @gen_pool_set_algo(ptr nocapture noundef writeonly initial
   tail call void @__rcu_read_lock() #12
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @gen_pool_first_fit, ptr %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %7, align 8
   tail call void @__rcu_read_unlock() #12
   ret void
@@ -1215,7 +1215,7 @@ declare dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef, i64 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @gen_pool_fixed_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i64 %6) #0 align 16 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load i64, ptr %4, align 8
   %11 = zext i32 %9 to i64
@@ -1316,13 +1316,13 @@ declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devm_gen_pool_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %gen_pool_destroy.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext nneg i32 %9 to i64
   br label %11
@@ -1330,22 +1330,22 @@ define internal void @devm_gen_pool_release(ptr nocapture readnone %0, ptr nocap
 11:                                               ; preds = %28, %7
   %12 = phi ptr [ %5, %7 ], [ %13, %28 ]
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
   store volatile ptr %13, ptr %15, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %12, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %18, 1
   %22 = sub i64 %21, %20
   %23 = lshr i64 %22, %10
-  %24 = getelementptr inbounds i8, ptr %12, i64 56
-  %25 = tail call i64 @_find_first_bit(ptr noundef %24, i64 noundef %23) #12
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %25 = tail call i64 @_find_first_bit(ptr noundef nonnull %24, i64 noundef %23) #12
   %26 = icmp ult i64 %25, %23
   br i1 %26, label %27, label %28, !prof !5
 
@@ -1360,7 +1360,7 @@ define internal void @devm_gen_pool_release(ptr nocapture readnone %0, ptr nocap
   br i1 %29, label %gen_pool_destroy.exit, label %11, !llvm.loop !12
 
 gen_pool_destroy.exit:                            ; preds = %28, %2
-  %30 = getelementptr inbounds i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %31 = load ptr, ptr %30, align 8
   tail call void @kfree_const(ptr noundef %31) #12
   tail call void @kfree(ptr noundef %3) #12
@@ -1371,7 +1371,7 @@ gen_pool_destroy.exit:                            ; preds = %28, %2
 define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #6 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = select i1 %4, i1 true, i1 %8
@@ -1423,18 +1423,18 @@ define dso_local noundef ptr @devm_gen_pool_create(ptr noundef %0, i32 noundef %
 
 23:                                               ; preds = %19
   store i32 0, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store volatile ptr %24, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store volatile ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @gen_pool_first_fit, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 0, ptr %28, align 8
   store ptr %21, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %16, ptr %29, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %17) #12
   br label %32

@@ -93,7 +93,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   %.val = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %.val, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, -1
   %. = select i1 %32, i32 %31, i32 0
@@ -109,8 +109,8 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not279, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i32, ptr %35, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph483, label %._crit_edge
@@ -142,7 +142,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv460
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(6) @.str) #6
   %45 = icmp eq i32 %44, 0
@@ -607,7 +607,7 @@ define dso_local { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not.i, label %list_length.exit, label %252
 
 252:                                              ; preds = %251
-  %253 = getelementptr inbounds i8, ptr %.0, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %254 = load i32, ptr %253, align 4
   br label %list_length.exit
 
@@ -844,7 +844,7 @@ define internal fastcc signext range(i8 114, 120) i8 @extractModify(ptr noundef 
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 16801924) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %15) #5
   tail call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 495, ptr noundef nonnull @__func__.extractModify) #5

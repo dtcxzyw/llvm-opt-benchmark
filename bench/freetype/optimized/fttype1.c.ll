@@ -15,10 +15,10 @@ define i32 @FT_Get_PS_Font_Info(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not19, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %.thread, label %10
@@ -48,10 +48,10 @@ define i32 @FT_Has_PS_Glyph_Names(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %.thread, label %8
@@ -62,7 +62,7 @@ define i32 @FT_Has_PS_Glyph_Names(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %.thread, label %13
@@ -86,10 +86,10 @@ define i32 @FT_Get_PS_Font_Private(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not19, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not20 = icmp eq ptr %9, null
   br i1 %.not20, label %.thread, label %10
@@ -100,7 +100,7 @@ define i32 @FT_Get_PS_Font_Private(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not21, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %.thread, label %15
@@ -120,10 +120,10 @@ define range(i64 -2147483648, 2147483648) i64 @FT_Get_PS_Font_Value(ptr noundef 
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not18 = icmp eq ptr %11, null
   br i1 %.not18, label %.thread, label %12
@@ -134,7 +134,7 @@ define range(i64 -2147483648, 2147483648) i64 @FT_Get_PS_Font_Value(ptr noundef 
   br i1 %.not19, label %.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %.thread, label %17

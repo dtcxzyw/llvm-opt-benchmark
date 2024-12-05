@@ -58,34 +58,34 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_tunnel_ne
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i16 noundef zeroext %8, i1 noundef zeroext %9) #0 align 16 {
-  %11 = getelementptr inbounds i8, ptr %2, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 172
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 172
   %16 = load i16, ptr %15, align 4
   %17 = zext i16 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %22, %21
   %24 = trunc i64 %23 to i32
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 272
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load ptr, ptr %28, align 8
   tail call void @skb_scrub_packet(ptr noundef %2, i1 noundef zeroext %9) #12
-  %30 = getelementptr inbounds i8, ptr %2, i64 129
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 129
   %31 = load i24, ptr %30, align 1
   %32 = and i24 %31, 256
   %33 = icmp eq i24 %32, 0
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %2, i64 148
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 0, ptr %35, align 4
   %36 = and i24 %31, -769
   br label %37
@@ -101,10 +101,10 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
   %45 = or disjoint i24 %43, %44
   store i24 %45, ptr %30, align 1
   %46 = ptrtoint ptr %1 to i64
-  %47 = getelementptr inbounds i8, ptr %2, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   %49 = tail call ptr @skb_push(ptr noundef %2, i32 noundef 20) #12
   %50 = load ptr, ptr %19, align 8
   %51 = load ptr, ptr %13, align 8
@@ -112,19 +112,19 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
   %55 = trunc i64 %54 to i16
-  %56 = getelementptr inbounds i8, ptr %2, i64 180
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 180
   store i16 %55, ptr %56, align 4
   %57 = and i64 %54, 65535
   %58 = getelementptr i8, ptr %51, i64 %57
   store i8 69, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 172
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 1
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %37
-  %64 = getelementptr inbounds i8, ptr %1, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, -4
   %67 = inttoptr i64 %66 to ptr
@@ -136,24 +136,24 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
 
 72:                                               ; preds = %63, %37
   %73 = phi i16 [ 0, %37 ], [ %71, %63 ]
-  %74 = getelementptr inbounds i8, ptr %58, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 %73, ptr %74, align 2
-  %75 = getelementptr inbounds i8, ptr %58, i64 9
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 9
   store i8 %5, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %58, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 %6, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %58, i64 12
-  %78 = getelementptr inbounds i8, ptr %58, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 %4, ptr %78, align 4
   store i32 %3, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %58, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 %7, ptr %79, align 4
   %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 188
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
   %84 = getelementptr i8, ptr %80, i64 %83
-  %85 = getelementptr inbounds i8, ptr %84, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 6
   %86 = load i16, ptr %85, align 2
   %87 = tail call i16 @llvm.umax.i16(i16 %86, i16 1)
   %88 = zext i16 %87 to i32
@@ -175,15 +175,15 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
 97:                                               ; preds = %95
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
-  %98 = getelementptr inbounds i8, ptr %29, i64 160
+  %98 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %99) #13, !srcloc !9
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = zext nneg i32 %92 to i64
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %102, i64 %103, ptr elementtype(i64) %102) #12, !srcloc !10
-  %104 = getelementptr inbounds i8, ptr %101, i64 16
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, ptr elementtype(i64) %104) #12, !srcloc !11
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %102, i64 %103, ptr nonnull elementtype(i64) %102) #12, !srcloc !10
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %104, ptr nonnull elementtype(i64) %104) #12, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
   %105 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !13
   %106 = icmp ult i8 %105, 2
@@ -202,15 +202,15 @@ define dso_local void @iptunnel_xmit(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %112, label %113, label %.thread2
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %29, i64 600
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %114, ptr elementtype(i64) %114) #12, !srcloc !15
-  %115 = getelementptr inbounds i8, ptr %29, i64 688
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %115, ptr elementtype(i64) %115) #12, !srcloc !15
+  %114 = getelementptr inbounds nuw i8, ptr %29, i64 600
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %114, ptr nonnull elementtype(i64) %114) #12, !srcloc !15
+  %115 = getelementptr inbounds nuw i8, ptr %29, i64 688
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %115, ptr nonnull elementtype(i64) %115) #12, !srcloc !15
   br label %117
 
 .thread2:                                         ; preds = %91, %111
-  %116 = getelementptr inbounds i8, ptr %29, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %116, ptr elementtype(i64) %116) #12, !srcloc !15
+  %116 = getelementptr inbounds nuw i8, ptr %29, i64 616
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %116, ptr nonnull elementtype(i64) %116) #12, !srcloc !15
   br label %117
 
 117:                                              ; preds = %.thread2, %113, %108, %97, %72
@@ -240,9 +240,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
   %10 = sub i32 %7, %9
   %11 = icmp ult i32 %10, %1
@@ -282,62 +282,62 @@ define dso_local i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef %1, i16
   br i1 %32, label %85, label %33, !prof !16
 
 33:                                               ; preds = %29, %22
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %37 = load i16, ptr %36, align 1
   %38 = and i16 %37, 254
   %39 = icmp samesign ugt i16 %38, 5
-  %40 = getelementptr inbounds i8, ptr %0, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %41 = select i1 %39, i16 %37, i16 1024, !prof !6
   store i16 %41, ptr %40, align 8
   br label %44
 
 42:                                               ; preds = %18
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i16 %2, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %42, %33
-  %45 = getelementptr inbounds i8, ptr %0, i64 129
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %46 = load i24, ptr %45, align 1
   %47 = and i24 %46, 256
   %48 = icmp eq i24 %47, 0
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 148
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %50, align 4
   %51 = and i24 %46, -769
   store i24 %51, ptr %45, align 1
   br label %52
 
 52:                                               ; preds = %49, %44
-  %53 = getelementptr inbounds i8, ptr %0, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 124
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i16 0, ptr %54, align 4
   tail call void @skb_scrub_packet(ptr noundef %0, i1 noundef zeroext %4) #12
-  %55 = getelementptr inbounds i8, ptr %0, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 188
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
   %60 = getelementptr i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i16, ptr %61, align 4
   %63 = icmp eq i16 %62, 0
   br i1 %63, label %82, label %64
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %0, i64 126
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %66 = load i8, ptr %65, align 2
   %67 = and i8 %66, 1
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %.thread, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %60, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %71 = load volatile i32, ptr %70, align 4
   %72 = and i32 %71, 65535
   %73 = icmp eq i32 %72, 1
@@ -358,7 +358,7 @@ define dso_local i32 @__iptunnel_pull_header(ptr noundef %0, i32 noundef %1, i16
   %.pre-phi = phi i64 [ %.pre5, %..thread_crit_edge ], [ %59, %64 ], [ %59, %69 ]
   %77 = phi ptr [ %.pre, %..thread_crit_edge ], [ %56, %64 ], [ %56, %69 ]
   %78 = getelementptr i8, ptr %77, i64 %.pre-phi
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, -4033
   store i32 %81, ptr %79, align 8
@@ -384,28 +384,28 @@ define dso_local ptr @iptunnel_metadata_reply(ptr noundef readonly %0, i32 nound
   br i1 %3, label %46, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %46
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
-  %10 = getelementptr inbounds i8, ptr %0, i64 233
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %46
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %16 = load i8, ptr %15, align 8
   %17 = tail call ptr @metadata_dst_alloc(i8 noundef zeroext %16, i32 noundef 0, i32 noundef %1) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %46, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %17, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %21 = load i64, ptr %9, align 8
   store i64 %21, ptr %20, align 8
   %22 = load i8, ptr %10, align 1
@@ -414,29 +414,29 @@ define dso_local ptr @iptunnel_metadata_reply(ptr noundef readonly %0, i32 nound
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %17, i64 168
-  %27 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %26, ptr noundef align 8 dereferenceable(16) %27, i64 16, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   br label %32
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %17, i64 156
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 156
   store i32 %30, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %28, %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load i16, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 184
   store i16 %34, ptr %35, align 8
   %36 = load i8, ptr %10, align 1
   %37 = or i8 %36, 1
-  %38 = getelementptr inbounds i8, ptr %17, i64 233
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 233
   store i8 %37, ptr %38, align 1
   %39 = load i8, ptr %15, align 8
-  %40 = getelementptr inbounds i8, ptr %17, i64 232
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 232
   store i8 %39, ptr %40, align 8
   %41 = icmp eq i8 %39, 0
   br i1 %41, label %46, label %42
@@ -461,25 +461,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @iptunnel_handle_offloads(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %0, i64 129
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %5 = load i24, ptr %4, align 1
   %6 = and i24 %5, 8192
   %7 = icmp eq i24 %6, 0
   br i1 %7, label %8, label %19, !prof !6
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 182
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %10 = load i16, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 174
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 174
   store i16 %10, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 180
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %13 = load i16, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 172
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i16 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 178
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 170
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 170
   store i16 %16, ptr %17, align 2
   %18 = or disjoint i24 %5, 8192
   store i24 %18, ptr %4, align 1
@@ -487,26 +487,26 @@ define dso_local i32 @iptunnel_handle_offloads(ptr noundef %0, i32 noundef %1) #
 
 19:                                               ; preds = %8, %2
   %20 = phi i24 [ %18, %8 ], [ %5, %2 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 188
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i16, ptr %27, align 4
   %29 = icmp eq i16 %28, 0
   br i1 %29, label %50, label %30
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 126
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %32 = load i8, ptr %31, align 2
   %33 = and i8 %32, 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %26, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %37 = load volatile i32, ptr %36, align 4
   %38 = and i32 %37, 65535
   %39 = ashr i32 %37, 16
@@ -529,7 +529,7 @@ define dso_local i32 @iptunnel_handle_offloads(ptr noundef %0, i32 noundef %1) #
   %.pre-phi = phi i64 [ %.pre2, %..thread_crit_edge ], [ %25, %30 ], [ %25, %35 ]
   %45 = phi ptr [ %.pre, %..thread_crit_edge ], [ %22, %30 ], [ %22, %35 ]
   %46 = getelementptr i8, ptr %45, i64 %.pre-phi
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = or i32 %48, %1
   store i32 %49, ptr %47, align 8
@@ -560,9 +560,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %7 = alloca [4 x i32], align 4
   %8 = alloca i8, align 1
   %9 = alloca i16, align 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 32
   %14 = icmp eq ptr %13, @ip6_mtu
   br i1 %14, label %15, label %17, !prof !6
@@ -586,13 +586,13 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 23:                                               ; preds = %21, %19, %15
   %24 = phi i32 [ %16, %15 ], [ %20, %19 ], [ %22, %21 ]
   %25 = sub i32 %24, %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 192
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 188
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %.thread33, label %35
@@ -606,20 +606,20 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %.pre11 = load i32, ptr %28, align 4
   %.phi.trans.insert = zext i32 %.pre11 to i64
   %.phi.trans.insert12 = getelementptr i8, ptr %.pre, i64 %.phi.trans.insert
-  %.phi.trans.insert13 = getelementptr inbounds i8, ptr %.phi.trans.insert12, i64 4
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12, i64 4
   %.pre14 = load i16, ptr %.phi.trans.insert13, align 4
   %38 = icmp eq i16 %.pre14, 0
   br i1 %38, label %.thread33, label %54
 
 .thread33:                                        ; preds = %23, %37
   %39 = phi ptr [ %.pre, %37 ], [ %27, %23 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 180
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i64
   %45 = getelementptr i8, ptr %39, i64 %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %45 to i64
   %49 = ptrtoint ptr %47 to i64
@@ -630,7 +630,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %53, label %54, label %329
 
 54:                                               ; preds = %.thread33, %37
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, -2
   %58 = inttoptr i64 %57 to ptr
@@ -638,9 +638,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %64 = load ptr, ptr %63, align 16
   %65 = icmp eq ptr %64, null
   br i1 %65, label %67, label %66
@@ -653,14 +653,14 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %3, label %68, label %329
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %70 = load i8, ptr %69, align 8
   %71 = and i8 %70, 7
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %329, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %0, i64 176
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load i16, ptr %74, align 8
   switch i16 %75, label %329 [
     i16 8, label %76
@@ -669,11 +669,11 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %26, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 178
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
   %81 = getelementptr i8, ptr %77, i64 %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 180
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %83 = load i16, ptr %82, align 4
   %84 = zext i16 %83 to i64
   %85 = getelementptr i8, ptr %77, i64 %84
@@ -681,13 +681,13 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %86, label %329, label %87
 
 87:                                               ; preds = %76
-  %88 = getelementptr inbounds i8, ptr %85, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 6
   %89 = load i16, ptr %88, align 2
   %90 = icmp eq i16 %89, 64
   br i1 %90, label %91, label %329
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %85, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, -1
   %95 = and i32 %93, 240
@@ -696,7 +696,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %97, label %329, label %98
 
 98:                                               ; preds = %91
-  %99 = getelementptr inbounds i8, ptr %85, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 255
   %102 = icmp eq i32 %101, 127
@@ -709,7 +709,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   br i1 %108, label %329, label %109
 
 109:                                              ; preds = %98
-  %110 = getelementptr inbounds i8, ptr %85, i64 9
+  %110 = getelementptr inbounds nuw i8, ptr %85, i64 9
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 1
   br i1 %112, label %113, label %115
@@ -730,14 +730,14 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 
 117:                                              ; preds = %73
   %118 = load ptr, ptr %26, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 180
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %120 = load i16, ptr %119, align 4
   %121 = zext i16 %120 to i64
   %122 = getelementptr i8, ptr %118, i64 %121
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
-  %124 = tail call i32 @__ipv6_addr_type(ptr noundef %123) #12
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %123) #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
-  %125 = getelementptr inbounds i8, ptr %122, i64 6
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 6
   %126 = load i8, ptr %125, align 2
   store i8 %126, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #12
@@ -777,15 +777,15 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %147 = zext nneg i32 %135 to i64
   %148 = getelementptr i8, ptr %146, i64 %147
   %149 = getelementptr i8, ptr %148, i64 1
-  %150 = getelementptr inbounds i8, ptr %0, i64 200
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %149 to i64
   %153 = ptrtoint ptr %151 to i64
   %154 = sub i64 %152, %153
   %155 = trunc i64 %154 to i32
-  %156 = getelementptr inbounds i8, ptr %0, i64 112
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %157 = load i32, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 116
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %159 = load i32, ptr %158, align 4
   %160 = sub i32 %157, %159
   %161 = icmp ult i32 %160, %155
@@ -829,9 +829,9 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %174 = getelementptr i8, ptr %173, i64 %.pre-phi32
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %5, i8 0, i64 14, i1 false), !annotation !19
-  %175 = getelementptr inbounds i8, ptr %0, i64 112
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %176 = load i32, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %0, i64 116
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %178 = load i32, ptr %177, align 4
   %179 = sub i32 %176, %178
   %180 = icmp ult i32 %179, 54
@@ -853,11 +853,11 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 
 187:                                              ; preds = %._crit_edge20, %._crit_edge30
   %188 = phi ptr [ %.pre21, %._crit_edge20 ], [ %173, %._crit_edge30 ]
-  %189 = getelementptr inbounds i8, ptr %0, i64 182
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i64
   %192 = getelementptr i8, ptr %188, i64 %191
-  %193 = getelementptr inbounds i8, ptr %0, i64 200
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %194 = load ptr, ptr %193, align 8
   %195 = ptrtoint ptr %192 to i64
   %196 = ptrtoint ptr %194 to i64
@@ -920,7 +920,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
 232:                                              ; preds = %229
   store i32 1232, ptr %175, align 8
   %233 = trunc i64 %226 to i32
-  %234 = getelementptr inbounds i8, ptr %0, i64 184
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %235 = add i32 %233, 1232
   store i32 %235, ptr %234, align 8
   br label %.thread
@@ -939,7 +939,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %.pre26 = phi ptr [ %.pre26.pre, %..thread_crit_edge ], [ %223, %232 ], [ %223, %220 ], [ %207, %.thread34 ]
   %239 = phi i32 [ %.pre25, %..thread_crit_edge ], [ 1232, %232 ], [ %221, %220 ], [ %200, %.thread34 ]
   %240 = add i32 %239, 8
-  %241 = getelementptr inbounds i8, ptr %0, i64 126
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %242 = load i8, ptr %241, align 2
   %243 = and i8 %242, 1
   %244 = icmp eq i8 %243, 0
@@ -949,7 +949,7 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %246 = load i32, ptr %28, align 4
   %247 = zext i32 %246 to i64
   %248 = getelementptr i8, ptr %.pre26, i64 %247
-  %249 = getelementptr inbounds i8, ptr %248, i64 32
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %250 = load volatile i32, ptr %249, align 4
   %251 = and i32 %250, 65535
   %252 = icmp ne i32 %251, 1
@@ -979,11 +979,11 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %269 = call ptr @skb_push(ptr noundef %0, i32 noundef 8) #12
   %270 = call i32 @llvm.bswap.i32(i32 %25)
   store i8 2, ptr %269, align 4
-  %271 = getelementptr inbounds i8, ptr %269, i64 1
+  %271 = getelementptr inbounds nuw i8, ptr %269, i64 1
   store i8 0, ptr %271, align 1
-  %272 = getelementptr inbounds i8, ptr %269, i64 2
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 2
   store i16 0, ptr %272, align 2
-  %273 = getelementptr inbounds i8, ptr %269, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %269, i64 4
   store i32 %270, ptr %273, align 4
   %274 = load ptr, ptr %193, align 8
   %275 = load ptr, ptr %26, align 8
@@ -991,32 +991,32 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %277 = ptrtoint ptr %275 to i64
   %278 = sub i64 %276, %277
   %279 = trunc i64 %278 to i16
-  %280 = getelementptr inbounds i8, ptr %0, i64 178
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i16 %279, ptr %280, align 2
   %281 = call ptr @skb_push(ptr noundef %0, i32 noundef 40) #12
   %282 = trunc i32 %240 to i16
   %283 = call i16 @llvm.bswap.i16(i16 %282)
-  %284 = getelementptr inbounds i8, ptr %174, i64 7
+  %284 = getelementptr inbounds nuw i8, ptr %174, i64 7
   %285 = load i8, ptr %284, align 1
-  %286 = getelementptr inbounds i8, ptr %174, i64 8
-  %287 = getelementptr inbounds i8, ptr %174, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef align 4 dereferenceable(16) %287, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef align 4 dereferenceable(16) %286, i64 16, i1 false)
+  %286 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %287, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %286, i64 16, i1 false)
   store i8 96, ptr %281, align 4
-  %288 = getelementptr inbounds i8, ptr %281, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %281, i64 1
   store i8 0, ptr %288, align 1
-  %289 = getelementptr inbounds i8, ptr %281, i64 2
+  %289 = getelementptr inbounds nuw i8, ptr %281, i64 2
   store i16 0, ptr %289, align 2
-  %290 = getelementptr inbounds i8, ptr %281, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %281, i64 4
   store i16 %283, ptr %290, align 4
-  %291 = getelementptr inbounds i8, ptr %281, i64 6
+  %291 = getelementptr inbounds nuw i8, ptr %281, i64 6
   store i8 58, ptr %291, align 2
-  %292 = getelementptr inbounds i8, ptr %281, i64 7
+  %292 = getelementptr inbounds nuw i8, ptr %281, i64 7
   store i8 %285, ptr %292, align 1
-  %293 = getelementptr inbounds i8, ptr %281, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %293, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
-  %294 = getelementptr inbounds i8, ptr %281, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %294, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  %293 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %293, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  %294 = getelementptr inbounds nuw i8, ptr %281, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %294, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %295 = load ptr, ptr %193, align 8
   %296 = load ptr, ptr %26, align 8
   %297 = ptrtoint ptr %295 to i64
@@ -1031,18 +1031,18 @@ define dso_local i32 @skb_tunnel_check_pmtu(ptr noundef %0, ptr noundef %1, i32 
   %305 = sub i64 %304, %297
   %306 = trunc i64 %305 to i32
   %307 = call i32 @skb_checksum(ptr noundef %0, i32 noundef %306, i32 noundef %240, i32 noundef 0) #12
-  %308 = call zeroext i16 @csum_ipv6_magic(ptr noundef %293, ptr noundef %294, i32 noundef %240, i8 noundef zeroext 58, i32 noundef %307) #12
+  %308 = call zeroext i16 @csum_ipv6_magic(ptr noundef nonnull %293, ptr noundef nonnull %294, i32 noundef %240, i8 noundef zeroext 58, i32 noundef %307) #12
   store i16 %308, ptr %272, align 2
   %309 = load i8, ptr %69, align 8
   %310 = and i8 %309, -97
   store i8 %310, ptr %69, align 8
-  %311 = getelementptr inbounds i8, ptr %0, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %5, i64 12
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %314 = load i16, ptr %313, align 1
   %315 = call i16 @llvm.bswap.i16(i16 %314)
-  %316 = getelementptr inbounds i8, ptr %5, i64 6
-  %317 = call i32 @eth_header(ptr noundef %0, ptr noundef %312, i16 noundef zeroext %315, ptr noundef %316, ptr noundef nonnull %5, i32 noundef 0) #12
+  %316 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %317 = call i32 @eth_header(ptr noundef %0, ptr noundef %312, i16 noundef zeroext %315, ptr noundef nonnull %316, ptr noundef nonnull %5, i32 noundef 0) #12
   %318 = load ptr, ptr %193, align 8
   %319 = load ptr, ptr %26, align 8
   %320 = ptrtoint ptr %318 to i64
@@ -1099,9 +1099,9 @@ declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protocol(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 180
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
@@ -1110,7 +1110,7 @@ define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protoc
 
 9:                                                ; preds = %1
   %10 = getelementptr i8, ptr %7, i64 20
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %3, i64 %13
@@ -1169,7 +1169,7 @@ define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef r
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %13, i64 4
   %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %17, ptr %18, align 2
   br label %19
 
@@ -1183,7 +1183,7 @@ define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef r
 24:                                               ; preds = %19
   %25 = getelementptr i8, ptr %22, i64 4
   %26 = load i16, ptr %25, align 2
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %26, ptr %27, align 2
   br label %28
 
@@ -1197,7 +1197,7 @@ define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef r
 33:                                               ; preds = %28
   %34 = getelementptr i8, ptr %31, i64 4
   %35 = load i16, ptr %34, align 2
-  %36 = getelementptr inbounds i8, ptr %1, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %35, ptr %36, align 2
   br label %37
 
@@ -1216,7 +1216,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %8, ptr %9, align 4
   br label %10
 
@@ -1229,7 +1229,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %16, ptr %17, align 4
   br label %18
 
@@ -1242,7 +1242,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 22:                                               ; preds = %18
   %23 = getelementptr i8, ptr %20, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %24, ptr %25, align 4
   br label %26
 
@@ -1255,13 +1255,13 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %28, i64 4
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 %32, ptr %33, align 4
   %34 = icmp eq i8 %32, 0
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %1, i64 38
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i16 64, ptr %36, align 2
   br label %37
 
@@ -1274,7 +1274,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %39, i64 4
   %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %1, i64 33
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 33
   store i8 %43, ptr %44, align 1
   br label %45
 
@@ -1291,7 +1291,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %49, %45
-  %54 = getelementptr inbounds i8, ptr %1, i64 38
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i16 64, ptr %54, align 2
   br label %55
 
@@ -1304,7 +1304,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %57, i64 4
   %61 = load i16, ptr %60, align 2
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i16 %61, ptr %62, align 4
   br label %63
 
@@ -1317,7 +1317,7 @@ define dso_local void @ip_tunnel_netlink_parms(ptr nocapture noundef readonly %0
 67:                                               ; preds = %63
   %68 = getelementptr i8, ptr %65, i64 4
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %1, i64 41
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %69, ptr %70, align 1
   br label %71
 
@@ -1349,16 +1349,16 @@ declare dso_local i32 @ipv4_mtu(ptr noundef) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 noundef range(i32 576, -2147483648) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ethhdr, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %3) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 %11, %13
   %15 = icmp ult i32 %14, 34
@@ -1381,11 +1381,11 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
 22:                                               ; preds = %._crit_edge, %2
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %5, %2 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %3, i8 0, i64 14, i1 false), !annotation !19
-  %24 = getelementptr inbounds i8, ptr %0, i64 182
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %29 to i64
@@ -1448,7 +1448,7 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
 67:                                               ; preds = %64
   store i32 548, ptr %10, align 8
   %68 = trunc i64 %61 to i32
-  %69 = getelementptr inbounds i8, ptr %0, i64 184
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %70 = add i32 %68, 548
   store i32 %70, ptr %69, align 8
   br label %.thread
@@ -1466,18 +1466,18 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
 .thread:                                          ; preds = %.thread11, %..thread_crit_edge, %67, %55
   %.pre9 = phi ptr [ %.pre9.pre, %..thread_crit_edge ], [ %58, %67 ], [ %58, %55 ], [ %42, %.thread11 ]
   %74 = phi i32 [ %.pre8, %..thread_crit_edge ], [ 548, %67 ], [ %56, %55 ], [ %35, %.thread11 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 126
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %76 = load i8, ptr %75, align 2
   %77 = and i8 %76, 1
   %78 = icmp eq i8 %77, 0
   br i1 %78, label %89, label %79
 
 79:                                               ; preds = %.thread
-  %80 = getelementptr inbounds i8, ptr %0, i64 188
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
   %83 = getelementptr i8, ptr %.pre9, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load volatile i32, ptr %84, align 4
   %86 = and i32 %85, 65535
   %87 = icmp ne i32 %86, 1
@@ -1509,13 +1509,13 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
   %106 = trunc i32 %1 to i16
   %107 = call i16 @llvm.bswap.i16(i16 %106)
   store i8 3, ptr %105, align 4
-  %108 = getelementptr inbounds i8, ptr %105, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store i8 4, ptr %108, align 1
-  %109 = getelementptr inbounds i8, ptr %105, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 2
   store i16 0, ptr %109, align 2
-  %110 = getelementptr inbounds i8, ptr %105, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store i16 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %105, i64 6
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 6
   store i16 %107, ptr %111, align 2
   %112 = call i32 @skb_checksum(ptr noundef %0, i32 noundef 0, i32 noundef %104, i32 noundef 0) #12
   %113 = shl i32 %112, 16
@@ -1531,36 +1531,36 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   %124 = trunc i64 %123 to i16
-  %125 = getelementptr inbounds i8, ptr %0, i64 178
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i16 %124, ptr %125, align 2
   %126 = call ptr @skb_push(ptr noundef %0, i32 noundef 20) #12
   %127 = trunc i32 %104 to i16
   %128 = add i16 %127, 20
   %129 = call i16 @llvm.bswap.i16(i16 %128)
-  %130 = getelementptr inbounds i8, ptr %9, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %131 = load i8, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %9, i64 12
-  %133 = getelementptr inbounds i8, ptr %9, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %134 = load i32, ptr %133, align 4
   %135 = load i32, ptr %132, align 4
   store i8 69, ptr %126, align 4
-  %136 = getelementptr inbounds i8, ptr %126, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %126, i64 1
   store i8 0, ptr %136, align 1
-  %137 = getelementptr inbounds i8, ptr %126, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i16 %129, ptr %137, align 2
-  %138 = getelementptr inbounds i8, ptr %126, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i16 0, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %126, i64 6
+  %139 = getelementptr inbounds nuw i8, ptr %126, i64 6
   store i16 64, ptr %139, align 2
-  %140 = getelementptr inbounds i8, ptr %126, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 %131, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %126, i64 9
+  %141 = getelementptr inbounds nuw i8, ptr %126, i64 9
   store i8 1, ptr %141, align 1
-  %142 = getelementptr inbounds i8, ptr %126, i64 10
+  %142 = getelementptr inbounds nuw i8, ptr %126, i64 10
   store i16 0, ptr %142, align 2
-  %143 = getelementptr inbounds i8, ptr %126, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 %134, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %126, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i32 %135, ptr %144, align 4
   call void @ip_send_check(ptr noundef %126) #12
   %145 = load ptr, ptr %28, align 8
@@ -1570,17 +1570,17 @@ define internal fastcc i32 @iptunnel_pmtud_build_icmp(ptr noundef %0, i32 nounde
   %149 = sub i64 %147, %148
   %150 = trunc i64 %149 to i16
   store i16 %150, ptr %6, align 4
-  %151 = getelementptr inbounds i8, ptr %0, i64 128
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %152 = load i8, ptr %151, align 8
   %153 = and i8 %152, -97
   store i8 %153, ptr %151, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %3, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %157 = load i16, ptr %156, align 1
   %158 = call i16 @llvm.bswap.i16(i16 %157)
-  %159 = getelementptr inbounds i8, ptr %3, i64 6
-  %160 = call i32 @eth_header(ptr noundef %0, ptr noundef %155, i16 noundef zeroext %158, ptr noundef %159, ptr noundef nonnull %3, i32 noundef 0) #12
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %160 = call i32 @eth_header(ptr noundef %0, ptr noundef %155, i16 noundef zeroext %158, ptr noundef nonnull %159, ptr noundef nonnull %3, i32 noundef 0) #12
   %161 = load ptr, ptr %28, align 8
   %162 = load ptr, ptr %4, align 8
   %163 = ptrtoint ptr %161 to i64

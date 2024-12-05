@@ -53,7 +53,7 @@ define i32 @Abc_ZddBuildSet(ptr nocapture noundef %0, ptr nocapture noundef %1, 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv29.i
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv29.i
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %.024.i to i64
   %10 = getelementptr inbounds i32, ptr %1, i64 %9
@@ -67,7 +67,7 @@ define i32 @Abc_ZddBuildSet(ptr nocapture noundef %0, ptr nocapture noundef %1, 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv32.i
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv32.i
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %spec.select.i to i64
   %17 = getelementptr inbounds i32, ptr %1, i64 %16
@@ -90,7 +90,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.011 = phi i32 [ 1, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %22 = load i32, ptr %21, align 4
   %23 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef %0, i32 noundef %22, i32 noundef %.011, i32 noundef 0)
   %24 = icmp samesign ugt i64 %indvars.iv, 1
@@ -107,26 +107,26 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr nocapture noundef %0, i32 no
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = mul nsw i32 %1, 12582917
   %10 = mul nsw i32 %2, 4256249
   %11 = add nsw i32 %10, %9
   %12 = mul nsw i32 %3, 741457
   %13 = add nsw i32 %11, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4
   %.not41 = icmp eq i32 %19, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %38
@@ -139,13 +139,13 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr nocapture noundef %0, i32 no
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %2
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %3
   br i1 %37, label %.loopexit, label %38
@@ -163,9 +163,9 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr nocapture noundef %0, i32 no
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %.0.lcssa = phi ptr [ %18, %6 ], [ %42, %._crit_edge.loopexit ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %44, %46
   br i1 %47, label %48, label %52
@@ -182,7 +182,7 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr nocapture noundef %0, i32 no
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %43, align 4
   store i32 %53, ptr %.0.lcssa, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
   %58 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %56, i64 %57
@@ -213,7 +213,7 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr nocapture noundef %0, i32 no
 define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #19
   store i32 %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = icmp ult i32 %1, 2
   %6 = add i32 %1, -1
@@ -222,32 +222,32 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %.09.i = select i1 %5, i32 %1, i32 %8
   %notmask = shl nsw i32 -1, %.09.i
   %9 = xor i32 %notmask, -1
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %9, ptr %11, align 4
   %12 = sub i32 0, %notmask
   %13 = zext i32 %12 to i64
   %14 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 4) #19
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %14, ptr %15, align 8
   %16 = sext i32 %1 to i64
   %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #19
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 16) #19
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %19, ptr %20, align 8
   %21 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 12) #19
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, i8 -1, i64 20, i1 false)
   %25 = or i32 %0, -2147483648
   store i32 %25, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %21, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %27 = or i32 %0, -2147483648
   store i32 %27, ptr %26, align 4
   %28 = icmp sgt i32 %0, 0
@@ -281,7 +281,7 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %40 = lshr exact i64 %39, 2
   %41 = add nsw i64 %35, %40
   %42 = add nsw i64 %41, %38
-  %43 = getelementptr inbounds i8, ptr %3, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %42, ptr %43, align 8
   ret ptr %3
 }
@@ -294,25 +294,25 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Abc_ZddManCreatePerms(ptr nocapture noundef initializes((12, 16), (72, 96)) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #20
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 -1, i64 %6, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %7, ptr %8, align 8
   %9 = tail call noalias ptr @malloc(i64 noundef %6) #20
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 -1, i64 %6, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %9, ptr %10, align 8
   %11 = mul nsw i32 %1, %1
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #20
   tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 -1, i64 %13, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %14, ptr %15, align 8
   %16 = icmp sgt i32 %1, 0
   br i1 %16, label %.lr.ph37, label %._crit_edge
@@ -369,24 +369,24 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i32, ptr %9, align 4
   %11 = sub nsw i32 %8, %10
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %11, i32 noundef %10)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 20
   %16 = trunc i64 %15 to i32
   %17 = sitofp i32 %16 to double
   %18 = fmul double %17, 4.000000e+00
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %22
@@ -397,7 +397,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %23
 
 23:                                               ; preds = %1, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not36 = icmp eq ptr %25, null
   br i1 %.not36, label %27, label %26
@@ -408,7 +408,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %27
 
 27:                                               ; preds = %23, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %31, label %30
@@ -419,7 +419,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %31
 
 31:                                               ; preds = %27, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not38 = icmp eq ptr %33, null
   br i1 %.not38, label %35, label %34
@@ -430,7 +430,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %35
 
 35:                                               ; preds = %31, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not39 = icmp eq ptr %37, null
   br i1 %.not39, label %39, label %38
@@ -441,7 +441,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %39
 
 39:                                               ; preds = %35, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not40 = icmp eq ptr %41, null
   br i1 %.not40, label %43, label %42
@@ -452,7 +452,7 @@ define void @Abc_ZddManFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %43
 
 43:                                               ; preds = %39, %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not41 = icmp eq ptr %45, null
   br i1 %.not41, label %47, label %46
@@ -486,18 +486,18 @@ define i32 @Abc_ZddDiff(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %8, label %88, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = mul nsw i32 %1, 12582917
   %13 = mul nsw i32 %2, 4256249
   %14 = add i32 %12, 741457
   %15 = add i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, %15
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %11, i64 %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %11, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 8
@@ -506,19 +506,19 @@ define i32 @Abc_ZddDiff(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %25, label %26, label %Abc_ZddCacheLookup.exit.thread
 
 26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %2
   br i1 %29, label %30, label %Abc_ZddCacheLookup.exit.thread
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %20, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %88, label %Abc_ZddCacheLookup.exit.thread
@@ -538,12 +538,12 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %48 = getelementptr inbounds i8, ptr %39, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %2)
   %51 = load i32, ptr %39, align 4
   %52 = and i32 %51, 2147483647
-  %53 = getelementptr inbounds i8, ptr %39, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %54, i32 noundef %50)
   br label %76
@@ -553,20 +553,20 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %41, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %60)
   br label %76
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %39, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %41, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %66)
-  %68 = getelementptr inbounds i8, ptr %39, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %41, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %69, i32 noundef %71)
   %73 = load i32, ptr %39, align 4
@@ -580,15 +580,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   %78 = load i32, ptr %16, align 4
   %79 = and i32 %78, %15
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %77, i64 %80
   store i32 %1, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %2, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 1, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %81, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 %.0, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %0, i64 60
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %85, align 4
@@ -620,18 +620,18 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %9, label %tailrecurse, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = mul nsw i32 %.tr55, 12582917
   %14 = mul nsw i32 %.tr56, 4256249
   %15 = add i32 %13, 1482914
   %16 = add i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, %16
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %12, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8
@@ -640,19 +640,19 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %26, label %27, label %Abc_ZddCacheLookup.exit.thread
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds i8, ptr %21, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %.tr56
   br i1 %30, label %31, label %Abc_ZddCacheLookup.exit.thread
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 2
   br i1 %34, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %21, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %.loopexit, label %Abc_ZddCacheLookup.exit.thread
@@ -672,10 +672,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %.tr56)
-  %52 = getelementptr inbounds i8, ptr %40, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %53 = load i32, ptr %52, align 4
   br label %73
 
@@ -684,22 +684,22 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %42, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %.tr55, i32 noundef %58)
-  %60 = getelementptr inbounds i8, ptr %42, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %61 = load i32, ptr %60, align 4
   br label %73
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %40, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %42, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %66)
-  %68 = getelementptr inbounds i8, ptr %40, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %42, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %69, i32 noundef %71)
   br label %73
@@ -717,15 +717,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %81 = load i32, ptr %17, align 4
   %82 = and i32 %81, %16
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %80, i64 %83
   store i32 %.tr55, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %.tr56, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 2, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %84, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 %79, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -757,18 +757,18 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %9, label %tailrecurse, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = mul nsw i32 %.tr58, 12582917
   %14 = mul nsw i32 %.tr59, 4256249
   %15 = add i32 %13, 2224371
   %16 = add i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, %16
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %12, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8
@@ -777,19 +777,19 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %26, label %27, label %Abc_ZddCacheLookup.exit.thread
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds i8, ptr %21, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %.tr59
   br i1 %30, label %31, label %Abc_ZddCacheLookup.exit.thread
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 3
   br i1 %34, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %21, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %.loopexit, label %Abc_ZddCacheLookup.exit.thread
@@ -809,10 +809,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = tail call i32 @Abc_ZddMinUnion(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %.tr59)
-  %52 = getelementptr inbounds i8, ptr %40, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %53 = load i32, ptr %52, align 4
   br label %73
 
@@ -821,22 +821,22 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %42, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @Abc_ZddMinUnion(ptr noundef nonnull %0, i32 noundef %.tr58, i32 noundef %58)
-  %60 = getelementptr inbounds i8, ptr %42, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %61 = load i32, ptr %60, align 4
   br label %73
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %40, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %42, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @Abc_ZddMinUnion(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %66)
-  %68 = getelementptr inbounds i8, ptr %40, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %42, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @Abc_ZddMinUnion(ptr noundef nonnull %0, i32 noundef %69, i32 noundef %71)
   br label %73
@@ -855,15 +855,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %82 = load i32, ptr %17, align 4
   %83 = and i32 %82, %16
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %81, i64 %84
+  %85 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %81, i64 %84
   store i32 %.tr58, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %.tr59, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 3, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i32 %80, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 60
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %90 = load i32, ptr %89, align 4
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %89, align 4
@@ -895,18 +895,18 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %9, label %tailrecurse, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = mul nsw i32 %.tr53, 12582917
   %14 = mul nsw i32 %.tr54, 4256249
   %15 = add i32 %13, 2965828
   %16 = add i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, %16
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %12, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8
@@ -915,19 +915,19 @@ tailrecurse:                                      ; preds = %8, %3
   br i1 %26, label %27, label %Abc_ZddCacheLookup.exit.thread
 
 27:                                               ; preds = %10
-  %28 = getelementptr inbounds i8, ptr %21, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %.tr54
   br i1 %30, label %31, label %Abc_ZddCacheLookup.exit.thread
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 4
   br i1 %34, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %21, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %.loopexit, label %Abc_ZddCacheLookup.exit.thread
@@ -947,10 +947,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = tail call i32 @Abc_ZddIntersect(ptr noundef nonnull %0, i32 noundef %50, i32 noundef %.tr54)
-  %52 = getelementptr inbounds i8, ptr %40, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %53 = load i32, ptr %52, align 4
   br label %73
 
@@ -959,22 +959,22 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %42, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @Abc_ZddIntersect(ptr noundef nonnull %0, i32 noundef %.tr53, i32 noundef %58)
-  %60 = getelementptr inbounds i8, ptr %42, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %61 = load i32, ptr %60, align 4
   br label %73
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %40, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %42, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @Abc_ZddIntersect(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %66)
-  %68 = getelementptr inbounds i8, ptr %40, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %42, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @Abc_ZddIntersect(ptr noundef nonnull %0, i32 noundef %69, i32 noundef %71)
   br label %73
@@ -992,15 +992,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %81 = load i32, ptr %17, align 4
   %82 = and i32 %81, %16
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %80, i64 %83
   store i32 %.tr53, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 %.tr54, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 4, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %84, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 %79, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -1020,25 +1020,25 @@ define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %6 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %6, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %7
+  %8 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2147483647
   %11 = icmp sgt i32 %10, %2
   br i1 %11, label %65, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
   %17 = add nuw nsw i32 %15, 5190199
   %18 = add nuw nsw i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -1047,19 +1047,19 @@ define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %28, label %29, label %Abc_ZddCacheLookup.exit.thread
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, %2
   br i1 %32, label %33, label %Abc_ZddCacheLookup.exit.thread
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 7
   br i1 %36, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %23, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %65, label %Abc_ZddCacheLookup.exit.thread
@@ -1068,13 +1068,13 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %40 = load i32, ptr %8, align 4
   %41 = and i32 %40, 2147483647
   %42 = icmp samesign ult i32 %41, %2
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %44 = load i32, ptr %43, align 4
   %45 = tail call i32 @Abc_ZddCof0(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %2)
   br i1 %42, label %46, label %53
 
 46:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %47 = getelementptr inbounds i8, ptr %8, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @Abc_ZddCof0(ptr noundef nonnull %0, i32 noundef %48, i32 noundef %2)
   %50 = load i32, ptr %8, align 4
@@ -1088,15 +1088,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %55 = load i32, ptr %19, align 4
   %56 = and i32 %55, %18
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %54, i64 %57
   store i32 %1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %2, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 7, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 %.0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4
@@ -1116,25 +1116,25 @@ define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %6 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %6, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %7
+  %8 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2147483647
   %11 = icmp sgt i32 %10, %2
   br i1 %11, label %common.ret, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
   %17 = add nuw nsw i32 %15, 5931656
   %18 = add nuw nsw i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -1143,19 +1143,19 @@ define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %28, label %29, label %Abc_ZddCacheLookup.exit.thread
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, %2
   br i1 %32, label %33, label %Abc_ZddCacheLookup.exit.thread
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 8
   br i1 %36, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %23, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %common.ret, label %Abc_ZddCacheLookup.exit.thread
@@ -1167,7 +1167,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 @Abc_ZddCof1(ptr noundef nonnull %0, i32 noundef %45, i32 noundef %2)
   br label %47
@@ -1178,7 +1178,7 @@ common.ret:                                       ; preds = %3, %5, %Abc_ZddCach
 
 47:                                               ; preds = %Abc_ZddCacheLookup.exit.thread, %43
   %.030 = phi i32 [ %46, %43 ], [ 0, %Abc_ZddCacheLookup.exit.thread ]
-  %48 = getelementptr inbounds i8, ptr %8, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 @Abc_ZddCof1(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %2)
   %51 = load i32, ptr %8, align 4
@@ -1188,15 +1188,15 @@ common.ret:                                       ; preds = %3, %5, %Abc_ZddCach
   %55 = load i32, ptr %19, align 4
   %56 = and i32 %55, %18
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %54, i64 %57
   store i32 %1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %2, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 8, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 %53, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4
@@ -1209,16 +1209,16 @@ define i32 @Abc_ZddCountPaths(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %3, label %common.ret16, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = mul nuw nsw i32 %1, 12582917
   %8 = add nuw nsw i32 %7, 9638941
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, %8
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %6, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %6, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8
@@ -1227,19 +1227,19 @@ define i32 @Abc_ZddCountPaths(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %18, label %19, label %Abc_ZddCacheLookup.exit.thread
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %Abc_ZddCacheLookup.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %13, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 13
   br i1 %26, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %13, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, -1
   br i1 %29, label %common.ret16, label %Abc_ZddCacheLookup.exit.thread
@@ -1252,11 +1252,11 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %4, %19, %23, %Abc_Z
   %30 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %30, align 8
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %32 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 @Abc_ZddCountPaths(ptr noundef nonnull %0, i32 noundef %34)
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 @Abc_ZddCountPaths(ptr noundef nonnull %0, i32 noundef %37)
   %39 = add nsw i32 %38, %35
@@ -1264,15 +1264,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %4, %19, %23, %Abc_Z
   %41 = load i32, ptr %9, align 4
   %42 = and i32 %41, %8
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %40, i64 %43
   store i32 %1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 13, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %39, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -1290,7 +1290,7 @@ define i32 @Abc_ZddCount_rec(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %accumulator.tr11 = phi i32 [ %15, %tailrecurse ], [ 0, %2 ]
   %.val = load ptr, ptr %3, align 8
   %5 = zext nneg i32 %.tr1012 to i64
-  %6 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %tailrecurse, label %._crit_edge
@@ -1298,10 +1298,10 @@ define i32 @Abc_ZddCount_rec(ptr nocapture noundef readonly %0, i32 noundef %1) 
 tailrecurse:                                      ; preds = %.lr.ph
   %8 = or disjoint i32 %7, -2147483648
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @Abc_ZddCount_rec(ptr noundef nonnull %0, i32 noundef %10)
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %accumulator.tr11, 1
   %15 = add i32 %14, %11
@@ -1323,7 +1323,7 @@ define void @Abc_ZddUnmark_rec(ptr nocapture noundef readonly %0, i32 noundef %1
   %.tr89 = phi i32 [ %12, %tailrecurse ], [ %1, %2 ]
   %.val = load ptr, ptr %3, align 8
   %5 = zext nneg i32 %.tr89 to i64
-  %6 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, -1
   br i1 %.not, label %._crit_edge, label %tailrecurse
@@ -1331,10 +1331,10 @@ define void @Abc_ZddUnmark_rec(ptr nocapture noundef readonly %0, i32 noundef %1
 tailrecurse:                                      ; preds = %.lr.ph
   %8 = and i32 %7, 2147483647
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 4
   tail call void @Abc_ZddUnmark_rec(ptr noundef nonnull %0, i32 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -1373,7 +1373,7 @@ define i32 @Abc_ZddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
   %.val19 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %.val19, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %.val19, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @Abc_ZddCount_rec(ptr noundef %0, i32 noundef %10)
   %12 = add nsw i32 %11, %.023
@@ -1386,7 +1386,7 @@ define i32 @Abc_ZddCountNodesArray(ptr nocapture noundef readonly %0, ptr nocapt
 .critedge:                                        ; preds = %.lr.ph26, %.critedge
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %.critedge ]
   %.val20 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i32, ptr %.val20, i64 %indvars.iv28
+  %15 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv28
   %16 = load i32, ptr %15, align 4
   tail call void @Abc_ZddUnmark_rec(ptr noundef %0, i32 noundef %16)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -1410,18 +1410,18 @@ define i32 @Abc_ZddThresh(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %6, label %common.ret26, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = mul nuw nsw i32 %1, 12582917
   %11 = mul nsw i32 %2, 4256249
   %12 = add nuw i32 %10, 6673113
   %13 = add i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %9, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %9, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
@@ -1430,19 +1430,19 @@ define i32 @Abc_ZddThresh(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %23, label %24, label %Abc_ZddCacheLookup.exit.thread
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %18, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %2
   br i1 %27, label %28, label %Abc_ZddCacheLookup.exit.thread
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 9
   br i1 %31, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %18, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %common.ret26, label %Abc_ZddCacheLookup.exit.thread
@@ -1455,11 +1455,11 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_Z
   %35 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %35, align 8
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %struct.Abc_ZddObj_, ptr %.val, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = tail call i32 @Abc_ZddThresh(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %2)
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %2, -1
   %44 = tail call i32 @Abc_ZddThresh(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %43)
@@ -1470,15 +1470,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_Z
   %49 = load i32, ptr %14, align 4
   %50 = and i32 %49, %13
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %48, i64 %51
   store i32 %1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %2, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 9, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 %47, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 60
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4
@@ -1510,18 +1510,18 @@ tailrecurse:                                      ; preds = %10, %3
   br i1 %11, label %tailrecurse, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = mul nsw i32 %.tr67, 12582917
   %16 = mul nsw i32 %.tr68, 4256249
   %17 = add i32 %15, 7414570
   %18 = add i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -1530,19 +1530,19 @@ tailrecurse:                                      ; preds = %10, %3
   br i1 %28, label %29, label %Abc_ZddCacheLookup.exit.thread
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, %.tr68
   br i1 %32, label %33, label %Abc_ZddCacheLookup.exit.thread
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 10
   br i1 %36, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %23, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %.loopexit, label %Abc_ZddCacheLookup.exit.thread
@@ -1562,10 +1562,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %.tr68)
-  %54 = getelementptr inbounds i8, ptr %42, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %.tr68)
   br label %83
@@ -1575,25 +1575,25 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %44, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %.tr67, i32 noundef %61)
-  %63 = getelementptr inbounds i8, ptr %44, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %.tr67, i32 noundef %64)
   br label %83
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %42, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %44, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %70)
   %72 = load i32, ptr %69, align 4
-  %73 = getelementptr inbounds i8, ptr %44, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %74)
-  %76 = getelementptr inbounds i8, ptr %42, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @Abc_ZddDotProduct(ptr noundef nonnull %0, i32 noundef %77, i32 noundef %75)
   %79 = load i32, ptr %67, align 4
@@ -1615,15 +1615,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %91 = load i32, ptr %19, align 4
   %92 = and i32 %91, %18
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %90, i64 %93
+  %94 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %90, i64 %93
   store i32 %.tr67, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %.tr68, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 10, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 12
   store i32 %89, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 60
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %99 = load i32, ptr %98, align 4
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4
@@ -1659,18 +1659,18 @@ tailrecurse:                                      ; preds = %10, %3
   br i1 %11, label %tailrecurse, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = mul nsw i32 %.tr72, 12582917
   %16 = mul nsw i32 %.tr73, 4256249
   %17 = add i32 %15, 8156027
   %18 = add i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 8
@@ -1679,19 +1679,19 @@ tailrecurse:                                      ; preds = %10, %3
   br i1 %28, label %29, label %Abc_ZddCacheLookup.exit.thread
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, %.tr73
   br i1 %32, label %33, label %Abc_ZddCacheLookup.exit.thread
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 11
   br i1 %36, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %23, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %.loopexit, label %Abc_ZddCacheLookup.exit.thread
@@ -1711,10 +1711,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %52, i32 noundef %.tr73)
-  %54 = getelementptr inbounds i8, ptr %42, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %.tr73)
   br label %83
@@ -1724,25 +1724,25 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %44, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %.tr72, i32 noundef %61)
-  %63 = getelementptr inbounds i8, ptr %44, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %.tr72, i32 noundef %64)
   br label %83
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %42, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %44, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %70)
   %72 = load i32, ptr %69, align 4
-  %73 = getelementptr inbounds i8, ptr %44, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = tail call i32 @Abc_ZddMinUnion(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %74)
-  %76 = getelementptr inbounds i8, ptr %42, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef nonnull %0, i32 noundef %77, i32 noundef %75)
   %79 = load i32, ptr %67, align 4
@@ -1766,15 +1766,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %93 = load i32, ptr %19, align 4
   %94 = and i32 %93, %18
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %92, i64 %95
   store i32 %.tr72, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %.tr73, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 11, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %96, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 %91, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 60
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %101 = load i32, ptr %100, align 4
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -1797,18 +1797,18 @@ define i32 @Abc_ZddPerm(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br label %126
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = mul nsw i32 %1, 12582917
   %10 = mul nsw i32 %2, 4256249
   %11 = add i32 %9, 3707285
   %12 = add i32 %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, %12
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %8, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %8, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
@@ -1817,19 +1817,19 @@ define i32 @Abc_ZddPerm(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %22, label %23, label %Abc_ZddCacheLookup.exit.thread
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %17, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %27, label %Abc_ZddCacheLookup.exit.thread
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %17, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 5
   br i1 %30, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %17, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %126, label %Abc_ZddCacheLookup.exit.thread
@@ -1839,12 +1839,12 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   %.val = load ptr, ptr %34, align 8
   %35 = sext i32 %1 to i64
   %36 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %36, align 4
   %40 = and i32 %39, 2147483647
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %2 to i64
   %45 = getelementptr inbounds i32, ptr %38, i64 %44
@@ -1861,18 +1861,18 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %36, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %54, i32 noundef %2)
-  %56 = getelementptr inbounds i8, ptr %36, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %57)
   br label %114
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %41
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %41
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i32, ptr %61, i64 %44
   %65 = load i32, ptr %64, align 4
@@ -1928,10 +1928,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
 97:                                               ; preds = %85, %77, %87, %67
   %.079 = phi i32 [ %2, %67 ], [ %2, %77 ], [ %96, %87 ], [ %2, %85 ]
   %.078 = phi i32 [ %74, %67 ], [ %84, %77 ], [ %40, %87 ], [ %40, %85 ]
-  %98 = getelementptr inbounds i8, ptr %36, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %99 = load i32, ptr %98, align 4
   %100 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %99, i32 noundef %2)
-  %101 = getelementptr inbounds i8, ptr %36, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %102, i32 noundef %.079)
   %.val94 = load ptr, ptr %34, align 8
@@ -1957,15 +1957,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   %116 = load i32, ptr %13, align 4
   %117 = and i32 %116, %12
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %115, i64 %118
   store i32 %1, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 %2, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %119, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i32 5, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %119, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 12
   store i32 %.077, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 60
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %124 = load i32, ptr %123, align 4
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4
@@ -1996,18 +1996,18 @@ define i32 @Abc_ZddPermProduct(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %common.ret31
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = mul nsw i32 %1, 12582917
   %11 = mul nsw i32 %2, 4256249
   %12 = add i32 %10, 4448742
   %13 = add i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %9, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %9, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
@@ -2016,19 +2016,19 @@ define i32 @Abc_ZddPermProduct(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %23, label %24, label %Abc_ZddCacheLookup.exit.thread
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %18, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %2
   br i1 %27, label %28, label %Abc_ZddCacheLookup.exit.thread
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 6
   br i1 %31, label %Abc_ZddCacheLookup.exit, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit:                          ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %18, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %common.ret31, label %Abc_ZddCacheLookup.exit.thread
@@ -2042,10 +2042,10 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_Z
   %.val = load ptr, ptr %35, align 8
   %36 = sext i32 %2 to i64
   %37 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = tail call i32 @Abc_ZddPermProduct(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %39)
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @Abc_ZddPermProduct(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %42)
   %44 = load i32, ptr %37, align 4
@@ -2056,15 +2056,15 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_Z
   %49 = load i32, ptr %14, align 4
   %50 = and i32 %49, %13
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %48, i64 %51
   store i32 %1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %2, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 6, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 %47, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 60
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4
@@ -2083,7 +2083,7 @@ define void @Abc_ZddPermPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2114,7 +2114,7 @@ define void @Abc_ZddCombPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = ashr i32 %8, 16
   %10 = and i32 %8, 65535
@@ -2142,7 +2142,7 @@ define i32 @Abc_ZddPerm2Comb(ptr nocapture noundef %0, i32 noundef %1, ptr nocap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %.02629 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %24 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %.not = icmp eq i64 %indvars.iv, %8
@@ -2155,7 +2155,7 @@ define i32 @Abc_ZddPerm2Comb(ptr nocapture noundef %0, i32 noundef %1, ptr nocap
 
 9:                                                ; preds = %.preheader
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next32
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next32
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = icmp eq i64 %indvars.iv, %12
@@ -2177,7 +2177,7 @@ split:                                            ; preds = %.preheader, %._crit
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %17, ptr %20, align 4
   %21 = load i32, ptr %6, align 4
-  %22 = getelementptr inbounds i32, ptr %0, i64 %.pre-phi
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.pre-phi
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %6, align 4
   store i32 %21, ptr %22, align 4
@@ -2213,7 +2213,7 @@ define void @Abc_ZddComb2Perm(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2223,7 +2223,7 @@ define void @Abc_ZddComb2Perm(ptr nocapture noundef readonly %0, i32 noundef %1,
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %.lr.ph23
   %indvars.iv25 = phi i64 [ %7, %.lr.ph23.preheader ], [ %indvars.iv.next26, %.lr.ph23 ]
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next26
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next26
   %11 = load i32, ptr %10, align 4
   %12 = ashr i32 %11, 16
   %13 = sext i32 %12 to i64
@@ -2231,13 +2231,13 @@ define void @Abc_ZddComb2Perm(ptr nocapture noundef readonly %0, i32 noundef %1,
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %11, 65535
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %14, align 4
   %20 = load i32, ptr %10, align 4
   %21 = and i32 %20, 65535
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %22
   store i32 %15, ptr %23, align 4
   %24 = icmp samesign ugt i64 %indvars.iv25, 1
   br i1 %24, label %.lr.ph23, label %._crit_edge, !llvm.loop !19
@@ -2256,7 +2256,7 @@ define void @Abc_ZddPermCombTest() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %3 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2270,7 +2270,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 .lr.ph.i6:                                        ; preds = %23, %Abc_ZddPermPrint.exit
   %indvars.iv.i7 = phi i64 [ 0, %Abc_ZddPermPrint.exit ], [ %indvars.iv.next.i9, %23 ]
   %.02629.i = phi i32 [ 0, %Abc_ZddPermPrint.exit ], [ %.1.i, %23 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i7
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i7
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %.not.i = icmp eq i64 %indvars.iv.i7, %8
@@ -2283,7 +2283,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 
 9:                                                ; preds = %.preheader.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next32.i
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next32.i
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = icmp eq i64 %indvars.iv.i7, %12
@@ -2304,7 +2304,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %19 = sext i32 %.02629.i to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %17, ptr %20, align 4
-  %21 = getelementptr inbounds i32, ptr %1, i64 %.pre-phi.i
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi.i
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %6, align 4
   store i32 %7, ptr %21, align 4
@@ -2334,7 +2334,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %23
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i13, %.lr.ph.i11 ]
-  %28 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i12
+  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i12
   %29 = load i32, ptr %28, align 4
   %30 = ashr i32 %29, 16
   %31 = and i32 %29, 65535
@@ -2357,7 +2357,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i11, %.threa
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %Abc_ZddCombPrint.exit
   %indvars.iv.i17 = phi i64 [ 0, %Abc_ZddCombPrint.exit ], [ %indvars.iv.next.i18, %.lr.ph.i16 ]
-  %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i17
+  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i17
   %36 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   store i32 %36, ptr %35, align 4
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -2367,7 +2367,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i11, %.threa
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
   %indvars.iv25.i = phi i64 [ %34, %.lr.ph23.preheader.i ], [ %indvars.iv.next26.i, %.lr.ph23.i ]
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
-  %37 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next26.i
+  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next26.i
   %38 = load i32, ptr %37, align 4
   %39 = ashr i32 %38, 16
   %40 = sext i32 %39 to i64
@@ -2375,7 +2375,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i11, %.threa
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %38, 65535
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %44
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %41, align 4
   store i32 %42, ptr %45, align 4
@@ -2388,7 +2388,7 @@ Abc_ZddComb2Perm.exit:                            ; preds = %.lr.ph23.i, %.prehe
 
 .lr.ph.i23:                                       ; preds = %.lr.ph.i23, %Abc_ZddComb2Perm.exit
   %indvars.iv.i24 = phi i64 [ 0, %Abc_ZddComb2Perm.exit ], [ %indvars.iv.next.i25, %.lr.ph.i23 ]
-  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i24
+  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i24
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %49)
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
@@ -2425,16 +2425,16 @@ tailrecurse:                                      ; preds = %52, %4
   br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
   %wide.trip.count = zext i32 %indvars.iv53 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next51, %14 ]
-  %15 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv50
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv50
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %11, i64 %17
@@ -2443,7 +2443,7 @@ tailrecurse:                                      ; preds = %52, %4
   %21 = getelementptr inbounds i32, ptr %13, i64 %17
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, %20
-  %24 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %indvars.iv50
+  %24 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %indvars.iv50
   store i32 %23, ptr %24, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
@@ -2463,7 +2463,7 @@ tailrecurse:                                      ; preds = %52, %4
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
   %29 = ashr i32 %28, 16
   %30 = and i32 %28, 65535
@@ -2474,7 +2474,7 @@ tailrecurse:                                      ; preds = %52, %4
 
 Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_edge.thread, %.thread.i
   %putchar.i = tail call i32 @putchar(i32 10)
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.preheader.i30, label %.preheader.i
@@ -2492,7 +2492,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i30
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.preheader.i30 ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
-  %36 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i33
+  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i33
   %37 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   store i32 %37, ptr %36, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
@@ -2502,7 +2502,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
   %indvars.iv25.i = phi i64 [ %35, %.lr.ph23.preheader.i ], [ %indvars.iv.next26.i, %.lr.ph23.i ]
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
-  %38 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next26.i
+  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next26.i
   %39 = load i32, ptr %38, align 4
   %40 = ashr i32 %39, 16
   %41 = sext i32 %40 to i64
@@ -2510,7 +2510,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %39, 65535
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %42, align 4
   store i32 %43, ptr %46, align 4
@@ -2527,7 +2527,7 @@ Abc_ZddComb2Perm.exit:                            ; preds = %.lr.ph23.i, %.prehe
 
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i41, %.lr.ph.i39 ]
-  %49 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i40
+  %49 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i40
   %50 = load i32, ptr %49, align 4
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %50)
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
@@ -2542,7 +2542,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i39, %Abc_Zd
   %.val = load ptr, ptr %7, align 8
   %53 = sext i32 %.tr43 to i64
   %54 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = trunc nsw i64 %indvars.iv to i32
   tail call void @Abc_ZddPrint_rec(ptr noundef %0, i32 noundef %56, ptr noundef %2, i32 noundef %57)
@@ -2550,7 +2550,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i39, %Abc_Zd
   %59 = and i32 %58, 2147483647
   %60 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %54, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %62 = load i32, ptr %61, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars.iv.next54 = add i32 %indvars.iv53, 1
@@ -2581,24 +2581,24 @@ define void @Abc_ZddPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 define void @Abc_ZddPrintTest(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca [3 x [5 x i32]], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %2, ptr noundef nonnull align 16 dereferenceable(60) @__const.Abc_ZddPrintTest.pSets, i64 60, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %1, %Abc_ZddBuildSet.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %Abc_ZddBuildSet.exit ]
   %.027 = phi i32 [ 0, %1 ], [ %88, %Abc_ZddBuildSet.exit ]
-  %10 = getelementptr inbounds [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
   %putchar.i = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2618,7 +2618,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next30.i.i, %.lr.ph.i.i ]
   %.024.i.i = phi i32 [ %14, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %15 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv29.i.i
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv29.i.i
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %.024.i.i to i64
   %18 = getelementptr inbounds i32, ptr %10, i64 %17
@@ -2632,7 +2632,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
-  %22 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv32.i.i
+  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv32.i.i
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %spec.select.i.i to i64
   %25 = getelementptr inbounds i32, ptr %10, i64 %24
@@ -2647,7 +2647,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %Abc_ZddUniqueCreate.exit ], [ 5, %._crit_edge.i.i ]
   %.011.i = phi i32 [ %.035.i, %Abc_ZddUniqueCreate.exit ], [ 1, %._crit_edge.i.i ]
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i18, -1
-  %27 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i19
+  %27 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i19
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %.011.i, 0
   br i1 %29, label %Abc_ZddUniqueCreate.exit, label %30
@@ -2660,7 +2660,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   %35 = load i32, ptr %4, align 8
   %36 = and i32 %35, %34
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %37
   %39 = load i32, ptr %38, align 4
   %.not41.i = icmp eq i32 %39, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i20
@@ -2679,13 +2679,13 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %44, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, %.011.i
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %44, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %Abc_ZddUniqueCreate.exit, label %56
@@ -2781,7 +2781,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #5 {
   %3 = tail call ptr @Abc_ZddManAlloc(i32 noundef %.val53, i32 noundef 16777216)
   tail call void @Gia_ManFillValue(ptr noundef %0) #21
   %4 = getelementptr i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val69 = load i32, ptr %7, align 4
@@ -2804,7 +2804,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #5 {
   %indvars.iv94 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val57.val = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds i32, ptr %.val57.val, i64 %indvars.iv94
+  %11 = getelementptr inbounds nuw i32, ptr %.val57.val, i64 %indvars.iv94
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = add nsw i32 %12, 2
@@ -2821,7 +2821,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #5 {
 .critedge:                                        ; preds = %.lr.ph96, %.lr.ph, %.lr.ph.preheader, %1
   %.val.lcssa = phi i32 [ %.val69, %1 ], [ %.val69, %.lr.ph.preheader ], [ %.val, %.lr.ph ], [ %.val, %.lr.ph96 ]
   %20 = load i32, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val.i = load i32, ptr %23, align 4
@@ -2832,7 +2832,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #5 {
   %28 = add i32 %26, -1
   %or.cond.i = icmp ult i32 %28, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %26
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %29, align 4
   store i32 %spec.store.select.i, ptr %27, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -2846,7 +2846,7 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #5 {
 
 Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %34 = phi ptr [ %33, %30 ], [ null, %.critedge ]
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %34, ptr %35, align 8
   %36 = icmp sgt i32 %20, 0
   br i1 %36, label %.lr.ph75, label %.critedge4
@@ -2855,7 +2855,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %37 = phi i32 [ %85, %84 ], [ %20, %Vec_IntAlloc.exit ]
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %84 ], [ 0, %Vec_IntAlloc.exit ]
   %.val54 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %indvars.iv84
+  %38 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val54, i64 %indvars.iv84
   %.not49 = icmp eq ptr %.val54, null
   br i1 %.not49, label %.critedge2, label %39
 
@@ -2881,7 +2881,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %53 = trunc i64 %indvars.iv84 to i32
   %54 = add i32 %53, 2
   %55 = tail call i32 @Abc_ZddUnion(ptr noundef %3, i32 noundef %52, i32 noundef %54)
-  %56 = getelementptr inbounds i8, ptr %38, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %55, ptr %56, align 4
   %57 = load i32, ptr %29, align 4
   %58 = load i32, ptr %27, align 8
@@ -2964,7 +2964,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %101 ], [ 0, %.critedge2 ]
   %.078 = phi i32 [ %.1, %101 ], [ 0, %.critedge2 ]
   %.val55 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %indvars.iv87
+  %91 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val55, i64 %indvars.iv87
   %.not50 = icmp eq ptr %.val55, null
   br i1 %.not50, label %.critedge4, label %92
 
@@ -2978,7 +2978,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %narrow.i63.not, label %101, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %91, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call i32 @Abc_ZddCountPaths(ptr noundef %3, i32 noundef %98)
   %100 = add nsw i32 %99, %.078
@@ -3007,7 +3007,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.023.i = phi i32 [ %110, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %107 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw i32, ptr %.val19.i, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4
   %109 = tail call i32 @Abc_ZddCount_rec(ptr noundef readonly %3, i32 noundef %108)
   %110 = add nsw i32 %109, %.023.i
@@ -3017,7 +3017,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.critedge.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %111 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv28.i
+  %111 = getelementptr inbounds nuw i32, ptr %.val19.i, i64 %indvars.iv28.i
   %112 = load i32, ptr %111, align 4
   tail call void @Abc_ZddUnmark_rec(ptr noundef readonly %3, i32 noundef %112)
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
@@ -3053,23 +3053,23 @@ define void @Abc_ZddPermTestInt(ptr noundef %0) local_unnamed_addr #5 {
 .preheader:                                       ; preds = %Abc_ZddPermPrint.exit
   %4 = getelementptr i8, ptr %0, i64 12
   %5 = getelementptr i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %17
 
 12:                                               ; preds = %1, %Abc_ZddPermPrint.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %Abc_ZddPermPrint.exit ]
-  %13 = getelementptr inbounds [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv
   %putchar.i = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3087,13 +3087,13 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
   %.04292 = phi i32 [ 0, %.preheader ], [ %139, %Abc_ZddBuildSet.exit ]
   %18 = trunc nuw nsw i64 %indvars.iv104 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %18)
-  %20 = getelementptr inbounds [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv104
+  %20 = getelementptr inbounds nuw [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv104
   %putchar.i49 = tail call i32 @putchar(i32 123)
   br label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %17
   %indvars.iv.i51 = phi i64 [ 0, %17 ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.i51
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i51
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %22)
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
@@ -3107,7 +3107,7 @@ Abc_ZddPermPrint.exit55:                          ; preds = %.lr.ph.i50
 .lr.ph.i56:                                       ; preds = %41, %Abc_ZddPermPrint.exit55
   %indvars.iv.i57 = phi i64 [ 0, %Abc_ZddPermPrint.exit55 ], [ %indvars.iv.next.i59, %41 ]
   %.02629.i = phi i32 [ 0, %Abc_ZddPermPrint.exit55 ], [ %.1.i, %41 ]
-  %24 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.i57
+  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i57
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %.not.i = icmp eq i64 %indvars.iv.i57, %26
@@ -3120,7 +3120,7 @@ Abc_ZddPermPrint.exit55:                          ; preds = %.lr.ph.i50
 
 27:                                               ; preds = %.preheader.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %28 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv.next32.i
+  %28 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.next32.i
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = icmp eq i64 %indvars.iv.i57, %30
@@ -3141,7 +3141,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %37 = sext i32 %.02629.i to i64
   %38 = getelementptr inbounds i32, ptr %3, i64 %37
   store i32 %35, ptr %38, align 4
-  %39 = getelementptr inbounds i32, ptr %20, i64 %.pre-phi.i
+  %39 = getelementptr inbounds nuw i32, ptr %20, i64 %.pre-phi.i
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %24, align 4
   store i32 %25, ptr %39, align 4
@@ -3171,7 +3171,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %41
 
 .lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i63, %.lr.ph.i61 ]
-  %46 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i62
+  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i62
   %47 = load i32, ptr %46, align 4
   %48 = ashr i32 %47, 16
   %49 = and i32 %47, 65535
@@ -3195,7 +3195,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i61
 
 51:                                               ; preds = %Abc_ZddCombPrint.exit, %51
   %indvars.iv99 = phi i64 [ 0, %Abc_ZddCombPrint.exit ], [ %indvars.iv.next100, %51 ]
-  %52 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv99
+  %52 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv99
   %53 = load i32, ptr %52, align 4
   %54 = ashr i32 %53, 16
   %55 = and i32 %53, 65535
@@ -3216,7 +3216,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i61
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69, %._crit_edge
   %indvars.iv.i70 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i71, %.lr.ph.i69 ]
-  %61 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i70
+  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i70
   %62 = load i32, ptr %61, align 4
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %62)
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
@@ -3242,7 +3242,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next30.i.i, %.lr.ph.i.i ]
   %.024.i.i = phi i32 [ %65, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %66 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv29.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv29.i.i
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %.024.i.i to i64
   %69 = getelementptr inbounds i32, ptr %3, i64 %68
@@ -3256,7 +3256,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
-  %73 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv32.i.i
+  %73 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32.i.i
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %spec.select.i.i to i64
   %76 = getelementptr inbounds i32, ptr %3, i64 %75
@@ -3274,7 +3274,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i77, %Abc_ZddUniqueCreate.exit ], [ %wide.trip.count.i68, %.lr.ph.i75.preheader ]
   %.011.i = phi i32 [ %.035.i, %Abc_ZddUniqueCreate.exit ], [ 1, %.lr.ph.i75.preheader ]
   %indvars.iv.next.i77 = add nsw i64 %indvars.iv.i76, -1
-  %78 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i77
+  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i77
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %.011.i, 0
   br i1 %80, label %Abc_ZddUniqueCreate.exit, label %81
@@ -3287,7 +3287,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
   %86 = load i32, ptr %7, align 8
   %87 = and i32 %86, %85
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %82, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %82, i64 %88
   %90 = load i32, ptr %89, align 4
   %.not41.i = icmp eq i32 %90, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i81
@@ -3306,13 +3306,13 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
   br i1 %98, label %99, label %107
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %95, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, %.011.i
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %95, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %Abc_ZddUniqueCreate.exit, label %107
@@ -3430,22 +3430,22 @@ Abc_ZddPrint.exit80:                              ; preds = %Abc_ZddPrint.exit, 
 ; Function Attrs: nounwind uwtable
 define void @Abc_ZddPermTest() local_unnamed_addr #5 {
   %1 = tail call ptr @Abc_ZddManAlloc(i32 noundef 10, i32 noundef 1048576)
-  %2 = getelementptr inbounds i8, ptr %1, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %2, align 4
   %3 = load i32, ptr %1, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #20
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 -1, i64 %5, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %6, ptr %7, align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %5) #20
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 -1, i64 %5, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %8, ptr %9, align 8
   %10 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %10, i8 -1, i64 100, i1 false)
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %10, ptr %11, align 8
   br label %.lr.ph37.i
 
@@ -3480,7 +3480,7 @@ define void @Abc_ZddPermTest() local_unnamed_addr #5 {
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %19 = add nuw nsw i32 %16, %.02933.i
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %20
   %22 = trunc nsw i64 %indvars.iv.i to i32
   store i32 %22, ptr %21, align 4
   %23 = add nuw nsw i32 %.02933.i, 1
@@ -3509,7 +3509,7 @@ define void @Abc_EnumerateCubeStatesZdd() local_unnamed_addr #5 {
 9:                                                ; preds = %0
   %10 = load i64, ptr %4, align 8
   %11 = mul nsw i64 %10, 1000000
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = sdiv i64 %13, 1000
   %15 = add nsw i64 %14, %11
@@ -3520,22 +3520,22 @@ Abc_Clock.exit:                                   ; preds = %0, %9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   %16 = call ptr @Abc_ZddManAlloc(i32 noundef 276, i32 noundef 134217728)
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 24, ptr %17, align 4
   %18 = load i32, ptr %16, align 8
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   %21 = call noalias ptr @malloc(i64 noundef %20) #20
   call void @llvm.memset.p0.i64(ptr align 1 %21, i8 -1, i64 %20, i1 false)
-  %22 = getelementptr inbounds i8, ptr %16, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %21, ptr %22, align 8
   %23 = call noalias ptr @malloc(i64 noundef %20) #20
   call void @llvm.memset.p0.i64(ptr align 1 %23, i8 -1, i64 %20, i1 false)
-  %24 = getelementptr inbounds i8, ptr %16, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr %23, ptr %24, align 8
   %25 = call noalias dereferenceable_or_null(2304) ptr @malloc(i64 noundef 2304) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2304) %25, i8 -1, i64 2304, i1 false)
-  %26 = getelementptr inbounds i8, ptr %16, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %25, ptr %26, align 8
   br label %.lr.ph37.i
 
@@ -3591,7 +3591,7 @@ Abc_ZddManCreatePerms.exit:                       ; preds = %.loopexit.i
 44:                                               ; preds = %Abc_ZddManCreatePerms.exit
   %45 = load i64, ptr %3, align 8
   %46 = mul nsw i64 %45, 1000000
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = sdiv i64 %48, 1000
   %50 = add nsw i64 %49, %46
@@ -3605,12 +3605,12 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
   %52 = sitofp i64 %51 to double
   %53 = fdiv double %52, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %53)
-  %54 = getelementptr inbounds i8, ptr %16, i64 24
-  %55 = getelementptr inbounds i8, ptr %16, i64 16
-  %56 = getelementptr inbounds i8, ptr %16, i64 48
-  %57 = getelementptr inbounds i8, ptr %16, i64 32
-  %58 = getelementptr inbounds i8, ptr %16, i64 4
-  %59 = getelementptr inbounds i8, ptr %16, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %.preheader89
 
 .preheader89:                                     ; preds = %Abc_Clock.exit71, %Abc_ZddBuildSet.exit
@@ -3620,7 +3620,7 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
 
 60:                                               ; preds = %.preheader89, %60
   %indvars.iv = phi i64 [ 0, %.preheader89 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %indvars.iv
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %62, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3629,13 +3629,13 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
 
 .preheader:                                       ; preds = %60, %.preheader
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.preheader ], [ 0, %60 ]
-  %63 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStatesZdd.pXYZ, i64 0, i64 %indvars.iv114, i64 %indvars.iv106
+  %63 = getelementptr inbounds nuw [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStatesZdd.pXYZ, i64 0, i64 %indvars.iv114, i64 %indvars.iv106
   %64 = load i32, ptr %63, align 8
   %65 = add nsw i32 %64, -1
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %63, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, -1
   %72 = sext i32 %71 to i64
@@ -3650,7 +3650,7 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
 .lr.ph.i73:                                       ; preds = %.preheader, %92
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i76, %92 ], [ 0, %.preheader ]
   %.02629.i = phi i32 [ %.1.i, %92 ], [ 0, %.preheader ]
-  %75 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i74
+  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i74
   %76 = load i32, ptr %75, align 4
   %77 = zext i32 %76 to i64
   %.not.i = icmp eq i64 %indvars.iv.i74, %77
@@ -3663,7 +3663,7 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
 
 78:                                               ; preds = %.preheader.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %79 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next32.i
+  %79 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next32.i
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %80 to i64
   %82 = icmp eq i64 %indvars.iv.i74, %81
@@ -3684,7 +3684,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %88 = sext i32 %.02629.i to i64
   %89 = getelementptr inbounds i32, ptr %5, i64 %88
   store i32 %86, ptr %89, align 4
-  %90 = getelementptr inbounds i32, ptr %6, i64 %.pre-phi.i
+  %90 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi.i
   %91 = load i32, ptr %90, align 4
   store i32 %91, ptr %75, align 4
   store i32 %76, ptr %90, align 4
@@ -3703,7 +3703,7 @@ Abc_ZddPerm2Comb.exit.preheader:                  ; preds = %92
 
 Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.exit.preheader, %Abc_ZddPerm2Comb.exit
   %indvars.iv110 = phi i64 [ 0, %Abc_ZddPerm2Comb.exit.preheader ], [ %indvars.iv.next111, %Abc_ZddPerm2Comb.exit ]
-  %93 = getelementptr inbounds [9 x i32], ptr %5, i64 0, i64 %indvars.iv110
+  %93 = getelementptr inbounds nuw [9 x i32], ptr %5, i64 0, i64 %indvars.iv110
   %94 = load i32, ptr %93, align 4
   %95 = ashr i32 %94, 16
   %96 = and i32 %94, 65535
@@ -3726,7 +3726,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next30.i.i, %.lr.ph.i.i ]
   %.024.i.i = phi i32 [ %102, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %103 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv29.i.i
+  %103 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv29.i.i
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %.024.i.i to i64
   %106 = getelementptr inbounds i32, ptr %5, i64 %105
@@ -3740,7 +3740,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
-  %110 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv32.i.i
+  %110 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv32.i.i
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %spec.select.i.i to i64
   %113 = getelementptr inbounds i32, ptr %5, i64 %112
@@ -3755,7 +3755,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %Abc_ZddUniqueCreate.exit ], [ 9, %._crit_edge.i.i ]
   %.011.i = phi i32 [ %.035.i, %Abc_ZddUniqueCreate.exit ], [ 1, %._crit_edge.i.i ]
   %indvars.iv.next.i80 = add nsw i64 %indvars.iv.i79, -1
-  %115 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i80
+  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i80
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %.011.i, 0
   br i1 %117, label %Abc_ZddUniqueCreate.exit, label %118
@@ -3768,7 +3768,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   %123 = load i32, ptr %55, align 8
   %124 = and i32 %123, %122
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %119, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %119, i64 %125
   %127 = load i32, ptr %126, align 4
   %.not41.i = icmp eq i32 %127, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i85
@@ -3787,13 +3787,13 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   br i1 %135, label %136, label %144
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %132, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, %.011.i
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %132, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %Abc_ZddUniqueCreate.exit, label %144
@@ -3878,7 +3878,7 @@ Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate
 188:                                              ; preds = %181
   %189 = load i64, ptr %2, align 8
   %190 = mul nsw i64 %189, 1000000
-  %191 = getelementptr inbounds i8, ptr %2, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %192 = load i64, ptr %191, align 8
   %193 = sdiv i64 %192, 1000
   %194 = add nsw i64 %193, %190
@@ -3892,7 +3892,7 @@ Abc_Clock.exit82:                                 ; preds = %181, %188
   %196 = sitofp i64 %195 to double
   %197 = fdiv double %196, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %197)
-  %198 = getelementptr inbounds i8, ptr %1, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %199
 
 199:                                              ; preds = %Abc_Clock.exit84, %Abc_Clock.exit82

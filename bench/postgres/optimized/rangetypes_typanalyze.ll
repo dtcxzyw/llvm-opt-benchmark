@@ -10,10 +10,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @range_typanalyze(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @getBaseType(i32 noundef %6) #4
   %8 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %7) #4
@@ -28,12 +28,12 @@ define dso_local noundef i64 @range_typanalyze(ptr noundef %0) local_unnamed_add
 
 13:                                               ; preds = %11, %1
   %14 = phi i32 [ %12, %11 ], [ %9, %1 ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @compute_range_stats, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %8, ptr %16, align 8
   %17 = mul i32 %14, 300
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %17, ptr %18, align 8
   ret i64 1
 }
@@ -49,23 +49,23 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   %7 = alloca %struct.RangeBound, align 8
   %8 = alloca %struct.RangeBound, align 8
   %9 = alloca %struct.RangeBound, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 13
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 13
   %14 = load i8, ptr %13, align 1
   %.not222 = icmp eq i8 %14, 109
   br i1 %.not222, label %15, label %18
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %11, i64 440
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 440
   %17 = load ptr, ptr %16, align 8
   br label %18
 
 18:                                               ; preds = %4, %15
   %.0 = phi ptr [ %17, %15 ], [ %11, %4 ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 392
-  %20 = getelementptr inbounds i8, ptr %.0, i64 400
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 392
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 400
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   %22 = sext i32 %2 to i64
@@ -78,9 +78,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %28, label %.lr.ph, label %.thread259
 
 .lr.ph:                                           ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %.0, i64 292
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 292
   br label %32
 
 32:                                               ; preds = %.lr.ph, %94
@@ -107,7 +107,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %39, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %44 = load i8, ptr %43, align 1
   %.off = add i8 %44, -1
   %switch = icmp ult i8 %.off, 3
@@ -146,7 +146,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not222, label %64, label %70
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread251, label %.thread252
@@ -227,24 +227,24 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %97, label %98, label %188
 
 98:                                               ; preds = %._crit_edge
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %99, align 8
   %100 = sitofp i32 %.1187 to double
   %101 = sitofp i32 %2 to double
   %102 = fdiv double %100, %101
   %103 = fptrunc double %102 to float
-  %104 = getelementptr inbounds i8, ptr %0, i64 68
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %103, ptr %104, align 4
   %105 = uitofp nneg i32 %.1190 to double
   %106 = fdiv double %.1198, %105
   %107 = fptosi double %106 to i32
-  %108 = getelementptr inbounds i8, ptr %0, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %107, ptr %108, align 8
   %109 = fsub float 1.000000e+00, %103
   %110 = fneg float %109
-  %111 = getelementptr inbounds i8, ptr %0, i64 76
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float %110, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %113, ptr @CurrentMemoryContext, align 8
@@ -295,27 +295,27 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %exitcond245.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !7
 
 ._crit_edge238:                                   ; preds = %.lr.ph237, %116
-  %138 = getelementptr inbounds i8, ptr %0, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i16 7, ptr %138, align 2
-  %139 = getelementptr inbounds i8, ptr %0, i64 216
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %122, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 192
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %spec.select, ptr %140, align 4
   %141 = load i32, ptr %.0, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 256
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 %141, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %.0, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %144 = load i16, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 276
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i16 %144, ptr %145, align 2
-  %146 = getelementptr inbounds i8, ptr %.0, i64 10
+  %146 = getelementptr inbounds nuw i8, ptr %.0, i64 10
   %147 = load i8, ptr %146, align 2
-  %148 = getelementptr inbounds i8, ptr %0, i64 286
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 286
   %149 = and i8 %147, 1
   store i8 %149, ptr %148, align 1
-  %150 = getelementptr inbounds i8, ptr %.0, i64 11
+  %150 = getelementptr inbounds nuw i8, ptr %.0, i64 11
   %151 = load i8, ptr %150, align 1
-  %152 = getelementptr inbounds i8, ptr %0, i64 291
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 291
   store i8 %151, ptr %152, align 1
   call void @qsort_interruptible(ptr noundef %27, i64 noundef %117, i64 noundef 8, ptr noundef nonnull @float8_qsort_cmp, ptr noundef null) #4
   %153 = call ptr @palloc(i64 noundef %121) #4
@@ -353,41 +353,41 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   %.0200219 = phi i64 [ 0, %.thread ], [ 1, %._crit_edge238 ], [ 1, %.lr.ph243 ]
   %.2203 = phi i32 [ 0, %.thread ], [ %spec.select, %._crit_edge238 ], [ %spec.select, %.lr.ph243 ]
   %.0185 = phi ptr [ %162, %.thread ], [ %153, %._crit_edge238 ], [ %153, %.lr.ph243 ]
-  %163 = getelementptr inbounds i8, ptr %0, i64 92
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %164 = getelementptr [5 x i32], ptr %163, i64 0, i64 %.0200219
   store i32 672, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %0, i64 112
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %166 = getelementptr [5 x i32], ptr %165, i64 0, i64 %.0200219
   store i32 0, ptr %166, align 4
-  %167 = getelementptr inbounds i8, ptr %0, i64 216
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %168 = getelementptr [5 x ptr], ptr %167, i64 0, i64 %.0200219
   store ptr %.0185, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 192
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %170 = getelementptr [5 x i32], ptr %169, i64 0, i64 %.0200219
   store i32 %.2203, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %0, i64 256
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %172 = getelementptr [5 x i32], ptr %171, i64 0, i64 %.0200219
   store i32 701, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %0, i64 276
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %174 = getelementptr [5 x i16], ptr %173, i64 0, i64 %.0200219
   store i16 8, ptr %174, align 2
-  %175 = getelementptr inbounds i8, ptr %0, i64 286
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 286
   %176 = getelementptr [5 x i8], ptr %175, i64 0, i64 %.0200219
   store i8 1, ptr %176, align 1
-  %177 = getelementptr inbounds i8, ptr %0, i64 291
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 291
   %178 = getelementptr [5 x i8], ptr %177, i64 0, i64 %.0200219
   store i8 100, ptr %178, align 1
   %179 = call ptr @palloc(i64 noundef 4) #4
   %180 = fdiv double %96, %105
   %181 = fptrunc double %180 to float
   store float %181, ptr %179, align 4
-  %182 = getelementptr inbounds i8, ptr %0, i64 152
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %183 = getelementptr [5 x ptr], ptr %182, i64 0, i64 %.0200219
   store ptr %179, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 132
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %185 = getelementptr [5 x i32], ptr %184, i64 0, i64 %.0200219
   store i32 1, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %0, i64 80
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %187 = getelementptr [5 x i16], ptr %186, i64 0, i64 %.0200219
   store i16 6, ptr %187, align 2
   store ptr %114, ptr @CurrentMemoryContext, align 8
@@ -398,13 +398,13 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %189, label %190, label %.thread259
 
 190:                                              ; preds = %188
-  %191 = getelementptr inbounds i8, ptr %0, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 68
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float 1.000000e+00, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %0, i64 72
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 76
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 0.000000e+00, ptr %194, align 4
   br label %.thread259
 
@@ -414,10 +414,10 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @multirange_typanalyze(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @getBaseType(i32 noundef %6) #4
   %8 = tail call ptr @multirange_get_typcache(ptr noundef %0, i32 noundef %7) #4
@@ -432,12 +432,12 @@ define dso_local noundef i64 @multirange_typanalyze(ptr noundef %0) local_unname
 
 13:                                               ; preds = %11, %1
   %14 = phi i32 [ %12, %11 ], [ %9, %1 ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @compute_range_stats, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %8, ptr %16, align 8
   %17 = mul i32 %14, 300
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %17, ptr %18, align 8
   ret i64 1
 }

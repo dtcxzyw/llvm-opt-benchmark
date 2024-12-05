@@ -54,14 +54,14 @@ if.end5:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end5
-  %add.ptr.i = getelementptr inbounds i8, ptr %pattern.sroa.12.094, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pattern.sroa.12.094, i64 1
   %sub.i = add i64 %pattern.sroa.0.095, -1
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end5
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %pattern.sroa.12.094, i64 1
+  %add.ptr.i9 = getelementptr inbounds nuw i8, ptr %pattern.sroa.12.094, i64 1
   %sub.i10 = add i64 %pattern.sroa.0.095, -1
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %str.sroa.10.096, i64 1
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %str.sroa.10.096, i64 1
   %sub.i13 = add i64 %str.sroa.0.097, -1
   br label %sw.epilog
 
@@ -125,7 +125,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   br i1 %cmp16.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i.i23, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i23, i64 1
   %sub.ptr.rhs.cast21.i.i = ptrtoint ptr %incdec.ptr.i.i to i64
   %sub.ptr.sub22.i.i = sub i64 %sub.ptr.lhs.cast20.i.i, %sub.ptr.rhs.cast21.i.i
   %cmp11.not.i.i = icmp ult i64 %sub.ptr.sub22.i.i, %fixed_portion.sroa.0.0
@@ -153,9 +153,9 @@ if.else:                                          ; preds = %sw.default
   br i1 %cmp25.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.else
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %pattern.sroa.12.094, i64 1
+  %add.ptr.i34 = getelementptr inbounds nuw i8, ptr %pattern.sroa.12.094, i64 1
   %sub.i35 = add i64 %pattern.sroa.0.095, -1
-  %add.ptr.i37 = getelementptr inbounds i8, ptr %str.sroa.10.096, i64 1
+  %add.ptr.i37 = getelementptr inbounds nuw i8, ptr %str.sroa.10.096, i64 1
   %sub.i38 = add i64 %str.sroa.0.097, -1
   br label %sw.epilog
 

@@ -28,17 +28,17 @@ define internal void @lv_chart_constructor(ptr nocapture readnone %0, ptr nounde
   store i32 0, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 0, ptr %6, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %1, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 0, ptr %7, align 4, !tbaa !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 132
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 100, ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 100, ptr %10, align 8, !tbaa !3
-  %11 = getelementptr inbounds i8, ptr %1, i64 124
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 100, ptr %11, align 4, !tbaa !3
-  %12 = getelementptr inbounds i8, ptr %1, i64 140
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 100, ptr %12, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i32 3, ptr %13, align 4, !tbaa !7
@@ -1019,9 +1019,9 @@ define void @lv_chart_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %20
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 116
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %2, ptr %12, align 4, !tbaa !3
-  %13 = getelementptr inbounds i8, ptr %0, i64 124
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %7, ptr %13, align 4, !tbaa !3
   br label %20
 
@@ -1033,9 +1033,9 @@ define void @lv_chart_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %20
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %2, ptr %18, align 4, !tbaa !3
-  %19 = getelementptr inbounds i8, ptr %0, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %7, ptr %19, align 4, !tbaa !3
   br label %20
 
@@ -2164,11 +2164,11 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 
 12:                                               ; preds = %2
   %.sroa.0.0.copyload = load i32, ptr %10, align 4, !tbaa !3
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !3
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 36
+  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.5107.0.copyload = load i32, ptr %.sroa.5107.0..sroa_idx, align 4, !tbaa !3
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 156

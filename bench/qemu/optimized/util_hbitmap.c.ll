@@ -74,7 +74,7 @@ entry:
   %1 = load ptr, ptr %hbi, align 8
   %arrayidx2 = getelementptr i8, ptr %1, i64 88
   %2 = load ptr, ptr %arrayidx2, align 8
-  %pos = getelementptr inbounds i8, ptr %hbi, i64 16
+  %pos = getelementptr inbounds nuw i8, ptr %hbi, i64 16
   %3 = load i64, ptr %pos, align 8
   %arrayidx3 = getelementptr i64, ptr %2, i64 %3
   %4 = load i64, ptr %arrayidx3, align 8
@@ -100,7 +100,7 @@ if.end6:                                          ; preds = %if.then.if.end6_cri
   %shl = shl i64 %5, 6
   %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %cur.0, i1 true)
   %add = or disjoint i64 %shl, %6
-  %granularity = getelementptr inbounds i8, ptr %hbi, i64 8
+  %granularity = getelementptr inbounds nuw i8, ptr %hbi, i64 8
   %7 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %7 to i64
   %shl12 = shl i64 %add, %sh_prom
@@ -115,11 +115,11 @@ return:                                           ; preds = %if.then, %if.end6
 define internal fastcc i64 @hbitmap_iter_skip_words(ptr noundef %hbi) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %pos1 = getelementptr inbounds i8, ptr %hbi, i64 16
+  %pos1 = getelementptr inbounds nuw i8, ptr %hbi, i64 16
   %0 = load i64, ptr %pos1, align 8
   %1 = load ptr, ptr %hbi, align 8
-  %cur3 = getelementptr inbounds i8, ptr %hbi, i64 24
-  %levels = getelementptr inbounds i8, ptr %1, i64 40
+  %cur3 = getelementptr inbounds nuw i8, ptr %hbi, i64 24
+  %levels = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -209,7 +209,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %1, ptr noundef nonnull %hbi, i64 noundef %pos.1.lcssa, i64 noundef %cur.0.lcssa) #12
   br label %trace_hbitmap_iter_skip_words.exit
@@ -236,11 +236,11 @@ return:                                           ; preds = %trace_hbitmap_iter_
 define dso_local void @hbitmap_iter_init(ptr nocapture noundef writeonly initializes((0, 8)) %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
 entry:
   store ptr %hb, ptr %hbi, align 8
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %first, %sh_prom
-  %size = getelementptr inbounds i8, ptr %hb, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp = icmp ult i64 %shr, %1
   br i1 %cmp, label %if.end, label %if.else
@@ -251,13 +251,13 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %shr2 = lshr i64 %shr, 6
-  %pos3 = getelementptr inbounds i8, ptr %hbi, i64 16
+  %pos3 = getelementptr inbounds nuw i8, ptr %hbi, i64 16
   store i64 %shr2, ptr %pos3, align 8
   %2 = load i32, ptr %granularity, align 8
-  %granularity5 = getelementptr inbounds i8, ptr %hbi, i64 8
+  %granularity5 = getelementptr inbounds nuw i8, ptr %hbi, i64 8
   store i32 %2, ptr %granularity5, align 8
-  %levels = getelementptr inbounds i8, ptr %hb, i64 40
-  %cur = getelementptr inbounds i8, ptr %hbi, i64 24
+  %levels = getelementptr inbounds nuw i8, ptr %hb, i64 40
+  %cur = getelementptr inbounds nuw i8, ptr %hbi, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -314,11 +314,11 @@ if.end5:                                          ; preds = %if.end
   %add = add nuw i64 %count, %start
   %cond = select i1 %cmp7, i64 %1, i64 %add
   store ptr %hb, ptr %hbi, align 8
-  %granularity.i = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity.i = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %2 = load i32, ptr %granularity.i, align 8
   %sh_prom.i = zext nneg i32 %2 to i64
   %shr.i = lshr i64 %start, %sh_prom.i
-  %size.i = getelementptr inbounds i8, ptr %hb, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %3 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %shr.i, %3
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -329,12 +329,12 @@ if.else.i:                                        ; preds = %if.end5
 
 if.end.i:                                         ; preds = %if.end5
   %shr2.i = lshr i64 %shr.i, 6
-  %pos3.i = getelementptr inbounds i8, ptr %hbi, i64 16
+  %pos3.i = getelementptr inbounds nuw i8, ptr %hbi, i64 16
   store i64 %shr2.i, ptr %pos3.i, align 8
-  %granularity5.i = getelementptr inbounds i8, ptr %hbi, i64 8
+  %granularity5.i = getelementptr inbounds nuw i8, ptr %hbi, i64 8
   store i32 %2, ptr %granularity5.i, align 8
-  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
-  %cur.i = getelementptr inbounds i8, ptr %hbi, i64 24
+  %levels.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
+  %cur.i = getelementptr inbounds nuw i8, ptr %hbi, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
@@ -360,7 +360,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp6.not.i, label %hbitmap_iter_init.exit, label %for.body.i, !llvm.loop !8
 
 hbitmap_iter_init.exit:                           ; preds = %for.body.i
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %hbi, i64 72
+  %arrayidx.i18 = getelementptr inbounds nuw i8, ptr %hbi, i64 72
   %6 = load i64, ptr %arrayidx.i18, align 8
   %7 = load ptr, ptr %hbi, align 8
   %arrayidx2.i = getelementptr i8, ptr %7, i64 88
@@ -407,7 +407,7 @@ return:                                           ; preds = %if.then.i, %hbitmap
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -1, -9223372036854775808) i64 @hbitmap_next_zero(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shr = ashr i64 %start, %sh_prom
@@ -437,7 +437,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end7
-  %size = getelementptr inbounds i8, ptr %hb, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %5 = load i64, ptr %size, align 8
   br label %cond.end
 
@@ -446,7 +446,7 @@ cond.false:                                       ; preds = %if.end7
   %sub10 = add i64 %add, %count
   %shr13 = ashr i64 %sub10, %sh_prom
   %add14 = add i64 %shr13, 1
-  %size26.phi.trans.insert = getelementptr inbounds i8, ptr %hb, i64 8
+  %size26.phi.trans.insert = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %.pre = load i64, ptr %size26.phi.trans.insert, align 8
   br label %cond.end
 
@@ -631,7 +631,7 @@ return:                                           ; preds = %if.end18, %if.end8,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hbitmap_empty(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %count = getelementptr inbounds i8, ptr %hb, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -640,7 +640,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @hbitmap_granularity(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   ret i32 %0
 }
@@ -648,9 +648,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @hbitmap_count(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %count = getelementptr inbounds i8, ptr %hb, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %hb, i64 16
   %0 = load i64, ptr %count, align 8
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %1 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %1 to i64
   %shl = shl i64 %0, %sh_prom
@@ -664,12 +664,12 @@ entry:
   %cmp = icmp eq i64 %count, 0
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br i1 %cmp, label %if.end21.split, label %tailrecurse
 
 tailrecurse:                                      ; preds = %entry, %land.lhs.true
   %hb.tr = phi ptr [ %17, %land.lhs.true ], [ %hb, %entry ]
-  %granularity = getelementptr inbounds i8, ptr %hb.tr, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb.tr, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shr = lshr i64 %start, %sh_prom
@@ -710,7 +710,7 @@ trace_hbitmap_set.exit:                           ; preds = %tailrecurse, %land.
   %7 = load i32, ptr %granularity, align 8
   %sh_prom5 = zext i32 %7 to i64
   %shr9 = lshr i64 %sub, %sh_prom5
-  %size = getelementptr inbounds i8, ptr %hb.tr, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb.tr, i64 8
   %8 = load i64, ptr %size, align 8
   %cmp10 = icmp ult i64 %shr9, %8
   br i1 %cmp10, label %if.end12, label %if.else
@@ -722,14 +722,14 @@ if.else:                                          ; preds = %trace_hbitmap_set.e
 if.end12:                                         ; preds = %trace_hbitmap_set.exit
   %shr6 = lshr i64 %start, %sh_prom5
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb.tr, i64 noundef %shr6, i64 noundef %shr9)
-  %count16 = getelementptr inbounds i8, ptr %hb.tr, i64 16
+  %count16 = getelementptr inbounds nuw i8, ptr %hb.tr, i64 16
   %9 = load i64, ptr %count16, align 8
   %.neg = add nuw i64 %shr9, 1
   %10 = add i64 %shr6, %call
   %sub15 = sub i64 %.neg, %10
   %add17 = add i64 %sub15, %9
   store i64 %add17, ptr %count16, align 8
-  %levels26.i = getelementptr inbounds i8, ptr %hb.tr, i64 40
+  %levels26.i = getelementptr inbounds nuw i8, ptr %hb.tr, i64 40
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %hb_set_elem.exit37.i, %if.end12
@@ -818,7 +818,7 @@ hb_set_between.exit:                              ; preds = %hb_set_elem.exit37.
   br i1 %current.ret.tr38.i, label %land.lhs.true, label %if.end21.split
 
 land.lhs.true:                                    ; preds = %hb_set_between.exit
-  %meta = getelementptr inbounds i8, ptr %hb.tr, i64 32
+  %meta = getelementptr inbounds nuw i8, ptr %hb.tr, i64 32
   %17 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %if.end21.split, label %tailrecurse
@@ -832,13 +832,13 @@ define internal fastcc i64 @hb_count_between(ptr noundef %hb, i64 noundef %start
 entry:
   %hbi = alloca %struct.HBitmapIter, align 8
   %add = add i64 %last, 1
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   store ptr %hb, ptr %hbi, align 8
   %1 = lshr i64 -1, %sh_prom
   %shr.i = and i64 %1, %start
-  %size.i = getelementptr inbounds i8, ptr %hb, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ult i64 %shr.i, %2
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -849,12 +849,12 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %shr2.i = lshr i64 %shr.i, 6
-  %pos3.i = getelementptr inbounds i8, ptr %hbi, i64 16
+  %pos3.i = getelementptr inbounds nuw i8, ptr %hbi, i64 16
   store i64 %shr2.i, ptr %pos3.i, align 8
-  %granularity5.i = getelementptr inbounds i8, ptr %hbi, i64 8
+  %granularity5.i = getelementptr inbounds nuw i8, ptr %hbi, i64 8
   store i32 %0, ptr %granularity5.i, align 8
-  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
-  %cur.i = getelementptr inbounds i8, ptr %hbi, i64 24
+  %levels.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
+  %cur.i = getelementptr inbounds nuw i8, ptr %hbi, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
@@ -880,7 +880,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp6.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !8
 
 for.cond.preheader:                               ; preds = %for.body.i
-  %arrayidx.i7 = getelementptr inbounds i8, ptr %hbi, i64 72
+  %arrayidx.i7 = getelementptr inbounds nuw i8, ptr %hbi, i64 72
   %shr = lshr i64 %add, 6
   %.pre = load i64, ptr %arrayidx.i7, align 8
   br label %for.cond
@@ -932,7 +932,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add = add i64 %count, %start
   %sub = add i64 %add, -1
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %cmp = icmp eq i64 %count, 0
@@ -989,7 +989,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %hb, i64 noundef %start, i64 noundef range(i64 1, 0) %count, i64 noundef %shr, i64 noundef %shr15) #12
   br label %trace_hbitmap_reset.exit
@@ -1003,7 +1003,7 @@ trace_hbitmap_reset.exit:                         ; preds = %if.end10, %land.lhs
   %9 = load i32, ptr %granularity, align 8
   %sh_prom17 = zext i32 %9 to i64
   %shr21 = lshr i64 %sub, %sh_prom17
-  %size = getelementptr inbounds i8, ptr %hb, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %10 = load i64, ptr %size, align 8
   %cmp22 = icmp ult i64 %shr21, %10
   br i1 %cmp22, label %if.end25, label %if.else24
@@ -1015,11 +1015,11 @@ if.else24:                                        ; preds = %trace_hbitmap_reset
 if.end25:                                         ; preds = %trace_hbitmap_reset.exit
   %shr18 = lshr i64 %start, %sh_prom17
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef %shr18, i64 noundef %shr21)
-  %count26 = getelementptr inbounds i8, ptr %hb, i64 16
+  %count26 = getelementptr inbounds nuw i8, ptr %hb, i64 16
   %11 = load i64, ptr %count26, align 8
   %sub27 = sub i64 %11, %call
   store i64 %sub27, ptr %count26, align 8
-  %levels22.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %levels22.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then34.i, %if.end25
@@ -1124,7 +1124,7 @@ hb_reset_between.exit:                            ; preds = %hb_reset_elem.exit3
   br i1 %current.ret.tr38.i, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %hb_reset_between.exit
-  %meta = getelementptr inbounds i8, ptr %hb, i64 32
+  %meta = getelementptr inbounds nuw i8, ptr %hb, i64 32
   %20 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %20, null
   br i1 %tobool.not, label %if.end31, label %if.then29
@@ -1140,8 +1140,8 @@ if.end31:                                         ; preds = %entry, %if.then29, 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @hbitmap_reset_all(ptr nocapture noundef %hb) local_unnamed_addr #3 {
 entry:
-  %levels = getelementptr inbounds i8, ptr %hb, i64 40
-  %sizes = getelementptr inbounds i8, ptr %hb, i64 96
+  %levels = getelementptr inbounds nuw i8, ptr %hb, i64 40
+  %sizes = getelementptr inbounds nuw i8, ptr %hb, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1159,7 +1159,7 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %2 = load ptr, ptr %levels, align 8
   store i64 -9223372036854775808, ptr %2, align 8
-  %count = getelementptr inbounds i8, ptr %hb, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %hb, i64 16
   store i64 0, ptr %count, align 8
   ret void
 }
@@ -1170,7 +1170,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @hbitmap_is_serializable(ptr nocapture noundef readonly %hb) local_unnamed_addr #2 {
 entry:
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %cmp = icmp slt i32 %0, 58
   ret i1 %cmp
@@ -1179,11 +1179,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @hbitmap_get(ptr nocapture noundef readonly %hb, i64 noundef %item) local_unnamed_addr #0 {
 entry:
-  %granularity = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %item, %sh_prom
-  %size = getelementptr inbounds i8, ptr %hb, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp = icmp ult i64 %shr, %1
   br i1 %cmp, label %if.end, label %if.else
@@ -1208,7 +1208,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @hbitmap_serialization_align(ptr nocapture noundef readonly %hb) local_unnamed_addr #0 {
 entry:
-  %granularity.i = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity.i = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity.i, align 8
   %cmp.i = icmp slt i32 %0, 58
   br i1 %cmp.i, label %if.end, label %if.else
@@ -1247,7 +1247,7 @@ define internal fastcc void @serialization_chunk(ptr nocapture noundef readonly 
 entry:
   %add = add i64 %start, -1
   %sub = add i64 %add, %count
-  %granularity.i.i = getelementptr inbounds i8, ptr %hb, i64 24
+  %granularity.i.i = getelementptr inbounds nuw i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity.i.i, align 8
   %cmp.i.i = icmp slt i32 %0, 58
   br i1 %cmp.i.i, label %hbitmap_serialization_align.exit, label %if.else.i
@@ -1270,7 +1270,7 @@ if.else:                                          ; preds = %hbitmap_serializati
 
 if.end:                                           ; preds = %hbitmap_serialization_align.exit
   %shr = lshr i64 %sub, %sh_prom.i
-  %size = getelementptr inbounds i8, ptr %hb, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %1 = load i64, ptr %size, align 8
   %cmp2 = icmp ult i64 %shr, %1
   br i1 %cmp2, label %if.end5, label %if.else4
@@ -1367,12 +1367,12 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %finish, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %while.end
-  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
+  %size1.i = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %3 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %3, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
-  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %levels.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1427,7 +1427,7 @@ hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %11 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %11, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end4
 
@@ -1438,12 +1438,12 @@ if.end4:                                          ; preds = %entry, %hbitmap_des
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hbitmap_deserialize_finish(ptr noundef %bitmap) local_unnamed_addr #0 {
 entry:
-  %size1 = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %size1 = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %0 = load i64, ptr %size1, align 8
   %sub = add i64 %0, 63
   %shr = lshr i64 %sub, 6
   %cond = tail call i64 @llvm.umax.i64(i64 %shr, i64 1)
-  %levels = getelementptr inbounds i8, ptr %bitmap, i64 40
+  %levels = getelementptr inbounds nuw i8, ptr %bitmap, i64 40
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.inc
@@ -1498,7 +1498,7 @@ for.end25:                                        ; preds = %for.cond.loopexit
   %8 = load i64, ptr %size1, align 8
   %sub31 = add i64 %8, -1
   %call = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %bitmap, i64 noundef 0, i64 noundef %sub31)
-  %count = getelementptr inbounds i8, ptr %bitmap, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %bitmap, i64 16
   store i64 %call, ptr %count, align 8
   ret void
 }
@@ -1520,12 +1520,12 @@ if.end:                                           ; preds = %entry
   br i1 %finish, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
+  %size1.i = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %2 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %2, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
-  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %levels.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1580,7 +1580,7 @@ hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %10 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %10, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end3
 
@@ -1605,12 +1605,12 @@ if.end:                                           ; preds = %entry
   br i1 %finish, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %size1.i = getelementptr inbounds i8, ptr %hb, i64 8
+  %size1.i = getelementptr inbounds nuw i8, ptr %hb, i64 8
   %2 = load i64, ptr %size1.i, align 8
   %sub.i = add i64 %2, 63
   %shr.i = lshr i64 %sub.i, 6
   %cond.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 1)
-  %levels.i = getelementptr inbounds i8, ptr %hb, i64 40
+  %levels.i = getelementptr inbounds nuw i8, ptr %hb, i64 40
   br label %for.body.i
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i
@@ -1665,7 +1665,7 @@ hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %10 = load i64, ptr %size1.i, align 8
   %sub31.i = add i64 %10, -1
   %call.i = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %hb, i64 noundef 0, i64 noundef %sub31.i)
-  %count.i = getelementptr inbounds i8, ptr %hb, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %hb, i64 16
   store i64 %call.i, ptr %count.i, align 8
   br label %if.end3
 
@@ -1676,13 +1676,13 @@ if.end3:                                          ; preds = %entry, %hbitmap_des
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hbitmap_free(ptr noundef %hb) local_unnamed_addr #0 {
 entry:
-  %meta = getelementptr inbounds i8, ptr %hb, i64 32
+  %meta = getelementptr inbounds nuw i8, ptr %hb, i64 32
   %0 = load ptr, ptr %meta, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %entry
-  %levels = getelementptr inbounds i8, ptr %hb, i64 40
+  %levels = getelementptr inbounds nuw i8, ptr %hb, i64 40
   br label %for.body
 
 if.else:                                          ; preds = %entry
@@ -1739,12 +1739,12 @@ if.else9:                                         ; preds = %if.end5
   unreachable
 
 if.end10:                                         ; preds = %if.end5
-  %size11 = getelementptr inbounds i8, ptr %call, i64 8
+  %size11 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %shr, ptr %size11, align 8
-  %granularity12 = getelementptr inbounds i8, ptr %call, i64 24
+  %granularity12 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %granularity, ptr %granularity12, align 8
-  %sizes = getelementptr inbounds i8, ptr %call, i64 96
-  %levels = getelementptr inbounds i8, ptr %call, i64 40
+  %sizes = getelementptr inbounds nuw i8, ptr %call, i64 96
+  %levels = getelementptr inbounds nuw i8, ptr %call, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %if.end10, %for.body
@@ -1795,7 +1795,7 @@ if.end:                                           ; preds = %entry, %if.then61
   %size.tr52 = phi i64 [ %shl66, %if.then61 ], [ %size, %entry ]
   %hb.tr51 = phi ptr [ %6, %if.then61 ], [ %hb, %entry ]
   store i64 %size.tr52, ptr %hb.tr51, align 8
-  %granularity = getelementptr inbounds i8, ptr %hb.tr51, i64 24
+  %granularity = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 24
   %0 = load i32, ptr %granularity, align 8
   %sh_prom = zext i32 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
@@ -1810,7 +1810,7 @@ if.else5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %size7 = getelementptr inbounds i8, ptr %hb.tr51, i64 8
+  %size7 = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 8
   %1 = load i64, ptr %size7, align 8
   %cmp10 = icmp eq i64 %shr, %1
   br i1 %cmp10, label %if.end67, label %if.end12
@@ -1832,16 +1832,16 @@ if.else30:                                        ; preds = %if.then13
 
 for.body.preheader:                               ; preds = %if.end12
   store i64 %shr, ptr %size7, align 8
-  %sizes = getelementptr inbounds i8, ptr %hb.tr51, i64 96
-  %levels = getelementptr inbounds i8, ptr %hb.tr51, i64 40
+  %sizes = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 96
+  %levels = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 40
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %if.then13
   %sub27 = sub i64 %shl26, %and
   tail call void @hbitmap_reset(ptr noundef nonnull %hb.tr51, i64 noundef %and, i64 noundef %sub27)
   store i64 %shr, ptr %size7, align 8
-  %sizes54 = getelementptr inbounds i8, ptr %hb.tr51, i64 96
-  %levels55 = getelementptr inbounds i8, ptr %hb.tr51, i64 40
+  %sizes54 = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 96
+  %levels55 = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 40
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %if.end40.us
@@ -1893,7 +1893,7 @@ if.end40:                                         ; preds = %for.body
   br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %if.end40, %for.body, %for.body.us, %if.end40.us
-  %meta = getelementptr inbounds i8, ptr %hb.tr51, i64 32
+  %meta = getelementptr inbounds nuw i8, ptr %hb.tr51, i64 32
   %6 = load ptr, ptr %meta, align 8
   %tobool60.not = icmp eq ptr %6, null
   br i1 %tobool60.not, label %if.end67, label %if.then61
@@ -1934,9 +1934,9 @@ if.else6:                                         ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %count.i = getelementptr inbounds i8, ptr %a, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %3 = load i64, ptr %count.i, align 8
-  %granularity.i = getelementptr inbounds i8, ptr %a, i64 24
+  %granularity.i = getelementptr inbounds nuw i8, ptr %a, i64 24
   %4 = load i32, ptr %granularity.i, align 8
   %sh_prom.i = zext nneg i32 %4 to i64
   %shl.i = shl i64 %3, %sh_prom.i
@@ -1946,9 +1946,9 @@ if.end7:                                          ; preds = %if.end
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7
-  %count.i46 = getelementptr inbounds i8, ptr %b, i64 16
+  %count.i46 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %5 = load i64, ptr %count.i46, align 8
-  %granularity.i47 = getelementptr inbounds i8, ptr %b, i64 24
+  %granularity.i47 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %6 = load i32, ptr %granularity.i47, align 8
   %sh_prom.i48 = zext nneg i32 %6 to i64
   %shl.i49 = shl i64 %5, %sh_prom.i48
@@ -1963,8 +1963,8 @@ if.end14:                                         ; preds = %lor.lhs.false
   br i1 %brmerge.demorgan.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end14
-  %levels.i = getelementptr inbounds i8, ptr %result, i64 40
-  %sizes.i = getelementptr inbounds i8, ptr %result, i64 96
+  %levels.i = getelementptr inbounds nuw i8, ptr %result, i64 40
+  %sizes.i = getelementptr inbounds nuw i8, ptr %result, i64 96
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then20
@@ -1993,8 +1993,8 @@ if.then24:                                        ; preds = %if.end21
   br i1 %or.cond45, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %if.then24
-  %levels.i59 = getelementptr inbounds i8, ptr %result, i64 40
-  %sizes.i60 = getelementptr inbounds i8, ptr %result, i64 96
+  %levels.i59 = getelementptr inbounds nuw i8, ptr %result, i64 40
+  %sizes.i60 = getelementptr inbounds nuw i8, ptr %result, i64 96
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.body.i61, %if.then28
@@ -2012,7 +2012,7 @@ for.body.i61:                                     ; preds = %for.body.i61, %if.t
 hbitmap_reset_all.exit69:                         ; preds = %for.body.i61
   %13 = load ptr, ptr %levels.i59, align 8
   store i64 -9223372036854775808, ptr %13, align 8
-  %count.i68 = getelementptr inbounds i8, ptr %result, i64 16
+  %count.i68 = getelementptr inbounds nuw i8, ptr %result, i64 16
   store i64 0, ptr %count.i68, align 8
   br label %if.end29
 
@@ -2089,18 +2089,18 @@ for.body.i80:                                     ; preds = %if.end7.i.i76
   br i1 %or.cond.i.i86, label %if.end.i.i73, label %if.else.i.i72, !llvm.loop !18
 
 if.end36:                                         ; preds = %if.end21
-  %size = getelementptr inbounds i8, ptr %a, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %a, i64 8
   %22 = load i64, ptr %size, align 8
-  %size37 = getelementptr inbounds i8, ptr %b, i64 8
+  %size37 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %23 = load i64, ptr %size37, align 8
   %cmp38 = icmp eq i64 %22, %23
   br i1 %cmp38, label %for.cond.preheader, label %if.else40
 
 for.cond.preheader:                               ; preds = %if.end36
-  %sizes = getelementptr inbounds i8, ptr %a, i64 96
-  %levels = getelementptr inbounds i8, ptr %a, i64 40
-  %levels49 = getelementptr inbounds i8, ptr %b, i64 40
-  %levels53 = getelementptr inbounds i8, ptr %result, i64 40
+  %sizes = getelementptr inbounds nuw i8, ptr %a, i64 96
+  %levels = getelementptr inbounds nuw i8, ptr %a, i64 40
+  %levels49 = getelementptr inbounds nuw i8, ptr %b, i64 40
+  %levels53 = getelementptr inbounds nuw i8, ptr %result, i64 40
   br label %for.cond43.preheader
 
 if.else40:                                        ; preds = %if.end36
@@ -2143,7 +2143,7 @@ for.inc57:                                        ; preds = %for.body45, %for.co
   br i1 %cmp42.not, label %for.end58, label %for.cond43.preheader, !llvm.loop !20
 
 for.end58:                                        ; preds = %for.inc57
-  %size59 = getelementptr inbounds i8, ptr %result, i64 8
+  %size59 = getelementptr inbounds nuw i8, ptr %result, i64 8
   %31 = load i64, ptr %size59, align 8
   %sub = add i64 %31, -1
   %call60 = tail call fastcc i64 @hb_count_between(ptr noundef nonnull %result, i64 noundef 0, i64 noundef %sub)
@@ -2151,7 +2151,7 @@ for.end58:                                        ; preds = %for.inc57
 
 return.sink.split:                                ; preds = %hbitmap_reset_all.exit, %for.end58
   %call60.sink = phi i64 [ %call60, %for.end58 ], [ 0, %hbitmap_reset_all.exit ]
-  %count = getelementptr inbounds i8, ptr %result, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %result, i64 16
   store i64 %call60.sink, ptr %count, align 8
   br label %return
 

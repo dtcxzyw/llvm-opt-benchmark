@@ -41,24 +41,24 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %cmp1 = getelementptr inbounds i8, ptr %ht, i64 8
+  %cmp1 = getelementptr inbounds nuw i8, ptr %ht, i64 8
   store ptr %cmp, ptr %cmp1, align 8
-  %mode2 = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode2 = getelementptr inbounds nuw i8, ptr %ht, i64 64
   store i32 %mode, ptr %mode2, align 8
-  %lock = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock) #8
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
-  %n_buckets1.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %n_buckets1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %retval.0.i.i, ptr %n_buckets1.i, align 8
-  %n_added_buckets.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 0, ptr %n_added_buckets.i, align 8
-  %n_added_buckets_threshold.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %n_added_buckets_threshold.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %1 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 8)
   %spec.select.i = lshr i64 %1, 3
   store i64 %spec.select.i, ptr %n_added_buckets_threshold.i, align 8
   %mul.i = shl i64 %retval.0.i.i, 6
   %call5.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef %mul.i) #8
-  %buckets.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call5.i, ptr %buckets.i, align 8
   %cmp615.not.i = icmp eq i64 %retval.0.i.i, 0
   br i1 %cmp615.not.i, label %qht_map_create.exit, label %for.body.i
@@ -68,7 +68,7 @@ for.body.i:                                       ; preds = %do.end, %for.body.i
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
-  %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4
   %inc.i = add nuw i64 %i.016.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i.i
@@ -89,13 +89,13 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 define dso_local void @qht_destroy(ptr nocapture noundef %ht) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ht, align 8
-  %n_buckets.i = getelementptr inbounds i8, ptr %0, i64 24
+  %n_buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %n_buckets.i, align 8
   %cmp7.not.i = icmp eq i64 %1, 0
   br i1 %cmp7.not.i, label %qht_map_destroy.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %buckets.i = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %qht_chain_destroy.exit.i, %for.body.lr.ph.i
@@ -109,7 +109,7 @@ for.body.i:                                       ; preds = %qht_chain_destroy.e
 
 while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
   %curr.02.i.i = phi ptr [ %5, %while.body.i.i ], [ %arrayidx.val.i, %for.body.i ]
-  %next1.i.i = getelementptr inbounds i8, ptr %curr.02.i.i, i64 56
+  %next1.i.i = getelementptr inbounds nuw i8, ptr %curr.02.i.i, i64 56
   %5 = load ptr, ptr %next1.i.i, align 8
   tail call void @qemu_vfree(ptr noundef nonnull %curr.02.i.i) #8
   %tobool.not.i.i = icmp eq ptr %5, null
@@ -126,7 +126,7 @@ qht_chain_destroy.exit.i:                         ; preds = %qht_chain_destroy.e
   br i1 %cmp.i, label %for.body.i, label %qht_map_destroy.exit, !llvm.loop !8
 
 qht_map_destroy.exit:                             ; preds = %qht_chain_destroy.exit.i, %entry
-  %buckets1.i = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets1.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %buckets1.i, align 8
   tail call void @qemu_vfree(ptr noundef %7) #8
   tail call void @g_free(ptr noundef nonnull %0) #8
@@ -137,13 +137,13 @@ qht_map_destroy.exit:                             ; preds = %qht_chain_destroy.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qht_map_destroy(ptr noundef %map) #0 {
 entry:
-  %n_buckets = getelementptr inbounds i8, ptr %map, i64 24
+  %n_buckets = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i64, ptr %n_buckets, align 8
   %cmp7.not = icmp eq i64 %0, 0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds i8, ptr %map, i64 16
+  %buckets = getelementptr inbounds nuw i8, ptr %map, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %qht_chain_destroy.exit
@@ -157,7 +157,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %qh
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
   %curr.02.i = phi ptr [ %4, %while.body.i ], [ %arrayidx.val, %for.body ]
-  %next1.i = getelementptr inbounds i8, ptr %curr.02.i, i64 56
+  %next1.i = getelementptr inbounds nuw i8, ptr %curr.02.i, i64 56
   %4 = load ptr, ptr %next1.i, align 8
   tail call void @qemu_vfree(ptr noundef nonnull %curr.02.i) #8
   %tobool.not.i = icmp eq ptr %4, null
@@ -174,7 +174,7 @@ qht_chain_destroy.exit:                           ; preds = %qht_chain_destroy.e
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %qht_chain_destroy.exit, %entry
-  %buckets1 = getelementptr inbounds i8, ptr %map, i64 16
+  %buckets1 = getelementptr inbounds nuw i8, ptr %map, i64 16
   %6 = load ptr, ptr %buckets1, align 8
   tail call void @qemu_vfree(ptr noundef %6) #8
   tail call void @g_free(ptr noundef nonnull %map) #8
@@ -190,13 +190,13 @@ entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %n_buckets.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %n_buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i.i = icmp eq i64 %2, 0
   br i1 %cmp5.not.i.i, label %qht_map_lock_buckets.exit.thread.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %buckets.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %qemu_spin_lock.exit.i.i, %for.body.lr.ph.i.i
@@ -254,33 +254,33 @@ for.body.i16.i:                                   ; preds = %if.end.i, %for.body
   br i1 %cmp.i20.i, label %for.body.i16.i, label %qht_map_unlock_buckets.exit.i, !llvm.loop !14
 
 qht_map_unlock_buckets.exit.i:                    ; preds = %for.body.i16.i, %if.end.i, %qht_map_lock_buckets.exit.thread.i
-  %mode.i.i = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %12 = load i32, ptr %mode.i.i, align 8
   %and.i.i = and i32 %12, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %while.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %qht_map_unlock_buckets.exit.i
-  %lock.i.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_lock_impl(ptr noundef nonnull %lock.i.i, ptr noundef nonnull @.str, i32 noundef 113) #8
   br label %qht_lock.exit.i
 
 while.end.i.i:                                    ; preds = %qht_map_unlock_buckets.exit.i
   %13 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
-  %lock1.i.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock1.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void %14(ptr noundef nonnull %lock1.i.i, ptr noundef nonnull @.str, i32 noundef 115) #8
   br label %qht_lock.exit.i
 
 qht_lock.exit.i:                                  ; preds = %while.end.i.i, %if.then.i.i
   %15 = load ptr, ptr %ht, align 8
-  %n_buckets.i21.i = getelementptr inbounds i8, ptr %15, i64 24
+  %n_buckets.i21.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load i64, ptr %n_buckets.i21.i, align 8
   %cmp5.not.i22.i = icmp eq i64 %16, 0
   br i1 %cmp5.not.i22.i, label %qht_map_lock_buckets.exit38.i, label %for.body.lr.ph.i23.i
 
 for.body.lr.ph.i23.i:                             ; preds = %qht_lock.exit.i
-  %buckets.i24.i = getelementptr inbounds i8, ptr %15, i64 16
+  %buckets.i24.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %for.body.i25.i
 
 for.body.i25.i:                                   ; preds = %qemu_spin_lock.exit.i35.i, %for.body.lr.ph.i23.i
@@ -314,7 +314,7 @@ qemu_spin_lock.exit.i35.i:                        ; preds = %while.cond.loopexit
   br i1 %cmp.i37.i, label %for.body.i25.i, label %qht_map_lock_buckets.exit38.i, !llvm.loop !13
 
 qht_map_lock_buckets.exit38.i:                    ; preds = %qemu_spin_lock.exit.i35.i, %qht_lock.exit.i
-  %lock.i39.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i39.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i39.i, ptr noundef nonnull @.str, i32 noundef 130) #8
   %.pre = load i64, ptr %n_buckets.i21.i, align 8
   br label %qht_map_lock_buckets__no_stale.exit
@@ -322,19 +322,19 @@ qht_map_lock_buckets.exit38.i:                    ; preds = %qemu_spin_lock.exit
 qht_map_lock_buckets__no_stale.exit:              ; preds = %qht_map_lock_buckets.exit.i, %qht_map_lock_buckets.exit38.i
   %23 = phi i64 [ %.pre, %qht_map_lock_buckets.exit38.i ], [ %8, %qht_map_lock_buckets.exit.i ]
   %storemerge.i = phi ptr [ %15, %qht_map_lock_buckets.exit38.i ], [ %1, %qht_map_lock_buckets.exit.i ]
-  %n_buckets.i = getelementptr inbounds i8, ptr %storemerge.i, i64 24
+  %n_buckets.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 24
   %cmp6.not.i = icmp eq i64 %23, 0
   br i1 %cmp6.not.i, label %qht_map_unlock_buckets.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %qht_map_lock_buckets__no_stale.exit
-  %buckets.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %qht_bucket_reset__locked.exit.i, %for.body.lr.ph.i
   %i.07.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %qht_bucket_reset__locked.exit.i ]
   %24 = load ptr, ptr %buckets.i, align 8
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %24, i64 %i.07.i
-  %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %25 = load i32, ptr %sequence.i.i, align 4
   %add.i.i.i = add i32 %25, 1
   store atomic i32 %add.i.i.i, ptr %sequence.i.i monotonic, align 4
@@ -344,8 +344,8 @@ for.body.i:                                       ; preds = %qht_bucket_reset__l
 
 do.body.i.i:                                      ; preds = %for.end.i.i, %for.body.i
   %b.0.i.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %27, %for.end.i.i ]
-  %pointers.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
-  %hashes.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
+  %pointers.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 24
+  %hashes.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 8
   br label %for.body.i.i1
 
 for.body.i.i1:                                    ; preds = %while.end.i.i3, %do.body.i.i
@@ -364,7 +364,7 @@ while.end.i.i3:                                   ; preds = %for.body.i.i1
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i1, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %while.end.i.i3
-  %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
+  %next.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 56
   %27 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i4 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i4, label %qht_bucket_reset__locked.exit.i, label %do.body.i.i, !llvm.loop !17
@@ -411,44 +411,44 @@ entry:
   %tobool1.not.i.i = icmp ult i64 %n_elems, 4
   %conv.i.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %mode.i = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode.i = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %1 = load i32, ptr %mode.i, align 8
   %and.i = and i32 %1, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %lock.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_lock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 113) #8
   br label %qht_lock.exit
 
 while.end.i:                                      ; preds = %entry
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %lock1.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock1.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void %3(ptr noundef nonnull %lock1.i, ptr noundef nonnull @.str, i32 noundef 115) #8
   br label %qht_lock.exit
 
 qht_lock.exit:                                    ; preds = %if.then.i, %while.end.i
   %4 = load ptr, ptr %ht, align 8
-  %n_buckets2 = getelementptr inbounds i8, ptr %4, i64 24
+  %n_buckets2 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i64, ptr %n_buckets2, align 8
   %cmp.not = icmp eq i64 %retval.0.i.i, %5
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qht_lock.exit
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
-  %n_buckets1.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %n_buckets1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %retval.0.i.i, ptr %n_buckets1.i, align 8
-  %n_added_buckets.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 0, ptr %n_added_buckets.i, align 8
-  %n_added_buckets_threshold.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %n_added_buckets_threshold.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %6 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 8)
   %spec.select.i = lshr i64 %6, 3
   store i64 %spec.select.i, ptr %n_added_buckets_threshold.i, align 8
   %mul.i = shl i64 %retval.0.i.i, 6
   %call5.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef %mul.i) #8
-  %buckets.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call5.i, ptr %buckets.i, align 8
   %cmp615.not.i = icmp eq i64 %retval.0.i.i, 0
   br i1 %cmp615.not.i, label %if.end, label %for.body.i
@@ -458,7 +458,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
-  %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4
   %inc.i = add nuw i64 %i.016.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i.i
@@ -467,7 +467,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 if.end:                                           ; preds = %for.body.i, %if.then, %qht_lock.exit
   %new.0 = phi ptr [ null, %qht_lock.exit ], [ %call.i, %if.then ], [ %call.i, %for.body.i ]
   tail call fastcc void @qht_do_resize_reset(ptr noundef nonnull %ht, ptr noundef %new.0, i1 noundef zeroext true)
-  %lock.i6 = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i6 = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i6, ptr noundef nonnull @.str, i32 noundef 130) #8
   %tobool = icmp ne ptr %new.0, null
   ret i1 %tobool
@@ -487,7 +487,7 @@ entry:
   %sub.i = add i64 %.val8, 4294967295
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %.val, i64 %and.i
-  %sequence = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %4 = load atomic i32, ptr %sequence monotonic, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !21
   fence acquire
@@ -496,8 +496,8 @@ entry:
 
 do.body.i:                                        ; preds = %while.end25.i, %entry
   %b.0.i = phi ptr [ %arrayidx.i, %entry ], [ %9, %while.end25.i ]
-  %hashes.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
-  %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
+  %hashes.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
+  %pointers.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 24
   br label %while.end.i
 
 while.end.i:                                      ; preds = %for.inc.i, %do.body.i
@@ -525,7 +525,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %w
   br i1 %exitcond.not.i, label %while.end25.i, label %while.end.i, !llvm.loop !23
 
 while.end25.i:                                    ; preds = %for.inc.i
-  %next.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %next.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   %8 = load atomic i64, ptr %next.i monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
@@ -549,8 +549,8 @@ do.body.i11:                                      ; preds = %qht_do_lookup.exit,
 
 do.body.i.i:                                      ; preds = %while.end25.i.i, %do.body.i11
   %b.0.i.i = phi ptr [ %arrayidx.i, %do.body.i11 ], [ %16, %while.end25.i.i ]
-  %hashes.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
-  %pointers.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
+  %hashes.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 8
+  %pointers.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 24
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %for.inc.i.i, %do.body.i.i
@@ -578,7 +578,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   br i1 %exitcond.not.i.i, label %while.end25.i.i, label %while.end.i.i, !llvm.loop !23
 
 while.end25.i.i:                                  ; preds = %for.inc.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
+  %next.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 56
   %15 = load atomic i64, ptr %next.i.i monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
@@ -601,7 +601,7 @@ return:                                           ; preds = %qht_do_lookup.exit.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qht_lookup(ptr nocapture noundef readonly %ht, ptr noundef %userp, i32 noundef %hash) local_unnamed_addr #0 {
 entry:
-  %cmp = getelementptr inbounds i8, ptr %ht, i64 8
+  %cmp = getelementptr inbounds nuw i8, ptr %ht, i64 8
   %0 = load ptr, ptr %cmp, align 8
   %call = tail call ptr @qht_lookup_custom(ptr noundef %ht, ptr noundef %userp, i32 noundef %hash, ptr noundef %0)
   ret ptr %call
@@ -613,14 +613,14 @@ entry:
   %map = alloca ptr, align 8
   %call = call fastcc ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef %map)
   %0 = load ptr, ptr %map, align 8
-  %cmp4.i = getelementptr inbounds i8, ptr %ht, i64 8
+  %cmp4.i = getelementptr inbounds nuw i8, ptr %ht, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %entry
   %prev.0.i = phi ptr [ null, %entry ], [ %b.0.i, %for.end.i ]
   %b.0.i = phi ptr [ %call, %entry ], [ %4, %for.end.i ]
-  %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
-  %hashes.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %pointers.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 24
+  %hashes.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %do.body.i
@@ -647,7 +647,7 @@ for.inc.i:                                        ; preds = %land.rhs.i, %if.the
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !28
 
 for.end.i:                                        ; preds = %for.inc.i
-  %next.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %next.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   %4 = load ptr, ptr %next.i, align 8
   %tobool15.not.i = icmp eq ptr %4, null
   br i1 %tobool15.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
@@ -655,10 +655,10 @@ for.end.i:                                        ; preds = %for.inc.i
 do.end.i:                                         ; preds = %for.end.i
   %call16.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef 64) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %call16.i, i8 0, i64 64, i1 false)
-  %n_added_buckets.i = getelementptr inbounds i8, ptr %0, i64 32
+  %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = atomicrmw add ptr %n_added_buckets.i, i64 1 seq_cst, align 8
   %6 = load atomic i64, ptr %n_added_buckets.i monotonic, align 8
-  %n_added_buckets_threshold.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %n_added_buckets_threshold.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %n_added_buckets_threshold.i.i, align 8
   %cmp.i.i = icmp ugt i64 %6, %7
   %8 = icmp eq ptr %call16.i, null
@@ -674,7 +674,7 @@ found.i:                                          ; preds = %do.end.i, %found.lo
   %new.0.i = phi i1 [ true, %found.loopexit.i ], [ %8, %do.end.i ]
   %prev.1.i = phi ptr [ %prev.0.i, %found.loopexit.i ], [ %b.0.i, %do.end.i ]
   %b.1.i = phi ptr [ %b.0.i, %found.loopexit.i ], [ %call16.i, %do.end.i ]
-  %sequence.i = getelementptr inbounds i8, ptr %call, i64 4
+  %sequence.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %10 = load i32, ptr %sequence.i, align 4
   %add.i.i = add i32 %10, 1
   store atomic i32 %add.i.i, ptr %sequence.i monotonic, align 4
@@ -683,16 +683,16 @@ found.i:                                          ; preds = %do.end.i, %found.lo
   br i1 %new.0.i, label %qht_insert__locked.exit, label %while.end.i
 
 while.end.i:                                      ; preds = %found.i
-  %next33.i = getelementptr inbounds i8, ptr %prev.1.i, i64 56
+  %next33.i = getelementptr inbounds nuw i8, ptr %prev.1.i, i64 56
   %11 = ptrtoint ptr %b.1.i to i64
   store atomic i64 %11, ptr %next33.i release, align 8
   br label %qht_insert__locked.exit
 
 qht_insert__locked.exit:                          ; preds = %found.i, %while.end.i
-  %hashes45.i = getelementptr inbounds i8, ptr %b.1.i, i64 8
+  %hashes45.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 8
   %arrayidx47.i = getelementptr [4 x i32], ptr %hashes45.i, i64 0, i64 %i.1.i
   store atomic i32 %hash, ptr %arrayidx47.i monotonic, align 4
-  %pointers58.i = getelementptr inbounds i8, ptr %b.1.i, i64 24
+  %pointers58.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 24
   %arrayidx60.i = getelementptr [4 x ptr], ptr %pointers58.i, i64 0, i64 %i.1.i
   %12 = ptrtoint ptr %p to i64
   store atomic i64 %12, ptr %arrayidx60.i monotonic, align 8
@@ -705,7 +705,7 @@ qht_insert__locked.exit:                          ; preds = %found.i, %while.end
   br i1 %needs_resize.0, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %qht_insert__locked.exit
-  %mode = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %14 = load i32, ptr %mode, align 8
   %and = and i32 %14, 1
   %tobool4.not = icmp eq i32 %and, 0
@@ -717,14 +717,14 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %while.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %lock.i.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   %call.i.i = tail call i32 @qemu_mutex_trylock_impl(ptr noundef nonnull %lock.i.i, ptr noundef nonnull @.str, i32 noundef 122) #8
   br label %qht_trylock.exit.i
 
 while.end.i.i:                                    ; preds = %if.then
   %15 = load atomic i64, ptr @qemu_mutex_trylock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
-  %lock2.i.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock2.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   %call3.i.i = tail call i32 %16(ptr noundef nonnull %lock2.i.i, ptr noundef nonnull @.str, i32 noundef 124) #8
   br label %qht_trylock.exit.i
 
@@ -735,29 +735,29 @@ qht_trylock.exit.i:                               ; preds = %while.end.i.i, %if.
 
 if.end.i:                                         ; preds = %qht_trylock.exit.i
   %17 = load ptr, ptr %ht, align 8
-  %n_added_buckets.i.i = getelementptr inbounds i8, ptr %17, i64 32
+  %n_added_buckets.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %18 = load atomic i64, ptr %n_added_buckets.i.i monotonic, align 8
-  %n_added_buckets_threshold.i.i10 = getelementptr inbounds i8, ptr %17, i64 40
+  %n_added_buckets_threshold.i.i10 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %n_added_buckets_threshold.i.i10, align 8
   %cmp.i.i11 = icmp ugt i64 %18, %19
   br i1 %cmp.i.i11, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %n_buckets.i = getelementptr inbounds i8, ptr %17, i64 24
+  %n_buckets.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load i64, ptr %n_buckets.i, align 8
   %mul.i = shl i64 %20, 1
   %call.i5.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
-  %n_buckets1.i.i = getelementptr inbounds i8, ptr %call.i5.i, i64 24
+  %n_buckets1.i.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 24
   store i64 %mul.i, ptr %n_buckets1.i.i, align 8
-  %n_added_buckets.i6.i = getelementptr inbounds i8, ptr %call.i5.i, i64 32
+  %n_added_buckets.i6.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 32
   store i64 0, ptr %n_added_buckets.i6.i, align 8
-  %n_added_buckets_threshold.i7.i = getelementptr inbounds i8, ptr %call.i5.i, i64 40
+  %n_added_buckets_threshold.i7.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 40
   %21 = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 8)
   %spec.select.i.i = lshr i64 %21, 3
   store i64 %spec.select.i.i, ptr %n_added_buckets_threshold.i7.i, align 8
   %mul.i.i = shl i64 %20, 7
   %call5.i.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef %mul.i.i) #8
-  %buckets.i.i = getelementptr inbounds i8, ptr %call.i5.i, i64 16
+  %buckets.i.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 16
   store ptr %call5.i.i, ptr %buckets.i.i, align 8
   %cmp615.not.i.i = icmp eq i64 %mul.i, 0
   br i1 %cmp615.not.i.i, label %qht_map_create.exit.i, label %for.body.i.i
@@ -767,7 +767,7 @@ for.body.i.i:                                     ; preds = %if.then3.i, %for.bo
   %arrayidx.i.i = getelementptr %struct.qht_bucket, ptr %call5.i.i, i64 %i.016.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i.i monotonic, align 4
-  %sequence.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %sequence.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   store i32 0, ptr %sequence.i.i.i, align 4
   %inc.i.i = add nuw i64 %i.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul.i
@@ -778,7 +778,7 @@ qht_map_create.exit.i:                            ; preds = %for.body.i.i, %if.t
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %qht_map_create.exit.i, %if.end.i
-  %lock.i8.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i8.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i8.i, ptr noundef nonnull @.str, i32 noundef 130) #8
   br label %return
 
@@ -841,21 +841,21 @@ qht_bucket_lock.exit:                             ; preds = %while.cond.loopexit
 
 if.end:                                           ; preds = %qht_bucket_lock.exit
   store atomic i32 0, ptr %arrayidx.i release, align 4
-  %mode.i = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode.i = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %8 = load i32, ptr %mode.i, align 8
   %and.i21 = and i32 %8, 2
   %tobool.not.i = icmp eq i32 %and.i21, 0
   br i1 %tobool.not.i, label %while.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %lock.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_lock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 113) #8
   br label %qht_lock.exit
 
 while.end.i:                                      ; preds = %if.end
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  %lock1.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock1.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void %10(ptr noundef nonnull %lock1.i, ptr noundef nonnull @.str, i32 noundef 115) #8
   br label %qht_lock.exit
 
@@ -889,7 +889,7 @@ while.body16.i.i29:                               ; preds = %while.cond6.prehead
   br i1 %tobool15.not.i.i30, label %while.cond.loopexit.i.i31, label %while.body16.i.i29, !llvm.loop !12
 
 qht_bucket_lock.exit33:                           ; preds = %while.cond.loopexit.i.i31, %qht_lock.exit
-  %lock.i34 = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i34 = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i34, ptr noundef nonnull @.str, i32 noundef 130) #8
   br label %return
 
@@ -909,7 +909,7 @@ entry:
 
 do.body.i:                                        ; preds = %for.end.i, %entry
   %b.0.i = phi ptr [ %call, %entry ], [ %17, %for.end.i ]
-  %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
+  %pointers.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %do.body.i
@@ -924,7 +924,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp3.i, label %do.end.i, label %for.inc.i
 
 do.end.i:                                         ; preds = %if.end.i
-  %sequence.i = getelementptr inbounds i8, ptr %call, i64 4
+  %sequence.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %sequence.i, align 4
   %add.i.i = add i32 %1, 1
   store atomic i32 %add.i.i, ptr %sequence.i monotonic, align 4
@@ -934,13 +934,13 @@ do.end.i:                                         ; preds = %if.end.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %qht_entry_is_last.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end.i
-  %next.i.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %next.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   %2 = load ptr, ptr %next.i.i.i, align 8
   %cmp1.i.i.i = icmp eq ptr %2, null
   br i1 %cmp1.i.i.i, label %while.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %pointers.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %pointers.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %pointers.i.i.i, align 8
   %cmp4.i.i.i = icmp eq ptr %3, null
   br i1 %cmp4.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
@@ -957,7 +957,7 @@ qht_entry_is_last.exit.i.i:                       ; preds = %do.end.i
   br i1 %cmp8.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
 
 while.end.i.i:                                    ; preds = %qht_entry_is_last.exit.i.i, %if.end.i.i.i, %if.then.i.i.i
-  %hashes.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %hashes.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   %idxprom.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx.i.i = getelementptr [4 x i32], ptr %hashes.i.i, i64 0, i64 %idxprom.i.i
   store atomic i32 0, ptr %arrayidx.i.i monotonic, align 4
@@ -968,7 +968,7 @@ while.end.i.i:                                    ; preds = %qht_entry_is_last.e
 do.body13.i.i:                                    ; preds = %do.body13.i.i.preheader, %for.end.i.i
   %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %do.body13.i.i.preheader ]
   %b.0.i.i = phi ptr [ %12, %for.end.i.i ], [ %b.0.i, %do.body13.i.i.preheader ]
-  %pointers14.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
+  %pointers14.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body13.i.i
@@ -984,10 +984,10 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
   %sub.i.i = add nuw i64 %indvars.iv.i.i, 4294967295
-  %hashes.i.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %hashes.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   %idxprom12.i.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx13.i.i.i = getelementptr [4 x i32], ptr %hashes.i.i.i, i64 0, i64 %idxprom12.i.i.i
-  %hashes14.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
+  %hashes14.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 8
   %idxprom15.i.i.i = and i64 %sub.i.i, 4294967295
   %arrayidx16.i.i.i = getelementptr [4 x i32], ptr %hashes14.i.i.i, i64 0, i64 %idxprom15.i.i.i
   %6 = load i32, ptr %arrayidx16.i.i.i, align 4
@@ -1002,7 +1002,7 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i
   br label %qht_bucket_remove_entry.exit.i
 
 do.end23.i.i:                                     ; preds = %if.end18.i.i
-  %hashes.i21.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %hashes.i21.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   %idxprom12.i22.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx13.i23.i.i = getelementptr [4 x i32], ptr %hashes.i21.i.i, i64 0, i64 %idxprom12.i22.i.i
   %arrayidx16.i25.i.i = getelementptr i8, ptr %prev.0.i.i, i64 20
@@ -1023,13 +1023,13 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !31
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
+  %next.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 56
   %12 = load ptr, ptr %next.i.i, align 8
   %tobool24.not.i.i = icmp eq ptr %12, null
   br i1 %tobool24.not.i.i, label %do.end25.i.i, label %do.body13.i.i, !llvm.loop !32
 
 do.end25.i.i:                                     ; preds = %for.end.i.i
-  %hashes.i30.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %hashes.i30.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   %idxprom12.i31.i.i = and i64 %indvars.iv.i, 4294967295
   %arrayidx13.i32.i.i = getelementptr [4 x i32], ptr %hashes.i30.i.i, i64 0, i64 %idxprom12.i31.i.i
   %arrayidx16.i34.i.i = getelementptr i8, ptr %b.0.i.i, i64 20
@@ -1058,7 +1058,7 @@ for.inc.i:                                        ; preds = %if.end.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %for.inc.i
-  %next.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %next.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   %17 = load ptr, ptr %next.i, align 8
   %tobool13.not.i = icmp eq ptr %17, null
   br i1 %tobool13.not.i, label %qht_remove__locked.exit, label %do.body.i, !llvm.loop !34
@@ -1074,18 +1074,18 @@ define dso_local void @qht_iter(ptr nocapture noundef readonly %ht, ptr noundef 
 entry:
   %iter = alloca %struct.qht_iter, align 8
   store ptr %func, ptr %iter, align 8
-  %type = getelementptr inbounds i8, ptr %iter, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %iter, i64 8
   store i32 0, ptr %type, align 8
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
-  %n_buckets.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %n_buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i.i = icmp eq i64 %2, 0
   br i1 %cmp5.not.i.i, label %qht_map_lock_buckets.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %buckets.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %qemu_spin_lock.exit.i.i, %for.body.lr.ph.i.i
@@ -1125,7 +1125,7 @@ qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
 
 for.body.lr.ph.i5.i:                              ; preds = %qht_map_lock_buckets.exit.i
-  %buckets.i6.i = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets.i6.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %for.body.i7.i, %for.body.lr.ph.i5.i
@@ -1147,18 +1147,18 @@ define dso_local void @qht_iter_remove(ptr nocapture noundef readonly %ht, ptr n
 entry:
   %iter = alloca %struct.qht_iter, align 8
   store ptr %func, ptr %iter, align 8
-  %type = getelementptr inbounds i8, ptr %iter, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %iter, i64 8
   store i32 1, ptr %type, align 8
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
-  %n_buckets.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %n_buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i64, ptr %n_buckets.i.i, align 8
   %cmp5.not.i.i = icmp eq i64 %2, 0
   br i1 %cmp5.not.i.i, label %qht_map_lock_buckets.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %buckets.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %qemu_spin_lock.exit.i.i, %for.body.lr.ph.i.i
@@ -1198,7 +1198,7 @@ qht_map_lock_buckets.exit.i:                      ; preds = %qemu_spin_lock.exit
   br i1 %cmp5.not.i4.i, label %do_qht_iter.exit, label %for.body.lr.ph.i5.i
 
 for.body.lr.ph.i5.i:                              ; preds = %qht_map_lock_buckets.exit.i
-  %buckets.i6.i = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets.i6.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body.i7.i
 
 for.body.i7.i:                                    ; preds = %for.body.i7.i, %for.body.lr.ph.i5.i
@@ -1228,44 +1228,44 @@ entry:
   %tobool1.not.i.i = icmp ult i64 %n_elems, 4
   %conv.i.i = zext i1 %tobool1.not.i.i to i64
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %shr.i.i
-  %mode.i = getelementptr inbounds i8, ptr %ht, i64 64
+  %mode.i = getelementptr inbounds nuw i8, ptr %ht, i64 64
   %1 = load i32, ptr %mode.i, align 8
   %and.i = and i32 %1, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %lock.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_lock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 113) #8
   br label %qht_lock.exit
 
 while.end.i:                                      ; preds = %entry
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %lock1.i = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock1.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void %3(ptr noundef nonnull %lock1.i, ptr noundef nonnull @.str, i32 noundef 115) #8
   br label %qht_lock.exit
 
 qht_lock.exit:                                    ; preds = %if.then.i, %while.end.i
   %4 = load ptr, ptr %ht, align 8
-  %n_buckets1 = getelementptr inbounds i8, ptr %4, i64 24
+  %n_buckets1 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i64, ptr %n_buckets1, align 8
   %cmp.not = icmp ne i64 %retval.0.i.i, %5
   br i1 %cmp.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %qht_lock.exit
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
-  %n_buckets1.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %n_buckets1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %retval.0.i.i, ptr %n_buckets1.i, align 8
-  %n_added_buckets.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 0, ptr %n_added_buckets.i, align 8
-  %n_added_buckets_threshold.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %n_added_buckets_threshold.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %6 = tail call i64 @llvm.umax.i64(i64 %retval.0.i.i, i64 8)
   %spec.select.i = lshr i64 %6, 3
   store i64 %spec.select.i, ptr %n_added_buckets_threshold.i, align 8
   %mul.i = shl i64 %retval.0.i.i, 6
   %call5.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef %mul.i) #8
-  %buckets.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call5.i, ptr %buckets.i, align 8
   %cmp615.not.i = icmp eq i64 %retval.0.i.i, 0
   br i1 %cmp615.not.i, label %qht_map_create.exit, label %for.body.i
@@ -1275,7 +1275,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %call5.i, i64 %i.016.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   store atomic i32 0, ptr %arrayidx.i monotonic, align 4
-  %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %sequence.i.i, align 4
   %inc.i = add nuw i64 %i.016.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %retval.0.i.i
@@ -1286,7 +1286,7 @@ qht_map_create.exit:                              ; preds = %for.body.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %qht_map_create.exit, %qht_lock.exit
-  %lock.i5 = getelementptr inbounds i8, ptr %ht, i64 16
+  %lock.i5 = getelementptr inbounds nuw i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i5, ptr noundef nonnull @.str, i32 noundef 130) #8
   ret i1 %cmp.not
 }
@@ -1297,12 +1297,12 @@ entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !36
-  %used_head_buckets = getelementptr inbounds i8, ptr %stats, i64 8
-  %entries = getelementptr inbounds i8, ptr %stats, i64 16
-  %chain = getelementptr inbounds i8, ptr %stats, i64 24
+  %used_head_buckets = getelementptr inbounds nuw i8, ptr %stats, i64 8
+  %entries = getelementptr inbounds nuw i8, ptr %stats, i64 16
+  %chain = getelementptr inbounds nuw i8, ptr %stats, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %used_head_buckets, i8 0, i64 16, i1 false)
   tail call void @qdist_init(ptr noundef nonnull %chain) #8
-  %occupancy = getelementptr inbounds i8, ptr %stats, i64 48
+  %occupancy = getelementptr inbounds nuw i8, ptr %stats, i64 48
   tail call void @qdist_init(ptr noundef nonnull %occupancy) #8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1312,14 +1312,14 @@ if.then:                                          ; preds = %entry
   br label %for.end58
 
 if.end:                                           ; preds = %entry
-  %n_buckets = getelementptr inbounds i8, ptr %1, i64 24
+  %n_buckets = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i64, ptr %n_buckets, align 8
   store i64 %2, ptr %stats, align 8
   %cmp630.not = icmp eq i64 %2, 0
   br i1 %cmp630.not, label %for.end58, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %buckets = getelementptr inbounds i8, ptr %1, i64 16
+  %buckets = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc56
@@ -1327,7 +1327,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.031 = phi i32 [ 0, %for.body.lr.ph ], [ %inc57, %for.inc56 ]
   %3 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct.qht_bucket, ptr %3, i64 %conv432
-  %sequence = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %sequence = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   br label %do.body10
 
 do.body10:                                        ; preds = %do.cond38, %for.body
@@ -1340,7 +1340,7 @@ do.body11:                                        ; preds = %for.end, %do.body10
   %entries9.0 = phi i64 [ 0, %do.body10 ], [ %entries9.1.lcssa, %for.end ]
   %buckets8.0 = phi i64 [ 0, %do.body10 ], [ %inc29, %for.end ]
   %b.0 = phi ptr [ %arrayidx, %do.body10 ], [ %8, %for.end ]
-  %pointers = getelementptr inbounds i8, ptr %b.0, i64 24
+  %pointers = getelementptr inbounds nuw i8, ptr %b.0, i64 24
   %5 = add i64 %entries9.0, 4
   br label %while.end20
 
@@ -1361,7 +1361,7 @@ if.end27:                                         ; preds = %while.end20
 for.end:                                          ; preds = %while.end20, %if.end27
   %entries9.1.lcssa = phi i64 [ %entries9.129, %while.end20 ], [ %5, %if.end27 ]
   %inc29 = add i64 %buckets8.0, 1
-  %next = getelementptr inbounds i8, ptr %b.0, i64 56
+  %next = getelementptr inbounds nuw i8, ptr %b.0, i64 56
   %7 = load atomic i64, ptr %next monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !38
@@ -1417,9 +1417,9 @@ declare void @qdist_inc(ptr noundef, double noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qht_statistics_destroy(ptr noundef %stats) local_unnamed_addr #0 {
 entry:
-  %occupancy = getelementptr inbounds i8, ptr %stats, i64 48
+  %occupancy = getelementptr inbounds nuw i8, ptr %stats, i64 48
   tail call void @qdist_destroy(ptr noundef nonnull %occupancy) #8
-  %chain = getelementptr inbounds i8, ptr %stats, i64 24
+  %chain = getelementptr inbounds nuw i8, ptr %stats, i64 24
   tail call void @qdist_destroy(ptr noundef nonnull %chain) #8
   ret void
 }
@@ -1445,13 +1445,13 @@ define internal fastcc void @qht_do_resize_reset(ptr noundef %ht, ptr noundef %n
 entry:
   %data = alloca %struct.qht_map_copy_data, align 8
   %0 = load ptr, ptr %ht, align 8
-  %n_buckets.i = getelementptr inbounds i8, ptr %0, i64 24
+  %n_buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %n_buckets.i, align 8
   %cmp5.not.i = icmp eq i64 %1, 0
   br i1 %cmp5.not.i, label %if.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %buckets.i = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %qemu_spin_lock.exit.i, %for.body.lr.ph.i
@@ -1492,14 +1492,14 @@ if.then:                                          ; preds = %qht_map_lock_bucket
   br i1 %cmp6.not.i, label %if.end, label %for.body.lr.ph.i14
 
 for.body.lr.ph.i14:                               ; preds = %if.then
-  %buckets.i15 = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets.i15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body.i16
 
 for.body.i16:                                     ; preds = %qht_bucket_reset__locked.exit.i, %for.body.lr.ph.i14
   %i.07.i = phi i64 [ 0, %for.body.lr.ph.i14 ], [ %inc.i19, %qht_bucket_reset__locked.exit.i ]
   %8 = load ptr, ptr %buckets.i15, align 8
   %arrayidx.i17 = getelementptr %struct.qht_bucket, ptr %8, i64 %i.07.i
-  %sequence.i.i = getelementptr inbounds i8, ptr %arrayidx.i17, i64 4
+  %sequence.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17, i64 4
   %9 = load i32, ptr %sequence.i.i, align 4
   %add.i.i.i = add i32 %9, 1
   store atomic i32 %add.i.i.i, ptr %sequence.i.i monotonic, align 4
@@ -1509,8 +1509,8 @@ for.body.i16:                                     ; preds = %qht_bucket_reset__l
 
 do.body.i.i:                                      ; preds = %for.end.i.i, %for.body.i16
   %b.0.i.i = phi ptr [ %arrayidx.i17, %for.body.i16 ], [ %11, %for.end.i.i ]
-  %pointers.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
-  %hashes.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
+  %pointers.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 24
+  %hashes.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i.i, %do.body.i.i
@@ -1529,7 +1529,7 @@ while.end.i.i:                                    ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %while.end.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
+  %next.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 56
   %11 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i18 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i18, label %qht_bucket_reset__locked.exit.i, label %do.body.i.i, !llvm.loop !17
@@ -1555,7 +1555,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp5.not.i22, label %return, label %for.body.lr.ph.i23
 
 for.body.lr.ph.i23:                               ; preds = %if.then1
-  %buckets.i24 = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets.i24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %for.body.i25, %for.body.lr.ph.i23
@@ -1569,7 +1569,7 @@ for.body.i25:                                     ; preds = %for.body.i25, %for.
   br i1 %cmp.i29, label %for.body.i25, label %return, !llvm.loop !14
 
 do.body:                                          ; preds = %if.end
-  %n_buckets = getelementptr inbounds i8, ptr %new, i64 24
+  %n_buckets = getelementptr inbounds nuw i8, ptr %new, i64 24
   %17 = load i64, ptr %n_buckets, align 8
   %cmp4.not = icmp eq i64 %17, %14
   br i1 %cmp4.not, label %if.else, label %do.end
@@ -1580,7 +1580,7 @@ if.else:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   store ptr %ht, ptr %data, align 8
-  %new8 = getelementptr inbounds i8, ptr %data, i64 8
+  %new8 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store ptr %new, ptr %new8, align 8
   call fastcc void @qht_map_iter__all_locked(ptr noundef nonnull %0, ptr noundef @__const.qht_do_resize_reset.iter, ptr noundef nonnull %data)
   %18 = ptrtoint ptr %new to i64
@@ -1590,7 +1590,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp5.not.i31, label %qht_map_unlock_buckets.exit39, label %for.body.lr.ph.i32
 
 for.body.lr.ph.i32:                               ; preds = %do.end
-  %buckets.i33 = getelementptr inbounds i8, ptr %0, i64 16
+  %buckets.i33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.body.i34, %for.body.lr.ph.i32
@@ -1615,7 +1615,7 @@ return:                                           ; preds = %for.body.i25, %if.t
 define internal void @qht_map_copy(ptr noundef %p, i32 noundef %hash, ptr nocapture noundef readonly %userp) #0 {
 entry:
   %0 = load ptr, ptr %userp, align 8
-  %new2 = getelementptr inbounds i8, ptr %userp, i64 8
+  %new2 = getelementptr inbounds nuw i8, ptr %userp, i64 8
   %1 = load ptr, ptr %new2, align 8
   %2 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -1625,14 +1625,14 @@ entry:
   %sub.i = add i64 %.val4, 4294967295
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %.val, i64 %and.i
-  %cmp4.i = getelementptr inbounds i8, ptr %0, i64 8
+  %cmp4.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %entry
   %prev.0.i = phi ptr [ null, %entry ], [ %b.0.i, %for.end.i ]
   %b.0.i = phi ptr [ %arrayidx.i, %entry ], [ %7, %for.end.i ]
-  %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
-  %hashes.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
+  %pointers.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 24
+  %hashes.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %do.body.i
@@ -1659,7 +1659,7 @@ for.inc.i:                                        ; preds = %land.rhs.i, %if.the
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !28
 
 for.end.i:                                        ; preds = %for.inc.i
-  %next.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %next.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   %7 = load ptr, ptr %next.i, align 8
   %tobool15.not.i = icmp eq ptr %7, null
   br i1 %tobool15.not.i, label %do.end.i, label %do.body.i, !llvm.loop !29
@@ -1667,7 +1667,7 @@ for.end.i:                                        ; preds = %for.inc.i
 do.end.i:                                         ; preds = %for.end.i
   %call16.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef 64) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %call16.i, i8 0, i64 64, i1 false)
-  %n_added_buckets.i = getelementptr inbounds i8, ptr %1, i64 32
+  %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = atomicrmw add ptr %n_added_buckets.i, i64 1 seq_cst, align 8
   %9 = load atomic i64, ptr %n_added_buckets.i monotonic, align 8
   %10 = icmp eq ptr %call16.i, null
@@ -1682,7 +1682,7 @@ found.i:                                          ; preds = %do.end.i, %found.lo
   %new.0.i = phi i1 [ %10, %do.end.i ], [ true, %found.loopexit.i ]
   %prev.1.i = phi ptr [ %b.0.i, %do.end.i ], [ %prev.0.i, %found.loopexit.i ]
   %b.1.i = phi ptr [ %call16.i, %do.end.i ], [ %b.0.i, %found.loopexit.i ]
-  %sequence.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %sequence.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %sequence.i, align 4
   %add.i.i = add i32 %12, 1
   store atomic i32 %add.i.i, ptr %sequence.i monotonic, align 4
@@ -1691,16 +1691,16 @@ found.i:                                          ; preds = %do.end.i, %found.lo
   br i1 %new.0.i, label %while.end44.i, label %while.end.i
 
 while.end.i:                                      ; preds = %found.i
-  %next33.i = getelementptr inbounds i8, ptr %prev.1.i, i64 56
+  %next33.i = getelementptr inbounds nuw i8, ptr %prev.1.i, i64 56
   %13 = ptrtoint ptr %b.1.i to i64
   store atomic i64 %13, ptr %next33.i release, align 8
   br label %while.end44.i
 
 while.end44.i:                                    ; preds = %while.end.i, %found.i
-  %hashes45.i = getelementptr inbounds i8, ptr %b.1.i, i64 8
+  %hashes45.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 8
   %arrayidx47.i = getelementptr [4 x i32], ptr %hashes45.i, i64 0, i64 %i.1.i
   store atomic i32 %hash, ptr %arrayidx47.i monotonic, align 4
-  %pointers58.i = getelementptr inbounds i8, ptr %b.1.i, i64 24
+  %pointers58.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 24
   %arrayidx60.i = getelementptr [4 x ptr], ptr %pointers58.i, i64 0, i64 %i.1.i
   %14 = ptrtoint ptr %p to i64
   store atomic i64 %14, ptr %arrayidx60.i monotonic, align 8
@@ -1718,28 +1718,28 @@ qht_insert__locked.exit:                          ; preds = %land.rhs.i, %while.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qht_map_iter__all_locked(ptr nocapture noundef readonly %map, ptr nocapture noundef nonnull readonly %iter, ptr noundef %userp) unnamed_addr #0 {
 entry:
-  %n_buckets = getelementptr inbounds i8, ptr %map, i64 24
+  %n_buckets = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i64, ptr %n_buckets, align 8
   %cmp9.not = icmp eq i64 %0, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buckets = getelementptr inbounds i8, ptr %map, i64 16
-  %type.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %buckets = getelementptr inbounds nuw i8, ptr %map, i64 16
+  %type.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %qht_bucket_iter.exit
   %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %qht_bucket_iter.exit ]
   %1 = load ptr, ptr %buckets, align 8
   %arrayidx = getelementptr %struct.qht_bucket, ptr %1, i64 %i.010
-  %sequence.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %sequence.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %for.end.i, %for.body
   %b.0.i = phi ptr [ %arrayidx, %for.body ], [ %24, %for.end.i ]
-  %pointers.i = getelementptr inbounds i8, ptr %b.0.i, i64 24
-  %hashes12.i = getelementptr inbounds i8, ptr %b.0.i, i64 8
-  %next.i.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 56
+  %pointers.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 24
+  %hashes12.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
+  %next.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %do.body.i
@@ -1786,7 +1786,7 @@ if.then.i.i.i:                                    ; preds = %if.then15.i
   br i1 %cmp1.i.i.i, label %while.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %pointers.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
+  %pointers.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %pointers.i.i.i, align 8
   %cmp4.i.i.i = icmp eq ptr %10, null
   br i1 %cmp4.i.i.i, label %while.end.i.i, label %do.body13.i.i.preheader
@@ -1810,7 +1810,7 @@ while.end.i.i:                                    ; preds = %qht_entry_is_last.e
 do.body13.i.i:                                    ; preds = %do.body13.i.i.preheader, %for.end.i.i
   %prev.0.i.i = phi ptr [ %b.0.i.i, %for.end.i.i ], [ null, %do.body13.i.i.preheader ]
   %b.0.i.i = phi ptr [ %19, %for.end.i.i ], [ %b.0.i, %do.body13.i.i.preheader ]
-  %pointers14.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 24
+  %pointers14.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %do.body13.i.i
@@ -1826,7 +1826,7 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
   %sub.i.i = add nuw i64 %indvars.iv.i.i, 4294967295
-  %hashes14.i.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 8
+  %hashes14.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 8
   %idxprom15.i.i.i = and i64 %sub.i.i, 4294967295
   %arrayidx16.i.i.i = getelementptr [4 x i32], ptr %hashes14.i.i.i, i64 0, i64 %idxprom15.i.i.i
   %13 = load i32, ptr %arrayidx16.i.i.i, align 4
@@ -1857,7 +1857,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !31
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %b.0.i.i, i64 56
+  %next.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i, i64 56
   %19 = load ptr, ptr %next.i.i, align 8
   %tobool24.not.i.i = icmp eq ptr %19, null
   br i1 %tobool24.not.i.i, label %do.end25.i.i, label %do.body13.i.i, !llvm.loop !32

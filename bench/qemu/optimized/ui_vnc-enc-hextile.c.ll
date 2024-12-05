@@ -24,7 +24,7 @@ entry:
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %add3 = add i32 %w, %x
   %cmp420 = icmp slt i32 %x, %add3
-  %hextile = getelementptr inbounds i8, ptr %vs, i64 49808
+  %hextile = getelementptr inbounds nuw i8, ptr %vs, i64 49808
   br i1 %cmp420, label %for.cond2.preheader.us, label %for.end19
 
 for.cond2.preheader.us:                           ; preds = %for.cond2.preheader.lr.ph, %for.cond2.for.inc17_crit_edge.us
@@ -64,7 +64,7 @@ define dso_local void @vnc_hextile_set_pixel_conversion(ptr nocapture noundef wr
 entry:
   %tobool.not = icmp eq i32 %generic, 0
   %spec.select = select i1 %tobool.not, ptr @send_hextile_tile_32, ptr @send_hextile_tile_generic_32
-  %0 = getelementptr inbounds i8, ptr %vs, i64 49808
+  %0 = getelementptr inbounds nuw i8, ptr %vs, i64 49808
   store ptr %spec.select, ptr %0, align 8
   ret void
 }
@@ -73,10 +73,10 @@ entry:
 define internal void @send_hextile_tile_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
-  %vd1 = getelementptr inbounds i8, ptr %vs, i64 49192
+  %vd1 = getelementptr inbounds nuw i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd1, align 8
   %call = tail call ptr @vnc_server_fb_ptr(ptr noundef %0, i32 noundef %x, i32 noundef %y) #7
-  %bytes_per_pixel = getelementptr inbounds i8, ptr %vs, i64 49417
+  %bytes_per_pixel = getelementptr inbounds nuw i8, ptr %vs, i64 49417
   %1 = load i8, ptr %bytes_per_pixel, align 1
   %cmp = icmp ult i8 %1, 5
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -504,7 +504,7 @@ if.end216:                                        ; preds = %for.end203, %sw.epi
   br i1 %cmp3215, label %for.body239.lr.ph, label %if.end248
 
 for.body239.lr.ph:                                ; preds = %if.end216
-  %write_pixels240 = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels240 = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %mul241 = shl i32 %w, 2
   br label %for.body239
 
@@ -519,7 +519,7 @@ if.then220:                                       ; preds = %for.cond82.preheade
   br i1 %tobool221.not, label %if.end223, label %if.then222
 
 if.then222:                                       ; preds = %if.then220
-  %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %21 = load ptr, ptr %write_pixels, align 8
   tail call void %21(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end223
@@ -530,7 +530,7 @@ if.end223:                                        ; preds = %if.then222, %if.the
   br i1 %tobool225.not, label %if.end228, label %if.then226
 
 if.then226:                                       ; preds = %if.end223
-  %write_pixels227 = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels227 = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %22 = load ptr, ptr %write_pixels227, align 8
   tail call void %22(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end228
@@ -566,10 +566,10 @@ if.end248:                                        ; preds = %for.body239, %if.en
 define internal void @send_hextile_tile_generic_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
-  %vd1 = getelementptr inbounds i8, ptr %vs, i64 49192
+  %vd1 = getelementptr inbounds nuw i8, ptr %vs, i64 49192
   %0 = load ptr, ptr %vd1, align 8
   %call = tail call ptr @vnc_server_fb_ptr(ptr noundef %0, i32 noundef %x, i32 noundef %y) #7
-  %bytes_per_pixel = getelementptr inbounds i8, ptr %vs, i64 49417
+  %bytes_per_pixel = getelementptr inbounds nuw i8, ptr %vs, i64 49417
   %1 = load i8, ptr %bytes_per_pixel, align 1
   %cmp = icmp ult i8 %1, 5
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -1002,7 +1002,7 @@ if.end218:                                        ; preds = %for.end205, %sw.epi
   br i1 %cmp3220, label %for.body241.lr.ph, label %if.end250
 
 for.body241.lr.ph:                                ; preds = %if.end218
-  %write_pixels242 = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels242 = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %mul243 = shl i32 %w, 2
   br label %for.body241
 
@@ -1017,7 +1017,7 @@ if.then222:                                       ; preds = %for.cond82.preheade
   br i1 %tobool223.not, label %if.end225, label %if.then224
 
 if.then224:                                       ; preds = %if.then222
-  %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %24 = load ptr, ptr %write_pixels, align 8
   call void %24(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end225
@@ -1028,7 +1028,7 @@ if.end225:                                        ; preds = %if.then224, %if.the
   br i1 %tobool227.not, label %if.end230, label %if.then228
 
 if.then228:                                       ; preds = %if.end225
-  %write_pixels229 = getelementptr inbounds i8, ptr %vs, i64 49408
+  %write_pixels229 = getelementptr inbounds nuw i8, ptr %vs, i64 49408
   %25 = load ptr, ptr %write_pixels229, align 8
   call void %25(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end230

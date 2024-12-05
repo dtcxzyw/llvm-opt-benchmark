@@ -17,24 +17,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN9SpinYieldC2Ejjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not = icmp eq i32 %6, 1
   %7 = select i1 %.not, i32 0, i32 %1
   store i32 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9SpinYield14yield_or_sleepEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %7, label %9
@@ -49,7 +49,7 @@ define hidden void @_ZN9SpinYield14yield_or_sleepEv(ptr nocapture noundef nonnul
   %10 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #4
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef %15) #4
@@ -61,7 +61,7 @@ define hidden void @_ZN9SpinYield14yield_or_sleepEv(ptr nocapture noundef nonnul
   %21 = load i64, ptr %0, align 8
   %22 = add nsw i64 %19, %21
   store i64 %22, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %20, %24
   store i64 %25, ptr %23, align 8
@@ -77,7 +77,7 @@ declare void @_ZN2os21naked_short_nanosleepEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9SpinYield6reportEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -90,7 +90,7 @@ define hidden void @_ZNK9SpinYield6reportEP12outputStream(ptr nocapture noundef 
 
 7:                                                ; preds = %5, %2
   %.0 = phi ptr [ @.str.9, %5 ], [ @.str, %2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %.not14 = icmp eq i32 %9, 0
   br i1 %.not14, label %12, label %10
@@ -110,7 +110,7 @@ define hidden void @_ZNK9SpinYield6reportEP12outputStream(ptr nocapture noundef 
 14:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1) #4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %15 = tail call noundef i64 @_ZN29CompositeElapsedCounterSource12microsecondsE7PairRepIllE(i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, i64 noundef %15) #4

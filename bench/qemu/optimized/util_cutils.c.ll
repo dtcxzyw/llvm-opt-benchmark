@@ -344,12 +344,12 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i64 -185544734670848, 185544734584448) i64 @mktimegm(ptr nocapture noundef readonly %tm) local_unnamed_addr #9 {
 entry:
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year, align 4
-  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %add1 = add i32 %1, 1
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
   %2 = load i32, ptr %tm_mday, align 4
   %cmp = icmp slt i32 %add1, 3
   %add2 = add i32 %1, 13
@@ -371,10 +371,10 @@ entry:
   %sub12 = add i32 %add11, %div
   %conv = sext i32 %sub12 to i64
   %mul13 = mul nsw i64 %conv, 86400
-  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %3 = load i32, ptr %tm_hour, align 8
   %mul14 = mul i32 %3, 3600
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %4 = load i32, ptr %tm_min, align 4
   %mul15 = mul i32 %4, 60
   %add16 = add i32 %mul15, %mul14

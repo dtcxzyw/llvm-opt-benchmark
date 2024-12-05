@@ -102,7 +102,7 @@ test_caneth.exit:                                 ; preds = %13
   br i1 %16, label %test_caneth.exit.thread, label %17
 
 17:                                               ; preds = %test_caneth.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.22) #3
   %20 = load ptr, ptr %18, align 8

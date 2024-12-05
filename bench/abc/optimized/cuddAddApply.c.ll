@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addApply(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -43,10 +43,10 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   br label %22
 
@@ -58,10 +58,10 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 312
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %25 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   br label %33
 
@@ -71,9 +71,9 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not61, label %40, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %13, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %39 = load ptr, ptr %38, align 8
   br label %40
 
@@ -85,9 +85,9 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not62, label %46, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %24, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %45 = load ptr, ptr %44, align 8
   br label %46
 
@@ -102,7 +102,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %50 = ptrtoint ptr %47 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
@@ -118,7 +118,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %60 = ptrtoint ptr %56 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -157,7 +157,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 define ptr @Cudd_addPlus(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   br i1 %8, label %27, label %9
@@ -177,9 +177,9 @@ define ptr @Cudd_addPlus(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
   %22 = fadd double %19, %21
   %23 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %22) #5
@@ -205,7 +205,7 @@ declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 define ptr @Cudd_addTimes(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   %9 = icmp eq ptr %5, %7
@@ -213,7 +213,7 @@ define ptr @Cudd_addTimes(ptr noundef %0, ptr nocapture noundef %1, ptr nocaptur
   br i1 %or.cond, label %32, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %4, %12
   br i1 %13, label %32, label %14
@@ -233,9 +233,9 @@ define ptr @Cudd_addTimes(ptr noundef %0, ptr nocapture noundef %1, ptr nocaptur
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load double, ptr %25, align 8
   %27 = fmul double %24, %26
   %28 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %27) #5
@@ -263,7 +263,7 @@ define ptr @Cudd_addThreshold(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %4, %9
   br i1 %10, label %26, label %11
@@ -279,15 +279,15 @@ define ptr @Cudd_addThreshold(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
   %22 = fcmp ult double %19, %21
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -304,7 +304,7 @@ define ptr @Cudd_addSetNZ(ptr nocapture noundef readonly %0, ptr nocapture nound
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %4, %9
   br i1 %10, label %16, label %11
@@ -328,13 +328,13 @@ define ptr @Cudd_addSetNZ(ptr nocapture noundef readonly %0, ptr nocapture nound
 define ptr @Cudd_addDivide(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   br i1 %8, label %26, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %5, %11
   br i1 %12, label %26, label %13
@@ -350,9 +350,9 @@ define ptr @Cudd_addDivide(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load double, ptr %22, align 8
   %24 = fdiv double %21, %23
   %25 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %24) #5
@@ -368,7 +368,7 @@ define ptr @Cudd_addMinus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %28, label %9
 
@@ -395,9 +395,9 @@ define ptr @Cudd_addMinus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load double, ptr %24, align 8
   %26 = fsub double %23, %25
   %27 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %26) #5
@@ -414,7 +414,7 @@ declare ptr @cuddAddNegateRecur(ptr noundef, ptr noundef) local_unnamed_addr #1
 define ptr @Cudd_addMinimum(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   br i1 %8, label %27, label %9
@@ -436,9 +436,9 @@ define ptr @Cudd_addMinimum(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load double, ptr %21, align 8
   %23 = fcmp ugt double %20, %22
   %. = select i1 %23, ptr %5, ptr %4
@@ -466,7 +466,7 @@ define ptr @Cudd_addMaximum(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %6, label %28, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %4, %9
   br i1 %10, label %28, label %11
@@ -486,9 +486,9 @@ define ptr @Cudd_addMaximum(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load double, ptr %22, align 8
   %24 = fcmp ult double %21, %23
   %. = select i1 %24, ptr %5, ptr %4
@@ -516,7 +516,7 @@ define ptr @Cudd_addOneZeroMaximum(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %5, %9
   br i1 %10, label %.sink.split, label %11
@@ -532,9 +532,9 @@ define ptr @Cudd_addOneZeroMaximum(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
   %22 = fcmp ogt double %19, %21
   %. = select i1 %22, i64 40, i64 48
@@ -542,7 +542,7 @@ define ptr @Cudd_addOneZeroMaximum(ptr nocapture noundef readonly %0, ptr nocapt
 
 .sink.split:                                      ; preds = %17, %7, %3
   %.sink15 = phi i64 [ 48, %3 ], [ 48, %7 ], [ %., %17 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 %.sink15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -556,7 +556,7 @@ define ptr @Cudd_addDiff(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %27, label %9
 
@@ -579,9 +579,9 @@ define ptr @Cudd_addDiff(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load double, ptr %22, align 8
   %24 = fcmp une double %21, %23
   br i1 %24, label %25, label %27
@@ -604,7 +604,7 @@ define ptr @Cudd_addAgreement(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %4, %9
   br i1 %10, label %20, label %11
@@ -635,7 +635,7 @@ define ptr @Cudd_addAgreement(ptr nocapture noundef readonly %0, ptr nocapture n
 define ptr @Cudd_addOr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   %9 = icmp eq ptr %5, %7
@@ -672,7 +672,7 @@ define ptr @Cudd_addOr(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 define ptr @Cudd_addNand(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   %9 = icmp eq ptr %5, %7
@@ -680,7 +680,7 @@ define ptr @Cudd_addNand(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %or.cond, label %10, label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   br label %22
 
@@ -712,7 +712,7 @@ define ptr @Cudd_addNand(ptr nocapture noundef readonly %0, ptr nocapture nounde
 define ptr @Cudd_addNor(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %4, %7
   %9 = icmp eq ptr %5, %7
@@ -720,7 +720,7 @@ define ptr @Cudd_addNor(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %or.cond, label %10, label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   br label %22
 
@@ -756,18 +756,18 @@ define ptr @Cudd_addXor(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   br label %36
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %4, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %5, %16
   br i1 %17, label %36, label %18
@@ -777,7 +777,7 @@ define ptr @Cudd_addXor(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %4, %22
   br i1 %23, label %36, label %24
@@ -793,7 +793,7 @@ define ptr @Cudd_addXor(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   br label %36
 
@@ -819,7 +819,7 @@ define ptr @Cudd_addXnor(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   br label %21
 
@@ -829,7 +829,7 @@ define ptr @Cudd_addXnor(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %5, align 8
   %17 = icmp eq i32 %16, 2147483647
@@ -851,7 +851,7 @@ define ptr @Cudd_addXnor(ptr nocapture noundef readonly %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addMonadicApply(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -878,9 +878,9 @@ define ptr @cuddAddMonadicApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @cuddAddMonadicApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %10)
   %14 = icmp eq ptr %13, null
@@ -890,7 +890,7 @@ define ptr @cuddAddMonadicApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = ptrtoint ptr %13 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -906,7 +906,7 @@ define ptr @cuddAddMonadicApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   %26 = ptrtoint ptr %22 to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -946,7 +946,7 @@ define ptr @Cudd_addLog(ptr noundef %0, ptr nocapture noundef readonly %1) local
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   %8 = tail call double @log(double noundef %7) #5
   %9 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %8) #5

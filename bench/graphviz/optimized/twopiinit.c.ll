@@ -24,9 +24,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #9
   %2 = tail call ptr @agroot(ptr noundef %0) #9
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store i16 2, ptr %5, align 8
   store i32 2, ptr @Ndim, align 4
   %6 = tail call i32 @agnnodes(ptr noundef %0) #9
@@ -35,9 +35,9 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %9 = add nsw i32 %6, 1
   %10 = sext i32 %9 to i64
   %11 = tail call fastcc ptr @gv_calloc(i64 noundef %10, i64 noundef 8)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store ptr %11, ptr %14, align 8
   %15 = tail call ptr @agfstnode(ptr noundef %0) #9
   %.not28.i = icmp eq ptr %15, null
@@ -47,16 +47,16 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %.030.i = phi ptr [ %24, %.lr.ph.i ], [ %15, %1 ]
   tail call void @neato_init_node(ptr noundef nonnull %.030.i) #9
-  %16 = getelementptr inbounds %struct.rdata, ptr %8, i64 %indvars.iv.i
-  %17 = getelementptr inbounds i8, ptr %.030.i, i64 16
+  %16 = getelementptr inbounds nuw %struct.rdata, ptr %8, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 152
   store ptr %16, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
   store ptr %.030.i, ptr %23, align 8
   %24 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.030.i) #9
   %.not.i = icmp eq ptr %24, null
@@ -79,9 +79,9 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %28 = tail call i32 @common_init_edge(ptr noundef nonnull %.02432.i) #9
   %29 = load ptr, ptr @E_weight, align 8
   %30 = tail call double @late_double(ptr noundef nonnull %.02432.i, ptr noundef %29, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
-  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02432.i, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store double %30, ptr %33, align 8
   %34 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02432.i) #9
   %.not27.i = icmp eq ptr %34, null
@@ -146,7 +146,7 @@ define void @twopi_layout(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not99, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %2, ptr noundef nonnull %23) #9
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %26, label %28
@@ -203,20 +203,20 @@ findRootNode.exit:                                ; preds = %40, %.lr.ph.i, %34,
 
 46:                                               ; preds = %44, %findRootNode.exit
   %47 = call ptr @agfstnode(ptr noundef %0) #9
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 152
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 152
   %51 = load ptr, ptr %50, align 8
   call void @free(ptr noundef %51) #9
   %52 = load ptr, ptr %48, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 152
   store ptr null, ptr %53, align 8
   %54 = call i32 @adjustNodes(ptr noundef %0) #9
   br label %116
 
 55:                                               ; preds = %30
   %56 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %4) #9
-  %57 = getelementptr inbounds i8, ptr %4, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %57, align 4
   %58 = load i64, ptr %3, align 8
   %.not129 = icmp eq i64 %58, 0
@@ -338,13 +338,13 @@ findRootNode.exit114:                             ; preds = %95, %.lr.ph.i110, %
 ._crit_edge:                                      ; preds = %102, %findRootNode.exit114.us, %findRootNode.exit114.us.us.us, %findRootNode.exit114.us.us, %55
   %.4.lcssa = phi ptr [ %.083, %55 ], [ null, %findRootNode.exit114.us.us ], [ %.083, %findRootNode.exit114.us.us.us ], [ %spec.select128, %findRootNode.exit114.us ], [ %spec.select107, %102 ]
   %107 = call ptr @agfstnode(ptr noundef %0) #9
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 152
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 152
   %111 = load ptr, ptr %110, align 8
   call void @free(ptr noundef %111) #9
   %112 = load ptr, ptr %108, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 152
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 152
   store ptr null, ptr %113, align 8
   %114 = load i64, ptr %3, align 8
   %115 = call i32 @packSubgraphs(i64 noundef %114, ptr noundef %31, ptr noundef %0, ptr noundef nonnull %4) #9

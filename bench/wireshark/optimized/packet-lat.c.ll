@@ -619,7 +619,7 @@ define internal i32 @dissect_lat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %56 = alloca i32, align 4
   %57 = alloca i32, align 4
   %58 = alloca i32, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8
   tail call void @col_add_str(ptr noundef %60, i32 noundef 34, ptr noundef nonnull @.str.267) #3
   %61 = load ptr, ptr %59, align 8

@@ -39,8 +39,8 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_aes_set_key(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = tail call i32 @aes_expandkey(ptr noundef %4, ptr noundef %1, i32 noundef %2) #4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = tail call i32 @aes_expandkey(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2) #4
   ret i32 %5
 }
 
@@ -64,9 +64,9 @@ define internal i32 @aes_init() #2 section ".init.text" align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @crypto_aes_encrypt(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef readonly %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 512
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %4, align 4
   %9 = load i32, ptr %2, align 1
@@ -1465,9 +1465,9 @@ define internal void @crypto_aes_encrypt(ptr noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @crypto_aes_decrypt(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef readonly %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 512
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = getelementptr i8, ptr %0, i64 288
   %8 = load i32, ptr %6, align 4
   %9 = load i32, ptr %2, align 1

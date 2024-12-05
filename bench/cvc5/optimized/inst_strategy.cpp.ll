@@ -61,15 +61,15 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers12InstStrategyC2ERNS0_3
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstStrategyE, i64 16), ptr %this, align 8
-  %d_td = getelementptr inbounds i8, ptr %this, i64 16
+  %d_td = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %td, ptr %d_td, align 8
-  %d_qstate = getelementptr inbounds i8, ptr %this, i64 24
+  %d_qstate = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %qs, ptr %d_qstate, align 8
-  %d_qim = getelementptr inbounds i8, ptr %this, i64 32
+  %d_qim = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %qim, ptr %d_qim, align 8
-  %d_qreg = getelementptr inbounds i8, ptr %this, i64 40
+  %d_qreg = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %qr, ptr %d_qreg, align 8
-  %d_treg = getelementptr inbounds i8, ptr %this, i64 48
+  %d_treg = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %tr, ptr %d_treg, align 8
   ret void
 }
@@ -147,15 +147,15 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define hidden noundef i32 @_ZNK4cvc58internal6theory11quantifiers12InstStrategy18getInstUserPatModeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %quantifiers = getelementptr inbounds i8, ptr %call, i64 328
+  %quantifiers = getelementptr inbounds nuw i8, ptr %call, i64 328
   %0 = load ptr, ptr %quantifiers, align 8
-  %userPatternsQuant = getelementptr inbounds i8, ptr %0, i64 748
+  %userPatternsQuant = getelementptr inbounds nuw i8, ptr %0, i64 748
   %1 = load i32, ptr %userPatternsQuant, align 4
   %cmp = icmp eq i32 %1, 5
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %d_qstate = getelementptr inbounds i8, ptr %this, i64 24
+  %d_qstate = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_qstate, align 8
   %call2 = tail call noundef i64 @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState13getInstRoundsEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
   %rem = and i64 %call2, 1
@@ -165,9 +165,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call4 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %quantifiers5 = getelementptr inbounds i8, ptr %call4, i64 328
+  %quantifiers5 = getelementptr inbounds nuw i8, ptr %call4, i64 328
   %3 = load ptr, ptr %quantifiers5, align 8
-  %userPatternsQuant6 = getelementptr inbounds i8, ptr %3, i64 748
+  %userPatternsQuant6 = getelementptr inbounds nuw i8, ptr %3, i64 748
   %4 = load i32, ptr %userPatternsQuant6, align 4
   br label %return
 
@@ -206,9 +206,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13

@@ -65,33 +65,33 @@ entry:
   %size.i.i = alloca i32, align 4
   %coded_output = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %0 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
-  %cur_.i = getelementptr inbounds i8, ptr %coded_output, i64 64
+  %cur_.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 64
   %frombool.i.i = and i8 %0, 1
-  %buffer_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 16
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 16
   store ptr %buffer_.i.i, ptr %coded_output, align 8
-  %buffer_end_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 8
+  %buffer_end_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 48
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 48
   store ptr %output, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 56
+  %had_error_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 57
+  %aliasing_enabled_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %coded_output, i64 58
+  %is_serialization_deterministic_.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 58
   store i8 %frombool.i.i, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %coded_output, i64 59
+  %skip_check_consistency.i.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
-  %start_count_.i = getelementptr inbounds i8, ptr %coded_output, i64 72
+  %start_count_.i = getelementptr inbounds nuw i8, ptr %coded_output, i64 72
   %vtable.i = load ptr, ptr %output, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %output)
   store i64 %call2.i, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
   %3 = load i32, ptr %size.i.i, align 4
@@ -103,9 +103,9 @@ if.then.i.i:                                      ; preds = %entry
   %5 = load ptr, ptr %data.i.i, align 8
   %cmp.i.i.i = icmp samesign ugt i32 %3, 16
   %idx.ext.i.i.i = zext nneg i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
-  %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %buffer_.i.i, i64 %idx.ext.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %buffer_.i.i, i64 %idx.ext.i.i.i
   %add.ptr4.sink.i.i.i = select i1 %cmp.i.i.i, ptr %add.ptr2.i.i.i, ptr %add.ptr4.i.i.i
   %data.sink.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %5
   %retval.0.i.i.i = select i1 %cmp.i.i.i, ptr %5, ptr %buffer_.i.i
@@ -178,23 +178,23 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr nou
 define noundef zeroext i1 @_ZN6google8protobuf4util32ParseDelimitedFromZeroCopyStreamEPNS0_11MessageLiteEPNS0_2io19ZeroCopyInputStreamEPb(ptr noundef %message, ptr noundef %input, ptr noundef %clean_eof) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %coded_input = alloca %"class.google::protobuf::io::CodedInputStream", align 8
-  %input_.i = getelementptr inbounds i8, ptr %coded_input, i64 16
+  %input_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %coded_input, i8 0, i64 16, i1 false)
   store ptr %input, ptr %input_.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds i8, ptr %coded_input, i64 24
-  %current_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 40
+  %total_bytes_read_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 24
+  %current_limit_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %total_bytes_read_.i, i8 0, i64 15, i1 false)
   store i32 2147483647, ptr %current_limit_.i, align 8
-  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 44
+  %buffer_size_after_limit_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 44
   store i32 0, ptr %buffer_size_after_limit_.i, align 4
-  %total_bytes_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 48
+  %total_bytes_limit_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 48
   store i32 2147483647, ptr %total_bytes_limit_.i, align 8
-  %recursion_budget_.i = getelementptr inbounds i8, ptr %coded_input, i64 52
+  %recursion_budget_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 52
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
   store i32 %0, ptr %recursion_budget_.i, align 4
-  %recursion_limit_.i = getelementptr inbounds i8, ptr %coded_input, i64 56
+  %recursion_limit_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 56
   store i32 %0, ptr %recursion_limit_.i, align 8
-  %extension_pool_.i = getelementptr inbounds i8, ptr %coded_input, i64 64
+  %extension_pool_.i = getelementptr inbounds nuw i8, ptr %coded_input, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_pool_.i, i8 0, i64 16, i1 false)
   %call2.i = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %coded_input)
   %call = invoke noundef zeroext i1 @_ZN6google8protobuf4util29ParseDelimitedFromCodedStreamEPNS0_11MessageLiteEPNS0_2io16CodedInputStreamEPb(ptr noundef %message, ptr noundef nonnull %coded_input, ptr noundef %clean_eof)
@@ -222,16 +222,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %total_bytes_read_.i = getelementptr inbounds i8, ptr %input, i64 24
+  %total_bytes_read_.i = getelementptr inbounds nuw i8, ptr %input, i64 24
   %0 = load i32, ptr %total_bytes_read_.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %buffer_end_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %2 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.neg.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.i.neg1.i = trunc i64 %sub.ptr.sub.i.neg.i to i32
-  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %input, i64 44
+  %buffer_size_after_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 44
   %3 = load i32, ptr %buffer_size_after_limit_.i, align 4
   %add.neg.i = sub i32 %0, %3
   %sub.i = add i32 %add.neg.i, %conv.i.neg1.i
@@ -245,7 +245,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp3.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1
   store ptr %add.ptr.i.i, ptr %input, align 8
   br label %if.end8
 
@@ -297,7 +297,7 @@ if.end8:                                          ; preds = %_ZN6google8protobuf
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end8
-  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
+  %legitimate_message_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 36
   %12 = load i8, ptr %legitimate_message_end_.i, align 4
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.end16, label %return
@@ -341,7 +341,7 @@ declare void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef no
 define noundef zeroext i1 @_ZN6google8protobuf4util31SerializeDelimitedToCodedStreamERKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %output) local_unnamed_addr #3 {
 entry:
   %vtable = load ptr, ptr %message, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %message)
   %cmp = icmp ugt i64 %call, 2147483647
@@ -349,7 +349,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = trunc nuw nsw i64 %call to i32
-  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
+  %cur_.i = getelementptr inbounds nuw i8, ptr %output, i64 64
   %1 = load ptr, ptr %cur_.i, align 8
   %2 = load ptr, ptr %output, align 8
   %cmp.not.i.i = icmp ult ptr %1, %2
@@ -371,7 +371,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %conv.i.i.i = or i8 %3, -128
   store i8 %conv.i.i.i, ptr %ptr.addr.i.08.i.i, align 1
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.08.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !4
 
@@ -379,7 +379,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %shr.i.i.i, %while.body.i.i.i ]
   %conv1.i.i.i = trunc nuw nsw i32 %value.addr.i.0.lcssa.i.i to i8
-  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
+  %incdec.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i, align 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBufferForNBytesAndAdvanceEiPPh(ptr noundef nonnull align 8 dereferenceable(80) %output, i32 noundef %conv, ptr noundef nonnull %cur_.i)
@@ -393,13 +393,13 @@ if.then4:                                         ; preds = %_ZN6google8protobuf
 if.else:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %4 = load ptr, ptr %cur_.i, align 8
   %vtable.i = load ptr, ptr %message, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %4, ptr noundef nonnull %output)
   store ptr %call3.i, ptr %cur_.i, align 8
   %call.i11 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call3.i)
   store ptr %call.i11, ptr %cur_.i, align 8
-  %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
+  %had_error_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 56
   %6 = load i8, ptr %had_error_.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %return, label %if.end9

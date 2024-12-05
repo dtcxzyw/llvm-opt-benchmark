@@ -426,7 +426,7 @@ define range(i32 0, 2) i32 @onig_is_error_code_needs_param(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.onig_is_error_code_needs_param, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.onig_is_error_code_needs_param, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -456,7 +456,7 @@ define i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_un
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 16
   %11 = zext nneg i32 %6 to i64
   %12 = getelementptr i8, ptr %10, i64 %11
@@ -465,7 +465,7 @@ define i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_un
   br label %18
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   store ptr %17, ptr %15, align 8
@@ -475,9 +475,9 @@ define i32 @onig_error_code_to_str(ptr noundef %0, i32 noundef %1, ...) local_un
   %19 = phi ptr [ %12, %8 ], [ %16, %14 ]
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %to_ascii.exit.thread, label %27
@@ -487,13 +487,13 @@ to_ascii.exit.thread:                             ; preds = %18
   br label %to_ascii.exit.split.preheader
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %21, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %.preheader.i, label %to_ascii.exit
 
 .preheader.i:                                     ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %21, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 32
   br label %32
 
 32:                                               ; preds = %75, %.preheader.i
@@ -609,7 +609,7 @@ to_ascii.exit.split.us:                           ; preds = %to_ascii.exit.split
   ]
 
 99:                                               ; preds = %to_ascii.exit.split.us
-  %100 = getelementptr inbounds i8, ptr %.030.us, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.030.us, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 110
   br i1 %102, label %103, label %107
@@ -618,15 +618,15 @@ to_ascii.exit.split.us:                           ; preds = %to_ascii.exit.split
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.us, ptr nonnull align 16 %3, i64 %96, i1 false)
   %104 = getelementptr inbounds i8, ptr %.029.us, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %104, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
-  %105 = getelementptr inbounds i8, ptr %104, i64 3
-  %106 = getelementptr inbounds i8, ptr %.030.us, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 3
+  %106 = getelementptr inbounds nuw i8, ptr %.030.us, i64 2
   br label %to_ascii.exit.split.us.backedge
 
 107:                                              ; preds = %99, %to_ascii.exit.split.us
   %108 = phi i8 [ %101, %99 ], [ %98, %to_ascii.exit.split.us ]
   %.131.us = phi ptr [ %100, %99 ], [ %.030.us, %to_ascii.exit.split.us ]
-  %109 = getelementptr inbounds i8, ptr %.131.us, i64 1
-  %110 = getelementptr inbounds i8, ptr %.029.us, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.131.us, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.029.us, i64 1
   store i8 %108, ptr %.029.us, align 1
   br label %to_ascii.exit.split.us.backedge
 
@@ -645,7 +645,7 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
   ]
 
 112:                                              ; preds = %to_ascii.exit.split
-  %113 = getelementptr inbounds i8, ptr %.030, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %114, 110
   br i1 %115, label %116, label %119
@@ -653,14 +653,14 @@ to_ascii.exit.split:                              ; preds = %to_ascii.exit.split
 116:                                              ; preds = %112
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029, ptr nonnull align 16 %3, i64 %94, i1 false)
   %117 = getelementptr inbounds i8, ptr %.029, i64 %94
-  %118 = getelementptr inbounds i8, ptr %.030, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   br label %to_ascii.exit.split.backedge
 
 119:                                              ; preds = %to_ascii.exit.split, %112
   %120 = phi i8 [ %114, %112 ], [ %111, %to_ascii.exit.split ]
   %.131 = phi ptr [ %113, %112 ], [ %.030, %to_ascii.exit.split ]
-  %121 = getelementptr inbounds i8, ptr %.131, i64 1
-  %122 = getelementptr inbounds i8, ptr %.029, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.131, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   store i8 %120, ptr %.029, align 1
   br label %to_ascii.exit.split.backedge
 
@@ -727,8 +727,8 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %23, label %.lr.ph98, label %._crit_edge
 
 .lr.ph98:                                         ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %2, i64 20
-  %25 = getelementptr inbounds i8, ptr %2, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %invariant.gep = getelementptr i8, ptr %7, i64 -1
   %invariant.gep139 = getelementptr i8, ptr %7, i64 -1
   br label %26
@@ -760,9 +760,9 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %.15479 = phi ptr [ %36, %.lr.ph81 ], [ %.05396, %.preheader ]
   %.05878 = phi i32 [ %35, %.lr.ph81 ], [ %31, %.preheader ]
   %35 = add nsw i32 %.05878, -1
-  %36 = getelementptr inbounds i8, ptr %.15479, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.15479, i64 1
   %37 = load i8, ptr %.15479, align 1
-  %38 = getelementptr inbounds i8, ptr %.15280, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.15280, i64 1
   store i8 %37, ptr %.15280, align 1
   %39 = icmp samesign ugt i32 %.05878, 1
   br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !7
@@ -777,7 +777,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %.274 = phi ptr [ %.3.lcssa, %.loopexit ], [ %.05197, %.preheader68 ]
   %.25573 = phi ptr [ %42, %.loopexit ], [ %.05396, %.preheader68 ]
   %41 = add nsw i32 %.in, -1
-  %42 = getelementptr inbounds i8, ptr %.25573, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.25573, i64 1
   %43 = load i8, ptr %.25573, align 1
   %44 = zext i8 %43 to i32
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #8
@@ -793,9 +793,9 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.05071 = phi ptr [ %49, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.370 = phi ptr [ %51, %.lr.ph ], [ %.274, %.lr.ph.preheader ]
-  %49 = getelementptr inbounds i8, ptr %.05071, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.05071, i64 1
   %50 = load i8, ptr %.05071, align 1
-  %51 = getelementptr inbounds i8, ptr %.370, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.370, i64 1
   store i8 %50, ptr %.370, align 1
   %exitcond.not = icmp eq ptr %.05071, %gep
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -808,11 +808,11 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   ]
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.05396, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
   store i8 92, ptr %.05197, align 1
   %56 = load ptr, ptr %2, align 8
   %57 = call i32 %56(ptr noundef nonnull %55) #8
-  %.584 = getelementptr inbounds i8, ptr %.05197, i64 1
+  %.584 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph88, label %.loopexit65
 
@@ -821,19 +821,19 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %.45786 = phi ptr [ %60, %.lr.ph88 ], [ %55, %54 ]
   %.26085 = phi i32 [ %59, %.lr.ph88 ], [ %57, %54 ]
   %59 = add nsw i32 %.26085, -1
-  %60 = getelementptr inbounds i8, ptr %.45786, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.45786, i64 1
   %61 = load i8, ptr %.45786, align 1
   store i8 %61, ptr %.587, align 1
-  %.5 = getelementptr inbounds i8, ptr %.587, i64 1
+  %.5 = getelementptr inbounds nuw i8, ptr %.587, i64 1
   %62 = icmp samesign ugt i32 %.26085, 1
   br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !10
 
 63:                                               ; preds = %52
-  %64 = getelementptr inbounds i8, ptr %.05197, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
   store i8 92, ptr %.05197, align 1
-  %65 = getelementptr inbounds i8, ptr %.05396, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
   %66 = load i8, ptr %.05396, align 1
-  %67 = getelementptr inbounds i8, ptr %.05197, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.05197, i64 2
   store i8 %66, ptr %64, align 1
   br label %.loopexit65
 
@@ -853,7 +853,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not64, label %77, label %88
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %.05396, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
   %79 = load i8, ptr %.05396, align 1
   %80 = zext i8 %79 to i32
   %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %80) #8
@@ -869,17 +869,17 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %.193 = phi ptr [ %85, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
   %.692 = phi ptr [ %87, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
-  %85 = getelementptr inbounds i8, ptr %.193, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.193, i64 1
   %86 = load i8, ptr %.193, align 1
-  %87 = getelementptr inbounds i8, ptr %.692, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.692, i64 1
   store i8 %86, ptr %.692, align 1
   %exitcond109.not = icmp eq ptr %.193, %gep140
   br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !11
 
 88:                                               ; preds = %72, %68
-  %89 = getelementptr inbounds i8, ptr %.05396, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
   %90 = load i8, ptr %.05396, align 1
-  %91 = getelementptr inbounds i8, ptr %.05197, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
   store i8 %90, ptr %.05197, align 1
   br label %.loopexit65
 
@@ -891,7 +891,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
 
 ._crit_edge:                                      ; preds = %.loopexit65, %19
   %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit65 ]
-  %93 = getelementptr inbounds i8, ptr %.051.lcssa, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.051.lcssa, i64 1
   store i8 47, ptr %.051.lcssa, align 1
   store i8 0, ptr %93, align 1
   br label %94

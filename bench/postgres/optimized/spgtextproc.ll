@@ -18,18 +18,18 @@ define dso_local noundef i64 @spg_text_config(ptr nocapture noundef readonly %0)
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   store i32 25, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 21, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 13
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 1, ptr %7, align 1
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @spg_text_choose(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -42,8 +42,8 @@ define dso_local noundef i64 @spg_text_choose(ptr nocapture noundef readonly %0)
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = select i1 %.not, ptr %15, ptr %14
   %17 = icmp eq i8 %11, 1
   br i1 %17, label %18, label %26
@@ -75,13 +75,13 @@ define dso_local noundef i64 @spg_text_choose(ptr nocapture noundef readonly %0)
 
 34:                                               ; preds = %27, %30, %18
   %35 = phi i32 [ %25, %18 ], [ %29, %27 ], [ %33, %30 ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 21
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %136
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call ptr @pg_detoast_datum_packed(ptr noundef %42) #9
@@ -89,8 +89,8 @@ define dso_local noundef i64 @spg_text_choose(ptr nocapture noundef readonly %0)
   %45 = zext i8 %44 to i32
   %46 = and i32 %45, 1
   %.not113 = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds i8, ptr %43, i64 1
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = select i1 %.not113, ptr %48, ptr %47
   %50 = icmp eq i8 %44, 1
   br i1 %50, label %51, label %59
@@ -122,7 +122,7 @@ define dso_local noundef i64 @spg_text_choose(ptr nocapture noundef readonly %0)
 
 67:                                               ; preds = %60, %63, %51
   %68 = phi i32 [ %58, %51 ], [ %62, %60 ], [ %66, %63 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
   %72 = getelementptr i8, ptr %16, i64 %71
@@ -170,12 +170,12 @@ commonPrefix.exit.thread:                         ; preds = %67
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %.thread, %85
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %88, align 8
   br label %105
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %7, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %90, align 8
   %91 = add nuw i32 %.0.lcssa.i, 4
   %92 = sext i32 %91 to i64
@@ -201,27 +201,27 @@ formTextDatum.exit:                               ; preds = %100, %96
   %102 = getelementptr i8, ptr %93, i64 %.sink13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull readonly align 1 %49, i64 %94, i1 false)
   %103 = ptrtoint ptr %93 to i64
-  %104 = getelementptr inbounds i8, ptr %7, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %103, ptr %104, align 8
   br label %105
 
 105:                                              ; preds = %formTextDatum.exit, %87
   %.0.lcssa.i129131 = phi i32 [ %.0.lcssa.i, %formTextDatum.exit ], [ 0, %87 ]
-  %106 = getelementptr inbounds i8, ptr %7, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %106, align 8
   %107 = tail call ptr @palloc(i64 noundef 8) #9
-  %108 = getelementptr inbounds i8, ptr %7, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %107, ptr %108, align 8
   %109 = sext i32 %.0.lcssa.i129131 to i64
   %110 = getelementptr i8, ptr %49, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i64
   store i64 %112, ptr %107, align 8
-  %113 = getelementptr inbounds i8, ptr %7, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %113, align 8
   %114 = sub i32 %68, %.0.lcssa.i129131
   %115 = icmp eq i32 %114, 1
-  %116 = getelementptr inbounds i8, ptr %7, i64 44
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 44
   br i1 %115, label %117, label %118
 
 117:                                              ; preds = %105
@@ -257,12 +257,12 @@ formTextDatum.exit120:                            ; preds = %131, %127
   %133 = getelementptr i8, ptr %123, i64 %.sink13.i118
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr readonly align 1 %119, i64 %124, i1 false)
   %134 = ptrtoint ptr %123 to i64
-  %135 = getelementptr inbounds i8, ptr %7, i64 48
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %134, ptr %135, align 8
   br label %213
 
 136:                                              ; preds = %34
-  %137 = getelementptr inbounds i8, ptr %4, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %138 = load i32, ptr %137, align 8
   %139 = icmp sgt i32 %35, %138
   br i1 %139, label %.sink.split, label %144
@@ -280,9 +280,9 @@ formTextDatum.exit120:                            ; preds = %131, %127
 144:                                              ; preds = %.sink.split, %136, %83
   %.0103 = phi i32 [ %68, %83 ], [ 0, %136 ], [ %.0103.ph, %.sink.split ]
   %.0102 = phi i16 [ -1, %83 ], [ -1, %136 ], [ %143, %.sink.split ]
-  %145 = getelementptr inbounds i8, ptr %4, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %4, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %148 = load i32, ptr %147, align 8
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %.lr.ph.i121, label %.loopexit
@@ -315,14 +315,14 @@ formTextDatum.exit120:                            ; preds = %131, %127
 
 searchChar.exit:                                  ; preds = %157
   store i32 1, ptr %7, align 8
-  %163 = getelementptr inbounds i8, ptr %7, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %151, ptr %163, align 8
   %164 = icmp sgt i16 %.0102, -1
   %165 = zext i1 %164 to i32
   %spec.select = add nsw i32 %.0103, %165
-  %166 = getelementptr inbounds i8, ptr %7, i64 12
+  %166 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %spec.select, ptr %166, align 4
-  %167 = getelementptr inbounds i8, ptr %4, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %168 = load i32, ptr %167, align 8
   %169 = add i32 %spec.select, %168
   %170 = sub i32 %35, %169
@@ -358,7 +358,7 @@ formTextDatum.exit125:                            ; preds = %186, %182
   %188 = getelementptr i8, ptr %179, i64 %.sink13.i123
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr readonly align 1 %176, i64 %180, i1 false)
   %189 = ptrtoint ptr %179 to i64
-  %190 = getelementptr inbounds i8, ptr %7, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %189, ptr %190, align 8
   br label %213
 
@@ -366,16 +366,16 @@ formTextDatum.exit125:                            ; preds = %186, %182
   %192 = tail call ptr @palloc(i64 noundef 4) #9
   store i8 3, ptr %192, align 1
   %193 = ptrtoint ptr %192 to i64
-  %194 = getelementptr inbounds i8, ptr %7, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %193, ptr %194, align 8
   br label %213
 
 .loopexit:                                        ; preds = %161, %144
   %storemerge.i.ph = phi i32 [ %148, %144 ], [ %.119.i, %161 ]
-  %195 = getelementptr inbounds i8, ptr %4, i64 20
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %196 = load i8, ptr %195, align 4
   %197 = trunc i8 %196 to i1
-  %198 = getelementptr inbounds i8, ptr %7, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %197, label %199, label %210
 
 199:                                              ; preds = %.loopexit
@@ -383,19 +383,19 @@ formTextDatum.exit125:                            ; preds = %186, %182
   %200 = load i8, ptr %36, align 1
   %201 = and i8 %200, 1
   store i8 %201, ptr %198, align 8
-  %202 = getelementptr inbounds i8, ptr %4, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %203 = load i64, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %7, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %203, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %7, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %205, align 8
   %206 = tail call ptr @palloc(i64 noundef 8) #9
-  %207 = getelementptr inbounds i8, ptr %7, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %206, ptr %207, align 8
   store i64 -2, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %7, i64 40
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %7, i64 44
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i8 0, ptr %209, align 4
   br label %213
 
@@ -403,7 +403,7 @@ formTextDatum.exit125:                            ; preds = %186, %182
   store i32 2, ptr %7, align 8
   %211 = sext i16 %.0102 to i64
   store i64 %211, ptr %198, align 8
-  %212 = getelementptr inbounds i8, ptr %7, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %storemerge.i.ph, ptr %212, align 8
   br label %213
 
@@ -417,13 +417,13 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @spg_text_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -434,7 +434,7 @@ define dso_local noundef i64 @spg_text_picksplit(ptr nocapture noundef readonly 
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %12, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 1
   %20 = and i8 %18, -2
@@ -470,8 +470,8 @@ define dso_local noundef i64 @spg_text_picksplit(ptr nocapture noundef readonly 
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %12, i64 1
-  %41 = getelementptr inbounds i8, ptr %12, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %42
 
 42:                                               ; preds = %.lr.ph, %commonPrefix.exit
@@ -490,8 +490,8 @@ define dso_local noundef i64 @spg_text_picksplit(ptr nocapture noundef readonly 
   %52 = load i8, ptr %47, align 1
   %53 = and i8 %52, 1
   %.not157 = icmp eq i8 %53, 0
-  %54 = getelementptr inbounds i8, ptr %47, i64 1
-  %55 = getelementptr inbounds i8, ptr %47, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %56 = select i1 %.not157, ptr %55, ptr %54
   %57 = icmp eq i8 %48, 1
   br i1 %57, label %58, label %66
@@ -603,7 +603,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
   %114 = and i8 %113, 1
   %.not149 = icmp eq i8 %114, 0
   %.v = select i1 %.not149, i64 4, i64 1
-  %115 = getelementptr inbounds i8, ptr %12, i64 %.v
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 %.v
   %116 = add nsw i32 %109, 4
   %117 = sext i32 %116 to i64
   %118 = tail call ptr @palloc(i64 noundef %117) #9
@@ -629,7 +629,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %128 = getelementptr i8, ptr %118, i64 %.sink13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %115, i64 %119, i1 false)
   %129 = ptrtoint ptr %118 to i64
-  %130 = getelementptr inbounds i8, ptr %7, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %129, ptr %130, align 8
   br label %131
 
@@ -663,7 +663,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br i1 %147, label %148, label %157
 
 148:                                              ; preds = %139
-  %149 = getelementptr inbounds i8, ptr %144, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 1
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 1
   %152 = and i8 %150, -2
@@ -701,7 +701,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %172 = and i8 %145, 1
   %.not154 = icmp eq i8 %172, 0
   %.v155 = select i1 %.not154, i64 4, i64 1
-  %173 = getelementptr inbounds i8, ptr %144, i64 %.v155
+  %173 = getelementptr inbounds nuw i8, ptr %144, i64 %.v155
   %174 = getelementptr i8, ptr %173, i64 %138
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i16
@@ -712,7 +712,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %178 = getelementptr %struct.spgNodePtr, ptr %135, i64 %indvars.iv190, i32 2
   store i16 %.sink, ptr %178, align 4
   %179 = getelementptr %struct.spgNodePtr, ptr %135, i64 %indvars.iv190
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = trunc nuw nsw i64 %indvars.iv190 to i32
   store i32 %181, ptr %180, align 8
   %182 = load ptr, ptr %8, align 8
@@ -728,25 +728,25 @@ formTextDatum.exit:                               ; preds = %126, %122
 ._crit_edge182:                                   ; preds = %177, %.._crit_edge182_crit_edge
   %.pre-phi = phi i64 [ %.pre197, %.._crit_edge182_crit_edge ], [ %186, %177 ]
   tail call void @pg_qsort(ptr noundef %135, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @cmpNodePtr) #9
-  %188 = getelementptr inbounds i8, ptr %7, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %188, align 8
   %189 = load i32, ptr %4, align 8
   %190 = sext i32 %189 to i64
   %191 = shl nsw i64 %190, 3
   %192 = tail call ptr @palloc(i64 noundef %191) #9
-  %193 = getelementptr inbounds i8, ptr %7, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %192, ptr %193, align 8
   %194 = load i32, ptr %4, align 8
   %195 = sext i32 %194 to i64
   %196 = shl nsw i64 %195, 2
   %197 = tail call ptr @palloc(i64 noundef %196) #9
-  %198 = getelementptr inbounds i8, ptr %7, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %197, ptr %198, align 8
   %199 = load i32, ptr %4, align 8
   %200 = sext i32 %199 to i64
   %201 = shl nsw i64 %200, 3
   %202 = tail call ptr @palloc(i64 noundef %201) #9
-  %203 = getelementptr inbounds i8, ptr %7, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %202, ptr %203, align 8
   %204 = load i32, ptr %4, align 8
   %205 = icmp sgt i32 %204, 0
@@ -764,7 +764,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   %211 = inttoptr i64 %210 to ptr
   %212 = tail call ptr @pg_detoast_datum_packed(ptr noundef %211) #9
   %213 = icmp eq i64 %indvars.iv193, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %209, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %209, i64 12
   %.pre = load i16, ptr %.phi.trans.insert, align 4
   br i1 %213, label %._crit_edge196, label %214
 
@@ -814,7 +814,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br i1 %240, label %254, label %284
 
 .thread:                                          ; preds = %225
-  %241 = getelementptr inbounds i8, ptr %212, i64 1
+  %241 = getelementptr inbounds nuw i8, ptr %212, i64 1
   %242 = load i8, ptr %241, align 1
   %243 = icmp eq i8 %242, 1
   %244 = and i8 %242, -2
@@ -834,7 +834,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br label %267
 
 254:                                              ; preds = %.thread198
-  %255 = getelementptr inbounds i8, ptr %212, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %212, i64 1
   %256 = getelementptr i8, ptr %255, i64 %206
   %257 = getelementptr i8, ptr %256, i64 1
   %258 = lshr i32 %227, 1
@@ -842,7 +842,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br label %267
 
 260:                                              ; preds = %231
-  %261 = getelementptr inbounds i8, ptr %212, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %262 = getelementptr i8, ptr %261, i64 %206
   %263 = getelementptr i8, ptr %262, i64 1
   %264 = load i32, ptr %212, align 4
@@ -890,7 +890,7 @@ formTextDatum.exit173:                            ; preds = %.sink.split.i170, %
   %.0.in = phi ptr [ %285, %284 ], [ %273, %277 ], [ %273, %.sink.split.i170 ]
   %.0 = ptrtoint ptr %.0.in to i64
   %286 = load ptr, ptr %203, align 8
-  %287 = getelementptr inbounds i8, ptr %209, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %288 = load i32, ptr %287, align 8
   %289 = sext i32 %288 to i64
   %290 = getelementptr i64, ptr %286, i64 %289
@@ -916,9 +916,9 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -65535, 65536) i32 @cmpNodePtr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = sext i16 %4 to i32
   %8 = sext i16 %6 to i32
@@ -928,28 +928,28 @@ define internal range(i32 -65535, 65536) i32 @cmpNodePtr(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = tail call zeroext i1 @lc_collate_is_c(i32 noundef %9) #9
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
-  %17 = getelementptr inbounds i8, ptr %4, i64 54
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 54
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %49
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call ptr @pg_detoast_datum_packed(ptr noundef %23) #9
@@ -959,7 +959,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %24, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 1
   %32 = and i8 %30, -2
@@ -1005,8 +1005,8 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %.not112, label %59, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %52, i64 4
-  %57 = getelementptr inbounds i8, ptr %13, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %58 = sext i32 %54 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr nonnull align 4 %57, i64 %58, i1 false)
   br label %59
@@ -1016,7 +1016,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %.not113, label %69, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %52, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %62 = load i32, ptr %14, align 8
   %63 = sext i32 %62 to i64
   %64 = getelementptr i8, ptr %61, i64 %63
@@ -1024,30 +1024,30 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   %66 = and i8 %65, 1
   %.not114 = icmp eq i8 %66, 0
   %.v = select i1 %.not114, i64 4, i64 1
-  %67 = getelementptr inbounds i8, ptr %.099, i64 %.v
+  %67 = getelementptr inbounds nuw i8, ptr %.099, i64 %.v
   %68 = sext i32 %.0100 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr nonnull align 1 %67, i64 %68, i1 false)
   br label %69
 
 69:                                               ; preds = %60, %59
-  %70 = getelementptr inbounds i8, ptr %4, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
   %74 = tail call ptr @palloc(i64 noundef %73) #9
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %74, ptr %75, align 8
   %76 = load i32, ptr %70, align 8
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 2
   %79 = tail call ptr @palloc(i64 noundef %78) #9
-  %80 = getelementptr inbounds i8, ptr %7, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %79, ptr %80, align 8
   %81 = load i32, ptr %70, align 8
   %82 = sext i32 %81 to i64
   %83 = shl nsw i64 %82, 3
   %84 = tail call ptr @palloc(i64 noundef %83) #9
-  %85 = getelementptr inbounds i8, ptr %7, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %84, ptr %85, align 8
   store i32 0, ptr %7, align 8
   %86 = load i32, ptr %70, align 8
@@ -1055,12 +1055,12 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %87, label %.lr.ph133, label %._crit_edge134
 
 .lr.ph133:                                        ; preds = %69
-  %88 = getelementptr inbounds i8, ptr %4, i64 72
-  %89 = getelementptr inbounds i8, ptr %52, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %90 = add i32 %.0, -1
   %91 = sext i32 %90 to i64
   %92 = getelementptr i8, ptr %89, i64 %91
-  %93 = getelementptr inbounds i8, ptr %4, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %94 = ptrtoint ptr %52 to i64
   br label %95
 
@@ -1115,7 +1115,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %122, label %123, label %132
 
 123:                                              ; preds = %115
-  %124 = getelementptr inbounds i8, ptr %119, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 1
   %127 = and i8 %125, -2
@@ -1147,7 +1147,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   %143 = and i8 %120, 1
   %.not116 = icmp eq i8 %143, 0
   %.v117 = select i1 %.not116, i64 4, i64 1
-  %144 = getelementptr inbounds i8, ptr %119, i64 %.v117
+  %144 = getelementptr inbounds nuw i8, ptr %119, i64 %.v117
   %145 = tail call i32 @llvm.smin.i32(i32 %142, i32 %.0104)
   %146 = sext i32 %145 to i64
   %147 = tail call i32 @memcmp(ptr noundef nonnull %89, ptr noundef nonnull %144, i64 noundef %146) #10
@@ -1273,21 +1273,21 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum_packed(ptr noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = sext i32 %9 to i64
@@ -1302,7 +1302,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br i1 %.not130, label %41, label %35
 
 24:                                               ; preds = %1
-  %25 = getelementptr inbounds i8, ptr %14, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 1
   %28 = and i8 %26, -2
@@ -1342,7 +1342,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br i1 %or.cond, label %53, label %55
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %17, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 4
   br label %96
 
 55:                                               ; preds = %48
@@ -1351,12 +1351,12 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %58 = tail call ptr @palloc(i64 noundef %57) #9
   %59 = shl i32 %56, 2
   store i32 %59, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.not132 = icmp eq i32 %9, 0
   br i1 %.not132, label %63, label %61
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %17, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 4 %62, i64 %18, i1 false)
   br label %63
 
@@ -1367,7 +1367,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %14, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %69 = load i8, ptr %68, align 1
   switch i8 %69, label %94 [
     i8 18, label %.thread154
@@ -1403,14 +1403,14 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br label %90
 
 .thread173:                                       ; preds = %.thread171
-  %80 = getelementptr inbounds i8, ptr %14, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %81 = lshr i32 %65, 1
   %82 = zext nneg i32 %81 to i64
   %83 = add nsw i64 %82, -1
   br label %90
 
 84:                                               ; preds = %72
-  %85 = getelementptr inbounds i8, ptr %14, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %86 = load i32, ptr %14, align 4
   %87 = lshr i32 %86, 2
   %88 = add nsw i32 %87, -4
@@ -1432,22 +1432,22 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %storemerge = phi i64 [ %95, %94 ], [ %16, %53 ]
   %.0113 = phi ptr [ %60, %94 ], [ %54, %53 ]
   store i64 %storemerge, ptr %7, align 8
-  %97 = getelementptr inbounds i8, ptr %4, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %98 = load i32, ptr %97, align 8
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %101
 
 101:                                              ; preds = %.lr.ph, %.thread160
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread160 ]
   %102 = load ptr, ptr %4, align 8
   %103 = getelementptr %struct.ScanKeyData, ptr %102, i64 %indvars.iv
-  %104 = getelementptr inbounds i8, ptr %103, i64 6
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 6
   %105 = load i16, ptr %104, align 2
-  %106 = getelementptr inbounds i8, ptr %103, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %107 = load i64, ptr %106, align 8
   %108 = inttoptr i64 %107 to ptr
   %109 = tail call ptr @pg_detoast_datum_packed(ptr noundef %108) #9
@@ -1457,7 +1457,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   br i1 %112, label %113, label %122
 
 113:                                              ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %109, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 1
   %117 = and i8 %115, -2
@@ -1510,7 +1510,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %144 = and i8 %110, 1
   %.not138 = icmp eq i8 %144, 0
   %.v139 = select i1 %.not138, i64 4, i64 1
-  %145 = getelementptr inbounds i8, ptr %109, i64 %.v139
+  %145 = getelementptr inbounds nuw i8, ptr %109, i64 %.v139
   %146 = load i32, ptr %100, align 8
   %147 = tail call i32 @varstr_cmp(ptr noundef nonnull %.0113, i32 noundef %50, ptr noundef nonnull %145, i32 noundef %132, i32 noundef %146) #9
   br label %156
@@ -1519,7 +1519,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %149 = and i8 %110, 1
   %.not137 = icmp eq i8 %149, 0
   %.v = select i1 %.not137, i64 4, i64 1
-  %150 = getelementptr inbounds i8, ptr %109, i64 %.v
+  %150 = getelementptr inbounds nuw i8, ptr %109, i64 %.v
   %151 = tail call i32 @llvm.smin.i32(i32 %132, i32 %50)
   %152 = sext i32 %151 to i64
   %153 = tail call i32 @memcmp(ptr noundef nonnull %.0113, ptr noundef nonnull %150, i64 noundef %152) #10

@@ -39,13 +39,13 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .preheader510:                                    ; preds = %.preheader510.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader510.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.0418517 = phi float [ 0.000000e+00, %.preheader510.preheader ], [ %.1419.lcssa, %._crit_edge ]
-  %12 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %13, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader510
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -178,14 +178,14 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .preheader508.us:                                 ; preds = %.preheader508.us.preheader, %._crit_edge527.us
   %indvars.iv692 = phi i64 [ 0, %.preheader508.us.preheader ], [ %indvars.iv.next693, %._crit_edge527.us ]
   %.0416530.us = phi double [ 1.000000e+00, %.preheader508.us.preheader ], [ %71, %._crit_edge527.us ]
-  %65 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv692
+  %65 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv692
   %66 = load ptr, ptr %65, align 8
   br label %67
 
 67:                                               ; preds = %.preheader508.us, %67
   %indvars.iv687 = phi i64 [ 0, %.preheader508.us ], [ %indvars.iv.next688, %67 ]
   %.1417524.us = phi double [ %.0416530.us, %.preheader508.us ], [ %71, %67 ]
-  %68 = getelementptr inbounds double, ptr %66, i64 %indvars.iv687
+  %68 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv687
   %69 = load double, ptr %68, align 8
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = tail call double @llvm.maxnum.f64(double %.1417524.us, double %70)
@@ -206,13 +206,13 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .preheader506.us:                                 ; preds = %.preheader506.lr.ph, %._crit_edge534.us
   %indvars.iv702 = phi i64 [ 0, %.preheader506.lr.ph ], [ %indvars.iv.next703, %._crit_edge534.us ]
-  %73 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv702
+  %73 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv702
   br label %74
 
 74:                                               ; preds = %.preheader506.us, %74
   %indvars.iv697 = phi i64 [ 0, %.preheader506.us ], [ %indvars.iv.next698, %74 ]
   %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv697
+  %76 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv697
   %77 = load double, ptr %76, align 8
   %78 = fmul double %72, %77
   store double %78, ptr %76, align 8
@@ -231,7 +231,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph537:                                        ; preds = %.lr.ph537.preheader, %.lr.ph537
   %indvars.iv707 = phi i64 [ 0, %.lr.ph537.preheader ], [ %indvars.iv.next708, %.lr.ph537 ]
-  %79 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv707
+  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv707
   %80 = load ptr, ptr %79, align 8
   tail call void @orthog1(i32 noundef %1, ptr noundef %80) #12
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
@@ -239,7 +239,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %exitcond711.not, label %._crit_edge538, label %.lr.ph537
 
 ._crit_edge538:                                   ; preds = %.lr.ph537, %.preheader509
-  %81 = getelementptr inbounds i8, ptr %2, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load double, ptr %82, align 8
   br i1 %11, label %._crit_edge542, label %.lr.ph541.preheader
@@ -251,7 +251,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %.lr.ph541
   %indvars.iv712 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next713, %.lr.ph541 ]
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds double, ptr %84, i64 %indvars.iv712
+  %85 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv712
   %86 = load double, ptr %85, align 8
   %87 = fsub double %86, %83
   store double %87, ptr %85, align 8
@@ -273,9 +273,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 93:                                               ; preds = %89, %._crit_edge542
   tail call void @square_vec(i32 noundef %63, ptr noundef %.1447) #12
   tail call void @invert_vec(i32 noundef %63, ptr noundef %.1447) #12
-  %94 = getelementptr inbounds i8, ptr %7, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %166
@@ -506,7 +506,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph583.preheader:                              ; preds = %.preheader503
   %171 = sext i32 %.1436579 to i64
   %wide.trip.count753 = zext i32 %indvars.iv751 to i64
-  %invariant.gep867 = getelementptr inbounds double, ptr %168, i64 %indvars.iv755
+  %invariant.gep867 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv755
   br label %.lr.ph583
 
 .preheader502:                                    ; preds = %._crit_edge584, %166
@@ -525,7 +525,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %174 = load float, ptr %173, align 4
   %175 = fpext float %174 to double
   %176 = fadd double %.0433580, %175
-  %gep868 = getelementptr inbounds double, ptr %invariant.gep867, i64 %indvars.iv746
+  %gep868 = getelementptr inbounds nuw double, ptr %invariant.gep867, i64 %indvars.iv746
   %177 = load double, ptr %gep868, align 8
   %178 = fsub double %177, %175
   store double %178, ptr %gep868, align 8
@@ -541,7 +541,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge584:                                   ; preds = %._crit_edge584.loopexit, %.preheader503
   %.0433.lcssa = phi double [ 0.000000e+00, %.preheader503 ], [ %176, %._crit_edge584.loopexit ]
   %.1436.lcssa = phi i32 [ %.1436579, %.preheader503 ], [ %179, %._crit_edge584.loopexit ]
-  %180 = getelementptr inbounds double, ptr %168, i64 %indvars.iv755
+  %180 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv755
   %181 = load double, ptr %180, align 8
   %182 = fsub double %181, %.0433.lcssa
   store double %182, ptr %180, align 8
@@ -554,7 +554,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv762 = phi i64 [ %167, %.lr.ph593.preheader ], [ %indvars.iv.next763, %.lr.ph593 ]
   %indvars.iv760 = phi i64 [ 0, %.lr.ph593.preheader ], [ %indvars.iv.next761, %.lr.ph593 ]
   %.2437590 = phi i32 [ 0, %.lr.ph593.preheader ], [ %189, %.lr.ph593 ]
-  %183 = getelementptr inbounds double, ptr %168, i64 %indvars.iv760
+  %183 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv760
   %184 = load double, ptr %183, align 8
   %185 = fptrunc double %184 to float
   %186 = sext i32 %.2437590 to i64
@@ -585,12 +585,12 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv774 = phi i64 [ 0, %.lr.ph601 ], [ %indvars.iv.next775, %._crit_edge598 ]
   %197 = mul nsw i64 %indvars.iv774, %167
   %198 = getelementptr inbounds float, ptr %194, i64 %197
-  %199 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv774
+  %199 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv774
   store ptr %198, ptr %199, align 8
   br i1 %172, label %.lr.ph597, label %._crit_edge598
 
 .lr.ph597:                                        ; preds = %196
-  %200 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv774
+  %200 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv774
   br label %201
 
 201:                                              ; preds = %.lr.ph597, %208
@@ -600,7 +600,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 203:                                              ; preds = %201
   %204 = load ptr, ptr %200, align 8
-  %205 = getelementptr inbounds double, ptr %204, i64 %indvars.iv769
+  %205 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv769
   %206 = load double, ptr %205, align 8
   %207 = fptrunc double %206 to float
   br label %208
@@ -608,7 +608,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 208:                                              ; preds = %201, %203
   %209 = phi float [ %207, %203 ], [ 0.000000e+00, %201 ]
   %210 = load ptr, ptr %199, align 8
-  %211 = getelementptr inbounds float, ptr %210, i64 %indvars.iv769
+  %211 = getelementptr inbounds nuw float, ptr %210, i64 %indvars.iv769
   store float %209, ptr %211, align 4
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count772
@@ -637,7 +637,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv779 = phi i64 [ 1, %.lr.ph605.preheader ], [ %indvars.iv.next780, %.lr.ph605 ]
   %218 = mul nsw i64 %indvars.iv779, %167
   %219 = getelementptr inbounds float, ptr %216, i64 %218
-  %220 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv779
+  %220 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv779
   store ptr %219, ptr %220, align 8
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %exitcond783.not = icmp eq i64 %indvars.iv.next780, %wide.trip.count782
@@ -663,14 +663,14 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %232, label %._crit_edge648, label %.lr.ph647
 
 .lr.ph647:                                        ; preds = %229
-  %invariant.gep = getelementptr inbounds i8, ptr %168, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %168, i64 8
   %233 = fpext float %214 to double
   %234 = add nsw i32 %6, -1
-  %235 = getelementptr inbounds i8, ptr %7, i64 16
-  %236 = getelementptr inbounds i8, ptr %223, i64 32
-  %237 = getelementptr inbounds i8, ptr %227, i64 32
-  %238 = getelementptr inbounds i8, ptr %191, i64 8
-  %239 = getelementptr inbounds i8, ptr %215, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %223, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %227, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %wide.trip.count808 = zext i32 %.pre-phi to i64
   %wide.trip.count787 = zext nneg i32 %4 to i64
   %wide.trip.count817 = zext nneg i32 %.0409 to i64
@@ -702,14 +702,14 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph609:                                        ; preds = %.lr.ph625, %.lr.ph609
   %indvars.iv784 = phi i64 [ %indvars.iv.next785, %.lr.ph609 ], [ 0, %.lr.ph625 ]
-  %244 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv784
+  %244 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv784
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds float, ptr %245, i64 %indvars.iv805
+  %246 = getelementptr inbounds nuw float, ptr %245, i64 %indvars.iv805
   %247 = load float, ptr %246, align 4
   tail call void @set_vector_valf(i32 noundef %243, float noundef %247, ptr noundef %221) #12
   %248 = load ptr, ptr %244, align 8
-  %249 = getelementptr inbounds float, ptr %248, i64 %indvars.iv805
-  %250 = getelementptr inbounds i8, ptr %249, i64 4
+  %249 = getelementptr inbounds nuw float, ptr %248, i64 %indvars.iv805
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
   tail call void @vectors_mult_additionf(i32 noundef %243, ptr noundef %221, float noundef -1.000000e+00, ptr noundef nonnull %250) #12
   tail call void @square_vec(i32 noundef %243, ptr noundef %221) #12
   tail call void @vectors_additionf(i32 noundef %243, ptr noundef %221, ptr noundef %222, ptr noundef %222) #12
@@ -734,12 +734,12 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %.4439614 = add i32 %.3438622, 1
   %252 = sext i32 %.4439614 to i64
   %wide.trip.count803 = zext i32 %indvars.iv792 to i64
-  %invariant.gep869 = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv805
+  %invariant.gep869 = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv805
   br label %.lr.ph618
 
 .lr.ph613:                                        ; preds = %.lr.ph613.preheader, %258
   %indvars.iv789 = phi i64 [ 0, %.lr.ph613.preheader ], [ %indvars.iv.next790, %258 ]
-  %253 = getelementptr inbounds float, ptr %222, i64 %indvars.iv789
+  %253 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv789
   %254 = load float, ptr %253, align 4
   %255 = fcmp oge float %254, 0x47EFFFFFE0000000
   %256 = fcmp olt float %254, 0.000000e+00
@@ -759,7 +759,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv798 = phi i64 [ 0, %.lr.ph618.preheader ], [ %indvars.iv.next799, %.lr.ph618 ]
   %indvars.iv796 = phi i64 [ %252, %.lr.ph618.preheader ], [ %indvars.iv.next797, %.lr.ph618 ]
   %.1434615 = phi double [ 0.000000e+00, %.lr.ph618.preheader ], [ %265, %.lr.ph618 ]
-  %259 = getelementptr inbounds float, ptr %222, i64 %indvars.iv798
+  %259 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv798
   %260 = load float, ptr %259, align 4
   %261 = getelementptr inbounds float, ptr %231, i64 %indvars.iv796
   %262 = load float, ptr %261, align 4
@@ -767,7 +767,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   store float %263, ptr %261, align 4
   %264 = fpext float %263 to double
   %265 = fadd double %.1434615, %264
-  %gep870 = getelementptr inbounds double, ptr %invariant.gep869, i64 %indvars.iv798
+  %gep870 = getelementptr inbounds nuw double, ptr %invariant.gep869, i64 %indvars.iv798
   %266 = load double, ptr %gep870, align 8
   %267 = fsub double %266, %264
   store double %267, ptr %gep870, align 8
@@ -783,7 +783,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge619:                                   ; preds = %.preheader498.thread, %._crit_edge619.loopexit
   %.1434.lcssa = phi double [ %265, %._crit_edge619.loopexit ], [ 0.000000e+00, %.preheader498.thread ]
   %.4439.lcssa = phi i32 [ %268, %._crit_edge619.loopexit ], [ %.4439614852, %.preheader498.thread ]
-  %269 = getelementptr inbounds double, ptr %168, i64 %indvars.iv805
+  %269 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv805
   %270 = load double, ptr %269, align 8
   %271 = fsub double %270, %.1434.lcssa
   store double %271, ptr %269, align 8
@@ -799,7 +799,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv812 = phi i64 [ %indvars.iv.next813, %.lr.ph629 ], [ %167, %.preheader501 ]
   %indvars.iv810 = phi i64 [ %indvars.iv.next811, %.lr.ph629 ], [ 0, %.preheader501 ]
   %.5440626 = phi i32 [ %278, %.lr.ph629 ], [ 0, %.preheader501 ]
-  %272 = getelementptr inbounds double, ptr %168, i64 %indvars.iv810
+  %272 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv810
   %273 = load double, ptr %272, align 8
   %274 = fptrunc double %273 to float
   %275 = sext i32 %.5440626 to i64
@@ -814,9 +814,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph631:                                        ; preds = %.preheader500, %.lr.ph631
   %indvars.iv819 = phi i64 [ %indvars.iv.next820, %.lr.ph631 ], [ 0, %.preheader500 ]
-  %279 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv819
+  %279 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv819
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv819
+  %281 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv819
   %282 = load ptr, ptr %281, align 8
   tail call void @right_mult_with_vector_ff(ptr noundef %231, i32 noundef %.0409, ptr noundef %280, ptr noundef %282) #12
   %indvars.iv.next820 = add nuw nsw i64 %indvars.iv819, 1
@@ -826,9 +826,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph634:                                        ; preds = %.lr.ph631, %.lr.ph634
   %indvars.iv824 = phi i64 [ %indvars.iv.next825, %.lr.ph634 ], [ 0, %.lr.ph631 ]
   %.1428633 = phi double [ %288, %.lr.ph634 ], [ 0.000000e+00, %.lr.ph631 ]
-  %283 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv824
+  %283 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv824
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv824
+  %285 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv824
   %286 = load ptr, ptr %285, align 8
   %287 = tail call double @vectors_inner_productf(i32 noundef %.0409, ptr noundef %284, ptr noundef %286) #12
   %288 = fadd double %.1428633, %287
@@ -844,7 +844,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph640:                                        ; preds = %._crit_edge635, %.lr.ph640
   %indvars.iv829 = phi i64 [ %indvars.iv.next830, %.lr.ph640 ], [ 0, %._crit_edge635 ]
   %.2429638 = phi double [ %295, %.lr.ph640 ], [ %290, %._crit_edge635 ]
-  %291 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv829
+  %291 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv829
   %292 = load ptr, ptr %291, align 8
   tail call void @right_mult_with_vector_ff(ptr noundef %.0452, i32 noundef %.0409, ptr noundef %292, ptr noundef %221) #12
   %293 = load ptr, ptr %291, align 8
@@ -995,7 +995,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 368:                                              ; preds = %364, %._crit_edge648
   tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %223) #12
   tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %227) #12
-  %369 = getelementptr inbounds i8, ptr %7, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %370 = load i32, ptr %369, align 8
   %371 = icmp eq i32 %370, 2
   br i1 %371, label %372, label %.loopexit
@@ -1023,18 +1023,18 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge653.us
   %indvars.iv839 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next840, %._crit_edge653.us ]
-  %373 = getelementptr inbounds ptr, ptr %191, i64 %indvars.iv839
-  %374 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv839
+  %373 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv839
+  %374 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv839
   br label %375
 
 375:                                              ; preds = %.preheader.us, %375
   %indvars.iv834 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next835, %375 ]
   %376 = load ptr, ptr %373, align 8
-  %377 = getelementptr inbounds float, ptr %376, i64 %indvars.iv834
+  %377 = getelementptr inbounds nuw float, ptr %376, i64 %indvars.iv834
   %378 = load float, ptr %377, align 4
   %379 = fpext float %378 to double
   %380 = load ptr, ptr %374, align 8
-  %381 = getelementptr inbounds double, ptr %380, i64 %indvars.iv834
+  %381 = getelementptr inbounds nuw double, ptr %380, i64 %indvars.iv834
   store double %379, ptr %381, align 8
   %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
   %exitcond838.not = icmp eq i64 %indvars.iv.next835, %wide.trip.count837

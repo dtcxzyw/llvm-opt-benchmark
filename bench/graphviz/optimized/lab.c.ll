@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %3, ptr %6, align 8
   ret void
 }
@@ -33,9 +33,9 @@ define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @color_xyz_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %3, ptr %6, align 8
   ret void
 }
@@ -76,7 +76,7 @@ define void @RGB2XYZ(ptr dead_on_unwind noalias nocapture writable writeonly sre
 
 PivotRgb.exit:                                    ; preds = %6, %11
   %.0.i = phi double [ %10, %6 ], [ %13, %11 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fdiv double %15, 2.550000e+02
   %17 = fcmp ogt double %16, 4.045000e-02
@@ -96,7 +96,7 @@ PivotRgb.exit:                                    ; preds = %6, %11
 
 PivotRgb.exit10:                                  ; preds = %18, %23
   %.0.i9 = phi double [ %22, %18 ], [ %25, %23 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load double, ptr %26, align 8
   %28 = fdiv double %27, 2.550000e+02
   %29 = fcmp ogt double %28, 4.045000e-02
@@ -126,9 +126,9 @@ PivotRgb.exit12:                                  ; preds = %30, %35
   %45 = tail call double @llvm.fmuladd.f64(double %.0.i, double 1.930000e-02, double %44)
   %46 = tail call double @llvm.fmuladd.f64(double %.0.i11, double 9.505000e-01, double %45)
   store double %40, ptr %0, align 8, !alias.scope !4
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %43, ptr %47, align 8, !alias.scope !4
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %46, ptr %48, align 8, !alias.scope !4
   ret void
 }
@@ -139,9 +139,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define i24 @RGB2LAB(ptr nocapture noundef readonly byval(%struct.rgb_struct) align 8 %0) local_unnamed_addr #4 {
   %.sroa.017.0.copyload = load double, ptr %0, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.418.0.copyload = load double, ptr %.sroa.418.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %2 = fdiv double %.sroa.017.0.copyload, 2.550000e+02
   %3 = fcmp ogt double %2, 4.045000e-02
@@ -284,10 +284,10 @@ define void @LAB2RGB_real_01(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.rgb_struct, align 8
   %3 = load double, ptr %0, align 8
   %4 = fptosi double %3 to i8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fptosi double %6 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fptosi double %9 to i8
   %.sroa.3.0.insert.ext = zext i8 %10 to i24
@@ -299,9 +299,9 @@ define void @LAB2RGB_real_01(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %.sroa.0.0.insert.insert = or disjoint i24 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   call void @LAB2RGB(ptr dead_on_unwind nonnull writable sret(%struct.rgb_struct) align 8 %2, i24 %.sroa.0.0.insert.insert)
   %.sroa.01.0.copyload = load double, ptr %2, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.22.0.copyload = load double, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.33.0.copyload = load double, ptr %.sroa.33.0..sroa_idx, align 8
   %11 = fdiv double %.sroa.01.0.copyload, 2.550000e+02
   store double %11, ptr %0, align 8
@@ -458,9 +458,9 @@ XYZ2RGB.exit:                                     ; preds = %73, %76
   %91 = fcmp ogt double %90, 2.550000e+02
   %92 = select i1 %91, double 2.550000e+02, double %90
   store double %82, ptr %0, align 8, !alias.scope !13
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %87, ptr %93, align 8, !alias.scope !13
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %92, ptr %94, align 8, !alias.scope !13
   ret void
 }
@@ -472,10 +472,10 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.xyz_struct) align 8 %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %3, 1.000000e+02
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fdiv double %6, 1.000000e+02
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fdiv double %9, 1.000000e+02
   %11 = fmul double %7, -1.537200e+00
@@ -545,9 +545,9 @@ define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sre
   %54 = fcmp ogt double %53, 2.550000e+02
   %55 = select i1 %54, double 2.550000e+02, double %53
   store double %45, ptr %0, align 8, !alias.scope !16
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %50, ptr %56, align 8, !alias.scope !16
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %55, ptr %57, align 8, !alias.scope !16
   ret void
 }
@@ -555,7 +555,7 @@ define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sre
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %5, i32 100)
@@ -628,12 +628,12 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
   %.046 = phi i32 [ %31, %.lr.ph ], [ %44, %37 ]
   %.145 = phi ptr [ %.03549, %.lr.ph ], [ %41, %37 ]
   store double %32, ptr %.145, align 8
-  %38 = getelementptr inbounds i8, ptr %.145, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.145, i64 8
   store double %36, ptr %38, align 8
   %39 = sitofp i32 %.046 to double
-  %40 = getelementptr inbounds i8, ptr %.145, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.145, i64 16
   store double %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.145, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.145, i64 24
   %42 = load i32, ptr %1, align 4
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %1, align 4
@@ -690,7 +690,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %.not = icmp eq ptr %7, null
   %spec.select = select i1 %.not, ptr %0, ptr %7
   %8 = icmp slt i32 %1, 1
-  br i1 %8, label %144, label %.preheader137
+  br i1 %8, label %142, label %.preheader137
 
 .preheader137:                                    ; preds = %2
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select, i32 noundef 44) #23
@@ -700,7 +700,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
 .lr.ph:                                           ; preds = %.preheader137, %.lr.ph
   %10 = phi ptr [ %13, %.lr.ph ], [ %9, %.preheader137 ]
   %.0104139 = phi i32 [ %12, %.lr.ph ], [ 1, %.preheader137 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = add nuw nsw i32 %.0104139, 1
   %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #23
   %.not122 = icmp eq ptr %13, null
@@ -714,14 +714,14 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %.0104.lcssa = phi i64 [ 1, %.preheader137 ], [ %14, %._crit_edge.loopexit ]
   %15 = tail call fastcc ptr @gv_calloc(i64 noundef %.0104.lcssa, i64 noundef 3)
   %16 = getelementptr inbounds i8, ptr %spec.select, i64 -1
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %19
 
 19:                                               ; preds = %22, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %._crit_edge ]
   %.1114 = phi ptr [ %31, %22 ], [ %16, %._crit_edge ]
-  %20 = getelementptr inbounds i8, ptr %.1114, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.1114, i64 1
   %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %20, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
   %.not123 = icmp eq i32 %21, 3
   br i1 %.not123, label %22, label %32
@@ -737,7 +737,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %28 = sitofp i32 %27 to double
   store double %28, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.lab_struct, ptr %15, i64 %indvars.iv
   %30 = call i24 @RGB2LAB(ptr noundef nonnull byval(%struct.rgb_struct) align 8 %6)
   store i24 %30, ptr %29, align 1
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 44) #23
@@ -762,14 +762,13 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
 
 .lr.ph145.preheader:                              ; preds = %.lr.ph142
   %wide.trip.count168 = zext nneg i32 %36 to i64
-  %.pre = load double, ptr %35, align 8
   br label %.lr.ph145
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
   %.0.copyload11 = phi i24 [ %.0.copyload11.pre, %.lr.ph142.preheader ], [ %.0.copyload9, %.lr.ph142 ]
   %indvars.iv160 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next161, %.lr.ph142 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %38 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %indvars.iv.next161
+  %38 = getelementptr inbounds nuw %struct.lab_struct, ptr %15, i64 %indvars.iv.next161
   %.0.copyload9 = load i24, ptr %38, align 1
   %.sroa.05.0.extract.trunc.i = zext i24 %.0.copyload11 to i32
   %.sroa.37.0.extract.shift.i = lshr i24 %.0.copyload11, 8
@@ -803,16 +802,16 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %52 = add nuw nsw i32 %47, %51
   %53 = uitofp nneg i32 %52 to double
   %sqrt.i = call double @llvm.sqrt.f64(double %53)
-  %54 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next161
+  %54 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next161
   store double %sqrt.i, ptr %54, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph145.preheader, label %.lr.ph142
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %55 = phi double [ %.pre, %.lr.ph145.preheader ], [ %58, %.lr.ph145 ]
+  %55 = phi double [ 0.000000e+00, %.lr.ph145.preheader ], [ %58, %.lr.ph145 ]
   %indvars.iv164 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next165, %.lr.ph145 ]
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %56 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next165
+  %56 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next165
   %57 = load double, ptr %56, align 8
   %58 = fadd double %55, %57
   store double %58, ptr %56, align 8
@@ -843,15 +842,15 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %72 = load i8, ptr %15, align 1
   %73 = sitofp i8 %72 to double
   store double %73, ptr %69, align 8
-  %74 = getelementptr inbounds i8, ptr %15, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %75 = load i8, ptr %74, align 1
   %76 = sitofp i8 %75 to double
-  %77 = getelementptr inbounds i8, ptr %69, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store double %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %15, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %79 = load i8, ptr %78, align 1
   %80 = sitofp i8 %79 to double
-  %81 = getelementptr inbounds i8, ptr %69, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store double %80, ptr %81, align 8
   br label %.loopexit
 
@@ -862,44 +861,42 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %86 = add nsw i32 %1, -1
   %87 = uitofp nneg i32 %86 to double
   %88 = fdiv double %85, %87
-  %89 = load double, ptr %35, align 8
-  %90 = fadd double %88, %89
-  br label %91
+  br label %89
 
-91:                                               ; preds = %91, %82
-  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %91 ], [ 0, %82 ]
-  %92 = getelementptr inbounds double, ptr %35, i64 %indvars.iv170
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp olt double %93, %90
+89:                                               ; preds = %89, %82
+  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %89 ], [ 0, %82 ]
+  %90 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv170
+  %91 = load double, ptr %90, align 8
+  %92 = fcmp olt double %91, %88
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  br i1 %94, label %91, label %.lr.ph158.preheader
+  br i1 %92, label %89, label %.lr.ph158.preheader
 
-.lr.ph158.preheader:                              ; preds = %91
-  %95 = trunc nuw nsw i64 %indvars.iv170 to i32
+.lr.ph158.preheader:                              ; preds = %89
+  %93 = trunc nuw nsw i64 %indvars.iv170 to i32
   %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)
   br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.critedge
-  %.0103157 = phi ptr [ %130, %.critedge ], [ %69, %.lr.ph158.preheader ]
-  %.2107156 = phi i32 [ %143, %.critedge ], [ 0, %.lr.ph158.preheader ]
+  %.0103157 = phi ptr [ %128, %.critedge ], [ %69, %.lr.ph158.preheader ]
+  %.2107156 = phi i32 [ %141, %.critedge ], [ 0, %.lr.ph158.preheader ]
   %.0108155 = phi i32 [ %.1109, %.critedge ], [ 0, %.lr.ph158.preheader ]
-  %.1111154 = phi i32 [ %.2112.lcssa, %.critedge ], [ %95, %.lr.ph158.preheader ]
-  %.0115153 = phi double [ %129, %.critedge ], [ 0.000000e+00, %.lr.ph158.preheader ]
-  %96 = sext i32 %.0108155 to i64
+  %.1111154 = phi i32 [ %.2112.lcssa, %.critedge ], [ %93, %.lr.ph158.preheader ]
+  %.0115153 = phi double [ %127, %.critedge ], [ 0.000000e+00, %.lr.ph158.preheader ]
+  %94 = sext i32 %.0108155 to i64
+  %95 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %94
+  %96 = sext i32 %.1111154 to i64
   %97 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %96
-  %98 = sext i32 %.1111154 to i64
-  %99 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %98
-  %100 = getelementptr inbounds double, ptr %35, i64 %96
-  %101 = load double, ptr %100, align 8
-  %102 = fsub double %.0115153, %101
-  %103 = getelementptr inbounds double, ptr %35, i64 %98
-  %104 = load double, ptr %103, align 8
-  %105 = fsub double %104, %101
-  %106 = fcmp olt double %105, 1.000000e-03
-  %107 = select i1 %106, double 1.000000e-03, double %105
-  %108 = fdiv double %102, %107
-  %.0.copyload1 = load i24, ptr %97, align 1
-  %.0.copyload = load i24, ptr %99, align 1
+  %98 = getelementptr inbounds double, ptr %35, i64 %94
+  %99 = load double, ptr %98, align 8
+  %100 = fsub double %.0115153, %99
+  %101 = getelementptr inbounds double, ptr %35, i64 %96
+  %102 = load double, ptr %101, align 8
+  %103 = fsub double %102, %99
+  %104 = fcmp olt double %103, 1.000000e-03
+  %105 = select i1 %104, double 1.000000e-03, double %103
+  %106 = fdiv double %100, %105
+  %.0.copyload1 = load i24, ptr %95, align 1
+  %.0.copyload = load i24, ptr %97, align 1
   %.sroa.07.0.extract.trunc.i = zext i24 %.0.copyload1 to i32
   %.sroa.39.0.extract.shift.i = lshr i24 %.0.copyload1, 8
   %.sroa.39.0.extract.trunc.i = zext nneg i24 %.sroa.39.0.extract.shift.i to i32
@@ -911,76 +908,76 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %.sroa.3.0.extract.shift.i129 = lshr i24 %.0.copyload, 16
   %.sroa.3.0.extract.trunc.i130 = zext nneg i24 %.sroa.3.0.extract.shift.i129 to i32
   %sext.i131 = shl i32 %.sroa.07.0.extract.trunc.i, 24
-  %109 = ashr exact i32 %sext.i131, 24
-  %110 = sitofp i32 %109 to double
+  %107 = ashr exact i32 %sext.i131, 24
+  %108 = sitofp i32 %107 to double
   %sext12.i132 = shl i32 %.sroa.0.0.extract.trunc.i128, 24
-  %111 = ashr exact i32 %sext12.i132, 24
-  %112 = sub nsw i32 %111, %109
-  %113 = sitofp i32 %112 to double
-  %114 = call double @llvm.fmuladd.f64(double %108, double %113, double %110)
-  store double %114, ptr %.0103157, align 8
+  %109 = ashr exact i32 %sext12.i132, 24
+  %110 = sub nsw i32 %109, %107
+  %111 = sitofp i32 %110 to double
+  %112 = call double @llvm.fmuladd.f64(double %106, double %111, double %108)
+  store double %112, ptr %.0103157, align 8
   %sext13.i133 = shl i32 %.sroa.39.0.extract.trunc.i, 24
-  %115 = ashr exact i32 %sext13.i133, 24
-  %116 = sitofp i32 %115 to double
+  %113 = ashr exact i32 %sext13.i133, 24
+  %114 = sitofp i32 %113 to double
   %sext14.i134 = shl i32 %.sroa.2.0.extract.trunc.i, 24
-  %117 = ashr exact i32 %sext14.i134, 24
-  %118 = sub nsw i32 %117, %115
-  %119 = sitofp i32 %118 to double
-  %120 = call double @llvm.fmuladd.f64(double %108, double %119, double %116)
-  %121 = getelementptr inbounds i8, ptr %.0103157, i64 8
-  store double %120, ptr %121, align 8
+  %115 = ashr exact i32 %sext14.i134, 24
+  %116 = sub nsw i32 %115, %113
+  %117 = sitofp i32 %116 to double
+  %118 = call double @llvm.fmuladd.f64(double %106, double %117, double %114)
+  %119 = getelementptr inbounds nuw i8, ptr %.0103157, i64 8
+  store double %118, ptr %119, align 8
   %sext15.i135 = shl nuw i32 %.sroa.5.0.extract.trunc.i127, 24
-  %122 = ashr exact i32 %sext15.i135, 24
-  %123 = sitofp i32 %122 to double
+  %120 = ashr exact i32 %sext15.i135, 24
+  %121 = sitofp i32 %120 to double
   %sext16.i = shl nuw i32 %.sroa.3.0.extract.trunc.i130, 24
-  %124 = ashr exact i32 %sext16.i, 24
-  %125 = sub nsw i32 %124, %122
-  %126 = sitofp i32 %125 to double
-  %127 = call double @llvm.fmuladd.f64(double %108, double %126, double %123)
-  %128 = getelementptr inbounds i8, ptr %.0103157, i64 16
-  store double %127, ptr %128, align 8
-  %129 = fadd double %88, %.0115153
-  %130 = getelementptr inbounds i8, ptr %.0103157, i64 24
-  %131 = fcmp ogt double %129, %104
-  %.1109 = select i1 %131, i32 %.1111154, i32 %.0108155
-  %132 = icmp slt i32 %.1111154, %36
-  br i1 %132, label %.lr.ph149, label %.critedge
+  %122 = ashr exact i32 %sext16.i, 24
+  %123 = sub nsw i32 %122, %120
+  %124 = sitofp i32 %123 to double
+  %125 = call double @llvm.fmuladd.f64(double %106, double %124, double %121)
+  %126 = getelementptr inbounds nuw i8, ptr %.0103157, i64 16
+  store double %125, ptr %126, align 8
+  %127 = fadd double %88, %.0115153
+  %128 = getelementptr inbounds nuw i8, ptr %.0103157, i64 24
+  %129 = fcmp ogt double %127, %102
+  %.1109 = select i1 %129, i32 %.1111154, i32 %.0108155
+  %130 = icmp slt i32 %.1111154, %36
+  br i1 %130, label %.lr.ph149, label %.critedge
 
 .lr.ph149:                                        ; preds = %.lr.ph158
-  %133 = sext i32 %.1109 to i64
-  %134 = getelementptr inbounds double, ptr %35, i64 %133
-  %135 = load double, ptr %134, align 8
-  %136 = fadd double %88, %135
-  br label %137
+  %131 = sext i32 %.1109 to i64
+  %132 = getelementptr inbounds double, ptr %35, i64 %131
+  %133 = load double, ptr %132, align 8
+  %134 = fadd double %88, %133
+  br label %135
 
-137:                                              ; preds = %.lr.ph149, %141
-  %indvars.iv174 = phi i64 [ %98, %.lr.ph149 ], [ %indvars.iv.next175, %141 ]
-  %138 = getelementptr inbounds double, ptr %35, i64 %indvars.iv174
-  %139 = load double, ptr %138, align 8
-  %140 = fcmp olt double %139, %136
-  br i1 %140, label %141, label %.critedge.loopexit.split.loop.exit
+135:                                              ; preds = %.lr.ph149, %139
+  %indvars.iv174 = phi i64 [ %96, %.lr.ph149 ], [ %indvars.iv.next175, %139 ]
+  %136 = getelementptr inbounds double, ptr %35, i64 %indvars.iv174
+  %137 = load double, ptr %136, align 8
+  %138 = fcmp olt double %137, %134
+  br i1 %138, label %139, label %.critedge.loopexit.split.loop.exit
 
-141:                                              ; preds = %137
+139:                                              ; preds = %135
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %83
-  br i1 %exitcond178.not, label %.critedge, label %137
+  br i1 %exitcond178.not, label %.critedge, label %135
 
-.critedge.loopexit.split.loop.exit:               ; preds = %137
-  %142 = trunc nsw i64 %indvars.iv174 to i32
+.critedge.loopexit.split.loop.exit:               ; preds = %135
+  %140 = trunc nsw i64 %indvars.iv174 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %141, %.critedge.loopexit.split.loop.exit, %.lr.ph158
-  %.2112.lcssa = phi i32 [ %.1111154, %.lr.ph158 ], [ %142, %.critedge.loopexit.split.loop.exit ], [ %36, %141 ]
-  %143 = add nuw nsw i32 %.2107156, 1
-  %exitcond179.not = icmp eq i32 %143, %smax
+.critedge:                                        ; preds = %139, %.critedge.loopexit.split.loop.exit, %.lr.ph158
+  %.2112.lcssa = phi i32 [ %.1111154, %.lr.ph158 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ %36, %139 ]
+  %141 = add nuw nsw i32 %.2107156, 1
+  %exitcond179.not = icmp eq i32 %141, %smax
   br i1 %exitcond179.not, label %.loopexit, label %.lr.ph158
 
 .loopexit:                                        ; preds = %.critedge, %71
   call void @free(ptr noundef nonnull %35) #20
   call void @free(ptr noundef %15) #20
-  br label %144
+  br label %142
 
-144:                                              ; preds = %2, %.loopexit
+142:                                              ; preds = %2, %.loopexit
   %.0 = phi ptr [ %69, %.loopexit ], [ null, %2 ]
   ret ptr %.0
 }

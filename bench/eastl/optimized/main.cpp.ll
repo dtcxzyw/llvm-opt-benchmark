@@ -33,7 +33,7 @@ entry:
   store ptr @EAMain, ptr @_ZN2EA6EAMain8Internal15gEAMainFunctionE, align 8
   call void @_ZN2EA6EAMain11CommandLineC1EiPPc(ptr noundef nonnull align 8 dereferenceable(24) %commandLine, i32 noundef %argc, ptr noundef %argv)
   %0 = load i32, ptr %commandLine, align 8
-  %mArgv.i = getelementptr inbounds i8, ptr %commandLine, i64 8
+  %mArgv.i = getelementptr inbounds nuw i8, ptr %commandLine, i64 8
   %1 = load ptr, ptr %mArgv.i, align 8
   %call4 = invoke noundef ptr @_ZN2EA6EAMain8Internal25ExtractPrintServerAddressEiPPc(i32 noundef %0, ptr noundef %1)
           to label %invoke.cont3 unwind label %lpad
@@ -87,14 +87,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %bWaitAtEnd.0187 = phi i1 [ false, %for.body.preheader ], [ %bWaitAtEnd.1, %for.inc ]
   %bPrintHelp.0186 = phi i1 [ false, %for.body.preheader ], [ %bPrintHelp.1, %for.inc ]
   %nOptionCount.0185 = phi i32 [ 0, %for.body.preheader ], [ %nOptionCount.1, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %for.body.tail, label %for.inc
 
 for.body.tail:                                    ; preds = %for.body
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 119
   br i1 %4, label %if.then, label %if.else.tail
@@ -104,32 +104,32 @@ if.then:                                          ; preds = %for.body.tail
   br label %for.inc
 
 if.else.tail:                                     ; preds = %for.body.tail
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 118
   br i1 %7, label %if.then10, label %sub_1171
 
 if.then10:                                        ; preds = %if.else.tail
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 3
   %call.i = tail call noundef i32 @_ZN2EA4StdC8StrtoU32EPKcPPci(ptr noundef nonnull %add.ptr, ptr noundef null, i32 noundef 10)
   tail call void @_ZN2EA6EAMain12SetVerbosityEj(i32 noundef %call.i)
   %inc14 = add nsw i32 %nOptionCount.0185, 1
   br label %for.inc
 
 sub_1171:                                         ; preds = %if.else.tail
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %.not192 = icmp eq i8 %9, 108
   br i1 %.not192, label %if.else15.tail, label %sub_1174
 
 if.else15.tail:                                   ; preds = %sub_1171
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 58
   br i1 %12, label %if.then22, label %sub_1174
 
 if.then22:                                        ; preds = %if.else15.tail
-  %add.ptr25 = getelementptr inbounds i8, ptr %0, i64 3
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr25) #11
   store i32 %call26, ptr @gEASTL_TestLevel, align 4
   %cmp27 = icmp slt i32 %call26, 1
@@ -149,32 +149,32 @@ if.end32:                                         ; preds = %if.end32.sink.split
   br label %for.inc
 
 sub_1174:                                         ; preds = %if.else15.tail, %sub_1171
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %.not194 = icmp eq i8 %14, 115
   br i1 %.not194, label %if.else34.tail, label %if.else48.tail
 
 if.else34.tail:                                   ; preds = %sub_1174
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 58
   br i1 %17, label %if.then41, label %if.else48.tail
 
 if.then41:                                        ; preds = %if.else34.tail
-  %add.ptr44 = getelementptr inbounds i8, ptr %0, i64 3
+  %add.ptr44 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %call45 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr44) #11
   tail call void @_ZN2EA8UnitTest11SetRandSeedEj(i32 noundef %call45)
   %inc47 = add nsw i32 %nOptionCount.0185, 1
   br label %for.inc
 
 if.else48.tail:                                   ; preds = %if.else34.tail, %sub_1174
-  %18 = getelementptr inbounds i8, ptr %0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 63
   br i1 %20, label %if.then61, label %lor.lhs.false.tail
 
 lor.lhs.false.tail:                               ; preds = %if.else48.tail
-  %21 = getelementptr inbounds i8, ptr %0, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 104
   br i1 %23, label %if.then61, label %for.inc
@@ -208,10 +208,10 @@ if.then73:                                        ; preds = %entry, %for.end
 if.end74:                                         ; preds = %if.then73, %for.end
   %bWaitAtEnd.0.lcssa207 = phi i1 [ %bWaitAtEnd.0.lcssa208, %if.then73 ], [ %bWaitAtEnd.1, %for.end ]
   %call75 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN9Benchmark14GetEnvironmentEv()
-  %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %call75, i64 23
+  %mRemainingSizeField.i.i.i.i = getelementptr inbounds nuw i8, ptr %call75, i64 23
   %26 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %26, 0
-  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %call75, i64 8
+  %mnSize.i.i.i.i = getelementptr inbounds nuw i8, ptr %call75, i64 8
   %27 = load i64, ptr %mnSize.i.i.i.i, align 8
   %conv.i.i.i.i = zext nneg i8 %26 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
@@ -230,7 +230,7 @@ if.end.i.i:                                       ; preds = %if.end74
   %tobool.i.i11.i.i = icmp slt i8 %.pre.i.i, 0
   %29 = load ptr, ptr %call75, align 8
   %spec.select.i12.i.i = select i1 %tobool.i.i11.i.i, ptr %29, ptr %call75
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select.i12.i.i, i64 12
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i12.i.i, i64 12
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 %.pre34.i.i
   %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %call75, i64 %.pre36.i.i
   %cond.i16.i.i = select i1 %tobool.i.i11.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
@@ -282,18 +282,18 @@ while.cond.i.i52:                                 ; preds = %while.cond.i.i52, %
   %pCurrent.0.i.i53 = phi ptr [ %call77, %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit ], [ %incdec.ptr.i.i55, %while.cond.i.i52 ]
   %36 = load i8, ptr %pCurrent.0.i.i53, align 1
   %tobool.not.i.i54 = icmp eq i8 %36, 0
-  %incdec.ptr.i.i55 = getelementptr inbounds i8, ptr %pCurrent.0.i.i53, i64 1
+  %incdec.ptr.i.i55 = getelementptr inbounds nuw i8, ptr %pCurrent.0.i.i53, i64 1
   br i1 %tobool.not.i.i54, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i56, label %while.cond.i.i52, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i56:          ; preds = %while.cond.i.i52
-  %msSTLName1 = getelementptr inbounds i8, ptr %call75, i64 24
+  %msSTLName1 = getelementptr inbounds nuw i8, ptr %call75, i64 24
   %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %pCurrent.0.i.i53 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call77 to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i
-  %mRemainingSizeField.i.i.i.i59 = getelementptr inbounds i8, ptr %call75, i64 47
+  %mRemainingSizeField.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %call75, i64 47
   %37 = load i8, ptr %mRemainingSizeField.i.i.i.i59, align 1
   %tobool.i.i.i.i60 = icmp slt i8 %37, 0
-  %mnSize.i.i.i.i61 = getelementptr inbounds i8, ptr %call75, i64 32
+  %mnSize.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %call75, i64 32
   %38 = load i64, ptr %mnSize.i.i.i.i61, align 8
   %conv.i.i.i.i62 = zext nneg i8 %37 to i64
   %sub.i.i.i.i63 = sub nsw i64 23, %conv.i.i.i.i62
@@ -370,11 +370,11 @@ if.else.i.i95:                                    ; preds = %_ZN5eastl10CharStrl
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit104
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit104: ; preds = %if.end.i.i74, %cond.true.i.i.i.i94, %cond.false.i.i.i.i92, %if.else.i.i95
-  %msSTLName2 = getelementptr inbounds i8, ptr %call75, i64 48
-  %mRemainingSizeField.i.i.i.i112 = getelementptr inbounds i8, ptr %call75, i64 71
+  %msSTLName2 = getelementptr inbounds nuw i8, ptr %call75, i64 48
+  %mRemainingSizeField.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call75, i64 71
   %50 = load i8, ptr %mRemainingSizeField.i.i.i.i112, align 1
   %tobool.i.i.i.i113 = icmp slt i8 %50, 0
-  %mnSize.i.i.i.i114 = getelementptr inbounds i8, ptr %call75, i64 56
+  %mnSize.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %call75, i64 56
   %51 = load i64, ptr %mnSize.i.i.i.i114, align 8
   %conv.i.i.i.i115 = zext nneg i8 %50 to i64
   %sub.i.i.i.i116 = sub nsw i64 23, %conv.i.i.i.i115
@@ -393,7 +393,7 @@ if.end.i.i127:                                    ; preds = %_ZN5eastl12basic_st
   %tobool.i.i11.i.i129 = icmp slt i8 %.pre.i.i123, 0
   %53 = load ptr, ptr %msSTLName2, align 8
   %spec.select.i12.i.i130 = select i1 %tobool.i.i11.i.i129, ptr %53, ptr %msSTLName2
-  %add.ptr.i.i131 = getelementptr inbounds i8, ptr %spec.select.i12.i.i130, i64 5
+  %add.ptr.i.i131 = getelementptr inbounds nuw i8, ptr %spec.select.i12.i.i130, i64 5
   %add.ptr.i.i.i.i132 = getelementptr inbounds i8, ptr %53, i64 %.pre34.i.i124
   %add.ptr.i1.i.i.i133 = getelementptr inbounds i8, ptr %msSTLName2, i64 %.pre36.i.i126
   %cond.i16.i.i134 = select i1 %tobool.i.i11.i.i129, ptr %add.ptr.i.i.i.i132, ptr %add.ptr.i1.i.i.i133
@@ -455,7 +455,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit157: ; preds = %if.end.i.i127
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch)
   call void @_ZN2EA8UnitTest23SetNormalThreadPriorityEv()
   call void @_ZN9Benchmark12PrintResultsEv()
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sClockTime, i64 23
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sClockTime, i64 23
   store i8 0, ptr %sClockTime, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %call97 = invoke noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch)
@@ -613,10 +613,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
+  %mRemainingSizeField.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -624,7 +624,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mnCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23

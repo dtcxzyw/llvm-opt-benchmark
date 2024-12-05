@@ -103,10 +103,10 @@ define internal void @_ZL22_Tf_RegistryFunction42PN32pxrInternal_v0_24__pxrReser
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @_ZTI1A, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZTI1B, ptr %11, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1X1AEEPvS3_b, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1X1BEEPvS3_b, ptr %12, align 8
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTI1X, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef 2, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -114,10 +114,10 @@ define internal void @_ZL22_Tf_RegistryFunction42PN32pxrInternal_v0_24__pxrReser
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr @_ZTI1B, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZTI1A, ptr %14, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Y1BEEPvS3_b, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Y1AEEPvS3_b, ptr %15, align 8
   %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTI1Y, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 2, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -125,10 +125,10 @@ define internal void @_ZL22_Tf_RegistryFunction42PN32pxrInternal_v0_24__pxrReser
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @_ZTI1X, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZTI1Y, ptr %17, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Z1XEEPvS3_b, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Z1YEEPvS3_b, ptr %18, align 8
   %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTI1Z, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 2, i64 noundef 32, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -148,18 +148,18 @@ define internal noundef zeroext i1 @_ZL31Test_TfType_MultipleInheritancev() #0 p
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfErrorMark", align 8
   %5 = alloca %"class.std::vector", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.sink30.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink30.sroa.gep31 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink30.sroa.gep32 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink30.sroa.gep34 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink30.sroa.gep35 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink30.sroa.gep36 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink30.sroa.gep38 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink30.sroa.gep39 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink30.sroa.gep40 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink30.sroa.gep42 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink30.sroa.gep43 = getelementptr inbounds i8, ptr %2, i64 32
-  %.sink30.sroa.gep44 = getelementptr inbounds i8, ptr %2, i64 32
+  %.sink30.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink30.sroa.gep31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink30.sroa.gep32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink30.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink30.sroa.gep35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink30.sroa.gep36 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink30.sroa.gep38 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink30.sroa.gep39 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink30.sroa.gep40 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink30.sroa.gep42 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink30.sroa.gep43 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sink30.sroa.gep44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sink30.sroa.gep46 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sink30.sroa.gep47 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sink30.sroa.gep48 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -356,7 +356,7 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1X1BEEPvS3_b(ptr noundef %0, i1 noundef zeroext %1) #3 comdat {
   %3 = icmp eq ptr %0, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %spec.select = select i1 %3, ptr null, ptr %4
   %5 = getelementptr inbounds i8, ptr %0, i64 -8
   %6 = select i1 %3, ptr null, ptr %5
@@ -372,7 +372,7 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Y1AEEPvS3_b(ptr noundef %0, i1 noundef zeroext %1) #3 comdat {
   %3 = icmp eq ptr %0, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %spec.select = select i1 %3, ptr null, ptr %4
   %5 = getelementptr inbounds i8, ptr %0, i64 -8
   %6 = select i1 %3, ptr null, ptr %5
@@ -388,7 +388,7 @@ define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentI1Z1YEEPvS3_b(ptr noundef %0, i1 noundef zeroext %1) #3 comdat {
   %3 = icmp eq ptr %0, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %spec.select = select i1 %3, ptr null, ptr %4
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = select i1 %3, ptr null, ptr %5
@@ -464,7 +464,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %14 = xor i64 %notmask.i, -1
   %15 = sub i64 64, %13
   %16 = lshr i64 %5, %15
-  %17 = getelementptr inbounds i8, ptr %.05273, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.05273, i64 16
   %18 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %16
   %19 = load atomic i64, ptr %18 monotonic, align 8
   %20 = icmp eq i64 %19, 0
@@ -489,7 +489,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
 29:                                               ; preds = %.lr.ph
   %30 = add i64 %.05371, 1
   %31 = and i64 %30, %14
-  %32 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -536,12 +536,12 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %54 = shl i64 16, %.055
   %55 = add nuw i64 %54, 16
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %55)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.055, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %54, i1 false)
   %62 = ptrtoint ptr %59 to i64
   br label %63
@@ -567,7 +567,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %74 = shl i64 16, %73
   %75 = add nuw i64 %74, 16
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %59, i64 noundef %75)
   br label %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread
@@ -582,7 +582,7 @@ _ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23co
   %82 = xor i64 %notmask.i63, -1
   %83 = sub i64 64, %81
   %84 = lshr i64 %5, %83
-  %85 = getelementptr inbounds i8, ptr %.0.i62, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 16
   br label %86
 
 86:                                               ; preds = %95, %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread

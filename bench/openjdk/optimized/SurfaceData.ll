@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %7 = icmp eq ptr %6, null
@@ -32,7 +32,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   store ptr %12, ptr @pInvalidPipeClass, align 8
@@ -41,7 +41,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #7
   %19 = icmp eq ptr %18, null
@@ -49,7 +49,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %18) #7
   store ptr %24, ptr @pNullSurfaceDataClass, align 8
@@ -58,7 +58,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #7
   store ptr %30, ptr @pDataID, align 8
@@ -67,7 +67,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
   store ptr %36, ptr @validID, align 8
@@ -76,7 +76,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #7
   %43 = icmp eq ptr %42, null
@@ -84,7 +84,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 752
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 752
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5) #7
   store ptr %48, ptr @allGrayID, align 8
@@ -101,7 +101,7 @@ define zeroext i8 @Java_sun_java2d_SurfaceData_isOpaqueGray(ptr noundef %0, ptr 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 768
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 768
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @allGrayID, align 8
   %10 = tail call zeroext i8 %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %9) #7
@@ -129,7 +129,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pDataID, align 8
   %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %10) #7
@@ -139,7 +139,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0) #7
   %.not26 = icmp eq ptr %18, null
@@ -147,7 +147,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @pNullSurfaceDataClass, align 8
   %24 = tail call zeroext i8 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %23) #7
@@ -156,7 +156,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 768
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 768
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @validID, align 8
   %30 = tail call zeroext i8 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %29) #7
@@ -165,7 +165,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @pInvalidPipeClass, align 8
   %36 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull @.str.10) #7
@@ -180,7 +180,7 @@ define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef 
   br i1 %.not, label %43, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %12, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not25 = icmp eq ptr %41, null
   br i1 %.not25, label %43, label %42
@@ -205,7 +205,7 @@ define hidden ptr @SurfaceData_GetOpsNoSetup(ptr noundef %0, ptr noundef %1) loc
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @pDataID, align 8
   %10 = tail call i64 %8(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %9) #7
@@ -215,7 +215,7 @@ define hidden ptr @SurfaceData_GetOpsNoSetup(ptr noundef %0, ptr noundef %1) loc
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0) #7
   %.not26.i = icmp eq ptr %17, null
@@ -223,7 +223,7 @@ define hidden ptr @SurfaceData_GetOpsNoSetup(ptr noundef %0, ptr noundef %1) loc
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @pNullSurfaceDataClass, align 8
   %23 = tail call zeroext i8 %21(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %22) #7
@@ -232,7 +232,7 @@ define hidden ptr @SurfaceData_GetOpsNoSetup(ptr noundef %0, ptr noundef %1) loc
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 768
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 768
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @validID, align 8
   %29 = tail call zeroext i8 %27(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %28) #7
@@ -241,7 +241,7 @@ define hidden ptr @SurfaceData_GetOpsNoSetup(ptr noundef %0, ptr noundef %1) loc
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @pInvalidPipeClass, align 8
   %35 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull @.str.10) #7
@@ -259,7 +259,7 @@ GetSDOps.exit:                                    ; preds = %5, %4, %13, %18, %3
 ; Function Attrs: nounwind uwtable
 define hidden void @SurfaceData_SetOps(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -268,7 +268,7 @@ define hidden void @SurfaceData_SetOps(ptr noundef %0, ptr noundef %1, ptr nound
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 880
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 880
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @pDataID, align 8
   %15 = ptrtoint ptr %2 to i64
@@ -293,7 +293,7 @@ define hidden void @SurfaceData_DisposeOps(ptr noundef %0, i64 noundef %1) #0 {
 
 3:                                                ; preds = %2
   %4 = inttoptr i64 %1 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %8, label %7
@@ -304,9 +304,9 @@ define hidden void @SurfaceData_DisposeOps(ptr noundef %0, i64 noundef %1) #0 {
 
 8:                                                ; preds = %3, %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1816
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1816
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load ptr, ptr %12, align 8
   tail call void %11(ptr noundef nonnull %0, ptr noundef %13) #7
   tail call void @free(ptr noundef nonnull %4) #7
@@ -321,7 +321,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @SurfaceData_ThrowInvalidPipeException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pInvalidPipeClass, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %1) #7
@@ -340,9 +340,9 @@ define void @SurfaceData_IntersectBounds(ptr nocapture noundef %0, ptr nocapture
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %9, %11
   br i1 %12, label %13, label %14
@@ -352,9 +352,9 @@ define void @SurfaceData_IntersectBounds(ptr nocapture noundef %0, ptr nocapture
   br label %14
 
 14:                                               ; preds = %13, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %16, %18
   br i1 %19, label %20, label %21
@@ -364,9 +364,9 @@ define void @SurfaceData_IntersectBounds(ptr nocapture noundef %0, ptr nocapture
   br label %21
 
 21:                                               ; preds = %20, %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %23, %25
   br i1 %26, label %27, label %28
@@ -390,7 +390,7 @@ define void @SurfaceData_IntersectBoundsXYXY(ptr nocapture noundef %0, i32 nound
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, %2
   br i1 %12, label %13, label %14
@@ -400,7 +400,7 @@ define void @SurfaceData_IntersectBoundsXYXY(ptr nocapture noundef %0, i32 nound
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, %3
   br i1 %17, label %18, label %19
@@ -410,7 +410,7 @@ define void @SurfaceData_IntersectBoundsXYXY(ptr nocapture noundef %0, i32 nound
   br label %19
 
 19:                                               ; preds = %18, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, %4
   br i1 %22, label %23, label %24
@@ -436,7 +436,7 @@ define void @SurfaceData_IntersectBoundsXYWH(ptr nocapture noundef %0, i32 nound
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, %7
   br i1 %14, label %15, label %16
@@ -448,7 +448,7 @@ define void @SurfaceData_IntersectBoundsXYWH(ptr nocapture noundef %0, i32 nound
 16:                                               ; preds = %15, %11
   %17 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %18 = add nsw i32 %17, %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, %2
   br i1 %21, label %22, label %23
@@ -458,7 +458,7 @@ define void @SurfaceData_IntersectBoundsXYWH(ptr nocapture noundef %0, i32 nound
   br label %23
 
 23:                                               ; preds = %22, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, %18
   br i1 %26, label %27, label %28
@@ -485,9 +485,9 @@ define void @SurfaceData_IntersectBlitBounds(ptr nocapture noundef %0, ptr nocap
 
 10:                                               ; preds = %9, %4
   %11 = phi i32 [ %7, %9 ], [ %5, %4 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, %3
   %17 = icmp slt i32 %13, %16
@@ -499,9 +499,9 @@ define void @SurfaceData_IntersectBlitBounds(ptr nocapture noundef %0, ptr nocap
 
 19:                                               ; preds = %18, %10
   %20 = phi i32 [ %16, %18 ], [ %13, %10 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, %2
   %26 = icmp sgt i32 %22, %25
@@ -512,9 +512,9 @@ define void @SurfaceData_IntersectBlitBounds(ptr nocapture noundef %0, ptr nocap
   br label %28
 
 28:                                               ; preds = %27, %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %32, %3
   %34 = icmp sgt i32 %30, %33
@@ -577,7 +577,7 @@ define noundef ptr @SurfaceData_InitOps(ptr noundef %0, ptr noundef %1, i32 noun
   %4 = sext i32 %2 to i64
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @pDataID, align 8
   %10 = tail call i64 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %9) #7
@@ -586,7 +586,7 @@ define noundef ptr @SurfaceData_InitOps(ptr noundef %0, ptr noundef %1, i32 noun
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 880
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 880
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @pDataID, align 8
   %17 = ptrtoint ptr %5 to i64
@@ -605,7 +605,7 @@ SurfaceData_SetOps.exit:                          ; preds = %12, %18
 19:                                               ; preds = %SurfaceData_SetOps.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %5, i8 0, i64 %4, i1 false)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #7
   %.not13 = icmp eq i8 %23, 0
@@ -613,10 +613,10 @@ SurfaceData_SetOps.exit:                          ; preds = %12, %18
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1808
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1808
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef %1) #7
-  %29 = getelementptr inbounds i8, ptr %5, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %28, ptr %29, align 8
   br label %30
 

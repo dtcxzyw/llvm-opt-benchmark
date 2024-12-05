@@ -56,77 +56,77 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i64 @brinhandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #10
   store i32 422, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 15, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 10
-  %7 = getelementptr inbounds i8, ptr %2, i64 14
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i32 0, ptr %6, align 2
   store i8 1, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 15
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 17
   store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 18
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i8 1, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %2, i64 19
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 19
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 21
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 21
   store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %2, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i8 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %2, i64 23
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 23
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 1, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %2, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 26
   store i8 4, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %2, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @brinbuild, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @brinbuildempty, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @brininsert, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr @brininsertcleanup, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @brinbulkdelete, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr @brinvacuumcleanup, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr @brincostestimate, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr @brinoptions, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 104
-  %31 = getelementptr inbounds i8, ptr %2, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store ptr @brinvalidate, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr @brinbeginscan, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr @brinrescan, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr @bringetbitmap, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store ptr @brinendscan, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %39 = ptrtoint ptr %2 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false)
   ret i64 %39
@@ -148,18 +148,18 @@ define dso_local noundef ptr @brinbuild(ptr noundef %0, ptr noundef %1, ptr noun
 12:                                               ; preds = %3
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %16) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1104, ptr noundef nonnull @__func__.brinbuild) #10
   unreachable
 
 18:                                               ; preds = %3
   store ptr %1, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %20, align 8
   %21 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %9, i32 noundef 0, ptr noundef null, i32 noundef 9) #10
   %22 = icmp slt i32 %21, 0
@@ -183,13 +183,13 @@ define dso_local noundef ptr @brinbuild(ptr noundef %0, ptr noundef %1, ptr noun
 
 BufferGetPage.exit:                               ; preds = %23, %29
   %.0.i.i = phi ptr [ %28, %23 ], [ %34, %29 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %36 = load ptr, ptr %35, align 8
   %.not57 = icmp eq ptr %36, null
   br i1 %.not57, label %40, label %37
 
 37:                                               ; preds = %BufferGetPage.exit
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   br label %40
 
@@ -197,9 +197,9 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %41 = phi i32 [ %39, %37 ], [ 128, %BufferGetPage.exit ]
   tail call void @brin_metapage_init(ptr noundef %.0.i.i, i32 noundef %41, i16 noundef zeroext 1) #10
   tail call void @MarkBufferDirty(i32 noundef %21) #10
-  %42 = getelementptr inbounds i8, ptr %1, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 114
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 114
   %45 = load i8, ptr %44, align 2
   %46 = icmp eq i8 %45, 112
   br i1 %46, label %47, label %83
@@ -210,26 +210,26 @@ BufferGetPage.exit:                               ; preds = %23, %29
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %83
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %83
 
 58:                                               ; preds = %54, %47
-  %59 = getelementptr inbounds i8, ptr %10, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i16 1, ptr %59, align 4
   %60 = load ptr, ptr %35, align 8
   %.not58 = icmp eq ptr %60, null
   br i1 %.not58, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %63 = load i32, ptr %62, align 4
   br label %64
 
@@ -264,7 +264,7 @@ BufferGetPage.exit61:                             ; preds = %67, %73
   %80 = trunc nuw i64 %79 to i32
   store i32 %80, ptr %.0.i.i60, align 4
   %81 = trunc i64 %66 to i32
-  %82 = getelementptr inbounds i8, ptr %.0.i.i60, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 4
   store i32 %81, ptr %82, align 4
   br label %83
 
@@ -275,29 +275,29 @@ BufferGetPage.exit61:                             ; preds = %67, %73
   %86 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 noundef 0) #10
   %87 = call ptr @palloc(i64 noundef 112) #10
   store ptr %1, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %88, i8 0, i64 20, i1 false)
   store i32 %85, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %87, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %87, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store ptr %84, ptr %91, align 8
   %92 = call ptr @brin_build_desc(ptr noundef nonnull %1)
-  %93 = getelementptr inbounds i8, ptr %87, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store ptr %92, ptr %93, align 8
   %94 = call ptr @brin_new_memtuple(ptr noundef %92) #10
-  %95 = getelementptr inbounds i8, ptr %87, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 56
   store ptr %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %87, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 88
   store ptr null, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %87, i64 96
+  %97 = getelementptr inbounds nuw i8, ptr %87, i64 96
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %87, i64 104
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 104
   store ptr null, ptr %98, align 8
   %99 = load ptr, ptr @CurrentMemoryContext, align 8
-  %100 = getelementptr inbounds i8, ptr %87, i64 80
-  %101 = getelementptr inbounds i8, ptr %87, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %87, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %87, i64 64
   store ptr %99, ptr %100, align 8
   %.not.i = icmp eq i32 %86, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
@@ -313,15 +313,15 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %.0.i = phi i32 [ %105, %102 ], [ 0, %83 ]
   %106 = load i32, ptr %89, align 4
   %107 = add i32 %106, %.0.i
-  %108 = getelementptr inbounds i8, ptr %87, i64 36
+  %108 = getelementptr inbounds nuw i8, ptr %87, i64 36
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %2, i64 168
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %110 = load i32, ptr %109, align 8
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %112, label %_brin_begin_parallel.exit
 
 112:                                              ; preds = %initialize_brin_buildstate.exit
-  %113 = getelementptr inbounds i8, ptr %2, i64 165
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %114 = load i8, ptr %113, align 1
   %115 = trunc i8 %114 to i1
   %116 = and i8 %114, 1
@@ -340,7 +340,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %.0.i62 = phi ptr [ %122, %120 ], [ @SnapshotAnyData, %112 ]
   %124 = call i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %.0.i62) #10
   %125 = call i64 @add_size(i64 noundef 64, i64 noundef %124) #10
-  %126 = getelementptr inbounds i8, ptr %118, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %125, 31
   %129 = and i64 %128, -32
@@ -352,12 +352,12 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %134 = and i64 %133, -32
   %135 = call i64 @add_size(i64 noundef %132, i64 noundef %134) #10
   store i64 %135, ptr %126, align 8
-  %136 = getelementptr inbounds i8, ptr %118, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %137 = load i64, ptr %136, align 8
   %138 = call i64 @add_size(i64 noundef %137, i64 noundef 2) #10
   store i64 %138, ptr %136, align 8
   %139 = load i64, ptr %126, align 8
-  %140 = getelementptr inbounds i8, ptr %118, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
   %143 = call i64 @mul_size(i64 noundef 24, i64 noundef %142) #10
@@ -401,7 +401,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
 169:                                              ; preds = %159, %123
   %.0105.i = phi i64 [ %163, %159 ], [ 1, %123 ]
   call void @InitializeParallelDSM(ptr noundef nonnull %118) #10
-  %170 = getelementptr inbounds i8, ptr %118, i64 72
+  %170 = getelementptr inbounds nuw i8, ptr %118, i64 72
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %177
@@ -423,29 +423,29 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   br label %_brin_begin_parallel.exit
 
 177:                                              ; preds = %169
-  %178 = getelementptr inbounds i8, ptr %118, i64 88
+  %178 = getelementptr inbounds nuw i8, ptr %118, i64 88
   %179 = load ptr, ptr %178, align 8
   %180 = call ptr @shm_toc_allocate(ptr noundef %179, i64 noundef %125) #10
-  %181 = getelementptr inbounds i8, ptr %0, i64 72
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %182 = load i32, ptr %181, align 8
   store i32 %182, ptr %180, align 8
-  %183 = getelementptr inbounds i8, ptr %1, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %184 = load i32, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %180, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %180, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i8 %116, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %180, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store i32 %119, ptr %187, align 8
   %188 = load i32, ptr %89, align 4
-  %189 = getelementptr inbounds i8, ptr %180, i64 12
+  %189 = getelementptr inbounds nuw i8, ptr %180, i64 12
   store i32 %188, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %180, i64 20
+  %190 = getelementptr inbounds nuw i8, ptr %180, i64 20
   call void @ConditionVariableInit(ptr noundef nonnull %190) #10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
-  %191 = getelementptr inbounds i8, ptr %180, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %180, i64 32
   store i8 0, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %180, i64 36
+  %192 = getelementptr inbounds nuw i8, ptr %180, i64 36
   %193 = getelementptr i8, ptr %180, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %192, i8 0, i64 20, i1 false)
   call void @table_parallelscan_initialize(ptr noundef %0, ptr noundef %193, ptr noundef %.0.i62) #10
@@ -487,20 +487,20 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   call void @shm_toc_insert(ptr noundef %217, i64 noundef -5764607523034234875, ptr noundef %216) #10
   call void @LaunchParallelWorkers(ptr noundef nonnull %118) #10
   store ptr %118, ptr %117, align 8
-  %218 = getelementptr inbounds i8, ptr %118, i64 28
+  %218 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %117, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %221 = add i32 %219, 1
   store i32 %221, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %117, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store ptr %180, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %117, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %195, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %117, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store ptr %.0.i62, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %117, i64 40
+  %225 = getelementptr inbounds nuw i8, ptr %117, i64 40
   store ptr %210, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %117, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %117, i64 48
   store ptr %216, ptr %226, align 8
   %227 = load i32, ptr %218, align 4
   %228 = icmp eq i32 %227, 0
@@ -545,14 +545,14 @@ _brin_begin_parallel.exit:                        ; preds = %234, %_brin_end_par
   %242 = call ptr @palloc0(i64 noundef 16) #10
   store i8 0, ptr %242, align 8
   %243 = load ptr, ptr %96, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i32, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %242, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 4
   store i32 %245, ptr %246, align 4
   %247 = load ptr, ptr %96, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %242, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store ptr %249, ptr %250, align 8
   %251 = load i32, ptr @maintenance_work_mem, align 4
   %252 = call ptr @tuplesort_begin_index_brin(i32 noundef %251, ptr noundef nonnull %242, i32 noundef 0) #10
@@ -561,15 +561,15 @@ _brin_begin_parallel.exit:                        ; preds = %234, %_brin_end_par
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %254 = getelementptr inbounds i8, ptr %253, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %253, align 8
   call void @WaitForParallelWorkersToFinish(ptr noundef %256) #10
-  %257 = getelementptr inbounds i8, ptr %255, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 40
   %258 = load double, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %87, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store double %258, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %255, i64 48
+  %260 = getelementptr inbounds nuw i8, ptr %255, i64 48
   %261 = load double, ptr %260, align 8
   store double %261, ptr %88, align 8
   %262 = load ptr, ptr %98, align 8
@@ -591,8 +591,8 @@ _brin_begin_parallel.exit:                        ; preds = %234, %_brin_end_par
   br label %.split68.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %241
-  %271 = getelementptr inbounds i8, ptr %87, i64 24
-  %272 = getelementptr inbounds i8, ptr %87, i64 72
+  %271 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %87, i64 72
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %brin_fill_empty_ranges.exit.i, %.lr.ph.lr.ph.i
@@ -600,7 +600,7 @@ _brin_begin_parallel.exit:                        ; preds = %234, %_brin_end_par
   %.064.ph105.i = phi ptr [ %264, %.lr.ph.lr.ph.i ], [ %.1.i, %brin_fill_empty_ranges.exit.i ]
   %.065.ph104.i = phi i32 [ -1, %.lr.ph.lr.ph.i ], [ %340, %brin_fill_empty_ranges.exit.i ]
   %274 = icmp eq i32 %.065.ph104.i, -1
-  %275 = getelementptr inbounds i8, ptr %.064.ph105.i, i64 4
+  %275 = getelementptr inbounds nuw i8, ptr %.064.ph105.i, i64 4
   br i1 %274, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
@@ -735,8 +735,8 @@ brin_fill_empty_ranges.exit.i:                    ; preds = %brin_build_empty_tu
   br i1 %.not93.i, label %brin_fill_empty_ranges.exit86.i, label %.lr.ph.i82.i
 
 .lr.ph.i82.i:                                     ; preds = %.split68.i
-  %345 = getelementptr inbounds i8, ptr %87, i64 72
-  %346 = getelementptr inbounds i8, ptr %87, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %87, i64 72
+  %346 = getelementptr inbounds nuw i8, ptr %87, i64 24
   br label %347
 
 347:                                              ; preds = %brin_build_empty_tuple.exit.i85.i, %.lr.ph.i82.i
@@ -776,7 +776,7 @@ brin_build_empty_tuple.exit.i85.i:                ; preds = %357, %350
 
 367:                                              ; preds = %.outer._crit_edge.i
   %368 = load ptr, ptr %93, align 8
-  %369 = getelementptr inbounds i8, ptr %.064.ph.lcssa.i, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %.064.ph.lcssa.i, i64 4
   %370 = load i32, ptr %369, align 4
   %371 = call ptr @brin_form_tuple(ptr noundef %368, i32 noundef %370, ptr noundef %.064.ph.lcssa.i, ptr noundef nonnull %7) #10
   %372 = load ptr, ptr %87, align 8
@@ -831,14 +831,14 @@ brin_fill_empty_ranges.exit86.i:                  ; preds = %brin_build_empty_tu
   store ptr %267, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %266) #10
   %401 = load ptr, ptr %253, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 28
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 28
   %403 = load i32, ptr %402, align 4
   %404 = icmp sgt i32 %403, 0
   br i1 %404, label %.lr.ph109.i, label %.loopexit.i
 
 .lr.ph109.i:                                      ; preds = %brin_fill_empty_ranges.exit86.i
-  %405 = getelementptr inbounds i8, ptr %253, i64 48
-  %406 = getelementptr inbounds i8, ptr %253, i64 40
+  %405 = getelementptr inbounds nuw i8, ptr %253, i64 48
+  %406 = getelementptr inbounds nuw i8, ptr %253, i64 40
   br label %407
 
 407:                                              ; preds = %407, %.lr.ph109.i
@@ -850,7 +850,7 @@ brin_fill_empty_ranges.exit86.i:                  ; preds = %brin_build_empty_tu
   call void @InstrAccumParallelQuery(ptr noundef %409, ptr noundef %411) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %412 = load ptr, ptr %253, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 28
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 28
   %414 = load i32, ptr %413, align 4
   %415 = sext i32 %414 to i64
   %416 = icmp slt i64 %indvars.iv.next.i, %415
@@ -858,7 +858,7 @@ brin_fill_empty_ranges.exit86.i:                  ; preds = %brin_build_empty_tu
 
 .loopexit.i:                                      ; preds = %407, %brin_fill_empty_ranges.exit86.i
   %417 = phi ptr [ %401, %brin_fill_empty_ranges.exit86.i ], [ %412, %407 ]
-  %418 = getelementptr inbounds i8, ptr %253, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %419 = load ptr, ptr %418, align 8
   %420 = load i32, ptr %419, align 8
   switch i32 %420, label %_brin_end_parallel.exit [
@@ -882,9 +882,9 @@ _brin_end_parallel.exit:                          ; preds = %.loopexit.i, %421
   br label %473
 
 423:                                              ; preds = %_brin_begin_parallel.exit
-  %424 = getelementptr inbounds i8, ptr %0, i64 312
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 280
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 280
   %427 = load ptr, ptr %426, align 8
   %428 = call double %427(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @brinbuildCallback, ptr noundef nonnull %87, ptr noundef null) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -895,7 +895,7 @@ _brin_end_parallel.exit:                          ; preds = %.loopexit.i, %421
   %433 = load ptr, ptr %87, align 8
   %434 = load i32, ptr %89, align 4
   %435 = load ptr, ptr %91, align 8
-  %436 = getelementptr inbounds i8, ptr %87, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %437 = load i32, ptr %90, align 8
   %438 = load i64, ptr %4, align 8
   %439 = call zeroext i16 @brin_doinsert(ptr noundef %433, i32 noundef %434, ptr noundef %435, ptr noundef nonnull %436, i32 noundef %437, ptr noundef %432, i64 noundef %438) #10
@@ -920,7 +920,7 @@ _brin_end_parallel.exit:                          ; preds = %.loopexit.i, %421
   br i1 %450, label %.lr.ph.i65, label %brin_fill_empty_ranges.exit
 
 .lr.ph.i65:                                       ; preds = %448
-  %451 = getelementptr inbounds i8, ptr %87, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %87, i64 72
   br label %452
 
 452:                                              ; preds = %brin_build_empty_tuple.exit.i, %.lr.ph.i65
@@ -959,7 +959,7 @@ brin_build_empty_tuple.exit.i:                    ; preds = %462, %455
   br i1 %471, label %452, label %brin_fill_empty_ranges.exit, !llvm.loop !6
 
 brin_fill_empty_ranges.exit:                      ; preds = %brin_build_empty_tuple.exit.i, %448
-  %472 = getelementptr inbounds i8, ptr %87, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store double %428, ptr %472, align 8
   br label %473
 
@@ -971,7 +971,7 @@ brin_fill_empty_ranges.exit:                      ; preds = %brin_build_empty_tu
   call fastcc void @terminate_brin_buildstate(ptr noundef nonnull %87)
   %477 = call ptr @palloc(i64 noundef 16) #10
   store double %474, ptr %477, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   store double %475, ptr %478, align 8
   ret ptr %477
 }
@@ -980,9 +980,9 @@ brin_fill_empty_ranges.exit:                      ; preds = %brin_build_empty_tu
 define dso_local void @brinbuildempty(ptr noundef %0) #0 {
   %2 = alloca %struct.BufferManagerRelation, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %4, align 8
   %5 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %2, i32 noundef 3, ptr noundef null, i32 noundef 9) #10
   %6 = load volatile i32, ptr @CritSectionCount, align 4
@@ -1009,13 +1009,13 @@ define dso_local void @brinbuildempty(ptr noundef %0) #0 {
 
 BufferGetPage.exit:                               ; preds = %9, %15
   %.0.i.i = phi ptr [ %14, %9 ], [ %20, %15 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %BufferGetPage.exit
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
   br label %26
 
@@ -1036,17 +1036,17 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %9, align 4
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
   %21 = icmp ne i8 %20, 0
@@ -1058,14 +1058,14 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
   br i1 %.not65, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr @CurrentMemoryContext, align 8
   %27 = tail call ptr @palloc0(i64 noundef 24) #10
   %28 = tail call ptr @brin_build_desc(ptr noundef nonnull %0)
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = tail call ptr @brinRevmapInitialize(ptr noundef nonnull %0, ptr noundef nonnull %30) #10
   store ptr %31, ptr %27, align 8
   store ptr %27, ptr %12, align 8
@@ -1075,9 +1075,9 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
 32:                                               ; preds = %24, %22
   %.0 = phi ptr [ %13, %22 ], [ %27, %24 ]
   %33 = load ptr, ptr %.0, align 8
-  %34 = getelementptr inbounds i8, ptr %.0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %37 = load i32, ptr %36, align 8
   %.val = load i16, ptr %3, align 2
   %38 = getelementptr i8, ptr %3, i64 2
@@ -1095,8 +1095,8 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
   %or.cond70 = and i1 %23, %47
   %48 = getelementptr i8, ptr %3, i64 4
   %49 = add i32 %44, -1
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %52
 
 52:                                               ; preds = %116, %32
@@ -1134,7 +1134,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
 65:                                               ; preds = %63
   %66 = call i32 @errcode(i32 noundef 261) #10
   %67 = load ptr, ptr %51, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %68, i32 noundef %49) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 405, ptr noundef nonnull @__func__.brininsert) #10
   br label %72
@@ -1193,7 +1193,7 @@ define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture no
 BufferGetPage.exit:                               ; preds = %86, %92
   %.0.i.i = phi ptr [ %91, %86 ], [ %97, %92 ]
   %98 = load i16, ptr %10, align 2
-  %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %100 = zext i16 %98 to i64
   %101 = add nsw i64 %100, -1
   %102 = getelementptr [0 x %struct.ItemIdData], ptr %99, i64 0, i64 %101
@@ -1242,7 +1242,7 @@ BufferGetPage.exit:                               ; preds = %86, %92
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @brininsertcleanup(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @brinRevmapTerminate(ptr noundef %4) #10
@@ -1266,7 +1266,7 @@ define dso_local ptr @brinbulkdelete(ptr nocapture readnone %0, ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @brinvacuumcleanup(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %28, label %6
@@ -1285,12 +1285,12 @@ define dso_local ptr @brinvacuumcleanup(ptr nocapture noundef readonly %0, ptr n
   %11 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %10, i32 noundef 0) #10
   store i32 %11, ptr %.015, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i32, ptr %13, align 8
   %15 = tail call i32 @IndexGetRelation(i32 noundef %14, i1 noundef zeroext false) #10
   %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 1) #10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %17, i32 noundef 0) #10
   %.not11.i = icmp eq i32 %20, 0
@@ -1317,7 +1317,7 @@ define dso_local ptr @brinvacuumcleanup(ptr nocapture noundef readonly %0, ptr n
 brin_vacuum_scan.exit:                            ; preds = %23, %9
   tail call void @FreeSpaceMapVacuum(ptr noundef %17) #10
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %.015, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   tail call fastcc void @brinsummarize(ptr noundef %26, ptr noundef %16, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %27, ptr noundef nonnull %27)
   tail call void @table_close(ptr noundef %16, i32 noundef 1) #10
   br label %28
@@ -1342,12 +1342,12 @@ define dso_local ptr @brinbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
   %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #10
   %5 = tail call ptr @palloc(i64 noundef 24) #10
   %6 = tail call ptr @brinRevmapInitialize(ptr noundef %0, ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @brin_build_desc(ptr noundef %0)
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %5, ptr %10, align 8
   ret ptr %4
 }
@@ -1358,13 +1358,13 @@ define dso_local void @brinrescan(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %8 to i64
   %14 = mul nuw nsw i64 %13, 72
@@ -1381,21 +1381,21 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   %4 = alloca i64, align 8
   %5 = alloca i16, align 2
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %3, align 4
   store i64 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 472
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %8, i64 468
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 468
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %25
@@ -1407,20 +1407,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 
 20:                                               ; preds = %2, %19
   %21 = phi ptr [ %14, %2 ], [ %.pre, %19 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8
   br label %25
 
 25:                                               ; preds = %20, %15
-  %26 = getelementptr inbounds i8, ptr %8, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 @IndexGetRelation(i32 noundef %27, i1 noundef zeroext false) #10
   %29 = tail call ptr @table_open(i32 noundef %28, i32 noundef 1) #10
   %30 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %29, i32 noundef 0) #10
   tail call void @table_close(ptr noundef %29, i32 noundef 1) #10
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
@@ -1430,7 +1430,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 3
@@ -1498,19 +1498,19 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   br i1 %80, label %.lr.ph216, label %._crit_edge217
 
 .lr.ph216:                                        ; preds = %._crit_edge
-  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %82
 
 82:                                               ; preds = %.lr.ph216, %96
   %indvars.iv250 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next251, %96 ]
   %83 = load ptr, ptr %81, align 8
   %84 = getelementptr %struct.ScanKeyData, ptr %83, i64 %indvars.iv250
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = sext i16 %86 to i64
   %88 = add nsw i64 %87, -1
   %89 = getelementptr %struct.FmgrInfo, ptr %36, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %96
@@ -1553,8 +1553,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   br i1 %.not243, label %._crit_edge241, label %.lr.ph240
 
 .lr.ph240:                                        ; preds = %._crit_edge217
-  %114 = getelementptr inbounds i8, ptr %10, i64 8
-  %115 = getelementptr inbounds i8, ptr %12, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %116 = ptrtoint ptr %12 to i64
   br label %117
 
@@ -1595,8 +1595,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   br i1 %.not187221, label %.preheader207, label %.lr.ph224
 
 .lr.ph224:                                        ; preds = %.preheader209
-  %132 = getelementptr inbounds i8, ptr %127, i64 40
-  %133 = getelementptr inbounds i8, ptr %127, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 1
   br label %134
 
 134:                                              ; preds = %.lr.ph224, %218
@@ -1625,7 +1625,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 149:                                              ; preds = %145
   %150 = getelementptr [0 x ptr], ptr %115, i64 0, i64 %137
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 2
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %153 = load i8, ptr %152, align 2
   %154 = trunc i8 %153 to i1
   br i1 %154, label %155, label %check_null_keys.exit
@@ -1639,8 +1639,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   br i1 %160, label %check_null_keys.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %155
-  %161 = getelementptr inbounds i8, ptr %146, i64 3
-  %162 = getelementptr inbounds i8, ptr %146, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %146, i64 3
+  %162 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %wide.trip.count.i = zext nneg i32 %159 to i64
   br label %163
 
@@ -1687,7 +1687,7 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   br i1 %140, label %218, label %182
 
 182:                                              ; preds = %check_null_keys.exit
-  %183 = getelementptr inbounds i8, ptr %146, i64 3
+  %183 = getelementptr inbounds nuw i8, ptr %146, i64 3
   %184 = load i8, ptr %183, align 1
   %185 = trunc i8 %184 to i1
   br i1 %185, label %.thread196, label %186
@@ -1695,7 +1695,7 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 186:                                              ; preds = %182
   %187 = getelementptr ptr, ptr %48, i64 %137
   %188 = getelementptr %struct.FmgrInfo, ptr %36, i64 %137
-  %189 = getelementptr inbounds i8, ptr %188, i64 12
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 12
   %190 = load i16, ptr %189, align 4
   %191 = icmp sgt i16 %190, 3
   br i1 %191, label %194, label %.preheader
@@ -1711,7 +1711,7 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 194:                                              ; preds = %186
   %195 = load ptr, ptr %187, align 8
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 12
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 12
   %198 = load i32, ptr %197, align 4
   %199 = ptrtoint ptr %146 to i64
   %200 = ptrtoint ptr %195 to i64
@@ -1733,7 +1733,7 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   %210 = load ptr, ptr %187, align 8
   %211 = getelementptr ptr, ptr %210, i64 %indvars.iv253
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 12
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 12
   %214 = load i32, ptr %213, align 4
   %215 = ptrtoint ptr %212 to i64
   %216 = call i64 @FunctionCall3Coll(ptr noundef %188, i32 noundef %214, i64 noundef %116, i64 noundef %193, i64 noundef %215) #10
@@ -1820,12 +1820,12 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @brinendscan(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @brinRevmapTerminate(ptr noundef %5) #10
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void @MemoryContextDelete(ptr noundef %8) #10
@@ -1858,18 +1858,18 @@ declare ptr @brin_deform_tuple(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 432
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %15 = ptrtoint ptr %1 to i64
   br label %16
 
@@ -1882,13 +1882,13 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %17, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %22 = load i8, ptr %21, align 2
   %23 = trunc i8 %22 to i1
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %17, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br label %28
@@ -1897,7 +1897,7 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   %29 = phi i1 [ false, %16 ], [ true, %20 ], [ %27, %24 ]
   %30 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %33 = load i8, ptr %32, align 2
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %44
@@ -1909,7 +1909,7 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %17, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
   br i1 %42, label %71, label %43
@@ -1939,13 +1939,13 @@ define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr nound
   br i1 %29, label %62, label %71
 
 62:                                               ; preds = %44
-  %63 = getelementptr inbounds i8, ptr %17, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %64 = load i8, ptr %63, align 2
   %65 = trunc i8 %64 to i1
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %17, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %68 = load i8, ptr %67, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %71, label %70
@@ -1998,7 +1998,7 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.13, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #10
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -2045,20 +2045,20 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   %30 = add nsw i64 %29, 40
   %31 = tail call ptr @palloc(i64 noundef %30) #10
   store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i32 %.0.lcssa, ptr %35, align 8
   %36 = load i32, ptr %6, align 8
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %31, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 40
   br label %39
 
 39:                                               ; preds = %.lr.ph44, %39
@@ -2148,8 +2148,8 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr nocapture noundef re
   %10 = shl nuw i32 %9, 16
   %11 = zext i16 %.val14 to i32
   %12 = or disjoint i32 %10, %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = load i32, ptr %13, align 8
   %16 = load i32, ptr %14, align 4
   %17 = add i32 %15, -1
@@ -2158,11 +2158,11 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr nocapture noundef re
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
-  %21 = getelementptr inbounds i8, ptr %5, i64 56
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
@@ -2197,9 +2197,9 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr nocapture noundef re
   br i1 %48, label %25, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %25, %6
-  %49 = getelementptr inbounds i8, ptr %5, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = call fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %50, ptr noundef %52, ptr noundef %2, ptr noundef %3)
   ret void
@@ -2207,7 +2207,7 @@ define internal void @brinbuildCallback(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @terminate_brin_buildstate(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %26, label %5
@@ -2247,11 +2247,11 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %26
 
 26:                                               ; preds = %BufferGetPage.exit, %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   tail call void @MemoryContextDelete(ptr noundef %29) #10
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
   tail call void @pfree(ptr noundef %31) #10
   tail call void @pfree(ptr noundef nonnull %0) #10
@@ -2300,7 +2300,7 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
 
 .lr.ph:                                           ; preds = %.thread
   %.not48 = icmp eq ptr %5, null
-  %26 = getelementptr inbounds i8, ptr %1, i64 312
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %.not49 = icmp eq ptr %4, null
   br label %27
 
@@ -2338,36 +2338,36 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   %41 = load i32, ptr %11, align 4
   %42 = call ptr @palloc(i64 noundef 112) #10
   store ptr %0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, i8 0, i64 20, i1 false)
   store i32 %41, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %14, ptr %46, align 8
   %47 = call ptr @brin_build_desc(ptr noundef %0)
-  %48 = getelementptr inbounds i8, ptr %42, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr %47, ptr %48, align 8
   %49 = call ptr @brin_new_memtuple(ptr noundef %47) #10
-  %50 = getelementptr inbounds i8, ptr %42, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 88
   store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 96
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 104
   store ptr null, ptr %53, align 8
   %54 = load ptr, ptr @CurrentMemoryContext, align 8
-  %55 = getelementptr inbounds i8, ptr %42, i64 80
-  %56 = getelementptr inbounds i8, ptr %42, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 64
   store ptr %54, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   %57 = urem i32 -2, %41
   %58 = load i32, ptr %44, align 4
   %reass.sub64 = sub i32 %58, %57
   %59 = add i32 %reass.sub64, -2
-  %60 = getelementptr inbounds i8, ptr %42, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 36
   store i32 %59, ptr %60, align 4
   %61 = call ptr @BuildIndexInfo(ptr noundef %0) #10
   br label %62
@@ -2380,13 +2380,13 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i32 0, ptr %7, align 4
-  %63 = getelementptr inbounds i8, ptr %.1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @brin_form_placeholder_tuple(ptr noundef %64, i32 noundef %.13958, ptr noundef nonnull %8) #10
   %66 = load ptr, ptr %.1, align 8
-  %67 = getelementptr inbounds i8, ptr %.1, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.1, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = load i64, ptr %8, align 8
   %72 = call zeroext i16 @brin_doinsert(ptr noundef %66, i32 noundef %68, ptr noundef %70, ptr noundef nonnull %7, i32 noundef %.13958, ptr noundef %65, i64 noundef %71) #10
@@ -2410,14 +2410,14 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
 
 84:                                               ; preds = %81, %76, %62
   %.044.i = phi i32 [ %83, %81 ], [ %79, %76 ], [ %73, %62 ]
-  %85 = getelementptr inbounds i8, ptr %.1, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   store i32 %.13958, ptr %85, align 8
   %86 = load ptr, ptr %.1, align 8
   %87 = load ptr, ptr %26, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 280
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 280
   %89 = load ptr, ptr %88, align 8
   %90 = call double %89(ptr noundef %1, ptr noundef %86, ptr noundef %.142, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %.13958, i32 noundef %.044.i, ptr noundef nonnull @brinbuildCallback, ptr noundef nonnull %.1, ptr noundef null) #10
-  %91 = getelementptr inbounds i8, ptr %.1, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   br label %92
 
 92:                                               ; preds = %118, %84
@@ -2542,7 +2542,7 @@ declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @brin_summarize_new_values(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @brin_summarize_range, i32 noundef 0, i64 noundef %3, i64 noundef 4294967295) #10
   ret i64 %4
@@ -2555,7 +2555,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = getelementptr i8, ptr %0, i64 48
@@ -2594,9 +2594,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
 24:                                               ; preds = %21
   %25 = tail call ptr @table_open(i32 noundef %23, i32 noundef 4) #10
   call void @GetUserIdAndSecContext(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %3, align 4
   %31 = or i32 %30, 2
@@ -2613,15 +2613,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
   %.029 = phi ptr [ %25, %24 ], [ null, %33 ]
   %.0 = phi i32 [ %32, %24 ], [ -1, %33 ]
   %35 = call ptr @index_open(i32 noundef %7, i32 noundef 4) #10
-  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 115
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 115
   %39 = load i8, ptr %38, align 1
   %.not32 = icmp eq i8 %39, 105
   br i1 %.not32, label %40, label %43
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %37, i64 84
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 84
   %42 = load i32, ptr %41, align 4
   %.not33 = icmp eq i32 %42, 3580
   br i1 %.not33, label %49, label %43
@@ -2631,7 +2631,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
   call void @llvm.assume(i1 %44)
   %45 = call i32 @errcode(i32 noundef 151027844) #10
   %46 = load ptr, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %47) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1433, ptr noundef nonnull @__func__.brin_summarize_range) #10
   unreachable
@@ -2647,7 +2647,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %36, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   call void @aclcheck_error(i32 noundef 2, i32 noundef 20, ptr noundef nonnull %55) #10
   br label %56
 
@@ -2661,15 +2661,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
   call void @llvm.assume(i1 %59)
   %60 = call i32 @errcode(i32 noundef 16908420) #10
   %61 = load ptr, ptr %36, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %62) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1449, ptr noundef nonnull @__func__.brin_summarize_range) #10
   unreachable
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %35, i64 320
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 320
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 18
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 18
   %68 = load i8, ptr %67, align 2
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %71
@@ -2685,7 +2685,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
 73:                                               ; preds = %71
   %74 = call i32 @errcode(i32 noundef 325) #10
   %75 = load ptr, ptr %36, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %76) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1458, ptr noundef nonnull @__func__.brin_summarize_range) #10
   br label %78
@@ -2725,7 +2725,7 @@ declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -2767,15 +2767,15 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
 23:                                               ; preds = %18, %21
   %.0 = phi ptr [ %22, %21 ], [ null, %18 ]
   %24 = tail call ptr @index_open(i32 noundef %4, i32 noundef 4) #10
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 115
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 115
   %28 = load i8, ptr %27, align 1
   %.not28 = icmp eq i8 %28, 105
   br i1 %.not28, label %29, label %32
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %26, i64 84
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 84
   %31 = load i32, ptr %30, align 4
   %.not29 = icmp eq i32 %31, 3580
   br i1 %.not29, label %38, label %32
@@ -2785,7 +2785,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 151027844) #10
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %36) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1522, ptr noundef nonnull @__func__.brin_desummarize_range) #10
   unreachable
@@ -2797,7 +2797,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %25, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef 20, ptr noundef nonnull %43) #10
   br label %44
 
@@ -2815,15 +2815,15 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
   tail call void @llvm.assume(i1 %49)
   %50 = tail call i32 @errcode(i32 noundef 16908420) #10
   %51 = load ptr, ptr %25, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %52) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1538, ptr noundef nonnull @__func__.brin_desummarize_range) #10
   unreachable
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %24, i64 320
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 320
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 18
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 18
   %58 = load i8, ptr %57, align 2
   %59 = trunc i8 %58 to i1
   br i1 %59, label %.preheader, label %61
@@ -2839,7 +2839,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
 63:                                               ; preds = %61
   %64 = tail call i32 @errcode(i32 noundef 325) #10
   %65 = load ptr, ptr %25, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %66) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1554, ptr noundef nonnull @__func__.brin_desummarize_range) #10
   br label %.loopexit
@@ -2887,7 +2887,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %19 = getelementptr i8, ptr %.0.i.i, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -1
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %21, ptr %22, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %3) #10
   ret void
@@ -2901,56 +2901,56 @@ define dso_local void @_brin_parallel_build_main(ptr noundef %0, ptr noundef %1)
   store ptr %3, ptr @debug_query_string, align 8
   tail call void @pgstat_report_activity(i32 noundef 2, ptr noundef %3) #10
   %4 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -5764607523034234879, i1 noundef zeroext false) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %. = select i1 %7, i32 3, i32 8
   %.28 = select i1 %7, i32 4, i32 5
   %8 = load i32, ptr %4, align 8
   %9 = tail call ptr @table_open(i32 noundef %8, i32 noundef %.28) #10
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @index_open(i32 noundef %11, i32 noundef %.) #10
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @palloc(i64 noundef 112) #10
   store ptr %12, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   store i32 %14, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr null, ptr %19, align 8
   %20 = tail call ptr @brin_build_desc(ptr noundef %12)
-  %21 = getelementptr inbounds i8, ptr %15, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %20, ptr %21, align 8
   %22 = tail call ptr @brin_new_memtuple(ptr noundef %20) #10
-  %23 = getelementptr inbounds i8, ptr %15, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr @CurrentMemoryContext, align 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 80
-  %29 = getelementptr inbounds i8, ptr %15, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %27, ptr %28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = urem i32 -2, %14
   %31 = load i32, ptr %17, align 4
   %reass.sub29 = sub i32 %31, %30
   %32 = add i32 %reass.sub29, -2
-  %33 = getelementptr inbounds i8, ptr %15, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i32 %32, ptr %33, align 4
   %34 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -5764607523034234878, i1 noundef zeroext false) #10
   tail call void @tuplesort_attach_shared(ptr noundef %34, ptr noundef %0) #10
   tail call void @InstrStartParallelQuery() #10
   %35 = load i32, ptr @maintenance_work_mem, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = sdiv i32 %35, %37
   tail call fastcc void @_brin_parallel_scan_and_build(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %34, ptr noundef %9, ptr noundef %12, i32 noundef %38)
@@ -2979,44 +2979,44 @@ define internal fastcc void @_brin_parallel_scan_and_build(ptr noundef initializ
   %7 = alloca i64, align 8
   %8 = tail call ptr @palloc0(i64 noundef 16) #10
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %10, align 8
   %11 = tail call ptr @tuplesort_begin_index_brin(i32 noundef %5, ptr noundef nonnull %8, i32 noundef 0) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %11, ptr %12, align 8
   %13 = tail call ptr @BuildIndexInfo(ptr noundef %4) #10
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i8, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 165
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 165
   %17 = and i8 %15, 1
   store i8 %17, ptr %16, align 1
   %18 = getelementptr i8, ptr %1, i64 64
   %19 = tail call ptr @table_beginscan_parallel(ptr noundef %3, ptr noundef %18) #10
-  %20 = getelementptr inbounds i8, ptr %3, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 280
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 280
   %23 = load ptr, ptr %22, align 8
   %24 = tail call double %23(ptr noundef %3, ptr noundef %4, ptr noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @brinbuildCallbackParallel, ptr noundef %0, ptr noundef %19) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %form_and_spill_tuple.exit, label %30
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = call ptr @brin_form_tuple(ptr noundef %32, i32 noundef %34, ptr noundef nonnull %26, ptr noundef nonnull %7) #10
   %36 = load ptr, ptr %12, align 8
   %37 = load i64, ptr %7, align 8
   call void @tuplesort_putbrintuple(ptr noundef %36, ptr noundef %35, i64 noundef %37) #10
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load double, ptr %38, align 8
   %40 = fadd double %39, 1.000000e+00
   store double %40, ptr %38, align 8
@@ -3027,11 +3027,11 @@ form_and_spill_tuple.exit:                        ; preds = %6, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %41 = load ptr, ptr %12, align 8
   call void @tuplesort_performsort(ptr noundef %41) #10
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load double, ptr %42, align 8
   %44 = fadd double %24, %43
   store double %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %45, i8 1, ptr nonnull elementtype(i8) %45) #10, !srcloc !24
   %.not = icmp eq i8 %46, 0
   br i1 %.not, label %49, label %47
@@ -3041,24 +3041,24 @@ form_and_spill_tuple.exit:                        ; preds = %6, %30
   br label %49
 
 49:                                               ; preds = %form_and_spill_tuple.exit, %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4
   %53 = load double, ptr %42, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = load double, ptr %54, align 8
   %56 = fadd double %53, %55
   store double %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load double, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %60 = load double, ptr %59, align 8
   %61 = fadd double %58, %60
   store double %61, ptr %59, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
   store i8 0, ptr %45, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   call void @ConditionVariableSignal(ptr noundef nonnull %62) #10
   %63 = load ptr, ptr %12, align 8
   call void @tuplesort_end(ptr noundef %63) #10
@@ -3095,16 +3095,16 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = tail call ptr @brin_deform_tuple(ptr noundef %0, ptr noundef %2, ptr noundef null) #10
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %._crit_edge, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
@@ -3114,10 +3114,10 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %18, label %.lr.ph79, label %._crit_edge
 
 .lr.ph79:                                         ; preds = %.preheader76
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  %20 = getelementptr inbounds i8, ptr %7, i64 40
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = ptrtoint ptr %0 to i64
   br label %68
 
@@ -3125,9 +3125,9 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %18, label %.lr.ph83, label %._crit_edge84
 
 .lr.ph83:                                         ; preds = %.preheader74
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
-  %25 = getelementptr inbounds i8, ptr %7, i64 40
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %27
 
 27:                                               ; preds = %.lr.ph83, %.loopexit
@@ -3136,14 +3136,14 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %29 = getelementptr [0 x %struct.BrinValues], ptr %25, i64 0, i64 %indvars.iv94
   %30 = getelementptr [0 x ptr], ptr %26, i64 0, i64 %indvars.iv94
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %28, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 3
   %35 = and i8 %33, 1
   store i8 %35, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %29, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %37 = load i8, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %28, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %39 = and i8 %37, 1
   store i8 %39, ptr %38, align 2
   %40 = load i8, ptr %32, align 1
@@ -3156,9 +3156,9 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not86, label %.loopexit, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %29, i64 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 16
-  %45 = getelementptr inbounds i8, ptr %28, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %46
 
 46:                                               ; preds = %.lr.ph81, %46
@@ -3168,10 +3168,10 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr [0 x ptr], ptr %44, i64 0, i64 %indvars.iv91
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 10
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 10
   %53 = load i8, ptr %52, align 2
   %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load i16, ptr %55, align 8
   %57 = sext i16 %56 to i32
   %58 = tail call i64 @datumCopy(i64 noundef %49, i1 noundef zeroext %54, i32 noundef %57) #10
@@ -3202,19 +3202,19 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %70 = getelementptr [0 x %struct.BrinValues], ptr %20, i64 0, i64 %indvars.iv88
   %71 = getelementptr [0 x ptr], ptr %21, i64 0, i64 %indvars.iv88
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i8, ptr %73, align 2
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %120
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %70, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %78 = load i8, ptr %77, align 2
   %79 = trunc i8 %78 to i1
   br i1 %79, label %85, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %70, i64 3
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 3
   %82 = load i8, ptr %81, align 1
   %83 = trunc i8 %82 to i1
   %84 = xor i1 %83, true
@@ -3222,19 +3222,19 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
 
 85:                                               ; preds = %80, %76
   %.not = phi i1 [ false, %76 ], [ %84, %80 ]
-  %86 = getelementptr inbounds i8, ptr %69, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %69, i64 3
   %87 = load i8, ptr %86, align 1
   %88 = trunc i8 %87 to i1
   %brmerge = select i1 %88, i1 true, i1 %.not
   br i1 %brmerge, label %91, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %69, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store i8 1, ptr %90, align 2
   br label %91
 
 91:                                               ; preds = %85, %89
-  %92 = getelementptr inbounds i8, ptr %70, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %70, i64 3
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
   br i1 %94, label %.loopexit75, label %95
@@ -3244,16 +3244,16 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
 
 96:                                               ; preds = %95
   store i8 0, ptr %86, align 1
-  %97 = getelementptr inbounds i8, ptr %69, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store i8 1, ptr %97, align 2
   %98 = load i16, ptr %72, align 8
   %.not85 = icmp eq i16 %98, 0
   br i1 %.not85, label %.loopexit75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %70, i64 8
-  %100 = getelementptr inbounds i8, ptr %72, i64 16
-  %101 = getelementptr inbounds i8, ptr %69, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %69, i64 8
   br label %102
 
 102:                                              ; preds = %.lr.ph, %102
@@ -3263,10 +3263,10 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %105 = load i64, ptr %104, align 8
   %106 = getelementptr [0 x ptr], ptr %100, i64 0, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 10
   %109 = load i8, ptr %108, align 2
   %110 = trunc i8 %109 to i1
-  %111 = getelementptr inbounds i8, ptr %107, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %112 = load i16, ptr %111, align 8
   %113 = sext i16 %112 to i32
   %114 = tail call i64 @datumCopy(i64 noundef %105, i1 noundef zeroext %110, i32 noundef %113) #10
@@ -3285,7 +3285,7 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %123 = add i16 %122, 1
   %124 = tail call ptr @index_getprocinfo(ptr noundef %121, i16 noundef signext %123, i16 noundef zeroext 4) #10
   %125 = load ptr, ptr %22, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 432
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 432
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i32, ptr %127, i64 %indvars.iv88
   %129 = load i32, ptr %128, align 4
@@ -3382,13 +3382,13 @@ define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr nocapture no
   %11 = zext i16 %.val19 to i32
   %12 = or disjoint i32 %10, %11
   %.fr = freeze i32 %12
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %.fr, %14
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %14, -1
   %20 = add i32 %19, %18
@@ -3397,22 +3397,22 @@ define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr nocapture no
 
 22:                                               ; preds = %16, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %23 = getelementptr inbounds i8, ptr %5, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %form_and_spill_tuple.exit, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %5, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @brin_form_tuple(ptr noundef %30, i32 noundef %14, ptr noundef nonnull %24, ptr noundef nonnull %7) #10
-  %32 = getelementptr inbounds i8, ptr %5, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %7, align 8
   call void @tuplesort_putbrintuple(ptr noundef %33, ptr noundef %31, i64 noundef %34) #10
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load double, ptr %35, align 8
   %37 = fadd double %36, 1.000000e+00
   store double %37, ptr %35, align 8
@@ -3423,20 +3423,20 @@ define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr nocapture no
 form_and_spill_tuple.exit:                        ; preds = %22, %28
   %38 = phi ptr [ %24, %22 ], [ %.pre, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %39 = getelementptr inbounds i8, ptr %5, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = urem i32 %.fr, %40
   %42 = sub nuw i32 %.fr, %41
   store i32 %42, ptr %13, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @brin_memtuple_initialize(ptr noundef %38, ptr noundef %44) #10
   br label %46
 
 46:                                               ; preds = %form_and_spill_tuple.exit, %16
-  %47 = getelementptr inbounds i8, ptr %5, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = call fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %48, ptr noundef %50, ptr noundef %2, ptr noundef %3)
   ret void

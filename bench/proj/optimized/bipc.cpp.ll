@@ -23,19 +23,19 @@ define hidden noundef ptr @pj_bipc(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z33pj_projection_specific_setup_bipcP8PJconsts.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @.str.1)
   %.sroa.0.0.extract.trunc.i = trunc i64 %12 to i32
   store i32 %.sroa.0.0.extract.trunc.i, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14bipc_s_inverse5PJ_XYP8PJconsts, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14bipc_s_forward5PJ_LPP8PJconsts, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 216
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %15, align 8
   br label %_Z33pj_projection_specific_setup_bipcP8PJconsts.exit
 
@@ -45,15 +45,15 @@ define hidden noundef ptr @pj_bipc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %_Z33pj_projection_specific_setup_bipcP8PJconsts.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @.str, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @_ZL8des_bipc, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 360
   store i32 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 380
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 380
   store i32 4, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %17, i64 384
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 384
   store i32 1, ptr %24, align 8
   br label %_Z33pj_projection_specific_setup_bipcP8PJconsts.exit
 
@@ -73,19 +73,19 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_bipcP8PJconsts(ptr n
   br label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %8, ptr noundef %10, ptr noundef nonnull @.str.1)
   %.sroa.0.0.extract.trunc = trunc i64 %11 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14bipc_s_inverse5PJ_XYP8PJconsts, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14bipc_s_forward5PJ_LPP8PJconsts, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %14, align 8
   br label %15
 
@@ -105,7 +105,7 @@ declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14bipc_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -225,7 +225,7 @@ define internal { double, double } @_ZL14bipc_s_inverse5PJ_XYP8PJconsts(double %
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14bipc_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @cos(double noundef %1) #6
   %7 = tail call double @sin(double noundef %1) #6

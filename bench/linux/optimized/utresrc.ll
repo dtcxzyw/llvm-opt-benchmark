@@ -18,7 +18,7 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #5
   store i8 121, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = icmp ult i64 %2, 2
   br i1 %9, label %.loopexit, label %10
@@ -228,7 +228,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = add i8 %51, -1
@@ -344,7 +344,7 @@ define dso_local zeroext range(i8 1, 4) i8 @acpi_ut_get_resource_header_length(p
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 0, label %5
@@ -352,13 +352,13 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br label %82
 
 8:                                                ; preds = %2
   %9 = zext i32 %4 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 %9
   %13 = icmp ugt ptr %12, %11
@@ -437,7 +437,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %14, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = add i8 %60, -1
   %62 = icmp ult i8 %61, 4
@@ -470,8 +470,8 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
 
 77:                                               ; preds = %69
   %78 = zext i16 %71 to i64
-  %79 = add nuw nsw i64 %70, %78
-  %80 = getelementptr i8, ptr %14, i64 %79
+  %79 = getelementptr i8, ptr %14, i64 %70
+  %80 = getelementptr i8, ptr %79, i64 %78
   %81 = icmp ult ptr %80, %12
   br i1 %81, label %.preheader, label %.thread4, !llvm.loop !7
 

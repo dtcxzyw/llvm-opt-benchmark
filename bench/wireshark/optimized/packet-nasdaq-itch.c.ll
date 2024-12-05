@@ -196,7 +196,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.108) #4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
@@ -241,13 +241,13 @@ define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not.i, label %proto_item_set_generated.exit, label %26
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 2
   store i32 %32, ptr %30, align 4
@@ -633,7 +633,7 @@ define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef 
   %9 = trunc i64 %8 to i32
   %10 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef %9) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.120, i32 noundef %9) #4
   %14 = add i32 %3, 9
@@ -685,7 +685,7 @@ define internal fastcc noundef i32 @executed(ptr noundef %0, ptr nocapture nound
   %9 = trunc i64 %8 to i32
   %10 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef %9) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.120, i32 noundef %9) #4
   %14 = add i32 %3, 9

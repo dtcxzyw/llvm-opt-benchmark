@@ -108,13 +108,13 @@ define internal noundef zeroext i1 @_ZL17Test_TfStaticDatav() #1 personality ptr
 
 27:                                               ; preds = %.thread, %25
   store ptr @.str.1, ptr %19, align 8
-  %.sroa.2150.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2150.0..sroa_idx, align 8
-  %.sroa.3151.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.3151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 70, ptr %.sroa.3151.0..sroa_idx, align 8
-  %.sroa.4152.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
+  %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4152.0..sroa_idx, align 8
-  %.sroa.5153.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 32
+  %.sroa.5153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 0, ptr %.sroa.5153.0..sroa_idx, align 8
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 4, ptr %28, align 8
@@ -144,13 +144,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 34:                                               ; preds = %.thread156, %32
   store ptr @.str.1, ptr %18, align 8
-  %.sroa.2144.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2144.0..sroa_idx, align 8
-  %.sroa.3145.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.3145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 73, ptr %.sroa.3145.0..sroa_idx, align 8
-  %.sroa.4146.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
+  %.sroa.4146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4146.0..sroa_idx, align 8
-  %.sroa.5147.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.5147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 0, ptr %.sroa.5147.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 4, ptr %35, align 8
@@ -166,13 +166,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit1
   store ptr @.str.1, ptr %17, align 8
-  %.sroa.2138.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2138.0..sroa_idx, align 8
-  %.sroa.3139.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.3139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 74, ptr %.sroa.3139.0..sroa_idx, align 8
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4140.0..sroa_idx, align 8
-  %.sroa.5141.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 32
+  %.sroa.5141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 0, ptr %.sroa.5141.0..sroa_idx, align 8
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 4, ptr %39, align 8
@@ -221,13 +221,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 53:                                               ; preds = %.thread158, %51
   store ptr @.str.1, ptr %16, align 8
-  %.sroa.2132.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2132.0..sroa_idx, align 8
-  %.sroa.3133.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.3133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 79, ptr %.sroa.3133.0..sroa_idx, align 8
-  %.sroa.4134.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.4134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4134.0..sroa_idx, align 8
-  %.sroa.5135.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.5135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 0, ptr %.sroa.5135.0..sroa_idx, align 8
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 4, ptr %54, align 8
@@ -264,13 +264,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_27Tf_StaticDataDefaultFactoryIS6_EEEptEv.exit
   store ptr @.str.1, ptr %15, align 8
-  %.sroa.2126.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.2126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2126.0..sroa_idx, align 8
-  %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 80, ptr %.sroa.3127.0..sroa_idx, align 8
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4128.0..sroa_idx, align 8
-  %.sroa.5129.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.5129.0..sroa_idx, align 8
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %68, align 8
@@ -342,13 +342,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 96:                                               ; preds = %.thread160, %94
   store ptr @.str.1, ptr %14, align 8
-  %.sroa.2120.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.2120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2120.0..sroa_idx, align 8
-  %.sroa.3121.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.3121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 84, ptr %.sroa.3121.0..sroa_idx, align 8
-  %.sroa.4122.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.4122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4122.0..sroa_idx, align 8
-  %.sroa.5123.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.5123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 0, ptr %.sroa.5123.0..sroa_idx, align 8
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 4, ptr %97, align 8
@@ -399,13 +399,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 114:                                              ; preds = %.thread162, %112
   store ptr @.str.1, ptr %13, align 8
-  %.sroa.2114.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2114.0..sroa_idx, align 8
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 89, ptr %.sroa.3115.0..sroa_idx, align 8
-  %.sroa.4116.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4116.0..sroa_idx, align 8
-  %.sroa.5117.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %.sroa.5117.0..sroa_idx, align 8
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 4, ptr %115, align 8
@@ -442,13 +442,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_27Tf_StaticDataDefaultFactoryIS6_EEEdeEv.exit15
   store ptr @.str.1, ptr %12, align 8
-  %.sroa.2108.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2108.0..sroa_idx, align 8
-  %.sroa.3109.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 93, ptr %.sroa.3109.0..sroa_idx, align 8
-  %.sroa.4110.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4110.0..sroa_idx, align 8
-  %.sroa.5111.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %.sroa.5111.0..sroa_idx, align 8
   %129 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 4, ptr %129, align 8
@@ -464,13 +464,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 131:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16
   store ptr @.str.1, ptr %11, align 8
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2102.0..sroa_idx, align 8
-  %.sroa.3103.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.3103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 96, ptr %.sroa.3103.0..sroa_idx, align 8
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.sroa.5105.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 0, ptr %.sroa.5105.0..sroa_idx, align 8
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 4, ptr %132, align 8
@@ -509,13 +509,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 
 147:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_129_initStr_Tf_StaticDataFactoryEEdeEv.exit
   store ptr @.str.1, ptr %10, align 8
-  %.sroa.296.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.296.0..sroa_idx, align 8
-  %.sroa.397.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 97, ptr %.sroa.397.0..sroa_idx, align 8
-  %.sroa.498.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.498.0..sroa_idx, align 8
-  %.sroa.599.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %.sroa.599.0..sroa_idx, align 8
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 4, ptr %148, align 8
@@ -531,13 +531,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 150:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19
   store ptr @.str.1, ptr %9, align 8
-  %.sroa.290.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.290.0..sroa_idx, align 8
-  %.sroa.391.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 101, ptr %.sroa.391.0..sroa_idx, align 8
-  %.sroa.492.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.492.0..sroa_idx, align 8
-  %.sroa.593.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %.sroa.593.0..sroa_idx, align 8
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %151, align 8
@@ -547,7 +547,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %152 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapIiiSt4lessIiESaISt4pairIKiiEEEN12_GLOBAL__N_129_initMap_Tf_StaticDataFactoryEE3GetEv()
-  %153 = getelementptr inbounds i8, ptr %152, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load i64, ptr %153, align 8
   %155 = icmp eq i64 %154, 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -555,13 +555,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 156:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20
   store ptr @.str.1, ptr %8, align 8
-  %.sroa.284.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.284.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.284.0..sroa_idx, align 8
-  %.sroa.385.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 102, ptr %.sroa.385.0..sroa_idx, align 8
-  %.sroa.486.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.486.0..sroa_idx, align 8
-  %.sroa.587.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %.sroa.587.0..sroa_idx, align 8
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %157, align 8
@@ -580,13 +580,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 162:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit21
   store ptr @.str.1, ptr %7, align 8
-  %.sroa.278.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.278.0..sroa_idx, align 8
-  %.sroa.379.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 103, ptr %.sroa.379.0..sroa_idx, align 8
-  %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.480.0..sroa_idx, align 8
-  %.sroa.581.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.581.0..sroa_idx, align 8
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %163, align 8
@@ -605,13 +605,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 168:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit22
   store ptr @.str.1, ptr %6, align 8
-  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.272.0..sroa_idx, align 8
-  %.sroa.373.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 104, ptr %.sroa.373.0..sroa_idx, align 8
-  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.474.0..sroa_idx, align 8
-  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.575.0..sroa_idx, align 8
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %169, align 8
@@ -627,13 +627,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 171:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit23
   store ptr @.str.1, ptr %5, align 8
-  %.sroa.266.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.266.0..sroa_idx, align 8
-  %.sroa.367.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 108, ptr %.sroa.367.0..sroa_idx, align 8
-  %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.468.0..sroa_idx, align 8
-  %.sroa.569.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.569.0..sroa_idx, align 8
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %172, align 8
@@ -652,13 +652,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #12
   store i32 1, ptr %178, align 4
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %178, i64 4
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i32 2, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %178, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 3, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store ptr %178, ptr %176, align 8
-  %180 = getelementptr inbounds i8, ptr %178, i64 12
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 12
   store ptr %180, ptr %179, align 8
   store ptr %180, ptr %177, align 8
   %181 = ptrtoint ptr %176 to i64
@@ -699,13 +699,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
 
 201:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEptEv.exit
   store ptr @.str.1, ptr %4, align 8
-  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.260.0..sroa_idx, align 8
-  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 109, ptr %.sroa.361.0..sroa_idx, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.563.0..sroa_idx, align 8
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %202, align 8
@@ -724,13 +724,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #12
   store i32 1, ptr %208, align 4
-  %.sroa.4.0..sroa_idx.i.i.i28 = getelementptr inbounds i8, ptr %208, i64 4
+  %.sroa.4.0..sroa_idx.i.i.i28 = getelementptr inbounds nuw i8, ptr %208, i64 4
   store i32 2, ptr %.sroa.4.0..sroa_idx.i.i.i28, align 4
-  %.sroa.5.0..sroa_idx.i.i.i29 = getelementptr inbounds i8, ptr %208, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i29 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 3, ptr %.sroa.5.0..sroa_idx.i.i.i29, align 4
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store ptr %208, ptr %206, align 8
-  %210 = getelementptr inbounds i8, ptr %208, i64 12
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store ptr %210, ptr %209, align 8
   store ptr %210, ptr %207, align 8
   %211 = ptrtoint ptr %206 to i64
@@ -767,13 +767,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
 
 227:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.254.0..sroa_idx, align 8
-  %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 110, ptr %.sroa.355.0..sroa_idx, align 8
-  %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.456.0..sroa_idx, align 8
-  %.sroa.557.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.557.0..sroa_idx, align 8
   %228 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %228, align 8
@@ -792,13 +792,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #12
   store i32 1, ptr %234, align 4
-  %.sroa.4.0..sroa_idx.i.i.i34 = getelementptr inbounds i8, ptr %234, i64 4
+  %.sroa.4.0..sroa_idx.i.i.i34 = getelementptr inbounds nuw i8, ptr %234, i64 4
   store i32 2, ptr %.sroa.4.0..sroa_idx.i.i.i34, align 4
-  %.sroa.5.0..sroa_idx.i.i.i35 = getelementptr inbounds i8, ptr %234, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i35 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store i32 3, ptr %.sroa.5.0..sroa_idx.i.i.i35, align 4
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store ptr %234, ptr %232, align 8
-  %236 = getelementptr inbounds i8, ptr %234, i64 12
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 12
   store ptr %236, ptr %235, align 8
   store ptr %236, ptr %233, align 8
   %237 = ptrtoint ptr %232 to i64
@@ -828,7 +828,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37:            ; preds = %242, %240
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, %231, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37
   %249 = phi ptr [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32 ], [ %248, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i37 ], [ %232, %231 ]
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 4
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
@@ -836,13 +836,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
 
 254:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit38
   store ptr @.str.1, ptr %2, align 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.248.0..sroa_idx, align 8
-  %.sroa.349.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 111, ptr %.sroa.349.0..sroa_idx, align 8
-  %.sroa.450.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.450.0..sroa_idx, align 8
-  %.sroa.551.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.551.0..sroa_idx, align 8
   %255 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %255, align 8
@@ -861,13 +861,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #12
   store i32 1, ptr %261, align 4
-  %.sroa.4.0..sroa_idx.i.i.i41 = getelementptr inbounds i8, ptr %261, i64 4
+  %.sroa.4.0..sroa_idx.i.i.i41 = getelementptr inbounds nuw i8, ptr %261, i64 4
   store i32 2, ptr %.sroa.4.0..sroa_idx.i.i.i41, align 4
-  %.sroa.5.0..sroa_idx.i.i.i42 = getelementptr inbounds i8, ptr %261, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i42 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i32 3, ptr %.sroa.5.0..sroa_idx.i.i.i42, align 4
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store ptr %261, ptr %259, align 8
-  %263 = getelementptr inbounds i8, ptr %261, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 12
   store ptr %263, ptr %262, align 8
   store ptr %263, ptr %260, align 8
   %264 = ptrtoint ptr %259 to i64
@@ -897,7 +897,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44:            ; preds = %269, %267
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39, %258, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44
   %276 = phi ptr [ %257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit39 ], [ %275, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i44 ], [ %259, %258 ]
   %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i32, ptr %278, align 4
   %280 = icmp eq i32 %279, 3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
@@ -905,13 +905,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBA
 
 281:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKSt6vectorIiSaIiEEN12_GLOBAL__N_133_constVector_Tf_StaticDataFactoryEEdeEv.exit45
   store ptr @.str.1, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @__func__._ZL17Test_TfStaticDatav, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 112, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL17Test_TfStaticDatav, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 4, ptr %282, align 8
@@ -928,9 +928,9 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not10.i.i.i = icmp eq ptr %4, null
   %.pre = load i32, ptr %1, align 4
   br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
@@ -990,7 +990,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit: ; preds = %.lr.p
 .thread.i:                                        ; preds = %23, %21
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %29, align 8
@@ -1057,15 +1057,15 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
 
 5:                                                ; preds = %0
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -1127,18 +1127,18 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4
@@ -1147,7 +1147,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
   br i1 %15, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -1172,7 +1172,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %26
@@ -1202,7 +1202,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %41
@@ -1223,7 +1223,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
@@ -1267,7 +1267,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
   br i1 %62, label %63, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %67
@@ -1288,7 +1288,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
@@ -1309,7 +1309,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Sel
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE24_M_get_insert_unique_posERS1_.exit, label %84

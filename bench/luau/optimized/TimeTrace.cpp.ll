@@ -54,7 +54,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #6
   %15 = load i64, ptr %2, align 8
   %16 = sitofp i64 %15 to double
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = sitofp i64 %18 to double
   %20 = call noundef double @llvm.fmuladd.f64(double %16, double 1.000000e+09, double %19)
@@ -68,7 +68,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #6
   %23 = load i64, ptr %1, align 8
   %24 = sitofp i64 %23 to double
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = sitofp i64 %26 to double
   %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
@@ -121,7 +121,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #6
   %15 = load i64, ptr %2, align 8
   %16 = sitofp i64 %15 to double
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = sitofp i64 %18 to double
   %20 = call noundef double @llvm.fmuladd.f64(double %16, double 1.000000e+09, double %19)
@@ -135,7 +135,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #6
   %23 = load i64, ptr %1, align 8
   %24 = sitofp i64 %23 to double
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = sitofp i64 %26 to double
   %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
@@ -157,10 +157,10 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #4 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 8), align 8
   %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, i64 16), align 8
   store ptr @_ZN5FFlag20DebugLuauTimeTracingE, ptr @_ZN4Luau6FValueIbE4listE, align 8
   ret void
 }

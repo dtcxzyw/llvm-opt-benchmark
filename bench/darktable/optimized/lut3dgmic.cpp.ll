@@ -63,14 +63,14 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
           to label %10 unwind label %88
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 360
   store i32 -1, ptr %11, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #16
   %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN12cimg_library8CImgListIfE6assignEj(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1)
           to label %13 unwind label %90
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cimg_library4CImgIfE6assignEjjjj(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef 6)
           to label %17 unwind label %92
@@ -82,7 +82,7 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   br i1 %20, label %.loopexit15, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %24 = icmp ult i32 %18, 32
   br i1 %24, label %59, label %25
@@ -106,9 +106,9 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %37 = shl i64 %36, 2
   %38 = getelementptr i8, ptr %23, i64 %37
   %39 = getelementptr inbounds i8, ptr %0, i64 %36
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %43 = load <8 x i8>, ptr %39, align 1, !tbaa !24, !alias.scope !25
   %44 = load <8 x i8>, ptr %40, align 1, !tbaa !24, !alias.scope !25
   %45 = load <8 x i8>, ptr %41, align 1, !tbaa !24, !alias.scope !25
@@ -144,10 +144,10 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %64 = phi ptr [ %70, %.preheader ], [ %60, %59 ]
   %65 = phi i64 [ %71, %.preheader ], [ %61, %59 ]
   %66 = phi i64 [ %72, %.preheader ], [ 0, %59 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %65
   %68 = load i8, ptr %67, align 1, !tbaa !24
   %69 = uitofp i8 %68 to float
-  %70 = getelementptr inbounds i8, ptr %64, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store float %69, ptr %64, align 4, !tbaa !28
   %71 = add nuw nsw i64 %65, 1
   %72 = add nuw nsw i64 %66, 1
@@ -202,42 +202,42 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %99 = getelementptr inbounds i8, ptr %0, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !24
   %101 = uitofp i8 %100 to float
-  %102 = getelementptr inbounds i8, ptr %97, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store float %101, ptr %97, align 4, !tbaa !28
   %103 = getelementptr i8, ptr %79, i64 %98
   %104 = load i8, ptr %103, align 1, !tbaa !24
   %105 = uitofp i8 %104 to float
-  %106 = getelementptr inbounds i8, ptr %97, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store float %105, ptr %102, align 4, !tbaa !28
   %107 = getelementptr i8, ptr %80, i64 %98
   %108 = load i8, ptr %107, align 1, !tbaa !24
   %109 = uitofp i8 %108 to float
-  %110 = getelementptr inbounds i8, ptr %97, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 12
   store float %109, ptr %106, align 4, !tbaa !28
   %111 = getelementptr i8, ptr %81, i64 %98
   %112 = load i8, ptr %111, align 1, !tbaa !24
   %113 = uitofp i8 %112 to float
-  %114 = getelementptr inbounds i8, ptr %97, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store float %113, ptr %110, align 4, !tbaa !28
   %115 = getelementptr i8, ptr %82, i64 %98
   %116 = load i8, ptr %115, align 1, !tbaa !24
   %117 = uitofp i8 %116 to float
-  %118 = getelementptr inbounds i8, ptr %97, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %97, i64 20
   store float %117, ptr %114, align 4, !tbaa !28
   %119 = getelementptr i8, ptr %83, i64 %98
   %120 = load i8, ptr %119, align 1, !tbaa !24
   %121 = uitofp i8 %120 to float
-  %122 = getelementptr inbounds i8, ptr %97, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store float %121, ptr %118, align 4, !tbaa !28
   %123 = getelementptr i8, ptr %84, i64 %98
   %124 = load i8, ptr %123, align 1, !tbaa !24
   %125 = uitofp i8 %124 to float
-  %126 = getelementptr inbounds i8, ptr %97, i64 28
+  %126 = getelementptr inbounds nuw i8, ptr %97, i64 28
   store float %125, ptr %122, align 4, !tbaa !28
   %127 = getelementptr i8, ptr %85, i64 %98
   %128 = load i8, ptr %127, align 1, !tbaa !24
   %129 = uitofp i8 %128 to float
-  %130 = getelementptr inbounds i8, ptr %97, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store float %129, ptr %126, align 4, !tbaa !28
   %131 = add nuw nsw i64 %98, 8
   %132 = icmp eq i64 %131, %19
@@ -255,7 +255,7 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
 138:                                              ; preds = %133
   %139 = extractvalue { ptr, i32 } %134, 0
   %140 = call ptr @__cxa_begin_catch(ptr %139) #16
-  %141 = getelementptr inbounds i8, ptr %140, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 56
   %142 = load ptr, ptr %141, align 8, !tbaa !38
   %143 = icmp eq ptr %142, null
   %144 = select i1 %143, ptr @.str.8, ptr %142
@@ -309,7 +309,7 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
 168:                                              ; preds = %163
   %169 = extractvalue { ptr, i32 } %164, 0
   %170 = call ptr @__cxa_begin_catch(ptr %169) #16
-  %171 = getelementptr inbounds i8, ptr %170, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !38
   %173 = icmp eq ptr %172, null
   %174 = select i1 %173, ptr @.str.8, ptr %172
@@ -337,7 +337,7 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   %184 = load <4 x i32>, ptr %183, align 8, !tbaa !41
   %185 = call i32 @llvm.vector.reduce.mul.v4i32(<4 x i32> %184)
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds i8, ptr %183, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !22
   %189 = shl nuw nsw i64 %186, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %188, i64 %189, i1 false)
@@ -348,7 +348,7 @@ define hidden void @lut3d_decompress_clut(ptr nocapture noundef readonly %0, i32
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #16
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %8) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #16
-  %192 = getelementptr inbounds i8, ptr %7, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !42
   %194 = icmp eq ptr %193, null
   br i1 %194, label %214, label %195
@@ -507,7 +507,7 @@ declare void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   %4 = icmp eq ptr %3, null
   br i1 %4, label %24, label %5
@@ -554,7 +554,7 @@ define linkonce_odr hidden void @_ZN12cimg_library8CImgListIcED2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12cimg_library8CImgListIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %24, label %5
@@ -615,7 +615,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
           to label %8 unwind label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i32 -1, ptr %9, align 8, !tbaa !6
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %11 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %7, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef null)
@@ -653,16 +653,16 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
   %25 = mul i32 %1, 3
   %26 = mul i32 %25, %1
   %27 = mul i32 %26, %1
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = load i32, ptr %29, align 8, !tbaa !48
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = mul i32 %32, %30
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !50
   %36 = mul i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %29, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !51
   %39 = mul i32 %36, %38
   %40 = icmp ult i32 %27, %39
@@ -690,7 +690,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
 51:                                               ; preds = %46
   %52 = extractvalue { ptr, i32 } %47, 0
   %53 = call ptr @__cxa_begin_catch(ptr %52) #16
-  %54 = getelementptr inbounds i8, ptr %53, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !38
   %56 = icmp eq ptr %55, null
   %57 = select i1 %56, ptr @.str.8, ptr %55
@@ -742,7 +742,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
 81:                                               ; preds = %76
   %82 = extractvalue { ptr, i32 } %77, 0
   %83 = call ptr @__cxa_begin_catch(ptr %82) #16
-  %84 = getelementptr inbounds i8, ptr %83, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !38
   %86 = icmp eq ptr %85, null
   %87 = select i1 %86, ptr @.str.8, ptr %85
@@ -768,7 +768,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
 95:                                               ; preds = %72
   %96 = zext i32 %74 to i64
   %97 = load ptr, ptr %28, align 8, !tbaa !20
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !22
   %100 = shl nuw nsw i64 %96, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %0, ptr align 4 %99, i64 %100, i1 false)
@@ -780,7 +780,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #16
-  %104 = getelementptr inbounds i8, ptr %5, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !42
   %106 = icmp eq ptr %105, null
   br i1 %106, label %126, label %107
@@ -823,7 +823,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
 
 126:                                              ; preds = %.loopexit13, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %127 = getelementptr inbounds i8, ptr %4, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !20
   %129 = icmp eq ptr %128, null
   br i1 %129, label %149, label %130
@@ -907,7 +907,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
           to label %12 unwind label %16
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %11, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 360
   store i32 -1, ptr %13, align 8, !tbaa !6
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %15 = invoke noundef nonnull align 8 dereferenceable(416) ptr @_ZN4gmic3runIfEERS_PKcRN12cimg_library8CImgListIT_EERNS5_IcEEPfPb(ptr noundef nonnull align 8 dereferenceable(416) %11, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null)
@@ -930,7 +930,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 23:                                               ; preds = %18
   %24 = extractvalue { ptr, i32 } %19, 0
   %25 = call ptr @__cxa_begin_catch(ptr %24) #16
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !38
   %28 = icmp eq ptr %27, null
   %29 = select i1 %28, ptr @.str.8, ptr %27
@@ -967,14 +967,14 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   br i1 %44, label %.loopexit25, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   %48 = zext i32 %42 to i64
   br label %49
 
 49:                                               ; preds = %55, %45
   %50 = phi i64 [ 0, %45 ], [ %56, %55 ]
-  %51 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %47, i64 %50, i32 5
+  %51 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %47, i64 %50, i32 5
   %52 = load ptr, ptr %51, align 8, !tbaa !46
   %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %5) #20
   %54 = icmp eq i32 %53, 0
@@ -1006,7 +1006,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   br i1 %66, label %.loopexit24, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %9, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %71
 
 69:                                               ; preds = %63
@@ -1017,7 +1017,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 71:                                               ; preds = %76, %67
   %72 = phi i64 [ 0, %67 ], [ %77, %76 ]
   %73 = load ptr, ptr %68, align 8, !tbaa !42
-  %74 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %73, i64 %72, i32 5
+  %74 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %73, i64 %72, i32 5
   %75 = load ptr, ptr %74, align 8, !tbaa !46
   invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %75)
           to label %76 unwind label %81
@@ -1035,13 +1035,13 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   br label %370
 
 .loopexit24:                                      ; preds = %76, %64, %.loopexit25
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !20
   %85 = zext i32 %61 to i64
-  %86 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 1
+  %86 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 1
   %87 = load i32, ptr %86, align 4, !tbaa !49
   store i32 %87, ptr %0, align 4, !tbaa !41
-  %88 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85
+  %88 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %84, i64 %85
   %89 = load i32, ptr %88, align 8, !tbaa !48
   %90 = icmp eq i32 %89, 1
   %91 = icmp ult i32 %87, 2049
@@ -1049,13 +1049,13 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   br i1 %92, label %93, label %286
 
 93:                                               ; preds = %.loopexit24
-  %94 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 2
+  %94 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 2
   %95 = load i32, ptr %94, align 8, !tbaa !50
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %286
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 3
+  %98 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %84, i64 %85, i32 3
   %99 = load i32, ptr %98, align 4, !tbaa !51
   switch i32 %99, label %286 [
     i32 6, label %100
@@ -1068,7 +1068,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 
 102:                                              ; preds = %100
   %103 = mul nuw nsw i32 %87, 6
-  %104 = getelementptr inbounds i8, ptr %88, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %105 = zext nneg i32 %103 to i64
   %106 = and i64 %105, 6
   %107 = icmp eq i32 %87, 1
@@ -1086,59 +1086,59 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 112:                                              ; preds = %112, %108
   %113 = phi i64 [ 0, %108 ], [ %161, %112 ]
   %114 = load ptr, ptr %104, align 8, !tbaa !22
-  %115 = getelementptr inbounds float, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw float, ptr %114, i64 %113
   %116 = load float, ptr %115, align 4, !tbaa !28
   %117 = fptoui float %116 to i8
-  %118 = getelementptr inbounds i8, ptr %1, i64 %113
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 %113
   store i8 %117, ptr %118, align 1, !tbaa !24
   %119 = or disjoint i64 %113, 1
   %120 = load ptr, ptr %104, align 8, !tbaa !22
-  %121 = getelementptr inbounds float, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw float, ptr %120, i64 %119
   %122 = load float, ptr %121, align 4, !tbaa !28
   %123 = fptoui float %122 to i8
-  %124 = getelementptr inbounds i8, ptr %1, i64 %119
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %119
   store i8 %123, ptr %124, align 1, !tbaa !24
   %125 = or disjoint i64 %113, 2
   %126 = load ptr, ptr %104, align 8, !tbaa !22
-  %127 = getelementptr inbounds float, ptr %126, i64 %125
+  %127 = getelementptr inbounds nuw float, ptr %126, i64 %125
   %128 = load float, ptr %127, align 4, !tbaa !28
   %129 = fptoui float %128 to i8
-  %130 = getelementptr inbounds i8, ptr %1, i64 %125
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 %125
   store i8 %129, ptr %130, align 1, !tbaa !24
   %131 = or disjoint i64 %113, 3
   %132 = load ptr, ptr %104, align 8, !tbaa !22
-  %133 = getelementptr inbounds float, ptr %132, i64 %131
+  %133 = getelementptr inbounds nuw float, ptr %132, i64 %131
   %134 = load float, ptr %133, align 4, !tbaa !28
   %135 = fptoui float %134 to i8
-  %136 = getelementptr inbounds i8, ptr %1, i64 %131
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 %131
   store i8 %135, ptr %136, align 1, !tbaa !24
   %137 = or disjoint i64 %113, 4
   %138 = load ptr, ptr %104, align 8, !tbaa !22
-  %139 = getelementptr inbounds float, ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw float, ptr %138, i64 %137
   %140 = load float, ptr %139, align 4, !tbaa !28
   %141 = fptoui float %140 to i8
-  %142 = getelementptr inbounds i8, ptr %1, i64 %137
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %137
   store i8 %141, ptr %142, align 1, !tbaa !24
   %143 = or disjoint i64 %113, 5
   %144 = load ptr, ptr %104, align 8, !tbaa !22
-  %145 = getelementptr inbounds float, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw float, ptr %144, i64 %143
   %146 = load float, ptr %145, align 4, !tbaa !28
   %147 = fptoui float %146 to i8
-  %148 = getelementptr inbounds i8, ptr %1, i64 %143
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 %143
   store i8 %147, ptr %148, align 1, !tbaa !24
   %149 = or disjoint i64 %113, 6
   %150 = load ptr, ptr %104, align 8, !tbaa !22
-  %151 = getelementptr inbounds float, ptr %150, i64 %149
+  %151 = getelementptr inbounds nuw float, ptr %150, i64 %149
   %152 = load float, ptr %151, align 4, !tbaa !28
   %153 = fptoui float %152 to i8
-  %154 = getelementptr inbounds i8, ptr %1, i64 %149
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 %149
   store i8 %153, ptr %154, align 1, !tbaa !24
   %155 = or disjoint i64 %113, 7
   %156 = load ptr, ptr %104, align 8, !tbaa !22
-  %157 = getelementptr inbounds float, ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw float, ptr %156, i64 %155
   %158 = load float, ptr %157, align 4, !tbaa !28
   %159 = fptoui float %158 to i8
-  %160 = getelementptr inbounds i8, ptr %1, i64 %155
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 %155
   store i8 %159, ptr %160, align 1, !tbaa !24
   %161 = add nuw i64 %113, 8
   %162 = icmp eq i64 %161, %109
@@ -1150,7 +1150,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 
 165:                                              ; preds = %163
   %166 = mul nuw nsw i32 %87, 3
-  %167 = getelementptr inbounds i8, ptr %88, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %168 = zext nneg i32 %166 to i64
   %169 = and i64 %168, 7
   %170 = icmp samesign ult i32 %87, 3
@@ -1169,10 +1169,10 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %175 = phi i64 [ %182, %.preheader21 ], [ %173, %.loopexit23 ]
   %176 = phi i64 [ %183, %.preheader21 ], [ 0, %.loopexit23 ]
   %177 = load ptr, ptr %167, align 8, !tbaa !22
-  %178 = getelementptr inbounds float, ptr %177, i64 %175
+  %178 = getelementptr inbounds nuw float, ptr %177, i64 %175
   %179 = load float, ptr %178, align 4, !tbaa !28
   %180 = fptoui float %179 to i8
-  %181 = getelementptr inbounds i8, ptr %1, i64 %175
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 %175
   store i8 %180, ptr %181, align 1, !tbaa !24
   %182 = add nuw nsw i64 %175, 1
   %183 = add nuw nsw i64 %176, 1
@@ -1198,59 +1198,59 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 196:                                              ; preds = %196, %171
   %197 = phi i64 [ 0, %171 ], [ %245, %196 ]
   %198 = load ptr, ptr %167, align 8, !tbaa !22
-  %199 = getelementptr inbounds float, ptr %198, i64 %197
+  %199 = getelementptr inbounds nuw float, ptr %198, i64 %197
   %200 = load float, ptr %199, align 4, !tbaa !28
   %201 = fptoui float %200 to i8
-  %202 = getelementptr inbounds i8, ptr %1, i64 %197
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 %197
   store i8 %201, ptr %202, align 1, !tbaa !24
   %203 = or disjoint i64 %197, 1
   %204 = load ptr, ptr %167, align 8, !tbaa !22
-  %205 = getelementptr inbounds float, ptr %204, i64 %203
+  %205 = getelementptr inbounds nuw float, ptr %204, i64 %203
   %206 = load float, ptr %205, align 4, !tbaa !28
   %207 = fptoui float %206 to i8
-  %208 = getelementptr inbounds i8, ptr %1, i64 %203
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 %203
   store i8 %207, ptr %208, align 1, !tbaa !24
   %209 = or disjoint i64 %197, 2
   %210 = load ptr, ptr %167, align 8, !tbaa !22
-  %211 = getelementptr inbounds float, ptr %210, i64 %209
+  %211 = getelementptr inbounds nuw float, ptr %210, i64 %209
   %212 = load float, ptr %211, align 4, !tbaa !28
   %213 = fptoui float %212 to i8
-  %214 = getelementptr inbounds i8, ptr %1, i64 %209
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 %209
   store i8 %213, ptr %214, align 1, !tbaa !24
   %215 = or disjoint i64 %197, 3
   %216 = load ptr, ptr %167, align 8, !tbaa !22
-  %217 = getelementptr inbounds float, ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw float, ptr %216, i64 %215
   %218 = load float, ptr %217, align 4, !tbaa !28
   %219 = fptoui float %218 to i8
-  %220 = getelementptr inbounds i8, ptr %1, i64 %215
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 %215
   store i8 %219, ptr %220, align 1, !tbaa !24
   %221 = or disjoint i64 %197, 4
   %222 = load ptr, ptr %167, align 8, !tbaa !22
-  %223 = getelementptr inbounds float, ptr %222, i64 %221
+  %223 = getelementptr inbounds nuw float, ptr %222, i64 %221
   %224 = load float, ptr %223, align 4, !tbaa !28
   %225 = fptoui float %224 to i8
-  %226 = getelementptr inbounds i8, ptr %1, i64 %221
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 %221
   store i8 %225, ptr %226, align 1, !tbaa !24
   %227 = or disjoint i64 %197, 5
   %228 = load ptr, ptr %167, align 8, !tbaa !22
-  %229 = getelementptr inbounds float, ptr %228, i64 %227
+  %229 = getelementptr inbounds nuw float, ptr %228, i64 %227
   %230 = load float, ptr %229, align 4, !tbaa !28
   %231 = fptoui float %230 to i8
-  %232 = getelementptr inbounds i8, ptr %1, i64 %227
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 %227
   store i8 %231, ptr %232, align 1, !tbaa !24
   %233 = or disjoint i64 %197, 6
   %234 = load ptr, ptr %167, align 8, !tbaa !22
-  %235 = getelementptr inbounds float, ptr %234, i64 %233
+  %235 = getelementptr inbounds nuw float, ptr %234, i64 %233
   %236 = load float, ptr %235, align 4, !tbaa !28
   %237 = fptoui float %236 to i8
-  %238 = getelementptr inbounds i8, ptr %1, i64 %233
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 %233
   store i8 %237, ptr %238, align 1, !tbaa !24
   %239 = or disjoint i64 %197, 7
   %240 = load ptr, ptr %167, align 8, !tbaa !22
-  %241 = getelementptr inbounds float, ptr %240, i64 %239
+  %241 = getelementptr inbounds nuw float, ptr %240, i64 %239
   %242 = load float, ptr %241, align 4, !tbaa !28
   %243 = fptoui float %242 to i8
-  %244 = getelementptr inbounds i8, ptr %1, i64 %239
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 %239
   store i8 %243, ptr %244, align 1, !tbaa !24
   %245 = add nuw nsw i64 %197, 8
   %246 = icmp eq i64 %245, %172
@@ -1260,59 +1260,59 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %248 = phi i64 [ 0, %194 ], [ %284, %247 ]
   %249 = load ptr, ptr %167, align 8, !tbaa !22
   %250 = add nuw nsw i64 %248, %168
-  %251 = getelementptr inbounds float, ptr %249, i64 %250
+  %251 = getelementptr inbounds nuw float, ptr %249, i64 %250
   %252 = load float, ptr %251, align 4, !tbaa !28
   %253 = fptoui float %252 to i8
   %254 = getelementptr i8, ptr %190, i64 %248
   store i8 %253, ptr %254, align 1, !tbaa !24
   %255 = getelementptr i8, ptr %191, i64 %248
   store i8 %253, ptr %255, align 1, !tbaa !24
-  %256 = getelementptr inbounds i8, ptr %1, i64 %250
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 %250
   store i8 %253, ptr %256, align 1, !tbaa !24
   %257 = or disjoint i64 %248, 1
   %258 = load ptr, ptr %167, align 8, !tbaa !22
   %259 = add nuw nsw i64 %257, %168
-  %260 = getelementptr inbounds float, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw float, ptr %258, i64 %259
   %261 = load float, ptr %260, align 4, !tbaa !28
   %262 = fptoui float %261 to i8
   %263 = getelementptr i8, ptr %190, i64 %257
   store i8 %262, ptr %263, align 1, !tbaa !24
   %264 = getelementptr i8, ptr %191, i64 %257
   store i8 %262, ptr %264, align 1, !tbaa !24
-  %265 = getelementptr inbounds i8, ptr %1, i64 %259
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 %259
   store i8 %262, ptr %265, align 1, !tbaa !24
   %266 = or disjoint i64 %248, 2
   %267 = load ptr, ptr %167, align 8, !tbaa !22
   %268 = add nuw nsw i64 %266, %168
-  %269 = getelementptr inbounds float, ptr %267, i64 %268
+  %269 = getelementptr inbounds nuw float, ptr %267, i64 %268
   %270 = load float, ptr %269, align 4, !tbaa !28
   %271 = fptoui float %270 to i8
   %272 = getelementptr i8, ptr %190, i64 %266
   store i8 %271, ptr %272, align 1, !tbaa !24
   %273 = getelementptr i8, ptr %191, i64 %266
   store i8 %271, ptr %273, align 1, !tbaa !24
-  %274 = getelementptr inbounds i8, ptr %1, i64 %268
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 %268
   store i8 %271, ptr %274, align 1, !tbaa !24
   %275 = or disjoint i64 %248, 3
   %276 = load ptr, ptr %167, align 8, !tbaa !22
   %277 = add nuw nsw i64 %275, %168
-  %278 = getelementptr inbounds float, ptr %276, i64 %277
+  %278 = getelementptr inbounds nuw float, ptr %276, i64 %277
   %279 = load float, ptr %278, align 4, !tbaa !28
   %280 = fptoui float %279 to i8
   %281 = getelementptr i8, ptr %190, i64 %275
   store i8 %280, ptr %281, align 1, !tbaa !24
   %282 = getelementptr i8, ptr %191, i64 %275
   store i8 %280, ptr %282, align 1, !tbaa !24
-  %283 = getelementptr inbounds i8, ptr %1, i64 %277
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 %277
   store i8 %280, ptr %283, align 1, !tbaa !24
   %284 = add nuw i64 %248, 4
   %285 = icmp eq i64 %284, %195
   br i1 %285, label %.loopexit20, label %247, !llvm.loop !58
 
 286:                                              ; preds = %97, %93, %.loopexit24
-  %287 = getelementptr inbounds i8, ptr %9, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %288 = load ptr, ptr %287, align 8, !tbaa !42
-  %289 = getelementptr inbounds %"struct.cimg_library::CImg.3", ptr %288, i64 %85, i32 5
+  %289 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %288, i64 %85, i32 5
   %290 = load ptr, ptr %289, align 8, !tbaa !46
   %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %61, ptr noundef %290)
   br label %.loopexit16
@@ -1326,10 +1326,10 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %294 = phi i64 [ %301, %.preheader ], [ %292, %.loopexit17 ]
   %295 = phi i64 [ %302, %.preheader ], [ 0, %.loopexit17 ]
   %296 = load ptr, ptr %104, align 8, !tbaa !22
-  %297 = getelementptr inbounds float, ptr %296, i64 %294
+  %297 = getelementptr inbounds nuw float, ptr %296, i64 %294
   %298 = load float, ptr %297, align 4, !tbaa !28
   %299 = fptoui float %298 to i8
-  %300 = getelementptr inbounds i8, ptr %1, i64 %294
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 %294
   store i8 %299, ptr %300, align 1, !tbaa !24
   %301 = add nuw nsw i64 %294, 1
   %302 = add nuw nsw i64 %295, 1
@@ -1346,14 +1346,14 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %307 = phi i64 [ %317, %.preheader18 ], [ 0, %.loopexit20 ]
   %308 = load ptr, ptr %167, align 8, !tbaa !22
   %309 = add nuw nsw i64 %306, %168
-  %310 = getelementptr inbounds float, ptr %308, i64 %309
+  %310 = getelementptr inbounds nuw float, ptr %308, i64 %309
   %311 = load float, ptr %310, align 4, !tbaa !28
   %312 = fptoui float %311 to i8
   %313 = getelementptr i8, ptr %190, i64 %306
   store i8 %312, ptr %313, align 1, !tbaa !24
   %314 = getelementptr i8, ptr %191, i64 %306
   store i8 %312, ptr %314, align 1, !tbaa !24
-  %315 = getelementptr inbounds i8, ptr %1, i64 %309
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 %309
   store i8 %312, ptr %315, align 1, !tbaa !24
   %316 = add nuw nsw i64 %306, 1
   %317 = add nuw nsw i64 %307, 1
@@ -1373,7 +1373,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   call void @_ZN4gmicD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %11) #16
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #16
-  %324 = getelementptr inbounds i8, ptr %9, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %325 = load ptr, ptr %324, align 8, !tbaa !42
   %326 = icmp eq ptr %325, null
   br i1 %326, label %346, label %327
@@ -1416,7 +1416,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
 
 346:                                              ; preds = %.loopexit15, %322
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  %347 = getelementptr inbounds i8, ptr %8, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %348 = load ptr, ptr %347, align 8, !tbaa !20
   %349 = icmp eq ptr %348, null
   br i1 %349, label %369, label %350

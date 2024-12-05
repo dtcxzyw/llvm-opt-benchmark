@@ -228,7 +228,7 @@ define internal i32 @dissect_mojito(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.82) #3
   %13 = load ptr, ptr %11, align 8
@@ -349,7 +349,7 @@ dissect_mojito_header.exit:                       ; preds = %4
 switch.lookup:                                    ; preds = %80
   %92 = add i32 %78, 1
   %93 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_mojito, i64 0, i64 %93
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mojito, i64 0, i64 %93
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %81 to i32
   %94 = load i32, ptr %switch.load, align 4

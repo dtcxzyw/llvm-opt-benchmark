@@ -38,16 +38,16 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 28:                                               ; preds = %21
   %29 = load double, ptr %23, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %33 = load double, ptr %32, align 8, !tbaa !3
   %34 = fdiv double 1.000000e+00, %29
   store double %34, ptr %26, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %26, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store double %31, ptr %35, align 8, !tbaa !3
   %36 = fdiv double 1.000000e+00, %33
-  %37 = getelementptr inbounds i8, ptr %26, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store double %36, ptr %37, align 8, !tbaa !3
   br label %38
 
@@ -57,24 +57,24 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 
 40:                                               ; preds = %38
   %41 = load double, ptr %23, align 8, !tbaa !3
-  %42 = getelementptr inbounds i8, ptr %23, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %43 = load double, ptr %42, align 8, !tbaa !3
   %44 = load double, ptr %22, align 8, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %22, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !3
   store double %41, ptr %26, align 8, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store double %44, ptr %47, align 8, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %26, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store double %43, ptr %48, align 8, !tbaa !3
-  %49 = getelementptr inbounds i8, ptr %26, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store double %46, ptr %49, align 8, !tbaa !3
   br label %50
 
 50:                                               ; preds = %40, %38
-  %51 = getelementptr inbounds i8, ptr %23, i64 16
-  %52 = getelementptr inbounds i8, ptr %22, i64 16
-  %53 = getelementptr inbounds i8, ptr %26, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %54 = add nsw i64 %25, -1
   %55 = add nuw nsw i64 %24, 2
   %56 = icmp sgt i64 %25, 1
@@ -98,12 +98,12 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   %65 = load double, ptr %51, align 8, !tbaa !3
   %66 = load double, ptr %52, align 8, !tbaa !3
   store double %65, ptr %53, align 8, !tbaa !3
-  %67 = getelementptr inbounds i8, ptr %26, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store double %66, ptr %67, align 8, !tbaa !3
   br label %68
 
 68:                                               ; preds = %64, %62
-  %69 = getelementptr inbounds i8, ptr %26, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 48
   br label %70
 
 70:                                               ; preds = %68, %.loopexit4.us
@@ -149,12 +149,12 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   %89 = load double, ptr %78, align 8, !tbaa !3
   %90 = load double, ptr %82, align 8, !tbaa !3
   store double %89, ptr %81, align 8, !tbaa !3
-  %91 = getelementptr inbounds i8, ptr %81, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store double %90, ptr %91, align 8, !tbaa !3
   br label %92
 
 92:                                               ; preds = %.thread, %88, %86
-  %93 = getelementptr inbounds i8, ptr %81, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %94 = getelementptr inbounds i8, ptr %78, i64 %.idx
   %95 = add nsw i64 %79, 2
   %96 = add nsw i64 %80, -1
@@ -200,8 +200,8 @@ define noundef i32 @dtrsm_olnncopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br label %118
 
 118:                                              ; preds = %116, %114
-  %119 = getelementptr inbounds i8, ptr %107, i64 8
-  %120 = getelementptr inbounds i8, ptr %109, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %121 = add nuw nsw i64 %108, 1
   %122 = icmp eq i64 %121, %0
   br i1 %122, label %.loopexit, label %.preheader, !llvm.loop !11

@@ -41,15 +41,15 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i: ; preds =
   br i1 %cmp11.i.i.i, label %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge, label %land.lhs.true.i.i
 
 _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge: ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i
-  %ab.sroa.8.0.b.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 8
+  %ab.sroa.8.0.b.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %b, i64 8
   %ab.sroa.8.0.copyload.pre = load double, ptr %ab.sroa.8.0.b.sroa_idx.phi.trans.insert, align 8
-  %arrayidx.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %a, i64 8
   %.pre = load double, ptr %arrayidx.i.i.i.i.phi.trans.insert, align 8, !noalias !4
   br label %if.end
 
 land.lhs.true.i.i:                                ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i, %entry
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %a, i64 8
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %b, i64 8
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %6 = load double, ptr %arrayidx5.i.i, align 8
   %7 = load double, ptr %arrayidx7.i.i, align 8
   %sub.i3.i.i = fsub double %6, %7
@@ -68,8 +68,8 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i: ; preds
   br i1 %cmp11.i10.i.i, label %if.end, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i, %land.lhs.true.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %a, i64 16
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   %12 = load double, ptr %arrayidx10.i.i, align 8
   %13 = load double, ptr %arrayidx12.i.i, align 8
   %sub.i12.i.i = fsub double %12, %13
@@ -105,7 +105,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128: ; pred
   br i1 %cmp11.i.i.i132, label %if.end, label %land.lhs.true.i.i108
 
 land.lhs.true.i.i108:                             ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128, %land.lhs.true
-  %arrayidx7.i.i110 = getelementptr inbounds i8, ptr %c, i64 8
+  %arrayidx7.i.i110 = getelementptr inbounds nuw i8, ptr %c, i64 8
   %23 = load double, ptr %arrayidx7.i.i110, align 8
   %sub.i3.i.i111 = fsub double %6, %23
   %24 = tail call noundef double @llvm.fabs.f64(double %sub.i3.i.i111)
@@ -123,7 +123,7 @@ _ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123: ; pr
   br i1 %cmp11.i10.i.i127, label %if.end, label %land.rhs.i.i113
 
 land.rhs.i.i113:                                  ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123, %land.lhs.true.i.i108
-  %arrayidx12.i.i115 = getelementptr inbounds i8, ptr %c, i64 16
+  %arrayidx12.i.i115 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %28 = load double, ptr %arrayidx12.i.i115, align 8
   %sub.i12.i.i116 = fsub double %12, %28
   %29 = tail call noundef double @llvm.fabs.f64(double %sub.i12.i.i116)
@@ -148,27 +148,27 @@ if.then:                                          ; preds = %land.rhs.i.i113, %_
 if.end:                                           ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit133, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit
   %33 = phi double [ %.pre, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge ], [ %6, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128 ], [ %6, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123 ], [ %6, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i ], [ %6, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit133 ], [ %6, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit ]
   %ab.sroa.8.0.copyload = phi double [ %ab.sroa.8.0.copyload.pre, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i.if.end_crit_edge ], [ %7, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i128 ], [ %7, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i123 ], [ %7, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i ], [ %7, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit133 ], [ %7, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit ]
-  %ab.sroa.8.0.b.sroa_idx = getelementptr inbounds i8, ptr %b, i64 8
-  %ab.sroa.15.0.b.sroa_idx = getelementptr inbounds i8, ptr %b, i64 16
+  %ab.sroa.8.0.b.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 8
+  %ab.sroa.15.0.b.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 16
   %ab.sroa.15.0.copyload = load double, ptr %ab.sroa.15.0.b.sroa_idx, align 8
   %sub.i.i = fsub double %1, %0
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %sub5.i.i = fsub double %ab.sroa.8.0.copyload, %33
-  %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx.i.i3.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %34 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !4
   %sub9.i.i = fsub double %ab.sroa.15.0.copyload, %34
   %ac.sroa.0.0.copyload = load double, ptr %c, align 8
-  %ac.sroa.8.0.c.sroa_idx = getelementptr inbounds i8, ptr %c, i64 8
+  %ac.sroa.8.0.c.sroa_idx = getelementptr inbounds nuw i8, ptr %c, i64 8
   %ac.sroa.8.0.copyload = load double, ptr %ac.sroa.8.0.c.sroa_idx, align 8
-  %ac.sroa.15.0.c.sroa_idx = getelementptr inbounds i8, ptr %c, i64 16
+  %ac.sroa.15.0.c.sroa_idx = getelementptr inbounds nuw i8, ptr %c, i64 16
   %ac.sroa.15.0.copyload = load double, ptr %ac.sroa.15.0.c.sroa_idx, align 8
   %sub.i.i134 = fsub double %ac.sroa.0.0.copyload, %0
   %sub5.i.i137 = fsub double %ac.sroa.8.0.copyload, %33
   %sub9.i.i140 = fsub double %ac.sroa.15.0.copyload, %34
   %ap.sroa.0.0.copyload = load double, ptr %p, align 8
-  %ap.sroa.5.0.p.sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %ap.sroa.5.0.p.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %ap.sroa.5.0.copyload = load double, ptr %ap.sroa.5.0.p.sroa_idx, align 8
-  %ap.sroa.9.0.p.sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %ap.sroa.9.0.p.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %ap.sroa.9.0.copyload = load double, ptr %ap.sroa.9.0.p.sroa_idx, align 8
   %sub.i.i141 = fsub double %ap.sroa.0.0.copyload, %0
   %sub5.i.i144 = fsub double %ap.sroa.5.0.copyload, %33
@@ -251,11 +251,11 @@ if.else4.i:                                       ; preds = %if.else.i
   %52 = load double, ptr %agg.result, align 8, !alias.scope !7
   %add.i.i.i = fadd double %mul.i.i.i, %52
   store double %add.i.i.i, ptr %agg.result, align 8, !alias.scope !7
-  %arrayidx4.i.i26.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i26.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %53 = load double, ptr %arrayidx4.i.i26.i, align 8, !alias.scope !7
   %add5.i.i.i = fadd double %mul4.i.i.i, %53
   store double %add5.i.i.i, ptr %arrayidx4.i.i26.i, align 8, !alias.scope !7
-  %arrayidx8.i.i28.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i28.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %54 = load double, ptr %arrayidx8.i.i28.i, align 8, !alias.scope !7
   %add9.i.i.i = fadd double %mul7.i.i.i, %54
   store double %add9.i.i.i, ptr %arrayidx8.i.i28.i, align 8, !alias.scope !7
@@ -265,7 +265,7 @@ _ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exi
   %t.0 = phi double [ %div.i, %if.else4.i ], [ 1.000000e+00, %if.then3.i ], [ 0.000000e+00, %if.then.i ]
   %sub = fsub double 1.000000e+00, %t.0
   store double %sub, ptr %uvw, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %uvw, i64 16
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %uvw, i64 16
   store double %t.0, ptr %arrayidx.i.i, align 8
   br label %return
 
@@ -393,11 +393,11 @@ if.else4.i263:                                    ; preds = %if.else.i259
   %81 = load double, ptr %agg.result, align 8, !alias.scope !12
   %add.i.i.i268 = fadd double %mul.i.i.i265, %81
   store double %add.i.i.i268, ptr %agg.result, align 8, !alias.scope !12
-  %arrayidx4.i.i26.i269 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i26.i269 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %82 = load double, ptr %arrayidx4.i.i26.i269, align 8, !alias.scope !12
   %add5.i.i.i270 = fadd double %mul4.i.i.i266, %82
   store double %add5.i.i.i270, ptr %arrayidx4.i.i26.i269, align 8, !alias.scope !12
-  %arrayidx8.i.i28.i271 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i28.i271 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %83 = load double, ptr %arrayidx8.i.i28.i271, align 8, !alias.scope !12
   %add9.i.i.i272 = fadd double %mul7.i.i.i267, %83
   store double %add9.i.i.i272, ptr %arrayidx8.i.i28.i271, align 8, !alias.scope !12
@@ -407,7 +407,7 @@ _ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exi
   %t13.0 = phi double [ %div.i264, %if.else4.i263 ], [ 1.000000e+00, %if.then3.i262 ], [ 0.000000e+00, %if.then.i258 ]
   %sub14 = fsub double 1.000000e+00, %t13.0
   store double %sub14, ptr %uvw, align 8
-  %arrayidx.i.i275 = getelementptr inbounds i8, ptr %uvw, i64 8
+  %arrayidx.i.i275 = getelementptr inbounds nuw i8, ptr %uvw, i64 8
   store double %t13.0, ptr %arrayidx.i.i275, align 8
   br label %return
 
@@ -438,7 +438,7 @@ if.end23:                                         ; preds = %if.end18
   br i1 %or.cond104, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end23
-  %arrayidx.i.i294 = getelementptr inbounds i8, ptr %uvw, i64 8
+  %arrayidx.i.i294 = getelementptr inbounds nuw i8, ptr %uvw, i64 8
   store double 1.000000e+00, ptr %arrayidx.i.i294, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %b, i64 24, i1 false)
   br label %return
@@ -457,7 +457,7 @@ if.end31:                                         ; preds = %if.end23
 if.then38:                                        ; preds = %if.end31
   %sub39 = fsub double %36, %85
   %div = fdiv double %36, %sub39
-  %arrayidx.i.i295 = getelementptr inbounds i8, ptr %uvw, i64 8
+  %arrayidx.i.i295 = getelementptr inbounds nuw i8, ptr %uvw, i64 8
   store double %div, ptr %arrayidx.i.i295, align 8
   %sub42 = fsub double 1.000000e+00, %div
   store double %sub42, ptr %uvw, align 8
@@ -468,11 +468,11 @@ if.then38:                                        ; preds = %if.end31
   %90 = load double, ptr %agg.result, align 8, !alias.scope !17
   %add.i.i = fadd double %mul.i.i.i299, %90
   store double %add.i.i, ptr %agg.result, align 8, !alias.scope !17
-  %arrayidx4.i.i303 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i303 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %91 = load double, ptr %arrayidx4.i.i303, align 8, !alias.scope !17
   %add5.i.i = fadd double %mul4.i.i.i300, %91
   store double %add5.i.i, ptr %arrayidx4.i.i303, align 8, !alias.scope !17
-  %arrayidx8.i.i305 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i305 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %92 = load double, ptr %arrayidx8.i.i305, align 8, !alias.scope !17
   %add9.i.i = fadd double %mul7.i.i.i301, %92
   store double %add9.i.i, ptr %arrayidx8.i.i305, align 8, !alias.scope !17
@@ -494,7 +494,7 @@ if.end45:                                         ; preds = %if.end31
   br i1 %or.cond105, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end45
-  %arrayidx.i.i323 = getelementptr inbounds i8, ptr %uvw, i64 16
+  %arrayidx.i.i323 = getelementptr inbounds nuw i8, ptr %uvw, i64 16
   store double 1.000000e+00, ptr %arrayidx.i.i323, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
   br label %return
@@ -513,7 +513,7 @@ if.end53:                                         ; preds = %if.end45
 if.then61:                                        ; preds = %if.end53
   %sub62 = fsub double %38, %96
   %div63 = fdiv double %38, %sub62
-  %arrayidx.i.i324 = getelementptr inbounds i8, ptr %uvw, i64 16
+  %arrayidx.i.i324 = getelementptr inbounds nuw i8, ptr %uvw, i64 16
   store double %div63, ptr %arrayidx.i.i324, align 8
   %sub66 = fsub double 1.000000e+00, %div63
   store double %sub66, ptr %uvw, align 8
@@ -524,11 +524,11 @@ if.then61:                                        ; preds = %if.end53
   %99 = load double, ptr %agg.result, align 8, !alias.scope !20
   %add.i.i333 = fadd double %mul.i.i.i328, %99
   store double %add.i.i333, ptr %agg.result, align 8, !alias.scope !20
-  %arrayidx4.i.i335 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i335 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %100 = load double, ptr %arrayidx4.i.i335, align 8, !alias.scope !20
   %add5.i.i336 = fadd double %mul4.i.i.i330, %100
   store double %add5.i.i336, ptr %arrayidx4.i.i335, align 8, !alias.scope !20
-  %arrayidx8.i.i338 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i338 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %101 = load double, ptr %arrayidx8.i.i338, align 8, !alias.scope !20
   %add9.i.i339 = fadd double %mul7.i.i.i332, %101
   store double %add9.i.i339, ptr %arrayidx8.i.i338, align 8, !alias.scope !20
@@ -554,10 +554,10 @@ land.lhs.true77:                                  ; preds = %land.lhs.true74
 if.then80:                                        ; preds = %land.lhs.true77
   %add = fadd double %sub75, %sub78
   %div84 = fdiv double %sub75, %add
-  %arrayidx.i.i340 = getelementptr inbounds i8, ptr %uvw, i64 16
+  %arrayidx.i.i340 = getelementptr inbounds nuw i8, ptr %uvw, i64 16
   store double %div84, ptr %arrayidx.i.i340, align 8
   %sub87 = fsub double 1.000000e+00, %div84
-  %arrayidx.i.i342 = getelementptr inbounds i8, ptr %uvw, i64 8
+  %arrayidx.i.i342 = getelementptr inbounds nuw i8, ptr %uvw, i64 8
   store double %sub87, ptr %arrayidx.i.i342, align 8
   %ref.tmp91.sroa.0.0.copyload = load double, ptr %c, align 8
   %ref.tmp91.sroa.4.0.copyload = load double, ptr %ac.sroa.8.0.c.sroa_idx, align 8
@@ -575,11 +575,11 @@ if.then80:                                        ; preds = %land.lhs.true77
   %107 = load double, ptr %agg.result, align 8, !alias.scope !26
   %add.i.i356 = fadd double %mul.i.i.i351, %107
   store double %add.i.i356, ptr %agg.result, align 8, !alias.scope !26
-  %arrayidx4.i.i358 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i358 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %108 = load double, ptr %arrayidx4.i.i358, align 8, !alias.scope !26
   %add5.i.i359 = fadd double %mul4.i.i.i353, %108
   store double %add5.i.i359, ptr %arrayidx4.i.i358, align 8, !alias.scope !26
-  %arrayidx8.i.i361 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i361 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %109 = load double, ptr %arrayidx8.i.i361, align 8, !alias.scope !26
   %add9.i.i362 = fadd double %mul7.i.i.i355, %109
   store double %add9.i.i362, ptr %arrayidx8.i.i361, align 8, !alias.scope !26
@@ -590,10 +590,10 @@ if.end92:                                         ; preds = %land.lhs.true77, %l
   %add94 = fadd double %89, %add93
   %div95 = fdiv double 1.000000e+00, %add94
   %mul = fmul double %89, %div95
-  %arrayidx.i.i363 = getelementptr inbounds i8, ptr %uvw, i64 16
+  %arrayidx.i.i363 = getelementptr inbounds nuw i8, ptr %uvw, i64 16
   store double %mul, ptr %arrayidx.i.i363, align 8
   %mul97 = fmul double %98, %div95
-  %arrayidx.i.i364 = getelementptr inbounds i8, ptr %uvw, i64 8
+  %arrayidx.i.i364 = getelementptr inbounds nuw i8, ptr %uvw, i64 8
   store double %mul97, ptr %arrayidx.i.i364, align 8
   %sub100 = fsub double 1.000000e+00, %mul97
   %sub102 = fsub double %sub100, %mul
@@ -610,8 +610,8 @@ if.end92:                                         ; preds = %land.lhs.true77, %l
   %mul.i.i377 = fmul double %sub.i.i134, %mul
   %mul4.i.i379 = fmul double %sub5.i.i137, %mul
   %mul7.i.i381 = fmul double %sub9.i.i140, %mul
-  %ref.tmp104.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %ref.tmp104.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp104.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %ref.tmp104.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %add.i.i382 = fadd double %mul.i.i377, %add.i.i369
   store double %add.i.i382, ptr %agg.result, align 8, !alias.scope !29
   %add5.i.i385 = fadd double %mul4.i.i379, %add5.i.i372
@@ -631,22 +631,22 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::Vec3") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %t) local_unnamed_addr #3 {
 entry:
   %ab.sroa.0.0.copyload = load double, ptr %b, align 8
-  %ab.sroa.7.0.b.sroa_idx = getelementptr inbounds i8, ptr %b, i64 8
+  %ab.sroa.7.0.b.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 8
   %ab.sroa.7.0.copyload = load double, ptr %ab.sroa.7.0.b.sroa_idx, align 8
-  %ab.sroa.13.0.b.sroa_idx = getelementptr inbounds i8, ptr %b, i64 16
+  %ab.sroa.13.0.b.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 16
   %ab.sroa.13.0.copyload = load double, ptr %ab.sroa.13.0.b.sroa_idx, align 8
   %0 = load double, ptr %a, align 8, !noalias !32
   %sub.i.i = fsub double %ab.sroa.0.0.copyload, %0
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load double, ptr %arrayidx.i.i.i.i, align 8, !noalias !32
   %sub5.i.i = fsub double %ab.sroa.7.0.copyload, %1
-  %arrayidx.i.i3.i.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx.i.i3.i.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load double, ptr %arrayidx.i.i3.i.i, align 8, !noalias !32
   %sub9.i.i = fsub double %ab.sroa.13.0.copyload, %2
   %ref.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %ref.tmp.sroa.4.0.p.sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %ref.tmp.sroa.4.0.p.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %ref.tmp.sroa.4.0.copyload = load double, ptr %ref.tmp.sroa.4.0.p.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.p.sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %ref.tmp.sroa.7.0.p.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %ref.tmp.sroa.7.0.copyload = load double, ptr %ref.tmp.sroa.7.0.p.sroa_idx, align 8
   %sub.i.i13 = fsub double %ref.tmp.sroa.0.0.copyload, %0
   %sub5.i.i16 = fsub double %ref.tmp.sroa.4.0.copyload, %1
@@ -684,11 +684,11 @@ if.else4:                                         ; preds = %if.else
   %7 = load double, ptr %agg.result, align 8, !alias.scope !35
   %add.i.i = fadd double %mul.i.i, %7
   store double %add.i.i, ptr %agg.result, align 8, !alias.scope !35
-  %arrayidx4.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %arrayidx4.i.i26 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %8 = load double, ptr %arrayidx4.i.i26, align 8, !alias.scope !35
   %add5.i.i = fadd double %mul4.i.i, %8
   store double %add5.i.i, ptr %arrayidx4.i.i26, align 8, !alias.scope !35
-  %arrayidx8.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx8.i.i28 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %9 = load double, ptr %arrayidx8.i.i28, align 8, !alias.scope !35
   %add9.i.i = fadd double %mul7.i.i, %9
   store double %add9.i.i, ptr %arrayidx8.i.i28, align 8, !alias.scope !35

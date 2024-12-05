@@ -23,43 +23,42 @@ define noundef i32 @dtpsv_TLU(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr inbounds double, ptr %10, i64 %0
+  %18 = getelementptr double, ptr %10, i64 %0
   br label %19
 
-19:                                               ; preds = %33, %12
-  %20 = phi i64 [ 0, %12 ], [ %36, %33 ]
-  %21 = phi ptr [ %17, %12 ], [ %35, %33 ]
+19:                                               ; preds = %32, %12
+  %20 = phi i64 [ 0, %12 ], [ %35, %32 ]
+  %21 = phi ptr [ %17, %12 ], [ %34, %32 ]
   %22 = icmp eq i64 %20, 0
-  br i1 %22, label %33, label %23
+  br i1 %22, label %32, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = sub nsw i64 0, %20
   %26 = getelementptr inbounds double, ptr %18, i64 %25
   %27 = tail call double @ddot_k(i64 noundef %20, ptr noundef nonnull %24, i64 noundef 1, ptr noundef nonnull %26, i64 noundef 1) #2
   %28 = xor i64 %20, -1
-  %29 = add nsw i64 %0, %28
-  %30 = getelementptr inbounds double, ptr %10, i64 %29
-  %31 = load double, ptr %30, align 8, !tbaa !3
-  %32 = fsub double %31, %27
-  store double %32, ptr %30, align 8, !tbaa !3
-  br label %33
+  %29 = getelementptr double, ptr %18, i64 %28
+  %30 = load double, ptr %29, align 8, !tbaa !3
+  %31 = fsub double %30, %27
+  store double %31, ptr %29, align 8, !tbaa !3
+  br label %32
 
-33:                                               ; preds = %23, %19
-  %34 = sub nuw nsw i64 -2, %20
-  %35 = getelementptr inbounds double, ptr %21, i64 %34
-  %36 = add nuw nsw i64 %20, 1
-  %37 = icmp eq i64 %36, %0
-  br i1 %37, label %.loopexit, label %19, !llvm.loop !7
+32:                                               ; preds = %23, %19
+  %33 = sub nuw nsw i64 -2, %20
+  %34 = getelementptr inbounds double, ptr %21, i64 %33
+  %35 = add nuw nsw i64 %20, 1
+  %36 = icmp eq i64 %35, %0
+  br i1 %36, label %.loopexit, label %19, !llvm.loop !7
 
-.loopexit:                                        ; preds = %33, %9
-  br i1 %6, label %40, label %38
+.loopexit:                                        ; preds = %32, %9
+  br i1 %6, label %39, label %37
 
-38:                                               ; preds = %.loopexit
-  %39 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
-  br label %40
+37:                                               ; preds = %.loopexit
+  %38 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
+  br label %39
 
-40:                                               ; preds = %38, %.loopexit
+39:                                               ; preds = %37, %.loopexit
   ret i32 0
 }
 

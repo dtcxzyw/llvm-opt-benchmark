@@ -57,7 +57,7 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %123
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %17 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
   %.not85 = icmp eq i32 %17, 0
   br i1 %.not85, label %20, label %18
@@ -78,10 +78,10 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %123
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %25, align 8
   %26 = tail call noalias ptr @opal_basename(ptr noundef %1) #10
-  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %32
@@ -92,11 +92,11 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %32
 
 32:                                               ; preds = %30, %24
-  %33 = getelementptr inbounds i8, ptr %0, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 %36(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %0, ptr noundef %38) #10
   %.not86 = icmp eq i32 %39, 0
@@ -173,9 +173,9 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
 
 opal_best_effort_write.exit:                      ; preds = %65, %52
   %70 = load ptr, ptr %33, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 104
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 %72(ptr noundef %0, ptr noundef %74) #10
   %.not88 = icmp eq i32 %75, 0
@@ -213,12 +213,12 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
 
 89:                                               ; preds = %79
   %90 = call noalias dereferenceable_or_null(253) ptr @malloc(i64 noundef 253) #11
-  %91 = getelementptr inbounds i8, ptr %21, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %90, ptr %91, align 8
   %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %90, i64 noundef 252, ptr noundef nonnull @.str.10, ptr noundef %26) #10
   call void @free(ptr noundef %26) #10
   %93 = call ptr (ptr, i32, ...) @sem_open(ptr noundef %90, i32 noundef 64, i32 noundef 420, i32 noundef 1) #10
-  %94 = getelementptr inbounds i8, ptr %21, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %93, ptr %94, align 8
   %.not89 = icmp eq ptr %93, null
   br i1 %.not89, label %104, label %95
@@ -226,7 +226,7 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
 95:                                               ; preds = %89
   store ptr %80, ptr %21, align 8
   store ptr %21, ptr %16, align 8
-  %96 = getelementptr inbounds i8, ptr %4, i64 168
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %calloc, ptr %96, align 8
   %97 = load i32, ptr %27, align 4
   %98 = icmp eq i32 %97, 0
@@ -234,7 +234,7 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
 
 99:                                               ; preds = %95
   %100 = call i32 @sem_wait(ptr noundef nonnull %93) #10
-  %101 = getelementptr inbounds i8, ptr %80, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 0, ptr %101, align 8
   %102 = load ptr, ptr %94, align 8
   %103 = call i32 @sem_post(ptr noundef %102) #10
@@ -250,9 +250,9 @@ opal_best_effort_write.exit:                      ; preds = %65, %52
 
 107:                                              ; preds = %95, %99
   %108 = load ptr, ptr %33, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 96
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 104
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 104
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 %110(ptr noundef nonnull %0, ptr noundef %112) #10
   %.not90 = icmp eq i32 %113, 0
@@ -335,22 +335,22 @@ declare i32 @sem_unlink(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_sharedfp_sm_file_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %11(ptr noundef %7, ptr noundef %13) #10
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %35, label %17
@@ -361,21 +361,21 @@ define noundef i32 @mca_sharedfp_sm_file_close(ptr nocapture noundef readonly %0
   br i1 %.not19, label %30, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @sem_close(ptr noundef %21) #10
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #10
   %25 = load ptr, ptr %16, align 8
   %26 = tail call i32 @munmap(ptr noundef %25, i64 noundef 40) #10
-  %27 = getelementptr inbounds i8, ptr %16, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @remove(ptr noundef %28) #10
   br label %30
 
 30:                                               ; preds = %19, %17
-  %31 = getelementptr inbounds i8, ptr %16, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not20 = icmp eq ptr %32, null
   br i1 %.not20, label %34, label %33

@@ -762,19 +762,19 @@ $_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE1
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 comdat($_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEC5ERKNS0_12LinearSolver7OptionsE) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %9, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
@@ -865,15 +865,15 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %11, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
-  %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i unwind label %8
@@ -886,7 +886,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorI
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %11 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %11, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -912,16 +912,16 @@ declare void @_ZN5ceres8internal19SchurEliminatorBaseD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 comdat($_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i, label %_ZN5ceres17STLDeleteElementsISt6vectorIPSt5mutexSaIS3_EEEEvPT_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %10
   %.sroa.02.05.i.i = phi ptr [ %6, %10 ], [ %3, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 8
   %7 = load ptr, ptr %.sroa.02.05.i.i, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -954,7 +954,7 @@ _ZN5ceres17STLDeleteElementsISt6vectorIPSt5mutexSaIS3_EEEEvPT_.exit: ; preds = %
   br label %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit:          ; preds = %_ZN5ceres17STLDeleteElementsISt6vectorIPSt5mutexSaIS3_EEEEvPT_.exit, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -965,7 +965,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIPSt5mutexSaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   store ptr null, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not.i2 = icmp eq ptr %17, null
   br i1 %.not.i2, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit4, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i3
@@ -976,17 +976,17 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit4: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i3
   store ptr null, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not4.i.i.i.i = icmp eq ptr %19, %21
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit4, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %28, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i ], [ %19, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit4 ]
-  %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
-  %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %24)
           to label %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i unwind label %25
@@ -999,7 +999,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit4: ; preds = %_ZNSt10uniqu
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
   %.not.i.i.i.i = icmp eq ptr %28, %21
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -1017,7 +1017,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S
   br label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit.i, %30
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i.i6, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %33
@@ -1130,11 +1130,11 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
 
 31:                                               ; preds = %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread, %_ZN6google12Check_GTImplB5cxx11EiiPKc.exit
   %32 = zext i1 %2 to i8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %32, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %3, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -1142,8 +1142,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   %40 = sub i64 %38, %39
   %41 = lshr i64 %40, 3
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %3, i64 24
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = ptrtoint ptr %45 to i64
@@ -1151,19 +1151,19 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   %49 = sub i64 %47, %48
   %50 = sdiv exact i64 %49, 40
   %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load ptr, ptr %55, align 8
   %.not.i.i = icmp eq ptr %56, %54
   br i1 %.not.i.i, label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %31, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %63, %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i.i ], [ %54, %31 ]
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %58 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef %59)
           to label %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i.i unwind label %60
@@ -1176,7 +1176,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   unreachable
 
 _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %63 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %63, %56
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -1185,9 +1185,9 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S
   br label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE5clearEv.exit
 
 _ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE5clearEv.exit: ; preds = %31, %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit.i.i
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8
   %.not.i.i63 = icmp eq ptr %67, %65
   br i1 %.not.i.i63, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %68
@@ -1224,13 +1224,13 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %76, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %.preheader95
-  %77 = getelementptr inbounds i8, ptr %0, i64 72
-  %78 = getelementptr inbounds i8, ptr %9, i64 24
-  %79 = getelementptr inbounds i8, ptr %9, i64 16
-  %80 = getelementptr inbounds i8, ptr %9, i64 32
-  %81 = getelementptr inbounds i8, ptr %9, i64 40
-  %82 = getelementptr inbounds i8, ptr %9, i64 48
-  %83 = getelementptr inbounds i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1271,7 +1271,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 103:                                              ; preds = %100
   %104 = load i64, ptr %9, align 8
   store i64 %104, ptr %101, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %106 = load ptr, ptr %78, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %118, label %107
@@ -1280,18 +1280,18 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   %108 = load i32, ptr %79, align 8
   store i32 %108, ptr %105, align 8
   %109 = load ptr, ptr %78, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %109, ptr %110, align 8
   %111 = load ptr, ptr %80, align 8
-  %112 = getelementptr inbounds i8, ptr %101, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr %111, ptr %112, align 8
   %113 = load ptr, ptr %81, align 8
-  %114 = getelementptr inbounds i8, ptr %101, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %109, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %105, ptr %115, align 8
   %116 = load i64, ptr %82, align 8
-  %117 = getelementptr inbounds i8, ptr %101, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %101, i64 48
   store i64 %116, ptr %117, align 8
   store ptr null, ptr %78, align 8
   store ptr %79, ptr %80, align 8
@@ -1301,19 +1301,19 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 
 118:                                              ; preds = %103
   store i32 0, ptr %105, align 8
-  %119 = getelementptr inbounds i8, ptr %101, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr null, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %101, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr %105, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %101, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store ptr %105, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %101, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %101, i64 48
   store i64 0, ptr %122, align 8
   br label %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i: ; preds = %118, %107
   %123 = load ptr, ptr %55, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
   store ptr %124, ptr %55, align 8
   br label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE9push_backEOS4_.exit
 
@@ -1371,7 +1371,7 @@ _ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkD2Ev.exit: ; preds = %
   %153 = phi ptr [ %151, %147 ], [ %145, %.lr.ph104 ]
   %154 = phi ptr [ %150, %147 ], [ %144, %.lr.ph104 ]
   %.089103140 = phi i32 [ %.1.lcssa, %147 ], [ 0, %.lr.ph104 ]
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = ptrtoint ptr %156 to i64
   %158 = ptrtoint ptr %153 to i64
@@ -1390,7 +1390,7 @@ _ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkD2Ev.exit: ; preds = %
   %164 = phi ptr [ %196, %_ZN5ceres18InsertIfNotPresentISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEEbPT_RKNS9_10value_type10first_typeERKNSB_11second_typeE.exit ], [ %156, %.preheader ]
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %_ZN5ceres18InsertIfNotPresentISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEEbPT_RKNS9_10value_type10first_typeERKNSB_11second_typeE.exit ], [ 1, %.preheader ]
   %.1100 = phi i32 [ %.2, %_ZN5ceres18InsertIfNotPresentISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEEbPT_RKNS9_10value_type10first_typeERKNSB_11second_typeE.exit ], [ %.089103140, %.preheader ]
-  %165 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %163, i64 %indvars.iv118
+  %165 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %163, i64 %indvars.iv118
   %166 = load i32, ptr %165, align 4
   %.02022.i.i.i.i = load ptr, ptr %138, align 8
   %.not23.i.i.i.i = icmp eq ptr %.02022.i.i.i.i, null
@@ -1398,11 +1398,11 @@ _ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkD2Ev.exit: ; preds = %
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph102, %.lr.ph.i.i.i.i
   %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %.lr.ph102 ]
-  %167 = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
   %168 = load i32, ptr %167, align 4
   %169 = icmp slt i32 %166, %168
   %.in.v.i.i.i.i = select i1 %169, i64 16, i64 24
-  %.in.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
+  %.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.020.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
@@ -1418,7 +1418,7 @@ _ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkD2Ev.exit: ; preds = %
 
 172:                                              ; preds = %._crit_edge.thread.i.i.i.i
   %173 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #30
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %173, i64 32
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %173, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %174
 
@@ -1434,7 +1434,7 @@ select.unfold.i.i.i:                              ; preds = %174, %._crit_edge.t
   br i1 %177, label %182, label %178
 
 178:                                              ; preds = %select.unfold.i.i.i
-  %179 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %180 = load i32, ptr %179, align 4
   %181 = icmp slt i32 %166, %180
   br label %182
@@ -1442,7 +1442,7 @@ select.unfold.i.i.i:                              ; preds = %174, %._crit_edge.t
 182:                                              ; preds = %select.unfold.i.i.i, %178
   %183 = phi i1 [ true, %select.unfold.i.i.i ], [ %181, %178 ]
   %184 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  %185 = getelementptr inbounds i8, ptr %184, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %.sroa.5.0.insert.ext.i = zext i32 %.1100 to i64
   %.sroa.5.0.insert.shift.i = shl nuw i64 %.sroa.5.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %166 to i64
@@ -1560,10 +1560,10 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit70._crit_edge: ; preds = %_ZN6google12
   %229 = load i32, ptr %228, align 4
   %230 = load i32, ptr %227, align 8
   %231 = add nsw i32 %230, %229
-  %232 = getelementptr inbounds i8, ptr %0, i64 100
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %231, ptr %232, align 4
   %233 = load i32, ptr %52, align 8
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %235 = load i32, ptr %234, align 8
   %236 = mul nsw i32 %235, %233
   %237 = sext i32 %236 to i64
@@ -1572,7 +1572,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit70._crit_edge: ; preds = %_ZN6google12
   %240 = select i1 %238, i64 -1, i64 %239
   %241 = call noalias noundef nonnull ptr @_Znam(i64 noundef %240) #31, !noalias !12
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %241, i8 0, i64 %240, i1 false), !noalias !12
-  %242 = getelementptr inbounds i8, ptr %0, i64 80
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %243 = load ptr, ptr %242, align 8
   store ptr %241, ptr %242, align 8
   %.not.i.i.i.i71 = icmp eq ptr %243, null
@@ -1594,7 +1594,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   %245 = select i1 %244, i64 -1, i64 %.pre-phi134
   %246 = call noalias noundef nonnull ptr @_Znam(i64 noundef %245) #31, !noalias !15
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %246, i8 0, i64 %245, i1 false), !noalias !15
-  %247 = getelementptr inbounds i8, ptr %0, i64 88
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %248 = load ptr, ptr %247, align 8
   store ptr %246, ptr %247, align 8
   %.not.i.i.i.i72 = icmp eq ptr %248, null
@@ -1605,16 +1605,16 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit77
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit77: ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i73, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
-  %249 = getelementptr inbounds i8, ptr %0, i64 104
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 112
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %252 = load ptr, ptr %251, align 8
   %.not4.i.i = icmp eq ptr %250, %252
   br i1 %.not4.i.i, label %_ZN5ceres17STLDeleteElementsISt6vectorIPSt5mutexSaIS3_EEEEvPT_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit77, %257
   %.sroa.02.05.i.i = phi ptr [ %253, %257 ], [ %250, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit77 ]
-  %253 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 8
   %254 = load ptr, ptr %.sroa.02.05.i.i, align 8
   %255 = icmp eq ptr %254, null
   br i1 %255, label %257, label %256
@@ -1659,7 +1659,7 @@ _ZNSt6vectorIPSt5mutexSaIS1_EE6resizeEm.exit:     ; preds = %_ZN5ceres17STLDelet
   %265 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %265, i8 0, i64 40, i1 false)
   %266 = load ptr, ptr %249, align 8
-  %267 = getelementptr inbounds ptr, ptr %266, i64 %indvars.iv121
+  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv121
   store ptr %265, ptr %267, align 8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %268 = load i32, ptr %33, align 8
@@ -1676,8 +1676,8 @@ declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit unwind label %5
@@ -1710,7 +1710,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   store ptr %4, ptr %9, align 8
   store ptr %5, ptr %10, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %18 = icmp sgt i32 %17, 0
@@ -1718,7 +1718,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.not = icmp eq ptr %5, null
@@ -1726,7 +1726,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %28 = sext i32 %27 to i64
@@ -1793,7 +1793,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   br i1 %.not4, label %74, label %56
 
 56:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = load ptr, ptr %55, align 8
@@ -1801,27 +1801,27 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   %62 = sub i64 %59, %61
   %63 = lshr exact i64 %62, 3
   %64 = trunc i64 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 8
   store ptr %0, ptr %12, align 8
-  %71 = getelementptr inbounds i8, ptr %12, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %12, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %12, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %8, ptr %73, align 8
   call void @_ZN5ceres8internal11ParallelForIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_i(ptr noundef %66, i32 noundef %68, i32 noundef %64, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 1)
   br label %74
 
 74:                                               ; preds = %56, %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
-  %78 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %77, align 8
   %81 = ptrtoint ptr %79 to i64
@@ -1829,24 +1829,24 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   %83 = sub i64 %81, %82
   %84 = sdiv exact i64 %83, 56
   %85 = trunc i64 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load i32, ptr %86, align 8
   store ptr %0, ptr %13, align 8
-  %88 = getelementptr inbounds i8, ptr %13, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %13, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %8, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %13, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %1, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %13, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %7, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %13, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %9, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %13, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %10, ptr %93, align 8
   call void @_ZN5ceres8internal11ParallelForIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_i(ptr noundef %76, i32 noundef 0, i32 noundef %85, i32 noundef %87, ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 1)
   %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 100
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %96 = load i32, ptr %95, align 4
   %97 = load ptr, ptr %9, align 8
   %98 = load ptr, ptr %10, align 8
@@ -1933,9 +1933,9 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   br i1 %.not4.i, label %_ZN5ceres8internal15InvokeOnSegmentIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = sext i32 %1 to i64
   br label %41
 
@@ -1946,14 +1946,14 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = trunc nsw i64 %indvars.iv.i to i32
   %46 = sub nsw i32 %45, %44
   %47 = load ptr, ptr %37, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 noundef %46, i32 noundef %46, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not.i.i.i = icmp eq ptr %52, null
@@ -1967,7 +1967,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %58 = load i32, ptr %57, align 4
   %59 = load ptr, ptr %39, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds double, ptr %60, i64 %63
@@ -1990,7 +1990,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %77 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i, %67
   %78 = getelementptr double, ptr %75, i64 %.05.i.i.i.i.i.i.i.i.i
   %79 = getelementptr double, ptr %78, i64 %77
-  %80 = getelementptr inbounds double, ptr %64, i64 %.05.i.i.i.i.i.i.i.i.i
+  %80 = getelementptr inbounds nuw double, ptr %64, i64 %.05.i.i.i.i.i.i.i.i.i
   %81 = load double, ptr %80, align 8
   %82 = fmul double %81, %81
   %83 = load double, ptr %79, align 8
@@ -2156,10 +2156,10 @@ _ZN5ceres8internal15InvokeOnSegmentIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE18NoEBlockRowsUpdateERKNS0_21BlockSparseMatrixDataEPKdiPNS0_23BlockRandomAccessMatrixEPd(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 comdat align 2 {
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = sext i32 %3 to i64
   %13 = load ptr, ptr %11, align 8
   %14 = load ptr, ptr %10, align 8
@@ -2172,8 +2172,8 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 .lr.ph34:                                         ; preds = %6
   %.not = icmp eq ptr %5, null
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %.not, label %.lr.ph34.split.us, label %.lr.ph34.split
 
 .lr.ph34.split.us:                                ; preds = %.lr.ph34, %.lr.ph34.split.us
@@ -2196,21 +2196,21 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   tail call void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE23NoEBlockRowOuterProductERKNS0_21BlockSparseMatrixDataEiPNS0_23BlockRandomAccessMatrixE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %30, ptr noundef %4)
   %31 = load ptr, ptr %10, align 8
   %32 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %31, i64 %indvars.iv38
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not35 = icmp eq ptr %35, %36
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph34.split
-  %37 = getelementptr inbounds i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   br label %38
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = phi ptr [ %36, %.lr.ph ], [ %63, %38 ]
-  %40 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = load ptr, ptr %7, align 8
@@ -2218,7 +2218,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %20, align 8
   %47 = sub nsw i32 %41, %46
-  %48 = getelementptr inbounds i8, ptr %40, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds double, ptr %9, i64 %50
@@ -2277,13 +2277,13 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   store ptr %5, ptr %10, align 8
   %14 = load ptr, ptr %1, align 8
   store ptr %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -2291,20 +2291,20 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %25 = sub i64 %23, %24
   %26 = sdiv exact i64 %25, 56
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   store ptr %0, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %10, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %8, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %7, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %13, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %12, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %9, ptr %35, align 8
   call void @_ZN5ceres8internal11ParallelForIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_i(ptr noundef %18, i32 noundef 0, i32 noundef %27, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 1)
   ret void
@@ -2425,17 +2425,17 @@ _ZN5ceres8internal15InvokeOnSegmentIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkC2Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #3 comdat($_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkC5Ei) align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %8, align 8
   ret void
 }
@@ -2444,10 +2444,10 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE29ChunkDiagonalBlockAndGradientERKNS2_5ChunkERKNS0_21BlockSparseMatrixDataEPKdiPN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEEPdSF_PNS0_23BlockRandomAccessMatrixE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.google::LogMessageFatal", align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = load i32, ptr %1, align 8
@@ -2460,8 +2460,8 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %22 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %20, i64 %21, i32 0, i32 1
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq ptr %3, null
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %26
 
 26:                                               ; preds = %.lr.ph67, %._crit_edge
@@ -2470,8 +2470,8 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %27 = add nsw i64 %indvars.iv71, %21
   %28 = load ptr, ptr %14, align 8
   %29 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %28, i64 %27
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -2488,7 +2488,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 40:                                               ; preds = %38, %26
   %41 = phi ptr [ %.pre, %38 ], [ %33, %26 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds double, ptr %13, i64 %44
@@ -2519,7 +2519,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 .lr.ph:                                           ; preds = %55, %_ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11second_typeERKS9_RKNSA_10first_typeE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11second_typeERKS9_RKNSA_10first_typeE.exit ], [ 1, %55 ]
   %62 = phi ptr [ %100, %_ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11second_typeERKS9_RKNSA_10first_typeE.exit ], [ %57, %55 ]
-  %63 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = load ptr, ptr %11, align 8
@@ -2533,12 +2533,12 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %69, %.lr.ph ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %25, %.lr.ph ]
-  %70 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %71 = load i32, ptr %70, align 4
   %72 = icmp slt i32 %71, %64
   %.19.i.i.i.i = select i1 %72, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %72, i64 24, i64 16
-  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
@@ -2548,7 +2548,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_bou
   br i1 %73, label %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.thread.i, label %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.i
 
 _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %74 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %75 = load i32, ptr %74, align 4
   %76 = icmp slt i32 %64, %75
   br i1 %76, label %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.thread.i, label %_ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11second_typeERKS9_RKNSA_10first_typeE.exit
@@ -2581,7 +2581,7 @@ _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.thread.i: ; preds = %_ZN
   unreachable
 
 _ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11second_typeERKS9_RKNSA_10first_typeE.exit: ; preds = %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.i
-  %87 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 36
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
@@ -2590,7 +2590,7 @@ _ZN5ceres9FindOrDieISt3mapIiiSt4lessIiESaISt4pairIKiiEEEEERKNT_10value_type11sec
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds double, ptr %13, i64 %92
   %94 = load i32, ptr %29, align 8
-  %95 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %62, i64 %indvars.iv, i32 1
+  %95 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %62, i64 %indvars.iv, i32 1
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds double, ptr %13, i64 %97
@@ -2629,14 +2629,14 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = sext i32 %2 to i64
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %18, i64 %17
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -2646,8 +2646,8 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br i1 %27, label %.lr.ph94, label %._crit_edge
 
 .lr.ph94:                                         ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %32
 
 .loopexit:                                        ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit71, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -2661,7 +2661,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %indvars.iv101 = phi i64 [ 1, %.lr.ph94 ], [ %indvars.iv.next102, %.loopexit ]
   %indvars.iv = phi i64 [ 2, %.lr.ph94 ], [ %indvars.iv.next, %.loopexit ]
   %33 = phi ptr [ %23, %.lr.ph94 ], [ %30, %.loopexit ]
-  %34 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %33, i64 %indvars.iv101
+  %34 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %33, i64 %indvars.iv101
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %28, align 8
   %37 = sub nsw i32 %35, %36
@@ -2670,7 +2670,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %40 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %39, i64 %38
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %37, i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq ptr %45, null
@@ -2682,7 +2682,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br i1 %.not87, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %50 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %49) #29, !noalias !29
   %.not.i.i.i.i = icmp eq i32 %50, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %51
@@ -2694,7 +2694,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 _ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit: ; preds = %46, %48
   %.sroa.076.0 = phi ptr [ %49, %48 ], [ null, %46 ]
   %52 = load ptr, ptr %20, align 8
-  %53 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %52, i64 %indvars.iv101, i32 1
+  %53 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %52, i64 %indvars.iv101, i32 1
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds double, ptr %15, i64 %55
@@ -2737,7 +2737,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %63, %_ZN5ceres8inte
 .lr.ph:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit71
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %_ZNSt11unique_lockISt5mutexED2Ev.exit71 ], [ %indvars.iv, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
   %74 = phi ptr [ %113, %_ZNSt11unique_lockISt5mutexED2Ev.exit71 ], [ %68, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
-  %75 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %74, i64 %indvars.iv98
+  %75 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %74, i64 %indvars.iv98
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %28, align 8
   %78 = sub nsw i32 %76, %77
@@ -2746,7 +2746,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %63, %_ZN5ceres8inte
   %81 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %80, i64 %79
   %82 = load i32, ptr %81, align 4
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef ptr %85(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %37, i32 noundef %78, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not62 = icmp eq ptr %86, null
@@ -2758,7 +2758,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %63, %_ZN5ceres8inte
   br i1 %.not88, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %86, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %91 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %90) #29, !noalias !32
   %.not.i.i.i.i66 = icmp eq i32 %91, 0
   br i1 %.not.i.i.i.i66, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68, label %92
@@ -2770,12 +2770,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %63, %_ZN5ceres8inte
 _ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68: ; preds = %87, %89
   %.sroa.0.0 = phi ptr [ %90, %89 ], [ null, %87 ]
   %93 = load ptr, ptr %20, align 8
-  %94 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %93, i64 %indvars.iv101, i32 1
+  %94 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %93, i64 %indvars.iv101, i32 1
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds double, ptr %15, i64 %96
   %98 = load i32, ptr %19, align 8
-  %99 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %93, i64 %indvars.iv98, i32 1
+  %99 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %93, i64 %indvars.iv98, i32 1
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds double, ptr %15, i64 %101
@@ -2851,7 +2851,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %.06073 = phi double [ 0.000000e+00, %.lr.ph ], [ %17, %13 ]
   %.06172 = phi i32 [ 0, %.lr.ph ], [ %19, %13 ]
   %14 = load double, ptr %.05375, align 8
-  %15 = getelementptr inbounds i8, ptr %.05474, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05474, i64 8
   %16 = load double, ptr %.05474, align 8
   %17 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %.06073)
   %18 = getelementptr inbounds double, ptr %.05375, i64 %12
@@ -2890,11 +2890,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %.05778 = phi double [ 0.000000e+00, %.lr.ph82 ], [ %35, %31 ]
   %.05877 = phi ptr [ %3, %.lr.ph82 ], [ %32, %31 ]
   %.05976 = phi ptr [ %29, %.lr.ph82 ], [ %39, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.05877, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.05877, i64 8
   %33 = load double, ptr %.05877, align 8
   %34 = load double, ptr %.05976, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %33, double %.05778)
-  %36 = getelementptr inbounds i8, ptr %.05976, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.05976, i64 8
   %37 = load double, ptr %36, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %33, double %.05679)
   %39 = getelementptr inbounds double, ptr %.05976, i64 %30
@@ -2932,7 +2932,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph88, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us ], [ 0, %.lr.ph88 ]
-  %56 = getelementptr inbounds double, ptr %0, i64 %indvars.iv119
+  %56 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv119
   br label %57
 
 57:                                               ; preds = %57, %.lr.ph.i.us
@@ -2946,59 +2946,59 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %58 = load double, ptr %.0115123.i.us, align 8
   %59 = load double, ptr %.0116122.i.us, align 8
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %58, double %.sroa.0.0125.i.us)
-  %61 = getelementptr inbounds i8, ptr %.0116122.i.us, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0116122.i.us, i64 8
   %62 = load double, ptr %61, align 8
   %63 = tail call double @llvm.fmuladd.f64(double %62, double %58, double %.sroa.14.0124.i.us)
-  %64 = getelementptr inbounds i8, ptr %.0116122.i.us, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.0116122.i.us, i64 16
   %65 = load double, ptr %64, align 8
   %66 = tail call double @llvm.fmuladd.f64(double %65, double %58, double %.sroa.27.0120.i.us)
-  %67 = getelementptr inbounds i8, ptr %.0116122.i.us, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.0116122.i.us, i64 24
   %68 = load double, ptr %67, align 8
   %69 = tail call double @llvm.fmuladd.f64(double %68, double %58, double %.sroa.40.0121.i.us)
-  %70 = getelementptr inbounds double, ptr %.0116122.i.us, i64 %54
-  %71 = getelementptr inbounds i8, ptr %.0115123.i.us, i64 8
+  %70 = getelementptr inbounds nuw double, ptr %.0116122.i.us, i64 %54
+  %71 = getelementptr inbounds nuw i8, ptr %.0115123.i.us, i64 8
   %72 = load double, ptr %71, align 8
   %73 = load double, ptr %70, align 8
   %74 = tail call double @llvm.fmuladd.f64(double %73, double %72, double %60)
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %76 = load double, ptr %75, align 8
   %77 = tail call double @llvm.fmuladd.f64(double %76, double %72, double %63)
-  %78 = getelementptr inbounds i8, ptr %70, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %79 = load double, ptr %78, align 8
   %80 = tail call double @llvm.fmuladd.f64(double %79, double %72, double %66)
-  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %82 = load double, ptr %81, align 8
   %83 = tail call double @llvm.fmuladd.f64(double %82, double %72, double %69)
-  %84 = getelementptr inbounds double, ptr %70, i64 %54
-  %85 = getelementptr inbounds i8, ptr %.0115123.i.us, i64 16
+  %84 = getelementptr inbounds nuw double, ptr %70, i64 %54
+  %85 = getelementptr inbounds nuw i8, ptr %.0115123.i.us, i64 16
   %86 = load double, ptr %85, align 8
   %87 = load double, ptr %84, align 8
   %88 = tail call double @llvm.fmuladd.f64(double %87, double %86, double %74)
-  %89 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %90 = load double, ptr %89, align 8
   %91 = tail call double @llvm.fmuladd.f64(double %90, double %86, double %77)
-  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load double, ptr %92, align 8
   %94 = tail call double @llvm.fmuladd.f64(double %93, double %86, double %80)
-  %95 = getelementptr inbounds i8, ptr %84, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %96 = load double, ptr %95, align 8
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %86, double %83)
-  %98 = getelementptr inbounds double, ptr %84, i64 %54
-  %99 = getelementptr inbounds i8, ptr %.0115123.i.us, i64 24
+  %98 = getelementptr inbounds nuw double, ptr %84, i64 %54
+  %99 = getelementptr inbounds nuw i8, ptr %.0115123.i.us, i64 24
   %100 = load double, ptr %99, align 8
   %101 = load double, ptr %98, align 8
   %102 = tail call double @llvm.fmuladd.f64(double %101, double %100, double %88)
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %104 = load double, ptr %103, align 8
   %105 = tail call double @llvm.fmuladd.f64(double %104, double %100, double %91)
-  %106 = getelementptr inbounds i8, ptr %98, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %107 = load double, ptr %106, align 8
   %108 = tail call double @llvm.fmuladd.f64(double %107, double %100, double %94)
-  %109 = getelementptr inbounds i8, ptr %98, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %110 = load double, ptr %109, align 8
   %111 = tail call double @llvm.fmuladd.f64(double %110, double %100, double %97)
-  %112 = getelementptr inbounds double, ptr %98, i64 %54
-  %113 = getelementptr inbounds i8, ptr %.0115123.i.us, i64 32
+  %112 = getelementptr inbounds nuw double, ptr %98, i64 %54
+  %113 = getelementptr inbounds nuw i8, ptr %.0115123.i.us, i64 32
   %114 = add nuw nsw i32 %.0114126.i.us, 4
   %115 = icmp slt i32 %114, %52
   br i1 %115, label %57, label %.preheader.i.loopexit.us, !llvm.loop !38
@@ -3014,17 +3014,17 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %116 = load double, ptr %.1135.i.us, align 8
   %117 = load double, ptr %.1117134.i.us, align 8
   %118 = tail call double @llvm.fmuladd.f64(double %117, double %116, double %.sroa.0.1137.i.us)
-  %119 = getelementptr inbounds i8, ptr %.1117134.i.us, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.1117134.i.us, i64 8
   %120 = load double, ptr %119, align 8
   %121 = tail call double @llvm.fmuladd.f64(double %120, double %116, double %.sroa.14.1136.i.us)
-  %122 = getelementptr inbounds i8, ptr %.1117134.i.us, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.1117134.i.us, i64 16
   %123 = load double, ptr %122, align 8
   %124 = tail call double @llvm.fmuladd.f64(double %123, double %116, double %.sroa.27.1132.i.us)
-  %125 = getelementptr inbounds i8, ptr %.1117134.i.us, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.1117134.i.us, i64 24
   %126 = load double, ptr %125, align 8
   %127 = tail call double @llvm.fmuladd.f64(double %126, double %116, double %.sroa.40.1133.i.us)
-  %128 = getelementptr inbounds double, ptr %.1117134.i.us, i64 %54
-  %129 = getelementptr inbounds i8, ptr %.1135.i.us, i64 8
+  %128 = getelementptr inbounds nuw double, ptr %.1117134.i.us, i64 %54
+  %129 = getelementptr inbounds nuw i8, ptr %.1135.i.us, i64 8
   %130 = add nuw nsw i32 %.0138.i.us, 1
   %131 = icmp slt i32 %130, %1
   br i1 %131, label %.lr.ph139.i.us, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, !llvm.loop !39
@@ -3037,15 +3037,15 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %132 = load double, ptr %144, align 8
   %133 = fadd double %.sroa.0.1.lcssa.i.us, %132
   store double %133, ptr %144, align 8
-  %134 = getelementptr inbounds i8, ptr %144, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %135 = load double, ptr %134, align 8
   %136 = fadd double %.sroa.14.1.lcssa.i.us, %135
   store double %136, ptr %134, align 8
-  %137 = getelementptr inbounds i8, ptr %144, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %138 = load double, ptr %137, align 8
   %139 = fadd double %.sroa.27.1.lcssa.i.us, %138
   store double %139, ptr %137, align 8
-  %140 = getelementptr inbounds i8, ptr %144, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %141 = load double, ptr %140, align 8
   %142 = fadd double %.sroa.40.1.lcssa.i.us, %141
   store double %142, ptr %140, align 8
@@ -3054,7 +3054,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   br i1 %143, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !40
 
 .preheader.i.loopexit.us:                         ; preds = %57
-  %144 = getelementptr inbounds double, ptr %4, i64 %indvars.iv119
+  %144 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv119
   br i1 %.not.i, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us, label %.lr.ph139.i.us
 
 .lr.ph88.split:                                   ; preds = %.lr.ph88
@@ -3062,19 +3062,19 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
 
 .preheader.i.us89:                                ; preds = %.lr.ph88.split, %.preheader.i.us89
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader.i.us89 ], [ 0, %.lr.ph88.split ]
-  %145 = getelementptr inbounds double, ptr %4, i64 %indvars.iv116
+  %145 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv116
   %146 = load double, ptr %145, align 8
   %147 = fadd double %146, 0.000000e+00
   store double %147, ptr %145, align 8
-  %148 = getelementptr inbounds i8, ptr %145, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %149 = load double, ptr %148, align 8
   %150 = fadd double %149, 0.000000e+00
   store double %150, ptr %148, align 8
-  %151 = getelementptr inbounds i8, ptr %145, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %152 = load double, ptr %151, align 8
   %153 = fadd double %152, 0.000000e+00
   store double %153, ptr %151, align 8
-  %154 = getelementptr inbounds i8, ptr %145, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %155 = load double, ptr %154, align 8
   %156 = fadd double %155, 0.000000e+00
   store double %156, ptr %154, align 8
@@ -3084,7 +3084,7 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
 
 .preheader.i:                                     ; preds = %.lr.ph88.split, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit ], [ 0, %.lr.ph88.split ]
-  %158 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   br label %159
 
 159:                                              ; preds = %159, %.preheader.i
@@ -3098,35 +3098,35 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.us: ; preds = %.lr.ph139.i.us, 
   %160 = load double, ptr %.1135.i, align 8
   %161 = load double, ptr %.1117134.i, align 8
   %162 = tail call double @llvm.fmuladd.f64(double %161, double %160, double %.sroa.0.1137.i)
-  %163 = getelementptr inbounds i8, ptr %.1117134.i, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.1117134.i, i64 8
   %164 = load double, ptr %163, align 8
   %165 = tail call double @llvm.fmuladd.f64(double %164, double %160, double %.sroa.14.1136.i)
-  %166 = getelementptr inbounds i8, ptr %.1117134.i, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.1117134.i, i64 16
   %167 = load double, ptr %166, align 8
   %168 = tail call double @llvm.fmuladd.f64(double %167, double %160, double %.sroa.27.1132.i)
-  %169 = getelementptr inbounds i8, ptr %.1117134.i, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %.1117134.i, i64 24
   %170 = load double, ptr %169, align 8
   %171 = tail call double @llvm.fmuladd.f64(double %170, double %160, double %.sroa.40.1133.i)
-  %172 = getelementptr inbounds double, ptr %.1117134.i, i64 %54
-  %173 = getelementptr inbounds i8, ptr %.1135.i, i64 8
+  %172 = getelementptr inbounds nuw double, ptr %.1117134.i, i64 %54
+  %173 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 8
   %174 = add nsw i32 %.0138.i, 1
   %175 = icmp slt i32 %174, %1
   br i1 %175, label %159, label %_ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit, !llvm.loop !39
 
 _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %159
-  %176 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %177 = load double, ptr %176, align 8
   %178 = fadd double %162, %177
   store double %178, ptr %176, align 8
-  %179 = getelementptr inbounds i8, ptr %176, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %180 = load double, ptr %179, align 8
   %181 = fadd double %165, %180
   store double %181, ptr %179, align 8
-  %182 = getelementptr inbounds i8, ptr %176, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %183 = load double, ptr %182, align 8
   %184 = fadd double %168, %183
   store double %184, ptr %182, align 8
-  %185 = getelementptr inbounds i8, ptr %176, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %186 = load double, ptr %185, align 8
   %187 = fadd double %171, %186
   store double %187, ptr %185, align 8
@@ -3141,10 +3141,10 @@ _ZN5ceres8internalL10MTV_mat4x1EiPKdiS2_Pdi.exit.loopexit: ; preds = %159
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE9UpdateRhsERKNS2_5ChunkERKNS0_21BlockSparseMatrixDataEPKdiSA_Pd(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
@@ -3163,10 +3163,10 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %25 = sext i32 %4 to i64
   %26 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %15, i64 %25, i32 0, i32 1
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %32
 
 32:                                               ; preds = %.lr.ph95, %._crit_edge
@@ -3175,7 +3175,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %33 = load ptr, ptr %11, align 8
   %34 = getelementptr %"struct.ceres::internal::CompressedList", ptr %33, i64 %indvars.iv106
   %35 = getelementptr %"struct.ceres::internal::CompressedList", ptr %34, i64 %25
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %.093 to i64
   %39 = getelementptr double, ptr %3, i64 %38
@@ -3236,7 +3236,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %._crit_edge.i.i.i.i.i.i.i
-  %65 = getelementptr inbounds i8, ptr %37, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %35, align 8
   %68 = sext i32 %66 to i64
@@ -3245,7 +3245,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
           to label %.preheader unwind label %.loopexit85
 
 .preheader:                                       ; preds = %.loopexit
-  %70 = getelementptr inbounds i8, ptr %35, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %36, align 8
   %73 = ptrtoint ptr %71 to i64
@@ -3257,7 +3257,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ 1, %.preheader ]
   %77 = phi ptr [ %110, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %72, %.preheader ]
-  %78 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %77, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = load ptr, ptr %8, align 8
@@ -3292,7 +3292,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 94:                                               ; preds = %._crit_edge109, %.lr.ph
   %95 = phi ptr [ %.pre, %._crit_edge109 ], [ %77, %.lr.ph ]
   %.sroa.0.0 = phi ptr [ %91, %._crit_edge109 ], [ null, %.lr.ph ]
-  %96 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %95, i64 %indvars.iv, i32 1
+  %96 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %95, i64 %indvars.iv, i32 1
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr %35, align 8
   %99 = sext i32 %97 to i64
@@ -3387,9 +3387,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %.05567 = phi ptr [ %15, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.06266 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.06365 = phi i32 [ %18, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.05468, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05468, i64 8
   %14 = load double, ptr %.05468, align 8
-  %15 = getelementptr inbounds i8, ptr %.05567, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05567, i64 8
   %16 = load double, ptr %.05567, align 8
   %17 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %.06266)
   %18 = add nuw nsw i32 %.06365, 1
@@ -3421,7 +3421,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds double, ptr %0, i64 %29
   %31 = zext nneg i32 %2 to i64
-  %32 = getelementptr inbounds double, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw double, ptr %30, i64 %31
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
@@ -3431,12 +3431,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %.05971 = phi ptr [ %33, %.lr.ph76 ], [ %3, %.lr.ph76.preheader ]
   %.06070 = phi ptr [ %38, %.lr.ph76 ], [ %32, %.lr.ph76.preheader ]
   %.06169 = phi ptr [ %35, %.lr.ph76 ], [ %30, %.lr.ph76.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.05971, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.05971, i64 8
   %34 = load double, ptr %.05971, align 8
-  %35 = getelementptr inbounds i8, ptr %.06169, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.06169, i64 8
   %36 = load double, ptr %.06169, align 8
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %34, double %.05872)
-  %38 = getelementptr inbounds i8, ptr %.06070, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.06070, i64 8
   %39 = load double, ptr %.06070, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %34, double %.05773)
   %41 = add nuw nsw i32 %.05674, 1
@@ -3473,7 +3473,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %.lr.ph82 ]
   %56 = mul nsw i64 %indvars.iv, %54
   %57 = getelementptr inbounds double, ptr %0, i64 %56
-  %58 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   tail call fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 noundef %2, ptr noundef %57, i32 noundef %2, ptr noundef %3, ptr noundef %58, i32 noundef -1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %59 = icmp slt i64 %indvars.iv.next, %55
@@ -3489,30 +3489,30 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = mul nsw i32 %20, %1
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds double, ptr %18, i64 %22
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not4954 = icmp eq ptr %16, %24
   br i1 %.not4954, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph, %77
   %.sroa.041.055 = phi ptr [ %16, %.lr.ph ], [ %78, %77 ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.041.055, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.041.055, i64 32
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %25, align 8
   %31 = sub nsw i32 %29, %30
@@ -3520,7 +3520,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %33 = load ptr, ptr %2, align 8
   %34 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %33, i64 %32
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %.sroa.041.055, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.041.055, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds double, ptr %4, i64 %38
@@ -3530,12 +3530,12 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 41:                                               ; preds = %27, %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %.sroa.035.053 = phi ptr [ %.sroa.041.055, %27 ], [ %76, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.035.053, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.035.053, i64 32
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %25, align 8
   %45 = sub nsw i32 %43, %44
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %31, i32 noundef %45, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %.not = icmp eq ptr %49, null
@@ -3552,7 +3552,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br i1 %.not51, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %57
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %49, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %59 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %58) #29, !noalias !49
   %.not.i.i.i.i = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %60
@@ -3563,7 +3563,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 _ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit: ; preds = %50, %57
   %.sroa.0.0 = phi ptr [ %58, %57 ], [ null, %50 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.035.053, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.035.053, i64 36
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds double, ptr %4, i64 %63
@@ -3626,22 +3626,22 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = sext i32 %2 to i64
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %18, i64 %17
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %.not95 = icmp eq ptr %22, %23
   br i1 %.not95, label %._crit_edge, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %28
 
 .loopexit:                                        ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit71, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -3655,7 +3655,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %indvars.iv102 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next103, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph94 ], [ %indvars.iv.next, %.loopexit ]
   %29 = phi ptr [ %23, %.lr.ph94 ], [ %26, %.loopexit ]
-  %30 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %29, i64 %indvars.iv102
+  %30 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %29, i64 %indvars.iv102
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %24, align 8
   %33 = sub nsw i32 %31, %32
@@ -3664,7 +3664,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %36 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %35, i64 %34
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %33, i32 noundef %33, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq ptr %41, null
@@ -3676,7 +3676,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br i1 %.not87, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %46 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %45) #29, !noalias !55
   %.not.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %47
@@ -3688,7 +3688,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 _ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit: ; preds = %42, %44
   %.sroa.076.0 = phi ptr [ %45, %44 ], [ null, %42 ]
   %48 = load ptr, ptr %20, align 8
-  %49 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %48, i64 %indvars.iv102, i32 1
+  %49 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %48, i64 %indvars.iv102, i32 1
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %15, i64 %51
@@ -3731,12 +3731,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %59, %_ZN5ceres8inte
 .lr.ph:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit71
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %_ZNSt11unique_lockISt5mutexED2Ev.exit71 ], [ %indvars.iv, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
   %70 = phi ptr [ %112, %_ZNSt11unique_lockISt5mutexED2Ev.exit71 ], [ %64, %_ZNSt11unique_lockISt5mutexED2Ev.exit ]
-  %71 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %70, i64 %indvars.iv99
+  %71 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %70, i64 %indvars.iv99
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %24, align 8
   %74 = sub nsw i32 %72, %73
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = call noundef ptr %77(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %33, i32 noundef %74, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not62 = icmp eq ptr %78, null
@@ -3744,7 +3744,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %59, %_ZN5ceres8inte
 
 79:                                               ; preds = %.lr.ph
   %80 = load ptr, ptr %20, align 8
-  %81 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %80, i64 %indvars.iv99
+  %81 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %80, i64 %indvars.iv99
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %13, align 8
@@ -3755,7 +3755,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %59, %_ZN5ceres8inte
   br i1 %.not88, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68, label %88
 
 88:                                               ; preds = %79
-  %89 = getelementptr inbounds i8, ptr %78, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %90 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %89) #29, !noalias !58
   %.not.i.i.i.i66 = icmp eq i32 %90, 0
   br i1 %.not.i.i.i.i66, label %._ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68_crit_edge, label %91
@@ -3771,12 +3771,12 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %59, %_ZN5ceres8inte
 _ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68: ; preds = %._ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68_crit_edge, %79
   %92 = phi ptr [ %.pre, %._ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68_crit_edge ], [ %80, %79 ]
   %.sroa.0.0 = phi ptr [ %89, %._ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68_crit_edge ], [ null, %79 ]
-  %93 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %92, i64 %indvars.iv102, i32 1
+  %93 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %92, i64 %indvars.iv102, i32 1
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds double, ptr %15, i64 %95
   %97 = load i32, ptr %19, align 8
-  %98 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %92, i64 %indvars.iv99, i32 1
+  %98 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %92, i64 %indvars.iv99, i32 1
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds double, ptr %15, i64 %100
@@ -3850,10 +3850,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4less
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #28
   %.not = icmp eq ptr %6, null
@@ -3884,14 +3884,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -3968,7 +3968,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds i32, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -3987,7 +3987,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4009,186 +4009,179 @@ _ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE1
   %16 = select i1 %14, i64 164703072086692425, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %19 = sdiv exact i64 %18, 56
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_M_allocateEm.exit, label %20
+  %.not.i = icmp ne i64 %16, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %19 = mul nuw nsw i64 %16, 56
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
+  %21 = getelementptr inbounds i8, ptr %20, i64 %18
+  %22 = load i64, ptr %2, align 8
+  store i64 %22, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i.i.i.i, label %39, label %26
 
-20:                                               ; preds = %_ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_M_check_lenEmPKc.exit
-  %21 = mul nuw nsw i64 %16, 56
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #31
-  br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"struct.ceres::internal::SchurEliminator<>::Chunk", ptr %23, i64 %19
-  %25 = load i64, ptr %2, align 8
-  store i64 %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i.i, label %42, label %29
-
-29:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
-  %31 = load i32, ptr %30, align 8
-  store i32 %31, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 24
-  store ptr %28, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
+26:                                               ; preds = %_ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_M_check_lenEmPKc.exit
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %23, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %25, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %26, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 48
-  %41 = load i64, ptr %40, align 8
-  store ptr null, ptr %27, align 8
-  store ptr %30, ptr %33, align 8
-  store ptr %30, ptr %36, align 8
-  store i64 0, ptr %40, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %23, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %38 = load i64, ptr %37, align 8
+  store ptr null, ptr %24, align 8
+  store ptr %27, ptr %30, align 8
+  store ptr %27, ptr %33, align 8
+  store i64 0, ptr %37, align 8
   br label %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
 
-42:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_M_allocateEm.exit
-  store i32 0, ptr %26, align 8
-  %43 = getelementptr inbounds i8, ptr %24, i64 24
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %26, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr %26, ptr %45, align 8
+39:                                               ; preds = %_ZNKSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_M_check_lenEmPKc.exit
+  store i32 0, ptr %23, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %23, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store ptr %23, ptr %42, align 8
   br label %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %29, %42
-  %.sink = phi i64 [ 0, %42 ], [ %41, %29 ]
-  %46 = getelementptr inbounds i8, ptr %24, i64 48
-  store i64 %.sink, ptr %46, align 8
+_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %26, %39
+  %.sink = phi i64 [ 0, %39 ], [ %38, %26 ]
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store i64 %.sink, ptr %43, align 8
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %66, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %65, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %63, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %62, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %47 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !66, !noalias !63
-  store i64 %47, ptr %.012.i.i.i, align 8, !alias.scope !63, !noalias !66
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %50 = load ptr, ptr %49, align 8, !alias.scope !66, !noalias !63
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i, label %51
+  %44 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !66, !noalias !63
+  store i64 %44, ptr %.012.i.i.i, align 8, !alias.scope !63, !noalias !66
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %47 = load ptr, ptr %46, align 8, !alias.scope !66, !noalias !63
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i, label %48
 
-51:                                               ; preds = %.lr.ph.i.i.i
-  %52 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %53 = load i32, ptr %52, align 8, !alias.scope !66, !noalias !63
-  %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  %55 = load ptr, ptr %54, align 8, !alias.scope !66, !noalias !63
-  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
-  %57 = load ptr, ptr %56, align 8, !alias.scope !66, !noalias !63
-  %58 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %48, ptr %58, align 8, !noalias !68
-  %59 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
-  %60 = load i64, ptr %59, align 8, !alias.scope !66, !noalias !63
-  store ptr null, ptr %49, align 8, !alias.scope !66, !noalias !63
-  store ptr %52, ptr %54, align 8, !alias.scope !66, !noalias !63
-  store ptr %52, ptr %56, align 8, !alias.scope !66, !noalias !63
-  store i64 0, ptr %59, align 8, !alias.scope !66, !noalias !63
+48:                                               ; preds = %.lr.ph.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %50 = load i32, ptr %49, align 8, !alias.scope !66, !noalias !63
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
+  %52 = load ptr, ptr %51, align 8, !alias.scope !66, !noalias !63
+  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
+  %54 = load ptr, ptr %53, align 8, !alias.scope !66, !noalias !63
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store ptr %45, ptr %55, align 8, !noalias !68
+  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
+  %57 = load i64, ptr %56, align 8, !alias.scope !66, !noalias !63
+  store ptr null, ptr %46, align 8, !alias.scope !66, !noalias !63
+  store ptr %49, ptr %51, align 8, !alias.scope !66, !noalias !63
+  store ptr %49, ptr %53, align 8, !alias.scope !66, !noalias !63
+  store i64 0, ptr %56, align 8, !alias.scope !66, !noalias !63
   br label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i
 
-_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %51, %.lr.ph.i.i.i
-  %.sink15.i.i.i = phi i32 [ %53, %51 ], [ 0, %.lr.ph.i.i.i ]
-  %.sink13.i.i.i = phi ptr [ %55, %51 ], [ %48, %.lr.ph.i.i.i ]
-  %.sink.i.i.i = phi ptr [ %57, %51 ], [ %48, %.lr.ph.i.i.i ]
-  %.sink.i.i.i.i = phi i64 [ %60, %51 ], [ 0, %.lr.ph.i.i.i ]
-  store i32 %.sink15.i.i.i, ptr %48, align 8, !alias.scope !63, !noalias !66
-  %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  store ptr %50, ptr %61, align 8, !alias.scope !63, !noalias !66
-  %62 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  store ptr %.sink13.i.i.i, ptr %62, align 8, !alias.scope !63, !noalias !66
-  %63 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  store ptr %.sink.i.i.i, ptr %63, align 8, !alias.scope !63, !noalias !66
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  store i64 %.sink.i.i.i.i, ptr %64, align 8, !alias.scope !63, !noalias !66
-  %65 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
-  %66 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %.not.i.i.i = icmp eq ptr %65, %1
+_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %48, %.lr.ph.i.i.i
+  %.sink15.i.i.i = phi i32 [ %50, %48 ], [ 0, %.lr.ph.i.i.i ]
+  %.sink13.i.i.i = phi ptr [ %52, %48 ], [ %45, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %54, %48 ], [ %45, %.lr.ph.i.i.i ]
+  %.sink.i.i.i.i = phi i64 [ %57, %48 ], [ 0, %.lr.ph.i.i.i ]
+  store i32 %.sink15.i.i.i, ptr %45, align 8, !alias.scope !63, !noalias !66
+  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  store ptr %47, ptr %58, align 8, !alias.scope !63, !noalias !66
+  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  store ptr %.sink13.i.i.i, ptr %59, align 8, !alias.scope !63, !noalias !66
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  store ptr %.sink.i.i.i, ptr %60, align 8, !alias.scope !63, !noalias !66
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  store i64 %.sink.i.i.i.i, ptr %61, align 8, !alias.scope !63, !noalias !66
+  %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
+  %.not.i.i.i = icmp eq ptr %62, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !69
 
 _ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ], [ %66, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 56
+  %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ], [ %63, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 56
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21
-  %.012.i.i.i18 = phi ptr [ %87, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ], [ %67, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %86, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ], [ %1, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i18 = phi ptr [ %84, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ], [ %64, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %83, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ], [ %1, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %68 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !73, !noalias !70
-  store i64 %68, ptr %.012.i.i.i18, align 8, !alias.scope !70, !noalias !73
-  %69 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %70 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
-  %71 = load ptr, ptr %70, align 8, !alias.scope !73, !noalias !70
-  %.not.i.i.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i20, label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21, label %72
+  %65 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !73, !noalias !70
+  store i64 %65, ptr %.012.i.i.i18, align 8, !alias.scope !70, !noalias !73
+  %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
+  %68 = load ptr, ptr %67, align 8, !alias.scope !73, !noalias !70
+  %.not.i.i.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i20, label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21, label %69
 
-72:                                               ; preds = %.lr.ph.i.i.i17
-  %73 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %74 = load i32, ptr %73, align 8, !alias.scope !73, !noalias !70
-  %75 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
-  %76 = load ptr, ptr %75, align 8, !alias.scope !73, !noalias !70
-  %77 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
-  %78 = load ptr, ptr %77, align 8, !alias.scope !73, !noalias !70
-  %79 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr %69, ptr %79, align 8, !noalias !75
-  %80 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
-  %81 = load i64, ptr %80, align 8, !alias.scope !73, !noalias !70
-  store ptr null, ptr %70, align 8, !alias.scope !73, !noalias !70
-  store ptr %73, ptr %75, align 8, !alias.scope !73, !noalias !70
-  store ptr %73, ptr %77, align 8, !alias.scope !73, !noalias !70
-  store i64 0, ptr %80, align 8, !alias.scope !73, !noalias !70
+69:                                               ; preds = %.lr.ph.i.i.i17
+  %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
+  %71 = load i32, ptr %70, align 8, !alias.scope !73, !noalias !70
+  %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
+  %73 = load ptr, ptr %72, align 8, !alias.scope !73, !noalias !70
+  %74 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
+  %75 = load ptr, ptr %74, align 8, !alias.scope !73, !noalias !70
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %66, ptr %76, align 8, !noalias !75
+  %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
+  %78 = load i64, ptr %77, align 8, !alias.scope !73, !noalias !70
+  store ptr null, ptr %67, align 8, !alias.scope !73, !noalias !70
+  store ptr %70, ptr %72, align 8, !alias.scope !73, !noalias !70
+  store ptr %70, ptr %74, align 8, !alias.scope !73, !noalias !70
+  store i64 0, ptr %77, align 8, !alias.scope !73, !noalias !70
   br label %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21
 
-_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21: ; preds = %72, %.lr.ph.i.i.i17
-  %.sink15.i.i.i22 = phi i32 [ %74, %72 ], [ 0, %.lr.ph.i.i.i17 ]
-  %.sink13.i.i.i23 = phi ptr [ %76, %72 ], [ %69, %.lr.ph.i.i.i17 ]
-  %.sink.i.i.i24 = phi ptr [ %78, %72 ], [ %69, %.lr.ph.i.i.i17 ]
-  %.sink.i.i.i.i25 = phi i64 [ %81, %72 ], [ 0, %.lr.ph.i.i.i17 ]
-  store i32 %.sink15.i.i.i22, ptr %69, align 8, !alias.scope !70, !noalias !73
-  %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
-  store ptr %71, ptr %82, align 8, !alias.scope !70, !noalias !73
-  %83 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  store ptr %.sink13.i.i.i23, ptr %83, align 8, !alias.scope !70, !noalias !73
-  %84 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  store ptr %.sink.i.i.i24, ptr %84, align 8, !alias.scope !70, !noalias !73
-  %85 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
-  store i64 %.sink.i.i.i.i25, ptr %85, align 8, !alias.scope !70, !noalias !73
-  %86 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
-  %87 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
-  %.not.i.i.i26 = icmp eq ptr %86, %5
+_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21: ; preds = %69, %.lr.ph.i.i.i17
+  %.sink15.i.i.i22 = phi i32 [ %71, %69 ], [ 0, %.lr.ph.i.i.i17 ]
+  %.sink13.i.i.i23 = phi ptr [ %73, %69 ], [ %66, %.lr.ph.i.i.i17 ]
+  %.sink.i.i.i24 = phi ptr [ %75, %69 ], [ %66, %.lr.ph.i.i.i17 ]
+  %.sink.i.i.i.i25 = phi i64 [ %78, %69 ], [ 0, %.lr.ph.i.i.i17 ]
+  store i32 %.sink15.i.i.i22, ptr %66, align 8, !alias.scope !70, !noalias !73
+  %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
+  store ptr %68, ptr %79, align 8, !alias.scope !70, !noalias !73
+  %80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
+  store ptr %.sink13.i.i.i23, ptr %80, align 8, !alias.scope !70, !noalias !73
+  %81 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
+  store ptr %.sink.i.i.i24, ptr %81, align 8, !alias.scope !70, !noalias !73
+  %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
+  store i64 %.sink.i.i.i.i25, ptr %82, align 8, !alias.scope !70, !noalias !73
+  %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
+  %.not.i.i.i26 = icmp eq ptr %83, %5
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, label %.lr.ph.i.i.i17, !llvm.loop !69
 
 _ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28: ; preds = %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i27 = phi ptr [ %67, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %87, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ]
+  %.0.lcssa.i.i.i27 = phi ptr [ %64, %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %84, %_ZSt19__relocate_object_aIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_SaIS4_EEvPT_PT0_RT1_.exit.i.i.i21 ]
   %.not.i29 = icmp eq ptr %6, null
-  br i1 %.not.i29, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE13_M_deallocateEPS4_m.exit, label %88
+  br i1 %.not.i29, label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE13_M_deallocateEPS4_m.exit, label %85
 
-88:                                               ; preds = %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28
+85:                                               ; preds = %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28
   tail call void @_ZdlPv(ptr noundef nonnull %6) #28
   br label %_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, %88
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, %85
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8
-  %90 = getelementptr inbounds %"struct.ceres::internal::SchurEliminator<>::Chunk", ptr %23, i64 %16
-  store ptr %90, ptr %89, align 8
+  %87 = getelementptr inbounds nuw %"struct.ceres::internal::SchurEliminator<>::Chunk", ptr %20, i64 %16
+  store ptr %87, ptr %86, align 8
   ret void
 }
 
@@ -4207,14 +4200,14 @@ define linkonce_odr void @_ZNSt6vectorIPSt5mutexSaIS1_EE17_M_default_appendEm(pt
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -4291,7 +4284,7 @@ _ZNSt12_Vector_baseIPSt5mutexSaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %_Z
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds ptr, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds ptr, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -4333,12 +4326,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal14ParallelInvokeIZNS0_15Schur
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %20 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #31, !noalias !76
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %21, align 8, !noalias !76
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !76
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !76
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %23, i32 noundef %1, i32 noundef %2, i32 noundef %.sroa.speculated)
           to label %25 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !76
 
@@ -4353,13 +4346,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %common.resume
 
 25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %26, align 8, !alias.scope !76
   store ptr %23, ptr %8, align 8, !alias.scope !76
   store ptr %0, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %28, align 8
   %29 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %29, 0
@@ -4376,16 +4369,16 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds = %30, %33
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %3, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %36, align 8
   invoke void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %37 unwind label %111
 
 37:                                               ; preds = %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   invoke void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %40 unwind label %111
 
@@ -4395,7 +4388,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
   br i1 %.not.i.i.i.i11, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load atomic i64, ptr %43 acquire, align 8
   %45 = icmp eq i64 %44, 4294967297
   %46 = trunc i64 %44 to i32
@@ -4403,10 +4396,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 47:                                               ; preds = %42
   store i32 0, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 0, ptr %48, align 4
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -4432,10 +4425,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %41, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
-  %64 = getelementptr inbounds i8, ptr %41, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %65 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %65, 0
   br i1 %.not.i.i.i.i.i.i.i, label %69, label %66
@@ -4457,7 +4450,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %71, %47
   %73 = load ptr, ptr %41, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -4468,7 +4461,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i.i12, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %77
 
 77:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load atomic i64, ptr %78 acquire, align 8
   %80 = icmp eq i64 %79, 4294967297
   %81 = trunc i64 %79 to i32
@@ -4476,10 +4469,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 82:                                               ; preds = %77
   store i32 0, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 0, ptr %83, align 4
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -4505,10 +4498,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %76, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
-  %99 = getelementptr inbounds i8, ptr %76, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %100 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %100, 0
   br i1 %.not.i.i.i.i.i.i, label %104, label %101
@@ -4530,7 +4523,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %106, %82
   %108 = load ptr, ptr %76, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -4554,25 +4547,25 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::function", align 8
   %8 = alloca %class.anon.169, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %.not = icmp slt i32 %12, %14
   br i1 %.not, label %15, label %147
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %12, 1
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %23 = load atomic i32, ptr %22 seq_cst, align 4
   %24 = icmp slt i32 %23, %18
   br i1 %24, label %25, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
@@ -4581,19 +4574,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %1, align 8
   store ptr %27, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit, label %34
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i.i.i, label %40, label %37
@@ -4609,32 +4602,32 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit: ; preds = %25, %37, %40
-  %42 = getelementptr inbounds i8, ptr %8, i64 24
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %45 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %46 unwind label %62
 
 46:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
-  %47 = getelementptr inbounds i8, ptr %7, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %48 = load ptr, ptr %8, align 8
   store ptr %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %50 = load ptr, ptr %28, align 8
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %45, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %52 = load ptr, ptr %31, align 8
   store ptr null, ptr %31, align 8
   store ptr %52, ptr %51, align 8
   store ptr null, ptr %28, align 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
   store ptr %45, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %47, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %44, align 8
-  %54 = getelementptr inbounds i8, ptr %26, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %26, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %54, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %55 unwind label %64
 
@@ -4685,17 +4678,17 @@ _ZNSt8functionIFvvEED2Ev.exit39:                  ; preds = %67, %64, %62
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit: ; preds = %57, %55, %21, %15
   %72 = load ptr, ptr %9, align 8
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %72, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %72, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %79 = atomicrmw add ptr %78, i32 1 seq_cst, align 4
   %.not3649 = icmp slt i32 %79, %18
   br i1 %.not3649, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %81
 
 81:                                               ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit
@@ -4715,9 +4708,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   br i1 %.not4.i, label %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 16
-  %94 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %95 = sext i32 %86 to i64
   br label %96
 
@@ -4728,14 +4721,14 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %97 = load ptr, ptr %91, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load i32, ptr %98, align 8
   %100 = trunc nsw i64 %indvars.iv.i to i32
   %101 = sub nsw i32 %100, %99
   %102 = load ptr, ptr %92, align 8
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable(8) %103, i32 noundef %101, i32 noundef %101, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not.i.i.i = icmp eq ptr %107, null
@@ -4749,7 +4742,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %94, align 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %112, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds double, ptr %115, i64 %118
@@ -4772,7 +4765,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   %132 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i, %122
   %133 = getelementptr double, ptr %130, i64 %.05.i.i.i.i.i.i.i.i.i
   %134 = getelementptr double, ptr %133, i64 %132
-  %135 = getelementptr inbounds double, ptr %119, i64 %.05.i.i.i.i.i.i.i.i.i
+  %135 = getelementptr inbounds nuw double, ptr %119, i64 %.05.i.i.i.i.i.i.i.i.i
   %136 = load double, ptr %135, align 8
   %137 = fmul double %136, %136
   %138 = load double, ptr %134, align 8
@@ -4794,7 +4787,7 @@ _ZN5ceres8internal18InvokeWithThreadIdIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_JRiEEEviOT_DpOT0_.exit.i, %81
   %142 = load ptr, ptr %9, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = atomicrmw add ptr %143, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %144, %18
   br i1 %.not36, label %81, label %._crit_edge, !llvm.loop !80
@@ -4802,7 +4795,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit ], [ %83, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %146, i32 noundef %.034.lcssa)
   br label %147
 
@@ -4814,13 +4807,13 @@ declare void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -4828,10 +4821,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -4857,10 +4850,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -4882,7 +4875,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -4893,13 +4886,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5ceres8internal19ParallelInvokeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -4907,10 +4900,10 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInv
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -4936,10 +4929,10 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInv
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i, label %31, label %28
@@ -4961,7 +4954,7 @@ define linkonce_odr hidden void @_ZNSt10shared_ptrIN5ceres8internal19ParallelInv
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt12__shared_ptrIN5ceres8internal19ParallelInvokeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4983,7 +4976,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #29
   ret void
 }
@@ -4997,12 +4990,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
@@ -5038,13 +5031,13 @@ declare void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -5052,10 +5045,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -5081,10 +5074,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -5106,7 +5099,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -5156,25 +5149,25 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::function", align 8
   %8 = alloca %class.anon.170, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %.not = icmp slt i32 %12, %14
   br i1 %.not, label %15, label %190
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %12, 1
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %23 = load atomic i32, ptr %22 seq_cst, align 4
   %24 = icmp slt i32 %23, %18
   br i1 %24, label %25, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
@@ -5183,19 +5176,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %1, align 8
   store ptr %27, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit, label %34
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i.i.i, label %40, label %37
@@ -5211,8 +5204,8 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit: ; preds = %25, %37, %40
-  %42 = getelementptr inbounds i8, ptr %8, i64 24
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %44 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
@@ -5221,17 +5214,17 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 .noexc:                                           ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
   %45 = load ptr, ptr %8, align 8
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %28, align 8
   store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load ptr, ptr %31, align 8
   store ptr %49, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %58, label %50
 
 50:                                               ; preds = %.noexc
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %56, label %53
@@ -5247,14 +5240,14 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br label %58
 
 58:                                               ; preds = %56, %53, %.noexc
-  %59 = getelementptr inbounds i8, ptr %7, i64 24
-  %60 = getelementptr inbounds i8, ptr %7, i64 16
-  %61 = getelementptr inbounds i8, ptr %44, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   store ptr %44, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %59, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %26, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %62, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %63 unwind label %107
 
@@ -5280,7 +5273,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %63, %65
   br i1 %.not.i.i.i.i.i37, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit, label %71
 
 71:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load atomic i64, ptr %72 acquire, align 8
   %74 = icmp eq i64 %73, 4294967297
   %75 = trunc i64 %73 to i32
@@ -5288,10 +5281,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %63, %65
 
 76:                                               ; preds = %71
   store i32 0, ptr %72, align 8
-  %77 = getelementptr inbounds i8, ptr %70, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %77, align 4
   %78 = load ptr, ptr %70, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(16) %70) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -5317,10 +5310,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %63, %65
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %70, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %70) #29
-  %93 = getelementptr inbounds i8, ptr %70, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %94 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i38 = icmp eq i8 %94, 0
   br i1 %.not.i.i.i.i.i.i.i.i38, label %98, label %95
@@ -5342,7 +5335,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %63, %65
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %100, %76
   %102 = load ptr, ptr %70, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(16) %70) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
@@ -5378,17 +5371,17 @@ _ZNSt8functionIFvvEED2Ev.exit40:                  ; preds = %110, %107, %105
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %100, %87, %_ZNSt8functionIFvvEED2Ev.exit, %21, %15
   %115 = load ptr, ptr %9, align 8
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %115, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %115, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %120 = load i32, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %115, i64 20
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 20
   %122 = atomicrmw add ptr %121, i32 1 seq_cst, align 4
   %.not3650 = icmp slt i32 %122, %18
   br i1 %.not3650, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %124
 
 124:                                              ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit
@@ -5408,9 +5401,9 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   br i1 %.not4.i, label %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %124
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
-  %136 = getelementptr inbounds i8, ptr %134, i64 16
-  %137 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %138 = sext i32 %129 to i64
   br label %139
 
@@ -5421,14 +5414,14 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %140 = load ptr, ptr %134, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load i32, ptr %141, align 8
   %143 = trunc nsw i64 %indvars.iv.i to i32
   %144 = sub nsw i32 %143, %142
   %145 = load ptr, ptr %135, align 8
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8
   %150 = call noundef ptr %149(ptr noundef nonnull align 8 dereferenceable(8) %146, i32 noundef %144, i32 noundef %144, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not.i.i.i = icmp eq ptr %150, null
@@ -5442,7 +5435,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   %156 = load i32, ptr %155, align 4
   %157 = load ptr, ptr %137, align 8
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds double, ptr %158, i64 %161
@@ -5465,7 +5458,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
   %175 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i, %165
   %176 = getelementptr double, ptr %173, i64 %.05.i.i.i.i.i.i.i.i.i
   %177 = getelementptr double, ptr %176, i64 %175
-  %178 = getelementptr inbounds double, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i
+  %178 = getelementptr inbounds nuw double, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i
   %179 = load double, ptr %178, align 8
   %180 = fmul double %179, %179
   %181 = load double, ptr %177, align 8
@@ -5487,7 +5480,7 @@ _ZN5ceres8internal18InvokeWithThreadIdIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %_ZN5ceres8internal18InvokeWithThreadIdIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_JRiEEEviOT_DpOT0_.exit.i, %124
   %185 = load ptr, ptr %9, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 20
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 20
   %187 = atomicrmw add ptr %186, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %187, %18
   br i1 %.not36, label %124, label %._crit_edge, !llvm.loop !81
@@ -5495,7 +5488,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit ], [ %126, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %188 = load ptr, ptr %9, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %189, i32 noundef %.034.lcssa)
   br label %190
 
@@ -5505,13 +5498,13 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -5519,10 +5512,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -5548,10 +5541,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -5573,7 +5566,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -5636,19 +5629,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -5664,8 +5657,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -5676,13 +5669,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -5690,10 +5683,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -5719,10 +5712,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -5744,7 +5737,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit.i
@@ -5780,19 +5773,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -5808,8 +5801,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -5820,13 +5813,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -5834,10 +5827,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -5863,10 +5856,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -5888,7 +5881,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit.i
@@ -5935,12 +5928,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal14ParallelInvokeIZNS0_15Schur
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %20 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #31, !noalias !82
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %21, align 8, !noalias !82
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !82
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !82
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %23, i32 noundef %1, i32 noundef %2, i32 noundef %.sroa.speculated)
           to label %25 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !82
 
@@ -5955,13 +5948,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %common.resume
 
 25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %26, align 8, !alias.scope !82
   store ptr %23, ptr %8, align 8, !alias.scope !82
   store ptr %0, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %28, align 8
   %29 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %29, 0
@@ -5978,16 +5971,16 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds = %30, %33
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %3, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %36, align 8
   invoke void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %37 unwind label %111
 
 37:                                               ; preds = %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   invoke void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %40 unwind label %111
 
@@ -5997,7 +5990,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
   br i1 %.not.i.i.i.i11, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load atomic i64, ptr %43 acquire, align 8
   %45 = icmp eq i64 %44, 4294967297
   %46 = trunc i64 %44 to i32
@@ -6005,10 +5998,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 47:                                               ; preds = %42
   store i32 0, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 0, ptr %48, align 4
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -6034,10 +6027,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %41, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
-  %64 = getelementptr inbounds i8, ptr %41, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %65 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %65, 0
   br i1 %.not.i.i.i.i.i.i.i, label %69, label %66
@@ -6059,7 +6052,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %71, %47
   %73 = load ptr, ptr %41, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -6070,7 +6063,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i.i12, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %77
 
 77:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load atomic i64, ptr %78 acquire, align 8
   %80 = icmp eq i64 %79, 4294967297
   %81 = trunc i64 %79 to i32
@@ -6078,10 +6071,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 82:                                               ; preds = %77
   store i32 0, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 0, ptr %83, align 4
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -6107,10 +6100,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %76, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
-  %99 = getelementptr inbounds i8, ptr %76, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %100 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %100, 0
   br i1 %.not.i.i.i.i.i.i, label %104, label %101
@@ -6132,7 +6125,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %106, %82
   %108 = load ptr, ptr %76, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -6157,22 +6150,22 @@ define linkonce_odr hidden void @_ZZN5ceres8internal15SchurEliminatorILin1ELin1E
   %8 = alloca %"class.Eigen::Matrix", align 8
   %9 = alloca %"class.ceres::internal::FixedArray", align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = mul nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds double, ptr %12, i64 %16
-  %18 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %19 = sext i32 %2 to i64
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds %"struct.ceres::internal::SchurEliminator<>::Chunk", ptr %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %25, align 8
@@ -6253,8 +6246,8 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
 
 69:                                               ; preds = %66
   %70 = mul nsw i64 %64, %64
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = icmp samesign ugt i64 %70, 2305843009213693951
   br i1 %73, label %.invoke, label %74
 
@@ -6285,11 +6278,11 @@ common.resume:                                    ; preds = %_ZN5ceres8internal1
   br label %common.resume
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
-  %82 = getelementptr inbounds i8, ptr %5, i64 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %64, ptr %82, align 8
   store i64 %64, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
   %.not = icmp eq ptr %86, null
@@ -6299,7 +6292,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread: ; preds
   store ptr %76, ptr %5, align 8
   store i64 %64, ptr %71, align 8
   store i64 %64, ptr %72, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
   %.not77 = icmp eq ptr %89, null
@@ -6313,9 +6306,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread: ; preds
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds double, ptr %86, i64 %96
-  %98 = getelementptr inbounds i8, ptr %6, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %97, ptr %98, align 8
-  %.sroa.062.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.062.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %64, ptr %.sroa.062.sroa.2.0..sroa_idx, align 8
   br label %.noexc24
 
@@ -6327,9 +6320,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread: ; preds
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds double, ptr %89, i64 %105
-  %107 = getelementptr inbounds i8, ptr %6, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %106, ptr %107, align 8
-  %.sroa.062.sroa.2.0..sroa_idx79 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.062.sroa.2.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %64, ptr %.sroa.062.sroa.2.0..sroa_idx79, align 8
   %108 = sdiv i64 9223372036854775807, %64
   %109 = icmp slt i64 %108, %64
@@ -6363,7 +6356,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_15DiagonalWrapperIKNS_13MatrixW
   br label %_ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit51
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.thread: ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit
-  %116 = getelementptr inbounds i8, ptr %7, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %64, ptr %116, align 8
   br label %124
 
@@ -6373,7 +6366,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exi
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i, %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_15DiagonalWrapperIKNS_13MatrixWrapperIKNS_12CwiseUnaryOpINS_8internal16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_3MapIKNS0_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEEEEEEEERS1_RKNS_9EigenBaseIT_EE.exit
-  %118 = getelementptr inbounds i8, ptr %7, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %64, ptr %118, align 8
   %119 = icmp ult i32 %36, 9
   br i1 %119, label %124, label %120
@@ -6398,7 +6391,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i: ; preds = %120
   %125 = phi i1 [ true, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit ], [ false, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i ], [ true, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.thread ]
   %126 = phi ptr [ %118, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit ], [ %118, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i ], [ %116, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.thread ]
   %.0.i.i.i = phi ptr [ %7, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit ], [ %123, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i ], [ %7, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.thread ]
-  %127 = getelementptr inbounds i8, ptr %7, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %.0.i.i.i, ptr %127, align 8
   %128 = ptrtoint ptr %.0.i.i.i to i64
   %129 = and i64 %128, 7
@@ -6459,35 +6452,35 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %153
 
 153:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i33, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.preheader.i34
-  %154 = getelementptr inbounds i8, ptr %0, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = load i32, ptr %26, align 4
   %160 = load ptr, ptr %127, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %162, align 8
   invoke void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE29ChunkDiagonalBlockAndGradientERKNS2_5ChunkERKNS0_21BlockSparseMatrixDataEPKdiPN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEEPdSF_PNS0_23BlockRandomAccessMatrixE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef %158, i32 noundef %159, ptr noundef nonnull %5, ptr noundef %160, ptr noundef %17, ptr noundef %163)
           to label %164 unwind label %195
 
 164:                                              ; preds = %153
-  %165 = getelementptr inbounds i8, ptr %10, i64 28
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %166 = load i8, ptr %165, align 4
   %167 = trunc i8 %166 to i1
   invoke void @_ZN5ceres8internal15InvertPSDMatrixILin1EEENS_10EigenTypesIXT_EXT_EE6MatrixEbRKS4_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %8, i1 noundef zeroext %167, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %168 unwind label %195
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
   %.not20 = icmp eq ptr %171, null
   br i1 %.not20, label %_ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit, label %172
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds i8, ptr %9, i64 64
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %64, ptr %173, align 8
   br i1 %125, label %176, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i41
 
@@ -6498,7 +6491,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i41: ; preds = %172
 
 176:                                              ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i41, %172
   %.0.i.i.i42 = phi ptr [ %9, %172 ], [ %175, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i41 ]
-  %177 = getelementptr inbounds i8, ptr %9, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %.0.i.i.i42, ptr %177, align 8
   %178 = load ptr, ptr %8, align 8
   %179 = load ptr, ptr %127, align 8
@@ -6556,7 +6549,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i41: ; preds = %172
 _ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit: ; preds = %191, %188, %168
   %205 = load ptr, ptr %22, align 8
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %21, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %208 = load ptr, ptr %161, align 8
   %209 = load ptr, ptr %208, align 8
   invoke void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE17ChunkOuterProductEiPKNS0_27CompressedRowBlockStructureERKN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEEPKdRKSt3mapIiiSt4lessIiESaISt4pairIKiiEEEPNS0_23BlockRandomAccessMatrixE(ptr noundef nonnull align 8 dereferenceable(128) %10, i32 noundef %1, ptr noundef %206, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(48) %207, ptr noundef %209)
@@ -6616,7 +6609,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15InvertPSDMatrixILin1EEENS_1
   %7 = alloca %"class.Eigen::JacobiSVD", align 8
   %8 = alloca %"class.Eigen::Solve.279", align 8
   %9 = alloca %"class.Eigen::CwiseNullaryOp.241", align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   br i1 %1, label %12, label %20
 
@@ -6625,10 +6618,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal15InvertPSDMatrixILin1EEENS_1
   %sext10 = shl i64 %11, 32
   %13 = ashr exact i64 %sext10, 32
   store i64 %13, ptr %6, align 8, !alias.scope !85
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %13, ptr %14, align 8, !alias.scope !85
   store ptr %5, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %15, align 8
   invoke void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2INS_5SolveINS_3LLTIS2_Li2EEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_5SolveINS_3LLTIS1_Li2EEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES1_EEEEEERKNS_9EigenBaseIT_EE.exit unwind label %17
@@ -6646,16 +6639,16 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_5SolveINS_3LLTIS1_Li2EEENS_14Cw
   br label %common.resume
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %7, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(544) %7, i8 0, i64 75, i1 false)
-  %23 = getelementptr inbounds i8, ptr %7, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 120
-  %25 = getelementptr inbounds i8, ptr %7, i64 304
-  %26 = getelementptr inbounds i8, ptr %7, i64 504
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 304
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 504
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(146) %24, i8 0, i64 146, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(162) %25, i8 0, i64 162, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
@@ -6669,9 +6662,9 @@ common.resume:                                    ; preds = %17, %39, %28
 28:                                               ; preds = %20
   %29 = landingpad { ptr, i32 }
           cleanup
-  %30 = getelementptr inbounds i8, ptr %7, i64 520
-  %31 = getelementptr inbounds i8, ptr %7, i64 344
-  %32 = getelementptr inbounds i8, ptr %7, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 520
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 344
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %33 = load ptr, ptr %30, align 8
   call void @free(ptr noundef %33) #29
   call void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %31) #29
@@ -6685,10 +6678,10 @@ common.resume:                                    ; preds = %17, %39, %28
   %sext = shl i64 %11, 32
   %36 = ashr exact i64 %sext, 32
   store i64 %36, ptr %9, align 8, !alias.scope !90
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %36, ptr %37, align 8, !alias.scope !90
   store ptr %7, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %38, align 8
   invoke void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2INS_5SolveINS_7SVDBaseINS_9JacobiSVDIS2_Li2EEEEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_5SolveINS_7SVDBaseINS_9JacobiSVDIS1_Li2EEEEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES1_EEEEEERKNS_9EigenBaseIT_EE.exit unwind label %39
@@ -6729,9 +6722,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %.05567 = phi ptr [ %15, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.06266 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.06365 = phi i32 [ %18, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.05468, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05468, i64 8
   %14 = load double, ptr %.05468, align 8
-  %15 = getelementptr inbounds i8, ptr %.05567, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05567, i64 8
   %16 = load double, ptr %.05567, align 8
   %17 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %.06266)
   %18 = add nuw nsw i32 %.06365, 1
@@ -6761,7 +6754,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds double, ptr %0, i64 %27
   %29 = zext nneg i32 %2 to i64
-  %30 = getelementptr inbounds double, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw double, ptr %28, i64 %29
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
@@ -6771,12 +6764,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %.05971 = phi ptr [ %31, %.lr.ph76 ], [ %3, %.lr.ph76.preheader ]
   %.06070 = phi ptr [ %36, %.lr.ph76 ], [ %30, %.lr.ph76.preheader ]
   %.06169 = phi ptr [ %33, %.lr.ph76 ], [ %28, %.lr.ph76.preheader ]
-  %31 = getelementptr inbounds i8, ptr %.05971, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.05971, i64 8
   %32 = load double, ptr %.05971, align 8
-  %33 = getelementptr inbounds i8, ptr %.06169, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.06169, i64 8
   %34 = load double, ptr %.06169, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %32, double %.05872)
-  %36 = getelementptr inbounds i8, ptr %.06070, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.06070, i64 8
   %37 = load double, ptr %.06070, align 8
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %32, double %.05773)
   %39 = add nuw nsw i32 %.05674, 1
@@ -6809,7 +6802,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
   %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %.lr.ph82 ]
   %50 = mul nsw i64 %indvars.iv, %48
   %51 = getelementptr inbounds double, ptr %0, i64 %50
-  %52 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   tail call fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 noundef %2, ptr noundef %51, i32 noundef %2, ptr noundef %3, ptr noundef %52, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %53 = icmp slt i64 %indvars.iv.next, %49
@@ -6821,9 +6814,9 @@ define linkonce_odr hidden void @_ZN5ceres8internal20MatrixVectorMultiplyILin1EL
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
@@ -6881,12 +6874,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_15DiagonalWrapperIKNS_13MatrixWrapperIKNS_12CwiseUnaryOpINS0_16scalar_square_opIdEEKNS_12ArrayWrapperIKNS_3MapIKNS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEEEEEEENS0_9assign_opIddEENS0_14Diagonal2DenseEvE3runERS3_RKSN_RKSP_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %.not11 = icmp eq i64 %9, %5
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -6932,7 +6925,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exi
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit: ; preds = %18, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
   %25 = phi i64 [ %20, %18 ], [ %.pre15, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i ]
   %26 = phi i64 [ %19, %18 ], [ %.pre14, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = tail call noundef i64 @llvm.smin.i64(i64 %26, i64 %25)
@@ -6944,7 +6937,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit: ; pr
   %32 = mul nsw i64 %.05.i.i.i.i.i.i.i.i, %26
   %33 = getelementptr double, ptr %29, i64 %32
   %34 = getelementptr double, ptr %33, i64 %.05.i.i.i.i.i.i.i.i
-  %35 = getelementptr inbounds double, ptr %28, i64 %.05.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw double, ptr %28, i64 %.05.i.i.i.i.i.i.i.i
   %36 = load double, ptr %35, align 8
   %37 = fmul double %36, %36
   store double %37, ptr %34, align 8
@@ -6958,67 +6951,67 @@ _ZN5Eigen8DiagonalINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0EEaSINS_13MatrixWrap
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 520
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #29
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
-  %5 = getelementptr inbounds i8, ptr %0, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #29
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #29
-  %9 = getelementptr inbounds i8, ptr %0, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #29
-  %11 = getelementptr inbounds i8, ptr %0, i64 416
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #29
-  %13 = getelementptr inbounds i8, ptr %0, i64 400
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #29
-  %15 = getelementptr inbounds i8, ptr %0, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #29
-  %17 = getelementptr inbounds i8, ptr %0, i64 368
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #29
   %19 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %19) #29
-  %20 = getelementptr inbounds i8, ptr %0, i64 144
-  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #29
-  %23 = getelementptr inbounds i8, ptr %0, i64 304
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #29
-  %25 = getelementptr inbounds i8, ptr %0, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #29
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load ptr, ptr %27, align 8
   tail call void @free(ptr noundef %28) #29
-  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %30 = load ptr, ptr %29, align 8
   tail call void @free(ptr noundef %30) #29
-  %31 = getelementptr inbounds i8, ptr %0, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32) #29
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #29
-  %35 = getelementptr inbounds i8, ptr %0, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #29
   %37 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %37) #29
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   tail call void @free(ptr noundef %39) #29
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   tail call void @free(ptr noundef %41) #29
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void @free(ptr noundef %43) #29
   %44 = load ptr, ptr %0, align 8
@@ -7028,9 +7021,9 @@ define linkonce_odr hidden void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1EL
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2IS2_EERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = icmp eq i64 %4, 0
@@ -7063,7 +7056,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br label %.body
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %17, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE7computeIS2_EERS3_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1)
           to label %19 unwind label %20
@@ -7087,7 +7080,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE7computeIS2_EERS3_RKNS_9EigenBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Transpose", align 8
   %4 = alloca %"struct.Eigen::internal::assign_op", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit, label %8
@@ -7109,9 +7102,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = icmp eq ptr %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %18, %20
   %22 = select i1 %16, i1 %21, i1 false
@@ -7124,7 +7117,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br label %24
 
 24:                                               ; preds = %23, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %25, align 8
   %26 = icmp sgt i64 %6, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
@@ -7137,7 +7130,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 29:                                               ; preds = %.lr.ph, %95
   %.048 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
   %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %96, %95 ]
-  %31 = getelementptr inbounds double, ptr %27, i64 %.048
+  %31 = getelementptr inbounds nuw double, ptr %27, i64 %.048
   %32 = icmp eq i64 %.048, 0
   br i1 %32, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit, label %33
 
@@ -7182,11 +7175,11 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br i1 %55, label %56, label %80
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %46, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %58 = load <2 x i64>, ptr %57, align 1
   %59 = and <2 x i64> %58, splat (i64 9223372036854775807)
   %60 = bitcast <2 x i64> %59 to <2 x double>
-  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 48
   %61 = icmp samesign ugt i64 %44, 7
   br i1 %61, label %.lr.ph.i.i.i.i.i21, label %._crit_edge.i.i.i.i.i
 
@@ -7195,12 +7188,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %.054.in77.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i, %.lr.ph.i.i.i.i.i21 ], [ 0, %56 ]
   %storemerge76.i.i.i.i.i = phi <2 x double> [ %70, %.lr.ph.i.i.i.i.i21 ], [ %60, %56 ]
   %.17375.i.i.i.i.i = phi <2 x double> [ %66, %.lr.ph.i.i.i.i.i21 ], [ %54, %56 ]
-  %62 = getelementptr inbounds double, ptr %46, i64 %.05478.i.i.i.i.i
+  %62 = getelementptr inbounds nuw double, ptr %46, i64 %.05478.i.i.i.i.i
   %63 = load <2 x i64>, ptr %62, align 1
   %64 = and <2 x i64> %63, splat (i64 9223372036854775807)
   %65 = bitcast <2 x i64> %64 to <2 x double>
   %66 = fadd <2 x double> %.17375.i.i.i.i.i, %65
-  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %67 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
   %68 = and <2 x i64> %67, splat (i64 9223372036854775807)
   %69 = bitcast <2 x i64> %68 to <2 x double>
@@ -7217,7 +7210,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %75 = getelementptr inbounds double, ptr %46, i64 %48
+  %75 = getelementptr inbounds nuw double, ptr %46, i64 %48
   %76 = load <2 x i64>, ptr %75, align 1
   %77 = and <2 x i64> %76, splat (i64 9223372036854775807)
   %78 = bitcast <2 x i64> %77 to <2 x double>
@@ -7265,7 +7258,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %95, %24
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %98, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -7273,7 +7266,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %100 = icmp ne i64 %99, -1
   %101 = zext i1 %100 to i32
-  %102 = getelementptr inbounds i8, ptr %0, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %101, ptr %102, align 4
   ret ptr %0
 }
@@ -7281,14 +7274,14 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.not8.i = icmp eq i64 %12, %8
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -7330,8 +7323,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.011.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %21 ]
-  %29 = getelementptr inbounds double, ptr %24, i64 %.011.i
-  %30 = getelementptr inbounds double, ptr %4, i64 %.011.i
+  %29 = getelementptr inbounds nuw double, ptr %24, i64 %.011.i
+  %30 = getelementptr inbounds nuw double, ptr %4, i64 %.011.i
   %31 = load <2 x double>, ptr %30, align 16
   store <2 x double> %31, ptr %29, align 16
   %32 = add nuw nsw i64 %.011.i, 2
@@ -7367,7 +7360,7 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %5 = alloca %"class.Eigen::SelfAdjointView.398", align 8
   %6 = alloca double, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 32
   br i1 %10, label %11, label %13
@@ -7382,25 +7375,25 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %16 = icmp eq i64 %15, 0
   %17 = tail call i64 @llvm.umin.i64(i64 %15, i64 128)
   %.sroa.speculated44 = select i1 %16, i64 8, i64 %17
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
-  %23 = getelementptr inbounds i8, ptr %2, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
-  %29 = getelementptr inbounds i8, ptr %3, i64 48
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %31
 
 31:                                               ; preds = %13, %.critedge
@@ -7410,8 +7403,8 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE7b
   %33 = sub nsw i64 %32, %.sroa.speculated
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %.03459
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %.03459
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = mul nsw i64 %38, %.03459
   %40 = getelementptr inbounds double, ptr %36, i64 %39
@@ -7490,14 +7483,14 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %2 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %3 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELi1ELb0EEEEdVERKd.exit
@@ -7507,12 +7500,12 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %13 = add nuw nsw i64 %.02956, 1
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %13
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = mul nsw i64 %18, %.02956
   %20 = getelementptr inbounds double, ptr %16, i64 %19
-  %21 = getelementptr inbounds double, ptr %15, i64 %.02956
+  %21 = getelementptr inbounds nuw double, ptr %15, i64 %.02956
   %22 = getelementptr double, ptr %15, i64 %19
   %23 = getelementptr double, ptr %22, i64 %.02956
   %24 = load double, ptr %23, align 8
@@ -7551,7 +7544,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
   %39 = call double @sqrt(double noundef %.051) #29
   %40 = load ptr, ptr %0, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = mul nsw i64 %43, %.02956
   %45 = getelementptr double, ptr %41, i64 %44
@@ -7626,7 +7619,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %75 = getelementptr inbounds double, ptr %20, i64 %.05.i.i.i.i.i.i.i
+  %75 = getelementptr inbounds nuw double, ptr %20, i64 %.05.i.i.i.i.i.i.i
   %76 = load double, ptr %75, align 8
   %77 = fdiv double %76, %39
   store double %77, ptr %75, align 8
@@ -7680,15 +7673,15 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
 define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9unblockedINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEEEElRT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %3 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELin1ELin1ELb0EEELin1ELi1ELb0EEEEdVERKd.exit
@@ -7697,13 +7690,13 @@ define linkonce_odr hidden noundef i64 @_ZN5Eigen8internal11llt_inplaceIdLi1EE9u
   %12 = add nsw i64 %5, %11
   %13 = add nuw nsw i64 %.02964, 1
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds double, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw double, ptr %14, i64 %13
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = mul nsw i64 %18, %.02964
   %20 = getelementptr inbounds double, ptr %15, i64 %19
-  %21 = getelementptr inbounds double, ptr %14, i64 %.02964
+  %21 = getelementptr inbounds nuw double, ptr %14, i64 %.02964
   %22 = getelementptr double, ptr %14, i64 %19
   %23 = getelementptr double, ptr %22, i64 %.02964
   %24 = load double, ptr %23, align 8
@@ -7742,7 +7735,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
   %39 = call double @sqrt(double noundef %.055) #29
   %40 = load ptr, ptr %0, align 8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = mul nsw i64 %43, %.02964
   %45 = getelementptr double, ptr %40, i64 %44
@@ -7817,7 +7810,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %75 = getelementptr inbounds double, ptr %20, i64 %.05.i.i.i.i.i.i.i
+  %75 = getelementptr inbounds nuw double, ptr %20, i64 %.05.i.i.i.i.i.i.i
   %76 = load double, ptr %75, align 8
   %77 = fdiv double %76, %39
   store double %77, ptr %75, align 8
@@ -7876,7 +7869,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, i64 noundef %5, double noundef %6) local_unnamed_addr #9 comdat align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.20.0.copyload = load i64, ptr %.sroa.20.0..sroa_idx, align 8
   %8 = add nsw i64 %0, -15
   %9 = add nsw i64 %0, -7
@@ -7895,7 +7888,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
 
 .lr.ph611:                                        ; preds = %7
   %21 = icmp sgt i64 %0, 15
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
 .loopexit:                                        ; preds = %._crit_edge606, %266
@@ -7982,42 +7975,42 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   br i1 %83, label %43, label %._crit_edge, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %43
-  %84 = getelementptr inbounds double, ptr %4, i64 %.0336568
+  %84 = getelementptr inbounds nuw double, ptr %4, i64 %.0336568
   %85 = load <2 x double>, ptr %84, align 1
   %86 = fmul <2 x double> %19, %53
   %87 = fadd <2 x double> %86, %85
   store <2 x double> %87, ptr %84, align 1
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %89 = load <2 x double>, ptr %88, align 1
   %90 = fmul <2 x double> %19, %57
   %91 = fadd <2 x double> %90, %89
   store <2 x double> %91, ptr %88, align 1
-  %92 = getelementptr inbounds i8, ptr %84, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %93 = load <2 x double>, ptr %92, align 1
   %94 = fmul <2 x double> %19, %61
   %95 = fadd <2 x double> %94, %93
   store <2 x double> %95, ptr %92, align 1
-  %96 = getelementptr inbounds i8, ptr %84, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %97 = load <2 x double>, ptr %96, align 1
   %98 = fmul <2 x double> %19, %65
   %99 = fadd <2 x double> %98, %97
   store <2 x double> %99, ptr %96, align 1
-  %100 = getelementptr inbounds i8, ptr %84, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %101 = load <2 x double>, ptr %100, align 1
   %102 = fmul <2 x double> %19, %69
   %103 = fadd <2 x double> %102, %101
   store <2 x double> %103, ptr %100, align 1
-  %104 = getelementptr inbounds i8, ptr %84, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %105 = load <2 x double>, ptr %104, align 1
   %106 = fmul <2 x double> %19, %73
   %107 = fadd <2 x double> %106, %105
   store <2 x double> %107, ptr %104, align 1
-  %108 = getelementptr inbounds i8, ptr %84, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %109 = load <2 x double>, ptr %108, align 1
   %110 = fmul <2 x double> %19, %77
   %111 = fadd <2 x double> %110, %109
   store <2 x double> %111, ptr %108, align 1
-  %112 = getelementptr inbounds i8, ptr %84, i64 112
+  %112 = getelementptr inbounds nuw i8, ptr %84, i64 112
   %113 = load <2 x double>, ptr %112, align 1
   %114 = fmul <2 x double> %19, %81
   %115 = fadd <2 x double> %114, %113
@@ -8076,22 +8069,22 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   br i1 %152, label %128, label %._crit_edge577, !llvm.loop !122
 
 ._crit_edge577:                                   ; preds = %128
-  %153 = getelementptr inbounds double, ptr %4, i64 %.0336.lcssa
+  %153 = getelementptr inbounds nuw double, ptr %4, i64 %.0336.lcssa
   %154 = load <2 x double>, ptr %153, align 1
   %155 = fmul <2 x double> %19, %138
   %156 = fadd <2 x double> %155, %154
   store <2 x double> %156, ptr %153, align 1
-  %157 = getelementptr inbounds i8, ptr %153, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = load <2 x double>, ptr %157, align 1
   %159 = fmul <2 x double> %19, %142
   %160 = fadd <2 x double> %159, %158
   store <2 x double> %160, ptr %157, align 1
-  %161 = getelementptr inbounds i8, ptr %153, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %162 = load <2 x double>, ptr %161, align 1
   %163 = fmul <2 x double> %19, %146
   %164 = fadd <2 x double> %163, %162
   store <2 x double> %164, ptr %161, align 1
-  %165 = getelementptr inbounds i8, ptr %153, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %166 = load <2 x double>, ptr %165, align 1
   %167 = fmul <2 x double> %19, %150
   %168 = fadd <2 x double> %167, %166
@@ -8145,12 +8138,12 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %200 = fmul <2 x double> %19, %187
   %201 = fadd <2 x double> %200, %199
   store <2 x double> %201, ptr %198, align 1
-  %202 = getelementptr inbounds i8, ptr %198, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %203 = load <2 x double>, ptr %202, align 1
   %204 = fmul <2 x double> %19, %191
   %205 = fadd <2 x double> %204, %203
   store <2 x double> %205, ptr %202, align 1
-  %206 = getelementptr inbounds i8, ptr %198, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %207 = load <2 x double>, ptr %206, align 1
   %208 = fmul <2 x double> %19, %195
   %209 = fadd <2 x double> %208, %207
@@ -8198,7 +8191,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %236 = fmul <2 x double> %19, %227
   %237 = fadd <2 x double> %236, %235
   store <2 x double> %237, ptr %234, align 1
-  %238 = getelementptr inbounds i8, ptr %234, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %239 = load <2 x double>, ptr %238, align 1
   %240 = fmul <2 x double> %19, %231
   %241 = fadd <2 x double> %240, %239
@@ -8288,40 +8281,40 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %3 = alloca i64, align 8
   %4 = alloca %"class.Eigen::internal::gemm_blocking_space", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.212.0.copyload = load ptr, ptr %.sroa.212.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %6, ptr %13, align 8
   store i64 %10, ptr %3, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
   %14 = load i64, ptr %11, align 8
   %15 = load i64, ptr %13, align 8
   %16 = mul nsw i64 %15, %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %16, ptr %17, align 8
   %18 = load i64, ptr %12, align 8
   %19 = mul nsw i64 %18, %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %19, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %.sroa.212.0.copyload, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.212.0.copyload, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef nonnull %.sroa.0.0.copyload, i64 noundef %22, ptr noundef nonnull %23, i64 noundef 1, i64 noundef %27, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %28 unwind label %32
@@ -8329,7 +8322,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
 28:                                               ; preds = %2
   %29 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %29) #29
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load ptr, ptr %30, align 8
   call void @free(ptr noundef %31) #29
   ret void
@@ -8339,7 +8332,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
           cleanup
   %34 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %34) #29
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @free(ptr noundef %36) #29
   resume { ptr, i32 } %33
@@ -8350,9 +8343,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_solve_matrixIdlL
   %9 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %10 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %11 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated366 = tail call i64 @llvm.smin.i64(i64 %15, i64 %1)
   %16 = mul nsw i64 %.sroa.speculated366, %13
@@ -8400,7 +8393,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   br i1 %37, label %.invoke, label %38
 
 38:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not305 = icmp eq ptr %40, null
   br i1 %.not305, label %41, label %_ZN5Eigen8internal14aligned_mallocEm.exit312
@@ -8438,9 +8431,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit312:     ; preds = %47, %38, %44
 
 .lr.ph420:                                        ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit312
   %55 = icmp sgt i64 %1, 0
-  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %57 = add i64 %3, 1
-  %58 = getelementptr inbounds i8, ptr %11, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %59
 
 59:                                               ; preds = %.lr.ph420, %._crit_edge416
@@ -8452,7 +8445,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit312:     ; preds = %47, %38, %44
   %61 = add nsw i64 %.sroa.speculated351, %.0256419
   %62 = sub nsw i64 %60, %.sroa.speculated351
   %63 = mul nsw i64 %.sroa.speculated351, %.sroa.speculated351
-  %64 = getelementptr inbounds double, ptr %52, i64 %63
+  %64 = getelementptr inbounds nuw double, ptr %52, i64 %63
   %65 = icmp sgt i64 %62, 0
   br i1 %65, label %66, label %_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1ELb0ELb0EEclEPdRKS3_llll.exit
 
@@ -8481,15 +8474,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit312:     ; preds = %47, %38, %44
   %77 = load double, ptr %76, align 8
   %78 = getelementptr inbounds double, ptr %64, i64 %.162.us.i
   store double %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %80 = load double, ptr %79, align 8
   %81 = getelementptr i8, ptr %78, i64 8
   store double %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %76, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %83 = load double, ptr %82, align 8
   %84 = getelementptr i8, ptr %78, i64 16
   store double %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %76, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %86 = load double, ptr %85, align 8
   %87 = getelementptr i8, ptr %78, i64 24
   store double %86, ptr %87, align 8
@@ -8583,7 +8576,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
 112:                                              ; preds = %110
   %.sroa.speculated341 = call i64 @llvm.smin.i64(i64 %111, i64 4)
   %113 = mul nuw nsw i64 %.0258395, %.sroa.speculated351
-  %114 = getelementptr inbounds double, ptr %52, i64 %113
+  %114 = getelementptr inbounds nuw double, ptr %52, i64 %113
   %gep = getelementptr double, ptr %invariant.gep, i64 %.0258395
   call void asm sideeffect "#EIGEN PRODUCT PACK RHS ROWMAJOR", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !128
   %115 = sdiv i64 %.sroa.speculated341, 4
@@ -8601,17 +8594,17 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   %120 = mul nsw i64 %.05877.us.i, %3
   %121 = getelementptr double, ptr %gep, i64 %120
   %122 = load double, ptr %121, align 8
-  %123 = getelementptr inbounds double, ptr %114, i64 %.176.us.i
+  %123 = getelementptr inbounds nuw double, ptr %114, i64 %.176.us.i
   store double %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %121, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %125 = load double, ptr %124, align 8
   %126 = getelementptr i8, ptr %123, i64 8
   store double %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %121, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %128 = load double, ptr %127, align 8
   %129 = getelementptr i8, ptr %123, i64 16
   store double %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %121, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %131 = load double, ptr %130, align 8
   %132 = getelementptr i8, ptr %123, i64 24
   store double %131, ptr %132, align 8
@@ -8697,7 +8690,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   store ptr %165, ptr %10, align 8
   store i64 %6, ptr %56, align 8
   %166 = mul nuw nsw i64 %.0260409, %.sroa.speculated351
-  %167 = getelementptr inbounds double, ptr %52, i64 %166
+  %167 = getelementptr inbounds nuw double, ptr %52, i64 %166
   invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %35, ptr noundef nonnull %167, i64 noundef %.sroa.speculated334, i64 noundef %.0260409, i64 noundef %.sroa.speculated, double noundef -1.000000e+00, i64 noundef %.sroa.speculated351, i64 noundef %.sroa.speculated351, i64 noundef 0, i64 noundef 0)
           to label %168 unwind label %.loopexit
 
@@ -8729,9 +8722,9 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
 
 180:                                              ; preds = %.lr.ph397.us, %180
   %.0253396.us = phi i64 [ 0, %.lr.ph397.us ], [ %187, %180 ]
-  %181 = getelementptr inbounds double, ptr %179, i64 %.0253396.us
+  %181 = getelementptr inbounds nuw double, ptr %179, i64 %.0253396.us
   %182 = load double, ptr %181, align 8
-  %183 = getelementptr inbounds double, ptr %172, i64 %.0253396.us
+  %183 = getelementptr inbounds nuw double, ptr %172, i64 %.0253396.us
   %184 = load double, ptr %183, align 8
   %185 = fneg double %182
   %186 = call double @llvm.fmuladd.f64(double %185, double %177, double %184)
@@ -8754,7 +8747,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
 
 .lr.ph403:                                        ; preds = %._crit_edge401, %.lr.ph403
   %.0402 = phi i64 [ %196, %.lr.ph403 ], [ 0, %._crit_edge401 ]
-  %193 = getelementptr inbounds double, ptr %172, i64 %.0402
+  %193 = getelementptr inbounds nuw double, ptr %172, i64 %.0402
   %194 = load double, ptr %193, align 8
   %195 = fmul double %192, %194
   store double %195, ptr %193, align 8
@@ -9209,8 +9202,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10CacheSizesC2Ev(ptr noundef 
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 -1, i64 24, i1 false)
   call void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %7 = load i32, ptr %2, align 4
@@ -9450,9 +9443,9 @@ _ZN5Eigen8internal21queryCacheSizes_intelERiS1_S1_i.exit: ; preds = %38, %95, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal27queryCacheSizes_intel_codesERiS1_S1_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat {
   %4 = alloca [4 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   store i32 0, ptr %0, align 4
@@ -9465,7 +9458,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal27queryCacheSizes_intel_codes
   store i32 %10, ptr %7, align 4
   store i32 %11, ptr %6, align 8
   store i32 %12, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %3
@@ -9475,7 +9468,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal27queryCacheSizes_intel_codes
 
 14:                                               ; preds = %.outer, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ %indvars.iv.ph, %.outer ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %76 [
     i8 10, label %17
@@ -9846,7 +9839,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %40 = icmp sgt i64 %6, 3
   %.idx444 = shl i64 %10, 5
   %invariant.gep = getelementptr i8, ptr %2, i64 %.idx444
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.idx445 = shl i64 %11, 5
   %invariant.gep903 = getelementptr i8, ptr %3, i64 %.idx445
   %42 = icmp sgt i64 %5, 7
@@ -9895,13 +9888,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %65 = getelementptr double, ptr %60, i64 %64
   %66 = mul nsw i64 %58, %53
   %67 = getelementptr double, ptr %60, i64 %66
-  %68 = getelementptr inbounds i8, ptr %61, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %68, i32 0, i32 3, i32 1)
-  %69 = getelementptr inbounds i8, ptr %63, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %69, i32 0, i32 3, i32 1)
-  %70 = getelementptr inbounds i8, ptr %65, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %70, i32 0, i32 3, i32 1)
-  %71 = getelementptr inbounds i8, ptr %67, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %71, i32 0, i32 3, i32 1)
   tail call void @llvm.prefetch.p0(ptr %gep904.us, i32 0, i32 3, i32 1)
   br i1 %42, label %.lr.ph.us, label %.preheader854.us
@@ -9916,10 +9909,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %.1828.lcssa.us = phi <2 x double> [ %.0827.lcssa.us, %.preheader854.us ], [ %117, %.lr.ph890.us ]
   %.1826.lcssa.us = phi <2 x double> [ %.0825.lcssa.us, %.preheader854.us ], [ %111, %.lr.ph890.us ]
   %72 = load <2 x double>, ptr %61, align 1
-  %73 = getelementptr inbounds i8, ptr %61, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %74 = load <2 x double>, ptr %73, align 1
   %75 = load <2 x double>, ptr %63, align 1
-  %76 = getelementptr inbounds i8, ptr %63, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %77 = load <2 x double>, ptr %76, align 1
   %78 = fmul <2 x double> %44, %.1826.lcssa.us
   %79 = fadd <2 x double> %78, %72
@@ -9934,10 +9927,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   store <2 x double> %83, ptr %63, align 1
   store <2 x double> %85, ptr %76, align 1
   %86 = load <2 x double>, ptr %65, align 1
-  %87 = getelementptr inbounds i8, ptr %65, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %88 = load <2 x double>, ptr %87, align 1
   %89 = load <2 x double>, ptr %67, align 1
-  %90 = getelementptr inbounds i8, ptr %67, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %91 = load <2 x double>, ptr %90, align 1
   %92 = fmul <2 x double> %44, %.1831.lcssa.us
   %93 = fadd <2 x double> %92, %86
@@ -9969,10 +9962,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %.1845879.us = phi <2 x double> [ %131, %.lr.ph890.us ], [ %.0844.lcssa.us, %.preheader854.us ]
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !162
   %102 = load <2 x double>, ptr %.1404887.us, align 16
-  %103 = getelementptr inbounds i8, ptr %.1404887.us, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.1404887.us, i64 16
   %104 = load <2 x double>, ptr %103, align 16
   %105 = load <4 x i32>, ptr %.1402888.us, align 16
-  %106 = getelementptr inbounds i8, ptr %.1402888.us, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.1402888.us, i64 16
   %107 = load <4 x i32>, ptr %106, align 16
   %108 = bitcast <4 x i32> %105 to <2 x double>
   %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> zeroinitializer
@@ -9999,8 +9992,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %130 = fmul <2 x double> %104, %127
   %131 = fadd <2 x double> %.1845879.us, %130
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
-  %132 = getelementptr inbounds i8, ptr %.1402888.us, i64 32
-  %133 = getelementptr inbounds i8, ptr %.1404887.us, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %.1402888.us, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %.1404887.us, i64 32
   %134 = add nsw i64 %.0399889.us, 1
   %135 = icmp slt i64 %134, %5
   br i1 %135, label %.lr.ph890.us, label %._crit_edge.us, !llvm.loop !164
@@ -10018,14 +10011,14 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %.0842860.us = phi <2 x double> [ %385, %.lr.ph.us ], [ zeroinitializer, %55 ]
   %.0844859.us = phi <2 x double> [ %391, %.lr.ph.us ], [ zeroinitializer, %55 ]
   tail call void asm sideeffect "#begin gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !165
-  %136 = getelementptr inbounds i8, ptr %.0401868.us, i64 384
+  %136 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 384
   tail call void @llvm.prefetch.p0(ptr nonnull %136, i32 0, i32 3, i32 1)
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !166
   %137 = load <2 x double>, ptr %.0403867.us, align 16
-  %138 = getelementptr inbounds i8, ptr %.0403867.us, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 16
   %139 = load <2 x double>, ptr %138, align 16
   %140 = load <4 x i32>, ptr %.0401868.us, align 16
-  %141 = getelementptr inbounds i8, ptr %.0401868.us, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 16
   %142 = load <4 x i32>, ptr %141, align 16
   %143 = bitcast <4 x i32> %140 to <2 x double>
   %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10053,13 +10046,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %166 = fadd <2 x double> %.0844859.us, %165
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !167
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !168
-  %167 = getelementptr inbounds i8, ptr %.0403867.us, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 32
   %168 = load <2 x double>, ptr %167, align 16
-  %169 = getelementptr inbounds i8, ptr %.0403867.us, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 48
   %170 = load <2 x double>, ptr %169, align 16
-  %171 = getelementptr inbounds i8, ptr %.0401868.us, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 32
   %172 = load <4 x i32>, ptr %171, align 16
-  %173 = getelementptr inbounds i8, ptr %.0401868.us, i64 48
+  %173 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 48
   %174 = load <4 x i32>, ptr %173, align 16
   %175 = bitcast <4 x i32> %172 to <2 x double>
   %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10087,13 +10080,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %198 = fadd <2 x double> %166, %197
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !169
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !170
-  %199 = getelementptr inbounds i8, ptr %.0403867.us, i64 64
+  %199 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 64
   %200 = load <2 x double>, ptr %199, align 16
-  %201 = getelementptr inbounds i8, ptr %.0403867.us, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 80
   %202 = load <2 x double>, ptr %201, align 16
-  %203 = getelementptr inbounds i8, ptr %.0401868.us, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 64
   %204 = load <4 x i32>, ptr %203, align 16
-  %205 = getelementptr inbounds i8, ptr %.0401868.us, i64 80
+  %205 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 80
   %206 = load <4 x i32>, ptr %205, align 16
   %207 = bitcast <4 x i32> %204 to <2 x double>
   %208 = shufflevector <2 x double> %207, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10121,13 +10114,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %230 = fadd <2 x double> %198, %229
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !171
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !172
-  %231 = getelementptr inbounds i8, ptr %.0403867.us, i64 96
+  %231 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 96
   %232 = load <2 x double>, ptr %231, align 16
-  %233 = getelementptr inbounds i8, ptr %.0403867.us, i64 112
+  %233 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 112
   %234 = load <2 x double>, ptr %233, align 16
-  %235 = getelementptr inbounds i8, ptr %.0401868.us, i64 96
+  %235 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 96
   %236 = load <4 x i32>, ptr %235, align 16
-  %237 = getelementptr inbounds i8, ptr %.0401868.us, i64 112
+  %237 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 112
   %238 = load <4 x i32>, ptr %237, align 16
   %239 = bitcast <4 x i32> %236 to <2 x double>
   %240 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10154,16 +10147,16 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %261 = fmul <2 x double> %234, %258
   %262 = fadd <2 x double> %230, %261
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !173
-  %263 = getelementptr inbounds i8, ptr %.0401868.us, i64 512
+  %263 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 512
   tail call void @llvm.prefetch.p0(ptr nonnull %263, i32 0, i32 3, i32 1)
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !174
-  %264 = getelementptr inbounds i8, ptr %.0403867.us, i64 128
+  %264 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 128
   %265 = load <2 x double>, ptr %264, align 16
-  %266 = getelementptr inbounds i8, ptr %.0403867.us, i64 144
+  %266 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 144
   %267 = load <2 x double>, ptr %266, align 16
-  %268 = getelementptr inbounds i8, ptr %.0401868.us, i64 128
+  %268 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 128
   %269 = load <4 x i32>, ptr %268, align 16
-  %270 = getelementptr inbounds i8, ptr %.0401868.us, i64 144
+  %270 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 144
   %271 = load <4 x i32>, ptr %270, align 16
   %272 = bitcast <4 x i32> %269 to <2 x double>
   %273 = shufflevector <2 x double> %272, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10191,13 +10184,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %295 = fadd <2 x double> %262, %294
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !175
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !176
-  %296 = getelementptr inbounds i8, ptr %.0403867.us, i64 160
+  %296 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 160
   %297 = load <2 x double>, ptr %296, align 16
-  %298 = getelementptr inbounds i8, ptr %.0403867.us, i64 176
+  %298 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 176
   %299 = load <2 x double>, ptr %298, align 16
-  %300 = getelementptr inbounds i8, ptr %.0401868.us, i64 160
+  %300 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 160
   %301 = load <4 x i32>, ptr %300, align 16
-  %302 = getelementptr inbounds i8, ptr %.0401868.us, i64 176
+  %302 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 176
   %303 = load <4 x i32>, ptr %302, align 16
   %304 = bitcast <4 x i32> %301 to <2 x double>
   %305 = shufflevector <2 x double> %304, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10225,13 +10218,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %327 = fadd <2 x double> %295, %326
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !177
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !178
-  %328 = getelementptr inbounds i8, ptr %.0403867.us, i64 192
+  %328 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 192
   %329 = load <2 x double>, ptr %328, align 16
-  %330 = getelementptr inbounds i8, ptr %.0403867.us, i64 208
+  %330 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 208
   %331 = load <2 x double>, ptr %330, align 16
-  %332 = getelementptr inbounds i8, ptr %.0401868.us, i64 192
+  %332 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 192
   %333 = load <4 x i32>, ptr %332, align 16
-  %334 = getelementptr inbounds i8, ptr %.0401868.us, i64 208
+  %334 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 208
   %335 = load <4 x i32>, ptr %334, align 16
   %336 = bitcast <4 x i32> %333 to <2 x double>
   %337 = shufflevector <2 x double> %336, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10259,13 +10252,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %359 = fadd <2 x double> %327, %358
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !179
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !180
-  %360 = getelementptr inbounds i8, ptr %.0403867.us, i64 224
+  %360 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 224
   %361 = load <2 x double>, ptr %360, align 16
-  %362 = getelementptr inbounds i8, ptr %.0403867.us, i64 240
+  %362 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 240
   %363 = load <2 x double>, ptr %362, align 16
-  %364 = getelementptr inbounds i8, ptr %.0401868.us, i64 224
+  %364 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 224
   %365 = load <4 x i32>, ptr %364, align 16
-  %366 = getelementptr inbounds i8, ptr %.0401868.us, i64 240
+  %366 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 240
   %367 = load <4 x i32>, ptr %366, align 16
   %368 = bitcast <4 x i32> %365 to <2 x double>
   %369 = shufflevector <2 x double> %368, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10292,8 +10285,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %390 = fmul <2 x double> %363, %387
   %391 = fadd <2 x double> %359, %390
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !181
-  %392 = getelementptr inbounds i8, ptr %.0401868.us, i64 256
-  %393 = getelementptr inbounds i8, ptr %.0403867.us, i64 256
+  %392 = getelementptr inbounds nuw i8, ptr %.0401868.us, i64 256
+  %393 = getelementptr inbounds nuw i8, ptr %.0403867.us, i64 256
   tail call void asm sideeffect "#end gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !182
   %394 = add nuw nsw i64 %.0400869.us, 8
   %395 = icmp slt i64 %394, %34
@@ -10341,7 +10334,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %403 = mul nsw i64 %402, %.0398944.us.us
   %404 = getelementptr double, ptr %401, i64 %.0397922.us.us.us
   %405 = getelementptr double, ptr %404, i64 %403
-  %406 = getelementptr inbounds i8, ptr %405, i64 32
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %406, i32 0, i32 3, i32 1)
   br label %430
 
@@ -10349,7 +10342,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %.1849.lcssa.us.us.us = phi <2 x double> [ %522, %..preheader853_crit_edge.us.us.us ], [ %423, %.lr.ph918.us.us.us ]
   %.1847.lcssa.us.us.us = phi <2 x double> [ %524, %..preheader853_crit_edge.us.us.us ], [ %425, %.lr.ph918.us.us.us ]
   %407 = load <2 x double>, ptr %405, align 1
-  %408 = getelementptr inbounds i8, ptr %405, i64 16
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 16
   %409 = load <2 x double>, ptr %408, align 1
   %410 = fmul <2 x double> %44, %.1849.lcssa.us.us.us
   %411 = fadd <2 x double> %410, %407
@@ -10370,7 +10363,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !186
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !187
   %416 = load <2 x double>, ptr %.1396915.us.us.us, align 16
-  %417 = getelementptr inbounds i8, ptr %.1396915.us.us.us, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %.1396915.us.us.us, i64 16
   %418 = load <2 x double>, ptr %417, align 16
   %419 = load double, ptr %.1916.us.us.us, align 8
   %420 = insertelement <2 x double> poison, double %419, i64 0
@@ -10380,8 +10373,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %424 = fmul <2 x double> %418, %421
   %425 = fadd <2 x double> %.1847914.us.us.us, %424
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !188
-  %426 = getelementptr inbounds i8, ptr %.1916.us.us.us, i64 8
-  %427 = getelementptr inbounds i8, ptr %.1396915.us.us.us, i64 32
+  %426 = getelementptr inbounds nuw i8, ptr %.1916.us.us.us, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %.1396915.us.us.us, i64 32
   %428 = add nuw nsw i64 %.0392917.us.us.us, 1
   %429 = icmp slt i64 %428, %5
   br i1 %429, label %.lr.ph918.us.us.us, label %._crit_edge.us929.us.us, !llvm.loop !189
@@ -10396,7 +10389,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !191
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !192
   %431 = load <2 x double>, ptr %.0395907.us.us.us, align 16
-  %432 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 16
   %433 = load <2 x double>, ptr %432, align 16
   %434 = load double, ptr %.0394908.us.us.us, align 8
   %435 = insertelement <2 x double> poison, double %434, i64 0
@@ -10408,11 +10401,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !193
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !194
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !195
-  %441 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 32
+  %441 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 32
   %442 = load <2 x double>, ptr %441, align 16
-  %443 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 48
+  %443 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 48
   %444 = load <2 x double>, ptr %443, align 16
-  %445 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 8
   %446 = load double, ptr %445, align 8
   %447 = insertelement <2 x double> poison, double %446, i64 0
   %448 = shufflevector <2 x double> %447, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10423,11 +10416,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !196
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !197
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !198
-  %453 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 64
+  %453 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 64
   %454 = load <2 x double>, ptr %453, align 16
-  %455 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 80
+  %455 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 80
   %456 = load <2 x double>, ptr %455, align 16
-  %457 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 16
+  %457 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 16
   %458 = load double, ptr %457, align 8
   %459 = insertelement <2 x double> poison, double %458, i64 0
   %460 = shufflevector <2 x double> %459, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10438,11 +10431,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !199
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !200
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !201
-  %465 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 96
+  %465 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 96
   %466 = load <2 x double>, ptr %465, align 16
-  %467 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 112
+  %467 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 112
   %468 = load <2 x double>, ptr %467, align 16
-  %469 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 24
+  %469 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 24
   %470 = load double, ptr %469, align 8
   %471 = insertelement <2 x double> poison, double %470, i64 0
   %472 = shufflevector <2 x double> %471, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10453,11 +10446,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !202
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !203
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !204
-  %477 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 128
+  %477 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 128
   %478 = load <2 x double>, ptr %477, align 16
-  %479 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 144
+  %479 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 144
   %480 = load <2 x double>, ptr %479, align 16
-  %481 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 32
+  %481 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 32
   %482 = load double, ptr %481, align 8
   %483 = insertelement <2 x double> poison, double %482, i64 0
   %484 = shufflevector <2 x double> %483, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10468,11 +10461,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !205
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !206
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !207
-  %489 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 160
+  %489 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 160
   %490 = load <2 x double>, ptr %489, align 16
-  %491 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 176
+  %491 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 176
   %492 = load <2 x double>, ptr %491, align 16
-  %493 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 40
+  %493 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 40
   %494 = load double, ptr %493, align 8
   %495 = insertelement <2 x double> poison, double %494, i64 0
   %496 = shufflevector <2 x double> %495, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10483,11 +10476,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !208
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !209
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !210
-  %501 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 192
+  %501 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 192
   %502 = load <2 x double>, ptr %501, align 16
-  %503 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 208
+  %503 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 208
   %504 = load <2 x double>, ptr %503, align 16
-  %505 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 48
+  %505 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 48
   %506 = load double, ptr %505, align 8
   %507 = insertelement <2 x double> poison, double %506, i64 0
   %508 = shufflevector <2 x double> %507, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10498,11 +10491,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !211
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !212
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !213
-  %513 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 224
+  %513 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 224
   %514 = load <2 x double>, ptr %513, align 16
-  %515 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 240
+  %515 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 240
   %516 = load <2 x double>, ptr %515, align 16
-  %517 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 56
+  %517 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 56
   %518 = load double, ptr %517, align 8
   %519 = insertelement <2 x double> poison, double %518, i64 0
   %520 = shufflevector <2 x double> %519, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10511,8 +10504,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %523 = fmul <2 x double> %516, %520
   %524 = fadd <2 x double> %512, %523
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !214
-  %525 = getelementptr inbounds i8, ptr %.0394908.us.us.us, i64 64
-  %526 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 256
+  %525 = getelementptr inbounds nuw i8, ptr %.0394908.us.us.us, i64 64
+  %526 = getelementptr inbounds nuw i8, ptr %.0395907.us.us.us, i64 256
   tail call void asm sideeffect "#end gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !215
   %527 = add nuw nsw i64 %.0393909.us.us.us, 8
   %528 = icmp slt i64 %527, %34
@@ -10545,7 +10538,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %534 = mul nsw i64 %533, %.0398944.us.us955
   %535 = getelementptr double, ptr %532, i64 %.0397922.us931.us.us
   %536 = getelementptr double, ptr %535, i64 %534
-  %537 = getelementptr inbounds i8, ptr %536, i64 32
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %537, i32 0, i32 3, i32 1)
   br label %538
 
@@ -10558,7 +10551,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   tail call void asm sideeffect "#begin step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !186
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !187
   %539 = load <2 x double>, ptr %.1396915.us937.us.us, align 16
-  %540 = getelementptr inbounds i8, ptr %.1396915.us937.us.us, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %.1396915.us937.us.us, i64 16
   %541 = load <2 x double>, ptr %540, align 16
   %542 = load double, ptr %.1916.us936.us.us, align 8
   %543 = insertelement <2 x double> poison, double %542, i64 0
@@ -10568,15 +10561,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %547 = fmul <2 x double> %541, %544
   %548 = fadd <2 x double> %.1847914.us938.us.us, %547
   tail call void asm sideeffect "#end step of gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !188
-  %549 = getelementptr inbounds i8, ptr %.1916.us936.us.us, i64 8
-  %550 = getelementptr inbounds i8, ptr %.1396915.us937.us.us, i64 32
+  %549 = getelementptr inbounds nuw i8, ptr %.1916.us936.us.us, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %.1396915.us937.us.us, i64 32
   %551 = add nsw i64 %.0392917.us935.us.us, 1
   %552 = icmp slt i64 %551, %5
   br i1 %552, label %538, label %._crit_edge.us941.us.us, !llvm.loop !189
 
 ._crit_edge.us941.us.us:                          ; preds = %538
   %553 = load <2 x double>, ptr %536, align 1
-  %554 = getelementptr inbounds i8, ptr %536, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %555 = load <2 x double>, ptr %554, align 1
   %556 = fmul <2 x double> %44, %546
   %557 = fadd <2 x double> %556, %553
@@ -10607,10 +10600,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %566 = mul nsw i64 %565, %.0398944.us
   %567 = getelementptr double, ptr %564, i64 %.0397922.us947
   %568 = getelementptr double, ptr %567, i64 %566
-  %569 = getelementptr inbounds i8, ptr %568, i64 32
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %569, i32 0, i32 3, i32 1)
   %570 = load <2 x double>, ptr %568, align 1
-  %571 = getelementptr inbounds i8, ptr %568, i64 16
+  %571 = getelementptr inbounds nuw i8, ptr %568, i64 16
   %572 = load <2 x double>, ptr %571, align 1
   %573 = fadd <2 x double> %46, %570
   %574 = fadd <2 x double> %46, %572
@@ -10638,7 +10631,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %invariant.gep970 = getelementptr double, ptr %2, i64 %10
   %.idx = shl i64 %11, 5
   %invariant.gep978 = getelementptr i8, ptr %3, i64 %.idx
-  %580 = getelementptr inbounds i8, ptr %1, i64 8
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %581 = icmp sgt i64 %5, 0
   br i1 %581, label %.preheader851.us.us, label %.preheader851.us
 
@@ -10665,24 +10658,24 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %.0837960.us.us.us = phi double [ 0.000000e+00, %.lr.ph965.us.us.us ], [ %602, %587 ]
   %.0838959.us.us.us = phi double [ 0.000000e+00, %.lr.ph965.us.us.us ], [ %596, %587 ]
   %.0839958.us.us.us = phi double [ 0.000000e+00, %.lr.ph965.us.us.us ], [ %594, %587 ]
-  %588 = getelementptr inbounds double, ptr %gep.us974.us.us, i64 %.0385963.us.us.us
+  %588 = getelementptr inbounds nuw double, ptr %gep.us974.us.us, i64 %.0385963.us.us.us
   %589 = load double, ptr %588, align 8
   %590 = load double, ptr %.0388962.us.us.us, align 8
-  %591 = getelementptr inbounds i8, ptr %.0388962.us.us.us, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %.0388962.us.us.us, i64 8
   %592 = load double, ptr %591, align 8
   %593 = fmul double %589, %590
   %594 = fadd double %.0839958.us.us.us, %593
   %595 = fmul double %589, %592
   %596 = fadd double %.0838959.us.us.us, %595
-  %597 = getelementptr inbounds i8, ptr %.0388962.us.us.us, i64 16
+  %597 = getelementptr inbounds nuw i8, ptr %.0388962.us.us.us, i64 16
   %598 = load double, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %.0388962.us.us.us, i64 24
+  %599 = getelementptr inbounds nuw i8, ptr %.0388962.us.us.us, i64 24
   %600 = load double, ptr %599, align 8
   %601 = fmul double %589, %598
   %602 = fadd double %.0837960.us.us.us, %601
   %603 = fmul double %589, %600
   %604 = fadd double %.0836961.us.us.us, %603
-  %605 = getelementptr inbounds i8, ptr %.0388962.us.us.us, i64 32
+  %605 = getelementptr inbounds nuw i8, ptr %.0388962.us.us.us, i64 32
   %606 = add nuw nsw i64 %.0385963.us.us.us, 1
   %exitcond1044.not = icmp eq i64 %606, %5
   br i1 %exitcond1044.not, label %._crit_edge966.us.us.us, label %587, !llvm.loop !218
@@ -10789,7 +10782,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 .preheader.lr.ph.split.us:                        ; preds = %.preheader850
   %invariant.gep989 = getelementptr double, ptr %2, i64 %10
   %invariant.gep990 = getelementptr double, ptr %3, i64 %11
-  %677 = getelementptr inbounds i8, ptr %1, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %678 = icmp sgt i64 %5, 0
   br i1 %678, label %.preheader.us.us, label %.preheader.us
 
@@ -10809,9 +10802,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 681:                                              ; preds = %681, %.lr.ph987.us.us.us
   %.0985.us.us.us = phi i64 [ 0, %.lr.ph987.us.us.us ], [ %688, %681 ]
   %.0829984.us.us.us = phi double [ 0.000000e+00, %.lr.ph987.us.us.us ], [ %687, %681 ]
-  %682 = getelementptr inbounds double, ptr %gep.us995.us.us, i64 %.0985.us.us.us
+  %682 = getelementptr inbounds nuw double, ptr %gep.us995.us.us, i64 %.0985.us.us.us
   %683 = load double, ptr %682, align 8
-  %684 = getelementptr inbounds double, ptr %gep991.us.us, i64 %.0985.us.us.us
+  %684 = getelementptr inbounds nuw double, ptr %gep991.us.us, i64 %.0985.us.us.us
   %685 = load double, ptr %684, align 8
   %686 = fmul double %683, %685
   %687 = fadd double %.0829984.us.us.us, %686
@@ -10876,7 +10869,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   %19 = icmp sgt i64 %16, 0
   %.idx246 = shl i64 %9, 4
   %invariant.gep573 = getelementptr i8, ptr %2, i64 %.idx246
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = sext i32 %11 to i64
   %.idx247 = shl i64 %10, 5
   %invariant.gep = getelementptr i8, ptr %3, i64 %.idx247
@@ -10950,13 +10943,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   %.0510515 = phi <2 x double> [ %220, %.lr.ph ], [ zeroinitializer, %29 ]
   %.0511514 = phi <2 x double> [ %224, %.lr.ph ], [ zeroinitializer, %29 ]
   tail call void asm sideeffect "#begin gebp micro kernel 1/half/quarterX4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !224
-  %49 = getelementptr inbounds i8, ptr %.0218523, i64 384
+  %49 = getelementptr inbounds nuw i8, ptr %.0218523, i64 384
   tail call void @llvm.prefetch.p0(ptr nonnull %49, i32 0, i32 3, i32 1)
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
   %50 = load <2 x double>, ptr %.0220522, align 16
   %51 = load <4 x i32>, ptr %.0218523, align 16
-  %52 = getelementptr inbounds i8, ptr %.0218523, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.0218523, i64 16
   %53 = load <4 x i32>, ptr %52, align 16
   %54 = bitcast <4 x i32> %51 to <2 x double>
   %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
@@ -10977,11 +10970,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %70 = getelementptr inbounds i8, ptr %.0220522, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.0220522, i64 16
   %71 = load <2 x double>, ptr %70, align 16
-  %72 = getelementptr inbounds i8, ptr %.0218523, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.0218523, i64 32
   %73 = load <4 x i32>, ptr %72, align 16
-  %74 = getelementptr inbounds i8, ptr %.0218523, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %.0218523, i64 48
   %75 = load <4 x i32>, ptr %74, align 16
   %76 = bitcast <4 x i32> %73 to <2 x double>
   %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11002,11 +10995,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %92 = getelementptr inbounds i8, ptr %.0220522, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.0220522, i64 32
   %93 = load <2 x double>, ptr %92, align 16
-  %94 = getelementptr inbounds i8, ptr %.0218523, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %.0218523, i64 64
   %95 = load <4 x i32>, ptr %94, align 16
-  %96 = getelementptr inbounds i8, ptr %.0218523, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %.0218523, i64 80
   %97 = load <4 x i32>, ptr %96, align 16
   %98 = bitcast <4 x i32> %95 to <2 x double>
   %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11027,11 +11020,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %114 = getelementptr inbounds i8, ptr %.0220522, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %.0220522, i64 48
   %115 = load <2 x double>, ptr %114, align 16
-  %116 = getelementptr inbounds i8, ptr %.0218523, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %.0218523, i64 96
   %117 = load <4 x i32>, ptr %116, align 16
-  %118 = getelementptr inbounds i8, ptr %.0218523, i64 112
+  %118 = getelementptr inbounds nuw i8, ptr %.0218523, i64 112
   %119 = load <4 x i32>, ptr %118, align 16
   %120 = bitcast <4 x i32> %117 to <2 x double>
   %121 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11050,15 +11043,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   %134 = fmul <2 x double> %115, %133
   %135 = fadd <2 x double> %91, %134
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
-  %136 = getelementptr inbounds i8, ptr %.0218523, i64 512
+  %136 = getelementptr inbounds nuw i8, ptr %.0218523, i64 512
   tail call void @llvm.prefetch.p0(ptr nonnull %136, i32 0, i32 3, i32 1)
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %137 = getelementptr inbounds i8, ptr %.0220522, i64 64
+  %137 = getelementptr inbounds nuw i8, ptr %.0220522, i64 64
   %138 = load <2 x double>, ptr %137, align 16
-  %139 = getelementptr inbounds i8, ptr %.0218523, i64 128
+  %139 = getelementptr inbounds nuw i8, ptr %.0218523, i64 128
   %140 = load <4 x i32>, ptr %139, align 16
-  %141 = getelementptr inbounds i8, ptr %.0218523, i64 144
+  %141 = getelementptr inbounds nuw i8, ptr %.0218523, i64 144
   %142 = load <4 x i32>, ptr %141, align 16
   %143 = bitcast <4 x i32> %140 to <2 x double>
   %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11079,11 +11072,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %159 = getelementptr inbounds i8, ptr %.0220522, i64 80
+  %159 = getelementptr inbounds nuw i8, ptr %.0220522, i64 80
   %160 = load <2 x double>, ptr %159, align 16
-  %161 = getelementptr inbounds i8, ptr %.0218523, i64 160
+  %161 = getelementptr inbounds nuw i8, ptr %.0218523, i64 160
   %162 = load <4 x i32>, ptr %161, align 16
-  %163 = getelementptr inbounds i8, ptr %.0218523, i64 176
+  %163 = getelementptr inbounds nuw i8, ptr %.0218523, i64 176
   %164 = load <4 x i32>, ptr %163, align 16
   %165 = bitcast <4 x i32> %162 to <2 x double>
   %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11104,11 +11097,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %181 = getelementptr inbounds i8, ptr %.0220522, i64 96
+  %181 = getelementptr inbounds nuw i8, ptr %.0220522, i64 96
   %182 = load <2 x double>, ptr %181, align 16
-  %183 = getelementptr inbounds i8, ptr %.0218523, i64 192
+  %183 = getelementptr inbounds nuw i8, ptr %.0218523, i64 192
   %184 = load <4 x i32>, ptr %183, align 16
-  %185 = getelementptr inbounds i8, ptr %.0218523, i64 208
+  %185 = getelementptr inbounds nuw i8, ptr %.0218523, i64 208
   %186 = load <4 x i32>, ptr %185, align 16
   %187 = bitcast <4 x i32> %184 to <2 x double>
   %188 = shufflevector <2 x double> %187, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11129,11 +11122,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
   tail call void asm sideeffect "#begin step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !225
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
-  %203 = getelementptr inbounds i8, ptr %.0220522, i64 112
+  %203 = getelementptr inbounds nuw i8, ptr %.0220522, i64 112
   %204 = load <2 x double>, ptr %203, align 16
-  %205 = getelementptr inbounds i8, ptr %.0218523, i64 224
+  %205 = getelementptr inbounds nuw i8, ptr %.0218523, i64 224
   %206 = load <4 x i32>, ptr %205, align 16
-  %207 = getelementptr inbounds i8, ptr %.0218523, i64 240
+  %207 = getelementptr inbounds nuw i8, ptr %.0218523, i64 240
   %208 = load <4 x i32>, ptr %207, align 16
   %209 = bitcast <4 x i32> %206 to <2 x double>
   %210 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11187,7 +11180,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !226
   %237 = load <2 x double>, ptr %.1221538, align 16
   %238 = load <4 x i32>, ptr %.1219539, align 16
-  %239 = getelementptr inbounds i8, ptr %.1219539, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %.1219539, i64 16
   %240 = load <4 x i32>, ptr %239, align 16
   %241 = bitcast <4 x i32> %238 to <2 x double>
   %242 = shufflevector <2 x double> %241, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11206,8 +11199,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   %255 = fmul <2 x double> %237, %254
   %256 = fadd <2 x double> %.1505534, %255
   tail call void asm sideeffect "#end step of gebp micro kernel 1X4", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !227
-  %257 = getelementptr inbounds i8, ptr %.1219539, i64 32
-  %258 = getelementptr inbounds i8, ptr %.1221538, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %.1219539, i64 32
+  %258 = getelementptr inbounds nuw i8, ptr %.1221538, i64 16
   %259 = add i64 %.0216540, 1
   %exitcond.not = icmp eq i64 %259, %15
   br i1 %exitcond.not, label %._crit_edge543, label %.lr.ph542, !llvm.loop !230
@@ -11272,9 +11265,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !235
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !236
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !237
-  %287 = getelementptr inbounds i8, ptr %.0213551, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %.0213551, i64 16
   %288 = load <2 x double>, ptr %287, align 1
-  %289 = getelementptr inbounds i8, ptr %.0212552, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.0212552, i64 8
   %290 = load double, ptr %289, align 8
   %291 = insertelement <2 x double> poison, double %290, i64 0
   %292 = shufflevector <2 x double> %291, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11283,9 +11276,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !238
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !239
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !240
-  %295 = getelementptr inbounds i8, ptr %.0213551, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %.0213551, i64 32
   %296 = load <2 x double>, ptr %295, align 1
-  %297 = getelementptr inbounds i8, ptr %.0212552, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.0212552, i64 16
   %298 = load double, ptr %297, align 8
   %299 = insertelement <2 x double> poison, double %298, i64 0
   %300 = shufflevector <2 x double> %299, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11294,9 +11287,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !241
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !242
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !243
-  %303 = getelementptr inbounds i8, ptr %.0213551, i64 48
+  %303 = getelementptr inbounds nuw i8, ptr %.0213551, i64 48
   %304 = load <2 x double>, ptr %303, align 1
-  %305 = getelementptr inbounds i8, ptr %.0212552, i64 24
+  %305 = getelementptr inbounds nuw i8, ptr %.0212552, i64 24
   %306 = load double, ptr %305, align 8
   %307 = insertelement <2 x double> poison, double %306, i64 0
   %308 = shufflevector <2 x double> %307, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11305,9 +11298,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !244
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !245
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !246
-  %311 = getelementptr inbounds i8, ptr %.0213551, i64 64
+  %311 = getelementptr inbounds nuw i8, ptr %.0213551, i64 64
   %312 = load <2 x double>, ptr %311, align 1
-  %313 = getelementptr inbounds i8, ptr %.0212552, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %.0212552, i64 32
   %314 = load double, ptr %313, align 8
   %315 = insertelement <2 x double> poison, double %314, i64 0
   %316 = shufflevector <2 x double> %315, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11316,9 +11309,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !247
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !248
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !249
-  %319 = getelementptr inbounds i8, ptr %.0213551, i64 80
+  %319 = getelementptr inbounds nuw i8, ptr %.0213551, i64 80
   %320 = load <2 x double>, ptr %319, align 1
-  %321 = getelementptr inbounds i8, ptr %.0212552, i64 40
+  %321 = getelementptr inbounds nuw i8, ptr %.0212552, i64 40
   %322 = load double, ptr %321, align 8
   %323 = insertelement <2 x double> poison, double %322, i64 0
   %324 = shufflevector <2 x double> %323, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11327,9 +11320,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !250
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !251
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !252
-  %327 = getelementptr inbounds i8, ptr %.0213551, i64 96
+  %327 = getelementptr inbounds nuw i8, ptr %.0213551, i64 96
   %328 = load <2 x double>, ptr %327, align 1
-  %329 = getelementptr inbounds i8, ptr %.0212552, i64 48
+  %329 = getelementptr inbounds nuw i8, ptr %.0212552, i64 48
   %330 = load double, ptr %329, align 8
   %331 = insertelement <2 x double> poison, double %330, i64 0
   %332 = shufflevector <2 x double> %331, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11338,9 +11331,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !253
   tail call void asm sideeffect "#begin step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !254
   tail call void asm sideeffect "#Note: these asm comments work around bug 935!", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !255
-  %335 = getelementptr inbounds i8, ptr %.0213551, i64 112
+  %335 = getelementptr inbounds nuw i8, ptr %.0213551, i64 112
   %336 = load <2 x double>, ptr %335, align 1
-  %337 = getelementptr inbounds i8, ptr %.0212552, i64 56
+  %337 = getelementptr inbounds nuw i8, ptr %.0212552, i64 56
   %338 = load double, ptr %337, align 8
   %339 = insertelement <2 x double> poison, double %338, i64 0
   %340 = shufflevector <2 x double> %339, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11368,8 +11361,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   %351 = fmul <2 x double> %347, %350
   %352 = fadd <2 x double> %.1507559, %351
   tail call void asm sideeffect "#end step of gebp micro kernel 1/half/quarterX1", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !261
-  %353 = getelementptr inbounds i8, ptr %.1561, i64 8
-  %354 = getelementptr inbounds i8, ptr %.1214560, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %.1561, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %.1214560, i64 16
   %355 = add i64 %.0562, 1
   %exitcond594.not = icmp eq i64 %355, %15
   br i1 %exitcond594.not, label %._crit_edge564, label %.lr.ph563, !llvm.loop !262
@@ -11403,39 +11396,39 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_5Blo
   %6 = alloca %"class.Eigen::internal::gemm_blocking_space.674", align 8
   %7 = load double, ptr %2, align 8
   store double %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %11, ptr %14, align 8
   store i64 %9, ptr %4, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi1ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1)
   %15 = load i64, ptr %12, align 8
   %16 = load i64, ptr %14, align 8
   %17 = mul nsw i64 %16, %15
-  %18 = getelementptr inbounds i8, ptr %6, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %17, ptr %18, align 8
   %19 = load i64, ptr %13, align 8
   %20 = mul nsw i64 %19, %16
-  %21 = getelementptr inbounds i8, ptr %6, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   invoke void @_ZN5Eigen8internal40general_matrix_matrix_triangular_productIldLi0ELb0EdLi1ELb0ELi0ELi1ELi1ELi0EE3runEllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %9, i64 noundef %11, ptr noundef %22, i64 noundef %26, ptr noundef %22, i64 noundef %26, ptr noundef %27, i64 noundef 1, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %32 unwind label %36
@@ -11443,7 +11436,7 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_5Blo
 32:                                               ; preds = %3
   %33 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %33) #29
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @free(ptr noundef %35) #29
   ret void
@@ -11453,7 +11446,7 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_5Blo
           cleanup
   %38 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %38) #29
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @free(ptr noundef %40) #29
   resume { ptr, i32 } %37
@@ -11468,9 +11461,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40general_matrix_matrix_trian
   %16 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %17 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %18 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load i64, ptr %21, align 8
   %.sroa.speculated207 = tail call i64 @llvm.smin.i64(i64 %22, i64 %0)
   %23 = icmp sgt i64 %.sroa.speculated207, 4
@@ -11521,7 +11514,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
   br i1 %46, label %.invoke, label %47
 
 47:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %48 = getelementptr inbounds i8, ptr %10, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not150 = icmp eq ptr %49, null
   br i1 %.not150, label %50, label %_ZN5Eigen8internal14aligned_mallocEm.exit155
@@ -11563,9 +11556,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit155:     ; preds = %56, %47, %53
   %66 = icmp sgt i64 %0, 3
   %67 = icmp slt i64 %65, %0
   %68 = icmp sgt i64 %0, 0
-  %69 = getelementptr inbounds i8, ptr %18, i64 8
-  %70 = getelementptr inbounds i8, ptr %15, i64 8
-  %71 = getelementptr inbounds i8, ptr %16, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %73
 
 .loopexit225:                                     ; preds = %.loopexit224, %_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1ELb0ELb0EEclEPdRKS3_llll.exit
@@ -11598,15 +11591,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit155:     ; preds = %56, %47, %53
   %83 = load double, ptr %82, align 8
   %84 = getelementptr inbounds double, ptr %61, i64 %.162.us.i
   store double %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %86 = load double, ptr %85, align 8
   %87 = getelementptr i8, ptr %84, i64 8
   store double %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %82, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %89 = load double, ptr %88, align 8
   %90 = getelementptr i8, ptr %84, i64 16
   store double %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %82, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %92 = load double, ptr %91, align 8
   %93 = getelementptr i8, ptr %84, i64 24
   store double %92, ptr %93, align 8
@@ -11831,7 +11824,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %.07083.i = phi i64 [ %.07184.i, %171 ], [ %180, %175 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %.07083.i
   %176 = load double, ptr %gep.i, align 8
-  %177 = getelementptr inbounds double, ptr %174, i64 %.07083.i
+  %177 = getelementptr inbounds nuw double, ptr %174, i64 %.07083.i
   %178 = load double, ptr %177, align 8
   %179 = fadd double %176, %178
   store double %179, ptr %177, align 8
@@ -12184,11 +12177,11 @@ define linkonce_odr hidden void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %6, 0
   %12 = icmp eq i64 %10, 0
@@ -12236,16 +12229,16 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1
   %4 = alloca %"struct.Eigen::internal::assign_op", align 1
   %5 = alloca %"class.Eigen::TriangularView.697", align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %.not11 = icmp eq i64 %16, %12
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -12283,7 +12276,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %27, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   store ptr %28, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceIS3_EEvRKNS_10MatrixBaseIT_EE.exit.i.i, label %32
@@ -12293,7 +12286,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br label %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceIS3_EEvRKNS_10MatrixBaseIT_EE.exit.i.i
 
 _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceIS3_EEvRKNS_10MatrixBaseIT_EE.exit.i.i: ; preds = %32, %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZNK5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE11_solve_implINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EES2_EEvRKT_RT0_.exit, label %36
@@ -12310,12 +12303,12 @@ _ZNK5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE11_solve_implINS_14Cwi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %8, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %.not8.i = icmp eq i64 %10, %6
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -12397,30 +12390,30 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %3 = alloca i64, align 8
   %4 = alloca %"class.Eigen::internal::gemm_blocking_space.717", align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %7, ptr %14, align 8
   store i64 %11, ptr %3, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
   %15 = load i64, ptr %12, align 8
   %16 = load i64, ptr %14, align 8
   %17 = mul nsw i64 %16, %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %17, ptr %18, align 8
   %19 = load i64, ptr %13, align 8
   %20 = mul nsw i64 %19, %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %22 = load ptr, ptr %5, align 8
@@ -12433,7 +12426,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
   %26 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %26) #29
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @free(ptr noundef %28) #29
   ret void
@@ -12443,7 +12436,7 @@ _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPK
           cleanup
   %31 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %31) #29
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load ptr, ptr %32, align 8
   call void @free(ptr noundef %33) #29
   resume { ptr, i32 } %30
@@ -12453,34 +12446,34 @@ _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPK
 define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_Li1ELi2ELi0ELin1EE3runERS4_RS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.Eigen::internal::gemm_blocking_space.717", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %6, ptr %13, align 8
   store i64 %10, ptr %3, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
   %14 = load i64, ptr %11, align 8
   %15 = load i64, ptr %13, align 8
   %16 = mul nsw i64 %15, %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %16, ptr %17, align 8
   %18 = load i64, ptr %12, align 8
   %19 = mul nsw i64 %18, %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %19, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %1, align 8
   %25 = load i64, ptr %7, align 8
@@ -12490,7 +12483,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
   %26 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %26) #29
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @free(ptr noundef %28) #29
   ret void
@@ -12500,7 +12493,7 @@ _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPK
           cleanup
   %31 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %31) #29
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load ptr, ptr %32, align 8
   call void @free(ptr noundef %33) #29
   resume { ptr, i32 } %30
@@ -12511,9 +12504,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_solve_matrixIdlL
   %9 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %10 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %11 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated377 = tail call i64 @llvm.smin.i64(i64 %15, i64 %1)
   %16 = mul nsw i64 %.sroa.speculated377, %13
@@ -12561,7 +12554,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   br i1 %37, label %.invoke, label %38
 
 38:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not315 = icmp eq ptr %40, null
   br i1 %.not315, label %41, label %_ZN5Eigen8internal14aligned_mallocEm.exit321
@@ -12600,9 +12593,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
 .lr.ph429:                                        ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit321
   %55 = icmp sgt i64 %13, 0
   %56 = icmp sgt i64 %1, 0
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %58 = add i64 %3, 1
-  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.idx = shl nsw i64 %3, 4
   %.idx465 = mul i64 %3, 24
   br label %60
@@ -12612,12 +12605,12 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
   %.sroa.speculated362 = call i64 @llvm.smin.i64(i64 %13, i64 %.0263428)
   %61 = sub nsw i64 %.0263428, %.sroa.speculated362
   %62 = mul nsw i64 %.sroa.speculated362, %.sroa.speculated362
-  %63 = getelementptr inbounds double, ptr %52, i64 %62
+  %63 = getelementptr inbounds nuw double, ptr %52, i64 %62
   %64 = icmp sgt i64 %61, 0
   br i1 %64, label %65, label %_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0ELb0ELb0EEclEPdRKS3_llll.exit
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds double, ptr %2, i64 %61
+  %66 = getelementptr inbounds nuw double, ptr %2, i64 %61
   call void asm sideeffect "#EIGEN PRODUCT PACK RHS COLMAJOR", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !279
   %67 = and i64 %61, 9223372036854775804
   %68 = icmp samesign ugt i64 %61, 3
@@ -12643,19 +12636,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
 80:                                               ; preds = %80, %.lr.ph.us.i
   %.093107.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %94, %80 ]
   %.1106.us.i = phi i64 [ %.095108.us.i, %.lr.ph.us.i ], [ %93, %80 ]
-  %81 = getelementptr inbounds double, ptr %70, i64 %.093107.us.i
+  %81 = getelementptr inbounds nuw double, ptr %70, i64 %.093107.us.i
   %82 = load double, ptr %81, align 8
   %83 = getelementptr inbounds double, ptr %63, i64 %.1106.us.i
   store double %82, ptr %83, align 8
-  %84 = getelementptr inbounds double, ptr %73, i64 %.093107.us.i
+  %84 = getelementptr inbounds nuw double, ptr %73, i64 %.093107.us.i
   %85 = load double, ptr %84, align 8
   %86 = getelementptr i8, ptr %83, i64 8
   store double %85, ptr %86, align 8
-  %87 = getelementptr inbounds double, ptr %76, i64 %.093107.us.i
+  %87 = getelementptr inbounds nuw double, ptr %76, i64 %.093107.us.i
   %88 = load double, ptr %87, align 8
   %89 = getelementptr i8, ptr %83, i64 16
   store double %88, ptr %89, align 8
-  %90 = getelementptr inbounds double, ptr %79, i64 %.093107.us.i
+  %90 = getelementptr inbounds nuw double, ptr %79, i64 %.093107.us.i
   %91 = load double, ptr %90, align 8
   %92 = getelementptr i8, ptr %83, i64 24
   store double %91, ptr %92, align 8
@@ -12685,7 +12678,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit321:     ; preds = %47, %38, %44
 100:                                              ; preds = %100, %.lr.ph.us119.i
   %.0114.us.i = phi i64 [ 0, %.lr.ph.us119.i ], [ %105, %100 ]
   %.3113.us.i = phi i64 [ %.2115.us.i, %.lr.ph.us119.i ], [ %104, %100 ]
-  %101 = getelementptr inbounds double, ptr %99, i64 %.0114.us.i
+  %101 = getelementptr inbounds nuw double, ptr %99, i64 %.0114.us.i
   %102 = load double, ptr %101, align 8
   %103 = getelementptr inbounds double, ptr %63, i64 %.3113.us.i
   store double %102, ptr %103, align 8
@@ -12752,7 +12745,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
   %120 = add nsw i64 %.sroa.speculated352, %.0265405
   %121 = add nsw i64 %.0265405, %61
   %122 = mul nuw nsw i64 %.0265405, %.sroa.speculated362
-  %123 = getelementptr inbounds double, ptr %52, i64 %122
+  %123 = getelementptr inbounds nuw double, ptr %52, i64 %122
   %124 = mul nsw i64 %121, %3
   %125 = getelementptr double, ptr %111, i64 %120
   %126 = getelementptr double, ptr %125, i64 %124
@@ -12772,19 +12765,19 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 134:                                              ; preds = %134, %.lr.ph.us.i325
   %.099123.us.i = phi i64 [ 0, %.lr.ph.us.i325 ], [ %148, %134 ]
   %.1122.us.i = phi i64 [ %130, %.lr.ph.us.i325 ], [ %147, %134 ]
-  %135 = getelementptr inbounds double, ptr %126, i64 %.099123.us.i
+  %135 = getelementptr inbounds nuw double, ptr %126, i64 %.099123.us.i
   %136 = load double, ptr %135, align 8
   %137 = getelementptr inbounds double, ptr %123, i64 %.1122.us.i
   store double %136, ptr %137, align 8
-  %138 = getelementptr inbounds double, ptr %131, i64 %.099123.us.i
+  %138 = getelementptr inbounds nuw double, ptr %131, i64 %.099123.us.i
   %139 = load double, ptr %138, align 8
   %140 = getelementptr i8, ptr %137, i64 8
   store double %139, ptr %140, align 8
-  %141 = getelementptr inbounds double, ptr %132, i64 %.099123.us.i
+  %141 = getelementptr inbounds nuw double, ptr %132, i64 %.099123.us.i
   %142 = load double, ptr %141, align 8
   %143 = getelementptr i8, ptr %137, i64 16
   store double %142, ptr %143, align 8
-  %144 = getelementptr inbounds double, ptr %133, i64 %.099123.us.i
+  %144 = getelementptr inbounds nuw double, ptr %133, i64 %.099123.us.i
   %145 = load double, ptr %144, align 8
   %146 = getelementptr i8, ptr %137, i64 24
   store double %145, ptr %146, align 8
@@ -12809,7 +12802,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 153:                                              ; preds = %153, %.lr.ph.us135.i
   %.0130.us.i = phi i64 [ 0, %.lr.ph.us135.i ], [ %158, %153 ]
   %.3129.us.i = phi i64 [ %150, %.lr.ph.us135.i ], [ %157, %153 ]
-  %154 = getelementptr inbounds double, ptr %152, i64 %.0130.us.i
+  %154 = getelementptr inbounds nuw double, ptr %152, i64 %.0130.us.i
   %155 = load double, ptr %154, align 8
   %156 = getelementptr inbounds double, ptr %123, i64 %.3129.us.i
   store double %155, ptr %156, align 8
@@ -12905,9 +12898,9 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 
 197:                                              ; preds = %.lr.ph407.us, %197
   %.0260406.us = phi i64 [ 0, %.lr.ph407.us ], [ %204, %197 ]
-  %198 = getelementptr inbounds double, ptr %196, i64 %.0260406.us
+  %198 = getelementptr inbounds nuw double, ptr %196, i64 %.0260406.us
   %199 = load double, ptr %198, align 8
-  %200 = getelementptr inbounds double, ptr %191, i64 %.0260406.us
+  %200 = getelementptr inbounds nuw double, ptr %191, i64 %.0260406.us
   %201 = load double, ptr %200, align 8
   %202 = fneg double %199
   %203 = call double @llvm.fmuladd.f64(double %202, double %194, double %201)
@@ -12930,7 +12923,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 
 .lr.ph413:                                        ; preds = %._crit_edge411, %.lr.ph413
   %.0412 = phi i64 [ %213, %.lr.ph413 ], [ 0, %._crit_edge411 ]
-  %210 = getelementptr inbounds double, ptr %191, i64 %.0412
+  %210 = getelementptr inbounds nuw double, ptr %191, i64 %.0412
   %211 = load double, ptr %210, align 8
   %212 = fmul double %209, %211
   store double %212, ptr %210, align 8
@@ -13136,9 +13129,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   %14 = alloca %"struct.Eigen::internal::assign_op", align 1
   %15 = alloca %"class.Eigen::CwiseBinaryOp.727", align 8
   %16 = alloca %"class.Eigen::CwiseBinaryOp.739", align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
   tail call void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE8allocateEllj(ptr noundef nonnull align 8 dereferenceable(544) %0, i64 noundef %18, i64 noundef %20, i32 noundef %2)
   %21 = load ptr, ptr %1, align 8
@@ -13161,11 +13154,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   br i1 %33, label %34, label %66
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %36 = load <2 x i64>, ptr %35, align 16
   %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
-  %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
+  %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 48
   %39 = icmp samesign ugt i64 %24, 7
   br i1 %39, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -13174,14 +13167,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   %.054.in77.i.i.i = phi i64 [ %.05478.i.i.i, %.lr.ph.i.i.i ], [ 0, %34 ]
   %storemerge76.i.i.i = phi <2 x double> [ %52, %.lr.ph.i.i.i ], [ %38, %34 ]
   %.17375.i.i.i = phi <2 x double> [ %46, %.lr.ph.i.i.i ], [ %32, %34 ]
-  %40 = getelementptr inbounds double, ptr %21, i64 %.05478.i.i.i
+  %40 = getelementptr inbounds nuw double, ptr %21, i64 %.05478.i.i.i
   %41 = load <2 x i64>, ptr %40, align 16
   %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %45 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %.17375.i.i.i) #34, !srcloc !295
   %46 = select <2 x i1> %44, <2 x double> %.17375.i.i.i, <2 x double> %45
-  %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %47 = load <2 x i64>, ptr %gep.i.i.i, align 16
   %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
@@ -13202,7 +13195,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %._crit_edge.i.i.i
-  %59 = getelementptr inbounds double, ptr %21, i64 %26
+  %59 = getelementptr inbounds nuw double, ptr %21, i64 %26
   %60 = load <2 x i64>, ptr %59, align 16
   %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
@@ -13252,65 +13245,65 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_6Matri
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEEE8maxCoeffILi1EEEdv.exit
-  %90 = getelementptr inbounds i8, ptr %0, i64 68
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 1, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 3, ptr %91, align 8
   br label %521
 
 92:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEEE8maxCoeffILi1EEEdv.exit
   %93 = fcmp oeq double %.2.i.i.i, 0.000000e+00
   %.0 = select i1 %93, double 1.000000e+00, double %.2.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %97 = load i64, ptr %96, align 8
   %.not = icmp eq i64 %95, %97
   br i1 %.not, label %106, label %98
 
 98:                                               ; preds = %92
   store ptr %1, ptr %15, align 8, !alias.scope !298
-  %99 = getelementptr inbounds i8, ptr %15, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %22, ptr %99, align 8, !alias.scope !298
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %23, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !298
-  %100 = getelementptr inbounds i8, ptr %15, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double %.0, ptr %100, align 8, !alias.scope !298
-  %101 = getelementptr inbounds i8, ptr %0, i64 520
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 520
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKS3_KNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES7_EEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull align 1 dereferenceable(1) %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  %102 = getelementptr inbounds i8, ptr %0, i64 144
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %103 = call noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi0ELb1EE3runERNS_9JacobiSVDIS3_Li2EEERKS3_(ptr noundef nonnull align 8 dereferenceable(200) %102, ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(24) %101)
-  %104 = getelementptr inbounds i8, ptr %0, i64 344
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %105 = call noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi1ELb1EE3runERNS_9JacobiSVDIS3_Li2EEERKS3_(ptr noundef nonnull align 8 dereferenceable(176) %104, ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(24) %101)
   br label %189
 
 106:                                              ; preds = %92
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %108 = load i64, ptr %107, align 8
   store ptr %21, ptr %16, align 8
-  %.sroa.2178.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %108, ptr %.sroa.2178.0..sroa_idx, align 8
-  %.sroa.4179.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.4179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %108, ptr %.sroa.4179.0..sroa_idx, align 8
-  %.sroa.6180.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.6180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %1, ptr %.sroa.6180.0..sroa_idx, align 8
-  %.sroa.7181.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 48
+  %.sroa.7181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7181.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 %23, ptr %.sroa.9.0..sroa_idx, align 8
-  %109 = getelementptr inbounds i8, ptr %16, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 %108, ptr %109, align 8, !alias.scope !301
-  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds i8, ptr %16, i64 64
+  %.sroa.2.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 %108, ptr %.sroa.2.0..sroa_idx.i68, align 8, !alias.scope !301
-  %110 = getelementptr inbounds i8, ptr %16, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store double %.0, ptr %110, align 8, !alias.scope !301
-  %111 = getelementptr inbounds i8, ptr %0, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_5BlockIKS3_Lin1ELin1ELb0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES8_EEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(81) %16, ptr noundef nonnull align 1 dereferenceable(1) %13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  %112 = getelementptr inbounds i8, ptr %0, i64 71
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %113 = load i8, ptr %112, align 1
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %129
@@ -13335,12 +13328,12 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %123 = mul nsw i64 %116, %116
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %123, i64 noundef %116, i64 noundef %116)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load i64, ptr %126, align 8
   store i64 %125, ptr %12, align 8, !alias.scope !304
-  %128 = getelementptr inbounds i8, ptr %12, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %127, ptr %128, align 8, !alias.scope !304
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %12, ptr noundef nonnull align 1 dereferenceable(1) %11)
@@ -13349,7 +13342,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br label %129
 
 129:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit, %106
-  %130 = getelementptr inbounds i8, ptr %0, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %131 = load i8, ptr %130, align 8
   %132 = trunc i8 %131 to i1
   br i1 %132, label %133, label %149
@@ -13377,12 +13370,12 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %143 = mul nsw i64 %135, %134
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %143, i64 noundef %134, i64 noundef %135)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  %144 = getelementptr inbounds i8, ptr %0, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %147 = load i64, ptr %146, align 8
   store i64 %145, ptr %10, align 8, !alias.scope !309
-  %148 = getelementptr inbounds i8, ptr %10, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %147, ptr %148, align 8, !alias.scope !309
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
@@ -13391,13 +13384,13 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br label %149
 
 149:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit69, %129
-  %150 = getelementptr inbounds i8, ptr %0, i64 73
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %151 = load i8, ptr %150, align 1
   %152 = trunc i8 %151 to i1
   br i1 %152, label %153, label %168
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %0, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load i64, ptr %96, align 8
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit71, label %157
@@ -13417,12 +13410,12 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %162 = mul nsw i64 %155, %155
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %154, i64 noundef %162, i64 noundef %155, i64 noundef %155)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %163 = getelementptr inbounds i8, ptr %0, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %164 = load i64, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %166 = load i64, ptr %165, align 8
   store i64 %164, ptr %8, align 8, !alias.scope !314
-  %167 = getelementptr inbounds i8, ptr %8, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %166, ptr %167, align 8, !alias.scope !314
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -13431,13 +13424,13 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br label %168
 
 168:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit71, %149
-  %169 = getelementptr inbounds i8, ptr %0, i64 74
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %170 = load i8, ptr %169, align 2
   %171 = trunc i8 %170 to i1
   br i1 %171, label %172, label %189
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds i8, ptr %0, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %174 = load i64, ptr %96, align 8
   %175 = load i64, ptr %107, align 8
   %176 = icmp eq i64 %174, 0
@@ -13460,12 +13453,12 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %183 = mul nsw i64 %175, %174
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %173, i64 noundef %183, i64 noundef %174, i64 noundef %175)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %184 = getelementptr inbounds i8, ptr %0, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 40
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %187 = load i64, ptr %186, align 8
   store i64 %185, ptr %6, align 8, !alias.scope !319
-  %188 = getelementptr inbounds i8, ptr %6, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %187, ptr %188, align 8, !alias.scope !319
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -13474,13 +13467,13 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br label %189
 
 189:                                              ; preds = %168, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit73, %98
-  %190 = getelementptr inbounds i8, ptr %0, i64 120
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 136
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %193 = load i64, ptr %192, align 8
   %194 = load double, ptr %191, align 8
   %195 = call noundef double @llvm.fabs.f64(double %194)
-  %196 = getelementptr inbounds i8, ptr %0, i64 128
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %197 = load i64, ptr %196, align 8
   %198 = call noundef i64 @llvm.smin.i64(i64 %193, i64 %197)
   %199 = icmp sgt i64 %198, 1
@@ -13502,19 +13495,19 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
 
 _ZNK5Eigen9DenseBaseINS_8DiagonalIKNS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELi0EEEE8maxCoeffEv.exit: ; preds = %.lr.ph.i.i.i.i, %189
   %.022.lcssa.i.i.i.i = phi double [ %195, %189 ], [ %206, %.lr.ph.i.i.i.i ]
-  %208 = getelementptr inbounds i8, ptr %0, i64 104
-  %209 = getelementptr inbounds i8, ptr %4, i64 16
-  %210 = getelementptr inbounds i8, ptr %4, i64 8
-  %211 = getelementptr inbounds i8, ptr %4, i64 24
-  %212 = getelementptr inbounds i8, ptr %0, i64 71
-  %213 = getelementptr inbounds i8, ptr %0, i64 72
-  %214 = getelementptr inbounds i8, ptr %0, i64 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 16
-  %216 = getelementptr inbounds i8, ptr %0, i64 73
-  %217 = getelementptr inbounds i8, ptr %0, i64 74
-  %218 = getelementptr inbounds i8, ptr %0, i64 32
-  %219 = getelementptr inbounds i8, ptr %0, i64 40
-  %220 = getelementptr inbounds i8, ptr %0, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %209 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 71
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 74
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %221 = load i64, ptr %208, align 8
   %222 = icmp sgt i64 %221, 1
   br i1 %222, label %.preheader203, label %.preheader
@@ -13536,7 +13529,7 @@ _ZNK5Eigen9DenseBaseINS_8DiagonalIKNS_12CwiseUnaryOpINS_8internal13scalar_abs_op
   br i1 %228, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %229 = getelementptr inbounds i8, ptr %0, i64 48
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %406
 
 .preheader202:                                    ; preds = %.preheader203, %402
@@ -13625,8 +13618,8 @@ _ZNK5Eigen9DenseBaseINS_8DiagonalIKNS_12CwiseUnaryOpINS_8internal13scalar_abs_op
   %276 = fmul double %.sroa.034.0.i, %273
   %277 = call double @llvm.fmuladd.f64(double %270, double %272, double %276)
   store double %277, ptr %.01420.i.i.i.i, align 8
-  %278 = getelementptr inbounds i8, ptr %.021.i.i.i.i, i64 16
-  %279 = getelementptr inbounds i8, ptr %.01420.i.i.i.i, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i.i, i64 16
   %280 = add nuw nsw i64 %.01519.i.i.i.i, 1
   %exitcond.not.i.i.i.i74 = icmp eq i64 %280, 2
   br i1 %exitcond.not.i.i.i.i74, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit.loopexit.i, label %271, !llvm.loop !329
@@ -13686,8 +13679,8 @@ _ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEdl
   br i1 %or.cond16.i.i, label %.lr.ph.i.i.i76, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit
 
 .lr.ph.i.i.i76:                                   ; preds = %_ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEdlEEvRKT_T1_S7_PNS_14JacobiRotationIT0_EESB_.exit
-  %311 = getelementptr inbounds double, ptr %234, i64 %.pre226
-  %312 = getelementptr inbounds double, ptr %234, i64 %237
+  %311 = getelementptr inbounds nuw double, ptr %234, i64 %.pre226
+  %312 = getelementptr inbounds nuw double, ptr %234, i64 %237
   %313 = fneg double %307
   br label %314
 
@@ -13703,8 +13696,8 @@ _ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEdl
   %319 = fmul double %305, %316
   %320 = call double @llvm.fmuladd.f64(double %313, double %315, double %319)
   store double %320, ptr %.01420.i.i.i, align 8
-  %321 = getelementptr inbounds i8, ptr %.021.i.i.i, i64 8
-  %322 = getelementptr inbounds i8, ptr %.01420.i.i.i, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i, i64 8
   %323 = add nuw nsw i64 %.01519.i.i.i, 1
   %exitcond.not.i.i.i77 = icmp eq i64 %323, %233
   br i1 %exitcond.not.i.i.i77, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %314, !llvm.loop !330
@@ -13727,8 +13720,8 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14applyOnTheLeftIdE
 
 .lr.ph.i.i.preheader.i:                           ; preds = %329
   %334 = load ptr, ptr %0, align 8, !noalias !331
-  %335 = getelementptr inbounds double, ptr %334, i64 %.064211
-  %336 = getelementptr inbounds double, ptr %334, i64 %.063214
+  %335 = getelementptr inbounds nuw double, ptr %334, i64 %.064211
+  %336 = getelementptr inbounds nuw double, ptr %334, i64 %.063214
   br label %.lr.ph.i.i.i80
 
 .lr.ph.i.i.i80:                                   ; preds = %.lr.ph.i.i.i80, %.lr.ph.i.i.preheader.i
@@ -13761,8 +13754,8 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE15applyOnTheRightId
 
 .lr.ph.i.i.preheader.i87:                         ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
   %351 = load ptr, ptr %190, align 8, !noalias !334
-  %352 = getelementptr inbounds double, ptr %351, i64 %.064211
-  %353 = getelementptr inbounds double, ptr %351, i64 %.063214
+  %352 = getelementptr inbounds nuw double, ptr %351, i64 %.064211
+  %353 = getelementptr inbounds nuw double, ptr %351, i64 %.063214
   br label %.lr.ph.i.i.i88
 
 .lr.ph.i.i.i88:                                   ; preds = %.lr.ph.i.i.i88, %.lr.ph.i.i.preheader.i87
@@ -13800,8 +13793,8 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE15applyOnTheRightId
 
 .lr.ph.i.i.preheader.i96:                         ; preds = %368
   %372 = load ptr, ptr %220, align 8, !noalias !337
-  %373 = getelementptr inbounds double, ptr %372, i64 %.064211
-  %374 = getelementptr inbounds double, ptr %372, i64 %.063214
+  %373 = getelementptr inbounds nuw double, ptr %372, i64 %.064211
+  %374 = getelementptr inbounds nuw double, ptr %372, i64 %.063214
   br label %.lr.ph.i.i.i97
 
 .lr.ph.i.i.i97:                                   ; preds = %.lr.ph.i.i.i97, %.lr.ph.i.i.preheader.i96
@@ -13866,7 +13859,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE15applyOnTheRightId
   %412 = load double, ptr %411, align 8
   %413 = call noundef double @llvm.fabs.f64(double %412)
   %414 = load ptr, ptr %229, align 8
-  %415 = getelementptr inbounds double, ptr %414, i64 %.062218
+  %415 = getelementptr inbounds nuw double, ptr %414, i64 %.062218
   store double %413, ptr %415, align 8
   %416 = load i8, ptr %212, align 1
   %417 = trunc i8 %416 to i1
@@ -13879,7 +13872,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE15applyOnTheRightId
 
 422:                                              ; preds = %406
   %423 = load ptr, ptr %0, align 8, !noalias !342
-  %424 = getelementptr inbounds double, ptr %423, i64 %.062218
+  %424 = getelementptr inbounds nuw double, ptr %423, i64 %.062218
   %425 = load i64, ptr %214, align 8, !noalias !345
   %426 = load i64, ptr %215, align 8
   %427 = icmp sgt i64 %425, 0
@@ -13903,8 +13896,8 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEaSINS_12Cwis
   br i1 %435, label %406, label %._crit_edge, !llvm.loop !349
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEaSINS_12CwiseUnaryOpINS_8internal18scalar_opposite_opIdEEKS3_EEEERS3_RKNS_9DenseBaseIT_EE.exit, %.preheader
-  %436 = getelementptr inbounds i8, ptr %0, i64 48
-  %437 = getelementptr inbounds i8, ptr %0, i64 56
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %438 = load ptr, ptr %436, align 8
   %439 = load i64, ptr %437, align 8
   %440 = sdiv i64 %439, 2
@@ -13919,7 +13912,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEaSINS_12Cwis
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %448, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %445 = getelementptr inbounds double, ptr %438, i64 %.011.i.i.i.i.i.i
+  %445 = getelementptr inbounds nuw double, ptr %438, i64 %.011.i.i.i.i.i.i
   %446 = load <2 x double>, ptr %445, align 16
   %447 = fmul <2 x double> %444, %446
   store <2 x double> %447, ptr %445, align 16
@@ -13943,7 +13936,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEaSINS_12Cwis
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmLERKd.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %455 = load i64, ptr %208, align 8
-  %456 = getelementptr inbounds i8, ptr %0, i64 80
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %455, ptr %456, align 8
   %457 = icmp sgt i64 %455, 0
   br i1 %457, label %.lr.ph220, label %.loopexit
@@ -13993,8 +13986,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0E
 
 475:                                              ; preds = %474
   %476 = add nuw nsw i64 %.sroa.0.1.i.i, %.060219
-  %477 = getelementptr inbounds double, ptr %462, i64 %.060219
-  %478 = getelementptr inbounds double, ptr %462, i64 %476
+  %477 = getelementptr inbounds nuw double, ptr %462, i64 %.060219
+  %478 = getelementptr inbounds nuw double, ptr %462, i64 %476
   %479 = load double, ptr %477, align 8
   %480 = load double, ptr %478, align 8
   store double %480, ptr %477, align 8
@@ -14008,9 +14001,9 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0E
 
 486:                                              ; preds = %475
   %487 = load ptr, ptr %0, align 8, !noalias !356
-  %488 = getelementptr inbounds double, ptr %487, i64 %476
+  %488 = getelementptr inbounds nuw double, ptr %487, i64 %476
   %489 = load i64, ptr %214, align 8, !noalias !356
-  %490 = getelementptr inbounds double, ptr %487, i64 %.060219
+  %490 = getelementptr inbounds nuw double, ptr %487, i64 %.060219
   %491 = load i64, ptr %215, align 8
   %492 = icmp sgt i64 %489, 0
   br i1 %492, label %.lr.ph.i.i.i.i.i.i106, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit
@@ -14038,9 +14031,9 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
 
 504:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit
   %505 = load ptr, ptr %220, align 8, !noalias !360
-  %506 = getelementptr inbounds double, ptr %505, i64 %476
+  %506 = getelementptr inbounds nuw double, ptr %505, i64 %476
   %507 = load i64, ptr %218, align 8, !noalias !360
-  %508 = getelementptr inbounds double, ptr %505, i64 %.060219
+  %508 = getelementptr inbounds nuw double, ptr %505, i64 %.060219
   %509 = load i64, ptr %219, align 8
   %510 = icmp sgt i64 %507, 0
   br i1 %510, label %.lr.ph.i.i.i.i.i.i107, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit110
@@ -14065,7 +14058,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
   br i1 %519, label %.lr.ph220, label %.loopexit, !llvm.loop !363
 
 .loopexit:                                        ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit110, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEmLERKd.exit, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEE8maxCoeffIlEEdPT_.exit.thread
-  %520 = getelementptr inbounds i8, ptr %0, i64 68
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 1, ptr %520, align 4
   br label %521
 
@@ -14075,25 +14068,25 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi1ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #29
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #29
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #29
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #29
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #29
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #29
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #29
   %16 = load ptr, ptr %0, align 8
@@ -14103,28 +14096,28 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #29
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #29
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #29
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #29
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #29
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #29
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #29
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #29
   %18 = load ptr, ptr %0, align 8
@@ -14134,10 +14127,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #29
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #29
   %6 = load ptr, ptr %0, align 8
@@ -14147,18 +14140,18 @@ define linkonce_odr hidden void @_ZN5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLin
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE8allocateEllj(ptr noundef nonnull align 8 dereferenceable(544) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 69
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 69
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %1, %9
   %or.cond = select i1 %7, i1 %10, i1 false
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %2, %12
   %or.cond16 = select i1 %or.cond, i1 %13, i1 false
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %3, %15
   %or.cond19 = select i1 %or.cond16, i1 %16, i1 false
@@ -14167,33 +14160,33 @@ define linkonce_odr hidden void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1EL
 17:                                               ; preds = %4
   store i64 %1, ptr %8, align 8
   store i64 %2, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 0, ptr %19, align 4
   store i8 1, ptr %5, align 1
   store i32 %3, ptr %14, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 71
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %21 = trunc i32 %3 to i8
   %22 = lshr i8 %21, 2
   %23 = and i8 %22, 1
   store i8 %23, ptr %20, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = lshr i8 %21, 3
   %26 = and i8 %25, 1
   store i8 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 73
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %28 = lshr i8 %21, 4
   %29 = and i8 %28, 1
   store i8 %29, ptr %27, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 74
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %31 = lshr i8 %21, 5
   %32 = and i8 %31, 1
   store i8 %32, ptr %30, align 2
   %33 = tail call i64 @llvm.smin.i64(i64 %2, i64 %1)
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %33, i64 noundef %33, i64 noundef 1)
   %36 = load i64, ptr %8, align 8
   %37 = load i8, ptr %20, align 1
@@ -14222,7 +14215,7 @@ define linkonce_odr hidden void @_ZN5Eigen9JacobiSVDINS_6MatrixIdLin1ELin1ELi1EL
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit: ; preds = %17, %45
   %50 = mul nsw i64 %42, %36
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %50, i64 noundef %36, i64 noundef %42)
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i64, ptr %11, align 8
   %53 = load i8, ptr %27, align 1
   %54 = trunc i8 %53 to i1
@@ -14250,7 +14243,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit22: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit, %61
   %66 = mul nsw i64 %58, %52
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %66, i64 noundef %52, i64 noundef %58)
-  %67 = getelementptr inbounds i8, ptr %0, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %68 = load i64, ptr %34, align 8
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit24, label %70
@@ -14275,7 +14268,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit24
-  %80 = getelementptr inbounds i8, ptr %0, i64 144
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi0ELb1EE8allocateERKNS_9JacobiSVDIS3_Li2EEE(ptr noundef nonnull align 8 dereferenceable(200) %80, ptr noundef nonnull align 8 dereferenceable(544) %0)
   %.pre = load i64, ptr %8, align 8
   %.pre28 = load i64, ptr %11, align 8
@@ -14288,7 +14281,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %0, i64 344
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi1ELb1EE8allocateERKNS_9JacobiSVDIS3_Li2EEE(ptr noundef nonnull align 8 dereferenceable(176) %86, ptr noundef nonnull align 8 dereferenceable(544) %0)
   %.pre29 = load i64, ptr %8, align 8
   %.pre30 = load i64, ptr %11, align 8
@@ -14301,7 +14294,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not, label %100, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %0, i64 520
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %92 = icmp eq i64 %1, 0
   %93 = icmp eq i64 %2, 0
   %or.cond.i25 = or i1 %92, %93
@@ -14339,16 +14332,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
   %11 = alloca %"class.Eigen::TriangularView.800", align 8
   %12 = alloca %"class.Eigen::HouseholderSequence", align 8
   %13 = alloca %"class.Eigen::HouseholderSequence", align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %15, %17
   br i1 %18, label %19, label %96
 
 19:                                               ; preds = %3
   store ptr %2, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_9TransposeIKS3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
@@ -14358,20 +14351,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
   call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14computeInPlaceEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %21 = load i64, ptr %16, align 8
   %22 = load ptr, ptr %0, align 8, !noalias !364
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !364
   store ptr %22, ptr %11, align 8
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %21, ptr %.sroa.219.0..sroa_idx, align 8
-  %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %21, ptr %.sroa.320.0..sroa_idx, align 8
-  %.sroa.421.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %0, ptr %.sroa.421.0..sroa_idx, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
-  %.sroa.724.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.724.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.522.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 %24, ptr %.sroa.724.0..sroa_idx, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %26 = icmp eq i64 %21, 0
   br i1 %26, label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_9TransposeIKNS_5BlockIKS1_Lin1ELin1ELb0EEEEELj1EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %27
 
@@ -14392,40 +14385,40 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_9Transpose
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZN5Eigen8internal31call_triangular_assignment_loopILi1ELb1ENS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14TriangularViewIKNS_9TransposeIKNS_5BlockIKS3_Lin1ELin1ELb0EEEEELj1EEENS0_9assign_opIddEEEEvRT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %33 = getelementptr inbounds i8, ptr %1, i64 73
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_9TransposeIKNS_5BlockIKS1_Lin1ELin1ELb0EEEEELj1EEEEERS1_RKNS_9EigenBaseIT_EE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %0, ptr %12, align 8, !alias.scope !367
-  %38 = getelementptr inbounds i8, ptr %12, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %37, ptr %38, align 8, !alias.scope !367
-  %39 = getelementptr inbounds i8, ptr %12, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 0, ptr %39, align 8, !alias.scope !367
-  %40 = getelementptr inbounds i8, ptr %12, i64 24
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !367
   %43 = load i64, ptr %23, align 8, !noalias !367
   %.sroa.speculated.i.i.i = call noundef i64 @llvm.smin.i64(i64 %43, i64 %42)
   store i64 %.sroa.speculated.i.i.i, ptr %40, align 8, !alias.scope !367
-  %44 = getelementptr inbounds i8, ptr %12, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %44, align 8, !alias.scope !367
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
-  %46 = getelementptr inbounds i8, ptr %0, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEELi1EE6evalToIS2_NS1_IdLi1ELin1ELi1ELi1ELin1EEEEEvRT_RT0_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(16) %46)
   br label %77
 
 47:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_9TransposeIKNS_5BlockIKS1_Lin1ELin1ELb0EEEEELj1EEEEERS1_RKNS_9EigenBaseIT_EE.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 74
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %49 = load i8, ptr %48, align 2
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %77
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %14, align 8
   %54 = load i64, ptr %16, align 8
   %55 = icmp eq i64 %53, 0
@@ -14448,49 +14441,49 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %62 = mul nsw i64 %54, %53
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %62, i64 noundef %53, i64 noundef %54)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %63 = getelementptr inbounds i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %66 = load i64, ptr %65, align 8
   store i64 %64, ptr %6, align 8, !alias.scope !370
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %66, ptr %67, align 8, !alias.scope !370
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %0, ptr %13, align 8, !alias.scope !375
-  %69 = getelementptr inbounds i8, ptr %13, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %68, ptr %69, align 8, !alias.scope !375
-  %70 = getelementptr inbounds i8, ptr %13, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 0, ptr %70, align 8, !alias.scope !375
-  %71 = getelementptr inbounds i8, ptr %13, i64 24
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i64, ptr %72, align 8, !noalias !375
   %74 = load i64, ptr %23, align 8, !noalias !375
   %.sroa.speculated.i.i.i17 = call noundef i64 @llvm.smin.i64(i64 %74, i64 %73)
   store i64 %.sroa.speculated.i.i.i17, ptr %71, align 8, !alias.scope !375
-  %75 = getelementptr inbounds i8, ptr %13, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 0, ptr %75, align 8, !alias.scope !375
-  %76 = getelementptr inbounds i8, ptr %0, i64 184
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEELi1EE18applyThisOnTheLeftIS2_NS1_IdLi1ELin1ELi1ELi1ELin1EEEEEvRT_RT0_b(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(16) %76, i1 noundef zeroext false)
   br label %77
 
 77:                                               ; preds = %47, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit, %36
-  %78 = getelementptr inbounds i8, ptr %1, i64 71
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 71
   %79 = load i8, ptr %78, align 1
   %80 = trunc i8 %79 to i1
-  %81 = getelementptr inbounds i8, ptr %1, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   %84 = select i1 %80, i1 true, i1 %83
   br i1 %84, label %85, label %96
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
-  %87 = getelementptr inbounds i8, ptr %0, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %88 = load i64, ptr %87, align 8
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_17PermutationMatrixILin1ELin1EiEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %90
@@ -14528,9 +14521,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
   %9 = alloca %"class.Eigen::TriangularView.811", align 8
   %10 = alloca %"class.Eigen::HouseholderSequence", align 8
   %11 = alloca %"class.Eigen::HouseholderSequence", align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %13, %15
   br i1 %16, label %17, label %92
@@ -14542,20 +14535,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
   call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14computeInPlaceEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %18 = load i64, ptr %14, align 8
   %19 = load ptr, ptr %0, align 8, !noalias !378
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !noalias !378
   store ptr %19, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %18, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %18, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 %21, ptr %.sroa.7.0..sroa_idx, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %23 = icmp eq i64 %18, 0
   br i1 %23, label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_5BlockIKS1_Lin1ELin1ELb0EEELj2EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %24
 
@@ -14576,33 +14569,33 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_5BlockIKS1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZN5Eigen8internal31call_triangular_assignment_loopILi2ELb1ENS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14TriangularViewIKNS_5BlockIKS3_Lin1ELin1ELb0EEELj2EEENS0_9assign_opIddEEEEvRT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %30 = getelementptr inbounds i8, ptr %1, i64 71
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 71
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_5BlockIKS1_Lin1ELin1ELb0EEELj2EEEEERS1_RKNS_9EigenBaseIT_EE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %0, ptr %10, align 8, !alias.scope !381
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %34, ptr %35, align 8, !alias.scope !381
-  %36 = getelementptr inbounds i8, ptr %10, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %36, align 8, !alias.scope !381
-  %37 = getelementptr inbounds i8, ptr %10, i64 24
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !381
   %40 = load i64, ptr %20, align 8, !noalias !381
   %.sroa.speculated.i.i.i = call noundef i64 @llvm.smin.i64(i64 %40, i64 %39)
   store i64 %.sroa.speculated.i.i.i, ptr %37, align 8, !alias.scope !381
-  %41 = getelementptr inbounds i8, ptr %10, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %41, align 8, !alias.scope !381
-  %42 = getelementptr inbounds i8, ptr %0, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEELi1EE6evalToIS2_S3_EEvRT_RT0_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %42)
   br label %72
 
 43:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_14TriangularViewIKNS_5BlockIKS1_Lin1ELin1ELb0EEELj2EEEEERS1_RKNS_9EigenBaseIT_EE.exit
-  %44 = getelementptr inbounds i8, ptr %1, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %72
@@ -14630,50 +14623,50 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %57 = mul nsw i64 %49, %48
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %57, i64 noundef %48, i64 noundef %49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load i64, ptr %60, align 8
   store i64 %59, ptr %6, align 8, !alias.scope !384
-  %62 = getelementptr inbounds i8, ptr %6, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %61, ptr %62, align 8, !alias.scope !384
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !389)
-  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %0, ptr %11, align 8, !alias.scope !389
-  %64 = getelementptr inbounds i8, ptr %11, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %63, ptr %64, align 8, !alias.scope !389
-  %65 = getelementptr inbounds i8, ptr %11, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 0, ptr %65, align 8, !alias.scope !389
-  %66 = getelementptr inbounds i8, ptr %11, i64 24
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i64, ptr %67, align 8, !noalias !389
   %69 = load i64, ptr %20, align 8, !noalias !389
   %.sroa.speculated.i.i.i17 = call noundef i64 @llvm.smin.i64(i64 %69, i64 %68)
   store i64 %.sroa.speculated.i.i.i17, ptr %66, align 8, !alias.scope !389
-  %70 = getelementptr inbounds i8, ptr %11, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 0, ptr %70, align 8, !alias.scope !389
-  %71 = getelementptr inbounds i8, ptr %0, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS1_IdLin1ELi1ELi0ELin1ELi1EEELi1EE18applyThisOnTheLeftIS2_S3_EEvRT_RT0_b(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %71, i1 noundef zeroext false)
   br label %72
 
 72:                                               ; preds = %43, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit, %33
-  %73 = getelementptr inbounds i8, ptr %1, i64 73
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
-  %76 = getelementptr inbounds i8, ptr %1, i64 74
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %77 = load i8, ptr %76, align 2
   %78 = trunc i8 %77 to i1
   %79 = select i1 %75, i1 true, i1 %78
   br i1 %79, label %80, label %92
 
 80:                                               ; preds = %72
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
-  %82 = getelementptr inbounds i8, ptr %1, i64 24
-  %83 = getelementptr inbounds i8, ptr %0, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = load i64, ptr %83, align 8
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_17PermutationMatrixILin1ELin1EiEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %86
@@ -14703,76 +14696,76 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEaSINS_17PermutationMatrixILin1ELin1Ei
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi0ELb1EE8allocateERKNS_9JacobiSVDIS3_Li2EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(544) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %.not11 = icmp eq i64 %9, %11
   br i1 %.not11, label %29, label %12
 
 12:                                               ; preds = %7, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #29
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #29
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #29
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #29
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #29
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #29
   %25 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %25) #29
   %26 = load i64, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = load i64, ptr %27, align 8
   tail call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2Ell(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %26, i64 noundef %28)
   br label %29
 
 29:                                               ; preds = %12, %7
-  %30 = getelementptr inbounds i8, ptr %1, i64 73
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load i64, ptr %3, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef 1, i64 noundef %35)
   br label %44
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 74
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %38 = load i8, ptr %37, align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 184
-  %42 = getelementptr inbounds i8, ptr %1, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %43 = load i64, ptr %42, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef 1, i64 noundef %43)
   br label %44
 
 44:                                               ; preds = %36, %40, %33
   %45 = load i64, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %45, 0
   %49 = icmp eq i64 %47, 0
@@ -14791,7 +14784,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit: ; preds = %44, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 160
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %56 = mul nsw i64 %47, %45
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %56, i64 noundef %45, i64 noundef %47)
   ret void
@@ -14799,69 +14792,69 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi1ELb1EE8allocateERKNS_9JacobiSVDIS3_Li2EEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(544) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %.not9 = icmp eq i64 %9, %11
   br i1 %.not9, label %29, label %12
 
 12:                                               ; preds = %7, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #29
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #29
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #29
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #29
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #29
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #29
   %25 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %25) #29
   %26 = load i64, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %28 = load i64, ptr %27, align 8
   tail call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2Ell(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %26, i64 noundef %28)
   br label %29
 
 29:                                               ; preds = %12, %7
-  %30 = getelementptr inbounds i8, ptr %1, i64 71
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 71
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %35 = load i64, ptr %3, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef %35, i64 noundef 1)
   br label %44
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
-  %42 = getelementptr inbounds i8, ptr %1, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %43 = load i64, ptr %42, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef %43, i64 noundef 1)
   br label %44
@@ -14872,7 +14865,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
@@ -14948,7 +14941,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   br label %.body
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %2, i64 %1)
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %.sroa.speculated, i64 noundef %.sroa.speculated, i64 noundef 1)
@@ -14960,7 +14953,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
   br label %.body14
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %sext = shl i64 %2, 32
   %18 = ashr exact i64 %sext, 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
@@ -14973,7 +14966,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen6M
   br label %.body16
 
 _ZN5Eigen17PermutationMatrixILin1ELin1EiEC2El.exit: ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IlEERKT_.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   invoke void @_ZN5Eigen12DenseStorageIlLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %2, i64 noundef 1, i64 noundef %2)
           to label %_ZN5Eigen6MatrixIlLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit unwind label %22
@@ -14984,7 +14977,7 @@ _ZN5Eigen17PermutationMatrixILin1ELin1EiEC2El.exit: ; preds = %_ZN5Eigen6MatrixI
   br label %.body18
 
 _ZN5Eigen6MatrixIlLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen17PermutationMatrixILin1ELin1EiEC2El.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %2, i64 noundef 1, i64 noundef %2)
           to label %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit unwind label %25
@@ -14995,7 +14988,7 @@ _ZN5Eigen6MatrixIlLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen17
   br label %.body20
 
 _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen6MatrixIlLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %2, i64 noundef 1, i64 noundef %2)
           to label %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit24 unwind label %28
@@ -15006,7 +14999,7 @@ _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit: ; preds = %_ZN5Eigen6M
   br label %.body22
 
 _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit24: ; preds = %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   invoke void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %2, i64 noundef 1, i64 noundef %2)
           to label %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit27 unwind label %.body25
@@ -15019,9 +15012,9 @@ _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit24: ; preds = %_ZN5Eigen
   br label %.body22
 
 _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit27: ; preds = %_ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit24
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 121
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 121
   store i8 0, ptr %34, align 1
   ret void
 
@@ -15064,7 +15057,7 @@ _ZN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEC2IlEERKT_.exit27: ; preds = %_ZN5Eigen
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
@@ -15109,7 +15102,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6re
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIlLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
@@ -15154,7 +15147,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIlLin1ELi1ELin1ELi1EE6re
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
@@ -15201,17 +15194,17 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6re
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKS3_KNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES7_EEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
   %.sroa.4.24.vec.insert = insertelement <2 x double> poison, double %7, i64 0
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %.not8.i = icmp eq i64 %15, %11
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -15257,8 +15250,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.011.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %33 = getelementptr inbounds double, ptr %27, i64 %.011.i
-  %34 = getelementptr inbounds double, ptr %5, i64 %.011.i
+  %33 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i
+  %34 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i
   %35 = load <2 x double>, ptr %34, align 16
   %36 = fdiv <2 x double> %35, %32
   store <2 x double> %36, ptr %33, align 16
@@ -15300,25 +15293,25 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %14 = alloca %"class.Eigen::Block.833", align 8
   %15 = alloca %"class.Eigen::Block.1208", align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %18, i64 noundef 1, i64 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %1, align 8
   %23 = load ptr, ptr %21, align 8
   %24 = icmp eq ptr %22, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
   %30 = select i1 %24, i1 %29, i1 false
   br i1 %30, label %31, label %171
 
 31:                                               ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = tail call noundef i64 @llvm.smin.i64(i64 %26, i64 %33)
   %35 = icmp sgt i64 %34, 0
@@ -15381,36 +15374,36 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   br i1 %51, label %.lr.ph94, label %.preheader
 
 .lr.ph94:                                         ; preds = %_ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5DenseEE7setZeroEv.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 16
-  %56 = getelementptr inbounds i8, ptr %10, i64 24
-  %57 = getelementptr inbounds i8, ptr %10, i64 32
-  %58 = getelementptr inbounds i8, ptr %10, i64 40
-  %59 = getelementptr inbounds i8, ptr %10, i64 48
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
-  %61 = getelementptr inbounds i8, ptr %11, i64 24
-  %62 = getelementptr inbounds i8, ptr %11, i64 32
-  %63 = getelementptr inbounds i8, ptr %11, i64 40
-  %64 = getelementptr inbounds i8, ptr %11, i64 48
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 16
-  %68 = getelementptr inbounds i8, ptr %8, i64 24
-  %69 = getelementptr inbounds i8, ptr %8, i64 32
-  %70 = getelementptr inbounds i8, ptr %8, i64 40
-  %71 = getelementptr inbounds i8, ptr %8, i64 48
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 24
-  %74 = getelementptr inbounds i8, ptr %9, i64 32
-  %75 = getelementptr inbounds i8, ptr %9, i64 40
-  %76 = getelementptr inbounds i8, ptr %9, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %81
 
 .preheader:                                       ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit, %_ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5DenseEE7setZeroEv.exit
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = icmp sgt i64 %79, %20
   br i1 %80, label %.lr.ph96, label %.loopexit
@@ -15419,7 +15412,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %.0.in92 = phi i64 [ %20, %.lr.ph94 ], [ %.093, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit ]
   %.093 = add nsw i64 %.0.in92, -1
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = load i64, ptr %52, align 8
   %86 = add i64 %84, 1
@@ -15452,7 +15445,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %101 = sub nsw i64 %100, %87
   %102 = load ptr, ptr %82, align 8, !noalias !406
   %103 = getelementptr inbounds double, ptr %102, i64 %.093
-  %104 = getelementptr inbounds i8, ptr %82, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %105 = load i64, ptr %104, align 8, !noalias !406
   %106 = mul nsw i64 %105, %87
   %107 = getelementptr inbounds double, ptr %103, i64 %106
@@ -15492,7 +15485,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %122 = sub nsw i64 %121, %87
   %123 = load ptr, ptr %82, align 8, !noalias !416
   %124 = getelementptr inbounds double, ptr %123, i64 %.093
-  %125 = getelementptr inbounds i8, ptr %82, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %126 = load i64, ptr %125, align 8, !noalias !416
   %127 = mul nsw i64 %126, %87
   %128 = getelementptr inbounds double, ptr %124, i64 %127
@@ -15514,7 +15507,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %135 = getelementptr inbounds double, ptr %134, i64 %.093
   %136 = load i64, ptr %32, align 8, !noalias !417
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = sub i64 %139, %.0.in92
   %141 = sub nsw i64 %136, %140
@@ -15542,7 +15535,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
   %151 = phi i64 [ %168, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56 ], [ %79, %.preheader ]
   %.05295 = phi i64 [ %166, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56 ], [ 0, %.preheader ]
   %152 = load ptr, ptr %1, align 8, !noalias !425
-  %153 = getelementptr inbounds double, ptr %152, i64 %.05295
+  %153 = getelementptr inbounds nuw double, ptr %152, i64 %.05295
   %154 = load i64, ptr %32, align 8, !noalias !425
   %155 = xor i64 %.05295, -1
   %156 = add i64 %151, %155
@@ -15569,7 +15562,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
 _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56: ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56.loopexit, %.lr.ph96
   %165 = phi ptr [ %.pre100, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56.loopexit ], [ %150, %.lr.ph96 ]
   %166 = add nuw nsw i64 %.05295, 1
-  %167 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %168 = load i64, ptr %167, align 8
   %169 = sub nsw i64 %168, %20
   %170 = icmp slt i64 %166, %169
@@ -15577,7 +15570,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
 
 171:                                              ; preds = %3
   %172 = icmp sgt i64 %20, 48
-  %173 = getelementptr inbounds i8, ptr %21, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %174 = load i64, ptr %173, align 8
   %175 = icmp eq i64 %174, 0
   br i1 %172, label %176, label %187
@@ -15600,11 +15593,11 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %182 = mul nsw i64 %174, %174
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %182, i64 noundef %174, i64 noundef %174)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %183 = getelementptr inbounds i8, ptr %1, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %184 = load i64, ptr %183, align 8
   %185 = load i64, ptr %25, align 8
   store i64 %184, ptr %7, align 8, !alias.scope !432
-  %186 = getelementptr inbounds i8, ptr %7, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %185, ptr %186, align 8, !alias.scope !432
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -15631,11 +15624,11 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %193 = mul nsw i64 %174, %174
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %193, i64 noundef %174, i64 noundef %174)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %194 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = load i64, ptr %25, align 8
   store i64 %195, ptr %5, align 8, !alias.scope !437
-  %197 = getelementptr inbounds i8, ptr %5, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %196, ptr %197, align 8, !alias.scope !437
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -15645,38 +15638,38 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br i1 %198, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit58
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
-  %200 = getelementptr inbounds i8, ptr %0, i64 16
-  %201 = getelementptr inbounds i8, ptr %14, i64 8
-  %202 = getelementptr inbounds i8, ptr %14, i64 16
-  %203 = getelementptr inbounds i8, ptr %14, i64 24
-  %204 = getelementptr inbounds i8, ptr %14, i64 32
-  %205 = getelementptr inbounds i8, ptr %14, i64 40
-  %206 = getelementptr inbounds i8, ptr %14, i64 48
-  %207 = getelementptr inbounds i8, ptr %15, i64 8
-  %208 = getelementptr inbounds i8, ptr %15, i64 24
-  %209 = getelementptr inbounds i8, ptr %15, i64 32
-  %210 = getelementptr inbounds i8, ptr %15, i64 40
-  %211 = getelementptr inbounds i8, ptr %15, i64 48
-  %212 = getelementptr inbounds i8, ptr %0, i64 8
-  %213 = getelementptr inbounds i8, ptr %12, i64 8
-  %214 = getelementptr inbounds i8, ptr %12, i64 16
-  %215 = getelementptr inbounds i8, ptr %12, i64 24
-  %216 = getelementptr inbounds i8, ptr %12, i64 32
-  %217 = getelementptr inbounds i8, ptr %12, i64 40
-  %218 = getelementptr inbounds i8, ptr %12, i64 48
-  %219 = getelementptr inbounds i8, ptr %13, i64 8
-  %220 = getelementptr inbounds i8, ptr %13, i64 24
-  %221 = getelementptr inbounds i8, ptr %13, i64 32
-  %222 = getelementptr inbounds i8, ptr %13, i64 40
-  %223 = getelementptr inbounds i8, ptr %13, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %224
 
 224:                                              ; preds = %.lr.ph, %276
   %.051.in89 = phi i64 [ %20, %.lr.ph ], [ %.05190, %276 ]
   %.05190 = add nsw i64 %.051.in89, -1
   %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = load i64, ptr %226, align 8
   %228 = load i64, ptr %199, align 8
   %229 = add i64 %227, 1
@@ -15709,7 +15702,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %244 = sub nsw i64 %243, %230
   %245 = load ptr, ptr %225, align 8, !noalias !451
   %246 = getelementptr inbounds double, ptr %245, i64 %.05190
-  %247 = getelementptr inbounds i8, ptr %225, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %248 = load i64, ptr %247, align 8, !noalias !451
   %249 = mul nsw i64 %248, %230
   %250 = getelementptr inbounds double, ptr %246, i64 %249
@@ -15749,7 +15742,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %265 = sub nsw i64 %264, %230
   %266 = load ptr, ptr %225, align 8, !noalias !461
   %267 = getelementptr inbounds double, ptr %266, i64 %.05190
-  %268 = getelementptr inbounds i8, ptr %225, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %269 = load i64, ptr %268, align 8, !noalias !461
   %270 = mul nsw i64 %269, %230
   %271 = getelementptr inbounds double, ptr %267, i64 %270
@@ -15781,15 +15774,15 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %7 = alloca %"class.Eigen::VectorBlock.1457", align 8
   %8 = alloca %"class.Eigen::Block.833", align 8
   %9 = alloca %"class.Eigen::Block.1208", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   %not. = xor i1 %12, true
   %.0.shrunk = select i1 %3, i1 %not., i1 false
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp sgt i64 %14, 47
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %17, 1
   %or.cond = select i1 %15, i1 %18, i1 false
@@ -15801,25 +15794,25 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %20 = lshr i64 %.lhs.trunc, 1
   %.zext = and i64 %20, 127
   %21 = select i1 %19, i64 %.zext, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
-  %27 = getelementptr inbounds i8, ptr %5, i64 40
-  %28 = getelementptr inbounds i8, ptr %5, i64 48
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
-  %35 = getelementptr inbounds i8, ptr %6, i64 48
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
-  %39 = getelementptr inbounds i8, ptr %7, i64 32
-  %40 = getelementptr inbounds i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %41
 
 41:                                               ; preds = %.lr.ph67, %49
@@ -15849,12 +15842,12 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %53 = load i64, ptr %22, align 8
   %54 = add i64 %53, %51
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = sub nsw i64 %57, %54
   %59 = load ptr, ptr %55, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %51
-  %61 = getelementptr inbounds i8, ptr %55, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = mul nsw i64 %62, %54
   %64 = getelementptr inbounds double, ptr %60, i64 %63
@@ -15889,7 +15882,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
   %78 = load ptr, ptr %77, align 8, !noalias !463
   %79 = getelementptr inbounds double, ptr %78, i64 %51
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %79, ptr %7, align 8, !alias.scope !463
   store i64 %52, ptr %37, align 8, !alias.scope !463
   store ptr %77, ptr %38, align 8, !alias.scope !463
@@ -15903,27 +15896,27 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   br i1 %84, label %41, label %.loopexit, !llvm.loop !466
 
 ._crit_edge:                                      ; preds = %4
-  %85 = getelementptr inbounds i8, ptr %1, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %17, i64 noundef 1, i64 noundef %17)
   %86 = load i64, ptr %13, align 8
   %87 = icmp sgt i64 %86, 0
   br i1 %87, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 16
-  %92 = getelementptr inbounds i8, ptr %8, i64 24
-  %93 = getelementptr inbounds i8, ptr %8, i64 32
-  %94 = getelementptr inbounds i8, ptr %8, i64 40
-  %95 = getelementptr inbounds i8, ptr %8, i64 48
-  %96 = getelementptr inbounds i8, ptr %9, i64 8
-  %97 = getelementptr inbounds i8, ptr %9, i64 24
-  %98 = getelementptr inbounds i8, ptr %9, i64 32
-  %99 = getelementptr inbounds i8, ptr %9, i64 40
-  %100 = getelementptr inbounds i8, ptr %9, i64 48
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %102
 
 102:                                              ; preds = %.lr.ph, %102
@@ -15935,7 +15928,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %107 = add i64 %103, %106
   %108 = select i1 %105, i64 %.04865, i64 %107
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = load i64, ptr %88, align 8
   %113 = add i64 %108, %112
@@ -15964,7 +15957,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %125 = sub nsw i64 %124, %123
   %126 = load ptr, ptr %109, align 8, !noalias !476
   %127 = getelementptr inbounds double, ptr %126, i64 %108
-  %128 = getelementptr inbounds i8, ptr %109, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %129 = load i64, ptr %128, align 8, !noalias !476
   %130 = mul nsw i64 %129, %123
   %131 = getelementptr inbounds double, ptr %127, i64 %130
@@ -15992,14 +15985,14 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_9TransposeIKS3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %11, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %.not8.i = icmp eq i64 %13, %9
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -16082,21 +16075,21 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 define linkonce_odr hidden void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14computeInPlaceEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Eigen::Block.833", align 8
   %3 = alloca %"class.Eigen::VectorBlock", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %.sroa.speculated.i = tail call noundef i64 @llvm.smin.i64(i64 %7, i64 %5)
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %.sroa.speculated.i, i64 noundef %.sroa.speculated.i, i64 noundef 1)
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %7, i64 noundef 1, i64 noundef %7)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %6, align 8
   tail call void @_ZN5Eigen12DenseStorageIlLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11, i64 noundef 1, i64 noundef %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %7, i64 noundef 1, i64 noundef %7)
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %7, i64 noundef 1, i64 noundef %7)
   %14 = icmp sgt i64 %7, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -16104,7 +16097,7 @@ define linkonce_odr hidden void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1
 .lr.ph:                                           ; preds = %1, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4normEv.exit
   %.082180 = phi i64 [ %40, %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4normEv.exit ], [ 0, %1 ]
   %15 = load ptr, ptr %0, align 8, !noalias !480
-  %16 = getelementptr inbounds double, ptr %15, i64 %.082180
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %.082180
   %17 = load i64, ptr %4, align 8, !noalias !480
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4normEv.exit, label %19
@@ -16134,13 +16127,13 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
   %31 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %30)
   %32 = extractelement <2 x double> %31, i64 0
   %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %.082180
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %.082180
   store double %32, ptr %34, align 8
   %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %.082180
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %.082180
   %37 = load double, ptr %36, align 8
   %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds double, ptr %38, i64 %.082180
+  %39 = getelementptr inbounds nuw double, ptr %38, i64 %.082180
   store double %37, ptr %39, align 8
   %40 = add nuw nsw i64 %.082180, 1
   %exitcond.not = icmp eq i64 %40, %7
@@ -16148,7 +16141,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
 
 ._crit_edge:                                      ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4normEv.exit, %1
   %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load i64, ptr %42, align 8
   %44 = sdiv i64 %43, 4
   %45 = shl nsw i64 %44, 2
@@ -16164,9 +16157,9 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
   br i1 %50, label %51, label %67
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %41, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %53 = load <2 x double>, ptr %52, align 16
-  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 48
   %54 = icmp samesign ugt i64 %43, 7
   br i1 %54, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -16175,10 +16168,10 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
   %.054.in74.i.i.i.i = phi i64 [ %.05475.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %51 ]
   %storemerge73.i.i.i.i = phi <2 x double> [ %59, %.lr.ph.i.i.i.i ], [ %53, %51 ]
   %.17072.i.i.i.i = phi <2 x double> [ %57, %.lr.ph.i.i.i.i ], [ %49, %51 ]
-  %55 = getelementptr inbounds double, ptr %41, i64 %.05475.i.i.i.i
+  %55 = getelementptr inbounds nuw double, ptr %41, i64 %.05475.i.i.i.i
   %56 = load <2 x double>, ptr %55, align 16
   %57 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17072.i.i.i.i, <2 x double> %56) #34, !srcloc !295
-  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
   %58 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %59 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge73.i.i.i.i, <2 x double> %58) #34, !srcloc !295
   %.054.i.i.i.i = add nuw nsw i64 %.05475.i.i.i.i, 4
@@ -16193,7 +16186,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1E
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %._crit_edge.i.i.i.i
-  %64 = getelementptr inbounds double, ptr %41, i64 %45
+  %64 = getelementptr inbounds nuw double, ptr %41, i64 %45
   %65 = load <2 x double>, ptr %64, align 16
   %66 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %61, <2 x double> %65) #34, !srcloc !295
   br label %67
@@ -16228,29 +16221,29 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit: ; pr
   %79 = fmul double %78, %78
   %80 = sitofp i64 %5 to double
   %81 = fdiv double %79, %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 144
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %.sroa.speculated.i, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %83, align 8
   %84 = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %84, label %.lr.ph186, label %._crit_edge187
 
 .lr.ph186:                                        ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit
-  %85 = getelementptr inbounds i8, ptr %2, i64 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
-  %87 = getelementptr inbounds i8, ptr %2, i64 24
-  %88 = getelementptr inbounds i8, ptr %2, i64 32
-  %89 = getelementptr inbounds i8, ptr %2, i64 40
-  %90 = getelementptr inbounds i8, ptr %2, i64 48
-  %91 = getelementptr inbounds i8, ptr %3, i64 8
-  %92 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.3115.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  %.sroa.5117.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
-  %.sroa.7118.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
-  %.sroa.8119.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 64
-  %.sroa.9120.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 72
-  %93 = getelementptr inbounds i8, ptr %3, i64 80
-  %94 = getelementptr inbounds i8, ptr %3, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.3115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sroa.7118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sroa.8119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.9120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %95
 
 .loopexit:                                        ; preds = %279, %204
@@ -16306,14 +16299,14 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0E
 
 119:                                              ; preds = %118, %112, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0EEEE8maxCoeffIlEEdPT_.exit
   %120 = load ptr, ptr %10, align 8
-  %121 = getelementptr inbounds i64, ptr %120, i64 %.083184
+  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %.083184
   store i64 %109, ptr %121, align 8
   %.not95 = icmp eq i64 %.sroa.3.2.i.i, 0
   br i1 %.not95, label %146, label %122
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr %0, align 8, !noalias !492
-  %124 = getelementptr inbounds double, ptr %123, i64 %.083184
+  %124 = getelementptr inbounds nuw double, ptr %123, i64 %.083184
   %125 = load i64, ptr %4, align 8, !noalias !492
   %126 = getelementptr inbounds double, ptr %123, i64 %109
   %127 = load i64, ptr %6, align 8
@@ -16335,14 +16328,14 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi1ELin1ELb0E
 
 _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %122
   %135 = load ptr, ptr %12, align 8
-  %136 = getelementptr inbounds double, ptr %135, i64 %.083184
+  %136 = getelementptr inbounds nuw double, ptr %135, i64 %.083184
   %137 = getelementptr inbounds double, ptr %135, i64 %109
   %138 = load double, ptr %136, align 8
   %139 = load double, ptr %137, align 8
   store double %139, ptr %136, align 8
   store double %138, ptr %137, align 8
   %140 = load ptr, ptr %13, align 8
-  %141 = getelementptr inbounds double, ptr %140, i64 %.083184
+  %141 = getelementptr inbounds nuw double, ptr %140, i64 %.083184
   %142 = getelementptr inbounds double, ptr %140, i64 %109
   %143 = load double, ptr %141, align 8
   %144 = load double, ptr %142, align 8
@@ -16354,7 +16347,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
 146:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit, %119
   %.1 = phi i64 [ %145, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit ], [ %.080185, %119 ]
   %147 = load ptr, ptr %0, align 8, !noalias !495
-  %148 = getelementptr inbounds double, ptr %147, i64 %.083184
+  %148 = getelementptr inbounds nuw double, ptr %147, i64 %.083184
   %149 = load i64, ptr %4, align 8, !noalias !495
   %150 = sub nsw i64 %5, %.083184
   %151 = sub nsw i64 %149, %150
@@ -16362,7 +16355,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
   %153 = mul nsw i64 %152, %151
   %154 = getelementptr inbounds double, ptr %148, i64 %153
   %155 = load ptr, ptr %8, align 8
-  %156 = getelementptr inbounds double, ptr %155, i64 %.083184
+  %156 = getelementptr inbounds nuw double, ptr %155, i64 %.083184
   %157 = add nsw i64 %150, -1
   %158 = getelementptr inbounds double, ptr %154, i64 %152
   %or.cond.i.i = icmp eq i64 %150, 1
@@ -16484,7 +16477,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
   store i64 %207, ptr %88, align 8, !alias.scope !504
   store i64 %209, ptr %89, align 8, !alias.scope !504
   store i64 %208, ptr %90, align 8, !alias.scope !504
-  %214 = getelementptr inbounds double, ptr %210, i64 %.083184
+  %214 = getelementptr inbounds nuw double, ptr %210, i64 %.083184
   %215 = sub nsw i64 %206, %157
   %216 = mul nsw i64 %208, %215
   %217 = getelementptr inbounds double, ptr %214, i64 %216
@@ -16499,10 +16492,10 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
   store i64 %215, ptr %93, align 8, !alias.scope !507
   store i64 1, ptr %94, align 8, !alias.scope !507
   %218 = load ptr, ptr %8, align 8
-  %219 = getelementptr inbounds double, ptr %218, i64 %.083184
+  %219 = getelementptr inbounds nuw double, ptr %218, i64 %.083184
   %220 = add nuw nsw i64 %.083184, 1
   %221 = load ptr, ptr %9, align 8
-  %222 = getelementptr inbounds double, ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw double, ptr %221, i64 %220
   call void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEE25applyHouseholderOnTheLeftINS_11VectorBlockINS1_IS3_Lin1ELi1ELb0EEELin1EEEEEvRKT_RKdPd(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull %222)
   %223 = icmp slt i64 %220, %7
   br i1 %223, label %.lr.ph183, label %.loopexit
@@ -16515,7 +16508,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
 226:                                              ; preds = %.lr.ph183, %279
   %.081181 = phi i64 [ %220, %.lr.ph183 ], [ %280, %279 ]
   %227 = load ptr, ptr %12, align 8
-  %228 = getelementptr inbounds double, ptr %227, i64 %.081181
+  %228 = getelementptr inbounds nuw double, ptr %227, i64 %.081181
   %229 = load double, ptr %228, align 8
   %230 = fcmp une double %229, 0.000000e+00
   br i1 %230, label %231, label %279
@@ -16535,7 +16528,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
   %243 = fcmp olt double %242, 0.000000e+00
   %244 = select i1 %243, double 0.000000e+00, double %242
   %245 = load ptr, ptr %13, align 8
-  %246 = getelementptr inbounds double, ptr %245, i64 %.081181
+  %246 = getelementptr inbounds nuw double, ptr %245, i64 %.081181
   %247 = load double, ptr %246, align 8
   %248 = fdiv double %229, %247
   %249 = fmul double %248, %248
@@ -16574,10 +16567,10 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %268 = extractelement <2 x double> %267, i64 0
   store double %268, ptr %246, align 8
   %269 = load ptr, ptr %13, align 8
-  %270 = getelementptr inbounds double, ptr %269, i64 %.081181
+  %270 = getelementptr inbounds nuw double, ptr %269, i64 %.081181
   %271 = load double, ptr %270, align 8
   %272 = load ptr, ptr %12, align 8
-  %273 = getelementptr inbounds double, ptr %272, i64 %.081181
+  %273 = getelementptr inbounds nuw double, ptr %272, i64 %.081181
   store double %271, ptr %273, align 8
   br label %279
 
@@ -16602,11 +16595,11 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 ._crit_edge187:                                   ; preds = %._crit_edge187.loopexit, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit
   %.080.lcssa = phi i64 [ 1, %_ZNK5Eigen9DenseBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE8maxCoeffEv.exit ], [ %283, %._crit_edge187.loopexit ]
-  %284 = getelementptr inbounds i8, ptr %0, i64 40
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %sext = shl i64 %7, 32
   %285 = ashr exact i64 %sext, 32
   call void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %284, i64 noundef %285, i64 noundef %285, i64 noundef 1)
-  %286 = getelementptr inbounds i8, ptr %0, i64 48
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %287 = load i64, ptr %286, align 8
   %288 = trunc i64 %287 to i32
   %289 = icmp sgt i32 %288, 0
@@ -16619,7 +16612,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %290 = load ptr, ptr %284, align 8
-  %291 = getelementptr inbounds i32, ptr %290, i64 %indvars.iv.i.i
+  %291 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv.i.i
   %292 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %292, ptr %291, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -16632,11 +16625,11 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
 .lr.ph189:                                        ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit, %.lr.ph189
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph189 ], [ 0, %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit ]
   %293 = load ptr, ptr %10, align 8
-  %294 = getelementptr inbounds i64, ptr %293, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw i64, ptr %293, i64 %indvars.iv
   %295 = load i64, ptr %294, align 8
   %sext94 = shl i64 %295, 32
   %296 = load ptr, ptr %284, align 8
-  %297 = getelementptr inbounds i32, ptr %296, i64 %indvars.iv
+  %297 = getelementptr inbounds nuw i32, ptr %296, i64 %indvars.iv
   %298 = ashr exact i64 %sext94, 30
   %299 = getelementptr inbounds i8, ptr %296, i64 %298
   %300 = load i32, ptr %297, align 4
@@ -16648,9 +16641,9 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   br i1 %exitcond199.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !516
 
 ._crit_edge190:                                   ; preds = %.lr.ph189, %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
-  %302 = getelementptr inbounds i8, ptr %0, i64 152
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %.080.lcssa, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %0, i64 120
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %303, align 8
   ret void
 }
@@ -16663,7 +16656,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %8 = alloca %"struct.Eigen::internal::mul_assign_op", align 1
   %9 = alloca %"class.Eigen::Map.957", align 8
   %10 = alloca %"class.Eigen::Product.978", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 1
   %14 = load double, ptr %2, align 8
@@ -16678,18 +16671,18 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store double %16, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   store ptr %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %18, align 8
   store ptr %6, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %25, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -16703,37 +16696,37 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   br i1 %27, label %28, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEKNS_5BlockINSD_INS8_IdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS_3MapINS8_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS_10DenseShapeESO_Li5EE5subToINSD_INSD_ISE_Lin1ELin1ELb0EEELin1ELin1ELb0EEEEEvRT_RKSI_RKSN_.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8
   store ptr %3, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %30, ptr %31, align 8
   %32 = add nsw i64 %12, -1
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds double, ptr %33, i64 %37
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 128
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.10.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 160
+  %.sroa.10.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.24..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  %39 = getelementptr inbounds i8, ptr %10, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store ptr %38, ptr %39, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 112
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i64 %32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 120
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 %30, ptr %.sroa.543.0..sroa_idx, align 8
-  %.sroa.844.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 152
+  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
   store ptr %35, ptr %.sroa.844.0..sroa_idx, align 8
-  %.sroa.1046.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 184
+  %.sroa.1046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 184
   store i64 1, ptr %.sroa.1046.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 192
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 192
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 200
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
   store i64 %37, ptr %.sroa.12.0..sroa_idx, align 8
   call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !517
@@ -16761,8 +16754,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %54 = getelementptr inbounds double, ptr %41, i64 %.05.i.i.i.i.i.i.i
-  %55 = getelementptr inbounds double, ptr %40, i64 %.05.i.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw double, ptr %41, i64 %.05.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw double, ptr %40, i64 %.05.i.i.i.i.i.i.i
   %56 = load double, ptr %55, align 8
   %57 = load double, ptr %54, align 8
   %58 = fadd double %56, %57
@@ -16831,8 +16824,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9: ; pred
 
 .lr.ph.i.i.i.i.i.i.i17:                           ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i17
   %.05.i.i.i.i.i.i.i18 = phi i64 [ %95, %.lr.ph.i.i.i.i.i.i.i17 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9 ]
-  %89 = getelementptr inbounds double, ptr %76, i64 %.05.i.i.i.i.i.i.i18
-  %90 = getelementptr inbounds double, ptr %.sroa.332.32.copyload, i64 %.05.i.i.i.i.i.i.i18
+  %89 = getelementptr inbounds nuw double, ptr %76, i64 %.05.i.i.i.i.i.i.i18
+  %90 = getelementptr inbounds nuw double, ptr %.sroa.332.32.copyload, i64 %.05.i.i.i.i.i.i.i18
   %91 = load double, ptr %90, align 8
   %92 = fmul double %75, %91
   %93 = load double, ptr %89, align 8
@@ -16883,10 +16876,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS_3MapISF_Li0ENS_6StrideILi0ELi0EEEEEEEEERS5_RKNS0_IT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i12, %._crit_edge.i.i.i.i.i.i11
   %114 = load double, ptr %2, align 8, !noalias !530
   %.sroa.4.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.4.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.4.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.4.sroa.3.0.copyload = load ptr, ptr %.sroa.4.sroa.3.0..sroa_idx, align 8
   %.sroa.624.144.copyload = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds i8, ptr %.sroa.4.sroa.3.0.copyload, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.3.0.copyload, i64 16
   %116 = load i64, ptr %115, align 8
   %117 = icmp sgt i64 %12, 1
   br i1 %117, label %.lr.ph.i.i, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEKNS_5BlockINSD_INS8_IdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS_3MapINS8_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS_10DenseShapeESO_Li5EE5subToINSD_INSD_ISE_Lin1ELin1ELb0EEELin1ELin1ELb0EEEEEvRT_RKSI_RKSN_.exit
@@ -16923,8 +16916,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %142, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i ]
-  %136 = getelementptr inbounds double, ptr %120, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %137 = getelementptr inbounds double, ptr %.sroa.624.144.copyload, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %136 = getelementptr inbounds nuw double, ptr %120, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %137 = getelementptr inbounds nuw double, ptr %.sroa.624.144.copyload, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %138 = load double, ptr %137, align 8
   %139 = fmul double %124, %138
   %140 = load double, ptr %136, align 8
@@ -16986,7 +16979,7 @@ declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -16995,14 +16988,14 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   br i1 %.not, label %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.preheader.lr.ph.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi0ELi0EE3runERSG_.exit
 
 .preheader.lr.ph.i:                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %13, 0
   br i1 %14, label %.preheader.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi0ELi0EE3runERSG_.exit
@@ -17010,7 +17003,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %._crit_edge.i
   %15 = phi ptr [ %35, %._crit_edge.i ], [ %3, %.preheader.lr.ph.i ]
   %.0810.i = phi i64 [ %36, %._crit_edge.i ], [ 0, %.preheader.lr.ph.i ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %17, 0
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
@@ -17019,7 +17012,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %.09.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.preheader.i ]
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = mul nsw i64 %22, %.0810.i
   %24 = getelementptr double, ptr %20, i64 %.09.i
@@ -17031,7 +17024,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   store double %29, ptr %25, align 8
   %30 = add nuw nsw i64 %.09.i, 1
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp slt i64 %30, %33
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !539
@@ -17039,19 +17032,19 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %35 = phi ptr [ %15, %.preheader.i ], [ %31, %.lr.ph.i ]
   %36 = add nuw nsw i64 %.0810.i, 1
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp slt i64 %36, %38
   br i1 %39, label %.preheader.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi0ELi0EE3runERSG_.exit, !llvm.loop !540
 
 _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 1
   %49 = icmp sgt i64 %43, 0
@@ -17061,7 +17054,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %50 = lshr exact i64 %5, 3
   %51 = and i64 %50, 1
   %52 = tail call i64 @llvm.smin.i64(i64 %51, i64 %41)
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %54
 
 54:                                               ; preds = %.lr.ph54, %._crit_edge
@@ -17076,7 +17069,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
 .lr.ph.preheader:                                 ; preds = %54
   %59 = load ptr, ptr %0, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = mul nsw i64 %62, %.03752
   %64 = getelementptr double, ptr %60, i64 %63
@@ -17099,7 +17092,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %.03448 = phi i64 [ %84, %.lr.ph49 ], [ %.03653, %.preheader45 ]
   %71 = load ptr, ptr %0, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = mul nsw i64 %74, %.03752
   %76 = getelementptr double, ptr %72, i64 %.03448
@@ -17119,7 +17112,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %.050 = phi i64 [ %97, %.lr.ph51 ], [ %57, %.preheader ]
   %86 = load ptr, ptr %0, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = mul nsw i64 %89, %.03752
   %91 = getelementptr double, ptr %87, i64 %.050
@@ -17149,7 +17142,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 define linkonce_odr hidden void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %6, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -17209,7 +17202,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.preheader.i
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 1
   %38 = load ptr, ptr %1, align 8
@@ -17217,19 +17210,19 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
 
 39:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   %40 = load ptr, ptr %2, align 8, !noalias !544
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !544
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_INS1_IS4_Lin1ELin1ELb0EEELin1ELin1ELb0EEELin1ELi1ELb0EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i, label %44
 
 44:                                               ; preds = %39
-  %.sroa.518.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.518.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.518.24.copyload.i.i = load ptr, ptr %.sroa.518.24..sroa_idx.i.i, align 8
-  %.sroa.422.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.422.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.422.24.copyload.i.i = load ptr, ptr %.sroa.422.24..sroa_idx.i.i, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.422.24.copyload.i.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.422.24.copyload.i.i, i64 16
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.518.24.copyload.i.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.518.24.copyload.i.i, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = load double, ptr %38, align 8
   %50 = load double, ptr %40, align 8
@@ -17261,25 +17254,25 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_INS1_INS_6MatrixIdLin1ELin1
   br label %_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE13scaleAndAddToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_RKd.exit
 
 65:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
-  %.sroa.213.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.213.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.213.0.copyload.i.i = load ptr, ptr %.sroa.213.0..sroa_idx.i.i, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.410.0.copyload.i.i = load ptr, ptr %.sroa.410.0..sroa_idx.i.i, align 8
   %.sroa.09.0.copyload.i.i.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %66 = getelementptr inbounds i8, ptr %.sroa.410.0.copyload.i.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload.i.i, i64 16
   %67 = load i64, ptr %66, align 8
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.sroa.213.0.copyload.i.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.213.0.copyload.i.i, i64 16
   %70 = load i64, ptr %69, align 8
   store ptr %38, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %70, ptr %71, align 8
   call void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %36, i64 noundef %.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %.sroa.09.0.copyload.i.i.i, i64 noundef 1, double noundef 1.000000e+00)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -17293,18 +17286,18 @@ _ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal31call_triangular_assignment_loopILi1ELb1ENS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14TriangularViewIKNS_9TransposeIKNS_5BlockIKS3_Lin1ELin1ELb0EEEEELj1EEENS0_9assign_opIddEEEEvRT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %.not15 = icmp eq i64 %16, %12
   %or.cond = select i1 %.not, i1 %.not15, i1 false
@@ -17429,7 +17422,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %8 = alloca %"struct.Eigen::internal::mul_assign_op", align 1
   %9 = alloca %"class.Eigen::Map", align 8
   %10 = alloca %"class.Eigen::Product.1223", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 1
   %14 = load double, ptr %2, align 8
@@ -17444,18 +17437,18 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store double %16, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   store ptr %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %18, align 8
   store ptr %6, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %25, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -17469,42 +17462,42 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   br i1 %27, label %28, label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSB_18scalar_constant_opIdEEKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISH_Li0ENS_6StrideILi0ELi0EEEEEEENS_9TransposeIKNS1_IKS3_Lin1ELi1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   store ptr %3, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %30, ptr %31, align 8
   %32 = add nsw i64 %12, -1
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %.sroa.833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.833.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.11.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
+  %.sroa.11.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %38 = load i64, ptr %37, align 8
   store ptr %34, ptr %10, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %36, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.1135.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 80
+  %.sroa.1135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 0, ptr %.sroa.1135.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i64 1, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 96
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i64 %38, ptr %.sroa.13.0..sroa_idx, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   call void @_ZN5Eigen8internal25generic_product_impl_baseINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS2_IKS4_Lin1ELi1ELb0EEENS0_20generic_product_implIS6_S8_NS_10DenseShapeESA_Li7EEEE6evalToINS_3MapINS3_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %9, ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(56) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !551
   %.sroa.427.24.copyload = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.427.24.copyload, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.427.24.copyload, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %9, align 8
   %44 = load i64, ptr %31, align 8
@@ -17513,7 +17506,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %28, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i.i ], [ 0, %28 ]
-  %46 = getelementptr inbounds double, ptr %43, i64 %.05.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw double, ptr %43, i64 %.05.i.i.i.i.i.i
   %47 = mul nsw i64 %.05.i.i.i.i.i.i, %42
   %48 = getelementptr inbounds double, ptr %40, i64 %47
   %49 = load double, ptr %48, align 8
@@ -17528,7 +17521,7 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stride
   %.sroa.322.32.copyload.pre = load ptr, ptr %9, align 8
   %.pre = load ptr, ptr %0, align 8, !noalias !555
   %.sroa.5.24.copyload.pre = load ptr, ptr %35, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.5.24.copyload.pre, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.5.24.copyload.pre, i64 16
   %.pre38 = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEpLINS_5BlockINS9_INS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEEEERS6_RKNS0_IT_EE.exit
 
@@ -17545,7 +17538,7 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stride
   %.05.i.i.i.i.i.i9 = phi i64 [ %65, %.lr.ph.i.i.i.i.i.i8 ], [ 0, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEpLINS_5BlockINS9_INS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEEEERS6_RKNS0_IT_EE.exit ]
   %58 = mul nsw i64 %.05.i.i.i.i.i.i9, %53
   %59 = getelementptr inbounds double, ptr %54, i64 %58
-  %60 = getelementptr inbounds double, ptr %.sroa.322.32.copyload, i64 %.05.i.i.i.i.i.i9
+  %60 = getelementptr inbounds nuw double, ptr %.sroa.322.32.copyload, i64 %.05.i.i.i.i.i.i9
   %61 = load double, ptr %60, align 8
   %62 = fmul double %55, %61
   %63 = load double, ptr %59, align 8
@@ -17568,9 +17561,9 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSB_18scalar_constant_opIdEEKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISH_Li0ENS_6StrideILi0ELi0EEEEEEENS_9TransposeIKNS1_IKS3_Lin1ELi1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISF_Li0ENS_6StrideILi0ELi0EEEEEEEEERS5_RKNS0_IT_EE.exit
-  %.sroa.011.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.011.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.011.sroa.3.0.copyload = load ptr, ptr %.sroa.011.sroa.3.0..sroa_idx, align 8
-  %68 = getelementptr inbounds i8, ptr %.sroa.011.sroa.3.0.copyload, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.011.sroa.3.0.copyload, i64 16
   %69 = icmp sgt i64 %12, 1
   br i1 %69, label %.lr.ph.split.i.i.i.i.i, label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSB_18scalar_constant_opIdEEKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEEKNS_3MapISH_Li0ENS_6StrideILi0ELi0EEEEEEENS_9TransposeIKNS1_IKS3_Lin1ELi1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit
 
@@ -17587,7 +17580,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1E
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.split.i.i.i.i.i ]
-  %77 = getelementptr inbounds double, ptr %72, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %77 = getelementptr inbounds nuw double, ptr %72, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %78 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, %76
   %79 = getelementptr inbounds double, ptr %.sroa.011.sroa.0.0.copyload, i64 %78
   %80 = load double, ptr %79, align 8
@@ -17616,7 +17609,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %8 = alloca %"struct.Eigen::internal::mul_assign_op", align 1
   %9 = alloca %"class.Eigen::Map.957", align 8
   %10 = alloca %"class.Eigen::Product.1381", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 1
   %14 = load double, ptr %2, align 8
@@ -17631,18 +17624,18 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store double %16, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   store ptr %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %18, align 8
   store ptr %6, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %25, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES6_EEEENS0_13mul_assign_opIddEELi0EEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -17656,37 +17649,37 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   br i1 %27, label %28, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEKNS_5BlockIKNS8_IdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS_3MapINS8_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS_10DenseShapeESO_Li5EE5subToINSD_INSD_ISE_Lin1ELin1ELb0EEELin1ELin1ELb0EEEEEvRT_RKSI_RKSN_.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8
   store ptr %3, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %30, ptr %31, align 8
   %32 = add nsw i64 %12, -1
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds double, ptr %33, i64 %37
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 80
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %.sroa.10.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 112
+  %.sroa.10.24..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.24..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %39 = getelementptr inbounds i8, ptr %10, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %38, ptr %39, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 64
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 %30, ptr %.sroa.543.0..sroa_idx, align 8
-  %.sroa.844.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 104
+  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 104
   store ptr %35, ptr %.sroa.844.0..sroa_idx, align 8
-  %.sroa.1046.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 136
+  %.sroa.1046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 136
   store i64 1, ptr %.sroa.1046.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 144
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 152
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
   store i64 %37, ptr %.sroa.12.0..sroa_idx, align 8
   call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !570
@@ -17714,8 +17707,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %54 = getelementptr inbounds double, ptr %41, i64 %.05.i.i.i.i.i.i.i
-  %55 = getelementptr inbounds double, ptr %40, i64 %.05.i.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw double, ptr %41, i64 %.05.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw double, ptr %40, i64 %.05.i.i.i.i.i.i.i
   %56 = load double, ptr %55, align 8
   %57 = load double, ptr %54, align 8
   %58 = fadd double %56, %57
@@ -17784,8 +17777,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9: ; pred
 
 .lr.ph.i.i.i.i.i.i.i17:                           ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i17
   %.05.i.i.i.i.i.i.i18 = phi i64 [ %95, %.lr.ph.i.i.i.i.i.i.i17 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i9 ]
-  %89 = getelementptr inbounds double, ptr %76, i64 %.05.i.i.i.i.i.i.i18
-  %90 = getelementptr inbounds double, ptr %.sroa.332.32.copyload, i64 %.05.i.i.i.i.i.i.i18
+  %89 = getelementptr inbounds nuw double, ptr %76, i64 %.05.i.i.i.i.i.i.i18
+  %90 = getelementptr inbounds nuw double, ptr %.sroa.332.32.copyload, i64 %.05.i.i.i.i.i.i.i18
   %91 = load double, ptr %90, align 8
   %92 = fmul double %75, %91
   %93 = load double, ptr %89, align 8
@@ -17836,10 +17829,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS_3MapISF_Li0ENS_6StrideILi0ELi0EEEEEEEEERS5_RKNS0_IT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i12, %._crit_edge.i.i.i.i.i.i11
   %114 = load double, ptr %2, align 8, !noalias !579
   %.sroa.4.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.4.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.sroa.3.0.copyload = load ptr, ptr %.sroa.4.sroa.3.0..sroa_idx, align 8
   %.sroa.624.96.copyload = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds i8, ptr %.sroa.4.sroa.3.0.copyload, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.3.0.copyload, i64 16
   %116 = load i64, ptr %115, align 8
   %117 = icmp sgt i64 %12, 1
   br i1 %117, label %.lr.ph.i.i, label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEKNS_5BlockIKNS8_IdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS_3MapINS8_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS_10DenseShapeESO_Li5EE5subToINSD_INSD_ISE_Lin1ELin1ELb0EEELin1ELin1ELb0EEEEEvRT_RKSI_RKSN_.exit
@@ -17876,8 +17869,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i: ;
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %142, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i ]
-  %136 = getelementptr inbounds double, ptr %120, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %137 = getelementptr inbounds double, ptr %.sroa.624.96.copyload, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %136 = getelementptr inbounds nuw double, ptr %120, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %137 = getelementptr inbounds nuw double, ptr %.sroa.624.96.copyload, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %138 = load double, ptr %137, align 8
   %139 = fmul double %124, %138
   %140 = load double, ptr %136, align 8
@@ -17939,7 +17932,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal25generic_product_impl_baseIN
   %4 = alloca %"class.Eigen::Block.967", align 8
   %5 = alloca %"class.Eigen::Block.1208", align 8
   %6 = alloca double, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %0, align 8
   %9 = load i64, ptr %7, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -18002,7 +17995,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   store double 1.000000e+00, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 1
   br i1 %38, label %39, label %63
@@ -18010,15 +18003,15 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
 39:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   %40 = load ptr, ptr %1, align 8, !noalias !586
   %41 = load ptr, ptr %2, align 8, !noalias !589
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load i64, ptr %42, align 8, !noalias !589
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEELi1ELin1ELb1EEEE3dotINS1_IKNS1_IKS3_Lin1ELi1ELb0EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSF_17scalar_product_opIdSJ_EEE10ReturnTypeERKNS0_ISH_EE.exit.i.i, label %45
 
 45:                                               ; preds = %39
-  %.sroa.5.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.5.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.5.24.copyload.i.i = load ptr, ptr %.sroa.5.24..sroa_idx.i.i, align 8
-  %46 = getelementptr inbounds i8, ptr %.sroa.5.24.copyload.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.5.24.copyload.i.i, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = load double, ptr %40, align 8
   %49 = load double, ptr %41, align 8
@@ -18065,7 +18058,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %6 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %7 = load double, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 2305843009213693951
   br i1 %10, label %11, label %13
@@ -18101,15 +18094,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %16, %21
   %24 = phi ptr [ %23, %21 ], [ %17, %16 ]
   %25 = load ptr, ptr %1, align 8
-  %.pn.in = getelementptr inbounds i8, ptr %1, i64 24
+  %.pn.in = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in = getelementptr inbounds i8, ptr %.pn, i64 16
+  %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %26 = load i64, ptr %.in, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
-  %27 = getelementptr inbounds double, ptr %24, i64 %.05.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw double, ptr %24, i64 %.05.i.i.i.i.i.i.i.i
   %28 = mul nsw i64 %.05.i.i.i.i.i.i.i.i, %26
   %29 = getelementptr inbounds double, ptr %25, i64 %28
   %30 = load double, ptr %29, align 8
@@ -18121,20 +18114,20 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %21
   %32 = phi i1 [ false, %21 ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i ]
   %33 = phi ptr [ %23, %21 ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   store ptr %38, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %42, ptr %43, align 8
   store ptr %33, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %44, align 8
   %45 = load ptr, ptr %2, align 8
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdNS2_IdlLi0EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %35, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %45, i64 noundef 1, double noundef %7)
@@ -18166,7 +18159,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit43: ; preds = %48, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdNS2_IdlLi0EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, i64 noundef %5, double noundef %6) local_unnamed_addr #9 comdat align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.31.0.copyload = load i64, ptr %.sroa.31.0..sroa_idx, align 8
   %8 = shl i64 %.sroa.31.0.copyload, 3
   %9 = icmp ult i64 %8, 32001
@@ -18224,7 +18217,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0583600 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %56, %32 ]
   %.0585599 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %60, %32 ]
   %.0586598 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %64, %32 ]
-  %34 = getelementptr inbounds double, ptr %15, i64 %.0398606
+  %34 = getelementptr inbounds nuw double, ptr %15, i64 %.0398606
   %35 = load <2 x double>, ptr %34, align 1
   %36 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.0398606
   %37 = getelementptr double, ptr %36, i64 %16
@@ -18339,7 +18332,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0415617 = phi double [ %75, %.lr.ph625 ], [ %118, %103 ]
   %.0416616 = phi double [ %73, %.lr.ph625 ], [ %114, %103 ]
   %.0417615 = phi double [ %71, %.lr.ph625 ], [ %110, %103 ]
-  %104 = getelementptr inbounds double, ptr %87, i64 %.1399623
+  %104 = getelementptr inbounds nuw double, ptr %87, i64 %.1399623
   %105 = load double, ptr %104, align 8
   %106 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.1399623
   %107 = getelementptr double, ptr %106, i64 %88
@@ -18469,7 +18462,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0587640 = phi <2 x double> [ zeroinitializer, %.lr.ph643 ], [ %191, %183 ]
   %.0588639 = phi <2 x double> [ zeroinitializer, %.lr.ph643 ], [ %195, %183 ]
   %.0589638 = phi <2 x double> [ zeroinitializer, %.lr.ph643 ], [ %199, %183 ]
-  %185 = getelementptr inbounds double, ptr %174, i64 %.0408642
+  %185 = getelementptr inbounds nuw double, ptr %174, i64 %.0408642
   %186 = load <2 x double>, ptr %185, align 1
   %187 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.0408642
   %188 = getelementptr double, ptr %187, i64 %175
@@ -18536,7 +18529,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0406652 = phi double [ %208, %.lr.ph656 ], [ %233, %222 ]
   %.0407651 = phi double [ %206, %.lr.ph656 ], [ %229, %222 ]
   %.1409650 = phi i64 [ %.0408.lcssa, %.lr.ph656 ], [ %242, %222 ]
-  %223 = getelementptr inbounds double, ptr %214, i64 %.1409650
+  %223 = getelementptr inbounds nuw double, ptr %214, i64 %.1409650
   %224 = load double, ptr %223, align 8
   %225 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.1409650
   %226 = getelementptr double, ptr %225, i64 %215
@@ -18616,7 +18609,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0402667 = phi i64 [ 0, %.lr.ph668 ], [ %267, %266 ]
   %storemerge666 = phi <2 x double> [ zeroinitializer, %.lr.ph668 ], [ %278, %266 ]
   %.0590665 = phi <2 x double> [ zeroinitializer, %.lr.ph668 ], [ %274, %266 ]
-  %268 = getelementptr inbounds double, ptr %261, i64 %.0402667
+  %268 = getelementptr inbounds nuw double, ptr %261, i64 %.0402667
   %269 = load <2 x double>, ptr %268, align 1
   %270 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.0402667
   %271 = getelementptr double, ptr %270, i64 %262
@@ -18659,7 +18652,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0400675 = phi double [ %283, %.lr.ph677 ], [ %300, %289 ]
   %.0401674 = phi double [ %281, %.lr.ph677 ], [ %296, %289 ]
   %.1403673 = phi i64 [ %.0402.lcssa, %.lr.ph677 ], [ %301, %289 ]
-  %290 = getelementptr inbounds double, ptr %285, i64 %.1403673
+  %290 = getelementptr inbounds nuw double, ptr %285, i64 %.1403673
   %291 = load double, ptr %290, align 8
   %292 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.1403673
   %293 = getelementptr double, ptr %292, i64 %286
@@ -18706,7 +18699,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %315 = phi i64 [ 2, %.lr.ph686 ], [ %321, %314 ]
   %.0395685 = phi i64 [ 0, %.lr.ph686 ], [ %315, %314 ]
   %.0584684 = phi <2 x double> [ zeroinitializer, %.lr.ph686 ], [ %320, %314 ]
-  %316 = getelementptr inbounds double, ptr %312, i64 %.0395685
+  %316 = getelementptr inbounds nuw double, ptr %312, i64 %.0395685
   %317 = load <2 x double>, ptr %316, align 1
   %gep = getelementptr double, ptr %invariant.gep, i64 %.0395685
   %318 = load <2 x double>, ptr %gep, align 1
@@ -18735,7 +18728,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %.0691 = phi double [ %323, %.lr.ph693 ], [ %332, %327 ]
   %.1690 = phi i64 [ %.0395.lcssa, %.lr.ph693 ], [ %333, %327 ]
   %gep697 = getelementptr double, ptr %invariant.gep696, i64 %.1690
-  %328 = getelementptr inbounds double, ptr %326, i64 %.1690
+  %328 = getelementptr inbounds nuw double, ptr %326, i64 %.1690
   %329 = load double, ptr %gep697, align 8
   %330 = load double, ptr %328, align 8
   %331 = fmul double %329, %330
@@ -18763,7 +18756,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
 define linkonce_odr hidden void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %6, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -18823,7 +18816,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.preheader.i
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 1
   %38 = load ptr, ptr %1, align 8
@@ -18831,19 +18824,19 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
 
 39:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
   %40 = load ptr, ptr %2, align 8, !noalias !606
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !606
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEELi1ELin1ELb1EEEE3dotINS1_IKNS1_INS1_IS4_Lin1ELin1ELb0EEELin1ELin1ELb0EEELin1ELi1ELb0EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSI_17scalar_product_opIdSM_EEE10ReturnTypeERKNS0_ISK_EE.exit.i.i, label %44
 
 44:                                               ; preds = %39
-  %.sroa.518.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.518.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.518.24.copyload.i.i = load ptr, ptr %.sroa.518.24..sroa_idx.i.i, align 8
-  %.sroa.422.24..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.422.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.422.24.copyload.i.i = load ptr, ptr %.sroa.422.24..sroa_idx.i.i, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.422.24.copyload.i.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.422.24.copyload.i.i, i64 16
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.518.24.copyload.i.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.518.24.copyload.i.i, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = load double, ptr %38, align 8
   %50 = load double, ptr %40, align 8
@@ -18875,25 +18868,25 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi1
   br label %_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE13scaleAndAddToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_RKd.exit
 
 65:                                               ; preds = %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE7setZeroEv.exit
-  %.sroa.213.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.213.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.213.0.copyload.i.i = load ptr, ptr %.sroa.213.0..sroa_idx.i.i, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.410.0.copyload.i.i = load ptr, ptr %.sroa.410.0..sroa_idx.i.i, align 8
   %.sroa.09.0.copyload.i.i.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %66 = getelementptr inbounds i8, ptr %.sroa.410.0.copyload.i.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload.i.i, i64 16
   %67 = load i64, ptr %66, align 8
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.sroa.213.0.copyload.i.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.213.0.copyload.i.i, i64 16
   %70 = load i64, ptr %69, align 8
   store ptr %38, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %70, ptr %71, align 8
   call void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %36, i64 noundef %.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %.sroa.09.0.copyload.i.i.i, i64 noundef 1, double noundef 1.000000e+00)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -18920,15 +18913,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal35apply_block_householder_on_
   %15 = alloca %"class.Eigen::Product.1499", align 8
   %16 = alloca %"class.Eigen::Product.1510", align 8
   %17 = alloca %"class.Eigen::Product.1517", align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.thread, label %23
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.thread: ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit
 
 23:                                               ; preds = %4
@@ -18944,8 +18937,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 27:                                               ; preds = %23
   %28 = mul nsw i64 %19, %19
-  %29 = getelementptr inbounds i8, ptr %12, i64 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %31 = icmp samesign ugt i64 %28, 2305843009213693951
   br i1 %31, label %.noexc, label %33
 
@@ -18994,7 +18987,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
 44:                                               ; preds = %40, %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.025, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %45 = getelementptr inbounds i8, ptr %14, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
   invoke void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEESA_Li0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS0_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES8_Li0EEEEERKNS_9EigenBaseIT_EE.exit unwind label %41
@@ -19004,7 +18997,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS_14TriangularViewIKN
 
 46:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS0_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES8_Li0EEEEERKNS_9EigenBaseIT_EE.exit
   store ptr %12, ptr %15, align 8
-  %47 = getelementptr inbounds i8, ptr %15, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %13, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -19054,7 +19047,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewINS
 
 57:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS0_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES8_Li0EEEEERKNS_9EigenBaseIT_EE.exit
   store ptr %12, ptr %16, align 8
-  %58 = getelementptr inbounds i8, ptr %16, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %13, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -19093,7 +19086,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewIKN
 
 65:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS0_IdLin1ELin1ELi1ELin1ELin1EEEEELj1EEES1_Li0EEEEERS1_RKNS_9DenseBaseIT_EE.exit, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewINS0_IdLin1ELin1ELi1ELin1ELin1EEELj2EEES1_Li0EEEEERS1_RKNS_9DenseBaseIT_EE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.025, i64 56, i1 false)
-  %66 = getelementptr inbounds i8, ptr %17, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %13, ptr %66, align 8, !alias.scope !610
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double -1.000000e+00, ptr %5, align 8
@@ -19125,49 +19118,49 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40make_block_householder_tria
   %.sroa.24 = alloca %"class.Eigen::MapBase.837", align 8
   %.sroa.26 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
   %.sroa.5116 = alloca [32 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
   %11 = icmp sgt i64 %9, 0
   br i1 %11, label %.lr.ph190, label %._crit_edge
 
 .lr.ph190:                                        ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.5116.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5116, i64 8
-  %.sroa.6117.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.7118.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.3182.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  %.sroa.13183.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 88
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
-  %.sroa.22.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.23.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.24.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.25.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.26.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
-  %.sroa.27.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 80
-  %.sroa.28.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 88
-  %.sroa.29.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 96
-  %.sroa.2167.8..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.7170.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
-  %.sroa.9172.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %.sroa.10173.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.11174.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 72
-  %.sroa.12175.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 104
-  %.sroa.13176.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 112
-  %.sroa.14177.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 136
-  %.sroa.15178.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 144
-  %.sroa.16179.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 152
-  %.sroa.17180.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 160
-  %.sroa.19.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.5116.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5116, i64 8
+  %.sroa.6117.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.7118.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.3182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %.sroa.13183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %.sroa.22.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.23.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.24.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.25.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.sroa.26.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sroa.27.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %.sroa.28.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.sroa.29.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %.sroa.2167.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.7170.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.9172.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %.sroa.10173.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.sroa.11174.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %.sroa.12175.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %.sroa.13176.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %.sroa.14177.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %.sroa.15178.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %.sroa.16179.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %.sroa.17180.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %.sroa.19.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 176
   br label %16
 
 16:                                               ; preds = %.lr.ph190, %.loopexit
@@ -19182,15 +19175,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40make_block_householder_tria
   %.neg = add nuw nsw i64 %.047189, 1
   %21 = add i64 %17, %18
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds double, ptr %22, i64 %.047189
+  %23 = getelementptr inbounds nuw double, ptr %22, i64 %.047189
   %24 = load double, ptr %23, align 8
   %25 = fneg double %24
   %26 = load ptr, ptr %1, align 8, !noalias !613
-  %27 = getelementptr inbounds double, ptr %26, i64 %.047189
+  %27 = getelementptr inbounds nuw double, ptr %26, i64 %.047189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5116.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.6117.24.copyload = load ptr, ptr %.sroa.6117.24..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13176, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7118.24..sroa_idx, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.sroa.6117.24.copyload, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.6117.24.copyload, i64 16
   %29 = load i64, ptr %28, align 8, !noalias !616
   %30 = mul nsw i64 %29, %.neg
   %31 = getelementptr inbounds double, ptr %27, i64 %30
@@ -19359,8 +19352,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %111, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %105 = getelementptr inbounds double, ptr %96, i64 %.05.i.i.i.i.i.i.i
-  %106 = getelementptr inbounds double, ptr %93, i64 %.05.i.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw double, ptr %96, i64 %.05.i.i.i.i.i.i.i
+  %106 = getelementptr inbounds nuw double, ptr %93, i64 %.05.i.i.i.i.i.i.i
   %107 = load double, ptr %106, align 8
   %108 = fmul double %79, %107
   %109 = load double, ptr %105, align 8
@@ -19380,8 +19373,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %120, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %114 = getelementptr inbounds double, ptr %96, i64 %.021.i.i.i.i.i.i
-  %115 = getelementptr inbounds double, ptr %93, i64 %.021.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw double, ptr %96, i64 %.021.i.i.i.i.i.i
+  %115 = getelementptr inbounds nuw double, ptr %93, i64 %.021.i.i.i.i.i.i
   %116 = load <2 x double>, ptr %115, align 1
   %117 = fmul <2 x double> %113, %116
   %118 = load <2 x double>, ptr %114, align 16
@@ -19415,7 +19408,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1EL
 
 .loopexit:                                        ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEEpLINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKS5_EEEERS5_RKNS0_IT_EE.exit, %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEENS_10MatrixBaseEEaSINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSB_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS_9TransposeIKNS1_IKNS1_IKNS1_IS3_Lin1ELin1ELb0EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEEEENS_14TriangularViewIKNS1_ISN_Lin1ELin1ELb0EEELj5EEELi0EEEEERS5_RKNS6_IT_EE.exit, %16
   %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds double, ptr %132, i64 %.047189
+  %133 = getelementptr inbounds nuw double, ptr %132, i64 %.047189
   %134 = load double, ptr %133, align 8
   %135 = load ptr, ptr %0, align 8
   %136 = load i64, ptr %13, align 8
@@ -19441,49 +19434,49 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40make_block_householder_tria
   %.sroa.24 = alloca %"class.Eigen::MapBase.837", align 8
   %.sroa.26 = alloca { %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic", i64 }, align 8
   %.sroa.5116 = alloca [32 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
   %11 = icmp sgt i64 %9, 0
   br i1 %11, label %.lr.ph190, label %._crit_edge
 
 .lr.ph190:                                        ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.5116.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5116, i64 8
-  %.sroa.6117.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.7118.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.3182.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  %.sroa.13183.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 88
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
-  %.sroa.22.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.23.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.24.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.25.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.26.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
-  %.sroa.27.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 80
-  %.sroa.28.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 88
-  %.sroa.29.192..sroa_idx = getelementptr inbounds i8, ptr %5, i64 96
-  %.sroa.2167.8..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.7170.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
-  %.sroa.9172.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  %.sroa.10173.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.11174.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 72
-  %.sroa.12175.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 104
-  %.sroa.13176.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 112
-  %.sroa.14177.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 136
-  %.sroa.15178.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 144
-  %.sroa.16179.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 152
-  %.sroa.17180.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 160
-  %.sroa.19.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.5116.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5116, i64 8
+  %.sroa.6117.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.7118.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.3182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %.sroa.13183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %.sroa.22.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.23.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.24.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.25.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.sroa.26.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sroa.27.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %.sroa.28.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.sroa.29.192..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %.sroa.2167.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.7170.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.9172.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %.sroa.10173.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.sroa.11174.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %.sroa.12175.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %.sroa.13176.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %.sroa.14177.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %.sroa.15178.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %.sroa.16179.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %.sroa.17180.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %.sroa.19.32..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 176
   br label %16
 
 16:                                               ; preds = %.lr.ph190, %.loopexit
@@ -19498,15 +19491,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40make_block_householder_tria
   %.neg = add nuw nsw i64 %.047189, 1
   %21 = add i64 %17, %18
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds double, ptr %22, i64 %.047189
+  %23 = getelementptr inbounds nuw double, ptr %22, i64 %.047189
   %24 = load double, ptr %23, align 8
   %25 = fneg double %24
   %26 = load ptr, ptr %1, align 8, !noalias !635
-  %27 = getelementptr inbounds double, ptr %26, i64 %.047189
+  %27 = getelementptr inbounds nuw double, ptr %26, i64 %.047189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5116.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.6117.24.copyload = load ptr, ptr %.sroa.6117.24..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13176, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7118.24..sroa_idx, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.sroa.6117.24.copyload, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.6117.24.copyload, i64 16
   %29 = load i64, ptr %28, align 8, !noalias !638
   %30 = mul nsw i64 %29, %.neg
   %31 = getelementptr inbounds double, ptr %27, i64 %30
@@ -19675,8 +19668,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %111, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %105 = getelementptr inbounds double, ptr %96, i64 %.05.i.i.i.i.i.i.i
-  %106 = getelementptr inbounds double, ptr %93, i64 %.05.i.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw double, ptr %96, i64 %.05.i.i.i.i.i.i.i
+  %106 = getelementptr inbounds nuw double, ptr %93, i64 %.05.i.i.i.i.i.i.i
   %107 = load double, ptr %106, align 8
   %108 = fmul double %79, %107
   %109 = load double, ptr %105, align 8
@@ -19696,8 +19689,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %120, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %114 = getelementptr inbounds double, ptr %96, i64 %.021.i.i.i.i.i.i
-  %115 = getelementptr inbounds double, ptr %93, i64 %.021.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw double, ptr %96, i64 %.021.i.i.i.i.i.i
+  %115 = getelementptr inbounds nuw double, ptr %93, i64 %.021.i.i.i.i.i.i
   %116 = load <2 x double>, ptr %115, align 1
   %117 = fmul <2 x double> %113, %116
   %118 = load <2 x double>, ptr %114, align 16
@@ -19731,7 +19724,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1EL
 
 .loopexit:                                        ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEEpLINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKS5_EEEERS5_RKNS0_IT_EE.exit, %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEENS_10MatrixBaseEEaSINS_7ProductINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINSB_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS_9TransposeIKNS1_IKNS1_IKNS1_IS3_Lin1ELin1ELb0EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEEEENS_14TriangularViewIKNS1_ISN_Lin1ELin1ELb0EEELj5EEELi0EEEEERS5_RKNS6_IT_EE.exit, %16
   %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds double, ptr %132, i64 %.047189
+  %133 = getelementptr inbounds nuw double, ptr %132, i64 %.047189
   %134 = load double, ptr %133, align 8
   %135 = load ptr, ptr %0, align 8
   %136 = load i64, ptr %13, align 8
@@ -19751,22 +19744,22 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1EL
 define linkonce_odr hidden void @_ZN5Eigen8internal13trmv_selectorILi6ELi0EE3runINS_9TransposeIKNS_5BlockIKNS5_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEEEENS4_IKNS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS6_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS4_IKNS5_IKNS5_IS9_Lin1ELi1ELb0EEELin1ELi1ELb0EEEEEEEEENS4_INS5_INS5_IS7_Li1ELin1ELb1EEELi1ELin1ELb0EEEEEEEvRKT_RKT0_RT1_RKNS15_6ScalarE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   %.sroa.072.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.273.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.273.0.copyload = load i64, ptr %.sroa.273.0..sroa_idx, align 8
-  %.sroa.374.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.374.0.copyload = load i64, ptr %.sroa.374.0..sroa_idx, align 8
-  %.sroa.476.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.476.0.copyload = load ptr, ptr %.sroa.476.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.068.0.copyload = load ptr, ptr %6, align 8
-  %.sroa.270.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
+  %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.sroa.270.0.copyload = load ptr, ptr %.sroa.270.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load double, ptr %7, align 8
   %9 = load double, ptr %3, align 8
   %10 = fmul double %8, %9
   store double %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %12, 2305843009213693951
   br i1 %13, label %14, label %16
@@ -19819,9 +19812,9 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %29, %31
   %33 = phi ptr [ %23, %21 ], [ null, %16 ], [ %25, %24 ]
   %34 = phi ptr [ %23, %21 ], [ %17, %16 ], [ %25, %24 ]
   %35 = icmp samesign ugt i64 %12, 16384
-  %36 = getelementptr inbounds i8, ptr %.sroa.476.0.copyload, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.476.0.copyload, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.270.0.copyload, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.270.0.copyload, i64 16
   %39 = load i64, ptr %38, align 8
   invoke void @_ZN5Eigen8internal32triangular_matrix_vector_productIlLi6EdLb0EdLb0ELi0ELi0EE3runEllPKdlS4_lPdlRS3_(i64 noundef %.sroa.374.0.copyload, i64 noundef %.sroa.273.0.copyload, ptr noundef %.sroa.072.0.copyload, i64 noundef %37, ptr noundef %.sroa.068.0.copyload, i64 noundef %39, ptr noundef nonnull %34, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %40 unwind label %29
@@ -19849,8 +19842,8 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32triangular_matrix_vector_pr
 
 .lr.ph159:                                        ; preds = %9
   %15 = ptrtoint ptr %6 to i64
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = and i64 %15, 7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %18, 0
   br label %19
@@ -19867,7 +19860,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32triangular_matrix_vector_pr
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds double, ptr %6, i64 %.0157
+  %22 = getelementptr inbounds nuw double, ptr %6, i64 %.0157
   %23 = ptrtoint ptr %22 to i64
   %24 = lshr exact i64 %23, 3
   %25 = and i64 %24, 1
@@ -19904,8 +19897,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %40 = getelementptr inbounds double, ptr %22, i64 %.05.i.i.i.i.i.i.i
-  %41 = getelementptr inbounds double, ptr %gep, i64 %.05.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds nuw double, ptr %22, i64 %.05.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw double, ptr %gep, i64 %.05.i.i.i.i.i.i.i
   %42 = load double, ptr %41, align 8
   %43 = fmul double %33, %42
   %44 = load double, ptr %40, align 8
@@ -19925,8 +19918,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %49 = getelementptr inbounds double, ptr %22, i64 %.021.i.i.i.i.i.i
-  %50 = getelementptr inbounds double, ptr %gep, i64 %.021.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw double, ptr %22, i64 %.021.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw double, ptr %gep, i64 %.021.i.i.i.i.i.i
   %51 = load <2 x double>, ptr %50, align 1
   %52 = fmul <2 x double> %48, %51
   %53 = load <2 x double>, ptr %49, align 16
@@ -19958,7 +19951,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0E
   %65 = load double, ptr %8, align 8
   %66 = getelementptr inbounds double, ptr %4, i64 %.pre-phi
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds double, ptr %6, i64 %27
+  %68 = getelementptr inbounds nuw double, ptr %6, i64 %27
   %69 = load double, ptr %68, align 8
   %70 = call double @llvm.fmuladd.f64(double %65, double %67, double %69)
   store double %70, ptr %68, align 8
@@ -19997,12 +19990,12 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0E
   %83 = mul nsw i64 %3, %.sroa.speculated146
   %84 = getelementptr double, ptr %2, i64 %83
   store ptr %84, ptr %12, align 8
-  %85 = getelementptr inbounds i8, ptr %12, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %3, ptr %85, align 8
   %86 = mul nsw i64 %5, %.sroa.speculated146
   %87 = getelementptr inbounds double, ptr %4, i64 %86
   store ptr %87, ptr %13, align 8
-  %88 = getelementptr inbounds i8, ptr %13, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %5, ptr %88, align 8
   %89 = load double, ptr %8, align 8
   call void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %.sroa.speculated146, i64 noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %6, i64 noundef %7, double noundef %89)
@@ -20015,7 +20008,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi1EE3runEllRKS3_RKS4_Pdld(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, i64 noundef %5, double noundef %6) local_unnamed_addr #9 comdat align 2 {
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.20.0.copyload = load i64, ptr %.sroa.20.0..sroa_idx, align 8
   %8 = add nsw i64 %0, -15
   %9 = add nsw i64 %0, -7
@@ -20034,7 +20027,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
 
 .lr.ph611:                                        ; preds = %7
   %21 = icmp sgt i64 %0, 15
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
 .loopexit:                                        ; preds = %._crit_edge606, %266
@@ -20121,42 +20114,42 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   br i1 %83, label %43, label %._crit_edge, !llvm.loop !660
 
 ._crit_edge:                                      ; preds = %43
-  %84 = getelementptr inbounds double, ptr %4, i64 %.0336568
+  %84 = getelementptr inbounds nuw double, ptr %4, i64 %.0336568
   %85 = load <2 x double>, ptr %84, align 1
   %86 = fmul <2 x double> %19, %53
   %87 = fadd <2 x double> %86, %85
   store <2 x double> %87, ptr %84, align 1
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %89 = load <2 x double>, ptr %88, align 1
   %90 = fmul <2 x double> %19, %57
   %91 = fadd <2 x double> %90, %89
   store <2 x double> %91, ptr %88, align 1
-  %92 = getelementptr inbounds i8, ptr %84, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %93 = load <2 x double>, ptr %92, align 1
   %94 = fmul <2 x double> %19, %61
   %95 = fadd <2 x double> %94, %93
   store <2 x double> %95, ptr %92, align 1
-  %96 = getelementptr inbounds i8, ptr %84, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %97 = load <2 x double>, ptr %96, align 1
   %98 = fmul <2 x double> %19, %65
   %99 = fadd <2 x double> %98, %97
   store <2 x double> %99, ptr %96, align 1
-  %100 = getelementptr inbounds i8, ptr %84, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %101 = load <2 x double>, ptr %100, align 1
   %102 = fmul <2 x double> %19, %69
   %103 = fadd <2 x double> %102, %101
   store <2 x double> %103, ptr %100, align 1
-  %104 = getelementptr inbounds i8, ptr %84, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %105 = load <2 x double>, ptr %104, align 1
   %106 = fmul <2 x double> %19, %73
   %107 = fadd <2 x double> %106, %105
   store <2 x double> %107, ptr %104, align 1
-  %108 = getelementptr inbounds i8, ptr %84, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %109 = load <2 x double>, ptr %108, align 1
   %110 = fmul <2 x double> %19, %77
   %111 = fadd <2 x double> %110, %109
   store <2 x double> %111, ptr %108, align 1
-  %112 = getelementptr inbounds i8, ptr %84, i64 112
+  %112 = getelementptr inbounds nuw i8, ptr %84, i64 112
   %113 = load <2 x double>, ptr %112, align 1
   %114 = fmul <2 x double> %19, %81
   %115 = fadd <2 x double> %114, %113
@@ -20215,22 +20208,22 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   br i1 %152, label %128, label %._crit_edge577, !llvm.loop !662
 
 ._crit_edge577:                                   ; preds = %128
-  %153 = getelementptr inbounds double, ptr %4, i64 %.0336.lcssa
+  %153 = getelementptr inbounds nuw double, ptr %4, i64 %.0336.lcssa
   %154 = load <2 x double>, ptr %153, align 1
   %155 = fmul <2 x double> %19, %138
   %156 = fadd <2 x double> %155, %154
   store <2 x double> %156, ptr %153, align 1
-  %157 = getelementptr inbounds i8, ptr %153, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = load <2 x double>, ptr %157, align 1
   %159 = fmul <2 x double> %19, %142
   %160 = fadd <2 x double> %159, %158
   store <2 x double> %160, ptr %157, align 1
-  %161 = getelementptr inbounds i8, ptr %153, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %162 = load <2 x double>, ptr %161, align 1
   %163 = fmul <2 x double> %19, %146
   %164 = fadd <2 x double> %163, %162
   store <2 x double> %164, ptr %161, align 1
-  %165 = getelementptr inbounds i8, ptr %153, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %166 = load <2 x double>, ptr %165, align 1
   %167 = fmul <2 x double> %19, %150
   %168 = fadd <2 x double> %167, %166
@@ -20284,12 +20277,12 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %200 = fmul <2 x double> %19, %187
   %201 = fadd <2 x double> %200, %199
   store <2 x double> %201, ptr %198, align 1
-  %202 = getelementptr inbounds i8, ptr %198, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %203 = load <2 x double>, ptr %202, align 1
   %204 = fmul <2 x double> %19, %191
   %205 = fadd <2 x double> %204, %203
   store <2 x double> %205, ptr %202, align 1
-  %206 = getelementptr inbounds i8, ptr %198, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %207 = load <2 x double>, ptr %206, align 1
   %208 = fmul <2 x double> %19, %195
   %209 = fadd <2 x double> %208, %207
@@ -20337,7 +20330,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %236 = fmul <2 x double> %19, %227
   %237 = fadd <2 x double> %236, %235
   store <2 x double> %237, ptr %234, align 1
-  %238 = getelementptr inbounds i8, ptr %234, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %239 = load <2 x double>, ptr %238, align 1
   %240 = fmul <2 x double> %19, %231
   %241 = fadd <2 x double> %240, %239
@@ -20426,9 +20419,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
 define linkonce_odr hidden void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEESA_Li0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %5, 0
   %9 = icmp eq i64 %7, 0
@@ -20473,9 +20466,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9
@@ -20523,14 +20516,14 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6r
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES9_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSE_RKSG_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.not11 = icmp eq i64 %12, %8
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -20575,7 +20568,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exi
   br label %_ZN5Eigen8internal25generic_product_impl_baseINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES7_NS0_20generic_product_implISB_S7_NS_15TriangularShapeENS_10DenseShapeELi8EEEE6evalToINS5_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKSB_RS8_.exit
 
 _ZN5Eigen8internal25generic_product_impl_baseINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELj6EEES7_NS0_20generic_product_implISB_S7_NS_15TriangularShapeENS_10DenseShapeELi8EEEE6evalToINS5_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKSB_RS8_.exit: ; preds = %22, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
-  %29 = getelementptr inbounds i8, ptr %1, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store double 1.000000e+00, ptr %4, align 8
   call void @_ZN5Eigen8internal23triangular_product_implILi6ELb1EKNS_9TransposeIKNS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELb0ES6_Lb0EE3runINS4_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RS9_RS7_RKNSD_6ScalarE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -20588,46 +20581,46 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
   %6 = alloca double, align 8
   %7 = alloca %"class.Eigen::internal::gemm_blocking_space", align 8
   %.sroa.051.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.252.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.252.0.copyload = load i64, ptr %.sroa.252.0..sroa_idx, align 8
-  %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
-  %.sroa.757.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.757.0.copyload = load ptr, ptr %.sroa.757.0..sroa_idx, align 8
   %8 = load double, ptr %3, align 8
   store double %8, ptr %6, align 8
   %.sroa.speculated46 = tail call i64 @llvm.smin.i64(i64 %.sroa.252.0.copyload, i64 %.sroa.555.0.copyload)
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.speculated46, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %.sroa.252.0.copyload, ptr %13, align 8
   store i64 %10, ptr %5, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1)
   %14 = load i64, ptr %11, align 8
   %15 = load i64, ptr %13, align 8
   %16 = mul nsw i64 %15, %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %16, ptr %17, align 8
   %18 = load i64, ptr %12, align 8
   %19 = mul nsw i64 %18, %15
-  %20 = getelementptr inbounds i8, ptr %7, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %19, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %21 = getelementptr inbounds i8, ptr %.sroa.757.0.copyload, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.757.0.copyload, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb1ELi0ELb0ELi1ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.speculated46, i64 noundef %10, i64 noundef %.sroa.252.0.copyload, ptr noundef nonnull %.sroa.051.0.copyload, i64 noundef %22, ptr noundef nonnull %23, i64 noundef %27, ptr noundef nonnull %28, i64 noundef 1, i64 noundef %30, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEmIINS1_IKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS8_18scalar_constant_opIdEEKNS2_IdLin1ELin1ELi1ELin1ELin1EEEEEKNS1_ISE_Lin1ELin1ELb0EEEEELin1ELin1ELb1EEEEERS4_RKNS0_IT_EE.exit unwind label %31
@@ -20637,7 +20630,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
           cleanup
   %33 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %33) #29
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @free(ptr noundef %35) #29
   resume { ptr, i32 } %32
@@ -20645,7 +20638,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
 _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEmIINS1_IKNS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS8_18scalar_constant_opIdEEKNS2_IdLin1ELin1ELi1ELin1ELin1EEEEEKNS1_ISE_Lin1ELin1ELb0EEEEELin1ELin1ELb1EEEEERS4_RKNS0_IT_EE.exit: ; preds = %4
   %36 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %36) #29
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @free(ptr noundef %38) #29
   ret void
@@ -20659,9 +20652,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32product_triangular_matrix_m
   %16 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %17 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %.sroa.speculated455 = tail call i64 @llvm.smin.i64(i64 %2, i64 %0)
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i64, ptr %20, align 8
   %.sroa.speculated426 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.speculated455)
   %.sroa.speculated433 = tail call i64 @llvm.smin.i64(i64 %.sroa.speculated426, i64 %19)
@@ -20711,7 +20704,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   br i1 %43, label %.invoke, label %44
 
 44:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not275 = icmp eq ptr %46, null
   br i1 %.not275, label %47, label %57
@@ -20746,19 +20739,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %60 = icmp samesign ugt i64 %23, 16384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %13, i8 0, i64 512, i1 false)
   store double 1.000000e+00, ptr %13, align 16
-  %61 = getelementptr inbounds i8, ptr %13, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store double 1.000000e+00, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store double 1.000000e+00, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %13, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 216
   store double 1.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 288
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store double 1.000000e+00, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %13, i64 360
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 360
   store double 1.000000e+00, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %13, i64 432
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 432
   store double 1.000000e+00, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %13, i64 504
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 504
   store double 1.000000e+00, ptr %67, align 8
   %68 = icmp sgt i64 %2, 0
   br i1 %68, label %.lr.ph496, label %._crit_edge497
@@ -20769,9 +20762,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %71 = shl nsw i64 %70, 2
   %72 = icmp sgt i64 %1, 3
   %73 = icmp slt i64 %71, %1
-  %74 = getelementptr inbounds i8, ptr %15, i64 8
-  %75 = getelementptr inbounds i8, ptr %16, i64 8
-  %76 = getelementptr inbounds i8, ptr %17, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %77 = shl i64 %4, 3
   %78 = add i64 %77, 8
   %79 = mul i64 %.sroa.speculated420, %78
@@ -20812,15 +20805,15 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %93 = load double, ptr %92, align 8
   %94 = getelementptr inbounds double, ptr %59, i64 %.162.us.i
   store double %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = load double, ptr %95, align 8
   %97 = getelementptr i8, ptr %94, i64 8
   store double %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %92, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %99 = load double, ptr %98, align 8
   %100 = getelementptr i8, ptr %94, i64 16
   store double %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %92, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %102 = load double, ptr %101, align 8
   %103 = getelementptr i8, ptr %94, i64 24
   store double %102, ptr %103, align 8
@@ -21339,16 +21332,16 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit363: ; preds = %_ZN5
 define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_14TriangularViewINS2_IdLin1ELin1ELi1ELin1ELin1EEELj2EEES3_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS8_RKSA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %.not11 = icmp eq i64 %15, %11
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -21409,40 +21402,40 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi2
   %7 = alloca %"class.Eigen::internal::gemm_blocking_space", align 8
   %8 = load double, ptr %3, align 8
   store double %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %12, i64 %10)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.speculated, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %12, ptr %17, align 8
   store i64 %14, ptr %5, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1)
   %18 = load i64, ptr %15, align 8
   %19 = load i64, ptr %17, align 8
   %20 = mul nsw i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %20, ptr %21, align 8
   %22 = load i64, ptr %16, align 8
   %23 = mul nsw i64 %22, %19
-  %24 = getelementptr inbounds i8, ptr %7, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %25 = load ptr, ptr %1, align 8
   %26 = load i64, ptr %11, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i64, ptr %31, align 8
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi2ELb1ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %.sroa.speculated, i64 noundef %14, i64 noundef %12, ptr noundef nonnull %25, i64 noundef %26, ptr noundef nonnull %27, i64 noundef %29, ptr noundef nonnull %30, i64 noundef 1, i64 noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %33 unwind label %37
@@ -21450,7 +21443,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi2
 33:                                               ; preds = %4
   %34 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %34) #29
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @free(ptr noundef %36) #29
   ret void
@@ -21460,7 +21453,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi2
           cleanup
   %39 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %39) #29
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @free(ptr noundef %41) #29
   resume { ptr, i32 } %38
@@ -21479,9 +21472,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32product_triangular_matrix_m
   %21 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %22 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %.sroa.speculated376 = tail call i64 @llvm.smin.i64(i64 %2, i64 %0)
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %26 = load i64, ptr %25, align 8
   %.sroa.speculated347 = tail call i64 @llvm.smin.i64(i64 %26, i64 %.sroa.speculated376)
   %.sroa.speculated354 = tail call i64 @llvm.smin.i64(i64 %.sroa.speculated347, i64 %24)
@@ -21531,7 +21524,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   br i1 %48, label %.invoke, label %49
 
 49:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not285 = icmp eq ptr %51, null
   br i1 %.not285, label %52, label %62
@@ -21566,19 +21559,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %65 = icmp samesign ugt i64 %28, 16384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %13, i8 0, i64 512, i1 false)
   store double 1.000000e+00, ptr %13, align 16
-  %66 = getelementptr inbounds i8, ptr %13, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store double 1.000000e+00, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 144
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store double 1.000000e+00, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %13, i64 216
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 216
   store double 1.000000e+00, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %13, i64 288
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store double 1.000000e+00, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %13, i64 360
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 360
   store double 1.000000e+00, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %13, i64 432
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 432
   store double 1.000000e+00, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %13, i64 504
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 504
   store double 1.000000e+00, ptr %72, align 8
   %73 = icmp sgt i64 %2, 0
   br i1 %73, label %.lr.ph395, label %._crit_edge396
@@ -21590,12 +21583,12 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %77 = icmp sgt i64 %1, 3
   %78 = icmp slt i64 %76, %1
   %79 = add i64 %4, 1
-  %80 = getelementptr inbounds i8, ptr %16, i64 8
-  %81 = getelementptr inbounds i8, ptr %17, i64 8
-  %82 = getelementptr inbounds i8, ptr %18, i64 8
-  %83 = getelementptr inbounds i8, ptr %19, i64 8
-  %84 = getelementptr inbounds i8, ptr %21, i64 8
-  %85 = getelementptr inbounds i8, ptr %22, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %smin = tail call i64 @llvm.smin.i64(i64 %26, i64 %24)
   %smin401 = tail call i64 @llvm.smin.i64(i64 %smin, i64 %2)
   %smin402 = tail call i64 @llvm.smin.i64(i64 %smin401, i64 %0)
@@ -21637,19 +21630,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 105:                                              ; preds = %105, %.lr.ph.us.i
   %.093107.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %119, %105 ]
   %.1106.us.i = phi i64 [ %.095108.us.i, %.lr.ph.us.i ], [ %118, %105 ]
-  %106 = getelementptr inbounds double, ptr %95, i64 %.093107.us.i
+  %106 = getelementptr inbounds nuw double, ptr %95, i64 %.093107.us.i
   %107 = load double, ptr %106, align 8
   %108 = getelementptr inbounds double, ptr %64, i64 %.1106.us.i
   store double %107, ptr %108, align 8
-  %109 = getelementptr inbounds double, ptr %98, i64 %.093107.us.i
+  %109 = getelementptr inbounds nuw double, ptr %98, i64 %.093107.us.i
   %110 = load double, ptr %109, align 8
   %111 = getelementptr i8, ptr %108, i64 8
   store double %110, ptr %111, align 8
-  %112 = getelementptr inbounds double, ptr %101, i64 %.093107.us.i
+  %112 = getelementptr inbounds nuw double, ptr %101, i64 %.093107.us.i
   %113 = load double, ptr %112, align 8
   %114 = getelementptr i8, ptr %108, i64 16
   store double %113, ptr %114, align 8
-  %115 = getelementptr inbounds double, ptr %104, i64 %.093107.us.i
+  %115 = getelementptr inbounds nuw double, ptr %104, i64 %.093107.us.i
   %116 = load double, ptr %115, align 8
   %117 = getelementptr i8, ptr %108, i64 24
   store double %116, ptr %117, align 8
@@ -21678,7 +21671,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 124:                                              ; preds = %124, %.lr.ph.us119.i
   %.0114.us.i = phi i64 [ 0, %.lr.ph.us119.i ], [ %129, %124 ]
   %.3113.us.i = phi i64 [ %.2115.us.i, %.lr.ph.us119.i ], [ %128, %124 ]
-  %125 = getelementptr inbounds double, ptr %123, i64 %.0114.us.i
+  %125 = getelementptr inbounds nuw double, ptr %123, i64 %.0114.us.i
   %126 = load double, ptr %125, align 8
   %127 = getelementptr inbounds double, ptr %64, i64 %.3113.us.i
   store double %126, ptr %127, align 8
@@ -21878,7 +21871,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %8 = sdiv i64 %3, 2
   %9 = shl nsw i64 %8, 1
   %10 = icmp sgt i64 %3, 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %25
 
 .preheader160:                                    ; preds = %._crit_edge
@@ -21966,9 +21959,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %48 = load <2 x double>, ptr %47, align 1
   %49 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 1, i32 3>
   %50 = shufflevector <2 x double> %45, <2 x double> %48, <2 x i32> <i32 0, i32 2>
-  %51 = getelementptr inbounds double, ptr %55, i64 %.0153168.us
+  %51 = getelementptr inbounds nuw double, ptr %55, i64 %.0153168.us
   store <2 x double> %50, ptr %51, align 16
-  %52 = getelementptr inbounds double, ptr %51, i64 %indvars.iv228
+  %52 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv228
   store <2 x double> %49, ptr %52, align 16
   %53 = add nuw nsw i64 %.0153168.us, 2
   %54 = icmp samesign ult i64 %53, %indvars.iv228
@@ -22060,9 +22053,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   %92 = load <2 x double>, ptr %91, align 1
   %93 = shufflevector <2 x double> %89, <2 x double> %92, <2 x i32> <i32 1, i32 3>
   %94 = shufflevector <2 x double> %89, <2 x double> %92, <2 x i32> <i32 0, i32 2>
-  %95 = getelementptr inbounds double, ptr %82, i64 %.0153168
+  %95 = getelementptr inbounds nuw double, ptr %82, i64 %.0153168
   store <2 x double> %94, ptr %95, align 16
-  %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv228
+  %96 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv228
   store <2 x double> %93, ptr %96, align 16
   %97 = add nuw nsw i64 %.0153168, 2
   %98 = icmp samesign ult i64 %97, %indvars.iv228
@@ -22121,14 +22114,14 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.not8.i = icmp eq i64 %12, %8
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -22170,8 +22163,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.011.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %21 ]
-  %29 = getelementptr inbounds double, ptr %24, i64 %.011.i
-  %30 = getelementptr inbounds double, ptr %4, i64 %.011.i
+  %29 = getelementptr inbounds nuw double, ptr %24, i64 %.011.i
+  %30 = getelementptr inbounds nuw double, ptr %4, i64 %.011.i
   %31 = load <2 x double>, ptr %30, align 16
   store <2 x double> %31, ptr %29, align 16
   %32 = add nuw nsw i64 %.011.i, 2
@@ -22200,16 +22193,16 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS2_IdLin1ELin1ELi1ELin1ELin1EEEEELj1EEES3_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSC_RKSE_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %.not11 = icmp eq i64 %15, %11
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -22270,40 +22263,40 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi1
   %8 = load ptr, ptr %1, align 8
   %9 = load double, ptr %3, align 8
   store double %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %11, i64 %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %13, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %.sroa.speculated, ptr %18, align 8
   store i64 %13, ptr %5, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1)
   %19 = load i64, ptr %16, align 8
   %20 = load i64, ptr %18, align 8
   %21 = mul nsw i64 %20, %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %21, ptr %22, align 8
   %23 = load i64, ptr %17, align 8
   %24 = mul nsw i64 %23, %20
-  %25 = getelementptr inbounds i8, ptr %7, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %24, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %26 = load ptr, ptr %8, align 8
   %27 = load i64, ptr %10, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi1ELb1ELi0ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %11, i64 noundef %13, i64 noundef %.sroa.speculated, ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull %28, i64 noundef %30, ptr noundef nonnull %31, i64 noundef 1, i64 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %34 unwind label %38
@@ -22311,7 +22304,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi1
 34:                                               ; preds = %4
   %35 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %35) #29
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = load ptr, ptr %36, align 8
   call void @free(ptr noundef %37) #29
   ret void
@@ -22321,7 +22314,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi1
           cleanup
   %40 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %40) #29
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load ptr, ptr %41, align 8
   call void @free(ptr noundef %42) #29
   resume { ptr, i32 } %39
@@ -22335,9 +22328,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32product_triangular_matrix_m
   %16 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %17 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %.sroa.speculated447 = tail call i64 @llvm.smin.i64(i64 %2, i64 %0)
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i64, ptr %20, align 8
   %.sroa.speculated423 = tail call i64 @llvm.smin.i64(i64 %21, i64 %0)
   %.sroa.speculated430 = tail call i64 @llvm.smin.i64(i64 %.sroa.speculated423, i64 %19)
@@ -22387,7 +22380,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   br i1 %43, label %.invoke, label %44
 
 44:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not289 = icmp eq ptr %46, null
   br i1 %.not289, label %47, label %57
@@ -22422,19 +22415,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %60 = icmp samesign ugt i64 %23, 16384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %13, i8 0, i64 512, i1 false)
   store double 1.000000e+00, ptr %13, align 16
-  %61 = getelementptr inbounds i8, ptr %13, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store double 1.000000e+00, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store double 1.000000e+00, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %13, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 216
   store double 1.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 288
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store double 1.000000e+00, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %13, i64 360
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 360
   store double 1.000000e+00, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %13, i64 432
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 432
   store double 1.000000e+00, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %13, i64 504
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 504
   store double 1.000000e+00, ptr %67, align 8
   %68 = icmp sgt i64 %.sroa.speculated447, 0
   br i1 %68, label %.lr.ph486, label %._crit_edge487
@@ -22447,9 +22440,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %or.cond = and i1 %71, %72
   %73 = icmp slt i64 %70, %1
   %or.cond453 = and i1 %73, %72
-  %74 = getelementptr inbounds i8, ptr %15, i64 8
-  %75 = getelementptr inbounds i8, ptr %16, i64 8
-  %76 = getelementptr inbounds i8, ptr %17, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %77 = shl i64 %.sroa.speculated447, 3
   %78 = add i64 %77, 8
   %79 = mul i64 %19, -8
@@ -22458,7 +22451,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
   %82 = mul i64 %.sroa.speculated417, %81
   %smin514 = tail call i64 @llvm.smin.i64(i64 %21, i64 %19)
   %smin515 = tail call i64 @llvm.smin.i64(i64 %smin514, i64 %0)
-  %invariant.gep = getelementptr inbounds i8, ptr %13, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %83
 
 83:                                               ; preds = %.lr.ph486, %303
@@ -22495,19 +22488,19 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
 103:                                              ; preds = %103, %.lr.ph.us.i
   %.093107.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %117, %103 ]
   %.1106.us.i = phi i64 [ %.095108.us.i, %.lr.ph.us.i ], [ %116, %103 ]
-  %104 = getelementptr inbounds double, ptr %93, i64 %.093107.us.i
+  %104 = getelementptr inbounds nuw double, ptr %93, i64 %.093107.us.i
   %105 = load double, ptr %104, align 8
   %106 = getelementptr inbounds double, ptr %59, i64 %.1106.us.i
   store double %105, ptr %106, align 8
-  %107 = getelementptr inbounds double, ptr %96, i64 %.093107.us.i
+  %107 = getelementptr inbounds nuw double, ptr %96, i64 %.093107.us.i
   %108 = load double, ptr %107, align 8
   %109 = getelementptr i8, ptr %106, i64 8
   store double %108, ptr %109, align 8
-  %110 = getelementptr inbounds double, ptr %99, i64 %.093107.us.i
+  %110 = getelementptr inbounds nuw double, ptr %99, i64 %.093107.us.i
   %111 = load double, ptr %110, align 8
   %112 = getelementptr i8, ptr %106, i64 16
   store double %111, ptr %112, align 8
-  %113 = getelementptr inbounds double, ptr %102, i64 %.093107.us.i
+  %113 = getelementptr inbounds nuw double, ptr %102, i64 %.093107.us.i
   %114 = load double, ptr %113, align 8
   %115 = getelementptr i8, ptr %106, i64 24
   store double %114, ptr %115, align 8
@@ -22535,7 +22528,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %35, %27, %32
 122:                                              ; preds = %122, %.lr.ph.us119.i
   %.0114.us.i = phi i64 [ 0, %.lr.ph.us119.i ], [ %127, %122 ]
   %.3113.us.i = phi i64 [ %.2115.us.i, %.lr.ph.us119.i ], [ %126, %122 ]
-  %123 = getelementptr inbounds double, ptr %121, i64 %.0114.us.i
+  %123 = getelementptr inbounds nuw double, ptr %121, i64 %.0114.us.i
   %124 = load double, ptr %123, align 8
   %125 = getelementptr inbounds double, ptr %59, i64 %.3113.us.i
   store double %124, ptr %125, align 8
@@ -23044,45 +23037,45 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
   %7 = alloca %"class.Eigen::internal::gemm_blocking_space.717", align 8
   %8 = load double, ptr %3, align 8
   store double %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %.sroa.speculated49 = tail call i64 @llvm.smin.i64(i64 %10, i64 %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %12, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %.sroa.speculated49, ptr %17, align 8
   store i64 %10, ptr %5, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1)
   %18 = load i64, ptr %15, align 8
   %19 = load i64, ptr %17, align 8
   %20 = mul nsw i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %20, ptr %21, align 8
   %22 = load i64, ptr %16, align 8
   %23 = mul nsw i64 %22, %19
-  %24 = getelementptr inbounds i8, ptr %7, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb0ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %12, i64 noundef %10, i64 noundef %.sroa.speculated49, ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %25, i64 noundef %29, ptr noundef nonnull %33, i64 noundef 1, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi1ELb0ELi0ELb0ELi1ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE.exit unwind label %38
@@ -23092,7 +23085,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
           cleanup
   %40 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %40) #29
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load ptr, ptr %41, align 8
   call void @free(ptr noundef %42) #29
   resume { ptr, i32 } %39
@@ -23100,7 +23093,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
 _ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi1ELb0ELi0ELb0ELi1ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE.exit: ; preds = %4
   %43 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %43) #29
-  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load ptr, ptr %44, align 8
   call void @free(ptr noundef %45) #29
   ret void
@@ -23115,9 +23108,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal32product_triangular_matrix_m
   %17 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %18 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
   %.sroa.speculated360 = tail call i64 @llvm.smin.i64(i64 %2, i64 %1)
-  %19 = getelementptr inbounds i8, ptr %11, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %22 = load i64, ptr %21, align 8
   %.sroa.speculated347 = tail call i64 @llvm.smin.i64(i64 %22, i64 %0)
   %23 = mul nsw i64 %.sroa.speculated347, %20
@@ -23166,7 +23159,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
   br i1 %45, label %.invoke, label %46
 
 46:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not269 = icmp eq ptr %48, null
   br i1 %.not269, label %49, label %59
@@ -23201,11 +23194,11 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
   %62 = icmp samesign ugt i64 %25, 16384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %13, i8 0, i64 128, i1 false)
   store double 1.000000e+00, ptr %13, align 16
-  %63 = getelementptr inbounds i8, ptr %13, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store double 1.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store double 1.000000e+00, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %13, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store double 1.000000e+00, ptr %65, align 8
   %66 = icmp sgt i64 %.sroa.speculated360, 0
   br i1 %66, label %_ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph, label %._crit_edge397
@@ -23213,9 +23206,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph: ; preds = %59
   %67 = icmp sgt i64 %20, 0
   %68 = icmp sgt i64 %0, 0
-  %69 = getelementptr inbounds i8, ptr %16, i64 8
-  %70 = getelementptr inbounds i8, ptr %17, i64 8
-  %71 = getelementptr inbounds i8, ptr %18, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %72 = shl i64 %.sroa.speculated360, 3
   %73 = mul i64 %20, -8
   %74 = shl i64 %6, 3
@@ -23223,9 +23216,9 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit.lr.ph: ; preds = %59
   %76 = add i64 %75, 32
   %.idx = shl nsw i64 %6, 4
   %.idx432 = mul i64 %6, 24
-  %77 = getelementptr inbounds i8, ptr %13, i64 32
-  %78 = getelementptr inbounds i8, ptr %13, i64 64
-  %79 = getelementptr inbounds i8, ptr %13, i64 96
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %80 = icmp slt i64 %20, 1
   br label %_ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit
 
@@ -23242,14 +23235,14 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit: ; preds = %_ZN5Eige
   %87 = sub i64 %85, %86
   %88 = sub nsw i64 %1, %.0234396
   %89 = mul nsw i64 %smin424, %smin424
-  %90 = getelementptr inbounds double, ptr %61, i64 %89
+  %90 = getelementptr inbounds nuw double, ptr %61, i64 %89
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 7
   %.not.i = icmp eq i64 %92, 0
   %93 = lshr exact i64 %91, 3
   %94 = and i64 %93, 1
   %.0.i = select i1 %.not.i, i64 %94, i64 2
-  %95 = getelementptr inbounds double, ptr %90, i64 %.0.i
+  %95 = getelementptr inbounds nuw double, ptr %90, i64 %.0.i
   %96 = mul nsw i64 %.0234396, %6
   %97 = getelementptr double, ptr %5, i64 %83
   %98 = getelementptr double, ptr %97, i64 %96
@@ -23279,19 +23272,19 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit: ; preds = %_ZN5Eige
 113:                                              ; preds = %113, %.lr.ph.us.i
   %.093107.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %127, %113 ]
   %.1106.us.i = phi i64 [ %.095108.us.i, %.lr.ph.us.i ], [ %126, %113 ]
-  %114 = getelementptr inbounds double, ptr %103, i64 %.093107.us.i
+  %114 = getelementptr inbounds nuw double, ptr %103, i64 %.093107.us.i
   %115 = load double, ptr %114, align 8
   %116 = getelementptr inbounds double, ptr %95, i64 %.1106.us.i
   store double %115, ptr %116, align 8
-  %117 = getelementptr inbounds double, ptr %106, i64 %.093107.us.i
+  %117 = getelementptr inbounds nuw double, ptr %106, i64 %.093107.us.i
   %118 = load double, ptr %117, align 8
   %119 = getelementptr i8, ptr %116, i64 8
   store double %118, ptr %119, align 8
-  %120 = getelementptr inbounds double, ptr %109, i64 %.093107.us.i
+  %120 = getelementptr inbounds nuw double, ptr %109, i64 %.093107.us.i
   %121 = load double, ptr %120, align 8
   %122 = getelementptr i8, ptr %116, i64 16
   store double %121, ptr %122, align 8
-  %123 = getelementptr inbounds double, ptr %112, i64 %.093107.us.i
+  %123 = getelementptr inbounds nuw double, ptr %112, i64 %.093107.us.i
   %124 = load double, ptr %123, align 8
   %125 = getelementptr i8, ptr %116, i64 24
   store double %124, ptr %125, align 8
@@ -23323,7 +23316,7 @@ _ZN5Eigen8internal13first_alignedILi16EdmEET1_PKT0_S2_.exit: ; preds = %_ZN5Eige
 133:                                              ; preds = %133, %.lr.ph.us119.i
   %.0114.us.i = phi i64 [ 0, %.lr.ph.us119.i ], [ %138, %133 ]
   %.3113.us.i = phi i64 [ %.2115.us.i, %.lr.ph.us119.i ], [ %137, %133 ]
-  %134 = getelementptr inbounds double, ptr %132, i64 %.0114.us.i
+  %134 = getelementptr inbounds nuw double, ptr %132, i64 %.0114.us.i
   %135 = load double, ptr %134, align 8
   %136 = getelementptr inbounds double, ptr %95, i64 %.3113.us.i
   store double %135, ptr %136, align 8
@@ -23362,7 +23355,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
   %.sroa.speculated322 = call i64 @llvm.smin.i64(i64 %147, i64 4)
   %148 = add nsw i64 %.0239385, %83
   %149 = mul nuw nsw i64 %.0239385, %smin424
-  %150 = getelementptr inbounds double, ptr %61, i64 %149
+  %150 = getelementptr inbounds nuw double, ptr %61, i64 %149
   %151 = mul nsw i64 %148, %6
   %152 = getelementptr double, ptr %97, i64 %151
   call void asm sideeffect "#EIGEN PRODUCT PACK RHS COLMAJOR", "~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !279
@@ -23389,19 +23382,19 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 161:                                              ; preds = %161, %.lr.ph.us.i279
   %.099123.us.i = phi i64 [ 0, %.lr.ph.us.i279 ], [ %175, %161 ]
   %.1122.us.i = phi i64 [ 0, %.lr.ph.us.i279 ], [ %174, %161 ]
-  %162 = getelementptr inbounds double, ptr %152, i64 %.099123.us.i
+  %162 = getelementptr inbounds nuw double, ptr %152, i64 %.099123.us.i
   %163 = load double, ptr %162, align 8
-  %164 = getelementptr inbounds double, ptr %150, i64 %.1122.us.i
+  %164 = getelementptr inbounds nuw double, ptr %150, i64 %.1122.us.i
   store double %163, ptr %164, align 8
-  %165 = getelementptr inbounds double, ptr %158, i64 %.099123.us.i
+  %165 = getelementptr inbounds nuw double, ptr %158, i64 %.099123.us.i
   %166 = load double, ptr %165, align 8
   %167 = getelementptr i8, ptr %164, i64 8
   store double %166, ptr %167, align 8
-  %168 = getelementptr inbounds double, ptr %159, i64 %.099123.us.i
+  %168 = getelementptr inbounds nuw double, ptr %159, i64 %.099123.us.i
   %169 = load double, ptr %168, align 8
   %170 = getelementptr i8, ptr %164, i64 16
   store double %169, ptr %170, align 8
-  %171 = getelementptr inbounds double, ptr %160, i64 %.099123.us.i
+  %171 = getelementptr inbounds nuw double, ptr %160, i64 %.099123.us.i
   %172 = load double, ptr %171, align 8
   %173 = getelementptr i8, ptr %164, i64 24
   store double %172, ptr %173, align 8
@@ -23431,7 +23424,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 181:                                              ; preds = %181, %.lr.ph.us135.i
   %.0130.us.i = phi i64 [ 0, %.lr.ph.us135.i ], [ %186, %181 ]
   %.3129.us.i = phi i64 [ %.2131.us.i, %.lr.ph.us135.i ], [ %185, %181 ]
-  %182 = getelementptr inbounds double, ptr %180, i64 %.0130.us.i
+  %182 = getelementptr inbounds nuw double, ptr %180, i64 %.0130.us.i
   %183 = load double, ptr %182, align 8
   %184 = getelementptr inbounds double, ptr %150, i64 %.3129.us.i
   store double %183, ptr %184, align 8
@@ -23514,19 +23507,19 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 203:                                              ; preds = %203, %.lr.ph.us.i296
   %.099123.us.i299 = phi i64 [ 0, %.lr.ph.us.i296 ], [ %217, %203 ]
   %.1122.us.i300 = phi i64 [ %202, %.lr.ph.us.i296 ], [ %216, %203 ]
-  %204 = getelementptr inbounds double, ptr %13, i64 %.099123.us.i299
+  %204 = getelementptr inbounds nuw double, ptr %13, i64 %.099123.us.i299
   %205 = load double, ptr %204, align 8
   %206 = getelementptr inbounds double, ptr %150, i64 %.1122.us.i300
   store double %205, ptr %206, align 8
-  %207 = getelementptr inbounds double, ptr %77, i64 %.099123.us.i299
+  %207 = getelementptr inbounds nuw double, ptr %77, i64 %.099123.us.i299
   %208 = load double, ptr %207, align 8
   %209 = getelementptr i8, ptr %206, i64 8
   store double %208, ptr %209, align 8
-  %210 = getelementptr inbounds double, ptr %78, i64 %.099123.us.i299
+  %210 = getelementptr inbounds nuw double, ptr %78, i64 %.099123.us.i299
   %211 = load double, ptr %210, align 8
   %212 = getelementptr i8, ptr %206, i64 16
   store double %211, ptr %212, align 8
-  %213 = getelementptr inbounds double, ptr %79, i64 %.099123.us.i299
+  %213 = getelementptr inbounds nuw double, ptr %79, i64 %.099123.us.i299
   %214 = load double, ptr %213, align 8
   %215 = getelementptr i8, ptr %206, i64 24
   store double %214, ptr %215, align 8
@@ -23615,7 +23608,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
   store ptr %242, ptr %17, align 8
   store i64 %9, ptr %70, align 8
   %243 = mul nuw nsw i64 %.0235388, %smin424
-  %244 = getelementptr inbounds double, ptr %61, i64 %243
+  %244 = getelementptr inbounds nuw double, ptr %61, i64 %243
   %245 = load double, ptr %10, align 8
   invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %43, ptr noundef nonnull %244, i64 noundef %.sroa.speculated312, i64 noundef %239, i64 noundef %.sroa.speculated, double noundef %245, i64 noundef %smin424, i64 noundef %smin424, i64 noundef 0, i64 noundef 0)
           to label %246 unwind label %.loopexit371
@@ -23675,12 +23668,12 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit308: ; preds = %_ZN5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_17PermutationMatrixILin1ELin1EiEENS0_9assign_opIdvEENS0_19EigenBase2EigenBaseEvE3runERS3_RKS5_RKS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %.not10 = icmp eq i64 %9, %5
   %or.cond = select i1 %.not, i1 %.not10, i1 false
@@ -23729,7 +23722,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.i: ; 
 .lr.ph.i:                                         ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.i, %.lr.ph.i
   %.06.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit.i ]
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %.06.i
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %.06.i
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %0, align 8
@@ -23762,25 +23755,25 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %14 = alloca %"class.Eigen::Block.833", align 8
   %15 = alloca %"class.Eigen::Block.1208", align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %18, i64 noundef %18, i64 noundef 1)
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %1, align 8
   %23 = load ptr, ptr %21, align 8
   %24 = icmp eq ptr %22, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
   %30 = select i1 %24, i1 %29, i1 false
   br i1 %30, label %31, label %171
 
 31:                                               ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = tail call noundef i64 @llvm.smin.i64(i64 %26, i64 %33)
   %35 = icmp sgt i64 %34, 0
@@ -23843,36 +23836,36 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   br i1 %51, label %.lr.ph94, label %.preheader
 
 .lr.ph94:                                         ; preds = %_ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5DenseEE7setZeroEv.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 16
-  %56 = getelementptr inbounds i8, ptr %10, i64 24
-  %57 = getelementptr inbounds i8, ptr %10, i64 32
-  %58 = getelementptr inbounds i8, ptr %10, i64 40
-  %59 = getelementptr inbounds i8, ptr %10, i64 48
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
-  %61 = getelementptr inbounds i8, ptr %11, i64 24
-  %62 = getelementptr inbounds i8, ptr %11, i64 32
-  %63 = getelementptr inbounds i8, ptr %11, i64 40
-  %64 = getelementptr inbounds i8, ptr %11, i64 48
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 16
-  %68 = getelementptr inbounds i8, ptr %8, i64 24
-  %69 = getelementptr inbounds i8, ptr %8, i64 32
-  %70 = getelementptr inbounds i8, ptr %8, i64 40
-  %71 = getelementptr inbounds i8, ptr %8, i64 48
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 24
-  %74 = getelementptr inbounds i8, ptr %9, i64 32
-  %75 = getelementptr inbounds i8, ptr %9, i64 40
-  %76 = getelementptr inbounds i8, ptr %9, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %81
 
 .preheader:                                       ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit, %_ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5DenseEE7setZeroEv.exit
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = icmp sgt i64 %79, %20
   br i1 %80, label %.lr.ph96, label %.loopexit
@@ -23881,7 +23874,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %.0.in92 = phi i64 [ %20, %.lr.ph94 ], [ %.093, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit ]
   %.093 = add nsw i64 %.0.in92, -1
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = load i64, ptr %52, align 8
   %86 = add i64 %84, 1
@@ -23914,7 +23907,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %101 = sub nsw i64 %100, %87
   %102 = load ptr, ptr %82, align 8, !noalias !707
   %103 = getelementptr inbounds double, ptr %102, i64 %.093
-  %104 = getelementptr inbounds i8, ptr %82, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %105 = load i64, ptr %104, align 8, !noalias !707
   %106 = mul nsw i64 %105, %87
   %107 = getelementptr inbounds double, ptr %103, i64 %106
@@ -23954,7 +23947,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %122 = sub nsw i64 %121, %87
   %123 = load ptr, ptr %82, align 8, !noalias !717
   %124 = getelementptr inbounds double, ptr %123, i64 %.093
-  %125 = getelementptr inbounds i8, ptr %82, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %126 = load i64, ptr %125, align 8, !noalias !717
   %127 = mul nsw i64 %126, %87
   %128 = getelementptr inbounds double, ptr %124, i64 %127
@@ -23976,7 +23969,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj10ENS_5Den
   %135 = getelementptr inbounds double, ptr %134, i64 %.093
   %136 = load i64, ptr %32, align 8, !noalias !718
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = sub i64 %139, %.0.in92
   %141 = sub nsw i64 %136, %140
@@ -24004,7 +23997,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
   %151 = phi i64 [ %168, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56 ], [ %79, %.preheader ]
   %.05295 = phi i64 [ %166, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56 ], [ 0, %.preheader ]
   %152 = load ptr, ptr %1, align 8, !noalias !725
-  %153 = getelementptr inbounds double, ptr %152, i64 %.05295
+  %153 = getelementptr inbounds nuw double, ptr %152, i64 %.05295
   %154 = load i64, ptr %32, align 8, !noalias !725
   %155 = xor i64 %.05295, -1
   %156 = add i64 %151, %155
@@ -24031,7 +24024,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
 _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56: ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56.loopexit, %.lr.ph96
   %165 = phi ptr [ %.pre100, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit56.loopexit ], [ %150, %.lr.ph96 ]
   %166 = add nuw nsw i64 %.05295, 1
-  %167 = getelementptr inbounds i8, ptr %165, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %168 = load i64, ptr %167, align 8
   %169 = sub nsw i64 %168, %20
   %170 = icmp slt i64 %166, %169
@@ -24039,7 +24032,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi
 
 171:                                              ; preds = %3
   %172 = icmp sgt i64 %20, 48
-  %173 = getelementptr inbounds i8, ptr %21, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %174 = load i64, ptr %173, align 8
   %175 = icmp eq i64 %174, 0
   br i1 %172, label %176, label %187
@@ -24062,11 +24055,11 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %182 = mul nsw i64 %174, %174
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %182, i64 noundef %174, i64 noundef %174)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %183 = getelementptr inbounds i8, ptr %1, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %184 = load i64, ptr %183, align 8
   %185 = load i64, ptr %25, align 8
   store i64 %184, ptr %7, align 8, !alias.scope !732
-  %186 = getelementptr inbounds i8, ptr %7, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %185, ptr %186, align 8, !alias.scope !732
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -24093,11 +24086,11 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %193 = mul nsw i64 %174, %174
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %193, i64 noundef %174, i64 noundef %174)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %194 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = load i64, ptr %25, align 8
   store i64 %195, ptr %5, align 8, !alias.scope !737
-  %197 = getelementptr inbounds i8, ptr %5, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %196, ptr %197, align 8, !alias.scope !737
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -24107,38 +24100,38 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   br i1 %198, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit58
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
-  %200 = getelementptr inbounds i8, ptr %0, i64 16
-  %201 = getelementptr inbounds i8, ptr %14, i64 8
-  %202 = getelementptr inbounds i8, ptr %14, i64 16
-  %203 = getelementptr inbounds i8, ptr %14, i64 24
-  %204 = getelementptr inbounds i8, ptr %14, i64 32
-  %205 = getelementptr inbounds i8, ptr %14, i64 40
-  %206 = getelementptr inbounds i8, ptr %14, i64 48
-  %207 = getelementptr inbounds i8, ptr %15, i64 8
-  %208 = getelementptr inbounds i8, ptr %15, i64 24
-  %209 = getelementptr inbounds i8, ptr %15, i64 32
-  %210 = getelementptr inbounds i8, ptr %15, i64 40
-  %211 = getelementptr inbounds i8, ptr %15, i64 48
-  %212 = getelementptr inbounds i8, ptr %0, i64 8
-  %213 = getelementptr inbounds i8, ptr %12, i64 8
-  %214 = getelementptr inbounds i8, ptr %12, i64 16
-  %215 = getelementptr inbounds i8, ptr %12, i64 24
-  %216 = getelementptr inbounds i8, ptr %12, i64 32
-  %217 = getelementptr inbounds i8, ptr %12, i64 40
-  %218 = getelementptr inbounds i8, ptr %12, i64 48
-  %219 = getelementptr inbounds i8, ptr %13, i64 8
-  %220 = getelementptr inbounds i8, ptr %13, i64 24
-  %221 = getelementptr inbounds i8, ptr %13, i64 32
-  %222 = getelementptr inbounds i8, ptr %13, i64 40
-  %223 = getelementptr inbounds i8, ptr %13, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %224
 
 224:                                              ; preds = %.lr.ph, %276
   %.051.in89 = phi i64 [ %20, %.lr.ph ], [ %.05190, %276 ]
   %.05190 = add nsw i64 %.051.in89, -1
   %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = load i64, ptr %226, align 8
   %228 = load i64, ptr %199, align 8
   %229 = add i64 %227, 1
@@ -24171,7 +24164,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %244 = sub nsw i64 %243, %230
   %245 = load ptr, ptr %225, align 8, !noalias !751
   %246 = getelementptr inbounds double, ptr %245, i64 %.05190
-  %247 = getelementptr inbounds i8, ptr %225, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %248 = load i64, ptr %247, align 8, !noalias !751
   %249 = mul nsw i64 %248, %230
   %250 = getelementptr inbounds double, ptr %246, i64 %249
@@ -24211,7 +24204,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %265 = sub nsw i64 %264, %230
   %266 = load ptr, ptr %225, align 8, !noalias !761
   %267 = getelementptr inbounds double, ptr %266, i64 %.05190
-  %268 = getelementptr inbounds i8, ptr %225, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %269 = load i64, ptr %268, align 8, !noalias !761
   %270 = mul nsw i64 %269, %230
   %271 = getelementptr inbounds double, ptr %267, i64 %270
@@ -24243,15 +24236,15 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %7 = alloca %"class.Eigen::VectorBlock.1457", align 8
   %8 = alloca %"class.Eigen::Block.833", align 8
   %9 = alloca %"class.Eigen::Block.1208", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   %not. = xor i1 %12, true
   %.0.shrunk = select i1 %3, i1 %not., i1 false
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp sgt i64 %14, 47
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %17, 1
   %or.cond = select i1 %15, i1 %18, i1 false
@@ -24263,25 +24256,25 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %20 = lshr i64 %.lhs.trunc, 1
   %.zext = and i64 %20, 127
   %21 = select i1 %19, i64 %.zext, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
-  %27 = getelementptr inbounds i8, ptr %5, i64 40
-  %28 = getelementptr inbounds i8, ptr %5, i64 48
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
-  %35 = getelementptr inbounds i8, ptr %6, i64 48
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
-  %39 = getelementptr inbounds i8, ptr %7, i64 32
-  %40 = getelementptr inbounds i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %41
 
 41:                                               ; preds = %.lr.ph67, %49
@@ -24311,12 +24304,12 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %53 = load i64, ptr %22, align 8
   %54 = add i64 %53, %51
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = sub nsw i64 %57, %54
   %59 = load ptr, ptr %55, align 8
   %60 = getelementptr inbounds double, ptr %59, i64 %51
-  %61 = getelementptr inbounds i8, ptr %55, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = mul nsw i64 %62, %54
   %64 = getelementptr inbounds double, ptr %60, i64 %63
@@ -24351,7 +24344,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   call void @llvm.experimental.noalias.scope.decl(metadata !763)
   %78 = load ptr, ptr %77, align 8, !noalias !763
   %79 = getelementptr inbounds double, ptr %78, i64 %51
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %79, ptr %7, align 8, !alias.scope !763
   store i64 %52, ptr %37, align 8, !alias.scope !763
   store ptr %77, ptr %38, align 8, !alias.scope !763
@@ -24365,27 +24358,27 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   br i1 %84, label %41, label %.loopexit, !llvm.loop !766
 
 ._crit_edge:                                      ; preds = %4
-  %85 = getelementptr inbounds i8, ptr %1, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %17, i64 noundef %17, i64 noundef 1)
   %86 = load i64, ptr %13, align 8
   %87 = icmp sgt i64 %86, 0
   br i1 %87, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %88 = getelementptr inbounds i8, ptr %0, i64 32
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 16
-  %92 = getelementptr inbounds i8, ptr %8, i64 24
-  %93 = getelementptr inbounds i8, ptr %8, i64 32
-  %94 = getelementptr inbounds i8, ptr %8, i64 40
-  %95 = getelementptr inbounds i8, ptr %8, i64 48
-  %96 = getelementptr inbounds i8, ptr %9, i64 8
-  %97 = getelementptr inbounds i8, ptr %9, i64 24
-  %98 = getelementptr inbounds i8, ptr %9, i64 32
-  %99 = getelementptr inbounds i8, ptr %9, i64 40
-  %100 = getelementptr inbounds i8, ptr %9, i64 48
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %102
 
 102:                                              ; preds = %.lr.ph, %102
@@ -24397,7 +24390,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %107 = add i64 %103, %106
   %108 = select i1 %105, i64 %.04865, i64 %107
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = load i64, ptr %88, align 8
   %113 = add i64 %108, %112
@@ -24426,7 +24419,7 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
   %125 = sub nsw i64 %124, %123
   %126 = load ptr, ptr %109, align 8, !noalias !776
   %127 = getelementptr inbounds double, ptr %126, i64 %108
-  %128 = getelementptr inbounds i8, ptr %109, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %129 = load i64, ptr %128, align 8, !noalias !776
   %130 = mul nsw i64 %129, %123
   %131 = getelementptr inbounds double, ptr %127, i64 %130
@@ -24453,18 +24446,18 @@ define linkonce_odr hidden void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIdLin
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal31call_triangular_assignment_loopILi2ELb1ENS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_14TriangularViewIKNS_5BlockIKS3_Lin1ELin1ELb0EEELj2EEENS0_9assign_opIddEEEEvRT1_RKT2_RKT3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %.not15 = icmp eq i64 %16, %12
   %or.cond = select i1 %.not, i1 %.not15, i1 false
@@ -24586,27 +24579,27 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
   %4 = alloca %"struct.Eigen::internal::evaluator.2020", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.224", align 8
   %6 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.2024", align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load double, ptr %15, align 8
   store double %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %.not.i = icmp eq i64 %22, %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %.not8.i = icmp eq i64 %24, %20
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -24639,14 +24632,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %34 = phi i64 [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i ], [ %20, %3 ]
   %35 = load ptr, ptr %0, align 8
   store ptr %35, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %34, ptr %36, align 8
   store ptr %5, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %39, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_5BlockIKS5_Lin1ELin1ELb0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEESB_EEEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSN_(ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -24654,18 +24647,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEENS3_INS_13CwiseBinaryOpINS0_18scalar_quotient_opIddEEKNS_5BlockIKS5_Lin1ELin1ELb0EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEESB_EEEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSN_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %5, 1
   %9 = icmp sgt i64 %7, 0
   br i1 %9, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph50, %._crit_edge
@@ -24680,19 +24673,19 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
 .lr.ph.preheader:                                 ; preds = %11
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = mul nsw i64 %19, %.03447
   %21 = getelementptr double, ptr %17, i64 %20
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = mul nsw i64 %26, %.03447
   %28 = getelementptr double, ptr %24, i64 %27
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %31 = load double, ptr %30, align 8
   %32 = fdiv double %29, %31
   store double %32, ptr %21, align 8
@@ -24710,21 +24703,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %.03143 = phi i64 [ %55, %.lr.ph44 ], [ %.03348, %.preheader41 ]
   %35 = load ptr, ptr %0, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = mul nsw i64 %38, %.03447
   %40 = getelementptr double, ptr %36, i64 %39
   %41 = getelementptr double, ptr %40, i64 %.03143
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = mul nsw i64 %46, %.03447
   %48 = getelementptr inbounds double, ptr %44, i64 %47
   %49 = getelementptr inbounds double, ptr %48, i64 %.03143
   %50 = load <2 x double>, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %42, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %52 = load <2 x double>, ptr %51, align 8
   %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fdiv <2 x double> %50, %53
@@ -24737,21 +24730,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %.045 = phi i64 [ %76, %.lr.ph46 ], [ %14, %.preheader ]
   %57 = load ptr, ptr %0, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = mul nsw i64 %60, %.03447
   %62 = getelementptr double, ptr %58, i64 %61
   %63 = getelementptr double, ptr %62, i64 %.045
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %68 = load i64, ptr %67, align 8
   %69 = mul nsw i64 %68, %.03447
   %70 = getelementptr double, ptr %66, i64 %.045
   %71 = getelementptr double, ptr %70, i64 %69
   %72 = load double, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %64, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %74 = load double, ptr %73, align 8
   %75 = fdiv double %72, %74
   store double %75, ptr %63, align 8
@@ -24775,11 +24768,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
 define linkonce_odr hidden void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2INS_5SolveINS_7SVDBaseINS_9JacobiSVDIS2_Li2EEEEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %5, 0
   %11 = icmp eq i64 %9, 0
@@ -24798,15 +24791,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE10resizeLikeINS_5SolveINS_7SVDBaseINS_9JacobiSVDIS2_Li2EEEEENS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEEEEvRKNS_9EigenBaseIT_EE.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %.not.i.i.i = icmp eq i64 %23, %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %.not11.i.i.i = icmp eq i64 %25, %21
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %.not11.i.i.i, i1 false
@@ -24871,21 +24864,21 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %11 = alloca %"class.Eigen::Product.2089", align 8
   %12 = alloca %"class.Eigen::Product.2109", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 70
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %23 = load i8, ptr %22, align 2
   %24 = trunc i8 %23 to i1
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load double, ptr %25, align 8
   %.sroa.speculated.i.i = tail call i64 @llvm.smax.i64(i64 %21, i64 1)
   %27 = uitofp nneg i64 %.sroa.speculated.i.i to double
@@ -24894,7 +24887,7 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %30 = fmul double %19, %29
   %31 = fcmp olt double %30, 0x10000000000000
   %.sroa.speculated.i = select i1 %31, double 0x10000000000000, double %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load i64, ptr %32, align 8
   %smin.i = tail call i64 @llvm.smin.i64(i64 %33, i64 0)
   br label %34
@@ -24913,23 +24906,23 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
 
 .loopexit:                                        ; preds = %36, %34, %3
   %.08.i = phi i64 [ 0, %3 ], [ %smin.i, %34 ], [ %.0.in.i, %36 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !785
   %42 = load ptr, ptr %0, align 8, !noalias !785
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.539.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.539.0..sroa_idx, i8 0, i64 16, i1 false)
   %44 = load i64, ptr %43, align 8, !noalias !785
   store ptr %42, ptr %10, align 8
-  %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %41, ptr %.sroa.236.0..sroa_idx, align 8
-  %.sroa.337.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.08.i, ptr %.sroa.337.0..sroa_idx, align 8
-  %.sroa.438.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %.sroa.438.0..sroa_idx, align 8
-  %.sroa.640.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
+  %.sroa.640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 %44, ptr %.sroa.640.0..sroa_idx, align 8
-  %45 = getelementptr inbounds i8, ptr %10, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   invoke void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_9TransposeIKNS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES7_EELi0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSG_RKSI_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -24937,20 +24930,20 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
 
 46:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8, !noalias !788
   %49 = load i64, ptr %13, align 8, !noalias !788
-  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %48, ptr %50, align 8
-  %.sroa.221.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.221.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %.08.i, ptr %.sroa.221.8..sroa_idx, align 8
-  %.sroa.423.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.423.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %47, ptr %.sroa.423.8..sroa_idx, align 8
-  %.sroa.524.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 40
+  %.sroa.524.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 0, ptr %.sroa.524.8..sroa_idx, align 8
-  %.sroa.726.8..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
+  %.sroa.726.8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i64 %49, ptr %.sroa.726.8..sroa_idx, align 8
-  %51 = getelementptr inbounds i8, ptr %11, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr %9, ptr %51, align 8, !alias.scope !791
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_15DiagonalWrapperIKNS_12CwiseUnaryOpINS0_17scalar_inverse_opIdEEKNS_5BlockIKNS2_IdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEEEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -24958,24 +24951,24 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
 
 52:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load i64, ptr %54, align 8, !noalias !794
   %56 = load ptr, ptr %53, align 8, !noalias !794
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   %58 = load i64, ptr %57, align 8, !noalias !794
   store ptr %56, ptr %12, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %55, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.08.i, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %53, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 48
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i64 %58, ptr %.sroa.6.0..sroa_idx, align 8
-  %59 = getelementptr inbounds i8, ptr %12, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %9, ptr %59, align 8, !alias.scope !797
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -25031,14 +25024,14 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1
   %4 = alloca %"class.Eigen::Product.2116", align 8
   %5 = alloca %"struct.Eigen::internal::assign_op", align 1
   %6 = alloca double, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %.not11 = icmp eq i64 %14, %10
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -25071,7 +25064,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 24:                                               ; preds = %3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %25 = phi i64 [ %10, %3 ], [ %.pre14, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
   %26 = phi i64 [ %8, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %28 = load i64, ptr %27, align 8
@@ -25085,7 +25078,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 33:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %34 = getelementptr inbounds i8, ptr %4, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %34, ptr noundef nonnull align 8 dereferenceable(17) %27, i64 16, i1 false)
   call void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_9TransposeIKNS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES7_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
@@ -25120,25 +25113,25 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_9Tr
   %7 = alloca %"class.Eigen::Block.2191", align 8
   %8 = alloca %"class.Eigen::Matrix", align 8
   %9 = alloca %"class.Eigen::internal::gemm_blocking_space.674", align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 1
   br i1 %24, label %25, label %54
@@ -25146,15 +25139,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_9Tr
 25:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
   %26 = load ptr, ptr %0, align 8, !noalias !800
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !noalias !800
   store ptr %26, ptr %7, align 8, !alias.scope !800
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %28, ptr %29, align 8, !alias.scope !800
-  %30 = getelementptr inbounds i8, ptr %7, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %30, align 8, !alias.scope !800
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
-  %32 = getelementptr inbounds i8, ptr %7, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store i64 %28, ptr %32, align 8, !alias.scope !800
   %33 = load i64, ptr %2, align 8, !noalias !803
@@ -25170,9 +25163,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_9Tr
   br i1 %38, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEEE3dotINS1_IKNS1_IKNS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES4_EELin1ELi1ELb0EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNSE_6traitsIT_E6ScalarENSE_17scalar_product_opIdSQ_EEE10ReturnTypeERKNS0_ISO_EE.exit.i, label %39
 
 39:                                               ; preds = %35
-  %.sroa.4.24..sroa_idx13.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.24..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.24.copyload.i = load ptr, ptr %.sroa.4.24..sroa_idx13.i, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.4.24.copyload.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.4.24.copyload.i, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = load double, ptr %37, align 8
   %43 = icmp sgt i64 %33, 1
@@ -25200,8 +25193,8 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi1
 52:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.749.24..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.749.24..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store i64 %33, ptr %.sroa.749.24..sroa_idx, align 8
   call void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi0ELb1EE3runINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS5_IKNS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES7_EELin1ELi1ELb0EEENS5_INS6_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKT_RKT0_RT1_RKNSQ_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -25213,7 +25206,7 @@ _ZN5Eigen8internal20generic_product_implINS_9TransposeIKNS_5BlockIKNS_6MatrixIdL
   br label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit
 
 54:                                               ; preds = %21
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 1
   br i1 %57, label %58, label %99
@@ -25221,7 +25214,7 @@ _ZN5Eigen8internal20generic_product_implINS_9TransposeIKNS_5BlockIKNS_6MatrixIdL
 58:                                               ; preds = %54
   %59 = load ptr, ptr %0, align 8, !noalias !810
   %60 = load ptr, ptr %1, align 8, !noalias !813
-  %.sroa.639.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.639.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.639.24.copyload = load ptr, ptr %.sroa.639.24..sroa_idx, align 8
   %61 = icmp eq i64 %19, 1
   br i1 %61, label %62, label %79
@@ -25233,7 +25226,7 @@ _ZN5Eigen8internal20generic_product_implINS_9TransposeIKNS_5BlockIKNS_6MatrixIdL
   br i1 %65, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEELi1ELin1ELb1EEEE3dotINS1_IKNS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES4_EELin1ELi1ELb0EEEEENS_20ScalarBinaryOpTraitsIdNSG_6traitsIT_E6ScalarENSG_17scalar_product_opIdSQ_EEE10ReturnTypeERKNS0_ISO_EE.exit.i, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %.sroa.639.24.copyload, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.639.24.copyload, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = load double, ptr %60, align 8
   %70 = icmp sgt i64 %64, 1
@@ -25263,7 +25256,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELi
   br i1 %80, label %.lr.ph.i.i.i, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit
 
 .lr.ph.i.i.i:                                     ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %.sroa.639.24.copyload, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.639.24.copyload, i64 16
   %82 = icmp sgt i64 %23, 0
   br i1 %82, label %.lr.ph.split.i.i.i, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEELi1ELin1ELb0EEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESH_Li7EE13scaleAndAddToINS2_INS4_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEvRT_RSC_RKSG_RKd.exit
 
@@ -25299,18 +25292,18 @@ _ZN5Eigen10MatrixBaseINS_9TransposeINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin
 
 99:                                               ; preds = %54
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.451.0.copyload = load ptr, ptr %.sroa.451.0..sroa_idx, align 8
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %100 = load double, ptr %3, align 8
   %101 = load i64, ptr %55, align 8
   %102 = load i64, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 16, i1 false)
-  %103 = getelementptr inbounds i8, ptr %9, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %101, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %102, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %9, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %11, ptr %105, align 8
   invoke void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi1ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(8) %104, i64 noundef 1)
           to label %106 unwind label %128
@@ -25319,19 +25312,19 @@ _ZN5Eigen10MatrixBaseINS_9TransposeINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin
   %107 = load i64, ptr %103, align 8
   %108 = load i64, ptr %105, align 8
   %109 = mul nsw i64 %108, %107
-  %110 = getelementptr inbounds i8, ptr %9, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 %109, ptr %110, align 8
   %111 = load i64, ptr %104, align 8
   %112 = mul nsw i64 %111, %108
-  %113 = getelementptr inbounds i8, ptr %9, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 %112, ptr %113, align 8
   %114 = load i64, ptr %14, align 8
   %115 = load i64, ptr %18, align 8
   %116 = icmp eq i64 %115, -1
-  %117 = getelementptr inbounds i8, ptr %8, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %118 = load i64, ptr %117, align 8
   %..i.i = select i1 %116, i64 %118, i64 %115
-  %119 = getelementptr inbounds i8, ptr %.sroa.451.0.copyload, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.451.0.copyload, i64 16
   %120 = load i64, ptr %119, align 8
   %121 = load ptr, ptr %8, align 8
   %122 = load ptr, ptr %0, align 8
@@ -25342,7 +25335,7 @@ _ZN5Eigen10MatrixBaseINS_9TransposeINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin
 _ZN5Eigen8internal16parallelize_gemmILb1ENS0_12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi0ELb0EdLi1ELb0ELi0ELi1EEENS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEES8_NS7_IdLin1ELin1ELi0ELin1ELin1EEENS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEElEEvRKT0_T1_SK_SK_b.exit: ; preds = %106
   %124 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %124) #29
-  %125 = getelementptr inbounds i8, ptr %9, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %126 = load ptr, ptr %125, align 8
   call void @free(ptr noundef %126) #29
   %127 = load ptr, ptr %8, align 8
@@ -25362,7 +25355,7 @@ _ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS_9TransposeIKNS2_IKNS_6Ma
           cleanup
   %132 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %132) #29
-  %133 = getelementptr inbounds i8, ptr %9, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %134 = load ptr, ptr %133, align 8
   call void @free(ptr noundef %134) #29
   br label %135
@@ -25380,30 +25373,30 @@ define linkonce_odr hidden void @_ZN5Eigen8internal42call_restricted_packet_assi
   %5 = alloca %"struct.Eigen::internal::evaluator.1935", align 8
   %6 = alloca %"class.Eigen::internal::restricted_packet_dense_assignment_kernel", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 56, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 8 dereferenceable(17) %8, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 96
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 112
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %.not.i = icmp eq i64 %24, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %.not8.i = icmp eq i64 %26, %22
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -25436,14 +25429,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %36 = phi i64 [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ %20, %3 ]
   %37 = load ptr, ptr %0, align 8
   store ptr %37, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %36, ptr %38, align 8
   store ptr %5, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %41, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductINS_9TransposeIKNS_5BlockIKNS4_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEESA_EELi1EEEEENS0_9assign_opIddEEEELi4ELi0EE3runERSN_(ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -25451,18 +25444,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductINS_9TransposeIKNS_5BlockIKNS4_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEESA_EELi1EEEEENS0_9assign_opIddEEEELi4ELi0EE3runERSN_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %5, 1
   %9 = icmp sgt i64 %7, 0
   br i1 %9, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph60, %._crit_edge
@@ -25477,11 +25470,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_4
 .lr.ph:                                           ; preds = %11
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %20, align 8, !noalias !822
-  %22 = getelementptr inbounds i8, ptr %20, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %23 = load i64, ptr %22, align 8, !noalias !825
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKNS_5BlockIKNS3_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES9_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit, label %26
@@ -25493,9 +25486,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_4
 26:                                               ; preds = %.lr.ph
   %27 = icmp eq i64 %.03457, 0
   %28 = select i1 %27, double 1.000000e+00, double 0.000000e+00
-  %.sroa.3.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  %.sroa.3.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   %.sroa.3.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.3.sroa.2.0..sroa_idx.i.i.i, align 8
-  %29 = getelementptr inbounds i8, ptr %.sroa.3.sroa.2.0.copyload.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.3.sroa.2.0.copyload.i.i.i, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = load double, ptr %21, align 8
   %32 = fmul double %28, %31
@@ -25536,17 +25529,17 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %.03153 = phi i64 [ %73, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKNS_5BlockIKNS3_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES9_EELi1EEEEENS0_9assign_opIddEELi1EE24assignPacketByOuterInnerILi16ELi0EDv2_dEEvll.exit ], [ %.03358, %.preheader49 ]
   %47 = load ptr, ptr %0, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load i64, ptr %52, align 8
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %.lr.ph.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKNS_5BlockIKNS3_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES9_EELi1EEEEENS0_9assign_opIddEELi1EE24assignPacketByOuterInnerILi16ELi0EDv2_dEEvll.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph54
-  %55 = getelementptr inbounds i8, ptr %51, i64 80
-  %56 = getelementptr inbounds i8, ptr %51, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %57 = load ptr, ptr %55, align 8
   %58 = load i64, ptr %56, align 8
   %invariant.gep.i.i.i = getelementptr double, ptr %57, i64 %.03153
@@ -25582,20 +25575,20 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %.055 = phi i64 [ %14, %.lr.ph56 ], [ %103, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKNS_5BlockIKNS3_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES9_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43 ]
   %76 = load ptr, ptr %0, align 8
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %10, align 8
   %81 = load ptr, ptr %80, align 8, !noalias !831
   %82 = getelementptr inbounds double, ptr %81, i64 %.055
-  %83 = getelementptr inbounds i8, ptr %80, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %84 = load i64, ptr %83, align 8, !noalias !834
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKNS_5BlockIKNS3_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES9_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43, label %86
 
 86:                                               ; preds = %75
-  %.sroa.3.sroa.2.0..sroa_idx.i.i.i36 = getelementptr inbounds i8, ptr %80, i64 24
+  %.sroa.3.sroa.2.0..sroa_idx.i.i.i36 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %.sroa.3.sroa.2.0.copyload.i.i.i37 = load ptr, ptr %.sroa.3.sroa.2.0..sroa_idx.i.i.i36, align 8
-  %87 = getelementptr inbounds i8, ptr %.sroa.3.sroa.2.0.copyload.i.i.i37, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.3.sroa.2.0.copyload.i.i.i37, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = load double, ptr %82, align 8
   %90 = fmul double %46, %89
@@ -25643,13 +25636,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi0
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %6 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %.sroa.042.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %10, label %.thread
@@ -25677,15 +25670,15 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi0
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %18, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %27, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %18 ]
-  %23 = getelementptr inbounds double, ptr %15, i64 %.05.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw double, ptr %15, i64 %.05.i.i.i.i.i.i.i
   %24 = add nsw i64 %.05.i.i.i.i.i.i.i, %20
   %25 = icmp eq i64 %24, %22
   %26 = select i1 %25, double 1.000000e+00, double 0.000000e+00
@@ -25697,13 +25690,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi0
 .thread:                                          ; preds = %.lr.ph.i.i.i.i.i.i.i, %4
   %.sroa.0.344 = phi ptr [ null, %4 ], [ %15, %.lr.ph.i.i.i.i.i.i.i ]
   %28 = load double, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 16
   %30 = load i64, ptr %29, align 8
   store ptr %.sroa.042.0.copyload, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %30, ptr %31, align 8
   store ptr %.sroa.0.344, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %32, align 8
   %33 = load ptr, ptr %2, align 8
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %.sroa.3.0.copyload, i64 noundef %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %33, i64 noundef 1, double noundef %28)
@@ -25725,7 +25718,7 @@ define linkonce_odr hidden void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin
   %3 = alloca %"struct.Eigen::internal::assign_op", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, 0
   %8 = icmp eq i64 %6, 0
@@ -25772,13 +25765,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE10resizeLikeIN
 define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_matrix_productIldLi0ELb0EdLi1ELb0ELi0ELi1EE3runElllPKdlS4_lPdlldRNS0_15level3_blockingIddEEPNS0_16GemmParallelInfoIlEE(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9, double noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %15 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp sge i64 %19, %0
   %.sroa.speculated212 = tail call i64 @llvm.smin.i64(i64 %19, i64 %0)
-  %21 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = icmp slt i64 %22, %1
   %.sroa.speculated207 = tail call i64 @llvm.smin.i64(i64 %22, i64 %1)
@@ -25827,7 +25820,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
   br i1 %45, label %.invoke, label %46
 
 46:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not160 = icmp eq ptr %48, null
   br i1 %.not160, label %49, label %59
@@ -25868,7 +25861,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 
 .lr.ph244:                                        ; preds = %59
   %65 = icmp sgt i64 %2, 0
-  %66 = getelementptr inbounds i8, ptr %15, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br i1 %65, label %.lr.ph.us, label %._crit_edge
 
 .lr.ph.us:                                        ; preds = %.lr.ph244, %..loopexit235_crit_edge.us
@@ -26043,15 +26036,15 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %141 = load double, ptr %140, align 8
   %142 = getelementptr inbounds double, ptr %61, i64 %.162.us.i.us
   store double %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %140, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %144 = load double, ptr %143, align 8
   %145 = getelementptr i8, ptr %142, i64 8
   store double %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %140, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %147 = load double, ptr %146, align 8
   %148 = getelementptr i8, ptr %142, i64 16
   store double %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %140, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %150 = load double, ptr %149, align 8
   %151 = getelementptr i8, ptr %142, i64 24
   store double %150, ptr %151, align 8
@@ -26159,33 +26152,33 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopI
   %4 = alloca %"struct.Eigen::internal::evaluator.2351", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.1935", align 8
   %6 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.2361", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %9, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8
   store ptr %18, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.i = icmp eq i64 %27, %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %.not8.i = icmp eq i64 %29, %25
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -26218,14 +26211,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %39 = phi i64 [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ %23, %3 ]
   %40 = load ptr, ptr %0, align 8
   store ptr %40, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %39, ptr %41, align 8
   store ptr %5, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %44, align 8
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductINS_15DiagonalWrapperIKNS_12CwiseUnaryOpINS0_17scalar_inverse_opIdEEKNS_5BlockIKNS4_IdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEEEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSO_(ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -26233,18 +26226,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductINS_15DiagonalWrapperIKNS_12CwiseUnaryOpINS0_17scalar_inverse_opIdEEKNS_5BlockIKNS4_IdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEEEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSO_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %5, 1
   %9 = icmp sgt i64 %7, 0
   br i1 %9, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph50, %._crit_edge
@@ -26259,18 +26252,18 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
 .lr.ph.preheader:                                 ; preds = %11
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = mul nsw i64 %19, %.03447
   %21 = getelementptr double, ptr %17, i64 %20
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load double, ptr %24, align 8
   %26 = fdiv double 1.000000e+00, %25
-  %27 = getelementptr inbounds i8, ptr %22, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = mul nsw i64 %30, %.03447
   %32 = getelementptr double, ptr %28, i64 %31
@@ -26291,21 +26284,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %.03143 = phi i64 [ %59, %.lr.ph44 ], [ %.03348, %.preheader41 ]
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = mul nsw i64 %40, %.03447
   %42 = getelementptr double, ptr %38, i64 %.03143
   %43 = getelementptr double, ptr %42, i64 %41
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds double, ptr %46, i64 %.03143
-  %48 = getelementptr inbounds i8, ptr %44, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = mul nsw i64 %49, %.03447
   %51 = getelementptr inbounds double, ptr %47, i64 %50
   %52 = load <2 x double>, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %44, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds double, ptr %54, i64 %.03143
   %56 = load <2 x double>, ptr %55, align 1
@@ -26320,20 +26313,20 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %.045 = phi i64 [ %83, %.lr.ph46 ], [ %14, %.preheader ]
   %61 = load ptr, ptr %0, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = mul nsw i64 %64, %.03447
   %66 = getelementptr double, ptr %62, i64 %.045
   %67 = getelementptr double, ptr %66, i64 %65
   %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds double, ptr %70, i64 %.045
   %72 = load double, ptr %71, align 8
   %73 = fdiv double 1.000000e+00, %72
-  %74 = getelementptr inbounds i8, ptr %68, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %68, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %77 = load i64, ptr %76, align 8
   %78 = mul nsw i64 %77, %.03447
   %79 = getelementptr double, ptr %75, i64 %.045
@@ -26362,16 +26355,16 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1
   %4 = alloca %"class.Eigen::Product.2362", align 8
   %5 = alloca %"struct.Eigen::internal::assign_op", align 1
   %6 = alloca double, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %.not11 = icmp eq i64 %16, %12
   %or.cond = select i1 %.not, i1 %.not11, i1 false
@@ -26408,7 +26401,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %29 = phi ptr [ %10, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = add nsw i64 %28, %31
   %33 = add nsw i64 %32, %27
@@ -26420,7 +26413,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %37 = getelementptr inbounds i8, ptr %4, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %29, ptr %37, align 8, !alias.scope !846
   call void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -26457,25 +26450,25 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_5Bl
   %9 = alloca %"class.Eigen::Block.2397", align 8
   %10 = alloca %"class.Eigen::Block.2191", align 8
   %11 = alloca %"class.Eigen::internal::gemm_blocking_space.674", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 1
   br i1 %26, label %27, label %101
@@ -26483,19 +26476,19 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_5Bl
 27:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
   %28 = load ptr, ptr %0, align 8, !noalias !849
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !noalias !849
   store ptr %28, ptr %10, align 8, !alias.scope !849
-  %31 = getelementptr inbounds i8, ptr %10, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %30, ptr %31, align 8, !alias.scope !849
-  %32 = getelementptr inbounds i8, ptr %10, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %32, align 8, !alias.scope !849
-  %33 = getelementptr inbounds i8, ptr %10, i64 32
-  %34 = getelementptr inbounds i8, ptr %10, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store i64 %30, ptr %34, align 8, !alias.scope !849
   %35 = load ptr, ptr %2, align 8, !noalias !852
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i64, ptr %36, align 8, !noalias !852
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
@@ -26525,9 +26518,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_5Bl
   br i1 %52, label %53, label %83
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %41, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %55 = load <2 x double>, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %35, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %57 = load <2 x double>, ptr %56, align 1
   %58 = fmul <2 x double> %55, %57
   %59 = icmp samesign ugt i64 %37, 7
@@ -26538,16 +26531,16 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_5Bl
   %.054.in77.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %53 ]
   %storemerge76.i.i.i.i.i.i = phi <2 x double> [ %72, %.lr.ph.i.i.i.i.i.i ], [ %58, %53 ]
   %.17375.i.i.i.i.i.i = phi <2 x double> [ %65, %.lr.ph.i.i.i.i.i.i ], [ %51, %53 ]
-  %60 = getelementptr inbounds double, ptr %41, i64 %.05478.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw double, ptr %41, i64 %.05478.i.i.i.i.i.i
   %61 = load <2 x double>, ptr %60, align 1
-  %62 = getelementptr inbounds double, ptr %35, i64 %.05478.i.i.i.i.i.i
+  %62 = getelementptr inbounds nuw double, ptr %35, i64 %.05478.i.i.i.i.i.i
   %63 = load <2 x double>, ptr %62, align 1
   %64 = fmul <2 x double> %61, %63
   %65 = fadd <2 x double> %.17375.i.i.i.i.i.i, %64
   %66 = add nuw nsw i64 %.054.in77.i.i.i.i.i.i, 6
-  %67 = getelementptr inbounds double, ptr %41, i64 %66
+  %67 = getelementptr inbounds nuw double, ptr %41, i64 %66
   %68 = load <2 x double>, ptr %67, align 1
-  %69 = getelementptr inbounds double, ptr %35, i64 %66
+  %69 = getelementptr inbounds nuw double, ptr %35, i64 %66
   %70 = load <2 x double>, ptr %69, align 1
   %71 = fmul <2 x double> %68, %70
   %72 = fadd <2 x double> %storemerge76.i.i.i.i.i.i, %71
@@ -26563,9 +26556,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal20generic_product_implINS_5Bl
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %77 = getelementptr inbounds double, ptr %41, i64 %45
+  %77 = getelementptr inbounds nuw double, ptr %41, i64 %45
   %78 = load <2 x double>, ptr %77, align 1
-  %79 = getelementptr inbounds double, ptr %35, i64 %45
+  %79 = getelementptr inbounds nuw double, ptr %35, i64 %45
   %80 = load <2 x double>, ptr %79, align 1
   %81 = fmul <2 x double> %78, %80
   %82 = fadd <2 x double> %74, %81
@@ -26608,12 +26601,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi
 100:                                              ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   store ptr %35, ptr %9, align 8
-  %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %37, ptr %.sroa.365.0..sroa_idx, align 8
-  %.sroa.567.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %2, ptr %.sroa.567.0..sroa_idx, align 8
-  %.sroa.668.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.870.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
+  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.668.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 %37, ptr %.sroa.870.0..sroa_idx, align 8
   call void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1ELb1EE3runINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS4_IKNS5_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEENS4_IS9_Lin1ELi1ELb1EEEEEvRKT_RKT0_RT1_RKNSJ_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -26625,7 +26618,7 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELi
   br label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit
 
 101:                                              ; preds = %23
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load i64, ptr %102, align 8
   %104 = icmp eq i64 %103, 1
   br i1 %104, label %105, label %_ZNK5Eigen8internal12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb0EdLi0ELb0ELi0ELi1EEENS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS5_IdLin1ELin1ELi0ELin1ELin1EEES9_NS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEclEllllPNS0_16GemmParallelInfoIlEE.exit.i
@@ -26639,7 +26632,7 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELi
 109:                                              ; preds = %105
   %110 = load double, ptr %3, align 8
   %111 = load ptr, ptr %2, align 8, !noalias !866
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load i64, ptr %112, align 8, !noalias !866
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEELi1ELin1ELb1EEEE3dotINS1_IKNS2_IdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSG_17scalar_product_opIdSK_EEE10ReturnTypeERKNS0_ISI_EE.exit.i, label %115
@@ -26661,9 +26654,9 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELi
   br i1 %124, label %125, label %155
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds i8, ptr %107, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %127 = load <2 x double>, ptr %126, align 1
-  %128 = getelementptr inbounds i8, ptr %111, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %129 = load <2 x double>, ptr %128, align 1
   %130 = fmul <2 x double> %127, %129
   %131 = icmp samesign ugt i64 %113, 7
@@ -26674,16 +26667,16 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELi
   %.054.in77.i.i.i.i.i.i47 = phi i64 [ %.05478.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i45 ], [ 0, %125 ]
   %storemerge76.i.i.i.i.i.i48 = phi <2 x double> [ %144, %.lr.ph.i.i.i.i.i.i45 ], [ %130, %125 ]
   %.17375.i.i.i.i.i.i49 = phi <2 x double> [ %137, %.lr.ph.i.i.i.i.i.i45 ], [ %123, %125 ]
-  %132 = getelementptr inbounds double, ptr %107, i64 %.05478.i.i.i.i.i.i46
+  %132 = getelementptr inbounds nuw double, ptr %107, i64 %.05478.i.i.i.i.i.i46
   %133 = load <2 x double>, ptr %132, align 1
-  %134 = getelementptr inbounds double, ptr %111, i64 %.05478.i.i.i.i.i.i46
+  %134 = getelementptr inbounds nuw double, ptr %111, i64 %.05478.i.i.i.i.i.i46
   %135 = load <2 x double>, ptr %134, align 1
   %136 = fmul <2 x double> %133, %135
   %137 = fadd <2 x double> %.17375.i.i.i.i.i.i49, %136
   %138 = add nuw nsw i64 %.054.in77.i.i.i.i.i.i47, 6
-  %139 = getelementptr inbounds double, ptr %107, i64 %138
+  %139 = getelementptr inbounds nuw double, ptr %107, i64 %138
   %140 = load <2 x double>, ptr %139, align 1
-  %141 = getelementptr inbounds double, ptr %111, i64 %138
+  %141 = getelementptr inbounds nuw double, ptr %111, i64 %138
   %142 = load <2 x double>, ptr %141, align 1
   %143 = fmul <2 x double> %140, %142
   %144 = fadd <2 x double> %storemerge76.i.i.i.i.i.i48, %143
@@ -26699,9 +26692,9 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELi
   br i1 %147, label %148, label %155
 
 148:                                              ; preds = %._crit_edge.i.i.i.i.i.i42
-  %149 = getelementptr inbounds double, ptr %107, i64 %117
+  %149 = getelementptr inbounds nuw double, ptr %107, i64 %117
   %150 = load <2 x double>, ptr %149, align 1
-  %151 = getelementptr inbounds double, ptr %111, i64 %117
+  %151 = getelementptr inbounds nuw double, ptr %111, i64 %117
   %152 = load <2 x double>, ptr %151, align 1
   %153 = fmul <2 x double> %150, %152
   %154 = fadd <2 x double> %146, %153
@@ -26742,34 +26735,34 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin
   br label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit
 
 172:                                              ; preds = %105
-  %.sroa.654.24..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
-  %173 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.654.24..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %174 = load ptr, ptr %173, align 8, !noalias !863
-  %175 = getelementptr inbounds i8, ptr %174, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load i64, ptr %175, align 8, !noalias !863
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7)
   store ptr %107, ptr %7, align 8
-  %.sroa.352.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %13, ptr %.sroa.352.0..sroa_idx, align 8
-  %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.453.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %174, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.654.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
+  %.sroa.654.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.654.24..sroa_idx, i64 24, i1 false)
-  %.sroa.655.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 80
-  %.sroa.856.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 96
+  %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %.sroa.856.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.655.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 %176, ptr %.sroa.856.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %106, ptr %5, align 8
-  %.sroa.359.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %25, ptr %.sroa.359.0..sroa_idx, align 8
-  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %.sroa.460.0..sroa_idx, align 8
-  %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.763.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.561.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %.sroa.763.0..sroa_idx, align 8
   store ptr %2, ptr %6, align 8
@@ -26782,32 +26775,32 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin
 _ZNK5Eigen8internal12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb0EdLi0ELb0ELi0ELi1EEENS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS5_IdLin1ELin1ELi0ELin1ELin1EEES9_NS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEclEllllPNS0_16GemmParallelInfoIlEE.exit.i: ; preds = %101
   %177 = load double, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 16, i1 false)
-  %178 = getelementptr inbounds i8, ptr %11, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %103, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %11, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %25, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %11, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %13, ptr %180, align 8
   call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi1ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull align 8 dereferenceable(8) %179, i64 noundef 1)
   %181 = load i64, ptr %178, align 8
   %182 = load i64, ptr %180, align 8
   %183 = mul nsw i64 %182, %181
-  %184 = getelementptr inbounds i8, ptr %11, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %183, ptr %184, align 8
   %185 = load i64, ptr %179, align 8
   %186 = mul nsw i64 %185, %182
-  %187 = getelementptr inbounds i8, ptr %11, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %186, ptr %187, align 8
   %188 = load i64, ptr %16, align 8
   %189 = load i64, ptr %20, align 8
   %190 = load i64, ptr %12, align 8
   %191 = load ptr, ptr %1, align 8
-  %192 = getelementptr inbounds i8, ptr %1, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load i64, ptr %194, align 8
   %196 = load ptr, ptr %2, align 8
-  %197 = getelementptr inbounds i8, ptr %2, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %198 = load i64, ptr %197, align 8
   %199 = load ptr, ptr %0, align 8
   %200 = load i64, ptr %102, align 8
@@ -26817,7 +26810,7 @@ _ZNK5Eigen8internal12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb
 _ZN5Eigen8internal16parallelize_gemmILb1ENS0_12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb0EdLi0ELb0ELi0ELi1EEENS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS6_IdLin1ELin1ELi0ELin1ELin1EEESA_NS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEElEEvRKT0_T1_SH_SH_b.exit: ; preds = %_ZNK5Eigen8internal12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb0EdLi0ELb0ELi0ELi1EEENS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS5_IdLin1ELin1ELi0ELin1ELin1EEES9_NS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEclEllllPNS0_16GemmParallelInfoIlEE.exit.i
   %201 = load ptr, ptr %11, align 8
   call void @free(ptr noundef %201) #29
-  %202 = getelementptr inbounds i8, ptr %11, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %203 = load ptr, ptr %202, align 8
   call void @free(ptr noundef %203) #29
   br label %_ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEENS3_IdLin1ELin1ELi0ELin1ELin1EEENS_10DenseShapeESB_Li7EE13scaleAndAddToINS2_ISA_Li1ELin1ELb0EEEEEvRT_RS9_RKSA_RKd.exit
@@ -26830,7 +26823,7 @@ _ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1
           cleanup
   %206 = load ptr, ptr %11, align 8
   call void @free(ptr noundef %206) #29
-  %207 = getelementptr inbounds i8, ptr %11, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %208 = load ptr, ptr %207, align 8
   call void @free(ptr noundef %208) #29
   resume { ptr, i32 } %205
@@ -26839,20 +26832,20 @@ _ZN5Eigen8internal20generic_product_implIKNS_5BlockIKNS2_IKNS_6MatrixIdLin1ELin1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.313.0.copyload = load ptr, ptr %.sroa.313.0..sroa_idx, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.sroa.313.0.copyload, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.313.0.copyload, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not.i = icmp eq i64 %12, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %.not8.i = icmp eq i64 %14, %10
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -26932,9 +26925,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %50, label %51, label %81
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %35, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %53 = load <2 x double>, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %39, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %55 = load <2 x double>, ptr %54, align 1
   %56 = fmul <2 x double> %53, %55
   %57 = icmp samesign ugt i64 %37, 7
@@ -26945,16 +26938,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.054.in77.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %51 ]
   %storemerge76.i.i.i.i.i.i.i = phi <2 x double> [ %70, %.lr.ph.i.i.i.i.i.i.i ], [ %56, %51 ]
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %63, %.lr.ph.i.i.i.i.i.i.i ], [ %49, %51 ]
-  %58 = getelementptr inbounds double, ptr %35, i64 %.05478.i.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw double, ptr %35, i64 %.05478.i.i.i.i.i.i.i
   %59 = load <2 x double>, ptr %58, align 1
-  %60 = getelementptr inbounds double, ptr %39, i64 %.05478.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw double, ptr %39, i64 %.05478.i.i.i.i.i.i.i
   %61 = load <2 x double>, ptr %60, align 1
   %62 = fmul <2 x double> %59, %61
   %63 = fadd <2 x double> %.17375.i.i.i.i.i.i.i, %62
   %64 = add nuw nsw i64 %.054.in77.i.i.i.i.i.i.i, 6
-  %65 = getelementptr inbounds double, ptr %35, i64 %64
+  %65 = getelementptr inbounds nuw double, ptr %35, i64 %64
   %66 = load <2 x double>, ptr %65, align 1
-  %67 = getelementptr inbounds double, ptr %39, i64 %64
+  %67 = getelementptr inbounds nuw double, ptr %39, i64 %64
   %68 = load <2 x double>, ptr %67, align 1
   %69 = fmul <2 x double> %66, %68
   %70 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %69
@@ -26970,9 +26963,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %75 = getelementptr inbounds double, ptr %35, i64 %43
+  %75 = getelementptr inbounds nuw double, ptr %35, i64 %43
   %76 = load <2 x double>, ptr %75, align 1
-  %77 = getelementptr inbounds double, ptr %39, i64 %43
+  %77 = getelementptr inbounds nuw double, ptr %39, i64 %43
   %78 = load <2 x double>, ptr %77, align 1
   %79 = fmul <2 x double> %76, %78
   %80 = fadd <2 x double> %72, %79
@@ -27034,7 +27027,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %6 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %7 = load double, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 2305843009213693951
   br i1 %10, label %11, label %13
@@ -27075,20 +27068,20 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %27 = phi ptr [ %20, %18 ], [ null, %13 ], [ %22, %21 ]
   %28 = phi ptr [ %20, %18 ], [ %14, %13 ], [ %22, %21 ]
   %29 = icmp samesign ugt i64 %9, 16384
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   store ptr %34, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %38, ptr %39, align 8
   store ptr %28, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %40, align 8
   %41 = load ptr, ptr %2, align 8
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdNS2_IdlLi0EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %31, i64 noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %41, i64 noundef 1, double noundef %7)
@@ -27122,7 +27115,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %6 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %7 = load ptr, ptr %0, align 8
-  %.sroa.439.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.439.0.copyload = load i64, ptr %.sroa.439.0..sroa_idx, align 8
   %8 = load double, ptr %3, align 8
   %9 = icmp ugt i64 %.sroa.439.0.copyload, 2305843009213693951
@@ -27164,21 +27157,21 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %25 = phi ptr [ %18, %16 ], [ null, %12 ], [ %20, %19 ]
   %26 = phi ptr [ %18, %16 ], [ %.sroa.035.0.copyload, %12 ], [ %20, %19 ]
   %27 = icmp samesign ugt i64 %.sroa.439.0.copyload, 16384
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %7, align 8
   store ptr %32, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %31, ptr %33, align 8
   store ptr %26, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %34, align 8
   %35 = load ptr, ptr %2, align 8
-  %.sroa.3.24..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.3.24..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.3.24.copyload = load ptr, ptr %.sroa.3.24..sroa_idx, align 8
-  %36 = getelementptr inbounds i8, ptr %.sroa.3.24.copyload, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.3.24.copyload, i64 8
   %37 = load i64, ptr %36, align 8
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdNS2_IdlLi0EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %29, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %35, i64 noundef %37, double noundef %8)
           to label %38 unwind label %40
@@ -27212,13 +27205,13 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_matrix_produ
   %15 = alloca %"struct.Eigen::internal::gebp_kernel", align 1
   %16 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %17 = alloca %"class.Eigen::internal::blas_data_mapper.671", align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp sge i64 %21, %0
   %.sroa.speculated202 = tail call i64 @llvm.smin.i64(i64 %21, i64 %0)
-  %23 = getelementptr inbounds i8, ptr %11, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %24, %1
   %.sroa.speculated197 = tail call i64 @llvm.smin.i64(i64 %24, i64 %1)
@@ -27267,7 +27260,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %39, %31, %36
   br i1 %47, label %.invoke, label %48
 
 48:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
-  %49 = getelementptr inbounds i8, ptr %11, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not160 = icmp eq ptr %50, null
   br i1 %.not160, label %51, label %61
@@ -27308,8 +27301,8 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %39, %31, %36
 
 .lr.ph231:                                        ; preds = %61
   %67 = icmp sgt i64 %2, 0
-  %68 = getelementptr inbounds i8, ptr %16, i64 8
-  %69 = getelementptr inbounds i8, ptr %17, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br i1 %67, label %.lr.ph.us, label %._crit_edge
 
 .lr.ph.us:                                        ; preds = %.lr.ph231, %..loopexit225_crit_edge.us
@@ -27413,19 +27406,19 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 109:                                              ; preds = %109, %.lr.ph.us.i.us.us.us
   %.093107.us.i.us.us.us = phi i64 [ 0, %.lr.ph.us.i.us.us.us ], [ %123, %109 ]
   %.1106.us.i.us.us.us = phi i64 [ %.095108.us.i.us.us.us, %.lr.ph.us.i.us.us.us ], [ %122, %109 ]
-  %110 = getelementptr inbounds double, ptr %99, i64 %.093107.us.i.us.us.us
+  %110 = getelementptr inbounds nuw double, ptr %99, i64 %.093107.us.i.us.us.us
   %111 = load double, ptr %110, align 8
   %112 = getelementptr inbounds double, ptr %63, i64 %.1106.us.i.us.us.us
   store double %111, ptr %112, align 8
-  %113 = getelementptr inbounds double, ptr %102, i64 %.093107.us.i.us.us.us
+  %113 = getelementptr inbounds nuw double, ptr %102, i64 %.093107.us.i.us.us.us
   %114 = load double, ptr %113, align 8
   %115 = getelementptr i8, ptr %112, i64 8
   store double %114, ptr %115, align 8
-  %116 = getelementptr inbounds double, ptr %105, i64 %.093107.us.i.us.us.us
+  %116 = getelementptr inbounds nuw double, ptr %105, i64 %.093107.us.i.us.us.us
   %117 = load double, ptr %116, align 8
   %118 = getelementptr i8, ptr %112, i64 16
   store double %117, ptr %118, align 8
-  %119 = getelementptr inbounds double, ptr %108, i64 %.093107.us.i.us.us.us
+  %119 = getelementptr inbounds nuw double, ptr %108, i64 %.093107.us.i.us.us.us
   %120 = load double, ptr %119, align 8
   %121 = getelementptr i8, ptr %112, i64 24
   store double %120, ptr %121, align 8
@@ -27455,7 +27448,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 129:                                              ; preds = %129, %.lr.ph.us119.i.us.us.us
   %.0114.us.i.us.us.us = phi i64 [ 0, %.lr.ph.us119.i.us.us.us ], [ %134, %129 ]
   %.3113.us.i.us.us.us = phi i64 [ %.2115.us.i.us.us.us, %.lr.ph.us119.i.us.us.us ], [ %133, %129 ]
-  %130 = getelementptr inbounds double, ptr %128, i64 %.0114.us.i.us.us.us
+  %130 = getelementptr inbounds nuw double, ptr %128, i64 %.0114.us.i.us.us.us
   %131 = load double, ptr %130, align 8
   %132 = getelementptr inbounds double, ptr %63, i64 %.3113.us.i.us.us.us
   store double %131, ptr %132, align 8
@@ -27546,14 +27539,14 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit175: ; preds = %_ZN5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.not8.i = icmp eq i64 %12, %8
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -27684,8 +27677,8 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %29 = getelementptr inbounds double, ptr %.0126132, i64 %13
   %30 = load double, ptr %29, align 8
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %20, double %.sroa.40.0131)
-  %32 = getelementptr inbounds i8, ptr %.0126132, i64 8
-  %33 = getelementptr inbounds i8, ptr %.0125133, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0126132, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0125133, i64 8
   %34 = load double, ptr %33, align 8
   %35 = load double, ptr %32, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %34, double %22)
@@ -27698,8 +27691,8 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %43 = getelementptr inbounds double, ptr %32, i64 %13
   %44 = load double, ptr %43, align 8
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %34, double %31)
-  %46 = getelementptr inbounds i8, ptr %.0126132, i64 16
-  %47 = getelementptr inbounds i8, ptr %.0125133, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0126132, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.0125133, i64 16
   %48 = load double, ptr %47, align 8
   %49 = load double, ptr %46, align 8
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %48, double %36)
@@ -27712,8 +27705,8 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %57 = getelementptr inbounds double, ptr %46, i64 %13
   %58 = load double, ptr %57, align 8
   %59 = tail call double @llvm.fmuladd.f64(double %58, double %48, double %45)
-  %60 = getelementptr inbounds i8, ptr %.0126132, i64 24
-  %61 = getelementptr inbounds i8, ptr %.0125133, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.0126132, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.0125133, i64 24
   %62 = load double, ptr %61, align 8
   %63 = load double, ptr %60, align 8
   %64 = tail call double @llvm.fmuladd.f64(double %63, double %62, double %50)
@@ -27726,8 +27719,8 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %71 = getelementptr inbounds double, ptr %60, i64 %13
   %72 = load double, ptr %71, align 8
   %73 = tail call double @llvm.fmuladd.f64(double %72, double %62, double %59)
-  %74 = getelementptr inbounds i8, ptr %.0126132, i64 32
-  %75 = getelementptr inbounds i8, ptr %.0125133, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.0126132, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.0125133, i64 32
   %76 = add nuw nsw i32 %.0124136, 4
   %77 = icmp slt i32 %76, %7
   br i1 %77, label %19, label %.preheader, !llvm.loop !886
@@ -27752,8 +27745,8 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %88 = getelementptr inbounds double, ptr %.1127144, i64 %18
   %89 = load double, ptr %88, align 8
   %90 = tail call double @llvm.fmuladd.f64(double %89, double %79, double %.sroa.40.1143)
-  %91 = getelementptr inbounds i8, ptr %.1127144, i64 8
-  %92 = getelementptr inbounds i8, ptr %.1145, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.1127144, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.1145, i64 8
   %93 = add nsw i32 %.0148, 1
   %94 = icmp slt i32 %93, %0
   br i1 %94, label %78, label %._crit_edge, !llvm.loop !887
@@ -27770,15 +27763,15 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
   %97 = load double, ptr %4, align 8
   %98 = fsub double %97, %.sroa.0.1.lcssa
   store double %98, ptr %4, align 8
-  %99 = getelementptr inbounds i8, ptr %4, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = load double, ptr %99, align 8
   %101 = fsub double %100, %.sroa.14.1.lcssa
   store double %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %103 = load double, ptr %102, align 8
   %104 = fsub double %103, %.sroa.27.1.lcssa
   store double %104, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %4, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %106 = load double, ptr %105, align 8
   %107 = fsub double %106, %.sroa.40.1.lcssa
   store double %107, ptr %105, align 8
@@ -27786,11 +27779,11 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
 
 108:                                              ; preds = %._crit_edge
   store double %.sroa.0.1.lcssa, ptr %4, align 8
-  %109 = getelementptr inbounds i8, ptr %4, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sroa.14.1.lcssa, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %4, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %.sroa.27.1.lcssa, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %4, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %.sroa.40.1.lcssa, ptr %111, align 8
   br label %112
 
@@ -27802,25 +27795,25 @@ define internal fastcc void @_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi(i32 nou
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %class.anon.2533, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
   br i1 %.not, label %11, label %94
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %8, 1
   %16 = icmp slt i32 %15, %10
   br i1 %16, label %17, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load atomic i32, ptr %18 seq_cst, align 4
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
@@ -27829,19 +27822,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -27857,32 +27850,32 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit: ; preds = %21, %33, %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %41 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %42 unwind label %58
 
 42:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
-  %43 = getelementptr inbounds i8, ptr %3, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %44 = load ptr, ptr %4, align 8
   store ptr %44, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %46 = load ptr, ptr %24, align 8
   store ptr %46, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   store ptr %48, ptr %47, align 8
   store ptr null, ptr %24, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   store ptr %41, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %43, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %40, align 8
-  %50 = getelementptr inbounds i8, ptr %22, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %50, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %51 unwind label %60
 
@@ -27933,17 +27926,17 @@ _ZNSt8functionIFvvEED2Ev.exit39:                  ; preds = %63, %60, %58
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit: ; preds = %53, %51, %17, %11
   %68 = load ptr, ptr %5, align 8
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %68, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %75 = atomicrmw add ptr %74, i32 1 seq_cst, align 4
   %.not3649 = icmp slt i32 %75, %14
   br i1 %.not3649, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %77
 
 77:                                               ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit
@@ -27971,7 +27964,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %.lr.ph.i, %77
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %91 = atomicrmw add ptr %90, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %91, %14
   br i1 %.not36, label %77, label %._crit_edge, !llvm.loop !889
@@ -27979,7 +27972,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit ], [ %79, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit ]
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %93, i32 noundef %.034.lcssa)
   br label %94
 
@@ -27989,13 +27982,13 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -28003,10 +27996,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -28032,10 +28025,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -28057,7 +28050,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -28068,13 +28061,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -28082,10 +28075,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -28111,10 +28104,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -28136,7 +28129,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -28180,25 +28173,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZZN5
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %class.anon.2534, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
   br i1 %.not, label %11, label %137
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %8, 1
   %16 = icmp slt i32 %15, %10
   br i1 %16, label %17, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load atomic i32, ptr %18 seq_cst, align 4
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
@@ -28207,19 +28200,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -28235,8 +28228,8 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit: ; preds = %21, %33, %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
@@ -28245,17 +28238,17 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
 .noexc:                                           ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_C2ERKSI_.exit
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %24, align 8
   store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load ptr, ptr %27, align 8
   store ptr %45, ptr %44, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %54, label %46
 
 46:                                               ; preds = %.noexc
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %52, label %49
@@ -28271,14 +28264,14 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br label %54
 
 54:                                               ; preds = %52, %49, %.noexc
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
-  %57 = getelementptr inbounds i8, ptr %40, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   store ptr %40, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %55, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %22, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %58, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %59 unwind label %103
 
@@ -28304,7 +28297,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
   br i1 %.not.i.i.i.i.i37, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit, label %67
 
 67:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = icmp eq i64 %69, 4294967297
   %71 = trunc i64 %69 to i32
@@ -28312,10 +28305,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 72:                                               ; preds = %67
   store i32 0, ptr %68, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 0, ptr %73, align 4
   %74 = load ptr, ptr %66, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -28341,10 +28334,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr %66, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
-  %89 = getelementptr inbounds i8, ptr %66, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %90 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i38 = icmp eq i8 %90, 0
   br i1 %.not.i.i.i.i.i.i.i.i38, label %94, label %91
@@ -28366,7 +28359,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %96, %72
   %98 = load ptr, ptr %66, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
@@ -28402,17 +28395,17 @@ _ZNSt8functionIFvvEED2Ev.exit40:                  ; preds = %106, %103, %101
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %96, %83, %_ZNSt8functionIFvvEED2Ev.exit, %17, %11
   %111 = load ptr, ptr %5, align 8
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %111, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %111, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %118 = atomicrmw add ptr %117, i32 1 seq_cst, align 4
   %.not3650 = icmp slt i32 %118, %14
   br i1 %.not3650, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
-  %119 = getelementptr inbounds i8, ptr %0, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %120
 
 120:                                              ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit
@@ -28440,7 +28433,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %.lr.ph.i, %120
   %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 20
   %134 = atomicrmw add ptr %133, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %134, %14
   br i1 %.not36, label %120, label %._crit_edge, !llvm.loop !890
@@ -28448,7 +28441,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit ], [ %122, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEviSt5tupleIJiiEEOT_.exit ]
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %136, i32 noundef %.034.lcssa)
   br label %137
 
@@ -28458,13 +28451,13 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE9Eli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -28472,10 +28465,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -28501,10 +28494,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -28526,7 +28519,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENUlRSF_E_D2Ev.exit
@@ -28589,19 +28582,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -28617,8 +28610,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E15_M_init_functorIRKSN_EEvRSt9_Any_dataSI_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -28629,13 +28622,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clIKSK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -28643,10 +28636,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -28672,10 +28665,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -28697,7 +28690,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_ENUlvE_D2Ev.exit.i
@@ -28733,19 +28726,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -28761,8 +28754,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E15_M_init_functorIRKSM_EEvRSt9_Any_dataSI_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -28773,13 +28766,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS2_21BlockSparseMatrixDataEPKdSA_PNS2_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSH_E_clISK_EEDaSJ_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -28787,10 +28780,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -28816,10 +28809,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -28841,7 +28834,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit.i
@@ -28876,7 +28869,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .lr.ph.us:                                        ; preds = %.lr.ph116, %._crit_edge.us
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %._crit_edge.us ], [ 0, %.lr.ph116 ]
-  %22 = getelementptr inbounds double, ptr %0, i64 %indvars.iv185
+  %22 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv185
   br label %23
 
 23:                                               ; preds = %.lr.ph.us, %23
@@ -28887,7 +28880,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %24 = load double, ptr %.091113.us, align 8
   %25 = load double, ptr %.092112.us, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %24, double %25, double %.093111.us)
-  %27 = getelementptr inbounds double, ptr %.091113.us, i64 %19
+  %27 = getelementptr inbounds nuw double, ptr %.091113.us, i64 %19
   %28 = getelementptr inbounds double, ptr %.092112.us, i64 %20
   %29 = add nuw nsw i32 %.0100110.us, 1
   %exitcond184.not = icmp eq i32 %29, %1
@@ -28989,7 +28982,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .lr.ph.us128:                                     ; preds = %.lr.ph126, %._crit_edge.us129
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us129 ], [ 0, %.lr.ph126 ]
-  %83 = getelementptr inbounds double, ptr %0, i64 %indvars.iv196
+  %83 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv196
   br label %84
 
 84:                                               ; preds = %.lr.ph.us128, %84
@@ -29001,10 +28994,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %85 = load double, ptr %.098118.us, align 8
   %86 = load double, ptr %.097119.us, align 8
   %87 = tail call double @llvm.fmuladd.f64(double %85, double %86, double %.096120.us)
-  %88 = getelementptr inbounds i8, ptr %.097119.us, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.097119.us, i64 8
   %89 = load double, ptr %88, align 8
   %90 = tail call double @llvm.fmuladd.f64(double %85, double %89, double %.095121.us)
-  %91 = getelementptr inbounds double, ptr %.098118.us, i64 %55
+  %91 = getelementptr inbounds nuw double, ptr %.098118.us, i64 %55
   %92 = getelementptr inbounds double, ptr %.097119.us, i64 %56
   %93 = add nuw nsw i32 %.094122.us, 1
   %exitcond195.not = icmp eq i32 %93, %1
@@ -29087,7 +29080,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %indvars.iv219 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next220, %._crit_edge.split.us.us.us ]
   %126 = trunc nuw nsw i64 %indvars.iv219 to i32
   %127 = add i32 %8, %126
-  %128 = getelementptr inbounds double, ptr %3, i64 %indvars.iv219
+  %128 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv219
   br label %.lr.ph.i.preheader.us.us.us
 
 .lr.ph.i.preheader.us.us.us:                      ; preds = %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us, %.preheader.us.us
@@ -29096,7 +29089,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %130 = add i32 %7, %129
   %131 = mul i32 %130, %10
   %132 = add i32 %127, %131
-  %133 = getelementptr inbounds double, ptr %0, i64 %indvars.iv214
+  %133 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv214
   %134 = sext i32 %132 to i64
   br label %.lr.ph.i.us.us.us
 
@@ -29115,13 +29108,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %139 = getelementptr inbounds double, ptr %128, i64 %138
   %140 = load double, ptr %139, align 8
   %141 = tail call double @llvm.fmuladd.f64(double %137, double %140, double %.sroa.0.0158.i.us.us.us)
-  %142 = getelementptr inbounds i8, ptr %139, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %143 = load double, ptr %142, align 8
   %144 = tail call double @llvm.fmuladd.f64(double %137, double %143, double %.sroa.14.0157.i.us.us.us)
-  %145 = getelementptr inbounds i8, ptr %139, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %146 = load double, ptr %145, align 8
   %147 = tail call double @llvm.fmuladd.f64(double %137, double %146, double %.sroa.27.0156.i.us.us.us)
-  %148 = getelementptr inbounds i8, ptr %139, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %149 = load double, ptr %148, align 8
   %150 = tail call double @llvm.fmuladd.f64(double %137, double %149, double %.sroa.40.0155.i.us.us.us)
   %151 = add nsw i32 %.0141159.i.us.us.us, %2
@@ -29133,13 +29126,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %157 = getelementptr inbounds double, ptr %128, i64 %156
   %158 = load double, ptr %157, align 8
   %159 = tail call double @llvm.fmuladd.f64(double %155, double %158, double %141)
-  %160 = getelementptr inbounds i8, ptr %157, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %161 = load double, ptr %160, align 8
   %162 = tail call double @llvm.fmuladd.f64(double %155, double %161, double %144)
-  %163 = getelementptr inbounds i8, ptr %157, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %164 = load double, ptr %163, align 8
   %165 = tail call double @llvm.fmuladd.f64(double %155, double %164, double %147)
-  %166 = getelementptr inbounds i8, ptr %157, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %167 = load double, ptr %166, align 8
   %168 = tail call double @llvm.fmuladd.f64(double %155, double %167, double %150)
   %.reass.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op.i
@@ -29151,13 +29144,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %173 = getelementptr inbounds double, ptr %128, i64 %172
   %174 = load double, ptr %173, align 8
   %175 = tail call double @llvm.fmuladd.f64(double %171, double %174, double %159)
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %177 = load double, ptr %176, align 8
   %178 = tail call double @llvm.fmuladd.f64(double %171, double %177, double %162)
-  %179 = getelementptr inbounds i8, ptr %173, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %180 = load double, ptr %179, align 8
   %181 = tail call double @llvm.fmuladd.f64(double %171, double %180, double %165)
-  %182 = getelementptr inbounds i8, ptr %173, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %183 = load double, ptr %182, align 8
   %184 = tail call double @llvm.fmuladd.f64(double %171, double %183, double %168)
   %.reass148.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op147.i
@@ -29169,13 +29162,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %189 = getelementptr inbounds double, ptr %128, i64 %188
   %190 = load double, ptr %189, align 8
   %191 = tail call double @llvm.fmuladd.f64(double %187, double %190, double %175)
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %193 = load double, ptr %192, align 8
   %194 = tail call double @llvm.fmuladd.f64(double %187, double %193, double %178)
-  %195 = getelementptr inbounds i8, ptr %189, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %196 = load double, ptr %195, align 8
   %197 = tail call double @llvm.fmuladd.f64(double %187, double %196, double %181)
-  %198 = getelementptr inbounds i8, ptr %189, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %199 = load double, ptr %198, align 8
   %200 = tail call double @llvm.fmuladd.f64(double %187, double %199, double %184)
   %.reass152.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op151.i
@@ -29206,13 +29199,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %208 = getelementptr inbounds double, ptr %128, i64 %indvars.iv.i.us.us.us
   %209 = load double, ptr %208, align 8
   %210 = tail call double @llvm.fmuladd.f64(double %207, double %209, double %.sroa.0.1170.i.us.us.us)
-  %211 = getelementptr inbounds i8, ptr %208, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %212 = load double, ptr %211, align 8
   %213 = tail call double @llvm.fmuladd.f64(double %207, double %212, double %.sroa.14.1169.i.us.us.us)
-  %214 = getelementptr inbounds i8, ptr %208, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %215 = load double, ptr %214, align 8
   %216 = tail call double @llvm.fmuladd.f64(double %207, double %215, double %.sroa.27.1168.i.us.us.us)
-  %217 = getelementptr inbounds i8, ptr %208, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %218 = load double, ptr %217, align 8
   %219 = tail call double @llvm.fmuladd.f64(double %207, double %218, double %.sroa.40.1167.i.us.us.us)
   %indvars.iv.next188.i.us.us.us = add nsw i64 %indvars.iv187.i.us.us.us, %123
@@ -29229,15 +29222,15 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %222 = load double, ptr %203, align 8
   %223 = fadd double %.sroa.0.1.lcssa.i.us.us.us, %222
   store double %223, ptr %203, align 8
-  %224 = getelementptr inbounds i8, ptr %203, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %225 = load double, ptr %224, align 8
   %226 = fadd double %.sroa.14.1.lcssa.i.us.us.us, %225
   store double %226, ptr %224, align 8
-  %227 = getelementptr inbounds i8, ptr %203, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %228 = load double, ptr %227, align 8
   %229 = fadd double %.sroa.27.1.lcssa.i.us.us.us, %228
   store double %229, ptr %227, align 8
-  %230 = getelementptr inbounds i8, ptr %203, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %231 = load double, ptr %230, align 8
   %232 = fadd double %.sroa.40.1.lcssa.i.us.us.us, %231
   store double %232, ptr %230, align 8
@@ -29290,15 +29283,15 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %248 = load double, ptr %247, align 8
   %249 = fadd double %248, 0.000000e+00
   store double %249, ptr %247, align 8
-  %250 = getelementptr inbounds i8, ptr %247, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %251 = load double, ptr %250, align 8
   %252 = fadd double %251, 0.000000e+00
   store double %252, ptr %250, align 8
-  %253 = getelementptr inbounds i8, ptr %247, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %254 = load double, ptr %253, align 8
   %255 = fadd double %254, 0.000000e+00
   store double %255, ptr %253, align 8
-  %256 = getelementptr inbounds i8, ptr %247, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %257 = load double, ptr %256, align 8
   %258 = fadd double %257, 0.000000e+00
   store double %258, ptr %256, align 8
@@ -29327,13 +29320,13 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %269 = load double, ptr %268, align 8
   %270 = fadd double %269, 0.000000e+00
   store double %270, ptr %268, align 8
-  %271 = getelementptr inbounds i8, ptr %268, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %272 = load double, ptr %271, align 8
   %273 = fadd double %272, 0.000000e+00
   store double %273, ptr %271, align 8
-  %274 = getelementptr inbounds i8, ptr %268, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 16
   store double %store_forwarded, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %268, i64 24
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %276 = load double, ptr %275, align 8
   %277 = fadd double %276, 0.000000e+00
   store double %277, ptr %275, align 8
@@ -29350,7 +29343,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %._crit_edge.split.split.us157 ]
   %280 = trunc nuw nsw i64 %indvars.iv206 to i32
   %281 = add i32 %8, %280
-  %282 = getelementptr inbounds double, ptr %3, i64 %indvars.iv206
+  %282 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv206
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151
@@ -29359,7 +29352,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %284 = add i32 %7, %283
   %285 = mul i32 %284, %10
   %286 = add i32 %281, %285
-  %287 = getelementptr inbounds double, ptr %0, i64 %indvars.iv201
+  %287 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv201
   %288 = sext i32 %286 to i64
   br label %.lr.ph174.i.us141
 
@@ -29371,18 +29364,18 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %.sroa.14.1169.i.us146 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %296, %.lr.ph174.i.us141 ]
   %.sroa.27.1168.i.us147 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %299, %.lr.ph174.i.us141 ]
   %.sroa.40.1167.i.us148 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %302, %.lr.ph174.i.us141 ]
-  %289 = getelementptr inbounds double, ptr %287, i64 %indvars.iv187.i.us142
+  %289 = getelementptr inbounds nuw double, ptr %287, i64 %indvars.iv187.i.us142
   %290 = load double, ptr %289, align 8
-  %291 = getelementptr inbounds double, ptr %282, i64 %indvars.iv.i.us143
+  %291 = getelementptr inbounds nuw double, ptr %282, i64 %indvars.iv.i.us143
   %292 = load double, ptr %291, align 8
   %293 = tail call double @llvm.fmuladd.f64(double %290, double %292, double %.sroa.0.1170.i.us145)
-  %294 = getelementptr inbounds i8, ptr %291, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %295 = load double, ptr %294, align 8
   %296 = tail call double @llvm.fmuladd.f64(double %290, double %295, double %.sroa.14.1169.i.us146)
-  %297 = getelementptr inbounds i8, ptr %291, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %298 = load double, ptr %297, align 8
   %299 = tail call double @llvm.fmuladd.f64(double %290, double %298, double %.sroa.27.1168.i.us147)
-  %300 = getelementptr inbounds i8, ptr %291, i64 24
+  %300 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %301 = load double, ptr %300, align 8
   %302 = tail call double @llvm.fmuladd.f64(double %290, double %301, double %.sroa.40.1167.i.us148)
   %indvars.iv.next188.i.us149 = add nuw nsw i64 %indvars.iv187.i.us142, %123
@@ -29396,15 +29389,15 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151: ; preds = %.lr
   %306 = load double, ptr %305, align 8
   %307 = fadd double %293, %306
   store double %307, ptr %305, align 8
-  %308 = getelementptr inbounds i8, ptr %305, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %309 = load double, ptr %308, align 8
   %310 = fadd double %296, %309
   store double %310, ptr %308, align 8
-  %311 = getelementptr inbounds i8, ptr %305, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %312 = load double, ptr %311, align 8
   %313 = fadd double %299, %312
   store double %313, ptr %311, align 8
-  %314 = getelementptr inbounds i8, ptr %305, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %315 = load double, ptr %314, align 8
   %316 = fadd double %302, %315
   store double %316, ptr %314, align 8
@@ -29455,12 +29448,12 @@ define linkonce_odr hidden void @_ZN5ceres8internal14ParallelInvokeIZNS0_15Schur
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %19, i32 %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !899)
   %20 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #31, !noalias !899
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %21, align 8, !noalias !899
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !899
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !899
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   invoke void @_ZN5ceres8internal19ParallelInvokeStateC1Eiii(ptr noundef nonnull align 8 dereferenceable(128) %23, i32 noundef %1, i32 noundef %2, i32 noundef %.sroa.speculated)
           to label %25 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19ParallelInvokeStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !899
 
@@ -29475,13 +29468,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %common.resume
 
 25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %26, align 8, !alias.scope !899
   store ptr %23, ptr %8, align 8, !alias.scope !899
   store ptr %0, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %20, ptr %28, align 8
   %29 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %29, 0
@@ -29498,16 +29491,16 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5ceres8internal19Parallel
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds = %30, %33
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %3, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %36, align 8
   invoke void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %37 unwind label %111
 
 37:                                               ; preds = %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   invoke void @_ZN5ceres8internal18BlockUntilFinished5BlockEv(ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %40 unwind label %111
 
@@ -29517,7 +29510,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
   br i1 %.not.i.i.i.i11, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load atomic i64, ptr %43 acquire, align 8
   %45 = icmp eq i64 %44, 4294967297
   %46 = trunc i64 %44 to i32
@@ -29525,10 +29518,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 47:                                               ; preds = %42
   store i32 0, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 0, ptr %48, align 4
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -29554,10 +29547,10 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %41, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
-  %64 = getelementptr inbounds i8, ptr %41, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %65 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %65, 0
   br i1 %.not.i.i.i.i.i.i.i, label %69, label %66
@@ -29579,7 +29572,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit: ; preds 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %71, %47
   %73 = load ptr, ptr %41, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit
@@ -29590,7 +29583,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
   br i1 %.not.i.i.i12, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %77
 
 77:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load atomic i64, ptr %78 acquire, align 8
   %80 = icmp eq i64 %79, 4294967297
   %81 = trunc i64 %79 to i32
@@ -29598,10 +29591,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
 
 82:                                               ; preds = %77
   store i32 0, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 0, ptr %83, align 4
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -29627,10 +29620,10 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %76, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
-  %99 = getelementptr inbounds i8, ptr %76, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %100 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %100, 0
   br i1 %.not.i.i.i.i.i.i, label %104, label %101
@@ -29652,7 +29645,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %106, %82
   %108 = load ptr, ptr %76, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(16) %76) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -29679,15 +29672,15 @@ define linkonce_odr hidden void @_ZZN5ceres8internal15SchurEliminatorILin1ELin1E
   %9 = alloca %"class.Eigen::Product.2535", align 8
   %10 = alloca %"class.Eigen::Matrix", align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds %"struct.ceres::internal::SchurEliminator<>::Chunk", ptr %14, i64 %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %19, align 8
@@ -29698,16 +29691,16 @@ define linkonce_odr hidden void @_ZZN5ceres8internal15SchurEliminatorILin1ELin1E
   %28 = load ptr, ptr %18, align 8
   %29 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %33, i64 %36
   %38 = sext i32 %30 to i64
   store ptr %37, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %38, ptr %39, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %40 = icmp eq i32 %30, 0
@@ -29720,8 +29713,8 @@ define linkonce_odr hidden void @_ZZN5ceres8internal15SchurEliminatorILin1ELin1E
 
 44:                                               ; preds = %41
   %45 = mul nsw i64 %38, %38
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = icmp samesign ugt i64 %45, 2305843009213693951
   br i1 %48, label %.invoke, label %49
 
@@ -29752,11 +29745,11 @@ common.resume:                                    ; preds = %_ZN5ceres8internal1
   br label %common.resume
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %2
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %38, ptr %57, align 8
   store i64 %38, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
@@ -29766,7 +29759,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread: ; preds
   store ptr %51, ptr %6, align 8
   store i64 %38, ptr %46, align 8
   store i64 %38, ptr %47, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %.not115 = icmp eq ptr %64, null
@@ -29774,17 +29767,17 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread: ; preds
 
 65:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit
   %66 = getelementptr inbounds double, ptr %61, i64 %36
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %66, ptr %67, align 8
-  %.sroa.068.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.068.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %38, ptr %.sroa.068.sroa.2.0..sroa_idx, align 8
   br label %.noexc44
 
 68:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit.thread
   %69 = getelementptr inbounds double, ptr %64, i64 %36
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %69, ptr %70, align 8
-  %.sroa.068.sroa.2.0..sroa_idx117 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.068.sroa.2.0..sroa_idx117 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %38, ptr %.sroa.068.sroa.2.0..sroa_idx117, align 8
   %71 = sdiv i64 9223372036854775807, %38
   %72 = icmp slt i64 %71, %38
@@ -29828,26 +29821,26 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit: ; pr
   br i1 %81, label %.lr.ph97, label %._crit_edge98
 
 .lr.ph97:                                         ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit
-  %82 = getelementptr inbounds i8, ptr %8, i64 64
-  %83 = getelementptr inbounds i8, ptr %8, i64 72
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
-  %85 = getelementptr inbounds i8, ptr %11, i64 24
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
-  %87 = getelementptr inbounds i8, ptr %0, i64 48
-  %88 = getelementptr inbounds i8, ptr %11, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %89
 
 89:                                               ; preds = %.lr.ph97, %_ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50
   %.03996 = phi i32 [ 0, %.lr.ph97 ], [ %358, %_ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50 ]
   %90 = load ptr, ptr %16, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %20, align 4
   %94 = add nsw i32 %93, %.03996
   %95 = sext i32 %94 to i64
   %96 = load ptr, ptr %92, align 8
   %97 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %96, i64 %95
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %97, align 8
   %101 = sext i32 %100 to i64
@@ -29877,7 +29870,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i: ; preds = %103
   %108 = load ptr, ptr %84, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %90, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %112, i64 %95, i32 0, i32 1
   %114 = load i32, ptr %113, align 4
@@ -29907,8 +29900,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i ]
-  %130 = getelementptr inbounds double, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %131 = getelementptr inbounds double, ptr %117, i64 %.05.i.i.i.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw double, ptr %.0.i.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %131 = getelementptr inbounds nuw double, ptr %117, i64 %.05.i.i.i.i.i.i.i.i.i
   %132 = load double, ptr %131, align 8
   store double %132, ptr %130, align 8
   %133 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -29944,7 +29937,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %exitcond.not.i19.i.i.i.i.i.i.i.i, label %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit, label %.lr.ph.i17.i.i.i.i.i.i.i.i, !llvm.loop !902
 
 _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %145 = getelementptr inbounds i8, ptr %97, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %98, align 8
   %148 = ptrtoint ptr %146 to i64
@@ -29956,7 +29949,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
 .lr.ph:                                           ; preds = %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit, %_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELin1EEEvPKdiiS3_Pd.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELin1EEEvPKdiiS3_Pd.exit ], [ 1, %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit ]
   %152 = phi ptr [ %326, %_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELin1EEEvPKdiiS3_Pd.exit ], [ %147, %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit ]
-  %153 = getelementptr inbounds %"struct.ceres::internal::Cell", ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %152, i64 %indvars.iv
   %154 = load i32, ptr %153, align 4
   %155 = load ptr, ptr %16, align 8
   %156 = load ptr, ptr %155, align 8
@@ -29968,7 +29961,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %162 = sub nsw i32 %154, %161
   %163 = load ptr, ptr %86, align 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %153, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = load i32, ptr %97, align 8
   %168 = load ptr, ptr %87, align 8
@@ -30002,9 +29995,9 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %.05567.i = phi ptr [ %188, %.lr.ph.i ], [ %176, %.lr.ph.preheader.i ]
   %.06266.i = phi double [ %190, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.06365.i = phi i32 [ %191, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %186 = getelementptr inbounds i8, ptr %.05468.i, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.05468.i, i64 8
   %187 = load double, ptr %.05468.i, align 8
-  %188 = getelementptr inbounds i8, ptr %.05567.i, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.05567.i, i64 8
   %189 = load double, ptr %.05567.i, align 8
   %190 = call double @llvm.fmuladd.f64(double %187, double %189, double %.06266.i)
   %191 = add nuw nsw i32 %.06365.i, 1
@@ -30036,7 +30029,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds double, ptr %178, i64 %202
   %204 = zext nneg i32 %160 to i64
-  %205 = getelementptr inbounds double, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw double, ptr %203, i64 %204
   br label %.lr.ph76.i
 
 .lr.ph76.i:                                       ; preds = %.lr.ph76.i, %.lr.ph76.preheader.i
@@ -30046,12 +30039,12 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %.05971.i = phi ptr [ %206, %.lr.ph76.i ], [ %176, %.lr.ph76.preheader.i ]
   %.06070.i = phi ptr [ %211, %.lr.ph76.i ], [ %205, %.lr.ph76.preheader.i ]
   %.06169.i = phi ptr [ %208, %.lr.ph76.i ], [ %203, %.lr.ph76.preheader.i ]
-  %206 = getelementptr inbounds i8, ptr %.05971.i, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.05971.i, i64 8
   %207 = load double, ptr %.05971.i, align 8
-  %208 = getelementptr inbounds i8, ptr %.06169.i, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %.06169.i, i64 8
   %209 = load double, ptr %.06169.i, align 8
   %210 = call double @llvm.fmuladd.f64(double %209, double %207, double %.05872.i)
-  %211 = getelementptr inbounds i8, ptr %.06070.i, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %.06070.i, i64 8
   %212 = load double, ptr %.06070.i, align 8
   %213 = call double @llvm.fmuladd.f64(double %212, double %207, double %.05773.i)
   %214 = add nuw nsw i32 %.05674.i, 1
@@ -30101,7 +30094,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %indvars.iv.i = phi i64 [ 0, %.lr.ph82.preheader.i ], [ %indvars.iv.next.i, %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit ]
   %236 = mul nsw i64 %indvars.iv.i, %227
   %237 = getelementptr inbounds double, ptr %178, i64 %236
-  %238 = getelementptr inbounds double, ptr %174, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw double, ptr %174, i64 %indvars.iv.i
   br i1 %229, label %.lr.ph.i63, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i63, %.lr.ph82.i
@@ -30124,59 +30117,59 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %239 = load double, ptr %.0125133.i, align 8
   %240 = load double, ptr %.0126132.i, align 8
   %241 = call double @llvm.fmuladd.f64(double %240, double %239, double %.sroa.0.0135.i)
-  %242 = getelementptr inbounds double, ptr %.0126132.i, i64 %227
+  %242 = getelementptr inbounds nuw double, ptr %.0126132.i, i64 %227
   %243 = load double, ptr %242, align 8
   %244 = call double @llvm.fmuladd.f64(double %243, double %239, double %.sroa.14.0134.i)
-  %245 = getelementptr inbounds double, ptr %.0126132.i, i64 %231
+  %245 = getelementptr inbounds nuw double, ptr %.0126132.i, i64 %231
   %246 = load double, ptr %245, align 8
   %247 = call double @llvm.fmuladd.f64(double %246, double %239, double %.sroa.27.0130.i)
-  %248 = getelementptr inbounds double, ptr %.0126132.i, i64 %233
+  %248 = getelementptr inbounds nuw double, ptr %.0126132.i, i64 %233
   %249 = load double, ptr %248, align 8
   %250 = call double @llvm.fmuladd.f64(double %249, double %239, double %.sroa.40.0131.i)
-  %251 = getelementptr inbounds i8, ptr %.0126132.i, i64 8
-  %252 = getelementptr inbounds i8, ptr %.0125133.i, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %.0126132.i, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.0125133.i, i64 8
   %253 = load double, ptr %252, align 8
   %254 = load double, ptr %251, align 8
   %255 = call double @llvm.fmuladd.f64(double %254, double %253, double %241)
-  %256 = getelementptr inbounds double, ptr %251, i64 %227
+  %256 = getelementptr inbounds nuw double, ptr %251, i64 %227
   %257 = load double, ptr %256, align 8
   %258 = call double @llvm.fmuladd.f64(double %257, double %253, double %244)
-  %259 = getelementptr inbounds double, ptr %251, i64 %231
+  %259 = getelementptr inbounds nuw double, ptr %251, i64 %231
   %260 = load double, ptr %259, align 8
   %261 = call double @llvm.fmuladd.f64(double %260, double %253, double %247)
-  %262 = getelementptr inbounds double, ptr %251, i64 %233
+  %262 = getelementptr inbounds nuw double, ptr %251, i64 %233
   %263 = load double, ptr %262, align 8
   %264 = call double @llvm.fmuladd.f64(double %263, double %253, double %250)
-  %265 = getelementptr inbounds i8, ptr %.0126132.i, i64 16
-  %266 = getelementptr inbounds i8, ptr %.0125133.i, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %.0126132.i, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %.0125133.i, i64 16
   %267 = load double, ptr %266, align 8
   %268 = load double, ptr %265, align 8
   %269 = call double @llvm.fmuladd.f64(double %268, double %267, double %255)
-  %270 = getelementptr inbounds double, ptr %265, i64 %227
+  %270 = getelementptr inbounds nuw double, ptr %265, i64 %227
   %271 = load double, ptr %270, align 8
   %272 = call double @llvm.fmuladd.f64(double %271, double %267, double %258)
-  %273 = getelementptr inbounds double, ptr %265, i64 %231
+  %273 = getelementptr inbounds nuw double, ptr %265, i64 %231
   %274 = load double, ptr %273, align 8
   %275 = call double @llvm.fmuladd.f64(double %274, double %267, double %261)
-  %276 = getelementptr inbounds double, ptr %265, i64 %233
+  %276 = getelementptr inbounds nuw double, ptr %265, i64 %233
   %277 = load double, ptr %276, align 8
   %278 = call double @llvm.fmuladd.f64(double %277, double %267, double %264)
-  %279 = getelementptr inbounds i8, ptr %.0126132.i, i64 24
-  %280 = getelementptr inbounds i8, ptr %.0125133.i, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %.0126132.i, i64 24
+  %280 = getelementptr inbounds nuw i8, ptr %.0125133.i, i64 24
   %281 = load double, ptr %280, align 8
   %282 = load double, ptr %279, align 8
   %283 = call double @llvm.fmuladd.f64(double %282, double %281, double %269)
-  %284 = getelementptr inbounds double, ptr %279, i64 %227
+  %284 = getelementptr inbounds nuw double, ptr %279, i64 %227
   %285 = load double, ptr %284, align 8
   %286 = call double @llvm.fmuladd.f64(double %285, double %281, double %272)
-  %287 = getelementptr inbounds double, ptr %279, i64 %231
+  %287 = getelementptr inbounds nuw double, ptr %279, i64 %231
   %288 = load double, ptr %287, align 8
   %289 = call double @llvm.fmuladd.f64(double %288, double %281, double %275)
-  %290 = getelementptr inbounds double, ptr %279, i64 %233
+  %290 = getelementptr inbounds nuw double, ptr %279, i64 %233
   %291 = load double, ptr %290, align 8
   %292 = call double @llvm.fmuladd.f64(double %291, double %281, double %278)
-  %293 = getelementptr inbounds i8, ptr %.0126132.i, i64 32
-  %294 = getelementptr inbounds i8, ptr %.0125133.i, i64 32
+  %293 = getelementptr inbounds nuw i8, ptr %.0126132.i, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %.0125133.i, i64 32
   %295 = add nuw nsw i32 %.0124136.i, 4
   %296 = icmp slt i32 %295, %228
   br i1 %296, label %.lr.ph.i63, label %.preheader.i, !llvm.loop !886
@@ -30201,8 +30194,8 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
   %306 = getelementptr inbounds double, ptr %.1127144.i, i64 %235
   %307 = load double, ptr %306, align 8
   %308 = call double @llvm.fmuladd.f64(double %307, double %297, double %.sroa.40.1143.i)
-  %309 = getelementptr inbounds i8, ptr %.1127144.i, i64 8
-  %310 = getelementptr inbounds i8, ptr %.1145.i, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %.1127144.i, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %.1145.i, i64 8
   %311 = add nsw i32 %.0148.i, 1
   %312 = icmp slt i32 %311, %160
   br i1 %312, label %.lr.ph149.i, label %_ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit, !llvm.loop !887
@@ -30215,15 +30208,15 @@ _ZN5ceres8internalL10MVM_mat4x1EiPKdiS2_Pdi.exit: ; preds = %.lr.ph149.i, %.preh
   %313 = load double, ptr %238, align 8
   %314 = fsub double %313, %.sroa.0.1.lcssa.i
   store double %314, ptr %238, align 8
-  %315 = getelementptr inbounds i8, ptr %238, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %316 = load double, ptr %315, align 8
   %317 = fsub double %316, %.sroa.14.1.lcssa.i
   store double %317, ptr %315, align 8
-  %318 = getelementptr inbounds i8, ptr %238, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %319 = load double, ptr %318, align 8
   %320 = fsub double %319, %.sroa.27.1.lcssa.i
   store double %320, ptr %318, align 8
-  %321 = getelementptr inbounds i8, ptr %238, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %322 = load double, ptr %321, align 8
   %323 = fsub double %322, %.sroa.40.1.lcssa.i
   store double %323, ptr %321, align 8
@@ -30267,7 +30260,7 @@ _ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELin1EEEvPKdiiS3_Pd.exit: ; pr
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal20MatrixVectorMultiplyILin1ELin1ELin1EEEvPKdiiS3_Pd.exit, %_ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSINS0_IKS2_Li0ES4_EEEERS5_RKNS_9DenseBaseIT_EE.exit
   %338 = load ptr, ptr %86, align 8
   %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %99, i64 4
+  %340 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %341 = load i32, ptr %340, align 4
   %342 = load i32, ptr %97, align 8
   %343 = load ptr, ptr %83, align 8
@@ -30304,7 +30297,7 @@ _ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50: ; preds = %_ZN5ceres8inte
   br i1 %360, label %89, label %._crit_edge98, !llvm.loop !905
 
 ._crit_edge98:                                    ; preds = %_ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE7setZeroEv.exit
-  %361 = getelementptr inbounds i8, ptr %11, i64 28
+  %361 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %362 = load i8, ptr %361, align 4
   %363 = trunc i8 %362 to i1
   invoke void @_ZN5ceres8internal15InvertPSDMatrixILin1EEENS_10EigenTypesIXT_EXT_EE6MatrixEbRKS4_(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %10, i1 noundef zeroext %363, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -30312,7 +30305,7 @@ _ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50: ; preds = %_ZN5ceres8inte
 
 364:                                              ; preds = %._crit_edge98
   store ptr %10, ptr %9, align 8, !alias.scope !906
-  %365 = getelementptr inbounds i8, ptr %9, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %365, ptr noundef nonnull align 8 dereferenceable(19) %5, i64 17, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   invoke void @_ZN5Eigen8internal15call_assignmentINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS3_IdLin1ELin1ELi1ELin1ELin1EEES7_Li0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_NS0_9enable_ifIXsr25evaluator_assume_aliasingISF_EE5valueEPvE4typeE(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef null)
@@ -30360,7 +30353,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_7ProductINS0_IdLin1ELin1ELi1ELin1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = and i64 %14, 7
@@ -30384,8 +30377,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i: ; preds = %
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i ]
-  %25 = getelementptr inbounds double, ptr %11, i64 %.05.i.i.i.i.i
-  %26 = getelementptr inbounds double, ptr %10, i64 %.05.i.i.i.i.i
+  %25 = getelementptr inbounds nuw double, ptr %11, i64 %.05.i.i.i.i.i
+  %26 = getelementptr inbounds nuw double, ptr %10, i64 %.05.i.i.i.i.i
   %27 = load double, ptr %26, align 8
   store double %27, ptr %25, align 8
   %28 = add nuw nsw i64 %.05.i.i.i.i.i, 1
@@ -30431,9 +30424,9 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1
   %4 = alloca %"class.Eigen::Map", align 8
   %5 = alloca double, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, %8
   br i1 %.not, label %11, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
@@ -30447,7 +30440,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit:
 11:                                               ; preds = %3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit
   %12 = phi ptr [ %6, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit ]
   %13 = phi i64 [ %8, %3 ], [ %.pr, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %15 = icmp slt i64 %13, 1
   br i1 %15, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i.i
@@ -30461,7 +30454,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i.i, %11
   store double 1.000000e+00, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %21, label %85
@@ -30469,7 +30462,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; pr
 21:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i
   %22 = load ptr, ptr %12, align 8, !noalias !911
   %23 = load ptr, ptr %14, align 8, !noalias !914
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !noalias !914
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEEE3dotINS1_IKNS_3MapINS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSG_17scalar_product_opIdSK_EEE10ReturnTypeERKNS0_ISI_EE.exit.i.i.i, label %27
@@ -30491,9 +30484,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; pr
   br i1 %36, label %37, label %67
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %22, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %39 = load <2 x double>, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %23, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %41 = load <2 x double>, ptr %40, align 1
   %42 = fmul <2 x double> %39, %41
   %43 = icmp samesign ugt i64 %25, 7
@@ -30504,16 +30497,16 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; pr
   %.054.in77.i.i.i.i.i.i.i.i = phi i64 [ %.05478.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %37 ]
   %storemerge76.i.i.i.i.i.i.i.i = phi <2 x double> [ %56, %.lr.ph.i.i.i.i.i.i.i.i ], [ %42, %37 ]
   %.17375.i.i.i.i.i.i.i.i = phi <2 x double> [ %49, %.lr.ph.i.i.i.i.i.i.i.i ], [ %35, %37 ]
-  %44 = getelementptr inbounds double, ptr %22, i64 %.05478.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw double, ptr %22, i64 %.05478.i.i.i.i.i.i.i.i
   %45 = load <2 x double>, ptr %44, align 1
-  %46 = getelementptr inbounds double, ptr %23, i64 %.05478.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw double, ptr %23, i64 %.05478.i.i.i.i.i.i.i.i
   %47 = load <2 x double>, ptr %46, align 1
   %48 = fmul <2 x double> %45, %47
   %49 = fadd <2 x double> %.17375.i.i.i.i.i.i.i.i, %48
   %50 = add nuw nsw i64 %.054.in77.i.i.i.i.i.i.i.i, 6
-  %51 = getelementptr inbounds double, ptr %22, i64 %50
+  %51 = getelementptr inbounds nuw double, ptr %22, i64 %50
   %52 = load <2 x double>, ptr %51, align 1
-  %53 = getelementptr inbounds double, ptr %23, i64 %50
+  %53 = getelementptr inbounds nuw double, ptr %23, i64 %50
   %54 = load <2 x double>, ptr %53, align 1
   %55 = fmul <2 x double> %52, %54
   %56 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i.i, %55
@@ -30529,9 +30522,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i: ; pr
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  %61 = getelementptr inbounds double, ptr %22, i64 %29
+  %61 = getelementptr inbounds nuw double, ptr %22, i64 %29
   %62 = load <2 x double>, ptr %61, align 1
-  %63 = getelementptr inbounds double, ptr %23, i64 %29
+  %63 = getelementptr inbounds nuw double, ptr %23, i64 %29
   %64 = load <2 x double>, ptr %63, align 1
   %65 = fmul <2 x double> %62, %64
   %66 = fadd <2 x double> %58, %65
@@ -30588,7 +30581,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %5 = alloca %"class.Eigen::internal::const_blas_data_mapper.521", align 8
   %6 = alloca %"class.Eigen::internal::const_blas_data_mapper", align 8
   %7 = load double, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %9, 2305843009213693951
   br i1 %10, label %11, label %13
@@ -30629,16 +30622,16 @@ define linkonce_odr hidden void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1
   %27 = phi ptr [ %20, %18 ], [ null, %13 ], [ %22, %21 ]
   %28 = phi ptr [ %20, %18 ], [ %14, %13 ], [ %22, %21 ]
   %29 = icmp samesign ugt i64 %9, 16384
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = load ptr, ptr %0, align 8
   store ptr %34, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %33, ptr %35, align 8
   store ptr %28, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %36, align 8
   %37 = load ptr, ptr %2, align 8
   invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi1EEELi1ELb0EdNS2_IdlLi0EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %31, i64 noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %37, i64 noundef 1, double noundef %7)
@@ -30671,25 +30664,25 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit43: ; preds = %40, %
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %class.anon.2613, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
   br i1 %.not, label %11, label %94
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %8, 1
   %16 = icmp slt i32 %15, %10
   br i1 %16, label %17, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load atomic i32, ptr %18 seq_cst, align 4
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit
@@ -30698,19 +30691,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -30726,32 +30719,32 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit: ; preds = %21, %33, %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %41 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %42 unwind label %58
 
 42:                                               ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit
-  %43 = getelementptr inbounds i8, ptr %3, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %44 = load ptr, ptr %4, align 8
   store ptr %44, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %46 = load ptr, ptr %24, align 8
   store ptr %46, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   store ptr %48, ptr %47, align 8
   store ptr null, ptr %24, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   store ptr %41, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %43, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation, ptr %40, align 8
-  %50 = getelementptr inbounds i8, ptr %22, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %50, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %51 unwind label %60
 
@@ -30802,17 +30795,17 @@ _ZNSt8functionIFvvEED2Ev.exit39:                  ; preds = %63, %60, %58
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit: ; preds = %53, %51, %17, %11
   %68 = load ptr, ptr %5, align 8
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %68, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %75 = atomicrmw add ptr %74, i32 1 seq_cst, align 4
   %.not3649 = icmp slt i32 %75, %14
   br i1 %.not3649, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %77
 
 77:                                               ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit
@@ -30840,7 +30833,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %.lr.ph.i, %77
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %91 = atomicrmw add ptr %90, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %91, %14
   br i1 %.not36, label %77, label %._crit_edge, !llvm.loop !920
@@ -30848,7 +30841,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit ], [ %79, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %93, i32 noundef %.034.lcssa)
   br label %94
 
@@ -30858,13 +30851,13 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -30872,10 +30865,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -30901,10 +30894,10 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -30926,7 +30919,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit
@@ -30937,13 +30930,13 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEED2Ev.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -30951,10 +30944,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -30980,10 +30973,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -31005,7 +30998,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit
@@ -31049,25 +31042,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZZN5
 define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %class.anon.2614, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %8, %10
   br i1 %.not, label %11, label %137
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %8, 1
   %16 = icmp slt i32 %15, %10
   br i1 %16, label %17, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load atomic i32, ptr %18 seq_cst, align 4
   %20 = icmp slt i32 %19, %14
   br i1 %20, label %21, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit
@@ -31076,19 +31069,19 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -31104,8 +31097,8 @@ define linkonce_odr hidden void @_ZZN5ceres8internal14ParallelInvokeIZNS0_15Schu
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit
 
 _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit: ; preds = %21, %33, %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
@@ -31114,17 +31107,17 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
 .noexc:                                           ; preds = %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_C2ERKSG_.exit
   %41 = load ptr, ptr %4, align 8
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %24, align 8
   store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load ptr, ptr %27, align 8
   store ptr %45, ptr %44, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %54, label %46
 
 46:                                               ; preds = %.noexc
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %52, label %49
@@ -31140,14 +31133,14 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
   br label %54
 
 54:                                               ; preds = %52, %49, %.noexc
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
-  %57 = getelementptr inbounds i8, ptr %40, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   store ptr %40, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E9_M_invokeERKSt9_Any_data, ptr %55, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %22, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN5ceres8internal10ThreadPool7AddTaskERKSt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(240) %58, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %59 unwind label %103
 
@@ -31173,7 +31166,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
   br i1 %.not.i.i.i.i.i37, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit, label %67
 
 67:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = icmp eq i64 %69, 4294967297
   %71 = trunc i64 %69 to i32
@@ -31181,10 +31174,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 72:                                               ; preds = %67
   store i32 0, ptr %68, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 0, ptr %73, align 4
   %74 = load ptr, ptr %66, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -31210,10 +31203,10 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr %66, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
-  %89 = getelementptr inbounds i8, ptr %66, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %90 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i38 = icmp eq i8 %90, 0
   br i1 %.not.i.i.i.i.i.i.i.i38, label %94, label %91
@@ -31235,7 +31228,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %59, %61
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %96, %72
   %98 = load ptr, ptr %66, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit
@@ -31271,17 +31264,17 @@ _ZNSt8functionIFvvEED2Ev.exit40:                  ; preds = %106, %103, %101
 _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %96, %83, %_ZNSt8functionIFvvEED2Ev.exit, %17, %11
   %111 = load ptr, ptr %5, align 8
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %111, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %111, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %118 = atomicrmw add ptr %117, i32 1 seq_cst, align 4
   %.not3650 = icmp slt i32 %118, %14
   br i1 %.not3650, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit
-  %119 = getelementptr inbounds i8, ptr %0, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %120
 
 120:                                              ; preds = %.lr.ph, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit
@@ -31309,7 +31302,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 
 _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit: ; preds = %.lr.ph.i, %120
   %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 20
   %134 = atomicrmw add ptr %133, i32 1 seq_cst, align 4
   %.not36 = icmp slt i32 %134, %14
   br i1 %.not36, label %120, label %._crit_edge, !llvm.loop !921
@@ -31317,7 +31310,7 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit
   %.034.lcssa = phi i32 [ 0, %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit ], [ %122, %_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEviSt5tupleIJiiEEOT_.exit ]
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   call void @_ZN5ceres8internal18BlockUntilFinished8FinishedEi(ptr noundef nonnull align 8 dereferenceable(96) %136, i32 noundef %.034.lcssa)
   br label %137
 
@@ -31327,13 +31320,13 @@ _ZN5ceres8internal15InvokeOnSegmentIRZNS0_15SchurEliminatorILin1ELin1ELin1EE14Ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -31341,10 +31334,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -31370,10 +31363,10 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -31395,7 +31388,7 @@ define linkonce_odr hidden void @_ZZZN5ceres8internal14ParallelInvokeIZNS0_15Sch
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %_ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENUlRSD_E_D2Ev.exit
@@ -31458,19 +31451,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataSG_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -31486,8 +31479,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataSG_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E15_M_init_functorIRKSL_EEvRSt9_Any_dataSG_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -31498,13 +31491,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clIKSI_EEDaSH_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -31512,10 +31505,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -31541,10 +31534,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -31566,7 +31559,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clIKSG_EEDaSF_ENUlvE_D2Ev.exit.i
@@ -31602,19 +31595,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataSG_.exit, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
@@ -31630,8 +31623,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataSG_.exit
 
 _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataSG_.exit: ; preds = %7, %20, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   store ptr %9, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit
@@ -31642,13 +31635,13 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
   br i1 %29, label %_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS2_21BlockSparseMatrixDataEPKdSA_SA_PdEUliE_EEvPNS2_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_EUlvE_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load atomic i64, ptr %34 acquire, align 8
   %36 = icmp eq i64 %35, 4294967297
   %37 = trunc i64 %35 to i32
@@ -31656,10 +31649,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 38:                                               ; preds = %33
   store i32 0, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -31685,10 +31678,10 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  %55 = getelementptr inbounds i8, ptr %32, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %60, label %57
@@ -31710,7 +31703,7 @@ _ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15S
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
   br label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit.i
@@ -31748,7 +31741,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .lr.ph.us:                                        ; preds = %.lr.ph116, %._crit_edge.us
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %._crit_edge.us ], [ 0, %.lr.ph116 ]
-  %22 = getelementptr inbounds double, ptr %0, i64 %indvars.iv185
+  %22 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv185
   br label %23
 
 23:                                               ; preds = %.lr.ph.us, %23
@@ -31759,7 +31752,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %24 = load double, ptr %.091113.us, align 8
   %25 = load double, ptr %.092112.us, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %24, double %25, double %.093111.us)
-  %27 = getelementptr inbounds double, ptr %.091113.us, i64 %19
+  %27 = getelementptr inbounds nuw double, ptr %.091113.us, i64 %19
   %28 = getelementptr inbounds double, ptr %.092112.us, i64 %20
   %29 = add nuw nsw i32 %.0100110.us, 1
   %exitcond184.not = icmp eq i32 %29, %1
@@ -31815,7 +31808,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 
 .lr.ph.us128:                                     ; preds = %.lr.ph126, %._crit_edge.us129
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us129 ], [ 0, %.lr.ph126 ]
-  %54 = getelementptr inbounds double, ptr %0, i64 %indvars.iv196
+  %54 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv196
   br label %55
 
 55:                                               ; preds = %.lr.ph.us128, %55
@@ -31827,10 +31820,10 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %56 = load double, ptr %.098118.us, align 8
   %57 = load double, ptr %.097119.us, align 8
   %58 = tail call double @llvm.fmuladd.f64(double %56, double %57, double %.096120.us)
-  %59 = getelementptr inbounds i8, ptr %.097119.us, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.097119.us, i64 8
   %60 = load double, ptr %59, align 8
   %61 = tail call double @llvm.fmuladd.f64(double %56, double %60, double %.095121.us)
-  %62 = getelementptr inbounds double, ptr %.098118.us, i64 %51
+  %62 = getelementptr inbounds nuw double, ptr %.098118.us, i64 %51
   %63 = getelementptr inbounds double, ptr %.097119.us, i64 %52
   %64 = add nuw nsw i32 %.094122.us, 1
   %exitcond195.not = icmp eq i32 %64, %1
@@ -31904,7 +31897,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %indvars.iv219 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next220, %._crit_edge.split.us.us.us ]
   %90 = trunc nuw nsw i64 %indvars.iv219 to i32
   %91 = add i32 %8, %90
-  %92 = getelementptr inbounds double, ptr %3, i64 %indvars.iv219
+  %92 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv219
   br label %.lr.ph.i.preheader.us.us.us
 
 .lr.ph.i.preheader.us.us.us:                      ; preds = %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us, %.preheader.us.us
@@ -31913,7 +31906,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %94 = add i32 %7, %93
   %95 = mul i32 %94, %10
   %96 = add i32 %91, %95
-  %97 = getelementptr inbounds double, ptr %0, i64 %indvars.iv214
+  %97 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv214
   %98 = sext i32 %96 to i64
   br label %.lr.ph.i.us.us.us
 
@@ -31932,13 +31925,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %103 = getelementptr inbounds double, ptr %92, i64 %102
   %104 = load double, ptr %103, align 8
   %105 = tail call double @llvm.fmuladd.f64(double %101, double %104, double %.sroa.0.0158.i.us.us.us)
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %107 = load double, ptr %106, align 8
   %108 = tail call double @llvm.fmuladd.f64(double %101, double %107, double %.sroa.14.0157.i.us.us.us)
-  %109 = getelementptr inbounds i8, ptr %103, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %110 = load double, ptr %109, align 8
   %111 = tail call double @llvm.fmuladd.f64(double %101, double %110, double %.sroa.27.0156.i.us.us.us)
-  %112 = getelementptr inbounds i8, ptr %103, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %113 = load double, ptr %112, align 8
   %114 = tail call double @llvm.fmuladd.f64(double %101, double %113, double %.sroa.40.0155.i.us.us.us)
   %115 = add nsw i32 %.0141159.i.us.us.us, %2
@@ -31950,13 +31943,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %121 = getelementptr inbounds double, ptr %92, i64 %120
   %122 = load double, ptr %121, align 8
   %123 = tail call double @llvm.fmuladd.f64(double %119, double %122, double %105)
-  %124 = getelementptr inbounds i8, ptr %121, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %125 = load double, ptr %124, align 8
   %126 = tail call double @llvm.fmuladd.f64(double %119, double %125, double %108)
-  %127 = getelementptr inbounds i8, ptr %121, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %128 = load double, ptr %127, align 8
   %129 = tail call double @llvm.fmuladd.f64(double %119, double %128, double %111)
-  %130 = getelementptr inbounds i8, ptr %121, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %131 = load double, ptr %130, align 8
   %132 = tail call double @llvm.fmuladd.f64(double %119, double %131, double %114)
   %.reass.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op.i
@@ -31968,13 +31961,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %137 = getelementptr inbounds double, ptr %92, i64 %136
   %138 = load double, ptr %137, align 8
   %139 = tail call double @llvm.fmuladd.f64(double %135, double %138, double %123)
-  %140 = getelementptr inbounds i8, ptr %137, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %141 = load double, ptr %140, align 8
   %142 = tail call double @llvm.fmuladd.f64(double %135, double %141, double %126)
-  %143 = getelementptr inbounds i8, ptr %137, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %144 = load double, ptr %143, align 8
   %145 = tail call double @llvm.fmuladd.f64(double %135, double %144, double %129)
-  %146 = getelementptr inbounds i8, ptr %137, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %147 = load double, ptr %146, align 8
   %148 = tail call double @llvm.fmuladd.f64(double %135, double %147, double %132)
   %.reass148.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op147.i
@@ -31986,13 +31979,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %153 = getelementptr inbounds double, ptr %92, i64 %152
   %154 = load double, ptr %153, align 8
   %155 = tail call double @llvm.fmuladd.f64(double %151, double %154, double %139)
-  %156 = getelementptr inbounds i8, ptr %153, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = load double, ptr %156, align 8
   %158 = tail call double @llvm.fmuladd.f64(double %151, double %157, double %142)
-  %159 = getelementptr inbounds i8, ptr %153, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %160 = load double, ptr %159, align 8
   %161 = tail call double @llvm.fmuladd.f64(double %151, double %160, double %145)
-  %162 = getelementptr inbounds i8, ptr %153, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %163 = load double, ptr %162, align 8
   %164 = tail call double @llvm.fmuladd.f64(double %151, double %163, double %148)
   %.reass152.i.us.us.us = add i32 %.0141159.i.us.us.us, %invariant.op151.i
@@ -32023,13 +32016,13 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   %172 = getelementptr inbounds double, ptr %92, i64 %indvars.iv.i.us.us.us
   %173 = load double, ptr %172, align 8
   %174 = tail call double @llvm.fmuladd.f64(double %171, double %173, double %.sroa.0.1170.i.us.us.us)
-  %175 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %176 = load double, ptr %175, align 8
   %177 = tail call double @llvm.fmuladd.f64(double %171, double %176, double %.sroa.14.1169.i.us.us.us)
-  %178 = getelementptr inbounds i8, ptr %172, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %179 = load double, ptr %178, align 8
   %180 = tail call double @llvm.fmuladd.f64(double %171, double %179, double %.sroa.27.1168.i.us.us.us)
-  %181 = getelementptr inbounds i8, ptr %172, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %182 = load double, ptr %181, align 8
   %183 = tail call double @llvm.fmuladd.f64(double %171, double %182, double %.sroa.40.1167.i.us.us.us)
   %indvars.iv.next188.i.us.us.us = add nsw i64 %indvars.iv187.i.us.us.us, %87
@@ -32044,11 +32037,11 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %.sroa.14.1.lcssa.i.us.us.us = phi double [ %158, %.preheader.loopexit.i.us.us.us ], [ %177, %.lr.ph174.i.us.us.us ]
   %.sroa.0.1.lcssa.i.us.us.us = phi double [ %155, %.preheader.loopexit.i.us.us.us ], [ %174, %.lr.ph174.i.us.us.us ]
   store double %.sroa.0.1.lcssa.i.us.us.us, ptr %167, align 8
-  %186 = getelementptr inbounds i8, ptr %167, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store double %.sroa.14.1.lcssa.i.us.us.us, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %167, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store double %.sroa.27.1.lcssa.i.us.us.us, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %167, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store double %.sroa.40.1.lcssa.i.us.us.us, ptr %188, align 8
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
@@ -32098,7 +32091,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %._crit_edge.split.split.us157 ]
   %200 = trunc nuw nsw i64 %indvars.iv206 to i32
   %201 = add i32 %8, %200
-  %202 = getelementptr inbounds double, ptr %3, i64 %indvars.iv206
+  %202 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv206
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151
@@ -32107,7 +32100,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %204 = add i32 %7, %203
   %205 = mul i32 %204, %10
   %206 = add i32 %201, %205
-  %207 = getelementptr inbounds double, ptr %0, i64 %indvars.iv201
+  %207 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv201
   %208 = sext i32 %206 to i64
   br label %.lr.ph174.i.us141
 
@@ -32119,18 +32112,18 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %.sroa.14.1169.i.us146 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %216, %.lr.ph174.i.us141 ]
   %.sroa.27.1168.i.us147 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %219, %.lr.ph174.i.us141 ]
   %.sroa.40.1167.i.us148 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %222, %.lr.ph174.i.us141 ]
-  %209 = getelementptr inbounds double, ptr %207, i64 %indvars.iv187.i.us142
+  %209 = getelementptr inbounds nuw double, ptr %207, i64 %indvars.iv187.i.us142
   %210 = load double, ptr %209, align 8
-  %211 = getelementptr inbounds double, ptr %202, i64 %indvars.iv.i.us143
+  %211 = getelementptr inbounds nuw double, ptr %202, i64 %indvars.iv.i.us143
   %212 = load double, ptr %211, align 8
   %213 = tail call double @llvm.fmuladd.f64(double %210, double %212, double %.sroa.0.1170.i.us145)
-  %214 = getelementptr inbounds i8, ptr %211, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %215 = load double, ptr %214, align 8
   %216 = tail call double @llvm.fmuladd.f64(double %210, double %215, double %.sroa.14.1169.i.us146)
-  %217 = getelementptr inbounds i8, ptr %211, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %218 = load double, ptr %217, align 8
   %219 = tail call double @llvm.fmuladd.f64(double %210, double %218, double %.sroa.27.1168.i.us147)
-  %220 = getelementptr inbounds i8, ptr %211, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %221 = load double, ptr %220, align 8
   %222 = tail call double @llvm.fmuladd.f64(double %210, double %221, double %.sroa.40.1167.i.us148)
   %indvars.iv.next188.i.us149 = add nuw nsw i64 %indvars.iv187.i.us142, %87
@@ -32142,11 +32135,11 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
 _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.loopexit.us151: ; preds = %.lr.ph174.i.us141
   %225 = getelementptr inbounds double, ptr %6, i64 %208
   store double %213, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store double %216, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %225, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store double %219, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %225, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store double %222, ptr %228, align 8
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
@@ -32195,7 +32188,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %22 ]
   %.092112.us = phi ptr [ %17, %.lr.ph.us ], [ %27, %22 ]
   %.093111.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %26, %22 ]
-  %23 = getelementptr inbounds double, ptr %.0114.us, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %.0114.us, i64 %indvars.iv
   %24 = load double, ptr %23, align 8
   %25 = load double, ptr %.092112.us, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %24, double %25, double %.093111.us)
@@ -32215,7 +32208,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %35 = fsub double %34, %26
   store double %35, ptr %33, align 8
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %36 = getelementptr inbounds double, ptr %.0114.us, i64 %21
+  %36 = getelementptr inbounds nuw double, ptr %.0114.us, i64 %21
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %._crit_edge117, label %.lr.ph.us, !llvm.loop !929
 
@@ -32257,11 +32250,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %.095120.us = phi double [ 0.000000e+00, %.lr.ph.us128 ], [ %56, %49 ]
   %.096119.us = phi double [ 0.000000e+00, %.lr.ph.us128 ], [ %53, %49 ]
   %.097118.us = phi ptr [ %44, %.lr.ph.us128 ], [ %57, %49 ]
-  %50 = getelementptr inbounds double, ptr %.099123.us, i64 %indvars.iv188
+  %50 = getelementptr inbounds nuw double, ptr %.099123.us, i64 %indvars.iv188
   %51 = load double, ptr %50, align 8
   %52 = load double, ptr %.097118.us, align 8
   %53 = tail call double @llvm.fmuladd.f64(double %51, double %52, double %.096119.us)
-  %54 = getelementptr inbounds i8, ptr %.097118.us, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.097118.us, i64 8
   %55 = load double, ptr %54, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %51, double %55, double %.095120.us)
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
@@ -32284,7 +32277,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %68 = fsub double %67, %56
   store double %68, ptr %66, align 8
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %69 = getelementptr inbounds double, ptr %.099123.us, i64 %48
+  %69 = getelementptr inbounds nuw double, ptr %.099123.us, i64 %48
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
   br i1 %exitcond197.not, label %._crit_edge127, label %.lr.ph.us128, !llvm.loop !931
 
@@ -32328,7 +32321,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %indvars.iv211 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next212, %._crit_edge.split.us.us.us ]
   %84 = trunc nuw nsw i64 %indvars.iv211 to i32
   %85 = add i32 %8, %84
-  %86 = getelementptr inbounds double, ptr %3, i64 %indvars.iv211
+  %86 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv211
   br label %.lr.ph.preheader.i.us.us.us
 
 .lr.ph.preheader.i.us.us.us:                      ; preds = %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us, %.preheader.us.us
@@ -32338,7 +32331,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %89 = mul i32 %88, %10
   %90 = add i32 %85, %89
   %91 = mul nuw nsw i64 %indvars.iv206, %80
-  %92 = getelementptr inbounds double, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw double, ptr %0, i64 %91
   %93 = sext i32 %90 to i64
   br label %.lr.ph.i.us.us.us
 
@@ -32349,70 +32342,70 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %.sroa.14.0142.i.us.us.us = phi double [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us ], [ %151, %.lr.ph.i.us.us.us ]
   %.sroa.27.0141.i.us.us.us = phi double [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us ], [ %154, %.lr.ph.i.us.us.us ]
   %.sroa.40.0140.i.us.us.us = phi double [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us ], [ %157, %.lr.ph.i.us.us.us ]
-  %94 = getelementptr inbounds double, ptr %92, i64 %indvars.iv.i.us.us.us
+  %94 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.us.us.us
   %95 = load double, ptr %94, align 8
   %96 = sext i32 %.0133144.i.us.us.us to i64
   %97 = getelementptr inbounds double, ptr %86, i64 %96
   %98 = load double, ptr %97, align 8
   %99 = tail call double @llvm.fmuladd.f64(double %95, double %98, double %.sroa.0.0143.i.us.us.us)
-  %100 = getelementptr inbounds i8, ptr %97, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %101 = load double, ptr %100, align 8
   %102 = tail call double @llvm.fmuladd.f64(double %95, double %101, double %.sroa.14.0142.i.us.us.us)
-  %103 = getelementptr inbounds i8, ptr %97, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %104 = load double, ptr %103, align 8
   %105 = tail call double @llvm.fmuladd.f64(double %95, double %104, double %.sroa.27.0141.i.us.us.us)
-  %106 = getelementptr inbounds i8, ptr %97, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %107 = load double, ptr %106, align 8
   %108 = tail call double @llvm.fmuladd.f64(double %95, double %107, double %.sroa.40.0140.i.us.us.us)
   %109 = add nsw i32 %.0133144.i.us.us.us, %5
   %110 = or disjoint i64 %indvars.iv.i.us.us.us, 1
-  %111 = getelementptr inbounds double, ptr %92, i64 %110
+  %111 = getelementptr inbounds nuw double, ptr %92, i64 %110
   %112 = load double, ptr %111, align 8
   %113 = sext i32 %109 to i64
   %114 = getelementptr inbounds double, ptr %86, i64 %113
   %115 = load double, ptr %114, align 8
   %116 = tail call double @llvm.fmuladd.f64(double %112, double %115, double %99)
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %118 = load double, ptr %117, align 8
   %119 = tail call double @llvm.fmuladd.f64(double %112, double %118, double %102)
-  %120 = getelementptr inbounds i8, ptr %114, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %121 = load double, ptr %120, align 8
   %122 = tail call double @llvm.fmuladd.f64(double %112, double %121, double %105)
-  %123 = getelementptr inbounds i8, ptr %114, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %124 = load double, ptr %123, align 8
   %125 = tail call double @llvm.fmuladd.f64(double %112, double %124, double %108)
   %.reass.i.us.us.us = add i32 %.0133144.i.us.us.us, %invariant.op.i
   %126 = or disjoint i64 %indvars.iv.i.us.us.us, 2
-  %127 = getelementptr inbounds double, ptr %92, i64 %126
+  %127 = getelementptr inbounds nuw double, ptr %92, i64 %126
   %128 = load double, ptr %127, align 8
   %129 = sext i32 %.reass.i.us.us.us to i64
   %130 = getelementptr inbounds double, ptr %86, i64 %129
   %131 = load double, ptr %130, align 8
   %132 = tail call double @llvm.fmuladd.f64(double %128, double %131, double %116)
-  %133 = getelementptr inbounds i8, ptr %130, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %134 = load double, ptr %133, align 8
   %135 = tail call double @llvm.fmuladd.f64(double %128, double %134, double %119)
-  %136 = getelementptr inbounds i8, ptr %130, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %137 = load double, ptr %136, align 8
   %138 = tail call double @llvm.fmuladd.f64(double %128, double %137, double %122)
-  %139 = getelementptr inbounds i8, ptr %130, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %140 = load double, ptr %139, align 8
   %141 = tail call double @llvm.fmuladd.f64(double %128, double %140, double %125)
   %.reass137.i.us.us.us = add i32 %.0133144.i.us.us.us, %invariant.op136.i
   %142 = or disjoint i64 %indvars.iv.i.us.us.us, 3
-  %143 = getelementptr inbounds double, ptr %92, i64 %142
+  %143 = getelementptr inbounds nuw double, ptr %92, i64 %142
   %144 = load double, ptr %143, align 8
   %145 = sext i32 %.reass137.i.us.us.us to i64
   %146 = getelementptr inbounds double, ptr %86, i64 %145
   %147 = load double, ptr %146, align 8
   %148 = tail call double @llvm.fmuladd.f64(double %144, double %147, double %132)
-  %149 = getelementptr inbounds i8, ptr %146, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %150 = load double, ptr %149, align 8
   %151 = tail call double @llvm.fmuladd.f64(double %144, double %150, double %135)
-  %152 = getelementptr inbounds i8, ptr %146, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %153 = load double, ptr %152, align 8
   %154 = tail call double @llvm.fmuladd.f64(double %144, double %153, double %138)
-  %155 = getelementptr inbounds i8, ptr %146, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %156 = load double, ptr %155, align 8
   %157 = tail call double @llvm.fmuladd.f64(double %144, double %156, double %141)
   %.reass139.i.us.us.us = add i32 %.0133144.i.us.us.us, %invariant.op138.i
@@ -32435,18 +32428,18 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
   %.sroa.14.1152.i.us.us.us = phi double [ %168, %.lr.ph156.i.us.us.us ], [ %151, %.lr.ph156.i.us.us.us.preheader ]
   %.sroa.27.1151.i.us.us.us = phi double [ %171, %.lr.ph156.i.us.us.us ], [ %154, %.lr.ph156.i.us.us.us.preheader ]
   %.sroa.40.1150.i.us.us.us = phi double [ %174, %.lr.ph156.i.us.us.us ], [ %157, %.lr.ph156.i.us.us.us.preheader ]
-  %161 = getelementptr inbounds double, ptr %92, i64 %indvars.iv169.i.us.us.us
+  %161 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv169.i.us.us.us
   %162 = load double, ptr %161, align 8
   %163 = getelementptr inbounds double, ptr %86, i64 %indvars.iv171.i.us.us.us
   %164 = load double, ptr %163, align 8
   %165 = tail call double @llvm.fmuladd.f64(double %162, double %164, double %.sroa.0.1153.i.us.us.us)
-  %166 = getelementptr inbounds i8, ptr %163, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %167 = load double, ptr %166, align 8
   %168 = tail call double @llvm.fmuladd.f64(double %162, double %167, double %.sroa.14.1152.i.us.us.us)
-  %169 = getelementptr inbounds i8, ptr %163, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %170 = load double, ptr %169, align 8
   %171 = tail call double @llvm.fmuladd.f64(double %162, double %170, double %.sroa.27.1151.i.us.us.us)
-  %172 = getelementptr inbounds i8, ptr %163, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %173 = load double, ptr %172, align 8
   %174 = tail call double @llvm.fmuladd.f64(double %162, double %173, double %.sroa.40.1150.i.us.us.us)
   %indvars.iv.next172.i.us.us.us = add nsw i64 %indvars.iv171.i.us.us.us, %81
@@ -32462,15 +32455,15 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
   %176 = load double, ptr %159, align 8
   %177 = fsub double %176, %.sroa.0.1.lcssa.i.us.us.us
   store double %177, ptr %159, align 8
-  %178 = getelementptr inbounds i8, ptr %159, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %179 = load double, ptr %178, align 8
   %180 = fsub double %179, %.sroa.14.1.lcssa.i.us.us.us
   store double %180, ptr %178, align 8
-  %181 = getelementptr inbounds i8, ptr %159, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %182 = load double, ptr %181, align 8
   %183 = fsub double %182, %.sroa.27.1.lcssa.i.us.us.us
   store double %183, ptr %181, align 8
-  %184 = getelementptr inbounds i8, ptr %159, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %185 = load double, ptr %184, align 8
   %186 = fsub double %185, %.sroa.40.1.lcssa.i.us.us.us
   store double %186, ptr %184, align 8
@@ -32495,7 +32488,7 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
   %indvars.iv203 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next204, %._crit_edge.split.split.us156 ]
   %189 = trunc nuw nsw i64 %indvars.iv203 to i32
   %190 = add i32 %8, %189
-  %191 = getelementptr inbounds double, ptr %3, i64 %indvars.iv203
+  %191 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv203
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150
@@ -32518,16 +32511,16 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph156.
   %.sroa.40.1150.i.us147 = phi double [ 0.000000e+00, %.preheader.i.us ], [ %212, %.lr.ph156.i.us141 ]
   %199 = getelementptr inbounds double, ptr %197, i64 %indvars.iv169.i.us143
   %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds double, ptr %191, i64 %indvars.iv171.i.us142
+  %201 = getelementptr inbounds nuw double, ptr %191, i64 %indvars.iv171.i.us142
   %202 = load double, ptr %201, align 8
   %203 = tail call double @llvm.fmuladd.f64(double %200, double %202, double %.sroa.0.1153.i.us144)
-  %204 = getelementptr inbounds i8, ptr %201, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %205 = load double, ptr %204, align 8
   %206 = tail call double @llvm.fmuladd.f64(double %200, double %205, double %.sroa.14.1152.i.us145)
-  %207 = getelementptr inbounds i8, ptr %201, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %208 = load double, ptr %207, align 8
   %209 = tail call double @llvm.fmuladd.f64(double %200, double %208, double %.sroa.27.1151.i.us146)
-  %210 = getelementptr inbounds i8, ptr %201, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %211 = load double, ptr %210, align 8
   %212 = tail call double @llvm.fmuladd.f64(double %200, double %211, double %.sroa.40.1150.i.us147)
   %indvars.iv.next172.i.us148 = add nuw nsw i64 %indvars.iv171.i.us142, %81
@@ -32540,15 +32533,15 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.loopexit.us150: ; preds = %.lr.
   %215 = load double, ptr %214, align 8
   %216 = fsub double %215, %203
   store double %216, ptr %214, align 8
-  %217 = getelementptr inbounds i8, ptr %214, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %218 = load double, ptr %217, align 8
   %219 = fsub double %218, %206
   store double %219, ptr %217, align 8
-  %220 = getelementptr inbounds i8, ptr %214, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %221 = load double, ptr %220, align 8
   %222 = fsub double %221, %209
   store double %222, ptr %220, align 8
-  %223 = getelementptr inbounds i8, ptr %214, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %224 = load double, ptr %223, align 8
   %225 = fsub double %224, %212
   store double %225, ptr %223, align 8

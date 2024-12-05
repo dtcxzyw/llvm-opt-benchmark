@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @file_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %7 = and i32 %6, 1
@@ -17,13 +17,13 @@ define range(i64 -2147483648, 2147483648) i64 @file_read(ptr noundef %0, ptr nou
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %19, label %16
@@ -52,7 +52,7 @@ define range(i64 -2147483648, 2147483648) i64 @nx_read(i32 noundef %0, ptr nound
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %10, align 8
   %14 = and i32 %13, 1
@@ -64,13 +64,13 @@ define range(i64 -2147483648, 2147483648) i64 @nx_read(i32 noundef %0, ptr nound
   br i1 %.not.i, label %file_read.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not12.i = icmp eq ptr %19, null
   br i1 %.not12.i, label %file_read.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not13.i = icmp eq ptr %22, null
   br i1 %.not13.i, label %file_read.exit, label %23
@@ -102,7 +102,7 @@ define range(i64 -1, 2147483648) i64 @read(i32 noundef %0, ptr noundef %1, i64 n
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %10, align 8
   %14 = and i32 %13, 1
@@ -114,13 +114,13 @@ define range(i64 -1, 2147483648) i64 @read(i32 noundef %0, ptr noundef %1, i64 n
   br i1 %.not.i.i, label %nx_read.exit.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not12.i.i = icmp eq ptr %19, null
   br i1 %.not12.i.i, label %nx_read.exit.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not13.i.i = icmp eq ptr %22, null
   br i1 %.not13.i.i, label %nx_read.exit.thread, label %nx_read.exit

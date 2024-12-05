@@ -58,9 +58,9 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
 46:                                               ; preds = %41
   %47 = mul nsw i64 %42, %4
   %48 = getelementptr inbounds double, ptr %3, i64 %47
-  %49 = getelementptr inbounds double, ptr %24, i64 %42
+  %49 = getelementptr inbounds nuw double, ptr %24, i64 %42
   %50 = tail call i32 @dgemv_t(i64 noundef %42, i64 noundef %44, i64 noundef 0, double noundef %2, ptr noundef %48, i64 noundef %4, ptr noundef %36, i64 noundef 1, ptr noundef nonnull %49, i64 noundef 1, ptr noundef %37) #3
-  %51 = getelementptr inbounds double, ptr %36, i64 %42
+  %51 = getelementptr inbounds nuw double, ptr %36, i64 %42
   %52 = tail call i32 @dgemv_n(i64 noundef %42, i64 noundef %44, i64 noundef 0, double noundef %2, ptr noundef %48, i64 noundef %4, ptr noundef nonnull %51, i64 noundef 1, ptr noundef %24, i64 noundef 1, ptr noundef %37) #3
   br label %53
 
@@ -81,15 +81,15 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %63 = phi i64 [ 0, %55 ], [ %139, %138 ]
   %64 = phi ptr [ %58, %55 ], [ %65, %138 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 %.idx
-  %66 = getelementptr inbounds double, ptr %62, i64 %59
-  %67 = getelementptr inbounds double, ptr %61, i64 %44
-  %68 = getelementptr inbounds i8, ptr %61, i64 16
+  %66 = getelementptr inbounds nuw double, ptr %62, i64 %59
+  %67 = getelementptr inbounds nuw double, ptr %61, i64 %44
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %69 = sub nsw i64 %44, %63
   %70 = icmp sgt i64 %69, 1
   br i1 %70, label %71, label %112
 
 71:                                               ; preds = %60
-  %72 = getelementptr inbounds double, ptr %62, i64 %44
+  %72 = getelementptr inbounds nuw double, ptr %62, i64 %44
   %73 = getelementptr inbounds double, ptr %64, i64 %4
   %74 = icmp eq i64 %63, 0
   br i1 %74, label %.loopexit7, label %.preheader6
@@ -103,29 +103,29 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %80 = phi ptr [ %88, %.preheader6 ], [ %64, %71 ]
   %81 = phi i64 [ %98, %.preheader6 ], [ 0, %71 ]
   %82 = load double, ptr %80, align 8, !tbaa !3
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load double, ptr %83, align 8, !tbaa !3
   %85 = load double, ptr %79, align 8, !tbaa !3
-  %86 = getelementptr inbounds i8, ptr %79, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %87 = load double, ptr %86, align 8, !tbaa !3
-  %88 = getelementptr inbounds i8, ptr %80, i64 16
-  %89 = getelementptr inbounds i8, ptr %79, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store double %82, ptr %78, align 8, !tbaa !3
-  %90 = getelementptr inbounds i8, ptr %78, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store double %84, ptr %90, align 8, !tbaa !3
   store double %85, ptr %77, align 8, !tbaa !3
-  %91 = getelementptr inbounds i8, ptr %77, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store double %87, ptr %91, align 8, !tbaa !3
   store double %82, ptr %76, align 8, !tbaa !3
-  %92 = getelementptr inbounds i8, ptr %76, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store double %85, ptr %92, align 8, !tbaa !3
   store double %84, ptr %75, align 8, !tbaa !3
-  %93 = getelementptr inbounds i8, ptr %75, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store double %87, ptr %93, align 8, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %78, i64 16
-  %95 = getelementptr inbounds i8, ptr %77, i64 16
-  %96 = getelementptr inbounds double, ptr %76, i64 %59
-  %97 = getelementptr inbounds double, ptr %75, i64 %59
+  %94 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %96 = getelementptr inbounds nuw double, ptr %76, i64 %59
+  %97 = getelementptr inbounds nuw double, ptr %75, i64 %59
   %98 = add nuw nsw i64 %81, 2
   %99 = icmp samesign ult i64 %98, %63
   br i1 %99, label %.preheader6, label %.loopexit7, !llvm.loop !7
@@ -139,13 +139,13 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %105 = phi ptr [ %67, %71 ], [ %97, %.preheader6 ]
   %106 = load double, ptr %100, align 8, !tbaa !3
   %107 = load double, ptr %101, align 8, !tbaa !3
-  %108 = getelementptr inbounds i8, ptr %101, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %109 = load double, ptr %108, align 8, !tbaa !3
   store double %106, ptr %102, align 8, !tbaa !3
-  %110 = getelementptr inbounds i8, ptr %102, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store double %107, ptr %110, align 8, !tbaa !3
   store double %107, ptr %103, align 8, !tbaa !3
-  %111 = getelementptr inbounds i8, ptr %103, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store double %109, ptr %111, align 8, !tbaa !3
   br label %112
 
@@ -168,17 +168,17 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %123 = phi ptr [ %128, %.preheader ], [ %113, %118 ]
   %124 = phi i64 [ %133, %.preheader ], [ 0, %118 ]
   %125 = load double, ptr %123, align 8, !tbaa !3
-  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %127 = load double, ptr %126, align 8, !tbaa !3
-  %128 = getelementptr inbounds i8, ptr %123, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store double %125, ptr %122, align 8, !tbaa !3
-  %129 = getelementptr inbounds i8, ptr %122, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store double %127, ptr %129, align 8, !tbaa !3
   store double %125, ptr %121, align 8, !tbaa !3
   store double %127, ptr %120, align 8, !tbaa !3
-  %130 = getelementptr inbounds i8, ptr %122, i64 16
-  %131 = getelementptr inbounds double, ptr %121, i64 %59
-  %132 = getelementptr inbounds double, ptr %120, i64 %59
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %131 = getelementptr inbounds nuw double, ptr %121, i64 %59
+  %132 = getelementptr inbounds nuw double, ptr %120, i64 %59
   %133 = add nuw nsw i64 %124, 2
   %134 = icmp samesign ult i64 %133, %63
   br i1 %134, label %.preheader, label %.loopexit, !llvm.loop !10

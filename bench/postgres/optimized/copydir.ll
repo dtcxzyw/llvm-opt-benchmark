@@ -50,25 +50,25 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   br label %sub_0
 
 sub_0:                                            ; preds = %.lr.ph, %16
-  %17 = getelementptr inbounds i8, ptr %14, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 19
   %18 = load i8, ptr %17, align 1
   %.not47 = icmp eq i8 %18, 46
   br i1 %.not47, label %.tail, label %.tail30.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %14, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.backedge43, label %sub_132
 
 sub_132:                                          ; preds = %.tail
-  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %23 = load i8, ptr %22, align 1
   %.not49 = icmp eq i8 %23, 46
   br i1 %.not49, label %.tail30, label %.tail30.thread
 
 .tail30:                                          ; preds = %sub_132
-  %24 = getelementptr inbounds i8, ptr %14, i64 21
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 21
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.backedge43, label %.tail30.thread
@@ -112,25 +112,25 @@ sub_132:                                          ; preds = %.tail
 
 sub_035:                                          ; preds = %37, %.backedge
   %40 = phi ptr [ %51, %.backedge ], [ %39, %37 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 19
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 19
   %42 = load i8, ptr %41, align 1
   %.not50 = icmp eq i8 %42, 46
   br i1 %.not50, label %.tail34, label %.tail38.thread
 
 .tail34:                                          ; preds = %sub_035
-  %43 = getelementptr inbounds i8, ptr %40, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %.backedge, label %sub_140
 
 sub_140:                                          ; preds = %.tail34
-  %46 = getelementptr inbounds i8, ptr %40, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %47 = load i8, ptr %46, align 1
   %.not52 = icmp eq i8 %47, 46
   br i1 %.not52, label %.tail38, label %.tail38.thread
 
 .tail38:                                          ; preds = %sub_140
-  %48 = getelementptr inbounds i8, ptr %40, i64 21
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 21
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %.backedge, label %.tail38.thread

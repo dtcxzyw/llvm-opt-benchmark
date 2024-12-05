@@ -44,7 +44,7 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
-  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 7, ptr %_M_precision.i, align 8
   %0 = load i32, ptr %this, align 8
   %call3 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev18AllocationToStringENS_10AllocationE(i32 noundef %0)
@@ -59,9 +59,9 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %vars = getelementptr inbounds i8, ptr %this, i64 8
+  %vars = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %vars, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %1, %2
   br i1 %cmp.i.not6, label %for.end, label %for.body
@@ -77,7 +77,7 @@ invoke.cont13:                                    ; preds = %for.body
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %invoke.cont13
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.07, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -171,8 +171,8 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %oldmax, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmin, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmax, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
-  %vars = getelementptr inbounds i8, ptr %data, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %data, i64 16
+  %vars = getelementptr inbounds nuw i8, ptr %data, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %data, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %vars, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -182,7 +182,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %for.cond.preheader, label %if.end
 
 for.cond.preheader:                               ; preds = %sw.bb
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.pre54 = load float, ptr %2, align 4
   %.pre55 = load float, ptr %add.ptr.i, align 4
   %conv = fpext float %.pre54 to double
@@ -191,9 +191,9 @@ for.cond.preheader:                               ; preds = %sw.bb
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv48 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next49, %for.body ]
-  %arrayidx = getelementptr inbounds [4 x double], ptr %oldmin, i64 0, i64 %indvars.iv48
+  %arrayidx = getelementptr inbounds nuw [4 x double], ptr %oldmin, i64 0, i64 %indvars.iv48
   store double %conv, ptr %arrayidx, align 8
-  %arrayidx8 = getelementptr inbounds [4 x double], ptr %oldmax, i64 0, i64 %indvars.iv48
+  %arrayidx8 = getelementptr inbounds nuw [4 x double], ptr %oldmax, i64 0, i64 %indvars.iv48
   store double %conv6, ptr %arrayidx8, align 8
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 3
@@ -208,8 +208,8 @@ sw.bb12:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %oldmax14, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.oldmax.1, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmin15, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %newmax16, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN19OpenColorIO_v2_4dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE.newmax.2, i64 32, i1 false)
-  %vars17 = getelementptr inbounds i8, ptr %data, i64 8
-  %_M_finish.i27 = getelementptr inbounds i8, ptr %data, i64 16
+  %vars17 = getelementptr inbounds nuw i8, ptr %data, i64 8
+  %_M_finish.i27 = getelementptr inbounds nuw i8, ptr %data, i64 16
   %3 = load ptr, ptr %_M_finish.i27, align 8
   %4 = load ptr, ptr %vars17, align 8
   %sub.ptr.lhs.cast.i28 = ptrtoint ptr %3 to i64
@@ -220,7 +220,7 @@ sw.bb12:                                          ; preds = %entry
   br i1 %cmp19, label %for.cond22.preheader, label %if.end38
 
 for.cond22.preheader:                             ; preds = %sw.bb12
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %4, i64 4
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre = load float, ptr %4, align 4
   %.pre52 = load float, ptr %add.ptr.i33, align 4
   %conv27 = fpext float %.pre to double
@@ -229,9 +229,9 @@ for.cond22.preheader:                             ; preds = %sw.bb12
 
 for.body24:                                       ; preds = %for.cond22.preheader, %for.body24
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next, %for.body24 ]
-  %arrayidx29 = getelementptr inbounds [4 x double], ptr %oldmin13, i64 0, i64 %indvars.iv
+  %arrayidx29 = getelementptr inbounds nuw [4 x double], ptr %oldmin13, i64 0, i64 %indvars.iv
   store double %conv27, ptr %arrayidx29, align 8
-  %arrayidx34 = getelementptr inbounds [4 x double], ptr %oldmax14, i64 0, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds nuw [4 x double], ptr %oldmax14, i64 0, i64 %indvars.iv
   store double %conv32, ptr %arrayidx34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -246,14 +246,14 @@ if.end38:                                         ; preds = %for.body24, %sw.bb1
   br i1 %cmp41, label %for.cond44.preheader, label %if.end55
 
 for.cond44.preheader:                             ; preds = %if.end38
-  %add.ptr.i39 = getelementptr inbounds i8, ptr %4, i64 8
+  %add.ptr.i39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre53 = load float, ptr %add.ptr.i39, align 4
   %conv49 = fpext float %.pre53 to double
   br label %for.body46
 
 for.body46:                                       ; preds = %for.cond44.preheader, %for.body46
   %indvars.iv44 = phi i64 [ 0, %for.cond44.preheader ], [ %indvars.iv.next45, %for.body46 ]
-  %arrayidx51 = getelementptr inbounds [3 x double], ptr %linOffset, i64 0, i64 %indvars.iv44
+  %arrayidx51 = getelementptr inbounds nuw [3 x double], ptr %linOffset, i64 0, i64 %indvars.iv44
   store double %conv49, ptr %arrayidx51, align 8
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 3

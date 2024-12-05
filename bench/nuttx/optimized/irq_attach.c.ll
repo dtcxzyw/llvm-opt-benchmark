@@ -30,9 +30,9 @@ define range(i32 -22, 1) i32 @irq_attach(i32 noundef %0, ptr noundef %1, ptr nou
   %.09 = phi ptr [ null, %9 ], [ %2, %6 ]
   %.0 = phi ptr [ @irq_unexpected_isr, %9 ], [ %1, %6 ]
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds [48 x %struct.irq_info_s], ptr @g_irqvector, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [48 x %struct.irq_info_s], ptr @g_irqvector, i64 0, i64 %11
   store ptr %.0, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.09, ptr %13, align 8
   %14 = and i64 %7, 512
   %.not.i = icmp eq i64 %14, 0

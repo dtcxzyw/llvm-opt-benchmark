@@ -621,7 +621,7 @@ define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 24:                                               ; preds = %19
   %25 = load i32, ptr %3, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0) #4
-  %27 = getelementptr inbounds i8, ptr %2, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.168, i32 noundef %7) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29) #4
@@ -701,7 +701,7 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
 30:                                               ; preds = %25
   %31 = load i32, ptr %3, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %31, i32 noundef 0, i32 noundef 0) #4
-  %33 = getelementptr inbounds i8, ptr %2, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %34, ptr noundef nonnull @.str.168, i32 noundef %9) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.169, ptr noundef %35) #4
@@ -871,7 +871,7 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr nocapture
 24:                                               ; preds = %19
   %25 = load i32, ptr %3, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0) #4
-  %27 = getelementptr inbounds i8, ptr %2, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.176, i32 noundef %7) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29) #4
@@ -933,7 +933,7 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = load i32, ptr %3, align 4
   %9 = load i32, ptr @ett_opcua_diagnosticinfo, align 4
   %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.177, ptr noundef %4) #4
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_opcua, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0) #4
@@ -1118,7 +1118,7 @@ define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef
 21:                                               ; preds = %16
   %22 = load i32, ptr %3, align 4
   %23 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %22, i32 noundef 4, ptr noundef null, i32 noundef 0) #4
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.176, i32 noundef %8) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.169, ptr noundef %26) #4
@@ -1242,7 +1242,7 @@ define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @.str.182, ptr noundef %4) #4
   %13 = load i32, ptr %3, align 4
   store i32 %13, ptr %8, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @proto_opcua, align 4
   %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %2, i32 noundef %16, i32 noundef 0) #4
@@ -1998,7 +1998,7 @@ define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %8, ptr %6, align 4
   %9 = load i32, ptr @ett_opcua_extensionobject, align 4
   %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.214, ptr noundef %4) #4
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_opcua, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0) #4

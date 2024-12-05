@@ -292,7 +292,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_spdy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #7
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_spdy_message_len, ptr noundef nonnull @dissect_spdy_frame, ptr noundef %3) #7
@@ -354,7 +354,7 @@ define internal range(i32 0, 2) i32 @dissect_spdy_heur(ptr noundef %0, ptr nound
   br i1 %or.cond.not, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #7
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_spdy_message_len, ptr noundef nonnull @dissect_spdy_frame, ptr noundef null) #7
@@ -394,7 +394,7 @@ define internal i32 @dissect_spdy_frame(ptr noundef %0, ptr noundef %1, ptr noun
 11:                                               ; preds = %4
   %12 = tail call ptr @wmem_file_scope() #7
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 32) #7
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %14, align 8
   %15 = load i32, ptr @spdy_decompress_headers, align 4
   %.not18.i = icmp eq i32 %15, 0
@@ -406,7 +406,7 @@ define internal i32 @dissect_spdy_frame(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %18, ptr %13, align 8
   %19 = tail call ptr @wmem_file_scope() #7
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 112) #7
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %20, ptr %21, align 8
   %22 = tail call i32 @inflateInit_(ptr noundef %18, ptr noundef nonnull @.str.132, i32 noundef 112) #7
   %23 = icmp eq i32 %22, 0
@@ -426,7 +426,7 @@ define internal i32 @dissect_spdy_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 32:                                               ; preds = %29, %24, %16
   %33 = tail call i64 @adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #7
-  %34 = getelementptr inbounds i8, ptr %13, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = tail call i64 @adler32(i64 noundef %33, ptr noundef nonnull @spdy_dictionary, i32 noundef 1423) #7
   store i64 %35, ptr %34, align 8
   br label %36
@@ -438,7 +438,7 @@ define internal i32 @dissect_spdy_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 get_or_create_spdy_conversation_data.exit:        ; preds = %4, %36
   %.0.i = phi ptr [ %10, %4 ], [ %13, %36 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @col_set_str(ptr noundef %39, i32 noundef 34, ptr noundef nonnull @.str.75) #7
   %40 = load i32, ptr @proto_spdy, align 4
@@ -449,7 +449,7 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %36
   %45 = load i32, ptr @hf_spdy_control_bit, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
   %.not = icmp sgt i8 %44, -1
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br i1 %.not, label %61, label %48
 
 48:                                               ; preds = %get_or_create_spdy_conversation_data.exit
@@ -461,7 +461,7 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %36
   %53 = load i32, ptr @hf_spdy_type, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #7
   %55 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
-  %56 = getelementptr inbounds i8, ptr %7, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 %55, ptr %56, align 2
   %57 = icmp ugt i16 %55, 10
   br i1 %57, label %58, label %67
@@ -472,7 +472,7 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %36
   br label %551
 
 61:                                               ; preds = %get_or_create_spdy_conversation_data.exit
-  %62 = getelementptr inbounds i8, ptr %7, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 0, ptr %62, align 2
   store i16 0, ptr %47, align 4
   %63 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
@@ -492,7 +492,7 @@ get_or_create_spdy_conversation_data.exit:        ; preds = %4, %36
   tail call void @col_append_sep_str(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %71) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.128, ptr noundef %71) #7
   %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
-  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %73, ptr %74, align 4
   %.not101 = icmp eq ptr %43, null
   br i1 %.not101, label %dissect_spdy_flags.exit, label %75
@@ -553,7 +553,7 @@ dissect_spdy_flags.exit.sink.split:               ; preds = %90, %86
 
 dissect_spdy_flags.exit:                          ; preds = %dissect_spdy_flags.exit.sink.split, %85, %75, %86, %90, %67
   %93 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 5) #7
-  %94 = getelementptr inbounds i8, ptr %7, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %93, ptr %94, align 4
   %95 = add i32 %93, 8
   tail call void @proto_item_set_len(ptr noundef %41, i32 noundef %95) #7
@@ -588,7 +588,7 @@ spdy_get_stream_info.exit.i.i:                    ; preds = %104
   br i1 %110, label %spdy_get_num_data_frames.exit.i, label %111
 
 111:                                              ; preds = %spdy_get_stream_info.exit.i.i
-  %112 = getelementptr inbounds i8, ptr %109, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %113 = load i32, ptr %112, align 8
   br label %spdy_get_num_data_frames.exit.i
 
@@ -608,9 +608,9 @@ spdy_get_num_data_frames.exit.i:                  ; preds = %111, %spdy_get_stre
   %121 = and i8 %73, 1
   %122 = icmp ne i8 %121, 0
   %123 = select i1 %120, i1 %122, i1 false
-  %124 = getelementptr inbounds i8, ptr %1, i64 80
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 50
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 50
   %127 = load i16, ptr %126, align 2
   %128 = and i16 %127, 8
   %129 = icmp ne i16 %128, 0
@@ -626,7 +626,7 @@ spdy_get_num_data_frames.exit.i:                  ; preds = %111, %spdy_get_stre
   %133 = tail call ptr @wmem_file_scope() #7
   %134 = zext i32 %93 to i64
   %135 = tail call ptr @tvb_memdup(ptr noundef %133, ptr noundef %119, i32 noundef 0, i64 noundef %134) #7
-  %136 = getelementptr inbounds i8, ptr %1, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %137 = load i32, ptr %136, align 4
   %.val153.i = load ptr, ptr %107, align 8
   %138 = icmp eq ptr %.val153.i, null
@@ -641,14 +641,14 @@ spdy_get_stream_info.exit.i156.i:                 ; preds = %132
   %141 = tail call ptr @wmem_file_scope() #7
   %142 = tail call noalias ptr @wmem_alloc(ptr noundef %141, i64 noundef 16) #7
   store ptr %135, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 %93, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %142, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i32 %137, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %139, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %146 = load ptr, ptr %145, align 8
   tail call void @wmem_list_append(ptr noundef %146, ptr noundef nonnull %142) #7
-  %147 = getelementptr inbounds i8, ptr %139, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %148 = load i32, ptr %147, align 8
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 8
@@ -665,7 +665,7 @@ spdy_get_stream_info.exit.i157.i:                 ; preds = %150
   br i1 %.not.i158.i, label %spdy_add_data_chunk.exit.i, label %153
 
 153:                                              ; preds = %spdy_get_stream_info.exit.i157.i
-  %154 = getelementptr inbounds i8, ptr %152, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %155 = load i32, ptr %154, align 8
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 8
@@ -700,13 +700,13 @@ spdy_get_stream_info.exit.i159.i:                 ; preds = %161
   br i1 %164, label %dissect_spdy_data_payload.exit, label %165
 
 165:                                              ; preds = %spdy_get_stream_info.exit.i159.i
-  %166 = getelementptr inbounds i8, ptr %163, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 40
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %169, label %spdy_assemble_data_frames.exit.thread.i
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %163, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 @wmem_list_count(ptr noundef %171) #7
   %173 = icmp eq i32 %172, 0
@@ -722,7 +722,7 @@ spdy_get_stream_info.exit.i159.i:                 ; preds = %161
   %.04.i.i = phi ptr [ %181, %.lr.ph.i.i ], [ %176, %174 ]
   %.0333.i.i = phi i32 [ %180, %.lr.ph.i.i ], [ 0, %174 ]
   %177 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.04.i.i) #7
-  %178 = getelementptr inbounds i8, ptr %177, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = add i32 %179, %.0333.i.i
   %181 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.04.i.i) #7
@@ -750,7 +750,7 @@ spdy_get_stream_info.exit.i159.i:                 ; preds = %161
   %190 = zext i32 %.0326.i.i to i64
   %191 = getelementptr i8, ptr %185, i64 %190
   %192 = load ptr, ptr %189, align 8
-  %193 = getelementptr inbounds i8, ptr %189, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %194 = load i32, ptr %193, align 8
   %195 = zext i32 %194 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %191, ptr align 1 %192, i64 %195, i1 false)
@@ -789,7 +789,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
 
 206:                                              ; preds = %205, %203
   %.0130.i = phi ptr [ %199, %205 ], [ %.0124.i, %203 ]
-  %207 = getelementptr inbounds i8, ptr %163, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %208 = load ptr, ptr %207, align 8
   %.not142.i = icmp eq ptr %208, null
   br i1 %.not142.i, label %262, label %209
@@ -829,15 +829,15 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   %227 = load ptr, ptr %207, align 8
   %228 = tail call i32 @tvb_reported_length(ptr noundef nonnull %.0130.i) #7
   %229 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %43, ptr noundef nonnull %.0130.i, i32 noundef 0, i32 noundef %225, i32 noundef %226, ptr noundef nonnull %6, ptr noundef nonnull @.str.142, ptr noundef %227, i32 noundef %228) #7
-  %230 = getelementptr inbounds i8, ptr %163, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %163, i64 48
   %231 = load i32, ptr %230, align 8
   %232 = icmp ugt i32 %231, 1
   br i1 %232, label %233, label %252
 
 233:                                              ; preds = %224
-  %234 = getelementptr inbounds i8, ptr %163, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 408
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %237 = load ptr, ptr %236, align 8
   %238 = call noalias ptr @wmem_strbuf_new(ptr noundef %237, ptr noundef nonnull @.str.143) #7
   %239 = call ptr @wmem_list_head(ptr noundef %235) #7
@@ -849,7 +849,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   %.012018.i = phi i32 [ %.1121.i, %246 ], [ 0, %233 ]
   %.012317.i = phi ptr [ %247, %246 ], [ %240, %233 ]
   %241 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.012317.i) #7
-  %242 = getelementptr inbounds i8, ptr %241, i64 12
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 12
   %243 = load i32, ptr %242, align 4
   %.not152.i = icmp eq i32 %.012018.i, %243
   br i1 %.not152.i, label %246, label %244
@@ -904,7 +904,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   br i1 %.not148.i, label %.thread.i103, label %264
 
 264:                                              ; preds = %262
-  %265 = getelementptr inbounds i8, ptr %1, i64 292
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %266 = load i32, ptr %265, align 4
   %267 = call ptr @dissector_get_uint_handle(ptr noundef nonnull %263, i32 noundef %266) #7
   %268 = icmp eq ptr %267, null
@@ -913,14 +913,14 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
 .thread11.i:                                      ; preds = %264
   %269 = load i32, ptr %163, align 8
   store i32 %269, ptr %5, align 8
-  %270 = getelementptr inbounds i8, ptr %5, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %5, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %271, align 8
   br label %296
 
 .thread.i103:                                     ; preds = %264, %262
-  %272 = getelementptr inbounds i8, ptr %163, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %273 = load ptr, ptr %272, align 8
   %274 = icmp ne ptr %273, null
   %275 = load ptr, ptr @media_type_subdissector_table, align 8
@@ -931,20 +931,20 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
 .thread7.i:                                       ; preds = %.thread.i103
   %277 = load i32, ptr %163, align 8
   store i32 %277, ptr %5, align 8
-  %278 = getelementptr inbounds i8, ptr %5, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %5, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %279, align 8
   br label %.critedge.i
 
 280:                                              ; preds = %.thread.i103
-  %281 = getelementptr inbounds i8, ptr %163, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %282 = load ptr, ptr %281, align 8
   %.not149.i = icmp eq ptr %282, null
   br i1 %.not149.i, label %287, label %283
 
 283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %1, i64 408
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %285 = load ptr, ptr %284, align 8
   %286 = call noalias ptr @wmem_strdup(ptr noundef %285, ptr noundef nonnull %282) #7
   %.pre.i = load ptr, ptr %272, align 8
@@ -955,15 +955,15 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   %288 = phi ptr [ %.pre19.i, %283 ], [ %275, %280 ]
   %289 = phi ptr [ %.pre.i, %283 ], [ %273, %280 ]
   %.1127.i = phi ptr [ %286, %283 ], [ null, %280 ]
-  %290 = getelementptr inbounds i8, ptr %1, i64 296
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr %289, ptr %290, align 8
   %291 = load ptr, ptr %272, align 8
   %292 = call ptr @dissector_get_string_handle(ptr noundef %288, ptr noundef %291) #7
   %293 = load i32, ptr %163, align 8
   store i32 %293, ptr %5, align 8
-  %294 = getelementptr inbounds i8, ptr %5, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.1127.i, ptr %294, align 8
-  %295 = getelementptr inbounds i8, ptr %5, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %295, align 8
   %.not150.i = icmp eq ptr %292, null
   br i1 %.not150.i, label %.critedge.i, label %296
@@ -975,7 +975,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   br i1 %298, label %.critedge.i, label %304
 
 .critedge.i:                                      ; preds = %296, %287, %.thread7.i
-  %299 = getelementptr inbounds i8, ptr %163, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %300 = load ptr, ptr %299, align 8
   %.not151.i = icmp eq ptr %300, null
   br i1 %.not151.i, label %304, label %301
@@ -1102,7 +1102,7 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   br i1 %356, label %357, label %361
 
 357:                                              ; preds = %.lr.ph.i.i107
-  %358 = getelementptr inbounds i8, ptr %354, i64 20
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 20
   %359 = load i16, ptr %358, align 4
   %360 = icmp eq i16 %359, %69
   br i1 %360, label %.loopexit343.i, label %361
@@ -1118,7 +1118,7 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   br i1 %364, label %365, label %367
 
 365:                                              ; preds = %.loopexit210.i
-  %366 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   br label %373
 
 367:                                              ; preds = %.loopexit210.i
@@ -1129,11 +1129,11 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
   ]
 
 368:                                              ; preds = %367
-  %369 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   br label %373
 
 370:                                              ; preds = %367
-  %371 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   br label %373
 
 372:                                              ; preds = %367
@@ -1143,25 +1143,25 @@ dissect_spdy_stream_id_field.exit.i:              ; preds = %320, %312
 373:                                              ; preds = %370, %368, %367, %365
   %.0178.in.i = phi ptr [ %366, %365 ], [ %369, %368 ], [ %371, %370 ], [ %.0.i, %367 ]
   %.0178.i = load ptr, ptr %.0178.in.i, align 8
-  %374 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %375 = load i64, ptr %374, align 8
   %376 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 12, 19) %.0166.i115, i32 noundef %338) #7
-  %377 = getelementptr inbounds i8, ptr %1, i64 408
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %378 = load ptr, ptr %377, align 8
   %379 = tail call noalias ptr @wmem_alloc(ptr noundef %378, i64 noundef 16384) #7
   store ptr %376, ptr %.0178.i, align 8
-  %380 = getelementptr inbounds i8, ptr %.0178.i, i64 8
+  %380 = getelementptr inbounds nuw i8, ptr %.0178.i, i64 8
   store i32 %338, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %.0178.i, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %.0178.i, i64 24
   store ptr %379, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %.0178.i, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %.0178.i, i64 32
   store i32 16384, ptr %382, align 8
   %383 = tail call i32 @inflate(ptr noundef nonnull %.0178.i, i32 noundef 2) #7
   %384 = icmp eq i32 %383, 2
   br i1 %384, label %385, label %394
 
 385:                                              ; preds = %373
-  %386 = getelementptr inbounds i8, ptr %.0178.i, i64 96
+  %386 = getelementptr inbounds nuw i8, ptr %.0178.i, i64 96
   %387 = load i64, ptr %386, align 8
   %388 = icmp eq i64 %387, %375
   br i1 %388, label %389, label %spdy_decompress_header_block.exit.thread.i
@@ -1209,11 +1209,11 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
   %408 = tail call ptr @wmem_file_scope() #7
   %409 = tail call noalias ptr @wmem_alloc(ptr noundef %408, i64 noundef 24) #7
   store i32 %314, ptr %409, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store ptr %399, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %409, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %409, i64 16
   store i32 %396, ptr %411, align 8
-  %412 = getelementptr inbounds i8, ptr %409, i64 20
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 20
   store i16 %69, ptr %412, align 4
   %413 = load ptr, ptr @header_info_list, align 8
   tail call void @wmem_list_append(ptr noundef %413, ptr noundef nonnull %409) #7
@@ -1221,9 +1221,9 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
 
 .loopexit343.i:                                   ; preds = %357, %spdy_save_header_block.exit.i
   %.0179.i = phi ptr [ %409, %spdy_save_header_block.exit.i ], [ %354, %357 ]
-  %414 = getelementptr inbounds i8, ptr %.0179.i, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %.0179.i, i64 8
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds i8, ptr %.0179.i, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %.0179.i, i64 16
   %417 = load i32, ptr %416, align 8
   %418 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %415, i32 noundef %417, i32 noundef %417) #7
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %418, ptr noundef nonnull @.str.152) #7
@@ -1241,7 +1241,7 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
   br i1 %.not196259.i, label %dissect_spdy_header_payload.exit, label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %421
-  %425 = getelementptr inbounds i8, ptr %1, i64 408
+  %425 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %426
 
 426:                                              ; preds = %490, %.lr.ph.i112
@@ -1398,9 +1398,9 @@ spdy_save_header_block.exit.i:                    ; preds = %405, %402
   br i1 %.not199.i, label %dissect_spdy_header_payload.exit, label %497
 
 497:                                              ; preds = %496
-  %498 = getelementptr inbounds i8, ptr %1, i64 80
+  %498 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %499, i64 50
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 50
   %501 = load i16, ptr %500, align 2
   %502 = and i16 %501, 8
   %.not200.i = icmp eq i16 %502, 0
@@ -1469,7 +1469,7 @@ spdy_parse_content_type.exit.i:                   ; preds = %.loopexit.i.i, %523
   %.018.i.i = phi ptr [ null, %.loopexit.i.i ], [ %.1.i.i, %523 ]
   %524 = icmp ne ptr %.0182246337.i, null
   %525 = zext i1 %524 to i32
-  %526 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %526 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %527 = load ptr, ptr %526, align 8
   %528 = icmp eq ptr %527, null
   br i1 %528, label %529, label %spdy_save_stream_info.exit.i
@@ -1484,19 +1484,19 @@ spdy_save_stream_info.exit.i:                     ; preds = %529, %spdy_parse_co
   %532 = tail call ptr @wmem_file_scope() #7
   %533 = tail call noalias ptr @wmem_alloc(ptr noundef %532, i64 noundef 56) #7
   store i32 %525, ptr %533, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   store ptr %.0188256.i, ptr %534, align 8
-  %535 = getelementptr inbounds i8, ptr %533, i64 16
+  %535 = getelementptr inbounds nuw i8, ptr %533, i64 16
   store ptr %.018.i.i, ptr %535, align 8
-  %536 = getelementptr inbounds i8, ptr %533, i64 24
+  %536 = getelementptr inbounds nuw i8, ptr %533, i64 24
   store ptr %.0186251.i, ptr %536, align 8
   %537 = tail call ptr @wmem_file_scope() #7
   %538 = tail call noalias ptr @wmem_list_new(ptr noundef %537) #7
-  %539 = getelementptr inbounds i8, ptr %533, i64 32
+  %539 = getelementptr inbounds nuw i8, ptr %533, i64 32
   store ptr %538, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %533, i64 48
+  %540 = getelementptr inbounds nuw i8, ptr %533, i64 48
   store i32 0, ptr %540, align 8
-  %541 = getelementptr inbounds i8, ptr %533, i64 40
+  %541 = getelementptr inbounds nuw i8, ptr %533, i64 40
   store ptr null, ptr %541, align 8
   %542 = load ptr, ptr %526, align 8
   tail call void @wmem_tree_insert32(ptr noundef %542, i32 noundef range(i32 0, -2147483648) %314, ptr noundef nonnull %533) #7
@@ -1601,7 +1601,7 @@ dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 4
   br i1 %7, label %8, label %10

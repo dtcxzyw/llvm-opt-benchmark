@@ -15,7 +15,7 @@ $_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_defa
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11gmx_ga2la_tC2Eii(ptr noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = icmp slt i32 %1, 1025
   %6 = mul nsw i32 %2, 9
   %7 = icmp sle i32 %1, %6
@@ -39,17 +39,17 @@ _ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; p
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i, label %.noexc8
 
 _ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.loopexit
 
 .noexc8:                                          ; preds = %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %14 = shl nuw nsw i64 %11, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #9
   store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %15, i64 %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %15, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 -1, i64 %14, i1 false)
   br label %.loopexit
@@ -95,8 +95,8 @@ _ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i: ; pred
   br label %.body
 
 _ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit: ; preds = %.critedge.i.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = add nsw i32 %.0.lcssa.i.i, -1
   store i32 %36, ptr %35, align 8
   store i32 %.0.lcssa.i.i, ptr %34, align 4
@@ -129,14 +129,14 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9ha
   br i1 %.not, label %40, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -152,13 +152,13 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9ha
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.08.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i ], [ %1, %3 ]
-  %19 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 4
   store i64 0, ptr %19, align 4
   store i32 -1, ptr %.08.i.i.i, align 4
-  %20 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 12
   store i32 -1, ptr %20, align 4
   %21 = add i64 %.057.i.i.i, -1
-  %22 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 16
   %.not.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryEmS5_ET_S7_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -186,13 +186,13 @@ _ZNKSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE12_M_chec
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.08.i.i.i31 = phi ptr [ %34, %.lr.ph.i.i.i30 ], [ %30, %_ZNKSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i32 = phi i64 [ %33, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %31 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 4
   store i64 0, ptr %31, align 4
   store i32 -1, ptr %.08.i.i.i31, align 4
-  %32 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 12
   store i32 -1, ptr %32, align 4
   %33 = add i64 %.057.i.i.i32, -1
-  %34 = getelementptr inbounds i8, ptr %.08.i.i.i31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 16
   %.not.i.i.i33 = icmp eq i64 %33, 0
   br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryEmS5_ET_S7_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !7
 
@@ -204,8 +204,8 @@ _ZSt27__uninitialized_default_n_aIPN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEn
   %.012.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i37 ], [ %29, %_ZSt27__uninitialized_default_n_aIPN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryEmS5_ET_S7_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryEmS5_ET_S7_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !8
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i38 = icmp eq ptr %35, %5
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i37, !llvm.loop !12
 
@@ -221,7 +221,7 @@ _ZNSt12_Vector_baseIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE13_
   store ptr %29, ptr %0, align 8
   %38 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %30, i64 %1
   store ptr %38, ptr %4, align 8
-  %39 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %29, i64 %27
+  %39 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %29, i64 %27
   store ptr %39, ptr %11, align 8
   br label %40
 

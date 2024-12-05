@@ -194,8 +194,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @recover_top_level(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 51
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 51
   br label %4
 
 4:                                                ; preds = %9, %1
@@ -272,7 +272,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 76, label %8
@@ -280,7 +280,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %10, ptr noundef nonnull @.str) #8
   br label %253
@@ -291,7 +291,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %16, ptr noundef nonnull @.str.1) #8
   br label %253
@@ -299,7 +299,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
 17:                                               ; preds = %11
   %.off = add i32 %7, -64
   %switch = icmp ult i32 %.off, 3
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i64, ptr %18, align 8
   br i1 %switch, label %20, label %21
 
@@ -318,9 +318,9 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
 
 24:                                               ; preds = %22
   %25 = tail call ptr @calloc_arena(i64 noundef 24) #8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 8, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @.str.4, ptr %27, align 8
   store i64 0, ptr %25, align 8
   %28 = tail call zeroext i1 @context_set_module(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef null) #8
@@ -336,7 +336,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   br i1 %32, label %parse_optional_module_params.exit.thread.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %34
 
 34:                                               ; preds = %61, %.preheader.i
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
 
 38:                                               ; preds = %37
   %39 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 8, ptr %40, align 4
   br label %43
 
@@ -378,13 +378,13 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %49 = shl i32 %44, 1
   %50 = zext i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 3
   %52 = or disjoint i64 %51, 8
   %53 = tail call ptr @calloc_arena(i64 noundef %52) #8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %49, ptr %54, align 4
   %55 = load i32, ptr %48, align 4
   %56 = zext i32 %55 to i64
@@ -402,10 +402,10 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   %.1.i.i = phi ptr [ %53, %47 ], [ %.0.i.i, %43 ]
   %63 = add i32 %62, 1
   store i32 %63, ptr %.1.i.i, align 4
-  %64 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %65 = load ptr, ptr %33, align 8
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %66
   store ptr %65, ptr %67, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
@@ -423,7 +423,7 @@ parse_optional_module_params.exit.thread.sink.split.loopexit246: ; preds = %34
 
 parse_optional_module_params.exit.thread.sink.split: ; preds = %34, %34, %parse_optional_module_params.exit.thread.sink.split.loopexit246, %parse_optional_module_params.exit.thread.sink.split.loopexit, %31, %36
   %.str.71.sink = phi ptr [ @.str.74, %36 ], [ @.str.70, %31 ], [ @.str.71, %parse_optional_module_params.exit.thread.sink.split.loopexit ], [ @.str.72, %parse_optional_module_params.exit.thread.sink.split.loopexit246 ], [ @.str.73, %34 ], [ @.str.73, %34 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i64, ptr %70, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %71, ptr noundef nonnull %.str.71.sink) #8
   br label %parse_optional_module_params.exit.thread
@@ -440,7 +440,7 @@ parse_optional_module_params.exit.thread:         ; preds = %parse_optional_modu
 74:                                               ; preds = %73
   %75 = load ptr, ptr @ast_arena, align 8
   %76 = zext i32 %1 to i64
-  %77 = getelementptr inbounds %struct.Ast_, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw %struct.Ast_, ptr %75, i64 %76
   %78 = load i64, ptr %77, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %78, ptr noundef nonnull @.str.5) #8
   br label %253
@@ -455,10 +455,10 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   br i1 %.not138, label %.loopexit, label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %86 = load i32, ptr %85, align 4
   %.not139 = icmp eq i32 %86, 0
   br i1 %.not139, label %93, label %87
@@ -470,7 +470,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
 89:                                               ; preds = %89, %87
   %.pn.in = phi i32 [ %86, %87 ], [ %91, %89 ]
   %.pn = zext i32 %.pn.in to i64
-  %90 = getelementptr inbounds %struct.Ast_, ptr %88, i64 %.pn, i32 1
+  %90 = getelementptr inbounds nuw %struct.Ast_, ptr %88, i64 %.pn, i32 1
   %91 = load i32, ptr %90, align 8
   %.not140 = icmp eq i32 %91, 0
   br i1 %.not140, label %92, label %89, !llvm.loop !9
@@ -494,10 +494,10 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
 
 97:                                               ; preds = %96
   %98 = zext i32 %.0126 to i64
-  %99 = getelementptr inbounds %struct.Ast_, ptr %95, i64 %98
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %99 = getelementptr inbounds nuw %struct.Ast_, ptr %95, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %103 = load i8, ptr %102, align 8
   %104 = and i8 %103, 15
   %cond = icmp eq i8 %104, 2
@@ -526,22 +526,22 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   br i1 %.not182, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %0, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count = zext i32 %112 to i64
   br label %114
 
 114:                                              ; preds = %.lr.ph, %242
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %242 ]
-  %115 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load i16, ptr %117, align 8
   %119 = and i16 %118, 256
   %.not143 = icmp eq i16 %119, 0
   br i1 %.not143, label %123, label %120
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %116, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %122 = load i64, ptr %121, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %122, ptr noundef nonnull @.str.7) #8
   br label %253
@@ -558,7 +558,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   ]
 
 124:                                              ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %116, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not150 = icmp eq ptr %126, null
   br i1 %.not150, label %.critedge153, label %127
@@ -570,21 +570,21 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   br i1 %130, label %.critedge153, label %133
 
 .critedge153:                                     ; preds = %124, %127
-  %131 = getelementptr inbounds i8, ptr %116, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %132 = load i64, ptr %131, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %132, ptr noundef nonnull @.str.8) #8
   br label %253
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %113, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 104
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 104
   %136 = load ptr, ptr %135, align 8
   %.not.i = icmp eq ptr %136, null
   br i1 %.not.i, label %137, label %140
 
 137:                                              ; preds = %133
   %138 = call ptr @calloc_arena(i64 noundef 72) #8
-  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 8, ptr %139, align 4
   br label %142
 
@@ -602,13 +602,13 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
   br i1 %145, label %146, label %expand_.exit
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %148 = shl i32 %143, 1
   %149 = zext i32 %148 to i64
   %150 = shl nuw nsw i64 %149, 3
   %151 = or disjoint i64 %150, 8
   %152 = call ptr @calloc_arena(i64 noundef %151) #8
-  %153 = getelementptr inbounds i8, ptr %152, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 %148, ptr %153, align 4
   %154 = load i32, ptr %147, align 4
   %155 = zext i32 %154 to i64
@@ -626,12 +626,12 @@ expand_.exit:                                     ; preds = %142, %146
   %.1.i = phi ptr [ %152, %146 ], [ %.0.i, %142 ]
   %161 = add i32 %160, 1
   store i32 %161, ptr %.1.i, align 4
-  %162 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %163 = load ptr, ptr %113, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 104
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 104
   store ptr %162, ptr %164, align 8
   %165 = load ptr, ptr %113, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 104
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 104
   %167 = load ptr, ptr %166, align 8
   %.not151 = icmp eq ptr %167, null
   br i1 %.not151, label %173, label %168
@@ -645,19 +645,19 @@ expand_.exit:                                     ; preds = %142, %146
 
 173:                                              ; preds = %expand_.exit, %168
   %.0119 = phi i64 [ %172, %168 ], [ 4294967295, %expand_.exit ]
-  %174 = getelementptr inbounds ptr, ptr %167, i64 %.0119
+  %174 = getelementptr inbounds nuw ptr, ptr %167, i64 %.0119
   store ptr %116, ptr %174, align 8
   br label %242
 
 175:                                              ; preds = %123
   %176 = load ptr, ptr %113, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 88
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 88
   %178 = load ptr, ptr %177, align 8
   %.not149 = icmp eq ptr %178, null
   br i1 %.not149, label %182, label %179
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %116, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %181 = load i64, ptr %180, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %181, ptr noundef nonnull @.str.9) #8
   br label %253
@@ -668,37 +668,37 @@ expand_.exit:                                     ; preds = %142, %146
 
 183:                                              ; preds = %123
   %184 = load ptr, ptr %113, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 98
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 98
   store i8 1, ptr %185, align 2
   br label %242
 
 186:                                              ; preds = %123
   %187 = load ptr, ptr %113, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 99
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 99
   store i8 1, ptr %188, align 1
   br label %242
 
 189:                                              ; preds = %123
-  %190 = getelementptr inbounds i8, ptr %116, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %191 = load ptr, ptr %190, align 8
   %.not148 = icmp eq ptr %191, null
   br i1 %.not148, label %195, label %192
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %116, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %194 = load i64, ptr %193, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %194, ptr noundef nonnull @.str.10) #8
   br label %253
 
 195:                                              ; preds = %189
   %196 = load ptr, ptr %113, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 96
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 96
   %198 = load i8, ptr %197, align 8
   %199 = trunc i8 %198 to i1
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %195
-  %201 = getelementptr inbounds i8, ptr %116, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %202 = load i64, ptr %201, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %202, ptr noundef nonnull @.str.11) #8
   br label %253
@@ -708,7 +708,7 @@ expand_.exit:                                     ; preds = %142, %146
   br label %242
 
 204:                                              ; preds = %123
-  %205 = getelementptr inbounds i8, ptr %116, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %206 = load ptr, ptr %205, align 8
   %.not144 = icmp eq ptr %206, null
   br i1 %.not144, label %.critedge155.thread, label %207
@@ -721,28 +721,28 @@ expand_.exit:                                     ; preds = %142, %146
 
 .critedge155.thread:                              ; preds = %204, %207
   %.0122 = phi i32 [ %209, %207 ], [ 0, %204 ]
-  %211 = getelementptr inbounds i8, ptr %116, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %212 = load i64, ptr %211, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %212, ptr noundef nonnull @.str.12, i32 noundef %.0122) #8
   br label %253
 
 213:                                              ; preds = %207
   %214 = load ptr, ptr %206, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load i16, ptr %215, align 8
   %217 = and i16 %216, 255
   %218 = icmp eq i16 %217, 14
   br i1 %218, label %219, label %.critedge
 
 219:                                              ; preds = %213
-  %220 = getelementptr inbounds i8, ptr %214, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %221 = load i16, ptr %220, align 8
   %222 = and i16 %221, 255
   %223 = icmp eq i16 %222, 6
   br i1 %223, label %226, label %.critedge
 
 .critedge:                                        ; preds = %213, %219
-  %224 = getelementptr inbounds i8, ptr %214, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %225 = load i64, ptr %224, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %225, ptr noundef nonnull @.str.13) #8
   br label %253
@@ -750,26 +750,26 @@ expand_.exit:                                     ; preds = %142, %146
 226:                                              ; preds = %219
   %227 = load ptr, ptr %113, align 8
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = load ptr, ptr %229, align 8
   %.not146 = icmp eq ptr %230, null
   br i1 %.not146, label %234, label %231
 
 231:                                              ; preds = %226
-  %232 = getelementptr inbounds i8, ptr %116, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %233 = load i64, ptr %232, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %233, ptr noundef nonnull @.str.14) #8
   br label %253
 
 234:                                              ; preds = %226
-  %235 = getelementptr inbounds i8, ptr %214, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %236 = load ptr, ptr %235, align 8
   store ptr %236, ptr %229, align 8
   br label %242
 
 237:                                              ; preds = %123
-  %238 = getelementptr inbounds i8, ptr %116, i64 16
-  %239 = getelementptr inbounds i8, ptr %116, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %240 = load ptr, ptr %239, align 8
   %241 = load i64, ptr %238, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %241, ptr noundef nonnull @.str.15, ptr noundef %240) #8
@@ -782,16 +782,16 @@ expand_.exit:                                     ; preds = %142, %146
 
 ._crit_edge:                                      ; preds = %242, %108, %110
   %243 = load i32, ptr %3, align 4
-  %244 = getelementptr inbounds i8, ptr %0, i64 64
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 80
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 80
   store i32 %243, ptr %246, align 8
   %247 = load i32, ptr %6, align 8
   %248 = icmp eq i32 %247, 9
   br i1 %248, label %252, label %249
 
 249:                                              ; preds = %._crit_edge
-  %250 = getelementptr inbounds i8, ptr %0, i64 56
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %251 = load i64, ptr %250, align 8
   call void (i64, ptr, ...) @sema_error_at_after(i64 %251, ptr noundef nonnull @.str.16) #8
   br label %253
@@ -810,15 +810,15 @@ declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_module_path(ptr noundef %0) unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.01.0.copyload = load i64, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #8
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -82
   %9 = icmp ult i32 %8, 63
@@ -850,7 +850,7 @@ define internal fastcc ptr @parse_module_path(ptr noundef %0) unnamed_addr #0 {
   br i1 %17, label %34, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %19, align 8
   %.not.unshifted.i = xor i64 %20, %.sroa.01.0.copyload
   %.not.i = icmp ult i64 %.not.unshifted.i, 4294967296
@@ -929,7 +929,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %.not49, label %.loopexit, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 256
   %.not50 = icmp eq i16 %15, 0
@@ -949,8 +949,8 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
-  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %19, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.31, ptr noundef %21) #8
@@ -964,7 +964,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %.not54, label %25, label %28
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %27 = load i64, ptr %26, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.32) #8
   br label %.loopexit
@@ -988,8 +988,8 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %.not52, label %30, label %35
 
 30:                                               ; preds = %.loopexit67
-  %31 = getelementptr inbounds i8, ptr %11, i64 16
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %31, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.31, ptr noundef %33) #8
@@ -999,7 +999,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %.039.ph81, label %.outer, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = load i64, ptr %37, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %38, ptr noundef nonnull @.str.33) #8
   br label %.loopexit
@@ -1010,7 +1010,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %39, label %.lr.ph77, label %.loopexit
 
 40:                                               ; preds = %23, %16, %12
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %1, align 8
   %.not55 = icmp eq ptr %43, null
@@ -1033,22 +1033,22 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %42
   br i1 %52, label %53, label %47
 
 53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds i8, ptr %11, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %55 = load i64, ptr %54, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %55, ptr noundef nonnull @.str.34, ptr noundef %42) #8
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %40
   %56 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 8, ptr %57, align 4
   br label %59
 
@@ -1066,13 +1066,13 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br i1 %62, label %63, label %77
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %65 = shl i32 %60, 1
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = or disjoint i64 %67, 8
   %69 = tail call ptr @calloc_arena(i64 noundef %68) #8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 %65, ptr %70, align 4
   %71 = load i32, ptr %64, align 4
   %72 = zext i32 %71 to i64
@@ -1090,13 +1090,13 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   %.1.i = phi ptr [ %69, %63 ], [ %.0.i, %59 ]
   %79 = add i32 %78, 1
   store i32 %79, ptr %.1.i, align 4
-  %80 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %80, ptr %1, align 8
   %81 = load ptr, ptr %6, align 8
   %82 = load i32, ptr %.1.i, align 4
   %83 = add i32 %82, -1
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %80, i64 %84
+  %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %84
   store ptr %81, ptr %85, align 8
   br label %.backedge
 
@@ -1109,7 +1109,7 @@ declare void @sema_error_at_after(i64, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @consume_const_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
     i32 64, label %8
@@ -1122,7 +1122,7 @@ define dso_local zeroext i1 @consume_const_name(ptr noundef %0, ptr noundef %1) 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2, %2, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %10, ptr noundef nonnull @.str.17, ptr noundef %1) #8
   br label %13
@@ -1142,23 +1142,23 @@ declare zeroext i1 @consume(ptr noundef, i32 noundef, ptr noundef, ...) local_un
 define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store ptr null, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 64
   br i1 %6, label %7, label %65
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 58
   br i1 %.not, label %10, label %65
 
 10:                                               ; preds = %7
   %11 = tail call ptr @calloc_arena(i64 noundef 24) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
   %17 = trunc i64 %16 to i32
@@ -1172,7 +1172,7 @@ define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nocap
   br i1 %20, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %8, align 8
   %23 = icmp eq i32 %22, 58
   br i1 %23, label %.lr.ph63, label %.critedge
@@ -1187,16 +1187,16 @@ define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nocap
   %.sroa.01.0.copyload2 = load i64, ptr %12, align 8
   %27 = add i32 %.0535662, 1
   %28 = zext i32 %.0535662 to i64
-  %29 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %28
   store i8 58, ptr %29, align 1
   %30 = add i32 %.0535662, 2
   %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %31
   store i8 58, ptr %32, align 1
   %33 = load i64, ptr %21, align 8
   %34 = trunc i64 %33 to i32
   %35 = zext i32 %30 to i64
-  %36 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %35
   %37 = load ptr, ptr %14, align 8
   %38 = and i64 %33, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %37, i64 %38, i1 false)
@@ -1248,7 +1248,7 @@ extend_span_with_token.exit:                      ; preds = %43, %44
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.061.i = phi i32 [ -2128831035, %.lr.ph.preheader.i ], [ %57, %.lr.ph.i ]
-  %53 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %indvars.iv.i
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %56 = xor i32 %.061.i, %55
@@ -1260,7 +1260,7 @@ extend_span_with_token.exit:                      ; preds = %43, %44
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %extend_span_with_token.exit
   %.06.lcssa.i = phi i32 [ -2128831035, %extend_span_with_token.exit ], [ %57, %.lr.ph.i ]
   %58 = call ptr @symtab_add(ptr noundef nonnull @scratch_buffer, i32 noundef %.053.lcssa, i32 noundef %.06.lcssa.i, ptr noundef nonnull %3) #8
-  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %58, ptr %59, align 8
   %60 = load i32, ptr %3, align 4
   %.not54 = icmp eq i32 %60, 64
@@ -1272,7 +1272,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %extend_s
   br label %65
 
 63:                                               ; preds = %fnv1a.exit
-  %64 = getelementptr inbounds i8, ptr %11, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %.053.lcssa, ptr %64, align 8
   store ptr %11, ptr %1, align 8
   br label %65
@@ -1289,9 +1289,9 @@ declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_type_with_base(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %parse_vector_type_index.exit
 
 parse_vector_type_index.exit:                     ; preds = %parse_vector_type_index.exit.backedge, %2
@@ -1316,16 +1316,16 @@ parse_vector_type_index.exit:                     ; preds = %parse_vector_type_i
 
 10:                                               ; preds = %.critedge
   tail call void @advance(ptr noundef nonnull %0) #8
-  %11 = getelementptr inbounds i8, ptr %.038, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %14 = load i16, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %12, ptr %15, align 8
   %16 = and i16 %14, -512
   %17 = or disjoint i16 %16, 64
   store i16 %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %.038, ptr %18, align 8
   %19 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 27) #8
   br i1 %19, label %20, label %30
@@ -1356,7 +1356,7 @@ parse_vector_type_index.exit:                     ; preds = %parse_vector_type_i
   br i1 %32, label %.critedge.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load i16, ptr %34, align 8
   %36 = and i16 %35, 255
   %.not.i = icmp eq i16 %36, 0
@@ -1367,7 +1367,7 @@ parse_vector_type_index.exit:                     ; preds = %parse_vector_type_i
   br label %parse_vector_type_index.exit.backedge
 
 .critedge.i:                                      ; preds = %33, %30
-  %39 = getelementptr inbounds i8, ptr %13, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %31, ptr %39, align 8
   %40 = load i32, ptr %3, align 8
   %41 = icmp eq i32 %40, 56
@@ -1434,16 +1434,16 @@ extend_span_with_token.exit.i:                    ; preds = %50, %49
 
 .critedge89.i:                                    ; preds = %61
   tail call void @advance(ptr noundef nonnull %0) #8
-  %68 = getelementptr inbounds i8, ptr %.038, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %71 = load i16, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i64 %69, ptr %72, align 8
   %73 = and i16 %71, -512
   %74 = or disjoint i16 %73, 72
   store i16 %74, ptr %70, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %.038, ptr %75, align 8
   %76 = load i64, ptr %4, align 8
   %.not.unshifted.i.i42 = xor i64 %76, %69
@@ -1485,7 +1485,7 @@ extend_span_with_token.exit.i45:                  ; preds = %78, %77
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.038, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = tail call zeroext i1 @type_is_valid_for_array(ptr noundef %95) #8
   br i1 %96, label %._crit_edge.i, label %123
@@ -1512,14 +1512,14 @@ switch.lookup:                                    ; preds = %97
   br i1 %92, label %105, label %109
 
 105:                                              ; preds = %switch.lookup
-  %106 = getelementptr inbounds i8, ptr %.038, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @type_get_subarray(ptr noundef %107) #8
   store ptr %108, ptr %106, align 8
   br label %109
 
 109:                                              ; preds = %105, %switch.lookup
-  %110 = getelementptr inbounds i8, ptr %.038, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %111 = load i64, ptr %110, align 8
   %112 = load i64, ptr %4, align 8
   %.not.unshifted.i92.i = xor i64 %112, %111
@@ -1551,18 +1551,18 @@ extend_span_with_token.exit100.i:                 ; preds = %114, %113
   br label %parse_vector_type_index.exit.backedge
 
 123:                                              ; preds = %97, %93
-  %124 = getelementptr inbounds i8, ptr %.038, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %125 = load i64, ptr %124, align 8
   %126 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %127 = load i16, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i64 %125, ptr %128, align 8
   %129 = and i16 %127, -512
   %130 = or disjoint i16 %129, 88
   store i16 %130, ptr %126, align 8
-  %131 = getelementptr inbounds i8, ptr %126, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store ptr %.038, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr null, ptr %132, align 8
   %133 = load i64, ptr %4, align 8
   %.not.unshifted.i101.i = xor i64 %133, %125
@@ -1594,23 +1594,23 @@ extend_span_with_token.exit109.i:                 ; preds = %135, %134
   br label %parse_vector_type_index.exit.backedge
 
 144:                                              ; preds = %87
-  %145 = getelementptr inbounds i8, ptr %.038, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %146 = load i64, ptr %145, align 8
   %147 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %148 = load i16, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %147, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store i64 %146, ptr %149, align 8
   %150 = and i16 %148, -512
   %151 = or disjoint i16 %150, 56
   store i16 %151, ptr %147, align 8
-  %152 = getelementptr inbounds i8, ptr %147, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %.038, ptr %152, align 8
   %153 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.critedge.i41, label %155
 
 155:                                              ; preds = %144
-  %156 = getelementptr inbounds i8, ptr %153, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %157 = load i16, ptr %156, align 8
   %158 = and i16 %157, 255
   %.not.i40 = icmp eq i16 %158, 0
@@ -1621,7 +1621,7 @@ extend_span_with_token.exit109.i:                 ; preds = %135, %134
   br label %parse_vector_type_index.exit.backedge
 
 .critedge.i41:                                    ; preds = %155, %144
-  %161 = getelementptr inbounds i8, ptr %147, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr %153, ptr %161, align 8
   %162 = load i32, ptr %3, align 8
   %163 = icmp eq i32 %162, 25
@@ -1677,7 +1677,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   br i1 %183, label %.critedge.i52, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %182, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %186 = load i16, ptr %185, align 8
   %187 = and i16 %186, 255
   %.not.i51 = icmp eq i16 %187, 0
@@ -1693,7 +1693,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
 
 190:                                              ; preds = %.critedge.i52
   %191 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %192 = getelementptr inbounds i8, ptr %191, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 8, ptr %192, align 4
   br label %195
 
@@ -1711,13 +1711,13 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   br i1 %198, label %199, label %213
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %201 = shl i32 %196, 1
   %202 = zext i32 %201 to i64
   %203 = shl nuw nsw i64 %202, 3
   %204 = or disjoint i64 %203, 8
   %205 = tail call ptr @calloc_arena(i64 noundef %204) #8
-  %206 = getelementptr inbounds i8, ptr %205, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   store i32 %201, ptr %206, align 4
   %207 = load i32, ptr %200, align 4
   %208 = zext i32 %207 to i64
@@ -1735,9 +1735,9 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   %.1.i.i = phi ptr [ %205, %199 ], [ %.0.i.i, %195 ]
   %215 = add i32 %214, 1
   store i32 %215, ptr %.1.i.i, align 4
-  %216 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %217 = zext i32 %214 to i64
-  %218 = getelementptr inbounds ptr, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw ptr, ptr %216, i64 %217
   store ptr %182, ptr %218, align 8
   %219 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %219, label %181, label %220, !llvm.loop !14
@@ -1756,17 +1756,17 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
 
 .critedge44.i:                                    ; preds = %220
   tail call void @advance(ptr noundef nonnull %0) #8
-  %227 = getelementptr inbounds i8, ptr %.038, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %228 = load i64, ptr %227, align 8
   %229 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %230 = load i16, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %229, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store i64 %228, ptr %231, align 8
   %232 = and i16 %230, -512
   %233 = or disjoint i16 %232, 104
   store i16 %233, ptr %229, align 8
-  %234 = getelementptr inbounds i8, ptr %229, i64 24
-  %235 = getelementptr inbounds i8, ptr %229, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %229, i64 32
   store ptr %216, ptr %235, align 8
   store ptr %.038, ptr %234, align 8
   br label %parse_vector_type_index.exit.backedge
@@ -1784,16 +1784,16 @@ parse_vector_type_index.exit.backedge:            ; preds = %.critedge44.i, %223
   br i1 %240, label %switch.lookup76, label %241
 
 241:                                              ; preds = %236
-  %242 = getelementptr inbounds i8, ptr %.038, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %243 = load i64, ptr %242, align 8
   %244 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %245 = load i16, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %244, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store i64 %243, ptr %246, align 8
   %247 = and i16 %245, -512
   %248 = or disjoint i16 %247, 96
   store i16 %248, ptr %244, align 8
-  %249 = getelementptr inbounds i8, ptr %244, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store ptr %.038, ptr %249, align 8
   %250 = load i64, ptr %4, align 8
   %.not.unshifted.i = xor i64 %250, %243
@@ -1837,14 +1837,14 @@ switch.lookup76:                                  ; preds = %236
   br i1 %265, label %266, label %270
 
 266:                                              ; preds = %switch.lookup76
-  %267 = getelementptr inbounds i8, ptr %.038, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %268 = load ptr, ptr %267, align 8
   %269 = tail call ptr @type_get_ptr(ptr noundef %268) #8
   store ptr %269, ptr %267, align 8
   br label %270
 
 270:                                              ; preds = %switch.lookup76, %266
-  %271 = getelementptr inbounds i8, ptr %.038, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %272 = load i64, ptr %271, align 8
   %273 = load i64, ptr %4, align 8
   %.not.unshifted.i55 = xor i64 %273, %272
@@ -1918,22 +1918,22 @@ define internal fastcc ptr @parse_base_type(ptr noundef %0) unnamed_addr #0 {
   br i1 %3, label %4, label %48
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %8 = load i16, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %6, ptr %9, align 8
   %10 = and i16 %8, -512
   %11 = or disjoint i16 %10, 48
   store i16 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 19
   br i1 %14, label %.critedge240, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %18 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %18, ptr noundef nonnull @.str.82, ptr noundef %17) #8
@@ -1947,7 +1947,7 @@ define internal fastcc ptr @parse_base_type(ptr noundef %0) unnamed_addr #0 {
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %.critedge240
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %.not238 = icmp eq i16 %25, 0
@@ -1958,14 +1958,14 @@ define internal fastcc ptr @parse_base_type(ptr noundef %0) unnamed_addr #0 {
   br label %271
 
 .critedge:                                        ; preds = %.critedge240, %22
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %20, ptr %28, align 8
   %29 = load i32, ptr %12, align 8
   %30 = icmp eq i32 %29, 26
   br i1 %30, label %.critedge242, label %31
 
 31:                                               ; preds = %.critedge
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = tail call ptr @token_type_to_string(i32 noundef 26) #8
   %34 = load i64, ptr %32, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.82, ptr noundef %33) #8
@@ -2009,22 +2009,22 @@ extend_span_with_token.exit:                      ; preds = %38, %39
   br i1 %49, label %50, label %94
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %54 = load i16, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 %52, ptr %55, align 8
   %56 = and i16 %54, -512
   %57 = or disjoint i16 %56, 24
   store i16 %57, ptr %53, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 19
   br i1 %60, label %.critedge244, label %61
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %64 = load i64, ptr %62, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %64, ptr noundef nonnull @.str.82, ptr noundef %63) #8
@@ -2038,7 +2038,7 @@ extend_span_with_token.exit:                      ; preds = %38, %39
   br i1 %67, label %.critedge2, label %68
 
 68:                                               ; preds = %.critedge244
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load i16, ptr %69, align 8
   %71 = and i16 %70, 255
   %.not237 = icmp eq i16 %71, 0
@@ -2049,14 +2049,14 @@ extend_span_with_token.exit:                      ; preds = %38, %39
   br label %271
 
 .critedge2:                                       ; preds = %.critedge244, %68
-  %74 = getelementptr inbounds i8, ptr %53, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %66, ptr %74, align 8
   %75 = load i32, ptr %58, align 8
   %76 = icmp eq i32 %75, 26
   br i1 %76, label %.critedge246, label %77
 
 77:                                               ; preds = %.critedge2
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = tail call ptr @token_type_to_string(i32 noundef 26) #8
   %80 = load i64, ptr %78, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %80, ptr noundef nonnull @.str.82, ptr noundef %79) #8
@@ -2100,22 +2100,22 @@ extend_span_with_token.exit263:                   ; preds = %84, %85
   br i1 %95, label %96, label %140
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %98 = load i64, ptr %97, align 8
   %99 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %100 = load i16, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 %98, ptr %101, align 8
   %102 = and i16 %100, -512
   %103 = or disjoint i16 %102, 32
   store i16 %103, ptr %99, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 19
   br i1 %106, label %.critedge248, label %107
 
 107:                                              ; preds = %96
-  %108 = getelementptr inbounds i8, ptr %0, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %110 = load i64, ptr %108, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %110, ptr noundef nonnull @.str.82, ptr noundef %109) #8
@@ -2129,7 +2129,7 @@ extend_span_with_token.exit263:                   ; preds = %84, %85
   br i1 %113, label %.critedge4, label %114
 
 114:                                              ; preds = %.critedge248
-  %115 = getelementptr inbounds i8, ptr %112, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %116 = load i16, ptr %115, align 8
   %117 = and i16 %116, 255
   %.not236 = icmp eq i16 %117, 0
@@ -2140,14 +2140,14 @@ extend_span_with_token.exit263:                   ; preds = %84, %85
   br label %271
 
 .critedge4:                                       ; preds = %.critedge248, %114
-  %120 = getelementptr inbounds i8, ptr %99, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store ptr %112, ptr %120, align 8
   %121 = load i32, ptr %104, align 8
   %122 = icmp eq i32 %121, 26
   br i1 %122, label %.critedge250, label %123
 
 123:                                              ; preds = %.critedge4
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %125 = tail call ptr @token_type_to_string(i32 noundef 26) #8
   %126 = load i64, ptr %124, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %126, ptr noundef nonnull @.str.82, ptr noundef %125) #8
@@ -2191,22 +2191,22 @@ extend_span_with_token.exit272:                   ; preds = %130, %131
   br i1 %141, label %142, label %186
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds i8, ptr %0, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %144 = load i64, ptr %143, align 8
   %145 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %146 = load i16, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %145, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store i64 %144, ptr %147, align 8
   %148 = and i16 %146, -512
   %149 = or disjoint i16 %148, 40
   store i16 %149, ptr %145, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %151 = load i32, ptr %150, align 8
   %152 = icmp eq i32 %151, 19
   br i1 %152, label %.critedge252, label %153
 
 153:                                              ; preds = %142
-  %154 = getelementptr inbounds i8, ptr %0, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %155 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %156 = load i64, ptr %154, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %156, ptr noundef nonnull @.str.82, ptr noundef %155) #8
@@ -2220,7 +2220,7 @@ extend_span_with_token.exit272:                   ; preds = %130, %131
   br i1 %159, label %.critedge6, label %160
 
 160:                                              ; preds = %.critedge252
-  %161 = getelementptr inbounds i8, ptr %158, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %162 = load i16, ptr %161, align 8
   %163 = and i16 %162, 255
   %.not235 = icmp eq i16 %163, 0
@@ -2231,14 +2231,14 @@ extend_span_with_token.exit272:                   ; preds = %130, %131
   br label %271
 
 .critedge6:                                       ; preds = %.critedge252, %160
-  %166 = getelementptr inbounds i8, ptr %145, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store ptr %158, ptr %166, align 8
   %167 = load i32, ptr %150, align 8
   %168 = icmp eq i32 %167, 26
   br i1 %168, label %.critedge254, label %169
 
 169:                                              ; preds = %.critedge6
-  %170 = getelementptr inbounds i8, ptr %0, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %171 = tail call ptr @token_type_to_string(i32 noundef 26) #8
   %172 = load i64, ptr %170, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %172, ptr noundef nonnull @.str.82, ptr noundef %171) #8
@@ -2278,7 +2278,7 @@ extend_span_with_token.exit281:                   ; preds = %176, %177
   br label %271
 
 186:                                              ; preds = %140
-  %187 = getelementptr inbounds i8, ptr %0, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.021.0.copyload = load i64, ptr %187, align 8
   %188 = call zeroext i1 @parse_path_prefix(ptr noundef %0, ptr noundef nonnull %2)
   br i1 %188, label %191, label %189
@@ -2295,15 +2295,15 @@ extend_span_with_token.exit281:                   ; preds = %176, %177
 193:                                              ; preds = %191
   %194 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %195 = load i16, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %194, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store i64 %.sroa.021.0.copyload, ptr %196, align 8
   %197 = and i16 %195, -512
   %198 = or disjoint i16 %197, 8
   store i16 %198, ptr %194, align 8
-  %199 = getelementptr inbounds i8, ptr %194, i64 24
-  %200 = getelementptr inbounds i8, ptr %194, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 32
   store ptr %192, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %202 = load ptr, ptr %201, align 8
   store ptr %202, ptr %199, align 8
   %203 = tail call fastcc zeroext i1 @consume_type_name(ptr noundef nonnull %0, ptr noundef nonnull @.str.76)
@@ -2314,7 +2314,7 @@ extend_span_with_token.exit281:                   ; preds = %176, %177
   br label %271
 
 206:                                              ; preds = %193
-  %207 = getelementptr inbounds i8, ptr %0, i64 56
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %208 = load i64, ptr %196, align 8
   %209 = load i64, ptr %207, align 8
   %.not.unshifted.i282 = xor i64 %209, %208
@@ -2346,7 +2346,7 @@ extend_span_with_token.exit290:                   ; preds = %210, %211
   br label %271
 
 220:                                              ; preds = %191
-  %221 = getelementptr inbounds i8, ptr %0, i64 40
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %222 = load i32, ptr %221, align 8
   switch i32 %222, label %243 [
     i32 66, label %223
@@ -2381,14 +2381,14 @@ extend_span_with_token.exit290:                   ; preds = %210, %211
   %224 = load i64, ptr %187, align 8
   %225 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %226 = load i16, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %225, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i64 %224, ptr %227, align 8
   %228 = and i16 %226, -512
   %229 = or disjoint i16 %228, 8
   store i16 %229, ptr %225, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %225, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr %231, ptr %232, align 8
   br label %.thread
 
@@ -2396,14 +2396,14 @@ extend_span_with_token.exit290:                   ; preds = %210, %211
   %234 = load i64, ptr %187, align 8
   %235 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %236 = load i16, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %235, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store i64 %234, ptr %237, align 8
   %238 = and i16 %236, -512
   %239 = or disjoint i16 %238, 16
   store i16 %239, ptr %235, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %235, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %235, i64 24
   store ptr %241, ptr %242, align 8
   br label %.thread
 
@@ -2426,20 +2426,20 @@ extend_span_with_token.exit290:                   ; preds = %210, %211
   %250 = load i64, ptr %187, align 8
   %251 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %252 = load i16, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %251, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 %250, ptr %253, align 8
   %254 = and i16 %252, -512
   %255 = or disjoint i16 %254, 10
   store i16 %255, ptr %251, align 8
-  %256 = getelementptr inbounds i8, ptr %251, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr %248, ptr %256, align 8
   br label %.thread
 
 .thread:                                          ; preds = %223, %233, %249, %247
   %.1 = phi ptr [ %251, %249 ], [ null, %247 ], [ %225, %223 ], [ %235, %233 ]
   tail call void @advance(ptr noundef nonnull %0) #8
-  %257 = getelementptr inbounds i8, ptr %.1, i64 16
-  %258 = getelementptr inbounds i8, ptr %0, i64 56
+  %257 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %259 = load i64, ptr %257, align 8
   %260 = load i64, ptr %258, align 8
   %.not.unshifted.i291 = xor i64 %260, %259
@@ -2520,15 +2520,15 @@ define dso_local ptr @parse_optional_type(ptr noundef %0) local_unnamed_addr #0 
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @type_get_optional(ptr noundef %22) #8
   store ptr %23, ptr %21, align 8
   br label %24
 
 24:                                               ; preds = %15, %20
-  %25 = getelementptr inbounds i8, ptr %8, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %25, align 8
   %28 = load i64, ptr %26, align 8
   %.not.unshifted.i = xor i64 %28, %27
@@ -2618,7 +2618,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 17:                                               ; preds = %.critedge
   %18 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 8, ptr %19, align 4
   br label %22
 
@@ -2636,13 +2636,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.0.i38, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i38, i64 4
   %28 = shl i32 %23, 1
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
   %31 = or disjoint i64 %30, 8
   %32 = tail call ptr @calloc_arena(i64 noundef %31) #8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %28, ptr %33, align 4
   %34 = load i32, ptr %27, align 4
   %35 = zext i32 %34 to i64
@@ -2660,21 +2660,21 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %.1.i = phi ptr [ %32, %26 ], [ %.0.i38, %22 ]
   %42 = add i32 %41, 1
   store i32 %42, ptr %.1.i, align 4
-  %43 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   store ptr %.0.i, ptr %45, align 8
   %46 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %46, label %.preheader, label %47, !llvm.loop !16
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 26
   br i1 %50, label %.critedge36, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = tail call ptr @token_type_to_string(i32 noundef 26) #8
   %54 = load i64, ptr %52, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.82, ptr noundef %53) #8
@@ -2696,7 +2696,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %26 [
     i32 19, label %5
@@ -2707,16 +2707,16 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %7, ptr noundef nonnull @.str.20) #8
   %8 = load ptr, ptr @poisoned_decl, align 8
   br label %58
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = tail call ptr @decl_new_var(ptr noundef %11, i64 %13, ptr noundef %1, i32 noundef 13) #8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -2729,14 +2729,14 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 255
   %.not63 = icmp eq i16 %22, 0
   br i1 %.not63, label %24, label %.critedge
 
 .critedge:                                        ; preds = %16, %19
-  %23 = getelementptr inbounds i8, ptr %14, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr %17, ptr %23, align 8
   br label %58
 
@@ -2749,20 +2749,20 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
 
 27:                                               ; preds = %2, %2, %26
   %.str.84.sink.i = phi ptr [ @.str.84, %26 ], [ @.str.83, %2 ], [ @.str.83, %2 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i64, ptr %28, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %29, ptr noundef nonnull %.str.84.sink.i, ptr noundef nonnull @.str.21) #8
   %30 = load ptr, ptr @poisoned_decl, align 8
   br label %58
 
 31:                                               ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i64, ptr %34, align 8
   %36 = tail call ptr @decl_new_var(ptr noundef %33, i64 %35, ptr noundef %1, i32 noundef 2) #8
   tail call void @advance(ptr noundef nonnull %0) #8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = tail call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %38, label %41, label %39
 
@@ -2792,14 +2792,14 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   br i1 %50, label %.critedge2, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = load i16, ptr %52, align 8
   %54 = and i16 %53, 255
   %.not62 = icmp eq i16 %54, 0
   br i1 %.not62, label %56, label %.critedge2
 
 .critedge2:                                       ; preds = %48, %51
-  %55 = getelementptr inbounds i8, ptr %36, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 88
   store ptr %49, ptr %55, align 8
   br label %58
 
@@ -2814,7 +2814,7 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_decl_or_expr(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 143
   br i1 %5, label %6, label %14
@@ -2825,7 +2825,7 @@ define dso_local ptr @parse_decl_or_expr(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not25, label %.critedge, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 127
   %.not26 = icmp eq i64 %11, 0
@@ -2841,21 +2841,21 @@ define dso_local ptr @parse_decl_or_expr(ptr noundef %0, ptr nocapture noundef w
 
 14:                                               ; preds = %2
   %15 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %.not = icmp eq i16 %18, 62
   br i1 %.not, label %19, label %29
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @parse_local_decl_after_type(ptr noundef nonnull %0, ptr noundef %21)
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %.critedge2, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 127
   %.not24 = icmp eq i64 %26, 0
@@ -2877,7 +2877,7 @@ define dso_local ptr @parse_decl_or_expr(ptr noundef %0, ptr nocapture noundef w
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %62 [
     i32 65, label %4
@@ -2887,16 +2887,16 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %6, ptr noundef nonnull @.str.24) #8
   %7 = load ptr, ptr @poisoned_decl, align 8
   br label %66
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = tail call ptr @decl_new_var(ptr noundef %10, i64 %12, ptr noundef null, i32 noundef 2) #8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -2916,7 +2916,7 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load i16, ptr %22, align 8
   %24 = and i16 %23, 255
   %.not62 = icmp eq i16 %24, 0
@@ -2927,14 +2927,14 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 .critedge:                                        ; preds = %18, %21
-  %27 = getelementptr inbounds i8, ptr %13, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store ptr %19, ptr %27, align 8
   br label %66
 
 28:                                               ; preds = %1
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = tail call ptr @decl_new_var(ptr noundef %30, i64 %32, ptr noundef null, i32 noundef 13) #8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -2947,7 +2947,7 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %37, label %.critedge2, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load i16, ptr %39, align 8
   %41 = and i16 %40, 255
   %.not61 = icmp eq i16 %41, 0
@@ -2958,14 +2958,14 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 .critedge2:                                       ; preds = %35, %38
-  %44 = getelementptr inbounds i8, ptr %33, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 88
   store ptr %36, ptr %44, align 8
   br label %66
 
 45:                                               ; preds = %1
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load i64, ptr %48, align 8
   %50 = tail call ptr @decl_new_var(ptr noundef %47, i64 %49, ptr noundef null, i32 noundef 14) #8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -2978,7 +2978,7 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %54, label %.critedge4, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load i16, ptr %56, align 8
   %58 = and i16 %57, 255
   %.not = icmp eq i16 %58, 0
@@ -2989,12 +2989,12 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 .critedge4:                                       ; preds = %52, %55
-  %61 = getelementptr inbounds i8, ptr %50, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 88
   store ptr %53, ptr %61, align 8
   br label %66
 
 62:                                               ; preds = %1
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i64, ptr %63, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %64, ptr noundef nonnull @.str.26) #8
   %65 = load ptr, ptr @poisoned_decl, align 8
@@ -3010,7 +3010,7 @@ declare ptr @parse_expr(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parse_const_declaration(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 65
   br i1 %.not, label %.critedge, label %6
@@ -3032,9 +3032,9 @@ define dso_local ptr @parse_const_declaration(ptr noundef %0, i1 noundef zeroext
 
 .critedge:                                        ; preds = %8, %6, %3
   %.046 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %8 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = tail call ptr @decl_new_var(ptr noundef %14, i64 %16, ptr noundef %.046, i32 noundef 0) #8
   %18 = load i32, ptr %4, align 8
@@ -3072,7 +3072,7 @@ consume_const_name.exit:                          ; preds = %19
   br i1 %brmerge, label %65, label %35
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %17, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %31 = tail call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %31, label %34, label %32
 
@@ -3102,17 +3102,17 @@ consume_const_name.exit:                          ; preds = %19
   br i1 %43, label %.critedge2, label %44
 
 44:                                               ; preds = %.critedge53
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i16, ptr %45, align 8
   %47 = and i16 %46, 255
   %.not51 = icmp eq i16 %47, 0
   br i1 %.not51, label %63, label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge53, %44
-  %48 = getelementptr inbounds i8, ptr %17, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store ptr %42, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %17, i64 16
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i64, ptr %49, align 8
   %52 = load i64, ptr %50, align 8
   %.not.unshifted.i = xor i64 %52, %51
@@ -3159,21 +3159,21 @@ define internal fastcc noundef zeroext i1 @parse_attributes_for_global(ptr nound
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 127
   %13 = icmp eq i64 %12, 17
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %7, i64 99
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 99
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %18 = load i16, ptr %17, align 8
   %19 = shl i8 %16, 5
   %20 = and i8 %19, 32
@@ -3182,7 +3182,7 @@ define internal fastcc noundef zeroext i1 @parse_attributes_for_global(ptr nound
   %23 = or disjoint i16 %22, %21
   store i16 %23, ptr %17, align 8
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 98
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 98
   %26 = load i8, ptr %25, align 2
   %27 = shl i8 %26, 4
   %28 = and i8 %27, 16
@@ -3195,7 +3195,7 @@ define internal fastcc noundef zeroext i1 @parse_attributes_for_global(ptr nound
 
 32:                                               ; preds = %2, %14
   %33 = phi ptr [ %7, %2 ], [ %.pre, %14 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
   %37 = zext nneg i8 %36 to i64
@@ -3204,7 +3204,7 @@ define internal fastcc noundef zeroext i1 @parse_attributes_for_global(ptr nound
   %40 = or disjoint i64 %38, %39
   store i64 %40, ptr %10, align 8
   store i8 0, ptr %4, align 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = tail call zeroext i1 @decl_needs_prefix(ptr noundef nonnull %1) #8
   %. = select i1 %42, ptr %4, ptr null
   %43 = call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %3, ptr noundef %., ptr noundef nonnull %5)
@@ -3238,13 +3238,13 @@ define internal fastcc noundef zeroext i1 @parse_attributes_for_global(ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.025.0.copyload = load i64, ptr %5, align 8
   %6 = call zeroext i1 @parse_path_prefix(ptr noundef %0, ptr noundef nonnull %4)
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %10 [
     i32 73, label %18
@@ -3264,7 +3264,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %.loopexit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %16, ptr noundef nonnull @.str.28) #8
   br label %.loopexit
@@ -3275,12 +3275,12 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
 
 18:                                               ; preds = %7, %7
   %19 = tail call ptr @calloc_arena(i64 noundef 40) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %23, align 8
   %26 = load ptr, ptr %4, align 8
@@ -3309,7 +3309,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %.loopexit
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %19, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %39 = trunc i32 %33 to i16
   %40 = load i16, ptr %38, align 8
   %41 = and i16 %39, 255
@@ -3319,7 +3319,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %48
 
 44:                                               ; preds = %18
-  %45 = getelementptr inbounds i8, ptr %19, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %46 = load i16, ptr %45, align 8
   %47 = or i16 %46, 256
   store i16 %47, ptr %45, align 8
@@ -3341,7 +3341,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
 51:                                               ; preds = %.preheader
   %52 = load i64, ptr %24, align 8
   %53 = tail call ptr @expr_new(i32 noundef 41, i64 %52) #8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, -3841
   %57 = or disjoint i16 %56, 512
@@ -3371,9 +3371,9 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
 
 .critedge119:                                     ; preds = %.critedge117
   tail call void @advance(ptr noundef nonnull %0) #8
-  %68 = getelementptr inbounds i8, ptr %53, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i32 2, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %53, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = load i64, ptr %5, align 8
   %.not.unshifted.i = xor i64 %71, %70
@@ -3407,7 +3407,7 @@ extend_span_with_token.exit:                      ; preds = %72, %73
 82:                                               ; preds = %.preheader
   %83 = load i64, ptr %24, align 8
   %84 = tail call ptr @expr_new(i32 noundef 41, i64 %83) #8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i16, ptr %85, align 8
   %87 = and i16 %86, -3841
   %88 = or disjoint i16 %87, 512
@@ -3427,9 +3427,9 @@ extend_span_with_token.exit:                      ; preds = %72, %73
   tail call void @advance(ptr noundef nonnull %0) #8
   %94 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 10) #8
   %95 = select i1 %94, i32 3, i32 1
-  %96 = getelementptr inbounds i8, ptr %84, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %84, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = load i64, ptr %5, align 8
   %.not.unshifted.i124 = xor i64 %99, %98
@@ -3466,7 +3466,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   br i1 %112, label %.critedge, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %111, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %115 = load i16, ptr %114, align 8
   %116 = and i16 %115, 255
   %.not114 = icmp eq i16 %116, 0
@@ -3479,7 +3479,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
 
 117:                                              ; preds = %.critedge
   %118 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 8, ptr %119, align 4
   br label %122
 
@@ -3497,13 +3497,13 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   br i1 %125, label %126, label %140
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %128 = shl i32 %123, 1
   %129 = zext i32 %128 to i64
   %130 = shl nuw nsw i64 %129, 3
   %131 = or disjoint i64 %130, 8
   %132 = tail call ptr @calloc_arena(i64 noundef %131) #8
-  %133 = getelementptr inbounds i8, ptr %132, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   store i32 %128, ptr %133, align 4
   %134 = load i32, ptr %127, align 4
   %135 = zext i32 %134 to i64
@@ -3521,9 +3521,9 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   %.1.i = phi ptr [ %132, %126 ], [ %.0.i, %122 ]
   %142 = add i32 %141, 1
   store i32 %142, ptr %.1.i, align 4
-  %143 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %144 = zext i32 %141 to i64
-  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
   store ptr %.0103, ptr %145, align 8
   %146 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #8
   br i1 %146, label %.loopexit135, label %147
@@ -3545,7 +3545,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
 
 .loopexit135:                                     ; preds = %140, %48
   %.0104 = phi ptr [ null, %48 ], [ %143, %140 ]
-  %153 = getelementptr inbounds i8, ptr %19, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %.0104, ptr %153, align 8
   store ptr %19, ptr %1, align 8
   br label %.loopexit
@@ -3563,14 +3563,14 @@ declare ptr @parse_constant_expr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = add i32 %5, -3
   %9 = icmp ult i32 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not194 = icmp eq ptr %3, null
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %6
@@ -3624,7 +3624,7 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
 .split:                                           ; preds = %27
   store i32 0, ptr %4, align 4
   %28 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 8, ptr %29, align 4
   %30 = load i32, ptr %28, align 4
   %31 = icmp eq i32 %30, 8
@@ -3632,7 +3632,7 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
 
 32:                                               ; preds = %.split
   %33 = tail call ptr @calloc_arena(i64 noundef 136) #8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 16, ptr %34, align 4
   %35 = load i32, ptr %29, align 4
   %36 = zext i32 %35 to i64
@@ -3659,7 +3659,7 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
   %48 = shl nuw nsw i64 %47, 3
   %49 = or disjoint i64 %48, 8
   %50 = tail call ptr @calloc_arena(i64 noundef %49) #8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %46, ptr %51, align 4
   %52 = load i32, ptr %.phi.trans.insert.i, align 4
   %53 = zext i32 %52 to i64
@@ -3681,9 +3681,9 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
   %.1.i208.sink = phi ptr [ %28, %.split ], [ %42, %41 ], [ %.sink, %expand_.exit.sink.split ]
   %58 = add i32 %.sink329, 1
   store i32 %58, ptr %.1.i208.sink, align 4
-  %phi.call = getelementptr inbounds i8, ptr %.1.i208.sink, i64 8
+  %phi.call = getelementptr inbounds nuw i8, ptr %.1.i208.sink, i64 8
   %59 = zext i32 %.sink329 to i64
-  %60 = getelementptr inbounds ptr, ptr %phi.call, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %phi.call, i64 %59
   store ptr null, ptr %60, align 8
   %61 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %61, label %.backedge.backedge, label %244
@@ -3767,7 +3767,7 @@ parse_next_is_typed_parameter.exit.thread:        ; preds = %62, %62, %62, %62, 
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %66, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = load i64, ptr %12, align 8
   %.not.unshifted.i = xor i64 %79, %78
@@ -3899,9 +3899,9 @@ extend_span_with_token.exit221:                   ; preds = %102, %103
   %119 = and i16 %118, -512
   %120 = or disjoint i16 %119, 10
   store i16 %120, ptr %117, align 8
-  %121 = getelementptr inbounds i8, ptr %117, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %115, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %117, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store i64 %116, ptr %122, align 8
   br label %170
 
@@ -4049,7 +4049,7 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br i1 %.not199, label %176, label %173
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %.1257, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.1257, i64 16
   %175 = load i64, ptr %174, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %175, ptr noundef nonnull @.str.48) #8
   br label %.loopexit
@@ -4069,10 +4069,10 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   %.1181.shrunk256278 = phi i1 [ %.1181.shrunk255, %176 ], [ %.1181.shrunk, %.thread269 ]
   %.0172266277 = phi i1 [ %.0172265, %176 ], [ %.0172, %.thread269 ]
   %186 = phi i32 [ %183, %176 ], [ 0, %.thread269 ]
-  %187 = getelementptr inbounds i8, ptr %185, i64 80
-  %188 = getelementptr inbounds i8, ptr %185, i64 84
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 80
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 84
   store i32 %186, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %185, i64 64
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %190 = tail call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %189, ptr noundef null, ptr noundef null, ptr noundef null)
   br i1 %190, label %191, label %.loopexit
 
@@ -4089,14 +4089,14 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br i1 %196, label %.critedge4, label %197
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %195, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %199 = load i16, ptr %198, align 8
   %200 = and i16 %199, 255
   %.not200 = icmp eq i16 %200, 0
   br i1 %.not200, label %202, label %.critedge4
 
 .critedge4:                                       ; preds = %194, %197
-  %201 = getelementptr inbounds i8, ptr %185, i64 88
+  %201 = getelementptr inbounds nuw i8, ptr %185, i64 88
   store ptr %195, ptr %201, align 8
   br label %205
 
@@ -4132,7 +4132,7 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
 
 214:                                              ; preds = %213
   %215 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %216 = getelementptr inbounds i8, ptr %215, i64 4
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   store i32 8, ptr %216, align 4
   br label %219
 
@@ -4150,13 +4150,13 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   br i1 %222, label %223, label %237
 
 223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %.0.i234, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %.0.i234, i64 4
   %225 = shl i32 %220, 1
   %226 = zext i32 %225 to i64
   %227 = shl nuw nsw i64 %226, 3
   %228 = or disjoint i64 %227, 8
   %229 = tail call ptr @calloc_arena(i64 noundef %228) #8
-  %230 = getelementptr inbounds i8, ptr %229, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
   store i32 %225, ptr %230, align 4
   %231 = load i32, ptr %224, align 4
   %232 = zext i32 %231 to i64
@@ -4174,9 +4174,9 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   %.1.i235 = phi ptr [ %229, %223 ], [ %.0.i234, %219 ]
   %239 = add i32 %238, 1
   store i32 %239, ptr %.1.i235, align 4
-  %240 = getelementptr inbounds i8, ptr %.1.i235, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %.1.i235, i64 8
   %241 = zext i32 %238 to i64
-  %242 = getelementptr inbounds ptr, ptr %240, i64 %241
+  %242 = getelementptr inbounds nuw ptr, ptr %240, i64 %241
   store ptr %185, ptr %242, align 8
   %243 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %243, label %.backedge.backedge, label %244
@@ -4195,13 +4195,13 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
 define dso_local zeroext i1 @parse_struct_body(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 17
   br i1 %7, label %.critedge147, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = tail call ptr @token_type_to_string(i32 noundef 17) #8
   %11 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.82, ptr noundef %10) #8
@@ -4209,11 +4209,11 @@ define dso_local zeroext i1 @parse_struct_body(ptr noundef %0, ptr nocapture nou
 
 .critedge147:                                     ; preds = %2
   tail call void @advance(ptr noundef nonnull %0) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.critedge147
@@ -4300,7 +4300,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %.loopexit
 
 .critedge:                                        ; preds = %parse_type.exit, %41
-  %47 = getelementptr inbounds i8, ptr %26, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store ptr %.0.i148, ptr %47, align 8
   %48 = call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %26)
   br i1 %48, label %53, label %49
@@ -4324,12 +4324,12 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %.loopexit
 
 59:                                               ; preds = %24
-  %60 = getelementptr inbounds i8, ptr %26, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %61 = call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
   br i1 %61, label %62, label %.loopexit
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %26, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, 4294967296
   store i64 %65, ptr %63, align 8
@@ -4350,7 +4350,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 73:                                               ; preds = %71
   %74 = call ptr @calloc_arena(i64 noundef 72) #8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 8, ptr %75, align 4
   br label %78
 
@@ -4368,13 +4368,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %81, label %82, label %96
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %.0.i150, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 4
   %84 = shl i32 %79, 1
   %85 = zext i32 %84 to i64
   %86 = shl nuw nsw i64 %85, 3
   %87 = or disjoint i64 %86, 8
   %88 = call ptr @calloc_arena(i64 noundef %87) #8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %84, ptr %89, align 4
   %90 = load i32, ptr %83, align 4
   %91 = zext i32 %90 to i64
@@ -4392,19 +4392,19 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %.1.i = phi ptr [ %88, %82 ], [ %.0.i150, %78 ]
   %98 = add i32 %97, 1
   store i32 %98, ptr %.1.i, align 4
-  %99 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %99, ptr %15, align 8
   %100 = load i32, ptr %.1.i, align 4
   %101 = add i32 %100, -1
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr %99, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
   store ptr %26, ptr %103, align 8
   %104 = add nsw i32 %.0129, 1
   %105 = icmp sgt i32 %.0129, 536870911
   br i1 %105, label %106, label %.backedge.backedge
 
 106:                                              ; preds = %96
-  %107 = getelementptr inbounds i8, ptr %26, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %108 = load i64, ptr %107, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %108, ptr noundef nonnull @.str.50, i32 noundef 536870912) #8
   br label %.loopexit
@@ -4429,7 +4429,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %0, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %120 = load i64, ptr %119, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %120, ptr noundef nonnull @.str.52) #8
   br label %.loopexit
@@ -4499,7 +4499,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
 
 145:                                              ; preds = %140
   %146 = call ptr @calloc_arena(i64 noundef 72) #8
-  %147 = getelementptr inbounds i8, ptr %146, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 8, ptr %147, align 4
   br label %150
 
@@ -4517,13 +4517,13 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br i1 %153, label %154, label %168
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %.0.i160, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i160, i64 4
   %156 = shl i32 %151, 1
   %157 = zext i32 %156 to i64
   %158 = shl nuw nsw i64 %157, 3
   %159 = or disjoint i64 %158, 8
   %160 = call ptr @calloc_arena(i64 noundef %159) #8
-  %161 = getelementptr inbounds i8, ptr %160, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store i32 %156, ptr %161, align 4
   %162 = load i32, ptr %155, align 4
   %163 = zext i32 %162 to i64
@@ -4541,31 +4541,31 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   %.1.i161 = phi ptr [ %160, %154 ], [ %.0.i160, %150 ]
   %170 = add i32 %169, 1
   store i32 %170, ptr %.1.i161, align 4
-  %171 = getelementptr inbounds i8, ptr %.1.i161, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.1.i161, i64 8
   store ptr %171, ptr %15, align 8
   %172 = load i32, ptr %.1.i161, align 4
   %173 = add i32 %172, -1
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds ptr, ptr %171, i64 %174
+  %175 = getelementptr inbounds nuw ptr, ptr %171, i64 %174
   store ptr %143, ptr %175, align 8
   %176 = add i32 %.1, 1
   %exitcond = icmp eq i32 %.1, %smax
   br i1 %exitcond, label %177, label %180
 
 177:                                              ; preds = %168
-  %178 = getelementptr inbounds i8, ptr %143, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %179 = load i64, ptr %178, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %179, ptr noundef nonnull @.str.50, i32 noundef 536870912) #8
   br label %.loopexit
 
 180:                                              ; preds = %168
   call void @advance(ptr noundef nonnull %0) #8
-  %181 = getelementptr inbounds i8, ptr %143, i64 64
+  %181 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %182 = call zeroext i1 @parse_attributes(ptr noundef nonnull %0, ptr noundef nonnull %181, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
   br i1 %182, label %183, label %.loopexit
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %143, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %185 = load i64, ptr %184, align 8
   %186 = or i64 %185, 4294967296
   store i64 %186, ptr %184, align 8
@@ -4576,7 +4576,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br i1 %110, label %189, label %135
 
 189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %143, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %191 = load i64, ptr %190, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %191, ptr noundef nonnull @.str.54) #8
   br label %.loopexit
@@ -4587,7 +4587,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br i1 %194, label %198, label %195
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %0, i64 56
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %197 = load i64, ptr %196, align 8
   call void (i64, ptr, ...) @sema_error_at_after(i64 %197, ptr noundef nonnull @.str.16) #8
   br label %.loopexit
@@ -4613,13 +4613,13 @@ declare ptr @decl_new_with_type(ptr noundef, i64, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 17
   br i1 %5, label %.critedge130, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = tail call ptr @token_type_to_string(i32 noundef 17) #8
   %9 = load i64, ptr %7, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %9, ptr noundef nonnull @.str.82, ptr noundef %8) #8
@@ -4631,9 +4631,9 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %10, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.critedge130
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -4668,7 +4668,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26, %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %30, ptr noundef nonnull @.str.88) #8
   br label %.loopexit
@@ -4694,7 +4694,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %.not126, label %.critedge132, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %22, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %40 = load i64, ptr %39, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %40, ptr noundef nonnull @.str.90) #8
   br label %.loopexit
@@ -4713,9 +4713,9 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 
 45:                                               ; preds = %.critedge132, %42
   %.0110 = phi i32 [ %44, %42 ], [ 0, %.critedge132 ]
-  %46 = getelementptr inbounds i8, ptr %22, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store i32 %.0110, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %22, i64 100
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 100
   store i32 %.0110, ptr %47, align 4
   %48 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %48, null
@@ -4723,7 +4723,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 
 49:                                               ; preds = %45
   %50 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 8, ptr %51, align 4
   br label %54
 
@@ -4741,13 +4741,13 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %57, label %58, label %.outer
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %60 = shl i32 %55, 1
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 3
   %63 = or disjoint i64 %62, 8
   %64 = tail call ptr @calloc_arena(i64 noundef %63) #8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 %60, ptr %65, align 4
   %66 = load i32, ptr %59, align 4
   %67 = zext i32 %66 to i64
@@ -4765,12 +4765,12 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %.1.i = phi ptr [ %64, %58 ], [ %.0.i, %54 ]
   %73 = add i32 %72, 1
   store i32 %73, ptr %.1.i, align 4
-  %74 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %74, ptr %13, align 8
   %75 = load i32, ptr %.1.i, align 4
   %76 = add i32 %75, -1
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds nuw ptr, ptr %74, i64 %77
   store ptr %22, ptr %78, align 8
   %79 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %79, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -4788,15 +4788,15 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %84, label %.critedge2, label %85
 
 85:                                               ; preds = %.critedge134
-  %86 = getelementptr inbounds i8, ptr %83, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %87 = load i16, ptr %86, align 8
   %88 = and i16 %87, 255
   %.not123 = icmp eq i16 %88, 0
   br i1 %.not123, label %.loopexit, label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge134, %85
-  %89 = getelementptr inbounds i8, ptr %22, i64 80
-  %90 = getelementptr inbounds i8, ptr %22, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store ptr %83, ptr %90, align 8
   %91 = load i32, ptr %89, align 8
   %92 = or i32 %91, 1048576
@@ -4810,7 +4810,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %96, label %.critedge4, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %95, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %99 = load i16, ptr %98, align 8
   %100 = and i16 %99, 255
   %.not124 = icmp eq i16 %100, 0
@@ -4818,14 +4818,14 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 
 .critedge4:                                       ; preds = %.critedge2, %97, %94
   %.sink = phi ptr [ %95, %94 ], [ %95, %97 ], [ null, %.critedge2 ]
-  %101 = getelementptr inbounds i8, ptr %22, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store ptr %.sink, ptr %101, align 8
   %102 = load i32, ptr %3, align 8
   %103 = icmp eq i32 %102, 9
   br i1 %103, label %107, label %104
 
 104:                                              ; preds = %.critedge4
-  %105 = getelementptr inbounds i8, ptr %0, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load i64, ptr %105, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %106, ptr noundef nonnull @.str.16) #8
   br label %.loopexit
@@ -4835,9 +4835,9 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %14, label %108, label %113
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %22, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %112, ptr noundef nonnull @.str.91) #8
   br label %.loopexit
@@ -4849,7 +4849,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
 
 115:                                              ; preds = %113
   %116 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 8, ptr %117, align 4
   br label %120
 
@@ -4867,13 +4867,13 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %123, label %124, label %138
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.0.i138, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i138, i64 4
   %126 = shl i32 %121, 1
   %127 = zext i32 %126 to i64
   %128 = shl nuw nsw i64 %127, 3
   %129 = or disjoint i64 %128, 8
   %130 = tail call ptr @calloc_arena(i64 noundef %129) #8
-  %131 = getelementptr inbounds i8, ptr %130, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 %126, ptr %131, align 4
   %132 = load i32, ptr %125, align 4
   %133 = zext i32 %132 to i64
@@ -4891,19 +4891,19 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %.1.i139 = phi ptr [ %130, %124 ], [ %.0.i138, %120 ]
   %140 = add i32 %139, 1
   store i32 %140, ptr %.1.i139, align 4
-  %141 = getelementptr inbounds i8, ptr %.1.i139, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.1.i139, i64 8
   store ptr %141, ptr %13, align 8
   %142 = load i32, ptr %.1.i139, align 4
   %143 = add i32 %142, -1
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds ptr, ptr %141, i64 %144
+  %145 = getelementptr inbounds nuw ptr, ptr %141, i64 %144
   store ptr %22, ptr %145, align 8
   %146 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %146, label %.outer._crit_edge, label %15, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %138, %.critedge130
   %.0114.ph.lcssa158 = phi i8 [ 0, %.critedge130 ], [ %.0114.ph160, %138 ], [ %.1, %.outer ]
-  %147 = getelementptr inbounds i8, ptr %1, i64 112
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %148 = load i8, ptr %147, align 8
   %149 = shl nuw nsw i8 %.0114.ph.lcssa158, 4
   %150 = and i8 %149, 16
@@ -4929,13 +4929,13 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 132
   br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %.not101 = icmp eq ptr %13, null
@@ -5070,7 +5070,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %36
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.55) #8
   %35 = load ptr, ptr @poisoned_decl, align 8
@@ -5086,7 +5086,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.096, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.096, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 127
   %.not127 = icmp eq i64 %40, 0
@@ -5094,7 +5094,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %37
   %41 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %39, %37 ]
-  %42 = getelementptr inbounds i8, ptr %.096, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.096, i64 24
   %43 = or i64 %41, 16384
   store i64 %43, ptr %42, align 8
   br label %.critedge8
@@ -5104,7 +5104,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br i1 %.not122, label %44, label %48
 
 44:                                               ; preds = %.thread
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load i64, ptr %45, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.56) #8
   %47 = load ptr, ptr @poisoned_decl, align 8
@@ -5112,7 +5112,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 
 48:                                               ; preds = %.thread
   call void @advance(ptr noundef nonnull %0) #8
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
   %.not123 = icmp eq ptr %51, null
@@ -5122,10 +5122,10 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   %53 = call ptr @calloc_arena(i64 noundef 192) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %53, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %54 = load ptr, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr @unit_create(ptr noundef %56) #8
-  %58 = getelementptr inbounds i8, ptr %53, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 64
   store ptr %57, ptr %58, align 8
   store ptr %53, ptr %1, align 8
   br label %59
@@ -5139,7 +5139,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 63:                                               ; preds = %18
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load i64, ptr %64, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %65, ptr noundef nonnull @.str.57) #8
   %66 = load ptr, ptr @poisoned_decl, align 8
@@ -5157,7 +5157,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 71:                                               ; preds = %18
   %72 = load i32, ptr %3, align 4
   %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 97
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 97
   %75 = load i8, ptr %74, align 1
   %76 = trunc i8 %75 to i1
   %77 = call fastcc ptr @parse_func_definition(ptr noundef nonnull %0, i32 noundef %72, i1 noundef zeroext %76)
@@ -5174,7 +5174,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br i1 %82, label %.critedge2, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %81, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %85 = load i8, ptr %84, align 4
   %.not120 = icmp eq i8 %85, 0
   br i1 %.not120, label %86, label %.critedge2
@@ -5186,7 +5186,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 .critedge2:                                       ; preds = %80, %83
   %88 = load i64, ptr %81, align 8
   %89 = call ptr @decl_new_ct(i32 noundef 4, i64 %88) #8
-  %90 = getelementptr inbounds i8, ptr %89, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 80
   store ptr %81, ptr %90, align 8
   br label %.critedge8
 
@@ -5201,7 +5201,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br i1 %95, label %.critedge4, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %98 = load i8, ptr %97, align 4
   %.not118 = icmp eq i8 %98, 0
   br i1 %.not118, label %99, label %.critedge4
@@ -5213,7 +5213,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 .critedge4:                                       ; preds = %93, %96
   %101 = load i64, ptr %94, align 8
   %102 = call ptr @decl_new_ct(i32 noundef 4, i64 %101) #8
-  %103 = getelementptr inbounds i8, ptr %102, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 80
   store ptr %94, ptr %103, align 8
   br label %.critedge8
 
@@ -5228,7 +5228,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br i1 %108, label %.critedge6, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %107, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %111 = load i8, ptr %110, align 4
   %.not116 = icmp eq i8 %111, 0
   br i1 %.not116, label %112, label %.critedge6
@@ -5240,7 +5240,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 .critedge6:                                       ; preds = %106, %109
   %114 = load i64, ptr %107, align 8
   %115 = call ptr @decl_new_ct(i32 noundef 5, i64 %114) #8
-  %116 = getelementptr inbounds i8, ptr %115, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 80
   store ptr %107, ptr %116, align 8
   br label %.critedge8
 
@@ -5254,7 +5254,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br i1 %.not114, label %120, label %124
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %0, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %122 = load i64, ptr %121, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %122, ptr noundef nonnull @.str.58) #8
   %123 = load ptr, ptr @poisoned_decl, align 8
@@ -5362,24 +5362,24 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 170:                                              ; preds = %18
-  %171 = getelementptr inbounds i8, ptr %0, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %172 = load i64, ptr %171, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %172, ptr noundef nonnull @.str.59) #8
   %173 = load ptr, ptr @poisoned_decl, align 8
   br label %.critedge8
 
 174:                                              ; preds = %18
-  %175 = getelementptr inbounds i8, ptr %0, i64 48
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %176 = load i64, ptr %175, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %176, ptr noundef nonnull @.str.60) #8
   %177 = load ptr, ptr @poisoned_decl, align 8
   br label %.critedge8
 
 178:                                              ; preds = %18
-  %179 = getelementptr inbounds i8, ptr %0, i64 184
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %180 = load i32, ptr %179, align 8
   %181 = icmp eq i32 %180, 10
-  %182 = getelementptr inbounds i8, ptr %0, i64 48
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %183 = load i64, ptr %182, align 8
   %.str.61..str.62 = select i1 %181, ptr @.str.61, ptr @.str.62
   call void (i64, ptr, ...) @sema_error_at(i64 %183, ptr noundef nonnull %.str.61..str.62) #8
@@ -5396,14 +5396,14 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 189:                                              ; preds = %18
-  %190 = getelementptr inbounds i8, ptr %0, i64 48
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %191 = load i64, ptr %190, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %191, ptr noundef nonnull @.str.63) #8
   %192 = load ptr, ptr @poisoned_decl, align 8
   br label %.critedge8
 
 193:                                              ; preds = %18
-  %194 = getelementptr inbounds i8, ptr %0, i64 48
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %195 = load i64, ptr %194, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %195, ptr noundef nonnull @.str.64) #8
   %196 = load ptr, ptr @poisoned_decl, align 8
@@ -5413,7 +5413,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   %198 = phi i32 [ %186, %185 ], [ %167, %166 ], [ %163, %162 ], [ %159, %158 ], [ %152, %151 ], [ %148, %147 ], [ %144, %143 ], [ %140, %139 ], [ %136, %135 ], [ %132, %131 ], [ %128, %127 ], [ %118, %117 ], [ %105, %104 ], [ %92, %91 ], [ %79, %78 ], [ %68, %67 ], [ %29, %28 ], [ %25, %24 ]
   %199 = load ptr, ptr @ast_arena, align 8
   %200 = zext i32 %198 to i64
-  %201 = getelementptr inbounds %struct.Ast_, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw %struct.Ast_, ptr %199, i64 %200
   %202 = load i64, ptr %201, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %202, ptr noundef nonnull @.str.65) #8
   %203 = load ptr, ptr @poisoned_decl, align 8
@@ -5433,12 +5433,12 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   br i1 %4, label %5, label %parse_contract_param.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %12
 
 12:                                               ; preds = %254, %5
@@ -5461,9 +5461,9 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   %21 = load i64, ptr %6, align 8
   %22 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i8 29, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i8, ptr %24, align 8
   %26 = and i8 %25, -16
   %27 = or disjoint i8 %26, 3
@@ -5540,12 +5540,12 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds i8, ptr %22, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %22, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %62 = load i64, ptr %6, align 8
   store i64 %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %22, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, -32
   %66 = or i8 %.064.i, %.065.i
@@ -5601,7 +5601,7 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   %89 = sdiv exact i64 %88, 48
   %90 = trunc i64 %89 to i32
   store i32 %90, ptr %20, align 4
-  %91 = getelementptr inbounds i8, ptr %22, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %91, ptr %3, align 8
   br label %254
 
@@ -5621,12 +5621,12 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   %100 = load i64, ptr %6, align 8
   %101 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i8 29, ptr %102, align 4
   %103 = load i64, ptr %11, align 8
   store i64 %103, ptr %101, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
-  %104 = getelementptr inbounds i8, ptr %101, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %105 = load i8, ptr %104, align 8
   %106 = and i8 %105, -16
   %107 = or disjoint i8 %106, 4
@@ -5638,7 +5638,7 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   %109 = load i64, ptr %6, align 8
   %110 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i8 30, ptr %111, align 4
   %112 = tail call fastcc ptr @parse_base_type(ptr noundef nonnull %0)
   %.not.i55 = icmp eq ptr %112, null
@@ -5651,7 +5651,7 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   br i1 %.not67.i, label %parse_contract_param.exit.thread, label %.critedge.i56
 
 .critedge.i56:                                    ; preds = %113, %108
-  %116 = getelementptr inbounds i8, ptr %110, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store ptr %112, ptr %116, align 8
   %117 = load i16, ptr %112, align 8
   %118 = and i16 %117, 504
@@ -5659,7 +5659,7 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   br i1 %.not68.i, label %122, label %119
 
 119:                                              ; preds = %.critedge.i56
-  %120 = getelementptr inbounds i8, ptr %112, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %121 = load i64, ptr %120, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.97) #8
   br label %parse_contract_param.exit.thread
@@ -5670,7 +5670,7 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %110, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr %125, ptr %126, align 8
   %127 = tail call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 65, ptr noundef nonnull @.str.98) #8
   br i1 %127, label %128, label %parse_contract_param.exit.thread
@@ -5709,7 +5709,7 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
 
 141:                                              ; preds = %extend_span_with_token.exit.i
   %142 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 8, ptr %143, align 4
   br label %146
 
@@ -5727,13 +5727,13 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   br i1 %149, label %150, label %164
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %152 = shl i32 %147, 1
   %153 = zext i32 %152 to i64
   %154 = shl nuw nsw i64 %153, 3
   %155 = or disjoint i64 %154, 8
   %156 = tail call ptr @calloc_arena(i64 noundef %155) #8
-  %157 = getelementptr inbounds i8, ptr %156, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store i32 %152, ptr %157, align 4
   %158 = load i32, ptr %151, align 4
   %159 = zext i32 %158 to i64
@@ -5751,9 +5751,9 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   %.1.i.i = phi ptr [ %156, %150 ], [ %.0.i.i, %146 ]
   %166 = add i32 %165, 1
   store i32 %166, ptr %.1.i.i, align 4
-  %167 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
   store ptr %110, ptr %169, align 8
   %170 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %170, label %108, label %171
@@ -5788,7 +5788,7 @@ extend_span_with_token.exit80.i:                  ; preds = %175, %174
   %.sroa.010.0.insert.insert.i78.i = or disjoint i64 %.sroa.311.0.insert.shift.i77.i, %183
   store i64 %.sroa.010.0.insert.insert.i78.i, ptr %101, align 8
   %184 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 76) #8
-  %185 = getelementptr inbounds i8, ptr %101, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %167, ptr %185, align 8
   %186 = load i32, ptr %99, align 4
   %.not70.i = icmp eq i32 %186, 0
@@ -5817,7 +5817,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   %198 = trunc i64 %197 to i32
   %199 = load ptr, ptr %3, align 8
   store i32 %198, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %101, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %200, ptr %3, align 8
   br label %254
 
@@ -5864,9 +5864,9 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   %224 = load i64, ptr %6, align 8
   %225 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %224, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 12
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 12
   store i8 29, ptr %226, align 4
-  %227 = getelementptr inbounds i8, ptr %225, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %228 = load i8, ptr %227, align 8
   %229 = and i8 %228, -16
   %230 = or disjoint i8 %229, 1
@@ -5898,7 +5898,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   %244 = sdiv exact i64 %243, 48
   %245 = trunc i64 %244 to i32
   store i32 %245, ptr %231, align 4
-  %246 = getelementptr inbounds i8, ptr %225, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr %246, ptr %3, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   br label %254
@@ -5939,12 +5939,12 @@ declare zeroext i1 @context_set_module_from_filename(ptr noundef) local_unnamed_
 define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
   %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, -128
   %8 = or disjoint i64 %7, 17
   store i64 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 116
   store i32 %1, ptr %9, align 4
   %10 = tail call fastcc zeroext i1 @parse_func_macro_header(ptr noundef %0, ptr noundef %4)
   br i1 %10, label %13, label %11
@@ -5960,13 +5960,13 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load i64, ptr %18, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %19, ptr noundef nonnull @.str.106) #8
   br label %79
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %4, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %22 = tail call fastcc zeroext i1 @parse_fn_parameter_list(ptr noundef %0, ptr noundef nonnull %21)
   br i1 %22, label %25, label %23
 
@@ -5986,7 +5986,7 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   br i1 %2, label %30, label %45
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %42 [
     i32 17, label %33
@@ -5994,12 +5994,12 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   ]
 
 33:                                               ; preds = %30, %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 97
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 97
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load i64, ptr %39, align 8
   %.str.107..str.108 = select i1 %38, ptr @.str.107, ptr @.str.108
   tail call void (i64, ptr, ...) @sema_error_at(i64 %40, ptr noundef nonnull %.str.107..str.108) #8
@@ -6017,7 +6017,7 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   br i1 %46, label %79, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i32, ptr %48, align 8
   switch i32 %49, label %76 [
     i32 41, label %50
@@ -6025,14 +6025,14 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   ]
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %4, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %52 = load i32, ptr %51, align 8
   %53 = tail call ptr @parse_short_body(ptr noundef nonnull %0, i32 noundef %52, i1 noundef zeroext true) #8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.critedge, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %53, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %57 = load i8, ptr %56, align 4
   %.not59 = icmp eq i8 %57, 0
   br i1 %.not59, label %59, label %.split
@@ -6052,7 +6052,7 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   %62 = sub i64 %.sink, %61
   %phi.call.in = sdiv exact i64 %62, 48
   %phi.call = trunc i64 %phi.call.in to i32
-  %63 = getelementptr inbounds i8, ptr %4, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 %phi.call, ptr %63, align 8
   br label %79
 
@@ -6062,7 +6062,7 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   br i1 %66, label %.critedge2, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %69 = load i8, ptr %68, align 4
   %.not = icmp eq i8 %69, 0
   br i1 %.not, label %71, label %.split52
@@ -6082,12 +6082,12 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   %74 = sub i64 %.sink62, %73
   %phi.call54.in = sdiv exact i64 %74, 48
   %phi.call54 = trunc i64 %phi.call54.in to i32
-  %75 = getelementptr inbounds i8, ptr %4, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 %phi.call54, ptr %75, align 8
   br label %79
 
 76:                                               ; preds = %47
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i64, ptr %77, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %78, ptr noundef nonnull @.str.110) #8
   br label %79
@@ -6104,7 +6104,7 @@ define internal fastcc ptr @parse_top_level_const_declaration(ptr noundef %0, i1
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 127
   %.not13 = icmp eq i64 %7, 0
@@ -6115,13 +6115,13 @@ define internal fastcc ptr @parse_top_level_const_declaration(ptr noundef %0, i1
   br label %18
 
 .critedge:                                        ; preds = %2, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 9
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %14, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %15, ptr noundef nonnull @.str.16) #8
   %16 = load ptr, ptr @poisoned_decl, align 8
@@ -6154,18 +6154,18 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br label %.loopexit.thread143
 
 .critedge:                                        ; preds = %1, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 65
   br i1 %11, label %23, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %12, align 8
   %15 = load i64, ptr %13, align 8
   %16 = tail call ptr @decl_new_var(ptr noundef %14, i64 %15, ptr noundef %3, i32 noundef 1) #8
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load i32, ptr %17, align 8
   %19 = select i1 %2, i32 262144, i32 0
   %20 = and i32 %18, -262145
@@ -6175,7 +6175,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i64, ptr %24, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %25, ptr noundef nonnull @.str.115) #8
   %26 = load ptr, ptr @poisoned_decl, align 8
@@ -6210,7 +6210,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 
 36:                                               ; preds = %35
   %37 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 8, ptr %38, align 4
   br label %41
 
@@ -6228,13 +6228,13 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %47 = shl i32 %42, 1
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 3
   %50 = or disjoint i64 %49, 8
   %51 = tail call ptr @calloc_arena(i64 noundef %50) #8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %47, ptr %52, align 4
   %53 = load i32, ptr %46, align 4
   %54 = zext i32 %53 to i64
@@ -6252,14 +6252,14 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %.1.i = phi ptr [ %51, %45 ], [ %.0.i, %41 ]
   %61 = add i32 %60, 1
   store i32 %61, ptr %.1.i, align 4
-  %62 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
   store ptr %33, ptr %64, align 8
   %65 = load ptr, ptr %12, align 8
   %66 = load i64, ptr %13, align 8
   %67 = tail call ptr @decl_new_var(ptr noundef %65, i64 %66, ptr noundef %3, i32 noundef 1) #8
-  %68 = getelementptr inbounds i8, ptr %67, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, -262145
   %71 = or disjoint i32 %70, %19
@@ -6284,7 +6284,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %81 = shl nuw nsw i64 %80, 3
   %82 = or disjoint i64 %81, 8
   %83 = tail call ptr @calloc_arena(i64 noundef %82) #8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %79, ptr %84, align 4
   %85 = load i32, ptr %.phi.trans.insert.i122, align 4
   %86 = zext i32 %85 to i64
@@ -6302,9 +6302,9 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %.1.i125 = phi ptr [ %83, %78 ], [ %75, %74 ]
   %93 = add i32 %92, 1
   store i32 %93, ptr %.1.i125, align 4
-  %94 = getelementptr inbounds i8, ptr %.1.i125, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.1.i125, i64 8
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %95
   store ptr %33, ptr %96, align 8
   br label %97
 
@@ -6337,14 +6337,14 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br i1 %109, label %.critedge2, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %108, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 255
   %.not113 = icmp eq i16 %113, 0
   br i1 %.not113, label %115, label %.critedge2
 
 .critedge2:                                       ; preds = %107, %110
-  %114 = getelementptr inbounds i8, ptr %33, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %33, i64 88
   store ptr %108, ptr %114, align 8
   br label %thread-pre-split
 
@@ -6353,7 +6353,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br label %.loopexit.thread143
 
 117:                                              ; preds = %101
-  %118 = getelementptr inbounds i8, ptr %33, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %119 = load ptr, ptr %118, align 8
   %.not111 = icmp eq ptr %119, null
   br i1 %.not111, label %120, label %thread-pre-split
@@ -6365,7 +6365,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br i1 %brmerge, label %127, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %3, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %125 = load i64, ptr %124, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %125, ptr noundef nonnull @.str.119) #8
   %126 = load ptr, ptr @poisoned_decl, align 8
@@ -6381,7 +6381,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   br i1 %129, label %134, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %132 = load i64, ptr %131, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %132, ptr noundef nonnull @.str.16) #8
   %133 = load ptr, ptr @poisoned_decl, align 8
@@ -6389,7 +6389,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
 
 134:                                              ; preds = %127
   tail call void @advance(ptr noundef nonnull %0) #8
-  %135 = getelementptr inbounds i8, ptr %33, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %136 = load ptr, ptr %135, align 8
   %.not114 = icmp eq ptr %136, null
   %.not116 = icmp eq ptr %.1, null
@@ -6410,14 +6410,14 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next, %147 ]
-  %141 = getelementptr inbounds ptr, ptr %.1, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw ptr, ptr %.1, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, %33
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %.lr.ph135
   %145 = tail call ptr @copy_attributes_single(ptr noundef nonnull %136) #8
-  %146 = getelementptr inbounds i8, ptr %142, i64 64
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 64
   store ptr %145, ptr %146, align 8
   br label %147
 
@@ -6431,12 +6431,12 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
 
 .loopexit.thread:                                 ; preds = %147, %138, %.loopexit
   %148 = tail call ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load i64, ptr %149, align 8
   %151 = and i64 %150, -128
   %152 = or disjoint i64 %151, 18
   store i64 %152, ptr %149, align 8
-  %153 = getelementptr inbounds i8, ptr %148, i64 80
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 80
   store ptr %.1, ptr %153, align 8
   br label %.loopexit.thread143
 
@@ -6452,7 +6452,7 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %230 [
     i32 66, label %7
@@ -6461,13 +6461,13 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
 
 7:                                                ; preds = %1
   tail call void @advance(ptr noundef nonnull %0) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @decl_new(i32 noundef 0, ptr noundef %9, i64 %11) #8
   %13 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 66) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   br i1 %13, label %29, label %16
 
@@ -6516,7 +6516,7 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   br i1 %35, label %36, label %106
 
 36:                                               ; preds = %.critedge88.i
-  %37 = getelementptr inbounds i8, ptr %12, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, -128
   %40 = or disjoint i64 %39, 24
@@ -6524,24 +6524,24 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   %41 = load ptr, ptr %12, align 8
   %42 = tail call ptr @calloc_arena(i64 noundef 80) #8
   store i32 31, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %41, ptr %43, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %42) #8
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %42, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store ptr %12, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %42, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %12, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %48 = load i8, ptr %47, align 8
   %49 = or i8 %48, 1
   store i8 %49, ptr %47, align 8
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = tail call ptr @decl_new(i32 noundef 16, ptr noundef %50, i64 %52) #8
-  %54 = getelementptr inbounds i8, ptr %12, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %53, ptr %54, align 8
   %55 = tail call ptr @parse_optional_type(ptr noundef nonnull %0)
   %.not85.i = icmp eq ptr %55, null
@@ -6568,8 +6568,8 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   %63 = sub i64 %.sink.i, %62
   %phi.call.in.i = sdiv exact i64 %63, 40
   %phi.call.i = trunc i64 %phi.call.in.i to i32
-  %64 = getelementptr inbounds i8, ptr %53, i64 80
-  %65 = getelementptr inbounds i8, ptr %53, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 88
   store i32 %phi.call.i, ptr %65, align 8
   %66 = tail call fastcc zeroext i1 @parse_fn_parameter_list(ptr noundef nonnull %0, ptr noundef nonnull %64)
   br i1 %66, label %69, label %67
@@ -6587,7 +6587,7 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
   br label %parse_def_type.exit
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %53, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = load i64, ptr %51, align 8
   %.not.unshifted.i.i = xor i64 %76, %75
@@ -6616,7 +6616,7 @@ extend_span_with_token.exit.i:                    ; preds = %78, %77
   %86 = and i64 %75, -16711681
   %.sroa.010.0.insert.insert.i.i = or disjoint i64 %.sroa.311.0.insert.shift.i.i, %86
   store i64 %.sroa.010.0.insert.insert.i.i, ptr %74, align 8
-  %87 = getelementptr inbounds i8, ptr %12, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = load i64, ptr %51, align 8
   %.not.unshifted.i89.i = xor i64 %89, %88
@@ -6698,13 +6698,13 @@ parse_type.exit.i:                                ; preds = %113, %.split.i.i, %
   br label %parse_def_type.exit
 
 .critedge2.i:                                     ; preds = %115, %parse_type.exit.i
-  %120 = getelementptr inbounds i8, ptr %12, i64 80
-  %121 = getelementptr inbounds i8, ptr %12, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %121 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %.0.i.i, ptr %121, align 8
   %122 = load i8, ptr %120, align 8
   %123 = and i8 %122, -2
   store i8 %123, ptr %120, align 8
-  %124 = getelementptr inbounds i8, ptr %12, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = and i64 %125, -128
   %127 = or disjoint i64 %126, 24
@@ -6712,14 +6712,14 @@ parse_type.exit.i:                                ; preds = %113, %.split.i.i, %
   %128 = load ptr, ptr %12, align 8
   %129 = tail call ptr @calloc_arena(i64 noundef 80) #8
   store i32 31, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %128, ptr %130, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %129) #8
-  %131 = getelementptr inbounds i8, ptr %129, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %129, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %129, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 56
   store ptr %12, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %12, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %129, ptr %133, align 8
   %134 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %12)
   br i1 %134, label %137, label %135
@@ -6729,8 +6729,8 @@ parse_type.exit.i:                                ; preds = %113, %.split.i.i, %
   br label %parse_def_type.exit
 
 137:                                              ; preds = %.critedge2.i
-  %138 = getelementptr inbounds i8, ptr %12, i64 16
-  %139 = getelementptr inbounds i8, ptr %0, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %140 = load i64, ptr %138, align 8
   %141 = load i64, ptr %139, align 8
   %.not.unshifted.i99.i = xor i64 %141, %140
@@ -6777,9 +6777,9 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   tail call void @advance(ptr noundef nonnull %0) #8
-  %159 = getelementptr inbounds i8, ptr %0, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %162 = load i64, ptr %161, align 8
   %163 = tail call ptr @decl_new(i32 noundef 1, ptr noundef %160, i64 %162) #8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -6787,20 +6787,20 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
   br i1 %164, label %165, label %185
 
 165:                                              ; preds = %158
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %167, 26
   br i1 %168, label %169, label %173
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %0, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %171 = load i64, ptr %170, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %171, ptr noundef nonnull @.str.122) #8
   %172 = load ptr, ptr @poisoned_decl, align 8
   br label %parse_def_attribute.exit
 
 173:                                              ; preds = %165
-  %174 = getelementptr inbounds i8, ptr %163, i64 80
+  %174 = getelementptr inbounds nuw i8, ptr %163, i64 80
   %175 = tail call zeroext i1 @parse_parameters(ptr noundef nonnull %0, ptr noundef nonnull %174, ptr poison, ptr noundef null, ptr noundef null, i32 noundef 5)
   br i1 %175, label %178, label %176
 
@@ -6826,7 +6826,7 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
 
 185:                                              ; preds = %.critedge.i6, %158
   store ptr null, ptr %3, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 40
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 10
   br i1 %188, label %.critedge66.i, label %189
@@ -6875,10 +6875,10 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
 .critedge70.i:                                    ; preds = %202
   call void @advance(ptr noundef nonnull %0) #8
   %209 = load ptr, ptr %3, align 8
-  %210 = getelementptr inbounds i8, ptr %163, i64 88
+  %210 = getelementptr inbounds nuw i8, ptr %163, i64 88
   store ptr %209, ptr %210, align 8
   %211 = load i8, ptr %4, align 1
-  %212 = getelementptr inbounds i8, ptr %163, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %213 = and i8 %211, 1
   %214 = zext nneg i8 %213 to i64
   %215 = load i64, ptr %212, align 8
@@ -6899,7 +6899,7 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i8, ptr %0, i64 56
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %227 = load i64, ptr %226, align 8
   call void (i64, ptr, ...) @sema_error_at_after(i64 %227, ptr noundef nonnull @.str.16) #8
   %228 = load ptr, ptr @poisoned_decl, align 8
@@ -6918,7 +6918,7 @@ parse_def_attribute.exit:                         ; preds = %169, %176, %181, %1
 230:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   tail call void @advance(ptr noundef nonnull %0) #8
-  %231 = getelementptr inbounds i8, ptr %0, i64 40
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %232 = load i32, ptr %231, align 8
   switch i32 %232, label %233 [
     i32 73, label %249
@@ -6934,7 +6934,7 @@ parse_def_attribute.exit:                         ; preds = %169, %176, %181, %1
   br i1 %or.cond5.i, label %237, label %241
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %0, i64 48
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %239 = tail call ptr @token_type_to_string(i32 noundef %232) #8
   %240 = load i64, ptr %238, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %240, ptr noundef nonnull @.str.123, ptr noundef %239) #8
@@ -6942,7 +6942,7 @@ parse_def_attribute.exit:                         ; preds = %169, %176, %181, %1
 
 241:                                              ; preds = %233
   %242 = icmp eq i32 %232, 66
-  %243 = getelementptr inbounds i8, ptr %0, i64 48
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %244 = load i64, ptr %243, align 8
   br i1 %242, label %245, label %246
 
@@ -6959,12 +6959,12 @@ parse_def_attribute.exit:                         ; preds = %169, %176, %181, %1
   br label %parse_def_ident.exit
 
 249:                                              ; preds = %230, %230, %230
-  %250 = getelementptr inbounds i8, ptr %0, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 48
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %253 = load i64, ptr %252, align 8
   %254 = tail call ptr @decl_new(i32 noundef 9, ptr noundef %251, i64 %253) #8
-  %255 = getelementptr inbounds i8, ptr %254, i64 80
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 80
   %256 = load i8, ptr %255, align 8
   %257 = and i8 %256, -32
   store i8 %257, ptr %255, align 8
@@ -6974,7 +6974,7 @@ parse_def_attribute.exit:                         ; preds = %169, %176, %181, %1
   br i1 %260, label %261, label %265
 
 261:                                              ; preds = %249
-  %262 = getelementptr inbounds i8, ptr %254, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %263 = load i64, ptr %262, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %263, ptr noundef nonnull @.str.126) #8
   %264 = load ptr, ptr @poisoned_decl, align 8
@@ -7019,7 +7019,7 @@ context_next_is_path_prefix_start.exit.i:         ; preds = %.critedge.i7
 
 context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_path_prefix_start.exit.thread_crit_edge.i, %context_next_is_path_prefix_start.exit.i, %.critedge.i7
   %280 = phi ptr [ %.pre.i, %.context_next_is_path_prefix_start.exit.thread_crit_edge.i ], [ null, %.critedge.i7 ], [ null, %context_next_is_path_prefix_start.exit.i ]
-  %281 = getelementptr inbounds i8, ptr %254, i64 88
+  %281 = getelementptr inbounds nuw i8, ptr %254, i64 88
   store ptr %280, ptr %281, align 8
   %282 = load i32, ptr %231, align 8
   %.not.i8 = icmp eq i32 %282, %232
@@ -7035,7 +7035,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %287, label %288, label %292
 
 288:                                              ; preds = %285, %283
-  %289 = getelementptr inbounds i8, ptr %254, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %290 = load i64, ptr %289, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %290, ptr noundef nonnull @.str.127) #8
   %291 = load ptr, ptr @poisoned_decl, align 8
@@ -7059,7 +7059,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %297, label %298, label %309
 
 298:                                              ; preds = %296
-  %299 = getelementptr inbounds i8, ptr %254, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %300 = load ptr, ptr %254, align 8
   %301 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %301, ptr noundef nonnull @.str.129, ptr noundef %300) #8
@@ -7071,7 +7071,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %304, label %305, label %309
 
 305:                                              ; preds = %303
-  %306 = getelementptr inbounds i8, ptr %254, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %307 = load i64, ptr %306, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %307, ptr noundef nonnull @.str.130) #8
   %308 = load ptr, ptr @poisoned_decl, align 8
@@ -7085,9 +7085,9 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
 
 312:                                              ; preds = %context_next_is_path_prefix_start.exit.thread.i
   %313 = load ptr, ptr %250, align 8
-  %314 = getelementptr inbounds i8, ptr %254, i64 96
+  %314 = getelementptr inbounds nuw i8, ptr %254, i64 96
   store ptr %313, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %254, i64 104
+  %315 = getelementptr inbounds nuw i8, ptr %254, i64 104
   %316 = load i64, ptr %252, align 8
   store i64 %316, ptr %315, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -7109,7 +7109,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %324, label %.critedge.i.i, label %325
 
 325:                                              ; preds = %.lr.ph.i.i
-  %326 = getelementptr inbounds i8, ptr %323, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %327 = load i16, ptr %326, align 8
   %328 = and i16 %327, 255
   %.not.i.i17 = icmp eq i16 %328, 0
@@ -7121,7 +7121,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
 
 329:                                              ; preds = %.critedge.i.i
   %330 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %331 = getelementptr inbounds i8, ptr %330, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 4
   store i32 8, ptr %331, align 4
   br label %334
 
@@ -7139,13 +7139,13 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %337, label %338, label %352
 
 338:                                              ; preds = %334
-  %339 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %339 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %340 = shl i32 %335, 1
   %341 = zext i32 %340 to i64
   %342 = shl nuw nsw i64 %341, 3
   %343 = or disjoint i64 %342, 8
   %344 = tail call ptr @calloc_arena(i64 noundef %343) #8
-  %345 = getelementptr inbounds i8, ptr %344, i64 4
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
   store i32 %340, ptr %345, align 4
   %346 = load i32, ptr %339, align 4
   %347 = zext i32 %346 to i64
@@ -7163,9 +7163,9 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   %.1.i.i.i = phi ptr [ %344, %338 ], [ %.0.i.i.i, %334 ]
   %354 = add i32 %353, 1
   store i32 %354, ptr %.1.i.i.i, align 4
-  %355 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   %356 = zext i32 %353 to i64
-  %357 = getelementptr inbounds ptr, ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw ptr, ptr %355, i64 %356
   store ptr %323, ptr %357, align 8
   %358 = load i32, ptr %231, align 8
   %.not24.i.i = icmp eq i32 %358, 55
@@ -7184,7 +7184,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br label %parse_def_ident.exit
 
 parse_generic_parameters.exit.i:                  ; preds = %361
-  %364 = getelementptr inbounds i8, ptr %254, i64 112
+  %364 = getelementptr inbounds nuw i8, ptr %254, i64 112
   store ptr %355, ptr %364, align 8
   br label %365
 
@@ -7197,8 +7197,8 @@ parse_generic_parameters.exit.i:                  ; preds = %361
   br label %parse_def_ident.exit
 
 369:                                              ; preds = %365
-  %370 = getelementptr inbounds i8, ptr %254, i64 16
-  %371 = getelementptr inbounds i8, ptr %0, i64 56
+  %370 = getelementptr inbounds nuw i8, ptr %254, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %372 = load i64, ptr %370, align 8
   %373 = load i64, ptr %371, align 8
   %.not.unshifted.i.i9 = xor i64 %373, %372
@@ -7262,15 +7262,15 @@ declare ptr @parse_ct_echo_stmt(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 64
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %17
 
 8:                                                ; preds = %40
@@ -7278,14 +7278,14 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
   br i1 %9, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.133) #8
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %1
   %12 = icmp eq i32 %3, 76
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   br i1 %12, label %15, label %16
 
@@ -7314,7 +7314,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
   br i1 %.not41, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.136) #8
   br label %.loopexit
@@ -7336,7 +7336,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load i64, ptr %38, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %39, ptr noundef nonnull @.str.137) #8
   br label %.loopexit
@@ -7351,7 +7351,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i64, ptr %46, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %47, ptr noundef nonnull @.str.16) #8
   br label %.loopexit
@@ -7367,7 +7367,7 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_include(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %3 = tail call ptr @decl_new(i32 noundef 7, ptr noundef null, i64 %.sroa.0.0.copyload) #8
   tail call void @advance(ptr noundef %0) #8
@@ -7376,7 +7376,7 @@ define internal fastcc ptr @parse_include(ptr noundef %0) unnamed_addr #0 {
   br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 255
   %.not = icmp eq i16 %9, 0
@@ -7387,7 +7387,7 @@ define internal fastcc ptr @parse_include(ptr noundef %0) unnamed_addr #0 {
   br label %25
 
 .critedge:                                        ; preds = %1, %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %4, ptr %12, align 8
   %13 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %3)
   br i1 %13, label %16, label %14
@@ -7397,13 +7397,13 @@ define internal fastcc ptr @parse_include(ptr noundef %0) unnamed_addr #0 {
   br label %25
 
 16:                                               ; preds = %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 9
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %22, ptr noundef nonnull @.str.16) #8
   %23 = load ptr, ptr @poisoned_decl, align 8
@@ -7420,11 +7420,11 @@ define internal fastcc ptr @parse_include(ptr noundef %0) unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %3 = tail call ptr @decl_new(i32 noundef 6, ptr noundef null, i64 %.sroa.0.0.copyload) #8
   tail call void @advance(ptr noundef %0) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 19
   br i1 %6, label %.critedge62, label %7
@@ -7443,7 +7443,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %.critedge62
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 255
   %.not = icmp eq i16 %16, 0
@@ -7454,13 +7454,13 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br label %81
 
 .critedge:                                        ; preds = %.critedge62, %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %11, ptr %19, align 8
   %20 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge
-  %21 = getelementptr inbounds i8, ptr %3, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
   br label %22
 
 22:                                               ; preds = %.lr.ph, %55
@@ -7469,7 +7469,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br i1 %24, label %.critedge2, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = and i16 %27, 255
   %.not59 = icmp eq i16 %28, 0
@@ -7486,7 +7486,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
 
 32:                                               ; preds = %.critedge2
   %33 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 8, ptr %34, align 4
   br label %37
 
@@ -7504,13 +7504,13 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %43 = shl i32 %38, 1
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 3
   %46 = or disjoint i64 %45, 8
   %47 = tail call ptr @calloc_arena(i64 noundef %46) #8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %43, ptr %48, align 4
   %49 = load i32, ptr %42, align 4
   %50 = zext i32 %49 to i64
@@ -7528,12 +7528,12 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   %.1.i = phi ptr [ %47, %41 ], [ %.0.i, %37 ]
   %57 = add i32 %56, 1
   store i32 %57, ptr %.1.i, align 4
-  %58 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %58, ptr %21, align 8
   %59 = load i32, ptr %.1.i, align 4
   %60 = add i32 %59, -1
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
   store ptr %23, ptr %62, align 8
   %63 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %63, label %22, label %._crit_edge, !llvm.loop !22
@@ -7565,7 +7565,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %78 = load i64, ptr %77, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %78, ptr noundef nonnull @.str.16) #8
   %79 = load ptr, ptr @poisoned_decl, align 8
@@ -7583,12 +7583,12 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_bitstruct_declaration(ptr noundef %0) unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @decl_new_with_type(ptr noundef %3, i64 %5, i32 noundef 2) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 64
   %10 = add i32 %8, -82
@@ -7661,7 +7661,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %42
 
 .critedge:                                        ; preds = %parse_type.exit, %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %.0.i21, ptr %35, align 8
   %36 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %6)
   br i1 %36, label %39, label %37
@@ -7685,12 +7685,12 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 define internal fastcc ptr @parse_interface_declaration(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @decl_new_with_type(ptr noundef %4, i64 %6, i32 noundef 22) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 64
   %11 = add i32 %9, -82
@@ -7765,7 +7765,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 33:                                               ; preds = %.critedge
   %34 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 8, ptr %35, align 4
   br label %38
 
@@ -7783,13 +7783,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %41, label %42, label %56
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.0.i80, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i80, i64 4
   %44 = shl i32 %39, 1
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %45, 3
   %47 = or disjoint i64 %46, 8
   %48 = tail call ptr @calloc_arena(i64 noundef %47) #8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %44, ptr %49, align 4
   %50 = load i32, ptr %43, align 4
   %51 = zext i32 %50 to i64
@@ -7807,16 +7807,16 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %.1.i = phi ptr [ %48, %42 ], [ %.0.i80, %38 ]
   %58 = add i32 %57, 1
   store i32 %58, ptr %.1.i, align 4
-  %59 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
   store ptr %.0.i78, ptr %61, align 8
   %62 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %56, %18
   %.059 = phi ptr [ null, %18 ], [ %59, %56 ]
-  %63 = getelementptr inbounds i8, ptr %7, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %.059, ptr %63, align 8
   %64 = load i32, ptr %8, align 8
   %65 = icmp eq i32 %64, 17
@@ -7851,7 +7851,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not69, label %.critedge2, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, 127
   %.not70 = icmp eq i64 %79, 0
@@ -7863,7 +7863,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 80:                                               ; preds = %.critedge2
   %81 = call ptr @calloc_arena(i64 noundef 72) #8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 8, ptr %82, align 4
   br label %85
 
@@ -7881,13 +7881,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %88, label %89, label %103
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.0.i84, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 4
   %91 = shl i32 %86, 1
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 3
   %94 = or disjoint i64 %93, 8
   %95 = call ptr @calloc_arena(i64 noundef %94) #8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %91, ptr %96, align 4
   %97 = load i32, ptr %90, align 4
   %98 = zext i32 %97 to i64
@@ -7905,16 +7905,16 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %.1.i85 = phi ptr [ %95, %89 ], [ %.0.i84, %85 ]
   %105 = add i32 %104, 1
   store i32 %105, ptr %.1.i85, align 4
-  %106 = getelementptr inbounds i8, ptr %.1.i85, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i85, i64 8
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
   store ptr %75, ptr %108, align 8
   %109 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #8
   br i1 %109, label %.critedge75, label %.lr.ph, !llvm.loop !24
 
 .critedge75:                                      ; preds = %103, %.critedge73
   %.060.lcssa = phi ptr [ null, %.critedge73 ], [ %106, %103 ]
-  %110 = getelementptr inbounds i8, ptr %7, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %.060.lcssa, ptr %110, align 8
   br label %112
 
@@ -7930,12 +7930,12 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_distinct_declaration(ptr noundef %0) unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @decl_new_with_type(ptr noundef %3, i64 %5, i32 noundef 10) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 64
   %10 = add i32 %8, -82
@@ -7962,7 +7962,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %78
 
 17:                                               ; preds = %consume_type_name.exit
-  %18 = getelementptr inbounds i8, ptr %6, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %19 = tail call zeroext i1 @parse_interface_impls(ptr noundef nonnull %0, ptr noundef nonnull %18)
   br i1 %19, label %22, label %20
 
@@ -7979,10 +7979,10 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %78
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %6, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %28 = load ptr, ptr %27, align 8
   store i32 32, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, -128
   %32 = or disjoint i64 %31, 10
@@ -8044,10 +8044,10 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %78
 
 .critedge:                                        ; preds = %parse_type.exit, %52
-  %57 = getelementptr inbounds i8, ptr %6, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %.0.i43, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 16
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load i64, ptr %58, align 8
   %61 = load i64, ptr %59, align 8
   %.not.unshifted.i = xor i64 %61, %60
@@ -8097,14 +8097,14 @@ extend_span_with_token.exit:                      ; preds = %62, %63
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_struct_declaration(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   tail call void @advance(ptr noundef %0) #8
   %4 = icmp eq i32 %3, 138
   %5 = select i1 %4, ptr @.str.141, ptr @.str.142
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   switch i32 %3, label %11 [
     i32 138, label %decl_from_token.exit
     i32 142, label %9
@@ -8151,7 +8151,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %35
 
 23:                                               ; preds = %consume_type_name.exit
-  %24 = getelementptr inbounds i8, ptr %13, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %25 = tail call zeroext i1 @parse_interface_impls(ptr noundef nonnull %0, ptr noundef nonnull %24)
   br i1 %25, label %28, label %26
 
@@ -8185,12 +8185,12 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   %5 = alloca ptr, align 8
   tail call void @advance(ptr noundef %0) #8
   %6 = tail call ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, -128
   %10 = or disjoint i64 %9, 21
   store i64 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 %1, ptr %11, align 4
   %12 = tail call fastcc zeroext i1 @parse_func_macro_header(ptr noundef %0, ptr noundef %6)
   br i1 %12, label %15, label %13
@@ -8203,13 +8203,13 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 19
   br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %22 = load i64, ptr %20, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.82, ptr noundef %21) #8
@@ -8225,7 +8225,7 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
 
 24:                                               ; preds = %.critedge.i
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %25, ptr %26, align 8
   %27 = load i32, ptr %4, align 4
   %28 = icmp slt i32 %27, 0
@@ -8242,10 +8242,10 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
 
 33:                                               ; preds = %30, %29, %24
   %34 = phi i32 [ %32, %30 ], [ 0, %29 ], [ %27, %24 ]
-  %35 = getelementptr inbounds i8, ptr %6, i64 92
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 92
   store i32 %34, ptr %35, align 4
   %36 = load i32, ptr %3, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 89
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 89
   %38 = trunc i32 %36 to i16
   %39 = load i16, ptr %37, align 1
   %40 = shl i16 %38, 3
@@ -8257,9 +8257,9 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br i1 %44, label %45, label %70
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load i64, ptr %48, align 8
   %50 = call ptr @decl_new(i32 noundef 3, ptr noundef %47, i64 %49) #8
   %51 = call zeroext i1 (ptr, i32, ptr, ...) @consume(ptr noundef nonnull %0, i32 noundef 73, ptr noundef nonnull @.str.143) #8
@@ -8270,7 +8270,7 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %50, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %56 = call zeroext i1 @parse_parameters(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr poison, ptr noundef null, ptr noundef null, i32 noundef 2)
   br i1 %56, label %57, label %78
 
@@ -8300,14 +8300,14 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
 
 70:                                               ; preds = %63, %33
   %.sink.i = phi i32 [ %69, %63 ], [ 0, %33 ]
-  %71 = getelementptr inbounds i8, ptr %6, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 %.sink.i, ptr %71, align 8
   %72 = load i32, ptr %16, align 8
   %73 = icmp eq i32 %72, 26
   br i1 %73, label %80, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = call ptr @token_type_to_string(i32 noundef 26) #8
   %77 = load i64, ptr %75, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %77, ptr noundef nonnull @.str.82, ptr noundef %76) #8
@@ -8338,14 +8338,14 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %6, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %89 = load i32, ptr %88, align 8
   %90 = call ptr @parse_short_body(ptr noundef nonnull %0, i32 noundef %89, i1 noundef zeroext true) #8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.critedge, label %92
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %90, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %94 = load i8, ptr %93, align 4
   %.not37 = icmp eq i8 %94, 0
   br i1 %.not37, label %96, label %.split
@@ -8365,7 +8365,7 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   %99 = sub i64 %.sink, %98
   %phi.call.in = sdiv exact i64 %99, 48
   %phi.call = trunc i64 %phi.call.in to i32
-  %100 = getelementptr inbounds i8, ptr %6, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %phi.call, ptr %100, align 8
   br label %113
 
@@ -8375,7 +8375,7 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br i1 %103, label %.critedge2, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %102, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %106 = load i8, ptr %105, align 4
   %.not = icmp eq i8 %106, 0
   br i1 %.not, label %108, label %.split32
@@ -8395,7 +8395,7 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   %111 = sub i64 %.sink41, %110
   %phi.call34.in = sdiv exact i64 %111, 48
   %phi.call34 = trunc i64 %phi.call34.in to i32
-  %112 = getelementptr inbounds i8, ptr %6, i64 112
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %phi.call34, ptr %112, align 8
   br label %113
 
@@ -8408,12 +8408,12 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
 define internal fastcc ptr @parse_enum_declaration(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   tail call void @advance(ptr noundef %0) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @decl_new_with_type(ptr noundef %4, i64 %6, i32 noundef 11) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 64
   %11 = add i32 %9, -82
@@ -8440,7 +8440,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %.loopexit125
 
 18:                                               ; preds = %consume_type_name.exit
-  %19 = getelementptr inbounds i8, ptr %7, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %20 = tail call zeroext i1 @parse_interface_impls(ptr noundef nonnull %0, ptr noundef nonnull %19)
   br i1 %20, label %23, label %21
 
@@ -8469,14 +8469,14 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %.not110, label %35, label %31
 
 31:                                               ; preds = %.critedge
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %33 = load i64, ptr %32, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.145) #8
   %34 = load ptr, ptr @poisoned_decl, align 8
   br label %.loopexit125
 
 35:                                               ; preds = %.critedge
-  %36 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %37 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 19) #8
   br i1 %37, label %.preheader.i, label %parse_enum_param_list.exit
 
@@ -8485,7 +8485,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %38, label %parse_enum_param_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %40
 
 40:                                               ; preds = %.critedge.i, %.lr.ph.i
@@ -8501,7 +8501,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %.not56.i.i, label %47, label %44
 
 44:                                               ; preds = %.critedge.i.i
-  %45 = getelementptr inbounds i8, ptr %41, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %46 = load i64, ptr %45, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.48) #8
   br label %.loopexit127
@@ -8548,14 +8548,14 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %66, label %.critedge2.i.i, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, 255
   %.not57.i.i = icmp eq i16 %70, 0
   br i1 %.not57.i.i, label %parse_enum_param_decl.exit.i, label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %67, %64
-  %71 = getelementptr inbounds i8, ptr %50, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %50, i64 88
   store ptr %65, ptr %71, align 8
   br label %72
 
@@ -8566,7 +8566,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
 
 74:                                               ; preds = %72
   %75 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 8, ptr %76, align 4
   br label %79
 
@@ -8584,13 +8584,13 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %82, label %83, label %97
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   %85 = shl i32 %80, 1
   %86 = zext i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 3
   %88 = or disjoint i64 %87, 8
   %89 = tail call ptr @calloc_arena(i64 noundef %88) #8
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %85, ptr %90, align 4
   %91 = load i32, ptr %84, align 4
   %92 = zext i32 %91 to i64
@@ -8608,14 +8608,14 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   %.1.i.i.i = phi ptr [ %89, %83 ], [ %.0.i.i.i, %79 ]
   %99 = add i32 %98, 1
   store i32 %99, ptr %.1.i.i.i, align 4
-  %100 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   store ptr %100, ptr %36, align 8
   %101 = load i32, ptr %.1.i.i.i, align 4
   %102 = add i32 %101, -1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds ptr, ptr %100, i64 %103
+  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %103
   store ptr %50, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %50, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %106 = load i64, ptr %105, align 8
   %107 = load i64, ptr %39, align 8
   %.not.unshifted.i.i.i = xor i64 %107, %106
@@ -8659,9 +8659,9 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
   tail call void @llvm.assume(i1 %.not33.i)
   %123 = add i32 %122, -1
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %120, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %120, i64 %124
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 96
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 96
   store i32 %123, ptr %127, align 8
   %128 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %128, label %.critedge.i, label %129
@@ -8695,7 +8695,7 @@ parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preh
   br label %.loopexit125
 
 140:                                              ; preds = %parse_enum_param_list.exit
-  %141 = getelementptr inbounds i8, ptr %7, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %142 = load i64, ptr %141, align 8
   %143 = and i64 %142, 7168
   %144 = load i32, ptr %8, align 8
@@ -8716,23 +8716,23 @@ parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preh
 
 150:                                              ; preds = %.critedge115
   %151 = load ptr, ptr @type_int, align 8
-  %152 = getelementptr inbounds i8, ptr %7, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %153 = load i64, ptr %152, align 8
   %154 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %155 = load i16, ptr %154, align 8
   %156 = and i16 %155, -512
   %157 = or disjoint i16 %156, 10
   store i16 %157, ptr %154, align 8
-  %158 = getelementptr inbounds i8, ptr %154, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %151, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %154, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store i64 %153, ptr %159, align 8
   br label %160
 
 160:                                              ; preds = %.critedge115, %150
   %161 = phi ptr [ %154, %150 ], [ %.0105, %.critedge115 ]
-  %162 = getelementptr inbounds i8, ptr %7, i64 96
-  %163 = getelementptr inbounds i8, ptr %7, i64 112
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr %161, ptr %163, align 8
   %164 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %164, label %.loopexit125, label %.lr.ph134
@@ -8741,7 +8741,7 @@ parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preh
   %165 = load ptr, ptr %3, align 8
   %166 = load i64, ptr %5, align 8
   %167 = call ptr @decl_new(i32 noundef 12, ptr noundef %165, i64 %166) #8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load i64, ptr %168, align 8
   %170 = and i64 %169, -7169
   %171 = or disjoint i64 %170, %143
@@ -8793,17 +8793,17 @@ consume_const_name.exit:                          ; preds = %174
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %185
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %185 ]
-  %186 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, %172
   br i1 %189, label %190, label %185
 
 190:                                              ; preds = %.lr.ph
-  %191 = getelementptr inbounds i8, ptr %167, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %192 = load i64, ptr %191, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %192, ptr noundef nonnull @.str.147) #8
-  %193 = getelementptr inbounds i8, ptr %187, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %194 = load i64, ptr %193, align 8
   call void (i64, ptr, ...) @sema_error_prev_at(i64 %194, ptr noundef nonnull @.str.148) #8
   %195 = load i64, ptr %168, align 8
@@ -8827,7 +8827,7 @@ consume_const_name.exit:                          ; preds = %174
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %2, align 8
-  %205 = getelementptr inbounds i8, ptr %167, i64 80
+  %205 = getelementptr inbounds nuw i8, ptr %167, i64 80
   store ptr %204, ptr %205, align 8
   %206 = load i32, ptr %8, align 8
   %207 = icmp eq i32 %206, 26
@@ -8859,7 +8859,7 @@ consume_const_name.exit:                          ; preds = %174
 
 218:                                              ; preds = %216
   %219 = call ptr @calloc_arena(i64 noundef 72) #8
-  %220 = getelementptr inbounds i8, ptr %219, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store i32 8, ptr %220, align 4
   br label %223
 
@@ -8877,13 +8877,13 @@ consume_const_name.exit:                          ; preds = %174
   br i1 %226, label %227, label %241
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %.0.i121, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i121, i64 4
   %229 = shl i32 %224, 1
   %230 = zext i32 %229 to i64
   %231 = shl nuw nsw i64 %230, 3
   %232 = or disjoint i64 %231, 8
   %233 = call ptr @calloc_arena(i64 noundef %232) #8
-  %234 = getelementptr inbounds i8, ptr %233, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   store i32 %229, ptr %234, align 4
   %235 = load i32, ptr %228, align 4
   %236 = zext i32 %235 to i64
@@ -8901,12 +8901,12 @@ consume_const_name.exit:                          ; preds = %174
   %.1.i = phi ptr [ %233, %227 ], [ %.0.i121, %223 ]
   %243 = add i32 %242, 1
   store i32 %243, ptr %.1.i, align 4
-  %244 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %244, ptr %162, align 8
   %245 = load i32, ptr %.1.i, align 4
   %246 = add i32 %245, -1
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds ptr, ptr %244, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %244, i64 %247
   store ptr %167, ptr %248, align 8
   %249 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %249, label %.critedge119, label %250
@@ -8935,12 +8935,12 @@ consume_const_name.exit:                          ; preds = %174
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @parse_fault_declaration(ptr noundef %0) unnamed_addr #0 {
   tail call void @advance(ptr noundef %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = tail call ptr @decl_new_with_type(ptr noundef %3, i64 %5, i32 noundef 14) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 64
   %10 = add i32 %8, -82
@@ -8967,7 +8967,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %128
 
 17:                                               ; preds = %consume_type_name.exit
-  %18 = getelementptr inbounds i8, ptr %6, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %19 = tail call zeroext i1 @parse_interface_impls(ptr noundef nonnull %0, ptr noundef nonnull %18)
   br i1 %19, label %22, label %20
 
@@ -8998,21 +8998,21 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
 .critedge:                                        ; preds = %26
   tail call void @advance(ptr noundef nonnull %0) #8
   %33 = load ptr, ptr @type_iptr, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #8
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, -512
   %41 = or disjoint i16 %40, 10
   store i16 %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %35, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 %37, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 96
-  %45 = getelementptr inbounds i8, ptr %6, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %38, ptr %45, align 8
   %46 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %46, label %._crit_edge101.thread, label %.lr.ph100
@@ -9057,10 +9057,10 @@ consume_const_name.exit:                          ; preds = %53
   %63 = sub i64 %47, %62
   %64 = sdiv exact i64 %63, 136
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %51, i64 92
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 92
   store i32 %65, ptr %66, align 4
   %67 = trunc i64 %.08099 to i32
-  %68 = getelementptr inbounds i8, ptr %51, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 88
   store i32 %67, ptr %68, align 8
   %69 = add i64 %.08099, 1
   %70 = load ptr, ptr %44, align 8
@@ -9084,17 +9084,17 @@ consume_const_name.exit:                          ; preds = %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %60
   br i1 %78, label %79, label %74
 
 79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %51, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %81 = load i64, ptr %80, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %81, ptr noundef nonnull @.str.154) #8
-  %82 = getelementptr inbounds i8, ptr %76, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %83 = load i64, ptr %82, align 8
   tail call void (i64, ptr, ...) @sema_error_prev_at(i64 %83, ptr noundef nonnull @.str.148) #8
   %84 = load ptr, ptr @poisoned_decl, align 8
@@ -9102,7 +9102,7 @@ consume_const_name.exit:                          ; preds = %53
 
 ._crit_edge:                                      ; preds = %59
   %85 = tail call ptr @calloc_arena(i64 noundef 72) #8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 8, ptr %86, align 4
   br label %88
 
@@ -9120,13 +9120,13 @@ consume_const_name.exit:                          ; preds = %53
   br i1 %91, label %92, label %106
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %.0.i87, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 4
   %94 = shl i32 %89, 1
   %95 = zext i32 %94 to i64
   %96 = shl nuw nsw i64 %95, 3
   %97 = or disjoint i64 %96, 8
   %98 = tail call ptr @calloc_arena(i64 noundef %97) #8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %94, ptr %99, align 4
   %100 = load i32, ptr %93, align 4
   %101 = zext i32 %100 to i64
@@ -9144,12 +9144,12 @@ consume_const_name.exit:                          ; preds = %53
   %.1.i = phi ptr [ %98, %92 ], [ %.0.i87, %88 ]
   %108 = add i32 %107, 1
   store i32 %108, ptr %.1.i, align 4
-  %109 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %109, ptr %44, align 8
   %110 = load i32, ptr %.1.i, align 4
   %111 = add i32 %110, -1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %109, i64 %112
   store ptr %51, ptr %113, align 8
   %114 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %114, label %.critedge85, label %115
@@ -9175,7 +9175,7 @@ consume_const_name.exit:                          ; preds = %53
   br i1 %123, label %._crit_edge101.thread, label %128
 
 ._crit_edge101.thread:                            ; preds = %.critedge, %._crit_edge101
-  %124 = getelementptr inbounds i8, ptr %0, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %125 = load ptr, ptr %6, align 8
   %126 = load i64, ptr %124, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %126, ptr noundef nonnull @.str.155, ptr noundef %125) #8
@@ -9203,7 +9203,7 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @consume_type_name(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 64
   %6 = add i32 %4, -82
@@ -9212,7 +9212,7 @@ define internal fastcc zeroext i1 @consume_type_name(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %10, ptr noundef nonnull @.str.79, ptr noundef %1) #8
   br label %18
@@ -9222,7 +9222,7 @@ define internal fastcc zeroext i1 @consume_type_name(ptr noundef %0, ptr noundef
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %15, ptr noundef nonnull @.str.80, ptr noundef %1) #8
   br label %18
@@ -9247,19 +9247,19 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 2, 6) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 29, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = trunc nuw nsw i32 %3 to i8
   %11 = load i8, ptr %9, align 8
   %12 = and i8 %11, -16
   %13 = or disjoint i8 %12, %10
   store i8 %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load ptr, ptr %14, align 8
   tail call void @advance(ptr noundef %0) #8
   %16 = tail call ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext false) #8
@@ -9267,20 +9267,20 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 255
   %.not = icmp eq i16 %21, 0
   br i1 %.not, label %67, label %.critedge
 
 .critedge:                                        ; preds = %4, %18
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %16, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %23, %.critedge
   %.pn = phi ptr [ %15, %.critedge ], [ %.0, %23 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %24 = load i8, ptr %.0, align 1
   switch i8 %24, label %23 [
     i8 10, label %.critedge2
@@ -9316,7 +9316,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   tail call void @scratch_buffer_append_len(ptr noundef %15, i64 noundef %33) #8
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.101) #8
   %34 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 7) #8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 76
   br i1 %34, label %38, label %42
@@ -9325,7 +9325,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   br i1 %37, label %.thread, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i64, ptr %40, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.102) #8
   br label %67
@@ -9335,12 +9335,12 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
 
 .thread:                                          ; preds = %38, %42
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.103) #8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @scratch_buffer_append(ptr noundef %44) #8
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.104) #8
   %45 = tail call ptr @scratch_buffer_copy() #8
-  %46 = getelementptr inbounds i8, ptr %7, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %45, ptr %46, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   br label %50
@@ -9348,7 +9348,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
 47:                                               ; preds = %42
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.105) #8
   %48 = tail call ptr @scratch_buffer_copy() #8
-  %49 = getelementptr inbounds i8, ptr %7, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %48, ptr %49, align 8
   br label %50
 
@@ -9380,7 +9380,7 @@ define internal fastcc noundef zeroext i1 @parse_doc_contract(ptr noundef %0, pt
   %64 = trunc i64 %63 to i32
   %65 = load ptr, ptr %2, align 8
   store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %66, ptr %2, align 8
   br label %67
 
@@ -9397,14 +9397,14 @@ declare ptr @scratch_buffer_copy() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @parse_func_macro_header(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 127
   %6 = icmp eq i64 %5, 21
   br i1 %6, label %7, label %parse_is_macro_name.exit.thread71
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %parse_is_macro_name.exit.thread71 [
     i32 64, label %10
@@ -9412,7 +9412,7 @@ define internal fastcc noundef zeroext i1 @parse_func_macro_header(ptr noundef %
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 58
   br i1 %.not.i, label %parse_is_macro_name.exit.thread71, label %.thread
@@ -9429,7 +9429,7 @@ parse_is_macro_name.exit.thread71:                ; preds = %7, %10, %2
   br i1 %.not55, label %96, label %.critedge
 
 .critedge:                                        ; preds = %parse_is_macro_name.exit.thread71, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %parse_is_macro_name.exit69.thread72 [
     i32 14, label %.critedge2
@@ -9438,7 +9438,7 @@ parse_is_macro_name.exit.thread71:                ; preds = %7, %10, %2
   ]
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %21 = load i32, ptr %20, align 8
   %.not.i68 = icmp eq i32 %21, 58
   br i1 %.not.i68, label %parse_is_macro_name.exit69.thread72, label %.critedge2
@@ -9496,7 +9496,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not60, label %.thread, label %39
 
 39:                                               ; preds = %36, %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i64, ptr %40, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.111) #8
   br label %96
@@ -9505,28 +9505,28 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not59, label %51, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %45 = load i64, ptr %44, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.112) #8
   br label %96
 
 .thread:                                          ; preds = %7, %36, %10
   %.051.ph = phi ptr [ %13, %36 ], [ null, %10 ], [ null, %7 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i64, ptr %49, align 8
   store i64 %50, ptr %48, align 8
   br label %57
 
 51:                                               ; preds = %34, %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %54, align 8
   br i1 %6, label %57, label %.critedge67
@@ -9535,7 +9535,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %58 = phi i64 [ %50, %.thread ], [ %56, %51 ]
   %.05080 = phi ptr [ null, %.thread ], [ %13, %51 ]
   %.05177 = phi ptr [ %.051.ph, %.thread ], [ %.1, %51 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   switch i32 %60, label %61 [
     i32 64, label %64
@@ -9573,10 +9573,10 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 72:                                               ; preds = %64, %65
   %73 = phi i32 [ %71, %65 ], [ 0, %64 ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 80
-  %75 = getelementptr inbounds i8, ptr %1, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %73, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 89
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 89
   %77 = zext i1 %6 to i16
   %78 = load i16, ptr %76, align 1
   %79 = and i16 %78, -2
@@ -9617,13 +9617,13 @@ define internal fastcc noundef zeroext i1 @parse_fn_parameter_list(ptr noundef %
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store ptr null, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 19
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = tail call ptr @token_type_to_string(i32 noundef 19) #8
   %12 = load i64, ptr %10, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %12, ptr noundef nonnull @.str.82, ptr noundef %11) #8
@@ -9642,7 +9642,7 @@ define internal fastcc noundef zeroext i1 @parse_fn_parameter_list(ptr noundef %
   br i1 %16, label %.critedge32, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = call ptr @token_type_to_string(i32 noundef 26) #8
   %20 = load i64, ptr %18, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %20, ptr noundef nonnull @.str.82, ptr noundef %19) #8
@@ -9666,12 +9666,12 @@ define internal fastcc noundef zeroext i1 @parse_fn_parameter_list(ptr noundef %
 
 27:                                               ; preds = %.critedge32, %24, %23
   %28 = phi i32 [ %26, %24 ], [ 0, %23 ], [ %21, %.critedge32 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %.pre, ptr %30, align 8
   %31 = load i32, ptr %4, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %33 = trunc i32 %31 to i16
   %34 = load i16, ptr %32, align 1
   %35 = shl i16 %33, 3

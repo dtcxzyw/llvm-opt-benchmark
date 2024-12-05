@@ -446,9 +446,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @basque_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   store i32 %3, ptr %6, align 4
@@ -458,7 +458,7 @@ define hidden range(i32 -2147483648, 2) i32 @basque_UTF_8_stem(ptr noundef %0) l
   %9 = load i32, ptr %2, align 4
   %10 = load ptr, ptr %4, align 8
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @in_grouping_U(ptr noundef %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 117, i32 noundef 0) #2
   %.not.i = icmp eq i32 %13, 0
@@ -571,18 +571,18 @@ define hidden range(i32 -2147483648, 2) i32 @basque_UTF_8_stem(ptr noundef %0) l
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %71, align 8
   %72 = load i32, ptr %2, align 4
   store i32 %72, ptr %11, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %72, ptr %73, align 8
   %74 = add i32 %72, -1
   %.not.i4069 = icmp sgt i32 %74, %12
   br i1 %.not.i4069, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %r_mark_regions.exit
-  %75 = getelementptr inbounds i8, ptr %0, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %76 = load ptr, ptr %0, align 8
   %77 = sext i32 %74 to i64
   %78 = getelementptr i8, ptr %76, i64 %77
@@ -695,7 +695,7 @@ r_aditzak.exit:                                   ; preds = %95, %99, %103, %106
   br i1 %.not.i4186, label %.lr.ph88, label %r_izenak.exit
 
 .lr.ph88:                                         ; preds = %._crit_edge
-  %122 = getelementptr inbounds i8, ptr %0, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %123 = load ptr, ptr %0, align 8
   %124 = sext i32 %121 to i64
   %125 = getelementptr i8, ptr %123, i64 %124
@@ -870,7 +870,7 @@ r_izenak.exit:                                    ; preds = %r_izenak.exit.loope
 
 201:                                              ; preds = %199
   %202 = load i32, ptr %11, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %202, ptr %203, align 4
   switch i32 %200, label %212 [
     i32 1, label %204

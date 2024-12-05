@@ -20,12 +20,12 @@ entry:
   %1 = trunc i32 %shr1 to i8
   %2 = and i8 %1, 63
   %conv3 = or disjoint i8 %2, -128
-  %arrayidx4 = getelementptr inbounds i8, ptr %output, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %output, i64 1
   store i8 %conv3, ptr %arrayidx4, align 1
   %3 = trunc i32 %byte to i8
   %4 = and i8 %3, 63
   %conv7 = or disjoint i8 %4, -128
-  %arrayidx8 = getelementptr inbounds i8, ptr %output, i64 2
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %output, i64 2
   store i8 %conv7, ptr %arrayidx8, align 1
   ret void
 }
@@ -155,15 +155,15 @@ entry:
   store i64 66, ptr %cols, align 8
   store i64 8, ptr %squares_per_row, align 8
   store i64 12, ptr %squares_per_col, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.end19
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %cols, ptr noundef null) #6
   %cmp1.not = icmp eq i32 %call, 0
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %land.lhs.true
 
 land.lhs.true4:                                   ; preds = %if.end
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %squares_per_row, ptr noundef null) #6
   %cmp8.not = icmp eq i32 %call7, 0
@@ -189,7 +189,7 @@ if.end10:                                         ; preds = %land.lhs.true4
 
 land.lhs.true13:                                  ; preds = %if.end10
   %5 = load ptr, ptr %argv, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %5, i64 24
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load ptr, ptr %arrayidx15, align 8
   %call16 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %6, ptr noundef nonnull %squares_per_col, ptr noundef null) #6
   %cmp17.not = icmp eq i32 %call16, 0
@@ -247,14 +247,14 @@ if.end37:                                         ; preds = %if.end37.sink.split
   %call40 = call ptr @lwDrawSchotter(i32 noundef %conv, i32 noundef %conv38, i32 noundef %conv39)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %unicode.i)
   %call.i = call ptr @sdsempty() #6
-  %height.i = getelementptr inbounds i8, ptr %call40, i64 4
+  %height.i = getelementptr inbounds nuw i8, ptr %call40, i64 4
   %13 = load i32, ptr %height.i, align 4
   %cmp43.i = icmp sgt i32 %13, 0
   br i1 %cmp43.i, label %for.cond1.preheader.lr.ph.i, label %renderCanvas.exit
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end37
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %unicode.i, i64 1
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %unicode.i, i64 2
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %unicode.i, i64 1
+  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %unicode.i, i64 2
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc57.i, %for.cond1.preheader.lr.ph.i

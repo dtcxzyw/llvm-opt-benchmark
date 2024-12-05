@@ -104,7 +104,7 @@ define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr nocapture
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6, %1
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %40, label %10
 
@@ -114,7 +114,7 @@ define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr nocapture
   br label %40
 
 12:                                               ; preds = %3, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %16 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -125,7 +125,7 @@ define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr nocapture
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %12
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not12 = icmp eq ptr %22, null
   br i1 %.not12, label %40, label %23
 
@@ -139,12 +139,12 @@ define hidden void @_ZN13StackOverflow24create_stack_guard_pagesEv(ptr nocapture
 
 26:                                               ; preds = %24
   store i32 3, ptr %0, align 8
-  %27 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %40, label %35
 
 28:                                               ; preds = %24
-  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not13 = icmp eq ptr %29, null
   br i1 %.not13, label %34, label %30
 
@@ -216,7 +216,7 @@ define hidden void @_ZN13StackOverflow24remove_stack_guard_pagesEv(ptr nocapture
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %8 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -227,7 +227,7 @@ define hidden void @_ZN13StackOverflow24remove_stack_guard_pagesEv(ptr nocapture
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %4
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %26, label %15
 
@@ -240,7 +240,7 @@ define hidden void @_ZN13StackOverflow24remove_stack_guard_pagesEv(ptr nocapture
 
 19:                                               ; preds = %4
   store i32 0, ptr %0, align 8
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %26, label %21
 
@@ -268,13 +268,13 @@ define hidden void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr nocaptu
   br i1 %or.cond, label %27, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %9 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
   %10 = getelementptr i8, ptr %7, i64 %8
   %11 = getelementptr i8, ptr %10, i64 %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ult ptr %11, %13
   br i1 %14, label %17, label %15
@@ -327,7 +327,7 @@ define hidden void @_ZN13StackOverflow27disable_stack_reserved_zoneEv(ptr nocapt
   br i1 %.not, label %3, label %14
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %7 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -351,11 +351,11 @@ define hidden void @_ZN13StackOverflow27disable_stack_reserved_zoneEv(ptr nocapt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %5, %7
   br i1 %8, label %11, label %9
@@ -403,7 +403,7 @@ define hidden void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
@@ -427,7 +427,7 @@ define hidden void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13StackOverflow22disable_stack_red_zoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %5 = tail call noundef zeroext i1 @_ZN2os14unguard_memoryEPcm(ptr noundef %3, i64 noundef %4) #7
@@ -449,7 +449,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocap
   br i1 %switch, label %4, label %27
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %8 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -472,9 +472,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocap
 
 17:                                               ; preds = %16
   tail call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not5 = icmp eq ptr %19, %21
   br i1 %.not5, label %27, label %22
@@ -484,9 +484,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr nocap
   br label %27
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
   tail call void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false)
   br label %27
@@ -504,7 +504,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr nocapt
   br i1 %switch.i, label %4, label %_ZN13StackOverflow13reguard_stackEPh.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %8 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -527,9 +527,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr nocapt
 
 17:                                               ; preds = %16
   tail call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not5.i = icmp eq ptr %19, %21
   br i1 %.not5.i, label %_ZN13StackOverflow13reguard_stackEPh.exit, label %22
@@ -539,9 +539,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEv(ptr nocapt
   br label %_ZN13StackOverflow13reguard_stackEPh.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
   tail call void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false)
   br label %_ZN13StackOverflow13reguard_stackEPh.exit
@@ -564,7 +564,7 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(
   br i1 %switch.i.i, label %7, label %_ZN13StackOverflow13reguard_stackEv.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
   %11 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
@@ -587,9 +587,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(
 
 20:                                               ; preds = %19
   tail call void @_ZN13StackOverflow33enable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not5.i.i = icmp eq ptr %22, %24
   br i1 %.not5.i.i, label %_ZN13StackOverflow13reguard_stackEv.exit, label %25
@@ -599,9 +599,9 @@ define hidden noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(
   br label %_ZN13StackOverflow13reguard_stackEv.exit
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %29, align 8
   tail call void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false)
   br label %_ZN13StackOverflow13reguard_stackEv.exit

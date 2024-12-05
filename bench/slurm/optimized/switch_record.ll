@@ -68,25 +68,25 @@ define void @switch_record_table_destroy() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
   %4 = load ptr, ptr @switch_record_table, align 8
-  %5 = getelementptr inbounds %struct.switch_record_t, ptr %4, i64 %indvars.iv, i32 2
+  %5 = getelementptr inbounds nuw %struct.switch_record_t, ptr %4, i64 %indvars.iv, i32 2
   tail call void @slurm_xfree(ptr noundef nonnull %5) #6
   %6 = load ptr, ptr @switch_record_table, align 8
-  %7 = getelementptr inbounds %struct.switch_record_t, ptr %6, i64 %indvars.iv, i32 4
+  %7 = getelementptr inbounds nuw %struct.switch_record_t, ptr %6, i64 %indvars.iv, i32 4
   tail call void @slurm_xfree(ptr noundef nonnull %7) #6
   %8 = load ptr, ptr @switch_record_table, align 8
-  %9 = getelementptr inbounds %struct.switch_record_t, ptr %8, i64 %indvars.iv, i32 8
+  %9 = getelementptr inbounds nuw %struct.switch_record_t, ptr %8, i64 %indvars.iv, i32 8
   tail call void @slurm_xfree(ptr noundef nonnull %9) #6
   %10 = load ptr, ptr @switch_record_table, align 8
-  %11 = getelementptr inbounds %struct.switch_record_t, ptr %10, i64 %indvars.iv, i32 9
+  %11 = getelementptr inbounds nuw %struct.switch_record_t, ptr %10, i64 %indvars.iv, i32 9
   tail call void @slurm_xfree(ptr noundef nonnull %11) #6
   %12 = load ptr, ptr @switch_record_table, align 8
-  %13 = getelementptr inbounds %struct.switch_record_t, ptr %12, i64 %indvars.iv, i32 10
+  %13 = getelementptr inbounds nuw %struct.switch_record_t, ptr %12, i64 %indvars.iv, i32 10
   tail call void @slurm_xfree(ptr noundef nonnull %13) #6
   %14 = load ptr, ptr @switch_record_table, align 8
-  %15 = getelementptr inbounds %struct.switch_record_t, ptr %14, i64 %indvars.iv, i32 11
+  %15 = getelementptr inbounds nuw %struct.switch_record_t, ptr %14, i64 %indvars.iv, i32 11
   tail call void @slurm_xfree(ptr noundef nonnull %15) #6
   %16 = load ptr, ptr @switch_record_table, align 8
-  %17 = getelementptr inbounds %struct.switch_record_t, ptr %16, i64 %indvars.iv, i32 3
+  %17 = getelementptr inbounds nuw %struct.switch_record_t, ptr %16, i64 %indvars.iv, i32 3
   %18 = load ptr, ptr %17, align 8
   %.not11 = icmp eq ptr %18, null
   br i1 %.not11, label %20, label %19
@@ -98,7 +98,7 @@ define void @switch_record_table_destroy() local_unnamed_addr #0 {
 
 20:                                               ; preds = %19, %.lr.ph
   %21 = phi ptr [ %.pre, %19 ], [ %16, %.lr.ph ]
-  %22 = getelementptr inbounds %struct.switch_record_t, ptr %21, i64 %indvars.iv, i32 3
+  %22 = getelementptr inbounds nuw %struct.switch_record_t, ptr %21, i64 %indvars.iv, i32 3
   store ptr null, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr @switch_record_cnt, align 4
@@ -202,12 +202,12 @@ _read_topo_file.exit:                             ; preds = %13
   %indvars.iv = phi i64 [ 0, %.lr.ph247.preheader ], [ %indvars.iv.next, %123 ]
   %.0127244 = phi ptr [ %36, %.lr.ph247.preheader ], [ %124, %123 ]
   %.0186243 = phi ptr [ null, %.lr.ph247.preheader ], [ %.1187, %123 ]
-  %38 = getelementptr inbounds ptr, ptr %.sink.i, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %.sink.i, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @xstrdup(ptr noundef %41) #6
-  %43 = getelementptr inbounds i8, ptr %.0127244, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0127244, i64 8
   store ptr %42, ptr %43, align 8
   %.not295 = icmp eq i64 %indvars.iv, 0
   br i1 %.not295, label %._crit_edge, label %.lr.ph.preheader
@@ -220,30 +220,30 @@ _read_topo_file.exit:                             ; preds = %13
   %.0126239 = phi ptr [ %55, %53 ], [ %44, %.lr.ph.preheader ]
   %.0130238 = phi i32 [ %54, %53 ], [ 0, %.lr.ph.preheader ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %.0126239, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0126239, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @xstrcmp(ptr noundef %45, ptr noundef %47) #6
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %.0126239, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0126239, i64 8
   %52 = load ptr, ptr %51, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef %52) #7
   unreachable
 
 53:                                               ; preds = %.lr.ph
   %54 = add nuw nsw i32 %.0130238, 1
-  %55 = getelementptr inbounds i8, ptr %.0126239, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %.0126239, i64 72
   %56 = zext nneg i32 %54 to i64
   %exitcond.not = icmp eq i64 %indvars.iv, %56
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph247
   %57 = load i32, ptr %39, align 8
-  %58 = getelementptr inbounds i8, ptr %.0127244, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.0127244, i64 4
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %39, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not157 = icmp eq ptr %60, null
   br i1 %.not157, label %113, label %61
@@ -252,10 +252,10 @@ _read_topo_file.exit:                             ; preds = %13
   store i32 0, ptr %.0127244, align 8
   %62 = load ptr, ptr %59, align 8
   %63 = call ptr @xstrdup(ptr noundef %62) #6
-  %64 = getelementptr inbounds i8, ptr %.0127244, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.0127244, i64 24
   store ptr %63, ptr %64, align 8
   %65 = load ptr, ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %.0127244, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.0127244, i64 16
   %67 = load i32, ptr @node_record_count, align 4
   %68 = sext i32 %67 to i64
   %69 = call ptr @bit_alloc(i64 noundef %68) #6
@@ -289,7 +289,7 @@ _read_topo_file.exit:                             ; preds = %13
   br i1 %.not22.i, label %85, label %81
 
 81:                                               ; preds = %.lr.ph.i
-  %82 = getelementptr inbounds i8, ptr %80, i64 192
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 192
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
   call void @bit_set(ptr noundef %69, i64 noundef %84) #6
@@ -324,7 +324,7 @@ _read_topo_file.exit:                             ; preds = %13
   br i1 %.not.i163, label %.loopexit210, label %.lr.ph.i, !llvm.loop !9
 
 96:                                               ; preds = %71, %77
-  %97 = getelementptr inbounds i8, ptr %39, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %98 = load ptr, ptr %59, align 8
   %99 = load ptr, ptr %97, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef %98, ptr noundef %99) #7
@@ -366,7 +366,7 @@ _read_topo_file.exit:                             ; preds = %13
   br label %123
 
 113:                                              ; preds = %._crit_edge
-  %114 = getelementptr inbounds i8, ptr %39, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %115 = load ptr, ptr %114, align 8
   %.not158 = icmp eq ptr %115, null
   br i1 %.not158, label %120, label %116
@@ -375,12 +375,12 @@ _read_topo_file.exit:                             ; preds = %13
   store i32 -1, ptr %.0127244, align 8
   %117 = load ptr, ptr %114, align 8
   %118 = call ptr @xstrdup(ptr noundef %117) #6
-  %119 = getelementptr inbounds i8, ptr %.0127244, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %.0127244, i64 40
   store ptr %118, ptr %119, align 8
   br label %123
 
 120:                                              ; preds = %113
-  %121 = getelementptr inbounds i8, ptr %39, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %122 = load ptr, ptr %121, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef %122) #7
   unreachable
@@ -388,7 +388,7 @@ _read_topo_file.exit:                             ; preds = %13
 123:                                              ; preds = %116, %112, %109
   %.1187 = phi ptr [ %.0186243, %116 ], [ %.4190, %112 ], [ %.4190, %109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %124 = getelementptr inbounds i8, ptr %.0127244, i64 72
+  %124 = getelementptr inbounds nuw i8, ptr %.0127244, i64 72
   %125 = load i32, ptr @switch_record_cnt, align 4
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next, %126
@@ -414,7 +414,7 @@ _read_topo_file.exit:                             ; preds = %13
   br i1 %.not153, label %133, label %188
 
 133:                                              ; preds = %.lr.ph258
-  %134 = getelementptr inbounds i8, ptr %.1128250, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %.1128250, i64 40
   %135 = load ptr, ptr %134, align 8
   %136 = call ptr @hostlist_create(ptr noundef %135) #6
   %.not154 = icmp eq ptr %136, null
@@ -427,11 +427,11 @@ _read_topo_file.exit:                             ; preds = %13
   br i1 %.not155248, label %.loopexit207, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %.preheader206
-  %138 = getelementptr inbounds i8, ptr %.1128250, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.1128250, i64 16
   br label %142
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %.1128250, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %.1128250, i64 40
   %141 = load ptr, ptr %140, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %141) #7
   unreachable
@@ -449,7 +449,7 @@ _read_topo_file.exit:                             ; preds = %13
 .lr.ph.i165:                                      ; preds = %151, %.lr.ph.preheader.i
   %.09.i = phi ptr [ %153, %151 ], [ %146, %.lr.ph.preheader.i ]
   %.068.i = phi i32 [ %152, %151 ], [ 0, %.lr.ph.preheader.i ]
-  %147 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 @xstrcmp(ptr noundef %148, ptr noundef nonnull %143) #6
   %150 = icmp eq i32 %149, 0
@@ -457,7 +457,7 @@ _read_topo_file.exit:                             ; preds = %13
 
 151:                                              ; preds = %.lr.ph.i165
   %152 = add nuw nsw i32 %.068.i, 1
-  %153 = getelementptr inbounds i8, ptr %.09.i, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %.09.i, i64 72
   %154 = load i32, ptr @switch_record_cnt, align 4
   %155 = icmp slt i32 %152, %154
   br i1 %155, label %.lr.ph.i165, label %_get_switch_inx.exit.thread, !llvm.loop !11
@@ -467,7 +467,7 @@ _get_switch_inx.exit:                             ; preds = %.lr.ph.i165
   br i1 %156, label %_get_switch_inx.exit.thread, label %160
 
 _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_inx.exit, %151
-  %157 = getelementptr inbounds i8, ptr %.1128250, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.1128250, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %4, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef %158, ptr noundef %159) #7
@@ -476,7 +476,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
 160:                                              ; preds = %_get_switch_inx.exit
   %161 = load ptr, ptr @switch_record_table, align 8
   %162 = zext nneg i32 %.068.i to i64
-  %163 = getelementptr inbounds %struct.switch_record_t, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw %struct.switch_record_t, ptr %161, i64 %162
   %164 = load i32, ptr %163, align 8
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %166, label %171
@@ -506,7 +506,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
 175:                                              ; preds = %171
   store i32 %174, ptr %.1128250, align 8
   %176 = load ptr, ptr @switch_record_table, align 8
-  %177 = getelementptr inbounds %struct.switch_record_t, ptr %176, i64 %162, i32 3
+  %177 = getelementptr inbounds nuw %struct.switch_record_t, ptr %176, i64 %162, i32 3
   %178 = load ptr, ptr %177, align 8
   %179 = call ptr @bit_copy(ptr noundef %178) #6
   store ptr %179, ptr %138, align 8
@@ -517,7 +517,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   store i32 %., ptr %.1128250, align 8
   %181 = load ptr, ptr %138, align 8
   %182 = load ptr, ptr @switch_record_table, align 8
-  %183 = getelementptr inbounds %struct.switch_record_t, ptr %182, i64 %162, i32 3
+  %183 = getelementptr inbounds nuw %struct.switch_record_t, ptr %182, i64 %162, i32 3
   %184 = load ptr, ptr %183, align 8
   call void @bit_or(ptr noundef %181, ptr noundef %184) #6
   br label %185
@@ -540,7 +540,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   %189 = phi i32 [ %131, %.lr.ph258 ], [ %.pre, %.loopexit207 ]
   %.1 = phi i1 [ %.0120256, %.lr.ph258 ], [ %.2, %.loopexit207 ]
   %190 = add nuw nsw i32 %.1124253, 1
-  %191 = getelementptr inbounds i8, ptr %.1128250, i64 72
+  %191 = getelementptr inbounds nuw i8, ptr %.1128250, i64 72
   %192 = icmp slt i32 %190, %189
   br i1 %192, label %.lr.ph258, label %._crit_edge259, !llvm.loop !13
 
@@ -578,13 +578,13 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   %199 = load i32, ptr %.2129263, align 8
   %.162 = call i32 @llvm.smax.i32(i32 %198, i32 %199)
   store i32 %.162, ptr @switch_levels, align 4
-  %200 = getelementptr inbounds i8, ptr %.2129263, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.2129263, i64 16
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %207
 
 203:                                              ; preds = %.lr.ph266
-  %204 = getelementptr inbounds i8, ptr %.2129263, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.2129263, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %205) #6
   %.pre353 = load i32, ptr @switch_levels, align 4
@@ -595,7 +595,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   %208 = phi i32 [ %197, %.lr.ph266 ], [ %.pre355, %203 ]
   %209 = phi i32 [ %.162, %.lr.ph266 ], [ %.pre353, %203 ]
   %210 = add nuw nsw i32 %.2125264, 1
-  %211 = getelementptr inbounds i8, ptr %.2129263, i64 72
+  %211 = getelementptr inbounds nuw i8, ptr %.2129263, i64 72
   %212 = icmp slt i32 %210, %208
   br i1 %212, label %.lr.ph266, label %._crit_edge267, !llvm.loop !16
 
@@ -684,28 +684,28 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
   %indvars.iv325 = phi i64 [ %indvars.iv.next326, %288 ], [ 0, %238 ]
   %.0121270 = phi i1 [ %spec.select, %288 ], [ false, %238 ]
   %243 = load ptr, ptr @switch_record_table, align 8
-  %244 = getelementptr inbounds %struct.switch_record_t, ptr %243, i64 %indvars.iv325
+  %244 = getelementptr inbounds nuw %struct.switch_record_t, ptr %243, i64 %indvars.iv325
   %245 = load i32, ptr %244, align 8
   %.not152 = icmp eq i32 %245, 0
   br i1 %.not152, label %288, label %246
 
 246:                                              ; preds = %.lr.ph272
-  %247 = getelementptr inbounds %struct.switch_record_t, ptr %243, i64 %indvars.iv325, i32 8
+  %247 = getelementptr inbounds nuw %struct.switch_record_t, ptr %243, i64 %indvars.iv325, i32 8
   %248 = load ptr, ptr %247, align 8
   %249 = call ptr @hostlist_create(ptr noundef %248) #6
   %250 = call i32 @hostlist_count(ptr noundef %249) #6
   %251 = trunc i32 %250 to i16
   %252 = load ptr, ptr @switch_record_table, align 8
-  %253 = getelementptr inbounds %struct.switch_record_t, ptr %252, i64 %indvars.iv325, i32 6
+  %253 = getelementptr inbounds nuw %struct.switch_record_t, ptr %252, i64 %indvars.iv325, i32 6
   store i16 %251, ptr %253, align 2
   %254 = load ptr, ptr @switch_record_table, align 8
-  %255 = getelementptr inbounds %struct.switch_record_t, ptr %254, i64 %indvars.iv325, i32 6
+  %255 = getelementptr inbounds nuw %struct.switch_record_t, ptr %254, i64 %indvars.iv325, i32 6
   %256 = load i16, ptr %255, align 2
   %257 = zext i16 %256 to i64
   %258 = shl nuw nsw i64 %257, 1
   %259 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %258, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__._find_child_switches) #6
   %260 = load ptr, ptr @switch_record_table, align 8
-  %261 = getelementptr inbounds %struct.switch_record_t, ptr %260, i64 %indvars.iv325, i32 11
+  %261 = getelementptr inbounds nuw %struct.switch_record_t, ptr %260, i64 %indvars.iv325, i32 11
   store ptr %259, ptr %261, align 8
   %262 = call ptr @hostlist_iterator_create(ptr noundef %249) #6
   %263 = call ptr @hostlist_next(ptr noundef %262) #6
@@ -726,7 +726,7 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
 .lr.ph.i170:                                      ; preds = %.preheader.i167, %283
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %283 ], [ 0, %.preheader.i167 ]
   %268 = load ptr, ptr @switch_record_table, align 8
-  %269 = getelementptr inbounds %struct.switch_record_t, ptr %268, i64 %indvars.iv.i, i32 2
+  %269 = getelementptr inbounds nuw %struct.switch_record_t, ptr %268, i64 %indvars.iv.i, i32 2
   %270 = load ptr, ptr %269, align 8
   %271 = call i32 @xstrcmp(ptr noundef nonnull %265, ptr noundef %270) #6
   %272 = icmp eq i32 %271, 0
@@ -735,13 +735,13 @@ _get_switch_inx.exit.thread:                      ; preds = %142, %_get_switch_i
 273:                                              ; preds = %.lr.ph.i170
   %274 = trunc i64 %indvars.iv.i to i16
   %275 = load ptr, ptr @switch_record_table, align 8
-  %276 = getelementptr inbounds %struct.switch_record_t, ptr %275, i64 %indvars.iv325, i32 11
+  %276 = getelementptr inbounds nuw %struct.switch_record_t, ptr %275, i64 %indvars.iv325, i32 11
   %277 = load ptr, ptr %276, align 8
   %278 = sext i32 %.01924.i to i64
   %279 = getelementptr inbounds i16, ptr %277, i64 %278
   store i16 %274, ptr %279, align 2
   %280 = load ptr, ptr @switch_record_table, align 8
-  %281 = getelementptr inbounds %struct.switch_record_t, ptr %280, i64 %indvars.iv.i, i32 7
+  %281 = getelementptr inbounds nuw %struct.switch_record_t, ptr %280, i64 %indvars.iv.i, i32 7
   store i16 %264, ptr %281, align 4
   %282 = add nsw i32 %.01924.i, 1
   br label %.loopexit.i
@@ -768,7 +768,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
 
 288:                                              ; preds = %_find_child_switches.exit, %.lr.ph272
   %289 = phi ptr [ %.pre356, %_find_child_switches.exit ], [ %243, %.lr.ph272 ]
-  %290 = getelementptr inbounds %struct.switch_record_t, ptr %289, i64 %indvars.iv325, i32 3
+  %290 = getelementptr inbounds nuw %struct.switch_record_t, ptr %289, i64 %indvars.iv325, i32 3
   %291 = load ptr, ptr %290, align 8
   %292 = call i32 @bit_set_count(ptr noundef %291) #6
   %293 = icmp eq i32 %239, %292
@@ -789,16 +789,16 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
   %299 = sext i32 %298 to i64
   %300 = call ptr @slurm_xcalloc(i64 noundef %299, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 529, ptr noundef nonnull @__func__.switch_record_validate) #6
   %301 = load ptr, ptr @switch_record_table, align 8
-  %302 = getelementptr inbounds %struct.switch_record_t, ptr %301, i64 %indvars.iv327, i32 9
+  %302 = getelementptr inbounds nuw %struct.switch_record_t, ptr %301, i64 %indvars.iv327, i32 9
   store ptr %300, ptr %302, align 8
   %303 = load i32, ptr @switch_record_cnt, align 4
   %304 = sext i32 %303 to i64
   %305 = call ptr @slurm_xcalloc(i64 noundef %304, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 531, ptr noundef nonnull @__func__.switch_record_validate) #6
   %306 = load ptr, ptr @switch_record_table, align 8
-  %307 = getelementptr inbounds %struct.switch_record_t, ptr %306, i64 %indvars.iv327, i32 10
+  %307 = getelementptr inbounds nuw %struct.switch_record_t, ptr %306, i64 %indvars.iv327, i32 10
   store ptr %305, ptr %307, align 8
   %308 = load ptr, ptr @switch_record_table, align 8
-  %309 = getelementptr inbounds %struct.switch_record_t, ptr %308, i64 %indvars.iv327, i32 5
+  %309 = getelementptr inbounds nuw %struct.switch_record_t, ptr %308, i64 %indvars.iv327, i32 5
   store i16 0, ptr %309, align 8
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %310 = load i32, ptr @switch_record_cnt, align 4
@@ -833,8 +833,8 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
 .preheader203:                                    ; preds = %.lr.ph278, %.lr.ph282
   %320 = phi i32 [ %317, %.lr.ph282 ], [ %333, %.lr.ph278 ]
   %321 = load ptr, ptr @switch_record_table, align 8
-  %322 = getelementptr inbounds %struct.switch_record_t, ptr %321, i64 %indvars.iv338
-  %323 = getelementptr inbounds i8, ptr %322, i64 34
+  %322 = getelementptr inbounds nuw %struct.switch_record_t, ptr %321, i64 %indvars.iv338
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 34
   %324 = load i16, ptr %323, align 2
   %.not296 = icmp eq i16 %324, 0
   br i1 %.not296, label %.loopexit, label %.lr.ph280
@@ -842,14 +842,14 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
 .lr.ph278:                                        ; preds = %.lr.ph282, %.lr.ph278
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph278 ], [ %indvars.iv330, %.lr.ph282 ]
   %325 = load ptr, ptr @switch_record_table, align 8
-  %326 = getelementptr inbounds %struct.switch_record_t, ptr %325, i64 %indvars.iv338, i32 9
+  %326 = getelementptr inbounds nuw %struct.switch_record_t, ptr %325, i64 %indvars.iv338, i32 9
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i32, ptr %327, i64 %indvars.iv332
+  %328 = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv332
   store i32 -1, ptr %328, align 4
   %329 = load ptr, ptr @switch_record_table, align 8
-  %330 = getelementptr inbounds %struct.switch_record_t, ptr %329, i64 %indvars.iv332, i32 9
+  %330 = getelementptr inbounds nuw %struct.switch_record_t, ptr %329, i64 %indvars.iv332, i32 9
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i32, ptr %331, i64 %indvars.iv338
+  %332 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv338
   store i32 -1, ptr %332, align 4
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %333 = load i32, ptr @switch_record_cnt, align 4
@@ -860,24 +860,24 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
 .lr.ph280:                                        ; preds = %.preheader203, %.lr.ph280
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %.lr.ph280 ], [ 0, %.preheader203 ]
   %336 = phi ptr [ %350, %.lr.ph280 ], [ %322, %.preheader203 ]
-  %337 = getelementptr inbounds i8, ptr %336, i64 64
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 64
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i16, ptr %338, i64 %indvars.iv335
+  %339 = getelementptr inbounds nuw i16, ptr %338, i64 %indvars.iv335
   %340 = load i16, ptr %339, align 2
-  %341 = getelementptr inbounds i8, ptr %336, i64 48
+  %341 = getelementptr inbounds nuw i8, ptr %336, i64 48
   %342 = load ptr, ptr %341, align 8
   %343 = zext i16 %340 to i64
-  %344 = getelementptr inbounds i32, ptr %342, i64 %343
+  %344 = getelementptr inbounds nuw i32, ptr %342, i64 %343
   store i32 1, ptr %344, align 4
   %345 = load ptr, ptr @switch_record_table, align 8
-  %346 = getelementptr inbounds %struct.switch_record_t, ptr %345, i64 %343, i32 9
+  %346 = getelementptr inbounds nuw %struct.switch_record_t, ptr %345, i64 %343, i32 9
   %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i32, ptr %347, i64 %indvars.iv338
+  %348 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv338
   store i32 1, ptr %348, align 4
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %349 = load ptr, ptr @switch_record_table, align 8
-  %350 = getelementptr inbounds %struct.switch_record_t, ptr %349, i64 %indvars.iv338
-  %351 = getelementptr inbounds i8, ptr %350, i64 34
+  %350 = getelementptr inbounds nuw %struct.switch_record_t, ptr %349, i64 %indvars.iv338
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 34
   %352 = load i16, ptr %351, align 2
   %353 = zext i16 %352 to i64
   %354 = icmp samesign ult i64 %indvars.iv.next336, %353
@@ -907,9 +907,9 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
 
 .lr.ph284:                                        ; preds = %.preheader200
   %363 = load ptr, ptr @switch_record_table, align 8
-  %364 = getelementptr inbounds %struct.switch_record_t, ptr %363, i64 %indvars.iv344, i32 9
+  %364 = getelementptr inbounds nuw %struct.switch_record_t, ptr %363, i64 %indvars.iv344, i32 9
   %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds i32, ptr %365, i64 %indvars.iv347
+  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %indvars.iv347
   %367 = load i32, ptr %366, align 4
   %368 = icmp eq i32 %367, -1
   br i1 %368, label %._crit_edge285, label %.lr.ph284.split
@@ -920,22 +920,22 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %246
   %371 = phi i32 [ %391, %_check_better_path.exit ], [ %361, %.lr.ph284 ]
   %372 = phi ptr [ %392, %_check_better_path.exit ], [ %363, %.lr.ph284 ]
   %indvars.iv341 = phi i64 [ %indvars.iv.next342, %_check_better_path.exit ], [ 0, %.lr.ph284 ]
-  %373 = getelementptr inbounds %struct.switch_record_t, ptr %372, i64 %indvars.iv344, i32 9
+  %373 = getelementptr inbounds nuw %struct.switch_record_t, ptr %372, i64 %indvars.iv344, i32 9
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i32, ptr %374, i64 %indvars.iv347
+  %375 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv347
   %376 = load i32, ptr %375, align 4
   %377 = icmp eq i32 %376, -1
   br i1 %377, label %_check_better_path.exit, label %378
 
 378:                                              ; preds = %.lr.ph284.split
-  %379 = getelementptr inbounds %struct.switch_record_t, ptr %372, i64 %indvars.iv347, i32 9
+  %379 = getelementptr inbounds nuw %struct.switch_record_t, ptr %372, i64 %indvars.iv347, i32 9
   %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds i32, ptr %380, i64 %indvars.iv341
+  %381 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv341
   %382 = load i32, ptr %381, align 4
   %383 = icmp eq i32 %382, -1
   %384 = add i32 %382, %376
   %spec.select.i = select i1 %383, i32 -1, i32 %384
-  %385 = getelementptr inbounds i32, ptr %374, i64 %indvars.iv341
+  %385 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv341
   %386 = load i32, ptr %385, align 4
   %387 = icmp ugt i32 %386, %spec.select.i
   br i1 %387, label %388, label %_check_better_path.exit
@@ -985,18 +985,18 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 .lr.ph290:                                        ; preds = %.lr.ph290.preheader, %_find_desc_switches.exit
   %405 = phi ptr [ %.pre361, %.lr.ph290.preheader ], [ %483, %_find_desc_switches.exit ]
   %indvars.iv350 = phi i64 [ 0, %.lr.ph290.preheader ], [ %indvars.iv.next351, %_find_desc_switches.exit ]
-  %406 = getelementptr inbounds %struct.switch_record_t, ptr %405, i64 %indvars.iv350
+  %406 = getelementptr inbounds nuw %struct.switch_record_t, ptr %405, i64 %indvars.iv350
   %407 = load i32, ptr %406, align 8
   %.not151 = icmp eq i32 %407, %.7293
   br i1 %.not151, label %408, label %_find_desc_switches.exit
 
 408:                                              ; preds = %.lr.ph290
-  %409 = getelementptr inbounds i8, ptr %406, i64 56
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 56
   %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds i8, ptr %406, i64 32
-  %412 = getelementptr inbounds i8, ptr %406, i64 64
+  %411 = getelementptr inbounds nuw i8, ptr %406, i64 32
+  %412 = getelementptr inbounds nuw i8, ptr %406, i64 64
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %406, i64 34
+  %414 = getelementptr inbounds nuw i8, ptr %406, i64 34
   %415 = load i16, ptr %414, align 2
   %.not.i.i = icmp eq i16 %415, 0
   br i1 %.not.i.i, label %_merge_switches_array.exit.i, label %.preheader.lr.ph.i.i
@@ -1014,7 +1014,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 .preheader.us.i.i:                                ; preds = %.loopexit.us.i.i, %.preheader.us.preheader.i.i
   %417 = phi i16 [ %416, %.preheader.us.preheader.i.i ], [ %425, %.loopexit.us.i.i ]
   %indvars.iv23.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next24.i.i, %.loopexit.us.i.i ]
-  %418 = getelementptr inbounds i16, ptr %413, i64 %indvars.iv23.i.i
+  %418 = getelementptr inbounds nuw i16, ptr %413, i64 %indvars.iv23.i.i
   %419 = load i16, ptr %418, align 2
   br label %421
 
@@ -1025,7 +1025,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 
 421:                                              ; preds = %420, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %420 ]
-  %422 = getelementptr inbounds i16, ptr %410, i64 %indvars.iv.i.i
+  %422 = getelementptr inbounds nuw i16, ptr %410, i64 %indvars.iv.i.i
   %423 = load i16, ptr %422, align 2
   %424 = icmp eq i16 %423, %419
   br i1 %424, label %.loopexit.us.i.i, label %420
@@ -1038,7 +1038,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 
 ..critedge_crit_edge.us.i.i:                      ; preds = %420
   %426 = zext i16 %417 to i64
-  %427 = getelementptr inbounds i16, ptr %410, i64 %426
+  %427 = getelementptr inbounds nuw i16, ptr %410, i64 %426
   store i16 %419, ptr %427, align 2
   %428 = load i16, ptr %411, align 2
   %429 = add i16 %428, 1
@@ -1048,10 +1048,10 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 .preheader.i.i:                                   ; preds = %.preheader.lr.ph.i.i, %.preheader.i.i
   %430 = phi i16 [ %436, %.preheader.i.i ], [ 0, %.preheader.lr.ph.i.i ]
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %.preheader.i.i ], [ 0, %.preheader.lr.ph.i.i ]
-  %431 = getelementptr inbounds i16, ptr %413, i64 %indvars.iv28.i.i
+  %431 = getelementptr inbounds nuw i16, ptr %413, i64 %indvars.iv28.i.i
   %432 = load i16, ptr %431, align 2
   %433 = zext i16 %430 to i64
-  %434 = getelementptr inbounds i16, ptr %410, i64 %433
+  %434 = getelementptr inbounds nuw i16, ptr %410, i64 %433
   store i16 %432, ptr %434, align 2
   %435 = load i16, ptr %411, align 2
   %436 = add i16 %435, 1
@@ -1062,8 +1062,8 @@ _check_better_path.exit:                          ; preds = %.lr.ph284.split, %3
 
 _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %.preheader.i.i, %408
   %437 = load ptr, ptr @switch_record_table, align 8
-  %438 = getelementptr inbounds %struct.switch_record_t, ptr %437, i64 %indvars.iv350
-  %439 = getelementptr inbounds i8, ptr %438, i64 34
+  %438 = getelementptr inbounds nuw %struct.switch_record_t, ptr %437, i64 %indvars.iv350
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 34
   %440 = load i16, ptr %439, align 2
   %.not.i171 = icmp eq i16 %440, 0
   br i1 %.not.i171, label %_find_desc_switches.exit, label %.lr.ph.i172
@@ -1072,18 +1072,18 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
   %indvars.iv.i173 = phi i64 [ %indvars.iv.next.i174, %_merge_switches_array.exit32.i ], [ 0, %_merge_switches_array.exit.i ]
   %441 = phi ptr [ %478, %_merge_switches_array.exit32.i ], [ %438, %_merge_switches_array.exit.i ]
   %442 = phi ptr [ %477, %_merge_switches_array.exit32.i ], [ %437, %_merge_switches_array.exit.i ]
-  %443 = getelementptr inbounds i8, ptr %441, i64 64
+  %443 = getelementptr inbounds nuw i8, ptr %441, i64 64
   %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i16, ptr %444, i64 %indvars.iv.i173
+  %445 = getelementptr inbounds nuw i16, ptr %444, i64 %indvars.iv.i173
   %446 = load i16, ptr %445, align 2
-  %447 = getelementptr inbounds i8, ptr %441, i64 56
+  %447 = getelementptr inbounds nuw i8, ptr %441, i64 56
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %441, i64 32
+  %449 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %450 = zext i16 %446 to i64
-  %451 = getelementptr inbounds %struct.switch_record_t, ptr %442, i64 %450
-  %452 = getelementptr inbounds i8, ptr %451, i64 56
+  %451 = getelementptr inbounds nuw %struct.switch_record_t, ptr %442, i64 %450
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 56
   %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds i8, ptr %451, i64 32
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 32
   %455 = load i16, ptr %454, align 8
   %.not.i13.i = icmp eq i16 %455, 0
   br i1 %.not.i13.i, label %_merge_switches_array.exit32.i, label %.preheader.lr.ph.i14.i
@@ -1101,7 +1101,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 .preheader.us.i19.i:                              ; preds = %.loopexit.us.i25.i, %.preheader.us.preheader.i17.i
   %457 = phi i16 [ %456, %.preheader.us.preheader.i17.i ], [ %465, %.loopexit.us.i25.i ]
   %indvars.iv23.i20.i = phi i64 [ 0, %.preheader.us.preheader.i17.i ], [ %indvars.iv.next24.i26.i, %.loopexit.us.i25.i ]
-  %458 = getelementptr inbounds i16, ptr %453, i64 %indvars.iv23.i20.i
+  %458 = getelementptr inbounds nuw i16, ptr %453, i64 %indvars.iv23.i20.i
   %459 = load i16, ptr %458, align 2
   br label %461
 
@@ -1112,7 +1112,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 
 461:                                              ; preds = %460, %.preheader.us.i19.i
   %indvars.iv.i21.i = phi i64 [ 0, %.preheader.us.i19.i ], [ %indvars.iv.next.i22.i, %460 ]
-  %462 = getelementptr inbounds i16, ptr %448, i64 %indvars.iv.i21.i
+  %462 = getelementptr inbounds nuw i16, ptr %448, i64 %indvars.iv.i21.i
   %463 = load i16, ptr %462, align 2
   %464 = icmp eq i16 %463, %459
   br i1 %464, label %.loopexit.us.i25.i, label %460
@@ -1125,7 +1125,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 
 ..critedge_crit_edge.us.i24.i:                    ; preds = %460
   %466 = zext i16 %457 to i64
-  %467 = getelementptr inbounds i16, ptr %448, i64 %466
+  %467 = getelementptr inbounds nuw i16, ptr %448, i64 %466
   store i16 %459, ptr %467, align 2
   %468 = load i16, ptr %449, align 2
   %469 = add i16 %468, 1
@@ -1135,10 +1135,10 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 .preheader.i28.i:                                 ; preds = %.preheader.lr.ph.i14.i, %.preheader.i28.i
   %470 = phi i16 [ %476, %.preheader.i28.i ], [ 0, %.preheader.lr.ph.i14.i ]
   %indvars.iv28.i29.i = phi i64 [ %indvars.iv.next29.i30.i, %.preheader.i28.i ], [ 0, %.preheader.lr.ph.i14.i ]
-  %471 = getelementptr inbounds i16, ptr %453, i64 %indvars.iv28.i29.i
+  %471 = getelementptr inbounds nuw i16, ptr %453, i64 %indvars.iv28.i29.i
   %472 = load i16, ptr %471, align 2
   %473 = zext i16 %470 to i64
-  %474 = getelementptr inbounds i16, ptr %448, i64 %473
+  %474 = getelementptr inbounds nuw i16, ptr %448, i64 %473
   store i16 %472, ptr %474, align 2
   %475 = load i16, ptr %449, align 2
   %476 = add i16 %475, 1
@@ -1150,8 +1150,8 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
 _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i, %.preheader.i28.i, %.lr.ph.i172
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
   %477 = load ptr, ptr @switch_record_table, align 8
-  %478 = getelementptr inbounds %struct.switch_record_t, ptr %477, i64 %indvars.iv350
-  %479 = getelementptr inbounds i8, ptr %478, i64 34
+  %478 = getelementptr inbounds nuw %struct.switch_record_t, ptr %477, i64 %indvars.iv350
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 34
   %480 = load i16, ptr %479, align 2
   %481 = zext i16 %480 to i64
   %482 = icmp samesign ult i64 %indvars.iv.next.i174, %481
@@ -1207,13 +1207,13 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 .lr.ph.i177:                                      ; preds = %515, %.lr.ph.preheader.i176
   %.035.i = phi ptr [ %517, %515 ], [ %497, %.lr.ph.preheader.i176 ]
   %.02934.i = phi i32 [ %516, %515 ], [ 0, %.lr.ph.preheader.i176 ]
-  %499 = getelementptr inbounds i8, ptr %.035.i, i64 24
+  %499 = getelementptr inbounds nuw i8, ptr %.035.i, i64 24
   %500 = load ptr, ptr %499, align 8
   %.not.i178 = icmp eq ptr %500, null
   br i1 %.not.i178, label %501, label %505
 
 501:                                              ; preds = %.lr.ph.i177
-  %502 = getelementptr inbounds i8, ptr %.035.i, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %.035.i, i64 16
   %503 = load ptr, ptr %502, align 8
   %504 = call ptr @bitmap2node_name(ptr noundef %503) #6
   store ptr %504, ptr %499, align 8
@@ -1226,17 +1226,17 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 
 508:                                              ; preds = %505
   %509 = load i32, ptr %.035.i, align 8
-  %510 = getelementptr inbounds i8, ptr %.035.i, i64 8
+  %510 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %511 = load ptr, ptr %510, align 8
   %512 = load ptr, ptr %499, align 8
-  %513 = getelementptr inbounds i8, ptr %.035.i, i64 40
+  %513 = getelementptr inbounds nuw i8, ptr %.035.i, i64 40
   %514 = load ptr, ptr %513, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._log_switches, i32 noundef %509, ptr noundef %511, ptr noundef %512, ptr noundef %514) #6
   br label %515
 
 515:                                              ; preds = %508, %505
   %516 = add nuw nsw i32 %.02934.i, 1
-  %517 = getelementptr inbounds i8, ptr %.035.i, i64 72
+  %517 = getelementptr inbounds nuw i8, ptr %.035.i, i64 72
   %518 = load i32, ptr @switch_record_cnt, align 4
   %519 = icmp slt i32 %516, %518
   br i1 %519, label %.lr.ph.i177, label %.preheader33.i, !llvm.loop !32
@@ -1255,9 +1255,9 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %indvars.iv.i181 = phi i64 [ %indvars.iv.next.i182, %.lr.ph38.i ], [ 0, %.preheader32.i ]
   %.02637.i = phi ptr [ @.str.28, %.lr.ph38.i ], [ @.str.26, %.preheader32.i ]
   %523 = load ptr, ptr @switch_record_table, align 8
-  %524 = getelementptr inbounds %struct.switch_record_t, ptr %523, i64 %indvars.iv48.i, i32 9
+  %524 = getelementptr inbounds nuw %struct.switch_record_t, ptr %523, i64 %indvars.iv48.i, i32 9
   %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i32, ptr %525, i64 %indvars.iv.i181
+  %526 = getelementptr inbounds nuw i32, ptr %525, i64 %indvars.iv.i181
   %527 = load i32, ptr %526, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %.02637.i, i32 noundef %527) #6
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 1
@@ -1288,7 +1288,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
 .preheader.i180:                                  ; preds = %.preheader31.i, %559
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %559 ], [ 0, %.preheader31.i ]
   %540 = load ptr, ptr @switch_record_table, align 8
-  %541 = getelementptr inbounds %struct.switch_record_t, ptr %540, i64 %indvars.iv54.i, i32 5
+  %541 = getelementptr inbounds nuw %struct.switch_record_t, ptr %540, i64 %indvars.iv54.i, i32 5
   %542 = load i16, ptr %541, align 8
   %.not46.i = icmp eq i16 %542, 0
   br i1 %.not46.i, label %._crit_edge43.i, label %.lr.ph42.i
@@ -1297,15 +1297,15 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %.lr.ph42.i ], [ 0, %.preheader.i180 ]
   %543 = phi ptr [ %549, %.lr.ph42.i ], [ %540, %.preheader.i180 ]
   %.141.i = phi ptr [ @.str.28, %.lr.ph42.i ], [ @.str.26, %.preheader.i180 ]
-  %544 = getelementptr inbounds %struct.switch_record_t, ptr %543, i64 %indvars.iv54.i, i32 10
+  %544 = getelementptr inbounds nuw %struct.switch_record_t, ptr %543, i64 %indvars.iv54.i, i32 10
   %545 = load ptr, ptr %544, align 8
-  %546 = getelementptr inbounds i16, ptr %545, i64 %indvars.iv51.i
+  %546 = getelementptr inbounds nuw i16, ptr %545, i64 %indvars.iv51.i
   %547 = load i16, ptr %546, align 2
   %548 = zext i16 %547 to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %.141.i, i32 noundef %548) #6
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %549 = load ptr, ptr @switch_record_table, align 8
-  %550 = getelementptr inbounds %struct.switch_record_t, ptr %549, i64 %indvars.iv54.i, i32 5
+  %550 = getelementptr inbounds nuw %struct.switch_record_t, ptr %549, i64 %indvars.iv54.i, i32 5
   %551 = load i16, ptr %550, align 8
   %552 = zext i16 %551 to i64
   %553 = icmp samesign ult i64 %indvars.iv.next52.i, %552
@@ -1389,7 +1389,7 @@ define internal range(i32 -1, 2) i32 @_parse_switches(ptr nocapture noundef writ
   %11 = tail call i32 @s_p_parse_line(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %5) #6
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 138, ptr noundef nonnull @__func__._parse_switches) #6
   %13 = tail call ptr @xstrdup(ptr noundef %3) #6
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %13, ptr %14, align 8
   %15 = tail call i32 @s_p_get_uint32(ptr noundef %12, ptr noundef nonnull @.str.17, ptr noundef %9) #6
   %.not = icmp eq i32 %15, 0
@@ -1400,9 +1400,9 @@ define internal range(i32 -1, 2) i32 @_parse_switches(ptr nocapture noundef writ
   br label %17
 
 17:                                               ; preds = %16, %6
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = tail call i32 @s_p_get_string(ptr noundef nonnull %18, ptr noundef nonnull @.str.18, ptr noundef %9) #6
-  %20 = getelementptr inbounds i8, ptr %12, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = tail call i32 @s_p_get_string(ptr noundef nonnull %20, ptr noundef nonnull @.str.19, ptr noundef %9) #6
   tail call void @s_p_hashtbl_destroy(ptr noundef %9) #6
   %22 = load ptr, ptr %18, align 8
@@ -1454,11 +1454,11 @@ define internal range(i32 -1, 2) i32 @_parse_switches(ptr nocapture noundef writ
 define internal void @_destroy_switches(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %5) #6
   call void @slurm_xfree(ptr noundef nonnull %2) #6
   ret void

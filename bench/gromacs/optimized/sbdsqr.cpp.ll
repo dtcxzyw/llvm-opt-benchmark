@@ -180,8 +180,8 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %98 = getelementptr inbounds float, ptr %38, i64 %indvars.iv
-  %99 = getelementptr inbounds float, ptr %39, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
   call void @slartg_(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %23)
   %100 = load float, ptr %23, align 4
   store float %100, ptr %98, align 4
@@ -195,7 +195,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %106 = load float, ptr %102, align 4
   %107 = fmul float %105, %106
   store float %107, ptr %102, align 4
-  %108 = getelementptr inbounds float, ptr %49, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   store float %105, ptr %108, align 4
   %gep1400 = getelementptr float, ptr %invariant.gep1399, i64 %indvars.iv
   store float %101, ptr %gep1400, align 4
@@ -244,7 +244,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph968:                                        ; preds = %.lr.ph968.preheader, %.lr.ph968
   %indvars.iv1244 = phi i64 [ 1, %.lr.ph968.preheader ], [ %indvars.iv.next1245, %.lr.ph968 ]
   %.0824966 = phi float [ 0.000000e+00, %.lr.ph968.preheader ], [ %129, %.lr.ph968 ]
-  %125 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1244
+  %125 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv1244
   %126 = load float, ptr %125, align 4
   %127 = call noundef float @llvm.fabs.f32(float %126)
   %128 = fcmp ogt float %.0824966, %127
@@ -274,7 +274,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv1252 = phi i64 [ 2, %.lr.ph983.preheader ], [ %indvars.iv.next1253, %.lr.ph983 ]
   %.1981 = phi float [ %132, %.lr.ph983.preheader ], [ %145, %.lr.ph983 ]
   %.0847979 = phi float [ %132, %.lr.ph983.preheader ], [ %143, %.lr.ph983 ]
-  %136 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1252
+  %136 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv1252
   %137 = load float, ptr %136, align 4
   %138 = call noundef float @llvm.fabs.f32(float %137)
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1252
@@ -315,7 +315,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %invariant.gep1073 = getelementptr i8, ptr %6, i64 -12
   %159 = or disjoint i32 %95, 1
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds float, ptr %49, i64 %160
+  %161 = getelementptr inbounds nuw float, ptr %49, i64 %160
   %162 = sext i32 %96 to i64
   %gep1100 = getelementptr float, ptr %13, i64 %162
   %invariant.gep1080 = getelementptr i8, ptr %6, i64 -8
@@ -345,11 +345,11 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.0834.ph1129 = phi i32 [ 0, %.lr.ph1058.lr.ph.lr.ph ], [ %.08341057, %.outer.backedge ]
   %.0842.ph1128 = phi i32 [ %151, %.lr.ph1058.lr.ph.lr.ph ], [ %.0842.ph.be, %.outer.backedge ]
   %165 = zext nneg i32 %.0842.ph1128 to i64
-  %166 = getelementptr inbounds float, ptr %38, i64 %165
+  %166 = getelementptr inbounds nuw float, ptr %38, i64 %165
   %167 = add nsw i32 %.0842.ph1128, -1
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds float, ptr %39, i64 %168
-  %170 = getelementptr inbounds float, ptr %38, i64 %168
+  %169 = getelementptr inbounds nuw float, ptr %39, i64 %168
+  %170 = getelementptr inbounds nuw float, ptr %38, i64 %168
   %171 = zext nneg i32 %.0842.ph1128 to i64
   %172 = zext nneg i32 %167 to i64
   %wide.trip.count1260 = zext nneg i32 %.0842.ph1128 to i64
@@ -1301,7 +1301,7 @@ thread-pre-split903:                              ; preds = %315, %318
 .lr.ph1140:                                       ; preds = %.lr.ph1140.preheader, %664
   %655 = phi i32 [ %653, %.lr.ph1140.preheader ], [ %665, %664 ]
   %indvars.iv1286 = phi i64 [ 1, %.lr.ph1140.preheader ], [ %indvars.iv.next1287, %664 ]
-  %656 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1286
+  %656 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv1286
   %657 = load float, ptr %656, align 4
   %658 = fcmp olt float %657, 0.000000e+00
   br i1 %658, label %659, label %664
@@ -1359,7 +1359,7 @@ thread-pre-split903:                              ; preds = %315, %318
   %indvars.iv1289 = phi i64 [ 2, %.lr.ph1147.preheader ], [ %indvars.iv.next1290, %.lr.ph1147 ]
   %.18281145 = phi float [ %671, %.lr.ph1147.preheader ], [ %.2829, %.lr.ph1147 ]
   %.08311144 = phi i32 [ 1, %.lr.ph1147.preheader ], [ %.1832, %.lr.ph1147 ]
-  %676 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1289
+  %676 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv1289
   %677 = load float, ptr %676, align 4
   %678 = fcmp ugt float %677, %.18281145
   %679 = trunc nuw nsw i64 %indvars.iv1289 to i32
@@ -1380,7 +1380,7 @@ thread-pre-split903:                              ; preds = %315, %318
   %682 = getelementptr inbounds float, ptr %38, i64 %681
   %683 = load float, ptr %682, align 4
   %684 = zext nneg i32 %.0831.lcssa to i64
-  %685 = getelementptr inbounds float, ptr %38, i64 %684
+  %685 = getelementptr inbounds nuw float, ptr %38, i64 %684
   store float %683, ptr %685, align 4
   %686 = load i32, ptr %1, align 4
   %687 = add i32 %673, %686
@@ -1458,7 +1458,7 @@ thread-pre-split903:                              ; preds = %315, %318
 .lr.ph1136:                                       ; preds = %.lr.ph1136.preheader, %733
   %727 = phi i32 [ 0, %.lr.ph1136.preheader ], [ %734, %733 ]
   %indvars.iv1281 = phi i64 [ 1, %.lr.ph1136.preheader ], [ %indvars.iv.next1282, %733 ]
-  %728 = getelementptr inbounds float, ptr %39, i64 %indvars.iv1281
+  %728 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv1281
   %729 = load float, ptr %728, align 4
   %730 = fcmp une float %729, 0.000000e+00
   br i1 %730, label %731, label %733

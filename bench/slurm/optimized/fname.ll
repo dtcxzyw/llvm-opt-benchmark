@@ -30,10 +30,10 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
   %8 = alloca ptr, align 8
   %9 = load i32, ptr %0, align 8
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.fname_create) #8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 -1, ptr %12, align 4
   %13 = icmp eq ptr %1, null
   br i1 %13, label %155, label %14
@@ -102,14 +102,14 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
   ]
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   br label %.outer.i, !llvm.loop !7
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv.i
   store i8 %42, ptr %46, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %47 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   br label %41, !llvm.loop !7
 
 48:                                               ; preds = %41
@@ -129,7 +129,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   store ptr null, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store ptr %1, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.sink.split, %49
@@ -157,7 +157,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   ]
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 37
   br i1 %58, label %59, label %62
@@ -167,7 +167,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.069, ptr noundef nonnull %56) #8
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #8
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %61, ptr %5, align 8
   br label %52, !llvm.loop !9
 
@@ -239,7 +239,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   br label %.sink.split
 
 88:                                               ; preds = %76
@@ -260,7 +260,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   br label %.sink.split
 
 97:                                               ; preds = %76, %76
@@ -285,7 +285,7 @@ _remove_path_slashes.exit:                        ; preds = %48
 106:                                              ; preds = %105, %103, %97
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %100, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 1
   br label %.sink.split
 
 108:                                              ; preds = %76
@@ -296,7 +296,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   br label %.sink.split
 
 113:                                              ; preds = %76, %76, %76, %76
@@ -327,7 +327,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   %122 = phi ptr [ %.pre130, %120 ], [ %78, %118 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   br label %.sink.split
 
 124:                                              ; preds = %76
@@ -336,7 +336,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   %126 = call ptr @getenv(ptr noundef nonnull @.str.13) #8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef %126) #8
   %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   br label %.sink.split
 
 129:                                              ; preds = %52
@@ -387,11 +387,11 @@ _remove_path_slashes.exit:                        ; preds = %48
   %.5 = phi ptr [ %143, %146 ], [ %.069, %144 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %149 = getelementptr inbounds i8, ptr %143, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 1
   br label %.sink.split
 
 150:                                              ; preds = %129
-  %151 = getelementptr inbounds i8, ptr %53, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %53, i64 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %148, %150, %124, %121, %108, %106, %93, %84
@@ -475,7 +475,7 @@ define dso_local void @fname_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fname_remote_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.off = add i32 %3, -1
   %switch = icmp ult i32 %.off, 2

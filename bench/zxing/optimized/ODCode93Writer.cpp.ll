@@ -360,13 +360,13 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
   %119 = mul i64 %118, 9
   %120 = add i64 %119, 37
   store ptr null, ptr %11, align 8
-  %121 = getelementptr inbounds i8, ptr %11, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %11, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %11, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %11, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %124, align 8
   %.not.i.i = icmp eq i64 %120, 0
   br i1 %.not.i.i, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %125
@@ -380,7 +380,7 @@ _ZN5ZXing4OneDL23Code93ConvertToExtendedERKNSt7__cxx1112basic_stringIwSt11char_t
 
 130:                                              ; preds = %125
   %131 = lshr i64 %126, 6
-  %132 = getelementptr inbounds i64, ptr %129, i64 %131
+  %132 = getelementptr inbounds nuw i64, ptr %129, i64 %131
   store ptr %132, ptr %124, align 8
   store ptr %129, ptr %11, align 8
   store i32 0, ptr %121, align 8
@@ -739,7 +739,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i87:               ; preds = %295, %292
   %300 = add nuw nsw i32 %197, 36
   %301 = lshr i32 %300, 6
   %.zext = zext nneg i32 %301 to i64
-  %302 = getelementptr inbounds i64, ptr %140, i64 %.zext
+  %302 = getelementptr inbounds nuw i64, ptr %140, i64 %.zext
   %303 = and i32 %300, 63
   %304 = zext nneg i32 %303 to i64
   %305 = shl nuw i64 1, %304

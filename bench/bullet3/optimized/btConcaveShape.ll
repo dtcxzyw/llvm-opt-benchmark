@@ -23,16 +23,16 @@ $_ZNK16btCollisionShape28calculateSerializeBufferSizeEv = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN14btConcaveShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 12), (16, 36)) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shapeType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 35, ptr %m_shapeType.i, align 8
-  %m_userPointer.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_userPointer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_userPointer.i, align 8
-  %m_userIndex.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_userIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 -1, ptr %m_userIndex.i, align 8
-  %m_userIndex2.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_userIndex2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 -1, ptr %m_userIndex2.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV14btConcaveShape, i64 16), ptr %this, align 8
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -70,7 +70,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -78,7 +78,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }

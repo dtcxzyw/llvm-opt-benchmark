@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = load i32, ptr %15, align 4
   call void @_ZN4llvm36getAnyConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEbb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %4, i32 %16, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext true, i1 noundef zeroext false) #7
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -88,9 +88,9 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %30 = ashr exact i64 %29, %28
   %.0.i.i = select i1 %26, i64 0, i64 %30
   store i64 %.0.i.i, ptr %0, align 8
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.29.0..sroa_idx, align 8
-  %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %.sroa.310.0..sroa_idx, align 4
   store i8 1, ptr %5, align 8
   br label %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit.thread
@@ -99,9 +99,9 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %32 = load ptr, ptr %4, align 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %0, align 8
-  %.sroa.29.0..sroa_idx13 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.29.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.29.0..sroa_idx13, align 8
-  %.sroa.310.0..sroa_idx14 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.310.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %.sroa.310.0..sroa_idx14, align 4
   store i8 1, ptr %5, align 8
   store i8 0, ptr %17, align 8
@@ -109,9 +109,9 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   br label %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit.thread
 
 _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %12
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %16, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 4
   store i8 1, ptr %5, align 8
   br label %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit.thread
@@ -165,7 +165,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils5isCMNEPKNS_12Ma
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %15 = load i32, ptr %14, align 4
   call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %4, i32 %15, ptr noundef nonnull align 8 dereferenceable(512) %2, i1 noundef zeroext true) #7
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -213,10 +213,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils12tryEmitBZeroER
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(288) %13) #7
-  %18 = getelementptr inbounds i8, ptr %17, i64 400416
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 400416
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit24, label %20
@@ -224,7 +224,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils12tryEmitBZeroER
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4
   call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %5, i32 %24, ptr noundef nonnull align 8 dereferenceable(512) %9, i1 noundef zeroext true) #7
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -262,7 +262,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %32, %_ZNK4llvm5APIn
 
 42:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 68
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 68
   %45 = load i32, ptr %44, align 4
   call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %6, i32 %45, ptr noundef nonnull align 8 dereferenceable(512) %9, i1 noundef zeroext true) #7
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -327,20 +327,20 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %69, %68, %42, %_ZNK
   store i32 %74, ptr %7, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %7, i64 24
-  %77 = getelementptr inbounds i8, ptr %72, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 68
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %7, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %79, align 8
   %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = call { ptr, ptr } %82(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 273, ptr null, i64 0, ptr nonnull %7, i64 2, i64 0) #7
   %84 = extractvalue { ptr, ptr } %83, 0
   %85 = extractvalue { ptr, ptr } %83, 1
   %86 = load ptr, ptr %21, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 112
   %88 = load i64, ptr %87, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store i32 1, ptr %4, align 8, !alias.scope !4
@@ -370,7 +370,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEED2Ev.exit:   ; preds = %69, %68, %42, %_ZNK
   call void @llvm.assume(i1 %99)
   call void @llvm.assume(i1 %.not9.i.i)
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %.pre = load ptr, ptr %102, align 8
   br label %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
 
@@ -437,7 +437,7 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLoc
   br i1 %19, label %20, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load i32, ptr %15, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %21, i64 %23
@@ -449,12 +449,12 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLoc
   %30 = and i8 %29, 1
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %30, %27
   %31 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
-  %32 = getelementptr inbounds ptr, ptr %24, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %24, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %34 = load i8, ptr %33, align 2
   %35 = and i8 %34, 1
   %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
@@ -482,7 +482,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %20, %16, %11, %2
   br i1 %50, label %51, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %46, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %53 = load i32, ptr %46, align 8
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %52, i64 %54
@@ -494,7 +494,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %20, %16, %11, %2
   %61 = and i8 %60, 1
   %narrow.i.i.i.i.i.i8.i = add nuw nsw i8 %61, %58
   %62 = zext nneg i8 %narrow.i.i.i.i.i.i8.i to i64
-  %63 = getelementptr inbounds ptr, ptr %55, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %55, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %65 = load i8, ptr %64, align 2
   %66 = and i8 %65, 1
@@ -503,7 +503,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %20, %16, %11, %2
   %69 = and i8 %68, 1
   %narrow.i.i.i = add nuw nsw i8 %69, %66
   %70 = zext nneg i8 %narrow.i.i.i to i64
-  %71 = getelementptr inbounds ptr, ptr %63, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %63, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
@@ -563,7 +563,7 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils33extractPtrauthBlendDiscrimin
   %spec.select = trunc i64 %spec.select45 to i16
   %spec.select44 = select i1 %14, i32 0, i32 %1
   store i32 %spec.select44, ptr %0, align 4, !alias.scope !7
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %spec.select, ptr %15, align 4, !alias.scope !7
   store i8 0, ptr %6, align 8
   %16 = icmp ult i32 %11, 65
@@ -589,19 +589,19 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit:           ; preds = %3
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i32, ptr %26, align 8
   %.not15 = icmp eq i32 %27, 287
   br i1 %.not15, label %30, label %28
 
 28:                                               ; preds = %23, %20, %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
   store i32 %1, ptr %0, align 4, !alias.scope !10
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 0, ptr %29, align 4, !alias.scope !10
   br label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit.thread
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %25, i64 100
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 100
   %32 = load i32, ptr %31, align 4
   call void @_ZN4llvm19getIConstantVRegValENS_8RegisterERKNS_19MachineRegisterInfoE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.182") align 8 %5, i32 %32, ptr noundef nonnull align 8 dereferenceable(512) %2) #7
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -622,7 +622,7 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit:           ; preds = %3
 42:                                               ; preds = %36
   %43 = trunc nuw i64 %.0.i19 to i16
   %44 = load ptr, ptr %24, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 68
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 68
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -643,7 +643,7 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit22:         ; preds = %30, %47, %50
   %.sroa.025.242 = phi i32 [ %.sroa.025.2.ph, %47 ], [ %.sroa.025.2.ph, %50 ], [ %1, %30 ]
   %.240 = phi i16 [ %.2.ph, %47 ], [ %.2.ph, %50 ], [ 0, %30 ]
   store i32 %.sroa.025.242, ptr %0, align 4, !alias.scope !13
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %.240, ptr %51, align 4, !alias.scope !13
   br label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit.thread
 

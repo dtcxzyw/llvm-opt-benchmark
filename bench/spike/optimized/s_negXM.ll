@@ -24,7 +24,7 @@ define void @softfloat_negXM(i8 noundef zeroext %0, ptr nocapture noundef %1) lo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, i8 %.01011, i8 0
-  %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, -1
   %13 = zext nneg i8 %spec.select to i32

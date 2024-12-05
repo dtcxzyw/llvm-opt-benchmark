@@ -55,15 +55,15 @@ define hidden noundef ptr @pj_isea(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL8des_isea, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -83,28 +83,28 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   br label %101
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14isea_s_forward5PJ_LPP8PJconsts, ptr %8, align 8
   store i32 20, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FF0468A8AD00E8D, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0x3FC921FB54442D18, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double 1.000000e+00, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 6, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 4, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %17, ptr noundef %19, ptr noundef nonnull @.str.1)
   %.sroa.019.0..sroa.019.0..cast = inttoptr i64 %20 to ptr
@@ -201,25 +201,25 @@ sub_0:                                            ; preds = %60
   br i1 %.not99, label %sub_1, label %.tail94.thread
 
 sub_1:                                            ; preds = %sub_0
-  %63 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
   %64 = load i8, ptr %63, align 1
   %.not100 = icmp eq i8 %64, 105
   br i1 %.not100, label %.tail, label %sub_196
 
 .tail:                                            ; preds = %sub_1
-  %65 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %.sink.split, label %sub_196
 
 sub_196:                                          ; preds = %.tail, %sub_1
-  %68 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 1
   %69 = load i8, ptr %68, align 1
   %.not102 = icmp eq i8 %69, 100
   br i1 %.not102, label %.tail94, label %.tail94.thread
 
 .tail94:                                          ; preds = %sub_196
-  %70 = getelementptr inbounds i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.09.0..sroa.09.0..cast, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %.sink.split, label %.tail94.thread
@@ -306,15 +306,15 @@ define internal { double, double } @_ZL14isea_s_forward5PJ_LPP8PJconsts(double %
   %5 = alloca %"struct.(anonymous namespace)::isea_pt", align 8
   %6 = alloca %"struct.(anonymous namespace)::isea_pt", align 8
   %7 = alloca %union.PJ_COORD, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load double, ptr %14, align 8
   %16 = fadd double %13, 0x400921FB54442D18
   %17 = tail call double @cos(double noundef %1) #16
@@ -393,9 +393,9 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
 
 57:                                               ; preds = %119, %_ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %_ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i ], [ %indvars.iv.next.i.i.i, %119 ]
-  %58 = getelementptr inbounds [21 x %"struct.(anonymous namespace)::isea_geo"], ptr @_ZL13icostriangles, i64 0, i64 %indvars.iv.i.i.i
+  %58 = getelementptr inbounds nuw [21 x %"struct.(anonymous namespace)::isea_geo"], ptr @_ZL13icostriangles, i64 0, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i.i.i = load double, ptr %58, align 16
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.3.0.copyload.i.i.i = load double, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   %59 = tail call double @sin(double noundef %.sroa.3.0.copyload.i.i.i) #16
   %60 = tail call double @sin(double noundef %44) #16
@@ -424,12 +424,12 @@ _ZL10isea_ctranPN12_GLOBAL__N_18isea_geoES1_d.exit.i.i: ; preds = %.lr.ph19.i.i.
   %81 = fmul double %78, %80
   %82 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %81)
   %83 = tail call noundef double @atan2(double noundef %73, double noundef %82) #16
-  %84 = getelementptr inbounds [21 x i32], ptr @_ZL6tri_v1, i64 0, i64 %indvars.iv.i.i.i
+  %84 = getelementptr inbounds nuw [21 x i32], ptr @_ZL6tri_v1, i64 0, i64 %indvars.iv.i.i.i
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds [12 x %"struct.(anonymous namespace)::isea_geo"], ptr @_ZL6vertex, i64 0, i64 %86
   %.sroa.03.0.copyload.i.i.i.i = load double, ptr %87, align 16
-  %.sroa.35.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
+  %.sroa.35.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   %.sroa.35.0.copyload.i.i.i.i = load double, ptr %.sroa.35.0..sroa_idx.i.i.i.i, align 8
   %88 = tail call double @cos(double noundef %.sroa.35.0.copyload.i.i.i.i) #16
   %89 = fsub double %.sroa.03.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i.i.i
@@ -533,13 +533,13 @@ _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i:
   %156 = fmul double %155, %152
   %157 = tail call double @cos(double noundef %154) #16
   %158 = fmul double %157, %152
-  %159 = getelementptr inbounds i8, ptr %9, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %160 = load double, ptr %159, align 8
   %161 = fmul double %160, %156
   %162 = fmul double %160, %158
-  %163 = getelementptr inbounds i8, ptr %9, i64 60
+  %163 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i32 %127, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %9, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 4
   br i1 %166, label %167, label %197
@@ -575,7 +575,7 @@ _ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i:
 
 switch.lookup:                                    ; preds = %178
   %186 = zext nneg i8 %182 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZL14isea_s_forward5PJ_LPP8PJconsts, i64 0, i64 %186
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZL14isea_s_forward5PJ_LPP8PJconsts, i64 0, i64 %186
   %switch.load = load double, ptr %switch.gep, align 8
   %187 = icmp sgt i32 %181, 9
   %narrow.i.i.i = add nsw i8 %183, -2
@@ -593,7 +593,7 @@ switch.lookup:                                    ; preds = %178
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
 197:                                              ; preds = %_ZL14isea_transformPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoEPNS_7isea_ptE.exit.i
-  %198 = getelementptr inbounds i8, ptr %5, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %199 = fdiv double %161, %160
   %200 = fmul double %199, 0x3FEA90A6031F46A3
   %201 = fdiv double %162, %160
@@ -641,7 +641,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit.i:   ; preds = %221, %205
   %225 = mul nsw i32 %224, 5
   %226 = add nsw i32 %208, 1
   %227 = add nsw i32 %226, %225
-  %228 = getelementptr inbounds i8, ptr %9, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %227, ptr %228, align 8
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
@@ -676,7 +676,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %249 = mul nsw i32 %248, 5
   %250 = add nsw i32 %232, 1
   %251 = add nsw i32 %250, %249
-  %252 = getelementptr inbounds i8, ptr %9, i64 64
+  %252 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %251, ptr %252, align 8
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
@@ -685,9 +685,9 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
           to label %.noexc unwind label %332
 
 .noexc:                                           ; preds = %253
-  %255 = getelementptr inbounds i8, ptr %9, i64 64
+  %255 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %254, ptr %255, align 8
-  %.sroa.6.0..sroa_idx24.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.6.0..sroa_idx24.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0.copyload25.i = load double, ptr %.sroa.6.0..sroa_idx24.i, align 8
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
@@ -696,16 +696,16 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
           to label %.noexc16 unwind label %332
 
 .noexc16:                                         ; preds = %256
-  %258 = getelementptr inbounds i8, ptr %9, i64 64
+  %258 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %259 = load i32, ptr %258, align 8
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %_ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i, label %261
 
 261:                                              ; preds = %.noexc16
-  %262 = getelementptr inbounds i8, ptr %9, i64 36
+  %262 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %263 = load i32, ptr %262, align 4
   %264 = sitofp i32 %263 to double
-  %265 = getelementptr inbounds i8, ptr %9, i64 40
+  %265 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %266 = load i32, ptr %265, align 8
   %267 = sitofp i32 %266 to double
   %268 = tail call double @pow(double noundef %264, double noundef %267) #16
@@ -737,7 +737,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %286 = load double, ptr %6, align 8
   %287 = fptosi double %286 to i64
   %288 = mul nsw i64 %285, %287
-  %289 = getelementptr inbounds i8, ptr %6, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %290 = load double, ptr %289, align 8
   %291 = fptosi double %290 to i64
   %292 = sdiv i64 %291, %285
@@ -762,7 +762,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
   %309 = sitofp i64 %304 to double
   %310 = load double, ptr %6, align 8
   %311 = tail call double @llvm.fmuladd.f64(double %309, double %310, double %308)
-  %312 = getelementptr inbounds i8, ptr %6, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %313 = load double, ptr %312, align 8
   %314 = fadd double %311, %313
   %315 = fadd double %314, 2.000000e+00
@@ -772,9 +772,9 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %245, %229
 
 _ZL9isea_disnPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptE.exit.i: ; preds = %299, %279, %271, %.noexc16
   %.032.sink.i.i = phi i64 [ %273, %271 ], [ 1, %.noexc16 ], [ %298, %279 ], [ %317, %299 ]
-  %318 = getelementptr inbounds i8, ptr %9, i64 72
+  %318 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i64 %.032.sink.i.i, ptr %318, align 8
-  %.sroa.6.0..sroa_idx26.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.6.0..sroa_idx26.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.0.copyload27.i = load double, ptr %.sroa.6.0..sroa_idx26.i, align 8
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
 
@@ -805,7 +805,7 @@ _ZL8isea_hexPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds = %.noex
   %328 = add nsw i32 %327, %320
   %329 = sitofp i32 %328 to double
   store double %329, ptr %6, align 8
-  %330 = getelementptr inbounds i8, ptr %4, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %331 = load double, ptr %330, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit
@@ -838,7 +838,7 @@ _ZL12isea_forwardPN12_GLOBAL__N_18isea_dggEPNS_8isea_geoE.exit: ; preds = %switc
 
 342:                                              ; preds = %341
   %.sroa.011.0.copyload = load double, ptr %7, align 8
-  %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.312.0.copyload = load double, ptr %.sroa.312.0..sroa_idx, align 8
   call void @__cxa_end_catch() #16
   br label %345
@@ -884,7 +884,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %4 = alloca %"struct.(anonymous namespace)::hex", align 8
   %5 = alloca %"struct.(anonymous namespace)::hex", align 8
   %.sroa.0.0.copyload = load double, ptr %2, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %6 = add nsw i32 %1, -1
   %7 = sdiv i32 %6, 5
@@ -910,13 +910,13 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %25 = add nsw i32 %22, 1
   %26 = add nsw i32 %25, %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 3
   br i1 %29, label %30, label %83
 
 30:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
   %.not.i = icmp eq i32 %33, 0
@@ -930,8 +930,8 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
   %37 = fdiv double 0x3FEBB67AE8584CAB, %36
   %38 = fmul double %36, 2.000000e+00
   %39 = tail call i64 @lround(double noundef %38) #16
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @_ZL7hexbin2dddPlS_(double noundef %37, double noundef %.sroa.0.0, double noundef %.sroa.7.0, ptr noundef %40, ptr noundef %41)
   %42 = load i64, ptr %40, align 8
   %43 = icmp sgt i64 %42, -1
@@ -1017,16 +1017,16 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   %79 = sitofp i64 %.038.i.i to double
   store double %79, ptr %3, align 8
   %80 = sitofp i64 %.037.i.i to double
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.0.i.i, ptr %82, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit
 
 83:                                               ; preds = %_ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit
   %84 = icmp sgt i32 %28, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br i1 %84, label %.thread.i, label %96
 
@@ -1073,8 +1073,8 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   %107 = fneg double %.sroa.0.0
   %108 = fmul double %.sroa.7.0, 0x3FEBB67AE8584CAB
   %109 = tail call double @llvm.fmuladd.f64(double %107, double 0x3FDFFFFFFFFFFFFF, double %108)
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
-  %111 = getelementptr inbounds i8, ptr %5, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call fastcc void @_ZL7hexbin2dddPlS_(double noundef %104, double noundef %106, double noundef %109, ptr noundef %110, ptr noundef %111)
   %112 = load i64, ptr %110, align 8
   %113 = icmp sgt i64 %112, -1
@@ -1154,9 +1154,9 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %120, %115
   %148 = sitofp i64 %147 to double
   store double %148, ptr %3, align 8
   %149 = sitofp i64 %.neg51.i to double
-  %150 = getelementptr inbounds i8, ptr %3, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %149, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.039.i, ptr %151, align 8
   br label %_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit
 

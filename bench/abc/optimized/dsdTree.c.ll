@@ -32,7 +32,7 @@ define noalias noundef ptr @Dsd_TreeNodeCreate(i32 noundef %0, i32 noundef %1, i
   %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
   store i32 %0, ptr %calloc, align 8
   %4 = trunc i32 %1 to i16
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store i16 %4, ptr %5, align 8
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %11, label %6
@@ -41,7 +41,7 @@ define noalias noundef ptr @Dsd_TreeNodeCreate(i32 noundef %0, i32 noundef %1, i
   %7 = sext i16 %4 to i64
   %8 = shl nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %9, ptr %10, align 8
   store ptr null, ptr %9, align 8
   br label %11
@@ -55,7 +55,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -65,7 +65,7 @@ define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr nocapture noundef %1) local_
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %10, label %9
@@ -75,7 +75,7 @@ define void @Dsd_TreeNodeDelete(ptr noundef %0, ptr nocapture noundef %1) local_
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %14, label %13
@@ -96,19 +96,19 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Dsd_TreeUnmark(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -126,7 +126,7 @@ define void @Dsd_TreeUnmark(ptr nocapture noundef readonly %0) local_unnamed_add
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @Dsd_TreeUnmark_rec(ptr nocapture noundef %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, -1
   store i16 %4, ptr %2, align 2
@@ -140,19 +140,19 @@ define internal fastcc void @Dsd_TreeUnmark_rec(ptr nocapture noundef %0) unname
   br i1 %switch, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i16, ptr %7, align 8
   %9 = icmp sgt i16 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
@@ -172,19 +172,19 @@ define internal fastcc void @Dsd_TreeUnmark_rec(ptr nocapture noundef %0) unname
 define void @Dsd_TreeNodeGetInfo(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   store i32 0, ptr @s_DepthMax, align 4
   store i32 0, ptr @s_GateSizeMax, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -226,7 +226,7 @@ define internal fastcc void @Dsd_TreeGetInfo_rec(ptr nocapture noundef readonly 
   br i1 %switch, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i16, ptr %5, align 8
   %7 = sext i16 %6 to i32
   br label %8
@@ -242,7 +242,7 @@ define internal fastcc void @Dsd_TreeGetInfo_rec(ptr nocapture noundef readonly 
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i16, ptr %13, align 8
   %15 = icmp slt i16 %14, 2
   br i1 %15, label %.loopexit, label %16
@@ -258,13 +258,13 @@ define internal fastcc void @Dsd_TreeGetInfo_rec(ptr nocapture noundef readonly 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %19
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -2
@@ -311,7 +311,7 @@ define void @Dsd_TreeNodeGetInfoOne(ptr noundef %0, ptr noundef writeonly %1, pt
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Dsd_TreeGetAigCost_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i32
   %5 = icmp slt i16 %3, 2
@@ -341,7 +341,7 @@ define i32 @Dsd_TreeGetAigCost_rec(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph:                                           ; preds = %8, %10, %6, %13
   %.0 = phi i32 [ %9, %8 ], [ %12, %10 ], [ 0, %6 ], [ %spec.select, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -350,7 +350,7 @@ define i32 @Dsd_TreeGetAigCost_rec(ptr nocapture noundef readonly %0) local_unna
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.122 = phi i32 [ %.0, %.lr.ph ], [ %24, %17 ]
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -377,20 +377,20 @@ define i32 @Dsd_TreeGetAigCost(ptr noundef %0) local_unnamed_addr #7 {
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Dsd_TreeCountNonTerminalNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %Dsd_TreeUnmark.exit
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %14, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -408,13 +408,13 @@ define i32 @Dsd_TreeCountNonTerminalNodes(ptr nocapture noundef readonly %0) loc
   br i1 %18, label %.lr.ph.i, label %Dsd_TreeUnmark.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
@@ -433,7 +433,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, 1
   store i16 %4, ptr %2, align 2
@@ -441,20 +441,20 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNon
   br i1 %.not, label %5, label %23
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i16, ptr %6, align 8
   %8 = icmp slt i16 %7, 2
   br i1 %8, label %23, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %18, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
@@ -488,20 +488,20 @@ define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Dsd_TreeCountPrimeNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %Dsd_TreeUnmark.exit
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %14, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -519,13 +519,13 @@ define i32 @Dsd_TreeCountPrimeNodes(ptr nocapture noundef readonly %0) local_unn
   br i1 %18, label %.lr.ph.i, label %Dsd_TreeUnmark.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
@@ -544,7 +544,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, 1
   store i16 %4, ptr %2, align 2
@@ -552,20 +552,20 @@ define internal fastcc i32 @Dsd_TreeCountPrimeNodes_rec(ptr nocapture noundef %0
   br i1 %.not, label %5, label %25
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i16, ptr %6, align 8
   %8 = icmp slt i16 %7, 2
   br i1 %8, label %25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %18, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
@@ -604,7 +604,7 @@ define i32 @Dsd_TreeCountPrimeNodesOne(ptr noundef %0) local_unnamed_addr #5 {
 define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -617,20 +617,20 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp slt i16 %5, 2
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.0303 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -661,7 +661,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   br i1 %22, label %.lr.ph6, label %.loopexit
 
 .lr.ph6:                                          ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not36 = icmp eq ptr %1, null
   br i1 %.not36, label %.lr.ph6.split.us, label %.lr.ph6.split
 
@@ -669,7 +669,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %24 = phi i16 [ %37, %36 ], [ %16, %.lr.ph6 ]
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %36 ], [ 0, %.lr.ph6 ]
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv13
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv13
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
@@ -696,7 +696,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %40 = phi i16 [ %58, %57 ], [ %16, %.lr.ph6 ]
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %57 ], [ 0, %.lr.ph6 ]
   %41 = load ptr, ptr %23, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv10
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv10
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -706,7 +706,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %.lr.ph6.split
-  %50 = getelementptr inbounds i8, ptr %46, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 8
   %53 = load i32, ptr %2, align 4
@@ -733,20 +733,20 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %Dsd_TreeCountNonTerminalNodes.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %.079.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -766,7 +766,7 @@ define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr nocapture noundef readon
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
@@ -792,13 +792,13 @@ Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTer
   br i1 %31, label %.lr.ph, label %Dsd_TreeUnmark.exit
 
 .lr.ph:                                           ; preds = %Dsd_TreeCountNonTerminalNodes.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %36
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
@@ -815,13 +815,13 @@ Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTer
   br i1 %46, label %.lr.ph.i11, label %Dsd_TreeUnmark.exit
 
 .lr.ph.i11:                                       ; preds = %._crit_edge
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %48 ]
   %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i12
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i12
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, -2
@@ -841,7 +841,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %48, %Dsd_TreeCountN
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 42
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %5 = load i16, ptr %4, align 2
   %6 = add i16 %5, 1
   store i16 %6, ptr %4, align 2
@@ -849,19 +849,19 @@ define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noc
   br i1 %.not, label %7, label %26
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i16, ptr %8, align 8
   %10 = icmp slt i16 %9, 2
   br i1 %10, label %26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
@@ -913,26 +913,26 @@ define void @Dsd_TreePrint(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %8, label %.preheader, label %27
 
 .preheader:                                       ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %20 = icmp ne ptr %16, %19
   %21 = zext i1 %20 to i32
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   call fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr noundef %19, i32 noundef %21, ptr noundef %2, ptr noundef %23, i32 noundef 0, ptr noundef %7, i32 noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -942,7 +942,7 @@ define void @Dsd_TreePrint(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %26, label %13, label %.loopexit, !llvm.loop !18
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %5 to i64
   %31 = getelementptr inbounds ptr, ptr %29, i64 %30
@@ -968,7 +968,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   %.not = icmp eq i32 %2, 0
   %.str.17..str.18 = select i1 %.not, ptr @.str.17, ptr @.str.18
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.17..str.18, ptr noundef %4) #14
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i16, ptr %11, align 8
   %13 = sext i16 %12 to i64
   %14 = shl nsw i64 %13, 2
@@ -988,7 +988,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 19:                                               ; preds = %8
   %.not195 = icmp eq i32 %7, 0
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   br i1 %.not195, label %26, label %23
@@ -1000,7 +1000,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 26:                                               ; preds = %19
   %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds ptr, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %27
   %29 = load ptr, ptr %28, align 8
   %fputs196 = tail call i32 @fputs(ptr %29, ptr %0)
   br label %30
@@ -1016,14 +1016,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %34, label %.lr.ph214, label %._crit_edge215
 
 .lr.ph214:                                        ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not192 = icmp eq i32 %7, 0
   br label %36
 
 36:                                               ; preds = %.lr.ph214, %69
   %indvars.iv231 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next232, %69 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv231
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv231
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
@@ -1053,9 +1053,9 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv231
+  %52 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv231
   store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %42, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   br i1 %.not192, label %58, label %56
@@ -1066,7 +1066,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 58:                                               ; preds = %51
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds ptr, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %3, i64 %59
   %61 = load ptr, ptr %60, align 8
   %fputs193 = tail call i32 @fputs(ptr %61, ptr %0)
   br label %67
@@ -1075,7 +1075,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   %63 = load i32, ptr %6, align 4
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %6, align 4
-  %65 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv231
+  %65 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv231
   store i32 %63, ptr %65, align 4
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %63) #14
   br label %67
@@ -1101,14 +1101,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %75, label %.lr.ph218, label %.loopexit
 
 .lr.ph218:                                        ; preds = %._crit_edge215
-  %76 = getelementptr inbounds i8, ptr %1, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = add nsw i32 %5, 6
   br label %78
 
 78:                                               ; preds = %.lr.ph218, %90
   %79 = phi i16 [ %74, %.lr.ph218 ], [ %91, %90 ]
   %indvars.iv234 = phi i64 [ 0, %.lr.ph218 ], [ %indvars.iv.next235, %90 ]
-  %80 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv234
+  %80 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv234
   %81 = load i32, ptr %80, align 4
   %.not187 = icmp eq i32 %81, 0
   br i1 %.not187, label %90, label %82
@@ -1116,7 +1116,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 82:                                               ; preds = %78
   %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %81) #14
   %84 = load ptr, ptr %76, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv234
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv234
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, -2
@@ -1139,14 +1139,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %97, label %.lr.ph207, label %._crit_edge208
 
 .lr.ph207:                                        ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not183 = icmp eq i32 %7, 0
   br label %99
 
 99:                                               ; preds = %.lr.ph207, %132
   %indvars.iv225 = phi i64 [ 0, %.lr.ph207 ], [ %indvars.iv.next226, %132 ]
   %100 = load ptr, ptr %98, align 8
-  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv225
+  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv225
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = and i64 %103, -2
@@ -1176,9 +1176,9 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %113, label %114, label %125
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv225
+  %115 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv225
   store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %105, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr %117, align 8
   br i1 %.not183, label %121, label %119
@@ -1190,7 +1190,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 121:                                              ; preds = %114
   %122 = zext i32 %118 to i64
-  %123 = getelementptr inbounds ptr, ptr %3, i64 %122
+  %123 = getelementptr inbounds nuw ptr, ptr %3, i64 %122
   %124 = load ptr, ptr %123, align 8
   %fputs184 = tail call i32 @fputs(ptr %124, ptr %0)
   br label %130
@@ -1199,7 +1199,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   %126 = load i32, ptr %6, align 4
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %6, align 4
-  %128 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv225
+  %128 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv225
   store i32 %126, ptr %128, align 4
   %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %126) #14
   br label %130
@@ -1225,14 +1225,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %138, label %.lr.ph211, label %.loopexit
 
 .lr.ph211:                                        ; preds = %._crit_edge208
-  %139 = getelementptr inbounds i8, ptr %1, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %140 = add nsw i32 %5, 6
   br label %141
 
 141:                                              ; preds = %.lr.ph211, %153
   %142 = phi i16 [ %137, %.lr.ph211 ], [ %154, %153 ]
   %indvars.iv228 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next229, %153 ]
-  %143 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv228
+  %143 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv228
   %144 = load i32, ptr %143, align 4
   %.not178 = icmp eq i32 %144, 0
   br i1 %.not178, label %153, label %145
@@ -1240,7 +1240,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 145:                                              ; preds = %141
   %146 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %144) #14
   %147 = load ptr, ptr %139, align 8
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv228
+  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv228
   %149 = load ptr, ptr %148, align 8
   %150 = ptrtoint ptr %149 to i64
   %151 = and i64 %150, -2
@@ -1263,14 +1263,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %160, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %1, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not175 = icmp eq i32 %7, 0
   br label %162
 
 162:                                              ; preds = %.lr.ph, %195
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %195 ]
   %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds ptr, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = ptrtoint ptr %165 to i64
   %167 = and i64 %166, -2
@@ -1300,9 +1300,9 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %176, label %177, label %188
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 0, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %168, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = load i32, ptr %180, align 8
   br i1 %.not175, label %184, label %182
@@ -1314,7 +1314,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 184:                                              ; preds = %177
   %185 = zext i32 %181 to i64
-  %186 = getelementptr inbounds ptr, ptr %3, i64 %185
+  %186 = getelementptr inbounds nuw ptr, ptr %3, i64 %185
   %187 = load ptr, ptr %186, align 8
   %fputs = tail call i32 @fputs(ptr %187, ptr %0)
   br label %193
@@ -1323,7 +1323,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   %189 = load i32, ptr %6, align 4
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr %6, align 4
-  %191 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 %189, ptr %191, align 4
   %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %189) #14
   br label %193
@@ -1349,14 +1349,14 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %201, label %.lr.ph204, label %.loopexit
 
 .lr.ph204:                                        ; preds = %._crit_edge
-  %202 = getelementptr inbounds i8, ptr %1, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %203 = add nsw i32 %5, 6
   br label %204
 
 204:                                              ; preds = %.lr.ph204, %216
   %205 = phi i16 [ %200, %.lr.ph204 ], [ %217, %216 ]
   %indvars.iv222 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next223, %216 ]
-  %206 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv222
+  %206 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv222
   %207 = load i32, ptr %206, align 4
   %.not171 = icmp eq i32 %207, 0
   br i1 %.not171, label %216, label %208
@@ -1364,7 +1364,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 208:                                              ; preds = %204
   %209 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %207) #14
   %210 = load ptr, ptr %202, align 8
-  %211 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv222
+  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv222
   %212 = load ptr, ptr %211, align 8
   %213 = ptrtoint ptr %212 to i64
   %214 = and i64 %213, -2
@@ -1394,7 +1394,7 @@ define internal fastcc void @Dsd_TreePrint_rec(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
@@ -1426,14 +1426,14 @@ common.ret37:                                     ; preds = %._crit_edge.loopexi
   ret i64 %common.ret37.op
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 312
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %.tr1823, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %.tr1823, i64 16
-  %25 = getelementptr inbounds i8, ptr %.tr1823, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.tr1823, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.tr1823, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @Dsd_TreeFunc2Truth_rec(ptr noundef nonnull %0, ptr noundef %26)
   %28 = load ptr, ptr %24, align 8
@@ -1478,18 +1478,18 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.not96 = icmp eq i32 %3, 0
   %13 = select i1 %.not96, ptr @.str.3, ptr @.str.2
   %fputs97 = tail call i32 @fputs(ptr nonnull %13, ptr %0)
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %17
   %19 = load ptr, ptr %18, align 8
   %fputs98 = tail call i32 @fputs(ptr %19, ptr %0)
   br label %146
 
 20:                                               ; preds = %5
   %fputc91 = tail call i32 @fputc(i32 32, ptr %0)
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load i16, ptr %21, align 8
   %23 = icmp slt i16 %22, 7
   br i1 %23, label %24, label %90
@@ -1579,13 +1579,13 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
   br i1 %69, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %Abc_TtPrintHexRev.exit
-  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %71
 
 71:                                               ; preds = %.lr.ph110, %71
   %indvars.iv119 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next120, %71 ]
   %72 = load ptr, ptr %70, align 8
-  %73 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv119
+  %73 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv119
   %74 = load i8, ptr %73, align 1
   %75 = sext i8 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %72, i64 %75
@@ -1618,13 +1618,13 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
   br i1 %94, label %.lr.ph107, label %._crit_edge108
 
 .lr.ph107:                                        ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %96
 
 96:                                               ; preds = %.lr.ph107, %96
   %indvars.iv116 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next117, %96 ]
   %97 = load ptr, ptr %95, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv116
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv116
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -2
@@ -1647,19 +1647,19 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
   %110 = select i1 %.not86, ptr @.str.2, ptr @.str.3
   %fputs87 = tail call i32 @fputs(ptr nonnull %110, ptr %0)
   %fputc88 = tail call i32 @fputc(i32 40, ptr %0)
-  %111 = getelementptr inbounds i8, ptr %2, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %112 = load i16, ptr %111, align 8
   %113 = icmp sgt i16 %112, 0
   br i1 %113, label %.lr.ph103, label %._crit_edge104
 
 .lr.ph103:                                        ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %2, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %115
 
 115:                                              ; preds = %.lr.ph103, %115
   %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %115 ]
   %116 = load ptr, ptr %114, align 8
-  %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv113
+  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv113
   %118 = load ptr, ptr %117, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = and i64 %119, -2
@@ -1683,19 +1683,19 @@ Abc_TtPrintHexRev.exit:                           ; preds = %..loopexit_crit_edg
   %129 = select i1 %.not, ptr @.str.3, ptr @.str.2
   %fputs = tail call i32 @fputs(ptr nonnull %129, ptr %0)
   %fputc = tail call i32 @fputc(i32 91, ptr %0)
-  %130 = getelementptr inbounds i8, ptr %2, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %131 = load i16, ptr %130, align 8
   %132 = icmp sgt i16 %131, 0
   br i1 %132, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %2, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %134
 
 134:                                              ; preds = %.lr.ph, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
   %135 = load ptr, ptr %133, align 8
-  %136 = getelementptr inbounds ptr, ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv
   %137 = load ptr, ptr %136, align 8
   %138 = ptrtoint ptr %137 to i64
   %139 = and i64 %138, -2
@@ -1732,23 +1732,23 @@ define void @Dsd_TreePrint2(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br i1 %6, label %.preheader, label %27
 
 .preheader:                                       ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %13) #14
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
@@ -1769,7 +1769,7 @@ define void @Dsd_TreePrint2(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %30) #14
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %28
   %36 = load ptr, ptr %35, align 8
@@ -1806,7 +1806,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   %.not = icmp eq i32 %2, 0
   %.str.17..str.18 = select i1 %.not, ptr @.str.17, ptr @.str.18
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.17..str.18, ptr noundef %3) #14
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i16, ptr %9, align 8
   %11 = sext i16 %10 to i64
   %12 = shl nsw i64 %11, 2
@@ -1826,7 +1826,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 
 17:                                               ; preds = %6
   %fputc155 = tail call i32 @fputc(i32 32, ptr %0)
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 97
@@ -1841,13 +1841,13 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %25, label %.lr.ph174, label %._crit_edge175
 
 .lr.ph174:                                        ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %27
 
 27:                                               ; preds = %.lr.ph174, %51
   %indvars.iv191 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next192, %51 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv191
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv191
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, -2
@@ -1866,7 +1866,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 97
@@ -1882,7 +1882,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 
 48:                                               ; preds = %44, %38
   %.sink = phi i32 [ 0, %38 ], [ %45, %44 ]
-  %49 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv191
+  %49 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv191
   store i32 %.sink, ptr %49, align 4
   br i1 %.not151, label %51, label %50
 
@@ -1904,14 +1904,14 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %57, label %.lr.ph178, label %.loopexit
 
 .lr.ph178:                                        ; preds = %._crit_edge175
-  %58 = getelementptr inbounds i8, ptr %1, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = add nsw i32 %4, 6
   br label %60
 
 60:                                               ; preds = %.lr.ph178, %72
   %61 = phi i16 [ %56, %.lr.ph178 ], [ %73, %72 ]
   %indvars.iv194 = phi i64 [ 0, %.lr.ph178 ], [ %indvars.iv.next195, %72 ]
-  %62 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv194
+  %62 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv194
   %63 = load i32, ptr %62, align 4
   %.not150 = icmp eq i32 %63, 0
   br i1 %.not150, label %72, label %64
@@ -1919,7 +1919,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 64:                                               ; preds = %60
   %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %63) #14
   %66 = load ptr, ptr %58, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv194
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv194
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -2
@@ -1942,13 +1942,13 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %79, label %.lr.ph167, label %._crit_edge168
 
 .lr.ph167:                                        ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %81
 
 81:                                               ; preds = %.lr.ph167, %105
   %indvars.iv185 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next186, %105 ]
   %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv185
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv185
   %84 = load ptr, ptr %83, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, -2
@@ -1967,7 +1967,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %87, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, 97
@@ -1983,7 +1983,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 
 102:                                              ; preds = %98, %92
   %.sink197 = phi i32 [ 0, %92 ], [ %99, %98 ]
-  %103 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv185
+  %103 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv185
   store i32 %.sink197, ptr %103, align 4
   br i1 %.not146, label %105, label %104
 
@@ -2005,14 +2005,14 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %111, label %.lr.ph171, label %.loopexit
 
 .lr.ph171:                                        ; preds = %._crit_edge168
-  %112 = getelementptr inbounds i8, ptr %1, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %113 = add nsw i32 %4, 6
   br label %114
 
 114:                                              ; preds = %.lr.ph171, %126
   %115 = phi i16 [ %110, %.lr.ph171 ], [ %127, %126 ]
   %indvars.iv188 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next189, %126 ]
-  %116 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv188
+  %116 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv188
   %117 = load i32, ptr %116, align 4
   %.not145 = icmp eq i32 %117, 0
   br i1 %.not145, label %126, label %118
@@ -2020,7 +2020,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 118:                                              ; preds = %114
   %119 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %117) #14
   %120 = load ptr, ptr %112, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv188
+  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv188
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %122 to i64
   %124 = and i64 %123, -2
@@ -2043,13 +2043,13 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %133, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %1, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %135
 
 135:                                              ; preds = %.lr.ph, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
   %136 = load ptr, ptr %134, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
   %139 = ptrtoint ptr %138 to i64
   %140 = and i64 %139, -2
@@ -2068,7 +2068,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %145, label %146, label %152
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %141, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 8
   %150 = add i32 %149, 97
@@ -2084,7 +2084,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 
 156:                                              ; preds = %152, %146
   %.sink198 = phi i32 [ 0, %146 ], [ %153, %152 ]
-  %157 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %.sink198, ptr %157, align 4
   br i1 %.not142, label %159, label %158
 
@@ -2106,14 +2106,14 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
   br i1 %165, label %.lr.ph164, label %.loopexit
 
 .lr.ph164:                                        ; preds = %._crit_edge
-  %166 = getelementptr inbounds i8, ptr %1, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %167 = add nsw i32 %4, 6
   br label %168
 
 168:                                              ; preds = %.lr.ph164, %180
   %169 = phi i16 [ %164, %.lr.ph164 ], [ %181, %180 ]
   %indvars.iv182 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next183, %180 ]
-  %170 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv182
+  %170 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv182
   %171 = load i32, ptr %170, align 4
   %.not141 = icmp eq i32 %171, 0
   br i1 %.not141, label %180, label %172
@@ -2121,7 +2121,7 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 172:                                              ; preds = %168
   %173 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %171) #14
   %174 = load ptr, ptr %166, align 8
-  %175 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv182
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv182
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
   %178 = and i64 %177, -2
@@ -2151,17 +2151,17 @@ define internal fastcc void @Dsd_NodePrint_rec(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @Cudd_Ref(ptr noundef %5) #14
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i16, ptr %6, align 8
   %8 = icmp sgt i16 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %11
 
 11:                                               ; preds = %.lr.ph, %43
@@ -2169,14 +2169,14 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.05356 = phi ptr [ %5, %.lr.ph ], [ %.154, %43 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %.not55 = icmp eq i32 %16, 2
   br i1 %.not55, label %43, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = xor i64 %20, 1
@@ -2187,9 +2187,9 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture no
   tail call void @Cudd_Ref(ptr noundef %24) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %23) #14
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @Extra_bddFindOneCube(ptr noundef %0, ptr noundef %29) #14
   tail call void @Cudd_Ref(ptr noundef %30) #14
@@ -2199,13 +2199,13 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture no
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.05356) #14
   %32 = load ptr, ptr %10, align 8
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %32, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %41, ptr noundef %31, ptr noundef %24) #14
   tail call void @Cudd_Ref(ptr noundef %42) #14
@@ -2235,19 +2235,19 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture no
   br i1 %47, label %.lr.ph59, label %._crit_edge60
 
 .lr.ph59:                                         ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %49
 
 49:                                               ; preds = %.lr.ph59, %49
   %indvars.iv62 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next63, %49 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv62
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv62
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds [1000 x i32], ptr @Dsd_TreeGetPrimeFunctionOld.Permute, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [1000 x i32], ptr @Dsd_TreeGetPrimeFunctionOld.Permute, i64 0, i64 %56
   %58 = trunc nuw nsw i64 %indvars.iv62 to i32
   store i32 %58, ptr %57, align 4
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1

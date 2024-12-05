@@ -17,11 +17,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden double @VP8SSIMFromStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
   %5 = mul nuw i64 %4, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = mul nuw i64 %8, %8
@@ -31,15 +31,15 @@ define hidden double @VP8SSIMFromStats(ptr nocapture noundef readonly %0) local_
 
 11:                                               ; preds = %1
   %12 = mul nuw nsw i64 %8, %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 8
   %17 = sub nsw i64 %16, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = tail call i64 @llvm.smax.i64(i64 %17, i64 0)
@@ -71,11 +71,11 @@ define hidden double @VP8SSIMFromStatsClipped(ptr nocapture noundef readonly %0)
   %2 = load i32, ptr %0, align 4
   %3 = mul i32 %2, %2
   %4 = shl i32 %3, 6
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = mul nuw i64 %7, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = mul nuw i64 %11, %11
@@ -88,16 +88,16 @@ define hidden double @VP8SSIMFromStatsClipped(ptr nocapture noundef readonly %0)
   %16 = mul i32 %3, 60
   %17 = mul i32 %3, 20
   %18 = mul nuw nsw i64 %11, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = zext i32 %2 to i64
   %23 = mul nuw nsw i64 %21, %22
   %24 = sub nsw i64 %23, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = tail call i64 @llvm.smax.i64(i64 %24, i64 0)
@@ -340,7 +340,7 @@ define internal double @SSIMGet_C(ptr nocapture noundef readonly %0, i32 noundef
   %.sroa.7.046 = phi i32 [ 0, %4 ], [ %24, %29 ]
   %.sroa.4.045 = phi i32 [ 0, %4 ], [ %22, %29 ]
   %.sroa.1.044 = phi i32 [ 0, %4 ], [ %20, %29 ]
-  %7 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv57
+  %7 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv57
   %8 = load i32, ptr %7, align 4
   br label %9
 
@@ -351,13 +351,13 @@ define internal double @SSIMGet_C(ptr nocapture noundef readonly %0, i32 noundef
   %.sroa.7.140 = phi i32 [ %.sroa.7.046, %.preheader ], [ %24, %9 ]
   %.sroa.4.139 = phi i32 [ %.sroa.4.045, %.preheader ], [ %22, %9 ]
   %.sroa.1.138 = phi i32 [ %.sroa.1.044, %.preheader ], [ %20, %9 ]
-  %10 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = mul i32 %8, %11
-  %13 = getelementptr inbounds i8, ptr %.051, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %.051, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.02650, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %.02650, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = mul i32 %12, %15
@@ -433,10 +433,10 @@ define internal i32 @AccumulateSSE_C(ptr nocapture noundef readonly %0, ptr noca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 %7, %10

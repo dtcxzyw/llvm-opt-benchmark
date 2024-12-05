@@ -210,20 +210,20 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen22HQStreamDispatcherBaseC2ERNS0_12CallbackBaseENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %callback, i8 noundef zeroext %direction) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %pendingStreams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %_M_single_bucket.i.i, ptr %pendingStreams_, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_rehash_policy.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_next_resize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 64
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %callback, ptr %callback_, align 8
-  %direction_ = getelementptr inbounds i8, ptr %this, i64 72
+  %direction_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 %direction, ptr %direction_, align 8
   ret void
 }
@@ -303,7 +303,7 @@ cleanup.action:                                   ; preds = %.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %type_.i = getelementptr inbounds i8, ptr %error, i64 8
+  %type_.i = getelementptr inbounds nuw i8, ptr %error, i64 8
   %3 = load i32, ptr %type_.i, align 8
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.bb
@@ -395,7 +395,7 @@ _ZN4quic13QuicErrorCodeC2ERKS0_.exit.i:           ; preds = %invoke.cont91
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i18)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store i64 %9, ptr %agg.tmp.i, align 8
-  %type_5.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %type_5.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store i32 1, ptr %type_5.i.i, align 8
   invoke void @_ZN4quic8toStringB5cxx11ENS_13QuicErrorCodeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i18, ptr noundef nonnull %agg.tmp.i)
           to label %.noexc20 unwind label %terminate.lpad
@@ -455,7 +455,7 @@ _ZN4quic13QuicErrorCodeC2ERKS0_.exit.i31:         ; preds = %invoke.cont136
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i28)
   store i64 %13, ptr %agg.tmp.i28, align 8
-  %type_5.i.i32 = getelementptr inbounds i8, ptr %agg.tmp.i28, i64 8
+  %type_5.i.i32 = getelementptr inbounds nuw i8, ptr %agg.tmp.i28, i64 8
   store i32 2, ptr %type_5.i.i32, align 8
   invoke void @_ZN4quic8toStringB5cxx11ENS_13QuicErrorCodeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i27, ptr noundef nonnull %agg.tmp.i28)
           to label %.noexc36 unwind label %terminate.lpad
@@ -542,14 +542,14 @@ entry:
   %ref.tmp19 = alloca %"class.google::LogMessage", align 8
   %cursor = alloca %"class.folly::io::Cursor", align 8
   %preface = alloca %"class.folly::Optional", align 8
-  %e_.i = getelementptr inbounds i8, ptr %peekData, i64 32
+  %e_.i = getelementptr inbounds nuw i8, ptr %peekData, i64 32
   %0 = load ptr, ptr %peekData, align 8
   %1 = load ptr, ptr %e_.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %cleanup.cont, label %if.end
 
 if.end:                                           ; preds = %entry
-  %offset = getelementptr inbounds i8, ptr %0, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %offset, align 8
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end5, label %cleanup.cont
@@ -610,16 +610,16 @@ cleanup.action:                                   ; preds = %invoke.cont29
 
 invoke.cont35:                                    ; preds = %cleanup.action, %cond.end, %cond.false
   store ptr %3, ptr %cursor, align 8
-  %buffer_.i.i = getelementptr inbounds i8, ptr %cursor, i64 8
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 8
   store ptr %3, ptr %buffer_.i.i, align 8
-  %crtBegin_.i.i = getelementptr inbounds i8, ptr %cursor, i64 16
-  %remainingLen_.i.i = getelementptr inbounds i8, ptr %cursor, i64 48
-  %6 = getelementptr inbounds i8, ptr %cursor, i64 40
+  %crtBegin_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 16
+  %remainingLen_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %cursor, i64 40
   store i64 0, ptr %6, align 8
   store i64 -1, ptr %remainingLen_.i.i, align 8
-  %crtPos_.i.i = getelementptr inbounds i8, ptr %cursor, i64 32
-  %crtEnd_.i.i = getelementptr inbounds i8, ptr %cursor, i64 24
-  %data_.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %crtPos_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 32
+  %crtEnd_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 24
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %data_.i.i.i, align 8
   store ptr %7, ptr %crtBegin_.i.i, align 8
   store ptr %7, ptr %crtPos_.i.i, align 8
@@ -630,17 +630,17 @@ invoke.cont35:                                    ; preds = %cleanup.action, %co
           to label %invoke.cont36 unwind label %terminate.lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont35
-  %hasValue.i.i = getelementptr inbounds i8, ptr %preface, i64 16
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %preface, i64 16
   %9 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %invoke.cont42, label %if.then.i
 
 invoke.cont42:                                    ; preds = %invoke.cont36
   %10 = load i64, ptr %preface, align 8
-  %second = getelementptr inbounds i8, ptr %preface, i64 8
+  %second = getelementptr inbounds nuw i8, ptr %preface, i64 8
   %11 = load i64, ptr %second, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %12 = load ptr, ptr %vfn, align 8
   %call45 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %10, i64 noundef %11)
           to label %invoke.cont44 unwind label %terminate.lpad
@@ -652,21 +652,21 @@ invoke.cont44:                                    ; preds = %invoke.cont42
   ]
 
 if.then49:                                        ; preds = %invoke.cont44
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 64
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load ptr, ptr %callback_, align 8
   %call51 = invoke noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
           to label %invoke.cont50 unwind label %terminate.lpad
 
 invoke.cont50:                                    ; preds = %if.then49
   %vtable52 = load ptr, ptr %13, align 8
-  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 16
+  %vfn53 = getelementptr inbounds nuw i8, ptr %vtable52, i64 16
   %14 = load ptr, ptr %vfn53, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %call51)
           to label %cleanup.cont unwind label %terminate.lpad
 
 if.then.i:                                        ; preds = %invoke.cont44, %if.end5, %invoke.cont36
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6.i.i.i)
-  %eof.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %eof.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i8, ptr %eof.i.i.i, align 8
   %tobool.i.i.i13 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i13, label %if.then.i.i.i14, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS7_PS8_EEEE3$_0Lb1EE7executeEv.exit.i"
@@ -705,14 +705,14 @@ cleanup.action.i.i.i:                             ; preds = %invoke.cont.i.i.i
   br label %cleanup.done.i.i.i
 
 cleanup.done.i.i.i:                               ; preds = %cleanup.action.i.i.i, %cond.end.i.i.i, %call.i.noexc.i.i
-  %callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %callback_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %18 = load ptr, ptr %callback_.i.i.i, align 8
   %call14.i3.i.i = invoke noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
           to label %call14.i.noexc.i.i unwind label %lpad.i.i.i
 
 call14.i.noexc.i.i:                               ; preds = %cleanup.done.i.i.i
   %vtable.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %call14.i3.i.i)
           to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS7_PS8_EEEE3$_0Lb1EE7executeEv.exit.i" unwind label %lpad.i.i.i
@@ -761,13 +761,13 @@ entry:
   %ref.tmp2 = alloca %"class.google::LogMessage", align 8
   %ref.tmp16 = alloca %"class.google::LogMessage", align 8
   store i64 %id, ptr %id.addr, align 8
-  %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_element_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %_M_element_count.i.i.i.i.i, align 8
   %cmp.not.not.i.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i.i.i, label %if.then.i.i.i.i, label %if.end15.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i
@@ -777,14 +777,14 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %cmp.i.not.i.i.i.i, label %cond.false, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i.i.i, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %id, %1
   br i1 %cmp.i.i.i.i.i.i, label %cleanup.done, label %for.cond.i.i.i.i, !llvm.loop !4
 
 if.end15.i.i.i.i:                                 ; preds = %entry
-  %pendingStreams_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %pendingStreams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i = urem i64 %id, %2
   %3 = load ptr, ptr %pendingStreams_.i, align 8
@@ -795,7 +795,7 @@ if.end15.i.i.i.i:                                 ; preds = %entry
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %add.ptr8.i.i.i.i.i.i, align 8
   %cmp.i.i.i9.i.i.i.i.i.i = icmp eq i64 %id, %6
   br i1 %cmp.i.i.i9.i.i.i.i.i.i, label %cleanup.done, label %if.end3.i.i.i.i.i.i
@@ -811,7 +811,7 @@ if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i,
   br i1 %tobool5.not.i.i.i.i.i.i, label %cond.false, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
-  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i64, ptr %add.ptr7.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %8, %2
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
@@ -835,7 +835,7 @@ cleanup.action:                                   ; preds = %invoke.cont4
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i, %cleanup.action
-  %pendingStreams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %pendingStreams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = call noundef i64 @_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %pendingStreams_, ptr noundef nonnull align 8 dereferenceable(8) %id.addr)
   %tobool.not = icmp eq i64 %call.i.i, 0
   br i1 %tobool.not, label %cond.false14, label %cleanup.done28
@@ -887,13 +887,13 @@ entry:
   %sessionID = alloca %"class.folly::Optional", align 8
   %ref.tmp38 = alloca %"class.google::LogMessage", align 8
   %ref.tmp49 = alloca %"class.google::LogMessage", align 8
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 80
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.folly::Optional.11") align 8 %type, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %preface)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %type, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %type, i64 8
   %2 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit, label %return
@@ -923,26 +923,26 @@ if.then.i.i15:                                    ; preds = %sw.bb
 _ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit16: ; preds = %sw.bb
   %6 = load i64, ptr %type, align 8
   %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 48
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 48
   %7 = load ptr, ptr %vfn7, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %call4, i64 noundef %6, i64 noundef %consumed)
   br label %return
 
 sw.bb8:                                           ; preds = %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit
-  %direction_ = getelementptr inbounds i8, ptr %this, i64 72
+  %direction_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %8 = load i8, ptr %direction_, align 8
   %cmp = icmp eq i8 %8, 0
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %sw.bb8
   call void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr nonnull sret(%"class.folly::Optional") align 8 %pushId, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef 8)
-  %hasValue.i.i17 = getelementptr inbounds i8, ptr %pushId, i64 16
+  %hasValue.i.i17 = getelementptr inbounds nuw i8, ptr %pushId, i64 16
   %9 = load i8, ptr %hasValue.i.i17, align 8
   %tobool.i.i18 = trunc i8 %9 to i1
   br i1 %tobool.i.i18, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit, label %return
 
 _ZN5folly8OptionalISt4pairImmEEptEv.exit:         ; preds = %if.end10
-  %second = getelementptr inbounds i8, ptr %pushId, i64 8
+  %second = getelementptr inbounds nuw i8, ptr %pushId, i64 8
   %10 = load i64, ptr %second, align 8
   %11 = load ptr, ptr %callback_, align 8
   %call15 = call noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
@@ -958,20 +958,20 @@ _ZN5folly8OptionalISt4pairImmEEptEv.exit22:       ; preds = %_ZN5folly8OptionalI
   %add = add i64 %10, %consumed
   %13 = load i64, ptr %pushId, align 8
   %vtable17 = load ptr, ptr %11, align 8
-  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 56
+  %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 56
   %14 = load ptr, ptr %vfn18, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %call15, i64 noundef %13, i64 noundef %add)
   br label %return
 
 sw.bb19:                                          ; preds = %_ZNR5folly8OptionalIN8proxygen2hq24UnidirectionalStreamTypeEE5valueEv.exit
   call void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr nonnull sret(%"class.folly::Optional") align 8 %sessionID, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef 8)
-  %hasValue.i.i23 = getelementptr inbounds i8, ptr %sessionID, i64 16
+  %hasValue.i.i23 = getelementptr inbounds nuw i8, ptr %sessionID, i64 16
   %15 = load i8, ptr %hasValue.i.i23, align 8
   %tobool.i.i24 = trunc i8 %15 to i1
   br i1 %tobool.i.i24, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit28, label %return
 
 _ZN5folly8OptionalISt4pairImmEEptEv.exit28:       ; preds = %sw.bb19
-  %second23 = getelementptr inbounds i8, ptr %sessionID, i64 8
+  %second23 = getelementptr inbounds nuw i8, ptr %sessionID, i64 8
   %16 = load i64, ptr %second23, align 8
   %17 = load ptr, ptr %callback_, align 8
   %call26 = call noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
@@ -987,7 +987,7 @@ _ZN5folly8OptionalISt4pairImmEEptEv.exit32:       ; preds = %_ZN5folly8OptionalI
   %add24 = add i64 %16, %consumed
   %19 = load i64, ptr %sessionID, align 8
   %vtable29 = load ptr, ptr %17, align 8
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 64
   %20 = load ptr, ptr %vfn30, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %call26, i64 noundef %19, i64 noundef %add24)
   br label %return
@@ -1082,13 +1082,13 @@ entry:
   %type = alloca %"class.folly::Optional.13", align 8
   %sessionID = alloca %"class.folly::Optional", align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 80
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.folly::Optional.13") align 8 %type, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %preface)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %type, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %type, i64 8
   %2 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %_ZNR5folly8OptionalIN8proxygen2hq23BidirectionalStreamTypeEE5valueEv.exit, label %return
@@ -1104,20 +1104,20 @@ sw.bb:                                            ; preds = %_ZNR5folly8Optional
   %4 = load ptr, ptr %callback_, align 8
   %call4 = call noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
   %vtable5 = load ptr, ptr %4, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 48
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 48
   %5 = load ptr, ptr %vfn6, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %call4)
   br label %return
 
 sw.bb7:                                           ; preds = %_ZNR5folly8OptionalIN8proxygen2hq23BidirectionalStreamTypeEE5valueEv.exit
   call void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr nonnull sret(%"class.folly::Optional") align 8 %sessionID, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef 8)
-  %hasValue.i.i5 = getelementptr inbounds i8, ptr %sessionID, i64 16
+  %hasValue.i.i5 = getelementptr inbounds nuw i8, ptr %sessionID, i64 16
   %6 = load i8, ptr %hasValue.i.i5, align 8
   %tobool.i.i6 = trunc i8 %6 to i1
   br i1 %tobool.i.i6, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit, label %return
 
 _ZN5folly8OptionalISt4pairImmEEptEv.exit:         ; preds = %sw.bb7
-  %second = getelementptr inbounds i8, ptr %sessionID, i64 8
+  %second = getelementptr inbounds nuw i8, ptr %sessionID, i64 8
   %7 = load i64, ptr %second, align 8
   %8 = load ptr, ptr %callback_, align 8
   %call12 = call noundef i64 @_ZN8proxygen22HQStreamDispatcherBase16releaseOwnershipEm(ptr noundef nonnull align 8 dereferenceable(73) %this, i64 noundef %id)
@@ -1133,7 +1133,7 @@ _ZN5folly8OptionalISt4pairImmEEptEv.exit10:       ; preds = %_ZN5folly8OptionalI
   %add = add i64 %7, %consumed
   %10 = load i64, ptr %sessionID, align 8
   %vtable14 = load ptr, ptr %8, align 8
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 56
+  %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 56
   %11 = load ptr, ptr %vfn15, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %call12, i64 noundef %10, i64 noundef %add)
   br label %return
@@ -1183,8 +1183,8 @@ return:                                           ; preds = %sw.bb7, %entry, %in
 define linkonce_odr void @_ZN8proxygen22HQStreamDispatcherBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pendingStreams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -1192,7 +1192,7 @@ entry:
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__n.addr.04.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #19
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -1200,13 +1200,13 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %entry
   %2 = load ptr, ptr %pendingStreams_, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %pendingStreams_, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapImN8proxygen22HQStreamDispatcherBase15DispatchTimeoutESt4hashImESt8equal_toImESaISt4pairIKmS2_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -1231,8 +1231,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN8proxygen21HQUniStreamDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pendingStreams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -1240,7 +1240,7 @@ entry:
 while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.i.i.i.i.i
   %__n.addr.04.i.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i.i, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -1248,13 +1248,13 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %entry
   %2 = load ptr, ptr %pendingStreams_.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %pendingStreams_.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN8proxygen22HQStreamDispatcherBaseD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -1270,8 +1270,8 @@ _ZN8proxygen22HQStreamDispatcherBaseD2Ev.exit:    ; preds = %_ZNSt10_HashtableIm
 define linkonce_odr void @_ZN8proxygen21HQUniStreamDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pendingStreams_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %while.body.i.i.i.i.i.i
@@ -1279,7 +1279,7 @@ entry:
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.i.i.i.i.i.i
   %__n.addr.04.i.i.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i.i.i, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -1287,13 +1287,13 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %entry
   %2 = load ptr, ptr %pendingStreams_.i.i, align 8
-  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %mul.i.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %pendingStreams_.i.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN8proxygen21HQUniStreamDispatcherD2Ev.exit, label %if.end.i.i.i.i.i.i
 
@@ -1310,8 +1310,8 @@ _ZN8proxygen21HQUniStreamDispatcherD2Ev.exit:     ; preds = %_ZNSt10_HashtableIm
 define linkonce_odr void @_ZN8proxygen22HQBidiStreamDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pendingStreams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -1319,7 +1319,7 @@ entry:
 while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.i.i.i.i.i
   %__n.addr.04.i.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i.i, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -1327,13 +1327,13 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %entry
   %2 = load ptr, ptr %pendingStreams_.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %pendingStreams_.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN8proxygen22HQStreamDispatcherBaseD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -1349,8 +1349,8 @@ _ZN8proxygen22HQStreamDispatcherBaseD2Ev.exit:    ; preds = %_ZNSt10_HashtableIm
 define linkonce_odr void @_ZN8proxygen22HQBidiStreamDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i64 16), ptr %this, align 8
-  %pendingStreams_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %pendingStreams_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i, label %while.body.i.i.i.i.i.i
@@ -1358,7 +1358,7 @@ entry:
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.i.i.i.i.i.i
   %__n.addr.04.i.i.i.i.i.i = phi ptr [ %1, %while.body.i.i.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i.i.i, i64 16
+  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i.i.i, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i.i.i) #19
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -1366,13 +1366,13 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %entry
   %2 = load ptr, ptr %pendingStreams_.i.i, align 8
-  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %mul.i.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %pendingStreams_.i.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN8proxygen22HQBidiStreamDispatcherD2Ev.exit, label %if.end.i.i.i.i.i.i
 
@@ -1465,26 +1465,26 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_before_begin.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then
   %2 = load i64, ptr %__k, align 8
-  %add.ptr.i29 = getelementptr inbounds i8, ptr %1, i64 8
+  %add.ptr.i29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %add.ptr.i29, align 8
   %cmp.i.i.i30 = icmp eq i64 %2, %3
   br i1 %cmp.i.i.i30, label %if.end, label %if.end4.i
 
 for.body.i:                                       ; preds = %if.end4.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %4 = load i64, ptr %add.ptr.i, align 8
   %cmp.i.i.i = icmp eq i64 %2, %4
   br i1 %cmp.i.i.i, label %if.end, label %if.end4.i, !llvm.loop !8
@@ -1498,7 +1498,7 @@ if.end4.i:                                        ; preds = %for.cond.preheader.
 if.end:                                           ; preds = %for.body.i, %for.cond.preheader.i
   %6 = phi ptr [ %1, %for.cond.preheader.i ], [ %5, %for.body.i ]
   %__prev_p.06.i.lcssa = phi ptr [ %_M_before_begin.i, %for.cond.preheader.i ], [ %__p.07.i31, %for.body.i ]
-  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %2, %7
   %.pre = load ptr, ptr %this, align 8
@@ -1508,7 +1508,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
 
 if.else:                                          ; preds = %entry
   %8 = load i64, ptr %__k, align 8
-  %_M_bucket_count.i10 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8
@@ -1519,7 +1519,7 @@ if.else:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.else
   %12 = load ptr, ptr %11, align 8
-  %add.ptr8.i = getelementptr inbounds i8, ptr %12, i64 8
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load i64, ptr %add.ptr8.i, align 8
   %cmp.i.i.i9.i = icmp eq i64 %8, %13
   br i1 %cmp.i.i.i9.i, label %if.end13.thread, label %if.end3.i
@@ -1540,7 +1540,7 @@ if.end3.i:                                        ; preds = %if.end.i, %for.cond
   br i1 %tobool5.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end3.i
-  %add.ptr7.i = getelementptr inbounds i8, ptr %15, i64 8
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i64, ptr %add.ptr7.i, align 8
   %rem.i.i.i.i = urem i64 %16, %9
   %cmp.not.i13 = icmp eq i64 %rem.i.i.i.i, %rem.i.i.i11
@@ -1569,7 +1569,7 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %__bkt.04349 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
   %__prev_n.04547 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %24, i64 8
+  %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i64, ptr %add.ptr.i19, align 8
   %rem.i.i.i.i21 = urem i64 %25, %21
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i21, %__bkt.04349
@@ -1590,7 +1590,7 @@ if.end.i.i:                                       ; preds = %if.end13.thread, %i
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.04350
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
@@ -1607,7 +1607,7 @@ if.else.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i16, label %_ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeoutEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS7_15_Hash_node_baseEPNS7_10_Hash_nodeIS5_Lb0EEE.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %add.ptr8.i17 = getelementptr inbounds i8, ptr %20, i64 8
+  %add.ptr8.i17 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %29 = load i64, ptr %add.ptr8.i17, align 8
   %rem.i.i.i14.i = urem i64 %29, %17
   %cmp10.not.i = icmp eq i64 %rem.i.i.i14.i, %__bkt.0
@@ -1623,7 +1623,7 @@ _ZNSt10_HashtableImSt4pairIKmN8proxygen22HQStreamDispatcherBase15DispatchTimeout
   %__n.041 = phi ptr [ %__n.04251, %cond.end.i ], [ %__n.04252, %if.end11.i.i ], [ %__n.0, %if.else.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.then11.i ]
   %30 = load ptr, ptr %__n.041, align 8
   store ptr %30, ptr %__prev_n.044, align 8
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.041, i64 16
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.041, i64 16
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %second.i.i.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %__n.041) #19
   %31 = load i64, ptr %_M_element_count.i, align 8
@@ -1662,9 +1662,9 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %offset.011.i.i.i.i = phi i64 [ %add6.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %index.010.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i.i.i = getelementptr i8, ptr @_ZZN4quic34better_enums_data_PacketDropReason13_name_storageEvE7storage, i64 %offset.011.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx1.i.i.i.i = getelementptr inbounds ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
   %1 = load ptr, ptr %arrayidx1.i.i.i.i, align 8
   %call.i.i.i.i = tail call i64 @strcspn(ptr noundef %1, ptr noundef nonnull @.str.17) #21
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 %call.i.i.i.i
@@ -1689,9 +1689,9 @@ for.body.i.i.i.i2:                                ; preds = %__cxx_global_var_in
   %offset.011.i.i.i.i3 = phi i64 [ %add6.i.i.i.i12, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.exit ]
   %index.010.i.i.i.i4 = phi i64 [ %inc.i.i.i.i13, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.exit ]
   %add.ptr.i.i.i.i5 = getelementptr i8, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId13_name_storageEvE7storage, i64 %offset.011.i.i.i.i3
-  %arrayidx.i.i.i.i6 = getelementptr inbounds ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
+  %arrayidx.i.i.i.i6 = getelementptr inbounds nuw ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
   store ptr %add.ptr.i.i.i.i5, ptr %arrayidx.i.i.i.i6, align 8
-  %arrayidx1.i.i.i.i7 = getelementptr inbounds ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
+  %arrayidx1.i.i.i.i7 = getelementptr inbounds nuw ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
   %3 = load ptr, ptr %arrayidx1.i.i.i.i7, align 8
   %call.i.i.i.i8 = tail call i64 @strcspn(ptr noundef %3, ptr noundef nonnull @.str.17) #21
   %arrayidx2.i.i.i.i9 = getelementptr i8, ptr %add.ptr.i.i.i.i5, i64 %call.i.i.i.i8

@@ -23,7 +23,7 @@ define float @expf(float noundef %0) local_unnamed_addr #0 {
   %.026 = phi i64 [ 0, %3 ], [ %14, %9 ]
   %.01825 = phi float [ 1.000000e+00, %3 ], [ %13, %9 ]
   %.01924 = phi float [ 0.000000e+00, %3 ], [ %12, %9 ]
-  %10 = getelementptr inbounds [11 x float], ptr @_flt_inv_fact, i64 0, i64 %.026
+  %10 = getelementptr inbounds nuw [11 x float], ptr @_flt_inv_fact, i64 0, i64 %.026
   %11 = load float, ptr %10, align 4
   %12 = tail call float @llvm.fmuladd.f32(float %.01825, float %11, float %.01924)
   %13 = fmul float %8, %.01825

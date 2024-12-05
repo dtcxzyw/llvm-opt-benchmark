@@ -25,31 +25,31 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 9:                                                ; preds = %3
   store i32 %0, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %12, align 8
   %13 = shl nuw nsw i32 %0, 1
   %14 = add nuw nsw i32 %13, 2
   %15 = zext nneg i32 %14 to i64
   %16 = tail call ptr @palloc0(i64 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %16, ptr %17, align 8
   %18 = shl nuw nsw i32 %1, 1
   %19 = add nuw nsw i32 %18, 2
   %20 = zext nneg i32 %19 to i64
   %21 = tail call ptr @palloc0(i64 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %21, ptr %22, align 8
   %23 = tail call ptr @palloc(i64 noundef %15) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %23, ptr %24, align 8
   %25 = add nuw nsw i32 %13, 4
   %26 = zext nneg i32 %25 to i64
   %27 = tail call ptr @palloc(i64 noundef %26) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr %4, align 8
   %30 = load ptr, ptr %24, align 8
@@ -237,13 +237,13 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @hk_depth_search(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 32768) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
@@ -321,16 +321,16 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BipartiteMatchFree(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @pfree(ptr noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void @pfree(ptr noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   tail call void @pfree(ptr noundef %9) #5
   tail call void @pfree(ptr noundef %0) #5

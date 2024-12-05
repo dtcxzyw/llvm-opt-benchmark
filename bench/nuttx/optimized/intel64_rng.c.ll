@@ -47,7 +47,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader24
-  %15 = getelementptr inbounds i8, ptr %.026, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %16 = add i64 %.01725, -8
   %17 = icmp ugt i64 %16, 8
   br i1 %17, label %.preheader24, label %.preheader23, !llvm.loop !8
@@ -78,7 +78,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   br i1 %27, label %.lr.ph28, label %._crit_edge29, !llvm.loop !9
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %.preheader22
-  %28 = getelementptr inbounds i8, ptr %.131, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.131, i64 4
   %29 = add i64 %.11830, -4
   %30 = icmp ugt i64 %29, 4
   br i1 %30, label %.preheader22, label %.preheader21, !llvm.loop !10
@@ -103,7 +103,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   br i1 %39, label %.lr.ph34, label %._crit_edge35, !llvm.loop !11
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %.preheader20
-  %40 = getelementptr inbounds i8, ptr %.237, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.237, i64 2
   %41 = add i64 %.21936, -2
   %42 = icmp ugt i64 %41, 2
   br i1 %42, label %.preheader20, label %._crit_edge38, !llvm.loop !12

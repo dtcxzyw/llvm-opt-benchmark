@@ -32,7 +32,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 1040
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -42,11 +42,11 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
@@ -65,11 +65,11 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 152
   store ptr %0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %7, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %8, ptr %37, align 8
   %38 = add nsw i64 %1, -1
   %39 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
@@ -79,7 +79,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %40 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %.not201 = icmp sgt i64 %1, %40
   %41 = select i1 %.not201, i64 %40, i64 %38
-  %42 = getelementptr inbounds i8, ptr %31, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %41, ptr %42, align 8
   %43 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   %.not202 = icmp sgt i64 %1, %43
@@ -87,13 +87,13 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %45 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %.not203 = icmp sgt i64 %1, %45
   %46 = select i1 %.not203, i64 %45, i64 %38
-  %47 = getelementptr inbounds i8, ptr %31, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %44, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %31, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 %46, ptr %48, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %44, ptr noundef %49) #8
-  %51 = getelementptr inbounds i8, ptr %31, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %50, null
   br i1 %52, label %53, label %54
@@ -107,7 +107,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %55 = add nsw i64 %46, %44
   %.not204 = icmp sgt i64 %1, %55
   %.212 = select i1 %.not204, i64 %55, i64 %38
-  %56 = getelementptr inbounds i8, ptr %31, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr null, ptr %56, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %.212, ptr noundef %57) #8
@@ -123,7 +123,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %31, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store ptr null, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
   %65 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %64) #8
@@ -141,7 +141,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %31, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 112
   store ptr null, ptr %71, align 8
   %72 = load ptr, ptr %0, align 8
   %73 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %72) #8
@@ -161,7 +161,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 79:                                               ; preds = %70
-  %80 = getelementptr inbounds i8, ptr %31, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store ptr null, ptr %80, align 8
   %81 = load ptr, ptr %22, align 8
   %82 = tail call ptr @N_VClone(ptr noundef %81) #8
@@ -183,7 +183,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 89:                                               ; preds = %79
-  %90 = getelementptr inbounds i8, ptr %31, i64 88
+  %90 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr null, ptr %90, align 8
   %91 = load ptr, ptr %22, align 8
   %92 = tail call ptr @N_VClone(ptr noundef %91) #8
@@ -207,7 +207,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 100:                                              ; preds = %89
-  %101 = getelementptr inbounds i8, ptr %31, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store ptr null, ptr %101, align 8
   %102 = load ptr, ptr %22, align 8
   %103 = tail call ptr @N_VClone(ptr noundef %102) #8
@@ -233,7 +233,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %233
 
 112:                                              ; preds = %100
-  %113 = getelementptr inbounds i8, ptr %31, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store ptr null, ptr %113, align 8
   %114 = load ptr, ptr %71, align 8
   %115 = load ptr, ptr %56, align 8
@@ -293,7 +293,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br i1 %140, label %147, label %141
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %0, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load double, ptr %142, align 8
   %144 = fcmp ugt double %143, 0.000000e+00
   br i1 %144, label %145, label %147
@@ -304,17 +304,17 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 147:                                              ; preds = %139, %145, %141
   %148 = phi double [ %146, %145 ], [ 0.000000e+00, %141 ], [ %6, %139 ]
-  %149 = getelementptr inbounds i8, ptr %31, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store double %148, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %31, i64 120
+  %150 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store i64 %1, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %31, i64 128
-  %152 = getelementptr inbounds i8, ptr %31, i64 136
+  %151 = getelementptr inbounds nuw i8, ptr %31, i64 128
+  %152 = getelementptr inbounds nuw i8, ptr %31, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
   %153 = load ptr, ptr %22, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load ptr, ptr %156, align 8
   %.not206 = icmp eq ptr %157, null
   br i1 %.not206, label %167, label %158
@@ -335,9 +335,9 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 167:                                              ; preds = %158, %147
   %168 = load ptr, ptr %71, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %172 = load ptr, ptr %171, align 8
   %.not207 = icmp eq ptr %172, null
   br i1 %.not207, label %182, label %173
@@ -358,9 +358,9 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 182:                                              ; preds = %173, %167
   %183 = load ptr, ptr %51, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 72
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 72
   %187 = load ptr, ptr %186, align 8
   %.not208 = icmp eq ptr %187, null
   br i1 %.not208, label %196, label %188
@@ -379,9 +379,9 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 196:                                              ; preds = %188, %182
   %197 = load ptr, ptr %56, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 72
   %201 = load ptr, ptr %200, align 8
   %.not209 = icmp eq ptr %201, null
   br i1 %.not209, label %210, label %202
@@ -400,9 +400,9 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 210:                                              ; preds = %202, %196
   %211 = load ptr, ptr %113, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 96
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 96
   %215 = load ptr, ptr %214, align 8
   %.not210 = icmp eq ptr %215, null
   br i1 %.not210, label %224, label %216
@@ -420,9 +420,9 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %224
 
 224:                                              ; preds = %216, %210
-  %225 = getelementptr inbounds i8, ptr %31, i64 144
+  %225 = getelementptr inbounds nuw i8, ptr %31, i64 144
   store i64 0, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %18, i64 232
+  %226 = getelementptr inbounds nuw i8, ptr %18, i64 232
   %227 = load ptr, ptr %226, align 8
   %.not211 = icmp eq ptr %227, null
   br i1 %.not211, label %230, label %228
@@ -432,7 +432,7 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   br label %230
 
 230:                                              ; preds = %228, %224
-  %231 = getelementptr inbounds i8, ptr %18, i64 240
+  %231 = getelementptr inbounds nuw i8, ptr %18, i64 240
   store ptr %31, ptr %231, align 8
   store ptr @CVBBDPrecFree, ptr %226, align 8
   %232 = call i32 @CVodeSetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @CVBBDPrecSetup, ptr noundef nonnull @CVBBDPrecSolve) #8
@@ -478,40 +478,40 @@ declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @CVBBDPrecFree(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1040
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %27, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @SUNLinSolFree(ptr noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %7, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void @N_VDestroy(ptr noundef %14) #8
-  %15 = getelementptr inbounds i8, ptr %7, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void @N_VDestroy(ptr noundef %16) #8
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %18 = load ptr, ptr %17, align 8
   tail call void @N_VDestroy(ptr noundef %18) #8
-  %19 = getelementptr inbounds i8, ptr %7, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VDestroy(ptr noundef %20) #8
-  %21 = getelementptr inbounds i8, ptr %7, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %22 = load ptr, ptr %21, align 8
   tail call void @N_VDestroy(ptr noundef %22) #8
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %24 = load ptr, ptr %23, align 8
   tail call void @SUNMatDestroy(ptr noundef %24) #8
-  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %26 = load ptr, ptr %25, align 8
   tail call void @SUNMatDestroy(ptr noundef %26) #8
   tail call void @free(ptr noundef nonnull %7) #8
@@ -525,16 +525,16 @@ declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %6, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %3, 0
-  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %7
   store i32 0, ptr %4, align 4
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SUNMatCopy(ptr noundef %12, ptr noundef %14) #8
   %16 = icmp slt i32 %15, 0
@@ -564,37 +564,37 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not39, label %25, label %212
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %8, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %29) #8
-  %33 = getelementptr inbounds i8, ptr %6, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %41, label %35
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %6, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %34(i64 noundef %37, double noundef %0, ptr noundef %1, ptr noundef %39) #8
   %.not171.i = icmp eq i32 %40, 0
   br i1 %.not171.i, label %41, label %CVBBDDQJac.exit
 
 41:                                               ; preds = %35, %25
-  %42 = getelementptr inbounds i8, ptr %6, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %32, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 %43(i64 noundef %45, double noundef %0, ptr noundef %29, ptr noundef %27, ptr noundef %47) #8
-  %49 = getelementptr inbounds i8, ptr %6, i64 144
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %49, align 8
@@ -604,18 +604,18 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
 52:                                               ; preds = %41
   %53 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
   %54 = tail call ptr @N_VGetArrayPointer(ptr noundef %27) #8
-  %55 = getelementptr inbounds i8, ptr %32, i64 200
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 200
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @N_VGetArrayPointer(ptr noundef %56) #8
   %58 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #8
   %59 = tail call ptr @N_VGetArrayPointer(ptr noundef %31) #8
-  %60 = getelementptr inbounds i8, ptr %32, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %61 = load i32, ptr %60, align 8
   %.not173.i = icmp eq i32 %61, 0
   br i1 %.not173.i, label %66, label %62
 
 62:                                               ; preds = %52
-  %63 = getelementptr inbounds i8, ptr %32, i64 264
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 264
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @N_VGetArrayPointer(ptr noundef %64) #8
   br label %66
@@ -629,11 +629,11 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
   br i1 %69, label %70, label %81
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %32, i64 320
+  %71 = getelementptr inbounds nuw i8, ptr %32, i64 320
   %72 = load double, ptr %71, align 8
   %73 = tail call double @llvm.fabs.f64(double %72)
   %74 = fmul double %73, 1.000000e+03
-  %75 = getelementptr inbounds i8, ptr %32, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %76 = load double, ptr %75, align 8
   %77 = fmul double %76, %74
   %78 = sitofp i64 %.pre.i to double
@@ -643,7 +643,7 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
 
 81:                                               ; preds = %70, %66
   %82 = phi double [ %80, %70 ], [ 1.000000e+00, %66 ]
-  %83 = getelementptr inbounds i8, ptr %6, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = load i64, ptr %6, align 8
   %86 = add i64 %84, 1
@@ -653,9 +653,9 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not174190.i, label %.loopexit, label %.lr.ph193.i
 
 .lr.ph193.i:                                      ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %6, i64 32
-  %89 = getelementptr inbounds i8, ptr %6, i64 16
-  %90 = getelementptr inbounds i8, ptr %6, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %91
 
 91:                                               ; preds = %._crit_edge189.i, %.lr.ph193.i
@@ -807,9 +807,9 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocap
 
 .lr.ph185.i:                                      ; preds = %169, %.lr.ph185.i
   %.0151183.i = phi i64 [ %186, %.lr.ph185.i ], [ %spec.select.i, %169 ]
-  %178 = getelementptr inbounds double, ptr %59, i64 %.0151183.i
+  %178 = getelementptr inbounds nuw double, ptr %59, i64 %.0151183.i
   %179 = load double, ptr %178, align 8
-  %180 = getelementptr inbounds double, ptr %54, i64 %.0151183.i
+  %180 = getelementptr inbounds nuw double, ptr %54, i64 %.0151183.i
   %181 = load double, ptr %180, align 8
   %182 = fsub double %179, %181
   %183 = fmul double %170, %182
@@ -847,7 +847,7 @@ CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35,
 
 .loopexit:                                        ; preds = %._crit_edge189.i, %81
   %194 = load ptr, ptr %10, align 8
-  %195 = getelementptr inbounds i8, ptr %6, i64 64
+  %195 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 @SUNMatCopy(ptr noundef %194, ptr noundef %196) #8
   %198 = icmp slt i32 %197, 0
@@ -863,7 +863,7 @@ CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35,
 
 201:                                              ; preds = %200, %18
   %202 = fneg double %5
-  %203 = getelementptr inbounds i8, ptr %6, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %204 = load ptr, ptr %203, align 8
   %205 = tail call i32 @SUNMatScaleAddI(double noundef %202, ptr noundef %204) #8
   %.not43 = icmp eq i32 %205, 0
@@ -874,7 +874,7 @@ CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35,
   br label %212
 
 207:                                              ; preds = %201
-  %208 = getelementptr inbounds i8, ptr %6, i64 72
+  %208 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr %203, align 8
   %211 = tail call i32 @SUNLinSolSetup_Band(ptr noundef %209, ptr noundef %210) #8
@@ -888,16 +888,16 @@ CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35,
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecSolve(double %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr nocapture noundef readonly %8) #0 {
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #8
-  %11 = getelementptr inbounds i8, ptr %8, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %10, ptr noundef %12) #8
   %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %4) #8
-  %14 = getelementptr inbounds i8, ptr %8, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %15 = load ptr, ptr %14, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %13, ptr noundef %15) #8
-  %16 = getelementptr inbounds i8, ptr %8, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %14, align 8
   %21 = load ptr, ptr %11, align 8
@@ -919,7 +919,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   br label %36
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -929,7 +929,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   br label %36
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -939,7 +939,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   br label %36
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %14, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %19, -1
   %21 = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
@@ -949,13 +949,13 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   %22 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %.not37 = icmp sgt i64 %19, %22
   %23 = select i1 %.not37, i64 %22, i64 %20
-  %24 = getelementptr inbounds i8, ptr %14, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %23, ptr %24, align 8
   %25 = fcmp ogt double %3, 0.000000e+00
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load double, ptr %27, align 8
   %29 = fcmp ugt double %28, 0.000000e+00
   br i1 %29, label %30, label %32
@@ -966,9 +966,9 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
 
 32:                                               ; preds = %17, %30, %26
   %33 = phi double [ %31, %30 ], [ 0.000000e+00, %26 ], [ %3, %17 ]
-  %34 = getelementptr inbounds i8, ptr %14, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %14, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store i64 0, ptr %35, align 8
   br label %36
 
@@ -987,7 +987,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture
   br label %21
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1040
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -997,7 +997,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture
   br label %21
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
@@ -1007,10 +1007,10 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture
   br label %21
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %2, align 8
   br label %21
@@ -1030,7 +1030,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocaptu
   br label %18
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1040
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -1040,7 +1040,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocaptu
   br label %18
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -1050,7 +1050,7 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocaptu
   br label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %1, align 8
   br label %18

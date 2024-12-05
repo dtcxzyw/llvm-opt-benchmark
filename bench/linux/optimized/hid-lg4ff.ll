@@ -89,30 +89,30 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @lg4ff_adjust_input_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str) #14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str) #14
   br label %46
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 49816
   br i1 %14, label %15, label %46
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %46
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %7, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 22
   %21 = load i16, ptr %20, align 2
   switch i16 %21, label %22 [
     i16 900, label %37
@@ -140,11 +140,11 @@ define dso_local noundef range(i32 0, 2) i32 @lg4ff_adjust_input_event(ptr nound
 
 37:                                               ; preds = %35, %22, %19, %19
   %38 = phi i32 [ %3, %19 ], [ %3, %19 ], [ 0, %22 ], [ %36, %35 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load i8, ptr %43, align 4
   %45 = zext i8 %44 to i32
   tail call void @input_event(ptr noundef %42, i32 noundef %45, i32 noundef 0, i32 noundef %38) #15
@@ -169,19 +169,19 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 2) i32 @lg4ff_raw_event(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 16 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %47, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %11 = load i16, ptr %10, align 4
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %47, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %47 [
     i32 49812, label %16
@@ -257,37 +257,37 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
   %2 = alloca [43 x i8], align 1
   %3 = getelementptr i8, ptr %0, i64 2160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 6352
-  %6 = getelementptr inbounds i8, ptr %0, i64 6416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6416
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 740
   %11 = load i16, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 7168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.1) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #14
   br label %271
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @hid_validate_values(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 7) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %271, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 6472
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.2) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #14
   br label %271
 
 26:                                               ; preds = %21
@@ -298,11 +298,11 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 30:                                               ; preds = %26
   store i32 0, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %28, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 60
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = trunc i32 %34 to i16
   br label %36
@@ -344,16 +344,16 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
   br i1 %59, label %50, label %60
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %56, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 6
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %56, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %64 = load i16, ptr %63, align 4
   %65 = and i16 %64, %11
   %66 = icmp eq i16 %65, %62
   br i1 %66, label %67, label %50
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %56, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %69 = load i16, ptr %68, align 4
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %.thread28, label %71
@@ -393,7 +393,7 @@ lg4ff_get_mode_switch_command.exit:               ; preds = %79
 
 lg4ff_get_mode_switch_command.exit.thread31:      ; preds = %79
   %82 = zext i16 %69 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %82) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, i32 noundef %82) #14
   br label %.thread28
 
 lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_switch_command.exit, %79, %select.unfold, %80, %81
@@ -403,7 +403,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   br i1 %85, label %271, label %86
 
 86:                                               ; preds = %lg4ff_get_mode_switch_command.exit.thread
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.18, i32 noundef %84) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, i32 noundef %84) #14
   br label %.thread28
 
 .thread28:                                        ; preds = %41, %50, %44, %74, %lg4ff_get_mode_switch_command.exit.thread31, %86, %71, %67
@@ -430,7 +430,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   br i1 %98, label %.thread36, label %99
 
 .thread36:                                        ; preds = %93, %96
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.4) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.4) #14
   br label %269
 
 99:                                               ; preds = %96
@@ -455,26 +455,26 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 .thread37:                                        ; preds = %104, %107
   %110 = zext i16 %.ph33 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.5, i32 noundef %110) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, i32 noundef %110) #14
   br label %269
 
 111:                                              ; preds = %107, %99
   %112 = phi i32 [ %108, %107 ], [ -1, %99 ]
-  %113 = getelementptr inbounds i8, ptr %90, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = load i16, ptr %114, align 2
   %116 = icmp sgt i16 %115, -1
   br i1 %116, label %117, label %.loopexit40
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %18, i64 184
+  %118 = getelementptr inbounds nuw i8, ptr %18, i64 184
   br label %119
 
 119:                                              ; preds = %119, %117
   %120 = phi i16 [ %115, %117 ], [ %126, %119 ]
   %121 = phi i32 [ 0, %117 ], [ %123, %119 ]
   %122 = zext nneg i16 %120 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %118, i64 %122) #15, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %118, i64 %122) #15, !srcloc !12
   %123 = add i32 %121, 1
   %124 = sext i32 %123 to i64
   %125 = getelementptr i16, ptr %114, i64 %124
@@ -506,11 +506,11 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   br i1 %137, label %.thread38, label %138
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %136, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %136, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %136, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %144 = load ptr, ptr %143, align 8
   br label %.thread38
 
@@ -518,41 +518,41 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %145 = phi ptr [ %142, %138 ], [ null, %134 ], [ null, %130 ]
   %146 = phi ptr [ %144, %138 ], [ null, %134 ], [ null, %130 ]
   %147 = phi i32 [ %140, %138 ], [ 0, %134 ], [ 0, %130 ]
-  %148 = getelementptr inbounds i8, ptr %28, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %28, i64 16
   call void @llvm.lifetime.start.p0(i64 43, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false)
-  %149 = getelementptr inbounds i8, ptr %90, i64 18
+  %149 = getelementptr inbounds nuw i8, ptr %90, i64 18
   %150 = load i16, ptr %149, align 2
-  %.3..3..3..3..sroa_idx = getelementptr inbounds i8, ptr %2, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(40) %.3..3..3..3..sroa_idx, i8 0, i64 40, i1 false)
-  %151 = getelementptr inbounds i8, ptr %90, i64 24
+  %.3..3..3..3..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.3..3..3..3..sroa_idx, i8 0, i64 40, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %152 = load ptr, ptr %151, align 8
   store i32 %87, ptr %148, align 8
-  %153 = getelementptr inbounds i8, ptr %28, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i16 0, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %28, i64 22
+  %154 = getelementptr inbounds nuw i8, ptr %28, i64 22
   store i16 0, ptr %154, align 2
-  %155 = getelementptr inbounds i8, ptr %28, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i16 40, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %28, i64 26
+  %156 = getelementptr inbounds nuw i8, ptr %28, i64 26
   store i16 %150, ptr %156, align 2
-  %157 = getelementptr inbounds i8, ptr %28, i64 28
+  %157 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i8 0, ptr %157, align 4
-  %158 = getelementptr inbounds i8, ptr %28, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(43) %158, ptr noundef nonnull align 1 dereferenceable(43) %2, i64 43, i1 false)
-  %159 = getelementptr inbounds i8, ptr %28, i64 72
+  %158 = getelementptr inbounds nuw i8, ptr %28, i64 29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %158, ptr noundef nonnull align 1 dereferenceable(43) %2, i64 43, i1 false)
+  %159 = getelementptr inbounds nuw i8, ptr %28, i64 72
   store i32 %147, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %28, i64 76
+  %160 = getelementptr inbounds nuw i8, ptr %28, i64 76
   store i32 0, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %28, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store ptr %145, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %28, i64 88
+  %162 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store ptr %146, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %28, i64 96
+  %163 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store i16 %.ph33, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %28, i64 98
-  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(6) %164, i8 0, i64 6, i1 false)
-  %165 = getelementptr inbounds i8, ptr %28, i64 104
+  %164 = getelementptr inbounds nuw i8, ptr %28, i64 98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %164, i8 0, i64 6, i1 false)
+  %165 = getelementptr inbounds nuw i8, ptr %28, i64 104
   store ptr %152, ptr %165, align 8
   call void @llvm.lifetime.end.p0(i64 43, ptr nonnull %2)
   %166 = getelementptr i8, ptr %18, i64 192
@@ -563,54 +563,54 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 170:                                              ; preds = %.thread38
   %171 = icmp eq i16 %11, 8448
-  %172 = getelementptr inbounds i8, ptr %18, i64 248
+  %172 = getelementptr inbounds nuw i8, ptr %18, i64 248
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 32
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = select i1 %171, ptr @lg4ff_set_autocenter_ffex, ptr @lg4ff_set_autocenter_default
   store ptr %175, ptr %174, align 8
   %176 = load ptr, ptr %172, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %178 = load ptr, ptr %177, align 8
   tail call void %178(ptr noundef %18, i16 noundef zeroext 0) #15
   br label %179
 
 179:                                              ; preds = %170, %.thread38
-  %180 = tail call i32 @device_create_file(ptr noundef %5, ptr noundef nonnull @dev_attr_combine_pedals) #15
+  %180 = tail call i32 @device_create_file(ptr noundef nonnull %5, ptr noundef nonnull @dev_attr_combine_pedals) #15
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %183, label %182
 
 182:                                              ; preds = %179
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef %180) #14
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i32 noundef %180) #14
   br label %183
 
 183:                                              ; preds = %182, %179
-  %184 = tail call i32 @device_create_file(ptr noundef %5, ptr noundef nonnull @dev_attr_range) #15
+  %184 = tail call i32 @device_create_file(ptr noundef nonnull %5, ptr noundef nonnull @dev_attr_range) #15
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %187, label %186
 
 186:                                              ; preds = %183
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.8, i32 noundef %184) #14
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, i32 noundef %184) #14
   br label %187
 
 187:                                              ; preds = %186, %183
   br i1 %.ph34, label %188, label %196
 
 188:                                              ; preds = %187
-  %189 = tail call i32 @device_create_file(ptr noundef %5, ptr noundef nonnull @dev_attr_real_id) #15
+  %189 = tail call i32 @device_create_file(ptr noundef nonnull %5, ptr noundef nonnull @dev_attr_real_id) #15
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %192, label %191
 
 191:                                              ; preds = %188
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %189) #14
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, i32 noundef %189) #14
   br label %192
 
 192:                                              ; preds = %191, %188
-  %193 = tail call i32 @device_create_file(ptr noundef %5, ptr noundef nonnull @dev_attr_alternate_modes) #15
+  %193 = tail call i32 @device_create_file(ptr noundef nonnull %5, ptr noundef nonnull @dev_attr_alternate_modes) #15
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %196, label %195
 
 195:                                              ; preds = %192
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %5, ptr noundef nonnull @.str.10, i32 noundef %193) #14
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, i32 noundef %193) #14
   br label %196
 
 196:                                              ; preds = %195, %192, %187
@@ -626,8 +626,8 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 201:                                              ; preds = %200, %196
   store i8 0, ptr %157, align 4
-  %202 = getelementptr inbounds i8, ptr %28, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %202, i8 0, i64 40, i1 false)
+  %202 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %202, i8 0, i64 40, i1 false)
   switch i32 %87, label %.loopexit [
     i32 49819, label %203
     i32 49743, label %203
@@ -639,25 +639,25 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %203
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.41) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.41) #14
   br label %lg4ff_set_leds.exit
 
 207:                                              ; preds = %203
-  %208 = getelementptr inbounds i8, ptr %204, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %212
 
 211:                                              ; preds = %207
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull @.str.42) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.42) #14
   br label %lg4ff_set_leds.exit
 
 212:                                              ; preds = %207
-  %213 = getelementptr inbounds i8, ptr %209, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 64
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 64
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 48
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 48
   %218 = load ptr, ptr %217, align 8
   %219 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %209) #15
   store i32 248, ptr %218, align 4
@@ -671,7 +671,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   br label %lg4ff_set_leds.exit
 
 lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
-  %223 = getelementptr inbounds i8, ptr %0, i64 6432
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 6432
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, null
   br i1 %225, label %226, label %228
@@ -713,24 +713,24 @@ lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
   %248 = trunc i64 %247 to i32
   %249 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %240, i64 noundef %231, ptr noundef nonnull @.str.12, ptr noundef %246, i32 noundef %248) #15
   store ptr %240, ptr %237, align 8
-  %250 = getelementptr inbounds i8, ptr %237, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i32 0, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %237, i64 12
+  %251 = getelementptr inbounds nuw i8, ptr %237, i64 12
   store i32 1, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %237, i64 48
+  %252 = getelementptr inbounds nuw i8, ptr %237, i64 48
   store ptr @lg4ff_led_get_brightness, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %237, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %237, i64 32
   store ptr @lg4ff_led_set_brightness, ptr %253, align 8
   %254 = getelementptr [5 x ptr], ptr %202, i64 0, i64 %234
   store ptr %237, ptr %254, align 8
-  %255 = tail call i32 @led_classdev_register_ext(ptr noundef %5, ptr noundef nonnull %237, ptr noundef null) #15
+  %255 = tail call i32 @led_classdev_register_ext(ptr noundef nonnull %5, ptr noundef nonnull %237, ptr noundef null) #15
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %233, label %257, !llvm.loop !17
 
 257:                                              ; preds = %245, %236
   %258 = phi ptr [ @.str.11, %236 ], [ @.str.13, %245 ]
   %259 = trunc i64 %234 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %5, ptr noundef nonnull %258, i32 noundef %259) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull %258, i32 noundef %259) #14
   br label %260
 
 260:                                              ; preds = %266, %257
@@ -752,7 +752,7 @@ lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
   br i1 %268, label %.loopexit, label %260, !llvm.loop !18
 
 .loopexit:                                        ; preds = %233, %266, %201
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %5, ptr noundef nonnull @.str.14) #14
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #14
   br label %271
 
 269:                                              ; preds = %.loopexit40, %.thread37, %.thread36
@@ -777,42 +777,42 @@ declare dso_local i32 @input_ff_create_memless(ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @lg4ff_play(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 6472
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6472
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.41) #14
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.41) #14
   br label %51
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %16, ptr noundef nonnull @.str.42) #14
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %16, ptr noundef nonnull @.str.42) #14
   br label %51
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %2, align 8
   %25 = icmp eq i16 %24, 82
   br i1 %25, label %26, label %51
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i16, ptr %27, align 8
   %29 = icmp slt i16 %28, -128
   br i1 %29, label %.thread, label %32
@@ -867,38 +867,38 @@ define internal noundef range(i32 -22, 1) i32 @lg4ff_play(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg4ff_set_autocenter_ffex(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 664
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %4 = load ptr, ptr %3, align 8
   %5 = zext i16 %1 to i32
   %6 = mul nuw nsw i32 %5, 90
   %7 = udiv i32 %6, 65535
-  %8 = getelementptr inbounds i8, ptr %4, i64 6472
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 6472
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %12, ptr noundef nonnull @.str.41) #14
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %12, ptr noundef nonnull @.str.41) #14
   br label %34
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str.42) #14
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %18, ptr noundef nonnull @.str.42) #14
   br label %34
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %15) #15
   store i32 254, ptr %25, align 4
@@ -925,35 +925,35 @@ define internal void @lg4ff_set_autocenter_ffex(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg4ff_set_autocenter_default(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 664
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 6472
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 6472
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.41) #14
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %9, ptr noundef nonnull @.str.41) #14
   br label %59
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.42) #14
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %15, ptr noundef nonnull @.str.42) #14
   br label %59
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %12) #15
   %24 = zext i16 %1 to i32
@@ -989,7 +989,7 @@ define internal void @lg4ff_set_autocenter_default(ptr nocapture noundef readonl
 40:                                               ; preds = %34, %31
   %41 = phi i32 [ %32, %31 ], [ %37, %34 ]
   %42 = phi i32 [ %33, %31 ], [ %39, %34 ]
-  %43 = getelementptr inbounds i8, ptr %12, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %44 = load i32, ptr %43, align 8
   switch i32 %44, label %45 [
     i32 49813, label %47
@@ -1044,9 +1044,9 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -1058,13 +1058,13 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
   br label %.loopexit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %17
 
 16:                                               ; preds = %10
@@ -1080,7 +1080,7 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
 
 22:                                               ; preds = %17
   %23 = trunc i64 %18 to i32
-  %24 = getelementptr inbounds i8, ptr %12, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 1, %23
@@ -1101,9 +1101,9 @@ define internal range(i32 0, 256) i32 @lg4ff_led_get_brightness(ptr noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -6352
   %8 = getelementptr i8, ptr %6, i64 120
@@ -1116,13 +1116,13 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noun
   br label %lg4ff_set_leds.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %19
 
 18:                                               ; preds = %12
@@ -1138,7 +1138,7 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noun
 
 24:                                               ; preds = %19
   %25 = trunc i64 %20 to i32
-  %26 = getelementptr inbounds i8, ptr %14, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %27 = load i8, ptr %26, align 4
   %28 = zext i8 %27 to i32
   %29 = icmp eq i32 %1, 0
@@ -1158,25 +1158,25 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noun
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %34
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.41) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.41) #14
   br label %lg4ff_set_leds.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %41
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.42) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.42) #14
   br label %lg4ff_set_leds.exit
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %43, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %43) #15
   store i32 248, ptr %52, align 4
@@ -1205,25 +1205,25 @@ define internal void @lg4ff_led_set_brightness(ptr noundef readonly %0, i32 noun
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.41) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.41) #14
   br label %lg4ff_set_leds.exit
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %67
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.42) #14
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.42) #14
   br label %lg4ff_set_leds.exit
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %69, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %69) #15
   store i32 248, ptr %78, align 4
@@ -1259,39 +1259,39 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @lg4ff_deinit(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 6472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.15) #14
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.15) #14
   br label %30
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %30, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void @device_remove_file(ptr noundef %16, ptr noundef nonnull @dev_attr_real_id) #15
-  tail call void @device_remove_file(ptr noundef %16, ptr noundef nonnull @dev_attr_alternate_modes) #15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void @device_remove_file(ptr noundef nonnull %16, ptr noundef nonnull @dev_attr_real_id) #15
+  tail call void @device_remove_file(ptr noundef nonnull %16, ptr noundef nonnull @dev_attr_alternate_modes) #15
   br label %17
 
 17:                                               ; preds = %15, %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void @device_remove_file(ptr noundef %18, ptr noundef nonnull @dev_attr_combine_pedals) #15
-  tail call void @device_remove_file(ptr noundef %18, ptr noundef nonnull @dev_attr_range) #15
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void @device_remove_file(ptr noundef nonnull %18, ptr noundef nonnull @dev_attr_combine_pedals) #15
+  tail call void @device_remove_file(ptr noundef nonnull %18, ptr noundef nonnull @dev_attr_range) #15
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %20
 
 20:                                               ; preds = %26, %17
@@ -1333,33 +1333,33 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 6472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.41) #14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %7, ptr noundef nonnull @.str.41) #14
   br label %51
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %13, ptr noundef nonnull @.str.42) #14
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %13, ptr noundef nonnull @.str.42) #14
   br label %51
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #15
   %22 = load i8, ptr %1, align 1
@@ -1367,7 +1367,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %26
 
 26:                                               ; preds = %38, %24
@@ -1398,9 +1398,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @lg4ff_switch_compatibility
 
 .loopexit:                                        ; preds = %38, %14
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %21) #15
-  %44 = getelementptr inbounds i8, ptr %0, i64 7096
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7096
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %51, label %49
@@ -1425,33 +1425,33 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg4ff_set_range_dfp(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 6472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.41) #14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %7, ptr noundef nonnull @.str.41) #14
   br label %49
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %13, ptr noundef nonnull @.str.42) #14
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %13, ptr noundef nonnull @.str.42) #14
   br label %49
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #15
   store i32 248, ptr %20, align 4
@@ -1512,33 +1512,33 @@ define internal void @lg4ff_set_range_dfp(ptr noundef %0, i16 noundef zeroext %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @lg4ff_set_range_g25(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 6472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.41) #14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %7, ptr noundef nonnull @.str.41) #14
   br label %32
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %13, ptr noundef nonnull @.str.42) #14
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %13, ptr noundef nonnull @.str.42) #14
   br label %32
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #15
   store i32 248, ptr %20, align 4
@@ -1581,7 +1581,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_combine_show(ptr n
   br label %19
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1591,7 +1591,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_combine_show(ptr n
   br label %19
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i32
   %17 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.44, i32 noundef %16) #15
@@ -1617,7 +1617,7 @@ define internal noundef i64 @lg4ff_combine_store(ptr noundef %0, ptr nocapture r
   br label %21
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
@@ -1630,7 +1630,7 @@ define internal noundef i64 @lg4ff_combine_store(ptr noundef %0, ptr nocapture r
   %17 = and i64 %5, 65534
   %18 = icmp eq i64 %17, 0
   %19 = select i1 %18, i16 %6, i16 1
-  %20 = getelementptr inbounds i8, ptr %13, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i16 %19, ptr %20, align 4
   br label %21
 
@@ -1657,7 +1657,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_range_show(ptr nou
   br label %19
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1667,7 +1667,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_range_show(ptr nou
   br label %19
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.44, i32 noundef %16) #15
@@ -1694,7 +1694,7 @@ define internal noundef i64 @lg4ff_range_store(ptr noundef %0, ptr nocapture rea
   br label %38
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -1709,32 +1709,32 @@ define internal noundef i64 @lg4ff_range_store(ptr noundef %0, ptr nocapture rea
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %14, i64 26
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 26
   %22 = load i16, ptr %21, align 2
   br label %23
 
 23:                                               ; preds = %20, %17
   %24 = phi i16 [ %22, %20 ], [ %7, %17 ]
-  %25 = getelementptr inbounds i8, ptr %14, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %38, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %14, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %30 = load i16, ptr %29, align 8
   %31 = icmp ult i16 %24, %30
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %14, i64 26
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 26
   %34 = load i16, ptr %33, align 2
   %35 = icmp ugt i16 %24, %34
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %32
   tail call void %26(ptr noundef %5, i16 noundef zeroext %24) #15
-  %37 = getelementptr inbounds i8, ptr %14, i64 22
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 22
   store i16 %24, ptr %37, align 2
   br label %38
 
@@ -1755,7 +1755,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_real_id_show(ptr n
   br label %25
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1765,13 +1765,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @lg4ff_real_id_show(ptr n
   br label %25
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -1803,21 +1803,21 @@ define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_sh
   br i1 %6, label %64, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %64, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  %13 = getelementptr inbounds i8, ptr %9, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %64, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %9, i64 72
-  %18 = getelementptr inbounds i8, ptr %9, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 96
   br label %19
 
 19:                                               ; preds = %60, %16
@@ -1834,11 +1834,11 @@ define internal range(i64 -2147483648, 2147487742) i64 @lg4ff_alternate_modes_sh
   %28 = getelementptr i8, ptr %2, i64 %21
   %29 = sub nuw nsw i64 4096, %21
   %30 = getelementptr [7 x %struct.lg4ff_alternate_mode], ptr @lg4ff_alternate_modes, i64 0, i64 %20
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %30, align 8
   %34 = icmp eq i16 %33, 0
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = select i1 %34, ptr %13, ptr %35
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str.50, ptr noundef %32, ptr noundef %37) #15
@@ -1904,7 +1904,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
   br label %107
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -1950,10 +1950,10 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
   br label %34
 
 34:                                               ; preds = %33, %23
-  %35 = getelementptr inbounds i8, ptr %12, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %12, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 96
   br label %39
 
 39:                                               ; preds = %55, %34
@@ -1965,7 +1965,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
 
 44:                                               ; preds = %39
   %45 = getelementptr [7 x %struct.lg4ff_alternate_mode], ptr @lg4ff_alternate_modes, i64 0, i64 %40
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strcmp(ptr noundef %47, ptr noundef nonnull dereferenceable(1) %16) #15
   %49 = icmp eq i32 %48, 0
@@ -1999,7 +1999,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
 62:                                               ; preds = %58
   tail call void @kfree(ptr noundef nonnull %16) #15
   %63 = zext i16 %59 to i32
-  %64 = getelementptr inbounds i8, ptr %12, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, %63
   br i1 %66, label %107, label %67
@@ -2012,7 +2012,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %12, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %74 = load ptr, ptr %73, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef %74) #14
   br label %107
@@ -2026,7 +2026,7 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr noc
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %12, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr [7 x %struct.lg4ff_alternate_mode], ptr @lg4ff_alternate_modes, i64 0, i64 %60, i32 2
   %85 = load ptr, ptr %84, align 8

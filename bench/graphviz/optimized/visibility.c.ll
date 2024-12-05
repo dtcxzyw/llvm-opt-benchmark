@@ -51,7 +51,7 @@ define double @dist2(double %0, double %1, double %2, double %3) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define void @visibility(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 2
   %5 = sext i32 %4 to i64
@@ -115,9 +115,9 @@ gv_calloc.exit23.preheader27.i:                   ; preds = %gv_calloc.exit23.pr
 gv_calloc.exit23.i:                               ; preds = %gv_calloc.exit23.i, %gv_calloc.exit23.preheader27.i
   %indvars.iv.i = phi i64 [ 0, %gv_calloc.exit23.preheader27.i ], [ %indvars.iv.next.i, %gv_calloc.exit23.i ]
   %.025.i = phi ptr [ %24, %gv_calloc.exit23.preheader27.i ], [ %32, %gv_calloc.exit23.i ]
-  %31 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   store ptr %.025.i, ptr %31, align 8
-  %32 = getelementptr inbounds double, ptr %.025.i, i64 %17
+  %32 = getelementptr inbounds nuw double, ptr %.025.i, i64 %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %allocArray.exit, label %gv_calloc.exit23.i
@@ -133,13 +133,13 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   %38 = shl nuw nsw i64 %37, 3
   %39 = add nuw nsw i64 %38, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %39, i1 false)
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   br i1 %26, label %.lr.ph71.i, label %compVis.exit
 
@@ -150,29 +150,29 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
 47:                                               ; preds = %._crit_edge.i, %.lr.ph71.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph71.i ], [ %indvars.iv.next75.i, %._crit_edge.i ]
   %indvars76.i = trunc i64 %indvars.iv74.i to i32
-  %48 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv74.i
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv74.i
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %indvars.iv74.i
+  %50 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv74.i
   %51 = sext i32 %49 to i64
   %52 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %51
   %53 = load double, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load double, ptr %54, align 8
   %56 = load double, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %58 = load double, ptr %57, align 8
   %59 = fsub double %53, %56
   %60 = fsub double %55, %58
   %61 = fmul double %60, %60
   %62 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %61)
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %62)
-  %63 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv74.i
+  %63 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv74.i
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds double, ptr %64, i64 %51
   store double %sqrt.i.i, ptr %65, align 8
   %66 = getelementptr inbounds ptr, ptr %11, i64 %51
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds double, ptr %67, i64 %indvars.iv74.i
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv74.i
   store double %sqrt.i.i, ptr %68, align 8
   %69 = add i32 %indvars76.i, -1
   %70 = icmp eq i32 %49, %69
@@ -182,7 +182,7 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   br i1 %72, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %47
-  %73 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv74.i
+  %73 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv74.i
   %74 = zext nneg i32 %.0.i to i64
   br label %75
 
@@ -194,17 +194,17 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   %79 = load i32, ptr %73, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %80
-  %82 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %indvars.iv.i4
+  %82 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i4
   %83 = load double, ptr %78, align 8
-  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load double, ptr %84, align 8
   %86 = load double, ptr %50, align 8
   %87 = load double, ptr %54, align 8
   %88 = load double, ptr %81, align 8
-  %89 = getelementptr inbounds i8, ptr %81, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %90 = load double, ptr %89, align 8
   %91 = load double, ptr %82, align 8
-  %92 = getelementptr inbounds i8, ptr %82, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fsub double %93, %85
   %95 = fsub double %86, %83
@@ -243,19 +243,19 @@ inCone.exit.i:                                    ; preds = %75
   br i1 %120, label %121, label %clear.exit.i
 
 121:                                              ; preds = %inCone.exit.i, %118
-  %122 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv.i4
+  %122 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i4
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %124
-  %126 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i4
+  %126 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i4
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %128
   %130 = load double, ptr %125, align 8
-  %131 = getelementptr inbounds i8, ptr %125, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %132 = load double, ptr %131, align 8
   %133 = load double, ptr %129, align 8
-  %134 = getelementptr inbounds i8, ptr %129, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %135 = load double, ptr %134, align 8
   %136 = fsub double %87, %132
   %137 = fsub double %91, %130
@@ -304,16 +304,16 @@ inCone.exit64.i:                                  ; preds = %121
 
 .lr.ph.i.i:                                       ; preds = %164, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %164 ]
-  %165 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %indvars.iv.i.i
-  %166 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i.i
+  %165 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i.i
+  %166 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.i
   %167 = load i32, ptr %166, align 4
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %168
   %170 = load double, ptr %165, align 8
-  %171 = getelementptr inbounds i8, ptr %165, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %172 = load double, ptr %171, align 8
   %173 = load double, ptr %169, align 8
-  %174 = getelementptr inbounds i8, ptr %169, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %175 = load double, ptr %174, align 8
   %176 = fsub double %170, %91
   %177 = fsub double %172, %93
@@ -424,11 +424,11 @@ intersect.exit.i:                                 ; preds = %inBetween.exit42.i.
   %248 = tail call double @llvm.fmuladd.f64(double %148, double %148, double %247)
   %sqrt.i65.i = tail call double @llvm.sqrt.f64(double %248)
   %249 = load ptr, ptr %63, align 8
-  %250 = getelementptr inbounds double, ptr %249, i64 %indvars.iv.i4
+  %250 = getelementptr inbounds nuw double, ptr %249, i64 %indvars.iv.i4
   store double %sqrt.i65.i, ptr %250, align 8
-  %251 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i4
+  %251 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i4
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds double, ptr %252, i64 %indvars.iv74.i
+  %253 = getelementptr inbounds nuw double, ptr %252, i64 %indvars.iv74.i
   store double %sqrt.i65.i, ptr %253, align 8
   br label %clear.exit.i
 
@@ -448,13 +448,13 @@ compVis.exit:                                     ; preds = %._crit_edge.i, %all
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ptVis(ptr nocapture noundef readonly %0, i32 noundef %1, double %2, double %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %6, 2
   %14 = sext i32 %13 to i64
@@ -486,7 +486,7 @@ gv_calloc.exit:                                   ; preds = %18
   br i1 %26, label %27, label %polyhit.exit
 
 27:                                               ; preds = %gv_calloc.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 29:                                               ; preds = %33, %27
@@ -499,12 +499,12 @@ gv_calloc.exit:                                   ; preds = %18
 33:                                               ; preds = %29
   %34 = load ptr, ptr %7, align 8
   %35 = load ptr, ptr %28, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.Pxy_t, ptr %34, i64 %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.next.i
+  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next.i
   %41 = load i32, ptr %40, align 4
   %42 = sub nsw i32 %41, %37
   %43 = tail call zeroext i1 @in_poly(ptr %39, i32 %42, double %2, double %3) #15
@@ -520,12 +520,12 @@ polyhit.exit:                                     ; preds = %.split.loop.exit15.
   br i1 %45, label %46, label %polyhit.exit.thread
 
 46:                                               ; preds = %polyhit.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %.0 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   br label %polyhit.exit.thread
 
@@ -559,23 +559,23 @@ polyhit.exit.thread:                              ; preds = %29, %polyhit.exit, 
 
 65:                                               ; preds = %.lr.ph, %clear.exit.thread162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %clear.exit.thread162 ]
-  %66 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload = load double, ptr %66, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
-  %67 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %69
-  %71 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %73
   %75 = load double, ptr %70, align 8
-  %76 = getelementptr inbounds i8, ptr %70, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %77 = load double, ptr %76, align 8
   %78 = load double, ptr %74, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %80 = load double, ptr %79, align 8
   %81 = fsub double %3, %77
   %82 = fsub double %.sroa.0.0.copyload, %75
@@ -631,16 +631,16 @@ in_cone.exit:                                     ; preds = %65
 
 .lr.ph.i:                                         ; preds = %109, %.lr.ph.preheader.i
   %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i102, %109 ]
-  %111 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv.i101
-  %112 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i101
+  %111 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv.i101
+  %112 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i101
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %114
   %116 = load double, ptr %111, align 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %118 = load double, ptr %117, align 8
   %119 = load double, ptr %115, align 8
-  %120 = getelementptr inbounds i8, ptr %115, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %121 = load double, ptr %120, align 8
   %122 = fsub double %116, %.sroa.0.0.copyload
   %123 = fsub double %118, %.sroa.8.0.copyload
@@ -754,10 +754,10 @@ intersect.exit134:                                ; preds = %145, %159, %inBetwe
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %196
   %198 = load double, ptr %193, align 8
-  %199 = getelementptr inbounds i8, ptr %193, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %200 = load double, ptr %199, align 8
   %201 = load double, ptr %197, align 8
-  %202 = getelementptr inbounds i8, ptr %197, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %203 = load double, ptr %202, align 8
   %204 = fsub double %198, %.sroa.0.0.copyload
   %205 = fsub double %200, %.sroa.8.0.copyload
@@ -878,7 +878,7 @@ clear.exit.thread160:                             ; preds = %.preheader.i, %clea
 
 clear.exit.thread162:                             ; preds = %intersect.exit134, %inBetween.exit.i132, %inBetween.exit42.i129, %135, %159, %132, %139, %156, %163, %245, %238, %221, %214, %241, %217, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %105, %clear.exit.thread160
   %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread160 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %217 ], [ 0.000000e+00, %241 ], [ 0.000000e+00, %214 ], [ 0.000000e+00, %221 ], [ 0.000000e+00, %238 ], [ 0.000000e+00, %245 ], [ 0.000000e+00, %163 ], [ 0.000000e+00, %156 ], [ 0.000000e+00, %139 ], [ 0.000000e+00, %132 ], [ 0.000000e+00, %159 ], [ 0.000000e+00, %135 ], [ 0.000000e+00, %inBetween.exit42.i129 ], [ 0.000000e+00, %inBetween.exit.i132 ], [ 0.000000e+00, %intersect.exit134 ]
-  %277 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %sqrt.i.sink, ptr %277, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
@@ -902,7 +902,7 @@ clear.exit.thread162:                             ; preds = %intersect.exit134, 
   %indvars.iv196 = phi i64 [ %279, %.lr.ph187 ], [ %indvars.iv.next197, %clear.exit124.thread175 ]
   %281 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv196
   %.sroa.0.0.copyload15 = load double, ptr %281, align 8
-  %.sroa.8.0..sroa_idx16 = getelementptr inbounds i8, ptr %281, i64 8
+  %.sroa.8.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %.sroa.8.0.copyload17 = load double, ptr %.sroa.8.0..sroa_idx16, align 8
   %282 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv196
   %283 = load i32, ptr %282, align 4
@@ -913,10 +913,10 @@ clear.exit.thread162:                             ; preds = %intersect.exit134, 
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %288
   %290 = load double, ptr %285, align 8
-  %291 = getelementptr inbounds i8, ptr %285, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %292 = load double, ptr %291, align 8
   %293 = load double, ptr %289, align 8
-  %294 = getelementptr inbounds i8, ptr %289, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %295 = load double, ptr %294, align 8
   %296 = fsub double %3, %292
   %297 = fsub double %.sroa.0.0.copyload15, %290
@@ -972,16 +972,16 @@ in_cone.exit106:                                  ; preds = %280
 
 .lr.ph.i120:                                      ; preds = %325, %.lr.ph.preheader.i118
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.preheader.i118 ], [ %indvars.iv.next.i122, %325 ]
-  %327 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv.i121
-  %328 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i121
+  %327 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv.i121
+  %328 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i121
   %329 = load i32, ptr %328, align 4
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %330
   %332 = load double, ptr %327, align 8
-  %333 = getelementptr inbounds i8, ptr %327, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %334 = load double, ptr %333, align 8
   %335 = load double, ptr %331, align 8
-  %336 = getelementptr inbounds i8, ptr %331, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %337 = load double, ptr %336, align 8
   %338 = fsub double %332, %.sroa.0.0.copyload15
   %339 = fsub double %334, %.sroa.8.0.copyload17
@@ -1095,10 +1095,10 @@ intersect.exit150:                                ; preds = %361, %375, %inBetwe
   %412 = sext i32 %411 to i64
   %413 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %412
   %414 = load double, ptr %409, align 8
-  %415 = getelementptr inbounds i8, ptr %409, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %416 = load double, ptr %415, align 8
   %417 = load double, ptr %413, align 8
-  %418 = getelementptr inbounds i8, ptr %413, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %419 = load double, ptr %418, align 8
   %420 = fsub double %414, %.sroa.0.0.copyload15
   %421 = fsub double %416, %.sroa.8.0.copyload17
@@ -1234,11 +1234,11 @@ clear.exit124.thread175:                          ; preds = %intersect.exit150, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, double %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #4 {
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp slt i32 %2, 0
   %15 = icmp slt i32 %5, 0
@@ -1251,19 +1251,19 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br i1 %15, label %.preheader76.sink.split, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load ptr, ptr %19, align 8
   %. = tail call i32 @llvm.umin.i32(i32 %2, i32 %5)
   %.125 = tail call i32 @llvm.umax.i32(i32 %2, i32 %5)
   %21 = zext nneg i32 %. to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = zext nneg i32 %.125 to i64
-  %27 = getelementptr inbounds i32, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %23, 0
   br i1 %31, label %.lr.ph.preheader, label %.preheader76
@@ -1279,12 +1279,12 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 
 .preheader76.sink.split:                          ; preds = %17, %16
   %.sink123 = phi i32 [ %5, %16 ], [ %2, %17 ]
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %.sink123 to i64
-  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   br label %.preheader76
 
@@ -1301,16 +1301,16 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %42 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %indvars.iv
-  %43 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.Pxy_t, ptr %11, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %45
   %47 = load double, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load double, ptr %48, align 8
   %50 = load double, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load double, ptr %51, align 8
   %53 = tail call fastcc zeroext i1 @intersect(double %0, double %1, double %3, double %4, double %47, double %49, double %50, double %52)
   br i1 %53, label %.loopexit, label %32
@@ -1338,10 +1338,10 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %60
   %62 = load double, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load double, ptr %63, align 8
   %65 = load double, ptr %61, align 8
-  %66 = getelementptr inbounds i8, ptr %61, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = load double, ptr %66, align 8
   %68 = tail call fastcc zeroext i1 @intersect(double %0, double %1, double %3, double %4, double %62, double %64, double %65, double %67)
   br i1 %68, label %.loopexit, label %54
@@ -1354,10 +1354,10 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %72
   %74 = load double, ptr %69, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %76 = load double, ptr %75, align 8
   %77 = load double, ptr %73, align 8
-  %78 = getelementptr inbounds i8, ptr %73, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %79 = load double, ptr %78, align 8
   %80 = tail call fastcc zeroext i1 @intersect(double %0, double %1, double %3, double %4, double %74, double %76, double %77, double %79)
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1

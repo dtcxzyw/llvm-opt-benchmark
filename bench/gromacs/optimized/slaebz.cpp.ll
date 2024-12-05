@@ -80,7 +80,7 @@ define void @slaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %56 = phi i32 [ %storemerge, %.lr.ph654.preheader ], [ %72, %71 ]
   %indvars.iv705 = phi i64 [ 2, %.lr.ph654.preheader ], [ %indvars.iv.next706, %71 ]
   %.1524652 = phi float [ %.0523, %.lr.ph654.preheader ], [ %.2525, %71 ]
-  %57 = getelementptr inbounds float, ptr %25, i64 %indvars.iv705
+  %57 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv705
   %58 = load float, ptr %57, align 4
   %gep649 = getelementptr float, ptr %invariant.gep648, i64 %indvars.iv705
   %59 = load float, ptr %gep649, align 4
@@ -150,7 +150,7 @@ define void @slaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %88 = load float, ptr %gep725, align 4
   %89 = fadd float %87, %88
   %90 = fmul float %89, 5.000000e-01
-  %91 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
   store float %90, ptr %91, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -238,7 +238,7 @@ define void @slaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .lr.ph610:                                        ; preds = %.lr.ph610.preheader, %141
   %123 = phi float [ %120, %.lr.ph610.preheader ], [ %142, %141 ]
   %indvars.iv673 = phi i64 [ 2, %.lr.ph610.preheader ], [ %indvars.iv.next674, %141 ]
-  %124 = getelementptr inbounds float, ptr %25, i64 %indvars.iv673
+  %124 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv673
   %125 = load float, ptr %124, align 4
   %gep606 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv673
   %126 = load float, ptr %gep606, align 4
@@ -445,7 +445,7 @@ define void @slaebz_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv664 = phi i64 [ 2, %.lr.ph599.preheader ], [ %indvars.iv.next665, %.lr.ph599 ]
   %.1518598 = phi i32 [ %.0517, %.lr.ph599.preheader ], [ %.2519, %.lr.ph599 ]
   %.1521597 = phi float [ %.0520, %.lr.ph599.preheader ], [ %.2522, %.lr.ph599 ]
-  %229 = getelementptr inbounds float, ptr %25, i64 %indvars.iv664
+  %229 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv664
   %230 = load float, ptr %229, align 4
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv664
   %231 = load float, ptr %gep, align 4

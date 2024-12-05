@@ -58,7 +58,7 @@ define hidden void @_ZNK8Location8print_onEP12outputStream(ptr nocapture noundef
 14:                                               ; preds = %10
   %15 = lshr i32 %3, 5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %16
+  %17 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -142,7 +142,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN8LocationC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
@@ -198,8 +198,8 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8Location8write_onEP20DebugInfoWriteStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %4, align 4
   %7 = load i32, ptr %5, align 4
   %8 = add nsw i32 %6, 5

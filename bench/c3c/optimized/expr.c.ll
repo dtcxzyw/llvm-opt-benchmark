@@ -37,37 +37,37 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @expr_negate_expr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
   %5 = icmp eq i16 %4, 63
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 3
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %23
 
 13:                                               ; preds = %6, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -256
   %20 = or disjoint i16 %19, 63
   store i16 %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %0, ptr %22, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 3, ptr %.sroa.2.0..sroa_idx, align 8
   br label %23
 
@@ -82,7 +82,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @expr_in_int_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %6 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %5, i32 noundef 6) #12
   br i1 %6, label %7, label %12
@@ -105,32 +105,32 @@ declare i64 @int_to_i64(ptr noundef byval(%struct.Int) align 8) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
   %.not = icmp eq i16 %4, 34
   br i1 %.not, label %5, label %30
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 127
   %.not15 = icmp eq i64 %10, 26
   br i1 %.not15, label %11, label %30
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 255
   %15 = icmp eq i32 %14, 8
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %7, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %30, label %21
@@ -141,7 +141,7 @@ define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr nocapture noundef reado
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   br label %28
@@ -172,7 +172,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   br label %10
@@ -183,7 +183,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %11, label %.loopexit.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse, %10
-  %12 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %13 = load i16, ptr %12, align 8
   %trunc = trunc i16 %13 to i8
   switch i8 %trunc, label %29 [
@@ -257,14 +257,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 tailrecurse.backedge:                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  %.tr.be.in = getelementptr inbounds i8, ptr %.tr, i64 24
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   br label %tailrecurse
 
 14:                                               ; preds = %.critedge
-  %15 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 127
   %.not20 = icmp eq i64 %19, 26
@@ -272,7 +272,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %.crited
 
 20:                                               ; preds = %14
   %21 = tail call fastcc ptr @decl_raw(ptr noundef nonnull %16)
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 8
   %trunc21 = trunc i32 %23 to i8
   switch i8 %trunc21, label %.loopexit22 [
@@ -301,7 +301,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %.crited
   unreachable
 
 .loopexit22:                                      ; preds = %.critedge, %20
-  %26 = getelementptr inbounds i8, ptr %.tr, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 1
   br label %.loopexit
@@ -325,7 +325,7 @@ define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #4 {
 
 2:                                                ; preds = %.critedge2, %1
   %.0 = phi ptr [ %0, %1 ], [ %11, %.critedge2 ]
-  %3 = getelementptr inbounds i8, ptr %.0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 127
   switch i64 %5, label %.critedge.thread [
@@ -334,26 +334,26 @@ define internal fastcc ptr @decl_raw(ptr noundef readonly %0) unnamed_addr #4 {
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 30
   %switch = icmp eq i8 %9, 0
   br i1 %switch, label %.critedge2, label %.critedge.thread
 
 .critedge2:                                       ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %11 = load ptr, ptr %10, align 8
   br label %2, !llvm.loop !7
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %.0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 255
   %.not14 = icmp eq i32 %15, 8
   br i1 %.not14, label %16, label %.critedge.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %18 = load ptr, ptr %17, align 8
   br label %.critedge.thread
 
@@ -374,7 +374,7 @@ define dso_local zeroext i1 @expr_is_constant_eval(ptr nocapture noundef readonl
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge278, %2
   %.066 = phi ptr [ %0, %2 ], [ %.066.be, %tailrecurse.backedge278 ]
-  %4 = getelementptr inbounds i8, ptr %.066, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   %5 = load i16, ptr %4, align 8
   %trunc = trunc i16 %5 to i8
   switch i8 %trunc, label %154 [
@@ -448,12 +448,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 6:                                                ; preds = %tailrecurse
-  %7 = getelementptr inbounds i8, ptr %.066, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %8 = load ptr, ptr %7, align 8
   br label %tailrecurse.backedge278
 
 9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds i8, ptr %.066, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %.066, i64 28
   %11 = load i32, ptr %10, align 4
   %.not82 = icmp eq i32 %11, 0
   br i1 %.not82, label %.critedge, label %12
@@ -461,12 +461,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 12:                                               ; preds = %9
   %13 = load ptr, ptr @expr_arena, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds %struct.Expr_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw %struct.Expr_, ptr %13, i64 %14
   %16 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %15, i32 noundef %1)
   br i1 %16, label %.critedge, label %expr_list_is_constant_eval.exit.loopexit277
 
 .critedge:                                        ; preds = %9, %12
-  %17 = getelementptr inbounds i8, ptr %.066, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %18 = load i32, ptr %17, align 8
   %.not84 = icmp eq i32 %18, 0
   br i1 %.not84, label %expr_list_is_constant_eval.exit.loopexit277, label %tailrecurse.backedge
@@ -475,7 +475,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   %.sink237 = phi i32 [ %31, %29 ], [ %18, %.critedge ]
   %19 = load ptr, ptr @expr_arena, align 8
   %20 = zext i32 %.sink237 to i64
-  %21 = getelementptr inbounds %struct.Expr_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw %struct.Expr_, ptr %19, i64 %20
   br label %tailrecurse.backedge278
 
 tailrecurse.backedge278:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
@@ -483,12 +483,12 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
-  %23 = getelementptr inbounds i8, ptr %.066, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %tailrecurse.backedge278
 
 25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds i8, ptr %.066, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, -2
   %switch = icmp ne i8 %28, 2
@@ -496,7 +496,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond85, label %29, label %expr_list_is_constant_eval.exit.loopexit277
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.066, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %.066, i64 28
   %31 = load i32, ptr %30, align 4
   %.not81 = icmp eq i32 %31, 0
   br i1 %.not81, label %expr_list_is_constant_eval.exit.loopexit277, label %tailrecurse.backedge
@@ -510,7 +510,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br label %expr_list_is_constant_eval.exit
 
 36:                                               ; preds = %tailrecurse
-  %37 = getelementptr inbounds i8, ptr %.066, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %expr_list_is_constant_eval.exit, label %39
@@ -527,7 +527,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 .lr.ph152:                                        ; preds = %.lr.ph152, %.lr.ph152.preheader
   %indvars.iv192 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next193, %.lr.ph152 ]
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv192
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv192
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %43, i32 noundef %1)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -536,21 +536,21 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond264.not, label %.lr.ph152, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 45:                                               ; preds = %tailrecurse
-  %46 = getelementptr inbounds i8, ptr %.066, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %47 = load ptr, ptr %46, align 8
   br label %tailrecurse.backedge278
 
 48:                                               ; preds = %tailrecurse
-  %49 = getelementptr inbounds i8, ptr %.066, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 127
   %.not77 = icmp eq i64 %53, 26
   br i1 %.not77, label %54, label %expr_list_is_constant_eval.exit.loopexit277
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %50, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %56 = load i32, ptr %55, align 8
   %trunc78 = trunc i32 %56 to i8
   switch i8 %trunc78, label %expr_list_is_constant_eval.exit [
@@ -567,12 +567,12 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %.not79, label %59, label %expr_list_is_constant_eval.exit.loopexit277
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %50, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %61 = load ptr, ptr %60, align 8
   br label %tailrecurse.backedge278
 
 62:                                               ; preds = %tailrecurse
-  %63 = getelementptr inbounds i8, ptr %.066, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not.i90 = icmp eq ptr %64, null
   br i1 %.not.i90, label %expr_list_is_constant_eval.exit, label %65
@@ -589,7 +589,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 .lr.ph146:                                        ; preds = %.lr.ph146, %.lr.ph146.preheader
   %indvars.iv187 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next188, %.lr.ph146 ]
-  %68 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv187
+  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv187
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %69, i32 noundef %1)
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
@@ -598,20 +598,20 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond266.not, label %.lr.ph146, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 71:                                               ; preds = %tailrecurse
-  %72 = getelementptr inbounds i8, ptr %.066, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = load ptr, ptr @expr_arena, align 8
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds %struct.Expr_, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw %struct.Expr_, ptr %74, i64 %75
   br label %tailrecurse.backedge278
 
 77:                                               ; preds = %tailrecurse, %tailrecurse
-  %78 = getelementptr inbounds i8, ptr %.066, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %79 = load ptr, ptr %78, align 8
   br label %tailrecurse.backedge278
 
 80:                                               ; preds = %tailrecurse
-  %81 = getelementptr inbounds i8, ptr %.066, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %82 = load ptr, ptr %81, align 8
   %.not.i94 = icmp eq ptr %82, null
   br i1 %.not.i94, label %expr_list_is_constant_eval.exit, label %83
@@ -628,7 +628,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 .lr.ph140:                                        ; preds = %.lr.ph140, %.lr.ph140.preheader
   %indvars.iv182 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next183, %.lr.ph140 ]
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv182
+  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv182
   %87 = load ptr, ptr %86, align 8
   %88 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %87, i32 noundef %1)
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
@@ -637,7 +637,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond268.not, label %.lr.ph140, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 89:                                               ; preds = %tailrecurse
-  %90 = getelementptr inbounds i8, ptr %.066, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.066, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not.i98 = icmp eq ptr %91, null
   br i1 %.not.i98, label %expr_list_is_constant_eval.exit, label %92
@@ -654,7 +654,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %95 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %96, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -663,8 +663,8 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond270.not, label %.lr.ph, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 98:                                               ; preds = %tailrecurse
-  %99 = getelementptr inbounds i8, ptr %.066, i64 24
-  %100 = getelementptr inbounds i8, ptr %.066, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %.066, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %101 = load i32, ptr %100, align 4
   %.not75 = icmp eq i32 %101, 0
   %.pre199 = load ptr, ptr @expr_arena, align 8
@@ -672,7 +672,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 102:                                              ; preds = %98
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds %struct.Expr_, ptr %.pre199, i64 %103
+  %104 = getelementptr inbounds nuw %struct.Expr_, ptr %.pre199, i64 %103
   %105 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %104, i32 noundef %1)
   br i1 %105, label %..critedge87_crit_edge, label %expr_list_is_constant_eval.exit.loopexit277
 
@@ -684,12 +684,12 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   %106 = phi ptr [ %.pre198, %..critedge87_crit_edge ], [ %.pre199, %98 ]
   %107 = load i32, ptr %99, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.Expr_, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw %struct.Expr_, ptr %106, i64 %108
   br label %tailrecurse.backedge278
 
 110:                                              ; preds = %tailrecurse
-  %111 = getelementptr inbounds i8, ptr %.066, i64 24
-  %112 = getelementptr inbounds i8, ptr %.066, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %.066, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %113 = load i32, ptr %112, align 4
   %.not = icmp eq i32 %113, 0
   %.pre197 = load ptr, ptr @expr_arena, align 8
@@ -697,7 +697,7 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
 
 114:                                              ; preds = %110
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds %struct.Expr_, ptr %.pre197, i64 %115
+  %116 = getelementptr inbounds nuw %struct.Expr_, ptr %.pre197, i64 %115
   %117 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %116, i32 noundef %1)
   br i1 %117, label %..critedge89_crit_edge, label %expr_list_is_constant_eval.exit.loopexit277
 
@@ -709,24 +709,24 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   %118 = phi ptr [ %.pre, %..critedge89_crit_edge ], [ %.pre197, %110 ]
   %119 = load i32, ptr %111, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds %struct.Expr_, ptr %118, i64 %120
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %121 = getelementptr inbounds nuw %struct.Expr_, ptr %118, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i16, ptr %122, align 8
   %124 = and i16 %123, 255
   %125 = icmp eq i16 %124, 34
   br i1 %125, label %126, label %tailrecurse.backedge278
 
 126:                                              ; preds = %.critedge89
-  %127 = getelementptr inbounds i8, ptr %121, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, 127
   %132 = icmp eq i64 %131, 26
   br i1 %132, label %133, label %tailrecurse.backedge278
 
 133:                                              ; preds = %126
-  %134 = getelementptr inbounds i8, ptr %128, i64 80
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 80
   %135 = load i32, ptr %134, align 8
   %trunc73 = trunc i32 %135 to i8
   switch i8 %trunc73, label %expr_list_is_constant_eval.exit [
@@ -748,8 +748,8 @@ tailrecurse.backedge278:                          ; preds = %tailrecurse.backedg
   br label %expr_list_is_constant_eval.exit
 
 141:                                              ; preds = %tailrecurse
-  %142 = getelementptr inbounds i8, ptr %.066, i64 24
-  %143 = getelementptr inbounds i8, ptr %.066, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %.066, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %.066, i64 32
   %144 = load i8, ptr %143, align 8
   switch i8 %144, label %152 [
     i8 1, label %expr_list_is_constant_eval.exit.loopexit277
@@ -802,7 +802,7 @@ expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph140,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp ugt i8 %4, 19
   %6 = icmp eq i32 %1, 1
@@ -810,19 +810,19 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr nocapture no
   br i1 %or.cond, label %20, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds %struct.Expr_, ptr %10, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw %struct.Expr_, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %12, i32 noundef %1)
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %7
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds %struct.Expr_, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw %struct.Expr_, ptr %10, i64 %17
   %19 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %18, i32 noundef %1)
   br label %20
 
@@ -833,7 +833,7 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %23 [
     i8 13, label %5
@@ -888,13 +888,13 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noun
   br i1 %.not33, label %7, label %28
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %.not34 = icmp eq i32 %9, 0
   br i1 %.not34, label %28, label %.sink.split
 
 10:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %.not32 = icmp eq i32 %12, 0
   br i1 %.not32, label %28, label %.sink.split
@@ -905,7 +905,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noun
   br i1 %or.cond, label %28, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %28, label %.sink.split
@@ -915,7 +915,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noun
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %28, label %.sink.split
@@ -929,7 +929,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr nocapture noun
   %.sink35 = phi i32 [ 0, %7 ], [ %1, %10 ], [ %1, %15 ], [ %1, %20 ]
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = zext i32 %.sink to i64
-  %26 = getelementptr inbounds %struct.Expr_, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.Expr_, ptr %24, i64 %25
   %27 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %26, i32 noundef %.sink35)
   br label %28
 
@@ -944,7 +944,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br i1 %3, label %45, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %1, 1
   br i1 %7, label %8, label %.critedge
@@ -960,7 +960,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   br label %17
@@ -971,7 +971,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br i1 %18, label %45, label %.critedge
 
 .critedge:                                        ; preds = %8, %17, %4
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load i16, ptr %19, align 8
   %trunc = trunc i16 %20 to i8
   switch i8 %trunc, label %44 [
@@ -999,9 +999,9 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br i1 %28, label %45, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 127
@@ -1014,7 +1014,7 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br label %45
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %31, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %39 = load i32, ptr %38, align 8
   %trunc29 = trunc i32 %39 to i8
   switch i8 %trunc29, label %44 [
@@ -1053,20 +1053,20 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
   %5 = icmp eq i16 %4, 63
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
   br label %42
@@ -1094,7 +1094,7 @@ define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_
   ]
 
 .thread:                                          ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 40
@@ -1102,7 +1102,7 @@ define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_
   br i1 %25, label %33, label %39
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %18, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @type_get_ptr(ptr noundef %29) #12
   br label %33
@@ -1124,8 +1124,8 @@ define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_
 39:                                               ; preds = %31, %.thread, %.thread36, %33, %37
   %.029 = phi ptr [ %38, %37 ], [ %34, %33 ], [ %32, %31 ], [ %19, %.thread36 ], [ %26, %.thread ]
   store ptr %.029, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 2, ptr %41, align 8
   store ptr %14, ptr %40, align 8
   br label %42
@@ -1138,30 +1138,30 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @expr_generate_decl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, -256
   %9 = or disjoint i16 %8, 23
   store i16 %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %11, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, 524288
   store i32 %15, ptr %13, align 8
   br label %16
 
 16:                                               ; preds = %12, %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %17, align 8
   ret ptr %5
 }
@@ -1169,24 +1169,24 @@ define dso_local ptr @expr_generate_decl(ptr noundef %0, ptr noundef %1) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @expr_new(i32 noundef %0, i64 %1) local_unnamed_addr #0 {
   %3 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = trunc i32 %0 to i16
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %5, 255
   %8 = and i16 %6, -256
   %9 = or disjoint i16 %8, %7
   store i16 %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %10, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %17 [
@@ -1196,7 +1196,7 @@ define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef read
   ]
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 33
@@ -1204,7 +1204,7 @@ define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef read
 
 .sink.split:                                      ; preds = %9, %2, %2
   %.sink = phi ptr [ %7, %2 ], [ %7, %2 ], [ %11, %9 ]
-  %14 = getelementptr inbounds i8, ptr %.sink, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %4
   br label %17
@@ -1216,7 +1216,7 @@ define dso_local zeroext i1 @expr_may_splat_as_vararg(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @expr_is_compile_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %trunc = trunc i16 %3 to i8
   switch i8 %trunc, label %15 [
@@ -1225,7 +1225,7 @@ define dso_local noundef zeroext i1 @expr_is_compile_time(ptr nocapture noundef 
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   br label %7
 
@@ -1237,8 +1237,8 @@ define dso_local noundef zeroext i1 @expr_is_compile_time(ptr nocapture noundef 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @ast_arena, align 8
   %10 = zext i32 %.08 to i64
-  %11 = getelementptr inbounds %struct.Ast_, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %11 = getelementptr inbounds nuw %struct.Ast_, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = tail call zeroext i1 @ast_is_compile_time(ptr noundef nonnull %11) #12
   br i1 %14, label %7, label %.loopexit, !llvm.loop !10
@@ -1255,12 +1255,12 @@ declare zeroext i1 @ast_is_compile_time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @expr_rewrite_to_const_zero(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
   %6 = or disjoint i16 %5, 14
   store i16 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %84 [
@@ -1320,7 +1320,7 @@ define dso_local void @expr_rewrite_to_const_zero(ptr nocapture noundef %0, ptr 
 
 12:                                               ; preds = %25, %11
   %.0.i = phi ptr [ %1, %11 ], [ %.1.i, %25 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %type_flatten.exit [
@@ -1330,15 +1330,15 @@ define dso_local void @expr_rewrite_to_const_zero(ptr nocapture noundef %0, ptr 
   ]
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %25
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %14, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 56
   br label %25
 
 24:                                               ; preds = %12
@@ -1351,9 +1351,9 @@ define dso_local void @expr_rewrite_to_const_zero(ptr nocapture noundef %0, ptr 
   br label %12
 
 type_flatten.exit:                                ; preds = %12
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store i32 %15, ptr %28, align 8
   %29 = load i16, ptr %26, align 8
@@ -1368,7 +1368,7 @@ type_flatten.exit:                                ; preds = %12
 
 33:                                               ; preds = %46, %32
   %.0.i87 = phi ptr [ %1, %32 ], [ %.1.i89, %46 ]
-  %34 = getelementptr inbounds i8, ptr %.0.i87, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i87, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %type_flatten.exit90 [
@@ -1378,15 +1378,15 @@ type_flatten.exit:                                ; preds = %12
   ]
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %46
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %35, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 56
   br label %46
 
 45:                                               ; preds = %33
@@ -1399,11 +1399,11 @@ type_flatten.exit:                                ; preds = %12
   br label %33
 
 type_flatten.exit90:                              ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 0, ptr %47, align 8
-  %.sroa.742.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %.sroa.742.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %36, ptr %.sroa.8.0..sroa_idx, align 8
   %48 = and i16 %6, -4082
   %49 = or disjoint i16 %48, 512
@@ -1412,9 +1412,9 @@ type_flatten.exit90:                              ; preds = %33
 
 50:                                               ; preds = %2
   store ptr %1, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 2, ptr %51, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
   %52 = and i16 %6, -4082
   %53 = or disjoint i16 %52, 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.4.0..sroa_idx, i8 0, i64 30, i1 false)
@@ -1423,9 +1423,9 @@ type_flatten.exit90:                              ; preds = %33
 
 54:                                               ; preds = %2, %2, %2, %2, %2, %2
   store ptr %1, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 7, ptr %55, align 8
-  %.sroa.465.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 26
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.465.0..sroa_idx, i8 0, i64 30, i1 false)
   %56 = and i16 %6, -4082
   %57 = or disjoint i16 %56, 512
@@ -1433,17 +1433,17 @@ type_flatten.exit90:                              ; preds = %33
   br label %85
 
 58:                                               ; preds = %2
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i16, ptr %59, align 8
   %61 = and i16 %60, -256
   %62 = or disjoint i16 %61, 3
   store i16 %62, ptr %59, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 96
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %67, ptr %68, align 8
   br label %84
 
@@ -1454,13 +1454,13 @@ type_flatten.exit90:                              ; preds = %33
 70:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
   %71 = tail call ptr @calloc_arena(i64 noundef 32) #12
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %1, ptr %72, align 8
   %73 = load i16, ptr %3, align 8
   store ptr %1, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 9, ptr %74, align 8
-  %.sroa.776.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %71, ptr %.sroa.776.0..sroa_idx, align 8
   %75 = and i16 %73, -4096
   %76 = or disjoint i16 %75, 526
@@ -1468,11 +1468,11 @@ type_flatten.exit90:                              ; preds = %33
   br label %85
 
 77:                                               ; preds = %2
-  %78 = getelementptr inbounds i8, ptr %1, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   tail call void @expr_rewrite_to_const_zero(ptr noundef nonnull %0, ptr noundef %83)
   br label %84
@@ -1501,7 +1501,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not47.i = icmp eq ptr %9, null
   br i1 %.not47.i, label %13, label %10
@@ -1527,16 +1527,16 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 18:                                               ; preds = %16, %13
   %.042.i = phi i32 [ %17, %16 ], [ %3, %13 ]
   %19 = zext i32 %.042.i to i64
-  %20 = getelementptr inbounds ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
   br label %initializer_for_index.exit
 
 21:                                               ; preds = %5
   br i1 %4, label %22, label %30
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %3, -1
   %or.cond3.i = icmp ult i32 %27, %26
@@ -1548,7 +1548,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 
 30:                                               ; preds = %28, %21
   %.1.i = phi i32 [ %29, %28 ], [ %3, %21 ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %.thread, label %33
@@ -1570,15 +1570,15 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %.1.i
   br i1 %41, label %42, label %36
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   br label %initializer_for_index.exit
 
 44:                                               ; preds = %5
@@ -1622,9 +1622,9 @@ initializer_for_index.exit.thread24:              ; preds = %initializer_for_ind
   br label %54
 
 49:                                               ; preds = %initializer_for_index.exit.thread24
-  %50 = getelementptr inbounds i8, ptr %.041.i27, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.041.i27, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload = load i64, ptr %52, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %51, i64 56, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %52, align 8
@@ -1648,7 +1648,7 @@ define dso_local noundef zeroext i1 @expr_is_pure(ptr noundef readonly %0) local
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
   %.tr136 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.tr136, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.tr136, i64 16
   %3 = load i16, ptr %2, align 8
   %trunc = trunc i16 %3 to i8
   switch i8 %trunc, label %161 [
@@ -1722,7 +1722,7 @@ define dso_local noundef zeroext i1 @expr_is_pure(ptr noundef readonly %0) local
   ]
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %6 = load ptr, ptr %5, align 8
   br label %tailrecurse.backedge
 
@@ -1732,7 +1732,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   br i1 %.not, label %.critedge.loopexit275, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %9 = load i32, ptr %8, align 8
   %.not114 = icmp eq i32 %9, 0
   br i1 %.not114, label %.critedge.loopexit275, label %10
@@ -1740,11 +1740,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 10:                                               ; preds = %7
   %11 = load ptr, ptr @expr_arena, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds %struct.Expr_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %struct.Expr_, ptr %11, i64 %12
   br label %tailrecurse.backedge
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.tr136, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %.tr136, i64 28
   %16 = load i32, ptr %15, align 4
   %.not113 = icmp eq i32 %16, 0
   br i1 %.not113, label %.critedge.loopexit275, label %17
@@ -1752,11 +1752,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 17:                                               ; preds = %14
   %18 = load ptr, ptr @expr_arena, align 8
   %19 = zext i32 %16 to i64
-  %20 = getelementptr inbounds %struct.Expr_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw %struct.Expr_, ptr %18, i64 %19
   br label %tailrecurse.backedge
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.tr136, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %.tr136, i64 28
   %23 = load i32, ptr %22, align 4
   %.not110 = icmp eq i32 %23, 0
   br i1 %.not110, label %.critedge.loopexit275, label %24
@@ -1764,12 +1764,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 24:                                               ; preds = %21
   %25 = load ptr, ptr @expr_arena, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds %struct.Expr_, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %struct.Expr_, ptr %25, i64 %26
   %28 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %27)
   br i1 %28, label %29, label %.critedge.loopexit275
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %31 = load i32, ptr %30, align 8
   %.not112 = icmp eq i32 %31, 0
   br i1 %.not112, label %.critedge.loopexit275, label %32
@@ -1777,18 +1777,18 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 32:                                               ; preds = %29
   %33 = load ptr, ptr @expr_arena, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds %struct.Expr_, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw %struct.Expr_, ptr %33, i64 %34
   br label %tailrecurse.backedge
 
 36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds i8, ptr %.tr136, i64 24
-  %38 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %39 = load i8, ptr %38, align 8
   %40 = icmp ugt i8 %39, 19
   br i1 %40, label %.critedge.loopexit275, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.tr136, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %.tr136, i64 28
   %43 = load i32, ptr %42, align 4
   %.not107 = icmp eq i32 %43, 0
   br i1 %.not107, label %.critedge.loopexit275, label %44
@@ -1796,7 +1796,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 44:                                               ; preds = %41
   %45 = load ptr, ptr @expr_arena, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds %struct.Expr_, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw %struct.Expr_, ptr %45, i64 %46
   %48 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %47)
   br i1 %48, label %49, label %.critedge.loopexit275
 
@@ -1808,11 +1808,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 51:                                               ; preds = %49
   %52 = load ptr, ptr @expr_arena, align 8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds %struct.Expr_, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw %struct.Expr_, ptr %52, i64 %53
   br label %tailrecurse.backedge
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %57 = load i8, ptr %56, align 8
   switch i8 %57, label %61 [
     i8 7, label %.critedge.loopexit275
@@ -1828,7 +1828,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   ]
 
 58:                                               ; preds = %55, %55, %55, %55, %55, %55, %55
-  %59 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %60 = load ptr, ptr %59, align 8
   br label %tailrecurse.backedge
 
@@ -1837,7 +1837,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   unreachable
 
 62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %64 = load i32, ptr %63, align 8
   %.not106 = icmp eq i32 %64, 0
   br i1 %.not106, label %.critedge.loopexit275, label %65
@@ -1845,11 +1845,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 65:                                               ; preds = %62
   %66 = load ptr, ptr @expr_arena, align 8
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds %struct.Expr_, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw %struct.Expr_, ptr %66, i64 %67
   br label %tailrecurse.backedge
 
 69:                                               ; preds = %.lr.ph, %.lr.ph
-  %70 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %71 = load ptr, ptr %70, align 8
   br label %tailrecurse.backedge
 
@@ -1858,7 +1858,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   unreachable
 
 73:                                               ; preds = %.lr.ph
-  %74 = getelementptr inbounds i8, ptr %.tr136, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %.tr136, i64 28
   %75 = load i32, ptr %74, align 4
   %.not105 = icmp eq i32 %75, 0
   br i1 %.not105, label %.critedge.loopexit275, label %76
@@ -1866,11 +1866,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 76:                                               ; preds = %73
   %77 = load ptr, ptr @expr_arena, align 8
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds %struct.Expr_, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw %struct.Expr_, ptr %77, i64 %78
   br label %tailrecurse.backedge
 
 80:                                               ; preds = %.lr.ph
-  %81 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %82 = load ptr, ptr %81, align 8
   %.not104 = icmp eq ptr %82, null
   br i1 %.not104, label %.critedge, label %83
@@ -1888,7 +1888,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 .lr.ph247:                                        ; preds = %.lr.ph247, %.lr.ph247.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph247.preheader ], [ %indvars.iv.next, %.lr.ph247 ]
   %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i1 @expr_is_pure(ptr noundef %88)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1897,7 +1897,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   br i1 %or.cond.not, label %.lr.ph247, label %.critedge, !llvm.loop !12
 
 90:                                               ; preds = %.lr.ph
-  %91 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %92 = load i32, ptr %91, align 8
   %.not103 = icmp eq i32 %92, 0
   br i1 %.not103, label %.critedge.loopexit275, label %93
@@ -1905,11 +1905,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 93:                                               ; preds = %90
   %94 = load ptr, ptr @expr_arena, align 8
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds %struct.Expr_, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw %struct.Expr_, ptr %94, i64 %95
   br label %tailrecurse.backedge
 
 97:                                               ; preds = %.lr.ph
-  %98 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %99 = load i32, ptr %98, align 8
   %.not98 = icmp eq i32 %99, 0
   br i1 %.not98, label %.critedge.loopexit275, label %100
@@ -1917,12 +1917,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 100:                                              ; preds = %97
   %101 = load ptr, ptr @expr_arena, align 8
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds %struct.Expr_, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw %struct.Expr_, ptr %101, i64 %102
   %104 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %103)
   br i1 %104, label %105, label %.critedge.loopexit275
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %107 = load i32, ptr %106, align 4
   %.not100 = icmp eq i32 %107, 0
   br i1 %.not100, label %.critedge.loopexit275, label %108
@@ -1930,12 +1930,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 108:                                              ; preds = %105
   %109 = load ptr, ptr @expr_arena, align 8
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds %struct.Expr_, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw %struct.Expr_, ptr %109, i64 %110
   %112 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %111)
   br i1 %112, label %113, label %.critedge.loopexit275
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %.tr136, i64 36
+  %114 = getelementptr inbounds nuw i8, ptr %.tr136, i64 36
   %115 = load i32, ptr %114, align 4
   %.not102 = icmp eq i32 %115, 0
   br i1 %.not102, label %.critedge.loopexit275, label %116
@@ -1943,11 +1943,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 116:                                              ; preds = %113
   %117 = load ptr, ptr @expr_arena, align 8
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds %struct.Expr_, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw %struct.Expr_, ptr %117, i64 %118
   br label %tailrecurse.backedge
 
 120:                                              ; preds = %.lr.ph, %.lr.ph
-  %121 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %122 = load i32, ptr %121, align 8
   %.not95 = icmp eq i32 %122, 0
   br i1 %.not95, label %.critedge.loopexit275, label %123
@@ -1955,12 +1955,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 123:                                              ; preds = %120
   %124 = load ptr, ptr @expr_arena, align 8
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds %struct.Expr_, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw %struct.Expr_, ptr %124, i64 %125
   %127 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %126)
   br i1 %127, label %128, label %.critedge.loopexit275
 
 128:                                              ; preds = %123
-  %129 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %130 = load i32, ptr %129, align 4
   %.not97 = icmp eq i32 %130, 0
   br i1 %.not97, label %.critedge.loopexit275, label %131
@@ -1968,11 +1968,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 131:                                              ; preds = %128
   %132 = load ptr, ptr @expr_arena, align 8
   %133 = zext i32 %130 to i64
-  %134 = getelementptr inbounds %struct.Expr_, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw %struct.Expr_, ptr %132, i64 %133
   br label %tailrecurse.backedge
 
 135:                                              ; preds = %.lr.ph
-  %136 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %137 = load i32, ptr %136, align 8
   %.not90 = icmp eq i32 %137, 0
   br i1 %.not90, label %.critedge.loopexit275, label %138
@@ -1980,12 +1980,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 138:                                              ; preds = %135
   %139 = load ptr, ptr @expr_arena, align 8
   %140 = zext i32 %137 to i64
-  %141 = getelementptr inbounds %struct.Expr_, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw %struct.Expr_, ptr %139, i64 %140
   %142 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %141)
   br i1 %142, label %143, label %.critedge.loopexit275
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %.tr136, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %.tr136, i64 32
   %145 = load i32, ptr %144, align 8
   %.not92 = icmp eq i32 %145, 0
   br i1 %.not92, label %.critedge.loopexit275, label %146
@@ -1993,12 +1993,12 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 146:                                              ; preds = %143
   %147 = load ptr, ptr @expr_arena, align 8
   %148 = zext i32 %145 to i64
-  %149 = getelementptr inbounds %struct.Expr_, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw %struct.Expr_, ptr %147, i64 %148
   %150 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %149)
   br i1 %150, label %151, label %.critedge.loopexit275
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %.tr136, i64 28
+  %152 = getelementptr inbounds nuw i8, ptr %.tr136, i64 28
   %153 = load i32, ptr %152, align 4
   %.not94 = icmp eq i32 %153, 0
   br i1 %.not94, label %.critedge.loopexit275, label %154
@@ -2006,11 +2006,11 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 154:                                              ; preds = %151
   %155 = load ptr, ptr @expr_arena, align 8
   %156 = zext i32 %153 to i64
-  %157 = getelementptr inbounds %struct.Expr_, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw %struct.Expr_, ptr %155, i64 %156
   br label %tailrecurse.backedge
 
 158:                                              ; preds = %.lr.ph
-  %159 = getelementptr inbounds i8, ptr %.tr136, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %.tr136, i64 24
   %160 = load ptr, ptr %159, align 8
   br label %tailrecurse.backedge
 
@@ -2034,7 +2034,7 @@ define dso_local noundef zeroext i1 @expr_is_simple(ptr nocapture noundef readon
 
 tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.backedge
   %.024.us = phi ptr [ %.024.us.be, %tailrecurse.us.backedge ], [ %0, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.024.us, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.024.us, i64 16
   %5 = load i16, ptr %4, align 8
   %trunc.us = trunc i16 %5 to i8
   switch i8 %trunc.us, label %.split36.us.loopexit [
@@ -2046,7 +2046,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   ]
 
 6:                                                ; preds = %tailrecurse.us
-  %7 = getelementptr inbounds i8, ptr %.024.us, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.024.us, i64 32
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %.split36.us [
     i8 6, label %.split36.us.loopexit
@@ -2075,23 +2075,23 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   ]
 
 9:                                                ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %.024.us, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.024.us, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.Expr_, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %12
   %14 = tail call zeroext i1 @expr_is_simple(ptr noundef %13, i1 noundef zeroext true)
   br i1 %14, label %tailrecurse.backedge.us, label %.split36.us
 
 15:                                               ; preds = %tailrecurse.us
-  %16 = getelementptr inbounds i8, ptr %.024.us, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.024.us, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Expr_, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %18
   %20 = tail call zeroext i1 @expr_is_simple(ptr noundef %19, i1 noundef zeroext true)
   br i1 %20, label %tailrecurse.backedge.us, label %.split36.us
 
 .backedge.us:                                     ; preds = %tailrecurse.us, %tailrecurse.us
-  %.024.be.us.in = getelementptr inbounds i8, ptr %.024.us, i64 24
+  %.024.be.us.in = getelementptr inbounds nuw i8, ptr %.024.us, i64 24
   %.024.be.us = load ptr, ptr %.024.be.us.in, align 8
   br label %tailrecurse.us.backedge
 
@@ -2100,15 +2100,15 @@ tailrecurse.us.backedge:                          ; preds = %.backedge.us, %tail
   br label %tailrecurse.us
 
 tailrecurse.backedge.us:                          ; preds = %15, %9
-  %.pn37.in.in = getelementptr inbounds i8, ptr %.024.us, i64 28
+  %.pn37.in.in = getelementptr inbounds nuw i8, ptr %.024.us, i64 28
   %.pn37.in = load i32, ptr %.pn37.in.in, align 4
   %.pn37 = zext i32 %.pn37.in to i64
-  %.tr.be.us = getelementptr inbounds %struct.Expr_, ptr %3, i64 %.pn37
+  %.tr.be.us = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %.pn37
   br label %tailrecurse.us.backedge
 
 tailrecurse:                                      ; preds = %2, %tailrecurse.backedge82
   %.024 = phi ptr [ %.024.be83, %tailrecurse.backedge82 ], [ %0, %2 ]
-  %21 = getelementptr inbounds i8, ptr %.024, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %22 = load i16, ptr %21, align 8
   %trunc = trunc i16 %22 to i8
   switch i8 %trunc, label %.split36.us.loopexit80 [
@@ -2120,7 +2120,7 @@ tailrecurse:                                      ; preds = %2, %tailrecurse.bac
   ]
 
 .backedge:                                        ; preds = %tailrecurse, %tailrecurse
-  %.024.be.in = getelementptr inbounds i8, ptr %.024, i64 24
+  %.024.be.in = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %.024.be = load ptr, ptr %.024.be.in, align 8
   br label %tailrecurse.backedge82
 
@@ -2129,22 +2129,22 @@ tailrecurse.backedge82:                           ; preds = %.backedge, %tailrec
   br label %tailrecurse
 
 23:                                               ; preds = %tailrecurse
-  %24 = getelementptr inbounds i8, ptr %.024, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Expr_, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %26
   %28 = tail call zeroext i1 @expr_is_simple(ptr noundef %27, i1 noundef zeroext false)
   br i1 %28, label %tailrecurse.backedge, label %.split36.us.loopexit80
 
 tailrecurse.backedge:                             ; preds = %32, %23
-  %.pn.in.in = getelementptr inbounds i8, ptr %.024, i64 28
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.024, i64 28
   %.pn.in = load i32, ptr %.pn.in.in, align 4
   %.pn = zext i32 %.pn.in to i64
-  %.tr.be = getelementptr inbounds %struct.Expr_, ptr %3, i64 %.pn
+  %.tr.be = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %.pn
   br label %tailrecurse.backedge82
 
 29:                                               ; preds = %tailrecurse
-  %30 = getelementptr inbounds i8, ptr %.024, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %.split36.us.loopexit80 [
     i8 4, label %32
@@ -2172,16 +2172,16 @@ tailrecurse.backedge:                             ; preds = %32, %23
   ]
 
 32:                                               ; preds = %29, %29, %29
-  %33 = getelementptr inbounds i8, ptr %.024, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.Expr_, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %35
   %37 = tail call zeroext i1 @expr_is_simple(ptr noundef %36, i1 noundef zeroext false)
   br i1 %37, label %tailrecurse.backedge, label %.split36.us.loopexit80
 
 .split31.us:                                      ; preds = %tailrecurse, %tailrecurse.us
   %.us-phi = phi ptr [ %.024.us, %tailrecurse.us ], [ %.024, %tailrecurse ]
-  %38 = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %39 = load i8, ptr %38, align 8
   switch i8 %39, label %41 [
     i8 5, label %.split36.us
@@ -2209,19 +2209,19 @@ tailrecurse.backedge:                             ; preds = %32, %23
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @expr_new_const_int(i64 %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 14
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %0, ptr %9, align 8
   store ptr %1, ptr %4, align 8
   br label %10
 
 10:                                               ; preds = %23, %3
   %.0.i = phi ptr [ %1, %3 ], [ %.1.i, %23 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %type_flatten.exit [
@@ -2231,15 +2231,15 @@ define dso_local noundef ptr @expr_new_const_int(i64 %0, ptr noundef %1, i64 nou
   ]
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %23
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %12, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 56
   br label %23
 
 22:                                               ; preds = %10
@@ -2257,12 +2257,12 @@ type_flatten.exit:                                ; preds = %10
   %26 = icmp slt i64 %2, 0
   %or.cond = and i1 %26, %25
   %spec.select = sext i1 %or.cond to i64
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %spec.select, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 24
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %13, ptr %30, align 8
   %31 = load i16, ptr %28, align 8
   %32 = and i16 %31, -512
@@ -2277,18 +2277,18 @@ type_flatten.exit:                                ; preds = %10
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @expr_new_const_typeid(i64 %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %6, align 8
   %7 = load ptr, ptr @type_typeid, align 8
   store ptr %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, -256
   %11 = or disjoint i16 %10, 8
   store i16 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %12, align 8
   %13 = and i16 %5, -4096
   %14 = or disjoint i16 %13, 526
@@ -2300,13 +2300,13 @@ define dso_local noundef ptr @expr_new_const_typeid(i64 %0, ptr noundef %1) loca
 define dso_local noundef ptr @expr_new_const_bool(i64 %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = zext i1 %2 to i8
   %5 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i16, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %8, align 8
   store ptr %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 %4, ptr %10, align 8
   %11 = load i16, ptr %9, align 8
   %12 = and i16 %11, -256
@@ -2320,12 +2320,12 @@ define dso_local noundef ptr @expr_new_const_bool(i64 %0, ptr noundef %1, i1 nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef initializes((0, 8), (24, 25), (28, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 7
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = trunc i32 %2 to i8
   store i8 %10, ptr %9, align 8
   %11 = load ptr, ptr @expr_arena, align 8
@@ -2334,7 +2334,7 @@ define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef init
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 56
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %16, ptr %17, align 4
   %18 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %18, null
@@ -2346,7 +2346,7 @@ define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef init
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
   br label %26
@@ -2378,28 +2378,28 @@ define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef init
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @expr_variable(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 896
   %5 = icmp eq i64 %4, 256
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, -256
   %12 = or disjoint i16 %11, 34
   store i16 %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %7, ptr %13, align 8
   br i1 %5, label %14, label %20
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %15, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
   %18 = and i16 %12, -4062
@@ -2408,7 +2408,7 @@ define dso_local ptr @expr_variable(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %1
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %21, ptr %22, align 8
   %23 = and i16 %12, -4062
   br label %24
@@ -2421,23 +2421,23 @@ define dso_local ptr @expr_variable(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initializes((32, 33)) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
   %6 = or disjoint i16 %5, 34
   store i16 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 896
   %10 = icmp eq i64 %9, 256
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %12, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %0, align 8
   %15 = and i16 %6, -4062
@@ -2446,7 +2446,7 @@ define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initialize
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %18, ptr %19, align 8
   %20 = and i16 %6, -4062
   br label %21
@@ -2459,20 +2459,20 @@ define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initialize
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
   %5 = icmp eq i16 %4, 63
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 2
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
   br label %48
@@ -2485,8 +2485,8 @@ define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local
   %17 = or disjoint i16 %16, 63
   store i16 %17, ptr %2, align 8
   store ptr null, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %19, align 8
   store ptr %14, ptr %18, align 8
   %20 = and i16 %15, 3840
@@ -2500,7 +2500,7 @@ define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local
   br i1 %25, label %thread-pre-split, label %28
 
 thread-pre-split:                                 ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %27 = load ptr, ptr %26, align 8
   %.pr = load i32, ptr %27, align 8
   br label %28
@@ -2512,19 +2512,19 @@ thread-pre-split:                                 ; preds = %22
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %34
 
 34:                                               ; preds = %28, %31
   %.0.pn = phi ptr [ %33, %31 ], [ %.0, %28 ]
-  %.in = getelementptr inbounds i8, ptr %.0.pn, i64 56
+  %.in = getelementptr inbounds nuw i8, ptr %.0.pn, i64 56
   %35 = load ptr, ptr %.in, align 8
   %36 = icmp eq i32 %24, 31
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %23, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 8
   br label %41
@@ -2554,21 +2554,21 @@ thread-pre-split:                                 ; preds = %22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @expr_rewrite_to_string(ptr nocapture noundef initializes((0, 8), (32, 44)) %0, ptr noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
   %6 = or disjoint i16 %5, 14
   store i16 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, -256
   %10 = or disjoint i16 %9, 6
   store i16 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %11, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %13, ptr %14, align 8
   %15 = and i16 %6, -4082
   %16 = or disjoint i16 %15, 512
@@ -2583,7 +2583,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef initializes((24, 33)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr @expr_arena, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -2596,11 +2596,11 @@ define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef initializes(
   %15 = trunc i64 %14 to i32
   %16 = trunc i32 %3 to i8
   store i32 %11, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %15, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %16, ptr %.sroa.3.0..sroa_idx, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -256
   %20 = or disjoint i16 %19, 3

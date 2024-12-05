@@ -38,9 +38,9 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
 8:                                                ; preds = %6
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %.val, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.val, ptr %11, align 8
   %12 = getelementptr i8, ptr %1, i64 40
   %.val24 = load ptr, ptr %12, align 8
@@ -54,9 +54,9 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds i64, ptr %.val24, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %.val24, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -85,9 +85,9 @@ define hidden noundef nonnull ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiP
   %32 = sext i32 %31 to i64
   %33 = load i64, ptr %5, align 8
   %34 = mul i64 %33, %32
-  %35 = getelementptr inbounds i8, ptr %7, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %1, ptr %36, align 8
   ret ptr %7
 }
@@ -110,10 +110,10 @@ define hidden noundef ptr @_ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFl
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
   br label %_ZN11PyEnsureGILD2Ev.exit
@@ -136,7 +136,7 @@ define hidden noundef ptr @_ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFl
 
 switch.lookup:                                    ; preds = %18
   %30 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFlagENS4_14UMatUsageFlagsE, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %31
 
@@ -144,9 +144,9 @@ switch.lookup:                                    ; preds = %18
   %32 = phi i32 [ %29, %25 ], [ %switch.load, %switch.lookup ]
   %33 = add nsw i32 %1, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %35, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not.i.i = icmp ugt i32 %33, 136
   store i64 %34, ptr %36, align 8
   br i1 %.not.i.i, label %37, label %_ZN2cv10AutoBufferIlLm136EEC2Em.exit
@@ -173,11 +173,11 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %43 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i64, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
   store i64 %45, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -214,9 +214,9 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
   %57 = phi ptr [ %.pre, %52 ], [ %.pre68, %._crit_edge ]
   %.045 = phi i32 [ %33, %52 ], [ %1, %._crit_edge ]
   %58 = load ptr, ptr @opencv_ARRAY_API, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 744
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 744
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef ptr %60(ptr noundef %62, i32 noundef %.045, ptr noundef %57, i32 noundef %32, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %64 unwind label %50
@@ -253,9 +253,9 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 72:                                               ; preds = %.noexc60
   %73 = getelementptr i8, ptr %63, i64 16
   %.val.i = load ptr, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %.val.i, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %.val.i, ptr %75, align 8
   %76 = getelementptr i8, ptr %63, i64 40
   %.val24.i = load ptr, ptr %76, align 8
@@ -269,9 +269,9 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %79 = getelementptr inbounds i64, ptr %.val24.i, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i64, ptr %.val24.i, i64 %indvars.iv.i
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   store i64 %80, ptr %81, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -297,9 +297,9 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
   %93 = sext i32 %92 to i64
   %94 = load i64, ptr %5, align 8
   %95 = mul i64 %94, %93
-  %96 = getelementptr inbounds i8, ptr %71, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store i64 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %71, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %63, ptr %97, align 8
   %98 = load ptr, ptr %9, align 8
   %.not.i.i61 = icmp eq ptr %98, %35
@@ -378,10 +378,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK14NumpyAllocator8allocateEPN2cv8UMatDataENS0_10AccessFlagENS0_14UMatUsageFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret i1 %10
@@ -398,7 +398,7 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
 
 7:                                                ; preds = %2
   %8 = tail call i32 @PyGILState_Ensure()
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %20, label %12
@@ -432,7 +432,7 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
   br label %47
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %32, label %24
@@ -470,7 +470,7 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nocaptu
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %37

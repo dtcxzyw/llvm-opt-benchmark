@@ -88,7 +88,7 @@ define range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1) #0 {
 
 19:                                               ; preds = %2
   store ptr null, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %21 = call i64 @strtol(ptr noundef nonnull %20, ptr noundef nonnull %10, i32 noundef 10) #13
   %22 = add i64 %21, -9223372036854775807
   %or.cond = icmp ult i64 %22, -9223372036853775807
@@ -106,17 +106,17 @@ define range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1) #0 {
   %28 = tail call i64 @time(ptr noundef null) #13
   store i64 %28, ptr %3, align 8
   %29 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #13
-  %30 = getelementptr inbounds i8, ptr %15, i64 16
-  %31 = getelementptr inbounds i8, ptr %15, i64 12
-  %32 = getelementptr inbounds i8, ptr %15, i64 20
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 4
-  %35 = getelementptr inbounds i8, ptr %12, i64 16
-  %36 = getelementptr inbounds i8, ptr %12, i64 12
-  %37 = getelementptr inbounds i8, ptr %12, i64 20
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 12
-  %40 = getelementptr inbounds i8, ptr %4, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br label %41
 
 41:                                               ; preds = %233, %27
@@ -550,14 +550,14 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   br i1 %.not68, label %244, label %253
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %4, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %246 = load i32, ptr %245, align 8
   %247 = icmp sgt i32 %.099, %246
   br i1 %247, label %253, label %248
 
 248:                                              ; preds = %244
   %249 = icmp eq i32 %.099, %246
-  %250 = getelementptr inbounds i8, ptr %4, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %251 = load i32, ptr %250, align 4
   %252 = icmp sgt i32 %.096, %251
   %or.cond124 = select i1 %249, i1 %252, i1 false
@@ -589,12 +589,12 @@ thread-pre-split:                                 ; preds = %241, %239
   %262 = add nsw i64 %261, 86400
   store i64 %262, ptr %16, align 8
   %263 = call ptr @localtime_r(ptr noundef nonnull %16, ptr noundef nonnull %17) #13
-  %264 = getelementptr inbounds i8, ptr %17, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %265 = load i32, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %17, i64 12
+  %266 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %267 = load i32, ptr %266, align 4
   store i32 %267, ptr %6, align 4
-  %268 = getelementptr inbounds i8, ptr %17, i64 20
+  %268 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %269 = load i32, ptr %268, align 4
   %270 = icmp eq i32 %269, -1
   br i1 %270, label %.thread..thread114_crit_edge, label %300
@@ -635,7 +635,7 @@ thread-pre-split:                                 ; preds = %241, %239
 
 285:                                              ; preds = %281
   %286 = icmp eq i32 %282, %283
-  %287 = getelementptr inbounds i8, ptr %4, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %288 = load i32, ptr %287, align 8
   %289 = icmp sgt i32 %.2101111119, %288
   %or.cond127 = select i1 %286, i1 %289, i1 false
@@ -644,7 +644,7 @@ thread-pre-split:                                 ; preds = %241, %239
 290:                                              ; preds = %285
   %291 = icmp eq i32 %.2101111119, %288
   %or.cond130 = select i1 %286, i1 %291, i1 false
-  %292 = getelementptr inbounds i8, ptr %4, i64 4
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %293 = load i32, ptr %292, align 4
   %294 = icmp sgt i32 %.298113118, %293
   %or.cond133 = select i1 %or.cond130, i1 %294, i1 false
@@ -664,19 +664,19 @@ thread-pre-split:                                 ; preds = %241, %239
   %302 = phi i32 [ %265, %.thread ], [ %277, %297 ], [ %277, %295 ], [ %258, %257 ], [ %258, %272 ]
   %.298112 = phi i32 [ %.096, %.thread ], [ %.298113118, %297 ], [ %.298113118, %295 ], [ %.298, %257 ], [ %.298, %272 ]
   %.2101110 = phi i32 [ %.099, %.thread ], [ %.2101111119, %297 ], [ %.2101111119, %295 ], [ %.2101, %257 ], [ %.2101, %272 ]
-  %303 = getelementptr inbounds i8, ptr %9, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %303, i8 0, i64 32, i1 false)
   store i32 %.095, ptr %9, align 8
-  %304 = getelementptr inbounds i8, ptr %9, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.298112, ptr %304, align 4
-  %305 = getelementptr inbounds i8, ptr %9, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %.2101110, ptr %305, align 8
   %306 = load i32, ptr %6, align 4
-  %307 = getelementptr inbounds i8, ptr %9, i64 12
+  %307 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %306, ptr %307, align 4
-  %308 = getelementptr inbounds i8, ptr %9, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %302, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %9, i64 20
+  %309 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %301, ptr %309, align 4
   %310 = call i64 @slurm_mktime(ptr noundef nonnull %9) #13
   %.not70 = icmp eq i64 %310, -1
@@ -830,7 +830,7 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
   %.137.i = phi i32 [ %.03653.i, %23 ], [ %.03653.i, %25 ], [ %spec.select.i, %20 ]
   %.135.i = phi i32 [ %24, %23 ], [ %.03454.i, %25 ], [ %.03454.i, %20 ]
   %.133.i = phi i32 [ 0, %23 ], [ %26, %25 ], [ %.03255.i, %20 ]
-  %28 = getelementptr inbounds i8, ptr %.03852.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.03852.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
@@ -1051,7 +1051,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noca
 
 17:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds [11 x %struct.unit_names], ptr @un, i64 0, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [11 x %struct.unit_names], ptr @un, i64 0, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %33, label %.preheader, !llvm.loop !11
@@ -1060,7 +1060,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noca
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader.preheader ]
   %20 = phi ptr [ %19, %17 ], [ @.str.18, %.preheader.preheader ]
   %21 = phi ptr [ %18, %17 ], [ @un, %.preheader.preheader ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %16, ptr noundef nonnull %20, i64 noundef %24) #13
@@ -1069,7 +1069,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noca
 
 26:                                               ; preds = %.preheader
   %27 = trunc nsw i64 %indvars.iv76 to i32
-  %28 = getelementptr inbounds i8, ptr %21, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %.034.ph, %30
@@ -1434,9 +1434,9 @@ define void @slurm_make_time_str(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %.not27.i, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.val.i = load i32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.val29.i = load i32, ptr %23, align 4
   %24 = call fastcc ptr @_relative_date_fmt(i32 %.val.i, i32 %.val29.i)
   store ptr %24, ptr @_make_time_str_internal.display_fmt, align 8
@@ -1516,11 +1516,11 @@ define internal fastcc nonnull ptr @_relative_date_fmt(i32 %.20.val, i32 %.28.va
   %8 = tail call i64 @time(ptr noundef null) #13
   store i64 %8, ptr %1, align 8
   %9 = call ptr @localtime_r(ptr noundef nonnull %1, ptr noundef nonnull %2) #13
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = mul i32 %11, 1000
   %13 = add i32 %12, 1900000
-  %14 = getelementptr inbounds i8, ptr %2, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %13, %15
   store i32 %16, ptr @_relative_date_fmt.todays_date, align 4

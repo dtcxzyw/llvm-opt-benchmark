@@ -19,12 +19,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__first.addr.014.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, %entry ]
   %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 548, %entry ]
   %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 4
   %Range.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 32
   %Range.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %Range.sroa.1.0.extract.shift.i.i.i.i.i to i32
   %cmp.i.i8.i.i.i = icmp ugt i32 %UCS, %Range.sroa.1.0.extract.trunc.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %0
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
@@ -57,7 +57,7 @@ entry:
   br i1 %cmp14.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add.ptr8 = getelementptr inbounds i8, ptr %buf, i64 4
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %buf, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end17
@@ -78,7 +78,7 @@ lor.lhs.false:                                    ; preds = %for.body
 if.end:                                           ; preds = %lor.lhs.false
   store ptr %arrayidx.i, ptr %Start, align 8
   store ptr %buf, ptr %Target, align 8
-  %add.ptr7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 %conv
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %conv
   %call9 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %Start, ptr noundef nonnull %add.ptr7, ptr noundef nonnull %Target, ptr noundef nonnull %add.ptr8, i32 noundef 0) #3
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %if.end12, label %return
@@ -92,12 +92,12 @@ while.body.i.i.i.i.i:                             ; preds = %if.end12, %while.bo
   %__first.addr.014.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ @_ZZN4llvh3sys7unicode11isPrintableEiE18NonPrintableRanges, %if.end12 ]
   %__len.013.i.i.i.i.i = phi i64 [ %__len.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ 548, %if.end12 ]
   %shr.i.i.i.i.i = lshr i64 %__len.013.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i.i.i, i64 %shr.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i.i.i, i64 %shr.i.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %Range.sroa.1.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 32
   %Range.sroa.1.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %Range.sroa.1.0.extract.shift.i.i.i.i.i.i.i to i32
   %cmp.i.i8.i.i.i.i.i = icmp ugt i32 %1, %Range.sroa.1.0.extract.trunc.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   %2 = xor i64 %shr.i.i.i.i.i, -1
   %sub2.i.i.i.i.i = add nsw i64 %__len.013.i.i.i.i.i, %2
   %__len.1.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i, i64 %sub2.i.i.i.i.i, i64 %shr.i.i.i.i.i
@@ -122,12 +122,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %__first.addr.014.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ @_ZZN4llvh3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, %while.body.i.i.i.i.preheader ]
   %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ 218, %while.body.i.i.i.i.preheader ]
   %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i.i, i64 %shr.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i.i, align 4
   %Range.sroa.1.0.extract.shift.i.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 32
   %Range.sroa.1.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %Range.sroa.1.0.extract.shift.i.i.i.i.i.i to i32
   %cmp.i.i8.i.i.i.i = icmp ugt i32 %1, %Range.sroa.1.0.extract.trunc.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %3 = xor i64 %shr.i.i.i.i, -1
   %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %3
   %__len.1.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
@@ -152,12 +152,12 @@ while.body.i.i.i3.i:                              ; preds = %while.body.i.i.i3.i
   %__first.addr.014.i.i.i4.i = phi ptr [ %__first.addr.1.i.i.i19.i, %while.body.i.i.i3.i ], [ @_ZZN4llvh3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, %while.body.i.i.i3.i.preheader ]
   %__len.013.i.i.i5.i = phi i64 [ %__len.1.i.i.i18.i, %while.body.i.i.i3.i ], [ 15, %while.body.i.i.i3.i.preheader ]
   %shr.i.i.i6.i = lshr i64 %__len.013.i.i.i5.i, 1
-  %add.ptr.i.i.i.i.i9.i = getelementptr inbounds %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i4.i, i64 %shr.i.i.i6.i
+  %add.ptr.i.i.i.i.i9.i = getelementptr inbounds nuw %"struct.llvh::sys::UnicodeCharRange", ptr %__first.addr.014.i.i.i4.i, i64 %shr.i.i.i6.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i12.i = load i64, ptr %add.ptr.i.i.i.i.i9.i, align 4
   %Range.sroa.1.0.extract.shift.i.i.i.i.i13.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i12.i, 32
   %Range.sroa.1.0.extract.trunc.i.i.i.i.i14.i = trunc nuw i64 %Range.sroa.1.0.extract.shift.i.i.i.i.i13.i to i32
   %cmp.i.i8.i.i.i15.i = icmp ugt i32 %1, %Range.sroa.1.0.extract.trunc.i.i.i.i.i14.i
-  %incdec.ptr.i.i.i16.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i9.i, i64 8
+  %incdec.ptr.i.i.i16.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i9.i, i64 8
   %4 = xor i64 %shr.i.i.i6.i, -1
   %sub2.i.i.i17.i = add nsw i64 %__len.013.i.i.i5.i, %4
   %__len.1.i.i.i18.i = select i1 %cmp.i.i8.i.i.i15.i, i64 %sub2.i.i.i17.i, i64 %shr.i.i.i6.i

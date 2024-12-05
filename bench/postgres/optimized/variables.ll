@@ -36,7 +36,7 @@ define dso_local ptr @GetVariable(ptr noundef readonly %0, ptr nocapture noundef
 
 .preheader:                                       ; preds = %2, %10
   %.pn = phi ptr [ %.09, %10 ], [ %0, %2 ]
-  %.09.in = getelementptr inbounds i8, ptr %.pn, i64 32
+  %.09.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.09 = load ptr, ptr %.09.in, align 8
   %.not12 = icmp eq ptr %.09, null
   br i1 %.not12, label %.loopexit, label %3
@@ -48,7 +48,7 @@ define dso_local ptr @GetVariable(ptr noundef readonly %0, ptr nocapture noundef
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.09, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %.loopexit
 
@@ -221,13 +221,13 @@ define dso_local void @PrintVariables(ptr noundef readonly %0) local_unnamed_add
 
 .preheader:                                       ; preds = %1, %8
   %.pn = phi ptr [ %.0, %8 ], [ %0, %1 ]
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 32
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %.loopexit, label %2
 
 2:                                                ; preds = %.preheader
-  %3 = getelementptr inbounds i8, ptr %.0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %8, label %5
@@ -288,7 +288,7 @@ define dso_local noundef zeroext i1 @SetVariable(ptr noundef %0, ptr noundef %1,
 
 valid_variable_name.exit:                         ; preds = %12, %47
   %.049 = phi ptr [ %.050, %47 ], [ %0, %12 ]
-  %.050.in = getelementptr inbounds i8, ptr %.049, i64 32
+  %.050.in = getelementptr inbounds nuw i8, ptr %.049, i64 32
   %.050 = load ptr, ptr %.050.in, align 8
   %.not57 = icmp eq ptr %.050, null
   br i1 %.not57, label %49, label %15
@@ -300,7 +300,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %15
-  %.050.in.le = getelementptr inbounds i8, ptr %.049, i64 32
+  %.050.in.le = getelementptr inbounds nuw i8, ptr %.049, i64 32
   %.not59 = icmp eq ptr %2, null
   br i1 %.not59, label %22, label %20
 
@@ -310,7 +310,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
 
 22:                                               ; preds = %19, %20
   %23 = phi ptr [ %21, %20 ], [ null, %19 ]
-  %24 = getelementptr inbounds i8, ptr %.050, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.050, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not60 = icmp eq ptr %25, null
   br i1 %.not60, label %28, label %26
@@ -321,7 +321,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
 
 28:                                               ; preds = %26, %22
   %.047 = phi ptr [ %27, %26 ], [ %23, %22 ]
-  %29 = getelementptr inbounds i8, ptr %.050, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.050, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not61 = icmp eq ptr %30, null
   br i1 %.not61, label %.thread, label %31
@@ -331,7 +331,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
   br i1 %32, label %.thread, label %46
 
 .thread:                                          ; preds = %28, %31
-  %33 = getelementptr inbounds i8, ptr %.050, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @pg_free(ptr noundef %34) #10
   store ptr %.047, ptr %33, align 8
@@ -349,7 +349,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
   br i1 %41, label %42, label %58
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %.050, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %.050.in.le, align 8
   %45 = load ptr, ptr %.050, align 8
@@ -370,17 +370,17 @@ valid_variable_name.exit:                         ; preds = %12, %47
   br i1 %.not58, label %58, label %50
 
 50:                                               ; preds = %49
-  %.050.in.le73 = getelementptr inbounds i8, ptr %.049, i64 32
+  %.050.in.le73 = getelementptr inbounds nuw i8, ptr %.049, i64 32
   %51 = tail call ptr @pg_malloc(i64 noundef 40) #10
   %52 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #10
   store ptr %52, ptr %51, align 8
   %53 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #10
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %51, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %.050.in.le73, align 8
-  %57 = getelementptr inbounds i8, ptr %51, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %56, ptr %57, align 8
   store ptr %51, ptr %.050.in.le73, align 8
   br label %58
@@ -429,7 +429,7 @@ define dso_local void @SetVariableHooks(ptr noundef %0, ptr noundef %1, ptr noun
 
 valid_variable_name.exit:                         ; preds = %13, %29
   %.041 = phi ptr [ %.0, %29 ], [ %0, %13 ]
-  %.0.in = getelementptr inbounds i8, ptr %.041, i64 32
+  %.0.in = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %31, label %15
@@ -441,15 +441,15 @@ valid_variable_name.exit:                         ; preds = %13, %29
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %3, ptr %21, align 8
   %.not50 = icmp eq ptr %2, null
   br i1 %.not50, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %2(ptr noundef %24) #10
   store ptr %25, ptr %23, align 8
@@ -460,7 +460,7 @@ valid_variable_name.exit:                         ; preds = %13, %29
   br i1 %.not51, label %valid_variable_name.exit.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %valid_variable_name.exit.thread.sink.split
 
 29:                                               ; preds = %15
@@ -468,18 +468,18 @@ valid_variable_name.exit:                         ; preds = %13, %29
   br i1 %30, label %31, label %valid_variable_name.exit, !llvm.loop !10
 
 31:                                               ; preds = %29, %valid_variable_name.exit
-  %.0.in.le = getelementptr inbounds i8, ptr %.041, i64 32
+  %.0.in.le = getelementptr inbounds nuw i8, ptr %.041, i64 32
   %32 = tail call ptr @pg_malloc(i64 noundef 40) #10
   %33 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #10
   store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %3, ptr %36, align 8
   %37 = load ptr, ptr %.0.in.le, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %37, ptr %38, align 8
   store ptr %32, ptr %.0.in.le, align 8
   %.not48 = icmp eq ptr %2, null
@@ -511,7 +511,7 @@ define dso_local zeroext i1 @VariableHasHook(ptr nocapture noundef readonly %0, 
 
 3:                                                ; preds = %15, %2
   %.pn = phi ptr [ %0, %2 ], [ %.09, %15 ]
-  %.09.in = getelementptr inbounds i8, ptr %.pn, i64 32
+  %.09.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.09 = load ptr, ptr %.09.in, align 8
   %.not = icmp eq ptr %.09, null
   br i1 %.not, label %.loopexit, label %4
@@ -523,13 +523,13 @@ define dso_local zeroext i1 @VariableHasHook(ptr nocapture noundef readonly %0, 
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.09, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.09, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
   br label %.loopexit

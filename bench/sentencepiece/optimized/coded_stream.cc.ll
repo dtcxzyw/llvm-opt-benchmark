@@ -42,22 +42,22 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io16CodedInputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPositionEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, %13
   %17 = add i32 %16, %11
@@ -66,7 +66,7 @@ define void @_ZN6google8protobuf2io16CodedInputStreamD2Ev(ptr nocapture noundef 
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %17)
           to label %.noexc unwind label %31
@@ -79,7 +79,7 @@ define void @_ZN6google8protobuf2io16CodedInputStreamD2Ev(ptr nocapture noundef 
   %.neg4.i = sub i64 %26, %25
   %.neg5.i = trunc i64 %.neg4.i to i32
   %27 = load i32, ptr %12, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
   %.neg3.i = sub i32 %29, %27
   %30 = add i32 %.neg3.i, %.neg5.i
@@ -102,16 +102,16 @@ _ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPositionEv.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPositionEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %10
   %14 = add i32 %13, %8
@@ -119,10 +119,10 @@ define void @_ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPosit
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %14)
   %22 = load ptr, ptr %2, align 8
@@ -132,7 +132,7 @@ define void @_ZN6google8protobuf2io16CodedInputStream28BackUpInputToCurrentPosit
   %.neg4 = sub i64 %25, %24
   %.neg5 = trunc i64 %.neg4 to i32
   %26 = load i32, ptr %9, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
   %.neg3 = sub i32 %28, %26
   %29 = add i32 %.neg3, %.neg5
@@ -162,20 +162,20 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %.neg3.i = sub i64 %9, %8
   %.neg4.i = trunc i64 %.neg3.i to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4
   %.neg2.i = sub i32 %4, %11
   %12 = add i32 %.neg2.i, %.neg4.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
@@ -192,7 +192,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noc
   %21 = sext i32 %11 to i64
   %22 = getelementptr inbounds i8, ptr %6, i64 %21
   store ptr %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 %20)
   %26 = icmp slt i32 %25, %4
@@ -217,19 +217,19 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((36, 37), (40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %5 to i64
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @llvm.smin.i32(i32 %11, i32 %1)
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %12, %14
   br i1 %15, label %16, label %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit
@@ -245,27 +245,27 @@ define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture n
 _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds = %2, %16
   %.sink.i = phi i32 [ %17, %16 ], [ 0, %2 ]
   store i32 %.sink.i, ptr %4, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %21, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAndPushLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %.neg3.i.i = sub i64 %9, %8
   %.neg4.i.i = trunc i64 %.neg3.i.i to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4
   %.neg2.i.i = sub i32 %4, %11
   %12 = add i32 %.neg2.i.i, %.neg4.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
@@ -282,7 +282,7 @@ define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAnd
   %21 = sext i32 %11 to i64
   %22 = getelementptr inbounds i8, ptr %6, i64 %21
   store ptr %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 %20)
   %26 = icmp slt i32 %25, %4
@@ -302,7 +302,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit.i: ; pred
   br label %_ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit
 
 _ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit: ; preds = %2, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit.i
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, -1
   store i32 %34, ptr %32, align 4
@@ -319,20 +319,20 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushL
   %3 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2)
   %4 = load i32, ptr %2, align 4
   %5 = select i1 %3, i32 %4, i32 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %.neg3.i.i = sub i64 %12, %11
   %.neg4.i.i = trunc i64 %.neg3.i.i to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %.neg2.i.i = sub i32 %7, %14
   %15 = add i32 %.neg2.i.i, %.neg4.i.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %5, -1
   %19 = sub nsw i32 2147483647, %15
@@ -349,7 +349,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushL
   %24 = sext i32 %14 to i64
   %25 = getelementptr inbounds i8, ptr %9, i64 %24
   store ptr %25, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
   %28 = call i32 @llvm.smin.i32(i32 %27, i32 %23)
   %29 = icmp slt i32 %28, %7
@@ -375,7 +375,7 @@ _ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit: ; preds = %1, %_ZN6go
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %7, label %.thread
@@ -389,7 +389,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 11:                                               ; preds = %7
   store i32 %9, ptr %1, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %0, align 8
   br label %70
 
@@ -418,8 +418,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 28:                                               ; preds = %.thread, %25, %14
   %.0813 = phi i32 [ 0, %.thread ], [ %9, %25 ], [ %9, %14 ]
   %29 = add nsw i32 %.0813, -128
-  %30 = getelementptr inbounds i8, ptr %3, i64 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %32 = load i8, ptr %30, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 7
@@ -429,7 +429,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 
 36:                                               ; preds = %28
   %37 = add nsw i32 %35, -16384
-  %38 = getelementptr inbounds i8, ptr %3, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %39 = load i8, ptr %31, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 14
@@ -439,7 +439,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 
 43:                                               ; preds = %36
   %44 = add nsw i32 %42, -2097152
-  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %46 = load i8, ptr %38, align 1
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 21
@@ -449,7 +449,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 
 50:                                               ; preds = %43
   %51 = add nsw i32 %49, -268435456
-  %52 = getelementptr inbounds i8, ptr %3, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %53 = load i8, ptr %45, align 1
   %54 = zext i8 %53 to i32
   %55 = shl i32 %54, 28
@@ -465,7 +465,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 .preheader.i:                                     ; preds = %50, %57
   %.02646.i = phi i32 [ %58, %57 ], [ 0, %50 ]
   %.145.i = phi ptr [ %59, %57 ], [ %52, %50 ]
-  %59 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.145.i, i64 1
   %60 = load i8, ptr %.145.i, align 1
   %.not33.i = icmp sgt i8 %60, -1
   br i1 %.not33.i, label %.loopexit53.i, label %57
@@ -500,21 +500,21 @@ _ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit: ; preds =
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 %1)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %14, %16
   br i1 %17, label %18, label %_ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit
@@ -532,7 +532,7 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %2, %18
   %23 = trunc i8 %4 to i1
   store i32 %.sink.i.i, ptr %6, align 4
   store i8 0, ptr %3, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -550,21 +550,21 @@ declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 %1)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %14, %16
   br i1 %17, label %18, label %_ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit
@@ -587,22 +587,22 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %2, %18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %.neg3.i.neg = sub i64 %11, %12
   %.neg4.i.neg = trunc i64 %.neg3.i.neg to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %.neg2.i.neg = sub i32 %3, %7
   %.neg = add i32 %.neg2.i.neg, %14
@@ -616,26 +616,26 @@ define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %.neg3.i = sub i64 %9, %8
   %.neg4.i = trunc i64 %.neg3.i to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4
   %.neg2.i = sub i32 %4, %11
   %12 = add i32 %.neg2.i, %.neg4.i
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %12, i32 %1)
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.sroa.speculated, ptr %13, align 8
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds i8, ptr %6, i64 %14
   store ptr %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %17)
   %19 = icmp slt i32 %18, %4
@@ -657,22 +657,22 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream25BytesUntilTotalBytesLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %.neg3.i.neg = sub i64 %11, %12
   %.neg4.i.neg = trunc i64 %.neg3.i.neg to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %.neg2.i.neg = sub i32 %3, %7
   %.neg = add i32 %.neg2.i.neg, %14
@@ -693,7 +693,7 @@ define void @_ZN6google8protobuf2io16CodedInputStream25PrintTotalBytesLimitError
           to label %5 unwind label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %7)
           to label %9 unwind label %13
@@ -721,7 +721,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8int
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbackEii(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -735,13 +735,13 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbac
 
 11:                                               ; preds = %3
   %12 = sub nsw i32 %1, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr %13, align 8
   %17 = tail call i32 @llvm.smin.i32(i32 %15, i32 %16)
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = sub nsw i32 %17, %19
   %21 = icmp slt i32 %20, %12
@@ -753,19 +753,19 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbac
 
 24:                                               ; preds = %22
   store i32 %17, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %20)
   br label %48
 
 31:                                               ; preds = %11
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, i32 noundef %12)
   br i1 %37, label %45, label %38
@@ -773,7 +773,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbac
 38:                                               ; preds = %31
   %39 = load ptr, ptr %32, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %39)
   %44 = trunc i64 %43 to i32
@@ -793,7 +793,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream12SkipFallbac
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream22GetDirectBufferPointerEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -834,33 +834,33 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(pt
   %3 = alloca i32, align 4
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %13, %9, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = sub nsw i32 %21, %7
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8
   %.not10 = icmp slt i32 %22, %24
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8
   %.not11 = icmp eq i32 %24, %26
   %or.cond = select i1 %.not10, i1 true, i1 %.not11
@@ -871,13 +871,13 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(pt
   br label %77
 
 28:                                               ; preds = %13
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   br label %31
 
 31:                                               ; preds = %36, %28
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %2, ptr noundef nonnull %3)
   br i1 %35, label %36, label %_ZN6google8protobuf2io12_GLOBAL__N_112NextNonEmptyEPNS1_19ZeroCopyInputStreamEPPKvPi.exit
@@ -892,7 +892,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(pt
   store ptr %40, ptr %0, align 8
   %41 = sext i32 %37 to i64
   %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %42, ptr %43, align 8
   %44 = icmp slt i32 %37, 0
   br i1 %44, label %45, label %.critedge
@@ -947,7 +947,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(pt
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %63, i64 %65
   store ptr %66, ptr %43, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load i32, ptr %67, align 8
   %69 = load i32, ptr %16, align 8
   %70 = call i32 @llvm.smin.i32(i32 %68, i32 %69)
@@ -978,7 +978,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_112NextNonEmptyEPNS1_19ZeroCopyInputStreamEPP
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %12, %3
@@ -1026,7 +1026,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringE
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -1043,7 +1043,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringE
   %16 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %16, i64 %14, i1 false)
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %14
   store ptr %18, ptr %0, align 8
   br label %21
 
@@ -1066,8 +1066,8 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   br label %6
 
 6:                                                ; preds = %5, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
   %11 = tail call i32 @llvm.smin.i32(i32 %9, i32 %10)
@@ -1075,16 +1075,16 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %.neg3.i.neg = sub i64 %18, %19
   %.neg4.i.neg = trunc i64 %.neg3.i.neg to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %.neg2.i.neg = sub i32 %11, %14
   %.neg = add i32 %.neg2.i.neg, %21
@@ -1102,7 +1102,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream18ReadStringF
   br label %27
 
 27:                                               ; preds = %12, %25, %6
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %29
 
 29:                                               ; preds = %.split, %27
@@ -1160,7 +1160,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [4 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1171,7 +1171,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleE
   br i1 %.not, label %.preheader, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %27
 
 .preheader:                                       ; preds = %2, %19
@@ -1219,7 +1219,7 @@ _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit: ; preds = %19, %27
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [8 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1230,7 +1230,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleE
   br i1 %.not, label %.preheader, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %27
 
 .preheader:                                       ; preds = %2, %19
@@ -1288,7 +1288,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint3
 
 ; Function Attrs: mustprogress uwtable
 define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -1312,7 +1312,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %.not, label %15, label %.preheader
 
 15:                                               ; preds = %12, %1
-  %16 = getelementptr inbounds i8, ptr %4, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp sgt i8 %17, -1
   br i1 %18, label %19, label %26
@@ -1327,7 +1327,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %4, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp sgt i8 %28, -1
   br i1 %29, label %30, label %41
@@ -1342,7 +1342,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i = phi i64 [ 0, %30 ], [ 1, %33 ]
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
   %.01113.i = phi i64 [ %32, %30 ], [ %40, %33 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = add nsw i64 %37, -128
@@ -1352,7 +1352,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %34, label %33, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, !llvm.loop !9
 
 41:                                               ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %4, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = icmp sgt i8 %43, -1
   br i1 %44, label %45, label %55
@@ -1366,7 +1366,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i37 = phi i64 [ 0, %45 ], [ %indvars.iv.next17.i, %48 ]
   %indvars.iv.i38 = phi i64 [ 0, %45 ], [ %indvars.iv.next.i40, %48 ]
   %.01113.i39 = phi i64 [ %47, %45 ], [ %54, %48 ]
-  %49 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i37
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i37
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = add nsw i64 %51, -128
@@ -1378,7 +1378,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %48, !llvm.loop !10
 
 55:                                               ; preds = %41
-  %56 = getelementptr inbounds i8, ptr %4, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %57 = load i8, ptr %56, align 1
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %59, label %69
@@ -1392,7 +1392,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i41 = phi i64 [ 0, %59 ], [ %indvars.iv.next17.i44, %62 ]
   %indvars.iv.i42 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i45, %62 ]
   %.01113.i43 = phi i64 [ %61, %59 ], [ %68, %62 ]
-  %63 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i41
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i41
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   %66 = add nsw i64 %65, -128
@@ -1404,7 +1404,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i46, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %62, !llvm.loop !11
 
 69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %4, i64 5
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %71 = load i8, ptr %70, align 1
   %72 = icmp sgt i8 %71, -1
   br i1 %72, label %73, label %83
@@ -1418,7 +1418,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i47 = phi i64 [ 0, %73 ], [ %indvars.iv.next17.i50, %76 ]
   %indvars.iv.i48 = phi i64 [ 0, %73 ], [ %indvars.iv.next.i51, %76 ]
   %.01113.i49 = phi i64 [ %75, %73 ], [ %82, %76 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i47
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i47
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
   %80 = add nsw i64 %79, -128
@@ -1430,7 +1430,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i52, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %76, !llvm.loop !12
 
 83:                                               ; preds = %69
-  %84 = getelementptr inbounds i8, ptr %4, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %85 = load i8, ptr %84, align 1
   %86 = icmp sgt i8 %85, -1
   br i1 %86, label %87, label %97
@@ -1444,7 +1444,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i53 = phi i64 [ 0, %87 ], [ %indvars.iv.next17.i56, %90 ]
   %indvars.iv.i54 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i57, %90 ]
   %.01113.i55 = phi i64 [ %89, %87 ], [ %96, %90 ]
-  %91 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i53
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i53
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
   %94 = add nsw i64 %93, -128
@@ -1456,7 +1456,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i58, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %90, !llvm.loop !13
 
 97:                                               ; preds = %83
-  %98 = getelementptr inbounds i8, ptr %4, i64 7
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %99 = load i8, ptr %98, align 1
   %100 = icmp sgt i8 %99, -1
   br i1 %100, label %101, label %111
@@ -1470,7 +1470,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i59 = phi i64 [ 0, %101 ], [ %indvars.iv.next17.i62, %104 ]
   %indvars.iv.i60 = phi i64 [ 0, %101 ], [ %indvars.iv.next.i63, %104 ]
   %.01113.i61 = phi i64 [ %103, %101 ], [ %110, %104 ]
-  %105 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i59
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i59
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i64
   %108 = add nsw i64 %107, -128
@@ -1482,7 +1482,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i64, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %104, !llvm.loop !14
 
 111:                                              ; preds = %97
-  %112 = getelementptr inbounds i8, ptr %4, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %113 = load i8, ptr %112, align 1
   %114 = icmp sgt i8 %113, -1
   br i1 %114, label %115, label %125
@@ -1496,7 +1496,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i65 = phi i64 [ 0, %115 ], [ %indvars.iv.next17.i68, %118 ]
   %indvars.iv.i66 = phi i64 [ 0, %115 ], [ %indvars.iv.next.i69, %118 ]
   %.01113.i67 = phi i64 [ %117, %115 ], [ %124, %118 ]
-  %119 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i65
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i65
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i64
   %122 = add nsw i64 %121, -128
@@ -1508,7 +1508,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   br i1 %exitcond.not.i70, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %118, !llvm.loop !15
 
 125:                                              ; preds = %111
-  %126 = getelementptr inbounds i8, ptr %4, i64 9
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %127 = load i8, ptr %126, align 1
   %128 = icmp sgt i8 %127, -1
   br i1 %128, label %129, label %_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit
@@ -1522,7 +1522,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
   %indvars.iv16.i71 = phi i64 [ 0, %129 ], [ %indvars.iv.next17.i74, %132 ]
   %indvars.iv.i72 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i75, %132 ]
   %.01113.i73 = phi i64 [ %131, %129 ], [ %138, %132 ]
-  %133 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i71
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i71
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
   %136 = add nsw i64 %135, -128
@@ -1536,7 +1536,7 @@ define { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64Fallba
 _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit: ; preds = %132, %118, %104, %90, %76, %62, %48, %33, %19
   %.sink = phi i64 [ 2, %19 ], [ 3, %33 ], [ 4, %48 ], [ 5, %62 ], [ 6, %76 ], [ 7, %90 ], [ 8, %104 ], [ 9, %118 ], [ 10, %132 ]
   %.1.ph = phi i64 [ %25, %19 ], [ %40, %33 ], [ %54, %48 ], [ %68, %62 ], [ %82, %76 ], [ %96, %90 ], [ %110, %104 ], [ %124, %118 ], [ %138, %132 ]
-  %139 = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store ptr %139, ptr %0, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit
 
@@ -1563,7 +1563,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exi
   %151 = mul nuw nsw i64 %indvars.iv.i81, 7
   %152 = shl i64 %150, %151
   %153 = or i64 %152, %.012.i
-  %154 = getelementptr inbounds i8, ptr %142, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %154, ptr %0, align 8
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %.not.i = icmp sgt i8 %148, -1
@@ -1579,7 +1579,7 @@ _ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm.exit: ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1601,8 +1601,8 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 16:                                               ; preds = %13, %2
   %17 = add i32 %1, -128
-  %18 = getelementptr inbounds i8, ptr %5, i64 1
-  %19 = getelementptr inbounds i8, ptr %5, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %20 = load i8, ptr %18, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 7
@@ -1612,7 +1612,7 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 24:                                               ; preds = %16
   %25 = add i32 %23, -16384
-  %26 = getelementptr inbounds i8, ptr %5, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %27 = load i8, ptr %19, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 14
@@ -1622,7 +1622,7 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 31:                                               ; preds = %24
   %32 = add i32 %30, -2097152
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = load i8, ptr %26, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 21
@@ -1632,7 +1632,7 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 38:                                               ; preds = %31
   %39 = add i32 %37, -268435456
-  %40 = getelementptr inbounds i8, ptr %5, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %41 = load i8, ptr %33, align 1
   %42 = zext i8 %41 to i32
   %43 = shl i32 %42, 28
@@ -1648,7 +1648,7 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 .preheader:                                       ; preds = %38, %45
   %.02646 = phi i32 [ %46, %45 ], [ 0, %38 ]
   %.145 = phi ptr [ %47, %45 ], [ %40, %38 ]
-  %47 = getelementptr inbounds i8, ptr %.145, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.145, i64 1
   %48 = load i8, ptr %.145, align 1
   %.not33 = icmp sgt i8 %48, -1
   br i1 %.not33, label %.loopexit53, label %45
@@ -1689,7 +1689,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN6google8protobuf2io16CodedInpu
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIntFallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -1710,7 +1710,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %.not32, label %15, label %143
 
 15:                                               ; preds = %12, %1
-  %16 = getelementptr inbounds i8, ptr %4, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp sgt i8 %17, -1
   br i1 %18, label %19, label %26
@@ -1725,7 +1725,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %4, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp sgt i8 %28, -1
   br i1 %29, label %30, label %41
@@ -1740,7 +1740,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i = phi i64 [ 0, %30 ], [ 1, %33 ]
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
   %.01113.i = phi i64 [ %32, %30 ], [ %40, %33 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = add nsw i64 %37, -128
@@ -1750,7 +1750,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %34, label %33, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, !llvm.loop !9
 
 41:                                               ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %4, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = icmp sgt i8 %43, -1
   br i1 %44, label %45, label %55
@@ -1764,7 +1764,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i35 = phi i64 [ 0, %45 ], [ %indvars.iv.next17.i, %48 ]
   %indvars.iv.i36 = phi i64 [ 0, %45 ], [ %indvars.iv.next.i38, %48 ]
   %.01113.i37 = phi i64 [ %47, %45 ], [ %54, %48 ]
-  %49 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i35
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i35
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = add nsw i64 %51, -128
@@ -1776,7 +1776,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %48, !llvm.loop !10
 
 55:                                               ; preds = %41
-  %56 = getelementptr inbounds i8, ptr %4, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %57 = load i8, ptr %56, align 1
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %59, label %69
@@ -1790,7 +1790,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i39 = phi i64 [ 0, %59 ], [ %indvars.iv.next17.i42, %62 ]
   %indvars.iv.i40 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i43, %62 ]
   %.01113.i41 = phi i64 [ %61, %59 ], [ %68, %62 ]
-  %63 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i39
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i39
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   %66 = add nsw i64 %65, -128
@@ -1802,7 +1802,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i44, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %62, !llvm.loop !11
 
 69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %4, i64 5
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %71 = load i8, ptr %70, align 1
   %72 = icmp sgt i8 %71, -1
   br i1 %72, label %73, label %83
@@ -1816,7 +1816,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i45 = phi i64 [ 0, %73 ], [ %indvars.iv.next17.i48, %76 ]
   %indvars.iv.i46 = phi i64 [ 0, %73 ], [ %indvars.iv.next.i49, %76 ]
   %.01113.i47 = phi i64 [ %75, %73 ], [ %82, %76 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i45
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i45
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
   %80 = add nsw i64 %79, -128
@@ -1828,7 +1828,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i50, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %76, !llvm.loop !12
 
 83:                                               ; preds = %69
-  %84 = getelementptr inbounds i8, ptr %4, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %85 = load i8, ptr %84, align 1
   %86 = icmp sgt i8 %85, -1
   br i1 %86, label %87, label %97
@@ -1842,7 +1842,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i51 = phi i64 [ 0, %87 ], [ %indvars.iv.next17.i54, %90 ]
   %indvars.iv.i52 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i55, %90 ]
   %.01113.i53 = phi i64 [ %89, %87 ], [ %96, %90 ]
-  %91 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i51
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i51
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
   %94 = add nsw i64 %93, -128
@@ -1854,7 +1854,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i56, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %90, !llvm.loop !13
 
 97:                                               ; preds = %83
-  %98 = getelementptr inbounds i8, ptr %4, i64 7
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %99 = load i8, ptr %98, align 1
   %100 = icmp sgt i8 %99, -1
   br i1 %100, label %101, label %111
@@ -1868,7 +1868,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i57 = phi i64 [ 0, %101 ], [ %indvars.iv.next17.i60, %104 ]
   %indvars.iv.i58 = phi i64 [ 0, %101 ], [ %indvars.iv.next.i61, %104 ]
   %.01113.i59 = phi i64 [ %103, %101 ], [ %110, %104 ]
-  %105 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i57
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i57
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i64
   %108 = add nsw i64 %107, -128
@@ -1880,7 +1880,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i62, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %104, !llvm.loop !14
 
 111:                                              ; preds = %97
-  %112 = getelementptr inbounds i8, ptr %4, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %113 = load i8, ptr %112, align 1
   %114 = icmp sgt i8 %113, -1
   br i1 %114, label %115, label %125
@@ -1894,7 +1894,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i63 = phi i64 [ 0, %115 ], [ %indvars.iv.next17.i66, %118 ]
   %indvars.iv.i64 = phi i64 [ 0, %115 ], [ %indvars.iv.next.i67, %118 ]
   %.01113.i65 = phi i64 [ %117, %115 ], [ %124, %118 ]
-  %119 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i63
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i63
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i64
   %122 = add nsw i64 %121, -128
@@ -1906,7 +1906,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   br i1 %exitcond.not.i68, label %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit, label %118, !llvm.loop !15
 
 125:                                              ; preds = %111
-  %126 = getelementptr inbounds i8, ptr %4, i64 9
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %127 = load i8, ptr %126, align 1
   %128 = icmp sgt i8 %127, -1
   br i1 %128, label %129, label %.thread
@@ -1920,7 +1920,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream27ReadVarintSizeAsIn
   %indvars.iv16.i69 = phi i64 [ 0, %129 ], [ %indvars.iv.next17.i72, %132 ]
   %indvars.iv.i70 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i73, %132 ]
   %.01113.i71 = phi i64 [ %131, %129 ], [ %138, %132 ]
-  %133 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv16.i69
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv16.i69
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
   %136 = add nsw i64 %135, -128
@@ -1938,7 +1938,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exi
   br i1 %139, label %140, label %.thread
 
 140:                                              ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exit
-  %141 = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store ptr %141, ptr %0, align 8
   %142 = trunc nuw i64 %.081 to i32
   br label %.thread
@@ -1962,7 +1962,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_123DecodeVarint64KnownSizeILm3EEEPKhS5_Pm.exi
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %6, label %24
@@ -1977,27 +1977,27 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv(ptr 
   br label %24
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = sub nsw i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not = icmp slt i32 %13, %15
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %21 = zext i1 %19 to i8
   store i8 %21, ptr %20, align 4
   br label %39
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %23, align 4
   br label %39
 
@@ -2014,7 +2014,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv(ptr 
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread: ; preds = %28
   %31 = zext nneg i8 %29 to i64
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %0, align 8
   br label %37
 
@@ -2037,7 +2037,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %24, %
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -2062,14 +2062,14 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %19, ptr %0, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
 20:                                               ; preds = %16
   %21 = add i32 %1, -128
-  %22 = getelementptr inbounds i8, ptr %5, i64 1
-  %23 = getelementptr inbounds i8, ptr %5, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 7
@@ -2079,7 +2079,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 28:                                               ; preds = %20
   %29 = add i32 %27, -16384
-  %30 = getelementptr inbounds i8, ptr %5, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %31 = load i8, ptr %23, align 1
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 14
@@ -2089,7 +2089,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 35:                                               ; preds = %28
   %36 = add i32 %34, -2097152
-  %37 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %38 = load i8, ptr %30, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 21
@@ -2099,7 +2099,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 42:                                               ; preds = %35
   %43 = add i32 %41, -268435456
-  %44 = getelementptr inbounds i8, ptr %5, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %45 = load i8, ptr %37, align 1
   %46 = zext i8 %45 to i32
   %47 = shl i32 %46, 28
@@ -2115,7 +2115,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 .preheader:                                       ; preds = %42, %49
   %.02948 = phi i32 [ %50, %49 ], [ 0, %42 ]
   %.147 = phi ptr [ %51, %49 ], [ %44, %42 ]
-  %51 = getelementptr inbounds i8, ptr %.147, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   %52 = load i8, ptr %.147, align 1
   %.not38 = icmp sgt i8 %52, -1
   br i1 %.not38, label %.loopexit, label %49
@@ -2131,12 +2131,12 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %.pre, %60
   %or.cond = select i1 %58, i1 true, i1 %61
@@ -2144,13 +2144,13 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 ._crit_edge:                                      ; preds = %55
   %62 = sub nsw i32 %.pre, %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i32, ptr %63, align 8
   %65 = icmp slt i32 %62, %64
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds i8, ptr %0, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %67, align 4
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
@@ -2168,27 +2168,27 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   br label %87
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %75 = load i32, ptr %74, align 4
   %76 = sub nsw i32 %73, %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i32, ptr %77, align 8
   %.not.i = icmp slt i32 %76, %78
   br i1 %.not.i, label %85, label %79
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, %78
-  %83 = getelementptr inbounds i8, ptr %0, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %84 = zext i1 %82 to i8
   store i8 %84, ptr %83, align 4
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
 85:                                               ; preds = %71
-  %86 = getelementptr inbounds i8, ptr %0, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %86, align 4
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
@@ -2205,7 +2205,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread.i: ; preds = %91
   %94 = zext nneg i8 %92 to i64
-  %95 = getelementptr inbounds i8, ptr %89, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store ptr %95, ptr %0, align 8
   br label %100
 
@@ -2228,7 +2228,7 @@ _ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit: ; preds = %49, %10
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint64SlowEPm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %10, %2
@@ -2254,7 +2254,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint6
   %14 = mul nuw nsw i64 %indvars.iv, 7
   %15 = shl i64 %13, %14
   %16 = or i64 %15, %.012
-  %17 = getelementptr inbounds i8, ptr %5, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %17, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp sgt i8 %11, -1
@@ -2272,10 +2272,10 @@ define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr n
   br i1 %1, label %3, label %11
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %10 = zext i1 %9 to i8
@@ -2283,7 +2283,7 @@ define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr n
 
 11:                                               ; preds = %3, %2
   %12 = phi i8 [ 0, %2 ], [ %10, %3 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 57
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 %12, ptr %13, align 1
   ret void
 }
@@ -2294,15 +2294,15 @@ define noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(pt
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %9 = select i1 %.not, i64 16, i64 0
   %10 = add nsw i64 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %sext = shl i64 %10, 32
@@ -2315,12 +2315,12 @@ define noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(pt
 define noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = ptrtoint ptr %7 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 11:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit, %2
@@ -2357,7 +2357,7 @@ define noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh(ptr nou
 25:                                               ; preds = %32, %23
   %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %4, ptr noundef nonnull %3)
   br i1 %30, label %32, label %31
@@ -2381,7 +2381,7 @@ define noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh(ptr nou
 39:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %33, ptr noundef nonnull align 1 dereferenceable(16) %38, i64 16, i1 false)
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr inbounds i8, ptr %33, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
   store ptr %42, ptr %0, align 8
   store ptr null, ptr %5, align 8
@@ -2418,7 +2418,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit: ; preds = %22, %31, %39
   br label %61
 
 56:                                               ; preds = %11
-  %57 = getelementptr inbounds i8, ptr %13, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %.011 to i64
   %60 = sub i64 %58, %59
@@ -2439,17 +2439,17 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit: ; preds = %22, %31, %39
 define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %69, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %8
@@ -2486,7 +2486,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noun
 28:                                               ; preds = %35, %26
   %29 = load ptr, ptr %10, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %4, ptr noundef nonnull %3)
   br i1 %33, label %35, label %34
@@ -2510,7 +2510,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noun
 42:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %36, ptr noundef nonnull align 1 dereferenceable(16) %41, i64 16, i1 false)
   %43 = zext nneg i32 %37 to i64
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -16
   store ptr %45, ptr %0, align 8
   store ptr null, ptr %9, align 8
@@ -2547,7 +2547,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %46, %42, %
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
 
 59:                                               ; preds = %14
-  %60 = getelementptr inbounds i8, ptr %16, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %.011.i to i64
   %63 = sub i64 %61, %62
@@ -2563,7 +2563,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %.critedge.
 64:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   %65 = load ptr, ptr %10, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %65, i32 noundef %.0.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
@@ -2582,21 +2582,21 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
 define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %78
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %11, align 8
   %.not.i36 = icmp eq ptr %16, null
   br i1 %.not.i36, label %._crit_edge, label %.lr.ph
@@ -2639,7 +2639,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBu
 33:                                               ; preds = %40, %31
   %34 = load ptr, ptr %12, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %4, ptr noundef nonnull %3)
   br i1 %38, label %40, label %39
@@ -2663,7 +2663,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBu
 47:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %46, i64 16, i1 false)
   %48 = zext nneg i32 %42 to i64
-  %49 = getelementptr inbounds i8, ptr %41, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   store ptr %50, ptr %0, align 8
   store ptr null, ptr %11, align 8
@@ -2701,7 +2701,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %51, %47, %
   %.pre17.lcssa = phi i8 [ %6, %10 ], [ %54, %17 ]
   %.011.i.lcssa = phi ptr [ %1, %10 ], [ %19, %17 ]
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %.011.i.lcssa to i64
   %66 = sub i64 %64, %65
@@ -2724,7 +2724,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %71 = load ptr, ptr %11, align 8
   %72 = icmp sgt i32 %.010.i, 16
   %73 = zext nneg i32 %.010.i to i64
-  %74 = getelementptr inbounds i8, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
   %76 = sext i32 %.010.i to i64
   %77 = getelementptr inbounds i8, ptr %13, i64 %76
@@ -2750,22 +2750,22 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4SkipEiPPh
   br i1 %8, label %100, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.sink.split
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %17, align 8
   %.not.i59 = icmp eq ptr %22, null
   br i1 %.not.i59, label %._crit_edge, label %.lr.ph
@@ -2808,7 +2808,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4SkipEiPPh
 39:                                               ; preds = %46, %37
   %40 = load ptr, ptr %18, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %5, ptr noundef nonnull %4)
   br i1 %44, label %46, label %45
@@ -2832,7 +2832,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4SkipEiPPh
 53:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %47, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
   %54 = zext nneg i32 %48 to i64
-  %55 = getelementptr inbounds i8, ptr %47, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   store ptr %56, ptr %0, align 8
   store ptr null, ptr %17, align 8
@@ -2870,7 +2870,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %57, %53, %
   %.pre34.lcssa = phi i8 [ %11, %15 ], [ %60, %23 ]
   %.011.i.lcssa = phi ptr [ %16, %15 ], [ %25, %23 ]
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %.011.i.lcssa to i64
   %72 = sub i64 %70, %71
@@ -2905,7 +2905,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %82 = sub nsw i32 %.011, %79
   %83 = load ptr, ptr %18, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %7, ptr noundef nonnull %6)
   br i1 %87, label %78, label %88, !llvm.loop !21
@@ -2922,7 +2922,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %93 = sub nsw i32 %79, %.011
   %94 = icmp sgt i32 %93, 16
   %95 = zext nneg i32 %93 to i64
-  %96 = getelementptr inbounds i8, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -16
   %98 = sext i32 %93 to i64
   %99 = getelementptr inbounds i8, ptr %19, i64 %98
@@ -2948,22 +2948,22 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
 define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream22GetDirectBufferPointerEPPvPiPPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %92
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %12
@@ -3000,7 +3000,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream22GetDirec
 33:                                               ; preds = %40, %31
   %34 = load ptr, ptr %15, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %38, label %40, label %39
@@ -3024,7 +3024,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream22GetDirec
 47:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %46, i64 16, i1 false)
   %48 = zext nneg i32 %42 to i64
-  %49 = getelementptr inbounds i8, ptr %41, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   store ptr %50, ptr %0, align 8
   store ptr null, ptr %14, align 8
@@ -3061,7 +3061,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %51, %47, %
   br label %69
 
 64:                                               ; preds = %19
-  %65 = getelementptr inbounds i8, ptr %21, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %.011.i to i64
   %68 = sub i64 %66, %67
@@ -3093,7 +3093,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
 77:                                               ; preds = %74
   %78 = load ptr, ptr %15, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br i1 %82, label %74, label %83, !llvm.loop !22
@@ -3107,7 +3107,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %85 = load ptr, ptr %1, align 8
   %86 = icmp sgt i32 %75, 16
   %87 = zext nneg i32 %75 to i64
-  %88 = getelementptr inbounds i8, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
   %89 = getelementptr inbounds i8, ptr %88, i64 -16
   %90 = sext i32 %75 to i64
   %91 = getelementptr inbounds i8, ptr %16, i64 %90
@@ -3129,22 +3129,22 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
 define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBufferForNBytesAndAdvanceEiPPh(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %91
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = ptrtoint ptr %15 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %13, align 8
   %.not.i51 = icmp eq ptr %18, null
   br i1 %.not.i51, label %._crit_edge, label %.lr.ph
@@ -3187,7 +3187,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBuffer
 35:                                               ; preds = %42, %33
   %36 = load ptr, ptr %14, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %5, ptr noundef nonnull %4)
   br i1 %40, label %42, label %41
@@ -3211,7 +3211,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirectBuffer
 49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %43, ptr noundef nonnull align 1 dereferenceable(16) %48, i64 16, i1 false)
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr inbounds i8, ptr %43, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -16
   store ptr %52, ptr %0, align 8
   store ptr null, ptr %13, align 8
@@ -3249,7 +3249,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %53, %49, %
   %.pre32.lcssa = phi i8 [ %7, %11 ], [ %56, %19 ]
   %.011.i.lcssa = phi ptr [ %12, %11 ], [ %21, %19 ]
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %.011.i.lcssa to i64
   %68 = sub i64 %66, %67
@@ -3279,7 +3279,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
   %77 = sub nsw i32 %.010.i, %1
   %78 = icmp sgt i32 %77, 16
   %79 = zext nneg i32 %77 to i64
-  %80 = getelementptr inbounds i8, ptr %76, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -16
   %82 = sext i32 %77 to i64
   %83 = getelementptr inbounds i8, ptr %15, i64 %82
@@ -3293,7 +3293,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
 84:                                               ; preds = %72
   %85 = icmp sgt i32 %.010.i, 16
   %86 = zext nneg i32 %.010.i to i64
-  %87 = getelementptr inbounds i8, ptr %73, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %73, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
   %89 = sext i32 %.010.i to i64
   %90 = getelementptr inbounds i8, ptr %15, i64 %89
@@ -3315,12 +3315,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %_ZN6google
 define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 11:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit, %2
@@ -3358,7 +3358,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFall
 26:                                               ; preds = %33, %24
   %27 = load ptr, ptr %6, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %4, ptr noundef nonnull %3)
   br i1 %31, label %33, label %32
@@ -3382,7 +3382,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFall
 40:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %34, ptr noundef nonnull align 1 dereferenceable(16) %39, i64 16, i1 false)
   %41 = zext nneg i32 %35 to i64
-  %42 = getelementptr inbounds i8, ptr %34, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -16
   store ptr %43, ptr %0, align 8
   store ptr null, ptr %7, align 8
@@ -3423,7 +3423,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbac
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %3 to i64
   %11 = sub i64 %9, %10
@@ -3432,12 +3432,12 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbac
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit
@@ -3490,7 +3490,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbac
 38:                                               ; preds = %45, %36
   %39 = load ptr, ptr %14, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %43, label %45, label %44
@@ -3514,7 +3514,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbac
 52:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) %51, i64 16, i1 false)
   %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds i8, ptr %46, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -16
   store ptr %55, ptr %0, align 8
   store ptr null, ptr %15, align 8
@@ -3553,7 +3553,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit: ; pred
   %.pre-phi = phi i64 [ %.pre34, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge ], [ %17, %24 ]
   %63 = phi ptr [ %60, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge ], [ %.pre, %24 ]
   %.0.i = phi ptr [ %62, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge ], [ %16, %24 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %65, %.pre-phi
   %.0 = trunc i64 %66 to i32
@@ -3574,7 +3574,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit: ; pred
 define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %3 to i64
   %10 = sub i64 %8, %9
@@ -3587,19 +3587,19 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRaw
 
 14:                                               ; preds = %4
   %15 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %3)
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %1, i32 noundef %2)
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %25, ptr %0, align 8
   br label %26
 
@@ -3621,7 +3621,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Wri
   br i1 %12, label %13, label %74
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %9
   %.022.i = trunc i64 %16 to i32
@@ -3629,12 +3629,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Wri
   br i1 %17, label %.lr.ph.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh.exit
 
 .lr.ph.i:                                         ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 24:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit.i, %.lr.ph.i
@@ -3687,7 +3687,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Wri
 43:                                               ; preds = %50, %41
   %44 = load ptr, ptr %19, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %48, label %50, label %49
@@ -3711,7 +3711,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8Wri
 57:                                               ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %51, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
   %58 = zext nneg i32 %52 to i64
-  %59 = getelementptr inbounds i8, ptr %51, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -16
   store ptr %60, ptr %0, align 8
   store ptr null, ptr %20, align 8
@@ -3750,7 +3750,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit.i: ; pr
   %.pre-phi.i = phi i64 [ %.pre34.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge.i ], [ %22, %29 ]
   %68 = phi ptr [ %65, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge.i ], [ %.pre.i, %29 ]
   %.0.i.i = phi ptr [ %67, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i._ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh.exit_crit_edge.i ], [ %21, %29 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %70, %.pre-phi.i
   %.0.i = trunc i64 %71 to i32
@@ -3788,12 +3788,12 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMayb
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %8
@@ -3831,7 +3831,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMayb
 30:                                               ; preds = %37, %28
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %35, label %37, label %36
@@ -3855,7 +3855,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMayb
 44:                                               ; preds = %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %43, i64 16, i1 false)
   %45 = zext nneg i32 %39 to i64
-  %46 = getelementptr inbounds i8, ptr %38, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -16
   store ptr %47, ptr %0, align 8
   store ptr null, ptr %11, align 8
@@ -3898,7 +3898,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
 60:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %61 = or disjoint i8 %59, 2
   store i8 %61, ptr %.0.i, align 1
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %82
 
 63:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -3910,13 +3910,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
 
 67:                                               ; preds = %63
   %68 = trunc nuw nsw i32 %65 to i8
-  %69 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %82
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %73
 
 73:                                               ; preds = %73, %71
@@ -3926,13 +3926,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %75 = or i8 %74, -128
   store i8 %75, ptr %.046, align 1
   %76 = lshr i32 %.045, 7
-  %77 = getelementptr inbounds i8, ptr %.046, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %78 = icmp samesign ugt i32 %.045, 16383
   br i1 %78, label %73, label %79, !llvm.loop !25
 
 79:                                               ; preds = %73
   %80 = trunc nuw nsw i32 %76 to i8
-  %81 = getelementptr inbounds i8, ptr %.046, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.046, i64 2
   store i8 %80, ptr %77, align 1
   br label %82
 
@@ -3948,7 +3948,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %85 = or i8 %84, -128
   store i8 %85, ptr %.04857, align 1
   %86 = lshr i32 %.04758, 7
-  %87 = getelementptr inbounds i8, ptr %.04857, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.04857, i64 1
   %88 = icmp ugt i32 %.04758, 16383
   br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
@@ -3956,10 +3956,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %.048.lcssa = phi ptr [ %.0, %82 ], [ %87, %.lr.ph ]
   %.047.lcssa = phi i32 [ %56, %82 ], [ %86, %.lr.ph ]
   %89 = trunc nuw nsw i32 %.047.lcssa to i8
-  %90 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.048.lcssa, i64 1
   store i8 %89, ptr %.048.lcssa, align 1
   %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  %92 = getelementptr inbounds i8, ptr %0, i64 57
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %117
@@ -3968,7 +3968,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %sext = shl i64 %55, 32
   %96 = ashr exact i64 %sext, 32
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = ptrtoint ptr %98 to i64
   %100 = ptrtoint ptr %90 to i64
   %101 = sub i64 %99, %100
@@ -3981,19 +3981,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
 
 105:                                              ; preds = %95
   %106 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef nonnull %90)
-  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef %91, i32 noundef %56)
   br i1 %112, label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit, label %113
 
 113:                                              ; preds = %105
-  %114 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 16
-  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %116, ptr %0, align 8
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream20WriteRawMaybeAliasedEPKviPh.exit
 
@@ -4021,12 +4021,12 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutl
   br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %8
@@ -4064,7 +4064,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutl
 30:                                               ; preds = %37, %28
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %35, label %37, label %36
@@ -4088,7 +4088,7 @@ define noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutl
 44:                                               ; preds = %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %43, i64 16, i1 false)
   %45 = zext nneg i32 %39 to i64
-  %46 = getelementptr inbounds i8, ptr %38, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -16
   store ptr %47, ptr %0, align 8
   store ptr null, ptr %11, align 8
@@ -4131,7 +4131,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
 60:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %61 = or disjoint i8 %59, 2
   store i8 %61, ptr %.0.i, align 1
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %82
 
 63:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -4143,13 +4143,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
 
 67:                                               ; preds = %63
   %68 = trunc nuw nsw i32 %65 to i8
-  %69 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %82
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %73
 
 73:                                               ; preds = %73, %71
@@ -4159,13 +4159,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %75 = or i8 %74, -128
   store i8 %75, ptr %.046, align 1
   %76 = lshr i32 %.045, 7
-  %77 = getelementptr inbounds i8, ptr %.046, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %78 = icmp samesign ugt i32 %.045, 16383
   br i1 %78, label %73, label %79, !llvm.loop !25
 
 79:                                               ; preds = %73
   %80 = trunc nuw nsw i32 %76 to i8
-  %81 = getelementptr inbounds i8, ptr %.046, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.046, i64 2
   store i8 %80, ptr %77, align 1
   br label %82
 
@@ -4181,7 +4181,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %85 = or i8 %84, -128
   store i8 %85, ptr %.04856, align 1
   %86 = lshr i32 %.04757, 7
-  %87 = getelementptr inbounds i8, ptr %.04856, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.04856, i64 1
   %88 = icmp ugt i32 %.04757, 16383
   br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
@@ -4189,7 +4189,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %15,
   %.048.lcssa = phi ptr [ %.0, %82 ], [ %87, %.lr.ph ]
   %.047.lcssa = phi i32 [ %56, %82 ], [ %86, %.lr.ph ]
   %89 = trunc nuw nsw i32 %.047.lcssa to i8
-  %90 = getelementptr inbounds i8, ptr %.048.lcssa, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.048.lcssa, i64 1
   store i8 %89, ptr %.048.lcssa, align 1
   %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %92 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %91, i32 noundef %56, ptr noundef nonnull %90)
@@ -4201,24 +4201,24 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputSt
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = and i8 %6, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 57
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 58
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 %8, ptr %14, align 2
   store ptr %9, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
   store i64 %19, ptr %15, align 8
@@ -4226,7 +4226,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputSt
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %25 = load i32, ptr %5, align 4
@@ -4238,7 +4238,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputSt
   %28 = load ptr, ptr %4, align 8
   %29 = icmp sgt i32 %25, 16
   %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr inbounds i8, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %33 = sext i32 %25 to i64
   %34 = getelementptr inbounds i8, ptr %9, i64 %33
@@ -4256,7 +4256,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %3)
           to label %5 unwind label %6
@@ -4283,7 +4283,7 @@ define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStri
 
 7:                                                ; preds = %2
   store i8 %6, ptr %1, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 
 9:                                                ; preds = %2
@@ -4295,13 +4295,13 @@ define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStri
 
 13:                                               ; preds = %9
   %14 = trunc nuw nsw i32 %11 to i8
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %14, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %19
 
 19:                                               ; preds = %19, %17
@@ -4311,13 +4311,13 @@ define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStri
   %21 = or i8 %20, -128
   store i8 %21, ptr %.023.i, align 1
   %22 = lshr i32 %.022.i, 7
-  %23 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %24 = icmp samesign ugt i32 %.022.i, 16383
   br i1 %24, label %19, label %25, !llvm.loop !25
 
 25:                                               ; preds = %19
   %26 = trunc nuw nsw i32 %22 to i8
-  %27 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   store i8 %26, ptr %23, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 

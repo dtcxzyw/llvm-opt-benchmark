@@ -166,8 +166,8 @@ select.unfold:                                    ; preds = %74, %44, %47, %50, 
 108:                                              ; preds = %81
   %109 = add i32 %97, -1
   %110 = getelementptr i8, ptr %38, i64 8
-  %111 = getelementptr inbounds i8, ptr %27, i64 16
-  %112 = getelementptr inbounds i8, ptr %27, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %113 = sext i32 %31 to i64
   %114 = sext i32 %35 to i64
   %115 = icmp slt i32 %102, 1
@@ -1699,7 +1699,7 @@ thread-pre-split:                                 ; preds = %201, %218
   %reass.sub102 = sub i32 %1088, %1089
   %1090 = add i32 %reass.sub102, 1
   store i32 %1090, ptr %19, align 4, !tbaa !3
-  %1091 = getelementptr inbounds double, ptr %29, i64 %1087
+  %1091 = getelementptr inbounds nuw double, ptr %29, i64 %1087
   %1092 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %1091, ptr noundef nonnull @c__1) #6
   %1093 = add i32 %1089, -1
   %1094 = add i32 %1093, %1092
@@ -1714,7 +1714,7 @@ thread-pre-split:                                 ; preds = %201, %218
   %1101 = load double, ptr %1100, align 8, !tbaa !7
   store double %1101, ptr %1091, align 8, !tbaa !7
   store double %1098, ptr %1100, align 8, !tbaa !7
-  %1102 = getelementptr inbounds double, ptr %30, i64 %1087
+  %1102 = getelementptr inbounds nuw double, ptr %30, i64 %1087
   %1103 = load double, ptr %1102, align 8, !tbaa !7
   store double %1103, ptr %25, align 8, !tbaa !7
   %1104 = getelementptr inbounds double, ptr %30, i64 %1099
@@ -1747,7 +1747,7 @@ thread-pre-split:                                 ; preds = %201, %218
   %reass.sub101 = sub i32 %1120, %1121
   %1122 = add i32 %reass.sub101, 1
   store i32 %1122, ptr %19, align 4, !tbaa !3
-  %1123 = getelementptr inbounds double, ptr %29, i64 %1119
+  %1123 = getelementptr inbounds nuw double, ptr %29, i64 %1119
   %1124 = call i32 @idamax_(ptr noundef nonnull %19, ptr noundef nonnull %1123, ptr noundef nonnull @c__1) #6
   %1125 = add i32 %1121, -1
   %1126 = add i32 %1125, %1124
@@ -1762,7 +1762,7 @@ thread-pre-split:                                 ; preds = %201, %218
   %1133 = load double, ptr %1132, align 8, !tbaa !7
   store double %1133, ptr %1123, align 8, !tbaa !7
   store double %1130, ptr %1132, align 8, !tbaa !7
-  %1134 = getelementptr inbounds double, ptr %30, i64 %1119
+  %1134 = getelementptr inbounds nuw double, ptr %30, i64 %1119
   %1135 = load double, ptr %1134, align 8, !tbaa !7
   store double %1135, ptr %25, align 8, !tbaa !7
   %1136 = getelementptr inbounds double, ptr %30, i64 %1131

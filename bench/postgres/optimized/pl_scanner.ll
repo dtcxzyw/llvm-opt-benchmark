@@ -192,7 +192,7 @@ push_back_token.exit45:                           ; preds = %push_back_token.exi
   store i32 %75, ptr @num_pushbacks, align 4
   %76 = load ptr, ptr %1, align 8
   %77 = load ptr, ptr @core_yy, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = sext i32 %79 to i64
   %81 = getelementptr i8, ptr %77, i64 %80
@@ -200,7 +200,7 @@ push_back_token.exit45:                           ; preds = %push_back_token.exi
   br i1 %82, label %138, label %83
 
 83:                                               ; preds = %push_back_token.exit45
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load i8, ptr %84, align 8
   %86 = trunc i8 %85 to i1
   br i1 %86, label %138, label %87
@@ -245,7 +245,7 @@ push_back_token.exit46:                           ; preds = %100
   store i32 %109, ptr @num_pushbacks, align 4
   %110 = load ptr, ptr %1, align 8
   %111 = load ptr, ptr @core_yy, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %113 = load i32, ptr %112, align 8
   %114 = sext i32 %113 to i64
   %115 = getelementptr i8, ptr %111, i64 %114
@@ -274,7 +274,7 @@ switch.edge:                                      ; preds = %117, %117, %117, %p
   br i1 %120, label %138, label %121
 
 121:                                              ; preds = %switch.edge
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load i8, ptr %122, align 8
   %124 = trunc i8 %123 to i1
   br i1 %124, label %138, label %125
@@ -300,10 +300,10 @@ switch.edge:                                      ; preds = %117, %117, %117, %p
 138:                                              ; preds = %121, %125, %switch.edge, %83, %87, %push_back_token.exit45, %push_back_token.exit43, %push_back_token.exit42, %19, %0, %91, %129
   %.0 = phi i32 [ %99, %91 ], [ %137, %129 ], [ %6, %0 ], [ %., %19 ], [ %.40, %push_back_token.exit42 ], [ %.41, %push_back_token.exit43 ], [ 277, %push_back_token.exit45 ], [ 275, %87 ], [ 275, %83 ], [ 277, %switch.edge ], [ 275, %125 ], [ 275, %121 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @plpgsql_yylval, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %139 = getelementptr inbounds i8, ptr %1, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %140 = load i32, ptr %139, align 8
   store i32 %140, ptr @plpgsql_yylloc, align 4
-  %141 = getelementptr inbounds i8, ptr %1, i64 36
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %142 = load i32, ptr %141, align 4
   store i32 %142, ptr @plpgsql_yyleng, align 4
   store i32 %.0, ptr @plpgsql_yytoken, align 4
@@ -327,7 +327,7 @@ define internal fastcc i32 @internal_yylex(ptr noundef nonnull %0) unnamed_addr 
   br label %.tail20
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr @yyscanner, align 8
   %13 = tail call i32 @core_yylex(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %12) #11
   %14 = load ptr, ptr @core_yy, align 8
@@ -336,7 +336,7 @@ define internal fastcc i32 @internal_yylex(ptr noundef nonnull %0) unnamed_addr 
   %17 = getelementptr i8, ptr %14, i64 %16
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %19, ptr %20, align 4
   switch i32 %13, label %.tail20 [
     i32 265, label %sub_0
@@ -353,25 +353,25 @@ sub_0:                                            ; preds = %10
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %23 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %24 = load i8, ptr %23, align 1
   %.not24 = icmp eq i8 %24, 60
   br i1 %.not24, label %.tail, label %sub_021.thread32
 
 .tail:                                            ; preds = %sub_1
-  %25 = getelementptr inbounds i8, ptr %21, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.tail20, label %sub_021.thread32
 
 sub_117:                                          ; preds = %sub_0
-  %28 = getelementptr inbounds i8, ptr %21, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %29 = load i8, ptr %28, align 1
   %.not26 = icmp eq i8 %29, 62
   br i1 %.not26, label %.tail15, label %sub_021.thread32
 
 .tail15:                                          ; preds = %sub_117
-  %30 = getelementptr inbounds i8, ptr %21, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   %spec.select = select i1 %32, i32 279, i32 265
@@ -381,7 +381,7 @@ sub_021.thread32:                                 ; preds = %sub_117, %sub_1, %.
   br label %.tail20
 
 sub_122:                                          ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %21, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   %36 = select i1 %35, i32 35, i32 265
@@ -429,9 +429,9 @@ push_back_token.exit:                             ; preds = %1
   store i32 %0, ptr %10, align 4
   %11 = getelementptr [4 x %struct.TokenAuxData], ptr @pushback_auxdata, i64 0, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) @plpgsql_yylval, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %8, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 36
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 %7, ptr %.sroa.3.0..sroa_idx, align 4
   %12 = add nsw i32 %2, 1
   store i32 %12, ptr @num_pushbacks, align 4
@@ -506,7 +506,7 @@ define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly initializes((0
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %2, align 4
   br label %12
@@ -517,7 +517,7 @@ define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly initializes((0
   br i1 %.not10, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %3, align 4
   br label %16

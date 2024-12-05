@@ -26,19 +26,19 @@ define dso_local noundef i32 @main() local_unnamed_addr #0 {
   %3 = call ptr @jpeg_std_error(ptr noundef nonnull %2) #7
   store ptr %3, ptr %1, align 8
   store ptr @my_error_exit, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @my_output_message, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %6 = call i32 @_setjmp(ptr noundef nonnull %5) #8
   %.not.not = icmp eq i32 %6, 0
   br i1 %.not.not, label %7, label %.critedge
 
 7:                                                ; preds = %0
   call void @jpeg_CreateCompress(ptr noundef nonnull %1, i32 noundef 62, i64 noundef 520) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 3, ptr %8, align 8
   call void @jpeg_set_defaults(ptr noundef nonnull %1) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 6, ptr %9, align 4
   call void @jpeg_default_colorspace(ptr noundef nonnull %1) #7
   %puts5 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -56,7 +56,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #0 {
   br i1 %.not.not9, label %13, label %.critedge12
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 12, ptr %14, align 4
   call void @jpeg_default_colorspace(ptr noundef nonnull %1) #7
   %puts10 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -79,10 +79,10 @@ declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0) #7
-  %5 = getelementptr inbounds i8, ptr %2, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #9
   unreachable
 }
@@ -90,7 +90,7 @@ define internal void @my_error_exit(ptr noundef %0) #3 {
 ; Function Attrs: nounwind uwtable
 define internal void @my_output_message(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef nonnull @lasterror) #7
   ret void

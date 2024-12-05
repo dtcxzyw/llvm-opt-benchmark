@@ -227,7 +227,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store ptr null, ptr %28, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
-  %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   switch i32 %2, label %33 [
     i32 1, label %34
     i32 2, label %30
@@ -313,7 +313,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %68, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %70, ptr %67, align 8
   %71 = add i64 %62, -1
   store i64 %71, ptr %1, align 8
@@ -337,7 +337,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_22SpecialTableSymbolNodeEJEEEPT_
 
 79:                                               ; preds = %75
   %80 = load i8, ptr %70, align 1
-  %81 = getelementptr inbounds i8, ptr %68, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 2
   store ptr %81, ptr %67, align 8
   %82 = add i64 %62, -2
   store i64 %82, ptr %1, align 8
@@ -358,7 +358,7 @@ switch.hole_check:                                ; preds = %79
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %86 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %86
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -376,7 +376,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %89, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %90 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %90, ptr %67, align 8
   %91 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %91, ptr %1, align 8
@@ -402,7 +402,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %101, ptr %67, align 8
   %102 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %102, ptr %1, align 8
@@ -493,10 +493,10 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScope
 
 _ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit: ; preds = %19, %21
   %.sink.i = phi ptr [ %23, %21 ], [ %20, %19 ]
-  %27 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %.sink.i, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %29
 
@@ -575,7 +575,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit21: ; pre
   br label %29, !llvm.loop !4
 
 65:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %66, ptr %.sroa.22.0..sroa_idx.i, align 8
   %67 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %67, ptr %1, align 8
@@ -646,7 +646,7 @@ define dso_local range(i16 0, 260) i16 @_ZN4llvm11ms_demangle9Demangler18demangl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %11, ptr %8, align 8
   %12 = add i64 %3, -1
   store i64 %12, ptr %1, align 8
@@ -667,7 +667,7 @@ switch.hole_check:                                ; preds = %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i16], ptr @switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [20 x i16], ptr @switch.table._ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %16
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %17
 
@@ -679,7 +679,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = icmp eq i64 %.sroa.01.0.copyload.i, 0
   br i1 %3, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -705,7 +705,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %14, ptr %.sroa.22.0..sroa_idx.i, align 8
   %15 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %15, ptr %1, align 8
@@ -848,7 +848,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_28LocalStaticGuardVariableNodeEJ
   store i8 0, ptr %57, align 8
   store ptr %32, ptr %56, align 8
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %58 = icmp ult i64 %.sroa.01.0.copyload.i, 3
   br i1 %58, label %60, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -876,7 +876,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20: ; preds = %_ZNSt11char_tra
   %.sink39 = phi i64 [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20 ]
   %.sink = phi i64 [ -3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20 ]
   %storemerge = phi i8 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i20 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 %.sink39
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 %.sink39
   store ptr %66, ptr %.sroa.22.0..sroa_idx.i, align 8
   %67 = add i64 %.sroa.01.0.copyload.i, %.sink
   store i64 %67, ptr %1, align 8
@@ -892,7 +892,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %71, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
-  %72 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
   store ptr %72, ptr %.sroa.22.0..sroa_idx.i, align 8
   %73 = add i64 %68, -1
   store i64 %73, ptr %1, align 8
@@ -914,7 +914,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 
 77:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %78 = add nsw i32 %76, -47
-  %79 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
   store ptr %79, ptr %.sroa.22.0..sroa_idx.i, align 8
   %80 = add i64 %.sroa.0.0.copyload45.i.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -972,7 +972,7 @@ _ZN4llvm11ms_demangle9Demangler16demangleUnsignedERSt17basic_string_viewIcSt11ch
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #3 {
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %4 = icmp ugt i64 %1, %.sroa.01.0.copyload
   br i1 %4, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread, label %5
@@ -1000,7 +1000,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4llvm11ms_demangle9Demangler16demangleUnsignedERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %3, label %.sink.split, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
@@ -1011,7 +1011,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 1
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %7 = add i64 %.sroa.0.0.copyload.i.i, -1
   store i64 %7, ptr %1, align 8
@@ -1034,7 +1034,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
 11:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %12 = sext i8 %9 to i64
   %13 = add nsw i64 %12, -47
-  %14 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %14, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %15 = add i64 %.sroa.0.0.copyload45.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1131,7 +1131,7 @@ _ZL25synthesizeNamedIdentifierRN4llvm11ms_demangle14ArenaAllocatorESt17basic_str
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 24
   store i64 %3, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sink11.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 32
   store ptr %4, ptr %.sroa.2.0..sroa_idx.i, align 8
   %31 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopeChainERSt17basic_string_viewIcSt11char_traitsIcEEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.sink11.i.i)
   %32 = load ptr, ptr %1, align 8
@@ -1182,7 +1182,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   store ptr null, ptr %57, align 8
   store ptr %31, ptr %55, align 8
   %.sroa.01.0.copyload.i = load i64, ptr %2, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %58 = icmp eq i64 %.sroa.01.0.copyload.i, 0
   br i1 %58, label %62, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -1193,7 +1193,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_dema
   br i1 %59, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %62
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %60 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %60, ptr %.sroa.22.0..sroa_idx.i, align 8
   %61 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %61, ptr %2, align 8
@@ -1257,7 +1257,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_27RttiBaseClassDescriptorNodeEJE
   %28 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %29 = icmp eq i64 %.sroa.0.0.copyload.i.i.i, 0
   br i1 %29, label %.sink.split.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
@@ -1268,7 +1268,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %31, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
-  %32 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
   store ptr %32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %33 = add i64 %.sroa.0.0.copyload.i.i.i, -1
   store i64 %33, ptr %2, align 8
@@ -1290,7 +1290,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 
 37:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %38 = add nsw i32 %36, -47
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
   store ptr %39, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %40 = add i64 %.sroa.0.0.copyload45.i.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -1349,7 +1349,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %58, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i34, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i21
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i34: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i20
-  %59 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i19, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i19, i64 1
   store ptr %59, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %60 = add i64 %.sroa.0.0.copyload.i.i.i17, -1
   store i64 %60, ptr %2, align 8
@@ -1372,7 +1372,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i21: ; pre
 64:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i21
   %65 = sext i8 %62 to i64
   %66 = add nsw i64 %65, -47
-  %67 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i23, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i23, i64 1
   store ptr %67, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %68 = add i64 %.sroa.0.0.copyload45.i.i22, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i31
@@ -1445,7 +1445,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %95, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i57, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i41
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i57: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i40
-  %96 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i39, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i39, i64 1
   store ptr %96, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %97 = add i64 %.sroa.0.0.copyload.i.i.i37, -1
   store i64 %97, ptr %2, align 8
@@ -1467,7 +1467,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i41: ; pre
 
 101:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i41
   %102 = add nsw i32 %100, -47
-  %103 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i43, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i43, i64 1
   store ptr %103, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %104 = add i64 %.sroa.0.0.copyload45.i.i42, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i54
@@ -1527,7 +1527,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %123, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i81, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i65
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i81: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i64
-  %124 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i63, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i63, i64 1
   store ptr %124, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %125 = add i64 %.sroa.0.0.copyload.i.i.i61, -1
   store i64 %125, ptr %2, align 8
@@ -1549,7 +1549,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i65: ; pre
 
 129:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i65
   %130 = add nsw i32 %128, -47
-  %131 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i67, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i67, i64 1
   store ptr %131, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %132 = add i64 %.sroa.0.0.copyload45.i.i66, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i78
@@ -1664,7 +1664,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %182, label %183, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
 
 183:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %184 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %184, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %185 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %185, ptr %2, align 8
@@ -1678,7 +1678,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %3, label %.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
@@ -1689,7 +1689,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 1
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %7 = add i64 %.sroa.0.0.copyload.i.i, -1
   store i64 %7, ptr %1, align 8
@@ -1712,7 +1712,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
 11:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %12 = sext i8 %9 to i64
   %13 = add nsw i64 %12, -47
-  %14 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %14, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %15 = add i64 %.sroa.0.0.copyload45.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1826,7 +1826,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_29DynamicStructorIdentifierNodeE
   %31 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 40
   store i8 %4, ptr %31, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %32 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %32, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -1837,7 +1837,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %34, label %35, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
 
 35:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %36, ptr %.sroa.2.0..sroa_idx.i, align 8
   %37 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %37, ptr %1, align 8
@@ -1905,7 +1905,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   br i1 %switch.i, label %switch.lookup, label %76
 
 switch.lookup:                                    ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %71, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %73, ptr %.sroa.2.0..sroa_idx.i, align 8
   %74 = add i64 %67, -1
   store i64 %74, ptr %1, align 8
@@ -2008,7 +2008,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %145
 
 129:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i32
-  %130 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i313738, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i313738, i64 1
   store ptr %130, ptr %.sroa.2.0..sroa_idx.i, align 8
   %131 = add i64 %124, -1
   store i64 %131, ptr %1, align 8
@@ -2110,7 +2110,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   br i1 %switch.i, label %switch.lookup, label %41
 
 switch.lookup:                                    ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %38, ptr %35, align 8
   %39 = add i64 %31, -1
   store i64 %39, ptr %1, align 8
@@ -2186,7 +2186,7 @@ _ZN4llvm11ms_demangle9Demangler21demangleEncodedSymbolERSt17basic_string_viewIcS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler24demangleFunctionEncodingERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = icmp ult i64 %.sroa.01.0.copyload.i, 4
   br i1 %3, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -2197,7 +2197,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %4, label %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread.thread
 
 5:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 4
   store ptr %6, ptr %.sroa.22.0..sroa_idx.i, align 8
   %7 = add i64 %.sroa.01.0.copyload.i, -4
   store i64 %7, ptr %1, align 8
@@ -2296,7 +2296,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %54, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
   store ptr %55, ptr %.sroa.22.0..sroa_idx.i, align 8
   %56 = add i64 %.sroa.0.0.copyload.i.i.i, -1
   store i64 %56, ptr %1, align 8
@@ -2319,7 +2319,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 60:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %61 = sext i8 %58 to i64
   %62 = add nsw i64 %61, -47
-  %63 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
   store ptr %63, ptr %.sroa.22.0..sroa_idx.i, align 8
   %64 = add i64 %.sroa.0.0.copyload45.i.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -2465,7 +2465,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %128, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i62: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i47
-  %129 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i46, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i46, i64 1
   store ptr %129, ptr %.sroa.22.0..sroa_idx.i, align 8
   %130 = add i64 %.sroa.0.0.copyload.i.i.i44, -1
   store i64 %130, ptr %1, align 8
@@ -2488,7 +2488,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48: ; pre
 134:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i48
   %135 = sext i8 %132 to i64
   %136 = add nsw i64 %135, -47
-  %137 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i50, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i50, i64 1
   store ptr %137, ptr %.sroa.22.0..sroa_idx.i, align 8
   %138 = add i64 %.sroa.0.0.copyload45.i.i49, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i59
@@ -2561,7 +2561,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %165, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i84: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i69
-  %166 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i68, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i68, i64 1
   store ptr %166, ptr %.sroa.22.0..sroa_idx.i, align 8
   %167 = add i64 %.sroa.0.0.copyload.i.i.i66, -1
   store i64 %167, ptr %1, align 8
@@ -2584,7 +2584,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70: ; pre
 171:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i70
   %172 = sext i8 %169 to i64
   %173 = add nsw i64 %172, -47
-  %174 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i72, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i72, i64 1
   store ptr %174, ptr %.sroa.22.0..sroa_idx.i, align 8
   %175 = add i64 %.sroa.0.0.copyload45.i.i71, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i81
@@ -2660,7 +2660,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %203, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i106: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i91
-  %204 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i90, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i90, i64 1
   store ptr %204, ptr %.sroa.22.0..sroa_idx.i, align 8
   %205 = add i64 %.sroa.0.0.copyload.i.i.i88, -1
   store i64 %205, ptr %1, align 8
@@ -2683,7 +2683,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92: ; pre
 209:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i92
   %210 = sext i8 %207 to i64
   %211 = add nsw i64 %210, -47
-  %212 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i94, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i94, i64 1
   store ptr %212, ptr %.sroa.22.0..sroa_idx.i, align 8
   %213 = add i64 %.sroa.0.0.copyload45.i.i93, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i103
@@ -2756,7 +2756,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %240, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i128: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i113
-  %241 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i112, i64 1
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i112, i64 1
   store ptr %241, ptr %.sroa.22.0..sroa_idx.i, align 8
   %242 = add i64 %.sroa.0.0.copyload.i.i.i110, -1
   store i64 %242, ptr %1, align 8
@@ -2779,7 +2779,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114: ; pr
 246:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i114
   %247 = sext i8 %244 to i64
   %248 = add nsw i64 %247, -47
-  %249 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i116, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i116, i64 1
   store ptr %249, ptr %.sroa.22.0..sroa_idx.i, align 8
   %250 = add i64 %.sroa.0.0.copyload45.i.i115, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i125
@@ -3142,7 +3142,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler24demangleSpecialIntrinsicERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %3 = icmp ult i64 %.sroa.01.0.copyload.i.i, 3
   br i1 %3, label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -3235,7 +3235,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i: ; preds = %_ZNSt11char_t
   br i1 %28, label %44, label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 29:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %30, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %31 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %31, ptr %1, align 8
@@ -3246,7 +3246,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
   %.sink191 = phi i64 [ 4, %.thread138 ], [ 3, %.thread ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i19.i ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
   %.sink190 = phi i64 [ -4, %.thread138 ], [ -3, %.thread ], [ -3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i19.i ], [ -3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
   %.0.i.ph = phi i32 [ 15, %.thread138 ], [ 16, %.thread ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i19.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 %.sink191
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 %.sink191
   store ptr %33, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %34 = add i64 %.sroa.01.0.copyload.i.i, %.sink190
   store i64 %34, ptr %1, align 8
@@ -3254,7 +3254,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 36:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i27.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %37, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %38 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %38, ptr %1, align 8
@@ -3262,7 +3262,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 40:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i43.i
-  %41 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %41, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %42 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %42, ptr %1, align 8
@@ -3270,7 +3270,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 44:                                               ; preds = %27
-  %45 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %45, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %46 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %46, ptr %1, align 8
@@ -3278,7 +3278,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 48:                                               ; preds = %12
-  %49 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %49, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %50 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %50, ptr %1, align 8
@@ -3300,7 +3300,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %55
   br i1 %57, label %58, label %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread105
 
 58:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %59, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %60 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %60, ptr %1, align 8
@@ -3313,7 +3313,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %55
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 65:                                               ; preds = %16
-  %66 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %66, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %67 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %67, ptr %1, align 8
@@ -3363,7 +3363,7 @@ _ZL25synthesizeNamedIdentifierRN4llvm11ms_demangle14ArenaAllocatorESt17basic_str
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i.i, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 24
   store i64 23, ptr %93, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sink11.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 32
   store ptr @.str.9, ptr %.sroa.2.0..sroa_idx.i, align 8
   %94 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopeChainERSt17basic_string_viewIcSt11char_traitsIcEEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.sink11.i.i)
   %95 = load ptr, ptr %68, align 8
@@ -3424,7 +3424,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i64: ; preds = %_ZN4llvm11ms_de
   br i1 %122, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit68, label %125
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit68: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i64
-  %123 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i63, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i63, i64 1
   store ptr %123, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %124 = add i64 %.sroa.01.0.copyload.i61, -1
   store i64 %124, ptr %1, align 8
@@ -3436,7 +3436,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit68: ; preds 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 127:                                              ; preds = %18
-  %128 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %128, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %129 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %129, ptr %1, align 8
@@ -3486,7 +3486,7 @@ _ZL25synthesizeNamedIdentifierRN4llvm11ms_demangle14ArenaAllocatorESt17basic_str
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i.i84, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.sink11.i.i84, i64 24
   store i64 33, ptr %155, align 8
-  %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds i8, ptr %.sink11.i.i84, i64 32
+  %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %.sink11.i.i84, i64 32
   store ptr @.str.10, ptr %.sroa.2.0..sroa_idx.i85, align 8
   %156 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopeChainERSt17basic_string_viewIcSt11char_traitsIcEEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.sink11.i.i84)
   %157 = load ptr, ptr %130, align 8
@@ -3547,7 +3547,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i73: ; preds = %_ZN4llvm11ms_de
   br i1 %184, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit77, label %187
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit77: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i73
-  %185 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i72, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i72, i64 1
   store ptr %185, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %186 = add i64 %.sroa.01.0.copyload.i70, -1
   store i64 %186, ptr %1, align 8
@@ -3559,7 +3559,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit77: ; preds 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 189:                                              ; preds = %14
-  %190 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %190, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %191 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %191, ptr %1, align 8
@@ -3568,7 +3568,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit77: ; preds 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 194:                                              ; preds = %23
-  %195 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %195, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %196 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %196, ptr %1, align 8
@@ -3576,7 +3576,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit77: ; preds 
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 _ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %25
-  %198 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 4
   store ptr %198, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %199 = add i64 %.sroa.01.0.copyload.i.i, -4
   store i64 %199, ptr %1, align 8
@@ -3584,7 +3584,7 @@ _ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit
   br label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
 _ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread105.sink.split: ; preds = %.thread95.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35.i
-  %201 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %201 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %201, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %202 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %202, ptr %1, align 8
@@ -3660,7 +3660,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_24EncodedStringLiteralNodeEJEEEP
   store i32 0, ptr %34, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 0, i64 17, i1 false)
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %35 = icmp ult i64 %.sroa.01.0.copyload.i, 2
   br i1 %35, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -3671,7 +3671,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_dema
   br i1 %36, label %37, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
 
 37:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %38 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %38, ptr %.sroa.22.0..sroa_idx.i, align 8
   %39 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %39, ptr %1, align 8
@@ -3680,7 +3680,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_dema
 
 41:                                               ; preds = %37
   %42 = load i8, ptr %38, align 1
-  %43 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 3
   store ptr %43, ptr %.sroa.22.0..sroa_idx.i, align 8
   %44 = add i64 %.sroa.01.0.copyload.i, -3
   store i64 %44, ptr %1, align 8
@@ -3703,7 +3703,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %49, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 4
   store ptr %50, ptr %.sroa.22.0..sroa_idx.i, align 8
   %51 = add i64 %.sroa.01.0.copyload.i, -4
   store i64 %51, ptr %1, align 8
@@ -3726,7 +3726,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
 55:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %56 = sext i8 %53 to i64
   %57 = add nsw i64 %56, -47
-  %58 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %58, ptr %.sroa.22.0..sroa_idx.i, align 8
   %59 = add i64 %.sroa.0.0.copyload45.i, -1
   store i64 %59, ptr %1, align 8
@@ -3837,7 +3837,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %104, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %107
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %105 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %105, ptr %.sroa.22.0..sroa_idx.i, align 8
   %106 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %106, ptr %1, align 8
@@ -3910,7 +3910,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 .preheader:                                       ; preds = %137
   %139 = tail call noundef zeroext i8 @_ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv130, 1
-  %140 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %indvars.iv130
+  %140 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %indvars.iv130
   store i8 %139, ptr %140, align 1
   %.sroa.0.0.copyload.i65.pr = load i64, ptr %1, align 8
   %141 = icmp eq i64 %.sroa.0.0.copyload.i65.pr, 0
@@ -3918,7 +3918,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 142:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i68
   %143 = trunc nuw nsw i64 %indvars.iv130 to i32
-  %144 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i67, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i67, i64 1
   store ptr %144, ptr %.sroa.22.0..sroa_idx.i, align 8
   %145 = add i64 %134, -1
   store i64 %145, ptr %1, align 8
@@ -3952,13 +3952,13 @@ switch.lookup:                                    ; preds = %147, %142
 154:                                              ; preds = %168, %.lr.ph
   %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %168 ]
   %155 = mul nuw nsw i64 %indvars.iv108, %wide.trip.count.i
-  %156 = getelementptr inbounds i8, ptr %4, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 %155
   br label %157
 
 157:                                              ; preds = %157, %154
   %indvars.iv.i = phi i64 [ 0, %154 ], [ %indvars.iv.next.i, %157 ]
   %.01213.i = phi i32 [ 0, %154 ], [ %163, %157 ]
-  %158 = getelementptr inbounds i8, ptr %156, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %indvars.iv.i
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
@@ -3995,7 +3995,7 @@ _ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %157
   %173 = extractvalue { i64, ptr } %172, 0
   %174 = extractvalue { i64, ptr } %172, 1
   store i64 %173, ptr %33, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.sink13.i, i64 32
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 32
   store ptr %174, ptr %.sroa.23.0..sroa_idx, align 8
   br label %176
 
@@ -4175,7 +4175,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT
 
 91:                                               ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18ThunkSignatureNodeEJEEEPT_DpOT0_.exit
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %92 = icmp ult i64 %.sroa.01.0.copyload.i, 2
   br i1 %92, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -4186,7 +4186,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %91
   br i1 %93, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %94, ptr %.sroa.22.0..sroa_idx.i, align 8
   %95 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %95, ptr %1, align 8
@@ -4204,7 +4204,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
 
 100:                                              ; preds = %97
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %101 = icmp eq i64 %.sroa.0.0.copyload.i.i.i, 0
   br i1 %101, label %.sink.split.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
@@ -4215,7 +4215,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %103, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
-  %104 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
   store ptr %104, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %105 = add i64 %.sroa.0.0.copyload.i.i.i, -1
   store i64 %105, ptr %1, align 8
@@ -4238,7 +4238,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 109:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %110 = sext i8 %107 to i64
   %111 = add nsw i64 %110, -47
-  %112 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
   store ptr %112, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %113 = add i64 %.sroa.0.0.copyload45.i.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -4295,7 +4295,7 @@ _ZN4llvm11ms_demangle9Demangler16demangleUnsignedERSt17basic_string_viewIcSt11ch
 
 131:                                              ; preds = %128
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %132 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %132, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -4306,7 +4306,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %134, label %135, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
 
 135:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %136 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %136, ptr %.sroa.2.0..sroa_idx.i, align 8
   %137 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %137, ptr %1, align 8
@@ -4335,7 +4335,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %1
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load i8, ptr %148, align 1
-  %150 = getelementptr inbounds i8, ptr %148, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 1
   store ptr %150, ptr %147, align 8
   %151 = add i64 %143, -1
   store i64 %151, ptr %1, align 8
@@ -4345,7 +4345,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %1
 
 switch.lookup:                                    ; preds = %146
   %153 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %153
+  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %153
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -4385,7 +4385,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler12demangleTypeERSt1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %13, ptr %10, align 8
   %14 = add i64 %5, -1
   store i64 %14, ptr %1, align 8
@@ -4413,7 +4413,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler12demangleTypeERSt1
 
 19:                                               ; preds = %3
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %20 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %20, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -4424,7 +4424,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %22, label %23, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.threadthread-pre-split
 
 23:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %24 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %24, ptr %.sroa.2.0..sroa_idx.i, align 8
   %25 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %25, ptr %1, align 8
@@ -4438,7 +4438,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 29:                                               ; preds = %23
   %30 = load i8, ptr %24, align 1
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 2
   store ptr %31, ptr %.sroa.2.0..sroa_idx.i, align 8
   %32 = add i64 %.sroa.0.0.copyload.i, -2
   store i64 %32, ptr %1, align 8
@@ -4481,7 +4481,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
 39:                                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.210.0.copyload = load ptr, ptr %.sroa.210.0..sroa_idx, align 8
   %40 = load i8, ptr %.sroa.210.0.copyload, align 1
   %41 = and i8 %40, -4
@@ -4515,7 +4515,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %49, align 8
   %50 = load i8, ptr %.sroa.210.0.copyload, align 1
-  %51 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.210.0.copyload, i64 1
   %52 = add i64 %.pr, -1
   %53 = and i8 %50, -4
   %switch.i42 = icmp eq i8 %53, 80
@@ -4552,7 +4552,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = 
   br i1 %62, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9thread-pre-split.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %63 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.210.0.copyload, i64 2
   %.pr.i = load i8, ptr %63, align 1
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
@@ -4569,7 +4569,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i: ; preds 
   br i1 %67, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10._ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14_crit_edge.i: ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.i
-  %68 = getelementptr inbounds i8, ptr %.sroa.11.031.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.11.031.i, i64 1
   %.pre.i = load i8, ptr %68, align 1
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
@@ -4589,7 +4589,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread.i: ;
   br label %_ZL15isMemberPointerSt17basic_string_viewIcSt11char_traitsIcEERb.exit.thread.thread
 
 thread-pre-split.i:                               ; preds = %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.i
-  %72 = getelementptr inbounds i8, ptr %.sroa.11.138.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.11.138.i, i64 1
   %.pr46.i = load i8, ptr %72, align 1
   br label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread42.i
 
@@ -4651,7 +4651,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46: ; preds = %_ZL14isFunction
   br i1 %86, label %87, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 87:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
-  %88 = getelementptr inbounds i8, ptr %.sroa.210.0.copyload, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.210.0.copyload, i64 6
   store ptr %88, ptr %.sroa.210.0..sroa_idx, align 8
   %89 = add i64 %.pr, -6
   store i64 %89, ptr %1, align 8
@@ -4792,7 +4792,7 @@ _ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorESt17basic_strin
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i.i.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.sink11.i.i.i, i64 24
   store i64 %2, ptr %55, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink11.i.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sink11.i.i.i, i64 32
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %56 = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink11.i.i.i)
   store ptr %56, ptr %28, align 8
@@ -4803,7 +4803,7 @@ _ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorESt17basic_strin
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %5, ptr %3, align 8
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -1
@@ -4824,7 +4824,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %4, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store ptr %12, ptr %3, align 8
   %13 = add i64 %6, -3
   store i64 %13, ptr %1, align 8
@@ -4841,7 +4841,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %2, %15
   br i1 %17, label %18, label %63
 
 18:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
-  %19 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %19, ptr %3, align 8
   %20 = add i64 %6, -2
   store i64 %20, ptr %1, align 8
@@ -4855,7 +4855,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %2, %15
 
 24:                                               ; preds = %18
   %25 = load i8, ptr %19, align 1
-  %26 = getelementptr inbounds i8, ptr %4, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store ptr %26, ptr %3, align 8
   %27 = add i64 %6, -3
   store i64 %27, ptr %1, align 8
@@ -4953,7 +4953,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionI
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %12, ptr %9, align 8
   %13 = add i64 %4, -1
   store i64 %13, ptr %1, align 8
@@ -5306,7 +5306,7 @@ _ZN4llvm11ms_demangle9Demangler33demangleLiteralOperatorIdentifierERSt17basic_st
   %.sroa.015.0.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %.020.i.i, %179 ]
   %.sroa.3.0.i.i = phi ptr [ null, %.loopexit.i.i ], [ %173, %179 ]
   store i64 %.sroa.015.0.i.i, ptr %171, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sink11.i.i35, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink11.i.i35, i64 32
   store ptr %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %222
 
@@ -5583,7 +5583,7 @@ _ZN4llvm11ms_demangle9Demangler20demangleSimpleStringERSt17basic_string_viewIcSt
   %.sroa.015.0.i = phi i64 [ 0, %.loopexit.i ], [ %.020.i, %37 ]
   %.sroa.3.0.i = phi ptr [ null, %.loopexit.i ], [ %31, %37 ]
   store i64 %.sroa.015.0.i, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   store ptr %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret ptr %.sink11.i
 }
@@ -5707,7 +5707,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler21demangleEncodedSy
   br i1 %switch, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %12, ptr %9, align 8
   %13 = add i64 %4, -1
   store i64 %13, ptr %1, align 8
@@ -5753,7 +5753,7 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %5, ptr %2, align 8
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -1
@@ -5830,7 +5830,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18VariableSymbolNodeEJEEEPT_DpOT
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %40 = load i8, ptr %39, align 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %41 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %41, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
@@ -5841,7 +5841,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %43, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 1
   store ptr %44, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %45 = add i64 %.sroa.0.0.copyload.i.i, -1
   store i64 %45, ptr %1, align 8
@@ -5861,7 +5861,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %49, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
   store ptr %50, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %51 = add i64 %.sroa.0.0.copyload.i11.pr26.i, -1
   store i64 %51, ptr %1, align 8
@@ -5882,7 +5882,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %56, label %57, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 57:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %58 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
   store ptr %58, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %59 = add i64 %.sroa.0.0.copyload.i1133.i, -1
   store i64 %59, ptr %1, align 8
@@ -5904,7 +5904,7 @@ _ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_
 66:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %67 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %67, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %69, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %70 = add i64 %63, -1
   store i64 %70, ptr %1, align 8
@@ -5924,7 +5924,7 @@ switch.hole_check:                                ; preds = %66
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %73 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %73
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -5961,7 +5961,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %87, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %88 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %88, ptr %1, align 8
@@ -6019,7 +6019,7 @@ _ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_strin
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds i8, ptr %111, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store ptr %113, ptr %110, align 8
   %114 = add i64 %106, -1
   store i64 %114, ptr %1, align 8
@@ -6039,7 +6039,7 @@ switch.hole_check25:                              ; preds = %109
 
 switch.lookup26:                                  ; preds = %switch.hole_check25
   %117 = zext nneg i8 %switch.tableidx24 to i64
-  %switch.gep30 = getelementptr inbounds [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %117
+  %switch.gep30 = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %117
   %switch.load31 = load i8, ptr %switch.gep30, align 1
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit19
 
@@ -6112,7 +6112,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = add i64 %3, -3
-  %8 = getelementptr inbounds i8, ptr %6, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %9 = tail call ptr @memchr(ptr noundef nonnull %8, i32 noundef 64, i64 noundef %7) #23
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
@@ -6144,7 +6144,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %15
   br i1 %20, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %17, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store ptr %21, ptr %5, align 8
   %22 = add i64 %18, -6
   store i64 %22, ptr %1, align 8
@@ -6242,7 +6242,7 @@ _ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorESt17basic_strin
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i.i.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.sink11.i.i.i, i64 24
   store i64 %24, ptr %74, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sink11.i.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sink11.i.i.i, i64 32
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %75 = tail call fastcc noundef ptr @_ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorEPNS0_14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %.sink11.i.i.i)
   store ptr %75, ptr %49, align 8
@@ -6256,7 +6256,7 @@ _ZL23synthesizeQualifiedNameRN4llvm11ms_demangle14ArenaAllocatorESt17basic_strin
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleTypeinfoNameERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %3, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -6267,7 +6267,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %6, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit
 
 6:                                                ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %7 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %7, ptr %.sroa.2.0..sroa_idx.i, align 8
   %8 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %8, ptr %1, align 8
@@ -6300,7 +6300,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler5parseERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.04.0.copyload = load i64, ptr %1, align 8
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.25.0.copyload = load ptr, ptr %.sroa.25.0..sroa_idx, align 8
   %3 = icmp eq i64 %.sroa.04.0.copyload, 0
   br i1 %3, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit18.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit
@@ -6311,7 +6311,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit24, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit24: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit
-  %6 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.25.0.copyload, i64 1
   store ptr %6, ptr %.sroa.25.0..sroa_idx, align 8
   %7 = add i64 %.sroa.04.0.copyload, -1
   store i64 %7, ptr %1, align 8
@@ -6361,7 +6361,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm11ms_demangle9Demangler20demangleTypeinfoNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit18
-  %24 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.25.0.copyload, i64 1
   store ptr %24, ptr %.sroa.25.0..sroa_idx, align 8
   %25 = add i64 %.sroa.04.0.copyload, -1
   store i64 %25, ptr %1, align 8
@@ -6434,7 +6434,7 @@ _ZN4llvm11ms_demangle9Demangler32demangleFullyQualifiedSymbolNameERSt17basic_str
   br i1 %switch.i, label %switch.lookup, label %65
 
 switch.lookup:                                    ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %60, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %62, ptr %.sroa.25.0..sroa_idx, align 8
   %63 = add i64 %56, -1
   store i64 %63, ptr %1, align 8
@@ -6510,7 +6510,7 @@ _ZN4llvm11ms_demangle9Demangler20demangleTypeinfoNameERSt17basic_string_viewIcSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler18parseTagUniqueNameERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = icmp ult i64 %.sroa.01.0.copyload.i, 3
   br i1 %3, label %5, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -6526,7 +6526,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br label %19
 
 7:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 3
   store ptr %8, ptr %.sroa.22.0..sroa_idx.i, align 8
   %9 = add i64 %.sroa.01.0.copyload.i, -3
   store i64 %9, ptr %1, align 8
@@ -6539,7 +6539,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %7
   br i1 %11, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i12, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit13.thread
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i12: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9
-  %12 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 6
   store ptr %12, ptr %.sroa.22.0..sroa_idx.i, align 8
   %13 = add i64 %.sroa.01.0.copyload.i, -6
   store i64 %13, ptr %1, align 8
@@ -6569,7 +6569,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleClassType
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %3, align 8
   %7 = load i64, ptr %1, align 8
   %8 = add i64 %7, -1
@@ -6710,7 +6710,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %146
 
 87:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %88 = getelementptr inbounds i8, ptr %4, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %88, ptr %3, align 8
   %89 = add i64 %7, -2
   store i64 %89, ptr %1, align 8
@@ -6795,7 +6795,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 128:                                              ; preds = %121
-  %129 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %129, ptr %3, align 8
   %130 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %130, ptr %1, align 8
@@ -6849,7 +6849,7 @@ _ZN4llvm11ms_demangle9Demangler30demangleFullyQualifiedTypeNameERSt17basic_strin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, -128) i8 @_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %3, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -6860,7 +6860,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i, align 8
   %7 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %7, ptr %1, align 8
@@ -6880,7 +6880,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %11, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9
-  %12 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i825, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i825, i64 1
   store ptr %12, ptr %.sroa.2.0..sroa_idx.i, align 8
   %13 = add i64 %.sroa.0.0.copyload.i11.pr26, -1
   store i64 %13, ptr %1, align 8
@@ -6897,7 +6897,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %18, label %19, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread
 
 19:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14
-  %20 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i1332, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i1332, i64 1
   store ptr %20, ptr %.sroa.2.0..sroa_idx.i, align 8
   %21 = add i64 %.sroa.0.0.copyload.i1133, -1
   store i64 %21, ptr %1, align 8
@@ -6912,7 +6912,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit15.thread: ; p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { i64, i8 } @_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %3, label %._crit_edge, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -6923,7 +6923,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %5, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i, align 8
   %7 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %7, ptr %1, align 8
@@ -6943,7 +6943,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
 12:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %13 = sext i8 %10 to i64
   %14 = add nsw i64 %13, -47
-  %15 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44, i64 1
   store ptr %15, ptr %.sroa.2.0..sroa_idx.i, align 8
   %16 = add i64 %.sroa.0.0.copyload45, -1
   store i64 %16, ptr %1, align 8
@@ -7032,7 +7032,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler14memorizeStringESt17basic
   br i1 %18, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %20
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.lr.ph.split
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %.sroa.2.0.copyload, i64 %.fr9)
   %19 = icmp eq i32 %bcmp.i, 0
@@ -7090,7 +7090,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
   store i64 %.fr9, ptr %47, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   store ptr %2, ptr %.sroa.3.0..sroa_idx, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %49 = load i64, ptr %4, align 8
@@ -7122,7 +7122,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler19demangleBackRefNa
   br label %19
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %13, ptr %3, align 8
   %14 = load i64, ptr %1, align 8
   %15 = add i64 %14, -1
@@ -7148,7 +7148,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler18memorizeIdentifierEPNS0_
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 0) #23
   %10 = load ptr, ptr %3, align 8
@@ -7213,7 +7213,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler33demangleTemplateI
   %.sroa.0 = alloca [10 x ptr], align 8
   %.sroa.5 = alloca [10 x ptr], align 8
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %4 = icmp ult i64 %.sroa.01.0.copyload.i, 2
   br i1 %4, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -7224,7 +7224,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %3
   br i1 %5, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %6, ptr %.sroa.22.0..sroa_idx.i, align 8
   %7 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %7, ptr %1, align 8
@@ -7233,11 +7233,11 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
-  %.sroa.4.0..sroa_idx10 = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.4.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.4.0.copyload11 = load i64, ptr %.sroa.4.0..sroa_idx10, align 8
-  %.sroa.5.0..sroa_idx16 = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.5.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5.0..sroa_idx16, i64 80, i1 false)
-  %.sroa.519.0..sroa_idx20 = getelementptr inbounds i8, ptr %0, i64 192
+  %.sroa.519.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.sroa.519.0.copyload21 = load i64, ptr %.sroa.519.0..sroa_idx20, align 8
   store i64 0, ptr %.sroa.4.0..sroa_idx10, align 8
   store i64 0, ptr %.sroa.519.0..sroa_idx20, align 8
@@ -7298,7 +7298,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler29demangleUnqualifiedSymbolNameERSt17basic_string_viewIcSt11char_traitsIcEENS0_19NameBackrefBehaviorE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %.sroa.03.0.copyload = load i64, ptr %1, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.24.0.copyload = load ptr, ptr %.sroa.24.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.03.0.copyload, 0
   br i1 %4, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -7324,7 +7324,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %.sroa.24.0.copyload, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.24.0.copyload, i64 1
   store ptr %15, ptr %.sroa.24.0..sroa_idx, align 8
   %16 = add i64 %.sroa.03.0.copyload, -1
   store i64 %16, ptr %1, align 8
@@ -7370,7 +7370,7 @@ _ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt1
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler29demangleTemplateParameterListERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %.sroa.258.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -7430,7 +7430,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128: ; preds = %17, %_ZNSt11ch
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i120, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i112, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %.sink458 = phi i64 [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i112 ], [ 4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i120 ], [ 3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128 ]
   %.sink457 = phi i64 [ -2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ -3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i112 ], [ -4, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i120 ], [ -3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i128 ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i127335580, i64 %.sink458
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i127335580, i64 %.sink458
   store ptr %21, ptr %.sroa.258.0..sroa_idx, align 8
   %22 = add i64 %.sink457, %9
   store i64 %22, ptr %1, align 8
@@ -7490,7 +7490,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i136: ; preds = %_ZN4llvm11ms_d
   br i1 %48, label %49, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit140.thread.thread
 
 49:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i136
-  %50 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i135, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i135, i64 2
   store ptr %50, ptr %.sroa.258.0..sroa_idx, align 8
   %51 = add i64 %.sroa.01.0.copyload.i133, -2
   store i64 %51, ptr %1, align 8
@@ -7517,7 +7517,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i144: ; preds = %_ZL12consumeFr
   br i1 %57, label %58, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i152
 
 58:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i144
-  %59 = getelementptr inbounds i8, ptr %.sroa.219.0.copyload550, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.219.0.copyload550, i64 3
   store ptr %59, ptr %.sroa.258.0..sroa_idx, align 8
   %60 = add i64 %.sroa.018.0.copyload552, -3
   store i64 %60, ptr %1, align 8
@@ -7543,7 +7543,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %.sroa.219.0.copyload550, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.219.0.copyload550, i64 4
   store ptr %70, ptr %.sroa.258.0..sroa_idx, align 8
   %71 = add i64 %.sroa.018.0.copyload552, -4
   store i64 %71, ptr %1, align 8
@@ -7592,7 +7592,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i152: ; preds = %_ZNSt11char_tr
   br i1 %84, label %85, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i160
 
 85:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i152
-  %86 = getelementptr inbounds i8, ptr %.sroa.219.0.copyload550, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.219.0.copyload550, i64 3
   store ptr %86, ptr %.sroa.258.0..sroa_idx, align 8
   %87 = add i64 %.sroa.018.0.copyload552, -3
   store i64 %87, ptr %1, align 8
@@ -7609,7 +7609,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i160: ; preds = %_ZNSt11char_tr
   br i1 %48, label %96, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i165.thread
 
 90:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i160
-  %91 = getelementptr inbounds i8, ptr %.sroa.219.0.copyload550, i64 3
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.219.0.copyload550, i64 3
   store ptr %91, ptr %.sroa.258.0..sroa_idx, align 8
   %92 = add i64 %.sroa.018.0.copyload552, -3
   store i64 %92, ptr %1, align 8
@@ -7720,7 +7720,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   br i1 %.0.i6.i138311365371380386621, label %135, label %132
 
 132:                                              ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit
-  %133 = getelementptr inbounds i8, ptr %.pre, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   store ptr %133, ptr %.sroa.258.0..sroa_idx, align 8
   %134 = add i64 %.pre351, -1
   store i64 %134, ptr %1, align 8
@@ -7730,7 +7730,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   %136 = phi i64 [ %134, %132 ], [ %.pre351, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit ]
   %137 = phi ptr [ %133, %132 ], [ %.pre, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit ]
   %138 = load i8, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %137, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 1
   store ptr %139, ptr %.sroa.258.0..sroa_idx, align 8
   %140 = add i64 %136, -1
   store i64 %140, ptr %1, align 8
@@ -7792,7 +7792,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %165, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i
-  %166 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 1
   store ptr %166, ptr %.sroa.258.0..sroa_idx, align 8
   %167 = add i64 %.sroa.0.0.copyload.i.i.i, -1
   store i64 %167, ptr %1, align 8
@@ -7815,7 +7815,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds
 171:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   %172 = sext i8 %169 to i64
   %173 = add nsw i64 %172, -47
-  %174 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i, i64 1
   store ptr %174, ptr %.sroa.258.0..sroa_idx, align 8
   %175 = add i64 %.sroa.0.0.copyload45.i.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
@@ -7893,7 +7893,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %204, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i213, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i199
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i213: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i198
-  %205 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i197, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i197, i64 1
   store ptr %205, ptr %.sroa.258.0..sroa_idx, align 8
   %206 = add i64 %.sroa.0.0.copyload.i.i.i195, -1
   store i64 %206, ptr %1, align 8
@@ -7916,7 +7916,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i199: ; pr
 210:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i199
   %211 = sext i8 %208 to i64
   %212 = add nsw i64 %211, -47
-  %213 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i201, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i201, i64 1
   store ptr %213, ptr %.sroa.258.0..sroa_idx, align 8
   %214 = add i64 %.sroa.0.0.copyload45.i.i200, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i210
@@ -7994,7 +7994,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %243, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i235, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i221
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i235: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i220
-  %244 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i219, i64 1
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i219, i64 1
   store ptr %244, ptr %.sroa.258.0..sroa_idx, align 8
   %245 = add i64 %.sroa.0.0.copyload.i.i.i217, -1
   store i64 %245, ptr %1, align 8
@@ -8017,7 +8017,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i221: ; pr
 249:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i221
   %250 = sext i8 %247 to i64
   %251 = add nsw i64 %250, -47
-  %252 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i223, i64 1
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i223, i64 1
   store ptr %252, ptr %.sroa.258.0..sroa_idx, align 8
   %253 = add i64 %.sroa.0.0.copyload45.i.i222, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i232
@@ -8109,7 +8109,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %285, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i467, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit468
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i467: ; preds = %284
-  %286 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i464620, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i464620, i64 2
   store ptr %286, ptr %.sroa.258.0..sroa_idx, align 8
   %287 = add i64 %.sroa.01.0.copyload.i462618, -2
   store i64 %287, ptr %1, align 8
@@ -8239,7 +8239,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   br i1 %.0.i6.i138311365371380386621, label %348, label %345
 
 345:                                              ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit475
-  %346 = getelementptr inbounds i8, ptr %.pre352, i64 1
+  %346 = getelementptr inbounds nuw i8, ptr %.pre352, i64 1
   store ptr %346, ptr %.sroa.258.0..sroa_idx, align 8
   %347 = add i64 %.pre353, -1
   store i64 %347, ptr %1, align 8
@@ -8249,7 +8249,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNode
   %349 = phi i64 [ %347, %345 ], [ %.pre353, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit475 ]
   %350 = phi ptr [ %346, %345 ], [ %.pre352, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_30TemplateParameterReferenceNodeEJEEEPT_DpOT0_.exit475 ]
   %351 = load i8, ptr %350, align 1
-  %352 = getelementptr inbounds i8, ptr %350, i64 1
+  %352 = getelementptr inbounds nuw i8, ptr %350, i64 1
   store ptr %352, ptr %.sroa.258.0..sroa_idx, align 8
   %353 = add i64 %349, -1
   store i64 %353, ptr %1, align 8
@@ -8266,7 +8266,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %357, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i493, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i479
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i493: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i478
-  %358 = getelementptr inbounds i8, ptr %350, i64 2
+  %358 = getelementptr inbounds nuw i8, ptr %350, i64 2
   store ptr %358, ptr %.sroa.258.0..sroa_idx, align 8
   %359 = add i64 %349, -2
   store i64 %359, ptr %1, align 8
@@ -8289,7 +8289,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i479: ; pr
 363:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i479
   %364 = sext i8 %361 to i64
   %365 = add nsw i64 %364, -47
-  %366 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i481, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i481, i64 1
   store ptr %366, ptr %.sroa.258.0..sroa_idx, align 8
   %367 = add i64 %.sroa.0.0.copyload45.i.i480, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i490
@@ -8369,7 +8369,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %396, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i515, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i501
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i515: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i500
-  %397 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i499, i64 1
+  %397 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i499, i64 1
   store ptr %397, ptr %.sroa.258.0..sroa_idx, align 8
   %398 = add i64 %.sroa.0.0.copyload.i.i.i497, -1
   store i64 %398, ptr %1, align 8
@@ -8392,7 +8392,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i501: ; pr
 402:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i501
   %403 = sext i8 %400 to i64
   %404 = add nsw i64 %403, -47
-  %405 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i503, i64 1
+  %405 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i503, i64 1
   store ptr %405, ptr %.sroa.258.0..sroa_idx, align 8
   %406 = add i64 %.sroa.0.0.copyload45.i.i502, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i512
@@ -8467,7 +8467,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %434, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i537, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i523
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i537: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i.i522
-  %435 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i.i521, i64 1
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i521, i64 1
   store ptr %435, ptr %.sroa.258.0..sroa_idx, align 8
   %436 = add i64 %.sroa.0.0.copyload.i.i.i519, -1
   store i64 %436, ptr %1, align 8
@@ -8490,7 +8490,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i523: ; pr
 440:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i523
   %441 = sext i8 %438 to i64
   %442 = add nsw i64 %441, -47
-  %443 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i.i525, i64 1
+  %443 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i.i525, i64 1
   store ptr %443, ptr %.sroa.258.0..sroa_idx, align 8
   %444 = add i64 %.sroa.0.0.copyload45.i.i524, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i534
@@ -8571,7 +8571,7 @@ _ZN4llvm11ms_demangle9Demangler14demangleSignedERSt17basic_string_viewIcSt11char
   br i1 %472, label %473, label %530
 
 473:                                              ; preds = %471
-  %474 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 %.sroa.0.0.copyload.sroa.speculated.i
+  %474 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 %.sroa.0.0.copyload.sroa.speculated.i
   store ptr %474, ptr %.sroa.258.0..sroa_idx, align 8
   %475 = sub i64 %.sroa.01.0.copyload.i.i, %.sroa.0.0.copyload.sroa.speculated.i
   store i64 %475, ptr %1, align 8
@@ -8584,7 +8584,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %478, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i542
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %479 = getelementptr inbounds i8, ptr %474, i64 1
+  %479 = getelementptr inbounds nuw i8, ptr %474, i64 1
   store ptr %479, ptr %.sroa.258.0..sroa_idx, align 8
   %480 = add i64 %475, -1
   store i64 %480, ptr %1, align 8
@@ -8608,7 +8608,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i542: ; pred
 485:                                              ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i542
   %486 = sext i8 %482 to i64
   %487 = add nsw i64 %486, -47
-  %488 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %488 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %488, ptr %.sroa.258.0..sroa_idx, align 8
   %489 = add i64 %.sroa.0.0.copyload45.i, -1
   store i64 %489, ptr %1, align 8
@@ -8711,7 +8711,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_18IntegerLiteralNodeEJRmRbEEEPT_
   br i1 %534, label %.loopexit, label %.outer, !llvm.loop !13
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit
-  %536 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i127335580, i64 1
+  %536 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i127335580, i64 1
   store ptr %536, ptr %.sroa.258.0..sroa_idx, align 8
   %537 = add i64 %9, -1
   store i64 %537, ptr %1, align 8
@@ -8823,7 +8823,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
   store i64 %.sroa.015.0.i, ptr %49, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   store ptr %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   br label %50
 
@@ -8835,13 +8835,13 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i8 @_ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %.sroa.06.0.copyload = load i64, ptr %1, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.27.0.copyload = load ptr, ptr %.sroa.27.0..sroa_idx, align 8
   %3 = icmp ne i64 %.sroa.06.0.copyload, 0
   %.pre = load i8, ptr %.sroa.27.0.copyload, align 1
   %4 = icmp eq i8 %.pre, 63
   %or.cond34 = select i1 %3, i1 %4, i1 false
-  %5 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 1
   store ptr %5, ptr %.sroa.27.0..sroa_idx, align 8
   %6 = add i64 %.sroa.06.0.copyload, -1
   store i64 %6, ptr %1, align 8
@@ -8857,7 +8857,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %10, label %11, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 11:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %12, ptr %.sroa.27.0..sroa_idx, align 8
   %13 = add i64 %.sroa.06.0.copyload, -2
   store i64 %13, ptr %1, align 8
@@ -8871,14 +8871,14 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %18, label %19, label %.thread33
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 3
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -65
   %23 = icmp ult i8 %22, 16
   br i1 %23, label %24, label %.thread33
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 4
   store ptr %25, ptr %.sroa.27.0..sroa_idx, align 8
   %26 = add i64 %.sroa.06.0.copyload, -4
   store i64 %26, ptr %1, align 8
@@ -8897,7 +8897,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %32 = getelementptr i8, ptr @.str.18, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -48
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %35, ptr %.sroa.27.0..sroa_idx, align 8
   %36 = add i64 %.sroa.06.0.copyload, -2
   store i64 %36, ptr %1, align 8
@@ -8916,7 +8916,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %43 = add nsw i64 %42, -97
   %44 = getelementptr inbounds [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %46, ptr %.sroa.27.0..sroa_idx, align 8
   %47 = add i64 %.sroa.06.0.copyload, -2
   store i64 %47, ptr %1, align 8
@@ -8932,7 +8932,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   %52 = add nsw i64 %51, -65
   %53 = getelementptr inbounds [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup.19, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.sroa.27.0.copyload, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %55, ptr %.sroa.27.0..sroa_idx, align 8
   %56 = add i64 %.sroa.06.0.copyload, -2
   store i64 %56, ptr %1, align 8
@@ -8996,7 +8996,7 @@ define dso_local noundef zeroext range(i8 0, 12) i8 @_ZN4llvm11ms_demangle9Deman
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %11, ptr %8, align 8
   %12 = add i64 %3, -1
   store i64 %12, ptr %1, align 8
@@ -9006,7 +9006,7 @@ define dso_local noundef zeroext range(i8 0, 12) i8 @_ZN4llvm11ms_demangle9Deman
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %14
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %15
 
@@ -9606,7 +9606,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL17guessCharByteSizePKhjm(
 
 .lr.ph.preheader.i:                               ; preds = %7
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
@@ -9644,7 +9644,7 @@ _ZL22countTrailingNullBytesPKhi.exit:             ; preds = %.lr.ph.i, %13
   %.09.i = phi i32 [ %25, %.lr.ph.i21 ], [ 0, %20 ]
   %.058.i = phi i32 [ %spec.select.i, %.lr.ph.i21 ], [ 0, %20 ]
   %.067.i = phi ptr [ %21, %.lr.ph.i21 ], [ %0, %20 ]
-  %21 = getelementptr inbounds i8, ptr %.067.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %22 = load i8, ptr %.067.i, align 1
   %23 = icmp eq i8 %22, 0
   %24 = zext i1 %23 to i32
@@ -9677,7 +9677,7 @@ _ZL18countEmbeddedNullsPKhj.exit:                 ; preds = %.lr.ph.i21, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleAnonymousNamespaceNameERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = icmp ult i64 %.sroa.01.0.copyload.i, 2
   br i1 %3, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -9688,7 +9688,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %4, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %5 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 8
   %6 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %6, ptr %1, align 8
@@ -9741,7 +9741,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle19NamedIdentifierNodeE, i64 16), ptr %.sink11.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
   store i64 21, ptr %32, align 8
-  %.sroa.2.0..sroa_idx20 = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.2.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   store ptr @.str.23, ptr %.sroa.2.0..sroa_idx20, align 8
   %33 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %33, 0
@@ -9841,7 +9841,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   %30 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %31 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %31, label %._crit_edge.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -9852,7 +9852,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %33, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %34 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %34, ptr %.sroa.2.0..sroa_idx.i, align 8
   %35 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %35, ptr %1, align 8
@@ -9865,7 +9865,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %37, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 2
   store ptr %38, ptr %.sroa.2.0..sroa_idx.i, align 8
   %39 = add i64 %.sroa.0.0.copyload.i, -2
   store i64 %39, ptr %1, align 8
@@ -9888,7 +9888,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
 43:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %44 = sext i8 %41 to i64
   %45 = add nsw i64 %44, -47
-  %46 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %46, ptr %.sroa.2.0..sroa_idx.i, align 8
   %47 = add i64 %.sroa.0.0.copyload45.i, -1
   store i64 %47, ptr %1, align 8
@@ -9943,7 +9943,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %65, label %66, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit17
 
 66:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i16
-  %67 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i15, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i15, i64 1
   store ptr %67, ptr %.sroa.2.0..sroa_idx.i, align 8
   %68 = add i64 %.sroa.0.0.copyload.i13, -1
   store i64 %68, ptr %1, align 8
@@ -9979,7 +9979,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %73
   store i64 1, ptr %77, align 8
   store i8 96, ptr %malloc, align 1
   %81 = load ptr, ptr %69, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(36) %4, i32 noundef 0) #23
   %84 = load i64, ptr %77, align 8
@@ -10186,7 +10186,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator20allocUnalignedBufferEm.exit.i: ; preds = 
 _ZN4llvm11ms_demangle9Demangler10copyStringESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator20allocUnalignedBufferEm.exit.i, %167
   %168 = phi ptr [ %148, %_ZN4llvm11ms_demangle14ArenaAllocator20allocUnalignedBufferEm.exit.i ], [ %.pre56, %167 ]
   store i64 %147, ptr %30, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.sink11.i, i64 32
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 32
   store ptr %.0.i.i, ptr %.sroa.22.0..sroa_idx, align 8
   call void @free(ptr noundef %168) #23
   br label %169
@@ -10199,7 +10199,7 @@ _ZN4llvm11ms_demangle9Demangler10copyStringESt17basic_string_viewIcSt11char_trai
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %4 = icmp eq i64 %.sroa.01.0.copyload, 0
   br i1 %4, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -10225,7 +10225,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 1
   store ptr %15, ptr %.sroa.22.0..sroa_idx, align 8
   %16 = add i64 %.sroa.01.0.copyload, -1
   store i64 %16, ptr %1, align 8
@@ -10259,7 +10259,7 @@ _ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler22demangleNameScopePieceERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %.sroa.05.0.copyload = load i64, ptr %1, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.26.0.copyload = load ptr, ptr %.sroa.26.0..sroa_idx, align 8
   %3 = icmp eq i64 %.sroa.05.0.copyload, 0
   br i1 %3, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -10285,7 +10285,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   br label %_ZN4llvm11ms_demangle9Demangler19demangleBackRefNameERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %.sroa.26.0.copyload, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.26.0.copyload, i64 1
   store ptr %14, ptr %.sroa.26.0..sroa_idx, align 8
   %15 = add i64 %.sroa.05.0.copyload, -1
   store i64 %15, ptr %1, align 8
@@ -10322,7 +10322,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %25, label %26, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 26:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %.sroa.26.0.copyload, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.26.0.copyload, i64 1
   %28 = add i64 %.sroa.05.0.copyload, -1
   %.not26.i = icmp eq i64 %28, 0
   br i1 %.not26.i, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
@@ -10373,7 +10373,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_ZNSt1
   br i1 %48, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread31, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.sroa.26.0.copyload, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.26.0.copyload, i64 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.preheader.i
@@ -10385,7 +10385,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_ZNSt1
   br i1 %or.cond25.i, label %52, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.sroa.11.027.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.11.027.i, i64 1
   %54 = add i64 %.sroa.0.028.i, -1
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %_ZL27startsWithLocalScopePatternSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread31, label %.lr.ph.i, !llvm.loop !19
@@ -10519,7 +10519,7 @@ define dso_local noundef zeroext range(i16 1, 2147) i16 @_ZN4llvm11ms_demangle9D
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %3, align 8
   %7 = load i64, ptr %1, align 8
   %8 = add i64 %7, -1
@@ -10643,7 +10643,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %38, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread17
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %39 = getelementptr inbounds i8, ptr %4, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %39, ptr %3, align 8
   %40 = add i64 %7, -2
   store i64 %40, ptr %1, align 8
@@ -10659,8 +10659,8 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.thread
   %43 = phi i16 [ 1536, %thread-pre-split ], [ 512, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ]
   %44 = phi i64 [ %40, %thread-pre-split ], [ %8, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ]
   %45 = phi i64 [ 2, %thread-pre-split ], [ 1, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ]
-  %46 = getelementptr inbounds i8, ptr %4, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %47, ptr %3, align 8
   %48 = add i64 %44, -1
   store i64 %48, ptr %1, align 8
@@ -10758,7 +10758,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.
   %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %.sroa.01.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %30 = icmp ult i64 %.sroa.01.0.copyload.i.i, 3
   br i1 %30, label %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -10769,7 +10769,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %33, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %34 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %34, ptr %1, align 8
@@ -10777,7 +10777,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
 
 35:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit
   %36 = load i8, ptr %.sroa.22.0.copyload.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 1
   store ptr %37, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %38 = add i64 %.sroa.01.0.copyload.i.i, -1
   store i64 %38, ptr %1, align 8
@@ -10822,7 +10822,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %46, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %47 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 1
   store ptr %47, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %48 = add i64 %.sroa.0.0.copyload.i.i, -1
   store i64 %48, ptr %1, align 8
@@ -10842,7 +10842,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %52, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %53 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
   store ptr %53, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %54 = add i64 %.sroa.0.0.copyload.i11.pr26.i, -1
   store i64 %54, ptr %1, align 8
@@ -10863,7 +10863,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %59, label %60, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 60:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %61 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
   store ptr %61, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %62 = add i64 %.sroa.0.0.copyload.i1133.i, -1
   store i64 %62, ptr %1, align 8
@@ -10882,7 +10882,7 @@ _ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %lhsc = load i8, ptr %.sroa.22.0.copyload.i, align 1
-  %68 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %68, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %69 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %69, ptr %1, align 8
@@ -10923,7 +10923,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %82, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %83 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %83, ptr %1, align 8
@@ -11021,7 +11021,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i41: ; preds
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit51
 
 116:                                              ; preds = %109
-  %117 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i40, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i40, i64 1
   store ptr %117, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %118 = add i64 %.sroa.01.0.copyload.i38, -1
   store i64 %118, ptr %1, align 8
@@ -11130,7 +11130,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.
   %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %.sroa.01.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %30 = icmp ult i64 %.sroa.01.0.copyload.i.i, 3
   br i1 %30, label %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -11141,7 +11141,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 3
   store ptr %33, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %34 = add i64 %.sroa.01.0.copyload.i.i, -3
   store i64 %34, ptr %1, align 8
@@ -11149,7 +11149,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm11ms_de
 
 35:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_15PointerTypeNodeEJEEEPT_DpOT0_.exit
   %36 = load i8, ptr %.sroa.22.0.copyload.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 1
   store ptr %37, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %38 = add i64 %.sroa.01.0.copyload.i.i, -1
   store i64 %38, ptr %1, align 8
@@ -11194,7 +11194,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZL27demanglePoin
   br i1 %45, label %46, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
 
 46:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %47 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %47, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %48 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %48, ptr %1, align 8
@@ -11269,7 +11269,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
 85:                                               ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
   %86 = load ptr, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %86, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %88, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %89 = add i64 %81, -1
   store i64 %89, ptr %1, align 8
@@ -11279,7 +11279,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
 
 switch.lookup:                                    ; preds = %85
   %91 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %91
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -11297,7 +11297,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %94, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %97
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %95 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %95, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %96 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %96, ptr %1, align 8
@@ -11322,7 +11322,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i18: ; preds = %_ZN4llvm11ms_
   br i1 %101, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i20
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i18
-  %102 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i17, i64 2
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i17, i64 2
   store ptr %102, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %103 = add i64 %.sroa.01.0.copyload.i.i15, -2
   store i64 %103, ptr %1, align 8
@@ -11338,7 +11338,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %106, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %109
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i20
-  %107 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i17, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i17, i64 1
   store ptr %107, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %108 = add i64 %.sroa.01.0.copyload.i.i15, -1
   store i64 %108, ptr %1, align 8
@@ -11360,7 +11360,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %112, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %113 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %113, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %114 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %114, ptr %1, align 8
@@ -11380,7 +11380,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %118, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %119 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
   store ptr %119, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %120 = add i64 %.sroa.0.0.copyload.i11.pr26.i, -1
   store i64 %120, ptr %1, align 8
@@ -11401,7 +11401,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %125, label %126, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 126:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %127 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
   store ptr %127, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %128 = add i64 %.sroa.0.0.copyload.i1133.i, -1
   store i64 %128, ptr %1, align 8
@@ -11427,7 +11427,7 @@ _ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler17demangleArrayTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %5, ptr %3, align 8
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -1
@@ -11441,7 +11441,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %10, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %11 = getelementptr inbounds i8, ptr %4, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %11, ptr %3, align 8
   %12 = add i64 %6, -2
   store i64 %12, ptr %1, align 8
@@ -11464,7 +11464,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
 16:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %17 = sext i8 %14 to i64
   %18 = add nsw i64 %17, -47
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i, i64 1
   store ptr %19, ptr %3, align 8
   %20 = add i64 %.sroa.0.0.copyload45.i, -1
   br label %_ZN4llvm11ms_demangle9Demangler14demangleNumberERSt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -11613,7 +11613,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %90, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i48, label %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i33
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i48: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i32
-  %91 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i31, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i31, i64 1
   store ptr %91, ptr %3, align 8
   %92 = add i64 %.sroa.0.0.copyload.i.i29, -1
   store i64 %92, ptr %1, align 8
@@ -11637,7 +11637,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i33: ; preds
 97:                                               ; preds = %_ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i33
   %98 = sext i8 %94 to i64
   %99 = add nsw i64 %98, -47
-  %100 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload44.i35, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload44.i35, i64 1
   store ptr %100, ptr %3, align 8
   %101 = add i64 %.sroa.0.0.copyload45.i34, -1
   store i64 %101, ptr %1, align 8
@@ -11806,7 +11806,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %._crit_edge
   br i1 %177, label %178, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread
 
 178:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %179 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 3
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 3
   store ptr %179, ptr %3, align 8
   %180 = add i64 %.sroa.01.0.copyload.i, -3
   store i64 %180, ptr %1, align 8
@@ -11820,7 +11820,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %._crit_edge
 
 184:                                              ; preds = %178
   %185 = load i8, ptr %179, align 1
-  %186 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 4
   store ptr %186, ptr %3, align 8
   %187 = add i64 %.sroa.01.0.copyload.i, -4
   store i64 %187, ptr %1, align 8
@@ -11947,7 +11947,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_D
 
 37:                                               ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %38 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %38, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
@@ -11958,7 +11958,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %40, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i, i64 1
   store ptr %41, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %42 = add i64 %.sroa.0.0.copyload.i.i, -1
   store i64 %42, ptr %1, align 8
@@ -11978,7 +11978,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %46, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit10.thread.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i9.i
-  %47 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i825.i, i64 1
   store ptr %47, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %48 = add i64 %.sroa.0.0.copyload.i11.pr26.i, -1
   store i64 %48, ptr %1, align 8
@@ -11999,7 +11999,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %53, label %54, label %_ZN4llvm11ms_demangle9Demangler28demanglePointerExtQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 54:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i14.i
-  %55 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i1332.i, i64 1
   store ptr %55, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %56 = add i64 %.sroa.0.0.copyload.i1133.i, -1
   store i64 %56, ptr %1, align 8
@@ -12026,7 +12026,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit6.thread.sink.split.i: ; preds = %61, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i23
   %.0.ph.i = phi i32 [ 2, %61 ], [ 1, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i23 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i22, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i22, i64 1
   store ptr %62, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %63 = add i64 %.sroa.0.0.copyload.i.i20, -1
   store i64 %63, ptr %1, align 8
@@ -12049,7 +12049,7 @@ _ZL28demangleFunctionRefQualifierRSt17basic_string_viewIcSt11char_traitsIcEE.exi
 69:                                               ; preds = %_ZL28demangleFunctionRefQualifierRSt17basic_string_viewIcSt11char_traitsIcEE.exit
   %70 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %72, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %73 = add i64 %65, -1
   store i64 %73, ptr %1, align 8
@@ -12070,7 +12070,7 @@ switch.hole_check:                                ; preds = %69
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %77 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw [20 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 0, i64 %77
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -12094,7 +12094,7 @@ _ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %86, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %88, ptr %85, align 8
   %89 = add i64 %80, -1
   store i64 %89, ptr %1, align 8
@@ -12104,7 +12104,7 @@ _ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11
 
 switch.lookup27:                                  ; preds = %84
   %91 = zext nneg i8 %switch.tableidx28 to i64
-  %switch.gep29 = getelementptr inbounds [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %91
+  %switch.gep29 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb.2, i64 0, i64 %91
   %switch.load30 = load i8, ptr %switch.gep29, align 1
   br label %_ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -12112,7 +12112,7 @@ _ZN4llvm11ms_demangle9Demangler25demangleCallingConventionERSt17basic_string_vie
   %.0.i24 = phi i8 [ 0, %82 ], [ %switch.load30, %switch.lookup27 ], [ 0, %84 ]
   store i8 %.0.i24, ptr %30, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %92 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %92, label %97, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -12123,7 +12123,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %94, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %97
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %95 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %95, ptr %.sroa.2.0..sroa_idx.i, align 8
   %96 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %96, ptr %1, align 8
@@ -12148,7 +12148,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %99
   br i1 %102, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i25
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %103 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 2
   store ptr %103, ptr %.sroa.2.0..sroa_idx.i, align 8
   %104 = add i64 %.sroa.01.0.copyload.i.i, -2
   store i64 %104, ptr %1, align 8
@@ -12164,7 +12164,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %107, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, label %110
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i25
-  %108 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i.i, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i.i, i64 1
   store ptr %108, ptr %.sroa.2.0..sroa_idx.i, align 8
   %109 = add i64 %.sroa.01.0.copyload.i.i, -1
   store i64 %109, ptr %1, align 8
@@ -12185,7 +12185,7 @@ _ZN4llvm11ms_demangle9Demangler26demangleThrowSpecificationERSt17basic_string_vi
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler18demangleCustomTypeERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %5, ptr %3, align 8
   %6 = load i64, ptr %1, align 8
   %7 = add i64 %6, -1
@@ -12262,7 +12262,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds =
   br label %_ZN4llvm11ms_demangle9Demangler27demangleUnqualifiedTypeNameERSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %45, ptr %3, align 8
   %46 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %46, ptr %1, align 8
@@ -12302,7 +12302,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %56, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %61
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %57 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %57, ptr %3, align 8
   %58 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %58, ptr %1, align 8
@@ -12332,7 +12332,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler21demanglePrimitive
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %10 = icmp ult i64 %.sroa.01.0.copyload.i, 3
   br i1 %10, label %41, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -12343,7 +12343,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %11, label %12, label %41
 
 12:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 3
   store ptr %13, ptr %.sroa.22.0..sroa_idx.i, align 8
   %14 = add i64 %.sroa.01.0.copyload.i, -3
   store i64 %14, ptr %1, align 8
@@ -12397,7 +12397,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Primi
 
 41:                                               ; preds = %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %42 = load i8, ptr %.sroa.22.0.copyload.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %43, ptr %.sroa.22.0..sroa_idx.i, align 8
   %44 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %44, ptr %1, align 8
@@ -13066,7 +13066,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Primi
 
 400:                                              ; preds = %396
   %401 = load i8, ptr %43, align 1
-  %402 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %402 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %402, ptr %.sroa.22.0..sroa_idx.i, align 8
   %403 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %403, ptr %1, align 8
@@ -13135,7 +13135,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Primi
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm11ms_demangle9Demangler26demangleThrowSpecificationERSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = icmp ult i64 %.sroa.01.0.copyload.i, 2
   br i1 %3, label %thread-pre-split, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -13146,7 +13146,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %4, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %5 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 2
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 8
   %6 = add i64 %.sroa.01.0.copyload.i, -2
   store i64 %6, ptr %1, align 8
@@ -13162,7 +13162,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %9, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %12
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %10 = getelementptr inbounds i8, ptr %.sroa.22.0.copyload.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload.i, i64 1
   store ptr %10, ptr %.sroa.22.0..sroa_idx.i, align 8
   %11 = add i64 %.sroa.01.0.copyload.i, -1
   store i64 %11, ptr %1, align 8
@@ -13182,7 +13182,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_
 define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler29demangleFunctionParameterListERSt17basic_string_viewIcSt11char_traitsIcEERb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %5 = icmp eq i64 %.sroa.0.0.copyload.i, 0
   br i1 %5, label %10, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
@@ -13193,7 +13193,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %7, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit, label %10
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %8 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 1
   store ptr %8, ptr %.sroa.2.0..sroa_idx.i, align 8
   %9 = add i64 %.sroa.0.0.copyload.i, -1
   store i64 %9, ptr %1, align 8
@@ -13289,7 +13289,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   br label %.critedge
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %.sroa.212.0.copyload, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.212.0.copyload, i64 1
   store ptr %51, ptr %.sroa.2.0..sroa_idx.i, align 8
   %52 = add i64 %.sroa.011.0.copyload, -1
   store i64 %52, ptr %1, align 8
@@ -13411,7 +13411,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit49: ; pre
 114:                                              ; preds = %107
   %115 = add nuw nsw i64 %111, 1
   store i64 %115, ptr %37, align 8
-  %116 = getelementptr inbounds [10 x ptr], ptr %38, i64 0, i64 %111
+  %116 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %111
   store ptr %103, ptr %116, align 8
   br label %.backedge
 
@@ -13427,7 +13427,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %120, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit54, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i58
 
 _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit54: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i53
-  %121 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i52, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i52, i64 1
   store ptr %121, ptr %.sroa.2.0..sroa_idx.i, align 8
   %122 = add i64 %.sroa.0.0.copyload.i50, -1
   store i64 %122, ptr %1, align 8
@@ -13436,7 +13436,7 @@ _ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEEc.exit54: ; preds = 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i58: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i53
   %123 = icmp eq i8 %119, 90
   tail call void @llvm.assume(i1 %123)
-  %124 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i52, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i52, i64 1
   store ptr %124, ptr %.sroa.2.0..sroa_idx.i, align 8
   %125 = add i64 %.sroa.0.0.copyload.i50, -1
   store i64 %125, ptr %1, align 8
@@ -13528,7 +13528,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv(ptr
   %14 = getelementptr inbounds [10 x ptr], ptr %3, i64 0, i64 %.01014
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(13) %15, ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef 0) #23
   %19 = load ptr, ptr %2, align 8
@@ -13624,7 +13624,7 @@ define dso_local noundef ptr @_ZN4llvm17microsoftDemangleESt17basic_string_viewI
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i64 0, ptr %17, align 8
   store i64 %0, ptr %7, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
   %18 = call noundef ptr @_ZN4llvm11ms_demangle9Demangler5parseERSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(200) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %19 = load i8, ptr %9, align 8
@@ -13675,7 +13675,7 @@ define dso_local noundef ptr @_ZN4llvm17microsoftDemangleESt17basic_string_viewI
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 1, ptr %41, align 8
   %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(36) %8, i32 noundef %.4) #23
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8

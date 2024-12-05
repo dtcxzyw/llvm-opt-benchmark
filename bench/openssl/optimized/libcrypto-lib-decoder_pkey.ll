@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_CTX_set_passphrase(ptr noundef %ctx, ptr noundef %kstr, i64 noundef %klen) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_passphrase(ptr noundef nonnull %pwdata, ptr noundef %kstr, i64 noundef %klen) #6
   ret i32 %call
 }
@@ -33,7 +33,7 @@ declare i32 @ossl_pw_set_passphrase(ptr noundef, ptr noundef, i64 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_CTX_set_passphrase_ui(ptr noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_ui_method(ptr noundef nonnull %pwdata, ptr noundef %ui_method, ptr noundef %ui_data) #6
   ret i32 %call
 }
@@ -43,7 +43,7 @@ declare i32 @ossl_pw_set_ui_method(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_CTX_set_pem_password_cb(ptr noundef %ctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_pem_password_cb(ptr noundef nonnull %pwdata, ptr noundef %cb, ptr noundef %cbarg) #6
   ret i32 %call
 }
@@ -53,7 +53,7 @@ declare i32 @ossl_pw_set_pem_password_cb(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define i32 @OSSL_DECODER_CTX_set_passphrase_cb(ptr noundef %ctx, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 56
+  %pwdata = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %call = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata, ptr noundef %cb, ptr noundef %cbarg) #6
   ret i32 %call
 }
@@ -75,7 +75,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @decoder_cache_entry_hash, ptr noundef nonnull @decoder_cache_entry_cmp) #6
-  %hashtable = getelementptr inbounds i8, ptr %call, i64 8
+  %hashtable = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call.i, ptr %hashtable, align 8
   %cmp8 = icmp eq ptr %call.i, null
   br i1 %cmp8, label %if.then9, label %return
@@ -104,7 +104,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal i64 @decoder_cache_entry_hash(ptr nocapture noundef readonly %cache) #0 {
 entry:
-  %propquery = getelementptr inbounds i8, ptr %cache, i64 32
+  %propquery = getelementptr inbounds nuw i8, ptr %cache, i64 32
   %0 = load ptr, ptr %propquery, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -117,7 +117,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %2, %cond.false ], [ 8993, %entry ]
-  %input_structure = getelementptr inbounds i8, ptr %cache, i64 8
+  %input_structure = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %3 = load ptr, ptr %input_structure, align 8
   %cmp3 = icmp eq ptr %3, null
   br i1 %cmp3, label %cond.end8, label %cond.false5
@@ -138,7 +138,7 @@ cond.false14:                                     ; preds = %cond.end8
 
 cond.end17:                                       ; preds = %cond.end8, %cond.false14
   %cond18 = phi i64 [ %call16, %cond.false14 ], [ 0, %cond.end8 ]
-  %keytype = getelementptr inbounds i8, ptr %cache, i64 16
+  %keytype = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %5 = load ptr, ptr %keytype, align 8
   %cmp21 = icmp eq ptr %5, null
   br i1 %cmp21, label %cond.end26, label %cond.false23
@@ -154,7 +154,7 @@ cond.end26:                                       ; preds = %cond.end17, %cond.f
   %add19 = add i64 %cond18, %mul11
   %mul20 = mul i64 %add19, 23
   %add28 = add i64 %cond27, %mul20
-  %selection = getelementptr inbounds i8, ptr %cache, i64 24
+  %selection = getelementptr inbounds nuw i8, ptr %cache, i64 24
   %6 = load i32, ptr %selection, align 8
   %conv = sext i32 %6 to i64
   %xor = xor i64 %add28, %conv
@@ -164,9 +164,9 @@ cond.end26:                                       ; preds = %cond.end17, %cond.f
 ; Function Attrs: nounwind uwtable
 define internal i32 @decoder_cache_entry_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %selection = getelementptr inbounds i8, ptr %a, i64 24
+  %selection = getelementptr inbounds nuw i8, ptr %a, i64 24
   %0 = load i32, ptr %selection, align 8
-  %selection1 = getelementptr inbounds i8, ptr %b, i64 24
+  %selection1 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %1 = load i32, ptr %selection1, align 8
   %cmp2.not = icmp eq i32 %0, %1
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -177,9 +177,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %keytype = getelementptr inbounds i8, ptr %a, i64 16
+  %keytype = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load ptr, ptr %keytype, align 8
-  %keytype6 = getelementptr inbounds i8, ptr %b, i64 16
+  %keytype6 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %3 = load ptr, ptr %keytype6, align 8
   %cmp.i = icmp eq ptr %2, null
   %cmp1.i = icmp eq ptr %3, null
@@ -223,9 +223,9 @@ nullstrcmp.exit28:                                ; preds = %if.then.i24, %if.el
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %nullstrcmp.exit28
-  %input_structure = getelementptr inbounds i8, ptr %a, i64 8
+  %input_structure = getelementptr inbounds nuw i8, ptr %a, i64 8
   %6 = load ptr, ptr %input_structure, align 8
-  %input_structure15 = getelementptr inbounds i8, ptr %b, i64 8
+  %input_structure15 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %7 = load ptr, ptr %input_structure15, align 8
   %cmp.i29 = icmp eq ptr %6, null
   %cmp1.i30 = icmp eq ptr %7, null
@@ -247,9 +247,9 @@ nullstrcmp.exit39:                                ; preds = %if.then.i35, %if.el
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %nullstrcmp.exit39
-  %propquery = getelementptr inbounds i8, ptr %a, i64 32
+  %propquery = getelementptr inbounds nuw i8, ptr %a, i64 32
   %8 = load ptr, ptr %propquery, align 8
-  %propquery20 = getelementptr inbounds i8, ptr %b, i64 32
+  %propquery20 = getelementptr inbounds nuw i8, ptr %b, i64 32
   %9 = load ptr, ptr %propquery20, align 8
   %cmp.i40 = icmp eq ptr %8, null
   %cmp1.i41 = icmp eq ptr %9, null
@@ -276,7 +276,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ossl_decoder_cache_free(ptr noundef %vcache) local_unnamed_addr #0 {
 entry:
-  %hashtable = getelementptr inbounds i8, ptr %vcache, i64 8
+  %hashtable = getelementptr inbounds nuw i8, ptr %vcache, i64 8
   %0 = load ptr, ptr %hashtable, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %0, ptr noundef nonnull @decoder_cache_entry_free) #6
   %1 = load ptr, ptr %hashtable, align 8
@@ -296,16 +296,16 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %entry1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 608) #6
-  %input_structure = getelementptr inbounds i8, ptr %entry1, i64 8
+  %input_structure = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   %1 = load ptr, ptr %input_structure, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 609) #6
-  %keytype = getelementptr inbounds i8, ptr %entry1, i64 16
+  %keytype = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %2 = load ptr, ptr %keytype, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 610) #6
-  %propquery = getelementptr inbounds i8, ptr %entry1, i64 32
+  %propquery = getelementptr inbounds nuw i8, ptr %entry1, i64 32
   %3 = load ptr, ptr %propquery, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 611) #6
-  %template = getelementptr inbounds i8, ptr %entry1, i64 40
+  %template = getelementptr inbounds nuw i8, ptr %entry1, i64 40
   %4 = load ptr, ptr %template, align 8
   tail call void @OSSL_DECODER_CTX_free(ptr noundef %4) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %entry1, ptr noundef nonnull @.str, i32 noundef 613) #6
@@ -335,7 +335,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %hashtable = getelementptr inbounds i8, ptr %call, i64 8
+  %hashtable = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %hashtable, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %1, ptr noundef nonnull @decoder_cache_entry_free) #6
   %2 = load ptr, ptr %hashtable, align 8
@@ -390,13 +390,13 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   store ptr %input_type, ptr %cacheent, align 8
-  %input_structure5 = getelementptr inbounds i8, ptr %cacheent, i64 8
+  %input_structure5 = getelementptr inbounds nuw i8, ptr %cacheent, i64 8
   store ptr %input_structure, ptr %input_structure5, align 8
-  %keytype6 = getelementptr inbounds i8, ptr %cacheent, i64 16
+  %keytype6 = getelementptr inbounds nuw i8, ptr %cacheent, i64 16
   store ptr %keytype, ptr %keytype6, align 8
-  %selection7 = getelementptr inbounds i8, ptr %cacheent, i64 24
+  %selection7 = getelementptr inbounds nuw i8, ptr %cacheent, i64 24
   store i32 %selection, ptr %selection7, align 8
-  %propquery8 = getelementptr inbounds i8, ptr %cacheent, i64 32
+  %propquery8 = getelementptr inbounds nuw i8, ptr %cacheent, i64 32
   store ptr %propquery, ptr %propquery8, align 8
   %0 = load ptr, ptr %call, align 8
   %call9 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %0) #6
@@ -410,7 +410,7 @@ if.then10:                                        ; preds = %if.end3
   br label %return
 
 if.end11:                                         ; preds = %if.end3
-  %hashtable = getelementptr inbounds i8, ptr %call, i64 8
+  %hashtable = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %hashtable, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %cacheent) #6
   %cmp13 = icmp eq ptr %call.i, null
@@ -460,7 +460,7 @@ if.end.i:                                         ; preds = %land.lhs.true28
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %call2.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propquery, ptr noundef nonnull @.str, i32 noundef 407) #6
-  %propq.i = getelementptr inbounds i8, ptr %call.i58, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 8
   store ptr %call2.i, ptr %propq.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %ossl_decoder_ctx_setup_for_pkey.exit, label %if.end5.i
@@ -477,24 +477,24 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %ossl_decoder_ctx_setup_for_pkey.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %object.i = getelementptr inbounds i8, ptr %call.i58, i64 40
+  %object.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 40
   store ptr null, ptr %object.i, align 8
   store ptr %libctx, ptr %call.i58, align 8
-  %selection.i = getelementptr inbounds i8, ptr %call17, i64 16
+  %selection.i = getelementptr inbounds nuw i8, ptr %call17, i64 16
   %3 = load i32, ptr %selection.i, align 8
-  %selection11.i = getelementptr inbounds i8, ptr %call.i58, i64 16
+  %selection11.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 16
   store i32 %3, ptr %selection11.i, align 8
-  %keymgmts12.i = getelementptr inbounds i8, ptr %call.i58, i64 24
+  %keymgmts12.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 24
   store ptr %call.i.i, ptr %keymgmts12.i, align 8
-  %ctx13.i = getelementptr inbounds i8, ptr %collect_data.i, i64 8
+  %ctx13.i = getelementptr inbounds nuw i8, ptr %collect_data.i, i64 8
   store ptr %call17, ptr %ctx13.i, align 8
   store ptr %libctx, ptr %collect_data.i, align 8
-  %keymgmts15.i = getelementptr inbounds i8, ptr %collect_data.i, i64 40
+  %keymgmts15.i = getelementptr inbounds nuw i8, ptr %collect_data.i, i64 40
   store ptr %call.i.i, ptr %keymgmts15.i, align 8
-  %keytype16.i = getelementptr inbounds i8, ptr %collect_data.i, i64 16
+  %keytype16.i = getelementptr inbounds nuw i8, ptr %collect_data.i, i64 16
   store ptr %keytype, ptr %keytype16.i, align 8
   call void @EVP_KEYMGMT_do_all_provided(ptr noundef %libctx, ptr noundef nonnull @collect_keymgmt, ptr noundef nonnull %collect_data.i) #6
-  %error_occurred.i = getelementptr inbounds i8, ptr %collect_data.i, i64 36
+  %error_occurred.i = getelementptr inbounds nuw i8, ptr %collect_data.i, i64 36
   %4 = load i8, ptr %error_occurred.i, align 4
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end18.i, label %ossl_decoder_ctx_setup_for_pkey.exit
@@ -531,13 +531,13 @@ ossl_decoder_ctx_setup_for_pkey.exit.thread73:    ; preds = %lor.lhs.false33.i
 
 ossl_decoder_ctx_setup_for_pkey.exit:             ; preds = %land.lhs.true.i, %if.then8.i, %if.end9.i, %if.end18.i, %do.body23.i, %if.then28.i, %lor.lhs.false.i, %lor.lhs.false33.i
   %tobool30.not = phi i1 [ false, %do.body23.i ], [ true, %if.then28.i ], [ true, %lor.lhs.false.i ], [ true, %if.end18.i ], [ true, %if.end9.i ], [ true, %if.then8.i ], [ true, %land.lhs.true.i ], [ true, %lor.lhs.false33.i ]
-  %keymgmts.i.i = getelementptr inbounds i8, ptr %call.i58, i64 24
+  %keymgmts.i.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 24
   %6 = load ptr, ptr %keymgmts.i.i, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %6, ptr noundef nonnull @EVP_KEYMGMT_free) #6
-  %propq.i.i = getelementptr inbounds i8, ptr %call.i58, i64 8
+  %propq.i.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 8
   %7 = load ptr, ptr %propq.i.i, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 200) #6
-  %object_type.i.i = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %object_type.i.i = getelementptr inbounds nuw i8, ptr %call.i58, i64 32
   %8 = load ptr, ptr %object_type.i.i, align 8
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 201) #6
   call void @CRYPTO_free(ptr noundef nonnull %call.i58, ptr noundef nonnull @.str, i32 noundef 202) #6
@@ -589,7 +589,7 @@ if.end55:                                         ; preds = %if.then48, %if.end4
 
 if.then57:                                        ; preds = %if.end55
   %call58 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %input_structure, ptr noundef nonnull @.str, i32 noundef 829) #6
-  %input_structure59 = getelementptr inbounds i8, ptr %call43, i64 8
+  %input_structure59 = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store ptr %call58, ptr %input_structure59, align 8
   %cmp61 = icmp eq ptr %call58, null
   br i1 %cmp61, label %err, label %if.end64
@@ -600,7 +600,7 @@ if.end64:                                         ; preds = %if.then57, %if.end5
 
 if.then66:                                        ; preds = %if.end64
   %call67 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %keytype, ptr noundef nonnull @.str, i32 noundef 834) #6
-  %keytype68 = getelementptr inbounds i8, ptr %call43, i64 16
+  %keytype68 = getelementptr inbounds nuw i8, ptr %call43, i64 16
   store ptr %call67, ptr %keytype68, align 8
   %cmp70 = icmp eq ptr %call67, null
   br i1 %cmp70, label %err, label %if.end73
@@ -610,15 +610,15 @@ if.end73:                                         ; preds = %if.then66, %if.end6
 
 if.then75:                                        ; preds = %if.end73
   %call76 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propquery, ptr noundef nonnull @.str, i32 noundef 839) #6
-  %propquery77 = getelementptr inbounds i8, ptr %call43, i64 32
+  %propquery77 = getelementptr inbounds nuw i8, ptr %call43, i64 32
   store ptr %call76, ptr %propquery77, align 8
   %cmp79 = icmp eq ptr %call76, null
   br i1 %cmp79, label %err, label %if.end82
 
 if.end82:                                         ; preds = %if.then75, %if.end73
-  %selection83 = getelementptr inbounds i8, ptr %call43, i64 24
+  %selection83 = getelementptr inbounds nuw i8, ptr %call43, i64 24
   store i32 %selection, ptr %selection83, align 8
-  %template = getelementptr inbounds i8, ptr %call43, i64 40
+  %template = getelementptr inbounds nuw i8, ptr %call43, i64 40
   store ptr %call17, ptr %template, align 8
   %9 = load ptr, ptr %call, align 8
   %call85 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %9) #6
@@ -645,7 +645,7 @@ if.else100:                                       ; preds = %if.end88
 
 if.end105:                                        ; preds = %if.end11, %if.else100
   %call.i59.pn = phi ptr [ %call.i59, %if.else100 ], [ %call.i, %if.end11 ]
-  %ctx.1.in = getelementptr inbounds i8, ptr %call.i59.pn, i64 40
+  %ctx.1.in = getelementptr inbounds nuw i8, ptr %call.i59.pn, i64 40
   %ctx.1 = load ptr, ptr %ctx.1.in, align 8
   %cmp.i62 = icmp eq ptr %ctx.1, null
   br i1 %cmp.i62, label %ossl_decoder_ctx_for_pkey_dup.exit, label %if.end.i63
@@ -679,18 +679,18 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i66, 
   br label %if.end69.i
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i66
-  %selection.i67 = getelementptr inbounds i8, ptr %ctx.178, i64 16
+  %selection.i67 = getelementptr inbounds nuw i8, ptr %ctx.178, i64 16
   %13 = load i32, ptr %selection.i67, align 8
-  %selection9.i = getelementptr inbounds i8, ptr %call.i64, i64 16
+  %selection9.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 16
   store i32 %13, ptr %selection9.i, align 8
-  %decoder_insts.i = getelementptr inbounds i8, ptr %ctx.178, i64 24
+  %decoder_insts.i = getelementptr inbounds nuw i8, ptr %ctx.178, i64 24
   %14 = load ptr, ptr %decoder_insts.i, align 8
   %cmp10.not.i = icmp eq ptr %14, null
   br i1 %cmp10.not.i, label %if.end19.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
   %call.i.i68 = call ptr @OPENSSL_sk_deep_copy(ptr noundef nonnull %14, ptr noundef nonnull @ossl_decoder_instance_dup, ptr noundef nonnull @ossl_decoder_instance_free) #6
-  %decoder_insts14.i = getelementptr inbounds i8, ptr %call.i64, i64 24
+  %decoder_insts14.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 24
   store ptr %call.i.i68, ptr %decoder_insts14.i, align 8
   %cmp16.i = icmp eq ptr %call.i.i68, null
   br i1 %cmp16.i, label %if.then17.i, label %if.end19.i
@@ -730,39 +730,39 @@ if.then30.i:                                      ; preds = %if.then27.i
   br label %if.end69.i
 
 if.end31.i:                                       ; preds = %if.then27.i
-  %propq.i69 = getelementptr inbounds i8, ptr %call25.i, i64 8
+  %propq.i69 = getelementptr inbounds nuw i8, ptr %call25.i, i64 8
   %15 = load ptr, ptr %propq.i69, align 8
   %cmp32.not.i = icmp eq ptr %15, null
   br i1 %cmp32.not.i, label %if.end41.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
   %call35.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef 543) #6
-  %propq36.i = getelementptr inbounds i8, ptr %call28.i, i64 8
+  %propq36.i = getelementptr inbounds nuw i8, ptr %call28.i, i64 8
   store ptr %call35.i, ptr %propq36.i, align 8
   %cmp38.i = icmp eq ptr %call35.i, null
   br i1 %cmp38.i, label %if.then66.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then33.i, %if.end31.i
-  %keymgmts.i = getelementptr inbounds i8, ptr %call25.i, i64 24
+  %keymgmts.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 24
   %16 = load ptr, ptr %keymgmts.i, align 8
   %cmp42.not.i = icmp eq ptr %16, null
   br i1 %cmp42.not.i, label %if.end51.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end41.i
   %call.i36.i = call ptr @OPENSSL_sk_deep_copy(ptr noundef nonnull %16, ptr noundef nonnull @keymgmt_dup, ptr noundef nonnull @EVP_KEYMGMT_free) #6
-  %keymgmts46.i = getelementptr inbounds i8, ptr %call28.i, i64 24
+  %keymgmts46.i = getelementptr inbounds nuw i8, ptr %call28.i, i64 24
   store ptr %call.i36.i, ptr %keymgmts46.i, align 8
   %cmp48.i = icmp eq ptr %call.i36.i, null
   br i1 %cmp48.i, label %if.then66.i, label %if.end51.i
 
 if.end51.i:                                       ; preds = %if.then43.i, %if.end41.i
-  %object.i70 = getelementptr inbounds i8, ptr %call28.i, i64 40
+  %object.i70 = getelementptr inbounds nuw i8, ptr %call28.i, i64 40
   store ptr %pkey, ptr %object.i70, align 8
   %17 = load ptr, ptr %call25.i, align 8
   store ptr %17, ptr %call28.i, align 8
-  %selection53.i = getelementptr inbounds i8, ptr %call25.i, i64 16
+  %selection53.i = getelementptr inbounds nuw i8, ptr %call25.i, i64 16
   %18 = load i32, ptr %selection53.i, align 8
-  %selection54.i = getelementptr inbounds i8, ptr %call28.i, i64 16
+  %selection54.i = getelementptr inbounds nuw i8, ptr %call28.i, i64 16
   store i32 %18, ptr %selection54.i, align 8
   %call55.i = call i32 @OSSL_DECODER_CTX_set_construct_data(ptr noundef nonnull %call.i64, ptr noundef nonnull %call28.i) #6
   %tobool56.not.i = icmp eq i32 %call55.i, 0
@@ -786,10 +786,10 @@ if.then66.i:                                      ; preds = %if.end51.i, %if.the
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink39.i, ptr noundef nonnull @__func__.ossl_decoder_ctx_for_pkey_dup) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.sink.i, ptr noundef null) #6
-  %propq67.i = getelementptr inbounds i8, ptr %call28.i, i64 8
+  %propq67.i = getelementptr inbounds nuw i8, ptr %call28.i, i64 8
   %19 = load ptr, ptr %propq67.i, align 8
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 580) #6
-  %keymgmts68.i = getelementptr inbounds i8, ptr %call28.i, i64 24
+  %keymgmts68.i = getelementptr inbounds nuw i8, ptr %call28.i, i64 24
   %20 = load ptr, ptr %keymgmts68.i, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %20, ptr noundef nonnull @EVP_KEYMGMT_free) #6
   call void @CRYPTO_free(ptr noundef nonnull %call28.i, ptr noundef nonnull @.str, i32 noundef 582) #6
@@ -873,13 +873,13 @@ declare void @EVP_KEYMGMT_do_all_provided(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal void @collect_keymgmt(ptr noundef %keymgmt, ptr nocapture noundef %arg) #0 {
 entry:
-  %keytype.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %keytype.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %keytype.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %keytype_resolved.i = getelementptr inbounds i8, ptr %arg, i64 37
+  %keytype_resolved.i = getelementptr inbounds nuw i8, ptr %arg, i64 37
   %1 = load i8, ptr %keytype_resolved.i, align 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.end16.i
@@ -889,7 +889,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %call.i = tail call ptr @ossl_namemap_stored(ptr noundef %2) #6
   %3 = load ptr, ptr %keytype.i, align 8
   %call3.i = tail call i32 @ossl_namemap_name2num(ptr noundef %call.i, ptr noundef %3) #6
-  %keytype_id.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %keytype_id.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   store i32 %call3.i, ptr %keytype_id.i, align 8
   %cmp5.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp5.not.i, label %if.end14.i, label %land.lhs.true.i
@@ -907,7 +907,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %call13.i = tail call i32 @ossl_namemap_name2num(ptr noundef %call.i, ptr noundef nonnull @.str.4) #6
-  %sm2_id.i = getelementptr inbounds i8, ptr %arg, i64 28
+  %sm2_id.i = getelementptr inbounds nuw i8, ptr %arg, i64 28
   store i32 %call13.i, ptr %sm2_id.i, align 4
   br label %if.end14.i
 
@@ -916,19 +916,19 @@ if.end14.i:                                       ; preds = %if.then12.i, %lor.l
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end14.i, %if.end.i
-  %keytype_id17.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %keytype_id17.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %5 = load i32, ptr %keytype_id17.i, align 8
   %cmp18.i = icmp eq i32 %5, 0
   br i1 %cmp18.i, label %if.end7, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %name_id.i = getelementptr inbounds i8, ptr %keymgmt, i64 4
+  %name_id.i = getelementptr inbounds nuw i8, ptr %keymgmt, i64 4
   %6 = load i32, ptr %name_id.i, align 4
   %cmp22.not.i = icmp eq i32 %6, %5
   br i1 %cmp22.not.i, label %if.end, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.end20.i
-  %sm2_id25.i = getelementptr inbounds i8, ptr %arg, i64 28
+  %sm2_id25.i = getelementptr inbounds nuw i8, ptr %arg, i64 28
   %7 = load i32, ptr %sm2_id25.i, align 4
   %cmp26.not.i = icmp eq i32 %6, %7
   br i1 %cmp26.not.i, label %if.end, label %if.end7
@@ -939,7 +939,7 @@ if.end:                                           ; preds = %if.end20.i, %land.l
   br i1 %tobool2.not, label %if.end7, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %keymgmts = getelementptr inbounds i8, ptr %arg, i64 40
+  %keymgmts = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %8 = load ptr, ptr %keymgmts, align 8
   %call.i6 = tail call i32 @OPENSSL_sk_push(ptr noundef %8, ptr noundef %keymgmt) #6
   %cmp = icmp slt i32 %call.i6, 1
@@ -947,7 +947,7 @@ if.end4:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end4
   tail call void @EVP_KEYMGMT_free(ptr noundef %keymgmt) #6
-  %error_occurred = getelementptr inbounds i8, ptr %arg, i64 36
+  %error_occurred = getelementptr inbounds nuw i8, ptr %arg, i64 36
   store i8 1, ptr %error_occurred, align 4
   br label %if.end7
 
@@ -960,9 +960,9 @@ declare void @OSSL_DECODER_do_all_provided(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @collect_decoder(ptr noundef %decoder, ptr nocapture noundef %arg) #0 {
 entry:
-  %keymgmts1 = getelementptr inbounds i8, ptr %arg, i64 40
+  %keymgmts1 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %0 = load ptr, ptr %keymgmts1, align 8
-  %error_occurred = getelementptr inbounds i8, ptr %arg, i64 36
+  %error_occurred = getelementptr inbounds nuw i8, ptr %arg, i64 36
   %1 = load i8, ptr %error_occurred, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %for.end
@@ -970,15 +970,15 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @OSSL_DECODER_get0_provider(ptr noundef %decoder) #6
   %call2 = tail call ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef %call) #6
-  %does_selection = getelementptr inbounds i8, ptr %decoder, i64 96
+  %does_selection = getelementptr inbounds nuw i8, ptr %decoder, i64 96
   %2 = load ptr, ptr %does_selection, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %do.body, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ctx = getelementptr inbounds i8, ptr %arg, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %3 = load ptr, ptr %ctx, align 8
-  %selection = getelementptr inbounds i8, ptr %3, i64 16
+  %selection = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i32, ptr %selection, align 8
   %call4 = tail call i32 %2(ptr noundef %call2, i32 noundef %4) #6
   %tobool5.not = icmp eq i32 %call4, 0
@@ -990,10 +990,10 @@ do.body:                                          ; preds = %if.end, %land.lhs.t
   br i1 %cmp918, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %do.body
-  %id.i = getelementptr inbounds i8, ptr %decoder, i64 8
-  %newctx.i = getelementptr inbounds i8, ptr %decoder, i64 48
-  %ctx.i = getelementptr inbounds i8, ptr %arg, i64 8
-  %total.i = getelementptr inbounds i8, ptr %arg, i64 32
+  %id.i = getelementptr inbounds nuw i8, ptr %decoder, i64 8
+  %newctx.i = getelementptr inbounds nuw i8, ptr %decoder, i64 48
+  %ctx.i = getelementptr inbounds nuw i8, ptr %arg, i64 8
+  %total.i = getelementptr inbounds nuw i8, ptr %arg, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %collect_decoder_keymgmt.exit, %for.body.lr.ph
@@ -1017,7 +1017,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp5.i, label %if.then6.i, label %do.body.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %freectx.i = getelementptr inbounds i8, ptr %decoder, i64 56
+  %freectx.i = getelementptr inbounds nuw i8, ptr %decoder, i64 56
   %8 = load ptr, ptr %freectx.i, align 8
   tail call void %8(ptr noundef nonnull %call.i13) #6
   br label %for.end.sink.split
@@ -1077,7 +1077,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %object_type6 = getelementptr inbounds i8, ptr %construct_data, i64 32
+  %object_type6 = getelementptr inbounds nuw i8, ptr %construct_data, i64 32
   %0 = load ptr, ptr %object_type6, align 8
   call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 99) #6
   %1 = load ptr, ptr %object_type, align 8
@@ -1090,24 +1090,24 @@ if.end8:                                          ; preds = %if.end, %entry
   br i1 %cmp10, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
-  %data_type = getelementptr inbounds i8, ptr %call9, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %2 = load i32, ptr %data_type, align 8
   %cmp11.not = icmp eq i32 %2, 5
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %lor.lhs.false
-  %data14 = getelementptr inbounds i8, ptr %call9, i64 16
+  %data14 = getelementptr inbounds nuw i8, ptr %call9, i64 16
   %3 = load ptr, ptr %data14, align 8
-  %data_size = getelementptr inbounds i8, ptr %call9, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call9, i64 24
   %4 = load i64, ptr %data_size, align 8
-  %keymgmts = getelementptr inbounds i8, ptr %construct_data, i64 24
+  %keymgmts = getelementptr inbounds nuw i8, ptr %construct_data, i64 24
   %5 = load ptr, ptr %keymgmts, align 8
   %call.i = call i32 @OPENSSL_sk_num(ptr noundef %5) #6
   %cmp1654 = icmp sgt i32 %call.i, 0
   br i1 %cmp1654, label %for.body.lr.ph, label %if.else
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %object_type24 = getelementptr inbounds i8, ptr %construct_data, i64 32
+  %object_type24 = getelementptr inbounds nuw i8, ptr %construct_data, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1141,9 +1141,9 @@ if.then30:                                        ; preds = %land.lhs.true23
 
 if.else:                                          ; preds = %for.inc, %if.end13
   %8 = load ptr, ptr %construct_data, align 8
-  %object_type35 = getelementptr inbounds i8, ptr %construct_data, i64 32
+  %object_type35 = getelementptr inbounds nuw i8, ptr %construct_data, i64 32
   %9 = load ptr, ptr %object_type35, align 8
-  %propq = getelementptr inbounds i8, ptr %construct_data, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %construct_data, i64 8
   %10 = load ptr, ptr %propq, align 8
   %call36 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %8, ptr noundef %9, ptr noundef %10) #6
   %cmp37.not = icmp eq ptr %call36, null
@@ -1165,15 +1165,15 @@ if.then45:                                        ; preds = %if.end41, %if.then4
 
 if.else47:                                        ; preds = %if.then43
   store ptr %call36, ptr %import_data, align 8
-  %keydata49 = getelementptr inbounds i8, ptr %import_data, i64 8
+  %keydata49 = getelementptr inbounds nuw i8, ptr %import_data, i64 8
   store ptr null, ptr %keydata49, align 8
-  %selection = getelementptr inbounds i8, ptr %construct_data, i64 16
+  %selection = getelementptr inbounds nuw i8, ptr %construct_data, i64 16
   %11 = load i32, ptr %selection, align 8
   %cmp50 = icmp eq i32 %11, 0
   %spec.select = select i1 %cmp50, i32 135, i32 %11
-  %12 = getelementptr inbounds i8, ptr %import_data, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %import_data, i64 16
   store i32 %spec.select, ptr %12, align 8
-  %export_object = getelementptr inbounds i8, ptr %call, i64 112
+  %export_object = getelementptr inbounds nuw i8, ptr %call, i64 112
   %13 = load ptr, ptr %export_object, align 8
   %call57 = call i32 %13(ptr noundef %call1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @evp_keymgmt_util_try_import, ptr noundef nonnull %import_data) #6
   %14 = load ptr, ptr %keydata49, align 8
@@ -1197,14 +1197,14 @@ if.then65:                                        ; preds = %land.lhs.true62
 
 if.end66:                                         ; preds = %if.then65, %land.lhs.true62, %if.end60
   %pkey.0 = phi ptr [ null, %if.then65 ], [ %call63, %land.lhs.true62 ], [ null, %if.end60 ]
-  %object = getelementptr inbounds i8, ptr %construct_data, i64 40
+  %object = getelementptr inbounds nuw i8, ptr %construct_data, i64 40
   %15 = load ptr, ptr %object, align 8
   store ptr %pkey.0, ptr %15, align 8
   call void @EVP_KEYMGMT_free(ptr noundef nonnull %keymgmt.25261) #6
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else, %if.end66, %if.end41
-  %object68 = getelementptr inbounds i8, ptr %construct_data, i64 40
+  %object68 = getelementptr inbounds nuw i8, ptr %construct_data, i64 40
   %16 = load ptr, ptr %object68, align 8
   %17 = load ptr, ptr %16, align 8
   %cmp69 = icmp ne ptr %17, null
@@ -1227,13 +1227,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %keymgmts = getelementptr inbounds i8, ptr %construct_data, i64 24
+  %keymgmts = getelementptr inbounds nuw i8, ptr %construct_data, i64 24
   %0 = load ptr, ptr %keymgmts, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @EVP_KEYMGMT_free) #6
-  %propq = getelementptr inbounds i8, ptr %construct_data, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %construct_data, i64 8
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 200) #6
-  %object_type = getelementptr inbounds i8, ptr %construct_data, i64 32
+  %object_type = getelementptr inbounds nuw i8, ptr %construct_data, i64 32
   %2 = load ptr, ptr %object_type, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 201) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %construct_data, ptr noundef nonnull @.str, i32 noundef 202) #6

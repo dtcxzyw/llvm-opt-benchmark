@@ -204,7 +204,7 @@ define dso_local void @_ZN5clang4ento16printCheckerHelpERN4llvm11raw_ostreamERNS
 13:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %6, ptr noundef nonnull align 1 dereferenceable(47) @.str, i64 47, i1 false)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 47
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 47
   store ptr %15, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -224,7 +224,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 24:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %16, ptr noundef nonnull align 1 dereferenceable(51) @.str.1, i64 51, i1 false)
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 51
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 51
   store ptr %26, ptr %5, align 8
   br label %_ZNSt10unique_ptrIN5clang4ento14CheckerManagerESt14default_deleteIS2_EED2Ev.exit
 
@@ -280,7 +280,7 @@ define dso_local void @_ZN5clang4ento23printEnabledCheckerListERN4llvm11raw_ostr
 13:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %6, ptr noundef nonnull align 1 dereferenceable(55) @.str.2, i64 55, i1 false)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 55
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 55
   store ptr %15, ptr %5, align 8
   br label %_ZNSt10unique_ptrIN5clang4ento14CheckerManagerESt14default_deleteIS2_EED2Ev.exit
 
@@ -586,7 +586,7 @@ define dso_local void @_ZN5clang4ento23printAnalyzerConfigListERN4llvm11raw_ostr
 230:                                              ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(494) %223, ptr noundef nonnull align 1 dereferenceable(494) @.str.3, i64 494, i1 false)
   %231 = load ptr, ptr %222, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 494
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 494
   store ptr %232, ptr %222, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit3877
 
@@ -613,7 +613,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i64 4, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %241 = getelementptr inbounds i8, ptr %2, i64 48
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @.str.5, ptr %8, align 8, !alias.scope !25
   %242 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @.str.10, ptr %242, align 8, !alias.scope !25
@@ -632,11 +632,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %247, align 1, !alias.scope !36
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %7) #10
   store ptr @.str.9, ptr %241, align 16
-  %248 = getelementptr inbounds i8, ptr %2, i64 56
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 18, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %2, i64 64
+  %249 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %250 = getelementptr inbounds i8, ptr %2, i64 96
+  %250 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr @.str.5, ptr %11, align 8, !alias.scope !37
   %251 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.10, ptr %251, align 8, !alias.scope !37
@@ -655,11 +655,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %256, align 1, !alias.scope !48
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) #10
   store ptr @.str.12, ptr %250, align 16
-  %257 = getelementptr inbounds i8, ptr %2, i64 104
+  %257 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 19, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %2, i64 112
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  %259 = getelementptr inbounds i8, ptr %2, i64 144
+  %259 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr @.str.5, ptr %14, align 8, !alias.scope !49
   %260 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @.str.10, ptr %260, align 8, !alias.scope !49
@@ -678,11 +678,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %265, align 1, !alias.scope !60
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #10
   store ptr @.str.14, ptr %259, align 16
-  %266 = getelementptr inbounds i8, ptr %2, i64 152
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i64 12, ptr %266, align 8
-  %267 = getelementptr inbounds i8, ptr %2, i64 160
+  %267 = getelementptr inbounds nuw i8, ptr %2, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull align 8 dereferenceable(32) %12) #10
-  %268 = getelementptr inbounds i8, ptr %2, i64 192
+  %268 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr @.str.5, ptr %17, align 8, !alias.scope !61
   %269 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @.str.10, ptr %269, align 8, !alias.scope !61
@@ -701,11 +701,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %274, align 1, !alias.scope !72
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(34) %16) #10
   store ptr @.str.16, ptr %268, align 16
-  %275 = getelementptr inbounds i8, ptr %2, i64 200
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i64 12, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %2, i64 208
+  %276 = getelementptr inbounds nuw i8, ptr %2, i64 208
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(32) %15) #10
-  %277 = getelementptr inbounds i8, ptr %2, i64 240
+  %277 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store ptr @.str.5, ptr %20, align 8, !alias.scope !73
   %278 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @.str.10, ptr %278, align 8, !alias.scope !73
@@ -724,11 +724,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %283, align 1, !alias.scope !84
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(34) %19) #10
   store ptr @.str.18, ptr %277, align 16
-  %284 = getelementptr inbounds i8, ptr %2, i64 248
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store i64 21, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %2, i64 256
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 256
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef nonnull align 8 dereferenceable(32) %18) #10
-  %286 = getelementptr inbounds i8, ptr %2, i64 288
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 288
   store ptr @.str.5, ptr %23, align 8, !alias.scope !85
   %287 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @.str.10, ptr %287, align 8, !alias.scope !85
@@ -747,11 +747,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %292, align 1, !alias.scope !96
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(34) %22) #10
   store ptr @.str.20, ptr %286, align 16
-  %293 = getelementptr inbounds i8, ptr %2, i64 296
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 296
   store i64 10, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %2, i64 304
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 304
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %21) #10
-  %295 = getelementptr inbounds i8, ptr %2, i64 336
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 336
   store ptr @.str.5, ptr %26, align 8, !alias.scope !97
   %296 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr @.str.10, ptr %296, align 8, !alias.scope !97
@@ -770,11 +770,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %301, align 1, !alias.scope !108
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(34) %25) #10
   store ptr @.str.22, ptr %295, align 16
-  %302 = getelementptr inbounds i8, ptr %2, i64 344
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 344
   store i64 29, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %2, i64 352
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 352
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %303, ptr noundef nonnull align 8 dereferenceable(32) %24) #10
-  %304 = getelementptr inbounds i8, ptr %2, i64 384
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store ptr @.str.5, ptr %29, align 8, !alias.scope !109
   %305 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @.str.10, ptr %305, align 8, !alias.scope !109
@@ -793,11 +793,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %310, align 1, !alias.scope !120
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(34) %28) #10
   store ptr @.str.24, ptr %304, align 16
-  %311 = getelementptr inbounds i8, ptr %2, i64 392
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 392
   store i64 21, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %2, i64 400
+  %312 = getelementptr inbounds nuw i8, ptr %2, i64 400
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %312, ptr noundef nonnull align 8 dereferenceable(32) %27) #10
-  %313 = getelementptr inbounds i8, ptr %2, i64 432
+  %313 = getelementptr inbounds nuw i8, ptr %2, i64 432
   store ptr @.str.5, ptr %32, align 8, !alias.scope !121
   %314 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr @.str.10, ptr %314, align 8, !alias.scope !121
@@ -816,11 +816,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %319, align 1, !alias.scope !132
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31) #10
   store ptr @.str.26, ptr %313, align 16
-  %320 = getelementptr inbounds i8, ptr %2, i64 440
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 440
   store i64 19, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %2, i64 448
+  %321 = getelementptr inbounds nuw i8, ptr %2, i64 448
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %321, ptr noundef nonnull align 8 dereferenceable(32) %30) #10
-  %322 = getelementptr inbounds i8, ptr %2, i64 480
+  %322 = getelementptr inbounds nuw i8, ptr %2, i64 480
   store ptr @.str.5, ptr %35, align 8, !alias.scope !133
   %323 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr @.str.10, ptr %323, align 8, !alias.scope !133
@@ -839,11 +839,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %328, align 1, !alias.scope !144
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull align 8 dereferenceable(34) %34) #10
   store ptr @.str.28, ptr %322, align 16
-  %329 = getelementptr inbounds i8, ptr %2, i64 488
+  %329 = getelementptr inbounds nuw i8, ptr %2, i64 488
   store i64 22, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %2, i64 496
+  %330 = getelementptr inbounds nuw i8, ptr %2, i64 496
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %330, ptr noundef nonnull align 8 dereferenceable(32) %33) #10
-  %331 = getelementptr inbounds i8, ptr %2, i64 528
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 528
   store ptr @.str.5, ptr %38, align 8, !alias.scope !145
   %332 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr @.str.10, ptr %332, align 8, !alias.scope !145
@@ -862,11 +862,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %337, align 1, !alias.scope !156
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull align 8 dereferenceable(34) %37) #10
   store ptr @.str.30, ptr %331, align 16
-  %338 = getelementptr inbounds i8, ptr %2, i64 536
+  %338 = getelementptr inbounds nuw i8, ptr %2, i64 536
   store i64 23, ptr %338, align 8
-  %339 = getelementptr inbounds i8, ptr %2, i64 544
+  %339 = getelementptr inbounds nuw i8, ptr %2, i64 544
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %339, ptr noundef nonnull align 8 dereferenceable(32) %36) #10
-  %340 = getelementptr inbounds i8, ptr %2, i64 576
+  %340 = getelementptr inbounds nuw i8, ptr %2, i64 576
   store ptr @.str.5, ptr %41, align 8, !alias.scope !157
   %341 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr @.str.10, ptr %341, align 8, !alias.scope !157
@@ -885,11 +885,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %346, align 1, !alias.scope !168
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(34) %40) #10
   store ptr @.str.32, ptr %340, align 16
-  %347 = getelementptr inbounds i8, ptr %2, i64 584
+  %347 = getelementptr inbounds nuw i8, ptr %2, i64 584
   store i64 22, ptr %347, align 8
-  %348 = getelementptr inbounds i8, ptr %2, i64 592
+  %348 = getelementptr inbounds nuw i8, ptr %2, i64 592
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %348, ptr noundef nonnull align 8 dereferenceable(32) %39) #10
-  %349 = getelementptr inbounds i8, ptr %2, i64 624
+  %349 = getelementptr inbounds nuw i8, ptr %2, i64 624
   store ptr @.str.5, ptr %44, align 8, !alias.scope !169
   %350 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr @.str.10, ptr %350, align 8, !alias.scope !169
@@ -908,11 +908,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %355, align 1, !alias.scope !180
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %42, ptr noundef nonnull align 8 dereferenceable(34) %43) #10
   store ptr @.str.34, ptr %349, align 16
-  %356 = getelementptr inbounds i8, ptr %2, i64 632
+  %356 = getelementptr inbounds nuw i8, ptr %2, i64 632
   store i64 26, ptr %356, align 8
-  %357 = getelementptr inbounds i8, ptr %2, i64 640
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 640
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %357, ptr noundef nonnull align 8 dereferenceable(32) %42) #10
-  %358 = getelementptr inbounds i8, ptr %2, i64 672
+  %358 = getelementptr inbounds nuw i8, ptr %2, i64 672
   store ptr @.str.5, ptr %47, align 8, !alias.scope !181
   %359 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr @.str.10, ptr %359, align 8, !alias.scope !181
@@ -931,11 +931,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %364, align 1, !alias.scope !192
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr noundef nonnull align 8 dereferenceable(34) %46) #10
   store ptr @.str.36, ptr %358, align 16
-  %365 = getelementptr inbounds i8, ptr %2, i64 680
+  %365 = getelementptr inbounds nuw i8, ptr %2, i64 680
   store i64 37, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %2, i64 688
+  %366 = getelementptr inbounds nuw i8, ptr %2, i64 688
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %366, ptr noundef nonnull align 8 dereferenceable(32) %45) #10
-  %367 = getelementptr inbounds i8, ptr %2, i64 720
+  %367 = getelementptr inbounds nuw i8, ptr %2, i64 720
   store ptr @.str.5, ptr %50, align 8, !alias.scope !193
   %368 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr @.str.10, ptr %368, align 8, !alias.scope !193
@@ -954,11 +954,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %373, align 1, !alias.scope !204
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 8 dereferenceable(34) %49) #10
   store ptr @.str.38, ptr %367, align 16
-  %374 = getelementptr inbounds i8, ptr %2, i64 728
+  %374 = getelementptr inbounds nuw i8, ptr %2, i64 728
   store i64 33, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %2, i64 736
+  %375 = getelementptr inbounds nuw i8, ptr %2, i64 736
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %48) #10
-  %376 = getelementptr inbounds i8, ptr %2, i64 768
+  %376 = getelementptr inbounds nuw i8, ptr %2, i64 768
   store ptr @.str.5, ptr %53, align 8, !alias.scope !205
   %377 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr @.str.10, ptr %377, align 8, !alias.scope !205
@@ -977,11 +977,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %382, align 1, !alias.scope !216
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %51, ptr noundef nonnull align 8 dereferenceable(34) %52) #10
   store ptr @.str.40, ptr %376, align 16
-  %383 = getelementptr inbounds i8, ptr %2, i64 776
+  %383 = getelementptr inbounds nuw i8, ptr %2, i64 776
   store i64 22, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %2, i64 784
+  %384 = getelementptr inbounds nuw i8, ptr %2, i64 784
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %384, ptr noundef nonnull align 8 dereferenceable(32) %51) #10
-  %385 = getelementptr inbounds i8, ptr %2, i64 816
+  %385 = getelementptr inbounds nuw i8, ptr %2, i64 816
   store ptr @.str.5, ptr %56, align 8, !alias.scope !217
   %386 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr @.str.10, ptr %386, align 8, !alias.scope !217
@@ -1000,11 +1000,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %391, align 1, !alias.scope !228
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 8 dereferenceable(34) %55) #10
   store ptr @.str.42, ptr %385, align 16
-  %392 = getelementptr inbounds i8, ptr %2, i64 824
+  %392 = getelementptr inbounds nuw i8, ptr %2, i64 824
   store i64 19, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %2, i64 832
+  %393 = getelementptr inbounds nuw i8, ptr %2, i64 832
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %393, ptr noundef nonnull align 8 dereferenceable(32) %54) #10
-  %394 = getelementptr inbounds i8, ptr %2, i64 864
+  %394 = getelementptr inbounds nuw i8, ptr %2, i64 864
   store ptr @.str.5, ptr %59, align 8, !alias.scope !229
   %395 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr @.str.10, ptr %395, align 8, !alias.scope !229
@@ -1023,11 +1023,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %400, align 1, !alias.scope !240
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef nonnull align 8 dereferenceable(34) %58) #10
   store ptr @.str.44, ptr %394, align 16
-  %401 = getelementptr inbounds i8, ptr %2, i64 872
+  %401 = getelementptr inbounds nuw i8, ptr %2, i64 872
   store i64 18, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %2, i64 880
+  %402 = getelementptr inbounds nuw i8, ptr %2, i64 880
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %402, ptr noundef nonnull align 8 dereferenceable(32) %57) #10
-  %403 = getelementptr inbounds i8, ptr %2, i64 912
+  %403 = getelementptr inbounds nuw i8, ptr %2, i64 912
   store ptr @.str.5, ptr %62, align 8, !alias.scope !241
   %404 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr @.str.47, ptr %404, align 8, !alias.scope !241
@@ -1046,11 +1046,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %409, align 1, !alias.scope !252
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull align 8 dereferenceable(34) %61) #10
   store ptr @.str.46, ptr %403, align 16
-  %410 = getelementptr inbounds i8, ptr %2, i64 920
+  %410 = getelementptr inbounds nuw i8, ptr %2, i64 920
   store i64 44, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %2, i64 928
+  %411 = getelementptr inbounds nuw i8, ptr %2, i64 928
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %411, ptr noundef nonnull align 8 dereferenceable(32) %60) #10
-  %412 = getelementptr inbounds i8, ptr %2, i64 960
+  %412 = getelementptr inbounds nuw i8, ptr %2, i64 960
   store ptr @.str.5, ptr %65, align 8, !alias.scope !253
   %413 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr @.str.47, ptr %413, align 8, !alias.scope !253
@@ -1069,11 +1069,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %418, align 1, !alias.scope !264
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %63, ptr noundef nonnull align 8 dereferenceable(34) %64) #10
   store ptr @.str.49, ptr %412, align 16
-  %419 = getelementptr inbounds i8, ptr %2, i64 968
+  %419 = getelementptr inbounds nuw i8, ptr %2, i64 968
   store i64 36, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %2, i64 976
+  %420 = getelementptr inbounds nuw i8, ptr %2, i64 976
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %420, ptr noundef nonnull align 8 dereferenceable(32) %63) #10
-  %421 = getelementptr inbounds i8, ptr %2, i64 1008
+  %421 = getelementptr inbounds nuw i8, ptr %2, i64 1008
   store ptr @.str.5, ptr %68, align 8, !alias.scope !265
   %422 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr @.str.47, ptr %422, align 8, !alias.scope !265
@@ -1092,11 +1092,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %427, align 1, !alias.scope !276
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %66, ptr noundef nonnull align 8 dereferenceable(34) %67) #10
   store ptr @.str.51, ptr %421, align 16
-  %428 = getelementptr inbounds i8, ptr %2, i64 1016
+  %428 = getelementptr inbounds nuw i8, ptr %2, i64 1016
   store i64 35, ptr %428, align 8
-  %429 = getelementptr inbounds i8, ptr %2, i64 1024
+  %429 = getelementptr inbounds nuw i8, ptr %2, i64 1024
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %429, ptr noundef nonnull align 8 dereferenceable(32) %66) #10
-  %430 = getelementptr inbounds i8, ptr %2, i64 1056
+  %430 = getelementptr inbounds nuw i8, ptr %2, i64 1056
   store ptr @.str.5, ptr %71, align 8, !alias.scope !277
   %431 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr @.str.10, ptr %431, align 8, !alias.scope !277
@@ -1115,11 +1115,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %436, align 1, !alias.scope !288
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %69, ptr noundef nonnull align 8 dereferenceable(34) %70) #10
   store ptr @.str.53, ptr %430, align 16
-  %437 = getelementptr inbounds i8, ptr %2, i64 1064
+  %437 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   store i64 26, ptr %437, align 8
-  %438 = getelementptr inbounds i8, ptr %2, i64 1072
+  %438 = getelementptr inbounds nuw i8, ptr %2, i64 1072
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %438, ptr noundef nonnull align 8 dereferenceable(32) %69) #10
-  %439 = getelementptr inbounds i8, ptr %2, i64 1104
+  %439 = getelementptr inbounds nuw i8, ptr %2, i64 1104
   store ptr @.str.5, ptr %74, align 8, !alias.scope !289
   %440 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr @.str.10, ptr %440, align 8, !alias.scope !289
@@ -1136,11 +1136,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %445, align 1, !alias.scope !294
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull align 8 dereferenceable(34) %73) #10
   store ptr @.str.55, ptr %439, align 16
-  %446 = getelementptr inbounds i8, ptr %2, i64 1112
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 1112
   store i64 22, ptr %446, align 8
-  %447 = getelementptr inbounds i8, ptr %2, i64 1120
+  %447 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %447, ptr noundef nonnull align 8 dereferenceable(32) %72) #10
-  %448 = getelementptr inbounds i8, ptr %2, i64 1152
+  %448 = getelementptr inbounds nuw i8, ptr %2, i64 1152
   store ptr @.str.5, ptr %77, align 8, !alias.scope !299
   %449 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr @.str.10, ptr %449, align 8, !alias.scope !299
@@ -1157,11 +1157,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %454, align 1, !alias.scope !304
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, ptr noundef nonnull align 8 dereferenceable(34) %76) #10
   store ptr @.str.57, ptr %448, align 16
-  %455 = getelementptr inbounds i8, ptr %2, i64 1160
+  %455 = getelementptr inbounds nuw i8, ptr %2, i64 1160
   store i64 23, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %2, i64 1168
+  %456 = getelementptr inbounds nuw i8, ptr %2, i64 1168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %456, ptr noundef nonnull align 8 dereferenceable(32) %75) #10
-  %457 = getelementptr inbounds i8, ptr %2, i64 1200
+  %457 = getelementptr inbounds nuw i8, ptr %2, i64 1200
   store ptr @.str.5, ptr %80, align 8, !alias.scope !309
   %458 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr @.str.10, ptr %458, align 8, !alias.scope !309
@@ -1178,11 +1178,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %463, align 1, !alias.scope !314
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr noundef nonnull align 8 dereferenceable(34) %79) #10
   store ptr @.str.59, ptr %457, align 16
-  %464 = getelementptr inbounds i8, ptr %2, i64 1208
+  %464 = getelementptr inbounds nuw i8, ptr %2, i64 1208
   store i64 15, ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %2, i64 1216
+  %465 = getelementptr inbounds nuw i8, ptr %2, i64 1216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %465, ptr noundef nonnull align 8 dereferenceable(32) %78) #10
-  %466 = getelementptr inbounds i8, ptr %2, i64 1248
+  %466 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   store ptr @.str.5, ptr %83, align 8, !alias.scope !319
   %467 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr @.str.10, ptr %467, align 8, !alias.scope !319
@@ -1199,11 +1199,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %472, align 1, !alias.scope !324
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %81, ptr noundef nonnull align 8 dereferenceable(34) %82) #10
   store ptr @.str.61, ptr %466, align 16
-  %473 = getelementptr inbounds i8, ptr %2, i64 1256
+  %473 = getelementptr inbounds nuw i8, ptr %2, i64 1256
   store i64 13, ptr %473, align 8
-  %474 = getelementptr inbounds i8, ptr %2, i64 1264
+  %474 = getelementptr inbounds nuw i8, ptr %2, i64 1264
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %474, ptr noundef nonnull align 8 dereferenceable(32) %81) #10
-  %475 = getelementptr inbounds i8, ptr %2, i64 1296
+  %475 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   store ptr @.str.5, ptr %86, align 8, !alias.scope !329
   %476 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store ptr @.str.10, ptr %476, align 8, !alias.scope !329
@@ -1220,11 +1220,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %481, align 1, !alias.scope !334
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %84, ptr noundef nonnull align 8 dereferenceable(34) %85) #10
   store ptr @.str.63, ptr %475, align 16
-  %482 = getelementptr inbounds i8, ptr %2, i64 1304
+  %482 = getelementptr inbounds nuw i8, ptr %2, i64 1304
   store i64 11, ptr %482, align 8
-  %483 = getelementptr inbounds i8, ptr %2, i64 1312
+  %483 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %483, ptr noundef nonnull align 8 dereferenceable(32) %84) #10
-  %484 = getelementptr inbounds i8, ptr %2, i64 1344
+  %484 = getelementptr inbounds nuw i8, ptr %2, i64 1344
   store ptr @.str.5, ptr %89, align 8, !alias.scope !339
   %485 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr @.str.10, ptr %485, align 8, !alias.scope !339
@@ -1241,11 +1241,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %490, align 1, !alias.scope !344
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %87, ptr noundef nonnull align 8 dereferenceable(34) %88) #10
   store ptr @.str.65, ptr %484, align 16
-  %491 = getelementptr inbounds i8, ptr %2, i64 1352
+  %491 = getelementptr inbounds nuw i8, ptr %2, i64 1352
   store i64 16, ptr %491, align 8
-  %492 = getelementptr inbounds i8, ptr %2, i64 1360
+  %492 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %492, ptr noundef nonnull align 8 dereferenceable(32) %87) #10
-  %493 = getelementptr inbounds i8, ptr %2, i64 1392
+  %493 = getelementptr inbounds nuw i8, ptr %2, i64 1392
   store ptr @.str.5, ptr %92, align 8, !alias.scope !349
   %494 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr @.str.10, ptr %494, align 8, !alias.scope !349
@@ -1262,11 +1262,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %499, align 1, !alias.scope !354
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr noundef nonnull align 8 dereferenceable(34) %91) #10
   store ptr @.str.67, ptr %493, align 16
-  %500 = getelementptr inbounds i8, ptr %2, i64 1400
+  %500 = getelementptr inbounds nuw i8, ptr %2, i64 1400
   store i64 35, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %2, i64 1408
+  %501 = getelementptr inbounds nuw i8, ptr %2, i64 1408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %501, ptr noundef nonnull align 8 dereferenceable(32) %90) #10
-  %502 = getelementptr inbounds i8, ptr %2, i64 1440
+  %502 = getelementptr inbounds nuw i8, ptr %2, i64 1440
   store ptr @.str.5, ptr %95, align 8, !alias.scope !359
   %503 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr @.str.10, ptr %503, align 8, !alias.scope !359
@@ -1283,11 +1283,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %508, align 1, !alias.scope !364
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %93, ptr noundef nonnull align 8 dereferenceable(34) %94) #10
   store ptr @.str.69, ptr %502, align 16
-  %509 = getelementptr inbounds i8, ptr %2, i64 1448
+  %509 = getelementptr inbounds nuw i8, ptr %2, i64 1448
   store i64 11, ptr %509, align 8
-  %510 = getelementptr inbounds i8, ptr %2, i64 1456
+  %510 = getelementptr inbounds nuw i8, ptr %2, i64 1456
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %510, ptr noundef nonnull align 8 dereferenceable(32) %93) #10
-  %511 = getelementptr inbounds i8, ptr %2, i64 1488
+  %511 = getelementptr inbounds nuw i8, ptr %2, i64 1488
   store ptr @.str.5, ptr %98, align 8, !alias.scope !369
   %512 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr @.str.10, ptr %512, align 8, !alias.scope !369
@@ -1304,11 +1304,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %517, align 1, !alias.scope !374
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %96, ptr noundef nonnull align 8 dereferenceable(34) %97) #10
   store ptr @.str.71, ptr %511, align 16
-  %518 = getelementptr inbounds i8, ptr %2, i64 1496
+  %518 = getelementptr inbounds nuw i8, ptr %2, i64 1496
   store i64 18, ptr %518, align 8
-  %519 = getelementptr inbounds i8, ptr %2, i64 1504
+  %519 = getelementptr inbounds nuw i8, ptr %2, i64 1504
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %519, ptr noundef nonnull align 8 dereferenceable(32) %96) #10
-  %520 = getelementptr inbounds i8, ptr %2, i64 1536
+  %520 = getelementptr inbounds nuw i8, ptr %2, i64 1536
   store ptr @.str.5, ptr %101, align 8, !alias.scope !379
   %521 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr @.str.10, ptr %521, align 8, !alias.scope !379
@@ -1325,11 +1325,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %526, align 1, !alias.scope !384
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %99, ptr noundef nonnull align 8 dereferenceable(34) %100) #10
   store ptr @.str.73, ptr %520, align 16
-  %527 = getelementptr inbounds i8, ptr %2, i64 1544
+  %527 = getelementptr inbounds nuw i8, ptr %2, i64 1544
   store i64 14, ptr %527, align 8
-  %528 = getelementptr inbounds i8, ptr %2, i64 1552
+  %528 = getelementptr inbounds nuw i8, ptr %2, i64 1552
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %528, ptr noundef nonnull align 8 dereferenceable(32) %99) #10
-  %529 = getelementptr inbounds i8, ptr %2, i64 1584
+  %529 = getelementptr inbounds nuw i8, ptr %2, i64 1584
   store ptr @.str.5, ptr %104, align 8, !alias.scope !389
   %530 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr @.str.10, ptr %530, align 8, !alias.scope !389
@@ -1346,11 +1346,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %535, align 1, !alias.scope !394
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %102, ptr noundef nonnull align 8 dereferenceable(34) %103) #10
   store ptr @.str.75, ptr %529, align 16
-  %536 = getelementptr inbounds i8, ptr %2, i64 1592
+  %536 = getelementptr inbounds nuw i8, ptr %2, i64 1592
   store i64 11, ptr %536, align 8
-  %537 = getelementptr inbounds i8, ptr %2, i64 1600
+  %537 = getelementptr inbounds nuw i8, ptr %2, i64 1600
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %537, ptr noundef nonnull align 8 dereferenceable(32) %102) #10
-  %538 = getelementptr inbounds i8, ptr %2, i64 1632
+  %538 = getelementptr inbounds nuw i8, ptr %2, i64 1632
   store ptr @.str.5, ptr %107, align 8, !alias.scope !399
   %539 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr @.str.10, ptr %539, align 8, !alias.scope !399
@@ -1367,11 +1367,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %544, align 1, !alias.scope !404
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %105, ptr noundef nonnull align 8 dereferenceable(34) %106) #10
   store ptr @.str.77, ptr %538, align 16
-  %545 = getelementptr inbounds i8, ptr %2, i64 1640
+  %545 = getelementptr inbounds nuw i8, ptr %2, i64 1640
   store i64 12, ptr %545, align 8
-  %546 = getelementptr inbounds i8, ptr %2, i64 1648
+  %546 = getelementptr inbounds nuw i8, ptr %2, i64 1648
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %546, ptr noundef nonnull align 8 dereferenceable(32) %105) #10
-  %547 = getelementptr inbounds i8, ptr %2, i64 1680
+  %547 = getelementptr inbounds nuw i8, ptr %2, i64 1680
   store ptr @.str.5, ptr %110, align 8, !alias.scope !409
   %548 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr @.str.10, ptr %548, align 8, !alias.scope !409
@@ -1388,11 +1388,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %553, align 1, !alias.scope !414
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %108, ptr noundef nonnull align 8 dereferenceable(34) %109) #10
   store ptr @.str.79, ptr %547, align 16
-  %554 = getelementptr inbounds i8, ptr %2, i64 1688
+  %554 = getelementptr inbounds nuw i8, ptr %2, i64 1688
   store i64 15, ptr %554, align 8
-  %555 = getelementptr inbounds i8, ptr %2, i64 1696
+  %555 = getelementptr inbounds nuw i8, ptr %2, i64 1696
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %555, ptr noundef nonnull align 8 dereferenceable(32) %108) #10
-  %556 = getelementptr inbounds i8, ptr %2, i64 1728
+  %556 = getelementptr inbounds nuw i8, ptr %2, i64 1728
   store ptr @.str.5, ptr %113, align 8, !alias.scope !419
   %557 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr @.str.10, ptr %557, align 8, !alias.scope !419
@@ -1409,11 +1409,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %562, align 1, !alias.scope !424
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %111, ptr noundef nonnull align 8 dereferenceable(34) %112) #10
   store ptr @.str.81, ptr %556, align 16
-  %563 = getelementptr inbounds i8, ptr %2, i64 1736
+  %563 = getelementptr inbounds nuw i8, ptr %2, i64 1736
   store i64 42, ptr %563, align 8
-  %564 = getelementptr inbounds i8, ptr %2, i64 1744
+  %564 = getelementptr inbounds nuw i8, ptr %2, i64 1744
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %564, ptr noundef nonnull align 8 dereferenceable(32) %111) #10
-  %565 = getelementptr inbounds i8, ptr %2, i64 1776
+  %565 = getelementptr inbounds nuw i8, ptr %2, i64 1776
   store ptr @.str.5, ptr %116, align 8, !alias.scope !429
   %566 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr @.str.10, ptr %566, align 8, !alias.scope !429
@@ -1430,11 +1430,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %571, align 1, !alias.scope !434
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %114, ptr noundef nonnull align 8 dereferenceable(34) %115) #10
   store ptr @.str.83, ptr %565, align 16
-  %572 = getelementptr inbounds i8, ptr %2, i64 1784
+  %572 = getelementptr inbounds nuw i8, ptr %2, i64 1784
   store i64 14, ptr %572, align 8
-  %573 = getelementptr inbounds i8, ptr %2, i64 1792
+  %573 = getelementptr inbounds nuw i8, ptr %2, i64 1792
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %573, ptr noundef nonnull align 8 dereferenceable(32) %114) #10
-  %574 = getelementptr inbounds i8, ptr %2, i64 1824
+  %574 = getelementptr inbounds nuw i8, ptr %2, i64 1824
   store ptr @.str.5, ptr %119, align 8, !alias.scope !439
   %575 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr @.str.10, ptr %575, align 8, !alias.scope !439
@@ -1451,11 +1451,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %580, align 1, !alias.scope !444
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(34) %118) #10
   store ptr @.str.85, ptr %574, align 16
-  %581 = getelementptr inbounds i8, ptr %2, i64 1832
+  %581 = getelementptr inbounds nuw i8, ptr %2, i64 1832
   store i64 38, ptr %581, align 8
-  %582 = getelementptr inbounds i8, ptr %2, i64 1840
+  %582 = getelementptr inbounds nuw i8, ptr %2, i64 1840
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %582, ptr noundef nonnull align 8 dereferenceable(32) %117) #10
-  %583 = getelementptr inbounds i8, ptr %2, i64 1872
+  %583 = getelementptr inbounds nuw i8, ptr %2, i64 1872
   store ptr @.str.5, ptr %122, align 8, !alias.scope !449
   %584 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store ptr @.str.10, ptr %584, align 8, !alias.scope !449
@@ -1472,11 +1472,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %589, align 1, !alias.scope !454
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %120, ptr noundef nonnull align 8 dereferenceable(34) %121) #10
   store ptr @.str.87, ptr %583, align 16
-  %590 = getelementptr inbounds i8, ptr %2, i64 1880
+  %590 = getelementptr inbounds nuw i8, ptr %2, i64 1880
   store i64 13, ptr %590, align 8
-  %591 = getelementptr inbounds i8, ptr %2, i64 1888
+  %591 = getelementptr inbounds nuw i8, ptr %2, i64 1888
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %591, ptr noundef nonnull align 8 dereferenceable(32) %120) #10
-  %592 = getelementptr inbounds i8, ptr %2, i64 1920
+  %592 = getelementptr inbounds nuw i8, ptr %2, i64 1920
   store ptr @.str.5, ptr %125, align 8, !alias.scope !459
   %593 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr @.str.10, ptr %593, align 8, !alias.scope !459
@@ -1493,11 +1493,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %598, align 1, !alias.scope !464
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %123, ptr noundef nonnull align 8 dereferenceable(34) %124) #10
   store ptr @.str.89, ptr %592, align 16
-  %599 = getelementptr inbounds i8, ptr %2, i64 1928
+  %599 = getelementptr inbounds nuw i8, ptr %2, i64 1928
   store i64 20, ptr %599, align 8
-  %600 = getelementptr inbounds i8, ptr %2, i64 1936
+  %600 = getelementptr inbounds nuw i8, ptr %2, i64 1936
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %600, ptr noundef nonnull align 8 dereferenceable(32) %123) #10
-  %601 = getelementptr inbounds i8, ptr %2, i64 1968
+  %601 = getelementptr inbounds nuw i8, ptr %2, i64 1968
   store ptr @.str.5, ptr %128, align 8, !alias.scope !469
   %602 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr @.str.10, ptr %602, align 8, !alias.scope !469
@@ -1514,11 +1514,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %607, align 1, !alias.scope !474
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %126, ptr noundef nonnull align 8 dereferenceable(34) %127) #10
   store ptr @.str.91, ptr %601, align 16
-  %608 = getelementptr inbounds i8, ptr %2, i64 1976
+  %608 = getelementptr inbounds nuw i8, ptr %2, i64 1976
   store i64 16, ptr %608, align 8
-  %609 = getelementptr inbounds i8, ptr %2, i64 1984
+  %609 = getelementptr inbounds nuw i8, ptr %2, i64 1984
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %609, ptr noundef nonnull align 8 dereferenceable(32) %126) #10
-  %610 = getelementptr inbounds i8, ptr %2, i64 2016
+  %610 = getelementptr inbounds nuw i8, ptr %2, i64 2016
   store ptr @.str.5, ptr %131, align 8, !alias.scope !479
   %611 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr @.str.10, ptr %611, align 8, !alias.scope !479
@@ -1535,11 +1535,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %616, align 1, !alias.scope !484
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %129, ptr noundef nonnull align 8 dereferenceable(34) %130) #10
   store ptr @.str.93, ptr %610, align 16
-  %617 = getelementptr inbounds i8, ptr %2, i64 2024
+  %617 = getelementptr inbounds nuw i8, ptr %2, i64 2024
   store i64 22, ptr %617, align 8
-  %618 = getelementptr inbounds i8, ptr %2, i64 2032
+  %618 = getelementptr inbounds nuw i8, ptr %2, i64 2032
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %618, ptr noundef nonnull align 8 dereferenceable(32) %129) #10
-  %619 = getelementptr inbounds i8, ptr %2, i64 2064
+  %619 = getelementptr inbounds nuw i8, ptr %2, i64 2064
   store ptr @.str.5, ptr %134, align 8, !alias.scope !489
   %620 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr @.str.10, ptr %620, align 8, !alias.scope !489
@@ -1556,11 +1556,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %625, align 1, !alias.scope !494
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %132, ptr noundef nonnull align 8 dereferenceable(34) %133) #10
   store ptr @.str.95, ptr %619, align 16
-  %626 = getelementptr inbounds i8, ptr %2, i64 2072
+  %626 = getelementptr inbounds nuw i8, ptr %2, i64 2072
   store i64 12, ptr %626, align 8
-  %627 = getelementptr inbounds i8, ptr %2, i64 2080
+  %627 = getelementptr inbounds nuw i8, ptr %2, i64 2080
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %627, ptr noundef nonnull align 8 dereferenceable(32) %132) #10
-  %628 = getelementptr inbounds i8, ptr %2, i64 2112
+  %628 = getelementptr inbounds nuw i8, ptr %2, i64 2112
   store ptr @.str.5, ptr %137, align 8, !alias.scope !499
   %629 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store ptr @.str.10, ptr %629, align 8, !alias.scope !499
@@ -1577,11 +1577,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %634, align 1, !alias.scope !504
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %135, ptr noundef nonnull align 8 dereferenceable(34) %136) #10
   store ptr @.str.97, ptr %628, align 16
-  %635 = getelementptr inbounds i8, ptr %2, i64 2120
+  %635 = getelementptr inbounds nuw i8, ptr %2, i64 2120
   store i64 20, ptr %635, align 8
-  %636 = getelementptr inbounds i8, ptr %2, i64 2128
+  %636 = getelementptr inbounds nuw i8, ptr %2, i64 2128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %636, ptr noundef nonnull align 8 dereferenceable(32) %135) #10
-  %637 = getelementptr inbounds i8, ptr %2, i64 2160
+  %637 = getelementptr inbounds nuw i8, ptr %2, i64 2160
   store ptr @.str.5, ptr %140, align 8, !alias.scope !509
   %638 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr @.str.10, ptr %638, align 8, !alias.scope !509
@@ -1598,11 +1598,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %643, align 1, !alias.scope !514
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %138, ptr noundef nonnull align 8 dereferenceable(34) %139) #10
   store ptr @.str.99, ptr %637, align 16
-  %644 = getelementptr inbounds i8, ptr %2, i64 2168
+  %644 = getelementptr inbounds nuw i8, ptr %2, i64 2168
   store i64 30, ptr %644, align 8
-  %645 = getelementptr inbounds i8, ptr %2, i64 2176
+  %645 = getelementptr inbounds nuw i8, ptr %2, i64 2176
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %645, ptr noundef nonnull align 8 dereferenceable(32) %138) #10
-  %646 = getelementptr inbounds i8, ptr %2, i64 2208
+  %646 = getelementptr inbounds nuw i8, ptr %2, i64 2208
   store ptr @.str.5, ptr %143, align 8, !alias.scope !519
   %647 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr @.str.10, ptr %647, align 8, !alias.scope !519
@@ -1619,11 +1619,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %652, align 1, !alias.scope !524
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %141, ptr noundef nonnull align 8 dereferenceable(34) %142) #10
   store ptr @.str.101, ptr %646, align 16
-  %653 = getelementptr inbounds i8, ptr %2, i64 2216
+  %653 = getelementptr inbounds nuw i8, ptr %2, i64 2216
   store i64 29, ptr %653, align 8
-  %654 = getelementptr inbounds i8, ptr %2, i64 2224
+  %654 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %654, ptr noundef nonnull align 8 dereferenceable(32) %141) #10
-  %655 = getelementptr inbounds i8, ptr %2, i64 2256
+  %655 = getelementptr inbounds nuw i8, ptr %2, i64 2256
   store ptr @.str.5, ptr %146, align 8, !alias.scope !529
   %656 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr @.str.10, ptr %656, align 8, !alias.scope !529
@@ -1640,11 +1640,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %661, align 1, !alias.scope !534
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %144, ptr noundef nonnull align 8 dereferenceable(34) %145) #10
   store ptr @.str.103, ptr %655, align 16
-  %662 = getelementptr inbounds i8, ptr %2, i64 2264
+  %662 = getelementptr inbounds nuw i8, ptr %2, i64 2264
   store i64 28, ptr %662, align 8
-  %663 = getelementptr inbounds i8, ptr %2, i64 2272
+  %663 = getelementptr inbounds nuw i8, ptr %2, i64 2272
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %663, ptr noundef nonnull align 8 dereferenceable(32) %144) #10
-  %664 = getelementptr inbounds i8, ptr %2, i64 2304
+  %664 = getelementptr inbounds nuw i8, ptr %2, i64 2304
   store ptr @.str.5, ptr %149, align 8, !alias.scope !539
   %665 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store ptr @.str.10, ptr %665, align 8, !alias.scope !539
@@ -1661,11 +1661,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %670, align 1, !alias.scope !544
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %147, ptr noundef nonnull align 8 dereferenceable(34) %148) #10
   store ptr @.str.105, ptr %664, align 16
-  %671 = getelementptr inbounds i8, ptr %2, i64 2312
+  %671 = getelementptr inbounds nuw i8, ptr %2, i64 2312
   store i64 27, ptr %671, align 8
-  %672 = getelementptr inbounds i8, ptr %2, i64 2320
+  %672 = getelementptr inbounds nuw i8, ptr %2, i64 2320
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %672, ptr noundef nonnull align 8 dereferenceable(32) %147) #10
-  %673 = getelementptr inbounds i8, ptr %2, i64 2352
+  %673 = getelementptr inbounds nuw i8, ptr %2, i64 2352
   store ptr @.str.5, ptr %152, align 8, !alias.scope !549
   %674 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store ptr @.str.47, ptr %674, align 8, !alias.scope !549
@@ -1682,11 +1682,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %679, align 1, !alias.scope !554
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %150, ptr noundef nonnull align 8 dereferenceable(34) %151) #10
   store ptr @.str.107, ptr %673, align 16
-  %680 = getelementptr inbounds i8, ptr %2, i64 2360
+  %680 = getelementptr inbounds nuw i8, ptr %2, i64 2360
   store i64 20, ptr %680, align 8
-  %681 = getelementptr inbounds i8, ptr %2, i64 2368
+  %681 = getelementptr inbounds nuw i8, ptr %2, i64 2368
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %681, ptr noundef nonnull align 8 dereferenceable(32) %150) #10
-  %682 = getelementptr inbounds i8, ptr %2, i64 2400
+  %682 = getelementptr inbounds nuw i8, ptr %2, i64 2400
   store ptr @.str.5, ptr %155, align 8, !alias.scope !559
   %683 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store ptr @.str.47, ptr %683, align 8, !alias.scope !559
@@ -1703,11 +1703,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %688, align 1, !alias.scope !564
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %153, ptr noundef nonnull align 8 dereferenceable(34) %154) #10
   store ptr @.str.109, ptr %682, align 16
-  %689 = getelementptr inbounds i8, ptr %2, i64 2408
+  %689 = getelementptr inbounds nuw i8, ptr %2, i64 2408
   store i64 24, ptr %689, align 8
-  %690 = getelementptr inbounds i8, ptr %2, i64 2416
+  %690 = getelementptr inbounds nuw i8, ptr %2, i64 2416
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %690, ptr noundef nonnull align 8 dereferenceable(32) %153) #10
-  %691 = getelementptr inbounds i8, ptr %2, i64 2448
+  %691 = getelementptr inbounds nuw i8, ptr %2, i64 2448
   store ptr @.str.5, ptr %158, align 8, !alias.scope !569
   %692 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store ptr @.str.47, ptr %692, align 8, !alias.scope !569
@@ -1724,11 +1724,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %697, align 1, !alias.scope !574
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %156, ptr noundef nonnull align 8 dereferenceable(34) %157) #10
   store ptr @.str.111, ptr %691, align 16
-  %698 = getelementptr inbounds i8, ptr %2, i64 2456
+  %698 = getelementptr inbounds nuw i8, ptr %2, i64 2456
   store i64 22, ptr %698, align 8
-  %699 = getelementptr inbounds i8, ptr %2, i64 2464
+  %699 = getelementptr inbounds nuw i8, ptr %2, i64 2464
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %699, ptr noundef nonnull align 8 dereferenceable(32) %156) #10
-  %700 = getelementptr inbounds i8, ptr %2, i64 2496
+  %700 = getelementptr inbounds nuw i8, ptr %2, i64 2496
   store ptr @.str.5, ptr %161, align 8, !alias.scope !579
   %701 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store ptr @.str.47, ptr %701, align 8, !alias.scope !579
@@ -1745,11 +1745,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %706, align 1, !alias.scope !584
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %159, ptr noundef nonnull align 8 dereferenceable(34) %160) #10
   store ptr @.str.113, ptr %700, align 16
-  %707 = getelementptr inbounds i8, ptr %2, i64 2504
+  %707 = getelementptr inbounds nuw i8, ptr %2, i64 2504
   store i64 19, ptr %707, align 8
-  %708 = getelementptr inbounds i8, ptr %2, i64 2512
+  %708 = getelementptr inbounds nuw i8, ptr %2, i64 2512
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %708, ptr noundef nonnull align 8 dereferenceable(32) %159) #10
-  %709 = getelementptr inbounds i8, ptr %2, i64 2544
+  %709 = getelementptr inbounds nuw i8, ptr %2, i64 2544
   store ptr @.str.5, ptr %164, align 8, !alias.scope !589
   %710 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store ptr @.str.47, ptr %710, align 8, !alias.scope !589
@@ -1766,11 +1766,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %715, align 1, !alias.scope !594
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %162, ptr noundef nonnull align 8 dereferenceable(34) %163) #10
   store ptr @.str.115, ptr %709, align 16
-  %716 = getelementptr inbounds i8, ptr %2, i64 2552
+  %716 = getelementptr inbounds nuw i8, ptr %2, i64 2552
   store i64 37, ptr %716, align 8
-  %717 = getelementptr inbounds i8, ptr %2, i64 2560
+  %717 = getelementptr inbounds nuw i8, ptr %2, i64 2560
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %717, ptr noundef nonnull align 8 dereferenceable(32) %162) #10
-  %718 = getelementptr inbounds i8, ptr %2, i64 2592
+  %718 = getelementptr inbounds nuw i8, ptr %2, i64 2592
   store ptr @.str.5, ptr %167, align 8, !alias.scope !599
   %719 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr @.str.47, ptr %719, align 8, !alias.scope !599
@@ -1787,11 +1787,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %724, align 1, !alias.scope !604
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %165, ptr noundef nonnull align 8 dereferenceable(34) %166) #10
   store ptr @.str.117, ptr %718, align 16
-  %725 = getelementptr inbounds i8, ptr %2, i64 2600
+  %725 = getelementptr inbounds nuw i8, ptr %2, i64 2600
   store i64 21, ptr %725, align 8
-  %726 = getelementptr inbounds i8, ptr %2, i64 2608
+  %726 = getelementptr inbounds nuw i8, ptr %2, i64 2608
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %726, ptr noundef nonnull align 8 dereferenceable(32) %165) #10
-  %727 = getelementptr inbounds i8, ptr %2, i64 2640
+  %727 = getelementptr inbounds nuw i8, ptr %2, i64 2640
   store ptr @.str.5, ptr %170, align 8, !alias.scope !609
   %728 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store ptr @.str.47, ptr %728, align 8, !alias.scope !609
@@ -1808,11 +1808,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %733, align 1, !alias.scope !614
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %168, ptr noundef nonnull align 8 dereferenceable(34) %169) #10
   store ptr @.str.119, ptr %727, align 16
-  %734 = getelementptr inbounds i8, ptr %2, i64 2648
+  %734 = getelementptr inbounds nuw i8, ptr %2, i64 2648
   store i64 29, ptr %734, align 8
-  %735 = getelementptr inbounds i8, ptr %2, i64 2656
+  %735 = getelementptr inbounds nuw i8, ptr %2, i64 2656
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %735, ptr noundef nonnull align 8 dereferenceable(32) %168) #10
-  %736 = getelementptr inbounds i8, ptr %2, i64 2688
+  %736 = getelementptr inbounds nuw i8, ptr %2, i64 2688
   store ptr @.str.5, ptr %173, align 8, !alias.scope !619
   %737 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr @.str.47, ptr %737, align 8, !alias.scope !619
@@ -1829,11 +1829,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %742, align 1, !alias.scope !624
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %171, ptr noundef nonnull align 8 dereferenceable(34) %172) #10
   store ptr @.str.121, ptr %736, align 16
-  %743 = getelementptr inbounds i8, ptr %2, i64 2696
+  %743 = getelementptr inbounds nuw i8, ptr %2, i64 2696
   store i64 22, ptr %743, align 8
-  %744 = getelementptr inbounds i8, ptr %2, i64 2704
+  %744 = getelementptr inbounds nuw i8, ptr %2, i64 2704
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %744, ptr noundef nonnull align 8 dereferenceable(32) %171) #10
-  %745 = getelementptr inbounds i8, ptr %2, i64 2736
+  %745 = getelementptr inbounds nuw i8, ptr %2, i64 2736
   store ptr @.str.5, ptr %176, align 8, !alias.scope !629
   %746 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store ptr @.str.47, ptr %746, align 8, !alias.scope !629
@@ -1850,11 +1850,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %751, align 1, !alias.scope !634
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %174, ptr noundef nonnull align 8 dereferenceable(34) %175) #10
   store ptr @.str.123, ptr %745, align 16
-  %752 = getelementptr inbounds i8, ptr %2, i64 2744
+  %752 = getelementptr inbounds nuw i8, ptr %2, i64 2744
   store i64 18, ptr %752, align 8
-  %753 = getelementptr inbounds i8, ptr %2, i64 2752
+  %753 = getelementptr inbounds nuw i8, ptr %2, i64 2752
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %753, ptr noundef nonnull align 8 dereferenceable(32) %174) #10
-  %754 = getelementptr inbounds i8, ptr %2, i64 2784
+  %754 = getelementptr inbounds nuw i8, ptr %2, i64 2784
   store ptr @.str.5, ptr %179, align 8, !alias.scope !639
   %755 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store ptr @.str.47, ptr %755, align 8, !alias.scope !639
@@ -1871,11 +1871,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %760, align 1, !alias.scope !644
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %177, ptr noundef nonnull align 8 dereferenceable(34) %178) #10
   store ptr @.str.125, ptr %754, align 16
-  %761 = getelementptr inbounds i8, ptr %2, i64 2792
+  %761 = getelementptr inbounds nuw i8, ptr %2, i64 2792
   store i64 9, ptr %761, align 8
-  %762 = getelementptr inbounds i8, ptr %2, i64 2800
+  %762 = getelementptr inbounds nuw i8, ptr %2, i64 2800
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %762, ptr noundef nonnull align 8 dereferenceable(32) %177) #10
-  %763 = getelementptr inbounds i8, ptr %2, i64 2832
+  %763 = getelementptr inbounds nuw i8, ptr %2, i64 2832
   store ptr @.str.5, ptr %182, align 8, !alias.scope !649
   %764 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr @.str.47, ptr %764, align 8, !alias.scope !649
@@ -1892,11 +1892,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %769, align 1, !alias.scope !654
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %180, ptr noundef nonnull align 8 dereferenceable(34) %181) #10
   store ptr @.str.127, ptr %763, align 16
-  %770 = getelementptr inbounds i8, ptr %2, i64 2840
+  %770 = getelementptr inbounds nuw i8, ptr %2, i64 2840
   store i64 17, ptr %770, align 8
-  %771 = getelementptr inbounds i8, ptr %2, i64 2848
+  %771 = getelementptr inbounds nuw i8, ptr %2, i64 2848
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %771, ptr noundef nonnull align 8 dereferenceable(32) %180) #10
-  %772 = getelementptr inbounds i8, ptr %2, i64 2880
+  %772 = getelementptr inbounds nuw i8, ptr %2, i64 2880
   store ptr @.str.5, ptr %185, align 8, !alias.scope !659
   %773 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store ptr @.str.47, ptr %773, align 8, !alias.scope !659
@@ -1913,11 +1913,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %778, align 1, !alias.scope !664
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %183, ptr noundef nonnull align 8 dereferenceable(34) %184) #10
   store ptr @.str.129, ptr %772, align 16
-  %779 = getelementptr inbounds i8, ptr %2, i64 2888
+  %779 = getelementptr inbounds nuw i8, ptr %2, i64 2888
   store i64 17, ptr %779, align 8
-  %780 = getelementptr inbounds i8, ptr %2, i64 2896
+  %780 = getelementptr inbounds nuw i8, ptr %2, i64 2896
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %780, ptr noundef nonnull align 8 dereferenceable(32) %183) #10
-  %781 = getelementptr inbounds i8, ptr %2, i64 2928
+  %781 = getelementptr inbounds nuw i8, ptr %2, i64 2928
   store ptr @.str.5, ptr %188, align 8, !alias.scope !669
   %782 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr @.str.47, ptr %782, align 8, !alias.scope !669
@@ -1934,11 +1934,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %787, align 1, !alias.scope !674
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %186, ptr noundef nonnull align 8 dereferenceable(34) %187) #10
   store ptr @.str.131, ptr %781, align 16
-  %788 = getelementptr inbounds i8, ptr %2, i64 2936
+  %788 = getelementptr inbounds nuw i8, ptr %2, i64 2936
   store i64 31, ptr %788, align 8
-  %789 = getelementptr inbounds i8, ptr %2, i64 2944
+  %789 = getelementptr inbounds nuw i8, ptr %2, i64 2944
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %789, ptr noundef nonnull align 8 dereferenceable(32) %186) #10
-  %790 = getelementptr inbounds i8, ptr %2, i64 2976
+  %790 = getelementptr inbounds nuw i8, ptr %2, i64 2976
   store ptr @.str.5, ptr %191, align 8, !alias.scope !679
   %791 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr @.str.47, ptr %791, align 8, !alias.scope !679
@@ -1955,11 +1955,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %796, align 1, !alias.scope !684
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %189, ptr noundef nonnull align 8 dereferenceable(34) %190) #10
   store ptr @.str.133, ptr %790, align 16
-  %797 = getelementptr inbounds i8, ptr %2, i64 2984
+  %797 = getelementptr inbounds nuw i8, ptr %2, i64 2984
   store i64 30, ptr %797, align 8
-  %798 = getelementptr inbounds i8, ptr %2, i64 2992
+  %798 = getelementptr inbounds nuw i8, ptr %2, i64 2992
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %798, ptr noundef nonnull align 8 dereferenceable(32) %189) #10
-  %799 = getelementptr inbounds i8, ptr %2, i64 3024
+  %799 = getelementptr inbounds nuw i8, ptr %2, i64 3024
   store ptr @.str.5, ptr %194, align 8, !alias.scope !689
   %800 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr @.str.7, ptr %800, align 8, !alias.scope !689
@@ -1976,11 +1976,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %805, align 1, !alias.scope !694
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %192, ptr noundef nonnull align 8 dereferenceable(34) %193) #10
   store ptr @.str.135, ptr %799, align 16
-  %806 = getelementptr inbounds i8, ptr %2, i64 3032
+  %806 = getelementptr inbounds nuw i8, ptr %2, i64 3032
   store i64 7, ptr %806, align 8
-  %807 = getelementptr inbounds i8, ptr %2, i64 3040
+  %807 = getelementptr inbounds nuw i8, ptr %2, i64 3040
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %807, ptr noundef nonnull align 8 dereferenceable(32) %192) #10
-  %808 = getelementptr inbounds i8, ptr %2, i64 3072
+  %808 = getelementptr inbounds nuw i8, ptr %2, i64 3072
   store ptr @.str.5, ptr %197, align 8, !alias.scope !699
   %809 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store ptr @.str.7, ptr %809, align 8, !alias.scope !699
@@ -1997,11 +1997,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %814, align 1, !alias.scope !704
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %195, ptr noundef nonnull align 8 dereferenceable(34) %196) #10
   store ptr @.str.137, ptr %808, align 16
-  %815 = getelementptr inbounds i8, ptr %2, i64 3080
+  %815 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   store i64 14, ptr %815, align 8
-  %816 = getelementptr inbounds i8, ptr %2, i64 3088
+  %816 = getelementptr inbounds nuw i8, ptr %2, i64 3088
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %816, ptr noundef nonnull align 8 dereferenceable(32) %195) #10
-  %817 = getelementptr inbounds i8, ptr %2, i64 3120
+  %817 = getelementptr inbounds nuw i8, ptr %2, i64 3120
   store ptr @.str.5, ptr %200, align 8, !alias.scope !709
   %818 = getelementptr inbounds nuw i8, ptr %200, i64 16
   store ptr @.str.7, ptr %818, align 8, !alias.scope !709
@@ -2018,11 +2018,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %823, align 1, !alias.scope !714
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %198, ptr noundef nonnull align 8 dereferenceable(34) %199) #10
   store ptr @.str.139, ptr %817, align 16
-  %824 = getelementptr inbounds i8, ptr %2, i64 3128
+  %824 = getelementptr inbounds nuw i8, ptr %2, i64 3128
   store i64 19, ptr %824, align 8
-  %825 = getelementptr inbounds i8, ptr %2, i64 3136
+  %825 = getelementptr inbounds nuw i8, ptr %2, i64 3136
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %825, ptr noundef nonnull align 8 dereferenceable(32) %198) #10
-  %826 = getelementptr inbounds i8, ptr %2, i64 3168
+  %826 = getelementptr inbounds nuw i8, ptr %2, i64 3168
   store ptr @.str.5, ptr %203, align 8, !alias.scope !719
   %827 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store ptr @.str.7, ptr %827, align 8, !alias.scope !719
@@ -2039,11 +2039,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %832, align 1, !alias.scope !724
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %201, ptr noundef nonnull align 8 dereferenceable(34) %202) #10
   store ptr @.str.141, ptr %826, align 16
-  %833 = getelementptr inbounds i8, ptr %2, i64 3176
+  %833 = getelementptr inbounds nuw i8, ptr %2, i64 3176
   store i64 10, ptr %833, align 8
-  %834 = getelementptr inbounds i8, ptr %2, i64 3184
+  %834 = getelementptr inbounds nuw i8, ptr %2, i64 3184
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %834, ptr noundef nonnull align 8 dereferenceable(32) %201) #10
-  %835 = getelementptr inbounds i8, ptr %2, i64 3216
+  %835 = getelementptr inbounds nuw i8, ptr %2, i64 3216
   store ptr @.str.5, ptr %206, align 8, !alias.scope !729
   %836 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store ptr @.str.7, ptr %836, align 8, !alias.scope !729
@@ -2060,11 +2060,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %841, align 1, !alias.scope !734
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %204, ptr noundef nonnull align 8 dereferenceable(34) %205) #10
   store ptr @.str.143, ptr %835, align 16
-  %842 = getelementptr inbounds i8, ptr %2, i64 3224
+  %842 = getelementptr inbounds nuw i8, ptr %2, i64 3224
   store i64 19, ptr %842, align 8
-  %843 = getelementptr inbounds i8, ptr %2, i64 3232
+  %843 = getelementptr inbounds nuw i8, ptr %2, i64 3232
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %843, ptr noundef nonnull align 8 dereferenceable(32) %204) #10
-  %844 = getelementptr inbounds i8, ptr %2, i64 3264
+  %844 = getelementptr inbounds nuw i8, ptr %2, i64 3264
   store ptr @.str.5, ptr %209, align 8, !alias.scope !739
   %845 = getelementptr inbounds nuw i8, ptr %209, i64 16
   store ptr @.str.7, ptr %845, align 8, !alias.scope !739
@@ -2081,11 +2081,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %850, align 1, !alias.scope !744
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %207, ptr noundef nonnull align 8 dereferenceable(34) %208) #10
   store ptr @.str.145, ptr %844, align 16
-  %851 = getelementptr inbounds i8, ptr %2, i64 3272
+  %851 = getelementptr inbounds nuw i8, ptr %2, i64 3272
   store i64 12, ptr %851, align 8
-  %852 = getelementptr inbounds i8, ptr %2, i64 3280
+  %852 = getelementptr inbounds nuw i8, ptr %2, i64 3280
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %852, ptr noundef nonnull align 8 dereferenceable(32) %207) #10
-  %853 = getelementptr inbounds i8, ptr %2, i64 3312
+  %853 = getelementptr inbounds nuw i8, ptr %2, i64 3312
   store ptr @.str.5, ptr %212, align 8, !alias.scope !749
   %854 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store ptr @.str.7, ptr %854, align 8, !alias.scope !749
@@ -2102,11 +2102,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %859, align 1, !alias.scope !754
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %210, ptr noundef nonnull align 8 dereferenceable(34) %211) #10
   store ptr @.str.147, ptr %853, align 16
-  %860 = getelementptr inbounds i8, ptr %2, i64 3320
+  %860 = getelementptr inbounds nuw i8, ptr %2, i64 3320
   store i64 20, ptr %860, align 8
-  %861 = getelementptr inbounds i8, ptr %2, i64 3328
+  %861 = getelementptr inbounds nuw i8, ptr %2, i64 3328
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %861, ptr noundef nonnull align 8 dereferenceable(32) %210) #10
-  %862 = getelementptr inbounds i8, ptr %2, i64 3360
+  %862 = getelementptr inbounds nuw i8, ptr %2, i64 3360
   store ptr @.str.5, ptr %215, align 8, !alias.scope !759
   %863 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store ptr @.str.7, ptr %863, align 8, !alias.scope !759
@@ -2123,11 +2123,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %868, align 1, !alias.scope !764
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %213, ptr noundef nonnull align 8 dereferenceable(34) %214) #10
   store ptr @.str.149, ptr %862, align 16
-  %869 = getelementptr inbounds i8, ptr %2, i64 3368
+  %869 = getelementptr inbounds nuw i8, ptr %2, i64 3368
   store i64 16, ptr %869, align 8
-  %870 = getelementptr inbounds i8, ptr %2, i64 3376
+  %870 = getelementptr inbounds nuw i8, ptr %2, i64 3376
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %870, ptr noundef nonnull align 8 dereferenceable(32) %213) #10
-  %871 = getelementptr inbounds i8, ptr %2, i64 3408
+  %871 = getelementptr inbounds nuw i8, ptr %2, i64 3408
   store ptr @.str.5, ptr %218, align 8, !alias.scope !769
   %872 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store ptr @.str.7, ptr %872, align 8, !alias.scope !769
@@ -2144,9 +2144,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   store i8 3, ptr %877, align 1, !alias.scope !774
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %216, ptr noundef nonnull align 8 dereferenceable(34) %217) #10
   store ptr @.str.151, ptr %871, align 16
-  %878 = getelementptr inbounds i8, ptr %2, i64 3416
+  %878 = getelementptr inbounds nuw i8, ptr %2, i64 3416
   store i64 3, ptr %878, align 8
-  %879 = getelementptr inbounds i8, ptr %2, i64 3424
+  %879 = getelementptr inbounds nuw i8, ptr %2, i64 3424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %879, ptr noundef nonnull align 8 dereferenceable(32) %216) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %216) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %213) #10
@@ -2220,14 +2220,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %880 = getelementptr inbounds i8, ptr %2, i64 3456
+  %880 = getelementptr inbounds nuw i8, ptr %2, i64 3456
   call void @_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_T0_T1_(ptr noundef nonnull align 8 dereferenceable(3456) %2, ptr noundef nonnull %880, i64 noundef 12)
   call void @_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_T0_(ptr noundef nonnull align 8 dereferenceable(3456) %2, ptr noundef nonnull %376)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit3877
   %.07.i.i.i.i.i.idx.i = phi i64 [ %.07.i.i.i.i.i.add.i, %.lr.ph.i.i.i.i.i.i ], [ 768, %_ZN4llvmplERKNS_5TwineES2_.exit3877 ]
-  %.07.i.i.i.i.i.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.07.i.i.i.i.i.idx.i
+  %.07.i.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %.07.i.i.i.i.i.idx.i
   call void @_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_(ptr noundef nonnull %.07.i.i.i.i.i.ptr.i)
   %.07.i.i.i.i.i.add.i = add nuw nsw i64 %.07.i.i.i.i.i.idx.i, 48
   %.not.i.i.i.i.i.i = icmp eq i64 %.07.i.i.i.i.i.add.i, 3456
@@ -2240,7 +2240,7 @@ _ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_tra
 
 883:                                              ; preds = %_ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit3880
   %.0.idx4568 = phi i64 [ 0, %_ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader ], [ %.0.add, %_ZN4llvm11raw_ostreamlsEPKc.exit3880 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.0.idx4568
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx4568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull align 16 dereferenceable(48) %.0.ptr, i64 16, i1 false)
   %884 = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 16
   %885 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %884) #10
@@ -2263,7 +2263,7 @@ _ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_tra
 895:                                              ; preds = %883
   store i16 2570, ptr %888, align 1
   %896 = load ptr, ptr %222, align 8
-  %897 = getelementptr inbounds i8, ptr %896, i64 2
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 2
   store ptr %897, ptr %222, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit3880
 
@@ -2396,10 +2396,10 @@ define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIN4ll
   %6 = sub i64 %4, %5
   %7 = sdiv i64 %6, 96
   %8 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds i8, ptr %1, i64 -48
   tail call void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SG_SG_SG_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %8, ptr noundef nonnull %10)
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %25, %2
@@ -2410,7 +2410,7 @@ define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIN4ll
 
 12:                                               ; preds = %17, %11
   %.1.i = phi ptr [ %.0.i, %11 ], [ %18, %17 ]
-  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i.i)
   %13 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
@@ -2435,7 +2435,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %16, label %17, label %.preheader.i.preheader
 
 17:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit.i, %15
-  %18 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   br label %12, !llvm.loop !782
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %.preheader.i.preheader
@@ -2478,7 +2478,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %26 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %27 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #10
-  %28 = getelementptr inbounds i8, ptr %.1.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   br label %11, !llvm.loop !784
 
 _ZSt21__unguarded_partitionIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SG_SG_SG_T0_.exit: ; preds = %23
@@ -2543,9 +2543,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefENSt7__cx
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
   %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %12
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -2611,7 +2611,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %41, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEElS9_N9__gnu_cxx5__ops14_Iter_comp_valINS1_10less_firstEEEEvT_T0_SH_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %38
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %42
 
 42:                                               ; preds = %48, %.lr.ph.i
@@ -2619,7 +2619,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
   %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.017.i
-  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i.i)
@@ -2671,9 +2671,9 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIPSt4pairIN4llvm9StringRef
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
   %11 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -2695,7 +2695,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
-  %.sroa.2.0..sroa_idx.i.i.i.i24 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i.i.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i24, align 8
   %.sroa.speculated.i.i.i.i.i.i26 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i25, i64 %.sroa.2.0.copyload.i.i.i.i)
   %16 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i26, 0
@@ -2761,7 +2761,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br label %41
 
 28:                                               ; preds = %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
-  %.sroa.2.0..sroa_idx.i.i.i.i50 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i.i.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i50, align 8
   %.sroa.speculated.i.i.i.i.i.i52 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i51, i64 %.sroa.22.0.copyload.i.i.i.i)
   %29 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i52, 0
@@ -2844,12 +2844,12 @@ define linkonce_odr void @_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENSt7_
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.016 = getelementptr inbounds i8, ptr %0, i64 48
+  %.016 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not17 = icmp eq ptr %.016, %1
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = ptrtoint ptr %0 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2858,7 +2858,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefENSt7_
 8:                                                ; preds = %.lr.ph, %29
   %.019 = phi ptr [ %.016, %.lr.ph ], [ %.0, %29 ]
   %.pn18 = phi ptr [ %0, %.lr.ph ], [ %.019, %29 ]
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.pn18, i64 56
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn18, i64 56
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
@@ -2882,7 +2882,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
 
 13:                                               ; preds = %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESF_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %.019, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %.pn18, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.pn18, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %14) #10
   %15 = ptrtoint ptr %.019 to i64
   %16 = sub i64 %15, %6
@@ -2890,7 +2890,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   br i1 %17, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_ET0_T_SC_SB_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.pn18, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %.pn18, i64 96
   %19 = udiv exact i64 %16, 48
   br label %.lr.ph.i.i.i.i.i
 
@@ -2919,7 +2919,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11cha
   br label %29
 
 29:                                               ; preds = %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_ET0_T_SC_SB_.exit, %28
-  %.0 = getelementptr inbounds i8, ptr %.019, i64 48
+  %.0 = getelementptr inbounds nuw i8, ptr %.019, i64 48
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !789
 
@@ -2934,7 +2934,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9String
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #10
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %5
 
 5:                                                ; preds = %10, %1

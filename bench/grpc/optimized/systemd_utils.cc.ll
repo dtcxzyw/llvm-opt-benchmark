@@ -50,7 +50,7 @@ entry:
   br i1 %cmp17, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %entry
-  %0 = getelementptr inbounds i8, ptr %addr_name, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %addr_name, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -126,7 +126,7 @@ cleanup:                                          ; preds = %for.inc, %entry, %i
   br i1 %cmp.i.i.i.i5, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
-  %6 = getelementptr inbounds i8, ptr %addr_name, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %addr_name, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   br label %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
@@ -169,7 +169,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
@@ -202,7 +202,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = trunc i32 %port to i16
-  %len = getelementptr inbounds i8, ptr %addr, i64 128
+  %len = getelementptr inbounds nuw i8, ptr %addr, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -269,16 +269,16 @@ if.then11:                                        ; preds = %if.else
   %0 = load i32, ptr %requested_port.addr, align 4
   call void @_Z28grpc_sockaddr_make_wildcardsiP21grpc_resolved_addressS0_(i32 noundef %0, ptr noundef nonnull %wild4, ptr noundef nonnull %wild6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %wildcard_addrs, ptr noundef nonnull align 4 dereferenceable(132) %wild4, i64 132, i1 false)
-  %arrayidx12 = getelementptr inbounds i8, ptr %wildcard_addrs, i64 132
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %wildcard_addrs, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %arrayidx12, ptr noundef nonnull align 4 dereferenceable(132) %wild6, i64 132, i1 false)
-  %len.i = getelementptr inbounds i8, ptr %addr_w, i64 128
+  %len.i = getelementptr inbounds nuw i8, ptr %addr_w, i64 128
   %1 = add nuw i32 %call, 2
   %smax = call i32 @llvm.smax.i32(i32 %1, i32 3)
   br label %for.body
 
 for.body:                                         ; preds = %if.then11, %for.inc
   %__begin3.0.idx39 = phi i64 [ 0, %if.then11 ], [ %__begin3.0.add, %for.inc ]
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr %wildcard_addrs, i64 %__begin3.0.idx39
+  %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %wildcard_addrs, i64 %__begin3.0.idx39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr_w, ptr noundef nonnull align 4 dereferenceable(132) %__begin3.0.ptr, i64 132, i1 false)
   %call15 = call noundef i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr noundef nonnull %addr_w)
   %call16 = call noundef i32 @_Z22grpc_sockaddr_get_portPK21grpc_resolved_address(ptr noundef nonnull %addr_w)
@@ -312,7 +312,7 @@ for.inc:                                          ; preds = %for.inc.i
 for.body.lr.ph.i20:                               ; preds = %if.else
   %conv.i21 = trunc i32 %call5 to i16
   %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, ptr %addr, ptr %addr6_v4mapped
-  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 128
+  %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 128
   %3 = add nuw i32 %call, 2
   %smax43 = call i32 @llvm.smax.i32(i32 %3, i32 3)
   br label %for.body.i23

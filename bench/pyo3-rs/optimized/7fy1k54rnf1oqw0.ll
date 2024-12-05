@@ -14,9 +14,9 @@ define void @"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$a
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.3176d96907cc33c4ae87cec458f54b89.1, i64 32, i1 false)
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %6, ptr %.sroa.23.0..sroa_idx, align 8
-  %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %7, ptr %.sroa.34.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   invoke void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h570043bf343d3264E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)

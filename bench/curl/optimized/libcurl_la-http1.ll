@@ -13,9 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Curl_h1_req_parse_init(ptr noundef initializes((0, 80)) %parser, i64 noundef %max_line_len) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %parser, i8 0, i64 80, i1 false)
-  %max_line_len1 = getelementptr inbounds i8, ptr %parser, i64 56
+  %max_line_len1 = getelementptr inbounds nuw i8, ptr %parser, i64 56
   store i64 %max_line_len, ptr %max_line_len1, align 8
-  %scratch = getelementptr inbounds i8, ptr %parser, i64 8
+  %scratch = getelementptr inbounds nuw i8, ptr %parser, i64 8
   tail call void @Curl_dyn_init(ptr noundef nonnull %scratch, i64 noundef %max_line_len) #6
   ret void
 }
@@ -34,10 +34,10 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %parser, align 8
   tail call void @Curl_http_req_free(ptr noundef %0) #6
-  %scratch = getelementptr inbounds i8, ptr %parser, i64 8
+  %scratch = getelementptr inbounds nuw i8, ptr %parser, i64 8
   tail call void @Curl_dyn_free(ptr noundef nonnull %scratch) #6
   store ptr null, ptr %parser, align 8
-  %done = getelementptr inbounds i8, ptr %parser, i64 72
+  %done = getelementptr inbounds nuw i8, ptr %parser, i64 72
   store i8 0, ptr %done, align 8
   br label %if.end
 
@@ -54,18 +54,18 @@ define hidden i64 @Curl_h1_req_parse_read(ptr noundef %parser, ptr noundef %buf,
 entry:
   %tmp.i = alloca [8192 x i8], align 16
   store i32 0, ptr %err, align 4
-  %done = getelementptr inbounds i8, ptr %parser, i64 72
+  %done = getelementptr inbounds nuw i8, ptr %parser, i64 72
   %0 = load i8, ptr %done, align 8
   %tobool53 = trunc i8 %0 to i1
   br i1 %tobool53, label %out, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %line.i = getelementptr inbounds i8, ptr %parser, i64 48
-  %line_len.i = getelementptr inbounds i8, ptr %parser, i64 64
-  %scratch.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %line.i = getelementptr inbounds nuw i8, ptr %parser, i64 48
+  %line_len.i = getelementptr inbounds nuw i8, ptr %parser, i64 64
+  %scratch.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %and.i.i = and i32 %options, 1
   %tobool18.not.i.i = icmp eq i32 %and.i.i, 0
-  %max_line_len.i.i = getelementptr inbounds i8, ptr %parser, i64 56
+  %max_line_len.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %spec.select.i = select i1 %tobool18.not.i.i, i32 2074, i32 26
   %tobool77.not.i = icmp eq ptr %scheme_default, null
   br label %while.body
@@ -195,7 +195,7 @@ if.then.loopexit:                                 ; preds = %if.then6.i, %if.the
 if.end3:                                          ; preds = %if.then26.i, %next_line.exit.thread37
   %retval.0.i40 = phi i64 [ %2, %next_line.exit.thread37 ], [ %buflen.addr.054, %if.then26.i ]
   %add = add i64 %retval.0.i40, %nread.055
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.057, i64 %retval.0.i40
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.057, i64 %retval.0.i40
   %sub = sub i64 %buflen.addr.054, %retval.0.i40
   %14 = load ptr, ptr %line.i, align 8
   %tobool4.not = icmp eq ptr %14, null
@@ -223,7 +223,7 @@ if.end.i34:                                       ; preds = %if.then10
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %cmp568.i = icmp ugt i64 %16, %sub.ptr.sub.i
   br i1 %cmp568.i, label %for.body.i, label %start_req.exit.thread
 
@@ -276,7 +276,7 @@ if.else39.i:                                      ; preds = %if.else33.i
 
 if.end43.i:                                       ; preds = %if.else39.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp.i, ptr nonnull align 1 %add.ptr.i, i64 %sub16.i, i1 false)
-  %arrayidx44.i = getelementptr inbounds [8192 x i8], ptr %tmp.i, i64 0, i64 %sub16.i
+  %arrayidx44.i = getelementptr inbounds nuw [8192 x i8], ptr %tmp.i, i64 0, i64 %sub16.i
   store i8 0, ptr %arrayidx44.i, align 1
   %call46.i = call i64 @Curl_is_absolute_url(ptr noundef nonnull %tmp.i, ptr noundef null, i64 noundef 0, i1 noundef zeroext false) #6
   %tobool47.not.i = icmp eq i64 %call46.i, 0
@@ -342,7 +342,7 @@ if.end21:                                         ; preds = %if.else15
   br label %if.end33
 
 if.else23:                                        ; preds = %if.else15
-  %headers = getelementptr inbounds i8, ptr %15, i64 48
+  %headers = getelementptr inbounds nuw i8, ptr %15, i64 48
   %call27 = call i32 @Curl_dynhds_h1_add_line(ptr noundef nonnull %headers, ptr noundef nonnull %14, i64 noundef %22) #6
   store i32 %call27, ptr %err, align 4
   %tobool28.not = icmp eq i32 %call27, 0
@@ -371,16 +371,16 @@ declare i32 @Curl_dynhds_h1_add_line(ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_h1_req_write_head(ptr noundef %req, i32 noundef %http_minor, ptr noundef %dbuf) local_unnamed_addr #0 {
 entry:
-  %scheme = getelementptr inbounds i8, ptr %req, i64 24
+  %scheme = getelementptr inbounds nuw i8, ptr %req, i64 24
   %0 = load ptr, ptr %scheme, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, ptr @.str.1, ptr %0
   %cond4 = select i1 %tobool.not, ptr @.str.1, ptr @.str.2
-  %authority = getelementptr inbounds i8, ptr %req, i64 32
+  %authority = getelementptr inbounds nuw i8, ptr %req, i64 32
   %1 = load ptr, ptr %authority, align 8
   %tobool5.not = icmp eq ptr %1, null
   %cond10 = select i1 %tobool5.not, ptr @.str.1, ptr %1
-  %path = getelementptr inbounds i8, ptr %req, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %req, i64 40
   %2 = load ptr, ptr %path, align 8
   %tobool11.not = icmp eq ptr %2, null
   %cond16 = select i1 %tobool11.not, ptr @.str.1, ptr %2
@@ -389,7 +389,7 @@ entry:
   br i1 %tobool17.not, label %if.end, label %out
 
 if.end:                                           ; preds = %entry
-  %headers = getelementptr inbounds i8, ptr %req, i64 48
+  %headers = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call18 = tail call i32 @Curl_dynhds_h1_dprint(ptr noundef nonnull %headers, ptr noundef %dbuf) #6
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %out

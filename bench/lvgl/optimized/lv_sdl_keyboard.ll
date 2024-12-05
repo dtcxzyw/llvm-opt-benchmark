@@ -66,7 +66,7 @@ define internal void @sdl_keyboard_read(ptr noundef %0, ptr nocapture noundef wr
   %14 = sext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %14, ptr %15, align 4, !tbaa !16
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %17 = tail call ptr @lv_memmove(ptr noundef nonnull %3, ptr noundef nonnull %16, i64 noundef %4) #3
   br label %18
 

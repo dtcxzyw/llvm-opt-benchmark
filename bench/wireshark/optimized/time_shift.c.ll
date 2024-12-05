@@ -260,16 +260,16 @@ define hidden noundef ptr @time_shift_all(ptr noundef %0, ptr noundef %1) local_
   %26 = fsub x86_fp80 %20, %25
   %27 = fmul x86_fp80 %26, 0xK401CEE6B280000000000
   %28 = fptosi x86_fp80 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef 1) #9
   %.not23 = icmp eq ptr %32, null
   br i1 %.not23, label %47, label %.preheader
 
 .preheader:                                       ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load i32, ptr %33, align 8
   %.not2426 = icmp eq i32 %34, 0
   br i1 %.not2426, label %._crit_edge, label %.lr.ph
@@ -284,8 +284,8 @@ define hidden noundef ptr @time_shift_all(ptr noundef %0, ptr noundef %1) local_
 38:                                               ; preds = %.lr.ph
   %39 = load i32, ptr %4, align 4
   %.not25.not = icmp eq i32 %39, 0
-  %40 = getelementptr inbounds i8, ptr %36, i64 56
-  %41 = getelementptr inbounds i8, ptr %36, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 72
   br i1 %.not25.not, label %42, label %43
 
 42:                                               ; preds = %38
@@ -305,7 +305,7 @@ modify_time_perform.exit:                         ; preds = %43, %42, %.lr.ph
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %modify_time_perform.exit, %.preheader
-  %46 = getelementptr inbounds i8, ptr %0, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %46, align 4
   call void @packet_list_queue_draw() #9
   br label %47
@@ -339,21 +339,21 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %1, %13
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @frame_data_sequence_find(ptr noundef %17, i32 noundef %1) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
-  %22 = getelementptr inbounds i8, ptr %18, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 72
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
   %23 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %6, ptr noundef %4)
   %.not = icmp eq ptr %23, null
@@ -379,8 +379,8 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %29, i64 56
-  %33 = getelementptr inbounds i8, ptr %29, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 72
   call void @nstime_delta(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %33) #9
   call void @nstime_set_zero(ptr noundef nonnull %33) #9
   call void @nstime_sum(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %5) #9
@@ -394,7 +394,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %34, %.preheader
-  %37 = getelementptr inbounds i8, ptr %0, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %37, align 4
   call void @packet_list_queue_draw() #9
   br label %38
@@ -429,7 +429,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0
   br label %17
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false)
   br label %17
 
@@ -440,29 +440,29 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0
 
 19:                                               ; preds = %17
   %20 = add i32 %18, -1900
-  %21 = getelementptr inbounds i8, ptr %10, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %20, ptr %21, align 4
   %22 = load i32, ptr %7, align 4
   %23 = add i32 %22, -1
-  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %23, ptr %24, align 8
   %25 = load i32, ptr %8, align 4
-  %26 = getelementptr inbounds i8, ptr %10, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %25, ptr %26, align 4
   br label %27
 
 27:                                               ; preds = %19, %17
   %28 = load i32, ptr %4, align 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %28, ptr %29, align 8
   %30 = load i32, ptr %5, align 4
-  %31 = getelementptr inbounds i8, ptr %10, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %30, ptr %31, align 4
   %32 = load x86_fp80, ptr %9, align 16
   %33 = call x86_fp80 @llvm.floor.f80(x86_fp80 %32)
   %34 = fptosi x86_fp80 %33 to i32
   store i32 %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 -1, ptr %35, align 8
   %36 = call i64 @mktime(ptr noundef nonnull %10) #9
   %37 = icmp eq i64 %36, -1
@@ -476,7 +476,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull %0
   %42 = fsub x86_fp80 %41, %40
   %43 = fmul x86_fp80 %42, 0xK401CEE6B280000000000
   %44 = fptosi x86_fp80 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %44, ptr %45, align 8
   br label %46
 
@@ -507,7 +507,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   br i1 %18, label %88, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = icmp ugt i32 %1, %21
   %23 = add i32 %3, -1
@@ -516,16 +516,16 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond55, label %88, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 280
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @frame_data_sequence_find(ptr noundef %27, i32 noundef %1) #9
   %29 = icmp eq ptr %28, null
   br i1 %29, label %88, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   call void @nstime_copy(ptr noundef nonnull %8, ptr noundef nonnull %31) #9
-  %32 = getelementptr inbounds i8, ptr %28, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 72
   call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %32) #9
   %33 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %8, ptr noundef %6)
   %.not = icmp eq ptr %33, null
@@ -538,9 +538,9 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   br i1 %37, label %88, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
   call void @nstime_copy(ptr noundef nonnull %9, ptr noundef nonnull %39) #9
-  %40 = getelementptr inbounds i8, ptr %36, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 72
   call void @nstime_delta(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %40) #9
   %41 = call fastcc ptr @time_string_to_nstime(ptr noundef %4, ptr noundef %9, ptr noundef %7)
   %.not52 = icmp eq ptr %41, null
@@ -562,9 +562,9 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not5462, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %46 = getelementptr inbounds i8, ptr %12, i64 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
-  %48 = getelementptr inbounds i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %49
 
 49:                                               ; preds = %.lr.ph, %84
@@ -575,8 +575,8 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef %0, i32 noundef %1, pt
   br i1 %52, label %84, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %51, i64 56
-  %55 = getelementptr inbounds i8, ptr %51, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   call void @nstime_delta(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %55) #9
   call void @nstime_set_zero(ptr noundef nonnull %55) #9
   %.val = load i64, ptr %12, align 8
@@ -651,7 +651,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
   br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %84, %.preheader
-  %87 = getelementptr inbounds i8, ptr %0, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %87, align 4
   call void @packet_list_queue_draw() #9
   br label %88
@@ -670,17 +670,17 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly %0) local_unname
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
   store i64 0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @frame_data_sequence_find(ptr noundef %6, i32 noundef 1) #9
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %19, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
   %.not1213 = icmp eq i32 %9, 0
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
@@ -693,8 +693,8 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly %0) local_unname
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %11, i64 56
-  %15 = getelementptr inbounds i8, ptr %11, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %15) #9
   call void @nstime_set_zero(ptr noundef nonnull %15) #9
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %2) #9

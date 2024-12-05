@@ -112,33 +112,33 @@ define ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %7, %6
   %10 = call noalias ptr @_emalloc_192() #18
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %10, i8 0, i64 192, i1 false)
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 8, ptr %12, align 8
   store i32 32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %5, ptr %13, align 8
   %14 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_stdio_ops, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @.str) #18
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %28, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr @php_plain_files_wrapper, ptr %18, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = call noalias ptr @_estrndup(ptr noundef nonnull %20, i64 noundef %22) #18
-  %24 = getelementptr inbounds i8, ptr %14, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 8, ptr %27, align 8
   br label %30
 
@@ -181,24 +181,24 @@ define ptr @_php_stream_fopen_from_fd(i32 noundef %0, ptr noundef %1, ptr nounde
 
 _php_stream_fopen_from_fd_int.exit:               ; preds = %5, %7
   %9 = phi ptr [ %6, %5 ], [ %8, %7 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %9, i8 0, i64 192, i1 false)
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 8, ptr %11, align 8
   store i32 32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %0, ptr %12, align 8
   %13 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_stdio_ops, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %1) #18
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %73, label %14
 
 14:                                               ; preds = %_php_stream_fopen_from_fd_int.exit
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, -1
-  %20 = getelementptr inbounds i8, ptr %16, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %21 = load i32, ptr %20, align 4
   br i1 %19, label %22, label %detect_is_seekable.exit
 
@@ -218,7 +218,7 @@ _php_stream_fopen_from_fd_int.exit:               ; preds = %5, %7
 
 do_fstat.exit.i:                                  ; preds = %26, %24
   %28 = phi i32 [ %27, %26 ], [ %18, %24 ]
-  %29 = getelementptr inbounds i8, ptr %16, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %30 = tail call i32 @fstat(i32 noundef %28, ptr noundef nonnull %29) #18
   %31 = icmp eq i32 %30, 0
   %32 = load i32, ptr %20, align 4
@@ -230,7 +230,7 @@ do_fstat.exit.i:                                  ; preds = %26, %24
 
 do_fstat.exit.thread.i:                           ; preds = %do_fstat.exit.i, %22
   %36 = phi i32 [ %21, %22 ], [ %35, %do_fstat.exit.i ]
-  %37 = getelementptr inbounds i8, ptr %16, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 61440
   %40 = icmp eq i32 %39, 4096
@@ -246,17 +246,17 @@ do_fstat.exit.thread.i:                           ; preds = %do_fstat.exit.i, %2
 
 detect_is_seekable.exit:                          ; preds = %14, %do_fstat.exit.i, %do_fstat.exit.thread.i
   %47 = phi i32 [ %35, %do_fstat.exit.i ], [ %46, %do_fstat.exit.thread.i ], [ %21, %14 ]
-  %48 = getelementptr inbounds i8, ptr %16, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %49 = and i32 %47, 32
   %.not16 = icmp eq i32 %49, 0
   br i1 %.not16, label %50, label %55
 
 50:                                               ; preds = %detect_is_seekable.exit
-  %51 = getelementptr inbounds i8, ptr %13, i64 116
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, 1
   store i32 %53, ptr %51, align 4
-  %54 = getelementptr inbounds i8, ptr %13, i64 152
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 152
   store i64 -1, ptr %54, align 8
   br label %73
 
@@ -264,14 +264,14 @@ detect_is_seekable.exit:                          ; preds = %14, %do_fstat.exit.
   br i1 %3, label %56, label %58
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %13, i64 152
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 152
   store i64 0, ptr %57, align 8
   br label %73
 
 58:                                               ; preds = %55
   %59 = load i32, ptr %17, align 8
   %60 = tail call i64 @lseek(i32 noundef %59, i64 noundef 0, i32 noundef 1) #18
-  %61 = getelementptr inbounds i8, ptr %13, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 152
   store i64 %60, ptr %61, align 8
   %62 = icmp eq i64 %60, -1
   br i1 %62, label %63, label %73
@@ -283,7 +283,7 @@ detect_is_seekable.exit:                          ; preds = %14, %do_fstat.exit.
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %13, i64 116
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %69 = load i32, ptr %68, align 4
   %70 = or i32 %69, 1
   store i32 %70, ptr %68, align 4
@@ -305,26 +305,26 @@ declare ptr @__errno_location() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define ptr @_php_stream_fopen_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @_emalloc_192() #18
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 176, i1 false)
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 8, ptr %4, align 8
   store i32 32, ptr %5, align 4
   %6 = tail call i32 @fileno(ptr noundef %0) #18
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %6, ptr %7, align 8
   %8 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_stdio_ops, ptr noundef nonnull %3, ptr noundef null, ptr noundef %1) #18
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %51, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, -1
-  %15 = getelementptr inbounds i8, ptr %11, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %16 = load i32, ptr %15, align 4
   br i1 %14, label %17, label %detect_is_seekable.exit
 
@@ -344,7 +344,7 @@ define ptr @_php_stream_fopen_from_file(ptr noundef %0, ptr noundef %1) local_un
 
 do_fstat.exit.i:                                  ; preds = %21, %19
   %23 = phi i32 [ %22, %21 ], [ %13, %19 ]
-  %24 = getelementptr inbounds i8, ptr %11, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %25 = tail call i32 @fstat(i32 noundef %23, ptr noundef nonnull %24) #18
   %26 = icmp eq i32 %25, 0
   %27 = load i32, ptr %15, align 4
@@ -356,7 +356,7 @@ do_fstat.exit.i:                                  ; preds = %21, %19
 
 do_fstat.exit.thread.i:                           ; preds = %do_fstat.exit.i, %17
   %31 = phi i32 [ %16, %17 ], [ %30, %do_fstat.exit.i ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 61440
   %35 = icmp eq i32 %34, 4096
@@ -377,7 +377,7 @@ detect_is_seekable.exit:                          ; preds = %9, %do_fstat.exit.i
   br i1 %.not11, label %44, label %48
 
 44:                                               ; preds = %detect_is_seekable.exit
-  %45 = getelementptr inbounds i8, ptr %8, i64 116
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 116
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -389,7 +389,7 @@ detect_is_seekable.exit:                          ; preds = %9, %do_fstat.exit.i
 
 .sink.split:                                      ; preds = %48, %44
   %.sink = phi i64 [ -1, %44 ], [ %49, %48 ]
-  %50 = getelementptr inbounds i8, ptr %8, i64 152
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i64 %.sink, ptr %50, align 8
   br label %51
 
@@ -403,20 +403,20 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @_emalloc_192() #18
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 176, i1 false)
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 8, ptr %6, align 8
   store i32 3, ptr %5, align 4
   %7 = tail call i32 @fileno(ptr noundef %0) #18
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_stdio_ops, ptr noundef nonnull %3, ptr noundef null, ptr noundef %1) #18
-  %11 = getelementptr inbounds i8, ptr %10, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 116
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -435,9 +435,9 @@ declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_stdiop_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %22
@@ -459,7 +459,7 @@ define internal noundef i64 @php_stdiop_write(ptr nocapture noundef readonly %0,
   br label %25
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 256
   %.not = icmp eq i32 %19, 0
@@ -482,9 +482,9 @@ define internal noundef i64 @php_stdiop_write(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %40
@@ -525,7 +525,7 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
   ]
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %0, i64 116
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 256
   %.not = icmp eq i32 %25, 0
@@ -543,7 +543,7 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
   br i1 %.not24, label %52, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load i16, ptr %31, align 8
   %33 = or i16 %32, 8
   store i16 %33, ptr %31, align 8
@@ -554,7 +554,7 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
   br i1 %35, label %36, label %52
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i16, ptr %37, align 8
   %39 = or i16 %38, 8
   store i16 %39, ptr %37, align 8
@@ -566,7 +566,7 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
   %43 = load ptr, ptr %5, align 8
   %44 = tail call i32 @feof(ptr noundef %43) #18
   %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = load i16, ptr %46, align 8
   %48 = shl i16 %45, 3
   %49 = and i16 %48, 8
@@ -585,15 +585,15 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @munmap(ptr noundef nonnull %6, i64 noundef %9) #18
   store ptr null, ptr %5, align 8
@@ -609,7 +609,7 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not40, label %29, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1
   %.not42 = icmp eq i32 %17, 0
@@ -635,7 +635,7 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
   br label %34
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i32, ptr %30, align 8
   %.not41 = icmp eq i32 %31, -1
   br i1 %.not41, label %59, label %32
@@ -647,16 +647,16 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
 
 34:                                               ; preds = %27, %24, %18, %32
   %.034 = phi i32 [ %26, %24 ], [ %21, %18 ], [ %28, %27 ], [ %33, %32 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not43 = icmp eq ptr %36, null
   br i1 %.not43, label %53, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %39 = tail call i32 @unlink(ptr noundef nonnull %38) #18
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64
   %.not44 = icmp eq i32 %43, 0
@@ -681,13 +681,13 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
 
 51:                                               ; preds = %11
   store ptr null, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %34, %50, %51
   %.1 = phi i32 [ %.034, %50 ], [ %.034, %34 ], [ 0, %51 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, 1
   %.not45 = icmp eq i16 %56, 0
@@ -708,7 +708,7 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @php_stdiop_flush(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -725,9 +725,9 @@ define internal noundef i32 @php_stdiop_flush(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_stdiop_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 32
   %.not = icmp eq i32 %9, 0
@@ -738,7 +738,7 @@ define internal noundef i32 @php_stdiop_seek(ptr nocapture noundef readonly %0, 
   br label %24
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %19
@@ -768,7 +768,7 @@ define internal noundef i32 @php_stdiop_seek(ptr nocapture noundef readonly %0, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
   %4 = alloca [5 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %1, label %47 [
     i32 0, label %7
@@ -787,7 +787,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
 
 11:                                               ; preds = %8
   call void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef nonnull %0, ptr noundef nonnull %4) #18
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = call noalias ptr @fdopen(i32 noundef %13, ptr noundef nonnull %4) #18
   store ptr %14, ptr %6, align 8
@@ -797,7 +797,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
 16:                                               ; preds = %11, %8
   %17 = phi ptr [ %14, %11 ], [ %9, %8 ]
   store ptr %17, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %18, align 8
   br label %47
 
@@ -811,7 +811,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
   br label %26
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %24, align 8
   br label %26
 
@@ -838,7 +838,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
   br label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %37 = load i32, ptr %36, align 8
   br label %38
 
@@ -871,9 +871,9 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @php_stdiop_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 20
   %or.cond.not = icmp eq i32 %7, 20
@@ -889,13 +889,13 @@ define internal noundef i32 @php_stdiop_stat(ptr nocapture noundef readonly %0, 
   br label %do_fstat.exit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i32, ptr %13, align 8
   br label %do_fstat.exit
 
 do_fstat.exit:                                    ; preds = %10, %12
   %15 = phi i32 [ %11, %10 ], [ %14, %12 ]
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %17 = tail call i32 @fstat(i32 noundef %15, ptr noundef nonnull %16) #18
   %18 = icmp eq i32 %17, 0
   %19 = load i32, ptr %5, align 4
@@ -906,7 +906,7 @@ do_fstat.exit:                                    ; preds = %10, %12
   br i1 %18, label %do_fstat.exit.thread, label %24
 
 do_fstat.exit.thread:                             ; preds = %2, %do_fstat.exit
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(144) %23, i64 144, i1 false)
   br label %24
 
@@ -919,7 +919,7 @@ do_fstat.exit.thread:                             ; preds = %2, %do_fstat.exit
 define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -930,7 +930,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   br label %15
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 8
   br label %15
 
@@ -1011,7 +1011,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not105, label %45, label %168
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %8, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %2, ptr %46, align 8
   br label %168
 
@@ -1028,7 +1028,7 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   br label %168
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %8, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 20
   %or.cond.not = icmp eq i32 %54, 20
@@ -1044,13 +1044,13 @@ define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 n
   br label %do_fstat.exit
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = load i32, ptr %60, align 8
   br label %do_fstat.exit
 
 do_fstat.exit:                                    ; preds = %57, %59
   %62 = phi i32 [ %58, %57 ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %8, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %64 = tail call i32 @fstat(i32 noundef %62, ptr noundef nonnull %63) #18
   %65 = icmp eq i32 %64, 0
   %66 = load i32, ptr %52, align 4
@@ -1062,7 +1062,7 @@ do_fstat.exit:                                    ; preds = %57, %59
 
 do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
   %70 = load i64, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %72 = load i64, ptr %71, align 8
   %73 = icmp ugt i64 %70, %72
   br i1 %73, label %74, label %75
@@ -1075,7 +1075,7 @@ do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
 75:                                               ; preds = %74, %do_fstat.exit.thread
   %.pre = phi i64 [ %.pre.pre, %74 ], [ %72, %do_fstat.exit.thread ]
   %76 = phi i64 [ %72, %74 ], [ %70, %do_fstat.exit.thread ]
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i64, ptr %77, align 8
   %.pre120 = sub i64 %.pre, %76
   %79 = freeze i64 %.pre120
@@ -1089,20 +1089,20 @@ do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
 
 81:                                               ; preds = %75, %._crit_edge
   %82 = phi i64 [ %79, %._crit_edge ], [ %78, %75 ]
-  %83 = getelementptr inbounds i8, ptr %3, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %84 = load i32, ptr %83, align 8
   %85 = icmp ult i32 %84, 4
   br i1 %85, label %switch.lookup, label %168
 
 switch.lookup:                                    ; preds = %81
   %86 = zext nneg i32 %84 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.php_stdiop_set_option, i64 0, i64 %86
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option, i64 0, i64 %86
   %switch.load = load i32, ptr %switch.gep, align 4
   %87 = zext nneg i32 %84 to i64
-  %switch.gep122 = getelementptr inbounds [4 x i32], ptr @switch.table.php_stdiop_set_option.1, i64 0, i64 %87
+  %switch.gep122 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.php_stdiop_set_option.1, i64 0, i64 %87
   %switch.load123 = load i32, ptr %switch.gep122, align 4
   %88 = tail call ptr @mmap(ptr noundef null, i64 noundef %82, i32 noundef %switch.load, i32 noundef %switch.load123, i32 noundef %16, i64 noundef %76) #18
-  %89 = getelementptr inbounds i8, ptr %3, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %88, ptr %89, align 8
   %90 = icmp eq ptr %88, inttoptr (i64 -1 to ptr)
   br i1 %90, label %91, label %92
@@ -1112,21 +1112,21 @@ switch.lookup:                                    ; preds = %81
   br label %168
 
 92:                                               ; preds = %switch.lookup
-  %93 = getelementptr inbounds i8, ptr %8, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %88, ptr %93, align 8
   %94 = load i64, ptr %77, align 8
-  %95 = getelementptr inbounds i8, ptr %8, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %94, ptr %95, align 8
   br label %168
 
 96:                                               ; preds = %47
-  %97 = getelementptr inbounds i8, ptr %8, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %98 = load ptr, ptr %97, align 8
   %.not103 = icmp eq ptr %98, null
   br i1 %.not103, label %168, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %8, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %101 = load i64, ptr %100, align 8
   %102 = tail call i32 @munmap(ptr noundef nonnull %98, i64 noundef %101) #18
   store ptr null, ptr %97, align 8
@@ -1172,7 +1172,7 @@ php_stdiop_flush.exit.thread.i:                   ; preds = %php_stdiop_flush.ex
   br label %122
 
 119:                                              ; preds = %php_stdiop_flush.exit.thread.i
-  %120 = getelementptr inbounds i8, ptr %108, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %121 = load i32, ptr %120, align 8
   br label %122
 
@@ -1216,7 +1216,7 @@ php_stdiop_flush.exit.thread.i114:                ; preds = %php_stdiop_flush.ex
   br label %142
 
 139:                                              ; preds = %php_stdiop_flush.exit.thread.i114
-  %140 = getelementptr inbounds i8, ptr %128, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %141 = load i32, ptr %140, align 8
   br label %142
 
@@ -1264,7 +1264,7 @@ php_stdiop_sync.exit116:                          ; preds = %127, %php_stdiop_fl
   %162 = and i32 %161, 2048
   %163 = icmp eq i32 %162, 0
   tail call void @add_assoc_bool_ex(ptr noundef %3, ptr noundef nonnull @.str.12, i64 noundef 7, i1 noundef zeroext %163) #18
-  %164 = getelementptr inbounds i8, ptr %0, i64 96
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %165 = load i16, ptr %164, align 8
   %166 = and i16 %165, 8
   %167 = icmp ne i16 %166, 0
@@ -1330,13 +1330,13 @@ define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %29 = add i64 %28, 32
   %30 = call noalias ptr @_emalloc(i64 noundef %29) #19
   store i32 1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 22, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %27, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 16 %5, i64 %27, i1 false)
   %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 %27
   store i8 0, ptr %35, align 1
@@ -1374,12 +1374,12 @@ define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 _php_stream_fopen_from_fd_int.exit:               ; preds = %45, %47
   %49 = phi ptr [ %46, %45 ], [ %48, %47 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %49, i8 0, i64 192, i1 false)
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 8, ptr %51, align 8
   store i32 32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %40, ptr %52, align 8
   %53 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_stdio_ops, ptr noundef nonnull %49, ptr noundef %43, ptr noundef %1) #18
   br label %58
@@ -1406,13 +1406,13 @@ _php_stream_fopen_from_fd_int.exit:               ; preds = %45, %47
   %63 = add i64 %62, 32
   %64 = call noalias ptr @_emalloc(i64 noundef %63) #19
   store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 22, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i64 %61, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 16 %5, i64 %61, i1 false)
   %69 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 %61
   store i8 0, ptr %69, align 1
@@ -1433,9 +1433,9 @@ _php_stream_fopen_from_fd_int.exit:               ; preds = %45, %47
   br i1 %.not154, label %119, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %.pre163.pre164, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.pre163.pre164, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 4
   %.not.i161 = icmp eq i32 %79, 0
@@ -1451,13 +1451,13 @@ _php_stream_fopen_from_fd_int.exit:               ; preds = %45, %47
   br label %do_fstat.exit
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %76, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %86 = load i32, ptr %85, align 8
   br label %do_fstat.exit
 
 do_fstat.exit:                                    ; preds = %82, %84
   %87 = phi i32 [ %83, %82 ], [ %86, %84 ]
-  %88 = getelementptr inbounds i8, ptr %76, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %89 = call i32 @fstat(i32 noundef %87, ptr noundef nonnull %88) #18
   %90 = icmp eq i32 %89, 0
   %91 = load i32, ptr %77, align 4
@@ -1469,7 +1469,7 @@ do_fstat.exit:                                    ; preds = %82, %84
 
 do_fstat.exit.thread:                             ; preds = %74, %do_fstat.exit
   %95 = phi i32 [ %78, %74 ], [ %94, %do_fstat.exit ]
-  %96 = getelementptr inbounds i8, ptr %76, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %76, i64 72
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 61440
   %99 = icmp eq i32 %98, 32768
@@ -1480,7 +1480,7 @@ do_fstat.exit.thread:                             ; preds = %74, %do_fstat.exit
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 64
   %.not159 = icmp eq i32 %105, 0
@@ -1522,9 +1522,9 @@ do_fstat.exit.thread:                             ; preds = %74, %do_fstat.exit
   br i1 %.not160, label %132, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %.pre163, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.pre163, i64 8
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 12
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 8
   store i32 %126, ptr %124, align 4
@@ -1590,7 +1590,7 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, -2
   %switch = icmp eq i8 %14, 46
@@ -1602,7 +1602,7 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
 
 .preheader:                                       ; preds = %15, %.preheader
   %.0147 = phi ptr [ %17, %.preheader ], [ %12, %15 ]
-  %17 = getelementptr inbounds i8, ptr %.0147, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0147, i64 1
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.thread [
     i8 46, label %.preheader
@@ -1660,8 +1660,8 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not163, label %57, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %39, i64 24
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load i64, ptr %42, align 8
   br label %44
 
@@ -1689,7 +1689,7 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 1 %2, i64 %50, i1 false)
   %54 = getelementptr inbounds i8, ptr %53, i64 %50
   store i8 58, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %41, i64 %45, i1 false)
   %56 = getelementptr inbounds i8, ptr %53, i64 %51
   store i8 0, ptr %56, align 1
@@ -1719,7 +1719,7 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
 
 64:                                               ; preds = %62
   store i8 0, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %63, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %.pr.us = load i8, ptr %.1182.us, align 1
   %66 = icmp eq i8 %.pr.us, 0
   br i1 %66, label %74, label %.thread173.us
@@ -1762,7 +1762,7 @@ define ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noun
 
 78:                                               ; preds = %76
   store i8 0, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %77, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %.pr = load i8, ptr %.1182, align 1
   %80 = icmp eq i8 %.pr, 0
   br i1 %80, label %86, label %.thread173
@@ -1925,7 +1925,7 @@ define internal noundef i32 @php_plain_files_url_stater(ptr nocapture readnone %
   %8 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %9 = icmp eq i32 %8, 0
   %spec.select.idx = select i1 %9, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %10 = lshr i32 %2, 1
   %.lobit = and i32 %10, 1
   %11 = xor i32 %.lobit, 1
@@ -1960,7 +1960,7 @@ define internal ptr @php_plain_files_dir_opener(ptr nocapture readnone %0, ptr n
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @php_glob_stream_wrapper, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull @php_glob_stream_wrapper, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #18
   br label %25
@@ -1999,7 +1999,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr nocapture readno
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %7 = tail call i32 @php_check_open_basedir(ptr noundef %spec.select) #18
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %18
@@ -2042,11 +2042,11 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readno
   %10 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %11 = icmp eq i32 %10, 0
   %spec.select.idx = select i1 %11, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %12 = tail call i32 @strncasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %13 = icmp eq i32 %12, 0
   %.034.idx = select i1 %13, i64 7, i64 0
-  %.034 = getelementptr inbounds i8, ptr %2, i64 %.034.idx
+  %.034 = getelementptr inbounds nuw i8, ptr %2, i64 %.034.idx
   %14 = tail call i32 @php_check_open_basedir(ptr noundef nonnull %spec.select) #18
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %59
@@ -2079,9 +2079,9 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readno
   br i1 %30, label %31, label %49
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %6, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = tail call i32 @chown(ptr noundef nonnull %.034, i32 noundef %33, i32 noundef %35) #18
   %.not39 = icmp eq i32 %36, 0
@@ -2096,7 +2096,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readno
   br i1 %.not40.not, label %.critedge, label %.critedge50
 
 .critedge:                                        ; preds = %31, %37
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = tail call i32 @chmod(ptr noundef nonnull %.034, i32 noundef %42) #18
   %.not42 = icmp eq i32 %43, 0
@@ -2153,7 +2153,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   %9 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %10 = icmp eq i32 %9, 0
   %spec.select.idx = select i1 %10, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %11 = and i32 %3, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %17
@@ -2324,7 +2324,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   br label %87
 
 71:                                               ; preds = %64, %.loopexit
-  %72 = getelementptr inbounds i8, ptr %.5, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %.not6790 = icmp eq ptr %72, %25
   br i1 %.not6790, label %._crit_edge, label %.lr.ph92
 
@@ -2337,13 +2337,13 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
 
 76:                                               ; preds = %.lr.ph92
   store i8 47, ptr %73, align 1
-  %77 = getelementptr inbounds i8, ptr %.691, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.691, i64 2
   %78 = load i8, ptr %77, align 1
   %.not68 = icmp eq i8 %78, 0
   br i1 %.not68, label %79, label %.loopexit
 
 79:                                               ; preds = %76, %.lr.ph92
-  %80 = getelementptr inbounds i8, ptr %73, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %.not67 = icmp eq ptr %80, %25
   br i1 %.not67, label %._crit_edge, label %.lr.ph92
 
@@ -2372,7 +2372,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr nocapture readnon
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %7 = tail call i32 @php_check_open_basedir(ptr noundef %spec.select) #18
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %16
@@ -2405,7 +2405,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr nocapture read
   %8 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %9 = icmp eq i32 %8, 0
   %spec.select.idx = select i1 %9, i64 7, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %10 = tail call i32 @php_check_open_basedir(ptr noundef %spec.select) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %55
@@ -2545,22 +2545,22 @@ define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr nocap
   br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @readdir(ptr noundef %6) #18
   %.not17 = icmp eq ptr %7, null
   br i1 %.not17, label %15, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 19
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %. = tail call i64 @llvm.umin.i64(i64 %10, i64 255)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %9, i64 %., i1 false)
-  %11 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %.
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %.
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 18
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %13 = load i8, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store i8 %13, ptr %14, align 1
   br label %15
 
@@ -2571,7 +2571,7 @@ define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr nocap
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @php_plain_files_dirstream_close(ptr nocapture noundef readonly %0, i32 %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @closedir(ptr noundef %4)
   ret i32 %5
@@ -2579,7 +2579,7 @@ define internal noundef i32 @php_plain_files_dirstream_close(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_plain_files_dirstream_rewind(ptr nocapture noundef readonly %0, i64 %1, i32 %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @rewinddir(ptr noundef %6) #18
   ret i32 0

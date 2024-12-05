@@ -112,13 +112,13 @@ get_state.exit.i:                                 ; preds = %24, %22, %20
   br i1 %.not18.i.i, label %51, label %suggest_state.exit.i
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %14, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %.not15.i.i = icmp eq ptr %38, null
   br i1 %.not15.i.i, label %39, label %suggest_state.exit.i
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %14, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %.not16.i.i = icmp eq ptr %41, null
   br i1 %.not16.i.i, label %42, label %suggest_state.exit.i
@@ -134,7 +134,7 @@ get_state.exit.i:                                 ; preds = %24, %22, %20
   br i1 %.not14.i.i, label %51, label %suggest_state.exit.i
 
 46:                                               ; preds = %31
-  %47 = getelementptr inbounds i8, ptr %14, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %.not.i41.i = icmp eq ptr %48, null
   br i1 %.not.i41.i, label %49, label %suggest_state.exit.i
@@ -361,13 +361,13 @@ get_state.exit:                                   ; preds = %142, %144, %146
   br i1 %.not18.i, label %173, label %suggest_state.exit
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %11, i64 136
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %160 = load ptr, ptr %159, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %160, null
   br i1 %.not15.i, label %161, label %suggest_state.exit
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %11, i64 88
+  %162 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %163 = load ptr, ptr %162, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %163, null
   br i1 %.not16.i, label %164, label %suggest_state.exit
@@ -383,7 +383,7 @@ get_state.exit:                                   ; preds = %142, %144, %146
   br i1 %.not14.i, label %173, label %suggest_state.exit
 
 168:                                              ; preds = %153
-  %169 = getelementptr inbounds i8, ptr %11, i64 136
+  %169 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %170 = load ptr, ptr %169, align 8, !tbaa !3
   %.not.i41 = icmp eq ptr %170, null
   br i1 %.not.i41, label %171, label %suggest_state.exit
@@ -573,13 +573,13 @@ get_state.exit:                                   ; preds = %6, %8, %10
   br i1 %.not18.i, label %37, label %suggest_state.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %.not15.i = icmp eq ptr %24, null
   br i1 %.not15.i, label %25, label %suggest_state.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %.not16.i = icmp eq ptr %27, null
   br i1 %.not16.i, label %28, label %suggest_state.exit
@@ -595,7 +595,7 @@ get_state.exit:                                   ; preds = %6, %8, %10
   br i1 %.not14.i, label %37, label %suggest_state.exit
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds i8, ptr %0, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %.not.i11 = icmp eq ptr %34, null
   br i1 %.not.i11, label %35, label %suggest_state.exit

@@ -94,23 +94,23 @@ define internal i32 @prte_state_base_close() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @prte_state_construct(ptr nocapture noundef writeonly initializes((144, 160)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @prte_state_caddy_construct(ptr nocapture noundef writeonly initializes((120, 256)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @prte_state_caddy_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = tail call i32 @event_del(ptr noundef nonnull %2) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %34, label %6
@@ -128,7 +128,7 @@ define internal void @prte_state_caddy_destruct(ptr noundef %0) #0 {
   unreachable
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 8
@@ -137,9 +137,9 @@ define internal void @prte_state_caddy_destruct(ptr noundef %0) #0 {
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i = icmp eq ptr %22, null
@@ -149,19 +149,19 @@ define internal void @prte_state_caddy_destruct(ptr noundef %0) #0 {
   %23 = phi ptr [ %25, %.lr.ph.i ], [ %22, %17 ]
   %.07.i = phi ptr [ %24, %.lr.ph.i ], [ %21, %17 ]
   tail call void %23(ptr noundef nonnull %5) #9
-  %24 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %17
-  %26 = getelementptr inbounds i8, ptr %5, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not17 = icmp eq ptr %27, null
   br i1 %.not17, label %31, label %28
 
 28:                                               ; preds = %pmix_obj_run_destructors.exit
-  %29 = getelementptr inbounds i8, ptr %5, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %4, align 8
   tail call void %27(ptr noundef nonnull %29, ptr noundef %30) #9
   br label %33

@@ -179,7 +179,7 @@ define hidden void @dissect_power_saving_class(ptr noundef %0, i32 %1, ptr nound
   br i1 %or.cond3, label %20, label %26
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @col_append_sep_str(ptr noundef %22, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1) #2
   %23 = load i32, ptr @hf_rng_invalid_tlv, align 4
@@ -346,7 +346,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_req_decoder(ptr noundef %0, ptr no
   br i1 %or.cond3, label %20, label %26
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @col_append_sep_str(ptr noundef %22, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1) #2
   %23 = load i32, ptr @hf_rng_invalid_tlv, align 4

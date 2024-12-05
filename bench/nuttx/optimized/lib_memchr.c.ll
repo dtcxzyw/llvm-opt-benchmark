@@ -21,7 +21,7 @@ define noundef ptr @memchr(ptr noundef readonly %0, i32 noundef %1, i64 noundef 
 
 8:                                                ; preds = %5
   %9 = add i64 %.in, -1
-  %10 = getelementptr inbounds i8, ptr %.09, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6
 

@@ -160,7 +160,7 @@ define hidden void @_ZN12GenArguments31initialize_heap_flags_and_sizesEv(ptr nou
   %48 = load i64, ptr @GenAlignment, align 8
   %49 = sub i64 %46, %48
   %50 = call noundef i64 @llvm.umin.i64(i64 %.pre31, i64 %49)
-  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not28 = icmp eq ptr %51, null
   br i1 %.not28, label %56, label %52
 
@@ -216,7 +216,7 @@ define hidden void @_ZN12GenArguments31initialize_heap_flags_and_sizesEv(ptr nou
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %74
-  %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not29 = icmp eq ptr %79, null
   br i1 %.not29, label %86, label %80
 
@@ -285,7 +285,7 @@ define hidden void @_ZN12GenArguments31initialize_heap_flags_and_sizesEv(ptr nou
   br i1 %112, label %113, label %120
 
 113:                                              ; preds = %111
-  %114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not30 = icmp eq ptr %114, null
   br i1 %.not30, label %120, label %115
 
@@ -490,7 +490,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
   %58 = phi i64 [ %25, %28 ], [ %26, %._crit_edge ], [ %37, %30 ], [ %52, %40 ]
   %.033 = phi i64 [ %24, %28 ], [ %24, %._crit_edge ], [ %36, %30 ], [ %51, %40 ]
   %.1 = phi i64 [ %24, %28 ], [ %24, %._crit_edge ], [ %.0, %30 ], [ %.0, %40 ]
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not46 = icmp eq ptr %59, null
   br i1 %.not46, label %61, label %60
 
@@ -519,7 +519,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
   br i1 %.not, label %96, label %74
 
 74:                                               ; preds = %61
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not47 = icmp eq ptr %75, null
   br i1 %.not47, label %77, label %76
 
@@ -558,7 +558,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
 92:                                               ; preds = %88, %86, %81
   %.2 = phi i64 [ %82, %81 ], [ %.1, %86 ], [ %spec.select, %88 ]
   %.132 = phi i64 [ %83, %81 ], [ %87, %86 ], [ %spec.select43, %88 ]
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not48 = icmp eq ptr %93, null
   br i1 %.not48, label %96, label %94
 
@@ -603,7 +603,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
   br label %107
 
 107:                                              ; preds = %106, %104
-  %108 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %108 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not49 = icmp eq ptr %108, null
   br i1 %.not49, label %112, label %109
 

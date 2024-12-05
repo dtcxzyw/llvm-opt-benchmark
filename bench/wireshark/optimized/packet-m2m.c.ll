@@ -152,7 +152,7 @@ define hidden void @proto_tree_add_tlv(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str) #2
   br label %40
@@ -161,7 +161,7 @@ define hidden void @proto_tree_add_tlv(ptr noundef %0, ptr noundef %1, i32 nound
   %13 = load i32, ptr @hf_m2m_type, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
   %15 = add i32 %2, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i8, ptr %16, align 2
   %.not29 = icmp eq i8 %17, 0
   br i1 %.not29, label %28, label %18
@@ -169,7 +169,7 @@ define hidden void @proto_tree_add_tlv(ptr noundef %0, ptr noundef %1, i32 nound
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_m2m_len_size, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %19, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef 0) #2
-  %21 = getelementptr inbounds i8, ptr %0, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %22 = load i8, ptr %21, align 1
   %.not30 = icmp eq i8 %22, 0
   br i1 %.not30, label %40, label %23
@@ -193,7 +193,7 @@ define hidden void @proto_tree_add_tlv(ptr noundef %0, ptr noundef %1, i32 nound
 
 34:                                               ; preds = %31
   %35 = tail call i32 @get_tlv_length(ptr noundef nonnull %0) #2
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, %2
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %38, i32 noundef %35, i32 noundef %6) #2
@@ -244,7 +244,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.tlv_info_t, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.43) #2
   %8 = load ptr, ptr %6, align 8
@@ -352,7 +352,7 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_m2m, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_m2m, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %56, i32 noundef 25, ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef range(i32 0, 256) %.0155183) #2
@@ -377,7 +377,7 @@ switch.lookup:                                    ; preds = %53
   br i1 %or.cond.i, label %67, label %71
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %65, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %69) #2
   call void @add_new_data_source(ptr noundef %1, ptr noundef %70, ptr noundef nonnull @.str.78) #2

@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @v2_alloc_pgtable(ptr noundef initializes((272, 280)) %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 428
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 428
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %8
@@ -36,7 +36,7 @@ define internal ptr @v2_alloc_pgtable(ptr noundef initializes((272, 280)) %0, pt
   br i1 %11, label %.thread, label %13
 
 .thread:                                          ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %12, align 8
   br label %48
 
@@ -48,20 +48,20 @@ define internal ptr @v2_alloc_pgtable(ptr noundef initializes((272, 280)) %0, pt
   %18 = load i64, ptr @page_offset_base, align 8
   %19 = add i64 %17, %18
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %0, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %20, ptr %21, align 8
   %22 = icmp eq i64 %19, 0
   br i1 %22, label %48, label %23
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = add i64 %19, 2147483648
   %26 = icmp ugt i64 %19, -2147483649
   %27 = load i64, ptr @phys_base, align 8
   %28 = sub i64 -2147483648, %18
   %29 = select i1 %26, i64 %27, i64 %28
   %30 = add i64 %25, %29
-  %31 = tail call i32 @amd_iommu_domain_set_gcr3(ptr noundef %24, i32 noundef 0, i64 noundef %30) #8
+  %31 = tail call i32 @amd_iommu_domain_set_gcr3(ptr noundef nonnull %24, i32 noundef 0, i64 noundef %30) #8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %45
 
@@ -69,20 +69,20 @@ define internal ptr @v2_alloc_pgtable(ptr noundef initializes((272, 280)) %0, pt
   %34 = load i32, ptr @amd_iommu_gpt_level, align 4
   %35 = icmp eq i32 %34, 5
   %36 = select i1 %35, i32 57, i32 52
-  %37 = getelementptr inbounds i8, ptr %0, i64 104
-  %38 = getelementptr inbounds i8, ptr %0, i64 224
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @iommu_v2_map_pages, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 232
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @iommu_v2_unmap_pages, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 240
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @iommu_v2_iova_to_phys, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1075843072, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %36, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 52, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @v2_flush_ops, ptr %44, align 8
   br label %48
 

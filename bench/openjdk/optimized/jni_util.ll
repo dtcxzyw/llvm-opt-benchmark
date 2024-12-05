@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowByName(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1) #10
   %.not = icmp eq ptr %7, null
@@ -69,7 +69,7 @@ define void @JNU_ThrowByName(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %2) #10
   br label %13
@@ -81,7 +81,7 @@ define void @JNU_ThrowByName(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #10
   %.not.i = icmp eq ptr %6, null
@@ -89,7 +89,7 @@ define void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef %1) local
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -101,7 +101,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #10
   %.not.i = icmp eq ptr %6, null
@@ -109,7 +109,7 @@ define void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -121,7 +121,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i = icmp eq ptr %6, null
@@ -129,7 +129,7 @@ define void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef %1) local_unn
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -141,7 +141,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowIllegalArgumentException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
   %.not.i = icmp eq ptr %6, null
@@ -149,7 +149,7 @@ define void @JNU_ThrowIllegalArgumentException(ptr noundef %0, ptr noundef %1) l
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -161,7 +161,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
   %.not.i = icmp eq ptr %6, null
@@ -169,7 +169,7 @@ define void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef %1) local_unname
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -181,7 +181,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowClassNotFoundException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #10
   %.not.i = icmp eq ptr %6, null
@@ -189,7 +189,7 @@ define void @JNU_ThrowClassNotFoundException(ptr noundef %0, ptr noundef %1) loc
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -201,7 +201,7 @@ JNU_ThrowByName.exit:                             ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @JNU_ThrowIOException(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #10
   %.not.i = icmp eq ptr %6, null
@@ -209,7 +209,7 @@ define void @JNU_ThrowIOException(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #10
   br label %JNU_ThrowByName.exit
@@ -231,14 +231,14 @@ define void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef %1, ptr no
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6) #10
   br label %12
 
 12:                                               ; preds = %5, %7, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0) #10
   %.not16 = icmp eq ptr %16, null
@@ -246,7 +246,7 @@ define void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %1) #10
   %.not.i = icmp eq ptr %21, null
@@ -254,7 +254,7 @@ define void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef %1, ptr no
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %2) #10
   br label %JNU_ThrowByName.exit
@@ -269,7 +269,7 @@ declare ptr @getLastErrorString(ptr noundef) local_unnamed_addr #1
 define ptr @JNU_NewObjectByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, i32 noundef 2) #10
   %9 = icmp slt i32 %8, 0
@@ -277,7 +277,7 @@ define ptr @JNU_NewObjectByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %1) #10
   %15 = icmp eq ptr %14, null
@@ -285,7 +285,7 @@ define ptr @JNU_NewObjectByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 264
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 264
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.14, ptr noundef %2) #10
   %21 = icmp eq ptr %20, null
@@ -294,7 +294,7 @@ define ptr @JNU_NewObjectByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 22:                                               ; preds = %16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 232
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr %25(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull %4) #10
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -304,7 +304,7 @@ define ptr @JNU_NewObjectByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.019 = phi ptr [ null, %3 ], [ null, %10 ], [ %14, %16 ], [ %14, %22 ]
   %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ null, %16 ], [ %26, %22 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %.019) #10
   ret ptr %.0
@@ -338,7 +338,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i = icmp eq ptr %18, null
@@ -346,7 +346,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef null) #10
   br label %JNU_ThrowOutOfMemoryError.exit
@@ -354,12 +354,12 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 24:                                               ; preds = %10
   %25 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %12, i64 noundef %11, ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #10
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1336
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1336
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %12) #10
   tail call void @free(ptr noundef nonnull %12) #10
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1824
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1824
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i8 %32(ptr noundef nonnull %0) #10
   %.not54 = icmp eq i8 %33, 0
@@ -373,11 +373,11 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
   %36 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %29)
   %37 = inttoptr i64 %36 to ptr
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef nonnull %29) #10
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1824
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1824
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i8 %43(ptr noundef nonnull %0) #10
   %.not56 = icmp eq i8 %44, 0
@@ -389,7 +389,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %7) #10
   br label %.thread64
@@ -403,7 +403,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %.thread64
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %51) #10
   br label %57
@@ -411,7 +411,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 57:                                               ; preds = %.thread, %.thread64, %52, %5
   %58 = phi i64 [ 0, %.thread ], [ %50, %.thread64 ], [ %50, %52 ], [ %6, %5 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr %61(ptr noundef nonnull %0) #10
   %.not59 = icmp eq ptr %62, null
@@ -420,7 +420,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 63:                                               ; preds = %57
   %.not60 = icmp eq i64 %58, 0
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr %66(ptr noundef nonnull %0, ptr noundef %1) #10
   %.not.i61 = icmp eq ptr %67, null
@@ -431,7 +431,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef %2) #10
   br label %JNU_ThrowOutOfMemoryError.exit
@@ -441,7 +441,7 @@ define void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef 
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 112
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 %78(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull @.str.11) #10
   br label %JNU_ThrowOutOfMemoryError.exit
@@ -483,14 +483,14 @@ define void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef %1) l
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   br label %11
 
 11:                                               ; preds = %6, %4, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0) #10
   %.not16.i = icmp eq ptr %15, null
@@ -498,7 +498,7 @@ define void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef %1) l
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #10
   %.not.i.i = icmp eq ptr %20, null
@@ -506,7 +506,7 @@ define void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef %1) l
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef %1) #10
   br label %JNU_ThrowByNameWithLastError.exit
@@ -535,13 +535,13 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %7, !llvm.loop !6
 
 .critedge:                                        ; preds = %7, %7
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 3) #10
   %16 = icmp slt i32 %15, 0
@@ -549,7 +549,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %2) #10
   %22 = icmp eq ptr %21, null
@@ -557,7 +557,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 904
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 904
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %3, ptr noundef %4) #10
   %28 = icmp eq ptr %27, null
@@ -582,14 +582,14 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1136
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1136
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   br label %87
 
 35:                                               ; preds = %29, %29
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 920
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 920
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %38(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %40 = ptrtoint ptr %39 to i64
@@ -603,21 +603,21 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 944
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 944
   %44 = load ptr, ptr %43, align 8
   %45 = call zeroext i8 %44(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   br label %87
 
 46:                                               ; preds = %29
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 968
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 968
   %49 = load ptr, ptr %48, align 8
   %50 = call signext i8 %49(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   br label %87
 
 51:                                               ; preds = %29
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 992
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 992
   %54 = load ptr, ptr %53, align 8
   %55 = call zeroext i16 %54(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %55 to i8
@@ -626,7 +626,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 56:                                               ; preds = %29
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1016
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1016
   %59 = load ptr, ptr %58, align 8
   %60 = call signext i16 %59(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc85 = trunc i16 %60 to i8
@@ -635,7 +635,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 61:                                               ; preds = %29
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1040
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1040
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc87 = trunc i32 %65 to i8
@@ -646,7 +646,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 66:                                               ; preds = %29
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1064
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1064
   %69 = load ptr, ptr %68, align 8
   %70 = call i64 %69(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc90 = trunc i64 %70 to i8
@@ -659,7 +659,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 71:                                               ; preds = %29
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1088
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1088
   %74 = load ptr, ptr %73, align 8
   %75 = call float %74(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %76 = bitcast float %75 to i32
@@ -671,7 +671,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 77:                                               ; preds = %29
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1112
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1112
   %80 = load ptr, ptr %79, align 8
   %81 = call double %80(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %82 = bitcast double %81 to i64
@@ -685,7 +685,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 83:                                               ; preds = %29
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 144
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 144
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #10
   br label %87
@@ -707,7 +707,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
   %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %23 ], [ %89, %87 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %23 ], [ %88, %87 ]
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 184
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 184
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull %0, ptr noundef nonnull %21) #10
   br label %95
@@ -722,7 +722,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1824
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1824
   %99 = load ptr, ptr %98, align 8
   %100 = call zeroext i8 %99(ptr noundef nonnull %0) #10
   store i8 %100, ptr %1, align 1
@@ -756,13 +756,13 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %7, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %7
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 3) #10
   %16 = icmp slt i32 %15, 0
@@ -770,11 +770,11 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 248
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %2) #10
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 264
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %3, ptr noundef %4) #10
   %26 = icmp eq ptr %25, null
@@ -798,14 +798,14 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 496
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 496
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   br label %85
 
 33:                                               ; preds = %27, %27
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 280
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %38 = ptrtoint ptr %37 to i64
@@ -819,21 +819,21 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 39:                                               ; preds = %27
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 304
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 304
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i8 %42(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   br label %85
 
 44:                                               ; preds = %27
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 328
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 328
   %47 = load ptr, ptr %46, align 8
   %48 = tail call signext i8 %47(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   br label %85
 
 49:                                               ; preds = %27
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 352
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 352
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i16 %52(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %53 to i8
@@ -842,7 +842,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 54:                                               ; preds = %27
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 376
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 376
   %57 = load ptr, ptr %56, align 8
   %58 = tail call signext i16 %57(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc94 = trunc i16 %58 to i8
@@ -851,7 +851,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 59:                                               ; preds = %27
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 400
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 400
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc96 = trunc i32 %63 to i8
@@ -862,7 +862,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 64:                                               ; preds = %27
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 424
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 424
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i64 %67(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc99 = trunc i64 %68 to i8
@@ -875,7 +875,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 69:                                               ; preds = %27
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 448
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 448
   %72 = load ptr, ptr %71, align 8
   %73 = tail call float %72(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %74 = bitcast float %73 to i32
@@ -887,7 +887,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 75:                                               ; preds = %27
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 472
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 472
   %78 = load ptr, ptr %77, align 8
   %79 = tail call double %78(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %25, ptr noundef %5) #10
   %80 = bitcast double %79 to i64
@@ -901,7 +901,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 81:                                               ; preds = %27
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 144
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 144
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #10
   br label %85
@@ -912,7 +912,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
   %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc98, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc95, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc99, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc96, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc94, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %48, %44 ], [ %43, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc97, %33 ], [ 0, %29 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc109, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc103, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc111, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc105, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift100, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc107, %33 ], [ 0, %29 ]
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 184
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 184
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull %0, ptr noundef %21) #10
   %89 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
@@ -930,7 +930,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 
 93:                                               ; preds = %92
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1824
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1824
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i8 %96(ptr noundef nonnull %0) #10
   store i8 %97, ptr %1, align 1
@@ -949,7 +949,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
 define void @InitializeEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef 3) #10
   %8 = icmp slt i32 %7, 0
@@ -962,7 +962,7 @@ define void @InitializeEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, i32 noundef 1) #10
   %17 = icmp slt i32 %16, 0
@@ -970,7 +970,7 @@ define void @InitializeEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #10
   %23 = icmp eq ptr %22, null
@@ -978,12 +978,12 @@ define void @InitializeEncoding(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 JNU_ClassString.exit:                             ; preds = %18
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   store ptr %27, ptr @JNU_ClassString.cls, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   %.pre.i = load ptr, ptr @JNU_ClassString.cls, align 8
@@ -1051,7 +1051,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
   %.sink = phi i32 [ 5, %45 ], [ 1, %55 ]
   store i32 %.sink, ptr @fastEncoding, align 4
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1336
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1336
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
   %63 = icmp eq ptr %62, null
@@ -1071,14 +1071,14 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 67:                                               ; preds = %.lr.ph67
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull %0) #10
   br label %71
 
 71:                                               ; preds = %67, %.lr.ph67
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 184
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull %0, ptr noundef nonnull %64) #10
   %75 = load i8, ptr %3, align 1
@@ -1090,12 +1090,12 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 .split63.us:                                      ; preds = %71
   %78 = inttoptr i64 %65 to ptr
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 168
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 168
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr %81(ptr noundef nonnull %0, ptr noundef nonnull %78) #10
   store ptr %82, ptr @jnuCharset, align 8
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 184
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 184
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull %0, ptr noundef nonnull %78) #10
   br label %.loopexit
@@ -1108,7 +1108,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 88:                                               ; preds = %86
   store i32 5, ptr @fastEncoding, align 4
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1336
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1336
   %91 = load ptr, ptr %90, align 8
   %92 = call ptr %91(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #10
   %93 = icmp eq ptr %92, null
@@ -1120,7 +1120,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 94:                                               ; preds = %JNU_ClassString.exit.thread56
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
   %.not.i.i = icmp eq ptr %98, null
@@ -1128,14 +1128,14 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 112
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 %102(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull @.str.26) #10
   br label %JNU_ThrowInternalError.exit
 
 .loopexit:                                        ; preds = %58, %51, %44, %.split63.us
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 264
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 264
   %106 = load ptr, ptr %105, align 8
   %107 = call ptr %106(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #10
   store ptr %107, ptr @String_getBytes_ID, align 8
@@ -1144,7 +1144,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 109:                                              ; preds = %.loopexit
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 264
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 264
   %112 = load ptr, ptr %111, align 8
   %113 = call ptr %112(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.29) #10
   store ptr %113, ptr @String_init_ID, align 8
@@ -1153,7 +1153,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 115:                                              ; preds = %109
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 752
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 752
   %118 = load ptr, ptr %117, align 8
   %119 = call ptr %118(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #10
   store ptr %119, ptr @String_coder_ID, align 8
@@ -1162,7 +1162,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
 
 121:                                              ; preds = %115
   %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 752
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 752
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr %124(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #10
   store ptr %125, ptr @String_value_ID, align 8
@@ -1180,7 +1180,7 @@ define ptr @JNU_ClassString(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, i32 noundef 1) #10
   %9 = icmp slt i32 %8, 0
@@ -1188,7 +1188,7 @@ define ptr @JNU_ClassString(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #10
   %15 = icmp eq ptr %14, null
@@ -1196,12 +1196,12 @@ define ptr @JNU_ClassString(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull %14) #10
   store ptr %20, ptr @JNU_ClassString.cls, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %14) #10
   %.pre = load ptr, ptr @JNU_ClassString.cls, align 8
@@ -1240,7 +1240,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   %.019.i = phi i8 [ %11, %.lr.ph.i ], [ 0, %8 ]
   %.01418.i = phi ptr [ %12, %.lr.ph.i ], [ %1, %8 ]
   %11 = or i8 %.019.i, %10
-  %12 = getelementptr inbounds i8, ptr %.01418.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
@@ -1259,7 +1259,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 208
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 208
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, i32 noundef 1) #10
   %25 = icmp slt i32 %24, 0
@@ -1278,7 +1278,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i.i.i = icmp eq ptr %37, null
@@ -1286,7 +1286,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef null) #10
   br label %newSizedString8859_1.exit.i
@@ -1302,10 +1302,10 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
-  %48 = getelementptr inbounds i16, ptr %.02127.i.i, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.02127.i.i, i64 %indvars.iv.i.i
   store i16 %47, ptr %48, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1314,7 +1314,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
   %.02128.i.i = phi ptr [ %6, %43 ], [ %.02127.i.i, %.lr.ph.i.i ]
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1304
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1304
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef nonnull %0, ptr noundef nonnull %.02128.i.i, i32 noundef %19) #10
   %.not.i.i = icmp eq ptr %.02128.i.i, %6
@@ -1339,7 +1339,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 %61(ptr noundef nonnull %0, i32 noundef 1) #10
   %63 = icmp slt i32 %62, 0
@@ -1358,7 +1358,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i.i.i25 = icmp eq ptr %75, null
@@ -1366,7 +1366,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 112
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 %79(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef null) #10
   br label %newString8859_1.exit
@@ -1382,10 +1382,10 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 
 .lr.ph.i.i21:                                     ; preds = %.lr.ph.i.i21, %.lr.ph.preheader.i.i18
   %indvars.iv.i.i22 = phi i64 [ 0, %.lr.ph.preheader.i.i18 ], [ %indvars.iv.next.i.i23, %.lr.ph.i.i21 ]
-  %83 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i22
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i22
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i16
-  %86 = getelementptr inbounds i16, ptr %.02127.i.i19, i64 %indvars.iv.i.i22
+  %86 = getelementptr inbounds nuw i16, ptr %.02127.i.i19, i64 %indvars.iv.i.i22
   store i16 %85, ptr %86, align 2
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %wide.trip.count.i.i20
@@ -1394,7 +1394,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 ._crit_edge.i.i13:                                ; preds = %.lr.ph.i.i21, %81
   %.02128.i.i14 = phi ptr [ %5, %81 ], [ %.02127.i.i19, %.lr.ph.i.i21 ]
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1304
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1304
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %.02128.i.i14, i32 noundef %58) #10
   %.not.i.i15 = icmp eq ptr %.02128.i.i14, %5
@@ -1415,7 +1415,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   %94 = trunc i64 %93 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 208
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 208
   %97 = load ptr, ptr %96, align 8
   %98 = tail call i32 %97(ptr noundef nonnull %0, i32 noundef 1) #10
   %99 = icmp slt i32 %98, 0
@@ -1434,7 +1434,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
 
 107:                                              ; preds = %102
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %110 = load ptr, ptr %109, align 8
   %111 = tail call ptr %110(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i.i = icmp eq ptr %111, null
@@ -1442,7 +1442,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 112
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 %115(ptr noundef nonnull %0, ptr noundef nonnull %111, ptr noundef null) #10
   br label %newString646_US.exit
@@ -1458,12 +1458,12 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i28 ]
-  %119 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %120 = load i8, ptr %119, align 1
   %121 = icmp sgt i8 %120, -1
   %narrow.i = select i1 %121, i8 %120, i8 63
   %spec.select.i = zext i8 %narrow.i to i16
-  %122 = getelementptr inbounds i16, ptr %.02633.i, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw i16, ptr %.02633.i, i64 %indvars.iv.i
   store i16 %spec.select.i, ptr %122, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1472,7 +1472,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i28, %117
   %.02632.i = phi ptr [ %4, %117 ], [ %.02633.i, %.lr.ph.i28 ]
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 1304
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1304
   %125 = load ptr, ptr %124, align 8
   %126 = call ptr %125(ptr noundef nonnull %0, ptr noundef nonnull %.02632.i, i32 noundef %94) #10
   %.not.i27 = icmp eq ptr %.02632.i, %4
@@ -1493,7 +1493,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
   %130 = trunc i64 %129 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 208
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 208
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 %133(ptr noundef nonnull %0, i32 noundef 1) #10
   %135 = icmp slt i32 %134, 0
@@ -1512,7 +1512,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 143:                                              ; preds = %138
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %146 = load ptr, ptr %145, align 8
   %147 = tail call ptr %146(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i.i38 = icmp eq ptr %147, null
@@ -1520,7 +1520,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 148:                                              ; preds = %143
   %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 112
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 112
   %151 = load ptr, ptr %150, align 8
   %152 = tail call i32 %151(ptr noundef nonnull %0, ptr noundef nonnull %147, ptr noundef null) #10
   br label %newStringCp1252.exit
@@ -1536,7 +1536,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 .lr.ph.i34:                                       ; preds = %165, %.lr.ph.preheader.i32
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i36, %165 ]
-  %155 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i35
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i35
   %156 = load i8, ptr %155, align 1
   %or.cond.i = icmp slt i8 %156, -96
   br i1 %or.cond.i, label %157, label %163
@@ -1544,7 +1544,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 157:                                              ; preds = %.lr.ph.i34
   %158 = and i8 %156, 31
   %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds [32 x i32], ptr @cp1252c1chars, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [32 x i32], ptr @cp1252c1chars, i64 0, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = trunc i32 %161 to i16
   br label %165
@@ -1555,7 +1555,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 165:                                              ; preds = %163, %157
   %.sink.i = phi i16 [ %162, %157 ], [ %164, %163 ]
-  %166 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i35
+  %166 = getelementptr inbounds nuw i16, ptr %.03038.i, i64 %indvars.iv.i35
   store i16 %.sink.i, ptr %166, align 2
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
@@ -1564,7 +1564,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 ._crit_edge.i29:                                  ; preds = %165, %153
   %.03037.i = phi ptr [ %3, %153 ], [ %.03038.i, %165 ]
   %167 = load ptr, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 1304
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 1304
   %169 = load ptr, ptr %168, align 8
   %170 = call ptr %169(ptr noundef nonnull %0, ptr noundef nonnull %.03037.i, i32 noundef %130) #10
   %.not.i30 = icmp eq ptr %.03037.i, %3
@@ -1581,7 +1581,7 @@ newStringCp1252.exit:                             ; preds = %128, %143, %148, %.
 
 172:                                              ; preds = %2
   %173 = load ptr, ptr %0, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %175 = load ptr, ptr %174, align 8
   %176 = tail call ptr %175(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
   %.not.i.i39 = icmp eq ptr %176, null
@@ -1589,7 +1589,7 @@ newStringCp1252.exit:                             ; preds = %128, %143, %148, %.
 
 177:                                              ; preds = %172
   %178 = load ptr, ptr %0, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 112
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 112
   %180 = load ptr, ptr %179, align 8
   %181 = tail call i32 %180(ptr noundef nonnull %0, ptr noundef nonnull %176, ptr noundef nonnull @.str.34) #10
   br label %newStringUTF8.exit
@@ -1622,17 +1622,17 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 6:                                                ; preds = %5, %4
   %7 = load i32, ptr @fastEncoding, align 4
-  switch i32 %7, label %316 [
+  switch i32 %7, label %317 [
     i32 5, label %8
-    i32 2, label %99
-    i32 4, label %157
-    i32 3, label %215
-    i32 0, label %306
+    i32 2, label %100
+    i32 4, label %158
+    i32 3, label %216
+    i32 0, label %307
   ]
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 776
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 776
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @String_coder_ID, align 8
   %13 = tail call signext i8 %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12) #10
@@ -1645,7 +1645,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, i32 noundef 2) #10
   %21 = icmp slt i32 %20, 0
@@ -1653,7 +1653,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 760
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 760
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @String_value_ID, align 8
   %27 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26) #10
@@ -1662,11 +1662,11 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1368
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1368
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %27) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1776
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1776
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef null) #10
   %38 = icmp eq ptr %37, null
@@ -1684,7 +1684,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.07182.us.i = phi i32 [ %spec.select.us.i, %.lr.ph.split.us.i ], [ %33, %.lr.ph.i ]
-  %40 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv90.i
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv90.i
   %41 = load i8, ptr %40, align 1
   %.lobit.us.i = lshr i8 %41, 7
   %42 = zext nneg i8 %.lobit.us.i to i32
@@ -1696,18 +1696,18 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %59
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %.lr.ph.i ]
   %.07182.i = phi i32 [ %spec.select.i, %59 ], [ %33, %.lr.ph.i ]
-  %43 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %.lr.ph.split.i
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1784
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1784
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %37, i32 noundef 2) #10
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr %52(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
   %.not.i.i.i = icmp eq ptr %53, null
@@ -1715,7 +1715,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 54:                                               ; preds = %46
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull @.str.42) #10
   br label %getStringUTF8.exit
@@ -1742,7 +1742,6 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   br i1 %66, label %.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %61
-  %invariant.gep.i = getelementptr i8, ptr %65, i64 1
   br i1 %39, label %.lr.ph86.preheader.i, label %._crit_edge87.i
 
 .lr.ph86.preheader.i:                             ; preds = %.preheader.i
@@ -1751,11 +1750,11 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 .thread.i:                                        ; preds = %61, %._crit_edge.i
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1784
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1784
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %37, i32 noundef 2) #10
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i79.i = icmp eq ptr %73, null
@@ -1763,18 +1762,18 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 74:                                               ; preds = %.thread.i
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 112
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 %77(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef nonnull @.str.43) #10
   br label %getStringUTF8.exit
 
-.lr.ph86.i:                                       ; preds = %93, %.lr.ph86.preheader.i
-  %indvars.iv95.i = phi i64 [ 0, %.lr.ph86.preheader.i ], [ %indvars.iv.next96.i, %93 ]
-  %.06984.i = phi i32 [ 0, %.lr.ph86.preheader.i ], [ %.170.i, %93 ]
-  %79 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv95.i
+.lr.ph86.i:                                       ; preds = %94, %.lr.ph86.preheader.i
+  %indvars.iv95.i = phi i64 [ 0, %.lr.ph86.preheader.i ], [ %indvars.iv.next96.i, %94 ]
+  %.06984.i = phi i32 [ 0, %.lr.ph86.preheader.i ], [ %.170.i, %94 ]
+  %79 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv95.i
   %80 = load i8, ptr %79, align 1
   %81 = icmp slt i8 %80, 0
-  br i1 %81, label %82, label %89
+  br i1 %81, label %82, label %90
 
 82:                                               ; preds = %.lr.ph86.i
   %83 = ashr i8 %80, 6
@@ -1784,537 +1783,537 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   store i8 %84, ptr %86, align 1
   %87 = and i8 %80, -65
   %88 = add nsw i32 %.06984.i, 2
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %85
-  store i8 %87, ptr %gep.i, align 1
-  br label %93
+  %89 = getelementptr i8, ptr %86, i64 1
+  store i8 %87, ptr %89, align 1
+  br label %94
 
-89:                                               ; preds = %.lr.ph86.i
-  %90 = add nsw i32 %.06984.i, 1
-  %91 = sext i32 %.06984.i to i64
-  %92 = getelementptr inbounds i8, ptr %65, i64 %91
-  store i8 %80, ptr %92, align 1
-  br label %93
+90:                                               ; preds = %.lr.ph86.i
+  %91 = add nsw i32 %.06984.i, 1
+  %92 = sext i32 %.06984.i to i64
+  %93 = getelementptr inbounds i8, ptr %65, i64 %92
+  store i8 %80, ptr %93, align 1
+  br label %94
 
-93:                                               ; preds = %89, %82
-  %.170.i = phi i32 [ %88, %82 ], [ %90, %89 ]
+94:                                               ; preds = %90, %82
+  %.170.i = phi i32 [ %88, %82 ], [ %91, %90 ]
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %exitcond99.not.i = icmp eq i64 %indvars.iv.next96.i, %wide.trip.count98.i
   br i1 %exitcond99.not.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !14
 
-._crit_edge87.i:                                  ; preds = %93, %.preheader.i
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1784
-  %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %37, i32 noundef 2) #10
-  %97 = zext nneg i32 %.071.lcssa.i to i64
-  %98 = getelementptr inbounds i8, ptr %65, i64 %97
-  store i8 0, ptr %98, align 1
+._crit_edge87.i:                                  ; preds = %94, %.preheader.i
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1784
+  %97 = load ptr, ptr %96, align 8
+  tail call void %97(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %37, i32 noundef 2) #10
+  %98 = zext nneg i32 %.071.lcssa.i to i64
+  %99 = getelementptr inbounds nuw i8, ptr %65, i64 %98
+  store i8 0, ptr %99, align 1
   br label %getStringUTF8.exit
 
-99:                                               ; preds = %6
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1312
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 %102(ptr noundef nonnull %0, ptr noundef %1) #10
-  %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1792
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call ptr %106(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %getStringUTF8.exit, label %109
+100:                                              ; preds = %6
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1312
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call i32 %103(ptr noundef nonnull %0, ptr noundef %1) #10
+  %105 = load ptr, ptr %0, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1792
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %getStringUTF8.exit, label %110
 
-109:                                              ; preds = %99
-  %or.cond.i20 = icmp ugt i32 %103, 2147483646
-  br i1 %or.cond.i20, label %.thread.i32, label %110
+110:                                              ; preds = %100
+  %or.cond.i20 = icmp ugt i32 %104, 2147483646
+  br i1 %or.cond.i20, label %.thread.i32, label %111
 
-110:                                              ; preds = %109
-  %111 = tail call i32 @llvm.umax.i32(i32 %103, i32 3)
-  %112 = add nuw nsw i32 %111, 1
-  %113 = zext nneg i32 %112 to i64
-  %114 = tail call noalias ptr @malloc(i64 noundef %113) #12
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %.thread.i32, label %.preheader.i21
+111:                                              ; preds = %110
+  %112 = tail call i32 @llvm.umax.i32(i32 %104, i32 3)
+  %113 = add nuw nsw i32 %112, 1
+  %114 = zext nneg i32 %113 to i64
+  %115 = tail call noalias ptr @malloc(i64 noundef %114) #12
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %.thread.i32, label %.preheader.i21
 
-.preheader.i21:                                   ; preds = %110
-  %.not.i22 = icmp eq i32 %103, 0
+.preheader.i21:                                   ; preds = %111
+  %.not.i22 = icmp eq i32 %104, 0
   br i1 %.not.i22, label %._crit_edge.i28, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.preheader.i21
   %.not53.i = icmp eq i8 %3, 0
-  %wide.trip.count59.i = zext nneg i32 %103 to i64
+  %wide.trip.count59.i = zext nneg i32 %104 to i64
   br i1 %.not53.i, label %.lr.ph.split.us.i30, label %.lr.ph.split.i24
 
 .lr.ph.split.us.i30:                              ; preds = %.lr.ph.i23, %.lr.ph.split.us.i30
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph.split.us.i30 ], [ 0, %.lr.ph.i23 ]
-  %116 = getelementptr inbounds i16, ptr %107, i64 %indvars.iv56.i
-  %117 = load i16, ptr %116, align 2
-  %118 = icmp ult i16 %117, 256
-  %119 = trunc nuw i16 %117 to i8
-  %spec.select.i31 = select i1 %118, i8 %119, i8 63
-  %120 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv56.i
-  store i8 %spec.select.i31, ptr %120, align 1
+  %117 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv56.i
+  %118 = load i16, ptr %117, align 2
+  %119 = icmp ult i16 %118, 256
+  %120 = trunc nuw i16 %118 to i8
+  %spec.select.i31 = select i1 %119, i8 %120, i8 63
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv56.i
+  store i8 %spec.select.i31, ptr %121, align 1
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
   br i1 %exitcond60.not.i, label %._crit_edge.i28, label %.lr.ph.split.us.i30, !llvm.loop !15
 
-.thread.i32:                                      ; preds = %110, %109
-  %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 1800
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %107) #10
-  %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call ptr %126(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
-  %.not.i.i.i33 = icmp eq ptr %127, null
-  br i1 %.not.i.i.i33, label %getStringUTF8.exit, label %128
+.thread.i32:                                      ; preds = %111, %110
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1800
+  %124 = load ptr, ptr %123, align 8
+  tail call void %124(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %108) #10
+  %125 = load ptr, ptr %0, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
+  %127 = load ptr, ptr %126, align 8
+  %128 = tail call ptr %127(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
+  %.not.i.i.i33 = icmp eq ptr %128, null
+  br i1 %.not.i.i.i33, label %getStringUTF8.exit, label %129
 
-128:                                              ; preds = %.thread.i32
-  %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 112
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call i32 %131(ptr noundef nonnull %0, ptr noundef nonnull %127, ptr noundef null) #10
+129:                                              ; preds = %.thread.i32
+  %130 = load ptr, ptr %0, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 112
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call i32 %132(ptr noundef nonnull %0, ptr noundef nonnull %128, ptr noundef null) #10
   br label %getStringUTF8.exit
 
-.lr.ph.split.i24:                                 ; preds = %.lr.ph.i23, %149
-  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %149 ], [ 0, %.lr.ph.i23 ]
-  %133 = getelementptr inbounds i16, ptr %107, i64 %indvars.iv.i25
-  %134 = load i16, ptr %133, align 2
-  %135 = icmp eq i16 %134, 0
-  br i1 %135, label %136, label %149
+.lr.ph.split.i24:                                 ; preds = %.lr.ph.i23, %150
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %150 ], [ 0, %.lr.ph.i23 ]
+  %134 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv.i25
+  %135 = load i16, ptr %134, align 2
+  %136 = icmp eq i16 %135, 0
+  br i1 %136, label %137, label %150
 
-136:                                              ; preds = %.lr.ph.split.i24
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 1800
-  %139 = load ptr, ptr %138, align 8
-  tail call void %139(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %107) #10
-  tail call void @free(ptr noundef %114) #10
-  %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 48
-  %142 = load ptr, ptr %141, align 8
-  %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
-  %.not.i.i51.i = icmp eq ptr %143, null
-  br i1 %.not.i.i51.i, label %getStringUTF8.exit, label %144
+137:                                              ; preds = %.lr.ph.split.i24
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1800
+  %140 = load ptr, ptr %139, align 8
+  tail call void %140(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %108) #10
+  tail call void @free(ptr noundef %115) #10
+  %141 = load ptr, ptr %0, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
+  %.not.i.i51.i = icmp eq ptr %144, null
+  br i1 %.not.i.i51.i, label %getStringUTF8.exit, label %145
 
-144:                                              ; preds = %136
-  %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 112
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call i32 %147(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef nonnull @.str.42) #10
+145:                                              ; preds = %137
+  %146 = load ptr, ptr %0, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 112
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call i32 %148(ptr noundef nonnull %0, ptr noundef nonnull %144, ptr noundef nonnull @.str.42) #10
   br label %getStringUTF8.exit
 
-149:                                              ; preds = %.lr.ph.split.i24
-  %150 = icmp ult i16 %134, 256
-  %151 = trunc nuw i16 %134 to i8
-  %spec.select63.i = select i1 %150, i8 %151, i8 63
-  %152 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv.i25
-  store i8 %spec.select63.i, ptr %152, align 1
+150:                                              ; preds = %.lr.ph.split.i24
+  %151 = icmp ult i16 %135, 256
+  %152 = trunc nuw i16 %135 to i8
+  %spec.select63.i = select i1 %151, i8 %152, i8 63
+  %153 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv.i25
+  store i8 %spec.select63.i, ptr %153, align 1
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count59.i
   br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.split.i24, !llvm.loop !15
 
-._crit_edge.i28:                                  ; preds = %149, %.lr.ph.split.us.i30, %.preheader.i21
-  %.pre-phi.i = phi i64 [ 0, %.preheader.i21 ], [ %wide.trip.count59.i, %.lr.ph.split.us.i30 ], [ %wide.trip.count59.i, %149 ]
-  %153 = getelementptr inbounds i8, ptr %114, i64 %.pre-phi.i
-  store i8 0, ptr %153, align 1
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 1800
-  %156 = load ptr, ptr %155, align 8
-  tail call void %156(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %107) #10
+._crit_edge.i28:                                  ; preds = %150, %.lr.ph.split.us.i30, %.preheader.i21
+  %.pre-phi.i = phi i64 [ 0, %.preheader.i21 ], [ %wide.trip.count59.i, %.lr.ph.split.us.i30 ], [ %wide.trip.count59.i, %150 ]
+  %154 = getelementptr inbounds nuw i8, ptr %115, i64 %.pre-phi.i
+  store i8 0, ptr %154, align 1
+  %155 = load ptr, ptr %0, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1800
+  %157 = load ptr, ptr %156, align 8
+  tail call void %157(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %108) #10
   br label %getStringUTF8.exit
 
-157:                                              ; preds = %6
-  %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 1312
-  %160 = load ptr, ptr %159, align 8
-  %161 = tail call i32 %160(ptr noundef nonnull %0, ptr noundef %1) #10
-  %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 1792
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call ptr %164(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %getStringUTF8.exit, label %167
+158:                                              ; preds = %6
+  %159 = load ptr, ptr %0, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1312
+  %161 = load ptr, ptr %160, align 8
+  %162 = tail call i32 %161(ptr noundef nonnull %0, ptr noundef %1) #10
+  %163 = load ptr, ptr %0, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1792
+  %165 = load ptr, ptr %164, align 8
+  %166 = tail call ptr %165(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %getStringUTF8.exit, label %168
 
-167:                                              ; preds = %157
-  %or.cond.i34 = icmp ugt i32 %161, 2147483646
-  br i1 %or.cond.i34, label %.thread.i54, label %168
+168:                                              ; preds = %158
+  %or.cond.i34 = icmp ugt i32 %162, 2147483646
+  br i1 %or.cond.i34, label %.thread.i54, label %169
 
-168:                                              ; preds = %167
-  %169 = tail call i32 @llvm.umax.i32(i32 %161, i32 3)
-  %170 = add nuw nsw i32 %169, 1
-  %171 = zext nneg i32 %170 to i64
-  %172 = tail call noalias ptr @malloc(i64 noundef %171) #12
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %.thread.i54, label %.preheader.i35
+169:                                              ; preds = %168
+  %170 = tail call i32 @llvm.umax.i32(i32 %162, i32 3)
+  %171 = add nuw nsw i32 %170, 1
+  %172 = zext nneg i32 %171 to i64
+  %173 = tail call noalias ptr @malloc(i64 noundef %172) #12
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %.thread.i54, label %.preheader.i35
 
-.preheader.i35:                                   ; preds = %168
-  %.not.i36 = icmp eq i32 %161, 0
+.preheader.i35:                                   ; preds = %169
+  %.not.i36 = icmp eq i32 %162, 0
   br i1 %.not.i36, label %._crit_edge.i45, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.preheader.i35
   %.not53.i38 = icmp eq i8 %3, 0
-  %wide.trip.count59.i39 = zext nneg i32 %161 to i64
+  %wide.trip.count59.i39 = zext nneg i32 %162 to i64
   br i1 %.not53.i38, label %.lr.ph.split.us.i49, label %.lr.ph.split.i40
 
 .lr.ph.split.us.i49:                              ; preds = %.lr.ph.i37, %.lr.ph.split.us.i49
   %indvars.iv56.i50 = phi i64 [ %indvars.iv.next57.i52, %.lr.ph.split.us.i49 ], [ 0, %.lr.ph.i37 ]
-  %174 = getelementptr inbounds i16, ptr %165, i64 %indvars.iv56.i50
-  %175 = load i16, ptr %174, align 2
-  %176 = icmp ult i16 %175, 128
-  %177 = trunc nuw i16 %175 to i8
-  %spec.select.i51 = select i1 %176, i8 %177, i8 63
-  %178 = getelementptr inbounds i8, ptr %172, i64 %indvars.iv56.i50
-  store i8 %spec.select.i51, ptr %178, align 1
+  %175 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv56.i50
+  %176 = load i16, ptr %175, align 2
+  %177 = icmp ult i16 %176, 128
+  %178 = trunc nuw i16 %176 to i8
+  %spec.select.i51 = select i1 %177, i8 %178, i8 63
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv56.i50
+  store i8 %spec.select.i51, ptr %179, align 1
   %indvars.iv.next57.i52 = add nuw nsw i64 %indvars.iv56.i50, 1
   %exitcond60.not.i53 = icmp eq i64 %indvars.iv.next57.i52, %wide.trip.count59.i39
   br i1 %exitcond60.not.i53, label %._crit_edge.i45, label %.lr.ph.split.us.i49, !llvm.loop !16
 
-.thread.i54:                                      ; preds = %168, %167
-  %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 1800
-  %181 = load ptr, ptr %180, align 8
-  tail call void %181(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %165) #10
-  %182 = load ptr, ptr %0, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 48
-  %184 = load ptr, ptr %183, align 8
-  %185 = tail call ptr %184(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
-  %.not.i.i.i55 = icmp eq ptr %185, null
-  br i1 %.not.i.i.i55, label %getStringUTF8.exit, label %186
+.thread.i54:                                      ; preds = %169, %168
+  %180 = load ptr, ptr %0, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 1800
+  %182 = load ptr, ptr %181, align 8
+  tail call void %182(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %166) #10
+  %183 = load ptr, ptr %0, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 48
+  %185 = load ptr, ptr %184, align 8
+  %186 = tail call ptr %185(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
+  %.not.i.i.i55 = icmp eq ptr %186, null
+  br i1 %.not.i.i.i55, label %getStringUTF8.exit, label %187
 
-186:                                              ; preds = %.thread.i54
-  %187 = load ptr, ptr %0, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 112
-  %189 = load ptr, ptr %188, align 8
-  %190 = tail call i32 %189(ptr noundef nonnull %0, ptr noundef nonnull %185, ptr noundef null) #10
+187:                                              ; preds = %.thread.i54
+  %188 = load ptr, ptr %0, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 112
+  %190 = load ptr, ptr %189, align 8
+  %191 = tail call i32 %190(ptr noundef nonnull %0, ptr noundef nonnull %186, ptr noundef null) #10
   br label %getStringUTF8.exit
 
-.lr.ph.split.i40:                                 ; preds = %.lr.ph.i37, %207
-  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i43, %207 ], [ 0, %.lr.ph.i37 ]
-  %191 = getelementptr inbounds i16, ptr %165, i64 %indvars.iv.i41
-  %192 = load i16, ptr %191, align 2
-  %193 = icmp eq i16 %192, 0
-  br i1 %193, label %194, label %207
+.lr.ph.split.i40:                                 ; preds = %.lr.ph.i37, %208
+  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i43, %208 ], [ 0, %.lr.ph.i37 ]
+  %192 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv.i41
+  %193 = load i16, ptr %192, align 2
+  %194 = icmp eq i16 %193, 0
+  br i1 %194, label %195, label %208
 
-194:                                              ; preds = %.lr.ph.split.i40
-  %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 1800
-  %197 = load ptr, ptr %196, align 8
-  tail call void %197(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %165) #10
-  tail call void @free(ptr noundef %172) #10
-  %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 48
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call ptr %200(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
-  %.not.i.i51.i48 = icmp eq ptr %201, null
-  br i1 %.not.i.i51.i48, label %getStringUTF8.exit, label %202
+195:                                              ; preds = %.lr.ph.split.i40
+  %196 = load ptr, ptr %0, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 1800
+  %198 = load ptr, ptr %197, align 8
+  tail call void %198(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %166) #10
+  tail call void @free(ptr noundef %173) #10
+  %199 = load ptr, ptr %0, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 48
+  %201 = load ptr, ptr %200, align 8
+  %202 = tail call ptr %201(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
+  %.not.i.i51.i48 = icmp eq ptr %202, null
+  br i1 %.not.i.i51.i48, label %getStringUTF8.exit, label %203
 
-202:                                              ; preds = %194
-  %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 112
-  %205 = load ptr, ptr %204, align 8
-  %206 = tail call i32 %205(ptr noundef nonnull %0, ptr noundef nonnull %201, ptr noundef nonnull @.str.42) #10
+203:                                              ; preds = %195
+  %204 = load ptr, ptr %0, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 112
+  %206 = load ptr, ptr %205, align 8
+  %207 = tail call i32 %206(ptr noundef nonnull %0, ptr noundef nonnull %202, ptr noundef nonnull @.str.42) #10
   br label %getStringUTF8.exit
 
-207:                                              ; preds = %.lr.ph.split.i40
-  %208 = icmp ult i16 %192, 128
-  %209 = trunc nuw i16 %192 to i8
-  %spec.select63.i42 = select i1 %208, i8 %209, i8 63
-  %210 = getelementptr inbounds i8, ptr %172, i64 %indvars.iv.i41
-  store i8 %spec.select63.i42, ptr %210, align 1
+208:                                              ; preds = %.lr.ph.split.i40
+  %209 = icmp ult i16 %193, 128
+  %210 = trunc nuw i16 %193 to i8
+  %spec.select63.i42 = select i1 %209, i8 %210, i8 63
+  %211 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv.i41
+  store i8 %spec.select63.i42, ptr %211, align 1
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count59.i39
   br i1 %exitcond.not.i44, label %._crit_edge.i45, label %.lr.ph.split.i40, !llvm.loop !16
 
-._crit_edge.i45:                                  ; preds = %207, %.lr.ph.split.us.i49, %.preheader.i35
-  %.pre-phi.i46 = phi i64 [ 0, %.preheader.i35 ], [ %wide.trip.count59.i39, %.lr.ph.split.us.i49 ], [ %wide.trip.count59.i39, %207 ]
-  %211 = getelementptr inbounds i8, ptr %172, i64 %.pre-phi.i46
-  store i8 0, ptr %211, align 1
-  %212 = load ptr, ptr %0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 1800
-  %214 = load ptr, ptr %213, align 8
-  tail call void %214(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %165) #10
+._crit_edge.i45:                                  ; preds = %208, %.lr.ph.split.us.i49, %.preheader.i35
+  %.pre-phi.i46 = phi i64 [ 0, %.preheader.i35 ], [ %wide.trip.count59.i39, %.lr.ph.split.us.i49 ], [ %wide.trip.count59.i39, %208 ]
+  %212 = getelementptr inbounds nuw i8, ptr %173, i64 %.pre-phi.i46
+  store i8 0, ptr %212, align 1
+  %213 = load ptr, ptr %0, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1800
+  %215 = load ptr, ptr %214, align 8
+  tail call void %215(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %166) #10
   br label %getStringUTF8.exit
 
-215:                                              ; preds = %6
-  %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 1312
-  %218 = load ptr, ptr %217, align 8
-  %219 = tail call i32 %218(ptr noundef nonnull %0, ptr noundef %1) #10
-  %220 = load ptr, ptr %0, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 1792
-  %222 = load ptr, ptr %221, align 8
-  %223 = tail call ptr %222(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
-  %224 = icmp eq ptr %223, null
-  br i1 %224, label %getStringUTF8.exit, label %225
+216:                                              ; preds = %6
+  %217 = load ptr, ptr %0, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 1312
+  %219 = load ptr, ptr %218, align 8
+  %220 = tail call i32 %219(ptr noundef nonnull %0, ptr noundef %1) #10
+  %221 = load ptr, ptr %0, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 1792
+  %223 = load ptr, ptr %222, align 8
+  %224 = tail call ptr %223(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #10
+  %225 = icmp eq ptr %224, null
+  br i1 %225, label %getStringUTF8.exit, label %226
 
-225:                                              ; preds = %215
-  %or.cond.i56 = icmp ugt i32 %219, 2147483646
-  br i1 %or.cond.i56, label %.thread.i66, label %226
+226:                                              ; preds = %216
+  %or.cond.i56 = icmp ugt i32 %220, 2147483646
+  br i1 %or.cond.i56, label %.thread.i66, label %227
 
-226:                                              ; preds = %225
-  %227 = tail call i32 @llvm.umax.i32(i32 %219, i32 3)
-  %228 = add nuw nsw i32 %227, 1
-  %229 = zext nneg i32 %228 to i64
-  %230 = tail call noalias ptr @malloc(i64 noundef %229) #12
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %.thread.i66, label %.preheader.i57
+227:                                              ; preds = %226
+  %228 = tail call i32 @llvm.umax.i32(i32 %220, i32 3)
+  %229 = add nuw nsw i32 %228, 1
+  %230 = zext nneg i32 %229 to i64
+  %231 = tail call noalias ptr @malloc(i64 noundef %230) #12
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %.thread.i66, label %.preheader.i57
 
-.preheader.i57:                                   ; preds = %226
-  %.not.i58 = icmp eq i32 %219, 0
+.preheader.i57:                                   ; preds = %227
+  %.not.i58 = icmp eq i32 %220, 0
   br i1 %.not.i58, label %._crit_edge.i63, label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %.preheader.i57
-  %232 = icmp ne i8 %3, 0
-  %wide.trip.count.i = zext nneg i32 %219 to i64
-  br label %245
+  %233 = icmp ne i8 %3, 0
+  %wide.trip.count.i = zext nneg i32 %220 to i64
+  br label %246
 
-.thread.i66:                                      ; preds = %226, %225
-  %233 = load ptr, ptr %0, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 1800
-  %235 = load ptr, ptr %234, align 8
-  tail call void %235(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %223) #10
-  %236 = load ptr, ptr %0, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 48
-  %238 = load ptr, ptr %237, align 8
-  %239 = tail call ptr %238(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
-  %.not.i.i.i67 = icmp eq ptr %239, null
-  br i1 %.not.i.i.i67, label %getStringUTF8.exit, label %240
+.thread.i66:                                      ; preds = %227, %226
+  %234 = load ptr, ptr %0, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1800
+  %236 = load ptr, ptr %235, align 8
+  tail call void %236(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %224) #10
+  %237 = load ptr, ptr %0, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 48
+  %239 = load ptr, ptr %238, align 8
+  %240 = tail call ptr %239(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
+  %.not.i.i.i67 = icmp eq ptr %240, null
+  br i1 %.not.i.i.i67, label %getStringUTF8.exit, label %241
 
-240:                                              ; preds = %.thread.i66
-  %241 = load ptr, ptr %0, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 112
-  %243 = load ptr, ptr %242, align 8
-  %244 = tail call i32 %243(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef null) #10
+241:                                              ; preds = %.thread.i66
+  %242 = load ptr, ptr %0, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 112
+  %244 = load ptr, ptr %243, align 8
+  %245 = tail call i32 %244(ptr noundef nonnull %0, ptr noundef nonnull %240, ptr noundef null) #10
   br label %getStringUTF8.exit
 
-245:                                              ; preds = %301, %.lr.ph.i59
-  %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i61, %301 ]
-  %246 = getelementptr inbounds i16, ptr %223, i64 %indvars.iv.i60
-  %247 = load i16, ptr %246, align 2
-  %248 = icmp eq i16 %247, 0
-  %or.cond4.i = select i1 %232, i1 %248, i1 false
-  br i1 %or.cond4.i, label %249, label %262
+246:                                              ; preds = %302, %.lr.ph.i59
+  %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i61, %302 ]
+  %247 = getelementptr inbounds nuw i16, ptr %224, i64 %indvars.iv.i60
+  %248 = load i16, ptr %247, align 2
+  %249 = icmp eq i16 %248, 0
+  %or.cond4.i = select i1 %233, i1 %249, i1 false
+  br i1 %or.cond4.i, label %250, label %263
 
-249:                                              ; preds = %245
-  %250 = load ptr, ptr %0, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 1800
-  %252 = load ptr, ptr %251, align 8
-  tail call void %252(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %223) #10
-  tail call void @free(ptr noundef %230) #10
-  %253 = load ptr, ptr %0, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 48
-  %255 = load ptr, ptr %254, align 8
-  %256 = tail call ptr %255(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
-  %.not.i.i115.i = icmp eq ptr %256, null
-  br i1 %.not.i.i115.i, label %getStringUTF8.exit, label %257
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %0, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 1800
+  %253 = load ptr, ptr %252, align 8
+  tail call void %253(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %224) #10
+  tail call void @free(ptr noundef %231) #10
+  %254 = load ptr, ptr %0, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
+  %256 = load ptr, ptr %255, align 8
+  %257 = tail call ptr %256(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
+  %.not.i.i115.i = icmp eq ptr %257, null
+  br i1 %.not.i.i115.i, label %getStringUTF8.exit, label %258
 
-257:                                              ; preds = %249
-  %258 = load ptr, ptr %0, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 112
-  %260 = load ptr, ptr %259, align 8
-  %261 = tail call i32 %260(ptr noundef nonnull %0, ptr noundef nonnull %256, ptr noundef nonnull @.str.42) #10
+258:                                              ; preds = %250
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 112
+  %261 = load ptr, ptr %260, align 8
+  %262 = tail call i32 %261(ptr noundef nonnull %0, ptr noundef nonnull %257, ptr noundef nonnull @.str.42) #10
   br label %getStringUTF8.exit
 
-262:                                              ; preds = %245
-  %263 = icmp ult i16 %247, 256
-  br i1 %263, label %264, label %271
+263:                                              ; preds = %246
+  %264 = icmp ult i16 %248, 256
+  br i1 %264, label %265, label %272
 
-264:                                              ; preds = %262
-  %265 = and i16 %247, 224
-  %or.cond7.i = icmp eq i16 %265, 128
-  br i1 %or.cond7.i, label %266, label %268
+265:                                              ; preds = %263
+  %266 = and i16 %248, 224
+  %or.cond7.i = icmp eq i16 %266, 128
+  br i1 %or.cond7.i, label %267, label %269
 
-266:                                              ; preds = %264
-  %267 = getelementptr inbounds i8, ptr %230, i64 %indvars.iv.i60
-  store i8 63, ptr %267, align 1
-  br label %301
+267:                                              ; preds = %265
+  %268 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i60
+  store i8 63, ptr %268, align 1
+  br label %302
 
-268:                                              ; preds = %264
-  %269 = trunc nuw i16 %247 to i8
-  %270 = getelementptr inbounds i8, ptr %230, i64 %indvars.iv.i60
-  store i8 %269, ptr %270, align 1
-  br label %301
+269:                                              ; preds = %265
+  %270 = trunc nuw i16 %248 to i8
+  %271 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i60
+  store i8 %270, ptr %271, align 1
+  br label %302
 
-271:                                              ; preds = %262
-  %272 = getelementptr inbounds i8, ptr %230, i64 %indvars.iv.i60
-  switch i16 %247, label %300 [
-    i16 8364, label %273
-    i16 8218, label %274
-    i16 402, label %275
-    i16 8222, label %276
-    i16 8230, label %277
-    i16 8224, label %278
-    i16 8225, label %279
-    i16 710, label %280
-    i16 8240, label %281
-    i16 352, label %282
-    i16 8249, label %283
-    i16 338, label %284
-    i16 381, label %285
-    i16 8216, label %286
-    i16 8217, label %287
-    i16 8220, label %288
-    i16 8221, label %289
-    i16 8226, label %290
-    i16 8211, label %291
-    i16 8212, label %292
-    i16 732, label %293
-    i16 8482, label %294
-    i16 353, label %295
-    i16 8250, label %296
-    i16 339, label %297
-    i16 382, label %298
-    i16 376, label %299
+272:                                              ; preds = %263
+  %273 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i60
+  switch i16 %248, label %301 [
+    i16 8364, label %274
+    i16 8218, label %275
+    i16 402, label %276
+    i16 8222, label %277
+    i16 8230, label %278
+    i16 8224, label %279
+    i16 8225, label %280
+    i16 710, label %281
+    i16 8240, label %282
+    i16 352, label %283
+    i16 8249, label %284
+    i16 338, label %285
+    i16 381, label %286
+    i16 8216, label %287
+    i16 8217, label %288
+    i16 8220, label %289
+    i16 8221, label %290
+    i16 8226, label %291
+    i16 8211, label %292
+    i16 8212, label %293
+    i16 732, label %294
+    i16 8482, label %295
+    i16 353, label %296
+    i16 8250, label %297
+    i16 339, label %298
+    i16 382, label %299
+    i16 376, label %300
   ]
 
-273:                                              ; preds = %271
-  store i8 -128, ptr %272, align 1
-  br label %301
+274:                                              ; preds = %272
+  store i8 -128, ptr %273, align 1
+  br label %302
 
-274:                                              ; preds = %271
-  store i8 -126, ptr %272, align 1
-  br label %301
+275:                                              ; preds = %272
+  store i8 -126, ptr %273, align 1
+  br label %302
 
-275:                                              ; preds = %271
-  store i8 -125, ptr %272, align 1
-  br label %301
+276:                                              ; preds = %272
+  store i8 -125, ptr %273, align 1
+  br label %302
 
-276:                                              ; preds = %271
-  store i8 -124, ptr %272, align 1
-  br label %301
+277:                                              ; preds = %272
+  store i8 -124, ptr %273, align 1
+  br label %302
 
-277:                                              ; preds = %271
-  store i8 -123, ptr %272, align 1
-  br label %301
+278:                                              ; preds = %272
+  store i8 -123, ptr %273, align 1
+  br label %302
 
-278:                                              ; preds = %271
-  store i8 -122, ptr %272, align 1
-  br label %301
+279:                                              ; preds = %272
+  store i8 -122, ptr %273, align 1
+  br label %302
 
-279:                                              ; preds = %271
-  store i8 -121, ptr %272, align 1
-  br label %301
+280:                                              ; preds = %272
+  store i8 -121, ptr %273, align 1
+  br label %302
 
-280:                                              ; preds = %271
-  store i8 -120, ptr %272, align 1
-  br label %301
+281:                                              ; preds = %272
+  store i8 -120, ptr %273, align 1
+  br label %302
 
-281:                                              ; preds = %271
-  store i8 -119, ptr %272, align 1
-  br label %301
+282:                                              ; preds = %272
+  store i8 -119, ptr %273, align 1
+  br label %302
 
-282:                                              ; preds = %271
-  store i8 -118, ptr %272, align 1
-  br label %301
+283:                                              ; preds = %272
+  store i8 -118, ptr %273, align 1
+  br label %302
 
-283:                                              ; preds = %271
-  store i8 -117, ptr %272, align 1
-  br label %301
+284:                                              ; preds = %272
+  store i8 -117, ptr %273, align 1
+  br label %302
 
-284:                                              ; preds = %271
-  store i8 -116, ptr %272, align 1
-  br label %301
+285:                                              ; preds = %272
+  store i8 -116, ptr %273, align 1
+  br label %302
 
-285:                                              ; preds = %271
-  store i8 -114, ptr %272, align 1
-  br label %301
+286:                                              ; preds = %272
+  store i8 -114, ptr %273, align 1
+  br label %302
 
-286:                                              ; preds = %271
-  store i8 -111, ptr %272, align 1
-  br label %301
+287:                                              ; preds = %272
+  store i8 -111, ptr %273, align 1
+  br label %302
 
-287:                                              ; preds = %271
-  store i8 -110, ptr %272, align 1
-  br label %301
+288:                                              ; preds = %272
+  store i8 -110, ptr %273, align 1
+  br label %302
 
-288:                                              ; preds = %271
-  store i8 -109, ptr %272, align 1
-  br label %301
+289:                                              ; preds = %272
+  store i8 -109, ptr %273, align 1
+  br label %302
 
-289:                                              ; preds = %271
-  store i8 -108, ptr %272, align 1
-  br label %301
+290:                                              ; preds = %272
+  store i8 -108, ptr %273, align 1
+  br label %302
 
-290:                                              ; preds = %271
-  store i8 -107, ptr %272, align 1
-  br label %301
+291:                                              ; preds = %272
+  store i8 -107, ptr %273, align 1
+  br label %302
 
-291:                                              ; preds = %271
-  store i8 -106, ptr %272, align 1
-  br label %301
+292:                                              ; preds = %272
+  store i8 -106, ptr %273, align 1
+  br label %302
 
-292:                                              ; preds = %271
-  store i8 -105, ptr %272, align 1
-  br label %301
+293:                                              ; preds = %272
+  store i8 -105, ptr %273, align 1
+  br label %302
 
-293:                                              ; preds = %271
-  store i8 -104, ptr %272, align 1
-  br label %301
+294:                                              ; preds = %272
+  store i8 -104, ptr %273, align 1
+  br label %302
 
-294:                                              ; preds = %271
-  store i8 -103, ptr %272, align 1
-  br label %301
+295:                                              ; preds = %272
+  store i8 -103, ptr %273, align 1
+  br label %302
 
-295:                                              ; preds = %271
-  store i8 -102, ptr %272, align 1
-  br label %301
+296:                                              ; preds = %272
+  store i8 -102, ptr %273, align 1
+  br label %302
 
-296:                                              ; preds = %271
-  store i8 -101, ptr %272, align 1
-  br label %301
+297:                                              ; preds = %272
+  store i8 -101, ptr %273, align 1
+  br label %302
 
-297:                                              ; preds = %271
-  store i8 -100, ptr %272, align 1
-  br label %301
+298:                                              ; preds = %272
+  store i8 -100, ptr %273, align 1
+  br label %302
 
-298:                                              ; preds = %271
-  store i8 -98, ptr %272, align 1
-  br label %301
+299:                                              ; preds = %272
+  store i8 -98, ptr %273, align 1
+  br label %302
 
-299:                                              ; preds = %271
-  store i8 -97, ptr %272, align 1
-  br label %301
+300:                                              ; preds = %272
+  store i8 -97, ptr %273, align 1
+  br label %302
 
-300:                                              ; preds = %271
-  store i8 63, ptr %272, align 1
-  br label %301
+301:                                              ; preds = %272
+  store i8 63, ptr %273, align 1
+  br label %302
 
-301:                                              ; preds = %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %268, %266
+302:                                              ; preds = %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %269, %267
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i
-  br i1 %exitcond.not.i62, label %._crit_edge.i63, label %245, !llvm.loop !17
+  br i1 %exitcond.not.i62, label %._crit_edge.i63, label %246, !llvm.loop !17
 
-._crit_edge.i63:                                  ; preds = %301, %.preheader.i57
-  %.pre-phi.i64 = phi i64 [ 0, %.preheader.i57 ], [ %wide.trip.count.i, %301 ]
-  %302 = getelementptr inbounds i8, ptr %230, i64 %.pre-phi.i64
-  store i8 0, ptr %302, align 1
-  %303 = load ptr, ptr %0, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 1800
-  %305 = load ptr, ptr %304, align 8
-  tail call void %305(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %223) #10
+._crit_edge.i63:                                  ; preds = %302, %.preheader.i57
+  %.pre-phi.i64 = phi i64 [ 0, %.preheader.i57 ], [ %wide.trip.count.i, %302 ]
+  %303 = getelementptr inbounds nuw i8, ptr %231, i64 %.pre-phi.i64
+  store i8 0, ptr %303, align 1
+  %304 = load ptr, ptr %0, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 1800
+  %306 = load ptr, ptr %305, align 8
+  tail call void %306(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %224) #10
   br label %getStringUTF8.exit
 
-306:                                              ; preds = %6
-  %307 = load ptr, ptr %0, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 48
-  %309 = load ptr, ptr %308, align 8
-  %310 = tail call ptr %309(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
-  %.not.i.i = icmp eq ptr %310, null
-  br i1 %.not.i.i, label %getStringUTF8.exit, label %311
+307:                                              ; preds = %6
+  %308 = load ptr, ptr %0, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 48
+  %310 = load ptr, ptr %309, align 8
+  %311 = tail call ptr %310(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
+  %.not.i.i = icmp eq ptr %311, null
+  br i1 %.not.i.i, label %getStringUTF8.exit, label %312
 
-311:                                              ; preds = %306
-  %312 = load ptr, ptr %0, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 112
-  %314 = load ptr, ptr %313, align 8
-  %315 = tail call i32 %314(ptr noundef nonnull %0, ptr noundef nonnull %310, ptr noundef nonnull @.str.34) #10
+312:                                              ; preds = %307
+  %313 = load ptr, ptr %0, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 112
+  %315 = load ptr, ptr %314, align 8
+  %316 = tail call i32 %315(ptr noundef nonnull %0, ptr noundef nonnull %311, ptr noundef nonnull @.str.34) #10
   br label %getStringUTF8.exit
 
-316:                                              ; preds = %6
-  %317 = tail call fastcc ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %3)
+317:                                              ; preds = %6
+  %318 = tail call fastcc ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %3)
   br label %getStringUTF8.exit
 
-getStringUTF8.exit:                               ; preds = %311, %306, %._crit_edge.i63, %257, %249, %240, %.thread.i66, %215, %._crit_edge.i45, %202, %194, %186, %.thread.i54, %157, %._crit_edge.i28, %144, %136, %128, %.thread.i32, %99, %._crit_edge87.i, %74, %.thread.i, %54, %46, %29, %22, %16, %14, %316
-  %.0 = phi ptr [ %317, %316 ], [ %15, %14 ], [ %65, %._crit_edge87.i ], [ null, %16 ], [ null, %22 ], [ null, %29 ], [ null, %46 ], [ null, %54 ], [ null, %.thread.i ], [ null, %74 ], [ %114, %._crit_edge.i28 ], [ null, %99 ], [ null, %.thread.i32 ], [ null, %128 ], [ null, %136 ], [ null, %144 ], [ %172, %._crit_edge.i45 ], [ null, %157 ], [ null, %.thread.i54 ], [ null, %186 ], [ null, %194 ], [ null, %202 ], [ %230, %._crit_edge.i63 ], [ null, %215 ], [ null, %.thread.i66 ], [ null, %240 ], [ null, %249 ], [ null, %257 ], [ null, %306 ], [ null, %311 ]
+getStringUTF8.exit:                               ; preds = %312, %307, %._crit_edge.i63, %258, %250, %241, %.thread.i66, %216, %._crit_edge.i45, %203, %195, %187, %.thread.i54, %158, %._crit_edge.i28, %145, %137, %129, %.thread.i32, %100, %._crit_edge87.i, %74, %.thread.i, %54, %46, %29, %22, %16, %14, %317
+  %.0 = phi ptr [ %318, %317 ], [ %15, %14 ], [ %65, %._crit_edge87.i ], [ null, %16 ], [ null, %22 ], [ null, %29 ], [ null, %46 ], [ null, %54 ], [ null, %.thread.i ], [ null, %74 ], [ %115, %._crit_edge.i28 ], [ null, %100 ], [ null, %.thread.i32 ], [ null, %129 ], [ null, %137 ], [ null, %145 ], [ %173, %._crit_edge.i45 ], [ null, %158 ], [ null, %.thread.i54 ], [ null, %187 ], [ null, %195 ], [ null, %203 ], [ %231, %._crit_edge.i63 ], [ null, %216 ], [ null, %.thread.i66 ], [ null, %241 ], [ null, %250 ], [ null, %258 ], [ null, %307 ], [ null, %312 ]
   ret ptr %.0
 }
 
@@ -2345,7 +2344,7 @@ define void @JNU_ReleaseStringPlatformChars(ptr nocapture noundef readnone %0, p
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @JNU_CopyObjectArray(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, i32 noundef 1) #10
   %9 = icmp slt i32 %8, 0
@@ -2358,15 +2357,15 @@ define range(i32 -1, 1) i32 @JNU_CopyObjectArray(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01718 = phi i32 [ %21, %.lr.ph ], [ 0, %.preheader ]
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1384
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %.01718) #10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1392
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1392
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01718, ptr noundef %14) #10
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef %14) #10
   %21 = add nuw nsw i32 %.01718, 1
@@ -2382,7 +2381,7 @@ define range(i32 -1, 1) i32 @JNU_CopyObjectArray(ptr noundef %0, ptr noundef %1,
 define ptr @JNU_GetEnv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %1) #10
   %8 = load ptr, ptr %3, align 8
@@ -2392,7 +2391,7 @@ define ptr @JNU_GetEnv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 256) i32 @JNU_IsInstanceOfByName(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef 1) #10
   %8 = icmp slt i32 %7, 0
@@ -2400,7 +2399,7 @@ define range(i32 -1, 256) i32 @JNU_IsInstanceOfByName(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %2) #10
   %.not = icmp eq ptr %13, null
@@ -2408,12 +2407,12 @@ define range(i32 -1, 256) i32 @JNU_IsInstanceOfByName(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 256
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13) #10
   %19 = zext i8 %18 to i32
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %23
@@ -2430,7 +2429,7 @@ define ptr @JNU_ToString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1336
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #10
   br label %12
@@ -2448,7 +2447,7 @@ define ptr @JNU_ToString(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 3) #10
   %10 = icmp slt i32 %9, 0
@@ -2456,11 +2455,11 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %2) #10
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 752
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 752
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %3, ptr noundef %4) #10
   %20 = icmp eq ptr %19, null
@@ -2483,7 +2482,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 23:                                               ; preds = %21, %21
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 760
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 760
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %28 = ptrtoint ptr %27 to i64
@@ -2497,21 +2496,21 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 768
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 768
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i8 %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   br label %75
 
 34:                                               ; preds = %21
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 776
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 776
   %37 = load ptr, ptr %36, align 8
   %38 = tail call signext i8 %37(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   br label %75
 
 39:                                               ; preds = %21
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 784
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 784
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i16 %42(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %43 to i8
@@ -2520,7 +2519,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 44:                                               ; preds = %21
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 792
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 792
   %47 = load ptr, ptr %46, align 8
   %48 = tail call signext i16 %47(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc75 = trunc i16 %48 to i8
@@ -2529,7 +2528,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 49:                                               ; preds = %21
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 800
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 800
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77 = trunc i32 %53 to i8
@@ -2540,7 +2539,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 54:                                               ; preds = %21
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 808
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 808
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i64 %57(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80 = trunc i64 %58 to i8
@@ -2553,7 +2552,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 59:                                               ; preds = %21
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 816
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 816
   %62 = load ptr, ptr %61, align 8
   %63 = tail call float %62(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %64 = bitcast float %63 to i32
@@ -2565,7 +2564,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 65:                                               ; preds = %21
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 824
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 824
   %68 = load ptr, ptr %67, align 8
   %69 = tail call double %68(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %19) #10
   %70 = bitcast double %69 to i64
@@ -2579,7 +2578,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 71:                                               ; preds = %21
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 144
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %0, ptr noundef nonnull @.str.39) #10
   br label %75
@@ -2590,7 +2589,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
   %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc75, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %39 ], [ %38, %34 ], [ %33, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %23 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc90, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc84, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc92, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc86, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift81, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc88, %23 ]
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0, ptr noundef %15) #10
   %79 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
@@ -2608,7 +2607,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1824
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1824
   %86 = load ptr, ptr %85, align 8
   %87 = tail call zeroext i8 %86(ptr noundef nonnull %0) #10
   store i8 %87, ptr %1, align 1
@@ -2627,7 +2626,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
 define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull %0, i32 noundef 3) #10
   %11 = icmp slt i32 %10, 0
@@ -2635,11 +2634,11 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %2) #10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 752
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 752
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %3, ptr noundef %4) #10
   %21 = icmp eq ptr %20, null
@@ -2663,14 +2662,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 24:                                               ; preds = %22, %22
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 832
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 832
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %6, align 16
   %29 = icmp ult i32 %28, 41
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load ptr, ptr %31, align 16
   %33 = zext nneg i32 %28 to i64
   %34 = getelementptr i8, ptr %32, i64 %33
@@ -2679,7 +2678,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %40
 
 36:                                               ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 8
   store ptr %39, ptr %37, align 8
@@ -2693,14 +2692,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 43:                                               ; preds = %22
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 840
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 840
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %6, align 16
   %48 = icmp ult i32 %47, 41
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %51 = load ptr, ptr %50, align 16
   %52 = zext nneg i32 %47 to i64
   %53 = getelementptr i8, ptr %51, i64 %52
@@ -2709,7 +2708,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %59
 
 55:                                               ; preds = %43
-  %56 = getelementptr inbounds i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 8
   store ptr %58, ptr %56, align 8
@@ -2724,14 +2723,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 63:                                               ; preds = %22
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 848
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 848
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %6, align 16
   %68 = icmp ult i32 %67, 41
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %6, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %71 = load ptr, ptr %70, align 16
   %72 = zext nneg i32 %67 to i64
   %73 = getelementptr i8, ptr %71, i64 %72
@@ -2740,7 +2739,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %79
 
 75:                                               ; preds = %63
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 8
   store ptr %78, ptr %76, align 8
@@ -2755,14 +2754,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 83:                                               ; preds = %22
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 856
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 856
   %86 = load ptr, ptr %85, align 8
   %87 = load i32, ptr %6, align 16
   %88 = icmp ult i32 %87, 41
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %91 = load ptr, ptr %90, align 16
   %92 = zext nneg i32 %87 to i64
   %93 = getelementptr i8, ptr %91, i64 %92
@@ -2771,7 +2770,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %99
 
 95:                                               ; preds = %83
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 8
   store ptr %98, ptr %96, align 8
@@ -2786,14 +2785,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 103:                                              ; preds = %22
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 864
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 864
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %6, align 16
   %108 = icmp ult i32 %107, 41
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %6, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %111 = load ptr, ptr %110, align 16
   %112 = zext nneg i32 %107 to i64
   %113 = getelementptr i8, ptr %111, i64 %112
@@ -2802,7 +2801,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %119
 
 115:                                              ; preds = %103
-  %116 = getelementptr inbounds i8, ptr %6, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 8
   store ptr %118, ptr %116, align 8
@@ -2817,14 +2816,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 123:                                              ; preds = %22
   %124 = load ptr, ptr %0, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 872
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 872
   %126 = load ptr, ptr %125, align 8
   %127 = load i32, ptr %6, align 16
   %128 = icmp ult i32 %127, 41
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %6, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %131 = load ptr, ptr %130, align 16
   %132 = zext nneg i32 %127 to i64
   %133 = getelementptr i8, ptr %131, i64 %132
@@ -2833,7 +2832,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %139
 
 135:                                              ; preds = %123
-  %136 = getelementptr inbounds i8, ptr %6, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr i8, ptr %137, i64 8
   store ptr %138, ptr %136, align 8
@@ -2847,14 +2846,14 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 142:                                              ; preds = %22
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 880
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 880
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %6, align 16
   %147 = icmp ult i32 %146, 41
   br i1 %147, label %148, label %154
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %6, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %150 = load ptr, ptr %149, align 16
   %151 = zext nneg i32 %146 to i64
   %152 = getelementptr i8, ptr %150, i64 %151
@@ -2863,7 +2862,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %158
 
 154:                                              ; preds = %142
-  %155 = getelementptr inbounds i8, ptr %6, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr i8, ptr %156, i64 8
   store ptr %157, ptr %155, align 8
@@ -2877,15 +2876,15 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 161:                                              ; preds = %22
   %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 888
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 888
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %6, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = icmp ult i32 %166, 161
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds i8, ptr %6, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %170 = load ptr, ptr %169, align 16
   %171 = zext nneg i32 %166 to i64
   %172 = getelementptr i8, ptr %170, i64 %171
@@ -2894,7 +2893,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %178
 
 174:                                              ; preds = %161
-  %175 = getelementptr inbounds i8, ptr %6, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr i8, ptr %176, i64 8
   store ptr %177, ptr %175, align 8
@@ -2909,15 +2908,15 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 182:                                              ; preds = %22
   %183 = load ptr, ptr %0, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 896
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 896
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %6, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %187 = load i32, ptr %186, align 4
   %188 = icmp ult i32 %187, 161
   br i1 %188, label %189, label %195
 
 189:                                              ; preds = %182
-  %190 = getelementptr inbounds i8, ptr %6, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %191 = load ptr, ptr %190, align 16
   %192 = zext nneg i32 %187 to i64
   %193 = getelementptr i8, ptr %191, i64 %192
@@ -2926,7 +2925,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
   br label %199
 
 195:                                              ; preds = %182
-  %196 = getelementptr inbounds i8, ptr %6, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr i8, ptr %197, i64 8
   store ptr %198, ptr %196, align 8
@@ -2940,7 +2939,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 202:                                              ; preds = %22
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 144
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 144
   %205 = load ptr, ptr %204, align 8
   call void %205(ptr noundef nonnull %0, ptr noundef nonnull @.str.40) #10
   br label %206
@@ -2951,7 +2950,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 207:                                              ; preds = %12, %206
   %208 = load ptr, ptr %0, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 184
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 184
   %210 = load ptr, ptr %209, align 8
   call void %210(ptr noundef nonnull %0, ptr noundef %16) #10
   br label %211
@@ -2962,7 +2961,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 
 212:                                              ; preds = %211
   %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 1824
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1824
   %215 = load ptr, ptr %214, align 8
   %216 = call zeroext i8 %215(ptr noundef nonnull %0) #10
   store i8 %216, ptr %1, align 1
@@ -2975,7 +2974,7 @@ define void @JNU_SetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr no
 ; Function Attrs: nounwind uwtable
 define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 3) #10
   %10 = icmp slt i32 %9, 0
@@ -2983,7 +2982,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %2) #10
   %16 = icmp eq ptr %15, null
@@ -2991,7 +2990,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1152
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1152
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %4) #10
   %22 = icmp eq ptr %21, null
@@ -3014,7 +3013,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 25:                                               ; preds = %23, %23
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1160
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1160
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %30 = ptrtoint ptr %29 to i64
@@ -3028,21 +3027,21 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1168
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1168
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i8 %34(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   br label %77
 
 36:                                               ; preds = %23
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1176
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1176
   %39 = load ptr, ptr %38, align 8
   %40 = tail call signext i8 %39(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   br label %77
 
 41:                                               ; preds = %23
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1184
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1184
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i16 %44(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc = trunc i16 %45 to i8
@@ -3051,7 +3050,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 46:                                               ; preds = %23
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1192
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1192
   %49 = load ptr, ptr %48, align 8
   %50 = tail call signext i16 %49(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76 = trunc i16 %50 to i8
@@ -3060,7 +3059,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 51:                                               ; preds = %23
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1200
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1200
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78 = trunc i32 %55 to i8
@@ -3071,7 +3070,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 56:                                               ; preds = %23
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1208
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1208
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 %59(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc81 = trunc i64 %60 to i8
@@ -3084,7 +3083,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 61:                                               ; preds = %23
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1216
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1216
   %64 = load ptr, ptr %63, align 8
   %65 = tail call float %64(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %66 = bitcast float %65 to i32
@@ -3096,7 +3095,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 67:                                               ; preds = %23
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1224
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1224
   %70 = load ptr, ptr %69, align 8
   %71 = tail call double %70(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %21) #10
   %72 = bitcast double %71 to i64
@@ -3110,7 +3109,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 73:                                               ; preds = %23
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 144
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 144
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #10
   br label %77
@@ -3121,7 +3120,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
   %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc81, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %41 ], [ %40, %36 ], [ %35, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %25 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc91, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc85, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc93, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc87, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift82, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc89, %25 ]
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 184
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 184
   %80 = load ptr, ptr %79, align 8
   tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %15) #10
   %81 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
@@ -3139,7 +3138,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1824
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i8 %88(ptr noundef nonnull %0) #10
   store i8 %89, ptr %1, align 1
@@ -3157,7 +3156,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef 2) #10
   %8 = icmp slt i32 %7, 0
@@ -3165,7 +3164,7 @@ define internal fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, i32 noundef %2) #10
   %.not = icmp eq ptr %13, null
@@ -3178,7 +3177,7 @@ define internal fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 208
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %0, i32 noundef 1) #10
   %22 = icmp slt i32 %21, 0
@@ -3186,7 +3185,7 @@ define internal fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #10
   %28 = icmp eq ptr %27, null
@@ -3194,12 +3193,12 @@ define internal fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i
 
 JNU_ClassString.exit:                             ; preds = %23
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 168
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull %27) #10
   store ptr %32, ptr @JNU_ClassString.cls, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0, ptr noundef nonnull %27) #10
   %.pre.i = load ptr, ptr @JNU_ClassString.cls, align 8
@@ -3209,17 +3208,17 @@ JNU_ClassString.exit:                             ; preds = %23
 JNU_ClassString.exit.thread24:                    ; preds = %14, %JNU_ClassString.exit
   %.0.i26 = phi ptr [ %.pre.i, %JNU_ClassString.exit ], [ %15, %14 ]
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1664
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1664
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef %2, ptr noundef %1) #10
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 224
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @String_init_ID, align 8
   %44 = load ptr, ptr @jnuCharset, align 8
   %45 = tail call ptr (ptr, ptr, ptr, ...) %42(ptr noundef nonnull %0, ptr noundef nonnull %.0.i26, ptr noundef %43, ptr noundef nonnull %13, ptr noundef %44) #10
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %JNU_ClassString.exit.thread
@@ -3235,7 +3234,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef 2) #10
   %8 = icmp slt i32 %7, 0
@@ -3243,7 +3242,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @String_getBytes_ID, align 8
   %14 = load ptr, ptr @jnuCharset, align 8
@@ -3253,7 +3252,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #10
   %.not45 = icmp eq i8 %20, 0
@@ -3261,7 +3260,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1368
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1368
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %15) #10
   %or.cond = icmp ugt i32 %25, 2147483646
@@ -3277,7 +3276,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 .thread:                                          ; preds = %21, %26
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #10
   %.not.i.i = icmp eq ptr %35, null
@@ -3285,18 +3284,18 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 36:                                               ; preds = %.thread
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef null) #10
   br label %.sink.split
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1600
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1600
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %30) #10
   %45 = zext nneg i32 %25 to i64
-  %46 = getelementptr inbounds i8, ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 %45
   store i8 0, ptr %46, align 1
   %.not46 = icmp ne i8 %2, 0
   %47 = icmp ne i32 %25, 0
@@ -3310,14 +3309,14 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %41, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %41 ]
-  %49 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %48
 
 52:                                               ; preds = %.lr.ph
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
   %.not.i.i47 = icmp eq ptr %56, null
@@ -3325,7 +3324,7 @@ define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 %60(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull @.str.42) #10
   br label %JNU_ThrowIllegalArgumentException.exit
@@ -3337,7 +3336,7 @@ JNU_ThrowIllegalArgumentException.exit:           ; preds = %52, %57
 .sink.split:                                      ; preds = %48, %16, %JNU_ThrowIllegalArgumentException.exit, %41, %36, %.thread
   %.040.ph = phi ptr [ null, %.thread ], [ null, %36 ], [ null, %16 ], [ null, %JNU_ThrowIllegalArgumentException.exit ], [ %30, %41 ], [ %30, %48 ]
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 184
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 184
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull %0, ptr noundef nonnull %15) #10
   br label %65

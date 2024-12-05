@@ -305,12 +305,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   store i32 %3, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %3
   br i1 %8, label %23, label %9
@@ -363,11 +363,11 @@ define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %
   br label %35
 
 35:                                               ; preds = %26, %23, %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %36, align 8
   %37 = load i32, ptr %2, align 4
   store i32 %37, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %37, ptr %38, align 8
   %39 = add i32 %37, -3
   %.not.i = icmp sgt i32 %39, %7
@@ -398,7 +398,7 @@ define hidden range(i32 -2147483648, 2) i32 @lithuanian_UTF_8_stem(ptr noundef %
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %54, ptr %55, align 4
   switch i32 %52, label %r_fix_conflicts.exit [
     i32 1, label %56
@@ -473,7 +473,7 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %6, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %88, ptr %89, align 4
   store i32 %.pre137, ptr %36, align 8
   %.val24.i = load ptr, ptr %4, align 8
@@ -516,7 +516,7 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
 
 104:                                              ; preds = %102
   %105 = load i32, ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %105, ptr %106, align 4
   switch i32 %103, label %113 [
     i32 1, label %107
@@ -536,7 +536,7 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
 113:                                              ; preds = %104, %107, %110, %97, %93, %102
   %114 = load i32, ptr %2, align 4
   store i32 %114, ptr %6, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %116
 
 116:                                              ; preds = %124, %113

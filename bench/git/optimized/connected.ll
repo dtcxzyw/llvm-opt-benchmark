@@ -48,14 +48,14 @@ entry.cont:                                       ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end25
 
 entry.cont.thread:                                ; preds = %entry
-  %opt.sroa.gep = getelementptr inbounds i8, ptr %opt, i64 16
+  %opt.sroa.gep = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %.else.val89 = load ptr, ptr %opt.sroa.gep, align 8
   %call94 = tail call ptr %fn(ptr noundef %cb_data) #10
   %tobool2.not95 = icmp eq ptr %call94, null
   br i1 %tobool2.not95, label %if.then3.cont, label %if.end9
 
 if.then3.cont:                                    ; preds = %entry.cont.thread
-  %opt.sroa.gep6197 = getelementptr inbounds i8, ptr %opt, i64 24
+  %opt.sroa.gep6197 = getelementptr inbounds nuw i8, ptr %opt, i64 24
   %.else.val87 = load i32, ptr %opt.sroa.gep6197, align 8
   %tobool4.not = icmp eq i32 %.else.val87, 0
   br i1 %tobool4.not, label %return, label %if.then5
@@ -69,7 +69,7 @@ if.end9:                                          ; preds = %entry.cont.thread
   br i1 %tobool10.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
-  %smart_options = getelementptr inbounds i8, ptr %.else.val89, i64 128
+  %smart_options = getelementptr inbounds nuw i8, ptr %.else.val89, i64 128
   %0 = load ptr, ptr %smart_options, align 8
   %tobool11.not = icmp eq ptr %0, null
   br i1 %tobool11.not, label %if.end25, label %land.lhs.true12
@@ -81,13 +81,13 @@ land.lhs.true12:                                  ; preds = %land.lhs.true
   br i1 %tobool14.not, label %if.end25, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %nr = getelementptr inbounds i8, ptr %.else.val89, i64 88
+  %nr = getelementptr inbounds nuw i8, ptr %.else.val89, i64 88
   %2 = load i64, ptr %nr, align 8
   %cmp = icmp eq i64 %2, 1
   br i1 %cmp, label %land.lhs.true16, label %if.end25
 
 land.lhs.true16:                                  ; preds = %land.lhs.true15
-  %pack_lockfiles = getelementptr inbounds i8, ptr %.else.val89, i64 80
+  %pack_lockfiles = getelementptr inbounds nuw i8, ptr %.else.val89, i64 80
   %3 = load ptr, ptr %pack_lockfiles, align 8
   %4 = load ptr, ptr %3, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #11
@@ -106,9 +106,9 @@ if.then19:                                        ; preds = %lor.lhs.false.i.i
   %5 = load ptr, ptr %3, align 8
   call void @strbuf_add(ptr noundef nonnull %idx_file, ptr noundef %5, i64 noundef %sub.i.i) #10
   call void @strbuf_add(ptr noundef nonnull %idx_file, ptr noundef nonnull @.str.1, i64 noundef 4) #10
-  %buf = getelementptr inbounds i8, ptr %idx_file, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %idx_file, i64 16
   %6 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %idx_file, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %idx_file, i64 8
   %7 = load i64, ptr %len, align 8
   %call24 = call ptr @add_packed_git(ptr noundef %6, i64 noundef %7, i32 noundef 1) #10
   call void @strbuf_release(ptr noundef nonnull %idx_file) #10
@@ -136,7 +136,7 @@ do.body:                                          ; preds = %do.cond, %if.then28
 
 for.body:                                         ; preds = %do.body, %for.inc
   %p.0151 = phi ptr [ %12, %for.inc ], [ %call29, %do.body ]
-  %pack_promisor = getelementptr inbounds i8, ptr %p.0151, i64 152
+  %pack_promisor = getelementptr inbounds nuw i8, ptr %p.0151, i64 152
   %bf.load31 = load i8, ptr %pack_promisor, align 8
   %11 = and i8 %bf.load31, 32
   %tobool35.not = icmp eq i8 %11, 0
@@ -148,7 +148,7 @@ if.end37:                                         ; preds = %for.body
   br i1 %tobool39.not, label %for.inc, label %do.cond
 
 for.inc:                                          ; preds = %if.end37, %for.body
-  %next = getelementptr inbounds i8, ptr %p.0151, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %p.0151, i64 16
   %12 = load ptr, ptr %next, align 8
   %tobool30.not = icmp eq ptr %12, null
   br i1 %tobool30.not, label %no_promisor_pack_found, label %for.body, !llvm.loop !5
@@ -164,7 +164,7 @@ do.end:                                           ; preds = %do.cond
 
 no_promisor_pack_found:                           ; preds = %do.body, %for.inc, %if.end25
   %oid.1 = phi ptr [ %call96102, %if.end25 ], [ %oid.0, %for.inc ], [ %oid.0, %do.body ]
-  %opt.sroa.gep64 = getelementptr inbounds i8, ptr %opt, i64 8
+  %opt.sroa.gep64 = getelementptr inbounds nuw i8, ptr %opt, i64 8
   br i1 %tobool.not, label %if.end51, label %no_promisor_pack_found.cont
 
 no_promisor_pack_found.cont:                      ; preds = %no_promisor_pack_found
@@ -199,7 +199,7 @@ if.then68.cont.thread:                            ; preds = %if.end63
   br label %if.end76
 
 if.end63.cont:                                    ; preds = %if.end63
-  %opt.sroa.gep67 = getelementptr inbounds i8, ptr %opt, i64 40
+  %opt.sroa.gep67 = getelementptr inbounds nuw i8, ptr %opt, i64 40
   %bf.load64.else.val = load i8, ptr %opt.sroa.gep67, align 8
   %bf.clear65 = and i8 %bf.load64.else.val, 1
   %tobool67.not = icmp eq i8 %bf.clear65, 0
@@ -207,7 +207,7 @@ if.end63.cont:                                    ; preds = %if.end63
 
 if.then68.cont:                                   ; preds = %if.end63.cont
   %call70 = call ptr @strvec_push(ptr noundef nonnull %rev_list, ptr noundef nonnull @.str.7) #10
-  %opt.sroa.gep70 = getelementptr inbounds i8, ptr %opt, i64 48
+  %opt.sroa.gep70 = getelementptr inbounds nuw i8, ptr %opt, i64 48
   %.else.val = load ptr, ptr %opt.sroa.gep70, align 8
   %tobool71.not = icmp eq ptr %.else.val, null
   br i1 %tobool71.not, label %if.end76, label %if.then72
@@ -226,7 +226,7 @@ if.end79:                                         ; preds = %if.end76, %if.end63
   br i1 %tobool.not, label %if.else.thread, label %if.end79.cont
 
 if.end79.cont:                                    ; preds = %if.end79
-  %opt.sroa.gep73 = getelementptr inbounds i8, ptr %opt, i64 28
+  %opt.sroa.gep73 = getelementptr inbounds nuw i8, ptr %opt, i64 28
   %.else.val84 = load i32, ptr %opt.sroa.gep73, align 4
   %tobool84.not = icmp eq i32 %.else.val84, 0
   br i1 %tobool84.not, label %if.end89.cont, label %if.then85
@@ -246,42 +246,42 @@ _.exit:                                           ; preds = %if.then85, %if.end3
   br label %if.end89.cont
 
 if.end89.cont:                                    ; preds = %if.end79.cont, %_.exit
-  %git_cmd113 = getelementptr inbounds i8, ptr %rev_list, i64 104
+  %git_cmd113 = getelementptr inbounds nuw i8, ptr %rev_list, i64 104
   %bf.load90114 = load i16, ptr %git_cmd113, align 8
   %bf.set115 = or i16 %bf.load90114, 8
   store i16 %bf.set115, ptr %git_cmd113, align 8
-  %opt.sroa.gep76116 = getelementptr inbounds i8, ptr %opt, i64 32
+  %opt.sroa.gep76116 = getelementptr inbounds nuw i8, ptr %opt, i64 32
   %.else.val83 = load ptr, ptr %opt.sroa.gep76116, align 8
   %tobool92.not = icmp eq ptr %.else.val83, null
   br i1 %tobool92.not, label %if.end96.cont, label %if.then93
 
 if.then93:                                        ; preds = %if.end89.cont
-  %env94 = getelementptr inbounds i8, ptr %rev_list, i64 24
+  %env94 = getelementptr inbounds nuw i8, ptr %rev_list, i64 24
   call void @strvec_pushv(ptr noundef nonnull %env94, ptr noundef nonnull %.else.val83) #10
   %bf.load97125.pre = load i16, ptr %git_cmd113, align 8
   br label %if.end96.cont
 
 if.else.thread:                                   ; preds = %if.end79
-  %git_cmd = getelementptr inbounds i8, ptr %rev_list, i64 104
+  %git_cmd = getelementptr inbounds nuw i8, ptr %rev_list, i64 104
   %bf.load90 = load i16, ptr %git_cmd, align 8
-  %in = getelementptr inbounds i8, ptr %rev_list, i64 80
+  %in = getelementptr inbounds nuw i8, ptr %rev_list, i64 80
   store i32 -1, ptr %in, align 8
   %bf.set99 = or i16 %bf.load90, 10
   br label %if.else.cont
 
 if.end96.cont:                                    ; preds = %if.end89.cont, %if.then93
   %bf.load97125 = phi i16 [ %bf.set115, %if.end89.cont ], [ %bf.load97125.pre, %if.then93 ]
-  %in124 = getelementptr inbounds i8, ptr %rev_list, i64 80
+  %in124 = getelementptr inbounds nuw i8, ptr %rev_list, i64 80
   store i32 -1, ptr %in124, align 8
   %bf.set99126 = or i16 %bf.load97125, 2
   store i16 %bf.set99126, ptr %git_cmd113, align 8
-  %opt.sroa.gep79127 = getelementptr inbounds i8, ptr %opt, i64 24
+  %opt.sroa.gep79127 = getelementptr inbounds nuw i8, ptr %opt, i64 24
   %.else.val85 = load i32, ptr %opt.sroa.gep79127, align 8
   %tobool101.not = icmp eq i32 %.else.val85, 0
   br i1 %tobool101.not, label %if.else.else, label %if.then102
 
 if.then102:                                       ; preds = %if.end96.cont
-  %err104 = getelementptr inbounds i8, ptr %rev_list, i64 88
+  %err104 = getelementptr inbounds nuw i8, ptr %rev_list, i64 88
   store i32 %.else.val85, ptr %err104, align 8
   br label %if.end108
 

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @qed_find_cluster(ptr noundef %s, ptr noundef %request, i64 noundef %pos, ptr nocapture noundef %len, ptr nocapture noundef writeonly %img_offset) #0 {
 entry:
   %0 = load i64, ptr %len, align 8
-  %l1_shift = getelementptr inbounds i8, ptr %s, i64 156
+  %l1_shift = getelementptr inbounds nuw i8, ptr %s, i64 156
   %1 = load i32, ptr %l1_shift, align 4
   %sh_prom = zext i32 %1 to i64
   %shr = lshr i64 %pos, %sh_prom
@@ -21,7 +21,7 @@ entry:
   %sub = sub i64 %shl, %pos
   %cond = tail call i64 @llvm.umin.i64(i64 %0, i64 %sub)
   store i64 %cond, ptr %len, align 8
-  %l1_table = getelementptr inbounds i8, ptr %s, i64 120
+  %l1_table = getelementptr inbounds nuw i8, ptr %s, i64 120
   %2 = load ptr, ptr %l1_table, align 8
   %s.val = load i32, ptr %l1_shift, align 4
   %sh_prom.i = zext nneg i32 %s.val to i64
@@ -33,10 +33,10 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %table_size.i = getelementptr inbounds i8, ptr %s, i64 16
+  %table_size.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %4 = load i32, ptr %table_size.i, align 8
   %sub.i = add i32 %4, -1
-  %cluster_size.i = getelementptr inbounds i8, ptr %s, i64 12
+  %cluster_size.i = getelementptr inbounds nuw i8, ptr %s, i64 12
   %5 = load i32, ptr %cluster_size.i, align 4
   %mul.i = mul i32 %sub.i, %5
   %conv.i39 = zext i32 %mul.i to i64
@@ -52,7 +52,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.end.i.i, label %return.sink.split
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %header_size1.i.i = getelementptr inbounds i8, ptr %s, i64 20
+  %header_size1.i.i = getelementptr inbounds nuw i8, ptr %s, i64 20
   %6 = load i32, ptr %header_size1.i.i, align 4
   %conv.i.i = zext i32 %6 to i64
   %conv3.i.i = zext i32 %5 to i64
@@ -61,7 +61,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %return.sink.split, label %qed_check_table_offset.exit
 
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
-  %file_size.i.i = getelementptr inbounds i8, ptr %s, i64 168
+  %file_size.i.i = getelementptr inbounds nuw i8, ptr %s, i64 168
   %7 = load i64, ptr %file_size.i.i, align 8
   %cmp8.i.i = icmp ult i64 %3, %7
   %and.i10.i = and i64 %add.i, %conv6.i.i
@@ -99,7 +99,7 @@ if.end9:                                          ; preds = %if.end6
   %12 = load ptr, ptr %request, align 8
   %13 = load ptr, ptr %12, align 8
   %add.i48 = add i32 %conv1.i, %conv
-  %table_nelems.i = getelementptr inbounds i8, ptr %s, i64 152
+  %table_nelems.i = getelementptr inbounds nuw i8, ptr %s, i64 152
   %14 = load i32, ptr %table_nelems.i, align 8
   %cond.i = tail call i32 @llvm.umin.i32(i32 %add.i48, i32 %14)
   %idxprom.i = zext i32 %conv1.i to i64

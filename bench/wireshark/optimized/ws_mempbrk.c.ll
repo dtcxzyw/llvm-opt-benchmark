@@ -70,7 +70,7 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %8 = load i8, ptr %7, align 16
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %12

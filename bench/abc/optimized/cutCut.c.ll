@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -21,23 +21,23 @@ define noundef ptr @Cut_CutAlloc(ptr nocapture noundef %0) local_unnamed_addr #0
   %7 = shl i32 %6, 24
   %8 = and i32 %7, 251658240
   store i32 %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
   %11 = shl i32 %10, 22
   %12 = and i32 %11, 4194304
   %13 = or disjoint i32 %12, %8
   store i32 %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 228
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 236
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %23 = load i32, ptr %22, align 4
   %24 = sub nsw i32 %16, %23
   %25 = icmp slt i32 %21, %24
@@ -58,11 +58,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 236
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 228
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 4
@@ -72,14 +72,14 @@ define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unna
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 244
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 4
   br label %15
 
 15:                                               ; preds = %11, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %17, ptr noundef nonnull %1) #10
   ret void
@@ -101,12 +101,12 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, p
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp ult i32 %3, 268435456
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %13
 
@@ -117,9 +117,9 @@ define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, p
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %15, %17
   br i1 %18, label %.loopexit, label %19
@@ -141,8 +141,8 @@ define ptr @Cut_CutDupList(ptr nocapture noundef readonly %0, ptr noundef readon
   br i1 %4, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %7
 
 7:                                                ; preds = %.preheader, %7
@@ -154,8 +154,8 @@ define ptr @Cut_CutDupList(ptr nocapture noundef readonly %0, ptr noundef readon
   %11 = sext i32 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %.01317, i64 %11, i1 false)
   store ptr %9, ptr %.01416, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  %13 = getelementptr inbounds i8, ptr %.01317, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01317, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %7, !llvm.loop !6
@@ -179,12 +179,12 @@ define void @Cut_CutRecycleList(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %4
 
 4:                                                ; preds = %4, %.lr.ph
   %.0914 = phi ptr [ %1, %.lr.ph ], [ %.015, %4 ]
-  %.015.in = getelementptr inbounds i8, ptr %.0914, i64 16
+  %.015.in = getelementptr inbounds nuw i8, ptr %.0914, i64 16
   %.015 = load ptr, ptr %.015.in, align 8
   %5 = load ptr, ptr %3, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %5, ptr noundef nonnull %.0914) #10
@@ -204,7 +204,7 @@ define i32 @Cut_CutCountList(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.07 = phi i32 [ %2, %.lr.ph ], [ 0, %1 ]
   %.046 = phi ptr [ %4, %.lr.ph ], [ %0, %1 ]
   %2 = add nuw nsw i32 %.07, 1
-  %3 = getelementptr inbounds i8, ptr %.046, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -239,20 +239,20 @@ define ptr @Cut_CutMergeLists(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %13, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.01720, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.01720, i64 24
   %.not.i = icmp ult i32 %7, 268435456
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %15 = getelementptr inbounds i8, ptr %.01621, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.01621, i64 24
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %16
 
 16:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %17 = getelementptr inbounds [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %18, %20
   br i1 %21, label %Cut_CutCompare.exit, label %22
@@ -265,12 +265,12 @@ define ptr @Cut_CutMergeLists(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %or.cond, label %.loopexit, label %16, !llvm.loop !4
 
 Cut_CutCompare.exit:                              ; preds = %16, %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.01720, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.01720, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %28
 
 .loopexit:                                        ; preds = %22, %12, %.preheader.i
-  %26 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -279,7 +279,7 @@ Cut_CutCompare.exit:                              ; preds = %16, %.lr.ph
   %.1 = phi ptr [ %.01621, %Cut_CutCompare.exit ], [ %27, %.loopexit ]
   %.0 = phi ptr [ %.01720, %Cut_CutCompare.exit ], [ %.01621, %.loopexit ]
   store ptr %.0, ptr %.01522, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %30 = icmp ne ptr %.118, null
   %31 = icmp ne ptr %.1, null
   %32 = select i1 %30, i1 %31, i1 false
@@ -310,7 +310,7 @@ define void @Cut_CutNumberList(ptr noundef %0) local_unnamed_addr #6 {
   %5 = and i32 %3, -2048
   %6 = or disjoint i32 %5, %4
   store i32 %6, ptr %.046, align 8
-  %7 = getelementptr inbounds i8, ptr %.046, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -322,12 +322,12 @@ define void @Cut_CutNumberList(ptr noundef %0) local_unnamed_addr #6 {
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Cut_CutCreateTriv(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   %6 = shl i32 %1, 8
   %spec.select = select i1 %.not, i32 %1, i32 %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %8) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -336,23 +336,23 @@ define noundef ptr @Cut_CutCreateTriv(ptr nocapture noundef %0, i32 noundef %1) 
   %12 = shl i32 %11, 24
   %13 = and i32 %12, 251658240
   store i32 %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i32, ptr %14, align 8
   %16 = shl i32 %15, 22
   %17 = and i32 %16, 4194304
   %18 = or disjoint i32 %17, %13
   store i32 %18, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 228
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 240
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 236
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %28 = load i32, ptr %27, align 4
   %29 = sub nsw i32 %21, %28
   %30 = icmp slt i32 %26, %29
@@ -367,14 +367,14 @@ Cut_CutAlloc.exit:                                ; preds = %2, %31
   %33 = and i32 %32, 268435455
   %34 = or disjoint i32 %33, 268435456
   store i32 %34, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %spec.select, ptr %35, align 8
   %36 = srem i32 %spec.select, 31
   %37 = shl nuw nsw i32 1, %36
-  %38 = getelementptr inbounds i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %37, ptr %38, align 4
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %41 = load i32, ptr %40, align 4
   %.not17 = icmp eq i32 %41, 0
   br i1 %.not17, label %.loopexit, label %42
@@ -383,15 +383,15 @@ Cut_CutAlloc.exit:                                ; preds = %2, %31
   %43 = lshr i32 %32, 24
   %44 = and i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %35, i64 %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 60
+  %46 = getelementptr inbounds nuw i32, ptr %35, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %42, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %42 ]
-  %50 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 -1431655766, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %47, align 4
@@ -400,7 +400,7 @@ Cut_CutAlloc.exit:                                ; preds = %2, %31
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %42, %Cut_CutAlloc.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 244
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -418,12 +418,12 @@ define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 
 .lr.ph:                                           ; preds = %2
   %.not = icmp eq i32 %1, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv18
+  %8 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv18
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %9)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -435,7 +435,7 @@ define void @Cut_CutPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.lr.ph ]
-  %15 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = ashr i32 %16, 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %17)
@@ -473,7 +473,7 @@ define void @Cut_CutPrintList(ptr noundef readonly %0, i32 noundef %1) local_unn
   %.05 = phi ptr [ %4, %.lr.ph ], [ %0, %2 ]
   tail call void @Cut_CutPrint(ptr noundef nonnull %.05, i32 noundef %1)
   %putchar = tail call i32 @putchar(i32 10)
-  %3 = getelementptr inbounds i8, ptr %.05, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.05, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -491,31 +491,31 @@ define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %.not, label %.thread45, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %4, 536870911
   br i1 %9, label %10, label %.thread45
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %4, 805306367
   br i1 %13, label %14, label %.thread45
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ugt i32 %4, 1073741823
   br i1 %17, label %18, label %.thread45
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %4, 1342177279
   br i1 %21, label %22, label %.thread45
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8
   br label %.thread45
 
@@ -532,31 +532,31 @@ define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %.not34, label %.thread58, label %33
 
 33:                                               ; preds = %.thread45
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %31, 536870911
   br i1 %36, label %37, label %.thread58
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %2, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = icmp ugt i32 %31, 805306367
   br i1 %40, label %41, label %.thread58
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp ugt i32 %31, 1073741823
   br i1 %44, label %45, label %.thread58
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %2, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp ugt i32 %31, 1342177279
   br i1 %48, label %49, label %.thread58
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %2, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %51 = load i32, ptr %50, align 8
   br label %.thread58
 
@@ -581,31 +581,31 @@ define void @Cut_CutPrintMerge(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %.not35, label %.thread71, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = icmp ugt i32 %61, 536870911
   br i1 %66, label %67, label %.thread71
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = icmp ugt i32 %61, 805306367
   br i1 %70, label %71, label %.thread71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = icmp ugt i32 %61, 1073741823
   br i1 %74, label %75, label %.thread71
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 36
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %77 = load i32, ptr %76, align 4
   %78 = icmp ugt i32 %61, 1342177279
   br i1 %78, label %79, label %.thread71
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = load i32, ptr %80, align 8
   br label %.thread71
 

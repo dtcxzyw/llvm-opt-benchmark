@@ -153,15 +153,15 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %140 = phi i32 [ %131, %136 ], [ %167, %165 ]
   %141 = phi double [ %119, %136 ], [ %152, %165 ]
   %142 = phi double [ %133, %136 ], [ %171, %165 ]
-  %143 = getelementptr inbounds double, ptr %25, i64 %139
+  %143 = getelementptr inbounds nuw double, ptr %25, i64 %139
   %144 = load double, ptr %143, align 8, !tbaa !7
-  %145 = getelementptr inbounds double, ptr %24, i64 %139
+  %145 = getelementptr inbounds nuw double, ptr %24, i64 %139
   %146 = load double, ptr %145, align 8, !tbaa !7
   %147 = fdiv double %144, %146
-  %148 = getelementptr inbounds double, ptr %23, i64 %139
+  %148 = getelementptr inbounds nuw double, ptr %23, i64 %139
   store double %147, ptr %148, align 8, !tbaa !7
   %149 = fmul double %141, %147
-  %150 = getelementptr inbounds double, ptr %26, i64 %139
+  %150 = getelementptr inbounds nuw double, ptr %26, i64 %139
   %151 = load double, ptr %150, align 8, !tbaa !7
   %152 = call double @llvm.fmuladd.f64(double %149, double %151, double %119)
   %153 = add nuw nsw i64 %139, 1
@@ -261,15 +261,15 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %211 = phi i32 [ %200, %206 ], [ %238, %236 ]
   %212 = phi double [ %188, %206 ], [ %223, %236 ]
   %213 = phi double [ %202, %206 ], [ %242, %236 ]
-  %214 = getelementptr inbounds double, ptr %25, i64 %210
+  %214 = getelementptr inbounds nuw double, ptr %25, i64 %210
   %215 = load double, ptr %214, align 8, !tbaa !7
-  %216 = getelementptr inbounds double, ptr %22, i64 %210
+  %216 = getelementptr inbounds nuw double, ptr %22, i64 %210
   %217 = load double, ptr %216, align 8, !tbaa !7
   %218 = fdiv double %215, %217
   %219 = getelementptr double, ptr %208, i64 %210
   store double %218, ptr %219, align 8, !tbaa !7
   %220 = fmul double %212, %218
-  %221 = getelementptr inbounds double, ptr %26, i64 %210
+  %221 = getelementptr inbounds nuw double, ptr %26, i64 %210
   %222 = load double, ptr %221, align 8, !tbaa !7
   %223 = call double @llvm.fmuladd.f64(double %220, double %222, double %188)
   %224 = add nuw nsw i64 %210, 1

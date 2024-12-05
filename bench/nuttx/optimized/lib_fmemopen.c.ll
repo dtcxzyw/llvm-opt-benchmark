@@ -34,7 +34,7 @@ define ptr @fmemopen(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %57
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %17, align 8
   %18 = tail call noalias ptr @zalloc(i64 noundef %1) #8
   store ptr %18, ptr %5, align 8
@@ -52,23 +52,23 @@ define ptr @fmemopen(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
   br label %25
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %24, align 8
   store ptr %0, ptr %5, align 8
   br label %25
 
 25:                                               ; preds = %23, %22
   %26 = phi ptr [ %0, %23 ], [ %18, %22 ]
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %28, align 8
   %29 = and i32 %10, 32
   %.not39 = icmp eq i32 %29, 0
   br i1 %.not39, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %5, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %31, align 4
   store i8 0, ptr %26, align 1
   br label %32
@@ -80,7 +80,7 @@ define ptr @fmemopen(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 
 35:                                               ; preds = %32
   %36 = trunc i64 %1 to i32
-  %37 = getelementptr inbounds i8, ptr %5, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %36, ptr %37, align 4
   br label %38
 
@@ -92,25 +92,25 @@ define ptr @fmemopen(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnam
 40:                                               ; preds = %38
   %41 = tail call i64 @strnlen(ptr noundef nonnull %26, i64 noundef %1)
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %5, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %42, ptr %43, align 4
   store i32 %42, ptr %28, align 8
   br label %44
 
 44:                                               ; preds = %40, %38
   store ptr @fmemopen_read, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @fmemopen_write, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @fmemopen_seek, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @fmemopen_close, ptr %47, align 8
   %48 = tail call ptr @fopencookie(ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull byval(%struct.cookie_io_functions_t) align 8 %4) #9
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %56
@@ -144,11 +144,11 @@ declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @fmemopen_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = add i64 %2, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = icmp ugt i64 %7, %10
@@ -167,11 +167,11 @@ define internal i64 @fmemopen_read(ptr nocapture noundef %0, ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = add i64 %2, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9
   %11 = sub i64 %9, %6
@@ -183,7 +183,7 @@ define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noun
   %15 = trunc i64 %spec.select to i32
   %16 = add i32 %14, %15
   store i32 %16, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %16, %18
   br i1 %19, label %20, label %21
@@ -227,14 +227,14 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noun
   br label %18
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %1, align 4
   %10 = add nsw i32 %9, %8
   br label %18
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = load i32, ptr %1, align 4
   %15 = add nsw i32 %14, %13
@@ -251,7 +251,7 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noun
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %.0, %22
   br i1 %23, label %24, label %26
@@ -262,7 +262,7 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noun
   br label %28
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %27, align 8
   store i32 %.0, ptr %1, align 4
   br label %28
@@ -274,7 +274,7 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noun
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @fmemopen_close(ptr nocapture noundef %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7

@@ -88,13 +88,13 @@ define internal noundef ptr @H5VL_pass_through_info_copy(ptr noundef readonly %0
   %12 = load i64, ptr %0, align 8
   store i64 %12, ptr %11, align 8
   %13 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %19, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = tail call i32 @H5VLcopy_connector_info(i64 noundef %12, ptr noundef nonnull %17, ptr noundef nonnull %15) #10
   br label %19
 
@@ -115,9 +115,9 @@ define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes(
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @H5VLcmp_connector_info(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %11, ptr noundef %13) #10
   br label %15
@@ -129,7 +129,7 @@ define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes(
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5VL_pass_through_info_free(ptr nocapture noundef %0) #0 {
   %2 = tail call i64 @H5Eget_current_stack() #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -155,7 +155,7 @@ define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef
   store ptr null, ptr %4, align 8
   %5 = load i64, ptr %0, align 8
   %6 = call i32 @H5VLget_value(i64 noundef %5, ptr noundef nonnull %3) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = call i32 @H5VLconnector_info_to_str(ptr noundef %8, i64 noundef %9, ptr noundef nonnull %4) #10
@@ -190,7 +190,7 @@ define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr n
   %7 = call i64 @H5VLregister_connector_by_value(i32 noundef %6, i64 noundef 0) #10
   %8 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 123) #12
   %9 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 125) #12
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.not = icmp eq ptr %9, %10
   br i1 %.not, label %19, label %11
 
@@ -212,7 +212,7 @@ define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr n
   %20 = phi ptr [ %.pre, %11 ], [ null, %2 ]
   %21 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   store i64 %7, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   store ptr %21, ptr %1, align 8
   ret i32 0
@@ -220,7 +220,7 @@ define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5VL_pass_through_get_object(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call ptr @H5VLget_object(ptr noundef %3, i64 noundef %4) #10
@@ -233,10 +233,10 @@ define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture nounde
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %3, align 8
   %5 = tail call i32 @H5Iinc_ref(i64 noundef %4) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = tail call i32 @H5VLget_wrap_ctx(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %9) #10
   store ptr %3, ptr %1, align 8
   ret i32 0
@@ -245,7 +245,7 @@ define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load i64, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @H5VLwrap_object(ptr noundef %0, i32 noundef %1, i64 noundef %4, ptr noundef %6) #10
   %.not = icmp eq ptr %7, null
@@ -254,7 +254,7 @@ define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %
 8:                                                ; preds = %3
   %9 = load i64, ptr %2, align 8
   %10 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %7, ptr %11, align 8
   store i64 %9, ptr %10, align 8
   %12 = tail call i32 @H5Iinc_ref(i64 noundef %9) #10
@@ -267,7 +267,7 @@ define internal noalias noundef ptr @H5VL_pass_through_wrap_object(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5VL_pass_through_unwrap_object(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call ptr @H5VLunwrap_object(ptr noundef %3, i64 noundef %4) #10
@@ -289,7 +289,7 @@ define internal ptr @H5VL_pass_through_unwrap_object(ptr nocapture noundef %0) #
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5VL_pass_through_free_wrap_ctx(ptr nocapture noundef %0) #0 {
   %2 = tail call i64 @H5Eget_current_stack() #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -309,7 +309,7 @@ define internal noundef i32 @H5VL_pass_through_free_wrap_ctx(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
   %13 = tail call ptr @H5VLattr_create(ptr noundef %11, ptr noundef %1, i64 noundef %12, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #10
@@ -319,7 +319,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture
 14:                                               ; preds = %9
   %15 = load i64, ptr %0, align 8
   %16 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %13, ptr %17, align 8
   store i64 %15, ptr %16, align 8
   %18 = tail call i32 @H5Iinc_ref(i64 noundef %15) #10
@@ -334,7 +334,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture
 21:                                               ; preds = %19
   %22 = load i64, ptr %0, align 8
   %23 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %20, ptr %24, align 8
   store i64 %22, ptr %23, align 8
   %25 = tail call i32 @H5Iinc_ref(i64 noundef %22) #10
@@ -348,7 +348,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_create(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = tail call ptr @H5VLattr_open(ptr noundef %8, ptr noundef %1, i64 noundef %9, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #10
@@ -358,7 +358,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture n
 11:                                               ; preds = %6
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -373,7 +373,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture n
 18:                                               ; preds = %16
   %19 = load i64, ptr %0, align 8
   %20 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %17, ptr %21, align 8
   store i64 %19, ptr %20, align 8
   %22 = tail call i32 @H5Iinc_ref(i64 noundef %19) #10
@@ -387,7 +387,7 @@ define internal noalias noundef ptr @H5VL_pass_through_attr_open(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLattr_read(ptr noundef %7, i64 noundef %8, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -402,7 +402,7 @@ define internal i32 @H5VL_pass_through_attr_read(ptr nocapture noundef readonly 
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -415,7 +415,7 @@ define internal i32 @H5VL_pass_through_attr_read(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_write(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLattr_write(ptr noundef %7, i64 noundef %8, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -430,7 +430,7 @@ define internal i32 @H5VL_pass_through_attr_write(ptr nocapture noundef readonly
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -443,7 +443,7 @@ define internal i32 @H5VL_pass_through_attr_write(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLattr_get(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -458,7 +458,7 @@ define internal i32 @H5VL_pass_through_attr_get(ptr nocapture noundef readonly %
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -471,7 +471,7 @@ define internal i32 @H5VL_pass_through_attr_get(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLattr_specific(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -486,7 +486,7 @@ define internal i32 @H5VL_pass_through_attr_specific(ptr nocapture noundef reado
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -499,7 +499,7 @@ define internal i32 @H5VL_pass_through_attr_specific(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLattr_optional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -514,7 +514,7 @@ define internal i32 @H5VL_pass_through_attr_optional(ptr nocapture noundef reado
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -527,7 +527,7 @@ define internal i32 @H5VL_pass_through_attr_optional(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_attr_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLattr_close(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -542,7 +542,7 @@ define internal i32 @H5VL_pass_through_attr_close(ptr nocapture noundef %0, i64 
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -567,7 +567,7 @@ define internal i32 @H5VL_pass_through_attr_close(ptr nocapture noundef %0, i64 
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %0, align 8
   %14 = tail call ptr @H5VLdataset_create(ptr noundef %12, ptr noundef %1, i64 noundef %13, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #10
@@ -577,7 +577,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapt
 15:                                               ; preds = %10
   %16 = load i64, ptr %0, align 8
   %17 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %14, ptr %18, align 8
   store i64 %16, ptr %17, align 8
   %19 = tail call i32 @H5Iinc_ref(i64 noundef %16) #10
@@ -592,7 +592,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapt
 22:                                               ; preds = %20
   %23 = load i64, ptr %0, align 8
   %24 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %21, ptr %25, align 8
   store i64 %23, ptr %24, align 8
   %26 = tail call i32 @H5Iinc_ref(i64 noundef %23) #10
@@ -606,7 +606,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_create(ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = tail call ptr @H5VLdataset_open(ptr noundef %8, ptr noundef %1, i64 noundef %9, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #10
@@ -616,7 +616,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr nocaptur
 11:                                               ; preds = %6
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -631,7 +631,7 @@ define internal noalias noundef ptr @H5VL_pass_through_dataset_open(ptr nocaptur
 18:                                               ; preds = %16
   %19 = load i64, ptr %0, align 8
   %20 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %17, ptr %21, align 8
   store i64 %19, ptr %20, align 8
   %22 = tail call i32 @H5Iinc_ref(i64 noundef %19) #10
@@ -680,7 +680,7 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %19 = getelementptr inbounds ptr, ptr %1, i64 %.02938
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %.03046, i64 %.02938
   store ptr %22, ptr %23, align 8
@@ -704,7 +704,7 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
   %29 = load ptr, ptr %1, align 8
   %30 = load i64, ptr %29, align 8
   %31 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %27, ptr %32, align 8
   store i64 %30, ptr %31, align 8
   %33 = call i32 @H5Iinc_ref(i64 noundef %30) #10
@@ -761,7 +761,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %19 = getelementptr inbounds ptr, ptr %1, i64 %.02938
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %.03046, i64 %.02938
   store ptr %22, ptr %23, align 8
@@ -785,7 +785,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
   %29 = load ptr, ptr %1, align 8
   %30 = load i64, ptr %29, align 8
   %31 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %27, ptr %32, align 8
   store i64 %30, ptr %31, align 8
   %33 = call i32 @H5Iinc_ref(i64 noundef %30) #10
@@ -807,7 +807,7 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLdataset_get(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -822,7 +822,7 @@ define internal i32 @H5VL_pass_through_dataset_get(ptr nocapture noundef readonl
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -836,7 +836,7 @@ define internal i32 @H5VL_pass_through_dataset_get(ptr nocapture noundef readonl
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = load i64, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @H5VLdataset_specific(ptr noundef %7, i64 noundef %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
   %.not = icmp eq ptr %3, null
@@ -849,7 +849,7 @@ define internal i32 @H5VL_pass_through_dataset_specific(ptr nocapture noundef re
 
 11:                                               ; preds = %9
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %10, ptr %13, align 8
   store i64 %5, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %5) #10
@@ -862,7 +862,7 @@ define internal i32 @H5VL_pass_through_dataset_specific(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLdataset_optional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -877,7 +877,7 @@ define internal i32 @H5VL_pass_through_dataset_optional(ptr nocapture noundef re
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -890,7 +890,7 @@ define internal i32 @H5VL_pass_through_dataset_optional(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_dataset_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLdataset_close(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -905,7 +905,7 @@ define internal i32 @H5VL_pass_through_dataset_close(ptr nocapture noundef %0, i
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -930,7 +930,7 @@ define internal i32 @H5VL_pass_through_dataset_close(ptr nocapture noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
   %13 = tail call ptr @H5VLdatatype_commit(ptr noundef %11, ptr noundef %1, i64 noundef %12, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8) #10
@@ -940,7 +940,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocap
 14:                                               ; preds = %9
   %15 = load i64, ptr %0, align 8
   %16 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %13, ptr %17, align 8
   store i64 %15, ptr %16, align 8
   %18 = tail call i32 @H5Iinc_ref(i64 noundef %15) #10
@@ -955,7 +955,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocap
 21:                                               ; preds = %19
   %22 = load i64, ptr %0, align 8
   %23 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %20, ptr %24, align 8
   store i64 %22, ptr %23, align 8
   %25 = tail call i32 @H5Iinc_ref(i64 noundef %22) #10
@@ -969,7 +969,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_commit(ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = tail call ptr @H5VLdatatype_open(ptr noundef %8, ptr noundef %1, i64 noundef %9, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #10
@@ -979,7 +979,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocaptu
 11:                                               ; preds = %6
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -994,7 +994,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocaptu
 18:                                               ; preds = %16
   %19 = load i64, ptr %0, align 8
   %20 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %17, ptr %21, align 8
   store i64 %19, ptr %20, align 8
   %22 = tail call i32 @H5Iinc_ref(i64 noundef %19) #10
@@ -1008,7 +1008,7 @@ define internal noalias noundef ptr @H5VL_pass_through_datatype_open(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_datatype_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLdatatype_get(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1023,7 +1023,7 @@ define internal i32 @H5VL_pass_through_datatype_get(ptr nocapture noundef readon
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1037,7 +1037,7 @@ define internal i32 @H5VL_pass_through_datatype_get(ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_datatype_specific(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = load i64, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @H5VLdatatype_specific(ptr noundef %7, i64 noundef %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
   %.not = icmp eq ptr %3, null
@@ -1050,7 +1050,7 @@ define internal i32 @H5VL_pass_through_datatype_specific(ptr nocapture noundef r
 
 11:                                               ; preds = %9
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %10, ptr %13, align 8
   store i64 %5, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %5) #10
@@ -1063,7 +1063,7 @@ define internal i32 @H5VL_pass_through_datatype_specific(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_datatype_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLdatatype_optional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1078,7 +1078,7 @@ define internal i32 @H5VL_pass_through_datatype_optional(ptr nocapture noundef r
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1091,7 +1091,7 @@ define internal i32 @H5VL_pass_through_datatype_optional(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_datatype_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLdatatype_close(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -1106,7 +1106,7 @@ define internal i32 @H5VL_pass_through_datatype_close(ptr nocapture noundef %0, 
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -1141,7 +1141,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   %11 = call i64 @H5Pcopy(i64 noundef %3) #10
   %12 = load ptr, ptr %7, align 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @H5Pset_vol(i64 noundef %11, i64 noundef %13, ptr noundef %15) #10
   %17 = call ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %11, i64 noundef %4, ptr noundef %5) #10
@@ -1152,7 +1152,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   %19 = load ptr, ptr %7, align 8
   %20 = load i64, ptr %19, align 8
   %21 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %17, ptr %22, align 8
   store i64 %20, ptr %21, align 8
   %23 = call i32 @H5Iinc_ref(i64 noundef %20) #10
@@ -1168,7 +1168,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   %27 = load ptr, ptr %7, align 8
   %28 = load i64, ptr %27, align 8
   %29 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %25, ptr %30, align 8
   store i64 %28, ptr %29, align 8
   %31 = call i32 @H5Iinc_ref(i64 noundef %28) #10
@@ -1180,7 +1180,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   %33 = call i32 @H5Pclose(i64 noundef %11) #10
   %34 = load ptr, ptr %7, align 8
   %35 = call i64 @H5Eget_current_stack() #10
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %H5VL_pass_through_info_free.exit, label %38
@@ -1214,7 +1214,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   %10 = call i64 @H5Pcopy(i64 noundef %2) #10
   %11 = load ptr, ptr %6, align 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @H5Pset_vol(i64 noundef %10, i64 noundef %12, ptr noundef %14) #10
   %16 = call ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %10, i64 noundef %3, ptr noundef %4) #10
@@ -1225,7 +1225,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   %18 = load ptr, ptr %6, align 8
   %19 = load i64, ptr %18, align 8
   %20 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %16, ptr %21, align 8
   store i64 %19, ptr %20, align 8
   %22 = call i32 @H5Iinc_ref(i64 noundef %19) #10
@@ -1241,7 +1241,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   %26 = load ptr, ptr %6, align 8
   %27 = load i64, ptr %26, align 8
   %28 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %24, ptr %29, align 8
   store i64 %27, ptr %28, align 8
   %30 = call i32 @H5Iinc_ref(i64 noundef %27) #10
@@ -1253,7 +1253,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   %32 = call i32 @H5Pclose(i64 noundef %10) #10
   %33 = load ptr, ptr %6, align 8
   %34 = call i64 @H5Eget_current_stack() #10
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %H5VL_pass_through_info_free.exit, label %37
@@ -1277,7 +1277,7 @@ H5VL_pass_through_info_free.exit:                 ; preds = %31, %37
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_file_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLfile_get(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1292,7 +1292,7 @@ define internal i32 @H5VL_pass_through_file_get(ptr nocapture noundef readonly %
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1316,7 +1316,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = call i32 @H5Pget_vol_info(i64 noundef %10, ptr noundef nonnull %6) #10
   %12 = load ptr, ptr %6, align 8
@@ -1327,18 +1327,18 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
   %14 = load i64, ptr %12, align 8
   %15 = load i64, ptr %9, align 8
   %16 = call i64 @H5Pcopy(i64 noundef %15) #10
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %16, ptr %17, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @H5Pset_vol(i64 noundef %16, i64 noundef %19, ptr noundef %21) #10
   br label %42
 
 23:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = call i32 @H5Pget_vol_info(i64 noundef %25, ptr noundef nonnull %6) #10
   %27 = load ptr, ptr %6, align 8
@@ -1349,18 +1349,18 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
   %29 = load i64, ptr %27, align 8
   %30 = load i64, ptr %24, align 8
   %31 = call i64 @H5Pcopy(i64 noundef %30) #10
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %31, ptr %32, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @H5Pset_vol(i64 noundef %31, i64 noundef %34, ptr noundef %36) #10
   br label %42
 
 38:                                               ; preds = %4
   %39 = load i64, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   br label %42
 
@@ -1379,7 +1379,7 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
 
 46:                                               ; preds = %44
   %47 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %45, ptr %48, align 8
   store i64 %.032, ptr %47, align 8
   %49 = call i32 @H5Iinc_ref(i64 noundef %.032) #10
@@ -1394,12 +1394,12 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = call i32 @H5Pclose(i64 noundef %54) #10
   %56 = load ptr, ptr %6, align 8
   %57 = call i64 @H5Eget_current_stack() #10
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %H5VL_pass_through_info_free.exit, label %60
@@ -1417,12 +1417,12 @@ H5VL_pass_through_info_free.exit:                 ; preds = %52, %60
   br label %92
 
 66:                                               ; preds = %50
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = call i32 @H5Pclose(i64 noundef %68) #10
   %70 = load ptr, ptr %6, align 8
   %71 = call i64 @H5Eget_current_stack() #10
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i46 = icmp eq ptr %73, null
   br i1 %.not.i46, label %H5VL_pass_through_info_free.exit47, label %74
@@ -1446,7 +1446,7 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
   br i1 %or.cond, label %83, label %92
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
   %.not45 = icmp eq ptr %86, null
@@ -1454,7 +1454,7 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
 
 87:                                               ; preds = %83
   %88 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %86, ptr %89, align 8
   store i64 %.032, ptr %88, align 8
   %90 = call i32 @H5Iinc_ref(i64 noundef %.032) #10
@@ -1469,7 +1469,7 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_file_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLfile_optional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1484,7 +1484,7 @@ define internal i32 @H5VL_pass_through_file_optional(ptr nocapture noundef reado
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1497,7 +1497,7 @@ define internal i32 @H5VL_pass_through_file_optional(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_file_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLfile_close(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -1512,7 +1512,7 @@ define internal i32 @H5VL_pass_through_file_close(ptr nocapture noundef %0, i64 
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -1537,7 +1537,7 @@ define internal i32 @H5VL_pass_through_file_close(ptr nocapture noundef %0, i64 
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %0, align 8
   %12 = tail call ptr @H5VLgroup_create(ptr noundef %10, ptr noundef %1, i64 noundef %11, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #10
@@ -1547,7 +1547,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocaptur
 13:                                               ; preds = %8
   %14 = load i64, ptr %0, align 8
   %15 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %16, align 8
   store i64 %14, ptr %15, align 8
   %17 = tail call i32 @H5Iinc_ref(i64 noundef %14) #10
@@ -1562,7 +1562,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocaptur
 20:                                               ; preds = %18
   %21 = load i64, ptr %0, align 8
   %22 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %19, ptr %23, align 8
   store i64 %21, ptr %22, align 8
   %24 = tail call i32 @H5Iinc_ref(i64 noundef %21) #10
@@ -1576,7 +1576,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_create(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = tail call ptr @H5VLgroup_open(ptr noundef %8, ptr noundef %1, i64 noundef %9, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #10
@@ -1586,7 +1586,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture 
 11:                                               ; preds = %6
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1601,7 +1601,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture 
 18:                                               ; preds = %16
   %19 = load i64, ptr %0, align 8
   %20 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %17, ptr %21, align 8
   store i64 %19, ptr %20, align 8
   %22 = tail call i32 @H5Iinc_ref(i64 noundef %19) #10
@@ -1615,7 +1615,7 @@ define internal noalias noundef ptr @H5VL_pass_through_group_open(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_group_get(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLgroup_get(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1630,7 +1630,7 @@ define internal i32 @H5VL_pass_through_group_get(ptr nocapture noundef readonly 
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1651,27 +1651,27 @@ define internal i32 @H5VL_pass_through_group_specific(ptr nocapture noundef read
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @H5VLgroup_specific(ptr noundef %22, i64 noundef %6, ptr noundef nonnull %5, i64 noundef %2, ptr noundef %3) #10
   br label %28
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @H5VLgroup_specific(ptr noundef %26, i64 noundef %6, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3) #10
   br label %28
@@ -1688,7 +1688,7 @@ define internal i32 @H5VL_pass_through_group_specific(ptr nocapture noundef read
 
 31:                                               ; preds = %29
   %32 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %30, ptr %33, align 8
   store i64 %6, ptr %32, align 8
   %34 = call i32 @H5Iinc_ref(i64 noundef %6) #10
@@ -1701,7 +1701,7 @@ define internal i32 @H5VL_pass_through_group_specific(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_group_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLgroup_optional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10
@@ -1716,7 +1716,7 @@ define internal i32 @H5VL_pass_through_group_optional(ptr nocapture noundef read
 11:                                               ; preds = %9
   %12 = load i64, ptr %0, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %14, align 8
   store i64 %12, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %12) #10
@@ -1729,7 +1729,7 @@ define internal i32 @H5VL_pass_through_group_optional(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_group_close(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLgroup_close(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -1744,7 +1744,7 @@ define internal i32 @H5VL_pass_through_group_close(ptr nocapture noundef %0, i64
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -1783,7 +1783,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %15, null
   br i1 %.not29, label %23, label %16
@@ -1798,7 +1798,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
 
 20:                                               ; preds = %18, %16
   %.2 = phi i64 [ %19, %18 ], [ %.0, %16 ]
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %14, align 8
   br label %23
@@ -1808,7 +1808,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1825,7 +1825,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
 
 32:                                               ; preds = %30
   %33 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
   store i64 %.1, ptr %33, align 8
   %35 = tail call i32 @H5Iinc_ref(i64 noundef %.1) #10
@@ -1851,7 +1851,7 @@ define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly %0, ptr no
 
 .thread:                                          ; preds = %8
   %11 = load i64, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not28 = icmp eq ptr %2, null
   br i1 %.not28, label %.thread.thread, label %14
@@ -1859,7 +1859,7 @@ define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly %0, ptr no
 14:                                               ; preds = %.thread.thread36, %.thread
   %15 = phi ptr [ null, %.thread.thread36 ], [ %13, %.thread ]
   %.03239 = phi i64 [ %10, %.thread.thread36 ], [ %11, %.thread ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %.thread.thread
 
@@ -1878,7 +1878,7 @@ define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly %0, ptr no
 
 23:                                               ; preds = %21
   %24 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %22, ptr %25, align 8
   store i64 %.03235, ptr %24, align 8
   %26 = tail call i32 @H5Iinc_ref(i64 noundef %.03235) #10
@@ -1904,7 +1904,7 @@ define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr no
 
 .thread:                                          ; preds = %8
   %11 = load i64, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not28 = icmp eq ptr %2, null
   br i1 %.not28, label %.thread.thread, label %14
@@ -1912,7 +1912,7 @@ define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr no
 14:                                               ; preds = %.thread.thread36, %.thread
   %15 = phi ptr [ null, %.thread.thread36 ], [ %13, %.thread ]
   %.03239 = phi i64 [ %10, %.thread.thread36 ], [ %11, %.thread ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %.thread.thread
 
@@ -1931,7 +1931,7 @@ define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr no
 
 23:                                               ; preds = %21
   %24 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %22, ptr %25, align 8
   store i64 %.03235, ptr %24, align 8
   %26 = tail call i32 @H5Iinc_ref(i64 noundef %.03235) #10
@@ -1944,7 +1944,7 @@ define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_link_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLlink_get(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -1959,7 +1959,7 @@ define internal i32 @H5VL_pass_through_link_get(ptr nocapture noundef readonly %
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -1972,7 +1972,7 @@ define internal i32 @H5VL_pass_through_link_get(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_link_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLlink_specific(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -1987,7 +1987,7 @@ define internal i32 @H5VL_pass_through_link_specific(ptr nocapture noundef reado
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -2000,7 +2000,7 @@ define internal i32 @H5VL_pass_through_link_specific(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_link_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLlink_optional(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -2015,7 +2015,7 @@ define internal i32 @H5VL_pass_through_link_optional(ptr nocapture noundef reado
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -2028,7 +2028,7 @@ define internal i32 @H5VL_pass_through_link_optional(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call ptr @H5VLobject_open(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -2038,7 +2038,7 @@ define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture
 10:                                               ; preds = %5
   %11 = load i64, ptr %0, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %13, align 8
   store i64 %11, ptr %12, align 8
   %14 = tail call i32 @H5Iinc_ref(i64 noundef %11) #10
@@ -2053,7 +2053,7 @@ define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture
 17:                                               ; preds = %15
   %18 = load i64, ptr %0, align 8
   %19 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %16, ptr %20, align 8
   store i64 %18, ptr %19, align 8
   %21 = tail call i32 @H5Iinc_ref(i64 noundef %18) #10
@@ -2067,9 +2067,9 @@ define internal noalias noundef ptr @H5VL_pass_through_object_open(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_object_copy(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #0 {
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %0, align 8
   %16 = tail call i32 @H5VLobject_copy(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef %5, i64 noundef %15, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) #10
@@ -2084,7 +2084,7 @@ define internal i32 @H5VL_pass_through_object_copy(ptr nocapture noundef readonl
 19:                                               ; preds = %17
   %20 = load i64, ptr %0, align 8
   %21 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %18, ptr %22, align 8
   store i64 %20, ptr %21, align 8
   %23 = tail call i32 @H5Iinc_ref(i64 noundef %20) #10
@@ -2097,7 +2097,7 @@ define internal i32 @H5VL_pass_through_object_copy(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_object_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLobject_get(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -2112,7 +2112,7 @@ define internal i32 @H5VL_pass_through_object_get(ptr nocapture noundef readonly
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -2126,7 +2126,7 @@ define internal i32 @H5VL_pass_through_object_get(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_object_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @H5VLobject_specific(ptr noundef %8, ptr noundef %1, i64 noundef %6, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
   %.not = icmp eq ptr %4, null
@@ -2139,7 +2139,7 @@ define internal i32 @H5VL_pass_through_object_specific(ptr nocapture noundef rea
 
 12:                                               ; preds = %10
   %13 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %14, align 8
   store i64 %6, ptr %13, align 8
   %15 = tail call i32 @H5Iinc_ref(i64 noundef %6) #10
@@ -2152,7 +2152,7 @@ define internal i32 @H5VL_pass_through_object_specific(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_object_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLobject_optional(ptr noundef %7, ptr noundef %1, i64 noundef %8, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -2167,7 +2167,7 @@ define internal i32 @H5VL_pass_through_object_optional(ptr nocapture noundef rea
 12:                                               ; preds = %10
   %13 = load i64, ptr %0, align 8
   %14 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %15, align 8
   store i64 %13, ptr %14, align 8
   %16 = tail call i32 @H5Iinc_ref(i64 noundef %13) #10
@@ -2188,7 +2188,7 @@ define internal i32 @H5VL_pass_through_introspect_get_conn_cls(ptr nocapture nou
   br label %11
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
   %10 = tail call i32 @H5VLintrospect_get_conn_cls(ptr noundef %8, i64 noundef %9, i32 noundef %1, ptr noundef %2) #10
@@ -2219,7 +2219,7 @@ define internal i32 @H5VL_pass_through_introspect_get_cap_flags(ptr noundef read
   br label %16
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %0, align 8
   %15 = tail call i32 @H5VLintrospect_get_cap_flags(ptr noundef %13, i64 noundef %14, ptr noundef %1) #10
@@ -2232,7 +2232,7 @@ define internal i32 @H5VL_pass_through_introspect_get_cap_flags(ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_introspect_opt_query(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLintrospect_opt_query(ptr noundef %6, i64 noundef %7, i32 noundef %1, i32 noundef %2, ptr noundef %3) #10
@@ -2241,7 +2241,7 @@ define internal i32 @H5VL_pass_through_introspect_opt_query(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_wait(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLrequest_wait(ptr noundef %5, i64 noundef %6, i64 noundef %1, ptr noundef %2) #10
@@ -2267,7 +2267,7 @@ define internal i32 @H5VL_pass_through_request_wait(ptr nocapture noundef %0, i6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_notify(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLrequest_notify(ptr noundef %5, i64 noundef %6, ptr noundef %1, ptr noundef %2) #10
@@ -2288,7 +2288,7 @@ define internal i32 @H5VL_pass_through_request_notify(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_cancel(ptr nocapture noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
   %6 = tail call i32 @H5VLrequest_cancel(ptr noundef %4, i64 noundef %5, ptr noundef %1) #10
@@ -2309,7 +2309,7 @@ define internal i32 @H5VL_pass_through_request_cancel(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_specific(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
   %6 = tail call i32 @H5VLrequest_specific(ptr noundef %4, i64 noundef %5, ptr noundef %1) #10
@@ -2318,7 +2318,7 @@ define internal i32 @H5VL_pass_through_request_specific(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_optional(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
   %6 = tail call i32 @H5VLrequest_optional(ptr noundef %4, i64 noundef %5, ptr noundef %1) #10
@@ -2327,7 +2327,7 @@ define internal i32 @H5VL_pass_through_request_optional(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_request_free(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call i32 @H5VLrequest_free(ptr noundef %3, i64 noundef %4) #10
@@ -2348,7 +2348,7 @@ define internal i32 @H5VL_pass_through_request_free(ptr nocapture noundef %0) #0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_blob_put(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLblob_put(ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #10
@@ -2357,7 +2357,7 @@ define internal i32 @H5VL_pass_through_blob_put(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_blob_get(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
   %9 = tail call i32 @H5VLblob_get(ptr noundef %7, i64 noundef %8, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #10
@@ -2366,7 +2366,7 @@ define internal i32 @H5VL_pass_through_blob_get(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_blob_specific(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLblob_specific(ptr noundef %5, i64 noundef %6, ptr noundef %1, ptr noundef %2) #10
@@ -2375,7 +2375,7 @@ define internal i32 @H5VL_pass_through_blob_specific(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_blob_optional(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = tail call i32 @H5VLblob_optional(ptr noundef %5, i64 noundef %6, ptr noundef %1, ptr noundef %2) #10
@@ -2384,7 +2384,7 @@ define internal i32 @H5VL_pass_through_blob_optional(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_token_cmp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLtoken_cmp(ptr noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef %3) #10
@@ -2393,7 +2393,7 @@ define internal i32 @H5VL_pass_through_token_cmp(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_token_to_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLtoken_to_str(ptr noundef %6, i32 noundef %1, i64 noundef %7, ptr noundef %2, ptr noundef %3) #10
@@ -2402,7 +2402,7 @@ define internal i32 @H5VL_pass_through_token_to_str(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_token_from_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLtoken_from_str(ptr noundef %6, i32 noundef %1, i64 noundef %7, ptr noundef %2, ptr noundef %3) #10
@@ -2411,7 +2411,7 @@ define internal i32 @H5VL_pass_through_token_from_str(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5VL_pass_through_optional(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = tail call i32 @H5VLoptional(ptr noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #10

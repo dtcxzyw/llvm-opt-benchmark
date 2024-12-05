@@ -109,7 +109,7 @@ define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) loc
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   %7 = load i32, ptr @plugin_inited, align 4
@@ -129,14 +129,14 @@ define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not.i, label %13, label %jobacct_storage_g_job_start.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 33023
   %or.cond.i = icmp eq i32 %16, 0
   br i1 %or.cond.i, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %19 = load i64, ptr %18, align 8
   store i64 0, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
@@ -169,14 +169,14 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 448
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 33023
   %or.cond = icmp eq i32 %11, 0
   br i1 %or.cond, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 888
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %14 = load i64, ptr %13, align 8
   store i64 0, ptr %13, align 8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
@@ -1209,11 +1209,11 @@ define i32 @clusteracct_storage_g_node_up(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 368
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 368
   tail call void @slurm_xfree(ptr noundef nonnull %7) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 376
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 376
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i32 -2, ptr %9, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 448), align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #7
@@ -1431,7 +1431,7 @@ define ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
@@ -1458,9 +1458,9 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @_sort_desc_submit_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0

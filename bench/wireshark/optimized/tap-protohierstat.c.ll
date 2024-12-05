@@ -25,10 +25,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @new_phs_t(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
@@ -39,13 +39,13 @@ define hidden noalias noundef ptr @new_phs_t(ptr noundef %0, ptr noundef %1) loc
   br label %8
 
 8:                                                ; preds = %6, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 0, ptr %12, align 8
   ret ptr %3
 }
@@ -61,7 +61,7 @@ define hidden void @free_phs(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %6, label %5
@@ -82,7 +82,7 @@ define hidden void @free_phs(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %13, label %12
@@ -108,7 +108,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   br i1 %.not, label %.loopexit60, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not53 = icmp eq ptr %8, null
   br i1 %.not53, label %.loopexit60, label %9
@@ -119,23 +119,23 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   br i1 %.not54, label %.loopexit60, label %.preheader59
 
 .preheader59:                                     ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %12
 
 12:                                               ; preds = %.preheader59, %85
   %.04465 = phi ptr [ %10, %.preheader59 ], [ %87, %85 ]
   %.04664 = phi ptr [ %0, %.preheader59 ], [ %.147, %85 ]
-  %13 = getelementptr inbounds i8, ptr %.04465, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.04465, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr @pc_proto_id, align 4
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %85, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %.04664, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.04664, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %.lr.ph
@@ -143,39 +143,39 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
 24:                                               ; preds = %20
   store i32 %17, ptr %21, align 8
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.04664, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.04664, i64 40
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.04664, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.04664, i64 48
   store i32 1, ptr %29, align 8
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.04664, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %.04664, i64 56
   store i64 %33, ptr %34, align 8
   %35 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #9
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store ptr %.04664, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 -1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.04664, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.04664, i64 8
   store ptr %35, ptr %42, align 8
   br label %85
 
 .lr.ph:                                           ; preds = %20, %46
   %.04563 = phi ptr [ %47, %46 ], [ %.04664, %20 ]
-  %43 = getelementptr inbounds i8, ptr %.04563, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.04563, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %17
   br i1 %45, label %.loopexit, label %46
@@ -192,73 +192,73 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noca
   br i1 %.not57, label %49, label %.critedge, !llvm.loop !7
 
 49:                                               ; preds = %.critedge
-  %50 = getelementptr inbounds i8, ptr %.04664, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.04664, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #9
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 -1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr null, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %52, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store i64 0, ptr %58, align 8
   store ptr %52, ptr %.1, align 8
   %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load i32, ptr %60, align 8
   store i32 %61, ptr %55, align 8
   %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %56, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49
   %.2 = phi ptr [ %52, %49 ], [ %.04563, %.lr.ph ]
-  %65 = getelementptr inbounds i8, ptr %.2, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 8
   %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %.2, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, %71
   store i64 %74, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %.2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not58 = icmp eq ptr %76, null
   br i1 %.not58, label %77, label %85
 
 77:                                               ; preds = %.loopexit
   %78 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #9
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   store ptr %.2, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr null, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i32 -1, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 40
   store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 48
   store i32 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %78, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 56
   store i64 0, ptr %84, align 8
   store ptr %78, ptr %75, align 8
   br label %85
 
 85:                                               ; preds = %.loopexit, %77, %12, %24
   %.147 = phi ptr [ %.04664, %12 ], [ %35, %24 ], [ %78, %77 ], [ %76, %.loopexit ]
-  %86 = getelementptr inbounds i8, ptr %.04465, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.04465, i64 16
   %87 = load ptr, ptr %86, align 8
   %.not55 = icmp eq ptr %87, null
   br i1 %.not55, label %.loopexit60, label %12, !llvm.loop !8
@@ -314,19 +314,19 @@ define internal void @protohierstat_init(ptr noundef %0, ptr nocapture readnone 
   br i1 %.not.i, label %new_phs_t.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = call noalias ptr @g_strdup(ptr noundef nonnull %.0) #10
   store ptr %20, ptr %19, align 8
   br label %new_phs_t.exit
 
 new_phs_t.exit:                                   ; preds = %15, %18
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 0, ptr %24, align 8
   %25 = call ptr @register_tap_listener(ptr noundef nonnull @.str.4, ptr noundef nonnull %17, ptr noundef %.0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @protohierstat_packet, ptr noundef nonnull @protohierstat_draw, ptr noundef null) #10
   %.not12 = icmp eq ptr %25, null
@@ -364,7 +364,7 @@ define internal void @protohierstat_draw(ptr noundef %0) #6 {
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts4 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str.10, ptr %3
@@ -392,7 +392,7 @@ define internal fastcc void @phs_draw(ptr noundef readonly %0, i32 noundef %1) u
 
 .lr.ph26.split.us:                                ; preds = %.lr.ph26, %..loopexit_crit_edge.us
   %.02025.us = phi ptr [ %35, %..loopexit_crit_edge.us ], [ %0, %.lr.ph26 ]
-  %6 = getelementptr inbounds i8, ptr %.02025.us, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.02025.us, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %._crit_edge, label %.lr.ph.us
@@ -429,15 +429,15 @@ define internal fastcc void @phs_draw(ptr noundef readonly %0, i32 noundef %1) u
   %22 = getelementptr i8, ptr %3, i64 %21
   %23 = sub i32 80, %.1.us
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %.02025.us, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.02025.us, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @.str.13, ptr noundef %26) #10
-  %28 = getelementptr inbounds i8, ptr %.02025.us, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.02025.us, i64 48
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.02025.us, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.02025.us, i64 56
   %31 = load i64, ptr %30, align 8
   %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %3, i32 noundef %29, i64 noundef %31)
-  %33 = getelementptr inbounds i8, ptr %.02025.us, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.02025.us, i64 8
   %34 = load ptr, ptr %33, align 8
   call fastcc void @phs_draw(ptr noundef %34, i32 noundef %5)
   %35 = load ptr, ptr %.02025.us, align 8
@@ -446,22 +446,22 @@ define internal fastcc void @phs_draw(ptr noundef readonly %0, i32 noundef %1) u
 
 .lr.ph26.split:                                   ; preds = %.lr.ph26, %.loopexit
   %.02025 = phi ptr [ %49, %.loopexit ], [ %0, %.lr.ph26 ]
-  %36 = getelementptr inbounds i8, ptr %.02025, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.02025, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %._crit_edge, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph26.split
   store i8 0, ptr %3, align 16
-  %39 = getelementptr inbounds i8, ptr %.02025, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.02025, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 80, ptr noundef nonnull @.str.13, ptr noundef %40) #10
-  %42 = getelementptr inbounds i8, ptr %.02025, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.02025, i64 48
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.02025, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.02025, i64 56
   %45 = load i64, ptr %44, align 8
   %46 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %3, i32 noundef %43, i64 noundef %45)
-  %47 = getelementptr inbounds i8, ptr %.02025, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.02025, i64 8
   %48 = load ptr, ptr %47, align 8
   call fastcc void @phs_draw(ptr noundef %48, i32 noundef %5)
   %49 = load ptr, ptr %.02025, align 8

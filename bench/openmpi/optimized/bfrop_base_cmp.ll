@@ -100,8 +100,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc247 = load i8, ptr %7, align 1
   %rhsc248 = load i8, ptr %8, align 1
   %9 = icmp ult i8 %lhsc247, %rhsc248
@@ -113,8 +113,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc244 = load i8, ptr %12, align 1
   %rhsc245 = load i8, ptr %13, align 1
   %14 = icmp ult i8 %lhsc244, %rhsc245
@@ -126,16 +126,16 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call fastcc i32 @cmp_string(ptr noundef %18, ptr noundef %20)
   br label %cmp_byte_object.exit
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %23, ptr noundef nonnull dereferenceable(8) %24, i64 noundef 8) #7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %cmp_byte_object.exit, label %27
@@ -146,8 +146,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %29, ptr noundef nonnull dereferenceable(4) %30, i64 noundef 4) #7
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %cmp_byte_object.exit, label %33
@@ -158,8 +158,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 34:                                               ; preds = %5, %5
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %35, ptr noundef nonnull dereferenceable(4) %36, i64 noundef 4) #7
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %cmp_byte_object.exit, label %39
@@ -170,8 +170,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 40:                                               ; preds = %5, %5
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc238 = load i8, ptr %41, align 1
   %rhsc239 = load i8, ptr %42, align 1
   %43 = icmp ult i8 %lhsc238, %rhsc239
@@ -183,8 +183,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 45:                                               ; preds = %5, %5, %5
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(2) %46, ptr noundef nonnull dereferenceable(2) %47, i64 noundef 2) #7
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %cmp_byte_object.exit, label %50
@@ -195,8 +195,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 51:                                               ; preds = %5, %5
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %52, ptr noundef nonnull dereferenceable(4) %53, i64 noundef 4) #7
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %cmp_byte_object.exit, label %56
@@ -207,8 +207,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 57:                                               ; preds = %5, %5, %5, %5, %5
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %58, ptr noundef nonnull dereferenceable(8) %59, i64 noundef 8) #7
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %cmp_byte_object.exit, label %62
@@ -219,8 +219,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 63:                                               ; preds = %5
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %64, ptr noundef nonnull dereferenceable(4) %65, i64 noundef 4) #7
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %cmp_byte_object.exit, label %68
@@ -231,8 +231,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 69:                                               ; preds = %5
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %70, ptr noundef nonnull dereferenceable(8) %71, i64 noundef 8) #7
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %cmp_byte_object.exit, label %74
@@ -243,8 +243,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 75:                                               ; preds = %5
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %76, ptr noundef nonnull dereferenceable(16) %77, i64 noundef 16) #7
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %cmp_byte_object.exit, label %80
@@ -255,8 +255,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 81:                                               ; preds = %5
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %82, ptr noundef nonnull dereferenceable(8) %83, i64 noundef 8) #7
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %cmp_byte_object.exit, label %86
@@ -267,8 +267,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 87:                                               ; preds = %5
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %88, ptr noundef nonnull dereferenceable(4) %89, i64 noundef 4) #7
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %cmp_byte_object.exit, label %92
@@ -279,8 +279,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 93:                                               ; preds = %5
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %94, ptr noundef nonnull dereferenceable(4) %95, i64 noundef 4) #7
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %cmp_byte_object.exit, label %98
@@ -291,9 +291,9 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 99:                                               ; preds = %5
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(256) %101, ptr noundef nonnull dereferenceable(256) %103, i64 noundef 256) #7
   %105 = icmp slt i32 %104, 0
@@ -305,9 +305,9 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 107:                                              ; preds = %5
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %1, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(260) %109, ptr noundef nonnull dereferenceable(260) %111, i64 noundef 260) #7
   %113 = icmp slt i32 %112, 0
@@ -319,11 +319,11 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 115:                                              ; preds = %5, %5, %5, %5
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %1, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = icmp eq i64 %119, %121
   br i1 %122, label %123, label %131
@@ -350,8 +350,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 133:                                              ; preds = %5
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc224 = load i8, ptr %134, align 1
   %rhsc225 = load i8, ptr %135, align 1
   %136 = icmp ult i8 %lhsc224, %rhsc225
@@ -363,8 +363,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 138:                                              ; preds = %5
-  %139 = getelementptr inbounds i8, ptr %0, i64 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc221 = load i8, ptr %139, align 1
   %rhsc222 = load i8, ptr %140, align 1
   %141 = icmp ult i8 %lhsc221, %rhsc222
@@ -376,8 +376,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 143:                                              ; preds = %5
-  %144 = getelementptr inbounds i8, ptr %0, i64 8
-  %145 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc218 = load i8, ptr %144, align 1
   %rhsc219 = load i8, ptr %145, align 1
   %146 = icmp ult i8 %lhsc218, %rhsc219
@@ -389,8 +389,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 148:                                              ; preds = %5
-  %149 = getelementptr inbounds i8, ptr %0, i64 8
-  %150 = getelementptr inbounds i8, ptr %1, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc215 = load i8, ptr %149, align 1
   %rhsc216 = load i8, ptr %150, align 1
   %151 = icmp ult i8 %lhsc215, %rhsc216
@@ -402,25 +402,25 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 153:                                              ; preds = %5
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %1, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = tail call fastcc i32 @cmp_proc_info(ptr noundef %155, ptr noundef %157)
   br label %cmp_byte_object.exit
 
 159:                                              ; preds = %5
-  %160 = getelementptr inbounds i8, ptr %0, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %1, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = tail call fastcc i32 @cmp_darray(ptr noundef %161, ptr noundef %163)
   br label %cmp_byte_object.exit
 
 165:                                              ; preds = %5
-  %166 = getelementptr inbounds i8, ptr %0, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %167, ptr noundef nonnull dereferenceable(8) %169, i64 noundef 8) #7
   %171 = icmp slt i32 %170, 0
@@ -432,8 +432,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 173:                                              ; preds = %5
-  %174 = getelementptr inbounds i8, ptr %0, i64 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc211 = load i8, ptr %174, align 1
   %rhsc212 = load i8, ptr %175, align 1
   %176 = icmp ult i8 %lhsc211, %rhsc212
@@ -445,8 +445,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 178:                                              ; preds = %5
-  %179 = getelementptr inbounds i8, ptr %0, i64 8
-  %180 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc208 = load i8, ptr %179, align 1
   %rhsc209 = load i8, ptr %180, align 1
   %181 = icmp ult i8 %lhsc208, %rhsc209
@@ -458,22 +458,22 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 183:                                              ; preds = %5
-  %184 = getelementptr inbounds i8, ptr %0, i64 8
-  %185 = getelementptr inbounds i8, ptr %1, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = tail call fastcc i32 @cmp_envar(ptr noundef nonnull %184, ptr noundef nonnull %185)
   br label %cmp_byte_object.exit
 
 187:                                              ; preds = %5
-  %188 = getelementptr inbounds i8, ptr %0, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = tail call fastcc i32 @cmp_coord(ptr noundef %189, ptr noundef %191)
   br label %cmp_byte_object.exit
 
 193:                                              ; preds = %5
-  %194 = getelementptr inbounds i8, ptr %0, i64 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc205 = load i8, ptr %194, align 1
   %rhsc206 = load i8, ptr %195, align 1
   %196 = icmp ult i8 %lhsc205, %rhsc206
@@ -485,8 +485,8 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 198:                                              ; preds = %5
-  %199 = getelementptr inbounds i8, ptr %0, i64 8
-  %200 = getelementptr inbounds i8, ptr %1, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %lhsc = load i8, ptr %199, align 1
   %rhsc = load i8, ptr %200, align 1
   %201 = icmp ult i8 %lhsc, %rhsc
@@ -498,24 +498,24 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 203:                                              ; preds = %5
-  %204 = getelementptr inbounds i8, ptr %0, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %1, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = tail call fastcc i32 @cmp_topo(ptr noundef %205, ptr noundef %207)
   br label %cmp_byte_object.exit
 
 209:                                              ; preds = %5
-  %210 = getelementptr inbounds i8, ptr %0, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = tail call fastcc i32 @cmp_cpuset(ptr noundef %211, ptr noundef %213)
   br label %cmp_byte_object.exit
 
 215:                                              ; preds = %5
-  %216 = getelementptr inbounds i8, ptr %0, i64 8
-  %217 = getelementptr inbounds i8, ptr %1, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %218 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(2) %216, ptr noundef nonnull dereferenceable(2) %217, i64 noundef 2) #7
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %cmp_byte_object.exit, label %220
@@ -526,16 +526,16 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 221:                                              ; preds = %5
-  %222 = getelementptr inbounds i8, ptr %0, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %225 = load ptr, ptr %224, align 8
   %226 = tail call fastcc i32 @cmp_geometry(ptr noundef %223, ptr noundef %225)
   br label %cmp_byte_object.exit
 
 227:                                              ; preds = %5
-  %228 = getelementptr inbounds i8, ptr %0, i64 8
-  %229 = getelementptr inbounds i8, ptr %1, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %228, ptr noundef nonnull dereferenceable(8) %229, i64 noundef 8) #7
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %cmp_byte_object.exit, label %232
@@ -546,17 +546,17 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 233:                                              ; preds = %5
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = tail call fastcc i32 @cmp_device(ptr noundef %235, ptr noundef %237)
   br label %cmp_byte_object.exit
 
 239:                                              ; preds = %5
-  %240 = getelementptr inbounds i8, ptr %0, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %1, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = load i64, ptr %241, align 8
   %245 = load i64, ptr %243, align 8
@@ -564,9 +564,9 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br i1 %.not.i277, label %246, label %cmp_byte_object.exit
 
 246:                                              ; preds = %239
-  %247 = getelementptr inbounds i8, ptr %241, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %248 = load i64, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %243, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %250 = load i64, ptr %249, align 8
   %251 = icmp ugt i64 %248, %250
   br i1 %251, label %cmp_byte_object.exit, label %252
@@ -577,65 +577,65 @@ define i32 @pmix_bfrops_base_value_cmp(ptr noundef readonly %0, ptr noundef read
   br label %cmp_byte_object.exit
 
 254:                                              ; preds = %5
-  %255 = getelementptr inbounds i8, ptr %0, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %1, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = tail call fastcc i32 @cmp_devdist(ptr noundef %256, ptr noundef %258)
   br label %cmp_byte_object.exit
 
 260:                                              ; preds = %5
-  %261 = getelementptr inbounds i8, ptr %0, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %1, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = tail call fastcc i32 @cmp_endpoint(ptr noundef %262, ptr noundef %264)
   br label %cmp_byte_object.exit
 
 266:                                              ; preds = %5
-  %267 = getelementptr inbounds i8, ptr %0, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %1, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %270 = load ptr, ptr %269, align 8
   %271 = tail call fastcc i32 @cmp_dbuf(ptr noundef %268, ptr noundef %270)
   br label %cmp_byte_object.exit
 
 272:                                              ; preds = %5
-  %273 = getelementptr inbounds i8, ptr %0, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %1, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %276 = load ptr, ptr %275, align 8
   %277 = tail call fastcc i32 @cmp_procstats(ptr noundef %274, ptr noundef %276)
   br label %cmp_byte_object.exit
 
 278:                                              ; preds = %5
-  %279 = getelementptr inbounds i8, ptr %0, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %1, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %282 = load ptr, ptr %281, align 8
   %283 = tail call fastcc i32 @cmp_diskstats(ptr noundef %280, ptr noundef %282)
   br label %cmp_byte_object.exit
 
 284:                                              ; preds = %5
-  %285 = getelementptr inbounds i8, ptr %0, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %1, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = tail call fastcc i32 @cmp_netstats(ptr noundef %286, ptr noundef %288)
   br label %cmp_byte_object.exit
 
 290:                                              ; preds = %5
-  %291 = getelementptr inbounds i8, ptr %0, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %1, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %294 = load ptr, ptr %293, align 8
   %295 = tail call fastcc i32 @cmp_nodestats(ptr noundef %292, ptr noundef %294)
   br label %cmp_byte_object.exit
 
 296:                                              ; preds = %5
-  %297 = getelementptr inbounds i8, ptr %0, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds i8, ptr %1, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %300 = load ptr, ptr %299, align 8
   %301 = tail call fastcc i32 @cmp_regattr(ptr noundef %298, ptr noundef %300)
   br label %cmp_byte_object.exit
@@ -689,9 +689,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_string(ptr noundef readonly %0, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 3) i32 @cmp_byte_object(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %16
@@ -733,10 +733,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr nocapture noundef 
   br i1 %.not, label %6, label %42
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %1, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %11 = load ptr, ptr %10, align 8
   br i1 %9, label %42, label %12
 
@@ -754,10 +754,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr nocapture noundef 
   br i1 %.not37, label %16, label %42
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 272
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %1, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %21 = load ptr, ptr %20, align 8
   br i1 %19, label %42, label %22
 
@@ -775,9 +775,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr nocapture noundef 
   br i1 %.not40, label %26, label %42
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 280
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %30 = load i32, ptr %29, align 8
   %31 = icmp sgt i32 %28, %30
   br i1 %31, label %42, label %32
@@ -787,9 +787,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr nocapture noundef 
   br i1 %33, label %42, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 284
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 284
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %36, %38
   br i1 %39, label %42, label %40
@@ -826,10 +826,10 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef read
   br i1 %.not, label %10, label %cmp_resunit.exit.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.tr855, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.tr855, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds i8, ptr %.tr504856, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.tr504856, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %13, label %17, label %18
@@ -842,9 +842,9 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef read
   br i1 %16, label %cmp_resunit.exit.thread, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.tr855, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.tr504856, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.tr504856, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ugt i64 %21, %23
   br i1 %24, label %cmp_resunit.exit.thread, label %25
@@ -926,11 +926,11 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef read
   br label %129
 
 .lr.ph873.preheader:                              ; preds = %29
-  %30 = getelementptr inbounds i8, ptr %.tr855, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
   br label %.lr.ph873
 
 .lr.ph878.preheader:                              ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.tr855, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
   br label %.lr.ph878
 
 32:                                               ; preds = %29
@@ -1131,7 +1131,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef read
   br label %cmp_resunit.exit.thread
 
 .lr.ph887.preheader:                              ; preds = %29
-  %119 = getelementptr inbounds i8, ptr %.tr855, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
   br label %.lr.ph887
 
 120:                                              ; preds = %.lr.ph887
@@ -1380,9 +1380,9 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly %0, ptr noundef read
   br i1 %.not.i, label %223, label %cmp_resunit.exit.thread
 
 223:                                              ; preds = %.preheader2793
-  %224 = getelementptr inbounds i8, ptr %219, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %225 = load i64, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %220, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %227 = load i64, ptr %226, align 8
   %228 = icmp ugt i64 %225, %227
   br i1 %228, label %cmp_resunit.exit.thread, label %cmp_resunit.exit
@@ -1483,7 +1483,7 @@ cmp_resunit.exit:                                 ; preds = %223
   br i1 %.not428, label %260, label %cmp_resunit.exit.thread
 
 .lr.ph858.preheader:                              ; preds = %29
-  %265 = getelementptr inbounds i8, ptr %.tr855, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
   br label %.lr.ph858
 
 266:                                              ; preds = %.lr.ph858
@@ -1554,10 +1554,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly %0, p
   br label %.thread
 
 16:                                               ; preds = %14, %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not32 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
   br i1 %.not32, label %26, label %21
@@ -1578,9 +1578,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly %0, p
   br i1 %.not33, label %27, label %.thread
 
 27:                                               ; preds = %26, %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i8, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i8, ptr %30, align 8
   %32 = icmp slt i8 %29, %31
   %spec.select = select i1 %32, i32 2, i32 0
@@ -1599,10 +1599,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr nocapture noundef read
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %.not12 = icmp eq i64 %10, 0
   br i1 %8, label %11, label %12
@@ -1614,9 +1614,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr nocapture noundef read
   br i1 %.not12, label %21, label %.thread
 
 .thread:                                          ; preds = %11, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = shl i64 %7, 2
   %18 = tail call i32 @memcmp(ptr noundef %14, ptr noundef %16, i64 noundef %17) #7
@@ -1654,10 +1654,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr nocapture noundef reado
   br i1 %.not30, label %11, label %33
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %14, label %18, label %19
@@ -1675,7 +1675,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr nocapture noundef reado
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @pmix_hwloc_print_topology(ptr noundef %25) #8
   %27 = icmp eq ptr %26, null
@@ -1723,14 +1723,14 @@ define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr nocapture noundef rea
   br i1 %.not24, label %11, label %26
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @pmix_hwloc_print_cpuset(ptr noundef %13) #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @pmix_hwloc_print_cpuset(ptr noundef %18) #8
   %20 = icmp eq ptr %19, null
@@ -1765,10 +1765,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %.not, label %5, label %cmp_coord.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not46 = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not47 = icmp eq ptr %9, null
   br i1 %.not46, label %15, label %10
@@ -1789,10 +1789,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %.not47, label %16, label %cmp_coord.exit.thread
 
 16:                                               ; preds = %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not49 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not50 = icmp eq ptr %20, null
   br i1 %.not49, label %26, label %21
@@ -1813,10 +1813,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %.not50, label %27, label %cmp_coord.exit.thread
 
 27:                                               ; preds = %26, %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -1829,9 +1829,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %33, label %cmp_coord.exit.thread, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = icmp ugt i64 %38, %40
   br i1 %41, label %cmp_coord.exit.thread, label %42
@@ -1859,10 +1859,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %.not.i, label %52, label %cmp_coord.exit.thread
 
 52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
-  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %57 = load i64, ptr %56, align 8
   %.not12.i = icmp eq i64 %57, 0
   br i1 %55, label %58, label %59
@@ -1874,9 +1874,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef r
   br i1 %.not12.i, label %cmp_coord.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %59, %58
-  %60 = getelementptr inbounds i8, ptr %48, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %49, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = shl i64 %54, 2
   %65 = tail call i32 @memcmp(ptr noundef %61, ptr noundef %63, i64 noundef %64) #7
@@ -1894,9 +1894,9 @@ cmp_coord.exit.thread:                            ; preds = %.thread.i, %59, %58
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %28
@@ -1924,10 +1924,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr nocapture noundef rea
   br i1 %.not23, label %16, label %28
 
 16:                                               ; preds = %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not26 = icmp eq ptr %20, null
   br i1 %.not25, label %26, label %21
@@ -1957,9 +1957,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr nocapture noundef rea
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %7, label %43
@@ -1987,10 +1987,10 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef re
   br i1 %.not35, label %16, label %43
 
 16:                                               ; preds = %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not37 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not38 = icmp eq ptr %20, null
   br i1 %.not37, label %26, label %21
@@ -2011,9 +2011,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef re
   br i1 %.not38, label %27, label %43
 
 27:                                               ; preds = %26, %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i16, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i16, ptr %30, align 8
   %32 = icmp ugt i16 %29, %31
   br i1 %32, label %43, label %33
@@ -2023,9 +2023,9 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef re
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 26
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %37 = load i16, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %1, i64 26
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %39 = load i16, ptr %38, align 2
   %40 = icmp ugt i16 %37, %39
   br i1 %40, label %43, label %41
@@ -2064,10 +2064,10 @@ define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr nocapture noundef r
   br i1 %.not23, label %11, label %cmp_byte_object.exit
 
 11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not25 = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not26 = icmp eq ptr %15, null
   br i1 %.not25, label %21, label %16
@@ -2088,11 +2088,11 @@ define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr nocapture noundef r
   br i1 %.not26, label %22, label %cmp_byte_object.exit
 
 22:                                               ; preds = %21, %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
   br i1 %29, label %30, label %38
@@ -2139,9 +2139,9 @@ define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr nocapture noundef reado
   br i1 %6, label %21, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %11, %13
   br i1 %14, label %21, label %15
@@ -2190,8 +2190,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %.not98, label %13, label %122
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(260) %14, ptr noundef nonnull dereferenceable(260) %15, i64 noundef 260) #7
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %122, label %18
@@ -2201,9 +2201,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %.not99, label %19, label %122
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 268
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 268
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %21, %23
   br i1 %24, label %122, label %25
@@ -2213,10 +2213,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %26, label %122, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %29 = load ptr, ptr %28, align 8
   %.not100 = icmp eq ptr %29, null
-  %30 = getelementptr inbounds i8, ptr %1, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %31 = load ptr, ptr %30, align 8
   %.not101 = icmp eq ptr %31, null
   br i1 %.not100, label %37, label %32
@@ -2237,9 +2237,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %.not101, label %38, label %122
 
 38:                                               ; preds = %37, %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 280
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %40 = load i8, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 280
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %42 = load i8, ptr %41, align 8
   %43 = icmp sgt i8 %40, %42
   br i1 %43, label %122, label %44
@@ -2249,8 +2249,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %45, label %122, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 288
-  %48 = getelementptr inbounds i8, ptr %1, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %49 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %47, ptr noundef nonnull dereferenceable(16) %48, i64 noundef 16) #7
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %122, label %51
@@ -2260,9 +2260,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %.not103, label %52, label %122
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 304
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %54 = load float, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 304
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %56 = load float, ptr %55, align 8
   %57 = fcmp ogt float %54, %56
   br i1 %57, label %122, label %58
@@ -2272,9 +2272,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %59, label %122, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 308
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 308
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %62, %64
   br i1 %65, label %122, label %66
@@ -2284,9 +2284,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %67, label %122, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 312
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %70 = load i16, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 312
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %72 = load i16, ptr %71, align 8
   %73 = icmp ugt i16 %70, %72
   br i1 %73, label %122, label %74
@@ -2296,9 +2296,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %75, label %122, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %0, i64 316
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %78 = load float, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 316
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %80 = load float, ptr %79, align 4
   %81 = fcmp ogt float %78, %80
   br i1 %81, label %122, label %82
@@ -2308,9 +2308,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %83, label %122, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 320
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %86 = load float, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 320
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %88 = load float, ptr %87, align 8
   %89 = fcmp ogt float %86, %88
   br i1 %89, label %122, label %90
@@ -2320,9 +2320,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %91, label %122, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %0, i64 324
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 324
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %96 = load float, ptr %95, align 4
   %97 = fcmp ogt float %94, %96
   br i1 %97, label %122, label %98
@@ -2332,9 +2332,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %99, label %122, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %0, i64 328
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %102 = load float, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 328
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %104 = load float, ptr %103, align 8
   %105 = fcmp ogt float %102, %104
   br i1 %105, label %122, label %106
@@ -2344,9 +2344,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %107, label %122, label %108
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %0, i64 332
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %110 = load i16, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %1, i64 332
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %112 = load i16, ptr %111, align 4
   %113 = icmp ugt i16 %110, %112
   br i1 %113, label %122, label %114
@@ -2356,8 +2356,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
   br i1 %115, label %122, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %0, i64 336
-  %118 = getelementptr inbounds i8, ptr %1, i64 336
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %119 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %117, ptr noundef nonnull dereferenceable(16) %118, i64 noundef 16) #7
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %122, label %121
@@ -2397,9 +2397,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %.not79, label %13, label %101
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %101, label %19
@@ -2409,9 +2409,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %20, label %101, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %101, label %27
@@ -2421,9 +2421,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %28, label %101, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = icmp ugt i64 %31, %33
   br i1 %34, label %101, label %35
@@ -2433,9 +2433,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %36, label %101, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = icmp ugt i64 %39, %41
   br i1 %42, label %101, label %43
@@ -2445,9 +2445,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %44, label %101, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %47, %49
   br i1 %50, label %101, label %51
@@ -2457,9 +2457,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %52, label %101, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load i64, ptr %56, align 8
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %101, label %59
@@ -2469,9 +2469,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %60, label %101, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %65 = load i64, ptr %64, align 8
   %66 = icmp ugt i64 %63, %65
   br i1 %66, label %101, label %67
@@ -2481,9 +2481,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %68, label %101, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %73 = load i64, ptr %72, align 8
   %74 = icmp ugt i64 %71, %73
   br i1 %74, label %101, label %75
@@ -2493,9 +2493,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %76, label %101, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %81 = load i64, ptr %80, align 8
   %82 = icmp ugt i64 %79, %81
   br i1 %82, label %101, label %83
@@ -2505,9 +2505,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %84, label %101, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %87, %89
   br i1 %90, label %101, label %91
@@ -2517,9 +2517,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
   br i1 %92, label %101, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %97 = load i64, ptr %96, align 8
   %98 = icmp ugt i64 %95, %97
   br i1 %98, label %101, label %99
@@ -2559,9 +2559,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %.not49, label %13, label %61
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %61, label %19
@@ -2571,9 +2571,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %20, label %61, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %61, label %27
@@ -2583,9 +2583,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %28, label %61, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = icmp ugt i64 %31, %33
   br i1 %34, label %61, label %35
@@ -2595,9 +2595,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %36, label %61, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = icmp ugt i64 %39, %41
   br i1 %42, label %61, label %43
@@ -2607,9 +2607,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %44, label %61, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %47, %49
   br i1 %50, label %61, label %51
@@ -2619,9 +2619,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load i64, ptr %56, align 8
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %61, label %59
@@ -2661,9 +2661,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %.not125, label %13, label %.loopexit
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load float, ptr %16, align 8
   %18 = fcmp ogt float %15, %17
   br i1 %18, label %.loopexit, label %19
@@ -2673,9 +2673,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = load float, ptr %24, align 4
   %26 = fcmp ogt float %23, %25
   br i1 %26, label %.loopexit, label %27
@@ -2685,9 +2685,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load float, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load float, ptr %32, align 8
   %34 = fcmp ogt float %31, %33
   br i1 %34, label %.loopexit, label %35
@@ -2697,9 +2697,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load float, ptr %40, align 4
   %42 = fcmp ogt float %39, %41
   br i1 %42, label %.loopexit, label %43
@@ -2709,9 +2709,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load float, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load float, ptr %48, align 8
   %50 = fcmp ogt float %47, %49
   br i1 %50, label %.loopexit, label %51
@@ -2721,9 +2721,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %1, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %57 = load float, ptr %56, align 4
   %58 = fcmp ogt float %55, %57
   br i1 %58, label %.loopexit, label %59
@@ -2733,9 +2733,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load float, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load float, ptr %64, align 8
   %66 = fcmp ogt float %63, %65
   br i1 %66, label %.loopexit, label %67
@@ -2745,9 +2745,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %1, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %73 = load float, ptr %72, align 4
   %74 = fcmp ogt float %71, %73
   br i1 %74, label %.loopexit, label %75
@@ -2757,9 +2757,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %79 = load float, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load float, ptr %80, align 8
   %82 = fcmp ogt float %79, %81
   br i1 %82, label %.loopexit, label %83
@@ -2769,9 +2769,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 44
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 44
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %89 = load float, ptr %88, align 4
   %90 = fcmp ogt float %87, %89
   br i1 %90, label %.loopexit, label %91
@@ -2781,9 +2781,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %92, label %.loopexit, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load float, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %97 = load float, ptr %96, align 8
   %98 = fcmp ogt float %95, %97
   br i1 %98, label %.loopexit, label %99
@@ -2793,8 +2793,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %100, label %.loopexit, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 56
-  %103 = getelementptr inbounds i8, ptr %1, i64 56
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %104 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %102, ptr noundef nonnull dereferenceable(16) %103, i64 noundef 16) #7
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %.loopexit, label %106
@@ -2804,19 +2804,19 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %.not126, label %107, label %.loopexit
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds i8, ptr %0, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %109 = load ptr, ptr %108, align 8
   %.not127 = icmp eq ptr %109, null
-  %110 = getelementptr inbounds i8, ptr %1, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   %. = select i1 %.not127, i32 2, i32 1
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %0, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %117 = load i64, ptr %116, align 8
   %118 = icmp ugt i64 %115, %117
   br i1 %118, label %.loopexit, label %119
@@ -2843,19 +2843,19 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
   br i1 %.not130, label %121, label %.loopexit
 
 ._crit_edge:                                      ; preds = %121, %.preheader133
-  %126 = getelementptr inbounds i8, ptr %0, i64 88
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %127 = load ptr, ptr %126, align 8
   %.not128 = icmp eq ptr %127, null
-  %128 = getelementptr inbounds i8, ptr %1, i64 88
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   %.147 = select i1 %.not128, i32 2, i32 1
   br i1 %130, label %.loopexit, label %131
 
 131:                                              ; preds = %._crit_edge
-  %132 = getelementptr inbounds i8, ptr %0, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %135 = load i64, ptr %134, align 8
   %136 = icmp ugt i64 %133, %135
   br i1 %136, label %.loopexit, label %137
@@ -2911,8 +2911,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef re
   br i1 %.not49, label %13, label %.loopexit
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %15) #7
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.loopexit, label %18
@@ -2922,9 +2922,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef re
   br i1 %.not50, label %19, label %.loopexit
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 520
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %21 = load i16, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 520
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %23 = load i16, ptr %22, align 8
   %24 = icmp ugt i16 %21, %23
   br i1 %24, label %.loopexit, label %25
@@ -2934,10 +2934,10 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef re
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  %31 = getelementptr inbounds i8, ptr %1, i64 528
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -2951,7 +2951,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef re
 
 36:                                               ; preds = %35
   %37 = tail call i32 @PMIx_Argv_count(ptr noundef nonnull %29) #8
-  %38 = getelementptr inbounds i8, ptr %1, i64 528
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @PMIx_Argv_count(ptr noundef %39) #8
   %41 = icmp sgt i32 %37, %40
@@ -2978,9 +2978,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef re
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %52) #7
   %54 = icmp slt i32 %53, 0
@@ -3013,8 +3013,8 @@ define internal fastcc i32 @cmp_info(ptr noundef nonnull %0, ptr noundef %1) unn
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 520
-  %8 = getelementptr inbounds i8, ptr %1, i64 520
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %9 = tail call i32 @pmix_bfrops_base_value_cmp(ptr noundef nonnull %7, ptr noundef nonnull %8)
   br label %10
 

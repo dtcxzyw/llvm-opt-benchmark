@@ -86,15 +86,15 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_check_driver_offered_feature(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit6, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %6 to i64
   br label %14
@@ -112,13 +112,13 @@ define dso_local void @virtio_check_driver_offered_feature(ptr nocapture noundef
   br i1 %17, label %.loopexit, label %12
 
 .loopexit6:                                       ; preds = %12, %2
-  %18 = getelementptr inbounds i8, ptr %4, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit4, label %21
 
 21:                                               ; preds = %.loopexit6
-  %22 = getelementptr inbounds i8, ptr %4, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit4, label %.preheader.preheader
@@ -150,17 +150,17 @@ define dso_local void @virtio_check_driver_offered_feature(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_config_changed(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %2) #8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %7 = load i8, ptr %6, align 1, !range !11, !noundef !12
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 1, ptr %10, align 2
   br label %18
 
@@ -169,7 +169,7 @@ define dso_local void @virtio_config_changed(ptr noundef %0) #0 align 16 {
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -179,7 +179,7 @@ define dso_local void @virtio_config_changed(ptr noundef %0) #0 align 16 {
   br label %18
 
 18:                                               ; preds = %17, %13, %11, %9
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #8
   ret void
 }
 
@@ -189,11 +189,11 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_add_status(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef %0) #8
   %11 = trunc i32 %1 to i8
@@ -204,9 +204,9 @@ define dso_local void @virtio_add_status(ptr noundef %0, i32 noundef %1) #0 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_reset_device(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #8
   ret void
@@ -214,13 +214,13 @@ define dso_local void @virtio_reset_device(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_virtio_driver(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !13
@@ -231,7 +231,7 @@ define dso_local i32 @register_virtio_driver(ptr noundef %0) #0 align 16 {
   unreachable
 
 10:                                               ; preds = %5, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @virtio_bus, ptr %11, align 8
   %12 = tail call i32 @driver_register(ptr noundef %0) #8
   ret i32 %12
@@ -251,48 +251,48 @@ declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_virtio_device(ptr noundef initializes((112, 120)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @virtio_bus, ptr %3, align 8
-  tail call void @device_initialize(ptr noundef %2) #8
+  tail call void @device_initialize(ptr noundef nonnull %2) #8
   %4 = tail call i32 @ida_alloc_range(ptr noundef nonnull @virtio_index_ida, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %1
   store i32 %4, ptr %0, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %4) #8
+  %7 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %4) #8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 768
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store volatile ptr %13, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 776
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store volatile ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef %0) #8
   %20 = tail call i32 @__SCT__might_resched() #8
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i8 %25(ptr noundef %0) #8
   %27 = or i8 %26, 1
   tail call void %23(ptr noundef %0, i8 noundef zeroext %27) #8
-  %28 = tail call i32 @device_add(ptr noundef %2) #8
+  %28 = tail call i32 @device_add(ptr noundef nonnull %2) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %44, label %30
 
@@ -305,11 +305,11 @@ define dso_local i32 @register_virtio_device(ptr noundef initializes((112, 120))
 33:                                               ; preds = %30, %1
   %34 = phi i32 [ %4, %1 ], [ %31, %30 ]
   %35 = tail call i32 @__SCT__might_resched() #8
-  %36 = getelementptr inbounds i8, ptr %0, i64 752
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i8 %41(ptr noundef %0) #8
   %43 = or i8 %42, -128
@@ -335,7 +335,7 @@ declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @is_virtio_device(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @virtio_bus
   ret i1 %4
@@ -344,8 +344,8 @@ define dso_local zeroext i1 @is_virtio_device(ptr nocapture noundef readonly %0)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @unregister_virtio_device(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @device_unregister(ptr noundef %3) #8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @device_unregister(ptr noundef nonnull %3) #8
   tail call void @ida_free(ptr noundef nonnull @virtio_index_ida, i32 noundef %2) #8
   ret void
 }
@@ -355,26 +355,26 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @virtio_device_freeze(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_raw_spin_lock_irq(ptr noundef %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %4) #8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %5, align 1
-  tail call void @_raw_spin_unlock_irq(ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 752
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %4) #8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef %0) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = lshr i8 %10, 7
   store i8 %12, ptr %11, align 4
   %13 = icmp eq ptr %3, null
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %3, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
@@ -386,7 +386,7 @@ define dso_local i32 @virtio_device_freeze(ptr noundef %0) #0 align 16 {
 
 21:                                               ; preds = %18, %14, %1
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -402,23 +402,23 @@ define dso_local i32 @virtio_device_freeze(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0) #8
   %8 = tail call i32 @__SCT__might_resched() #8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i8 %13(ptr noundef %0) #8
   %15 = or i8 %14, 1
   tail call void %11(ptr noundef %0, i8 noundef zeroext %15) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i8, ptr %16, align 4, !range !11, !noundef !12
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %28, label %19
@@ -426,9 +426,9 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 19:                                               ; preds = %1
   %20 = tail call i32 @__SCT__might_resched() #8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i8 %25(ptr noundef %0) #8
   %27 = or i8 %26, -128
@@ -442,15 +442,15 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 30:                                               ; preds = %28
   %31 = tail call i32 @__SCT__might_resched() #8
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i8 %36(ptr noundef %0) #8
   %38 = or i8 %37, 2
   tail call void %34(ptr noundef %0, i8 noundef zeroext %38) #8
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 %41(ptr noundef %0) #8
   %43 = icmp eq i32 %42, 0
@@ -463,7 +463,7 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %55, label %52
@@ -474,7 +474,7 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
   br i1 %54, label %55, label %90
 
 55:                                               ; preds = %52, %47
-  %56 = getelementptr inbounds i8, ptr %3, i64 232
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %._crit_edge, label %59
@@ -491,7 +491,7 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 
 62:                                               ; preds = %._crit_edge, %59
   %63 = phi ptr [ %.pre, %._crit_edge ], [ %.pre10, %59 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef %0) #8
   %67 = and i8 %66, 4
@@ -503,11 +503,11 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
   br label %70
 
 70:                                               ; preds = %69, %62
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_raw_spin_lock_irq(ptr noundef %71) #8
-  %72 = getelementptr inbounds i8, ptr %0, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %71) #8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 1, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %0, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %74 = load i8, ptr %73, align 2, !range !11, !noundef !12
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %84, label %76
@@ -518,7 +518,7 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
   br i1 %78, label %84, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 216
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 216
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %84, label %83
@@ -529,11 +529,11 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
 
 84:                                               ; preds = %83, %79, %76, %70
   store i8 0, ptr %73, align 2
-  tail call void @_raw_spin_unlock_irq(ptr noundef %71) #8
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %71) #8
   br label %100
 
 85:                                               ; preds = %59
-  %86 = getelementptr inbounds i8, ptr %.pre10, i64 144
+  %86 = getelementptr inbounds nuw i8, ptr %.pre10, i64 144
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %90, label %89
@@ -546,9 +546,9 @@ define dso_local i32 @virtio_device_restore(ptr noundef %0) #0 align 16 {
   %91 = phi i32 [ %42, %30 ], [ %45, %44 ], [ %53, %52 ], [ %60, %89 ], [ %60, %85 ]
   %92 = tail call i32 @__SCT__might_resched() #8
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = tail call zeroext i8 %97(ptr noundef %0) #8
   %99 = or i8 %98, -128
@@ -565,7 +565,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
   %2 = tail call i32 @__SCT__might_resched() #8
   %3 = load ptr, ptr @virtio_check_mem_acc_cb, align 8
   %4 = tail call zeroext i1 %3(ptr noundef %0) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 784
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967296
   %8 = icmp eq i64 %7, 0
@@ -575,8 +575,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str.16) #9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %11, ptr noundef nonnull @.str.16) #9
   br label %36
 
 12:                                               ; preds = %9
@@ -585,8 +585,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %16, ptr noundef nonnull @.str.17) #9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %16, ptr noundef nonnull @.str.17) #9
   br label %36
 
 17:                                               ; preds = %1
@@ -594,17 +594,17 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
 
 .thread:                                          ; preds = %12, %17
   %18 = tail call i32 @__SCT__might_resched() #8
-  %19 = getelementptr inbounds i8, ptr %0, i64 752
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i8 %24(ptr noundef %0) #8
   %26 = or i8 %25, 8
   tail call void %22(ptr noundef %0, i8 noundef zeroext %26) #8
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i8 %29(ptr noundef %0) #8
   %31 = zext i8 %30 to i32
@@ -613,8 +613,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %35, ptr noundef nonnull @.str.18, i32 noundef %31) #9
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %35, ptr noundef nonnull @.str.18, i32 noundef %31) #9
   br label %36
 
 36:                                               ; preds = %34, %.thread, %17, %15, %10
@@ -624,9 +624,9 @@ define internal fastcc noundef range(i32 -19, 1) i32 @virtio_features_ok(ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @virtio_device_ready(ptr noundef %0) unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef %0) #8
   %7 = and i8 %6, 4
@@ -641,7 +641,7 @@ define internal fastcc void @virtio_device_ready(ptr noundef %0) unnamed_addr #3
 
 10:                                               ; preds = %9, %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = or i8 %6, 4
   tail call void %13(ptr noundef %0, i8 noundef zeroext %14) #8
@@ -650,23 +650,23 @@ define internal fastcc void @virtio_device_ready(ptr noundef %0) unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtio_config_enable(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_raw_spin_lock_irq(ptr noundef %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %2) #8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = load i8, ptr %4, align 2, !range !11, !noundef !12
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -677,7 +677,7 @@ define internal fastcc void @virtio_config_enable(ptr noundef %0) unnamed_addr #
 
 16:                                               ; preds = %15, %11, %7, %1
   store i8 0, ptr %4, align 2
-  tail call void @_raw_spin_unlock_irq(ptr noundef %2) #8
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %2) #8
   ret void
 }
 
@@ -716,7 +716,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -746,7 +746,7 @@ define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noun
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %18, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %.critedge4, label %27
@@ -774,29 +774,29 @@ define internal i32 @virtio_uevent(ptr nocapture noundef readonly %0, ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @__SCT__might_resched() #8
   %6 = getelementptr i8, ptr %0, i64 736
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef %2) #8
   %13 = or i8 %12, 2
   tail call void %9(ptr noundef %2, i8 noundef zeroext %13) #8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(ptr noundef %2) #8
-  %18 = getelementptr inbounds i8, ptr %4, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit17, label %21
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %4, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -824,13 +824,13 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
 
 .loopexit17:                                      ; preds = %32, %1
   %38 = phi i64 [ 0, %1 ], [ %35, %32 ]
-  %39 = getelementptr inbounds i8, ptr %4, i64 168
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %.loopexit17
-  %43 = getelementptr inbounds i8, ptr %4, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit, label %.preheader
@@ -888,14 +888,14 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 80
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 %80(ptr noundef %2) #8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %4, i64 184
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %100, label %87
@@ -913,7 +913,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
   %97 = load ptr, ptr %96, align 8
   %98 = tail call i32 %97(ptr noundef %2) #8
   %99 = icmp eq i32 %98, 0
@@ -926,7 +926,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 136
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 136
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %111, label %108
@@ -937,7 +937,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   br i1 %110, label %111, label %.thread
 
 111:                                              ; preds = %108, %103
-  %112 = getelementptr inbounds i8, ptr %4, i64 192
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 %113(ptr noundef %2) #8
   %115 = icmp eq i32 %114, 0
@@ -945,7 +945,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   br i1 %115, label %117, label %130
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %116, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = tail call zeroext i8 %119(ptr noundef %2) #8
   %121 = and i8 %120, 4
@@ -957,7 +957,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   br label %124
 
 124:                                              ; preds = %123, %117
-  %125 = getelementptr inbounds i8, ptr %4, i64 200
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %129, label %128
@@ -971,7 +971,7 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   br label %144
 
 130:                                              ; preds = %111
-  %131 = getelementptr inbounds i8, ptr %116, i64 144
+  %131 = getelementptr inbounds nuw i8, ptr %116, i64 144
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %.thread, label %134
@@ -984,9 +984,9 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
   %135 = phi i32 [ %81, %77 ], [ %101, %100 ], [ %109, %108 ], [ %114, %134 ], [ %114, %130 ], [ %98, %94 ], [ %89, %87 ]
   %136 = tail call i32 @__SCT__might_resched() #8
   %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %137, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %141 = load ptr, ptr %140, align 8
   %142 = tail call zeroext i8 %141(ptr noundef %2) #8
   %143 = or i8 %142, -128
@@ -1001,19 +1001,19 @@ define internal i32 @virtio_dev_probe(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtio_dev_remove(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -8
   tail call void @_raw_spin_lock_irq(ptr noundef %5) #8
   %6 = getelementptr i8, ptr %0, i64 -11
   store i8 0, ptr %6, align 1
   tail call void @_raw_spin_unlock_irq(ptr noundef %5) #8
-  %7 = getelementptr inbounds i8, ptr %4, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %2) #8
   %9 = getelementptr i8, ptr %0, i64 736
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
@@ -1025,7 +1025,7 @@ define internal void @virtio_dev_remove(ptr noundef %0) #0 align 16 {
 
 15:                                               ; preds = %14, %1
   %16 = phi ptr [ %.pre, %14 ], [ %10, %1 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i8 %18(ptr noundef %2) #8
   %20 = icmp eq i8 %19, 0
@@ -1040,9 +1040,9 @@ define internal void @virtio_dev_remove(ptr noundef %0) #0 align 16 {
 22:                                               ; preds = %21, %15
   %23 = tail call i32 @__SCT__might_resched() #8
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i8 %28(ptr noundef %2) #8
   %30 = or i8 %29, 1
@@ -1076,7 +1076,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr noundef 
   %4 = getelementptr i8, ptr %0, i64 -16
   %5 = getelementptr i8, ptr %0, i64 736
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef %4) #8
   %10 = zext i8 %9 to i32

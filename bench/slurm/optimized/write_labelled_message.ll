@@ -56,7 +56,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   %.03950.us = phi i32 [ %.140.us, %37 ], [ %2, %17 ]
   %.04149.us = phi ptr [ %.243.us, %37 ], [ null, %17 ]
   %21 = zext nneg i32 %.03751.us to i64
-  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = zext nneg i32 %.03950.us to i64
   %24 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 10, i64 noundef %23) #8
   %25 = icmp eq ptr %24, null
@@ -89,7 +89,7 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   %.03751 = phi i32 [ %.138, %55 ], [ 0, %.thread ]
   %.03950 = phi i32 [ %.140, %55 ], [ %2, %.thread ]
   %39 = zext nneg i32 %.03751 to i64
-  %40 = getelementptr inbounds i8, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = zext nneg i32 %.03950 to i64
   %42 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %40, i32 noundef 10, i64 noundef %41) #8
   %43 = icmp eq ptr %42, null
@@ -237,7 +237,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @_write_line(i32 
   %.lcssa = phi i32 [ %33, %.preheader ], [ %43, %.backedge ]
   %45 = sub nsw i32 %.13850, %.lcssa
   %46 = and i64 %.lcssa47, 2147483647
-  %47 = getelementptr inbounds i8, ptr %.151, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %.151, i64 %46
   %48 = icmp sgt i32 %45, 0
   br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !8
 

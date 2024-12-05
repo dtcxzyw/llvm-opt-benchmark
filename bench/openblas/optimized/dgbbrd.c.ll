@@ -823,7 +823,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
   %548 = getelementptr i8, ptr %546, i64 16
   call void @dlartg_(ptr noundef %547, ptr noundef %548, ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef nonnull %25) #5
   %549 = load double, ptr %25, align 8, !tbaa !10
-  %550 = getelementptr inbounds double, ptr %36, i64 %544
+  %550 = getelementptr inbounds nuw double, ptr %36, i64 %544
   store double %549, ptr %550, align 8, !tbaa !10
   %551 = load i32, ptr %2, align 4, !tbaa !3
   %552 = sext i32 %551 to i64
@@ -837,7 +837,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
   %558 = getelementptr double, ptr %533, i64 %557
   %559 = load double, ptr %558, align 8, !tbaa !10
   %560 = fmul double %555, %559
-  %561 = getelementptr inbounds double, ptr %37, i64 %544
+  %561 = getelementptr inbounds nuw double, ptr %37, i64 %544
   store double %560, ptr %561, align 8, !tbaa !10
   %562 = load double, ptr %27, align 8, !tbaa !10
   %563 = load double, ptr %558, align 8, !tbaa !10
@@ -991,7 +991,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
   %657 = mul nsw i64 %656, %650
   %658 = getelementptr double, ptr %653, i64 %657
   %659 = load double, ptr %658, align 8, !tbaa !10
-  %660 = getelementptr inbounds double, ptr %37, i64 %655
+  %660 = getelementptr inbounds nuw double, ptr %37, i64 %655
   store double %659, ptr %660, align 8, !tbaa !10
   %661 = icmp eq i64 %656, %652
   br i1 %661, label %.loopexit23, label %654, !llvm.loop !22
@@ -1014,7 +1014,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
   %672 = mul nsw i64 %671, %664
   %673 = getelementptr double, ptr %669, i64 %672
   %674 = load double, ptr %673, align 8, !tbaa !10
-  %675 = getelementptr inbounds double, ptr %36, i64 %671
+  %675 = getelementptr inbounds nuw double, ptr %36, i64 %671
   store double %674, ptr %675, align 8, !tbaa !10
   %676 = add nuw nsw i64 %671, 1
   %677 = icmp eq i64 %676, %666
@@ -1047,7 +1047,7 @@ thread-pre-split16:                               ; preds = %128, %thread-pre-sp
   %690 = mul nsw i64 %689, %685
   %691 = getelementptr double, ptr %684, i64 %690
   %692 = load double, ptr %691, align 8, !tbaa !10
-  %693 = getelementptr inbounds double, ptr %36, i64 %689
+  %693 = getelementptr inbounds nuw double, ptr %36, i64 %689
   store double %692, ptr %693, align 8, !tbaa !10
   %694 = add nuw nsw i64 %689, 1
   %695 = icmp eq i64 %694, %687

@@ -68,10 +68,10 @@ define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr no
 
 23:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %17, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 2048
   %.not = icmp eq i16 %29, 0
@@ -84,83 +84,83 @@ define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr no
   br label %119
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %7, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, i8 0, i64 32, i1 false)
   %36 = load i8, ptr %5, align 1
   %37 = zext i8 %36 to i32
   %38 = mul nuw nsw i32 %37, 1000
-  %39 = getelementptr inbounds i8, ptr %5, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = mul nuw nsw i32 %41, 100
-  %43 = getelementptr inbounds i8, ptr %5, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = mul nuw nsw i32 %45, 10
-  %47 = getelementptr inbounds i8, ptr %5, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nsw i32 %38, -55228
   %51 = add nsw i32 %50, %42
   %52 = add nsw i32 %51, %46
   %53 = add nsw i32 %52, %49
-  %54 = getelementptr inbounds i8, ptr %7, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = mul nuw nsw i32 %57, 10
-  %59 = getelementptr inbounds i8, ptr %5, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = add nuw nsw i32 %61, -529
   %63 = add nsw i32 %62, %58
-  %64 = getelementptr inbounds i8, ptr %7, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = mul nuw nsw i32 %67, 10
-  %69 = getelementptr inbounds i8, ptr %5, i64 7
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %71, -528
   %73 = add nsw i32 %72, %68
-  %74 = getelementptr inbounds i8, ptr %7, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %73, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = mul nuw nsw i32 %77, 10
-  %79 = getelementptr inbounds i8, ptr %5, i64 9
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %81, -528
   %83 = add nsw i32 %82, %78
-  %84 = getelementptr inbounds i8, ptr %7, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 10
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = mul nuw nsw i32 %87, 10
-  %89 = getelementptr inbounds i8, ptr %5, i64 11
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, -528
   %93 = add nsw i32 %92, %88
-  %94 = getelementptr inbounds i8, ptr %7, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %5, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = mul nuw nsw i32 %97, 10
-  %99 = getelementptr inbounds i8, ptr %5, i64 13
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = add nuw nsw i32 %101, -528
   %103 = add nsw i32 %102, %98
   store i32 %103, ptr %7, align 8
-  %104 = getelementptr inbounds i8, ptr %7, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 -1, ptr %104, align 8
   %105 = call i64 @H5_make_time(ptr noundef nonnull %7) #9
   %106 = icmp eq i64 %105, -1
@@ -195,17 +195,17 @@ define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__mtime_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
   %6 = tail call ptr @gmtime(ptr noundef %4) #9
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1900
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, 1
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %6, align 8
   %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %9, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %19) #9
@@ -280,7 +280,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
   br label %56
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %20, 1
   br i1 %.not, label %25, label %21
@@ -309,7 +309,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
   br label %56
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %37 = icmp ugt ptr %36, %.ptr40
   br i1 %37, label %42, label %38
 
@@ -350,28 +350,28 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef readonly %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 1, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %8, align 1
   %10 = load i64, ptr %4, align 8
   %11 = trunc i64 %10 to i8
   store i8 %11, ptr %9, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %13 = load i64, ptr %4, align 8
   %14 = lshr i64 %13, 8
   %15 = trunc i64 %14 to i8
   store i8 %15, ptr %12, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %17 = load i64, ptr %4, align 8
   %18 = lshr i64 %17, 16
   %19 = trunc i64 %18 to i8
   store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 7
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %21 = load i64, ptr %4, align 8
   %22 = lshr i64 %21, 24
   %23 = trunc i64 %22 to i8

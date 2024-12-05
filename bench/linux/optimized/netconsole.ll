@@ -109,15 +109,15 @@ define internal void @cleanup_netconsole() #0 section ".exit.text" align 16 {
 .preheader:                                       ; preds = %5, %.preheader
   %10 = phi ptr [ %11, %.preheader ], [ %8, %5 ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   store volatile ptr %11, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
-  tail call void @netpoll_cleanup(ptr noundef %15) #11
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  tail call void @netpoll_cleanup(ptr noundef nonnull %15) #11
   tail call void @kfree(ptr noundef %10) #11
   %16 = icmp eq ptr %11, @target_list
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !5
@@ -161,22 +161,22 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   br i1 %11, label %47, label %12
 
 12:                                               ; preds = %.preheader8
-  %13 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr @.str.13, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
-  %15 = call i64 @strscpy(ptr noundef %14, ptr noundef nonnull @.str.14, i64 noundef 16) #11
-  %16 = getelementptr inbounds i8, ptr %10, i64 90
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %15 = call i64 @strscpy(ptr noundef nonnull %14, ptr noundef nonnull @.str.14, i64 noundef 16) #11
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 90
   store i16 6665, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %10, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 92
   store i16 6666, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 94
-  call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(6) %18, i8 -1, i64 6, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 94
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %18, i8 -1, i64 6, i1 false)
   %19 = load i8, ptr %7, align 1
   %20 = icmp eq i8 %19, 43
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %10, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 17
   store i8 1, ptr %22, align 1
   %23 = getelementptr i8, ptr %7, i64 1
   %.pr = load i8, ptr %23, align 1
@@ -189,7 +189,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %10, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %30 = load i8, ptr %29, align 1, !range !8, !noundef !9
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %34
@@ -199,25 +199,25 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   br label %47
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %10, i64 18
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 18
   store i8 1, ptr %35, align 2
   %36 = getelementptr i8, ptr %26, i64 1
   br label %37
 
 37:                                               ; preds = %34, %24
   %38 = phi ptr [ %36, %34 ], [ %26, %24 ]
-  %39 = getelementptr inbounds i8, ptr %10, i64 24
-  %40 = call i32 @netpoll_parse_options(ptr noundef %39, ptr noundef %38) #11
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %40 = call i32 @netpoll_parse_options(ptr noundef nonnull %39, ptr noundef %38) #11
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %37
-  %43 = call i32 @netpoll_setup(ptr noundef %39) #11
+  %43 = call i32 @netpoll_setup(ptr noundef nonnull %39) #11
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 1, ptr %46, align 8
   br label %51
 
@@ -239,7 +239,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   br label %81
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %52, i64 17
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 17
   %59 = load i8, ptr %58, align 1, !range !8, !noundef !9
   %60 = icmp eq i8 %59, 0
   %61 = select i1 %60, ptr getelementptr inbounds (i8, ptr @netconsole, i64 72), ptr getelementptr inbounds (i8, ptr @netconsole_ext, i64 72)
@@ -249,10 +249,10 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   store i16 %64, ptr %61, align 8
   %65 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @target_list_lock) #11
   %66 = load ptr, ptr @target_list, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %52, ptr %67, align 8
   store ptr %66, ptr %52, align 8
-  %68 = getelementptr inbounds i8, ptr %52, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @target_list, ptr %68, align 8
   store volatile ptr %52, ptr @target_list, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %65) #11
@@ -292,15 +292,15 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
 .preheader:                                       ; preds = %81, %.preheader
   %86 = phi ptr [ %87, %.preheader ], [ %84, %81 ]
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %89, ptr %90, align 8
   store volatile ptr %87, ptr %89, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %86, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %86, i64 24
-  call void @netpoll_cleanup(ptr noundef %91) #11
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  call void @netpoll_cleanup(ptr noundef nonnull %91) #11
   call void @kfree(ptr noundef %86) #11
   %92 = icmp eq ptr %87, @target_list
   br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !11
@@ -349,28 +349,28 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
 
 20:                                               ; preds = %.loopexit, %16
   %21 = phi ptr [ %14, %16 ], [ %91, %.loopexit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 17
   %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %21, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 352
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 352
   %33 = load volatile i64, ptr %32, align 8
   %34 = and i64 %33, 1
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %21, i64 18
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 18
   %38 = load i8, ptr %37, align 2, !range !8, !noundef !9
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %.thread
@@ -393,7 +393,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
 47:                                               ; preds = %40, %45
   %48 = phi ptr [ @send_ext_msg_udp.buf, %45 ], [ %1, %40 ]
   %49 = phi i32 [ %.reass, %45 ], [ %2, %40 ]
-  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef %48, i32 noundef %49) #11
+  tail call void @netpoll_send_udp(ptr noundef nonnull %30, ptr noundef %48, i32 noundef %49) #11
   br label %.loopexit
 
 50:                                               ; preds = %.thread, %40
@@ -459,7 +459,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   %87 = zext nneg i32 %80 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %86, i64 %87, i1 false)
   %88 = add i32 %80, %77
-  tail call void @netpoll_send_udp(ptr noundef %30, ptr noundef nonnull @send_ext_msg_udp.buf, i32 noundef %88) #11
+  tail call void @netpoll_send_udp(ptr noundef nonnull %30, ptr noundef nonnull @send_ext_msg_udp.buf, i32 noundef %88) #11
   %89 = add i32 %80, %75
   %90 = icmp slt i32 %89, %61
   br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !20
@@ -524,21 +524,21 @@ define internal void @write_msg(ptr nocapture readnone %0, ptr noundef %1, i32 n
 
 .split.us:                                        ; preds = %16, %31
   %18 = phi ptr [ %32, %31 ], [ %14, %16 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %.split.us
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i8, ptr %23, align 8, !range !8, !noundef !9
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 352
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 352
   %30 = load volatile i64, ptr %29, align 8
   br label %31
 
@@ -549,21 +549,21 @@ define internal void @write_msg(ptr nocapture readnone %0, ptr noundef %1, i32 n
 
 .split:                                           ; preds = %16, %.loopexit
   %34 = phi ptr [ %56, %.loopexit ], [ %14, %16 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 17
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 17
   %36 = load i8, ptr %35, align 1, !range !8, !noundef !9
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %.split
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load i8, ptr %39, align 8, !range !8, !noundef !9
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %34, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 352
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 352
   %46 = load volatile i64, ptr %45, align 8
   %47 = and i64 %46, 1
   %48 = icmp eq i64 %47, 0
@@ -573,7 +573,7 @@ define internal void @write_msg(ptr nocapture readnone %0, ptr noundef %1, i32 n
   %49 = phi i32 [ %54, %.preheader ], [ %2, %42 ]
   %50 = phi ptr [ %53, %.preheader ], [ %1, %42 ]
   %51 = tail call i32 @llvm.smin.i32(i32 %49, i32 1000)
-  tail call void @netpoll_send_udp(ptr noundef %43, ptr noundef %50, i32 noundef %51) #11
+  tail call void @netpoll_send_udp(ptr noundef nonnull %43, ptr noundef %50, i32 noundef %51) #11
   %52 = sext i32 %51 to i64
   %53 = getelementptr i8, ptr %50, i64 %52
   %54 = sub i32 %49, %51
@@ -610,7 +610,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
   br i1 %8, label %50, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 296
   switch i64 %1, label %.split14.us.thread [
     i64 11, label %.split.us
     i64 19, label %.split.us16.us.preheader
@@ -628,14 +628,14 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
   br label %21
 
 14:                                               ; preds = %.split18.us.us
-  %15 = getelementptr inbounds i8, ptr %31, i64 1280
+  %15 = getelementptr inbounds nuw i8, ptr %31, i64 1280
   %16 = load ptr, ptr %15, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #11, !srcloc !24
   br label %17
 
 17:                                               ; preds = %.split18.us.us, %14
   store ptr null, ptr %29, align 8
-  %18 = getelementptr inbounds i8, ptr %22, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %18, align 8
   %19 = load ptr, ptr @target_list, align 8
   %20 = icmp eq ptr %19, @target_list
@@ -643,7 +643,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
 
 21:                                               ; preds = %26, %.split.us16.us
   %22 = phi ptr [ %11, %.split.us16.us ], [ %27, %26 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %4
   br i1 %25, label %.split18.us.us, label %26
@@ -654,9 +654,9 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
   br i1 %28, label %.split14.us, label %21, !llvm.loop !25
 
 .split18.us.us:                                   ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %22, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %12) #11
-  tail call void @__netpoll_cleanup(ptr noundef %29) #11
+  tail call void @__netpoll_cleanup(ptr noundef nonnull %29) #11
   %30 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @target_list_lock) #11
   %31 = load ptr, ptr %29, align 8
   %32 = icmp eq ptr %31, null
@@ -664,14 +664,14 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
 
 .split.us:                                        ; preds = %9, %40
   %33 = phi ptr [ %41, %40 ], [ %7, %9 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %4
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %.split.us
-  %38 = getelementptr inbounds i8, ptr %33, i64 32
-  %39 = tail call i64 @strscpy(ptr noundef %38, ptr noundef %10, i64 noundef 16) #11
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %39 = tail call i64 @strscpy(ptr noundef nonnull %38, ptr noundef nonnull %10, i64 noundef 16) #11
   br label %40
 
 40:                                               ; preds = %37, %.split.us
@@ -709,7 +709,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr nocapture readnone %0, 
 
 47:                                               ; preds = %46, %45, %44, %43
   %48 = phi ptr [ @.str.4, %43 ], [ @.str.7, %46 ], [ @.str.6, %45 ], [ @.str.5, %44 ]
-  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %10, ptr noundef nonnull %48) #13
+  %49 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %10, ptr noundef nonnull %48) #13
   br label %51
 
 50:                                               ; preds = %5

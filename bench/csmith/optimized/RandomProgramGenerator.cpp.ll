@@ -510,13 +510,13 @@ sub_0:                                            ; preds = %.lr.ph
   br i1 %.not896, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %76 = getelementptr inbounds i8, ptr %72, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %77 = load i8, ptr %76, align 1
   %.not897 = icmp eq i8 %77, 104
   br i1 %.not897, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %78 = getelementptr inbounds i8, ptr %72, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %81, label %.tail.thread
@@ -945,13 +945,13 @@ sub_0653:                                         ; preds = %489
   br i1 %.not896, label %sub_1654, label %.tail652.thread.thread
 
 sub_1654:                                         ; preds = %sub_0653
-  %492 = getelementptr inbounds i8, ptr %72, i64 1
+  %492 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %493 = load i8, ptr %492, align 1
   %.not899 = icmp eq i8 %493, 118
   br i1 %.not899, label %.tail652, label %.tail652.thread
 
 .tail652:                                         ; preds = %sub_1654
-  %494 = getelementptr inbounds i8, ptr %72, i64 2
+  %494 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %495 = load i8, ptr %494, align 1
   %496 = icmp eq i8 %495, 0
   br i1 %496, label %497, label %.thread
@@ -980,13 +980,13 @@ sub_1654:                                         ; preds = %sub_0653
   br i1 %508, label %514, label %sub_1659
 
 sub_1659:                                         ; preds = %.tail652.thread, %.thread
-  %509 = getelementptr inbounds i8, ptr %72, i64 1
+  %509 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %510 = load i8, ptr %509, align 1
   %.not901 = icmp eq i8 %510, 115
   br i1 %.not901, label %.tail657, label %.tail657.thread
 
 .tail657:                                         ; preds = %sub_1659
-  %511 = getelementptr inbounds i8, ptr %72, i64 2
+  %511 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %512 = load i8, ptr %511, align 1
   %513 = icmp eq i8 %512, 0
   br i1 %513, label %514, label %.tail657.thread
@@ -1802,13 +1802,13 @@ sub_0663:                                         ; preds = %911
   br i1 %.not896, label %sub_1664, label %.tail662.thread
 
 sub_1664:                                         ; preds = %sub_0663
-  %914 = getelementptr inbounds i8, ptr %72, i64 1
+  %914 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %915 = load i8, ptr %914, align 1
   %.not903 = icmp eq i8 %915, 111
   br i1 %.not903, label %.tail662, label %.tail662.thread
 
 .tail662:                                         ; preds = %sub_1664
-  %916 = getelementptr inbounds i8, ptr %72, i64 2
+  %916 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %917 = load i8, ptr %916, align 1
   %918 = icmp eq i8 %917, 0
   br i1 %918, label %919, label %.tail662.thread
@@ -3904,11 +3904,11 @@ _ZL13parse_int_argPcPm.exit.thread:               ; preds = %_Z9arg_checkii.exit
 
 1932:                                             ; preds = %1926
   %1933 = load ptr, ptr %1928, align 8
-  %1934 = getelementptr inbounds i8, ptr %1933, i64 16
+  %1934 = getelementptr inbounds nuw i8, ptr %1933, i64 16
   %1935 = load ptr, ptr %1934, align 8
   call void %1935(ptr noundef nonnull align 8 dereferenceable(8) %1928)
   %1936 = load ptr, ptr %1928, align 8
-  %1937 = getelementptr inbounds i8, ptr %1936, i64 8
+  %1937 = getelementptr inbounds nuw i8, ptr %1936, i64 8
   %1938 = load ptr, ptr %1937, align 8
   call void %1938(ptr noundef nonnull align 8 dereferenceable(8) %1928) #9
   br label %1939

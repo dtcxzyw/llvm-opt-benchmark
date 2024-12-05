@@ -66,12 +66,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 0, i32 noundef -1)
   %3 = icmp eq ptr %2, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   br i1 %3, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %7, align 8
   br label %17
 
@@ -79,7 +79,7 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv(ptr 
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %2 to i64
   %.neg = sub i64 %10, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = trunc i64 %.neg to i32
   %14 = add i32 %12, %13
@@ -109,26 +109,26 @@ declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream10NextBufferEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %148, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not = icmp eq ptr %6, %9
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -16
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   store ptr %9, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %148
@@ -138,10 +138,10 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br label %148
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %23, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit
@@ -170,7 +170,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i: ; preds = %.lr.ph.i
   br label %54
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds i8, ptr %.027.ptr74.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.027.ptr74.i, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 7
@@ -241,7 +241,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br label %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.0.i.ptr101.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.ptr101.i, i64 1
   %63 = load i8, ptr %62, align 1
   %.not16.i.i = icmp sgt i8 %63, -1
   br i1 %.not16.i.i, label %64, label %.preheader.i
@@ -306,7 +306,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   br label %95
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds i8, ptr %.0.i.ptr101.i, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.ptr101.i, i64 4
   %87 = load i8, ptr %86, align 1
   %88 = icmp ugt i8 %87, 7
   br i1 %88, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, label %89
@@ -352,14 +352,14 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i: ; preds = 
   br i1 %105, label %.lr.ph.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread, !llvm.loop !8
 
 _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread: ; preds = %89, %85, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i, %56, %95, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i, %43, %65, %27
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  %107 = getelementptr inbounds i8, ptr %0, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %108
 
 108:                                              ; preds = %126, %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thread
   %109 = load ptr, ptr %106, align 8
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = call noundef zeroext i1 %112(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull %4, ptr noundef nonnull %107)
   br i1 %113, label %114, label %_ZN6google8protobuf8internal18EpsCopyInputStream10StreamNextEPPKv.exit
@@ -373,12 +373,12 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thr
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %0, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %121 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 1 dereferenceable(16) %121, i64 16, i1 false)
   store ptr %121, ptr %5, align 8
   store ptr %120, ptr %22, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %123 = load i64, ptr %122, align 8
   %124 = icmp ugt i64 %123, 1
   br i1 %124, label %125, label %148
@@ -392,14 +392,14 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit.thr
   br i1 %127, label %128, label %108, !llvm.loop !9
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %0, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = load ptr, ptr %4, align 8
   %131 = zext nneg i32 %115 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %129, ptr align 1 %130, i64 %131, i1 false)
   store ptr %9, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %9, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 %131
   store ptr %132, ptr %22, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %134 = load i64, ptr %133, align 8
   %135 = icmp ugt i64 %134, 1
   br i1 %135, label %136, label %148
@@ -413,7 +413,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream10StreamNextEPPKv.exit: ; preds 
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit
 
 _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit: ; preds = %101, %54, %_ZN6google8protobuf8internal18EpsCopyInputStream10StreamNextEPPKv.exit, %21
-  %137 = getelementptr inbounds i8, ptr %0, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %138 = load i64, ptr %137, align 8
   %139 = icmp eq i64 %138, 2
   br i1 %139, label %140, label %145
@@ -428,9 +428,9 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit: ; 
 
 145:                                              ; preds = %140, %_ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit
   store ptr null, ptr %5, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 56
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %146, ptr %22, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %147, align 8
   br label %148
 
@@ -441,13 +441,13 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121ParseEndsInSlopRegionEPKcii.exit: ; 
 
 ; Function Attrs: mustprogress uwtable
 define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %1, %5
   br i1 %6, label %31, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %.preheader, %15
@@ -463,7 +463,7 @@ define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallba
 12:                                               ; preds = %11
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %14, align 8
   br label %31
 
@@ -501,15 +501,15 @@ define { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallba
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream12SkipFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %7, %8
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %25, %3
@@ -532,7 +532,7 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream12SkipFallba
   br i1 %22, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %25
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %24, align 8
   store ptr %23, ptr %0, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_12SkipFallbackEPKciE3$_0EES5_S5_iRKT_.exit"
@@ -549,8 +549,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
   %31 = sext i32 %.sroa.speculated.i.i to i64
   %32 = getelementptr inbounds i8, ptr %23, i64 %31
   store ptr %32, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 16
-  %34 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %33 to i64
   %37 = sub i64 %35, %36
@@ -572,12 +572,12 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %10, %13
@@ -595,11 +595,11 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadString
 
 19:                                               ; preds = %15, %4
   %20 = phi ptr [ %.pre, %15 ], [ %7, %4 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %9
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %26
 
 26:                                               ; preds = %40, %19
@@ -625,7 +625,7 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadString
   br i1 %37, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %40
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %39, align 8
   store ptr %38, ptr %0, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EES5_S5_iRKT_.exit"
@@ -642,8 +642,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
   %46 = sext i32 %.sroa.speculated.i.i to i64
   %47 = getelementptr inbounds i8, ptr %38, i64 %46
   store ptr %47, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
-  %49 = getelementptr inbounds i8, ptr %38, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %48 to i64
   %52 = sub i64 %50, %51
@@ -673,12 +673,12 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream20AppendStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %10, %13
@@ -696,11 +696,11 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream20AppendStri
 
 19:                                               ; preds = %15, %4
   %20 = phi ptr [ %.pre, %15 ], [ %7, %4 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %9
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %26
 
 26:                                               ; preds = %40, %19
@@ -726,7 +726,7 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream20AppendStri
   br i1 %37, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i, label %40
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %39, align 8
   store ptr %38, ptr %0, align 8
   br label %"_ZN6google8protobuf8internal18EpsCopyInputStream10AppendSizeIZNS2_20AppendStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EES5_S5_iRKT_.exit"
@@ -743,8 +743,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i: ; preds =
   %46 = sext i32 %.sroa.speculated.i.i to i64
   %47 = getelementptr inbounds i8, ptr %38, i64 %46
   store ptr %47, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
-  %49 = getelementptr inbounds i8, ptr %38, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %48 to i64
   %52 = sub i64 %50, %51
@@ -788,19 +788,19 @@ define void @_ZN6google8protobuf8internal8byteswapILi8EEEvPv(ptr nocapture nound
 define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) initializes((28, 40)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 2147483647, ptr %6, align 4
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 %14, %12
   store i32 %15, ptr %13, align 4
@@ -814,15 +814,15 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPN
   %20 = add i32 %reass.sub, 16
   store i32 %20, ptr %6, align 4
   %21 = zext nneg i32 %12 to i64
-  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   store ptr %23, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 1
   br i1 %29, label %30, label %47
@@ -832,14 +832,14 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPN
   br label %47
 
 31:                                               ; preds = %11
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   store ptr %33, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = sext i32 %12 to i64
   %38 = sub nsw i64 0, %37
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
@@ -848,14 +848,14 @@ define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPN
   br label %47
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds i8, ptr %0, i64 84
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8
   store ptr %45, ptr %0, align 8
   br label %47
@@ -876,7 +876,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -887,7 +887,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -899,12 +899,12 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageINS0_11MessageLiteEEEPKcPT_S6_.exit, label %26
@@ -915,13 +915,13 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %2, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageINS0_11MessageLiteEEEPKcPT_S6_.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
   %storemerge.i.ph.i = phi ptr [ %32, %26 ], [ %21, %19 ], [ %8, %7 ]
   %.0.i.ph.i = phi i32 [ %30, %26 ], [ %17, %19 ], [ %5, %7 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %storemerge.i.ph.i to i64
   %37 = ptrtoint ptr %35 to i64
@@ -932,11 +932,11 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %41 = sext i32 %.sroa.speculated.i.i to i64
   %42 = getelementptr inbounds i8, ptr %35, i64 %41
   store ptr %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i32, ptr %43, align 4
   store i32 %40, ptr %43, align 4
   %45 = sub nsw i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 8
@@ -945,7 +945,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
 
 50:                                               ; preds = %33
   %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %55 = icmp eq ptr %54, null
@@ -955,7 +955,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %57 = load i32, ptr %46, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageINS0_11MessageLiteEEEPKcPT_S6_.exit
@@ -984,7 +984,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   br i1 %6, label %7, label %.preheader.i.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i.i
@@ -995,7 +995,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
 .preheader.i.i.i:                                 ; preds = %3, %9
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1007,12 +1007,12 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc.exit, label %26
@@ -1023,13 +1023,13 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %2, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
   %storemerge.i.ph.i.i = phi ptr [ %32, %26 ], [ %21, %19 ], [ %8, %7 ]
   %.0.i.ph.i.i = phi i32 [ %30, %26 ], [ %17, %19 ], [ %5, %7 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %storemerge.i.ph.i.i to i64
   %37 = ptrtoint ptr %35 to i64
@@ -1040,11 +1040,11 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %41 = sext i32 %.sroa.speculated.i.i.i to i64
   %42 = getelementptr inbounds i8, ptr %35, i64 %41
   store ptr %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i32, ptr %43, align 4
   store i32 %40, ptr %43, align 4
   %45 = sub nsw i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 8
@@ -1053,7 +1053,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
 
 50:                                               ; preds = %33
   %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %storemerge.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(112) %0)
   %55 = icmp eq ptr %54, null
@@ -1063,7 +1063,7 @@ define noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS
   %57 = load i32, ptr %46, align 8
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc.exit
@@ -1178,7 +1178,7 @@ define { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr no
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 2, %2 ], [ %indvars.iv.next, %3 ]
   %.02025 = phi i32 [ %1, %2 ], [ %12, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nsw i32 %7, -1
@@ -1190,8 +1190,8 @@ define { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr no
   br i1 %13, label %14, label %3
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %.loopexit
 
 17:                                               ; preds = %.preheader
@@ -1201,14 +1201,14 @@ define { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj(ptr no
 
 .preheader:                                       ; preds = %3, %17
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %17 ], [ 5, %3 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv35
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv35
   %19 = load i8, ptr %18, align 1
   %20 = icmp sgt i8 %19, -1
   br i1 %20, label %21, label %17
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv35
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %21, %14
@@ -1232,7 +1232,7 @@ define { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr no
 5:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 2, %2 ], [ %indvars.iv.next, %4 ]
   %.01114 = phi i64 [ %3, %2 ], [ %12, %4 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
   %9 = add nsw i64 %8, -1
@@ -1243,8 +1243,8 @@ define { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr no
   br i1 %13, label %14, label %4
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %14
@@ -1267,7 +1267,7 @@ define { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noun
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 2, %2 ], [ %indvars.iv.next, %3 ]
   %.01013 = phi i32 [ %1, %2 ], [ %12, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nsw i32 %7, -1
@@ -1279,8 +1279,8 @@ define { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noun
   br i1 %13, label %14, label %3
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %14
@@ -1303,7 +1303,7 @@ define { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr nou
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %3 ]
   %.01924 = phi i32 [ %1, %2 ], [ %12, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = add nsw i32 %7, -1
@@ -1315,12 +1315,12 @@ define { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr nou
   br i1 %13, label %14, label %3
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %28
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 1
   %20 = icmp ugt i8 %19, 7
   br i1 %20, label %28, label %21
@@ -1331,7 +1331,7 @@ define { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr nou
   %24 = add i32 %12, -268435456
   %25 = add i32 %24, %23
   %26 = icmp ugt i32 %25, 2147483631
-  %27 = getelementptr inbounds i8, ptr %0, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %spec.select = select i1 %26, ptr null, ptr %27
   %spec.select20 = select i1 %26, i32 0, i32 %25
   br label %28
@@ -1377,7 +1377,7 @@ define noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7
   br i1 %6, label %7, label %.preheader.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i
@@ -1388,7 +1388,7 @@ define noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7
 .preheader.i:                                     ; preds = %3, %9
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1400,12 +1400,12 @@ define noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %26
@@ -1416,16 +1416,16 @@ define noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %33
 
 33:                                               ; preds = %7, %19, %26
   %storemerge.i.ph = phi ptr [ %32, %26 ], [ %21, %19 ], [ %8, %7 ]
   %.0.i.ph = phi i32 [ %30, %26 ], [ %17, %19 ], [ %5, %7 ]
   %34 = sext i32 %.0.i.ph to i64
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %storemerge.i.ph to i64
   %40 = sub i64 %38, %39
@@ -1502,7 +1502,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1513,7 +1513,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1525,12 +1525,12 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1541,7 +1541,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1563,7 +1563,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1574,7 +1574,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1586,12 +1586,12 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1602,7 +1602,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1624,7 +1624,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1635,7 +1635,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1647,12 +1647,12 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1663,7 +1663,7 @@ define noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1685,7 +1685,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1696,7 +1696,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1708,12 +1708,12 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1724,7 +1724,7 @@ define noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1746,7 +1746,7 @@ define noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1757,7 +1757,7 @@ define noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1769,12 +1769,12 @@ define noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1785,7 +1785,7 @@ define noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1807,7 +1807,7 @@ define noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_1
   br i1 %6, label %7, label %.preheader.i.i
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %33
 
 9:                                                ; preds = %.preheader.i.i
@@ -1818,7 +1818,7 @@ define noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_1
 .preheader.i.i:                                   ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
   %.01924.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -1
@@ -1830,12 +1830,12 @@ define noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_1
   br i1 %18, label %19, label %9
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %33
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp ugt i8 %24, 7
   br i1 %25, label %_ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit, label %26
@@ -1846,7 +1846,7 @@ define noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_1
   %29 = add i32 %17, -268435456
   %30 = add i32 %29, %28
   %31 = icmp ugt i32 %30, 2147483631
-  %32 = getelementptr inbounds i8, ptr %1, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %31, label %_ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit, label %33
 
 33:                                               ; preds = %26, %19, %7
@@ -1870,9 +1870,9 @@ define noundef ptr @_ZN6google8protobuf8internal21UnknownGroupLiteParseEPNSt7__c
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_28UnknownFieldLiteParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   br label %7
 
 7:                                                ; preds = %81, %3
@@ -1894,7 +1894,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16WireFormatParserI
 
 19:                                               ; preds = %11
   %20 = icmp sgt i32 %16, 0
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %or.cond.i.i = select i1 %20, i1 %23, i1 false
@@ -1918,7 +1918,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal16WireFormatParserI
 29:                                               ; preds = %28
   %30 = load ptr, ptr %5, align 8
   store ptr %30, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 1, ptr %31, align 8
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -1951,7 +1951,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %7, %45
   %48 = load i8, ptr %.1, align 1
   %49 = zext i8 %48 to i32
   %50 = icmp sgt i8 %48, -1
-  %51 = getelementptr inbounds i8, ptr %.1, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br i1 %50, label %74, label %52
 
 52:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
@@ -1964,7 +1964,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %7, %45
   br i1 %58, label %59, label %.preheader.i
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.1, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   br label %74
 
 61:                                               ; preds = %.preheader.i
@@ -1975,7 +1975,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %7, %45
 .preheader.i:                                     ; preds = %52, %61
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 2, %52 ]
   %.01013.i.i = phi i32 [ %69, %61 ], [ %57, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.1, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = add nsw i32 %64, -1
@@ -1987,8 +1987,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %7, %45
   br i1 %70, label %71, label %61
 
 71:                                               ; preds = %.preheader.i
-  %72 = getelementptr inbounds i8, ptr %.1, i64 %indvars.iv.i.i
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   br label %74
 
 74:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %59, %71
@@ -2002,7 +2002,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %7, %45
 
 78:                                               ; preds = %74
   %79 = add i32 %.013.ph, -1
-  %80 = getelementptr inbounds i8, ptr %2, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %79, ptr %80, align 8
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
@@ -2055,11 +2055,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_2
 
 15:                                               ; preds = %13
   %16 = zext nneg i8 %14 to i64
-  %17 = getelementptr inbounds i8, ptr %2, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %39
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %2, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 7
@@ -2070,7 +2070,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_2
   br i1 %.not16.i, label %25, label %.preheader
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %2, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %39
 
 27:                                               ; preds = %.preheader
@@ -2081,7 +2081,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_2
 .preheader:                                       ; preds = %18, %27
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %27 ], [ 2, %18 ]
   %.01114.i.i.i = phi i64 [ %34, %27 ], [ %24, %18 ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = add nsw i64 %30, -1
@@ -2092,8 +2092,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_2
   br i1 %35, label %36, label %27
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   br label %39
 
 39:                                               ; preds = %25, %15, %36
@@ -2143,7 +2143,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
 
 58:                                               ; preds = %11
   %.0.copyload.i.i = load i64, ptr %2, align 1
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %60 = load ptr, ptr %1, align 8
   %61 = icmp eq ptr %60, null
@@ -2209,7 +2209,7 @@ _ZN6google8protobuf8internal28UnknownFieldLiteParserHelper10AddFixed64Ejm.exit: 
 
 84:                                               ; preds = %11
   %.0.copyload.i.i42 = load i32, ptr %2, align 1
-  %85 = getelementptr inbounds i8, ptr %2, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %86 = load ptr, ptr %1, align 8
   %87 = icmp eq ptr %86, null
@@ -2274,7 +2274,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -2285,7 +2285,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -2297,12 +2297,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -2313,13 +2313,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -2329,7 +2329,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %130
@@ -2348,11 +2348,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -2363,7 +2363,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -2374,7 +2374,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -2385,8 +2385,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -2433,11 +2433,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
 
 89:                                               ; preds = %.lr.ph.i41
   %90 = zext nneg i8 %88 to i64
-  %91 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %113
 
 92:                                               ; preds = %.lr.ph.i41
-  %93 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
   %96 = shl nuw nsw i64 %95, 7
@@ -2448,7 +2448,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %.not16.i.i44, label %99, label %.preheader.i46
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %113
 
 101:                                              ; preds = %.preheader.i46
@@ -2459,7 +2459,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
 .preheader.i46:                                   ; preds = %92, %101
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %101 ], [ 2, %92 ]
   %.01114.i.i.i.i48 = phi i64 [ %108, %101 ], [ %98, %92 ]
-  %102 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %102 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i64
   %105 = add nsw i64 %104, -1
@@ -2470,8 +2470,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %109, label %110, label %101
 
 110:                                              ; preds = %.preheader.i46
-  %111 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   br label %113
 
 113:                                              ; preds = %110, %99, %89
@@ -2510,7 +2510,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %127, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %130
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %129, align 8
   store ptr %128, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -2552,11 +2552,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 147:                                              ; preds = %.lr.ph.i55
   %148 = zext nneg i8 %146 to i64
-  %149 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %171
 
 150:                                              ; preds = %.lr.ph.i55
-  %151 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i64
   %154 = shl nuw nsw i64 %153, 7
@@ -2567,7 +2567,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %157, label %.preheader.i60
 
 157:                                              ; preds = %150
-  %158 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %171
 
 159:                                              ; preds = %.preheader.i60
@@ -2578,7 +2578,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %150, %159
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %159 ], [ 2, %150 ]
   %.01114.i.i.i.i62 = phi i64 [ %166, %159 ], [ %156, %150 ]
-  %160 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %160 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
   %163 = add nsw i64 %162, -1
@@ -2589,8 +2589,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %167, label %168, label %159
 
 168:                                              ; preds = %.preheader.i60
-  %169 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %170 = getelementptr inbounds i8, ptr %169, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
   br label %171
 
 171:                                              ; preds = %168, %157, %147
@@ -2632,7 +2632,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -2643,7 +2643,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -2655,12 +2655,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -2671,13 +2671,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -2687,7 +2687,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %130
@@ -2706,11 +2706,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -2721,7 +2721,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -2732,7 +2732,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -2743,8 +2743,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -2791,11 +2791,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
 
 89:                                               ; preds = %.lr.ph.i41
   %90 = zext nneg i8 %88 to i64
-  %91 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %113
 
 92:                                               ; preds = %.lr.ph.i41
-  %93 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
   %96 = shl nuw nsw i64 %95, 7
@@ -2806,7 +2806,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %.not16.i.i44, label %99, label %.preheader.i46
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %113
 
 101:                                              ; preds = %.preheader.i46
@@ -2817,7 +2817,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
 .preheader.i46:                                   ; preds = %92, %101
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %101 ], [ 2, %92 ]
   %.01114.i.i.i.i48 = phi i64 [ %108, %101 ], [ %98, %92 ]
-  %102 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %102 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i64
   %105 = add nsw i64 %104, -1
@@ -2828,8 +2828,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %109, label %110, label %101
 
 110:                                              ; preds = %.preheader.i46
-  %111 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   br label %113
 
 113:                                              ; preds = %110, %99, %89
@@ -2868,7 +2868,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %127, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %130
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %129, align 8
   store ptr %128, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -2910,11 +2910,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 147:                                              ; preds = %.lr.ph.i55
   %148 = zext nneg i8 %146 to i64
-  %149 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %171
 
 150:                                              ; preds = %.lr.ph.i55
-  %151 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i64
   %154 = shl nuw nsw i64 %153, 7
@@ -2925,7 +2925,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %157, label %.preheader.i60
 
 157:                                              ; preds = %150
-  %158 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %171
 
 159:                                              ; preds = %.preheader.i60
@@ -2936,7 +2936,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %150, %159
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %159 ], [ 2, %150 ]
   %.01114.i.i.i.i62 = phi i64 [ %166, %159 ], [ %156, %150 ]
-  %160 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %160 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
   %163 = add nsw i64 %162, -1
@@ -2947,8 +2947,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %167, label %168, label %159
 
 168:                                              ; preds = %.preheader.i60
-  %169 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %170 = getelementptr inbounds i8, ptr %169, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
   br label %171
 
 171:                                              ; preds = %168, %157, %147
@@ -2987,7 +2987,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -2998,7 +2998,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -3010,12 +3010,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -3026,13 +3026,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -3042,7 +3042,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %128
@@ -3061,11 +3061,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -3076,7 +3076,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -3087,7 +3087,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -3098,8 +3098,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -3145,11 +3145,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
 
 88:                                               ; preds = %.lr.ph.i41
   %89 = zext nneg i8 %87 to i64
-  %90 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %112
 
 91:                                               ; preds = %.lr.ph.i41
-  %92 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
   %95 = shl nuw nsw i64 %94, 7
@@ -3160,7 +3160,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %.not16.i.i44, label %98, label %.preheader.i46
 
 98:                                               ; preds = %91
-  %99 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %112
 
 100:                                              ; preds = %.preheader.i46
@@ -3171,7 +3171,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
 .preheader.i46:                                   ; preds = %91, %100
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %100 ], [ 2, %91 ]
   %.01114.i.i.i.i48 = phi i64 [ %107, %100 ], [ %97, %91 ]
-  %101 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %101 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i64
   %104 = add nsw i64 %103, -1
@@ -3182,8 +3182,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %108, label %109, label %100
 
 109:                                              ; preds = %.preheader.i46
-  %110 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %111 = getelementptr inbounds i8, ptr %110, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   br label %112
 
 112:                                              ; preds = %109, %98, %88
@@ -3221,7 +3221,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %125, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %128
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %0, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %127, align 8
   store ptr %126, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -3263,11 +3263,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 145:                                              ; preds = %.lr.ph.i55
   %146 = zext nneg i8 %144 to i64
-  %147 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %169
 
 148:                                              ; preds = %.lr.ph.i55
-  %149 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i64
   %152 = shl nuw nsw i64 %151, 7
@@ -3278,7 +3278,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %155, label %.preheader.i60
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %169
 
 157:                                              ; preds = %.preheader.i60
@@ -3289,7 +3289,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %148, %157
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %157 ], [ 2, %148 ]
   %.01114.i.i.i.i62 = phi i64 [ %164, %157 ], [ %154, %148 ]
-  %158 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %158 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i64
   %161 = add nsw i64 %160, -1
@@ -3300,8 +3300,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %165, label %166, label %157
 
 166:                                              ; preds = %.preheader.i60
-  %167 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %168 = getelementptr inbounds i8, ptr %167, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   br label %169
 
 169:                                              ; preds = %166, %155, %145
@@ -3339,7 +3339,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -3350,7 +3350,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -3362,12 +3362,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -3378,13 +3378,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -3394,7 +3394,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %128
@@ -3413,11 +3413,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -3428,7 +3428,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -3439,7 +3439,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -3450,8 +3450,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -3497,11 +3497,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
 
 88:                                               ; preds = %.lr.ph.i41
   %89 = zext nneg i8 %87 to i64
-  %90 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %112
 
 91:                                               ; preds = %.lr.ph.i41
-  %92 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
   %95 = shl nuw nsw i64 %94, 7
@@ -3512,7 +3512,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %.not16.i.i44, label %98, label %.preheader.i46
 
 98:                                               ; preds = %91
-  %99 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %112
 
 100:                                              ; preds = %.preheader.i46
@@ -3523,7 +3523,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
 .preheader.i46:                                   ; preds = %91, %100
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %100 ], [ 2, %91 ]
   %.01114.i.i.i.i48 = phi i64 [ %107, %100 ], [ %97, %91 ]
-  %101 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %101 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i64
   %104 = add nsw i64 %103, -1
@@ -3534,8 +3534,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %108, label %109, label %100
 
 109:                                              ; preds = %.preheader.i46
-  %110 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %111 = getelementptr inbounds i8, ptr %110, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   br label %112
 
 112:                                              ; preds = %109, %98, %88
@@ -3573,7 +3573,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %125, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %128
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %0, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %127, align 8
   store ptr %126, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -3615,11 +3615,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 145:                                              ; preds = %.lr.ph.i55
   %146 = zext nneg i8 %144 to i64
-  %147 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %169
 
 148:                                              ; preds = %.lr.ph.i55
-  %149 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i64
   %152 = shl nuw nsw i64 %151, 7
@@ -3630,7 +3630,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %155, label %.preheader.i60
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %169
 
 157:                                              ; preds = %.preheader.i60
@@ -3641,7 +3641,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %148, %157
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %157 ], [ 2, %148 ]
   %.01114.i.i.i.i62 = phi i64 [ %164, %157 ], [ %154, %148 ]
-  %158 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %158 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i64
   %161 = add nsw i64 %160, -1
@@ -3652,8 +3652,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %165, label %166, label %157
 
 166:                                              ; preds = %.preheader.i60
-  %167 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %168 = getelementptr inbounds i8, ptr %167, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   br label %169
 
 169:                                              ; preds = %166, %155, %145
@@ -3691,7 +3691,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -3702,7 +3702,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -3714,12 +3714,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -3730,13 +3730,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -3746,7 +3746,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %138
@@ -3765,11 +3765,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -3780,7 +3780,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -3791,7 +3791,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -3802,8 +3802,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -3854,11 +3854,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
 
 93:                                               ; preds = %.lr.ph.i41
   %94 = zext nneg i8 %92 to i64
-  %95 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %117
 
 96:                                               ; preds = %.lr.ph.i41
-  %97 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %99, 7
@@ -3869,7 +3869,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %.not16.i.i44, label %103, label %.preheader.i46
 
 103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %117
 
 105:                                              ; preds = %.preheader.i46
@@ -3880,7 +3880,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
 .preheader.i46:                                   ; preds = %96, %105
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %105 ], [ 2, %96 ]
   %.01114.i.i.i.i48 = phi i64 [ %112, %105 ], [ %102, %96 ]
-  %106 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %106 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i64
   %109 = add nsw i64 %108, -1
@@ -3891,8 +3891,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %113, label %114, label %105
 
 114:                                              ; preds = %.preheader.i46
-  %115 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %116 = getelementptr inbounds i8, ptr %115, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
   br label %117
 
 117:                                              ; preds = %114, %103, %93
@@ -3935,7 +3935,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %135, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %138
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %0, i64 80
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %137, align 8
   store ptr %136, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -3977,11 +3977,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 155:                                              ; preds = %.lr.ph.i55
   %156 = zext nneg i8 %154 to i64
-  %157 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %179
 
 158:                                              ; preds = %.lr.ph.i55
-  %159 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i64
   %162 = shl nuw nsw i64 %161, 7
@@ -3992,7 +3992,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %165, label %.preheader.i60
 
 165:                                              ; preds = %158
-  %166 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %166 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %179
 
 167:                                              ; preds = %.preheader.i60
@@ -4003,7 +4003,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %158, %167
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %167 ], [ 2, %158 ]
   %.01114.i.i.i.i62 = phi i64 [ %174, %167 ], [ %164, %158 ]
-  %168 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %168 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i64
   %171 = add nsw i64 %170, -1
@@ -4014,8 +4014,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %175, label %176, label %167
 
 176:                                              ; preds = %.preheader.i60
-  %177 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %178 = getelementptr inbounds i8, ptr %177, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 1
   br label %179
 
 179:                                              ; preds = %176, %165, %155
@@ -4056,7 +4056,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -4067,7 +4067,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -4079,12 +4079,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -4095,13 +4095,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -4111,7 +4111,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %136
@@ -4130,11 +4130,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -4145,7 +4145,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -4156,7 +4156,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -4167,8 +4167,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -4218,11 +4218,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
 
 92:                                               ; preds = %.lr.ph.i41
   %93 = zext nneg i8 %91 to i64
-  %94 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %116
 
 95:                                               ; preds = %.lr.ph.i41
-  %96 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %98, 7
@@ -4233,7 +4233,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %.not16.i.i44, label %102, label %.preheader.i46
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %116
 
 104:                                              ; preds = %.preheader.i46
@@ -4244,7 +4244,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
 .preheader.i46:                                   ; preds = %95, %104
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %104 ], [ 2, %95 ]
   %.01114.i.i.i.i48 = phi i64 [ %111, %104 ], [ %101, %95 ]
-  %105 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %105 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i64
   %108 = add nsw i64 %107, -1
@@ -4255,8 +4255,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %112, label %113, label %104
 
 113:                                              ; preds = %.preheader.i46
-  %114 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %115 = getelementptr inbounds i8, ptr %114, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
   br label %116
 
 116:                                              ; preds = %113, %102, %92
@@ -4298,7 +4298,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %133, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %136
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %0, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %135, align 8
   store ptr %134, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -4340,11 +4340,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 153:                                              ; preds = %.lr.ph.i55
   %154 = zext nneg i8 %152 to i64
-  %155 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %177
 
 156:                                              ; preds = %.lr.ph.i55
-  %157 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i64
   %160 = shl nuw nsw i64 %159, 7
@@ -4355,7 +4355,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %163, label %.preheader.i60
 
 163:                                              ; preds = %156
-  %164 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %164 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %177
 
 165:                                              ; preds = %.preheader.i60
@@ -4366,7 +4366,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %156, %165
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %165 ], [ 2, %156 ]
   %.01114.i.i.i.i62 = phi i64 [ %172, %165 ], [ %162, %156 ]
-  %166 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %166 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i64
   %169 = add nsw i64 %168, -1
@@ -4377,8 +4377,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %173, label %174, label %165
 
 174:                                              ; preds = %.preheader.i60
-  %175 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %176 = getelementptr inbounds i8, ptr %175, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   br label %177
 
 177:                                              ; preds = %174, %163, %153
@@ -4418,7 +4418,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %10, label %11, label %.preheader.i
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %37
 
 13:                                               ; preds = %.preheader.i
@@ -4429,7 +4429,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i:                                     ; preds = %3, %13
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %13 ], [ 1, %3 ]
   %.01924.i.i = phi i32 [ %21, %13 ], [ %9, %3 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -1
@@ -4441,12 +4441,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %37
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i8, ptr %27, align 1
   %29 = icmp ugt i8 %28, 7
   br i1 %29, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %30
@@ -4457,13 +4457,13 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   %33 = add i32 %21, -268435456
   %34 = add i32 %33, %32
   %35 = icmp ugt i32 %34, 2147483631
-  %36 = getelementptr inbounds i8, ptr %1, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 5
   br i1 %35, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %37
 
 37:                                               ; preds = %11, %23, %30
   %storemerge.i.ph = phi ptr [ %36, %30 ], [ %25, %23 ], [ %12, %11 ]
   %.0.i.ph = phi i32 [ %34, %30 ], [ %21, %23 ], [ %9, %11 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %storemerge.i.ph to i64
@@ -4473,7 +4473,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %45
 
 45:                                               ; preds = %.lr.ph, %132
@@ -4492,11 +4492,11 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 
 49:                                               ; preds = %.lr.ph.i
   %50 = zext nneg i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   br label %73
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.0618.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw nsw i64 %55, 7
@@ -4507,7 +4507,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %.not16.i.i, label %59, label %.preheader.i39
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %.0618.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 2
   br label %73
 
 61:                                               ; preds = %.preheader.i39
@@ -4518,7 +4518,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
 .preheader.i39:                                   ; preds = %52, %61
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %61 ], [ 2, %52 ]
   %.01114.i.i.i.i = phi i64 [ %68, %61 ], [ %58, %52 ]
-  %62 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = add nsw i64 %64, -1
@@ -4529,8 +4529,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %69, label %70, label %61
 
 70:                                               ; preds = %.preheader.i39
-  %71 = getelementptr inbounds i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0618.i, i64 %indvars.iv.i.i.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   br label %73
 
 73:                                               ; preds = %70, %59, %49
@@ -4578,11 +4578,11 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
 
 90:                                               ; preds = %.lr.ph.i41
   %91 = zext nneg i8 %89 to i64
-  %92 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   br label %114
 
 93:                                               ; preds = %.lr.ph.i41
-  %94 = getelementptr inbounds i8, ptr %.0618.i42, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
   %97 = shl nuw nsw i64 %96, 7
@@ -4593,7 +4593,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %.not16.i.i44, label %100, label %.preheader.i46
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %.0618.i42, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 2
   br label %114
 
 102:                                              ; preds = %.preheader.i46
@@ -4604,7 +4604,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
 .preheader.i46:                                   ; preds = %93, %102
   %indvars.iv.i.i.i.i47 = phi i64 [ %indvars.iv.next.i.i.i.i49, %102 ], [ 2, %93 ]
   %.01114.i.i.i.i48 = phi i64 [ %109, %102 ], [ %99, %93 ]
-  %103 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %103 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i64
   %106 = add nsw i64 %105, -1
@@ -4615,8 +4615,8 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %110, label %111, label %102
 
 111:                                              ; preds = %.preheader.i46
-  %112 = getelementptr inbounds i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.0618.i42, i64 %indvars.iv.i.i.i.i47
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   br label %114
 
 114:                                              ; preds = %111, %100, %90
@@ -4656,7 +4656,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %129, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %132
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 80
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %131, align 8
   store ptr %130, ptr %0, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -4698,11 +4698,11 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 
 149:                                              ; preds = %.lr.ph.i55
   %150 = zext nneg i8 %148 to i64
-  %151 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   br label %173
 
 152:                                              ; preds = %.lr.ph.i55
-  %153 = getelementptr inbounds i8, ptr %.0618.i56, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 1
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i64
   %156 = shl nuw nsw i64 %155, 7
@@ -4713,7 +4713,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %.not16.i.i58, label %159, label %.preheader.i60
 
 159:                                              ; preds = %152
-  %160 = getelementptr inbounds i8, ptr %.0618.i56, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 2
   br label %173
 
 161:                                              ; preds = %.preheader.i60
@@ -4724,7 +4724,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
 .preheader.i60:                                   ; preds = %152, %161
   %indvars.iv.i.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i.i63, %161 ], [ 2, %152 ]
   %.01114.i.i.i.i62 = phi i64 [ %168, %161 ], [ %158, %152 ]
-  %162 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %162 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i64
   %165 = add nsw i64 %164, -1
@@ -4735,8 +4735,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   br i1 %169, label %170, label %161
 
 170:                                              ; preds = %.preheader.i60
-  %171 = getelementptr inbounds i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
-  %172 = getelementptr inbounds i8, ptr %171, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.0618.i56, i64 %indvars.iv.i.i.i.i61
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 1
   br label %173
 
 173:                                              ; preds = %170, %159, %149
@@ -4766,9 +4766,9 @@ declare void @_ZN6google8protobuf13RepeatedFieldIbE3AddERKb(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIjEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -4777,7 +4777,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -4808,7 +4808,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -4829,7 +4829,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -4866,9 +4866,9 @@ declare noundef ptr @_ZN6google8protobuf13RepeatedFieldIjE19AddNAlreadyReservedE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIiEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -4877,7 +4877,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -4908,7 +4908,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -4929,7 +4929,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -4966,9 +4966,9 @@ declare noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE19AddNAlreadyReservedE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedImEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -4977,7 +4977,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -5008,7 +5008,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -5029,7 +5029,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -5066,9 +5066,9 @@ declare noundef ptr @_ZN6google8protobuf13RepeatedFieldImE19AddNAlreadyReservedE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIlEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -5077,7 +5077,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -5108,7 +5108,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -5129,7 +5129,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -5166,9 +5166,9 @@ declare noundef ptr @_ZN6google8protobuf13RepeatedFieldIlE19AddNAlreadyReservedE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIfEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -5177,7 +5177,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -5208,7 +5208,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -5229,7 +5229,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -5266,9 +5266,9 @@ declare noundef ptr @_ZN6google8protobuf13RepeatedFieldIfE19AddNAlreadyReservedE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIdEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -5277,7 +5277,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -5308,7 +5308,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStrea
   br i1 %27, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread, label %30
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %29, align 8
   store ptr %28, ptr %0, align 8
   br label %.loopexit
@@ -5329,7 +5329,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread: ; preds = %
   %38 = add i32 %reass.sub, 16
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %26, i64 %39
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %40 to i64
   %44 = sub i64 %42, %43
@@ -5372,7 +5372,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   br i1 %7, label %8, label %.preheader.i
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %34
 
 10:                                               ; preds = %.preheader.i
@@ -5383,7 +5383,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
 .preheader.i:                                     ; preds = %4, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %4 ]
   %.01924.i.i = phi i32 [ %18, %10 ], [ %6, %4 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -1
@@ -5395,12 +5395,12 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   br i1 %19, label %20, label %10
 
 20:                                               ; preds = %.preheader.i
-  %21 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i.i
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   br label %34
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = load i8, ptr %24, align 1
   %26 = icmp ugt i8 %25, 7
   br i1 %26, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %27
@@ -5411,7 +5411,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   %30 = add i32 %18, -268435456
   %31 = add i32 %30, %29
   %32 = icmp ugt i32 %31, 2147483631
-  %33 = getelementptr inbounds i8, ptr %2, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 5
   br i1 %32, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit, label %34
 
 34:                                               ; preds = %8, %20, %27
@@ -5423,9 +5423,9 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
 
 37:                                               ; preds = %34
   %38 = sext i32 %.0.i.ph to i64
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %storemerge.i.ph to i64
   %44 = sub i64 %42, %43
@@ -5438,8 +5438,8 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
 
 47:                                               ; preds = %37
   %48 = trunc i64 %44 to i32
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
-  %50 = getelementptr inbounds i8, ptr %3, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %51
 
 51:                                               ; preds = %63, %47
@@ -5462,7 +5462,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal28UnknownFieldLiteP
   br i1 %60, label %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i, label %63
 
 _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i: ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %3, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 1, ptr %62, align 8
   store ptr %61, ptr %3, align 8
   br label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
@@ -5479,8 +5479,8 @@ _ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i: ; pre
   %69 = sext i32 %.sroa.speculated.i.i.i.i to i64
   %70 = getelementptr inbounds i8, ptr %61, i64 %69
   store ptr %70, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %59, i64 16
-  %72 = getelementptr inbounds i8, ptr %61, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %71 to i64
   %75 = sub i64 %73, %74
@@ -5532,9 +5532,9 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %98 = trunc nuw nsw i64 %.0.lcssa.i10 to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 noundef signext %98)
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %storemerge.i.ph to i64
   %105 = sub i64 %103, %104
@@ -5584,7 +5584,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %_ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %15 = getelementptr inbounds i8, ptr %3, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, -1
   store i32 %17, ptr %15, align 8
@@ -5593,7 +5593,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
 
 19:                                               ; preds = %._crit_edge
   %20 = or disjoint i32 %.pre, 3
-  %21 = getelementptr inbounds i8, ptr %3, i64 92
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -5604,7 +5604,7 @@ _ZN6google8protobuf8internal11WriteVarintEmPNSt7__cxx1112basic_stringIcSt11char_
   %27 = load i32, ptr %15, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %30 = load i32, ptr %29, align 8
   %31 = icmp ne i32 %30, %20
   store i32 0, ptr %29, align 8

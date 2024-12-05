@@ -39,12 +39,12 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %4) #18
   call void @jpeg_CreateDecompress(ptr noundef nonnull %4, i32 noundef 62, i64 noundef 632)
-  %6 = getelementptr inbounds i8, ptr %4, i64 632
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 632
   %7 = call ptr @jpeg_std_error(ptr noundef nonnull %6)
   store ptr %7, ptr %4, align 8, !tbaa !6
   store ptr @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr %6, align 8, !tbaa !17
   %8 = load ptr, ptr %0, align 8, !tbaa !21, !nonnull !23, !noundef !23
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = icmp sgt i32 %10, -1
   call void @llvm.assume(i1 %11)
@@ -70,11 +70,11 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
           to label %21 unwind label %17
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 148
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 148
   %23 = load i32, ptr %22, align 4, !tbaa !25
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !26
-  %26 = getelementptr inbounds i8, ptr %25, i64 584
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 584
   %27 = load i32, ptr %26, align 8, !tbaa !29
   %28 = icmp eq i32 %23, %27
   br i1 %28, label %32, label %29
@@ -88,10 +88,10 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   unreachable
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %4, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %34 = load i32, ptr %33, align 8, !tbaa !88
   %35 = mul i32 %34, %23
-  %36 = getelementptr inbounds i8, ptr %4, i64 140
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %37 = load i32, ptr %36, align 4, !tbaa !89
   %38 = mul i32 %37, %35
   %39 = zext i32 %38 to i64
@@ -104,7 +104,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 
 43:                                               ; preds = %41
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %42, i8 0, i64 %39, i1 false), !tbaa !90
-  %44 = getelementptr inbounds i8, ptr %42, i64 %39
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %39
   %45 = load i32, ptr %22, align 4, !tbaa !25
   %46 = load i32, ptr %33, align 8, !tbaa !88
   %47 = load i32, ptr %36, align 4, !tbaa !89
@@ -134,7 +134,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %63 = icmp ne i32 %53, 0
   %64 = xor i1 %62, %63
   call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds i8, ptr %4, i64 168
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %66 = load i32, ptr %65, align 8, !tbaa !91
   %67 = icmp ult i32 %66, %53
   br i1 %67, label %68, label %.loopexit13
@@ -155,7 +155,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %75 = icmp ule i32 %74, %51
   call void @llvm.assume(i1 %75)
   %76 = zext nneg i32 %73 to i64
-  %77 = getelementptr inbounds i8, ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 %76
   store ptr %77, ptr %5, align 8, !tbaa !92
   %78 = invoke i32 @jpeg_read_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1)
           to label %79 unwind label %87
@@ -209,24 +209,24 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 
 98:                                               ; preds = %.loopexit13
   %99 = load ptr, ptr %24, align 8, !tbaa !26
-  %100 = getelementptr inbounds i8, ptr %99, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %101 = load i32, ptr %100, align 8, !tbaa !95
   %102 = load i32, ptr %33, align 8, !tbaa !96
-  %103 = getelementptr inbounds i8, ptr %99, i64 44
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 44
   %104 = load i32, ptr %103, align 4, !tbaa !97
   %105 = sub i32 %104, %2
   %106 = load i32, ptr %36, align 4, !tbaa !96
   %107 = call i32 @llvm.umin.i32(i32 %106, i32 %105)
-  %108 = getelementptr inbounds i8, ptr %99, i64 560
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 560
   %109 = load ptr, ptr %108, align 8, !tbaa !98, !noalias !99, !nonnull !23, !noundef !23
-  %110 = getelementptr inbounds i8, ptr %99, i64 584
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 584
   %111 = load i32, ptr %110, align 8, !tbaa !29, !noalias !99
-  %112 = getelementptr inbounds i8, ptr %99, i64 600
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 600
   %113 = load i32, ptr %112, align 8, !tbaa !102, !noalias !99
   %114 = mul nsw i32 %113, %111
-  %115 = getelementptr inbounds i8, ptr %99, i64 604
+  %115 = getelementptr inbounds nuw i8, ptr %99, i64 604
   %116 = load i32, ptr %115, align 4, !tbaa !103, !noalias !99
-  %117 = getelementptr inbounds i8, ptr %99, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %118 = load i32, ptr %117, align 8, !tbaa !104, !noalias !99
   %119 = ashr i32 %118, 1
   %120 = mul nuw nsw i32 %119, %116
@@ -271,8 +271,8 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %149 = getelementptr i8, ptr %109, i64 %148
   %150 = add nsw i64 %143, -1
   %151 = mul nuw nsw i64 %150, %142
-  %152 = add nuw nsw i64 %151, %144
-  %153 = getelementptr i8, ptr %55, i64 %152
+  %152 = getelementptr i8, ptr %55, i64 %151
+  %153 = getelementptr i8, ptr %152, i64 %144
   %154 = icmp samesign ult i32 %134, 8
   %155 = icmp samesign ult i32 %134, 32
   %156 = and i64 %144, 2147483616
@@ -307,7 +307,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %181 = add i32 %52, %180
   %182 = icmp ule i32 %181, %51
   call void @llvm.assume(i1 %182)
-  %183 = getelementptr inbounds i8, ptr %55, i64 %179
+  %183 = getelementptr inbounds nuw i8, ptr %55, i64 %179
   %184 = trunc nuw nsw i64 %177 to i32
   %185 = add i32 %2, %184
   %186 = icmp sgt i32 %185, -1
@@ -319,7 +319,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %190 = icmp samesign ule i32 %189, %120
   call void @llvm.assume(i1 %190)
   %191 = zext nneg i32 %188 to i64
-  %192 = getelementptr inbounds i16, ptr %109, i64 %191
+  %192 = getelementptr inbounds nuw i16, ptr %109, i64 %191
   br i1 %154, label %369, label %193
 
 193:                                              ; preds = %176
@@ -405,7 +405,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %237 = extractelement <16 x i1> %205, i64 15
   call void @llvm.assume(i1 %237)
   %238 = getelementptr inbounds i8, ptr %183, i64 %201
-  %239 = getelementptr inbounds i8, ptr %238, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load <16 x i8>, ptr %238, align 1, !tbaa !90, !alias.scope !105
   %241 = load <16 x i8>, ptr %239, align 1, !tbaa !90, !alias.scope !105
   %242 = add nuw nsw <16 x i64> %202, %160
@@ -548,7 +548,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %314 = getelementptr inbounds i16, ptr %192, i64 %313
   %315 = zext <16 x i8> %240 to <16 x i16>
   %316 = zext <16 x i8> %241 to <16 x i16>
-  %317 = getelementptr inbounds i8, ptr %314, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 32
   store <16 x i16> %315, ptr %314, align 2, !tbaa !108, !alias.scope !109, !noalias !105
   store <16 x i16> %316, ptr %317, align 2, !tbaa !108, !alias.scope !109, !noalias !105
   %318 = add nuw i64 %201, 32
@@ -648,7 +648,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %372 = phi i64 [ %383, %.preheader9 ], [ 0, %369 ]
   %373 = icmp samesign ult i64 %371, %138
   call void @llvm.assume(i1 %373)
-  %374 = getelementptr inbounds i8, ptr %183, i64 %371
+  %374 = getelementptr inbounds nuw i8, ptr %183, i64 %371
   %375 = load i8, ptr %374, align 1, !tbaa !90
   %376 = add nuw nsw i64 %371, %139
   %377 = and i64 %376, 2147483648
@@ -656,7 +656,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   call void @llvm.assume(i1 %378)
   %379 = icmp samesign ult i64 %376, %140
   call void @llvm.assume(i1 %379)
-  %380 = getelementptr inbounds i16, ptr %192, i64 %376
+  %380 = getelementptr inbounds nuw i16, ptr %192, i64 %376
   %381 = zext i8 %375 to i16
   store i16 %381, ptr %380, align 2, !tbaa !108
   %382 = add nuw nsw i64 %371, 1
@@ -887,7 +887,7 @@ define internal void @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(200) %2, i8 0, i64 200, i1 false)
   %3 = load ptr, ptr %0, align 8, !tbaa !124
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !126
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2)
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr noundef nonnull %2) #13

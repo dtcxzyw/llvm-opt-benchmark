@@ -18,17 +18,17 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @Agi_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef range(i32 16, -2147483648) i32 @llvm.smax.i32(i32 %0, i32 16)
   %3 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #15
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %2, ptr %4, align 8
   %5 = zext nneg i32 %2 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %6, ptr %7, align 8
   %8 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 4) #15
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %8, ptr %9, align 8
   store i64 -17179869190, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %10, align 4
   ret ptr %3
 }
@@ -38,7 +38,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Agi_ManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -49,7 +49,7 @@ define void @Agi_ManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not18 = icmp eq ptr %7, null
   br i1 %.not18, label %9, label %8
@@ -60,7 +60,7 @@ define void @Agi_ManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br label %9
 
 9:                                                ; preds = %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %13, label %12
@@ -71,7 +71,7 @@ define void @Agi_ManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br label %13
 
 13:                                               ; preds = %9, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not20 = icmp eq ptr %15, null
   br i1 %.not20, label %17, label %16
@@ -94,36 +94,36 @@ define noalias noundef ptr @Agi_ManFromGia(ptr nocapture noundef readonly %0) lo
   %.val = load i32, ptr %2, align 8
   %3 = tail call noundef range(i32 16, -2147483648) i32 @llvm.smax.i32(i32 %.val, i32 16)
   %4 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #15
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %3, ptr %5, align 8
   %6 = zext nneg i32 %3 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #15
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %7, ptr %8, align 8
   %9 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 4) #15
-  %10 = getelementptr inbounds i8, ptr %4, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %9, ptr %10, align 8
   store i64 -17179869190, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 1, ptr %11, align 4
   %12 = icmp sgt i32 %.val, 1
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %13 = getelementptr i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %15 = getelementptr i8, ptr %4, i64 44
-  %.phi.trans.insert.i.i30 = getelementptr inbounds i8, ptr %4, i64 48
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
-  %17 = getelementptr inbounds i8, ptr %4, i64 60
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %.phi.trans.insert.i.i30 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %19
 
 19:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %.val22 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val22, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val22, i64 %indvars.iv
   %.val23 = load i64, ptr %20, align 4
   %21 = and i64 %.val23, 2147483648
   %.not.i = icmp eq i64 %21, 0
@@ -331,7 +331,7 @@ Agi_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 .sink.split:                                      ; preds = %Agi_ManAppendCo.exit, %Agi_ManAppendCi.exit, %24
   %.sink38 = phi i32 [ %41, %24 ], [ %98, %Agi_ManAppendCi.exit ], [ %61, %Agi_ManAppendCo.exit ]
   %131 = shl nsw i32 %.sink38, 1
-  %132 = getelementptr inbounds i8, ptr %20, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %131, ptr %132, align 4
   br label %133
 
@@ -348,8 +348,8 @@ Agi_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Agi_ManSuppSize_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %3, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
@@ -384,7 +384,7 @@ tailrecurse:                                      ; preds = %12
   %sum.shift.i = lshr i64 %23, 33
   %24 = add nsw i32 %21, %accumulator.tr18
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %sum.shift.i
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %sum.shift.i
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %4, align 8
   %29 = icmp eq i32 %27, %28
@@ -403,7 +403,7 @@ tailrecurse:                                      ; preds = %12
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Agi_ManSuppSizeOne(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 8
@@ -423,7 +423,7 @@ define noundef i32 @Agi_ManSuppSizeTest(ptr nocapture noundef %0) local_unnamed_
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg16 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg17 = add i64 %.neg, %.neg16
@@ -439,7 +439,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
   %12 = getelementptr i8, ptr %0, i64 72
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %26
@@ -447,7 +447,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
   %.val12 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i64, ptr %.val12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %.val12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, -17179869191
   br i1 %17, label %26, label %18
@@ -485,7 +485,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 33:                                               ; preds = %._crit_edge
   %34 = load i64, ptr %2, align 8
   %35 = mul nsw i64 %34, 1000000
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = sdiv i64 %37, 1000
   %39 = add nsw i64 %38, %35
@@ -510,7 +510,7 @@ define void @Agi_ManTest(ptr noundef %0) local_unnamed_addr #4 {
   %2 = tail call i32 @Gia_ManSuppSizeTest(ptr noundef %0) #16
   %3 = tail call ptr @Agi_ManFromGia(ptr noundef %0)
   %4 = tail call i32 @Agi_ManSuppSizeTest(ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -520,7 +520,7 @@ define void @Agi_ManTest(ptr noundef %0) local_unnamed_addr #4 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = load ptr, ptr %9, align 8
   %.not18.i = icmp eq ptr %10, null
   br i1 %.not18.i, label %12, label %11
@@ -530,7 +530,7 @@ define void @Agi_ManTest(ptr noundef %0) local_unnamed_addr #4 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not19.i = icmp eq ptr %14, null
   br i1 %.not19.i, label %16, label %15
@@ -540,7 +540,7 @@ define void @Agi_ManTest(ptr noundef %0) local_unnamed_addr #4 {
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not20.i = icmp eq ptr %18, null
   br i1 %.not20.i, label %Agi_ManFree.exit, label %19

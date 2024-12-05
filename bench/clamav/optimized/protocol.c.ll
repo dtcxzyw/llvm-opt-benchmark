@@ -64,7 +64,7 @@ define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef 
   %21 = alloca %struct.stat, align 8
   %22 = tail call i32 @onas_get_sockd() #14
   call void @onas_recvlninit(ptr noundef nonnull %20, ptr noundef %0, i32 noundef %22) #14
-  %23 = getelementptr inbounds i8, ptr %20, i64 5120
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 5120
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   %onas_fd_recvln.onas_recvln = select i1 %25, ptr @onas_fd_recvln, ptr @onas_recvln
@@ -92,7 +92,7 @@ define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef 
 30:                                               ; preds = %26
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds [5 x ptr], ptr @scancmd, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [5 x ptr], ptr @scancmd, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #15
   %36 = add i64 %35, %31
@@ -177,14 +177,14 @@ define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef 
   br label %.loopexit.i
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %16, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 61440
   %75 = icmp eq i32 %74, 16384
   br i1 %75, label %.loopexit.i, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %16, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %78 = load i64, ptr %77, align 8
   %79 = icmp ugt i64 %78, %2
   br i1 %79, label %.loopexit.i, label %80
@@ -289,23 +289,23 @@ onas_send_stream.exit:                            ; preds = %60, %65, %.loopexit
 
 116:                                              ; preds = %114
   store ptr %10, ptr %11, align 16
-  %117 = getelementptr inbounds i8, ptr %11, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 1, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
-  %118 = getelementptr inbounds i8, ptr %12, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %13, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %12, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %12, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %12, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 20, ptr %121, align 8
   store i64 20, ptr %13, align 16
-  %122 = getelementptr inbounds i8, ptr %13, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %13, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %13, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %.013.i, ptr %124, align 16
   %125 = call i64 @sendmsg(i32 noundef range(i32 0, -1) %22, ptr noundef nonnull %12, i32 noundef 0) #14
   %126 = icmp eq i64 %125, -1
@@ -407,7 +407,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %.not155, label %.thread191, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %157, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %160 = load i8, ptr %159, align 1
   %.not156 = icmp eq i8 %160, 32
   br i1 %.not156, label %.thread194, label %161
@@ -442,7 +442,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 
 171:                                              ; preds = %170
   %172 = zext nneg i32 %1 to i64
-  %173 = getelementptr inbounds [5 x ptr], ptr @scancmd, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [5 x ptr], ptr @scancmd, i64 0, i64 %172
   %174 = load ptr, ptr %173, align 8
   br label %175
 
@@ -710,7 +710,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %278
 
 270:                                              ; preds = %261
-  %271 = getelementptr inbounds i8, ptr %21, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %272 = load i32, ptr %271, align 8
   %273 = and i32 %272, 61440
   %274 = icmp eq i32 %273, 16384

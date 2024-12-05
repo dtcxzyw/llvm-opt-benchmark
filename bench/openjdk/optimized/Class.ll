@@ -55,11 +55,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_lang_Class_registerNatives(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr getelementptr inbounds (i8, ptr @methods, i64 40), align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1720
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1720
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @methods, i32 noundef 30) #4
   ret void
@@ -77,11 +77,11 @@ define ptr @Java_java_lang_Class_forName0(ptr noundef %0, ptr nocapture noundef 
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1344
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1344
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1312
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %19 = icmp sgt i32 %14, 127
@@ -101,7 +101,7 @@ define ptr @Java_java_lang_Class_forName0(ptr noundef %0, ptr nocapture noundef 
 26:                                               ; preds = %10, %20
   %.036 = phi ptr [ %23, %20 ], [ %7, %10 ]
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1768
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1768
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %18, ptr noundef nonnull %.036) #4
   %30 = call zeroext i8 @verifyFixClassname(ptr noundef nonnull %.036) #4
@@ -110,7 +110,7 @@ define ptr @Java_java_lang_Class_forName0(ptr noundef %0, ptr nocapture noundef 
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1768
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1768
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %18, ptr noundef nonnull %.036) #4
   call void @JNU_ThrowClassNotFoundException(ptr noundef nonnull %0, ptr noundef nonnull %.036) #4
@@ -168,7 +168,7 @@ define zeroext i8 @Java_java_lang_Class_isInstance(ptr noundef %0, ptr noundef %
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1) #4
   br label %10
@@ -189,7 +189,7 @@ define zeroext i8 @Java_java_lang_Class_isAssignableFrom(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1) #4
   br label %11
@@ -210,7 +210,7 @@ define ptr @Java_java_lang_Class_getPrimitiveClass(ptr noundef %0, ptr nocapture
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1352
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #4
   %11 = icmp eq ptr %10, null
@@ -219,7 +219,7 @@ define ptr @Java_java_lang_Class_getPrimitiveClass(ptr noundef %0, ptr nocapture
 12:                                               ; preds = %6
   %13 = tail call ptr @JVM_FindPrimitiveClass(ptr noundef nonnull %0, ptr noundef nonnull %10) #4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1360
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1360
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %10) #4
   br label %17

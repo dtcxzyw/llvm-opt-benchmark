@@ -12,45 +12,45 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5B2_stat_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 284
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
   store i32 %6, ptr %1, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5B2_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store ptr %4, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %1, align 8
   %11 = add i64 %10, %9
   store i64 %11, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 248
-  %13 = getelementptr inbounds i8, ptr %7, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %14 = load i16, ptr %13, align 8
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %31, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %7, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 284
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %7, i64 276
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 276
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %23 = add i64 %11, %22

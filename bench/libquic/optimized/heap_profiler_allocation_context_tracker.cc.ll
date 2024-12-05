@@ -36,11 +36,11 @@ if.then1:                                         ; preds = %entry
           to label %call5.i.i.i.i1.i.noexc unwind label %lpad
 
 call5.i.i.i.i1.i.noexc:                           ; preds = %if.then1
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %call5.i.i.i.i1.i4, ptr %call2, align 8
   store ptr %call5.i.i.i.i1.i4, ptr %_M_finish.i.i.i, align 8
-  %add.ptr21.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i4, i64 2048
+  %add.ptr21.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i4, i64 2048
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %call5.i.i.i.i18.i = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
           to label %invoke.cont unwind label %if.then.i.i.i20.i
@@ -52,12 +52,12 @@ if.then.i.i.i20.i:                                ; preds = %call5.i.i.i.i1.i.no
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i1.i.noexc
-  %_M_finish.i.i8.i = getelementptr inbounds i8, ptr %call2, i64 40
-  %_M_end_of_storage.i.i2.i = getelementptr inbounds i8, ptr %call2, i64 48
-  %task_contexts_.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %_M_finish.i.i8.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
+  %_M_end_of_storage.i.i2.i = getelementptr inbounds nuw i8, ptr %call2, i64 48
+  %task_contexts_.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store ptr %call5.i.i.i.i18.i, ptr %task_contexts_.i, align 8
   store ptr %call5.i.i.i.i18.i, ptr %_M_finish.i.i8.i, align 8
-  %add.ptr21.i15.i = getelementptr inbounds i8, ptr %call5.i.i.i.i18.i, i64 128
+  %add.ptr21.i15.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i18.i, i64 128
   store ptr %add.ptr21.i15.i, ptr %_M_end_of_storage.i.i2.i, align 8
   tail call void @_ZN4base18ThreadLocalStorage10StaticSlot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) @_ZN4base11trace_event12_GLOBAL__N_123g_tls_alloc_ctx_trackerE, ptr noundef nonnull %call2)
   br label %return
@@ -95,24 +95,24 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base11trace_event24AllocationContextTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_M_allocateEm.exit.i:
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %this, i8 0, i64 60, i1 false)
   %call5.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #14
   store ptr %call5.i.i.i.i1, ptr %this, align 8
   store ptr %call5.i.i.i.i1, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1, i64 2048
+  %add.ptr21.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1, i64 2048
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %call5.i.i.i.i18 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #14
           to label %invoke.cont4 unwind label %if.then.i.i.i20
 
 invoke.cont4:                                     ; preds = %_ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i8 = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_end_of_storage.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
-  %task_contexts_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_end_of_storage.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %task_contexts_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call5.i.i.i.i18, ptr %task_contexts_, align 8
   store ptr %call5.i.i.i.i18, ptr %_M_finish.i.i8, align 8
-  %add.ptr21.i15 = getelementptr inbounds i8, ptr %call5.i.i.i.i18, i64 128
+  %add.ptr21.i15 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i18, i64 128
   store ptr %add.ptr21.i15, ptr %_M_end_of_storage.i.i2, align 8
   ret void
 
@@ -126,7 +126,7 @@ if.then.i.i.i20:                                  ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base11trace_event24AllocationContextTrackerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %task_contexts_ = getelementptr inbounds i8, ptr %this, i64 32
+  %task_contexts_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %task_contexts_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -166,7 +166,7 @@ _ZN4base11trace_event24AllocationContextTracker12capture_modeEv.exit: ; preds = 
 
 if.then:                                          ; preds = %_ZN4base11trace_event24AllocationContextTracker12capture_modeEv.exit
   %call1 = tail call noundef ptr @_ZN4base11trace_event24AllocationContextTracker27GetInstanceForCurrentThreadEv()
-  %thread_name_ = getelementptr inbounds i8, ptr %call1, i64 24
+  %thread_name_ = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %name, ptr %thread_name_, align 8
   br label %if.end
 
@@ -203,7 +203,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %task_contexts_.i = getelementptr inbounds i8, ptr %alloc_ctx_tracker, i64 32
+  %task_contexts_.i = getelementptr inbounds nuw i8, ptr %alloc_ctx_tracker, i64 32
   %0 = load ptr, ptr %task_contexts_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i
@@ -232,7 +232,7 @@ delete.end:                                       ; preds = %_ZN4base11trace_eve
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base11trace_event24AllocationContextTracker20PushPseudoStackFrameENS1_16PseudoStackFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr %stack_frame.coerce0, ptr %stack_frame.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -243,17 +243,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   store ptr %stack_frame.coerce0, ptr %0, align 8
-  %stack_frame.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_frame.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %stack_frame.coerce1, ptr %stack_frame.sroa.3.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
@@ -272,7 +272,7 @@ _ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESa
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %stack_frame.coerce0, ptr %add.ptr.i.i, align 8
-  %stack_frame.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %stack_frame.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store ptr %stack_frame.coerce1, ptr %stack_frame.sroa.3.0.add.ptr.i.i.sroa_idx, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -282,7 +282,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN4bas
   br label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -293,7 +293,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN4base
 _ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds %"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame", ptr %call5.i.i.i.i.i, i64 %add.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.base::trace_event::AllocationContextTracker::PseudoStackFrame", ptr %call5.i.i.i.i.i, i64 %add.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
@@ -305,7 +305,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN4base
 define dso_local void @_ZN4base11trace_event24AllocationContextTracker19PopPseudoStackFrameENS1_16PseudoStackFrameE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture readnone %stack_frame.coerce0, ptr nocapture readnone %stack_frame.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -322,8 +322,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base11trace_event24AllocationContextTracker22PushCurrentTaskContextEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %context) local_unnamed_addr #0 align 2 {
 entry:
-  %task_contexts_ = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
+  %task_contexts_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %task_contexts_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -334,7 +334,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -342,7 +342,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   store ptr %context, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
@@ -369,7 +369,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPKcSa
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -380,7 +380,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPKcSaI
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %task_contexts_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i, i64 %add.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %add.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
@@ -391,9 +391,9 @@ if.end:                                           ; preds = %_ZNSt6vectorIPKcSaI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base11trace_event24AllocationContextTracker21PopCurrentTaskContextEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef readnone %context) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %task_contexts_ = getelementptr inbounds i8, ptr %this, i64 32
+  %task_contexts_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %task_contexts_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end8
@@ -413,25 +413,25 @@ entry:
   %name.i = alloca [16 x i8], align 16
   %frames38 = alloca [128 x ptr], align 16
   tail call void @_ZN4base11trace_event17AllocationContextC1Ev(ptr noundef nonnull align 8 dereferenceable(784) %agg.result)
-  %ignore_scope_depth_ = getelementptr inbounds i8, ptr %this, i64 56
+  %ignore_scope_depth_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %ignore_scope_depth_, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %agg.result, align 8
-  %ref.tmp.sroa.215.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.215.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @_ZN4base11trace_event12_GLOBAL__N_116kTracingOverheadE, ptr %ref.tmp.sroa.215.0.arrayidx.sroa_idx, align 8
-  %type_name = getelementptr inbounds i8, ptr %agg.result, i64 776
+  %type_name = getelementptr inbounds nuw i8, ptr %agg.result, i64 776
   store ptr @_ZN4base11trace_event12_GLOBAL__N_116kTracingOverheadE, ptr %type_name, align 8
-  %frame_count = getelementptr inbounds i8, ptr %agg.result, i64 768
+  %frame_count = getelementptr inbounds nuw i8, ptr %agg.result, i64 768
   store i64 1, ptr %frame_count, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load atomic volatile i32, ptr @_ZN4base11trace_event24AllocationContextTracker13capture_mode_E monotonic, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %agg.result, i64 768
-  %thread_name_ = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 768
+  %thread_name_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %thread_name_, align 8
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.then12, label %if.then20
@@ -462,13 +462,13 @@ if.end17:                                         ; preds = %if.end.i, %if.then1
 if.then20:                                        ; preds = %if.end, %if.end17
   %4 = phi ptr [ %call7.i, %if.end17 ], [ %2, %if.end ]
   store i32 1, ptr %agg.result, align 8
-  %ref.tmp21.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp21.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %4, ptr %ref.tmp21.sroa.28.0..sroa_idx, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end17
   %backtrace4.0.idx = phi i64 [ 16, %if.then20 ], [ 0, %if.end17 ]
-  %backtrace4.0.ptr = getelementptr inbounds i8, ptr %agg.result, i64 %backtrace4.0.idx
+  %backtrace4.0.ptr = getelementptr inbounds nuw i8, ptr %agg.result, i64 %backtrace4.0.idx
   switch i32 %1, label %sw.epilog [
     i32 2, label %sw.bb37
     i32 1, label %sw.bb25
@@ -476,7 +476,7 @@ if.end24:                                         ; preds = %if.then20, %if.end1
 
 sw.bb25:                                          ; preds = %if.end24
   %5 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i28 = icmp eq ptr %5, %6
   br i1 %cmp.i28, label %sw.epilog, label %if.end32
@@ -485,14 +485,14 @@ if.end32:                                         ; preds = %sw.bb25, %if.end32
   %backtrace4.2.ptr31 = phi ptr [ %backtrace4.2.ptr, %if.end32 ], [ %backtrace4.0.ptr, %sw.bb25 ]
   %backtrace4.2.idx30 = phi i64 [ %backtrace4.2.add, %if.end32 ], [ %backtrace4.0.idx, %sw.bb25 ]
   %__begin3.sroa.0.029 = phi ptr [ %incdec.ptr.i, %if.end32 ], [ %5, %sw.bb25 ]
-  %trace_event_name = getelementptr inbounds i8, ptr %__begin3.sroa.0.029, i64 8
+  %trace_event_name = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.029, i64 8
   %7 = load ptr, ptr %trace_event_name, align 8
   %backtrace4.2.add = add nuw nsw i64 %backtrace4.2.idx30, 16
   store i32 0, ptr %backtrace4.2.ptr31, align 8
-  %ref.tmp33.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.2.ptr31, i64 8
+  %ref.tmp33.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %backtrace4.2.ptr31, i64 8
   store ptr %7, ptr %ref.tmp33.sroa.26.0..sroa_idx, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029, i64 16
-  %backtrace4.2.ptr = getelementptr inbounds i8, ptr %agg.result, i64 %backtrace4.2.add
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.029, i64 16
+  %backtrace4.2.ptr = getelementptr inbounds nuw i8, ptr %agg.result, i64 %backtrace4.2.add
   %cmp.i = icmp eq ptr %incdec.ptr.i, %6
   %cmp = icmp eq i64 %backtrace4.2.add, 768
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp
@@ -512,9 +512,9 @@ for.body44:                                       ; preds = %sw.bb37, %for.body4
   %dec45 = add i64 %i.033, -1
   %arrayidx46 = getelementptr inbounds [128 x ptr], ptr %frames38, i64 0, i64 %dec45
   %8 = load ptr, ptr %arrayidx46, align 8
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %backtrace4.334, i64 16
+  %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %backtrace4.334, i64 16
   store i32 2, ptr %backtrace4.334, align 8
-  %ref.tmp47.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %backtrace4.334, i64 8
+  %ref.tmp47.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %backtrace4.334, i64 8
   store ptr %8, ptr %ref.tmp47.sroa.21.0..sroa_idx, align 8
   %cmp43 = icmp ugt i64 %dec45, %cond
   br i1 %cmp43, label %for.body44, label %sw.epilog, !llvm.loop !5
@@ -526,9 +526,9 @@ sw.epilog:                                        ; preds = %if.end32, %for.body
   %sub.ptr.sub56 = sub i64 %sub.ptr.lhs.cast54, %sub.ptr.rhs.cast55
   %sub.ptr.div57 = ashr exact i64 %sub.ptr.sub56, 4
   store i64 %sub.ptr.div57, ptr %add.ptr.i, align 8
-  %task_contexts_ = getelementptr inbounds i8, ptr %this, i64 32
+  %task_contexts_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load ptr, ptr %task_contexts_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %if.else, label %if.then61
@@ -536,13 +536,13 @@ sw.epilog:                                        ; preds = %if.end32, %for.body
 if.then61:                                        ; preds = %sw.epilog
   %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i, align 8
-  %type_name64 = getelementptr inbounds i8, ptr %agg.result, i64 776
+  %type_name64 = getelementptr inbounds nuw i8, ptr %agg.result, i64 776
   store ptr %11, ptr %type_name64, align 8
   br label %return
 
 if.else:                                          ; preds = %sw.epilog
   %12 = load ptr, ptr %this, align 8
-  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load ptr, ptr %_M_finish.i.i19, align 8
   %cmp.i.i20 = icmp eq ptr %12, %13
   br i1 %cmp.i.i20, label %return, label %if.then67
@@ -550,7 +550,7 @@ if.else:                                          ; preds = %sw.epilog
 if.then67:                                        ; preds = %if.else
   %add.ptr.i.i22 = getelementptr inbounds i8, ptr %13, i64 -16
   %14 = load ptr, ptr %add.ptr.i.i22, align 8
-  %type_name70 = getelementptr inbounds i8, ptr %agg.result, i64 776
+  %type_name70 = getelementptr inbounds nuw i8, ptr %agg.result, i64 776
   store ptr %14, ptr %type_name70, align 8
   br label %return
 

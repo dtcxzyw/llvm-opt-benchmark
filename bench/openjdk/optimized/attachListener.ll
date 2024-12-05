@@ -167,18 +167,18 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
 10:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
   %11 = phi ptr [ %7, %.lr.ph ], [ %45, %_ZN12ResourceMarkD2Ev.exit ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 800
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
   call void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89) %3, i64 noundef 1048576, i64 noundef 3221225472) #8
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(10) @.str.10) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %.preheader.preheader
@@ -199,7 +199,7 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
   br i1 %exitcond, label %36, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %.lr.ph32
-  %29 = getelementptr inbounds [11 x %struct.AttachOperationFunctionInfo], ptr @_ZL5funcs, i64 0, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [11 x %struct.AttachOperationFunctionInfo], ptr @_ZL5funcs, i64 0, i64 %indvars.iv.next
   %30 = load ptr, ptr %29, align 16
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %30) #9
   %32 = icmp eq i32 %31, 0
@@ -207,7 +207,7 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa = phi ptr [ @_ZL5funcs, %.preheader.preheader ], [ %29, %.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i32 %34(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
   br label %37
@@ -276,7 +276,7 @@ declare void @_ZN14bufferedStreamD1Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14AttachListener14has_init_errorEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %10
@@ -310,7 +310,7 @@ define hidden void @_ZN14AttachListener4initEv() local_unnamed_addr #0 align 2 {
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
   %2 = load ptr, ptr %1, align 8
   %3 = call ptr @_ZN10JavaThread27create_system_thread_objectEPKcPS_(ptr noundef nonnull @.str.5, ptr noundef %2) #8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN14AttachListener14has_init_errorEP10JavaThread.exit, label %6
@@ -476,7 +476,7 @@ define internal noundef i32 @_ZL9data_dumpP15AttachOperationP12outputStream(ptr 
 define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca %class.HeapDumper, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %9
@@ -486,7 +486,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12
   br label %41
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 1050
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   %char0 = load i8, ptr %10, align 1
   %.not27 = icmp eq i8 %char0, 0
   br i1 %.not27, label %20, label %11
@@ -513,7 +513,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12
 
 20:                                               ; preds = %9, %16
   %.023 = phi i8 [ %19, %16 ], [ 1, %9 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 2075
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2075
   store i32 0, ptr %3, align 4
   %22 = load i8, ptr %21, align 1
   %.not31 = icmp eq i8 %22, 0
@@ -540,12 +540,12 @@ define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12
 30:                                               ; preds = %26, %20
   %31 = phi i32 [ %27, %26 ], [ 0, %20 ]
   store ptr null, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.023, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 9
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %35, align 8
   store i64 0, ptr %34, align 8
   %36 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
@@ -565,9 +565,9 @@ define internal noundef range(i32 -1, 1) i32 @_ZL9dump_heapP15AttachOperationP12
 define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %class.HandleMark, align 8
   %4 = alloca %class.JavaValue, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
-  %6 = getelementptr inbounds i8, ptr %0, i64 1050
-  %7 = getelementptr inbounds i8, ptr %0, i64 2075
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1050
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2075
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.27) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %36
@@ -575,15 +575,15 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP
 10:                                               ; preds = %2
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 800
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %12) #8
   store i8 12, ptr %4, align 8
@@ -592,7 +592,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr %23, ptr noundef %12) #8
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %30, label %29
@@ -649,7 +649,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL21get_system_propertiesP15Attac
 define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %class.VM_PrintThreads, align 8
   %4 = alloca %class.VM_FindDeadlocks, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %6 = load i8, ptr %5, align 1
   %.not1516 = icmp eq i8 %6, 0
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
@@ -664,7 +664,7 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
   %9 = icmp eq i8 %7, 101
   %.2 = select i1 %9, i8 1, i8 %.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.next
   %11 = load i8, ptr %10, align 1
   %.not15 = icmp eq i8 %11, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -672,38 +672,38 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.113.lcssa = phi i8 [ 0, %2 ], [ %spec.select, %.lr.ph ]
   %.1.lcssa = phi i8 [ 0, %2 ], [ %.2, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %.113.lcssa, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 25
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 %.1.lcssa, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 26
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 26
   store i8 1, ptr %16, align 2
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %17, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %23 = load ptr, ptr %22, align 8
   store ptr null, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 65
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 65
   store i8 0, ptr %27, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #8
   call void @_ZN16VM_FindDeadlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #8
@@ -714,7 +714,7 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
 define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca %class.VM_GC_HeapInspection, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %6 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
   %7 = mul i32 %6, 3
   %8 = lshr i32 %7, 3
@@ -745,7 +745,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 
 19:                                               ; preds = %2, %15
   %.036 = phi i8 [ %18, %15 ], [ 1, %2 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1050
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   %21 = load i8, ptr %20, align 1
   %.not48 = icmp eq i8 %21, 0
   br i1 %.not48, label %24, label %22
@@ -758,7 +758,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 24:                                               ; preds = %19, %22
   %.039 = phi ptr [ %23, %22 ], [ null, %19 ]
   %.038 = phi ptr [ %23, %22 ], [ %1, %19 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 2075
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2075
   %26 = load i8, ptr %25, align 1
   %.not50 = icmp eq i8 %26, 0
   br i1 %.not50, label %39, label %27
@@ -774,7 +774,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %.039, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(65) %.039) #8
   br label %57
@@ -787,26 +787,26 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 
 39:                                               ; preds = %35, %24
   %.037 = phi i32 [ %38, %35 ], [ %9, %24 ]
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 %.036, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 25
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 25
   store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 6, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %46, align 4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.038, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %.036, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %.037, ptr %49, align 4
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #8
   %.not51 = icmp eq ptr %.038, null
@@ -821,7 +821,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %.039, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(65) %.039) #8
   br label %56
@@ -838,9 +838,9 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL8set_flagP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm80EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36)
-  %5 = getelementptr inbounds i8, ptr %0, i64 1050
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1050
   %6 = call noundef i32 @_ZN14WriteableFlags8set_flagEPKcS1_13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(88) %3) #8
   switch i32 %6, label %8 [
     i32 0, label %10
@@ -863,7 +863,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL8set_flagP15AttachOperationP12o
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL10print_flagP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
   %5 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %3, i64 noundef %4, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %.not = icmp eq ptr %5, null
@@ -886,9 +886,9 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10print_flagP15AttachOperationP
 define internal noundef range(i32 -1, 1) i32 @_ZL4jcmdP15AttachOperationP12outputStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   tail call void @_ZN4DCmd17parse_and_executeE10DCmdSourceP12outputStreamPKccP10JavaThread(i32 noundef 2, ptr noundef %1, ptr noundef nonnull %5, i8 noundef signext 32, ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -914,21 +914,21 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14get_propertiesP15Attac
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %7) #8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
   %9 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %8, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %7) #8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %_ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(464) %9) #8
   br i1 %16, label %17, label %_ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(464) %9, ptr noundef nonnull %7) #8
   %21 = load ptr, ptr %10, align 8
@@ -948,19 +948,19 @@ _ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread: ; preds = %17, 
 
 _ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread2: ; preds = %17, %_ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit
   store i8 12, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 73
-  %27 = getelementptr inbounds i8, ptr %5, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 73
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 8, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i8 0, ptr %30, align 8
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7312), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %31, ptr noundef nonnull %5, ptr noundef nonnull %7) #8
@@ -974,7 +974,7 @@ _ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread2: ; preds = %17,
   br label %47
 
 34:                                               ; preds = %_ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread2
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr @UseCompressedClassPointers, align 1
   %38 = trunc i8 %37 to i1
@@ -983,7 +983,7 @@ _ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread2: ; preds = %17,
   %41 = add nsw i64 %40, %39
   %42 = inttoptr i64 %41 to ptr
   %43 = select i1 %38, i64 12, i64 16
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %42, i64 noundef %46) #8
@@ -1041,7 +1041,7 @@ declare void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm80EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ...) unnamed_addr #0 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
@@ -1168,13 +1168,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread13can_call_javaEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread21is_active_Java_threadEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load volatile i32, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   %8 = add i32 %7, -57007

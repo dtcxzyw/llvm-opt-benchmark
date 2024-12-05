@@ -134,7 +134,7 @@ define dso_local noundef i32 @acct_gather_energy_init() local_unnamed_addr #0 {
   br i1 %.not15, label %27, label %29
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.pre, i64 19
+  %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 19
   store ptr %28, ptr %3, align 8
   br label %29
 
@@ -333,7 +333,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %33 ]
   %.050 = phi i32 [ %.1, %51 ], [ 0, %33 ]
   %36 = load ptr, ptr @g_context, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %.not45 = icmp eq ptr %38, null
   br i1 %.not45, label %51, label %39
@@ -350,9 +350,9 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr @g_context, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @slurm_strerror(i32 noundef %40) #8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.acct_gather_energy_fini, ptr noundef %49, ptr noundef %50) #8
@@ -425,21 +425,21 @@ define dso_local void @acct_gather_energy_pack(ptr noundef readonly %0, ptr noun
   br label %.sink.split
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   tail call void @pack64(i64 noundef %9, ptr noundef %1) #8
   %10 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %10, ptr noundef %1) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   tail call void @pack64(i64 noundef %12, ptr noundef %1) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   tail call void @pack32(i32 noundef %14, ptr noundef %1) #8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   tail call void @pack64(i64 noundef %16, ptr noundef %1) #8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
   br label %.sink.split
 
@@ -478,7 +478,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_unpack(ptr nocapture n
   br i1 %11, label %12, label %32
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %14 = tail call i32 @unpack64(ptr noundef nonnull %13, ptr noundef %1) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %29
@@ -489,25 +489,25 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_unpack(ptr nocapture n
   br i1 %.not22, label %17, label %29
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %19 = tail call i32 @unpack64(ptr noundef nonnull %18, ptr noundef %1) #8
   %.not23 = icmp eq i32 %19, 0
   br i1 %.not23, label %20, label %29
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %22 = tail call i32 @unpack32(ptr noundef nonnull %21, ptr noundef %1) #8
   %.not24 = icmp eq i32 %22, 0
   br i1 %.not24, label %23, label %29
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %25 = tail call i32 @unpack64(ptr noundef nonnull %24, ptr noundef %1) #8
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %28 = tail call i32 @unpack_time(ptr noundef nonnull %27, ptr noundef %1) #8
   %.not26 = icmp eq i32 %28, 0
   br i1 %.not26, label %32, label %29
@@ -572,14 +572,14 @@ define dso_local i32 @acct_gather_energy_g_update_node_energy() local_unnamed_ad
   %9 = phi ptr [ %.pre20, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.01117 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %17 ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %17, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15() #8
   %.pre = load ptr, ptr @g_context, align 8
@@ -637,7 +637,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i32 noundef %0, ptr noundef %1) #8
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
@@ -660,28 +660,28 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %31
 
 31:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.02640 = phi i32 [ -1, %.lr.ph ], [ %.1, %68 ]
   %32 = load ptr, ptr @g_context, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.not36 = icmp eq ptr %34, null
   br i1 %.not36, label %68, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr @acct_gather_energy_g_get_sum.energy_array, align 8
-  %37 = getelementptr inbounds %struct.acct_gather_energy, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %36, i64 %indvars.iv
   store ptr %37, ptr @acct_gather_energy_g_get_sum.e, align 8
   %38 = load ptr, ptr @ops, align 8
-  %39 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %38, i64 %indvars.iv, i32 1
+  %39 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %38, i64 %indvars.iv, i32 1
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(i32 noundef %0, ptr noundef %37) #8
   %.not37 = icmp eq i32 %41, 0
@@ -689,13 +689,13 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr @acct_gather_energy_g_get_sum.e, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, -2
   br i1 %46, label %68, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %26, align 8
   %51 = add i64 %50, %49
@@ -708,19 +708,19 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   %56 = load i64, ptr %27, align 8
   %57 = add i64 %56, %55
   store i64 %57, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %43, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = load i32, ptr %28, align 8
   %61 = add i32 %60, %59
   store i32 %61, ptr %28, align 8
-  %62 = getelementptr inbounds i8, ptr %43, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = load i64, ptr %29, align 8
   %65 = add i64 %64, %63
   store i64 %65, ptr %29, align 8
   %66 = load i64, ptr %30, align 8
   %.not38 = icmp eq i64 %66, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %67 = icmp sgt i64 %66, %.pre
   %or.cond = select i1 %.not38, i1 true, i1 %67
@@ -832,14 +832,14 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
   %11 = phi ptr [ %.pre21, %.lr.ph.preheader ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.01218 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %19 ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not17 = icmp eq ptr %13, null
   br i1 %.not17, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 2
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 2
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(i32 noundef %0, ptr noundef %1) #8
   %.pre = load ptr, ptr @g_context, align 8
@@ -1030,14 +1030,14 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   %18 = phi i32 [ %14, %.lr.ph.preheader ], [ %28, %27 ]
   %19 = phi ptr [ %.pre45, %.lr.ph.preheader ], [ %29, %27 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not24 = icmp eq ptr %21, null
   br i1 %.not24, label %27, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr @ops, align 8
-  %24 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %23, i64 %indvars.iv, i32 2
+  %24 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %23, i64 %indvars.iv, i32 2
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 %25(i32 noundef 3, ptr noundef nonnull %2) #8
   %.pre = load ptr, ptr @g_context, align 8
@@ -1133,14 +1133,14 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %19, %18 ]
   %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 3
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 3
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0, ptr noundef %1) #8
   %.pre = load ptr, ptr @g_context, align 8
@@ -1200,14 +1200,14 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
   %10 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %14, i64 %indvars.iv, i32 4
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %14, i64 %indvars.iv, i32 4
   %16 = load ptr, ptr %15, align 8
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %16(i32 noundef %17, ptr noundef %0) #8
@@ -1268,14 +1268,14 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
   %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %14, i64 %indvars.iv, i32 5
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %14, i64 %indvars.iv, i32 5
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8

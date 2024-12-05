@@ -48,7 +48,7 @@ define internal i32 @md5_mod_init() #0 section ".init.text" align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @md5_init(ptr nocapture noundef writeonly initializes((8, 24), (88, 96)) %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 12
   store i32 -271733879, ptr %3, align 4
@@ -56,15 +56,15 @@ define internal noundef i32 @md5_init(ptr nocapture noundef writeonly initialize
   store i32 -1732584194, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 20
   store i32 271733878, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %6, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 63
@@ -73,7 +73,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
   %11 = add i64 %6, %10
   store i64 %11, ptr %5, align 8
   %12 = icmp ugt i32 %9, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %12, label %14, label %17
 
 14:                                               ; preds = %3
@@ -87,7 +87,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
   %19 = sub nuw nsw i64 64, %18
   %20 = getelementptr i8, ptr %13, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %20, ptr noundef align 1 %1, i64 %18, i1 false)
-  tail call fastcc void @md5_transform(ptr noundef %4, ptr noundef %13)
+  tail call fastcc void @md5_transform(ptr noundef nonnull %4, ptr noundef nonnull %13)
   %21 = getelementptr i8, ptr %1, i64 %18
   %22 = sub nuw i32 %2, %9
   %23 = icmp ugt i32 %22, 63
@@ -96,8 +96,8 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
 .preheader:                                       ; preds = %17, %.preheader
   %24 = phi i32 [ %27, %.preheader ], [ %22, %17 ]
   %25 = phi ptr [ %26, %.preheader ], [ %21, %17 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %13, ptr noundef align 1 dereferenceable(64) %25, i64 64, i1 false)
-  tail call fastcc void @md5_transform(ptr noundef %4, ptr noundef %13)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef align 1 dereferenceable(64) %25, i64 64, i1 false)
+  tail call fastcc void @md5_transform(ptr noundef nonnull %4, ptr noundef nonnull %13)
   %26 = getelementptr i8, ptr %25, i64 64
   %27 = add i32 %24, -64
   %28 = icmp ugt i32 %27, 63
@@ -107,7 +107,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
   %29 = phi ptr [ %21, %17 ], [ %26, %.preheader ]
   %30 = phi i32 [ %22, %17 ], [ %27, %.preheader ]
   %31 = zext nneg i32 %30 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 1 %29, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 1 %29, i64 %31, i1 false)
   br label %32
 
 32:                                               ; preds = %.loopexit, %14
@@ -116,12 +116,12 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 63
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = and i64 %5, 63
   %10 = getelementptr i8, ptr %8, i64 %9
   %11 = sub nuw nsw i32 55, %7
@@ -134,7 +134,7 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
   %15 = xor i32 %7, 63
   %16 = zext nneg i32 %15 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %16, i1 false)
-  tail call fastcc void @md5_transform(ptr noundef %3, ptr noundef %8)
+  tail call fastcc void @md5_transform(ptr noundef nonnull %3, ptr noundef nonnull %8)
   br label %17
 
 17:                                               ; preds = %14, %2
@@ -151,23 +151,23 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
   %26 = trunc i64 %25 to i32
   %27 = getelementptr i8, ptr %0, i64 84
   store i32 %26, ptr %27, align 4
-  tail call fastcc void @md5_transform(ptr noundef %3, ptr noundef %8)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %3, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
+  tail call fastcc void @md5_transform(ptr noundef nonnull %3, ptr noundef nonnull %8)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @md5_export(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(88) %1, ptr noundef align 8 dereferenceable(88) %3, i64 88, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @md5_import(ptr nocapture noundef writeonly initializes((8, 96)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %3, ptr noundef align 1 dereferenceable(88) %1, i64 88, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef align 1 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0
 }
 

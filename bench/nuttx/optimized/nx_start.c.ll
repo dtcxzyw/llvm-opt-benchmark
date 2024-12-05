@@ -53,7 +53,7 @@ define void @nx_start() #0 {
   br label %6
 
 4:                                                ; preds = %.critedge
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @g_idletcb, ptr %5, align 8
   br label %6
 
@@ -91,15 +91,15 @@ define void @nx_start() #0 {
   %21 = trunc i16 %20 to i8
   %22 = call i32 @group_allocate(ptr noundef nonnull @g_idletcb, i8 noundef zeroext %21) #5
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
-  %24 = getelementptr inbounds i8, ptr %23, i64 856
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr @g_idleargv, ptr %26, align 8
   call void @up_initial_state(ptr noundef nonnull @g_idletcb) #5
   %27 = call i32 @tls_init_info(ptr noundef nonnull @g_idletcb) #5
   call void @group_initialize(ptr noundef nonnull @g_idletcb) #5
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 3, ptr %29, align 8
   store volatile i32 0, ptr @g_lastpid, align 4
   store i8 3, ptr @g_nx_initstate, align 1

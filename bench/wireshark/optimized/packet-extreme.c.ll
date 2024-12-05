@@ -430,7 +430,7 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.vec_t], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.204) #4
   %10 = load ptr, ptr %8, align 8
@@ -452,7 +452,7 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %31, label %24
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %21, ptr %25, align 8
   %26 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %21) #4
   store ptr %26, ptr %7, align 16
@@ -481,7 +481,7 @@ define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph:                                           ; preds = %35
   %44 = zext i16 %36 to i32
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %46
 
 46:                                               ; preds = %.lr.ph, %dissect_link_tlv.exit

@@ -62,26 +62,26 @@ define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %2, ptr %3, align 8, !tbaa !6
   tail call void @gtk_widget_set_no_show_all(ptr noundef %2, i32 noundef 1) #10
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14568
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 14568
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #10
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %8 = getelementptr inbounds i8, ptr %7, i64 14608
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14608
   store ptr %0, ptr %8, align 8, !tbaa !23
-  %9 = getelementptr inbounds i8, ptr %7, i64 14616
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 14616
   store ptr @_lib_backgroundjobs_added, ptr %9, align 8, !tbaa !29
-  %10 = getelementptr inbounds i8, ptr %7, i64 14624
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 14624
   store ptr @_lib_backgroundjobs_destroyed, ptr %10, align 8, !tbaa !30
-  %11 = getelementptr inbounds i8, ptr %7, i64 14632
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 14632
   store ptr @_lib_backgroundjobs_cancellable, ptr %11, align 8, !tbaa !31
-  %12 = getelementptr inbounds i8, ptr %7, i64 14640
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 14640
   store ptr @_lib_backgroundjobs_updated, ptr %12, align 8, !tbaa !32
-  %13 = getelementptr inbounds i8, ptr %7, i64 14648
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 14648
   store ptr @_lib_backgroundjobs_message_updated, ptr %13, align 8, !tbaa !33
-  %14 = getelementptr inbounds i8, ptr %7, i64 14536
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 14536
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %.preheader
@@ -92,7 +92,7 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
 
 19:                                               ; preds = %17, %1
   %20 = phi ptr [ %18, %17 ], [ %7, %1 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 14568
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 14568
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #10
   ret void
 
@@ -111,7 +111,7 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
 
 31:                                               ; preds = %.preheader
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %33 = getelementptr inbounds i8, ptr %32, i64 14144
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 14144
   %34 = load i32, ptr %33, align 8, !tbaa !37
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %41, label %36
@@ -123,7 +123,7 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
 
 39:                                               ; preds = %36
   store ptr %28, ptr %37, align 8, !tbaa !38
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %24, ptr %40, align 8, !tbaa !40
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %37) #10
   br label %41
@@ -131,7 +131,7 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
 41:                                               ; preds = %39, %36, %31, %.preheader
   %42 = tail call reassoc nsz arcp contract afn double @dt_control_progress_get_progress(ptr noundef %24) #10
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %44 = getelementptr inbounds i8, ptr %43, i64 14144
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 14144
   %45 = load i32, ptr %44, align 8, !tbaa !37
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %52, label %47
@@ -143,13 +143,13 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
 
 50:                                               ; preds = %47
   store ptr %28, ptr %48, align 8, !tbaa !41
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store double %42, ptr %51, align 8, !tbaa !43
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %48) #10
   br label %52
 
 52:                                               ; preds = %50, %47, %41
-  %53 = getelementptr inbounds i8, ptr %23, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !34
   %55 = icmp eq ptr %54, null
   br i1 %55, label %17, label %.preheader
@@ -186,14 +186,14 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr nocapture nou
   %16 = tail call i64 @gtk_box_get_type() #13
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #10
   %18 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #10
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %19, align 8, !tbaa !46
   %20 = tail call i64 @gtk_container_get_type() #13
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %20) #10
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %12) #10
   tail call void @gtk_container_add(ptr noundef %21, ptr noundef %22) #10
   %23 = tail call ptr @gtk_label_new(ptr noundef %2) #10
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !47
   tail call void @gtk_widget_set_halign(ptr noundef %23, i32 noundef 1) #10
   %25 = tail call i64 @gtk_label_get_type() #13
@@ -210,17 +210,17 @@ define internal noalias noundef ptr @_lib_backgroundjobs_added(ptr nocapture nou
 
 32:                                               ; preds = %10
   %33 = tail call ptr @gtk_progress_bar_new() #10
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !48
   %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %16) #10
   tail call void @gtk_box_pack_start(ptr noundef %35, ptr noundef %33, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
   br label %36
 
 36:                                               ; preds = %32, %10
-  %37 = getelementptr inbounds i8, ptr %0, i64 416
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %38 = load ptr, ptr %37, align 8, !tbaa !6
   store ptr %38, ptr %7, align 8, !tbaa !49
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %39, align 8, !tbaa !51
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_added_gui_thread, ptr noundef nonnull %7) #10
   br label %40
@@ -238,7 +238,7 @@ define internal void @_lib_backgroundjobs_destroyed(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   store ptr %0, ptr %3, align 8, !tbaa !52
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !54
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_destroyed_gui_thread, ptr noundef nonnull %3) #10
   br label %7
@@ -250,7 +250,7 @@ define internal void @_lib_backgroundjobs_destroyed(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %13, label %8
@@ -262,7 +262,7 @@ define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0,
 
 11:                                               ; preds = %8
   store ptr %1, ptr %9, align 8, !tbaa !38
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %12, align 8, !tbaa !40
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_cancellable_gui_thread, ptr noundef nonnull %9) #10
   br label %13
@@ -274,7 +274,7 @@ define internal void @_lib_backgroundjobs_cancellable(ptr nocapture readnone %0,
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr noundef %1, double noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %13, label %8
@@ -286,7 +286,7 @@ define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr
 
 11:                                               ; preds = %8
   store ptr %1, ptr %9, align 8, !tbaa !41
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %2, ptr %12, align 8, !tbaa !43
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_gui_thread, ptr noundef nonnull %9) #10
   br label %13
@@ -298,7 +298,7 @@ define internal void @_lib_backgroundjobs_updated(ptr nocapture readnone %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_backgroundjobs_message_updated(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 14144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 14144
   %6 = load i32, ptr %5, align 8, !tbaa !37
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %14, label %8
@@ -311,7 +311,7 @@ define internal void @_lib_backgroundjobs_message_updated(ptr nocapture readnone
 11:                                               ; preds = %8
   store ptr %1, ptr %9, align 8, !tbaa !55
   %12 = tail call noalias ptr @g_strdup(ptr noundef %2) #10
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !57
   tail call void @g_main_context_invoke(ptr noundef null, ptr noundef nonnull @_update_message_gui_thread, ptr noundef nonnull %9) #10
   br label %14
@@ -338,11 +338,11 @@ declare double @dt_control_progress_get_progress(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %3 = getelementptr inbounds i8, ptr %2, i64 14568
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 14568
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #10
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 14608
-  %7 = getelementptr inbounds i8, ptr %5, i64 14568
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 14608
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 14568
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #10
   ret void
@@ -399,7 +399,7 @@ define internal noundef i32 @_added_gui_thread(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %3 = tail call i64 @gtk_box_get_type() #13
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %3) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   tail call void @gtk_box_pack_start(ptr noundef %4, ptr noundef %6, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
   %7 = load ptr, ptr %0, align 8, !tbaa !49
@@ -422,7 +422,7 @@ declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_destroyed_gui_thread(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = icmp eq ptr %4, null
@@ -446,7 +446,7 @@ define internal noundef i32 @_destroyed_gui_thread(ptr nocapture noundef %0) #1 
 
 16:                                               ; preds = %13, %10
   %17 = load ptr, ptr %0, align 8, !tbaa !52
-  %18 = getelementptr inbounds i8, ptr %17, i64 416
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   %20 = tail call i64 @gtk_container_get_type() #13
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #10
@@ -460,7 +460,7 @@ define internal noundef i32 @_destroyed_gui_thread(ptr nocapture noundef %0) #1 
   %26 = phi ptr [ %24, %16 ], [ %3, %13 ], [ %3, %1 ]
   store ptr null, ptr %26, align 8, !tbaa !44
   %27 = load ptr, ptr %0, align 8, !tbaa !52
-  %28 = getelementptr inbounds i8, ptr %27, i64 416
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 416
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = tail call i64 @gtk_container_get_type() #13
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #10
@@ -470,7 +470,7 @@ define internal noundef i32 @_destroyed_gui_thread(ptr nocapture noundef %0) #1 
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %0, align 8, !tbaa !52
-  %36 = getelementptr inbounds i8, ptr %35, i64 416
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 416
   %37 = load ptr, ptr %36, align 8, !tbaa !6
   tail call void @gtk_widget_hide(ptr noundef %37) #10
   br label %38
@@ -494,13 +494,13 @@ declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_cancellable_gui_thread(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !38
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = tail call i64 @gtk_box_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
   %7 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_cancel, i32 noundef 0, ptr noundef null) #10
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef 80) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = tail call i64 @g_signal_connect_data(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull @_lib_backgroundjobs_cancel_callback_new, ptr noundef %10, ptr noundef null, i32 noundef 0) #10
   %12 = tail call i64 @gtk_widget_get_type() #13
@@ -529,11 +529,11 @@ declare void @dt_control_progress_cancel(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_update_gui_thread(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !41
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = tail call i64 @gtk_progress_bar_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8, !tbaa !43
   %9 = fcmp reassoc nsz arcp contract afn ogt double %8, 1.000000e+00
   br i1 %9, label %13, label %10
@@ -562,11 +562,11 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_update_message_gui_thread(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !55
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !47
   %5 = tail call i64 @gtk_label_get_type() #13
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !57
   tail call void @gtk_label_set_text(ptr noundef %6, ptr noundef %8) #10
   %9 = load ptr, ptr %7, align 8, !tbaa !57

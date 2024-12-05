@@ -130,7 +130,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1584), align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %36, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
@@ -156,7 +156,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1592), align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %50, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
@@ -229,7 +229,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 
 83:                                               ; preds = %80
   %84 = load i64, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load i64, ptr %85, align 8
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+06

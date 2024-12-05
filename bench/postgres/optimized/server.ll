@@ -103,11 +103,11 @@ define internal fastcc ptr @get_db_conn(ptr nocapture noundef readonly %0, ptr n
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.39) #9
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
   call void @appendConnStrVal(ptr noundef nonnull %3, ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.40, i32 noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
@@ -184,7 +184,7 @@ define dso_local ptr @cluster_conn_opts(ptr nocapture noundef readonly %0) local
 
 7:                                                ; preds = %6, %4
   %.pre3 = phi ptr [ %.pre3.pre, %6 ], [ %5, %4 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -201,7 +201,7 @@ define dso_local ptr @cluster_conn_opts(ptr nocapture noundef readonly %0) local
 
 14:                                               ; preds = %10, %7
   %15 = phi ptr [ %.pre, %10 ], [ %.pre3, %7 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.4, i32 noundef %18) #9
@@ -238,7 +238,7 @@ define dso_local i32 @get_major_server_version(ptr noundef %0) local_unnamed_add
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %6) #9
   %8 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.8)
@@ -250,7 +250,7 @@ define dso_local i32 @get_major_server_version(ptr noundef %0) local_unnamed_add
   unreachable
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.10, ptr noundef nonnull %12) #9
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %18, label %15
@@ -310,7 +310,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
   %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %endptr, ptr noundef nonnull align 1 dereferenceable(56) @.str.13, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %20, label %11
@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %13 = getelementptr i8, ptr %4, i64 %12
   %14 = sub i64 1224, %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 180
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 90300
   %18 = select i1 %17, ptr @.str.15, ptr @.str.16
@@ -336,7 +336,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 180
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %25 = load i32, ptr %24, align 4
   %26 = icmp ugt i32 %25, 169999
   br i1 %26, label %27, label %28
@@ -346,16 +346,16 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br label %28
 
 28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %39 = load ptr, ptr %38, align 8
   %.not28 = icmp eq ptr %39, null
   %spec.select = select i1 %.not28, ptr @.str.21, ptr %39
@@ -440,11 +440,11 @@ define internal void @stop_postmaster_atexit() #0 {
 
 5:                                                ; preds = %3, %0
   %.0.i = phi ptr [ @old_cluster, %0 ], [ @new_cluster, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 152
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   %spec.select.i = select i1 %.not.i, ptr @.str.21, ptr %11
@@ -478,11 +478,11 @@ define dso_local void @stop_postmaster(i1 noundef zeroext %0) local_unnamed_addr
 6:                                                ; preds = %4, %1
   %.0 = phi ptr [ @old_cluster, %1 ], [ @new_cluster, %4 ]
   %7 = xor i1 %0, true
-  %8 = getelementptr inbounds i8, ptr %.0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.0, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 160
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   %spec.select = select i1 %.not, ptr @.str.21, ptr %13
@@ -512,7 +512,7 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %.029 = phi ptr [ %24, %23 ], [ %1, %.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.029, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not21 = icmp eq ptr %5, null
   br i1 %.not21, label %23, label %6

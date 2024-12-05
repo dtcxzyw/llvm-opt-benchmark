@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @quote_ident(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #3
@@ -28,7 +28,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #3
@@ -38,7 +38,7 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 1
   %13 = and i8 %11, -2
@@ -75,8 +75,8 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
   %34 = and i8 %33, 1
   %.not18 = icmp eq i8 %34, 0
   %.v = select i1 %.not18, i64 4, i64 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 %.v
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = sext i32 %28 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
   %39 = icmp ult ptr %35, %38
@@ -234,7 +234,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @quote_nullable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
@@ -245,7 +245,7 @@ define dso_local i64 @quote_nullable(ptr nocapture noundef readonly %0) local_un
   br label %12
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @quote_literal, i32 noundef 0, i64 noundef %10) #3
   br label %12

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6FilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Filter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %2, align 8
   ret void
 }
@@ -23,7 +23,7 @@ define dso_local void @_ZN6FilterC2Ev(ptr nocapture noundef nonnull writeonly al
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6FilterD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Filter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -39,7 +39,7 @@ declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN6Filter6enableE10FilterKind(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = and i32 %1, 63
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
@@ -51,7 +51,7 @@ define dso_local void @_ZN6Filter6enableE10FilterKind(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN6Filter7disableE10FilterKind(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = and i32 %1, 63
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw i64 1, %5
@@ -96,7 +96,7 @@ _ZNK6Filter12current_kindEv.exit:                 ; preds = %1
 
 _ZNKSt6bitsetILm2EE4testEm.exit:                  ; preds = %1, %_ZNK6Filter12current_kindEv.exit
   %5 = phi i64 [ 1, %_ZNK6Filter12current_kindEv.exit ], [ 0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = shl nuw nsw i64 1, %5
   %9 = and i64 %7, %8

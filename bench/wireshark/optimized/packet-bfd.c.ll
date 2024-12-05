@@ -387,7 +387,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.103) #3
   %8 = load ptr, ptr %6, align 8
@@ -524,7 +524,7 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
   %92 = load i32, ptr @hf_bfd_auth_password, align 4
   %93 = zext i8 %77 to i32
   %94 = add nsw i32 %93, -3
-  %95 = getelementptr inbounds i8, ptr %1, i64 408
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0.i, i32 noundef %92, ptr noundef %0, i32 noundef 27, i32 noundef %94, i32 noundef 0, ptr noundef %96, ptr noundef nonnull %5) #3
   %98 = load ptr, ptr %5, align 8
@@ -576,7 +576,7 @@ dissect_bfd_authentication.exit:                  ; preds = %90, %91, %104, %get
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bfd_echo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.106) #3
   %8 = load ptr, ptr %6, align 8

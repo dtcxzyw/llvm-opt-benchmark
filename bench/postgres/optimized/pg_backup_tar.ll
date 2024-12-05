@@ -58,62 +58,62 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (368, 384), (392, 408), (592, 600), (632, 640), (648, 656)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @_ArchiveEntry, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @_StartData, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @_WriteData, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @_EndData, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr @_WriteByte, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @_ReadByte, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr @_WriteBuf, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @_ReadBuf, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @_CloseArchive, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr @_PrintTocData, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @_ReadExtraToc, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @_WriteExtraToc, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr @_PrintExtraToc, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr @_StartLOs, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr @_StartLO, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 352
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr @_EndLO, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr @_EndLOs, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 392
-  %21 = getelementptr inbounds i8, ptr %0, i64 368
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %22 = tail call ptr @pg_malloc0(i64 noundef 72) #18
-  %23 = getelementptr inbounds i8, ptr %0, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 648
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i64 16384, ptr %26, align 8
   %27 = tail call ptr @pg_malloc(i64 noundef 16384) #18
-  %28 = getelementptr inbounds i8, ptr %0, i64 632
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 584
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 480
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %33 = load ptr, ptr %32, align 8
   %.not60 = icmp eq ptr %33, null
   br i1 %31, label %34, label %55
@@ -128,7 +128,7 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 36:                                               ; preds = %35
   %37 = tail call noalias ptr @fopen(ptr noundef nonnull %33, ptr noundef nonnull @.str.1)
-  %38 = getelementptr inbounds i8, ptr %22, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %37, ptr %38, align 8
   %39 = icmp eq ptr %37, null
   br i1 %39, label %40, label %47
@@ -141,7 +141,7 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 42:                                               ; preds = %35, %34
   %43 = load ptr, ptr @stdout, align 8
-  %44 = getelementptr inbounds i8, ptr %22, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %43, null
   br i1 %45, label %46, label %47
@@ -153,12 +153,12 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 47:                                               ; preds = %42, %36
   %48 = phi ptr [ %43, %42 ], [ %37, %36 ]
-  %49 = getelementptr inbounds i8, ptr %22, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 0, ptr %49, align 8
   %50 = tail call zeroext i1 @checkSeek(ptr noundef nonnull %48) #18
   %51 = zext i1 %50 to i32
   store i32 %51, ptr %22, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 544
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %53 = load i32, ptr %52, align 8
   %.not63 = icmp eq i32 %53, 0
   br i1 %.not63, label %76, label %54
@@ -178,7 +178,7 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 57:                                               ; preds = %56
   %58 = tail call noalias ptr @fopen(ptr noundef nonnull %33, ptr noundef nonnull @.str.5)
-  %59 = getelementptr inbounds i8, ptr %22, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %58, ptr %59, align 8
   %60 = icmp eq ptr %58, null
   br i1 %60, label %61, label %68
@@ -191,7 +191,7 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 63:                                               ; preds = %56, %55
   %64 = load ptr, ptr @stdin, align 8
-  %65 = getelementptr inbounds i8, ptr %22, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %64, ptr %65, align 8
   %66 = icmp eq ptr %64, null
   br i1 %66, label %67, label %68
@@ -203,13 +203,13 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 
 68:                                               ; preds = %63, %57
   %69 = phi ptr [ %64, %63 ], [ %58, %57 ]
-  %70 = getelementptr inbounds i8, ptr %22, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 0, ptr %70, align 8
   %71 = tail call zeroext i1 @checkSeek(ptr noundef nonnull %69) #18
   %72 = zext i1 %71 to i32
   store i32 %72, ptr %22, align 8
   %73 = tail call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i8 noundef signext 114)
-  %74 = getelementptr inbounds i8, ptr %22, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %73, ptr %74, align 8
   tail call void @ReadHead(ptr noundef nonnull %0) #18
   tail call void @ReadToc(ptr noundef nonnull %0) #18
@@ -225,13 +225,13 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (3
 define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture noundef initializes((144, 152)) %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call ptr @pg_malloc0(i64 noundef 16) #18
-  %5 = getelementptr inbounds i8, ptr %1, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.13, i32 noundef %9) #18
   %11 = call ptr @pg_strdup(ptr noundef nonnull %3) #18
@@ -243,18 +243,18 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
 
 13:                                               ; preds = %12, %7
   %.sink = phi ptr [ null, %12 ], [ %11, %7 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sink, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %4, ptr %15, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %6, i8 noundef signext 119)
   store ptr %7, ptr %4, align 8
@@ -263,14 +263,14 @@ define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 536
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %9)
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
@@ -288,7 +288,7 @@ define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @_EndData(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @tarClose(ptr noundef %0, ptr noundef %5)
@@ -299,15 +299,15 @@ define internal void @_EndData(ptr nocapture noundef readonly %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i32 %1 to i8
   store i8 %6, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef %9)
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
@@ -320,7 +320,7 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
   unreachable
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8
@@ -330,14 +330,14 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 256) i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %9, %11
   %13 = sub i64 %11, %8
@@ -346,7 +346,7 @@ define internal range(i32 0, 256) i32 @_ReadByte(ptr nocapture noundef readonly 
   br i1 %14, label %tarRead.exit.thread, label %tarRead.exit
 
 tarRead.exit:                                     ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = call fastcc i64 @_tarReadRaw(ptr noundef %16, ptr noundef nonnull %2, i64 noundef %spec.select.i, ptr noundef nonnull %6, ptr noundef null)
   %18 = load i64, ptr %7, align 8
@@ -361,7 +361,7 @@ tarRead.exit.thread:                              ; preds = %1, %tarRead.exit
   unreachable
 
 20:                                               ; preds = %tarRead.exit
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8
@@ -372,13 +372,13 @@ tarRead.exit.thread:                              ; preds = %1, %tarRead.exit
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %8)
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8
@@ -391,7 +391,7 @@ define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr nocapture
   unreachable
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %2
   store i64 %17, ptr %15, align 8
@@ -400,14 +400,14 @@ define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @_ReadBuf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %2
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %10, %12
   %14 = sub i64 %12, %9
@@ -416,7 +416,7 @@ define internal void @_ReadBuf(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %15, label %tarRead.exit, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc i64 @_tarReadRaw(ptr noundef %18, ptr noundef %1, i64 noundef %spec.select.i, ptr noundef nonnull %7, ptr noundef null)
   %20 = load i64, ptr %8, align 8
@@ -435,7 +435,7 @@ tarRead.exit:                                     ; preds = %3, %16
   unreachable
 
 23:                                               ; preds = %tarRead.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %2
   store i64 %26, ptr %24, align 8
@@ -444,16 +444,16 @@ tarRead.exit:                                     ; preds = %3, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @_CloseArchive(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %42
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 592
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %7 = load ptr, ptr %6, align 8
   %8 = tail call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i8 noundef signext 119)
-  %9 = getelementptr inbounds i8, ptr %7, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %8, ptr %9, align 8
   tail call void @WriteHead(ptr noundef nonnull %0) #18
   tail call void @WriteToc(ptr noundef nonnull %0) #18
@@ -461,28 +461,28 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   tail call void @WriteDataChunks(ptr noundef nonnull %0, ptr noundef null) #18
   %10 = tail call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, i8 noundef signext 119)
   tail call void (ptr, ptr, ...) @tarPrintf(ptr noundef %10, ptr noundef nonnull @.str.43)
-  %11 = getelementptr inbounds i8, ptr %0, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr @_scriptOut, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %10, ptr %13, align 8
   %14 = tail call ptr @NewRestoreOptions() #18
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %14, ptr noundef nonnull align 8 dereferenceable(400) %16, i64 400, i1 false)
-  %17 = getelementptr inbounds i8, ptr %14, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 368
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 368
   store i32 1, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %15, align 8
   tail call void @SetArchiveOptions(ptr noundef nonnull %0, ptr noundef null, ptr noundef %14) #18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
   store i32 0, ptr %23, align 8
   tail call void @RestoreArchive(ptr noundef nonnull %0) #18
@@ -490,7 +490,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   store i32 %24, ptr %23, align 8
   tail call fastcc void @tarClose(ptr noundef nonnull %0, ptr noundef %10)
   store i32 0, ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %28
 
 26:                                               ; preds = %28
@@ -511,13 +511,13 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   unreachable
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 576
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 480
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %42, label %40
@@ -527,7 +527,7 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %33, %37, %40, %1
-  %43 = getelementptr inbounds i8, ptr %0, i64 488
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr null, ptr %43, align 8
   ret void
 }
@@ -536,23 +536,23 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %137, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 592
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8
   %.not23 = icmp eq i32 %13, 0
   br i1 %.not23, label %36, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %16 = load ptr, ptr %15, align 8
   %.not24 = icmp eq ptr %16, null
   br i1 %.not24, label %34, label %17
@@ -594,7 +594,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   br label %137
 
 36:                                               ; preds = %9
-  %37 = getelementptr inbounds i8, ptr %1, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(6) @.str.39) #20
   %40 = icmp eq i32 %39, 0
@@ -608,15 +608,15 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not36.i, label %_LoadLOs.exit, label %.lr.ph40.i
 
 .lr.ph40.i:                                       ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %11, i64 48
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %45
 
 45:                                               ; preds = %111, %.lr.ph40.i
   %.039.i = phi i1 [ false, %.lr.ph40.i ], [ %.2.i, %111 ]
   %.02537.i = phi ptr [ %42, %.lr.ph40.i ], [ %112, %111 ]
   store ptr %.02537.i, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %.02537.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(6) @.str.40, i64 noundef 5) #20
   %49 = icmp eq i32 %48, 0
@@ -632,12 +632,12 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
 54:                                               ; preds = %50
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %53) #18
   %55 = load ptr, ptr %44, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i32, ptr %56, align 8
   %58 = icmp ne i32 %57, 0
   call void @StartRestoreLO(ptr noundef %0, i32 noundef %53, i1 noundef zeroext %58) #18
-  %59 = getelementptr inbounds i8, ptr %.02537.i, i64 40
-  %60 = getelementptr inbounds i8, ptr %.02537.i, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 48
   %61 = load i64, ptr %59, align 8
   %62 = add i64 %61, 4095
   %63 = load i64, ptr %60, align 8
@@ -648,17 +648,17 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   br i1 %66, label %tarRead.exit.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54
-  %67 = getelementptr inbounds i8, ptr %.02537.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 56
   br label %68
 
 68:                                               ; preds = %101, %.lr.ph.i
   %spec.select.i35.i = phi i64 [ %spec.select.i34.i, %.lr.ph.i ], [ %spec.select.i.i, %101 ]
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 592
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 592
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 200
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 200
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %69, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 208
   %75 = load i64, ptr %74, align 8
   %.not.i.i = icmp eq i64 %73, %75
   br i1 %.not.i.i, label %.thread.i.i, label %76
@@ -666,7 +666,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
 76:                                               ; preds = %68
   %77 = sub i64 %73, %75
   %..i.i = call i64 @llvm.umin.i64(i64 %77, i64 range(i64 1, 0) %spec.select.i35.i)
-  %78 = getelementptr inbounds i8, ptr %69, i64 184
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 184
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %80, i64 %..i.i, i1 false)
@@ -712,7 +712,7 @@ tarRead.exit.i:                                   ; preds = %87, %.thread.i.i, %
   %.03964.i.i = phi i64 [ %.03963.i.i, %87 ], [ %.03963.i.i, %.thread.i.i ], [ %..i.i, %76 ]
   %.0.i30.i = phi i64 [ %86, %87 ], [ %.04062.i.i, %.thread.i.i ], [ 0, %76 ]
   %95 = add i64 %.0.i30.i, %.03964.i.i
-  %96 = getelementptr inbounds i8, ptr %71, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
   store i64 %98, ptr %96, align 8
@@ -762,11 +762,11 @@ _LoadLOs.exit:                                    ; preds = %110, %111, %41
 113:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
   %114 = tail call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull %8, i8 noundef signext 114)
-  %115 = getelementptr inbounds i8, ptr %11, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %114, i64 56
-  %117 = getelementptr inbounds i8, ptr %114, i64 40
-  %118 = getelementptr inbounds i8, ptr %114, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %119 = load i64, ptr %117, align 8
   %120 = add i64 %119, 4095
   %121 = load i64, ptr %118, align 8
@@ -810,7 +810,7 @@ _PrintFileData.exit:                              ; preds = %tarRead.exit.i27, %
 
 ; Function Attrs: nounwind uwtable
 define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -823,7 +823,7 @@ define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0
 8:                                                ; preds = %6, %2
   %.0 = phi ptr [ %7, %6 ], [ %4, %2 ]
   %9 = tail call ptr @ReadStr(ptr noundef %0) #18
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store ptr %9, ptr %10, align 8
   %char0 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %char0, 0
@@ -841,9 +841,9 @@ define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.str. = select i1 %.not, ptr @.str, ptr %6
@@ -853,15 +853,15 @@ define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %12, label %10
@@ -877,11 +877,11 @@ define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define internal void @_StartLOs(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.44) #18
   %7 = call fastcc ptr @tarOpen(ptr noundef %0, ptr noundef nonnull %3, i8 noundef signext 119)
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   ret void
 }
@@ -889,9 +889,9 @@ define internal void @_StartLOs(ptr noundef %0, ptr nocapture readnone %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @_StartLO(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
   %4 = alloca [255 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %10, label %11
@@ -902,7 +902,7 @@ define internal void @_StartLO(ptr noundef %0, ptr nocapture noundef readonly %1
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 544
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
@@ -914,7 +914,7 @@ define internal void @_StartLO(ptr noundef %0, ptr nocapture noundef readonly %1
 
 15:                                               ; preds = %11
   %16 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i32 noundef %2) #18
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
   call void (ptr, ptr, ...) @tarPrintf(ptr noundef %18, ptr noundef nonnull @.str.47, i32 noundef %2, ptr noundef nonnull %4)
   %19 = call fastcc ptr @tarOpen(ptr noundef nonnull %0, ptr noundef nonnull %4, i8 noundef signext 119)
@@ -924,7 +924,7 @@ define internal void @_StartLO(ptr noundef %0, ptr nocapture noundef readonly %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @tarClose(ptr noundef %0, ptr noundef %6)
@@ -933,9 +933,9 @@ define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_EndLOs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @tarClose(ptr noundef %0, ptr noundef %6)
   ret void
@@ -962,7 +962,7 @@ declare zeroext i1 @checkSeek(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef signext range(i8 114, 120) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca [512 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 592
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i8 %2, 114
   br i1 %8, label %9, label %102
@@ -971,9 +971,9 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   %10 = tail call ptr @pg_malloc0(i64 noundef 64) #18
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %.loopexit.i, label %14
@@ -984,7 +984,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i64, ptr %18, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.17, i64 noundef %13, i64 noundef %19) #18
   %.pre.i = load i64, ptr %12, align 8
@@ -992,13 +992,13 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
 
 20:                                               ; preds = %17, %14
   %21 = phi i64 [ %13, %14 ], [ %.pre.i, %17 ]
-  %22 = getelementptr inbounds i8, ptr %7, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %21, %23
   br i1 %24, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i
@@ -1026,12 +1026,12 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   br i1 %.not46.i, label %44, label %.preheader.i
 
 .preheader.i:                                     ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %10, i64 24
-  %39 = getelementptr inbounds i8, ptr %10, i64 48
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
-  %41 = getelementptr inbounds i8, ptr %0, i64 200
-  %42 = getelementptr inbounds i8, ptr %0, i64 208
-  %43 = getelementptr inbounds i8, ptr %0, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br i1 %.not47.i, label %.loopexit, label %.preheader.split.i
 
 44:                                               ; preds = %36
@@ -1142,7 +1142,7 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
   %.03964.i.i = phi i64 [ %.03963.i.i, %76 ], [ %.03963.i.i, %73 ], [ %..i.i, %67 ], [ %.03963.i.i, %.thread.i.i ]
   %.0.i.i = phi i64 [ %75, %76 ], [ %.04062.i.i, %73 ], [ 0, %67 ], [ 0, %.thread.i.i ]
   %82 = add i64 %.0.i.i, %.03964.i.i
-  %83 = getelementptr inbounds i8, ptr %64, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %82, %84
   store i64 %85, ptr %83, align 8
@@ -1166,13 +1166,13 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
   %91 = add i64 %90, 511
   %92 = and i64 %91, -512
   %93 = add i64 %92, %89
-  %94 = getelementptr inbounds i8, ptr %7, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5)
-  %96 = getelementptr inbounds i8, ptr %0, i64 544
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %101
@@ -1191,7 +1191,7 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
   %103 = tail call ptr @pg_malloc0(i64 noundef 64) #18
   %104 = tail call i32 @umask(i32 noundef 63) #18
   %105 = tail call noalias ptr @tmpfile()
-  %106 = getelementptr inbounds i8, ptr %103, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %105, ptr %106, align 8
   %107 = icmp eq ptr %105, null
   br i1 %107, label %108, label %109
@@ -1203,7 +1203,7 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
 
 109:                                              ; preds = %102
   %110 = tail call i32 @umask(i32 noundef %104) #18
-  %111 = getelementptr inbounds i8, ptr %0, i64 544
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %119
@@ -1211,10 +1211,10 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
 114:                                              ; preds = %109
   %115 = load ptr, ptr %106, align 8
   store ptr %115, ptr %103, align 8
-  %116 = getelementptr inbounds i8, ptr %103, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %103, i64 56
   store ptr %0, ptr %116, align 8
   %117 = tail call ptr @pg_strdup(ptr noundef %1) #18
-  %118 = getelementptr inbounds i8, ptr %103, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store ptr %117, ptr %118, align 8
   br label %120
 
@@ -1225,11 +1225,11 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
 
 120:                                              ; preds = %114, %99
   %.025 = phi ptr [ %10, %99 ], [ %103, %114 ]
-  %121 = getelementptr inbounds i8, ptr %.025, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %.025, i64 32
   store i8 %2, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %7, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %.025, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   store ptr %123, ptr %124, align 8
   br label %125
 
@@ -1246,7 +1246,7 @@ declare void @ReadToc(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @tarClose(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [32768 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 544
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
@@ -1257,7 +1257,7 @@ define internal fastcc void @tarClose(ptr nocapture noundef readonly %0, ptr noc
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 119
   br i1 %11, label %12, label %68
@@ -1266,7 +1266,7 @@ define internal fastcc void @tarClose(ptr nocapture noundef readonly %0, ptr noc
   %13 = getelementptr i8, ptr %0, i64 592
   %.val = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %4)
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fseeko(ptr noundef %15, i64 noundef 0, i32 noundef 2)
   %.not.i = icmp eq i32 %16, 0
@@ -1279,7 +1279,7 @@ define internal fastcc void @tarClose(ptr nocapture noundef readonly %0, ptr noc
 
 18:                                               ; preds = %12
   %19 = tail call i64 @ftello(ptr noundef %15)
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %19, ptr %20, align 8
   %21 = icmp slt i64 %19, 0
   br i1 %21, label %22, label %23
@@ -1301,12 +1301,12 @@ define internal fastcc void @tarClose(ptr nocapture noundef readonly %0, ptr noc
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %20, align 8
   %30 = tail call i64 @time(ptr noundef null) #18
   %31 = call i32 @tarCreateHeader(ptr noundef nonnull %3, ptr noundef %28, ptr noundef null, i64 noundef %29, i32 noundef 384, i32 noundef 2048, i32 noundef 1024, i64 noundef %30) #18
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 512, ptr noundef %33)
   %.not.i.i = icmp eq i64 %34, 512
@@ -1408,7 +1408,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   unreachable
 
 _tarAddFile.exit:                                 ; preds = %59, %55
-  %65 = getelementptr inbounds i8, ptr %.val, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %57
   store i64 %67, ptr %65, align 8
@@ -1416,7 +1416,7 @@ _tarAddFile.exit:                                 ; preds = %59, %55
   br label %68
 
 68:                                               ; preds = %_tarAddFile.exit, %8
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load ptr, ptr %69, align 8
   call void @free(ptr noundef %70) #18
   store ptr null, ptr %1, align 8
@@ -1487,11 +1487,11 @@ declare noalias noundef ptr @tmpfile() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 592
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %9, %11
   br i1 %.not, label %.thread, label %12
@@ -1499,7 +1499,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
 12:                                               ; preds = %5
   %13 = sub i64 %9, %11
   %. = tail call i64 @llvm.umin.i64(i64 %13, i64 %2)
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %16, i64 %., i1 false)
@@ -1579,7 +1579,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
   %.03964 = phi i64 [ %.03963, %23 ], [ %.03963, %20 ], [ %.03963, %34 ], [ %.03963, %30 ], [ %.03963, %29 ], [ %., %12 ]
   %.0 = phi i64 [ %22, %23 ], [ %.04062, %20 ], [ %33, %34 ], [ %.04062, %30 ], [ 0, %29 ], [ 0, %12 ]
   %43 = add i64 %.0, %.03964
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %43
   store i64 %46, ptr %44, align 8
@@ -1590,11 +1590,11 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
 define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [101 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
-  %9 = getelementptr inbounds i8, ptr %3, i64 148
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 148
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %21
@@ -1637,7 +1637,7 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr nocapture noundef 
 
 .loopexit52:                                      ; preds = %16, %.preheader
   %24 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 101) #18
-  %25 = getelementptr inbounds i8, ptr %3, i64 124
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 124
   %26 = call i64 @read_tar_number(ptr noundef nonnull %25, i32 noundef 12) #18
   %27 = load i32, ptr @__pg_log_level, align 4
   %28 = icmp ult i32 %27, 2
@@ -1659,9 +1659,9 @@ define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr nocapture noundef 
 
 34:                                               ; preds = %30
   %35 = call ptr @pg_strdup(ptr noundef nonnull %4) #18
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %26, ptr %37, align 8
   br label %.loopexit33
 
@@ -1759,7 +1759,7 @@ define internal void @tarPrintf(ptr nocapture noundef %0, ptr noundef %1, ...) u
   %.lcssa = phi i64 [ %7, %2 ], [ %12, %.lr.ph ]
   %14 = load ptr, ptr %0, align 8
   %15 = call noundef i64 @fwrite(ptr noundef %.lcssa14, i64 noundef 1, i64 noundef %.lcssa, ptr noundef %14)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
@@ -1769,13 +1769,13 @@ define internal void @tarPrintf(ptr nocapture noundef %0, ptr noundef %1, ...) u
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i64 @_scriptOut(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %8)
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8

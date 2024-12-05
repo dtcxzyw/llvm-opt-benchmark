@@ -1213,7 +1213,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_oampdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [16 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.921) #6
   %9 = load ptr, ptr %7, align 8
@@ -1555,7 +1555,7 @@ switch.hole_check:                                ; preds = %.lr.ph.i34
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %251 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_oampdu, i64 0, i64 %251
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_oampdu, i64 0, i64 %251
   %switch.load = load ptr, ptr %switch.gep, align 8
   %252 = load i32, ptr %switch.load, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %252, ptr noundef %0, i32 noundef %249, i32 noundef 2, i32 noundef 0) #6
@@ -1771,16 +1771,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not585621.i, label %dissect_oampdu_vendor_specific.exit, label %.lr.ph624.i
 
 .lr.ph624.i:                                      ; preds = %363
-  %364 = getelementptr inbounds i8, ptr %1, i64 408
-  %365 = getelementptr inbounds i8, ptr %6, i64 1
-  %366 = getelementptr inbounds i8, ptr %6, i64 2
-  %367 = getelementptr inbounds i8, ptr %6, i64 3
-  %368 = getelementptr inbounds i8, ptr %6, i64 4
-  %369 = getelementptr inbounds i8, ptr %6, i64 5
-  %370 = getelementptr inbounds i8, ptr %6, i64 6
-  %371 = getelementptr inbounds i8, ptr %6, i64 7
-  %372 = getelementptr inbounds i8, ptr %6, i64 8
-  %373 = getelementptr inbounds i8, ptr %6, i64 9
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %365 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %367 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %368 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %370 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %371 = getelementptr inbounds nuw i8, ptr %6, i64 7
+  %372 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %6, i64 9
   br label %374
 
 374:                                              ; preds = %.loopexit.i38, %.lr.ph624.i

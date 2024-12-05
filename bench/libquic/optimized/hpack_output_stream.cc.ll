@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net17HpackOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #4
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %bit_offset_, align 8
   ret void
 }
@@ -37,7 +37,7 @@ define dso_local void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef non
 if.end23:
   %ref.tmp45 = alloca %"class.std::reverse_iterator", align 8
   %ref.tmp54 = alloca %"class.std::reverse_iterator", align 8
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %bit_offset_, align 8
   %add = add i64 %0, %bit_size
   %cmp = icmp eq i64 %0, 0
@@ -115,7 +115,7 @@ define dso_local void @_ZN3net17HpackOutputStream11AppendBytesEN4base16BasicStri
 if.end:
   %buffer = alloca %"class.base::BasicStringPiece", align 8
   store ptr %buffer.coerce0, ptr %buffer, align 8
-  %0 = getelementptr inbounds i8, ptr %buffer, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   store i64 %buffer.coerce1, ptr %0, align 8
   %call4 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %buffer)
   %call5 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %buffer)
@@ -132,7 +132,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %I) local_unnamed_addr #2 align 2 {
 entry:
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %bit_offset_, align 8
   %sub = sub i64 8, %0
   %sh_prom = trunc i64 %sub to i32
@@ -171,7 +171,7 @@ define dso_local void @_ZN3net17HpackOutputStream10TakeStringEPNSt7__cxx1112basi
 if.end:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %output) #4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #4
-  %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bit_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %bit_offset_, align 8
   ret void
 }

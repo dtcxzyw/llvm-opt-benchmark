@@ -195,7 +195,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile28getSymbolWith
 switch.lookup:
   %5 = alloca %"class.llvm::SmallString.188", align 8
   %6 = alloca %"class.llvm::Twine", align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull %7, i64 noundef 60) #16
   %8 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -206,7 +206,7 @@ switch.lookup:
   %12 = sext i32 %10 to i64
   %switch.gep5 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE.2, i64 0, i64 %12
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
-  %13 = getelementptr inbounds i8, ptr %switch.load6, i64 %switch.load
+  %13 = getelementptr inbounds nuw i8, ptr %switch.load6, i64 %switch.load
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull %switch.load6, ptr noundef nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %15 = load ptr, ptr %14, align 8
@@ -263,7 +263,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #16
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
@@ -304,7 +304,7 @@ define dso_local void @_ZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadat
   %4 = alloca %"class.llvm::SmallVector.191", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull %7, i64 noundef 8) #16
   call void @_ZNK4llvm6Module22getModuleFlagsMetadataERNS_15SmallVectorImplINS0_15ModuleFlagEntryEEE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %8 = load ptr, ptr %4, align 8
@@ -329,7 +329,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph
   br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread61
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread61:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %17 = getelementptr inbounds i8, ptr %.03270, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.03270, i64 24
   %.not = icmp eq ptr %17, %10
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -437,7 +437,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %42, %46
 
 _ZNK4llvm6MDNode10getOperandEj.exit47:            ; preds = %64, %68
   %.sroa.0.0.i.i46 = phi ptr [ %72, %68 ], [ %66, %64 ]
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i46, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i46, i64 8
   %.val40 = load ptr, ptr %73, align 8
   %.not.i48 = icmp eq ptr %.val40, null
   br i1 %.not.i48, label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread", label %74
@@ -481,7 +481,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit47:            ; preds = %64, %68
 
 _ZNK4llvm6MDNode10getOperandEj.exit53:            ; preds = %89, %93
   %.sroa.0.0.i.i52 = phi ptr [ %97, %93 ], [ %91, %89 ]
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i52, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i52, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 128
   %101 = load ptr, ptr %100, align 8
@@ -495,13 +495,13 @@ _ZNK4llvm6MDNode10getOperandEj.exit53:            ; preds = %89, %93
   %107 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull %.0.i44, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr null) #16
   %108 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull %83, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr null) #16
   %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1168
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1168
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %107, ptr noundef %108, i64 noundef %.0.i54) #16
   br label %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread"
 
 "_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread": ; preds = %74, %_ZNK4llvm6MDNode10getOperandEj.exit47, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50", %_ZNK4llvm6MDNode10getOperandEj.exit53
-  %112 = getelementptr inbounds i8, ptr %.03372, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.03372, i64 8
   %.not37 = icmp eq ptr %112, %35
   br i1 %.not37, label %.thread, label %37
 
@@ -730,7 +730,7 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread:       ; preds = %49, %_ZNK4llvm5Valu
   %.fca.0.extract = extractvalue { i64, i8 } %100, 0
   %.fca.1.extract = extractvalue { i64, i8 } %100, 1
   store i64 %.fca.0.extract, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %101 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #16
   %102 = add i64 %101, -4
@@ -749,7 +749,7 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread:       ; preds = %49, %_ZNK4llvm5Valu
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
 switch.lookup:                                    ; preds = %97
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm24TargetLoweringObjectFile16getKindForGlobalEPKNS_12GlobalObjectERKNS_13TargetMachineE, i64 0, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
@@ -848,7 +848,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1232) %3) #16
   br label %39
@@ -893,14 +893,14 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile16SectionForGlo
 
 29:                                               ; preds = %27, %27, %22, %19, %16
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1232) %3) #16
   br label %39
 
 34:                                               ; preds = %27, %25, %14
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 248
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 248
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1232) %3) #16
   br label %39
@@ -925,7 +925,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile22getSectionFor
   store i8 0, ptr %4, align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 8 dereferenceable(512) %5, i32 4, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %4) #16
   ret ptr %9
@@ -993,7 +993,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile23getTTypeGloba
   %14 = load ptr, ptr %8, align 8
   %15 = tail call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %14) #16
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 200
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef %15, ptr null) #16
   %19 = load ptr, ptr %8, align 8
@@ -1024,7 +1024,7 @@ define dso_local noundef ptr @_ZNK4llvm24TargetLoweringObjectFile17getTTypeRefer
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef nonnull align 8 dereferenceable(2432) %9) #16
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef %10, ptr null) #16
   %14 = load ptr, ptr %8, align 8
@@ -1207,7 +1207,7 @@ define internal fastcc noundef zeroext i1 @_ZL13isNullOrUndefPKN4llvm8ConstantE(
 _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %12, %15
   %20 = phi ptr [ %14, %12 ], [ %19, %15 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %12 ], [ %17, %15 ]
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %20, i64 %.pre-phi2.i.i.i
+  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %.pre-phi2.i.i.i
   %.not12 = icmp eq i64 %.pre-phi2.i.i.i, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
@@ -1215,7 +1215,7 @@ _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %12, %15
   %.sroa.06.013 = phi ptr [ %24, %.lr.ph ], [ %20, %_ZNK4llvm4User14operand_valuesEv.exit ]
   %22 = load ptr, ptr %.sroa.06.013, align 8
   %23 = tail call fastcc noundef zeroext i1 @_ZL13isNullOrUndefPKN4llvm8ConstantE(ptr noundef %22)
-  %24 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 32
   %.not = icmp ne ptr %24, %21
   %or.cond.not = select i1 %23, i1 %.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit
@@ -1299,7 +1299,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 32:                                               ; preds = %2
   %33 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1) #16
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %33, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %34 = shl i64 %.sroa.0.0.copyload1.i.i.i.i, 3
   br label %58

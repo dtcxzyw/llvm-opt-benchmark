@@ -23,7 +23,7 @@ define noundef i32 @_Z9tMPI_SendPKviP14tmpi_datatype_iiP10tmpi_comm_(ptr noundef
   br label %26
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
@@ -43,7 +43,7 @@ define noundef i32 @_Z9tMPI_SendPKviP14tmpi_datatype_iiP10tmpi_comm_(ptr noundef
 23:                                               ; preds = %20
   call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef nonnull %7, ptr noundef nonnull %21)
   call void @_Z16tMPI_Wait_singleP11tmpi_threadP9tmpi_req_(ptr noundef %8, ptr noundef nonnull %7)
-  %24 = getelementptr inbounds i8, ptr %7, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %25 = load i32, ptr %24, align 4
   br label %26
 
@@ -79,7 +79,7 @@ define noundef i32 @_Z9tMPI_RecvPviP14tmpi_datatype_iiP10tmpi_comm_P12tmpi_statu
   br i1 %.not22, label %22, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %3 to i64
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
@@ -101,7 +101,7 @@ define noundef i32 @_Z9tMPI_RecvPviP14tmpi_datatype_iiP10tmpi_comm_P12tmpi_statu
   call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef nonnull %8, ptr noundef nonnull %23)
   call void @_Z16tMPI_Wait_singleP11tmpi_threadP9tmpi_req_(ptr noundef %9, ptr noundef nonnull %8)
   call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %8, ptr noundef %6)
-  %26 = getelementptr inbounds i8, ptr %8, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %27 = load i32, ptr %26, align 4
   br label %28
 
@@ -128,7 +128,7 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
   br label %51
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %3 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
@@ -169,13 +169,13 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
 
 40:                                               ; preds = %37
   call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef nonnull %14, ptr noundef nonnull %38)
-  %41 = getelementptr inbounds i8, ptr %13, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %14, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %13, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr null, ptr %44, align 8
   %45 = call noundef i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef %15, ptr noundef nonnull %13, ptr noundef null)
   %.not4446 = icmp eq i32 %45, 0
@@ -189,9 +189,9 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   call void @_Z15tMPI_Set_statusP9tmpi_req_P12tmpi_status_(ptr noundef nonnull %14, ptr noundef %11)
-  %47 = getelementptr inbounds i8, ptr %13, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %14, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %50 = load i32, ptr %49, align 4
   %.not45 = icmp eq i32 %50, 0
   %spec.select = select i1 %.not45, i32 %48, i32 %50
@@ -209,7 +209,7 @@ declare void @_Z26tMPI_Wait_process_incomingP11tmpi_thread(ptr noundef) local_un
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
-  %9 = getelementptr inbounds i8, ptr %8, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = tail call noundef ptr @_Z12tMPI_Get_reqP8req_list(ptr noundef nonnull %9)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %14
@@ -221,7 +221,7 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
   br label %28
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %3 to i64
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
@@ -242,7 +242,7 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
 25:                                               ; preds = %22
   tail call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef %10, ptr noundef nonnull %23)
   store ptr %10, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 124
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 124
   %27 = load i32, ptr %26, align 4
   br label %28
 
@@ -258,7 +258,7 @@ declare void @_Z15tMPI_Return_reqP8req_listP9tmpi_req_(ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
-  %9 = getelementptr inbounds i8, ptr %8, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = tail call noundef ptr @_Z12tMPI_Get_reqP8req_list(ptr noundef nonnull %9)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %14
@@ -274,7 +274,7 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
   br i1 %.not30, label %23, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %3 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -296,7 +296,7 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
 26:                                               ; preds = %23
   tail call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef %10, ptr noundef nonnull %24)
   store ptr %10, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 124
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 124
   %28 = load i32, ptr %27, align 4
   br label %29
 

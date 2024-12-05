@@ -20,7 +20,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17hda05d
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   %6 = tail call i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h025f0912e0ba3deeE"(i64 %4, i64 %5, ptr nonnull align 1 @anon.0247f743cad7ffeaca7335851c2f057e.1, i64 70, ptr nonnull align 8 @anon.0247f743cad7ffeaca7335851c2f057e.3)
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = tail call i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull %7, i8 2)
   %9 = icmp eq i64 %6, %8
   br i1 %9, label %11, label %10
@@ -31,12 +31,12 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17hda05d
 
 11:                                               ; preds = %2
   tail call void @_ZN4core4sync6atomic12atomic_store17h8309d489731ae414E(ptr nonnull %7, i64 1, i8 1)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %12, align 8
   store i64 1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.2.0..sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %13, align 8
   br label %14
 
@@ -64,23 +64,23 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h4729cc33b01b060aE(ptr nonnull %15, i64 0, i64 1, i8 3, i8 2)
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %14, %4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %35, label %32, !prof !4
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h59c1bec8d9080d37E"(ptr nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 %11, ptr nonnull align 8 %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %12, ptr noundef nonnull align 8 dereferenceable(1400) %11, i64 1400, i1 false)
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$regex_automata..meta..regex..Cache$GT$$GT$17hce437f6bf3e6284aE"(ptr nonnull align 8 %25)
           to label %28 unwind label %26
 
@@ -92,12 +92,12 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_slow17h
 
 28:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %25, ptr noundef nonnull align 8 dereferenceable(1400) %12, i64 1400, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %29, align 8
   store i64 1, ptr %0, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.26.0..sroa_idx, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %30, align 8
   br label %31
 
@@ -110,7 +110,7 @@ common.resume:                                    ; preds = %39, %26, %80, %71
 
 32:                                               ; preds = %19
   %33 = urem i64 %2, %21
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %45
 
 35:                                               ; preds = %19
@@ -118,7 +118,7 @@ common.resume:                                    ; preds = %39, %26, %80, %71
   unreachable
 
 36:                                               ; preds = %83
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h59c1bec8d9080d37E"(ptr nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 %5, ptr nonnull align 8 %37)
   %38 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 1400, i64 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5f49240e7d05a49fE.exit" unwind label %39
@@ -137,12 +137,12 @@ common.resume:                                    ; preds = %39, %26, %80, %71
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5f49240e7d05a49fE.exit": ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %38, ptr noundef nonnull align 8 dereferenceable(1400) %5, i64 1400, i1 false)
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %43, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %.sroa.216.0..sroa_idx, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %44, align 8
   br label %31
 
@@ -166,14 +166,14 @@ common.resume:                                    ; preds = %39, %26, %80, %71
   unreachable
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = load ptr, ptr %56, align 8, !nonnull !3, !align !7, !noundef !3
-  %58 = getelementptr inbounds i8, ptr %9, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %59 = load i8, ptr %58, align 8, !range !8, !noundef !3
   store ptr %57, ptr %10, align 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = invoke align 8 ptr @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h4ac01456ac8311daE"(ptr nonnull align 8 %61)
           to label %63 unwind label %80
 
@@ -190,10 +190,10 @@ common.resume:                                    ; preds = %39, %26, %80, %71
   %66 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
   %67 = load i8, ptr %60, align 8, !range !8, !noundef !3
   store ptr %66, ptr %7, align 8
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %67, ptr %68, align 8
   call void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hf1a93795d009f861E"(ptr nonnull align 8 %7)
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17h59c1bec8d9080d37E"(ptr nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 %6, ptr nonnull align 8 %69)
   %70 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 1400, i64 8)
           to label %.thread32 unwind label %71
@@ -212,22 +212,22 @@ common.resume:                                    ; preds = %39, %26, %80, %71
 
 .thread32:                                        ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %70, ptr noundef nonnull align 8 dereferenceable(1400) %6, i64 1400, i1 false)
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %75, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %70, ptr %.sroa.214.0..sroa_idx, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %76, align 8
   br label %31
 
 77:                                               ; preds = %63
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %78, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.212.0..sroa_idx, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %79, align 8
   call void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17hf1a93795d009f861E"(ptr nonnull align 8 %10)
   br label %31
@@ -266,14 +266,14 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17
           to label %11 unwind label %.loopexit.split-lp
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %18, label %15, !prof !4
 
 15:                                               ; preds = %11
   %16 = urem i64 %10, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
 18:                                               ; preds = %11
@@ -320,14 +320,14 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !7, !noundef !3
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = load i8, ptr %39, align 8, !range !8, !noundef !3
   store ptr %38, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd7960a9538ee67c8E"(ptr nonnull align 8 %42, ptr nonnull align 8 %43)
           to label %46 unwind label %44

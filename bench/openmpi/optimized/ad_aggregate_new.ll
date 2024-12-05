@@ -15,25 +15,25 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 1
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %16
 
 16:                                               ; preds = %14, %3
   %17 = icmp eq i32 %9, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %17, label %21, label %36
@@ -47,7 +47,7 @@ define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef 
   br label %28
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -79,7 +79,7 @@ define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %45 = load i32, ptr %44, align 4
   tail call void @ADIOI_Calc_file_realms_aar(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %45, i64 noundef %1, i64 noundef %2, ptr noundef %40, ptr noundef %41)
   %46 = load ptr, ptr %41, align 8
@@ -99,7 +99,7 @@ define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef 
 53:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
   %56 = load i32, ptr %55, align 4
   %57 = srem i32 %11, %56
   %58 = sub nsw i32 %11, %57
@@ -140,7 +140,7 @@ define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef 
   %73 = load i64, ptr %72, align 8
   %74 = add nsw i64 %73, %69
   store i64 %74, ptr %71, align 8
-  %75 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i.lver.orig
+  %75 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.lver.orig
   store ptr %67, ptr %75, align 8
   %indvars.iv.next.i.lver.orig = add nuw nsw i64 %indvars.iv.i.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i64 %indvars.iv.next.i.lver.orig, %wide.trip.count.i
@@ -156,7 +156,7 @@ define void @ADIOI_Calc_file_realms(ptr noundef %0, i64 noundef %1, i64 noundef 
   %77 = getelementptr i64, ptr %40, i64 %indvars.iv.i
   %78 = add nsw i64 %store_forwarded, %69
   store i64 %78, ptr %77, align 8
-  %79 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
   store ptr %67, ptr %79, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -175,9 +175,9 @@ ADIOI_Calc_file_realms_user_size.exit:            ; preds = %ADIOI_Calc_file_rea
 82:                                               ; preds = %36, %48, %ADIOI_Calc_file_realms_user_size.exit, %51, %42, %28
   %.148 = phi ptr [ %.047, %28 ], [ %41, %42 ], [ %41, %48 ], [ %41, %ADIOI_Calc_file_realms_user_size.exit ], [ %41, %51 ], [ null, %36 ]
   %.1 = phi ptr [ %.0, %28 ], [ %40, %42 ], [ %40, %48 ], [ %40, %ADIOI_Calc_file_realms_user_size.exit ], [ %40, %51 ], [ null, %36 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 240
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %.1, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 248
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %.148, ptr %84, align 8
   ret void
 }
@@ -199,9 +199,9 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
   %12 = sub i64 %11, %3
   %13 = add i64 %12, %4
   %14 = sdiv i64 %13, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = srem i64 %3, %19
@@ -252,7 +252,7 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
   %43 = load i64, ptr %42, align 8
   %44 = add nsw i64 %43, %39
   store i64 %44, ptr %41, align 8
-  %45 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.lver.orig
+  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.lver.orig
   store ptr %37, ptr %45, align 8
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i64 %indvars.iv.next.lver.orig, %wide.trip.count
@@ -268,7 +268,7 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
   %47 = getelementptr i64, ptr %5, i64 %indvars.iv
   %48 = add nsw i64 %store_forwarded, %39
   store i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %37, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -276,14 +276,14 @@ define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 n
 
 ._crit_edge:                                      ; preds = %46, %.ph.lver.orig, %7
   %50 = load ptr, ptr %15, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %._crit_edge
   %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 9, ptr noundef nonnull @.str.1, i32 noundef %spec.select.i) #8
-  %56 = getelementptr inbounds i8, ptr %0, i64 144
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 @PMPI_Info_set(ptr noundef %57, ptr noundef nonnull @.str.2, ptr noundef nonnull %10) #8
   br label %59
@@ -298,12 +298,12 @@ define void @ADIOI_Calc_file_realms_fsize(ptr noundef %0, i32 noundef %1, i64 no
   %7 = alloca i32, align 4
   %8 = alloca %struct.ADIO_Fcntl_t, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef %0, i32 noundef 200, ptr noundef nonnull %8, ptr noundef nonnull %7) #8
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %2, 1
   %17 = call i64 @llvm.smax.i64(i64 %15, i64 %16)
@@ -332,9 +332,9 @@ define void @ADIOI_Calc_file_realms_fsize(ptr noundef %0, i32 noundef %1, i64 no
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %33 = mul nsw i64 %indvars.iv, %31
-  %34 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %30, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -348,9 +348,9 @@ define void @ADIOI_Calc_file_realms_fsize(ptr noundef %0, i32 noundef %1, i64 no
 define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = sext i32 %1 to i64
@@ -394,7 +394,7 @@ define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0,
   %31 = load i64, ptr %30, align 8
   %32 = add nsw i64 %31, %27
   store i64 %32, ptr %29, align 8
-  %33 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.lver.orig
+  %33 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.lver.orig
   store ptr %25, ptr %33, align 8
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i64 %indvars.iv.next.lver.orig, %wide.trip.count
@@ -410,7 +410,7 @@ define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0,
   %35 = getelementptr i64, ptr %3, i64 %indvars.iv
   %36 = add nsw i64 %store_forwarded, %27
   store i64 %36, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr %25, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -449,11 +449,11 @@ define void @ADIOI_Verify_fr(i32 noundef %0, ptr nocapture noundef readnone %1, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @ADIOI_Agg_idx(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %6, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -464,7 +464,7 @@ define range(i32 -2147483648, 2147483647) i32 @ADIOI_Agg_idx(i32 noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %10 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %._crit_edge.loopexit.split.loop.exit13

@@ -73,14 +73,14 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noun
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = load ptr, ptr %0, align 8, !alias.scope !5
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !alias.scope !5
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
   store i8 66, ptr %7, align 1, !noalias !5
   %8 = add i32 %5, 1
   store i32 %8, ptr %4, align 8, !alias.scope !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
@@ -92,7 +92,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noun
   store i64 %11, ptr %15, align 1, !noalias !8
   %16 = add i32 %13, 8
   store i32 %16, ptr %4, align 8, !alias.scope !8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load i64, ptr %17, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -104,7 +104,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noun
   store i64 %19, ptr %23, align 1, !noalias !11
   %24 = add i32 %21, 8
   store i32 %24, ptr %4, align 8, !alias.scope !11
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i32, ptr %25, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -135,10 +135,10 @@ define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr nocapture nound
 
 8:                                                ; preds = %2
   %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
   %11 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %11, ptr %12, align 8
   ret void
 }
@@ -159,7 +159,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr nocapture nou
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %4 = load ptr, ptr %0, align 8, !alias.scope !17
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !alias.scope !17
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -185,7 +185,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr nocapture nou
   store i64 %15, ptr %19, align 1, !noalias !23
   %20 = add i32 %17, 8
   store i32 %20, ptr %5, align 8, !alias.scope !23
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i64, ptr %21, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -197,7 +197,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr nocapture nou
   store i64 %23, ptr %27, align 1, !noalias !26
   %28 = add i32 %25, 8
   store i32 %28, ptr %5, align 8, !alias.scope !26
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load i64, ptr %29, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
@@ -230,10 +230,10 @@ define dso_local void @logicalrep_read_commit(ptr noundef %0, ptr nocapture noun
   %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %9, ptr %1, align 8
   %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %10, ptr %11, align 8
   %12 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %12, ptr %13, align 8
   ret void
 }
@@ -245,14 +245,14 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %3 = load ptr, ptr %0, align 8, !alias.scope !32
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !alias.scope !32
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
   store i8 98, ptr %7, align 1, !noalias !32
   %8 = add i32 %5, 1
   store i32 %8, ptr %4, align 8, !alias.scope !32
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -264,7 +264,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
   store i64 %11, ptr %15, align 1, !noalias !35
   %16 = add i32 %13, 8
   store i32 %16, ptr %4, align 8, !alias.scope !35
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i64, ptr %17, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -276,7 +276,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
   store i64 %19, ptr %23, align 1, !noalias !38
   %24 = add i32 %21, 8
   store i32 %24, ptr %4, align 8, !alias.scope !38
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = load i64, ptr %25, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
@@ -288,7 +288,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
   store i64 %27, ptr %31, align 1, !noalias !41
   %32 = add i32 %29, 8
   store i32 %32, ptr %4, align 8, !alias.scope !41
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
@@ -300,7 +300,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
   store i32 %35, ptr %39, align 1, !noalias !44
   %40 = add i32 %37, 4
   store i32 %40, ptr %4, align 8, !alias.scope !44
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %42) #8
   ret void
@@ -324,7 +324,7 @@ define dso_local void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef
 
 8:                                                ; preds = %2
   %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %12, label %15
@@ -338,12 +338,12 @@ define dso_local void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %8
   %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %16, ptr %17, align 8
   %18 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %21 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21, i64 noundef 200) #8
   ret void
@@ -366,7 +366,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %6 = load ptr, ptr %0, align 8, !alias.scope !47
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !47
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
@@ -392,7 +392,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i64 %17, ptr %21, align 1, !noalias !53
   %22 = add i32 %19, 8
   store i32 %22, ptr %7, align 8, !alias.scope !53
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %24 = load i64, ptr %23, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
@@ -404,7 +404,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i64 %25, ptr %29, align 1, !noalias !56
   %30 = add i32 %27, 8
   store i32 %30, ptr %7, align 8, !alias.scope !56
-  %31 = getelementptr inbounds i8, ptr %2, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load i64, ptr %31, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -416,7 +416,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i64 %33, ptr %37, align 1, !noalias !59
   %38 = add i32 %35, 8
   store i32 %38, ptr %7, align 8, !alias.scope !59
-  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
@@ -428,7 +428,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i32 %41, ptr %45, align 1, !noalias !62
   %46 = add i32 %43, 4
   store i32 %46, ptr %7, align 8, !alias.scope !62
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %48) #8
   ret void
@@ -469,7 +469,7 @@ define internal fastcc void @logicalrep_read_prepare_common(ptr noundef %0, ptr 
 
 15:                                               ; preds = %9
   %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %16, ptr %17, align 8
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %19, label %22
@@ -483,10 +483,10 @@ define internal fastcc void @logicalrep_read_prepare_common(ptr noundef %0, ptr 
 
 22:                                               ; preds = %15
   %23 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %23, ptr %24, align 8
   %25 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %25, ptr %26, align 8
   %27 = icmp eq i32 %25, 0
   br i1 %27, label %28, label %31
@@ -499,7 +499,7 @@ define internal fastcc void @logicalrep_read_prepare_common(ptr noundef %0, ptr 
   unreachable
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %2, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %33 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %34 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %33, i64 noundef 200) #8
   ret void
@@ -510,7 +510,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noca
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %4 = load ptr, ptr %0, align 8, !alias.scope !65
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !alias.scope !65
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -536,7 +536,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noca
   store i64 %15, ptr %19, align 1, !noalias !71
   %20 = add i32 %17, 8
   store i32 %20, ptr %5, align 8, !alias.scope !71
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i64, ptr %21, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
@@ -548,7 +548,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noca
   store i64 %23, ptr %27, align 1, !noalias !74
   %28 = add i32 %25, 8
   store i32 %28, ptr %5, align 8, !alias.scope !74
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load i64, ptr %29, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
@@ -560,7 +560,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noca
   store i64 %31, ptr %35, align 1, !noalias !77
   %36 = add i32 %33, 8
   store i32 %36, ptr %5, align 8, !alias.scope !77
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %38 = load i32, ptr %37, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -572,7 +572,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noca
   store i32 %39, ptr %43, align 1, !noalias !80
   %44 = add i32 %41, 4
   store i32 %44, ptr %5, align 8, !alias.scope !80
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %46) #8
   ret void
@@ -607,7 +607,7 @@ define dso_local void @logicalrep_read_commit_prepared(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %8
   %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %16, align 8
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %21
@@ -621,12 +621,12 @@ define dso_local void @logicalrep_read_commit_prepared(ptr noundef %0, ptr nound
 
 21:                                               ; preds = %14
   %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %23, align 8
   %24 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %27 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %28 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27, i64 noundef 200) #8
   ret void
@@ -637,7 +637,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %5 = load ptr, ptr %0, align 8, !alias.scope !83
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !83
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -663,7 +663,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i64 %16, ptr %20, align 1, !noalias !89
   %21 = add i32 %18, 8
   store i32 %21, ptr %6, align 8, !alias.scope !89
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
@@ -685,7 +685,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i64 %30, ptr %34, align 1, !noalias !95
   %35 = add i32 %32, 8
   store i32 %35, ptr %6, align 8, !alias.scope !95
-  %36 = getelementptr inbounds i8, ptr %1, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %37 = load i64, ptr %36, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -697,7 +697,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i64 %38, ptr %42, align 1, !noalias !98
   %43 = add i32 %40, 8
   store i32 %43, ptr %6, align 8, !alias.scope !98
-  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = load i32, ptr %44, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
@@ -709,7 +709,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i32 %46, ptr %50, align 1, !noalias !101
   %51 = add i32 %48, 4
   store i32 %51, ptr %6, align 8, !alias.scope !101
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %53) #8
   ret void
@@ -744,7 +744,7 @@ define dso_local void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %8
   %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %16, align 8
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %21
@@ -758,15 +758,15 @@ define dso_local void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %14
   %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %23, align 8
   %24 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %24, ptr %25, align 8
   %26 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %30 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 200) #8
   ret void
@@ -789,7 +789,7 @@ define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %4 = load ptr, ptr %0, align 8, !alias.scope !104
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !alias.scope !104
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -826,7 +826,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %7 = load ptr, ptr %0, align 8, !alias.scope !110
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !110
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -850,7 +850,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
   br label %20
 
 20:                                               ; preds = %13, %6
-  %21 = getelementptr inbounds i8, ptr %2, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %22 = load i32, ptr %21, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -884,7 +884,7 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocaptur
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.64.val, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.64.val, i64 24
   %8 = icmp eq ptr %3, null
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -896,13 +896,13 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocaptur
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %column_in_column_list.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %.0602.us = phi i16 [ %.161.us, %column_in_column_list.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %10 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %indvars.iv11
-  %11 = getelementptr inbounds i8, ptr %10, i64 95
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 95
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %column_in_column_list.exit.thread.us, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 94
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 94
   %16 = load i8, ptr %15, align 2
   %.not65.us = icmp eq i8 %16, 0
   %17 = zext i1 %.not65.us to i16
@@ -920,19 +920,19 @@ column_in_column_list.exit.thread.us:             ; preds = %14, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %.0602 = phi i16 [ %.161, %31 ], [ 0, %.lr.ph ]
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 95
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 95
   %21 = load i8, ptr %20, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %.lr.ph.split
-  %24 = getelementptr inbounds i8, ptr %19, i64 94
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 94
   %25 = load i8, ptr %24, align 2
   %.not65 = icmp eq i8 %25, 0
   br i1 %.not65, label %column_in_column_list.exit, label %31
 
 column_in_column_list.exit:                       ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %19, i64 74
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 74
   %27 = load i16, ptr %26, align 2
   %28 = sext i16 %27 to i32
   %29 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %28, ptr noundef nonnull %3) #8
@@ -956,17 +956,17 @@ column_in_column_list.exit:                       ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %35 = tail call i16 @llvm.bswap.i16(i16 %.060.lcssa)
   %36 = load ptr, ptr %0, align 8, !alias.scope !124
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8, !alias.scope !124
   %39 = sext i32 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
   store i16 %35, ptr %40, align 1, !noalias !124
   %41 = add i32 %38, 2
   store i32 %41, ptr %37, align 8, !alias.scope !124
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i32
   %48 = icmp sgt i32 %44, %47
@@ -977,29 +977,29 @@ column_in_column_list.exit:                       ; preds = %23
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %._crit_edge, %49
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %.64.val, align 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph6, label %._crit_edge7
 
 .lr.ph6:                                          ; preds = %slot_getallattrs.exit
-  %56 = getelementptr inbounds i8, ptr %.64.val, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.64.val, i64 24
   %57 = icmp eq ptr %3, null
   br label %58
 
 58:                                               ; preds = %.lr.ph6, %154
   %indvars.iv13 = phi i64 [ 0, %.lr.ph6 ], [ %indvars.iv.next14, %154 ]
   %59 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %56, i64 0, i64 %indvars.iv13
-  %60 = getelementptr inbounds i8, ptr %59, i64 95
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 95
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %154, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %59, i64 94
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 94
   %65 = load i8, ptr %64, align 2
   %.not = icmp eq i8 %65, 0
   br i1 %.not, label %66, label %154
@@ -1008,7 +1008,7 @@ slot_getallattrs.exit:                            ; preds = %._crit_edge, %49
   br i1 %57, label %column_in_column_list.exit66.thread, label %column_in_column_list.exit66
 
 column_in_column_list.exit66:                     ; preds = %66
-  %67 = getelementptr inbounds i8, ptr %59, i64 74
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 74
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
   %70 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %69, ptr noundef nonnull %3) #8
@@ -1033,7 +1033,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   br label %154
 
 80:                                               ; preds = %column_in_column_list.exit66.thread
-  %81 = getelementptr inbounds i8, ptr %59, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %82 = load i16, ptr %81, align 4
   %83 = icmp eq i16 %82, -1
   br i1 %83, label %84, label %100
@@ -1047,7 +1047,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %87, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 18
   br i1 %93, label %94, label %100
@@ -1065,7 +1065,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   br label %154
 
 100:                                              ; preds = %90, %84, %80
-  %101 = getelementptr inbounds i8, ptr %59, i64 68
+  %101 = getelementptr inbounds nuw i8, ptr %59, i64 68
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
   %104 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %103) #8
@@ -1073,7 +1073,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   br i1 %.not63, label %105, label %110
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %59, i64 68
+  %106 = getelementptr inbounds nuw i8, ptr %59, i64 68
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %107)
   %108 = load i32, ptr %106, align 4
@@ -1082,16 +1082,16 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   unreachable
 
 110:                                              ; preds = %100
-  %111 = getelementptr inbounds i8, ptr %104, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 22
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 22
   %114 = load i8, ptr %113, align 2
   %115 = zext i8 %114 to i64
   %116 = getelementptr i8, ptr %112, i64 %115
   br i1 %2, label %117, label %140
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %116, i64 112
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 112
   %119 = load i32, ptr %118, align 4
   %.not64 = icmp eq i32 %119, 0
   br i1 %.not64, label %140, label %120
@@ -1123,7 +1123,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   store i32 %133, ptr %137, align 1, !noalias !136
   %138 = add i32 %135, 4
   store i32 %138, ptr %37, align 8, !alias.scope !136
-  %139 = getelementptr inbounds i8, ptr %129, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %129, i64 4
   tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %139, i32 noundef %132) #8
   br label %153
 
@@ -1137,7 +1137,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   store i8 116, ptr %144, align 1, !noalias !139
   %145 = add i32 %142, 1
   store i32 %145, ptr %37, align 8, !alias.scope !139
-  %146 = getelementptr inbounds i8, ptr %116, i64 104
+  %146 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr i64, ptr %51, i64 %indvars.iv13
   %149 = load i64, ptr %148, align 8
@@ -1193,9 +1193,9 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture
   %6 = tail call ptr @palloc0(i64 noundef %5) #8
   store ptr %6, ptr %1, align 8
   %7 = tail call ptr @palloc(i64 noundef %4) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %3, ptr %9, align 8
   %10 = icmp sgt i32 %3, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
@@ -1232,11 +1232,11 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture
   %24 = getelementptr i8, ptr %22, i64 %23
   store i8 0, ptr %24, align 1
   store ptr %22, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %20, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %27, align 8
   br label %31
 
@@ -1261,7 +1261,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %8 = load ptr, ptr %0, align 8, !alias.scope !144
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !alias.scope !144
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
@@ -1285,7 +1285,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   br label %21
 
 21:                                               ; preds = %14, %7
-  %22 = getelementptr inbounds i8, ptr %2, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %23 = load i32, ptr %22, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
@@ -1301,9 +1301,9 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   br i1 %.not21, label %41, label %30
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %2, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 126
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 126
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, 102
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
@@ -1394,7 +1394,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %7 = load ptr, ptr %0, align 8, !alias.scope !157
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !157
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -1418,7 +1418,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   br label %20
 
 20:                                               ; preds = %13, %6
-  %21 = getelementptr inbounds i8, ptr %2, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %22 = load i32, ptr %21, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
@@ -1430,9 +1430,9 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   store i32 %23, ptr %27, align 1, !noalias !163
   %28 = add i32 %25, 4
   store i32 %28, ptr %8, align 8, !alias.scope !163
-  %29 = getelementptr inbounds i8, ptr %2, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 126
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 126
   %32 = load i8, ptr %31, align 2
   %33 = icmp eq i8 %32, 102
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
@@ -1477,7 +1477,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %7 = load ptr, ptr %0, align 8, !alias.scope !166
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !166
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -1586,7 +1586,7 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   %8 = load ptr, ptr %0, align 8, !alias.scope !183
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !alias.scope !183
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
@@ -1653,7 +1653,7 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %5 = load ptr, ptr %0, align 8, !alias.scope !198
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !198
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -1677,7 +1677,7 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   br label %18
 
 18:                                               ; preds = %11, %4
-  %19 = getelementptr inbounds i8, ptr %2, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %20 = load i32, ptr %19, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
@@ -1689,9 +1689,9 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %21, ptr %25, align 1, !noalias !204
   %26 = add i32 %23, 4
   store i32 %26, ptr %6, align 8, !alias.scope !204
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 68
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 11
   br i1 %31, label %32, label %38
@@ -1726,10 +1726,10 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
 
 logicalrep_write_namespace.exit:                  ; preds = %32, %44
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %46) #8
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 126
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 126
   %49 = load i8, ptr %48, align 2
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
@@ -1740,14 +1740,14 @@ logicalrep_write_namespace.exit:                  ; preds = %32, %44
   store i8 %49, ptr %53, align 1, !noalias !210
   %54 = add i32 %51, 1
   store i32 %54, ptr %6, align 8, !alias.scope !210
-  %55 = getelementptr inbounds i8, ptr %2, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %logicalrep_write_namespace.exit
-  %59 = getelementptr inbounds i8, ptr %56, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %60 = icmp eq ptr %3, null
   br i1 %60, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1759,13 +1759,13 @@ logicalrep_write_namespace.exit:                  ; preds = %32, %44
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %column_in_column_list.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.03845.us.i = phi i16 [ %.139.us.i, %column_in_column_list.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %62 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %59, i64 0, i64 %indvars.iv53.i
-  %63 = getelementptr inbounds i8, ptr %62, i64 95
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 95
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
   br i1 %65, label %column_in_column_list.exit.thread.us.i, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %62, i64 94
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 94
   %68 = load i8, ptr %67, align 2
   %.not42.us.i = icmp eq i8 %68, 0
   %69 = zext i1 %.not42.us.i to i16
@@ -1783,19 +1783,19 @@ column_in_column_list.exit.thread.us.i:           ; preds = %66, %61
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %.lr.ph.i ]
   %.03845.i = phi i16 [ %.139.i, %83 ], [ 0, %.lr.ph.i ]
   %71 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %59, i64 0, i64 %indvars.iv.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 95
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 95
   %73 = load i8, ptr %72, align 1
   %74 = trunc i8 %73 to i1
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %.lr.ph.split.i
-  %76 = getelementptr inbounds i8, ptr %71, i64 94
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 94
   %77 = load i8, ptr %76, align 2
   %.not42.i = icmp eq i8 %77, 0
   br i1 %.not42.i, label %column_in_column_list.exit.i, label %83
 
 column_in_column_list.exit.i:                     ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %71, i64 74
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 74
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %79 to i32
   %81 = tail call zeroext i1 @bms_is_member(i32 noundef range(i32 -32768, 32768) %80, ptr noundef nonnull %3) #8
@@ -1826,7 +1826,7 @@ column_in_column_list.exit.i:                     ; preds = %75
   %92 = add i32 %89, 2
   store i32 %92, ptr %6, align 8, !alias.scope !214
   %93 = load ptr, ptr %27, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 126
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 126
   %95 = load i8, ptr %94, align 2
   %96 = icmp eq i8 %95, 102
   br i1 %96, label %99, label %97
@@ -1842,26 +1842,26 @@ column_in_column_list.exit.i:                     ; preds = %75
   br i1 %101, label %.lr.ph49.i, label %logicalrep_write_attrs.exit
 
 .lr.ph49.i:                                       ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %56, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %103 = icmp eq ptr %3, null
   br label %104
 
 104:                                              ; preds = %143, %.lr.ph49.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next56.i, %143 ]
   %105 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %102, i64 0, i64 %indvars.iv55.i
-  %106 = getelementptr inbounds i8, ptr %105, i64 95
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 95
   %107 = load i8, ptr %106, align 1
   %108 = trunc i8 %107 to i1
   br i1 %108, label %143, label %109
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %105, i64 94
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 94
   %111 = load i8, ptr %110, align 2
   %.not.i = icmp eq i8 %111, 0
   br i1 %.not.i, label %112, label %143
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %105, i64 74
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 74
   br i1 %103, label %column_in_column_list.exit43.thread.i, label %column_in_column_list.exit43.i
 
 column_in_column_list.exit43.i:                   ; preds = %112
@@ -1893,9 +1893,9 @@ column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_li
   store i8 %.sink.i, ptr %125, align 1, !noalias !153
   %storemerge.i = add i32 %123, 1
   store i32 %storemerge.i, ptr %6, align 8
-  %126 = getelementptr inbounds i8, ptr %105, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %105, i64 4
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %126) #8
-  %127 = getelementptr inbounds i8, ptr %105, i64 68
+  %127 = getelementptr inbounds nuw i8, ptr %105, i64 68
   %128 = load i32, ptr %127, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
@@ -1907,7 +1907,7 @@ column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_li
   store i32 %129, ptr %133, align 1, !noalias !217
   %134 = add i32 %131, 4
   store i32 %134, ptr %6, align 8, !alias.scope !217
-  %135 = getelementptr inbounds i8, ptr %105, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %136 = load i32, ptr %135, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
@@ -1943,15 +1943,15 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
   %6 = icmp eq i8 %5, 0
   %spec.store.select.i = select i1 %6, ptr @.str.46, ptr %4
   %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %10 = tail call ptr @pstrdup(ptr noundef %9) #8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %10, ptr %11, align 8
   %12 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %2, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %13, ptr %14, align 8
   %15 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #8
   %16 = sext i32 %15 to i64
@@ -1995,13 +1995,13 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
 
 logicalrep_read_attrs.exit:                       ; preds = %27, %1
   %.024.lcssa.i = phi ptr [ null, %1 ], [ %.1.i, %27 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %18, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %20, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %.024.lcssa.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %15, ptr %37, align 8
   ret ptr %2
 }
@@ -2014,7 +2014,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %5 = load ptr, ptr %0, align 8, !alias.scope !225
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !225
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -2051,9 +2051,9 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   unreachable
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
@@ -2067,7 +2067,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   store i32 %31, ptr %35, align 1, !noalias !231
   %36 = add i32 %33, 4
   store i32 %36, ptr %6, align 8, !alias.scope !231
-  %37 = getelementptr inbounds i8, ptr %30, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 68
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 11
   br i1 %39, label %40, label %46
@@ -2101,7 +2101,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   br label %logicalrep_write_namespace.exit
 
 logicalrep_write_namespace.exit:                  ; preds = %40, %52
-  %53 = getelementptr inbounds i8, ptr %30, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 4
   tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %53) #8
   tail call void @ReleaseSysCache(ptr noundef nonnull %20) #8
   ret void
@@ -2122,11 +2122,11 @@ define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr nocapture noundef
   %6 = icmp eq i8 %5, 0
   %spec.store.select.i = select i1 %6, ptr @.str.46, ptr %4
   %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
   %10 = tail call ptr @pstrdup(ptr noundef %9) #8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %10, ptr %11, align 8
   ret void
 }
@@ -2136,7 +2136,7 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %4 = load ptr, ptr %0, align 8, !alias.scope !237
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !alias.scope !237
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -2181,7 +2181,7 @@ define dso_local void @logicalrep_write_stream_stop(ptr noundef %0) local_unname
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %2 = load ptr, ptr %0, align 8, !alias.scope !246
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !alias.scope !246
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %2, i64 %5
@@ -2196,14 +2196,14 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nocapt
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %4 = load ptr, ptr %0, align 8, !alias.scope !249
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !alias.scope !249
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
   store i8 99, ptr %8, align 1, !noalias !249
   %9 = add i32 %6, 1
   store i32 %9, ptr %5, align 8, !alias.scope !249
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
@@ -2234,7 +2234,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nocapt
   store i64 %23, ptr %27, align 1, !noalias !258
   %28 = add i32 %25, 8
   store i32 %28, ptr %5, align 8, !alias.scope !258
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
@@ -2246,7 +2246,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nocapt
   store i64 %31, ptr %35, align 1, !noalias !261
   %36 = add i32 %33, 8
   store i32 %36, ptr %5, align 8, !alias.scope !261
-  %37 = getelementptr inbounds i8, ptr %1, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load i64, ptr %37, align 8
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
@@ -2280,10 +2280,10 @@ define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr nocaptur
   %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %10, ptr %1, align 8
   %11 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %11, ptr %12, align 8
   %13 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %13, ptr %14, align 8
   ret i32 %3
 }
@@ -2293,7 +2293,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   %7 = load ptr, ptr %0, align 8, !alias.scope !267
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !267
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -2354,25 +2354,25 @@ define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr nocaptur
   %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   store i32 %4, ptr %1, align 8
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %5, ptr %6, align 4
   br i1 %2, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
   %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   br label %13
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %11, %7
   %.sink = phi i64 [ %10, %7 ], [ 0, %11 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sink, ptr %14, align 8
   ret void
 }

@@ -18,12 +18,12 @@ define void @softfloat_shortShiftRightExtendM(i8 noundef zeroext %0, ptr nocaptu
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %4 ]
   %.016 = phi i32 [ %18, %12 ], [ 0, %4 ]
   %.0 = phi ptr [ %17, %12 ], [ %3, %4 ]
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = shl i32 %14, %10
   %16 = or i32 %15, %.016
   store i32 %16, ptr %.0, align 4
-  %17 = getelementptr inbounds i8, ptr %.0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %18 = lshr i32 %14, %5
   %19 = icmp eq i64 %indvars.iv, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

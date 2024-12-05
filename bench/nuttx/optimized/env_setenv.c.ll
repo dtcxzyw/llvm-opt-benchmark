@@ -33,9 +33,9 @@ define noundef i32 @setenv(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
 11:                                               ; preds = %5
   %12 = tail call i32 @sched_lock() #7
   %13 = load ptr, ptr @g_readytorun, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 904
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 904
   %17 = load ptr, ptr %16, align 8
   %.not48 = icmp eq ptr %17, null
   br i1 %.not48, label %25, label %18
@@ -74,7 +74,7 @@ define noundef i32 @setenv(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   br i1 %.not50, label %42, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %15, i64 912
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 912
   %37 = load i64, ptr %36, align 8
   %38 = shl i64 %37, 3
   %39 = add i64 %38, 16
@@ -96,7 +96,7 @@ define noundef i32 @setenv(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %48 = getelementptr inbounds ptr, ptr %.039, i64 %46
   store ptr null, ptr %48, align 8
   store ptr %.039, ptr %16, align 8
-  %49 = getelementptr inbounds i8, ptr %15, i64 912
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 912
   store i64 %46, ptr %49, align 8
   %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %31, i64 noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull %1) #7
   %51 = tail call i32 @sched_unlock() #7

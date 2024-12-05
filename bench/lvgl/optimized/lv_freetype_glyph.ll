@@ -312,7 +312,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 48, i1 false)
   store i32 %2, ptr %5, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4

@@ -119,7 +119,7 @@ define void @Java_sun_instrument_InstrumentationImpl_loadAgent0(ptr noundef %0, 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #2
   %.not5 = icmp eq i8 %9, 0

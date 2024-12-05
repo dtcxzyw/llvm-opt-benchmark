@@ -176,10 +176,10 @@ define dso_local noundef zeroext i1 @mc146818_does_rtc_work() #0 align 16 {
 define dso_local noundef range(i32 -110, 1) i32 @mc146818_get_time(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.mc146818_get_time_callback_param, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !annotation !8
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 0, ptr %5, align 1
   %6 = call zeroext i1 @mc146818_avoid_UIP(ptr noundef nonnull @mc146818_get_time_callback, i32 noundef %1, ptr noundef nonnull %3)
   br i1 %6, label %8, label %7
@@ -193,26 +193,26 @@ define dso_local noundef range(i32 -110, 1) i32 @mc146818_get_time(ptr noundef %
   %10 = trunc i32 %9 to i8
   %11 = call i32 @_bcd2bin(i8 noundef zeroext %10) #8
   store i32 %11, ptr %0, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = trunc i32 %13 to i8
   %15 = call i32 @_bcd2bin(i8 noundef zeroext %14) #8
   store i32 %15, ptr %12, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = trunc i32 %17 to i8
   %19 = call i32 @_bcd2bin(i8 noundef zeroext %18) #8
   store i32 %19, ptr %16, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = trunc i32 %21 to i8
   %23 = call i32 @_bcd2bin(i8 noundef zeroext %22) #8
   store i32 %23, ptr %20, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = trunc i32 %25 to i8
   %27 = call i32 @_bcd2bin(i8 noundef zeroext %26) #8
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = trunc i32 %29 to i8
   %31 = call i32 @_bcd2bin(i8 noundef zeroext %30) #8
@@ -262,27 +262,27 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
   %5 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 2) #6
   %6 = zext i8 %5 to i32
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %6, ptr %8, align 4
   %9 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 4) #6
   %10 = zext i8 %9 to i32
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %10, ptr %12, align 4
   %13 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 7) #6
   %14 = zext i8 %13 to i32
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %14, ptr %16, align 4
   %17 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 8) #6
   %18 = zext i8 %17 to i32
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %18, ptr %20, align 4
   %21 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 9) #6
   %22 = zext i8 %21 to i32
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %22, ptr %24, align 4
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 8), align 1
   %26 = icmp ugt i8 %25, 2
@@ -297,10 +297,10 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
 
 32:                                               ; preds = %30, %2
   %33 = phi i8 [ %31, %30 ], [ 0, %2 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 9
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %33, ptr %34, align 1
   %35 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 11) #6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %35, ptr %36, align 8
   ret void
 }
@@ -310,16 +310,16 @@ declare dso_local i32 @_bcd2bin(i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 4
   %14 = icmp ugt i32 %3, 255

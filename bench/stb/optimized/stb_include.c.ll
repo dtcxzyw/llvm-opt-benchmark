@@ -76,11 +76,11 @@ entry:
   %idxprom = sext i32 %len to i64
   %arrayidx = getelementptr inbounds %struct.include_info, ptr %call, i64 %idxprom
   store i32 %offset, ptr %arrayidx, align 8
-  %end4 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %end4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store i32 %end, ptr %end4, align 4
-  %filename7 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %filename7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %filename, ptr %filename7, align 8
-  %next_line_after = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %next_line_after = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store i32 %next_line, ptr %next_line_after, align 8
   ret ptr %call
 }
@@ -100,7 +100,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %filename = getelementptr inbounds %struct.include_info, ptr %array, i64 %indvars.iv, i32 2
+  %filename = getelementptr inbounds nuw %struct.include_info, ptr %array, i64 %indvars.iv, i32 2
   %0 = load ptr, ptr %filename, align 8
   tail call void @free(ptr noundef %0) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -163,13 +163,13 @@ while.cond1:                                      ; preds = %while.cond1.prehead
   ]
 
 while.body6:                                      ; preds = %while.cond1, %while.cond1
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.1, i64 1
   %.pr = load i8, ptr %incdec.ptr, align 1
   br label %while.cond1, !llvm.loop !6
 
 while.cond11:                                     ; preds = %while.cond1, %while.cond11.backedge
   %s.1.pn = phi ptr [ %s.3, %while.cond11.backedge ], [ %s.1, %while.cond1 ]
-  %s.3 = getelementptr inbounds i8, ptr %s.1.pn, i64 1
+  %s.3 = getelementptr inbounds nuw i8, ptr %s.1.pn, i64 1
   %3 = load i8, ptr %s.3, align 1
   switch i8 %3, label %while.end22 [
     i8 32, label %while.cond11.backedge
@@ -185,7 +185,7 @@ while.end22:                                      ; preds = %while.cond11
   br i1 %cmp23, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %while.end22
-  %arrayidx = getelementptr inbounds i8, ptr %s.1.pn, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %s.1.pn, i64 8
   %4 = load i8, ptr %arrayidx, align 1
   switch i8 %4, label %if.else [
     i8 32, label %while.cond29.preheader
@@ -207,12 +207,12 @@ while.cond29:                                     ; preds = %while.cond29.prehea
   ]
 
 while.body38:                                     ; preds = %while.cond29, %while.cond29
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %s.4, i64 1
+  %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %s.4, i64 1
   %.pre = load i8, ptr %incdec.ptr39, align 1
   br label %while.cond29, !llvm.loop !8
 
 if.then44:                                        ; preds = %while.cond29
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %s.4, i64 1
+  %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %s.4, i64 1
   br label %while.cond46
 
 while.cond46:                                     ; preds = %while.body61, %if.then44
@@ -226,7 +226,7 @@ while.cond46:                                     ; preds = %while.body61, %if.t
   ]
 
 while.body61:                                     ; preds = %while.cond46
-  %incdec.ptr62 = getelementptr inbounds i8, ptr %t.0, i64 1
+  %incdec.ptr62 = getelementptr inbounds nuw i8, ptr %t.0, i64 1
   br label %while.cond46, !llvm.loop !9
 
 if.then67:                                        ; preds = %while.cond46
@@ -250,7 +250,7 @@ while.cond76:                                     ; preds = %while.body89, %if.t
   ]
 
 while.body89:                                     ; preds = %while.cond76
-  %incdec.ptr90 = getelementptr inbounds i8, ptr %s.5, i64 1
+  %incdec.ptr90 = getelementptr inbounds nuw i8, ptr %s.5, i64 1
   br label %while.cond76, !llvm.loop !10
 
 if.else:                                          ; preds = %land.lhs.true, %while.end22
@@ -259,7 +259,7 @@ if.else:                                          ; preds = %land.lhs.true, %whi
   br i1 %cmp104, label %land.lhs.true106, label %if.end145
 
 land.lhs.true106:                                 ; preds = %if.else
-  %arrayidx107 = getelementptr inbounds i8, ptr %s.1.pn, i64 7
+  %arrayidx107 = getelementptr inbounds nuw i8, ptr %s.1.pn, i64 7
   %8 = load i8, ptr %arrayidx107, align 1
   switch i8 %8, label %if.end145 [
     i8 32, label %while.cond116.preheader
@@ -282,7 +282,7 @@ while.cond116:                                    ; preds = %while.cond116.prehe
   ]
 
 while.body129:                                    ; preds = %while.cond116
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %s.6, i64 1
+  %incdec.ptr130 = getelementptr inbounds nuw i8, ptr %s.6, i64 1
   %.pre101 = load i8, ptr %incdec.ptr130, align 1
   br label %while.cond116, !llvm.loop !11
 
@@ -303,11 +303,11 @@ if.end145.sink.split:                             ; preds = %while.cond76, %whil
   %idxprom.i = sext i32 %inc_count.090 to i64
   %arrayidx.i = getelementptr inbounds %struct.include_info, ptr %call.i, i64 %idxprom.i
   store i32 %conv95, ptr %arrayidx.i, align 8
-  %end4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %end4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 %conv99, ptr %end4.i, align 4
-  %filename7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %filename7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %call68.sink, ptr %filename7.i, align 8
-  %next_line_after.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %next_line_after.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 %add100, ptr %next_line_after.i, align 8
   br label %if.end145
 
@@ -327,18 +327,18 @@ while.cond146:                                    ; preds = %while.body159, %if.
   ]
 
 while.body159:                                    ; preds = %while.cond146
-  %incdec.ptr160 = getelementptr inbounds i8, ptr %s.7, i64 1
+  %incdec.ptr160 = getelementptr inbounds nuw i8, ptr %s.7, i64 1
   br label %while.cond146, !llvm.loop !12
 
 if.end178:                                        ; preds = %while.cond146, %while.cond146
   %conv171 = zext nneg i8 %10 to i32
-  %arrayidx172 = getelementptr inbounds i8, ptr %s.7, i64 1
+  %arrayidx172 = getelementptr inbounds nuw i8, ptr %s.7, i64 1
   %11 = load i8, ptr %arrayidx172, align 1
   %conv173 = sext i8 %11 to i32
   %add174 = add nsw i32 %conv173, %conv171
   %cmp175 = icmp eq i32 %add174, 23
   %cond = select i1 %cmp175, i64 2, i64 1
-  %add.ptr177 = getelementptr inbounds i8, ptr %s.7, i64 %cond
+  %add.ptr177 = getelementptr inbounds nuw i8, ptr %s.7, i64 %cond
   %.pre102 = load i8, ptr %add.ptr177, align 1
   %inc179 = add nuw nsw i32 %line_count.092, 1
   %tobool.not = icmp eq i8 %.pre102, 0
@@ -361,7 +361,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @stb_include_itoa(ptr nocapture noundef writeonly initializes((0, 9)) %str, i32 noundef %n) local_unnamed_addr #10 {
 entry:
   store i64 2314885530818453536, ptr %str, align 1
-  %arrayidx2 = getelementptr inbounds i8, ptr %str, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %str, i64 8
   store i8 0, ptr %arrayidx2, align 1
   br label %for.body5
 
@@ -373,7 +373,7 @@ for.body5:                                        ; preds = %for.body5, %entry
   %0 = trunc nsw i32 %rem to i8
   %conv = add nsw i8 %0, 48
   %1 = sub nuw nsw i64 7, %indvars.iv
-  %arrayidx7 = getelementptr inbounds i8, ptr %str, i64 %1
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %str, i64 %1
   store i8 %conv, ptr %arrayidx7, align 1
   %n.addr.0.off = add i32 %n.addr.012, 9
   %cmp8 = icmp ult i32 %n.addr.0.off, 19
@@ -413,8 +413,8 @@ entry:
   br i1 %cmp108, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add.ptr5 = getelementptr inbounds i8, ptr %temp, i64 6
-  %arrayidx2.i = getelementptr inbounds i8, ptr %temp, i64 14
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %temp, i64 6
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %temp, i64 14
   %cmp36.not = icmp eq ptr %inject, null
   %cmp70.not = icmp eq ptr %filename, null
   %cond = select i1 %cmp70.not, ptr @.str.10, ptr %filename
@@ -427,7 +427,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %text.0111 = phi ptr [ null, %for.body.lr.ph ], [ %call.i72, %stb_include_itoa.exit70 ]
   %textlen.0109 = phi i64 [ 0, %for.body.lr.ph ], [ %add.i71, %stb_include_itoa.exit70 ]
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 %last.0112
-  %arrayidx = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 8
   %conv = sext i32 %0 to i64
   %sub = sub nsw i64 %conv, %last.0112
@@ -444,7 +444,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %strlen31 = call i64 @strlen(ptr nonnull dereferenceable(1) %temp)
   %endptr32 = getelementptr inbounds i8, ptr %temp, i64 %strlen31
   store i16 34, ptr %endptr32, align 1
-  %filename12 = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 2
+  %filename12 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 2
   %1 = load ptr, ptr %filename12, align 8
   %cmp13 = icmp eq ptr %1, null
   br i1 %cmp13, label %if.end, label %if.else
@@ -510,7 +510,7 @@ for.body.i.preheader:                             ; preds = %stb_include_file.ex
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %filename.i = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv.i50, i32 2
+  %filename.i = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i50, i32 2
   %2 = load ptr, ptr %filename.i, align 8
   call void @free(ptr noundef %2) #16
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
@@ -530,7 +530,7 @@ if.end60:                                         ; preds = %if.then35, %if.then
   %textlen.1 = phi i64 [ %add.i41, %if.then35 ], [ %add.i45, %if.then38 ], [ %add.i53, %if.end57 ]
   %text.1 = phi ptr [ %call.i42, %if.then35 ], [ %call.i46, %if.then38 ], [ %call.i54, %if.end57 ]
   store i64 9118724144243466, ptr %temp, align 16
-  %next_line_after = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 3
+  %next_line_after = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 3
   %3 = load i32, ptr %next_line_after, align 8
   store i64 2314885530818453536, ptr %add.ptr5, align 2
   store i8 0, ptr %arrayidx2.i, align 2
@@ -544,7 +544,7 @@ for.body5.i58:                                    ; preds = %for.body5.i58, %if.
   %4 = trunc nsw i32 %rem.i61 to i8
   %conv.i62 = add nsw i8 %4, 48
   %5 = sub nuw nsw i64 7, %indvars.iv.i59
-  %arrayidx7.i63 = getelementptr inbounds i8, ptr %add.ptr5, i64 %5
+  %arrayidx7.i63 = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 %5
   store i8 %conv.i62, ptr %arrayidx7.i63, align 1
   %n.addr.0.off.i64 = add i32 %n.addr.012.i60, 9
   %cmp8.i65 = icmp ult i32 %n.addr.0.off.i64, 19
@@ -563,7 +563,7 @@ stb_include_itoa.exit70:                          ; preds = %for.body5.i58
   %call.i72 = call ptr @realloc(ptr noundef %text.1, i64 noundef %add.i71) #15
   %add.ptr.i73 = getelementptr inbounds i8, ptr %call.i72, i64 %textlen.1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i73, ptr nonnull readonly align 16 %temp, i64 %call75, i1 false)
-  %end = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
+  %end = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
   %6 = load i32, ptr %end, align 4
   %conv79 = sext i32 %6 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -589,7 +589,7 @@ for.body.preheader.i80:                           ; preds = %for.end
 
 for.body.i82:                                     ; preds = %for.body.i82, %for.body.preheader.i80
   %indvars.iv.i83 = phi i64 [ 0, %for.body.preheader.i80 ], [ %indvars.iv.next.i85, %for.body.i82 ]
-  %filename.i84 = getelementptr inbounds %struct.include_info, ptr %.pre, i64 %indvars.iv.i83, i32 2
+  %filename.i84 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i83, i32 2
   %7 = load ptr, ptr %filename.i84, align 8
   call void @free(ptr noundef %7) #16
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -654,7 +654,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %length.017 = phi i64 [ 0, %for.body.preheader ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds ptr, ptr %strs, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %strs, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %add = add i64 %call, %length.017
@@ -672,7 +672,7 @@ for.body5:                                        ; preds = %for.end, %for.body5
   %indvars.iv22 = phi i64 [ 0, %for.end ], [ %indvars.iv.next23, %for.body5 ]
   %length.120 = phi i64 [ 0, %for.end ], [ %add12, %for.body5 ]
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %length.120
-  %arrayidx7 = getelementptr inbounds ptr, ptr %strs, i64 %indvars.iv22
+  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %strs, i64 %indvars.iv22
   %2 = load ptr, ptr %arrayidx7, align 8
   %call8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %2) #16
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17

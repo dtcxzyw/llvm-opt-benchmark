@@ -181,10 +181,10 @@ define dso_local noundef range(i32 0, 2) i32 @pci_mmap_fits(ptr noundef %0, i32 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 920
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %8 = sext i32 %1 to i64
   %9 = getelementptr [11 x %struct.resource], ptr %7, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %40, label %13
@@ -196,12 +196,12 @@ define dso_local noundef range(i32 0, 2) i32 @pci_mmap_fits(ptr noundef %0, i32 
   br i1 %16, label %40, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %2, align 8
   %21 = sub i64 %19, %20
   %22 = lshr i64 %21, 12
-  %23 = getelementptr inbounds i8, ptr %2, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %11, %14
   %26 = lshr i64 %25, 12
@@ -261,15 +261,15 @@ define dso_local i32 @pci_create_sysfs_dev_files(ptr noundef %0) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = getelementptr inbounds i8, ptr %0, i64 1864
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   br label %5
 
 5:                                                ; preds = %pci_create_attr.exit.thread, %1
   %6 = phi i64 [ 0, %1 ], [ %71, %pci_create_attr.exit.thread ]
   %7 = getelementptr [11 x %struct.resource], ptr %2, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %pci_create_attr.exit.thread, label %11
@@ -291,7 +291,7 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
   br i1 %20, label %21, label %pci_create_attr.exit.thread
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 8192
   %25 = icmp eq i64 %24, 0
@@ -305,19 +305,19 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %27, i64 72
   %31 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %30, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %16) #11
-  %32 = getelementptr inbounds i8, ptr %27, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr @pci_mmap_resource_wc, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @iomem_get_mapping, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr @pci_llseek_resource, ptr %34, align 8
   store ptr %30, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i16 384, ptr %35, align 8
   %sext = shl i64 %6, 32
   %36 = ashr exact i64 %sext, 32
   %37 = getelementptr [11 x %struct.resource], ptr %2, i64 0, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %45, label %41
@@ -330,12 +330,12 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
 
 45:                                               ; preds = %41, %29
   %46 = phi i64 [ %44, %41 ], [ 0, %29 ]
-  %47 = getelementptr inbounds i8, ptr %27, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %46, ptr %47, align 8
   %48 = inttoptr i64 %36 to ptr
-  %49 = getelementptr inbounds i8, ptr %27, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %48, ptr %49, align 8
-  %50 = tail call i32 @sysfs_create_bin_file(ptr noundef %3, ptr noundef nonnull %27) #11
+  %50 = tail call i32 @sysfs_create_bin_file(ptr noundef nonnull %3, ptr noundef nonnull %27) #11
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %53, label %52
 
@@ -350,7 +350,7 @@ define internal fastcc i32 @pci_create_resource_files(ptr noundef %0) unnamed_ad
 
 pci_create_attr.exit:                             ; preds = %15, %26, %52
   %55 = phi i32 [ %50, %52 ], [ -12, %26 ], [ %17, %15 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 1776
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   br label %57
 
 57:                                               ; preds = %68, %pci_create_attr.exit
@@ -361,7 +361,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %57
-  tail call void @sysfs_remove_bin_file(ptr noundef %3, ptr noundef nonnull %60) #11
+  tail call void @sysfs_remove_bin_file(ptr noundef nonnull %3, ptr noundef nonnull %60) #11
   tail call void @kfree(ptr noundef nonnull %60) #11
   br label %63
 
@@ -372,7 +372,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %63
-  tail call void @sysfs_remove_bin_file(ptr noundef %3, ptr noundef nonnull %65) #11
+  tail call void @sysfs_remove_bin_file(ptr noundef nonnull %3, ptr noundef nonnull %65) #11
   tail call void @kfree(ptr noundef nonnull %65) #11
   br label %68
 
@@ -397,9 +397,9 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
   br i1 %2, label %3, label %.loopexit
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1776
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
-  %6 = getelementptr inbounds i8, ptr %0, i64 1864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   br label %7
 
 7:                                                ; preds = %18, %3
@@ -410,7 +410,7 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call void @sysfs_remove_bin_file(ptr noundef %5, ptr noundef nonnull %10) #11
+  tail call void @sysfs_remove_bin_file(ptr noundef nonnull %5, ptr noundef nonnull %10) #11
   tail call void @kfree(ptr noundef nonnull %10) #11
   br label %13
 
@@ -421,7 +421,7 @@ define dso_local void @pci_remove_sysfs_dev_files(ptr noundef %0) local_unnamed_
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  tail call void @sysfs_remove_bin_file(ptr noundef %5, ptr noundef nonnull %15) #11
+  tail call void @sysfs_remove_bin_file(ptr noundef nonnull %5, ptr noundef nonnull %15) #11
   tail call void @kfree(ptr noundef nonnull %15) #11
   br label %18
 
@@ -572,7 +572,7 @@ declare dso_local i32 @pci_rescan_bus_bridge_resize(ptr noundef) local_unnamed_a
 define internal range(i64 -2147483648, 2147483648) i64 @cpuaffinity_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   %9 = sext i32 %7 to i64
@@ -591,7 +591,7 @@ declare dso_local i32 @bitmap_print_to_pagebuf(i1 noundef zeroext, ptr noundef, 
 define internal range(i64 -2147483648, 2147483648) i64 @cpulistaffinity_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   %9 = sext i32 %7 to i64
@@ -631,35 +631,35 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @pci_read_resource_io, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %20, %12, %10
   %23 = phi i64 [ 48, %20 ], [ 64, %10 ], [ 64, %12 ]
   %24 = phi ptr [ @pci_write_resource_io, %20 ], [ @pci_mmap_resource_wc, %10 ], [ @pci_mmap_resource_uc, %12 ]
-  %25 = getelementptr inbounds i8, ptr %6, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @iomem_get_mapping, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @pci_llseek_resource, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %29, %22
   store ptr %9, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 384, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 920
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %35 = sext i32 %1 to i64
   %36 = getelementptr [11 x %struct.resource], ptr %34, i64 0, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %44, label %40
@@ -672,13 +672,13 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
 
 44:                                               ; preds = %40, %32
   %45 = phi i64 [ %43, %40 ], [ 0, %32 ]
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %45, ptr %46, align 8
   %47 = inttoptr i64 %35 to ptr
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = tail call i32 @sysfs_create_bin_file(ptr noundef %49, ptr noundef nonnull %6) #11
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %50 = tail call i32 @sysfs_create_bin_file(ptr noundef nonnull %49, ptr noundef nonnull %6) #11
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %53, label %52
 
@@ -690,13 +690,13 @@ define internal fastcc i32 @pci_create_attr(ptr noundef %0, i32 noundef %1, i32 
   br i1 %4, label %57, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 1864
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   %56 = getelementptr [11 x ptr], ptr %55, i64 0, i64 %35
   store ptr %6, ptr %56, align 8
   br label %60
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 1776
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %59 = getelementptr [11 x ptr], ptr %58, i64 0, i64 %35
   store ptr %6, ptr %59, align 8
   br label %60
@@ -728,7 +728,7 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   br i1 %14, label %15, label %pci_mmap_resource.exit
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 512
   %19 = icmp eq i64 %18, 0
@@ -740,7 +740,7 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   br i1 %22, label %pci_mmap_resource.exit, label %23
 
 23:                                               ; preds = %20, %15
-  %24 = getelementptr inbounds i8, ptr %12, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %pci_mmap_resource.exit, label %27
@@ -752,12 +752,12 @@ define internal i32 @pci_mmap_resource_wc(ptr nocapture readnone %0, ptr noundef
   br i1 %30, label %pci_mmap_resource.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = load i64, ptr %3, align 8
   %35 = sub i64 %33, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr inbounds i8, ptr %3, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %25, %28
   %40 = lshr i64 %39, 12
@@ -783,7 +783,7 @@ pci_mmap_resource.exit:                           ; preds = %4, %20, %23, %27, %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -22, 5) i64 @pci_read_resource_io(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = getelementptr i8, ptr %1, i64 736
@@ -792,7 +792,7 @@ define internal noundef range(i64 -22, 5) i64 @pci_read_resource_io(ptr nocaptur
   %13 = getelementptr [11 x %struct.resource], ptr %10, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %33, label %19
@@ -844,7 +844,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pci_write_resource_io(pt
   br label %38
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = getelementptr i8, ptr %1, i64 736
@@ -853,7 +853,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pci_write_resource_io(pt
   %18 = getelementptr [11 x %struct.resource], ptr %15, i64 0, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %4
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp ugt i64 %20, %22
   br i1 %23, label %38, label %24
@@ -910,7 +910,7 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   br i1 %14, label %15, label %pci_mmap_resource.exit
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 512
   %19 = icmp eq i64 %18, 0
@@ -922,7 +922,7 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   br i1 %22, label %pci_mmap_resource.exit, label %23
 
 23:                                               ; preds = %20, %15
-  %24 = getelementptr inbounds i8, ptr %12, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %pci_mmap_resource.exit, label %27
@@ -934,12 +934,12 @@ define internal i32 @pci_mmap_resource_uc(ptr nocapture readnone %0, ptr noundef
   br i1 %30, label %pci_mmap_resource.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = load i64, ptr %3, align 8
   %35 = sub i64 %33, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr inbounds i8, ptr %3, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %25, %28
   %40 = lshr i64 %39, 12
@@ -968,7 +968,7 @@ declare dso_local ptr @iomem_get_mapping() #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @pci_llseek_resource(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @fixed_size_llseek(ptr noundef %0, i64 noundef %3, i32 noundef %4, i64 noundef %7) #11
   ret i64 %8
@@ -1045,7 +1045,7 @@ define internal i64 @resource_show(ptr noundef %0, ptr nocapture readnone %1, pt
   %17 = trunc i64 %14 to i32
   %18 = load i64, ptr %4, align 8
   %19 = load i64, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %17, ptr noundef nonnull @.str.9, i64 noundef %18, i64 noundef %19, i64 noundef %21) #11
   %23 = sext i32 %22 to i64
@@ -1152,7 +1152,7 @@ declare dso_local i32 @pci_irq_vector(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @local_cpus_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = sext i32 %5 to i64
@@ -1166,7 +1166,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @local_cpus_show(ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @local_cpulist_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = sext i32 %5 to i64
@@ -1206,7 +1206,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @numa_node_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -1249,7 +1249,7 @@ define internal noundef i64 @numa_node_store(ptr noundef %0, ptr nocapture readn
   %22 = load i32, ptr %5, align 4
   call void (ptr, ptr, ...) @_dev_alert(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %22) #13
   %23 = load i32, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 640
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %23, ptr %24, align 8
   br label %25
 
@@ -1287,7 +1287,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dma_mask_bits_show(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @consistent_dma_mask_bits_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 568
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %5, i32 -1) #14, !srcloc !21
   %7 = add i32 %6, 1
@@ -1320,9 +1320,9 @@ define internal noundef i64 @enable_store(ptr noundef %0, ptr nocapture readnone
   br i1 %10, label %27, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %12) #11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %.thread
@@ -1340,19 +1340,19 @@ define internal noundef i64 @enable_store(ptr noundef %0, ptr nocapture readnone
 
 .thread2:                                         ; preds = %19
   call void @pci_disable_device(ptr noundef %6) #11
-  call void @mutex_unlock(ptr noundef %12) #11
+  call void @mutex_unlock(ptr noundef nonnull %12) #11
   br label %27
 
 .thread:                                          ; preds = %11, %19
   %.ph = phi i64 [ -5, %19 ], [ -16, %11 ]
-  call void @mutex_unlock(ptr noundef %12) #11
+  call void @mutex_unlock(ptr noundef nonnull %12) #11
   br label %27
 
 23:                                               ; preds = %16
   %24 = call i32 @pci_enable_device(ptr noundef %6) #11
   %.fr = freeze i32 %24
   %25 = sext i32 %.fr to i64
-  call void @mutex_unlock(ptr noundef %12) #11
+  call void @mutex_unlock(ptr noundef nonnull %12) #11
   %26 = icmp slt i32 %.fr, 0
   %spec.select = select i1 %26, i64 %25, i64 %3
   br label %27
@@ -1421,7 +1421,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @msi_bus_show(ptr nocaptu
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 270
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 270
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 1
   %11 = xor i16 %10, 1
@@ -1476,15 +1476,15 @@ define internal noundef i64 @msi_bus_store(ptr noundef %0, ptr nocapture readnon
   br label %31
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %7, i64 270
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 270
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, -2
   %27 = zext i1 %15 to i16
   %28 = or disjoint i16 %26, %27
   %29 = select i1 %15, ptr @.str.35, ptr @.str.34
   store i16 %28, ptr %24, align 2
-  %30 = getelementptr inbounds i8, ptr %7, i64 280
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %30, ptr noundef nonnull @.str.36, ptr noundef nonnull %29) #13
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 280
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %30, ptr noundef nonnull @.str.36, ptr noundef nonnull %29) #13
   br label %31
 
 31:                                               ; preds = %23, %16, %9, %4
@@ -1545,13 +1545,13 @@ declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @driver_override_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %4) #11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %4) #11
   %5 = getelementptr i8, ptr %0, i64 1872
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %6) #11
   %8 = sext i32 %7 to i64
-  tail call void @mutex_unlock(ptr noundef %4) #11
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #11
   ret i64 %8
 }
 
@@ -1572,13 +1572,13 @@ declare dso_local i32 @driver_set_override(ptr noundef, ptr noundef, ptr noundef
 define internal range(i64 -2147483648, 2147483648) i64 @ari_enabled_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 1689
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1689
   %11 = load i40, ptr %10, align 1
   %12 = trunc i40 %11 to i32
   %13 = lshr i32 %12, 14
@@ -1594,14 +1594,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @ari_enabled_show(ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal zeroext i16 @pci_dev_config_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 24)) %1, i32 %2) #8 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 256, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 728
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 256
   %8 = select i1 %7, i64 4096, i64 256
   store i64 %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 8
   ret i16 %10
 }
@@ -1804,8 +1804,8 @@ define internal i64 @pci_write_config(ptr nocapture readnone %0, ptr noundef %1,
   store i1 true, ptr @pci_write_config.__print_once, align 1
   %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !23
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 1800
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef %21, i64 noundef %4) #13
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1800
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef nonnull %21, i64 noundef %4) #13
   br label %22
 
 22:                                               ; preds = %18, %16
@@ -1970,9 +1970,9 @@ define internal zeroext i16 @pci_dev_rom_attr_is_visible(ptr nocapture noundef r
 
 12:                                               ; preds = %7
   %13 = sub i64 %10, %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i16, ptr %15, align 8
   br label %.thread
 
@@ -2071,7 +2071,7 @@ define internal zeroext i16 @pci_dev_reset_attr_is_visible(ptr noundef %0, ptr n
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i16, ptr %7, align 8
   br label %9
 
@@ -2125,7 +2125,7 @@ define internal zeroext i16 @resource_resize_is_visible(ptr noundef %0, ptr noca
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i16, ptr %8, align 8
   br label %10
 
@@ -2163,15 +2163,15 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -2233,7 +2233,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -2245,7 +2245,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -2284,7 +2284,7 @@ define internal noundef i64 @resource0_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -2344,15 +2344,15 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -2414,7 +2414,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -2426,7 +2426,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -2465,7 +2465,7 @@ define internal noundef i64 @resource1_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -2504,15 +2504,15 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -2574,7 +2574,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -2586,7 +2586,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -2625,7 +2625,7 @@ define internal noundef i64 @resource2_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -2664,15 +2664,15 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -2734,7 +2734,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -2746,7 +2746,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -2785,7 +2785,7 @@ define internal noundef i64 @resource3_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -2824,15 +2824,15 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -2894,7 +2894,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -2906,7 +2906,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -2945,7 +2945,7 @@ define internal noundef i64 @resource4_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -2984,15 +2984,15 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %9, label %83, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  call void @mutex_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @mutex_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   br label %83
 
 15:                                               ; preds = %10
@@ -3054,7 +3054,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr nocaptur
 48:                                               ; preds = %64, %46
   %49 = phi i64 [ 0, %46 ], [ %65, %64 ]
   %50 = getelementptr [11 x %struct.resource], ptr %47, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %54
@@ -3066,7 +3066,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr nocaptur
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %29
   br i1 %61, label %62, label %64
@@ -3105,7 +3105,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr nocaptur
   %80 = phi i32 [ %21, %20 ], [ %70, %76 ]
   %.fr = freeze i32 %80
   call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  call void @mutex_unlock(ptr noundef %11) #11
+  call void @mutex_unlock(ptr noundef nonnull %11) #11
   %81 = icmp eq i32 %.fr, 0
   %82 = sext i32 %.fr to i64
   %spec.select = select i1 %81, i64 %3, i64 %82
@@ -3178,7 +3178,7 @@ define internal zeroext i16 @pci_dev_hp_attrs_are_visible(ptr nocapture noundef 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 8
   br label %11
 
@@ -3259,7 +3259,7 @@ define internal zeroext i16 @pci_bridge_attrs_are_visible(ptr nocapture noundef 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 8
   br label %11
 
@@ -3325,7 +3325,7 @@ define internal zeroext i16 @pcie_dev_attrs_are_visible(ptr nocapture noundef re
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i16, ptr %8, align 8
   br label %10
 

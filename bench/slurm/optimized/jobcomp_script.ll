@@ -251,35 +251,35 @@ define internal void @_jobcomp_info_destroy(ptr noundef %0) #0 {
   br i1 %3, label %20, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @slurm_xfree(ptr noundef nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %6) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %7) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @slurm_xfree(ptr noundef nonnull %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @slurm_xfree(ptr noundef nonnull %9) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @slurm_xfree(ptr noundef nonnull %10) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @slurm_xfree(ptr noundef nonnull %11) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @slurm_xfree(ptr noundef nonnull %12) #10
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @slurm_xfree(ptr noundef nonnull %13) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @slurm_xfree(ptr noundef nonnull %14) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @slurm_xfree(ptr noundef nonnull %15) #10
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @slurm_xfree(ptr noundef nonnull %16) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @slurm_xfree(ptr noundef nonnull %17) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @slurm_xfree(ptr noundef nonnull %18) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @slurm_xfree(ptr noundef nonnull %19) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %20
@@ -400,7 +400,7 @@ define internal noalias noundef ptr @_script_agent(ptr nocapture readnone %0) #0
 55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   store ptr %46, ptr %26, align 16
-  %56 = getelementptr inbounds i8, ptr %26, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %56, align 8
   call void @slurm_log_reinit() #10
   %57 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.24, i32 noundef 2) #10
@@ -461,7 +461,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   store ptr null, ptr %78, align 8
   %79 = load i32, ptr %44, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef %79)
-  %80 = getelementptr inbounds i8, ptr %44, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %81 = load i32, ptr %80, align 4
   %.not.i.i.i = icmp eq i32 %81, -2
   br i1 %.not.i.i.i, label %91, label %82
@@ -486,7 +486,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   %.051.i.i.i = phi i32 [ %90, %88 ], [ 0, %86 ], [ 0, %77 ], [ 0, %82 ]
   %.0.i8.i.i = phi i32 [ 0, %88 ], [ 0, %86 ], [ 0, %77 ], [ %83, %82 ]
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.051.i.i.i, i32 noundef %.0.i8.i.i)
-  %92 = getelementptr inbounds i8, ptr %44, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %93 = load i32, ptr %92, align 4
   %.not60.i.i.i = icmp eq i32 %93, -2
   br i1 %.not60.i.i.i, label %103, label %94
@@ -511,20 +511,20 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   %.152.i.i.i = phi i32 [ %102, %100 ], [ 0, %98 ], [ 0, %91 ], [ 0, %94 ]
   %.1.i.i.i = phi i32 [ 0, %100 ], [ 0, %98 ], [ 0, %91 ], [ %95, %94 ]
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %.152.i.i.i, i32 noundef %.1.i.i.i)
-  %104 = getelementptr inbounds i8, ptr %44, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %105 = load i32, ptr %104, align 4
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.30, i32 noundef %105)
-  %106 = getelementptr inbounds i8, ptr %44, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %107 = load i32, ptr %106, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.30, i32 noundef %107)
-  %108 = getelementptr inbounds i8, ptr %44, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %109 = load i32, ptr %108, align 8
   %.not62.i.i.i = icmp eq i32 %109, 0
   br i1 %.not62.i.i.i, label %115, label %110
 
 110:                                              ; preds = %103
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.30, i32 noundef %109)
-  %111 = getelementptr inbounds i8, ptr %44, i64 36
+  %111 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %112 = load i32, ptr %111, align 4
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.30, i32 noundef %112)
   %113 = load i32, ptr %108, align 8
@@ -534,28 +534,28 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   br label %115
 
 115:                                              ; preds = %110, %103
-  %116 = getelementptr inbounds i8, ptr %44, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %117 = load i32, ptr %116, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.30, i32 noundef %117)
-  %118 = getelementptr inbounds i8, ptr %44, i64 28
+  %118 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %119 = load i32, ptr %118, align 4
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.30, i32 noundef %119)
-  %120 = getelementptr inbounds i8, ptr %44, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %121 = load i64, ptr %120, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %121)
-  %122 = getelementptr inbounds i8, ptr %44, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %123 = load i64, ptr %122, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i64 noundef %123)
-  %124 = getelementptr inbounds i8, ptr %44, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %125 = load i64, ptr %124, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, i64 noundef %125)
-  %126 = getelementptr inbounds i8, ptr %44, i64 44
+  %126 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %127 = load i32, ptr %126, align 4
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.30, i32 noundef %127)
-  %128 = getelementptr inbounds i8, ptr %44, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %129 = load i32, ptr %128, align 8
   call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.30, i32 noundef %129)
-  %130 = getelementptr inbounds i8, ptr %44, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %131 = load i32, ptr %130, align 8
   %132 = call ptr @slurmdb_job_flags_str(i32 noundef %131) #10
   store ptr %132, ptr %24, align 8
@@ -576,7 +576,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   %141 = add i64 %140, 8
   %142 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %141, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %142, ptr %23, align 8
-  %143 = getelementptr inbounds ptr, ptr %142, i64 %139
+  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %139
   store ptr null, ptr %143, align 8
   %144 = load ptr, ptr %23, align 8
   %145 = getelementptr ptr, ptr %144, i64 %139
@@ -597,7 +597,7 @@ _extend_env.exit.i.i.i.i:                         ; preds = %146
 _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.i.i.i, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @slurm_xfree(ptr noundef nonnull %24) #10
-  %150 = getelementptr inbounds i8, ptr %44, i64 52
+  %150 = getelementptr inbounds nuw i8, ptr %44, i64 52
   %151 = load i16, ptr %150, align 4
   %.not63.i.i.i = icmp eq i16 %151, 0
   %152 = select i1 %.not63.i.i.i, ptr @.str.51, ptr @.str.50
@@ -616,7 +616,7 @@ _env_append.exit.i.i.i:                           ; preds = %_extend_env.exit.i.
   %160 = add i64 %159, 8
   %161 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %160, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %161, ptr %23, align 8
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %158
+  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %158
   store ptr null, ptr %162, align 8
   %163 = load ptr, ptr %23, align 8
   %164 = getelementptr ptr, ptr %163, i64 %158
@@ -636,7 +636,7 @@ _extend_env.exit.i71.i.i.i:                       ; preds = %165
 
 _env_append.exit73.i.i.i:                         ; preds = %_extend_env.exit.i71.i.i.i, %_env_append.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %169 = getelementptr inbounds i8, ptr %44, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %170 = load ptr, ptr %169, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store ptr null, ptr %20, align 8
@@ -655,7 +655,7 @@ _env_append.exit73.i.i.i:                         ; preds = %_extend_env.exit.i7
   %179 = add i64 %178, 8
   %180 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %179, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %180, ptr %23, align 8
-  %181 = getelementptr inbounds ptr, ptr %180, i64 %177
+  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %177
   store ptr null, ptr %181, align 8
   %182 = load ptr, ptr %23, align 8
   %183 = getelementptr ptr, ptr %182, i64 %177
@@ -675,7 +675,7 @@ _extend_env.exit.i77.i.i.i:                       ; preds = %184
 
 _env_append.exit79.i.i.i:                         ; preds = %_extend_env.exit.i77.i.i.i, %_env_append.exit73.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %188 = getelementptr inbounds i8, ptr %44, i64 88
+  %188 = getelementptr inbounds nuw i8, ptr %44, i64 88
   %189 = load ptr, ptr %188, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr null, ptr %19, align 8
@@ -694,7 +694,7 @@ _env_append.exit79.i.i.i:                         ; preds = %_extend_env.exit.i7
   %198 = add i64 %197, 8
   %199 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %198, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %199, ptr %23, align 8
-  %200 = getelementptr inbounds ptr, ptr %199, i64 %196
+  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %196
   store ptr null, ptr %200, align 8
   %201 = load ptr, ptr %23, align 8
   %202 = getelementptr ptr, ptr %201, i64 %196
@@ -714,7 +714,7 @@ _extend_env.exit.i83.i.i.i:                       ; preds = %203
 
 _env_append.exit85.i.i.i:                         ; preds = %_extend_env.exit.i83.i.i.i, %_env_append.exit79.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %207 = getelementptr inbounds i8, ptr %44, i64 112
+  %207 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %208 = load ptr, ptr %207, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   store ptr null, ptr %18, align 8
@@ -733,7 +733,7 @@ _env_append.exit85.i.i.i:                         ; preds = %_extend_env.exit.i8
   %217 = add i64 %216, 8
   %218 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %217, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %218, ptr %23, align 8
-  %219 = getelementptr inbounds ptr, ptr %218, i64 %215
+  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %215
   store ptr null, ptr %219, align 8
   %220 = load ptr, ptr %23, align 8
   %221 = getelementptr ptr, ptr %220, i64 %215
@@ -753,7 +753,7 @@ _extend_env.exit.i89.i.i.i:                       ; preds = %222
 
 _env_append.exit91.i.i.i:                         ; preds = %_extend_env.exit.i89.i.i.i, %_env_append.exit85.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  %226 = getelementptr inbounds i8, ptr %44, i64 152
+  %226 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %227 = load ptr, ptr %226, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr null, ptr %17, align 8
@@ -772,7 +772,7 @@ _env_append.exit91.i.i.i:                         ; preds = %_extend_env.exit.i8
   %236 = add i64 %235, 8
   %237 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %236, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %237, ptr %23, align 8
-  %238 = getelementptr inbounds ptr, ptr %237, i64 %234
+  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %234
   store ptr null, ptr %238, align 8
   %239 = load ptr, ptr %23, align 8
   %240 = getelementptr ptr, ptr %239, i64 %234
@@ -792,7 +792,7 @@ _extend_env.exit.i95.i.i.i:                       ; preds = %241
 
 _env_append.exit97.i.i.i:                         ; preds = %_extend_env.exit.i95.i.i.i, %_env_append.exit91.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %245 = getelementptr inbounds i8, ptr %44, i64 120
+  %245 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %246 = load ptr, ptr %245, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr null, ptr %16, align 8
@@ -811,7 +811,7 @@ _env_append.exit97.i.i.i:                         ; preds = %_extend_env.exit.i9
   %255 = add i64 %254, 8
   %256 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %255, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %256, ptr %23, align 8
-  %257 = getelementptr inbounds ptr, ptr %256, i64 %253
+  %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %253
   store ptr null, ptr %257, align 8
   %258 = load ptr, ptr %23, align 8
   %259 = getelementptr ptr, ptr %258, i64 %253
@@ -831,7 +831,7 @@ _extend_env.exit.i101.i.i.i:                      ; preds = %260
 
 _env_append.exit103.i.i.i:                        ; preds = %_extend_env.exit.i101.i.i.i, %_env_append.exit97.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %264 = getelementptr inbounds i8, ptr %44, i64 144
+  %264 = getelementptr inbounds nuw i8, ptr %44, i64 144
   %265 = load ptr, ptr %264, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr null, ptr %15, align 8
@@ -850,7 +850,7 @@ _env_append.exit103.i.i.i:                        ; preds = %_extend_env.exit.i1
   %274 = add i64 %273, 8
   %275 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %274, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %275, ptr %23, align 8
-  %276 = getelementptr inbounds ptr, ptr %275, i64 %272
+  %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %272
   store ptr null, ptr %276, align 8
   %277 = load ptr, ptr %23, align 8
   %278 = getelementptr ptr, ptr %277, i64 %272
@@ -870,7 +870,7 @@ _extend_env.exit.i107.i.i.i:                      ; preds = %279
 
 _env_append.exit109.i.i.i:                        ; preds = %_extend_env.exit.i107.i.i.i, %_env_append.exit103.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %283 = getelementptr inbounds i8, ptr %44, i64 128
+  %283 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %284 = load ptr, ptr %283, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr null, ptr %14, align 8
@@ -889,7 +889,7 @@ _env_append.exit109.i.i.i:                        ; preds = %_extend_env.exit.i1
   %293 = add i64 %292, 8
   %294 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %293, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %294, ptr %23, align 8
-  %295 = getelementptr inbounds ptr, ptr %294, i64 %291
+  %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %291
   store ptr null, ptr %295, align 8
   %296 = load ptr, ptr %23, align 8
   %297 = getelementptr ptr, ptr %296, i64 %291
@@ -909,7 +909,7 @@ _extend_env.exit.i113.i.i.i:                      ; preds = %298
 
 _env_append.exit115.i.i.i:                        ; preds = %_extend_env.exit.i113.i.i.i, %_env_append.exit109.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %302 = getelementptr inbounds i8, ptr %44, i64 136
+  %302 = getelementptr inbounds nuw i8, ptr %44, i64 136
   %303 = load ptr, ptr %302, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr null, ptr %13, align 8
@@ -928,7 +928,7 @@ _env_append.exit115.i.i.i:                        ; preds = %_extend_env.exit.i1
   %312 = add i64 %311, 8
   %313 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %312, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %313, ptr %23, align 8
-  %314 = getelementptr inbounds ptr, ptr %313, i64 %310
+  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %310
   store ptr null, ptr %314, align 8
   %315 = load ptr, ptr %23, align 8
   %316 = getelementptr ptr, ptr %315, i64 %310
@@ -948,7 +948,7 @@ _extend_env.exit.i119.i.i.i:                      ; preds = %317
 
 _env_append.exit121.i.i.i:                        ; preds = %_extend_env.exit.i119.i.i.i, %_env_append.exit115.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %321 = getelementptr inbounds i8, ptr %44, i64 104
+  %321 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %322 = load ptr, ptr %321, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %12, align 8
@@ -967,7 +967,7 @@ _env_append.exit121.i.i.i:                        ; preds = %_extend_env.exit.i1
   %331 = add i64 %330, 8
   %332 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %331, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %332, ptr %23, align 8
-  %333 = getelementptr inbounds ptr, ptr %332, i64 %329
+  %333 = getelementptr inbounds nuw ptr, ptr %332, i64 %329
   store ptr null, ptr %333, align 8
   %334 = load ptr, ptr %23, align 8
   %335 = getelementptr ptr, ptr %334, i64 %329
@@ -987,7 +987,7 @@ _extend_env.exit.i125.i.i.i:                      ; preds = %336
 
 _env_append.exit127.i.i.i:                        ; preds = %_extend_env.exit.i125.i.i.i, %_env_append.exit121.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %340 = getelementptr inbounds i8, ptr %44, i64 160
+  %340 = getelementptr inbounds nuw i8, ptr %44, i64 160
   %341 = load ptr, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
@@ -1006,7 +1006,7 @@ _env_append.exit127.i.i.i:                        ; preds = %_extend_env.exit.i1
   %350 = add i64 %349, 8
   %351 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %350, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %351, ptr %23, align 8
-  %352 = getelementptr inbounds ptr, ptr %351, i64 %348
+  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %348
   store ptr null, ptr %352, align 8
   %353 = load ptr, ptr %23, align 8
   %354 = getelementptr ptr, ptr %353, i64 %348
@@ -1026,7 +1026,7 @@ _extend_env.exit.i131.i.i.i:                      ; preds = %355
 
 _env_append.exit133.i.i.i:                        ; preds = %_extend_env.exit.i131.i.i.i, %_env_append.exit127.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %359 = getelementptr inbounds i8, ptr %44, i64 176
+  %359 = getelementptr inbounds nuw i8, ptr %44, i64 176
   %360 = load ptr, ptr %359, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
@@ -1045,7 +1045,7 @@ _env_append.exit133.i.i.i:                        ; preds = %_extend_env.exit.i1
   %369 = add i64 %368, 8
   %370 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %369, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %370, ptr %23, align 8
-  %371 = getelementptr inbounds ptr, ptr %370, i64 %367
+  %371 = getelementptr inbounds nuw ptr, ptr %370, i64 %367
   store ptr null, ptr %371, align 8
   %372 = load ptr, ptr %23, align 8
   %373 = getelementptr ptr, ptr %372, i64 %367
@@ -1065,7 +1065,7 @@ _extend_env.exit.i137.i.i.i:                      ; preds = %374
 
 _env_append.exit139.i.i.i:                        ; preds = %_extend_env.exit.i137.i.i.i, %_env_append.exit133.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %378 = getelementptr inbounds i8, ptr %44, i64 168
+  %378 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %379 = load ptr, ptr %378, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -1084,7 +1084,7 @@ _env_append.exit139.i.i.i:                        ; preds = %_extend_env.exit.i1
   %388 = add i64 %387, 8
   %389 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %388, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %389, ptr %23, align 8
-  %390 = getelementptr inbounds ptr, ptr %389, i64 %386
+  %390 = getelementptr inbounds nuw ptr, ptr %389, i64 %386
   store ptr null, ptr %390, align 8
   %391 = load ptr, ptr %23, align 8
   %392 = getelementptr ptr, ptr %391, i64 %386
@@ -1104,7 +1104,7 @@ _extend_env.exit.i143.i.i.i:                      ; preds = %393
 
 _env_append.exit145.i.i.i:                        ; preds = %_extend_env.exit.i143.i.i.i, %_env_append.exit139.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %397 = getelementptr inbounds i8, ptr %44, i64 96
+  %397 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %398 = load ptr, ptr %397, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
@@ -1123,7 +1123,7 @@ _env_append.exit145.i.i.i:                        ; preds = %_extend_env.exit.i1
   %407 = add i64 %406, 8
   %408 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %407, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %408, ptr %23, align 8
-  %409 = getelementptr inbounds ptr, ptr %408, i64 %405
+  %409 = getelementptr inbounds nuw ptr, ptr %408, i64 %405
   store ptr null, ptr %409, align 8
   %410 = load ptr, ptr %23, align 8
   %411 = getelementptr ptr, ptr %410, i64 %405
@@ -1143,7 +1143,7 @@ _extend_env.exit.i149.i.i.i:                      ; preds = %412
 
 _env_append.exit151.i.i.i:                        ; preds = %_extend_env.exit.i149.i.i.i, %_env_append.exit145.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %416 = getelementptr inbounds i8, ptr %44, i64 184
+  %416 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %417 = load i32, ptr %416, align 8
   %418 = call ptr @slurm_job_state_reason_string(i32 noundef %417) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1163,7 +1163,7 @@ _env_append.exit151.i.i.i:                        ; preds = %_extend_env.exit.i1
   %427 = add i64 %426, 8
   %428 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %427, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %428, ptr %23, align 8
-  %429 = getelementptr inbounds ptr, ptr %428, i64 %425
+  %429 = getelementptr inbounds nuw ptr, ptr %428, i64 %425
   store ptr null, ptr %429, align 8
   %430 = load ptr, ptr %23, align 8
   %431 = getelementptr ptr, ptr %430, i64 %425
@@ -1183,7 +1183,7 @@ _extend_env.exit.i155.i.i.i:                      ; preds = %432
 
 _env_append.exit157.i.i.i:                        ; preds = %_extend_env.exit.i155.i.i.i, %_env_append.exit151.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %436 = getelementptr inbounds i8, ptr %44, i64 192
+  %436 = getelementptr inbounds nuw i8, ptr %44, i64 192
   %437 = load ptr, ptr %436, align 8
   %.not64.i.i.i = icmp eq ptr %437, null
   br i1 %.not64.i.i.i, label %455, label %438
@@ -1204,7 +1204,7 @@ _env_append.exit157.i.i.i:                        ; preds = %_extend_env.exit.i1
   %446 = add i64 %445, 8
   %447 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %446, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %447, ptr %23, align 8
-  %448 = getelementptr inbounds ptr, ptr %447, i64 %444
+  %448 = getelementptr inbounds nuw ptr, ptr %447, i64 %444
   store ptr null, ptr %448, align 8
   %449 = load ptr, ptr %23, align 8
   %450 = getelementptr ptr, ptr %449, i64 %444
@@ -1227,7 +1227,7 @@ _env_append.exit163.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %455
 
 455:                                              ; preds = %_env_append.exit163.i.i.i, %_env_append.exit157.i.i.i
-  %456 = getelementptr inbounds i8, ptr %44, i64 200
+  %456 = getelementptr inbounds nuw i8, ptr %44, i64 200
   %457 = load ptr, ptr %456, align 8
   %.not65.i.i.i = icmp eq ptr %457, null
   br i1 %.not65.i.i.i, label %475, label %458
@@ -1248,7 +1248,7 @@ _env_append.exit163.i.i.i:                        ; preds = %_extend_env.exit.i1
   %466 = add i64 %465, 8
   %467 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %466, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %467, ptr %23, align 8
-  %468 = getelementptr inbounds ptr, ptr %467, i64 %464
+  %468 = getelementptr inbounds nuw ptr, ptr %467, i64 %464
   store ptr null, ptr %468, align 8
   %469 = load ptr, ptr %23, align 8
   %470 = getelementptr ptr, ptr %469, i64 %464
@@ -1271,7 +1271,7 @@ _env_append.exit169.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %475
 
 475:                                              ; preds = %_env_append.exit169.i.i.i, %455
-  %476 = getelementptr inbounds i8, ptr %44, i64 208
+  %476 = getelementptr inbounds nuw i8, ptr %44, i64 208
   %477 = load ptr, ptr %476, align 8
   %.not66.i.i.i = icmp eq ptr %477, null
   br i1 %.not66.i.i.i, label %495, label %478
@@ -1292,7 +1292,7 @@ _env_append.exit169.i.i.i:                        ; preds = %_extend_env.exit.i1
   %486 = add i64 %485, 8
   %487 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %486, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %487, ptr %23, align 8
-  %488 = getelementptr inbounds ptr, ptr %487, i64 %484
+  %488 = getelementptr inbounds nuw ptr, ptr %487, i64 %484
   store ptr null, ptr %488, align 8
   %489 = load ptr, ptr %23, align 8
   %490 = getelementptr ptr, ptr %489, i64 %484
@@ -1315,7 +1315,7 @@ _env_append.exit175.i.i.i:                        ; preds = %_extend_env.exit.i1
   br label %495
 
 495:                                              ; preds = %_env_append.exit175.i.i.i, %475
-  %496 = getelementptr inbounds i8, ptr %44, i64 40
+  %496 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %497 = load i32, ptr %496, align 8
   call void @slurm_mins2time_str(i32 noundef %497, ptr noundef nonnull %25, i32 noundef 32) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1333,7 +1333,7 @@ _env_append.exit175.i.i.i:                        ; preds = %_extend_env.exit.i1
   %505 = add i64 %504, 8
   %506 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %505, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %506, ptr %23, align 8
-  %507 = getelementptr inbounds ptr, ptr %506, i64 %503
+  %507 = getelementptr inbounds nuw ptr, ptr %506, i64 %503
   store ptr null, ptr %507, align 8
   %508 = load ptr, ptr %23, align 8
   %509 = getelementptr ptr, ptr %508, i64 %503
@@ -1378,7 +1378,7 @@ _env_append.exit181.i.i.i:                        ; preds = %_extend_env.exit.i1
   %524 = add i64 %523, 8
   %525 = call ptr @slurm_xrecalloc(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %524, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %525, ptr %23, align 8
-  %526 = getelementptr inbounds ptr, ptr %525, i64 %522
+  %526 = getelementptr inbounds nuw ptr, ptr %525, i64 %522
   store ptr null, ptr %526, align 8
   %527 = load ptr, ptr %23, align 8
   %528 = getelementptr ptr, ptr %527, i64 %522
@@ -1481,7 +1481,7 @@ define i32 @jobcomp_p_set_location() local_unnamed_addr #0 {
   br i1 %8, label %_check_script_permissions.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 32768
   %.not.i = icmp eq i32 %12, 0
@@ -1530,65 +1530,65 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4, %1
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 216, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 190, ptr noundef nonnull @__func__._jobcomp_info_create) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 252
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %19, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %13, i64 208
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @slurm_xstrdup(ptr noundef %16) #10
-  %18 = getelementptr inbounds i8, ptr %6, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %17, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %14, %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 908
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 908
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 212
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 1064
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %30, ptr %31, align 8
   %32 = tail call ptr @user_from_job(ptr noundef nonnull %0) #10
-  %33 = getelementptr inbounds i8, ptr %6, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 344
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %35, ptr %36, align 4
   %37 = tail call ptr @group_from_job(ptr noundef nonnull %0) #10
-  %38 = getelementptr inbounds i8, ptr %6, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 536
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @slurm_xstrdup(ptr noundef %40) #10
-  %42 = getelementptr inbounds i8, ptr %6, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load ptr, ptr %43, align 8
   %.not133.i = icmp eq ptr %44, null
   br i1 %.not133.i, label %52, label %45
 
 45:                                               ; preds = %19
-  %46 = getelementptr inbounds i8, ptr %44, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %47 = load ptr, ptr %46, align 8
   %.not134.i = icmp eq ptr %47, null
   br i1 %.not134.i, label %52, label %48
@@ -1604,14 +1604,14 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 52:                                               ; preds = %50, %48, %45, %19
   %.sink157.i = phi ptr [ %51, %50 ], [ null, %48 ], [ null, %45 ], [ null, %19 ]
-  %53 = getelementptr inbounds i8, ptr %6, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %.sink157.i, ptr %53, align 8
   %54 = load ptr, ptr %12, align 8
   %.not136.i = icmp eq ptr %54, null
   br i1 %.not136.i, label %62, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %57 = load ptr, ptr %56, align 8
   %.not137.i = icmp eq ptr %57, null
   br i1 %.not137.i, label %62, label %58
@@ -1627,15 +1627,15 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 62:                                               ; preds = %60, %58, %55, %52
   %.sink159.i = phi ptr [ %61, %60 ], [ null, %58 ], [ null, %55 ], [ null, %52 ]
-  %63 = getelementptr inbounds i8, ptr %6, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %.sink159.i, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 760
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %65 = load ptr, ptr %64, align 8
   %.not139.i = icmp eq ptr %65, null
   br i1 %.not139.i, label %73, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %65, i64 256
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 256
   %68 = load ptr, ptr %67, align 8
   %.not140.i = icmp eq ptr %68, null
   br i1 %.not140.i, label %73, label %69
@@ -1651,25 +1651,25 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 73:                                               ; preds = %71, %69, %66, %62
   %.sink161.i = phi ptr [ %72, %71 ], [ null, %69 ], [ null, %66 ], [ null, %62 ]
-  %74 = getelementptr inbounds i8, ptr %6, i64 136
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %.sink161.i, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %76, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 360
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 376
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %6, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 448
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, 8192
   %.not142.i = icmp eq i32 %89, 0
@@ -1678,21 +1678,21 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 90:                                               ; preds = %73
   %91 = tail call ptr @slurm_job_state_string(i32 noundef 8192) #10
   %92 = tail call ptr @slurm_xstrdup(ptr noundef %91) #10
-  %93 = getelementptr inbounds i8, ptr %6, i64 144
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 784
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %95 = load i64, ptr %94, align 8
   %.not144.i = icmp eq i64 %95, 0
   br i1 %.not144.i, label %96, label %99
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %0, i64 888
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %98 = load i64, ptr %97, align 8
   br label %99
 
 99:                                               ; preds = %96, %90
   %.sink.i = phi i64 [ %98, %96 ], [ %95, %90 ]
-  %100 = getelementptr inbounds i8, ptr %6, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %.sink.i, ptr %100, align 8
   %101 = tail call i64 @time(ptr noundef null) #10
   br label %123
@@ -1701,25 +1701,25 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
   %103 = and i32 %88, 255
   %104 = tail call ptr @slurm_job_state_string(i32 noundef %103) #10
   %105 = tail call ptr @slurm_xstrdup(ptr noundef %104) #10
-  %106 = getelementptr inbounds i8, ptr %6, i64 144
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 784
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %108 = load i64, ptr %107, align 8
   %.not143.i = icmp eq i64 %108, 0
   br i1 %.not143.i, label %111, label %109
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds i8, ptr %6, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %108, ptr %110, align 8
   br label %120
 
 111:                                              ; preds = %102
-  %112 = getelementptr inbounds i8, ptr %0, i64 888
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 232
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %115 = load i64, ptr %114, align 8
   %116 = icmp sgt i64 %113, %115
-  %117 = getelementptr inbounds i8, ptr %6, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br i1 %116, label %118, label %119
 
 118:                                              ; preds = %111
@@ -1731,65 +1731,65 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
   br label %120
 
 120:                                              ; preds = %119, %118, %109
-  %121 = getelementptr inbounds i8, ptr %0, i64 232
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %122 = load i64, ptr %121, align 8
   br label %123
 
 123:                                              ; preds = %120, %99
   %.sink163.i = phi i64 [ %122, %120 ], [ %101, %99 ]
-  %124 = getelementptr inbounds i8, ptr %6, i64 72
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 %.sink163.i, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 640
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %126 = load ptr, ptr %125, align 8
   %127 = tail call ptr @slurm_xstrdup(ptr noundef %126) #10
-  %128 = getelementptr inbounds i8, ptr %6, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 944
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %130 = load i32, ptr %129, align 8
   %131 = icmp eq i32 %130, -2
   br i1 %131, label %132, label %138
 
 132:                                              ; preds = %123
-  %133 = getelementptr inbounds i8, ptr %0, i64 664
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %134 = load ptr, ptr %133, align 8
   %.not145.i = icmp eq ptr %134, null
   br i1 %.not145.i, label %138, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %134, i64 212
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 212
   %137 = load i32, ptr %136, align 4
   br label %138
 
 138:                                              ; preds = %135, %132, %123
   %.sink165.i = phi i32 [ %137, %135 ], [ -2, %132 ], [ %130, %123 ]
-  %139 = getelementptr inbounds i8, ptr %6, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %.sink165.i, ptr %139, align 8
   %140 = load ptr, ptr %12, align 8
   %.not146.i = icmp eq ptr %140, null
-  %141 = getelementptr inbounds i8, ptr %140, i64 448
-  %142 = getelementptr inbounds i8, ptr %0, i64 888
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 448
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.in.i = select i1 %.not146.i, ptr %142, ptr %141
   %143 = load i64, ptr %.in.i, align 8
-  %144 = getelementptr inbounds i8, ptr %6, i64 56
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %143, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %146 = load i16, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %6, i64 52
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i16 %146, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %0, i64 560
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr @slurm_xstrdup(ptr noundef %149) #10
-  %151 = getelementptr inbounds i8, ptr %6, i64 112
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %150, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 960
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %153 = load i32, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %6, i64 44
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 %153, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %0, i64 600
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %156 = load i32, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %6, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %156, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %159 = load ptr, ptr %158, align 8
   %.not147.i = icmp eq ptr %159, null
   br i1 %.not147.i, label %162, label %160
@@ -1800,9 +1800,9 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 162:                                              ; preds = %160, %138
   %163 = phi ptr [ %161, %160 ], [ null, %138 ]
-  %164 = getelementptr inbounds i8, ptr %6, i64 152
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 808
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %166 = load ptr, ptr %165, align 8
   %.not148.i = icmp eq ptr %166, null
   br i1 %.not148.i, label %171, label %167
@@ -1818,14 +1818,14 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 171:                                              ; preds = %169, %167, %162
   %.sink167.i = phi ptr [ %170, %169 ], [ null, %167 ], [ null, %162 ]
-  %172 = getelementptr inbounds i8, ptr %6, i64 176
+  %172 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr %.sink167.i, ptr %172, align 8
   %173 = load ptr, ptr %12, align 8
   %.not150.i = icmp eq ptr %173, null
   br i1 %.not150.i, label %177, label %174
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %173, i64 472
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 472
   %176 = load ptr, ptr %175, align 8
   %.not151.i = icmp eq ptr %176, null
   br i1 %.not151.i, label %177, label %178
@@ -1836,49 +1836,49 @@ define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 178:                                              ; preds = %177, %174
   %.str.79.sink.i = phi ptr [ @.str.79, %177 ], [ %176, %174 ]
   %179 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %.str.79.sink.i) #10
-  %180 = getelementptr inbounds i8, ptr %6, i64 160
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr %179, ptr %180, align 8
   %181 = load ptr, ptr %12, align 8
   %.not152.i = icmp eq ptr %181, null
   br i1 %.not152.i, label %_jobcomp_info_create.exit, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %181, i64 424
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 424
   %184 = load ptr, ptr %183, align 8
   %.not153.i = icmp eq ptr %184, null
   br i1 %.not153.i, label %188, label %185
 
 185:                                              ; preds = %182
   %186 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %184) #10
-  %187 = getelementptr inbounds i8, ptr %6, i64 192
+  %187 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %186, ptr %187, align 8
   %.pre.i = load ptr, ptr %12, align 8
   br label %188
 
 188:                                              ; preds = %185, %182
   %189 = phi ptr [ %.pre.i, %185 ], [ %181, %182 ]
-  %190 = getelementptr inbounds i8, ptr %189, i64 432
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 432
   %191 = load ptr, ptr %190, align 8
   %.not154.i = icmp eq ptr %191, null
   br i1 %.not154.i, label %195, label %192
 
 192:                                              ; preds = %188
   %193 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %191) #10
-  %194 = getelementptr inbounds i8, ptr %6, i64 200
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %193, ptr %194, align 8
   %.pre156.i = load ptr, ptr %12, align 8
   br label %195
 
 195:                                              ; preds = %192, %188
   %196 = phi ptr [ %.pre156.i, %192 ], [ %189, %188 ]
-  %197 = getelementptr inbounds i8, ptr %196, i64 416
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 416
   %198 = load ptr, ptr %197, align 8
   %.not155.i = icmp eq ptr %198, null
   br i1 %.not155.i, label %_jobcomp_info_create.exit, label %199
 
 199:                                              ; preds = %195
   %200 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %198) #10
-  %201 = getelementptr inbounds i8, ptr %6, i64 208
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr %200, ptr %201, align 8
   br label %_jobcomp_info_create.exit
 
@@ -2126,7 +2126,7 @@ define internal void @_env_append_fmt(ptr noundef nonnull %0, ptr noundef %1, pt
   %15 = add i64 %14, 8
   %16 = call ptr @slurm_xrecalloc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 331, ptr noundef nonnull @__func__._extend_env) #10
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %13
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr ptr, ptr %18, i64 %13

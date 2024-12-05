@@ -71,11 +71,11 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
   %2 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %7, 16
   %11 = and i32 %10, %9
@@ -83,13 +83,13 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %3, i64 800
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21, !prof !5
@@ -106,8 +106,8 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %3, i64 368
-  %27 = tail call zeroext i1 @mutex_is_locked(ptr noundef %26) #6
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 368
+  %27 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %26) #6
   br i1 %27, label %29, label %28, !prof !5
 
 28:                                               ; preds = %25
@@ -117,8 +117,8 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %3, i64 400
-  %31 = tail call zeroext i1 @mutex_is_locked(ptr noundef %30) #6
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 400
+  %31 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %30) #6
   br i1 %31, label %33, label %32, !prof !5
 
 32:                                               ; preds = %29
@@ -138,7 +138,7 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
   br i1 %.not.not.not.not.not, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %35, i64 1712
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 1712
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %0
   br i1 %39, label %40, label %34, !llvm.loop !16
@@ -173,11 +173,11 @@ declare dso_local void @drm_connector_list_iter_end(ptr noundef) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %6, 16
   %10 = and i32 %9, %8
@@ -185,13 +185,13 @@ define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %2, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 800
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %21, label %20, !prof !5
@@ -208,8 +208,8 @@ define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %2, i64 368
-  %26 = tail call zeroext i1 @mutex_is_locked(ptr noundef %25) #6
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 368
+  %26 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %25) #6
   br i1 %26, label %28, label %27, !prof !5
 
 27:                                               ; preds = %24
@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly
   br label %28
 
 28:                                               ; preds = %27, %24, %21
-  %29 = getelementptr inbounds i8, ptr %2, i64 688
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 688
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, %29
   br i1 %.not, label %.loopexit, label %.preheader
@@ -248,11 +248,11 @@ define dso_local noundef zeroext i1 @drm_helper_crtc_in_use(ptr noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_helper_disable_unused_functions(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %5, 16
   %9 = and i32 %8, %7
@@ -260,13 +260,13 @@ define dso_local void @drm_helper_disable_unused_functions(ptr noundef %0) #0 al
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19, !prof !5
@@ -290,7 +290,7 @@ declare dso_local void @drm_modeset_lock_all(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__drm_helper_disable_unused_functions(ptr noundef %0) unnamed_addr #0 align 16 {
   tail call void @drm_warn_on_modeset_not_all_locked(ptr noundef %0) #6
-  %2 = getelementptr inbounds i8, ptr %0, i64 688
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit9, label %.preheader8
@@ -308,7 +308,7 @@ define internal fastcc void @__drm_helper_disable_unused_functions(ptr noundef %
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -337,7 +337,7 @@ define internal fastcc void @__drm_helper_disable_unused_functions(ptr noundef %
   br i1 %25, label %.loopexit9, label %.preheader8, !llvm.loop !29
 
 .loopexit9:                                       ; preds = %23, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 736
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %26
   br i1 %28, label %.loopexit, label %.preheader
@@ -354,7 +354,7 @@ define internal fastcc void @__drm_helper_disable_unused_functions(ptr noundef %
   br i1 %33, label %47, label %36
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %32, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %41, label %40
@@ -371,7 +371,7 @@ define internal fastcc void @__drm_helper_disable_unused_functions(ptr noundef %
 43:                                               ; preds = %41, %40
   %44 = getelementptr i8, ptr %29, i64 112
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 168
   store ptr null, ptr %46, align 8
   br label %47
 
@@ -396,13 +396,13 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !15
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false), !annotation !15
-  %9 = getelementptr inbounds i8, ptr %0, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %14, 16
   %18 = and i32 %17, %16
@@ -410,13 +410,13 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %8, i64 800
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 800
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28, !prof !5
@@ -429,7 +429,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
 
 29:                                               ; preds = %28, %24, %20
   tail call void @drm_warn_on_modeset_not_all_locked(ptr noundef %8) #6
-  %30 = getelementptr inbounds i8, ptr %0, i64 156
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %31 = load i8, ptr %30, align 4, !range !34, !noundef !35
   %32 = tail call zeroext i1 @drm_helper_crtc_in_use(ptr noundef %0)
   %33 = zext i1 %32 to i8
@@ -446,18 +446,18 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br label %172
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
-  call void @drm_mode_init(ptr noundef nonnull %6, ptr noundef %39) #6
-  %40 = getelementptr inbounds i8, ptr %0, i64 280
-  call void @drm_mode_init(ptr noundef nonnull %7, ptr noundef %40) #6
-  %41 = getelementptr inbounds i8, ptr %0, i64 400
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  call void @drm_mode_init(ptr noundef nonnull %6, ptr noundef nonnull %39) #6
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  call void @drm_mode_init(ptr noundef nonnull %7, ptr noundef nonnull %40) #6
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 404
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %44 = load i32, ptr %43, align 4
-  call void @drm_mode_copy(ptr noundef %39, ptr noundef %1) #6
+  call void @drm_mode_copy(ptr noundef nonnull %39, ptr noundef %1) #6
   store i32 %2, ptr %41, align 8
   store i32 %3, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %8, i64 688
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 688
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %45
   br i1 %47, label %.loopexit35, label %.preheader34
@@ -477,7 +477,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %63, label %61
@@ -492,7 +492,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %65, label %.loopexit35, label %.preheader34, !llvm.loop !36
 
 .loopexit35:                                      ; preds = %63, %38
-  %66 = getelementptr inbounds i8, ptr %10, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %71, label %69
@@ -502,12 +502,12 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %70, label %71, label %.critedge.sink.split
 
 71:                                               ; preds = %69, %.loopexit35
-  %72 = getelementptr inbounds i8, ptr %0, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %73, ptr noundef %75) #6
-  call void @drm_mode_copy(ptr noundef %40, ptr noundef nonnull %35) #6
+  call void @drm_mode_copy(ptr noundef nonnull %40, ptr noundef nonnull %35) #6
   %76 = load ptr, ptr %45, align 8
   %77 = icmp eq ptr %76, %45
   br i1 %77, label %.loopexit33, label %.preheader32
@@ -527,7 +527,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %86, label %92, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %85, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %92, label %91
@@ -565,7 +565,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %105, label %106, label %115
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %100, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 80
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %111, label %110
@@ -589,10 +589,10 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %117, label %.loopexit31, label %.preheader30, !llvm.loop !38
 
 .loopexit31:                                      ; preds = %115, %.loopexit33
-  %118 = getelementptr inbounds i8, ptr %10, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef %0) #6
-  %120 = getelementptr inbounds i8, ptr %10, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %121 = load ptr, ptr %120, align 8
   %122 = call i32 %121(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %35, i32 noundef %2, i32 noundef %3, ptr noundef %4) #6
   %123 = icmp eq i32 %122, 0
@@ -604,7 +604,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %126, label %.loopexit29, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %1, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %129
 
 129:                                              ; preds = %148, %127
@@ -626,8 +626,8 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   %141 = load i32, ptr %140, align 8
   %142 = getelementptr i8, ptr %130, i64 48
   %143 = load ptr, ptr %142, align 8
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %141, ptr noundef %143, ptr noundef %128) #6
-  %144 = getelementptr inbounds i8, ptr %137, i64 40
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %141, ptr noundef %143, ptr noundef nonnull %128) #6
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %148, label %147
@@ -642,7 +642,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %150, label %.loopexit29, label %129, !llvm.loop !39
 
 .loopexit29:                                      ; preds = %148, %124
-  %151 = getelementptr inbounds i8, ptr %10, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef %0) #6
   %153 = load ptr, ptr %45, align 8
@@ -664,7 +664,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %163, label %169, label %164
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %162, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %169, label %168
@@ -679,7 +679,7 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
   br i1 %171, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %169, %.loopexit29
-  call void @drm_calc_timestamping_constants(ptr noundef %0, ptr noundef %40) #6
+  call void @drm_calc_timestamping_constants(ptr noundef %0, ptr noundef nonnull %40) #6
   call void @drm_mode_destroy(ptr noundef %8, ptr noundef nonnull %35) #6
   br label %172
 
@@ -691,8 +691,8 @@ define dso_local noundef zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %0, pt
 .critedge:                                        ; preds = %.critedge.sink.split, %.loopexit31
   call void @drm_mode_destroy(ptr noundef %8, ptr noundef nonnull %35) #6
   store i8 %31, ptr %30, align 4
-  call void @drm_mode_copy(ptr noundef %39, ptr noundef nonnull %6) #6
-  call void @drm_mode_copy(ptr noundef %40, ptr noundef nonnull %7) #6
+  call void @drm_mode_copy(ptr noundef nonnull %39, ptr noundef nonnull %6) #6
+  call void @drm_mode_copy(ptr noundef nonnull %40, ptr noundef nonnull %7) #6
   store i32 %42, ptr %41, align 8
   store i32 %44, ptr %43, align 4
   br label %172
@@ -727,14 +727,14 @@ declare dso_local void @drm_mode_destroy(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_crtc_helper_atomic_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !range !34, !noundef !35
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %15, label %13
@@ -753,7 +753,7 @@ declare dso_local i32 @drm_atomic_helper_check_crtc_primary_plane(ptr noundef) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_connector_get_single_encoder(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %3) #7, !srcloc !41
   %5 = icmp ugt i32 %4, 1
@@ -767,7 +767,7 @@ define dso_local ptr @drm_connector_get_single_encoder(ptr nocapture noundef rea
 
 7:                                                ; preds = %6, %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 688
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 688
   br label %10
 
 10:                                               ; preds = %14, %7
@@ -809,7 +809,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !42
@@ -820,7 +820,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   unreachable
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 432
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 432
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17, !prof !42
@@ -831,7 +831,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   unreachable
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = load ptr, ptr %0, align 8
@@ -850,7 +850,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %22, label %.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %.thread, !prof !42
@@ -863,11 +863,11 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 .thread:                                          ; preds = %23, %26, %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !15
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %35, 16
   %39 = and i32 %38, %37
@@ -875,13 +875,13 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %.thread
-  %42 = getelementptr inbounds i8, ptr %31, i64 800
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 800
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %43, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %49, !prof !5
@@ -901,9 +901,9 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 .thread37:                                        ; preds = %50
   store ptr null, ptr %0, align 8
   %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %57 = load ptr, ptr %56, align 8
   br label %83
 
@@ -911,25 +911,25 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %.pr36 = load ptr, ptr %0, align 8
   %59 = icmp eq ptr %.pr36, null
   %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %64 = load ptr, ptr %63, align 8
   br i1 %59, label %83, label %65
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %.pr36, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.pr36, i64 24
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %74 = load i32, ptr %73, align 4
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %62, ptr noundef %64, i32 noundef %67, i32 noundef %70, i32 noundef %72, i32 noundef %74) #6
   tail call void @drm_warn_on_modeset_not_all_locked(ptr noundef %31) #6
-  %75 = getelementptr inbounds i8, ptr %31, i64 680
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 680
   %76 = load i32, ptr %75, align 8
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread38, label %78, !prof !42
@@ -947,7 +947,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %85, ptr noundef %84) #6
   %86 = load ptr, ptr %8, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 688
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 688
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, %88
   br i1 %90, label %.loopexit44, label %.preheader43
@@ -970,17 +970,17 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 
 .preheader:                                       ; preds = %96, %106
   %99 = phi ptr [ %107, %106 ], [ %97, %96 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 1712
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1712
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, %92
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %.preheader
   store ptr null, ptr %100, align 8
-  %104 = getelementptr inbounds i8, ptr %99, i64 1540
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 1540
   store i32 3, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %99, i64 64
-  call void @drm_mode_object_put(ptr noundef %105) #6
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 64
+  call void @drm_mode_object_put(ptr noundef nonnull %105) #6
   br label %106
 
 106:                                              ; preds = %103, %.preheader
@@ -1003,7 +1003,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br label %.thread38
 
 112:                                              ; preds = %78
-  %113 = getelementptr inbounds i8, ptr %31, i64 604
+  %113 = getelementptr inbounds nuw i8, ptr %31, i64 604
   %114 = load i32, ptr %113, align 4
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %.thread39, label %116, !prof !42
@@ -1020,7 +1020,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br label %.thread38
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %31, i64 688
+  %122 = getelementptr inbounds nuw i8, ptr %31, i64 688
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, %122
   br i1 %124, label %.loopexit59, label %.preheader58
@@ -1047,7 +1047,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 .preheader56:                                     ; preds = %.loopexit59, %.preheader56
   %136 = phi ptr [ %143, %.preheader56 ], [ %134, %.loopexit59 ]
   %137 = phi i32 [ %140, %.preheader56 ], [ 0, %.loopexit59 ]
-  %138 = getelementptr inbounds i8, ptr %136, i64 1712
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 1712
   %139 = load ptr, ptr %138, align 8
   %140 = add i32 %137, 1
   %141 = sext i32 %137 to i64
@@ -1060,14 +1060,14 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 .loopexit57:                                      ; preds = %.preheader56, %.loopexit59
   call void @drm_connector_list_iter_end(ptr noundef nonnull %4) #6
   %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 160
-  %147 = getelementptr inbounds i8, ptr %145, i64 400
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 160
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 400
   %148 = load i32, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %145, i64 404
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 404
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %145, i64 128
+  %151 = getelementptr inbounds nuw i8, ptr %145, i64 128
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 168
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 168
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %0, align 8
   %156 = icmp eq ptr %154, %155
@@ -1080,14 +1080,14 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 159:                                              ; preds = %157
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #6
   %.pre78 = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre78, i64 400
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre78, i64 400
   %.pre79 = load i32, ptr %.phi.trans.insert, align 8
   br label %168
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %155, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 72
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %154, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %154, i64 72
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %162, %164
   %166 = xor i1 %165, true
@@ -1105,7 +1105,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 
 175:                                              ; preds = %168
   %176 = load i32, ptr %73, align 4
-  %177 = getelementptr inbounds i8, ptr %170, i64 404
+  %177 = getelementptr inbounds nuw i8, ptr %170, i64 404
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %176, %178
   br i1 %179, label %181, label %180
@@ -1116,15 +1116,15 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 181:                                              ; preds = %180, %175
   %182 = phi i1 [ true, %180 ], [ %171, %175 ]
   %183 = load ptr, ptr %18, align 8
-  %184 = getelementptr inbounds i8, ptr %170, i64 160
-  %185 = call zeroext i1 @drm_mode_equal(ptr noundef %183, ptr noundef %184) #6
+  %184 = getelementptr inbounds nuw i8, ptr %170, i64 160
+  %185 = call zeroext i1 @drm_mode_equal(ptr noundef %183, ptr noundef nonnull %184) #6
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %181
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10) #6
   %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 160
-  call void @drm_mode_debug_printmodeline(ptr noundef %188) #6
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 160
+  call void @drm_mode_debug_printmodeline(ptr noundef nonnull %188) #6
   %189 = load ptr, ptr %18, align 8
   call void @drm_mode_debug_printmodeline(ptr noundef %189) #6
   br label %190
@@ -1136,7 +1136,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %193, label %.loopexit55, label %194
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %0, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %196
 
 196:                                              ; preds = %208, %194
@@ -1146,14 +1146,14 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %200 = load ptr, ptr %195, align 8
   %201 = getelementptr ptr, ptr %200, i64 %198
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 1712
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1712
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %206, label %208
 
 206:                                              ; preds = %196
-  %207 = getelementptr inbounds i8, ptr %202, i64 64
-  call void @drm_mode_object_get(ptr noundef %207) #6
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 64
+  call void @drm_mode_object_get(ptr noundef nonnull %207) #6
   %.pre80 = load i64, ptr %68, align 8
   br label %208
 
@@ -1175,16 +1175,16 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br label %291
 
 215:                                              ; preds = %.loopexit55
-  %216 = getelementptr inbounds i8, ptr %0, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %217
 
 217:                                              ; preds = %285, %215
   %218 = phi ptr [ %213, %215 ], [ %287, %285 ]
   %219 = phi i8 [ %191, %215 ], [ %286, %285 ]
   %220 = phi i32 [ 0, %215 ], [ %274, %285 ]
-  %221 = getelementptr inbounds i8, ptr %218, i64 1544
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 1544
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %218, i64 1712
+  %223 = getelementptr inbounds nuw i8, ptr %218, i64 1712
   %224 = load ptr, ptr %223, align 8
   %225 = load i64, ptr %68, align 8
   %226 = icmp eq i64 %225, 0
@@ -1209,7 +1209,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %238, label %239, label %229
 
 239:                                              ; preds = %233
-  %240 = getelementptr inbounds i8, ptr %222, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %241, null
   br i1 %242, label %245, label %243
@@ -1219,7 +1219,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br label %.loopexit53
 
 245:                                              ; preds = %239
-  %246 = getelementptr inbounds i8, ptr %218, i64 1704
+  %246 = getelementptr inbounds nuw i8, ptr %218, i64 1704
   %247 = load i32, ptr %246, align 8
   %248 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %247) #7, !srcloc !41
   %249 = icmp ugt i32 %248, 1
@@ -1233,7 +1233,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 
 251:                                              ; preds = %250, %245
   %252 = load ptr, ptr %218, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 688
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 688
   br label %254
 
 254:                                              ; preds = %258, %251
@@ -1259,7 +1259,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %267 = phi ptr [ %244, %243 ], [ %266, %265 ], [ null, %254 ]
   %268 = icmp eq ptr %267, null
   %269 = select i1 %268, i32 1, i32 %220
-  %270 = getelementptr inbounds i8, ptr %218, i64 1540
+  %270 = getelementptr inbounds nuw i8, ptr %218, i64 1540
   %271 = load i32, ptr %270, align 4
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %.loopexit54, label %273
@@ -1283,7 +1283,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %281, label %284, label %282
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %280, i64 80
+  %283 = getelementptr inbounds nuw i8, ptr %280, i64 80
   store ptr null, ptr %283, align 8
   br label %284
 
@@ -1305,7 +1305,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 291:                                              ; preds = %.thread40, %289
   %292 = phi i8 [ %191, %.thread40 ], [ %286, %289 ]
   call void @drm_connector_list_iter_begin(ptr noundef %31, ptr noundef nonnull %4) #6
-  %293 = getelementptr inbounds i8, ptr %0, i64 32
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %294
 
 294:                                              ; preds = %.backedge, %291
@@ -1318,14 +1318,14 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %298, label %353, label %299
 
 299:                                              ; preds = %296
-  %300 = getelementptr inbounds i8, ptr %297, i64 1712
+  %300 = getelementptr inbounds nuw i8, ptr %297, i64 1712
   %301 = load ptr, ptr %300, align 8
   %302 = icmp eq ptr %301, null
   br i1 %302, label %296, label %303, !llvm.loop !67
 
 303:                                              ; preds = %299
-  %304 = getelementptr inbounds i8, ptr %297, i64 1712
-  %305 = getelementptr inbounds i8, ptr %301, i64 80
+  %304 = getelementptr inbounds nuw i8, ptr %297, i64 1712
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 80
   %306 = load ptr, ptr %305, align 8
   %307 = load ptr, ptr %8, align 8
   %308 = icmp eq ptr %306, %307
@@ -1357,9 +1357,9 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %326, label %336, label %327
 
 327:                                              ; preds = %.loopexit52
-  %328 = getelementptr inbounds i8, ptr %301, i64 72
+  %328 = getelementptr inbounds nuw i8, ptr %301, i64 72
   %329 = load i32, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %325, i64 144
+  %330 = getelementptr inbounds nuw i8, ptr %325, i64 144
   %331 = load i32, ptr %330, align 8
   %332 = shl nuw i32 1, %331
   %333 = and i32 %332, %329
@@ -1377,22 +1377,22 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 338:                                              ; preds = %336
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13) #6
   %339 = load ptr, ptr %304, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 80
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 80
   store ptr %325, ptr %340, align 8
   br label %341
 
 341:                                              ; preds = %338, %336
   %342 = phi i8 [ 1, %338 ], [ %295, %336 ]
-  %343 = getelementptr inbounds i8, ptr %297, i64 64
+  %343 = getelementptr inbounds nuw i8, ptr %297, i64 64
   %344 = load i32, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %297, i64 96
+  %345 = getelementptr inbounds nuw i8, ptr %297, i64 96
   %346 = load ptr, ptr %345, align 8
   br i1 %326, label %352, label %347
 
 347:                                              ; preds = %341
-  %348 = getelementptr inbounds i8, ptr %325, i64 96
+  %348 = getelementptr inbounds nuw i8, ptr %325, i64 96
   %349 = load i32, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %325, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %351 = load ptr, ptr %350, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %344, ptr noundef %346, i32 noundef %349, ptr noundef %351) #6
   br label %.backedge
@@ -1409,7 +1409,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %182, label %354, label %.thread41
 
 354:                                              ; preds = %353
-  %355 = getelementptr inbounds i8, ptr %14, i64 56
+  %355 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %356 = load ptr, ptr %355, align 8
   %357 = icmp eq ptr %356, null
   %358 = select i1 %357, i8 1, i8 %295
@@ -1434,9 +1434,9 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   call void @drm_mode_debug_printmodeline(ptr noundef %368) #6
   %369 = load ptr, ptr %0, align 8
   %370 = load ptr, ptr %8, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 128
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 128
   %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 168
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 168
   store ptr %369, ptr %373, align 8
   %374 = load ptr, ptr %8, align 8
   %375 = load ptr, ptr %18, align 8
@@ -1447,15 +1447,15 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 
 379:                                              ; preds = %367
   %380 = load ptr, ptr %8, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 96
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 96
   %382 = load i32, ptr %381, align 8
-  %383 = getelementptr inbounds i8, ptr %380, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 32
   %384 = load ptr, ptr %383, align 8
   call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.17, i32 noundef %382, ptr noundef %384) #6
   %385 = load ptr, ptr %8, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 128
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 128
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 168
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 168
   store ptr %154, ptr %388, align 8
   br label %439
 
@@ -1471,15 +1471,15 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %394 = load ptr, ptr %293, align 8
   %395 = getelementptr ptr, ptr %394, i64 %392
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %396, i64 64
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 64
   %398 = load i32, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %396, i64 96
+  %399 = getelementptr inbounds nuw i8, ptr %396, i64 96
   %400 = load ptr, ptr %399, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %398, ptr noundef %400) #6
   %401 = load ptr, ptr %293, align 8
   %402 = getelementptr ptr, ptr %401, i64 %392
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 400
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 400
   %405 = load ptr, ptr %404, align 8
   %406 = load ptr, ptr %405, align 8
   %407 = call i32 %406(ptr noundef %403, i32 noundef 0) #6
@@ -1496,17 +1496,17 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 412:                                              ; preds = %354
   %413 = load i32, ptr %71, align 8
   %414 = load ptr, ptr %8, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 400
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 400
   store i32 %413, ptr %415, align 8
   %416 = load i32, ptr %73, align 4
   %417 = load ptr, ptr %8, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 404
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 404
   store i32 %416, ptr %418, align 4
   %419 = load ptr, ptr %0, align 8
   %420 = load ptr, ptr %8, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 128
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 128
   %422 = load ptr, ptr %421, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 168
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 168
   store ptr %419, ptr %423, align 8
   %424 = load ptr, ptr %355, align 8
   %425 = load ptr, ptr %8, align 8
@@ -1518,15 +1518,15 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
 
 430:                                              ; preds = %412
   %431 = load ptr, ptr %8, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 400
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 400
   store i32 %148, ptr %432, align 8
   %433 = load ptr, ptr %8, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 404
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 404
   store i32 %150, ptr %434, align 4
   %435 = load ptr, ptr %8, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 128
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 128
   %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds i8, ptr %437, i64 168
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 168
   store ptr %154, ptr %438, align 8
   br label %439
 
@@ -1568,7 +1568,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %458 = sext i32 %456 to i64
   %459 = getelementptr ptr, ptr %119, i64 %458
   %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds i8, ptr %455, i64 1712
+  %461 = getelementptr inbounds nuw i8, ptr %455, i64 1712
   store ptr %460, ptr %461, align 8
   %462 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #6
   %463 = icmp eq ptr %462, null
@@ -1581,7 +1581,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %465, label %.loopexit45, label %466
 
 466:                                              ; preds = %.loopexit47
-  %467 = getelementptr inbounds i8, ptr %0, i64 32
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %468
 
 468:                                              ; preds = %480, %466
@@ -1591,14 +1591,14 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   %472 = load ptr, ptr %467, align 8
   %473 = getelementptr ptr, ptr %472, i64 %470
   %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 1712
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 1712
   %476 = load ptr, ptr %475, align 8
   %477 = icmp eq ptr %476, null
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %468
-  %479 = getelementptr inbounds i8, ptr %474, i64 64
-  call void @drm_mode_object_put(ptr noundef %479) #6
+  %479 = getelementptr inbounds nuw i8, ptr %474, i64 64
+  call void @drm_mode_object_put(ptr noundef nonnull %479) #6
   %.pre81 = load i64, ptr %68, align 8
   br label %480
 
@@ -1615,7 +1615,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture r
   br i1 %486, label %490, label %487
 
 487:                                              ; preds = %.loopexit45
-  %488 = call zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %145, ptr noundef %146, i32 noundef %148, i32 noundef %150, ptr noundef %154)
+  %488 = call zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %145, ptr noundef nonnull %146, i32 noundef %148, i32 noundef %150, ptr noundef %154)
   br i1 %488, label %490, label %489
 
 489:                                              ; preds = %487
@@ -1650,24 +1650,24 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = alloca %struct.drm_connector_list_iter, align 8
   %5 = alloca %struct.drm_connector_list_iter, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1712
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %9, %2
   %13 = phi ptr [ %11, %9 ], [ null, %2 ]
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %18, 16
   %22 = and i32 %21, %20
@@ -1675,13 +1675,13 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %14, i64 800
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 800
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32, !prof !5
@@ -1693,7 +1693,7 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br label %33
 
 33:                                               ; preds = %32, %28, %24
-  %34 = getelementptr inbounds i8, ptr %0, i64 1540
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %1
   br i1 %36, label %.thread, label %37
@@ -1714,13 +1714,13 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
 .preheader23:                                     ; preds = %38, %51
   %42 = phi ptr [ %53, %51 ], [ %40, %38 ]
   %43 = phi i32 [ %52, %51 ], [ 3, %38 ]
-  %44 = getelementptr inbounds i8, ptr %42, i64 1712
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 1712
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %7
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %.preheader23
-  %48 = getelementptr inbounds i8, ptr %42, i64 1540
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 1540
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @llvm.smin.i32(i32 %49, i32 %43)
   br label %51
@@ -1747,7 +1747,7 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br i1 %60, label %88, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %13, i64 432
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 432
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
@@ -1765,19 +1765,19 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
 .preheader21:                                     ; preds = %66, %83
   %70 = phi ptr [ %85, %83 ], [ %68, %66 ]
   %71 = phi i32 [ %84, %83 ], [ 3, %66 ]
-  %72 = getelementptr inbounds i8, ptr %70, i64 1712
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 1712
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %83, label %75
 
 75:                                               ; preds = %.preheader21
-  %76 = getelementptr inbounds i8, ptr %73, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %13
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %70, i64 1540
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 1540
   %81 = load i32, ptr %80, align 4
   %82 = call i32 @llvm.smin.i32(i32 %81, i32 %71)
   br label %83
@@ -1799,7 +1799,7 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br i1 %8, label %.thread, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %7, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %97, label %93
@@ -1821,7 +1821,7 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br i1 %8, label %.thread20, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %7, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.thread20, label %104
@@ -1840,7 +1840,7 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
   br i1 %.old, label %.thread, label %108
 
 108:                                              ; preds = %.thread20
-  %109 = getelementptr inbounds i8, ptr %13, i64 432
+  %109 = getelementptr inbounds nuw i8, ptr %13, i64 432
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
@@ -1858,19 +1858,19 @@ define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0
 .preheader:                                       ; preds = %113, %130
   %117 = phi ptr [ %132, %130 ], [ %115, %113 ]
   %118 = phi i32 [ %131, %130 ], [ 3, %113 ]
-  %119 = getelementptr inbounds i8, ptr %117, i64 1712
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 1712
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %130, label %122
 
 122:                                              ; preds = %.preheader
-  %123 = getelementptr inbounds i8, ptr %120, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 80
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, %13
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %117, i64 1540
+  %127 = getelementptr inbounds nuw i8, ptr %117, i64 1540
   %128 = load i32, ptr %127, align 4
   %129 = call i32 @llvm.smin.i32(i32 %128, i32 %118)
   br label %130
@@ -1897,11 +1897,11 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
   %2 = alloca %struct.drm_connector_list_iter, align 8
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = alloca %struct.drm_connector_list_iter, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %8, 16
   %12 = and i32 %11, %10
@@ -1909,13 +1909,13 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 800
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22, !prof !5
@@ -1928,13 +1928,13 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
 
 23:                                               ; preds = %22, %18, %14
   tail call void @drm_modeset_lock_all(ptr noundef %0) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
   br i1 %26, label %.loopexit22, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 688
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 688
   br label %29
 
 29:                                               ; preds = %132, %27
@@ -1953,7 +1953,7 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr i8, ptr %30, i64 112
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %44 = load ptr, ptr %43, align 8
   %45 = call zeroext i1 @drm_crtc_helper_set_mode(ptr noundef %31, ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef %44)
   br i1 %45, label %47, label %46
@@ -1979,19 +1979,19 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
 .preheader21:                                     ; preds = %47, %64
   %51 = phi ptr [ %66, %64 ], [ %49, %47 ]
   %52 = phi i32 [ %65, %64 ], [ 3, %47 ]
-  %53 = getelementptr inbounds i8, ptr %51, i64 1712
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 1712
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %64, label %56
 
 56:                                               ; preds = %.preheader21
-  %57 = getelementptr inbounds i8, ptr %54, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %31
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %51, i64 1540
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 1540
   %62 = load i32, ptr %61, align 4
   %63 = call i32 @llvm.smin.i32(i32 %62, i32 %52)
   br label %64
@@ -2033,13 +2033,13 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
 .preheader:                                       ; preds = %78, %91
   %82 = phi ptr [ %93, %91 ], [ %80, %78 ]
   %83 = phi i32 [ %92, %91 ], [ 3, %78 ]
-  %84 = getelementptr inbounds i8, ptr %82, i64 1712
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 1712
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, %74
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %.preheader
-  %88 = getelementptr inbounds i8, ptr %82, i64 1540
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 1540
   %89 = load i32, ptr %88, align 4
   %90 = call i32 @llvm.smin.i32(i32 %89, i32 %83)
   br label %91
@@ -2092,19 +2092,19 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
 .preheader17:                                     ; preds = %110, %127
   %114 = phi ptr [ %129, %127 ], [ %112, %110 ]
   %115 = phi i32 [ %128, %127 ], [ 3, %110 ]
-  %116 = getelementptr inbounds i8, ptr %114, i64 1712
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 1712
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %127, label %119
 
 119:                                              ; preds = %.preheader17
-  %120 = getelementptr inbounds i8, ptr %117, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 80
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, %31
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %114, i64 1540
+  %124 = getelementptr inbounds nuw i8, ptr %114, i64 1540
   %125 = load i32, ptr %124, align 4
   %126 = call i32 @llvm.smin.i32(i32 %125, i32 %115)
   br label %127
@@ -2137,13 +2137,13 @@ define dso_local void @drm_helper_resume_force_mode(ptr noundef %0) #0 align 16 
 define dso_local i32 @drm_helper_force_disable_all(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.drm_mode_set, align 8
   tail call void @drm_modeset_lock_all(ptr noundef %0) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 736
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %17, %6

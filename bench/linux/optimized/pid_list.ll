@@ -26,7 +26,7 @@ define dso_local zeroext i1 @trace_pid_list_is_set(ptr noundef %0, i32 noundef %
   %13 = lshr i32 %1, 22
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr [256 x ptr], ptr %16, i64 0, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -87,14 +87,14 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
   %13 = lshr i32 %1, 22
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr [256 x ptr], ptr %16, i64 0, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %38
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 2088
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %64, label %24
@@ -102,7 +102,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
 24:                                               ; preds = %20
   %25 = load ptr, ptr %22, align 8
   store ptr %25, ptr %21, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 2104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, -1
   store i32 %28, ptr %26, align 8
@@ -122,8 +122,8 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = tail call zeroext i1 @irq_work_queue(ptr noundef %35) #8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = tail call zeroext i1 @irq_work_queue(ptr noundef nonnull %35) #8
   br label %37
 
 37:                                               ; preds = %34, %31
@@ -138,7 +138,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
   br i1 %42, label %43, label %61
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 2096
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %64, label %47
@@ -146,7 +146,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
 47:                                               ; preds = %43
   %48 = load ptr, ptr %45, align 8
   store ptr %48, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 2108
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2108
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, -1
   store i32 %51, ptr %49, align 4
@@ -166,8 +166,8 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = tail call zeroext i1 @irq_work_queue(ptr noundef %58) #8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = tail call zeroext i1 @irq_work_queue(ptr noundef nonnull %58) #8
   br label %60
 
 60:                                               ; preds = %57, %54
@@ -209,7 +209,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef
   %13 = lshr i32 %1, 22
   %14 = zext nneg i32 %13 to i64
   %15 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr [256 x ptr], ptr %16, i64 0, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -229,11 +229,11 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef
   br i1 %27, label %28, label %43
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 2096
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %22, align 8
   store ptr %22, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 2108
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2108
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -244,11 +244,11 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2088
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %18, align 8
   store ptr %18, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 2104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 8
@@ -279,7 +279,7 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   %10 = and i32 %9, 255
   %11 = lshr i32 %1, 22
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = zext nneg i32 %11 to i64
   %15 = zext nneg i32 %10 to i64
   br label %16
@@ -354,7 +354,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_pid_list_first(ptr noundef
 
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %0) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.loopexit, %4
@@ -431,15 +431,15 @@ define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align
   br i1 %7, label %50, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @pid_list_refill_irq, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %11, align 8
   store i32 0, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 2088
-  %13 = getelementptr inbounds i8, ptr %6, i64 2104
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2088
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 2104
   %14 = load ptr, ptr %12, align 8
   %15 = load i32, ptr %13, align 8
   %16 = add i32 %15, 6
@@ -466,8 +466,8 @@ define dso_local noundef ptr @trace_pid_list_alloc() local_unnamed_addr #0 align
   %30 = phi ptr [ %19, %17 ], [ %22, %24 ]
   store ptr %30, ptr %12, align 8
   store i32 %29, ptr %13, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 2096
-  %32 = getelementptr inbounds i8, ptr %6, i64 2108
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 2096
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 2108
   %33 = load ptr, ptr %31, align 8
   %34 = load i32, ptr %32, align 4
   %35 = add i32 %34, 6
@@ -642,15 +642,15 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
   br i1 %2, label %35, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @irq_work_sync(ptr noundef %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2096
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @irq_work_sync(ptr noundef nonnull %4) #8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit6, label %.preheader5
 
 .loopexit6:                                       ; preds = %.preheader5, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 2088
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader4
@@ -665,7 +665,7 @@ define dso_local void @trace_pid_list_free(ptr noundef %0) local_unnamed_addr #0
   br i1 %14, label %.loopexit6, label %.preheader5, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader4, %.loopexit6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %20
 
 .preheader4:                                      ; preds = %.loopexit6, %.preheader4

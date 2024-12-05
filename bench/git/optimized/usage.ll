@@ -166,7 +166,7 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   %j.011 = phi i32 [ %j.0.be, %for.cond.backedge ], [ 0, %entry ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc6 = add nuw nsw i32 %j.011, 1
-  %arrayidx8 = getelementptr inbounds [256 x i8], ptr %str_error, i64 0, i64 %conv212
+  %arrayidx8 = getelementptr inbounds nuw [256 x i8], ptr %str_error, i64 0, i64 %conv212
   store i8 %2, ptr %arrayidx8, align 1
   %cmp10.not = icmp eq i8 %2, 37
   br i1 %cmp10.not, label %if.end, label %for.cond.backedge
@@ -178,13 +178,13 @@ if.end:                                           ; preds = %for.body
 if.then15:                                        ; preds = %if.end
   %conv12 = zext nneg i32 %inc6 to i64
   %inc16 = add nuw nsw i32 %j.011, 2
-  %arrayidx18 = getelementptr inbounds [256 x i8], ptr %str_error, i64 0, i64 %conv12
+  %arrayidx18 = getelementptr inbounds nuw [256 x i8], ptr %str_error, i64 0, i64 %conv12
   store i8 37, ptr %arrayidx18, align 1
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then15, %for.body
   %j.0.be = phi i32 [ %inc6, %for.body ], [ %inc16, %if.then15 ]
-  %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call1, i64 %indvars.iv.next
   %3 = load i8, ptr %arrayidx, align 1
   %tobool = icmp ne i8 %3, 0
   %conv2 = sext i32 %j.0.be to i64
@@ -243,7 +243,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
-  %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
+  %arrayidx8.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %2, ptr %arrayidx8.i, align 1
   %cmp10.not.i = icmp eq i8 %2, 37
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
@@ -255,13 +255,13 @@ if.end.i:                                         ; preds = %for.body.i
 if.then15.i:                                      ; preds = %if.end.i
   %conv12.i = zext nneg i32 %inc6.i to i64
   %inc16.i = add nuw nsw i32 %j.011.i, 2
-  %arrayidx18.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
+  %arrayidx18.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
   store i8 37, ptr %arrayidx18.i, align 1
   br label %for.cond.backedge.i
 
 for.cond.backedge.i:                              ; preds = %if.then15.i, %for.body.i
   %j.0.be.i = phi i32 [ %inc6.i, %for.body.i ], [ %inc16.i, %if.then15.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %call1.i, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 %indvars.iv.next.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = icmp ne i8 %3, 0
   %conv2.i = sext i32 %j.0.be.i to i64
@@ -314,7 +314,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
-  %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
+  %arrayidx8.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %3, ptr %arrayidx8.i, align 1
   %cmp10.not.i = icmp eq i8 %3, 37
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
@@ -326,13 +326,13 @@ if.end.i:                                         ; preds = %for.body.i
 if.then15.i:                                      ; preds = %if.end.i
   %conv12.i = zext nneg i32 %inc6.i to i64
   %inc16.i = add nuw nsw i32 %j.011.i, 2
-  %arrayidx18.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
+  %arrayidx18.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
   store i8 37, ptr %arrayidx18.i, align 1
   br label %for.cond.backedge.i
 
 for.cond.backedge.i:                              ; preds = %if.then15.i, %for.body.i
   %j.0.be.i = phi i32 [ %inc6.i, %for.body.i ], [ %inc16.i, %if.then15.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %call1.i, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 %indvars.iv.next.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = icmp ne i8 %4, 0
   %conv2.i = sext i32 %j.0.be.i to i64
@@ -385,7 +385,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   %j.011.i = phi i32 [ %j.0.be.i, %for.cond.backedge.i ], [ 0, %entry ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %inc6.i = add nuw nsw i32 %j.011.i, 1
-  %arrayidx8.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
+  %arrayidx8.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv212.i
   store i8 %3, ptr %arrayidx8.i, align 1
   %cmp10.not.i = icmp eq i8 %3, 37
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
@@ -397,13 +397,13 @@ if.end.i:                                         ; preds = %for.body.i
 if.then15.i:                                      ; preds = %if.end.i
   %conv12.i = zext nneg i32 %inc6.i to i64
   %inc16.i = add nuw nsw i32 %j.011.i, 2
-  %arrayidx18.i = getelementptr inbounds [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
+  %arrayidx18.i = getelementptr inbounds nuw [256 x i8], ptr %str_error.i, i64 0, i64 %conv12.i
   store i8 37, ptr %arrayidx18.i, align 1
   br label %for.cond.backedge.i
 
 for.cond.backedge.i:                              ; preds = %if.then15.i, %for.body.i
   %j.0.be.i = phi i32 [ %inc6.i, %for.body.i ], [ %inc16.i, %if.then15.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %call1.i, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 %indvars.iv.next.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = icmp ne i8 %4, 0
   %conv2.i = sext i32 %j.0.be.i to i64
@@ -540,7 +540,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %msg, ptr align 1 %prefix, i64 %call, i1 false)
-  %add.ptr4.ptr = getelementptr inbounds i8, ptr %msg, i64 %call
+  %add.ptr4.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %call
   %gepdiff = sub nuw nsw i64 4096, %call
   %call5 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr4.ptr, i64 noundef %gepdiff, ptr noundef %err, ptr noundef %params) #17
   %cmp6 = icmp slt i32 %call5, 0
@@ -563,7 +563,7 @@ land.rhs:                                         ; preds = %if.end8, %for.inc
 
 for.body:                                         ; preds = %land.rhs
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %3 = and i8 %2, 64
   %cmp12.not = icmp eq i8 %3, 0
@@ -578,13 +578,13 @@ if.then21:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then21
   %p.0.add = add nuw nsw i64 %p.0.idx20, 1
-  %p.0.ptr = getelementptr inbounds i8, ptr %msg, i64 %p.0.add
+  %p.0.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %p.0.add
   %cmp10.not = icmp eq i64 %p.0.add, 4095
   br i1 %cmp10.not, label %for.end, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %if.end8
   %p.0.ptr.lcssa = phi ptr [ %add.ptr4.ptr, %if.end8 ], [ %p.0.ptr, %for.inc ], [ %p.0.ptr21, %land.rhs ]
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %p.0.ptr.lcssa, i64 1
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %p.0.ptr.lcssa, i64 1
   store i8 10, ptr %p.0.ptr.lcssa, align 1
   %6 = load ptr, ptr @stderr, align 8
   %call24 = tail call i32 @fflush(ptr noundef %6)

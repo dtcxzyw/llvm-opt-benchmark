@@ -110,7 +110,7 @@ define dso_local void @_ZN8facebook6hermes27makeHermesABIRuntimeWrapperEPK15Herm
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 16), ptr %call.i, align 8, !noalias !5
-  %abiVtable_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %abiVtable_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %vtable, ptr %abiVtable_.i.i, align 8, !noalias !5
   %0 = load ptr, ptr %vtable, align 8, !noalias !5
   %call.i.i = invoke noundef ptr %0(ptr noundef null)
@@ -124,10 +124,10 @@ lpad.i.i:                                         ; preds = %entry
   resume { ptr, i32 } %1
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_123HermesABIRuntimeWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
-  %abiRt_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %abiRt_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call.i.i, ptr %abiRt_.i.i, align 8, !noalias !5
   %2 = load ptr, ptr %call.i.i, align 8, !noalias !5
-  %vtable_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %vtable_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %2, ptr %vtable_.i.i, align 8, !noalias !5
   store ptr %call.i, ptr %agg.result, align 8
   ret void
@@ -148,10 +148,10 @@ declare void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferen
 define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 16), ptr %this, align 8
-  %vtable_ = getelementptr inbounds i8, ptr %this, i64 16
+  %vtable_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %vtable_, align 8
   %1 = load ptr, ptr %0, align 8
-  %abiRt_ = getelementptr inbounds i8, ptr %this, i64 24
+  %abiRt_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %abiRt_, align 8
   invoke void %1(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
@@ -172,10 +172,10 @@ terminate.lpad:                                   ; preds = %entry
 define internal void @_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123HermesABIRuntimeWrapperE, i64 16), ptr %this, align 8
-  %vtable_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %vtable_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %vtable_.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %abiRt_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %abiRt_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %abiRt_.i, align 8
   invoke void %1(ptr noundef %2)
           to label %_ZN12_GLOBAL__N_123HermesABIRuntimeWrapperD2Ev.exit unwind label %terminate.lpad.i
@@ -737,7 +737,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %exception, align 8
-  %what_.i.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %what_.i.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %exception, align 8

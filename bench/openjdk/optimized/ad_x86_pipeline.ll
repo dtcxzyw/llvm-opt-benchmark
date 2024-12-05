@@ -88,28 +88,28 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, %5
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit31, label %.preheader30
 
 .preheader30:                                     ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit31, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.preheader30
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.fr43 = freeze i32 %15
   %.not44 = icmp eq i32 %.fr43, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br i1 %.not44, label %.loopexit31, label %.lr.ph41.split.us.preheader
 
@@ -121,8 +121,8 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 .lr.ph41.split.us:                                ; preds = %.lr.ph41.split.us.preheader, %..loopexit29_crit_edge.us
   %indvars.iv47 = phi i64 [ 0, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next48, %..loopexit29_crit_edge.us ]
   %.02240.us = phi i32 [ %1, %.lr.ph41.split.us.preheader ], [ %.1.us, %..loopexit29_crit_edge.us ]
-  %18 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %13, i64 %indvars.iv47
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %18 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %13, i64 %indvars.iv47
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
   br i1 %21, label %..loopexit29_crit_edge.us, label %.preheader.us
@@ -130,8 +130,8 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 22:                                               ; preds = %.preheader.us, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %.loopexit.us ]
   %.235.us = phi i32 [ %.02240.us, %.preheader.us ], [ %.3.us, %.loopexit.us ]
-  %23 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %17, i64 %indvars.iv
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %23 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %.loopexit.us, label %27
@@ -145,7 +145,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 
 31:                                               ; preds = %27
   %.sroa.0.0.copyload.i.us = load i32, ptr %38, align 4
-  %32 = getelementptr inbounds i8, ptr %23, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sroa.0.0.copyload.i24.us = load i32, ptr %32, align 4
   %33 = shl i32 %.sroa.0.0.copyload.i24.us, %.235.us
   %34 = and i32 %33, %.sroa.0.0.copyload.i.us
@@ -174,7 +174,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
   br i1 %exitcond51.not, label %.loopexit31, label %.lr.ph41.split.us, !llvm.loop !9
 
 .preheader.us:                                    ; preds = %.lr.ph41.split.us
-  %38 = getelementptr inbounds i8, ptr %18, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %22
 
 .loopexit31:                                      ; preds = %..loopexit29_crit_edge.us, %.lr.ph41, %.preheader30, %3
@@ -184,15 +184,15 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not82 = icmp eq i32 %5, 0
   br i1 %.not82, label %._crit_edge80, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count = zext i32 %5 to i64
   br label %10
@@ -200,13 +200,13 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 10:                                               ; preds = %.lr.ph79, %.loopexit57
   %indvars.iv = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next, %.loopexit57 ]
   %.077 = phi i32 [ %1, %.lr.ph79 ], [ %.4, %.loopexit57 ]
-  %11 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %7, i64 %indvars.iv
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %11 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i32, ptr %17, align 4
   %.not4471 = icmp ugt i32 %16, %18
   br i1 %14, label %19, label %37
@@ -216,14 +216,14 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 
 .lr.ph74:                                         ; preds = %19
   %20 = load i32, ptr %11, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %22
 
 22:                                               ; preds = %.lr.ph74, %.loopexit
   %.04073 = phi i32 [ %16, %.lr.ph74 ], [ %36, %.loopexit ]
   %.04172 = phi i32 [ 7, %.lr.ph74 ], [ %spec.select, %.loopexit ]
   %23 = zext i32 %.04073 to i64
-  %24 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %9, i64 %23
+  %24 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %9, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %20
   %.not45 = icmp eq i32 %26, 0
@@ -231,7 +231,7 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %21, align 4
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = shl i32 %30, %.077
   %32 = and i32 %31, %28
@@ -264,14 +264,14 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 
 .lr.ph64:                                         ; preds = %37
   %38 = load i32, ptr %11, align 4
-  %39 = getelementptr inbounds i8, ptr %11, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %40
 
 40:                                               ; preds = %.lr.ph64, %.loopexit56
   %.163 = phi i32 [ %.077, %.lr.ph64 ], [ %.3, %.loopexit56 ]
   %.03662 = phi i32 [ %16, %.lr.ph64 ], [ %54, %.loopexit56 ]
   %41 = zext i32 %.03662 to i64
-  %42 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %9, i64 %41
+  %42 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %9, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, %38
   %.not43 = icmp eq i32 %44, 0
@@ -279,7 +279,7 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 
 45:                                               ; preds = %40
   %46 = load i32, ptr %39, align 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = shl i32 %48, %.163
   %50 = and i32 %49, %46
@@ -314,26 +314,26 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not44 = icmp eq i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph43, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %9 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i32, ptr %15, align 4
   %.not3039 = icmp ugt i32 %14, %16
   br i1 %12, label %17, label %39
@@ -343,22 +343,22 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnu
 
 .lr.ph41:                                         ; preds = %17
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %20 = load i32, ptr %19, align 4
   br label %21
 
 21:                                               ; preds = %.lr.ph41, %37
   %.02940 = phi i32 [ %14, %.lr.ph41 ], [ %38, %37 ]
   %22 = zext i32 %.02940 to i64
-  %23 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %18, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %23 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %18, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %20
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %27, label %37
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = shl nuw i32 1, %.02940
   %30 = load i32, ptr %23, align 4
   %31 = or i32 %30, %29
@@ -381,14 +381,14 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnu
   br i1 %.not3039, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %41
 
 41:                                               ; preds = %.lr.ph, %41
   %.02837 = phi i32 [ %14, %.lr.ph ], [ %54, %41 ]
   %42 = load ptr, ptr %6, align 8
   %43 = zext i32 %.02837 to i64
-  %44 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %42, i64 %43
   %45 = shl nuw i32 1, %.02837
   %46 = load i32, ptr %44, align 4
   %47 = or i32 %46, %45
@@ -396,7 +396,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnu
   %48 = load i32, ptr %0, align 8
   %49 = or i32 %48, %45
   store i32 %49, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %51 = load i32, ptr %40, align 4
   %52 = load i32, ptr %50, align 4
   %53 = or i32 %52, %51
@@ -419,13 +419,13 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, -2147483648) i32 @_ZNK8Pipeline15operand_latencyEjPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   br label %29
@@ -437,13 +437,13 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK8Pipeline15operand_late
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = add nsw i32 %1, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i8 %17, 0
   %25 = icmp eq i32 %23, 0
@@ -479,23 +479,23 @@ define hidden i32 @_ZorRK23Pipeline_Use_Cycle_MaskS1_(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 15
   %12 = icmp eq i32 %11, 8
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   br label %17
@@ -503,26 +503,26 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 17:                                               ; preds = %13, %8
   %.033 = phi ptr [ %16, %13 ], [ %7, %8 ]
   %18 = load ptr, ptr %.033, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(52) %.033) #10
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %21, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i32
   br label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit
 
 29:                                               ; preds = %17
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(52) %0) #10
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 3
   %37 = icmp eq i32 %36, 2
@@ -530,35 +530,35 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
   %43 = icmp ult i32 %1, %42
   br i1 %43, label %44, label %80
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %33, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %21, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, %46
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.preheader30.i
 
 .preheader30.i:                                   ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %21, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %52 = load i32, ptr %51, align 8
   %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %.preheader30.i
-  %53 = getelementptr inbounds i8, ptr %21, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %33, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %56 = load i32, ptr %55, align 8
   %.fr43.i = freeze i32 %56
   %.not44.i = icmp eq i32 %.fr43.i, 0
-  %57 = getelementptr inbounds i8, ptr %33, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %58 = load ptr, ptr %57, align 8
   br i1 %.not44.i, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.preheader.i
 
@@ -570,8 +570,8 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 .lr.ph41.split.us.i:                              ; preds = %..loopexit29_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next48.i, %..loopexit29_crit_edge.us.i ]
   %.02240.us.i = phi i32 [ 0, %.lr.ph41.split.us.preheader.i ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ]
-  %59 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %54, i64 %indvars.iv47.i
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %59 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %54, i64 %indvars.iv47.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
   br i1 %62, label %..loopexit29_crit_edge.us.i, label %.preheader.us.i
@@ -579,8 +579,8 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 63:                                               ; preds = %.preheader.us.i, %.loopexit.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
   %.235.us.i = phi i32 [ %.02240.us.i, %.preheader.us.i ], [ %.3.us.i, %.loopexit.us.i ]
-  %64 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %58, i64 %indvars.iv.i
-  %65 = getelementptr inbounds i8, ptr %64, i64 12
+  %64 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %58, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
   br i1 %67, label %.loopexit.us.i, label %68
@@ -594,7 +594,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 72:                                               ; preds = %68
   %.sroa.0.0.copyload.i.us.i = load i32, ptr %79, align 4
-  %73 = getelementptr inbounds i8, ptr %64, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %.sroa.0.0.copyload.i24.us.i = load i32, ptr %73, align 4
   %74 = shl i32 %.sroa.0.0.copyload.i24.us.i, %.235.us.i
   %75 = and i32 %74, %.sroa.0.0.copyload.i.us.i
@@ -623,17 +623,17 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br i1 %exitcond51.not.i, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.i, !llvm.loop !9
 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i
-  %79 = getelementptr inbounds i8, ptr %59, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %59, i64 16
   br label %63
 
 80:                                               ; preds = %38
-  %81 = getelementptr inbounds i8, ptr %0, i64 54
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %82 = load i16, ptr %81, align 2
   %83 = icmp ugt i16 %82, 1
   br i1 %83, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %wide.trip.count = zext i16 %82 to i64
   br label %85
 
@@ -641,10 +641,10 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %.03274 = phi i32 [ %42, %.lr.ph ], [ %93, %95 ]
   %86 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(8) %88) #10
   %93 = add i32 %92, %.03274
@@ -662,7 +662,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %21, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %101 = load i8, ptr %100, align 2
   %102 = zext i8 %101 to i32
   br label %.critedge
@@ -674,13 +674,13 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %21, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %109 = load i8, ptr %108, align 1
-  %110 = getelementptr inbounds i8, ptr %33, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = add nuw nsw i64 %indvars.iv, 4294967295
   %113 = and i64 %112, 4294967295
-  %114 = getelementptr inbounds i32, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i8 %109, 0
   %117 = icmp eq i32 %115, 0
@@ -695,28 +695,28 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 .critedge:                                        ; preds = %95, %80, %118, %107, %103, %99
   %.030 = phi i32 [ %102, %99 ], [ %spec.store.select.i, %118 ], [ 0, %103 ], [ 1, %107 ], [ 0, %80 ], [ 0, %95 ]
-  %121 = getelementptr inbounds i8, ptr %33, i64 44
+  %121 = getelementptr inbounds nuw i8, ptr %33, i64 44
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %21, i64 44
+  %123 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, %122
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.preheader30.i39
 
 .preheader30.i39:                                 ; preds = %.critedge
-  %127 = getelementptr inbounds i8, ptr %21, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %128 = load i32, ptr %127, align 8
   %.not.i40 = icmp eq i32 %128, 0
   br i1 %.not.i40, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.i41
 
 .lr.ph41.i41:                                     ; preds = %.preheader30.i39
-  %129 = getelementptr inbounds i8, ptr %21, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %33, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %132 = load i32, ptr %131, align 8
   %.fr43.i42 = freeze i32 %132
   %.not44.i43 = icmp eq i32 %.fr43.i42, 0
-  %133 = getelementptr inbounds i8, ptr %33, i64 56
+  %133 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %134 = load ptr, ptr %133, align 8
   br i1 %.not44.i43, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.preheader.i44
 
@@ -728,8 +728,8 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 .lr.ph41.split.us.i47:                            ; preds = %..loopexit29_crit_edge.us.i65, %.lr.ph41.split.us.preheader.i44
   %indvars.iv47.i48 = phi i64 [ 0, %.lr.ph41.split.us.preheader.i44 ], [ %indvars.iv.next48.i67, %..loopexit29_crit_edge.us.i65 ]
   %.02240.us.i49 = phi i32 [ %.030, %.lr.ph41.split.us.preheader.i44 ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
-  %135 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %130, i64 %indvars.iv47.i48
-  %136 = getelementptr inbounds i8, ptr %135, i64 12
+  %135 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %130, i64 %indvars.iv47.i48
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
   %137 = load i8, ptr %136, align 4
   %138 = trunc i8 %137 to i1
   br i1 %138, label %..loopexit29_crit_edge.us.i65, label %.preheader.us.i50
@@ -737,8 +737,8 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 139:                                              ; preds = %.preheader.us.i50, %.loopexit.us.i61
   %indvars.iv.i51 = phi i64 [ 0, %.preheader.us.i50 ], [ %indvars.iv.next.i63, %.loopexit.us.i61 ]
   %.235.us.i52 = phi i32 [ %.02240.us.i49, %.preheader.us.i50 ], [ %.3.us.i62, %.loopexit.us.i61 ]
-  %140 = getelementptr inbounds %class.Pipeline_Use_Element, ptr %134, i64 %indvars.iv.i51
-  %141 = getelementptr inbounds i8, ptr %140, i64 12
+  %140 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %134, i64 %indvars.iv.i51
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1
   br i1 %143, label %.loopexit.us.i61, label %144
@@ -752,7 +752,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 
 148:                                              ; preds = %144
   %.sroa.0.0.copyload.i.us.i54 = load i32, ptr %155, align 4
-  %149 = getelementptr inbounds i8, ptr %140, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %.sroa.0.0.copyload.i24.us.i55 = load i32, ptr %149, align 4
   %150 = shl i32 %.sroa.0.0.copyload.i24.us.i55, %.235.us.i52
   %151 = and i32 %150, %.sroa.0.0.copyload.i.us.i54
@@ -781,7 +781,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   br i1 %exitcond51.not.i68, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %.lr.ph41.split.us.i47, !llvm.loop !9
 
 .preheader.us.i50:                                ; preds = %.lr.ph41.split.us.i47
-  %155 = getelementptr inbounds i8, ptr %135, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %135, i64 16
   br label %139
 
 _ZNK8Pipeline23functional_unit_latencyEjPKS_.exit: ; preds = %..loopexit29_crit_edge.us.i65, %..loopexit29_crit_edge.us.i, %.lr.ph41.i41, %.preheader30.i39, %.critedge, %.lr.ph41.i, %.preheader30.i, %44, %29, %2, %25
@@ -793,15 +793,15 @@ _ZNK8Pipeline23functional_unit_latencyEjPKS_.exit: ; preds = %..loopexit29_crit_
 define hidden void @_ZN6Bundle15initialize_nopsEPP8MachNode(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 728
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 728
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -810,7 +810,7 @@ define hidden void @_ZN6Bundle15initialize_nopsEPP8MachNode(ptr nocapture nounde
   br i1 %.not.i.i.i, label %19, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %13, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %18, ptr %12, align 8
   br label %_ZN4NodenwEm.exit
 
@@ -825,16 +825,16 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 
 22:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(68) %.0.i.i.i, i32 noundef 0) #10
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 54
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
   store i16 0, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 2, ptr %26, align 4
   store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV11MachNopNode, i64 16), ptr %.0.i.i.i, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i32 1, ptr %27, align 8
   br label %28
 
@@ -14378,19 +14378,19 @@ declare void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.startup" {
   store i32 0, ptr @_ZL32pipeline_class_Zero_Instructions, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 4), align 4
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 56), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 5), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 16), i8 0, i64 36, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 5), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL32pipeline_class_Zero_Instructions, i64 16), i8 0, i64 36, i1 false)
   store i32 0, ptr @_ZL35pipeline_class_Unknown_Instructions, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 4), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 5), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 6), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 7), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 7), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 8), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 16), i8 0, i64 36, i1 false)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZL35pipeline_class_Unknown_Instructions, i64 16), i8 0, i64 36, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 16), align 16
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) @_ZN12Pipeline_Use19elaborated_elementsE, i8 0, i64 13, i1 false)
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 24), align 8
@@ -14443,100 +14443,100 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 212), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use19elaborated_elementsE, i64 216), align 8
   store i32 0, ptr @_ZN12Pipeline_Use14elaborated_useE, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 4), align 4
-  store i32 11, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 8), align 8
-  store ptr @_ZN12Pipeline_Use19elaborated_elementsE, ptr getelementptr inbounds (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 4), align 4
+  store i32 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 8), align 8
+  store ptr @_ZN12Pipeline_Use19elaborated_elementsE, ptr getelementptr inbounds nuw (i8, ptr @_ZN12Pipeline_Use14elaborated_useE, i64 16), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_001, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 12), align 4
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_001, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_001, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_001, i64 12), align 4
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_001, i64 16), align 16
   store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 24), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_001, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_001, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 32), align 8
-  store i32 1799, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 32), align 8
+  store i32 1799, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_001, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_001, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_002, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 12), align 4
-  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_002, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_002, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_002, i64 12), align 4
+  store i32 -2147483646, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_002, i64 16), align 16
   store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 24), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 32), align 16
   store i32 12, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_002, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_002, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 2), align 2
-  store i8 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 32), align 8
-  store i32 1799, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 2), align 2
+  store i8 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_002, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 32), align 8
+  store i32 1799, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_002, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_002, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_003, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_003, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_003, i64 16), align 16
   store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 24), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_003, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_003, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 32), align 8
-  store i32 1793, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 32), align 8
+  store i32 1793, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_003, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_003, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_004, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 32), align 8
-  store i32 1799, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 32), align 8
+  store i32 1799, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_004, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_004, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_005, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 32), align 8
-  store i32 1793, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_002, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 32), align 8
+  store i32 1793, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_005, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_005, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_004, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_004, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_004, i64 16), align 16
   store i32 1792, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 24), align 8
   store i32 10, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 28), align 4
@@ -14548,84 +14548,84 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 52), align 4
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_004, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_006, align 8
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 32), align 8
-  store i32 1849, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 40), align 8
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 32), align 8
+  store i32 1849, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_006, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_006, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_005, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_005, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_005, i64 16), align 16
   store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 20), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 24), align 8
   store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_005, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_007, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 32), align 8
-  store i32 57, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_005, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 32), align 8
+  store i32 57, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_007, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_007, i64 56), align 8
   store i8 2, ptr @_ZL18pipeline_class_008, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_002, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 32), align 8
-  store i32 1849, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_002, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 32), align 8
+  store i32 1849, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_008, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_008, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_009, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 32), align 8
-  store i32 1849, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 32), align 8
+  store i32 1849, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_009, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_009, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_006, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_006, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_006, i64 16), align 16
   store i32 256, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 24), align 8
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_006, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_010, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_006, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 32), align 8
-  store i32 257, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_005, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_006, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 32), align 8
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_010, i64 40), align 8
   store i32 257, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_006, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_010, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_007, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_007, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_007, i64 16), align 16
   store i32 256, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 20), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 24), align 8
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 28), align 4
@@ -14637,173 +14637,173 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 52), align 4
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_007, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_011, align 8
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_006, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 32), align 8
-  store i32 313, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 40), align 8
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_006, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_007, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 32), align 8
+  store i32 313, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_011, i64 40), align 8
   store i32 257, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_011, i64 56), align 8
   store i8 2, ptr @_ZL18pipeline_class_012, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 32), align 8
-  store i32 1799, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 32), align 8
+  store i32 1799, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_012, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_012, i64 56), align 8
   store i8 1, ptr @_ZL18pipeline_class_013, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 32), align 8
-  store i32 1799, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 32), align 8
+  store i32 1799, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_013, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_013, i64 56), align 8
   store i8 2, ptr @_ZL18pipeline_class_014, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 32), align 8
-  store i32 1849, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 32), align 8
+  store i32 1849, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_014, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 44), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_014, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_008, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 12), align 4
-  store i32 -2147483640, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_008, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_008, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_008, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_008, i64 12), align 4
+  store i32 -2147483640, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_008, i64 16), align 16
   store i8 3, ptr @_ZL18pipeline_class_015, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 2), align 2
-  store i8 4, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_008, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 32), align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 2), align 2
+  store i8 4, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_008, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 32), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_015, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 44), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_008, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_015, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_009, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 12), align 4
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_009, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_009, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_009, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_009, i64 12), align 4
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_009, i64 16), align 16
   store i8 2, ptr @_ZL18pipeline_class_016, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_009, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 32), align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_003, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_007, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_009, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 32), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_016, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 44), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_009, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_016, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_010, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 12), align 4
-  store i32 -2147483647, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_010, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_010, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_010, i64 12), align 4
+  store i32 -2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_010, i64 16), align 16
   store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 20), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 24), align 8
   store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_010, i64 36), align 4
   store i8 3, ptr @_ZL18pipeline_class_017, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_005, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_008, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_010, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 32), align 8
-  store i32 63, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_005, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_008, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_010, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 32), align 8
+  store i32 63, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_017, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_010, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_017, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_012, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 12), align 4
-  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_012, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_012, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_012, i64 12), align 4
+  store i32 -2147483646, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_012, i64 16), align 16
   store i32 128, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 20), align 4
   store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 24), align 8
   store i32 7, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 28), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 32), align 16
   store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_012, i64 36), align 4
   store i8 1, ptr @_ZL18pipeline_class_020, align 8
-  store i8 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 2), align 2
-  store i8 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_009, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_012, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 32), align 8
-  store i32 135, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 40), align 8
+  store i8 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 2), align 2
+  store i8 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_009, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_012, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 32), align 8
+  store i32 135, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_020, i64 40), align 8
   store i32 128, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_012, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_020, i64 56), align 8
   store i32 1, ptr @_ZL21pipeline_res_mask_021, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 4), i8 0, i64 9, i1 false)
-  store i32 -2147483646, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_021, i64 4), i8 0, i64 9, i1 false)
+  store i32 -2147483646, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_021, i64 16), align 16
   store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 20), align 4
   store i32 3, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 24), align 8
   store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 28), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 32), align 16
   store i32 12, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_021, i64 36), align 4
   store i32 64, ptr @_ZL21pipeline_res_mask_023, align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 4), align 4
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 8), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 12), align 4
-  store i32 4, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_023, i64 16), align 16
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_023, i64 4), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_023, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_023, i64 12), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_023, i64 16), align 16
   store i8 0, ptr @_ZL18pipeline_class_034, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 3), align 1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_021, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 32), align 8
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 3), align 1
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 16), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_021, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 32), align 8
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_034, i64 40), align 8
   store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 44), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_023, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_034, i64 56), align 8
   store i8 2, ptr @_ZL18pipeline_class_035, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 3), align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 4), i8 0, i64 5, i1 false)
-  store ptr @_ZL18pipeline_reads_010, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_021, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 32), align 8
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 3), align 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 4), i8 0, i64 5, i1 false)
+  store ptr @_ZL18pipeline_reads_010, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_015, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_021, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 32), align 8
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_035, i64 40), align 8
   store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 44), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_023, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_035, i64 56), align 8
   store i32 7, ptr @_ZL21pipeline_res_mask_024, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 4), align 4
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 12), align 4
-  store i32 -2147483644, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_024, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_024, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_024, i64 12), align 4
+  store i32 -2147483644, ptr getelementptr inbounds nuw (i8, ptr @_ZL21pipeline_res_mask_024, i64 16), align 16
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 24), i8 0, i64 9, i1 false)
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 36), align 4
@@ -14823,42 +14823,42 @@ define internal void @_GLOBAL__sub_I_ad_x86_pipeline.cpp() #7 section ".text.sta
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 92), align 4
   store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL21pipeline_res_mask_024, i64 96), align 16
   store i8 1, ptr @_ZL18pipeline_class_036, align 8
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 1), align 1
-  store i8 6, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 2), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 3), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 4), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 5), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 6), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 7), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 8), align 8
-  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_016, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_022, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 32), align 8
-  store i32 1919, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 40), align 8
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 1), align 1
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 3), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 5), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 7), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 8), align 8
+  store ptr @_ZL18pipeline_reads_001, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_016, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_022, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 32), align 8
+  store i32 1919, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_036, i64 40), align 8
   store i32 65, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 44), align 4
   store i32 5, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_024, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_036, i64 56), align 8
   store i8 0, ptr @_ZL18pipeline_class_037, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 1), align 1
-  store i8 100, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 2), align 2
-  store i8 10, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 3), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 4), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 5), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 6), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 7), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 16), align 8
-  store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_019, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 32), align 8
-  store i32 57, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 1), align 1
+  store i8 100, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 2), align 2
+  store i8 10, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 3), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 4), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 5), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 6), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 7), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 16), align 8
+  store ptr @_ZL23pipeline_res_stages_004, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_019, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 32), align 8
+  store i32 57, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_037, i64 40), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 44), align 4
   store i32 2, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 48), align 8
   store ptr @_ZL21pipeline_res_mask_021, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_037, i64 56), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_038, i64 16), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) @_ZL18pipeline_class_038, i8 0, i64 9, i1 false)
-  store ptr @_ZL23pipeline_res_stages_017, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 24), align 8
-  store ptr @_ZL23pipeline_res_cycles_023, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 40), align 8
+  store ptr @_ZL23pipeline_res_stages_017, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_038, i64 24), align 8
+  store ptr @_ZL23pipeline_res_cycles_023, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_038, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18pipeline_class_038, i64 40), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 44), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 48), align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18pipeline_class_038, i64 56), align 8

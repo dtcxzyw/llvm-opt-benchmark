@@ -13,9 +13,9 @@ define noundef ptr @memcpy(ptr noundef returned writeonly %0, ptr nocapture noun
   %.059 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.068 = phi i64 [ %4, %.lr.ph ], [ %2, %3 ]
   %4 = add i64 %.068, -1
-  %5 = getelementptr inbounds i8, ptr %.010, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %6 = load i8, ptr %.010, align 1
-  %7 = getelementptr inbounds i8, ptr %.059, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   store i8 %6, ptr %.059, align 1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

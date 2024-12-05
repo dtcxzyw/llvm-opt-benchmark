@@ -56,14 +56,14 @@ define ptr @opal_environ_merge(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %22 = sub i64 %20, %21
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = call i32 @opal_setenv(ptr noundef %19, ptr noundef nonnull %24, i1 noundef zeroext false, ptr noundef nonnull %3)
   call void @free(ptr noundef %19) #8
   br label %26
 
 26:                                               ; preds = %16, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -146,7 +146,7 @@ define range(i32 -14, 1) i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %38, ptr %5, align 4
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -257,7 +257,7 @@ define range(i32 -13, 1) i32 @opal_unsetenv(ptr noundef %0, ptr nocapture nounde
 19:                                               ; preds = %18, %16
   %20 = phi ptr [ %.pre, %18 ], [ %12, %16 ]
   %21 = and i64 %indvars.iv, 4294967295
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not2533 = icmp eq ptr %23, null
   br i1 %.not2533, label %.loopexit, label %.lr.ph35
@@ -267,18 +267,18 @@ define range(i32 -13, 1) i32 @opal_unsetenv(ptr noundef %0, ptr nocapture nounde
   %24 = phi ptr [ %29, %.lr.ph35 ], [ %22, %19 ]
   %25 = phi ptr [ %28, %.lr.ph35 ], [ %20, %19 ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.next42
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next42
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.next42
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next42
   %30 = load ptr, ptr %29, align 8
   %.not25 = icmp eq ptr %30, null
   br i1 %.not25, label %.loopexit, label %.lr.ph35, !llvm.loop !7
 
 31:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8
   %.not.not = icmp eq ptr %33, null
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !8

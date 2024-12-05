@@ -87,7 +87,7 @@ define hidden void @_ZN10ciMetadata5printEP12outputStream(ptr noundef nonnull al
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) #5
   br label %49
@@ -97,7 +97,7 @@ define hidden void @_ZN10ciMetadata5printEP12outputStream(ptr noundef nonnull al
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %13, i64 1092
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1092
   store volatile i32 6, ptr %16, align 4
   br i1 %15, label %18, label %17
 
@@ -107,7 +107,7 @@ define hidden void @_ZN10ciMetadata5printEP12outputStream(ptr noundef nonnull al
   br label %18
 
 18:                                               ; preds = %17, %11
-  %19 = getelementptr inbounds i8, ptr %13, i64 1096
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1096
   %20 = load volatile i64, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %21 = and i64 %20, 1
@@ -119,7 +119,7 @@ define hidden void @_ZN10ciMetadata5printEP12outputStream(ptr noundef nonnull al
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %22, %18
-  %23 = getelementptr inbounds i8, ptr %13, i64 1088
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 1088
   %24 = load volatile i32, ptr %23, align 8
   %25 = and i32 %24, 12
   %.not.i.i.i = icmp eq i32 %25, 0
@@ -132,12 +132,12 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %26
   store volatile i32 6, ptr %16, align 4
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) #5
-  %30 = getelementptr inbounds i8, ptr %13, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
@@ -150,21 +150,21 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %35
   %36 = phi ptr [ %33, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %.pre.i.i, %35 ]
-  %37 = getelementptr inbounds i8, ptr %31, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %36, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %37, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store ptr %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %13, i64 928
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   store volatile i32 4, ptr %16, align 4
@@ -185,14 +185,14 @@ declare noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ciMetadata14print_metadataEP12outputStream(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNK10ciMetadata9is_loadedEv.exit, label %_ZNK10ciMetadata9is_loadedEv.exit.thread
 
 _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %0) #5
   br i1 %8, label %_ZNK10ciMetadata9is_loadedEv.exit.thread, label %9
@@ -208,7 +208,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadat
 11:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %1) #5
   br label %55
@@ -218,7 +218,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadat
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds i8, ptr %18, i64 1092
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1092
   store volatile i32 6, ptr %21, align 4
   br i1 %20, label %23, label %22
 
@@ -228,7 +228,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadat
   br label %23
 
 23:                                               ; preds = %22, %16
-  %24 = getelementptr inbounds i8, ptr %18, i64 1096
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1096
   %25 = load volatile i64, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %26 = and i64 %25, 1
@@ -240,7 +240,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %2, %_ZNK10ciMetadat
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %27, %23
-  %28 = getelementptr inbounds i8, ptr %18, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1088
   %29 = load volatile i32, ptr %28, align 8
   %30 = and i32 %29, 12
   %.not.i.i.i = icmp eq i32 %30, 0
@@ -254,12 +254,12 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   store volatile i32 6, ptr %21, align 4
   %32 = load ptr, ptr %3, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1) #5
-  %36 = getelementptr inbounds i8, ptr %18, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 408
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
@@ -272,21 +272,21 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %41
   %42 = phi ptr [ %39, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %.pre.i.i, %41 ]
-  %43 = getelementptr inbounds i8, ptr %37, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %42, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %47, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %37, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %43, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %18, i64 928
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %54) #5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   store volatile i32 4, ptr %21, align 4

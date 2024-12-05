@@ -87,11 +87,11 @@ define dso_local ptr @mpi_read_raw_data(ptr nocapture noundef readonly %0, i64 n
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.thread7
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %35, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %36, ptr %42, align 4
   %43 = icmp slt i32 %36, 1
   %44 = or i1 %43, %33
@@ -100,7 +100,7 @@ define dso_local ptr @mpi_read_raw_data(ptr nocapture noundef readonly %0, i64 n
 45:                                               ; preds = %39
   %46 = sub i32 0, %34
   %47 = and i32 %46, 7
-  %48 = getelementptr inbounds i8, ptr %37, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %49 = and i64 %31, 2147483647
   br label %50
 
@@ -243,9 +243,9 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
   br label %32
 
 32:                                               ; preds = %30, %21
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %27, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %7, ptr %34, align 4
   %35 = icmp eq i32 %19, 0
   br i1 %35, label %.loopexit6, label %36
@@ -253,7 +253,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
 36:                                               ; preds = %32
   %37 = sub nsw i32 0, %25
   %38 = and i32 %37, 7
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = zext nneg i32 %27 to i64
   %41 = icmp eq i32 %23, 0
   br label %42
@@ -400,7 +400,7 @@ declare dso_local void @mpi_normalize(ptr noundef) local_unnamed_addr #3
 define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 align 16 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 3
   %10 = icmp ne ptr %1, null
@@ -413,7 +413,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture no
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %4, align 4
   %.pre = load i32, ptr %7, align 4
@@ -426,7 +426,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture no
   br i1 %21, label %22, label %.loopexit6
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = shl i32 %19, 3
   br label %26
@@ -470,7 +470,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture no
 
 51:                                               ; preds = %45
   %52 = srem i32 %42, 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = zext nneg i32 %49 to i64
   br label %55
 
@@ -513,7 +513,7 @@ define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noun
   br i1 %5, label %75, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 3
   %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
@@ -530,7 +530,7 @@ define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noun
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %2, align 4
   %.pre = load i32, ptr %7, align 4
@@ -543,7 +543,7 @@ define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noun
   br i1 %24, label %25, label %.loopexit6
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = shl i32 %22, 3
   br label %29
@@ -587,7 +587,7 @@ define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noun
 
 54:                                               ; preds = %48
   %55 = srem i32 %45, 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = zext nneg i32 %52 to i64
   %58 = load ptr, ptr %56, align 8
   br label %59
@@ -633,7 +633,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture n
   %5 = alloca i64, align 8
   %6 = alloca %struct.sg_mapping_iter, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #12
@@ -641,7 +641,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture n
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %3, align 4
   br label %14
@@ -661,10 +661,10 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !annotation !16
   call void @sg_miter_start(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %18, i32 noundef 3) #12
   %21 = call zeroext i1 @sg_miter_next(ptr noundef nonnull %6) #12
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ult i32 %9, %2
   br i1 %27, label %.preheader, label %.loopexit8
@@ -705,8 +705,8 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture n
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %.loopexit8
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = getelementptr inbounds i8, ptr %5, i64 7
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %55 = zext nneg i32 %50 to i64
   br label %59
 
@@ -793,8 +793,8 @@ define dso_local ptr @mpi_read_raw_from_sgl(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %8, label %.loopexit13, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %12
 
 12:                                               ; preds = %.loopexit14, %9
@@ -833,7 +833,7 @@ define dso_local ptr @mpi_read_raw_from_sgl(ptr noundef %0, i32 noundef %1) #0 a
   %34 = phi i32 [ 0, %7 ], [ %19, %.preheader ], [ 0, %.loopexit14 ]
   %35 = phi ptr [ null, %7 ], [ %17, %.preheader ], [ %28, %.loopexit14 ]
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %36, ptr %37, align 8
   %38 = sub i32 %33, %34
   %39 = shl i32 %38, 3
@@ -867,11 +867,11 @@ define dso_local ptr @mpi_read_raw_from_sgl(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %56, label %.loopexit12, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %52, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %55, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %54, ptr %60, align 4
   br i1 %44, label %.loopexit12, label %61
 
@@ -882,9 +882,9 @@ define dso_local ptr @mpi_read_raw_from_sgl(ptr noundef %0, i32 noundef %1) #0 a
 63:                                               ; preds = %61
   %64 = sub i32 0, %38
   %65 = add nsw i32 %54, -1
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 16
-  %68 = getelementptr inbounds i8, ptr %55, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 24
   br label %69
 
 69:                                               ; preds = %.loopexit, %63
@@ -956,7 +956,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_print(i32 noundef %0, ptr no
   %10 = alloca i32, align 4
   %11 = tail call i32 @mpi_get_nbits(ptr noundef %4) #12
   %12 = icmp eq ptr %3, null
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %19, label %16

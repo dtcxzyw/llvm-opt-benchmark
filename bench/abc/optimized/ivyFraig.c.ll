@@ -46,19 +46,19 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Ivy_FraigParamsDefault(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store i32 32, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 5.000000e-03, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 25, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 3.000000e-01, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 1.000000e+01, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 100, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 500000, ptr %8, align 8
   ret void
 }
@@ -80,33 +80,33 @@ define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapt
   %12 = load ptr, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   store i32 32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double 5.000000e-03, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 25, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double 3.000000e-01, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store double 1.000000e+01, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 100, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %11, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 500000, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %11, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 1, ptr %23, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %51, label %24
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4
   %.not111 = icmp eq i32 %28, 0
   %29 = select i1 %.not111, ptr @.str.2, ptr @.str.1
@@ -114,28 +114,28 @@ define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapt
   %.not112 = icmp eq i32 %30, 0
   %31 = select i1 %.not112, ptr @.str.2, ptr @.str.1
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %26, ptr noundef nonnull %29, ptr noundef nonnull %31)
-  %33 = getelementptr inbounds i8, ptr %1, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load float, ptr %35, align 8
   %37 = fpext float %36 to double
-  %38 = getelementptr inbounds i8, ptr %1, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load float, ptr %40, align 8
   %42 = fpext float %41 to double
-  %43 = getelementptr inbounds i8, ptr %1, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load float, ptr %45, align 8
   %47 = fpext float %46 to double
-  %48 = getelementptr inbounds i8, ptr %1, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %34, double noundef %37, i32 noundef %39, double noundef %42, i32 noundef %44, double noundef %47, i32 noundef %49)
   br label %51
 
 51:                                               ; preds = %24, %2
-  %52 = getelementptr inbounds i8, ptr %1, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %53 = load i32, ptr %52, align 4
   %.not113 = icmp eq i32 %53, 0
   br i1 %.not113, label %54, label %126
@@ -154,7 +154,7 @@ define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapt
 59:                                               ; preds = %56
   %60 = load i64, ptr %10, align 8
   %.neg231 = mul i64 %60, -1000000
-  %61 = getelementptr inbounds i8, ptr %10, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %62 = load i64, ptr %61, align 8
   %.neg230 = sdiv i64 %62, -1000
   %.neg232 = add i64 %.neg230, %.neg231
@@ -163,7 +163,7 @@ define range(i32 -1, 2) i32 @Ivy_FraigProve(ptr nocapture noundef %0, ptr nocapt
 Abc_Clock.exit:                                   ; preds = %56, %59
   %.0.i.neg = phi i64 [ %.neg232, %59 ], [ 1, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %63 = getelementptr inbounds i8, ptr %1, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr i8, ptr %12, i64 128
   %.val = load i32, ptr %65, align 8
@@ -171,13 +171,13 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   store i32 %66, ptr %19, align 8
   %67 = call ptr @Ivy_FraigMiter(ptr noundef %12, ptr noundef nonnull %11)
   call void @Ivy_ManStop(ptr noundef %12) #25
-  %68 = getelementptr inbounds i8, ptr %67, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 200
   %69 = load ptr, ptr %68, align 8
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %.preheader.i, label %Ivy_FraigMiterStatus.exit
 
 .preheader.i:                                     ; preds = %Abc_Clock.exit
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
   %.val.i = load i32, ptr %72, align 4
@@ -187,7 +187,7 @@ Abc_Clock.exit:                                   ; preds = %56, %59
 .lr.ph.i:                                         ; preds = %.preheader.i
   %74 = getelementptr i8, ptr %71, i64 8
   %.val30.i = load ptr, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %67, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = xor i64 %77, 1
@@ -199,7 +199,7 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
   %.035.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %103 ]
   %.01934.i = phi i32 [ 0, %.lr.ph.i ], [ %.120.i, %103 ]
-  %81 = getelementptr inbounds ptr, ptr %.val30.i, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw ptr, ptr %.val30.i, i64 %indvars.iv.i
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr i8, ptr %82, i64 16
   %.val31.i = load ptr, ptr %83, align 8
@@ -218,7 +218,7 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   %90 = ptrtoint ptr %.val31.i to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = lshr i32 %94, 7
   %96 = trunc i64 %90 to i32
@@ -272,7 +272,7 @@ Ivy_FraigMiterStatus.exit:                        ; preds = %Abc_Clock.exit, %.p
 116:                                              ; preds = %108
   %117 = load i64, ptr %9, align 8
   %118 = mul nsw i64 %117, 1000000
-  %119 = getelementptr inbounds i8, ptr %9, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %120 = load i64, ptr %119, align 8
   %121 = sdiv i64 %120, 1000
   %122 = add nsw i64 %121, %118
@@ -305,7 +305,7 @@ Abc_Clock.exit.i:                                 ; preds = %116, %108
 134:                                              ; preds = %131
   %135 = load i64, ptr %8, align 8
   %.neg225 = mul i64 %135, -1000000
-  %136 = getelementptr inbounds i8, ptr %8, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %137 = load i64, ptr %136, align 8
   %.neg = sdiv i64 %137, -1000
   %.neg226 = add i64 %.neg, %.neg225
@@ -314,7 +314,7 @@ Abc_Clock.exit.i:                                 ; preds = %116, %108
 Abc_Clock.exit128:                                ; preds = %131, %134
   %.0.i127.neg = phi i64 [ %.neg226, %134 ], [ 1, %131 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %138 = getelementptr inbounds i8, ptr %1, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr i8, ptr %12, i64 128
   %.val121 = load i32, ptr %140, align 8
@@ -322,13 +322,13 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   store i32 %141, ptr %19, align 8
   %142 = call ptr @Ivy_FraigMiter(ptr noundef nonnull %12, ptr noundef nonnull %11)
   call void @Ivy_ManStop(ptr noundef nonnull %12) #25
-  %143 = getelementptr inbounds i8, ptr %142, i64 200
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 200
   %144 = load ptr, ptr %143, align 8
   %.not.i129 = icmp eq ptr %144, null
   br i1 %.not.i129, label %.preheader.i131, label %Ivy_FraigMiterStatus.exit147
 
 .preheader.i131:                                  ; preds = %Abc_Clock.exit128
-  %145 = getelementptr inbounds i8, ptr %142, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %146, i64 4
   %.val.i132 = load i32, ptr %147, align 4
@@ -338,7 +338,7 @@ Abc_Clock.exit128:                                ; preds = %131, %134
 .lr.ph.i133:                                      ; preds = %.preheader.i131
   %149 = getelementptr i8, ptr %146, i64 8
   %.val30.i134 = load ptr, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %142, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = xor i64 %152, 1
@@ -350,7 +350,7 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.i133 ], [ %indvars.iv.next.i143, %178 ]
   %.035.i137 = phi i32 [ 0, %.lr.ph.i133 ], [ %.1.i142, %178 ]
   %.01934.i138 = phi i32 [ 0, %.lr.ph.i133 ], [ %.120.i141, %178 ]
-  %156 = getelementptr inbounds ptr, ptr %.val30.i134, i64 %indvars.iv.i136
+  %156 = getelementptr inbounds nuw ptr, ptr %.val30.i134, i64 %indvars.iv.i136
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr i8, ptr %157, i64 16
   %.val31.i139 = load ptr, ptr %158, align 8
@@ -369,7 +369,7 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   %165 = ptrtoint ptr %.val31.i139 to i64
   %166 = and i64 %165, -2
   %167 = inttoptr i64 %166 to ptr
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 8
   %170 = lshr i32 %169, 7
   %171 = trunc i64 %165 to i32
@@ -423,7 +423,7 @@ Ivy_FraigMiterStatus.exit147:                     ; preds = %Abc_Clock.exit128, 
 191:                                              ; preds = %183
   %192 = load i64, ptr %7, align 8
   %193 = mul nsw i64 %192, 1000000
-  %194 = getelementptr inbounds i8, ptr %7, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = sdiv i64 %195, 1000
   %197 = add nsw i64 %196, %193
@@ -444,24 +444,24 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
 
 202:                                              ; preds = %Ivy_FraigMiterPrint.exit153, %126
   %.0102 = phi ptr [ %142, %Ivy_FraigMiterPrint.exit153 ], [ %12, %126 ]
-  %203 = getelementptr inbounds i8, ptr %1, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %204 = load i32, ptr %203, align 8
   %205 = icmp sgt i32 %204, 0
   br i1 %205, label %.lr.ph, label %Ivy_FraigMiterPrint.exit
 
 .lr.ph:                                           ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %1, i64 20
-  %207 = getelementptr inbounds i8, ptr %1, i64 24
-  %208 = getelementptr inbounds i8, ptr %1, i64 36
-  %209 = getelementptr inbounds i8, ptr %1, i64 40
-  %210 = getelementptr inbounds i8, ptr %6, i64 8
-  %211 = getelementptr inbounds i8, ptr %1, i64 56
-  %212 = getelementptr inbounds i8, ptr %1, i64 64
-  %213 = getelementptr inbounds i8, ptr %5, i64 8
-  %214 = getelementptr inbounds i8, ptr %4, i64 8
-  %215 = getelementptr inbounds i8, ptr %3, i64 8
-  %216 = getelementptr inbounds i8, ptr %1, i64 72
-  %217 = getelementptr inbounds i8, ptr %1, i64 80
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %222
 
 218:                                              ; preds = %409
@@ -502,13 +502,13 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   br label %244
 
 244:                                              ; preds = %222, %224
-  %245 = getelementptr inbounds i8, ptr %.1103240, i64 200
+  %245 = getelementptr inbounds nuw i8, ptr %.1103240, i64 200
   %246 = load ptr, ptr %245, align 8
   %.not.i154 = icmp eq ptr %246, null
   br i1 %.not.i154, label %.preheader.i156, label %Ivy_FraigMiterPrint.exit
 
 .preheader.i156:                                  ; preds = %244
-  %247 = getelementptr inbounds i8, ptr %.1103240, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %.1103240, i64 8
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr i8, ptr %248, i64 4
   %.val.i157 = load i32, ptr %249, align 4
@@ -518,7 +518,7 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
 .lr.ph.i158:                                      ; preds = %.preheader.i156
   %251 = getelementptr i8, ptr %248, i64 8
   %.val30.i159 = load ptr, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %.1103240, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %.1103240, i64 32
   %253 = load ptr, ptr %252, align 8
   %254 = ptrtoint ptr %253 to i64
   %255 = xor i64 %254, 1
@@ -530,7 +530,7 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.i158 ], [ %indvars.iv.next.i168, %280 ]
   %.035.i162 = phi i32 [ 0, %.lr.ph.i158 ], [ %.1.i167, %280 ]
   %.01934.i163 = phi i32 [ 0, %.lr.ph.i158 ], [ %.120.i166, %280 ]
-  %258 = getelementptr inbounds ptr, ptr %.val30.i159, i64 %indvars.iv.i161
+  %258 = getelementptr inbounds nuw ptr, ptr %.val30.i159, i64 %indvars.iv.i161
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr i8, ptr %259, i64 16
   %.val31.i164 = load ptr, ptr %260, align 8
@@ -549,7 +549,7 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   %267 = ptrtoint ptr %.val31.i164 to i64
   %268 = and i64 %267, -2
   %269 = inttoptr i64 %268 to ptr
-  %270 = getelementptr inbounds i8, ptr %269, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load i32, ptr %270, align 8
   %272 = lshr i32 %271, 7
   %273 = trunc i64 %267 to i32
@@ -656,13 +656,13 @@ Abc_Clock.exit.i176:                              ; preds = %320, %317
   %.0.i.neg.i = phi i64 [ %.neg32.i, %320 ], [ 1, %317 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %323 = call fastcc ptr @Ivy_FraigStart(ptr noundef nonnull %.1103240, ptr noundef nonnull %11)
-  %324 = getelementptr inbounds i8, ptr %323, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i64 %309, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %323, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 16
   store i64 %310, ptr %325, align 8
   call fastcc void @Ivy_FraigSimulate(ptr noundef %323)
   call fastcc void @Ivy_FraigSweep(ptr noundef %323)
-  %326 = getelementptr inbounds i8, ptr %323, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 32
   %327 = load ptr, ptr %326, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %328 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #25
@@ -681,17 +681,17 @@ Abc_Clock.exit30.i:                               ; preds = %330, %Abc_Clock.exi
   %.0.i29.i = phi i64 [ %335, %330 ], [ -1, %Abc_Clock.exit.i176 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %336 = add i64 %.0.i29.i, %.0.i.neg.i
-  %337 = getelementptr inbounds i8, ptr %323, i64 288
+  %337 = getelementptr inbounds nuw i8, ptr %323, i64 288
   store i64 %336, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %323, i64 144
+  %338 = getelementptr inbounds nuw i8, ptr %323, i64 144
   %339 = load ptr, ptr %338, align 8
   %.not.i177 = icmp eq ptr %339, null
   br i1 %.not.i177, label %.thread.i, label %340
 
 340:                                              ; preds = %Abc_Clock.exit30.i
-  %341 = getelementptr inbounds i8, ptr %339, i64 440
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 440
   %342 = load i64, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %339, i64 432
+  %343 = getelementptr inbounds nuw i8, ptr %339, i64 432
   %344 = load i64, ptr %343, align 8
   br label %.thread.i
 
@@ -706,13 +706,13 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   %.2207 = phi i64 [ %.0205239, %315 ], [ %345, %.thread.i ]
   %.0.i178 = phi ptr [ %316, %315 ], [ %327, %.thread.i ]
   call void @Ivy_ManStop(ptr noundef nonnull %.1103240) #25
-  %346 = getelementptr inbounds i8, ptr %.0.i178, i64 200
+  %346 = getelementptr inbounds nuw i8, ptr %.0.i178, i64 200
   %347 = load ptr, ptr %346, align 8
   %.not.i179 = icmp eq ptr %347, null
   br i1 %.not.i179, label %.preheader.i181, label %Ivy_FraigMiterStatus.exit197
 
 .preheader.i181:                                  ; preds = %Ivy_FraigPerform_int.exit
-  %348 = getelementptr inbounds i8, ptr %.0.i178, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %.0.i178, i64 8
   %349 = load ptr, ptr %348, align 8
   %350 = getelementptr i8, ptr %349, i64 4
   %.val.i182 = load i32, ptr %350, align 4
@@ -722,7 +722,7 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
 .lr.ph.i183:                                      ; preds = %.preheader.i181
   %352 = getelementptr i8, ptr %349, i64 8
   %.val30.i184 = load ptr, ptr %352, align 8
-  %353 = getelementptr inbounds i8, ptr %.0.i178, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %.0.i178, i64 32
   %354 = load ptr, ptr %353, align 8
   %355 = ptrtoint ptr %354 to i64
   %356 = xor i64 %355, 1
@@ -734,7 +734,7 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.i183 ], [ %indvars.iv.next.i193, %381 ]
   %.035.i187 = phi i32 [ 0, %.lr.ph.i183 ], [ %.1.i192, %381 ]
   %.01934.i188 = phi i32 [ 0, %.lr.ph.i183 ], [ %.120.i191, %381 ]
-  %359 = getelementptr inbounds ptr, ptr %.val30.i184, i64 %indvars.iv.i186
+  %359 = getelementptr inbounds nuw ptr, ptr %.val30.i184, i64 %indvars.iv.i186
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr i8, ptr %360, i64 16
   %.val31.i189 = load ptr, ptr %361, align 8
@@ -753,7 +753,7 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   %368 = ptrtoint ptr %.val31.i189 to i64
   %369 = and i64 %368, -2
   %370 = inttoptr i64 %369 to ptr
-  %371 = getelementptr inbounds i8, ptr %370, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %372 = load i32, ptr %371, align 8
   %373 = lshr i32 %372, 7
   %374 = trunc i64 %368 to i32
@@ -857,7 +857,7 @@ Ivy_FraigMiterStatus.exit172.thread:              ; preds = %Ivy_FraigMiterPrint
   br i1 %412, label %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge, label %Ivy_FraigMiterPrint.exit
 
 Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge: ; preds = %Ivy_FraigMiterStatus.exit172.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i178, i64 200
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i178, i64 200
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Ivy_FraigMiterStatus.exit172.thread.thread
 
@@ -868,7 +868,7 @@ Ivy_FraigMiterStatus.exit172.thread.thread:       ; preds = %.critedge.i170, %Iv
   br i1 %414, label %415, label %Ivy_FraigMiterPrint.exit
 
 415:                                              ; preds = %Ivy_FraigMiterStatus.exit172.thread.thread
-  %416 = getelementptr inbounds i8, ptr %.2104219, i64 200
+  %416 = getelementptr inbounds nuw i8, ptr %.2104219, i64 200
   %417 = getelementptr i8, ptr %.2104219, i64 124
   %.2104.val = load i32, ptr %417, align 4
   %418 = sext i32 %.2104.val to i64
@@ -900,7 +900,7 @@ define ptr @Ivy_FraigMiter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg62 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg63 = add i64 %.neg, %.neg62
@@ -911,21 +911,21 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %calloc.i = call dereferenceable_or_null(312) ptr @calloc(i64 1, i64 312)
   store ptr %1, ptr %calloc.i, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store ptr %0, ptr %11, align 8
   %12 = call ptr @Ivy_ManStartFrom(ptr noundef %0) #25
-  %13 = getelementptr inbounds i8, ptr %calloc.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
   store ptr %12, ptr %13, align 8
   %14 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %15, align 4
   store i32 100, ptr %14, align 8
   %16 = call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #26
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %calloc.i, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 160
   store ptr %14, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val64 = load i32, ptr %21, align 4
@@ -937,7 +937,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %Abc_Clock.exit ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val47 = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds ptr, ptr %.val47, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.val47, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %59, label %28
@@ -960,7 +960,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 36:                                               ; preds = %32
   %37 = inttoptr i64 %35 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = and i64 %34, 1
   %41 = ptrtoint ptr %39 to i64
@@ -979,7 +979,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %36
 
 48:                                               ; preds = %Ivy_ObjChild0Equiv.exit
   %49 = inttoptr i64 %47 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
   %52 = and i64 %46, 1
   %53 = ptrtoint ptr %51 to i64
@@ -990,7 +990,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %36
 Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.exit, %48
   %56 = phi ptr [ %55, %48 ], [ null, %Ivy_ObjChild0Equiv.exit ]
   %57 = call ptr @Ivy_And(ptr noundef %12, ptr noundef %44, ptr noundef %56) #25
-  %58 = getelementptr inbounds i8, ptr %26, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store ptr %57, ptr %58, align 8
   %.pre = load ptr, ptr %19, align 8
   br label %59
@@ -1007,7 +1007,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
 .critedge:                                        ; preds = %59, %Abc_Clock.exit
   call fastcc void @Ivy_FraigMiterProve(ptr noundef nonnull %calloc.i)
   %64 = load ptr, ptr %11, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 4
   %.val4566 = load i32, ptr %67, align 4
@@ -1016,7 +1016,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   br i1 %68, label %.lr.ph68, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.exit58, %.critedge
-  %69 = getelementptr inbounds i8, ptr %.pre79, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.pre79, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr i8, ptr %70, i64 4
   %.val4669 = load i32, ptr %71, align 4
@@ -1028,7 +1028,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %73 = phi ptr [ %90, %Ivy_ObjChild0Equiv.exit58 ], [ %66, %.critedge ]
   %74 = getelementptr i8, ptr %73, i64 8
   %.val48 = load ptr, ptr %74, align 8
-  %75 = getelementptr inbounds ptr, ptr %.val48, i64 %indvars.iv73
+  %75 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv73
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 16
   %.val52 = load ptr, ptr %77, align 8
@@ -1039,7 +1039,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
 
 80:                                               ; preds = %.lr.ph68
   %81 = inttoptr i64 %79 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
   %83 = load ptr, ptr %82, align 8
   %84 = and i64 %78, 1
   %85 = ptrtoint ptr %83 to i64
@@ -1063,7 +1063,7 @@ Ivy_ObjChild0Equiv.exit58:                        ; preds = %.lr.ph68, %80
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %95 = getelementptr i8, ptr %94, i64 8
   %.val49 = load ptr, ptr %95, align 8
-  %96 = getelementptr inbounds ptr, ptr %.val49, i64 %indvars.iv76
+  %96 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv76
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.critedge2, label %99
@@ -1075,7 +1075,7 @@ Ivy_ObjChild0Equiv.exit58:                        ; preds = %.lr.ph68, %80
   br i1 %.not, label %105, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %.val54, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.val54, i64 8
   %103 = load ptr, ptr %102, align 8
   %.not.i59 = icmp eq ptr %103, null
   br i1 %.not.i59, label %Vec_PtrFree.exit, label %104
@@ -1089,7 +1089,7 @@ Vec_PtrFree.exit:                                 ; preds = %101, %104
   br label %105
 
 105:                                              ; preds = %Vec_PtrFree.exit, %99
-  %106 = getelementptr inbounds i8, ptr %97, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   %.pre80 = load ptr, ptr %69, align 8
   br label %.critedge2
@@ -1113,7 +1113,7 @@ Vec_PtrFree.exit:                                 ; preds = %101, %104
 114:                                              ; preds = %.critedge4
   %115 = load i64, ptr %3, align 8
   %116 = mul nsw i64 %115, 1000000
-  %117 = getelementptr inbounds i8, ptr %3, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %118 = load i64, ptr %117, align 8
   %119 = sdiv i64 %118, 1000
   %120 = add nsw i64 %119, %116
@@ -1123,7 +1123,7 @@ Abc_Clock.exit61:                                 ; preds = %.critedge4, %114
   %.0.i60 = phi i64 [ %120, %114 ], [ -1, %.critedge4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %121 = add i64 %.0.i60, %.0.i.neg
-  %122 = getelementptr inbounds i8, ptr %calloc.i, i64 288
+  %122 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 288
   store i64 %121, ptr %122, align 8
   call fastcc void @Ivy_FraigStop(ptr noundef nonnull %calloc.i)
   ret ptr %.pre79
@@ -1165,7 +1165,7 @@ define ptr @Ivy_FraigPerform(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 14:                                               ; preds = %11
   %15 = load i64, ptr %4, align 8
   %.neg14 = mul i64 %15, -1000000
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8
   %.neg = sdiv i64 %17, -1000
   %.neg15 = add i64 %.neg, %.neg14
@@ -1177,7 +1177,7 @@ Abc_Clock.exit:                                   ; preds = %11, %14
   %18 = call fastcc ptr @Ivy_FraigStart(ptr noundef nonnull %0, ptr noundef %1)
   call fastcc void @Ivy_FraigSimulate(ptr noundef %18)
   call fastcc void @Ivy_FraigSweep(ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %21 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #25
@@ -1187,7 +1187,7 @@ Abc_Clock.exit:                                   ; preds = %11, %14
 23:                                               ; preds = %Abc_Clock.exit
   %24 = load i64, ptr %3, align 8
   %25 = mul nsw i64 %24, 1000000
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = sdiv i64 %27, 1000
   %29 = add nsw i64 %28, %25
@@ -1197,7 +1197,7 @@ Abc_Clock.exit13:                                 ; preds = %Abc_Clock.exit, %23
   %.0.i12 = phi i64 [ %29, %23 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %30 = add i64 %.0.i12, %.0.i.neg
-  %31 = getelementptr inbounds i8, ptr %18, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 288
   store i64 %30, ptr %31, align 8
   call fastcc void @Ivy_FraigStop(ptr noundef nonnull %18)
   br label %32
@@ -1212,16 +1212,16 @@ declare ptr @Ivy_ManDup(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
 .critedge:
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %calloc = tail call dereferenceable_or_null(312) ptr @calloc(i64 1, i64 312)
   store ptr %1, ptr %calloc, align 8
-  %3 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %0, ptr %3, align 8
   %4 = tail call ptr @Ivy_ManStartFrom(ptr noundef nonnull %0) #25
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %4, ptr %5, align 8
   %6 = load i32, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store i32 %6, ptr %7, align 8
   %8 = shl i32 %6, 2
   %9 = add i32 %8, 32
@@ -1233,7 +1233,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %13 = mul nsw i32 %12, %9
   %14 = sext i32 %13 to i64
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #26
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store ptr %15, ptr %16, align 8
   %17 = sext i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
@@ -1244,7 +1244,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   br i1 %20, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.critedge
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   %invariant.gep = getelementptr i8, ptr %15, i64 8
   br label %22
 
@@ -1255,7 +1255,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %.082 = phi i32 [ 0, %.lr.ph ], [ %.1, %101 ]
   %25 = getelementptr i8, ptr %23, i64 8
   %.val66 = load ptr, ptr %25, align 8
-  %26 = getelementptr inbounds ptr, ptr %.val66, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %101, label %29
@@ -1265,7 +1265,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %31 = mul nsw i32 %.082, %9
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %15, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8
   %35 = getelementptr i8, ptr %27, i64 8
   %.val67 = load i32, ptr %35, align 8
@@ -1299,7 +1299,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr i8, ptr %50, i64 32
   %.val75 = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %33, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %.val75, ptr %52, align 8
   %53 = getelementptr i8, ptr %27, i64 24
   %.val69 = load ptr, ptr %53, align 8
@@ -1308,7 +1308,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr i8, ptr %56, i64 32
   %.val76 = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %33, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %.val76, ptr %58, align 8
   %.val71 = load ptr, ptr %47, align 8
   %59 = ptrtoint ptr %.val71 to i64
@@ -1319,7 +1319,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
 61:                                               ; preds = %45
   %62 = and i64 %59, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = lshr i32 %65, 7
   %.lobit.i = and i32 %66, 1
@@ -1327,7 +1327,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   br label %Ivy_ObjFaninPhase.exit
 
 68:                                               ; preds = %45
-  %69 = getelementptr inbounds i8, ptr %.val71, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.val71, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = lshr i32 %70, 7
   %72 = and i32 %71, 1
@@ -1345,7 +1345,7 @@ Ivy_ObjFaninPhase.exit:                           ; preds = %61, %68
 77:                                               ; preds = %Ivy_ObjFaninPhase.exit
   %78 = and i64 %75, -2
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = lshr i32 %81, 7
   %.lobit.i78 = and i32 %82, 1
@@ -1353,7 +1353,7 @@ Ivy_ObjFaninPhase.exit:                           ; preds = %61, %68
   br label %Ivy_ObjFaninPhase.exit79
 
 84:                                               ; preds = %Ivy_ObjFaninPhase.exit
-  %85 = getelementptr inbounds i8, ptr %.val72, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.val72, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = lshr i32 %86, 7
   %88 = and i32 %87, 1
@@ -1370,7 +1370,7 @@ Ivy_ObjFaninPhase.exit79:                         ; preds = %77, %84
   br label %98
 
 96:                                               ; preds = %29
-  %97 = getelementptr inbounds i8, ptr %33, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %33, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
   br label %98
 
@@ -1378,7 +1378,7 @@ Ivy_ObjFaninPhase.exit79:                         ; preds = %77, %84
   %99 = phi ptr [ %24, %96 ], [ %46, %Ivy_ObjFaninPhase.exit79 ]
   %storemerge = phi i32 [ 0, %96 ], [ %95, %Ivy_ObjFaninPhase.exit79 ]
   store i32 %storemerge, ptr %33, align 8
-  %100 = getelementptr inbounds i8, ptr %27, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %33, ptr %100, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %101
@@ -1402,27 +1402,27 @@ Ivy_ObjFaninPhase.exit79:                         ; preds = %77, %84
   %110 = icmp ne i32 %109, 0
   %111 = zext i1 %110 to i32
   %112 = add nsw i32 %108, %111
-  %113 = getelementptr inbounds i8, ptr %calloc, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
   store i32 %112, ptr %113, align 8
   %114 = sext i32 %112 to i64
   %115 = shl nsw i64 %114, 2
   %116 = tail call noalias ptr @malloc(i64 noundef %115) #26
-  %117 = getelementptr inbounds i8, ptr %calloc, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %116, ptr %117, align 8
   %118 = shl nsw i32 %6, 5
   %119 = sext i32 %118 to i64
   %120 = shl nsw i64 %119, 2
   %121 = tail call noalias ptr @malloc(i64 noundef %120) #26
-  %122 = getelementptr inbounds i8, ptr %calloc, i64 80
+  %122 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   store ptr %121, ptr %122, align 8
   %123 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 0, ptr %124, align 4
   store i32 100, ptr %123, align 8
   %125 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #26
-  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %calloc, i64 160
+  %127 = getelementptr inbounds nuw i8, ptr %calloc, i64 160
   store ptr %123, ptr %127, align 8
   tail call void @srand(i32 noundef 11258556) #25
   ret ptr %calloc
@@ -1430,7 +1430,7 @@ Ivy_ObjFaninPhase.exit79:                         ; preds = %77, %84
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Ivy_FraigSimulate(ptr nocapture noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -1439,7 +1439,7 @@ define internal fastcc void @Ivy_FraigSimulate(ptr nocapture noundef %0) unnamed
   br i1 %6, label %.lr.ph.i, label %Ivy_FraigAssignRandom.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.split.i, label %Ivy_FraigAssignRandom.exit
@@ -1454,11 +1454,11 @@ define internal fastcc void @Ivy_FraigSimulate(ptr nocapture noundef %0) unnamed
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.i
   %13 = getelementptr i8, ptr %10, i64 8
   %.val6.i = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %.val6.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 32
   %.val.i.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i.i
@@ -1470,7 +1470,7 @@ define internal fastcc void @Ivy_FraigSimulate(ptr nocapture noundef %0) unnamed
   %23 = xor i32 %22, %20
   %24 = tail call i32 @rand() #25
   %25 = xor i32 %23, %24
-  %26 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv.i.i
   store i32 %25, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = load i32, ptr %7, align 8
@@ -1496,9 +1496,9 @@ Ivy_NodeAssignRandom.exit.i:                      ; preds = %Ivy_NodeAssignRando
 Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRandom.exit.i, %1, %.lr.ph.i
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   tail call void @Ivy_FraigCreateClasses(ptr noundef %0)
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 2
@@ -1509,7 +1509,7 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
   %44 = getelementptr i8, ptr %43, i64 4
   %.val25.i = load i32, ptr %44, align 4
   %45 = icmp sgt i32 %.val25.i, 0
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %47, 0
   %or.cond.i = select i1 %45, i1 %48, i1 false
@@ -1527,12 +1527,12 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
   %53 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %54 = lshr i64 %indvars.iv.i25, 5
   %55 = and i64 %54, 134217727
-  %56 = getelementptr inbounds i32, ptr %41, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %41, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %53, 31
   %59 = getelementptr i8, ptr %49, i64 8
   %.val19.i = load ptr, ptr %59, align 8
-  %60 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i25
+  %60 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i25
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %61, i64 32
   %.val.i.i29 = load ptr, ptr %62, align 8
@@ -1540,12 +1540,12 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
   %64 = and i32 %57, %63
   %.not.i.i = icmp ne i32 %64, 0
   %65 = sext i1 %.not.i.i to i32
-  %66 = getelementptr inbounds i8, ptr %.val.i.i29, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.val.i.i29, i64 32
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph.i.i28
   %indvars.iv.i.i30 = phi i64 [ 0, %.lr.ph.i.i28 ], [ %indvars.iv.next.i.i31, %67 ]
-  %68 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv.i.i30
+  %68 = getelementptr inbounds nuw [0 x i32], ptr %66, i64 0, i64 %indvars.iv.i.i30
   store i32 %65, ptr %68, align 4
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
   %69 = load i32, ptr %46, align 8
@@ -1590,18 +1590,18 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
   %.val23.i = load ptr, ptr %83, align 8
   %84 = getelementptr i8, ptr %.val23.i, i64 8
   %.val23.val.i = load ptr, ptr %84, align 8
-  %85 = getelementptr inbounds ptr, ptr %.val23.val.i, i64 %indvars.iv32.i
+  %85 = getelementptr inbounds nuw ptr, ptr %.val23.val.i, i64 %indvars.iv32.i
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr i8, ptr %86, i64 32
   %.val22.i = load ptr, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %.val22.i, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %89 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   %90 = and i32 %89, 31
   %91 = shl nuw i32 1, %90
   %92 = lshr i64 %indvars.iv.next33.i, 5
   %93 = and i64 %92, 134217727
-  %94 = getelementptr inbounds i32, ptr %88, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %88, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = xor i32 %95, %91
   store i32 %96, ptr %94, align 4
@@ -1611,9 +1611,9 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
 Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.critedge.i
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %97 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef %0)
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 200
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 200
   %101 = load ptr, ptr %100, align 8
   %.not = icmp eq ptr %101, null
   br i1 %.not, label %102, label %.loopexit
@@ -1647,12 +1647,12 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.crite
   %118 = trunc nuw nsw i64 %indvars.iv.i49 to i32
   %119 = lshr i64 %indvars.iv.i49, 5
   %120 = and i64 %119, 134217727
-  %121 = getelementptr inbounds i32, ptr %107, i64 %120
+  %121 = getelementptr inbounds nuw i32, ptr %107, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %118, 31
   %124 = getelementptr i8, ptr %114, i64 8
   %.val19.i54 = load ptr, ptr %124, align 8
-  %125 = getelementptr inbounds ptr, ptr %.val19.i54, i64 %indvars.iv.i49
+  %125 = getelementptr inbounds nuw ptr, ptr %.val19.i54, i64 %indvars.iv.i49
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr i8, ptr %126, i64 32
   %.val.i.i55 = load ptr, ptr %127, align 8
@@ -1660,12 +1660,12 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.crite
   %129 = and i32 %122, %128
   %.not.i.i56 = icmp ne i32 %129, 0
   %130 = sext i1 %.not.i.i56 to i32
-  %131 = getelementptr inbounds i8, ptr %.val.i.i55, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %.val.i.i55, i64 32
   br label %132
 
 132:                                              ; preds = %132, %.lr.ph.i.i53
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i53 ], [ %indvars.iv.next.i.i58, %132 ]
-  %133 = getelementptr inbounds [0 x i32], ptr %131, i64 0, i64 %indvars.iv.i.i57
+  %133 = getelementptr inbounds nuw [0 x i32], ptr %131, i64 0, i64 %indvars.iv.i.i57
   store i32 %130, ptr %133, align 4
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %134 = load i32, ptr %46, align 8
@@ -1710,18 +1710,18 @@ Ivy_NodeAssignConst.exit.i50:                     ; preds = %Ivy_NodeAssignConst
   %.val23.i43 = load ptr, ptr %148, align 8
   %149 = getelementptr i8, ptr %.val23.i43, i64 8
   %.val23.val.i44 = load ptr, ptr %149, align 8
-  %150 = getelementptr inbounds ptr, ptr %.val23.val.i44, i64 %indvars.iv32.i42
+  %150 = getelementptr inbounds nuw ptr, ptr %.val23.val.i44, i64 %indvars.iv32.i42
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr i8, ptr %151, i64 32
   %.val22.i45 = load ptr, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %.val22.i45, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %.val22.i45, i64 32
   %indvars.iv.next33.i46 = add nuw nsw i64 %indvars.iv32.i42, 1
   %154 = trunc nuw nsw i64 %indvars.iv.next33.i46 to i32
   %155 = and i32 %154, 31
   %156 = shl nuw i32 1, %155
   %157 = lshr i64 %indvars.iv.next33.i46, 5
   %158 = and i64 %157, 134217727
-  %159 = getelementptr inbounds i32, ptr %153, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %153, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = xor i32 %160, %156
   store i32 %161, ptr %159, align 4
@@ -1732,13 +1732,13 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %.lr.ph28.i41, %.cri
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %162 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef %0)
   %163 = load ptr, ptr %98, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 200
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 200
   %165 = load ptr, ptr %164, align 8
   %.not22 = icmp eq ptr %165, null
   br i1 %.not22, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %Ivy_FraigAssignDist1.exit62
-  %166 = getelementptr inbounds i8, ptr %0, i64 104
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %167
 
 167:                                              ; preds = %.preheader, %204
@@ -1764,11 +1764,11 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %.lr.ph28.i41, %.cri
 .lr.ph.i.i71:                                     ; preds = %.lr.ph.split.i66
   %177 = getelementptr i8, ptr %174, i64 8
   %.val6.i72 = load ptr, ptr %177, align 8
-  %178 = getelementptr inbounds ptr, ptr %.val6.i72, i64 %indvars.iv.i67
+  %178 = getelementptr inbounds nuw ptr, ptr %.val6.i72, i64 %indvars.iv.i67
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr i8, ptr %179, i64 32
   %.val.i.i73 = load ptr, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %.val.i.i73, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %.val.i.i73, i64 32
   br label %182
 
 182:                                              ; preds = %182, %.lr.ph.i.i71
@@ -1780,7 +1780,7 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %.lr.ph28.i41, %.cri
   %187 = xor i32 %186, %184
   %188 = tail call i32 @rand() #25
   %189 = xor i32 %187, %188
-  %190 = getelementptr inbounds [0 x i32], ptr %181, i64 0, i64 %indvars.iv.i.i74
+  %190 = getelementptr inbounds nuw [0 x i32], ptr %181, i64 0, i64 %indvars.iv.i.i74
   store i32 %189, ptr %190, align 4
   %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i74, 1
   %191 = load i32, ptr %46, align 8
@@ -1808,7 +1808,7 @@ Ivy_FraigAssignRandom.exit79:                     ; preds = %Ivy_NodeAssignRando
   %199 = load i32, ptr %166, align 8
   %200 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef %0)
   %201 = load ptr, ptr %98, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 200
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 200
   %203 = load ptr, ptr %202, align 8
   %.not23 = icmp eq ptr %203, null
   br i1 %.not23, label %204, label %.loopexit
@@ -1818,7 +1818,7 @@ Ivy_FraigAssignRandom.exit79:                     ; preds = %Ivy_NodeAssignRando
   %206 = sitofp i32 %199 to double
   %207 = fdiv double %205, %206
   %208 = load ptr, ptr %0, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load double, ptr %209, align 8
   %211 = fcmp ogt double %207, %210
   br i1 %211, label %167, label %.loopexit, !llvm.loop !17
@@ -1840,7 +1840,7 @@ define internal fastcc void @Ivy_FraigSweep(ptr noundef %0) unnamed_addr #2 {
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
   %12 = alloca [4 x i32], align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %Ivy_FraigCountClassNodes.exit, label %15
@@ -1861,14 +1861,14 @@ define internal fastcc void @Ivy_FraigSweep(ptr noundef %0) unnamed_addr #2 {
 
 Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
   %18 = phi i32 [ 0, %15 ], [ 0, %1 ], [ %16, %.lr.ph.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 188
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %21, ptr %22, align 4
   %23 = load ptr, ptr @stdout, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 140
   %.val101 = load i32, ptr %26, align 4
@@ -1876,10 +1876,10 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
   %.val102 = load i32, ptr %27, align 8
   %28 = add nsw i32 %.val102, %.val101
   %29 = tail call ptr @Extra_ProgressBarStart(ptr noundef %23, i32 noundef %28) #25
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
   %.val113 = load i32, ptr %34, align 4
@@ -1887,35 +1887,35 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
   br i1 %35, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Ivy_FraigCountClassNodes.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = getelementptr inbounds i8, ptr %0, i64 220
-  %38 = getelementptr inbounds i8, ptr %0, i64 204
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
-  %40 = getelementptr inbounds i8, ptr %0, i64 152
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 4
-  %43 = getelementptr inbounds i8, ptr %12, i64 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = getelementptr inbounds i8, ptr %10, i64 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 248
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 264
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  %52 = getelementptr inbounds i8, ptr %9, i64 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 256
-  %54 = getelementptr inbounds i8, ptr %0, i64 212
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 208
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 272
-  %62 = getelementptr inbounds i8, ptr %0, i64 216
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %65
 
 65:                                               ; preds = %.lr.ph, %452
@@ -1924,7 +1924,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
   %.0115 = phi i32 [ 0, %.lr.ph ], [ %.1, %452 ]
   %67 = getelementptr i8, ptr %66, i64 8
   %.val88 = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val88, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %452, label %71
@@ -1954,7 +1954,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %78, %81
   %82 = load ptr, ptr %36, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 200
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 200
   %84 = load ptr, ptr %83, align 8
   %.not84 = icmp eq ptr %84, null
   %85 = getelementptr i8, ptr %69, i64 16
@@ -1969,7 +1969,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %78, %81
 
 89:                                               ; preds = %88
   %90 = inttoptr i64 %87 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 72
   %92 = load ptr, ptr %91, align 8
   %93 = and i64 %86, 1
   %94 = ptrtoint ptr %92 to i64
@@ -1988,7 +1988,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %88, %89
 
 101:                                              ; preds = %Ivy_ObjChild0Equiv.exit
   %102 = inttoptr i64 %100 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 72
   %104 = load ptr, ptr %103, align 8
   %105 = and i64 %99, 1
   %106 = ptrtoint ptr %104 to i64
@@ -2006,7 +2006,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
 
 112:                                              ; preds = %111
   %113 = inttoptr i64 %87 to ptr
-  %114 = getelementptr inbounds i8, ptr %113, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %115 = load ptr, ptr %114, align 8
   %116 = and i64 %86, 1
   %117 = ptrtoint ptr %115 to i64
@@ -2025,7 +2025,7 @@ Ivy_ObjChild0Equiv.exit.i:                        ; preds = %112, %111
 
 124:                                              ; preds = %Ivy_ObjChild0Equiv.exit.i
   %125 = inttoptr i64 %123 to ptr
-  %126 = getelementptr inbounds i8, ptr %125, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8
   %128 = and i64 %122, 1
   %129 = ptrtoint ptr %127 to i64
@@ -2043,14 +2043,14 @@ Ivy_ObjChild1Equiv.exit.i:                        ; preds = %124, %Ivy_ObjChild0
 
 136:                                              ; preds = %Ivy_ObjChild1Equiv.exit.i
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load i32, ptr %138, align 8
   %.not.i106 = icmp eq i32 %139, 0
   br i1 %.not.i106, label %140, label %145
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %24, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %.val34.i, %143
   br i1 %144, label %.sink.split, label %145
@@ -2069,20 +2069,20 @@ Ivy_ObjChild1Equiv.exit.i:                        ; preds = %124, %Ivy_ObjChild0
 
 154:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %155 = getelementptr inbounds i8, ptr %137, i64 52
+  %155 = getelementptr inbounds nuw i8, ptr %137, i64 52
   %156 = load i32, ptr %155, align 4
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %158, label %174
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %152, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %160 = load i32, ptr %159, align 8
   %161 = and i32 %160, 256
   %.not.i37.i = icmp eq i32 %161, 0
   br i1 %.not.i37.i, label %162, label %166
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds i8, ptr %149, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %164 = load i32, ptr %163, align 8
   %165 = and i32 %164, 256
   %.not81.i.i = icmp eq i32 %165, 0
@@ -2119,11 +2119,11 @@ Ivy_FraigNodesAreEquiv.exit.thread.i:             ; preds = %166
   store ptr %180, ptr %39, align 8
   call void @sat_solver_setnvars(ptr noundef %180, i32 noundef 1000) #25
   %181 = load ptr, ptr %39, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
   %185 = call noalias ptr @calloc(i64 noundef %184, i64 noundef 8) #27
-  %186 = getelementptr inbounds i8, ptr %181, i64 536
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 536
   store ptr %185, ptr %186, align 8
   store i32 1, ptr %40, align 8
   br label %187
@@ -2157,9 +2157,9 @@ Abc_Clock.exit.i.i:                               ; preds = %190, %187
   %.val84.i.i = load ptr, ptr %197, align 8
   %198 = ptrtoint ptr %.val84.i.i to i64
   %199 = trunc i64 %198 to i32
-  %200 = getelementptr inbounds i8, ptr %152, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %201 = load i32, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %149, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = xor i32 %203, %201
   %205 = lshr i32 %204, 7
@@ -2231,7 +2231,7 @@ Abc_Clock.exit89.i.i:                             ; preds = %228, %225
   %244 = add nsw i32 %243, 1
   store i32 %244, ptr %54, align 4
   %245 = load ptr, ptr %36, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, %152
   br i1 %248, label %430, label %312
@@ -2274,10 +2274,10 @@ Abc_Clock.exit91.i.i:                             ; preds = %252, %249
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %292 ], [ 0, %Abc_Clock.exit91.i.i ]
   %270 = getelementptr i8, ptr %269, i64 8
   %.val10.i.i.i = load ptr, ptr %270, align 8
-  %271 = getelementptr inbounds ptr, ptr %.val10.i.i.i, i64 %indvars.iv.i.i.i
+  %271 = getelementptr inbounds nuw ptr, ptr %.val10.i.i.i, i64 %indvars.iv.i.i.i
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %39, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 328
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 328
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr i8, ptr %272, i64 40
   %.val11.i.i.i = load ptr, ptr %276, align 8
@@ -2296,7 +2296,7 @@ Abc_Clock.exit91.i.i:                             ; preds = %252, %249
   %286 = shl nuw i32 1, %285
   %287 = lshr i64 %indvars.iv.i.i.i, 5
   %288 = and i64 %287, 134217727
-  %289 = getelementptr inbounds i32, ptr %283, i64 %288
+  %289 = getelementptr inbounds nuw i32, ptr %283, i64 %288
   %290 = load i32, ptr %289, align 4
   %291 = or i32 %290, %286
   store i32 %291, ptr %289, align 4
@@ -2335,7 +2335,7 @@ Abc_Clock.exit93.i.i:                             ; preds = %300, %297
   %308 = add nsw i64 %306, %307
   store i64 %308, ptr %61, align 8
   %309 = load ptr, ptr %36, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 32
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %311 = load ptr, ptr %310, align 8
   %.not82.i.i = icmp eq ptr %311, %152
   br i1 %.not82.i.i, label %Ivy_FraigNodesAreEquiv.exit.i, label %Ivy_FraigNodesAreEquiv.exit.sink.split.i
@@ -2475,10 +2475,10 @@ Abc_Clock.exit101.i.i:                            ; preds = %369, %366
   %indvars.iv.i104.i.i = phi i64 [ %indvars.iv.next.i108.i.i, %409 ], [ 0, %Abc_Clock.exit101.i.i ]
   %387 = getelementptr i8, ptr %386, i64 8
   %.val10.i105.i.i = load ptr, ptr %387, align 8
-  %388 = getelementptr inbounds ptr, ptr %.val10.i105.i.i, i64 %indvars.iv.i104.i.i
+  %388 = getelementptr inbounds nuw ptr, ptr %.val10.i105.i.i, i64 %indvars.iv.i104.i.i
   %389 = load ptr, ptr %388, align 8
   %390 = load ptr, ptr %39, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 328
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 328
   %392 = load ptr, ptr %391, align 8
   %393 = getelementptr i8, ptr %389, i64 40
   %.val11.i106.i.i = load ptr, ptr %393, align 8
@@ -2497,7 +2497,7 @@ Abc_Clock.exit101.i.i:                            ; preds = %369, %366
   %403 = shl nuw i32 1, %402
   %404 = lshr i64 %indvars.iv.i104.i.i, 5
   %405 = and i64 %404, 134217727
-  %406 = getelementptr inbounds i32, ptr %400, i64 %405
+  %406 = getelementptr inbounds nuw i32, ptr %400, i64 %405
   %407 = load i32, ptr %406, align 4
   %408 = or i32 %407, %403
   store i32 %408, ptr %406, align 4
@@ -2565,7 +2565,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 
 435:                                              ; preds = %430
   %.val31.i = load ptr, ptr %134, align 8
-  %436 = getelementptr inbounds i8, ptr %.val31.i, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %.val31.i, i64 8
   %437 = load i32, ptr %436, align 8
   %438 = or i32 %437, 16
   store i32 %438, ptr %436, align 8
@@ -2574,7 +2574,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 439:                                              ; preds = %435, %430
   %440 = load i32, ptr %72, align 8
   %.val30.i = load ptr, ptr %134, align 8
-  %441 = getelementptr inbounds i8, ptr %.val30.i, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 8
   %442 = load i32, ptr %441, align 8
   %443 = xor i32 %442, %440
   %444 = lshr i32 %443, 7
@@ -2594,7 +2594,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 
 .sink.split:                                      ; preds = %.loopexit.i, %439, %Ivy_FraigNodesAreEquiv.exit.i, %Ivy_FraigNodesAreEquiv.exit.thread.i, %145, %140, %Ivy_ObjChild1Equiv.exit.i, %Ivy_ObjChild1Equiv.exit
   %.sink = phi ptr [ %110, %Ivy_ObjChild1Equiv.exit ], [ %448, %439 ], [ %133, %.loopexit.i ], [ %133, %140 ], [ %133, %Ivy_ObjChild1Equiv.exit.i ], [ %133, %145 ], [ %133, %Ivy_FraigNodesAreEquiv.exit.i ], [ %133, %Ivy_FraigNodesAreEquiv.exit.thread.i ]
-  %451 = getelementptr inbounds i8, ptr %69, i64 72
+  %451 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %.sink, ptr %451, align 8
   br label %452
 
@@ -2602,7 +2602,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %.1 = phi i32 [ %.0115, %65 ], [ %.0115, %71 ], [ %77, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %453 = load ptr, ptr %24, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 24
   %455 = load ptr, ptr %454, align 8
   %456 = getelementptr i8, ptr %455, i64 4
   %.val = load i32, ptr %456, align 4
@@ -2618,25 +2618,25 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %459 = phi ptr [ %.pre, %.critedge.loopexit ], [ %29, %Ivy_FraigCountClassNodes.exit ]
   call void @Extra_ProgressBarStop(ptr noundef %459) #25
   %460 = load i32, ptr %20, align 8
-  %461 = getelementptr inbounds i8, ptr %0, i64 192
+  %461 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %460, ptr %461, align 8
-  %462 = getelementptr inbounds i8, ptr %0, i64 32
+  %462 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %463 = load ptr, ptr %462, align 8
   %464 = getelementptr i8, ptr %463, i64 140
   %.val99 = load i32, ptr %464, align 4
   %465 = getelementptr i8, ptr %463, i64 144
   %.val100 = load i32, ptr %465, align 8
   %466 = add nsw i32 %.val100, %.val99
-  %467 = getelementptr inbounds i8, ptr %0, i64 180
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 %466, ptr %467, align 4
   %468 = load ptr, ptr %0, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 40
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 40
   %470 = load i32, ptr %469, align 8
   %.not80 = icmp eq i32 %470, 0
   br i1 %.not80, label %476, label %471
 
 471:                                              ; preds = %.critedge
-  %472 = getelementptr inbounds i8, ptr %463, i64 200
+  %472 = getelementptr inbounds nuw i8, ptr %463, i64 200
   %473 = load ptr, ptr %472, align 8
   %474 = icmp eq ptr %473, null
   br i1 %474, label %475, label %476
@@ -2647,7 +2647,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 
 476:                                              ; preds = %475, %471, %.critedge
   %477 = load ptr, ptr %24, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %479 = load ptr, ptr %478, align 8
   %480 = getelementptr i8, ptr %479, i64 4
   %.val85116 = load i32, ptr %480, align 4
@@ -2656,7 +2656,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 
 .critedge2.preheader:                             ; preds = %Ivy_ObjChild0Equiv.exit108, %476
   %482 = phi ptr [ %477, %476 ], [ %505, %Ivy_ObjChild0Equiv.exit108 ]
-  %483 = getelementptr inbounds i8, ptr %482, i64 24
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 24
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr i8, ptr %484, i64 4
   %.val86119 = load i32, ptr %485, align 4
@@ -2668,7 +2668,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %487 = phi ptr [ %507, %Ivy_ObjChild0Equiv.exit108 ], [ %479, %476 ]
   %488 = getelementptr i8, ptr %487, i64 8
   %.val89 = load ptr, ptr %488, align 8
-  %489 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv133
+  %489 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv133
   %490 = load ptr, ptr %489, align 8
   %491 = load ptr, ptr %462, align 8
   %492 = getelementptr i8, ptr %490, i64 16
@@ -2680,7 +2680,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
 
 495:                                              ; preds = %.lr.ph118
   %496 = inttoptr i64 %494 to ptr
-  %497 = getelementptr inbounds i8, ptr %496, i64 72
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 72
   %498 = load ptr, ptr %497, align 8
   %499 = and i64 %493, 1
   %500 = ptrtoint ptr %498 to i64
@@ -2693,7 +2693,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
   %504 = call ptr @Ivy_ObjCreatePo(ptr noundef %491, ptr noundef %503) #25
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %505 = load ptr, ptr %24, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
   %507 = load ptr, ptr %506, align 8
   %508 = getelementptr i8, ptr %507, i64 4
   %.val85 = load i32, ptr %508, align 4
@@ -2703,7 +2703,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %511 = load ptr, ptr %462, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %513 = load ptr, ptr %512, align 8
   %514 = getelementptr i8, ptr %513, i64 4
   %.val87122 = load i32, ptr %514, align 4
@@ -2716,13 +2716,13 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
   %517 = phi ptr [ %526, %.critedge2 ], [ %484, %.critedge2.preheader ]
   %518 = getelementptr i8, ptr %517, i64 8
   %.val90 = load ptr, ptr %518, align 8
-  %519 = getelementptr inbounds ptr, ptr %.val90, i64 %indvars.iv136
+  %519 = getelementptr inbounds nuw ptr, ptr %.val90, i64 %indvars.iv136
   %520 = load ptr, ptr %519, align 8
   %521 = icmp eq ptr %520, null
   br i1 %521, label %.critedge2, label %522
 
 522:                                              ; preds = %.lr.ph121
-  %523 = getelementptr inbounds i8, ptr %520, i64 32
+  %523 = getelementptr inbounds nuw i8, ptr %520, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %523, i8 0, i64 40, i1 false)
   %.pre142 = load ptr, ptr %24, align 8
   br label %.critedge2
@@ -2730,7 +2730,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
 .critedge2:                                       ; preds = %522, %.lr.ph121
   %524 = phi ptr [ %.pre142, %522 ], [ %516, %.lr.ph121 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %525 = getelementptr inbounds i8, ptr %524, i64 24
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 24
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr i8, ptr %526, i64 4
   %.val86 = load i32, ptr %527, align 4
@@ -2744,7 +2744,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
   %531 = phi ptr [ %547, %.critedge4 ], [ %513, %.critedge4.preheader ]
   %532 = getelementptr i8, ptr %531, i64 8
   %.val91 = load ptr, ptr %532, align 8
-  %533 = getelementptr inbounds ptr, ptr %.val91, i64 %indvars.iv139
+  %533 = getelementptr inbounds nuw ptr, ptr %.val91, i64 %indvars.iv139
   %534 = load ptr, ptr %533, align 8
   %535 = icmp eq ptr %534, null
   br i1 %535, label %.critedge4, label %536
@@ -2756,7 +2756,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph118, %495
   br i1 %.not82, label %542, label %538
 
 538:                                              ; preds = %536
-  %539 = getelementptr inbounds i8, ptr %.val96, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %.val96, i64 8
   %540 = load ptr, ptr %539, align 8
   %.not.i109 = icmp eq ptr %540, null
   br i1 %.not.i109, label %Vec_PtrFree.exit, label %541
@@ -2770,8 +2770,8 @@ Vec_PtrFree.exit:                                 ; preds = %538, %541
   br label %542
 
 542:                                              ; preds = %Vec_PtrFree.exit, %536
-  %543 = getelementptr inbounds i8, ptr %534, i64 40
-  %544 = getelementptr inbounds i8, ptr %534, i64 72
+  %543 = getelementptr inbounds nuw i8, ptr %534, i64 40
+  %544 = getelementptr inbounds nuw i8, ptr %534, i64 72
   store ptr null, ptr %544, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %543, i8 0, i64 16, i1 false)
   %.pre143 = load ptr, ptr %462, align 8
@@ -2780,7 +2780,7 @@ Vec_PtrFree.exit:                                 ; preds = %538, %541
 .critedge4:                                       ; preds = %542, %.lr.ph124
   %545 = phi ptr [ %.pre143, %542 ], [ %530, %.lr.ph124 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %546 = getelementptr inbounds i8, ptr %545, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 24
   %547 = load ptr, ptr %546, align 8
   %548 = getelementptr i8, ptr %547, i64 4
   %.val87 = load i32, ptr %548, align 4
@@ -2797,7 +2797,7 @@ Vec_PtrFree.exit:                                 ; preds = %538, %541
 
 .lr.ph128:                                        ; preds = %.critedge6, %.lr.ph128
   %.074127 = phi ptr [ %.074, %.lr.ph128 ], [ %.074125, %.critedge6 ]
-  %552 = getelementptr inbounds i8, ptr %.074127, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %.074127, i64 8
   %553 = load i32, ptr %552, align 8
   %554 = and i32 %553, -17
   store i32 %554, ptr %552, align 8
@@ -2813,13 +2813,13 @@ Vec_PtrFree.exit:                                 ; preds = %538, %541
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %Ivy_FraigPrint.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 152
   %.val.i = load i32, ptr %8, align 8
@@ -2827,39 +2827,39 @@ define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_add
   %.val29.i = load i32, ptr %9, align 4
   %10 = sub nsw i32 %.val.i, %.val29.i
   %11 = sitofp i32 %10 to double
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = sitofp i32 %13 to double
   %15 = fmul double %11, %14
   %16 = fmul double %15, 4.000000e+00
   %17 = fmul double %16, 0x3EB0000000000000
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %13, i32 noundef %19, double noundef %17)
-  %21 = getelementptr inbounds i8, ptr %0, i64 188
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %22, i32 noundef %24)
-  %26 = getelementptr inbounds i8, ptr %0, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 220
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load i32, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35)
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 140
   %.val32.i = load i32, ptr %39, align 4
   %40 = getelementptr i8, ptr %38, i64 144
   %.val33.i = load i32, ptr %40, align 8
   %41 = add nsw i32 %.val33.i, %.val32.i
-  %42 = getelementptr inbounds i8, ptr %0, i64 180
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr i8, ptr %44, i64 140
@@ -2867,10 +2867,10 @@ define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_add
   %46 = getelementptr i8, ptr %44, i64 144
   %.val31.i = load i32, ptr %46, align 8
   %47 = add nsw i32 %.val31.i, %.val30.i
-  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %41, i32 noundef %43, i32 noundef %47, i32 noundef 0, i32 noundef 0, i32 noundef %49)
-  %51 = getelementptr inbounds i8, ptr %0, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %55, label %53
@@ -2882,54 +2882,54 @@ define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_add
 
 55:                                               ; preds = %53, %5
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
-  %56 = getelementptr inbounds i8, ptr %0, i64 232
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %57 = load i64, ptr %56, align 8
   %58 = sitofp i64 %57 to double
   %59 = fdiv double %58, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %59)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22)
-  %60 = getelementptr inbounds i8, ptr %0, i64 240
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %61 = load i64, ptr %60, align 8
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %63)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.23)
-  %64 = getelementptr inbounds i8, ptr %0, i64 248
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %65 = load i64, ptr %64, align 8
   %66 = sitofp i64 %65 to double
   %67 = fdiv double %66, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %67)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.24)
-  %68 = getelementptr inbounds i8, ptr %0, i64 256
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %69 = load i64, ptr %68, align 8
   %70 = sitofp i64 %69 to double
   %71 = fdiv double %70, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %71)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.25)
-  %72 = getelementptr inbounds i8, ptr %0, i64 264
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %73 = load i64, ptr %72, align 8
   %74 = sitofp i64 %73 to double
   %75 = fdiv double %74, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %75)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26)
-  %76 = getelementptr inbounds i8, ptr %0, i64 272
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %77 = load i64, ptr %76, align 8
   %78 = sitofp i64 %77 to double
   %79 = fdiv double %78, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %79)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.27)
-  %80 = getelementptr inbounds i8, ptr %0, i64 280
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %81 = load i64, ptr %80, align 8
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %83)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.28)
-  %84 = getelementptr inbounds i8, ptr %0, i64 288
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %85 = load i64, ptr %84, align 8
   %86 = sitofp i64 %85 to double
   %87 = fdiv double %86, 1.000000e+06
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, double noundef %87)
-  %88 = getelementptr inbounds i8, ptr %0, i64 296
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %89 = load i64, ptr %88, align 8
   %.not28.i = icmp eq i64 %89, 0
   br i1 %.not28.i, label %Ivy_FraigPrint.exit, label %90
@@ -2943,13 +2943,13 @@ define internal fastcc void @Ivy_FraigStop(ptr nocapture noundef %0) unnamed_add
   br label %Ivy_FraigPrint.exit
 
 Ivy_FraigPrint.exit:                              ; preds = %90, %55, %1
-  %94 = getelementptr inbounds i8, ptr %0, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %95 = load ptr, ptr %94, align 8
   %.not21 = icmp eq ptr %95, null
   br i1 %.not21, label %100, label %96
 
 96:                                               ; preds = %Ivy_FraigPrint.exit
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not.i26 = icmp eq ptr %98, null
   br i1 %.not.i26, label %Vec_PtrFree.exit, label %99
@@ -2963,7 +2963,7 @@ Vec_PtrFree.exit:                                 ; preds = %96, %99
   br label %100
 
 100:                                              ; preds = %Vec_PtrFree.exit, %Ivy_FraigPrint.exit
-  %101 = getelementptr inbounds i8, ptr %0, i64 144
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %102 = load ptr, ptr %101, align 8
   %.not22 = icmp eq ptr %102, null
   br i1 %.not22, label %104, label %103
@@ -2973,7 +2973,7 @@ Vec_PtrFree.exit:                                 ; preds = %96, %99
   br label %104
 
 104:                                              ; preds = %103, %100
-  %105 = getelementptr inbounds i8, ptr %0, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %106 = load ptr, ptr %105, align 8
   %.not23 = icmp eq ptr %106, null
   br i1 %.not23, label %108, label %107
@@ -2984,7 +2984,7 @@ Vec_PtrFree.exit:                                 ; preds = %96, %99
   br label %108
 
 108:                                              ; preds = %104, %107
-  %109 = getelementptr inbounds i8, ptr %0, i64 72
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %110 = load ptr, ptr %109, align 8
   %.not24 = icmp eq ptr %110, null
   br i1 %.not24, label %112, label %111
@@ -2995,7 +2995,7 @@ Vec_PtrFree.exit:                                 ; preds = %96, %99
   br label %112
 
 112:                                              ; preds = %108, %111
-  %113 = getelementptr inbounds i8, ptr %0, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %114 = load ptr, ptr %113, align 8
   %.not25 = icmp eq ptr %114, null
   br i1 %.not25, label %116, label %115
@@ -3024,9 +3024,9 @@ Abc_Clock.exit:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val79 = load i32, ptr %13, align 4
@@ -3034,23 +3034,23 @@ Abc_Clock.exit:
   br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 204
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 248
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 256
-  %27 = getelementptr inbounds i8, ptr %0, i64 212
-  %28 = getelementptr inbounds i8, ptr %0, i64 216
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
-  %31 = getelementptr inbounds i8, ptr %0, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %32
 
 32:                                               ; preds = %.lr.ph, %269
@@ -3058,7 +3058,7 @@ Abc_Clock.exit:
   %33 = phi ptr [ %12, %.lr.ph ], [ %272, %269 ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val57 = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 16
   %.val60 = load ptr, ptr %37, align 8
@@ -3069,7 +3069,7 @@ Abc_Clock.exit:
 
 40:                                               ; preds = %32
   %41 = inttoptr i64 %39 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = and i64 %38, 1
   %45 = ptrtoint ptr %43 to i64
@@ -3080,7 +3080,7 @@ Abc_Clock.exit:
 Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   %48 = phi ptr [ %47, %40 ], [ null, %32 ]
   %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %48, %51
   br i1 %52, label %53, label %65
@@ -3091,10 +3091,10 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   %55 = sext i32 %.val64 to i64
   %56 = shl nsw i64 %55, 2
   %57 = call noalias ptr @malloc(i64 noundef %56) #26
-  %58 = getelementptr inbounds i8, ptr %49, i64 200
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 200
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 200
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %59, i64 124
   %.val63 = load i32, ptr %62, align 4
@@ -3114,7 +3114,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   %71 = ptrtoint ptr %48 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = lshr i32 %75, 7
   %77 = trunc i64 %71 to i32
@@ -3129,10 +3129,10 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   %82 = sext i32 %.val62 to i64
   %83 = shl nsw i64 %82, 2
   %84 = call noalias ptr @malloc(i64 noundef %83) #26
-  %85 = getelementptr inbounds i8, ptr %49, i64 200
+  %85 = getelementptr inbounds nuw i8, ptr %49, i64 200
   store ptr %84, ptr %85, align 8
   %86 = load ptr, ptr %15, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 200
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr i8, ptr %86, i64 124
   %.val61 = load i32, ptr %89, align 4
@@ -3155,11 +3155,11 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %32, %40
   store ptr %98, ptr %17, align 8
   call void @sat_solver_setnvars(ptr noundef %98, i32 noundef 1000) #25
   %99 = load ptr, ptr %17, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = call noalias ptr @calloc(i64 noundef %102, i64 noundef 8) #27
-  %104 = getelementptr inbounds i8, ptr %99, i64 536
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 536
   store ptr %103, ptr %104, align 8
   store i32 1, ptr %18, align 8
   br label %105
@@ -3195,7 +3195,7 @@ Abc_Clock.exit.i:                                 ; preds = %108, %105
   store i32 %118, ptr %6, align 4
   %119 = load ptr, ptr %17, align 8
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
   %122 = load i32, ptr %121, align 8
   %123 = sext i32 %122 to i64
   %124 = load i64, ptr %21, align 8
@@ -3249,7 +3249,7 @@ Abc_Clock.exit37.i:                               ; preds = %129, %Abc_Clock.exi
 150:                                              ; preds = %147
   %151 = load i64, ptr %2, align 8
   %152 = mul nsw i64 %151, 1000000
-  %153 = getelementptr inbounds i8, ptr %2, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %154 = load i64, ptr %153, align 8
   %155 = sdiv i64 %154, 1000
   %156 = add nsw i64 %155, %152
@@ -3259,11 +3259,11 @@ Abc_Clock.exit41.i:                               ; preds = %150, %147
   %.0.i40.i = phi i64 [ %156, %150 ], [ -1, %147 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %157 = add i64 %.0.i40.i, %.0.i.neg46.i
-  %158 = getelementptr inbounds i8, ptr %0, i64 264
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %159 = load i64, ptr %158, align 8
   %160 = add nsw i64 %157, %159
   store i64 %160, ptr %158, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %162 = load ptr, ptr %161, align 8
   %.not.i65 = icmp eq ptr %162, null
   br i1 %.not.i65, label %Abc_Clock.exit41.i..loopexit_crit_edge, label %163
@@ -3273,7 +3273,7 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
   br label %.loopexit
 
 163:                                              ; preds = %Abc_Clock.exit41.i
-  %164 = getelementptr inbounds i8, ptr %0, i64 64
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %165 = load i32, ptr %164, align 8
   %166 = sext i32 %165 to i64
   %167 = shl nsw i64 %166, 2
@@ -3291,10 +3291,10 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %196 ], [ 0, %163 ]
   %174 = getelementptr i8, ptr %173, i64 8
   %.val10.i.i = load ptr, ptr %174, align 8
-  %175 = getelementptr inbounds ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %17, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 328
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 328
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr i8, ptr %176, i64 40
   %.val11.i.i = load ptr, ptr %180, align 8
@@ -3313,7 +3313,7 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
   %190 = shl nuw i32 1, %189
   %191 = lshr i64 %indvars.iv.i.i, 5
   %192 = and i64 %191, 134217727
-  %193 = getelementptr inbounds i32, ptr %187, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %187, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = or i32 %194, %190
   store i32 %195, ptr %193, align 4
@@ -3381,7 +3381,7 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %202, %205
   store i32 %229, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %230 = load ptr, ptr %15, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %232 = load ptr, ptr %231, align 8
   %.val59 = load ptr, ptr %37, align 8
   %233 = ptrtoint ptr %.val59 to i64
@@ -3392,13 +3392,13 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %202, %205
   %238 = inttoptr i64 %237 to ptr
   %239 = and i64 %233, -2
   %240 = inttoptr i64 %239 to ptr
-  %241 = getelementptr inbounds i8, ptr %240, i64 72
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 72
   store ptr %238, ptr %241, align 8
   br label %269
 
 .loopexit:                                        ; preds = %196, %Abc_Clock.exit41.i..loopexit_crit_edge, %163
   %242 = phi ptr [ %.pre, %Abc_Clock.exit41.i..loopexit_crit_edge ], [ %168, %163 ], [ %197, %196 ]
-  %243 = getelementptr inbounds i8, ptr %0, i64 208
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %244 = load i32, ptr %243, align 8
   %245 = add nsw i32 %244, 1
   store i32 %245, ptr %243, align 8
@@ -3418,14 +3418,14 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %202, %205
   %253 = getelementptr i8, ptr %250, i64 8
   %.val10.i = load ptr, ptr %253, align 8
   %254 = load ptr, ptr %17, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 328
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 328
   %256 = load ptr, ptr %255, align 8
   %wide.trip.count.i = zext nneg i32 %.val.i67 to i64
   br label %257
 
 257:                                              ; preds = %257, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %257 ]
-  %258 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw ptr, ptr %.val10.i, i64 %indvars.iv.i
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr i8, ptr %259, i64 40
   %.val12.i = load ptr, ptr %260, align 8
@@ -3436,21 +3436,21 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %202, %205
   %264 = load i32, ptr %263, align 4
   %265 = icmp eq i32 %264, 1
   %266 = zext i1 %265 to i32
-  %267 = getelementptr inbounds i32, ptr %249, i64 %indvars.iv.i
+  %267 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv.i
   store i32 %266, ptr %267, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Ivy_FraigCreateModel.exit, label %257, !llvm.loop !25
 
 Ivy_FraigCreateModel.exit:                        ; preds = %257, %.loopexit
-  %268 = getelementptr inbounds i8, ptr %242, i64 200
+  %268 = getelementptr inbounds nuw i8, ptr %242, i64 200
   store ptr %249, ptr %268, align 8
   br label %.critedge
 
 269:                                              ; preds = %Ivy_FraigNodeIsConst.exit, %65, %218
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %270 = load ptr, ptr %9, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %272, i64 4
   %.val = load i32, ptr %273, align 4
@@ -3468,7 +3468,7 @@ declare i32 @Ivy_ManCleanup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3476,7 +3476,7 @@ define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocaptu
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -3488,7 +3488,7 @@ define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocaptu
   %13 = xor i32 %12, %10
   %14 = tail call i32 @rand() #25
   %15 = xor i32 %13, %14
-  %16 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %3, align 8
@@ -3502,7 +3502,7 @@ define void @Ivy_NodeAssignRandom(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_NodeAssignConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -3512,12 +3512,12 @@ define void @Ivy_NodeAssignConst(ptr nocapture noundef readonly %0, ptr nocaptur
   %.val = load ptr, ptr %7, align 8
   %.not = icmp ne i32 %2, 0
   %8 = sext i1 %.not to i32
-  %9 = getelementptr inbounds i8, ptr %.val, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds [0 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [0 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %8, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 8
@@ -3531,7 +3531,7 @@ define void @Ivy_NodeAssignConst(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_FraigAssignRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -3540,7 +3540,7 @@ define void @Ivy_FraigAssignRandom(ptr nocapture noundef readonly %0) local_unna
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.split, label %.critedge
@@ -3555,11 +3555,11 @@ define void @Ivy_FraigAssignRandom(ptr nocapture noundef readonly %0) local_unna
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %13 = getelementptr i8, ptr %10, i64 8
   %.val6 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val6, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 32
   %.val.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.val.i, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
@@ -3571,7 +3571,7 @@ define void @Ivy_FraigAssignRandom(ptr nocapture noundef readonly %0) local_unna
   %23 = xor i32 %22, %20
   %24 = tail call i32 @rand() #25
   %25 = xor i32 %23, %24
-  %26 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv.i
   store i32 %25, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %7, align 8
@@ -3600,13 +3600,13 @@ Ivy_NodeAssignRandom.exit:                        ; preds = %Ivy_NodeAssignRando
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigAssignDist1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val25 = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val25, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   %or.cond = select i1 %7, i1 %10, i1 false
@@ -3624,12 +3624,12 @@ define void @Ivy_FraigAssignDist1(ptr nocapture noundef readonly %0, ptr nocaptu
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = lshr i64 %indvars.iv, 5
   %17 = and i64 %16, 134217727
-  %18 = getelementptr inbounds i32, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %15, 31
   %21 = getelementptr i8, ptr %11, i64 8
   %.val19 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 32
   %.val.i = load ptr, ptr %24, align 8
@@ -3637,12 +3637,12 @@ define void @Ivy_FraigAssignDist1(ptr nocapture noundef readonly %0, ptr nocaptu
   %26 = and i32 %19, %25
   %.not.i = icmp ne i32 %26, 0
   %27 = sext i1 %.not.i to i32
-  %28 = getelementptr inbounds i8, ptr %.val.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %30 = getelementptr inbounds [0 x i32], ptr %28, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [0 x i32], ptr %28, i64 0, i64 %indvars.iv.i
   store i32 %27, ptr %30, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = load i32, ptr %8, align 8
@@ -3687,18 +3687,18 @@ Ivy_NodeAssignConst.exit:                         ; preds = %Ivy_NodeAssignConst
   %.val23 = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %.val23, i64 8
   %.val23.val = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val23.val, i64 %indvars.iv32
+  %47 = getelementptr inbounds nuw ptr, ptr %.val23.val, i64 %indvars.iv32
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %48, i64 32
   %.val22 = load ptr, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.val22, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.val22, i64 32
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %51 = trunc nuw nsw i64 %indvars.iv.next33 to i32
   %52 = and i32 %51, 31
   %53 = shl nuw i32 1, %52
   %54 = lshr i64 %indvars.iv.next33, 5
   %55 = and i64 %54, 134217727
-  %56 = getelementptr inbounds i32, ptr %50, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = xor i32 %57, %53
   store i32 %58, ptr %56, align 4
@@ -3713,8 +3713,8 @@ Ivy_NodeAssignConst.exit:                         ; preds = %Ivy_NodeAssignConst
 define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -3730,7 +3730,7 @@ define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %8, label %._crit_edge
@@ -3742,7 +3742,7 @@ define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_NodeComplementSim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3750,12 +3750,12 @@ define void @Ivy_NodeComplementSim(ptr nocapture noundef readonly %0, ptr nocapt
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, -1
   store i32 %11, ptr %9, align 4
@@ -3773,8 +3773,8 @@ define void @Ivy_NodeComplementSim(ptr nocapture noundef readonly %0, ptr nocapt
 define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
   %4 = getelementptr i8, ptr %1, i64 32
   %.val10 = load ptr, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.val10, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.val10, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -3782,7 +3782,7 @@ define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr i8, ptr %2, i64 32
   %.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %12
 
@@ -3793,9 +3793,9 @@ define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %14, %16
   br i1 %.not, label %11, label %._crit_edge
@@ -3807,13 +3807,13 @@ define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr nocapture noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %1, align 8
   switch i32 %10, label %.loopexit [
     i32 0, label %.preheader
@@ -3827,61 +3827,61 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
   ]
 
 .preheader87:                                     ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .preheader85:                                     ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph91, label %.loopexit
 
 .preheader83:                                     ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph93, label %.loopexit
 
 .preheader81:                                     ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph95, label %.loopexit
 
 .preheader79:                                     ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph97, label %.loopexit
 
 .preheader77:                                     ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph99, label %.loopexit
 
 .preheader75:                                     ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph101, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph103, label %.loopexit
 
 .lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph103 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv130
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv130
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv130
+  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, %36
-  %40 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv130
+  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv130
   store i32 %39, ptr %40, align 4
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %41 = load i32, ptr %32, align 8
@@ -3891,13 +3891,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph101:                                        ; preds = %.preheader75, %.lr.ph101
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph101 ], [ 0, %.preheader75 ]
-  %44 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv127
+  %44 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv127
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv127
+  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv127
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, %45
   %49 = xor i32 %48, -1
-  %50 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv127
+  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv127
   store i32 %49, ptr %50, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %51 = load i32, ptr %29, align 8
@@ -3907,13 +3907,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph99:                                         ; preds = %.preheader77, %.lr.ph99
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.lr.ph99 ], [ 0, %.preheader77 ]
-  %54 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv124
+  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv124
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv124
+  %56 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv124
   %57 = load i32, ptr %56, align 4
   %58 = xor i32 %57, -1
   %59 = and i32 %55, %58
-  %60 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv124
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv124
   store i32 %59, ptr %60, align 4
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %61 = load i32, ptr %26, align 8
@@ -3923,13 +3923,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph97:                                         ; preds = %.preheader79, %.lr.ph97
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph97 ], [ 0, %.preheader79 ]
-  %64 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv121
+  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv121
   %65 = load i32, ptr %64, align 4
   %66 = xor i32 %65, -1
-  %67 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv121
+  %67 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv121
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %66
-  %70 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv121
+  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv121
   store i32 %69, ptr %70, align 4
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %71 = load i32, ptr %23, align 8
@@ -3939,13 +3939,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph95:                                         ; preds = %.preheader81, %.lr.ph95
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph95 ], [ 0, %.preheader81 ]
-  %74 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv118
+  %74 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv118
   %75 = load i32, ptr %74, align 4
   %76 = xor i32 %75, -1
-  %77 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv118
+  %77 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv118
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, %76
-  %80 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv118
+  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv118
   store i32 %79, ptr %80, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %81 = load i32, ptr %20, align 8
@@ -3955,13 +3955,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph93:                                         ; preds = %.preheader83, %.lr.ph93
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph93 ], [ 0, %.preheader83 ]
-  %84 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv115
+  %84 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv115
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv115
+  %86 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv115
   %87 = load i32, ptr %86, align 4
   %88 = xor i32 %87, -1
   %89 = or i32 %85, %88
-  %90 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv115
+  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv115
   store i32 %89, ptr %90, align 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %91 = load i32, ptr %17, align 8
@@ -3971,13 +3971,13 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph91:                                         ; preds = %.preheader85, %.lr.ph91
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph91 ], [ 0, %.preheader85 ]
-  %94 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv112
+  %94 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv112
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv112
+  %96 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv112
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, %95
   %99 = xor i32 %98, -1
-  %100 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv112
+  %100 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv112
   store i32 %99, ptr %100, align 4
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %101 = load i32, ptr %14, align 8
@@ -3987,12 +3987,12 @@ define void @Ivy_NodeSimulateSim(ptr nocapture noundef readonly %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.preheader87, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader87 ]
-  %104 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, %105
-  %109 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %108, ptr %109, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %11, align 8
@@ -4022,7 +4022,7 @@ define void @Ivy_NodeSimulate(ptr nocapture noundef readonly %0, ptr nocapture n
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr i8, ptr %12, i64 32
   %.val98 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 7
   %17 = and i32 %16, 1
@@ -4031,7 +4031,7 @@ define void @Ivy_NodeSimulate(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = lshr i32 %21, 7
   %.lobit.i = and i32 %22, 1
@@ -4039,7 +4039,7 @@ define void @Ivy_NodeSimulate(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %Ivy_ObjFaninPhase.exit
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %.val, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 7
   %28 = and i32 %27, 1
@@ -4052,7 +4052,7 @@ Ivy_ObjFaninPhase.exit:                           ; preds = %19, %24
   br i1 %.not.i101, label %36, label %31
 
 31:                                               ; preds = %Ivy_ObjFaninPhase.exit
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = lshr i32 %33, 7
   %.lobit.i102 = and i32 %34, 1
@@ -4060,7 +4060,7 @@ Ivy_ObjFaninPhase.exit:                           ; preds = %19, %24
   br label %Ivy_ObjFaninPhase.exit103
 
 36:                                               ; preds = %Ivy_ObjFaninPhase.exit
-  %37 = getelementptr inbounds i8, ptr %.val95, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.val95, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 7
   %40 = and i32 %39, 1
@@ -4075,7 +4075,7 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 44:                                               ; preds = %Ivy_ObjFaninPhase.exit103
   %.not94 = icmp eq i32 %17, 0
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, 0
   br i1 %.not94, label %.preheader, label %.preheader104
@@ -4084,28 +4084,28 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
   br i1 %47, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %.preheader104
-  %48 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %49 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %50 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %54
 
 .preheader:                                       ; preds = %44
   br i1 %47, label %.lr.ph132, label %.loopexit
 
 .lr.ph132:                                        ; preds = %.preheader
-  %51 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %52 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %53 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %64
 
 54:                                               ; preds = %.lr.ph130, %54
   %indvars.iv156 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next157, %54 ]
-  %55 = getelementptr inbounds [0 x i32], ptr %48, i64 0, i64 %indvars.iv156
+  %55 = getelementptr inbounds nuw [0 x i32], ptr %48, i64 0, i64 %indvars.iv156
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds [0 x i32], ptr %49, i64 0, i64 %indvars.iv156
+  %57 = getelementptr inbounds nuw [0 x i32], ptr %49, i64 0, i64 %indvars.iv156
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, %56
-  %60 = getelementptr inbounds [0 x i32], ptr %50, i64 0, i64 %indvars.iv156
+  %60 = getelementptr inbounds nuw [0 x i32], ptr %50, i64 0, i64 %indvars.iv156
   store i32 %59, ptr %60, align 4
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %61 = load i32, ptr %45, align 8
@@ -4115,13 +4115,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 64:                                               ; preds = %.lr.ph132, %64
   %indvars.iv159 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next160, %64 ]
-  %65 = getelementptr inbounds [0 x i32], ptr %51, i64 0, i64 %indvars.iv159
+  %65 = getelementptr inbounds nuw [0 x i32], ptr %51, i64 0, i64 %indvars.iv159
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds [0 x i32], ptr %52, i64 0, i64 %indvars.iv159
+  %67 = getelementptr inbounds nuw [0 x i32], ptr %52, i64 0, i64 %indvars.iv159
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %66
   %70 = xor i32 %69, -1
-  %71 = getelementptr inbounds [0 x i32], ptr %53, i64 0, i64 %indvars.iv159
+  %71 = getelementptr inbounds nuw [0 x i32], ptr %53, i64 0, i64 %indvars.iv159
   store i32 %70, ptr %71, align 4
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %72 = load i32, ptr %45, align 8
@@ -4136,7 +4136,7 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 77:                                               ; preds = %75
   %.not = icmp eq i32 %17, 0
-  %78 = getelementptr inbounds i8, ptr %0, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %79 = load i32, ptr %78, align 8
   %80 = icmp sgt i32 %79, 0
   br i1 %.not, label %.preheader114, label %.preheader116
@@ -4145,29 +4145,29 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader116
-  %81 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %82 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %83 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %87
 
 .preheader114:                                    ; preds = %77
   br i1 %80, label %.lr.ph120, label %.loopexit
 
 .lr.ph120:                                        ; preds = %.preheader114
-  %84 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %85 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %86 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %98
 
 87:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds [0 x i32], ptr %81, i64 0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [0 x i32], ptr %81, i64 0, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds [0 x i32], ptr %82, i64 0, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [0 x i32], ptr %82, i64 0, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
   %92 = xor i32 %91, -1
   %93 = or i32 %89, %92
-  %94 = getelementptr inbounds [0 x i32], ptr %83, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [0 x i32], ptr %83, i64 0, i64 %indvars.iv
   store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %78, align 8
@@ -4177,13 +4177,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 98:                                               ; preds = %.lr.ph120, %98
   %indvars.iv141 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next142, %98 ]
-  %99 = getelementptr inbounds [0 x i32], ptr %84, i64 0, i64 %indvars.iv141
+  %99 = getelementptr inbounds nuw [0 x i32], ptr %84, i64 0, i64 %indvars.iv141
   %100 = load i32, ptr %99, align 4
   %101 = xor i32 %100, -1
-  %102 = getelementptr inbounds [0 x i32], ptr %85, i64 0, i64 %indvars.iv141
+  %102 = getelementptr inbounds nuw [0 x i32], ptr %85, i64 0, i64 %indvars.iv141
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, %101
-  %105 = getelementptr inbounds [0 x i32], ptr %86, i64 0, i64 %indvars.iv141
+  %105 = getelementptr inbounds nuw [0 x i32], ptr %86, i64 0, i64 %indvars.iv141
   store i32 %104, ptr %105, align 4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %106 = load i32, ptr %78, align 8
@@ -4194,7 +4194,7 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 109:                                              ; preds = %75
   %or.cond5 = select i1 %76, i1 %43, i1 false
   %.not93 = icmp eq i32 %17, 0
-  %110 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %111 = load i32, ptr %110, align 8
   %112 = icmp sgt i32 %111, 0
   br i1 %or.cond5, label %113, label %142
@@ -4206,29 +4206,29 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
   br i1 %112, label %.lr.ph126, label %.loopexit
 
 .lr.ph126:                                        ; preds = %.preheader108
-  %114 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %115 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %116 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %120
 
 .preheader106:                                    ; preds = %113
   br i1 %112, label %.lr.ph128, label %.loopexit
 
 .lr.ph128:                                        ; preds = %.preheader106
-  %117 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %118 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %119 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %131
 
 120:                                              ; preds = %.lr.ph126, %120
   %indvars.iv150 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next151, %120 ]
-  %121 = getelementptr inbounds [0 x i32], ptr %114, i64 0, i64 %indvars.iv150
+  %121 = getelementptr inbounds nuw [0 x i32], ptr %114, i64 0, i64 %indvars.iv150
   %122 = load i32, ptr %121, align 4
   %123 = xor i32 %122, -1
-  %124 = getelementptr inbounds [0 x i32], ptr %115, i64 0, i64 %indvars.iv150
+  %124 = getelementptr inbounds nuw [0 x i32], ptr %115, i64 0, i64 %indvars.iv150
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, %123
-  %127 = getelementptr inbounds [0 x i32], ptr %116, i64 0, i64 %indvars.iv150
+  %127 = getelementptr inbounds nuw [0 x i32], ptr %116, i64 0, i64 %indvars.iv150
   store i32 %126, ptr %127, align 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %128 = load i32, ptr %110, align 8
@@ -4238,13 +4238,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 131:                                              ; preds = %.lr.ph128, %131
   %indvars.iv153 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next154, %131 ]
-  %132 = getelementptr inbounds [0 x i32], ptr %117, i64 0, i64 %indvars.iv153
+  %132 = getelementptr inbounds nuw [0 x i32], ptr %117, i64 0, i64 %indvars.iv153
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds [0 x i32], ptr %118, i64 0, i64 %indvars.iv153
+  %134 = getelementptr inbounds nuw [0 x i32], ptr %118, i64 0, i64 %indvars.iv153
   %135 = load i32, ptr %134, align 4
   %136 = xor i32 %135, -1
   %137 = and i32 %133, %136
-  %138 = getelementptr inbounds [0 x i32], ptr %119, i64 0, i64 %indvars.iv153
+  %138 = getelementptr inbounds nuw [0 x i32], ptr %119, i64 0, i64 %indvars.iv153
   store i32 %137, ptr %138, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %139 = load i32, ptr %110, align 8
@@ -4259,29 +4259,29 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
   br i1 %112, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.preheader112
-  %143 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %144 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %145 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %149
 
 .preheader110:                                    ; preds = %142
   br i1 %112, label %.lr.ph124, label %.loopexit
 
 .lr.ph124:                                        ; preds = %.preheader110
-  %146 = getelementptr inbounds i8, ptr %.val99, i64 32
-  %147 = getelementptr inbounds i8, ptr %.val98, i64 32
-  %148 = getelementptr inbounds i8, ptr %.val100, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %.val99, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %.val98, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   br label %160
 
 149:                                              ; preds = %.lr.ph122, %149
   %indvars.iv144 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next145, %149 ]
-  %150 = getelementptr inbounds [0 x i32], ptr %143, i64 0, i64 %indvars.iv144
+  %150 = getelementptr inbounds nuw [0 x i32], ptr %143, i64 0, i64 %indvars.iv144
   %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds [0 x i32], ptr %144, i64 0, i64 %indvars.iv144
+  %152 = getelementptr inbounds nuw [0 x i32], ptr %144, i64 0, i64 %indvars.iv144
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, %151
   %155 = xor i32 %154, -1
-  %156 = getelementptr inbounds [0 x i32], ptr %145, i64 0, i64 %indvars.iv144
+  %156 = getelementptr inbounds nuw [0 x i32], ptr %145, i64 0, i64 %indvars.iv144
   store i32 %155, ptr %156, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %157 = load i32, ptr %110, align 8
@@ -4291,12 +4291,12 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 160:                                              ; preds = %.lr.ph124, %160
   %indvars.iv147 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next148, %160 ]
-  %161 = getelementptr inbounds [0 x i32], ptr %146, i64 0, i64 %indvars.iv147
+  %161 = getelementptr inbounds nuw [0 x i32], ptr %146, i64 0, i64 %indvars.iv147
   %162 = load i32, ptr %161, align 4
-  %163 = getelementptr inbounds [0 x i32], ptr %147, i64 0, i64 %indvars.iv147
+  %163 = getelementptr inbounds nuw [0 x i32], ptr %147, i64 0, i64 %indvars.iv147
   %164 = load i32, ptr %163, align 4
   %165 = and i32 %164, %162
-  %166 = getelementptr inbounds [0 x i32], ptr %148, i64 0, i64 %indvars.iv147
+  %166 = getelementptr inbounds nuw [0 x i32], ptr %148, i64 0, i64 %indvars.iv147
   store i32 %165, ptr %166, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %167 = load i32, ptr %110, align 8
@@ -4310,7 +4310,7 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Ivy_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -4318,16 +4318,16 @@ define i32 @Ivy_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 32
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.089 = phi i32 [ 0, %.lr.ph ], [ %14, %8 ]
-  %9 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [0 x i32], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds [128 x i32], ptr @Ivy_NodeHash.s_FPrimes, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [128 x i32], ptr @Ivy_NodeHash.s_FPrimes, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = mul i32 %12, %10
   %14 = xor i32 %13, %.089
@@ -4352,7 +4352,7 @@ define void @Ivy_FraigSimulateOne(ptr nocapture noundef %0) local_unnamed_addr #
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg16 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg17 = add i64 %.neg, %.neg16
@@ -4361,9 +4361,9 @@ define void @Ivy_FraigSimulateOne(ptr nocapture noundef %0) local_unnamed_addr #
 Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg17, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val18 = load i32, ptr %14, align 4
@@ -4376,7 +4376,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %17 = phi ptr [ %30, %27 ], [ %13, %Abc_Clock.exit ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val12 = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -4397,7 +4397,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 27:                                               ; preds = %.lr.ph, %22, %26
   %28 = phi ptr [ %16, %.lr.ph ], [ %16, %22 ], [ %.pre, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 4
   %.val = load i32, ptr %31, align 4
@@ -4414,7 +4414,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 36:                                               ; preds = %.critedge
   %37 = load i64, ptr %2, align 8
   %38 = mul nsw i64 %37, 1000000
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = sdiv i64 %40, 1000
   %42 = add nsw i64 %41, %38
@@ -4424,11 +4424,11 @@ Abc_Clock.exit15:                                 ; preds = %.critedge, %36
   %.0.i14 = phi i64 [ %42, %36 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %43 = add i64 %.0.i14, %.0.i.neg
-  %44 = getelementptr inbounds i8, ptr %0, i64 232
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %45 = load i64, ptr %44, align 8
   %46 = add nsw i64 %43, %45
   store i64 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %48 = load i32, ptr %47, align 8
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 8
@@ -4447,7 +4447,7 @@ define void @Ivy_FraigSimulateOneSim(ptr nocapture noundef %0) local_unnamed_add
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg9 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg10 = add i64 %.neg, %.neg9
@@ -4456,7 +4456,7 @@ define void @Ivy_FraigSimulateOneSim(ptr nocapture noundef %0) local_unnamed_add
 Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg10, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.011 = load ptr, ptr %10, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -4464,7 +4464,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %.lr.ph
   %.013 = phi ptr [ %.0, %.lr.ph ], [ %.011, %Abc_Clock.exit ]
   call void @Ivy_NodeSimulateSim(ptr noundef %0, ptr noundef nonnull %.013)
-  %11 = getelementptr inbounds i8, ptr %.013, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
@@ -4478,7 +4478,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 14:                                               ; preds = %._crit_edge
   %15 = load i64, ptr %2, align 8
   %16 = mul nsw i64 %15, 1000000
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = sdiv i64 %18, 1000
   %20 = add nsw i64 %19, %16
@@ -4488,11 +4488,11 @@ Abc_Clock.exit8:                                  ; preds = %._crit_edge, %14
   %.0.i7 = phi i64 [ %20, %14 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %21 = add i64 %.0.i7, %.0.i.neg
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %21, %23
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 8
@@ -4513,16 +4513,16 @@ define void @Ivy_NodeAddToClass(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 40
   %.val10 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val10, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.val10, i64 48
   store ptr %1, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %6, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr null, ptr %12, align 8
   ret void
 }
@@ -4535,27 +4535,27 @@ define void @Ivy_FraigAddClass(ptr nocapture noundef %0, ptr noundef %1) local_u
 
 5:                                                ; preds = %2
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %1, ptr %11, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %14, align 8
   store ptr %1, ptr %9, align 8
   br label %15
 
 15:                                               ; preds = %8, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 8
@@ -4564,23 +4564,23 @@ define void @Ivy_FraigAddClass(ptr nocapture noundef %0, ptr noundef %1) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) local_unnamed_addr #11 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 56
   %.val = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %.val, ptr %6, align 8
   %.not = icmp eq ptr %.val, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.val, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   store ptr %2, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %7, %3
   store ptr %2, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %14
@@ -4590,7 +4590,7 @@ define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 8
@@ -4610,7 +4610,7 @@ define void @Ivy_FraigRemoveClass(ptr nocapture noundef %0, ptr noundef %1) loca
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %1
   %11 = getelementptr i8, ptr %1, i64 64
@@ -4629,7 +4629,7 @@ define void @Ivy_FraigRemoveClass(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not, label %._crit_edge27, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %.val22, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.val22, i64 56
   store ptr %.val19.pre, ptr %15, align 8
   br label %._crit_edge27
 
@@ -4639,18 +4639,18 @@ define void @Ivy_FraigRemoveClass(ptr nocapture noundef %0, ptr noundef %1) loca
 
 16:                                               ; preds = %._crit_edge27
   %.val25 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %.val19.pre, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.val19.pre, i64 64
   store ptr %.val25, ptr %17, align 8
   br label %18
 
 18:                                               ; preds = %16, %._crit_edge27
   %19 = getelementptr i8, ptr %1, i64 56
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -17
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr %23, align 8
@@ -4664,7 +4664,7 @@ define noundef i32 @Ivy_FraigCountPairsClasses(ptr nocapture noundef readnone %0
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32
   %.val81 = load ptr, ptr %4, align 8
@@ -4678,7 +4678,7 @@ define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %11)
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val71123 = load i32, ptr %14, align 4
@@ -4686,7 +4686,7 @@ define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %15, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr i8, ptr %.val81, i64 48
   %18 = getelementptr i8, ptr %.val81, i64 40
   br label %23
@@ -4696,9 +4696,9 @@ define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %19, label %.lr.ph127, label %.critedge2
 
 .lr.ph127:                                        ; preds = %.critedge.preheader
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %85
 
 23:                                               ; preds = %.lr.ph, %78
@@ -4706,7 +4706,7 @@ define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr
   %24 = phi ptr [ %13, %.lr.ph ], [ %81, %78 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val73 = load ptr, ptr %25, align 8
-  %26 = getelementptr inbounds ptr, ptr %.val73, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %78, label %29
@@ -4729,16 +4729,16 @@ define void @Ivy_FraigCreateClasses(ptr nocapture noundef %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %32
   %35 = getelementptr i8, ptr %27, i64 32
   %.val.i = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.val.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %wide.trip.count.i = zext nneg i32 %33 to i64
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %43, %37 ]
-  %38 = getelementptr inbounds [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds [128 x i32], ptr @Ivy_NodeHash.s_FPrimes, i64 0, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [128 x i32], ptr @Ivy_NodeHash.s_FPrimes, i64 0, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4
   %42 = mul i32 %41, %39
   %43 = xor i32 %42, %.089.i
@@ -4757,7 +4757,7 @@ Ivy_NodeHash.exit:                                ; preds = %37
 
 .lr.ph.i87:                                       ; preds = %Ivy_NodeHash.exit, %45
   %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %45 ], [ 0, %Ivy_NodeHash.exit ]
-  %46 = getelementptr inbounds [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i88
+  %46 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i88
   %47 = load i32, ptr %46, align 4
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %45, label %Ivy_NodeHasZeroSim.exit
@@ -4773,15 +4773,15 @@ Ivy_NodeHash.exit:                                ; preds = %37
 
 50:                                               ; preds = %.thread
   %.val10.i = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %.val10.i, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 48
   store ptr %27, ptr %51, align 8
   br label %Ivy_NodeAddToClass.exit
 
 Ivy_NodeAddToClass.exit:                          ; preds = %49, %50
   store ptr %27, ptr %18, align 8
-  %52 = getelementptr inbounds i8, ptr %27, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %.val81, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %27, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr null, ptr %53, align 8
   br label %78
 
@@ -4789,7 +4789,7 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
   %.08.lcssa.i105 = phi i32 [ %43, %Ivy_NodeHash.exit ], [ 0, %.lr.ph.i87 ]
   %54 = urem i32 %.08.lcssa.i105, %9
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %calloc, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not67121 = icmp eq ptr %57, null
   br i1 %.not67121, label %.critedge70, label %.lr.ph.i93
@@ -4798,7 +4798,7 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
   %.056122 = phi ptr [ %.056.val, %Ivy_NodeCompareSims.exit ], [ %57, %Ivy_NodeHasZeroSim.exit ]
   %58 = getelementptr i8, ptr %.056122, i64 32
   %.val10.i92 = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.val10.i92, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.val10.i92, i64 32
   br label %61
 
 60:                                               ; preds = %61
@@ -4808,9 +4808,9 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
 
 61:                                               ; preds = %60, %.lr.ph.i93
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i98, %60 ]
-  %62 = getelementptr inbounds [0 x i32], ptr %59, i64 0, i64 %indvars.iv.i96
+  %62 = getelementptr inbounds nuw [0 x i32], ptr %59, i64 0, i64 %indvars.iv.i96
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i96
+  %64 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv.i96
   %65 = load i32, ptr %64, align 4
   %.not.i97 = icmp eq i32 %63, %65
   br i1 %.not.i97, label %60, label %Ivy_NodeCompareSims.exit
@@ -4828,16 +4828,16 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
 70:                                               ; preds = %66
   %71 = getelementptr i8, ptr %.056122, i64 40
   %.val10.i101 = load ptr, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %.val10.i101, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.val10.i101, i64 48
   store ptr %27, ptr %72, align 8
   br label %Ivy_NodeAddToClass.exit102
 
 Ivy_NodeAddToClass.exit102:                       ; preds = %69, %70
-  %73 = getelementptr inbounds i8, ptr %.056122, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.056122, i64 40
   store ptr %27, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %27, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %.056122, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %27, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr null, ptr %75, align 8
   br label %78
 
@@ -4848,7 +4848,7 @@ Ivy_NodeCompareSims.exit:                         ; preds = %61
   br i1 %.not67, label %.critedge70, label %.lr.ph.i93, !llvm.loop !49
 
 .critedge70:                                      ; preds = %Ivy_NodeCompareSims.exit, %Ivy_NodeHasZeroSim.exit
-  %77 = getelementptr inbounds i8, ptr %27, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %57, ptr %77, align 8
   store ptr %27, ptr %56, align 8
   br label %78
@@ -4856,7 +4856,7 @@ Ivy_NodeCompareSims.exit:                         ; preds = %61
 78:                                               ; preds = %29, %Ivy_NodeAddToClass.exit102, %.critedge70, %23, %Ivy_NodeAddToClass.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 4
   %.val71 = load i32, ptr %82, align 4
@@ -4869,7 +4869,7 @@ Ivy_NodeCompareSims.exit:                         ; preds = %61
   %86 = phi ptr [ %81, %.lr.ph127 ], [ %114, %.critedge ]
   %87 = getelementptr i8, ptr %86, i64 8
   %.val72 = load ptr, ptr %87, align 8
-  %88 = getelementptr inbounds ptr, ptr %.val72, i64 %indvars.iv131
+  %88 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv131
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.critedge, label %91
@@ -4890,7 +4890,7 @@ Ivy_NodeCompareSims.exit:                         ; preds = %61
   ]
 
 95:                                               ; preds = %92, %92, %92, %91
-  %96 = getelementptr inbounds i8, ptr %89, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 56
   store ptr null, ptr %96, align 8
   %97 = getelementptr i8, ptr %89, i64 40
   %.val83 = load ptr, ptr %97, align 8
@@ -4917,10 +4917,10 @@ Ivy_NodeCompareSims.exit:                         ; preds = %61
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %21, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   store ptr %89, ptr %107, align 8
   %108 = load ptr, ptr %21, align 8
-  %109 = getelementptr inbounds i8, ptr %89, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %89, i64 64
   store ptr %108, ptr %109, align 8
   store ptr null, ptr %96, align 8
   store ptr %89, ptr %21, align 8
@@ -4935,7 +4935,7 @@ Ivy_FraigAddClass.exit:                           ; preds = %104, %105
 .critedge:                                        ; preds = %92, %Ivy_FraigAddClass.exit, %85, %99, %95
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 4
   %.val = load i32, ptr %115, align 4
@@ -4966,11 +4966,11 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr noc
   br i1 %cond106134, label %.loopexit92, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %4, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i.us.preheader, label %.loopexit92
@@ -4983,7 +4983,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr noc
   %.047105137168 = phi ptr [ %.047.val, %tailrecurse ], [ %.047105133, %.lr.ph.lr.ph ]
   %13 = getelementptr i8, ptr %.tr90136169, i64 32
   %.val10.i166.pn = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val10.i166.pn, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.val10.i166.pn, i64 32
   %wide.trip.count.i171 = zext nneg i32 %11 to i64
   br label %.lr.ph.i.us
 
@@ -4992,14 +4992,14 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr noc
   %.045107.us = phi ptr [ %.047108.us, %.loopexit91.us ], [ %.tr90136169, %.lr.ph.i.us.preheader ]
   %15 = getelementptr i8, ptr %.047108.us, i64 32
   %.val.i.us = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val.i.us, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.val.i.us, i64 32
   br label %17
 
 17:                                               ; preds = %22, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %22 ]
-  %18 = getelementptr inbounds [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i.us
+  %18 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv.i.us
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i.us
+  %20 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv.i.us
   %21 = load i32, ptr %20, align 4
   %.not.i.us = icmp eq i32 %19, %21
   br i1 %.not.i.us, label %22, label %Ivy_NodeCompareSims.exit.split.us
@@ -5017,7 +5017,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr noc
 
 Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %.not50 = icmp eq i32 %26, 0
   br i1 %.not50, label %Ivy_FraigAddToPatScores.exit.thread, label %.lr.ph.i58
@@ -5025,9 +5025,9 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
 .lr.ph.i58:                                       ; preds = %Ivy_NodeCompareSims.exit.split.us, %.loopexit.i
   %27 = phi i32 [ %47, %.loopexit.i ], [ %11, %Ivy_NodeCompareSims.exit.split.us ]
   %indvars.iv6.i = phi i64 [ %indvars.iv.next7.i, %.loopexit.i ], [ 0, %Ivy_NodeCompareSims.exit.split.us ]
-  %28 = getelementptr inbounds [0 x i32], ptr %14, i64 0, i64 %indvars.iv6.i
+  %28 = getelementptr inbounds nuw [0 x i32], ptr %14, i64 0, i64 %indvars.iv6.i
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds [0 x i32], ptr %16, i64 0, i64 %indvars.iv6.i
+  %30 = getelementptr inbounds nuw [0 x i32], ptr %16, i64 0, i64 %indvars.iv6.i
   %31 = load i32, ptr %30, align 4
   %32 = xor i32 %31, %29
   %33 = icmp eq i32 %29, %31
@@ -5048,8 +5048,8 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.i59
-  %43 = getelementptr inbounds i32, ptr %42, i64 %35
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i59
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %35
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -5072,7 +5072,7 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %17
   br i1 %49, label %.lr.ph.i58, label %Ivy_FraigAddToPatScores.exit.thread, !llvm.loop !54
 
 Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_NodeCompareSims.exit.split.us
-  %50 = getelementptr inbounds i8, ptr %.047108.us, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 40
   store ptr null, ptr %50, align 8
   %51 = getelementptr i8, ptr %.047108.us, i64 48
   %.043124 = load ptr, ptr %51, align 8
@@ -5084,7 +5084,7 @@ Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_N
   %.044127 = phi ptr [ %.1, %66 ], [ %.047108.us, %Ivy_FraigAddToPatScores.exit.thread ]
   %.146126 = phi ptr [ %.2, %66 ], [ %.045107.us, %Ivy_FraigAddToPatScores.exit.thread ]
   %.val10.i63 = load ptr, ptr %13, align 8
-  %52 = getelementptr inbounds i8, ptr %.val10.i63, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.val10.i63, i64 32
   %53 = load i32, ptr %4, align 8
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph.i65, label %.loopexit
@@ -5092,7 +5092,7 @@ Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_N
 .lr.ph.i65:                                       ; preds = %.lr.ph129
   %55 = getelementptr i8, ptr %.043128, i64 32
   %.val.i66 = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.val.i66, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.val.i66, i64 32
   %wide.trip.count.i67 = zext nneg i32 %53 to i64
   br label %58
 
@@ -5103,22 +5103,22 @@ Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_N
 
 58:                                               ; preds = %57, %.lr.ph.i65
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i70, %57 ]
-  %59 = getelementptr inbounds [0 x i32], ptr %52, i64 0, i64 %indvars.iv.i68
+  %59 = getelementptr inbounds nuw [0 x i32], ptr %52, i64 0, i64 %indvars.iv.i68
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %indvars.iv.i68
+  %61 = getelementptr inbounds nuw [0 x i32], ptr %56, i64 0, i64 %indvars.iv.i68
   %62 = load i32, ptr %61, align 4
   %.not.i69 = icmp eq i32 %60, %62
   br i1 %.not.i69, label %57, label %Ivy_NodeCompareSims.exit72
 
 .loopexit:                                        ; preds = %57, %.lr.ph129
-  %63 = getelementptr inbounds i8, ptr %.146126, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.146126, i64 48
   store ptr %.043128, ptr %63, align 8
   br label %66
 
 Ivy_NodeCompareSims.exit72:                       ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %.044127, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.044127, i64 48
   store ptr %.043128, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.043128, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.043128, i64 40
   store ptr %.047108.us, ptr %65, align 8
   br label %66
 
@@ -5133,21 +5133,21 @@ Ivy_NodeCompareSims.exit72:                       ; preds = %58
 ._crit_edge:                                      ; preds = %66, %Ivy_FraigAddToPatScores.exit.thread
   %.146.lcssa = phi ptr [ %.045107.us, %Ivy_FraigAddToPatScores.exit.thread ], [ %.2, %66 ]
   %.044.lcssa = phi ptr [ %.047108.us, %Ivy_FraigAddToPatScores.exit.thread ], [ %.1, %66 ]
-  %68 = getelementptr inbounds i8, ptr %.044.lcssa, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %.044.lcssa, i64 48
   store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.146.lcssa, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.146.lcssa, i64 48
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.047108.us, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 64
   store ptr %.tr90136169, ptr %70, align 8
   %71 = getelementptr i8, ptr %.tr90136169, i64 56
   %.val.i73 = load ptr, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %.047108.us, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 56
   store ptr %.val.i73, ptr %72, align 8
   %.not.i74 = icmp eq ptr %.val.i73, null
   br i1 %.not.i74, label %75, label %73
 
 73:                                               ; preds = %._crit_edge
-  %74 = getelementptr inbounds i8, ptr %.val.i73, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %.val.i73, i64 64
   store ptr %.047108.us, ptr %74, align 8
   br label %75
 
@@ -5196,7 +5196,7 @@ Ivy_FraigInsertClass.exit:                        ; preds = %75, %78
   br i1 %.not.i75, label %._crit_edge27.i, label %91
 
 91:                                               ; preds = %._crit_edge.i
-  %92 = getelementptr inbounds i8, ptr %.val22.i, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 56
   store ptr %.val19.pre.i, ptr %92, align 8
   br label %._crit_edge27.i
 
@@ -5206,12 +5206,12 @@ Ivy_FraigInsertClass.exit:                        ; preds = %75, %78
 
 93:                                               ; preds = %._crit_edge27.i
   %.val25.i = load ptr, ptr %89, align 8
-  %94 = getelementptr inbounds i8, ptr %.val19.pre.i, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %.val19.pre.i, i64 64
   store ptr %.val25.i, ptr %94, align 8
   br label %Ivy_FraigRemoveClass.exit
 
 Ivy_FraigRemoveClass.exit:                        ; preds = %._crit_edge27.i, %93
-  %95 = getelementptr inbounds i8, ptr %.tr90136169, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.tr90136169, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %96 = load i32, ptr %95, align 8
   %97 = and i32 %96, -17
@@ -5227,8 +5227,8 @@ Ivy_FraigRemoveClass.exit:                        ; preds = %._crit_edge27.i, %9
   br i1 %101, label %102, label %tailrecurse
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %.047108.us, i64 64
-  %104 = getelementptr inbounds i8, ptr %.047108.us, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 56
   %105 = load ptr, ptr %6, align 8
   %106 = icmp eq ptr %105, %.047108.us
   br i1 %106, label %107, label %108
@@ -5254,7 +5254,7 @@ Ivy_FraigRemoveClass.exit:                        ; preds = %._crit_edge27.i, %9
   br i1 %.not.i78, label %._crit_edge27.i81, label %112
 
 112:                                              ; preds = %._crit_edge.i77
-  %113 = getelementptr inbounds i8, ptr %.val22.i76, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %.val22.i76, i64 56
   store ptr %.val19.pre.i80, ptr %113, align 8
   br label %._crit_edge27.i81
 
@@ -5264,12 +5264,12 @@ Ivy_FraigRemoveClass.exit:                        ; preds = %._crit_edge27.i, %9
 
 114:                                              ; preds = %._crit_edge27.i81
   %.val25.i83 = load ptr, ptr %103, align 8
-  %115 = getelementptr inbounds i8, ptr %.val19.pre.i80, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %.val19.pre.i80, i64 64
   store ptr %.val25.i83, ptr %115, align 8
   br label %Ivy_FraigRemoveClass.exit85
 
 Ivy_FraigRemoveClass.exit85:                      ; preds = %._crit_edge27.i81, %114
-  %116 = getelementptr inbounds i8, ptr %.047108.us, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.047108.us, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   %117 = load i32, ptr %116, align 8
   %118 = and i32 %117, -17
@@ -5296,8 +5296,8 @@ tailrecurse:                                      ; preds = %100
 define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val29 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val29, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.val29, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -5308,7 +5308,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %8 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %._crit_edge.loopexit.split.loop.exit
@@ -5325,7 +5325,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %11, %._crit_edge.loopexit.split.loop.exit ], [ %6, %10 ]
   %12 = zext nneg i32 %.0.lcssa to i64
-  %13 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   br label %15
 
@@ -5343,14 +5343,14 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
 
 20:                                               ; preds = %15, %18
   %.024.lcssa = phi i32 [ %.02433, %15 ], [ 32, %18 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 124
   %.val27 = load i32, ptr %23, align 4
   %24 = sext i32 %.val27 to i64
   %25 = shl nsw i64 %24, 2
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #26
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 4
@@ -5371,32 +5371,32 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
 
 38:                                               ; preds = %.lr.ph37, %38
   %indvars.iv40 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next41, %38 ]
-  %39 = getelementptr inbounds ptr, ptr %.val26.pre, i64 %indvars.iv40
+  %39 = getelementptr inbounds nuw ptr, ptr %.val26.pre, i64 %indvars.iv40
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 32
   %.val28 = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.val28, i64 32
-  %43 = getelementptr inbounds i32, ptr %42, i64 %35
+  %42 = getelementptr inbounds nuw i8, ptr %.val28, i64 32
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %35
   %44 = load i32, ptr %43, align 4
   %45 = lshr i32 %44, %36
   %46 = and i32 %45, 1
-  %47 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv40
+  %47 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv40
   store i32 %46, ptr %47, align 4
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %48 = icmp samesign ult i64 %indvars.iv.next41, %37
   br i1 %48, label %38, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %38, %20
-  %49 = getelementptr inbounds i8, ptr %22, i64 200
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 200
   store ptr %26, ptr %49, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val = load i32, ptr %6, align 4
@@ -5406,7 +5406,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr i8, ptr %5, i64 8
   %.val10 = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   %wide.trip.count.i = zext nneg i32 %10 to i64
@@ -5418,7 +5418,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next, %.loopexit.us ]
-  %12 = getelementptr inbounds ptr, ptr %.val10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 16
   %.val12.us = load ptr, ptr %14, align 8
@@ -5427,12 +5427,12 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr i8, ptr %17, i64 32
   %.val.i.us = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.val.i.us, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i.us, i64 32
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %22, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %22 ]
-  %20 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %indvars.iv.i.us
+  %20 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %indvars.iv.i.us
   %21 = load i32, ptr %20, align 4
   %.not.i.us = icmp eq i32 %21, 0
   br i1 %.not.i.us, label %22, label %.lr.ph.i15
@@ -5449,7 +5449,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i.us, %25
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i18, %25 ], [ 0, %.lr.ph.i.us ]
-  %23 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %indvars.iv.i16
+  %23 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %indvars.iv.i16
   %24 = load i32, ptr %23, align 4
   %.not.i17 = icmp eq i32 %24, 0
   br i1 %.not.i17, label %25, label %._crit_edge.loopexit.split.loop.exit.i
@@ -5467,7 +5467,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 ._crit_edge.i:                                    ; preds = %25, %._crit_edge.loopexit.split.loop.exit.i
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit.split.loop.exit.i ], [ %wide.trip.count.i, %25 ]
   %.0.lcssa.i = phi i32 [ %26, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %25 ]
-  %27 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [0 x i32], ptr %19, i64 0, i64 %.pre-phi
   %28 = load i32, ptr %27, align 4
   br label %29
 
@@ -5485,7 +5485,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 
 34:                                               ; preds = %32, %29
   %.024.lcssa.i = phi i32 [ %.02433.i, %29 ], [ 32, %32 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 124
   %.val27.i = load i32, ptr %37, align 4
@@ -5511,23 +5511,23 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 
 50:                                               ; preds = %50, %.lr.ph37.i
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next41.i, %50 ]
-  %51 = getelementptr inbounds ptr, ptr %.val26.pre.i, i64 %indvars.iv40.i
+  %51 = getelementptr inbounds nuw ptr, ptr %.val26.pre.i, i64 %indvars.iv40.i
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 32
   %.val28.i = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.val28.i, i64 32
-  %55 = getelementptr inbounds i32, ptr %54, i64 %47
+  %54 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 32
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %47
   %56 = load i32, ptr %55, align 4
   %57 = lshr i32 %56, %48
   %58 = and i32 %57, 1
-  %59 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv40.i
+  %59 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv40.i
   store i32 %58, ptr %59, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next41.i, %49
   br i1 %exitcond33.not, label %Ivy_FraigCheckOutputSimsSavePattern.exit, label %50, !llvm.loop !58
 
 Ivy_FraigCheckOutputSimsSavePattern.exit:         ; preds = %50, %34
-  %60 = getelementptr inbounds i8, ptr %36, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 200
   store ptr %40, ptr %60, align 8
   br label %.critedge
 
@@ -5541,7 +5541,7 @@ define i32 @Ivy_FraigRefineClasses(ptr nocapture noundef %0) local_unnamed_addr 
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -5551,9 +5551,9 @@ define i32 @Ivy_FraigRefineClasses(ptr nocapture noundef %0) local_unnamed_addr 
   br label %9
 
 9:                                                ; preds = %7, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
   br i1 %.not22, label %14, label %46
@@ -5567,7 +5567,7 @@ define i32 @Ivy_FraigRefineClasses(ptr nocapture noundef %0) local_unnamed_addr 
 17:                                               ; preds = %14
   %18 = load i64, ptr %3, align 8
   %.neg29 = mul i64 %18, -1000000
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8
   %.neg = sdiv i64 %20, -1000
   %.neg30 = add i64 %.neg, %.neg29
@@ -5576,7 +5576,7 @@ define i32 @Ivy_FraigRefineClasses(ptr nocapture noundef %0) local_unnamed_addr 
 Abc_Clock.exit:                                   ; preds = %14, %17
   %.0.i.neg = phi i64 [ %.neg30, %17 ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
@@ -5586,7 +5586,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %.01834 = phi i32 [ %.1, %32 ], [ 0, %Abc_Clock.exit ]
   %23 = getelementptr i8, ptr %.020.val.sink, i64 56
   %.020.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.020.val.sink, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.020.val.sink, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16
   %.not25 = icmp eq i32 %26, 0
@@ -5614,7 +5614,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
 35:                                               ; preds = %._crit_edge
   %36 = load i64, ptr %2, align 8
   %37 = mul nsw i64 %36, 1000000
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = sdiv i64 %39, 1000
   %41 = add nsw i64 %40, %37
@@ -5624,7 +5624,7 @@ Abc_Clock.exit28:                                 ; preds = %._crit_edge, %35
   %.0.i27 = phi i64 [ %41, %35 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %42 = add i64 %.0.i27, %.0.i.neg
-  %43 = getelementptr inbounds i8, ptr %0, i64 280
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %42, %44
   store i64 %45, ptr %43, align 8
@@ -5644,7 +5644,7 @@ define void @Ivy_FraigPrintClass(ptr noundef readonly %0) local_unnamed_addr #14
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %3 = load i32, ptr %.08, align 8
-  %4 = getelementptr inbounds i8, ptr %.08, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 11
   %7 = and i32 %5, 128
@@ -5682,7 +5682,7 @@ define i32 @Ivy_FraigCountClassNodes(ptr noundef readonly %0) local_unnamed_addr
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Ivy_FraigPrintSimClasses(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.04 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %.04, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph.i.preheader
@@ -5713,9 +5713,9 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigSavePattern0(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
@@ -5725,9 +5725,9 @@ define void @Ivy_FraigSavePattern0(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigSavePattern1(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
@@ -5737,14 +5737,14 @@ define void @Ivy_FraigSavePattern1(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 %7, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
@@ -5753,7 +5753,7 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %14
 
 14:                                               ; preds = %.lr.ph, %38
@@ -5761,10 +5761,10 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val10 = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 328
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %18, i64 40
   %.val11 = load ptr, ptr %22, align 8
@@ -5783,7 +5783,7 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
   %32 = shl nuw i32 1, %31
   %33 = lshr i64 %indvars.iv, 5
   %34 = and i64 %33, 134217727
-  %35 = getelementptr inbounds i32, ptr %29, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, %32
   store i32 %37, ptr %35, align 4
@@ -5806,14 +5806,14 @@ define void @Ivy_FraigSavePattern(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 %7, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val12 = load i32, ptr %10, align 4
@@ -5821,7 +5821,7 @@ define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unna
   br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %13
 
 13:                                               ; preds = %.lr.ph, %38
@@ -5829,10 +5829,10 @@ define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val10 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 328
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %17, i64 40
   %.val11 = load ptr, ptr %21, align 8
@@ -5874,17 +5874,17 @@ define void @Ivy_FraigSavePattern2(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %12
 
 .preheader:                                       ; preds = %12, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val19 = load i32, ptr %8, align 4
@@ -5892,8 +5892,8 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
   br i1 %9, label %.lr.ph21, label %.critedge
 
 .lr.ph21:                                         ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %25
 
 12:                                               ; preds = %.lr.ph, %12
@@ -5906,7 +5906,7 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
   %18 = tail call i32 @rand() #25
   %19 = xor i32 %17, %18
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   store i32 %19, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %2, align 8
@@ -5919,7 +5919,7 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv23 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next24, %51 ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val15 = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val15, i64 %indvars.iv23
+  %28 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv23
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %10, align 8
   %31 = load i32, ptr %29, align 8
@@ -5967,14 +5967,14 @@ define void @Ivy_FraigSavePattern3(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ivy_FraigCleanPatScores(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %5 = shl i32 %3, 5
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %7
@@ -5982,7 +5982,7 @@ define void @Ivy_FraigCleanPatScores(ptr nocapture noundef readonly %0) local_un
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 0, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5994,14 +5994,14 @@ define void @Ivy_FraigCleanPatScores(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %5 = shl i32 %3, 5
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 2)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -6011,7 +6011,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.035 = phi i32 [ -1, %.lr.ph ], [ %spec.select30, %8 ]
   %.02434 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %9 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %.02434, %10
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02434, i32 %10)
@@ -6026,14 +6026,14 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %20, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
@@ -6053,11 +6053,11 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
   %indvars.iv42 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next43, %50 ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val31 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv42
+  %33 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv42
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 32
   %.val32 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.val32, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.val32, i64 32
   %37 = getelementptr inbounds i32, ptr %36, i64 %27
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, %29
@@ -6071,7 +6071,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
   %44 = shl nuw i32 1, %43
   %45 = lshr i64 %indvars.iv42, 5
   %46 = and i64 %45, 134217727
-  %47 = getelementptr inbounds i32, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %44
   store i32 %49, ptr %47, align 4
@@ -6095,15 +6095,15 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_FraigResimulate(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val25.i = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val25.i, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   %or.cond.i = select i1 %8, i1 %11, i1 false
@@ -6121,12 +6121,12 @@ define void @Ivy_FraigResimulate(ptr nocapture noundef %0) local_unnamed_addr #2
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %17 = lshr i64 %indvars.iv.i, 5
   %18 = and i64 %17, 134217727
-  %19 = getelementptr inbounds i32, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %16, 31
   %22 = getelementptr i8, ptr %12, i64 8
   %.val19.i = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 32
   %.val.i.i = load ptr, ptr %25, align 8
@@ -6134,12 +6134,12 @@ define void @Ivy_FraigResimulate(ptr nocapture noundef %0) local_unnamed_addr #2
   %27 = and i32 %20, %26
   %.not.i.i = icmp ne i32 %27, 0
   %28 = sext i1 %.not.i.i to i32
-  %29 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %31 = getelementptr inbounds [0 x i32], ptr %29, i64 0, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [0 x i32], ptr %29, i64 0, i64 %indvars.iv.i.i
   store i32 %28, ptr %31, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %32 = load i32, ptr %9, align 8
@@ -6184,18 +6184,18 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
   %.val23.i = load ptr, ptr %46, align 8
   %47 = getelementptr i8, ptr %.val23.i, i64 8
   %.val23.val.i = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds ptr, ptr %.val23.val.i, i64 %indvars.iv32.i
+  %48 = getelementptr inbounds nuw ptr, ptr %.val23.val.i, i64 %indvars.iv32.i
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 32
   %.val22.i = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.val22.i, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %52 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   %53 = and i32 %52, 31
   %54 = shl nuw i32 1, %53
   %55 = lshr i64 %indvars.iv.next33.i, 5
   %56 = and i64 %55, 134217727
-  %57 = getelementptr inbounds i32, ptr %51, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, %54
   store i32 %59, ptr %57, align 4
@@ -6205,7 +6205,7 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
 Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.critedge.i
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %Ivy_FraigCleanPatScores.exit, label %63
@@ -6217,7 +6217,7 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.crite
 
 .lr.ph.i:                                         ; preds = %63
   %66 = shl i32 %64, 5
-  %67 = getelementptr inbounds i8, ptr %0, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %smax.i = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
   %wide.trip.count.i20 = zext nneg i32 %smax.i to i64
   br label %68
@@ -6225,7 +6225,7 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.crite
 68:                                               ; preds = %68, %.lr.ph.i
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i22, %68 ]
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv.i21
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i21
   store i32 0, ptr %70, align 4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i20
@@ -6233,9 +6233,9 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %.lr.ph28.i, %.crite
 
 Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_FraigAssignDist1.exit
   %71 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef nonnull %0)
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 200
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 200
   %75 = load ptr, ptr %74, align 8
   %.not18 = icmp eq ptr %75, null
   br i1 %.not18, label %76, label %.loopexit
@@ -6250,14 +6250,14 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_Fraig
 
 79:                                               ; preds = %78, %76
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 8
   %.not19 = icmp eq i32 %82, 0
   br i1 %.not19, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %85
 
 85:                                               ; preds = %.preheader, %Ivy_FraigCleanPatScores.exit72
@@ -6276,7 +6276,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_Fraig
   %indvars.iv.i28 = phi i64 [ 1, %.lr.ph.i25 ], [ %indvars.iv.next.i30, %90 ]
   %.035.i = phi i32 [ -1, %.lr.ph.i25 ], [ %spec.select30.i, %90 ]
   %.02434.i = phi i32 [ 0, %.lr.ph.i25 ], [ %spec.select.i29, %90 ]
-  %91 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv.i28
+  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i28
   %92 = load i32, ptr %91, align 4
   %93 = icmp slt i32 %.02434.i, %92
   %spec.select.i29 = tail call i32 @llvm.smax.i32(i32 %.02434.i, i32 %92)
@@ -6315,11 +6315,11 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_Fraig
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph40.i ], [ %indvars.iv.next43.i, %129 ]
   %111 = getelementptr i8, ptr %110, i64 8
   %.val31.i = load ptr, ptr %111, align 8
-  %112 = getelementptr inbounds ptr, ptr %.val31.i, i64 %indvars.iv42.i
+  %112 = getelementptr inbounds nuw ptr, ptr %.val31.i, i64 %indvars.iv42.i
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr i8, ptr %113, i64 32
   %.val32.i = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.val32.i, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 32
   %116 = getelementptr inbounds i32, ptr %115, i64 %106
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, %108
@@ -6333,7 +6333,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_Fraig
   %123 = shl nuw i32 1, %122
   %124 = lshr i64 %indvars.iv42.i, 5
   %125 = and i64 %124, 134217727
-  %126 = getelementptr inbounds i32, ptr %120, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %120, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, %123
   store i32 %128, ptr %126, align 4
@@ -6353,7 +6353,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %68, %63, %Ivy_Fraig
 Ivy_FraigSelectBestPat.exit:                      ; preds = %129, %85, %._crit_edge.i, %96
   %.024.lcssa48.i = phi i32 [ %spec.select.i29, %96 ], [ 0, %._crit_edge.i ], [ 0, %85 ], [ %spec.select.i29, %129 ]
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 20
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 20
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %.024.lcssa48.i, %136
   br i1 %137, label %138, label %.loopexit
@@ -6382,12 +6382,12 @@ Ivy_FraigSelectBestPat.exit:                      ; preds = %129, %85, %._crit_e
   %150 = trunc nuw nsw i64 %indvars.iv.i51 to i32
   %151 = lshr i64 %indvars.iv.i51, 5
   %152 = and i64 %151, 134217727
-  %153 = getelementptr inbounds i32, ptr %139, i64 %152
+  %153 = getelementptr inbounds nuw i32, ptr %139, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %150, 31
   %156 = getelementptr i8, ptr %146, i64 8
   %.val19.i56 = load ptr, ptr %156, align 8
-  %157 = getelementptr inbounds ptr, ptr %.val19.i56, i64 %indvars.iv.i51
+  %157 = getelementptr inbounds nuw ptr, ptr %.val19.i56, i64 %indvars.iv.i51
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr i8, ptr %158, i64 32
   %.val.i.i57 = load ptr, ptr %159, align 8
@@ -6395,12 +6395,12 @@ Ivy_FraigSelectBestPat.exit:                      ; preds = %129, %85, %._crit_e
   %161 = and i32 %154, %160
   %.not.i.i58 = icmp ne i32 %161, 0
   %162 = sext i1 %.not.i.i58 to i32
-  %163 = getelementptr inbounds i8, ptr %.val.i.i57, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %.val.i.i57, i64 32
   br label %164
 
 164:                                              ; preds = %164, %.lr.ph.i.i55
   %indvars.iv.i.i59 = phi i64 [ 0, %.lr.ph.i.i55 ], [ %indvars.iv.next.i.i60, %164 ]
-  %165 = getelementptr inbounds [0 x i32], ptr %163, i64 0, i64 %indvars.iv.i.i59
+  %165 = getelementptr inbounds nuw [0 x i32], ptr %163, i64 0, i64 %indvars.iv.i.i59
   store i32 %162, ptr %165, align 4
   %indvars.iv.next.i.i60 = add nuw nsw i64 %indvars.iv.i.i59, 1
   %166 = load i32, ptr %9, align 8
@@ -6445,18 +6445,18 @@ Ivy_NodeAssignConst.exit.i52:                     ; preds = %Ivy_NodeAssignConst
   %.val23.i45 = load ptr, ptr %180, align 8
   %181 = getelementptr i8, ptr %.val23.i45, i64 8
   %.val23.val.i46 = load ptr, ptr %181, align 8
-  %182 = getelementptr inbounds ptr, ptr %.val23.val.i46, i64 %indvars.iv32.i44
+  %182 = getelementptr inbounds nuw ptr, ptr %.val23.val.i46, i64 %indvars.iv32.i44
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr i8, ptr %183, i64 32
   %.val22.i47 = load ptr, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %.val22.i47, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %.val22.i47, i64 32
   %indvars.iv.next33.i48 = add nuw nsw i64 %indvars.iv32.i44, 1
   %186 = trunc nuw nsw i64 %indvars.iv.next33.i48 to i32
   %187 = and i32 %186, 31
   %188 = shl nuw i32 1, %187
   %189 = lshr i64 %indvars.iv.next33.i48, 5
   %190 = and i64 %189, 134217727
-  %191 = getelementptr inbounds i32, ptr %185, i64 %190
+  %191 = getelementptr inbounds nuw i32, ptr %185, i64 %190
   %192 = load i32, ptr %191, align 4
   %193 = xor i32 %192, %188
   store i32 %193, ptr %191, align 4
@@ -6478,7 +6478,7 @@ Ivy_FraigAssignDist1.exit64:                      ; preds = %.lr.ph28.i43, %.cri
 197:                                              ; preds = %197, %.lr.ph.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.i66 ], [ %indvars.iv.next.i70, %197 ]
   %198 = load ptr, ptr %83, align 8
-  %199 = getelementptr inbounds i32, ptr %198, i64 %indvars.iv.i69
+  %199 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv.i69
   store i32 0, ptr %199, align 4
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i68
@@ -6487,7 +6487,7 @@ Ivy_FraigAssignDist1.exit64:                      ; preds = %.lr.ph28.i43, %.cri
 Ivy_FraigCleanPatScores.exit72:                   ; preds = %197, %Ivy_FraigAssignDist1.exit64
   %200 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef nonnull %0)
   %201 = load ptr, ptr %72, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 200
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 200
   %203 = load ptr, ptr %202, align 8
   %204 = icmp ne ptr %203, null
   %205 = icmp eq i32 %200, 0
@@ -6500,21 +6500,21 @@ Ivy_FraigCleanPatScores.exit72:                   ; preds = %197, %Ivy_FraigAssi
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Ivy_FraigPrintActivity(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6570,14 +6570,14 @@ define void @Ivy_FraigAddClausesMux(ptr nocapture noundef readonly %0, ptr nound
   %33 = shl nsw i32 %19, 1
   %34 = or disjoint i32 %33, %28
   %35 = xor i32 %34, 1
-  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %35, ptr %36, align 4
   %37 = shl nsw i32 %9, 1
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %42 = call i32 @sat_solver_addclause(ptr noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %41) #25
   store i32 %32, ptr %5, align 16
   store i32 %34, ptr %36, align 4
@@ -6636,9 +6636,9 @@ define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr i8, ptr %2, i64 8
   %11 = getelementptr i8, ptr %1, i64 40
-  %12 = getelementptr inbounds i8, ptr %8, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %17
 
 .critedge.preheader:                              ; preds = %17
@@ -6654,7 +6654,7 @@ define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr noc
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.val39 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val39, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -6684,7 +6684,7 @@ define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr noc
 
 .critedge:                                        ; preds = %.lr.ph47, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %.critedge ]
-  %38 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv50
+  %38 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv50
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
@@ -6698,7 +6698,7 @@ define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr noc
   %48 = shl nsw i32 %45, 1
   %49 = or disjoint i32 %48, %47
   %50 = xor i32 %49, 1
-  %51 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv50
+  %51 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv50
   store i32 %50, ptr %51, align 4
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
@@ -6713,7 +6713,7 @@ define void @Ivy_FraigAddClausesSuper(ptr nocapture noundef readonly %0, ptr noc
   %56 = sext i32 %.val37 to i64
   %57 = getelementptr inbounds i32, ptr %8, i64 %56
   store i32 %55, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i32, ptr %8, i64 %6
   %61 = tail call i32 @sat_solver_addclause(ptr noundef %59, ptr noundef %8, ptr noundef %60) #25
@@ -6810,13 +6810,13 @@ declare i32 @Ivy_ObjIsMuxType(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -6828,7 +6828,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -6839,7 +6839,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %14, label %15, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -6848,7 +6848,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i.i = icmp eq ptr %19, null
   br i1 %.not9.i.i, label %22, label %20
@@ -6869,7 +6869,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
 
 25:                                               ; preds = %15
   %26 = shl nuw nsw i32 %4, 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i10.i = icmp eq ptr %28, null
   %29 = zext nneg i32 %26 to i64
@@ -6907,11 +6907,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_FraigCollectSuper(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   store i32 8, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
   tail call void @Ivy_FraigCollectSuper_rec(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i32 noundef %1)
   ret ptr %3
@@ -6932,7 +6932,7 @@ define void @Ivy_FraigObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not11, label %49, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 8
@@ -6947,14 +6947,14 @@ define void @Ivy_FraigObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %narrow.i, label %49, label %17
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %2, align 8
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %17
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -6963,7 +6963,7 @@ define void @Ivy_FraigObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not9.i.i = icmp eq ptr %26, null
   br i1 %.not9.i.i, label %29, label %27
@@ -6984,7 +6984,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %29, %27
 
 32:                                               ; preds = %22
   %33 = shl nuw nsw i32 %19, 1
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not9.i10.i = icmp eq ptr %35, null
   %36 = zext nneg i32 %33 to i64
@@ -7021,7 +7021,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 176
   %.val38 = load i32, ptr %7, align 8
@@ -7032,7 +7032,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
 
 9:                                                ; preds = %4
   store i32 %.val38, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 11
   %.not31 = icmp ule i32 %12, %2
@@ -7043,7 +7043,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load double, ptr %16, align 8
   %18 = sub nuw nsw i32 %12, %2
   %19 = uitofp nneg i32 %18 to double
@@ -7051,9 +7051,9 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %21 = sub nsw i32 %3, %2
   %22 = sitofp i32 %21 to double
   %23 = fdiv double %20, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 536
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 536
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %1, i64 40
   %.val36 = load ptr, ptr %28, align 8
@@ -7063,11 +7063,11 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
   store double %23, ptr %31, align 8
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 520
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 520
   %.val35 = load ptr, ptr %28, align 8
   %34 = ptrtoint ptr %.val35 to i64
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %32, i64 524
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 524
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %33, align 8
   %39 = icmp eq i32 %37, %38
@@ -7079,7 +7079,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
   %43 = lshr i32 %37, 1
   %44 = mul nuw nsw i32 %43, 3
   %45 = select i1 %41, i32 %42, i32 %44
-  %46 = getelementptr inbounds i8, ptr %32, i64 528
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
   %48 = sext i32 %45 to i64
@@ -7118,7 +7118,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
 
 veci_push.exit:                                   ; preds = %14, %66
   %67 = phi i32 [ %.pre.i, %66 ], [ %37, %14 ]
-  %68 = getelementptr inbounds i8, ptr %32, i64 528
+  %68 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %69 = load ptr, ptr %68, align 8
   %70 = add nsw i32 %67, 1
   store i32 %70, ptr %36, align 4
@@ -7140,7 +7140,7 @@ veci_push.exit:                                   ; preds = %14, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %.044 = phi i32 [ 0, %.lr.ph ], [ %84, %77 ]
   %.val33 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val33, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, -2
@@ -7165,11 +7165,11 @@ veci_push.exit:                                   ; preds = %14, %66
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 100, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #26
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr i8, ptr %2, i64 4
   %.val108132 = load i32, ptr %9, align 4
@@ -7183,9 +7183,9 @@ define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %.lr.ph, %118
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %118 ]
   %.val111 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val111, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = lshr i32 %16, 11
   %.not100 = icmp eq i32 %17, %3
@@ -7195,7 +7195,7 @@ define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1
   %19 = or i32 %16, 32
   store i32 %19, ptr %15, align 8
   %.val107 = load i32, ptr %6, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %.val107, ptr %20, align 4
   %21 = load i32, ptr %5, align 8
   %22 = icmp eq i32 %.val107, %21
@@ -7256,7 +7256,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %29, %27
   %45 = ptrtoint ptr %.val113 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 32
   %51 = icmp eq i32 %50, 0
@@ -7266,7 +7266,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %29, %27
   %53 = or disjoint i32 %49, 32
   store i32 %53, ptr %48, align 8
   %.val106 = load i32, ptr %6, align 4
-  %54 = getelementptr inbounds i8, ptr %47, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %.val106, ptr %54, align 4
   %55 = load i32, ptr %5, align 8
   %56 = icmp eq i32 %.val106, %55
@@ -7336,7 +7336,7 @@ Vec_PtrPush.exit124:                              ; preds = %.Vec_PtrGrow.exit11
   %83 = ptrtoint ptr %.val116 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 32
   %89 = icmp eq i32 %88, 0
@@ -7346,7 +7346,7 @@ Vec_PtrPush.exit124:                              ; preds = %.Vec_PtrGrow.exit11
   %91 = or disjoint i32 %87, 32
   store i32 %91, ptr %86, align 8
   %.val105 = load i32, ptr %6, align 4
-  %92 = getelementptr inbounds i8, ptr %85, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %.val105, ptr %92, align 4
   %93 = load i32, ptr %5, align 8
   %94 = icmp eq i32 %.val105, %93
@@ -7426,7 +7426,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
 .critedge:                                        ; preds = %.critedge.loopexit, %4
   %.val102134 = phi i32 [ %.val108, %.critedge.loopexit ], [ %.val108132, %4 ]
   %.val104 = phi i32 [ %.val104.pre, %.critedge.loopexit ], [ 0, %4 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 136
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = load i32, ptr %121, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %122, i32 %.val104)
   %123 = sext i32 %spec.select to i64
@@ -7456,16 +7456,16 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
 131:                                              ; preds = %.lr.ph136, %167
   %indvars.iv147 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next148, %167 ]
   %.val110 = load ptr, ptr %127, align 8
-  %132 = getelementptr inbounds ptr, ptr %.val110, i64 %indvars.iv147
+  %132 = getelementptr inbounds nuw ptr, ptr %.val110, i64 %indvars.iv147
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = lshr i32 %135, 11
   %.not99 = icmp eq i32 %136, %3
   br i1 %.not99, label %141, label %137
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds i8, ptr %133, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %139) #25
   br label %167
@@ -7476,7 +7476,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
   %143 = ptrtoint ptr %.val112 to i64
   %144 = and i64 %143, -2
   %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %147) #25
   %149 = ptrtoint ptr %148 to i64
@@ -7490,7 +7490,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
   %155 = ptrtoint ptr %.val115 to i64
   %156 = and i64 %155, -2
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds i8, ptr %157, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %159) #25
   %161 = ptrtoint ptr %160 to i64
@@ -7504,7 +7504,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
 
 167:                                              ; preds = %141, %137
   %.sink = phi ptr [ %166, %141 ], [ %140, %137 ]
-  %168 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv147
+  %168 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv147
   store ptr %.sink, ptr %168, align 8
   tail call void @Cudd_Ref(ptr noundef %.sink) #25
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -7544,13 +7544,13 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
 
 181:                                              ; preds = %.lr.ph140, %181
   %indvars.iv153 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next154, %181 ]
-  %182 = getelementptr inbounds ptr, ptr %.val109, i64 %indvars.iv153
+  %182 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %indvars.iv153
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = and i32 %185, -33
   store i32 %186, ptr %184, align 8
-  %187 = getelementptr inbounds i8, ptr %183, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 0, ptr %187, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count
@@ -7558,7 +7558,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.critedge4 ], [ 0, %.critedge4.preheader ]
-  %188 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv156
+  %188 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv156
   %189 = load ptr, ptr %188, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %189) #25
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
@@ -7576,7 +7576,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %101, %99
   br label %193
 
 193:                                              ; preds = %.critedge4._crit_edge, %.critedge4._crit_edge.thread
-  %194 = getelementptr inbounds i8, ptr %2, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not98 = icmp eq ptr %195, null
   br i1 %.not98, label %Vec_PtrFree.exit, label %196
@@ -7609,7 +7609,7 @@ declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32
   %.not = icmp eq i32 %7, 0
@@ -7624,14 +7624,14 @@ define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr nocapture noundef %1, 
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %2, align 8
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %11
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -7640,7 +7640,7 @@ define void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr nocapture noundef %1, 
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not9.i.i = icmp eq ptr %21, null
   br i1 %.not9.i.i, label %24, label %22
@@ -7661,7 +7661,7 @@ Vec_IntGrow.exit.i:                               ; preds = %24, %22
 
 27:                                               ; preds = %17
   %28 = shl nuw nsw i32 %14, 1
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not9.i9.i = icmp eq ptr %30, null
   %31 = zext nneg i32 %28 to i64
@@ -7703,14 +7703,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %50 = inttoptr i64 %49 to ptr
   tail call void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef %50, ptr noundef %2, ptr noundef %3)
   %51 = load i32, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %3, align 8
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %.Vec_IntGrow.exit10_crit_edge.i18
 
 .Vec_IntGrow.exit10_crit_edge.i18:                ; preds = %42
-  %.phi.trans.insert.i19 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i20 = load ptr, ptr %.phi.trans.insert.i19, align 8
   br label %Vec_IntPush.exit24
 
@@ -7719,7 +7719,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %3, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not9.i.i22 = icmp eq ptr %60, null
   br i1 %.not9.i.i22, label %63, label %61
@@ -7740,7 +7740,7 @@ Vec_IntGrow.exit.i23:                             ; preds = %63, %61
 
 66:                                               ; preds = %56
   %67 = shl nuw nsw i32 %53, 1
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not9.i9.i21 = icmp eq ptr %69, null
   %70 = zext nneg i32 %67 to i64
@@ -7784,22 +7784,22 @@ Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 100, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #26
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr i8, ptr %0, i64 32
   %.val51 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val51, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.val51, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = or i32 %11, 32
   store i32 %12, ptr %10, align 8
   tail call void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5)
   tail call void @Ivy_FraigExtractCone_rec(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.val50 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %.val50, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.val50, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, -33
   store i32 %15, ptr %13, align 8
@@ -7807,7 +7807,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
   %17 = getelementptr i8, ptr %16, i64 48
   %.val52 = load ptr, ptr %17, align 8
   %.val49 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %.val49, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.val49, i64 72
   store ptr %.val52, ptr %18, align 8
   %19 = getelementptr i8, ptr %3, i64 8
   %20 = getelementptr i8, ptr %3, i64 4
@@ -7822,7 +7822,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
 23:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.val55 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %.val57 = load ptr, ptr %22, align 8
   %26 = getelementptr i8, ptr %.val57, i64 8
@@ -7835,9 +7835,9 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
 
 30:                                               ; preds = %23
   %31 = tail call ptr @Aig_ObjCreateCi(ptr noundef %16) #25
-  %32 = getelementptr inbounds i8, ptr %29, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, -33
   store i32 %35, ptr %33, align 8
@@ -7859,7 +7859,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
 40:                                               ; preds = %.lr.ph66, %Ivy_ObjChild1Equiv.exit
   %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %Ivy_ObjChild1Equiv.exit ]
   %.val56 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds i32, ptr %.val56, i64 %indvars.iv69
+  %41 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv69
   %42 = load i32, ptr %41, align 4
   %.val58 = load ptr, ptr %39, align 8
   %43 = getelementptr i8, ptr %.val58, i64 8
@@ -7880,7 +7880,7 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr nocapture noundef %1, ptr n
 
 51:                                               ; preds = %47
   %52 = inttoptr i64 %50 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = and i64 %49, 1
   %56 = ptrtoint ptr %54 to i64
@@ -7899,7 +7899,7 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %47, %51
 
 63:                                               ; preds = %Ivy_ObjChild0Equiv.exit
   %64 = inttoptr i64 %62 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %66 = load ptr, ptr %65, align 8
   %67 = and i64 %61, 1
   %68 = ptrtoint ptr %66 to i64
@@ -7910,9 +7910,9 @@ Ivy_ObjChild0Equiv.exit:                          ; preds = %47, %51
 Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.exit, %63
   %71 = phi ptr [ %70, %63 ], [ null, %Ivy_ObjChild0Equiv.exit ]
   %72 = tail call ptr @Aig_And(ptr noundef %16, ptr noundef %59, ptr noundef %71) #25
-  %73 = getelementptr inbounds i8, ptr %46, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %46, i64 72
   store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %46, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, -33
   store i32 %76, ptr %74, align 8
@@ -7923,15 +7923,15 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   br i1 %78, label %40, label %.critedge2, !llvm.loop !81
 
 .critedge2:                                       ; preds = %40, %Ivy_ObjChild1Equiv.exit, %.critedge
-  %79 = getelementptr inbounds i8, ptr %1, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %82 = load ptr, ptr %81, align 8
   %83 = tail call ptr @Aig_Exor(ptr noundef %16, ptr noundef %80, ptr noundef %82) #25
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, -2
   %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
   %90 = lshr i32 %89, 3
@@ -8062,11 +8062,11 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
 
 9:                                                ; preds = %7, %4
   %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %11, align 4
   store i32 100, ptr %10, align 8
   %12 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #26
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   br i1 %.not, label %15, label %14
 
@@ -8088,22 +8088,22 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
   br i1 %18, label %.lr.ph105, label %.critedge
 
 .lr.ph105:                                        ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %20
 
 20:                                               ; preds = %.lr.ph105, %156
   %indvars.iv110 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next111, %156 ]
   %.val72 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val72, i64 %indvars.iv110
+  %21 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv110
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @Ivy_ObjIsMuxType(ptr noundef %22) #25
   %.not67 = icmp eq i32 %23, 0
   %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %25, align 4
   store i32 8, ptr %24, align 8
   %26 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %27, align 8
   br i1 %.not67, label %107, label %28
 
@@ -8157,7 +8157,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr nocapture noundef %0, 
 .lr.ph:                                           ; preds = %28, %Ivy_FraigObjAddToFrontier.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Ivy_FraigObjAddToFrontier.exit ], [ 0, %28 ]
   %.val71 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds ptr, ptr %.val71, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = and i64 %62, -2
@@ -8272,7 +8272,7 @@ Ivy_FraigObjAddToFrontier.exit:                   ; preds = %.lr.ph, %68, %69, %
 .lr.ph102:                                        ; preds = %107, %Ivy_FraigObjAddToFrontier.exit96
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %Ivy_FraigObjAddToFrontier.exit96 ], [ 0, %107 ]
   %.val70 = load ptr, ptr %27, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val70, i64 %indvars.iv107
+  %109 = getelementptr inbounds nuw ptr, ptr %.val70, i64 %indvars.iv107
   %110 = load ptr, ptr %109, align 8
   %111 = ptrtoint ptr %110 to i64
   %112 = and i64 %111, -2
@@ -8379,7 +8379,7 @@ Ivy_FraigObjAddToFrontier.exit96:                 ; preds = %.lr.ph102, %117, %1
   br label %156
 
 156:                                              ; preds = %.critedge4, %.critedge2
-  %157 = getelementptr inbounds i8, ptr %22, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %24, ptr %157, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %.val69 = load i32, ptr %11, align 4
@@ -8398,7 +8398,7 @@ Ivy_FraigObjAddToFrontier.exit96:                 ; preds = %.lr.ph102, %117, %1
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %161
   tail call void @free(ptr noundef nonnull %10) #25
-  %162 = getelementptr inbounds i8, ptr %0, i64 144
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %163 = load ptr, ptr %162, align 8
   %164 = tail call i32 @sat_solver_simplify(ptr noundef %163) #25
   br label %165
@@ -8419,7 +8419,7 @@ define internal fastcc void @Ivy_FraigSetActivityFactors(ptr nocapture noundef %
 8:                                                ; preds = %3
   %9 = load i64, ptr %5, align 8
   %.neg52 = mul i64 %9, -1000000
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   %.neg = sdiv i64 %11, -1000
   %.neg53 = add i64 %.neg, %.neg52
@@ -8428,18 +8428,18 @@ define internal fastcc void @Ivy_FraigSetActivityFactors(ptr nocapture noundef %
 Abc_Clock.exit:                                   ; preds = %3, %8
   %.0.i.neg = phi i64 [ %.neg53, %8 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 524
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 524
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   call void @Ivy_ManIncrementTravId(ptr noundef %16) #25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread36, label %17
 
 17:                                               ; preds = %Abc_Clock.exit
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 8
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %20, label %.thread
@@ -8449,7 +8449,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %.not2837, label %.thread45, label %.thread36..thread35_crit_edge
 
 .thread36..thread35_crit_edge:                    ; preds = %.thread36
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.pre54 = lshr i32 %.pre, 11
   br label %.thread35
@@ -8462,7 +8462,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.pre55 = lshr i32 %19, 11
   %21 = uitofp nneg i32 %.pre55 to double
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load double, ptr %23, align 8
   %25 = fsub double 1.000000e+00, %24
   %26 = fmul double %25, %21
@@ -8471,7 +8471,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 .thread:                                          ; preds = %17
   %28 = lshr i32 %19, 11
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 11
   %spec.select = call i32 @llvm.umax.i32(i32 %28, i32 %31)
@@ -8479,7 +8479,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 .thread45:                                        ; preds = %20, %.thread36
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load double, ptr %33, align 8
   %35 = fsub double 1.000000e+00, %34
   %36 = fmul double %35, 0.000000e+00
@@ -8490,7 +8490,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.sink = phi i32 [ %.pre54, %.thread36..thread35_crit_edge ], [ %spec.select, %.thread ]
   %38 = uitofp nneg i32 %.sink to double
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load double, ptr %40, align 8
   %42 = fsub double 1.000000e+00, %41
   %43 = fmul double %42, %38
@@ -8528,7 +8528,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 56:                                               ; preds = %.thread47
   %57 = load i64, ptr %4, align 8
   %58 = mul nsw i64 %57, 1000000
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = sdiv i64 %60, 1000
   %62 = add nsw i64 %61, %58
@@ -8538,7 +8538,7 @@ Abc_Clock.exit33:                                 ; preds = %.thread47, %56
   %.0.i32 = phi i64 [ %62, %56 ], [ -1, %.thread47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %63 = add i64 %.0.i32, %.0.i.neg
-  %64 = getelementptr inbounds i8, ptr %0, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %65 = load i64, ptr %64, align 8
   %66 = add nsw i64 %63, %65
   store i64 %66, ptr %64, align 8

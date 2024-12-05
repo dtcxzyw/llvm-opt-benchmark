@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_ObjCheckAbsorb(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 28
   %.val29 = load i32, ptr %6, align 4
@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @Abc_ObjCheckAbsorb(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 32
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
 
 .critedge.preheader:                              ; preds = %50, %4
@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @Abc_ObjCheckAbsorb(ptr nocapture noundef readonly %0
 
 .lr.ph33:                                         ; preds = %.critedge.preheader
   %11 = getelementptr i8, ptr %1, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i32, ptr %5, align 4
   br label %55
 
@@ -56,7 +56,7 @@ define range(i32 0, 2) i32 @Abc_ObjCheckAbsorb(ptr nocapture noundef readonly %0
   %.val24.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %.val24.val, i64 8
   %.val24.val.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i32, ptr %.val25, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %.val25, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %.val24.val.val, i64 %18
@@ -153,7 +153,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val26.val = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val26.val, i64 8
   %.val26.val.val = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv36
+  %58 = getelementptr inbounds nuw i32, ptr %.val27, i64 %indvars.iv36
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %.val26.val.val, i64 %60
@@ -173,7 +173,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 66:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %62
   br i1 %69, label %Vec_PtrPushUnique.exit, label %65
@@ -265,7 +265,7 @@ define void @Abc_NtkCheckAbsorb(ptr nocapture noundef readonly %0, i32 noundef %
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg75 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg76 = add i64 %.neg, %.neg75
@@ -300,11 +300,11 @@ Vec_IntAlloc.exit.i:                              ; preds = %Abc_Clock.exit
 Vec_IntStart.exit:                                ; preds = %Abc_Clock.exit, %Vec_IntAlloc.exit.i, %17
   %20 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %16, %17 ], [ null, %Abc_Clock.exit ]
   %21 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4
   store i32 100, ptr %21, align 8
   %23 = call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #17
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %23, ptr %24, align 8
   %25 = icmp sgt i32 %.val58.val, 0
   br i1 %25, label %.lr.ph85, label %.critedge
@@ -315,7 +315,7 @@ Vec_IntStart.exit:                                ; preds = %Abc_Clock.exit, %Ve
   %.04484 = phi i32 [ %.3, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val59.val = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val59.val, i64 %indvars.iv92
+  %28 = getelementptr inbounds nuw ptr, ptr %.val59.val, i64 %indvars.iv92
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.critedge2, label %31
@@ -346,7 +346,7 @@ Vec_IntStart.exit:                                ; preds = %Abc_Clock.exit, %Ve
   %.val54.val = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %.val54.val, i64 8
   %.val54.val.val = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds i32, ptr %.val55, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %.val54.val.val, i64 %42
@@ -428,7 +428,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %65
 70:                                               ; preds = %.lr.ph89, %85
   %indvars.iv95 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next96, %85 ]
   %.088 = phi i32 [ 0, %.lr.ph89 ], [ %.1, %85 ]
-  %71 = getelementptr inbounds ptr, ptr %.val60.val, i64 %indvars.iv95
+  %71 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv95
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %85, label %74
@@ -479,7 +479,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %65
 97:                                               ; preds = %.critedge4
   %98 = load i64, ptr %3, align 8
   %99 = mul nsw i64 %98, 1000000
-  %100 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %101 = load i64, ptr %100, align 8
   %102 = sdiv i64 %101, 1000
   %103 = add nsw i64 %102, %99
@@ -509,22 +509,22 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkBddMux21(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %6 = load ptr, ptr %1, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %6) #18
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %8) #18
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %10) #18
   %11 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
   %12 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 1) #18
   %13 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 2) #18
   %14 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %11, ptr noundef %13, ptr noundef %12) #18
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %14, ptr %15, align 8
   tail call void @Cudd_Ref(ptr noundef %14) #18
   ret ptr %5
@@ -540,24 +540,24 @@ declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkBddMux411(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %6 = load ptr, ptr %1, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %6) #18
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %8) #18
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %10) #18
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %12) #18
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %14) #18
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %16) #18
   %17 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 1) #18
@@ -571,7 +571,7 @@ define noundef ptr @Abc_NtkBddMux411(ptr noundef %0, ptr nocapture noundef reado
   tail call void @Cudd_Ref(ptr noundef %23) #18
   %24 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
   %25 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %24, ptr noundef %23, ptr noundef %20) #18
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %25, ptr %26, align 8
   tail call void @Cudd_Ref(ptr noundef %25) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef %20) #18
@@ -583,18 +583,18 @@ declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkBddMux412(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %6 = load ptr, ptr %1, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %6) #18
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %8) #18
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %10) #18
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %12) #18
   %13 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
@@ -605,7 +605,7 @@ define noundef ptr @Abc_NtkBddMux412(ptr noundef %0, ptr nocapture noundef reado
   tail call void @Cudd_Ref(ptr noundef %17) #18
   %18 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 1) #18
   %19 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %13, ptr noundef %18, ptr noundef %17) #18
-  %20 = getelementptr inbounds i8, ptr %5, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %19, ptr %20, align 8
   tail call void @Cudd_Ref(ptr noundef %19) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef %17) #18
@@ -613,10 +613,10 @@ define noundef ptr @Abc_NtkBddMux412(ptr noundef %0, ptr nocapture noundef reado
   %22 = load ptr, ptr %1, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %21, ptr noundef %22) #18
   tail call void @Abc_ObjAddFanin(ptr noundef %21, ptr noundef %5) #18
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %21, ptr noundef %24) #18
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %21, ptr noundef %26) #18
   %27 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
@@ -627,7 +627,7 @@ define noundef ptr @Abc_NtkBddMux412(ptr noundef %0, ptr nocapture noundef reado
   %32 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %29, ptr noundef %30, ptr noundef %31) #18
   tail call void @Cudd_Ref(ptr noundef %32) #18
   %33 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %27, ptr noundef %32, ptr noundef %28) #18
-  %34 = getelementptr inbounds i8, ptr %21, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store ptr %33, ptr %34, align 8
   tail call void @Cudd_Ref(ptr noundef %33) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef %32) #18
@@ -636,23 +636,23 @@ define noundef ptr @Abc_NtkBddMux412(ptr noundef %0, ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkBddMux412a(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %7) #18
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %9) #18
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %5, ptr noundef %11) #18
   %12 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
   %13 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 1) #18
   %14 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 2) #18
   %15 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %12, ptr noundef %14, ptr noundef %13) #18
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %15, ptr %16, align 8
   tail call void @Cudd_Ref(ptr noundef %15) #18
   %17 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
@@ -661,10 +661,10 @@ define noundef ptr @Abc_NtkBddMux412a(ptr noundef %0, ptr nocapture noundef read
   %19 = load ptr, ptr %6, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %17, ptr noundef %19) #18
   tail call void @Abc_ObjAddFanin(ptr noundef %17, ptr noundef %5) #18
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %17, ptr noundef %21) #18
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %17, ptr noundef %23) #18
   %24 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef 0) #18
@@ -675,7 +675,7 @@ define noundef ptr @Abc_NtkBddMux412a(ptr noundef %0, ptr nocapture noundef read
   %29 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %26, ptr noundef %27, ptr noundef %28) #18
   tail call void @Cudd_Ref(ptr noundef %29) #18
   %30 = tail call ptr @Cudd_bddIte(ptr noundef %4, ptr noundef %24, ptr noundef %29, ptr noundef %25) #18
-  %31 = getelementptr inbounds i8, ptr %17, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %30, ptr %31, align 8
   tail call void @Cudd_Ref(ptr noundef %30) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %4, ptr noundef %29) #18
@@ -684,13 +684,13 @@ define noundef ptr @Abc_NtkBddMux412a(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkBddMux413(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   tail call void @Abc_ObjAddFanin(ptr noundef %11, ptr noundef %4) #18
@@ -700,13 +700,13 @@ define noundef ptr @Abc_NtkBddMux413(ptr noundef %0, ptr nocapture noundef reado
   %13 = tail call ptr @Cudd_bddIthVar(ptr noundef %10, i32 noundef 1) #18
   %14 = tail call ptr @Cudd_bddIthVar(ptr noundef %10, i32 noundef 2) #18
   %15 = tail call ptr @Cudd_bddIte(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %13) #18
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %15, ptr %16, align 8
   tail call void @Cudd_Ref(ptr noundef %15) #18
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %9, align 8
   %23 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
@@ -717,7 +717,7 @@ define noundef ptr @Abc_NtkBddMux413(ptr noundef %0, ptr nocapture noundef reado
   %25 = tail call ptr @Cudd_bddIthVar(ptr noundef %22, i32 noundef 1) #18
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %22, i32 noundef 2) #18
   %27 = tail call ptr @Cudd_bddIte(ptr noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %25) #18
-  %28 = getelementptr inbounds i8, ptr %23, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %27, ptr %28, align 8
   tail call void @Cudd_Ref(ptr noundef %27) #18
   %29 = load ptr, ptr %1, align 8
@@ -730,7 +730,7 @@ define noundef ptr @Abc_NtkBddMux413(ptr noundef %0, ptr nocapture noundef reado
   %33 = tail call ptr @Cudd_bddIthVar(ptr noundef %30, i32 noundef 1) #18
   %34 = tail call ptr @Cudd_bddIthVar(ptr noundef %30, i32 noundef 2) #18
   %35 = tail call ptr @Cudd_bddIte(ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %33) #18
-  %36 = getelementptr inbounds i8, ptr %31, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %35, ptr %36, align 8
   tail call void @Cudd_Ref(ptr noundef %35) #18
   ret ptr %31
@@ -763,8 +763,8 @@ define ptr @Abc_NtkBddCofactors_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not, label %30, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %12, i64 16
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = xor i64 %23, 1
@@ -776,8 +776,8 @@ define ptr @Abc_NtkBddCofactors_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %tailrecurse.backedge
 
 30:                                               ; preds = %17
-  %31 = getelementptr inbounds i8, ptr %.tr3237, i64 16
-  %32 = getelementptr inbounds i8, ptr %.tr3237, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.tr3237, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.tr3237, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   br label %tailrecurse.backedge
@@ -814,11 +814,11 @@ declare i32 @Cudd_NodeReadIndex(ptr noundef) local_unnamed_addr #2
 define noalias noundef ptr @Abc_NtkBddCofactors(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = shl nuw i32 1, %2
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 8, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #17
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %.not = icmp eq i32 %2, 31
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -923,8 +923,8 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   br i1 %.not.i, label %61, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %43, i64 16
-  %52 = getelementptr inbounds i8, ptr %43, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = xor i64 %54, 1
@@ -936,8 +936,8 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   br label %tailrecurse.backedge.i
 
 61:                                               ; preds = %48
-  %62 = getelementptr inbounds i8, ptr %.tr3237.i, i64 16
-  %63 = getelementptr inbounds i8, ptr %.tr3237.i, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.tr3237.i, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.tr3237.i, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %62, align 8
   br label %tailrecurse.backedge.i
@@ -1058,7 +1058,7 @@ define ptr @Abc_NtkCreateCofLut(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val25.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %6, ptr noundef %20) #18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1071,10 +1071,10 @@ define ptr @Abc_NtkCreateCofLut(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %23 = sub nsw i32 0, %4
   %24 = tail call ptr @Extra_bddMove(ptr noundef %1, ptr noundef %2, i32 noundef %23) #18
   tail call void @Cudd_Ref(ptr noundef %24) #18
-  %25 = getelementptr inbounds i8, ptr %0, i64 256
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %1, ptr noundef %26, ptr noundef %24) #18
-  %28 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %27, ptr %28, align 8
   tail call void @Cudd_Ref(ptr noundef %27) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %24) #18
@@ -1090,9 +1090,9 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %5 = alloca [10 x ptr], align 16
   %6 = alloca [10 x ptr], align 16
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %2, i64 4
   %.val130 = load i32, ptr %12, align 4
@@ -1128,14 +1128,14 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph145:                                        ; preds = %.preheader135
   %24 = getelementptr i8, ptr %2, i64 8
   %25 = getelementptr i8, ptr %3, i64 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 344
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 344
   %wide.trip.count176 = zext nneg i32 %.09.i134 to i64
   br label %46
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %11) #18
-  %28 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   tail call void @Cudd_Ref(ptr noundef %27) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1158,7 +1158,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph148.us:                                     ; preds = %.lr.ph148.us.preheader, %._crit_edge149.us
   %indvars.iv191 = phi i64 [ 0, %.lr.ph148.us.preheader ], [ %indvars.iv.next192, %._crit_edge149.us ]
   %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
-  %32 = getelementptr inbounds [10 x ptr], ptr %6, i64 0, i64 %indvars.iv191
+  %32 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv191
   store ptr %31, ptr %32, align 8
   br label %33
 
@@ -1170,12 +1170,12 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %.val124.val.us = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %.val124.val.us, i64 8
   %.val124.val.val.us = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i32, ptr %.val125.us, i64 %indvars.iv186
+  %36 = getelementptr inbounds nuw i32, ptr %.val125.us, i64 %indvars.iv186
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %.val124.val.val.us, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %31, ptr noundef %42) #18
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
@@ -1183,9 +1183,9 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %exitcond190.not, label %._crit_edge149.us, label %33, !llvm.loop !14
 
 ._crit_edge149.us:                                ; preds = %33
-  %43 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %indvars.iv191
+  %43 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv191
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %31, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %44, ptr %45, align 8
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
@@ -1195,7 +1195,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %.val128208 = phi i32 [ %.val128143, %.lr.ph145 ], [ %.val128, %._crit_edge ]
   %indvars.iv178 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next179, %._crit_edge ]
   %.val131 = load ptr, ptr %24, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val131, i64 %indvars.iv178
+  %47 = getelementptr inbounds nuw ptr, ptr %.val131, i64 %indvars.iv178
   %48 = load ptr, ptr %47, align 8
   %.val127 = load i32, ptr %17, align 4
   %49 = icmp sgt i32 %.val127, 0
@@ -1208,7 +1208,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 50:                                               ; preds = %.lr.ph138, %54
   %indvars.iv168 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next169, %54 ]
-  %51 = getelementptr inbounds ptr, ptr %.val132, i64 %indvars.iv168
+  %51 = getelementptr inbounds nuw ptr, ptr %.val132, i64 %indvars.iv168
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %48
   br i1 %53, label %.critedge2.loopexit.split.loop.exit211, label %54
@@ -1242,7 +1242,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %62 = load ptr, ptr %26, align 8
   %63 = tail call ptr @Extra_bddBitsToCube(ptr noundef %11, i32 noundef %56, i32 noundef %.09.i.fr, ptr noundef %62, i32 noundef 1) #18
   tail call void @Cudd_Ref(ptr noundef %63) #18
-  %64 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %indvars.iv173
+  %64 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv173
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @Cudd_bddOr(ptr noundef %11, ptr noundef %65, ptr noundef %63) #18
   store ptr %66, ptr %64, align 8
@@ -1270,11 +1270,11 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 .critedge:                                        ; preds = %.lr.ph151, %.critedge
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.critedge ], [ 0, %.lr.ph151 ]
   %70 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
-  %71 = getelementptr inbounds [10 x ptr], ptr %6, i64 0, i64 %indvars.iv181
+  %71 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv181
   store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %indvars.iv181
+  %72 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %indvars.iv181
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store ptr %73, ptr %74, align 8
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count194
@@ -1312,7 +1312,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds ptr, ptr %.val122.val.val, i64 %85
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %89 = load ptr, ptr %88, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %75, ptr noundef %89) #18
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
@@ -1323,7 +1323,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv199 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next200, %.lr.ph157 ]
-  %92 = getelementptr inbounds [10 x ptr], ptr %6, i64 0, i64 %indvars.iv199
+  %92 = getelementptr inbounds nuw [10 x ptr], ptr %6, i64 0, i64 %indvars.iv199
   %93 = load ptr, ptr %92, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %75, ptr noundef %93) #18
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -1333,7 +1333,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 ._crit_edge158:                                   ; preds = %.lr.ph157, %.preheader
   %94 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %11) #18
   tail call void @Cudd_Ref(ptr noundef %94) #18
-  %95 = getelementptr inbounds i8, ptr %11, i64 344
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 344
   %96 = load ptr, ptr %95, align 8
   %.val = load i32, ptr %76, align 4
   %97 = sext i32 %.val to i64
@@ -1354,7 +1354,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %indvars.iv204 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next205, %105 ]
   %.0119160 = phi ptr [ %94, %.lr.ph163 ], [ %113, %105 ]
   %.val133 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds ptr, ptr %.val133, i64 %indvars.iv204
+  %106 = getelementptr inbounds nuw ptr, ptr %.val133, i64 %indvars.iv204
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @Extra_bddMove(ptr noundef %9, ptr noundef %107, i32 noundef %104) #18
   tail call void @Cudd_Ref(ptr noundef %108) #18
@@ -1380,7 +1380,7 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 .critedge4:                                       ; preds = %105, %._crit_edge158
   %.0119.lcssa = phi ptr [ %94, %._crit_edge158 ], [ %113, %105 ]
-  %116 = getelementptr inbounds i8, ptr %75, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %75, i64 56
   store ptr %.0119.lcssa, ptr %116, align 8
   ret ptr %75
 }
@@ -1396,9 +1396,9 @@ declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 28
   %.val114123 = load i32, ptr %9, align 4
@@ -1406,7 +1406,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = add nsw i32 %2, -2
   br label %13
 
@@ -1490,7 +1490,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph185:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %.0106139184 = phi ptr [ %44, %.lr.ph140 ], [ %31, %.lr.ph140.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.0106139184, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.0106139184, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
@@ -1541,12 +1541,12 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.val117.val = load ptr, ptr %59, align 8
   %60 = getelementptr i8, ptr %.val117.val, i64 8
   %.val117.val.val = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds i32, ptr %.val118, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %.val118, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds ptr, ptr %.val117.val.val, i64 %63
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %67 = load ptr, ptr %66, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %55, ptr noundef %67) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1557,7 +1557,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 
 ._crit_edge153:                                   ; preds = %58, %.thread
   %70 = select i1 %.not109, ptr %54, ptr %53
-  %71 = getelementptr inbounds i8, ptr %55, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 56
   store ptr %70, ptr %71, align 8
   %72 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %.val154 = load i32, ptr %9, align 4
@@ -1581,12 +1581,12 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.val115.val = load ptr, ptr %79, align 8
   %80 = getelementptr i8, ptr %.val115.val, i64 8
   %.val115.val.val = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds i32, ptr %.val116, i64 %indvars.iv165
+  %81 = getelementptr inbounds nuw i32, ptr %.val116, i64 %indvars.iv165
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds ptr, ptr %.val115.val.val, i64 %83
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -1606,7 +1606,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.177 = select i1 %.not109, ptr %53, ptr %54
   %.178 = select i1 %.not109, ptr %53, ptr %92
   %93 = tail call ptr @Cudd_bddIte(ptr noundef %8, ptr noundef %91, ptr noundef %., ptr noundef %.178) #18
-  %94 = getelementptr inbounds i8, ptr %72, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %72, i64 56
   store ptr %93, ptr %94, align 8
   tail call void @Cudd_Ref(ptr noundef %93) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %.177) #18
@@ -1627,7 +1627,7 @@ declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #2
 define ptr @Abc_NtkBddDecompose(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [20 x ptr], align 16
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 28
   %.val65 = load i32, ptr %9, align 4
@@ -1652,13 +1652,13 @@ define ptr @Abc_NtkBddDecompose(ptr noundef %0, ptr nocapture noundef readonly %
   br label %102
 
 18:                                               ; preds = %12, %4
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @Abc_NtkBddCofactors(ptr noundef %8, ptr noundef %20, i32 noundef %2)
   %22 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %24, ptr %25, align 4
   %26 = load i32, ptr %21, align 8
   store i32 %26, ptr %22, align 8
@@ -1673,9 +1673,9 @@ define ptr @Abc_NtkBddDecompose(ptr noundef %0, ptr nocapture noundef readonly %
 
 Vec_PtrDup.exit:                                  ; preds = %18, %27
   %31 = phi ptr [ %30, %27 ], [ null, %18 ]
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %24 to i64
   %36 = shl nsw i64 %35, 3
@@ -1691,7 +1691,7 @@ Vec_PtrSort.exit.i:                               ; preds = %Vec_PtrDup.exit
 .lr.ph.i:                                         ; preds = %Vec_PtrSort.exit.i, %47
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 1, %Vec_PtrSort.exit.i ]
   %.02.i = phi i32 [ %.1.i, %47 ], [ 1, %Vec_PtrSort.exit.i ]
-  %39 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %39, i64 -8
   %42 = load ptr, ptr %41, align 8
@@ -1764,17 +1764,17 @@ Vec_PtrFree.exit._crit_edge:                      ; preds = %Vec_PtrFree.exit
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %.val68.val.val, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %5, align 16
-  %69 = getelementptr inbounds i8, ptr %.val69, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.val69, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds ptr, ptr %.val68.val.val, i64 %71
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %75, ptr %76, align 8
   %77 = icmp sgt i32 %.val71, 0
   br i1 %77, label %.lr.ph, label %.critedge
@@ -1787,11 +1787,11 @@ Vec_PtrFree.exit._crit_edge:                      ; preds = %Vec_PtrFree.exit
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds ptr, ptr %.val74, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %.val74, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @Abc_NtkCreateCofLut(ptr noundef %0, ptr noundef %8, ptr noundef %81, ptr noundef nonnull %1, i32 noundef 2)
   %83 = add nuw nsw i64 %indvars.iv, 2
-  %84 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [20 x ptr], ptr %5, i64 0, i64 %83
   store ptr %82, ptr %84, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1834,7 +1834,7 @@ Vec_PtrFree.exit._crit_edge:                      ; preds = %Vec_PtrFree.exit
 97:                                               ; preds = %.critedge, %85, %89, %87, %95
   %.056 = phi ptr [ %54, %85 ], [ %54, %87 ], [ %54, %89 ], [ %21, %95 ], [ %54, %.critedge ]
   %.1 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %96, %95 ], [ null, %.critedge ]
-  %98 = getelementptr inbounds i8, ptr %.056, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %99 = load ptr, ptr %98, align 8
   %.not.i80 = icmp eq ptr %99, null
   br i1 %.not.i80, label %Vec_PtrFree.exit81, label %100
@@ -1887,12 +1887,12 @@ define void @Abc_NtkLutminConstruct(ptr noundef %0, ptr noundef %1, i32 noundef 
 9:                                                ; preds = %.lr.ph36, %.critedge2
   %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %.critedge2 ]
   %.val31 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv38
+  %10 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv38
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 28
   %.val27 = load i32, ptr %12, align 4
   %.not = icmp sgt i32 %.val27, %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 64
   br i1 %.not, label %31, label %14
 
 14:                                               ; preds = %9
@@ -1914,13 +1914,13 @@ define void @Abc_NtkLutminConstruct(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val28.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val28.val, i64 8
   %.val28.val.val = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds i32, ptr %.val29, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %.val28.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %28 = load ptr, ptr %27, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %26, ptr noundef %28) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1942,7 +1942,7 @@ define void @Abc_NtkLutminConstruct(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %34, label %9, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.critedge2, %4
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %37
@@ -1964,7 +1964,7 @@ declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 define ptr @Abc_NtkLutminInt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef 0) #18
   %4 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 2) #18
-  %5 = getelementptr inbounds i8, ptr %4, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #18
   %8 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %7) #18
@@ -2022,7 +2022,7 @@ define noundef ptr @Abc_NtkLutmin(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %18, label %53, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2
   br i1 %22, label %Abc_NtkIsBddLogic.exit, label %Abc_NtkIsBddLogic.exit.thread
@@ -2049,7 +2049,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %19, %Abc_NtkIsBddLo
   %.142.us = phi ptr [ %28, %.split.us ], [ %17, %.lr.ph ]
   tail call void @Abc_NtkBddReorder(ptr noundef nonnull %.142.us, i32 noundef 0) #18
   %28 = tail call ptr @Abc_NtkStartFrom(ptr noundef nonnull %.142.us, i32 noundef 2, i32 noundef 2) #18
-  %29 = getelementptr inbounds i8, ptr %28, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 256
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef nonnull %.142.us) #18
   %32 = tail call ptr @Cudd_bddIthVar(ptr noundef %30, i32 noundef %31) #18
@@ -2072,7 +2072,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %19, %Abc_NtkIsBddLo
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1.val, i32 noundef %39, i32 noundef %1)
   tail call void @Abc_NtkBddReorder(ptr noundef nonnull %.142, i32 noundef 0) #18
   %41 = tail call ptr @Abc_NtkStartFrom(ptr noundef nonnull %.142, i32 noundef 2, i32 noundef 2) #18
-  %42 = getelementptr inbounds i8, ptr %41, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef nonnull %.142) #18
   %45 = tail call ptr @Cudd_bddIthVar(ptr noundef %43, i32 noundef %44) #18

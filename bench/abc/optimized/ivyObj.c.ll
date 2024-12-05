@@ -5,13 +5,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_ObjCreatePi(ptr noundef initializes((56, 72)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -1552
   %6 = or disjoint i32 %5, 1
   store i32 %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call ptr @Ivy_ObjCreate(ptr noundef %0, ptr noundef nonnull %2)
   ret ptr %8
@@ -19,7 +19,7 @@ define noundef ptr @Ivy_ObjCreatePi(ptr noundef initializes((56, 72)) %0) local_
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %Ivy_ManFetchMemory.exit
@@ -34,20 +34,20 @@ Ivy_ManFetchMemory.exit:                          ; preds = %2, %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val = load i32, ptr %11, align 4
   store i32 %.val, ptr %7, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %12, align 8
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Ivy_ManFetchMemory.exit
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre.i86 = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -56,7 +56,7 @@ Ivy_ManFetchMemory.exit:                          ; preds = %2, %6
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not9.i.i = icmp eq ptr %21, null
   br i1 %.not9.i.i, label %24, label %22
@@ -77,7 +77,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
 
 27:                                               ; preds = %17
   %28 = shl nuw nsw i32 %14, 1
-  %29 = getelementptr inbounds i8, ptr %12, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not9.i10.i = icmp eq ptr %30, null
   %31 = zext nneg i32 %28 to i64
@@ -106,10 +106,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds ptr, ptr %39, i64 %42
   store ptr %7, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 15
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, -16
   %50 = or disjoint i32 %49, %46
@@ -119,13 +119,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %53 = and i32 %50, -1537
   %54 = or disjoint i32 %53, %52
   store i32 %54, ptr %47, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %7, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %56, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %58, ptr %60, align 8
   %61 = ptrtoint ptr %56 to i64
   %62 = and i64 %61, -2
@@ -134,11 +134,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 63:                                               ; preds = %Vec_PtrPush.exit
   %64 = inttoptr i64 %62 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %65, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 192
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %69 = load i32, ptr %68, align 8
   %.not18.i = icmp eq i32 %69, 0
   br i1 %.not18.i, label %74, label %70
@@ -160,11 +160,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 77:                                               ; preds = %74
   %78 = inttoptr i64 %76 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 4
-  %82 = getelementptr inbounds i8, ptr %0, i64 192
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %83 = load i32, ptr %82, align 8
   %.not20.i = icmp eq i32 %83, 0
   br i1 %.not20.i, label %Ivy_ObjConnect.exit, label %84
@@ -191,19 +191,19 @@ Ivy_ObjConnect.exit:                              ; preds = %74, %77, %84
   %92 = ptrtoint ptr %.val.i to i64
   %93 = and i64 %92, -2
   %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = lshr i32 %96, 11
   %.val6.i = load ptr, ptr %60, align 8
   %98 = ptrtoint ptr %.val6.i to i64
   %99 = and i64 %98, -2
   %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 8
   %103 = lshr i32 %102, 11
   %104 = icmp samesign ugt i32 %97, %103
   %spec.select.i = select i1 %104, ptr %94, ptr %100
-  %.in.in.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %.in.in.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %.in.i = load i32, ptr %.in.in.i, align 8
   %105 = select i1 %91, i32 4096, i32 2048
   %106 = add i32 %.in.i, %105
@@ -229,7 +229,7 @@ Ivy_ObjIsOneFanin.exit:                           ; preds = %110, %110, %110
   %113 = ptrtoint ptr %.val65 to i64
   %114 = and i64 %113, -2
   %115 = inttoptr i64 %114 to ptr
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = and i32 %117, -2048
   %119 = and i32 %.val70, 2047
@@ -258,14 +258,14 @@ Ivy_ObjIsOneFanin.exit:                           ; preds = %110, %110, %110
 127:                                              ; preds = %124
   %128 = and i64 %125, -2
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i32, ptr %130, align 8
   %.lobit.i = and i32 %131, 128
   %132 = xor i32 %.lobit.i, 128
   br label %Ivy_ObjFaninPhase.exit
 
 133:                                              ; preds = %124
-  %134 = getelementptr inbounds i8, ptr %.val79, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.val79, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = and i32 %135, 128
   br label %Ivy_ObjFaninPhase.exit
@@ -281,14 +281,14 @@ Ivy_ObjFaninPhase.exit:                           ; preds = %127, %133
 140:                                              ; preds = %Ivy_ObjFaninPhase.exit
   %141 = and i64 %138, -2
   %142 = inttoptr i64 %141 to ptr
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i32, ptr %143, align 8
   %.lobit.i90 = and i32 %144, 128
   %145 = xor i32 %.lobit.i90, 128
   br label %Ivy_ObjFaninPhase.exit91
 
 146:                                              ; preds = %Ivy_ObjFaninPhase.exit
-  %147 = getelementptr inbounds i8, ptr %.val81, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.val81, i64 8
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 128
   br label %Ivy_ObjFaninPhase.exit91
@@ -316,14 +316,14 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
 155:                                              ; preds = %Ivy_ObjIsOneFanin.exit92.thread
   %156 = and i64 %153, -2
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i32, ptr %158, align 8
   %.lobit.i94 = and i32 %159, 128
   %160 = xor i32 %.lobit.i94, 128
   br label %.sink.split123
 
 161:                                              ; preds = %Ivy_ObjIsOneFanin.exit92.thread
-  %162 = getelementptr inbounds i8, ptr %.val80, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.val80, i64 8
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 128
   br label %.sink.split123
@@ -347,13 +347,13 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
   %171 = ptrtoint ptr %.val66 to i64
   %172 = and i64 %171, -2
   %173 = inttoptr i64 %172 to ptr
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load i32, ptr %174, align 8
   %.val68 = load ptr, ptr %60, align 8
   %176 = ptrtoint ptr %.val68 to i64
   %177 = and i64 %176, -2
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load i32, ptr %179, align 8
   %181 = or i32 %180, %175
   %182 = and i32 %181, 256
@@ -373,7 +373,7 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
   %188 = ptrtoint ptr %.val67 to i64
   %189 = and i64 %188, -2
   %190 = inttoptr i64 %189 to ptr
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load i32, ptr %191, align 8
   %193 = or i32 %192, 64
   store i32 %193, ptr %191, align 8
@@ -381,7 +381,7 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
   %194 = ptrtoint ptr %.val69 to i64
   %195 = and i64 %194, -2
   %196 = inttoptr i64 %195 to ptr
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load i32, ptr %197, align 8
   %199 = or i32 %198, 64
   store i32 %199, ptr %197, align 8
@@ -398,14 +398,14 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
 
 202:                                              ; preds = %200
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %205 = load i32, ptr %204, align 4
   %206 = load i32, ptr %203, align 8
   %207 = icmp eq i32 %205, %206
   br i1 %207, label %208, label %.Vec_PtrGrow.exit11_crit_edge.i97
 
 .Vec_PtrGrow.exit11_crit_edge.i97:                ; preds = %202
-  %.phi.trans.insert.i98 = getelementptr inbounds i8, ptr %203, i64 8
+  %.phi.trans.insert.i98 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %.pre.i99 = load ptr, ptr %.phi.trans.insert.i98, align 8
   br label %Vec_PtrPush.exit103
 
@@ -414,7 +414,7 @@ Ivy_ObjIsOneFanin.exit92.thread:                  ; preds = %152, %152, %152, %1
   br i1 %209, label %210, label %218
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %203, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %212 = load ptr, ptr %211, align 8
   %.not9.i.i101 = icmp eq ptr %212, null
   br i1 %.not9.i.i101, label %215, label %213
@@ -435,7 +435,7 @@ Vec_PtrGrow.exit.i102:                            ; preds = %215, %213
 
 218:                                              ; preds = %208
   %219 = shl nuw nsw i32 %205, 1
-  %220 = getelementptr inbounds i8, ptr %203, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %221 = load ptr, ptr %220, align 8
   %.not9.i10.i100 = icmp eq ptr %221, null
   %222 = zext nneg i32 %219 to i64
@@ -464,16 +464,16 @@ Vec_PtrPush.exit103:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.sink.split127
 
 233:                                              ; preds = %200
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = load i32, ptr %235, align 8
   %239 = icmp eq i32 %237, %238
   br i1 %239, label %240, label %.Vec_PtrGrow.exit11_crit_edge.i104
 
 .Vec_PtrGrow.exit11_crit_edge.i104:               ; preds = %233
-  %.phi.trans.insert.i105 = getelementptr inbounds i8, ptr %235, i64 8
+  %.phi.trans.insert.i105 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %.pre.i106 = load ptr, ptr %.phi.trans.insert.i105, align 8
   br label %Vec_PtrPush.exit110
 
@@ -482,7 +482,7 @@ Vec_PtrPush.exit103:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %241, label %242, label %250
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %235, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %244 = load ptr, ptr %243, align 8
   %.not9.i.i108 = icmp eq ptr %244, null
   br i1 %.not9.i.i108, label %247, label %245
@@ -503,7 +503,7 @@ Vec_PtrGrow.exit.i109:                            ; preds = %247, %245
 
 250:                                              ; preds = %240
   %251 = shl nuw nsw i32 %237, 1
-  %252 = getelementptr inbounds i8, ptr %235, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %253 = load ptr, ptr %252, align 8
   %.not9.i10.i107 = icmp eq ptr %253, null
   %254 = zext nneg i32 %251 to i64
@@ -540,7 +540,7 @@ Vec_PtrPush.exit110:                              ; preds = %.Vec_PtrGrow.exit11
   br label %267
 
 267:                                              ; preds = %.sink.split127, %200
-  %268 = getelementptr inbounds i8, ptr %0, i64 184
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %269 = load ptr, ptr %268, align 8
   %.not62 = icmp eq ptr %269, null
   br i1 %.not62, label %Vec_IntFillExtra.exit, label %270
@@ -564,7 +564,7 @@ Vec_PtrPush.exit110:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %278, label %279, label %290
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %269, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %281 = load ptr, ptr %280, align 8
   %.not9.i.i112 = icmp eq ptr %281, null
   %282 = sext i32 %274 to i64
@@ -589,7 +589,7 @@ Vec_PtrPush.exit110:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i.i, label %291, label %Vec_IntGrow.exit.i
 
 291:                                              ; preds = %290
-  %292 = getelementptr inbounds i8, ptr %269, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %293 = load ptr, ptr %292, align 8
   %.not9.i21.i = icmp eq ptr %293, null
   %294 = sext i32 %277 to i64
@@ -621,7 +621,7 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   br i1 %303, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntGrow.exit.i
-  %304 = getelementptr inbounds i8, ptr %269, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %305 = sext i32 %302 to i64
   %wide.trip.count.i = sext i32 %274 to i64
   br label %306
@@ -640,19 +640,19 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   br label %Vec_IntFillExtra.exit
 
 Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %273, %270, %267
-  %309 = getelementptr inbounds i8, ptr %0, i64 120
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.val85 = load i32, ptr %47, align 8
   %310 = and i32 %.val85, 15
   %311 = zext nneg i32 %310 to i64
-  %312 = getelementptr inbounds [8 x i32], ptr %309, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [8 x i32], ptr %309, i64 0, i64 %311
   %313 = load i32, ptr %312, align 4
   %314 = add nsw i32 %313, 1
   store i32 %314, ptr %312, align 4
-  %315 = getelementptr inbounds i8, ptr %0, i64 152
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %316 = load i32, ptr %315, align 8
   %317 = add nsw i32 %316, 1
   store i32 %317, ptr %315, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 216
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %319 = load ptr, ptr %318, align 8
   %.not64 = icmp eq ptr %319, null
   br i1 %.not64, label %321, label %320
@@ -667,15 +667,15 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %273
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_ObjCreatePo(ptr noundef initializes((56, 72)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -1552
   %7 = or disjoint i32 %6, 2
   store i32 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @Ivy_ObjCreate(ptr noundef %0, ptr noundef nonnull %3)
   ret ptr %10
@@ -683,9 +683,9 @@ define noundef ptr @Ivy_ObjCreatePo(ptr noundef initializes((56, 72)) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %3, ptr %6, align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, -2
@@ -694,11 +694,11 @@ define void @Ivy_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
 
 9:                                                ; preds = %4
   %10 = inttoptr i64 %8 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %20, label %16
@@ -720,11 +720,11 @@ define void @Ivy_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1
 
 23:                                               ; preds = %20
   %24 = inttoptr i64 %22 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load i32, ptr %28, align 8
   %.not20 = icmp eq i32 %29, 0
   br i1 %.not20, label %34, label %30
@@ -750,7 +750,7 @@ declare void @Ivy_TableInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -759,11 +759,11 @@ define void @Ivy_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %6 = ptrtoint ptr %4 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load i32, ptr %12, align 8
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %18, label %14
@@ -777,7 +777,7 @@ define void @Ivy_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %5, %14, %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
   br i1 %.not17, label %34, label %21
@@ -786,11 +786,11 @@ define void @Ivy_ObjDisconnect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %22 = ptrtoint ptr %20 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 192
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %29 = load i32, ptr %28, align 8
   %.not18 = icmp eq i32 %29, 0
   br i1 %.not18, label %34, label %30
@@ -820,11 +820,11 @@ define void @Ivy_ObjPatchFanin0(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %5 = ptrtoint ptr %.val to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %14, label %13
@@ -838,7 +838,7 @@ define void @Ivy_ObjPatchFanin0(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %15 = ptrtoint ptr %2 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -948,20 +948,20 @@ tailrecurse:                                      ; preds = %27, %3
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ObjDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, -1
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 156
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %30, label %17
@@ -970,11 +970,11 @@ define void @Ivy_ObjDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %18 = ptrtoint ptr %16 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %25 = load i32, ptr %24, align 8
   %.not16.i = icmp eq i32 %25, 0
   br i1 %.not16.i, label %30, label %26
@@ -988,7 +988,7 @@ define void @Ivy_ObjDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   br label %30
 
 30:                                               ; preds = %26, %17, %3
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not17.i = icmp eq ptr %32, null
   br i1 %.not17.i, label %Ivy_ObjDisconnect.exit, label %33
@@ -997,11 +997,11 @@ define void @Ivy_ObjDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %34 = ptrtoint ptr %32 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %37, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 192
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %41 = load i32, ptr %40, align 8
   %.not18.i = icmp eq i32 %41, 0
   br i1 %.not18.i, label %Ivy_ObjDisconnect.exit, label %42
@@ -1026,9 +1026,9 @@ Ivy_ObjDisconnect.exit:                           ; preds = %30, %33, %42
 
 47:                                               ; preds = %Ivy_ObjDisconnect.exit
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = zext i32 %50 to i64
   %smin.i = tail call i32 @llvm.smin.i32(i32 %50, i32 0)
   br label %53
@@ -1042,7 +1042,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %30, %33, %42
 56:                                               ; preds = %53
   %57 = add nsw i64 %indvars.iv.i, -1
   %58 = load ptr, ptr %51, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %57
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %1
   br i1 %61, label %62, label %53, !llvm.loop !6
@@ -1076,11 +1076,11 @@ Vec_PtrRemove.exit:                               ; preds = %65, %62
   br label %133
 
 74:                                               ; preds = %Ivy_ObjDisconnect.exit
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %80 = zext i32 %78 to i64
   %smin.i33 = tail call i32 @llvm.smin.i32(i32 %78, i32 0)
   br label %81
@@ -1094,7 +1094,7 @@ Vec_PtrRemove.exit:                               ; preds = %65, %62
 84:                                               ; preds = %81
   %85 = add nsw i64 %indvars.iv.i34, -1
   %86 = load ptr, ptr %79, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %1
   br i1 %89, label %90, label %81, !llvm.loop !6
@@ -1128,7 +1128,7 @@ Vec_PtrRemove.exit40:                             ; preds = %93, %90
   br label %133
 
 102:                                              ; preds = %Ivy_ObjDisconnect.exit
-  %103 = getelementptr inbounds i8, ptr %0, i64 192
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %104 = load i32, ptr %103, align 8
   %.not27 = icmp ne i32 %104, 0
   %.not50 = icmp eq i32 %46, 7
@@ -1136,11 +1136,11 @@ Vec_PtrRemove.exit40:                             ; preds = %93, %90
   br i1 %or.cond, label %105, label %133
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = zext i32 %109 to i64
   %smin.i41 = tail call i32 @llvm.smin.i32(i32 %109, i32 0)
   br label %112
@@ -1154,7 +1154,7 @@ Vec_PtrRemove.exit40:                             ; preds = %93, %90
 115:                                              ; preds = %112
   %116 = add nsw i64 %indvars.iv.i42, -1
   %117 = load ptr, ptr %110, align 8
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %1
   br i1 %120, label %121, label %112, !llvm.loop !6
@@ -1192,7 +1192,7 @@ Vec_PtrRemove.exit48:                             ; preds = %124, %121
   br i1 %.not29, label %145, label %134
 
 134:                                              ; preds = %133
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = load i32, ptr %1, align 8
   %138 = getelementptr i8, ptr %136, i64 8
@@ -1203,16 +1203,16 @@ Vec_PtrRemove.exit48:                             ; preds = %124, %121
   %141 = load i32, ptr %5, align 8
   %142 = and i32 %141, -16
   store i32 %142, ptr %5, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 248
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %1, align 8
   store ptr %1, ptr %143, align 8
   br label %151
 
 145:                                              ; preds = %133
-  %146 = getelementptr inbounds i8, ptr %1, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %1, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %149 = load ptr, ptr %148, align 8
   %150 = load i32, ptr %1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
@@ -1227,7 +1227,7 @@ Vec_PtrRemove.exit48:                             ; preds = %124, %121
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -1263,15 +1263,15 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not96, label %20, label %29
 
 20:                                               ; preds = %19, %16, %13, %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -1552
   %25 = or disjoint i32 %24, 7
   store i32 %25, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %27, align 8
   %28 = tail call ptr @Ivy_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %21)
   br label %29
@@ -1282,7 +1282,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not72, label %58, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %32 = load i32, ptr %31, align 8
   %.not73 = icmp eq i32 %32, 0
   br i1 %.not73, label %43, label %33
@@ -1295,7 +1295,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not97, label %43, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i32, ptr %37, align 8
   %.not75.unshifted = xor i32 %38, %.0.val
   %.not75 = icmp ult i32 %.not75.unshifted, 2048
@@ -1310,7 +1310,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %43
 
 43:                                               ; preds = %39, %36, %33, %30
-  %44 = getelementptr inbounds i8, ptr %0, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %45 = load ptr, ptr %44, align 8
   %.not76 = icmp eq ptr %45, null
   br i1 %.not76, label %58, label %46
@@ -1343,20 +1343,20 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %60
 
 60:                                               ; preds = %59, %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %62 = load i32, ptr %61, align 8
   %.not78 = icmp eq i32 %62, 0
   br i1 %.not78, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %65, ptr %66, align 8
   br label %67
 
 67:                                               ; preds = %63, %60
-  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %.0, i64 80, i1 false)
@@ -1388,7 +1388,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 82:                                               ; preds = %72, %80, %67
   %83 = load i32, ptr %1, align 8
   tail call void @Ivy_TableUpdate(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef %83) #7
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr %.0, align 8
   %87 = getelementptr i8, ptr %85, i64 8
@@ -1396,11 +1396,11 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds ptr, ptr %.val90, i64 %88
   store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, -16
   store i32 %92, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 248
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %94 = load ptr, ptr %93, align 8
   store ptr %94, ptr %.0, align 8
   store ptr %.0, ptr %93, align 8
@@ -1416,16 +1416,16 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not98, label %99, label %133
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = load i32, ptr %101, align 8
   %105 = icmp eq i32 %103, %104
   br i1 %105, label %106, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %99
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %101, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %101, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1434,7 +1434,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %107, label %108, label %116
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %101, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not9.i.i = icmp eq ptr %110, null
   br i1 %.not9.i.i, label %113, label %111
@@ -1455,7 +1455,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %113, %111
 
 116:                                              ; preds = %106
   %117 = shl nuw nsw i32 %103, 1
-  %118 = getelementptr inbounds i8, ptr %101, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not9.i10.i = icmp eq ptr %119, null
   %120 = zext nneg i32 %117 to i64
@@ -1526,11 +1526,11 @@ define void @Ivy_NodeFixBufferFanins(ptr noundef %0, ptr noundef %1, i32 noundef
   %15 = ptrtoint ptr %.val.i to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %24, label %23
@@ -1544,7 +1544,7 @@ define void @Ivy_NodeFixBufferFanins(ptr noundef %0, ptr noundef %1, i32 noundef
   %25 = ptrtoint ptr %14 to i64
   %26 = and i64 %25, -2
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4

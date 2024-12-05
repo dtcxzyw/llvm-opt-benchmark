@@ -136,7 +136,7 @@ entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #15
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #15
-  %master3 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master3 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %master, ptr %master3, align 8
   %call4 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %master, i32 noundef 1) #15
   br i1 %call4, label %if.then, label %if.end
@@ -170,7 +170,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i, ptr noundef %master) #15
   br label %trace_qio_channel_websock_new_server.exit
@@ -221,7 +221,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc) #15
   br label %trace_qio_channel_websock_handshake_start.exit
@@ -255,7 +255,7 @@ if.then8.i.i14:                                   ; preds = %if.then.i.i11
   %call9.i.i15 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4, ptr noundef null) #15
   %call10.i.i16 = tail call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i4, align 8
-  %tv_usec.i.i17 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
+  %tv_usec.i.i17 = getelementptr inbounds nuw i8, ptr %_now.i.i4, i64 8
   %11 = load i64, ptr %tv_usec.i.i17, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i16, i64 noundef %10, i64 noundef %11, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
@@ -266,7 +266,7 @@ if.else.i.i13:                                    ; preds = %if.then.i.i11
 
 trace_qio_channel_websock_handshake_pending.exit: ; preds = %trace_qio_channel_websock_handshake_start.exit, %land.lhs.true5.i.i8, %if.then8.i.i14, %if.else.i.i13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i4)
-  %master = getelementptr inbounds i8, ptr %ioc, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %ioc, i64 96
   %12 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_add_watch(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @qio_channel_websock_handshake_io, ptr noundef %call, ptr noundef null) #15
   ret void
@@ -289,12 +289,12 @@ entry:
   %call = tail call ptr @qio_task_get_source(ptr noundef %user_data) #15
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   store ptr null, ptr %err, align 8
-  %encinput.i = getelementptr inbounds i8, ptr %call.i, i64 104
-  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %encinput.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
+  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %0 = load i64, ptr %offset.i, align 8
   %sub.i = sub i64 4096, %0
   tail call void @buffer_reserve(ptr noundef nonnull %encinput.i, i64 noundef %sub.i) #15
-  %master.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %1 = load ptr, ptr %master.i, align 8
   %call.i9 = tail call ptr @buffer_end(ptr noundef nonnull %encinput.i) #15
   %call3.i = call i64 @qio_channel_read(ptr noundef %1, ptr noundef %call.i9, i64 noundef %sub.i, ptr noundef nonnull %err) #15
@@ -305,7 +305,7 @@ if.end.i:                                         ; preds = %entry
   %2 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %2, %call3.i
   store i64 %add.i, ptr %offset.i, align 8
-  %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 136
+  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   %3 = load ptr, ptr %buffer.i, align 8
   %call9.i = call ptr @g_strstr_len(ptr noundef %3, i64 noundef %add.i, ptr noundef nonnull @.str.10) #15
   %tobool.not.i = icmp eq ptr %call9.i, null
@@ -377,7 +377,7 @@ if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i23.i
   %call9.i.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i, ptr noundef null) #15
   %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #15
   %10 = load i64, ptr %_now.i.i.i.i.i, align 8
-  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i, ptr noundef %5) #15
   br label %trace_qio_channel_websock_http_greeting.exit.i.i.i
@@ -492,7 +492,7 @@ if.end36.i.i.i:                                   ; preds = %while.end.i.i.i
   %inc.i.i.i = add nuw nsw i64 %nhdrs.0.i.i.i, 1
   %arrayidx.i.i.i = getelementptr %struct.QIOChannelWebsockHTTPHeader, ptr %hdrs.i.i, i64 %nhdrs.0.i.i.i
   store ptr %buffer.addr.0.i.i.i, ptr %arrayidx.i.i.i, align 16
-  %value.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %value.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store ptr %sep.0.i.i.i, ptr %value.i.i.i, align 8
   %13 = load i8, ptr %buffer.addr.0.i.i.i, align 1
   %tobool38.not52.i.i.i = icmp eq i8 %13, 0
@@ -540,7 +540,7 @@ for.body.i47.i.i:                                 ; preds = %for.end.i.i.i, %for
   br i1 %tobool.not.i50.i.i, label %for.cond.i.i.i, label %if.then.i51.i.i
 
 if.then.i51.i.i:                                  ; preds = %for.body.i47.i.i
-  %value.i52.i.i = getelementptr inbounds i8, ptr %arrayidx.i48.i.i, i64 8
+  %value.i52.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48.i.i, i64 8
   %17 = load ptr, ptr %value.i52.i.i, align 8
   br label %qio_channel_websock_find_header.exit.i.i
 
@@ -562,7 +562,7 @@ for.body.i55.i.i:                                 ; preds = %for.cond.i63.i.i, %
   br i1 %tobool.not.i59.i.i, label %for.cond.i63.i.i, label %qio_channel_websock_find_header.exit66.i.i
 
 qio_channel_websock_find_header.exit66.i.i:       ; preds = %for.body.i55.i.i
-  %value.i61.i.i = getelementptr inbounds i8, ptr %arrayidx.i57.i.i, i64 8
+  %value.i61.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i57.i.i, i64 8
   %19 = load ptr, ptr %value.i61.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %19, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %for.body.i67.i.i
@@ -585,7 +585,7 @@ for.body.i67.i.i:                                 ; preds = %qio_channel_websock
   br i1 %tobool.not.i71.i.i, label %for.cond.i75.i.i, label %qio_channel_websock_find_header.exit78.i.i
 
 qio_channel_websock_find_header.exit78.i.i:       ; preds = %for.body.i67.i.i
-  %value.i73.i.i = getelementptr inbounds i8, ptr %arrayidx.i69.i.i, i64 8
+  %value.i73.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i69.i.i, i64 8
   %21 = load ptr, ptr %value.i73.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %21, null
   br i1 %tobool10.not.i.i, label %if.then11.i.i, label %for.body.i79.i.i
@@ -608,7 +608,7 @@ for.body.i79.i.i:                                 ; preds = %qio_channel_websock
   br i1 %tobool.not.i83.i.i, label %for.cond.i87.i.i, label %qio_channel_websock_find_header.exit90.i.i
 
 qio_channel_websock_find_header.exit90.i.i:       ; preds = %for.body.i79.i.i
-  %value.i85.i.i = getelementptr inbounds i8, ptr %arrayidx.i81.i.i, i64 8
+  %value.i85.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i81.i.i, i64 8
   %23 = load ptr, ptr %value.i85.i.i, align 8
   %tobool15.not.i.i = icmp eq ptr %23, null
   br i1 %tobool15.not.i.i, label %if.then16.i.i, label %for.body.i91.i.i
@@ -631,7 +631,7 @@ for.body.i91.i.i:                                 ; preds = %qio_channel_websock
   br i1 %tobool.not.i95.i.i, label %for.cond.i99.i.i, label %qio_channel_websock_find_header.exit102.i.i
 
 qio_channel_websock_find_header.exit102.i.i:      ; preds = %for.body.i91.i.i
-  %value.i97.i.i = getelementptr inbounds i8, ptr %arrayidx.i93.i.i, i64 8
+  %value.i97.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i93.i.i, i64 8
   %25 = load ptr, ptr %value.i97.i.i, align 8
   %tobool20.not.i.i = icmp eq ptr %25, null
   br i1 %tobool20.not.i.i, label %if.then21.i.i, label %for.body.i103.i.i
@@ -654,7 +654,7 @@ for.body.i103.i.i:                                ; preds = %qio_channel_websock
   br i1 %tobool.not.i107.i.i, label %for.cond.i111.i.i, label %qio_channel_websock_find_header.exit114.i.i
 
 qio_channel_websock_find_header.exit114.i.i:      ; preds = %for.body.i103.i.i
-  %value.i109.i.i = getelementptr inbounds i8, ptr %arrayidx.i105.i.i, i64 8
+  %value.i109.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i105.i.i, i64 8
   %27 = load ptr, ptr %value.i109.i.i, align 8
   %tobool25.not.i.i = icmp eq ptr %27, null
   br i1 %tobool25.not.i.i, label %if.then26.i.i, label %if.end27.i.i
@@ -687,7 +687,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #15
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #15
   %32 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i.i.i, i64 noundef %32, i64 noundef %33, ptr noundef %call.i, ptr noundef %retval.0.i53.i.i, ptr noundef nonnull %19, ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull %21) #15
   br label %trace_qio_channel_websock_http_request.exit.i.i
@@ -831,7 +831,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %44 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %45 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, ptr noundef %ioc, ptr noundef %call3) #15
   br label %trace_qio_channel_websock_handshake_fail.exit
@@ -871,7 +871,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #15
   %call10.i.i22 = call i32 @qemu_get_thread_id() #15
   %51 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
+  %tv_usec.i.i23 = getelementptr inbounds nuw i8, ptr %_now.i.i10, i64 8
   %52 = load i64, ptr %tv_usec.i.i23, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i22, i64 noundef %51, i64 noundef %52, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
@@ -885,7 +885,7 @@ trace_qio_channel_websock_handshake_pending.exit: ; preds = %if.then5, %land.lhs
   br label %return
 
 if.end6:                                          ; preds = %qio_channel_websock_handshake_send_res_err.exit.i, %qio_channel_websock_handshake_process.exit.i
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %53 = load ptr, ptr %err, align 8
   call void @error_propagate(ptr noundef nonnull %io_err, ptr noundef %53) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i24)
@@ -911,7 +911,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i31
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24, ptr noundef null) #15
   %call10.i.i36 = call i32 @qemu_get_thread_id() #15
   %58 = load i64, ptr %_now.i.i24, align 8
-  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
+  %tv_usec.i.i37 = getelementptr inbounds nuw i8, ptr %_now.i.i24, i64 8
   %59 = load i64, ptr %tv_usec.i.i37, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i36, i64 noundef %58, i64 noundef %59, ptr noundef %ioc) #15
   br label %trace_qio_channel_websock_handshake_reply.exit
@@ -935,28 +935,28 @@ return:                                           ; preds = %trace_qio_channel_w
 define internal range(i32 0, 32) i32 @qio_channel_websock_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #2 {
 entry:
   store i32 -1, ptr %timeout, align 4
-  %wioc.i = getelementptr inbounds i8, ptr %source, i64 96
+  %wioc.i = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %0, i64 200
+  %offset.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %offset.i, align 8
   %tobool.not.i = icmp ne i64 %1, 0
   %spec.select.i = zext i1 %tobool.not.i to i32
-  %offset2.i = getelementptr inbounds i8, ptr %0, i64 160
+  %offset2.i = getelementptr inbounds nuw i8, ptr %0, i64 160
   %2 = load i64, ptr %offset2.i, align 8
   %cmp.i = icmp ult i64 %2, 8192
   %or4.i = or disjoint i32 %spec.select.i, 4
   %cond.1.i = select i1 %cmp.i, i32 %or4.i, i32 %spec.select.i
-  %io_eof.i = getelementptr inbounds i8, ptr %0, i64 256
+  %io_eof.i = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %io_eof.i, align 8
   %tobool7.not.i = icmp eq i32 %3, 0
   %or9.i = or disjoint i32 %cond.1.i, 16
   %cond.2.i = select i1 %tobool7.not.i, i32 %cond.1.i, i32 %or9.i
-  %io_err.i = getelementptr inbounds i8, ptr %0, i64 248
+  %io_err.i = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %io_err.i, align 8
   %tobool12.not.i = icmp eq ptr %4, null
   %or14.i = or disjoint i32 %cond.2.i, 8
   %cond.3.i = select i1 %tobool12.not.i, i32 %cond.2.i, i32 %or14.i
-  %condition.i = getelementptr inbounds i8, ptr %source, i64 104
+  %condition.i = getelementptr inbounds nuw i8, ptr %source, i64 104
   %5 = load i32, ptr %condition.i, align 8
   %and.i = and i32 %cond.3.i, %5
   ret i32 %and.i
@@ -965,28 +965,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 32) i32 @qio_channel_websock_source_check(ptr nocapture noundef readonly %source) #3 {
 entry:
-  %wioc = getelementptr inbounds i8, ptr %source, i64 96
+  %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
-  %offset = getelementptr inbounds i8, ptr %0, i64 200
+  %offset = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load i64, ptr %offset, align 8
   %tobool.not = icmp ne i64 %1, 0
   %spec.select = zext i1 %tobool.not to i32
-  %offset2 = getelementptr inbounds i8, ptr %0, i64 160
+  %offset2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %2 = load i64, ptr %offset2, align 8
   %cmp = icmp ult i64 %2, 8192
   %or4 = or disjoint i32 %spec.select, 4
   %cond.1 = select i1 %cmp, i32 %or4, i32 %spec.select
-  %io_eof = getelementptr inbounds i8, ptr %0, i64 256
+  %io_eof = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %io_eof, align 8
   %tobool7.not = icmp eq i32 %3, 0
   %or9 = or disjoint i32 %cond.1, 16
   %cond.2 = select i1 %tobool7.not, i32 %cond.1, i32 %or9
-  %io_err = getelementptr inbounds i8, ptr %0, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %io_err, align 8
   %tobool12.not = icmp eq ptr %4, null
   %or14 = or disjoint i32 %cond.2, 8
   %cond.3 = select i1 %tobool12.not, i32 %cond.2, i32 %or14
-  %condition = getelementptr inbounds i8, ptr %source, i64 104
+  %condition = getelementptr inbounds nuw i8, ptr %source, i64 104
   %5 = load i32, ptr %condition, align 8
   %and = and i32 %cond.3, %5
   ret i32 %and
@@ -995,30 +995,30 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qio_channel_websock_source_dispatch(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %callback, ptr noundef %user_data) #0 {
 entry:
-  %wioc = getelementptr inbounds i8, ptr %source, i64 96
+  %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #15
   %1 = load ptr, ptr %wioc, align 8
-  %offset.i = getelementptr inbounds i8, ptr %1, i64 200
+  %offset.i = getelementptr inbounds nuw i8, ptr %1, i64 200
   %2 = load i64, ptr %offset.i, align 8
   %tobool.not.i = icmp ne i64 %2, 0
   %spec.select.i = zext i1 %tobool.not.i to i32
-  %offset2.i = getelementptr inbounds i8, ptr %1, i64 160
+  %offset2.i = getelementptr inbounds nuw i8, ptr %1, i64 160
   %3 = load i64, ptr %offset2.i, align 8
   %cmp.i = icmp ult i64 %3, 8192
   %or4.i = or disjoint i32 %spec.select.i, 4
   %cond.1.i = select i1 %cmp.i, i32 %or4.i, i32 %spec.select.i
-  %io_eof.i = getelementptr inbounds i8, ptr %1, i64 256
+  %io_eof.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i32, ptr %io_eof.i, align 8
   %tobool7.not.i = icmp eq i32 %4, 0
   %or9.i = or disjoint i32 %cond.1.i, 16
   %cond.2.i = select i1 %tobool7.not.i, i32 %cond.1.i, i32 %or9.i
-  %io_err.i = getelementptr inbounds i8, ptr %1, i64 248
+  %io_err.i = getelementptr inbounds nuw i8, ptr %1, i64 248
   %5 = load ptr, ptr %io_err.i, align 8
   %tobool12.not.i = icmp eq ptr %5, null
   %or14.i = or disjoint i32 %cond.2.i, 8
   %cond.3.i = select i1 %tobool12.not.i, i32 %cond.2.i, i32 %or14.i
-  %condition.i = getelementptr inbounds i8, ptr %source, i64 104
+  %condition.i = getelementptr inbounds nuw i8, ptr %source, i64 104
   %6 = load i32, ptr %condition.i, align 8
   %and.i = and i32 %cond.3.i, %6
   %call2 = tail call i32 %callback(ptr noundef %call.i, i32 noundef %and.i, ptr noundef %user_data) #15
@@ -1028,7 +1028,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qio_channel_websock_source_finalize(ptr nocapture noundef readonly %source) #0 {
 entry:
-  %wioc = getelementptr inbounds i8, ptr %source, i64 96
+  %wioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %wioc, align 8
   tail call void @object_unref(ptr noundef %0) #15
   ret void
@@ -1080,11 +1080,11 @@ entry:
   %call = tail call ptr @qio_task_get_source(ptr noundef %user_data) #15
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   store ptr null, ptr %err, align 8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
-  %buffer = getelementptr inbounds i8, ptr %call.i, i64 176
+  %buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %1 = load ptr, ptr %buffer, align 8
-  %offset = getelementptr inbounds i8, ptr %call.i, i64 160
+  %offset = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %2 = load i64, ptr %offset, align 8
   %call3 = call i64 @qio_channel_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %err) #15
   %cmp = icmp slt i64 %call3, 0
@@ -1116,7 +1116,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %ioc, ptr noundef %call4) #15
   br label %trace_qio_channel_websock_handshake_fail.exit
@@ -1133,14 +1133,14 @@ trace_qio_channel_websock_handshake_fail.exit:    ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %encoutput = getelementptr inbounds i8, ptr %call.i, i64 144
+  %encoutput = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   call void @buffer_advance(ptr noundef nonnull %encoutput, i64 noundef %call3) #15
   %11 = load i64, ptr %offset, align 8
   %cmp8 = icmp eq i64 %11, 0
   br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %if.end
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %12 = load ptr, ptr %io_err, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %if.else, label %if.then10
@@ -1170,7 +1170,7 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i25
   %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #15
   %call10.i.i30 = call i32 @qemu_get_thread_id() #15
   %17 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %tv_usec.i.i31 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   %18 = load i64, ptr %tv_usec.i.i31, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i30, i64 noundef %17, i64 noundef %18, ptr noundef %ioc, ptr noundef %call12) #15
   br label %trace_qio_channel_websock_handshake_fail.exit32
@@ -1211,7 +1211,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i40
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i33, ptr noundef null) #15
   %call10.i.i45 = call i32 @qemu_get_thread_id() #15
   %24 = load i64, ptr %_now.i.i33, align 8
-  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i33, i64 8
+  %tv_usec.i.i46 = getelementptr inbounds nuw i8, ptr %_now.i.i33, i64 8
   %25 = load i64, ptr %tv_usec.i.i46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i45, i64 noundef %24, i64 noundef %25, ptr noundef %ioc) #15
   br label %trace_qio_channel_websock_handshake_complete.exit
@@ -1249,7 +1249,7 @@ if.then8.i.i57:                                   ; preds = %if.then.i.i54
   %call9.i.i58 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #15
   %call10.i.i59 = call i32 @qemu_get_thread_id() #15
   %30 = load i64, ptr %_now.i.i47, align 8
-  %tv_usec.i.i60 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
+  %tv_usec.i.i60 = getelementptr inbounds nuw i8, ptr %_now.i.i47, i64 8
   %31 = load i64, ptr %tv_usec.i.i60, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i59, i64 noundef %30, i64 noundef %31, ptr noundef %ioc, i32 noundef range(i32 1, 5) 4) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
@@ -1286,7 +1286,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %vargs)
   %call = call noalias ptr @g_strdup_vprintf(ptr noundef %resmsg, ptr noundef nonnull %vargs) #15
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #16
-  %encoutput = getelementptr inbounds i8, ptr %ioc, i64 144
+  %encoutput = getelementptr inbounds nuw i8, ptr %ioc, i64 144
   call void @buffer_reserve(ptr noundef nonnull %encoutput, i64 noundef %call2) #15
   call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef %call, i64 noundef %call2) #15
   call void @g_free(ptr noundef %call) #15
@@ -1396,16 +1396,16 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_channel_websock_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %encinput = getelementptr inbounds i8, ptr %call.i, i64 104
+  %encinput = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   tail call void @buffer_free(ptr noundef nonnull %encinput) #15
-  %encoutput = getelementptr inbounds i8, ptr %call.i, i64 144
+  %encoutput = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   tail call void @buffer_free(ptr noundef nonnull %encoutput) #15
-  %rawinput = getelementptr inbounds i8, ptr %call.i, i64 184
+  %rawinput = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   tail call void @buffer_free(ptr noundef nonnull %rawinput) #15
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @object_unref(ptr noundef %0) #15
-  %io_tag = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %1 = load i32, ptr %io_tag, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1415,7 +1415,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %2 = load ptr, ptr %io_err, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end6, label %if.then4
@@ -1432,21 +1432,21 @@ if.end6:                                          ; preds = %if.then4, %if.end
 define internal void @qio_channel_websock_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #15
-  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
+  %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr @qio_channel_websock_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
+  %io_readv = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @qio_channel_websock_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
+  %io_set_blocking = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr @qio_channel_websock_set_blocking, ptr %io_set_blocking, align 8
-  %io_set_cork = getelementptr inbounds i8, ptr %call.i, i64 144
+  %io_set_cork = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @qio_channel_websock_set_cork, ptr %io_set_cork, align 8
-  %io_set_delay = getelementptr inbounds i8, ptr %call.i, i64 152
+  %io_set_delay = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @qio_channel_websock_set_delay, ptr %io_set_delay, align 8
-  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
+  %io_close = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qio_channel_websock_close, ptr %io_close, align 8
-  %io_shutdown = getelementptr inbounds i8, ptr %call.i, i64 136
+  %io_shutdown = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @qio_channel_websock_shutdown, ptr %io_shutdown, align 8
-  %io_create_watch = getelementptr inbounds i8, ptr %call.i, i64 120
+  %io_create_watch = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @qio_channel_websock_create_watch, ptr %io_create_watch, align 8
   ret void
 }
@@ -1463,7 +1463,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %conv = trunc i64 %niov to i32
   %call1 = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %conv) #15
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %0 = load ptr, ptr %io_err, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1474,7 +1474,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %io_eof = getelementptr inbounds i8, ptr %call.i, i64 256
+  %io_eof = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %1 = load i32, ptr %io_eof, align 8
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
@@ -1484,7 +1484,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %offset = getelementptr inbounds i8, ptr %call.i, i64 160
+  %offset = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %2 = load i64, ptr %offset, align 8
   %cmp = icmp ugt i64 %2, 8191
   %sub = sub nuw nsw i64 8192, %2
@@ -1500,14 +1500,14 @@ if.then15:                                        ; preds = %if.end6
 
 if.end16:                                         ; preds = %if.then15, %if.end6
   %3 = phi i64 [ %.pre, %if.then15 ], [ %2, %if.end6 ]
-  %encoutput.i = getelementptr inbounds i8, ptr %call.i, i64 144
+  %encoutput.i = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   %cmp.not19.i = icmp eq i64 %3, 0
   br i1 %cmp.not19.i, label %if.end23, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end16
-  %master.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 176
-  %pong_remain.i = getelementptr inbounds i8, ptr %call.i, i64 232
+  %master.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
+  %pong_remain.i = getelementptr inbounds nuw i8, ptr %call.i, i64 232
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -1544,7 +1544,7 @@ qio_channel_websock_write_wire.exit:              ; preds = %if.end.i, %if.then.
   br i1 %or.cond, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %qio_channel_websock_write_wire.exit
-  %io_tag.i = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag.i = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %9 = load i32, ptr %io_tag.i, align 4
   %tobool.not.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i, label %return, label %if.then.i21
@@ -1555,7 +1555,7 @@ if.then.i21:                                      ; preds = %if.then22
   br label %return
 
 if.end23:                                         ; preds = %if.end16, %qio_channel_websock_write_wire.exit
-  %io_tag.i.i = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %10 = load i32, ptr %io_tag.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i, label %qio_channel_websock_unset_watch.exit.i, label %if.then.i.i
@@ -1573,7 +1573,7 @@ qio_channel_websock_unset_watch.exit.i:           ; preds = %if.then.i.i, %if.en
 if.end.i25:                                       ; preds = %qio_channel_websock_unset_watch.exit.i
   %12 = load i64, ptr %offset, align 8
   %tobool1.not.i = icmp ne i64 %12, 0
-  %offset4.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %offset4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %13 = load i64, ptr %offset4.i, align 8
   %cmp.i = icmp ult i64 %13, 8192
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
@@ -1593,7 +1593,7 @@ if.end8.i:                                        ; preds = %if.end.i25
 if.then10.i:                                      ; preds = %if.end8.i, %land.lhs.true.i
   %cond.115.i = phi i32 [ 4, %if.end8.i ], [ %or7.mux.i, %land.lhs.true.i ]
   %call.i27 = tail call ptr @object_ref(ptr noundef nonnull %call.i) #15
-  %master.i28 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master.i28 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %15 = load ptr, ptr %master.i28, align 8
   %call11.i = tail call i32 @qio_channel_add_watch(ptr noundef %15, i32 noundef %cond.115.i, ptr noundef nonnull @qio_channel_websock_flush, ptr noundef nonnull %call.i, ptr noundef nonnull @qio_channel_websock_flush_free) #15
   store i32 %call11.i, ptr %io_tag.i.i, align 4
@@ -1612,7 +1612,7 @@ return:                                           ; preds = %if.then.i21, %if.th
 define internal i64 @qio_channel_websock_readv(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %0 = load ptr, ptr %io_err, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1623,8 +1623,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rawinput = getelementptr inbounds i8, ptr %call.i, i64 184
-  %offset = getelementptr inbounds i8, ptr %call.i, i64 200
+  %rawinput = getelementptr inbounds nuw i8, ptr %call.i, i64 184
+  %offset = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   %1 = load i64, ptr %offset, align 8
   %tobool3.not = icmp eq i64 %1, 0
   br i1 %tobool3.not, label %if.then4, label %if.end9
@@ -1640,14 +1640,14 @@ if.end9:                                          ; preds = %if.then4, %if.end
   br i1 %cmp1028.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %buffer = getelementptr inbounds i8, ptr %call.i, i64 216
+  %buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %got.030 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.029
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %3 = load i64, ptr %offset, align 8
   %sub = sub i64 %3, %got.030
@@ -1667,7 +1667,7 @@ for.body:                                         ; preds = %for.body, %for.body
 for.end:                                          ; preds = %for.body, %if.end9
   %got.1 = phi i64 [ 0, %if.end9 ], [ %add, %for.body ]
   tail call void @buffer_advance(ptr noundef nonnull %rawinput, i64 noundef %got.1) #15
-  %io_tag.i.i = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %7 = load i32, ptr %io_tag.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i.i, label %qio_channel_websock_unset_watch.exit.i, label %if.then.i.i
@@ -1683,17 +1683,17 @@ qio_channel_websock_unset_watch.exit.i:           ; preds = %if.then.i.i, %for.e
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %qio_channel_websock_unset_watch.exit.i
-  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %9 = load i64, ptr %offset.i, align 8
   %tobool1.not.i = icmp ne i64 %9, 0
-  %offset4.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %offset4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %10 = load i64, ptr %offset4.i, align 8
   %cmp.i = icmp ult i64 %10, 8192
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %spec.select.i = select i1 %tobool1.not.i, i32 4, i32 0
-  %io_eof.i = getelementptr inbounds i8, ptr %call.i, i64 256
+  %io_eof.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %11 = load i32, ptr %io_eof.i, align 8
   %tobool5.not.i = icmp eq i32 %11, 0
   %brmerge.i = select i1 %tobool5.not.i, i1 true, i1 %tobool1.not.i
@@ -1707,7 +1707,7 @@ if.end8.i:                                        ; preds = %if.end.i
 if.then10.i:                                      ; preds = %if.end8.i, %land.lhs.true.i
   %cond.115.i = phi i32 [ 4, %if.end8.i ], [ %or7.mux.i, %land.lhs.true.i ]
   %call.i27 = tail call ptr @object_ref(ptr noundef nonnull %call.i) #15
-  %master.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %12 = load ptr, ptr %master.i, align 8
   %call11.i = tail call i32 @qio_channel_add_watch(ptr noundef %12, i32 noundef %cond.115.i, ptr noundef nonnull @qio_channel_websock_flush, ptr noundef nonnull %call.i, ptr noundef nonnull @qio_channel_websock_flush_free) #15
   store i32 %call11.i, ptr %io_tag.i.i, align 4
@@ -1722,7 +1722,7 @@ return:                                           ; preds = %if.then10.i, %if.en
 define internal noundef i32 @qio_channel_websock_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %0, i1 noundef zeroext %enabled, ptr noundef %errp) #15
   ret i32 0
@@ -1732,7 +1732,7 @@ entry:
 define internal void @qio_channel_websock_set_cork(ptr noundef %ioc, i1 noundef zeroext %enabled) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @qio_channel_set_cork(ptr noundef %0, i1 noundef zeroext %enabled) #15
   ret void
@@ -1742,7 +1742,7 @@ entry:
 define internal void @qio_channel_websock_set_delay(ptr noundef %ioc, i1 noundef zeroext %enabled) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @qio_channel_set_delay(ptr noundef %0, i1 noundef zeroext %enabled) #15
   ret void
@@ -1776,7 +1776,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc) #15
   br label %trace_qio_channel_websock_close.exit
@@ -1787,7 +1787,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qio_channel_websock_close.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %6 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_close(ptr noundef %6, ptr noundef %errp) #15
   ret i32 %call1
@@ -1797,7 +1797,7 @@ trace_qio_channel_websock_close.exit:             ; preds = %entry, %land.lhs.tr
 define internal i32 @qio_channel_websock_shutdown(ptr noundef %ioc, i32 noundef %how, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_shutdown(ptr noundef %0, i32 noundef %how, ptr noundef %errp) #15
   ret i32 %call1
@@ -1808,12 +1808,12 @@ define internal ptr @qio_channel_websock_create_watch(ptr noundef %ioc, i32 noun
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_WEBSOCK) #15
   %call1 = tail call ptr @g_source_new(ptr noundef nonnull @qio_channel_websock_source_funcs, i32 noundef 112) #15
-  %wioc2 = getelementptr inbounds i8, ptr %call1, i64 96
+  %wioc2 = getelementptr inbounds nuw i8, ptr %call1, i64 96
   store ptr %call.i, ptr %wioc2, align 8
   %call3 = tail call ptr @object_ref(ptr noundef %call.i) #15
-  %condition4 = getelementptr inbounds i8, ptr %call1, i64 104
+  %condition4 = getelementptr inbounds nuw i8, ptr %call1, i64 104
   store i32 %condition, ptr %condition4, align 8
-  %io_tag.i.i = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %0 = load i32, ptr %io_tag.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %qio_channel_websock_unset_watch.exit.i, label %if.then.i.i
@@ -1824,23 +1824,23 @@ if.then.i.i:                                      ; preds = %entry
   br label %qio_channel_websock_unset_watch.exit.i
 
 qio_channel_websock_unset_watch.exit.i:           ; preds = %if.then.i.i, %entry
-  %io_err.i = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err.i = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %1 = load ptr, ptr %io_err.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %qio_channel_websock_set_watch.exit
 
 if.end.i:                                         ; preds = %qio_channel_websock_unset_watch.exit.i
-  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %2 = load i64, ptr %offset.i, align 8
   %tobool1.not.i = icmp ne i64 %2, 0
-  %offset4.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %offset4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %3 = load i64, ptr %offset4.i, align 8
   %cmp.i = icmp ult i64 %3, 8192
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %spec.select.i = select i1 %tobool1.not.i, i32 4, i32 0
-  %io_eof.i = getelementptr inbounds i8, ptr %call.i, i64 256
+  %io_eof.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %4 = load i32, ptr %io_eof.i, align 8
   %tobool5.not.i = icmp eq i32 %4, 0
   %brmerge.i = select i1 %tobool5.not.i, i1 true, i1 %tobool1.not.i
@@ -1854,7 +1854,7 @@ if.end8.i:                                        ; preds = %if.end.i
 if.then10.i:                                      ; preds = %if.end8.i, %land.lhs.true.i
   %cond.115.i = phi i32 [ 4, %if.end8.i ], [ %or7.mux.i, %land.lhs.true.i ]
   %call.i5 = tail call ptr @object_ref(ptr noundef nonnull %call.i) #15
-  %master.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %5 = load ptr, ptr %master.i, align 8
   %call11.i = tail call i32 @qio_channel_add_watch(ptr noundef %5, i32 noundef %cond.115.i, ptr noundef nonnull @qio_channel_websock_flush, ptr noundef nonnull %call.i, ptr noundef nonnull @qio_channel_websock_flush_free) #15
   store i32 %call11.i, ptr %io_tag.i.i, align 4
@@ -1888,7 +1888,7 @@ if.end:                                           ; preds = %entry
   %0 = or disjoint i8 %opcode, -128
   store i8 %0, ptr %header, align 1
   %cmp4 = icmp ult i64 %size, 126
-  %b1 = getelementptr inbounds i8, ptr %header, i64 1
+  %b1 = getelementptr inbounds nuw i8, ptr %header, i64 1
   br i1 %cmp4, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.end
@@ -1904,14 +1904,14 @@ if.then11:                                        ; preds = %if.else8
   store i8 126, ptr %b1, align 1
   %conv13 = trunc nuw i64 %size to i16
   %1 = tail call noundef i16 @llvm.bswap.i16(i16 range(i16 126, 0) %conv13)
-  %u = getelementptr inbounds i8, ptr %header, i64 2
+  %u = getelementptr inbounds nuw i8, ptr %header, i64 2
   store i16 %1, ptr %u, align 1
   br label %if.end20
 
 if.else15:                                        ; preds = %if.else8
   store i8 127, ptr %b1, align 1
   %2 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 65536, 0) %size)
-  %u18 = getelementptr inbounds i8, ptr %header, i64 2
+  %u18 = getelementptr inbounds nuw i8, ptr %header, i64 2
   store i64 %2, ptr %u18, align 1
   br label %if.end20
 
@@ -1940,7 +1940,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %opcode to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %ioc, i32 noundef %conv11.i.i, i64 noundef range(i64 2, 11) %header_size.0, i64 noundef %size) #15
@@ -1953,7 +1953,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qio_channel_websock_encode.exit:            ; preds = %if.end20, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %encoutput = getelementptr inbounds i8, ptr %ioc, i64 144
+  %encoutput = getelementptr inbounds nuw i8, ptr %ioc, i64 144
   %add = add i64 %header_size.0, %size
   tail call void @buffer_reserve(ptr noundef nonnull %encoutput, i64 noundef %add) #15
   call void @buffer_append(ptr noundef nonnull %encoutput, ptr noundef nonnull %header, i64 noundef %header_size.0) #15
@@ -1966,7 +1966,7 @@ for.body:                                         ; preds = %trace_qio_channel_w
   %i.030 = phi i64 [ %inc, %for.body ], [ 0, %trace_qio_channel_websock_encode.exit ]
   %size.addr.029 = phi i64 [ %sub32, %for.body ], [ %size, %trace_qio_channel_websock_encode.exit ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.030
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %10 = load i64, ptr %iov_len, align 8
   %spec.select = call i64 @llvm.umin.i64(i64 %10, i64 %size.addr.029)
   %11 = load ptr, ptr %arrayidx, align 8
@@ -2000,17 +2000,17 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %io_err = getelementptr inbounds i8, ptr %call.i, i64 248
-  %encoutput.i = getelementptr inbounds i8, ptr %call.i, i64 144
-  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %io_err = getelementptr inbounds nuw i8, ptr %call.i, i64 248
+  %encoutput.i = getelementptr inbounds nuw i8, ptr %call.i, i64 144
+  %offset.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %0 = load i64, ptr %offset.i, align 8
   %cmp.not19.i = icmp eq i64 %0, 0
   br i1 %cmp.not19.i, label %qio_channel_websock_write_wire.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %master.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 176
-  %pong_remain.i = getelementptr inbounds i8, ptr %call.i, i64 232
+  %master.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
+  %pong_remain.i = getelementptr inbounds nuw i8, ptr %call.i, i64 232
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -2053,12 +2053,12 @@ if.end3:                                          ; preds = %entry
   br i1 %tobool5.not.old, label %cleanup, label %if.then6
 
 if.then6:                                         ; preds = %qio_channel_websock_write_wire.exit, %if.end3
-  %io_err7 = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err7 = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %call8 = tail call fastcc i64 @qio_channel_websock_read_wire(ptr noundef %call.i, ptr noundef nonnull %io_err7)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then6, %if.end3, %qio_channel_websock_write_wire.exit
-  %io_tag.i.i = getelementptr inbounds i8, ptr %call.i, i64 244
+  %io_tag.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %6 = load i32, ptr %io_tag.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %qio_channel_websock_unset_watch.exit.i, label %if.then.i.i
@@ -2069,23 +2069,23 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %qio_channel_websock_unset_watch.exit.i
 
 qio_channel_websock_unset_watch.exit.i:           ; preds = %if.then.i.i, %cleanup
-  %io_err.i = getelementptr inbounds i8, ptr %call.i, i64 248
+  %io_err.i = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %7 = load ptr, ptr %io_err.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.end.i7, label %qio_channel_websock_set_watch.exit
 
 if.end.i7:                                        ; preds = %qio_channel_websock_unset_watch.exit.i
-  %offset.i8 = getelementptr inbounds i8, ptr %call.i, i64 160
+  %offset.i8 = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %8 = load i64, ptr %offset.i8, align 8
   %tobool1.not.i = icmp ne i64 %8, 0
-  %offset4.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %offset4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %9 = load i64, ptr %offset4.i, align 8
   %cmp.i = icmp ult i64 %9, 8192
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i7
   %spec.select.i = select i1 %tobool1.not.i, i32 4, i32 0
-  %io_eof.i = getelementptr inbounds i8, ptr %call.i, i64 256
+  %io_eof.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %10 = load i32, ptr %io_eof.i, align 8
   %tobool5.not.i = icmp eq i32 %10, 0
   %brmerge.i = select i1 %tobool5.not.i, i1 true, i1 %tobool1.not.i
@@ -2099,7 +2099,7 @@ if.end8.i:                                        ; preds = %if.end.i7
 if.then10.i:                                      ; preds = %if.end8.i, %land.lhs.true.i
   %cond.115.i = phi i32 [ 4, %if.end8.i ], [ %or7.mux.i, %land.lhs.true.i ]
   %call.i9 = tail call ptr @object_ref(ptr noundef nonnull %call.i) #15
-  %master.i10 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master.i10 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %11 = load ptr, ptr %master.i10, align 8
   %call11.i = tail call i32 @qio_channel_add_watch(ptr noundef %11, i32 noundef %cond.115.i, ptr noundef nonnull @qio_channel_websock_flush, ptr noundef nonnull %call.i, ptr noundef nonnull @qio_channel_websock_flush_free) #15
   store i32 %call11.i, ptr %io_tag.i.i, align 4
@@ -2125,18 +2125,18 @@ entry:
   %iov.i = alloca %struct.iovec, align 8
   %iov76.i = alloca %struct.iovec, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %offset = getelementptr inbounds i8, ptr %ioc, i64 120
+  %offset = getelementptr inbounds nuw i8, ptr %ioc, i64 120
   %0 = load i64, ptr %offset, align 8
   %cmp = icmp ult i64 %0, 4096
   br i1 %cmp, label %if.then, label %while.body.lr.ph
 
 if.then:                                          ; preds = %entry
-  %encinput = getelementptr inbounds i8, ptr %ioc, i64 104
+  %encinput = getelementptr inbounds nuw i8, ptr %ioc, i64 104
   %sub = sub nuw nsw i64 4096, %0
   tail call void @buffer_reserve(ptr noundef nonnull %encinput, i64 noundef %sub) #15
-  %master = getelementptr inbounds i8, ptr %ioc, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %ioc, i64 96
   %1 = load ptr, ptr %master, align 8
-  %buffer = getelementptr inbounds i8, ptr %ioc, i64 136
+  %buffer = getelementptr inbounds nuw i8, ptr %ioc, i64 136
   %2 = load ptr, ptr %buffer, align 8
   %3 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %3
@@ -2152,7 +2152,7 @@ if.end:                                           ; preds = %if.then
   br i1 %or.cond, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end
-  %io_eof = getelementptr inbounds i8, ptr %ioc, i64 256
+  %io_eof = getelementptr inbounds nuw i8, ptr %ioc, i64 256
   store i32 1, ptr %io_eof, align 8
   br label %return
 
@@ -2164,18 +2164,18 @@ if.end17:                                         ; preds = %if.end
 
 while.body.lr.ph:                                 ; preds = %entry, %if.end17
   %4 = phi i64 [ %add, %if.end17 ], [ %0, %entry ]
-  %payload_remain = getelementptr inbounds i8, ptr %ioc, i64 224
-  %encinput.i = getelementptr inbounds i8, ptr %ioc, i64 104
-  %buffer.i = getelementptr inbounds i8, ptr %ioc, i64 136
-  %opcode20.i = getelementptr inbounds i8, ptr %ioc, i64 260
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %mask93.i = getelementptr inbounds i8, ptr %ioc, i64 240
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %tv_usec.i.i.i47 = getelementptr inbounds i8, ptr %_now.i.i.i23, i64 8
-  %pong_remain.i = getelementptr inbounds i8, ptr %ioc, i64 232
-  %iov_len80.i = getelementptr inbounds i8, ptr %iov76.i, i64 8
-  %offset84.i = getelementptr inbounds i8, ptr %ioc, i64 160
-  %rawinput.i = getelementptr inbounds i8, ptr %ioc, i64 184
+  %payload_remain = getelementptr inbounds nuw i8, ptr %ioc, i64 224
+  %encinput.i = getelementptr inbounds nuw i8, ptr %ioc, i64 104
+  %buffer.i = getelementptr inbounds nuw i8, ptr %ioc, i64 136
+  %opcode20.i = getelementptr inbounds nuw i8, ptr %ioc, i64 260
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
+  %mask93.i = getelementptr inbounds nuw i8, ptr %ioc, i64 240
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i.i47 = getelementptr inbounds nuw i8, ptr %_now.i.i.i23, i64 8
+  %pong_remain.i = getelementptr inbounds nuw i8, ptr %ioc, i64 232
+  %iov_len80.i = getelementptr inbounds nuw i8, ptr %iov76.i, i64 8
+  %offset84.i = getelementptr inbounds nuw i8, ptr %ioc, i64 160
+  %rawinput.i = getelementptr inbounds nuw i8, ptr %ioc, i64 184
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %qio_channel_websock_decode_payload.exit
@@ -2198,7 +2198,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %8 = load i8, ptr %7, align 1
   %and.i = and i8 %8, -128
   %9 = and i8 %8, 15
-  %b1.i = getelementptr inbounds i8, ptr %7, i64 1
+  %b1.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %10 = load i8, ptr %b1.i, align 1
   %and11.i = and i8 %10, -128
   %11 = and i8 %10, 127
@@ -2317,7 +2317,7 @@ land.lhs.true70.i:                                ; preds = %if.else67.i
   br i1 %cmp73.i, label %if.then75.i, label %return
 
 if.then75.i:                                      ; preds = %land.lhs.true70.i
-  %u76.i = getelementptr inbounds i8, ptr %7, i64 2
+  %u76.i = getelementptr inbounds nuw i8, ptr %7, i64 2
   %20 = load i16, ptr %u76.i, align 1
   %21 = call noundef i16 @llvm.bswap.i16(i16 %20)
   %conv77.i = zext i16 %21 to i64
@@ -2328,7 +2328,7 @@ land.lhs.true84.i:                                ; preds = %if.else67.i
   br i1 %cmp87.i, label %if.then89.i, label %return
 
 if.then89.i:                                      ; preds = %land.lhs.true84.i
-  %u90.i = getelementptr inbounds i8, ptr %7, i64 2
+  %u90.i = getelementptr inbounds nuw i8, ptr %7, i64 2
   %22 = load i64, ptr %u90.i, align 1
   %23 = call noundef i64 @llvm.bswap.i64(i64 %22)
   br label %if.end99.i
@@ -2338,7 +2338,7 @@ if.end99.i:                                       ; preds = %if.then89.i, %if.th
   %.sink.i = phi i64 [ 10, %if.then89.i ], [ 4, %if.then75.i ], [ 2, %if.end57.i ]
   %header_size.0.i = phi i64 [ 14, %if.then89.i ], [ 8, %if.then75.i ], [ 6, %if.end57.i ]
   store i64 %.sink55.i, ptr %payload_remain, align 8
-  %m64.i = getelementptr inbounds i8, ptr %7, i64 %.sink.i
+  %m64.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i
   %24 = load i32, ptr %m64.i, align 1
   store i32 %24, ptr %mask93.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2510,18 +2510,18 @@ if.then56.i36:                                    ; preds = %trace_qio_channel_w
 if.then58.i:                                      ; preds = %if.then56.i36
   %52 = load ptr, ptr %buffer.i, align 8
   store ptr %52, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
   %53 = load i64, ptr %offset, align 8
   store i64 %53, ptr %iov_len.i, align 8
   call fastcc void @qio_channel_websock_encode(ptr noundef nonnull %ioc, i8 noundef zeroext 8, ptr noundef nonnull %iov.i, i64 noundef 1, i64 noundef %53)
-  %encoutput.i.i = getelementptr inbounds i8, ptr %ioc, i64 144
+  %encoutput.i.i = getelementptr inbounds nuw i8, ptr %ioc, i64 144
   %54 = load i64, ptr %offset84.i, align 8
   %cmp.not19.i.i = icmp eq i64 %54, 0
   br i1 %cmp.not19.i.i, label %qio_channel_websock_write_wire.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then58.i
-  %master.i.i = getelementptr inbounds i8, ptr %ioc, i64 96
-  %buffer.i.i = getelementptr inbounds i8, ptr %ioc, i64 176
+  %master.i.i = getelementptr inbounds nuw i8, ptr %ioc, i64 96
+  %buffer.i.i = getelementptr inbounds nuw i8, ptr %ioc, i64 176
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
@@ -2542,7 +2542,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   br i1 %cmp.not.i.i, label %qio_channel_websock_write_wire.exit.i, label %while.body.i.i, !llvm.loop !10
 
 qio_channel_websock_write_wire.exit.i:            ; preds = %if.end.i.i, %while.body.i.i, %if.then58.i
-  %master.i = getelementptr inbounds i8, ptr %ioc, i64 96
+  %master.i = getelementptr inbounds nuw i8, ptr %ioc, i64 96
   %60 = load ptr, ptr %master.i, align 8
   %call64.i = call i32 @qio_channel_shutdown(ptr noundef %60, i32 noundef 3, ptr noundef null) #15
   br label %if.then33
@@ -2598,9 +2598,9 @@ entry:
   %code.addr = alloca i16, align 2
   %iov = alloca [2 x %struct.iovec], align 16
   store ptr %code.addr, ptr %iov, align 16
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
   store i64 2, ptr %iov_len, align 8
-  %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %iov, i64 16
+  %arrayinit.cur.ptr = getelementptr inbounds nuw i8, ptr %iov, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayinit.cur.ptr, i8 0, i64 16, i1 false)
   %0 = call i16 @llvm.bswap.i16(i16 %code)
   store i16 %0, ptr %code.addr, align 2
@@ -2614,23 +2614,23 @@ arrayinit.end1.split:                             ; preds = %entry
 if.then:                                          ; preds = %entry
   store ptr %reason, ptr %arrayinit.cur.ptr, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason) #16
-  %iov_len6 = getelementptr inbounds i8, ptr %iov, i64 24
+  %iov_len6 = getelementptr inbounds nuw i8, ptr %iov, i64 24
   store i64 %call, ptr %iov_len6, align 8
   %add = add i64 %call, 2
   call fastcc void @qio_channel_websock_encode(ptr noundef %ioc, i8 noundef zeroext 8, ptr noundef nonnull %iov, i64 noundef 2, i64 noundef %add)
   br label %if.end
 
 if.end:                                           ; preds = %arrayinit.end1.split, %if.then
-  %encoutput.i = getelementptr inbounds i8, ptr %ioc, i64 144
-  %offset.i = getelementptr inbounds i8, ptr %ioc, i64 160
+  %encoutput.i = getelementptr inbounds nuw i8, ptr %ioc, i64 144
+  %offset.i = getelementptr inbounds nuw i8, ptr %ioc, i64 160
   %1 = load i64, ptr %offset.i, align 8
   %cmp.not19.i = icmp eq i64 %1, 0
   br i1 %cmp.not19.i, label %qio_channel_websock_write_wire.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end
-  %master.i = getelementptr inbounds i8, ptr %ioc, i64 96
-  %buffer.i = getelementptr inbounds i8, ptr %ioc, i64 176
-  %pong_remain.i = getelementptr inbounds i8, ptr %ioc, i64 232
+  %master.i = getelementptr inbounds nuw i8, ptr %ioc, i64 96
+  %buffer.i = getelementptr inbounds nuw i8, ptr %ioc, i64 176
+  %pong_remain.i = getelementptr inbounds nuw i8, ptr %ioc, i64 232
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -2651,7 +2651,7 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not.i, label %qio_channel_websock_write_wire.exit, label %while.body.i, !llvm.loop !10
 
 qio_channel_websock_write_wire.exit:              ; preds = %while.body.i, %if.end.i, %if.end
-  %master = getelementptr inbounds i8, ptr %ioc, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %ioc, i64 96
   %7 = load ptr, ptr %master, align 8
   %call10 = call i32 @qio_channel_shutdown(ptr noundef %7, i32 noundef 3, ptr noundef null) #15
   ret void

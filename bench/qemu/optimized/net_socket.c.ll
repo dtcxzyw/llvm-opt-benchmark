@@ -61,7 +61,7 @@ entry:
   %saddr.i = alloca %struct.sockaddr_in, align 4
   %so_type.i = alloca i32, align 4
   %optlen.i = alloca i32, align 4
-  %type = getelementptr inbounds i8, ptr %netdev, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 5
   br i1 %cmp, label %if.end, label %if.else
@@ -71,26 +71,26 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %netdev, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %netdev, i64 16
   %1 = load ptr, ptr %u, align 8
   %tobool = icmp ne ptr %1, null
   %lnot.ext = zext i1 %tobool to i32
-  %listen = getelementptr inbounds i8, ptr %netdev, i64 24
+  %listen = getelementptr inbounds nuw i8, ptr %netdev, i64 24
   %2 = load ptr, ptr %listen, align 8
   %tobool2 = icmp ne ptr %2, null
   %lnot.ext6 = zext i1 %tobool2 to i32
   %add = add nuw nsw i32 %lnot.ext6, %lnot.ext
-  %connect = getelementptr inbounds i8, ptr %netdev, i64 32
+  %connect = getelementptr inbounds nuw i8, ptr %netdev, i64 32
   %3 = load ptr, ptr %connect, align 8
   %tobool7 = icmp ne ptr %3, null
   %lnot.ext11 = zext i1 %tobool7 to i32
   %add12 = add nuw nsw i32 %add, %lnot.ext11
-  %mcast = getelementptr inbounds i8, ptr %netdev, i64 40
+  %mcast = getelementptr inbounds nuw i8, ptr %netdev, i64 40
   %4 = load ptr, ptr %mcast, align 8
   %tobool13 = icmp ne ptr %4, null
   %lnot.ext17 = zext i1 %tobool13 to i32
   %add18 = add nuw nsw i32 %add12, %lnot.ext17
-  %udp = getelementptr inbounds i8, ptr %netdev, i64 56
+  %udp = getelementptr inbounds nuw i8, ptr %netdev, i64 56
   %5 = load ptr, ptr %udp, align 8
   %tobool19 = icmp ne ptr %5, null
   %lnot.ext23 = zext i1 %tobool19 to i32
@@ -103,7 +103,7 @@ if.then26:                                        ; preds = %if.end
   br label %return
 
 if.end27:                                         ; preds = %if.end
-  %localaddr = getelementptr inbounds i8, ptr %netdev, i64 48
+  %localaddr = getelementptr inbounds nuw i8, ptr %netdev, i64 48
   %6 = load ptr, ptr %localaddr, align 8
   %tobool28.not = icmp eq ptr %6, null
   %brmerge = or i1 %tobool13, %tobool28.not
@@ -213,7 +213,7 @@ if.end5.i:                                        ; preds = %if.end.i61
 if.then9.i:                                       ; preds = %if.end5.i
   %call10.i = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %call10.i, align 4
-  %sin_addr.i = getelementptr inbounds i8, ptr %saddr.i, i64 4
+  %sin_addr.i = getelementptr inbounds nuw i8, ptr %saddr.i, i64 4
   %13 = load i32, ptr %sin_addr.i, align 4
   %call12.i = call ptr @inet_ntoa(i32 %13) #8
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 518, ptr noundef nonnull @__func__.net_socket_listen_init, i32 noundef %12, ptr noundef nonnull @.str.16, ptr noundef %call12.i) #8
@@ -234,13 +234,13 @@ if.then17.i:                                      ; preds = %if.end14.i
 
 net_socket_listen_init.exit:                      ; preds = %if.end14.i
   %call21.i = call ptr @qemu_new_net_client(ptr noundef nonnull @net_socket_info, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name) #8
-  %fd23.i = getelementptr inbounds i8, ptr %call21.i, i64 380
+  %fd23.i = getelementptr inbounds nuw i8, ptr %call21.i, i64 380
   store i32 -1, ptr %fd23.i, align 4
-  %listen_fd.i = getelementptr inbounds i8, ptr %call21.i, i64 376
+  %listen_fd.i = getelementptr inbounds nuw i8, ptr %call21.i, i64 376
   store i32 %call1.i, ptr %listen_fd.i, align 8
-  %link_down.i = getelementptr inbounds i8, ptr %call21.i, i64 8
+  %link_down.i = getelementptr inbounds nuw i8, ptr %call21.i, i64 8
   store i32 1, ptr %link_down.i, align 8
-  %rs.i = getelementptr inbounds i8, ptr %call21.i, i64 384
+  %rs.i = getelementptr inbounds nuw i8, ptr %call21.i, i64 384
   call void @net_socket_rs_init(ptr noundef nonnull %rs.i, ptr noundef nonnull @net_socket_rs_finalize, i1 noundef zeroext false) #8
   %15 = load i32, ptr %listen_fd.i, align 8
   call void @qemu_set_fd_handler(i32 noundef %15, ptr noundef nonnull @net_socket_accept, ptr noundef null, ptr noundef %call21.i) #8
@@ -308,10 +308,10 @@ for.end.i:                                        ; preds = %if.end25.i, %if.the
   br i1 %tobool.not.i, label %21, label %net_socket_connect_init.exit
 
 net_socket_connect_init.exit:                     ; preds = %for.end.i
-  %sin_addr.i71 = getelementptr inbounds i8, ptr %saddr.i64, i64 4
+  %sin_addr.i71 = getelementptr inbounds nuw i8, ptr %saddr.i64, i64 4
   %19 = load i32, ptr %sin_addr.i71, align 4
   %call30.i = call ptr @inet_ntoa(i32 %19) #8
-  %sin_port.i = getelementptr inbounds i8, ptr %saddr.i64, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %saddr.i64, i64 2
   %20 = load i16, ptr %sin_port.i, align 2
   %call31.i = call zeroext i16 @ntohs(i16 noundef zeroext %20) #9
   %conv.i = zext i16 %call31.i to i32
@@ -390,7 +390,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp4, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.then2
-  %sin_addr = getelementptr inbounds i8, ptr %saddr, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %saddr, i64 4
   %1 = load i32, ptr %sin_addr, align 4
   %cmp7 = icmp eq i32 %1, 0
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -411,19 +411,19 @@ if.end13:                                         ; preds = %if.end9
 
 if.end16:                                         ; preds = %if.end13, %if.end
   %call17 = call ptr @qemu_new_net_client(ptr noundef nonnull @net_dgram_socket_info, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name) #8
-  %fd19 = getelementptr inbounds i8, ptr %call17, i64 380
+  %fd19 = getelementptr inbounds nuw i8, ptr %call17, i64 380
   store i32 %fd, ptr %fd19, align 4
-  %listen_fd = getelementptr inbounds i8, ptr %call17, i64 376
+  %listen_fd = getelementptr inbounds nuw i8, ptr %call17, i64 376
   store i32 -1, ptr %listen_fd, align 8
-  %send_fn = getelementptr inbounds i8, ptr %call17, i64 70072
+  %send_fn = getelementptr inbounds nuw i8, ptr %call17, i64 70072
   store ptr @net_socket_send_dgram, ptr %send_fn, align 8
-  %rs = getelementptr inbounds i8, ptr %call17, i64 384
+  %rs = getelementptr inbounds nuw i8, ptr %call17, i64 384
   call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_socket_rs_finalize, i1 noundef zeroext false) #8
-  %read_poll.i = getelementptr inbounds i8, ptr %call17, i64 70080
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %call17, i64 70080
   store i8 1, ptr %read_poll.i, align 8
   %2 = load i32, ptr %fd19, align 4
   %3 = load ptr, ptr %send_fn, align 8
-  %write_poll.i.i = getelementptr inbounds i8, ptr %call17, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %call17, i64 70081
   %4 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %4 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -431,12 +431,12 @@ if.end16:                                         ; preds = %if.end13, %if.end
   br i1 %or.cond, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end16
-  %dgram_dst = getelementptr inbounds i8, ptr %call17, i64 70052
+  %dgram_dst = getelementptr inbounds nuw i8, ptr %call17, i64 70052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dgram_dst, ptr noundef nonnull align 4 dereferenceable(16) %saddr, i64 16, i1 false)
-  %sin_addr24 = getelementptr inbounds i8, ptr %saddr, i64 4
+  %sin_addr24 = getelementptr inbounds nuw i8, ptr %saddr, i64 4
   %5 = load i32, ptr %sin_addr24, align 4
   %call25 = call ptr @inet_ntoa(i32 %5) #8
-  %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   %6 = load i16, ptr %sin_port, align 2
   %call26 = call zeroext i16 @ntohs(i16 noundef zeroext %6) #9
   %conv = zext i16 %call26 to i32
@@ -448,7 +448,7 @@ if.else:                                          ; preds = %if.end16
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.else
-  %dgram_dst30 = getelementptr inbounds i8, ptr %call17, i64 70052
+  %dgram_dst30 = getelementptr inbounds nuw i8, ptr %call17, i64 70052
   store i16 1, ptr %dgram_dst30, align 4
   br label %if.end31
 
@@ -471,23 +471,23 @@ define internal fastcc noundef ptr @net_socket_fd_init_stream(ptr noundef %peer,
 entry:
   %call = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_socket_info, ptr noundef %peer, ptr noundef nonnull @.str.5, ptr noundef %name) #8
   tail call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef %call, ptr noundef nonnull @.str.20, i32 noundef %fd) #8
-  %fd2 = getelementptr inbounds i8, ptr %call, i64 380
+  %fd2 = getelementptr inbounds nuw i8, ptr %call, i64 380
   store i32 %fd, ptr %fd2, align 4
-  %listen_fd = getelementptr inbounds i8, ptr %call, i64 376
+  %listen_fd = getelementptr inbounds nuw i8, ptr %call, i64 376
   store i32 -1, ptr %listen_fd, align 8
-  %rs = getelementptr inbounds i8, ptr %call, i64 384
+  %rs = getelementptr inbounds nuw i8, ptr %call, i64 384
   tail call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_socket_rs_finalize, i1 noundef zeroext false) #8
   %call3 = tail call i32 @socket_set_nodelay(i32 noundef %fd) #8
   %tobool.not = icmp eq i32 %is_connected, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %send_fn.i = getelementptr inbounds i8, ptr %call, i64 70072
+  %send_fn.i = getelementptr inbounds nuw i8, ptr %call, i64 70072
   store ptr @net_socket_send, ptr %send_fn.i, align 8
-  %read_poll.i.i = getelementptr inbounds i8, ptr %call, i64 70080
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %call, i64 70080
   store i8 1, ptr %read_poll.i.i, align 8
   %0 = load i32, ptr %fd2, align 4
-  %write_poll.i.i.i = getelementptr inbounds i8, ptr %call, i64 70081
+  %write_poll.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 70081
   %1 = load i8, ptr %write_poll.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %1 to i1
   %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @net_socket_writable, ptr null
@@ -537,12 +537,12 @@ if.end11:                                         ; preds = %if.end7
   br i1 %tobool.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
-  %dgram_dst = getelementptr inbounds i8, ptr %call12, i64 70052
+  %dgram_dst = getelementptr inbounds nuw i8, ptr %call12, i64 70052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dgram_dst, ptr noundef nonnull align 4 dereferenceable(16) %saddr, i64 16, i1 false)
-  %sin_addr = getelementptr inbounds i8, ptr %saddr, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %saddr, i64 4
   %0 = load i32, ptr %sin_addr, align 4
   %call15 = call ptr @inet_ntoa(i32 %0) #8
-  %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   %1 = load i16, ptr %sin_port, align 2
   %call16 = call zeroext i16 @ntohs(i16 noundef zeroext %1) #9
   %conv = zext i16 %call16 to i32
@@ -599,7 +599,7 @@ if.end15:                                         ; preds = %if.end9
 if.then18:                                        ; preds = %if.end15
   %call19 = tail call ptr @__errno_location() #9
   %2 = load i32, ptr %call19, align 4
-  %sin_addr = getelementptr inbounds i8, ptr %laddr, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %laddr, i64 4
   %3 = load i32, ptr %sin_addr, align 4
   %call21 = call ptr @inet_ntoa(i32 %3) #8
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 670, ptr noundef nonnull @__func__.net_socket_udp_init, i32 noundef %2, ptr noundef nonnull @.str.16, ptr noundef %call21) #8
@@ -613,12 +613,12 @@ if.end23:                                         ; preds = %if.end15
   br i1 %tobool.not, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.end23
-  %dgram_dst = getelementptr inbounds i8, ptr %call24, i64 70052
+  %dgram_dst = getelementptr inbounds nuw i8, ptr %call24, i64 70052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dgram_dst, ptr noundef nonnull align 4 dereferenceable(16) %raddr, i64 16, i1 false)
-  %sin_addr27 = getelementptr inbounds i8, ptr %raddr, i64 4
+  %sin_addr27 = getelementptr inbounds nuw i8, ptr %raddr, i64 4
   %4 = load i32, ptr %sin_addr27, align 4
   %call29 = call ptr @inet_ntoa(i32 %4) #8
-  %sin_port = getelementptr inbounds i8, ptr %raddr, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %raddr, i64 2
   %5 = load i16, ptr %sin_port, align 2
   %call30 = call zeroext i16 @ntohs(i16 noundef zeroext %5) #9
   %conv = zext i16 %call30 to i32
@@ -645,7 +645,7 @@ entry:
   %imr = alloca %struct.ip_mreq, align 4
   %val = alloca i32, align 4
   %loop = alloca i32, align 4
-  %sin_addr = getelementptr inbounds i8, ptr %mcastaddr, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %mcastaddr, i64 4
   %0 = load i32, ptr %sin_addr, align 4
   %call = tail call i32 @ntohl(i32 noundef %0) #9
   %and = and i32 %call, -268435456
@@ -711,7 +711,7 @@ if.else:                                          ; preds = %if.end24
 
 if.end30:                                         ; preds = %if.else, %if.then26
   %.sink = phi i32 [ %call27, %if.else ], [ %7, %if.then26 ]
-  %8 = getelementptr inbounds i8, ptr %imr, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %imr, i64 4
   store i32 %.sink, ptr %8, align 4
   %call31 = call i32 @setsockopt(i32 noundef %call6, i32 noundef 0, i32 noundef 35, ptr noundef nonnull %imr, i32 noundef 8) #8
   %cmp32 = icmp slt i32 %call31, 0
@@ -774,9 +774,9 @@ declare ptr @qemu_new_net_client(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_socket_send_dgram(ptr noundef %opaque) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %opaque, i64 380
+  %fd = getelementptr inbounds nuw i8, ptr %opaque, i64 380
   %0 = load i32, ptr %fd, align 4
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 404
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 404
   %call = tail call i64 @recv(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 69632, i32 noundef 0) #8
   %conv = trunc i64 %call to i32
   %cmp = icmp slt i32 %conv, 0
@@ -787,10 +787,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %read_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   store i8 0, ptr %read_poll.i, align 8
   %1 = load i32, ptr %fd, align 4
-  %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   %2 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %2 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -802,7 +802,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then4
-  %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70072
   %5 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
@@ -817,10 +817,10 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end5
-  %read_poll.i10 = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i10 = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   store i8 0, ptr %read_poll.i10, align 8
   %6 = load i32, ptr %fd, align 4
-  %write_poll.i.i13 = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i.i13 = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   %7 = load i8, ptr %write_poll.i.i13, align 1
   %tobool1.i.i14 = trunc i8 %7 to i1
   %cond2.i.i15 = select i1 %tobool1.i.i14, ptr @net_socket_writable, ptr null
@@ -837,8 +837,8 @@ declare void @net_socket_rs_init(ptr noundef, ptr noundef, i1 noundef zeroext) l
 define internal void @net_socket_rs_finalize(ptr noundef %rs) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %rs, i64 -384
-  %buf = getelementptr inbounds i8, ptr %rs, i64 20
-  %packet_len = getelementptr inbounds i8, ptr %rs, i64 12
+  %buf = getelementptr inbounds nuw i8, ptr %rs, i64 20
+  %packet_len = getelementptr inbounds nuw i8, ptr %rs, i64 12
   %0 = load i32, ptr %packet_len, align 4
   %call = tail call i64 @qemu_send_packet_async(ptr noundef %add.ptr, ptr noundef nonnull %buf, i32 noundef %0, ptr noundef nonnull @net_socket_send_completed) #8
   %cmp = icmp eq i64 %call, 0
@@ -895,8 +895,8 @@ declare void @qemu_socket_set_nonblock(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @net_socket_receive_dgram(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
-  %dgram_dst = getelementptr inbounds i8, ptr %nc, i64 70052
-  %fd = getelementptr inbounds i8, ptr %nc, i64 380
+  %dgram_dst = getelementptr inbounds nuw i8, ptr %nc, i64 70052
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 380
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry
@@ -927,16 +927,16 @@ land.rhs:                                         ; preds = %cond.end
   ]
 
 if.then:                                          ; preds = %land.rhs
-  %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 70081
+  %write_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 70081
   store i8 1, ptr %write_poll.i, align 1
   %3 = load i32, ptr %fd, align 4
-  %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70080
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70080
   %4 = load i8, ptr %read_poll.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then
-  %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70072
   %5 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
@@ -953,15 +953,15 @@ return:                                           ; preds = %land.rhs, %cond.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_socket_cleanup(ptr noundef %nc) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %nc, i64 380
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 380
   %0 = load i32, ptr %fd, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 70080
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 70080
   store i8 0, ptr %read_poll.i, align 8
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70081
   %1 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %1 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -973,7 +973,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then
-  %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70072
   %4 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
@@ -986,7 +986,7 @@ net_socket_write_poll.exit:                       ; preds = %if.then, %cond.true
   br label %if.end
 
 if.end:                                           ; preds = %net_socket_write_poll.exit, %entry
-  %listen_fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %listen_fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %6 = load i32, ptr %listen_fd, align 8
   %cmp4.not = icmp eq i32 %6, -1
   br i1 %cmp4.not, label %if.end10, label %if.then5
@@ -1011,17 +1011,17 @@ declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_socket_writable(ptr noundef initializes((70081, 70082)) %opaque) #0 {
 entry:
-  %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   store i8 0, ptr %write_poll.i, align 1
-  %fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 380
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 380
   %0 = load i32, ptr %fd.i.i, align 4
-  %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   %1 = load i8, ptr %read_poll.i.i, align 8
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %entry
-  %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70072
   %2 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
@@ -1041,18 +1041,18 @@ declare i64 @qemu_send_packet_async(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_socket_send_completed(ptr noundef %nc, i64 %len) #0 {
 entry:
-  %read_poll = getelementptr inbounds i8, ptr %nc, i64 70080
+  %read_poll = getelementptr inbounds nuw i8, ptr %nc, i64 70080
   %0 = load i8, ptr %read_poll, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %read_poll, align 8
-  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 380
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 380
   %1 = load i32, ptr %fd.i.i, align 4
-  %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70072
   %2 = load ptr, ptr %send_fn.i.i, align 8
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70081
   %3 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %3 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -1068,13 +1068,13 @@ declare i32 @socket_set_nodelay(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_socket_connect(ptr noundef initializes((70072, 70081)) %opaque) #0 {
 entry:
-  %send_fn = getelementptr inbounds i8, ptr %opaque, i64 70072
+  %send_fn = getelementptr inbounds nuw i8, ptr %opaque, i64 70072
   store ptr @net_socket_send, ptr %send_fn, align 8
-  %read_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   store i8 1, ptr %read_poll.i, align 8
-  %fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 380
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 380
   %0 = load i32, ptr %fd.i.i, align 4
-  %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   %1 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %1 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -1091,18 +1091,18 @@ entry:
   %call = tail call i32 @htonl(i32 noundef %conv) #9
   store i32 %call, ptr %len, align 4
   store ptr %len, ptr %iov, align 16
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
   store i64 4, ptr %iov_len, align 8
-  %arrayinit.element = getelementptr inbounds i8, ptr %iov, i64 16
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %iov, i64 16
   store ptr %buf, ptr %arrayinit.element, align 16
-  %iov_len3 = getelementptr inbounds i8, ptr %iov, i64 24
+  %iov_len3 = getelementptr inbounds nuw i8, ptr %iov, i64 24
   store i64 %size, ptr %iov_len3, align 8
   %call4 = call i64 @iov_size(ptr noundef nonnull %iov, i32 noundef 2) #8
-  %send_index = getelementptr inbounds i8, ptr %nc, i64 70048
+  %send_index = getelementptr inbounds nuw i8, ptr %nc, i64 70048
   %0 = load i32, ptr %send_index, align 8
   %conv5 = zext i32 %0 to i64
   %sub = sub i64 %call4, %conv5
-  %fd = getelementptr inbounds i8, ptr %nc, i64 380
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 380
   %1 = load i32, ptr %fd, align 4
   %call9 = call i64 @iov_send_recv(i32 noundef %1, ptr noundef nonnull %iov, i32 noundef 2, i64 noundef %conv5, i64 noundef %sub, i1 noundef zeroext true) #8
   %cmp = icmp eq i64 %call9, -1
@@ -1131,16 +1131,16 @@ if.then24:                                        ; preds = %if.end21
   %5 = trunc i64 %ret.0.ph to i32
   %conv27 = add i32 %4, %5
   store i32 %conv27, ptr %send_index, align 8
-  %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 70081
+  %write_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 70081
   store i8 1, ptr %write_poll.i, align 1
   %6 = load i32, ptr %fd, align 4
-  %read_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 70080
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70080
   %7 = load i8, ptr %read_poll.i.i, align 8
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %if.then24
-  %send_fn.i.i = getelementptr inbounds i8, ptr %nc, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 70072
   %8 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
@@ -1166,7 +1166,7 @@ declare i64 @iov_send_recv(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i
 define internal void @net_socket_send(ptr noundef %opaque) #0 {
 entry:
   %buf1 = alloca [69632 x i8], align 16
-  %fd = getelementptr inbounds i8, ptr %opaque, i64 380
+  %fd = getelementptr inbounds nuw i8, ptr %opaque, i64 380
   %0 = load i32, ptr %fd, align 4
   %call = call i64 @recv(i32 noundef %0, ptr noundef nonnull %buf1, i64 noundef 69632, i32 noundef 0) #8
   %conv = trunc i64 %call to i32
@@ -1184,10 +1184,10 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %eoc, label %if.end19
 
 eoc:                                              ; preds = %if.end19, %if.else, %if.then
-  %read_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   store i8 0, ptr %read_poll.i, align 8
   %2 = load i32, ptr %fd, align 4
-  %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   %3 = load i8, ptr %write_poll.i.i, align 1
   %tobool1.i.i = trunc i8 %3 to i1
   %cond2.i.i = select i1 %tobool1.i.i, ptr @net_socket_writable, ptr null
@@ -1199,14 +1199,14 @@ eoc:                                              ; preds = %if.end19, %if.else,
   br i1 %tobool.i.i, label %cond.true.i.i, label %net_socket_write_poll.exit
 
 cond.true.i.i:                                    ; preds = %eoc
-  %send_fn.i.i = getelementptr inbounds i8, ptr %opaque, i64 70072
+  %send_fn.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70072
   %6 = load ptr, ptr %send_fn.i.i, align 8
   br label %net_socket_write_poll.exit
 
 net_socket_write_poll.exit:                       ; preds = %eoc, %cond.true.i.i
   %cond.i.i = phi ptr [ %6, %cond.true.i.i ], [ null, %eoc ]
   call void @qemu_set_fd_handler(i32 noundef %4, ptr noundef %cond.i.i, ptr noundef null, ptr noundef nonnull %opaque) #8
-  %listen_fd = getelementptr inbounds i8, ptr %opaque, i64 376
+  %listen_fd = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   %7 = load i32, ptr %listen_fd, align 8
   %cmp9.not = icmp eq i32 %7, -1
   br i1 %cmp9.not, label %if.end13, label %if.then11
@@ -1219,15 +1219,15 @@ if.end13:                                         ; preds = %if.then11, %net_soc
   %8 = load i32, ptr %fd, align 4
   %call15 = call i32 @close(i32 noundef %8) #8
   store i32 -1, ptr %fd, align 4
-  %rs = getelementptr inbounds i8, ptr %opaque, i64 384
+  %rs = getelementptr inbounds nuw i8, ptr %opaque, i64 384
   call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_socket_rs_finalize, i1 noundef zeroext false) #8
-  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
+  %link_down = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i32 1, ptr %link_down, align 8
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #8
   br label %if.end26
 
 if.end19:                                         ; preds = %if.else, %if.then
-  %rs21 = getelementptr inbounds i8, ptr %opaque, i64 384
+  %rs21 = getelementptr inbounds nuw i8, ptr %opaque, i64 384
   %call22 = call i32 @net_fill_rstate(ptr noundef nonnull %rs21, ptr noundef nonnull %buf1, i32 noundef %conv) #8
   %cmp23 = icmp eq i32 %call22, -1
   br i1 %cmp23, label %eoc, label %if.end26
@@ -1241,7 +1241,7 @@ define internal void @net_socket_accept(ptr noundef %opaque) #0 {
 entry:
   %saddr = alloca %struct.sockaddr_in, align 4
   %len = alloca i32, align 4
-  %listen_fd = getelementptr inbounds i8, ptr %opaque, i64 376
+  %listen_fd = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   br label %for.cond
 
 for.cond:                                         ; preds = %land.lhs.true, %entry
@@ -1260,23 +1260,23 @@ land.lhs.true:                                    ; preds = %for.cond
 if.then4:                                         ; preds = %for.cond
   %2 = load i32, ptr %listen_fd, align 8
   call void @qemu_set_fd_handler(i32 noundef %2, ptr noundef null, ptr noundef null, ptr noundef null) #8
-  %fd7 = getelementptr inbounds i8, ptr %opaque, i64 380
+  %fd7 = getelementptr inbounds nuw i8, ptr %opaque, i64 380
   store i32 %call, ptr %fd7, align 4
-  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
+  %link_down = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i32 0, ptr %link_down, align 8
-  %send_fn.i = getelementptr inbounds i8, ptr %opaque, i64 70072
+  %send_fn.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70072
   store ptr @net_socket_send, ptr %send_fn.i, align 8
-  %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 70080
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70080
   store i8 1, ptr %read_poll.i.i, align 8
-  %write_poll.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 70081
+  %write_poll.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70081
   %3 = load i8, ptr %write_poll.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %3 to i1
   %cond2.i.i.i = select i1 %tobool1.i.i.i, ptr @net_socket_writable, ptr null
   call void @qemu_set_fd_handler(i32 noundef %call, ptr noundef nonnull @net_socket_send, ptr noundef %cond2.i.i.i, ptr noundef nonnull %opaque) #8
-  %sin_addr = getelementptr inbounds i8, ptr %saddr, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %saddr, i64 4
   %4 = load i32, ptr %sin_addr, align 4
   %call9 = call ptr @inet_ntoa(i32 %4) #8
-  %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   %5 = load i16, ptr %sin_port, align 2
   %call10 = call zeroext i16 @ntohs(i16 noundef zeroext %5) #9
   %conv = zext i16 %call10 to i32

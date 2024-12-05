@@ -64,7 +64,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
   %20 = phi i8 [ %15, %14 ], [ %.pre.i, %17 ]
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errhandler_f_to_c_table, i64 112), align 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i8 %20 to i1
   br i1 %25, label %26, label %opal_pointer_array_get_item.exit
@@ -75,7 +75,7 @@ define ptr @PMPI_Errhandler_f2c(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %1
   %28 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.PMPI_Errhandler_f2c, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.PMPI_Errhandler_f2c, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %opal_pointer_array_get_item.exit
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 9), (16, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   br i1 %1, label %4, label %6
 
@@ -19,7 +19,7 @@ define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 de
 
 6:                                                ; preds = %2, %4
   %.sink = phi ptr [ %5, %4 ], [ null, %2 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %7, align 8
   ret void
 }
@@ -32,13 +32,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8BitInputD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -56,7 +56,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8BitInput8faddbitsEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %1
   %6 = lshr i32 %5, 3
@@ -70,14 +70,14 @@ define void @_ZN8BitInput8faddbitsEj(ptr nocapture noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 65536) i32 @_ZN8BitInput8fgetbitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sub nsw i32 16, %10
   %12 = lshr i32 %8, %11
@@ -87,13 +87,13 @@ define noundef range(i32 0, 65536) i32 @_ZN8BitInput8fgetbitsEv(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8BitInput17SetExternalBufferEPh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %10, label %9
@@ -104,7 +104,7 @@ define void @_ZN8BitInput17SetExternalBufferEPh(ptr nocapture noundef nonnull al
 
 10:                                               ; preds = %9, %5, %2
   store ptr %1, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %11, align 8
   ret void
 }

@@ -42,23 +42,23 @@ define void @dscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next51, %.lr.ph45 ]
-  %18 = getelementptr inbounds double, ptr %2, i64 %indvars.iv50
+  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv50
   %19 = load double, ptr %18, align 8
   %20 = fmul double %6, %19
   store double %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fmul double %6, %22
   store double %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load double, ptr %24, align 8
   %26 = fmul double %6, %25
   store double %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load double, ptr %27, align 8
   %29 = fmul double %6, %28
   store double %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %31 = load double, ptr %30, align 8
   %32 = fmul double %6, %31
   store double %32, ptr %30, align 8
@@ -68,7 +68,7 @@ define void @dscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv53 = phi i64 [ %17, %.lr.ph47.preheader ], [ %indvars.iv.next54, %.lr.ph47 ]
-  %34 = getelementptr inbounds double, ptr %2, i64 %indvars.iv53
+  %34 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv53
   %35 = load double, ptr %34, align 8
   %36 = fmul double %6, %35
   store double %36, ptr %34, align 8
@@ -83,7 +83,7 @@ define void @dscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %40 = load double, ptr %39, align 8
   %41 = fmul double %6, %40
   store double %41, ptr %39, align 8

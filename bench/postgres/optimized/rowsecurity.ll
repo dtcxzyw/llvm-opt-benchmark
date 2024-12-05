@@ -37,7 +37,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1
   store i8 0, ptr %6, align 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %29 = load i8, ptr %28, align 4
   switch i8 %29, label %129 [
     i8 114, label %30
@@ -45,10 +45,10 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   ]
 
 30:                                               ; preds = %7, %7
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @getRTEPermissionInfo(ptr noundef %32, ptr noundef nonnull %1) #6
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8
   %.not132 = icmp eq i32 %35, 0
   br i1 %.not132, label %36, label %38
@@ -61,7 +61,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
 38:                                               ; preds = %30, %36
   %39 = phi i32 [ %.pre, %36 ], [ %35, %30 ]
   %40 = phi i32 [ %37, %36 ], [ %35, %30 ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = tail call i32 @check_enable_rls(i32 noundef %42, i32 noundef %39, i1 noundef zeroext false) #6
   switch i32 %43, label %44 [
@@ -72,19 +72,19 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
 44:                                               ; preds = %38
   %45 = load i32, ptr %41, align 8
   %46 = tail call ptr @table_open(i32 noundef %45, i32 noundef 0) #6
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %2, %48
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %.thread, label %60
 
 .thread:                                          ; preds = %44, %50
-  %54 = getelementptr inbounds i8, ptr %33, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 4
   %.not133 = icmp eq i64 %56, 0
@@ -125,7 +125,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   ]
 
 68:                                               ; preds = %65, %65, %65
-  %69 = getelementptr inbounds i8, ptr %33, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 2
   %.not134 = icmp eq i64 %71, 0
@@ -149,7 +149,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   %80 = load ptr, ptr %8, align 8
   %81 = load ptr, ptr %9, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext false)
-  %82 = getelementptr inbounds i8, ptr %33, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, 2
   %.not135 = icmp eq i64 %84, 0
@@ -168,13 +168,13 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %76, label %89, label %.thread142
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 120
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %91 = load ptr, ptr %90, align 8
   %.not136 = icmp eq ptr %91, null
   br i1 %.not136, label %.thread142, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 2
   br i1 %95, label %96, label %.thread142
@@ -220,7 +220,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   %113 = load ptr, ptr %21, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 4, ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 2, ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext false)
-  %114 = getelementptr inbounds i8, ptr %33, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %115, 2
   %.not139 = icmp eq i64 %116, 0
@@ -274,16 +274,16 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 8)) %3, ptr nocapture noundef nonnull initializes((0, 8)) %4) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph128, label %._crit_edge.loopexit
@@ -293,7 +293,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv127
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 42
   br i1 %19, label %.critedge74, label %20
@@ -331,9 +331,9 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br i1 %31, label %.critedge74, label %.critedge
 
 .critedge74:                                      ; preds = %25, %23, %21, %.lr.ph128, %30
-  %32 = getelementptr inbounds i8, ptr %16, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %38, label %36
@@ -343,7 +343,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br label %45
 
 38:                                               ; preds = %.critedge74
-  %39 = getelementptr inbounds i8, ptr %33, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 3
@@ -379,7 +379,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br i1 %59, label %.loopexit103, label %53
 
 .loopexit103:                                     ; preds = %.lr.ph.i, %45
-  %60 = getelementptr inbounds i8, ptr %16, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
   %. = select i1 %62, ptr %3, ptr %4
@@ -409,12 +409,12 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 70:                                               ; preds = %._crit_edge
   %71 = tail call ptr %69(i32 noundef %1, ptr noundef %0) #6
   tail call void @list_sort(ptr noundef %71, ptr noundef nonnull @row_security_policy_cmp) #6
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.not65 = icmp eq ptr %71, null
   br i1 %.not65, label %.thread93, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i32, ptr %72, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph111, label %.thread93
@@ -424,9 +424,9 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %76 = load ptr, ptr %73, align 8
   %77 = getelementptr %union.ListCell, ptr %76, i64 %indvars.iv119
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 4
   %.not.i75 = icmp eq i32 %82, 0
   br i1 %.not.i75, label %85, label %83
@@ -436,7 +436,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br label %92
 
 85:                                               ; preds = %.lr.ph111
-  %86 = getelementptr inbounds i8, ptr %80, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = shl nsw i64 %88, 3
@@ -491,12 +491,12 @@ check_role_for_policy.exit81:                     ; preds = %100, %.preheader.i7
 
 113:                                              ; preds = %.thread93
   %114 = tail call ptr %112(i32 noundef %1, ptr noundef %0) #6
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %.not68 = icmp eq ptr %114, null
   br i1 %.not68, label %.thread98, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %114, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %117 = load i32, ptr %115, align 4
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph117, label %.thread98
@@ -506,9 +506,9 @@ check_role_for_policy.exit81:                     ; preds = %100, %.preheader.i7
   %119 = load ptr, ptr %116, align 8
   %120 = getelementptr %union.ListCell, ptr %119, i64 %indvars.iv122
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 4
   %.not.i82 = icmp eq i32 %125, 0
   br i1 %.not.i82, label %128, label %126
@@ -518,7 +518,7 @@ check_role_for_policy.exit81:                     ; preds = %100, %.preheader.i7
   br label %135
 
 128:                                              ; preds = %.lr.ph117
-  %129 = getelementptr inbounds i8, ptr %123, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
   %132 = shl nsw i64 %131, 3
@@ -572,12 +572,12 @@ check_role_for_policy.exit88:                     ; preds = %143, %.preheader.i8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph65, label %._crit_edge.thread
@@ -589,7 +589,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not50 = icmp eq ptr %15, null
   br i1 %.not50, label %24, label %16
@@ -597,7 +597,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
 16:                                               ; preds = %.lr.ph65
   %17 = tail call ptr @copyObjectImpl(ptr noundef nonnull %15) #6
   %18 = tail call ptr @lappend(ptr noundef %.0385963, ptr noundef %17) #6
-  %19 = getelementptr inbounds i8, ptr %13, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %20 = load i8, ptr %19, align 8
   %21 = load i8, ptr %4, align 1
   %22 = or i8 %21, %20
@@ -619,12 +619,12 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   br i1 %.not46, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %._crit_edge69, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.preheader
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph72, label %._crit_edge69
@@ -635,7 +635,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv74
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not49 = icmp eq ptr %37, null
   br i1 %.not49, label %47, label %38
@@ -646,7 +646,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %40 = load ptr, ptr %3, align 8
   %41 = tail call ptr @list_append_unique(ptr noundef %40, ptr noundef %39) #6
   store ptr %41, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %43 = load i8, ptr %42, align 8
   %44 = load i8, ptr %4, align 1
   %45 = or i8 %44, %43
@@ -699,12 +699,12 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_with_check_options(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %7, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -719,7 +719,7 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv136
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not86.us = icmp eq ptr %18, null
   br i1 %.not86.us, label %26, label %.thread90.us
@@ -727,7 +727,7 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
 .thread90.us:                                     ; preds = %.lr.ph120
   %19 = tail call ptr @copyObjectImpl(ptr noundef nonnull %18) #6
   %20 = tail call ptr @lappend(ptr noundef %.07199.us118, ptr noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i8, ptr %21, align 8
   %23 = load i8, ptr %6, align 1
   %24 = or i8 %23, %22
@@ -754,13 +754,13 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   %31 = load ptr, ptr %10, align 8
   %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not85 = icmp eq ptr %35, null
   br i1 %.not85, label %36, label %.thread90
 
 36:                                               ; preds = %.lr.ph114
-  %37 = getelementptr inbounds i8, ptr %33, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not86 = icmp eq ptr %38, null
   br i1 %.not86, label %47, label %.thread90
@@ -769,7 +769,7 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   %39 = phi ptr [ %38, %36 ], [ %35, %.lr.ph114 ]
   %40 = tail call ptr @copyObjectImpl(ptr noundef nonnull %39) #6
   %41 = tail call ptr @lappend(ptr noundef %.07199112, ptr noundef %40) #6
-  %42 = getelementptr inbounds i8, ptr %33, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %43 = load i8, ptr %42, align 8
   %44 = load i8, ptr %6, align 1
   %45 = or i8 %44, %43
@@ -794,17 +794,17 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
 51:                                               ; preds = %._crit_edge
   %52 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 97, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %2, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = tail call ptr @pstrdup(ptr noundef nonnull %56) #6
-  %58 = getelementptr inbounds i8, ptr %52, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %52, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %52, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i8 0, ptr %60, align 8
   %61 = getelementptr i8, ptr %.071.lcssa, i64 4
   %.071.val = load i32, ptr %61, align 4
@@ -823,18 +823,18 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
 
 68:                                               ; preds = %66, %63
   %.sink = phi ptr [ %65, %63 ], [ %67, %66 ]
-  %69 = getelementptr inbounds i8, ptr %52, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %.sink, ptr %69, align 8
   tail call void @ChangeVarNodes(ptr noundef %.sink, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
   %70 = load ptr, ptr %5, align 8
   %71 = tail call ptr @list_append_unique(ptr noundef %70, ptr noundef nonnull %52) #6
   store ptr %71, ptr %5, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.not81 = icmp eq ptr %4, null
   br i1 %.not81, label %.thread93, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %4, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %74 = load i32, ptr %72, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %7, label %.lr.ph124.split.us.split, label %.lr.ph124.split.split
@@ -848,7 +848,7 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   %77 = load ptr, ptr %73, align 8
   %78 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv142
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
   %.not84.us = icmp eq ptr %81, null
   br i1 %.not84.us, label %101, label %.thread96.us
@@ -858,25 +858,25 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   tail call void @ChangeVarNodes(ptr noundef %82, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
   %83 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 97, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %2, ptr %84, align 4
   %85 = load ptr, ptr %54, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = tail call ptr @pstrdup(ptr noundef nonnull %86) #6
-  %88 = getelementptr inbounds i8, ptr %83, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %87, ptr %88, align 8
   %89 = load ptr, ptr %79, align 8
   %90 = tail call ptr @pstrdup(ptr noundef %89) #6
-  %91 = getelementptr inbounds i8, ptr %83, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %83, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr %82, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %83, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store i8 0, ptr %93, align 8
   %94 = load ptr, ptr %5, align 8
   %95 = tail call ptr @list_append_unique(ptr noundef %94, ptr noundef nonnull %83) #6
   store ptr %95, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %79, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %97 = load i8, ptr %96, align 8
   %98 = load i8, ptr %6, align 1
   %99 = or i8 %98, %97
@@ -901,13 +901,13 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   %106 = load ptr, ptr %73, align 8
   %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv139
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8
   %.not83 = icmp eq ptr %110, null
   br i1 %.not83, label %111, label %.thread96
 
 111:                                              ; preds = %.lr.ph130
-  %112 = getelementptr inbounds i8, ptr %108, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not84 = icmp eq ptr %113, null
   br i1 %.not84, label %134, label %.thread96
@@ -918,25 +918,25 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
   tail call void @ChangeVarNodes(ptr noundef %115, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
   %116 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 97, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %2, ptr %117, align 4
   %118 = load ptr, ptr %54, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = tail call ptr @pstrdup(ptr noundef nonnull %119) #6
-  %121 = getelementptr inbounds i8, ptr %116, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %120, ptr %121, align 8
   %122 = load ptr, ptr %108, align 8
   %123 = tail call ptr @pstrdup(ptr noundef %122) #6
-  %124 = getelementptr inbounds i8, ptr %116, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %116, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %115, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %116, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store i8 0, ptr %126, align 8
   %127 = load ptr, ptr %5, align 8
   %128 = tail call ptr @list_append_unique(ptr noundef %127, ptr noundef nonnull %116) #6
   store ptr %128, ptr %5, align 8
-  %129 = getelementptr inbounds i8, ptr %108, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %130 = load i8, ptr %129, align 8
   %131 = load i8, ptr %6, align 1
   %132 = or i8 %131, %130
@@ -955,20 +955,20 @@ define internal fastcc void @add_with_check_options(ptr nocapture noundef readon
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %8, %._crit_edge
   %138 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 97, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 %2, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %0, i64 56
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %143 = tail call ptr @pstrdup(ptr noundef nonnull %142) #6
-  %144 = getelementptr inbounds i8, ptr %138, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %143, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %138, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr null, ptr %145, align 8
   %146 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #6
-  %147 = getelementptr inbounds i8, ptr %138, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store ptr %146, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %138, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store i8 0, ptr %148, align 8
   %149 = load ptr, ptr %5, align 8
   %150 = tail call ptr @lappend(ptr noundef %149, ptr noundef nonnull %138) #6

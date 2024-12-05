@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_opengl_GLXSurfaceData_initOps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %2) #5
   %10 = icmp eq ptr %9, null
@@ -47,14 +47,14 @@ define void @Java_sun_java2d_opengl_GLXSurfaceData_initOps(ptr noundef %0, ptr n
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %9) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str) #5
   br label %44
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %9, ptr %20, align 8
   %21 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #6
   %22 = icmp eq ptr %21, null
@@ -65,20 +65,20 @@ define void @Java_sun_java2d_opengl_GLXSurfaceData_initOps(ptr noundef %0, ptr n
   br label %44
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %13, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %21, ptr %25, align 8
   store ptr @OGLSD_Lock, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @OGLSD_GetRasInfo, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @OGLSD_Unlock, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr @OGLSD_Dispose, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 76
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 76
   store i32 1028, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %13, i64 81
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 81
   store i8 1, ptr %31, align 1
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %34, label %32
@@ -91,7 +91,7 @@ define void @Java_sun_java2d_opengl_GLXSurfaceData_initOps(ptr noundef %0, ptr n
   %storemerge = phi i64 [ %33, %32 ], [ 0, %24 ]
   store i64 %storemerge, ptr %21, align 8
   %35 = inttoptr i64 %4 to ptr
-  %36 = getelementptr inbounds i8, ptr %21, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %35, ptr %36, align 8
   %37 = icmp eq i64 %4, 0
   br i1 %37, label %38, label %39
@@ -102,7 +102,7 @@ define void @Java_sun_java2d_opengl_GLXSurfaceData_initOps(ptr noundef %0, ptr n
   br label %44
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
@@ -154,7 +154,7 @@ define hidden ptr @OGLSD_SetScratchSurface(ptr nocapture noundef readnone %0, i6
 
 5:                                                ; preds = %2
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %GLXSD_MakeCurrentToScratch.exit.thread, label %10
@@ -163,7 +163,7 @@ define hidden ptr @OGLSD_SetScratchSurface(ptr nocapture noundef readnone %0, i6
   %11 = load ptr, ptr %8, align 8
   %12 = load ptr, ptr @j2d_glXMakeContextCurrent, align 8
   %13 = load ptr, ptr @awt_display, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = tail call i32 %12(ptr noundef %13, i64 noundef %15, i64 noundef %15, ptr noundef %16) #5
@@ -176,7 +176,7 @@ GLXSD_MakeCurrentToScratch.exit.thread:           ; preds = %5, %10
   br label %23
 
 GLXSD_MakeCurrentToScratch.exit:                  ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 12
   %.not8 = icmp eq i32 %20, 0
@@ -196,13 +196,13 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
@@ -212,7 +212,7 @@ define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0
   br label %53
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 5
   br i1 %17, label %18, label %34
@@ -226,7 +226,7 @@ define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0
   %21 = load ptr, ptr %11, align 8
   %22 = load ptr, ptr @j2d_glXMakeContextCurrent, align 8
   %23 = load ptr, ptr @awt_display, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %21, align 8
   %27 = tail call i32 %22(ptr noundef %23, i64 noundef %25, i64 noundef %25, ptr noundef %26) #5
@@ -239,24 +239,24 @@ GLXSD_MakeCurrentToScratch.exit.thread:           ; preds = %20
 
 GLXSD_MakeCurrentToScratch.exit:                  ; preds = %20, %18
   %28 = load ptr, ptr @j2d_glBindTexture, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %30 = load i32, ptr %29, align 8
   tail call void %28(i32 noundef %30, i32 noundef 0) #5
   %31 = load ptr, ptr @j2d_glBindFramebufferEXT, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %33 = load i32, ptr %32, align 8
   tail call void %31(i32 noundef 36160, i32 noundef %33) #5
   br label %53
 
 34:                                               ; preds = %14
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %11, align 8
   %38 = load ptr, ptr @j2d_glXMakeContextCurrent, align 8
   %39 = load ptr, ptr @awt_display, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = load ptr, ptr %37, align 8
   %45 = tail call i32 %38(ptr noundef %39, i64 noundef %41, i64 noundef %43, ptr noundef %44) #5
@@ -268,7 +268,7 @@ GLXSD_MakeCurrentToScratch.exit:                  ; preds = %20, %18
   br label %53
 
 47:                                               ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %11, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 12
   %.not19 = icmp eq i32 %50, 0
@@ -297,7 +297,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
   br label %30
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -318,25 +318,25 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
 15:                                               ; preds = %11
   %16 = load ptr, ptr @awt_display, align 8
   %17 = call i32 @XGetWindowAttributes(ptr noundef %16, i64 noundef %12, ptr noundef nonnull %3) #5
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 92
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %12, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %12, ptr %29, align 8
   br label %30
 

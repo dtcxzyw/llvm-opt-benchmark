@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_pml_base_recv_request_construct(ptr noundef initializes((168, 172), (192, 200)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 2, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
@@ -25,11 +25,11 @@ define internal void @mca_pml_base_recv_request_construct(ptr noundef initialize
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @opal_convertor_t_class, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -38,7 +38,7 @@ define internal void @mca_pml_base_recv_request_construct(ptr noundef initialize
   %11 = phi ptr [ %13, %.lr.ph.i ], [ %10, %6 ]
   %.07.i = phi ptr [ %12, %.lr.ph.i ], [ %9, %6 ]
   tail call void %11(ptr noundef nonnull %7) #3
-  %12 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4

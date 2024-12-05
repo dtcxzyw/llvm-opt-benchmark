@@ -78,8 +78,8 @@ define hidden void @zim_DOMElement___construct(ptr nocapture noundef readonly %0
   store i32 0, ptr %8, align 4
   store i64 0, ptr %10, align 8
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %11) #8
   %16 = icmp eq i32 %15, -1
@@ -276,13 +276,13 @@ define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, pt
   br label %42
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %29, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not137 = icmp eq ptr %11, null
   br i1 %.not137, label %29, label %12
@@ -290,7 +290,7 @@ define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, pt
 12:                                               ; preds = %9
   %13 = tail call ptr @xmlStrdup(ptr noundef nonnull %11) #8
   %14 = tail call ptr @xmlStrcat(ptr noundef %13, ptr noundef nonnull @.str.1) #8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xmlStrcat(ptr noundef %14, ptr noundef %16) #8
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
@@ -298,43 +298,43 @@ define hidden range(i32 -1, 1) i32 @dom_element_tag_name_read(ptr noundef %0, pt
   %20 = add i64 %19, 32
   %21 = tail call noalias ptr @_emalloc(i64 noundef %20) #10
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 22, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %18, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %17, i64 %18, i1 false)
   %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1
   store ptr %21, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %27, align 8
   %28 = load ptr, ptr @xmlFree, align 8
   tail call void %28(ptr noundef %17) #8
   br label %42
 
 29:                                               ; preds = %6, %9
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
   %33 = and i64 %32, -8
   %34 = add i64 %33, 32
   %35 = tail call noalias ptr @_emalloc(i64 noundef %34) #10
   store i32 1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 22, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 1 %31, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1
   store ptr %35, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %41, align 8
   br label %42
 
@@ -368,7 +368,7 @@ define hidden range(i32 -1, 1) i32 @dom_element_class_name_read(ptr noundef %0, 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @zend_empty_string, align 8
   store ptr %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %11, align 8
   br label %dom_element_reflected_attribute_read.exit
 
@@ -378,18 +378,18 @@ define hidden range(i32 -1, 1) i32 @dom_element_class_name_read(ptr noundef %0, 
   %15 = add i64 %14, 32
   %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #10
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 22, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %7, i64 %13, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %13
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %22, align 8
   %23 = load ptr, ptr @xmlFree, align 8
   tail call void %23(ptr noundef nonnull %7) #8
@@ -412,7 +412,7 @@ define hidden range(i32 -1, 1) i32 @dom_element_class_name_write(ptr noundef %0,
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = tail call ptr @xmlSetNsProp(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #8
   %10 = icmp eq ptr %9, null
   %11 = sext i1 %10 to i32
@@ -441,7 +441,7 @@ define hidden range(i32 -1, 1) i32 @dom_element_id_read(ptr noundef %0, ptr noca
 9:                                                ; preds = %6
   %10 = load ptr, ptr @zend_empty_string, align 8
   store ptr %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %11, align 8
   br label %dom_element_reflected_attribute_read.exit
 
@@ -451,18 +451,18 @@ define hidden range(i32 -1, 1) i32 @dom_element_id_read(ptr noundef %0, ptr noca
   %15 = add i64 %14, 32
   %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #10
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 22, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %7, i64 %13, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %13
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %22, align 8
   %23 = load ptr, ptr @xmlFree, align 8
   tail call void %23(ptr noundef nonnull %7) #8
@@ -485,21 +485,21 @@ dom_element_reflected_attribute_write.exit.thread: ; preds = %2
 
 dom_element_reflected_attribute_write.exit:       ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = tail call ptr @xmlSetNsProp(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %php_set_attribute_id.exit, label %8
 
 8:                                                ; preds = %dom_element_reflected_attribute_write.exit
-  %9 = getelementptr inbounds i8, ptr %7, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 2
   br i1 %.not.i, label %php_set_attribute_id.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @xmlNodeListGetString(ptr noundef %13, ptr noundef %15, i32 noundef 1) #8
   %.not13.i = icmp eq ptr %16, null
@@ -519,7 +519,7 @@ php_set_attribute_id.exit:                        ; preds = %17, %11, %8, %dom_e
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @dom_element_schema_type_info_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
@@ -528,7 +528,7 @@ define hidden noundef i32 @dom_element_schema_type_info_read(ptr nocapture nound
 define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %8 = icmp eq i32 %7, -1
@@ -541,7 +541,7 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   br label %62
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -549,11 +549,11 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -568,7 +568,7 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   br i1 %.not, label %.thread, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %42 [
     i32 2, label %33
@@ -576,20 +576,20 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   ]
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %29, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @xmlNodeListGetString(ptr noundef %35, ptr noundef %37, i32 noundef 1) #8
   br label %45
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %29, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %41 = load ptr, ptr %40, align 8
   br label %45
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %29, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -602,7 +602,7 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
 .thread:                                          ; preds = %26, %45
   %47 = load ptr, ptr @zend_empty_string, align 8
   store ptr %47, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %48, align 8
   br label %62
 
@@ -612,18 +612,18 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   %52 = add i64 %51, 32
   %53 = call noalias ptr @_emalloc(i64 noundef %52) #10
   store i32 1, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 22, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 %50, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 1 %.0, i64 %50, i1 false)
   %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %50
   store i8 0, ptr %58, align 1
   store ptr %53, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %59, align 8
   br i1 %.080, label %60, label %62
 
@@ -654,7 +654,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %13
 
 13:                                               ; preds = %14, %11
@@ -664,7 +664,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br i1 %.not37, label %.loopexit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.029, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @xmlStrEqual(ptr noundef %16, ptr noundef nonnull %4) #8
   %.not38 = icmp eq i32 %17, 0
@@ -672,7 +672,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %5
   %19 = call ptr @xmlStrndup(ptr noundef %1, i32 noundef %6) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @xmlSearchNs(ptr noundef %21, ptr noundef %0, ptr noundef %19) #8
   %.not35 = icmp eq ptr %19, null
@@ -688,7 +688,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br i1 %.not36, label %39, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @xmlHasNsProp(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %28) #8
   br label %.loopexit
@@ -699,7 +699,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br i1 %.not33, label %39, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %34
 
 34:                                               ; preds = %35, %32
@@ -709,7 +709,7 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br i1 %.not34, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %.0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %34
@@ -728,7 +728,7 @@ declare ptr @xmlNodeListGetString(ptr noundef, ptr noundef, i32 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -738,7 +738,7 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   br label %.loopexit.sink.split
 
 .critedge:                                        ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -24
   %10 = load ptr, ptr %9, align 8
@@ -746,11 +746,11 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %17) #8
   br label %.loopexit.sink.split
 
@@ -758,26 +758,26 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   %19 = load ptr, ptr %10, align 8
   %20 = tail call ptr @_zend_new_array_0() #8
   store ptr %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %21, align 8
   tail call void @zend_hash_real_init_packed(ptr noundef %20) #8
-  %22 = getelementptr inbounds i8, ptr %19, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %.039 = load ptr, ptr %22, align 8
   %.not3540 = icmp eq ptr %.039, null
   br i1 %.not3540, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %.041 = phi ptr [ %.039, %.lr.ph ], [ %.0, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.041, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.041, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
   %28 = call ptr @dom_node_concatenated_name_helper(i64 noundef %27, ptr noundef %26, i64 noundef 5, ptr noundef nonnull @.str.6) #8
   store ptr %28, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 64
   %.not38 = icmp eq i32 %31, 0
@@ -789,27 +789,27 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   br i1 %.not35, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %18
-  %34 = getelementptr inbounds i8, ptr %19, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %.03342 = load ptr, ptr %34, align 8
   %.not3643 = icmp eq ptr %.03342, null
   br i1 %.not3643, label %.loopexit, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %36
 
 36:                                               ; preds = %.lr.ph46, %36
   %.03344 = phi ptr [ %.03342, %.lr.ph46 ], [ %.033, %36 ]
   %37 = call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef nonnull %.03344) #8
   store ptr %37, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 64
   %.not37 = icmp eq i32 %40, 0
   %41 = select i1 %.not37, i32 262, i32 6
   store i32 %41, ptr %35, align 8
   %42 = call ptr @zend_hash_next_index_insert(ptr noundef %20, ptr noundef nonnull %3) #8
-  %43 = getelementptr inbounds i8, ptr %.03344, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.03344, i64 48
   %.033 = load ptr, ptr %43, align 8
   %.not36 = icmp eq ptr %.033, null
   br i1 %.not36, label %.loopexit, label %36
@@ -842,8 +842,8 @@ define hidden void @zim_DOMElement_setAttribute(ptr nocapture noundef readonly %
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %11 = icmp eq i32 %10, -1
@@ -888,11 +888,11 @@ define hidden void @zim_DOMElement_setAttribute(ptr nocapture noundef readonly %
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %37) #8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
@@ -907,7 +907,7 @@ define hidden void @zim_DOMElement_setAttribute(ptr nocapture noundef readonly %
   br i1 %.not20, label %52, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %52 [
     i32 2, label %47
@@ -915,13 +915,13 @@ define hidden void @zim_DOMElement_setAttribute(ptr nocapture noundef readonly %
   ]
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load ptr, ptr %48, align 8
   call void @node_list_unlink(ptr noundef %49) #8
   br label %52
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %51, align 8
   br label %71
 
@@ -953,13 +953,13 @@ dom_create_attribute.exit:                        ; preds = %56, %58
   br label %71
 
 63:                                               ; preds = %dom_create_attribute.exit
-  %64 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 18
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %68, align 8
   br label %71
 
@@ -981,7 +981,7 @@ declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef)
 define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -994,7 +994,7 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
   br label %35
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1002,11 +1002,11 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1021,13 +1021,13 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %35
 
 33:                                               ; preds = %26
   call fastcc void @dom_remove_attribute(ptr noundef %27, ptr noundef %29)
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %34, align 8
   br label %35
 
@@ -1039,7 +1039,7 @@ define hidden void @zim_DOMElement_removeAttribute(ptr nocapture noundef readonl
 define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %switch = icmp eq i32 %5, 2
   br i1 %switch, label %6, label %13
@@ -1050,7 +1050,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @node_list_unlink(ptr noundef %11) #8
   tail call void @xmlUnlinkNode(ptr noundef nonnull %1) #8
@@ -1062,7 +1062,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   br label %86
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1
   br i1 %16, label %17, label %19
@@ -1093,15 +1093,15 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 
 .loopexit:                                        ; preds = %.preheader, %22, %17
   store ptr null, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   tail call void @php_libxml_set_old_ns(ptr noundef %25, ptr noundef nonnull %1) #8
   %26 = tail call noalias ptr @_emalloc_2048() #8
   store ptr %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %30
 
 .loopexit.i:                                      ; preds = %84, %._crit_edge.i
@@ -1118,13 +1118,13 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %31 = add i64 %.086122.i, -1
   %32 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.089121.i, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %1
   br i1 %41, label %42, label %51
@@ -1143,7 +1143,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 48:                                               ; preds = %44, %42
   %49 = phi ptr [ %.pre.i, %44 ], [ %33, %42 ]
   %.1.i = phi ptr [ %47, %44 ], [ %38, %42 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   store ptr %.1.i, ptr %50, align 8
   %.pre126.i = load ptr, ptr %32, align 8
   br label %51
@@ -1151,7 +1151,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 51:                                               ; preds = %48, %30
   %52 = phi ptr [ %.pre126.i, %48 ], [ %33, %30 ]
   %.081.i = phi ptr [ %.1.i, %48 ], [ %38, %30 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %.080106.i = load ptr, ptr %53, align 8
   %.not97107.i = icmp eq ptr %.080106.i, null
   br i1 %.not97107.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1159,7 +1159,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 .lr.ph.i:                                         ; preds = %51, %65
   %.080109.i = phi ptr [ %.080.i, %65 ], [ %.080106.i, %51 ]
   %.2108.i = phi ptr [ %.4.i, %65 ], [ %.081.i, %51 ]
-  %54 = getelementptr inbounds i8, ptr %.080109.i, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %.080109.i, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, %1
   br i1 %56, label %57, label %65
@@ -1182,7 +1182,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 
 65:                                               ; preds = %64, %.lr.ph.i
   %.4.i = phi ptr [ %.3.i, %64 ], [ %.2108.i, %.lr.ph.i ]
-  %66 = getelementptr inbounds i8, ptr %.080109.i, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.080109.i, i64 48
   %.080.i = load ptr, ptr %66, align 8
   %.not97.i = icmp eq ptr %.080.i, null
   br i1 %.not97.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -1194,7 +1194,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %51
   %67 = phi ptr [ %52, %51 ], [ %.pre127.i, %._crit_edge.loopexit.i ]
   %.2.lcssa.i = phi ptr [ %.081.i, %51 ], [ %.4.i, %._crit_edge.loopexit.i ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %.0110.i = load ptr, ptr %68, align 8
   %.not98111.i = icmp eq ptr %.0110.i, null
   br i1 %.not98111.i, label %.loopexit.i, label %.lr.ph117.i
@@ -1204,7 +1204,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.183114.i = phi i64 [ %.284.i, %84 ], [ %.082123.i, %._crit_edge.i ]
   %.187113.i = phi i64 [ %.288.i, %84 ], [ %31, %._crit_edge.i ]
   %.190112.i = phi ptr [ %.291.i, %84 ], [ %.089121.i, %._crit_edge.i ]
-  %69 = getelementptr inbounds i8, ptr %.0115.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0115.i, i64 8
   %70 = load i32, ptr %69, align 8
   %.not99.i = icmp eq i32 %70, 1
   br i1 %.not99.i, label %71, label %84
@@ -1229,7 +1229,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.385.i = phi i64 [ %77, %75 ], [ %.183114.i, %71 ]
   %81 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.392.i, i64 %.187113.i
   store ptr %.0115.i, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.2.lcssa.i, ptr %82, align 8
   %83 = add i64 %.187113.i, 1
   br label %84
@@ -1238,7 +1238,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.291.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.392.i, %80 ]
   %.288.i = phi i64 [ %.187113.i, %.lr.ph117.i ], [ %83, %80 ]
   %.284.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.385.i, %80 ]
-  %85 = getelementptr inbounds i8, ptr %.0115.i, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %.0115.i, i64 48
   %.0.i = load ptr, ptr %85, align 8
   %.not98.i = icmp eq ptr %.0.i, null
   br i1 %.not98.i, label %.loopexit.i, label %.lr.ph117.i
@@ -1256,7 +1256,7 @@ dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %73
 define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -1269,7 +1269,7 @@ define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readon
   br label %43
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1277,11 +1277,11 @@ define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1296,12 +1296,12 @@ define hidden void @zim_DOMElement_getAttributeNode(ptr nocapture noundef readon
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %43
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 18
   br i1 %36, label %37, label %41
@@ -1326,7 +1326,7 @@ declare ptr @php_dom_create_fake_namespace_decl(ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr @dom_attr_class_entry, align 8
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef %6) #8
@@ -1340,7 +1340,7 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br label %95
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1348,11 +1348,11 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1369,11 +1369,11 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %38) #8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
@@ -1382,17 +1382,17 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
   call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds i8, ptr %42, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %27, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %47, %51
   br i1 %52, label %58, label %53
@@ -1402,19 +1402,19 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @dom_get_strict_error(ptr noundef %55) #8
   call void @php_dom_throw_error(i32 noundef 4, i32 noundef %56) #8
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %57, align 8
   br label %95
 
 58:                                               ; preds = %49, %41
-  %59 = getelementptr inbounds i8, ptr %42, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @xmlHasProp(ptr noundef %27, ptr noundef %60) #8
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %74, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i32, ptr %63, align 8
   %.not43 = icmp eq i32 %64, 16
   br i1 %.not43, label %74, label %65
@@ -1431,7 +1431,7 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %72, align 8
   br label %95
 
@@ -1440,7 +1440,7 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br label %74
 
 74:                                               ; preds = %73, %62, %58
-  %75 = getelementptr inbounds i8, ptr %42, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not45 = icmp eq ptr %76, null
   br i1 %.not45, label %78, label %77
@@ -1455,7 +1455,7 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %27, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %83 = load ptr, ptr %82, align 8
   %.not46 = icmp eq ptr %83, null
   br i1 %.not46, label %89, label %84
@@ -1478,7 +1478,7 @@ define hidden void @zim_DOMElement_setAttributeNode(ptr nocapture noundef readon
   br label %95
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %94, align 8
   br label %95
 
@@ -1503,7 +1503,7 @@ declare void @php_dom_reconcile_attribute_namespace_after_insertion(ptr noundef)
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr @dom_attr_class_entry, align 8
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef %6) #8
@@ -1517,7 +1517,7 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
   br label %55
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1525,11 +1525,11 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1545,11 +1545,11 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %37) #8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
@@ -1559,11 +1559,11 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
 40:                                               ; preds = %26
   %41 = load ptr, ptr %16, align 8
   %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
   call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds i8, ptr %42, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, %41
   br i1 %.not, label %53, label %48
@@ -1573,7 +1573,7 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @dom_get_strict_error(ptr noundef %50) #8
   call void @php_dom_throw_error(i32 noundef 8, i32 noundef %51) #8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %52, align 8
   br label %55
 
@@ -1590,7 +1590,7 @@ define hidden void @zim_DOMElement_removeAttributeNode(ptr nocapture noundef rea
 define hidden void @zim_DOMElement_getElementsByTagName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -1603,7 +1603,7 @@ define hidden void @zim_DOMElement_getElementsByTagName(ptr nocapture noundef re
   br label %31
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -1611,11 +1611,11 @@ define hidden void @zim_DOMElement_getElementsByTagName(ptr nocapture noundef re
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -1647,7 +1647,7 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   %6 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %10 = icmp eq i32 %9, -1
@@ -1660,7 +1660,7 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   br label %70
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -1668,11 +1668,11 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -1693,18 +1693,18 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   %36 = add i64 %35, 32
   %37 = call noalias ptr @_emalloc(i64 noundef %36) #10
   store i32 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 22, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 %34, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 1 %32, i64 %34, i1 false)
   %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 %34
   store i8 0, ptr %42, align 1
   store ptr %37, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %43, align 8
   %44 = load ptr, ptr @xmlFree, align 8
   call void %44(ptr noundef nonnull %32) #8
@@ -1723,39 +1723,39 @@ define hidden void @zim_DOMElement_getAttributeNS(ptr nocapture noundef readonly
   br i1 %.not145, label %64, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #9
   %55 = and i64 %54, -8
   %56 = add i64 %55, 32
   %57 = call noalias ptr @_emalloc(i64 noundef %56) #10
   store i32 1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 22, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 %54, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 1 %53, i64 %54, i1 false)
   %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 %54
   store i8 0, ptr %62, align 1
   store ptr %57, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %63, align 8
   br label %70
 
 64:                                               ; preds = %48
   %65 = load ptr, ptr @zend_empty_string, align 8
   store ptr %65, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %66, align 8
   br label %70
 
 67:                                               ; preds = %45
   %68 = load ptr, ptr @zend_empty_string, align 8
   store ptr %68, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %69, align 8
   br label %70
 
@@ -1785,8 +1785,8 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   store i64 0, ptr %5, align 8
   store ptr null, ptr %9, align 8
   store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef nonnull @.str.13, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5) #8
   %16 = icmp eq i32 %15, -1
@@ -1818,11 +1818,11 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %36) #8
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
@@ -1857,13 +1857,13 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %.not63, label %63, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8
   %.not64 = icmp eq i32 %59, 16
   br i1 %.not64, label %63, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %56, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %62 = load ptr, ptr %61, align 8
   call void @node_list_unlink(ptr noundef %62) #8
   br label %63
@@ -1901,7 +1901,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %80, label %103, label %119
 
 81:                                               ; preds = %72, %69, %66
-  %82 = getelementptr inbounds i8, ptr %40, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %6, align 8
   %85 = call ptr @xmlSearchNsByHref(ptr noundef %83, ptr noundef %40, ptr noundef %84) #8
@@ -1909,7 +1909,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %.not68, label %.thread83, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %85, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.preheader, label %.thread84
@@ -1921,13 +1921,13 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %.preheader, %98
   %.089 = phi ptr [ %.0, %98 ], [ %.087, %.preheader ]
-  %90 = getelementptr inbounds i8, ptr %.089, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.089, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not70 = icmp eq ptr %91, null
   br i1 %.not70, label %98, label %92
 
 92:                                               ; preds = %.lr.ph
-  %93 = getelementptr inbounds i8, ptr %.089, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.089, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not71 = icmp eq ptr %94, null
   br i1 %.not71, label %98, label %95
@@ -1944,7 +1944,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %.not69, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %98, %.preheader
-  %99 = getelementptr inbounds i8, ptr %85, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = call ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %40, ptr noundef %100) #8
   %102 = icmp eq ptr %101, null
@@ -1968,7 +1968,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
 113:                                              ; preds = %.thread83, %103
   %114 = phi i1 [ false, %103 ], [ true, %.thread83 ]
   %.2 = phi ptr [ null, %103 ], [ %112, %.thread83 ]
-  %115 = getelementptr inbounds i8, ptr %40, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %116 = load ptr, ptr %115, align 8
   %117 = call i32 @xmlReconciliateNs(ptr noundef %116, ptr noundef %40) #8
   %.pre = load i32, ptr %11, align 4
@@ -1976,7 +1976,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br label %.thread84
 
 119:                                              ; preds = %75
-  %120 = getelementptr inbounds i8, ptr %79, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %121 = load ptr, ptr %120, align 8
   %.not73 = icmp eq ptr %121, null
   br i1 %.not73, label %.thread84.thread, label %122
@@ -2021,13 +2021,13 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br i1 %.not61, label %144, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %140 = load i32, ptr %139, align 8
   %.not62 = icmp eq i32 %140, 16
   br i1 %.not62, label %144, label %141
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %137, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %143 = load ptr, ptr %142, align 8
   call void @node_list_unlink(ptr noundef %143) #8
   br label %144
@@ -2062,7 +2062,7 @@ define hidden void @zim_DOMElement_setAttributeNS(ptr nocapture noundef readonly
   br label %157
 
 157:                                              ; preds = %156, %154
-  %158 = getelementptr inbounds i8, ptr %1, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %158, align 8
   br label %159
 
@@ -2090,7 +2090,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3) #8
   %10 = icmp eq i32 %9, -1
@@ -2103,7 +2103,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br label %122
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -2111,11 +2111,11 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -2134,7 +2134,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @xmlStrEqual(ptr noundef %36, ptr noundef %38) #8
   %.not23 = icmp eq i32 %39, 0
@@ -2152,7 +2152,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br label %44
 
 44:                                               ; preds = %42, %40
-  %45 = getelementptr inbounds i8, ptr %34, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not27.i = icmp eq ptr %46, null
   br i1 %.not27.i, label %49, label %47
@@ -2164,7 +2164,7 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br label %49
 
 49:                                               ; preds = %47, %44
-  %50 = getelementptr inbounds i8, ptr %29, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %34
   br i1 %52, label %53, label %.preheader.i
@@ -2191,14 +2191,14 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
 
 .loopexit.i:                                      ; preds = %59, %57, %53
   store ptr null, ptr %34, align 8
-  %60 = getelementptr inbounds i8, ptr %29, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %61 = load ptr, ptr %60, align 8
   call void @php_libxml_set_old_ns(ptr noundef %61, ptr noundef nonnull %34) #8
-  %62 = getelementptr inbounds i8, ptr %29, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 1
   call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds i8, ptr %29, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, %34
   br i1 %67, label %68, label %69
@@ -2208,14 +2208,14 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br label %69
 
 69:                                               ; preds = %68, %.loopexit.i
-  %70 = getelementptr inbounds i8, ptr %29, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %.010.i.i.i = load ptr, ptr %70, align 8
   %.not11.i.i.i = icmp eq ptr %.010.i.i.i, null
   br i1 %.not11.i.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %69, %75
   %.012.i.i.i = phi ptr [ %.0.i.i.i, %75 ], [ %.010.i.i.i, %69 ]
-  %71 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %34
   br i1 %73, label %74, label %75
@@ -2225,13 +2225,13 @@ define hidden void @zim_DOMElement_removeAttributeNS(ptr nocapture noundef reado
   br label %75
 
 75:                                               ; preds = %74, %.lr.ph.i.i.i
-  %76 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %.0.i.i.i = load ptr, ptr %76, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %dom_remove_eliminated_ns_single_element.exit.i.i, label %.lr.ph.i.i.i
 
 dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %75, %69
-  %77 = getelementptr inbounds i8, ptr %29, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not34.i.i = icmp eq ptr %78, null
   br i1 %.not34.i.i, label %dom_eliminate_ns.exit, label %.lr.ph.i.i
@@ -2240,13 +2240,13 @@ dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %75, %69
   %.035.i.i = phi ptr [ %.035.i.i.be, %.lr.ph.i.i.backedge ], [ %78, %dom_remove_eliminated_ns_single_element.exit.i.i ]
   %79 = icmp ne ptr %.035.i.i, %29
   call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds i8, ptr %.035.i.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 1
   br i1 %82, label %83, label %98
 
 83:                                               ; preds = %.lr.ph.i.i
-  %84 = getelementptr inbounds i8, ptr %.035.i.i, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 72
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, %34
   br i1 %86, label %87, label %88
@@ -2256,14 +2256,14 @@ dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %75, %69
   br label %88
 
 88:                                               ; preds = %87, %83
-  %89 = getelementptr inbounds i8, ptr %.035.i.i, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 88
   %.010.i25.i.i = load ptr, ptr %89, align 8
   %.not11.i26.i.i = icmp eq ptr %.010.i25.i.i, null
   br i1 %.not11.i26.i.i, label %dom_remove_eliminated_ns_single_element.exit31.i.i, label %.lr.ph.i27.i.i
 
 .lr.ph.i27.i.i:                                   ; preds = %88, %94
   %.012.i28.i.i = phi ptr [ %.0.i29.i.i, %94 ], [ %.010.i25.i.i, %88 ]
-  %90 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %.012.i28.i.i, i64 72
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %34
   br i1 %92, label %93, label %94
@@ -2273,19 +2273,19 @@ dom_remove_eliminated_ns_single_element.exit.i.i: ; preds = %75, %69
   br label %94
 
 94:                                               ; preds = %93, %.lr.ph.i27.i.i
-  %95 = getelementptr inbounds i8, ptr %.012.i28.i.i, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %.012.i28.i.i, i64 48
   %.0.i29.i.i = load ptr, ptr %95, align 8
   %.not.i30.i.i = icmp eq ptr %.0.i29.i.i, null
   br i1 %.not.i30.i.i, label %dom_remove_eliminated_ns_single_element.exit31.i.i, label %.lr.ph.i27.i.i
 
 dom_remove_eliminated_ns_single_element.exit31.i.i: ; preds = %94, %88
-  %96 = getelementptr inbounds i8, ptr %.035.i.i, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not23.i.i = icmp eq ptr %97, null
   br i1 %.not23.i.i, label %98, label %.lr.ph.i.i.backedge
 
 98:                                               ; preds = %dom_remove_eliminated_ns_single_element.exit31.i.i, %.lr.ph.i.i
-  %99 = getelementptr inbounds i8, ptr %.035.i.i, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 48
   %100 = load ptr, ptr %99, align 8
   %.not24.i.i = icmp eq ptr %100, null
   br i1 %.not24.i.i, label %.preheader.i.i, label %.lr.ph.i.i.backedge
@@ -2296,19 +2296,19 @@ dom_remove_eliminated_ns_single_element.exit31.i.i: ; preds = %94, %88
 
 .preheader.i.i:                                   ; preds = %98, %104
   %.2.i.i = phi ptr [ %102, %104 ], [ %.035.i.i, %98 ]
-  %101 = getelementptr inbounds i8, ptr %.2.i.i, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, %29
   br i1 %103, label %dom_eliminate_ns.exit, label %104
 
 104:                                              ; preds = %.preheader.i.i
-  %105 = getelementptr inbounds i8, ptr %102, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
 108:                                              ; preds = %35
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %109, align 8
   br label %122
 
@@ -2317,7 +2317,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %do
   br i1 %.not24, label %120, label %110
 
 110:                                              ; preds = %dom_eliminate_ns.exit
-  %111 = getelementptr inbounds i8, ptr %32, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %112 = load i32, ptr %111, align 8
   %.not25 = icmp eq i32 %112, 16
   br i1 %.not25, label %120, label %113
@@ -2328,7 +2328,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %do
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %32, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %118 = load ptr, ptr %117, align 8
   call void @node_list_unlink(ptr noundef %118) #8
   call void @xmlUnlinkNode(ptr noundef nonnull %32) #8
@@ -2340,7 +2340,7 @@ dom_eliminate_ns.exit:                            ; preds = %.preheader.i.i, %do
   br label %120
 
 120:                                              ; preds = %116, %119, %110, %dom_eliminate_ns.exit
-  %121 = getelementptr inbounds i8, ptr %1, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %121, align 8
   br label %122
 
@@ -2356,7 +2356,7 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %10 = icmp eq i32 %9, -1
@@ -2369,7 +2369,7 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
   br label %50
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -2377,11 +2377,11 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -2416,12 +2416,12 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
   br label %50
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %45, align 8
   br label %50
 
 46:                                               ; preds = %34
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %47, align 8
   br label %50
 
@@ -2436,7 +2436,7 @@ define hidden void @zim_DOMElement_getAttributeNodeNS(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr @dom_attr_class_entry, align 8
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef %6) #8
@@ -2450,7 +2450,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br label %103
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -2458,11 +2458,11 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -2479,11 +2479,11 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %38) #8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
@@ -2492,17 +2492,17 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
   call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds i8, ptr %42, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %27, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %47, %51
   br i1 %52, label %58, label %53
@@ -2512,20 +2512,20 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @dom_get_strict_error(ptr noundef %55) #8
   call void @php_dom_throw_error(i32 noundef 4, i32 noundef %56) #8
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %57, align 8
   br label %103
 
 58:                                               ; preds = %49, %41
-  %59 = getelementptr inbounds i8, ptr %42, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %60 = load ptr, ptr %59, align 8
   %.not = icmp eq ptr %60, null
-  %61 = getelementptr inbounds i8, ptr %42, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %62 = load ptr, ptr %61, align 8
   br i1 %.not, label %67, label %63
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %60, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @xmlHasNsProp(ptr noundef %27, ptr noundef %62, ptr noundef %65) #8
   br label %69
@@ -2540,7 +2540,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br i1 %.not49, label %82, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %.0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %72 = load i32, ptr %71, align 8
   %.not50 = icmp eq i32 %72, 16
   br i1 %.not50, label %82, label %73
@@ -2557,7 +2557,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %80, align 8
   br label %103
 
@@ -2566,7 +2566,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br label %82
 
 82:                                               ; preds = %81, %70, %69
-  %83 = getelementptr inbounds i8, ptr %42, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %84 = load ptr, ptr %83, align 8
   %.not52 = icmp eq ptr %84, null
   br i1 %.not52, label %86, label %85
@@ -2581,7 +2581,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br i1 %88, label %89, label %97
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %27, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %91 = load ptr, ptr %90, align 8
   %.not53 = icmp eq ptr %91, null
   br i1 %.not53, label %97, label %92
@@ -2604,7 +2604,7 @@ define hidden void @zim_DOMElement_setAttributeNodeNS(ptr nocapture noundef read
   br label %103
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %102, align 8
   br label %103
 
@@ -2618,7 +2618,7 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef 
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %10 = icmp eq i32 %9, -1
@@ -2631,7 +2631,7 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef 
   br label %36
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -2639,11 +2639,11 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef 
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -2671,7 +2671,7 @@ define hidden void @zim_DOMElement_getElementsByTagNameNS(ptr nocapture noundef 
 define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %8 = icmp eq i32 %7, -1
@@ -2684,7 +2684,7 @@ define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %
   br label %34
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -2692,11 +2692,11 @@ define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -2708,7 +2708,7 @@ define hidden void @zim_DOMElement_hasAttribute(ptr nocapture noundef readonly %
   %28 = load ptr, ptr %3, align 8
   %29 = call fastcc ptr @dom_get_dom1_attribute(ptr noundef %27, ptr noundef %28)
   %30 = icmp eq ptr %29, null
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %30, label %32, label %33
 
 32:                                               ; preds = %26
@@ -2729,7 +2729,7 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #8
   %10 = icmp eq i32 %9, -1
@@ -2742,7 +2742,7 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
   br label %46
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -2750,11 +2750,11 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -2772,7 +2772,7 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
 33:                                               ; preds = %28
   %34 = load ptr, ptr @xmlFree, align 8
   call void %34(ptr noundef nonnull %32) #8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %35, align 8
   br label %46
 
@@ -2789,12 +2789,12 @@ define hidden void @zim_DOMElement_hasAttributeNS(ptr nocapture noundef readonly
   br i1 %.not16, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %43, align 8
   br label %46
 
 44:                                               ; preds = %36, %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %45, align 8
   br label %46
 
@@ -2807,7 +2807,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.15, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %9 = icmp eq i32 %8, -1
@@ -2820,7 +2820,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   br label %61
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
@@ -2828,11 +2828,11 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %24) #8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -2847,7 +2847,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 16
   br i1 %35, label %36, label %40
@@ -2862,7 +2862,7 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
 40:                                               ; preds = %32
   %41 = load i8, ptr %5, align 1
   %42 = trunc i8 %41 to i1
-  %43 = getelementptr inbounds i8, ptr %30, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %44 = load i32, ptr %43, align 8
   %.not.i = icmp eq i32 %44, 2
   br i1 %42, label %45, label %.critedge.i
@@ -2871,9 +2871,9 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   br i1 %.not.i, label %php_set_attribute_id.exit, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %30, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %30, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @xmlNodeListGetString(ptr noundef %48, ptr noundef %50, i32 noundef 1) #8
   %.not13.i = icmp eq ptr %51, null
@@ -2890,14 +2890,14 @@ define hidden void @zim_DOMElement_setIdAttribute(ptr nocapture noundef readonly
   br i1 %.not.i, label %56, label %php_set_attribute_id.exit
 
 56:                                               ; preds = %.critedge.i
-  %57 = getelementptr inbounds i8, ptr %30, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 @xmlRemoveID(ptr noundef %58, ptr noundef nonnull %30) #8
   store i32 0, ptr %43, align 8
   br label %php_set_attribute_id.exit
 
 php_set_attribute_id.exit:                        ; preds = %56, %.critedge.i, %52, %46, %45, %36
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %60, align 8
   br label %61
 
@@ -2912,7 +2912,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.16, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7) #8
   %11 = icmp eq i32 %10, -1
@@ -2925,7 +2925,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   br label %64
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 -24
   %19 = load ptr, ptr %18, align 8
@@ -2933,11 +2933,11 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %26) #8
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
@@ -2953,7 +2953,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 16
   br i1 %38, label %39, label %43
@@ -2968,7 +2968,7 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
 43:                                               ; preds = %35
   %44 = load i8, ptr %7, align 1
   %45 = trunc i8 %44 to i1
-  %46 = getelementptr inbounds i8, ptr %33, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %47 = load i32, ptr %46, align 8
   %.not.i = icmp eq i32 %47, 2
   br i1 %45, label %48, label %.critedge.i
@@ -2977,9 +2977,9 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   br i1 %.not.i, label %php_set_attribute_id.exit, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %33, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %33, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @xmlNodeListGetString(ptr noundef %51, ptr noundef %53, i32 noundef 1) #8
   %.not13.i = icmp eq ptr %54, null
@@ -2996,14 +2996,14 @@ define hidden void @zim_DOMElement_setIdAttributeNS(ptr nocapture noundef readon
   br i1 %.not.i, label %59, label %php_set_attribute_id.exit
 
 59:                                               ; preds = %.critedge.i
-  %60 = getelementptr inbounds i8, ptr %33, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 @xmlRemoveID(ptr noundef %61, ptr noundef nonnull %33) #8
   store i32 0, ptr %46, align 8
   br label %php_set_attribute_id.exit
 
 php_set_attribute_id.exit:                        ; preds = %59, %.critedge.i, %55, %49, %48, %39
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %63, align 8
   br label %64
 
@@ -3015,7 +3015,7 @@ php_set_attribute_id.exit:                        ; preds = %59, %.critedge.i, %
 define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @dom_attr_class_entry, align 8
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.17, ptr noundef nonnull %3, ptr noundef %7, ptr noundef nonnull %4) #8
@@ -3029,7 +3029,7 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
   br label %71
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
@@ -3037,11 +3037,11 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %24) #8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -3057,11 +3057,11 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %38) #8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
@@ -3071,7 +3071,7 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
 41:                                               ; preds = %27
   %42 = load ptr, ptr %17, align 8
   %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, %42
   br i1 %.not, label %50, label %46
@@ -3086,7 +3086,7 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
 50:                                               ; preds = %41
   %51 = load i8, ptr %4, align 1
   %52 = trunc i8 %51 to i1
-  %53 = getelementptr inbounds i8, ptr %43, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %54 = load i32, ptr %53, align 8
   %.not.i = icmp eq i32 %54, 2
   br i1 %52, label %55, label %.critedge.i
@@ -3095,9 +3095,9 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
   br i1 %.not.i, label %php_set_attribute_id.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %43, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %43, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @xmlNodeListGetString(ptr noundef %58, ptr noundef %60, i32 noundef 1) #8
   %.not13.i = icmp eq ptr %61, null
@@ -3114,14 +3114,14 @@ define hidden void @zim_DOMElement_setIdAttributeNode(ptr nocapture noundef read
   br i1 %.not.i, label %66, label %php_set_attribute_id.exit
 
 66:                                               ; preds = %.critedge.i
-  %67 = getelementptr inbounds i8, ptr %43, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @xmlRemoveID(ptr noundef %68, ptr noundef nonnull %43) #8
   store i32 0, ptr %53, align 8
   br label %php_set_attribute_id.exit
 
 php_set_attribute_id.exit:                        ; preds = %66, %.critedge.i, %62, %56, %55, %46
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %70, align 8
   br label %71
 
@@ -3131,7 +3131,7 @@ php_set_attribute_id.exit:                        ; preds = %66, %.critedge.i, %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMElement_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3144,7 +3144,7 @@ define hidden void @zim_DOMElement_remove(ptr nocapture noundef readonly %0, ptr
   br label %22
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -3152,11 +3152,11 @@ define hidden void @zim_DOMElement_remove(ptr nocapture noundef readonly %0, ptr
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %18) #8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
@@ -3178,7 +3178,7 @@ define hidden void @zim_DOMElement_after(ptr nocapture noundef readonly %0, ptr 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3191,7 +3191,7 @@ define hidden void @zim_DOMElement_after(ptr nocapture noundef readonly %0, ptr 
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3199,11 +3199,11 @@ define hidden void @zim_DOMElement_after(ptr nocapture noundef readonly %0, ptr 
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3227,7 +3227,7 @@ define hidden void @zim_DOMElement_before(ptr nocapture noundef readonly %0, ptr
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3240,7 +3240,7 @@ define hidden void @zim_DOMElement_before(ptr nocapture noundef readonly %0, ptr
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3248,11 +3248,11 @@ define hidden void @zim_DOMElement_before(ptr nocapture noundef readonly %0, ptr
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3276,7 +3276,7 @@ define hidden void @zim_DOMElement_append(ptr nocapture noundef readonly %0, ptr
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3289,7 +3289,7 @@ define hidden void @zim_DOMElement_append(ptr nocapture noundef readonly %0, ptr
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3297,11 +3297,11 @@ define hidden void @zim_DOMElement_append(ptr nocapture noundef readonly %0, ptr
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3325,7 +3325,7 @@ define hidden void @zim_DOMElement_prepend(ptr nocapture noundef readonly %0, pt
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3338,7 +3338,7 @@ define hidden void @zim_DOMElement_prepend(ptr nocapture noundef readonly %0, pt
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3346,11 +3346,11 @@ define hidden void @zim_DOMElement_prepend(ptr nocapture noundef readonly %0, pt
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3374,7 +3374,7 @@ define hidden void @zim_DOMElement_replaceWith(ptr nocapture noundef readonly %0
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3387,7 +3387,7 @@ define hidden void @zim_DOMElement_replaceWith(ptr nocapture noundef readonly %0
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3395,11 +3395,11 @@ define hidden void @zim_DOMElement_replaceWith(ptr nocapture noundef readonly %0
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3423,7 +3423,7 @@ define hidden void @zim_DOMElement_replaceChildren(ptr nocapture noundef readonl
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
   %8 = icmp eq i32 %7, -1
@@ -3436,7 +3436,7 @@ define hidden void @zim_DOMElement_replaceChildren(ptr nocapture noundef readonl
   br label %29
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3444,11 +3444,11 @@ define hidden void @zim_DOMElement_replaceChildren(ptr nocapture noundef readonl
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3471,7 +3471,7 @@ declare void @dom_parent_node_replace_children(ptr noundef, ptr noundef, i32 nou
 define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @dom_element_class_entry, align 8
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.19, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %7) #8
@@ -3485,7 +3485,7 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef r
   br label %53
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
@@ -3493,11 +3493,11 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef r
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %24) #8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -3513,11 +3513,11 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef r
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %38) #8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
@@ -3536,7 +3536,7 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef r
   ]
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %47, align 8
   br label %53
 
@@ -3556,19 +3556,19 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @dom_insert_adjacent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 11
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %9, i64 noundef 11, ptr noundef nonnull @.str.25, i64 noundef 11) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %thread-pre-split
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %102, label %15
@@ -3579,14 +3579,14 @@ define internal fastcc noundef ptr @dom_insert_adjacent(ptr noundef %0, ptr noun
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @dom_get_strict_error(ptr noundef %20) #8
   tail call void @php_dom_throw_error(i32 noundef 3, i32 noundef %21) #8
   br label %102
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @php_dom_adopt_node(ptr noundef %3, ptr noundef %2, ptr noundef %24) #8
   br i1 %25, label %26, label %102
@@ -3605,7 +3605,7 @@ thread-pre-split:                                 ; preds = %8
   br i1 %30, label %31, label %53
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %32, i64 noundef 10, ptr noundef nonnull @.str.26, i64 noundef 10) #8
   %.not62 = icmp eq i32 %33, 0
   br i1 %.not62, label %34, label %._crit_edge
@@ -3620,20 +3620,20 @@ thread-pre-split:                                 ; preds = %8
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @dom_get_strict_error(ptr noundef %39) #8
   tail call void @php_dom_throw_error(i32 noundef 3, i32 noundef %40) #8
   br label %102
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %1, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @php_dom_adopt_node(ptr noundef %3, ptr noundef %2, ptr noundef %43) #8
   br i1 %44, label %45, label %102
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
@@ -3652,7 +3652,7 @@ thread-pre-split:                                 ; preds = %8
   br i1 %55, label %56, label %72
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %57, i64 noundef 9, ptr noundef nonnull @.str.27, i64 noundef 9) #8
   %.not63 = icmp eq i32 %58, 0
   br i1 %.not63, label %59, label %thread-pre-split65
@@ -3663,14 +3663,14 @@ thread-pre-split:                                 ; preds = %8
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @dom_get_strict_error(ptr noundef %64) #8
   tail call void @php_dom_throw_error(i32 noundef 3, i32 noundef %65) #8
   br label %102
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %1, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i1 @php_dom_adopt_node(ptr noundef %3, ptr noundef %2, ptr noundef %68) #8
   br i1 %69, label %70, label %102
@@ -3689,13 +3689,13 @@ thread-pre-split65:                               ; preds = %56
   br i1 %74, label %75, label %95
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %76, i64 noundef 8, ptr noundef nonnull @.str.28, i64 noundef 8) #8
   %.not64 = icmp eq i32 %77, 0
   br i1 %.not64, label %78, label %95
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %1, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %102, label %82
@@ -3706,14 +3706,14 @@ thread-pre-split65:                               ; preds = %56
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 @dom_get_strict_error(ptr noundef %87) #8
   tail call void @php_dom_throw_error(i32 noundef 3, i32 noundef %88) #8
   br label %102
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %1, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %91 = load ptr, ptr %90, align 8
   %92 = tail call zeroext i1 @php_dom_adopt_node(ptr noundef %3, ptr noundef %2, ptr noundef %91) #8
   br i1 %92, label %93, label %102
@@ -3723,7 +3723,7 @@ thread-pre-split65:                               ; preds = %56
   br label %99
 
 95:                                               ; preds = %75, %72
-  %96 = getelementptr inbounds i8, ptr %2, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = tail call i32 @dom_get_strict_error(ptr noundef %97) #8
   tail call void @php_dom_throw_error(i32 noundef 12, i32 noundef %98) #8
@@ -3731,7 +3731,7 @@ thread-pre-split65:                               ; preds = %56
 
 99:                                               ; preds = %51, %49, %93, %70, %26
   %.0 = phi ptr [ %94, %93 ], [ %71, %70 ], [ %50, %49 ], [ %52, %51 ], [ %27, %26 ]
-  %100 = getelementptr inbounds i8, ptr %1, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %101 = load ptr, ptr %100, align 8
   tail call void @dom_reconcile_ns(ptr noundef %101, ptr noundef %.0) #8
   br label %102
@@ -3745,7 +3745,7 @@ thread-pre-split65:                               ; preds = %56
 define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %8 = icmp eq i32 %7, -1
@@ -3758,7 +3758,7 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
   br label %44
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -3766,11 +3766,11 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -3779,7 +3779,7 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp ugt i64 %29, 2147483647
   br i1 %30, label %31, label %34
@@ -3793,9 +3793,9 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr nocapture noundef read
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %27, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %39 = trunc nuw nsw i64 %29 to i32
   %40 = call ptr @xmlNewDocTextLen(ptr noundef %37, ptr noundef nonnull %38, i32 noundef %39) #8
   %41 = load ptr, ptr %3, align 8
@@ -3824,7 +3824,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store i8 1, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %11 = icmp eq i32 %10, -1
@@ -3837,7 +3837,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   br label %94
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 -24
   %19 = load ptr, ptr %18, align 8
@@ -3845,11 +3845,11 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %26) #8
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
@@ -3871,25 +3871,25 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
   br label %94
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %30, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %38 = load ptr, ptr %37, align 8
   %.not28 = icmp eq ptr %38, null
   br i1 %.not28, label %56, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 13
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %30, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @xmlStrEqual(ptr noundef %49, ptr noundef nonnull @.str.23) #8
   %.not29 = icmp eq i32 %50, 0
@@ -3954,7 +3954,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr nocapture noundef readonl
 81:                                               ; preds = %70
   %82 = sext i32 %71 to i64
   %83 = getelementptr inbounds i8, ptr %.pre, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = call ptr @xmlNewNs(ptr noundef nonnull %30, ptr noundef nonnull @.str.14, ptr noundef nonnull %84) #8
   br label %dom_create_attribute.exit
 
@@ -3980,7 +3980,7 @@ dom_create_attribute.exit:                        ; preds = %79, %77, %87, %63, 
   br label %92
 
 92:                                               ; preds = %91, %dom_create_attribute.exit
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.022, ptr %93, align 8
   br label %94
 

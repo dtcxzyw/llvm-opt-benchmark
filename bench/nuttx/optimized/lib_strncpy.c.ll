@@ -16,9 +16,9 @@ define noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr nocapture nou
   br i1 %.not, label %._crit_edge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.010, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %9 = load i8, ptr %.010, align 1
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %9, ptr %.0, align 1
   %.not11 = icmp eq i8 %9, 0
   br i1 %.not11, label %.critedge, label %6, !llvm.loop !6

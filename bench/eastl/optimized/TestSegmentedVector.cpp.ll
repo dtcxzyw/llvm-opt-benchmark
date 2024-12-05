@@ -266,7 +266,7 @@ $_ZN5eastl16segmented_vectorINS_4listI10TestObjectNS_9allocatorEEELm8ES3_E5clear
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEEC5ERKS1_) align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment, i8 0, i64 24, i1 false)
   ret void
 }
@@ -274,20 +274,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat($_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not12.i = icmp eq ptr %0, %1
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
-  %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -314,20 +314,20 @@ invoke.cont:                                      ; preds = %_ZN5eastl9allocator
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not12 = icmp eq ptr %0, %1
   br i1 %cmp.not12, label %delete.notnull.i10, label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
@@ -374,7 +374,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl16segmented_vectorIbLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -382,7 +382,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -390,20 +390,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK5eastl16segmented_vectorIbLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 32
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
 
@@ -411,9 +411,9 @@ if.end:                                           ; preds = %entry, %if.then
   %i.sroa.3.0 = phi ptr [ %retval.0.i, %if.then ], [ undef, %entry ]
   %i.sroa.0.0 = phi ptr [ %mData.i, %if.then ], [ null, %entry ]
   store ptr %i.sroa.0.0, ptr %agg.result, align 8
-  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %i.sroa.3.0, ptr %i.sroa.3.0.agg.result.sroa_idx, align 8
-  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %i.sroa.4.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -424,24 +424,24 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mSegment = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %mSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 32
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
-  %mEnd = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i, ptr %mEnd, align 8
   br label %if.end
 
@@ -468,17 +468,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorIbLm16ENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %mSegmentCount, align 8
   %sub = shl i64 %1, 4
   %mul = add i64 %sub, -16
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add = add i64 %mul, %3
   br label %return
@@ -491,7 +491,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorIbLm16ENS_9allocatorEE13segment_countEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   ret i64 %0
 }
@@ -499,19 +499,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %mData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub = add i64 %2, -1
   %arrayidx = getelementptr inbounds [16 x i8], ptr %mData, i64 0, i64 %sub
@@ -521,7 +521,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl16segmented_vectorIbLm16ENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %cmp = icmp eq ptr %0, null
   ret i1 %cmp
@@ -530,13 +530,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -544,12 +544,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -557,29 +557,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -591,13 +591,13 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp = icmp ult i64 %2, 16
   br i1 %cmp, label %if.then2, label %if.else
@@ -605,12 +605,12 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr = getelementptr inbounds i8, ptr %mData, i64 %2
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSegmentCount.i, align 8
@@ -618,29 +618,29 @@ if.else:                                          ; preds = %if.then
   %4 = ptrtoint ptr %0 to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %call.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i, ptr %mLastSegment, align 8
   %6 = load i64, ptr %0, align 8
   %and = and i64 %6, -2
   store i64 %and, ptr %0, align 8
   store ptr %call.i.i.i, ptr %1, align 8
-  %mData6 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %mData6 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   br label %return
 
 if.else8:                                         ; preds = %entry
-  %mSegmentCount.i9 = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9, align 8
   %inc.i10 = add i64 %7, 1
   store i64 %inc.i10, ptr %mSegmentCount.i9, align 8
   %call.i.i.i11 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11, ptr %mLastSegment, align 8
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11, ptr %mFirstSegment, align 8
-  %mData11 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 16
+  %mData11 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 16
   br label %return
 
 return:                                           ; preds = %if.else8, %if.else, %if.then2
@@ -651,13 +651,13 @@ return:                                           ; preds = %if.else8, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE9push_backERKb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -665,12 +665,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -678,29 +678,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -714,13 +714,13 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE23push_back_uninitializedEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -728,12 +728,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -741,29 +741,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -774,9 +774,9 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %1, align 8
@@ -784,7 +784,7 @@ entry:
   br i1 %tobool.not, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %if.end10
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount, align 8
   %dec2 = add i64 %3, -1
   store i64 %dec2, ptr %mSegmentCount, align 8
@@ -802,12 +802,12 @@ if.then6:                                         ; preds = %_ZN5eastl9allocator
   %or = or i64 %7, 1
   store i64 %or, ptr %6, align 8
   %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %9, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment, align 8
   br label %if.end10
 
@@ -818,10 +818,10 @@ if.end10:                                         ; preds = %if.then6, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE14erase_unsortedERNS_7segmentIbLm16ES1_EEPb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %segment, ptr noundef %it) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x i8], ptr %mData.i, i64 0, i64 %sub.i
@@ -829,7 +829,7 @@ entry:
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %it, align 1
   %4 = load ptr, ptr %mLastSegment.i, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %dec.i = add i64 %6, -1
   store i64 %dec.i, ptr %5, align 8
@@ -837,7 +837,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %7, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -855,12 +855,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %11, 1
   store i64 %or.i, ptr %10, align 8
   %12 = load ptr, ptr %mLastSegment.i, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 16, ptr %13, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -872,10 +872,10 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %en
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE14erase_unsortedERKNS_25segmented_vector_iteratorIbLm16ES1_EE(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %i, i64 24, i1 false)
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x i8], ptr %mData.i, i64 0, i64 %sub.i
@@ -883,11 +883,11 @@ entry:
   %4 = load ptr, ptr %i, align 8
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %4, align 1
-  %mSegment = getelementptr inbounds i8, ptr %i, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %i, i64 16
   %5 = load ptr, ptr %mSegment, align 8
   %6 = load ptr, ptr %mLastSegment.i, align 8
   %cmp = icmp eq ptr %5, %6
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %cmp4 = icmp eq i64 %8, 1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -895,19 +895,19 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %9, align 8
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 if.end:                                           ; preds = %entry
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %10, align 8
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.end
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %11, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -925,12 +925,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %15, 1
   store i64 %or.i, ptr %14, align 8
   %16 = load ptr, ptr %mLastSegment.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 16, ptr %17, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -941,19 +941,19 @@ _ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %if
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %mSegmentCount, align 8
-  %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
+  %mFirstSegment4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %3 = load ptr, ptr %mFirstSegment4, align 8
   store ptr %3, ptr %mFirstSegment, align 8
-  %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %mLastSegment6 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load ptr, ptr %mLastSegment6, align 8
   store ptr %4, ptr %mLastSegment, align 8
-  %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
+  %mSegmentCount8 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %5 = load i64, ptr %mSegmentCount8, align 8
   store i64 %5, ptr %mSegmentCount, align 8
   store ptr %0, ptr %mFirstSegment4, align 8
@@ -965,7 +965,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE14DoAllocSegmentEPNS_7segmentIbLm16ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %prevSegment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %mSegmentCount, align 8
@@ -973,7 +973,7 @@ entry:
   %1 = ptrtoint ptr %prevSegment to i64
   %or = or i64 %1, 1
   store i64 %or, ptr %call.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 1, ptr %2, align 8
   ret ptr %call.i.i
 }
@@ -981,7 +981,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEEC5ERKS1_) align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment, i8 0, i64 24, i1 false)
   ret void
 }
@@ -989,20 +989,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat($_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not12.i = icmp eq ptr %0, %1
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
-  %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -1029,20 +1029,20 @@ invoke.cont:                                      ; preds = %_ZN5eastl9allocator
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not12 = icmp eq ptr %0, %1
   br i1 %cmp.not12, label %delete.notnull.i10, label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
@@ -1075,7 +1075,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl16segmented_vectorIiLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -1083,7 +1083,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -1091,20 +1091,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK5eastl16segmented_vectorIiLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 80
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
 
@@ -1112,9 +1112,9 @@ if.end:                                           ; preds = %entry, %if.then
   %i.sroa.3.0 = phi ptr [ %retval.0.i, %if.then ], [ undef, %entry ]
   %i.sroa.0.0 = phi ptr [ %mData.i, %if.then ], [ null, %entry ]
   store ptr %i.sroa.0.0, ptr %agg.result, align 8
-  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %i.sroa.3.0, ptr %i.sroa.3.0.agg.result.sroa_idx, align 8
-  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %i.sroa.4.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -1122,24 +1122,24 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mSegment = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %mSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 80
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
-  %mEnd = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i, ptr %mEnd, align 8
   br label %if.end
 
@@ -1166,17 +1166,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorIiLm16ENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %mSegmentCount, align 8
   %sub = shl i64 %1, 4
   %mul = add i64 %sub, -16
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add = add i64 %mul, %3
   br label %return
@@ -1189,7 +1189,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorIiLm16ENS_9allocatorEE13segment_countEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   ret i64 %0
 }
@@ -1197,19 +1197,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %mData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub = add i64 %2, -1
   %arrayidx = getelementptr inbounds [16 x i32], ptr %mData, i64 0, i64 %sub
@@ -1219,7 +1219,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl16segmented_vectorIiLm16ENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %cmp = icmp eq ptr %0, null
   ret i1 %cmp
@@ -1228,13 +1228,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -1242,12 +1242,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -1255,29 +1255,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 80, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -1289,13 +1289,13 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp = icmp ult i64 %2, 16
   br i1 %cmp, label %if.then2, label %if.else
@@ -1303,12 +1303,12 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr = getelementptr inbounds i32, ptr %mData, i64 %2
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr = getelementptr inbounds nuw i32, ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSegmentCount.i, align 8
@@ -1316,29 +1316,29 @@ if.else:                                          ; preds = %if.then
   %4 = ptrtoint ptr %0 to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %call.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i, ptr %mLastSegment, align 8
   %6 = load i64, ptr %0, align 8
   %and = and i64 %6, -2
   store i64 %and, ptr %0, align 8
   store ptr %call.i.i.i, ptr %1, align 8
-  %mData6 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %mData6 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   br label %return
 
 if.else8:                                         ; preds = %entry
-  %mSegmentCount.i9 = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9, align 8
   %inc.i10 = add i64 %7, 1
   store i64 %inc.i10, ptr %mSegmentCount.i9, align 8
   %call.i.i.i11 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 80, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11, ptr %mLastSegment, align 8
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11, ptr %mFirstSegment, align 8
-  %mData11 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 16
+  %mData11 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 16
   br label %return
 
 return:                                           ; preds = %if.else8, %if.else, %if.then2
@@ -1349,13 +1349,13 @@ return:                                           ; preds = %if.else8, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -1363,12 +1363,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -1376,29 +1376,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 80, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -1411,13 +1411,13 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE23push_back_uninitializedEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -1425,12 +1425,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -1438,29 +1438,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 80, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -1471,9 +1471,9 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %1, align 8
@@ -1481,7 +1481,7 @@ entry:
   br i1 %tobool.not, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %if.end10
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount, align 8
   %dec2 = add i64 %3, -1
   store i64 %dec2, ptr %mSegmentCount, align 8
@@ -1499,12 +1499,12 @@ if.then6:                                         ; preds = %_ZN5eastl9allocator
   %or = or i64 %7, 1
   store i64 %or, ptr %6, align 8
   %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %9, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment, align 8
   br label %if.end10
 
@@ -1515,17 +1515,17 @@ if.end10:                                         ; preds = %if.then6, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE14erase_unsortedERNS_7segmentIiLm16ES1_EEPi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %segment, ptr noundef %it) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr %mData.i, i64 0, i64 %sub.i
   %3 = load i32, ptr %arrayidx.i, align 4
   store i32 %3, ptr %it, align 4
   %4 = load ptr, ptr %mLastSegment.i, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %dec.i = add i64 %6, -1
   store i64 %dec.i, ptr %5, align 8
@@ -1533,7 +1533,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %7, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -1551,12 +1551,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %11, 1
   store i64 %or.i, ptr %10, align 8
   %12 = load ptr, ptr %mLastSegment.i, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 16, ptr %13, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -1568,21 +1568,21 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %en
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE14erase_unsortedERKNS_25segmented_vector_iteratorIiLm16ES1_EE(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %i, i64 24, i1 false)
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr %mData.i, i64 0, i64 %sub.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %4 = load ptr, ptr %i, align 8
   store i32 %3, ptr %4, align 4
-  %mSegment = getelementptr inbounds i8, ptr %i, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %i, i64 16
   %5 = load ptr, ptr %mSegment, align 8
   %6 = load ptr, ptr %mLastSegment.i, align 8
   %cmp = icmp eq ptr %5, %6
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %cmp4 = icmp eq i64 %8, 1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -1590,19 +1590,19 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %9, align 8
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 if.end:                                           ; preds = %entry
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %10, align 8
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.end
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %11, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -1620,12 +1620,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %15, 1
   store i64 %or.i, ptr %14, align 8
   %16 = load ptr, ptr %mLastSegment.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 16, ptr %17, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -1636,19 +1636,19 @@ _ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit: ; preds = %if
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE4swapERS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %mSegmentCount, align 8
-  %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
+  %mFirstSegment4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %3 = load ptr, ptr %mFirstSegment4, align 8
   store ptr %3, ptr %mFirstSegment, align 8
-  %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %mLastSegment6 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load ptr, ptr %mLastSegment6, align 8
   store ptr %4, ptr %mLastSegment, align 8
-  %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
+  %mSegmentCount8 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %5 = load i64, ptr %mSegmentCount8, align 8
   store i64 %5, ptr %mSegmentCount, align 8
   store ptr %0, ptr %mFirstSegment4, align 8
@@ -1660,7 +1660,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE14DoAllocSegmentEPNS_7segmentIiLm16ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %prevSegment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %mSegmentCount, align 8
@@ -1668,7 +1668,7 @@ entry:
   %1 = ptrtoint ptr %prevSegment to i64
   %or = or i64 %1, 1
   store i64 %or, ptr %call.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 1, ptr %2, align 8
   ret ptr %call.i.i
 }
@@ -1676,7 +1676,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEEC5ERKS2_) align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1684,20 +1684,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat($_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not12.i = icmp eq ptr %0, %1
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
-  %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -1724,20 +1724,20 @@ invoke.cont:                                      ; preds = %_ZN5eastl9allocator
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not12 = icmp eq ptr %0, %1
   br i1 %cmp.not12, label %delete.notnull.i10, label %_ZN5eastl9allocator10deallocateEPvm.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.013 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.013, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013) #9
   %4 = load ptr, ptr %mLastSegment, align 8
@@ -1770,7 +1770,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -1778,7 +1778,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -1786,20 +1786,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load i64, ptr %0, align 64
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 1088
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
 
@@ -1807,9 +1807,9 @@ if.end:                                           ; preds = %entry, %if.then
   %i.sroa.3.0 = phi ptr [ %retval.0.i, %if.then ], [ undef, %entry ]
   %i.sroa.0.0 = phi ptr [ %mData.i, %if.then ], [ null, %entry ]
   store ptr %i.sroa.0.0, ptr %agg.result, align 8
-  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %i.sroa.3.0, ptr %i.sroa.3.0.agg.result.sroa_idx, align 8
-  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %i.sroa.4.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -1817,24 +1817,24 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mSegment = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %mSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load i64, ptr %0, align 64
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 1088
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
-  %mEnd = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i, ptr %mEnd, align 8
   br label %if.end
 
@@ -1861,17 +1861,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %mSegmentCount, align 8
   %sub = shl i64 %1, 4
   %mul = add i64 %sub, -16
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add = add i64 %mul, %3
   br label %return
@@ -1884,7 +1884,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE13segment_countEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   ret i64 %0
 }
@@ -1892,19 +1892,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 64
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %mData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 64
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub = add i64 %2, -1
   %arrayidx = getelementptr inbounds [16 x %struct.Align64], ptr %mData, i64 0, i64 %sub
@@ -1914,7 +1914,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %cmp = icmp eq ptr %0, null
   ret i1 %cmp
@@ -1923,13 +1923,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -1937,12 +1937,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -1950,29 +1950,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i6.i.i.i, align 64
-  %5 = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i6.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 64
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 64
   store ptr %call.i6.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i6.i.i11.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 1088, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i6.i.i11.i, align 64
-  %8 = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i6.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i6.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 64
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -1984,13 +1984,13 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp = icmp ult i64 %2, 16
   br i1 %cmp, label %if.then2, label %if.else
@@ -1998,12 +1998,12 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 64
-  %add.ptr = getelementptr inbounds %struct.Align64, ptr %mData, i64 %2
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %add.ptr = getelementptr inbounds nuw %struct.Align64, ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSegmentCount.i, align 8
@@ -2011,29 +2011,29 @@ if.else:                                          ; preds = %if.then
   %4 = ptrtoint ptr %0 to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %call.i6.i.i, align 64
-  %5 = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i6.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i6.i.i, ptr %mLastSegment, align 8
   %6 = load i64, ptr %0, align 64
   %and = and i64 %6, -2
   store i64 %and, ptr %0, align 64
   store ptr %call.i6.i.i, ptr %1, align 8
-  %mData6 = getelementptr inbounds i8, ptr %call.i6.i.i, i64 64
+  %mData6 = getelementptr inbounds nuw i8, ptr %call.i6.i.i, i64 64
   br label %return
 
 if.else8:                                         ; preds = %entry
-  %mSegmentCount.i9 = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9, align 8
   %inc.i10 = add i64 %7, 1
   store i64 %inc.i10, ptr %mSegmentCount.i9, align 8
   %call.i6.i.i11 = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 1088, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i6.i.i11, align 64
-  %8 = getelementptr inbounds i8, ptr %call.i6.i.i11, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i6.i.i11, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i6.i.i11, ptr %mLastSegment, align 8
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i6.i.i11, ptr %mFirstSegment, align 8
-  %mData11 = getelementptr inbounds i8, ptr %call.i6.i.i11, i64 64
+  %mData11 = getelementptr inbounds nuw i8, ptr %call.i6.i.i11, i64 64
   br label %return
 
 return:                                           ; preds = %if.else8, %if.else, %if.then2
@@ -2044,13 +2044,13 @@ return:                                           ; preds = %if.else8, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 64 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -2058,12 +2058,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -2071,29 +2071,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i6.i.i.i, align 64
-  %5 = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i6.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 64
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 64
   store ptr %call.i6.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i6.i.i11.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 1088, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i6.i.i11.i, align 64
-  %8 = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i6.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i6.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 64
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -2105,13 +2105,13 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE23push_back_uninitializedEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -2119,12 +2119,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -2132,29 +2132,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i6.i.i.i, align 64
-  %5 = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i6.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 64
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 64
   store ptr %call.i6.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i6.i.i11.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 1088, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i6.i.i11.i, align 64
-  %8 = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i6.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i6.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i6.i.i11.i, i64 64
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i11.i, i64 64
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -2165,9 +2165,9 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %1, align 8
@@ -2175,7 +2175,7 @@ entry:
   br i1 %tobool.not, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %if.end10
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount, align 8
   %dec2 = add i64 %3, -1
   store i64 %dec2, ptr %mSegmentCount, align 8
@@ -2193,12 +2193,12 @@ if.then6:                                         ; preds = %_ZN5eastl9allocator
   %or = or i64 %7, 1
   store i64 %or, ptr %6, align 64
   %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %9, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment, align 8
   br label %if.end10
 
@@ -2209,17 +2209,17 @@ if.end10:                                         ; preds = %if.then6, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE14erase_unsortedERNS_7segmentIS1_Lm16ES2_EEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 64 dereferenceable(1088) %segment, ptr noundef %it) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x %struct.Align64], ptr %mData.i, i64 0, i64 %sub.i
   %3 = load i32, ptr %arrayidx.i, align 64
   store i32 %3, ptr %it, align 64
   %4 = load ptr, ptr %mLastSegment.i, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %dec.i = add i64 %6, -1
   store i64 %dec.i, ptr %5, align 8
@@ -2227,7 +2227,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %7, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -2245,12 +2245,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %11, 1
   store i64 %or.i, ptr %10, align 64
   %12 = load ptr, ptr %mLastSegment.i, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 16, ptr %13, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -2262,21 +2262,21 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit: ; pred
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE14erase_unsortedERKNS_25segmented_vector_iteratorIS1_Lm16ES2_EE(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %i, i64 24, i1 false)
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 64
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x %struct.Align64], ptr %mData.i, i64 0, i64 %sub.i
   %3 = load ptr, ptr %i, align 8
   %4 = load i32, ptr %arrayidx.i, align 64
   store i32 %4, ptr %3, align 64
-  %mSegment = getelementptr inbounds i8, ptr %i, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %i, i64 16
   %5 = load ptr, ptr %mSegment, align 8
   %6 = load ptr, ptr %mLastSegment.i, align 8
   %cmp = icmp eq ptr %5, %6
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %cmp4 = icmp eq i64 %8, 1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -2284,19 +2284,19 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   store ptr null, ptr %agg.result, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %9, align 8
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 if.end:                                           ; preds = %entry
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %10, align 8
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end.thread, %if.end
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %11, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -2314,12 +2314,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %15, 1
   store i64 %or.i, ptr %14, align 64
   %16 = load ptr, ptr %mLastSegment.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 16, ptr %17, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -2330,19 +2330,19 @@ _ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %mSegmentCount, align 8
-  %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
+  %mFirstSegment4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %3 = load ptr, ptr %mFirstSegment4, align 8
   store ptr %3, ptr %mFirstSegment, align 8
-  %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %mLastSegment6 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load ptr, ptr %mLastSegment6, align 8
   store ptr %4, ptr %mLastSegment, align 8
-  %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
+  %mSegmentCount8 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %5 = load i64, ptr %mSegmentCount8, align 8
   store i64 %5, ptr %mSegmentCount, align 8
   store ptr %0, ptr %mFirstSegment4, align 8
@@ -2354,7 +2354,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE14DoAllocSegmentEPNS_7segmentIS1_Lm16ES2_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %prevSegment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %mSegmentCount, align 8
@@ -2362,7 +2362,7 @@ entry:
   %1 = ptrtoint ptr %prevSegment to i64
   %or = or i64 %1, 1
   store i64 %or, ptr %call.i6.i, align 64
-  %2 = getelementptr inbounds i8, ptr %call.i6.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %call.i6.i, i64 8
   store i64 1, ptr %2, align 8
   ret ptr %call.i6.i
 }
@@ -2370,7 +2370,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEEC5ERKS2_) align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2395,22 +2395,22 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not14 = icmp eq ptr %0, %1
   br i1 %cmp.not14, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.015 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.015, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.015, i64 8
   %3 = load ptr, ptr %2, align 8
-  %invariant.gep.i = getelementptr inbounds i8, ptr %segment.015, i64 16
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %segment.015, i64 16
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN10TestObjectD2Ev.exit.i, %while.body
@@ -2446,11 +2446,11 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
-  %9 = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 8
   %10 = load i64, ptr %9, align 8
   %add.ptr.idx = mul i64 %10, 24
-  %mData.add = add nsw i64 %add.ptr.idx, 16
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 %mData.add
+  %11 = getelementptr i8, ptr %segment.0.lcssa, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %11, i64 16
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 
@@ -2458,19 +2458,19 @@ for.body.preheader:                               ; preds = %while.end
   %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %mData.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 16
-  %11 = add i64 %add.ptr.idx, -24
-  %12 = udiv i64 %11, 24
-  %13 = add i64 %_ZN10TestObject12sTODtorCountE.promoted, %12
+  %mData.ptr = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 16
+  %12 = add i64 %add.ptr.idx, -24
+  %13 = udiv i64 %12, 24
+  %14 = add i64 %_ZN10TestObject12sTODtorCountE.promoted, %13
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN10TestObjectD2Ev.exit
   %i.024 = phi ptr [ %incdec.ptr, %_ZN10TestObjectD2Ev.exit ], [ %mData.ptr, %for.body.preheader ]
   %inc.i1723 = phi i32 [ %inc.i16, %_ZN10TestObjectD2Ev.exit ], [ %_ZN10TestObject16sMagicErrorCountE.promoted, %for.body.preheader ]
   %dec.i1822 = phi i64 [ %dec.i, %_ZN10TestObjectD2Ev.exit ], [ %_ZN10TestObject8sTOCountE.promoted, %for.body.preheader ]
-  %mMagicValue.i = getelementptr inbounds i8, ptr %i.024, i64 16
-  %14 = load i32, ptr %mMagicValue.i, align 8
-  %cmp.not.i = icmp eq i32 %14, 32623592
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %i.024, i64 16
+  %15 = load i32, ptr %mMagicValue.i, align 8
+  %cmp.not.i = icmp eq i32 %15, 32623592
   br i1 %cmp.not.i, label %_ZN10TestObjectD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -2482,14 +2482,14 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body, %if.then.
   %inc.i16 = phi i32 [ %inc.i1723, %for.body ], [ %inc.i, %if.then.i ]
   store i32 0, ptr %mMagicValue.i, align 8
   %dec.i = add nsw i64 %dec.i1822, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %i.024, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.024, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZN10TestObjectD2Ev.exit
-  %15 = add i64 %13, 1
+  %16 = add i64 %14, 1
   store i64 %dec.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %15, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  store i64 %16, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %isnull.i11 = icmp eq ptr %segment.0.lcssa, null
   br i1 %isnull.i11, label %_ZN5eastl9allocator10deallocateEPvm.exit13, label %delete.notnull.i12
 
@@ -2514,7 +2514,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -2522,7 +2522,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE13first_segmentEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   ret ptr %0
 }
@@ -2530,20 +2530,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 400
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
 
@@ -2551,9 +2551,9 @@ if.end:                                           ; preds = %entry, %if.then
   %i.sroa.3.0 = phi ptr [ %retval.0.i, %if.then ], [ undef, %entry ]
   %i.sroa.0.0 = phi ptr [ %mData.i, %if.then ], [ null, %entry ]
   store ptr %i.sroa.0.0, ptr %agg.result, align 8
-  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %i.sroa.3.0, ptr %i.sroa.3.0.agg.result.sroa_idx, align 8
-  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %i.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %i.sroa.4.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -2561,24 +2561,24 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE5beginEv(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mSegment = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %mSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %3
-  %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 400
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
-  %mEnd = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %retval.0.i, ptr %mEnd, align 8
   br label %if.end
 
@@ -2605,17 +2605,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %mSegmentCount, align 8
   %sub = shl i64 %1, 4
   %mul = add i64 %sub, -16
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %add = add i64 %mul, %3
   br label %return
@@ -2628,7 +2628,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE13segment_countEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   ret i64 %0
 }
@@ -2636,19 +2636,19 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %mData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub = add i64 %2, -1
   %arrayidx = getelementptr inbounds [16 x %struct.TestObject], ptr %mData, i64 0, i64 %sub
@@ -2658,7 +2658,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %cmp = icmp eq ptr %0, null
   ret i1 %cmp
@@ -2667,13 +2667,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -2681,12 +2681,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -2694,37 +2694,37 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 400, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
   %retval.0.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %mData6.i, %if.else.i ], [ %mData11.i, %if.else8.i ]
   store i32 0, ptr %retval.0.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %retval.0.i, i64 4
+  %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
   store i8 0, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   store i32 32623592, ptr %mMagicValue.i, align 8
   %9 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i1 = add nsw i64 %9, 1
@@ -2735,7 +2735,7 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit:
   %11 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %mId.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   store i64 %inc3.i, ptr %mId.i, align 8
   ret ptr %retval.0.i
 }
@@ -2743,13 +2743,13 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp = icmp ult i64 %2, 16
   br i1 %cmp, label %if.then2, label %if.else
@@ -2757,12 +2757,12 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
-  %mData = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %mData, i64 %2
+  %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSegmentCount.i, align 8
@@ -2770,29 +2770,29 @@ if.else:                                          ; preds = %if.then
   %4 = ptrtoint ptr %0 to i64
   %or.i = or i64 %4, 1
   store i64 %or.i, ptr %call.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i, ptr %mLastSegment, align 8
   %6 = load i64, ptr %0, align 8
   %and = and i64 %6, -2
   store i64 %and, ptr %0, align 8
   store ptr %call.i.i.i, ptr %1, align 8
-  %mData6 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %mData6 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   br label %return
 
 if.else8:                                         ; preds = %entry
-  %mSegmentCount.i9 = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9, align 8
   %inc.i10 = add i64 %7, 1
   store i64 %inc.i10, ptr %mSegmentCount.i9, align 8
   %call.i.i.i11 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 400, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11, ptr %mLastSegment, align 8
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11, ptr %mFirstSegment, align 8
-  %mData11 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 16
+  %mData11 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 16
   br label %return
 
 return:                                           ; preds = %if.else8, %if.else, %if.then2
@@ -2803,13 +2803,13 @@ return:                                           ; preds = %if.else8, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -2817,12 +2817,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -2830,42 +2830,42 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 400, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
   %retval.0.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %mData6.i, %if.else.i ], [ %mData11.i, %if.else8.i ]
   %9 = load i32, ptr %value, align 8
   store i32 %9, ptr %retval.0.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %retval.0.i, i64 4
-  %mbThrowOnCopy3.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
+  %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %value, i64 4
   %10 = load i8, ptr %mbThrowOnCopy3.i, align 4
   %frombool.i = and i8 %10, 1
   store i8 %frombool.i, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %mMagicValue4.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
+  %mMagicValue4.i = getelementptr inbounds nuw i8, ptr %value, i64 16
   %11 = load i32, ptr %mMagicValue4.i, align 8
   store i32 %11, ptr %mMagicValue.i, align 8
   %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -2877,7 +2877,7 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit:
   %14 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i = add nsw i64 %14, 1
   store i64 %inc6.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %mId.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   store i64 %inc5.i, ptr %mId.i, align 8
   ret ptr %retval.0.i
 }
@@ -2885,13 +2885,13 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE23push_back_uninitializedEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i = icmp ult i64 %2, 16
   br i1 %cmp.i, label %if.then2.i, label %if.else.i
@@ -2899,12 +2899,12 @@ if.then.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %2
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mSegmentCount.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %mSegmentCount.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSegmentCount.i.i, align 8
@@ -2912,29 +2912,29 @@ if.else.i:                                        ; preds = %if.then.i
   %4 = ptrtoint ptr %0 to i64
   %or.i.i = or i64 %4, 1
   store i64 %or.i.i, ptr %call.i.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 1, ptr %5, align 8
   store ptr %call.i.i.i.i, ptr %mLastSegment.i, align 8
   %6 = load i64, ptr %0, align 8
   %and.i = and i64 %6, -2
   store i64 %and.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
-  %mData6.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %mData6.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else8.i:                                       ; preds = %entry
-  %mSegmentCount.i9.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %mSegmentCount.i9.i, align 8
   %inc.i10.i = add i64 %7, 1
   store i64 %inc.i10.i, ptr %mSegmentCount.i9.i, align 8
   %call.i.i.i11.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 400, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i64 1, ptr %call.i.i.i11.i, align 8
-  %8 = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 8
   store i64 1, ptr %8, align 8
   store ptr %call.i.i.i11.i, ptr %mLastSegment.i, align 8
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i.i11.i, ptr %mFirstSegment.i, align 8
-  %mData11.i = getelementptr inbounds i8, ptr %call.i.i.i11.i, i64 16
+  %mData11.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i, i64 16
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit: ; preds = %if.then2.i, %if.else.i, %if.else8.i
@@ -2945,9 +2945,9 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment, align 8
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %1, align 8
@@ -2977,7 +2977,7 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %entry, %if.then.i
   br i1 %tobool.not, label %_ZN5eastl9allocator10deallocateEPvm.exit, label %if.end10
 
 _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev.exit
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load i64, ptr %mSegmentCount, align 8
   %dec2 = add i64 %9, -1
   store i64 %dec2, ptr %mSegmentCount, align 8
@@ -2995,12 +2995,12 @@ if.then6:                                         ; preds = %_ZN5eastl9allocator
   %or = or i64 %13, 1
   store i64 %or, ptr %12, align 8
   %14 = load ptr, ptr %mLastSegment, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 16, ptr %15, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment, align 8
   br label %if.end10
 
@@ -3011,10 +3011,10 @@ if.end10:                                         ; preds = %if.then6, %if.else,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE14erase_unsortedERNS_7segmentIS1_Lm16ES2_EEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(400) %segment, ptr noundef %it) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x %struct.TestObject], ptr %mData.i, i64 0, i64 %sub.i
@@ -3027,17 +3027,17 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = load i32, ptr %arrayidx.i, align 8
   store i32 %4, ptr %it, align 8
-  %mMagicValue.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %5 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds i8, ptr %it, i64 16
+  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %it, i64 16
   store i32 %5, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %6 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %it, i64 4
+  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %it, i64 4
   %frombool.i = and i8 %6, 1
   store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   %.pre = load ptr, ptr %mLastSegment.i, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre2 = load i64, ptr %.phi.trans.insert, align 8
   %.pre3 = add i64 %.pre2, -1
   br label %_ZN10TestObjectaSERKS_.exit
@@ -3045,7 +3045,7 @@ if.then.i:                                        ; preds = %entry
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %entry, %if.then.i
   %dec.i.pre-phi = phi i64 [ %sub.i, %entry ], [ %.pre3, %if.then.i ]
   %7 = phi ptr [ %0, %entry ], [ %.pre, %if.then.i ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %dec.i.pre-phi, ptr %8, align 8
   %mMagicValue.i.idx.i = mul nsw i64 %dec.i.pre-phi, 24
   %9 = getelementptr i8, ptr %7, i64 32
@@ -3073,7 +3073,7 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %_ZN10
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev.exit.i
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %15, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -3091,12 +3091,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %19, 1
   store i64 %or.i, ptr %18, align 8
   %20 = load ptr, ptr %mLastSegment.i, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 16, ptr %21, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -3108,10 +3108,10 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit: ; 
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE14erase_unsortedERKNS_25segmented_vector_iteratorIS1_Lm16ES2_EE(ptr noalias sret(%"struct.eastl::segmented_vector_iterator.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %i) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %i, i64 24, i1 false)
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLastSegment.i, align 8
-  %mData.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %sub.i = add i64 %2, -1
   %arrayidx.i = getelementptr inbounds [16 x %struct.TestObject], ptr %mData.i, i64 0, i64 %sub.i
@@ -3125,13 +3125,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %5 = load i32, ptr %arrayidx.i, align 8
   store i32 %5, ptr %3, align 8
-  %mMagicValue.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %6 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds i8, ptr %3, i64 16
+  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %6, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %7 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %3, i64 4
+  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %frombool.i = and i8 %7, 1
   store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   %.pre = load ptr, ptr %mLastSegment.i, align 8
@@ -3139,10 +3139,10 @@ if.then.i:                                        ; preds = %entry
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %entry, %if.then.i
   %8 = phi ptr [ %0, %entry ], [ %.pre, %if.then.i ]
-  %mSegment = getelementptr inbounds i8, ptr %i, i64 16
+  %mSegment = getelementptr inbounds nuw i8, ptr %i, i64 16
   %9 = load ptr, ptr %mSegment, align 8
   %cmp = icmp eq ptr %9, %8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i64, ptr %10, align 8
   %cmp5 = icmp eq i64 %11, 1
   %or.cond = select i1 %cmp, i1 %cmp5, i1 false
@@ -3154,7 +3154,7 @@ if.then:                                          ; preds = %_ZN10TestObjectaSER
 
 if.end:                                           ; preds = %_ZN10TestObjectaSERKS_.exit, %if.then
   %12 = phi i64 [ 1, %if.then ], [ %11, %_ZN10TestObjectaSERKS_.exit ]
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %13, align 8
   %mMagicValue.i.idx.i = mul nsw i64 %dec.i, 24
@@ -3183,7 +3183,7 @@ _ZN10TestObjectD2Ev.exit.i:                       ; preds = %if.then.i.i, %if.en
   br i1 %tobool.not.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev.exit.i
-  %mSegmentCount.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %20 = load i64, ptr %mSegmentCount.i, align 8
   %dec2.i = add i64 %20, -1
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
@@ -3201,12 +3201,12 @@ if.then6.i:                                       ; preds = %_ZN5eastl9allocator
   %or.i = or i64 %24, 1
   store i64 %or.i, ptr %23, align 8
   %25 = load ptr, ptr %mLastSegment.i, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 16, ptr %26, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mFirstSegment.i, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
@@ -3217,19 +3217,19 @@ _ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %mSegmentCount, align 8
-  %mFirstSegment4 = getelementptr inbounds i8, ptr %other, i64 8
+  %mFirstSegment4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %3 = load ptr, ptr %mFirstSegment4, align 8
   store ptr %3, ptr %mFirstSegment, align 8
-  %mLastSegment6 = getelementptr inbounds i8, ptr %other, i64 16
+  %mLastSegment6 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load ptr, ptr %mLastSegment6, align 8
   store ptr %4, ptr %mLastSegment, align 8
-  %mSegmentCount8 = getelementptr inbounds i8, ptr %other, i64 24
+  %mSegmentCount8 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %5 = load i64, ptr %mSegmentCount8, align 8
   store i64 %5, ptr %mSegmentCount, align 8
   store ptr %0, ptr %mFirstSegment4, align 8
@@ -3241,7 +3241,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE14DoAllocSegmentEPNS_7segmentIS1_Lm16ES2_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %prevSegment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mSegmentCount = getelementptr inbounds i8, ptr %this, i64 24
+  %mSegmentCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %mSegmentCount, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %mSegmentCount, align 8
@@ -3249,7 +3249,7 @@ entry:
   %1 = ptrtoint ptr %prevSegment to i64
   %or = or i64 %1, 1
   store i64 %or, ptr %call.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 1, ptr %2, align 8
   ret ptr %call.i.i
 }
@@ -3274,23 +3274,23 @@ if.else8.i.i:
   store i64 0, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   store i64 0, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %sv, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %sv, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i, i8 0, i64 16, i1 false)
-  %mLastSegment.i.i = getelementptr inbounds i8, ptr %sv, i64 16
-  %mSegmentCount.i9.i.i = getelementptr inbounds i8, ptr %sv, i64 24
+  %mLastSegment.i.i = getelementptr inbounds nuw i8, ptr %sv, i64 16
+  %mSegmentCount.i9.i.i = getelementptr inbounds nuw i8, ptr %sv, i64 24
   store i64 1, ptr %mSegmentCount.i9.i.i, align 8
   %call.i.i.i11.i.i6 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 48, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %if.then.i.i9 unwind label %lpad
 
 if.then.i.i9:                                     ; preds = %if.else8.i.i
   store i64 1, ptr %call.i.i.i11.i.i6, align 8
-  %0 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i6, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 8
   store i64 1, ptr %0, align 8
   store ptr %call.i.i.i11.i.i6, ptr %mLastSegment.i.i, align 8
   store ptr %call.i.i.i11.i.i6, ptr %mFirstSegment.i, align 8
-  %mData11.i.i = getelementptr inbounds i8, ptr %call.i.i.i11.i.i6, i64 16
+  %mData11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 16
   store i32 0, ptr %mData11.i.i, align 4
-  %1 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i6, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 8
   %2 = load i64, ptr %1, align 8
   %cmp.i.i10 = icmp ult i64 %2, 8
   br i1 %cmp.i.i10, label %if.then2.i.i18, label %if.else.i.i11
@@ -3298,12 +3298,12 @@ if.then.i.i9:                                     ; preds = %if.else8.i.i
 if.then2.i.i18:                                   ; preds = %if.then.i.i9
   %inc.i.i19 = add nuw nsw i64 %2, 1
   store i64 %inc.i.i19, ptr %1, align 8
-  %mData.i.i20 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i6, i64 16
-  %add.ptr.i.i21 = getelementptr inbounds i32, ptr %mData.i.i20, i64 %2
+  %mData.i.i20 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 16
+  %add.ptr.i.i21 = getelementptr inbounds nuw i32, ptr %mData.i.i20, i64 %2
   br label %if.then.i.i34
 
 if.else.i.i11:                                    ; preds = %if.then.i.i9
-  %mSegmentCount.i.i.i12 = getelementptr inbounds i8, ptr %sv, i64 24
+  %mSegmentCount.i.i.i12 = getelementptr inbounds nuw i8, ptr %sv, i64 24
   store i64 2, ptr %mSegmentCount.i.i.i12, align 8
   %call.i.i.i.i.i28 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 48, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc27 unwind label %lpad
@@ -3312,14 +3312,14 @@ call.i.i.i.i.i.noexc27:                           ; preds = %if.else.i.i11
   %3 = ptrtoint ptr %call.i.i.i11.i.i6 to i64
   %or.i.i.i14 = or i64 %3, 1
   store i64 %or.i.i.i14, ptr %call.i.i.i.i.i28, align 8
-  %4 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i28, i64 8
   store i64 1, ptr %4, align 8
   store ptr %call.i.i.i.i.i28, ptr %mLastSegment.i.i, align 8
   %5 = load i64, ptr %call.i.i.i11.i.i6, align 8
   %and.i.i15 = and i64 %5, -2
   store i64 %and.i.i15, ptr %call.i.i.i11.i.i6, align 8
   store ptr %call.i.i.i.i.i28, ptr %1, align 8
-  %mData6.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 16
+  %mData6.i.i16 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i28, i64 16
   br label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %if.then2.i.i18, %call.i.i.i.i.i.noexc27
@@ -3327,7 +3327,7 @@ if.then.i.i34:                                    ; preds = %if.then2.i.i18, %ca
   %6 = phi ptr [ %call.i.i.i11.i.i6, %if.then2.i.i18 ], [ %call.i.i.i.i.i28, %call.i.i.i.i.i.noexc27 ]
   %retval.0.i.i17 = phi ptr [ %add.ptr.i.i21, %if.then2.i.i18 ], [ %mData6.i.i16, %call.i.i.i.i.i.noexc27 ]
   store i32 1, ptr %retval.0.i.i17, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %cmp.i.i35 = icmp ult i64 %8, 8
   br i1 %cmp.i.i35, label %if.then2.i.i43, label %if.else.i.i36
@@ -3335,12 +3335,12 @@ if.then.i.i34:                                    ; preds = %if.then2.i.i18, %ca
 if.then2.i.i43:                                   ; preds = %if.then.i.i34
   %inc.i.i44 = add nuw nsw i64 %8, 1
   store i64 %inc.i.i44, ptr %7, align 8
-  %mData.i.i45 = getelementptr inbounds i8, ptr %6, i64 16
-  %add.ptr.i.i46 = getelementptr inbounds i32, ptr %mData.i.i45, i64 %8
+  %mData.i.i45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %add.ptr.i.i46 = getelementptr inbounds nuw i32, ptr %mData.i.i45, i64 %8
   br label %invoke.cont6
 
 if.else.i.i36:                                    ; preds = %if.then.i.i34
-  %mSegmentCount.i.i.i37 = getelementptr inbounds i8, ptr %sv, i64 24
+  %mSegmentCount.i.i.i37 = getelementptr inbounds nuw i8, ptr %sv, i64 24
   store i64 %inc.i.i.i38, ptr %mSegmentCount.i.i.i37, align 8
   %call.i.i.i.i.i53 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 48, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc52 unwind label %lpad
@@ -3349,14 +3349,14 @@ call.i.i.i.i.i.noexc52:                           ; preds = %if.else.i.i36
   %9 = ptrtoint ptr %6 to i64
   %or.i.i.i39 = or i64 %9, 1
   store i64 %or.i.i.i39, ptr %call.i.i.i.i.i53, align 8
-  %10 = getelementptr inbounds i8, ptr %call.i.i.i.i.i53, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i53, i64 8
   store i64 1, ptr %10, align 8
   store ptr %call.i.i.i.i.i53, ptr %mLastSegment.i.i, align 8
   %11 = load i64, ptr %6, align 8
   %and.i.i40 = and i64 %11, -2
   store i64 %and.i.i40, ptr %6, align 8
   store ptr %call.i.i.i.i.i53, ptr %7, align 8
-  %mData6.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i.i.i53, i64 16
+  %mData6.i.i41 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i53, i64 16
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %call.i.i.i.i.i.noexc52, %if.then2.i.i43
@@ -3367,7 +3367,7 @@ invoke.cont6:                                     ; preds = %call.i.i.i.i.i.noex
   br i1 %tobool.not.i.i58, label %if.else8.i.i72, label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %invoke.cont6
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %cmp.i.i60 = icmp ult i64 %14, 8
   br i1 %cmp.i.i60, label %if.then2.i.i68, label %if.else.i.i61
@@ -3375,12 +3375,12 @@ if.then.i.i59:                                    ; preds = %invoke.cont6
 if.then2.i.i68:                                   ; preds = %if.then.i.i59
   %inc.i.i69 = add nuw nsw i64 %14, 1
   store i64 %inc.i.i69, ptr %13, align 8
-  %mData.i.i70 = getelementptr inbounds i8, ptr %12, i64 16
-  %add.ptr.i.i71 = getelementptr inbounds i32, ptr %mData.i.i70, i64 %14
+  %mData.i.i70 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %add.ptr.i.i71 = getelementptr inbounds nuw i32, ptr %mData.i.i70, i64 %14
   br label %invoke.cont9
 
 if.else.i.i61:                                    ; preds = %if.then.i.i59
-  %mSegmentCount.i.i.i62 = getelementptr inbounds i8, ptr %sv, i64 24
+  %mSegmentCount.i.i.i62 = getelementptr inbounds nuw i8, ptr %sv, i64 24
   %15 = load i64, ptr %mSegmentCount.i.i.i62, align 8
   %inc.i.i.i63 = add i64 %15, 1
   store i64 %inc.i.i.i63, ptr %mSegmentCount.i.i.i62, align 8
@@ -3391,18 +3391,18 @@ call.i.i.i.i.i.noexc77:                           ; preds = %if.else.i.i61
   %16 = ptrtoint ptr %12 to i64
   %or.i.i.i64 = or i64 %16, 1
   store i64 %or.i.i.i64, ptr %call.i.i.i.i.i78, align 8
-  %17 = getelementptr inbounds i8, ptr %call.i.i.i.i.i78, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i78, i64 8
   store i64 1, ptr %17, align 8
   store ptr %call.i.i.i.i.i78, ptr %mLastSegment.i.i, align 8
   %18 = load i64, ptr %12, align 8
   %and.i.i65 = and i64 %18, -2
   store i64 %and.i.i65, ptr %12, align 8
   store ptr %call.i.i.i.i.i78, ptr %13, align 8
-  %mData6.i.i66 = getelementptr inbounds i8, ptr %call.i.i.i.i.i78, i64 16
+  %mData6.i.i66 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i78, i64 16
   br label %invoke.cont9
 
 if.else8.i.i72:                                   ; preds = %invoke.cont6
-  %mSegmentCount.i9.i.i73 = getelementptr inbounds i8, ptr %sv, i64 24
+  %mSegmentCount.i9.i.i73 = getelementptr inbounds nuw i8, ptr %sv, i64 24
   %19 = load i64, ptr %mSegmentCount.i9.i.i73, align 8
   %inc.i10.i.i74 = add i64 %19, 1
   store i64 %inc.i10.i.i74, ptr %mSegmentCount.i9.i.i73, align 8
@@ -3411,11 +3411,11 @@ if.else8.i.i72:                                   ; preds = %invoke.cont6
 
 call.i.i.i11.i.i.noexc79:                         ; preds = %if.else8.i.i72
   store i64 1, ptr %call.i.i.i11.i.i80, align 8
-  %20 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i80, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i80, i64 8
   store i64 1, ptr %20, align 8
   store ptr %call.i.i.i11.i.i80, ptr %mLastSegment.i.i, align 8
   store ptr %call.i.i.i11.i.i80, ptr %mFirstSegment.i, align 8
-  %mData11.i.i76 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i80, i64 16
+  %mData11.i.i76 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i80, i64 16
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %call.i.i.i11.i.i.noexc79, %call.i.i.i.i.i.noexc77, %if.then2.i.i68
@@ -3427,14 +3427,14 @@ invoke.cont9:                                     ; preds = %call.i.i.i11.i.i.no
   br i1 %tobool.not.i, label %invoke.cont11, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont9
-  %mData.i.i83 = getelementptr inbounds i8, ptr %22, i64 16
+  %mData.i.i83 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load i64, ptr %22, align 8, !noalias !11
   %and.i.i84 = and i64 %23, 1
   %tobool.not.i.i85 = icmp eq i64 %and.i.i84, 0
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !noalias !11
   %add.ptr.i.i86 = getelementptr inbounds i32, ptr %mData.i.i83, i64 %25
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %22, i64 48
+  %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %22, i64 48
   %retval.0.i.i87 = select i1 %tobool.not.i.i85, ptr %add.ptr4.i.i, ptr %add.ptr.i.i86
   br label %invoke.cont11
 
@@ -3447,7 +3447,7 @@ invoke.cont11:                                    ; preds = %if.then.i, %invoke.
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont11
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %mData.i.sink.i, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %mData.i.sink.i, i64 4
   %cmp.i.i88 = icmp eq ptr %incdec.ptr.i.i, %i.sroa.22.0
   br i1 %cmp.i.i88, label %if.then.i.i89, label %invoke.cont17
 
@@ -3458,16 +3458,16 @@ if.then.i.i89:                                    ; preds = %invoke.cont14
   br i1 %tobool.not.i.i91, label %if.then4.i.i, label %invoke.cont17
 
 if.then4.i.i:                                     ; preds = %if.then.i.i89
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !14
-  %mData.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
+  %mData.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %30 = load i64, ptr %29, align 8, !noalias !14
   %and.i.i.i = and i64 %30, 1
   %tobool.not.i.i.i = icmp eq i64 %and.i.i.i, 0
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !14
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %mData.i.i.i, i64 %32
-  %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %29, i64 48
+  %add.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 48
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr4.i.i.i, ptr %add.ptr.i.i.i
   br label %invoke.cont17
 
@@ -3481,7 +3481,7 @@ invoke.cont17:                                    ; preds = %if.then4.i.i, %invo
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %incdec.ptr.i.i93 = getelementptr inbounds i8, ptr %i.sroa.0.0, i64 4
+  %incdec.ptr.i.i93 = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 4
   %cmp.i.i95 = icmp eq ptr %incdec.ptr.i.i93, %i.sroa.22.1
   br i1 %cmp.i.i95, label %if.then.i.i96, label %invoke.cont24
 
@@ -3492,16 +3492,16 @@ if.then.i.i96:                                    ; preds = %invoke.cont21
   br i1 %tobool.not.i.i99, label %if.then4.i.i101, label %invoke.cont24
 
 if.then4.i.i101:                                  ; preds = %if.then.i.i96
-  %35 = getelementptr inbounds i8, ptr %i.sroa.35.0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %i.sroa.35.0, i64 8
   %36 = load ptr, ptr %35, align 8, !noalias !17
-  %mData.i.i.i102 = getelementptr inbounds i8, ptr %36, i64 16
+  %mData.i.i.i102 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !17
   %and.i.i.i103 = and i64 %37, 1
   %tobool.not.i.i.i104 = icmp eq i64 %and.i.i.i103, 0
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !17
   %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %mData.i.i.i102, i64 %39
-  %add.ptr4.i.i.i106 = getelementptr inbounds i8, ptr %36, i64 48
+  %add.ptr4.i.i.i106 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %retval.0.i.i.i107 = select i1 %tobool.not.i.i.i104, ptr %add.ptr4.i.i.i106, ptr %add.ptr.i.i.i105
   br label %invoke.cont24
 
@@ -3515,7 +3515,7 @@ invoke.cont24:                                    ; preds = %if.then4.i.i101, %i
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont24
-  %incdec.ptr.i.i109 = getelementptr inbounds i8, ptr %i.sroa.0.1, i64 4
+  %incdec.ptr.i.i109 = getelementptr inbounds nuw i8, ptr %i.sroa.0.1, i64 4
   %cmp.i.i111 = icmp eq ptr %incdec.ptr.i.i109, %i.sroa.22.2
   br i1 %cmp.i.i111, label %if.then.i.i112, label %invoke.cont31
 
@@ -3526,9 +3526,9 @@ if.then.i.i112:                                   ; preds = %invoke.cont28
   br i1 %tobool.not.i.i115, label %if.then4.i.i117, label %invoke.cont31
 
 if.then4.i.i117:                                  ; preds = %if.then.i.i112
-  %42 = getelementptr inbounds i8, ptr %i.sroa.35.1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %i.sroa.35.1, i64 8
   %43 = load ptr, ptr %42, align 8, !noalias !20
-  %mData.i.i.i118 = getelementptr inbounds i8, ptr %43, i64 16
+  %mData.i.i.i118 = getelementptr inbounds nuw i8, ptr %43, i64 16
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.then4.i.i117, %invoke.cont28, %if.then.i.i112
@@ -3548,14 +3548,14 @@ invoke.cont42:                                    ; preds = %invoke.cont35
   br i1 %tobool.not.i, label %invoke.cont45, label %if.then.i144
 
 if.then.i144:                                     ; preds = %invoke.cont42
-  %mData.i.i145 = getelementptr inbounds i8, ptr %22, i64 16
+  %mData.i.i145 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %46 = load i64, ptr %22, align 8, !noalias !23
   %and.i.i146 = and i64 %46, 1
   %tobool.not.i.i147 = icmp eq i64 %and.i.i146, 0
-  %47 = getelementptr inbounds i8, ptr %22, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %48 = load i64, ptr %47, align 8, !noalias !23
   %add.ptr.i.i148 = getelementptr inbounds i32, ptr %mData.i.i145, i64 %48
-  %add.ptr4.i.i149 = getelementptr inbounds i8, ptr %22, i64 48
+  %add.ptr4.i.i149 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %retval.0.i.i150 = select i1 %tobool.not.i.i147, ptr %add.ptr4.i.i149, ptr %add.ptr.i.i148
   br label %invoke.cont45
 
@@ -3568,7 +3568,7 @@ invoke.cont45:                                    ; preds = %if.then.i144, %invo
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont45
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %mData.i.sink.i152, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %mData.i.sink.i152, i64 4
   %cmp.i = icmp eq ptr %incdec.ptr.i, %i44.sroa.17.0
   br i1 %cmp.i, label %if.then.i155, label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
 
@@ -3579,16 +3579,16 @@ if.then.i155:                                     ; preds = %invoke.cont49
   br i1 %tobool.not.i157, label %if.then4.i, label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
 
 if.then4.i:                                       ; preds = %if.then.i155
-  %51 = getelementptr inbounds i8, ptr %22, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %52 = load ptr, ptr %51, align 8
-  %mData.i.i158 = getelementptr inbounds i8, ptr %52, i64 16
+  %mData.i.i158 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %53 = load i64, ptr %52, align 8
   %and.i.i159 = and i64 %53, 1
   %tobool.not.i.i160 = icmp eq i64 %and.i.i159, 0
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i64, ptr %54, align 8
   %add.ptr.i.i161 = getelementptr inbounds i32, ptr %mData.i.i158, i64 %55
-  %add.ptr4.i.i162 = getelementptr inbounds i8, ptr %52, i64 48
+  %add.ptr4.i.i162 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %retval.0.i.i163 = select i1 %tobool.not.i.i160, ptr %add.ptr4.i.i162, ptr %add.ptr.i.i161
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
 
@@ -3602,7 +3602,7 @@ _ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit: ; preds = %i
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
-  %incdec.ptr.i164 = getelementptr inbounds i8, ptr %i44.sroa.0.0, i64 4
+  %incdec.ptr.i164 = getelementptr inbounds nuw i8, ptr %i44.sroa.0.0, i64 4
   %cmp.i166 = icmp eq ptr %incdec.ptr.i164, %i44.sroa.17.1
   br i1 %cmp.i166, label %if.then.i167, label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
 
@@ -3613,16 +3613,16 @@ if.then.i167:                                     ; preds = %invoke.cont56
   br i1 %tobool.not.i170, label %if.then4.i172, label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
 
 if.then4.i172:                                    ; preds = %if.then.i167
-  %58 = getelementptr inbounds i8, ptr %i44.sroa.24.0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %i44.sroa.24.0, i64 8
   %59 = load ptr, ptr %58, align 8
-  %mData.i.i173 = getelementptr inbounds i8, ptr %59, i64 16
+  %mData.i.i173 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %60 = load i64, ptr %59, align 8
   %and.i.i174 = and i64 %60, 1
   %tobool.not.i.i175 = icmp eq i64 %and.i.i174, 0
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i64, ptr %61, align 8
   %add.ptr.i.i176 = getelementptr inbounds i32, ptr %mData.i.i173, i64 %62
-  %add.ptr4.i.i177 = getelementptr inbounds i8, ptr %59, i64 48
+  %add.ptr4.i.i177 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %retval.0.i.i178 = select i1 %tobool.not.i.i175, ptr %add.ptr4.i.i177, ptr %add.ptr.i.i176
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
 
@@ -3636,7 +3636,7 @@ _ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179: ; preds =
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
-  %incdec.ptr.i180 = getelementptr inbounds i8, ptr %i44.sroa.0.1, i64 4
+  %incdec.ptr.i180 = getelementptr inbounds nuw i8, ptr %i44.sroa.0.1, i64 4
   %cmp.i182 = icmp eq ptr %incdec.ptr.i180, %i44.sroa.17.2
   br i1 %cmp.i182, label %if.then.i183, label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit195
 
@@ -3645,9 +3645,9 @@ if.then.i183:                                     ; preds = %invoke.cont63
   %and.i185 = and i64 %64, 1
   %tobool.not.i186 = icmp eq i64 %and.i185, 0
   call void @llvm.assume(i1 %tobool.not.i186)
-  %65 = getelementptr inbounds i8, ptr %i44.sroa.24.1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %i44.sroa.24.1, i64 8
   %66 = load ptr, ptr %65, align 8
-  %mData.i.i189 = getelementptr inbounds i8, ptr %66, i64 16
+  %mData.i.i189 = getelementptr inbounds nuw i8, ptr %66, i64 16
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit195
 
 _ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit195: ; preds = %invoke.cont63, %if.then.i183
@@ -3666,7 +3666,7 @@ while.cond.preheader.i.i:                         ; preds = %invoke.cont70
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %while.cond.preheader.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
   %segment.013.i.i = phi ptr [ %69, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %22, %while.cond.preheader.i.i ]
-  %68 = getelementptr inbounds i8, ptr %segment.013.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %segment.013.i.i, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @_ZdaPv(ptr noundef nonnull %segment.013.i.i) #9
   %cmp.not.i.i = icmp eq ptr %69, %21
@@ -3679,11 +3679,11 @@ _ZN5eastl9allocator10deallocateEPvm.exit11.i.i:   ; preds = %_ZN5eastl9allocator
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %invoke.cont70, %_ZN5eastl9allocator10deallocateEPvm.exit11.i.i
-  %mFirstSegment.i199 = getelementptr inbounds i8, ptr %vectorOfInt, i64 8
+  %mFirstSegment.i199 = getelementptr inbounds nuw i8, ptr %vectorOfInt, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i199, i8 0, i64 24, i1 false)
-  %mFirstSegment.i200 = getelementptr inbounds i8, ptr %vectorOfTO, i64 8
+  %mFirstSegment.i200 = getelementptr inbounds nuw i8, ptr %vectorOfTO, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i200, i8 0, i64 24, i1 false)
-  %mFirstSegment.i201 = getelementptr inbounds i8, ptr %vectorOfListOfTO, i64 8
+  %mFirstSegment.i201 = getelementptr inbounds nuw i8, ptr %vectorOfListOfTO, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i201, i8 0, i64 24, i1 false)
   %call85 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.9)
           to label %invoke.cont84 unwind label %lpad81
@@ -3703,30 +3703,30 @@ invoke.cont88:                                    ; preds = %invoke.cont84
 if.else8.i.i238:                                  ; preds = %invoke.cont88
   call void @_ZN5eastl16segmented_vectorINS_4listI10TestObjectNS_9allocatorEEELm8ES3_E5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfListOfTO)
   call void @_ZN5eastl16segmented_vectorI10TestObjectLm8ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfTO)
-  %mFirstSegment.i222 = getelementptr inbounds i8, ptr %vectorOfInt95, i64 8
+  %mFirstSegment.i222 = getelementptr inbounds nuw i8, ptr %vectorOfInt95, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mFirstSegment.i222, i8 0, i64 16, i1 false)
-  %mLastSegment.i.i223 = getelementptr inbounds i8, ptr %vectorOfInt95, i64 16
-  %mSegmentCount.i9.i.i239 = getelementptr inbounds i8, ptr %vectorOfInt95, i64 24
+  %mLastSegment.i.i223 = getelementptr inbounds nuw i8, ptr %vectorOfInt95, i64 16
+  %mSegmentCount.i9.i.i239 = getelementptr inbounds nuw i8, ptr %vectorOfInt95, i64 24
   store i64 1, ptr %mSegmentCount.i9.i.i239, align 8
   %call.i.i.i11.i.i246 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit unwind label %lpad98
 
 _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit: ; preds = %if.else8.i.i238
   store i64 1, ptr %call.i.i.i11.i.i246, align 8
-  %72 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i246, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 8
   store i64 1, ptr %72, align 8
   store ptr %call.i.i.i11.i.i246, ptr %mLastSegment.i.i223, align 8
   store ptr %call.i.i.i11.i.i246, ptr %mFirstSegment.i222, align 8
-  %mData11.i.i242 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i246, i64 16
+  %mData11.i.i242 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 16
   store i32 42, ptr %mData11.i.i242, align 4
-  %73 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i246, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 1
   %call105 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %75, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.12)
           to label %invoke.cont104 unwind label %lpad98
 
 invoke.cont104:                                   ; preds = %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit
-  %mSegmentCount.i249 = getelementptr inbounds i8, ptr %vectorOfInt95, i64 24
+  %mSegmentCount.i249 = getelementptr inbounds nuw i8, ptr %vectorOfInt95, i64 24
   %call110 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.13)
           to label %invoke.cont109 unwind label %lpad98
 
@@ -3735,7 +3735,7 @@ invoke.cont109:                                   ; preds = %invoke.cont104
           to label %if.then.i.i254 unwind label %lpad98
 
 if.then.i.i254:                                   ; preds = %invoke.cont109
-  %76 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i246, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 8
   %77 = load i64, ptr %76, align 8
   %cmp.i.i255 = icmp ult i64 %77, 4
   br i1 %cmp.i.i255, label %if.then2.i.i263, label %if.else.i.i256
@@ -3743,8 +3743,8 @@ if.then.i.i254:                                   ; preds = %invoke.cont109
 if.then2.i.i263:                                  ; preds = %if.then.i.i254
   %inc.i.i264 = add nuw nsw i64 %77, 1
   store i64 %inc.i.i264, ptr %76, align 8
-  %mData.i.i265 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i246, i64 16
-  %add.ptr.i.i266 = getelementptr inbounds i32, ptr %mData.i.i265, i64 %77
+  %mData.i.i265 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i246, i64 16
+  %add.ptr.i.i266 = getelementptr inbounds nuw i32, ptr %mData.i.i265, i64 %77
   br label %if.then.i.i279
 
 if.else.i.i256:                                   ; preds = %if.then.i.i254
@@ -3756,14 +3756,14 @@ call.i.i.i.i.i.noexc272:                          ; preds = %if.else.i.i256
   %78 = ptrtoint ptr %call.i.i.i11.i.i246 to i64
   %or.i.i.i259 = or i64 %78, 1
   store i64 %or.i.i.i259, ptr %call.i.i.i.i.i273, align 8
-  %79 = getelementptr inbounds i8, ptr %call.i.i.i.i.i273, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i273, i64 8
   store i64 1, ptr %79, align 8
   store ptr %call.i.i.i.i.i273, ptr %mLastSegment.i.i223, align 8
   %80 = load i64, ptr %call.i.i.i11.i.i246, align 8
   %and.i.i260 = and i64 %80, -2
   store i64 %and.i.i260, ptr %call.i.i.i11.i.i246, align 8
   store ptr %call.i.i.i.i.i273, ptr %76, align 8
-  %mData6.i.i261 = getelementptr inbounds i8, ptr %call.i.i.i.i.i273, i64 16
+  %mData6.i.i261 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i273, i64 16
   br label %if.then.i.i279
 
 if.then.i.i279:                                   ; preds = %if.then2.i.i263, %call.i.i.i.i.i.noexc272
@@ -3771,7 +3771,7 @@ if.then.i.i279:                                   ; preds = %if.then2.i.i263, %c
   %81 = phi ptr [ %call.i.i.i11.i.i246, %if.then2.i.i263 ], [ %call.i.i.i.i.i273, %call.i.i.i.i.i.noexc272 ]
   %retval.0.i.i262 = phi ptr [ %add.ptr.i.i266, %if.then2.i.i263 ], [ %mData6.i.i261, %call.i.i.i.i.i.noexc272 ]
   store i32 43, ptr %retval.0.i.i262, align 4
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
   %cmp.i.i280 = icmp ult i64 %83, 4
   br i1 %cmp.i.i280, label %if.then2.i.i288, label %if.else.i.i281
@@ -3779,8 +3779,8 @@ if.then.i.i279:                                   ; preds = %if.then2.i.i263, %c
 if.then2.i.i288:                                  ; preds = %if.then.i.i279
   %inc.i.i289 = add nuw nsw i64 %83, 1
   store i64 %inc.i.i289, ptr %82, align 8
-  %mData.i.i290 = getelementptr inbounds i8, ptr %81, i64 16
-  %add.ptr.i.i291 = getelementptr inbounds i32, ptr %mData.i.i290, i64 %83
+  %mData.i.i290 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %add.ptr.i.i291 = getelementptr inbounds nuw i32, ptr %mData.i.i290, i64 %83
   br label %invoke.cont120
 
 if.else.i.i281:                                   ; preds = %if.then.i.i279
@@ -3792,14 +3792,14 @@ call.i.i.i.i.i.noexc297:                          ; preds = %if.else.i.i281
   %84 = ptrtoint ptr %81 to i64
   %or.i.i.i284 = or i64 %84, 1
   store i64 %or.i.i.i284, ptr %call.i.i.i.i.i298, align 8
-  %85 = getelementptr inbounds i8, ptr %call.i.i.i.i.i298, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i298, i64 8
   store i64 1, ptr %85, align 8
   store ptr %call.i.i.i.i.i298, ptr %mLastSegment.i.i223, align 8
   %86 = load i64, ptr %81, align 8
   %and.i.i285 = and i64 %86, -2
   store i64 %and.i.i285, ptr %81, align 8
   store ptr %call.i.i.i.i.i298, ptr %82, align 8
-  %mData6.i.i286 = getelementptr inbounds i8, ptr %call.i.i.i.i.i298, i64 16
+  %mData6.i.i286 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i298, i64 16
   br label %invoke.cont120
 
 invoke.cont120:                                   ; preds = %call.i.i.i.i.i.noexc297, %if.then2.i.i288
@@ -3810,7 +3810,7 @@ invoke.cont120:                                   ; preds = %call.i.i.i.i.i.noex
   br i1 %tobool.not.i.i303, label %if.else8.i.i317, label %if.then.i.i304
 
 if.then.i.i304:                                   ; preds = %invoke.cont120
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
   %cmp.i.i305 = icmp ult i64 %89, 4
   br i1 %cmp.i.i305, label %if.then2.i.i313, label %if.else.i.i306
@@ -3818,8 +3818,8 @@ if.then.i.i304:                                   ; preds = %invoke.cont120
 if.then2.i.i313:                                  ; preds = %if.then.i.i304
   %inc.i.i314 = add nuw nsw i64 %89, 1
   store i64 %inc.i.i314, ptr %88, align 8
-  %mData.i.i315 = getelementptr inbounds i8, ptr %87, i64 16
-  %add.ptr.i.i316 = getelementptr inbounds i32, ptr %mData.i.i315, i64 %89
+  %mData.i.i315 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %add.ptr.i.i316 = getelementptr inbounds nuw i32, ptr %mData.i.i315, i64 %89
   br label %if.then.i.i329
 
 if.else.i.i306:                                   ; preds = %if.then.i.i304
@@ -3833,14 +3833,14 @@ call.i.i.i.i.i.noexc322:                          ; preds = %if.else.i.i306
   %91 = ptrtoint ptr %87 to i64
   %or.i.i.i309 = or i64 %91, 1
   store i64 %or.i.i.i309, ptr %call.i.i.i.i.i323, align 8
-  %92 = getelementptr inbounds i8, ptr %call.i.i.i.i.i323, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i323, i64 8
   store i64 1, ptr %92, align 8
   store ptr %call.i.i.i.i.i323, ptr %mLastSegment.i.i223, align 8
   %93 = load i64, ptr %87, align 8
   %and.i.i310 = and i64 %93, -2
   store i64 %and.i.i310, ptr %87, align 8
   store ptr %call.i.i.i.i.i323, ptr %88, align 8
-  %mData6.i.i311 = getelementptr inbounds i8, ptr %call.i.i.i.i.i323, i64 16
+  %mData6.i.i311 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i323, i64 16
   br label %if.then.i.i329
 
 if.else8.i.i317:                                  ; preds = %invoke.cont120
@@ -3852,18 +3852,18 @@ if.else8.i.i317:                                  ; preds = %invoke.cont120
 
 call.i.i.i11.i.i.noexc324:                        ; preds = %if.else8.i.i317
   store i64 1, ptr %call.i.i.i11.i.i325, align 8
-  %95 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i325, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i325, i64 8
   store i64 1, ptr %95, align 8
   store ptr %call.i.i.i11.i.i325, ptr %mLastSegment.i.i223, align 8
   store ptr %call.i.i.i11.i.i325, ptr %mFirstSegment.i222, align 8
-  %mData11.i.i321 = getelementptr inbounds i8, ptr %call.i.i.i11.i.i325, i64 16
+  %mData11.i.i321 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i325, i64 16
   br label %if.then.i.i329
 
 if.then.i.i329:                                   ; preds = %if.then2.i.i313, %call.i.i.i.i.i.noexc322, %call.i.i.i11.i.i.noexc324
   %96 = phi ptr [ %87, %if.then2.i.i313 ], [ %call.i.i.i.i.i323, %call.i.i.i.i.i.noexc322 ], [ %call.i.i.i11.i.i325, %call.i.i.i11.i.i.noexc324 ]
   %retval.0.i.i312 = phi ptr [ %add.ptr.i.i316, %if.then2.i.i313 ], [ %mData6.i.i311, %call.i.i.i.i.i.noexc322 ], [ %mData11.i.i321, %call.i.i.i11.i.i.noexc324 ]
   store i32 45, ptr %retval.0.i.i312, align 4
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i64, ptr %97, align 8
   %cmp.i.i330 = icmp ult i64 %98, 4
   br i1 %cmp.i.i330, label %if.then2.i.i338, label %if.else.i.i331
@@ -3871,8 +3871,8 @@ if.then.i.i329:                                   ; preds = %if.then2.i.i313, %c
 if.then2.i.i338:                                  ; preds = %if.then.i.i329
   %inc.i.i339 = add nuw nsw i64 %98, 1
   store i64 %inc.i.i339, ptr %97, align 8
-  %mData.i.i340 = getelementptr inbounds i8, ptr %96, i64 16
-  %add.ptr.i.i341 = getelementptr inbounds i32, ptr %mData.i.i340, i64 %98
+  %mData.i.i340 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %add.ptr.i.i341 = getelementptr inbounds nuw i32, ptr %mData.i.i340, i64 %98
   br label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360
 
 if.else.i.i331:                                   ; preds = %if.then.i.i329
@@ -3886,14 +3886,14 @@ call.i.i.i.i.i.noexc347:                          ; preds = %if.else.i.i331
   %100 = ptrtoint ptr %96 to i64
   %or.i.i.i334 = or i64 %100, 1
   store i64 %or.i.i.i334, ptr %call.i.i.i.i.i348, align 8
-  %101 = getelementptr inbounds i8, ptr %call.i.i.i.i.i348, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i348, i64 8
   store i64 1, ptr %101, align 8
   store ptr %call.i.i.i.i.i348, ptr %mLastSegment.i.i223, align 8
   %102 = load i64, ptr %96, align 8
   %and.i.i335 = and i64 %102, -2
   store i64 %and.i.i335, ptr %96, align 8
   store ptr %call.i.i.i.i.i348, ptr %97, align 8
-  %mData6.i.i336 = getelementptr inbounds i8, ptr %call.i.i.i.i.i348, i64 16
+  %mData6.i.i336 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i348, i64 16
   br label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360
 
 _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360: ; preds = %call.i.i.i.i.i.noexc347, %if.then2.i.i338
@@ -3903,7 +3903,7 @@ _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360: ; preds = %cal
   %104 = load i64, ptr %mSegmentCount.i249, align 8
   %sub.i356 = shl i64 %104, 2
   %mul.i357 = add i64 %sub.i356, -4
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load i64, ptr %105, align 8
   %add.i358 = add i64 %mul.i357, %106
   %107 = icmp eq i64 %add.i358, 5
@@ -3918,15 +3918,15 @@ invoke.cont131:                                   ; preds = %_ZNK5eastl16segment
 
 invoke.cont136:                                   ; preds = %invoke.cont131
   %109 = load ptr, ptr %mFirstSegment.i222, align 8
-  %mData.i = getelementptr inbounds i8, ptr %109, i64 16
+  %mData.i = getelementptr inbounds nuw i8, ptr %109, i64 16
   %110 = load i32, ptr %mData.i, align 4
   %cmp140 = icmp eq i32 %110, 42
   %call142 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp140, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @.str.17)
           to label %invoke.cont141 unwind label %lpad98
 
 invoke.cont141:                                   ; preds = %invoke.cont136
-  %mData.i364 = getelementptr inbounds i8, ptr %103, i64 16
-  %111 = getelementptr inbounds i8, ptr %103, i64 8
+  %mData.i364 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %112 = load i64, ptr %111, align 8
   %sub.i365 = add i64 %112, -1
   %arrayidx.i = getelementptr inbounds [4 x i32], ptr %mData.i364, i64 0, i64 %sub.i365
@@ -3959,7 +3959,7 @@ _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread445: ; pr
   %119 = load i64, ptr %118, align 8
   %or.i = or i64 %119, 1
   store i64 %or.i, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 4, ptr %120, align 8
   br label %if.then.i374
 
@@ -3977,7 +3977,7 @@ if.then.i374:                                     ; preds = %_ZN5eastl16segmente
   %121 = load i64, ptr %mSegmentCount.i249, align 8
   %sub.i376 = shl i64 %121, 2
   %mul.i377 = add i64 %sub.i376, -4
-  %122 = getelementptr inbounds i8, ptr %.pr448, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.pr448, i64 8
   %123 = load i64, ptr %122, align 8
   %add.i378 = add i64 %mul.i377, %123
   %124 = icmp eq i64 %add.i378, 4
@@ -4006,7 +4006,7 @@ while.cond.preheader.i:                           ; preds = %invoke.cont157
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i385:    ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i385
   %segment.013.i = phi ptr [ %129, %_ZN5eastl9allocator10deallocateEPvm.exit.i385 ], [ %127, %while.cond.preheader.i ]
-  %128 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %129 = load ptr, ptr %128, align 8
   call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %cmp.not.i = icmp eq ptr %129, %125
@@ -4038,7 +4038,7 @@ invoke.cont162:                                   ; preds = %_ZN5eastl16segmente
 if.then.i390:                                     ; preds = %invoke.cont162
   %sub.i392 = shl i64 %130, 2
   %mul.i393 = add i64 %sub.i392, -4
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i64, ptr %132, align 8
   %add.i394 = sub i64 0, %133
   %134 = icmp eq i64 %mul.i393, %add.i394
@@ -4088,20 +4088,20 @@ declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5clearEv.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not12.i = icmp eq ptr %0, %1
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
-  %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -4128,20 +4128,20 @@ _ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEE5clearEv.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %mLastSegment.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment.i, align 8
   %cmp.not12.i = icmp eq ptr %0, %1
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %segment.013.i = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %while.cond.preheader.i ]
-  %2 = getelementptr inbounds i8, ptr %segment.013.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.013.i, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #9
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -4175,22 +4175,22 @@ declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorI10TestObjectLm8ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not14 = icmp eq ptr %0, %1
   br i1 %cmp.not14, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.015 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.015, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.015, i64 8
   %3 = load ptr, ptr %2, align 8
-  %invariant.gep.i = getelementptr inbounds i8, ptr %segment.015, i64 16
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %segment.015, i64 16
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN10TestObjectD2Ev.exit.i, %while.body
@@ -4226,11 +4226,11 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
-  %9 = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 8
   %10 = load i64, ptr %9, align 8
   %add.ptr.idx = mul i64 %10, 24
-  %mData.add = add nsw i64 %add.ptr.idx, 16
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 %mData.add
+  %11 = getelementptr i8, ptr %segment.0.lcssa, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %11, i64 16
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 
@@ -4238,19 +4238,19 @@ for.body.preheader:                               ; preds = %while.end
   %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %mData.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 16
-  %11 = add i64 %add.ptr.idx, -24
-  %12 = udiv i64 %11, 24
-  %13 = add i64 %_ZN10TestObject12sTODtorCountE.promoted, %12
+  %mData.ptr = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 16
+  %12 = add i64 %add.ptr.idx, -24
+  %13 = udiv i64 %12, 24
+  %14 = add i64 %_ZN10TestObject12sTODtorCountE.promoted, %13
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN10TestObjectD2Ev.exit
   %i.024 = phi ptr [ %incdec.ptr, %_ZN10TestObjectD2Ev.exit ], [ %mData.ptr, %for.body.preheader ]
   %inc.i1723 = phi i32 [ %inc.i16, %_ZN10TestObjectD2Ev.exit ], [ %_ZN10TestObject16sMagicErrorCountE.promoted, %for.body.preheader ]
   %dec.i1822 = phi i64 [ %dec.i, %_ZN10TestObjectD2Ev.exit ], [ %_ZN10TestObject8sTOCountE.promoted, %for.body.preheader ]
-  %mMagicValue.i = getelementptr inbounds i8, ptr %i.024, i64 16
-  %14 = load i32, ptr %mMagicValue.i, align 8
-  %cmp.not.i = icmp eq i32 %14, 32623592
+  %mMagicValue.i = getelementptr inbounds nuw i8, ptr %i.024, i64 16
+  %15 = load i32, ptr %mMagicValue.i, align 8
+  %cmp.not.i = icmp eq i32 %15, 32623592
   br i1 %cmp.not.i, label %_ZN10TestObjectD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -4262,14 +4262,14 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %for.body, %if.then.
   %inc.i16 = phi i32 [ %inc.i1723, %for.body ], [ %inc.i, %if.then.i ]
   store i32 0, ptr %mMagicValue.i, align 8
   %dec.i = add nsw i64 %dec.i1822, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %i.024, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.024, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %_ZN10TestObjectD2Ev.exit
-  %15 = add i64 %13, 1
+  %16 = add i64 %14, 1
   store i64 %dec.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %15, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  store i64 %16, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %isnull.i11 = icmp eq ptr %segment.0.lcssa, null
   br i1 %isnull.i11, label %_ZN5eastl9allocator10deallocateEPvm.exit13, label %delete.notnull.i12
 
@@ -4288,20 +4288,20 @@ if.end:                                           ; preds = %_ZN5eastl9allocator
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl16segmented_vectorINS_4listI10TestObjectNS_9allocatorEEELm8ES3_E5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFirstSegment = getelementptr inbounds i8, ptr %this, i64 8
+  %mFirstSegment = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFirstSegment, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %mLastSegment = getelementptr inbounds i8, ptr %this, i64 16
+  %mLastSegment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mLastSegment, align 8
   %cmp.not14 = icmp eq ptr %0, %1
   br i1 %cmp.not14, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %_ZN5eastl9allocator10deallocateEPvm.exit
   %segment.015 = phi ptr [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ], [ %0, %while.cond.preheader ]
-  %2 = getelementptr inbounds i8, ptr %segment.015, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %segment.015, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %arraydestroy.body.i
 
@@ -4316,7 +4316,7 @@ arraydestroy.body.i:                              ; preds = %_ZN5eastl4listI10Te
 while.body.i.i.i.i:                               ; preds = %arraydestroy.body.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
   %p.05.i.i.i.i = phi ptr [ %5, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i ], [ %4, %arraydestroy.body.i ]
   %5 = load ptr, ptr %p.05.i.i.i.i, align 8
-  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p.05.i.i.i.i, i64 32
+  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.05.i.i.i.i, i64 32
   %6 = load i32, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4358,52 +4358,52 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl7segmentIN
 
 while.end:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit, %while.cond.preheader
   %segment.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %3, %_ZN5eastl9allocator10deallocateEPvm.exit ]
-  %11 = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 8
   %12 = load i64, ptr %11, align 8
   %add.ptr.idx = mul nsw i64 %12, 24
-  %mData.add = add nsw i64 %add.ptr.idx, 16
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 %mData.add
+  %13 = getelementptr i8, ptr %segment.0.lcssa, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %13, i64 16
   %cmp4.not16 = icmp eq i64 %12, 0
   br i1 %cmp4.not16, label %delete.notnull.i12, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end
-  %mData.ptr = getelementptr inbounds i8, ptr %segment.0.lcssa, i64 16
+  %mData.ptr = getelementptr inbounds nuw i8, ptr %segment.0.lcssa, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit
   %i.017 = phi ptr [ %incdec.ptr, %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit ], [ %mData.ptr, %for.body.preheader ]
-  %13 = load ptr, ptr %i.017, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %13, %i.017
+  %14 = load ptr, ptr %i.017, align 8
+  %cmp.not4.i.i.i = icmp eq ptr %14, %i.017
   br i1 %cmp.not4.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %for.body, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
-  %p.05.i.i.i = phi ptr [ %14, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ], [ %13, %for.body ]
-  %14 = load ptr, ptr %p.05.i.i.i, align 8
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %p.05.i.i.i, i64 32
-  %15 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq i32 %15, 32623592
+  %p.05.i.i.i = phi ptr [ %15, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i ], [ %14, %for.body ]
+  %15 = load ptr, ptr %p.05.i.i.i, align 8
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.05.i.i.i, i64 32
+  %16 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq i32 %16, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i
-  %16 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %inc.i.i.i.i.i = add nsw i32 %16, 1
+  %17 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %inc.i.i.i.i.i = add nsw i32 %17, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %if.then.i.i.i.i.i, %while.body.i.i.i
   store i32 0, ptr %mMagicValue.i.i.i.i.i, align 8
-  %17 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i.i.i = add nsw i64 %17, -1
+  %18 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i.i.i = add nsw i64 %18, -1
   store i64 %dec.i.i.i.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %18 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i.i.i = add nsw i64 %18, 1
+  %19 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i.i.i = add nsw i64 %19, 1
   store i64 %inc3.i.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %p.05.i.i.i) #9
-  %cmp.not.i.i.i = icmp eq ptr %14, %i.017
+  %cmp.not.i.i.i = icmp eq ptr %15, %i.017
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, label %while.body.i.i.i, !llvm.loop !30
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %i.017, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.017, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !32
 

@@ -103,12 +103,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @aead_tls_cleanup(ptr nocapture noundef %ctx) #1 {
 entry:
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef %0) #7
-  %hmac_ctx = getelementptr inbounds i8, ptr %0, i64 152
+  %hmac_ctx = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @HMAC_CTX_cleanup(ptr noundef nonnull %hmac_ctx) #7
-  %mac_key = getelementptr inbounds i8, ptr %0, i64 256
+  %mac_key = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %mac_key, i64 noundef 64) #7
   tail call void @free(ptr noundef %0) #7
   store ptr null, ptr %aead_state, align 8
@@ -123,9 +123,9 @@ entry:
   %mac_len = alloca i32, align 4
   %len = alloca i32, align 4
   %padding = alloca [256 x i8], align 16
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
-  %encrypt = getelementptr inbounds i8, ptr %0, i64 28
+  %encrypt = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1 = load i32, ptr %encrypt, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -181,9 +181,9 @@ if.end17:                                         ; preds = %if.end14
   %conv = trunc i64 %shr to i8
   store i8 %conv, ptr %ad_extra, align 1
   %conv18 = trunc i64 %in_len to i8
-  %arrayidx19 = getelementptr inbounds i8, ptr %ad_extra, i64 1
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %ad_extra, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
-  %hmac_ctx = getelementptr inbounds i8, ptr %0, i64 152
+  %hmac_ctx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %call20 = tail call i32 @HMAC_Init_ex(ptr noundef nonnull %hmac_ctx, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null) #7
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -214,7 +214,7 @@ if.end40:                                         ; preds = %lor.lhs.false34
   br i1 %cmp43, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %if.end40
-  %implicit_iv = getelementptr inbounds i8, ptr %0, i64 321
+  %implicit_iv = getelementptr inbounds nuw i8, ptr %0, i64 321
   %6 = load i8, ptr %implicit_iv, align 1
   %tobool45.not = icmp eq i8 %6, 0
   br i1 %tobool45.not, label %land.lhs.true46, label %if.end51
@@ -299,9 +299,9 @@ entry:
   %mac_len = alloca i64, align 8
   %record_mac_tmp = alloca [64 x i8], align 16
   %mac_len_u = alloca i32, align 4
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
-  %encrypt = getelementptr inbounds i8, ptr %0, i64 28
+  %encrypt = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1 = load i32, ptr %encrypt, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -311,7 +311,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %hmac_ctx = getelementptr inbounds i8, ptr %0, i64 152
+  %hmac_ctx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %call = tail call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #7
   %cmp = icmp ult i64 %in_len, %call
   br i1 %cmp, label %if.then1, label %if.end2
@@ -360,7 +360,7 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp18, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %if.end15
-  %implicit_iv = getelementptr inbounds i8, ptr %0, i64 321
+  %implicit_iv = getelementptr inbounds nuw i8, ptr %0, i64 321
   %3 = load i8, ptr %implicit_iv, align 1
   %tobool19.not = icmp eq i8 %3, 0
   br i1 %tobool19.not, label %land.lhs.true20, label %if.end25
@@ -423,10 +423,10 @@ if.end56:                                         ; preds = %if.then43.if.end56_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %ad_fixed, ptr noundef nonnull align 1 dereferenceable(11) %ad, i64 11, i1 false)
   %shr = lshr i32 %conv60, 8
   %conv61 = trunc i32 %shr to i8
-  %arrayidx = getelementptr inbounds i8, ptr %ad_fixed, i64 11
+  %arrayidx = getelementptr inbounds nuw i8, ptr %ad_fixed, i64 11
   store i8 %conv61, ptr %arrayidx, align 1
   %conv62 = trunc i32 %conv60 to i8
-  %arrayidx63 = getelementptr inbounds i8, ptr %ad_fixed, i64 12
+  %arrayidx63 = getelementptr inbounds nuw i8, ptr %ad_fixed, i64 12
   store i8 %conv62, ptr %arrayidx63, align 1
   %call66 = call i32 @EVP_CIPHER_CTX_mode(ptr noundef nonnull %0) #7
   %cmp67 = icmp eq i32 %call66, 2
@@ -442,8 +442,8 @@ if.then73:                                        ; preds = %land.lhs.true69
   %10 = load ptr, ptr %hmac_ctx, align 8
   %11 = load i32, ptr %data_plus_mac_len, align 4
   %conv78 = zext i32 %11 to i64
-  %mac_key = getelementptr inbounds i8, ptr %0, i64 256
-  %mac_key_len = getelementptr inbounds i8, ptr %0, i64 320
+  %mac_key = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %mac_key_len = getelementptr inbounds nuw i8, ptr %0, i64 320
   %12 = load i8, ptr %mac_key_len, align 8
   %conv80 = zext i8 %12 to i32
   %call81 = call i32 @EVP_tls_cbc_digest_record(ptr noundef %10, ptr noundef nonnull %mac, ptr noundef nonnull %mac_len, ptr noundef nonnull %ad_fixed, ptr noundef %out, i64 noundef %conv78, i64 noundef %add38, ptr noundef nonnull %mac_key, i32 noundef %conv80) #7
@@ -488,7 +488,7 @@ if.end107:                                        ; preds = %lor.lhs.false101
   %15 = load i32, ptr %mac_len_u, align 4
   %conv108 = zext i32 %15 to i64
   store i64 %conv108, ptr %mac_len, align 8
-  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 %conv98
+  %arrayidx109 = getelementptr inbounds nuw i8, ptr %out, i64 %conv98
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end107, %if.end84
@@ -516,7 +516,7 @@ return:                                           ; preds = %if.else88, %lor.lhs
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aead_rc4_tls_get_rc4_state(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_key) #1 {
 entry:
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call ptr @EVP_CIPHER_CTX_cipher(ptr noundef %0) #7
   %call1 = tail call ptr @EVP_rc4() #7
@@ -524,7 +524,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cipher_data = getelementptr inbounds i8, ptr %0, i64 16
+  %cipher_data = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %cipher_data, align 8
   store ptr %1, ptr %out_key, align 8
   br label %return
@@ -573,16 +573,16 @@ if.then11:                                        ; preds = %if.end5
 if.end12:                                         ; preds = %if.end5
   %conv = zext i32 %call7 to i64
   tail call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %call8) #7
-  %hmac_ctx = getelementptr inbounds i8, ptr %call8, i64 152
+  %hmac_ctx = getelementptr inbounds nuw i8, ptr %call8, i64 152
   tail call void @HMAC_CTX_init(ptr noundef nonnull %hmac_ctx) #7
-  %mac_key = getelementptr inbounds i8, ptr %call8, i64 256
+  %mac_key = getelementptr inbounds nuw i8, ptr %call8, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %mac_key, ptr align 1 %key, i64 %call6, i1 false)
   %conv13 = trunc i64 %call6 to i8
-  %mac_key_len14 = getelementptr inbounds i8, ptr %call8, i64 320
+  %mac_key_len14 = getelementptr inbounds nuw i8, ptr %call8, i64 320
   store i8 %conv13, ptr %mac_key_len14, align 8
-  %implicit_iv15 = getelementptr inbounds i8, ptr %call8, i64 321
+  %implicit_iv15 = getelementptr inbounds nuw i8, ptr %call8, i64 321
   store i8 %implicit_iv, ptr %implicit_iv15, align 1
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call8, ptr %aead_state, align 8
   %arrayidx = getelementptr inbounds i8, ptr %key, i64 %call6
   %tobool.not = icmp eq i8 %implicit_iv, 0
@@ -602,9 +602,9 @@ lor.lhs.false:                                    ; preds = %if.end12
 if.then26:                                        ; preds = %lor.lhs.false, %if.end12
   %1 = load ptr, ptr %aead_state, align 8
   %call.i = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef %1) #7
-  %hmac_ctx.i = getelementptr inbounds i8, ptr %1, i64 152
+  %hmac_ctx.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   tail call void @HMAC_CTX_cleanup(ptr noundef nonnull %hmac_ctx.i) #7
-  %mac_key.i = getelementptr inbounds i8, ptr %1, i64 256
+  %mac_key.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %mac_key.i, i64 noundef 64) #7
   tail call void @free(ptr noundef %1) #7
   store ptr null, ptr %aead_state, align 8
@@ -731,7 +731,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aead_tls_get_iv(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_iv, ptr nocapture noundef writeonly %out_iv_len) #1 {
 entry:
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_iv_length(ptr noundef %0) #7
   %cmp = icmp ult i32 %call, 2
@@ -739,7 +739,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = zext i32 %call to i64
-  %iv = getelementptr inbounds i8, ptr %0, i64 52
+  %iv = getelementptr inbounds nuw i8, ptr %0, i64 52
   store ptr %iv, ptr %out_iv, align 8
   store i64 %conv, ptr %out_iv_len, align 8
   br label %return

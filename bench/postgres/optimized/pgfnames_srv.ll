@@ -32,25 +32,25 @@ sub_0:                                            ; preds = %6, %31
   %.041 = phi i32 [ %.1, %31 ], [ 200, %6 ]
   %.02140 = phi i32 [ %.122, %31 ], [ 0, %6 ]
   %.02339 = phi ptr [ %.124, %31 ], [ %7, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %12 = load i8, ptr %11, align 1
   %.not44 = icmp eq i8 %12, 46
   br i1 %.not44, label %.tail, label %.tail34.thread
 
 .tail:                                            ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %10, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %31, label %sub_136
 
 sub_136:                                          ; preds = %.tail
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %17 = load i8, ptr %16, align 1
   %.not46 = icmp eq i8 %17, 46
   br i1 %.not46, label %.tail34, label %.tail34.thread
 
 .tail34:                                          ; preds = %sub_136
-  %18 = getelementptr inbounds i8, ptr %10, i64 21
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %31, label %.tail34.thread

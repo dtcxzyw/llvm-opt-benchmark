@@ -604,7 +604,7 @@ declare i32 @dissect_nt_access_mask(ptr noundef, i32 noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_bitmap_security_secinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -628,7 +628,7 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -657,9 +657,9 @@ define hidden i32 @winreg_dissect_struct_String(ptr noundef %0, i32 noundef %1, 
   %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_String_name_, i32 noundef 2, ptr noundef nonnull @.str.252, i32 noundef %23) #3
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #3
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -689,13 +689,13 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -745,14 +745,14 @@ define hidden i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 nou
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -772,13 +772,13 @@ define hidden i32 @winreg_dissect_struct_KeySecurityData(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_SecBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -828,14 +828,14 @@ define hidden i32 @winreg_dissect_struct_SecBuf(ptr noundef %0, i32 noundef %1, 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -856,7 +856,7 @@ define hidden i32 @winreg_dissect_struct_SecBuf(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_bitmap_KeyOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -926,13 +926,13 @@ define hidden i32 @winreg_dissect_enum_CreateAction(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_StringBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -982,14 +982,14 @@ define hidden i32 @winreg_dissect_struct_StringBuf(ptr noundef %0, i32 noundef %
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1009,13 +1009,13 @@ define hidden i32 @winreg_dissect_struct_StringBuf(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_ValNameBuf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1065,14 +1065,14 @@ define hidden i32 @winreg_dissect_struct_ValNameBuf(ptr noundef %0, i32 noundef 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1093,7 +1093,7 @@ define hidden i32 @winreg_dissect_struct_ValNameBuf(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_bitmap_NotifyChangeType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1136,7 +1136,7 @@ define hidden i32 @winreg_dissect_bitmap_NotifyChangeType(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_bitmap_RestoreKeyFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1178,13 +1178,13 @@ define hidden i32 @winreg_dissect_bitmap_RestoreKeyFlags(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_KeySecurityAttribute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1234,14 +1234,14 @@ define hidden i32 @winreg_dissect_struct_KeySecurityAttribute(ptr noundef %0, i3
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #3
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1261,13 +1261,13 @@ define hidden i32 @winreg_dissect_struct_KeySecurityAttribute(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @winreg_dissect_struct_QueryMultipleValue(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1319,14 +1319,14 @@ define hidden i32 @winreg_dissect_struct_QueryMultipleValue(ptr noundef %0, i32 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #3
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -1391,7 +1391,7 @@ declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_element_KeySecurityData_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %21
@@ -1459,7 +1459,7 @@ declare i32 @misc_dissect_enum_winreg_Type(ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.296, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCR_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -1473,7 +1473,7 @@ define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.296, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCR_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1485,7 +1485,7 @@ define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1497,7 +1497,7 @@ define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.297, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCU_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -1511,7 +1511,7 @@ define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.297, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCU_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1523,7 +1523,7 @@ define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1535,7 +1535,7 @@ define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.298, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKLM_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -1549,7 +1549,7 @@ define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.298, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKLM_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1561,7 +1561,7 @@ define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1573,7 +1573,7 @@ define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.299, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPD_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -1587,7 +1587,7 @@ define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.299, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPD_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1599,7 +1599,7 @@ define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1611,7 +1611,7 @@ define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.300, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKU_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -1625,7 +1625,7 @@ define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.300, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKU_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1637,7 +1637,7 @@ define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1649,7 +1649,7 @@ define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.301, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_CloseKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1660,7 +1660,7 @@ define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.301, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_CloseKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -1672,7 +1672,7 @@ define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -1684,7 +1684,7 @@ define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.302, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_CreateKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1713,7 +1713,7 @@ define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.302, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_CreateKey_new_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_CreateKey_new_handle_, i32 noundef 1, ptr noundef nonnull @.str.339, i32 noundef %9) #3
@@ -1728,7 +1728,7 @@ define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 nound
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %21) #3
@@ -1740,7 +1740,7 @@ define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.303, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_DeleteKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1754,7 +1754,7 @@ define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.303, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1763,7 +1763,7 @@ define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -1775,7 +1775,7 @@ define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.304, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_DeleteValue_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1789,7 +1789,7 @@ define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.304, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1798,7 +1798,7 @@ define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -1810,7 +1810,7 @@ define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.305, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_EnumKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1833,7 +1833,7 @@ define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.305, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_EnumKey_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_EnumKey_name_, i32 noundef 1, ptr noundef nonnull @.str.340, i32 noundef %9) #3
@@ -1851,7 +1851,7 @@ define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %24) #3
@@ -1863,7 +1863,7 @@ define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.306, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_EnumValue_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1892,7 +1892,7 @@ define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.306, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_EnumValue_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_EnumValue_name_, i32 noundef 1, ptr noundef nonnull @.str.343, i32 noundef %9) #3
@@ -1916,7 +1916,7 @@ define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 nound
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %30) #3
@@ -1928,7 +1928,7 @@ define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.307, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_FlushKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1939,7 +1939,7 @@ define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.307, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1948,7 +1948,7 @@ define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -1960,7 +1960,7 @@ define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.308, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_GetKeySecurity_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -1977,7 +1977,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.308, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_sd, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_GetKeySecurity_sd_, i32 noundef 1, ptr noundef nonnull @.str.348, i32 noundef %9) #3
@@ -1989,7 +1989,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2001,7 +2001,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.309, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_LoadKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2018,7 +2018,7 @@ define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.309, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2027,7 +2027,7 @@ define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2039,7 +2039,7 @@ define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.310, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_NotifyChangeKeyValue_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2068,7 +2068,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.310, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2077,7 +2077,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2089,7 +2089,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_OpenKey_parent_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenKey_parent_handle_, i32 noundef 1, ptr noundef nonnull @.str.351, i32 noundef %8) #3
@@ -2109,7 +2109,7 @@ define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.311, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -2121,7 +2121,7 @@ define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2133,7 +2133,7 @@ define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.312, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryInfoKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2147,7 +2147,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.312, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryInfoKey_classname, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryInfoKey_classname_, i32 noundef 1, ptr noundef nonnull @.str.352, i32 noundef %9) #3
@@ -2183,7 +2183,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 no
   br i1 %.not, label %43, label %39
 
 39:                                               ; preds = %6
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %42) #3
@@ -2195,7 +2195,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.313, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryValue_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2221,7 +2221,7 @@ define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.313, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryValue_type, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryValue_type_, i32 noundef 2, ptr noundef nonnull @.str.344, i32 noundef %9) #3
@@ -2242,7 +2242,7 @@ define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noun
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %27) #3
@@ -2254,7 +2254,7 @@ define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.314, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_ReplaceKey_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_ReplaceKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2274,7 +2274,7 @@ define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2283,7 +2283,7 @@ define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2295,7 +2295,7 @@ define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.315, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_RestoreKey_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_RestoreKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2312,7 +2312,7 @@ define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2321,7 +2321,7 @@ define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2333,7 +2333,7 @@ define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.316, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_SaveKey_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_SaveKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2350,7 +2350,7 @@ define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.316, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2359,7 +2359,7 @@ define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2371,7 +2371,7 @@ define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.317, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_SetKeySecurity_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2388,7 +2388,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.317, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2397,7 +2397,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2409,7 +2409,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.318, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_SetValue_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2432,7 +2432,7 @@ define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.318, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2441,7 +2441,7 @@ define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2453,7 +2453,7 @@ define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.319, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_UnLoadKey_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_UnLoadKey_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2467,7 +2467,7 @@ define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.319, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2476,7 +2476,7 @@ define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2488,7 +2488,7 @@ define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.320, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_InitiateSystemShutdown_hostname, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_InitiateSystemShutdown_hostname_, i32 noundef 2, ptr noundef nonnull @.str.367, i32 noundef %8) #3
@@ -2511,7 +2511,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.320, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2520,7 +2520,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2532,7 +2532,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.321, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_AbortSystemShutdown_server, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_AbortSystemShutdown_server_, i32 noundef 2, ptr noundef nonnull @.str.369, i32 noundef %8) #3
@@ -2543,7 +2543,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.321, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2552,7 +2552,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0,
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2564,7 +2564,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.322, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_GetVersion_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2575,7 +2575,7 @@ define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.322, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_GetVersion_version, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_GetVersion_version_, i32 noundef 1, ptr noundef nonnull @.str.370, i32 noundef %9) #3
@@ -2587,7 +2587,7 @@ define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2599,7 +2599,7 @@ define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.323, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCC_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -2613,7 +2613,7 @@ define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.323, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKCC_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -2625,7 +2625,7 @@ define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2637,7 +2637,7 @@ define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.324, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKDD_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -2651,7 +2651,7 @@ define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.324, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKDD_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -2663,7 +2663,7 @@ define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2675,7 +2675,7 @@ define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.325, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues_key_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValues_key_handle_, i32 noundef 1, ptr noundef nonnull @.str.371, i32 noundef %8) #3
@@ -2698,7 +2698,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.325, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues_values_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValues_values_out_, i32 noundef 1, ptr noundef nonnull @.str.375, i32 noundef %9) #3
@@ -2716,7 +2716,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0,
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %24) #3
@@ -2728,7 +2728,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.326, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_InitiateSystemShutdownEx_hostname, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_InitiateSystemShutdownEx_hostname_, i32 noundef 2, ptr noundef nonnull @.str.367, i32 noundef %8) #3
@@ -2754,7 +2754,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.326, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2763,7 +2763,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2775,7 +2775,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.327, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_SaveKeyEx_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_SaveKeyEx_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2795,7 +2795,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.327, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2804,7 +2804,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -2816,7 +2816,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.328, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPT_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -2830,7 +2830,7 @@ define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.328, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPT_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -2842,7 +2842,7 @@ define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2854,7 +2854,7 @@ define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.329, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPN_system_name_, i32 noundef 2, ptr noundef nonnull @.str.332, i32 noundef %8) #3
@@ -2868,7 +2868,7 @@ define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.329, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_OpenHKPN_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %9) #3
@@ -2880,7 +2880,7 @@ define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %18) #3
@@ -2892,7 +2892,7 @@ define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.330, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues2_key_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValues2_key_handle_, i32 noundef 1, ptr noundef nonnull @.str.371, i32 noundef %8) #3
@@ -2915,7 +2915,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.330, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues2_values_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_QueryMultipleValues2_values_out_, i32 noundef 1, ptr noundef nonnull @.str.375, i32 noundef %9) #3
@@ -2933,7 +2933,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %24) #3
@@ -2945,7 +2945,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.331, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_DeleteKeyEx_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @winreg_dissect_element_DeleteKeyEx_handle_, i32 noundef 1, ptr noundef nonnull @.str.335, i32 noundef %8) #3
@@ -2965,7 +2965,7 @@ define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.331, ptr %8, align 8
   %9 = load i32, ptr @hf_winreg_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -2974,7 +2974,7 @@ define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.334) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.333, ptr noundef %15) #3
@@ -3082,7 +3082,7 @@ define internal i32 @winreg_dissect_element_CreateKey_handle_(ptr noundef %0, i3
 define internal fastcc i32 @cnf_dissect_winreg_String(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 805306371) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3

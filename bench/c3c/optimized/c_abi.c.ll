@@ -44,7 +44,7 @@ define dso_local zeroext i1 @abi_type_is_integer(ptr %0) local_unnamed_addr #1 {
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   br label %11
@@ -73,7 +73,7 @@ define dso_local zeroext i1 @abi_type_is_float(ptr %0) local_unnamed_addr #1 {
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   br label %11
@@ -150,7 +150,7 @@ declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 63
   %5 = icmp samesign ult i8 %4, 9
@@ -173,16 +173,16 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_indirect_realigned(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -64
   %7 = or disjoint i8 %6, 7
   store i8 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 5
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %11, align 8
   %12 = or i8 %10, 24
   store i8 %12, ptr %9, align 1
@@ -192,17 +192,17 @@ define dso_local ptr @abi_arg_new_indirect_realigned(i32 noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_indirect_by_val(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 7
   store i8 %6, ptr %3, align 4
   %7 = tail call i32 @type_abi_alignment(ptr noundef %0) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = or i8 %11, 16
   store i8 %12, ptr %10, align 1
@@ -212,17 +212,17 @@ define dso_local ptr @abi_arg_new_indirect_by_val(ptr noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 7
   store i8 %6, ptr %3, align 4
   %7 = tail call i32 @type_abi_alignment(ptr noundef %0) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, -17
   store i8 %12, ptr %10, align 1
@@ -232,7 +232,7 @@ define dso_local ptr @abi_arg_new_indirect_not_by_val(ptr noundef %0) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 1
@@ -247,7 +247,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly 
   br i1 %.not.i, label %10, label %.critedge15.i
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, -3
@@ -259,7 +259,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext(ptr nocapture noundef readonly 
 
 abi_arg_new_direct_int_ext_by_reg.exit:           ; preds = %1, %10, %.critedge15.i
   %.sink16.i = phi i8 [ 2, %.critedge15.i ], [ 4, %1 ], [ 4, %10 ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %17 = load i8, ptr %16, align 1
   %.masked.i = and i8 %17, -2
   %18 = or i8 %.masked.i, %.sink16.i
@@ -270,7 +270,7 @@ abi_arg_new_direct_int_ext_by_reg.exit:           ; preds = %1, %10, %.critedge1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -64
   %7 = or disjoint i8 %6, 1
@@ -285,7 +285,7 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
   br i1 %.not, label %11, label %.critedge15
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, -3
@@ -297,10 +297,10 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
 
 .critedge:                                        ; preds = %11, %2, %.critedge15
   %.sink16 = phi i8 [ 2, %.critedge15 ], [ 4, %2 ], [ 4, %11 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %18 = load i8, ptr %17, align 1
   %19 = zext i1 %1 to i8
-  %20 = getelementptr inbounds i8, ptr %3, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %.masked = and i8 %18, -2
   %21 = or i8 %.masked, %.sink16
   %22 = or disjoint i8 %21, %19
@@ -311,14 +311,14 @@ define dso_local ptr @abi_arg_new_direct_int_ext_by_reg(ptr nocapture noundef re
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 3
   store i8 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
   %10 = load i32, ptr %0, align 8
   %11 = add i32 %10, -3
@@ -330,7 +330,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef re
   br i1 %.not.i, label %13, label %.critedge16.i
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -3
@@ -342,7 +342,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext(ptr nocapture noundef re
 
 abi_arg_new_direct_coerce_int_ext_by_reg.exit:    ; preds = %1, %13, %.critedge16.i
   %.sink17.i = phi i8 [ 2, %.critedge16.i ], [ 4, %1 ], [ 4, %13 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %20 = load i8, ptr %19, align 1
   %.masked.i = and i8 %20, -2
   %21 = or i8 %.masked.i, %.sink17.i
@@ -353,14 +353,14 @@ abi_arg_new_direct_coerce_int_ext_by_reg.exit:    ; preds = %1, %13, %.critedge1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -64
   %7 = or disjoint i8 %6, 3
   store i8 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %0, align 8
   %12 = add i32 %11, -3
@@ -372,7 +372,7 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
   br i1 %.not, label %14, label %.critedge16
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -3
@@ -384,10 +384,10 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
 
 .critedge:                                        ; preds = %14, %2, %.critedge16
   %.sink17 = phi i8 [ 2, %.critedge16 ], [ 4, %2 ], [ 4, %14 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %21 = load i8, ptr %20, align 1
   %22 = zext i1 %1 to i8
-  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %.masked = and i8 %21, -2
   %24 = or i8 %.masked, %.sink17
   %25 = or disjoint i8 %24, %22
@@ -398,14 +398,14 @@ define dso_local ptr @abi_arg_new_direct_coerce_int_ext_by_reg(ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_coerce_type(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 3
   store i8 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
   ret ptr %2
 }
@@ -413,13 +413,13 @@ define dso_local ptr @abi_arg_new_direct_coerce_type(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_pair(ptr %0, ptr %1) local_unnamed_addr #2 {
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -64
   %7 = or disjoint i8 %6, 2
   store i8 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %9, align 8
   store ptr %0, ptr %8, align 8
   ret ptr %3
@@ -429,12 +429,12 @@ define dso_local ptr @abi_arg_new_direct_pair(ptr %0, ptr %1) local_unnamed_addr
 define dso_local ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = zext i1 %0 to i8
   %3 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -64
   %7 = or disjoint i8 %6, 1
   store i8 %7, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, -2
   %11 = or disjoint i8 %10, %2
@@ -445,12 +445,12 @@ define dso_local ptr @abi_arg_new_direct_by_reg(i1 noundef zeroext %0) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct() local_unnamed_addr #2 {
   %1 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -64
   %5 = or disjoint i8 %4, 1
   store i8 %5, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -2
   store i8 %8, ptr %6, align 1
@@ -460,7 +460,7 @@ define dso_local ptr @abi_arg_new_direct() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_expand() local_unnamed_addr #2 {
   %1 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -64
   %5 = or disjoint i8 %4, 8
@@ -472,19 +472,19 @@ define dso_local ptr @abi_arg_new_expand() local_unnamed_addr #2 {
 define dso_local ptr @abi_arg_new_expand_coerce_pair(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = zext i1 %3 to i8
   %6 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, -64
   %10 = or disjoint i8 %9, 6
   store i8 %10, ptr %7, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %13, align 8
   %14 = trunc i32 %2 to i8
   store i8 %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %5, ptr %15, align 1
   ret ptr %6
 }
@@ -492,7 +492,7 @@ define dso_local ptr @abi_arg_new_expand_coerce_pair(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_coerce_int() local_unnamed_addr #2 {
   %1 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -64
   %5 = or disjoint i8 %4, 4
@@ -503,12 +503,12 @@ define dso_local ptr @abi_arg_new_direct_coerce_int() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @abi_arg_new_direct_struct_expand_i32(i8 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, -64
   %6 = or disjoint i8 %5, 5
   store i8 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %0, ptr %7, align 8
   ret ptr %2
 }
@@ -574,7 +574,7 @@ declare void @c_abi_func_create_wasm(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @c_abi_classify_return_type_default(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @type_void, align 8
   %5 = icmp eq ptr %3, %4
@@ -597,17 +597,17 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
 
 4:                                                ; preds = %1
   %5 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, -64
   %9 = or disjoint i8 %8, 7
   store i8 %9, ptr %6, align 4
   %10 = tail call i32 @type_abi_alignment(ptr noundef %2) #5
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = or i8 %14, 16
   store i8 %15, ptr %13, align 1
@@ -624,17 +624,17 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
 
 21:                                               ; preds = %18
   %22 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, -64
   %26 = or disjoint i8 %25, 7
   store i8 %26, ptr %23, align 4
   %27 = tail call i32 @type_abi_alignment(ptr noundef %2) #5
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 5
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = or i8 %31, 16
   store i8 %32, ptr %30, align 1
@@ -646,7 +646,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 8
   br label %40
@@ -658,7 +658,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %2, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 255
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -667,7 +667,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
 
 49:                                               ; preds = %43
   %50 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i8, ptr %51, align 4
   %53 = and i8 %52, -64
   %54 = or disjoint i8 %53, 1
@@ -693,7 +693,7 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr nocapture noundef
 
 abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %58, %.critedge15.i.i
   %.sink16.i.i = phi i8 [ 2, %.critedge15.i.i ], [ 4, %49 ], [ 4, %58 ]
-  %63 = getelementptr inbounds i8, ptr %50, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 5
   %64 = load i8, ptr %63, align 1
   %.masked.i.i = and i8 %64, -2
   %65 = or i8 %.masked.i.i, %.sink16.i.i
@@ -702,12 +702,12 @@ abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %58, %.critedge
 
 .critedge:                                        ; preds = %40, %43
   %66 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i8, ptr %67, align 4
   %69 = and i8 %68, -64
   %70 = or disjoint i8 %69, 1
   store i8 %70, ptr %67, align 4
-  %71 = getelementptr inbounds i8, ptr %66, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 5
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, -2
   store i8 %73, ptr %71, align 1
@@ -725,7 +725,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -755,25 +755,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -783,21 +783,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -808,7 +808,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -828,13 +828,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #5
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #5
   br label %.loopexit

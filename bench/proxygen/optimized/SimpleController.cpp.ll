@@ -66,7 +66,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen16SimpleControllerC2EPNS_19HTTPSessionAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %acceptor) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16SimpleControllerE, i64 16), ptr %this, align 8
-  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
+  %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %acceptor, ptr %acceptor_, align 8
   ret void
 }
@@ -75,7 +75,7 @@ entry:
 define noundef ptr @_ZN8proxygen16SimpleController17getRequestHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
+  %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cleanup.done
@@ -105,7 +105,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 
 cleanup.done:                                     ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %2 = load ptr, ptr %vfn, align 8
   %call12 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(1928) %0, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) #15
   ret ptr %call12
@@ -127,14 +127,14 @@ define noundef nonnull ptr @_ZN8proxygen16SimpleController20getParseErrorHandler
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator", align 1
-  %hasValue.i.i = getelementptr inbounds i8, ptr %error, i64 73
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %error, i64 73
   %1 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %invoke.cont, label %if.end
 
 invoke.cont:                                      ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
-  %codecStatusCode_.i = getelementptr inbounds i8, ptr %error, i64 72
+  %codecStatusCode_.i = getelementptr inbounds nuw i8, ptr %error, i64 72
   %2 = load i8, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen25CodecErrorResponseHandlerC1ENS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 noundef zeroext %2)
           to label %return unwind label %lpad
@@ -146,21 +146,21 @@ lpad:                                             ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
+  %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %5 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(1928) %4, ptr noundef nonnull align 8 dereferenceable(27) %localAddress)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi ptr [ %call6, %cond.true ], [ null, %if.end ]
-  %httpStatusCode_.i = getelementptr inbounds i8, ptr %error, i64 52
+  %httpStatusCode_.i = getelementptr inbounds nuw i8, ptr %error, i64 52
   %6 = load i32, ptr %httpStatusCode_.i, align 4
   %cmp.i.not = icmp eq i32 %6, 0
   %spec.select = select i1 %cmp.i.not, i32 400, i32 %6
@@ -269,14 +269,14 @@ define noundef nonnull ptr @_ZN8proxygen16SimpleController28getTransactionTimeou
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
+  %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(1928) %1, ptr noundef nonnull align 8 dereferenceable(27) %localAddress)
   br label %cond.end
@@ -358,13 +358,13 @@ declare void @_ZN8proxygen25HTTPDirectResponseHandlerC1EjRKNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @_ZNK8proxygen16SimpleController26getGracefulShutdownTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
-  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
+  %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %gracefulShutdownTimeout_.i = getelementptr inbounds i8, ptr %0, i64 1032
+  %gracefulShutdownTimeout_.i = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %retval.sroa.0.0.copyload.i = load i64, ptr %gracefulShutdownTimeout_.i, align 8
   br label %cond.end
 

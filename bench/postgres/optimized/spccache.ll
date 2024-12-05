@@ -25,13 +25,13 @@ define dso_local void @get_tablespace_page_costs(i32 noundef %0, ptr noundef wri
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not17 = icmp eq ptr %7, null
   br i1 %.not17, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fcmp olt double %10, 0.000000e+00
   br i1 %11, label %12, label %.sink.split
@@ -50,13 +50,13 @@ define dso_local void @get_tablespace_page_costs(i32 noundef %0, ptr noundef wri
   br i1 %.not18, label %24, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %22, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, 0.000000e+00
   br i1 %21, label %22, label %.sink.split20
@@ -95,9 +95,9 @@ define internal fastcc ptr @get_tablespace(i32 noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 16, ptr %12, align 8
   %13 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 16, ptr noundef nonnull %2, i32 noundef 40) #6
   store ptr %13, ptr @TableSpaceCacheHash, align 8
@@ -156,7 +156,7 @@ InitializeTableSpaceCache.exit:                   ; preds = %10, %15
   %.013 = phi ptr [ %.1, %37 ], [ null, %19 ]
   %39 = load ptr, ptr @TableSpaceCacheHash, align 8
   %40 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null) #6
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.013, ptr %41, align 8
   br label %42
 
@@ -168,13 +168,13 @@ InitializeTableSpaceCache.exit:                   ; preds = %10, %15
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_tablespace_io_concurrency(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @get_tablespace(i32 noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
@@ -191,13 +191,13 @@ define dso_local i32 @get_tablespace_io_concurrency(i32 noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_tablespace_maintenance_io_concurrency(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @get_tablespace(i32 noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
@@ -245,7 +245,7 @@ define internal void @InvalidateTableSpaceCacheCallback(i64 %0, i32 %1, i32 %2) 
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %12, label %11

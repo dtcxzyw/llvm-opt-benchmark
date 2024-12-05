@@ -191,7 +191,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #14
   br label %trace_target_mprotect.exit
@@ -653,7 +653,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #14
   br label %trace_target_mmap.exit
@@ -712,7 +712,7 @@ if.end14:                                         ; preds = %if.end9
 if.then17:                                        ; preds = %if.end14
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %9 = load ptr, ptr %8, align 8
-  %tcg_cflags = getelementptr inbounds i8, ptr %9, i64 720
+  %tcg_cflags = getelementptr inbounds nuw i8, ptr %9, i64 720
   %10 = load i32, ptr %tcg_cflags, align 16
   %and18 = and i32 %10, 32768
   %tobool19.not = icmp eq i32 %and18, 0
@@ -767,7 +767,7 @@ if.then44:                                        ; preds = %if.end39
 
 if.end48:                                         ; preds = %if.then44
   %add49 = add i64 %offset, %and
-  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %sb, i64 48
   %14 = load i64, ptr %st_size, align 8
   %cmp50 = icmp ugt i64 %add49, %14
   br i1 %cmp50, label %if.then51, label %if.end61
@@ -1297,13 +1297,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi ptr [ %call1, %for.inc ], [ %call, %entry ]
   %call1 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011, i64 noundef %start, i64 noundef %last) #14
-  %start2 = getelementptr inbounds i8, ptr %i.011, i64 24
+  %start2 = getelementptr inbounds nuw i8, ptr %i.011, i64 24
   %0 = load i64, ptr %start2, align 8
   %cmp.not = icmp ult i64 %0, %start
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %last3 = getelementptr inbounds i8, ptr %i.011, i64 32
+  %last3 = getelementptr inbounds nuw i8, ptr %i.011, i64 32
   %1 = load i64, ptr %last3, align 8
   %cmp4.not = icmp ugt i64 %1, %last
   br i1 %cmp4.not, label %for.inc, label %if.then
@@ -1348,7 +1348,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
   %call10.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %retaddr) #14
   br label %_nocheck__trace_target_mmap_complete.exit
@@ -1395,7 +1395,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len) #14
   br label %trace_target_munmap.exit
@@ -1466,13 +1466,13 @@ if.then10:                                        ; preds = %mmap_lock.exit
 for.body.i:                                       ; preds = %if.then10, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i15, %if.then10 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %start, i64 noundef %sub12) #14
-  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
+  %start2.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 24
   %10 = load i64, ptr %start2.i, align 8
   %cmp.not.i16 = icmp ult i64 %10, %start
   br i1 %cmp.not.i16, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
+  %last3.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 32
   %11 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %11, %sub12
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i17
@@ -1850,13 +1850,13 @@ if.end104:                                        ; preds = %if.else93
 for.body.i:                                       ; preds = %if.end104, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i98, %if.end104 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %old_addr, i64 noundef %sub111) #14
-  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
+  %start2.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 24
   %27 = load i64, ptr %start2.i, align 8
   %cmp.not.i99 = icmp ult i64 %27, %old_addr
   br i1 %cmp.not.i99, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
+  %last3.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 32
   %28 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %28, %sub111
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i100
@@ -1882,13 +1882,13 @@ shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end1
 for.body.i104:                                    ; preds = %shm_region_rm_complete.exit, %for.inc.i113
   %i.011.i105 = phi ptr [ %call1.i106, %for.inc.i113 ], [ %call.i102, %shm_region_rm_complete.exit ]
   %call1.i106 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i105, i64 noundef %sub94, i64 noundef %sub115) #14
-  %start2.i107 = getelementptr inbounds i8, ptr %i.011.i105, i64 24
+  %start2.i107 = getelementptr inbounds nuw i8, ptr %i.011.i105, i64 24
   %29 = load i64, ptr %start2.i107, align 8
   %cmp.not.i108 = icmp ult i64 %29, %sub94
   br i1 %cmp.not.i108, label %for.inc.i113, label %land.lhs.true.i109
 
 land.lhs.true.i109:                               ; preds = %for.body.i104
-  %last3.i110 = getelementptr inbounds i8, ptr %i.011.i105, i64 32
+  %last3.i110 = getelementptr inbounds nuw i8, ptr %i.011.i105, i64 32
   %30 = load i64, ptr %last3.i110, align 8
   %cmp4.not.i111 = icmp ugt i64 %30, %sub115
   br i1 %cmp4.not.i111, label %for.inc.i113, label %if.then.i112
@@ -2078,7 +2078,7 @@ if.then12:                                        ; preds = %if.then9
 
 if.end16:                                         ; preds = %if.then12, %if.end
   %shmaddr.addr.0 = phi i64 [ %and14, %if.then12 ], [ %shmaddr, %if.end ]
-  %shm_segsz = getelementptr inbounds i8, ptr %shm_info, i64 48
+  %shm_segsz = getelementptr inbounds nuw i8, ptr %shm_info, i64 48
   %0 = load i64, ptr %shm_segsz, align 8
   %sub.i = add i64 %0, -1
   %1 = load i64, ptr @reserved_va, align 8
@@ -2160,13 +2160,13 @@ if.end54:                                         ; preds = %if.end43
 for.body.i:                                       ; preds = %if.end54, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i31, %if.end54 ]
   %call1.i = call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %sub44, i64 noundef %sub59) #14
-  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
+  %start2.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 24
   %14 = load i64, ptr %start2.i, align 8
   %cmp.not.i32 = icmp ult i64 %14, %sub44
   br i1 %cmp.not.i32, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
+  %last3.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 32
   %15 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %15, %sub59
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i33
@@ -2182,9 +2182,9 @@ for.inc.i:                                        ; preds = %if.then.i33, %land.
 
 shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end54
   %call.i35 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
-  %start1.i = getelementptr inbounds i8, ptr %call.i35, i64 24
+  %start1.i = getelementptr inbounds nuw i8, ptr %call.i35, i64 24
   store i64 %sub44, ptr %start1.i, align 8
-  %last2.i = getelementptr inbounds i8, ptr %call.i35, i64 32
+  %last2.i = getelementptr inbounds nuw i8, ptr %call.i35, i64 32
   store i64 %sub59, ptr %last2.i, align 8
   call void @interval_tree_insert(ptr noundef %call.i35, ptr noundef nonnull @shm_regions) #14
   br label %cleanup, !llvm.loop !19
@@ -2262,7 +2262,7 @@ mmap_lock.exit:                                   ; preds = %entry, %if.then.i
 
 for.body.i:                                       ; preds = %mmap_lock.exit, %for.inc.i
   %i.010.i = phi ptr [ %call2.i, %for.inc.i ], [ %call.i10, %mmap_lock.exit ]
-  %start1.i = getelementptr inbounds i8, ptr %i.010.i, i64 24
+  %start1.i = getelementptr inbounds nuw i8, ptr %i.010.i, i64 24
   %2 = load i64, ptr %start1.i, align 8
   %cmp.i11 = icmp eq i64 %2, %shmaddr
   br i1 %cmp.i11, label %shm_region_find.exit, label %for.inc.i
@@ -2273,7 +2273,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %cleanup, label %for.body.i, !llvm.loop !20
 
 shm_region_find.exit:                             ; preds = %for.body.i
-  %last.i = getelementptr inbounds i8, ptr %i.010.i, i64 32
+  %last.i = getelementptr inbounds nuw i8, ptr %i.010.i, i64 32
   %3 = load i64, ptr %last.i, align 8
   %cmp1 = icmp eq i64 %3, 0
   br i1 %cmp1, label %cleanup, label %if.end
@@ -2299,13 +2299,13 @@ if.then7:                                         ; preds = %if.end
 for.body.i14:                                     ; preds = %if.then7, %for.inc.i16
   %i.011.i = phi ptr [ %call1.i, %for.inc.i16 ], [ %call.i13, %if.then7 ]
   %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %shmaddr, i64 noundef %3) #14
-  %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
+  %start2.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 24
   %6 = load i64, ptr %start2.i, align 8
   %cmp.not.i = icmp ult i64 %6, %shmaddr
   br i1 %cmp.not.i, label %for.inc.i16, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i14
-  %last3.i = getelementptr inbounds i8, ptr %i.011.i, i64 32
+  %last3.i = getelementptr inbounds nuw i8, ptr %i.011.i, i64 32
   %7 = load i64, ptr %last3.i, align 8
   %cmp4.not.i = icmp ugt i64 %7, %3
   br i1 %cmp4.not.i, label %for.inc.i16, label %if.then.i15

@@ -26,7 +26,7 @@ define hidden range(i32 0, 2) i32 @add_to_list(ptr nocapture noundef %0, ptr nou
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %9, align 8
   store ptr null, ptr %6, align 8
   br label %10
@@ -53,12 +53,12 @@ define hidden noalias noundef ptr @dup_list_head(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   %.not = icmp eq i32 %1, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.in = select i1 %.not, ptr %0, ptr %6
   %7 = load ptr, ptr %.in, align 8
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   br label %10
 
@@ -93,7 +93,7 @@ define hidden noundef ptr @delete_from_list(ptr nocapture noundef %0, ptr nounde
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %1
   br i1 %8, label %9, label %3, !llvm.loop !9
@@ -133,7 +133,7 @@ define hidden void @delete_list(ptr nocapture noundef %0, i32 noundef %1) local_
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %7 = phi ptr [ %11, %.lr.ph.split ], [ %3, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   store ptr %10, ptr %0, align 8
@@ -168,7 +168,7 @@ define hidden void @delete_list_destroying(ptr nocapture noundef %0, ptr noundef
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %7 = phi ptr [ %11, %.lr.ph.split ], [ %3, %.lr.ph ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   store ptr %10, ptr %0, align 8
@@ -189,13 +189,13 @@ define hidden ptr @first_in_list(ptr noundef %0) local_unnamed_addr #8 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   %.not8 = icmp eq ptr %3, null
   br i1 %.not8, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -210,7 +210,7 @@ define hidden ptr @next_in_list(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %.thread, label %5
@@ -222,7 +222,7 @@ define hidden ptr @next_in_list(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not11, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %.thread
 

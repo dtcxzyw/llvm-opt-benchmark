@@ -29,31 +29,31 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 19), (20, 29), (32, 40)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = zext i1 %9 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %2, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %4, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %5, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %6, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %7, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %8, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i64, ptr %3, align 4
   store i64 %21, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %11, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %24, align 4
   invoke void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %25 unwind label %26
@@ -80,31 +80,31 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 2, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 %2, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 %3, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %19, align 4
   store i32 0, ptr %6, align 4
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = invoke ptr @stbi_load(ptr noundef %20, ptr noundef nonnull %16, ptr noundef nonnull %21, ptr noundef nonnull %6, i32 noundef 0)
           to label %23 unwind label %30
 
@@ -183,13 +183,13 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
 
 switch.lookup:                                    ; preds = %37
   %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %switch.idx.cast, ptr %46, align 4
   invoke void @_ZN7nanogui7Texture4initEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %47 unwind label %44
 
 47:                                               ; preds = %switch.lookup
-  %48 = getelementptr inbounds i8, ptr %0, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %49 = load i8, ptr %48, align 4
   %.not = icmp eq i8 %49, %switch.idx.cast
   br i1 %.not, label %55, label %50
@@ -313,7 +313,7 @@ declare void @_ZN7nanogui7Texture6uploadEPKh(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i64 1, 17) i64 @_ZNK7nanogui7Texture15bytes_per_pixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %3 = load i8, ptr %2, align 1
   %switch.tableidx = add i8 %3, -1
   %4 = icmp ult i8 %switch.tableidx, 10
@@ -346,7 +346,7 @@ switch.hole_check:                                ; preds = %1
   br i1 %switch.lobit, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i8, ptr %10, align 4
   %12 = icmp ult i8 %11, 8
   br i1 %12, label %switch.lookup3, label %13
@@ -367,10 +367,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 switch.lookup3:                                   ; preds = %switch.lookup
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i8 %11 to i64
-  %switch.gep4 = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %19
+  %switch.gep4 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %19
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %20 = mul nuw nsw i64 %switch.load5, %switch.load
   ret i64 %20
@@ -378,7 +378,7 @@ switch.lookup3:                                   ; preds = %switch.lookup
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i64 1, 5) i64 @_ZNK7nanogui7Texture8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
   %4 = icmp ult i8 %3, 8
   br i1 %4, label %switch.lookup, label %5
@@ -400,7 +400,7 @@ define hidden noundef range(i64 1, 5) i64 @_ZNK7nanogui7Texture8channelsEv(ptr n
 
 switch.lookup:                                    ; preds = %1
   %10 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

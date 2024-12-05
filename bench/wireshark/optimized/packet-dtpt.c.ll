@@ -392,7 +392,7 @@ define internal i32 @dissect_dtpt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not61, label %13, label %74
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.180) #5
   %16 = load ptr, ptr %14, align 8
@@ -518,7 +518,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   br i1 %.not276.i, label %13, label %dissect_dtpt_data.exit
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.180) #5
   %16 = load ptr, ptr %14, align 8
@@ -532,7 +532,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
 
 .split.i:                                         ; preds = %13
   %21 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 64) #5
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %0, i32 noundef 68, i32 noundef %21, i32 noundef -2147483644) #5
   %25 = and i32 %21, 3
@@ -959,7 +959,7 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   %34 = load i32, ptr @hf_dtpt_padding, align 4
   %35 = add i32 %1, 12
   %36 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %15, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 8, i32 noundef 0) #5
-  %37 = getelementptr inbounds i8, ptr %3, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @tvb_address_to_str(ptr noundef %38, ptr noundef %0, i32 noundef 2, i32 noundef %32) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.205, ptr noundef %39, i32 noundef %29) #5
@@ -987,7 +987,7 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   %55 = load i32, ptr @hf_dtpt_padding, align 4
   %56 = add i32 %1, 14
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %15, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 16, i32 noundef 0) #5
-  %58 = getelementptr inbounds i8, ptr %3, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @tvb_address_to_str(ptr noundef %59, ptr noundef %0, i32 noundef 2, i32 noundef %53) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.205, ptr noundef %60, i32 noundef %50) #5
@@ -1023,7 +1023,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_dtpt_wstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #5
-  %7 = getelementptr inbounds i8, ptr %3, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = add i32 %1, 4
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef %6, i32 noundef -2147483644) #5
@@ -1092,7 +1092,7 @@ define internal fastcc i32 @dissect_dtpt_guid(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not45, label %.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @guids_get_guid_name(ptr noundef nonnull %6, ptr noundef %17) #5
   %.not46 = icmp eq ptr %18, null

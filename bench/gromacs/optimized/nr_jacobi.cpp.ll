@@ -14,7 +14,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   %7 = shl nuw nsw i64 %indvar, 5
   %scevgep = getelementptr nuw i8, ptr %2, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
-  %8 = getelementptr inbounds [4 x double], ptr %2, i64 %indvar, i64 %indvar
+  %8 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvar, i64 %indvar
   store double 1.000000e+00, ptr %8, align 8
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 4
@@ -26,11 +26,11 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 
 .preheader217:                                    ; preds = %.preheader217.preheader, %.preheader217
   %indvars.iv = phi i64 [ 0, %.preheader217.preheader ], [ %indvars.iv.next, %.preheader217 ]
-  %9 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv, i64 %indvars.iv
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   store double %10, ptr %11, align 8
-  %12 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv
   store double %10, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next, 4
@@ -59,7 +59,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv247 = phi i64 [ %indvars.iv245, %.lr.ph ], [ %indvars.iv.next248, %14 ]
   %.1190223 = phi double [ %.0189225, %.lr.ph ], [ %18, %14 ]
-  %15 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv251, i64 %indvars.iv247
+  %15 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv251, i64 %indvars.iv247
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
   %18 = fadd double %.1190223, %17
@@ -88,14 +88,14 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   %indvars.iv278 = phi i64 [ 0, %21 ], [ %indvars.iv.next279, %.loopexit ]
   %indvars.iv259 = phi i64 [ 1, %21 ], [ %indvars.iv.next260, %.loopexit ]
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %26 = getelementptr inbounds double, ptr %1, i64 %indvars.iv278
-  %27 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %indvars.iv278
+  %26 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv278
+  %27 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv278
   %.not.not226.not = icmp eq i64 %indvars.iv278, 0
   br label %28
 
 28:                                               ; preds = %.lr.ph237, %127
   %indvars.iv266 = phi i64 [ %indvars.iv259, %.lr.ph237 ], [ %indvars.iv.next267, %127 ]
-  %29 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv266
+  %29 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv266
   %30 = load double, ptr %29, align 8
   %31 = tail call noundef double @llvm.fabs.f64(double %30)
   %32 = fmul double %31, 1.000000e+02
@@ -109,7 +109,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds double, ptr %1, i64 %indvars.iv266
+  %39 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv266
   %40 = load double, ptr %39, align 8
   %41 = tail call noundef double @llvm.fabs.f64(double %40)
   %42 = fadd double %32, %41
@@ -125,7 +125,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %46, label %47, label %127
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds double, ptr %1, i64 %indvars.iv266
+  %48 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv266
   %49 = load double, ptr %48, align 8
   %50 = load double, ptr %26, align 8
   %51 = fsub double %49, %50
@@ -165,7 +165,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   %74 = load double, ptr %27, align 8
   %75 = fsub double %74, %73
   store double %75, ptr %27, align 8
-  %76 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %indvars.iv266
+  %76 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv266
   %77 = load double, ptr %76, align 8
   %78 = fadd double %73, %77
   store double %78, ptr %76, align 8
@@ -191,9 +191,9 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 
 84:                                               ; preds = %.lr.ph228, %84
   %indvars.iv255 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next256, %84 ]
-  %85 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv255, i64 %indvars.iv278
+  %85 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv255, i64 %indvars.iv278
   %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv255, i64 %indvars.iv266
+  %87 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv255, i64 %indvars.iv266
   %88 = load double, ptr %87, align 8
   %89 = tail call double @llvm.fmuladd.f64(double %86, double %72, double %88)
   %90 = tail call double @llvm.fmuladd.f64(double %82, double %89, double %86)
@@ -213,9 +213,9 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 
 96:                                               ; preds = %.lr.ph231, %96
   %indvars.iv261 = phi i64 [ %indvars.iv259, %.lr.ph231 ], [ %indvars.iv.next262, %96 ]
-  %97 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv261
+  %97 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv261
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv261, i64 %indvars.iv266
+  %99 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv261, i64 %indvars.iv266
   %100 = load double, ptr %99, align 8
   %101 = tail call double @llvm.fmuladd.f64(double %98, double %72, double %100)
   %102 = tail call double @llvm.fmuladd.f64(double %83, double %101, double %98)
@@ -231,9 +231,9 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 .lr.ph233:                                        ; preds = %.preheader212, %.lr.ph233
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph233 ], [ %indvars.iv266, %.preheader212 ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %106 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv.next269
+  %106 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv278, i64 %indvars.iv.next269
   %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv266, i64 %indvars.iv.next269
+  %108 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv266, i64 %indvars.iv.next269
   %109 = load double, ptr %108, align 8
   %110 = tail call double @llvm.fmuladd.f64(double %107, double %72, double %109)
   %111 = tail call double @llvm.fmuladd.f64(double %95, double %110, double %107)
@@ -250,9 +250,9 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.preheader ], [ 0, %.preheader.preheader ]
-  %115 = getelementptr inbounds [4 x double], ptr %2, i64 %indvars.iv272, i64 %indvars.iv278
+  %115 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv272, i64 %indvars.iv278
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds [4 x double], ptr %2, i64 %indvars.iv272, i64 %indvars.iv266
+  %117 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv272, i64 %indvars.iv266
   %118 = load double, ptr %117, align 8
   %119 = tail call double @llvm.fmuladd.f64(double %116, double %72, double %118)
   %120 = tail call double @llvm.fmuladd.f64(double %95, double %119, double %116)
@@ -278,13 +278,13 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 
 .preheader215:                                    ; preds = %.loopexit, %.preheader215
   %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader215 ], [ 0, %.loopexit ]
-  %128 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %indvars.iv282
+  %128 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %indvars.iv282
   %129 = load double, ptr %128, align 8
-  %130 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %indvars.iv282
+  %130 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %indvars.iv282
   %131 = load double, ptr %130, align 8
   %132 = fadd double %129, %131
   store double %132, ptr %130, align 8
-  %133 = getelementptr inbounds double, ptr %1, i64 %indvars.iv282
+  %133 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv282
   store double %132, ptr %133, align 8
   store double 0.000000e+00, ptr %128, align 8
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -314,7 +314,7 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr nocapture noundef %0, ptr n
 3:                                                ; preds = %2, %.loopexit
   %indvars.iv54 = phi i64 [ 0, %2 ], [ %indvars.iv.next55, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %.loopexit ]
-  %4 = getelementptr inbounds double, ptr %0, i64 %indvars.iv54
+  %4 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv54
   %5 = load double, ptr %4, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %6 = icmp samesign ult i64 %indvars.iv54, 3
@@ -325,7 +325,7 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr nocapture noundef %0, ptr n
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.lr.ph ], [ %indvars.iv, %3 ]
   %.043 = phi double [ %.1, %.lr.ph ], [ %5, %3 ]
   %.03841 = phi i32 [ %.139, %.lr.ph ], [ %7, %3 ]
-  %8 = getelementptr inbounds double, ptr %0, i64 %indvars.iv47
+  %8 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv47
   %9 = load double, ptr %8, align 8
   %10 = fcmp ult double %9, %.043
   %11 = trunc nuw nsw i64 %indvars.iv47 to i32
@@ -343,16 +343,16 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr nocapture noundef %0, ptr n
   br i1 %.not, label %.loopexit, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = getelementptr inbounds double, ptr %0, i64 %12
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %12
   store double %5, ptr %14, align 8
   store double %.0.lcssa, ptr %4, align 8
   br label %15
 
 15:                                               ; preds = %13, %15
   %indvars.iv50 = phi i64 [ 0, %13 ], [ %indvars.iv.next51, %15 ]
-  %16 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %indvars.iv54
+  %16 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv50, i64 %indvars.iv54
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %12
+  %18 = getelementptr inbounds nuw [4 x double], ptr %1, i64 %indvars.iv50, i64 %12
   %19 = load double, ptr %18, align 8
   store double %19, ptr %16, align 8
   store double %17, ptr %18, align 8
@@ -387,9 +387,9 @@ define noundef i32 @_ZN9NR_Jacobi9transposeEPA4_d(ptr nocapture noundef %0) loca
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %.lr.ph ], [ %indvars.iv, %2 ]
-  %4 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv23, i64 %indvars.iv20
+  %4 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv23, i64 %indvars.iv20
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv20, i64 %indvars.iv23
+  %6 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv20, i64 %indvars.iv23
   %7 = load double, ptr %6, align 8
   store double %7, ptr %4, align 8
   store double %5, ptr %6, align 8

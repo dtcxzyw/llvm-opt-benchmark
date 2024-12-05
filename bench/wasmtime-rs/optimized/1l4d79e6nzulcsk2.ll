@@ -33,15 +33,15 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
 14:                                               ; preds = %25, %23, %21, %20
   store i64 %2, ptr %4, align 8
   store ptr %7, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u32$GT$3fmt17h4357183c7370c6b7E", ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %19, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.b822fcc057aeefeb967fd40b7314b57f.5, i64 3, ptr nonnull align 8 %5, i64 3)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.b822fcc057aeefeb967fd40b7314b57f.6) #3
@@ -84,7 +84,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
   store i8 %35, ptr %1, align 1
   %36 = trunc i32 %0 to i8
   %37 = and i8 %36, 63
-  %38 = getelementptr inbounds i8, ptr %1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %39 = or disjoint i8 %37, -128
   store i8 %39, ptr %38, align 1
   br label %29
@@ -97,12 +97,12 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
   %44 = lshr i32 %0, 6
   %45 = trunc i32 %44 to i8
   %46 = and i8 %45, 63
-  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %48 = or disjoint i8 %46, -128
   store i8 %48, ptr %47, align 1
   %49 = trunc i32 %0 to i8
   %50 = and i8 %49, 63
-  %51 = getelementptr inbounds i8, ptr %1, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %52 = or disjoint i8 %50, -128
   store i8 %52, ptr %51, align 1
   br label %29
@@ -116,18 +116,18 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
   %58 = lshr i32 %0, 12
   %59 = trunc i32 %58 to i8
   %60 = and i8 %59, 63
-  %61 = getelementptr inbounds i8, ptr %1, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %62 = or disjoint i8 %60, -128
   store i8 %62, ptr %61, align 1
   %63 = lshr i32 %0, 6
   %64 = trunc i32 %63 to i8
   %65 = and i8 %64, 63
-  %66 = getelementptr inbounds i8, ptr %1, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %67 = or disjoint i8 %65, -128
   store i8 %67, ptr %66, align 1
   %68 = trunc i32 %0 to i8
   %69 = and i8 %68, 63
-  %70 = getelementptr inbounds i8, ptr %1, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %71 = or disjoint i8 %69, -128
   store i8 %71, ptr %70, align 1
   br label %29
@@ -137,19 +137,19 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
 define hidden void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nocapture writeonly sret({ { [2 x i32], i32 } }) align 4 initializes((0, 12)) %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17h3d15e8f6bc4279a0E(ptr nonnull sret([3 x i32]) align 4 %3, i32 %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 4, !range !3, !noundef !4
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !range !3
   %9 = icmp eq i32 %8, 0
   %. = select i1 %9, i32 1114113, i32 1114112
   %.sroa.6.0 = select i1 %6, i32 %., i32 %5
   %.sroa.0.0 = load i32, ptr %3, align 4, !range !3, !noundef !4
   store i32 %.sroa.0.0, ptr %0, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %8, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
   ret void
 }

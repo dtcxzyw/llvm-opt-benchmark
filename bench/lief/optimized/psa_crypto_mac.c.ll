@@ -26,7 +26,7 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_mac_abort(ptr noundef %0) loca
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_cipher_free(ptr noundef nonnull %8) #5
   br label %16
 
@@ -36,9 +36,9 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_mac_abort(ptr noundef %0) loca
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 128) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = tail call i32 @psa_hash_abort(ptr noundef nonnull %14) #5
   br label %16
 
@@ -90,7 +90,7 @@ mac_init.exit:                                    ; preds = %12
   br label %mbedtls_psa_mac_abort.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_cipher_init(ptr noundef nonnull %16) #5
   %.val.i = load i16, ptr %1, align 8
   %17 = icmp eq i16 %.val.i, 8961
@@ -127,7 +127,7 @@ mac_init.exit:                                    ; preds = %12
   br label %cmac_setup.exit
 
 30:                                               ; preds = %12
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = and i32 %4, 33554687
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
@@ -245,7 +245,7 @@ mac_init.exit:                                    ; preds = %12
   %52 = getelementptr inbounds i8, ptr %7, i64 %47
   %53 = sub i64 %41, %47
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 54, i64 %53, i1 false)
-  %54 = getelementptr inbounds i8, ptr %0, i64 248
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %55
 
 55:                                               ; preds = %55, %._crit_edge.i22
@@ -262,10 +262,10 @@ mac_init.exit:                                    ; preds = %12
 ._crit_edge89.i:                                  ; preds = %55, %._crit_edge.thread.i
   %61 = phi i64 [ %41, %._crit_edge.thread.i ], [ %53, %55 ]
   %62 = phi i64 [ 0, %._crit_edge.thread.i ], [ %47, %55 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 248
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %64, i8 92, i64 %61, i1 false)
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = call i32 @psa_hash_setup(ptr noundef nonnull %65, i32 noundef range(i32 33554432, 33554688) %32) #5
   %.not65.i = icmp eq i32 %66, 0
   br i1 %.not65.i, label %67, label %69
@@ -302,7 +302,7 @@ cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19,
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @mbedtls_cipher_free(ptr noundef nonnull %76) #5
   br label %84
 
@@ -312,9 +312,9 @@ cmac_setup.exit.thread:                           ; preds = %._crit_edge.i, %19,
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 248
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %81, i64 noundef 128) #5
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = call i32 @psa_hash_abort(ptr noundef nonnull %82) #5
   br label %84
 
@@ -349,7 +349,7 @@ define hidden i32 @mbedtls_psa_mac_update(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = tail call i32 @mbedtls_cipher_cmac_update(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #5
   %12 = tail call i32 @mbedtls_to_psa_error(i32 noundef %11) #5
   br label %19
@@ -360,7 +360,7 @@ define hidden i32 @mbedtls_psa_mac_update(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = tail call i32 @psa_hash_update(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %2) #5
   br label %19
 
@@ -404,7 +404,7 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr nocaptur
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = call i32 @mbedtls_cipher_cmac_finish(ptr noundef nonnull %11, ptr noundef nonnull %6) #5
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
@@ -424,7 +424,7 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr nocaptur
   br i1 %19, label %20, label %46
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %22 = load i32, ptr %21, align 8
@@ -448,13 +448,13 @@ switch.hole_check:                                ; preds = %20
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %29
 
 29:                                               ; preds = %switch.lookup, %24
   %30 = phi i64 [ %27, %24 ], [ %switch.load, %switch.lookup ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = call i32 @psa_hash_finish(ptr noundef nonnull %31, ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %5) #5
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %33, label %psa_hmac_finish_internal.exit
@@ -465,7 +465,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not38.i, label %35, label %44
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 248
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %37 = call i32 @psa_hash_update(ptr noundef nonnull %31, ptr noundef nonnull %36, i64 noundef %30) #5
   %.not39.i = icmp eq i32 %37, 0
   br i1 %.not39.i, label %38, label %44
@@ -525,9 +525,9 @@ define hidden i32 @mbedtls_psa_mac_verify_finish(ptr noundef %0, ptr nocapture n
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.010.i = phi i8 [ %17, %.lr.ph.i ], [ 0, %11 ]
   %.089.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %11 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.089.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.089.i
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 %.089.i
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.089.i
   %15 = load i8, ptr %14, align 1
   %16 = xor i8 %15, %13
   %.fr15 = freeze i8 %16
@@ -578,7 +578,7 @@ define hidden i32 @mbedtls_psa_mac_compute(ptr nocapture noundef readonly %0, pt
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = call i32 @mbedtls_cipher_cmac_update(ptr noundef nonnull %20, ptr noundef %4, i64 noundef %5) #5
   %22 = call i32 @mbedtls_to_psa_error(i32 noundef %21) #5
   br label %mbedtls_psa_mac_update.exit
@@ -589,7 +589,7 @@ define hidden i32 @mbedtls_psa_mac_compute(ptr nocapture noundef readonly %0, pt
   br i1 %25, label %26, label %mbedtls_psa_mac_update.exit.thread
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %10, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %28 = call i32 @psa_hash_update(ptr noundef nonnull %27, ptr noundef %4, i64 noundef %5) #5
   br label %mbedtls_psa_mac_update.exit
 
@@ -619,7 +619,7 @@ mbedtls_psa_mac_update.exit.thread:               ; preds = %23, %29, %32, %mbed
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @mbedtls_cipher_free(ptr noundef nonnull %38) #5
   br label %mbedtls_psa_mac_abort.exit
 
@@ -629,9 +629,9 @@ mbedtls_psa_mac_update.exit.thread:               ; preds = %23, %29, %32, %mbed
   br i1 %41, label %42, label %mbedtls_psa_mac_abort.exit
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %10, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 248
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %43, i64 noundef 128) #5
-  %44 = getelementptr inbounds i8, ptr %10, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %45 = call i32 @psa_hash_abort(ptr noundef nonnull %44) #5
   br label %mbedtls_psa_mac_abort.exit
 

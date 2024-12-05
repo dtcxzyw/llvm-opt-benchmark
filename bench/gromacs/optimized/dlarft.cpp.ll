@@ -61,7 +61,7 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvar232 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next233, %.loopexit207 ]
   %.0193.neg218 = phi i32 [ -1, %.lr.ph.preheader ], [ %78, %.loopexit207 ]
   %indvars238 = trunc i64 %indvars.iv to i32
-  %34 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %35 = load double, ptr %34, align 8
   %36 = call noundef double @llvm.fabs.f64(double %35)
   %37 = fcmp olt double %36, 0x10000000000000
@@ -182,7 +182,7 @@ define void @dlarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %94 = shl nsw i64 %93, 3
   %scevgep240 = getelementptr i8, ptr %scevgep239, i64 %94
   %95 = sub i32 %90, %80
-  %96 = getelementptr inbounds double, ptr %19, i64 %indvars.iv241
+  %96 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv241
   %97 = load double, ptr %96, align 8
   %98 = call noundef double @llvm.fabs.f64(double %97)
   %99 = fcmp olt double %98, 0x10000000000000

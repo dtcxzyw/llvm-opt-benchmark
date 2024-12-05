@@ -186,13 +186,13 @@ define void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr nocapture noundef %0, ptr noca
 
 3:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
   %5 = load double, ptr %4, align 8
   %6 = fcmp ogt double %5, 0.000000e+00
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %9, double noundef %5) #10
   br label %11
@@ -226,14 +226,14 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 5:                                                ; preds = %4, %34
   %6 = phi double [ 0.000000e+00, %4 ], [ %.sink, %34 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %34 ]
-  %7 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 16
   %9 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.118) #11
   %.not92 = icmp eq ptr %9, null
   br i1 %.not92, label %14, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
   %12 = load double, ptr %11, align 8
   %13 = tail call double @llvm.fmuladd.f64(double %12, double 9.000000e-06, double %6)
   br label %34
@@ -244,7 +244,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %.not93, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
   %18 = load double, ptr %17, align 8
   %19 = tail call double @llvm.fmuladd.f64(double %18, double 3.000000e-06, double %6)
   br label %34
@@ -255,7 +255,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %.not94, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
   %24 = load double, ptr %23, align 8
   %25 = tail call double @llvm.fmuladd.f64(double %24, double 1.000000e-05, double %6)
   br label %34
@@ -263,7 +263,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 26:                                               ; preds = %20
   %27 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.121) #11
   %.not95 = icmp eq ptr %27, null
-  %28 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
   %29 = load double, ptr %28, align 8
   br i1 %.not95, label %32, label %30
 
@@ -285,10 +285,10 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 .preheader97:                                     ; preds = %34, %.preheader97
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.preheader97 ], [ 0, %34 ]
   %.08799 = phi double [ %41, %.preheader97 ], [ 0.000000e+00, %34 ]
-  %35 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv108
+  %35 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv108
   %36 = load double, ptr %35, align 8
   %37 = fmul double %36, 0x3EB0C6F7A0B5ED8D
-  %38 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv108, i32 1
+  %38 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv108, i32 1
   %39 = load i32, ptr %38, align 8
   %40 = sitofp i32 %39 to double
   %41 = tail call double @llvm.fmuladd.f64(double %37, double %40, double %.08799)
@@ -327,7 +327,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   %55 = phi double [ %86, %85 ], [ 0.000000e+00, %.critedge.split.us.critedge ]
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %85 ], [ 0, %.critedge.split.us.critedge ]
   %.0105.us = phi double [ %.1.us, %85 ], [ 0.000000e+00, %.critedge.split.us.critedge ]
-  %56 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv122
+  %56 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv122
   %57 = load double, ptr %56, align 8
   %58 = fmul double %57, 0x3EB0C6F7A0B5ED8D
   %59 = fcmp ule double %58, 0.000000e+00
@@ -338,7 +338,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %or.cond.us, label %85, label %63
 
 63:                                               ; preds = %54
-  %gep = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr getelementptr inbounds (i8, ptr @_ZL6nbdata, i64 8), i64 0, i64 %indvars.iv122
+  %gep = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr getelementptr inbounds (i8, ptr @_ZL6nbdata, i64 8), i64 0, i64 %indvars.iv122
   %64 = load i32, ptr %gep, align 8
   %65 = trunc i64 %indvars.iv122 to i32
   %66 = add i32 %65, -26
@@ -360,13 +360,13 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   %indvars.iv119 = phi i64 [ 40, %.preheader.us ], [ %indvars.iv.next120, %83 ]
   %.183101.us = phi i32 [ %64, %.preheader.us ], [ %.2.us, %83 ]
   %75 = or disjoint i64 %indvars.iv119, %87
-  %76 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %75
   %77 = load double, ptr %76, align 8
   %78 = fcmp ogt double %77, 0.000000e+00
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %75, i32 1
+  %80 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %75, i32 1
   %81 = load i32, ptr %80, align 8
   %82 = add nsw i32 %81, %.183101.us
   br label %83
@@ -391,7 +391,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 .critedge.split:                                  ; preds = %.critedge, %124
   %indvars.iv115 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next116, %124 ]
   %.0105 = phi double [ 0.000000e+00, %.critedge ], [ %.1, %124 ]
-  %88 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %indvars.iv115
+  %88 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv115
   %89 = load double, ptr %88, align 8
   %90 = fmul double %89, 0x3EB0C6F7A0B5ED8D
   %91 = fcmp ule double %90, 0.000000e+00
@@ -402,8 +402,8 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   br i1 %or.cond, label %124, label %95
 
 95:                                               ; preds = %.critedge.split
-  %96 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv115
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %96 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv115
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = trunc i64 %indvars.iv115 to i32
   %100 = add i32 %99, -26
@@ -418,13 +418,13 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   %indvars.iv112 = phi i64 [ 40, %.preheader ], [ %indvars.iv.next113, %112 ]
   %.183101 = phi i32 [ %98, %.preheader ], [ %.2, %112 ]
   %104 = or disjoint i64 %indvars.iv112, %102
-  %105 = getelementptr inbounds [116 x double], ptr %1, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %104
   %106 = load double, ptr %105, align 8
   %107 = fcmp ogt double %106, 0.000000e+00
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %104, i32 1
+  %109 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %104, i32 1
   %110 = load i32, ptr %109, align 8
   %111 = add nsw i32 %110, %.183101
   br label %112
@@ -465,7 +465,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
   %127 = load double, ptr %3, align 8
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, double noundef %127, double noundef %.us-phi) #10
   %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.117) #10
-  %130 = getelementptr inbounds i8, ptr %1, i64 176
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %131 = load double, ptr %130, align 8
   %132 = fcmp ogt double %131, 0.000000e+00
   br i1 %132, label %133, label %135

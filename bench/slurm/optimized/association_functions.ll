@@ -136,7 +136,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
 
 29:                                               ; preds = %27, %23
   store i32 0, ptr %6, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not75 = icmp eq ptr %31, null
   br i1 %.not75, label %32, label %34
@@ -181,7 +181,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not78, label %48, label %56
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not79 = icmp eq ptr %50, null
   br i1 %.not79, label %51, label %53
@@ -205,7 +205,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not81, label %60, label %77
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not82 = icmp eq ptr %62, null
   br i1 %.not82, label %63, label %65
@@ -247,7 +247,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not84, label %81, label %89
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %83 = load ptr, ptr %82, align 8
   %.not85 = icmp eq ptr %83, null
   br i1 %.not85, label %84, label %86
@@ -269,7 +269,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not87, label %91, label %99
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %0, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %93 = load ptr, ptr %92, align 8
   %.not88 = icmp eq ptr %93, null
   br i1 %.not88, label %94, label %96
@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not90, label %101, label %117
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %103 = load ptr, ptr %102, align 8
   %.not91 = icmp eq ptr %103, null
   br i1 %.not91, label %104, label %106
@@ -327,7 +327,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noun
   br i1 %.not93, label %119, label %129
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %121 = load ptr, ptr %120, align 8
   %.not94 = icmp eq ptr %121, null
   br i1 %.not94, label %122, label %124
@@ -394,7 +394,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
 
 12:                                               ; preds = %8
   %13 = tail call ptr @strip_quotes(ptr noundef %2, ptr noundef null, i1 noundef zeroext true) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %13, ptr %14, align 8
   br label %309
 
@@ -423,13 +423,13 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %27, label %.thread, label %29
 
 .thread:                                          ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 -1, ptr %28, align 8
   br label %309
 
 29:                                               ; preds = %24
   %30 = tail call i32 @str_2_slurmdb_qos(ptr noundef %25, ptr noundef %2) #9
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %30, ptr %31, align 8
   %32 = icmp eq i32 %30, -2
   br i1 %32, label %33, label %309
@@ -455,7 +455,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
 42:                                               ; preds = %40, %36
   %43 = tail call i32 @xstrncasecmp(ptr noundef %2, ptr noundef nonnull @.str.15, i64 noundef 6) #9
   %.not220 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 300
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br i1 %.not220, label %45, label %46
 
 45:                                               ; preds = %42
@@ -483,7 +483,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %57 = load i64, ptr %6, align 8
   %58 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %57) #9
   store ptr %58, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %59, ptr noundef %58, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -502,7 +502,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %67 = load i64, ptr %6, align 8
   %68 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %67) #9
   store ptr %68, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %69, ptr noundef %68, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -521,7 +521,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %77 = load i64, ptr %6, align 8
   %78 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %77) #9
   store ptr %78, ptr %7, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %80 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %79, ptr noundef %78, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -534,7 +534,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not224, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %86, ptr noundef nonnull @.str.20) #9
   %88 = icmp eq i32 %87, 0
   br label %309
@@ -545,7 +545,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not225, label %91, label %95
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %0, i64 68
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %93 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %92, ptr noundef nonnull @.str.21) #9
   %94 = icmp eq i32 %93, 0
   br label %309
@@ -564,7 +564,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %101 = load i64, ptr %6, align 8
   %102 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 2, i64 noundef %101) #9
   store ptr %102, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %103, ptr noundef %102, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -583,7 +583,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %111 = load i64, ptr %6, align 8
   %112 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 4, i64 noundef %111) #9
   store ptr %112, ptr %7, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %114 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %113, ptr noundef %112, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -594,7 +594,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not228, label %117, label %121
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %119 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %118, ptr noundef nonnull @.str.24) #9
   %120 = icmp eq i32 %119, 0
   br label %309
@@ -613,7 +613,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not230, label %129, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %0, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %128 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %127, ptr noundef nonnull %125, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -636,7 +636,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not232, label %138, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %0, i64 96
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %137 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %136, ptr noundef nonnull %134, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -659,7 +659,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not234, label %147, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %0, i64 112
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %146 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %145, ptr noundef nonnull %143, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -679,7 +679,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not236, label %154, label %152
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %0, i64 128
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %151, ptr %153, align 8
   br label %309
 
@@ -703,7 +703,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %163 = load i64, ptr %6, align 8
   %164 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %163) #9
   store ptr %164, ptr %7, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 184
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %166 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %165, ptr noundef %164, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -722,7 +722,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %173 = load i64, ptr %6, align 8
   %174 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %173) #9
   store ptr %174, ptr %7, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 200
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %176 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %175, ptr noundef %174, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -741,7 +741,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %183 = load i64, ptr %6, align 8
   %184 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 1, i64 noundef %183) #9
   store ptr %184, ptr %7, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 216
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %186 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %185, ptr noundef %184, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -752,7 +752,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not240, label %189, label %193
 
 189:                                              ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %0, i64 168
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %191 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %190, ptr noundef nonnull @.str.33) #9
   %192 = icmp eq i32 %191, 0
   br label %309
@@ -763,7 +763,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not241, label %195, label %199
 
 195:                                              ; preds = %193
-  %196 = getelementptr inbounds i8, ptr %0, i64 172
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %197 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %196, ptr noundef nonnull @.str.34) #9
   %198 = icmp eq i32 %197, 0
   br label %309
@@ -782,7 +782,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   %205 = load i64, ptr %6, align 8
   %206 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, i32 noundef 4, i64 noundef %205) #9
   store ptr %206, ptr %7, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 216
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %208 = call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %207, ptr noundef %206, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -793,7 +793,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not243, label %211, label %215
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds i8, ptr %0, i64 252
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %213 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %212, ptr noundef nonnull @.str.37) #9
   %214 = icmp eq i32 %213, 0
   br label %309
@@ -804,7 +804,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not244, label %217, label %221
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds i8, ptr %0, i64 176
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %219 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %218, ptr noundef nonnull @.str.38) #9
   %220 = icmp eq i32 %219, 0
   br label %309
@@ -837,7 +837,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not248, label %237, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %0, i64 216
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %236 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %235, ptr noundef nonnull %233, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -865,7 +865,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not251, label %248, label %245
 
 245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %0, i64 232
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %247 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %246, ptr noundef nonnull %244, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -895,7 +895,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not254, label %261, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %0, i64 184
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %260 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %259, ptr noundef nonnull %257, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -918,7 +918,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not256, label %270, label %267
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %0, i64 200
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %269 = tail call ptr @slurmdb_combine_tres_strings(ptr noundef nonnull %268, ptr noundef nonnull %266, i32 noundef 10) #9
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   br label %309
@@ -938,7 +938,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not258, label %277, label %275
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 248
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %274, ptr %276, align 8
   br label %309
 
@@ -955,7 +955,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
 
 282:                                              ; preds = %280
   %283 = tail call ptr @strip_quotes(ptr noundef %2, ptr noundef null, i1 noundef zeroext true) #9
-  %284 = getelementptr inbounds i8, ptr %0, i64 256
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %283, ptr %284, align 8
   br label %309
 
@@ -965,7 +965,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not260, label %287, label %291
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds i8, ptr %0, i64 280
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %289 = tail call i32 @get_uint(ptr noundef %2, ptr noundef nonnull %288, ptr noundef nonnull @.str.50) #9
   %290 = icmp eq i32 %289, 0
   br label %309
@@ -976,7 +976,7 @@ define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr
   br i1 %.not261, label %293, label %309
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds i8, ptr %0, i64 288
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %295 = load ptr, ptr %294, align 8
   %.not262 = icmp eq ptr %295, null
   br i1 %.not262, label %296, label %298
@@ -1049,14 +1049,14 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = zext i1 %3 to i32
   tail call void %11(ptr noundef %1, ptr noundef null, i32 noundef %12) #9
   br label %291
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i16, ptr %14, align 8
   switch i16 %15, label %287 [
     i16 0, label %16
@@ -1107,10 +1107,10 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %21 = load ptr, ptr %20, align 8
   %.not185 = icmp eq ptr %21, null
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   br i1 %.not185, label %26, label %24
 
@@ -1120,7 +1120,7 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 
 26:                                               ; preds = %19
   %27 = tail call ptr @xstrdup(ptr noundef %23) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %29
 
 29:                                               ; preds = %26, %24
@@ -1133,31 +1133,31 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br label %34
 
 31:                                               ; preds = %16
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %34
 
 34:                                               ; preds = %31, %29
   %35 = phi ptr [ %33, %31 ], [ %30, %29 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext i1 %3 to i32
   call void %37(ptr noundef nonnull %1, ptr noundef %35, i32 noundef %38) #9
   br label %291
 
 39:                                               ; preds = %13
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = zext i1 %3 to i32
   tail call void %41(ptr noundef nonnull %1, ptr noundef %43, i32 noundef %44) #9
   br label %291
 
 45:                                               ; preds = %13
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = zext i1 %3 to i32
   tail call void %47(ptr noundef nonnull %1, ptr noundef %49, i32 noundef %50) #9
@@ -1176,7 +1176,7 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 
 56:                                               ; preds = %53, %51
   %57 = phi ptr [ %55, %53 ], [ %52, %51 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load i32, ptr %58, align 8
   %.not183 = icmp eq i32 %59, -2
   br i1 %.not183, label %65, label %60
@@ -1202,7 +1202,7 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 
 67:                                               ; preds = %.sink.split, %60
   %68 = phi ptr [ %61, %60 ], [ %.sink186, %.sink.split ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = zext i1 %3 to i32
   tail call void %70(ptr noundef nonnull %1, ptr noundef %68, i32 noundef %71) #9
@@ -1210,7 +1210,7 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br label %291
 
 72:                                               ; preds = %13
-  %73 = getelementptr inbounds i8, ptr %0, i64 300
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 2147483647
   br i1 %75, label %76, label %78
@@ -1221,286 +1221,286 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br label %291
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = zext i1 %3 to i32
   tail call void %80(ptr noundef nonnull %1, ptr noundef nonnull %73, i32 noundef %81) #9
   br label %291
 
 82:                                               ; preds = %13
-  %83 = getelementptr inbounds i8, ptr %0, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %84, i32 noundef 1) #9
   store i64 %85, ptr %7, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = zext i1 %3 to i32
   call void %87(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %88) #9
   br label %291
 
 89:                                               ; preds = %13
-  %90 = getelementptr inbounds i8, ptr %0, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %91, i32 noundef 1) #9
   store i64 %92, ptr %7, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = zext i1 %3 to i32
   call void %94(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %95) #9
   br label %291
 
 96:                                               ; preds = %13
-  %97 = getelementptr inbounds i8, ptr %0, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %98, i32 noundef 1) #9
   store i64 %99, ptr %7, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = zext i1 %3 to i32
   call void %101(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %102) #9
   br label %291
 
 103:                                              ; preds = %13
-  %104 = getelementptr inbounds i8, ptr %1, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %107 = zext i1 %3 to i32
   tail call void %105(ptr noundef nonnull %1, ptr noundef nonnull %106, i32 noundef %107) #9
   br label %291
 
 108:                                              ; preds = %13
-  %109 = getelementptr inbounds i8, ptr %1, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 112
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %112 = zext i1 %3 to i32
   tail call void %110(ptr noundef nonnull %1, ptr noundef nonnull %111, i32 noundef %112) #9
   br label %291
 
 113:                                              ; preds = %13
-  %114 = getelementptr inbounds i8, ptr %1, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %117 = zext i1 %3 to i32
   tail call void %115(ptr noundef nonnull %1, ptr noundef nonnull %116, i32 noundef %117) #9
   br label %291
 
 118:                                              ; preds = %13
-  %119 = getelementptr inbounds i8, ptr %1, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %122 = zext i1 %3 to i32
   tail call void %120(ptr noundef nonnull %1, ptr noundef nonnull %121, i32 noundef %122) #9
   br label %291
 
 123:                                              ; preds = %13
-  %124 = getelementptr inbounds i8, ptr %1, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 68
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %127 = zext i1 %3 to i32
   tail call void %125(ptr noundef nonnull %1, ptr noundef nonnull %126, i32 noundef %127) #9
   br label %291
 
 128:                                              ; preds = %13
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %130 = load ptr, ptr %129, align 8
   %131 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %130, i32 noundef 2) #9
   store i64 %131, ptr %7, align 8
-  %132 = getelementptr inbounds i8, ptr %1, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = zext i1 %3 to i32
   call void %133(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %134) #9
   br label %291
 
 135:                                              ; preds = %13
-  %136 = getelementptr inbounds i8, ptr %0, i64 80
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %137 = load ptr, ptr %136, align 8
   %138 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %137, i32 noundef 4) #9
   store i64 %138, ptr %7, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = zext i1 %3 to i32
   call void %140(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %141) #9
   br label %291
 
 142:                                              ; preds = %13
-  %143 = getelementptr inbounds i8, ptr %1, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %146 = zext i1 %3 to i32
   tail call void %144(ptr noundef nonnull %1, ptr noundef nonnull %145, i32 noundef %146) #9
   br label %291
 
 147:                                              ; preds = %13
-  %148 = getelementptr inbounds i8, ptr %1, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 128
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %151 = zext i1 %3 to i32
   tail call void %149(ptr noundef nonnull %1, ptr noundef nonnull %150, i32 noundef %151) #9
   br label %291
 
 152:                                              ; preds = %13
-  %153 = getelementptr inbounds i8, ptr %1, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 132
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %156 = zext i1 %3 to i32
   tail call void %154(ptr noundef nonnull %1, ptr noundef nonnull %155, i32 noundef %156) #9
   br label %291
 
 157:                                              ; preds = %13
-  %158 = getelementptr inbounds i8, ptr %1, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 160
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %161 = load ptr, ptr %160, align 8
   %162 = zext i1 %3 to i32
   tail call void %159(ptr noundef nonnull %1, ptr noundef %161, i32 noundef %162) #9
   br label %291
 
 163:                                              ; preds = %13
-  %164 = getelementptr inbounds i8, ptr %0, i64 184
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %165 = load ptr, ptr %164, align 8
   %166 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %165, i32 noundef 1) #9
   store i64 %166, ptr %7, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %168 = load ptr, ptr %167, align 8
   %169 = zext i1 %3 to i32
   call void %168(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %169) #9
   br label %291
 
 170:                                              ; preds = %13
-  %171 = getelementptr inbounds i8, ptr %0, i64 200
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %172 = load ptr, ptr %171, align 8
   %173 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %172, i32 noundef 1) #9
   store i64 %173, ptr %7, align 8
-  %174 = getelementptr inbounds i8, ptr %1, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %175 = load ptr, ptr %174, align 8
   %176 = zext i1 %3 to i32
   call void %175(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %176) #9
   br label %291
 
 177:                                              ; preds = %13
-  %178 = getelementptr inbounds i8, ptr %0, i64 216
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %179 = load ptr, ptr %178, align 8
   %180 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %179, i32 noundef 1) #9
   store i64 %180, ptr %7, align 8
-  %181 = getelementptr inbounds i8, ptr %1, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = zext i1 %3 to i32
   call void %182(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %183) #9
   br label %291
 
 184:                                              ; preds = %13
-  %185 = getelementptr inbounds i8, ptr %1, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 184
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %188 = zext i1 %3 to i32
   tail call void %186(ptr noundef nonnull %1, ptr noundef nonnull %187, i32 noundef %188) #9
   br label %291
 
 189:                                              ; preds = %13
-  %190 = getelementptr inbounds i8, ptr %1, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 200
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %193 = zext i1 %3 to i32
   tail call void %191(ptr noundef nonnull %1, ptr noundef nonnull %192, i32 noundef %193) #9
   br label %291
 
 194:                                              ; preds = %13
-  %195 = getelementptr inbounds i8, ptr %1, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 216
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %198 = zext i1 %3 to i32
   tail call void %196(ptr noundef nonnull %1, ptr noundef nonnull %197, i32 noundef %198) #9
   br label %291
 
 199:                                              ; preds = %13
-  %200 = getelementptr inbounds i8, ptr %1, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 232
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %203 = zext i1 %3 to i32
   tail call void %201(ptr noundef nonnull %1, ptr noundef nonnull %202, i32 noundef %203) #9
   br label %291
 
 204:                                              ; preds = %13
-  %205 = getelementptr inbounds i8, ptr %1, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 168
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %208 = zext i1 %3 to i32
   tail call void %206(ptr noundef nonnull %1, ptr noundef nonnull %207, i32 noundef %208) #9
   br label %291
 
 209:                                              ; preds = %13
-  %210 = getelementptr inbounds i8, ptr %1, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 172
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %213 = zext i1 %3 to i32
   tail call void %211(ptr noundef nonnull %1, ptr noundef nonnull %212, i32 noundef %213) #9
   br label %291
 
 214:                                              ; preds = %13
-  %215 = getelementptr inbounds i8, ptr %1, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 252
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %218 = zext i1 %3 to i32
   tail call void %216(ptr noundef nonnull %1, ptr noundef nonnull %217, i32 noundef %218) #9
   br label %291
 
 219:                                              ; preds = %13
-  %220 = getelementptr inbounds i8, ptr %0, i64 216
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %221 = load ptr, ptr %220, align 8
   %222 = tail call i64 @slurmdb_find_tres_count_in_string(ptr noundef %221, i32 noundef 4) #9
   store i64 %222, ptr %7, align 8
-  %223 = getelementptr inbounds i8, ptr %1, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %224 = load ptr, ptr %223, align 8
   %225 = zext i1 %3 to i32
   call void %224(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef %225) #9
   br label %291
 
 226:                                              ; preds = %13
-  %227 = getelementptr inbounds i8, ptr %1, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 176
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %230 = zext i1 %3 to i32
   tail call void %228(ptr noundef nonnull %1, ptr noundef nonnull %229, i32 noundef %230) #9
   br label %291
 
 231:                                              ; preds = %13
-  %232 = getelementptr inbounds i8, ptr %1, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %0, i64 248
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %235 = zext i1 %3 to i32
   tail call void %233(ptr noundef nonnull %1, ptr noundef nonnull %234, i32 noundef %235) #9
   br label %291
 
 236:                                              ; preds = %13
-  %237 = getelementptr inbounds i8, ptr %1, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %0, i64 264
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %240 = zext i1 %3 to i32
   tail call void %238(ptr noundef nonnull %1, ptr noundef nonnull %239, i32 noundef %240) #9
   br label %291
 
 241:                                              ; preds = %13
-  %242 = getelementptr inbounds i8, ptr %1, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 256
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %245 = load ptr, ptr %244, align 8
   %246 = zext i1 %3 to i32
   tail call void %243(ptr noundef nonnull %1, ptr noundef %245, i32 noundef %246) #9
   br label %291
 
 247:                                              ; preds = %13
-  %248 = getelementptr inbounds i8, ptr %1, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 272
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %251 = load ptr, ptr %250, align 8
   %252 = zext i1 %3 to i32
   tail call void %249(ptr noundef nonnull %1, ptr noundef %251, i32 noundef %252) #9
   br label %291
 
 253:                                              ; preds = %13
-  %254 = getelementptr inbounds i8, ptr %1, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 280
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %257 = zext i1 %3 to i32
   tail call void %255(ptr noundef nonnull %1, ptr noundef nonnull %256, i32 noundef %257) #9
   br label %291
@@ -1518,11 +1518,11 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 
 263:                                              ; preds = %260, %258
   %264 = phi ptr [ %262, %260 ], [ %259, %258 ]
-  %265 = getelementptr inbounds i8, ptr %0, i64 288
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %266 = load ptr, ptr %265, align 8
   %267 = tail call ptr @get_qos_complete_str(ptr noundef %264, ptr noundef %266) #9
   store ptr %267, ptr %6, align 8
-  %268 = getelementptr inbounds i8, ptr %1, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %269 = load ptr, ptr %268, align 8
   %270 = zext i1 %3 to i32
   tail call void %269(ptr noundef nonnull %1, ptr noundef %267, i32 noundef %270) #9
@@ -1530,32 +1530,32 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
   br label %291
 
 271:                                              ; preds = %13
-  %272 = getelementptr inbounds i8, ptr %1, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 288
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %275 = zext i1 %3 to i32
   tail call void %273(ptr noundef nonnull %1, ptr noundef nonnull %274, i32 noundef %275) #9
   br label %291
 
 276:                                              ; preds = %13
-  %277 = getelementptr inbounds i8, ptr %1, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %0, i64 296
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %280 = zext i1 %3 to i32
   tail call void %278(ptr noundef nonnull %1, ptr noundef nonnull %279, i32 noundef %280) #9
   br label %291
 
 281:                                              ; preds = %13
-  %282 = getelementptr inbounds i8, ptr %1, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %0, i64 320
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %285 = load ptr, ptr %284, align 8
   %286 = zext i1 %3 to i32
   tail call void %283(ptr noundef nonnull %1, ptr noundef %285, i32 noundef %286) #9
   br label %291
 
 287:                                              ; preds = %13
-  %288 = getelementptr inbounds i8, ptr %1, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %289 = load ptr, ptr %288, align 8
   %290 = zext i1 %3 to i32
   tail call void %289(ptr noundef nonnull %1, ptr noundef null, i32 noundef %290) #9
@@ -1589,13 +1589,13 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
 
 .lr.ph:                                           ; preds = %2
   %.not137.i = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = getelementptr inbounds i8, ptr %6, i64 106
-  %11 = getelementptr inbounds i8, ptr %6, i64 104
-  %12 = getelementptr inbounds i8, ptr %6, i64 102
-  %13 = getelementptr inbounds i8, ptr %6, i64 100
-  %14 = getelementptr inbounds i8, ptr %6, i64 98
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 106
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 102
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 98
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_set_cond.exit
@@ -1893,7 +1893,7 @@ _set_cond.exit:                                   ; preds = %138, %32
 
 146:                                              ; preds = %144
   %147 = call i32 @slurm_addto_char_list(ptr noundef %7, ptr noundef nonnull @.str.57) #9
-  %148 = getelementptr inbounds i8, ptr %6, i64 106
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 106
   %149 = load i16, ptr %148, align 2
   %.not98 = icmp eq i16 %149, 0
   br i1 %.not98, label %150, label %152
@@ -1934,23 +1934,23 @@ _set_cond.exit:                                   ; preds = %138, %32
   br i1 %.not101, label %189, label %163
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %4, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %161, ptr %164, align 8
   store i32 463606195, ptr %5, align 8
-  %165 = getelementptr inbounds i8, ptr %5, i64 4
-  %166 = getelementptr inbounds i8, ptr %5, i64 8
-  %167 = getelementptr inbounds i8, ptr %5, i64 16
-  %168 = getelementptr inbounds i8, ptr %5, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %165, align 4
   %169 = load ptr, ptr @data_parser, align 8
   store ptr %169, ptr %168, align 8
   %170 = call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %162, ptr noundef %169) #9
   store ptr %170, ptr %4, align 8
-  %171 = getelementptr inbounds i8, ptr %4, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %172 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #9
   store ptr %172, ptr %171, align 8
   store ptr %172, ptr %166, align 8
-  %173 = getelementptr inbounds i8, ptr %4, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %174 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #9
   store ptr %174, ptr %173, align 8
   store ptr %174, ptr %167, align 8
@@ -2032,7 +2032,7 @@ _set_cond.exit:                                   ; preds = %138, %32
   br i1 %.not107, label %207, label %203
 
 203:                                              ; preds = %.lr.ph136
-  %204 = getelementptr inbounds i8, ptr %202, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %205 = load ptr, ptr %204, align 8
   %206 = call i32 @xstrcmp(ptr noundef nonnull %.079133, ptr noundef %205) #9
   %.not108 = icmp eq i32 %206, 0
@@ -2052,7 +2052,7 @@ _set_cond.exit:                                   ; preds = %138, %32
 
 212:                                              ; preds = %210, %208
   %.2 = phi ptr [ %.078134, %208 ], [ %211, %210 ]
-  %213 = getelementptr inbounds i8, ptr %202, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %214 = load ptr, ptr %213, align 8
   br label %215
 

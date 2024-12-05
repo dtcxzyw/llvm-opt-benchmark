@@ -127,8 +127,8 @@ define dso_local void @rb_node_init(ptr nocapture noundef writeonly initializes(
   %5 = and i64 %4, 32512
   %6 = or disjoint i64 %5, 27
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i32 -1, ptr %8, align 8
   ret void
@@ -141,7 +141,7 @@ define hidden noundef ptr @rb_node_name(i32 noundef %0) local_unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [113 x ptr], ptr @switch.table.rb_node_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [113 x ptr], ptr @switch.table.rb_node_name, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -169,14 +169,14 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %cond.i = icmp eq i32 %1, 59
   %.idx = select i1 %cond.i, i64 16, i64 0
-  %7 = getelementptr inbounds i8, ptr %6, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr i8, ptr %9, i64 %11
   %13 = ptrtoint ptr %12 to i64
@@ -186,7 +186,7 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
   %17 = select i1 %16, i64 0, i64 %15
   %18 = add i64 %11, %2
   %19 = add i64 %18, %17
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %19, %21
   br i1 %22, label %23, label %ast_newnode_in_bucket.exit
@@ -194,16 +194,16 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
 23:                                               ; preds = %4
   %24 = shl i64 %21, 1
   %25 = tail call noalias ptr @rb_xmalloc_mul_add(i64 noundef %24, i64 noundef 8, i64 noundef 40) #12
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %28, align 8
   %29 = lshr i64 %24, 2
   %30 = and i64 %29, 4611686018427387896
   %31 = tail call ptr @ruby_xmalloc(i64 noundef %30) #12
-  %32 = getelementptr inbounds i8, ptr %25, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %7, align 8
   store ptr %33, ptr %25, align 8
@@ -217,16 +217,16 @@ ast_newnode_in_bucket.exit:                       ; preds = %4, %23
   %34 = phi i64 [ %11, %4 ], [ %.pre.i, %23 ]
   %35 = phi ptr [ %8, %4 ], [ %25, %23 ]
   %.0.i = phi i64 [ %17, %4 ], [ 0, %23 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %38 = getelementptr i8, ptr %36, i64 %34
   %39 = getelementptr i8, ptr %38, i64 %.0.i
   %40 = add i64 %.pre-phi, %.0.i
   store i64 %40, ptr %37, align 8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 1
   store i64 %46, ptr %44, align 8
@@ -241,13 +241,13 @@ define dso_local noundef nonnull ptr @rb_ast_new_local_table(ptr nocapture nound
   %4 = shl nsw i64 %3, 3
   %5 = add nsw i64 %4, 16
   %6 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %5) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
   store ptr %6, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %11, align 8
   ret ptr %11
 }
@@ -257,18 +257,18 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef nonnull ptr @rb_ast_resize_latest_local_table(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = shl nsw i64 %7, 3
   %9 = add nsw i64 %8, 16
   %10 = tail call nonnull ptr @ruby_xrealloc(ptr noundef %6, i64 noundef %9) #14
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %1, ptr %13, align 8
   ret ptr %13
 }
@@ -284,40 +284,40 @@ define dso_local void @rb_ast_delete_node(ptr nocapture noundef readnone %0, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_ast_new() local_unnamed_addr #2 {
   %1 = tail call noalias nonnull dereferenceable(1152) ptr @ruby_xmalloc(i64 noundef 1152) #13
-  %2 = getelementptr inbounds i8, ptr %1, i64 48
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 512, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %5, align 8
   %6 = tail call dereferenceable(128) ptr @ruby_xmalloc(i64 noundef 128) #12
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %8, align 8
   store ptr %2, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = ptrtoint ptr %2 to i64
   %11 = add i64 %10, 552
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 512, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8
   %16 = tail call dereferenceable(128) ptr @ruby_xmalloc(i64 noundef 128) #12
-  %17 = getelementptr inbounds i8, ptr %12, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %12, ptr %18, align 8
   store ptr %12, ptr %9, align 8
   store ptr null, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 4, ptr %20, align 8
   %21 = ptrtoint ptr %1 to i64
   %22 = tail call i64 @rb_imemo_new(i32 noundef 9, i64 noundef %21) #12
@@ -329,29 +329,29 @@ declare i64 @rb_imemo_new(i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_ast_mark_and_move(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %28, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @rb_gc_mark_and_move(ptr noundef nonnull %6) #12
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.01.i = load ptr, ptr %8, align 8
   %.not2.i = icmp eq ptr %.01.i, null
   br i1 %.not2.i, label %iterate_node_values.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %iterate_buffer_elements.exit.i
   %.03.i = phi ptr [ %.0.i, %iterate_buffer_elements.exit.i ], [ %.01.i, %5 ]
-  %9 = getelementptr inbounds i8, ptr %.03.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %.lr.ph.i.i, label %iterate_buffer_elements.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %.03.i, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.03.i, i64 32
   br label %13
 
 13:                                               ; preds = %mark_and_move_ast_value.exit, %.lr.ph.i.i
@@ -372,7 +372,7 @@ define dso_local void @rb_ast_mark_and_move(ptr noundef %0, i1 noundef zeroext %
   unreachable
 
 mark_and_move_ast_value.exit:                     ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %16, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
   tail call void @rb_gc_mark_and_move(ptr noundef nonnull %23) #12
   %24 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %24, %10
@@ -384,7 +384,7 @@ iterate_buffer_elements.exit.i:                   ; preds = %mark_and_move_ast_v
   br i1 %.not.i, label %iterate_node_values.exit, label %.lr.ph.i, !llvm.loop !9
 
 iterate_node_values.exit:                         ; preds = %iterate_buffer_elements.exit.i, %5
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %.not7 = icmp eq i64 %26, 0
   br i1 %.not7, label %28, label %27
@@ -401,7 +401,7 @@ declare void @rb_gc_mark_and_move(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %106, label %4
@@ -413,13 +413,13 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
 
 .lr.ph.i.i:                                       ; preds = %4, %iterate_buffer_elements.exit.i.i
   %.03.i.i = phi ptr [ %.0.i.i, %iterate_buffer_elements.exit.i.i ], [ %.01.i.i, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.03.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
   br i1 %7, label %.lr.ph.i.i.i, label %iterate_buffer_elements.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %.03.i.i, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 32
   br label %9
 
 9:                                                ; preds = %free_ast_value.exit.i, %.lr.ph.i.i.i
@@ -449,130 +449,130 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   ]
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %free_ast_value.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @ruby_xfree(ptr noundef %22) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %12, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i23.i.i = icmp eq ptr %25, null
   br i1 %.not.i23.i.i, label %free_ast_value.exit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void @ruby_xfree(ptr noundef %28) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 29:                                               ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %12, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i25.i.i = icmp eq ptr %31, null
   br i1 %.not.i25.i.i, label %free_ast_value.exit.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @ruby_xfree(ptr noundef %34) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 35:                                               ; preds = %9
-  %36 = getelementptr inbounds i8, ptr %12, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not.i27.i.i = icmp eq ptr %37, null
   br i1 %.not.i27.i.i, label %free_ast_value.exit.i, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void @ruby_xfree(ptr noundef %40) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 41:                                               ; preds = %9
-  %42 = getelementptr inbounds i8, ptr %12, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not.i29.i.i = icmp eq ptr %43, null
   br i1 %.not.i29.i.i, label %free_ast_value.exit.i, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void @ruby_xfree(ptr noundef %46) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 47:                                               ; preds = %9, %9
-  %48 = getelementptr inbounds i8, ptr %12, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not.i31.i.i = icmp eq ptr %49, null
   br i1 %.not.i31.i.i, label %free_ast_value.exit.i, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void @ruby_xfree(ptr noundef %52) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 53:                                               ; preds = %9
-  %54 = getelementptr inbounds i8, ptr %12, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not.i33.i.i = icmp eq ptr %55, null
   br i1 %.not.i33.i.i, label %free_ast_value.exit.i, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void @ruby_xfree(ptr noundef %58) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 59:                                               ; preds = %9
-  %60 = getelementptr inbounds i8, ptr %12, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not.i35.i.i = icmp eq ptr %61, null
   br i1 %.not.i35.i.i, label %free_ast_value.exit.i, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %64 = load ptr, ptr %63, align 8
   tail call void @ruby_xfree(ptr noundef %64) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 65:                                               ; preds = %9
-  %66 = getelementptr inbounds i8, ptr %12, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %67 = load ptr, ptr %66, align 8
   %.not.i37.i.i = icmp eq ptr %67, null
   br i1 %.not.i37.i.i, label %free_ast_value.exit.i, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %70 = load ptr, ptr %69, align 8
   tail call void @ruby_xfree(ptr noundef %70) #12
   br label %parser_string_free.exit.sink.split.i.i
 
 71:                                               ; preds = %9
-  %72 = getelementptr inbounds i8, ptr %12, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %73 = load ptr, ptr %72, align 8
   br label %parser_string_free.exit.sink.split.i.i
 
 74:                                               ; preds = %9
-  %75 = getelementptr inbounds i8, ptr %12, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %76 = load ptr, ptr %75, align 8
   br label %parser_string_free.exit.sink.split.i.i
 
 77:                                               ; preds = %9
-  %78 = getelementptr inbounds i8, ptr %12, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %79 = load ptr, ptr %78, align 8
   br label %parser_string_free.exit.sink.split.i.i
 
 80:                                               ; preds = %9
-  %81 = getelementptr inbounds i8, ptr %12, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %82 = load ptr, ptr %81, align 8
   br label %parser_string_free.exit.sink.split.i.i
 
@@ -597,14 +597,14 @@ iterate_node_values.exit.loopexit.i:              ; preds = %iterate_buffer_elem
 
 iterate_node_values.exit.i:                       ; preds = %iterate_node_values.exit.loopexit.i, %4
   %84 = phi ptr [ %.pre.i, %iterate_node_values.exit.loopexit.i ], [ null, %4 ]
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not1.i.i = icmp eq ptr %84, %86
   br i1 %.not1.i.i, label %node_buffer_list_free.exit.i, label %.lr.ph.i12.i
 
 .lr.ph.i12.i:                                     ; preds = %iterate_node_values.exit.i, %.lr.ph.i12.i
   %.02.i.i = phi ptr [ %89, %.lr.ph.i12.i ], [ %84, %iterate_node_values.exit.i ]
-  %87 = getelementptr inbounds i8, ptr %.02.i.i, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 32
   %88 = load ptr, ptr %87, align 8
   tail call void @ruby_xfree(ptr noundef %88) #12
   %89 = load ptr, ptr %.02.i.i, align 8
@@ -615,19 +615,19 @@ iterate_node_values.exit.i:                       ; preds = %iterate_node_values
 
 node_buffer_list_free.exit.i:                     ; preds = %.lr.ph.i12.i, %iterate_node_values.exit.i
   %.0.lcssa.i.i = phi ptr [ %84, %iterate_node_values.exit.i ], [ %89, %.lr.ph.i12.i ]
-  %91 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 32
   %92 = load ptr, ptr %91, align 8
   tail call void @ruby_xfree(ptr noundef %92) #12
-  %93 = getelementptr inbounds i8, ptr %3, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %96 = load ptr, ptr %95, align 8
   %.not1.i14.i = icmp eq ptr %94, %96
   br i1 %.not1.i14.i, label %node_buffer_list_free.exit19.i, label %.lr.ph.i15.i
 
 .lr.ph.i15.i:                                     ; preds = %node_buffer_list_free.exit.i, %.lr.ph.i15.i
   %.02.i16.i = phi ptr [ %99, %.lr.ph.i15.i ], [ %94, %node_buffer_list_free.exit.i ]
-  %97 = getelementptr inbounds i8, ptr %.02.i16.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.02.i16.i, i64 32
   %98 = load ptr, ptr %97, align 8
   tail call void @ruby_xfree(ptr noundef %98) #12
   %99 = load ptr, ptr %.02.i16.i, align 8
@@ -638,10 +638,10 @@ node_buffer_list_free.exit.i:                     ; preds = %.lr.ph.i12.i, %iter
 
 node_buffer_list_free.exit19.i:                   ; preds = %.lr.ph.i15.i, %node_buffer_list_free.exit.i
   %.0.lcssa.i18.i = phi ptr [ %94, %node_buffer_list_free.exit.i ], [ %99, %.lr.ph.i15.i ]
-  %101 = getelementptr inbounds i8, ptr %.0.lcssa.i18.i, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i18.i, i64 32
   %102 = load ptr, ptr %101, align 8
   tail call void @ruby_xfree(ptr noundef %102) #12
-  %103 = getelementptr inbounds i8, ptr %3, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %104 = load ptr, ptr %103, align 8
   %.not2.i = icmp eq ptr %104, null
   br i1 %.not2.i, label %rb_node_buffer_free.exit, label %.lr.ph.i
@@ -664,13 +664,13 @@ rb_node_buffer_free.exit:                         ; preds = %.lr.ph.i, %node_buf
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @rb_ast_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.07.i = load ptr, ptr %3, align 8
   %.not8.i = icmp eq ptr %.07.i, %6
@@ -679,7 +679,7 @@ define dso_local i64 @rb_ast_memsize(ptr nocapture noundef readonly %0) local_un
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.010.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.07.i, %4 ]
   %.069.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %4 ]
-  %7 = getelementptr inbounds i8, ptr %.010.i, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %.069.i, 40
   %10 = add i64 %9, %8
@@ -693,8 +693,8 @@ buffer_list_size.exit.loopexit:                   ; preds = %.lr.ph.i
 
 buffer_list_size.exit:                            ; preds = %buffer_list_size.exit.loopexit, %4
   %.06.lcssa.i = phi i64 [ 48, %4 ], [ %11, %buffer_list_size.exit.loopexit ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %.07.i8 = load ptr, ptr %12, align 8
   %.not8.i9 = icmp eq ptr %.07.i8, %14
@@ -703,7 +703,7 @@ buffer_list_size.exit:                            ; preds = %buffer_list_size.ex
 .lr.ph.i10:                                       ; preds = %buffer_list_size.exit, %.lr.ph.i10
   %.010.i11 = phi ptr [ %.0.i13, %.lr.ph.i10 ], [ %.07.i8, %buffer_list_size.exit ]
   %.069.i12 = phi i64 [ %18, %.lr.ph.i10 ], [ 0, %buffer_list_size.exit ]
-  %15 = getelementptr inbounds i8, ptr %.010.i11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.010.i11, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %.069.i12, 40
   %18 = add i64 %17, %16
@@ -729,18 +729,18 @@ define dso_local void @rb_ast_dispose(ptr nocapture noundef %0) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @rb_ast_tokens(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8
   ret i64 %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_ast_set_tokens(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %1, ptr %5, align 8
   %6 = and i64 %1, 7
   %7 = icmp ne i64 %6, 0

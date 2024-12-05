@@ -21,7 +21,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: uwtable
 define noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr %f.coerce0, ptr nocapture readonly %f.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %period_start_ = getelementptr inbounds i8, ptr %this, i64 16
+  %period_start_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %period_start_, align 8
   %cmp.i = icmp eq i64 %0, 0
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -88,13 +88,13 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit16, %if.then.i.i.i
-  %period_30 = getelementptr inbounds i8, ptr %this, i64 8
+  %period_30 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp16.sroa.0.0.copyload31 = load i64, ptr %period_30, align 8
   br label %if.end37
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %if.end.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
-  %period_ = getelementptr inbounds i8, ptr %this, i64 8
+  %period_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp16.sroa.0.0.copyload = load i64, ptr %period_, align 8
   %cmp.i17 = icmp slt i64 %retval.0.i.i, %agg.tmp16.sroa.0.0.copyload
   br i1 %cmp.i17, label %if.then19, label %if.end37
@@ -104,7 +104,7 @@ if.then19:                                        ; preds = %_ZN9grpc_coremiENS_
   br i1 %cmp, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then19
-  %expected_updates_per_period_ = getelementptr inbounds i8, ptr %this, i64 24
+  %expected_updates_per_period_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load i64, ptr %expected_updates_per_period_, align 8
   %mul = shl nsw i64 %9, 1
   br label %if.end34
@@ -119,7 +119,7 @@ if.else:                                          ; preds = %if.then19
   %cmp1.i = fcmp ogt double %div, 2.000000e+00
   %max.val.i = select i1 %cmp1.i, double 2.000000e+00, double %div
   %retval.0.i = select i1 %cmp.i20, double 1.010000e+00, double %max.val.i
-  %expected_updates_per_period_26 = getelementptr inbounds i8, ptr %this, i64 24
+  %expected_updates_per_period_26 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i64, ptr %expected_updates_per_period_26, align 8
   %conv = sitofp i64 %10 to double
   %mul27 = fmul double %retval.0.i, %conv
@@ -140,7 +140,7 @@ if.end37:                                         ; preds = %_ZN9grpc_coremiENS_
   %retval.0.i.i33 = phi i64 [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %retval.0.i.i, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
   %conv.i21 = sitofp i64 %agg.tmp16.sroa.0.0.copyload34 to double
   %div.i22 = fdiv double %conv.i21, 1.000000e+03
-  %expected_updates_per_period_40 = getelementptr inbounds i8, ptr %this, i64 24
+  %expected_updates_per_period_40 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load i64, ptr %expected_updates_per_period_40, align 8
   %conv41 = sitofp i64 %12 to double
   %mul42 = fmul double %div.i22, %conv41

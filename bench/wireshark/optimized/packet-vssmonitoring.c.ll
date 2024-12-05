@@ -112,7 +112,7 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   %18 = zext i32 %17 to i64
   store i64 %18, ptr %5, align 8
   %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = lshr i32 %19, 30
   %22 = and i32 %19, 1073741823
   store i32 %22, ptr %20, align 8
@@ -124,7 +124,7 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = icmp slt i64 %28, %18
   %30 = icmp samesign ugt i32 %22, 999999999
@@ -175,12 +175,12 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   br i1 %.not63, label %62, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %52, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.26, i32 noundef %55, i32 noundef %57, i32 noundef %58, i64 noundef %61) #3

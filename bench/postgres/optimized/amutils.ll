@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_indexam_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -65,7 +65,7 @@ define internal fastcc range(i64 0, 2) i64 @indexam_property(ptr nocapture nound
   br i1 %13, label %14, label %8
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i32, ptr %15, align 8
   br label %lookup_prop_name.exit
 
@@ -81,18 +81,18 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %.not93, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %21, align 4
   br label %238
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 22
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i64
   %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 115
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 115
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %31 [
     i8 105, label %33
@@ -101,14 +101,14 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 
 31:                                               ; preds = %22
   tail call void @ReleaseSysCache(ptr noundef nonnull %19) #2
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %32, align 4
   br label %238
 
 33:                                               ; preds = %22, %22
-  %34 = getelementptr inbounds i8, ptr %28, i64 84
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 84
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %28, i64 116
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 116
   %37 = load i16, ptr %36, align 4
   %38 = sext i16 %37 to i32
   tail call void @ReleaseSysCache(ptr noundef nonnull %19) #2
@@ -121,7 +121,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %42, align 4
   br label %238
 
@@ -131,12 +131,12 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %47, align 4
   br label %238
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %44, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %50 = load ptr, ptr %49, align 8
   %.not96 = icmp eq ptr %50, null
   br i1 %.not96, label %62, label %51
@@ -151,7 +151,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %57, align 4
   br label %238
 
@@ -172,17 +172,17 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %.not98, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %67, align 4
   br label %238
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 22
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 22
   %72 = load i8, ptr %71, align 2
   store i8 1, ptr %7, align 1
-  %73 = getelementptr inbounds i8, ptr %44, i64 23
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 23
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %83
@@ -190,7 +190,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 76:                                               ; preds = %68
   %77 = zext i8 %72 to i64
   %78 = getelementptr i8, ptr %70, i64 %77
-  %79 = getelementptr inbounds i8, ptr %78, i64 10
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 10
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i32
   %82 = icmp sle i32 %4, %81
@@ -214,7 +214,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br i1 %.083, label %85, label %177
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %44, i64 10
+  %86 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %87 = load i8, ptr %86, align 2
   %88 = trunc i8 %87 to i1
   br i1 %88, label %89, label %test_indoption.exit
@@ -222,7 +222,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
 89:                                               ; preds = %85
   %90 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %65, i16 noundef signext 19) #2
   %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = add nsw i32 %4, -1
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr [0 x i16], ptr %92, i64 0, i64 %94
@@ -242,7 +242,7 @@ test_indoption.exit:                              ; preds = %85, %89
   br i1 %.083, label %101, label %177
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %44, i64 10
+  %102 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %103 = load i8, ptr %102, align 2
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %test_indoption.exit101
@@ -250,7 +250,7 @@ test_indoption.exit:                              ; preds = %85, %89
 105:                                              ; preds = %101
   %106 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %65, i16 noundef signext 19) #2
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = add nsw i32 %4, -1
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr [0 x i16], ptr %108, i64 0, i64 %110
@@ -269,7 +269,7 @@ test_indoption.exit101:                           ; preds = %101, %105
   br i1 %.083, label %116, label %177
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %44, i64 10
+  %117 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %118 = load i8, ptr %117, align 2
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %test_indoption.exit103
@@ -277,7 +277,7 @@ test_indoption.exit101:                           ; preds = %101, %105
 120:                                              ; preds = %116
   %121 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %65, i16 noundef signext 19) #2
   %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = add nsw i32 %4, -1
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr [0 x i16], ptr %123, i64 0, i64 %125
@@ -297,7 +297,7 @@ test_indoption.exit103:                           ; preds = %116, %120
   br i1 %.083, label %132, label %177
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds i8, ptr %44, i64 10
+  %133 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %134 = load i8, ptr %133, align 2
   %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %test_indoption.exit105
@@ -305,7 +305,7 @@ test_indoption.exit103:                           ; preds = %116, %120
 136:                                              ; preds = %132
   %137 = call i64 @SysCacheGetAttrNotNull(i32 noundef 32, ptr noundef nonnull %65, i16 noundef signext 19) #2
   %138 = inttoptr i64 %137 to ptr
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = add nsw i32 %4, -1
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr [0 x i16], ptr %139, i64 0, i64 %141
@@ -325,7 +325,7 @@ test_indoption.exit105:                           ; preds = %132, %136
   br i1 %.083, label %148, label %152
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %44, i64 10
+  %149 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %150 = load i8, ptr %149, align 2
   %151 = and i8 %150, 1
   br label %152
@@ -340,7 +340,7 @@ test_indoption.exit105:                           ; preds = %132, %136
   br i1 %.083, label %155, label %159
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %44, i64 11
+  %156 = getelementptr inbounds nuw i8, ptr %44, i64 11
   %157 = load i8, ptr %156, align 1
   %158 = trunc i8 %157 to i1
   br i1 %158, label %177, label %159
@@ -353,7 +353,7 @@ test_indoption.exit105:                           ; preds = %132, %136
 160:                                              ; preds = %83
   store i8 0, ptr %7, align 1
   store i8 0, ptr %6, align 1
-  %161 = getelementptr inbounds i8, ptr %44, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %162 = load ptr, ptr %161, align 8
   %.not99 = icmp eq ptr %162, null
   br i1 %.not99, label %177, label %163
@@ -370,7 +370,7 @@ test_indoption.exit105:                           ; preds = %132, %136
   br i1 %.083, label %168, label %177
 
 168:                                              ; preds = %167
-  %169 = getelementptr inbounds i8, ptr %44, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %170 = load i8, ptr %169, align 8
   %171 = and i8 %170, 1
   store i8 %171, ptr %6, align 1
@@ -381,7 +381,7 @@ test_indoption.exit105:                           ; preds = %132, %136
   br i1 %.083, label %173, label %177
 
 173:                                              ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %44, i64 17
+  %174 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %175 = load i8, ptr %174, align 1
   %176 = and i8 %175, 1
   store i8 %176, ptr %6, align 1
@@ -401,7 +401,7 @@ test_indoption.exit105:                           ; preds = %132, %136
   br label %238
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %0, i64 28
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %185, align 4
   br label %238
 
@@ -417,35 +417,35 @@ test_indoption.exit105:                           ; preds = %132, %136
   ]
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %44, i64 19
+  %189 = getelementptr inbounds nuw i8, ptr %44, i64 19
   %190 = load i8, ptr %189, align 1
   %191 = and i8 %190, 1
   %192 = zext nneg i8 %191 to i64
   br label %238
 
 193:                                              ; preds = %187
-  %194 = getelementptr inbounds i8, ptr %44, i64 152
+  %194 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %195 = load ptr, ptr %194, align 8
   %196 = icmp ne ptr %195, null
   %197 = zext i1 %196 to i64
   br label %238
 
 198:                                              ; preds = %187
-  %199 = getelementptr inbounds i8, ptr %44, i64 160
+  %199 = getelementptr inbounds nuw i8, ptr %44, i64 160
   %200 = load ptr, ptr %199, align 8
   %201 = icmp ne ptr %200, null
   %202 = zext i1 %201 to i64
   br label %238
 
 203:                                              ; preds = %187
-  %204 = getelementptr inbounds i8, ptr %44, i64 12
+  %204 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %205 = load i8, ptr %204, align 4
   %206 = and i8 %205, 1
   %207 = zext nneg i8 %206 to i64
   br label %238
 
 208:                                              ; preds = %187
-  %209 = getelementptr inbounds i8, ptr %0, i64 28
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %209, align 4
   br label %238
 
@@ -459,42 +459,42 @@ test_indoption.exit105:                           ; preds = %132, %136
   ]
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %44, i64 10
+  %212 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %213 = load i8, ptr %212, align 2
   %214 = and i8 %213, 1
   %215 = zext nneg i8 %214 to i64
   br label %238
 
 216:                                              ; preds = %210
-  %217 = getelementptr inbounds i8, ptr %44, i64 13
+  %217 = getelementptr inbounds nuw i8, ptr %44, i64 13
   %218 = load i8, ptr %217, align 1
   %219 = and i8 %218, 1
   %220 = zext nneg i8 %219 to i64
   br label %238
 
 221:                                              ; preds = %210
-  %222 = getelementptr inbounds i8, ptr %44, i64 14
+  %222 = getelementptr inbounds nuw i8, ptr %44, i64 14
   %223 = load i8, ptr %222, align 2
   %224 = and i8 %223, 1
   %225 = zext nneg i8 %224 to i64
   br label %238
 
 226:                                              ; preds = %210
-  %227 = getelementptr inbounds i8, ptr %44, i64 152
+  %227 = getelementptr inbounds nuw i8, ptr %44, i64 152
   %228 = load ptr, ptr %227, align 8
   %229 = icmp ne ptr %228, null
   %230 = zext i1 %229 to i64
   br label %238
 
 231:                                              ; preds = %210
-  %232 = getelementptr inbounds i8, ptr %44, i64 23
+  %232 = getelementptr inbounds nuw i8, ptr %44, i64 23
   %233 = load i8, ptr %232, align 1
   %234 = and i8 %233, 1
   %235 = zext nneg i8 %234 to i64
   br label %238
 
 236:                                              ; preds = %210
-  %237 = getelementptr inbounds i8, ptr %0, i64 28
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %237, align 4
   br label %238
 
@@ -505,7 +505,7 @@ test_indoption.exit105:                           ; preds = %132, %136
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -519,7 +519,7 @@ define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -533,7 +533,7 @@ define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %14, align 4
   br label %18
 
@@ -549,7 +549,7 @@ define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_indexam_progress_phasename(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -559,13 +559,13 @@ define dso_local i64 @pg_indexam_progress_phasename(ptr nocapture noundef %0) lo
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %13, align 4
   br label %22
 
@@ -577,7 +577,7 @@ define dso_local i64 @pg_indexam_progress_phasename(ptr nocapture noundef %0) lo
   br i1 %.not14, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %18, align 4
   br label %22
 

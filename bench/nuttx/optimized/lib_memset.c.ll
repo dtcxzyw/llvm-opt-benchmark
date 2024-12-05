@@ -16,7 +16,7 @@ define noundef ptr @memset(ptr noundef returned writeonly %0, i32 noundef %1, i6
   %.07 = phi ptr [ %0, %.lr.ph ], [ %7, %5 ]
   %.046 = phi i64 [ %2, %.lr.ph ], [ %6, %5 ]
   %6 = add i64 %.046, -1
-  %7 = getelementptr inbounds i8, ptr %.07, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   store i8 %4, ptr %.07, align 1
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6

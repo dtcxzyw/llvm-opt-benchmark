@@ -34,22 +34,22 @@ declare noundef zeroext i1 @_ZN6hermes2vm8JSObject23_checkAllOwnIndexedImplEPS1_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm19JSCallSiteBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #1 {
 entry:
-  %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
+  %hasValue_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
+  %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
   store i32 3, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
 
 _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry, %if.then.i
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #5
-  %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
+  %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm10JSCallSite2vtE, ptr %vtp_.i, align 8
-  %error_ = getelementptr inbounds i8, ptr %cell, i64 20
+  %error_ = getelementptr inbounds nuw i8, ptr %cell, i64 20
   tail call void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224) %mb, ptr noundef nonnull @.str, ptr noundef nonnull %error_) #5
   ret void
 }
@@ -65,24 +65,24 @@ entry:
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %retval.sroa.0.0.copyload.i.i.i3 = load i64, ptr %clazz.coerce, align 8
   %and.i.i.i.i.i4 = and i64 %retval.sroa.0.0.copyload.i.i.i3, 281474976710655
-  %flags_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %flags_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %flags_.i.i, align 4
-  %parent_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %parent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %0 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %0
   %conv.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i.i.i, ptr %parent_.i.i, align 8
-  %clazz_.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %clazz_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %tobool.not.i.i.i.i.i5.i.i = icmp eq i64 %and.i.i.i.i.i4, 0
   %sub.i.i.i.i.i.i6.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i3, %0
   %conv.i.i.i.i.i.i7.i.i = trunc i64 %sub.i.i.i.i.i.i6.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i8.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i, ptr %clazz_.i.i, align 4
-  %propStorage_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %propStorage_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %propStorage_.i.i, align 8
-  %error_ = getelementptr inbounds i8, ptr %this, i64 20
+  %error_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   %retval.sroa.0.0.copyload.i.i.i5 = load i64, ptr %error.coerce, align 8
   %and.i.i.i.i.i6 = and i64 %retval.sroa.0.0.copyload.i.i.i5, 281474976710655
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i6, 0
@@ -90,7 +90,7 @@ entry:
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i.i, ptr %error_, align 4
-  %youngGen_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
+  %youngGen_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %error_ to i64
   %and.i.i.i.i.i.i = and i64 %2, -4194304
@@ -99,13 +99,13 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %4 = inttoptr i64 %and.i.i.i.i.i6 to ptr
   tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %error_, ptr noundef %4) #5
   br label %_ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i.i
-  %stackFrameIndex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stackFrameIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %stackFrameIndex, ptr %stackFrameIndex_, align 8
   ret void
 }
@@ -113,18 +113,18 @@ _ZN6hermes2vm9GCPointerINS0_7JSErrorEEC2ERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.e
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i32, i64 } @_ZN6hermes2vm10JSCallSite6createERNS0_7RuntimeENS0_6HandleINS0_7JSErrorEEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %errorHandle.coerce, i32 noundef %stackFrameIndex) local_unnamed_addr #1 align 2 {
 entry:
-  %callSitePrototype = getelementptr inbounds i8, ptr %runtime, i64 680
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9536
-  %level_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1656
+  %callSitePrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 680
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9536
+  %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1664
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %1 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %entry
-  %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 40) #5
   br label %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
 
@@ -138,24 +138,24 @@ _ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; 
   %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 281474976710655
   %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
   %and.i.i.i.i.i4.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i, 281474976710655
-  %flags_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
+  %flags_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
   store i32 0, ptr %flags_.i.i.i.i.i.i.i.i, align 4
-  %parent_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
+  %parent_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i.i.i, 0
   %2 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %2
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i.i, align 4
-  %clazz_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
+  %clazz_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 12
   %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i4.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i, %2
   %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i, align 4
-  %propStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
+  %propStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 16
   store i32 0, ptr %propStorage_.i.i.i.i.i.i.i.i, align 4
-  %error_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 20
+  %error_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 20
   %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i = load i64, ptr %errorHandle.coerce, align 8
   %and.i.i.i.i.i6.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i, 281474976710655
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i6.i.i.i.i.i.i, 0
@@ -163,7 +163,7 @@ _ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; 
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, ptr %error_.i.i.i.i.i.i, align 4
-  %youngGen_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
+  %youngGen_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %3 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i, align 8
   %4 = ptrtoint ptr %error_.i.i.i.i.i.i to i64
   %and.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %4, -4194304
@@ -172,21 +172,21 @@ _ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; 
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %heapStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %6 = inttoptr i64 %and.i.i.i.i.i6.i.i.i.i.i.i to ptr
   tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %error_.i.i.i.i.i.i, ptr noundef %6) #5
   br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit
 
 _ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %conv.i.i.i.i.i = zext i32 %stackFrameIndex to i64
-  %stackFrameIndex_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 24
+  %stackFrameIndex_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 24
   store i64 %conv.i.i.i.i.i, ptr %stackFrameIndex_.i.i.i.i.i.i, align 8
   store i32 503316520, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
 
 for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit
   %cur2.012.i.idx.i.i = phi i64 [ %cur2.012.i.add.i.i, %for.body5.i.i.i ], [ 32, %_ZN6hermes2vm7Runtime10makeAFixedINS0_10JSCallSiteELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_7JSErrorEEERjEEEPT_DpOT2_.exit ]
-  %cur2.012.i.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %cur2.012.i.idx.i.i
+  %cur2.012.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %cur2.012.i.idx.i.i
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
@@ -205,7 +205,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %error_ = getelementptr inbounds i8, ptr %0, i64 20
+  %error_ = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %error_, align 4
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %1 = ptrtoint ptr %runtime to i64
@@ -213,17 +213,17 @@ entry:
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = or i64 %add.i.i.i.i.i.i, -281474976710656
   %or.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, i64 -281474976710656, i64 %2
-  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
+  %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
   %3 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 192
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 192
   %4 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %4, %5
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %4, align 8
   br label %_ZN6hermes2vm7Runtime10makeHandleINS0_7JSErrorEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit
@@ -237,7 +237,7 @@ _ZN6hermes2vm7Runtime10makeHandleINS0_7JSErrorEEENS0_6HandleIT_EERKNS0_9GCPointe
   %agg.tmp.sroa.0.0.copyload.i.i2 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i3 = and i64 %agg.tmp.sroa.0.0.copyload.i.i2, 281474976710655
   %6 = inttoptr i64 %and.i.i.i.i.i3 to ptr
-  %stackFrameIndex_ = getelementptr inbounds i8, ptr %6, i64 24
+  %stackFrameIndex_ = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load i64, ptr %stackFrameIndex_, align 8
   %call8 = tail call ptr @_ZN6hermes2vm7JSError22getFunctionNameAtIndexERNS0_7RuntimeENS0_6HandleIS1_EEm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i64 noundef %7) #5
   %8 = load i64, ptr %call8, align 8
@@ -260,17 +260,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %error_.i = getelementptr inbounds i8, ptr %0, i64 20
+  %error_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1.i = load i32, ptr %error_.i, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i to ptr
-  %stacktrace_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i.i, align 8
-  %stackFrameIndex_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -291,20 +291,20 @@ _ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exi
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit
-  %bytecodeOffset = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %bytecodeOffset = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %8 = load i32, ptr %bytecodeOffset, align 8
   call void @_ZN6hermes2vm7JSError12getDebugInfoEPNS0_9CodeBlockEj(ptr nonnull sret(%"class.hermes::OptValue.172") align 4 %location, ptr noundef nonnull %7, i32 noundef %8) #5
   %9 = load ptr, ptr %add.ptr.i.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %hasValue_.i = getelementptr inbounds i8, ptr %location, i64 32
+  %hasValue_.i = getelementptr inbounds nuw i8, ptr %location, i64 32
   %11 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
-  %bcProvider_.i = getelementptr inbounds i8, ptr %10, i64 80
+  %bcProvider_.i = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %bcProvider_.i, align 8
-  %debugInfo_.i = getelementptr inbounds i8, ptr %12, i64 240
+  %debugInfo_.i = getelementptr inbounds nuw i8, ptr %12, i64 240
   %13 = load ptr, ptr %debugInfo_.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit
@@ -320,13 +320,13 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit: ; preds = %if.then8, %if.t
   %15 = phi ptr [ %.pre.i, %if.then.i ], [ %13, %if.then8 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #5
   %16 = load ptr, ptr %15, align 8
-  %filenameId = getelementptr inbounds i8, ptr %location, i64 4
+  %filenameId = getelementptr inbounds nuw i8, ptr %location, i64 4
   %17 = load i32, ptr %filenameId, align 4
   %conv = zext i32 %17 to i64
-  %arrayidx.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %16, i64 %conv
-  %filenameStorage_.i = getelementptr inbounds i8, ptr %15, i64 24
+  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %16, i64 %conv
+  %filenameStorage_.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %18 = load ptr, ptr %filenameStorage_.i, align 8
-  %_M_finish.i.i.i10 = getelementptr inbounds i8, ptr %15, i64 32
+  %_M_finish.i.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load ptr, ptr %_M_finish.i.i.i10, align 8
   %sub.ptr.lhs.cast.i.i.i11 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i12 = ptrtoint ptr %18 to i64
@@ -341,7 +341,7 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit: ; preds = %if.then8, %if.t
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %sourceURL_.i = getelementptr inbounds i8, ptr %10, i64 104
+  %sourceURL_.i = getelementptr inbounds nuw i8, ptr %10, i64 104
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i) #5
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i) #5
   %cmp.i = icmp eq i64 %call2.i.i, 0
@@ -367,17 +367,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %error_ = getelementptr inbounds i8, ptr %0, i64 20
+  %error_ = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1 = load i32, ptr %error_, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1 to i64
   %add.i.i.i = add i64 %conv.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i to ptr
-  %stacktrace_.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i, align 8
-  %stackFrameIndex_ = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_ = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -415,17 +415,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %error_.i = getelementptr inbounds i8, ptr %0, i64 20
+  %error_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1.i = load i32, ptr %error_.i, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i to ptr
-  %stacktrace_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i.i, align 8
-  %stackFrameIndex_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -446,16 +446,16 @@ _ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exi
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit
-  %bytecodeOffset = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %bytecodeOffset = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %8 = load i32, ptr %bytecodeOffset, align 8
   call void @_ZN6hermes2vm7JSError12getDebugInfoEPNS0_9CodeBlockEj(ptr nonnull sret(%"class.hermes::OptValue.172") align 4 %location, ptr noundef nonnull %7, i32 noundef %8) #5
-  %hasValue_.i = getelementptr inbounds i8, ptr %location, i64 32
+  %hasValue_.i = getelementptr inbounds nuw i8, ptr %location, i64 32
   %9 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
-  %line = getelementptr inbounds i8, ptr %location, i64 12
+  %line = getelementptr inbounds nuw i8, ptr %location, i64 12
   %10 = load i32, ptr %line, align 4
   %conv.i = uitofp i32 %10 to double
   %11 = bitcast double %conv.i to i64
@@ -464,9 +464,9 @@ if.then6:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %12 = load ptr, ptr %add.ptr.i.i.i, align 8
   %13 = load ptr, ptr %12, align 8
-  %bcProvider_.i = getelementptr inbounds i8, ptr %13, i64 80
+  %bcProvider_.i = getelementptr inbounds nuw i8, ptr %13, i64 80
   %14 = load ptr, ptr %bcProvider_.i, align 8
-  %segmentID_.i = getelementptr inbounds i8, ptr %14, i64 184
+  %segmentID_.i = getelementptr inbounds nuw i8, ptr %14, i64 184
   %15 = load i32, ptr %segmentID_.i, align 8
   %add = add i32 %15, 1
   %conv.i4 = uitofp i32 %add to double
@@ -486,17 +486,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %error_.i = getelementptr inbounds i8, ptr %0, i64 20
+  %error_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1.i = load i32, ptr %error_.i, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i to ptr
-  %stacktrace_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i.i, align 8
-  %stackFrameIndex_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -517,16 +517,16 @@ _ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exi
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit
-  %bytecodeOffset = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %bytecodeOffset = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %8 = load i32, ptr %bytecodeOffset, align 8
   call void @_ZN6hermes2vm7JSError12getDebugInfoEPNS0_9CodeBlockEj(ptr nonnull sret(%"class.hermes::OptValue.172") align 4 %location, ptr noundef nonnull %7, i32 noundef %8) #5
-  %hasValue_.i = getelementptr inbounds i8, ptr %location, i64 32
+  %hasValue_.i = getelementptr inbounds nuw i8, ptr %location, i64 32
   %9 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.then
-  %column = getelementptr inbounds i8, ptr %location, i64 16
+  %column = getelementptr inbounds nuw i8, ptr %location, i64 16
   %10 = load i32, ptr %column, align 4
   %conv.i = uitofp i32 %10 to double
   %11 = bitcast double %conv.i to i64
@@ -544,17 +544,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %error_.i = getelementptr inbounds i8, ptr %0, i64 20
+  %error_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1.i = load i32, ptr %error_.i, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i to ptr
-  %stacktrace_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i.i, align 8
-  %stackFrameIndex_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
@@ -575,7 +575,7 @@ _ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exi
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm10JSCallSite17getStackTraceInfoERNS0_7RuntimeENS0_6HandleIS1_EE.exit
-  %bytecodeOffset = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %bytecodeOffset = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %8 = load i32, ptr %bytecodeOffset, align 8
   %call6 = tail call noundef i32 @_ZNK6hermes2vm9CodeBlock16getVirtualOffsetEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #5
   %add = add i32 %call6, %8
@@ -597,17 +597,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
   %0 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %error_.i = getelementptr inbounds i8, ptr %0, i64 20
+  %error_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i1.i = load i32, ptr %error_.i, align 4
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i1.i to i64
   %add.i.i.i.i = add i64 %conv.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i to ptr
-  %stacktrace_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stacktrace_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %stacktrace_.i.i, align 8
-  %stackFrameIndex_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %stackFrameIndex_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %stackFrameIndex_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %6 = load ptr, ptr %3, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64

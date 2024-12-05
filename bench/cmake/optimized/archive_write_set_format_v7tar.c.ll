@@ -32,7 +32,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_v7tar(ptr nound
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -51,24 +51,24 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_v7tar(ptr nound
   br label %23
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @archive_write_v7tar_options, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @archive_write_v7tar_header, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @archive_write_v7tar_data, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @archive_write_v7tar_close, ptr %19, align 8
   store ptr @archive_write_v7tar_free, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @archive_write_v7tar_finish_entry, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 196608, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.2, ptr %22, align 8
   br label %23
 
@@ -86,7 +86,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_write_v7tar_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.3) #13
   %7 = icmp eq i32 %6, 0
@@ -102,14 +102,14 @@ define internal range(i32 -30, 1) i32 @archive_write_v7tar_options(ptr noundef %
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.4, ptr noundef %15) #11
   br label %19
 
 16:                                               ; preds = %10
   %17 = tail call ptr @archive_string_conversion_to_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #11
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %18, align 8
   %.not = icmp eq ptr %17, null
   %. = select i1 %.not, i32 -30, i32 0
@@ -127,27 +127,27 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   %5 = alloca ptr, align 8
   %6 = alloca [512 x i8], align 16
   %7 = alloca %struct.archive_string, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %19
 
 16:                                               ; preds = %13
   %17 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #11
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %17, ptr %18, align 8
   store i32 1, ptr %14, align 8
   br label %19
@@ -218,7 +218,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   br label %214
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %50, align 8
   %51 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef nonnull %35, i64 noundef %44) #11
   %52 = call ptr @archive_strappend_char(ptr noundef nonnull %7, i8 noundef signext 47) #11
@@ -325,7 +325,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 93:                                               ; preds = %92, %.thread.i
   %94 = phi i64 [ 100, %92 ], [ %90, %.thread.i ]
   %.5.i = phi i32 [ -25, %92 ], [ %.3111.i, %.thread.i ]
-  %95 = getelementptr inbounds i8, ptr %6, i64 157
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 157
   %96 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef nonnull align 1 dereferenceable(1) %96, i64 %94, i1 false)
   br label %97
@@ -336,7 +336,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   %98 = call i32 @archive_entry_mode(ptr noundef %1) #11
   %99 = and i32 %98, 4095
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %6, i64 106
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 106
   br label %102
 
 102:                                              ; preds = %102, %97
@@ -369,12 +369,12 @@ format_number.exit.thread.i:                      ; preds = %112, %110
   br i1 %114, label %.preheader.preheader.i.i.i, label %116
 
 .preheader.preheader.i.i.i:                       ; preds = %format_number.exit.thread.i
-  %115 = getelementptr inbounds i8, ptr %6, i64 108
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %115, i8 48, i64 6, i1 false)
   br label %128
 
 116:                                              ; preds = %format_number.exit.thread.i
-  %117 = getelementptr inbounds i8, ptr %6, i64 114
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 114
   br label %118
 
 118:                                              ; preds = %118, %116
@@ -410,12 +410,12 @@ format_number.exit86.i:                           ; preds = %128, %126
   br i1 %130, label %.preheader.preheader.i.i92.i, label %132
 
 .preheader.preheader.i.i92.i:                     ; preds = %format_number.exit86.i
-  %131 = getelementptr inbounds i8, ptr %6, i64 116
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %131, i8 48, i64 6, i1 false)
   br label %144
 
 132:                                              ; preds = %format_number.exit86.i
-  %133 = getelementptr inbounds i8, ptr %6, i64 122
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 122
   br label %134
 
 134:                                              ; preds = %134, %132
@@ -451,12 +451,12 @@ format_number.exit93.i:                           ; preds = %144, %142
   br i1 %146, label %.preheader.preheader.i.i99.i, label %148
 
 .preheader.preheader.i.i99.i:                     ; preds = %format_number.exit93.i
-  %147 = getelementptr inbounds i8, ptr %6, i64 124
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %147, i8 48, i64 11, i1 false)
   br label %160
 
 148:                                              ; preds = %format_number.exit93.i
-  %149 = getelementptr inbounds i8, ptr %6, i64 135
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 135
   br label %150
 
 150:                                              ; preds = %150, %148
@@ -492,12 +492,12 @@ format_number.exit100.i:                          ; preds = %160, %158
   br i1 %162, label %.preheader.preheader.i.i106.i, label %164
 
 .preheader.preheader.i.i106.i:                    ; preds = %format_number.exit100.i
-  %163 = getelementptr inbounds i8, ptr %6, i64 136
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %163, i8 48, i64 11, i1 false)
   br label %176
 
 164:                                              ; preds = %format_number.exit100.i
-  %165 = getelementptr inbounds i8, ptr %6, i64 147
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 147
   br label %166
 
 166:                                              ; preds = %166, %164
@@ -531,7 +531,7 @@ format_number.exit107.i:                          ; preds = %176, %174
   br i1 %.not73.not.i, label %179, label %177
 
 177:                                              ; preds = %format_number.exit107.i
-  %178 = getelementptr inbounds i8, ptr %6, i64 156
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 156
   store i8 %.0113.i, ptr %178, align 4
   br label %184
 
@@ -544,7 +544,7 @@ format_number.exit107.i:                          ; preds = %176, %174
   ]
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %6, i64 156
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 156
   store i8 50, ptr %182, align 4
   br label %184
 
@@ -559,7 +559,7 @@ format_number.exit107.i:                          ; preds = %176, %174
 185:                                              ; preds = %185, %184
   %indvars.iv.i = phi i64 [ 0, %184 ], [ %indvars.iv.next.i, %185 ]
   %.067129.i = phi i32 [ 0, %184 ], [ %189, %185 ]
-  %186 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %186 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = add i32 %.067129.i, %188
@@ -569,7 +569,7 @@ format_number.exit107.i:                          ; preds = %176, %174
 
 190:                                              ; preds = %185
   %191 = zext i32 %189 to i64
-  %192 = getelementptr inbounds i8, ptr %6, i64 154
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 154
   br label %193
 
 193:                                              ; preds = %193, %190
@@ -630,7 +630,7 @@ format_header_v7tar.exit:                         ; preds = %201, %.preheader19.
   store i64 %210, ptr %9, align 8
   %211 = sub nsw i64 0, %210
   %212 = and i64 %211, 511
-  %213 = getelementptr inbounds i8, ptr %9, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %212, ptr %213, align 8
   call void @archive_entry_free(ptr noundef null) #11
   br label %214
@@ -642,7 +642,7 @@ format_header_v7tar.exit:                         ; preds = %201, %.preheader19.
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @archive_write_v7tar_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
@@ -664,7 +664,7 @@ define internal i32 @archive_write_v7tar_close(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @archive_write_v7tar_free(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
   store ptr null, ptr %2, align 8
@@ -673,10 +673,10 @@ define internal noundef i32 @archive_write_v7tar_free(ptr nocapture noundef %0) 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_write_v7tar_finish_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %4
   %8 = tail call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %7) #11

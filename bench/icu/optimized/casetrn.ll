@@ -29,11 +29,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cpStart = getelementptr inbounds i8, ptr %context, i64 20
+  %cpStart = getelementptr inbounds nuw i8, ptr %context, i64 20
   %1 = load i32, ptr %cpStart, align 4
-  %index = getelementptr inbounds i8, ptr %context, i64 12
+  %index = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 %1, ptr %index, align 4
-  %dir1 = getelementptr inbounds i8, ptr %context, i64 28
+  %dir1 = getelementptr inbounds nuw i8, ptr %context, i64 28
   store i8 %dir, ptr %dir1, align 4
   br label %if.then12
 
@@ -42,34 +42,34 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.else7, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %cpLimit = getelementptr inbounds i8, ptr %context, i64 24
+  %cpLimit = getelementptr inbounds nuw i8, ptr %context, i64 24
   %2 = load i32, ptr %cpLimit, align 8
-  %index5 = getelementptr inbounds i8, ptr %context, i64 12
+  %index5 = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 %2, ptr %index5, align 4
-  %dir6 = getelementptr inbounds i8, ptr %context, i64 28
+  %dir6 = getelementptr inbounds nuw i8, ptr %context, i64 28
   store i8 %dir, ptr %dir6, align 4
   br label %if.else27
 
 if.else7:                                         ; preds = %if.else
-  %dir8 = getelementptr inbounds i8, ptr %context, i64 28
+  %dir8 = getelementptr inbounds nuw i8, ptr %context, i64 28
   %3 = load i8, ptr %dir8, align 4
   %4 = icmp slt i8 %3, 0
-  %index13.phi.trans.insert = getelementptr inbounds i8, ptr %context, i64 12
+  %index13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %context, i64 12
   %.pre36 = load i32, ptr %index13.phi.trans.insert, align 4
   br i1 %4, label %if.then12, label %if.else27
 
 if.then12:                                        ; preds = %if.else7, %if.then
   %5 = phi i32 [ %1, %if.then ], [ %.pre36, %if.else7 ]
-  %start = getelementptr inbounds i8, ptr %context, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %context, i64 8
   %6 = load i32, ptr %start, align 8
-  %index13 = getelementptr inbounds i8, ptr %context, i64 12
+  %index13 = getelementptr inbounds nuw i8, ptr %context, i64 12
   %cmp14 = icmp slt i32 %6, %5
   br i1 %cmp14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.then12
   %sub = add nsw i32 %5, -1
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %sub)
   %cmp17 = icmp slt i32 %call.i, 0
@@ -90,15 +90,15 @@ if.else21:                                        ; preds = %if.then15
 
 if.else27:                                        ; preds = %if.else7, %if.then4
   %10 = phi i32 [ %2, %if.then4 ], [ %.pre36, %if.else7 ]
-  %index28 = getelementptr inbounds i8, ptr %context, i64 12
-  %limit = getelementptr inbounds i8, ptr %context, i64 16
+  %index28 = getelementptr inbounds nuw i8, ptr %context, i64 12
+  %limit = getelementptr inbounds nuw i8, ptr %context, i64 16
   %11 = load i32, ptr %limit, align 8
   %cmp29 = icmp slt i32 %10, %11
   br i1 %cmp29, label %if.then30, label %if.else42
 
 if.then30:                                        ; preds = %if.else27
   %vtable.i33 = load ptr, ptr %0, align 8
-  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 80
+  %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 80
   %12 = load ptr, ptr %vfn.i34, align 8
   %call.i35 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %10)
   %cmp33 = icmp slt i32 %call.i35, 0
@@ -107,7 +107,7 @@ if.then30:                                        ; preds = %if.else27
 if.then34:                                        ; preds = %if.then30
   %13 = load i32, ptr %index28, align 4
   store i32 %13, ptr %limit, align 8
-  %b1 = getelementptr inbounds i8, ptr %context, i64 29
+  %b1 = getelementptr inbounds nuw i8, ptr %context, i64 29
   store i8 1, ptr %b1, align 1
   br label %return
 
@@ -120,7 +120,7 @@ if.else37:                                        ; preds = %if.then30
   br label %return
 
 if.else42:                                        ; preds = %if.else27
-  %b143 = getelementptr inbounds i8, ptr %context, i64 29
+  %b143 = getelementptr inbounds nuw i8, ptr %context, i64 29
   store i8 1, ptr %b143, align 1
   br label %return
 
@@ -140,7 +140,7 @@ define void @_ZN6icu_7521CaseMapTransliteratorC2ERKNS_13UnicodeStringEPFiiPFiPva
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 16), ptr %this, align 8
-  %fMap = getelementptr inbounds i8, ptr %this, i64 88
+  %fMap = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %map, ptr %fMap, align 8
   ret void
 }
@@ -172,8 +172,8 @@ define void @_ZN6icu_7521CaseMapTransliteratorC2ERKS0_(ptr noundef nonnull align
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 16), ptr %this, align 8
-  %fMap = getelementptr inbounds i8, ptr %this, i64 88
-  %fMap2 = getelementptr inbounds i8, ptr %o, i64 88
+  %fMap = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %fMap2 = getelementptr inbounds nuw i8, ptr %o, i64 88
   %0 = load ptr, ptr %fMap2, align 8
   store ptr %0, ptr %fMap, align 8
   ret void
@@ -188,40 +188,40 @@ entry:
   %tmp = alloca %"class.icu_75::UnicodeString", align 8
   %s = alloca ptr, align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %start = getelementptr inbounds i8, ptr %offsets, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %offsets, i64 8
   %0 = load i32, ptr %start, align 4
-  %limit = getelementptr inbounds i8, ptr %offsets, i64 12
+  %limit = getelementptr inbounds nuw i8, ptr %offsets, i64 12
   %1 = load i32, ptr %limit, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %for.body.lr.ph, label %cleanup.cont
 
 for.body.lr.ph:                                   ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %csc, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %csc, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   store ptr %text, ptr %csc, align 8
   %3 = load i32, ptr %offsets, align 4
-  %start2 = getelementptr inbounds i8, ptr %csc, i64 8
+  %start2 = getelementptr inbounds nuw i8, ptr %csc, i64 8
   store i32 %3, ptr %start2, align 8
-  %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4
+  %contextLimit = getelementptr inbounds nuw i8, ptr %offsets, i64 4
   %4 = load i32, ptr %contextLimit, align 4
-  %limit3 = getelementptr inbounds i8, ptr %csc, i64 16
+  %limit3 = getelementptr inbounds nuw i8, ptr %csc, i64 16
   store i32 %4, ptr %limit3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tmp, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %tmp, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %cpStart = getelementptr inbounds i8, ptr %csc, i64 20
-  %cpLimit = getelementptr inbounds i8, ptr %csc, i64 24
-  %fMap = getelementptr inbounds i8, ptr %this, i64 88
-  %b1 = getelementptr inbounds i8, ptr %csc, i64 29
+  %cpStart = getelementptr inbounds nuw i8, ptr %csc, i64 20
+  %cpLimit = getelementptr inbounds nuw i8, ptr %csc, i64 24
+  %fMap = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %b1 = getelementptr inbounds nuw i8, ptr %csc, i64 29
   %tobool10 = icmp ne i8 %isIncremental, 0
-  %fLength.i.i = getelementptr inbounds i8, ptr %tmp, i64 12
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %tmp, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end44
   %textPos.037 = phi i32 [ %0, %for.body.lr.ph ], [ %textPos.1, %if.end44 ]
   store i32 %textPos.037, ptr %cpStart, align 4
   %vtable.i = load ptr, ptr %text, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i29 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %textPos.037)
           to label %invoke.cont unwind label %lpad
@@ -308,7 +308,7 @@ if.end32:                                         ; preds = %invoke.cont25, %inv
   %delta.0 = sub nsw i32 %call9.pn, %cond
   %20 = load i32, ptr %cpStart, align 4
   %vtable = load ptr, ptr %text, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %21 = load ptr, ptr %vfn, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %20, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %tmp)
           to label %invoke.cont34 unwind label %lpad

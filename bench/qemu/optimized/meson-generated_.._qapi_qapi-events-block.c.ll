@@ -24,9 +24,9 @@ entry:
   %param = alloca %struct.q_obj_DEVICE_TRAY_MOVED_arg, align 8
   %frombool = zext i1 %tray_open to i8
   store ptr %device, ptr %param, align 8
-  %id2 = getelementptr inbounds i8, ptr %param, i64 8
+  %id2 = getelementptr inbounds nuw i8, ptr %param, i64 8
   store ptr %id, ptr %id2, align 8
-  %tray_open3 = getelementptr inbounds i8, ptr %param, i64 16
+  %tray_open3 = getelementptr inbounds nuw i8, ptr %param, i64 16
   store i8 %frombool, ptr %tray_open3, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str) #3
   %call5 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -72,7 +72,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool12.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i14, label %land.lhs.true.i12
@@ -98,7 +98,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool15.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end
-  %refcnt.i17 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19
@@ -150,7 +150,7 @@ entry:
   %param = alloca %struct.q_obj_PR_MANAGER_STATUS_CHANGED_arg, align 8
   %frombool = zext i1 %connected to i8
   store ptr %id, ptr %param, align 8
-  %connected2 = getelementptr inbounds i8, ptr %param, i64 8
+  %connected2 = getelementptr inbounds nuw i8, ptr %param, i64 8
   store i8 %frombool, ptr %connected2, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.2) #3
   %call4 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -196,7 +196,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool11.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i14, label %land.lhs.true.i12
@@ -222,7 +222,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool14.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end
-  %refcnt.i17 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19

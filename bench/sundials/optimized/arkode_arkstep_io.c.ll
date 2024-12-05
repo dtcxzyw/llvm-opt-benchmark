@@ -1060,7 +1060,7 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %11 = load ptr, ptr %10, align 8
   %.not20 = icmp eq ptr %11, null
   br i1 %.not20, label %14, label %12
@@ -1076,7 +1076,7 @@ define i32 @ARKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 14:                                               ; preds = %._crit_edge, %8
   %15 = phi ptr [ %.pre, %._crit_edge ], [ %9, %8 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 360
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %20, label %18
@@ -1122,38 +1122,38 @@ define i32 @ARKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i32 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 92
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 184
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 256
   store i32 3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 232
   store double 1.000000e-01, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 192
   store double 3.000000e-01, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store double 2.300000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store double 2.000000e-01, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store i32 20, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 96
-  %26 = getelementptr inbounds i8, ptr %10, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 264
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 260
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 260
   store i32 0, ptr %27, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
   br label %28
@@ -1179,7 +1179,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 448
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 448
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -1189,7 +1189,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br label %247
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @SUNAdaptController_Space(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %17 = icmp eq i32 %16, 0
@@ -1198,19 +1198,19 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = load i64, ptr %5, align 8
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 552
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 552
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %22, %19
   store i64 %23, ptr %21, align 8
   %24 = load i64, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 544
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %26 = load i64, ptr %25, align 8
   %27 = sub nsw i64 %26, %24
   store i64 %27, ptr %25, align 8
   br label %28
 
 28:                                               ; preds = %18, %13
-  %29 = getelementptr inbounds i8, ptr %10, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %30 = load i32, ptr %29, align 8
   %.not104 = icmp eq i32 %30, 0
   br i1 %.not104, label %39, label %31
@@ -1219,9 +1219,9 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load ptr, ptr %14, align 8
   %33 = call i32 @SUNAdaptController_Destroy(ptr noundef %32) #6
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 448
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 448
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   store i32 0, ptr %37, align 8
   %.not105 = icmp eq i32 %33, 0
   br i1 %.not105, label %39, label %38
@@ -1233,10 +1233,10 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 39:                                               ; preds = %31, %28
   store ptr null, ptr %14, align 8
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 8
   %.not106 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %40, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %44 = load i32, ptr %43, align 4
   %.not108 = icmp eq i32 %44, 0
   br i1 %.not106, label %61, label %45
@@ -1261,13 +1261,13 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %54 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %49, double noundef 1.200000e+00) #6
   %55 = load ptr, ptr %14, align 8
   %56 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef %55, double noundef 8.000000e-01, double noundef -3.100000e-01) #6
-  %57 = getelementptr inbounds i8, ptr %10, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEFAE147AE147AE, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.500000e+01, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 3.000000e-01, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %60, align 8
   br label %247
 
@@ -1275,7 +1275,7 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not108, label %.thread111, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %40, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %40, i64 88
   %64 = load i32, ptr %63, align 8
   switch i32 %64, label %247 [
     i32 2, label %65
@@ -1298,30 +1298,30 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br label %247
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %10, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEEB851EB851EB8, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.000000e+01, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 3.000000e-01, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %10, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %10, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %10, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %78, align 8
   %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 232
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 232
   store double 1.000000e-03, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 256
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 256
   store i32 5, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 192
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 192
   store double 3.000000e-01, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 200
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 200
   store double 2.300000e+00, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %79, i64 176
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 176
   store double 2.000000e-01, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %79, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 240
   store i32 20, ptr %85, align 8
   br label %247
 
@@ -1340,28 +1340,28 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 
 93:                                               ; preds = %86
   %94 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %89, double noundef 1.900000e+00) #6
-  %95 = getelementptr inbounds i8, ptr %10, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 9.570000e-01, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %10, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 1.760000e+01, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %10, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 4.500000e-01, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %10, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %100, align 8
   %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 232
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 232
   store double 2.200000e-01, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %101, i64 192
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 192
   store double 1.700000e-01, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %101, i64 200
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 200
   store double 2.300000e+00, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 176
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 176
   store double 1.900000e-01, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %101, i64 240
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 240
   store i32 60, ptr %106, align 8
   br label %247
 
@@ -1382,28 +1382,28 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %115 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %110, double noundef 1.200000e+00) #6
   %116 = load ptr, ptr %14, align 8
   %117 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %116, double noundef 5.350000e-01, double noundef -2.090000e-01, double noundef 1.480000e-01) #6
-  %118 = getelementptr inbounds i8, ptr %10, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEF9DB22D0E5604, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %10, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 3.150000e+01, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %10, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 3.300000e-01, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %10, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %10, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %10, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %123, align 8
   %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 232
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 232
   store double 2.400000e-01, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %124, i64 192
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 192
   store double 2.600000e-01, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %124, i64 200
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 200
   store double 2.300000e+00, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %124, i64 176
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 176
   store double 1.600000e-01, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %124, i64 240
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 240
   store i32 31, ptr %129, align 8
   br label %247
 
@@ -1424,33 +1424,33 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %138 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %133, double noundef 3.300000e+00) #6
   %139 = load ptr, ptr %14, align 8
   %140 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %139, double noundef 5.600000e-01, double noundef -3.380000e-01, double noundef 1.400000e-01) #6
-  %141 = getelementptr inbounds i8, ptr %10, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 9.370000e-01, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %10, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.200000e+01, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %10, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 4.400000e-01, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %10, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %10, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %10, i64 96
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %146, align 8
   %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 232
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 232
   store double 2.500000e-01, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %147, i64 192
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 192
   store double 4.000000e-01, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %147, i64 200
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 200
   store double 2.300000e+00, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %147, i64 176
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 176
   store double 3.200000e-01, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %147, i64 240
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 240
   store i32 31, ptr %152, align 8
   br label %247
 
 .thread111:                                       ; preds = %45, %61
-  %153 = getelementptr inbounds i8, ptr %40, i64 88
+  %153 = getelementptr inbounds nuw i8, ptr %40, i64 88
   %154 = load i32, ptr %153, align 8
   switch i32 %154, label %233 [
     i32 2, label %155
@@ -1473,22 +1473,22 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   br label %247
 
 162:                                              ; preds = %155
-  %163 = getelementptr inbounds i8, ptr %10, i64 56
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEEB851EB851EB8, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %10, i64 64
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.000000e+01, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %10, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 3.000000e-01, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %10, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %10, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %10, i64 96
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %168, align 8
   %169 = load ptr, ptr %3, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 232
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 232
   store double 1.000000e-03, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %169, i64 256
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 256
   store i32 5, ptr %171, align 8
   br label %.sink.split
 
@@ -1509,20 +1509,20 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %180 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %175, double noundef 1.420000e+00) #6
   %181 = load ptr, ptr %14, align 8
   %182 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %181, double noundef 5.400000e-01, double noundef -3.600000e-01, double noundef 1.400000e-01) #6
-  %183 = getelementptr inbounds i8, ptr %10, i64 56
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEEE147AE147AE1, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %10, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.870000e+01, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %10, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 4.600000e-01, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %10, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %10, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %10, i64 96
+  %188 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %188, align 8
   %189 = load ptr, ptr %3, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 232
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 232
   store double 2.200000e-01, ptr %190, align 8
   br label %.sink.split
 
@@ -1543,20 +1543,20 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %199 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %194, double noundef 1.350000e+00) #6
   %200 = load ptr, ptr %14, align 8
   %201 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef %200, double noundef 5.430000e-01, double noundef -2.970000e-01, double noundef 1.400000e-01) #6
-  %202 = getelementptr inbounds i8, ptr %10, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEF0A3D70A3D70A, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %10, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.500000e+01, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %10, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 4.700000e-01, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %10, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %10, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %10, i64 96
+  %207 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %207, align 8
   %208 = load ptr, ptr %3, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 232
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 232
   store double 2.400000e-01, ptr %209, align 8
   br label %.sink.split
 
@@ -1577,20 +1577,20 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %218 = call i32 @SUNAdaptController_SetErrorBias(ptr noundef nonnull %213, double noundef 1.150000e+00) #6
   %219 = load ptr, ptr %14, align 8
   %220 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef %219, double noundef 8.000000e-01, double noundef -3.500000e-01) #6
-  %221 = getelementptr inbounds i8, ptr %10, i64 56
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store double 0x3FEFC6A7EF9DB22D, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %10, i64 64
+  %222 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store double 2.850000e+01, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %10, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 3.000000e-01, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %10, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 2, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %10, i64 40
+  %225 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double 2.500000e-01, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %10, i64 96
+  %226 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %226, align 8
   %227 = load ptr, ptr %3, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 232
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 232
   store double 2.500000e-01, ptr %228, align 8
   br label %.sink.split
 
@@ -1599,13 +1599,13 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
   %.sink119 = phi double [ 4.000000e-01, %217 ], [ 2.600000e-01, %198 ], [ 1.700000e-01, %179 ], [ 3.000000e-01, %162 ]
   %.sink114 = phi double [ 3.200000e-01, %217 ], [ 1.600000e-01, %198 ], [ 1.900000e-01, %179 ], [ 2.000000e-01, %162 ]
   %.sink = phi i32 [ 31, %217 ], [ 31, %198 ], [ 60, %179 ], [ 20, %162 ]
-  %229 = getelementptr inbounds i8, ptr %.sink121, i64 192
+  %229 = getelementptr inbounds nuw i8, ptr %.sink121, i64 192
   store double %.sink119, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %.sink121, i64 200
+  %230 = getelementptr inbounds nuw i8, ptr %.sink121, i64 200
   store double 2.300000e+00, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %.sink121, i64 176
+  %231 = getelementptr inbounds nuw i8, ptr %.sink121, i64 176
   store double %.sink114, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %.sink121, i64 240
+  %232 = getelementptr inbounds nuw i8, ptr %.sink121, i64 240
   store i32 %.sink, ptr %232, align 8
   br label %233
 
@@ -1619,12 +1619,12 @@ define i32 @ARKStepSetOptimalParams(ptr noundef %0) local_unnamed_addr #0 {
 237:                                              ; preds = %233
   %238 = load i64, ptr %5, align 8
   %239 = load ptr, ptr %2, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 552
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 552
   %241 = load i64, ptr %240, align 8
   %242 = add nsw i64 %241, %238
   store i64 %242, ptr %240, align 8
   %243 = load i64, ptr %4, align 8
-  %244 = getelementptr inbounds i8, ptr %239, i64 544
+  %244 = getelementptr inbounds nuw i8, ptr %239, i64 544
   %245 = load i64, ptr %244, align 8
   %246 = add nsw i64 %245, %243
   store i64 %246, ptr %244, align 8
@@ -1664,54 +1664,54 @@ define i32 @ARKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 8:                                                ; preds = %2
   %9 = icmp slt i32 %1, 1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %. = select i1 %9, i32 4, i32 %1
   store i32 %., ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 100
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 92
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %16 = load ptr, ptr %15, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %5) #6
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %19) #6
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store ptr null, ptr %21, align 8
   %22 = load i64, ptr %6, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 552
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 552
   %25 = load i64, ptr %24, align 8
   %26 = sub nsw i64 %25, %22
   store i64 %26, ptr %24, align 8
   %27 = load i64, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 544
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 544
   %29 = load i64, ptr %28, align 8
   %30 = sub nsw i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %32 = load ptr, ptr %31, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %32, ptr noundef nonnull %6, ptr noundef nonnull %5) #6
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load ptr, ptr %34, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %35) #6
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %6, align 8
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 552
   %41 = load i64, ptr %40, align 8
   %42 = sub nsw i64 %41, %38
   store i64 %42, ptr %40, align 8
   %43 = load i64, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 544
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 544
   %45 = load i64, ptr %44, align 8
   %46 = sub nsw i64 %45, %43
   store i64 %46, ptr %44, align 8
@@ -1735,13 +1735,13 @@ define i32 @ARKStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %8, align 8
   %9 = icmp eq i32 %1, 1
   %10 = zext i1 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %7, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store double 0x3D19000000000000, ptr %12, align 8
   br label %13
 
@@ -1759,11 +1759,11 @@ define i32 @ARKStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store double 2.000000e-01, ptr %9, align 8
   br label %10
 
@@ -1791,9 +1791,9 @@ define i32 @ARKStepSetExplicit(ptr noundef %0) local_unnamed_addr #0 {
   br label %14
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -1812,7 +1812,7 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -1823,38 +1823,38 @@ define i32 @ARKStepSetImplicit(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %14, align 8
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %17 = load i32, ptr %16, align 4
   %.not8 = icmp eq i32 %17, 0
   br i1 %.not8, label %18, label %36
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %24 = load ptr, ptr %23, align 8
   %.not9 = icmp eq ptr %24, null
   br i1 %.not9, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %15, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %27 = load double, ptr %26, align 8
   %28 = call i32 @arkSVtolerances(ptr noundef nonnull %15, double noundef %27, ptr noundef nonnull %24) #6
   br label %35
 
 29:                                               ; preds = %22, %18
-  %30 = getelementptr inbounds i8, ptr %15, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %33 = load double, ptr %32, align 8
   %34 = call i32 @arkSStolerances(ptr noundef nonnull %15, double noundef %31, double noundef %33) #6
   br label %35
@@ -1896,7 +1896,7 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   br label %42
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -1907,38 +1907,38 @@ define i32 @ARKStepSetImEx(ptr noundef %0) local_unnamed_addr #0 {
   br label %42
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 1, ptr %19, align 4
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %22 = load i32, ptr %21, align 4
   %.not8 = icmp eq i32 %22, 0
   br i1 %.not8, label %23, label %41
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %20, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not9 = icmp eq ptr %29, null
   br i1 %.not9, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %20, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %32 = load double, ptr %31, align 8
   %33 = call i32 @arkSVtolerances(ptr noundef nonnull %20, double noundef %32, ptr noundef nonnull %29) #6
   br label %40
 
 34:                                               ; preds = %27, %23
-  %35 = getelementptr inbounds i8, ptr %20, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %20, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %38 = load double, ptr %37, align 8
   %39 = call i32 @arkSStolerances(ptr noundef nonnull %20, double noundef %36, double noundef %38) #6
   br label %40
@@ -1986,9 +1986,9 @@ define i32 @ARKStepSetTables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %or.cond3, label %21, label %28
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %.not39 = icmp eq i32 %23, %25
   br i1 %.not39, label %28, label %26
@@ -2000,71 +2000,71 @@ define i32 @ARKStepSetTables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 28:                                               ; preds = %21, %18
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 100
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 100
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 92
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 92
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %34 = load ptr, ptr %33, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %34, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %37 = load ptr, ptr %36, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %37) #6
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   store ptr null, ptr %39, align 8
   %40 = load i64, ptr %11, align 8
   %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 552
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 552
   %43 = load i64, ptr %42, align 8
   %44 = sub nsw i64 %43, %40
   store i64 %44, ptr %42, align 8
   %45 = load i64, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 544
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 544
   %47 = load i64, ptr %46, align 8
   %48 = sub nsw i64 %47, %45
   store i64 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %38, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %50 = load ptr, ptr %49, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %50, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %53) #6
   %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
   store ptr null, ptr %55, align 8
   %56 = load i64, ptr %11, align 8
   %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 552
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 552
   %59 = load i64, ptr %58, align 8
   %60 = sub nsw i64 %59, %56
   store i64 %60, ptr %58, align 8
   %61 = load i64, ptr %10, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 544
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 544
   %63 = load i64, ptr %62, align 8
   %64 = sub nsw i64 %63, %61
   store i64 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %54, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 100
   br i1 %14, label %66, label %92
 
 66:                                               ; preds = %28
-  %67 = getelementptr inbounds i8, ptr %4, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %68 = load i32, ptr %67, align 8
   store i32 %68, ptr %65, align 4
   %69 = load i32, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %54, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %54, i64 88
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %54, i64 92
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 92
   store i32 %72, ptr %73, align 4
   %74 = call ptr @ARKodeButcherTable_Copy(ptr noundef nonnull %4) #6
   %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 104
   store ptr %74, ptr %76, align 8
   %77 = icmp eq ptr %74, null
   br i1 %77, label %78, label %80
@@ -2093,9 +2093,9 @@ define i32 @ARKStepSetTables(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %90
 
 ARKStepSetExplicit.exit:                          ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %83, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i32 1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %83, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 28
   store i32 0, ptr %89, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -2110,22 +2110,22 @@ ARKStepSetExplicit.exit:                          ; preds = %82
   br label %156
 
 92:                                               ; preds = %28
-  %93 = getelementptr inbounds i8, ptr %3, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %65, align 4
   br i1 %15, label %95, label %111
 
 95:                                               ; preds = %92
   %96 = load i32, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %54, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %54, i64 88
   store i32 %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %54, i64 92
+  %100 = getelementptr inbounds nuw i8, ptr %54, i64 92
   store i32 %99, ptr %100, align 4
   %101 = call ptr @ARKodeButcherTable_Copy(ptr noundef nonnull %3) #6
   %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 112
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 112
   store ptr %101, ptr %103, align 8
   %104 = icmp eq ptr %101, null
   br i1 %104, label %105, label %107
@@ -2146,13 +2146,13 @@ ARKStepSetExplicit.exit:                          ; preds = %82
   br label %156
 
 111:                                              ; preds = %92
-  %112 = getelementptr inbounds i8, ptr %54, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %54, i64 88
   store i32 %1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %54, i64 92
+  %113 = getelementptr inbounds nuw i8, ptr %54, i64 92
   store i32 %2, ptr %113, align 4
   %114 = call ptr @ARKodeButcherTable_Copy(ptr noundef nonnull %4) #6
   %115 = load ptr, ptr %9, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 104
   store ptr %114, ptr %116, align 8
   %117 = icmp eq ptr %114, null
   br i1 %117, label %118, label %120
@@ -2165,7 +2165,7 @@ ARKStepSetExplicit.exit:                          ; preds = %82
 120:                                              ; preds = %111
   %121 = call ptr @ARKodeButcherTable_Copy(ptr noundef nonnull %3) #6
   %122 = load ptr, ptr %9, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 112
   store ptr %121, ptr %123, align 8
   %124 = icmp eq ptr %121, null
   br i1 %124, label %125, label %127
@@ -2187,32 +2187,32 @@ ARKStepSetExplicit.exit:                          ; preds = %82
 
 131:                                              ; preds = %ARKStepSetExplicit.exit, %107, %127
   %132 = load ptr, ptr %9, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 104
   %134 = load ptr, ptr %133, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %134, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   %135 = load i64, ptr %11, align 8
   %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 552
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 552
   %138 = load i64, ptr %137, align 8
   %139 = add nsw i64 %138, %135
   store i64 %139, ptr %137, align 8
   %140 = load i64, ptr %10, align 8
-  %141 = getelementptr inbounds i8, ptr %136, i64 544
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 544
   %142 = load i64, ptr %141, align 8
   %143 = add nsw i64 %142, %140
   store i64 %143, ptr %141, align 8
   %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 112
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 112
   %146 = load ptr, ptr %145, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %146, ptr noundef nonnull %11, ptr noundef nonnull %10) #6
   %147 = load i64, ptr %11, align 8
   %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 552
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 552
   %150 = load i64, ptr %149, align 8
   %151 = add nsw i64 %150, %147
   store i64 %151, ptr %149, align 8
   %152 = load i64, ptr %10, align 8
-  %153 = getelementptr inbounds i8, ptr %148, i64 544
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 544
   %154 = load i64, ptr %153, align 8
   %155 = add nsw i64 %154, %152
   store i64 %155, ptr %153, align 8
@@ -2239,51 +2239,51 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 92
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %17 = load ptr, ptr %16, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %17, ptr noundef nonnull %9, ptr noundef nonnull %8) #6
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %20) #6
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   store ptr null, ptr %22, align 8
   %23 = load i64, ptr %9, align 8
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 552
   %26 = load i64, ptr %25, align 8
   %27 = sub nsw i64 %26, %23
   store i64 %27, ptr %25, align 8
   %28 = load i64, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 544
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 544
   %30 = load i64, ptr %29, align 8
   %31 = sub nsw i64 %30, %28
   store i64 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %33 = load ptr, ptr %32, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %33, ptr noundef nonnull %9, ptr noundef nonnull %8) #6
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
   call void @ARKodeButcherTable_Free(ptr noundef %36) #6
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   store ptr null, ptr %38, align 8
   %39 = load i64, ptr %9, align 8
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 552
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 552
   %42 = load i64, ptr %41, align 8
   %43 = sub nsw i64 %42, %39
   store i64 %43, ptr %41, align 8
   %44 = load i64, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 544
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 544
   %46 = load i64, ptr %45, align 8
   %47 = sub nsw i64 %46, %44
   store i64 %47, ptr %45, align 8
@@ -2311,7 +2311,7 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 55:                                               ; preds = %53
   %56 = call ptr @ARKodeButcherTable_LoadERK(i32 noundef %2) #6
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 104
   store ptr %56, ptr %58, align 8
   %59 = icmp eq ptr %56, null
   br i1 %59, label %60, label %62
@@ -2322,16 +2322,16 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %152
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %56, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %57, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 100
   store i32 %64, ptr %65, align 4
   %66 = load i32, ptr %56, align 8
-  %67 = getelementptr inbounds i8, ptr %57, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 88
   store i32 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %56, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %57, i64 92
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 92
   store i32 %69, ptr %70, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -2351,9 +2351,9 @@ define i32 @ARKStepSetTableNum(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %80
 
 ARKStepSetExplicit.exit:                          ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %73, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i32 1, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 0, ptr %79, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2382,7 +2382,7 @@ ARKStepSetExplicit.exit:                          ; preds = %72
 86:                                               ; preds = %83
   %87 = call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %1) #6
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 112
   store ptr %87, ptr %89, align 8
   %90 = icmp eq ptr %87, null
   br i1 %90, label %91, label %93
@@ -2393,16 +2393,16 @@ ARKStepSetExplicit.exit:                          ; preds = %72
   br label %152
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %87, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %88, i64 100
+  %96 = getelementptr inbounds nuw i8, ptr %88, i64 100
   store i32 %95, ptr %96, align 4
   %97 = load i32, ptr %87, align 8
-  %98 = getelementptr inbounds i8, ptr %88, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %88, i64 88
   store i32 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %87, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %88, i64 92
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 92
   store i32 %100, ptr %101, align 4
   %102 = call i32 @ARKStepSetImplicit(ptr noundef %0)
   %.not60 = icmp eq i32 %102, 0
@@ -2456,13 +2456,13 @@ ARKStepSetExplicit.exit:                          ; preds = %72
 124:                                              ; preds = %120, %117, %114, %111, %108, %105
   %125 = call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %1) #6
   %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 112
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 112
   store ptr %125, ptr %127, align 8
   %128 = call ptr @ARKodeButcherTable_LoadERK(i32 noundef %2) #6
   %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 104
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 104
   store ptr %128, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %129, i64 112
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 112
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %136
@@ -2482,16 +2482,16 @@ ARKStepSetExplicit.exit:                          ; preds = %72
   br label %152
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %132, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %129, i64 100
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 100
   store i32 %142, ptr %143, align 4
   %144 = load i32, ptr %132, align 8
-  %145 = getelementptr inbounds i8, ptr %129, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %129, i64 88
   store i32 %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %132, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %129, i64 92
+  %148 = getelementptr inbounds nuw i8, ptr %129, i64 92
   store i32 %147, ptr %148, align 4
   %149 = call i32 @ARKStepSetImEx(ptr noundef %0)
   %.not59 = icmp eq i32 %149, 0
@@ -2534,7 +2534,7 @@ define i32 @ARKStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unna
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %. = select i1 %6, double %1, double 3.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -2554,7 +2554,7 @@ define i32 @ARKStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unname
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %. = select i1 %6, double %1, double 2.300000e+00
   store double %., ptr %8, align 8
   br label %9
@@ -2574,7 +2574,7 @@ define i32 @ARKStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unn
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %. = select i1 %6, double %1, double 2.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -2594,7 +2594,7 @@ define i32 @ARKStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unna
 .sink.split:                                      ; preds = %2
   %6 = icmp eq i32 %1, 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %. = select i1 %6, i32 20, i32 %1
   store i32 %., ptr %8, align 8
   br label %9
@@ -2613,7 +2613,7 @@ define i32 @ARKStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unna
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 %1, ptr %8, align 8
   br label %9
 
@@ -2631,7 +2631,7 @@ define i32 @ARKStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -2644,7 +2644,7 @@ define i32 @ARKStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
 13:                                               ; preds = %6
   %14 = icmp slt i32 %1, 1
   %spec.select = select i1 %14, i32 3, i32 %1
-  %15 = getelementptr inbounds i8, ptr %7, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store i32 %spec.select, ptr %15, align 8
   %16 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef nonnull %9, i32 noundef %spec.select) #6
   %.not8 = icmp eq i32 %16, 0
@@ -2673,7 +2673,7 @@ define i32 @ARKStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_un
 .sink.split:                                      ; preds = %2
   %6 = fcmp ugt double %1, 0.000000e+00
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %. = select i1 %6, double %1, double 1.000000e-01
   store double %., ptr %8, align 8
   br label %9
@@ -2692,7 +2692,7 @@ define i32 @ARKStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnam
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -2710,7 +2710,7 @@ define i32 @ARKStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_un
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %1, ptr %8, align 8
   br label %9
 
@@ -2728,7 +2728,7 @@ define i32 @ARKStepGetCurrentGamma(ptr noundef %0, ptr nocapture noundef writeon
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load double, ptr %8, align 8
   store double %9, ptr %1, align 8
   br label %10
@@ -2747,10 +2747,10 @@ define i32 @ARKStepGetNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonl
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 376
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 384
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 384
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %2, align 8
   br label %13
@@ -2769,7 +2769,7 @@ define i32 @ARKStepGetNumLinSolvSetups(ptr noundef %0, ptr nocapture noundef wri
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -2788,10 +2788,10 @@ define i32 @ARKStepGetCurrentButcherTables(ptr noundef %0, ptr nocapture noundef
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %2, align 8
   br label %13
@@ -2810,7 +2810,7 @@ define i32 @ARKStepGetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnam
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load ptr, ptr %8, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %9, ptr noundef %1) #6
   br label %10
@@ -2831,29 +2831,29 @@ define i32 @ARKStepGetTimestepperStats(ptr noundef %0, ptr nocapture noundef wri
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 448
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %1, align 8
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 480
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %3, align 8
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 376
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 376
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 384
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 384
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 392
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 392
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 512
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %7, align 8
   br label %32
@@ -2872,7 +2872,7 @@ define i32 @ARKStepGetNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef w
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 400
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -2891,7 +2891,7 @@ define i32 @ARKStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture nound
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -2910,10 +2910,10 @@ define i32 @ARKStepGetNonlinSolvStats(ptr noundef %0, ptr nocapture noundef writ
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 400
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %2, align 8
   br label %13
@@ -2943,30 +2943,30 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 376
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 376
   %13 = load i64, ptr %12, align 8
   %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, i64 noundef %13) #6
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 384
   %17 = load i64, ptr %16, align 8
   %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i64 noundef %17) #6
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 400
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 400
   %21 = load i64, ptr %20, align 8
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %21) #6
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load i64, ptr %24, align 8
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i64 noundef %25) #6
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 488
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 488
   %29 = load i64, ptr %28, align 8
   %30 = icmp sgt i64 %29, 0
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %10
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 400
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 400
   %34 = load i64, ptr %33, align 8
   %35 = sitofp i64 %34 to double
   %36 = uitofp nneg i64 %29 to double
@@ -2976,11 +2976,11 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 39:                                               ; preds = %31, %10
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 392
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 392
   %42 = load i64, ptr %41, align 8
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i64 noundef %42) #6
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr %46(ptr noundef %0) #6
   %.not119 = icmp eq ptr %47, null
@@ -2988,35 +2988,35 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 168
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef %0) #6
-  %53 = getelementptr inbounds i8, ptr %52, i64 128
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   %54 = load i64, ptr %53, align 8
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i64 noundef %54) #6
-  %56 = getelementptr inbounds i8, ptr %52, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %57 = load i64, ptr %56, align 8
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i64 noundef %57) #6
-  %59 = getelementptr inbounds i8, ptr %52, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %60 = load i64, ptr %59, align 8
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i64 noundef %60) #6
-  %62 = getelementptr inbounds i8, ptr %52, i64 168
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 168
   %63 = load i64, ptr %62, align 8
   %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, i64 noundef %63) #6
-  %65 = getelementptr inbounds i8, ptr %52, i64 160
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 160
   %66 = load i64, ptr %65, align 8
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i64 noundef %66) #6
-  %68 = getelementptr inbounds i8, ptr %52, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 176
   %69 = load i64, ptr %68, align 8
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %69) #6
-  %71 = getelementptr inbounds i8, ptr %52, i64 184
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 184
   %72 = load i64, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i64 noundef %72) #6
-  %74 = getelementptr inbounds i8, ptr %52, i64 192
+  %74 = getelementptr inbounds nuw i8, ptr %52, i64 192
   %75 = load i64, ptr %74, align 8
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i64 noundef %75) #6
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 400
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 400
   %79 = load i64, ptr %78, align 8
   %80 = icmp sgt i64 %79, 0
   br i1 %80, label %81, label %103
@@ -3030,7 +3030,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %87 = load i64, ptr %53, align 8
   %88 = sitofp i64 %87 to double
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 400
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 400
   %91 = load i64, ptr %90, align 8
   %92 = sitofp i64 %91 to double
   %93 = fdiv double %88, %92
@@ -3038,7 +3038,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %95 = load i64, ptr %59, align 8
   %96 = sitofp i64 %95 to double
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 400
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 400
   %99 = load i64, ptr %98, align 8
   %100 = sitofp i64 %99 to double
   %101 = fdiv double %96, %100
@@ -3047,7 +3047,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 103:                                              ; preds = %48, %81, %39
   %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 176
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 176
   %106 = load ptr, ptr %105, align 8
   %107 = call ptr %106(ptr noundef %0) #6
   %.not120 = icmp eq ptr %107, null
@@ -3055,61 +3055,61 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 176
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 176
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr %111(ptr noundef %0) #6
-  %113 = getelementptr inbounds i8, ptr %112, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 72
   %114 = load i64, ptr %113, align 8
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i64 noundef %114) #6
-  %116 = getelementptr inbounds i8, ptr %112, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 80
   %117 = load i64, ptr %116, align 8
   %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i64 noundef %117) #6
-  %119 = getelementptr inbounds i8, ptr %112, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 112
   %120 = load i64, ptr %119, align 8
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i64 noundef %120) #6
-  %122 = getelementptr inbounds i8, ptr %112, i64 128
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %123 = load i64, ptr %122, align 8
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, i64 noundef %123) #6
-  %125 = getelementptr inbounds i8, ptr %112, i64 120
+  %125 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %126 = load i64, ptr %125, align 8
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i64 noundef %126) #6
-  %128 = getelementptr inbounds i8, ptr %112, i64 136
+  %128 = getelementptr inbounds nuw i8, ptr %112, i64 136
   %129 = load i64, ptr %128, align 8
   %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, i64 noundef %129) #6
-  %131 = getelementptr inbounds i8, ptr %112, i64 88
+  %131 = getelementptr inbounds nuw i8, ptr %112, i64 88
   %132 = load i64, ptr %131, align 8
   %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i64 noundef %132) #6
-  %134 = getelementptr inbounds i8, ptr %112, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %112, i64 96
   %135 = load i64, ptr %134, align 8
   %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i64 noundef %135) #6
   br label %273
 
 137:                                              ; preds = %9
   %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 376
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 376
   %140 = load i64, ptr %139, align 8
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef %140) #6
   %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 384
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 384
   %144 = load i64, ptr %143, align 8
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i64 noundef %144) #6
   %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 400
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 400
   %148 = load i64, ptr %147, align 8
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.51, i64 noundef %148) #6
   %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 408
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 408
   %152 = load i64, ptr %151, align 8
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, i64 noundef %152) #6
   %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 488
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 488
   %156 = load i64, ptr %155, align 8
   %157 = icmp sgt i64 %156, 0
   br i1 %157, label %158, label %166
 
 158:                                              ; preds = %137
   %159 = load ptr, ptr %5, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 400
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 400
   %161 = load i64, ptr %160, align 8
   %162 = sitofp i64 %161 to double
   %163 = uitofp nneg i64 %156 to double
@@ -3123,11 +3123,11 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 168:                                              ; preds = %166, %158
   %169 = load ptr, ptr %5, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 392
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 392
   %171 = load i64, ptr %170, align 8
   %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.55, i64 noundef %171) #6
   %173 = load ptr, ptr %4, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 168
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 168
   %175 = load ptr, ptr %174, align 8
   %176 = call ptr %175(ptr noundef %0) #6
   %.not117 = icmp eq ptr %176, null
@@ -3135,35 +3135,35 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 177:                                              ; preds = %168
   %178 = load ptr, ptr %4, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 168
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 168
   %180 = load ptr, ptr %179, align 8
   %181 = call ptr %180(ptr noundef %0) #6
-  %182 = getelementptr inbounds i8, ptr %181, i64 128
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 128
   %183 = load i64, ptr %182, align 8
   %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.56, i64 noundef %183) #6
-  %185 = getelementptr inbounds i8, ptr %181, i64 136
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 136
   %186 = load i64, ptr %185, align 8
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, i64 noundef %186) #6
-  %188 = getelementptr inbounds i8, ptr %181, i64 152
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 152
   %189 = load i64, ptr %188, align 8
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.58, i64 noundef %189) #6
-  %191 = getelementptr inbounds i8, ptr %181, i64 168
+  %191 = getelementptr inbounds nuw i8, ptr %181, i64 168
   %192 = load i64, ptr %191, align 8
   %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.59, i64 noundef %192) #6
-  %194 = getelementptr inbounds i8, ptr %181, i64 160
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 160
   %195 = load i64, ptr %194, align 8
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.60, i64 noundef %195) #6
-  %197 = getelementptr inbounds i8, ptr %181, i64 176
+  %197 = getelementptr inbounds nuw i8, ptr %181, i64 176
   %198 = load i64, ptr %197, align 8
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, i64 noundef %198) #6
-  %200 = getelementptr inbounds i8, ptr %181, i64 184
+  %200 = getelementptr inbounds nuw i8, ptr %181, i64 184
   %201 = load i64, ptr %200, align 8
   %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef %201) #6
-  %203 = getelementptr inbounds i8, ptr %181, i64 192
+  %203 = getelementptr inbounds nuw i8, ptr %181, i64 192
   %204 = load i64, ptr %203, align 8
   %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.63, i64 noundef %204) #6
   %206 = load ptr, ptr %5, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 400
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 400
   %208 = load i64, ptr %207, align 8
   %209 = icmp sgt i64 %208, 0
   br i1 %209, label %210, label %232
@@ -3177,7 +3177,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %216 = load i64, ptr %182, align 8
   %217 = sitofp i64 %216 to double
   %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 400
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 400
   %220 = load i64, ptr %219, align 8
   %221 = sitofp i64 %220 to double
   %222 = fdiv double %217, %221
@@ -3185,7 +3185,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %224 = load i64, ptr %188, align 8
   %225 = sitofp i64 %224 to double
   %226 = load ptr, ptr %5, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 400
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 400
   %228 = load i64, ptr %227, align 8
   %229 = sitofp i64 %228 to double
   %230 = fdiv double %225, %229
@@ -3200,7 +3200,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 236:                                              ; preds = %210, %232, %168
   %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 176
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 176
   %239 = load ptr, ptr %238, align 8
   %240 = call ptr %239(ptr noundef %0) #6
   %.not118 = icmp eq ptr %240, null
@@ -3208,31 +3208,31 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 176
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 176
   %244 = load ptr, ptr %243, align 8
   %245 = call ptr %244(ptr noundef %0) #6
-  %246 = getelementptr inbounds i8, ptr %245, i64 72
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 72
   %247 = load i64, ptr %246, align 8
   %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.70, i64 noundef %247) #6
-  %249 = getelementptr inbounds i8, ptr %245, i64 80
+  %249 = getelementptr inbounds nuw i8, ptr %245, i64 80
   %250 = load i64, ptr %249, align 8
   %251 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i64 noundef %250) #6
-  %252 = getelementptr inbounds i8, ptr %245, i64 112
+  %252 = getelementptr inbounds nuw i8, ptr %245, i64 112
   %253 = load i64, ptr %252, align 8
   %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.72, i64 noundef %253) #6
-  %255 = getelementptr inbounds i8, ptr %245, i64 128
+  %255 = getelementptr inbounds nuw i8, ptr %245, i64 128
   %256 = load i64, ptr %255, align 8
   %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.73, i64 noundef %256) #6
-  %258 = getelementptr inbounds i8, ptr %245, i64 120
+  %258 = getelementptr inbounds nuw i8, ptr %245, i64 120
   %259 = load i64, ptr %258, align 8
   %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.74, i64 noundef %259) #6
-  %261 = getelementptr inbounds i8, ptr %245, i64 136
+  %261 = getelementptr inbounds nuw i8, ptr %245, i64 136
   %262 = load i64, ptr %261, align 8
   %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.75, i64 noundef %262) #6
-  %264 = getelementptr inbounds i8, ptr %245, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %245, i64 88
   %265 = load i64, ptr %264, align 8
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.76, i64 noundef %265) #6
-  %267 = getelementptr inbounds i8, ptr %245, i64 96
+  %267 = getelementptr inbounds nuw i8, ptr %245, i64 96
   %268 = load i64, ptr %267, align 8
   %269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.77, i64 noundef %268) #6
   br label %270
@@ -3278,11 +3278,11 @@ define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
 11:                                               ; preds = %6
   %12 = call i64 @fwrite(ptr nonnull @.str.81, i64 37, i64 1, ptr %1)
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load i32, ptr %14, align 8
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.82, i32 noundef %15) #6
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %29, label %20
@@ -3290,7 +3290,7 @@ define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
 20:                                               ; preds = %11
   %21 = call i64 @fwrite(ptr nonnull @.str.83, i64 25, i64 1, ptr %1)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %24 = load i32, ptr %23, align 4
   %.not26 = icmp eq i32 %24, 0
   br i1 %.not26, label %27, label %25
@@ -3305,10 +3305,10 @@ define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
 
 29:                                               ; preds = %25, %27, %11
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %.not27 = icmp eq i32 %32, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %30, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %33 = icmp eq i32 %.pre, 0
   br i1 %.not27, label %37, label %34
@@ -3333,37 +3333,37 @@ define i32 @ARKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
 
 41:                                               ; preds = %38, %.thread, %35
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
   %.not30 = icmp eq i32 %44, 0
   br i1 %.not30, label %73, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %42, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 184
   %47 = load i32, ptr %46, align 8
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.89, i32 noundef %47) #6
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 232
   %51 = load double, ptr %50, align 8
   %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.90, double noundef %51) #6
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 256
   %55 = load i32, ptr %54, align 8
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.91, i32 noundef %55) #6
   %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 192
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 192
   %59 = load double, ptr %58, align 8
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.92, double noundef %59) #6
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 200
   %63 = load double, ptr %62, align 8
   %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.93, double noundef %63) #6
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 176
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %67 = load double, ptr %66, align 8
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.94, double noundef %67) #6
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 240
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 240
   %71 = load i32, ptr %70, align 8
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.95, i32 noundef %71) #6
   br label %73
@@ -3389,13 +3389,13 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -3406,17 +3406,17 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %45
 
 17:                                               ; preds = %11, %6
-  %18 = getelementptr inbounds i8, ptr %7, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.97, i32 noundef %19) #6
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %32, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %21, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %26 = load ptr, ptr %25, align 8
   %.not12 = icmp eq ptr %26, null
   br i1 %.not12, label %32, label %27
@@ -3424,7 +3424,7 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 27:                                               ; preds = %24
   %28 = call i64 @fwrite(ptr nonnull @.str.98, i64 26, i64 1, ptr %1)
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   call void @ARKodeButcherTable_Write(ptr noundef %31, ptr noundef %1) #6
   br label %32
@@ -3432,13 +3432,13 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 32:                                               ; preds = %27, %24, %17
   %fputc = call i32 @fputc(i32 10, ptr %1)
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %35 = load i32, ptr %34, align 4
   %.not13 = icmp eq i32 %35, 0
   br i1 %.not13, label %44, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %38 = load ptr, ptr %37, align 8
   %.not14 = icmp eq ptr %38, null
   br i1 %.not14, label %44, label %39
@@ -3446,7 +3446,7 @@ define i32 @ARKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 39:                                               ; preds = %36
   %40 = call i64 @fwrite(ptr nonnull @.str.99, i64 26, i64 1, ptr %1)
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %43 = load ptr, ptr %42, align 8
   call void @ARKodeButcherTable_Write(ptr noundef %43, ptr noundef %1) #6
   br label %44

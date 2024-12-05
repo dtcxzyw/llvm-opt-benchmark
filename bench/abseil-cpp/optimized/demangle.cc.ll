@@ -213,25 +213,25 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
 if.end.i:
   %state = alloca %"struct.absl::debugging_internal::State", align 8
   store ptr %mangled, ptr %state, align 8
-  %out1.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out1.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   store ptr %out, ptr %out1.i, align 8
   %conv.i = trunc i64 %out_size to i32
-  %out_end_idx.i = getelementptr inbounds i8, ptr %state, i64 16
+  %out_end_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   store i32 %conv.i, ptr %out_end_idx.i, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
-  %prev_name_length.i = getelementptr inbounds i8, ptr %state, i64 40
-  %0 = getelementptr inbounds i8, ptr %state, i64 28
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
+  %prev_name_length.i = getelementptr inbounds nuw i8, ptr %state, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 -65536, ptr %prev_name_length.i, align 8
   store i32 1, ptr %recursion_depth.i, align 4
-  %steps.i.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   store i32 1, ptr %steps.i.i, align 8
   %call2.i = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseMangledNameEPNS0_5StateE(ptr noundef nonnull %state)
   br i1 %call2.i, label %if.then3.i, label %land.end
 
 if.then3.i:                                       ; preds = %if.end.i
   %state.val14.i = load ptr, ptr %state, align 8
-  %1 = getelementptr inbounds i8, ptr %state, i64 28
+  %1 = getelementptr inbounds nuw i8, ptr %state, i64 28
   %state.val15.i = load i32, ptr %1, align 4
   %idxprom.i.i = sext i32 %state.val15.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %state.val14.i, i64 %idxprom.i.i
@@ -320,7 +320,7 @@ if.then18.i:                                      ; preds = %if.end12.i
 while.body.i.i.i:                                 ; preds = %if.then18.i, %while.body.i.i.i
   %len.05.i.i.i = phi i64 [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %if.then18.i ]
   %str.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %arrayidx.i.i, %if.then18.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %str.addr.04.i.i.i, i64 1
   %inc.i.i.i = add i64 %len.05.i.i.i, 1
   %19 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.not.i.i.i = icmp eq i8 %19, 0
@@ -332,7 +332,7 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i
 
 land.lhs.true:                                    ; preds = %while.cond.i.i, %if.then3.i, %if.then18.i, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
   %state.val = load i32, ptr %out_end_idx.i, align 8
-  %20 = getelementptr inbounds i8, ptr %state, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %state, i64 32
   %state.val1 = load i32, ptr %20, align 8
   %cmp.i.not = icmp slt i32 %state.val1, %state.val
   %cmp = icmp sgt i32 %state.val1, 0
@@ -400,11 +400,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseMangledNameEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -434,7 +434,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i7, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %4 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %4, 90
   br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit23, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -493,7 +493,7 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %str) unnamed_addr #5 {
 entry:
-  %append = getelementptr inbounds i8, ptr %state, i64 40
+  %append = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load = load i32, ptr %append, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %if.end, label %if.then
@@ -506,7 +506,7 @@ if.then:                                          ; preds = %entry
 while.body.i:                                     ; preds = %if.then, %while.body.i
   %len.05.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %if.then ]
   %str.addr.04.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %str, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.04.i, i64 1
   %inc.i = add i64 %len.05.i, 1
   %1 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %1, 0
@@ -524,11 +524,11 @@ if.end:                                           ; preds = %_ZN4absl18debugging
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %two_char_token) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -549,9 +549,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx6 = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %5 = load i8, ptr %arrayidx6, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %two_char_token, i64 1
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %two_char_token, i64 1
   %6 = load i8, ptr %arrayidx8, align 1
   %cmp10 = icmp eq i8 %5, %6
   br i1 %cmp10, label %if.then11, label %cleanup
@@ -570,11 +570,11 @@ cleanup:                                          ; preds = %entry, %if.end, %la
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -620,11 +620,11 @@ entry:
   %copy.i = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -647,9 +647,9 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   br i1 %cmp3.i83, label %lor.lhs.false.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit84
-  %parse_state.i = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state.i = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %parse_state.i, i64 12, i1 false)
-  %copy.sroa.2.0.parse_state.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.2.0.parse_state.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.2.0.copyload.i = load i32, ptr %copy.sroa.2.0.parse_state.sroa_idx.i, align 4
   %inc.i.i63 = add nsw i32 %0, 3
   store i32 %inc.i.i63, ptr %recursion_depth.i, align 4
@@ -767,7 +767,7 @@ if.end.i.i:                                       ; preds = %_ZN4absl18debugging
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %p.016.i.add.i = add nuw nsw i64 %p.016.i.idx.i, 1
-  %incdec.ptr.i.ptr.i = getelementptr inbounds i8, ptr @.str.1, i64 %p.016.i.add.i
+  %incdec.ptr.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.1, i64 %p.016.i.add.i
   %7 = load i8, ptr %incdec.ptr.i.ptr.i, align 1
   %exitcond.i = icmp eq i64 %p.016.i.add.i, 2
   br i1 %exitcond.i, label %_ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit, label %for.body.i.i, !llvm.loop !10
@@ -1007,7 +1007,7 @@ if.end5:                                          ; preds = %lor.lhs.false.threa
   %dec.i90165.pre-phi = add nsw i32 %dec.i90165.pre-phi.in, -1
   store i32 %dec.i90165.pre-phi, ptr %recursion_depth.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %copy.i)
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %call7 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %state, i1 noundef zeroext false)
   br i1 %call7, label %land.lhs.true, label %if.end11
@@ -1043,11 +1043,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy.sroa.0 = alloca { i32, i32, i32 }, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -1057,9 +1057,9 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %parse_state, i64 12, i1 false)
-  %copy.sroa.2.0.parse_state.sroa_idx = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.2.0.parse_state.sroa_idx = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.2.0.copyload = load i32, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
   %bf.clear.i = and i32 %copy.sroa.2.0.copyload, 2147483647
   store i32 %bf.clear.i, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
@@ -1123,11 +1123,11 @@ cleanup:                                          ; preds = %entry, %while.body.
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseSpecialNameEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy.sroa.0 = alloca { i32, i32, i32 }, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -1137,9 +1137,9 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %parse_state, i64 12, i1 false)
-  %copy.sroa.10.0.parse_state.sroa_idx = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.10.0.parse_state.sroa_idx = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.10.0.copyload = load i32, ptr %copy.sroa.10.0.parse_state.sroa_idx, align 4
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -1181,7 +1181,7 @@ if.end.i63:                                       ; preds = %land.lhs.true
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.016.i.add = add nuw nsw i64 %p.016.i.idx, 1
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.211, i64 %p.016.i.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr @.str.211, i64 %p.016.i.add
   %4 = load i8, ptr %incdec.ptr.i.ptr, align 1
   %exitcond = icmp eq i64 %p.016.i.add, 5
   br i1 %exitcond, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %for.body.i, !llvm.loop !10
@@ -1248,7 +1248,7 @@ if.end.i77:                                       ; preds = %if.end8
   br i1 %cmp.i81, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i77
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i80, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i80, i64 1
   %11 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %11, 99
   br i1 %cmp10.i, label %land.lhs.true12, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -1347,7 +1347,7 @@ if.end.i99:                                       ; preds = %if.end22
   br i1 %cmp.i104, label %land.lhs.true.i106, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit111.thread
 
 land.lhs.true.i106:                               ; preds = %if.end.i99
-  %arrayidx6.i107 = getelementptr inbounds i8, ptr %arrayidx.i.i103, i64 1
+  %arrayidx6.i107 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i103, i64 1
   %20 = load i8, ptr %arrayidx6.i107, align 1
   %cmp10.i108 = icmp eq i8 %20, 86
   br i1 %cmp10.i108, label %land.lhs.true26, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit111.thread
@@ -1485,7 +1485,7 @@ if.end.i164:                                      ; preds = %if.end41
   br i1 %cmp.i169, label %land.lhs.true.i171, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit176.thread
 
 land.lhs.true.i171:                               ; preds = %if.end.i164
-  %arrayidx6.i172 = getelementptr inbounds i8, ptr %arrayidx.i.i168, i64 1
+  %arrayidx6.i172 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i168, i64 1
   %31 = load i8, ptr %arrayidx6.i172, align 1
   %cmp10.i173 = icmp eq i8 %31, 67
   br i1 %cmp10.i173, label %land.lhs.true45, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit176.thread
@@ -1551,7 +1551,7 @@ invoke.cont.i185:                                 ; preds = %if.then3.i.i, %if.e
 
 if.then8.i:                                       ; preds = %invoke.cont.i185, %if.then8.i
   %p.034.i = phi ptr [ %incdec.ptr.i190, %if.then8.i ], [ %arrayidx.i.i187, %invoke.cont.i185 ]
-  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i190 = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %36 = load i8, ptr %incdec.ptr.i190, align 1
   %37 = add i8 %36, -48
   %38 = icmp ult i8 %37, 10
@@ -1657,7 +1657,7 @@ if.end.i235:                                      ; preds = %land.lhs.true65
 
 for.cond.i245:                                    ; preds = %for.body.i242
   %p.016.i243.add = add nuw nsw i64 %p.016.i243.idx, 1
-  %incdec.ptr.i246.ptr = getelementptr inbounds i8, ptr @.str.215, i64 %p.016.i243.add
+  %incdec.ptr.i246.ptr = getelementptr inbounds nuw i8, ptr @.str.215, i64 %p.016.i243.add
   %46 = load i8, ptr %incdec.ptr.i246.ptr, align 1
   %exitcond394 = icmp eq i64 %p.016.i243.add, 2
   br i1 %exitcond394, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit251.thread, label %for.body.i242, !llvm.loop !10
@@ -1712,7 +1712,7 @@ if.end.i259:                                      ; preds = %if.end72
   br i1 %cmp.i264, label %land.lhs.true.i266, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit271.thread
 
 land.lhs.true.i266:                               ; preds = %if.end.i259
-  %arrayidx6.i267 = getelementptr inbounds i8, ptr %arrayidx.i.i263, i64 1
+  %arrayidx6.i267 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i263, i64 1
   %51 = load i8, ptr %arrayidx6.i267, align 1
   %cmp10.i268 = icmp eq i8 %51, 82
   br i1 %cmp10.i268, label %land.lhs.true76, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit271.thread
@@ -1761,7 +1761,7 @@ if.end.i279:                                      ; preds = %if.end80
   br i1 %cmp.i284, label %land.lhs.true.i286, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit291.thread
 
 land.lhs.true.i286:                               ; preds = %if.end.i279
-  %arrayidx6.i287 = getelementptr inbounds i8, ptr %arrayidx.i.i283, i64 1
+  %arrayidx6.i287 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i283, i64 1
   %55 = load i8, ptr %arrayidx6.i287, align 1
   %cmp10.i288 = icmp eq i8 %55, 65
   br i1 %cmp10.i288, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i303, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit291.thread
@@ -1863,7 +1863,7 @@ if.end.i344:                                      ; preds = %land.lhs.true92
 
 for.cond.i354:                                    ; preds = %for.body.i351
   %p.016.i352.add = add nuw nsw i64 %p.016.i352.idx, 1
-  %incdec.ptr.i355.ptr = getelementptr inbounds i8, ptr @.str.218, i64 %p.016.i352.add
+  %incdec.ptr.i355.ptr = getelementptr inbounds nuw i8, ptr @.str.218, i64 %p.016.i352.add
   %64 = load i8, ptr %incdec.ptr.i355.ptr, align 1
   %exitcond395 = icmp eq i64 %p.016.i352.add, 2
   br i1 %exitcond395, label %if.end102.sink.split, label %for.body.i351, !llvm.loop !10
@@ -1912,11 +1912,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr nocapture noundef %state, i1 noundef zeroext %accept_std) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -1946,7 +1946,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i26, label %land.lhs.true.i, label %if.end5
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %4 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %4, 95
   br i1 %cmp10.i, label %if.then2, label %if.end5
@@ -1955,7 +1955,7 @@ if.then2:                                         ; preds = %land.lhs.true.i
   %add.i = add nsw i32 %state.val8.i, 2
   store i32 %add.i, ptr %2, align 4
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %append.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i = load i32, ptr %append.i, align 4
   %tobool.not.i = icmp sgt i32 %bf.load.i, -1
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
@@ -1965,7 +1965,7 @@ while.body.i.i.preheader:                         ; preds = %if.then2
   br label %cleanup
 
 if.end5:                                          ; preds = %land.lhs.true.i, %if.end.i, %if.end
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
   %inc2.i.i33 = add nsw i32 %1, 3
@@ -2010,7 +2010,7 @@ for.body.i:                                       ; preds = %if.end.i49, %for.in
   br i1 %or.cond25.i, label %for.inc.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.027.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.027.i, i64 1
   %11 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %11, 0
   br i1 %cmp.not.i, label %land.lhs.true10, label %for.body.i, !llvm.loop !13
@@ -2044,7 +2044,7 @@ if.then13:                                        ; preds = %if.end.i61
   %inc.i69 = add nsw i32 %conv17.i, 1
   store i32 %inc.i69, ptr %parse_state, align 4
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %append.i71 = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i71 = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i72 = load i32, ptr %append.i71, align 4
   %tobool.not.i73 = icmp sgt i32 %bf.load.i72, -1
   br i1 %tobool.not.i73, label %cleanup, label %while.body.i.i75.preheader
@@ -2090,7 +2090,7 @@ invoke.cont18:                                    ; preds = %if.end.i91
 for.body:                                         ; preds = %invoke.cont18, %for.inc
   %17 = phi ptr [ @.str.190, %invoke.cont18 ], [ %24, %for.inc ]
   %p.0152 = phi ptr [ @_ZN4absl18debugging_internalL17kSubstitutionListE, %invoke.cont18 ], [ %incdec.ptr, %for.inc ]
-  %arrayidx24 = getelementptr inbounds i8, ptr %17, i64 1
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %18 = load i8, ptr %arrayidx24, align 1
   %cmp26 = icmp eq i8 %16, %18
   %cmp31.not = icmp ne i8 %18, 116
@@ -2099,7 +2099,7 @@ for.body:                                         ; preds = %invoke.cont18, %for
   br i1 %or.cond, label %if.then32, label %for.inc
 
 if.then32:                                        ; preds = %for.body
-  %append.i101 = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i101 = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i102 = load i32, ptr %append.i101, align 4
   %tobool.not.i103 = icmp sgt i32 %bf.load.i102, -1
   br i1 %tobool.not.i103, label %invoke.cont33, label %while.body.i.i105.preheader
@@ -2109,7 +2109,7 @@ while.body.i.i105.preheader:                      ; preds = %if.then32
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %while.body.i.i105.preheader, %if.then32
-  %real_name = getelementptr inbounds i8, ptr %p.0152, i64 8
+  %real_name = getelementptr inbounds nuw i8, ptr %p.0152, i64 8
   %19 = load ptr, ptr %real_name, align 8
   %20 = load i8, ptr %19, align 1
   %cmp37.not = icmp eq i8 %20, 0
@@ -2134,7 +2134,7 @@ if.then.i130:                                     ; preds = %while.body.i.i118.p
 while.body.i.i131:                                ; preds = %if.then.i130, %while.body.i.i131
   %len.05.i.i132 = phi i64 [ %inc.i.i135, %while.body.i.i131 ], [ 0, %if.then.i130 ]
   %str.addr.04.i.i133 = phi ptr [ %incdec.ptr.i.i134, %while.body.i.i131 ], [ %19, %if.then.i130 ]
-  %incdec.ptr.i.i134 = getelementptr inbounds i8, ptr %str.addr.04.i.i133, i64 1
+  %incdec.ptr.i.i134 = getelementptr inbounds nuw i8, ptr %str.addr.04.i.i133, i64 1
   %inc.i.i135 = add i64 %len.05.i.i132, 1
   %22 = load i8, ptr %incdec.ptr.i.i134, align 1
   %cmp.not.i.i136 = icmp eq i8 %22, 0
@@ -2152,7 +2152,7 @@ if.end44:                                         ; preds = %if.then38, %_ZN4abs
   br label %cleanup
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0152, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0152, i64 24
   %24 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %24, null
   br i1 %cmp.not, label %if.end47, label %for.body, !llvm.loop !14
@@ -2173,11 +2173,11 @@ cleanup:                                          ; preds = %entry, %while.body.
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy.sroa.0 = alloca { i32, i32, i32 }, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2187,9 +2187,9 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %parse_state, i64 12, i1 false)
-  %copy.sroa.2.0.parse_state.sroa_idx = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.2.0.parse_state.sroa_idx = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.2.0.copyload = load i32, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
   %bf.clear.i = and i32 %copy.sroa.2.0.copyload, 2147483647
   store i32 %bf.clear.i, ptr %copy.sroa.2.0.parse_state.sroa_idx, align 4
@@ -2304,11 +2304,11 @@ cleanup:                                          ; preds = %entry, %while.body.
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseUnscopedNameEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2333,7 +2333,7 @@ lpad:                                             ; preds = %_ZN4absl18debugging
   resume { ptr, i32 } %2
 
 if.end3:                                          ; preds = %invoke.cont
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %4 = load i32, ptr %recursion_depth.i, align 4
   %inc.i.i = add nsw i32 %4, 1
@@ -2356,7 +2356,7 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp.i12, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %7 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %7, 116
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -2369,7 +2369,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
   %add.i = add nsw i32 %state.val8.i, 2
   store i32 %add.i, ptr %parse_state, align 4
   store i32 %4, ptr %recursion_depth.i, align 4
-  %append.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i = load i32, ptr %append.i, align 4
   %tobool.not.i = icmp sgt i32 %bf.load.i, -1
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
@@ -2400,11 +2400,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr nocapture noundef %state, i8 noundef signext %one_char_token) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2437,9 +2437,9 @@ cleanup:                                          ; preds = %entry, %if.end, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2527,11 +2527,11 @@ cleanup:                                          ; preds = %invoke.cont2, %if.e
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2541,7 +2541,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %nest_level.i = getelementptr inbounds i8, ptr %state, i64 40
+  %nest_level.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %2 = getelementptr i8, ptr %state, i64 28
   %bf.load.i.pre = load i32, ptr %nest_level.i, align 4
   br label %while.cond
@@ -2654,7 +2654,7 @@ if.end15:                                         ; preds = %invoke.cont11, %_ZN
   br i1 %or.cond.i35, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %if.end15
-  %out_cur_idx.i = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %7 = load i32, ptr %out_cur_idx.i, align 4
   %cmp5.i = icmp sgt i32 %7, 1
   br i1 %cmp5.i, label %if.then.i37, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
@@ -2662,10 +2662,10 @@ land.lhs.true3.i:                                 ; preds = %if.end15
 if.then.i37:                                      ; preds = %land.lhs.true3.i
   %sub.i = add nsw i32 %7, -2
   store i32 %sub.i, ptr %out_cur_idx.i, align 4
-  %out.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %8 = load ptr, ptr %out.i, align 8
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
 
@@ -2694,11 +2694,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr nocapture noundef %state, ptr nocapture noundef readonly %char_class) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2723,7 +2723,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp5.not15, label %cleanup, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.016, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.016, i64 1
   %5 = load i8, ptr %incdec.ptr, align 1
   %cmp5.not = icmp eq i8 %5, 0
   br i1 %cmp5.not, label %cleanup, label %for.body, !llvm.loop !10
@@ -2749,11 +2749,11 @@ cleanup:                                          ; preds = %for.cond, %for.cond
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2783,7 +2783,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i13, label %land.lhs.true.i, label %if.end5
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %4 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %4, 95
   br i1 %cmp10.i, label %if.then2, label %if.end5
@@ -2792,7 +2792,7 @@ if.then2:                                         ; preds = %land.lhs.true.i
   %add.i = add nsw i32 %state.val8.i, 2
   store i32 %add.i, ptr %2, align 4
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %append.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i = load i32, ptr %append.i, align 4
   %tobool.not.i = icmp sgt i32 %bf.load.i, -1
   br i1 %tobool.not.i, label %cleanup, label %while.body.i.i.preheader
@@ -2802,7 +2802,7 @@ while.body.i.i.preheader:                         ; preds = %if.then2
   br label %cleanup
 
 if.end5:                                          ; preds = %land.lhs.true.i, %if.end.i, %if.end
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
   %inc2.i.i20 = add nsw i32 %1, 3
@@ -2862,7 +2862,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i.i, %if.e
 
 if.then8.i:                                       ; preds = %invoke.cont.i, %if.then8.i
   %p.034.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %arrayidx.i.i39, %invoke.cont.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %10 = load i8, ptr %incdec.ptr.i, align 1
   %11 = add i8 %10, -48
   %12 = icmp ult i8 %11, 10
@@ -2892,7 +2892,7 @@ if.then13:                                        ; preds = %if.end.i49
   %inc.i57 = add nsw i32 %conv23.i, 1
   store i32 %inc.i57, ptr %parse_state, align 4
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %append.i59 = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i59 = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i60 = load i32, ptr %append.i59, align 4
   %tobool.not.i61 = icmp sgt i32 %bf.load.i60, -1
   br i1 %tobool.not.i61, label %cleanup, label %while.body.i.i63.preheader
@@ -2919,11 +2919,11 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
 entry:
   %buf.i = alloca [20 x i8], align 16
   %copy.sroa.0 = alloca { i32, i32, i32 }, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -2933,9 +2933,9 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %parse_state, i64 12, i1 false)
-  %copy.sroa.3.0.parse_state.sroa_idx = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.3.0.parse_state.sroa_idx = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.3.0.copyload = load i32, ptr %copy.sroa.3.0.parse_state.sroa_idx, align 4
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -2956,7 +2956,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i26, label %land.lhs.true.i, label %if.end18.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %3 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %3, 116
   br i1 %cmp10.i, label %land.lhs.true, label %if.end18.sink.split
@@ -3011,7 +3011,7 @@ if.then8.i:                                       ; preds = %invoke.cont.i, %if.
   %conv9.i = zext nneg i8 %8 to i32
   %sub.i = add nsw i32 %conv9.i, -48
   %add.i38 = add i32 %sub.i, %mul.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %9 = load i8, ptr %incdec.ptr.i, align 1
   %10 = add i8 %9, -48
   %11 = icmp ult i8 %10, 10
@@ -3077,7 +3077,7 @@ invoke.cont14.thread:                             ; preds = %invoke.cont12.threa
 
 if.then.i57:                                      ; preds = %invoke.cont12
   %add = add nsw i32 %which.0196, 2
-  %arrayidx.i = getelementptr inbounds i8, ptr %buf.i, i64 20
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 20
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i57
@@ -3104,9 +3104,9 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %cmp14.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %do.end.i
-  %out_cur_idx.i.i = getelementptr inbounds i8, ptr %state, i64 32
-  %out_end_idx.i.i = getelementptr inbounds i8, ptr %state, i64 16
-  %out.i.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out_cur_idx.i.i = getelementptr inbounds nuw i8, ptr %state, i64 32
+  %out_end_idx.i.i = getelementptr inbounds nuw i8, ptr %state, i64 16
+  %out.i.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.lr.ph.i.i
@@ -3118,7 +3118,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
   br i1 %cmp1.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx.i.i64 = getelementptr inbounds i8, ptr %incdec.ptr.i58, i64 %i.015.i.i
+  %arrayidx.i.i64 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i58, i64 %i.015.i.i
   %22 = load i8, ptr %arrayidx.i.i64, align 1
   %23 = load ptr, ptr %out.i.i, align 8
   store i32 %add.i.i, ptr %out_cur_idx.i.i, align 4
@@ -3135,15 +3135,15 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %if.then.i.i, %if.else.i.i, %do.end.i
-  %out_cur_idx11.i.i = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx11.i.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %24 = load i32, ptr %out_cur_idx11.i.i, align 4
-  %out_end_idx12.i.i = getelementptr inbounds i8, ptr %state, i64 16
+  %out_end_idx12.i.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %25 = load i32, ptr %out_end_idx12.i.i, align 8
   %cmp13.i.i = icmp slt i32 %24, %25
   br i1 %cmp13.i.i, label %if.then14.i.i, label %invoke.cont14
 
 if.then14.i.i:                                    ; preds = %for.end.i.i
-  %out15.i.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out15.i.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %26 = load ptr, ptr %out15.i.i, align 8
   %idxprom18.i.i = sext i32 %24 to i64
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %26, i64 %idxprom18.i.i
@@ -3204,7 +3204,7 @@ if.end.i87:                                       ; preds = %if.end18
   br i1 %cmp.i92, label %land.lhs.true.i94, label %if.end54.sink.split
 
 land.lhs.true.i94:                                ; preds = %if.end.i87
-  %arrayidx6.i95 = getelementptr inbounds i8, ptr %arrayidx.i.i91, i64 1
+  %arrayidx6.i95 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i91, i64 1
   %30 = load i8, ptr %arrayidx6.i95, align 1
   %cmp10.i96 = icmp eq i8 %30, 108
   br i1 %cmp10.i96, label %land.lhs.true22, label %if.end54.sink.split
@@ -3304,7 +3304,7 @@ if.then8.i151:                                    ; preds = %invoke.cont.i144, %
   %conv9.i155 = zext nneg i8 %38 to i32
   %sub.i156 = add nsw i32 %conv9.i155, -48
   %add.i157 = add i32 %sub.i156, %mul.i154
-  %incdec.ptr.i158 = getelementptr inbounds i8, ptr %p.034.i153, i64 1
+  %incdec.ptr.i158 = getelementptr inbounds nuw i8, ptr %p.034.i153, i64 1
   %39 = load i8, ptr %incdec.ptr.i158, align 1
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
@@ -3377,10 +3377,10 @@ cleanup:                                          ; preds = %if.then46, %entry, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr nocapture noundef %state, ptr noundef writeonly %number_out) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -3434,7 +3434,7 @@ if.then8:                                         ; preds = %invoke.cont, %if.th
   %conv9 = zext nneg i8 %7 to i32
   %sub = add i32 %mul, -48
   %add = add i32 %sub, %conv9
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.034, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.034, i64 1
   %8 = load i8, ptr %incdec.ptr, align 1
   %9 = add i8 %8, -48
   %10 = icmp ult i8 %9, 10
@@ -3469,13 +3469,13 @@ cleanup:                                          ; preds = %invoke.cont, %entry
 define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr nocapture noundef %state, i32 noundef range(i32 -2147483646, -2147483648) %val) unnamed_addr #9 {
 entry:
   %buf = alloca [20 x i8], align 16
-  %append = getelementptr inbounds i8, ptr %state, i64 40
+  %append = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load = load i32, ptr %append, align 4
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 20
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 20
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
@@ -3502,9 +3502,9 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp14.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end
-  %out_cur_idx.i = getelementptr inbounds i8, ptr %state, i64 32
-  %out_end_idx.i = getelementptr inbounds i8, ptr %state, i64 16
-  %out.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out_cur_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 32
+  %out_end_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 16
+  %out.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
@@ -3516,7 +3516,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %incdec.ptr, i64 %i.015.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %i.015.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = load ptr, ptr %out.i, align 8
   store i32 %add.i, ptr %out_cur_idx.i, align 4
@@ -3533,15 +3533,15 @@ if.else.i:                                        ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %if.then.i, %if.else.i, %do.end
-  %out_cur_idx11.i = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx11.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %7 = load i32, ptr %out_cur_idx11.i, align 4
-  %out_end_idx12.i = getelementptr inbounds i8, ptr %state, i64 16
+  %out_end_idx12.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %8 = load i32, ptr %out_end_idx12.i, align 8
   %cmp13.i = icmp slt i32 %7, %8
   br i1 %cmp13.i, label %if.then14.i, label %if.end
 
 if.then14.i:                                      ; preds = %for.end.i
-  %out15.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out15.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %9 = load ptr, ptr %out15.i, align 8
   %idxprom18.i = sext i32 %7 to i64
   %arrayidx19.i = getelementptr inbounds i8, ptr %9, i64 %idxprom18.i
@@ -3560,11 +3560,11 @@ entry:
   %copy.i136 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i99 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -3574,7 +3574,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc2.i.i = add nsw i32 %1, 2
   store i32 %inc2.i.i, ptr %steps.i, align 8
@@ -3707,7 +3707,7 @@ if.end.i46:                                       ; preds = %if.end9
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.016.i.add = add nuw nsw i64 %p.016.i.idx, 1
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.10, i64 %p.016.i.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr @.str.10, i64 %p.016.i.add
   %10 = load i8, ptr %incdec.ptr.i.ptr, align 1
   %exitcond = icmp eq i64 %p.016.i.add, 5
   br i1 %exitcond, label %if.end23, label %for.body.i, !llvm.loop !10
@@ -3747,7 +3747,7 @@ if.end.i57:                                       ; preds = %if.end23
   br i1 %cmp.i61, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i57
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i60, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i60, i64 1
   %13 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %13, 112
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -3833,7 +3833,7 @@ for.body.i86:                                     ; preds = %for.inc.i, %for.con
   %19 = phi i32 [ %inc2.i.i79, %for.cond.preheader.i83 ], [ %35, %for.inc.i ]
   %20 = phi ptr [ @.str.15, %for.cond.preheader.i83 ], [ %36, %for.inc.i ]
   %p.079.i = phi ptr [ @_ZN4absl18debugging_internalL16kBuiltinTypeListE, %for.cond.preheader.i83 ], [ %incdec.ptr.i87, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %20, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %20, i64 1
   %21 = load i8, ptr %arrayidx.i, align 1
   %cmp2.i = icmp eq i8 %21, 0
   br i1 %cmp2.i, label %if.then3.i90, label %if.else.i
@@ -3860,9 +3860,9 @@ if.then7.i:                                       ; preds = %if.end.i.i94
   %inc.i21.i = add nsw i32 %state.val4.i.i96, 1
   store i32 %inc.i21.i, ptr %parse_state, align 4
   store i32 %inc.i.i77, ptr %recursion_depth.i, align 4
-  %real_name.i = getelementptr inbounds i8, ptr %p.079.i, i64 8
+  %real_name.i = getelementptr inbounds nuw i8, ptr %p.079.i, i64 8
   %24 = load ptr, ptr %real_name.i, align 8
-  %append.i.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i.i = load i32, ptr %append.i.i, align 4
   %tobool.not.i.i = icmp sgt i32 %bf.load.i.i, -1
   br i1 %tobool.not.i.i, label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, label %if.then.i.i
@@ -3875,7 +3875,7 @@ if.then.i.i:                                      ; preds = %if.then7.i
 while.body.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i
   %len.05.i.i.i = phi i64 [ %inc.i.i22.i, %while.body.i.i.i ], [ 0, %if.then.i.i ]
   %str.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %24, %if.then.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %str.addr.04.i.i.i, i64 1
   %inc.i.i22.i = add i64 %len.05.i.i.i, 1
   %26 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp.not.i.i.i = icmp eq i8 %26, 0
@@ -3887,7 +3887,7 @@ _ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %while.body.i.i.i, 
   br label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread
 
 if.else.i:                                        ; preds = %for.body.i86
-  %arrayidx12.i = getelementptr inbounds i8, ptr %20, i64 2
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %20, i64 2
   %27 = load i8, ptr %arrayidx12.i, align 1
   %cmp14.i = icmp eq i8 %27, 0
   br i1 %cmp14.i, label %land.lhs.true.i89, label %for.inc.i
@@ -3911,7 +3911,7 @@ if.end.i32.i:                                     ; preds = %land.lhs.true.i89
   br i1 %cmp.i35.i, label %land.lhs.true.i.i, label %for.inc.sink.split.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i32.i
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i34.i, i64 1
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i34.i, i64 1
   %30 = load i8, ptr %arrayidx6.i.i, align 1
   %31 = load i8, ptr %arrayidx.i, align 1
   %cmp10.i.i = icmp eq i8 %30, %31
@@ -3921,9 +3921,9 @@ if.then18.i:                                      ; preds = %land.lhs.true.i.i
   %add.i.i = add nsw i32 %state.val8.i.i, 2
   store i32 %add.i.i, ptr %parse_state, align 4
   store i32 %inc.i.i77, ptr %recursion_depth.i, align 4
-  %real_name19.i = getelementptr inbounds i8, ptr %p.079.i, i64 8
+  %real_name19.i = getelementptr inbounds nuw i8, ptr %p.079.i, i64 8
   %32 = load ptr, ptr %real_name19.i, align 8
-  %append.i37.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i37.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i38.i = load i32, ptr %append.i37.i, align 4
   %tobool.not.i39.i = icmp sgt i32 %bf.load.i38.i, -1
   br i1 %tobool.not.i39.i, label %_ZN4absl18debugging_internalL16ParseBuiltinTypeEPNS0_5StateE.exit.thread, label %if.then.i40.i
@@ -3936,7 +3936,7 @@ if.then.i40.i:                                    ; preds = %if.then18.i
 while.body.i.i42.i:                               ; preds = %if.then.i40.i, %while.body.i.i42.i
   %len.05.i.i43.i = phi i64 [ %inc.i.i46.i, %while.body.i.i42.i ], [ 0, %if.then.i40.i ]
   %str.addr.04.i.i44.i = phi ptr [ %incdec.ptr.i.i45.i, %while.body.i.i42.i ], [ %32, %if.then.i40.i ]
-  %incdec.ptr.i.i45.i = getelementptr inbounds i8, ptr %str.addr.04.i.i44.i, i64 1
+  %incdec.ptr.i.i45.i = getelementptr inbounds nuw i8, ptr %str.addr.04.i.i44.i, i64 1
   %inc.i.i46.i = add i64 %len.05.i.i43.i, 1
   %34 = load i8, ptr %incdec.ptr.i.i45.i, align 1
   %cmp.not.i.i47.i = icmp eq i8 %34, 0
@@ -3954,7 +3954,7 @@ for.inc.sink.split.i:                             ; preds = %land.lhs.true.i.i, 
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.else.i
   %35 = phi i32 [ %19, %if.else.i ], [ %.ph.i, %for.inc.sink.split.i ]
-  %incdec.ptr.i87 = getelementptr inbounds i8, ptr %p.079.i, i64 24
+  %incdec.ptr.i87 = getelementptr inbounds nuw i8, ptr %p.079.i, i64 24
   %36 = load ptr, ptr %incdec.ptr.i87, align 8
   %cmp.not.i = icmp eq ptr %36, null
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i86, !llvm.loop !18
@@ -4048,7 +4048,7 @@ if.end.i.i150:                                    ; preds = %if.end.i144
   br i1 %cmp.i15.i, label %land.lhs.true.i.i165, label %if.end3.i
 
 land.lhs.true.i.i165:                             ; preds = %if.end.i.i150
-  %arrayidx6.i.i166 = getelementptr inbounds i8, ptr %arrayidx.i.i.i154, i64 1
+  %arrayidx6.i.i166 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i154, i64 1
   %42 = load i8, ptr %arrayidx6.i.i166, align 1
   %cmp10.i.i167 = icmp eq i8 %42, 111
   br i1 %cmp10.i.i167, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i, label %if.end3.i
@@ -4095,7 +4095,7 @@ if.end.i24.i:                                     ; preds = %if.end3.i
   br i1 %cmp.i29.i, label %land.lhs.true.i31.i, label %if.end12.i.sink.split
 
 land.lhs.true.i31.i:                              ; preds = %if.end.i24.i
-  %arrayidx6.i32.i = getelementptr inbounds i8, ptr %arrayidx.i.i28.i, i64 1
+  %arrayidx6.i32.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i28.i, i64 1
   %45 = load i8, ptr %arrayidx6.i32.i, align 1
   %cmp10.i33.i = icmp eq i8 %45, 79
   br i1 %cmp10.i33.i, label %land.lhs.true.i160, label %if.end12.i.sink.split
@@ -4166,7 +4166,7 @@ if.end.i57.i:                                     ; preds = %if.end12.i
   br i1 %cmp.i62.i, label %land.lhs.true.i64.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit69.i.thread
 
 land.lhs.true.i64.i:                              ; preds = %if.end.i57.i
-  %arrayidx6.i65.i = getelementptr inbounds i8, ptr %arrayidx.i.i61.i, i64 1
+  %arrayidx6.i65.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i61.i, i64 1
   %50 = load i8, ptr %arrayidx6.i65.i, align 1
   %cmp10.i66.i = icmp eq i8 %50, 119
   br i1 %cmp10.i66.i, label %land.lhs.true16.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit69.i.thread
@@ -4443,7 +4443,7 @@ invoke.cont.i.i:                                  ; preds = %if.then3.i.i.i, %if
 
 if.then8.i.i:                                     ; preds = %invoke.cont.i.i, %if.then8.i.i
   %p.034.i.i = phi ptr [ %incdec.ptr.i.i, %if.then8.i.i ], [ %arrayidx.i.i27.i, %invoke.cont.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.034.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.034.i.i, i64 1
   %72 = load i8, ptr %incdec.ptr.i.i, align 1
   %73 = add i8 %72, -48
   %74 = icmp ult i8 %73, 10
@@ -4751,9 +4751,9 @@ cleanup:                                          ; preds = %invoke.cont54, %inv
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -4763,7 +4763,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   %inc2.i.i = add nsw i32 %1, 2
@@ -4816,7 +4816,7 @@ if.then8.i:                                       ; preds = %invoke.cont.i, %if.
   %conv9.i = zext nneg i8 %6 to i32
   %sub.i = add nsw i32 %conv9.i, -48
   %add.i = add i32 %sub.i, %mul.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %7 = load i8, ptr %incdec.ptr.i, align 1
   %8 = add i8 %7, -48
   %9 = icmp ult i8 %8, 10
@@ -4888,7 +4888,7 @@ invoke.cont6.i:                                   ; preds = %while.body.i.i.i, %
   br i1 %cmp11.i.i.i, label %if.then8.i21, label %if.else.i
 
 if.then8.i21:                                     ; preds = %invoke.cont6.i
-  %append.i.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i.i = load i32, ptr %append.i.i, align 4
   %tobool.not.i.i = icmp sgt i32 %bf.load.i.i, -1
   br i1 %tobool.not.i.i, label %invoke.cont2, label %while.body.i.i22.preheader.i
@@ -4923,11 +4923,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -4964,11 +4964,11 @@ cleanup:                                          ; preds = %if.end.cleanup_crit
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -4978,7 +4978,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -5016,7 +5016,7 @@ if.end.i20:                                       ; preds = %land.lhs.true
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.016.i.add = add nuw nsw i64 %p.016.i.idx, 1
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.187, i64 %p.016.i.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr @.str.187, i64 %p.016.i.add
   %4 = load i8, ptr %incdec.ptr.i.ptr, align 1
   %exitcond = icmp eq i64 %p.016.i.add, 2
   br i1 %exitcond, label %if.end11.sink.split, label %for.body.i, !llvm.loop !10
@@ -5093,7 +5093,7 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr nocapture noundef %state, ptr nocapture noundef readonly %str, i64 noundef %length) unnamed_addr #5 {
 entry:
-  %append = getelementptr inbounds i8, ptr %state, i64 40
+  %append = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load = load i32, ptr %append, align 4
   %tobool = icmp slt i32 %bf.load, 0
   %cmp = icmp ne i64 %length, 0
@@ -5106,19 +5106,19 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %if.then
-  %out_cur_idx.i = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %1 = load i32, ptr %out_cur_idx.i, align 4
   %cmp.i = icmp sgt i32 %1, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true2
-  %out_end_idx.i = getelementptr inbounds i8, ptr %state, i64 16
+  %out_end_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   %2 = load i32, ptr %out_end_idx.i, align 8
   %cmp3.i = icmp slt i32 %1, %2
   br i1 %cmp3.i, label %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit, label %if.end
 
 _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %land.lhs.true.i
-  %out.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %3 = load ptr, ptr %out.i, align 8
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr i8, ptr %3, i64 %4
@@ -5140,7 +5140,7 @@ for.end.i.thread:                                 ; preds = %if.then3
 for.end.i:                                        ; preds = %if.then3
   store i32 %add.i, ptr %out_cur_idx.i, align 4
   %idxprom.i = zext nneg i32 %1 to i64
-  %arrayidx4.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i
   store i8 32, ptr %arrayidx4.i, align 1
   %.pre = load i32, ptr %out_cur_idx.i, align 4
   %.pre49 = load i32, ptr %out_end_idx.i, align 8
@@ -5155,9 +5155,9 @@ if.then14.i:                                      ; preds = %for.end.i
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i.thread, %land.lhs.true2, %land.lhs.true.i, %if.then14.i, %for.end.i, %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit, %if.then
-  %out_cur_idx = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx = getelementptr inbounds nuw i8, ptr %state, i64 32
   %8 = load i32, ptr %out_cur_idx, align 4
-  %out_end_idx = getelementptr inbounds i8, ptr %state, i64 16
+  %out_end_idx = getelementptr inbounds nuw i8, ptr %state, i64 16
   %9 = load i32, ptr %out_end_idx, align 8
   %cmp5 = icmp slt i32 %8, %9
   br i1 %cmp5, label %land.lhs.true6, label %for.body.lr.ph.i
@@ -5172,7 +5172,7 @@ land.lhs.true6:                                   ; preds = %if.end
   br i1 %or.cond42, label %if.then12, label %for.body.lr.ph.i
 
 if.then12:                                        ; preds = %land.lhs.true6
-  %prev_name_idx = getelementptr inbounds i8, ptr %state, i64 36
+  %prev_name_idx = getelementptr inbounds nuw i8, ptr %state, i64 36
   store i32 %8, ptr %prev_name_idx, align 4
   %conv16 = trunc i64 %length to i32
   %bf.load18 = load i32, ptr %append, align 4
@@ -5183,7 +5183,7 @@ if.then12:                                        ; preds = %land.lhs.true6
   br label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %land.lhs.true6, %if.end, %if.then12
-  %out.i20 = getelementptr inbounds i8, ptr %state, i64 8
+  %out.i20 = getelementptr inbounds nuw i8, ptr %state, i64 8
   br label %for.body.i21
 
 for.body.i21:                                     ; preds = %if.then.i35, %for.body.lr.ph.i
@@ -5235,11 +5235,11 @@ entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %arity = alloca i32, align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -5287,7 +5287,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end5:                                          ; preds = %invoke.cont2
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %3 = load i32, ptr %recursion_depth.i, align 4
   %inc.i.i = add nsw i32 %3, 1
@@ -5310,7 +5310,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %cmp.i59, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %6 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %6, 108
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -5390,7 +5390,7 @@ if.end.i82:                                       ; preds = %if.end14
   br i1 %cmp.i87, label %land.lhs.true.i89, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit94.thread
 
 land.lhs.true.i89:                                ; preds = %if.end.i82
-  %arrayidx6.i90 = getelementptr inbounds i8, ptr %arrayidx.i.i86, i64 1
+  %arrayidx6.i90 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i86, i64 1
   %13 = load i8, ptr %arrayidx6.i90, align 1
   %cmp10.i91 = icmp eq i8 %13, 112
   br i1 %cmp10.i91, label %land.lhs.true18, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit94.thread
@@ -5471,7 +5471,7 @@ if.end.i124:                                      ; preds = %if.end28
   br i1 %cmp.i129, label %land.lhs.true.i131, label %if.end46
 
 land.lhs.true.i131:                               ; preds = %if.end.i124
-  %arrayidx6.i132 = getelementptr inbounds i8, ptr %arrayidx.i.i128, i64 1
+  %arrayidx6.i132 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i128, i64 1
   %20 = load i8, ptr %arrayidx6.i132, align 1
   %cmp10.i133 = icmp eq i8 %20, 112
   br i1 %cmp10.i133, label %land.lhs.true32, label %if.end46
@@ -5595,7 +5595,7 @@ invoke.cont.i162:                                 ; preds = %if.then3.i.i168, %i
 
 if.then8.i:                                       ; preds = %invoke.cont.i162, %if.then8.i
   %p.034.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %arrayidx.i.i165, %invoke.cont.i162 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %28 = load i8, ptr %incdec.ptr.i, align 1
   %29 = add i8 %28, -48
   %30 = icmp ult i8 %29, 10
@@ -5652,7 +5652,7 @@ if.end.i193:                                      ; preds = %if.end46
   br i1 %cmp.i198, label %land.lhs.true.i200, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit205.thread
 
 land.lhs.true.i200:                               ; preds = %if.end.i193
-  %arrayidx6.i201 = getelementptr inbounds i8, ptr %arrayidx.i.i197, i64 1
+  %arrayidx6.i201 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i197, i64 1
   %35 = load i8, ptr %arrayidx6.i201, align 1
   %cmp10.i202 = icmp eq i8 %35, 76
   br i1 %cmp10.i202, label %land.lhs.true50, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit205.thread
@@ -5710,7 +5710,7 @@ invoke.cont.i226:                                 ; preds = %if.then3.i.i245, %i
 
 if.then8.i232:                                    ; preds = %invoke.cont.i226, %if.then8.i232
   %p.034.i234 = phi ptr [ %incdec.ptr.i239, %if.then8.i232 ], [ %arrayidx.i.i230, %invoke.cont.i226 ]
-  %incdec.ptr.i239 = getelementptr inbounds i8, ptr %p.034.i234, i64 1
+  %incdec.ptr.i239 = getelementptr inbounds nuw i8, ptr %p.034.i234, i64 1
   %40 = load i8, ptr %incdec.ptr.i239, align 1
   %41 = add i8 %40, -48
   %42 = icmp ult i8 %41, 10
@@ -5783,7 +5783,7 @@ if.end.i272:                                      ; preds = %if.end72
   br i1 %cmp.i277, label %land.lhs.true.i279, label %if.else
 
 land.lhs.true.i279:                               ; preds = %if.end.i272
-  %arrayidx6.i280 = getelementptr inbounds i8, ptr %arrayidx.i.i276, i64 1
+  %arrayidx6.i280 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i276, i64 1
   %48 = load i8, ptr %arrayidx6.i280, align 1
   %cmp10.i281 = icmp eq i8 %48, 118
   br i1 %cmp10.i281, label %if.then76, label %if.else
@@ -5900,7 +5900,7 @@ if.end.i296:                                      ; preds = %if.end117
   br i1 %cmp.i301, label %land.lhs.true.i303, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit308.thread
 
 land.lhs.true.i303:                               ; preds = %if.end.i296
-  %arrayidx6.i304 = getelementptr inbounds i8, ptr %arrayidx.i.i300, i64 1
+  %arrayidx6.i304 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i300, i64 1
   %55 = load i8, ptr %arrayidx6.i304, align 1
   %cmp10.i305 = icmp eq i8 %55, 116
   br i1 %cmp10.i305, label %land.lhs.true121, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit308.thread
@@ -5948,7 +5948,7 @@ if.end.i316:                                      ; preds = %if.end125
   br i1 %cmp.i321, label %land.lhs.true.i323, label %lor.lhs.false129
 
 land.lhs.true.i323:                               ; preds = %if.end.i316
-  %arrayidx6.i324 = getelementptr inbounds i8, ptr %arrayidx.i.i320, i64 1
+  %arrayidx6.i324 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i320, i64 1
   %59 = load i8, ptr %arrayidx6.i324, align 1
   %cmp10.i325 = icmp eq i8 %59, 116
   br i1 %cmp10.i325, label %land.lhs.true132, label %lor.lhs.false129
@@ -5972,7 +5972,7 @@ if.end.i425:                                      ; preds = %lor.lhs.false129
   br i1 %cmp.i430, label %land.lhs.true.i431, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread452
 
 land.lhs.true.i431:                               ; preds = %if.end.i425
-  %arrayidx6.i432 = getelementptr inbounds i8, ptr %arrayidx.i.i429, i64 1
+  %arrayidx6.i432 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i429, i64 1
   %61 = load i8, ptr %arrayidx6.i432, align 1
   %cmp10.i433 = icmp eq i8 %61, 116
   br i1 %cmp10.i433, label %land.lhs.true132, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread452
@@ -6022,7 +6022,7 @@ if.end.i336:                                      ; preds = %if.end139
   br i1 %cmp.i341, label %land.lhs.true.i343, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit348.thread
 
 land.lhs.true.i343:                               ; preds = %if.end.i336
-  %arrayidx6.i344 = getelementptr inbounds i8, ptr %arrayidx.i.i340, i64 1
+  %arrayidx6.i344 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i340, i64 1
   %65 = load i8, ptr %arrayidx6.i344, align 1
   %cmp10.i345 = icmp eq i8 %65, 115
   br i1 %cmp10.i345, label %land.lhs.true143, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit348.thread
@@ -6071,7 +6071,7 @@ if.end.i356:                                      ; preds = %if.end150
   br i1 %cmp.i361, label %land.lhs.true.i363, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit368.thread
 
 land.lhs.true.i363:                               ; preds = %if.end.i356
-  %arrayidx6.i364 = getelementptr inbounds i8, ptr %arrayidx.i.i360, i64 1
+  %arrayidx6.i364 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i360, i64 1
   %69 = load i8, ptr %arrayidx6.i364, align 1
   %cmp10.i365 = icmp eq i8 %69, 112
   br i1 %cmp10.i365, label %land.lhs.true154, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit368.thread
@@ -6131,7 +6131,7 @@ if.end.i.i448:                                    ; preds = %if.end.i442
   br i1 %cmp.i26.i, label %land.lhs.true.i.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i448
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i450, i64 1
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i450, i64 1
   %73 = load i8, ptr %arrayidx6.i.i, align 1
   %cmp10.i.i = icmp eq i8 %73, 115
   br i1 %cmp10.i.i, label %if.then11.i.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i
@@ -6194,7 +6194,7 @@ if.end.i35.i:                                     ; preds = %if.end7.i
   br i1 %cmp.i40.i, label %land.lhs.true.i42.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit47.thread.i
 
 land.lhs.true.i42.i:                              ; preds = %if.end.i35.i
-  %arrayidx6.i43.i = getelementptr inbounds i8, ptr %arrayidx.i.i39.i, i64 1
+  %arrayidx6.i43.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i39.i, i64 1
   %78 = load i8, ptr %arrayidx6.i43.i, align 1
   %cmp10.i44.i = icmp eq i8 %78, 114
   br i1 %cmp10.i44.i, label %land.lhs.true11.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit47.thread.i
@@ -6255,7 +6255,7 @@ if.end.i59.i:                                     ; preds = %if.end18.i
   br i1 %cmp.i64.i, label %land.lhs.true.i66.i, label %if.end38.sink.split.i
 
 land.lhs.true.i66.i:                              ; preds = %if.end.i59.i
-  %arrayidx6.i67.i = getelementptr inbounds i8, ptr %arrayidx.i.i63.i, i64 1
+  %arrayidx6.i67.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i63.i, i64 1
   %82 = load i8, ptr %arrayidx6.i67.i, align 1
   %cmp10.i68.i = icmp eq i8 %82, 114
   br i1 %cmp10.i68.i, label %land.lhs.true22.i, label %if.end38.sink.split.i
@@ -6352,7 +6352,7 @@ if.end.i106.i:                                    ; preds = %if.end38.i
   br i1 %cmp.i111.i, label %land.lhs.true.i113.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit118.i
 
 land.lhs.true.i113.i:                             ; preds = %if.end.i106.i
-  %arrayidx6.i114.i = getelementptr inbounds i8, ptr %arrayidx.i.i110.i, i64 1
+  %arrayidx6.i114.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i110.i, i64 1
   %87 = load i8, ptr %arrayidx6.i114.i, align 1
   %cmp10.i115.i = icmp eq i8 %87, 115
   br i1 %cmp10.i115.i, label %if.then11.i116.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit118.i
@@ -6380,7 +6380,7 @@ if.end.i126.i:                                    ; preds = %_ZN4absl18debugging
   br i1 %cmp.i131.i, label %land.lhs.true.i133.i, label %if.end57.sink.split.i
 
 land.lhs.true.i133.i:                             ; preds = %if.end.i126.i
-  %arrayidx6.i134.i = getelementptr inbounds i8, ptr %arrayidx.i.i130.i, i64 1
+  %arrayidx6.i134.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i130.i, i64 1
   %89 = load i8, ptr %arrayidx6.i134.i, align 1
   %cmp10.i135.i = icmp eq i8 %89, 114
   br i1 %cmp10.i135.i, label %land.lhs.true47.i, label %if.end57.sink.split.i
@@ -6472,11 +6472,11 @@ cleanup:                                          ; preds = %_ZN4absl18debugging
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseExprPrimaryEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -6486,7 +6486,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -6507,7 +6507,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.end10
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %3 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %3, 90
   br i1 %cmp10.i, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i, label %if.end10
@@ -6711,11 +6711,11 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef %state, ptr noundef writeonly %arity) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy.sroa.0 = alloca { i32, i32, i32 }, align 8
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -6739,7 +6739,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end
   %i.04.i = phi i64 [ %inc.i51, %for.cond.i ], [ 0, %if.end ]
-  %arrayidx.i50 = getelementptr inbounds i8, ptr %arrayidx.i, i64 %i.04.i
+  %arrayidx.i50 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %i.04.i
   %3 = load i8, ptr %arrayidx.i50, align 1
   %cmp1.not.i = icmp eq i8 %3, 0
   br i1 %cmp1.not.i, label %cleanup, label %for.cond.i
@@ -6754,7 +6754,7 @@ lpad:                                             ; preds = %_ZN4absl18debugging
 
 if.end4:                                          ; preds = %for.cond.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %copy.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
-  %copy.sroa.3.0.parse_state.sroa_idx = getelementptr inbounds i8, ptr %state, i64 40
+  %copy.sroa.3.0.parse_state.sroa_idx = getelementptr inbounds nuw i8, ptr %state, i64 40
   %copy.sroa.3.0.copyload = load i32, ptr %copy.sroa.3.0.parse_state.sroa_idx, align 4
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -6771,7 +6771,7 @@ if.end.i:                                         ; preds = %if.end4
   br i1 %cmp.i53, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %7 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %7, 118
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -6863,7 +6863,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true24
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %p.016.i.add.i = add nuw nsw i64 %p.016.i.idx.i, 1
-  %incdec.ptr.i.ptr.i = getelementptr inbounds i8, ptr @.str.93, i64 %p.016.i.add.i
+  %incdec.ptr.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.93, i64 %p.016.i.add.i
   %13 = load i8, ptr %incdec.ptr.i.ptr.i, align 1
   %exitcond.i = icmp eq i64 %p.016.i.add.i, 10
   br i1 %exitcond.i, label %if.end31.sink.split, label %for.body.i.i, !llvm.loop !10
@@ -6908,7 +6908,7 @@ if.end31:                                         ; preds = %if.end31.sink.split
   br i1 %17, label %land.lhs.true37, label %cleanup
 
 land.lhs.true37:                                  ; preds = %if.end31
-  %arrayidx40 = getelementptr inbounds i8, ptr %arrayidx.i79, i64 1
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %arrayidx.i79, i64 1
   %18 = load i8, ptr %arrayidx40, align 1
   %19 = and i8 %18, -33
   %20 = add i8 %19, -65
@@ -6923,7 +6923,7 @@ for.body:                                         ; preds = %land.lhs.true37, %f
   br i1 %cmp52, label %land.lhs.true53, label %for.inc
 
 land.lhs.true53:                                  ; preds = %for.body
-  %arrayidx59 = getelementptr inbounds i8, ptr %22, i64 1
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %24 = load i8, ptr %arrayidx59, align 1
   %cmp61 = icmp eq i8 %18, %24
   br i1 %cmp61, label %if.then62, label %for.inc
@@ -6933,14 +6933,14 @@ if.then62:                                        ; preds = %land.lhs.true53
   br i1 %cmp63.not, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %if.then62
-  %arity65 = getelementptr inbounds i8, ptr %p.045, i64 16
+  %arity65 = getelementptr inbounds nuw i8, ptr %p.045, i64 16
   %25 = load i32, ptr %arity65, align 8
   store i32 %25, ptr %arity, align 4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then64, %if.then62
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %state, ptr noundef nonnull @.str.92)
-  %real_name = getelementptr inbounds i8, ptr %p.045, i64 8
+  %real_name = getelementptr inbounds nuw i8, ptr %p.045, i64 8
   %26 = load ptr, ptr %real_name, align 8
   %27 = load i8, ptr %26, align 1
   %28 = add i8 %27, -97
@@ -6959,7 +6959,7 @@ if.end74:                                         ; preds = %if.then71, %if.end6
   br label %cleanup
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true53
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.045, i64 24
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.045, i64 24
   %31 = load ptr, ptr %incdec.ptr, align 8
   %cmp44.not = icmp eq ptr %31, null
   br i1 %cmp44.not, label %cleanup, label %for.body, !llvm.loop !22
@@ -6976,9 +6976,9 @@ cleanup:                                          ; preds = %for.body.i, %for.in
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseExprCastValueEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -6988,7 +6988,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   %inc2.i.i = add nsw i32 %1, 2
@@ -7033,7 +7033,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i.i, %if.e
 
 if.then8.i:                                       ; preds = %invoke.cont.i, %if.then8.i
   %p.034.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %arrayidx.i.i, %invoke.cont.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %6 = load i8, ptr %incdec.ptr.i, align 1
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
@@ -7094,7 +7094,7 @@ for.body.i:                                       ; preds = %if.end.i32, %for.in
   br i1 %or.cond25.i, label %for.inc.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %p.027.i, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds nuw i8, ptr %p.027.i, i64 1
   %17 = load i8, ptr %incdec.ptr.i40, align 1
   %cmp.not.i = icmp eq i8 %17, 0
   br i1 %cmp.not.i, label %land.lhs.true9, label %for.body.i, !llvm.loop !23
@@ -7143,11 +7143,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseBaseUnresolvedNameEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -7169,7 +7169,7 @@ lpad:                                             ; preds = %land.rhs.i45.invoke
   resume { ptr, i32 } %2
 
 if.end3:                                          ; preds = %if.end
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %4 = load i32, ptr %recursion_depth.i, align 4
   %inc.i.i = add nsw i32 %4, 1
@@ -7192,7 +7192,7 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp.i17, label %land.lhs.true.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %7 = load i8, ptr %arrayidx6.i, align 1
   %cmp10.i = icmp eq i8 %7, 110
   br i1 %cmp10.i, label %land.lhs.true, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
@@ -7240,7 +7240,7 @@ if.end.i25:                                       ; preds = %if.end14
   br i1 %cmp.i30, label %land.lhs.true.i32, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit37.thread
 
 land.lhs.true.i32:                                ; preds = %if.end.i25
-  %arrayidx6.i33 = getelementptr inbounds i8, ptr %arrayidx.i.i29, i64 1
+  %arrayidx6.i33 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i29, i64 1
   %11 = load i8, ptr %arrayidx6.i33, align 1
   %cmp10.i34 = icmp eq i8 %11, 110
   br i1 %cmp10.i34, label %land.lhs.true18, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit37.thread
@@ -7290,11 +7290,11 @@ cleanup:                                          ; preds = %land.rhs.i45.invoke
 ; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseLocalNameSuffixEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -7304,7 +7304,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %append.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i = load i32, ptr %append.i, align 4
   %tobool.not.i = icmp sgt i32 %bf.load.i, -1
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
@@ -7334,9 +7334,9 @@ if.end10:                                         ; preds = %invoke.cont2
   br i1 %tobool.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end10
-  %out = getelementptr inbounds i8, ptr %state, i64 8
+  %out = getelementptr inbounds nuw i8, ptr %state, i64 8
   %4 = load ptr, ptr %out, align 8
-  %out_cur_idx = getelementptr inbounds i8, ptr %state, i64 32
+  %out_cur_idx = getelementptr inbounds nuw i8, ptr %state, i64 32
   %5 = load i32, ptr %out_cur_idx, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
@@ -7393,9 +7393,9 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -7405,7 +7405,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -7467,7 +7467,7 @@ invoke.cont.i:                                    ; preds = %if.then3.i.i, %if.e
 
 if.then8.i:                                       ; preds = %invoke.cont.i, %if.then8.i
   %p.034.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %arrayidx.i.i20, %invoke.cont.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.034.i, i64 1
   %7 = load i8, ptr %incdec.ptr.i, align 1
   %8 = add i8 %7, -48
   %9 = icmp ult i8 %8, 10
@@ -7495,11 +7495,11 @@ cleanup:                                          ; preds = %entry, %invoke.cont
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef %state) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -7509,7 +7509,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -7756,11 +7756,11 @@ entry:
   %copy.i16 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i11 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %copy.i = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -7790,7 +7790,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont
   br i1 %or.cond146, label %lor.lhs.false4, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %parse_state.i = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state.i = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i, ptr noundef nonnull align 4 dereferenceable(16) %parse_state.i, i64 16, i1 false)
   %inc.i.i111 = add nsw i32 %.pre152, 2
   store i32 %inc.i.i111, ptr %recursion_depth.i, align 4
@@ -7834,7 +7834,7 @@ if.end.i93:                                       ; preds = %if.then2.i
 
 for.cond.i103:                                    ; preds = %for.body.i100
   %p.016.i101.add = add nuw nsw i64 %p.016.i101.idx, 1
-  %incdec.ptr.i104.ptr = getelementptr inbounds i8, ptr @.str.206, i64 %p.016.i101.add
+  %incdec.ptr.i104.ptr = getelementptr inbounds nuw i8, ptr @.str.206, i64 %p.016.i101.add
   %5 = load i8, ptr %incdec.ptr.i104.ptr, align 1
   %exitcond = icmp eq i64 %p.016.i101.add, 4
   br i1 %exitcond, label %if.else.i, label %for.body.i100, !llvm.loop !10
@@ -7849,13 +7849,13 @@ if.then5.i:                                       ; preds = %for.body.i100
   %inc.i108 = add nsw i32 %state.val4.i119, 2
   store i32 %inc.i108, ptr %parse_state.i, align 4
   store i32 %inc.i134, ptr %recursion_depth.i, align 4
-  %out.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %7 = load ptr, ptr %out.i, align 8
-  %prev_name_idx.i = getelementptr inbounds i8, ptr %state, i64 36
+  %prev_name_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 36
   %8 = load i32, ptr %prev_name_idx.i, align 4
   %idx.ext.i = sext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i
-  %prev_name_length.i = getelementptr inbounds i8, ptr %state, i64 40
+  %prev_name_length.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i = load i32, ptr %prev_name_length.i, align 4
   br label %invoke.cont2.thread.sink.split
 
@@ -7937,7 +7937,7 @@ if.end.i50:                                       ; preds = %land.lhs.true23.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.016.i.add = add nuw nsw i64 %p.016.i.idx, 1
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr @.str.208, i64 %p.016.i.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr @.str.208, i64 %p.016.i.add
   %16 = load i8, ptr %incdec.ptr.i.ptr, align 1
   %exitcond147 = icmp eq i64 %p.016.i.add, 4
   br i1 %exitcond147, label %if.end41.i, label %for.body.i, !llvm.loop !10
@@ -7952,11 +7952,11 @@ if.then26.i:                                      ; preds = %for.body.i
   %inc.i53 = add nsw i32 %state.val4.i, 2
   store i32 %inc.i53, ptr %parse_state.i, align 4
   store i32 %12, ptr %recursion_depth.i, align 4
-  %out28.i = getelementptr inbounds i8, ptr %state, i64 8
+  %out28.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %18 = load ptr, ptr %out28.i, align 8
-  %prev_name_idx30.i = getelementptr inbounds i8, ptr %state, i64 36
+  %prev_name_idx30.i = getelementptr inbounds nuw i8, ptr %state, i64 36
   %19 = load i32, ptr %prev_name_idx30.i, align 4
-  %append.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %bf.load.i40 = load i32, ptr %append.i, align 4
   %tobool.not.i = icmp sgt i32 %bf.load.i40, -1
   br i1 %tobool.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %while.body.i.i.preheader
@@ -8014,7 +8014,7 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false4
   br i1 %or.cond.i, label %lor.lhs.false10, label %if.end.i12
 
 if.end.i12:                                       ; preds = %lor.lhs.false7
-  %parse_state.i13 = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state.i13 = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy.i11, ptr noundef nonnull align 4 dereferenceable(16) %parse_state.i13, i64 16, i1 false)
   %inc.i.i.i = add nsw i32 %.pre151, 2
   store i32 %inc.i.i.i, ptr %recursion_depth.i, align 4
@@ -8098,7 +8098,7 @@ while.cond.preheader.i:                           ; preds = %if.then13
 
 if.end.i.lr.ph.i:                                 ; preds = %while.cond.preheader.i
   %28 = getelementptr i8, ptr %state, i64 28
-  %append.i.i = getelementptr inbounds i8, ptr %state, i64 40
+  %append.i.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   br label %if.end.i.i24
 
 if.end.i.i24:                                     ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit28.i, %if.end.i.lr.ph.i
@@ -8187,9 +8187,9 @@ cleanup:                                          ; preds = %entry, %_ZN4absl18d
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr nocapture noundef %state) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %copy = alloca %"struct.absl::debugging_internal::ParseState", align 4
-  %recursion_depth.i = getelementptr inbounds i8, ptr %state, i64 20
+  %recursion_depth.i = getelementptr inbounds nuw i8, ptr %state, i64 20
   %0 = load i32, ptr %recursion_depth.i, align 4
-  %steps.i = getelementptr inbounds i8, ptr %state, i64 24
+  %steps.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   %1 = load i32, ptr %steps.i, align 8
   %inc2.i = add nsw i32 %1, 1
   store i32 %inc2.i, ptr %steps.i, align 8
@@ -8199,7 +8199,7 @@ entry:
   br i1 %or.cond, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %parse_state = getelementptr inbounds i8, ptr %state, i64 28
+  %parse_state = getelementptr inbounds nuw i8, ptr %state, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %copy, ptr noundef nonnull align 4 dereferenceable(16) %parse_state, i64 16, i1 false)
   %inc.i.i = add nsw i32 %0, 2
   store i32 %inc.i.i, ptr %recursion_depth.i, align 4
@@ -8267,7 +8267,7 @@ invoke.cont.i.i:                                  ; preds = %if.then3.i.i.i, %if
 
 if.then8.i.i:                                     ; preds = %invoke.cont.i.i, %if.then8.i.i
   %p.034.i.i = phi ptr [ %incdec.ptr.i.i, %if.then8.i.i ], [ %arrayidx.i.i.i, %invoke.cont.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.034.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.034.i.i, i64 1
   %7 = load i8, ptr %incdec.ptr.i.i, align 1
   %8 = add i8 %7, -48
   %9 = icmp ult i8 %8, 10
@@ -8370,7 +8370,7 @@ invoke.cont.i.i83:                                ; preds = %if.then3.i.i.i95, %
 
 if.then8.i.i88:                                   ; preds = %invoke.cont.i.i83, %if.then8.i.i88
   %p.034.i.i89 = phi ptr [ %incdec.ptr.i.i90, %if.then8.i.i88 ], [ %arrayidx.i.i.i86, %invoke.cont.i.i83 ]
-  %incdec.ptr.i.i90 = getelementptr inbounds i8, ptr %p.034.i.i89, i64 1
+  %incdec.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %p.034.i.i89, i64 1
   %18 = load i8, ptr %incdec.ptr.i.i90, align 1
   %19 = add i8 %18, -48
   %20 = icmp ult i8 %19, 10
@@ -8436,7 +8436,7 @@ invoke.cont.i43.i:                                ; preds = %if.then3.i.i62.i, %
 
 if.then8.i49.i:                                   ; preds = %invoke.cont.i43.i, %if.then8.i49.i
   %p.034.i51.i = phi ptr [ %incdec.ptr.i56.i, %if.then8.i49.i ], [ %arrayidx.i.i47.i, %invoke.cont.i43.i ]
-  %incdec.ptr.i56.i = getelementptr inbounds i8, ptr %p.034.i51.i, i64 1
+  %incdec.ptr.i56.i = getelementptr inbounds nuw i8, ptr %p.034.i51.i, i64 1
   %27 = load i8, ptr %incdec.ptr.i56.i, align 1
   %28 = add i8 %27, -48
   %29 = icmp ult i8 %28, 10

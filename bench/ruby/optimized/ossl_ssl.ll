@@ -870,7 +870,7 @@ define internal i64 @ossl_sslctx_s_alloc(i64 noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %4, i32 noundef 33, i64 noundef 19, ptr noundef null) #10
   %9 = inttoptr i64 %2 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %10, align 8
   %11 = load i32, ptr @ossl_sslctx_ex_ptr_idx, align 4
   %12 = tail call i32 @SSL_CTX_set_ex_data(ptr noundef nonnull %4, i32 noundef %11, ptr noundef %9) #10
@@ -1122,7 +1122,7 @@ rb_check_frozen_inline.exit:                      ; preds = %8
   %19 = load i64, ptr %18, align 8, !noalias !8
   %20 = and i64 %19, 8192
   %.not.i.i = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %22
 
 22:                                               ; preds = %rb_check_frozen_inline.exit
@@ -1441,8 +1441,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %26
   br i1 %68, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %65, i64 16
-  %70 = getelementptr inbounds i8, ptr %65, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
   br label %71
 
 71:                                               ; preds = %rb_array_const_ptr.exit, %.preheader
@@ -1469,7 +1469,7 @@ rb_array_len.exit.thread:                         ; preds = %71
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %79
   %.0.i110 = phi ptr [ %80, %79 ], [ %69, %rb_array_len.exit.thread ]
-  %81 = getelementptr inbounds i64, ptr %.0.i110, i64 %.093
+  %81 = getelementptr inbounds nuw i64, ptr %.0.i110, i64 %.093
   %82 = load i64, ptr %81, align 8
   %83 = tail call ptr @GetX509CertPtr(i64 noundef %82) #10
   %84 = tail call i32 @SSL_CTX_add_client_CA(ptr noundef %15, ptr noundef %83) #10
@@ -1698,7 +1698,7 @@ rb_num2int_inline.exit117:                        ; preds = %149, %151
   %196 = load i64, ptr %195, align 8, !noalias !13
   %197 = and i64 %196, 8192
   %.not.i.i = icmp eq i64 %197, 0
-  %198 = getelementptr inbounds i8, ptr %195, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %199
 
 199:                                              ; preds = %191
@@ -1707,7 +1707,7 @@ rb_num2int_inline.exit117:                        ; preds = %149, %151
 
 RSTRING_PTR.exit:                                 ; preds = %191, %199
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %199 ], [ %198, %191 ]
-  %200 = getelementptr inbounds i8, ptr %195, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %201 = load i64, ptr %200, align 8
   %202 = add i64 %201, 2147483648
   %.not.i.i118 = icmp ult i64 %202, 4294967296
@@ -1779,7 +1779,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   %241 = load i64, ptr %240, align 8, !noalias !16
   %242 = and i64 %241, 8192
   %.not.i.i119 = icmp eq i64 %242, 0
-  %243 = getelementptr inbounds i8, ptr %240, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 24
   br i1 %.not.i.i119, label %RSTRING_PTR.exit122, label %244
 
 244:                                              ; preds = %237
@@ -1788,7 +1788,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 
 RSTRING_PTR.exit122:                              ; preds = %237, %244
   %.sroa.2.0.i121 = phi ptr [ %.sroa.2.0.copyload.i120, %244 ], [ %243, %237 ]
-  %245 = getelementptr inbounds i8, ptr %240, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %246 = load i64, ptr %245, align 8
   %247 = add i64 %246, 2147483648
   %.not.i.i123 = icmp ult i64 %247, 4294967296
@@ -2664,7 +2664,7 @@ Check_Type.exit:                                  ; preds = %37
 
 47:                                               ; preds = %Check_Type.exit
   %48 = inttoptr i64 %2 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %44, ptr %49, align 8
   %50 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4
   %51 = call i32 @SSL_set_ex_data(ptr noundef nonnull %44, i32 noundef %50, ptr noundef %48) #10
@@ -3240,7 +3240,7 @@ rb_num2long_inline.exit:                          ; preds = %15, %17
   %21 = load i64, ptr %20, align 8, !noalias !21
   %22 = and i64 %21, 8192
   %.not.i.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %24
 
 24:                                               ; preds = %rb_num2long_inline.exit
@@ -3260,7 +3260,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_num2long_inline.
   %31 = load i64, ptr %30, align 8, !noalias !24
   %32 = and i64 %31, 8192
   %.not.i.i19 = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   br i1 %.not.i.i19, label %RSTRING_PTR.exit22, label %34
 
 34:                                               ; preds = %27
@@ -3269,7 +3269,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_num2long_inline.
 
 RSTRING_PTR.exit22:                               ; preds = %27, %34
   %.sroa.2.0.i21 = phi ptr [ %.sroa.2.0.copyload.i20, %34 ], [ %33, %27 ]
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   br label %37
 
@@ -3282,7 +3282,7 @@ RSTRING_PTR.exit22:                               ; preds = %27, %34
   %40 = load i64, ptr %39, align 8, !noalias !27
   %41 = and i64 %40, 8192
   %.not.i.i23 = icmp eq i64 %41, 0
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   br i1 %.not.i.i23, label %RSTRING_PTR.exit26, label %43
 
 43:                                               ; preds = %37
@@ -3291,7 +3291,7 @@ RSTRING_PTR.exit22:                               ; preds = %27, %34
 
 RSTRING_PTR.exit26:                               ; preds = %37, %43
   %.sroa.2.0.i25 = phi ptr [ %.sroa.2.0.copyload.i24, %43 ], [ %42, %37 ]
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 2147483648
   %.not.i.i27 = icmp ult i64 %46, 4294967296
@@ -3450,14 +3450,14 @@ RB_SYMBOL_P.exit.thread11:                        ; preds = %rb_integer_type_p.e
   %30 = load i64, ptr %29, align 8, !noalias !30
   %31 = and i64 %30, 8192
   %.not.i.i = icmp eq i64 %31, 0
-  %32 = getelementptr inbounds i8, ptr %29, i64 24
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %34 = load i64, ptr %33, align 8
   br i1 %.not.i.i, label %RSTRING_PTR.exit.us, label %RB_SYMBOL_P.exit.thread11.split
 
 RSTRING_PTR.exit.us:                              ; preds = %RB_SYMBOL_P.exit.thread11, %38
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %38 ], [ 0, %RB_SYMBOL_P.exit.thread11 ]
-  %35 = getelementptr inbounds [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv21
   %36 = load ptr, ptr %35, align 16
   %37 = call i32 @strncmp(ptr noundef %36, ptr noundef nonnull %32, i64 noundef %34) #15
   %.not.us = icmp eq i32 %37, 0
@@ -3479,7 +3479,7 @@ RB_SYMBOL_P.exit.thread11.split:                  ; preds = %RB_SYMBOL_P.exit.th
 
 RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.thread11.split, %39
   %indvars.iv = phi i64 [ 0, %RB_SYMBOL_P.exit.thread11.split ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 16
   %42 = call i32 @strncmp(ptr noundef %41, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %34) #15
   %.not = icmp eq i32 %42, 0
@@ -3487,7 +3487,7 @@ RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
 
 .split14.us:                                      ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit.us
   %43 = phi i64 [ %indvars.iv21, %RSTRING_PTR.exit.us ], [ %indvars.iv, %RSTRING_PTR.exit ]
-  %44 = getelementptr inbounds [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @parse_proto_version.map, i64 0, i64 %43, i32 1
   %45 = load i32, ptr %44, align 8
   br label %47
 
@@ -3596,7 +3596,7 @@ define internal fastcc i64 @build_cipher_string(i64 noundef %0) unnamed_addr #0 
 
 12:                                               ; preds = %7
   %13 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #10
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %15
 
 15:                                               ; preds = %50, %12
@@ -3749,13 +3749,13 @@ define internal ptr @ossl_tmp_dh_callback(ptr noundef %0, i32 noundef %1, i32 no
   %8 = ptrtoint ptr %7 to i64
   store i64 %8, ptr %4, align 8
   %9 = load i64, ptr @id_tmp_dh_callback, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 28, ptr %13, align 8
   %14 = ptrtoint ptr %4 to i64
   %15 = call i64 @rb_protect(ptr noundef nonnull @ossl_call_tmp_dh_callback, i64 noundef %14, ptr noundef nonnull %5) #10
@@ -3909,11 +3909,11 @@ define internal range(i32 0, 2) i32 @ossl_client_cert_cb(ptr noundef %0, ptr noc
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %rb_array_const_ptr.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   br label %rb_array_const_ptr.exit
 
@@ -3928,17 +3928,17 @@ rb_array_const_ptr.exit:                          ; preds = %13, %15
   br i1 %.not.i7, label %24, label %22
 
 22:                                               ; preds = %rb_array_const_ptr.exit
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %rb_array_const_ptr.exit9
 
 24:                                               ; preds = %rb_array_const_ptr.exit
-  %25 = getelementptr inbounds i8, ptr %10, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %rb_array_const_ptr.exit9
 
 rb_array_const_ptr.exit9:                         ; preds = %22, %24
   %.0.i8 = phi ptr [ %23, %22 ], [ %26, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = tail call ptr @DupPKeyPtr(i64 noundef %28) #10
   store ptr %29, ptr %2, align 8
@@ -3966,7 +3966,7 @@ define internal noundef i32 @ssl_npn_advertise_cb(ptr nocapture readnone %0, ptr
   %9 = load i64, ptr %8, align 8, !noalias !35
   %10 = and i64 %9, 8192
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %12
 
 12:                                               ; preds = %4
@@ -3976,7 +3976,7 @@ define internal noundef i32 @ssl_npn_advertise_cb(ptr nocapture readnone %0, ptr
 RSTRING_PTR.exit:                                 ; preds = %4, %12
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %12 ], [ %11, %4 ]
   store ptr %.sroa.2.0.i, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 2147483648
   %.not.i.i4 = icmp ult i64 %15, 4294967296
@@ -4007,9 +4007,9 @@ define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr nocap
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %4, ptr %13, align 8
   %14 = ptrtoint ptr %8 to i64
   %15 = call i64 @rb_protect(ptr noundef nonnull @npn_select_cb_common_i, i64 noundef %14, ptr noundef nonnull %7) #10
@@ -4034,7 +4034,7 @@ define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr nocap
   %29 = load i64, ptr %28, align 8, !noalias !38
   %30 = and i64 %29, 8192
   %.not.i.i.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %32
 
 32:                                               ; preds = %27
@@ -4044,7 +4044,7 @@ define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr nocap
 RSTRING_PTR.exit.i:                               ; preds = %32, %27
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %32 ], [ %31, %27 ]
   store ptr %.sroa.2.0.i.i, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i8
   store i8 %35, ptr %2, align 1
@@ -4071,9 +4071,9 @@ define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr noca
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %4, ptr %13, align 8
   %14 = ptrtoint ptr %8 to i64
   %15 = call i64 @rb_protect(ptr noundef nonnull @npn_select_cb_common_i, i64 noundef %14, ptr noundef nonnull %7) #10
@@ -4098,7 +4098,7 @@ define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr noca
   %29 = load i64, ptr %28, align 8, !noalias !41
   %30 = and i64 %29, 8192
   %.not.i.i.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %32
 
 32:                                               ; preds = %27
@@ -4108,7 +4108,7 @@ define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr noca
 RSTRING_PTR.exit.i:                               ; preds = %32, %27
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %32 ], [ %31, %27 ]
   store ptr %.sroa.2.0.i.i, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i8
   store i8 %35, ptr %2, align 1
@@ -4218,7 +4218,7 @@ define internal noundef i32 @ossl_sslctx_session_new_cb(ptr noundef %0, ptr noun
   %18 = tail call i64 @rb_obj_alloc(i64 noundef %17) #10
   %19 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %1) #10
   %20 = inttoptr i64 %18 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %1, ptr %21, align 8
   %22 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #10
   %23 = tail call i64 @rb_ary_push(i64 noundef %22, i64 noundef %16) #10
@@ -4272,7 +4272,7 @@ define internal void @ossl_sslctx_session_remove_cb(ptr noundef %0, ptr noundef 
   %20 = tail call i64 @rb_obj_alloc(i64 noundef %19) #10
   %21 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %1) #10
   %22 = inttoptr i64 %20 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %1, ptr %23, align 8
   %24 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #10
   %25 = tail call i64 @rb_ary_push(i64 noundef %24, i64 noundef %18) #10
@@ -4345,7 +4345,7 @@ define internal void @ossl_sslctx_keylog_cb(ptr noundef %0, ptr noundef %1) #0 {
   %16 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %15) #10
   %17 = ptrtoint ptr %16 to i64
   store i64 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %18, align 8
   %19 = ptrtoint ptr %3 to i64
   %20 = call i64 @rb_protect(ptr noundef nonnull @ossl_call_keylog_cb, i64 noundef %19, ptr noundef nonnull %4) #10
@@ -4371,7 +4371,7 @@ declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 define internal i64 @ossl_call_tmp_dh_callback(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %5, i32 noundef 0) #10
   %7 = icmp eq i64 %6, 4
@@ -4380,12 +4380,12 @@ define internal i64 @ossl_call_tmp_dh_callback(i64 noundef %0) #0 {
 8:                                                ; preds = %1
   %9 = load i64, ptr @id_call, align 8
   %10 = load i64, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 1
   %15 = or disjoint i64 %14, 1
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 1
@@ -4393,7 +4393,7 @@ define internal i64 @ossl_call_tmp_dh_callback(i64 noundef %0) #0 {
   %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %6, i64 noundef %9, i32 noundef 3, i64 noundef %10, i64 noundef %15, i64 noundef %20) #10
   %22 = tail call ptr @GetPKeyPtr(i64 noundef %21) #10
   %23 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef %22) #10
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load i32, ptr %24, align 8
   %.not = icmp eq i32 %23, %25
   %26 = ptrtoint ptr %22 to i64
@@ -4530,7 +4530,7 @@ declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 define internal noundef i64 @ssl_npn_encode_protocol_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
   %6 = alloca i8, align 1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 2147483648
   %.not.i.i = icmp ult i64 %10, 4294967296
@@ -4558,7 +4558,7 @@ RSTRING_LENINT.exit:                              ; preds = %5
   %19 = load i64, ptr %7, align 8, !noalias !44
   %20 = and i64 %19, 8192
   %.not.i.i9 = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i9, label %RSTRING_PTR.exit, label %22
 
 22:                                               ; preds = %16
@@ -4577,12 +4577,12 @@ define internal i64 @npn_select_cb_common_i(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = inttoptr i64 %0 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = tail call i64 @rb_ary_new() #10
   store i64 %11, ptr %3, align 8
   %.not = icmp eq i32 %8, 0
@@ -4590,12 +4590,12 @@ define internal i64 @npn_select_cb_common_i(i64 noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.014 = phi ptr [ %17, %.lr.ph ], [ %6, %1 ]
-  %12 = getelementptr inbounds i8, ptr %.014, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %13 = load i8, ptr %.014, align 1
   %14 = zext i8 %13 to i64
   %15 = tail call i64 @rb_str_new(ptr noundef nonnull %12, i64 noundef %14) #10
   %16 = tail call i64 @rb_ary_push(i64 noundef %11, i64 noundef %15) #10
-  %17 = getelementptr inbounds i8, ptr %12, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %18 = icmp ult ptr %17, %10
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
@@ -4607,7 +4607,7 @@ define internal i64 @npn_select_cb_common_i(i64 noundef %0) #0 {
   %22 = call i64 @rb_string_value(ptr noundef nonnull %2) #10
   %23 = load i64, ptr %2, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -256
   %or.cond = icmp ult i64 %27, -255
@@ -4860,7 +4860,7 @@ define internal i64 @ossl_call_keylog_cb(i64 noundef %0) #0 {
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @rb_str_new_cstr(ptr noundef %11) #10
   %13 = load i64, ptr @id_call, align 8
@@ -4963,7 +4963,7 @@ define internal fastcc void @ossl_ssl_setup(i64 noundef %0) unnamed_addr #0 {
   %9 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %8) #10
   %10 = tail call i64 @rb_io_taint_check(i64 noundef %9) #10
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @rb_io_check_closed(ptr noundef %13) #10
   tail call void @rb_io_check_readable(ptr noundef %13) #10
@@ -5362,7 +5362,7 @@ rb_num2int_inline.exit:                           ; preds = %23, %25
   %34 = call i64 @rb_string_value(ptr noundef nonnull %6) #10
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %sext = shl i64 %.0.i, 32
   %39 = ashr exact i64 %sext, 32
@@ -5401,7 +5401,7 @@ io_wait_writable.exit.us:                         ; preds = %48, %io_wait_writab
   %55 = load i64, ptr %54, align 8, !noalias !49
   %56 = and i64 %55, 8192
   %.not.i.i.us = icmp eq i64 %56, 0
-  %57 = getelementptr inbounds i8, ptr %54, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
   br i1 %.not.i.i.us, label %RSTRING_PTR.exit.us, label %58
 
 58:                                               ; preds = %io_wait_writable.exit.us
@@ -5443,7 +5443,7 @@ io_wait_writable.exit:                            ; preds = %48
   %71 = load i64, ptr %70, align 8, !noalias !49
   %72 = and i64 %71, 8192
   %.not.i.i = icmp eq i64 %72, 0
-  %73 = getelementptr inbounds i8, ptr %70, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %74
 
 74:                                               ; preds = %io_wait_writable.exit
@@ -5675,11 +5675,11 @@ define internal fastcc i64 @ossl_ssl_write_internal(i64 noundef %0, i64 noundef 
   %16 = call i64 @rb_attr_get(i64 noundef %0, i64 noundef %15) #10
   %17 = call i64 @rb_io_taint_check(i64 noundef %16) #10
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   call void @rb_io_check_closed(ptr noundef %20) #10
   %21 = inttoptr i64 %14 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 2147483648
   %.not.i.i = icmp ult i64 %24, 4294967296
@@ -5695,7 +5695,7 @@ RSTRING_LENINT.exit:                              ; preds = %12
   br i1 %27, label %76, label %io_wait_writable.exit.preheader
 
 io_wait_writable.exit.preheader:                  ; preds = %RSTRING_LENINT.exit
-  %28 = getelementptr inbounds i8, ptr %21, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %29 = and i64 %2, 7
   %30 = icmp ne i64 %29, 0
   %31 = or i1 %.not37, %30

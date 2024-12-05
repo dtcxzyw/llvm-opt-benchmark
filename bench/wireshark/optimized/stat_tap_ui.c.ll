@@ -29,7 +29,7 @@ define void @register_stat_tap_ui(ptr nocapture noundef readonly %0, ptr noundef
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @wmem_list_find_custom(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @search_duplicate) #10
   %.not = icmp eq ptr %12, null
@@ -41,13 +41,13 @@ define void @register_stat_tap_ui(ptr nocapture noundef readonly %0, ptr noundef
   %16 = tail call ptr @wmem_epan_scope() #10
   %17 = load ptr, ptr %10, align 8
   %18 = tail call noalias ptr @wmem_strdup(ptr noundef %16, ptr noundef %17) #10
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %1, ptr %23, align 8
   %24 = load ptr, ptr @stat_cmd_arg_list, align 8
   tail call void @wmem_list_insert_sorted(ptr noundef %24, ptr noundef %15, ptr noundef nonnull @sort_by_name) #10
@@ -65,7 +65,7 @@ declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @search_duplicate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #11
   ret i32 %5
@@ -79,9 +79,9 @@ declare void @wmem_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @sort_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #11
   ret i32 %7
@@ -108,7 +108,7 @@ define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_a
 .lr.ph:                                           ; preds = %6, %19
   %.01519 = phi ptr [ %20, %19 ], [ %8, %6 ]
   %9 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01519) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #11
   %13 = tail call i32 @strncmp(ptr noundef %11, ptr noundef %2, i64 noundef %12) #11
@@ -118,7 +118,7 @@ define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_a
 14:                                               ; preds = %.lr.ph
   %15 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #12
   store ptr %9, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
   %17 = load ptr, ptr @stats_requested, align 8
   %18 = tail call ptr @g_slist_append(ptr noundef %17, ptr noundef nonnull %15) #10
@@ -175,7 +175,7 @@ declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: cold nofree nounwind uwtable
 define internal void @list_stat_cmd_args_func(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef %5) #13
   ret void
@@ -191,11 +191,11 @@ define void @start_requested_stats() local_unnamed_addr #0 {
   %2 = phi ptr [ %14, %.lr.ph ], [ %1, %0 ]
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %6(ptr noundef %8, ptr noundef %10) #10
   %11 = load ptr, ptr @stats_requested, align 8
@@ -228,7 +228,7 @@ define void @register_stat_tap_table_ui(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ %2, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %8, ptr noundef %10, ptr noundef %0, i32 noundef 0) #10
   ret void
@@ -258,7 +258,7 @@ declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   store ptr null, ptr %2, align 8
@@ -281,7 +281,7 @@ define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %11, %15, %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not15 = icmp eq ptr %19, null
   br i1 %.not15, label %21, label %20
@@ -298,15 +298,15 @@ define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef 
 define noalias noundef ptr @stat_tap_init_table(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %8, align 8
   %9 = sext i32 %2 to i64
   %10 = tail call noalias ptr @g_malloc0_n(i64 noundef %9, i64 noundef 8) #12
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %10, ptr %11, align 8
   ret ptr %5
 }
@@ -316,13 +316,13 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %.not13 = icmp eq i32 %7, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph
@@ -330,7 +330,7 @@ define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr n
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
@@ -358,7 +358,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 define void @stat_tap_add_table(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -370,7 +370,7 @@ define void @stat_tap_add_table(ptr nocapture noundef %0, ptr noundef %1) local_
 
 9:                                                ; preds = %7, %2
   %10 = phi ptr [ %8, %7 ], [ %5, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = call ptr @g_array_insert_vals(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %3, i32 noundef 1) #10
   ret void
@@ -382,7 +382,7 @@ declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %1, %6
   br i1 %.not, label %.loopexit, label %7
@@ -390,7 +390,7 @@ define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i
 7:                                                ; preds = %4
   %8 = add i32 %1, 1
   store i32 %8, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
   %12 = shl nuw nsw i64 %11, 3
@@ -401,7 +401,7 @@ define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = zext i32 %6 to i64
   br label %18
 
@@ -420,7 +420,7 @@ define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i
   br i1 %26, label %18, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %18, %7, %4
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext i32 %1 to i64
   %30 = getelementptr ptr, ptr %28, i64 %29
@@ -435,7 +435,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @stat_tap_get_field_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
   %7 = getelementptr ptr, ptr %5, i64 %6
@@ -447,7 +447,7 @@ define ptr @stat_tap_get_field_data(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @stat_tap_set_field_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #8 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
   %8 = getelementptr ptr, ptr %6, i64 %7
@@ -460,15 +460,15 @@ define void @stat_tap_set_field_data(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph.split
@@ -495,7 +495,7 @@ define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_a
 15:                                               ; preds = %.lr.ph.split, %11
   %16 = phi ptr [ %10, %.lr.ph.split ], [ %.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
@@ -507,15 +507,15 @@ define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not35 = icmp eq i32 %5, 0
   br i1 %.not35, label %._crit_edge34, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %7
 
 7:                                                ; preds = %.lr.ph33, %._crit_edge30
@@ -524,14 +524,14 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr ptr, ptr %9, i64 %indvars.iv44
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   %.not36 = icmp eq i32 %13, 0
   br i1 %.not36, label %._crit_edge30, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -589,13 +589,13 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %37, label %.preheader, label %._crit_edge30, !llvm.loop !12
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %7
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void @g_free(ptr noundef %39) #10
   tail call void @g_free(ptr noundef nonnull %11) #10
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next45, %43

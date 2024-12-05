@@ -2442,25 +2442,25 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %47 = load float, ptr %46, align 8, !tbaa !46
   %48 = fptosi float %47 to i32
   %49 = sitofp i32 %48 to float
-  %50 = getelementptr inbounds i8, ptr %3, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store float %49, ptr %50, align 8, !tbaa !43
   %51 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %52 = load float, ptr %51, align 4, !tbaa !47
   %53 = fptosi float %52 to i32
   %54 = sitofp i32 %53 to float
-  %55 = getelementptr inbounds i8, ptr %3, i64 76
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store float %54, ptr %55, align 4, !tbaa !45
   %56 = fcmp olt float %42, %52
   %57 = select i1 %56, float %37, float %47
   %58 = fptosi float %57 to i32
   %59 = sitofp i32 %58 to float
-  %60 = getelementptr inbounds i8, ptr %3, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store float %59, ptr %60, align 8, !tbaa !43
   %61 = fcmp ogt float %42, %52
   %62 = select i1 %61, float %42, float %52
   %63 = fptosi float %62 to i32
   %64 = sitofp i32 %63 to float
-  %65 = getelementptr inbounds i8, ptr %3, i64 84
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store float %64, ptr %65, align 4, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 63
@@ -2494,14 +2494,14 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i8 %91, ptr %92, align 1, !tbaa !48
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 0, ptr %93, align 8, !tbaa !50
-  %94 = getelementptr inbounds i8, ptr %3, i64 57
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 57
   %95 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0) #5
   store i24 %95, ptr %94, align 1
   %96 = trunc i32 %88 to i8
   %97 = xor i8 %96, -1
-  %98 = getelementptr inbounds i8, ptr %3, i64 60
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i8 %97, ptr %98, align 4, !tbaa !48
-  %99 = getelementptr inbounds i8, ptr %3, i64 61
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 61
   store i8 -1, ptr %99, align 1, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !51
@@ -2520,12 +2520,12 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   store i8 0, ptr %108, align 4, !tbaa !50
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 59
   store i8 %97, ptr %109, align 1, !tbaa !48
-  %110 = getelementptr inbounds i8, ptr %4, i64 61
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 61
   %111 = call i24 @lv_chart_get_series_color(ptr noundef %18, ptr noundef %.0) #5
   store i24 %111, ptr %110, align 1
-  %112 = getelementptr inbounds i8, ptr %4, i64 65
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 65
   store i8 -1, ptr %112, align 1, !tbaa !50
-  %113 = getelementptr inbounds i8, ptr %4, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %113, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   %114 = load float, ptr %36, align 8, !tbaa !39

@@ -381,7 +381,7 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %5
   br i1 %15, label %16, label %8, !llvm.loop !5
@@ -407,9 +407,9 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br label %77
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = tail call i64 @strlen(ptr noundef %1) #13
-  %30 = tail call ptr @strncpy(ptr noundef %28, ptr noundef %1, i64 noundef 8) #13
+  %30 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef %1, i64 noundef 8) #13
   %31 = icmp ugt i64 %29, 7
   %32 = icmp ne i32 %0, 0
   %33 = or i1 %32, %31
@@ -430,9 +430,9 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br label %40
 
 40:                                               ; preds = %.thread8, %38, %36
-  %41 = getelementptr inbounds i8, ptr %23, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %42 = tail call i64 @strlen(ptr noundef %2) #13
-  %43 = tail call ptr @strncpy(ptr noundef %41, ptr noundef %2, i64 noundef 16) #13
+  %43 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef %2, i64 noundef 16) #13
   %44 = icmp ugt i64 %42, 15
   %45 = or i1 %32, %44
   br i1 %45, label %48, label %.thread9
@@ -484,17 +484,17 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
   br label %77
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %23, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i64 %60, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %23, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 %0, ptr %67, align 8
   %68 = icmp eq i32 %0, 0
-  %69 = getelementptr inbounds i8, ptr %10, i64 16
-  %70 = getelementptr inbounds i8, ptr %23, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br i1 %68, label %74, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %10, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %73 = load ptr, ptr %72, align 8
   store ptr %23, ptr %72, align 8
   store ptr %69, ptr %23, align 8
@@ -504,7 +504,7 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
 
 74:                                               ; preds = %65
   %75 = load ptr, ptr %69, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %23, ptr %76, align 8
   store ptr %75, ptr %23, align 8
   store ptr %69, ptr %70, align 8
@@ -543,10 +543,10 @@ define dso_local i32 @scsi_dev_info_list_del_keyed(ptr nocapture noundef readonl
   br label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
@@ -570,7 +570,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr nocapture noundef readon
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %12, label %4, !llvm.loop !5
@@ -648,48 +648,48 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr nocapture noundef readon
   br i1 %57, label %50, label %58, !llvm.loop !12
 
 58:                                               ; preds = %53, %50
-  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %59
   br i1 %61, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %58, %87
   %62 = phi ptr [ %88, %87 ], [ %60, %58 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
-  %66 = getelementptr inbounds i8, ptr %62, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
   br i1 %65, label %80, label %67
 
 67:                                               ; preds = %.preheader
-  %68 = tail call i64 @strnlen(ptr noundef %66, i64 noundef 8)
+  %68 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %66, i64 noundef 8)
   %69 = icmp eq i64 %29, %68
   br i1 %69, label %70, label %87
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @bcmp(ptr %66, ptr %26, i64 %29)
+  %71 = tail call i32 @bcmp(ptr nonnull %66, ptr %26, i64 %29)
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %87
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %62, i64 24
-  %75 = tail call i64 @strnlen(ptr noundef %74, i64 noundef 16)
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %75 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %74, i64 noundef 16)
   %76 = icmp ult i64 %51, %75
   br i1 %76, label %87, label %77
 
 77:                                               ; preds = %73
-  %78 = tail call i32 @bcmp(ptr %74, ptr %49, i64 %75)
+  %78 = tail call i32 @bcmp(ptr nonnull %74, ptr %49, i64 %75)
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.thread, label %87
 
 80:                                               ; preds = %.preheader
-  %81 = tail call i32 @bcmp(ptr noundef dereferenceable(8) %66, ptr noundef dereferenceable(8) %0, i64 8)
+  %81 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %66, ptr noundef dereferenceable(8) %0, i64 8)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %62, i64 24
-  %85 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %84, ptr noundef dereferenceable(16) %1, i64 16)
+  %84 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %85 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %84, ptr noundef dereferenceable(16) %1, i64 16)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.thread, label %87
 
@@ -710,12 +710,12 @@ define dso_local i64 @scsi_get_device_flags(ptr nocapture noundef readonly %0, p
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i64, ptr %7, align 8
   br label %15
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   %13 = load i64, ptr @scsi_default_dev_flags, align 8
@@ -734,7 +734,7 @@ define dso_local i64 @scsi_get_device_flags_keyed(ptr nocapture noundef readonly
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i64, ptr %8, align 8
   br label %18
 
@@ -743,7 +743,7 @@ define dso_local i64 @scsi_get_device_flags_keyed(ptr nocapture noundef readonly
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr @scsi_default_dev_flags, align 8
@@ -767,7 +767,7 @@ define dso_local void @scsi_exit_devinfo() local_unnamed_addr #0 align 16 {
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %1, !llvm.loop !5
@@ -777,15 +777,15 @@ define dso_local void @scsi_exit_devinfo() local_unnamed_addr #0 align 16 {
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %.loopexit, label %.preheader
@@ -819,7 +819,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_dev_info_remove_list(i32 no
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2, !llvm.loop !5
@@ -829,15 +829,15 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_dev_info_remove_list(i32 no
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8
   store volatile ptr %15, ptr %14, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %.loopexit, label %.preheader
@@ -869,7 +869,7 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %11, label %3, !llvm.loop !5
@@ -886,15 +886,15 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
 
 16:                                               ; preds = %.thread
   store volatile ptr %14, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store volatile ptr %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store volatile ptr %18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store volatile ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 %0, ptr %21, align 8
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @scsi_dev_info_list, i64 8), align 8
   store ptr %14, ptr getelementptr inbounds (i8, ptr @scsi_dev_info_list, i64 8), align 8
@@ -931,9 +931,9 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #5 section ".init.t
   %12 = phi ptr [ %10, %6 ], [ @.str.11, %3 ]
   %13 = phi ptr [ %9, %6 ], [ @scsi_static_device_list, %3 ]
   %14 = phi i32 [ %7, %6 ], [ 0, %3 ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %12, ptr noundef %16, ptr noundef null, i64 noundef %18, i32 noundef 0)
   %20 = icmp eq i32 %19, 0
@@ -1112,7 +1112,7 @@ define internal noundef ptr @devinfo_seq_start(ptr nocapture readnone %0, ptr no
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr @scsi_dev_info_list, align 8
   store ptr %9, ptr %4, align 8
   %10 = icmp eq ptr %9, @scsi_dev_info_list
@@ -1127,7 +1127,7 @@ define internal noundef ptr @devinfo_seq_start(ptr nocapture readnone %0, ptr no
 .lr.ph:                                           ; preds = %6, %.loopexit
   %13 = phi ptr [ %11, %.loopexit ], [ %9, %6 ]
   %14 = phi i64 [ %18, %.loopexit ], [ %7, %6 ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %16
 
 16:                                               ; preds = %21, %.lr.ph
@@ -1164,11 +1164,11 @@ define internal noundef ptr @devinfo_seq_next(ptr nocapture readnone %0, ptr nou
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %12, label %.loopexit
 
@@ -1177,7 +1177,7 @@ define internal noundef ptr @devinfo_seq_next(ptr nocapture readnone %0, ptr nou
   br label %18
 
 14:                                               ; preds = %18
-  %15 = getelementptr inbounds i8, ptr %20, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %7, align 8
   %17 = icmp eq ptr %15, %16
@@ -1202,15 +1202,15 @@ define internal noundef ptr @devinfo_seq_next(ptr nocapture readnone %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @devinfo_seq_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %5
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -1220,11 +1220,11 @@ define internal noundef i32 @devinfo_seq_show(ptr noundef %0, ptr nocapture noun
   br label %14
 
 14:                                               ; preds = %13, %9, %2
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = load i64, ptr %17, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.323, ptr noundef %15, ptr noundef %16, i64 noundef %18) #13
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.323, ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %18) #13
   ret i32 0
 }
 

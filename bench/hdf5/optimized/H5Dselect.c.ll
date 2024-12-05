@@ -369,7 +369,7 @@ declare ptr @H5FL_seq_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5D__select_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @H5D__select_io(ptr noundef %0, ptr noundef %1, i64 noundef %4)
   %6 = icmp slt i32 %5, 0
@@ -409,13 +409,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread278
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 1
   br i1 %23, label %24, label %68
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @H5S_get_select_offset(ptr noundef %26, ptr noundef nonnull %10) #3
   %28 = icmp slt i32 %27, 0
@@ -428,7 +428,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread278
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %1, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @H5S_get_select_offset(ptr noundef %35, ptr noundef nonnull %9) #3
   %37 = icmp slt i32 %36, 0
@@ -451,13 +451,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   store i64 %46, ptr %9, align 8
   store i64 %2, ptr %11, align 8
   store i64 %2, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds i8, ptr %1, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %52 = load ptr, ptr %51, align 8
   %53 = call i64 %52(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #3
   %54 = icmp slt i64 %53, 0
@@ -470,7 +470,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread278
 
 59:                                               ; preds = %42
-  %60 = getelementptr inbounds i8, ptr %1, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %61 = load ptr, ptr %60, align 8
   %62 = call i64 %61(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #3
   %63 = icmp slt i64 %62, 0
@@ -564,7 +564,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread176.thread.thread242
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %1, i64 176
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 @H5S_select_iter_init(ptr noundef nonnull %111, ptr noundef %119, i64 noundef %2, i32 noundef 1) #3
   %121 = icmp slt i32 %120, 0
@@ -578,7 +578,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.thread176.thread.thread242
 
 126:                                              ; preds = %117
-  %127 = getelementptr inbounds i8, ptr %1, i64 184
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %128 = load ptr, ptr %127, align 8
   %129 = call i32 @H5S_select_iter_init(ptr noundef nonnull %105, ptr noundef %128, i64 noundef %2, i32 noundef 0) #3
   %130 = icmp sgt i32 %129, -1
@@ -599,9 +599,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br i1 %.not283, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %135
-  %136 = getelementptr inbounds i8, ptr %0, i64 40
-  %137 = getelementptr inbounds i8, ptr %1, i64 88
-  %138 = getelementptr inbounds i8, ptr %1, i64 80
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %139
 
 139:                                              ; preds = %.lr.ph, %182
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5D__select_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = tail call fastcc i32 @H5D__select_io(ptr noundef %0, ptr noundef %1, i64 noundef %4)
   %6 = icmp slt i32 %5, 0

@@ -210,8 +210,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
   ret void
 }
@@ -221,8 +221,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
   ret void
 }
@@ -268,7 +268,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -282,7 +282,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -295,7 +295,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -316,7 +316,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -340,7 +340,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -357,7 +357,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -395,7 +395,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -407,7 +407,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont5
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont5
-  %d_value.i3 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %d_value.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i3)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
 
@@ -419,7 +419,7 @@ terminate.lpad.i.i.i4:                            ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i6 = getelementptr inbounds i8, ptr %base, i64 8
+  %d_value.i6 = getelementptr inbounds nuw i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit8 unwind label %terminate.lpad.i.i.i7
 
@@ -446,7 +446,7 @@ lpad2:                                            ; preds = %invoke.cont
 lpad4:                                            ; preds = %invoke.cont3
   %9 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i9 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i9)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i10
 
@@ -459,7 +459,7 @@ terminate.lpad.i.i.i10:                           ; preds = %lpad4
 
 ehcleanup:                                        ; preds = %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %8, %lpad2 ], [ %9, %lpad4 ]
-  %d_value.i12 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %d_value.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i12)
           to label %ehcleanup6 unwind label %terminate.lpad.i.i.i13
 
@@ -472,7 +472,7 @@ terminate.lpad.i.i.i13:                           ; preds = %ehcleanup
 
 ehcleanup6:                                       ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i15 = getelementptr inbounds i8, ptr %base, i64 8
+  %d_value.i15 = getelementptr inbounds nuw i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i15)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit17 unwind label %terminate.lpad.i.i.i16
 
@@ -492,7 +492,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef no
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   store i32 %size, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv.i.i = zext i32 %z to i64
   tail call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i64 noundef %conv.i.i)
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %size)
@@ -576,7 +576,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %d_value.i = getelementptr inbounds i8, ptr %result, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -588,7 +588,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont4
-  %d_value.i5 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
+  %d_value.i5 = getelementptr inbounds nuw i8, ptr %shiftAmount, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i5)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %terminate.lpad.i.i.i6
 
@@ -600,7 +600,7 @@ terminate.lpad.i.i.i6:                            ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i8 = getelementptr inbounds i8, ptr %base, i64 8
+  %d_value.i8 = getelementptr inbounds nuw i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i8)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit10 unwind label %terminate.lpad.i.i.i9
 
@@ -627,7 +627,7 @@ lpad1:                                            ; preds = %invoke.cont
 lpad3:                                            ; preds = %invoke.cont2
   %10 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i11 = getelementptr inbounds i8, ptr %result, i64 8
+  %d_value.i11 = getelementptr inbounds nuw i8, ptr %result, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i11)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i12
 
@@ -640,7 +640,7 @@ terminate.lpad.i.i.i12:                           ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad1
   %.pn = phi { ptr, i32 } [ %9, %lpad1 ], [ %10, %lpad3 ]
-  %d_value.i14 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
+  %d_value.i14 = getelementptr inbounds nuw i8, ptr %shiftAmount, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i14)
           to label %ehcleanup5 unwind label %terminate.lpad.i.i.i15
 
@@ -653,7 +653,7 @@ terminate.lpad.i.i.i15:                           ; preds = %ehcleanup
 
 ehcleanup5:                                       ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i17 = getelementptr inbounds i8, ptr %base, i64 8
+  %d_value.i17 = getelementptr inbounds nuw i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i17)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit19 unwind label %terminate.lpad.i.i.i18
 
@@ -682,7 +682,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -699,7 +699,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -731,7 +731,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -748,7 +748,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -772,7 +772,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -789,7 +789,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -813,7 +813,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -830,7 +830,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -856,7 +856,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -873,7 +873,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -899,7 +899,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -916,7 +916,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -942,7 +942,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -959,7 +959,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -985,7 +985,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1002,7 +1002,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1028,7 +1028,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1045,7 +1045,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1078,7 +1078,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -1092,7 +1092,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -1105,7 +1105,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -1126,7 +1126,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -1157,7 +1157,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -1171,7 +1171,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -1184,7 +1184,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -1205,7 +1205,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -1227,8 +1227,8 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  %d_value2.i = getelementptr inbounds i8, ptr %op, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
+  %d_value2.i = getelementptr inbounds nuw i8, ptr %op, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2.i)
   invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -1238,7 +1238,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %d_value.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1271,7 +1271,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i7
 
@@ -1310,7 +1310,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1324,7 +1324,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1353,7 +1353,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1367,7 +1367,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1395,7 +1395,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1412,7 +1412,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1451,7 +1451,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1465,7 +1465,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1494,7 +1494,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1508,7 +1508,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1552,7 +1552,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1569,7 +1569,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1599,7 +1599,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1613,7 +1613,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1641,7 +1641,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1658,7 +1658,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1690,7 +1690,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1704,7 +1704,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %common.resume unwind label %terminate.lpad.i.i.i2.i
 
@@ -1738,7 +1738,7 @@ if.then3:                                         ; preds = %if.else
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then3
-  %d_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %d_value.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit unwind label %terminate.lpad.i.i.i.i.i
 
@@ -1752,7 +1752,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i
 lpad.i.i:                                         ; preds = %if.then3
   %9 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %d_value.i1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i.i)
           to label %common.resume unwind label %terminate.lpad.i.i.i2.i.i
 
@@ -1788,7 +1788,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -1802,7 +1802,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -1830,7 +1830,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1847,7 +1847,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -1888,8 +1888,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
   ret void
 }
@@ -1899,8 +1899,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
   ret void
 }
@@ -1944,7 +1944,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -1958,7 +1958,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -1971,7 +1971,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -1992,7 +1992,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2016,7 +2016,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2033,7 +2033,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2075,7 +2075,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2092,7 +2092,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2124,7 +2124,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2141,7 +2141,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2165,7 +2165,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2182,7 +2182,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2206,7 +2206,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2223,7 +2223,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2247,7 +2247,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2264,7 +2264,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2288,7 +2288,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2305,7 +2305,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2329,7 +2329,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2346,7 +2346,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2370,7 +2370,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2387,7 +2387,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2411,7 +2411,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2428,7 +2428,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2459,7 +2459,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -2473,7 +2473,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -2486,7 +2486,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -2507,7 +2507,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2538,7 +2538,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
@@ -2552,7 +2552,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
 
@@ -2565,7 +2565,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
 
@@ -2586,7 +2586,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2608,8 +2608,8 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  %d_value2.i = getelementptr inbounds i8, ptr %op, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
+  %d_value2.i = getelementptr inbounds nuw i8, ptr %op, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2.i)
   invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -2619,7 +2619,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %d_value.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2652,7 +2652,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
           to label %ehcleanup unwind label %terminate.lpad.i.i.i7
 
@@ -2689,7 +2689,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2703,7 +2703,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -2732,7 +2732,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2746,7 +2746,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -2774,7 +2774,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2791,7 +2791,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2830,7 +2830,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2844,7 +2844,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -2873,7 +2873,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2887,7 +2887,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -2929,7 +2929,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -2946,7 +2946,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -2974,7 +2974,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2988,7 +2988,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -3016,7 +3016,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -3033,7 +3033,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -3065,7 +3065,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -3079,7 +3079,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %common.resume unwind label %terminate.lpad.i.i.i2.i
 
@@ -3113,7 +3113,7 @@ if.then3:                                         ; preds = %if.else
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then3
-  %d_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %d_value.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit unwind label %terminate.lpad.i.i.i.i.i
 
@@ -3127,7 +3127,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i
 lpad.i.i:                                         ; preds = %if.then3
   %9 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %d_value.i1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i.i)
           to label %common.resume unwind label %terminate.lpad.i.i.i2.i.i
 
@@ -3163,7 +3163,7 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
           to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -3177,7 +3177,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
 
@@ -3205,7 +3205,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -3222,7 +3222,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -3248,7 +3248,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -3265,7 +3265,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 
@@ -3291,7 +3291,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -3308,7 +3308,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
 

@@ -18,11 +18,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 65568
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 65568
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 65572
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 65572
   store i32 2047, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 65576
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 65576
   store i32 0, ptr %5, align 8
   store ptr %2, ptr %0, align 8
   ret i32 0
@@ -33,13 +33,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @mca_common_ompio_register_print_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.mca_common_ompio_print_entry) align 8 %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 65576
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 2047
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 65572
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 65572
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1
   %10 = srem i32 %9, 2048
@@ -61,13 +61,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 65576
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 65568
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 65568
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %9
@@ -88,7 +88,7 @@ define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 65576
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   %. = zext i1 %4 to i32
@@ -97,7 +97,7 @@ define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 65576
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2047
   %. = zext i1 %4 to i32
@@ -106,14 +106,14 @@ define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 4, i64 noundef 8) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread175.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.thread208
@@ -134,7 +134,7 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   br i1 %19, label %.thread151, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = tail call noalias ptr @calloc(i64 noundef %23, i64 noundef 32) #12
@@ -143,41 +143,41 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %20
   %27 = shl nsw i32 %22, 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 65576
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.preheader186, label %.loopexit
 
 .thread208:                                       ; preds = %8
-  %31 = getelementptr inbounds i8, ptr %0, i64 65576
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.preheader186.thread, label %.loopexit
 
 .preheader186.thread:                             ; preds = %.thread208
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %35 = zext nneg i32 %32 to i64
   br label %.preheader185
 
 .preheader186:                                    ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %wide.trip.count203 = zext nneg i32 %29 to i64
   br label %.preheader185.us
 
 .preheader185.us:                                 ; preds = %.preheader186, %.split.us.us
   %indvars.iv200 = phi i64 [ 0, %.preheader186 ], [ %indvars.iv.next201, %.split.us.us ]
-  %37 = getelementptr inbounds [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv200
+  %37 = getelementptr inbounds nuw [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   br label %38
 
 38:                                               ; preds = %38, %.preheader185.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %38 ], [ 0, %.preheader185.us ]
-  %39 = getelementptr inbounds double, ptr %12, i64 %indvars.iv196
+  %39 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv196
   store double 1.000000e+05, ptr %39, align 8
-  %40 = getelementptr inbounds [3 x double], ptr %37, i64 0, i64 %indvars.iv196
+  %40 = getelementptr inbounds nuw [3 x double], ptr %37, i64 0, i64 %indvars.iv196
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds double, ptr %6, i64 %indvars.iv196
+  %42 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv196
   %43 = load double, ptr %42, align 8
   %44 = fadd double %41, %43
   store double %44, ptr %42, align 8
@@ -186,7 +186,7 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   br i1 %exitcond199.not, label %.split.us.us, label %38, !llvm.loop !4
 
 .split.us.us:                                     ; preds = %38
-  %45 = getelementptr inbounds [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv200, i32 2
+  %45 = getelementptr inbounds nuw [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv200, i32 2
   %46 = load i32, ptr %45, align 4
   %47 = sitofp i32 %46 to double
   store double %47, ptr %36, align 8
@@ -196,14 +196,14 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
 
 .preheader185:                                    ; preds = %.preheader186.thread, %.split
   %indvars.iv192 = phi i64 [ 0, %.preheader186.thread ], [ %indvars.iv.next193, %.split ]
-  %48 = getelementptr inbounds [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv192
+  %48 = getelementptr inbounds nuw [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv192
   br label %49
 
 49:                                               ; preds = %.preheader185, %49
   %indvars.iv = phi i64 [ 0, %.preheader185 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds [3 x double], ptr %48, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [3 x double], ptr %48, i64 0, i64 %indvars.iv
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %53 = load double, ptr %52, align 8
   %54 = fadd double %51, %53
   store double %54, ptr %52, align 8
@@ -212,7 +212,7 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   br i1 %exitcond.not, label %.split, label %49, !llvm.loop !4
 
 .split:                                           ; preds = %49
-  %55 = getelementptr inbounds [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv192, i32 2
+  %55 = getelementptr inbounds nuw [2049 x %struct.mca_common_ompio_print_entry], ptr %0, i64 0, i64 %indvars.iv192, i32 2
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
   store double %57, ptr %34, align 8
@@ -226,13 +226,13 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   %.1112218 = phi ptr [ null, %.thread208 ], [ %15, %26 ], [ %15, %.split.us.us ], [ null, %.split ]
   %.1114216 = phi ptr [ null, %.thread208 ], [ %18, %26 ], [ %18, %.split.us.us ], [ null, %.split ]
   %.0115214 = phi i32 [ 0, %.thread208 ], [ %27, %26 ], [ %27, %.split.us.us ], [ 0, %.split ]
-  %58 = getelementptr inbounds i8, ptr %2, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 328
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 328
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 %63(ptr noundef nonnull %6, i32 noundef 4, ptr noundef nonnull @ompi_mpi_double, ptr noundef %.0222, i32 noundef 4, ptr noundef nonnull @ompi_mpi_double, i32 noundef 0, ptr noundef %59, ptr noundef %65) #13
   %67 = load i32, ptr %9, align 4
@@ -244,37 +244,37 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   br i1 %68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %69 = getelementptr inbounds i8, ptr %.1114216, i64 8
-  %70 = getelementptr inbounds i8, ptr %.1114216, i64 16
-  %71 = getelementptr inbounds i8, ptr %.1220, i64 8
-  %72 = getelementptr inbounds i8, ptr %.1220, i64 16
-  %73 = getelementptr inbounds i8, ptr %.1112218, i64 8
-  %74 = getelementptr inbounds i8, ptr %.1112218, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.1114216, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.1114216, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.1220, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.1220, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.1112218, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.1112218, i64 16
   %75 = zext nneg i32 %.0115214 to i64
   br label %76
 
 76:                                               ; preds = %.lr.ph, %125
   %indvars.iv205 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next206, %125 ]
   %77 = or disjoint i64 %indvars.iv205, 3
-  %78 = getelementptr inbounds double, ptr %.0222, i64 %77
+  %78 = getelementptr inbounds nuw double, ptr %.0222, i64 %77
   %79 = load double, ptr %78, align 8
   %80 = fcmp oeq double %79, 1.000000e+00
   br i1 %80, label %81, label %125
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds double, ptr %.0222, i64 %indvars.iv205
+  %82 = getelementptr inbounds nuw double, ptr %.0222, i64 %indvars.iv205
   %83 = load double, ptr %82, align 8
   %84 = load double, ptr %.1114216, align 8
   %85 = fadd double %83, %84
   store double %85, ptr %.1114216, align 8
   %86 = or disjoint i64 %indvars.iv205, 1
-  %87 = getelementptr inbounds double, ptr %.0222, i64 %86
+  %87 = getelementptr inbounds nuw double, ptr %.0222, i64 %86
   %88 = load double, ptr %87, align 8
   %89 = load double, ptr %69, align 8
   %90 = fadd double %88, %89
   store double %90, ptr %69, align 8
   %91 = or disjoint i64 %indvars.iv205, 2
-  %92 = getelementptr inbounds double, ptr %.0222, i64 %91
+  %92 = getelementptr inbounds nuw double, ptr %.0222, i64 %91
   %93 = load double, ptr %92, align 8
   %94 = load double, ptr %70, align 8
   %95 = fadd double %93, %94
@@ -351,19 +351,19 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
   %130 = sitofp i32 %5 to double
   %131 = fdiv double %129, %130
   %132 = load double, ptr %.1220, align 8
-  %133 = getelementptr inbounds i8, ptr %.1112218, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.1112218, i64 8
   %134 = load double, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %.1114216, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.1114216, i64 8
   %136 = load double, ptr %135, align 8
   %137 = fdiv double %136, %130
-  %138 = getelementptr inbounds i8, ptr %.1220, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.1220, i64 8
   %139 = load double, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %.1112218, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.1112218, i64 16
   %141 = load double, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %.1114216, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %.1114216, i64 16
   %143 = load double, ptr %142, align 8
   %144 = fdiv double %143, %130
-  %145 = getelementptr inbounds i8, ptr %.1220, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.1220, i64 16
   %146 = load double, ptr %145, align 8
   %147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %128, double noundef %131, double noundef %132, double noundef %134, double noundef %137, double noundef %139, double noundef %141, double noundef %144, double noundef %146)
   br label %.thread151

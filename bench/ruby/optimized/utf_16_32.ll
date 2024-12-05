@@ -58,7 +58,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp sgt i8 %9, -1
   br i1 %10, label %11, label %.thread
@@ -72,20 +72,20 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone
   br i1 %13, label %..thread_crit_edge, label %22
 
 ..thread_crit_edge:                               ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %7
   %14 = phi i8 [ %.pre, %..thread_crit_edge ], [ %9, %7 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = tail call i8 @llvm.fshl.i8(i8 %6, i8 %14, i8 2)
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %3, align 1
   %18 = load i8, ptr %15, align 1
   %19 = and i8 %18, 63
   %20 = or disjoint i8 %19, -128
-  %21 = getelementptr inbounds i8, ptr %3, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %20, ptr %21, align 1
   br label %76
 
@@ -101,24 +101,24 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone
   %27 = load i8, ptr %1, align 1
   %28 = shl i8 %27, 2
   %29 = and i8 %28, 60
-  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 6
   %33 = or disjoint i8 %32, %29
   %34 = or disjoint i8 %33, -128
-  %35 = getelementptr inbounds i8, ptr %3, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %34, ptr %35, align 1
   %36 = load i8, ptr %30, align 1
   %37 = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
-  %39 = getelementptr inbounds i8, ptr %3, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %38, ptr %39, align 1
   br label %76
 
 40:                                               ; preds = %22
   %41 = shl i8 %6, 2
   %42 = and i8 %41, 12
-  %43 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = lshr i8 %44, 6
   %46 = or disjoint i8 %45, %42
@@ -133,27 +133,27 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone
   %54 = and i8 %53, 48
   %55 = or disjoint i8 %52, %54
   %56 = or disjoint i8 %55, -128
-  %57 = getelementptr inbounds i8, ptr %3, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %56, ptr %57, align 1
   %58 = load i8, ptr %43, align 1
   %59 = shl i8 %58, 4
   %60 = and i8 %59, 48
-  %61 = getelementptr inbounds i8, ptr %1, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = shl i8 %62, 2
   %64 = and i8 %63, 12
-  %65 = getelementptr inbounds i8, ptr %1, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = lshr i8 %66, 6
   %68 = or disjoint i8 %60, %64
   %69 = or disjoint i8 %68, %67
   %70 = or disjoint i8 %69, -128
-  %71 = getelementptr inbounds i8, ptr %3, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %70, ptr %71, align 1
   %72 = load i8, ptr %65, align 1
   %73 = and i8 %72, 63
   %74 = or disjoint i8 %73, -128
-  %75 = getelementptr inbounds i8, ptr %3, i64 3
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %74, ptr %75, align 1
   br label %76
 
@@ -185,7 +185,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
   store i8 %15, ptr %3, align 1
   %16 = load i8, ptr %1, align 1
   %17 = shl i8 %16, 6
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 63
   %21 = or disjoint i8 %20, %17
@@ -198,7 +198,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
 
 25:                                               ; preds = %22
   %26 = shl i8 %6, 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = lshr i8 %28, 2
   %30 = xor i8 %29, 32
@@ -206,7 +206,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
   store i8 %31, ptr %3, align 1
   %32 = load i8, ptr %27, align 1
   %33 = shl i8 %32, 6
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = xor i8 %35, -128
   %37 = or i8 %36, %33
@@ -215,7 +215,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
 38:                                               ; preds = %22
   %39 = shl nuw nsw i32 %7, 2
   %40 = and i32 %39, 28
-  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = lshr i8 %42, 4
   %44 = and i8 %43, 3
@@ -232,24 +232,24 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
   %54 = and i8 %53, 60
   %55 = zext nneg i8 %54 to i32
   %56 = or disjoint i32 %51, %55
-  %57 = getelementptr inbounds i8, ptr %1, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 4
   %60 = zext nneg i8 %59 to i32
   %61 = add nuw nsw i32 %60, 248
   %62 = or i32 %56, %61
   %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds i8, ptr %3, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %63, ptr %64, align 1
   %65 = load i8, ptr %57, align 1
   %66 = lshr i8 %65, 2
   %67 = and i8 %66, 3
   %68 = or disjoint i8 %67, -36
-  %69 = getelementptr inbounds i8, ptr %3, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %68, ptr %69, align 1
   %70 = load i8, ptr %57, align 1
   %71 = shl i8 %70, 6
-  %72 = getelementptr inbounds i8, ptr %1, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 127
   %75 = or i8 %74, %71
@@ -259,14 +259,14 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
   %.sink31 = phi i64 [ 3, %38 ], [ 1, %25 ], [ 1, %13 ], [ 1, %8 ]
   %.sink = phi i8 [ %75, %38 ], [ %37, %25 ], [ %21, %13 ], [ %9, %8 ]
   %.0 = phi i64 [ 4, %38 ], [ 2, %25 ], [ 2, %13 ], [ 2, %8 ]
-  %77 = getelementptr inbounds i8, ptr %3, i64 %.sink31
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink31
   store i8 %.sink, ptr %77, align 1
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %12
@@ -296,7 +296,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone
   %17 = load i8, ptr %1, align 1
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %19, ptr %20, align 1
   br label %73
 
@@ -316,12 +316,12 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone
   %30 = lshr i8 %29, 6
   %31 = or disjoint i8 %30, %28
   %32 = or disjoint i8 %31, -128
-  %33 = getelementptr inbounds i8, ptr %3, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %32, ptr %33, align 1
   %34 = load i8, ptr %1, align 1
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
-  %37 = getelementptr inbounds i8, ptr %3, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %36, ptr %37, align 1
   br label %73
 
@@ -342,27 +342,27 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone
   %51 = and i8 %50, 48
   %52 = or disjoint i8 %49, %51
   %53 = or disjoint i8 %52, -128
-  %54 = getelementptr inbounds i8, ptr %3, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %53, ptr %54, align 1
   %55 = load i8, ptr %1, align 1
   %56 = shl i8 %55, 4
   %57 = and i8 %56, 48
-  %58 = getelementptr inbounds i8, ptr %1, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = shl i8 %59, 2
   %61 = and i8 %60, 12
-  %62 = getelementptr inbounds i8, ptr %1, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = lshr i8 %63, 6
   %65 = or disjoint i8 %57, %61
   %66 = or disjoint i8 %65, %64
   %67 = or disjoint i8 %66, -128
-  %68 = getelementptr inbounds i8, ptr %3, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %67, ptr %68, align 1
   %69 = load i8, ptr %62, align 1
   %70 = and i8 %69, 63
   %71 = or disjoint i8 %70, -128
-  %72 = getelementptr inbounds i8, ptr %3, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %71, ptr %72, align 1
   br label %73
 
@@ -379,7 +379,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %9, align 1
   %10 = load i8, ptr %1, align 1
   store i8 %10, ptr %3, align 1
@@ -393,11 +393,11 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
 14:                                               ; preds = %11
   %15 = lshr i8 %6, 2
   %16 = and i8 %15, 7
-  %17 = getelementptr inbounds i8, ptr %3, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %16, ptr %17, align 1
   %18 = load i8, ptr %1, align 1
   %19 = shl i8 %18, 6
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 63
   %23 = or disjoint i8 %22, %19
@@ -411,16 +411,16 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
 
 27:                                               ; preds = %24
   %28 = shl i8 %6, 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = lshr i8 %30, 2
   %32 = xor i8 %31, 32
   %33 = or i8 %32, %28
-  %34 = getelementptr inbounds i8, ptr %3, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %33, ptr %34, align 1
   %35 = load i8, ptr %29, align 1
   %36 = shl i8 %35, 6
-  %37 = getelementptr inbounds i8, ptr %1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = xor i8 %38, -128
   %40 = or i8 %39, %36
@@ -430,7 +430,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
 41:                                               ; preds = %24
   %42 = shl nuw nsw i32 %7, 2
   %43 = and i32 %42, 28
-  %44 = getelementptr inbounds i8, ptr %1, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = lshr i8 %45, 4
   %47 = and i8 %46, 3
@@ -440,7 +440,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
   %51 = trunc nsw i32 %50 to i8
   %52 = lshr i8 %51, 2
   %53 = or i8 %52, -40
-  %54 = getelementptr inbounds i8, ptr %3, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %53, ptr %54, align 1
   %55 = shl nsw i32 %50, 6
   %56 = load i8, ptr %44, align 1
@@ -448,7 +448,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
   %58 = and i8 %57, 60
   %59 = zext nneg i8 %58 to i32
   %60 = or disjoint i32 %55, %59
-  %61 = getelementptr inbounds i8, ptr %1, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = lshr i8 %62, 4
   %64 = zext nneg i8 %63 to i32
@@ -460,15 +460,15 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
   %69 = lshr i8 %68, 2
   %70 = and i8 %69, 3
   %71 = or disjoint i8 %70, -36
-  %72 = getelementptr inbounds i8, ptr %3, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %71, ptr %72, align 1
   %73 = load i8, ptr %61, align 1
   %74 = shl i8 %73, 6
-  %75 = getelementptr inbounds i8, ptr %1, i64 3
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %76 = load i8, ptr %75, align 1
   %77 = and i8 %76, 127
   %78 = or i8 %77, %74
-  %79 = getelementptr inbounds i8, ptr %3, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %78, ptr %79, align 1
   br label %80
 
@@ -479,19 +479,19 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %43
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = icmp sgt i8 %14, -1
   br i1 %15, label %16, label %.thread
@@ -505,20 +505,20 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone
   br i1 %18, label %..thread_crit_edge, label %27
 
 ..thread_crit_edge:                               ; preds = %17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 3
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12
   %19 = phi i8 [ %.pre, %..thread_crit_edge ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %21 = tail call i8 @llvm.fshl.i8(i8 %10, i8 %19, i8 2)
   %22 = or disjoint i8 %21, -64
   store i8 %22, ptr %3, align 1
   %23 = load i8, ptr %20, align 1
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %26 = getelementptr inbounds i8, ptr %3, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %25, ptr %26, align 1
   br label %68
 
@@ -529,17 +529,17 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone
   %30 = load i8, ptr %9, align 1
   %31 = shl i8 %30, 2
   %32 = and i8 %31, 60
-  %33 = getelementptr inbounds i8, ptr %1, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %34 = load i8, ptr %33, align 1
   %35 = lshr i8 %34, 6
   %36 = or disjoint i8 %35, %32
   %37 = or disjoint i8 %36, -128
-  %38 = getelementptr inbounds i8, ptr %3, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %37, ptr %38, align 1
   %39 = load i8, ptr %33, align 1
   %40 = and i8 %39, 63
   %41 = or disjoint i8 %40, -128
-  %42 = getelementptr inbounds i8, ptr %3, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %41, ptr %42, align 1
   br label %68
 
@@ -550,27 +550,27 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone
   %46 = load i8, ptr %6, align 1
   %47 = shl i8 %46, 4
   %48 = and i8 %47, 48
-  %49 = getelementptr inbounds i8, ptr %1, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 4
   %52 = or disjoint i8 %51, %48
   %53 = or disjoint i8 %52, -128
-  %54 = getelementptr inbounds i8, ptr %3, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %53, ptr %54, align 1
   %55 = load i8, ptr %49, align 1
   %56 = shl i8 %55, 2
   %57 = and i8 %56, 60
-  %58 = getelementptr inbounds i8, ptr %1, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = lshr i8 %59, 6
   %61 = or disjoint i8 %60, %57
   %62 = or disjoint i8 %61, -128
-  %63 = getelementptr inbounds i8, ptr %3, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %62, ptr %63, align 1
   %64 = load i8, ptr %58, align 1
   %65 = and i8 %64, 63
   %66 = or disjoint i8 %65, -128
-  %67 = getelementptr inbounds i8, ptr %3, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %66, ptr %67, align 1
   br label %68
 
@@ -588,9 +588,9 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %10, align 1
   %11 = load i8, ptr %1, align 1
   br label %69
@@ -601,16 +601,16 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %16, align 1
   %17 = load i8, ptr %1, align 1
   %18 = lshr i8 %17, 2
   %19 = and i8 %18, 7
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %19, ptr %20, align 1
   %21 = load i8, ptr %1, align 1
   %22 = shl i8 %21, 6
-  %23 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 63
   %26 = or disjoint i8 %25, %22
@@ -622,20 +622,20 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %31, align 1
   %32 = load i8, ptr %1, align 1
   %33 = shl i8 %32, 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = lshr i8 %35, 2
   %37 = xor i8 %36, 32
   %38 = or i8 %37, %33
-  %39 = getelementptr inbounds i8, ptr %3, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %38, ptr %39, align 1
   %40 = load i8, ptr %34, align 1
   %41 = shl i8 %40, 6
-  %42 = getelementptr inbounds i8, ptr %1, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, -128
   %45 = or i8 %44, %41
@@ -644,25 +644,25 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
 46:                                               ; preds = %27
   %47 = shl i8 %6, 2
   %48 = and i8 %47, 28
-  %49 = getelementptr inbounds i8, ptr %1, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 4
   %52 = and i8 %51, 3
   %53 = or disjoint i8 %52, %48
-  %54 = getelementptr inbounds i8, ptr %3, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %53, ptr %54, align 1
   %55 = load i8, ptr %49, align 1
   %56 = shl i8 %55, 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 2
   %60 = and i8 %59, 15
   %61 = or disjoint i8 %60, %56
-  %62 = getelementptr inbounds i8, ptr %3, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %61, ptr %62, align 1
   %63 = load i8, ptr %57, align 1
   %64 = shl i8 %63, 6
-  %65 = getelementptr inbounds i8, ptr %1, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, %64
@@ -670,20 +670,20 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
 
 69:                                               ; preds = %15, %46, %30, %8
   %.sink = phi i8 [ %26, %15 ], [ %68, %46 ], [ %45, %30 ], [ %11, %8 ]
-  %70 = getelementptr inbounds i8, ptr %3, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %.sink, ptr %70, align 1
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %40
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %16
@@ -713,7 +713,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
   %21 = load i8, ptr %1, align 1
   %22 = and i8 %21, 63
   %23 = or disjoint i8 %22, -128
-  %24 = getelementptr inbounds i8, ptr %3, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %23, ptr %24, align 1
   br label %64
 
@@ -728,12 +728,12 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
   %32 = lshr i8 %31, 6
   %33 = or disjoint i8 %32, %30
   %34 = or disjoint i8 %33, -128
-  %35 = getelementptr inbounds i8, ptr %3, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %34, ptr %35, align 1
   %36 = load i8, ptr %1, align 1
   %37 = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
-  %39 = getelementptr inbounds i8, ptr %3, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %38, ptr %39, align 1
   br label %64
 
@@ -744,12 +744,12 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
   %43 = load i8, ptr %6, align 1
   %44 = shl i8 %43, 4
   %45 = and i8 %44, 48
-  %46 = getelementptr inbounds i8, ptr %1, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = lshr i8 %47, 4
   %49 = or disjoint i8 %48, %45
   %50 = or disjoint i8 %49, -128
-  %51 = getelementptr inbounds i8, ptr %3, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %50, ptr %51, align 1
   %52 = load i8, ptr %46, align 1
   %53 = shl i8 %52, 2
@@ -758,12 +758,12 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
   %56 = lshr i8 %55, 6
   %57 = or disjoint i8 %56, %54
   %58 = or disjoint i8 %57, -128
-  %59 = getelementptr inbounds i8, ptr %3, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %58, ptr %59, align 1
   %60 = load i8, ptr %1, align 1
   %61 = and i8 %60, 63
   %62 = or disjoint i8 %61, -128
-  %63 = getelementptr inbounds i8, ptr %3, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %62, ptr %63, align 1
   br label %64
 
@@ -774,7 +774,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i64 %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %6, align 1
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i32
@@ -782,9 +782,9 @@ define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr n
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %11, align 1
   %12 = load i8, ptr %1, align 1
   br label %70
@@ -795,16 +795,16 @@ define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr n
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %17, align 1
   %18 = load i8, ptr %1, align 1
   %19 = lshr i8 %18, 2
   %20 = and i8 %19, 7
-  %21 = getelementptr inbounds i8, ptr %3, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %20, ptr %21, align 1
   %22 = load i8, ptr %1, align 1
   %23 = shl i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, %23
@@ -816,20 +816,20 @@ define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr n
   br i1 %30, label %31, label %47
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %32, align 1
   %33 = load i8, ptr %1, align 1
   %34 = shl i8 %33, 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = lshr i8 %36, 2
   %38 = xor i8 %37, 32
   %39 = or i8 %38, %34
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %39, ptr %40, align 1
   %41 = load i8, ptr %35, align 1
   %42 = shl i8 %41, 6
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = xor i8 %44, -128
   %46 = or i8 %45, %42
@@ -838,25 +838,25 @@ define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr n
 47:                                               ; preds = %28
   %48 = shl i8 %7, 2
   %49 = and i8 %48, 28
-  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = lshr i8 %51, 4
   %53 = and i8 %52, 3
   %54 = or disjoint i8 %53, %49
-  %55 = getelementptr inbounds i8, ptr %3, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %54, ptr %55, align 1
   %56 = load i8, ptr %50, align 1
   %57 = shl i8 %56, 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %59 = load i8, ptr %58, align 1
   %60 = lshr i8 %59, 2
   %61 = and i8 %60, 15
   %62 = or disjoint i8 %61, %57
-  %63 = getelementptr inbounds i8, ptr %3, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %62, ptr %63, align 1
   %64 = load i8, ptr %58, align 1
   %65 = shl i8 %64, 6
-  %66 = getelementptr inbounds i8, ptr %1, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %67 = load i8, ptr %66, align 1
   %68 = and i8 %67, 63
   %69 = or disjoint i8 %68, %65
@@ -891,7 +891,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef 
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, -1
   br i1 %10, label %11, label %.thread
@@ -901,7 +901,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef 
   br label %28
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, -2
   br i1 %15, label %16, label %.thread
@@ -921,7 +921,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef 
   br i1 %21, label %28, label %.thread
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, 32
   %or.cond16 = icmp ult i8 %25, -8
@@ -967,9 +967,9 @@ define internal range(i64 2, 7) i64 @fun_so_to_utf_16(ptr nocapture noundef %0, 
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 -2, ptr %3, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 -1, ptr %9, align 1
   store i8 1, ptr %0, align 1
   %11 = tail call i64 @fun_so_to_utf_16be(ptr nonnull poison, ptr noundef %1, i64 poison, ptr noundef nonnull %10, i64 poison)
@@ -1002,19 +1002,19 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, -2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, -1
   br i1 %18, label %19, label %.thread
@@ -1024,19 +1024,19 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %
   br label %60
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, -2
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %.thread
@@ -1051,7 +1051,7 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %1, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = add i8 %38, -1
   %or.cond = icmp ult i8 %39, 16
@@ -1062,20 +1062,20 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = add i8 %44, 32
   %or.cond29 = icmp ult i8 %45, -8
   br i1 %or.cond29, label %60, label %.thread
 
 46:                                               ; preds = %3
-  %47 = getelementptr inbounds i8, ptr %1, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %1, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = add i8 %52, -1
   %or.cond30 = icmp ult i8 %53, 16
@@ -1086,7 +1086,7 @@ define internal range(i64 7, 16) i64 @fun_si_from_utf_32(ptr nocapture noundef %
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %1, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = add i8 %58, 32
   %or.cond31 = icmp ult i8 %59, -8
@@ -1109,19 +1109,19 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %10, label %45
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = icmp sgt i8 %16, -1
   br i1 %17, label %18, label %.thread.i
@@ -1135,20 +1135,20 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   br i1 %20, label %..thread_crit_edge.i, label %29
 
 ..thread_crit_edge.i:                             ; preds = %19
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 3
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 3
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %14
   %21 = phi i8 [ %.pre.i, %..thread_crit_edge.i ], [ %16, %14 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %23 = tail call i8 @llvm.fshl.i8(i8 %12, i8 %21, i8 2)
   %24 = or disjoint i8 %23, -64
   store i8 %24, ptr %3, align 1
   %25 = load i8, ptr %22, align 1
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  %28 = getelementptr inbounds i8, ptr %3, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %27, ptr %28, align 1
   br label %fun_so_from_utf_32be.exit
 
@@ -1159,17 +1159,17 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %32 = load i8, ptr %11, align 1
   %33 = shl i8 %32, 2
   %34 = and i8 %33, 60
-  %35 = getelementptr inbounds i8, ptr %1, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = lshr i8 %36, 6
   %38 = or disjoint i8 %34, %37
   %39 = or disjoint i8 %38, -128
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %39, ptr %40, align 1
   %41 = load i8, ptr %35, align 1
   %42 = and i8 %41, 63
   %43 = or disjoint i8 %42, -128
-  %44 = getelementptr inbounds i8, ptr %3, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %43, ptr %44, align 1
   br label %fun_so_from_utf_32be.exit
 
@@ -1180,38 +1180,38 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %48 = load i8, ptr %8, align 1
   %49 = shl i8 %48, 4
   %50 = and i8 %49, 48
-  %51 = getelementptr inbounds i8, ptr %1, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = lshr i8 %52, 4
   %54 = or disjoint i8 %50, %53
   %55 = or disjoint i8 %54, -128
-  %56 = getelementptr inbounds i8, ptr %3, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %55, ptr %56, align 1
   %57 = load i8, ptr %51, align 1
   %58 = shl i8 %57, 2
   %59 = and i8 %58, 60
-  %60 = getelementptr inbounds i8, ptr %1, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %61 = load i8, ptr %60, align 1
   %62 = lshr i8 %61, 6
   %63 = or disjoint i8 %59, %62
   %64 = or disjoint i8 %63, -128
-  %65 = getelementptr inbounds i8, ptr %3, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %64, ptr %65, align 1
   %66 = load i8, ptr %60, align 1
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %69 = getelementptr inbounds i8, ptr %3, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %68, ptr %69, align 1
   br label %fun_so_from_utf_32be.exit
 
 70:                                               ; preds = %5
-  %71 = getelementptr inbounds i8, ptr %1, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %72 = load i8, ptr %71, align 1
   %.not.i12 = icmp eq i8 %72, 0
   br i1 %.not.i12, label %73, label %105
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %1, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %77, label %81
@@ -1241,7 +1241,7 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %86 = load i8, ptr %1, align 1
   %87 = and i8 %86, 63
   %88 = or disjoint i8 %87, -128
-  %89 = getelementptr inbounds i8, ptr %3, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %88, ptr %89, align 1
   br label %fun_so_from_utf_32be.exit
 
@@ -1256,12 +1256,12 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %97 = lshr i8 %96, 6
   %98 = or disjoint i8 %95, %97
   %99 = or disjoint i8 %98, -128
-  %100 = getelementptr inbounds i8, ptr %3, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %99, ptr %100, align 1
   %101 = load i8, ptr %1, align 1
   %102 = and i8 %101, 63
   %103 = or disjoint i8 %102, -128
-  %104 = getelementptr inbounds i8, ptr %3, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %103, ptr %104, align 1
   br label %fun_so_from_utf_32be.exit
 
@@ -1272,12 +1272,12 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %108 = load i8, ptr %71, align 1
   %109 = shl i8 %108, 4
   %110 = and i8 %109, 48
-  %111 = getelementptr inbounds i8, ptr %1, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %112 = load i8, ptr %111, align 1
   %113 = lshr i8 %112, 4
   %114 = or disjoint i8 %110, %113
   %115 = or disjoint i8 %114, -128
-  %116 = getelementptr inbounds i8, ptr %3, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %115, ptr %116, align 1
   %117 = load i8, ptr %111, align 1
   %118 = shl i8 %117, 2
@@ -1286,12 +1286,12 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_32(ptr nocapture noundef re
   %121 = lshr i8 %120, 6
   %122 = or disjoint i8 %119, %121
   %123 = or disjoint i8 %122, -128
-  %124 = getelementptr inbounds i8, ptr %3, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %123, ptr %124, align 1
   %125 = load i8, ptr %1, align 1
   %126 = and i8 %125, 63
   %127 = or disjoint i8 %126, -128
-  %128 = getelementptr inbounds i8, ptr %3, i64 3
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %127, ptr %128, align 1
   br label %fun_so_from_utf_32be.exit
 
@@ -1307,13 +1307,13 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %7, label %8, label %76
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 -2, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 -1, ptr %11, align 1
   store i8 1, ptr %0, align 1
   store i8 0, ptr %12, align 1
@@ -1323,9 +1323,9 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %.not.i, label %15, label %19
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 0, ptr %17, align 1
   %18 = load i8, ptr %1, align 1
   br label %fun_so_to_utf_32be.exit
@@ -1336,16 +1336,16 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 0, ptr %23, align 1
   %24 = load i8, ptr %1, align 1
   %25 = lshr i8 %24, 2
   %26 = and i8 %25, 7
-  %27 = getelementptr inbounds i8, ptr %3, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %26, ptr %27, align 1
   %28 = load i8, ptr %1, align 1
   %29 = shl i8 %28, 6
-  %30 = getelementptr inbounds i8, ptr %1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 63
   %33 = or disjoint i8 %32, %29
@@ -1357,20 +1357,20 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %3, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 0, ptr %38, align 1
   %39 = load i8, ptr %1, align 1
   %40 = shl i8 %39, 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = lshr i8 %42, 2
   %44 = xor i8 %43, 32
   %45 = or i8 %44, %40
-  %46 = getelementptr inbounds i8, ptr %3, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %45, ptr %46, align 1
   %47 = load i8, ptr %41, align 1
   %48 = shl i8 %47, 6
-  %49 = getelementptr inbounds i8, ptr %1, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, -128
   %52 = or i8 %51, %48
@@ -1379,25 +1379,25 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
 53:                                               ; preds = %34
   %54 = shl i8 %13, 2
   %55 = and i8 %54, 28
-  %56 = getelementptr inbounds i8, ptr %1, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = lshr i8 %57, 4
   %59 = and i8 %58, 3
   %60 = or disjoint i8 %59, %55
-  %61 = getelementptr inbounds i8, ptr %3, i64 5
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %60, ptr %61, align 1
   %62 = load i8, ptr %56, align 1
   %63 = shl i8 %62, 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = lshr i8 %65, 2
   %67 = and i8 %66, 15
   %68 = or disjoint i8 %67, %63
-  %69 = getelementptr inbounds i8, ptr %3, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %68, ptr %69, align 1
   %70 = load i8, ptr %64, align 1
   %71 = shl i8 %70, 6
-  %72 = getelementptr inbounds i8, ptr %1, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 63
   %75 = or disjoint i8 %74, %71
@@ -1411,9 +1411,9 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %.not.i17, label %79, label %83
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %3, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %80, align 1
-  %81 = getelementptr inbounds i8, ptr %3, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %81, align 1
   %82 = load i8, ptr %1, align 1
   br label %fun_so_to_utf_32be.exit
@@ -1424,16 +1424,16 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %85, label %86, label %98
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %3, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %87, align 1
   %88 = load i8, ptr %1, align 1
   %89 = lshr i8 %88, 2
   %90 = and i8 %89, 7
-  %91 = getelementptr inbounds i8, ptr %3, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %90, ptr %91, align 1
   %92 = load i8, ptr %1, align 1
   %93 = shl i8 %92, 6
-  %94 = getelementptr inbounds i8, ptr %1, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 63
   %97 = or disjoint i8 %96, %93
@@ -1445,20 +1445,20 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
   br i1 %100, label %101, label %117
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %3, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %102, align 1
   %103 = load i8, ptr %1, align 1
   %104 = shl i8 %103, 4
-  %105 = getelementptr inbounds i8, ptr %1, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %106 = load i8, ptr %105, align 1
   %107 = lshr i8 %106, 2
   %108 = xor i8 %107, 32
   %109 = or i8 %108, %104
-  %110 = getelementptr inbounds i8, ptr %3, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %109, ptr %110, align 1
   %111 = load i8, ptr %105, align 1
   %112 = shl i8 %111, 6
-  %113 = getelementptr inbounds i8, ptr %1, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = xor i8 %114, -128
   %116 = or i8 %115, %112
@@ -1467,25 +1467,25 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, 
 117:                                              ; preds = %98
   %118 = shl i8 %77, 2
   %119 = and i8 %118, 28
-  %120 = getelementptr inbounds i8, ptr %1, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %121 = load i8, ptr %120, align 1
   %122 = lshr i8 %121, 4
   %123 = and i8 %122, 3
   %124 = or disjoint i8 %123, %119
-  %125 = getelementptr inbounds i8, ptr %3, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %124, ptr %125, align 1
   %126 = load i8, ptr %120, align 1
   %127 = shl i8 %126, 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %129 = load i8, ptr %128, align 1
   %130 = lshr i8 %129, 2
   %131 = and i8 %130, 15
   %132 = or disjoint i8 %131, %127
-  %133 = getelementptr inbounds i8, ptr %3, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %132, ptr %133, align 1
   %134 = load i8, ptr %128, align 1
   %135 = shl i8 %134, 6
-  %136 = getelementptr inbounds i8, ptr %1, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %137 = load i8, ptr %136, align 1
   %138 = and i8 %137, 63
   %139 = or disjoint i8 %138, %135
@@ -1495,7 +1495,7 @@ fun_so_to_utf_32be.exit:                          ; preds = %117, %101, %86, %79
   %.sink20 = phi i64 [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 7, %53 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
   %.sink.i18.sink = phi i8 [ %18, %15 ], [ %33, %22 ], [ %52, %37 ], [ %75, %53 ], [ %82, %79 ], [ %97, %86 ], [ %116, %101 ], [ %139, %117 ]
   %.0 = phi i64 [ 8, %15 ], [ 8, %22 ], [ 8, %37 ], [ 8, %53 ], [ 4, %79 ], [ 4, %86 ], [ 4, %101 ], [ 4, %117 ]
-  %140 = getelementptr inbounds i8, ptr %3, i64 %.sink20
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink20
   store i8 %.sink.i18.sink, ptr %140, align 1
   ret i64 %.0
 }

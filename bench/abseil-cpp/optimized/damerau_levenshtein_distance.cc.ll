@@ -42,7 +42,7 @@ if.then14:                                        ; preds = %if.end12
 if.end17:                                         ; preds = %if.end12
   %sub.neg = sub i64 %s1.sroa.0.0, %s2.sroa.0.0
   %conv21.neg = trunc i64 %sub.neg to i8
-  %add.ptr = getelementptr inbounds i8, ptr %d, i64 %conv5
+  %add.ptr = getelementptr inbounds nuw i8, ptr %d, i64 %conv5
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end17, %for.body.i
@@ -50,20 +50,20 @@ for.body.i:                                       ; preds = %if.end17, %for.body
   %__first.addr.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %d, %if.end17 ]
   store i8 %__value.addr.06.i, ptr %__first.addr.05.i, align 1
   %inc.i = add nuw nsw i8 %__value.addr.06.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.05.i, i64 1
   %cmp.not.i = icmp eq ptr %__first.addr.05.i, %add.ptr
   br i1 %cmp.not.i, label %for.body.lr.ph, label %for.body.i, !llvm.loop !5
 
 for.body.lr.ph:                                   ; preds = %for.body.i
   %conv32 = zext nneg i8 %add to i64
-  %arrayidx.i.i = getelementptr inbounds [102 x i8], ptr %d, i64 0, i64 %conv32
+  %arrayidx.i.i = getelementptr inbounds nuw [102 x i8], ptr %d, i64 0, i64 %conv32
   store i8 %add, ptr %arrayidx.i.i, align 1
   %sub23 = add i8 %.sroa.speculated, %conv21.neg
   %conv36 = zext i8 %sub23 to i64
-  %arrayinit.element.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 1
-  %arrayinit.element120 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %arrayinit.element121 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
-  %arrayinit.element122 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayinit.element.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 1
+  %arrayinit.element120 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 2
+  %arrayinit.element121 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 3
+  %arrayinit.element122 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc126
@@ -141,7 +141,7 @@ while.body.i.i.us:                                ; preds = %while.body.i.i.us, 
   %4 = phi i8 [ %6, %while.body.i.i.us ], [ %add, %for.body61.us ]
   %incdec.ptr11.i.i.idx.us = phi i64 [ %incdec.ptr11.i.i.add.us, %while.body.i.i.us ], [ 1, %for.body61.us ]
   %__result.010.i.i.us = phi ptr [ %spec.select.i.i.us, %while.body.i.i.us ], [ %ref.tmp, %for.body61.us ]
-  %incdec.ptr11.i.i.ptr.us = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx.us
+  %incdec.ptr11.i.i.ptr.us = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx.us
   %5 = load i8, ptr %incdec.ptr11.i.i.ptr.us, align 1
   %cmp.i.i.i.us = icmp ult i8 %5, %4
   %6 = call i8 @llvm.umin.i8(i8 %5, i8 %4)
@@ -208,7 +208,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %15 = phi i8 [ %17, %while.body.i.i ], [ %add, %if.end119 ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 1, %if.end119 ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %if.end119 ]
-  %incdec.ptr11.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
+  %incdec.ptr11.i.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
   %16 = load i8, ptr %incdec.ptr11.i.i.ptr, align 1
   %cmp.i.i.i = icmp ult i8 %16, %15
   %17 = call i8 @llvm.umin.i8(i8 %16, i8 %15)
@@ -232,7 +232,7 @@ for.inc126:                                       ; preds = %_ZSt3minIhET_St16in
 
 for.end128:                                       ; preds = %for.inc126
   %arrayidx.i.i69 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %s1.sroa.0.0
-  %arrayidx.i.i70 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i69, i64 0, i64 %s2.sroa.0.0
+  %arrayidx.i.i70 = getelementptr inbounds nuw [102 x i8], ptr %arrayidx.i.i69, i64 0, i64 %s2.sroa.0.0
   %19 = load i8, ptr %arrayidx.i.i70, align 1
   br label %return
 

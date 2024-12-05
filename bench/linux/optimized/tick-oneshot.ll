@@ -21,12 +21,12 @@ define dso_local i32 @tick_program_event(i64 noundef %0, i32 noundef %1) local_u
 
 6:                                                ; preds = %2
   tail call void @clockevents_switch_state(ptr noundef %4, i32 noundef 4) #5
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 9223372036854775807, ptr %7, align 8
   br label %16
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %13, !prof !6
@@ -87,7 +87,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tick_switch_to_oneshot(ptr nound
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 18
   %10 = icmp eq i32 %9, 2
@@ -98,7 +98,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tick_switch_to_oneshot(ptr nound
   %13 = load i32, ptr %7, align 4
   %14 = and i32 %13, 16
   %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %23, label %21
 
@@ -116,7 +116,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tick_switch_to_oneshot(ptr nound
   br label %27
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %26, align 8
   store ptr %0, ptr %4, align 64
   tail call void @clockevents_switch_state(ptr noundef nonnull %4, i32 noundef 3) #5

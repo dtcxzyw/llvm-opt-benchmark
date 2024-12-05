@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z12EditDistanceRK11StringPieceS1_bi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = shl i64 %9, 32
@@ -109,7 +109,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %31 = phi i32 [ %.sroa.speculated.us.us.us, %30 ], [ %26, %.lr.ph89.us.us ]
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %30 ], [ 1, %.lr.ph89.us.us ]
   %.04487.us.us.us = phi i32 [ %33, %30 ], [ %29, %.lr.ph89.us.us ]
-  %32 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv144
+  %32 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv144
   %33 = load i32, ptr %32, align 4
   %gep168 = getelementptr i8, ptr %invariant.gep167, i64 %indvars.iv144
   %34 = load i8, ptr %gep168, align 1
@@ -149,7 +149,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %45 ], [ 1, %.lr.ph89.us ]
   %.04487.us.us = phi i32 [ %48, %45 ], [ %43, %.lr.ph89.us ]
   %.08286.us.us = phi i32 [ %.sroa.speculated62.us.us, %45 ], [ %40, %.lr.ph89.us ]
-  %47 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv134
+  %47 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv134
   %48 = load i32, ptr %47, align 4
   %gep = getelementptr i8, ptr %invariant.gep167, i64 %indvars.iv134
   %49 = load i8, ptr %gep, align 1
@@ -186,7 +186,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %61 = phi i32 [ %storemerge, %73 ], [ %56, %.lr.ph89.us98 ]
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %73 ], [ 1, %.lr.ph89.us98 ]
   %.04487.us = phi i32 [ %63, %73 ], [ %59, %.lr.ph89.us98 ]
-  %62 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv124
+  %62 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv124
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i64 %indvars.iv124, -1
   %65 = getelementptr inbounds i8, ptr %20, i64 %64
@@ -216,7 +216,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %74 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %75, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -243,7 +243,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %indvars.iv114 = phi i64 [ 1, %.lr.ph89 ], [ %indvars.iv.next115, %94 ]
   %.04487 = phi i32 [ %80, %.lr.ph89 ], [ %84, %94 ]
   %.08286 = phi i32 [ %77, %.lr.ph89 ], [ %.sroa.speculated62, %94 ]
-  %83 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv114
+  %83 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv114
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i64 %indvars.iv114, -1
   %86 = getelementptr inbounds i8, ptr %20, i64 %85
@@ -276,8 +276,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge94:                                    ; preds = %76, %._crit_edge.split.us, %44, %._crit_edge.split.us.us.us, %.preheader.thread, %._crit_edge94.split.us, %.preheader
-  %97 = ashr exact i64 %11, 32
-  %98 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %97
+  %97 = ashr exact i64 %11, 30
+  %98 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %97
   %99 = load i32, ptr %98, align 4
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 

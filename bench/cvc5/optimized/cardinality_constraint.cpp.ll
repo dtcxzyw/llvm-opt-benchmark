@@ -78,7 +78,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
+  %d_ubound = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound, ptr noundef nonnull align 8 dereferenceable(16) %ub)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -289,8 +289,8 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont3:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
-  %d_ubound.i = getelementptr inbounds i8, ptr %other, i64 8
+  %d_ubound = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_ubound.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound, ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i)
           to label %invoke.cont7 unwind label %lpad4
 
@@ -324,14 +324,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal21CardinalityConstraint13getUpperBoundEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
+  %d_ubound = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_ubound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal21CardinalityConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_ubound = getelementptr inbounds i8, ptr %this, i64 8
+  %d_ubound = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -394,8 +394,8 @@ entry:
   br i1 %cmp.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %d_ubound.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_ubound.i2 = getelementptr inbounds i8, ptr %cc, i64 8
+  %d_ubound.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_ubound.i2 = getelementptr inbounds nuw i8, ptr %cc, i64 8
   %call6 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i, ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i2)
   br label %land.end
 
@@ -417,8 +417,8 @@ entry:
   br i1 %cmp.i.i, label %land.rhs.i, label %_ZNK4cvc58internal21CardinalityConstrainteqERKS1_.exit
 
 land.rhs.i:                                       ; preds = %entry
-  %d_ubound.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_ubound.i2.i = getelementptr inbounds i8, ptr %cc, i64 8
+  %d_ubound.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_ubound.i2.i = getelementptr inbounds nuw i8, ptr %cc, i64 8
   %call6.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i.i, ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i2.i)
   %4 = xor i1 %call6.i, true
   br label %_ZNK4cvc58internal21CardinalityConstrainteqERKS1_.exit
@@ -467,7 +467,7 @@ _ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit:     ; preds = %invoke.cont.i.i
   call void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %scope.i.i) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %scope.i.i)
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.6)
-  %d_ubound.i = getelementptr inbounds i8, ptr %cc, i64 8
+  %d_ubound.i = getelementptr inbounds nuw i8, ptr %cc, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i, i32 noundef 10)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -494,7 +494,7 @@ entry:
   %ref.tmp = alloca %"struct.std::hash", align 1
   %0 = load ptr, ptr %cc, align 8
   %call2 = call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %d_ubound.i = getelementptr inbounds i8, ptr %cc, i64 8
+  %d_ubound.i = getelementptr inbounds nuw i8, ptr %cc, i64 8
   %call.i = call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %d_ubound.i)
   %mul = mul i64 %call.i, %call2
   ret i64 %mul

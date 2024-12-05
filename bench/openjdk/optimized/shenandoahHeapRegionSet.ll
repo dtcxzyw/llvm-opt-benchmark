@@ -43,10 +43,10 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN31ShenandoahHeapRegionSetIteratorC2EPK23ShenandoahHeapRegionSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -55,14 +55,14 @@ define hidden void @_ZN31ShenandoahHeapRegionSetIteratorC2EPK23ShenandoahHeapReg
 define hidden void @_ZN23ShenandoahHeapRegionSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 544
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 544
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i8 noundef zeroext 5, i32 noundef 0) #7
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %8, align 8
   %9 = load i64, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %9, i1 false)
@@ -73,7 +73,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahHeapRegionSetD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #7
   ret void
@@ -83,12 +83,12 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
@@ -97,12 +97,12 @@ define hidden void @_ZN23ShenandoahHeapRegionSet10add_regionEP20ShenandoahHeapRe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN23ShenandoahHeapRegionSet13remove_regionEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   store i64 %9, ptr %7, align 8
@@ -111,30 +111,30 @@ define hidden void @_ZN23ShenandoahHeapRegionSet13remove_regionEP20ShenandoahHea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN23ShenandoahHeapRegionSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %5, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN31ShenandoahHeapRegionSetIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %3, %7
   br i1 %8, label %.lr.ph, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 .lr.ph:                                           ; preds = %1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -153,7 +153,7 @@ define hidden noundef ptr @_ZN31ShenandoahHeapRegionSetIterator4nextEv(ptr nocap
   br i1 %19, label %20, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %5, i64 552
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.011
   %24 = load ptr, ptr %23, align 8
@@ -170,17 +170,17 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %25, %1, %20, %17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK23ShenandoahHeapRegionSet8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %4) #7
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %19
@@ -193,7 +193,7 @@ define hidden void @_ZNK23ShenandoahHeapRegionSet8print_onEP12outputStream(ptr n
   br i1 %14, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %19
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 552
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 552
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %.06
   %18 = load ptr, ptr %17, align 8
@@ -204,7 +204,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %9
 19:                                               ; preds = %9, %_ZNK14ShenandoahHeap10get_regionEm.exit
   %20 = phi ptr [ %10, %9 ], [ %.pre, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
   %21 = add nuw i64 %.06, 1
-  %22 = getelementptr inbounds i8, ptr %20, i64 544
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %21, %23
   br i1 %24, label %9, label %._crit_edge, !llvm.loop !8

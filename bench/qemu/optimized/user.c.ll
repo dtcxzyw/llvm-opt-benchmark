@@ -234,7 +234,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %code, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i) #11
@@ -310,10 +310,10 @@ if.then4:                                         ; preds = %if.then2
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void @gdb_append_thread_id(ptr noundef %cpu, ptr noundef %4) #11
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %len.i = getelementptr inbounds i8, ptr %5, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %len.i, align 8
   %add.i = add i64 %6, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %5, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %7
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -469,9 +469,9 @@ if.end.i:                                         ; preds = %if.then
   store i16 2, ptr %sockaddr.i, align 4
   %conv.i = trunc i64 %call to i16
   %call2.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #12
-  %sin_port.i = getelementptr inbounds i8, ptr %sockaddr.i, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %sockaddr.i, i64 2
   store i16 %call2.i, ptr %sin_port.i, align 2
-  %sin_addr.i = getelementptr inbounds i8, ptr %sockaddr.i, i64 4
+  %sin_addr.i = getelementptr inbounds nuw i8, ptr %sockaddr.i, i64 4
   store i32 0, ptr %sin_addr.i, align 4
   %call3.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %sockaddr.i, i32 noundef 16) #11
   %cmp4.i = icmp slt i32 %call3.i, 0
@@ -494,7 +494,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sockaddr.i8)
-  %0 = getelementptr inbounds i8, ptr %sockaddr.i8, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %sockaddr.i8, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %0, i8 0, i64 108, i1 false)
   %call.i9 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
   %cmp.i10 = icmp slt i32 %call.i9, 0
@@ -581,7 +581,7 @@ gdb_accept_tcp.exit:                              ; preds = %if.then4.i
   call void @gdb_init_gdbserver_state() #11
   call void @gdb_create_default_process(ptr noundef nonnull @gdbserver_state) #11
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  %attached.i.i = getelementptr inbounds i8, ptr %2, i64 4
+  %attached.i.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 1, ptr %attached.i.i, align 4
   %call.i.i = call ptr @gdb_first_attached_cpu() #11
   store ptr %call.i.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
@@ -611,7 +611,7 @@ if.then15:                                        ; preds = %for.cond.i23
   call void @gdb_init_gdbserver_state() #11
   call void @gdb_create_default_process(ptr noundef nonnull @gdbserver_state) #11
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  %attached.i.i31 = getelementptr inbounds i8, ptr %4, i64 4
+  %attached.i.i31 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 1, ptr %attached.i.i31, align 4
   %call.i.i32 = call ptr @gdb_first_attached_cpu() #11
   store ptr %call.i.i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
@@ -692,7 +692,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #11
   br label %trace_gdbstub_op_continue.exit
@@ -716,13 +716,13 @@ entry:
   br i1 %tobool.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end7
   %cpu.07.in = phi i64 [ %0, %for.body.lr.ph ], [ %10, %while.end7 ]
   %cpu.07 = inttoptr i64 %cpu.07.in to ptr
-  %cpu_index = getelementptr inbounds i8, ptr %cpu.07, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu.07, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr i8, ptr %newstates, i64 %idxprom
@@ -769,7 +769,7 @@ trace_gdbstub_op_stepping.exit:                   ; preds = %if.then, %land.lhs.
   br label %while.end7
 
 while.end7:                                       ; preds = %for.body, %trace_gdbstub_op_stepping.exit
-  %node = getelementptr inbounds i8, ptr %cpu.07, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.07, i64 568
   %10 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   %tobool.not = icmp eq i64 %10, 0
@@ -785,7 +785,7 @@ define dso_local i32 @gdb_target_memory_rw_debug(ptr noundef %cpu, i64 noundef %
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #11
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
-  %memory_rw_debug = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %memory_rw_debug = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %0 = load ptr, ptr %memory_rw_debug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -818,12 +818,12 @@ for.body:                                         ; preds = %entry, %for.body
   %cpu.0.in8 = phi i64 [ %2, %for.body ], [ %0, %entry ]
   %max_cpus.07 = phi i32 [ %cond, %for.body ], [ 1, %entry ]
   %cpu.0 = inttoptr i64 %cpu.0.in8 to ptr
-  %cpu_index = getelementptr inbounds i8, ptr %cpu.0, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu.0, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %cmp.not = icmp ugt i32 %max_cpus.07, %1
   %add = add i32 %1, 1
   %cond = select i1 %cmp.not, i32 %max_cpus.07, i32 %add
-  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %tobool.not = icmp eq i64 %2, 0
@@ -866,7 +866,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.06, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   %tobool.not = icmp eq i64 %1, 0
@@ -899,7 +899,7 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %tobool1.not, label %while.end6, label %return
 
 while.end6:                                       ; preds = %for.body
-  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.06, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   %tobool.not = icmp eq i64 %1, 0

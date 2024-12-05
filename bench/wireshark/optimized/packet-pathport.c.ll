@@ -305,7 +305,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr nocaptur
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.50) #3
   %10 = load ptr, ptr %8, align 8
@@ -334,7 +334,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr nocaptur
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24) #3
   %25 = load ptr, ptr %8, align 8
   %26 = tail call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @ednet_id_vals, ptr noundef nonnull @.str.168) #3
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 28) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.165, ptr noundef %26, ptr noundef %29) #3

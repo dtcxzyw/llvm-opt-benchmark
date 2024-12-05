@@ -12,21 +12,21 @@ define void @lv_matrix_transform_point(ptr nocapture noundef readonly %0, ptr no
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !tbaa !8
   %6 = load float, ptr %0, align 4, !tbaa !9
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load float, ptr %7, align 4, !tbaa !9
   %9 = fmul float %5, %8
   %10 = tail call float @llvm.fmuladd.f32(float %3, float %6, float %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load float, ptr %11, align 4, !tbaa !9
   %13 = fadd float %12, %10
   store float %13, ptr %1, align 4, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !9
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load float, ptr %16, align 4, !tbaa !9
   %18 = fmul float %5, %17
   %19 = tail call float @llvm.fmuladd.f32(float %3, float %15, float %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load float, ptr %20, align 4, !tbaa !9
   %22 = fadd float %21, %19
   store float %22, ptr %4, align 4, !tbaa !8
@@ -51,11 +51,11 @@ define void @lv_matrix_transform_path(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %wide.trip.count = zext i32 %5 to i64
   br label %11
 

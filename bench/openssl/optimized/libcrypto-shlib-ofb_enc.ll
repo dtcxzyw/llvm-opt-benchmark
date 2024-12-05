@@ -40,25 +40,25 @@ if.else7:                                         ; preds = %if.end
 if.end17:                                         ; preds = %if.then2, %if.else, %if.else7
   %mask0.0 = phi i32 [ -1, %if.else ], [ %mask0.1, %if.else7 ], [ -1, %if.then2 ]
   %mask1.0 = phi i32 [ %conv, %if.else ], [ 0, %if.else7 ], [ -1, %if.then2 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %ivec, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ivec, i64 1
   %2 = load i16, ptr %ivec, align 1
   %3 = zext i16 %2 to i32
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %ivec, i64 2
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %ivec, i64 3
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %ivec, i64 2
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %ivec, i64 3
   %4 = load i8, ptr %incdec.ptr19, align 1
   %conv23 = zext i8 %4 to i32
   %shl24 = shl nuw nsw i32 %conv23, 16
   %or25 = or disjoint i32 %shl24, %3
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %ivec, i64 4
+  %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
   %5 = load i8, ptr %incdec.ptr22, align 1
   %conv27 = zext i8 %5 to i32
   %shl28 = shl nuw i32 %conv27, 24
   %or29 = or disjoint i32 %or25, %shl28
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %ivec, i64 5
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %ivec, i64 5
   %6 = load i16, ptr %incdec.ptr26, align 1
   %7 = zext i16 %6 to i32
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %ivec, i64 6
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %ivec, i64 7
+  %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %ivec, i64 6
+  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %ivec, i64 7
   %8 = load i8, ptr %incdec.ptr32, align 1
   %conv37 = zext i8 %8 to i32
   %shl38 = shl nuw nsw i32 %conv37, 16
@@ -67,7 +67,7 @@ if.end17:                                         ; preds = %if.then2, %if.else,
   %conv41 = zext i8 %9 to i32
   %shl42 = shl nuw i32 %conv41, 24
   %or43 = or disjoint i32 %or39, %shl42
-  %arrayidx45 = getelementptr inbounds i8, ptr %ti, i64 4
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %ti, i64 4
   %cmp46102 = icmp sgt i64 %length, 0
   br i1 %cmp46102, label %while.body.lr.ph, label %while.end
 
@@ -90,7 +90,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @DES_encrypt1(ptr noundef nonnull %ti, ptr noundef %schedule, i32 noundef 1) #2
   %10 = load i32, ptr %ti, align 4
   %11 = load i32, ptr %arrayidx45, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.0106, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.0106, i64 %idx.ext
   switch i32 %div, label %sw.epilog [
     i32 8, label %sw.bb
     i32 7, label %sw.bb55
@@ -183,12 +183,12 @@ sw.epilog:                                        ; preds = %sw.bb83, %while.bod
   %d0.0 = phi i32 [ 0, %while.body ], [ %or86, %sw.bb83 ]
   %d1.0 = phi i32 [ 0, %while.body ], [ %d1.7, %sw.bb83 ]
   %in.addr.1 = phi ptr [ %add.ptr, %while.body ], [ %incdec.ptr84, %sw.bb83 ]
-  %add.ptr88 = getelementptr inbounds i8, ptr %in.addr.1, i64 %idx.ext
+  %add.ptr88 = getelementptr inbounds nuw i8, ptr %in.addr.1, i64 %idx.ext
   %xor = xor i32 %d0.0, %10
   %and = and i32 %xor, %mask0.0
   %xor89 = xor i32 %d1.0, %11
   %and90 = and i32 %xor89, %mask1.0
-  %add.ptr92 = getelementptr inbounds i8, ptr %out.addr.0105, i64 %idx.ext
+  %add.ptr92 = getelementptr inbounds nuw i8, ptr %out.addr.0105, i64 %idx.ext
   switch i32 %div, label %sw.epilog130 [
     i32 8, label %sw.bb93
     i32 7, label %sw.bb97
@@ -263,7 +263,7 @@ sw.bb126:                                         ; preds = %sw.bb121, %sw.epilo
 
 sw.epilog130:                                     ; preds = %sw.bb126, %sw.epilog
   %out.addr.1 = phi ptr [ %add.ptr92, %sw.epilog ], [ %incdec.ptr129, %sw.bb126 ]
-  %add.ptr132 = getelementptr inbounds i8, ptr %out.addr.1, i64 %idx.ext
+  %add.ptr132 = getelementptr inbounds nuw i8, ptr %out.addr.1, i64 %idx.ext
   switch i32 %numbits, label %if.else140 [
     i32 32, label %if.end177
     i32 64, label %if.then139

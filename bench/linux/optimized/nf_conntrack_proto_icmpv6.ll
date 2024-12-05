@@ -31,9 +31,9 @@ define dso_local noundef zeroext i1 @icmpv6_pkt_to_tuple(ptr noundef %0, i32 nou
   %5 = alloca %struct.icmp6hdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store i64 0, ptr %5, align 8, !annotation !5
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 116
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %1, %9
   %11 = sub i32 %7, %10
@@ -50,7 +50,7 @@ define dso_local noundef zeroext i1 @icmpv6_pkt_to_tuple(ptr noundef %0, i32 nou
   br i1 %17, label %.thread, label %.thread2, !prof !6
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %1 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
@@ -60,15 +60,15 @@ define dso_local noundef zeroext i1 @icmpv6_pkt_to_tuple(ptr noundef %0, i32 nou
 .thread2:                                         ; preds = %15, %18
   %23 = phi ptr [ %22, %18 ], [ %5, %15 ]
   %24 = load i8, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 37
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 %30, ptr %31, align 1
   br label %.thread
 
@@ -89,7 +89,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef zeroext i1 @nf_conntrack_invert_icmpv6_tuple(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i64
   %6 = add nsw i64 %5, -128
@@ -103,17 +103,17 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmpv6_tuple(ptr nocapt
 
 11:                                               ; preds = %2
   %12 = getelementptr [13 x i8], ptr @invmap, i64 0, i64 %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %14, ptr %15, align 4
   %16 = load i8, ptr %12, align 1
   %17 = add i8 %16, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 37
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 37
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 37
   store i8 %20, ptr %21, align 1
   br label %22
 
@@ -123,20 +123,20 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmpv6_tuple(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv6_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 10
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %15 = load i8, ptr %14, align 4
   %16 = zext i8 %15 to i64
   %17 = icmp sgt i8 %15, -1
@@ -152,9 +152,9 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv6_packet(ptr no
   ]
 
 22:                                               ; preds = %21, %21, %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 2532
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2532
   %26 = load i32, ptr %25, align 4
   tail call void @__nf_ct_refresh_acct(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %26, i1 noundef zeroext true) #9
   br label %27
@@ -173,9 +173,9 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store i64 0, ptr %8, align 8, !annotation !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %2, %12
   %14 = sub i32 %10, %13
@@ -192,7 +192,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %20, label %.thread, label %.thread3, !prof !6
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %2 to i64
   %25 = getelementptr i8, ptr %23, i64 %24
@@ -210,9 +210,9 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %.thread3
-  %31 = getelementptr inbounds i8, ptr %3, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2436
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2436
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %40, label %36
@@ -239,11 +239,11 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %1, i64 129
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %52 = load i24, ptr %51, align 1
   %53 = or i24 %52, 1048576
   store i24 %53, ptr %51, align 1
-  %54 = getelementptr inbounds i8, ptr %1, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 7, ptr %54, align 8
   br label %145
 
@@ -252,13 +252,13 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %56, label %57, label %133
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %1, i64 192
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 180
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %61 = load i16, ptr %60, align 4
   %62 = zext i16 %61 to i64
   %63 = getelementptr i8, ptr %59, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 7
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 7
   %65 = load i8, ptr %64, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
@@ -280,7 +280,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %75, label %.thread.i, label %.thread3.i, !prof !6
 
 76:                                               ; preds = %57
-  %77 = getelementptr inbounds i8, ptr %1, i64 200
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %2 to i64
   %80 = getelementptr i8, ptr %78, i64 %79
@@ -293,7 +293,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
 
 .thread3.i:                                       ; preds = %76, %73
   %82 = phi ptr [ %80, %76 ], [ %6, %73 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %nf_conntrack_icmpv6_redirect.exit
@@ -307,8 +307,8 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   %90 = load i16, ptr %60, align 4
   %91 = zext i16 %90 to i64
   %92 = getelementptr i8, ptr %89, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %94 = call i32 @__ipv6_addr_type(ptr noundef %93) #9
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = call i32 @__ipv6_addr_type(ptr noundef nonnull %93) #9
   %95 = and i32 %94, 32
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %98
@@ -337,7 +337,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   br i1 %110, label %.thread6.i, label %.thread7.i, !prof !6
 
 111:                                              ; preds = %98
-  %112 = getelementptr inbounds i8, ptr %1, i64 200
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %113 = load ptr, ptr %112, align 8
   %114 = sext i32 %99 to i64
   %115 = getelementptr i8, ptr %113, i64 %114
@@ -346,7 +346,7 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
 
 .thread7.i:                                       ; preds = %111, %108
   %117 = phi ptr [ %115, %111 ], [ %6, %108 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = icmp eq i8 %119, 0
   br i1 %120, label %.thread6.i, label %121
@@ -365,8 +365,8 @@ define dso_local i32 @nf_conntrack_icmpv6_error(ptr noundef %0, ptr noundef %1, 
   %126 = load i16, ptr %60, align 4
   %127 = zext i16 %126 to i64
   %128 = getelementptr i8, ptr %125, i64 %127
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %129, i64 16, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %129, i64 16, i1 false)
   %130 = add i32 %2, 48
   %131 = call i32 @nf_conntrack_inet_error(ptr noundef %0, ptr noundef %1, i32 noundef %130, ptr noundef %3, i8 noundef zeroext 58, ptr noundef nonnull %5) #9
   br label %nf_conntrack_icmpv6_redirect.exit
@@ -382,14 +382,14 @@ nf_conntrack_icmpv6_redirect.exit:                ; preds = %.thread.i, %.thread
   br i1 %134, label %145, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %1, i64 192
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 180
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %139 = load i16, ptr %138, align 4
   %140 = zext i16 %139 to i64
   %141 = getelementptr i8, ptr %137, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef align 4 dereferenceable(16) %142, i64 16, i1 false)
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %142, i64 16, i1 false)
   %143 = add i32 %2, 8
   %144 = call i32 @nf_conntrack_inet_error(ptr noundef %0, ptr noundef %1, i32 noundef %143, ptr noundef %3, i8 noundef zeroext 58, ptr noundef nonnull %7) #9
   br label %145
@@ -412,7 +412,7 @@ declare dso_local i32 @nf_conntrack_inet_error(ptr noundef, ptr noundef, i32 nou
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @nf_conntrack_icmpv6_init_net(ptr nocapture noundef writeonly initializes((2532, 2536)) %0) local_unnamed_addr #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2532
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2532
   store i32 30000, ptr %2, align 4
   ret void
 }
@@ -422,7 +422,7 @@ define internal noundef range(i32 -1, 1) i32 @icmpv6_tuple_to_nlattr(ptr noundef
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i16, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #9
   store i16 %7, ptr %5, align 2
@@ -432,7 +432,7 @@ define internal noundef range(i32 -1, 1) i32 @icmpv6_tuple_to_nlattr(ptr noundef
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
   store i8 %12, ptr %4, align 1
@@ -442,7 +442,7 @@ define internal noundef range(i32 -1, 1) i32 @icmpv6_tuple_to_nlattr(ptr noundef
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 37
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %17 = load i8, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 %17, ptr %3, align 1
@@ -490,7 +490,7 @@ define internal noundef range(i32 -22, 1) i32 @icmpv6_nlattr_to_tuple(ptr nocapt
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %8, i64 4
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 %12, ptr %13, align 4
   %14 = icmp sgt i8 %12, -1
   br i1 %14, label %42, label %15
@@ -517,7 +517,7 @@ define internal noundef range(i32 -22, 1) i32 @icmpv6_nlattr_to_tuple(ptr nocapt
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %25, i64 4
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 37
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 37
   store i8 %29, ptr %30, align 1
   br label %31
 
@@ -535,7 +535,7 @@ define internal noundef range(i32 -22, 1) i32 @icmpv6_nlattr_to_tuple(ptr nocapt
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %36, i64 4
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %40, ptr %41, align 4
   br label %42
 

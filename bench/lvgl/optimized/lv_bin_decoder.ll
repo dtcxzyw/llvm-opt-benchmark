@@ -695,7 +695,7 @@ switch.early.test178:                             ; preds = %4
 102:                                              ; preds = %96
   %103 = lshr i32 %64, 2
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %.0153, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %.0153, i64 %104
   %.tr34.i = trunc nuw nsw i32 %64 to i8
   %106 = shl nuw nsw i8 %.tr34.i, 1
   %107 = and i8 %106, 6
@@ -705,7 +705,7 @@ switch.early.test178:                             ; preds = %4
 109:                                              ; preds = %96
   %110 = lshr i32 %64, 1
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %.0153, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %.0153, i64 %111
   %.tr.i = trunc nuw nsw i32 %64 to i8
   %113 = shl nuw nsw i8 %.tr.i, 2
   %114 = and i8 %113, 4
@@ -714,7 +714,7 @@ switch.early.test178:                             ; preds = %4
 
 116:                                              ; preds = %96
   %117 = zext nneg i32 %64 to i64
-  %118 = getelementptr inbounds i8, ptr %.0153, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %.0153, i64 %117
   br label %119
 
 default.unreachable38.i:                          ; preds = %96
@@ -745,7 +745,7 @@ default.unreachable38.i:                          ; preds = %96
   %128 = lshr i32 %126, %127
   %129 = and i32 %128, %120
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds %struct.lv_color32_t, ptr %56, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %56, i64 %indvars.iv.i
   %132 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %98, i64 %130
   %133 = load i32, ptr %132, align 1
   store i32 %133, ptr %131, align 1

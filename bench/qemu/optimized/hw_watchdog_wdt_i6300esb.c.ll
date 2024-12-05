@@ -78,29 +78,29 @@ define internal void @i6300esb_class_init(ptr noundef %klass, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
-  %config_read = getelementptr inbounds i8, ptr %call.i11, i64 192
+  %config_read = getelementptr inbounds nuw i8, ptr %call.i11, i64 192
   store ptr @i6300esb_config_read, ptr %config_read, align 8
-  %config_write = getelementptr inbounds i8, ptr %call.i11, i64 200
+  %config_write = getelementptr inbounds nuw i8, ptr %call.i11, i64 200
   store ptr @i6300esb_config_write, ptr %config_write, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i11, i64 176
   store ptr @i6300esb_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i11, i64 184
   store ptr @i6300esb_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i11, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 210
   store i16 9643, ptr %device_id, align 2
-  %class_id = getelementptr inbounds i8, ptr %call.i11, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i11, i64 214
   store i16 2176, ptr %class_id, align 2
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @i6300esb_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_i6300esb, ptr %vmsd, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 512
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
   ret void
 }
@@ -115,15 +115,15 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %reboot_enabled = getelementptr inbounds i8, ptr %call.i, i64 2880
+  %reboot_enabled = getelementptr inbounds nuw i8, ptr %call.i, i64 2880
   %0 = load i32, ptr %reboot_enabled, align 16
   %tobool.not = icmp eq i32 %0, 0
   %cond = select i1 %tobool.not, i32 32, i32 0
-  %clock_scale = getelementptr inbounds i8, ptr %call.i, i64 2884
+  %clock_scale = getelementptr inbounds nuw i8, ptr %call.i, i64 2884
   %1 = load i32, ptr %clock_scale, align 4
   %cmp2 = icmp eq i32 %1, 1
   %cond3 = select i1 %cmp2, i32 4, i32 0
-  %int_type = getelementptr inbounds i8, ptr %call.i, i64 2888
+  %int_type = getelementptr inbounds nuw i8, ptr %call.i, i64 2888
   %2 = load i32, ptr %int_type, align 8
   %or = or i32 %2, %cond
   %or4 = or i32 %or, %cond3
@@ -136,16 +136,16 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond1, label %if.then8, label %if.else17
 
 if.then8:                                         ; preds = %if.else
-  %free_run = getelementptr inbounds i8, ptr %call.i, i64 2892
+  %free_run = getelementptr inbounds nuw i8, ptr %call.i, i64 2892
   %3 = load i32, ptr %free_run, align 4
   %tobool9.not = icmp eq i32 %3, 0
   %cond10 = select i1 %tobool9.not, i32 0, i32 4
-  %locked = getelementptr inbounds i8, ptr %call.i, i64 2896
+  %locked = getelementptr inbounds nuw i8, ptr %call.i, i64 2896
   %4 = load i32, ptr %locked, align 16
   %tobool11.not = icmp ne i32 %4, 0
   %cond12 = zext i1 %tobool11.not to i32
   %or13 = or disjoint i32 %cond10, %cond12
-  %enabled = getelementptr inbounds i8, ptr %call.i, i64 2900
+  %enabled = getelementptr inbounds nuw i8, ptr %call.i, i64 2900
   %5 = load i32, ptr %enabled, align 4
   %tobool14.not = icmp eq i32 %5, 0
   %cond15 = select i1 %tobool14.not, i32 0, i32 2
@@ -174,14 +174,14 @@ if.then:                                          ; preds = %entry
   %and = lshr i32 %data, 5
   %and.lobit = and i32 %and, 1
   %conv = xor i32 %and.lobit, 1
-  %reboot_enabled = getelementptr inbounds i8, ptr %call.i, i64 2880
+  %reboot_enabled = getelementptr inbounds nuw i8, ptr %call.i, i64 2880
   store i32 %conv, ptr %reboot_enabled, align 16
   %and3 = lshr i32 %data, 2
   %and3.lobit = and i32 %and3, 1
-  %clock_scale = getelementptr inbounds i8, ptr %call.i, i64 2884
+  %clock_scale = getelementptr inbounds nuw i8, ptr %call.i, i64 2884
   store i32 %and3.lobit, ptr %clock_scale, align 4
   %and6 = and i32 %data, 17
-  %int_type = getelementptr inbounds i8, ptr %call.i, i64 2888
+  %int_type = getelementptr inbounds nuw i8, ptr %call.i, i64 2888
   store i32 %and6, ptr %int_type, align 8
   br label %if.end38
 
@@ -192,7 +192,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond1, label %if.then12, label %if.else36
 
 if.then12:                                        ; preds = %if.else
-  %locked = getelementptr inbounds i8, ptr %call.i, i64 2896
+  %locked = getelementptr inbounds nuw i8, ptr %call.i, i64 2896
   %0 = load i32, ptr %locked, align 16
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then13, label %if.end38
@@ -202,9 +202,9 @@ if.then13:                                        ; preds = %if.then12
   store i32 %and14, ptr %locked, align 16
   %and18 = lshr i32 %data, 2
   %and18.lobit = and i32 %and18, 1
-  %free_run = getelementptr inbounds i8, ptr %call.i, i64 2892
+  %free_run = getelementptr inbounds nuw i8, ptr %call.i, i64 2892
   store i32 %and18.lobit, ptr %free_run, align 4
-  %enabled = getelementptr inbounds i8, ptr %call.i, i64 2900
+  %enabled = getelementptr inbounds nuw i8, ptr %call.i, i64 2900
   %1 = load i32, ptr %enabled, align 4
   %and21 = and i32 %data, 2
   %and21.lobit = lshr exact i32 %and21, 1
@@ -215,18 +215,18 @@ if.then13:                                        ; preds = %if.then12
   br i1 %or.cond24, label %if.else30, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then13
-  %stage1.i = getelementptr inbounds i8, ptr %call.i, i64 2920
+  %stage1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2920
   store i32 1, ptr %stage1.i, align 8
-  %timeout.0.in.in.i = getelementptr inbounds i8, ptr %call.i, i64 2912
+  %timeout.0.in.in.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2912
   %timeout.0.in.i = load i32, ptr %timeout.0.in.in.i, align 4
   %timeout.0.i = zext i32 %timeout.0.in.i to i64
-  %clock_scale.i = getelementptr inbounds i8, ptr %call.i, i64 2884
+  %clock_scale.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2884
   %2 = load i32, ptr %clock_scale.i, align 4
   %cmp6.i = icmp eq i32 %2, 0
   %timeout.1.v.i = select i1 %cmp6.i, i64 15, i64 5
   %timeout.1.i = shl nuw nsw i64 %timeout.0.i, %timeout.1.v.i
   %mul.i = mul nuw nsw i64 %timeout.1.i, 30
-  %timer.i = getelementptr inbounds i8, ptr %call.i, i64 2904
+  %timer.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2904
   %3 = load ptr, ptr %timer.i, align 8
   %call.i25 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %add.i = add i64 %mul.i, %call.i25
@@ -256,11 +256,11 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 107, ptr noundef nonnull @__func__.WATCHDOG_I6300ESB_DEVICE) #6
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @i6300esb_timer_expired, ptr noundef %call.i) #6
-  %timer = getelementptr inbounds i8, ptr %call.i, i64 2904
+  %timer = getelementptr inbounds nuw i8, ptr %call.i, i64 2904
   store ptr %call.i.i.i, ptr %timer, align 8
-  %previous_reboot_flag = getelementptr inbounds i8, ptr %call.i, i64 2928
+  %previous_reboot_flag = getelementptr inbounds nuw i8, ptr %call.i, i64 2928
   store i32 0, ptr %previous_reboot_flag, align 16
-  %io_mem = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %io_mem = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %io_mem, ptr noundef %call.i, ptr noundef nonnull @i6300esb_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 16) #6
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %io_mem) #6
   ret void
@@ -270,7 +270,7 @@ entry:
 define internal void @i6300esb_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 107, ptr noundef nonnull @__func__.WATCHDOG_I6300ESB_DEVICE) #6
-  %timer = getelementptr inbounds i8, ptr %call.i, i64 2904
+  %timer = getelementptr inbounds nuw i8, ptr %call.i, i64 2904
   %0 = load ptr, ptr %timer, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -292,17 +292,17 @@ entry:
   %0 = getelementptr i8, ptr %call.i11, i64 2904
   %call1.val = load ptr, ptr %0, align 8
   tail call void @timer_del(ptr noundef %call1.val) #6
-  %reboot_enabled = getelementptr inbounds i8, ptr %call.i11, i64 2880
+  %reboot_enabled = getelementptr inbounds nuw i8, ptr %call.i11, i64 2880
   store i32 1, ptr %reboot_enabled, align 16
-  %clock_scale = getelementptr inbounds i8, ptr %call.i11, i64 2884
-  %timer1_preload = getelementptr inbounds i8, ptr %call.i11, i64 2912
+  %clock_scale = getelementptr inbounds nuw i8, ptr %call.i11, i64 2884
+  %timer1_preload = getelementptr inbounds nuw i8, ptr %call.i11, i64 2912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %clock_scale, i8 0, i64 20, i1 false)
   store i32 1048575, ptr %timer1_preload, align 16
-  %timer2_preload = getelementptr inbounds i8, ptr %call.i11, i64 2916
+  %timer2_preload = getelementptr inbounds nuw i8, ptr %call.i11, i64 2916
   store i32 1048575, ptr %timer2_preload, align 4
-  %stage = getelementptr inbounds i8, ptr %call.i11, i64 2920
+  %stage = getelementptr inbounds nuw i8, ptr %call.i11, i64 2920
   store i32 1, ptr %stage, align 8
-  %unlock_state = getelementptr inbounds i8, ptr %call.i11, i64 2924
+  %unlock_state = getelementptr inbounds nuw i8, ptr %call.i11, i64 2924
   store i32 0, ptr %unlock_state, align 4
   ret void
 }
@@ -324,13 +324,13 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @i6300esb_timer_expired(ptr noundef %vp) #0 {
 entry:
-  %stage = getelementptr inbounds i8, ptr %vp, i64 2920
+  %stage = getelementptr inbounds nuw i8, ptr %vp, i64 2920
   %0 = load i32, ptr %stage, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %int_type = getelementptr inbounds i8, ptr %vp, i64 2888
+  %int_type = getelementptr inbounds nuw i8, ptr %vp, i64 2888
   %1 = load i32, ptr %int_type, align 8
   switch i32 %1, label %sw.epilog [
     i32 0, label %sw.bb
@@ -348,19 +348,19 @@ sw.bb1:                                           ; preds = %if.then
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %if.then
-  %enabled.i = getelementptr inbounds i8, ptr %vp, i64 2900
+  %enabled.i = getelementptr inbounds nuw i8, ptr %vp, i64 2900
   %6 = load i32, ptr %enabled.i, align 4
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %if.end8, label %if.end8.sink.split
 
 if.else:                                          ; preds = %entry
-  %reboot_enabled = getelementptr inbounds i8, ptr %vp, i64 2880
+  %reboot_enabled = getelementptr inbounds nuw i8, ptr %vp, i64 2880
   %7 = load i32, ptr %reboot_enabled, align 16
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %previous_reboot_flag = getelementptr inbounds i8, ptr %vp, i64 2928
+  %previous_reboot_flag = getelementptr inbounds nuw i8, ptr %vp, i64 2928
   store i32 1, ptr %previous_reboot_flag, align 16
   tail call void @watchdog_perform_action() #6
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vp, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
@@ -369,28 +369,28 @@ if.then3:                                         ; preds = %if.else
   %8 = getelementptr i8, ptr %call.i11.i, i64 2904
   %call1.val.i = load ptr, ptr %8, align 8
   tail call void @timer_del(ptr noundef %call1.val.i) #6
-  %reboot_enabled.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2880
+  %reboot_enabled.i = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2880
   store i32 1, ptr %reboot_enabled.i, align 16
-  %clock_scale.i9 = getelementptr inbounds i8, ptr %call.i11.i, i64 2884
-  %timer1_preload.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2912
+  %clock_scale.i9 = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2884
+  %timer1_preload.i = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %clock_scale.i9, i8 0, i64 20, i1 false)
   store i32 1048575, ptr %timer1_preload.i, align 16
-  %timer2_preload.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2916
+  %timer2_preload.i = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2916
   store i32 1048575, ptr %timer2_preload.i, align 4
-  %stage.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2920
+  %stage.i = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2920
   store i32 1, ptr %stage.i, align 8
-  %unlock_state.i = getelementptr inbounds i8, ptr %call.i11.i, i64 2924
+  %unlock_state.i = getelementptr inbounds nuw i8, ptr %call.i11.i, i64 2924
   store i32 0, ptr %unlock_state.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else
-  %free_run = getelementptr inbounds i8, ptr %vp, i64 2892
+  %free_run = getelementptr inbounds nuw i8, ptr %vp, i64 2892
   %9 = load i32, ptr %free_run, align 4
   %tobool5.not = icmp eq i32 %9, 0
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %enabled.i10 = getelementptr inbounds i8, ptr %vp, i64 2900
+  %enabled.i10 = getelementptr inbounds nuw i8, ptr %vp, i64 2900
   %10 = load i32, ptr %enabled.i10, align 4
   %tobool.not.i11 = icmp eq i32 %10, 0
   br i1 %tobool.not.i11, label %if.end8, label %if.end8.sink.split
@@ -399,16 +399,16 @@ if.end8.sink.split:                               ; preds = %if.then6, %sw.epilo
   %.sink26 = phi i32 [ 2, %sw.epilog ], [ 1, %if.then6 ]
   %.sink = phi i64 [ 2916, %sw.epilog ], [ 2912, %if.then6 ]
   store i32 %.sink26, ptr %stage, align 8
-  %timeout.0.in.in.i14 = getelementptr inbounds i8, ptr %vp, i64 %.sink
+  %timeout.0.in.in.i14 = getelementptr inbounds nuw i8, ptr %vp, i64 %.sink
   %timeout.0.in.i15 = load i32, ptr %timeout.0.in.in.i14, align 4
   %timeout.0.i16 = zext i32 %timeout.0.in.i15 to i64
-  %clock_scale.i17 = getelementptr inbounds i8, ptr %vp, i64 2884
+  %clock_scale.i17 = getelementptr inbounds nuw i8, ptr %vp, i64 2884
   %11 = load i32, ptr %clock_scale.i17, align 4
   %cmp6.i18 = icmp eq i32 %11, 0
   %timeout.1.v.i19 = select i1 %cmp6.i18, i64 15, i64 5
   %timeout.1.i20 = shl nuw nsw i64 %timeout.0.i16, %timeout.1.v.i19
   %mul.i21 = mul nuw nsw i64 %timeout.1.i20, 30
-  %timer.i22 = getelementptr inbounds i8, ptr %vp, i64 2904
+  %timer.i22 = getelementptr inbounds nuw i8, ptr %vp, i64 2904
   %12 = load ptr, ptr %timer.i22, align 8
   %call.i23 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %add.i24 = add i64 %mul.i21, %call.i23
@@ -444,7 +444,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %sw.epilog
 
 if.then.i:                                        ; preds = %sw.bb1
-  %previous_reboot_flag.i = getelementptr inbounds i8, ptr %opaque, i64 2928
+  %previous_reboot_flag.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2928
   %0 = load i32, ptr %previous_reboot_flag.i, align 16
   %tobool.not.i = icmp eq i32 %0, 0
   %cond.i = select i1 %tobool.not.i, i64 0, i64 4608
@@ -476,7 +476,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %unlock_state.i = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   store i32 1, ptr %unlock_state.i, align 4
   br label %sw.epilog
 
@@ -486,7 +486,7 @@ if.else.i:                                        ; preds = %sw.bb
   br i1 %or.cond1.i, label %land.lhs.true5.i, label %sw.epilog
 
 land.lhs.true5.i:                                 ; preds = %if.else.i
-  %unlock_state6.i = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state6.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   %0 = load i32, ptr %unlock_state6.i, align 4
   %cmp7.i = icmp eq i32 %0, 1
   br i1 %cmp7.i, label %if.then8.i, label %sw.epilog
@@ -503,14 +503,14 @@ sw.bb1:                                           ; preds = %entry
   br i1 %or.cond.i9, label %if.then.i16, label %if.else.i10
 
 if.then.i16:                                      ; preds = %sw.bb1
-  %unlock_state.i17 = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state.i17 = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   store i32 1, ptr %unlock_state.i17, align 4
   br label %sw.epilog
 
 if.else.i10:                                      ; preds = %sw.bb1
   %cmp4.i11 = icmp eq i32 %conv2, 134
   %or.cond1.i12 = and i1 %cmp.i7, %cmp4.i11
-  %unlock_state6.i13 = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state6.i13 = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   %1 = load i32, ptr %unlock_state6.i13, align 4
   %cmp7.i14 = icmp eq i32 %1, 1
   %or.cond15.i = select i1 %or.cond1.i12, i1 %cmp7.i14, i1 false
@@ -533,24 +533,24 @@ if.then15.i:                                      ; preds = %if.then13.i
   br i1 %cmp16.not.i, label %if.end.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.then15.i
-  %enabled.i.i = getelementptr inbounds i8, ptr %opaque, i64 2900
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2900
   %2 = load i32, ptr %enabled.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then17.i
-  %stage1.i.i = getelementptr inbounds i8, ptr %opaque, i64 2920
+  %stage1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2920
   store i32 1, ptr %stage1.i.i, align 8
-  %timeout.0.in.in.i.i = getelementptr inbounds i8, ptr %opaque, i64 2912
+  %timeout.0.in.in.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2912
   %timeout.0.in.i.i = load i32, ptr %timeout.0.in.in.i.i, align 4
   %timeout.0.i.i = zext i32 %timeout.0.in.i.i to i64
-  %clock_scale.i.i = getelementptr inbounds i8, ptr %opaque, i64 2884
+  %clock_scale.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2884
   %3 = load i32, ptr %clock_scale.i.i, align 4
   %cmp6.i.i = icmp eq i32 %3, 0
   %timeout.1.v.i.i = select i1 %cmp6.i.i, i64 15, i64 5
   %timeout.1.i.i = shl nuw nsw i64 %timeout.0.i.i, %timeout.1.v.i.i
   %mul.i.i = mul nuw nsw i64 %timeout.1.i.i, 30
-  %timer.i.i = getelementptr inbounds i8, ptr %opaque, i64 2904
+  %timer.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2904
   %4 = load ptr, ptr %timer.i.i, align 8
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %add.i.i = add i64 %mul.i.i, %call.i.i
@@ -563,7 +563,7 @@ if.end.i:                                         ; preds = %if.end.i.i, %if.the
   br i1 %or.cond14.i, label %if.end24.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end.i
-  %previous_reboot_flag.i = getelementptr inbounds i8, ptr %opaque, i64 2928
+  %previous_reboot_flag.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2928
   store i32 0, ptr %previous_reboot_flag.i, align 16
   br label %if.end24.i
 
@@ -579,14 +579,14 @@ sw.bb3:                                           ; preds = %entry
   br i1 %or.cond.i20, label %if.then.i35, label %if.else.i21
 
 if.then.i35:                                      ; preds = %sw.bb3
-  %unlock_state.i36 = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state.i36 = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   store i32 1, ptr %unlock_state.i36, align 4
   br label %sw.epilog
 
 if.else.i21:                                      ; preds = %sw.bb3
   %cmp4.i22 = icmp eq i32 %conv4, 134
   %or.cond1.i23 = and i1 %cmp.i18, %cmp4.i22
-  %unlock_state6.i24 = getelementptr inbounds i8, ptr %opaque, i64 2924
+  %unlock_state6.i24 = getelementptr inbounds nuw i8, ptr %opaque, i64 2924
   %6 = load i32, ptr %unlock_state6.i24, align 4
   %cmp7.i25 = icmp eq i32 %6, 1
   %or.cond14.i26 = select i1 %or.cond1.i23, i1 %cmp7.i25, i1 false
@@ -608,13 +608,13 @@ if.then13.i31:                                    ; preds = %if.else10.i27
 
 if.then15.i32:                                    ; preds = %if.then13.i31
   %and.i33 = and i32 %conv4, 1048575
-  %timer1_preload.i = getelementptr inbounds i8, ptr %opaque, i64 2912
+  %timer1_preload.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2912
   store i32 %and.i33, ptr %timer1_preload.i, align 16
   br label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.then13.i31
   %and19.i = and i32 %conv4, 1048575
-  %timer2_preload.i = getelementptr inbounds i8, ptr %opaque, i64 2916
+  %timer2_preload.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2916
   store i32 %and19.i, ptr %timer2_preload.i, align 4
   br label %if.end20.i
 

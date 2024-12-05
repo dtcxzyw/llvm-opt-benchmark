@@ -48,7 +48,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 83) #10
-  %ext_flags.i = getelementptr inbounds i8, ptr %ext, i64 4
+  %ext_flags.i = getelementptr inbounds nuw i8, ptr %ext, i64 4
   %1 = load i32, ptr %ext_flags.i, align 4
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -62,7 +62,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then4:                                         ; preds = %if.end
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 88) #10
-  %ext_flags.i3 = getelementptr inbounds i8, ptr %ext, i64 4
+  %ext_flags.i3 = getelementptr inbounds nuw i8, ptr %ext, i64 4
   %3 = load i32, ptr %ext_flags.i3, align 4
   %and.i4 = and i32 %3, 1
   %tobool.not.i5 = icmp eq i32 %and.i4, 0
@@ -95,7 +95,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @ext_list_free(ptr nocapture noundef %ext) #3 {
 entry:
-  %ext_flags = getelementptr inbounds i8, ptr %ext, i64 4
+  %ext_flags = getelementptr inbounds nuw i8, ptr %ext, i64 4
   %0 = load i32, ptr %ext_flags, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -286,7 +286,7 @@ if.then:                                          ; preds = %X509V3_EXT_get_nid.
   br label %return
 
 if.end:                                           ; preds = %X509V3_EXT_get_nid.exit
-  %it = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %4 = load ptr, ptr %it, align 8
   %cmp1.not = icmp eq ptr %4, null
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -296,7 +296,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %ext_free = getelementptr inbounds i8, ptr %retval.0.i, i64 24
+  %ext_free = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 24
   %5 = load ptr, ptr %ext_free, align 8
   %cmp4.not = icmp eq ptr %5, null
   br i1 %cmp4.not, label %if.else7, label %if.then5
@@ -324,7 +324,7 @@ entry:
   br i1 %cmp.not3, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %extlist.addr.04, i64 104
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %extlist.addr.04, i64 104
   %1 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
@@ -409,7 +409,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull align 8 dereferenceable(104) %retval.0.i, i64 104, i1 false)
   store i32 %nid_to, ptr %call1, align 8
-  %ext_flags = getelementptr inbounds i8, ptr %call1, i64 4
+  %ext_flags = getelementptr inbounds nuw i8, ptr %call1, i64 4
   %4 = load i32, ptr %ext_flags, align 4
   %or = or i32 %4, 1
   store i32 %or, ptr %ext_flags, align 4
@@ -505,12 +505,12 @@ X509V3_EXT_get.exit:                              ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %X509V3_EXT_get.exit
-  %value = getelementptr inbounds i8, ptr %ext, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %ext, i64 16
   %5 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data, align 8
   store ptr %6, ptr %p, align 8
-  %it = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %7 = load ptr, ptr %it, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %if.end6, label %if.then2
@@ -522,7 +522,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %d2i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
+  %d2i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 32
   %9 = load ptr, ptr %d2i, align 8
   %10 = load i32, ptr %5, align 8
   %conv9 = sext i32 %10 to i64

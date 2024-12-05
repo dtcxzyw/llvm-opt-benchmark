@@ -31,11 +31,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %9, -16
@@ -84,13 +84,13 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 34:                                               ; preds = %21, %12
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 117
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 117
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 118
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 118
   %41 = load i8, ptr %40, align 2
   %42 = trunc i8 %41 to i1
   br i1 %42, label %43, label %44
@@ -112,7 +112,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not51, label %50, label %55
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %46, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %52 = load i8, ptr %51, align 2
   %53 = trunc i8 %52 to i1
   %54 = select i1 %53, i32 84, i32 70
@@ -129,7 +129,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %99
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %46, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %.val56 = load i16, ptr %59, align 2
   %60 = getelementptr i8, ptr %46, i64 4
   %.val57 = load i16, ptr %60, align 2
@@ -137,7 +137,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %62 = shl nuw i32 %61, 16
   %63 = zext i16 %.val57 to i32
   %64 = or disjoint i32 %62, %63
-  %65 = getelementptr inbounds i8, ptr %46, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %.val58 = load i16, ptr %65, align 2
   %66 = getelementptr i8, ptr %46, i64 8
   %.val59 = load i16, ptr %66, align 2
@@ -152,7 +152,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %99
 
 73:                                               ; preds = %2
-  %74 = getelementptr inbounds i8, ptr %6, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %75 = load i16, ptr %74, align 4
   %76 = and i16 %75, 4
   %.not = icmp eq i16 %76, 0
@@ -170,13 +170,13 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %99
 
 84:                                               ; preds = %2
-  %85 = getelementptr inbounds i8, ptr %4, i64 117
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 117
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %4, i64 118
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 118
   %90 = load i8, ptr %89, align 2
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %93
@@ -195,7 +195,7 @@ define dso_local void @gin_desc(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %99
 
 96:                                               ; preds = %2
-  %97 = getelementptr inbounds i8, ptr %6, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %98 = load i32, ptr %97, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %98) #3
   br label %99
@@ -311,7 +311,7 @@ define dso_local noundef ptr @gin_identify(i8 noundef zeroext %0) local_unnamed_
 switch.lookup:                                    ; preds = %1
   %5 = lshr i32 %3, 4
   %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.gin_identify, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.gin_identify, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

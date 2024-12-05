@@ -75,7 +75,7 @@ icount_get_limit.exit:                            ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @icount_prepare_for_run(ptr nocapture noundef %cpu, i64 noundef %cpu_budget) local_unnamed_addr #0 {
 entry:
-  %icount_decr = getelementptr inbounds i8, ptr %cpu, i64 10160
+  %icount_decr = getelementptr inbounds nuw i8, ptr %cpu, i64 10160
   %0 = load i16, ptr %icount_decr, align 16
   %cmp = icmp eq i16 %0, 0
   br i1 %cmp, label %do.body2, label %if.else
@@ -85,7 +85,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body2:                                         ; preds = %entry
-  %icount_extra = getelementptr inbounds i8, ptr %cpu, i64 232
+  %icount_extra = getelementptr inbounds nuw i8, ptr %cpu, i64 232
   %1 = load i64, ptr %icount_extra, align 8
   %cmp3 = icmp eq i64 %1, 0
   br i1 %cmp3, label %do.end8, label %if.else6
@@ -116,7 +116,7 @@ if.else.i:                                        ; preds = %do.end8
 icount_get_limit.exit:                            ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ %call6.i, %if.then.i ], [ %conv.i, %if.else.i ]
   %cond = tail call i64 @llvm.smin.i64(i64 %retval.0.i, i64 %cpu_budget)
-  %icount_budget = getelementptr inbounds i8, ptr %cpu, i64 224
+  %icount_budget = getelementptr inbounds nuw i8, ptr %cpu, i64 224
   store i64 %cond, ptr %icount_budget, align 16
   %cond18 = tail call i64 @llvm.smin.i64(i64 %cond, i64 65535)
   %conv20 = trunc i64 %cond18 to i16
@@ -152,9 +152,9 @@ declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 define dso_local void @icount_process_data(ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
   tail call void @icount_update(ptr noundef %cpu) #6
-  %icount_decr = getelementptr inbounds i8, ptr %cpu, i64 10160
+  %icount_decr = getelementptr inbounds nuw i8, ptr %cpu, i64 10160
   store i16 0, ptr %icount_decr, align 16
-  %icount_budget = getelementptr inbounds i8, ptr %cpu, i64 224
+  %icount_budget = getelementptr inbounds nuw i8, ptr %cpu, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %icount_budget, i8 0, i64 16, i1 false)
   tail call void @replay_account_executed_instructions() #6
   tail call void @replay_mutex_unlock() #6
@@ -170,14 +170,14 @@ declare void @replay_mutex_unlock() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @icount_handle_interrupt(ptr noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
-  %interrupt_request = getelementptr inbounds i8, ptr %cpu, i64 216
+  %interrupt_request = getelementptr inbounds nuw i8, ptr %cpu, i64 216
   %0 = load i32, ptr %interrupt_request, align 8
   tail call void @tcg_handle_interrupt(ptr noundef %cpu, i32 noundef %mask) #6
   %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #6
   br i1 %call, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
+  %can_do_io = getelementptr inbounds nuw i8, ptr %cpu, i64 10164
   %1 = load i8, ptr %can_do_io, align 4
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end, label %land.lhs.true1

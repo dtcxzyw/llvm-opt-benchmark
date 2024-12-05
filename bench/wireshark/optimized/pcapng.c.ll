@@ -172,7 +172,7 @@ define void @register_pcapng_block_type_handler(i32 noundef %0, ptr noundef %1, 
 12:                                               ; preds = %10, %7
   %13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #17
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %14, align 8
   %15 = load ptr, ptr @block_handlers, align 8
   %16 = zext i32 %0 to i64
@@ -266,9 +266,9 @@ define void @register_pcapng_option_handler(i32 noundef %0, i32 noundef %1, ptr 
 17:                                               ; preds = %15, %11
   %18 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %4, ptr %20, align 8
   %21 = load ptr, ptr %12, align 8
   %22 = zext i32 %1 to i64
@@ -286,7 +286,7 @@ define void @pcapng_process_uint8_option(ptr nocapture noundef readonly %0, i16 
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %1 to i32
   %10 = load i8, ptr %3, align 1
@@ -325,7 +325,7 @@ define void @pcapng_process_uint32_option(ptr nocapture noundef readonly %0, ptr
 
 14:                                               ; preds = %9, %8, %12
   %.0 = phi i32 [ %13, %12 ], [ %spec.select, %9 ], [ %.0.copyload, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %3 to i32
   %18 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %16, i32 noundef %17, i32 noundef %.0) #16
@@ -377,7 +377,7 @@ define void @pcapng_process_timestamp_option(ptr nocapture noundef readonly %0, 
   %20 = shl nuw i64 %19, 32
   %21 = zext i32 %.030 to i64
   %22 = or disjoint i64 %20, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %3 to i32
   %26 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %24, i32 noundef %25, i64 noundef %22) #16
@@ -415,7 +415,7 @@ define void @pcapng_process_uint64_option(ptr nocapture noundef readonly %0, ptr
 
 14:                                               ; preds = %9, %8, %12
   %.0 = phi i64 [ %13, %12 ], [ %spec.select, %9 ], [ %.0.copyload, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %3 to i32
   %18 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %16, i32 noundef %17, i64 noundef %.0) #16
@@ -451,7 +451,7 @@ define void @pcapng_process_int64_option(ptr nocapture noundef readonly %0, ptr 
 
 14:                                               ; preds = %9, %8, %12
   %.0 = phi i64 [ %13, %12 ], [ %spec.select, %9 ], [ %.0.copyload, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i16 %3 to i32
   %18 = tail call i32 @wtap_block_add_int64_option(ptr noundef %16, i32 noundef %17, i64 noundef %.0) #16
@@ -467,7 +467,7 @@ declare i32 @wtap_block_add_int64_option(ptr noundef, i32 noundef, i64 noundef) 
 define void @pcapng_process_string_option(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i16 %2 to i64
   %6 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %3, i64 noundef %5) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %1 to i32
   %10 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %8, i32 noundef %9, ptr noundef %6) #16
@@ -480,7 +480,7 @@ declare i32 @wtap_block_add_string_option_owned(ptr noundef, i32 noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @pcapng_process_bytes_option(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i16 %1 to i32
   %8 = zext i16 %2 to i64
@@ -511,13 +511,13 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
   br i1 %.not, label %25, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = icmp eq ptr %4, null
   br label %26
 
@@ -540,7 +540,7 @@ define range(i32 0, 2) i32 @pcapng_process_options(ptr noundef %0, ptr noundef %
 
 30:                                               ; preds = %26
   %31 = load i16, ptr %.07899, align 2
-  %32 = getelementptr inbounds i8, ptr %.07899, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.07899, i64 2
   %33 = load i16, ptr %32, align 2
   switch i32 %5, label %38 [
     i32 0, label %34
@@ -678,11 +678,11 @@ default.unreachable:                              ; preds = %59
   %82 = zext i16 %72 to i32
   %83 = add nuw nsw i32 %82, 4
   %84 = load ptr, ptr %21, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
   store i32 %83, ptr %85, align 8
   %86 = load ptr, ptr %20, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = getelementptr i8, ptr %87, i64 %89
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr align 1 %71, i64 %81, i1 false)
@@ -690,7 +690,7 @@ default.unreachable:                              ; preds = %59
   %91 = load i64, ptr %18, align 8
   %92 = add i64 %91, %.0.copyload.i.i
   %93 = load ptr, ptr %21, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i64 %92, ptr %94, align 8
   %95 = getelementptr i8, ptr %.07899, i64 20
   %.0.copyload2.i.i = load i64, ptr %95, align 1
@@ -699,21 +699,21 @@ default.unreachable:                              ; preds = %59
   %98 = trunc i64 %97 to i32
   %99 = mul i32 %98, 1000
   %100 = load ptr, ptr %21, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i32 %99, ptr %101, align 8
   %102 = load ptr, ptr %21, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i32, ptr %103, align 8
   %105 = icmp sgt i32 %104, 999999999
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %79
-  %107 = getelementptr inbounds i8, ptr %102, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, 1
   store i64 %109, ptr %107, align 8
   %110 = load ptr, ptr %21, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load i32, ptr %111, align 8
   %113 = add i32 %112, -1000000000
   store i32 %113, ptr %111, align 8
@@ -722,7 +722,7 @@ default.unreachable:                              ; preds = %59
 
 114:                                              ; preds = %106, %79
   %115 = phi ptr [ %.pre.i.i, %106 ], [ %102, %79 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 1, ptr %116, align 4
   store i32 0, ptr %22, align 4
   br label %120
@@ -834,7 +834,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %16
   store i32 168627466, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %0, align 8
   %21 = call fastcc i32 @pcapng_read_section_header_block(ptr noundef %20, ptr noundef %6, ptr noundef %8, ptr noundef %5, ptr noundef %1, ptr noundef %2)
@@ -882,7 +882,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %37 = add i32 %spec.select.i, 3
   %38 = and i32 %37, -4
   store i32 %38, ptr %4, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %40 = load i32, ptr %39, align 4
   %.not9.i = icmp eq i32 %38, %40
   br i1 %.not9.i, label %45, label %41
@@ -901,7 +901,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
@@ -910,42 +910,42 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %51 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %51) #16
   store ptr null, ptr %19, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 144
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 -2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 148
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 -2, ptr %54, align 4
   %55 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #17
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %55, ptr %56, align 8
   store i32 0, ptr %55, align 8
   %57 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #16
-  %58 = getelementptr inbounds i8, ptr %8, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %59, align 8
   %60 = call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 48, i32 noundef 1) #16
-  %61 = getelementptr inbounds i8, ptr %55, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %60, ptr %61, align 8
   %62 = call ptr @g_array_append_vals(ptr noundef %60, ptr noundef nonnull %8, i32 noundef 1) #16
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @pcapng_read, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @pcapng_seek_read, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @pcapng_close, ptr %65, align 8
   %66 = load i32, ptr @pcapng_file_type_subtype, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %66, ptr %67, align 4
   %68 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #16
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %68, ptr %69, align 8
   %70 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #16
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %70, ptr %71, align 8
   %72 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #16
-  %73 = getelementptr inbounds i8, ptr %0, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %72, ptr %73, align 8
   %74 = load ptr, ptr %0, align 8
   %75 = call i64 @file_tell(ptr noundef %74) #16
@@ -1074,22 +1074,22 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i16, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %15 = load i16, ptr %14, align 2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %26
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %18 = load i16, ptr %17, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %18)
-  %19 = getelementptr inbounds i8, ptr %7, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %20 = load i16, ptr %19, align 2
   %rev53 = call i16 @llvm.bswap.i16(i16 %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @llvm.bswap.i32(i32 %22)
   br label %26
@@ -1105,7 +1105,7 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   %.051 = phi i16 [ %rev, %16 ], [ %13, %11 ]
   %.050 = phi i16 [ %rev53, %16 ], [ %15, %11 ]
   %.049 = phi i32 [ 1, %16 ], [ 0, %11 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = add i32 %27, 3
   %30 = and i32 %29, -4
   store i32 %30, ptr %28, align 4
@@ -1146,20 +1146,20 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   br label %63
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 40, i1 false)
   store i32 %.049, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %2, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %.050, ptr %50, align 2
   %51 = call ptr @wtap_block_create(i32 noundef 0) #16
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %51, ptr %52, align 8
   %53 = call ptr @wtap_block_get_mandatory_data(ptr noundef %51) #16
   %54 = load i32, ptr %2, align 8
   %.not57 = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = call i64 @llvm.bswap.i64(i64 %56)
   %storemerge = select i1 %.not57, i64 %56, i64 %57
@@ -1171,7 +1171,7 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
   br i1 %.not65, label %63, label %61
 
 61:                                               ; preds = %47
-  %62 = getelementptr inbounds i8, ptr %3, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %62, align 4
   br label %63
 
@@ -1194,14 +1194,14 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.section_info_t, align 8
   %8 = alloca %struct.wtapng_block_s, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %15
 
 15:                                               ; preds = %30, %6
@@ -1219,7 +1219,7 @@ define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %25, label %28
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load ptr, ptr %26, align 8
   call void @wtap_block_unref(ptr noundef %27) #16
   br label %37
@@ -1234,12 +1234,12 @@ define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1,
   br label %15
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 8
   store i32 %34, ptr %32, align 4
   %35 = load i32, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %35, ptr %36, align 8
   br label %37
 
@@ -1252,18 +1252,18 @@ define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1,
 define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.section_info_t, align 8
   %8 = alloca %struct.wtapng_block_s, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @file_seek(ptr noundef %12, i64 noundef %1, i32 noundef 0, ptr noundef %4) #16
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %44, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   br label %21
@@ -1273,15 +1273,15 @@ define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, 
   %.0 = add i32 %.0.in, -1
   %22 = zext i32 %.0 to i64
   %23 = getelementptr %struct.section_info_t, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %.not = icmp sgt i64 %25, %1
   br i1 %.not, label %21, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %28, align 8
   %29 = load ptr, ptr %11, align 8
   %30 = call fastcc i32 @pcapng_read_block(ptr noundef %0, ptr noundef %29, ptr noundef %23, ptr noundef %7, ptr noundef %8, ptr noundef %4, ptr noundef %5)
@@ -1289,26 +1289,26 @@ define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, 
   br i1 %.not22, label %31, label %34
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load ptr, ptr %32, align 8
   call void @wtap_block_unref(ptr noundef %33) #16
   br label %44
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %8, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %36 = load i32, ptr %35, align 4
   %.not23 = icmp eq i32 %36, 0
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @wtap_block_unref(ptr noundef %38) #16
   br i1 %.not23, label %39, label %44
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = or i32 %41, 8
   store i32 %42, ptr %40, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.0, ptr %43, align 8
   br label %44
 
@@ -1319,11 +1319,11 @@ define internal range(i32 0, 2) i32 @pcapng_seek_read(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @pcapng_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1337,7 +1337,7 @@ define internal void @pcapng_close(ptr nocapture noundef readonly %0) #0 {
   %12 = tail call ptr @g_array_free(ptr noundef %11, i32 noundef 1) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
@@ -1357,7 +1357,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull initializes((8, 16)) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_block_header_s, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %10, align 8
   %11 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 8, ptr noundef %5, ptr noundef %6) #16
   %.not = icmp eq i32 %11, 0
@@ -1380,14 +1380,14 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noun
   br i1 %.not84, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %24
 
 19:                                               ; preds = %17
   %20 = call i32 @llvm.bswap.i32(i32 %13)
   store i32 %20, ptr %9, align 4
-  %21 = getelementptr inbounds i8, ptr %9, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @llvm.bswap.i32(i32 %22)
   br label %24
@@ -1395,7 +1395,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noun
 24:                                               ; preds = %._crit_edge, %19
   %25 = phi i32 [ %23, %19 ], [ %.pre, %._crit_edge ]
   %26 = phi i32 [ %20, %19 ], [ %13, %._crit_edge ]
-  %27 = getelementptr inbounds i8, ptr %9, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %28 = add i32 %25, 3
   %29 = and i32 %28, -4
   store i32 %29, ptr %27, align 4
@@ -1485,7 +1485,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noun
   store i32 %51, ptr %50, align 8
   %52 = load i32, ptr %27, align 4
   %53 = add i32 %52, -12
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %53, ptr %54, align 4
   %55 = icmp ugt i32 %53, 1073741824
   br i1 %55, label %56, label %59
@@ -1500,7 +1500,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noun
 59:                                               ; preds = %48
   %60 = zext nneg i32 %53 to i64
   %61 = call noalias ptr @g_malloc(i64 noundef %60) #18
-  %62 = getelementptr inbounds i8, ptr %50, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %61, ptr %62, align 8
   %63 = load i32, ptr %54, align 4
   %64 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %61, i32 noundef %63, ptr noundef %5, ptr noundef %6) #16
@@ -1517,7 +1517,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noun
   br i1 %.not25.i, label %pcapng_read_meta_event_block.exit.thread, label %pcapng_read_meta_event_block.exit
 
 pcapng_read_meta_event_block.exit:                ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %71, align 4
   br label %80
 
@@ -1557,7 +1557,7 @@ pcapng_read_meta_event_block.exit:                ; preds = %65
   %85 = add i32 %spec.select.i, 3
   %86 = and i32 %85, -4
   store i32 %86, ptr %8, align 4
-  %87 = getelementptr inbounds i8, ptr %9, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %88 = load i32, ptr %87, align 4
   %.not9.i = icmp eq i32 %86, %88
   br i1 %.not9.i, label %pcapng_read_and_check_block_trailer.exit, label %89
@@ -1612,26 +1612,26 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
   ]
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = tail call ptr @g_array_append_vals(ptr noundef %13, ptr noundef nonnull %14, i32 noundef 1) #16
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = tail call ptr @g_array_append_vals(ptr noundef %17, ptr noundef nonnull %20, i32 noundef 1) #16
   %22 = load i32, ptr %1, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %1, align 8
   %24 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 40) #16
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %24, ptr %25, align 8
   %26 = load i64, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @g_array_append_vals(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 1) #16
   br label %127
@@ -1641,29 +1641,29 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %32 = tail call ptr @wtap_block_create(i32 noundef 1) #16
   %33 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %32) #16
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %35) #16
   %37 = load ptr, ptr %34, align 8
   tail call void @wtap_block_copy(ptr noundef %32, ptr noundef %37) #16
-  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i8 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %39, align 8
   tail call void @wtap_add_idb(ptr noundef %0, ptr noundef %32) #16
   %40 = load i32, ptr %36, align 8
   store i32 %40, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %36, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %36, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %48, ptr %49, align 8
   %50 = load ptr, ptr %34, align 8
   %51 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %50, i32 noundef 13, ptr noundef nonnull %8) #16
@@ -1671,10 +1671,10 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
   %53 = load i8, ptr %8, align 1
   %54 = zext i8 %53 to i32
   %.sink.i = select i1 %52, i32 %54, i32 -1
-  %55 = getelementptr inbounds i8, ptr %7, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %.sink.i, ptr %55, align 8
   %56 = load ptr, ptr %34, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %58 = call i32 @wtap_block_get_int64_option_value(ptr noundef %56, i32 noundef 14, ptr noundef nonnull %57) #16
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %63
@@ -1689,7 +1689,7 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
   br label %pcapng_process_idb.exit
 
 pcapng_process_idb.exit:                          ; preds = %60, %63
-  %64 = getelementptr inbounds i8, ptr %2, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @g_array_append_vals(ptr noundef %65, ptr noundef nonnull %7, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -1699,19 +1699,19 @@ pcapng_process_idb.exit:                          ; preds = %60, %63
   br label %127
 
 68:                                               ; preds = %6
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void @wtapng_process_dsb(ptr noundef %0, ptr noundef %70) #16
-  %71 = getelementptr inbounds i8, ptr %0, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr @g_array_append_vals(ptr noundef %72, ptr noundef nonnull %69, i32 noundef 1) #16
   br label %127
 
 74:                                               ; preds = %6
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void @wtapng_process_nrb(ptr noundef %0, ptr noundef %76) #16
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %pcapng_process_nrb.exit
@@ -1727,12 +1727,12 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
   br label %127
 
 84:                                               ; preds = %6
-  %85 = getelementptr inbounds i8, ptr %4, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %86) #16
-  %88 = getelementptr inbounds i8, ptr %0, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = load i32, ptr %87, align 4
   %.not = icmp ugt i32 %91, %92
@@ -1744,14 +1744,14 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
   %96 = getelementptr ptr, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %97) #16
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load i8, ptr %99, align 8
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %93
   %103 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #16
-  %104 = getelementptr inbounds i8, ptr %98, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store ptr %103, ptr %104, align 8
   br label %105
 
@@ -1761,17 +1761,17 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
   %107 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %106) #16
   %108 = load i32, ptr %87, align 4
   store i32 %108, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %87, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %107, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %87, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %107, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 %113, ptr %114, align 4
   %115 = load ptr, ptr %85, align 8
   tail call void @wtap_block_copy(ptr noundef %106, ptr noundef %115) #16
-  %116 = getelementptr inbounds i8, ptr %98, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %117 = load ptr, ptr %116, align 8
   %118 = call ptr @g_array_append_vals(ptr noundef %117, ptr noundef nonnull %9, i32 noundef 1) #16
   %119 = load i8, ptr %99, align 8
@@ -1787,7 +1787,7 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
 123:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %124 = getelementptr i8, ptr %0, i64 80
   %.val = load ptr, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %4, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = tail call ptr @g_array_append_vals(ptr noundef %.val, ptr noundef nonnull %125, i32 noundef 1) #16
   br label %127
 
@@ -1831,7 +1831,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_section_header_block_option(
 8:                                                ; preds = %7
   %9 = zext i16 %3 to i64
   %10 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %9) #16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %12, i32 noundef 2, ptr noundef %10) #16
   br label %pcapng_process_unhandled_option.exit
@@ -1839,7 +1839,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_section_header_block_option(
 14:                                               ; preds = %7
   %15 = zext i16 %3 to i64
   %16 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %18, i32 noundef 3, ptr noundef %16) #16
   br label %pcapng_process_unhandled_option.exit
@@ -1847,7 +1847,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_section_header_block_option(
 20:                                               ; preds = %7
   %21 = zext i16 %3 to i64
   %22 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %24, i32 noundef 4, ptr noundef %22) #16
   br label %pcapng_process_unhandled_option.exit
@@ -1866,7 +1866,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_section_header_block_option(
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %1, align 8
   %37 = zext i16 %3 to i32
@@ -1886,7 +1886,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.pcapng_interface_description_block_s, align 4
   %9 = alloca i8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 20
   br i1 %12, label %13, label %16
@@ -1905,7 +1905,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 
 18:                                               ; preds = %16
   %19 = call ptr @wtap_block_create(i32 noundef 1) #16
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %20, align 8
   %21 = call ptr @wtap_block_get_mandatory_data(ptr noundef %19) #16
   %22 = load i32, ptr %3, align 8
@@ -1915,20 +1915,20 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 
 24:                                               ; preds = %18
   %rev = call i16 @llvm.bswap.i16(i16 %23)
-  %25 = getelementptr inbounds i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = call i32 @llvm.bswap.i32(i32 %26)
   br label %31
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %8, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %30 = load i32, ptr %29, align 4
   br label %31
 
 31:                                               ; preds = %28, %24
   %.sink = phi i32 [ %30, %28 ], [ %27, %24 ]
   %.069.in = phi i16 [ %23, %28 ], [ %rev, %24 ]
-  %32 = getelementptr inbounds i8, ptr %21, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 %.sink, ptr %32, align 4
   %.069 = zext i16 %.069.in to i32
   %33 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %.069) #16
@@ -2034,11 +2034,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 78:                                               ; preds = %50, %54, %56, %58, %60, %62, %64, %66, %68, %._crit_edge, %38
   %.071 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
   %.070 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
-  %79 = getelementptr inbounds i8, ptr %21, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.070, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %21, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %.071, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -2
   %84 = load i32, ptr %21, align 8
@@ -2054,7 +2054,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br label %86
 
 86:                                               ; preds = %.sink.split, %85
-  %87 = getelementptr inbounds i8, ptr %0, i64 148
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, -2
   %90 = load i32, ptr %80, align 8
@@ -2070,7 +2070,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br label %92
 
 92:                                               ; preds = %.sink.split94, %91
-  %93 = getelementptr inbounds i8, ptr %4, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %93, align 4
   br label %94
 
@@ -2086,10 +2086,10 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = tail call ptr @wtap_block_create(i32 noundef 5) #16
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %13, align 8
   %.not = icmp eq i32 %6, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 32
   br i1 %.not, label %49, label %17
@@ -2117,28 +2117,28 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 
 26:                                               ; preds = %23
   %27 = call i32 @llvm.bswap.i32(i32 %25)
-  %28 = getelementptr inbounds i8, ptr %8, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @llvm.bswap.i32(i32 %29)
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = call i32 @llvm.bswap.i32(i32 %32)
-  %34 = getelementptr inbounds i8, ptr %8, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = call i32 @llvm.bswap.i32(i32 %35)
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %38 = load i32, ptr %37, align 4
   %39 = call i32 @llvm.bswap.i32(i32 %38)
   br label %84
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %8, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %8, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %8, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %48 = load i32, ptr %47, align 4
   br label %84
 
@@ -2165,33 +2165,33 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 
 58:                                               ; preds = %55
   %rev = call i16 @llvm.bswap.i16(i16 %57)
-  %59 = getelementptr inbounds i8, ptr %9, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %60 = load i16, ptr %59, align 2
   %rev129 = call i16 @llvm.bswap.i16(i16 %60)
-  %61 = getelementptr inbounds i8, ptr %9, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = call i32 @llvm.bswap.i32(i32 %62)
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = call i32 @llvm.bswap.i32(i32 %65)
-  %67 = getelementptr inbounds i8, ptr %9, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = call i32 @llvm.bswap.i32(i32 %68)
-  %70 = getelementptr inbounds i8, ptr %9, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = call i32 @llvm.bswap.i32(i32 %71)
   br label %94
 
 73:                                               ; preds = %55
-  %74 = getelementptr inbounds i8, ptr %9, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %9, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %9, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %9, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %9, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %83 = load i32, ptr %82, align 4
   br label %94
 
@@ -2252,9 +2252,9 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %.sroa.1026.0178 = phi i32 [ %.sroa.1026.0.ph, %94 ], [ %.sroa.1026.0, %84 ]
   %.sroa.5.0176 = phi i32 [ %.sroa.5.0.ph, %94 ], [ %.sroa.5.0, %84 ]
   %.sroa.025.0174 = phi i32 [ %.sroa.025.0.ph, %94 ], [ %.sroa.025.0, %84 ]
-  %105 = getelementptr inbounds i8, ptr %2, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i32, ptr %107, align 8
   %.not160 = icmp ult i32 %.sroa.31.0182, %108
   br i1 %.not160, label %114, label %109
@@ -2262,7 +2262,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 109:                                              ; preds = %104
   store i32 -13, ptr %4, align 4
   %110 = load ptr, ptr %105, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef %.sroa.31.0182, i32 noundef %112) #16
   store ptr %113, ptr %5, align 8
@@ -2273,13 +2273,13 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %116 = zext i32 %.sroa.31.0182 to i64
   %117 = getelementptr %struct.interface_info_s, ptr %115, i64 %116
   %.sroa.0.0.copyload = load i32, ptr %117, align 8
-  %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 8
+  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   %.sroa.616.0.copyload = load i64, ptr %.sroa.616.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 16
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 16
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.1019.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 24
+  %.sroa.1019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 24
   %.sroa.1019.0.copyload = load i64, ptr %.sroa.1019.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %117, i64 32
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 32
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 8
   %118 = call i32 @wtap_max_snaplen_for_encap(i32 noundef %.sroa.0.0.copyload) #16
   %119 = icmp ugt i32 %.sroa.1026.0178, %118
@@ -2293,23 +2293,23 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   br label %207
 
 123:                                              ; preds = %114
-  %124 = getelementptr inbounds i8, ptr %3, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %125 = load ptr, ptr %124, align 8
   store i32 0, ptr %125, align 8
   %126 = load ptr, ptr %124, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 7, ptr %127, align 4
   %128 = load ptr, ptr %124, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 76
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 76
   store i32 %.sroa.31.0182, ptr %129, align 4
   %130 = load ptr, ptr %124, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 72
   store i32 %.sroa.0.0.copyload, ptr %131, align 8
   %132 = load ptr, ptr %124, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store i32 %.sroa.9.0.copyload, ptr %133, align 8
   %134 = load ptr, ptr %124, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %135, i8 0, i64 152, i1 false)
   %136 = load ptr, ptr %124, align 8
   %137 = call i32 @pcap_process_pseudo_header(ptr noundef %0, i32 noundef 0, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.1026.0178, ptr noundef %136, ptr noundef %4, ptr noundef %5) #16
@@ -2319,11 +2319,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 139:                                              ; preds = %123
   %140 = sub i32 %.sroa.1026.0178, %137
   %141 = load ptr, ptr %124, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
   store i32 %140, ptr %142, align 8
   %143 = sub i32 %.sroa.26.0180, %137
   %144 = load ptr, ptr %124, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 68
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 68
   store i32 %143, ptr %145, align 4
   %146 = zext i32 %.sroa.025.0174 to i64
   %147 = shl nuw i64 %146, 32
@@ -2331,21 +2331,21 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %149 = or disjoint i64 %147, %148
   %150 = udiv i64 %149, %.sroa.616.0.copyload
   %151 = load ptr, ptr %124, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i64 %150, ptr %152, align 8
   %153 = urem i64 %149, %.sroa.616.0.copyload
   %154 = mul i64 %153, 1000000000
   %155 = udiv i64 %154, %.sroa.616.0.copyload
   %156 = trunc i64 %155 to i32
   %157 = load ptr, ptr %124, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store i32 %156, ptr %158, align 8
   %159 = load ptr, ptr %124, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load i64, ptr %160, align 8
   %162 = add i64 %161, %.sroa.1019.0.copyload
   store i64 %162, ptr %160, align 8
-  %163 = getelementptr inbounds i8, ptr %3, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %164, i32 noundef %140, ptr noundef %4, ptr noundef %5) #16
   %.not161 = icmp eq i32 %165, 0
@@ -2366,7 +2366,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 
 172:                                              ; preds = %170, %166
   %.1 = phi i32 [ %171, %170 ], [ %167, %166 ]
-  %173 = getelementptr inbounds i8, ptr %1, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %174 = load i32, ptr %173, align 4
   %reass.sub = sub i32 %174, %.1
   %175 = add i32 %reass.sub, -12
@@ -2408,16 +2408,16 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
   %196 = load ptr, ptr %124, align 8
   %197 = load ptr, ptr %163, align 8
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %197, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %200 = load i64, ptr %199, align 8
   %201 = getelementptr i8, ptr %198, i64 %200
   %202 = load i32, ptr %2, align 8
   call void @pcap_read_post_process(i32 noundef 0, i32 noundef %.sroa.0.0.copyload, ptr noundef %196, ptr noundef %201, i32 noundef %202, i32 noundef %.0) #16
-  %203 = getelementptr inbounds i8, ptr %3, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %203, align 4
   %204 = load ptr, ptr %13, align 8
   %205 = load ptr, ptr %124, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 232
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 232
   store ptr %204, ptr %206, align 8
   store ptr null, ptr %13, align 8
   br label %207
@@ -2430,7 +2430,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_simple_packet_block_s, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, 16
   br i1 %10, label %11, label %14
@@ -2448,9 +2448,9 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
   br i1 %.not, label %91, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
@@ -2464,11 +2464,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
 24:                                               ; preds = %16
   %25 = load ptr, ptr %18, align 8
   %.sroa.018.0.copyload = load i32, ptr %25, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.925.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
+  %.sroa.925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.925.0.copyload = load i32, ptr %.sroa.925.0..sroa_idx, align 8
-  %.sroa.1026.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 32
+  %.sroa.1026.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sroa.1026.0.copyload = load i32, ptr %.sroa.1026.0..sroa_idx, align 8
   %26 = load i32, ptr %2, align 8
   %.not76 = icmp eq i32 %26, 0
@@ -2508,32 +2508,32 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
   br label %91
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   store i32 0, ptr %47, align 8
   %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 6, ptr %49, align 4
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 76
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 76
   store i32 0, ptr %51, align 4
   %52 = load ptr, ptr %46, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
   store i32 %.sroa.018.0.copyload, ptr %53, align 8
   %54 = load ptr, ptr %46, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i32 %.sroa.925.0.copyload, ptr %55, align 8
   %56 = load ptr, ptr %46, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 0, ptr %57, align 8
   %58 = load ptr, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i32 0, ptr %59, align 8
   %60 = load ptr, ptr %46, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 76
   store i32 0, ptr %61, align 4
   %62 = load ptr, ptr %46, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %63, i8 0, i64 152, i1 false)
   %64 = load ptr, ptr %46, align 8
   %65 = call i32 @pcap_process_pseudo_header(ptr noundef %0, i32 noundef 0, i32 noundef %.sroa.018.0.copyload, i32 noundef %.sroa.0.0, ptr noundef %64, ptr noundef %4, ptr noundef %5) #16
@@ -2543,16 +2543,16 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
 67:                                               ; preds = %45
   %68 = sub i32 %.sroa.0.0, %65
   %69 = load ptr, ptr %46, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store i32 %68, ptr %70, align 8
   %71 = sub i32 %.sroa.13.0, %65
   %72 = load ptr, ptr %46, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 68
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 68
   store i32 %71, ptr %73, align 4
   %74 = load ptr, ptr %46, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %75, i8 0, i64 152, i1 false)
-  %76 = getelementptr inbounds i8, ptr %3, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %77, i32 noundef %.sroa.0.0, ptr noundef %4, ptr noundef %5) #16
   %.not78 = icmp eq i32 %78, 0
@@ -2570,12 +2570,12 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
   %83 = load ptr, ptr %46, align 8
   %84 = load ptr, ptr %76, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr i8, ptr %85, i64 %87
   %89 = load i32, ptr %2, align 8
   call void @pcap_read_post_process(i32 noundef 0, i32 noundef %.sroa.018.0.copyload, ptr noundef %83, ptr noundef %88, i32 noundef %89, i32 noundef %.sroa.1026.0.copyload) #16
-  %90 = getelementptr inbounds i8, ptr %3, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %90, align 4
   br label %91
 
@@ -2588,7 +2588,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_simple_packet_block(ptr 
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_name_resolution_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_name_resolution_block_s, align 2
   %8 = alloca %struct.Buffer, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 16
   br i1 %11, label %12, label %15
@@ -2602,7 +2602,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_name_resolution_block(pt
 
 15:                                               ; preds = %6
   %16 = add i32 %10, -12
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
@@ -2620,9 +2620,9 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_name_resolution_block(pt
   br i1 %25, label %.lr.ph, label %._crit_edge181
 
 .lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 2
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %185
@@ -2772,7 +2772,7 @@ name_resolution_block_find_name_end.exit:         ; preds = %.lr.ph.i
 90:                                               ; preds = %name_resolution_block_find_name_end.exit
   %91 = call noalias dereferenceable_or_null(88) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 88) #17
   store i32 %.0.copyload, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %91, i64 21
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 21
   %93 = call i64 @g_strlcpy(ptr noundef nonnull %92, ptr noundef %.098177, i64 noundef 64) #16
   %94 = load ptr, ptr %24, align 8
   %95 = call ptr @g_list_prepend(ptr noundef %94, ptr noundef nonnull %91) #16
@@ -2908,7 +2908,7 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
   %154 = load i64, ptr %27, align 8
   %155 = getelementptr i8, ptr %153, i64 %154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %152, ptr noundef nonnull align 1 dereferenceable(16) %155, i64 16, i1 false)
-  %156 = getelementptr inbounds i8, ptr %152, i64 63
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 63
   %157 = call i64 @g_strlcpy(ptr noundef nonnull %156, ptr noundef %.199174, i64 noundef 64) #16
   %158 = load ptr, ptr %28, align 8
   %159 = call ptr @g_list_prepend(ptr noundef %158, ptr noundef %152) #16
@@ -2978,7 +2978,7 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
 
 189:                                              ; preds = %._crit_edge181
   call void @ws_buffer_free(ptr noundef nonnull %8) #16
-  %190 = getelementptr inbounds i8, ptr %3, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %190, align 4
   br label %191
 
@@ -2990,7 +2990,7 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_interface_statistics_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_interface_statistics_block_s, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, 24
   br i1 %10, label %11, label %14
@@ -3009,7 +3009,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_interface_statistics_blo
 
 16:                                               ; preds = %14
   %17 = call ptr @wtap_block_create(i32 noundef 3) #16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   %19 = call ptr @wtap_block_get_mandatory_data(ptr noundef %17) #16
   %20 = load i32, ptr %2, align 8
@@ -3020,29 +3020,29 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_interface_statistics_blo
 22:                                               ; preds = %16
   %23 = call i32 @llvm.bswap.i32(i32 %21)
   store i32 %23, ptr %19, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = call i32 @llvm.bswap.i32(i32 %25)
-  %27 = getelementptr inbounds i8, ptr %19, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @llvm.bswap.i32(i32 %29)
   br label %37
 
 31:                                               ; preds = %16
   store i32 %21, ptr %19, align 4
-  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %19, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i32, ptr %35, align 4
   br label %37
 
 37:                                               ; preds = %31, %22
   %.sink = phi i32 [ %36, %31 ], [ %30, %22 ]
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %.sink, ptr %38, align 4
   %39 = load i32, ptr %8, align 4
   %40 = add i32 %39, -24
@@ -3051,7 +3051,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_interface_statistics_blo
   br i1 %.not25, label %44, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %43, align 4
   br label %44
 
@@ -3069,7 +3069,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block
 
 9:                                                ; preds = %6
   %10 = call ptr @wtap_block_create(i32 noundef 4) #16
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8
   %12 = call ptr @wtap_block_get_mandatory_data(ptr noundef %10) #16
   %13 = load i32, ptr %2, align 8
@@ -3080,20 +3080,20 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block
 15:                                               ; preds = %9
   %16 = call i32 @llvm.bswap.i32(i32 %14)
   store i32 %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = call i32 @llvm.bswap.i32(i32 %18)
   br label %23
 
 20:                                               ; preds = %9
   store i32 %14, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %22 = load i32, ptr %21, align 4
   br label %23
 
 23:                                               ; preds = %20, %15
   %.sink = phi i32 [ %22, %20 ], [ %19, %15 ]
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.sink, ptr %24, align 4
   %25 = icmp ugt i32 %.sink, 1073741824
   br i1 %25, label %26, label %29
@@ -3108,7 +3108,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block
 29:                                               ; preds = %23
   %30 = zext nneg i32 %.sink to i64
   %31 = call noalias ptr @g_malloc0(i64 noundef %30) #18
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i32, ptr %24, align 4
   %34 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %31, i32 noundef %33, ptr noundef %4, ptr noundef %5) #16
@@ -3116,7 +3116,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block
   br i1 %.not30, label %44, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, -20
   %39 = load i32, ptr %24, align 4
@@ -3126,7 +3126,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_decryption_secrets_block
   br i1 %.not31, label %44, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %43, align 4
   br label %44
 
@@ -3140,7 +3140,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef
   %7 = alloca %struct.pcapng_nflx_custom_block_s, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_custom_block_s, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 16
   br i1 %12, label %13, label %16
@@ -3154,7 +3154,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef
 
 16:                                               ; preds = %6
   %17 = tail call ptr @wtap_block_create(i32 noundef 11) #16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   %19 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 4, ptr noundef %4, ptr noundef %5) #16
   %.not = icmp eq i32 %19, 0
@@ -3183,11 +3183,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef
   br label %pcapng_read_nflx_custom_block.exit.thread.sink.split
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
   store i32 5, ptr %32, align 8
   %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 68
   store i32 10949, ptr %34, align 4
   %35 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %35, 0
@@ -3202,7 +3202,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %31, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 76
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 76
   store i32 1, ptr %40, align 4
   br label %pcapng_read_nflx_custom_block.exit
 
@@ -3224,19 +3224,19 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_custom_block(ptr noundef
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %31, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4
   %52 = load ptr, ptr %31, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store i32 4, ptr %53, align 8
   %54 = load ptr, ptr %31, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 76
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 76
   store i32 2, ptr %55, align 4
   %56 = load i32, ptr %8, align 4
   %57 = load ptr, ptr %31, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   store i32 %56, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %3, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %59, align 4
   br label %pcapng_read_nflx_custom_block.exit
 
@@ -3265,27 +3265,27 @@ pcapng_read_nflx_custom_block.exit:               ; preds = %38, %49
   %.biased.i = add i32 %64, 3
   %.0.i30 = and i32 %.biased.i, -4
   %65 = add i32 %.0.i30, -16
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = load ptr, ptr %66, align 8
   store i32 5, ptr %67, align 8
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %69, align 4
   %70 = load i32, ptr %10, align 4
   %71 = add i32 %70, -16
   %72 = load ptr, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store i32 %71, ptr %73, align 8
   %74 = load ptr, ptr %66, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 68
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 68
   store i32 %.0, ptr %75, align 4
   %76 = load i32, ptr %1, align 4
   %77 = icmp eq i32 %76, 2989
   %78 = zext i1 %77 to i32
   %79 = load ptr, ptr %66, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
   store i32 %78, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %82, i32 noundef %65, ptr noundef %4, ptr noundef %5) #16
   %.not21.i = icmp eq i32 %83, 0
@@ -3293,12 +3293,12 @@ pcapng_read_nflx_custom_block.exit:               ; preds = %38, %49
 
 pcapng_handle_generic_custom_block.exit:          ; preds = %63, %pcapng_read_nflx_custom_block.exit
   %84 = load ptr, ptr %18, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 232
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 232
   store ptr %84, ptr %87, align 8
   store ptr null, ptr %18, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %88, align 4
   br label %pcapng_handle_generic_custom_block.exit.thread
 
@@ -3321,7 +3321,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
   %switch.selectcmp.case2 = icmp eq i32 %14, 534
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %15 = select i1 %switch.selectcmp, i32 40, i32 36
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, %15
   br i1 %18, label %19, label %22
@@ -3334,18 +3334,18 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
   br label %114
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load ptr, ptr %23, align 8
   store i32 3, ptr %24, align 8
   %25 = load i32, ptr %2, align 4
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store i32 %25, ptr %27, align 8
   %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 2, ptr %29, align 4
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 9, ptr %31, align 8
   %32 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 2, ptr noundef %5, ptr noundef %6) #16
   %.not = icmp eq i32 %32, 0
@@ -3384,13 +3384,13 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
   br i1 %.not70, label %114, label %45
 
 45:                                               ; preds = %41, %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %23, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store ptr %47, ptr %49, align 8
   %50 = load ptr, ptr %23, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 76
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 76
   store i32 1234, ptr %51, align 4
   %52 = load i32, ptr %3, align 8
   %.not71 = icmp eq i32 %52, 0
@@ -3398,29 +3398,29 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 76
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 76
   store i32 4321, ptr %55, align 4
   %56 = load i16, ptr %8, align 2
   %rev = call i16 @llvm.bswap.i16(i16 %56)
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
   store i16 %rev, ptr %58, align 8
   %59 = load i64, ptr %9, align 8
   %60 = call i64 @llvm.bswap.i64(i64 %59)
   %61 = load i64, ptr %10, align 8
   %62 = call i64 @llvm.bswap.i64(i64 %61)
   %63 = load ptr, ptr %23, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
   store i64 %62, ptr %64, align 8
   %65 = load i32, ptr %11, align 4
   %66 = call i32 @llvm.bswap.i32(i32 %65)
   %67 = load ptr, ptr %23, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store i32 %66, ptr %68, align 8
   %69 = load i16, ptr %12, align 2
   %rev89 = call i16 @llvm.bswap.i16(i16 %69)
   %70 = load ptr, ptr %23, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   store i16 %rev89, ptr %71, align 8
   %72 = load i32, ptr %13, align 4
   %73 = call i32 @llvm.bswap.i32(i32 %72)
@@ -3429,20 +3429,20 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
 74:                                               ; preds = %45
   %75 = load i16, ptr %8, align 2
   %76 = load ptr, ptr %23, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 112
   store i16 %75, ptr %77, align 8
   %78 = load i64, ptr %9, align 8
   %79 = load i64, ptr %10, align 8
   %80 = load ptr, ptr %23, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 88
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 88
   store i64 %79, ptr %81, align 8
   %82 = load i32, ptr %11, align 4
   %83 = load ptr, ptr %23, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 96
   store i32 %82, ptr %84, align 8
   %85 = load i16, ptr %12, align 2
   %86 = load ptr, ptr %23, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 104
   store i16 %85, ptr %87, align 8
   %88 = load i32, ptr %13, align 4
   br label %89
@@ -3451,14 +3451,14 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
   %.sink = phi i32 [ %88, %74 ], [ %73, %53 ]
   %.063 = phi i64 [ %78, %74 ], [ %60, %53 ]
   %90 = load ptr, ptr %23, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 108
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 108
   store i32 %.sink, ptr %91, align 4
   %.not93 = icmp eq i64 %.063, 0
   br i1 %.not93, label %97, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %23, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, 1
   store i32 %96, ptr %94, align 4
@@ -3467,26 +3467,26 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
 97:                                               ; preds = %92, %89
   %98 = udiv i64 %.063, 1000000000
   %99 = load ptr, ptr %23, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 %98, ptr %100, align 8
   %101 = urem i64 %.063, 1000000000
   %102 = trunc nuw nsw i64 %101 to i32
   %103 = load ptr, ptr %23, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i32 %102, ptr %104, align 8
   %105 = load i32, ptr %16, align 4
   %106 = sub i32 %105, %15
   %107 = load ptr, ptr %23, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 100
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 100
   store i32 %106, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %4, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %110, i32 noundef %106, ptr noundef %5, ptr noundef %6) #16
   %.not94 = icmp eq i32 %111, 0
   br i1 %.not94, label %114, label %112
 
 112:                                              ; preds = %97
-  %113 = getelementptr inbounds i8, ptr %4, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %113, align 4
   br label %114
 
@@ -3499,7 +3499,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_sysdig_event_block(ptr n
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_block(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 35
   br i1 %11, label %12, label %15
@@ -3513,7 +3513,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_b
 
 15:                                               ; preds = %6
   %16 = add i32 %10, -12
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %18, i32 noundef %16, ptr noundef %4, ptr noundef %5) #16
   %.not = icmp eq i32 %19, 0
@@ -3526,7 +3526,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_b
   tail call void @ws_buffer_assure_space(ptr noundef %21, i64 noundef %23) #16
   %24 = load ptr, ptr %17, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr i8, ptr %25, i64 %27
   %29 = zext i32 %16 to i64
@@ -3570,56 +3570,56 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_b
   br i1 %.not52, label %52, label %.thread
 
 .thread:                                          ; preds = %44, %40
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   store i32 4, ptr %47, align 8
   %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store i32 %36, ptr %49, align 8
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 2, ptr %51, align 4
   br label %76
 
 52:                                               ; preds = %44
   %53 = call zeroext i1 @ws_strtou64(ptr noundef %45, ptr noundef nonnull %8, ptr noundef nonnull %7) #16
-  %54 = getelementptr inbounds i8, ptr %3, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %55 = load ptr, ptr %54, align 8
   store i32 4, ptr %55, align 8
   %56 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   store i32 %36, ptr %57, align 8
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 2, ptr %59, align 4
   br i1 %53, label %60, label %76
 
 60:                                               ; preds = %52
   %61 = load ptr, ptr %54, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, 1
   store i32 %64, ptr %62, align 4
   %65 = load ptr, ptr %54, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i32 6, ptr %66, align 8
   %67 = load i64, ptr %7, align 8
   %68 = udiv i64 %67, 1000000
   %69 = load ptr, ptr %54, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %68, ptr %70, align 8
   %71 = urem i64 %67, 1000000
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = mul nuw nsw i32 %72, 1000
   %74 = load ptr, ptr %54, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i32 %73, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %.thread, %60, %52
-  %77 = getelementptr inbounds i8, ptr %3, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 144
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, -2
   br i1 %80, label %81, label %82
@@ -3635,7 +3635,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_b
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pcapng_read_unknown_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 12
   br i1 %9, label %10, label %13
@@ -3674,7 +3674,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_unknown_block(ptr nounde
   br i1 %.not22, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %28, align 4
   br label %29
 
@@ -3713,7 +3713,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 9:                                                ; preds = %7
   %10 = zext i16 %3 to i64
   %11 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %10) #16
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %13, i32 noundef 2, ptr noundef %11) #16
   br label %pcapng_process_uint64_option.exit
@@ -3721,7 +3721,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 15:                                               ; preds = %7
   %16 = zext i16 %3 to i64
   %17 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %16) #16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %19, i32 noundef 3, ptr noundef %17) #16
   br label %pcapng_process_uint64_option.exit
@@ -3736,7 +3736,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   %.not.i = icmp eq i32 %24, 0
   %25 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i)
   %spec.select.i = select i1 %.not.i, i64 %.0.copyload.i, i64 %25
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %27, i32 noundef 8, i64 noundef %spec.select.i) #16
   br label %pcapng_process_uint64_option.exit
@@ -3746,7 +3746,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br i1 %30, label %31, label %pcapng_process_uint64_option.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %4, align 1
   %35 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %33, i32 noundef 9, i8 noundef zeroext %34) #16
@@ -3776,9 +3776,9 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   %45 = add nsw i32 %37, -1
   %46 = zext nneg i32 %45 to i64
   %47 = tail call noalias ptr @g_strndup(ptr noundef %44, i64 noundef %46) #16
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @wtap_block_add_if_filter_option(ptr noundef %50, i32 noundef 11, ptr noundef nonnull %8) #16
   %52 = load ptr, ptr %48, align 8
@@ -3789,11 +3789,11 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   store i32 1, ptr %8, align 8
   %54 = add nsw i32 %37, -1
   %55 = lshr i32 %54, 3
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %55, ptr %56, align 8
   %57 = zext nneg i32 %55 to i64
   %58 = tail call noalias ptr @g_malloc_n(i64 noundef %57, i64 noundef 8) #17
-  %59 = getelementptr inbounds i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %58, ptr %59, align 8
   %.not103 = icmp ult i16 %3, 9
   br i1 %.not103, label %._crit_edge, label %.lr.ph.preheader
@@ -3820,15 +3820,15 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 
 66:                                               ; preds = %65, %.lr.ph
   %67 = getelementptr i8, ptr %.085101, i64 2
-  %68 = getelementptr inbounds i8, ptr %62, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %69 = load i8, ptr %67, align 1
   store i8 %69, ptr %68, align 2
   %70 = getelementptr i8, ptr %.085101, i64 3
-  %71 = getelementptr inbounds i8, ptr %62, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 3
   %72 = load i8, ptr %70, align 1
   store i8 %72, ptr %71, align 1
   %73 = getelementptr i8, ptr %.085101, i64 4
-  %74 = getelementptr inbounds i8, ptr %62, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %75 = load i32, ptr %73, align 1
   store i32 %75, ptr %74, align 4
   %76 = load i32, ptr %1, align 8
@@ -3847,7 +3847,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %79, %53
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @wtap_block_add_if_filter_option(ptr noundef %82, i32 noundef 11, ptr noundef nonnull %8) #16
   %84 = load ptr, ptr %59, align 8
@@ -3857,7 +3857,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 85:                                               ; preds = %7
   %86 = zext i16 %3 to i64
   %87 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %86) #16
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %89, i32 noundef 12, ptr noundef %87) #16
   br label %pcapng_process_uint64_option.exit
@@ -3867,7 +3867,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   br i1 %92, label %93, label %pcapng_process_uint64_option.exit
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %4, align 1
   %97 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %95, i32 noundef 13, i8 noundef zeroext %96) #16
@@ -3876,7 +3876,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 98:                                               ; preds = %7
   %99 = zext i16 %3 to i64
   %100 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %4, i64 noundef %99) #16
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %102, i32 noundef 15, ptr noundef %100) #16
   br label %pcapng_process_uint64_option.exit
@@ -3891,7 +3891,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
   %.not.i96 = icmp eq i32 %107, 0
   %108 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i95)
   %spec.select.i97 = select i1 %.not.i96, i64 %.0.copyload.i95, i64 %108
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 @wtap_block_add_int64_option(ptr noundef %110, i32 noundef 14, i64 noundef %spec.select.i97) #16
   br label %pcapng_process_uint64_option.exit
@@ -3910,7 +3910,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_if_descr_block_option(ptr no
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr %117, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %1, align 8
   %123 = zext i16 %3 to i32
@@ -3964,7 +3964,7 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   %.not.i = icmp eq i32 %14, 0
   %15 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %spec.select.i = select i1 %.not.i, i32 %.0.copyload.i, i32 %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %17, i32 noundef 2, i32 noundef %spec.select.i) #16
   br label %pcapng_process_unhandled_option.exit
@@ -3988,9 +3988,9 @@ pcapng_process_uint32_option.exit:                ; preds = %10
   %28 = and i64 %27, 4294967295
   %29 = tail call ptr @g_memdup2(ptr noundef %26, i64 noundef %28) #20
   %30 = tail call ptr @g_byte_array_new_take(ptr noundef %29, i64 noundef %28) #16
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @wtap_block_add_packet_hash_option(ptr noundef %33, i32 noundef 3, ptr noundef nonnull %9) #16
   call void @wtap_packet_hash_free(ptr noundef nonnull %9) #16
@@ -4013,7 +4013,7 @@ pcapng_process_uint64_option.exit:                ; preds = %35
   %.not.i116 = icmp eq i32 %39, 0
   %40 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i115)
   %spec.select.i117 = select i1 %.not.i116, i64 %.0.copyload.i115, i64 %40
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %42, i32 noundef 4, i64 noundef %spec.select.i117) #16
   br label %pcapng_process_unhandled_option.exit
@@ -4035,7 +4035,7 @@ pcapng_process_uint64_option.exit121:             ; preds = %44
   %.not.i119 = icmp eq i32 %48, 0
   %49 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i118)
   %spec.select.i120 = select i1 %.not.i119, i64 %.0.copyload.i118, i64 %49
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %51, i32 noundef 5, i64 noundef %spec.select.i120) #16
   br label %pcapng_process_unhandled_option.exit
@@ -4057,7 +4057,7 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
   %.not.i123 = icmp eq i32 %57, 0
   %58 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i122)
   %spec.select.i124 = select i1 %.not.i123, i32 %.0.copyload.i122, i32 %58
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @wtap_block_add_uint32_option(ptr noundef %60, i32 noundef 6, i32 noundef %spec.select.i124) #16
   br label %pcapng_process_unhandled_option.exit
@@ -4088,7 +4088,7 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
   %72 = zext nneg i32 %71 to i64
   %73 = tail call ptr @g_memdup2(ptr noundef %70, i64 noundef %72) #20
   %74 = tail call ptr @g_byte_array_new_take(ptr noundef %73, i64 noundef %72) #16
-  %75 = getelementptr inbounds i8, ptr %8, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %74, ptr %75, align 8
   br label %92
 
@@ -4110,7 +4110,7 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
   %82 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload)
   %spec.select = select i1 %.not108, i64 %.0.copyload, i64 %82
   store i32 1, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %spec.select, ptr %83, align 8
   br label %92
 
@@ -4132,12 +4132,12 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
   %90 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload9)
   %spec.select114 = select i1 %.not106, i64 %.0.copyload9, i64 %90
   store i32 2, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %spec.select114, ptr %91, align 8
   br label %92
 
 92:                                               ; preds = %87, %79, %69
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 @wtap_block_add_packet_verdict_option(ptr noundef %94, i32 noundef 7, ptr noundef nonnull %8) #16
   call void @wtap_packet_verdict_free(ptr noundef nonnull %8) #16
@@ -4157,7 +4157,7 @@ pcapng_process_uint32_option.exit125:             ; preds = %53
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %101, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %1, align 8
   %107 = zext i16 %3 to i32
@@ -4218,7 +4218,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_name_resolution_block_option
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %1, align 8
   %18 = zext i16 %3 to i32
@@ -4262,7 +4262,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %16 = shl nuw i64 %15, 32
   %17 = zext i32 %.030.i to i64
   %18 = or disjoint i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %20, i32 noundef 2, i64 noundef %18) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4285,7 +4285,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %30 = shl nuw i64 %29, 32
   %31 = zext i32 %.030.i46 to i64
   %32 = or disjoint i64 %30, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %34, i32 noundef 3, i64 noundef %32) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4300,7 +4300,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %.not.i50 = icmp eq i32 %39, 0
   %40 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i49)
   %spec.select.i = select i1 %.not.i50, i64 %.0.copyload.i49, i64 %40
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %42, i32 noundef 4, i64 noundef %spec.select.i) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4315,7 +4315,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %.not.i53 = icmp eq i32 %47, 0
   %48 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i52)
   %spec.select.i54 = select i1 %.not.i53, i64 %.0.copyload.i52, i64 %48
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %50, i32 noundef 5, i64 noundef %spec.select.i54) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4330,7 +4330,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %.not.i58 = icmp eq i32 %55, 0
   %56 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i57)
   %spec.select.i59 = select i1 %.not.i58, i64 %.0.copyload.i57, i64 %56
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %58, i32 noundef 6, i64 noundef %spec.select.i59) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4345,7 +4345,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %.not.i63 = icmp eq i32 %63, 0
   %64 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i62)
   %spec.select.i64 = select i1 %.not.i63, i64 %.0.copyload.i62, i64 %64
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %66, i32 noundef 7, i64 noundef %spec.select.i64) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4360,7 +4360,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
   %.not.i68 = icmp eq i32 %71, 0
   %72 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i67)
   %spec.select.i69 = select i1 %.not.i68, i64 %.0.copyload.i67, i64 %72
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @wtap_block_add_uint64_option(ptr noundef %74, i32 noundef 8, i64 noundef %spec.select.i69) #16
   br label %pcapng_process_timestamp_option.exit
@@ -4379,7 +4379,7 @@ define internal range(i32 0, 2) i32 @pcapng_process_interface_statistics_block_o
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %81, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr %1, align 8
   %87 = zext i16 %3 to i32
@@ -4442,34 +4442,34 @@ define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((5
   %6 = alloca %struct.compute_options_size_t, align 8
   %7 = alloca %struct.pcapng_block_header_s, align 4
   %8 = alloca %struct.pcapng_section_header_block_s, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @pcapng_add_idb, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @pcapng_dump, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @pcapng_dump_finish, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.thread.i, label %14
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
   %.not24.i = icmp eq i32 %16, 0
   br i1 %.not24.i, label %.thread.i, label %18
 
 .thread.i:                                        ; preds = %14, %3
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 28, ptr %17, align 4
   br label %29
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %13, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 28, ptr %21, align 4
   %.not27.i = icmp eq ptr %20, null
   br i1 %.not27.i, label %29, label %22
@@ -4477,7 +4477,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((5
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @compute_shb_option_size, ptr %23, align 8
   %24 = call i32 @wtap_block_foreach_option(ptr noundef nonnull %20, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %6) #16
   %25 = load i32, ptr %6, align 8
@@ -4502,9 +4502,9 @@ define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((5
 
 32:                                               ; preds = %29
   store i32 439041101, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 0, ptr %34, align 2
   br i1 %.not2734.i, label %38, label %35
 
@@ -4515,7 +4515,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((5
 
 38:                                               ; preds = %35, %32
   %.sink.i = phi i64 [ %37, %35 ], [ -1, %32 ]
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink.i, ptr %39, align 8
   %40 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 16, ptr noundef %1) #16
   %.not26.i = icmp eq i32 %40, 0
@@ -4527,9 +4527,9 @@ define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((5
 42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @write_wtap_shb_option, ptr %44, align 8
   %45 = call i32 @wtap_block_foreach_option(ptr noundef %.02133.i, ptr noundef nonnull @write_block_option, ptr noundef nonnull %5) #16
   %.not.i30.i = icmp eq i32 %45, 0
@@ -4542,7 +4542,7 @@ write_options.exit.thread.i:                      ; preds = %42
 write_options.exit.i:                             ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i16 0, ptr %4, align 2
-  %46 = getelementptr inbounds i8, ptr %4, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %46, align 2
   %47 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1) #16
   %.not.i.i.not.i = icmp eq i32 %47, 0
@@ -4563,9 +4563,9 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   br i1 %.not29.i.not, label %.loopexit, label %.preheader28
 
 .preheader28:                                     ; preds = %pcapng_write_section_header_block.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4573,7 +4573,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
 53:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load ptr, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
@@ -4590,13 +4590,13 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   br i1 %.not25, label %.loopexit, label %53
 
 ._crit_edge:                                      ; preds = %53, %.preheader28
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = load ptr, ptr %64, align 8
   %.not23 = icmp eq ptr %65, null
   br i1 %.not23, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %.not35 = icmp eq i32 %67, 0
   br i1 %.not35, label %.loopexit, label %.lr.ph32
@@ -4604,7 +4604,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
 68:                                               ; preds = %.lr.ph32
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %69 = load ptr, ptr %64, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = icmp samesign ult i64 %indvars.iv.next39, %72
@@ -4633,7 +4633,7 @@ define internal range(i32 0, 2) i32 @pcapng_add_idb(ptr noundef %0, ptr noundef 
   %6 = tail call ptr @wtap_block_create(i32 noundef 1) #16
   store ptr %6, ptr %5, align 8
   tail call void @wtap_block_copy(ptr noundef %6, ptr noundef %1) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @g_array_append_vals(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1) #16
   %10 = load ptr, ptr %5, align 8
@@ -4687,11 +4687,11 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
-  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %28, align 4
   %36 = load i32, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @wtap_max_snaplen_for_encap(i32 noundef %38) #16
   %40 = icmp ugt i32 %36, %39
@@ -4702,7 +4702,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   br label %pcapng_write_enhanced_packet_block.exit.thread
 
 42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %1, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = load i32, ptr %43, align 8
   %45 = tail call i32 @pcap_get_phdr_size(i32 noundef %44, ptr noundef nonnull %35) #16
   %46 = load i32, ptr %34, align 8
@@ -4711,7 +4711,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %.not.i = icmp eq i32 %48, 0
   %49 = sub nuw nsw i32 4, %48
   %.079.i = select i1 %.not.i, i32 0, i32 %49
-  %50 = getelementptr inbounds i8, ptr %1, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %51 = load ptr, ptr %50, align 8
   %.not85.i = icmp eq ptr %51, null
   br i1 %.not85.i, label %57, label %52
@@ -4719,7 +4719,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
 52:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   store i32 0, ptr %25, align 8
-  %53 = getelementptr inbounds i8, ptr %25, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @compute_epb_option_size, ptr %53, align 8
   %54 = call i32 @wtap_block_foreach_option(ptr noundef nonnull %51, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %25) #16
   %55 = load i32, ptr %25, align 8
@@ -4731,27 +4731,27 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
 
 57:                                               ; preds = %52, %42
   %.078.i = phi i32 [ %spec.select.i.i, %52 ], [ 0, %42 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 4
   %.not86.i = icmp eq i32 %60, 0
   br i1 %.not86.i, label %.preheader.i, label %66
 
 .preheader.i:                                     ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %27, align 4
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8
   %.not105.i = icmp eq i32 %64, 0
   br i1 %.not105.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %81
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %1, i64 76
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %68 = load i32, ptr %67, align 4
   store i32 %68, ptr %27, align 4
   %69 = and i32 %59, 8
@@ -4759,14 +4759,14 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   br i1 %.not89.i, label %114, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
   %.not90.i = icmp eq ptr %72, null
   br i1 %.not90.i, label %114, label %73
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = zext i32 %76 to i64
   %78 = getelementptr i32, ptr %74, i64 %77
@@ -4789,7 +4789,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %86, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = load i32, ptr %65, align 8
   %94 = icmp eq i32 %92, %93
@@ -4806,7 +4806,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr %27, align 4
   %99 = load ptr, ptr %61, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %indvars.iv.next, %102
@@ -4823,7 +4823,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
 ._crit_edge.i:                                    ; preds = %98, %._crit_edge.i.split.loop.exit77, %._crit_edge.i.split.loop.exit75
   %106 = phi i32 [ %104, %._crit_edge.i.split.loop.exit75 ], [ %105, %._crit_edge.i.split.loop.exit77 ], [ %indvars, %98 ]
   %.pre.i = load ptr, ptr %61, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre106.i = load i32, ptr %.phi.trans.insert.i, align 8
   %107 = icmp eq i32 %106, %.pre106.i
   br i1 %107, label %._crit_edge.thread.i, label %114
@@ -4841,9 +4841,9 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
 
 114:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i, %73, %70, %66
   %115 = phi i32 [ %106, %._crit_edge.i ], [ %108, %._crit_edge.thread.i ], [ %68, %66 ], [ %68, %70 ], [ %80, %73 ]
-  %116 = getelementptr inbounds i8, ptr %0, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
   %.not91.i = icmp ult i32 %115, %119
   br i1 %.not91.i, label %125, label %120
@@ -4851,7 +4851,7 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
 120:                                              ; preds = %114
   store i32 -21, ptr %3, align 4
   %121 = load ptr, ptr %116, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef %115, i32 noundef %123) #16
   store ptr %124, ptr %4, align 8
@@ -4884,19 +4884,19 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %140 = add i32 %139, %.079.i
   %141 = add i32 %140, %.078.i
   %142 = add i32 %141, %138
-  %143 = getelementptr inbounds i8, ptr %26, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %142, ptr %143, align 4
   %144 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %26, i64 noundef 8, ptr noundef %3) #16
   %.not93.i = icmp eq i32 %144, 0
   br i1 %.not93.i, label %pcapng_write_enhanced_packet_block.exit.thread, label %145
 
 145:                                              ; preds = %137
-  %146 = getelementptr inbounds i8, ptr %1, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %130, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %149 = load i64, ptr %148, align 8
   %150 = mul i64 %149, %147
-  %151 = getelementptr inbounds i8, ptr %1, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %152 = load i32, ptr %151, align 8
   %153 = sext i32 %152 to i64
   %154 = mul i64 %149, %153
@@ -4904,19 +4904,19 @@ define internal range(i32 0, 2) i32 @pcapng_dump(ptr noundef %0, ptr noundef %1,
   %156 = add i64 %155, %150
   %157 = lshr i64 %156, 32
   %158 = trunc nuw i64 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %27, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %158, ptr %159, align 4
   %160 = trunc i64 %156 to i32
-  %161 = getelementptr inbounds i8, ptr %27, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %160, ptr %161, align 4
   %162 = load i32, ptr %34, align 8
   %163 = add i32 %162, %45
-  %164 = getelementptr inbounds i8, ptr %27, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %163, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %1, i64 68
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, %45
-  %168 = getelementptr inbounds i8, ptr %27, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 %167, ptr %168, align 4
   %169 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %27, i64 noundef 20, ptr noundef %3) #16
   %.not94.i = icmp eq i32 %169, 0
@@ -4976,7 +4976,7 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %181, %182
   br i1 %.not39, label %198, label %188
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds i8, ptr %1, i64 64
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %190 = load i32, ptr %189, align 8
   %191 = zext i32 %190 to i64
   %192 = inttoptr i64 %191 to ptr
@@ -4985,7 +4985,7 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %181, %182
   br i1 %.not40, label %198, label %194
 
 194:                                              ; preds = %188
-  %195 = getelementptr inbounds i8, ptr %193, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 %196(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #16
   %.not41 = icmp eq i32 %197, 0
@@ -5004,7 +5004,7 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %181, %182
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24)
   store i32 0, ptr %19, align 4
-  %200 = getelementptr inbounds i8, ptr %1, i64 100
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %201 = load i32, ptr %200, align 4
   %202 = icmp ugt i32 %201, 262144
   br i1 %202, label %203, label %204
@@ -5021,31 +5021,31 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %181, %182
   store i32 516, ptr %18, align 4
   %207 = add nuw nsw i32 %201, 36
   %208 = add nuw nsw i32 %207, %.036.i
-  %209 = getelementptr inbounds i8, ptr %18, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %208, ptr %209, align 4
   %210 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 8, ptr noundef %3) #16
   %.not39.i = icmp eq i32 %210, 0
   br i1 %.not39.i, label %pcapng_write_sysdig_event_block.exit.thread, label %211
 
 211:                                              ; preds = %204
-  %212 = getelementptr inbounds i8, ptr %1, i64 112
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %213 = load i16, ptr %212, align 8
   store i16 %213, ptr %20, align 2
-  %214 = getelementptr inbounds i8, ptr %1, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %215 = load i64, ptr %214, align 8
   %216 = mul i64 %215, 1000000000
-  %217 = getelementptr inbounds i8, ptr %1, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %218 = load i32, ptr %217, align 8
   %219 = sext i32 %218 to i64
   %220 = add i64 %216, %219
   store i64 %220, ptr %21, align 8
-  %221 = getelementptr inbounds i8, ptr %1, i64 88
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %222 = load i64, ptr %221, align 8
   store i64 %222, ptr %22, align 8
-  %223 = getelementptr inbounds i8, ptr %1, i64 96
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %224 = load i32, ptr %223, align 8
   store i32 %224, ptr %23, align 4
-  %225 = getelementptr inbounds i8, ptr %1, i64 104
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %226 = load i16, ptr %225, align 8
   store i16 %226, ptr %24, align 2
   %227 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 2, ptr noundef %3) #16
@@ -5114,7 +5114,7 @@ pcapng_write_sysdig_event_block.exit:             ; preds = %240, %241
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  %246 = getelementptr inbounds i8, ptr %1, i64 64
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %247 = load i32, ptr %246, align 8
   %248 = icmp ugt i32 %247, 262144
   br i1 %248, label %249, label %250
@@ -5131,7 +5131,7 @@ pcapng_write_sysdig_event_block.exit:             ; preds = %240, %241
   store i32 9, ptr %16, align 4
   %253 = add nuw nsw i32 %247, 12
   %254 = add nuw nsw i32 %253, %.0.i47
-  %255 = getelementptr inbounds i8, ptr %16, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %254, ptr %255, align 4
   %256 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 8, ptr noundef %3) #16
   %.not21.i = icmp eq i32 %256, 0
@@ -5166,7 +5166,7 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   br i1 %.not25.i.not, label %335, label %334
 
 266:                                              ; preds = %31
-  %267 = getelementptr inbounds i8, ptr %1, i64 68
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %268 = load i32, ptr %267, align 4
   %cond = icmp eq i32 %268, 10949
   br i1 %cond, label %269, label %306
@@ -5176,11 +5176,11 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  %270 = getelementptr inbounds i8, ptr %1, i64 232
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %271 = load ptr, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i32 0, ptr %11, align 8
-  %272 = getelementptr inbounds i8, ptr %11, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @compute_epb_option_size, ptr %272, align 8
   %273 = call i32 @wtap_block_foreach_option(ptr noundef %271, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %11) #16
   %274 = load i32, ptr %11, align 8
@@ -5190,9 +5190,9 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   store i32 2989, ptr %12, align 4
   %276 = add i32 %spec.select.i.i50, 20
-  %277 = getelementptr inbounds i8, ptr %12, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %276, ptr %277, align 4
-  %278 = getelementptr inbounds i8, ptr %1, i64 76
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %279 = load i32, ptr %278, align 4
   %280 = icmp eq i32 %279, 2
   br i1 %280, label %281, label %283
@@ -5226,7 +5226,7 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   br i1 %292, label %293, label %297
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %1, i64 80
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %295 = load i32, ptr %294, align 4
   store i32 %295, ptr %14, align 4
   %296 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %3) #16
@@ -5241,9 +5241,9 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %261, %262
   %299 = load ptr, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr %0, ptr %10, align 8
-  %300 = getelementptr inbounds i8, ptr %10, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %10, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %301, align 8
   %302 = call i32 @wtap_block_foreach_option(ptr noundef %299, ptr noundef nonnull @write_block_option, ptr noundef nonnull %10) #16
   %.not.i26.i = icmp eq i32 %302, 0
@@ -5256,7 +5256,7 @@ write_options.exit.thread.i:                      ; preds = %298
 write_options.exit.i:                             ; preds = %298
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i16 0, ptr %9, align 2
-  %303 = getelementptr inbounds i8, ptr %9, i64 2
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 0, ptr %303, align 2
   %304 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %3) #16
   %.not.i.i.not.i = icmp eq i32 %304, 0
@@ -5285,8 +5285,8 @@ pcapng_write_bblog_block.exit:                    ; preds = %297, %write_options
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  %307 = getelementptr inbounds i8, ptr %1, i64 64
-  %308 = getelementptr inbounds i8, ptr %1, i64 72
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %309 = load i32, ptr %308, align 8
   %.not.i57 = icmp eq i32 %309, 0
   br i1 %.not.i57, label %pcapng_write_custom_block.exit.thread71, label %310
@@ -5314,7 +5314,7 @@ pcapng_write_custom_block.exit.thread71:          ; preds = %306
   store i32 2989, ptr %6, align 4
   %317 = add nuw nsw i32 %311, 16
   %318 = add nuw nsw i32 %317, %.0.i59
-  %319 = getelementptr inbounds i8, ptr %6, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %318, ptr %319, align 4
   %320 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 8, ptr noundef %3) #16
   %.not26.i = icmp eq i32 %320, 0
@@ -5381,21 +5381,21 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not25 = icmp eq i32 %13, 0
   br i1 %.not25, label %.loopexit, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   br label %21
 
 21:                                               ; preds = %.lr.ph24, %._crit_edge
@@ -5405,13 +5405,13 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv29
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @wtap_block_get_mandatory_data(ptr noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i8, ptr %27, align 8
   %.not26 = icmp eq i8 %28, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   br label %34
 
 30:                                               ; preds = %pcapng_write_interface_statistics_block.exit
@@ -5449,10 +5449,10 @@ define internal range(i32 0, 2) i32 @pcapng_dump_finish(ptr noundef %0, ptr noun
 45:                                               ; preds = %34
   %46 = load i32, ptr %39, align 4
   store i32 %46, ptr %8, align 4
-  %47 = getelementptr inbounds i8, ptr %39, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %16, align 4
-  %49 = getelementptr inbounds i8, ptr %39, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %50 = load i32, ptr %49, align 4
   store i32 %50, ptr %17, align 4
   %51 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 12, ptr noundef %1) #16
@@ -5501,7 +5501,7 @@ pcapng_write_interface_statistics_block.exit:     ; preds = %52, %write_options.
 ._crit_edge:                                      ; preds = %30, %21
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next30, %60
@@ -5537,7 +5537,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_if_descr_block(ptr noun
 16:                                               ; preds = %13, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @compute_idb_option_size, ptr %17, align 8
   %18 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %6) #16
   %19 = load i32, ptr %6, align 8
@@ -5547,7 +5547,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_if_descr_block(ptr noun
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store i32 1, ptr %7, align 4
   %21 = add i32 %spec.select.i, 20
-  %22 = getelementptr inbounds i8, ptr %7, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %21, ptr %22, align 4
   %23 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 8, ptr noundef %2) #16
   %.not19 = icmp eq i32 %23, 0
@@ -5556,11 +5556,11 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_if_descr_block(ptr noun
 24:                                               ; preds = %16
   %25 = trunc i32 %11 to i16
   store i16 %25, ptr %8, align 4
-  %26 = getelementptr inbounds i8, ptr %8, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %9, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %8, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %28, ptr %29, align 4
   %30 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 8, ptr noundef %2) #16
   %.not20 = icmp eq i32 %30, 0
@@ -5573,9 +5573,9 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_if_descr_block(ptr noun
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @write_wtap_idb_option, ptr %34, align 8
   %35 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @write_block_option, ptr noundef nonnull %5) #16
   %.not.i24 = icmp eq i32 %35, 0
@@ -5588,7 +5588,7 @@ write_options.exit.thread:                        ; preds = %32
 write_options.exit:                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i16 0, ptr %4, align 2
-  %36 = getelementptr inbounds i8, ptr %4, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %36, align 2
   %37 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %2) #16
   %.not.i.i.not = icmp eq i32 %37, 0
@@ -5613,14 +5613,14 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_bloc
   %5 = alloca %struct.pcapng_decryption_secrets_block_s, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1) #16
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sub i32 0, %9
   %11 = and i32 %10, 3
   store i32 10, ptr %4, align 4
   %12 = add i32 %9, 20
   %13 = add i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %13, ptr %14, align 4
   %15 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %2) #16
   %.not = icmp eq i32 %15, 0
@@ -5630,14 +5630,14 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_bloc
   %17 = load i32, ptr %7, align 8
   store i32 %17, ptr %5, align 4
   %18 = load i32, ptr %8, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %18, ptr %19, align 4
   %20 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 8, ptr noundef %2) #16
   %.not21 = icmp eq i32 %20, 0
   br i1 %.not21, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %8, align 4
   %25 = zext i32 %24 to i64
@@ -5671,15 +5671,15 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_decryption_secrets_bloc
 define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.pcapng_block_header_s, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit69, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 148
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %9, %11
   br i1 %12, label %.lr.ph.preheader, label %.loopexit69
@@ -5704,28 +5704,28 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr nou
   store i32 %21, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %26, label %.lr.ph, label %.loopexit69, !llvm.loop !18
 
 .loopexit69:                                      ; preds = %19, %7, %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load ptr, ptr %27, align 8
   %.not58 = icmp eq ptr %28, null
   br i1 %.not58, label %.loopexit67, label %29
 
 29:                                               ; preds = %.loopexit69
-  %30 = getelementptr inbounds i8, ptr %0, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp ult i32 %31, %33
   br i1 %34, label %.lr.ph73, label %.loopexit67
 
 .lr.ph73:                                         ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %3, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %36 = zext i32 %31 to i64
   br label %37
 
@@ -5738,7 +5738,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %42 = call ptr @wtap_block_get_mandatory_data(ptr noundef %41) #16
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = sub i32 0, %44
   %46 = and i32 %45, 3
@@ -5752,7 +5752,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_internal_blocks(ptr nou
   br i1 %.not.i, label %pcapng_write_meta_event_block.exit.thread, label %51
 
 51:                                               ; preds = %37
-  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %43, align 4
   %55 = zext i32 %54 to i64
@@ -5789,27 +5789,27 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   store i32 %64, ptr %30, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %65 = load ptr, ptr %27, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next82, %68
   br i1 %69, label %37, label %.loopexit67, !llvm.loop !19
 
 .loopexit67:                                      ; preds = %62, %29, %.loopexit69
-  %70 = getelementptr inbounds i8, ptr %0, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @wtap_addrinfo_list_empty(ptr noundef %71) #16
   %.not59 = icmp eq i32 %72, 0
   br i1 %.not59, label %73, label %103
 
 73:                                               ; preds = %.loopexit67
-  %74 = getelementptr inbounds i8, ptr %0, i64 120
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %75 = load ptr, ptr %74, align 8
   %.not60 = icmp eq ptr %75, null
   br i1 %.not60, label %83, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i32, ptr %77, align 8
   %.not61 = icmp eq i32 %78, 0
   br i1 %.not61, label %83, label %79
@@ -5831,9 +5831,9 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %86, align 8
   %89 = load ptr, ptr %70, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %91, ptr %92, align 8
   %93 = call fastcc i32 @pcapng_write_name_resolution_block(ptr noundef nonnull %0, ptr noundef %.055, ptr noundef %1)
   %.not62 = icmp eq i32 %93, 0
@@ -5848,25 +5848,25 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %97 = load ptr, ptr %70, align 8
   store ptr null, ptr %97, align 8
   %98 = load ptr, ptr %70, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   call void @g_list_free(ptr noundef %100) #16
   %101 = load ptr, ptr %70, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr null, ptr %102, align 8
   call void @wtap_dump_discard_name_resolution(ptr noundef nonnull %0) #16
   br label %103
 
 103:                                              ; preds = %94, %.loopexit67
-  %104 = getelementptr inbounds i8, ptr %0, i64 120
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %105 = load ptr, ptr %104, align 8
   %.not63 = icmp eq ptr %105, null
   br i1 %.not63, label %.loopexit, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %0, i64 144
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i32, ptr %109, align 8
   %111 = icmp ult i32 %108, %110
   br i1 %111, label %.lr.ph75.preheader, label %.loopexit
@@ -5891,7 +5891,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   store i32 %120, ptr %107, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %121 = load ptr, ptr %104, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next85, %124
@@ -5919,7 +5919,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @compute_nrb_option_size, ptr %10, align 8
   %11 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %7) #16
   %12 = load i32, ptr %7, align 8
@@ -5945,7 +5945,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   br i1 %.not169190196, label %.loopexit177, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %20
-  %.sroa.6.0..0.74.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.6.0..0.74.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer178
@@ -5958,7 +5958,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 22:                                               ; preds = %.lr.ph, %26
   %.0192 = phi i32 [ %.0.ph200, %.lr.ph ], [ %27, %26 ]
   %.0159191 = phi ptr [ %.0159.ph199, %.lr.ph ], [ %29, %26 ]
-  %23 = getelementptr inbounds i8, ptr %.0159191, i64 21
+  %23 = getelementptr inbounds nuw i8, ptr %.0159191, i64 21
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %25 = icmp ugt i64 %24, 65530
   br i1 %25, label %26, label %30
@@ -5995,7 +5995,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %47 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6) #16
   %48 = load ptr, ptr %6, align 8
   store i16 0, ptr %48, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 2
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.reass = add i32 %.1161.ph198, %invariant.op
@@ -6021,7 +6021,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %56 = zext i32 %.2 to i64
   %57 = getelementptr i8, ptr %17, i64 %56
   store i16 1, ptr %57, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 2
   store i16 %34, ptr %.sroa.4.0..sroa_idx, align 1
   %58 = add i32 %.2, 4
   %59 = zext i32 %58 to i64
@@ -6051,7 +6051,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 .loopexit177:                                     ; preds = %.outer178, %26, %20, %16
   %.sroa.6.0 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.1.ph197, %26 ], [ %55, %.outer178 ]
   %.0160 = phi i32 [ 8, %16 ], [ 8, %20 ], [ %.1161.ph198, %26 ], [ %73, %.outer178 ]
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not170 = icmp eq ptr %78, null
   br i1 %.not170, label %.loopexit177..loopexit_crit_edge, label %79
@@ -6067,7 +6067,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   br i1 %.not171203213, label %.loopexit, label %.lr.ph206.lr.ph
 
 .lr.ph206.lr.ph:                                  ; preds = %79
-  %.sroa.6.0..0.84.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.6.0..0.84.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.lr.ph, %.outer
@@ -6080,7 +6080,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 81:                                               ; preds = %.lr.ph206, %85
   %.1205 = phi i32 [ %.1.ph217, %.lr.ph206 ], [ %86, %85 ]
   %.0158204 = phi ptr [ %.0158.ph216, %.lr.ph206 ], [ %88, %85 ]
-  %82 = getelementptr inbounds i8, ptr %.0158204, i64 63
+  %82 = getelementptr inbounds nuw i8, ptr %.0158204, i64 63
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #19
   %84 = icmp ugt i64 %83, 65518
   br i1 %84, label %85, label %89
@@ -6117,7 +6117,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %106 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5) #16
   %107 = load ptr, ptr %5, align 8
   store i16 0, ptr %107, align 1
-  %.sroa.2.0..sroa_idx.i175 = getelementptr inbounds i8, ptr %107, i64 2
+  %.sroa.2.0..sroa_idx.i175 = getelementptr inbounds nuw i8, ptr %107, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i175, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.reass212 = add i32 %.4.ph215, %invariant.op211
@@ -6143,7 +6143,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %115 = zext i32 %.5 to i64
   %116 = getelementptr i8, ptr %17, i64 %115
   store i16 2, ptr %116, align 1
-  %.sroa.4.0..sroa_idx119 = getelementptr inbounds i8, ptr %116, i64 2
+  %.sroa.4.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %116, i64 2
   store i16 %93, ptr %.sroa.4.0..sroa_idx119, align 1
   %117 = add i32 %.5, 4
   %118 = zext i32 %117 to i64
@@ -6184,13 +6184,13 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %140 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4) #16
   %141 = load ptr, ptr %4, align 8
   store i16 0, ptr %141, align 1
-  %.sroa.2.0..sroa_idx.i176 = getelementptr inbounds i8, ptr %141, i64 2
+  %.sroa.2.0..sroa_idx.i176 = getelementptr inbounds nuw i8, ptr %141, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i176, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %142 = add i32 %137, %spec.select.i
   %143 = add i32 %.pre-phi, %.sroa.6.3
   store i32 4, ptr %17, align 1
-  %.sroa.6.0..0.94.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.6.0..0.94.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %143, ptr %.sroa.6.0..0.94.sroa_idx, align 1
   %144 = zext i32 %142 to i64
   %145 = getelementptr i8, ptr %17, i64 %144
@@ -6278,7 +6278,7 @@ define internal noundef i32 @compute_block_option_size(ptr noundef %0, i32 nound
   %cond.i = icmp eq i32 %14, 10949
   %..i = select i1 %cond.i, i64 16, i64 8
   %.15.i = select i1 %cond.i, i64 8, i64 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 %..i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %.15.i, %16
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 65535)
@@ -6291,7 +6291,7 @@ define internal noundef i32 @compute_block_option_size(ptr noundef %0, i32 nound
   br label %26
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #16
   br label %26
@@ -6339,7 +6339,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
   %11 = trunc i64 %8 to i16
   %12 = load ptr, ptr %4, align 8
   store i16 %10, ptr %12, align 1
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 2
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 %11, ptr %.sroa.8.0..sroa_idx, align 1
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr i8, ptr %13, i64 4
@@ -6361,7 +6361,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
   br label %.sink.split
 
 23:                                               ; preds = %5, %5
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = trunc i32 %1 to i16
@@ -6369,7 +6369,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
   %29 = add i16 %28, 4
   %30 = load ptr, ptr %4, align 8
   store i16 %27, ptr %30, align 1
-  %.sroa.8.0..sroa_idx9 = getelementptr inbounds i8, ptr %30, i64 2
+  %.sroa.8.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i16 %29, ptr %.sroa.8.0..sroa_idx9, align 1
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr i8, ptr %31, i64 4
@@ -6379,7 +6379,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr i8, ptr %34, i64 4
   store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %24, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %37, i64 %38, i1 false)
@@ -6400,7 +6400,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
 46:                                               ; preds = %5
   %47 = load ptr, ptr %4, align 8
   store i16 3, ptr %47, align 1
-  %.sroa.8.0..sroa_idx11 = getelementptr inbounds i8, ptr %47, i64 2
+  %.sroa.8.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i16 4, ptr %.sroa.8.0..sroa_idx11, align 1
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr i8, ptr %48, i64 4
@@ -6412,7 +6412,7 @@ define internal noundef i32 @put_nrb_option(ptr nocapture readnone %0, i32 nound
 51:                                               ; preds = %5
   %52 = load ptr, ptr %4, align 8
   store i16 4, ptr %52, align 1
-  %.sroa.8.0..sroa_idx13 = getelementptr inbounds i8, ptr %52, i64 2
+  %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %52, i64 2
   store i16 16, ptr %.sroa.8.0..sroa_idx13, align 1
   %53 = load ptr, ptr %4, align 8
   %54 = getelementptr i8, ptr %53, i64 4
@@ -6456,9 +6456,9 @@ define internal i32 @compute_epb_option_size(ptr nocapture readnone %0, i32 noun
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   br label %pcapng_compute_packet_verdict_option_size.exit
 
@@ -6481,14 +6481,14 @@ pcapng_compute_packet_verdict_option_size.exit:   ; preds = %6, %6, %8, %13
   br i1 %19, label %switch.lookup, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %pcapng_compute_packet_hash_option_size.exit
 
 switch.lookup:                                    ; preds = %17
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.compute_epb_option_size, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.compute_epb_option_size, i64 0, i64 %24
   br label %pcapng_compute_packet_hash_option_size.exit
 
 pcapng_compute_packet_hash_option_size.exit:      ; preds = %switch.lookup, %20
@@ -6518,9 +6518,9 @@ define internal fastcc range(i32 0, 2) i32 @write_options(ptr noundef %0, ptr no
   %5 = alloca %struct.pcapng_option_header, align 2
   %6 = alloca %struct.write_options_t, align 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %8, align 8
   %9 = call i32 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @write_block_option, ptr noundef nonnull %6) #16
   %.not = icmp eq i32 %9, 0
@@ -6529,7 +6529,7 @@ define internal fastcc range(i32 0, 2) i32 @write_options(ptr noundef %0, ptr no
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i16 0, ptr %5, align 2
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 0, ptr %11, align 2
   %12 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 4, ptr noundef %3) #16
   %.not.i = icmp ne i32 %12, 0
@@ -6562,7 +6562,7 @@ define internal range(i32 0, 2) i32 @write_wtap_epb_option(ptr noundef %0, ptr n
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i16 2, ptr %13, align 2
-  %15 = getelementptr inbounds i8, ptr %13, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 4, ptr %15, align 2
   %16 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %16, 0
@@ -6581,7 +6581,7 @@ pcapng_write_uint32_option.exit:                  ; preds = %14
 18:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i16 4, ptr %12, align 2
-  %19 = getelementptr inbounds i8, ptr %12, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 8, ptr %19, align 2
   %20 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %5) #16
   %.not.i19 = icmp eq i32 %20, 0
@@ -6600,7 +6600,7 @@ pcapng_write_uint64_option.exit:                  ; preds = %18
 22:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i16 5, ptr %11, align 2
-  %23 = getelementptr inbounds i8, ptr %11, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i16 8, ptr %23, align 2
   %24 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 4, ptr noundef %5) #16
   %.not.i23 = icmp eq i32 %24, 0
@@ -6619,7 +6619,7 @@ pcapng_write_uint64_option.exit27:                ; preds = %22
 26:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i16 6, ptr %10, align 2
-  %27 = getelementptr inbounds i8, ptr %10, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 4, ptr %27, align 2
   %28 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %5) #16
   %.not.i28 = icmp eq i32 %28, 0
@@ -6648,9 +6648,9 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
   ]
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i32 %36, 65535
@@ -6659,7 +6659,7 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
 39:                                               ; preds = %32
   store i16 6, ptr %7, align 2
   %40 = trunc nuw i32 %36 to i16
-  %41 = getelementptr inbounds i8, ptr %7, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %40, ptr %41, align 2
   %42 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not45.i = icmp eq i32 %42, 0
@@ -6683,7 +6683,7 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
 
 50:                                               ; preds = %30
   store i16 6, ptr %7, align 2
-  %51 = getelementptr inbounds i8, ptr %7, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 9, ptr %51, align 2
   %52 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not42.i = icmp eq i32 %52, 0
@@ -6696,14 +6696,14 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
   br i1 %.not43.i, label %pcapng_write_packet_verdict_option.exit, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %4, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %56, i64 noundef 8, ptr noundef %5) #16
   %.not44.i = icmp eq i32 %57, 0
   br i1 %.not44.i, label %pcapng_write_packet_verdict_option.exit, label %.thread.i
 
 58:                                               ; preds = %30
   store i16 6, ptr %7, align 2
-  %59 = getelementptr inbounds i8, ptr %7, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 9, ptr %59, align 2
   %60 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not.i33 = icmp eq i32 %60, 0
@@ -6716,7 +6716,7 @@ pcapng_write_uint32_option.exit32:                ; preds = %26
   br i1 %.not40.i, label %pcapng_write_packet_verdict_option.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %4, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %64, i64 noundef 8, ptr noundef %5) #16
   %.not41.i = icmp eq i32 %65, 0
   br i1 %.not41.i, label %pcapng_write_packet_verdict_option.exit, label %.thread.i
@@ -6759,7 +6759,7 @@ define internal range(i32 0, 2) i32 @write_block_option(ptr noundef %0, i32 noun
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -6773,7 +6773,7 @@ define internal range(i32 0, 2) i32 @write_block_option(ptr noundef %0, i32 noun
 19:                                               ; preds = %12
   store i16 1, ptr %10, align 2
   %20 = trunc nuw i64 %17 to i16
-  %21 = getelementptr inbounds i8, ptr %10, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 %20, ptr %21, align 2
   %22 = call i32 @wtap_dump_file_write(ptr noundef %13, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %15) #16
   %.not.i = icmp eq i32 %22, 0
@@ -6808,7 +6808,7 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
 
 31:                                               ; preds = %5, %5
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -6819,7 +6819,7 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   %cond.i = icmp eq i32 %35, 10949
   %..i = select i1 %cond.i, i64 16, i64 8
   %.50.i = select i1 %cond.i, i64 8, i64 4
-  %36 = getelementptr inbounds i8, ptr %3, i64 %..i
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %.50.i, %37
   %39 = icmp ugt i64 %38, 65535
@@ -6829,7 +6829,7 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   %41 = trunc i32 %1 to i16
   store i16 %41, ptr %6, align 2
   %42 = trunc nuw i64 %38 to i16
-  %43 = getelementptr inbounds i8, ptr %6, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %42, ptr %43, align 2
   %44 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef nonnull %6, i64 noundef 4, ptr noundef %34) #16
   %.not.i24 = icmp eq i32 %44, 0
@@ -6845,7 +6845,7 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
 48:                                               ; preds = %45
   %49 = load i32, ptr %3, align 8
   %cond1.i = icmp eq i32 %49, 10949
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %cond1.i, label %51, label %60
 
 51:                                               ; preds = %48
@@ -6856,16 +6856,16 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   br i1 %.not43.i, label %pcapng_write_custom_option.exit.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %58 = load i64, ptr %57, align 8
   %59 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef %56, i64 noundef %58, ptr noundef %34) #16
   %.not44.i = icmp eq i32 %59, 0
   br i1 %.not44.i, label %pcapng_write_custom_option.exit.thread, label %65
 
 60:                                               ; preds = %48
-  %61 = getelementptr inbounds i8, ptr %3, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = load i64, ptr %50, align 8
   %64 = call i32 @wtap_dump_file_write(ptr noundef %32, ptr noundef %62, i64 noundef %63, ptr noundef %34) #16
@@ -6898,14 +6898,14 @@ pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
   br label %78
 
 70:                                               ; preds = %5
-  %71 = getelementptr inbounds i8, ptr %4, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not21 = icmp eq ptr %72, null
   br i1 %.not21, label %78, label %73
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 %72(ptr noundef %74, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %76) #16
   %.not22 = icmp eq i32 %77, 0
@@ -6949,7 +6949,7 @@ define internal range(i32 0, 2) i32 @write_wtap_isb_option(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %12 = trunc i32 %2 to i16
   store i16 %12, ptr %8, align 2
-  %13 = getelementptr inbounds i8, ptr %8, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 8, ptr %13, align 2
   %14 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %14, 0
@@ -6984,7 +6984,7 @@ pcapng_write_timestamp_option.exit:               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %23 = trunc i32 %2 to i16
   store i16 %23, ptr %7, align 2
-  %24 = getelementptr inbounds i8, ptr %7, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 8, ptr %24, align 2
   %25 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not.i10 = icmp eq i32 %25, 0
@@ -7053,7 +7053,7 @@ define internal range(i32 0, 2) i32 @write_wtap_shb_option(ptr noundef %0, ptr n
   %14 = trunc nuw i32 %2 to i16
   store i16 %14, ptr %7, align 2
   %15 = trunc nuw i64 %11 to i16
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %15, ptr %16, align 2
   %17 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %17, 0
@@ -7126,7 +7126,7 @@ define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture r
   ]
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #19
   %19 = trunc i64 %18 to i32
@@ -7135,7 +7135,7 @@ define internal range(i32 0, 65539) i32 @compute_idb_option_size(ptr nocapture r
   br label %pcapng_compute_if_filter_option_size.exit
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = shl i32 %24, 3
   %26 = and i32 %25, 65528
@@ -7196,7 +7196,7 @@ define internal range(i32 0, 2) i32 @write_wtap_idb_option(ptr noundef %0, ptr n
   %22 = trunc i32 %2 to i16
   store i16 %22, ptr %15, align 2
   %23 = trunc nuw i64 %19 to i16
-  %24 = getelementptr inbounds i8, ptr %15, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 %23, ptr %24, align 2
   %25 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %25, 0
@@ -7232,7 +7232,7 @@ pcapng_write_string_option.exit:                  ; preds = %29, %31, %17
 34:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i16 8, ptr %14, align 2
-  %35 = getelementptr inbounds i8, ptr %14, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %35, align 2
   %36 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 4, ptr noundef %5) #16
   %.not.i26 = icmp eq i32 %36, 0
@@ -7253,7 +7253,7 @@ pcapng_write_uint64_option.exit:                  ; preds = %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
   store i16 9, ptr %12, align 2
-  %39 = getelementptr inbounds i8, ptr %12, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 1, ptr %39, align 2
   %40 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %5) #16
   %.not.i27 = icmp eq i32 %40, 0
@@ -7289,7 +7289,7 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
 
 46:                                               ; preds = %44
   store i8 0, ptr %9, align 1
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #19
   %50 = icmp ugt i64 %49, 65534
@@ -7297,7 +7297,7 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
 
 51:                                               ; preds = %44
   store i8 1, ptr %9, align 1
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = shl i32 %53, 3
   %55 = zext nneg i32 %54 to i64
@@ -7313,7 +7313,7 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
   %61 = sub nuw nsw i32 4, %60
   store i16 11, ptr %10, align 2
   %62 = trunc nuw i32 %59 to i16
-  %63 = getelementptr inbounds i8, ptr %10, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 %62, ptr %63, align 2
   %64 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %5) #16
   %.not33.i = icmp eq i32 %64, 0
@@ -7332,14 +7332,14 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
   ]
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %71, i64 noundef %.0.i30, ptr noundef %5) #16
   %.not36.i = icmp eq i32 %72, 0
   br i1 %.not36.i, label %pcapng_write_if_filter_option.exit.thread, label %78
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %4, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %75, i64 noundef %.0.i30, ptr noundef %5) #16
   %.not35.i = icmp eq i32 %76, 0
@@ -7375,7 +7375,7 @@ pcapng_write_if_filter_option.exit:               ; preds = %78, %79, %44, %46, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store i16 13, ptr %7, align 2
-  %83 = getelementptr inbounds i8, ptr %7, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 1, ptr %83, align 2
   %84 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not.i32 = icmp eq i32 %84, 0

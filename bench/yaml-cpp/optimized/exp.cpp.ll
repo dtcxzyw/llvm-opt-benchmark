@@ -129,7 +129,7 @@ if.end32:                                         ; preds = %if.else17, %if.else
   %add16 = add nsw i32 %.sink, %conv
   %shl = shl i32 %value.023, 4
   %add33 = add nuw i32 %add16, %shl
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.022, i64 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %call1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -172,9 +172,9 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
-  %mark.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mark.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
-  %msg.i = getelementptr inbounds i8, ptr %this, i64 32
+  %msg.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i, ptr noundef nonnull align 8 dereferenceable(32) %msg_)
           to label %_ZN4YAML9ExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad2.i
 
@@ -295,12 +295,12 @@ lpad.loopexit.split-lp:                           ; preds = %for.end, %if.then
   br label %ehcleanup105
 
 for.end:                                          ; preds = %for.inc, %entry
-  %m_mark.i = getelementptr inbounds i8, ptr %in, i64 8
+  %m_mark.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %m_mark.i, align 8
-  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds i8, ptr %in, i64 16
+  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds nuw i8, ptr %in, i64 16
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.m_mark.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 %retval.sroa.2.0.copyload.i, ptr %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx, align 8
   %call6 = invoke noundef i32 @_ZN4YAML3Exp8ParseHexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp
@@ -317,7 +317,7 @@ if.then:                                          ; preds = %invoke.cont5
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %if.then
-  %add.ptr = getelementptr inbounds i8, ptr %msg, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 16
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.1)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -330,7 +330,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %retval.sroa.0.0.copyload.i38 = load i64, ptr %m_mark.i, align 8
   %retval.sroa.2.0.copyload.i40 = load i32, ptr %retval.sroa.2.0.m_mark.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i38, ptr %ref.tmp16, align 8
-  %tmp.coerce20.sroa.2.0.ref.tmp16.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %tmp.coerce20.sroa.2.0.ref.tmp16.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
   store i32 %retval.sroa.2.0.copyload.i40, ptr %tmp.coerce20.sroa.2.0.ref.tmp16.sroa_idx, align 8
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(128) %msg)
           to label %invoke.cont22 unwind label %ehcleanup.thread
@@ -1192,12 +1192,12 @@ sw.bb78:                                          ; preds = %if.end
 sw.epilog:                                        ; preds = %if.end
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %msg)
   %exception = call ptr @__cxa_allocate_exception(i64 64) #8
-  %m_mark.i = getelementptr inbounds i8, ptr %in, i64 8
+  %m_mark.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %m_mark.i, align 8
-  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds i8, ptr %in, i64 16
+  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds nuw i8, ptr %in, i64 16
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.m_mark.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp79, align 8
-  %tmp.coerce.sroa.2.0.ref.tmp79.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %tmp.coerce.sroa.2.0.ref.tmp79.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 8
   store i32 %retval.sroa.2.0.copyload.i, ptr %tmp.coerce.sroa.2.0.ref.tmp79.sroa_idx, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85)
@@ -1268,11 +1268,11 @@ entry:
   %output = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %0 = load i32, ptr %mark, align 4
   %cmp.i = icmp eq i32 %0, -1
-  %line.i = getelementptr inbounds i8, ptr %mark, i64 4
+  %line.i = getelementptr inbounds nuw i8, ptr %mark, i64 4
   %1 = load i32, ptr %line.i, align 4
   %cmp2.i = icmp eq i32 %1, -1
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %column.i = getelementptr inbounds i8, ptr %mark, i64 8
+  %column.i = getelementptr inbounds nuw i8, ptr %mark, i64 8
   %2 = load i32, ptr %column.i, align 4
   %cmp3.i = icmp eq i32 %2, -1
   %or.cond = select i1 %or.cond.i, i1 %cmp3.i, i1 false
@@ -1284,7 +1284,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %output)
-  %add.ptr = getelementptr inbounds i8, ptr %output, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %output, i64 16
   %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.20)
           to label %invoke.cont unwind label %lpad
 

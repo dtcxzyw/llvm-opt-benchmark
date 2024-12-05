@@ -20,30 +20,30 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly %0, pt
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4
   %7 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, 1
   %15 = ashr i32 %14, 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = getelementptr inbounds i8, ptr %1, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %21 = sext i32 %15 to i64
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %44
@@ -103,7 +103,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly %0, 
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4
   store i32 1, ptr %1, align 8
   %7 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %1) #6
@@ -111,20 +111,20 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly %0, 
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i32, ptr %12, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph49.split.preheader, label %.loopexit
 
 .lr.ph49.split.preheader:                         ; preds = %.lr.ph49
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8
   br label %.lr.ph49.split
 
@@ -154,11 +154,11 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = shl nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i8, ptr %.03747, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.03747, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i64 %27, 1
-  %32 = getelementptr inbounds i8, ptr %.03747, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.03747, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = and i32 %30, 248
@@ -177,7 +177,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly %0, 
   %48 = or i32 %40, %47
   %49 = or i32 %48, %34
   %50 = or i32 %49, -16777216
-  %51 = getelementptr inbounds i32, ptr %.04045, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %.04045, i64 %indvars.iv
   store i32 %50, ptr %51, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -206,7 +206,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly %0,
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %6, align 4
   store i32 1, ptr %1, align 8
   %7 = tail call i32 @WebPPictureAlloc(ptr noundef nonnull %1) #6
@@ -214,20 +214,20 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly %0,
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph52, label %.loopexit
 
 .lr.ph52:                                         ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i32, ptr %12, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph52.split.preheader, label %.loopexit
 
 .lr.ph52.split.preheader:                         ; preds = %.lr.ph52
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8
   br label %.lr.ph52.split
 
@@ -257,11 +257,11 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly %0,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = shl nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i8, ptr %.04050, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.04050, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i64 %27, 1
-  %32 = getelementptr inbounds i8, ptr %.04050, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.04050, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = and i32 %30, 240
@@ -280,7 +280,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly %0,
   %48 = or disjoint i32 %47, %39
   %49 = or disjoint i32 %48, %36
   %50 = or i32 %49, %44
-  %51 = getelementptr inbounds i32, ptr %.04348, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %.04348, i64 %indvars.iv
   store i32 %50, ptr %51, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -309,7 +309,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   br i1 %or.cond, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %1, %10
   %12 = icmp eq ptr %2, null
@@ -326,20 +326,20 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
   br i1 %.not, label %.loopexit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %17
   %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds i8, ptr %4, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %23 = load i32, ptr %9, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   br label %.preheader
 
@@ -354,7 +354,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 
 .lr.ph:                                           ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds i8, ptr %.03947, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %.03947, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %.not45 = icmp sgt i32 %3, %32
@@ -366,9 +366,9 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 
 34:                                               ; preds = %.lr.ph
   %35 = zext i8 %31 to i64
-  %36 = getelementptr inbounds i32, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i32, ptr %.049, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %.049, i64 %indvars.iv
   store i32 %37, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %9, align 8
@@ -409,22 +409,22 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly %0
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %5
   tail call void @WebPInitAlphaProcessing() #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
@@ -498,18 +498,18 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %39 = add nsw i32 %25, -1
-  %40 = getelementptr inbounds i8, ptr %35, i64 16
-  %41 = getelementptr inbounds i8, ptr %35, i64 20
-  %42 = getelementptr inbounds i8, ptr %35, i64 24
-  %43 = getelementptr inbounds i8, ptr %35, i64 28
-  %44 = getelementptr inbounds i8, ptr %35, i64 32
-  %45 = getelementptr inbounds i8, ptr %35, i64 36
-  %46 = getelementptr inbounds i8, ptr %35, i64 40
-  %47 = getelementptr inbounds i8, ptr %35, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %48 = sext i32 %3 to i64
   br label %49
 
@@ -577,7 +577,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %reass.mul.i.i.i = mul i32 %reass.add.i.i.i, %25
   %105 = add i32 %reass.mul.i.i.i, %71
   %106 = trunc i32 %105 to i16
-  %107 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv.i.i
+  %107 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv.i.i
   store i16 %106, ptr %107, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %108 = getelementptr inbounds i8, ptr %.01520.i.i, i64 %48
@@ -604,17 +604,17 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %49
   %114 = getelementptr inbounds i8, ptr %.07811.i, i64 %111
   %115 = getelementptr inbounds i8, ptr %.07910.i, i64 %111
   %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 12
-  %120 = getelementptr inbounds i8, ptr %116, i64 16
-  %121 = getelementptr inbounds i8, ptr %116, i64 20
-  %122 = getelementptr inbounds i8, ptr %116, i64 24
-  %123 = getelementptr inbounds i8, ptr %116, i64 28
-  %124 = getelementptr inbounds i8, ptr %116, i64 32
-  %125 = getelementptr inbounds i8, ptr %116, i64 36
-  %126 = getelementptr inbounds i8, ptr %116, i64 40
-  %127 = getelementptr inbounds i8, ptr %116, i64 44
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 28
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %116, i64 44
   br label %128
 
 128:                                              ; preds = %128, %112
@@ -681,7 +681,7 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %49
   %reass.mul.i.i98.i = mul i32 %reass.add.i.i97.i, %25
   %184 = add i32 %reass.mul.i.i98.i, %150
   %185 = trunc i32 %184 to i16
-  %186 = getelementptr inbounds i16, ptr %.0846.i, i64 %indvars.iv.i93.i
+  %186 = getelementptr inbounds nuw i16, ptr %.0846.i, i64 %indvars.iv.i93.i
   store i16 %185, ptr %186, align 2
   %indvars.iv.next.i99.i = add nuw nsw i64 %indvars.iv.i93.i, 1
   %187 = getelementptr inbounds i8, ptr %.01520.i94.i, i64 %48
@@ -701,10 +701,10 @@ SharpYuvRowToYuvSharpnessIndex.exit101.i:         ; preds = %SharpYuvRowToYuvSha
   %.1861.i = phi double [ %.0855.i, %SharpYuvRowToYuvSharpnessIndex.exit101.preheader13.i ], [ %.287.i, %SharpYuvRowToYuvSharpnessIndex.exit101.i ]
   %191 = zext i16 %190 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %192 = getelementptr inbounds i16, ptr %.0837.i, i64 %indvars.iv.next.i
+  %192 = getelementptr inbounds nuw i16, ptr %.0837.i, i64 %indvars.iv.next.i
   %193 = load i16, ptr %192, align 2
   %194 = zext i16 %193 to i32
-  %195 = getelementptr inbounds i16, ptr %.0846.i, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw i16, ptr %.0846.i, i64 %indvars.iv.i
   %196 = load i16, ptr %195, align 2
   %197 = zext i16 %196 to i32
   %198 = mul nsw i32 %27, %194

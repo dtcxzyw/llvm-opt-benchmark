@@ -49,9 +49,9 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.019 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call6 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.019) #5
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tbl_mask.i)
@@ -82,14 +82,14 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %tbl_min.149.i = phi i64 [ %tbl_min.2.i, %for.inc.i ], [ -1, %for.cond.preheader.i ]
   %i.048.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %call12.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5.i, i32 noundef %i.048.i) #5
-  %name13.i = getelementptr inbounds i8, ptr %call12.i, i64 8
+  %name13.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 8
   %2 = load ptr, ptr %name13.i, align 8
   %call14.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.2) #6
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %for.body.i
-  %value17.i = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %value17.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %3 = load ptr, ptr %value17.i, align 8
   %call18.i = call i64 @strtoul(ptr noundef %3, ptr noundef nonnull %eptr.i, i32 noundef 0) #5
   %4 = load ptr, ptr %eptr.i, align 8
@@ -103,7 +103,7 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %cmp24.i, label %if.then25.i, label %if.else31.i
 
 if.then25.i:                                      ; preds = %if.else.i
-  %value26.i = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %value26.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %6 = load ptr, ptr %value26.i, align 8
   %call27.i = call i64 @strtoul(ptr noundef %6, ptr noundef nonnull %eptr.i, i32 noundef 0) #5
   %7 = load ptr, ptr %eptr.i, align 8
@@ -117,7 +117,7 @@ if.else31.i:                                      ; preds = %if.else.i
   br i1 %cmp34.i, label %if.then35.i, label %if.else42.i
 
 if.then35.i:                                      ; preds = %if.else31.i
-  %value36.i = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %value36.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %9 = load ptr, ptr %value36.i, align 8
   %call37.i = call i32 @ASN1_str2mask(ptr noundef %9, ptr noundef nonnull %tbl_mask.i) #5
   %tobool38.i = icmp ne i32 %call37.i, 0
@@ -132,7 +132,7 @@ if.else42.i:                                      ; preds = %if.else31.i
   br i1 %cmp45.i, label %if.then46.i, label %if.then67.i
 
 if.then46.i:                                      ; preds = %if.else42.i
-  %value47.i = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %value47.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %11 = load ptr, ptr %value47.i, align 8
   %call48.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.6) #6
   %cmp49.i = icmp eq i32 %call48.i, 0
@@ -153,11 +153,11 @@ for.inc.i:                                        ; preds = %if.else51.i, %if.th
   br i1 %cmp10.i, label %for.body.i, label %if.else72.loopexit.i, !llvm.loop !4
 
 if.then67.i:                                      ; preds = %if.else51.i, %if.else42.i, %if.then35.i, %if.then25.i, %if.then16.i
-  %name13.i.le = getelementptr inbounds i8, ptr %call12.i, i64 8
+  %name13.i.le = getelementptr inbounds nuw i8, ptr %call12.i, i64 8
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__func__.do_tcreate) #5
   %12 = load ptr, ptr %name13.i.le, align 8
-  %value69.i = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %value69.i = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %13 = load ptr, ptr %value69.i, align 8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 218, ptr noundef nonnull @.str.8, ptr noundef %12, ptr noundef %13) #5
   br label %if.then8

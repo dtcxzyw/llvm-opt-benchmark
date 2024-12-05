@@ -26,17 +26,17 @@ define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef reado
   %4 = alloca %struct.flock, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   store i64 0, ptr %2, align 8
   store i16 1, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = tail call i32 @getpid() #6
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %12, ptr %13, align 8
   %14 = call i32 (i32, i32, ...) @fcntl(i32 noundef %9, i32 noundef 7, ptr noundef nonnull %4) #6
   %15 = icmp eq i32 %14, -1

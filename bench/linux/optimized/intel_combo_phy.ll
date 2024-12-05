@@ -33,11 +33,11 @@ define dso_local void @intel_combo_phy_power_up_lanes(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %6
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #3, !srcloc !6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @dev_driver_string(ptr noundef %9) #3
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -113,15 +113,15 @@ define dso_local void @intel_combo_phy_power_up_lanes(ptr noundef %0, i32 nounde
   %35 = getelementptr [5 x i32], ptr @constinit.36, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 40
-  %38 = getelementptr inbounds i8, ptr %0, i64 7368
-  %39 = getelementptr inbounds i8, ptr %0, i64 7512
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 %40(ptr noundef %38, i32 %37, i1 noundef zeroext true) #3
+  %41 = tail call i32 %40(ptr noundef nonnull %38, i32 %37, i1 noundef zeroext true) #3
   %42 = and i32 %41, -241
   %43 = or disjoint i32 %42, %33
-  %44 = getelementptr inbounds i8, ptr %0, i64 7544
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef %38, i32 %37, i32 noundef %43, i1 noundef zeroext true) #3
+  tail call void %45(ptr noundef nonnull %38, i32 %37, i32 noundef %43, i1 noundef zeroext true) #3
   ret void
 }
 
@@ -133,13 +133,13 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7368
-  %3 = getelementptr inbounds i8, ptr %0, i64 7512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %4 = icmp eq ptr %0, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr i8, ptr %0, i64 7188
-  %7 = getelementptr inbounds i8, ptr %0, i64 7544
-  %8 = getelementptr inbounds i8, ptr %0, i64 2632
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7544
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   br label %9
 
 9:                                                ; preds = %160, %1
@@ -157,7 +157,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 268
   %19 = load ptr, ptr %3, align 8
-  %20 = tail call i32 %19(ptr noundef %2, i32 %18, i1 noundef zeroext true) #3
+  %20 = tail call i32 %19(ptr noundef nonnull %2, i32 %18, i1 noundef zeroext true) #3
   %21 = lshr i32 %20, 24
   %22 = and i32 %21, 31
   switch i32 %22, label %23 [
@@ -224,7 +224,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
   %49 = load ptr, ptr %3, align 8
   %50 = shl i32 %11, 2
   %51 = or i32 %50, 412672
-  %52 = tail call i32 %49(ptr noundef %2, i32 %51, i1 noundef zeroext true) #3
+  %52 = tail call i32 %49(ptr noundef nonnull %2, i32 %51, i1 noundef zeroext true) #3
   %53 = load i32, ptr %6, align 4
   %54 = zext i32 %53 to i64
   %55 = and i64 %54, 16
@@ -279,7 +279,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
   %81 = phi i32 [ %52, %62 ], [ %52, %57 ], [ %79, %77 ]
   %82 = and i32 %81, -8388609
   %83 = load ptr, ptr %7, align 8
-  tail call void %83(ptr noundef %2, i32 %51, i32 noundef %82, i1 noundef zeroext true) #3
+  tail call void %83(ptr noundef nonnull %2, i32 %51, i32 noundef %82, i1 noundef zeroext true) #3
   br label %84
 
 84:                                               ; preds = %41, %80, %43
@@ -290,24 +290,24 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
 87:                                               ; preds = %84
   %88 = add i32 %17, 2208
   %89 = load ptr, ptr %3, align 8
-  %90 = tail call i32 %89(ptr noundef %2, i32 %88, i1 noundef zeroext true) #3
+  %90 = tail call i32 %89(ptr noundef nonnull %2, i32 %88, i1 noundef zeroext true) #3
   %91 = and i32 %90, 536870911
   %92 = or disjoint i32 %91, -1610612736
   %93 = add i32 %17, 1696
   %94 = load ptr, ptr %7, align 8
-  tail call void %94(ptr noundef %2, i32 %93, i32 noundef %92, i1 noundef zeroext true) #3
+  tail call void %94(ptr noundef nonnull %2, i32 %93, i32 noundef %92, i1 noundef zeroext true) #3
   %95 = add i32 %17, 2052
   %96 = load ptr, ptr %3, align 8
-  %97 = tail call i32 %96(ptr noundef %2, i32 %95, i1 noundef zeroext true) #3
+  %97 = tail call i32 %96(ptr noundef nonnull %2, i32 %95, i1 noundef zeroext true) #3
   %98 = and i32 %97, -3145729
   %99 = add i32 %17, 1540
   %100 = load ptr, ptr %7, align 8
-  tail call void %100(ptr noundef %2, i32 %99, i32 noundef %98, i1 noundef zeroext true) #3
+  tail call void %100(ptr noundef nonnull %2, i32 %99, i32 noundef %98, i1 noundef zeroext true) #3
   br label %101
 
 101:                                              ; preds = %87, %84
   %102 = load ptr, ptr %3, align 8
-  %103 = tail call i32 %102(ptr noundef %2, i32 %18, i1 noundef zeroext true) #3
+  %103 = tail call i32 %102(ptr noundef nonnull %2, i32 %18, i1 noundef zeroext true) #3
   %104 = lshr i32 %103, 24
   %105 = and i32 %104, 31
   switch i32 %105, label %106 [
@@ -343,24 +343,24 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
 112:                                              ; preds = %111, %110, %109, %108, %106, %101
   %113 = phi ptr [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 96), %111 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 72), %110 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 48), %109 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 24), %108 ], [ @icl_procmon_values, %101 ], [ @icl_procmon_values, %106 ]
   %114 = add i32 %17, 260
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i32, ptr %115, align 8
   %117 = load ptr, ptr %3, align 8
-  %118 = tail call i32 %117(ptr noundef %2, i32 %114, i1 noundef zeroext true) #3
+  %118 = tail call i32 %117(ptr noundef nonnull %2, i32 %114, i1 noundef zeroext true) #3
   %119 = and i32 %118, -16711936
   %120 = or i32 %119, %116
   %121 = load ptr, ptr %7, align 8
-  tail call void %121(ptr noundef %2, i32 %114, i32 noundef %120, i1 noundef zeroext true) #3
+  tail call void %121(ptr noundef nonnull %2, i32 %114, i32 noundef %120, i1 noundef zeroext true) #3
   %122 = add i32 %17, 292
-  %123 = getelementptr inbounds i8, ptr %113, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %113, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = load ptr, ptr %7, align 8
-  tail call void %125(ptr noundef %2, i32 %122, i32 noundef %124, i1 noundef zeroext true) #3
+  tail call void %125(ptr noundef nonnull %2, i32 %122, i32 noundef %124, i1 noundef zeroext true) #3
   %126 = add i32 %17, 296
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = load i32, ptr %127, align 8
   %129 = load ptr, ptr %7, align 8
-  tail call void %129(ptr noundef %2, i32 %126, i32 noundef %128, i1 noundef zeroext true) #3
+  tail call void %129(ptr noundef nonnull %2, i32 %126, i32 noundef %128, i1 noundef zeroext true) #3
   %130 = icmp eq i64 %10, 0
   br i1 %130, label %143, label %131
 
@@ -385,25 +385,25 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
 143:                                              ; preds = %136, %138, %112
   %144 = add i32 %17, 288
   %145 = load ptr, ptr %3, align 8
-  %146 = tail call i32 %145(ptr noundef %2, i32 %144, i1 noundef zeroext true) #3
+  %146 = tail call i32 %145(ptr noundef nonnull %2, i32 %144, i1 noundef zeroext true) #3
   %147 = or i32 %146, 16777216
   %148 = load ptr, ptr %7, align 8
-  tail call void %148(ptr noundef %2, i32 %144, i32 noundef %147, i1 noundef zeroext true) #3
+  tail call void %148(ptr noundef nonnull %2, i32 %144, i32 noundef %147, i1 noundef zeroext true) #3
   br label %149
 
 149:                                              ; preds = %136, %143, %138
   %150 = add i32 %17, 256
   %151 = load ptr, ptr %3, align 8
-  %152 = tail call i32 %151(ptr noundef %2, i32 %150, i1 noundef zeroext true) #3
+  %152 = tail call i32 %151(ptr noundef nonnull %2, i32 %150, i1 noundef zeroext true) #3
   %153 = or i32 %152, -2147483648
   %154 = load ptr, ptr %7, align 8
-  tail call void %154(ptr noundef %2, i32 %150, i32 noundef %153, i1 noundef zeroext true) #3
+  tail call void %154(ptr noundef nonnull %2, i32 %150, i32 noundef %153, i1 noundef zeroext true) #3
   %155 = add i32 %17, 20
   %156 = load ptr, ptr %3, align 8
-  %157 = tail call i32 %156(ptr noundef %2, i32 %155, i1 noundef zeroext true) #3
+  %157 = tail call i32 %156(ptr noundef nonnull %2, i32 %155, i1 noundef zeroext true) #3
   %158 = or i32 %157, 16
   %159 = load ptr, ptr %7, align 8
-  tail call void %159(ptr noundef %2, i32 %155, i32 noundef %158, i1 noundef zeroext true) #3
+  tail call void %159(ptr noundef nonnull %2, i32 %155, i32 noundef %158, i1 noundef zeroext true) #3
   br label %160
 
 160:                                              ; preds = %149, %13, %9
@@ -419,10 +419,10 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
 define dso_local void @intel_combo_phy_uninit(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 7188
   %3 = icmp eq ptr %0, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 7368
-  %6 = getelementptr inbounds i8, ptr %0, i64 7512
-  %7 = getelementptr inbounds i8, ptr %0, i64 7544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   br label %8
 
 8:                                                ; preds = %59, %1
@@ -495,10 +495,10 @@ define dso_local void @intel_combo_phy_uninit(ptr noundef %0) local_unnamed_addr
   %46 = load ptr, ptr %6, align 8
   %47 = shl i32 %10, 2
   %48 = add i32 %47, 412672
-  %49 = tail call i32 %46(ptr noundef %5, i32 %48, i1 noundef zeroext true) #3
+  %49 = tail call i32 %46(ptr noundef nonnull %5, i32 %48, i1 noundef zeroext true) #3
   %50 = or i32 %49, 8388608
   %51 = load ptr, ptr %7, align 8
-  tail call void %51(ptr noundef %5, i32 %48, i32 noundef %50, i1 noundef zeroext true) #3
+  tail call void %51(ptr noundef nonnull %5, i32 %48, i32 noundef %50, i1 noundef zeroext true) #3
   br label %.thread1
 
 .thread1:                                         ; preds = %.thread, %39, %45
@@ -506,10 +506,10 @@ define dso_local void @intel_combo_phy_uninit(ptr noundef %0) local_unnamed_addr
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 256
   %55 = load ptr, ptr %6, align 8
-  %56 = tail call i32 %55(ptr noundef %5, i32 %54, i1 noundef zeroext true) #3
+  %56 = tail call i32 %55(ptr noundef nonnull %5, i32 %54, i1 noundef zeroext true) #3
   %57 = and i32 %56, 2147483647
   %58 = load ptr, ptr %7, align 8
-  tail call void %58(ptr noundef %5, i32 %54, i32 noundef %57, i1 noundef zeroext true) #3
+  tail call void %58(ptr noundef nonnull %5, i32 %54, i32 noundef %57, i1 noundef zeroext true) #3
   br label %59
 
 59:                                               ; preds = %.thread1, %8
@@ -549,19 +549,19 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   %17 = getelementptr [5 x i32], ptr @constinit.36, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 256
-  %20 = getelementptr inbounds i8, ptr %0, i64 7368
-  %21 = getelementptr inbounds i8, ptr %0, i64 7512
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #3
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #3
   br label %40
 
 24:                                               ; preds = %8, %10
   %25 = shl i32 %1, 2
   %26 = add i32 %25, 412672
-  %27 = getelementptr inbounds i8, ptr %0, i64 7368
-  %28 = getelementptr inbounds i8, ptr %0, i64 7512
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 %29(ptr noundef %27, i32 %26, i1 noundef zeroext true) #3
+  %30 = tail call i32 %29(ptr noundef nonnull %27, i32 %26, i1 noundef zeroext true) #3
   %31 = and i32 %30, 8388608
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %226
@@ -572,7 +572,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 256
   %38 = load ptr, ptr %28, align 8
-  %39 = tail call i32 %38(ptr noundef %27, i32 %37, i1 noundef zeroext true) #3
+  %39 = tail call i32 %38(ptr noundef nonnull %27, i32 %37, i1 noundef zeroext true) #3
   br label %40
 
 40:                                               ; preds = %33, %15
@@ -582,17 +582,17 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %43, label %44, label %226
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 2632
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %46 = load i16, ptr %45, align 8
   %47 = icmp ugt i16 %46, 11
   br i1 %47, label %48, label %._crit_edge
 
 48:                                               ; preds = %44
   %49 = add i32 %41, 2208
-  %50 = getelementptr inbounds i8, ptr %0, i64 7368
-  %51 = getelementptr inbounds i8, ptr %0, i64 7512
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 %52(ptr noundef %50, i32 %49, i1 noundef zeroext true) #3
+  %53 = tail call i32 %52(ptr noundef nonnull %50, i32 %49, i1 noundef zeroext true) #3
   %54 = and i32 %53, -536870912
   %55 = icmp eq i32 %54, -1610612736
   br i1 %55, label %64, label %56
@@ -602,7 +602,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -615,7 +615,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 64:                                               ; preds = %61, %48
   %65 = add i32 %41, 2052
   %66 = load ptr, ptr %51, align 8
-  %67 = tail call i32 %66(ptr noundef %50, i32 %65, i1 noundef zeroext true) #3
+  %67 = tail call i32 %66(ptr noundef nonnull %50, i32 %65, i1 noundef zeroext true) #3
   %68 = and i32 %67, 3145728
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %78, label %70
@@ -625,7 +625,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load ptr, ptr %73, align 8
   br label %75
 
@@ -642,10 +642,10 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 ._crit_edge:                                      ; preds = %44, %78
   %80 = phi i1 [ %79, %78 ], [ true, %44 ]
   %81 = add i32 %41, 268
-  %82 = getelementptr inbounds i8, ptr %0, i64 7368
-  %83 = getelementptr inbounds i8, ptr %0, i64 7512
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 %84(ptr noundef %82, i32 %81, i1 noundef zeroext true) #3
+  %85 = tail call i32 %84(ptr noundef nonnull %82, i32 %81, i1 noundef zeroext true) #3
   %86 = lshr i32 %85, 24
   %87 = and i32 %86, 31
   switch i32 %87, label %88 [
@@ -681,10 +681,10 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 94:                                               ; preds = %93, %92, %91, %90, %88, %._crit_edge
   %95 = phi ptr [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 96), %93 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 72), %92 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 48), %91 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 24), %90 ], [ @icl_procmon_values, %._crit_edge ], [ @icl_procmon_values, %88 ]
   %96 = add i32 %41, 260
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = load ptr, ptr %83, align 8
-  %100 = tail call i32 %99(ptr noundef %82, i32 %96, i1 noundef zeroext true) #3
+  %100 = tail call i32 %99(ptr noundef nonnull %82, i32 %96, i1 noundef zeroext true) #3
   %101 = and i32 %100, 16711935
   %102 = icmp eq i32 %101, %98
   br i1 %102, label %111, label %103
@@ -694,7 +694,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %104, label %108, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load ptr, ptr %106, align 8
   br label %108
 
@@ -706,10 +706,10 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 
 111:                                              ; preds = %108, %94
   %112 = add i32 %41, 292
-  %113 = getelementptr inbounds i8, ptr %95, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %83, align 8
-  %116 = tail call i32 %115(ptr noundef %82, i32 %112, i1 noundef zeroext true) #3
+  %116 = tail call i32 %115(ptr noundef nonnull %82, i32 %112, i1 noundef zeroext true) #3
   %117 = icmp eq i32 %116, %114
   br i1 %117, label %126, label %118
 
@@ -718,7 +718,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %119, label %123, label %120
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %0, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load ptr, ptr %121, align 8
   br label %123
 
@@ -730,10 +730,10 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 
 126:                                              ; preds = %123, %111
   %127 = add i32 %41, 296
-  %128 = getelementptr inbounds i8, ptr %95, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = load ptr, ptr %83, align 8
-  %131 = tail call i32 %130(ptr noundef %82, i32 %127, i1 noundef zeroext true) #3
+  %131 = tail call i32 %130(ptr noundef nonnull %82, i32 %127, i1 noundef zeroext true) #3
   %132 = icmp eq i32 %131, %129
   br i1 %132, label %141, label %133
 
@@ -742,7 +742,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %134, label %138, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = load ptr, ptr %136, align 8
   br label %138
 
@@ -780,7 +780,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
 158:                                              ; preds = %151, %153, %141
   %159 = add i32 %41, 288
   %160 = load ptr, ptr %83, align 8
-  %161 = tail call i32 %160(ptr noundef %82, i32 %159, i1 noundef zeroext true) #3
+  %161 = tail call i32 %160(ptr noundef nonnull %82, i32 %159, i1 noundef zeroext true) #3
   %162 = and i32 %161, 16777216
   %163 = icmp ne i32 %162, 0
   br i1 %163, label %172, label %164
@@ -790,7 +790,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %165, label %169, label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %0, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %168 = load ptr, ptr %167, align 8
   br label %169
 
@@ -823,7 +823,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %185, label %.thread, label %186
 
 186:                                              ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %0, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8
   br label %.thread
 
@@ -841,7 +841,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   %193 = shl nuw nsw i32 %1, 2
   %194 = add nuw nsw i32 %193, 412672
   %195 = load ptr, ptr %83, align 8
-  %196 = tail call i32 %195(ptr noundef %82, i32 %194, i1 noundef zeroext true) #3
+  %196 = tail call i32 %195(ptr noundef nonnull %82, i32 %194, i1 noundef zeroext true) #3
   %197 = and i32 %196, 268435456
   %198 = icmp eq i32 %197, %192
   br i1 %198, label %207, label %199
@@ -851,7 +851,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %200, label %204, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %203 = load ptr, ptr %202, align 8
   br label %204
 
@@ -869,7 +869,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   %210 = phi i1 [ %208, %207 ], [ %144, %153 ], [ %173, %172 ], [ %144, %151 ]
   %211 = add i32 %41, 20
   %212 = load ptr, ptr %83, align 8
-  %213 = tail call i32 %212(ptr noundef %82, i32 %211, i1 noundef zeroext true) #3
+  %213 = tail call i32 %212(ptr noundef nonnull %82, i32 %211, i1 noundef zeroext true) #3
   %214 = and i32 %213, 16
   %215 = icmp ne i32 %214, 0
   br i1 %215, label %224, label %216
@@ -879,7 +879,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %0, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %220 = load ptr, ptr %219, align 8
   br label %221
 

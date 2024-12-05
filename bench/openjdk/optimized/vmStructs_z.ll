@@ -34,24 +34,24 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20ZGlobalsForVMStructsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
   store ptr @ZAddressOffsetMask, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @ZPointerLoadGoodMask, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @ZPointerLoadBadMask, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @ZPointerLoadShift, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @ZPointerMarkGoodMask, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @ZPointerMarkBadMask, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ZPointerStoreGoodMask, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @ZPointerStoreBadMask, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr @ZObjectAlignmentSmallShift, align 8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr @ZObjectAlignmentSmall, align 8
   store ptr %12, ptr %11, align 8
   ret void
@@ -85,17 +85,17 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_vmStructs_z.cpp() #4 section ".text.startup" {
   store ptr @ZAddressOffsetMask, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, align 8
-  store ptr @ZPointerLoadGoodMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 8), align 8
-  store ptr @ZPointerLoadBadMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 16), align 8
-  store ptr @ZPointerLoadShift, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 24), align 8
-  store ptr @ZPointerMarkGoodMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 32), align 8
-  store ptr @ZPointerMarkBadMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 40), align 8
-  store ptr @ZPointerStoreGoodMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 48), align 8
-  store ptr @ZPointerStoreBadMask, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 56), align 8
+  store ptr @ZPointerLoadGoodMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 8), align 8
+  store ptr @ZPointerLoadBadMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 16), align 8
+  store ptr @ZPointerLoadShift, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 24), align 8
+  store ptr @ZPointerMarkGoodMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 32), align 8
+  store ptr @ZPointerMarkBadMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 40), align 8
+  store ptr @ZPointerStoreGoodMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 48), align 8
+  store ptr @ZPointerStoreBadMask, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 56), align 8
   %1 = load ptr, ptr @ZObjectAlignmentSmallShift, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 64), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 64), align 8
   %2 = load ptr, ptr @ZObjectAlignmentSmall, align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 72), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN20ZGlobalsForVMStructs9_instanceE, i64 72), align 8
   ret void
 }
 

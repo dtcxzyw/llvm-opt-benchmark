@@ -148,7 +148,7 @@ define double @dlansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %52 = load double, ptr %gep311, align 8
   %53 = tail call noundef double @llvm.fabs.f64(double %52)
   %54 = fadd double %51, %53
-  %55 = getelementptr inbounds double, ptr %15, i64 %indvars.iv247
+  %55 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv247
   %56 = load double, ptr %55, align 8
   %57 = fadd double %53, %56
   store double %57, ptr %55, align 8
@@ -165,7 +165,7 @@ define double @dlansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %62 = load double, ptr %61, align 8
   %63 = tail call noundef double @llvm.fabs.f64(double %62)
   %64 = fadd double %.lcssa, %63
-  %65 = getelementptr inbounds double, ptr %15, i64 %indvars.iv250
+  %65 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv250
   store double %64, ptr %65, align 8
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
@@ -184,7 +184,7 @@ define double @dlansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 .lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
   %indvars.iv255 = phi i64 [ 1, %.lr.ph187.preheader ], [ %indvars.iv.next256, %.lr.ph187 ]
   %.5185 = phi double [ 0.000000e+00, %.lr.ph187.preheader ], [ %71, %.lr.ph187 ]
-  %68 = getelementptr inbounds double, ptr %15, i64 %indvars.iv255
+  %68 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv255
   %69 = load double, ptr %68, align 8
   %70 = fcmp ogt double %.5185, %69
   %71 = select i1 %70, double %.5185, double %69
@@ -215,7 +215,7 @@ define double @dlansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %indvars.iv262 = phi i32 [ 2, %.lr.ph210.preheader ], [ %indvars.iv.next263, %._crit_edge200 ]
   %.6208 = phi double [ 0.000000e+00, %.lr.ph210.preheader ], [ %.7, %._crit_edge200 ]
   %indvars270 = trunc i64 %indvars.iv268 to i32
-  %77 = getelementptr inbounds double, ptr %15, i64 %indvars.iv268
+  %77 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv268
   %78 = load double, ptr %77, align 8
   %79 = mul nsw i32 %12, %indvars270
   %80 = sext i32 %79 to i64
@@ -244,7 +244,7 @@ define double @dlansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %92 = load double, ptr %gep313, align 8
   %93 = tail call noundef double @llvm.fabs.f64(double %92)
   %94 = fadd double %91, %93
-  %95 = getelementptr inbounds double, ptr %15, i64 %indvars.iv264
+  %95 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv264
   %96 = load double, ptr %95, align 8
   %97 = fadd double %93, %96
   store double %97, ptr %95, align 8

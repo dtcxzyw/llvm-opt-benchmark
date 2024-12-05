@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zif_readlink(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [4096 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %8, label %7
@@ -25,8 +25,8 @@ define hidden void @zif_readlink(ptr noundef %0, ptr nocapture noundef writeonly
   br label %23
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.critedge, label %14
@@ -50,8 +50,8 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not145, label %24, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #10
   %.not146 = icmp eq i64 %21, %22
@@ -66,13 +66,13 @@ thread-pre-split:                                 ; preds = %14
   br label %48
 
 24:                                               ; preds = %16, %18
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = call i32 @php_check_open_basedir(ptr noundef nonnull %25) #9
   %.not148 = icmp eq i32 %26, 0
   br i1 %.not148, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %28, align 8
   br label %48
 
@@ -86,7 +86,7 @@ thread-pre-split:                                 ; preds = %14
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @strerror(i32 noundef %34) #9
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef %35) #9
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %36, align 8
   br label %48
 
@@ -97,18 +97,18 @@ thread-pre-split:                                 ; preds = %14
   %40 = add i64 %39, 32
   %41 = call noalias ptr @_emalloc(i64 noundef %40) #12
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %30, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 16 %4, i64 %30, i1 false)
   %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %30
   store i8 0, ptr %46, align 1
   store ptr %41, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %47, align 8
   br label %48
 
@@ -138,7 +138,7 @@ define hidden void @zif_linkinfo(ptr noundef %0, ptr nocapture noundef writeonly
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %8, label %7
@@ -148,8 +148,8 @@ define hidden void @zif_linkinfo(ptr noundef %0, ptr nocapture noundef writeonly
   br label %.thread116
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 6
   br i1 %12, label %.critedge, label %14
@@ -177,8 +177,8 @@ thread-pre-split:                                 ; preds = %14
   br label %23
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #10
   %.not98 = icmp eq i64 %21, %22
@@ -194,7 +194,7 @@ thread-pre-split:                                 ; preds = %14
 
 23:                                               ; preds = %._crit_edge, %18
   %24 = phi i64 [ %.pre, %._crit_edge ], [ %21, %18 ]
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = call noalias ptr @_estrndup(ptr noundef nonnull %25, i64 noundef %24) #9
   %27 = call i64 @php_dirname(ptr noundef %26, i64 noundef %24) #9
   %28 = call i32 @php_check_open_basedir(ptr noundef %26) #9
@@ -203,7 +203,7 @@ thread-pre-split:                                 ; preds = %14
 
 29:                                               ; preds = %23
   call void @_efree(ptr noundef %26) #9
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %30, align 8
   br label %42
 
@@ -219,7 +219,7 @@ thread-pre-split:                                 ; preds = %14
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef %37) #9
   call void @_efree(ptr noundef %26) #9
   store i64 -1, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %38, align 8
   br label %42
 
@@ -227,7 +227,7 @@ thread-pre-split:                                 ; preds = %14
   call void @_efree(ptr noundef %26) #9
   %40 = load i64, ptr %4, align 8
   store i64 %40, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %41, align 8
   br label %42
 
@@ -254,7 +254,7 @@ define hidden void @zif_symlink(ptr noundef %0, ptr nocapture noundef writeonly 
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [4096 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %11, label %10
@@ -264,8 +264,8 @@ define hidden void @zif_symlink(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %42
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 6
   br i1 %15, label %.critedge, label %17
@@ -289,17 +289,17 @@ thread-pre-split:                                 ; preds = %17
   br i1 %.not151, label %26, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #10
   %.not152 = icmp eq i64 %24, %25
   br i1 %.not152, label %26, label %42
 
 26:                                               ; preds = %19, %21
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 6
   br i1 %31, label %.critedge163, label %33
@@ -323,8 +323,8 @@ thread-pre-split168:                              ; preds = %33
   br i1 %.not153, label %43, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %36, i64 24
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #10
   %.not154 = icmp eq i64 %40, %41
@@ -339,14 +339,14 @@ thread-pre-split168:                              ; preds = %33
   br label %78
 
 43:                                               ; preds = %35, %37
-  %44 = getelementptr inbounds i8, ptr %36, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %45 = call ptr @expand_filepath(ptr noundef nonnull %44, ptr noundef nonnull %5) #9
   %.not156 = icmp eq ptr %45, null
   br i1 %.not156, label %46, label %48
 
 46:                                               ; preds = %43
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1) #9
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %47, align 8
   br label %78
 
@@ -360,7 +360,7 @@ thread-pre-split168:                              ; preds = %33
 
 52:                                               ; preds = %48
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1) #9
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %78
 
@@ -376,7 +376,7 @@ thread-pre-split168:                              ; preds = %33
 
 58:                                               ; preds = %56, %54
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2) #9
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %59, align 8
   br label %78
 
@@ -386,7 +386,7 @@ thread-pre-split168:                              ; preds = %33
   br i1 %.not160, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %63, align 8
   br label %78
 
@@ -396,7 +396,7 @@ thread-pre-split168:                              ; preds = %33
   br i1 %.not161, label %68, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %67, align 8
   br label %78
 
@@ -410,12 +410,12 @@ thread-pre-split168:                              ; preds = %33
   %73 = load i32, ptr %72, align 4
   %74 = call ptr @strerror(i32 noundef %73) #9
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef %74) #9
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %75, align 8
   br label %78
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %77, align 8
   br label %78
 
@@ -444,7 +444,7 @@ define hidden void @zif_link(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %4 = alloca ptr, align 8
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %10, label %9
@@ -454,8 +454,8 @@ define hidden void @zif_link(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %41
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.critedge, label %16
@@ -479,17 +479,17 @@ thread-pre-split:                                 ; preds = %16
   br i1 %.not150, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #10
   %.not151 = icmp eq i64 %23, %24
   br i1 %.not151, label %25, label %41
 
 25:                                               ; preds = %18, %20
-  %26 = getelementptr inbounds i8, ptr %19, i64 24
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 6
   br i1 %30, label %.critedge162, label %32
@@ -513,8 +513,8 @@ thread-pre-split167:                              ; preds = %32
   br i1 %.not152, label %42, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #10
   %.not153 = icmp eq i64 %39, %40
@@ -529,7 +529,7 @@ thread-pre-split167:                              ; preds = %32
   br label %73
 
 42:                                               ; preds = %34, %36
-  %43 = getelementptr inbounds i8, ptr %35, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %44 = call ptr @expand_filepath(ptr noundef nonnull %43, ptr noundef nonnull %5) #9
   %.not155 = icmp eq ptr %44, null
   br i1 %.not155, label %47, label %45
@@ -541,7 +541,7 @@ thread-pre-split167:                              ; preds = %32
 
 47:                                               ; preds = %45, %42
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1) #9
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %48, align 8
   br label %73
 
@@ -557,7 +557,7 @@ thread-pre-split167:                              ; preds = %32
 
 53:                                               ; preds = %51, %49
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3) #9
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %54, align 8
   br label %73
 
@@ -567,7 +567,7 @@ thread-pre-split167:                              ; preds = %32
   br i1 %.not159, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %73
 
@@ -577,7 +577,7 @@ thread-pre-split167:                              ; preds = %32
   br i1 %.not160, label %63, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %62, align 8
   br label %73
 
@@ -591,12 +591,12 @@ thread-pre-split167:                              ; preds = %32
   %68 = load i32, ptr %67, align 4
   %69 = call ptr @strerror(i32 noundef %68) #9
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef %69) #9
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %70, align 8
   br label %73
 
 71:                                               ; preds = %63
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %72, align 8
   br label %73
 

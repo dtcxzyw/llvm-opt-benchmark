@@ -5,24 +5,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lib_hexdumpstream(ptr nocapture noundef writeonly initializes((0, 4), (8, 44)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @hexdumpstream_putc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @hexdumpstream_puts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @hexdumpstream_flush, ptr %5, align 8
   store i32 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @hexdumpstream_putc(ptr noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
@@ -50,10 +50,10 @@ define internal void @hexdumpstream_putc(ptr noundef %0, i32 noundef %1) #1 {
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.018.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %19 = shl nuw nsw i64 %.018.i, 1
-  %20 = getelementptr inbounds i8, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 %19
   store i8 %.0.i.i, ptr %20, align 1
   %21 = or disjoint i64 %19, 1
-  %22 = getelementptr inbounds i8, ptr %7, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %21
   store i8 %.0.i17.i, ptr %22, align 1
   %23 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %23, %spec.select.i
@@ -71,11 +71,11 @@ bin2hex.exit:                                     ; preds = %bin2hex.exit.loopex
   br i1 %26, label %hexdumpstream_flush.exit, label %34
 
 hexdumpstream_flush.exit:                         ; preds = %bin2hex.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 172
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 10, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = add nuw nsw i32 %24, 3
   %33 = tail call i32 %31(ptr noundef %29, ptr noundef nonnull %3, i32 noundef %32) #3
@@ -92,11 +92,11 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 172
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 172
   br label %9
 
 9:                                                ; preds = %.lr.ph, %46
@@ -117,7 +117,7 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.018.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds i8, ptr %.028, i64 %.018.i
+  %19 = getelementptr inbounds nuw i8, ptr %.028, i64 %.018.i
   %20 = load i8, ptr %19, align 1
   %21 = lshr i8 %20, 4
   %22 = icmp ult i8 %20, -96
@@ -125,7 +125,7 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
   %24 = add nuw nsw i8 %21, 55
   %.0.i.i = select i1 %22, i8 %23, i8 %24
   %25 = shl nuw nsw i64 %.018.i, 1
-  %26 = getelementptr inbounds i8, ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25
   store i8 %.0.i.i, ptr %26, align 1
   %27 = load i8, ptr %19, align 1
   %28 = and i8 %27, 15
@@ -134,7 +134,7 @@ define internal noundef i32 @hexdumpstream_puts(ptr noundef %0, ptr nocapture no
   %31 = add nuw nsw i8 %28, 55
   %.0.i17.i = select i1 %29, i8 %30, i8 %31
   %32 = or disjoint i64 %25, 1
-  %33 = getelementptr inbounds i8, ptr %14, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   store i8 %.0.i17.i, ptr %33, align 1
   %34 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %34, %spec.select.i
@@ -147,7 +147,7 @@ bin2hex.exit.loopexit:                            ; preds = %.lr.ph.i
 bin2hex.exit:                                     ; preds = %bin2hex.exit.loopexit, %9
   %35 = phi i32 [ %.pre29, %bin2hex.exit.loopexit ], [ %10, %9 ]
   %36 = trunc nuw nsw i64 %spec.select.i to i32
-  %37 = getelementptr inbounds i8, ptr %.028, i64 %spec.select.i
+  %37 = getelementptr inbounds nuw i8, ptr %.028, i64 %spec.select.i
   %38 = sub nsw i32 %.02627, %36
   %39 = shl nuw nsw i32 %36, 1
   %40 = add nsw i32 %35, %39
@@ -158,7 +158,7 @@ bin2hex.exit:                                     ; preds = %bin2hex.exit.loopex
 hexdumpstream_flush.exit:                         ; preds = %bin2hex.exit
   store i8 10, ptr %8, align 1
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 %44(ptr noundef %42, ptr noundef nonnull %5, i32 noundef 129) #3
   store i32 0, ptr %6, align 8
@@ -178,19 +178,19 @@ hexdumpstream_flush.exit:                         ; preds = %bin2hex.exit
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @hexdumpstream_flush(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds [129 x i8], ptr %6, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [129 x i8], ptr %6, i64 0, i64 %7
   store i8 10, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = add nuw nsw i32 %3, 1
   %14 = tail call i32 %12(ptr noundef %10, ptr noundef nonnull %6, i32 noundef %13) #3

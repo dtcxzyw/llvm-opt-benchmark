@@ -423,23 +423,23 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @init_pnio_rtc1_station(ptr nocapture noundef writeonly initializes((48, 88)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #5
   %3 = tail call noalias ptr @wmem_list_new(ptr noundef %2) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
   %5 = tail call ptr @wmem_file_scope() #5
   %6 = tail call noalias ptr @wmem_list_new(ptr noundef %5) #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr @wmem_file_scope() #5
   %9 = tail call noalias ptr @wmem_list_new(ptr noundef %8) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %9, ptr %10, align 8
   %11 = tail call ptr @wmem_file_scope() #5
   %12 = tail call noalias ptr @wmem_list_new(ptr noundef %11) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @wmem_file_scope() #5
   %15 = tail call noalias ptr @wmem_list_new(ptr noundef %14) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %15, ptr %16, align 8
   ret void
 }
@@ -964,7 +964,7 @@ define hidden noundef i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, p
 
 164:                                              ; preds = %155
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.7) #5
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %166 = load ptr, ptr %165, align 8
   call void @col_append_str(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.8) #5
   br label %193
@@ -982,7 +982,7 @@ define hidden noundef i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, p
   %177 = zext i8 %176 to i32
   %178 = call ptr @val_to_str(i32 noundef %177, ptr noundef nonnull %.0, ptr noundef nonnull @.str.10) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.9, ptr noundef %169, ptr noundef %172, ptr noundef %175, ptr noundef %178) #5
-  %179 = getelementptr inbounds i8, ptr %2, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = load i8, ptr %6, align 1
   %182 = zext i8 %181 to i32
@@ -1021,7 +1021,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @pn_append_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_append_str(ptr noundef %5, i32 noundef 25, ptr noundef %2) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %2) #5
@@ -1033,11 +1033,11 @@ define hidden void @pn_init_append_aruuid_frame_setup_list(i64 %0, i64 %1, i32 n
   %4 = tail call ptr @wmem_file_scope() #5
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 28) #5
   store i64 %0, ptr %5, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i64 0, ptr %7, align 4
   %8 = load ptr, ptr @aruuid_frame_setup_list, align 8
   tail call void @wmem_list_append(ptr noundef %8, ptr noundef nonnull %5) #5
@@ -1060,13 +1060,13 @@ define hidden ptr @pn_find_aruuid_frame_setup(ptr nocapture noundef readonly %0)
   br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %6
 
 6:                                                ; preds = %.lr.ph, %12
   %.0610 = phi ptr [ %4, %.lr.ph ], [ %13, %12 ]
   %7 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.0610) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %5, align 4
   %11 = icmp eq i32 %9, %10
@@ -1118,13 +1118,13 @@ define hidden void @pn_find_dcp_station_info(ptr nocapture noundef %0, ptr nound
   br label %16
 
 16:                                               ; preds = %10, %12, %5
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not28 = icmp eq ptr %18, null
   br i1 %.not28, label %29, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %23
@@ -1142,26 +1142,26 @@ define hidden void @pn_find_dcp_station_info(ptr nocapture noundef %0, ptr nound
   br label %29
 
 29:                                               ; preds = %23, %25, %16
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load i16, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i16, ptr %32, align 8
   %.not30 = icmp eq i16 %31, %33
   br i1 %.not30, label %34, label %39
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 18
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %36 = load i16, ptr %35, align 2
-  %37 = getelementptr inbounds i8, ptr %0, i64 18
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %38 = load i16, ptr %37, align 2
   %.not31 = icmp eq i16 %36, %38
   br i1 %.not31, label %43, label %39
 
 39:                                               ; preds = %34, %29
   store i16 %31, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 18
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %41 = load i16, ptr %40, align 2
-  %42 = getelementptr inbounds i8, ptr %0, i64 18
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %41, ptr %42, align 2
   br label %43
 

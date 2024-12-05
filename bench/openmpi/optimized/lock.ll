@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.flock, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %5, 0
   br i1 %10, label %.critedge32, label %11
@@ -27,11 +27,11 @@ define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0
   %12 = trunc i32 %2 to i16
   store i16 %12, ptr %7, align 8
   %13 = trunc i32 %4 to i16
-  %14 = getelementptr inbounds i8, ptr %7, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %13, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %5, ptr %16, align 8
   %17 = tail call ptr @__errno_location() #4
   %18 = load i32, ptr %17, align 4
@@ -101,7 +101,7 @@ declare i32 @PMPI_Abort(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 15) i32 @ADIOI_GEN_SetLock64(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.flock64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %5, 0
   br i1 %10, label %.critedge24, label %11
@@ -109,12 +109,12 @@ define range(i32 0, 15) i32 @ADIOI_GEN_SetLock64(ptr nocapture noundef readonly 
 11:                                               ; preds = %6
   %12 = trunc i32 %2 to i16
   store i16 %12, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %13, align 8
   %14 = trunc i32 %4 to i16
-  %15 = getelementptr inbounds i8, ptr %7, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %14, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %5, ptr %16, align 8
   br label %17
 

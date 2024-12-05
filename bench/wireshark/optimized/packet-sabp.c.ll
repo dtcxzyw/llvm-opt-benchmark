@@ -522,7 +522,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_sabp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.171) #3
   %8 = load i32, ptr @proto_sabp, align 4
@@ -552,9 +552,9 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %10, label %11, label %.preheader
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 332
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %13, align 8
   %14 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %42
@@ -575,10 +575,10 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %1, i64 332
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %25, align 4
   %26 = sub nuw i32 %spec.select, %9
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %26, ptr %27, align 8
   %28 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %42
@@ -587,7 +587,7 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %30, label %.preheader, !llvm.loop !4
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @col_set_str(ptr noundef %32, i32 noundef 34, ptr noundef nonnull @.str.171) #3
   %33 = load i32, ptr @proto_sabp, align 4
@@ -786,7 +786,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_New_Serial_Number_
   br i1 %.not.i.i, label %dissect_sabp_New_Serial_Number.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_sabp_cbs_serial_number, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
@@ -815,7 +815,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Old_Serial_Number_
   br i1 %.not.i.i, label %dissect_sabp_Old_Serial_Number.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_sabp_cbs_serial_number, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
@@ -889,12 +889,12 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Data_Coding_Scheme
   br i1 %.not.i, label %dissect_sabp_Data_Coding_Scheme.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_sabp_cbs_data_coding, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef %15, ptr noundef %17, ptr noundef %14, i16 noundef zeroext 0) #3
   store i8 %18, ptr @sms_encoding, align 1
@@ -921,7 +921,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_
   br i1 %.not.i, label %dissect_sabp_Broadcast_Message_Content.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef 0) #3
   %14 = load i32, ptr @hf_sabp_no_of_pages, align 4
@@ -1049,7 +1049,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Serial_Number_PDU(
   br i1 %.not.i, label %dissect_sabp_Serial_Number.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_sabp_cbs_serial_number, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
@@ -1396,9 +1396,9 @@ declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sabp_ProcedureCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ProcedureCode, i32 noundef 0) #3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @ProcedureCode, align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef %11, ptr noundef nonnull @sabp_ProcedureCode_vals_ext, ptr noundef nonnull @.str.259) #3
@@ -1524,12 +1524,12 @@ define internal i32 @dissect_sabp_T_pLMNidentity(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_sabp_e212, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #3
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @dissect_e212_mcc_mnc(ptr noundef %14, ptr noundef %16, ptr noundef %13, i32 noundef 0, i32 noundef 3, i32 noundef 0) #3
   br label %18
@@ -1647,7 +1647,7 @@ define internal i32 @dissect_sabp_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @proto_item_get_parent_nth(ptr noundef %9, i32 noundef 2) #3
   %11 = load i32, ptr @ProtocolIE_ID, align 4

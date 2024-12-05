@@ -203,7 +203,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ret.0114 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx2, align 4
   %and2.i.i = and i32 %2, %3
   %or.i.i = or i32 %and2.i.i, %and.i.i
@@ -336,7 +336,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ret.0115 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
-  %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx3, align 1
   %cmp5.not = icmp ult i8 %0, %1
   %isneg = icmp ult i8 %0, %1
@@ -450,7 +450,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ret.0130 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
-  %arrayidx2 = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw [10 x i64], ptr @test_values_s, i64 0, i64 %indvars.iv
   %3 = load i64, ptr %arrayidx2, align 8
   %and2.i.i = and i64 %2, %3
   %or.i.i = or i64 %and2.i.i, %and.i.i
@@ -607,7 +607,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ret.021 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
-  %arrayidx3 = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [13 x i32], ptr @signed_test_values, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx3, align 4
   %and2.i.i.i = and i32 %2, %3
   %or.i.i.i = or i32 %and2.i.i.i, %and.i.i.i
@@ -674,7 +674,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %ret.06 = phi i32 [ 1, %entry ], [ %6, %for.cond ]
-  %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx3, align 1
   %conv2.i.i = zext i8 %3 to i32
   %and2.i.i.i = and i32 %2, %conv2.i.i
@@ -722,7 +722,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.cond
   %j.07 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %ret.06 = phi i32 [ 1, %entry ], [ %4, %for.cond ]
-  %arrayidx1 = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %j.07
+  %arrayidx1 = getelementptr inbounds nuw [9 x i32], ptr @test_values_32, i64 0, i64 %j.07
   %3 = load i32, ptr %arrayidx1, align 4
   %and2.i.i = and i32 %2, %3
   %or.i.i = or i32 %and2.i.i, %and.i.i

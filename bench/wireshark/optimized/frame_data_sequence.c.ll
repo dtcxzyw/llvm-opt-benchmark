@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @new_frame_data_sequence() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #6
   store i32 0, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %2, align 8
   ret ptr %1
 }
@@ -26,7 +26,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
 
 5:                                                ; preds = %2
   %6 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   br label %148
 
@@ -35,7 +35,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %3 to i64
   %14 = getelementptr %struct._frame_data, ptr %12, i64 %13
@@ -47,7 +47,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
 
 17:                                               ; preds = %15
   %18 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
   %21 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
@@ -61,7 +61,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
   br i1 %24, label %25, label %44
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = lshr i32 %3, 10
   %29 = zext nneg i32 %28 to i64
@@ -94,7 +94,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
 
 46:                                               ; preds = %44
   %47 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %47, align 8
   %50 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
@@ -110,7 +110,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
   br i1 %54, label %55, label %89
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = lshr i32 %3, 20
   %59 = zext nneg i32 %58 to i64
@@ -165,7 +165,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
 
 91:                                               ; preds = %89
   %92 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
   store ptr %94, ptr %92, align 8
   %95 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
@@ -179,7 +179,7 @@ define noundef ptr @frame_data_sequence_add(ptr nocapture noundef %0, ptr nocapt
   br label %148
 
 99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = lshr i32 %3, 30
   %103 = zext nneg i32 %102 to i64
@@ -283,7 +283,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %6 to i64
   %14 = getelementptr %struct._frame_data, ptr %12, i64 %13
@@ -294,7 +294,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly %0, i32 noundef %1) lo
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i32 %6, 10
   %21 = zext nneg i32 %20 to i64
@@ -307,7 +307,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly %0, i32 noundef %1) lo
 
 27:                                               ; preds = %15
   %28 = icmp ult i32 %7, 1073741825
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   br i1 %28, label %31, label %44
 
@@ -372,7 +372,7 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %7, %5, %3
   %.0.ph = phi i32 [ %., %7 ], [ 2, %5 ], [ 1, %3 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0.ph, i32 noundef 1)
   br label %12
@@ -479,7 +479,7 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr nocapture rea
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %frame_data_sequence_find.exit
 
 14:                                               ; preds = %8
@@ -487,7 +487,7 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr nocapture rea
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = lshr i32 %9, 10
   %20 = zext nneg i32 %19 to i64
@@ -497,7 +497,7 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr nocapture rea
 
 23:                                               ; preds = %14
   %24 = icmp ult i32 %10, 1073741825
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   br i1 %24, label %27, label %37
 
@@ -536,7 +536,7 @@ frame_data_sequence_find.exit:                    ; preds = %12, %16, %27, %37
   %.sink = load ptr, ptr %.sink.in, align 8
   %52 = zext i32 %.sink18 to i64
   %53 = getelementptr %struct._frame_data, ptr %.sink, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 50
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 50
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 3
   %or.cond16 = icmp eq i16 %56, 0
@@ -545,7 +545,7 @@ frame_data_sequence_find.exit:                    ; preds = %12, %16, %27, %37
 57:                                               ; preds = %frame_data_sequence_find.exit
   %58 = or disjoint i16 %55, 2
   store i16 %58, ptr %54, align 2
-  %59 = getelementptr inbounds i8, ptr %53, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not15 = icmp eq ptr %60, null
   br i1 %.not15, label %62, label %61

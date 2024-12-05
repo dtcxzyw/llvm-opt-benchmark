@@ -24,14 +24,14 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sector_size = getelementptr inbounds i8, ptr %block, i64 128
+  %sector_size = getelementptr inbounds nuw i8, ptr %block, i64 128
   store i64 512, ptr %sector_size, align 8
-  %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
+  %payload_offset = getelementptr inbounds nuw i8, ptr %block, i64 120
   store i64 0, ptr %payload_offset, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %options, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then2, label %if.end
@@ -54,7 +54,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %initfunc, ptr nocapture readnone %writefunc, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds i8, ptr %options, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -155,10 +155,10 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %keybuf, ptr nonnull align 1 %call, i64 %cond, i1 false)
   tail call void @g_free(ptr noundef nonnull %call) #8
   %call5 = tail call i64 @qcrypto_cipher_get_iv_len(i32 noundef 0, i32 noundef 1) #8
-  %niv = getelementptr inbounds i8, ptr %block, i64 112
+  %niv = getelementptr inbounds nuw i8, ptr %block, i64 112
   store i64 %call5, ptr %niv, align 8
   %call6 = tail call ptr @qcrypto_ivgen_new(i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %errp) #8
-  %ivgen = getelementptr inbounds i8, ptr %block, i64 48
+  %ivgen = getelementptr inbounds nuw i8, ptr %block, i64 48
   store ptr %call6, ptr %ivgen, align 8
   %tobool8.not = icmp eq ptr %call6, null
   br i1 %tobool8.not, label %fail, label %if.end10
@@ -169,9 +169,9 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp13, label %fail, label %if.end16
 
 if.end16:                                         ; preds = %if.end10
-  %sector_size = getelementptr inbounds i8, ptr %block, i64 128
+  %sector_size = getelementptr inbounds nuw i8, ptr %block, i64 128
   store i64 512, ptr %sector_size, align 8
-  %payload_offset = getelementptr inbounds i8, ptr %block, i64 120
+  %payload_offset = getelementptr inbounds nuw i8, ptr %block, i64 120
   store i64 0, ptr %payload_offset, align 8
   br label %return
 

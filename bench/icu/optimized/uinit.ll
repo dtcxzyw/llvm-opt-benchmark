@@ -26,12 +26,12 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   %call.i = tail call zeroext i16 @ucnv_io_countKnownConverters_75(ptr noundef nonnull align 4 dereferenceable(4) %status)
   tail call void @ucln_common_registerCleanup_75(i32 noundef 25, ptr noundef nonnull @_ZN6icu_75L13uinit_cleanupEv)
   %2 = load i32, ptr %status, align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L12gICUInitOnceE, i64 4), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_75L12gICUInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L12gICUInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L12gICUInitOnceE, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_75L12gICUInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 

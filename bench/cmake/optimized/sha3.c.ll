@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 396
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 144, ptr %2, align 4
   ret void
 }
@@ -16,7 +16,7 @@ define dso_local void @rhash_sha3_224_init(ptr nocapture noundef writeonly initi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 396
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 136, ptr %2, align 4
   ret void
 }
@@ -24,7 +24,7 @@ define dso_local void @rhash_sha3_256_init(ptr nocapture noundef writeonly initi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 396
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 104, ptr %2, align 4
   ret void
 }
@@ -32,17 +32,17 @@ define dso_local void @rhash_sha3_384_init(ptr nocapture noundef writeonly initi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_sha3_512_init(ptr nocapture noundef writeonly initializes((0, 400)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 396
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 72, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 392
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 396
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %.not = icmp sgt i32 %5, -1
@@ -58,8 +58,8 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 
 14:                                               ; preds = %10
   %15 = sub nsw i64 %9, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
-  %17 = getelementptr inbounds i8, ptr %16, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %6
   %18 = icmp ult i64 %2, %15
   %19 = tail call i64 @llvm.umin.i64(i64 %2, i64 %15)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %19, i1 false)
@@ -78,7 +78,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not5254, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %25
 
 25:                                               ; preds = %.lr.ph, %30
@@ -96,7 +96,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
 30:                                               ; preds = %25, %29
   %.0 = phi ptr [ %24, %29 ], [ %.156, %25 ]
   tail call fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr noundef %.0, i64 noundef %9)
-  %31 = getelementptr inbounds i8, ptr %.156, i64 %9
+  %31 = getelementptr inbounds nuw i8, ptr %.156, i64 %9
   %32 = sub i64 %.14655, %9
   %.not52 = icmp ult i64 %32, %9
   br i1 %.not52, label %._crit_edge, label %25, !llvm.loop !5
@@ -108,7 +108,7 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not53, label %35, label %33
 
 33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %.1.lcssa, i64 %.146.lcssa, i1 false)
   br label %35
 
@@ -125,88 +125,88 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %5 = load i64, ptr %0, align 8
   %6 = xor i64 %5, %4
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = xor i64 %10, %8
   store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, %13
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = xor i64 %20, %18
   store i64 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, %23
   store i64 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = xor i64 %30, %28
   store i64 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i64, ptr %34, align 8
   %36 = xor i64 %35, %33
   store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i64, ptr %39, align 8
   %41 = xor i64 %40, %38
   store i64 %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load i64, ptr %44, align 8
   %46 = xor i64 %45, %43
   store i64 %46, ptr %44, align 8
   %47 = icmp samesign ugt i64 %2, 72
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = load i64, ptr %48, align 8
   br i1 %47, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.promoted80.i.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert90 = getelementptr inbounds i8, ptr %0, i64 96
+  %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.promoted100.i.pre = load i64, ptr %.phi.trans.insert90, align 8
-  %.phi.trans.insert92 = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.promoted110.i.pre = load i64, ptr %.phi.trans.insert92, align 8
   br label %98
 
 50:                                               ; preds = %3
-  %51 = getelementptr inbounds i8, ptr %1, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %49, %52
   store i64 %53, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, %55
   store i64 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %62 = load i64, ptr %61, align 8
   %63 = xor i64 %62, %60
   store i64 %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %67 = load i64, ptr %66, align 8
   %68 = xor i64 %67, %65
   store i64 %68, ptr %66, align 8
@@ -214,27 +214,27 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %50
-  %71 = getelementptr inbounds i8, ptr %1, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %74 = load i64, ptr %73, align 8
   %75 = xor i64 %74, %72
   store i64 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %79 = load i64, ptr %78, align 8
   %80 = xor i64 %79, %77
   store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %84 = load i64, ptr %83, align 8
   %85 = xor i64 %84, %82
   store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 128
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %89 = load i64, ptr %88, align 8
   %90 = xor i64 %89, %87
   store i64 %90, ptr %88, align 8
@@ -242,9 +242,9 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %70
-  %93 = getelementptr inbounds i8, ptr %1, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %96 = load i64, ptr %95, align 8
   %97 = xor i64 %96, %94
   store i64 %97, ptr %95, align 8
@@ -255,18 +255,18 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %.promoted100.i = phi i64 [ %.promoted100.i.pre, %._crit_edge ], [ %68, %50 ], [ %68, %92 ], [ %68, %70 ]
   %.promoted88.i = phi i64 [ %49, %._crit_edge ], [ %53, %50 ], [ %53, %92 ], [ %53, %70 ]
   %.promoted80.i = phi i64 [ %.promoted80.i.pre, %._crit_edge ], [ %63, %50 ], [ %63, %92 ], [ %63, %70 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 128
-  %100 = getelementptr inbounds i8, ptr %0, i64 168
-  %101 = getelementptr inbounds i8, ptr %0, i64 112
-  %102 = getelementptr inbounds i8, ptr %0, i64 152
-  %103 = getelementptr inbounds i8, ptr %0, i64 192
-  %104 = getelementptr inbounds i8, ptr %0, i64 136
-  %105 = getelementptr inbounds i8, ptr %0, i64 176
-  %106 = getelementptr inbounds i8, ptr %0, i64 120
-  %107 = getelementptr inbounds i8, ptr %0, i64 160
-  %108 = getelementptr inbounds i8, ptr %0, i64 104
-  %109 = getelementptr inbounds i8, ptr %0, i64 144
-  %110 = getelementptr inbounds i8, ptr %0, i64 184
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.promoted82.i = load i64, ptr %99, align 8
   %.promoted84.i = load i64, ptr %100, align 8
   %.promoted90.i = load i64, ptr %101, align 8
@@ -481,7 +481,7 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   %307 = xor i64 %213, -1
   %308 = and i64 %219, %307
   %309 = xor i64 %308, %232
-  %310 = getelementptr inbounds [24 x i64], ptr @keccak_round_constants, i64 0, i64 %indvars.iv.i
+  %310 = getelementptr inbounds nuw [24 x i64], ptr @keccak_round_constants, i64 0, i64 %indvars.iv.i
   %311 = load i64, ptr %310, align 8
   %312 = xor i64 %311, %237
   %313 = xor i64 %312, %187
@@ -490,10 +490,10 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nocapt
   br i1 %exitcond.not.i, label %rhash_sha3_permutation.exit, label %111, !llvm.loop !7
 
 rhash_sha3_permutation.exit:                      ; preds = %111
-  %314 = getelementptr inbounds i8, ptr %0, i64 80
-  %315 = getelementptr inbounds i8, ptr %0, i64 96
-  %316 = getelementptr inbounds i8, ptr %0, i64 72
-  %317 = getelementptr inbounds i8, ptr %0, i64 88
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %240, ptr %9, align 8
   store i64 %255, ptr %34, align 8
   store i64 %270, ptr %317, align 8
@@ -524,26 +524,26 @@ rhash_sha3_permutation.exit:                      ; preds = %111
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @rhash_sha3_final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 396
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 1
   %6 = sub nsw i32 100, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %9 = load i32, ptr %8, align 8
   %.not = icmp sgt i32 %9, -1
   br i1 %.not, label %10, label %25
 
 10:                                               ; preds = %2
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = sub nsw i64 %11, %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %15, i1 false)
   %16 = load i32, ptr %8, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = or i8 %19, 6
   store i8 %20, ptr %18, align 1

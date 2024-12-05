@@ -121,7 +121,7 @@ declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
 define noundef ptr @ext_sensors_alloc() local_unnamed_addr #0 {
   %1 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @__func__.ext_sensors_alloc) #6
   store i64 -2, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -2, ptr %2, align 8
   ret ptr %1
 }
@@ -156,13 +156,13 @@ define void @ext_sensors_data_pack(ptr noundef readonly %0, ptr noundef %1, i16 
 7:                                                ; preds = %5
   %8 = load i64, ptr %0, align 8
   tail call void @pack64(i64 noundef %8, ptr noundef %1) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   tail call void @pack32(i32 noundef %10, ptr noundef %1) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   tail call void @pack_time(i64 noundef %12, ptr noundef %1) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   br label %.sink.split
 
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @ext_sensors_data_unpack(ptr nocapture noundef write
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @__func__.ext_sensors_alloc) #6
   store i64 -2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -2, ptr %6, align 8
   store ptr %5, ptr %0, align 8
   %7 = icmp ugt i16 %2, 9983
@@ -203,13 +203,13 @@ define range(i32 -1, 1) i32 @ext_sensors_data_unpack(ptr nocapture noundef write
   br i1 %.not15, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = tail call i32 @unpack_time(ptr noundef nonnull %13, ptr noundef %1) #6
   %.not16 = icmp eq i32 %14, 0
   br i1 %.not16, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = tail call i32 @unpack32(ptr noundef nonnull %16, ptr noundef %1) #6
   %.not17 = icmp eq i32 %17, 0
   br i1 %.not17, label %19, label %18

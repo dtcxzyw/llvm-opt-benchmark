@@ -31,11 +31,11 @@ define dso_local void @_ZN23cmCursesLongMessageFormC2ERKSt6vectorINSt7__cxx1112b
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmCursesLongMessageForm, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %3, ptr %8, align 8
   invoke void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESt17basic_string_viewIcS3_ESB_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 1, ptr nonnull @.str, i64 0, ptr null)
           to label %9 unwind label %14
@@ -47,7 +47,7 @@ define dso_local void @_ZN23cmCursesLongMessageFormC2ERKSt6vectorINSt7__cxx1112b
           to label %12 unwind label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   ret void
 
@@ -83,7 +83,7 @@ declare void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23cmCursesLongMessageFormD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmCursesLongMessageForm, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -93,9 +93,9 @@ define dso_local void @_ZN23cmCursesLongMessageFormD2Ev(ptr noundef nonnull alig
           to label %6 unwind label %9
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   tail call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   ret void
@@ -125,7 +125,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23cmCursesLongMessageFormD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmCursesLongMessageForm, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN23cmCursesLongMessageFormD2Ev.exit, label %4
@@ -142,9 +142,9 @@ define dso_local void @_ZN23cmCursesLongMessageFormD0Ev(ptr noundef nonnull alig
   unreachable
 
 _ZN23cmCursesLongMessageFormD2Ev.exit:            ; preds = %1, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #14
   tail call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
@@ -156,13 +156,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %6 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   br i1 %6, label %45, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   %10 = icmp ult i64 %9, 60000
   br i1 %10, label %11, label %45
@@ -170,7 +170,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
 11:                                               ; preds = %7
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext 10)
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @form_driver(ptr noundef %14, i32 noundef 530)
   %16 = load ptr, ptr %13, align 8
@@ -181,7 +181,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %invariant.gep.i = getelementptr inbounds i8, ptr %18, i64 1
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %20
 
 20:                                               ; preds = %34, %.lr.ph.i
@@ -191,7 +191,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %24 = load i8, ptr %gep.i, align 1
   %.not.i = icmp eq i8 %24, 0
   br i1 %.not.i, label %30, label %25
@@ -211,7 +211,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
 
 34:                                               ; preds = %30, %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.next.i
   %36 = load i8, ptr %35, align 1
   %37 = icmp ne i8 %36, 0
   %38 = icmp samesign ult i64 %indvars.iv.i, 59999
@@ -219,7 +219,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm13UpdateContentERKNSt7__cxx11
   br i1 %39, label %20, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !5
 
 _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %34, %11
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 1
   %43 = load ptr, ptr %13, align 8
@@ -229,7 +229,7 @@ _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %34, %11
 
 45:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, %7, %3
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %49 = load ptr, ptr @stdscr, align 8
@@ -237,7 +237,7 @@ _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %34, %11
   br i1 %.not, label %55, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %49, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i16, ptr %51, align 4
   %53 = sext i16 %52 to i32
   %54 = add nsw i32 %53, 1
@@ -271,8 +271,8 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %5
 
 5:                                                ; preds = %.lr.ph, %19
@@ -282,7 +282,7 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %9 = load i8, ptr %gep, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %15, label %10
@@ -302,7 +302,7 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
 
 19:                                               ; preds = %15, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %21 = load i8, ptr %20, align 1
   %22 = icmp ne i8 %21, 0
   %23 = icmp samesign ult i64 %indvars.iv, 59999
@@ -310,10 +310,10 @@ define dso_local void @_ZNK23cmCursesLongMessageForm11DrawMessageEPKc(ptr nocapt
   br i1 %24, label %5, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %19, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %. = select i1 %27, i32 535, i32 534
   %30 = tail call i32 @form_driver(ptr noundef %29, i32 noundef %.)
@@ -338,11 +338,11 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = sext i16 %9 to i32
   %11 = add nsw i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %6, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %14, 1
@@ -351,7 +351,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
 .thread:                                          ; preds = %1, %7
   %16 = phi i32 [ %11, %7 ], [ -1, %1 ]
   %17 = phi i32 [ %15, %7 ], [ -1, %1 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %19, i64 511)
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #14
@@ -361,7 +361,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %22, i1 false)
   %narrow = call i32 @llvm.umin.i32(i32 %17, i32 511)
   %.022 = zext nneg i32 %narrow to i64
-  %23 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %.022
+  %23 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %.022
   store i8 0, ptr %23, align 1
   %24 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %24) #14
@@ -378,7 +378,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %28 = getelementptr inbounds i8, ptr %3, i64 %27
   %29 = sub i64 512, %27
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #14
-  %31 = getelementptr inbounds [512 x i8], ptr %3, i64 0, i64 %.022
+  %31 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %.022
   store i8 0, ptr %31, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, i64 3, i1 false)
   %32 = add nsw i32 %16, -4
@@ -391,7 +391,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %39 = add nsw i32 %16, -3
   %40 = call i32 @move(i32 noundef %39, i32 noundef 0)
   %41 = call i32 (ptr, ...) @printw(ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @pos_form_cursor(ptr noundef %43)
   ret void
@@ -428,9 +428,9 @@ define dso_local void @_ZN23cmCursesLongMessageForm9PrintKeysEv(ptr nocapture no
   br i1 %.not, label %.thread7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i16, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %9 = load i16, ptr %8, align 2
   %10 = icmp slt i16 %9, 64
   %11 = icmp slt i16 %7, 5
@@ -444,7 +444,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm9PrintKeysEv(ptr nocapture no
   %14 = add nsw i32 %13, -1
   %15 = tail call i32 @move(i32 noundef %14, i32 noundef 0)
   %16 = call i32 (ptr, ...) @printw(ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @pos_form_cursor(ptr noundef %18)
   br label %.thread7
@@ -460,11 +460,11 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = sext i16 %9 to i32
   %11 = add nsw i32 %10, -5
-  %12 = getelementptr inbounds i8, ptr %6, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   %15 = add nsw i32 %14, -1
@@ -473,7 +473,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
 .thread:                                          ; preds = %5, %7
   %16 = phi i32 [ %11, %7 ], [ -7, %5 ]
   %17 = phi i32 [ %15, %7 ], [ -3, %5 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not7 = icmp eq ptr %19, null
   br i1 %.not7, label %24, label %20
@@ -486,7 +486,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br label %24
 
 24:                                               ; preds = %20, %.thread
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
   %.not8 = icmp eq ptr %26, null
   br i1 %.not8, label %29, label %27
@@ -505,14 +505,14 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   %33 = tail call i32 @post_form(ptr noundef %32)
   %34 = load ptr, ptr %18, align 8
   %35 = tail call i32 @form_driver(ptr noundef %34, i32 noundef 534)
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #14
   %38 = load i8, ptr %37, align 1
   %.not12.i = icmp eq i8 %38, 0
   br i1 %.not12.i, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29
-  %invariant.gep.i = getelementptr inbounds i8, ptr %37, i64 1
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %37, i64 1
   br label %39
 
 39:                                               ; preds = %53, %.lr.ph.i
@@ -522,7 +522,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
-  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %43 = load i8, ptr %gep.i, align 1
   %.not.i = icmp eq i8 %43, 0
   br i1 %.not.i, label %49, label %44
@@ -542,7 +542,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
 
 53:                                               ; preds = %49, %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i
   %55 = load i8, ptr %54, align 1
   %56 = icmp ne i8 %55, 0
   %57 = icmp samesign ult i64 %indvars.iv.i, 59999
@@ -550,14 +550,14 @@ define dso_local void @_ZN23cmCursesLongMessageForm6RenderEiiii(ptr noundef nonn
   br i1 %58, label %39, label %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit, !llvm.loop !5
 
 _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %53, %29
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 1
   %62 = load ptr, ptr %18, align 8
   %..i = select i1 %61, i32 535, i32 534
   %63 = tail call i32 @form_driver(ptr noundef %62, i32 noundef %..i)
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %67 = load ptr, ptr @stdscr, align 8
@@ -565,7 +565,7 @@ _ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit: ; preds = %53, %29
   br i1 %.not9, label %73, label %68
 
 68:                                               ; preds = %_ZNK23cmCursesLongMessageForm11DrawMessageEPKc.exit
-  %69 = getelementptr inbounds i8, ptr %67, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %70 = load i16, ptr %69, align 4
   %71 = sext i16 %70 to i32
   %72 = add nsw i32 %71, 1
@@ -595,7 +595,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm11HandleInputEv(ptr noundef n
   %2 = alloca [512 x i8], align 16
   %3 = alloca [3 x i8], align 1
   %4 = alloca [128 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -608,9 +608,9 @@ define dso_local void @_ZN23cmCursesLongMessageForm11HandleInputEv(ptr noundef n
   br i1 %.not.i, label %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i16, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %12 = load i16, ptr %11, align 2
   %13 = icmp slt i16 %12, 64
   %14 = icmp slt i16 %10, 5
@@ -668,7 +668,7 @@ _ZN23cmCursesLongMessageForm9PrintKeysEv.exit:    ; preds = %.preheader, %8, %15
 
 30:                                               ; preds = %.sink.split, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %34 = load ptr, ptr @stdscr, align 8
@@ -676,7 +676,7 @@ _ZN23cmCursesLongMessageForm9PrintKeysEv.exit:    ; preds = %.preheader, %8, %15
   br i1 %.not19, label %40, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i16, ptr %36, align 4
   %38 = sext i16 %37 to i32
   %39 = add nsw i32 %38, 1

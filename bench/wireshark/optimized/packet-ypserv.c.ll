@@ -214,7 +214,7 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr nocapture noundef re
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.82) #2
   %6 = load i32, ptr @hf_ypserv_domain, align 4
   %7 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef nonnull %5) #2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef %10) #2
@@ -250,7 +250,7 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr nocapture noundef r
 10:                                               ; preds = %4
   %11 = load i32, ptr @hf_ypserv_value, align 4
   %12 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %8, ptr noundef nonnull %5) #2
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %15) #2
@@ -260,7 +260,7 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr nocapture noundef r
 
 17:                                               ; preds = %4
   %18 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %18) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %18) #2
@@ -294,7 +294,7 @@ define internal i32 @dissect_first_reply(ptr noundef %0, ptr nocapture noundef r
 
 9:                                                ; preds = %4
   %10 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %10) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %10) #2
@@ -331,7 +331,7 @@ define internal i32 @dissect_next_reply(ptr noundef %0, ptr nocapture noundef re
 
 9:                                                ; preds = %4
   %10 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %10) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %10) #2
@@ -433,7 +433,7 @@ define internal i32 @dissect_all_reply(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %dissect_ypserv_status.exit
@@ -488,7 +488,7 @@ define internal i32 @dissect_master_reply(ptr noundef %0, ptr nocapture noundef 
 
 9:                                                ; preds = %4
   %10 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %10) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %10) #2
@@ -506,7 +506,7 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr nocapture noundef re
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.102) #2
   %6 = load i32, ptr @hf_ypserv_domain, align 4
   %7 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef nonnull %5) #2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef %10) #2
@@ -533,7 +533,7 @@ define internal i32 @dissect_order_reply(ptr noundef %0, ptr nocapture noundef r
 
 9:                                                ; preds = %4
   %10 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %10) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %10) #2
@@ -543,7 +543,7 @@ dissect_ypserv_status.exit:                       ; preds = %4, %9
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #2
   %14 = load i32, ptr @hf_ypserv_ordernum, align 4
   %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %7) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.104, i32 noundef %13) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.104, i32 noundef %13) #2
@@ -569,7 +569,7 @@ define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr nocapture noundef
 
 9:                                                ; preds = %4
   %10 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @ypstat, ptr noundef nonnull @.str.88) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %10) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %10) #2

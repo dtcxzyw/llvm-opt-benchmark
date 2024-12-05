@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @BlockSampler_Init(ptr noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = zext i32 %3 to i64
   tail call void @pg_prng_seed(ptr noundef nonnull %8, i64 noundef %9) #6
   %10 = load i32, ptr %5, align 4
@@ -37,16 +37,16 @@ define dso_local void @sampler_random_init_state(i32 noundef %0, ptr noundef %1)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @BlockSampler_HasMore(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %3, %4
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %8, %10
   br label %12
@@ -59,19 +59,19 @@ define dso_local zeroext i1 @BlockSampler_HasMore(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @BlockSampler_Next(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 %2, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sub i32 %7, %9
   %.not = icmp ult i32 %10, %5
   br i1 %.not, label %11, label %30
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %13, %11
@@ -132,7 +132,7 @@ define dso_local double @sampler_random_fract(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @reservoir_init_selection_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %3 to i64
   tail call void @pg_prng_seed(ptr noundef nonnull %4, i64 noundef %5) #6
   br label %6
@@ -168,7 +168,7 @@ define dso_local double @reservoir_get_next_S(ptr noundef %0, double noundef %1,
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -199,7 +199,7 @@ sampler_random_fract.exit:                        ; preds = %9
   %23 = load double, ptr %0, align 8
   %24 = fsub double %1, %4
   %25 = fadd double %24, 1.000000e+00
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = fadd double %1, 1.000000e+00
   %28 = fdiv double %27, %25
   br label %29

@@ -97,13 +97,13 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !18
-  %31 = getelementptr inbounds i8, ptr %.04448, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.04448, i64 1
   store i8 %30, ptr %31, align 1, !tbaa !18
   %32 = and i32 %26, 15
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !18
-  %36 = getelementptr inbounds i8, ptr %.04448, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.04448, i64 2
   store i8 %35, ptr %36, align 1, !tbaa !18
   %37 = add nuw nsw i32 %.04349, 1
   %38 = getelementptr inbounds nuw i8, ptr %.04448, i64 3
@@ -122,13 +122,13 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !18
-  %46 = getelementptr inbounds i8, ptr %.041, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   store i8 %45, ptr %46, align 1, !tbaa !18
   %47 = and i32 %41, 15
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !18
-  %51 = getelementptr inbounds i8, ptr %.041, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.041, i64 2
   store i8 %50, ptr %51, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr inbounds nuw i8, ptr %.2, i64 1
@@ -206,14 +206,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !18
   %32 = sext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.04448, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.04448, i64 4
   store i32 %32, ptr %33, align 4, !tbaa !22
   %34 = and i32 %27, 15
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !18
   %38 = sext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %.04448, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.04448, i64 8
   store i32 %38, ptr %39, align 4, !tbaa !22
   %40 = add nuw nsw i32 %.04349, 1
   %41 = getelementptr inbounds nuw i8, ptr %.04448, i64 12
@@ -233,14 +233,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !18
   %49 = sext i8 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %.041, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.041, i64 4
   store i32 %49, ptr %50, align 4, !tbaa !22
   %51 = and i32 %44, 15
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !18
   %55 = sext i8 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %.041, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   store i32 %55, ptr %56, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr inbounds nuw i8, ptr %.2, i64 1
@@ -319,14 +319,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !18
   %32 = sext i8 %31 to i16
-  %33 = getelementptr inbounds i8, ptr %.04448, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.04448, i64 2
   store i16 %32, ptr %33, align 2, !tbaa !27
   %34 = and i32 %27, 15
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !18
   %38 = sext i8 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %.04448, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.04448, i64 4
   store i16 %38, ptr %39, align 2, !tbaa !27
   %40 = add nuw nsw i32 %.04349, 1
   %41 = getelementptr inbounds nuw i8, ptr %.04448, i64 6
@@ -346,14 +346,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !18
   %49 = sext i8 %48 to i16
-  %50 = getelementptr inbounds i8, ptr %.041, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.041, i64 2
   store i16 %49, ptr %50, align 2, !tbaa !27
   %51 = and i32 %44, 15
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !18
   %55 = sext i8 %54 to i16
-  %56 = getelementptr inbounds i8, ptr %.041, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.041, i64 4
   store i16 %55, ptr %56, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr inbounds nuw i8, ptr %.2, i64 1
@@ -432,14 +432,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !18
   %32 = sext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.04448, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.04448, i64 4
   store i32 %32, ptr %33, align 4, !tbaa !32
   %34 = and i32 %27, 15
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !18
   %38 = sext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %.04448, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.04448, i64 8
   store i32 %38, ptr %39, align 4, !tbaa !32
   %40 = add nuw nsw i32 %.04349, 1
   %41 = getelementptr inbounds nuw i8, ptr %.04448, i64 12
@@ -459,14 +459,14 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux17dump_data_gener
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !18
   %49 = sext i8 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %.041, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.041, i64 4
   store i32 %49, ptr %50, align 4, !tbaa !32
   %51 = and i32 %44, 15
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !18
   %55 = sext i8 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %.041, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   store i32 %55, ptr %56, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr inbounds nuw i8, ptr %.2, i64 1
@@ -682,7 +682,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 232
   %38 = load ptr, ptr %37, align 8, !tbaa !46
   %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef %1, i64 noundef %2)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE5sputnEPKDsl.exit unwind label %43
@@ -807,7 +807,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit16..cri
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %91, align 8, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(64) %91)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit.i unwind label %110
@@ -904,7 +904,7 @@ define linkonce_odr hidden void @_ZNSt13basic_ostreamIDsSt11char_traitsIDsEE6sen
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %15, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit unwind label %35
@@ -1017,7 +1017,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %39 = load ptr, ptr %38, align 8, !tbaa !46
   %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %39)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit unwind label %45
@@ -1142,7 +1142,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit: ; preds =
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %93, align 8, !tbaa !3
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(64) %93)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit.i unwind label %112
@@ -1265,7 +1265,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 232
   %38 = load ptr, ptr %37, align 8, !tbaa !53
   %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef %1, i64 noundef %2)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE5sputnEPKDil.exit unwind label %43
@@ -1390,7 +1390,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit16..cri
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %91, align 8, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(64) %91)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit.i unwind label %110
@@ -1466,7 +1466,7 @@ define linkonce_odr hidden void @_ZNSt13basic_ostreamIDiSt11char_traitsIDiEE6sen
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %15, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit unwind label %35
@@ -1579,7 +1579,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %39 = load ptr, ptr %38, align 8, !tbaa !53
   %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %39)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit unwind label %45
@@ -1704,7 +1704,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit: ; preds =
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %93, align 8, !tbaa !3
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(64) %93)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit.i unwind label %112
